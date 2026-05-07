@@ -85,3 +85,9 @@ Append-only chronological record of wiki events. Each entry begins with `## [YYY
 - Three-way side-by-side comparison of [[stretch-ai|stretch_ai]], [[rosorin|ROSOrin]], and [[openclaw|OpenClaw]]. Goes beyond the umbrella [[llm-agent-architecture|LLM-agent architecture]] concept by drawing structural implications — Qwen as the de-facto local default, JSON-shaped tool calls as the provider-portability layer, the bifurcation between research VLA stacks and deployed LLM-agent stacks.
 - Surfaced two implementation hazards: `eval`-on-LLM-output dispatch in both Hiwonder stacks, and under-documented closed-loop replanning across all three.
 - Open questions filed: no Claude backend anywhere; cross-vendor portability of skill libraries; whether VLAs eventually displace primitives without changing the orchestrator pattern.
+
+## [2026-05-07] synthesis | Generative-video vs JEPA world models
+- Filed [[generative-video-vs-jepa-world-models|Generative-video vs JEPA world models]].
+- Deep comparison of paradigms A and B from [[world-model-simulators|World-model simulators]]. Five-table treatment: what each predicts, cost/speed, data scale, demonstrated real-robot results, failure modes — plus when-to-use guidance and a cross-paradigm interaction note (GR00T using Cosmos backbone; V-JEPA 2 encoder feeding multimodal LLMs).
+- Anchored on the 48× planning-speed gap (LeWM) and the V-JEPA 2-AC zero-shot Franka result as the strongest published cross-paradigm validation.
+- Open questions filed: no published head-to-head; GE-Sim2 zero-shot transfer evidence missing; JEPA scaling-law shape between 15M and 1B params; whether action-conditioned generative video can match V-JEPA 2-AC's data-efficiency.
