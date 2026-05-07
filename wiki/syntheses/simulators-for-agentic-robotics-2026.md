@@ -2,7 +2,7 @@
 title: Simulators for agentic robotics — 2026 landscape
 type: synthesis
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-07
 tags: [simulation, agentic-robotics, vla, world-models, survey]
 ---
 
@@ -83,6 +83,15 @@ Together these hint at a **sim-vs-real divide**: the NVIDIA / AGIBOT path optimi
 - [[genesis|Genesis]]'s headline 10–80× speedup vs. Isaac/MJX is widely cited but real-world adoption signals are weaker than the marketing — needs validation on contact-rich workloads.
 - Whether [[world-model-simulators|World-model simulators]] (Cosmos, Genie Envisioner) can replace physics engines for full closed-loop training, or only complement them, is unsettled.
 - **Coverage gaps**: Pi (Physical Intelligence) and Skild AI's simulation approaches, classic VLA benchmarks (LIBERO, RoboMimic), Drake internals — none covered here yet.
+
+## Deeper dives (filed as separate syntheses)
+
+This page surveys the landscape; four follow-up syntheses go deeper on specific structural questions raised here:
+
+- [[newton-openusd-substrate-convergence|Newton + OpenUSD — the substrate convergence]] — deeper on §1's "shared substrate trend".
+- [[generative-video-vs-jepa-world-models|Generative-video vs JEPA world models]] — deeper on §3's two-paradigm split.
+- [[llm-agent-architecture-across-stacks|LLM-agent architecture across stacks]] — deeper on §6's stretch_ai / ROSOrin / OpenClaw convergence.
+- [[sim-heavy-vs-real-data-paths|Sim-heavy vs real-data paths to generalist policies]] — deeper on §6's "sim-vs-real divide", reframed as three paths.
 
 ## Sources used in this synthesis
 - [[nvidia-newton-physics-engine-developer-page|NVIDIA Newton Physics Engine Developer Page]]

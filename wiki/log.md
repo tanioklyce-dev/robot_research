@@ -112,3 +112,12 @@ Append-only chronological record of wiki events. Each entry begins with `## [YYY
 - Empirical asymmetry surfaced: Path B and Path C have published zero-shot real-robot results in unseen environments (RUM 90% on 5 tasks; V-JEPA 2-AC zero-shot Franka in 2 labs); Path A's evidence in the wiki is mostly intra-sim. The wiki has not ingested deep VLA-deployment results that would close this gap.
 - Concrete number captured: RoboCasa365's 2.6× synthetic-to-human ratio is the wiki's only data point on Path A's optimal sim/real mix.
 - Open questions filed: Pi / Skild positioning on this map; synthetic-ratio plateau; missing direct head-to-head training the same architecture across all three paths.
+
+## [2026-05-07] lint | Final health check after four syntheses
+- Cross-checked wikilinks: all slugs referenced from the four new syntheses resolve. The only "Referenced but no file" hit remains the literal `slug` example inside CLAUDE.md docs.
+- No orphan pages created across the four syntheses.
+- No escaped pipes (`\|`) anywhere in `wiki/syntheses/`; convention is consistent.
+- Added a "Deeper dives" cross-reference section at the bottom of the simulator survey pointing to the four follow-up syntheses, since each takes one section of the survey further. Bumped the survey's `updated` to 2026-05-07.
+- Synthesis count: 1 (survey, updated) + 4 (new) = 5 on file.
+- No content contradictions detected between the four new syntheses or between them and the simulator survey. The standing GR00T N1.6 GA / N1.7 EA inconsistency is referenced consistently across pages.
+- Standing TBD items unchanged: Pi (Physical Intelligence), Skild AI, Drake internals, classic VLA benchmarks (LIBERO / RoboMimic). The four new syntheses surface these gaps from new angles but do not fill them.
