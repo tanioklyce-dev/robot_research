@@ -79,3 +79,9 @@ Append-only chronological record of wiki events. Each entry begins with `## [YYY
 - **Notable absences in OpenClaw curriculum**: no VLA models (no OpenVLA/GR00T/RT-X/Pi), no LeRobot, no ACT or Diffusion Policy, no imitation learning, no teleoperation, no demonstration collection. Confirms the bifurcation already noted in the synthesis: VLA work happens in research labs (NVIDIA, Pi, Meta-via-RUM); deployed agentic stacks use LLM-orchestrated skill libraries.
 - **Open question logged**: doc references `openai/gpt-5.4` — unclear if real OpenAI release or doc placeholder. Worth checking on the next OpenAI-related ingest.
 - **TBD additions**: HX-12H, COIN-D6, Deptrum Aurora930, MPU6050 — hardware-component pages added as a single TBD line in the index (deferred until they recur).
+
+## [2026-05-07] synthesis | LLM-agent architecture across stacks
+- Filed [[llm-agent-architecture-across-stacks|LLM-agent architecture across stacks — a converged pattern]].
+- Three-way side-by-side comparison of [[stretch-ai|stretch_ai]], [[rosorin|ROSOrin]], and [[openclaw|OpenClaw]]. Goes beyond the umbrella [[llm-agent-architecture|LLM-agent architecture]] concept by drawing structural implications — Qwen as the de-facto local default, JSON-shaped tool calls as the provider-portability layer, the bifurcation between research VLA stacks and deployed LLM-agent stacks.
+- Surfaced two implementation hazards: `eval`-on-LLM-output dispatch in both Hiwonder stacks, and under-documented closed-loop replanning across all three.
+- Open questions filed: no Claude backend anywhere; cross-vendor portability of skill libraries; whether VLAs eventually displace primitives without changing the orchestrator pattern.
