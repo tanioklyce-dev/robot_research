@@ -99,3 +99,9 @@ Append-only chronological record of wiki events. Each entry begins with `## [YYY
 - One normalization: synthesis #1 originally used escaped pipes (`\|`) inside markdown-table wikilinks for delimiter safety; rewrote to unescaped `|` to match the rest of the wiki (the existing simulators synthesis uses unescaped pipes inside tables and renders correctly in Obsidian).
 - No content contradictions detected between the two new syntheses and existing pages.
 - Standing open items unchanged: GR00T N1.6 GA vs N1.7 EA contradiction, Pi / Skild AI coverage gap, Drake / Gazebo entity pages.
+
+## [2026-05-07] synthesis | Newton + OpenUSD substrate convergence
+- Filed [[newton-openusd-substrate-convergence|Newton + OpenUSD — the substrate convergence]].
+- Argues the structural unusual-ness of a physics engine designed as a backend pluggable into both NVIDIA Isaac Lab and DeepMind's MuJoCo Playground, with OpenUSD as the shared scene format and Linux Foundation as the vendor-neutral governance layer. Implication: physics layer commoditizes, ML differentiation moves up the stack to environment APIs / learning frameworks / VLAs.
+- Disney Research's role flagged as the puzzle piece — entertainment-grade physics keeping Newton's contact / soft-body models honest beyond industrial robotics.
+- Open questions filed: real cross-stack adoption demo not yet ingested; throughput-parity comparisons absent; whether MuJoCo Playground defaults to Newton or keeps MJX as primary; Disney's specific contributions still opaque.
