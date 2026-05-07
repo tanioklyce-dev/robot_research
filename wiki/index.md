@@ -9,6 +9,7 @@
 - [[genie-envisioner-paper|Genie Envisioner Paper]] — unified world foundation platform for manipulation. (2025-08)
 - [[hello-robot-stretch-docs|Hello Robot Stretch Documentation]] — Stretch 3 docs (ROS 2 + Python + MuJoCo/Gazebo). (2025)
 - [[stretch-ai-llm-agent-docs|Stretch AI LLM Agent Documentation]] — concrete LLM-agent stack for the Stretch robot. (2024–2025)
+- [[hiwonder-rosorin-docs|Hiwonder ROSOrin Documentation]] — educational Jetson Orin Nano kit; Gazebo + cloud/offline LLM-agent curriculum. (2024–2025)
 - [[robocasa365-paper|RoboCasa365 Paper]] — 365-task household manipulation benchmark. (ICLR 2026)
 - [[agibot-genie-sim-3-announcement|AGIBOT Genie Sim 3.0 Announcement]] — open simulation platform launch at CES 2026. (2026-01)
 - [[agibot-genie-envisioner-2-announcement|AGIBOT Genie Envisioner 2.0 Announcement]] — world model evolved into a "world simulator." (2026)
@@ -26,6 +27,7 @@
 - [[meta-fair|Meta FAIR]] — Yann LeCun's lab; JEPA research line. (1 source)
 - [[google-deepmind|Google DeepMind]] — MuJoCo, Newton co-development. (2 sources) _stub_
 - [[mila|Mila]] — Quebec AI Institute; frequent JEPA collaborator. (2 sources) _stub_
+- [[hiwonder|Hiwonder]] — Chinese educational-robotics vendor; ROSOrin kit. (1 source) _stub_
 - [[hillbot|Hillbot]] — UCSD spinoff that maintains ManiSkill. (1 source) _stub_
 - [[disney-research|Disney Research]] — Newton co-developer with NVIDIA + DeepMind. (1 source) _stub_
 
@@ -42,9 +44,10 @@
 
 ### Robot platforms
 - [[stretch|Stretch]] — Hello Robot's mobile manipulator (Stretch 3). De-facto research platform. (3 sources)
+- [[rosorin|ROSOrin]] — Hiwonder's Jetson Orin Nano educational mobile robot kit. (1 source)
 
 ### Software stacks
-- [[stretch-ai|stretch_ai]] — Hello Robot's open-source Python stack with an LLM agent. (2 sources)
+- [[stretch-ai|stretch_ai]] — Hello Robot's open-source Python stack with an LLM agent. (3 sources)
 
 ### World models
 - [[nvidia-cosmos|NVIDIA Cosmos]] — world foundation model + simulation engine (generative video). (4 sources)
@@ -56,7 +59,11 @@
 - [[nvidia-groot|NVIDIA GR00T]] — open VLA bundled with Isaac Lab. (3 sources) _stub_
 - [[robot-utility-models|Robot Utility Models]] — NYU/Meta zero-shot mobile-manipulation BC. (1 source)
 
+### LLMs
+- [[qwen|Qwen]] — Alibaba's open-weights LLM family. Default local LLM in both stretch_ai (3B) and ROSOrin (1.7B). (2 sources) _stub_
+
 ### Tools
+- [[ollama|Ollama]] — local LLM runtime (used by ROSOrin offline curriculum). (1 source) _stub_
 - [[mimicgen|MimicGen]] — synthetic-demo expansion tool used by RoboCasa365. (1 source) _stub_
 
 ## Concepts
@@ -65,14 +72,15 @@
 - [[world-model-simulators|World-model simulators]] — two paradigms: generative-video and JEPA latent-prediction. (4 sources)
 - [[jepa|Joint-Embedding Predictive Architecture]] — predict next-state representations, not pixels. (2 sources)
 - [[imitation-learning|Imitation learning]] — supervised learning from demonstrations. (2 sources)
-- [[llm-agent-architecture|LLM-agent architecture]] — LLM-emits-tool-calls control pattern. (1 source)
+- [[llm-agent-architecture|LLM-agent architecture]] — LLM-emits-tool-calls control pattern. (2 sources)
 
 ## Syntheses
 - [[simulators-for-agentic-robotics-2026|Simulators for agentic robotics — 2026 landscape]] — full landscape survey, 6 categories. (updated 2026-05-07)
 
 ## Known gaps / TBD
 - Drake (TRI/MIT) entity page
-- Gazebo, Webots, CoppeliaSim, PyBullet entity pages (low priority — not agentic-robotics center of gravity)
+- Gazebo (the simulator itself) — referenced by both Hello Robot and Hiwonder docs; deserves its own entity page distinct from MuJoCo Playground
+- Webots, CoppeliaSim, PyBullet entity pages (low priority — not agentic-robotics center of gravity)
 - Pi (Physical Intelligence) entity + simulation approach
 - Skild AI entity + approach
 - LIBERO, RoboMimic benchmark concept/source pages
@@ -83,4 +91,9 @@
 - DINO-WM, Dreamer/DreamerV3, TD-MPC, PLDM — world-model baselines referenced in LeWorldModel paper
 - Droid dataset — robot teleoperation dataset used by V-JEPA 2-AC
 - Habitat (Meta) — embodied-AI sim, mentioned as legacy in synthesis
+- TurtleBot — canonical educational ROS robot, useful comparison for ROSOrin
+- StepFun — Chinese multimodal AI provider used by ROSOrin's Chinese-language fallback
+- sherpa-onnx — offline ASR + TTS toolkit used by ROSOrin
+- WonderEcho Pro — Hiwonder voice module accessory
+- Hiwonder vision/CV chapter (YOLOv11 + TensorRT) — could warrant its own concept/source page on a deeper ingest
 - People pages (low priority): Yann LeCun, Aaron Edsinger, Mahi Shafiullah, Yuke Zhu, Mahmoud Assran

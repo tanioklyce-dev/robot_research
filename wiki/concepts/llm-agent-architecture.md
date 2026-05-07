@@ -3,7 +3,7 @@ title: LLM-agent architecture
 type: concept
 created: 2026-05-07
 updated: 2026-05-07
-sources: 1
+sources: 2
 tags: [llm-agent, tool-use, agentic-robotics, planning]
 ---
 
@@ -16,8 +16,11 @@ tags: [llm-agent, tool-use, agentic-robotics, planning]
 4. Executor (often a finite-state machine) dispatches each call to a deterministic skill module: navigation, grasping, perception.
 5. Skills run on real hardware or in simulation; failures bubble back as observations the LLM can re-plan over.
 
-## Concrete example
-- **[[stretch-ai|stretch_ai]]'s LLM agent** — `PickupExecutor` + `PickupTask` FSM, with Qwen2.5-3B-Instruct / Gemma / GPT-4o-mini as the planner ([[stretch-ai-llm-agent-docs|Stretch AI LLM Agent Documentation]]). Tool primitives: `pickup`, `explore`, `place`, `say`, `find`, `go_home`, etc.
+## Concrete examples
+- **[[stretch-ai|stretch_ai]]'s LLM agent** ([[hello-robot|Hello Robot]], research tier) — `PickupExecutor` + `PickupTask` FSM, with [[qwen|Qwen2.5-3B-Instruct]] / Gemma / GPT-4o-mini as the planner ([[stretch-ai-llm-agent-docs|Stretch AI LLM Agent Documentation]]). Tool primitives: `pickup`, `explore`, `place`, `say`, `find`, `go_home`, etc.
+- **[[rosorin|Hiwonder ROSOrin]]'s embodied-AI demos** ([[hiwonder|Hiwonder]], educational tier) — same JSON tool-call pattern: LLM emits `{action: [...], response: ...}`, executor dispatches each call via `eval(f'self.{a}')`. Both cloud (GPT-4o, [[qwen|Qwen-plus]], StepFun VLM) and offline ([[ollama|Ollama]] + [[qwen|qwen3:1.7b]] + sherpa-onnx) variants ([[hiwonder-rosorin-docs|Hiwonder ROSOrin Documentation]]).
+
+The pattern is **converging across tiers** — both research-grade (stretch_ai) and educational (ROSOrin) stacks adopt the same architecture despite very different audiences and price points.
 
 ## Trade-offs vs. VLA
 - **Pro**: composes with battle-tested classical perception/manipulation; LLM only needs symbolic-level reasoning.
@@ -32,3 +35,4 @@ tags: [llm-agent, tool-use, agentic-robotics, planning]
 
 ## Mentioned in
 - [[stretch-ai-llm-agent-docs|Stretch AI LLM Agent Documentation]]
+- [[hiwonder-rosorin-docs|Hiwonder ROSOrin Documentation]]

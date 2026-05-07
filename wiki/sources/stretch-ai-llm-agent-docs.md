@@ -14,7 +14,7 @@ Documentation for the LLM agent component of [[stretch-ai|stretch_ai]] — [[hel
 ## Key claims
 - Entry point: `python -m stretch.app.ai_pickup --use_llm`. Internal classes: `PickupExecutor`, `PickupTask` (FSM), `GraspObjectOperation`.
 - **Three LLM backends supported**:
-  - `qwen25-3B-Instruct` (default, local, permissively-licensed; from Tencent).
+  - [[qwen|qwen25-3B-Instruct]] (default, local, permissively-licensed Alibaba/Qwen model).
   - Google `gemma`.
   - OpenAI GPT-4o-mini (proprietary, via API).
   - **No Anthropic / Claude support listed.**

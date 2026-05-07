@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-07
 updated: 2026-05-07
-sources: 2
+sources: 3
 tags: [stretch-ai, hello-robot, llm-agent, open-source, mapping]
 ---
 
