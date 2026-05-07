@@ -10,6 +10,8 @@
 - [[hello-robot-stretch-docs|Hello Robot Stretch Documentation]] — Stretch 3 docs (ROS 2 + Python + MuJoCo/Gazebo). (2025)
 - [[stretch-ai-llm-agent-docs|Stretch AI LLM Agent Documentation]] — concrete LLM-agent stack for the Stretch robot. (2024–2025)
 - [[hiwonder-rosorin-docs|Hiwonder ROSOrin Documentation]] — educational Jetson Orin Nano kit; Gazebo + cloud/offline LLM-agent curriculum. (2024–2025)
+- [[hiwonder-rosorin-pro-user-manual|Hiwonder ROSOrin Pro User Manual]] — hardware spec sheet for the 6-DOF arm + base variant. (2024–2025)
+- [[hiwonder-openclaw-tutorial|Hiwonder OpenClaw Practical Tutorial]] — Hiwonder's manipulation-aware LLM-agent framework. (2024–2025)
 - [[robocasa365-paper|RoboCasa365 Paper]] — 365-task household manipulation benchmark. (ICLR 2026)
 - [[agibot-genie-sim-3-announcement|AGIBOT Genie Sim 3.0 Announcement]] — open simulation platform launch at CES 2026. (2026-01)
 - [[agibot-genie-envisioner-2-announcement|AGIBOT Genie Envisioner 2.0 Announcement]] — world model evolved into a "world simulator." (2026)
@@ -22,12 +24,12 @@
 
 ### Companies
 - [[nvidia|NVIDIA]] — owns most of the agentic-robotics simulation substrate. (5 sources)
+- [[hiwonder|Hiwonder]] — Chinese educational-robotics vendor; ROSOrin / ROSOrin Pro kits + OpenClaw. (3 sources) _stub_
 - [[agibot|AGIBOT]] — Shanghai embodied-AI / humanoid company. Open-source-heavy. (3 sources)
 - [[hello-robot|Hello Robot]] — Stretch mobile manipulator + stretch_ai stack. (3 sources)
 - [[meta-fair|Meta FAIR]] — Yann LeCun's lab; JEPA research line. (1 source)
 - [[google-deepmind|Google DeepMind]] — MuJoCo, Newton co-development. (2 sources) _stub_
 - [[mila|Mila]] — Quebec AI Institute; frequent JEPA collaborator. (2 sources) _stub_
-- [[hiwonder|Hiwonder]] — Chinese educational-robotics vendor; ROSOrin kit. (1 source) _stub_
 - [[hillbot|Hillbot]] — UCSD spinoff that maintains ManiSkill. (1 source) _stub_
 - [[disney-research|Disney Research]] — Newton co-developer with NVIDIA + DeepMind. (1 source) _stub_
 
@@ -44,10 +46,13 @@
 
 ### Robot platforms
 - [[stretch|Stretch]] — Hello Robot's mobile manipulator (Stretch 3). De-facto research platform. (3 sources)
-- [[rosorin|ROSOrin]] — Hiwonder's Jetson Orin Nano educational mobile robot kit. (1 source)
+- [[rosorin|ROSOrin]] — Hiwonder's Jetson Orin Nano educational mobile robot kit. (2 sources)
+- [[rosorin-pro|ROSOrin Pro]] — Hiwonder's 6-DOF arm + base variant of ROSOrin. (2 sources)
+- [[rosorin-pro-arm|ROSOrin Pro 6-DOF arm]] — HX-12H-servo manipulator on the ROSOrin Pro kit. (2 sources) _stub_
 
 ### Software stacks
-- [[stretch-ai|stretch_ai]] — Hello Robot's open-source Python stack with an LLM agent. (3 sources)
+- [[stretch-ai|stretch_ai]] — Hello Robot's open-source Python stack with an LLM agent. (4 sources)
+- [[openclaw|OpenClaw]] — Hiwonder's manipulation-aware LLM-agent framework for ROSOrin Pro. (1 source)
 
 ### World models
 - [[nvidia-cosmos|NVIDIA Cosmos]] — world foundation model + simulation engine (generative video). (4 sources)
@@ -72,7 +77,7 @@
 - [[world-model-simulators|World-model simulators]] — two paradigms: generative-video and JEPA latent-prediction. (4 sources)
 - [[jepa|Joint-Embedding Predictive Architecture]] — predict next-state representations, not pixels. (2 sources)
 - [[imitation-learning|Imitation learning]] — supervised learning from demonstrations. (2 sources)
-- [[llm-agent-architecture|LLM-agent architecture]] — LLM-emits-tool-calls control pattern. (2 sources)
+- [[llm-agent-architecture|LLM-agent architecture]] — LLM-emits-tool-calls control pattern. (3 sources)
 
 ## Syntheses
 - [[simulators-for-agentic-robotics-2026|Simulators for agentic robotics — 2026 landscape]] — full landscape survey, 6 categories. (updated 2026-05-07)
@@ -96,4 +101,5 @@
 - sherpa-onnx — offline ASR + TTS toolkit used by ROSOrin
 - WonderEcho Pro — Hiwonder voice module accessory
 - Hiwonder vision/CV chapter (YOLOv11 + TensorRT) — could warrant its own concept/source page on a deeper ingest
+- HX-12H bus servo, COIN-D6 LiDAR, Deptrum Aurora930 depth camera, MPU6050 IMU — hardware-component pages on demand
 - People pages (low priority): Yann LeCun, Aaron Edsinger, Mahi Shafiullah, Yuke Zhu, Mahmoud Assran

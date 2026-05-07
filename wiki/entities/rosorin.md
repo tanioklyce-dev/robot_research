@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-07
 updated: 2026-05-07
-sources: 1
+sources: 2
 tags: [rosorin, hiwonder, jetson-orin-nano, education, mobile-robot, llm-agent]
 ---
 
@@ -33,6 +33,7 @@ Concrete evidence that the **[[llm-agent-architecture|LLM-agent architecture pat
 
 ## Related
 - [[hiwonder|Hiwonder]] — vendor.
+- [[rosorin-pro|ROSOrin Pro]] — manipulation-capable sibling kit (adds 6-DOF arm + [[openclaw|OpenClaw]] LLM-agent framework).
 - [[stretch|Stretch]] — research-tier counterpart from [[hello-robot|Hello Robot]].
 - [[ollama|Ollama]] / [[qwen|Qwen]] — local LLM stack used in chapter 10.5.
 - [[llm-agent-architecture|LLM-agent architecture]] — design pattern the curriculum implements.

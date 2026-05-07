@@ -63,7 +63,7 @@ The simulators in categories 1–3 train policies that ultimately run on hardwar
 
 - **[[stretch-ai|stretch_ai]]** ([[hello-robot|Hello Robot]]) — open-source Python stack for the [[stretch|Stretch]] mobile manipulator. Includes a working **[[llm-agent-architecture|LLM agent]]** (Qwen2.5-3B-Instruct / Gemma / GPT-4o-mini) that translates natural-language goals into tool calls dispatched to deterministic skills (mapping, grasping, perception). Notably skips simulation entirely — runs on the real robot ([[stretch-ai-llm-agent-docs|Stretch AI LLM Agent Documentation]]).
 - **[[robot-utility-models|Robot Utility Models]]** (NYU / Meta) — generalist visuomotor BC policies achieving ~90% zero-shot success on Stretch in novel environments, with cross-embodiment transfer to xArm 7. Trained on real demos, not sim ([[robot-utility-models-website|Robot Utility Models Project Page]]).
-- **[[rosorin|Hiwonder ROSOrin]]** ([[hiwonder|Hiwonder]], educational tier) — same [[llm-agent-architecture|LLM-agent]] pattern as stretch_ai, packaged for classrooms. Cloud (GPT-4o, [[qwen|Qwen-plus]], StepFun VLM) and offline ([[ollama|Ollama]] + [[qwen|qwen3:1.7b]] + sherpa-onnx) variants. Confirms the LLM-agent pattern has spread past research labs into shipping educational kits ([[hiwonder-rosorin-docs|Hiwonder ROSOrin Documentation]]).
+- **[[rosorin|Hiwonder ROSOrin]] / [[rosorin-pro|ROSOrin Pro]]** ([[hiwonder|Hiwonder]], educational tier) — same [[llm-agent-architecture|LLM-agent]] pattern as stretch_ai, packaged for classrooms. Cloud (GPT-4o, [[qwen|Qwen-plus]], StepFun VLM) and offline ([[ollama|Ollama]] + [[qwen|qwen3:1.7b]] + sherpa-onnx) variants on the base kit ([[hiwonder-rosorin-docs|Hiwonder ROSOrin Documentation]]). The Pro variant adds a 6-DOF arm + [[openclaw|OpenClaw]] — the same architecture extended to manipulation, with skill primitives `pick`, `place`, `voice_pick`, AprilTag pickup, depth-based interactive grasping ([[hiwonder-openclaw-tutorial|Hiwonder OpenClaw Practical Tutorial]]).
 
 Together these hint at a **sim-vs-real divide**: the NVIDIA / AGIBOT path optimizes for VLA training scale inside simulators; the Hello-Robot ecosystem optimizes for shipping deployable hardware that researchers can run real-data experiments on. The two paths are complementary — sim-trained policies need real targets like Stretch, and real-data corpora like RUM's 5,509 trajectories feed back into the simulators' synthetic-data pipelines.
 
@@ -100,3 +100,5 @@ Together these hint at a **sim-vs-real divide**: the NVIDIA / AGIBOT path optimi
 - [[v-jepa-2-paper|V-JEPA 2 Paper]]
 - [[leworldmodel-paper|LeWorldModel Paper]]
 - [[hiwonder-rosorin-docs|Hiwonder ROSOrin Documentation]]
+- [[hiwonder-rosorin-pro-user-manual|Hiwonder ROSOrin Pro User Manual]]
+- [[hiwonder-openclaw-tutorial|Hiwonder OpenClaw Practical Tutorial]]

@@ -3,7 +3,7 @@ title: LLM-agent architecture
 type: concept
 created: 2026-05-07
 updated: 2026-05-07
-sources: 2
+sources: 3
 tags: [llm-agent, tool-use, agentic-robotics, planning]
 ---
 
@@ -18,9 +18,10 @@ tags: [llm-agent, tool-use, agentic-robotics, planning]
 
 ## Concrete examples
 - **[[stretch-ai|stretch_ai]]'s LLM agent** ([[hello-robot|Hello Robot]], research tier) — `PickupExecutor` + `PickupTask` FSM, with [[qwen|Qwen2.5-3B-Instruct]] / Gemma / GPT-4o-mini as the planner ([[stretch-ai-llm-agent-docs|Stretch AI LLM Agent Documentation]]). Tool primitives: `pickup`, `explore`, `place`, `say`, `find`, `go_home`, etc.
-- **[[rosorin|Hiwonder ROSOrin]]'s embodied-AI demos** ([[hiwonder|Hiwonder]], educational tier) — same JSON tool-call pattern: LLM emits `{action: [...], response: ...}`, executor dispatches each call via `eval(f'self.{a}')`. Both cloud (GPT-4o, [[qwen|Qwen-plus]], StepFun VLM) and offline ([[ollama|Ollama]] + [[qwen|qwen3:1.7b]] + sherpa-onnx) variants ([[hiwonder-rosorin-docs|Hiwonder ROSOrin Documentation]]).
+- **[[rosorin|Hiwonder ROSOrin]]'s embodied-AI demos** ([[hiwonder|Hiwonder]], educational tier, mobile-only) — same JSON tool-call pattern: LLM emits `{action: [...], response: ...}`, executor dispatches each call via `eval(f'self.{a}')`. Both cloud (GPT-4o, [[qwen|Qwen-plus]], StepFun VLM) and offline ([[ollama|Ollama]] + [[qwen|qwen3:1.7b]] + sherpa-onnx) variants ([[hiwonder-rosorin-docs|Hiwonder ROSOrin Documentation]]).
+- **[[openclaw|OpenClaw]] on [[rosorin-pro|ROSOrin Pro]]** ([[hiwonder|Hiwonder]], educational tier, mobile + 6-DOF arm) — same architecture, manipulation-capable. Skill library expands to include `pick`, `place`, `voice_pick`, `voice_give`, plus AprilTag pickup and depth-based interactive grasping. ROS 2 services like `/start_pick`, `/place`, `/claw_track_and_grab/start` ([[hiwonder-openclaw-tutorial|Hiwonder OpenClaw Practical Tutorial]]).
 
-The pattern is **converging across tiers** — both research-grade (stretch_ai) and educational (ROSOrin) stacks adopt the same architecture despite very different audiences and price points.
+The pattern is **converging across tiers and capabilities** — research-grade (stretch_ai) and educational (ROSOrin / OpenClaw) stacks adopt the same architecture; mobile-only and arm-equipped variants adopt the same architecture; the only difference is the size and contents of the skill library.
 
 ## Trade-offs vs. VLA
 - **Pro**: composes with battle-tested classical perception/manipulation; LLM only needs symbolic-level reasoning.
@@ -36,3 +37,4 @@ The pattern is **converging across tiers** — both research-grade (stretch_ai) 
 ## Mentioned in
 - [[stretch-ai-llm-agent-docs|Stretch AI LLM Agent Documentation]]
 - [[hiwonder-rosorin-docs|Hiwonder ROSOrin Documentation]]
+- [[hiwonder-openclaw-tutorial|Hiwonder OpenClaw Practical Tutorial]]
