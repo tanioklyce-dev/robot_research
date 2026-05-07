@@ -1,0 +1,34 @@
+---
+title: Hello Robot Stretch Documentation
+type: source
+url: https://docs.hello-robot.com/0.3/
+author: Hello Robot, Inc.
+published: 2025
+ingested: 2026-05-07
+tags: [hello-robot, stretch, mobile-manipulation, ros2, documentation]
+---
+
+## Summary
+Official documentation site (v0.3) for [[hello-robot|Hello Robot, Inc.]]'s [[stretch|Stretch]] mobile-manipulation robot. Tutorials, hardware manuals, and APIs for the Stretch 3 platform.
+
+## Key claims
+- Stretch 3 hardware: telescoping arm, mobile base, gripper, RealSense cameras, LiDAR; modular tool-changer ("Changing Tools").
+- Two software paths: Python via `stretch_body` (foundation of [[stretch-ai|stretch_ai]]) and ROS 2 (Nav2, perception, autonomy).
+- Simulation backends documented: [[mujoco-playground|MuJoCo]] (via "Stretch Mujoco" wrapper) and Gazebo.
+- First-class topics: battery care, calibration, ArUco markers, FUNMAP perception module, deep perception.
+- Copyright: Hello Robot Inc. 2020–2025.
+- The docs landing page **does not mention LLMs, VLAs, or agentic AI** — that lives in the separate [[stretch-ai|stretch_ai]] repository.
+
+## Entities mentioned
+- [[hello-robot|Hello Robot]]
+- [[stretch|Stretch]]
+- [[stretch-ai|stretch_ai]]
+- [[mujoco-playground|MuJoCo]]
+
+## Concepts touched
+- Mobile manipulation
+- ROS 2 robotics development
+
+## Open questions
+- "Stretch Mujoco" — meaningful integration or thin asset wrapper?
+- How current is docs v0.3 relative to current Stretch 3 firmware?

@@ -1,0 +1,34 @@
+---
+title: LLM-agent architecture
+type: concept
+created: 2026-05-07
+updated: 2026-05-07
+sources: 1
+tags: [llm-agent, tool-use, agentic-robotics, planning]
+---
+
+**LLM-agent architecture for robots** — a control pattern in which a large language model converts natural-language goals into sequences of tool calls that a deterministic executor runs against perception/manipulation primitives. Distinct from end-to-end [[vla-models|VLA models]] (which output low-level actions directly) and from [[world-model-simulators|world-model simulators]] (which generate the training environment).
+
+## Pattern
+1. User states a goal in natural language ("pick up the toy chicken and put it in the basket").
+2. LLM is prompted with the goal plus a tool-call schema.
+3. LLM emits a sequence of structured calls: `find(toy_chicken)`, `pickup(toy_chicken)`, `place(basket)`, etc.
+4. Executor (often a finite-state machine) dispatches each call to a deterministic skill module: navigation, grasping, perception.
+5. Skills run on real hardware or in simulation; failures bubble back as observations the LLM can re-plan over.
+
+## Concrete example
+- **[[stretch-ai|stretch_ai]]'s LLM agent** — `PickupExecutor` + `PickupTask` FSM, with Qwen2.5-3B-Instruct / Gemma / GPT-4o-mini as the planner ([[stretch-ai-llm-agent-docs|Stretch AI LLM Agent Documentation]]). Tool primitives: `pickup`, `explore`, `place`, `say`, `find`, `go_home`, etc.
+
+## Trade-offs vs. VLA
+- **Pro**: composes with battle-tested classical perception/manipulation; LLM only needs symbolic-level reasoning.
+- **Pro**: easy to swap LLMs (just change the API); easier to debug than end-to-end policies.
+- **Con**: action vocabulary is hand-engineered; new skills require new primitives.
+- **Con**: closed-loop replanning depends on how cleanly skill failures surface to the LLM.
+
+## Related
+- [[vla-models|VLA models]] — competing paradigm (end-to-end action prediction).
+- [[stretch-ai|stretch_ai]] — concrete implementation.
+- [[world-model-simulators|World-model simulators]] — orthogonal (training-environment paradigm, not control paradigm).
+
+## Mentioned in
+- [[stretch-ai-llm-agent-docs|Stretch AI LLM Agent Documentation]]

@@ -1,0 +1,13 @@
+# Claude Code project state (per-machine, not part of the wiki)
+.claude/
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Obsidian volatile state — per-machine workspace + cache.
+# Vault config (app.json, appearance.json, core-plugins.json) is kept tracked.
+wiki/.obsidian/workspace.json
+wiki/.obsidian/workspace-mobile.json
+wiki/.obsidian/cache
+wiki/.obsidian/plugins/*/data.json
