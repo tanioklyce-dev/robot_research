@@ -84,6 +84,7 @@
 - [[llm-agent-architecture-across-stacks|LLM-agent architecture across stacks]] — three-way comparison of stretch_ai, ROSOrin, OpenClaw. (2026-05-07)
 - [[generative-video-vs-jepa-world-models|Generative-video vs JEPA world models]] — what each predicts, costs, and demonstrates. (2026-05-07)
 - [[newton-openusd-substrate-convergence|Newton + OpenUSD — the substrate convergence]] — vendor-neutral physics + scene format across Isaac Lab and MuJoCo Playground. (2026-05-07)
+- [[sim-heavy-vs-real-data-paths|Sim-heavy vs real-data paths to generalist policies]] — three-path comparison: synthetic teleop, real demos, observation pretraining. (2026-05-07)
 
 ## Known gaps / TBD
 - Drake (TRI/MIT) entity page

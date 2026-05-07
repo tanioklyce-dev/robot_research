@@ -105,3 +105,10 @@ Append-only chronological record of wiki events. Each entry begins with `## [YYY
 - Argues the structural unusual-ness of a physics engine designed as a backend pluggable into both NVIDIA Isaac Lab and DeepMind's MuJoCo Playground, with OpenUSD as the shared scene format and Linux Foundation as the vendor-neutral governance layer. Implication: physics layer commoditizes, ML differentiation moves up the stack to environment APIs / learning frameworks / VLAs.
 - Disney Research's role flagged as the puzzle piece — entertainment-grade physics keeping Newton's contact / soft-body models honest beyond industrial robotics.
 - Open questions filed: real cross-stack adoption demo not yet ingested; throughput-parity comparisons absent; whether MuJoCo Playground defaults to Newton or keeps MJX as primary; Disney's specific contributions still opaque.
+
+## [2026-05-07] synthesis | Sim-heavy vs real-data paths to generalist policies
+- Filed [[sim-heavy-vs-real-data-paths|Sim-heavy vs real-data paths to generalist policies]].
+- Reframes the simulator survey's "sim-vs-real divide" as a three-path comparison: Path A (sim-heavy synthetic-data scaling — RoboCasa365, Genie Sim 3.0), Path B (real-data viewpoint-locked — RUM), Path C (observation pretraining + small interaction — V-JEPA 2-AC). Different data-substitution bets, different scaling axes.
+- Empirical asymmetry surfaced: Path B and Path C have published zero-shot real-robot results in unseen environments (RUM 90% on 5 tasks; V-JEPA 2-AC zero-shot Franka in 2 labs); Path A's evidence in the wiki is mostly intra-sim. The wiki has not ingested deep VLA-deployment results that would close this gap.
+- Concrete number captured: RoboCasa365's 2.6× synthetic-to-human ratio is the wiki's only data point on Path A's optimal sim/real mix.
+- Open questions filed: Pi / Skild positioning on this map; synthetic-ratio plateau; missing direct head-to-head training the same architecture across all three paths.
