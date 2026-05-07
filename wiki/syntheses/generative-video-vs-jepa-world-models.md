@@ -17,8 +17,8 @@ The simulator survey ([[simulators-for-agentic-robotics-2026|Simulators for agen
 | Output | Next-frame **pixels** | Next-state **embedding** (no pixels) |
 | Loss computed in | Pixel space | Representation space |
 | Decoder required? | Yes | No |
-| Canonical instances | [[nvidia-cosmos\|NVIDIA Cosmos]], [[genie-envisioner\|Genie Envisioner]] / GE-Sim2 | [[v-jepa-2\|V-JEPA 2]] / V-JEPA 2-AC, [[leworldmodel\|LeWorldModel]] |
-| Lead labs | NVIDIA, [[agibot\|AGIBOT]] | [[meta-fair\|Meta FAIR]], [[mila\|Mila]], NYU (the LeCun program) |
+| Canonical instances | [[nvidia-cosmos|NVIDIA Cosmos]], [[genie-envisioner|Genie Envisioner]] / GE-Sim2 | [[v-jepa-2|V-JEPA 2]] / V-JEPA 2-AC, [[leworldmodel|LeWorldModel]] |
+| Lead labs | NVIDIA, [[agibot|AGIBOT]] | [[meta-fair|Meta FAIR]], [[mila|Mila]], NYU (the LeCun program) |
 
 The asymmetry runs deep: a video generator has to commit to a specific RGB rendering of every imagined future; a JEPA only has to commit to an embedding. Most of the cost difference between the two paradigms traces to that single design choice.
 
@@ -29,9 +29,9 @@ The asymmetry runs deep: a video generator has to commit to a specific RGB rende
 | Training cost | Massive (per-frame generation + decoder) | Lower (no decoder, no pixel loss) |
 | Inference cost | Heavy video diffusion / autoregressive generation | Light forward pass through an encoder + small predictor |
 | Planning cost | High — every imagined rollout is a video | Low — rollouts happen in latent space |
-| Concrete number | (no comparable benchmark surfaced in sources) | [[leworldmodel\|LeWorldModel]] reports **up to 48× faster planning** than foundation-model-based world models ([[leworldmodel-paper\|LeWorldModel Paper]]) |
-| Smallest known instance | Cosmos-Predict2-2B-Video2World (2B params) underpins [[genie-envisioner\|GE-Sim2]] ([[agibot-genie-envisioner-2-announcement\|AGIBOT Genie Envisioner 2.0 Announcement]]) | LeWorldModel: **15M params, single GPU, hours of training** ([[leworldmodel-paper\|LeWorldModel Paper]]) |
-| Largest known instance | Cosmos series (parameter counts not surfaced in sources) | V-JEPA 2: **1B-param ViT-g encoder + 300M-param action-conditioned predictor** ([[v-jepa-2-paper\|V-JEPA 2 Paper]]) |
+| Concrete number | (no comparable benchmark surfaced in sources) | [[leworldmodel|LeWorldModel]] reports **up to 48× faster planning** than foundation-model-based world models ([[leworldmodel-paper|LeWorldModel Paper]]) |
+| Smallest known instance | Cosmos-Predict2-2B-Video2World (2B params) underpins [[genie-envisioner|GE-Sim2]] ([[agibot-genie-envisioner-2-announcement|AGIBOT Genie Envisioner 2.0 Announcement]]) | LeWorldModel: **15M params, single GPU, hours of training** ([[leworldmodel-paper|LeWorldModel Paper]]) |
+| Largest known instance | Cosmos series (parameter counts not surfaced in sources) | V-JEPA 2: **1B-param ViT-g encoder + 300M-param action-conditioned predictor** ([[v-jepa-2-paper|V-JEPA 2 Paper]]) |
 
 The 48× planning-speed gap matters for closed-loop control. A model-predictive controller running at 10–30 Hz needs to imagine many candidate rollouts per cycle; a paradigm that's an order of magnitude faster doesn't just save compute, it expands the space of planners that are runnable on a real robot.
 
@@ -52,8 +52,8 @@ V-JEPA 2's two-stage recipe — 1M+ hours of action-free internet video, then 62
 
 | | Generative-video | JEPA |
 |---|---|---|
-| Real-robot zero-shot evidence | Genie Envisioner / GE-Sim2 supports minute-scale stable rollouts inside the simulator; whether policies trained inside it transfer zero-shot to new hardware is not established in the sources here | V-JEPA 2-AC: pick-and-place on Franka in two new labs ([[v-jepa-2-paper\|V-JEPA 2 Paper]]) |
-| Task-fidelity claim | Long-horizon, minute-scale stable rollouts ([[agibot-genie-envisioner-2-announcement\|AGIBOT Genie Envisioner 2.0 Announcement]]) | Latent-space planning over short horizons; LeWM probes show encoded physical structure ([[leworldmodel-paper\|LeWorldModel Paper]]) |
+| Real-robot zero-shot evidence | Genie Envisioner / GE-Sim2 supports minute-scale stable rollouts inside the simulator; whether policies trained inside it transfer zero-shot to new hardware is not established in the sources here | V-JEPA 2-AC: pick-and-place on Franka in two new labs ([[v-jepa-2-paper|V-JEPA 2 Paper]]) |
+| Task-fidelity claim | Long-horizon, minute-scale stable rollouts ([[agibot-genie-envisioner-2-announcement|AGIBOT Genie Envisioner 2.0 Announcement]]) | Latent-space planning over short horizons; LeWM probes show encoded physical structure ([[leworldmodel-paper|LeWorldModel Paper]]) |
 | Interpretability | Visual rollouts are human-inspectable; failure modes (hallucination, drift) are visible | Latent space is opaque; LeWM's "surprise evaluation" is the closest the sources come to interpretability tooling |
 
 The interpretability axis is genuinely a generative-video advantage: a roboticist can watch a Cosmos rollout and see what the model thinks will happen. A JEPA predicts a vector — debugging requires probing tooling that doesn't exist as a default workflow yet.

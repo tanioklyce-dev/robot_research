@@ -46,8 +46,8 @@ What every stack ships:
 |---|---|---|---|
 | Vendor | [[hello-robot|Hello Robot]] | [[hiwonder|Hiwonder]] | [[hiwonder|Hiwonder]] |
 | Tier | Research | Educational | Educational |
-| Hardware | [[stretch\|Stretch 3]] mobile manipulator | Jetson Orin Nano + diff-drive base | Jetson Orin Nano + 6-DOF arm + base |
-| Default local LLM | [[qwen\|Qwen2.5-3B-Instruct]] | [[qwen\|qwen3:1.7b]] via [[ollama\|Ollama]] | (cloud-first; OpenAI GPT) |
+| Hardware | [[stretch|Stretch 3]] mobile manipulator | Jetson Orin Nano + diff-drive base | Jetson Orin Nano + 6-DOF arm + base |
+| Default local LLM | [[qwen|Qwen2.5-3B-Instruct]] | [[qwen|qwen3:1.7b]] via [[ollama|Ollama]] | (cloud-first; OpenAI GPT) |
 | Cloud LLMs supported | GPT-4o-mini, Gemma | GPT-4o, GPT-4o-mini, Qwen-plus, StepFun VLM | OpenAI GPT (`openai/gpt-5.4` per docs) |
 | ASR / TTS | Whisper / OS TTS | OpenAI ASR + sherpa-onnx (offline) | (inherits ROSOrin stack) |
 | Tool-call format | Python function signatures (`pickup(object_name)`, `place(location_name)`, ...) | JSON `{action: [...], response: ...}` | JSON over ROS 2 services |
@@ -55,7 +55,7 @@ What every stack ships:
 | Skill primitives | `pickup`, `place`, `find`, `explore`, `say`, `wave`, `nod_head`, `go_home` | `move`, `vision(query)`, chassis controls | `voice_pick`, `voice_give`, `/start_pick`, `/place`, `/claw_track_and_grab/start`, AprilTag pickup, depth-based grasping |
 | Manipulation? | Visual-servoing grasp | None (mobile-only) | Yes — full pick/place + tracking |
 | Simulation integrated? | None — real robot only | Gazebo (separate curriculum) | Gazebo (separate curriculum) |
-| Source | [[stretch-ai-llm-agent-docs\|Stretch AI LLM Agent Documentation]] | [[hiwonder-rosorin-docs\|Hiwonder ROSOrin Documentation]] | [[hiwonder-openclaw-tutorial\|Hiwonder OpenClaw Practical Tutorial]] |
+| Source | [[stretch-ai-llm-agent-docs|Stretch AI LLM Agent Documentation]] | [[hiwonder-rosorin-docs|Hiwonder ROSOrin Documentation]] | [[hiwonder-openclaw-tutorial|Hiwonder OpenClaw Practical Tutorial]] |
 
 ## What converges (and why it matters)
 

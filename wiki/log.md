@@ -91,3 +91,11 @@ Append-only chronological record of wiki events. Each entry begins with `## [YYY
 - Deep comparison of paradigms A and B from [[world-model-simulators|World-model simulators]]. Five-table treatment: what each predicts, cost/speed, data scale, demonstrated real-robot results, failure modes — plus when-to-use guidance and a cross-paradigm interaction note (GR00T using Cosmos backbone; V-JEPA 2 encoder feeding multimodal LLMs).
 - Anchored on the 48× planning-speed gap (LeWM) and the V-JEPA 2-AC zero-shot Franka result as the strongest published cross-paradigm validation.
 - Open questions filed: no published head-to-head; GE-Sim2 zero-shot transfer evidence missing; JEPA scaling-law shape between 15M and 1B params; whether action-conditioned generative video can match V-JEPA 2-AC's data-efficiency.
+
+## [2026-05-07] lint | Post-synthesis health check
+- Cross-checked wikilinks: all 34 unique slugs referenced from the two new syntheses resolve to existing files. No broken links anywhere in the wiki (the only "Referenced but no file" hit was the literal `slug` example inside CLAUDE.md docs).
+- No new orphan pages created by these syntheses.
+- No source-count drift to fix — syntheses do not appear in `Mentioned in` sections by convention.
+- One normalization: synthesis #1 originally used escaped pipes (`\|`) inside markdown-table wikilinks for delimiter safety; rewrote to unescaped `|` to match the rest of the wiki (the existing simulators synthesis uses unescaped pipes inside tables and renders correctly in Obsidian).
+- No content contradictions detected between the two new syntheses and existing pages.
+- Standing open items unchanged: GR00T N1.6 GA vs N1.7 EA contradiction, Pi / Skild AI coverage gap, Drake / Gazebo entity pages.
