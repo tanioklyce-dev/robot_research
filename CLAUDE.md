@@ -40,6 +40,7 @@ tags: [robotics, manipulation]
 
 - **Filenames** — kebab-case slugs (e.g. `nvidia-isaac-sim.md`). No spaces, no special characters. The `title` frontmatter field carries the human-readable version.
 - **Wikilinks** — Always use the explicit slug-pipe-display form: `[[slug|Display Title]]`. The slug is the filename without `.md`; the display is the human-readable title. Never use bare `[[Display Title]]` — Obsidian creates empty placeholder files at the vault root when wikilinks don't match a filename.
+  - **Exception: `wiki/index.md`** uses standard markdown links with relative paths (e.g. `[Display](concepts/jepa.md)`) instead of wikilinks, because the index is the primary GitHub-rendered entry point and GitHub does not resolve `[[wikilinks]]`. Keep this exception when editing the index — do not "normalize" it back to wikilinks. All other wiki pages keep the `[[slug|Display]]` form.
 - **Citations** — Every factual claim derived from a source links to the source page (not the raw file): `Atlas can perform parkour ([[Boston Dynamics Atlas Demo 2024]])`.
 - **Contradictions** — When sources disagree, present both with citations and flag with an Obsidian callout: `> [!warning] Contradiction`.
 - **Confidence** — For uncertain or hedged claims use `> [!note]` callouts or explicit hedging language.

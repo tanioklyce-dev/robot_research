@@ -5,216 +5,216 @@
 Curated entry points across the wiki.
 
 **General**
-- [[simulators-for-agentic-robotics-2026|Simulators for agentic robotics — 2026 landscape]] — landscape survey across six categories.
-- [[log|Log]] — chronological record of ingests, queries, and lint passes.
+- [Simulators for agentic robotics — 2026 landscape](syntheses/simulators-for-agentic-robotics-2026.md) — landscape survey across six categories.
+- [Log](log.md) — chronological record of ingests, queries, and lint passes.
 
 **FRC (FIRST Robotics Competition)**
-- [[frc-2026-game-manual|FRC 2026 Game Manual — REBUILT]] — deep ingest of the 166-page 2026 REBUILT game manual.
-- [[first-robotics-competition|FIRST Robotics Competition]] — competition overview, robot constraints, technical infrastructure.
-- [[frc-kitbot|FRC KitBot]] — the beginner-friendly KitBot platform.
-- [[frc-simulation-and-ai-landscape|FRC simulation & AI landscape]] — what simulation & AI tools FRC teams use (trajectory planners, physics sims, ML frontier).
+- [FRC 2026 Game Manual — REBUILT](sources/frc-2026-game-manual.md) — deep ingest of the 166-page 2026 REBUILT game manual.
+- [FIRST Robotics Competition](entities/first-robotics-competition.md) — competition overview, robot constraints, technical infrastructure.
+- [FRC KitBot](entities/frc-kitbot.md) — the beginner-friendly KitBot platform.
+- [FRC simulation & AI landscape](syntheses/frc-simulation-and-ai-landscape.md) — what simulation & AI tools FRC teams use (trajectory planners, physics sims, ML frontier).
 
 **JEPA / LeWorldModel**
-- [[jepa|Joint-Embedding Predictive Architecture]] — JEPA concept page.
-- [[latent-space|Learned latent space]] — the substrate JEPAs predict in.
-- [[leworldmodel-paper|LeWorldModel Paper]] — LeWM paper ingest.
-- [[leworldmodel-howto|LeWorldModel — train and run howto]] — how to install, train, and evaluate LeWM on a single GPU.
-- [[lewm-hello-world-project-scope|LeWM hello world — Project 1 detailed scope]] — reproduce LeWM PushT from scratch.
-- [[jepa-task-capabilities|JEPA task capabilities]] — what JEPA models can do, mapped per-paper.
+- [Joint-Embedding Predictive Architecture](concepts/jepa.md) — JEPA concept page.
+- [Learned latent space](concepts/latent-space.md) — the substrate JEPAs predict in.
+- [LeWorldModel Paper](sources/leworldmodel-paper.md) — LeWM paper ingest.
+- [LeWorldModel — train and run howto](syntheses/leworldmodel-howto.md) — how to install, train, and evaluate LeWM on a single GPU.
+- [LeWM hello world — Project 1 detailed scope](syntheses/lewm-hello-world-project-scope.md) — reproduce LeWM PushT from scratch.
+- [JEPA task capabilities](syntheses/jepa-task-capabilities.md) — what JEPA models can do, mapped per-paper.
 
 **ROSOrin Pro JEPA project ladder**
-- [[jepa-project-ladder-rosorin-pro|JEPA project ladder for ROSOrin Pro]] — six-rung educational/research project ladder for learning JEPA on ROSOrin Pro hardware.
-- [[lewm-on-rosorin-pro-feasibility|LeWM on ROSOrin Pro — feasibility analysis]] — feasibility analysis for deploying LeWM on ROSOrin Pro.
+- [JEPA project ladder for ROSOrin Pro](syntheses/jepa-project-ladder-rosorin-pro.md) — six-rung educational/research project ladder for learning JEPA on ROSOrin Pro hardware.
+- [LeWM on ROSOrin Pro — feasibility analysis](syntheses/lewm-on-rosorin-pro-feasibility.md) — feasibility analysis for deploying LeWM on ROSOrin Pro.
 
 ## Sources (chronological)
-- [[robot-utility-models-website|Robot Utility Models Project Page]] — NYU/Meta zero-shot generalist policies for Stretch. (2024-09)
-- [[robot-utility-models-paper|Robot Utility Models Paper]] — full RUM paper (arxiv 2409.05865); architecture, ablations, cross-embodiment numbers. (2024-09)
-- [[maniskill-hab-paper|ManiSkill-HAB Paper]] — GPU-parallel low-level manipulation chains for HAB. (2024-12)
-- [[genesis-project-page|Genesis Project Page]] — generative + ultra-fast physics engine launch. (2024-12)
-- [[mujoco-playground-paper|MuJoCo Playground Paper]] — DeepMind's MJX-based robot-learning framework. (2025-02)
-- [[v-jepa-2-paper|V-JEPA 2 Paper]] — Meta FAIR's JEPA world model with zero-shot Franka. (2025-06)
-- [[genie-envisioner-paper|Genie Envisioner Paper]] — unified world foundation platform for manipulation. (2025-08)
-- [[hello-robot-stretch-docs|Hello Robot Stretch Documentation]] — Stretch 3 docs (ROS 2 + Python + MuJoCo/Gazebo). (2025)
-- [[stretch-ai-llm-agent-docs|Stretch AI LLM Agent Documentation]] — concrete LLM-agent stack for the Stretch robot. (2024–2025)
-- [[hiwonder-rosorin-docs|Hiwonder ROSOrin Documentation]] — educational Jetson Orin Nano kit; Gazebo + cloud/offline LLM-agent curriculum. (2024–2025)
-- [[hiwonder-rosorin-pro-user-manual|Hiwonder ROSOrin Pro User Manual]] — hardware spec sheet for the 6-DOF arm + base variant. (2024–2025)
-- [[hiwonder-openclaw-tutorial|Hiwonder OpenClaw Practical Tutorial]] — Hiwonder's manipulation-aware LLM-agent framework. (2024–2025)
-- [[robocasa365-paper|RoboCasa365 Paper]] — 365-task household manipulation benchmark. (ICLR 2026)
-- [[agibot-genie-sim-3-announcement|AGIBOT Genie Sim 3.0 Announcement]] — open simulation platform launch at CES 2026. (2026-01)
-- [[agibot-genie-envisioner-2-announcement|AGIBOT Genie Envisioner 2.0 Announcement]] — world model evolved into a "world simulator." (2026)
-- [[nvidia-newton-physics-engine-developer-page|NVIDIA Newton Physics Engine Developer Page]] — Newton landing page; Linux-Foundation governance. (2026)
-- [[nvidia-newton-contact-rich-manipulation-blog|NVIDIA Newton Contact-Rich Manipulation Blog]] — Newton 1.0 GA at GTC 2026 inside Isaac Lab. (2026)
-- [[leworldmodel-paper|LeWorldModel Paper]] — first stable end-to-end JEPA from raw pixels. (2026-03)
-- [[top-10-physical-ai-models-2026|Top 10 Physical AI Models 2026]] — VLA model survey including GR00T N1.7 EA. (2026-04)
-- [[openusd-rigid-body-physics-proposal|OpenUSD Rigid Body Physics Proposal]] — UsdPhysics whitepaper, robotics schemas in the standard. (2020 / 26.05 docs)
-- [[nvidia-openusd-for-robotic-simulation|Using OpenUSD for Modular and Scalable Robotic Simulation]] — NVIDIA's robotics-USD position + roadmap. (2025-03-18)
-- [[nvidia-cad-to-usd-jt-workflows|Building CAD-to-USD Workflows with NVIDIA Omniverse]] — JT-to-USD pipeline, OpenUSD Exchange SDK. (2025-07-29)
-- [[source-robotics-urdf-mjcf-usd-comparison|URDF vs MJCF vs USD comparison]] — practitioner survey. (2026-03-13)
-- [[farama-projects-page|Farama Foundation Projects Page]] — index of 19 RL env / API standards (Gymnasium, PettingZoo, Minari, …). (2026)
-- [[gymnasium-robotics-docs|Gymnasium-Robotics Documentation]] — six MuJoCo env families (Fetch, Shadow Hand, Maze, Adroit, Franka Kitchen, MaMuJoCo). (2026)
-- [[dino-wm-paper|DINO-WM Paper]] — DINOv2-feature world model + zero-shot planning; lightweight MuJoCo benches. (2024-11)
-- [[dino-world-paper|DINO-world Paper]] — FAIR DINOv2-latent video world model ("Back to the Features"). (2025-07)
-- [[jepa-wms-paper|JEPA-WMs Paper]] — Terver et al., FAIR; first JEPA paper to use RoboCasa + Metaworld + DROID + real Franka. (2025-12)
-- [[vla-jepa-paper|VLA-JEPA Paper]] — JEPA-as-auxiliary inside a VLA; LIBERO + SimplerEnv + real. (2026-02)
-- [[v-jepa-2-1-paper|V-JEPA 2.1 Paper]] — direct successor to V-JEPA 2; "dense features" + +20pt real-Franka grasping. (2026-03)
-- [[frc-2026-game-manual|FRC 2026 Game Manual — REBUILT]] — 166-page rule book for FIRST Robotics Competition 2026; game mechanics, robot constraints, AprilTag field, scoring. (2026-01-10)
-- [[frc-kitbot-2026|FRC KitBot 2026]] — official KitBot resource page; AM14U6 chassis, Java code, CAD, multilingual docs. (2026-01)
-- [[team-254-ai-in-frc-presentation|Team 254: The Next Revolution — AI in FRC]] — 2026 Championship Conference presentation; Claude Code, wpilib-agent-tools, closed-loop agent workflows. (2026-05-04)
-- [[team-254-website|Team 254 Website]] — official site; robot history, programs, technical resources. (2026)
+- [Robot Utility Models Project Page](sources/robot-utility-models-website.md) — NYU/Meta zero-shot generalist policies for Stretch. (2024-09)
+- [Robot Utility Models Paper](sources/robot-utility-models-paper.md) — full RUM paper (arxiv 2409.05865); architecture, ablations, cross-embodiment numbers. (2024-09)
+- [ManiSkill-HAB Paper](sources/maniskill-hab-paper.md) — GPU-parallel low-level manipulation chains for HAB. (2024-12)
+- [Genesis Project Page](sources/genesis-project-page.md) — generative + ultra-fast physics engine launch. (2024-12)
+- [MuJoCo Playground Paper](sources/mujoco-playground-paper.md) — DeepMind's MJX-based robot-learning framework. (2025-02)
+- [V-JEPA 2 Paper](sources/v-jepa-2-paper.md) — Meta FAIR's JEPA world model with zero-shot Franka. (2025-06)
+- [Genie Envisioner Paper](sources/genie-envisioner-paper.md) — unified world foundation platform for manipulation. (2025-08)
+- [Hello Robot Stretch Documentation](sources/hello-robot-stretch-docs.md) — Stretch 3 docs (ROS 2 + Python + MuJoCo/Gazebo). (2025)
+- [Stretch AI LLM Agent Documentation](sources/stretch-ai-llm-agent-docs.md) — concrete LLM-agent stack for the Stretch robot. (2024–2025)
+- [Hiwonder ROSOrin Documentation](sources/hiwonder-rosorin-docs.md) — educational Jetson Orin Nano kit; Gazebo + cloud/offline LLM-agent curriculum. (2024–2025)
+- [Hiwonder ROSOrin Pro User Manual](sources/hiwonder-rosorin-pro-user-manual.md) — hardware spec sheet for the 6-DOF arm + base variant. (2024–2025)
+- [Hiwonder OpenClaw Practical Tutorial](sources/hiwonder-openclaw-tutorial.md) — Hiwonder's manipulation-aware LLM-agent framework. (2024–2025)
+- [RoboCasa365 Paper](sources/robocasa365-paper.md) — 365-task household manipulation benchmark. (ICLR 2026)
+- [AGIBOT Genie Sim 3.0 Announcement](sources/agibot-genie-sim-3-announcement.md) — open simulation platform launch at CES 2026. (2026-01)
+- [AGIBOT Genie Envisioner 2.0 Announcement](sources/agibot-genie-envisioner-2-announcement.md) — world model evolved into a "world simulator." (2026)
+- [NVIDIA Newton Physics Engine Developer Page](sources/nvidia-newton-physics-engine-developer-page.md) — Newton landing page; Linux-Foundation governance. (2026)
+- [NVIDIA Newton Contact-Rich Manipulation Blog](sources/nvidia-newton-contact-rich-manipulation-blog.md) — Newton 1.0 GA at GTC 2026 inside Isaac Lab. (2026)
+- [LeWorldModel Paper](sources/leworldmodel-paper.md) — first stable end-to-end JEPA from raw pixels. (2026-03)
+- [Top 10 Physical AI Models 2026](sources/top-10-physical-ai-models-2026.md) — VLA model survey including GR00T N1.7 EA. (2026-04)
+- [OpenUSD Rigid Body Physics Proposal](sources/openusd-rigid-body-physics-proposal.md) — UsdPhysics whitepaper, robotics schemas in the standard. (2020 / 26.05 docs)
+- [Using OpenUSD for Modular and Scalable Robotic Simulation](sources/nvidia-openusd-for-robotic-simulation.md) — NVIDIA's robotics-USD position + roadmap. (2025-03-18)
+- [Building CAD-to-USD Workflows with NVIDIA Omniverse](sources/nvidia-cad-to-usd-jt-workflows.md) — JT-to-USD pipeline, OpenUSD Exchange SDK. (2025-07-29)
+- [URDF vs MJCF vs USD comparison](sources/source-robotics-urdf-mjcf-usd-comparison.md) — practitioner survey. (2026-03-13)
+- [Farama Foundation Projects Page](sources/farama-projects-page.md) — index of 19 RL env / API standards (Gymnasium, PettingZoo, Minari, …). (2026)
+- [Gymnasium-Robotics Documentation](sources/gymnasium-robotics-docs.md) — six MuJoCo env families (Fetch, Shadow Hand, Maze, Adroit, Franka Kitchen, MaMuJoCo). (2026)
+- [DINO-WM Paper](sources/dino-wm-paper.md) — DINOv2-feature world model + zero-shot planning; lightweight MuJoCo benches. (2024-11)
+- [DINO-world Paper](sources/dino-world-paper.md) — FAIR DINOv2-latent video world model ("Back to the Features"). (2025-07)
+- [JEPA-WMs Paper](sources/jepa-wms-paper.md) — Terver et al., FAIR; first JEPA paper to use RoboCasa + Metaworld + DROID + real Franka. (2025-12)
+- [VLA-JEPA Paper](sources/vla-jepa-paper.md) — JEPA-as-auxiliary inside a VLA; LIBERO + SimplerEnv + real. (2026-02)
+- [V-JEPA 2.1 Paper](sources/v-jepa-2-1-paper.md) — direct successor to V-JEPA 2; "dense features" + +20pt real-Franka grasping. (2026-03)
+- [FRC 2026 Game Manual — REBUILT](sources/frc-2026-game-manual.md) — 166-page rule book for FIRST Robotics Competition 2026; game mechanics, robot constraints, AprilTag field, scoring. (2026-01-10)
+- [FRC KitBot 2026](sources/frc-kitbot-2026.md) — official KitBot resource page; AM14U6 chassis, Java code, CAD, multilingual docs. (2026-01)
+- [Team 254: The Next Revolution — AI in FRC](sources/team-254-ai-in-frc-presentation.md) — 2026 Championship Conference presentation; Claude Code, wpilib-agent-tools, closed-loop agent workflows. (2026-05-04)
+- [Team 254 Website](sources/team-254-website.md) — official site; robot history, programs, technical resources. (2026)
 
 ## Entities
 
 ### Companies
-- [[nvidia|NVIDIA]] — owns most of the agentic-robotics simulation substrate. (8 sources)
-- [[hiwonder|Hiwonder]] — Chinese educational-robotics vendor; ROSOrin / ROSOrin Pro kits + OpenClaw. (3 sources)
-- [[agibot|AGIBOT]] — Shanghai embodied-AI / humanoid company. Open-source-heavy. (3 sources)
-- [[hello-robot|Hello Robot]] — Stretch mobile manipulator + stretch_ai stack. (4 sources)
-- [[meta-fair|Meta FAIR]] — Yann LeCun's lab; JEPA research line. (1 source)
-- [[google-deepmind|Google DeepMind]] — MuJoCo, Newton co-development, MjcPhysics USD plugin. (3 sources)
-- [[mila|Mila]] — Quebec AI Institute; frequent JEPA collaborator. (2 sources) _stub_
-- [[farama-foundation|Farama Foundation]] — non-profit; took over OpenAI gym → Gymnasium; 19 RL projects. (2 sources)
-- [[hillbot|Hillbot]] — UCSD spinoff that maintains ManiSkill. (1 source) _stub_
-- [[disney-research|Disney Research]] — Newton co-developer with NVIDIA + DeepMind. (2 sources) _stub_
-- [[first-robotics-competition|FIRST Robotics Competition]] — world's leading high-school robotics competition; ~3,700 teams, 30+ countries. (2 sources)
-- [[andymark|AndyMark]] — major FRC vendor; AM14U6 chassis, field elements, FUEL scoring elements. (2 sources)
-- [[team-254|Team 254: The Cheesy Poofs]] — elite FRC team (2022 World Champions); 2026 "AI in FRC" presentation; Claude Code + wpilib-agent-tools. (2 sources)
+- [NVIDIA](entities/nvidia.md) — owns most of the agentic-robotics simulation substrate. (8 sources)
+- [Hiwonder](entities/hiwonder.md) — Chinese educational-robotics vendor; ROSOrin / ROSOrin Pro kits + OpenClaw. (3 sources)
+- [AGIBOT](entities/agibot.md) — Shanghai embodied-AI / humanoid company. Open-source-heavy. (3 sources)
+- [Hello Robot](entities/hello-robot.md) — Stretch mobile manipulator + stretch_ai stack. (4 sources)
+- [Meta FAIR](entities/meta-fair.md) — Yann LeCun's lab; JEPA research line. (1 source)
+- [Google DeepMind](entities/google-deepmind.md) — MuJoCo, Newton co-development, MjcPhysics USD plugin. (3 sources)
+- [Mila](entities/mila.md) — Quebec AI Institute; frequent JEPA collaborator. (2 sources) _stub_
+- [Farama Foundation](entities/farama-foundation.md) — non-profit; took over OpenAI gym → Gymnasium; 19 RL projects. (2 sources)
+- [Hillbot](entities/hillbot.md) — UCSD spinoff that maintains ManiSkill. (1 source) _stub_
+- [Disney Research](entities/disney-research.md) — Newton co-developer with NVIDIA + DeepMind. (2 sources) _stub_
+- [FIRST Robotics Competition](entities/first-robotics-competition.md) — world's leading high-school robotics competition; ~3,700 teams, 30+ countries. (2 sources)
+- [AndyMark](entities/andymark.md) — major FRC vendor; AM14U6 chassis, field elements, FUEL scoring elements. (2 sources)
+- [Team 254: The Cheesy Poofs](entities/team-254.md) — elite FRC team (2022 World Champions); 2026 "AI in FRC" presentation; Claude Code + wpilib-agent-tools. (2 sources)
 
 ### Simulators / frameworks
-- [[nvidia-isaac-sim|NVIDIA Isaac Sim]] — Omniverse-based robotics simulator. (4 sources)
-- [[nvidia-isaac-lab|NVIDIA Isaac Lab]] — open-source learning framework on Isaac Sim. (4 sources)
-- [[newton-physics-engine|Newton physics engine]] — Linux-Foundation, GPU-accelerated. (4 sources)
-- [[mujoco|MuJoCo]] — DeepMind-maintained physics engine; substrate for Gymnasium-Robotics, MuJoCo Playground (via MJX), Adroit, Franka Kitchen, DM Control. (6 sources)
-- [[mujoco-playground|MuJoCo Playground]] — DeepMind's MJX-based learning framework. (4 sources)
-- [[genesis|Genesis]] — generative + ultra-fast physics engine. (2 sources)
-- [[agibot-genie-sim|AGIBOT Genie Sim 3.0]] — open embodied-AI sim on Isaac Sim. (2 sources)
-- [[robocasa|RoboCasa]] — household manipulation benchmark (RoboCasa365 at ICLR 2026). (2 sources)
-- [[maniskill|ManiSkill]] — [[sapien|SAPIEN]]-based GPU-parallel manipulation benchmark. (1 source)
-- [[sapien|SAPIEN]] — UCSD robot simulation framework underlying ManiSkill. (1 source) _stub_
-- [[gymnasium-robotics|Gymnasium-Robotics]] — Farama's [[mujoco|MuJoCo]]-backed robotics envs (Fetch / Hand / Maze / Adroit / Franka Kitchen / MaMuJoCo). (2 sources)
-- [[metaworld|Metaworld]] — Stanford/Berkeley meta-RL benchmark; 50 manipulation tasks on simulated Sawyer; staple across V-JEPA-line work. (3 sources)
-- [[pusht|PushT]] — 2D T-block pushing benchmark; default lightweight bench across LeWM / DINO-WM / JEPA-WMs. (3 sources)
-- [[pointmaze|PointMaze]] — 2D point-mass maze navigation; default lightweight nav bench across LeWM / DINO-WM / JEPA-WMs. (3 sources)
-- [[dm-control|DM Control Suite]] — DeepMind continuous-control RL benchmark on top of MuJoCo; pre-Gymnasium-Robotics legacy substrate. (2 sources)
-- [[libero|LIBERO]] — lifelong-learning manipulation benchmark; de-facto VLA-eval bench (Spatial / Object / Goal / 100 task families). (1 source)
-- [[simplerenv|SimplerEnv]] — Sapien-adjacent mid-weight sim positioned as real-world-correlation harness; used by VLA-JEPA. (1 source)
-- [[habitat|Habitat]] — Meta FAIR embodied-AI sim (navigation + manipulation in photorealistic 3D scenes); legacy substrate. (1 source)
+- [NVIDIA Isaac Sim](entities/nvidia-isaac-sim.md) — Omniverse-based robotics simulator. (4 sources)
+- [NVIDIA Isaac Lab](entities/nvidia-isaac-lab.md) — open-source learning framework on Isaac Sim. (4 sources)
+- [Newton physics engine](entities/newton-physics-engine.md) — Linux-Foundation, GPU-accelerated. (4 sources)
+- [MuJoCo](entities/mujoco.md) — DeepMind-maintained physics engine; substrate for Gymnasium-Robotics, MuJoCo Playground (via MJX), Adroit, Franka Kitchen, DM Control. (6 sources)
+- [MuJoCo Playground](entities/mujoco-playground.md) — DeepMind's MJX-based learning framework. (4 sources)
+- [Genesis](entities/genesis.md) — generative + ultra-fast physics engine. (2 sources)
+- [AGIBOT Genie Sim 3.0](entities/agibot-genie-sim.md) — open embodied-AI sim on Isaac Sim. (2 sources)
+- [RoboCasa](entities/robocasa.md) — household manipulation benchmark (RoboCasa365 at ICLR 2026). (2 sources)
+- [ManiSkill](entities/maniskill.md) — [SAPIEN](entities/sapien.md)-based GPU-parallel manipulation benchmark. (1 source)
+- [SAPIEN](entities/sapien.md) — UCSD robot simulation framework underlying ManiSkill. (1 source) _stub_
+- [Gymnasium-Robotics](entities/gymnasium-robotics.md) — Farama's [MuJoCo](entities/mujoco.md)-backed robotics envs (Fetch / Hand / Maze / Adroit / Franka Kitchen / MaMuJoCo). (2 sources)
+- [Metaworld](entities/metaworld.md) — Stanford/Berkeley meta-RL benchmark; 50 manipulation tasks on simulated Sawyer; staple across V-JEPA-line work. (3 sources)
+- [PushT](entities/pusht.md) — 2D T-block pushing benchmark; default lightweight bench across LeWM / DINO-WM / JEPA-WMs. (3 sources)
+- [PointMaze](entities/pointmaze.md) — 2D point-mass maze navigation; default lightweight nav bench across LeWM / DINO-WM / JEPA-WMs. (3 sources)
+- [DM Control Suite](entities/dm-control.md) — DeepMind continuous-control RL benchmark on top of MuJoCo; pre-Gymnasium-Robotics legacy substrate. (2 sources)
+- [LIBERO](entities/libero.md) — lifelong-learning manipulation benchmark; de-facto VLA-eval bench (Spatial / Object / Goal / 100 task families). (1 source)
+- [SimplerEnv](entities/simplerenv.md) — Sapien-adjacent mid-weight sim positioned as real-world-correlation harness; used by VLA-JEPA. (1 source)
+- [Habitat](entities/habitat.md) — Meta FAIR embodied-AI sim (navigation + manipulation in photorealistic 3D scenes); legacy substrate. (1 source)
 
 ### RL API standards
-- [[gymnasium|Gymnasium]] — single-agent RL env API; OpenAI gym successor under Farama. (2 sources)
-- [[pettingzoo|PettingZoo]] — multi-agent RL env API. (2 sources)
+- [Gymnasium](entities/gymnasium.md) — single-agent RL env API; OpenAI gym successor under Farama. (2 sources)
+- [PettingZoo](entities/pettingzoo.md) — multi-agent RL env API. (2 sources)
 
 ### Robot platforms
-- [[franka-panda|Franka Panda]] — 7-DOF research-grade arm; default tabletop manipulator across DROID, V-JEPA 2, JEPA-WMs, RUM. (5 sources)
-- [[xarm-7|xArm 7]] — UFactory commercial 7-DOF arm; secondary tabletop manipulator; RUM cross-embodiment transfer target (~10pt drop vs Stretch). (1 source) _stub_
-- [[turtlebot|TurtleBot]] — canonical educational ROS mobile robot (4 generations, 2010–present); reference point for [[rosorin|ROSOrin]] educational comparison. (0 sources) _stub_
-- [[irobot-create-3|iRobot Create 3]] — Roomba-i3-derived ROS 2 mobile-robot base; chassis under [[turtlebot|TurtleBot 4]]. (0 sources) _stub_
+- [Franka Panda](entities/franka-panda.md) — 7-DOF research-grade arm; default tabletop manipulator across DROID, V-JEPA 2, JEPA-WMs, RUM. (5 sources)
+- [xArm 7](entities/xarm-7.md) — UFactory commercial 7-DOF arm; secondary tabletop manipulator; RUM cross-embodiment transfer target (~10pt drop vs Stretch). (1 source) _stub_
+- [TurtleBot](entities/turtlebot.md) — canonical educational ROS mobile robot (4 generations, 2010–present); reference point for [ROSOrin](entities/rosorin.md) educational comparison. (0 sources) _stub_
+- [iRobot Create 3](entities/irobot-create-3.md) — Roomba-i3-derived ROS 2 mobile-robot base; chassis under [TurtleBot 4](entities/turtlebot.md). (0 sources) _stub_
 
 ### Humanoids
-- [[atlas|Atlas]] — Boston Dynamics flagship; closed development; capability-bar humanoid. (0 sources) _stub_
-- [[tesla-optimus|Tesla Optimus]] — Tesla's vertically-integrated humanoid; closed development. (0 sources) _stub_
-- [[figure|Figure]] — Figure AI's humanoid line (01/02/03) + Helix VLA; BMW pilots. (0 sources) _stub_
-- [[1x-neo|1X NEO]] — household humanoid from 1X Technologies (Norway/US); OpenAI-aligned. (0 sources) _stub_
-- [[apptronik-apollo|Apptronik Apollo]] — UT Austin spinout; NVIDIA-aligned ([[nvidia-groot|GR00T]] target); Mercedes-Benz pilots. (0 sources) _stub_
-- [[digit|Digit]] — Agility Robotics; **first commercially-deployed humanoid** (GXO, Amazon). (0 sources) _stub_
-- [[unitree-h1|Unitree H1]] — Chinese affordable research humanoid (~$90k); rapid 2024–2026 academic adoption. (0 sources) _stub_
-- [[unitree-g1|Unitree G1]] — smaller, cheaper Unitree (~$16k); cheapest serious humanoid platform. (0 sources) _stub_
-- [[nao|NAO]] — SoftBank/Aldebaran 58-cm educational humanoid; canonical since 2008. (0 sources) _stub_
-- [[tonypi|TonyPi]] — Hiwonder hobby-tier biped kit ($300–700); educational-tier sibling of [[rosorin-pro|ROSOrin Pro]]. (0 sources) _stub_
-- [[stretch|Stretch]] — Hello Robot's mobile manipulator (Stretch 3). De-facto research platform. (4 sources)
-- [[rosorin|ROSOrin]] — Hiwonder's Jetson Orin Nano educational mobile robot kit. (2 sources)
-- [[rosorin-pro|ROSOrin Pro]] — Hiwonder's 6-DOF arm + base variant of ROSOrin. (2 sources)
-- [[rosorin-pro-arm|ROSOrin Pro 6-DOF arm]] — HX-12H-servo manipulator on the ROSOrin Pro kit. (2 sources)
-- [[frc-kitbot|FRC KitBot]] — beginner-friendly FRC robot on AndyMark AM14U6 chassis; included in Kickoff Kit. (2 sources)
+- [Atlas](entities/atlas.md) — Boston Dynamics flagship; closed development; capability-bar humanoid. (0 sources) _stub_
+- [Tesla Optimus](entities/tesla-optimus.md) — Tesla's vertically-integrated humanoid; closed development. (0 sources) _stub_
+- [Figure](entities/figure.md) — Figure AI's humanoid line (01/02/03) + Helix VLA; BMW pilots. (0 sources) _stub_
+- [1X NEO](entities/1x-neo.md) — household humanoid from 1X Technologies (Norway/US); OpenAI-aligned. (0 sources) _stub_
+- [Apptronik Apollo](entities/apptronik-apollo.md) — UT Austin spinout; NVIDIA-aligned ([GR00T](entities/nvidia-groot.md) target); Mercedes-Benz pilots. (0 sources) _stub_
+- [Digit](entities/digit.md) — Agility Robotics; **first commercially-deployed humanoid** (GXO, Amazon). (0 sources) _stub_
+- [Unitree H1](entities/unitree-h1.md) — Chinese affordable research humanoid (~$90k); rapid 2024–2026 academic adoption. (0 sources) _stub_
+- [Unitree G1](entities/unitree-g1.md) — smaller, cheaper Unitree (~$16k); cheapest serious humanoid platform. (0 sources) _stub_
+- [NAO](entities/nao.md) — SoftBank/Aldebaran 58-cm educational humanoid; canonical since 2008. (0 sources) _stub_
+- [TonyPi](entities/tonypi.md) — Hiwonder hobby-tier biped kit ($300–700); educational-tier sibling of [ROSOrin Pro](entities/rosorin-pro.md). (0 sources) _stub_
+- [Stretch](entities/stretch.md) — Hello Robot's mobile manipulator (Stretch 3). De-facto research platform. (4 sources)
+- [ROSOrin](entities/rosorin.md) — Hiwonder's Jetson Orin Nano educational mobile robot kit. (2 sources)
+- [ROSOrin Pro](entities/rosorin-pro.md) — Hiwonder's 6-DOF arm + base variant of ROSOrin. (2 sources)
+- [ROSOrin Pro 6-DOF arm](entities/rosorin-pro-arm.md) — HX-12H-servo manipulator on the ROSOrin Pro kit. (2 sources)
+- [FRC KitBot](entities/frc-kitbot.md) — beginner-friendly FRC robot on AndyMark AM14U6 chassis; included in Kickoff Kit. (2 sources)
 
 ### Software stacks
-- [[stretch-ai|stretch_ai]] — Hello Robot's open-source Python stack with an LLM agent. (4 sources)
-- [[openclaw|OpenClaw]] — Hiwonder's manipulation-aware LLM-agent framework for ROSOrin Pro. (1 source)
+- [stretch_ai](entities/stretch-ai.md) — Hello Robot's open-source Python stack with an LLM agent. (4 sources)
+- [OpenClaw](entities/openclaw.md) — Hiwonder's manipulation-aware LLM-agent framework for ROSOrin Pro. (1 source)
 
 ### Controllers
-- [[roborio|roboRIO]] — NI's mandatory FRC robot controller (ARM Cortex-A9 + FPGA); WPILib ecosystem. (1 source)
-- [[stable-worldmodel|stable-worldmodel]] — Python infrastructure under LeWorldModel (env zoo + planning API + dataset format). DM Control + Gymnasium-Robotics Fetch + classic + OGBench + more. (1 source)
+- [roboRIO](entities/roborio.md) — NI's mandatory FRC robot controller (ARM Cortex-A9 + FPGA); WPILib ecosystem. (1 source)
+- [stable-worldmodel](entities/stable-worldmodel.md) — Python infrastructure under LeWorldModel (env zoo + planning API + dataset format). DM Control + Gymnasium-Robotics Fetch + classic + OGBench + more. (1 source)
 
 ### Formats / standards
-- [[openusd|OpenUSD]] — open scene-description + robotics physics-schema layer (UsdPhysics, MjcPhysics, NewtonSceneAPI). (4 sources)
+- [OpenUSD](entities/openusd.md) — open scene-description + robotics physics-schema layer (UsdPhysics, MjcPhysics, NewtonSceneAPI). (4 sources)
 
 ### Datasets
-- [[droid|DROID]] — Distributed Robot Interaction Dataset; 350 hr / 76k traj / 564 scenes of Franka Panda teleop; the dominant real-robot dataset in JEPA-for-robotics work. (2 sources)
+- [DROID](entities/droid.md) — Distributed Robot Interaction Dataset; 350 hr / 76k traj / 564 scenes of Franka Panda teleop; the dominant real-robot dataset in JEPA-for-robotics work. (2 sources)
 
 ### Vision foundation models
-- [[dinov2|DINOv2]] — Meta FAIR self-supervised ViT (142M images, ViT-S/B/L/g); substrate for DINO-WM, DINO-world, JEPA-WMs. Apache 2.0. (3 sources)
+- [DINOv2](entities/dinov2.md) — Meta FAIR self-supervised ViT (142M images, ViT-S/B/L/g); substrate for DINO-WM, DINO-world, JEPA-WMs. Apache 2.0. (3 sources)
 
 ### World models
-- [[nvidia-cosmos|NVIDIA Cosmos]] — world foundation model + simulation engine (generative video). (5 sources)
-- [[genie-envisioner|Genie Envisioner]] — AGIBOT's world simulator GE-Sim2 (generative video). (4 sources)
-- [[v-jepa-2|V-JEPA 2]] — Meta FAIR's JEPA world model (latent prediction); zero-shot Franka. (2 sources)
-- [[leworldmodel|LeWorldModel]] — first stable end-to-end JEPA from raw pixels. (1 source)
-- [[jepa-wms|JEPA-WMs]] — FAIR (Terver et al.); first JEPA-for-robotics paper using RoboCasa. (1 source)
-- [[dino-wm|DINO-WM]] — NYU + FAIR; frozen DINOv2 features + learned predictor; zero-shot planning. (1 source)
-- [[dino-world|DINO-world]] — FAIR DINOv2 video world model ("Back to the Features"). (1 source)
-- [[vla-jepa|VLA-JEPA]] — JEPA-as-auxiliary inside a VLA policy. (1 source)
+- [NVIDIA Cosmos](entities/nvidia-cosmos.md) — world foundation model + simulation engine (generative video). (5 sources)
+- [Genie Envisioner](entities/genie-envisioner.md) — AGIBOT's world simulator GE-Sim2 (generative video). (4 sources)
+- [V-JEPA 2](entities/v-jepa-2.md) — Meta FAIR's JEPA world model (latent prediction); zero-shot Franka. (2 sources)
+- [LeWorldModel](entities/leworldmodel.md) — first stable end-to-end JEPA from raw pixels. (1 source)
+- [JEPA-WMs](entities/jepa-wms.md) — FAIR (Terver et al.); first JEPA-for-robotics paper using RoboCasa. (1 source)
+- [DINO-WM](entities/dino-wm.md) — NYU + FAIR; frozen DINOv2 features + learned predictor; zero-shot planning. (1 source)
+- [DINO-world](entities/dino-world.md) — FAIR DINOv2 video world model ("Back to the Features"). (1 source)
+- [VLA-JEPA](entities/vla-jepa.md) — JEPA-as-auxiliary inside a VLA policy. (1 source)
 
 ### VLA models / generalist policies
-- [[nvidia-groot|NVIDIA GR00T]] — open VLA bundled with Isaac Lab. (3 sources)
-- [[robot-utility-models|Robot Utility Models]] — NYU/Meta zero-shot mobile-manipulation BC. (2 sources)
-- [[dobb-e|Dobb·E]] — NYU predecessor to RUM; HPR encoder + Stick-v1 + Homes of New York dataset. (1 source) _stub_
+- [NVIDIA GR00T](entities/nvidia-groot.md) — open VLA bundled with Isaac Lab. (3 sources)
+- [Robot Utility Models](entities/robot-utility-models.md) — NYU/Meta zero-shot mobile-manipulation BC. (2 sources)
+- [Dobb·E](entities/dobb-e.md) — NYU predecessor to RUM; HPR encoder + Stick-v1 + Homes of New York dataset. (1 source) _stub_
 
 ### Behavior-cloning methods
-- [[vq-bet|VQ-BeT]] — Vector-Quantized Behavior Transformer (Lee et al. 2024); top performer in RUM ablation. (1 source) _stub_
-- [[diffusion-policy|Diffusion Policy]] — Chi et al. 2023, Columbia/TRI/MIT; introduced/popularized PushT + UMI gripper. (1 source) _stub_
+- [VQ-BeT](entities/vq-bet.md) — Vector-Quantized Behavior Transformer (Lee et al. 2024); top performer in RUM ablation. (1 source) _stub_
+- [Diffusion Policy](entities/diffusion-policy.md) — Chi et al. 2023, Columbia/TRI/MIT; introduced/popularized PushT + UMI gripper. (1 source) _stub_
 
 ### LLMs
-- [[qwen|Qwen]] — Alibaba's open-weights LLM family. Default local LLM in both stretch_ai (3B) and ROSOrin (1.7B). (2 sources)
+- [Qwen](entities/qwen.md) — Alibaba's open-weights LLM family. Default local LLM in both stretch_ai (3B) and ROSOrin (1.7B). (2 sources)
 
 ### Tools
-- [[ollama|Ollama]] — local LLM runtime (used by ROSOrin offline curriculum). (1 source) _stub_
-- [[mimicgen|MimicGen]] — synthetic-demo expansion tool used by RoboCasa365. (1 source) _stub_
+- [Ollama](entities/ollama.md) — local LLM runtime (used by ROSOrin offline curriculum). (1 source) _stub_
+- [MimicGen](entities/mimicgen.md) — synthetic-demo expansion tool used by RoboCasa365. (1 source) _stub_
 
 ### People
-- [[yann-lecun|Yann LeCun]] — Meta VP / NYU; Turing Award 2018; architect of the JEPA program. Senior on 6 wiki sources. (6 sources)
-- [[adrien-bardes|Adrien Bardes]] — FAIR researcher; co-senior on V-JEPA 2, V-JEPA 2.1, JEPA-WMs. The FAIR-side champion of the V-JEPA program. (3 sources)
-- [[basile-terver|Basile Terver]] — researcher (FAIR-affiliated, inferred); bread-crumb across DINO-world → JEPA-WMs lineage. (2 sources)
-- [[sergey-levine|Sergey Levine]] — UC Berkeley EECS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)
-- [[chelsea-finn|Chelsea Finn]] — Stanford CS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)
-- [[lerrel-pinto|Lerrel Pinto]] — NYU CS; co-senior on DINO-WM + co-author on RUM. (3 sources)
-- [[yuke-zhu|Yuke Zhu]] — UT Austin / NVIDIA Research; senior on RoboCasa365. (1 source)
-- [[karl-pertsch|Karl Pertsch]] — DROID co-lead with Khazatsky; Berkeley/Stanford. (0 source pages yet — referenced via entity pages)
-- [[mahi-shafiullah|Mahi Shafiullah]] — NYU + Hello Robot; lead author on Dobb·E + RUM. (2 sources)
+- [Yann LeCun](entities/yann-lecun.md) — Meta VP / NYU; Turing Award 2018; architect of the JEPA program. Senior on 6 wiki sources. (6 sources)
+- [Adrien Bardes](entities/adrien-bardes.md) — FAIR researcher; co-senior on V-JEPA 2, V-JEPA 2.1, JEPA-WMs. The FAIR-side champion of the V-JEPA program. (3 sources)
+- [Basile Terver](entities/basile-terver.md) — researcher (FAIR-affiliated, inferred); bread-crumb across DINO-world → JEPA-WMs lineage. (2 sources)
+- [Sergey Levine](entities/sergey-levine.md) — UC Berkeley EECS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)
+- [Chelsea Finn](entities/chelsea-finn.md) — Stanford CS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)
+- [Lerrel Pinto](entities/lerrel-pinto.md) — NYU CS; co-senior on DINO-WM + co-author on RUM. (3 sources)
+- [Yuke Zhu](entities/yuke-zhu.md) — UT Austin / NVIDIA Research; senior on RoboCasa365. (1 source)
+- [Karl Pertsch](entities/karl-pertsch.md) — DROID co-lead with Khazatsky; Berkeley/Stanford. (0 source pages yet — referenced via entity pages)
+- [Mahi Shafiullah](entities/mahi-shafiullah.md) — NYU + Hello Robot; lead author on Dobb·E + RUM. (2 sources)
 
 ## Concepts
-- [[world-model|World model]] — umbrella concept: learned predictive model of environment dynamics (generative-video / JEPA / frozen-feature / model-based-RL). (11 sources)
-- [[vla-models|VLA models]] — vision-language-action robot foundation models. (6 sources)
-- [[sim-to-real-transfer|Sim-to-real transfer]] — bridging simulator-trained policies to real robots. (4 sources)
-- [[world-model-simulators|World-model simulators]] — narrower companion to [[world-model|World model]]: world-models-used-as-simulators (generative-video and JEPA paradigms). (4 sources)
-- [[jepa|Joint-Embedding Predictive Architecture]] — predict next-state representations, not pixels. (7 sources)
-- [[imitation-learning|Imitation learning]] — supervised learning from demonstrations. (3 sources)
-- [[llm-agent-architecture|LLM-agent architecture]] — LLM-emits-tool-calls control pattern. (3 sources)
-- [[apriltags|AprilTags]] — visual fiducial markers for 6-DOF pose estimation; standard in FRC and research robotics. (1 source)
-- [[latent-space|Learned latent space]] — vector space where a trained encoder represents inputs; substrate for JEPA prediction, DINOv2 features, VQ-BeT codebook. (7 sources)
+- [World model](concepts/world-model.md) — umbrella concept: learned predictive model of environment dynamics (generative-video / JEPA / frozen-feature / model-based-RL). (11 sources)
+- [VLA models](concepts/vla-models.md) — vision-language-action robot foundation models. (6 sources)
+- [Sim-to-real transfer](concepts/sim-to-real-transfer.md) — bridging simulator-trained policies to real robots. (4 sources)
+- [World-model simulators](concepts/world-model-simulators.md) — narrower companion to [World model](concepts/world-model.md): world-models-used-as-simulators (generative-video and JEPA paradigms). (4 sources)
+- [Joint-Embedding Predictive Architecture](concepts/jepa.md) — predict next-state representations, not pixels. (7 sources)
+- [Imitation learning](concepts/imitation-learning.md) — supervised learning from demonstrations. (3 sources)
+- [LLM-agent architecture](concepts/llm-agent-architecture.md) — LLM-emits-tool-calls control pattern. (3 sources)
+- [AprilTags](concepts/apriltags.md) — visual fiducial markers for 6-DOF pose estimation; standard in FRC and research robotics. (1 source)
+- [Learned latent space](concepts/latent-space.md) — vector space where a trained encoder represents inputs; substrate for JEPA prediction, DINOv2 features, VQ-BeT codebook. (7 sources)
 
 ## Syntheses
-- [[simulators-for-agentic-robotics-2026|Simulators for agentic robotics — 2026 landscape]] — full landscape survey, 6 categories. (updated 2026-05-07)
-- [[llm-agent-architecture-across-stacks|LLM-agent architecture across stacks]] — three-way comparison of stretch_ai, ROSOrin, OpenClaw. (2026-05-07)
-- [[generative-video-vs-jepa-world-models|Generative-video vs JEPA world models]] — what each predicts, costs, and demonstrates. (2026-05-07)
-- [[newton-openusd-substrate-convergence|Newton + OpenUSD — the substrate convergence]] — vendor-neutral physics + scene format across Isaac Lab and MuJoCo Playground. (2026-05-07)
-- [[sim-heavy-vs-real-data-paths|Sim-heavy vs real-data paths to generalist policies]] — three-path comparison: synthetic teleop, real demos, observation pretraining. (2026-05-07)
-- [[leworldmodel-howto|LeWorldModel — train and run howto]] — install, train, and evaluate LeWM on a single GPU. (2026-05-07)
-- [[openusd-support-across-simulators|OpenUSD support across simulators]] — catalog of which simulators consume USD, how, and which are exceptions. (2026-05-07)
-- [[why-jepa-research-skips-the-simulator-stack|Why JEPA research skips the simulator stack]] — JEPA literature fragments across sim weight classes (none / light / mid / heavy). Major revision after 5 new ingests. (updated 2026-05-07)
-- [[jepa-task-capabilities|JEPA task capabilities]] — reference index of seven task categories JEPA models demonstrate, mapped per-paper. (2026-05-08)
-- [[lewm-on-rosorin-pro-feasibility|LeWM on ROSOrin Pro — feasibility analysis]] — what's missing to deploy LeWM on Hiwonder ROSOrin Pro; realistic path; risks. (2026-05-08)
-- [[lewm-on-stretch-feasibility|LeWM on Stretch — feasibility analysis]] — companion: Stretch resolves the teleop-data blocker via RUM's open dataset; concrete LeWM-vs-RUM-BC experiment design. (2026-05-08)
-- [[robot-platforms-comparison|Robot platforms — comparison]] — at-a-glance table of every robot entity in the wiki by tier / type / use; flags missing humanoids + cross-tier transfer gap. (2026-05-08)
-- [[humanoid-platforms-survey|Humanoid platforms survey]] — companion to robot-platforms-comparison focused on humanoids; 10 entities listed by tier; AI-strategy archetypes + price stratification. (2026-05-08)
-- [[household-robot-decision-stretch-vs-g1|Household robot decision — Stretch vs Unitree G1]] — buying-decision comparison for navigate + floor pickup + dishes + cans use case. Recommends Stretch. (2026-05-08)
-- [[jepa-project-ladder-rosorin-pro|JEPA project ladder for ROSOrin Pro]] — six-rung educational/research project ladder for learning JEPA on ROSOrin Pro hardware. (2026-05-08)
-- [[lewm-hello-world-project-scope|LeWM hello world — Project 1 detailed scope]] — phase-by-phase plan for reproducing LeWM PushT, training from scratch, one-knob ablation. (2026-05-08)
-- [[frc-simulation-and-ai-landscape|FRC simulation & AI landscape]] — what simulation programs FRC teams use for autonomous dev and AI training; three-tier analysis (trajectory planners / physics sims / ML frontier); Team 254 presentation deep-dive. (updated 2026-05-08)
+- [Simulators for agentic robotics — 2026 landscape](syntheses/simulators-for-agentic-robotics-2026.md) — full landscape survey, 6 categories. (updated 2026-05-07)
+- [LLM-agent architecture across stacks](syntheses/llm-agent-architecture-across-stacks.md) — three-way comparison of stretch_ai, ROSOrin, OpenClaw. (2026-05-07)
+- [Generative-video vs JEPA world models](syntheses/generative-video-vs-jepa-world-models.md) — what each predicts, costs, and demonstrates. (2026-05-07)
+- [Newton + OpenUSD — the substrate convergence](syntheses/newton-openusd-substrate-convergence.md) — vendor-neutral physics + scene format across Isaac Lab and MuJoCo Playground. (2026-05-07)
+- [Sim-heavy vs real-data paths to generalist policies](syntheses/sim-heavy-vs-real-data-paths.md) — three-path comparison: synthetic teleop, real demos, observation pretraining. (2026-05-07)
+- [LeWorldModel — train and run howto](syntheses/leworldmodel-howto.md) — install, train, and evaluate LeWM on a single GPU. (2026-05-07)
+- [OpenUSD support across simulators](syntheses/openusd-support-across-simulators.md) — catalog of which simulators consume USD, how, and which are exceptions. (2026-05-07)
+- [Why JEPA research skips the simulator stack](syntheses/why-jepa-research-skips-the-simulator-stack.md) — JEPA literature fragments across sim weight classes (none / light / mid / heavy). Major revision after 5 new ingests. (updated 2026-05-07)
+- [JEPA task capabilities](syntheses/jepa-task-capabilities.md) — reference index of seven task categories JEPA models demonstrate, mapped per-paper. (2026-05-08)
+- [LeWM on ROSOrin Pro — feasibility analysis](syntheses/lewm-on-rosorin-pro-feasibility.md) — what's missing to deploy LeWM on Hiwonder ROSOrin Pro; realistic path; risks. (2026-05-08)
+- [LeWM on Stretch — feasibility analysis](syntheses/lewm-on-stretch-feasibility.md) — companion: Stretch resolves the teleop-data blocker via RUM's open dataset; concrete LeWM-vs-RUM-BC experiment design. (2026-05-08)
+- [Robot platforms — comparison](syntheses/robot-platforms-comparison.md) — at-a-glance table of every robot entity in the wiki by tier / type / use; flags missing humanoids + cross-tier transfer gap. (2026-05-08)
+- [Humanoid platforms survey](syntheses/humanoid-platforms-survey.md) — companion to robot-platforms-comparison focused on humanoids; 10 entities listed by tier; AI-strategy archetypes + price stratification. (2026-05-08)
+- [Household robot decision — Stretch vs Unitree G1](syntheses/household-robot-decision-stretch-vs-g1.md) — buying-decision comparison for navigate + floor pickup + dishes + cans use case. Recommends Stretch. (2026-05-08)
+- [JEPA project ladder for ROSOrin Pro](syntheses/jepa-project-ladder-rosorin-pro.md) — six-rung educational/research project ladder for learning JEPA on ROSOrin Pro hardware. (2026-05-08)
+- [LeWM hello world — Project 1 detailed scope](syntheses/lewm-hello-world-project-scope.md) — phase-by-phase plan for reproducing LeWM PushT, training from scratch, one-knob ablation. (2026-05-08)
+- [FRC simulation & AI landscape](syntheses/frc-simulation-and-ai-landscape.md) — what simulation programs FRC teams use for autonomous dev and AI training; three-tier analysis (trajectory planners / physics sims / ML frontier); Team 254 presentation deep-dive. (updated 2026-05-08)
 
 ### JEPA-related concepts/entities/sources to potentially expand
-- Metaworld — referenced by [[jepa-wms-paper|JEPA-WMs]] (42 tasks); deserves an entity page.
-- LIBERO / LIBERO-Plus — referenced by [[vla-jepa-paper|VLA-JEPA]]; benchmark concept/source pages.
-- SimplerEnv — referenced by [[vla-jepa-paper|VLA-JEPA]]; mid-weight Sapien-adjacent simulator.
-- `stable-worldmodel` package — env zoo broader than [[leworldmodel-howto|LeWM howto]] exposed; verify and update.
+- Metaworld — referenced by [JEPA-WMs](sources/jepa-wms-paper.md) (42 tasks); deserves an entity page.
+- LIBERO / LIBERO-Plus — referenced by [VLA-JEPA](sources/vla-jepa-paper.md); benchmark concept/source pages.
+- SimplerEnv — referenced by [VLA-JEPA](sources/vla-jepa-paper.md); mid-weight Sapien-adjacent simulator.
+- `stable-worldmodel` package — env zoo broader than [LeWM howto](syntheses/leworldmodel-howto.md) exposed; verify and update.
 - PLDM — comparison baseline for LeWM; needs primary-source ingest.
 - DreamerV3, TD-MPC — also referenced as JEPA baselines.
 
@@ -229,26 +229,26 @@ Curated entry points across the wiki.
 - Webots, CoppeliaSim, PyBullet entity pages (low priority — not agentic-robotics center of gravity)
 - Pi (Physical Intelligence) entity + simulation approach
 - Skild AI entity + approach
-- RoboMimic benchmark concept/source pages ([[libero|LIBERO]] now filed)
+- RoboMimic benchmark concept/source pages ([LIBERO](entities/libero.md) now filed)
 - TRI LBM (Toyota Research Institute Large Behavior Model) — referenced in RoboCasa365 paper as baseline
 - Octo — referenced in RoboCasa365 paper as baseline
 - Stretch Mujoco — Hello Robot's MuJoCo wrapper; thin or substantive?
-- Dreamer/DreamerV3, TD-MPC, PLDM — world-model baselines referenced in LeWorldModel paper ([[dino-wm|DINO-WM]] now filed)
+- Dreamer/DreamerV3, TD-MPC, PLDM — world-model baselines referenced in LeWorldModel paper ([DINO-WM](entities/dino-wm.md) now filed)
 - DROID paper itself (arxiv 2403.12945), Metaworld paper (arxiv 1910.10897), DINOv2 paper (arxiv 2304.07193), Dobb·E paper (arxiv 2306.16650), VQ-BeT paper (Lee et al. 2024), Diffusion Policy paper (arxiv 2303.04137), IBC paper (Florence et al. 2021, PushT origin) — entity pages exist but the papers themselves are not yet source pages; would let us cite design rationale directly
 - StepFun — Chinese multimodal AI provider used by ROSOrin's Chinese-language fallback
 - sherpa-onnx — offline ASR + TTS toolkit used by ROSOrin
 - WonderEcho Pro — Hiwonder voice module accessory
 - Hiwonder vision/CV chapter (YOLOv11 + TensorRT) — could warrant its own concept/source page on a deeper ingest
 - HX-12H bus servo, COIN-D6 LiDAR, Deptrum Aurora930 depth camera, MPU6050 IMU — hardware-component pages on demand
-- People pages (low priority remaining): Aaron Edsinger, Mahmoud Assran, Alexander Khazatsky, Pulkit Agrawal, Pieter Abbeel, Cheng Chi, Seungjae Lee — surfacing from DROID + RUM + V-JEPA + RUM-paper ingest. ([[yann-lecun|Yann LeCun]], [[adrien-bardes|Adrien Bardes]], [[basile-terver|Basile Terver]], [[sergey-levine|Sergey Levine]], [[chelsea-finn|Chelsea Finn]], [[lerrel-pinto|Lerrel Pinto]], [[yuke-zhu|Yuke Zhu]], [[karl-pertsch|Karl Pertsch]], [[mahi-shafiullah|Mahi Shafiullah]] now filed.)
-- Farama projects not ingested as standalone pages: Minari (offline RL dataset standard), Shimmy (DM Control / OpenSpiel bridge), MO-Gymnasium, MOMAland, MAgent2, MPE2, Minigrid, MiniWoB++, ViZDoom, ALE, HighwayEnv, Procgen2, Stable-Retro, Jumpy — listed in [[farama-projects-page|Farama Foundation Projects Page]]; promote to entity pages if they show up in a robotics paper. ([[metaworld|Metaworld]] now filed.)
+- People pages (low priority remaining): Aaron Edsinger, Mahmoud Assran, Alexander Khazatsky, Pulkit Agrawal, Pieter Abbeel, Cheng Chi, Seungjae Lee — surfacing from DROID + RUM + V-JEPA + RUM-paper ingest. ([Yann LeCun](entities/yann-lecun.md), [Adrien Bardes](entities/adrien-bardes.md), [Basile Terver](entities/basile-terver.md), [Sergey Levine](entities/sergey-levine.md), [Chelsea Finn](entities/chelsea-finn.md), [Lerrel Pinto](entities/lerrel-pinto.md), [Yuke Zhu](entities/yuke-zhu.md), [Karl Pertsch](entities/karl-pertsch.md), [Mahi Shafiullah](entities/mahi-shafiullah.md) now filed.)
+- Farama projects not ingested as standalone pages: Minari (offline RL dataset standard), Shimmy (DM Control / OpenSpiel bridge), MO-Gymnasium, MOMAland, MAgent2, MPE2, Minigrid, MiniWoB++, ViZDoom, ALE, HighwayEnv, Procgen2, Stable-Retro, Jumpy — listed in [Farama Foundation Projects Page](sources/farama-projects-page.md); promote to entity pages if they show up in a robotics paper. ([Metaworld](entities/metaworld.md) now filed.)
 - Gymnasium-Robotics env families not ingested as standalone pages: Fetch, Shadow Hand, Maze (Ant/Point), Adroit (Door/Hammer/Pen/Relocate — staple in D4RL offline RL eval), Franka Kitchen (multi-task kitchen), MaMuJoCo (multi-agent locomotion). Promote when referenced.
-- Humanoids not yet filed: AGIBOT humanoid hardware (A2/X1/X2 — [[agibot|company]] is filed), Fourier GR-1/GR-2, LimX CL-2/CL-3, Booster T1, EngineAI PM01 (Chinese affordable). PAL TIAGo/TALOS, Pepper, Robotis OP3/DARwIn-MINI, Sanctuary Phoenix, Kawasaki Kaleido, AIST HRP-5P, Toyota T-HR3 (research / educational). See [[humanoid-platforms-survey|humanoid-platforms-survey]] for landscape context.
-- Boston Dynamics Spot — quadruped reference platform; no entity page ([[atlas|Atlas]] is filed).
+- Humanoids not yet filed: AGIBOT humanoid hardware (A2/X1/X2 — [company](entities/agibot.md) is filed), Fourier GR-1/GR-2, LimX CL-2/CL-3, Booster T1, EngineAI PM01 (Chinese affordable). PAL TIAGo/TALOS, Pepper, Robotis OP3/DARwIn-MINI, Sanctuary Phoenix, Kawasaki Kaleido, AIST HRP-5P, Toyota T-HR3 (research / educational). See [humanoid-platforms-survey](syntheses/humanoid-platforms-survey.md) for landscape context.
+- Boston Dynamics Spot — quadruped reference platform; no entity page ([Atlas](entities/atlas.md) is filed).
 - Maple-Sim — Shenzhen Robotics Alliance's dyn4j-based FRC physics simulator; most active FRC sim project. Entity page on demand.
 - xRC Simulator — standalone Unity-based FRC driving/strategy simulator. Entity page on demand.
 - WPILib — open-source FRC software framework. Core to the entire FRC software ecosystem. Deserves entity page.
 - PhotonVision / Limelight — FRC vision processing solutions for AprilTag detection. Entity pages on demand.
 - Chief Delphi — FRC community forum; primary knowledge-sharing platform. Entity page on demand.
-- ~~Team 254~~ — now filed as [[team-254|Team 254: The Cheesy Poofs]].
+- ~~Team 254~~ — now filed as [Team 254: The Cheesy Poofs](entities/team-254.md).
 - MathWorks / MATLAB — FRC sponsor; provides MATLAB + Simulink for autonomous algorithm design. Entity page on demand.
