@@ -28,3 +28,5 @@ Cosmos is the underlying generative video model that's enabling the rise of [[wo
 - [[agibot-genie-envisioner-2-announcement|AGIBOT Genie Envisioner 2.0 Announcement]]
 - [[top-10-physical-ai-models-2026|Top 10 Physical AI Models 2026]]
 - [[nvidia-openusd-for-robotic-simulation|Using OpenUSD for Modular and Scalable Robotic Simulation]]
+- [[nvidia-newton-contact-rich-manipulation-blog|NVIDIA Newton Contact-Rich Manipulation Blog]]
+- [[v-jepa-2-paper|V-JEPA 2 Paper]]

@@ -27,6 +27,7 @@ tags: [vla-jepa, jepa, vla-models, libero, simplerenv, world-model]
 ## Concepts touched
 - [[jepa|Joint-Embedding Predictive Architecture]] — JEPA-as-auxiliary-objective in a VLA pipeline.
 - [[vla-models|VLA models]] — policy class.
+- [[world-model|World model]] — JEPA-as-auxiliary design point.
 - [[world-model-simulators|World-model simulators]] — latent-prediction paradigm.
 
 ## Open questions

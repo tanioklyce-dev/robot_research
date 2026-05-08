@@ -31,9 +31,14 @@ Two-stage self-supervised world-model paper from [[meta-fair|FAIR at Meta]] (wit
 - [[meta-fair|Meta FAIR]]
 - [[mila|Mila]]
 - [[droid|DROID]] — post-training data source (62 hr subset).
+- [[franka-panda|Franka Panda]] — real-robot eval platform.
+- [[yann-lecun|Yann LeCun]] — senior author.
+- [[adrien-bardes|Adrien Bardes]] — co-senior author.
+- [[nvidia-cosmos|NVIDIA Cosmos]] / [[genie-envisioner|Genie Envisioner]] — paradigmatic-contrast generative-video world models (cited as comparison points).
 
 ## Concepts touched
 - [[jepa|Joint-Embedding Predictive Architecture]]
+- [[world-model|World model]] — JEPA is one design point under this umbrella.
 - [[world-model-simulators|World-model simulators]] — latent-prediction paradigm (vs. video generation)
 - [[sim-to-real-transfer|Sim-to-real transfer]] — zero-shot to new robot environments
 

@@ -35,7 +35,7 @@
 
 ### Companies
 - [[nvidia|NVIDIA]] — owns most of the agentic-robotics simulation substrate. (8 sources)
-- [[hiwonder|Hiwonder]] — Chinese educational-robotics vendor; ROSOrin / ROSOrin Pro kits + OpenClaw. (3 sources) _stub_
+- [[hiwonder|Hiwonder]] — Chinese educational-robotics vendor; ROSOrin / ROSOrin Pro kits + OpenClaw. (3 sources)
 - [[agibot|AGIBOT]] — Shanghai embodied-AI / humanoid company. Open-source-heavy. (3 sources)
 - [[hello-robot|Hello Robot]] — Stretch mobile manipulator + stretch_ai stack. (3 sources)
 - [[meta-fair|Meta FAIR]] — Yann LeCun's lab; JEPA research line. (1 source)
@@ -59,21 +59,27 @@
 - [[gymnasium-robotics|Gymnasium-Robotics]] — Farama's [[mujoco|MuJoCo]]-backed robotics envs (Fetch / Hand / Maze / Adroit / Franka Kitchen / MaMuJoCo). (2 sources)
 - [[metaworld|Metaworld]] — Stanford/Berkeley meta-RL benchmark; 50 manipulation tasks on simulated Sawyer; staple across V-JEPA-line work. (3 sources)
 - [[pusht|PushT]] — 2D T-block pushing benchmark; default lightweight bench across LeWM / DINO-WM / JEPA-WMs. (3 sources)
+- [[pointmaze|PointMaze]] — 2D point-mass maze navigation; default lightweight nav bench across LeWM / DINO-WM / JEPA-WMs. (3 sources)
+- [[dm-control|DM Control Suite]] — DeepMind continuous-control RL benchmark on top of MuJoCo; pre-Gymnasium-Robotics legacy substrate. (2 sources)
+- [[libero|LIBERO]] — lifelong-learning manipulation benchmark; de-facto VLA-eval bench (Spatial / Object / Goal / 100 task families). (1 source)
+- [[simplerenv|SimplerEnv]] — Sapien-adjacent mid-weight sim positioned as real-world-correlation harness; used by VLA-JEPA. (1 source)
+- [[habitat|Habitat]] — Meta FAIR embodied-AI sim (navigation + manipulation in photorealistic 3D scenes); legacy substrate. (1 source)
 
 ### RL API standards
 - [[gymnasium|Gymnasium]] — single-agent RL env API; OpenAI gym successor under Farama. (2 sources)
-- [[pettingzoo|PettingZoo]] — multi-agent RL env API. (2 sources) _stub_
+- [[pettingzoo|PettingZoo]] — multi-agent RL env API. (2 sources)
 
 ### Robot platforms
 - [[franka-panda|Franka Panda]] — 7-DOF research-grade arm; default tabletop manipulator across DROID, V-JEPA 2, JEPA-WMs, RUM. (4 sources)
 - [[stretch|Stretch]] — Hello Robot's mobile manipulator (Stretch 3). De-facto research platform. (3 sources)
 - [[rosorin|ROSOrin]] — Hiwonder's Jetson Orin Nano educational mobile robot kit. (2 sources)
 - [[rosorin-pro|ROSOrin Pro]] — Hiwonder's 6-DOF arm + base variant of ROSOrin. (2 sources)
-- [[rosorin-pro-arm|ROSOrin Pro 6-DOF arm]] — HX-12H-servo manipulator on the ROSOrin Pro kit. (2 sources) _stub_
+- [[rosorin-pro-arm|ROSOrin Pro 6-DOF arm]] — HX-12H-servo manipulator on the ROSOrin Pro kit. (2 sources)
 
 ### Software stacks
 - [[stretch-ai|stretch_ai]] — Hello Robot's open-source Python stack with an LLM agent. (4 sources)
 - [[openclaw|OpenClaw]] — Hiwonder's manipulation-aware LLM-agent framework for ROSOrin Pro. (1 source)
+- [[stable-worldmodel|stable-worldmodel]] — Python infrastructure under LeWorldModel (env zoo + planning API + dataset format). DM Control + Gymnasium-Robotics Fetch + classic + OGBench + more. (1 source)
 
 ### Formats / standards
 - [[openusd|OpenUSD]] — open scene-description + robotics physics-schema layer (UsdPhysics, MjcPhysics, NewtonSceneAPI). (4 sources)
@@ -95,11 +101,11 @@
 - [[vla-jepa|VLA-JEPA]] — JEPA-as-auxiliary inside a VLA policy. (1 source)
 
 ### VLA models / generalist policies
-- [[nvidia-groot|NVIDIA GR00T]] — open VLA bundled with Isaac Lab. (3 sources) _stub_
+- [[nvidia-groot|NVIDIA GR00T]] — open VLA bundled with Isaac Lab. (3 sources)
 - [[robot-utility-models|Robot Utility Models]] — NYU/Meta zero-shot mobile-manipulation BC. (1 source)
 
 ### LLMs
-- [[qwen|Qwen]] — Alibaba's open-weights LLM family. Default local LLM in both stretch_ai (3B) and ROSOrin (1.7B). (2 sources) _stub_
+- [[qwen|Qwen]] — Alibaba's open-weights LLM family. Default local LLM in both stretch_ai (3B) and ROSOrin (1.7B). (2 sources)
 
 ### Tools
 - [[ollama|Ollama]] — local LLM runtime (used by ROSOrin offline curriculum). (1 source) _stub_
@@ -109,6 +115,11 @@
 - [[yann-lecun|Yann LeCun]] — Meta VP / NYU; Turing Award 2018; architect of the JEPA program. Senior on 6 wiki sources. (6 sources)
 - [[adrien-bardes|Adrien Bardes]] — FAIR researcher; co-senior on V-JEPA 2, V-JEPA 2.1, JEPA-WMs. The FAIR-side champion of the V-JEPA program. (3 sources)
 - [[basile-terver|Basile Terver]] — researcher (FAIR-affiliated, inferred); bread-crumb across DINO-world → JEPA-WMs lineage. (2 sources)
+- [[sergey-levine|Sergey Levine]] — UC Berkeley EECS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)
+- [[chelsea-finn|Chelsea Finn]] — Stanford CS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)
+- [[lerrel-pinto|Lerrel Pinto]] — NYU CS; co-senior on DINO-WM + co-author on RUM. (2 sources)
+- [[yuke-zhu|Yuke Zhu]] — UT Austin / NVIDIA Research; senior on RoboCasa365. (1 source)
+- [[karl-pertsch|Karl Pertsch]] — DROID co-lead with Khazatsky; Berkeley/Stanford. (0 source pages yet — referenced via entity pages)
 
 ## Concepts
 - [[world-model|World model]] — umbrella concept: learned predictive model of environment dynamics (generative-video / JEPA / frozen-feature / model-based-RL). (11 sources)
@@ -148,20 +159,19 @@
 - Webots, CoppeliaSim, PyBullet entity pages (low priority — not agentic-robotics center of gravity)
 - Pi (Physical Intelligence) entity + simulation approach
 - Skild AI entity + approach
-- LIBERO, RoboMimic benchmark concept/source pages
+- RoboMimic benchmark concept/source pages ([[libero|LIBERO]] now filed)
 - TRI LBM (Toyota Research Institute Large Behavior Model) — referenced in RoboCasa365 paper as baseline
 - Octo — referenced in RoboCasa365 paper as baseline
 - Stretch Mujoco — Hello Robot's MuJoCo wrapper; thin or substantive?
 - xArm 7 — UFactory manipulator used as cross-embodiment target by Robot Utility Models
-- DINO-WM, Dreamer/DreamerV3, TD-MPC, PLDM — world-model baselines referenced in LeWorldModel paper
-- DROID paper itself (arxiv 2403.12945) — entity page exists at [[droid|DROID]] but the paper is not yet a source page; would let us cite design rationale directly
-- Habitat (Meta) — embodied-AI sim, mentioned as legacy in synthesis
+- Dreamer/DreamerV3, TD-MPC, PLDM — world-model baselines referenced in LeWorldModel paper ([[dino-wm|DINO-WM]] now filed)
+- DROID paper itself (arxiv 2403.12945), Metaworld paper (arxiv 1910.10897), DINOv2 paper (arxiv 2304.07193) — entity pages exist at [[droid|DROID]], [[metaworld|Metaworld]], [[dinov2|DINOv2]] but the papers themselves are not yet source pages; would let us cite design rationale directly
 - TurtleBot — canonical educational ROS robot, useful comparison for ROSOrin
 - StepFun — Chinese multimodal AI provider used by ROSOrin's Chinese-language fallback
 - sherpa-onnx — offline ASR + TTS toolkit used by ROSOrin
 - WonderEcho Pro — Hiwonder voice module accessory
 - Hiwonder vision/CV chapter (YOLOv11 + TensorRT) — could warrant its own concept/source page on a deeper ingest
 - HX-12H bus servo, COIN-D6 LiDAR, Deptrum Aurora930 depth camera, MPU6050 IMU — hardware-component pages on demand
-- People pages (low priority remaining): Aaron Edsinger, Mahi Shafiullah, Yuke Zhu, Mahmoud Assran, Sergey Levine, Chelsea Finn, Karl Pertsch, Alexander Khazatsky, Lerrel Pinto, Pulkit Agrawal — surfacing from DROID + RUM + DINO-WM ingest. ([[yann-lecun|Yann LeCun]], [[adrien-bardes|Adrien Bardes]], [[basile-terver|Basile Terver]] now filed.)
+- People pages (low priority remaining): Aaron Edsinger, Mahi Shafiullah, Mahmoud Assran, Alexander Khazatsky, Pulkit Agrawal, Pieter Abbeel — surfacing from DROID + RUM + V-JEPA ingest. ([[yann-lecun|Yann LeCun]], [[adrien-bardes|Adrien Bardes]], [[basile-terver|Basile Terver]], [[sergey-levine|Sergey Levine]], [[chelsea-finn|Chelsea Finn]], [[lerrel-pinto|Lerrel Pinto]], [[yuke-zhu|Yuke Zhu]], [[karl-pertsch|Karl Pertsch]] now filed.)
 - Farama projects not ingested as standalone pages: Minari (offline RL dataset standard), Shimmy (DM Control / OpenSpiel bridge), MO-Gymnasium, MOMAland, MAgent2, MPE2, Minigrid, MiniWoB++, ViZDoom, ALE, HighwayEnv, Procgen2, Stable-Retro, Jumpy — listed in [[farama-projects-page|Farama Foundation Projects Page]]; promote to entity pages if they show up in a robotics paper. ([[metaworld|Metaworld]] now filed.)
 - Gymnasium-Robotics env families not ingested as standalone pages: Fetch, Shadow Hand, Maze (Ant/Point), Adroit (Door/Hammer/Pen/Relocate — staple in D4RL offline RL eval), Franka Kitchen (multi-task kitchen), MaMuJoCo (multi-agent locomotion). Promote when referenced.

@@ -31,3 +31,4 @@ Combines a research-grade evaluation harness (largest open embodied-AI dataset, 
 
 ## Mentioned in
 - [[agibot-genie-sim-3-announcement|AGIBOT Genie Sim 3.0 Announcement]]
+- [[maniskill-hab-paper|ManiSkill-HAB Paper]]

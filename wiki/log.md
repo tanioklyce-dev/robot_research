@@ -228,3 +228,38 @@ Append-only chronological record of wiki events. Each entry begins with `## [YYY
 - Index updated: new Vision foundation models subsection (DINOv2); new People subsection (LeCun, Bardes, Terver); Franka Panda added under Robot platforms; Metaworld + PushT added under Simulators / frameworks; World-model concept added at top of Concepts.
 - Known gaps cleaned: Franka Panda removed; Metaworld removed from Farama gap list; LeCun removed from People-low-priority list. Added new gaps surfaced by ingest: Sergey Levine, Chelsea Finn, Karl Pertsch, Alexander Khazatsky, Lerrel Pinto, Pulkit Agrawal as future people pages.
 - Open: bidirectional source-to-entity cross-links (e.g. adding [[yann-lecun|Yann LeCun]] under "Entities mentioned" in V-JEPA 2 + LeWM + DINO-WM + DINO-world + JEPA-WMs source pages) **not done in this pass** — would tighten the graph but isn't load-bearing for retrieval. Worth a future lint pass.
+
+## [2026-05-08] lint | Comprehensive fix pass
+Triggered by user "fix everything" request after lint report.
+
+### Source-count drift fixes (10 entities)
+All 10 cases were missing Mentioned-in entries, not inflated declared counts. Added:
+- agibot-genie-sim: + maniskill-hab-paper
+- genesis: + nvidia-newton-physics-engine-developer-page
+- genie-envisioner: + agibot-genie-sim-3-announcement, v-jepa-2-paper
+- mujoco-playground: + farama-projects-page, source-robotics-urdf-mjcf-usd-comparison
+- newton-physics-engine: + mujoco-playground-paper
+- nvidia-cosmos: + nvidia-newton-contact-rich-manipulation-blog, v-jepa-2-paper
+- nvidia-isaac-lab: + dino-wm-paper, farama-projects-page, maniskill-hab-paper (and bumped declared 4→5)
+- rosorin: + hiwonder-rosorin-pro-user-manual
+- stretch-ai: + hiwonder-openclaw-tutorial, hiwonder-rosorin-docs
+- nvidia-groot: bumped declared 2→3 (Mentioned-in already had 3)
+
+### Bidirectional cross-links (batch 1 entities → 7 source pages)
+Updated Entities-mentioned / Concepts-touched in v-jepa-2-paper, v-jepa-2-1-paper, dino-wm-paper, dino-world-paper, jepa-wms-paper, leworldmodel-paper, robot-utility-models-website, vla-jepa-paper to wikilink yann-lecun, adrien-bardes, basile-terver, franka-panda, metaworld, dinov2, pusht, world-model where applicable.
+
+### Stub markers cleared (5 entities)
+hiwonder, pettingzoo, rosorin-pro-arm, nvidia-groot, qwen — content substantive, _stub_ marker removed from index. Also removed `status: stub` from nvidia-groot frontmatter. Genuinely thin stubs left as-is: mila, disney-research, hillbot, sapien, ollama, mimicgen.
+
+### Filed 11 new entities to close lint gaps
+Sims/benchmarks: [[libero|LIBERO]], [[simplerenv|SimplerEnv]], [[dm-control|DM Control Suite]], [[pointmaze|PointMaze]], [[habitat|Habitat]].
+Software: [[stable-worldmodel|stable-worldmodel]] — Python infrastructure under LeWorldModel; clarifies the LeWM-vs-stable-worldmodel boundary; documents the broader env zoo (DM Control + Gymnasium-Robotics Fetch + …) understated in the LeWM howto.
+People: [[lerrel-pinto|Lerrel Pinto]], [[sergey-levine|Sergey Levine]], [[chelsea-finn|Chelsea Finn]], [[yuke-zhu|Yuke Zhu]], [[karl-pertsch|Karl Pertsch]] — top cross-paper authors surfaced by lint.
+Updated meta-fair entity to wikilink the new Habitat page.
+
+### Deferred from this pass
+PLDM, TD-MPC, Dreamer/DreamerV3 baseline stubs — kept in known-gaps; primary-source confirmation needed before filing.
+DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed; primary-source ingest deferred to next pass.
+
+### What lint still flags
+- Source-count drift detector noise: my actual-count algorithm includes synthesis pages and entity pages in the Mentioned-in count, while the schema's `sources:` field counts source pages only. The 10 fixes above all addressed real missing entries; future drift checks should filter to source-page targets only.

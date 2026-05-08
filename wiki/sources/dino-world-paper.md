@@ -26,9 +26,13 @@ tags: [dino-world, dinov2, world-model, video-prediction, jepa-adjacent, fair, m
 - [[dino-world|DINO-world]] — model (entity created with this ingest).
 - [[meta-fair|Meta FAIR]] — inferred affiliation.
 - [[dino-wm|DINO-WM]] — design-space neighbor (both use DINOv2 features).
+- [[dinov2|DINOv2]] — frozen feature substrate.
+- [[yann-lecun|Yann LeCun]] — author.
+- [[basile-terver|Basile Terver]] — third author; bridge to JEPA-WMs.
 
 ## Concepts touched
 - [[jepa|Joint-Embedding Predictive Architecture]] — JEPA-adjacent (frozen encoder, latent prediction).
+- [[world-model|World model]] — frozen-foundation-feature video world model.
 - [[world-model-simulators|World-model simulators]] — latent-prediction paradigm.
 
 ## Open questions

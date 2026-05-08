@@ -4,9 +4,8 @@ type: entity
 subtype: product
 created: 2026-05-06
 updated: 2026-05-06
-sources: 2
+sources: 3
 tags: [groot, vla, nvidia, foundation-model, humanoid]
-status: stub
 ---
 
 NVIDIA's open, commercially-licensed [[vla-models|VLA]] foundation model line for humanoid robots. The flagship policy that ships with NVIDIA's Physical AI stack ([[nvidia-isaac-lab|NVIDIA Isaac Lab]], [[nvidia-isaac-sim|NVIDIA Isaac Sim]]).

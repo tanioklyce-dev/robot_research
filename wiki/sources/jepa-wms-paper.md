@@ -44,10 +44,17 @@ tags: [jepa, world-model, jepa-wms, robocasa, metaworld, droid, franka, fair, me
 - [[dino-wm|DINO-WM]] — baseline.
 - [[robocasa|RoboCasa]] — manipulation eval.
 - [[droid|DROID]] — real-robot dataset (raw stereo HD or non-stereo HD).
-- (Metaworld is referenced but does not yet have an entity page — listed in [[index|index.md]] gaps.)
+- [[metaworld|Metaworld]] — 42 tasks × 100 episodes used as eval data.
+- [[pusht|PushT]] — included in env list.
+- [[franka-panda|Franka Panda]] — real-robot eval platform (unroll decode evaluation).
+- [[dinov2|DINOv2]] — likely frozen-feature substrate (continuation of DINO-world's design).
+- [[yann-lecun|Yann LeCun]] — co-senior author.
+- [[adrien-bardes|Adrien Bardes]] — co-senior author.
+- [[basile-terver|Basile Terver]] — first author; bread-crumb from DINO-world.
 
 ## Concepts touched
 - [[jepa|Joint-Embedding Predictive Architecture]] — architecture family.
+- [[world-model|World model]] — physical-planning-with-world-model focus.
 - [[world-model-simulators|World-model simulators]] — latent-prediction paradigm.
 - [[sim-to-real-transfer|Sim-to-real transfer]] — sim + real-world robot evaluation in the same paper.
 

@@ -28,3 +28,5 @@ Presented at RSS 2025; widely cited for [[sim-to-real-transfer|Sim-to-real trans
 ## Mentioned in
 - [[mujoco-playground-paper|MuJoCo Playground Paper]]
 - [[nvidia-newton-physics-engine-developer-page|NVIDIA Newton Physics Engine Developer Page]]
+- [[farama-projects-page|Farama Foundation Projects Page]]
+- [[source-robotics-urdf-mjcf-usd-comparison|URDF vs MJCF vs USD comparison]]

@@ -30,9 +30,13 @@ Preprint introducing **LeWorldModel (LeWM)** — claimed as the **first JEPA tra
 ## Entities mentioned
 - [[leworldmodel|LeWorldModel]]
 - [[mila|Mila]]
+- [[yann-lecun|Yann LeCun]] — senior author.
+- [[pusht|PushT]] — one of four task datasets.
+- [[dino-wm|DINO-WM]] — comparison baseline (foundation-based JEPA).
 
 ## Concepts touched
 - [[jepa|Joint-Embedding Predictive Architecture]]
+- [[world-model|World model]] — end-to-end-pixel-trained design point.
 - [[world-model-simulators|World-model simulators]] — latent-prediction paradigm
 
 ## Open questions

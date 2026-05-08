@@ -24,9 +24,13 @@ tags: [v-jepa-2, jepa, world-model, dense-features, meta-fair, video, real-robot
 ## Entities mentioned
 - [[meta-fair|Meta FAIR]]
 - [[v-jepa-2|V-JEPA 2]] — predecessor.
+- [[yann-lecun|Yann LeCun]] — senior author.
+- [[adrien-bardes|Adrien Bardes]] — author.
+- [[franka-panda|Franka Panda]] — real-robot grasping platform (assumed; not explicit in abstract).
 
 ## Concepts touched
 - [[jepa|Joint-Embedding Predictive Architecture]]
+- [[world-model|World model]] — JEPA continues.
 - [[world-model-simulators|World-model simulators]] — latent-prediction paradigm continues.
 
 ## Open questions

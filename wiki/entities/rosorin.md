@@ -40,3 +40,4 @@ Concrete evidence that the **[[llm-agent-architecture|LLM-agent architecture pat
 
 ## Mentioned in
 - [[hiwonder-rosorin-docs|Hiwonder ROSOrin Documentation]]
+- [[hiwonder-rosorin-pro-user-manual|Hiwonder ROSOrin Pro User Manual]]

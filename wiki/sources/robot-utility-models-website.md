@@ -27,6 +27,7 @@ Project page for **Robot Utility Models (RUMs)** — a framework from NYU and Me
 - [[hello-robot|Hello Robot]]
 - [[stretch|Stretch]]
 - [[robot-utility-models|Robot Utility Models]]
+- [[franka-panda|Franka Panda]] — implicit cross-embodiment context (xArm 7 named explicitly; Franka not named in abstract but appears in adjacent literature comparing RUM transfer targets).
 
 ## Concepts touched
 - [[imitation-learning|Imitation learning]] / behavior cloning

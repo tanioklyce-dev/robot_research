@@ -29,3 +29,5 @@ Most concrete public example of an **LLM-controlled real-robot stack**. Unlike [
 ## Mentioned in
 - [[hello-robot-stretch-docs|Hello Robot Stretch Documentation]]
 - [[stretch-ai-llm-agent-docs|Stretch AI LLM Agent Documentation]]
+- [[hiwonder-openclaw-tutorial|Hiwonder OpenClaw Practical Tutorial]]
+- [[hiwonder-rosorin-docs|Hiwonder ROSOrin Documentation]]

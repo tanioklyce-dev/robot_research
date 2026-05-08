@@ -29,3 +29,5 @@ Most prominent example of the [[world-model-simulators|World-model simulators]] 
 ## Mentioned in
 - [[agibot-genie-envisioner-2-announcement|AGIBOT Genie Envisioner 2.0 Announcement]]
 - [[genie-envisioner-paper|Genie Envisioner Paper]]
+- [[agibot-genie-sim-3-announcement|AGIBOT Genie Sim 3.0 Announcement]]
+- [[v-jepa-2-paper|V-JEPA 2 Paper]]

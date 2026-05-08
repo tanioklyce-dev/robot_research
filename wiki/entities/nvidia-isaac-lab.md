@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-06
 updated: 2026-05-07
-sources: 4
+sources: 5
 tags: [framework, robot-learning, nvidia, isaac-lab, rl]
 ---
 
@@ -28,3 +28,6 @@ Isaac Lab 3.0 with the GA release of the [[newton-physics-engine|Newton physics 
 ## Mentioned in
 - [[nvidia-newton-physics-engine-developer-page|NVIDIA Newton Physics Engine Developer Page]]
 - [[nvidia-newton-contact-rich-manipulation-blog|NVIDIA Newton Contact-Rich Manipulation Blog]]
+- [[dino-wm-paper|DINO-WM Paper]]
+- [[farama-projects-page|Farama Foundation Projects Page]]
+- [[maniskill-hab-paper|ManiSkill-HAB Paper]]

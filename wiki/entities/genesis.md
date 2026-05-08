@@ -28,3 +28,4 @@ Active open-source project. Adoption claims are strong but real-world production
 
 ## Mentioned in
 - [[genesis-project-page|Genesis Project Page]]
+- [[nvidia-newton-physics-engine-developer-page|NVIDIA Newton Physics Engine Developer Page]]

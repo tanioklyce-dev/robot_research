@@ -15,7 +15,7 @@ Meta's Fundamental AI Research lab ("FAIR at Meta"). Center of gravity for the [
 - **Key people**: Yann LeCun (chief AI scientist), Mahmoud Assran, Adrien Bardes, Nicolas Ballas, Michael Rabbat, Franziska Meier (V-JEPA 2 core team). Adrien Bardes is also senior on [[jepa-wms-paper|JEPA-WMs]]. Basile Terver is the bread-crumb across [[dino-world-paper|DINO-world]] and [[jepa-wms-paper|JEPA-WMs]]. Federico Baldassarre + Piotr Bojanowski + Maximilian Seitzer carry the DINO-world line.
 - **Simulator stance — observed pattern, not stated.** Early FAIR JEPA work (V-JEPA 2, June 2025) skipped sim entirely. The Dec 2025 JEPA-WMs paper moved into [[robocasa|RoboCasa]] + Metaworld + DROID + real Franka. V-JEPA 2.1 (March 2026) sustains the no-sim line with internet-video benchmarks + real-robot eval. FAIR is hedging across both. See [[why-jepa-research-skips-the-simulator-stack|the revised synthesis]].
 - **Open source**: facebookresearch/vjepa2, facebookresearch/jepa-wms.
-- **Adjacent**: [[robot-utility-models|Robot Utility Models]] (Meta-affiliated co-authors). Habitat — embodied-AI sim suite (mentioned but no entity page yet).
+- **Adjacent**: [[robot-utility-models|Robot Utility Models]] (Meta-affiliated co-authors). [[habitat|Habitat]] — embodied-AI sim suite (note: notably absent from FAIR's own JEPA work despite shared institutional context).
 
 ## Why it matters
 With NVIDIA pushing generative video as the world-model paradigm and AGIBOT pushing simulator-native scene generation, **FAIR's bet is latent-prediction JEPA** — predict next-state representation, not pixels. The contrast between paradigms is one of the most consequential open questions in agentic robotics 2026.

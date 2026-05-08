@@ -30,9 +30,14 @@ tags: [dino-wm, world-model, dinov2, jepa-adjacent, zero-shot-planning, lecun, p
 - [[dino-wm|DINO-WM]] — model itself (entity created with this ingest).
 - [[meta-fair|Meta FAIR]] — co-affiliation.
 - [[mujoco|MuJoCo]] — likely physics backend.
+- [[dinov2|DINOv2]] — frozen encoder used as patch-feature substrate.
+- [[pusht|PushT]] — one of the six core eval environments.
+- [[yann-lecun|Yann LeCun]] — co-senior author.
+- [[nvidia-isaac-lab|NVIDIA Isaac Lab]] — referenced as platform context (no direct training there).
 
 ## Concepts touched
 - [[jepa|Joint-Embedding Predictive Architecture]] — JEPA-adjacent: predicts in DINOv2 latent space, but uses a frozen encoder rather than learning the encoder end-to-end.
+- [[world-model|World model]] — frozen-foundation-feature design point.
 - [[world-model-simulators|World-model simulators]] — latent-prediction paradigm.
 
 ## Open questions
