@@ -72,6 +72,7 @@
 
 ### Robot platforms
 - [[franka-panda|Franka Panda]] — 7-DOF research-grade arm; default tabletop manipulator across DROID, V-JEPA 2, JEPA-WMs, RUM. (5 sources)
+- [[xarm-7|xArm 7]] — UFactory commercial 7-DOF arm; secondary tabletop manipulator; RUM cross-embodiment transfer target (~10pt drop vs Stretch). (1 source) _stub_
 - [[stretch|Stretch]] — Hello Robot's mobile manipulator (Stretch 3). De-facto research platform. (4 sources)
 - [[rosorin|ROSOrin]] — Hiwonder's Jetson Orin Nano educational mobile robot kit. (2 sources)
 - [[rosorin-pro|ROSOrin Pro]] — Hiwonder's 6-DOF arm + base variant of ROSOrin. (2 sources)
@@ -104,6 +105,11 @@
 ### VLA models / generalist policies
 - [[nvidia-groot|NVIDIA GR00T]] — open VLA bundled with Isaac Lab. (3 sources)
 - [[robot-utility-models|Robot Utility Models]] — NYU/Meta zero-shot mobile-manipulation BC. (2 sources)
+- [[dobb-e|Dobb·E]] — NYU predecessor to RUM; HPR encoder + Stick-v1 + Homes of New York dataset. (1 source) _stub_
+
+### Behavior-cloning methods
+- [[vq-bet|VQ-BeT]] — Vector-Quantized Behavior Transformer (Lee et al. 2024); top performer in RUM ablation. (1 source) _stub_
+- [[diffusion-policy|Diffusion Policy]] — Chi et al. 2023, Columbia/TRI/MIT; introduced/popularized PushT + UMI gripper. (1 source) _stub_
 
 ### LLMs
 - [[qwen|Qwen]] — Alibaba's open-weights LLM family. Default local LLM in both stretch_ai (3B) and ROSOrin (1.7B). (2 sources)
@@ -121,6 +127,7 @@
 - [[lerrel-pinto|Lerrel Pinto]] — NYU CS; co-senior on DINO-WM + co-author on RUM. (3 sources)
 - [[yuke-zhu|Yuke Zhu]] — UT Austin / NVIDIA Research; senior on RoboCasa365. (1 source)
 - [[karl-pertsch|Karl Pertsch]] — DROID co-lead with Khazatsky; Berkeley/Stanford. (0 source pages yet — referenced via entity pages)
+- [[mahi-shafiullah|Mahi Shafiullah]] — NYU + Hello Robot; lead author on Dobb·E + RUM. (2 sources)
 
 ## Concepts
 - [[world-model|World model]] — umbrella concept: learned predictive model of environment dynamics (generative-video / JEPA / frozen-feature / model-based-RL). (11 sources)
@@ -166,15 +173,14 @@
 - TRI LBM (Toyota Research Institute Large Behavior Model) — referenced in RoboCasa365 paper as baseline
 - Octo — referenced in RoboCasa365 paper as baseline
 - Stretch Mujoco — Hello Robot's MuJoCo wrapper; thin or substantive?
-- xArm 7 — UFactory manipulator used as cross-embodiment target by Robot Utility Models
 - Dreamer/DreamerV3, TD-MPC, PLDM — world-model baselines referenced in LeWorldModel paper ([[dino-wm|DINO-WM]] now filed)
-- DROID paper itself (arxiv 2403.12945), Metaworld paper (arxiv 1910.10897), DINOv2 paper (arxiv 2304.07193) — entity pages exist at [[droid|DROID]], [[metaworld|Metaworld]], [[dinov2|DINOv2]] but the papers themselves are not yet source pages; would let us cite design rationale directly
+- DROID paper itself (arxiv 2403.12945), Metaworld paper (arxiv 1910.10897), DINOv2 paper (arxiv 2304.07193), Dobb·E paper (arxiv 2306.16650), VQ-BeT paper (Lee et al. 2024), Diffusion Policy paper (arxiv 2303.04137), IBC paper (Florence et al. 2021, PushT origin) — entity pages exist but the papers themselves are not yet source pages; would let us cite design rationale directly
 - TurtleBot — canonical educational ROS robot, useful comparison for ROSOrin
 - StepFun — Chinese multimodal AI provider used by ROSOrin's Chinese-language fallback
 - sherpa-onnx — offline ASR + TTS toolkit used by ROSOrin
 - WonderEcho Pro — Hiwonder voice module accessory
 - Hiwonder vision/CV chapter (YOLOv11 + TensorRT) — could warrant its own concept/source page on a deeper ingest
 - HX-12H bus servo, COIN-D6 LiDAR, Deptrum Aurora930 depth camera, MPU6050 IMU — hardware-component pages on demand
-- People pages (low priority remaining): Aaron Edsinger, Mahi Shafiullah, Mahmoud Assran, Alexander Khazatsky, Pulkit Agrawal, Pieter Abbeel — surfacing from DROID + RUM + V-JEPA ingest. ([[yann-lecun|Yann LeCun]], [[adrien-bardes|Adrien Bardes]], [[basile-terver|Basile Terver]], [[sergey-levine|Sergey Levine]], [[chelsea-finn|Chelsea Finn]], [[lerrel-pinto|Lerrel Pinto]], [[yuke-zhu|Yuke Zhu]], [[karl-pertsch|Karl Pertsch]] now filed.)
+- People pages (low priority remaining): Aaron Edsinger, Mahmoud Assran, Alexander Khazatsky, Pulkit Agrawal, Pieter Abbeel, Cheng Chi, Seungjae Lee — surfacing from DROID + RUM + V-JEPA + RUM-paper ingest. ([[yann-lecun|Yann LeCun]], [[adrien-bardes|Adrien Bardes]], [[basile-terver|Basile Terver]], [[sergey-levine|Sergey Levine]], [[chelsea-finn|Chelsea Finn]], [[lerrel-pinto|Lerrel Pinto]], [[yuke-zhu|Yuke Zhu]], [[karl-pertsch|Karl Pertsch]], [[mahi-shafiullah|Mahi Shafiullah]] now filed.)
 - Farama projects not ingested as standalone pages: Minari (offline RL dataset standard), Shimmy (DM Control / OpenSpiel bridge), MO-Gymnasium, MOMAland, MAgent2, MPE2, Minigrid, MiniWoB++, ViZDoom, ALE, HighwayEnv, Procgen2, Stable-Retro, Jumpy — listed in [[farama-projects-page|Farama Foundation Projects Page]]; promote to entity pages if they show up in a robotics paper. ([[metaworld|Metaworld]] now filed.)
 - Gymnasium-Robotics env families not ingested as standalone pages: Fetch, Shadow Hand, Maze (Ant/Point), Adroit (Door/Hammer/Pen/Relocate — staple in D4RL offline RL eval), Franka Kitchen (multi-task kitchen), MaMuJoCo (multi-agent locomotion). Promote when referenced.

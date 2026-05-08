@@ -8,7 +8,7 @@ sources: 3
 tags: [pusht, push-t, manipulation-benchmark, ibc, diffusion-policy, lightweight-sim]
 ---
 
-**PushT** (sometimes "Push-T") — **2D manipulation benchmark**: an end-effector must precisely **push a T-shaped block into a target region**, then move to an end-zone to terminate the episode. Originally introduced in **Implicit Behavior Cloning** (IBC, Florence et al., Google Research, CoRL 2021) and popularized further by **Diffusion Policy** (Chi et al., 2023). Now functions as a **default lightweight benchmark** across the world-model and imitation-learning literature.
+**PushT** (sometimes "Push-T") — **2D manipulation benchmark**: an end-effector must precisely **push a T-shaped block into a target region**, then move to an end-zone to terminate the episode. Originally introduced in **Implicit Behavior Cloning** (IBC, Florence et al., Google Research, CoRL 2021) and popularized further by [[diffusion-policy|Diffusion Policy]] (Chi et al., 2023). Now functions as a **default lightweight benchmark** across the world-model and imitation-learning literature.
 
 ## Task structure (from the diffusion-policy project page)
 > "the robot needs to precisely push the T-shaped block into the target region, and move the end-effector to the end-zone which terminates the episode."

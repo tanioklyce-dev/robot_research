@@ -23,7 +23,8 @@ If a future ingest brings in a Pinto-led paper that bridges those two — e.g. a
 
 ## Related
 - NYU CS — affiliation.
-- [[dino-wm|DINO-WM]] / [[robot-utility-models|Robot Utility Models]] — primary papers.
+- [[dino-wm|DINO-WM]] / [[robot-utility-models|Robot Utility Models]] / [[dobb-e|Dobb·E]] — primary papers (Pinto co-senior on Dobb·E + RUM with [[mahi-shafiullah|Mahi Shafiullah]] as lead).
+- [[mahi-shafiullah|Mahi Shafiullah]] — likely PhD advisee (lead author on Dobb·E + RUM).
 - [[meta-fair|Meta FAIR]] — frequent collaborator (LeCun on DINO-WM, multiple co-authors on RUM).
 - [[yann-lecun|Yann LeCun]] — DINO-WM co-senior.
 

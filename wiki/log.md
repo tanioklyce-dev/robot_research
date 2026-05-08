@@ -292,3 +292,15 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Updated concept: [[imitation-learning|Imitation learning]] (2→3).
 - Index: filed under Sources chronological; all source-count bumps reflected.
 - The paper provides the empirical backing for the [[lewm-on-rosorin-pro-feasibility|LeWM-on-ROSOrin-Pro feasibility]] synthesis's "RUM-on-Stretch is the closest deployment-shape precedent" claim.
+
+## [2026-05-08] entities | 5 follow-up pages from RUM-paper ingest
+- Created entity pages for the gaps surfaced at the end of the RUM-paper ingest:
+  - [[xarm-7|xArm 7]] — UFactory 7-DOF arm; RUM cross-embodiment transfer target.
+  - [[dobb-e|Dobb·E]] — NYU predecessor to RUM (Shafiullah et al. 2023, arxiv 2306.16650). HPR encoder + Stick-v1 + Homes of New York dataset.
+  - [[vq-bet|VQ-BeT]] — Vector-Quantized Behavior Transformer (Lee et al. 2024); top performer in RUM ablation.
+  - [[diffusion-policy|Diffusion Policy]] — Chi et al. 2023 (arxiv 2303.04137); introduced/popularized PushT + UMI gripper.
+  - [[mahi-shafiullah|Mahi Shafiullah]] — NYU + Hello Robot; lead author on Dobb·E and RUM.
+- All 5 marked as `_stub_` in the index — primary sources not yet ingested for any of them; they're anchored in existing wiki context (mostly RUM-paper references).
+- Updated [[robot-utility-models-paper|RUM paper source]] to wikilink the 5 new entities under "Entities mentioned." Updated [[pusht|PushT]] to wikilink Diffusion Policy. Updated [[lerrel-pinto|Lerrel Pinto]] to add Dobb·E + Shafiullah-as-advisee.
+- Index: new "Behavior-cloning methods" subsection added under Entities. xArm 7 added under Robot platforms. Dobb·E added under VLA models / generalist policies (alongside RUM). Shafiullah added under People.
+- Known gaps cleaned: xArm 7 removed; Mahi Shafiullah removed from People-low-priority list. New gaps surfaced: Cheng Chi, Seungjae Lee, plus standalone source pages for Dobb·E / VQ-BeT / Diffusion Policy / IBC.

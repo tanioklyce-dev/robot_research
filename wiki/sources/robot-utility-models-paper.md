@@ -59,9 +59,13 @@ Full-paper companion to the [[robot-utility-models-website|RUM project page]]. I
 - [[robot-utility-models|Robot Utility Models]]
 - [[stretch|Stretch]] / [[hello-robot|Hello Robot]] — primary deployment platform.
 - [[franka-panda|Franka Panda]] — referenced as alternative deployment target (custom end-effector mountable).
+- [[xarm-7|xArm 7]] — UFactory commercial 7-DOF arm; cross-embodiment transfer target (~10pt drop vs Stretch).
+- [[mahi-shafiullah|Mahi Shafiullah]] — co-equal lead author + corresponding author.
 - [[lerrel-pinto|Lerrel Pinto]] — co-senior author (NYU).
 - [[meta-fair|Meta]] — Soumith Chintala affiliation; Meta Inc.
-- xArm 7 (UFactory) — cross-embodiment transfer target (no entity page yet).
+- [[dobb-e|Dobb·E]] — predecessor system; provides HPR encoder + Homes of New York dataset.
+- [[vq-bet|VQ-BeT]] — top-performing policy class in the ablation.
+- [[diffusion-policy|Diffusion Policy]] — runner-up policy class.
 - gpt-4o (OpenAI) — mLLM critic (no entity page yet).
 
 ## Concepts touched
