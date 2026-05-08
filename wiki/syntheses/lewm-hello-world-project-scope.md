@@ -31,6 +31,10 @@ By the end you can answer four questions with your own evidence:
 
 **Total time**: ~2.5 working days.
 
+## Prerequisite reading
+
+Before Phase 1, read [[pusht|PushT § Concrete mechanics]] to understand exactly what the planner is operating on: the gray-T-on-target visual scene, the 2D continuous action space, the no-grasping push-only constraint, and why the task is hard despite being 2D. This is the substrate for every observation, action, and reward you'll see in the next four phases.
+
 ## Phase 1 · Reproduce pretrained PushT eval (~half day)
 
 Run the planner against the converted checkpoint and confirm it works.

@@ -350,3 +350,8 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Four success-criteria questions framed: paper success-rate match, from-scratch reproduction, two-loss behavior (MSE + SIGReg, anti-collapse canary), one-knob sensitivity.
 - Total ~2.5 days estimated. Connects forward to Project 2 (probes the from-scratch checkpoint) and Project 4 (reuses training pipeline with new dataset + action space).
 - Updated [[index|index.md]]: filed under Syntheses.
+
+## [2026-05-08] expand | PushT entity — concrete mechanics
+- Added "Concrete mechanics" section to [[pusht|PushT entity]]: visual scene (gray T, green target, blue end-effector circle), observation variants (image vs state), 2D continuous action space, episode structure (IoU > 0.95 success), why-it's-hard (rotational asymmetry + no regrasping + position precision), dataset shape.
+- Linked from [[lewm-hello-world-project-scope|LeWM hello world project scope]] as prerequisite reading before Phase 1.
+- Bumped `updated` date on the entity. No change to source count (no new sources ingested).
