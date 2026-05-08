@@ -33,6 +33,8 @@
 - [[v-jepa-2-1-paper|V-JEPA 2.1 Paper]] — direct successor to V-JEPA 2; "dense features" + +20pt real-Franka grasping. (2026-03)
 - [[frc-2026-game-manual|FRC 2026 Game Manual — REBUILT]] — 166-page rule book for FIRST Robotics Competition 2026; game mechanics, robot constraints, AprilTag field, scoring. (2026-01-10)
 - [[frc-kitbot-2026|FRC KitBot 2026]] — official KitBot resource page; AM14U6 chassis, Java code, CAD, multilingual docs. (2026-01)
+- [[team-254-ai-in-frc-presentation|Team 254: The Next Revolution — AI in FRC]] — 2026 Championship Conference presentation; Claude Code, wpilib-agent-tools, closed-loop agent workflows. (2026-05-04)
+- [[team-254-website|Team 254 Website]] — official site; robot history, programs, technical resources. (2026)
 
 ## Entities
 
@@ -49,6 +51,7 @@
 - [[disney-research|Disney Research]] — Newton co-developer with NVIDIA + DeepMind. (2 sources) _stub_
 - [[first-robotics-competition|FIRST Robotics Competition]] — world's leading high-school robotics competition; ~3,700 teams, 30+ countries. (2 sources)
 - [[andymark|AndyMark]] — major FRC vendor; AM14U6 chassis, field elements, FUEL scoring elements. (2 sources)
+- [[team-254|Team 254: The Cheesy Poofs]] — elite FRC team (2022 World Champions); 2026 "AI in FRC" presentation; Claude Code + wpilib-agent-tools. (2 sources)
 
 ### Simulators / frameworks
 - [[nvidia-isaac-sim|NVIDIA Isaac Sim]] — Omniverse-based robotics simulator. (4 sources)
@@ -178,7 +181,7 @@
 - [[household-robot-decision-stretch-vs-g1|Household robot decision — Stretch vs Unitree G1]] — buying-decision comparison for navigate + floor pickup + dishes + cans use case. Recommends Stretch. (2026-05-08)
 - [[jepa-project-ladder-rosorin-pro|JEPA project ladder for ROSOrin Pro]] — six-rung educational/research project ladder for learning JEPA on ROSOrin Pro hardware. (2026-05-08)
 - [[lewm-hello-world-project-scope|LeWM hello world — Project 1 detailed scope]] — phase-by-phase plan for reproducing LeWM PushT, training from scratch, one-knob ablation. (2026-05-08)
-- [[frc-simulation-and-ai-landscape|FRC simulation & AI landscape]] — what simulation programs FRC teams use for autonomous dev and AI training; three-tier analysis (trajectory planners / physics sims / ML frontier). (2026-05-08)
+- [[frc-simulation-and-ai-landscape|FRC simulation & AI landscape]] — what simulation programs FRC teams use for autonomous dev and AI training; three-tier analysis (trajectory planners / physics sims / ML frontier); Team 254 presentation deep-dive. (updated 2026-05-08)
 
 ### JEPA-related concepts/entities/sources to potentially expand
 - Metaworld — referenced by [[jepa-wms-paper|JEPA-WMs]] (42 tasks); deserves an entity page.
@@ -220,5 +223,5 @@
 - WPILib — open-source FRC software framework. Core to the entire FRC software ecosystem. Deserves entity page.
 - PhotonVision / Limelight — FRC vision processing solutions for AprilTag detection. Entity pages on demand.
 - Chief Delphi — FRC community forum; primary knowledge-sharing platform. Entity page on demand.
-- Team 254 (The Cheesy Poofs) — pioneering FRC team; 2026 "AI in FRC" presentation at Championship. Entity page on demand.
+- ~~Team 254~~ — now filed as [[team-254|Team 254: The Cheesy Poofs]].
 - MathWorks / MATLAB — FRC sponsor; provides MATLAB + Simulink for autonomous algorithm design. Entity page on demand.

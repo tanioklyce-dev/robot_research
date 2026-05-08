@@ -378,3 +378,10 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 
 ## [2026-05-08] maintenance | README update
 - Added "Where to start" sections to README.md for FRC content, JEPA/LeWM content, and ROSOrin JEPA project ladder with direct links to key pages.
+
+## [2026-05-08] ingest | Team 254 "AI in FRC" presentation + website
+- Created [[team-254-ai-in-frc-presentation|Team 254: The Next Revolution — AI in FRC]] — deep source page from YouTube recording + 5-page Chief Delphi thread. Covers Claude Code usage, wpilib-agent-tools, closed-loop agent workflows, scouting with Gemini, ClaudeScope, community reception.
+- Created [[team-254-website|Team 254 Website]] — source page for official site (history, robot names, Chezy Champs).
+- New entity: [[team-254|Team 254: The Cheesy Poofs]] — history, 2026 season, AI contributions, key people.
+- Updated [[frc-simulation-and-ai-landscape|FRC simulation & AI landscape]] synthesis with wpilib-agent-tools details, FIRST Agentic CSA, and expanded Team 254 presentation coverage.
+- Updated index.md.

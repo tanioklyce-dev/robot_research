@@ -2,7 +2,7 @@
 title: FRC simulation & AI landscape
 type: synthesis
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-08 (revised: Team 254 presentation deep-dive)
 tags: [frc, simulation, ai, machine-learning, autonomous, pathplanning]
 ---
 
@@ -65,15 +65,28 @@ These tools simulate robot-field interactions with actual physics, enabling clos
 
 AI/ML in FRC is **emerging but not mainstream**. The landmark event was Team 254's (The Cheesy Poofs) 2026 Championship Conference presentation: **"The Next Revolution: AI in FRC."**
 
-### Team 254's presentation (April 2026)
-- Presenters: Jared Russell, Tom Bottiglieri, and others from 254.
+### [[team-254|Team 254]]'s presentation (April 2026) — [[team-254-ai-in-frc-presentation|full source page]]
+- Presenters: Jared Russell, Tom Bottiglieri, and others from 254. [YouTube recording](https://www.youtube.com/watch?v=oTcimMwxRoM).
 - Topics covered:
-  1. **AI-assisted development ("vibe-coding")**: Using LLM coding assistants (specifically **Claude Code**) for FRC software development.
-  2. **AI-based computer vision**: Demystifying CV applications in FRC.
-  3. **AI-augmented scouting**: Applying AI analysis to match scouting data.
-  4. **Closed-loop AI agent systems**: LLM agents that can run simulations, read logs, and convert natural language requests (e.g., "extend the simulation to handle driving over the bump") into verified simulation code.
+  1. **AI-assisted development ("vibe-coding")**: Using LLM coding agents (specifically **Claude Code**) as a core FRC dev workflow. Agent reads existing source + WPILib APIs, generates code, validates through compilation/tests, iterates.
+  2. **AI-based computer vision**: Demystifying CV applications in FRC (YOLO on Jetson, RoboFlow annotation).
+  3. **AI-augmented scouting**: Gemini for processing qualitative scouter comments → team profiles; Gemini video API at 1fps on match footage; Claude for picklist generation.
+  4. **Closed-loop AI agent systems**: LLM agents that run simulations, read logs, SSH/deploy code to robots, and convert natural language requests (e.g., "extend the simulation to handle driving over the bump") into verified simulation code.
   5. **ClaudeScope**: Described as combining "SKILLS and a CLI" enabling "LLMs to interact with robots."
-- Community reception was mixed: enthusiasm about practical AI applications vs. concerns about student learning outcomes.
+  6. **Power/performance analysis**: AI-written Python scripts for post-match power consumption → optimize load shedding, current limits, mechanism gearing. One team reported GPT 5.4 reduced p50 loop time from ~25ms to ~7ms fully closed-loop.
+- Community reception was mixed: enthusiasm about practical AI applications vs. concerns about student learning outcomes, equity, age restrictions (Claude Code requires 18+), and environmental impact.
+
+### wpilib-agent-tools ([GitHub](https://github.com/edanliahovetsky/wpilib-agent-tools))
+- Experimental Python CLI enabling AI agents to interact with WPILib simulation in an evidence-driven loop.
+- Workflow: create isolated sandbox → run WPILib sim → record NT4 output → analyze `.wpilog` (derivatives, integrals, statistics, settling metrics, matplotlib graphing) → review patch before applying.
+- Supports Codex, Claude Code, and Cursor as agent platforms.
+- Integrates with AdvantageKit-style robot repos, auto-converts to sim mode.
+- Agent tasks: diagnose superstructure behavior, find root causes in autonomous routines, validate subsystem setpoint compliance across match logs.
+- Acknowledged as experimental; all outputs require normal engineering review.
+
+### FIRST Agentic CSA (FRC AI Coding Enhancer v2)
+- MCP server designed to address WPILib API naming changes (e.g., `ChassisSpeeds` → `ChassisVelocities` in 2027).
+- Keeps LLM agents current with latest WPILib documentation.
 
 ### Current AI/ML usage across FRC teams
 
