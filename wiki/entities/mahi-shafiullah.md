@@ -8,12 +8,12 @@ sources: 2
 tags: [person, nyu, hello-robot, robot-learning, dobb-e, rum, shafiullah]
 ---
 
-**Nur Muhammad "Mahi" Shafiullah** — researcher at NYU + Hello Robot Inc. **Lead author on [[robot-utility-models|Robot Utility Models]]** (RUM, 2024) and **Dobb·E** (2023). Both projects share the same engineering thesis: low-cost commodity robots ([[stretch|Stretch]]) + carefully-collected diverse data + zero-shot deployment, no fine-tuning per environment. RUM's headline 90% success rate is largely his system.
+**Nur Muhammad "Mahi" Shafiullah** — researcher at NYU + Hello Robot Inc. **Lead author on [Robot Utility Models](robot-utility-models.md)** (RUM, 2024) and **Dobb·E** (2023). Both projects share the same engineering thesis: low-cost commodity robots ([Stretch](stretch.md)) + carefully-collected diverse data + zero-shot deployment, no fine-tuning per environment. RUM's headline 90% success rate is largely his system.
 
 ## Papers in this wiki
-- **[[robot-utility-models-paper|Robot Utility Models Paper]]** (Etukuru, Naka, Hu, Lee, Mehu, Edsinger, Paxton, Chintala, Pinto, Shafiullah — Sep 2024) — **co-equal lead** with Etukuru ("(*) denotes equal contribution"). Corresponding author: mahi@cs.nyu.edu.
-- **[[robot-utility-models-website|Robot Utility Models Project Page]]** — same.
-- **[[dobb-e|Dobb·E]]** (Shafiullah et al. 2023, predecessor system) — primary author.
+- **[Robot Utility Models Paper](../sources/robot-utility-models-paper.md)** (Etukuru, Naka, Hu, Lee, Mehu, Edsinger, Paxton, Chintala, Pinto, Shafiullah — Sep 2024) — **co-equal lead** with Etukuru ("(*) denotes equal contribution"). Corresponding author: mahi@cs.nyu.edu.
+- **[Robot Utility Models Project Page](../sources/robot-utility-models-website.md)** — same.
+- **[Dobb·E](dobb-e.md)** (Shafiullah et al. 2023, predecessor system) — primary author.
 
 ## Why it matters in this wiki
 Shafiullah is **the architect of the NYU-Stretch line** — Dobb·E → RUM is one continuous research thread, and the underlying engineering recipe (HPR encoder, Stick-handheld tools, Homes of New York dataset, zero-shot deployment) belongs to it. If a future paper extends the same thread (e.g. RUM-like policies on additional embodiments, or scaled-up multi-task RUM), Shafiullah is likely the lead-author signal to watch.
@@ -22,14 +22,14 @@ The **dual NYU + Hello Robot affiliation** is structurally interesting: one foot
 
 ## Related
 - NYU CS — primary affiliation.
-- [[hello-robot|Hello Robot]] — secondary affiliation.
-- [[robot-utility-models|Robot Utility Models]] / [[dobb-e|Dobb·E]] — primary projects.
-- [[lerrel-pinto|Lerrel Pinto]] — NYU PhD advisor (inferred from co-senior pattern).
-- [[stretch|Stretch]] — target hardware platform across both Dobb·E and RUM.
+- [Hello Robot](hello-robot.md) — secondary affiliation.
+- [Robot Utility Models](robot-utility-models.md) / [Dobb·E](dobb-e.md) — primary projects.
+- [Lerrel Pinto](lerrel-pinto.md) — NYU PhD advisor (inferred from co-senior pattern).
+- [Stretch](stretch.md) — target hardware platform across both Dobb·E and RUM.
 
 ## Mentioned in
-- [[robot-utility-models-paper|Robot Utility Models Paper]]
-- [[robot-utility-models-website|Robot Utility Models Project Page]]
+- [Robot Utility Models Paper](../sources/robot-utility-models-paper.md)
+- [Robot Utility Models Project Page](../sources/robot-utility-models-website.md)
 
 ## Open questions / TBD
 - Lab/group at NYU not directly cited; PhD advisor inferred (Pinto is co-senior).

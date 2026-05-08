@@ -29,9 +29,9 @@ status: stub
 
 ## Related
 - Figure AI — manufacturer.
-- [[atlas|Atlas]] / [[tesla-optimus|Tesla Optimus]] / [[apptronik-apollo|Apptronik Apollo]] — research-humanoid competitors.
-- [[vla-models|VLA models]] — Helix is in this paradigm.
-- [[humanoid-platforms-survey|Humanoid platforms survey]] — landscape.
+- [Atlas](atlas.md) / [Tesla Optimus](tesla-optimus.md) / [Apptronik Apollo](apptronik-apollo.md) — research-humanoid competitors.
+- [VLA models](../concepts/vla-models.md) — Helix is in this paradigm.
+- [Humanoid platforms survey](../syntheses/humanoid-platforms-survey.md) — landscape.
 
 ## Mentioned in
 - *(no source pages directly cite Figure; entity built from general knowledge)*

@@ -24,8 +24,8 @@ status: stub
 
 ## Related
 - 1X Technologies — manufacturer (Norway / US).
-- [[figure|Figure]] / [[atlas|Atlas]] / [[tesla-optimus|Tesla Optimus]] — humanoid competitors at the high-profile end.
-- [[humanoid-platforms-survey|Humanoid platforms survey]] — landscape; NEO occupies the household-consumer niche.
+- [Figure](figure.md) / [Atlas](atlas.md) / [Tesla Optimus](tesla-optimus.md) — humanoid competitors at the high-profile end.
+- [Humanoid platforms survey](../syntheses/humanoid-platforms-survey.md) — landscape; NEO occupies the household-consumer niche.
 
 ## Mentioned in
 - *(no source pages directly cite 1X NEO; entity built from general knowledge)*

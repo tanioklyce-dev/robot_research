@@ -9,30 +9,30 @@ tags: [stretch-ai, llm-agent, hello-robot, agentic-robotics, qwen, gpt-4o]
 ---
 
 ## Summary
-Documentation for the LLM agent component of [[stretch-ai|stretch_ai]] — [[hello-robot|Hello Robot]]'s open-source software stack. Concrete agentic pattern: an LLM converts natural-language goals into a sequence of robot tool calls executed by a deterministic state machine.
+Documentation for the LLM agent component of [stretch_ai](../entities/stretch-ai.md) — [Hello Robot](../entities/hello-robot.md)'s open-source software stack. Concrete agentic pattern: an LLM converts natural-language goals into a sequence of robot tool calls executed by a deterministic state machine.
 
 ## Key claims
 - Entry point: `python -m stretch.app.ai_pickup --use_llm`. Internal classes: `PickupExecutor`, `PickupTask` (FSM), `GraspObjectOperation`.
 - **Three LLM backends supported**:
-  - [[qwen|qwen25-3B-Instruct]] (default, local, permissively-licensed Alibaba/Qwen model).
+  - [qwen25-3B-Instruct](../entities/qwen.md) (default, local, permissively-licensed Alibaba/Qwen model).
   - Google `gemma`.
   - OpenAI GPT-4o-mini (proprietary, via API).
   - **No Anthropic / Claude support listed.**
 - Tool interface exposed to the LLM: `pickup(object_name)`, `explore(int)`, `place(location_name)`, `say(text)`, `wave()`, `nod_head()`, `shake_head()`, `avert_gaze()`, `find(object_name)`, `go_home()`, `quit()`.
-- Built on the rest of [[stretch-ai|stretch_ai]]: mapping/exploration (A*, RRT, RRT-Connect), grasping via visual servoing, head + gripper RealSense perception.
+- Built on the rest of [stretch_ai](../entities/stretch-ai.md): mapping/exploration (A*, RRT, RRT-Connect), grasping via visual servoing, head + gripper RealSense perception.
 - Sample task input: "pick up the toy chicken and put it in the white laundry basket."
 - Other commands: `python -m stretch.app.grasp_object --target_object "pink plastic cup"`, `python -m stretch.app.mapping --explore-iter 10`, `python -m stretch.app.chat --voice --talk`.
 - Hardware reqs: Stretch + GPU computer (RTX 4090-class for local LLMs); ports 4401–4404; Ethernet recommended for ~10 GB model downloads.
 - **No VLA, world-model, or simulator integration** — this is a real-robot LLM-agent stack, not a simulation training pipeline.
 
 ## Entities mentioned
-- [[hello-robot|Hello Robot]]
-- [[stretch|Stretch]]
-- [[stretch-ai|stretch_ai]]
+- [Hello Robot](../entities/hello-robot.md)
+- [Stretch](../entities/stretch.md)
+- [stretch_ai](../entities/stretch-ai.md)
 
 ## Concepts touched
-- [[llm-agent-architecture|LLM-agent architecture]]: LLM emits tool calls, deterministic executor runs them.
-- [[vla-models|VLA models]] (contrast: this is NOT a VLA — it wraps classical perception/manipulation rather than learning end-to-end action prediction).
+- [LLM-agent architecture](../concepts/llm-agent-architecture.md): LLM emits tool calls, deterministic executor runs them.
+- [VLA models](../concepts/vla-models.md) (contrast: this is NOT a VLA — it wraps classical perception/manipulation rather than learning end-to-end action prediction).
 
 ## Open questions
 - Why no Claude / Anthropic backend?

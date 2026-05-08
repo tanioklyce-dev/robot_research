@@ -9,7 +9,7 @@ tags: [vision, fiducials, localization, apriltags]
 
 # AprilTags
 
-A family of visual fiducial markers designed for robust, real-time detection and 6-DOF pose estimation from monocular cameras. Developed by Ed Olson at the University of Michigan (first published 2011). The de facto standard for robot localization in structured environments, used in both [[first-robotics-competition|FRC]] competition fields and research robotics.
+A family of visual fiducial markers designed for robust, real-time detection and 6-DOF pose estimation from monocular cameras. Developed by Ed Olson at the University of Michigan (first published 2011). The de facto standard for robot localization in structured environments, used in both [FRC](../entities/first-robotics-competition.md) competition fields and research robotics.
 
 ## How they work
 
@@ -28,14 +28,14 @@ Detection is robust to partial occlusion, motion blur, and varying lighting. Mul
 | 25h9 | 25 | 35 tags | 9 | Smaller applications |
 | 16h5 | 16 | 30 tags | 5 | Legacy, low-res cameras |
 
-**36h11** is the standard in FRC — provides high error-correction (Hamming distance 11) and large ID space ([[frc-2026-game-manual|FRC 2026 Game Manual]], §5.11).
+**36h11** is the standard in FRC — provides high error-correction (Hamming distance 11) and large ID space ([FRC 2026 Game Manual](../sources/frc-2026-game-manual.md), §5.11).
 
 ## FRC usage (2026 REBUILT)
 
-- **32 unique tags** (IDs 1–32) placed on HUBs (16), TOWERs (4), OUTPOSTs (4), and TRENCHEs (8) ([[frc-2026-game-manual|FRC 2026 Game Manual]], §5.11).
+- **32 unique tags** (IDs 1–32) placed on HUBs (16), TOWERs (4), OUTPOSTs (4), and TRENCHEs (8) ([FRC 2026 Game Manual](../sources/frc-2026-game-manual.md), §5.11).
 - Each tag: 8.125in square marker on 10.5in polycarbonate panel.
 - Tags at known, published positions enable robot pose estimation for autonomous navigation and scoring.
-- Teams use **PhotonVision** or **Limelight** coprocessors to detect tags and feed pose data to the [[roborio|roboRIO]] via NetworkTables.
+- Teams use **PhotonVision** or **Limelight** coprocessors to detect tags and feed pose data to the [roboRIO](../entities/roborio.md) via NetworkTables.
 - FRC rules prohibit robots from displaying imagery that mimics 36h11 AprilTags (R203-C).
 
 ## Research robotics usage
@@ -46,7 +46,7 @@ AprilTags are widely used in research for:
 - **Camera calibration** and multi-camera extrinsic estimation.
 - **Ground-truth tracking** in motion-capture-free setups.
 
-The [[stretch|Stretch]] platform uses ArUco markers (a related fiducial system) for navigation landmarks. AprilTags and ArUco markers are functionally similar but use different encoding schemes.
+The [Stretch](../entities/stretch.md) platform uses ArUco markers (a related fiducial system) for navigation landmarks. AprilTags and ArUco markers are functionally similar but use different encoding schemes.
 
 ## Key references
 
@@ -55,8 +55,8 @@ The [[stretch|Stretch]] platform uses ArUco markers (a related fiducial system) 
 - Krogius, M., Haggenmiller, A., & Olson, E. (2019). "Flexible Layouts for Fiducial Tags." *IROS 2019*. (AprilTag 3)
 
 ## Related concepts
-- [[sim-to-real-transfer|Sim-to-real transfer]] — simulated AprilTags used to train vision pipelines before deployment
-- [[world-model|World model]] — AprilTag-based localization provides state estimates that world models could condition on
+- [Sim-to-real transfer](sim-to-real-transfer.md) — simulated AprilTags used to train vision pipelines before deployment
+- [World model](world-model.md) — AprilTag-based localization provides state estimates that world models could condition on
 
 ## Mentioned in
-- [[frc-2026-game-manual|FRC 2026 Game Manual]] (§5.11)
+- [FRC 2026 Game Manual](../sources/frc-2026-game-manual.md) (§5.11)

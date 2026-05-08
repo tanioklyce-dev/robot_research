@@ -11,22 +11,22 @@ tags: [mujoco, mjx, jax, robot-learning, deepmind, sim-to-real]
 Google DeepMind's open-source robot-learning framework built on MuJoCo MJX (the JAX-accelerated MuJoCo). Designed to streamline simulation, training, and sim-to-real transfer on a single GPU.
 
 ## Capabilities
-- JAX-based GPU vectorization (MJX); optional Warp / [[newton-physics-engine|Newton]] backends.
+- JAX-based GPU vectorization (MJX); optional Warp / [Newton](newton-physics-engine.md) backends.
 - Robot platforms: quadrupeds, humanoids, dexterous hands, robotic arms.
 - Vision-based RL via the Madrona batch GPU renderer.
 - Demonstrated zero-shot sim-to-real from both state and pixel inputs.
 - `pip install playground` install path; minutes to first trained policy.
 
 ## 2026 status
-Presented at RSS 2025; widely cited for [[sim-to-real-transfer|Sim-to-real transfer]] research. Now interoperates with [[newton-physics-engine|Newton physics engine]] alongside its native MJX backend.
+Presented at RSS 2025; widely cited for [Sim-to-real transfer](../concepts/sim-to-real-transfer.md) research. Now interoperates with [Newton physics engine](newton-physics-engine.md) alongside its native MJX backend.
 
 ## Related
-- [[google-deepmind|Google DeepMind]] — maintainer.
-- [[newton-physics-engine|Newton physics engine]] — alternative backend.
-- [[nvidia-isaac-lab|NVIDIA Isaac Lab]] — competing/parallel learning framework.
+- [Google DeepMind](google-deepmind.md) — maintainer.
+- [Newton physics engine](newton-physics-engine.md) — alternative backend.
+- [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — competing/parallel learning framework.
 
 ## Mentioned in
-- [[mujoco-playground-paper|MuJoCo Playground Paper]]
-- [[nvidia-newton-physics-engine-developer-page|NVIDIA Newton Physics Engine Developer Page]]
-- [[farama-projects-page|Farama Foundation Projects Page]]
-- [[source-robotics-urdf-mjcf-usd-comparison|URDF vs MJCF vs USD comparison]]
+- [MuJoCo Playground Paper](../sources/mujoco-playground-paper.md)
+- [NVIDIA Newton Physics Engine Developer Page](../sources/nvidia-newton-physics-engine-developer-page.md)
+- [Farama Foundation Projects Page](../sources/farama-projects-page.md)
+- [URDF vs MJCF vs USD comparison](../sources/source-robotics-urdf-mjcf-usd-comparison.md)

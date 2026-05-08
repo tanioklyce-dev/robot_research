@@ -20,31 +20,31 @@ tags: [metaworld, meta-rl, multi-task-rl, benchmark, mujoco, sawyer, stanford, b
   - **ML45** — 45 training + 5 held-out test (large-scale meta-RL).
   - **MT50** — all 50 environments (large-scale multi-task RL).
 - **Robot platform** (per the original paper, not landing page): simulated **Sawyer** arm.
-- **Physics engine** (per the original paper): [[mujoco|MuJoCo]].
+- **Physics engine** (per the original paper): [MuJoCo](mujoco.md).
 
 ## Why it matters in this wiki
 Metaworld functions as a **lightweight, standardized manipulation testbed** that shows up across multiple paradigms:
 
-- **[[mujoco-playground-paper|MuJoCo Playground]]** — DeepMind's MJX framework includes Metaworld envs as one of its eval suites.
-- **[[jepa-wms-paper|JEPA-WMs]] (Terver et al., FAIR Dec 2025)** — uses **42 Metaworld tasks (100 episodes each)** as training/eval data alongside RoboCasa + Push-T + DROID + real Franka. This is the load-bearing JEPA-for-robotics use of Metaworld in the wiki.
-- Earlier benchmark-zoo references in [[leworldmodel-paper|LeWorldModel]] and [[dino-wm-paper|DINO-WM]] for context.
+- **[MuJoCo Playground](../sources/mujoco-playground-paper.md)** — DeepMind's MJX framework includes Metaworld envs as one of its eval suites.
+- **[JEPA-WMs](../sources/jepa-wms-paper.md) (Terver et al., FAIR Dec 2025)** — uses **42 Metaworld tasks (100 episodes each)** as training/eval data alongside RoboCasa + Push-T + DROID + real Franka. This is the load-bearing JEPA-for-robotics use of Metaworld in the wiki.
+- Earlier benchmark-zoo references in [LeWorldModel](../sources/leworldmodel-paper.md) and [DINO-WM](../sources/dino-wm-paper.md) for context.
 
 ## Position in the benchmark landscape
-- **Lighter than [[robocasa|RoboCasa]] / [[maniskill|ManiSkill]]** — single Sawyer arm + simple kitchens/desks; no large-scene context.
-- **Heavier than [[pusht|PushT]]** — 50 distinct manipulation tasks with proper rewards, vs. one 2D pushing test.
+- **Lighter than [RoboCasa](robocasa.md) / [ManiSkill](maniskill.md)** — single Sawyer arm + simple kitchens/desks; no large-scene context.
+- **Heavier than [PushT](pusht.md)** — 50 distinct manipulation tasks with proper rewards, vs. one 2D pushing test.
 - **Meta-/multi-task framing is unusual** — Metaworld is one of the few benchmarks explicitly designed for *generalization across tasks*, not just policy quality on one task.
 
 ## Related
-- [[mujoco|MuJoCo]] — physics backend.
-- [[mujoco-playground|MuJoCo Playground]] — DeepMind framework that includes Metaworld envs.
-- [[jepa-wms|JEPA-WMs]] — primary JEPA-line consumer.
-- [[robocasa|RoboCasa]] — heavier-sim manipulation cousin.
-- [[pusht|PushT]] — lightweight-sim cousin.
+- [MuJoCo](mujoco.md) — physics backend.
+- [MuJoCo Playground](mujoco-playground.md) — DeepMind framework that includes Metaworld envs.
+- [JEPA-WMs](jepa-wms.md) — primary JEPA-line consumer.
+- [RoboCasa](robocasa.md) — heavier-sim manipulation cousin.
+- [PushT](pusht.md) — lightweight-sim cousin.
 
 ## Mentioned in
-- [[jepa-wms-paper|JEPA-WMs Paper]]
-- [[mujoco-playground-paper|MuJoCo Playground Paper]] (referenced as eval suite)
-- [[farama-projects-page|Farama Foundation Projects Page]] (listed as deferred ingest)
+- [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
+- [MuJoCo Playground Paper](../sources/mujoco-playground-paper.md) (referenced as eval suite)
+- [Farama Foundation Projects Page](../sources/farama-projects-page.md) (listed as deferred ingest)
 
 ## Open questions / TBD
 - License of the Metaworld code/assets — not surfaced from project page.

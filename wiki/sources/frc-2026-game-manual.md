@@ -14,7 +14,7 @@ tags: [frc, competition, robotics, game-design, educational-robotics]
 
 ## Summary
 
-The official 166-page rule book for the 2026 [[first-robotics-competition|FIRST Robotics Competition]] season game **REBUILT**, presented by the Gene Haas Foundation. The game challenges two three-robot alliances to score foam-ball FUEL into HUBs, navigate obstacle structures (BUMPS and TRENCHES), and climb a three-rung TOWER — all within a 2-minute-40-second match. A distinctive alternating-HUB mechanic ties autonomous performance to teleop strategy, making AUTO results consequential throughout the match. The manual also specifies comprehensive robot construction constraints (weight, size, motors, power, pneumatics, software), the [[apriltags|AprilTag]]-instrumented field, and the [[roborio|roboRIO]]-based control system. Version TU22 (Team Update 22).
+The official 166-page rule book for the 2026 [FIRST Robotics Competition](../entities/first-robotics-competition.md) season game **REBUILT**, presented by the Gene Haas Foundation. The game challenges two three-robot alliances to score foam-ball FUEL into HUBs, navigate obstacle structures (BUMPS and TRENCHES), and climb a three-rung TOWER — all within a 2-minute-40-second match. A distinctive alternating-HUB mechanic ties autonomous performance to teleop strategy, making AUTO results consequential throughout the match. The manual also specifies comprehensive robot construction constraints (weight, size, motors, power, pneumatics, software), the [AprilTag](../concepts/apriltags.md)-instrumented field, and the [roboRIO](../entities/roborio.md)-based control system. Version TU22 (Team Update 22).
 
 ## Key claims
 
@@ -59,7 +59,7 @@ The official 166-page rule book for the 2026 [[first-robotics-competition|FIRST 
 - Scoring assessment continues 3 seconds after timer hits 0:00 (both AUTO and TELEOP) to account for FUEL processing time. (§6.5, p.45)
 
 ### SCORING ELEMENTS (§5.10)
-- **FUEL**: 5.91in (15.0cm) diameter high-density foam balls, 0.448–0.500lb (~203–227g). Custom-made, purchasable from [[andymark|AndyMark]] (am-5801). (§5.10.1, p.32)
+- **FUEL**: 5.91in (15.0cm) diameter high-density foam balls, 0.448–0.500lb (~203–227g). Custom-made, purchasable from [AndyMark](../entities/andymark.md) (am-5801). (§5.10.1, p.32)
 - 504 FUEL per match: 24 per DEPOT (×2), 24 per OUTPOST CHUTE (×2), up to 8 preloaded per ROBOT (48 max), remainder (~360–408) in NEUTRAL ZONE. (§6.3.4, p.43)
 - At District/FIRST Championship, count may increase to 600. (§6.3.4, p.43)
 - Robots may CONTROL any number of FUEL simultaneously (no possession limit). (§5.10, p.32)
@@ -86,7 +86,7 @@ The official 166-page rule book for the 2026 [[first-robotics-competition|FIRST 
 - PDH or PDP required; wire gauge tables specified per circuit (10–18 AWG depending on breaker size).
 
 ### Control system (§8.7)
-- **[[roborio|roboRIO]]** (roboRIO 1 or roboRIO 2) is the mandatory robot controller. (R710, p.104)
+- **[roboRIO](../entities/roborio.md)** (roboRIO 1 or roboRIO 2) is the mandatory robot controller. (R710, p.104)
 - **Radio**: must use the FRC Radio provided at events (pre-configured at Radio Kiosks).
 - **FMS** (Field Management System): Ethernet connection from DRIVER STATION shelf to OPERATOR CONSOLE; manages wireless, E-stop, A-stop, scoring.
 - Approved programming languages: Java, C++, LabVIEW (via WPILib). Python supported via RobotPy.
@@ -121,16 +121,16 @@ The official 166-page rule book for the 2026 [[first-robotics-competition|FIRST 
 - Open ports defined by FMS whitepaper; robot code cannot be deployed while connected to FMS. (§5.12, p.36)
 
 ## Entities mentioned
-- [[first-robotics-competition|FIRST Robotics Competition]]
-- [[frc-kitbot|FRC KitBot]] (referenced in bumper guide, §8.4)
-- [[andymark|AndyMark]] (field elements, chassis, FUEL am-5801, field variants)
-- [[roborio|roboRIO]] (mandatory controller, R710)
-- [[apriltags|AprilTags]] (36h11 vision fiducials, 32 on field)
+- [FIRST Robotics Competition](../entities/first-robotics-competition.md)
+- [FRC KitBot](../entities/frc-kitbot.md) (referenced in bumper guide, §8.4)
+- [AndyMark](../entities/andymark.md) (field elements, chassis, FUEL am-5801, field variants)
+- [roboRIO](../entities/roborio.md) (mandatory controller, R710)
+- [AprilTags](../concepts/apriltags.md) (36h11 vision fiducials, 32 on field)
 
 ## Concepts touched
-- [[apriltags|AprilTags]] — 32 fiducial markers enabling autonomous vision
-- [[sim-to-real-transfer|Sim-to-real transfer]] — FRC teams increasingly use simulation for autonomous development
-- [[imitation-learning|Imitation learning]] — FRC autonomous modes are typically hand-coded, but ML approaches emerging
+- [AprilTags](../concepts/apriltags.md) — 32 fiducial markers enabling autonomous vision
+- [Sim-to-real transfer](../concepts/sim-to-real-transfer.md) — FRC teams increasingly use simulation for autonomous development
+- [Imitation learning](../concepts/imitation-learning.md) — FRC autonomous modes are typically hand-coded, but ML approaches emerging
 
 ## Open questions
 - What simulation tools do FRC teams use for autonomous development and AI training?

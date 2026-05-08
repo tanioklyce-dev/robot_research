@@ -12,7 +12,7 @@ tags: [robocasa, household-manipulation, benchmark, simulation, iclr-2026, mimic
 ---
 
 ## Summary
-ICLR 2026 conference paper introducing RoboCasa365 — a large-scale simulation benchmark for training and benchmarking generalist household robots, built on top of the existing [[robocasa|RoboCasa]] platform. From UT Austin and [[nvidia|NVIDIA]] Research (Yuke Zhu has dual affiliation).
+ICLR 2026 conference paper introducing RoboCasa365 — a large-scale simulation benchmark for training and benchmarking generalist household robots, built on top of the existing [RoboCasa](../entities/robocasa.md) platform. From UT Austin and [NVIDIA](../entities/nvidia.md) Research (Yuke Zhu has dual affiliation).
 
 ## Key claims
 - **365 tasks across 60 distinct kitchen activities**: manipulation, semantic reasoning, long-horizon planning, memory-dependent.
@@ -20,20 +20,20 @@ ICLR 2026 conference paper introducing RoboCasa365 — a large-scale simulation 
 - **3,200+ object library**, with 2,200+ interactive fixtures.
 - **2,200+ hours of robot interaction data**: 612 hours human teleoperation + 1,615 hours synthetic (≈2.6× synthetic-to-human expansion).
 - **500K+ trajectories** in the released dataset.
-- Synthetic data generated via [[mimicgen|MimicGen]] (Mandlekar et al., 2023).
+- Synthetic data generated via [MimicGen](../entities/mimicgen.md) (Mandlekar et al., 2023).
 - Three benchmark suites: multi-task learning, robot foundation-model training, lifelong learning.
 - Designed to be **policy-agnostic** — assesses model classes rather than promoting one architecture. References Octo, TRI LBM, and others as comparison points.
-- Predecessor: [[robocasa|RoboCasa]] (Nasiriany et al., 2024) — same group, smaller scale (100k demos / 30 tasks / 100 scenes).
+- Predecessor: [RoboCasa](../entities/robocasa.md) (Nasiriany et al., 2024) — same group, smaller scale (100k demos / 30 tasks / 100 scenes).
 - Project URL: https://robocasa.ai
 
 ## Entities mentioned
-- [[robocasa|RoboCasa]]
-- [[mimicgen|MimicGen]]
-- [[nvidia|NVIDIA]]
+- [RoboCasa](../entities/robocasa.md)
+- [MimicGen](../entities/mimicgen.md)
+- [NVIDIA](../entities/nvidia.md)
 
 ## Concepts touched
-- [[sim-to-real-transfer|Sim-to-real transfer]]
-- [[imitation-learning|Imitation learning]] / synthetic demo expansion
+- [Sim-to-real transfer](../concepts/sim-to-real-transfer.md)
+- [Imitation learning](../concepts/imitation-learning.md) / synthetic demo expansion
 - Generalist robot foundation models
 - Multi-task and lifelong learning
 

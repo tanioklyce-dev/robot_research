@@ -9,7 +9,7 @@ tags: [genie-envisioner, world-model, manipulation, foundation-model]
 ---
 
 ## Summary
-ArXiv paper introducing [[genie-envisioner|Genie Envisioner]] as a unified world foundation platform for robotic manipulation — the technical foundation underlying GE-Sim2.
+ArXiv paper introducing [Genie Envisioner](../entities/genie-envisioner.md) as a unified world foundation platform for robotic manipulation — the technical foundation underlying GE-Sim2.
 
 ## Key claims
 - Unified platform combining world modeling, action prediction, and policy training for manipulation.
@@ -17,11 +17,11 @@ ArXiv paper introducing [[genie-envisioner|Genie Envisioner]] as a unified world
 - Predates Genie Envisioner 2.0; serves as the architecture origin.
 
 ## Entities mentioned
-- [[genie-envisioner|Genie Envisioner]]
-- [[agibot|AGIBOT]]
+- [Genie Envisioner](../entities/genie-envisioner.md)
+- [AGIBOT](../entities/agibot.md)
 
 ## Concepts touched
-- [[world-model-simulators|World-model simulators]]
+- [World-model simulators](../concepts/world-model-simulators.md)
 - Foundation models for manipulation
 
 ## Open questions

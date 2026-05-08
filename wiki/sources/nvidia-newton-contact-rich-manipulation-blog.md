@@ -9,26 +9,26 @@ tags: [newton, isaac-lab, gtc-2026, manipulation, locomotion]
 ---
 
 ## Summary
-NVIDIA technical blog announcing Newton 1.0 GA (announced at GTC 2026) as a production-ready physics foundation for dexterous manipulation and locomotion training inside [[nvidia-isaac-lab|NVIDIA Isaac Lab]] and [[nvidia-isaac-sim|NVIDIA Isaac Sim]].
+NVIDIA technical blog announcing Newton 1.0 GA (announced at GTC 2026) as a production-ready physics foundation for dexterous manipulation and locomotion training inside [NVIDIA Isaac Lab](../entities/nvidia-isaac-lab.md) and [NVIDIA Isaac Sim](../entities/nvidia-isaac-sim.md).
 
 ## Key claims
 - Newton 1.0 reached GA at GTC 2026.
 - Built on NVIDIA Warp + OpenUSD.
-- Now bundled with [[nvidia-isaac-lab|NVIDIA Isaac Lab]] alongside the [[nvidia-groot|GR00T N1.6]] reasoning VLA model.
+- Now bundled with [NVIDIA Isaac Lab](../entities/nvidia-isaac-lab.md) alongside the [GR00T N1.6](../entities/nvidia-groot.md) reasoning VLA model.
 - Primary use cases: industrial robots, dexterous manipulation, locomotion.
 
 ## Entities mentioned
-- [[newton-physics-engine|Newton physics engine]]
-- [[nvidia-isaac-lab|NVIDIA Isaac Lab]]
-- [[nvidia-isaac-sim|NVIDIA Isaac Sim]]
-- [[nvidia-cosmos|NVIDIA Cosmos]]
-- [[nvidia|NVIDIA]]
+- [Newton physics engine](../entities/newton-physics-engine.md)
+- [NVIDIA Isaac Lab](../entities/nvidia-isaac-lab.md)
+- [NVIDIA Isaac Sim](../entities/nvidia-isaac-sim.md)
+- [NVIDIA Cosmos](../entities/nvidia-cosmos.md)
+- [NVIDIA](../entities/nvidia.md)
 
 ## Concepts touched
-- [[sim-to-real-transfer|Sim-to-real transfer]]
+- [Sim-to-real transfer](../concepts/sim-to-real-transfer.md)
 - Contact-rich manipulation
 - Reinforcement learning for locomotion
 
 ## Open questions
 - How does Newton 1.0 differ in capability from the late-2025 preview version?
-- Is GR00T N1.6 the same release as N1.7 Early Access mentioned elsewhere ([[top-10-physical-ai-models-2026|Top 10 Physical AI Models 2026]])?
+- Is GR00T N1.6 the same release as N1.7 Early Access mentioned elsewhere ([Top 10 Physical AI Models 2026](top-10-physical-ai-models-2026.md))?

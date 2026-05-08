@@ -9,13 +9,13 @@ tags: [rosorin-pro, arm, manipulator, hx-12h, hiwonder, 6-dof]
 status: stub
 ---
 
-The 6-DOF manipulator that ships on [[rosorin-pro|ROSOrin Pro]]. Built around modular **HX-12H bus servos** with a gripper end-effector. No standalone SKU surfaced — sold as part of the ROSOrin Pro kit. Specific arm dimensions and payload not stated in the manuals.
+The 6-DOF manipulator that ships on [ROSOrin Pro](rosorin-pro.md). Built around modular **HX-12H bus servos** with a gripper end-effector. No standalone SKU surfaced — sold as part of the ROSOrin Pro kit. Specific arm dimensions and payload not stated in the manuals.
 
 ## What we know
 - 6 degrees of freedom.
 - Joint actuation: HX-12H bus servos (0–240° rotation, 12 kg·cm stall torque @ 11.0 V, 0.2 s/60° speed).
 - Gripper controlled by the same HX-12H servo class.
-- Driven by [[openclaw|OpenClaw]]'s skill library (`pick`, `place`, action groups `voice_pick`, `voice_give`, `init`, `camera_up`).
+- Driven by [OpenClaw](openclaw.md)'s skill library (`pick`, `place`, action groups `voice_pick`, `voice_give`, `init`, `camera_up`).
 - Software interface: ROS 2 service `~/arm_group_control` accepts string commands.
 
 ## Open questions
@@ -25,9 +25,9 @@ The 6-DOF manipulator that ships on [[rosorin-pro|ROSOrin Pro]]. Built around mo
 - Whether the same arm is sold separately from the kit (and as what SKU).
 
 ## Related
-- [[rosorin-pro|ROSOrin Pro]] — host platform.
-- [[openclaw|OpenClaw]] — software that drives it.
+- [ROSOrin Pro](rosorin-pro.md) — host platform.
+- [OpenClaw](openclaw.md) — software that drives it.
 
 ## Mentioned in
-- [[hiwonder-rosorin-pro-user-manual|Hiwonder ROSOrin Pro User Manual]]
-- [[hiwonder-openclaw-tutorial|Hiwonder OpenClaw Practical Tutorial]]
+- [Hiwonder ROSOrin Pro User Manual](../sources/hiwonder-rosorin-pro-user-manual.md)
+- [Hiwonder OpenClaw Practical Tutorial](../sources/hiwonder-openclaw-tutorial.md)

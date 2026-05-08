@@ -15,20 +15,20 @@ NVIDIA's flagship robotics simulation application, built on Omniverse and OpenUS
 - OpenUSD-based scene description.
 - Synthetic data generation pipelines.
 - Library of pre-rigged humanoid, mobile-base, and arm robots.
-- Runtime for [[nvidia-isaac-lab|NVIDIA Isaac Lab]] training environments.
-- Hosts third-party platforms (e.g. [[agibot-genie-sim|AGIBOT Genie Sim 3.0]]).
+- Runtime for [NVIDIA Isaac Lab](nvidia-isaac-lab.md) training environments.
+- Hosts third-party platforms (e.g. [AGIBOT Genie Sim 3.0](agibot-genie-sim.md)).
 
 ## 2026 status
-Isaac Sim 6.0 ships in the same release wave as [[nvidia-isaac-lab|Isaac Lab 3.0]] and Omniverse NuRec, with expanded coverage of humanoids and dexterous tasks ([[nvidia-newton-contact-rich-manipulation-blog|NVIDIA Newton Contact-Rich Manipulation Blog]]).
+Isaac Sim 6.0 ships in the same release wave as [Isaac Lab 3.0](nvidia-isaac-lab.md) and Omniverse NuRec, with expanded coverage of humanoids and dexterous tasks ([NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)).
 
 ## Related
-- [[nvidia-isaac-lab|NVIDIA Isaac Lab]] — learning framework that runs on Isaac Sim.
-- [[newton-physics-engine|Newton physics engine]] — pluggable physics backend.
-- [[nvidia-cosmos|NVIDIA Cosmos]] — world model used for synthetic data and rare-event scenes.
-- [[nvidia|NVIDIA]] — vendor.
+- [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — learning framework that runs on Isaac Sim.
+- [Newton physics engine](newton-physics-engine.md) — pluggable physics backend.
+- [NVIDIA Cosmos](nvidia-cosmos.md) — world model used for synthetic data and rare-event scenes.
+- [NVIDIA](nvidia.md) — vendor.
 
 ## Mentioned in
-- [[nvidia-newton-contact-rich-manipulation-blog|NVIDIA Newton Contact-Rich Manipulation Blog]]
-- [[agibot-genie-sim-3-announcement|AGIBOT Genie Sim 3.0 Announcement]]
-- [[nvidia-openusd-for-robotic-simulation|Using OpenUSD for Modular and Scalable Robotic Simulation]]
-- [[nvidia-cad-to-usd-jt-workflows|Building CAD-to-USD Workflows with NVIDIA Omniverse]]
+- [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)
+- [AGIBOT Genie Sim 3.0 Announcement](../sources/agibot-genie-sim-3-announcement.md)
+- [Using OpenUSD for Modular and Scalable Robotic Simulation](../sources/nvidia-openusd-for-robotic-simulation.md)
+- [Building CAD-to-USD Workflows with NVIDIA Omniverse](../sources/nvidia-cad-to-usd-jt-workflows.md)

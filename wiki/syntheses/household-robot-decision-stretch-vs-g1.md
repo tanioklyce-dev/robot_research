@@ -8,26 +8,26 @@ tags: [stretch, unitree-g1, decision, household-robot, comparison, hello-robot, 
 
 # Household robot decision — Stretch vs Unitree G1
 
-A buying-decision comparison for the use case: **a research-grade robot to navigate a home, pick things off the floor, put away dishes, and open cans.** Two candidates: [[stretch|Hello Robot Stretch 3]] (research-tier mobile manipulator) and [[unitree-g1|Unitree G1]] (affordable bipedal humanoid). This page documents the comparison + recommendation so future similar decisions can reuse the analysis.
+A buying-decision comparison for the use case: **a research-grade robot to navigate a home, pick things off the floor, put away dishes, and open cans.** Two candidates: [Hello Robot Stretch 3](../entities/stretch.md) (research-tier mobile manipulator) and [Unitree G1](../entities/unitree-g1.md) (affordable bipedal humanoid). This page documents the comparison + recommendation so future similar decisions can reuse the analysis.
 
 > [!note] TL;DR
 > **Stretch 3 wins decisively for this use case.** G1 is exciting research hardware but the wrong tool for "useful chores around the house." Stretch has bundled software, published academic evidence on the exact tasks (RUM), and is purpose-built for unmodified home environments. G1 is research-grade humanoid hardware where you'd build the household stack from scratch.
 
 ## Open-source comparison
 
-| | [[stretch\|Stretch]] | [[unitree-g1\|Unitree G1]] |
+| | [Stretch](../entities/stretch.md) | [Unitree G1](../entities/unitree-g1.md) |
 |---|---|---|
 | Hardware | Closed (commercial product) | Closed (commercial product) |
 | Low-level SDK | `stretch_body` (Python, open) | `unitree-sdk2` (open) |
-| High-level stack | **[[stretch-ai\|stretch_ai]] Apache-2.0** — mapping, perception, manipulation primitives, **LLM agent for natural-language tasking** | None bundled. Locomotion examples + RL boilerplate. |
-| Pre-trained policies | **[[robot-utility-models\|Robot Utility Models]]** — 5 zero-shot policies (door opening, drawer opening, tissue pickup, paper-bag pickup, object reorientation), open-source | None — academic locomotion code exists but no household-task policies |
+| High-level stack | **[stretch_ai](../entities/stretch-ai.md) Apache-2.0** — mapping, perception, manipulation primitives, **LLM agent for natural-language tasking** | None bundled. Locomotion examples + RL boilerplate. |
+| Pre-trained policies | **[Robot Utility Models](../entities/robot-utility-models.md)** — 5 zero-shot policies (door opening, drawer opening, tissue pickup, paper-bag pickup, object reorientation), open-source | None — academic locomotion code exists but no household-task policies |
 | Documentation | Extensive ROS 2 + Python tutorials | SDK reference + a few demos |
 
 **Both have open *software*; only Stretch has an open *application* layer.** That distinction is what matters for a non-research-team user — Stretch ships with a working LLM agent, RUM-style trained policies, and integration code. G1 ships with locomotion examples.
 
 ## Capability vs the task list
 
-| Task | [[stretch\|Stretch]] | [[unitree-g1\|G1]] |
+| Task | [Stretch](../entities/stretch.md) | [G1](../entities/unitree-g1.md) |
 |---|---|---|
 | **Navigate around a house** | ✅ **Designed for this.** Compact diff-drive base, ROS 2 + Nav2 stack, stable, no falls. RealSense + LiDAR onboard. | ⚠️ Bipedal locomotion in cluttered homes is *unsolved* in 2026. Falls are catastrophic; obstacle avoidance is research-grade. |
 | **Pick up things off the floor** | ✅ **RUM bag/tissue/object pickup is open-source and zero-shot.** Telescoping arm reaches floor with stable base. | ❌ Bend-balance-grasp while bipedal is research-grade; no published reliable demos. |
@@ -38,7 +38,7 @@ A buying-decision comparison for the use case: **a research-grade robot to navig
 
 ## Cost (approximate; verify with vendors)
 
-| | [[stretch\|Stretch 3]] | [[unitree-g1\|G1]] |
+| | [Stretch 3](../entities/stretch.md) | [G1](../entities/unitree-g1.md) |
 |---|---|---|
 | Starter config | ~$25,000 (base Stretch 3) | ~$16,000 (G1 EDU base) |
 | Realistic "research-ready" | ~$25–30k (Stretch + optional accessories) | **~$30–45k** (G1 EDU+ with extra DOF + dexterous hands; pricing opaque) |
@@ -50,8 +50,8 @@ A buying-decision comparison for the use case: **a research-grade robot to navig
 
 ## Published evidence (what the wiki has)
 
-- **[[stretch|Stretch]]** + **[[stretch-ai|stretch_ai]]** + **[[robot-utility-models-paper|RUM Paper]]** — concrete published evidence that Stretch + the RUM stack hits **~90% zero-shot success** on door opening, drawer opening, tissue pickup, paper-bag pickup, and object reorientation across **2,950 robot rollouts** in NYC, NJ, and PA homes. Three of those tasks overlap directly with the floor-pickup goal.
-- **[[unitree-g1|G1]]** — entity in this wiki is a stub. **No source page cites a published household-task result on G1.** The platform is academically used for **locomotion + RL research**, not household chores.
+- **[Stretch](../entities/stretch.md)** + **[stretch_ai](../entities/stretch-ai.md)** + **[RUM Paper](../sources/robot-utility-models-paper.md)** — concrete published evidence that Stretch + the RUM stack hits **~90% zero-shot success** on door opening, drawer opening, tissue pickup, paper-bag pickup, and object reorientation across **2,950 robot rollouts** in NYC, NJ, and PA homes. Three of those tasks overlap directly with the floor-pickup goal.
+- **[G1](../entities/unitree-g1.md)** — entity in this wiki is a stub. **No source page cites a published household-task result on G1.** The platform is academically used for **locomotion + RL research**, not household chores.
 
 This evidence asymmetry maps directly to the decision: Stretch has a research line specifically targeting "low-cost robot doing useful tasks in unmodified homes." G1 has a research line targeting "humanoid locomotion and whole-body control."
 
@@ -59,35 +59,35 @@ This evidence asymmetry maps directly to the decision: Stretch has a research li
 
 In priority order:
 
-1. **The exact use case is published academic research.** [[robot-utility-models-paper|RUM]] tested ~3 of the 4 task categories with 90% zero-shot success in real homes. You can run their open-source code on day one.
-2. **The software stack is bundled.** [[stretch-ai|stretch_ai]] gives mapping, navigation, manipulation primitives, and an LLM agent out of the box. With G1, you build all of this.
+1. **The exact use case is published academic research.** [RUM](../sources/robot-utility-models-paper.md) tested ~3 of the 4 task categories with 90% zero-shot success in real homes. You can run their open-source code on day one.
+2. **The software stack is bundled.** [stretch_ai](../entities/stretch-ai.md) gives mapping, navigation, manipulation primitives, and an LLM agent out of the box. With G1, you build all of this.
 3. **Safety + reliability.** Wheeled mobile manipulators don't fall. Bipedal humanoids do, in surprising ways, in clutter. For a home with people / pets / floors, this is decisive.
 4. **Cost parity once equipped.** A fully-equipped G1 isn't dramatically cheaper than Stretch — and it gets you a less-suitable platform.
 
 ## Realistic expectations even with Stretch
 
-- ✅ **Tasks 1–2 (navigate + floor pickup) are mostly solved** by [[stretch-ai|stretch_ai]] + [[robot-utility-models|RUM]]. Working in weeks, not years.
+- ✅ **Tasks 1–2 (navigate + floor pickup) are mostly solved** by [stretch_ai](../entities/stretch-ai.md) + [RUM](../entities/robot-utility-models.md). Working in weeks, not years.
 - ⚠️ **Task 3 (dishes)** needs DIY data collection per dish type / kitchen layout. Realistic success in the 50–70% range for forgiving cases (loading prewashed flatware, putting plates in racks). Loading a real dishwasher is research-frontier.
 - ❌ **Task 4 (opening cans)** needs custom end-effector tooling. The stock gripper won't do pull-tabs reliably no matter the platform. **Don't plan on this working in 2026.**
 
 ## When G1 *would* be the right choice
 
 - You're doing **bipedal humanoid research** as the primary goal — locomotion, whole-body control, fall recovery, RL on humanoids. G1 is the cheapest platform for that.
-- You want to **track the leading edge of humanoid VLAs** — closer to where [[nvidia-groot|GR00T]] and [[figure|Figure Helix]] live.
+- You want to **track the leading edge of humanoid VLAs** — closer to where [GR00T](../entities/nvidia-groot.md) and [Figure Helix](../entities/figure.md) live.
 - You're OK with **research-from-scratch** rather than off-the-shelf application.
 
 For *household chores as the goal*, none of those reasons apply.
 
 ## Sources used in this synthesis
 
-- [[stretch|Stretch entity]] / [[stretch-ai|stretch_ai entity]] / [[hello-robot|Hello Robot entity]]
-- [[unitree-g1|Unitree G1 entity]] / [[unitree-h1|Unitree H1 entity]]
-- [[robot-utility-models|Robot Utility Models entity]] + [[robot-utility-models-paper|RUM Paper]] (the empirical anchor for Stretch's task suitability)
-- [[robot-utility-models-website|RUM Project Page]]
-- [[hello-robot-stretch-docs|Hello Robot Stretch Documentation]]
-- [[stretch-ai-llm-agent-docs|stretch_ai LLM Agent Documentation]]
-- [[humanoid-platforms-survey|Humanoid platforms survey]] — landscape context for G1.
-- [[robot-platforms-comparison|Robot platforms — comparison]] — non-humanoid landscape.
+- [Stretch entity](../entities/stretch.md) / [stretch_ai entity](../entities/stretch-ai.md) / [Hello Robot entity](../entities/hello-robot.md)
+- [Unitree G1 entity](../entities/unitree-g1.md) / [Unitree H1 entity](../entities/unitree-h1.md)
+- [Robot Utility Models entity](../entities/robot-utility-models.md) + [RUM Paper](../sources/robot-utility-models-paper.md) (the empirical anchor for Stretch's task suitability)
+- [RUM Project Page](../sources/robot-utility-models-website.md)
+- [Hello Robot Stretch Documentation](../sources/hello-robot-stretch-docs.md)
+- [stretch_ai LLM Agent Documentation](../sources/stretch-ai-llm-agent-docs.md)
+- [Humanoid platforms survey](humanoid-platforms-survey.md) — landscape context for G1.
+- [Robot platforms — comparison](robot-platforms-comparison.md) — non-humanoid landscape.
 
 ## Open questions / TBD
 
@@ -99,7 +99,7 @@ For *household chores as the goal*, none of those reasons apply.
 
 ## Related
 
-- [[lewm-on-rosorin-pro-feasibility|LeWM on ROSOrin Pro — feasibility analysis]] — adjacent decision document for an educational-tier alternative.
-- [[robot-platforms-comparison|Robot platforms — comparison]] — broader landscape.
-- [[humanoid-platforms-survey|Humanoid platforms survey]] — humanoid-specific landscape.
-- [[sim-heavy-vs-real-data-paths|Sim-heavy vs real-data paths to generalist policies]] — relevant context for "where the data comes from."
+- [LeWM on ROSOrin Pro — feasibility analysis](lewm-on-rosorin-pro-feasibility.md) — adjacent decision document for an educational-tier alternative.
+- [Robot platforms — comparison](robot-platforms-comparison.md) — broader landscape.
+- [Humanoid platforms survey](humanoid-platforms-survey.md) — humanoid-specific landscape.
+- [Sim-heavy vs real-data paths to generalist policies](sim-heavy-vs-real-data-paths.md) — relevant context for "where the data comes from."

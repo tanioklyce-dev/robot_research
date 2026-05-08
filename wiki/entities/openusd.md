@@ -8,7 +8,7 @@ sources: 4
 tags: [openusd, scene-description, usdphysics, pixar, format, robotics]
 ---
 
-**OpenUSD (Universal Scene Description)** — Pixar-originated, now multi-vendor open standard for describing 3D scenes. In robotics, it has become the **shared scene format and physics-schema layer** across the major simulation stacks ([[nvidia-isaac-sim|NVIDIA Isaac Sim]] / [[nvidia-isaac-lab|Isaac Lab]], [[mujoco-playground|MuJoCo Playground]] via the MjcPhysics plugin, the [[newton-physics-engine|Newton]] ecosystem). See [[newton-openusd-substrate-convergence|Newton + OpenUSD — the substrate convergence]] for the structural argument; this page is the entity reference.
+**OpenUSD (Universal Scene Description)** — Pixar-originated, now multi-vendor open standard for describing 3D scenes. In robotics, it has become the **shared scene format and physics-schema layer** across the major simulation stacks ([NVIDIA Isaac Sim](nvidia-isaac-sim.md) / [Isaac Lab](nvidia-isaac-lab.md), [MuJoCo Playground](mujoco-playground.md) via the MjcPhysics plugin, the [Newton](newton-physics-engine.md) ecosystem). See [Newton + OpenUSD — the substrate convergence](../syntheses/newton-openusd-substrate-convergence.md) for the structural argument; this page is the entity reference.
 
 ## Why it matters in robotics
 
@@ -19,7 +19,7 @@ OpenUSD is not just a 3D file format — it is a **scene-graph composition syste
 
 ## UsdPhysics — the robotics physics schema
 
-The `UsdPhysics` schema family (Apple + NVIDIA + Pixar, v1.0 in 2020) extends OpenUSD with rigid-body physics constructs. Key components for robotics ([[openusd-rigid-body-physics-proposal|OpenUSD Rigid Body Physics Proposal]]):
+The `UsdPhysics` schema family (Apple + NVIDIA + Pixar, v1.0 in 2020) extends OpenUSD with rigid-body physics constructs. Key components for robotics ([OpenUSD Rigid Body Physics Proposal](../sources/openusd-rigid-body-physics-proposal.md)):
 
 - **`PhysicsRigidBodyAPI`** — physics-driven body marker.
 - **`PhysicsArticulationRootAPI`** — root of an articulated robot, hints reduced-coordinate simulation. Schema explicitly distinguishes **floating articulations** (mobile / aerial robots) from **fixed articulations** (industrial arms bolted to the floor) — robotics jargon recognized in the standard.
@@ -34,7 +34,7 @@ The `UsdPhysics` schema family (Apple + NVIDIA + Pixar, v1.0 in 2020) extends Op
 
 UsdPhysics is the baseline; individual physics engines add solver-specific schemas as USD plugins:
 
-- **`MjcPhysics`** — USD schema plugin **maintained by [[google-deepmind|Google DeepMind]]**. Authors MuJoCo-specific solver attributes (integrator type, constraint solver algorithm, tolerance, contact settings) onto USD prims. The existence of this plugin is the most concrete evidence that DeepMind is committed to USD as a cross-stack substrate, not just consuming it.
+- **`MjcPhysics`** — USD schema plugin **maintained by [Google DeepMind](google-deepmind.md)**. Authors MuJoCo-specific solver attributes (integrator type, constraint solver algorithm, tolerance, contact settings) onto USD prims. The existence of this plugin is the most concrete evidence that DeepMind is committed to USD as a cross-stack substrate, not just consuming it.
 - **`NewtonSceneAPI` / newton-usd-schemas** — Apache 2.0, Linux Foundation governance. Defines Newton-specific solver parameters (`newton:timeStepsPerSecond`, gravity, solver iterations). Designed as a "proving ground" — physically meaningful parameters tested in Newton schemas may eventually be promoted into UsdPhysics itself. Active: v0.2.0 released 2026-05-07; 52 commits, 7 releases.
 - **`mujoco-usd-converter`** — bridge tool living in the `newton-physics` GitHub org. Converts MuJoCo MJCF assets to OpenUSD with `MjcPhysics` schemas.
 
@@ -43,7 +43,7 @@ UsdPhysics is the baseline; individual physics engines add solver-specific schem
 OpenUSD is the target format for CAD-to-simulation pipelines:
 
 - **NVIDIA Omniverse Connector ecosystem** ships native connectors for SolidWorks, CATIA, AutoCAD, Creo. Marketed as eliminating manual URDF authoring for environments and robot bodies.
-- **`omni.kit.converter.jt_core`** + **OpenUSD Exchange SDK** — concrete pipeline for Jupiter Tessellation (JT, ISO 14306) → USD ([[nvidia-cad-to-usd-jt-workflows|NVIDIA CAD-to-USD JT Workflows]]). Preserves assembly hierarchy and metadata one-to-one; collapses materials to `displayColor` / `UsdPreviewSurface`; requires `omni.scene.optimizer` to make geometry usable in real-time sim (82% vertex reduction in the example).
+- **`omni.kit.converter.jt_core`** + **OpenUSD Exchange SDK** — concrete pipeline for Jupiter Tessellation (JT, ISO 14306) → USD ([NVIDIA CAD-to-USD JT Workflows](../sources/nvidia-cad-to-usd-jt-workflows.md)). Preserves assembly hierarchy and metadata one-to-one; collapses materials to `displayColor` / `UsdPreviewSurface`; requires `omni.scene.optimizer` to make geometry usable in real-time sim (82% vertex reduction in the example).
 - **Okino PolyTrans|CAD+DCC** — third-party converter for SolidWorks (`.sldasm`/`.sldprt`) → USD via STEP AP204 / IGES BREP intermediates.
 
 > [!warning] Joint / kinematic survival through CAD→USD is the open question
@@ -51,7 +51,7 @@ OpenUSD is the target format for CAD-to-simulation pipelines:
 
 ## Versions and tooling
 - **OpenUSD Core Specification 1.0** establishes baseline standards for SimReady assets.
-- **Isaac Sim 5.0** runs on Omniverse Kit SDK 107 → OpenUSD **24.05** ([[nvidia-openusd-for-robotic-simulation|NVIDIA OpenUSD-for-robotic-simulation blog]]).
+- **Isaac Sim 5.0** runs on Omniverse Kit SDK 107 → OpenUSD **24.05** ([NVIDIA OpenUSD-for-robotic-simulation blog](../sources/nvidia-openusd-for-robotic-simulation.md)).
 - **OpenUSD Exchange SDK** — NVIDIA-maintained framework for writing USD converters.
 
 ## Roadmap (NVIDIA-acknowledged, March 2025)
@@ -61,7 +61,7 @@ OpenUSD is the target format for CAD-to-simulation pipelines:
 
 ## Trade-offs vs URDF and MJCF
 
-See [[source-robotics-urdf-mjcf-usd-comparison|URDF vs MJCF vs USD comparison]] for the practitioner survey. Short version:
+See [URDF vs MJCF vs USD comparison](../sources/source-robotics-urdf-mjcf-usd-comparison.md) for the practitioner survey. Short version:
 - **URDF**: ROS-native, simple, kinematic-only, no closed chains. Stays dominant for ROS/motion-planning workflows.
 - **MJCF**: precise physics, RL-ready, MuJoCo-coupled. Stays dominant for MuJoCo/RL.
 - **USD**: scales, layers, integrates rendering+physics+assets, steeper learning curve. Wins for large environments + Omniverse-modern simulators.
@@ -69,13 +69,13 @@ See [[source-robotics-urdf-mjcf-usd-comparison|URDF vs MJCF vs USD comparison]] 
 The three are **not converging** at the description-format level; they stratify by use case. What converges is the **physics schema** (`UsdPhysics` + per-solver extensions) underneath USD scenes.
 
 ## Related
-- [[newton-physics-engine|Newton physics engine]] — primary 2026 physics consumer of UsdPhysics.
-- [[nvidia-isaac-sim|NVIDIA Isaac Sim]] / [[nvidia-isaac-lab|NVIDIA Isaac Lab]] — flagship USD-native robotics stack.
-- [[mujoco-playground|MuJoCo Playground]] — MJX-based stack with MjcPhysics USD plugin support.
-- [[newton-openusd-substrate-convergence|Newton + OpenUSD — the substrate convergence]] — the synthesis on what this convergence means.
+- [Newton physics engine](newton-physics-engine.md) — primary 2026 physics consumer of UsdPhysics.
+- [NVIDIA Isaac Sim](nvidia-isaac-sim.md) / [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — flagship USD-native robotics stack.
+- [MuJoCo Playground](mujoco-playground.md) — MJX-based stack with MjcPhysics USD plugin support.
+- [Newton + OpenUSD — the substrate convergence](../syntheses/newton-openusd-substrate-convergence.md) — the synthesis on what this convergence means.
 
 ## Mentioned in
-- [[openusd-rigid-body-physics-proposal|OpenUSD Rigid Body Physics Proposal]]
-- [[nvidia-openusd-for-robotic-simulation|Using OpenUSD for Modular and Scalable Robotic Simulation]]
-- [[source-robotics-urdf-mjcf-usd-comparison|Robot Simulation File Formats — URDF vs MJCF vs USD]]
-- [[nvidia-cad-to-usd-jt-workflows|Building CAD-to-USD Workflows with NVIDIA Omniverse]]
+- [OpenUSD Rigid Body Physics Proposal](../sources/openusd-rigid-body-physics-proposal.md)
+- [Using OpenUSD for Modular and Scalable Robotic Simulation](../sources/nvidia-openusd-for-robotic-simulation.md)
+- [Robot Simulation File Formats — URDF vs MJCF vs USD](../sources/source-robotics-urdf-mjcf-usd-comparison.md)
+- [Building CAD-to-USD Workflows with NVIDIA Omniverse](../sources/nvidia-cad-to-usd-jt-workflows.md)

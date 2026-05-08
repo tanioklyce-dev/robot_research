@@ -8,10 +8,10 @@ sources: 3
 tags: [dinov2, vision-foundation-model, self-supervised, vit, meta-fair, dino, frozen-encoder]
 ---
 
-**DINOv2 — "Learning Robust Visual Features without Supervision."** Self-supervised vision foundation model from [[meta-fair|Meta FAIR]], released 2023. Vision Transformer trained on 142M images with no labels via the DINO self-distillation objective; produces patch-level and image-level embeddings that transfer to downstream tasks **without fine-tuning** at near-supervised quality. arxiv 2304.07193. Code: https://github.com/facebookresearch/dinov2. Apache 2.0 for standard weights.
+**DINOv2 — "Learning Robust Visual Features without Supervision."** Self-supervised vision foundation model from [Meta FAIR](meta-fair.md), released 2023. Vision Transformer trained on 142M images with no labels via the DINO self-distillation objective; produces patch-level and image-level embeddings that transfer to downstream tasks **without fine-tuning** at near-supervised quality. arxiv 2304.07193. Code: https://github.com/facebookresearch/dinov2. Apache 2.0 for standard weights.
 
 ## Authors
-Maxime Oquab, Timothée Darcet, Théo Moutakanni, Huy V. Vo, Marc Szafraniec, Vasil Khalidov, Patrick Labatut, Armand Joulin, Piotr Bojanowski. Companion paper on Vision Transformers at arxiv 2309.16588. **Notable overlap with [[dino-world-paper|DINO-world]] (2025)**: Szafraniec, Khalidov, Labatut, and Bojanowski all reappear there — DINOv2 → DINO-world is one continuous research thread.
+Maxime Oquab, Timothée Darcet, Théo Moutakanni, Huy V. Vo, Marc Szafraniec, Vasil Khalidov, Patrick Labatut, Armand Joulin, Piotr Bojanowski. Companion paper on Vision Transformers at arxiv 2309.16588. **Notable overlap with [DINO-world](../sources/dino-world-paper.md) (2025)**: Szafraniec, Khalidov, Labatut, and Bojanowski all reappear there — DINOv2 → DINO-world is one continuous research thread.
 
 ## Architecture & training
 - **ViT-S/14** (21M), **ViT-B/14** (86M), **ViT-L/14** (300M), **ViT-g/14** (1.1B). Patch size 14.
@@ -30,11 +30,11 @@ Maxime Oquab, Timothée Darcet, Théo Moutakanni, Huy V. Vo, Marc Szafraniec, Va
 ## Why it matters in this wiki
 DINOv2 is the **substrate** for an entire branch of the JEPA-adjacent world-model literature ingested here. Three sources use frozen DINOv2 features:
 
-- **[[dino-wm|DINO-WM]]** ([[dino-wm-paper|paper]]) — DINOv2 patch features + learned predictor for zero-shot planning.
-- **[[dino-world|DINO-world]]** ([[dino-world-paper|paper]]) — DINOv2 features for video world models. Title literally is *"Back to the Features: DINO as a Foundation for Video World Models."*
-- **[[jepa-wms|JEPA-WMs]]** ([[jepa-wms-paper|paper]]) — likely uses DINOv2-feature predictor (DINO-world's design point evolves into JEPA-WMs); explicit framing in paper body should confirm.
+- **[DINO-WM](dino-wm.md)** ([paper](../sources/dino-wm-paper.md)) — DINOv2 patch features + learned predictor for zero-shot planning.
+- **[DINO-world](dino-world.md)** ([paper](../sources/dino-world-paper.md)) — DINOv2 features for video world models. Title literally is *"Back to the Features: DINO as a Foundation for Video World Models."*
+- **[JEPA-WMs](jepa-wms.md)** ([paper](../sources/jepa-wms-paper.md)) — likely uses DINOv2-feature predictor (DINO-world's design point evolves into JEPA-WMs); explicit framing in paper body should confirm.
 
-This makes DINOv2 the most consequential **non-JEPA** building block in the JEPA-for-robotics line. The design choice of *frozen DINOv2 vs. end-to-end-trained encoder* is itself an axis of the [[jepa|JEPA]] design space — see [[leworldmodel|LeWorldModel]] for the end-to-end alternative.
+This makes DINOv2 the most consequential **non-JEPA** building block in the JEPA-for-robotics line. The design choice of *frozen DINOv2 vs. end-to-end-trained encoder* is itself an axis of the [JEPA](../concepts/jepa.md) design space — see [LeWorldModel](leworldmodel.md) for the end-to-end alternative.
 
 ## Position vs other foundation models
 - **Self-supervised, not supervised** — contrast with CLIP / SigLIP / EVA family (image-text-paired).
@@ -42,15 +42,15 @@ This makes DINOv2 the most consequential **non-JEPA** building block in the JEPA
 - **Open weights, Apache 2.0** — downstream commercial use is unencumbered for the standard variants.
 
 ## Related
-- [[meta-fair|Meta FAIR]] — origin lab.
-- [[dino-wm|DINO-WM]] / [[dino-world|DINO-world]] / [[jepa-wms|JEPA-WMs]] — primary downstream consumers in this wiki.
-- [[jepa|Joint-Embedding Predictive Architecture]] — JEPA family. DINOv2 is JEPA-adjacent (encoder trained without action-conditioning) but predates the action-conditioned JEPA-WM line.
-- [[leworldmodel|LeWorldModel]] — end-to-end alternative to frozen-DINOv2 design.
+- [Meta FAIR](meta-fair.md) — origin lab.
+- [DINO-WM](dino-wm.md) / [DINO-world](dino-world.md) / [JEPA-WMs](jepa-wms.md) — primary downstream consumers in this wiki.
+- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — JEPA family. DINOv2 is JEPA-adjacent (encoder trained without action-conditioning) but predates the action-conditioned JEPA-WM line.
+- [LeWorldModel](leworldmodel.md) — end-to-end alternative to frozen-DINOv2 design.
 
 ## Mentioned in
-- [[dino-wm-paper|DINO-WM Paper]]
-- [[dino-world-paper|DINO-world Paper]]
-- [[jepa-wms-paper|JEPA-WMs Paper]]
+- [DINO-WM Paper](../sources/dino-wm-paper.md)
+- [DINO-world Paper](../sources/dino-world-paper.md)
+- [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
 
 ## Open questions / TBD
 - The DINOv2 paper itself (arxiv 2304.07193) is not yet a source page — would let us cite the training-objective and architectural details directly.

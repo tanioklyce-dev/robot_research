@@ -17,12 +17,12 @@ status: stub
 - **Action-chunking** — multiple future actions predicted in one denoising pass; enables receding-horizon control.
 
 ## Notable properties and downstream artifacts
-- Robust against **occlusion, physical perturbation, and visual distractors** ([[diffusion-policy|project page]]: "Diffusion Policy is highly robust against perturbations and visual distractions").
-- Introduced (or popularized) **[[pusht|PushT]]** as a standard 2D manipulation benchmark.
-- Spawned the **UMI gripper** ecosystem — compact handheld grippers for in-the-wild demonstration collection. RUM's Stick-v2 cites UMI as design inspiration ([[robot-utility-models-paper|RUM paper]] §2.1).
+- Robust against **occlusion, physical perturbation, and visual distractors** ([project page](diffusion-policy.md): "Diffusion Policy is highly robust against perturbations and visual distractions").
+- Introduced (or popularized) **[PushT](pusht.md)** as a standard 2D manipulation benchmark.
+- Spawned the **UMI gripper** ecosystem — compact handheld grippers for in-the-wild demonstration collection. RUM's Stick-v2 cites UMI as design inspiration ([RUM paper](../sources/robot-utility-models-paper.md) §2.1).
 
 ## Performance characteristics in RUM
-From [[robot-utility-models-paper|RUM paper]] §3.2:
+From [RUM paper](../sources/robot-utility-models-paper.md) §3.2:
 - **Runner-up at full data scale**: Diffusion Policy ~71% vs VQ-BeT ~76% across 5 tasks.
 - **Top performer at smaller data scale** (20–40% of full data) — better data-efficiency on lower-scale corpora.
 - Used as a strong baseline; not RUM's deployed policy class.
@@ -32,13 +32,13 @@ From [[robot-utility-models-paper|RUM paper]] §3.2:
 - **Strong baseline across imitation-learning papers.** When a 2024–2026 BC method is benchmarked, Diffusion Policy is almost always the comparison point.
 
 ## Related
-- [[robot-utility-models|Robot Utility Models]] — uses Diffusion Policy as a baseline.
-- [[vq-bet|VQ-BeT]] — closest competitor in RUM's ablation.
-- [[pusht|PushT]] — 2D pushing benchmark introduced (or popularized) here.
-- [[imitation-learning|Imitation learning]] — broader concept.
+- [Robot Utility Models](robot-utility-models.md) — uses Diffusion Policy as a baseline.
+- [VQ-BeT](vq-bet.md) — closest competitor in RUM's ablation.
+- [PushT](pusht.md) — 2D pushing benchmark introduced (or popularized) here.
+- [Imitation learning](../concepts/imitation-learning.md) — broader concept.
 
 ## Mentioned in
-- [[robot-utility-models-paper|Robot Utility Models Paper]] — second-best policy class in RUM ablation.
+- [Robot Utility Models Paper](../sources/robot-utility-models-paper.md) — second-best policy class in RUM ablation.
 
 ## Open questions / TBD
 - **Primary source not yet ingested.** Diffusion Policy paper (arxiv 2303.04137) deserves its own source page.

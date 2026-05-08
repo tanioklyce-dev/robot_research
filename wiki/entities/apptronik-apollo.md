@@ -9,7 +9,7 @@ tags: [apollo, apptronik, humanoid, bipedal, nvidia-partnership, ut-austin]
 status: stub
 ---
 
-**Apptronik Apollo** — humanoid from Apptronik (Austin, TX; UT Austin spinout). Announced August 2023; commercial deployments at Mercedes-Benz and other industrial pilots in 2024–2025. **NVIDIA collaboration**: Apollo is one of the platforms targeted by [[nvidia-groot|GR00T]] and the broader Physical AI stack.
+**Apptronik Apollo** — humanoid from Apptronik (Austin, TX; UT Austin spinout). Announced August 2023; commercial deployments at Mercedes-Benz and other industrial pilots in 2024–2025. **NVIDIA collaboration**: Apollo is one of the platforms targeted by [GR00T](nvidia-groot.md) and the broader Physical AI stack.
 
 ## Specs (Apollo, 2023–2024 generation)
 - ~1.73 m tall, ~73 kg.
@@ -24,10 +24,10 @@ status: stub
 
 ## Related
 - Apptronik — manufacturer (UT Austin spinout).
-- [[nvidia-groot|NVIDIA GR00T]] — VLA targeted at Apollo.
-- [[nvidia|NVIDIA]] — strategic partner.
-- [[atlas|Atlas]] / [[figure|Figure]] — industrial-humanoid competitors.
-- [[humanoid-platforms-survey|Humanoid platforms survey]] — landscape.
+- [NVIDIA GR00T](nvidia-groot.md) — VLA targeted at Apollo.
+- [NVIDIA](nvidia.md) — strategic partner.
+- [Atlas](atlas.md) / [Figure](figure.md) — industrial-humanoid competitors.
+- [Humanoid platforms survey](../syntheses/humanoid-platforms-survey.md) — landscape.
 
 ## Mentioned in
 - *(no source pages directly cite Apollo; entity built from general knowledge)*

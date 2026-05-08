@@ -19,20 +19,20 @@ status: stub
 - Programmable in Python, C++, ROS, Choregraphe (visual scripting).
 
 ## Why it matters in this wiki
-- **Educational humanoid reference point.** Equivalent role to [[turtlebot|TurtleBot]] but for humanoid hardware. Generations of CS students have learned humanoid programming on NAO.
+- **Educational humanoid reference point.** Equivalent role to [TurtleBot](turtlebot.md) but for humanoid hardware. Generations of CS students have learned humanoid programming on NAO.
 - **RoboCup standard platform** — Standard Platform League uses NAO.
 - **Doesn't appear in JEPA / VLA literature.** Like TurtleBot, NAO occupies a clear pedagogical niche but is largely absent from the agentic-robotics research line in this wiki. The educational tier hasn't yet absorbed the JEPA / VLA wave.
 
 ## Position vs other humanoids
-- **Far smaller than research humanoids.** ~58 cm vs ~1.5–1.8 m for [[atlas|Atlas]] / [[unitree-h1|H1]] / [[figure|Figure]]. Tabletop-scale, not human-scale.
-- **Less capable than [[unitree-g1|Unitree G1]]** (also smaller-class, but G1 is ~$16k vs NAO's ~$8–15k — comparable price, different capabilities).
+- **Far smaller than research humanoids.** ~58 cm vs ~1.5–1.8 m for [Atlas](atlas.md) / [H1](unitree-h1.md) / [Figure](figure.md). Tabletop-scale, not human-scale.
+- **Less capable than [Unitree G1](unitree-g1.md)** (also smaller-class, but G1 is ~$16k vs NAO's ~$8–15k — comparable price, different capabilities).
 - **Long product lifetime** — NAO has been continuously available since 2008 with incremental version updates; few robots have that longevity.
 
 ## Related
 - Aldebaran / SoftBank Robotics — manufacturer.
 - Pepper — larger SoftBank social-robot sibling (no entity page yet).
-- [[turtlebot|TurtleBot]] — educational mobile-robot reference (analogous role for non-humanoids).
-- [[humanoid-platforms-survey|Humanoid platforms survey]] — landscape.
+- [TurtleBot](turtlebot.md) — educational mobile-robot reference (analogous role for non-humanoids).
+- [Humanoid platforms survey](../syntheses/humanoid-platforms-survey.md) — landscape.
 
 ## Mentioned in
 - *(no source pages directly cite NAO; entity built from general knowledge)*

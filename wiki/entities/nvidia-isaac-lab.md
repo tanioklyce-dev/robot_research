@@ -8,26 +8,26 @@ sources: 5
 tags: [framework, robot-learning, nvidia, isaac-lab, rl]
 ---
 
-Open-source modular framework for robot learning and policy training. Sits on top of [[nvidia-isaac-sim|NVIDIA Isaac Sim]] (or other simulators) and lets researchers swap physics backends, define environments, and run massively parallel RL.
+Open-source modular framework for robot learning and policy training. Sits on top of [NVIDIA Isaac Sim](nvidia-isaac-sim.md) (or other simulators) and lets researchers swap physics backends, define environments, and run massively parallel RL.
 
 ## Capabilities
-- Pluggable physics backends: PhysX, [[newton-physics-engine|Newton]], NVIDIA Warp, MuJoCo.
+- Pluggable physics backends: PhysX, [Newton](newton-physics-engine.md), NVIDIA Warp, MuJoCo.
 - Massively parallel environment vectorization for RL.
 - Isaac Lab-Arena: open-source policy evaluation framework.
-- Bundles [[nvidia-groot|NVIDIA GR00T]] reasoning [[vla-models|VLA]] (currently N1.6 GA / N1.7 EA).
+- Bundles [NVIDIA GR00T](nvidia-groot.md) reasoning [VLA](../concepts/vla-models.md) (currently N1.6 GA / N1.7 EA).
 
 ## 2026 status
-Isaac Lab 3.0 with the GA release of the [[newton-physics-engine|Newton physics engine]] became the default training stack for NVIDIA's "Physical AI" stack at GTC 2026 ([[nvidia-newton-contact-rich-manipulation-blog|NVIDIA Newton Contact-Rich Manipulation Blog]]).
+Isaac Lab 3.0 with the GA release of the [Newton physics engine](newton-physics-engine.md) became the default training stack for NVIDIA's "Physical AI" stack at GTC 2026 ([NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)).
 
 ## Related
-- [[nvidia-isaac-sim|NVIDIA Isaac Sim]] — the simulator.
-- [[newton-physics-engine|Newton physics engine]] — primary physics backend in 2026.
-- [[nvidia-cosmos|NVIDIA Cosmos]] — world model for rare scenarios and synthetic data.
-- [[mujoco-playground|MuJoCo Playground]] — competing/parallel learning framework with overlapping backends.
+- [NVIDIA Isaac Sim](nvidia-isaac-sim.md) — the simulator.
+- [Newton physics engine](newton-physics-engine.md) — primary physics backend in 2026.
+- [NVIDIA Cosmos](nvidia-cosmos.md) — world model for rare scenarios and synthetic data.
+- [MuJoCo Playground](mujoco-playground.md) — competing/parallel learning framework with overlapping backends.
 
 ## Mentioned in
-- [[nvidia-newton-physics-engine-developer-page|NVIDIA Newton Physics Engine Developer Page]]
-- [[nvidia-newton-contact-rich-manipulation-blog|NVIDIA Newton Contact-Rich Manipulation Blog]]
-- [[dino-wm-paper|DINO-WM Paper]]
-- [[farama-projects-page|Farama Foundation Projects Page]]
-- [[maniskill-hab-paper|ManiSkill-HAB Paper]]
+- [NVIDIA Newton Physics Engine Developer Page](../sources/nvidia-newton-physics-engine-developer-page.md)
+- [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)
+- [DINO-WM Paper](../sources/dino-wm-paper.md)
+- [Farama Foundation Projects Page](../sources/farama-projects-page.md)
+- [ManiSkill-HAB Paper](../sources/maniskill-hab-paper.md)

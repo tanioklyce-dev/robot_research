@@ -8,7 +8,7 @@ sources: 3
 tags: [pusht, push-t, manipulation-benchmark, ibc, diffusion-policy, lightweight-sim]
 ---
 
-**PushT** (sometimes "Push-T") — **2D manipulation benchmark**: an end-effector must precisely **push a T-shaped block into a target region**, then move to an end-zone to terminate the episode. Originally introduced in **Implicit Behavior Cloning** (IBC, Florence et al., Google Research, CoRL 2021) and popularized further by [[diffusion-policy|Diffusion Policy]] (Chi et al., 2023). Now functions as a **default lightweight benchmark** across the world-model and imitation-learning literature.
+**PushT** (sometimes "Push-T") — **2D manipulation benchmark**: an end-effector must precisely **push a T-shaped block into a target region**, then move to an end-zone to terminate the episode. Originally introduced in **Implicit Behavior Cloning** (IBC, Florence et al., Google Research, CoRL 2021) and popularized further by [Diffusion Policy](diffusion-policy.md) (Chi et al., 2023). Now functions as a **default lightweight benchmark** across the world-model and imitation-learning literature.
 
 ## Task structure (from the diffusion-policy project page)
 > "the robot needs to precisely push the T-shaped block into the target region, and move the end-effector to the end-zone which terminates the episode."
@@ -30,15 +30,15 @@ Top-down 2D view of a square workspace. Three things on screen:
 - **Green T-shaped outline** — the target pose for the gray block to match (position + orientation).
 - **Blue circle** — the end-effector. A point-mass agent, no gripper, no grasping. It can only push by making contact.
 
-Image resolution is typically 96×96 (canonical [[diffusion-policy|Diffusion Policy]] / IBC variant) or 224×224 (some world-model variants). The `stable-worldmodel` PushT shipped with [[leworldmodel|LeWM]] uses image observations.
+Image resolution is typically 96×96 (canonical [Diffusion Policy](diffusion-policy.md) / IBC variant) or 224×224 (some world-model variants). The `stable-worldmodel` PushT shipped with [LeWM](leworldmodel.md) uses image observations.
 
 > [!tip] See it in action
-> The [LeWM project page](https://le-wm.github.io/) hosts GIFs of LeWM planning on PushT: success rollouts (`pusht_1_half.gif`, `pusht_2_half.gif`), a failure case (`pusht_3_fail_half.gif`), and a latent-space visualization (`pusht_viz_lewm.gif`). The success videos show side-by-side panels — planning rollout (left) vs visual goal image (right). This is the closest reference to what Project 1 (the [[lewm-hello-world-project-scope|LeWM hello world scope]]) reproduces.
+> The [LeWM project page](https://le-wm.github.io/) hosts GIFs of LeWM planning on PushT: success rollouts (`pusht_1_half.gif`, `pusht_2_half.gif`), a failure case (`pusht_3_fail_half.gif`), and a latent-space visualization (`pusht_viz_lewm.gif`). The success videos show side-by-side panels — planning rollout (left) vs visual goal image (right). This is the closest reference to what Project 1 (the [LeWM hello world scope](../syntheses/lewm-hello-world-project-scope.md)) reproduces.
 
 ### Observation space
-- **Image variant** — RGB rendering of the scene. Used by world-model papers ([[leworldmodel-paper|LeWM]], [[dino-wm|DINO-WM]]).
+- **Image variant** — RGB rendering of the scene. Used by world-model papers ([LeWM](../sources/leworldmodel-paper.md), [DINO-WM](dino-wm.md)).
 - **State variant** — end-effector xy + T-block xy + T-block orientation angle. Used by some BC baselines.
-- **Goal** — for [[jepa|JEPA]]-style image-goal planning, the goal is itself an *image* of the T at the target pose; the planner minimizes latent prediction error against this goal embedding.
+- **Goal** — for [JEPA](../concepts/jepa.md)-style image-goal planning, the goal is itself an *image* of the T at the target pose; the planner minimizes latent prediction error against this goal embedding.
 
 ### Action space
 2D continuous: the agent commands a target xy position for the end-effector. A low-level controller drives the blue circle toward that position; physics (Box2D / pymunk in the canonical implementation) handles contact with the T-block. **No grasping primitive** — the only way to move the block is to push it through contact.
@@ -57,7 +57,7 @@ This is exactly the bundle of properties that makes it a good **world-model benc
 
 ### Dataset
 - IBC and Diffusion Policy ship ~200 human-teleop demonstration trajectories. These are the canonical training set.
-- `stable-worldmodel`'s PushT dataset (the one [[leworldmodel-howto|LeWM howto]] downloads) is HDF5-archived; trajectories are `(image, action, next_image)` tuples suitable for action-conditioned JEPA training.
+- `stable-worldmodel`'s PushT dataset (the one [LeWM howto](../syntheses/leworldmodel-howto.md) downloads) is HDF5-archived; trajectories are `(image, action, next_image)` tuples suitable for action-conditioned JEPA training.
 
 ## Why PushT shows up everywhere
 - **Cheap to run** — 2D, fast contact simulation, small observation/action spaces. A single GPU can train hundreds of seeds.
@@ -65,14 +65,14 @@ This is exactly the bundle of properties that makes it a good **world-model benc
 - **Standard across benchmarks** — by 2026 it has become a near-default lightweight testbed across world-model and imitation-learning papers.
 
 ## Cross-references in this wiki
-- **[[leworldmodel-paper|LeWorldModel]]** — one of the four task datasets shipped with the `stable-worldmodel` package (`pusht`, `cube`, `tworooms`, `reacher`). Default fast eval bench.
-- **[[dino-wm-paper|DINO-WM]]** — listed among the six core environments (PushT, Wall, PointMaze, Rope, Granular, Reacher).
-- **[[jepa-wms-paper|JEPA-WMs]] (Terver et al., FAIR)** — included in the env list alongside Metaworld, RoboCasa, Wall, PointMaze, DROID.
+- **[LeWorldModel](../sources/leworldmodel-paper.md)** — one of the four task datasets shipped with the `stable-worldmodel` package (`pusht`, `cube`, `tworooms`, `reacher`). Default fast eval bench.
+- **[DINO-WM](../sources/dino-wm-paper.md)** — listed among the six core environments (PushT, Wall, PointMaze, Rope, Granular, Reacher).
+- **[JEPA-WMs](../sources/jepa-wms-paper.md) (Terver et al., FAIR)** — included in the env list alongside Metaworld, RoboCasa, Wall, PointMaze, DROID.
 - Implicit / pre-2024 references in earlier IBC and Diffusion Policy lines (those papers themselves not yet ingested).
 
 ## Position vs cousins
-- **Versus [[metaworld|Metaworld]]** — PushT is one task with one well-tuned dynamic; Metaworld is 50 distinct tasks. Different testing surface (depth on one task vs breadth across tasks).
-- **Versus [[robocasa|RoboCasa]] / [[maniskill|ManiSkill]]** — PushT is 2D, no scene clutter, no embodiment realism. RoboCasa has scenes; ManiSkill has 3D physics. PushT is for *training-method validation*, not realism.
+- **Versus [Metaworld](metaworld.md)** — PushT is one task with one well-tuned dynamic; Metaworld is 50 distinct tasks. Different testing surface (depth on one task vs breadth across tasks).
+- **Versus [RoboCasa](robocasa.md) / [ManiSkill](maniskill.md)** — PushT is 2D, no scene clutter, no embodiment realism. RoboCasa has scenes; ManiSkill has 3D physics. PushT is for *training-method validation*, not realism.
 
 ## Origin
 - **IBC**: Pete Florence, Corey Lynch, Andy Zeng, et al., Google Research, CoRL 2021.
@@ -82,14 +82,14 @@ This is exactly the bundle of properties that makes it a good **world-model benc
 > PushT-style tasks now ship in many packages (LeRobot, `stable-worldmodel`, robomimic, diffusion-policy repo). Variants exist with mild differences in reward shaping, observation modality (state vs pixel), and termination criteria. When citing a specific number, identify which variant.
 
 ## Related
-- [[leworldmodel|LeWorldModel]] — uses PushT as one of four `stable-worldmodel` task datasets.
-- [[dino-wm|DINO-WM]] / [[jepa-wms|JEPA-WMs]] — JEPA-family consumers.
+- [LeWorldModel](leworldmodel.md) — uses PushT as one of four `stable-worldmodel` task datasets.
+- [DINO-WM](dino-wm.md) / [JEPA-WMs](jepa-wms.md) — JEPA-family consumers.
 
 ## Mentioned in
-- [[leworldmodel-paper|LeWorldModel Paper]]
-- [[leworldmodel-howto|LeWorldModel — train and run howto]]
-- [[dino-wm-paper|DINO-WM Paper]]
-- [[jepa-wms-paper|JEPA-WMs Paper]]
+- [LeWorldModel Paper](../sources/leworldmodel-paper.md)
+- [LeWorldModel — train and run howto](../syntheses/leworldmodel-howto.md)
+- [DINO-WM Paper](../sources/dino-wm-paper.md)
+- [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
 
 ## Open questions / TBD
 - IBC paper (Florence et al., CoRL 2021) and Diffusion Policy paper (Chi et al., 2023) not yet source pages — would let us cite PushT design rationale directly.

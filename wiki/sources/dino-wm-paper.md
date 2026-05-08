@@ -13,7 +13,7 @@ tags: [dino-wm, world-model, dinov2, jepa-adjacent, zero-shot-planning, lecun, p
 ---
 
 ## Summary
-**DINO-WM** — "World Models on Pre-trained Visual Features enable Zero-shot Planning." From [[meta-fair|FAIR]] (LeCun) and NYU (Pinto). Models visual dynamics in **DINOv2 patch-feature space** rather than reconstructing pixels — JEPA-adjacent in spirit (predict in latent space) but uses a **frozen pre-trained encoder** rather than the end-to-end training [[leworldmodel|LeWorldModel]] later argued for. Cited as a baseline in both [[leworldmodel-paper|LeWM]] and [[jepa-wms-paper|JEPA-WMs (Terver et al.)]].
+**DINO-WM** — "World Models on Pre-trained Visual Features enable Zero-shot Planning." From [FAIR](../entities/meta-fair.md) (LeCun) and NYU (Pinto). Models visual dynamics in **DINOv2 patch-feature space** rather than reconstructing pixels — JEPA-adjacent in spirit (predict in latent space) but uses a **frozen pre-trained encoder** rather than the end-to-end training [LeWorldModel](../entities/leworldmodel.md) later argued for. Cited as a baseline in both [LeWM](leworldmodel-paper.md) and [JEPA-WMs (Terver et al.)](jepa-wms-paper.md).
 
 ## Key claims
 - Models visual dynamics **without reconstructing the visual world** by leveraging pretrained DINOv2 patch features.
@@ -27,18 +27,18 @@ tags: [dino-wm, world-model, dinov2, jepa-adjacent, zero-shot-planning, lecun, p
 > Secondary research from the agent's pass identifies the underlying physics as **MuJoCo 2.1**. The official project page does not state this; treat as a wiki-internal claim until confirmed against the paper body.
 
 ## Entities mentioned
-- [[dino-wm|DINO-WM]] — model itself (entity created with this ingest).
-- [[meta-fair|Meta FAIR]] — co-affiliation.
-- [[mujoco|MuJoCo]] — likely physics backend.
-- [[dinov2|DINOv2]] — frozen encoder used as patch-feature substrate.
-- [[pusht|PushT]] — one of the six core eval environments.
-- [[yann-lecun|Yann LeCun]] — co-senior author.
-- [[nvidia-isaac-lab|NVIDIA Isaac Lab]] — referenced as platform context (no direct training there).
+- [DINO-WM](../entities/dino-wm.md) — model itself (entity created with this ingest).
+- [Meta FAIR](../entities/meta-fair.md) — co-affiliation.
+- [MuJoCo](../entities/mujoco.md) — likely physics backend.
+- [DINOv2](../entities/dinov2.md) — frozen encoder used as patch-feature substrate.
+- [PushT](../entities/pusht.md) — one of the six core eval environments.
+- [Yann LeCun](../entities/yann-lecun.md) — co-senior author.
+- [NVIDIA Isaac Lab](../entities/nvidia-isaac-lab.md) — referenced as platform context (no direct training there).
 
 ## Concepts touched
-- [[jepa|Joint-Embedding Predictive Architecture]] — JEPA-adjacent: predicts in DINOv2 latent space, but uses a frozen encoder rather than learning the encoder end-to-end.
-- [[world-model|World model]] — frozen-foundation-feature design point.
-- [[world-model-simulators|World-model simulators]] — latent-prediction paradigm.
+- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — JEPA-adjacent: predicts in DINOv2 latent space, but uses a frozen encoder rather than learning the encoder end-to-end.
+- [World model](../concepts/world-model.md) — frozen-foundation-feature design point.
+- [World-model simulators](../concepts/world-model-simulators.md) — latent-prediction paradigm.
 
 ## Open questions
 - Exact physics-engine confirmation needed.
@@ -46,4 +46,4 @@ tags: [dino-wm, world-model, dinov2, jepa-adjacent, zero-shot-planning, lecun, p
 - How the pretrained-DINOv2 design point compares quantitatively to LeWM's end-to-end + SIGReg approach (LeWM claims ~48× faster planning; DINO-WM does not give a comparable number).
 
 ## Why this matters
-DINO-WM is a **lightweight-sim** JEPA-adjacent world model — fits the original "JEPA skips heavy sim" pattern. PushT/Wall/PointMaze/Rope/Granular/Reacher are classic 2D/3D control benches, not [[robocasa|RoboCasa]]/[[maniskill|ManiSkill]]/[[nvidia-isaac-lab|Isaac Lab]]. So DINO-WM **supports the lightweight-sim half** of the original synthesis even as Terver et al. break the no-sim half.
+DINO-WM is a **lightweight-sim** JEPA-adjacent world model — fits the original "JEPA skips heavy sim" pattern. PushT/Wall/PointMaze/Rope/Granular/Reacher are classic 2D/3D control benches, not [RoboCasa](../entities/robocasa.md)/[ManiSkill](../entities/maniskill.md)/[Isaac Lab](../entities/nvidia-isaac-lab.md). So DINO-WM **supports the lightweight-sim half** of the original synthesis even as Terver et al. break the no-sim half.

@@ -24,9 +24,9 @@ status: stub
 
 ## Related
 - Tesla — manufacturer.
-- [[atlas|Atlas]] / [[figure|Figure]] / [[unitree-h1|Unitree H1]] / [[apptronik-apollo|Apptronik Apollo]] — humanoid competitors.
-- [[humanoid-platforms-survey|Humanoid platforms survey]] — landscape.
-- [[newton-openusd-substrate-convergence|Newton + OpenUSD substrate convergence]] — flags Tesla Optimus as an example of closed industry stack outside the open agentic-robotics movement.
+- [Atlas](atlas.md) / [Figure](figure.md) / [Unitree H1](unitree-h1.md) / [Apptronik Apollo](apptronik-apollo.md) — humanoid competitors.
+- [Humanoid platforms survey](../syntheses/humanoid-platforms-survey.md) — landscape.
+- [Newton + OpenUSD substrate convergence](../syntheses/newton-openusd-substrate-convergence.md) — flags Tesla Optimus as an example of closed industry stack outside the open agentic-robotics movement.
 
 ## Mentioned in
 - *(no source pages directly cite Optimus; entity built from general knowledge)*

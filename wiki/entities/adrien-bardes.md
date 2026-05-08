@@ -8,12 +8,12 @@ sources: 3
 tags: [person, meta-fair, jepa, self-supervised, v-jepa, jepa-wms]
 ---
 
-**Adrien Bardes** — Researcher at [[meta-fair|Meta FAIR]]. **The center of gravity for FAIR's JEPA-for-robotics work.** Co-senior or core author across every V-JEPA / JEPA-WM paper ingested in this wiki, with a research thread running back to self-supervised representation learning (VICReg, etc.) before JEPA.
+**Adrien Bardes** — Researcher at [Meta FAIR](meta-fair.md). **The center of gravity for FAIR's JEPA-for-robotics work.** Co-senior or core author across every V-JEPA / JEPA-WM paper ingested in this wiki, with a research thread running back to self-supervised representation learning (VICReg, etc.) before JEPA.
 
 ## Papers in this wiki
-- [[v-jepa-2-paper|V-JEPA 2]] (2025-06) — co-senior with [[yann-lecun|LeCun]] / Rabbat / Ballas. Core team author per the wiki entity page.
-- [[v-jepa-2-1-paper|V-JEPA 2.1]] (2026-03) — author.
-- [[jepa-wms-paper|JEPA-WMs]] (2025-12) — **co-senior with LeCun**. Bardes is the FAIR-side champion of the JEPA-WM line — same role he played for V-JEPA 2.
+- [V-JEPA 2](../sources/v-jepa-2-paper.md) (2025-06) — co-senior with [LeCun](yann-lecun.md) / Rabbat / Ballas. Core team author per the wiki entity page.
+- [V-JEPA 2.1](../sources/v-jepa-2-1-paper.md) (2026-03) — author.
+- [JEPA-WMs](../sources/jepa-wms-paper.md) (2025-12) — **co-senior with LeCun**. Bardes is the FAIR-side champion of the JEPA-WM line — same role he played for V-JEPA 2.
 
 Three papers in nine months, all FAIR JEPA work. If the wiki tracked author centrality, Bardes would be the highest-density JEPA-for-robotics contributor after LeCun.
 
@@ -22,18 +22,18 @@ Three papers in nine months, all FAIR JEPA work. If the wiki tracked author cent
 - 2025–present: V-JEPA program co-leadership at FAIR.
 
 ## Why it matters in this wiki
-The [[why-jepa-research-skips-the-simulator-stack|revised "JEPA + sim" synthesis]] argues that the same FAIR group that produced V-JEPA 2 (no sim) released JEPA-WMs (heavy sim) within 6 months. **Bardes is the bridge author** that makes this a "same group" claim and not just a "FAIR umbrella" claim — he co-senior'd both papers. When tracking the trajectory of FAIR's JEPA research direction, Bardes's next paper is the leading indicator.
+The [revised "JEPA + sim" synthesis](../syntheses/why-jepa-research-skips-the-simulator-stack.md) argues that the same FAIR group that produced V-JEPA 2 (no sim) released JEPA-WMs (heavy sim) within 6 months. **Bardes is the bridge author** that makes this a "same group" claim and not just a "FAIR umbrella" claim — he co-senior'd both papers. When tracking the trajectory of FAIR's JEPA research direction, Bardes's next paper is the leading indicator.
 
 ## Related
-- [[meta-fair|Meta FAIR]] — affiliation.
-- [[yann-lecun|Yann LeCun]] — frequent co-senior collaborator.
-- [[jepa|Joint-Embedding Predictive Architecture]] — research program.
-- [[v-jepa-2|V-JEPA 2]] / [[jepa-wms|JEPA-WMs]] — primary papers.
+- [Meta FAIR](meta-fair.md) — affiliation.
+- [Yann LeCun](yann-lecun.md) — frequent co-senior collaborator.
+- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — research program.
+- [V-JEPA 2](v-jepa-2.md) / [JEPA-WMs](jepa-wms.md) — primary papers.
 
 ## Mentioned in
-- [[v-jepa-2-paper|V-JEPA 2 Paper]]
-- [[v-jepa-2-1-paper|V-JEPA 2.1 Paper]]
-- [[jepa-wms-paper|JEPA-WMs Paper]]
+- [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
+- [V-JEPA 2.1 Paper](../sources/v-jepa-2-1-paper.md)
+- [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
 
 ## Open questions / TBD
 - Bardes's full publication list and PhD origin (École Normale Supérieure / Inria, per VICReg author affiliations) are not directly cited; would reinforce the "self-supervised learning specialist" framing.

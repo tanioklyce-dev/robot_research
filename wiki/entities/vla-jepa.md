@@ -8,7 +8,7 @@ sources: 1
 tags: [vla-jepa, vla-models, jepa, world-model, libero, simplerenv]
 ---
 
-**VLA-JEPA** — "Enhancing Vision-Language-Action Model with Latent World Model." Augments a [[vla-models|VLA]] policy with a **JEPA-style latent world-model auxiliary objective**. Introduced in [[vla-jepa-paper|Sun et al. (Feb 2026)]] (USTC + collaborators).
+**VLA-JEPA** — "Enhancing Vision-Language-Action Model with Latent World Model." Augments a [VLA](../concepts/vla-models.md) policy with a **JEPA-style latent world-model auxiliary objective**. Introduced in [Sun et al. (Feb 2026)](../sources/vla-jepa-paper.md) (USTC + collaborators).
 
 ## Approach
 - "Leakage-free state prediction": a target encoder produces latent representations from future frames; the student pathway sees only the current observation.
@@ -24,12 +24,12 @@ tags: [vla-jepa, vla-models, jepa, world-model, libero, simplerenv]
 ## Why it matters
 - **Third design point** in the JEPA-for-robotics taxonomy (alongside the V-JEPA 2 / LeWM / JEPA-WMs lines): JEPA-as-auxiliary-objective inside a VLA, not standalone world model.
 - **Mid-weight sim choice (SimplerEnv)** — sits between LeWM-style classic benches and JEPA-WMs' RoboCasa.
-- Strengthens the case in [[why-jepa-research-skips-the-simulator-stack|the revised synthesis]] that the JEPA literature is **fragmenting across sim weight classes** rather than skipping sim wholesale.
+- Strengthens the case in [the revised synthesis](../syntheses/why-jepa-research-skips-the-simulator-stack.md) that the JEPA literature is **fragmenting across sim weight classes** rather than skipping sim wholesale.
 
 ## Related
-- [[jepa|Joint-Embedding Predictive Architecture]] — auxiliary objective.
-- [[vla-models|VLA models]] — wraps JEPA into a VLA policy.
-- [[world-model-simulators|World-model simulators]] — latent-prediction paradigm.
+- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — auxiliary objective.
+- [VLA models](../concepts/vla-models.md) — wraps JEPA into a VLA policy.
+- [World-model simulators](../concepts/world-model-simulators.md) — latent-prediction paradigm.
 
 ## Mentioned in
-- [[vla-jepa-paper|VLA-JEPA Paper]]
+- [VLA-JEPA Paper](../sources/vla-jepa-paper.md)

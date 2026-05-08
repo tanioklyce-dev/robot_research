@@ -9,7 +9,7 @@ tags: [hiwonder, rosorin, jetson-orin-nano, ros2, education, gazebo, ollama, qwe
 ---
 
 ## Summary
-Sphinx documentation site for [[hiwonder|Hiwonder]]'s **[[rosorin|ROSOrin]]** educational robot kit on a Jetson Orin Nano compute platform. Covers the full curriculum: hardware setup, ROS 2 (Humble) basics, mapping/navigation, perception (OpenCV + YOLOv11 + TensorRT), Gazebo simulation, and "Large AI Model Courses" with both cloud (GPT-4o, [[qwen|Qwen]], StepFun) and offline ([[ollama|Ollama]] + [[qwen|Qwen]] + sherpa-onnx) flavors. The Embodied AI section uses the same JSON tool-call [[llm-agent-architecture|LLM-agent pattern]] as [[stretch-ai|stretch_ai]].
+Sphinx documentation site for [Hiwonder](../entities/hiwonder.md)'s **[ROSOrin](../entities/rosorin.md)** educational robot kit on a Jetson Orin Nano compute platform. Covers the full curriculum: hardware setup, ROS 2 (Humble) basics, mapping/navigation, perception (OpenCV + YOLOv11 + TensorRT), Gazebo simulation, and "Large AI Model Courses" with both cloud (GPT-4o, [Qwen](../entities/qwen.md), StepFun) and offline ([Ollama](../entities/ollama.md) + [Qwen](../entities/qwen.md) + sherpa-onnx) flavors. The Embodied AI section uses the same JSON tool-call [LLM-agent pattern](../concepts/llm-agent-architecture.md) as [stretch_ai](../entities/stretch-ai.md).
 
 ## Key claims
 
@@ -47,7 +47,7 @@ Sphinx documentation site for [[hiwonder|Hiwonder]]'s **[[rosorin|ROSOrin]]** ed
 - API setup requires registering, getting a key, and charging tokens via Billing.
 
 **Offline (10.5):**
-- LLM runtime: **[[ollama|Ollama]]** (`ollama serve` starts the local server).
+- LLM runtime: **[Ollama](../entities/ollama.md)** (`ollama serve` starts the local server).
 - Local LLM model: **`qwen3:1.7b`** (small enough for Jetson Orin Nano).
 - Speech stack: **sherpa-onnx** with CUDA acceleration (`provider="cuda"`).
 - Offline TTS models: **`matcha-icefall-zh-baker`** (Chinese), **`vits-ljs`** (English VITS).
@@ -55,7 +55,7 @@ Sphinx documentation site for [[hiwonder|Hiwonder]]'s **[[rosorin|ROSOrin]]** ed
 - Client class pattern: `client = speech.OllamaAPI(ollama_host)` → `client.llm_origin(...)` / `client.llm_multi_turn(...)`.
 
 ### Embodied AI (10.3) — LLM-agent pattern
-Same architecture as [[stretch-ai|stretch_ai]]:
+Same architecture as [stretch_ai](../entities/stretch-ai.md):
 - LLM is given a goal + tool-call schema.
 - LLM emits structured JSON: `{action: [...], response: "..."}`.
 - Executor invokes skill methods named in `action` array via `eval(f'self.{a}')` — **Python `eval` on LLM output**, security-questionable but typical for educational demos.
@@ -68,14 +68,14 @@ Same architecture as [[stretch-ai|stretch_ai]]:
 - Chapter 8: voice interaction (WonderEcho Pro install + 6-mic configuration).
 
 ## Entities mentioned
-- [[hiwonder|Hiwonder]]
-- [[rosorin|ROSOrin]]
-- [[ollama|Ollama]]
-- [[qwen|Qwen]]
-- [[stretch-ai|stretch_ai]] — referenced for the parallel LLM-agent pattern.
+- [Hiwonder](../entities/hiwonder.md)
+- [ROSOrin](../entities/rosorin.md)
+- [Ollama](../entities/ollama.md)
+- [Qwen](../entities/qwen.md)
+- [stretch_ai](../entities/stretch-ai.md) — referenced for the parallel LLM-agent pattern.
 
 ## Concepts touched
-- [[llm-agent-architecture|LLM-agent architecture]] — same JSON tool-call pattern as stretch_ai, here extended to a fully offline variant via Ollama + sherpa-onnx.
+- [LLM-agent architecture](../concepts/llm-agent-architecture.md) — same JSON tool-call pattern as stretch_ai, here extended to a fully offline variant via Ollama + sherpa-onnx.
 - Mobile robotics (no entity for the concept yet — bare text).
 
 ## Open questions

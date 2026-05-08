@@ -9,7 +9,7 @@ tags: [survey, vla, physical-ai, listicle]
 ---
 
 ## Summary
-MarkTechPost listicle surveying ten leading physical-AI / [[vla-models|VLA models]] in early 2026, including NVIDIA GR00T N1.7, SmolVLA, and Ant Group's LingBot-VLA.
+MarkTechPost listicle surveying ten leading physical-AI / [VLA models](../concepts/vla-models.md) in early 2026, including NVIDIA GR00T N1.7, SmolVLA, and Ant Group's LingBot-VLA.
 
 ## Key claims
 - NVIDIA GR00T N1.7 Early Access is a 3B-parameter open, commercially licensed VLA built on a Cosmos-Reason2-2B backbone.
@@ -17,14 +17,14 @@ MarkTechPost listicle surveying ten leading physical-AI / [[vla-models|VLA model
 - SmolVLA is positioned as runnable on consumer hardware including a single RTX-class GPU and MacBooks.
 
 ## Entities mentioned
-- [[nvidia|NVIDIA]]
-- [[nvidia-cosmos|NVIDIA Cosmos]]
+- [NVIDIA](../entities/nvidia.md)
+- [NVIDIA Cosmos](../entities/nvidia-cosmos.md)
 
 ## Concepts touched
-- [[vla-models|VLA models]]
+- [VLA models](../concepts/vla-models.md)
 - Open vs. closed VLA licensing
 - Egocentric pretraining datasets
 
 ## Open questions
-- Discrepancy with [[nvidia-newton-contact-rich-manipulation-blog|NVIDIA Newton Contact-Rich Manipulation Blog]], which references GR00T N1.6 as the version bundled with Isaac Lab. Are N1.6 (GA) and N1.7 (EA) running in parallel?
+- Discrepancy with [NVIDIA Newton Contact-Rich Manipulation Blog](nvidia-newton-contact-rich-manipulation-blog.md), which references GR00T N1.6 as the version bundled with Isaac Lab. Are N1.6 (GA) and N1.7 (EA) running in parallel?
 - Production-grade SmolVLA use cases?

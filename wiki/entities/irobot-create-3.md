@@ -9,7 +9,7 @@ tags: [irobot, create-3, mobile-robot, ros2, education, roomba, turtlebot-base]
 status: stub
 ---
 
-**iRobot Create 3** — mobile-robot research / education base from iRobot. Built on the **Roomba i3 chassis** but stripped of vacuum hardware, with a developer interface (UART / Ethernet) and **native ROS 2 support**. Released 2022. Forms the **base of [[turtlebot|TurtleBot 4]]**.
+**iRobot Create 3** — mobile-robot research / education base from iRobot. Built on the **Roomba i3 chassis** but stripped of vacuum hardware, with a developer interface (UART / Ethernet) and **native ROS 2 support**. Released 2022. Forms the **base of [TurtleBot 4](turtlebot.md)**.
 
 ## Specs
 - Differential-drive base from the Roomba i3.
@@ -20,20 +20,20 @@ status: stub
 - No onboard compute or sensors beyond what Roomba ships — researchers add their own (Raspberry Pi / Jetson + cameras + LiDAR).
 
 ## Why it matters in this wiki
-- **The base under [[turtlebot|TurtleBot 4]].** When TurtleBot 4 is referenced, Create 3 is the underlying chassis.
+- **The base under [TurtleBot 4](turtlebot.md).** When TurtleBot 4 is referenced, Create 3 is the underlying chassis.
 - **Affordable ROS 2 mobile base.** $549 + a Raspberry Pi 4 or Jetson Orin Nano + commodity sensors gets a researcher a functional ROS 2 mobile robot for ~$1k–$2k total. Below educational-kit pricing, similar functionality.
 - **iRobot lineage — quiet, reliable, battery-managed.** The chassis benefits from years of consumer-Roomba engineering: docking, battery management, low-noise drive.
 
 ## Position vs alternatives
 - **Cheaper than TurtleBot 4 turnkey** — Create 3 alone is ~$549; TurtleBot 4 (Create 3 + Pi + sensors + frame) is ~$2k–$3k.
-- **Less integrated than [[rosorin|ROSOrin]]** — ROSOrin ships with Jetson Orin Nano + LiDAR + depth + voice + LLM-agent curriculum; Create 3 is just the base, you build the rest.
+- **Less integrated than [ROSOrin](rosorin.md)** — ROSOrin ships with Jetson Orin Nano + LiDAR + depth + voice + LLM-agent curriculum; Create 3 is just the base, you build the rest.
 - **Different niche than the educational-kit market.** Create 3 targets developers / researchers who want to build their own platform; ROSOrin / TurtleBot target classrooms that want turnkey.
 
 ## Related
 - iRobot — manufacturer.
-- [[turtlebot|TurtleBot]] — TurtleBot 4 uses Create 3 as base.
-- [[rosorin|ROSOrin]] — competing educational mobile-robot kit (more integrated).
-- [[robot-platforms-comparison|Robot platforms comparison]] — base-tier hardware context.
+- [TurtleBot](turtlebot.md) — TurtleBot 4 uses Create 3 as base.
+- [ROSOrin](rosorin.md) — competing educational mobile-robot kit (more integrated).
+- [Robot platforms comparison](../syntheses/robot-platforms-comparison.md) — base-tier hardware context.
 
 ## Mentioned in
 - *(no source pages directly cite Create 3; entity built from general knowledge)*

@@ -10,13 +10,13 @@ tags: [openusd, nvidia, isaac-sim, robotics, scene-composition, cad, urdf]
 ---
 
 ## Summary
-NVIDIA Technical Blog on how OpenUSD is used as the asset and scene format underlying robotic simulation in [[nvidia-isaac-sim|NVIDIA Isaac Sim]] and adjacent [[newton-physics-engine|Newton]] workflows. Articulates NVIDIA's own roadmap for robotics-specific OpenUSD schemas and the URDF/MJCF/SDFormat conceptual mapping work.
+NVIDIA Technical Blog on how OpenUSD is used as the asset and scene format underlying robotic simulation in [NVIDIA Isaac Sim](../entities/nvidia-isaac-sim.md) and adjacent [Newton](../entities/newton-physics-engine.md) workflows. Articulates NVIDIA's own roadmap for robotics-specific OpenUSD schemas and the URDF/MJCF/SDFormat conceptual mapping work.
 
 ## Key claims
 
 ### Stack positioning
 - **Isaac Sim 5.0** builds on Omniverse Kit SDK 107, upgrading to **OpenUSD version 24.05**.
-- **[[newton-physics-engine|Newton]]** — referenced as "open-source, extensible physics engine developed by NVIDIA, Google DeepMind, and Disney Research." Same framing as the [[nvidia-newton-physics-engine-developer-page|developer page]].
+- **[Newton](../entities/newton-physics-engine.md)** — referenced as "open-source, extensible physics engine developed by NVIDIA, Google DeepMind, and Disney Research." Same framing as the [developer page](nvidia-newton-physics-engine-developer-page.md).
 
 ### OpenUSD composition features used in robotics pipelines
 - **References** — keep links to upstream CAD data sources, enabling roundtrip.
@@ -39,19 +39,19 @@ Robot schemas containing:
 - **B-rep geometry schemas** for CAD-derived tessellations.
 
 ### Synthetic data pipeline
-- "Enables scalable synthetic-data generation" by transforming structured simulation into photoreal video using **Cosmos** world foundation models ([[nvidia-cosmos|NVIDIA Cosmos]]).
+- "Enables scalable synthetic-data generation" by transforming structured simulation into photoreal video using **Cosmos** world foundation models ([NVIDIA Cosmos](../entities/nvidia-cosmos.md)).
 
 ### Practical guidance
 - Standardize root-layer scene units: **`metersPerUnit` set to meters**.
 
 ## Entities mentioned
-- [[openusd|OpenUSD]]
-- [[nvidia-isaac-sim|NVIDIA Isaac Sim]]
-- [[newton-physics-engine|Newton physics engine]]
-- [[nvidia-cosmos|NVIDIA Cosmos]]
-- [[google-deepmind|Google DeepMind]] (as Newton co-developer)
-- [[disney-research|Disney Research]] (as Newton co-developer)
-- [[nvidia|NVIDIA]]
+- [OpenUSD](../entities/openusd.md)
+- [NVIDIA Isaac Sim](../entities/nvidia-isaac-sim.md)
+- [Newton physics engine](../entities/newton-physics-engine.md)
+- [NVIDIA Cosmos](../entities/nvidia-cosmos.md)
+- [Google DeepMind](../entities/google-deepmind.md) (as Newton co-developer)
+- [Disney Research](../entities/disney-research.md) (as Newton co-developer)
+- [NVIDIA](../entities/nvidia.md)
 
 ## Concepts touched
 - Scene composition in robotics pipelines (references, variants, payloads).

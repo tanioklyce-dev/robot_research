@@ -8,31 +8,31 @@ tags: [generalist-policies, vla, imitation-learning, sim-to-real, synthetic-data
 
 # Sim-heavy vs real-data paths to generalist policies
 
-The simulator survey ([[simulators-for-agentic-robotics-2026|Simulators for agentic robotics — 2026 landscape]] §6) noted a "sim-vs-real divide" between NVIDIA / AGIBOT-style sim-trained generalist agendas and the Hello Robot / RUM-style real-demo agenda. This page works through the comparison and adds a third path the survey didn't fully separate: the **observation-pretraining** path that V-JEPA 2 represents. Three distinct bets on what data robots should learn from.
+The simulator survey ([Simulators for agentic robotics — 2026 landscape](simulators-for-agentic-robotics-2026.md) §6) noted a "sim-vs-real divide" between NVIDIA / AGIBOT-style sim-trained generalist agendas and the Hello Robot / RUM-style real-demo agenda. This page works through the comparison and adds a third path the survey didn't fully separate: the **observation-pretraining** path that V-JEPA 2 represents. Three distinct bets on what data robots should learn from.
 
 ## The three paths
 
 ### Path A — Sim-heavy synthetic-data scaling
 
-Train a generalist policy ([[vla-models|VLA]] or BC) almost entirely inside a simulator. Use synthetic-demo expansion ([[mimicgen|MimicGen]]-style) to multiply human teleop. Bet that **scene diversity + task diversity** generated cheaply in sim transfers to real robots.
+Train a generalist policy ([VLA](../concepts/vla-models.md) or BC) almost entirely inside a simulator. Use synthetic-demo expansion ([MimicGen](../entities/mimicgen.md)-style) to multiply human teleop. Bet that **scene diversity + task diversity** generated cheaply in sim transfers to real robots.
 
-- **[[robocasa|RoboCasa]] / RoboCasa365** ([[robocasa365-paper|RoboCasa365 Paper]], ICLR 2026) — 612 hr human teleop **expanded ~2.6×** to 1,615 hr synthetic via MimicGen, across 365 tasks / 2,500 kitchens / 3,200+ objects, totaling 500K+ trajectories.
-- **[[agibot-genie-sim|AGIBOT Genie Sim 3.0]]** ([[agibot-genie-sim-3-announcement|AGIBOT Genie Sim 3.0 Announcement]]) — open simulation platform with **10,000+ hours synthetic data** and **100,000+ evaluation scenarios**, benchmarking GR00T, Pi, GO-2.
-- **NVIDIA Isaac Lab + GR00T** — implicit in the [[nvidia-newton-contact-rich-manipulation-blog|NVIDIA Newton Contact-Rich Manipulation Blog]] release; sim-trained VLAs as the production stack.
+- **[RoboCasa](../entities/robocasa.md) / RoboCasa365** ([RoboCasa365 Paper](../sources/robocasa365-paper.md), ICLR 2026) — 612 hr human teleop **expanded ~2.6×** to 1,615 hr synthetic via MimicGen, across 365 tasks / 2,500 kitchens / 3,200+ objects, totaling 500K+ trajectories.
+- **[AGIBOT Genie Sim 3.0](../entities/agibot-genie-sim.md)** ([AGIBOT Genie Sim 3.0 Announcement](../sources/agibot-genie-sim-3-announcement.md)) — open simulation platform with **10,000+ hours synthetic data** and **100,000+ evaluation scenarios**, benchmarking GR00T, Pi, GO-2.
+- **NVIDIA Isaac Lab + GR00T** — implicit in the [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md) release; sim-trained VLAs as the production stack.
 
 ### Path B — Real-data, viewpoint-locked
 
 Skip the simulator. Collect real demonstrations with a hardware rig that **locks the camera viewpoint** so the same model transfers across embodiments. Bet that **modest data with high environment diversity** is enough for zero-shot generalization on a narrow task set.
 
-- **[[robot-utility-models|Robot Utility Models]]** (NYU + Meta, [[robot-utility-models-website|RUM project page]]) — **5,509 real trajectories** across 5 tasks × 180 environments × ~36 envs per task. Custom "Stick V2" gripper with iPhone POV mount keeps camera viewpoint identical across collectors and across [[stretch|Stretch]] / xArm 7 deployment. **~90% success in unseen environments**, **zero-shot cross-embodiment** Stretch → xArm 7.
-- **[[stretch-ai|stretch_ai]]'s LLM agent** ([[stretch-ai-llm-agent-docs|Stretch AI LLM Agent Documentation]]) — orthogonal to RUMs as a method, but lives in the same real-only ecosystem; no sim in the agent loop.
+- **[Robot Utility Models](../entities/robot-utility-models.md)** (NYU + Meta, [RUM project page](../sources/robot-utility-models-website.md)) — **5,509 real trajectories** across 5 tasks × 180 environments × ~36 envs per task. Custom "Stick V2" gripper with iPhone POV mount keeps camera viewpoint identical across collectors and across [Stretch](../entities/stretch.md) / xArm 7 deployment. **~90% success in unseen environments**, **zero-shot cross-embodiment** Stretch → xArm 7.
+- **[stretch_ai](../entities/stretch-ai.md)'s LLM agent** ([Stretch AI LLM Agent Documentation](../sources/stretch-ai-llm-agent-docs.md)) — orthogonal to RUMs as a method, but lives in the same real-only ecosystem; no sim in the agent loop.
 
 ### Path C — Observation-pretraining + small interaction
 
 Pretrain a representation or world model on **massive action-free internet video**, then add a small action-conditioned post-training stage on real robot data. Bet that **observation alone** carries most of the signal a robot needs.
 
-- **[[v-jepa-2|V-JEPA 2]] / V-JEPA 2-AC** ([[v-jepa-2-paper|V-JEPA 2 Paper]]) — **1M+ hours of internet video** pretraining (action-free) → **62 hr of Droid robot data** post-training → **zero-shot Franka pick-and-place in two new labs**, no robot-specific data, no rewards. The strongest published existence proof of this path so far.
-- **[[leworldmodel|LeWorldModel]]** ([[leworldmodel-paper|LeWorldModel Paper]]) — companion JEPA at the small end of the same paradigm; argues the recipe works across 60–70× model size and ~5 orders of magnitude data scale.
+- **[V-JEPA 2](../entities/v-jepa-2.md) / V-JEPA 2-AC** ([V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)) — **1M+ hours of internet video** pretraining (action-free) → **62 hr of Droid robot data** post-training → **zero-shot Franka pick-and-place in two new labs**, no robot-specific data, no rewards. The strongest published existence proof of this path so far.
+- **[LeWorldModel](../entities/leworldmodel.md)** ([LeWorldModel Paper](../sources/leworldmodel-paper.md)) — companion JEPA at the small end of the same paradigm; argues the recipe works across 60–70× model size and ~5 orders of magnitude data scale.
 
 ## Data scale at a glance
 
@@ -71,15 +71,15 @@ The empirical asymmetry is striking. Path B and Path C have **published zero-sho
 > The simulator survey called this out at the bottom of section 6: "the two paths are complementary." This page makes the dependencies explicit.
 
 - **Real-data corpora feed sim pipelines.** RoboCasa365's 612 hr of human teleop is real; the 1,615 hr of synthetic is *expansion* of the real, not a replacement. Path A's synthetic ratio depends on Path B's collection rigs.
-- **Sim-trained policies need real targets.** [[stretch|Stretch]] is the de-facto research robot for both ecosystems. Aaron Edsinger ([[hello-robot|Hello Robot]] co-founder) is a co-author on the RUM paper — the hardware vendor is explicitly bridging sim and real research agendas.
+- **Sim-trained policies need real targets.** [Stretch](../entities/stretch.md) is the de-facto research robot for both ecosystems. Aaron Edsinger ([Hello Robot](../entities/hello-robot.md) co-founder) is a co-author on the RUM paper — the hardware vendor is explicitly bridging sim and real research agendas.
 - **Path C uses neither.** V-JEPA 2's pretraining data is *internet video*, not teleop and not sim. This is the most genuinely orthogonal path; if it scales, it competes with both Path A and Path B's data assumptions, not just one.
-- **Sim simulators consume real data too.** [[agibot-genie-sim|Genie Sim 3.0]] explicitly bills its 10,000+ hours synthetic dataset as "including real-world robot operation scenarios" ([[agibot-genie-sim-3-announcement|AGIBOT Genie Sim 3.0 Announcement]]) — i.e. real demos seeded a synthetic-expansion pipeline, then both feed the same training run.
+- **Sim simulators consume real data too.** [Genie Sim 3.0](../entities/agibot-genie-sim.md) explicitly bills its 10,000+ hours synthetic dataset as "including real-world robot operation scenarios" ([AGIBOT Genie Sim 3.0 Announcement](../sources/agibot-genie-sim-3-announcement.md)) — i.e. real demos seeded a synthetic-expansion pipeline, then both feed the same training run.
 
 ## Implications
 
 1. **The "sim vs real" framing is wrong by 2026.** The interesting axis is *what kind of data substitutes for what*: synthetic teleop for real teleop (Path A), environment diversity for data quantity (Path B), action-free observation for action-conditioned interaction (Path C). The choice is not sim-or-not; it is which substitution you bet on.
 2. **Path A scales tasks; Path B scales environments; Path C scales pretraining.** Each path has a different scaling axis, and the costs to scale along each axis are very different. Synthetic teleop in sim is cheap per task but expensive in scene-authoring upfront; real demos are expensive per task but easy to collect on a robot you already have; internet video is essentially free as input but requires large-model engineering.
-3. **VLAs and utility-model BC are still distinct.** [[robot-utility-models|RUMs]] are explicitly **not** language-conditioned ([[robot-utility-models|RUM entity page]]); [[vla-models|VLAs]] are. The "generalist policy" label spans both, but the data and training profiles differ — RUMs lean Path B; VLAs largely lean Path A with Path C contributions.
+3. **VLAs and utility-model BC are still distinct.** [RUMs](../entities/robot-utility-models.md) are explicitly **not** language-conditioned ([RUM entity page](../entities/robot-utility-models.md)); [VLAs](../concepts/vla-models.md) are. The "generalist policy" label spans both, but the data and training profiles differ — RUMs lean Path B; VLAs largely lean Path A with Path C contributions.
 4. **The biggest unknown is whether Path A's sim-trained VLAs match Path B's real-data BC on the same metric.** No source ingested here runs RUM-style 90% novel-environment success against an Isaac Lab–trained VLA on the same task set. Until that comparison exists, claims about "sim is enough" or "real demos are enough" are hard to settle.
 
 ## Open questions
@@ -92,17 +92,17 @@ The empirical asymmetry is striking. Path B and Path C have **published zero-sho
 
 ## Sources used in this synthesis
 
-- [[robocasa365-paper|RoboCasa365 Paper]]
-- [[agibot-genie-sim-3-announcement|AGIBOT Genie Sim 3.0 Announcement]]
-- [[robot-utility-models-website|Robot Utility Models Project Page]]
-- [[stretch-ai-llm-agent-docs|Stretch AI LLM Agent Documentation]]
-- [[v-jepa-2-paper|V-JEPA 2 Paper]]
-- [[leworldmodel-paper|LeWorldModel Paper]]
-- [[nvidia-newton-contact-rich-manipulation-blog|NVIDIA Newton Contact-Rich Manipulation Blog]]
+- [RoboCasa365 Paper](../sources/robocasa365-paper.md)
+- [AGIBOT Genie Sim 3.0 Announcement](../sources/agibot-genie-sim-3-announcement.md)
+- [Robot Utility Models Project Page](../sources/robot-utility-models-website.md)
+- [Stretch AI LLM Agent Documentation](../sources/stretch-ai-llm-agent-docs.md)
+- [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
+- [LeWorldModel Paper](../sources/leworldmodel-paper.md)
+- [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)
 
 ## Related
 
-- [[simulators-for-agentic-robotics-2026|Simulators for agentic robotics — 2026 landscape]] — §6 sketches Path A vs Path B at survey level; this page is the deeper comparison and adds Path C.
-- [[generative-video-vs-jepa-world-models|Generative-video vs JEPA world models]] — Path C's underlying architecture choice.
-- [[llm-agent-architecture-across-stacks|LLM-agent architecture across stacks]] — orthogonal control paradigm to the policy paradigms above.
-- [[vla-models|VLA models]] / [[imitation-learning|Imitation learning]] — the policy classes consuming all three paths.
+- [Simulators for agentic robotics — 2026 landscape](simulators-for-agentic-robotics-2026.md) — §6 sketches Path A vs Path B at survey level; this page is the deeper comparison and adds Path C.
+- [Generative-video vs JEPA world models](generative-video-vs-jepa-world-models.md) — Path C's underlying architecture choice.
+- [LLM-agent architecture across stacks](llm-agent-architecture-across-stacks.md) — orthogonal control paradigm to the policy paradigms above.
+- [VLA models](../concepts/vla-models.md) / [Imitation learning](../concepts/imitation-learning.md) — the policy classes consuming all three paths.

@@ -9,7 +9,7 @@ tags: [maniskill, sapien, manipulation, benchmark, hab]
 ---
 
 ## Summary
-ArXiv paper introducing MS-HAB — a GPU-accelerated implementation of the Home Assistant Benchmark (HAB) inside [[maniskill|ManiSkill]], focused on low-level manipulation chains for home rearrangement tasks.
+ArXiv paper introducing MS-HAB — a GPU-accelerated implementation of the Home Assistant Benchmark (HAB) inside [ManiSkill](../entities/maniskill.md), focused on low-level manipulation chains for home rearrangement tasks.
 
 ## Key claims
 - Provides skill primitives (Pick, Place, Open, Close) chained for long-horizon HAB tasks: TidyHouse, PrepareGroceries, SetTable.
@@ -17,9 +17,9 @@ ArXiv paper introducing MS-HAB — a GPU-accelerated implementation of the Home 
 - Realistic low-level control (vs. "magic grasp" abstractions used by older HAB implementations).
 
 ## Entities mentioned
-- [[maniskill|ManiSkill]]
-- [[hillbot|Hillbot]]
-- [[sapien|SAPIEN]]
+- [ManiSkill](../entities/maniskill.md)
+- [Hillbot](../entities/hillbot.md)
+- [SAPIEN](../entities/sapien.md)
 
 ## Concepts touched
 - Long-horizon manipulation chains
@@ -27,5 +27,5 @@ ArXiv paper introducing MS-HAB — a GPU-accelerated implementation of the Home 
 - Low-level vs. high-level action abstractions
 
 ## Open questions
-- How does MS-HAB compare in throughput to [[agibot-genie-sim|AGIBOT Genie Sim 3.0]] or [[nvidia-isaac-lab|NVIDIA Isaac Lab]]?
+- How does MS-HAB compare in throughput to [AGIBOT Genie Sim 3.0](../entities/agibot-genie-sim.md) or [NVIDIA Isaac Lab](../entities/nvidia-isaac-lab.md)?
 - VLA model leaderboard on the suite?

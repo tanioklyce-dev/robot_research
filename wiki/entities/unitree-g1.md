@@ -22,14 +22,14 @@ status: stub
 - **Rapid iteration.** Unitree updates G1 firmware + capabilities frequently; the platform changes faster than typical research robots.
 
 ## Position vs other humanoids
-- **Smaller than [[unitree-h1|H1]]** — G1 is ~1.3 m vs H1 ~1.8 m. Reduced reach, payload, walking speed.
-- **Cheaper than every other humanoid in this wiki by far.** [[turtlebot|TurtleBot]] still cheaper but isn't a humanoid; among humanoids, G1 is the floor.
-- **Limited dexterous manipulation** — basic grippers; not the multi-finger hands of [[atlas|Atlas]] or [[figure|Figure]].
+- **Smaller than [H1](unitree-h1.md)** — G1 is ~1.3 m vs H1 ~1.8 m. Reduced reach, payload, walking speed.
+- **Cheaper than every other humanoid in this wiki by far.** [TurtleBot](turtlebot.md) still cheaper but isn't a humanoid; among humanoids, G1 is the floor.
+- **Limited dexterous manipulation** — basic grippers; not the multi-finger hands of [Atlas](atlas.md) or [Figure](figure.md).
 
 ## Related
 - Unitree Robotics — manufacturer.
-- [[unitree-h1|Unitree H1]] — full-size sibling.
-- [[humanoid-platforms-survey|Humanoid platforms survey]] — landscape; G1 is the educational-research bridge.
+- [Unitree H1](unitree-h1.md) — full-size sibling.
+- [Humanoid platforms survey](../syntheses/humanoid-platforms-survey.md) — landscape; G1 is the educational-research bridge.
 
 ## Mentioned in
 - *(no source pages directly cite Unitree G1; entity built from general knowledge)*
@@ -37,4 +37,4 @@ status: stub
 ## Open questions / TBD
 - **No primary source ingested.** Unitree's G1 product page would anchor current specs.
 - Research papers using G1 specifically — emerging in 2025–2026; not yet ingested.
-- Whether G1 transitions to be the de-facto "academic humanoid" the way [[stretch|Stretch]] became the de-facto "academic mobile manipulator."
+- Whether G1 transitions to be the de-facto "academic humanoid" the way [Stretch](stretch.md) became the de-facto "academic mobile manipulator."

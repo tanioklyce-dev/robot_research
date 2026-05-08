@@ -13,7 +13,7 @@ tags: [leworldmodel, lewm, jepa, world-model, end-to-end, sigreg, mila]
 ---
 
 ## Summary
-Preprint introducing **LeWorldModel (LeWM)** — claimed as the **first JEPA trainable stably end-to-end from raw pixels with only two loss terms**. From researchers at [[mila|Mila]] / Université de Montréal, NYU, Samsung SAIL, and Brown. Senior author Yann LeCun. Emphasis on simplicity, hyperparameter parsimony, and planning speed.
+Preprint introducing **LeWorldModel (LeWM)** — claimed as the **first JEPA trainable stably end-to-end from raw pixels with only two loss terms**. From researchers at [Mila](../entities/mila.md) / Université de Montréal, NYU, Samsung SAIL, and Brown. Senior author Yann LeCun. Emphasis on simplicity, hyperparameter parsimony, and planning speed.
 
 ## Key claims
 - Two-loss design: (a) next-embedding MSE prediction; (b) **SIGReg** — projects latent embeddings onto random univariate directions and runs a normality test, encouraging an isotropic Gaussian latent distribution and provable anti-collapse.
@@ -28,16 +28,16 @@ Preprint introducing **LeWorldModel (LeWM)** — claimed as the **first JEPA tra
 - DOI: https://doi.org/10.48550/arXiv.2603.19312
 
 ## Entities mentioned
-- [[leworldmodel|LeWorldModel]]
-- [[mila|Mila]]
-- [[yann-lecun|Yann LeCun]] — senior author.
-- [[pusht|PushT]] — one of four task datasets.
-- [[dino-wm|DINO-WM]] — comparison baseline (foundation-based JEPA).
+- [LeWorldModel](../entities/leworldmodel.md)
+- [Mila](../entities/mila.md)
+- [Yann LeCun](../entities/yann-lecun.md) — senior author.
+- [PushT](../entities/pusht.md) — one of four task datasets.
+- [DINO-WM](../entities/dino-wm.md) — comparison baseline (foundation-based JEPA).
 
 ## Concepts touched
-- [[jepa|Joint-Embedding Predictive Architecture]]
-- [[world-model|World model]] — end-to-end-pixel-trained design point.
-- [[world-model-simulators|World-model simulators]] — latent-prediction paradigm
+- [Joint-Embedding Predictive Architecture](../concepts/jepa.md)
+- [World model](../concepts/world-model.md) — end-to-end-pixel-trained design point.
+- [World-model simulators](../concepts/world-model-simulators.md) — latent-prediction paradigm
 
 ## Open questions
 - Does LeWM scale to high-resolution real-robot deployment, or is "2D and 3D control" still a research bench?
@@ -47,4 +47,4 @@ Preprint introducing **LeWorldModel (LeWM)** — claimed as the **first JEPA tra
 - Official repo: https://github.com/lucas-maes/le-wm
 - Project page: https://le-wm.github.io/
 - Pretrained HF checkpoints: `quentinll/lewm-{pusht,cube,tworooms,reacher}`
-- See [[leworldmodel-howto|LeWorldModel — train and run howto]] for install/train/eval commands.
+- See [LeWorldModel — train and run howto](../syntheses/leworldmodel-howto.md) for install/train/eval commands.

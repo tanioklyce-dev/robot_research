@@ -8,7 +8,7 @@ sources: 1
 tags: [leworldmodel, lewm, jepa, world-model, mila, end-to-end, sigreg]
 ---
 
-LeWorldModel (LeWM) — a JEPA-style world model from [[mila|Mila]], NYU, Samsung SAIL, and Brown, presented as the **first JEPA trainable stably end-to-end from raw pixels** without the typical battery of training heuristics (stop-gradient, EMA, frozen encoder). Senior author: Yann LeCun (March 2026).
+LeWorldModel (LeWM) — a JEPA-style world model from [Mila](mila.md), NYU, Samsung SAIL, and Brown, presented as the **first JEPA trainable stably end-to-end from raw pixels** without the typical battery of training heuristics (stop-gradient, EMA, frozen encoder). Senior author: Yann LeCun (March 2026).
 
 ## Approach
 - **Two loss terms only**:
@@ -27,19 +27,19 @@ LeWorldModel (LeWM) — a JEPA-style world model from [[mila|Mila]], NYU, Samsun
 ## Why it matters
 - Strips JEPA training down to two losses, making latent-prediction world models more practical for resource-limited research.
 - Provides a single-GPU baseline that's hard to argue against — research labs without massive compute can do JEPA work.
-- Different point in design space from [[v-jepa-2|V-JEPA 2]]: smaller, simpler, end-to-end pixel-trained, vs. V-JEPA 2's massive video pretraining + frozen-encoder post-training.
+- Different point in design space from [V-JEPA 2](v-jepa-2.md): smaller, simpler, end-to-end pixel-trained, vs. V-JEPA 2's massive video pretraining + frozen-encoder post-training.
 
 ## Related
-- [[mila|Mila]] — primary affiliation.
-- [[jepa|Joint-Embedding Predictive Architecture]] — architecture family.
-- [[v-jepa-2|V-JEPA 2]] — sibling JEPA model from a different group.
-- [[world-model-simulators|World-model simulators]] — broader paradigm.
+- [Mila](mila.md) — primary affiliation.
+- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — architecture family.
+- [V-JEPA 2](v-jepa-2.md) — sibling JEPA model from a different group.
+- [World-model simulators](../concepts/world-model-simulators.md) — broader paradigm.
 
 ## Code
 - Official repo: https://github.com/lucas-maes/le-wm (built on `stable-worldmodel` + `stable-pretraining`)
 - Pretrained HF checkpoints: `quentinll/lewm-{pusht,cube,tworooms,reacher}`
-- See [[leworldmodel-howto|LeWorldModel — train and run howto]] for the practical recipe.
+- See [LeWorldModel — train and run howto](../syntheses/leworldmodel-howto.md) for the practical recipe.
 
 ## Mentioned in
-- [[leworldmodel-paper|LeWorldModel Paper]]
-- [[leworldmodel-howto|LeWorldModel — train and run howto]]
+- [LeWorldModel Paper](../sources/leworldmodel-paper.md)
+- [LeWorldModel — train and run howto](../syntheses/leworldmodel-howto.md)

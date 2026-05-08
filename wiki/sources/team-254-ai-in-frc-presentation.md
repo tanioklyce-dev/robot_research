@@ -14,12 +14,12 @@ tags: [frc, ai, machine-learning, claude-code, simulation, llm-agent, presentati
 
 ## Summary
 
-A 45-minute conference presentation by [[team-254|Team 254 (The Cheesy Poofs)]] at the 2026 [[first-robotics-competition|FIRST Championship]] in Houston, delivered by Jared Russell, Tom Bottiglieri, and others. The talk surveys practical AI applications in FRC — from LLM-assisted coding ("vibe-coding") to AI-based computer vision, scouting data analysis, and closed-loop AI agent systems that run simulations and analyze logs autonomously. The presentation explicitly names Claude Code (Anthropic) as a core tool and introduces **wpilib-agent-tools**, an experimental toolkit enabling AI agents to interact with WPILib simulation in an evidence-driven loop. This is the first major FRC presentation to treat LLM agents as a primary development workflow rather than a novelty.
+A 45-minute conference presentation by [Team 254 (The Cheesy Poofs)](../entities/team-254.md) at the 2026 [FIRST Championship](../entities/first-robotics-competition.md) in Houston, delivered by Jared Russell, Tom Bottiglieri, and others. The talk surveys practical AI applications in FRC — from LLM-assisted coding ("vibe-coding") to AI-based computer vision, scouting data analysis, and closed-loop AI agent systems that run simulations and analyze logs autonomously. The presentation explicitly names Claude Code (Anthropic) as a core tool and introduces **wpilib-agent-tools**, an experimental toolkit enabling AI agents to interact with WPILib simulation in an evidence-driven loop. This is the first major FRC presentation to treat LLM agents as a primary development workflow rather than a novelty.
 
 ## Key claims
 
 ### AI-assisted development ("vibe-coding")
-- Team 254 advocates using LLM coding agents (specifically Claude Code) as a core part of the FRC software development workflow ([[team-254-ai-in-frc-presentation|this source]], Chief Delphi thread p.1–2).
+- Team 254 advocates using LLM coding agents (specifically Claude Code) as a core part of the FRC software development workflow ([this source](team-254-ai-in-frc-presentation.md), Chief Delphi thread p.1–2).
 - Approach: code generation with human iteration, not full automation. The agent reads existing source code and library APIs, generates code, validates through compilation and tests, and iterates on feedback.
 - One team reported GPT 5.4 reduced their p50 loop time from ~25ms to ~7ms fully closed-loop over several hours (CD thread p.2).
 - Another team reported using Claude's terminal interface to diagnose and resolve loop overrun issues, improving robot responsiveness (CD thread p.4).
@@ -38,7 +38,7 @@ A 45-minute conference presentation by [[team-254|Team 254 (The Cheesy Poofs)]] 
 - Acknowledged as experimental; best results require stronger orchestrator models; all outputs require normal engineering review.
 
 ### AI-based computer vision
-- Demystifying CV applications: object detection (game pieces), [[apriltags|AprilTag]] localization, and integration with motion control.
+- Demystifying CV applications: object detection (game pieces), [AprilTag](../concepts/apriltags.md) localization, and integration with motion control.
 - Teams use YOLOv5/v8 on Jetson hardware; RoboFlow for dataset annotation.
 
 ### Scouting data analysis
@@ -77,18 +77,18 @@ Mixed, with several recurring themes from the Chief Delphi discussion (5+ pages)
 - **Confidence in wrong answers**: AI generates plausible but incorrect code (null comparisons, math errors) with high confidence.
 
 ## Entities mentioned
-- [[team-254|Team 254 (The Cheesy Poofs)]]
-- [[first-robotics-competition|FIRST Robotics Competition]]
-- [[roborio|roboRIO]] (via WPILib simulation)
-- [[apriltags|AprilTags]] (vision applications)
+- [Team 254 (The Cheesy Poofs)](../entities/team-254.md)
+- [FIRST Robotics Competition](../entities/first-robotics-competition.md)
+- [roboRIO](../entities/roborio.md) (via WPILib simulation)
+- [AprilTags](../concepts/apriltags.md) (vision applications)
 
 ## Concepts touched
-- [[llm-agent-architecture|LLM-agent architecture]] — closed-loop agents running simulations, analyzing logs, deploying code
-- [[sim-to-real-transfer|Sim-to-real transfer]] — simulation sandbox → real robot deployment pipeline
+- [LLM-agent architecture](../concepts/llm-agent-architecture.md) — closed-loop agents running simulations, analyzing logs, deploying code
+- [Sim-to-real transfer](../concepts/sim-to-real-transfer.md) — simulation sandbox → real robot deployment pipeline
 
 ## Open questions
 - Will Team 254 publish the slide deck? (Requested but not yet available as of ingestion.)
-- How does wpilib-agent-tools compare to research-robotics agent frameworks (e.g., [[stretch-ai|stretch_ai]]'s LLM agent)?
+- How does wpilib-agent-tools compare to research-robotics agent frameworks (e.g., [stretch_ai](../entities/stretch-ai.md)'s LLM agent)?
 - What specific Claude Code configuration (CLAUDE.md, skills) did 254 use for FRC?
 - Does ClaudeScope have a public repository?
 - How will WPILib's 2027 API changes (naming scheme) affect LLM agent reliability?

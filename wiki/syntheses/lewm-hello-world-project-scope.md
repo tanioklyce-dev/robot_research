@@ -8,11 +8,11 @@ tags: [leworldmodel, lewm, jepa, pusht, project-scope, reproduction, education]
 
 # LeWM hello world — Project 1 detailed scope
 
-Detailed working plan for Project 1 of the [[jepa-project-ladder-rosorin-pro|JEPA project ladder]]. Reproduces LeWM's PushT planning result, builds intuition for the planner-as-cost-model pattern, and produces a from-scratch checkpoint that downstream projects (probing in Project 2, sim deployment in Project 4) can build on.
+Detailed working plan for Project 1 of the [JEPA project ladder](jepa-project-ladder-rosorin-pro.md). Reproduces LeWM's PushT planning result, builds intuition for the planner-as-cost-model pattern, and produces a from-scratch checkpoint that downstream projects (probing in Project 2, sim deployment in Project 4) can build on.
 
 ## Status as of 2026-05-08
 
-Install verified during the [[leworldmodel-howto|LeWM howto]] live install on RTX 5070 WSL2. On disk:
+Install verified during the [LeWM howto](leworldmodel-howto.md) live install on RTX 5070 WSL2. On disk:
 
 - `~/projects_tanio/lewm/le-wm/` — `lucas-maes/le-wm` repo cloned.
 - `~/.stable-wm/hf_pusht/weights.pt` + `config.json` — HF `quentinll/lewm-pusht` downloaded.
@@ -24,7 +24,7 @@ Project 1's plumbing is done. Remaining work is **running the model and building
 
 By the end you can answer four questions with your own evidence:
 
-1. Does pretrained LeWM match the [[leworldmodel-paper|paper]]'s PushT planning success rate on your machine?
+1. Does pretrained LeWM match the [paper](../sources/leworldmodel-paper.md)'s PushT planning success rate on your machine?
 2. Does training-from-scratch reproduce the pretrained behavior?
 3. What do the two losses (next-embedding MSE + SIGReg) actually look like during training?
 4. How does planning success degrade as you change one knob (horizon, CEM samples, or training-data fraction)?
@@ -33,7 +33,7 @@ By the end you can answer four questions with your own evidence:
 
 ## Prerequisite reading
 
-Before Phase 1, read [[pusht|PushT § Concrete mechanics]] to understand exactly what the planner is operating on: the gray-T-on-target visual scene, the 2D continuous action space, the no-grasping push-only constraint, and why the task is hard despite being 2D. This is the substrate for every observation, action, and reward you'll see in the next four phases.
+Before Phase 1, read [PushT § Concrete mechanics](../entities/pusht.md) to understand exactly what the planner is operating on: the gray-T-on-target visual scene, the 2D continuous action space, the no-grasping push-only constraint, and why the task is hard despite being 2D. This is the substrate for every observation, action, and reward you'll see in the next four phases.
 
 ## Phase 1 · Reproduce pretrained PushT eval (~half day)
 
@@ -50,11 +50,11 @@ Success rate over N seeds, mean episode return, a few rendered rollouts. Save to
 
 ### What to look at (the *learning* part)
 - Open `config/eval/pusht.yaml` — note the planner's CEM hyperparameters (population size, horizon, iterations). These are the knobs for Phase 3.
-- Step through `eval.py` once in a debugger or with prints: confirm the model is *not* a policy — it's invoked by the planner as a cost (latent prediction error against a goal embedding). This is the [[jepa|JEPA]] cost-fn pattern from [[jepa-task-capabilities|JEPA task capabilities]] §3.
+- Step through `eval.py` once in a debugger or with prints: confirm the model is *not* a policy — it's invoked by the planner as a cost (latent prediction error against a goal embedding). This is the [JEPA](../concepts/jepa.md) cost-fn pattern from [JEPA task capabilities](jepa-task-capabilities.md) §3.
 - Inspect `~/.stable-wm/hf_pusht/config.json` — note encoder size and predictor architecture. This is the 18M-param model you're running.
 
 ### Deliverable
-Success-rate number comparable to the [[leworldmodel-paper|LeWM paper]]'s PushT result.
+Success-rate number comparable to the [LeWM paper](../sources/leworldmodel-paper.md)'s PushT result.
 
 ## Phase 2 · Train PushT from scratch + compare (~1 day)
 
@@ -80,7 +80,7 @@ Side-by-side plot of pretrained vs your-from-scratch eval success, plus the trai
 Pick **one** knob and sweep 4–6 values. Keep everything else fixed.
 
 ### Recommended knob: planning horizon (`planner.horizon`)
-The 48× speedup claim from the [[leworldmodel-paper|LeWM paper]] vs foundation-model world models is partly a horizon-economics story; sweeping horizon makes the trade-off concrete.
+The 48× speedup claim from the [LeWM paper](../sources/leworldmodel-paper.md) vs foundation-model world models is partly a horizon-economics story; sweeping horizon makes the trade-off concrete.
 
 ```bash
 for H in 4 8 16 32 64; do
@@ -118,15 +118,15 @@ Phase 1 + Phase 2 together are the foundation for everything downstream. Knob sw
 
 ## Sources used
 
-- [[leworldmodel-howto|LeWorldModel — train and run howto]] — install / train / eval recipe + the four documented gotchas.
-- [[leworldmodel-paper|LeWorldModel Paper]] — model, two-loss design, PushT result.
-- [[leworldmodel|LeWorldModel entity]] — capability summary.
-- [[jepa-task-capabilities|JEPA task capabilities]] — planner-as-cost-fn pattern (§3) and probing/interpretability (§7).
-- [[jepa-project-ladder-rosorin-pro|JEPA project ladder for ROSOrin Pro]] — parent ladder.
+- [LeWorldModel — train and run howto](leworldmodel-howto.md) — install / train / eval recipe + the four documented gotchas.
+- [LeWorldModel Paper](../sources/leworldmodel-paper.md) — model, two-loss design, PushT result.
+- [LeWorldModel entity](../entities/leworldmodel.md) — capability summary.
+- [JEPA task capabilities](jepa-task-capabilities.md) — planner-as-cost-fn pattern (§3) and probing/interpretability (§7).
+- [JEPA project ladder for ROSOrin Pro](jepa-project-ladder-rosorin-pro.md) — parent ladder.
 - Live install state at `~/.stable-wm/` and `~/projects_tanio/lewm/le-wm/` as of 2026-05-08.
 
 ## Related
 
-- [[jepa-project-ladder-rosorin-pro|JEPA project ladder for ROSOrin Pro]] — parent.
-- [[leworldmodel-howto|LeWorldModel howto]] — recipe-level companion.
-- [[lewm-on-rosorin-pro-feasibility|LeWM on ROSOrin Pro — feasibility analysis]] — context for why the from-scratch checkpoint matters downstream.
+- [JEPA project ladder for ROSOrin Pro](jepa-project-ladder-rosorin-pro.md) — parent.
+- [LeWorldModel howto](leworldmodel-howto.md) — recipe-level companion.
+- [LeWM on ROSOrin Pro — feasibility analysis](lewm-on-rosorin-pro-feasibility.md) — context for why the from-scratch checkpoint matters downstream.

@@ -52,8 +52,8 @@ Joint drives apply spring-damper torques: `stiffness * (targetPosition - p) + da
 - Sleep/deactivation state is implementation-specific; not exposed to USD.
 
 ## Entities mentioned
-- [[openusd|OpenUSD]] — the parent format.
-- [[nvidia|NVIDIA]] — co-author and primary downstream consumer (Isaac Sim / Isaac Lab / Newton).
+- [OpenUSD](../entities/openusd.md) — the parent format.
+- [NVIDIA](../entities/nvidia.md) — co-author and primary downstream consumer (Isaac Sim / Isaac Lab / Newton).
 
 ## Concepts touched
 - Robotics schemas in scene-description formats (the structural fact this document establishes).

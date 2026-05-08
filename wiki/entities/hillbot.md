@@ -9,11 +9,11 @@ tags: [hillbot, maniskill, ucsd, hao-su]
 status: stub
 ---
 
-Hillbot, Inc. — research-spinoff company associated with Hao Su's lab at UCSD. Maintains [[maniskill|ManiSkill]] and the ManiSkill-HAB benchmark.
+Hillbot, Inc. — research-spinoff company associated with Hao Su's lab at UCSD. Maintains [ManiSkill](maniskill.md) and the ManiSkill-HAB benchmark.
 
 ## Related
-- [[maniskill|ManiSkill]] — the manipulation benchmark Hillbot maintains.
-- [[sapien|SAPIEN]] — underlying simulator framework.
+- [ManiSkill](maniskill.md) — the manipulation benchmark Hillbot maintains.
+- [SAPIEN](sapien.md) — underlying simulator framework.
 
 ## Mentioned in
-- [[maniskill-hab-paper|ManiSkill-HAB Paper]]
+- [ManiSkill-HAB Paper](../sources/maniskill-hab-paper.md)

@@ -11,14 +11,14 @@ tags: [rum, robot-utility-models, behavior-cloning, vq-bet, diffusion-policy, st
 ---
 
 ## Summary
-Full-paper companion to the [[robot-utility-models-website|RUM project page]]. Introduces **Robot Utility Models (RUMs)** — five task-specific zero-shot manipulation policies (door opening, drawer opening, reorientation, tissue pickup, bag pickup) deployable with **no fine-tuning** across novel environments. **2,950 real-world rollouts** across homes in NYC, Jersey City, and Pittsburgh produce a **90% average success rate**: 74.4% from the raw policy + 15.6% from an mLLM-driven retry mechanism. Headline lessons emphasize **training data over training algorithm** and **diversity over quantity**.
+Full-paper companion to the [RUM project page](robot-utility-models-website.md). Introduces **Robot Utility Models (RUMs)** — five task-specific zero-shot manipulation policies (door opening, drawer opening, reorientation, tissue pickup, bag pickup) deployable with **no fine-tuning** across novel environments. **2,950 real-world rollouts** across homes in NYC, Jersey City, and Pittsburgh produce a **90% average success rate**: 74.4% from the raw policy + 15.6% from an mLLM-driven retry mechanism. Headline lessons emphasize **training data over training algorithm** and **diversity over quantity**.
 
 ## Key claims (paper-body details beyond what the project page summarizes)
 
 ### Model architecture
 - Best policy classes: **VQ-BeT** (Lee et al. 2024) and **Diffusion Policy** (Chi et al. 2023). VQ-BeT narrowly outperforms DP at full data scale; DP wins at smaller scale.
 - Baselines tested on 2 tasks: **ACT** (Zhao et al. 2023b) and **MLP-BC** — close behind, not far off, supporting the "data > algorithm" headline.
-- All policies share a **ResNet34 vision encoder initialized from the HPR encoder** of [[robot-utility-models|Dobb·E]] (Shafiullah et al. 2023) + a transformer-based policy trunk.
+- All policies share a **ResNet34 vision encoder initialized from the HPR encoder** of [Dobb·E](../entities/robot-utility-models.md) (Shafiullah et al. 2023) + a transformer-based policy trunk.
 - VQ-BeT specifics: data subsampled to **3.75 Hz**, **6 most recent frames** of history, predicts **relative 6D end-effector pose** + absolute gripper opening in `[0,1]`.
 - 500 epochs of training on **2× Nvidia A100 GPUs**; 24–48 hr per model.
 
@@ -47,7 +47,7 @@ Full-paper companion to the [[robot-utility-models-website|RUM project page]]. I
 ### Cross-embodiment transfer (Stretch → UFactory xArm 7)
 - Tissue pickup: **80% → 70%** (-10pt).
 - Bag pickup: **84% → 76%** (-8pt).
-- Custom 3D-printed end-effector designed to mount on standard robot arms (xArm, [[franka-panda|Franka Panda]]).
+- Custom 3D-printed end-effector designed to mount on standard robot arms (xArm, [Franka Panda](../entities/franka-panda.md)).
 - Wrist-camera-agnostic: tested on iPhone Pro and Intel RealSense D405 (Stretch Edition 3 default).
 
 ### Data ablations (the recipe insights)
@@ -56,23 +56,23 @@ Full-paper companion to the [[robot-utility-models-website|RUM project page]]. I
 3. **Expert > non-expert.** Expert data outperforms non-expert in all tasks. **Co-training expert + non-expert sometimes *reduces* performance** — counter to common practice (Zhao et al. 2023b; Khazatsky et al. 2024).
 
 ## Entities mentioned
-- [[robot-utility-models|Robot Utility Models]]
-- [[stretch|Stretch]] / [[hello-robot|Hello Robot]] — primary deployment platform.
-- [[franka-panda|Franka Panda]] — referenced as alternative deployment target (custom end-effector mountable).
-- [[xarm-7|xArm 7]] — UFactory commercial 7-DOF arm; cross-embodiment transfer target (~10pt drop vs Stretch).
-- [[mahi-shafiullah|Mahi Shafiullah]] — co-equal lead author + corresponding author.
-- [[lerrel-pinto|Lerrel Pinto]] — co-senior author (NYU).
-- [[meta-fair|Meta]] — Soumith Chintala affiliation; Meta Inc.
-- [[dobb-e|Dobb·E]] — predecessor system; provides HPR encoder + Homes of New York dataset.
-- [[vq-bet|VQ-BeT]] — top-performing policy class in the ablation.
-- [[diffusion-policy|Diffusion Policy]] — runner-up policy class.
+- [Robot Utility Models](../entities/robot-utility-models.md)
+- [Stretch](../entities/stretch.md) / [Hello Robot](../entities/hello-robot.md) — primary deployment platform.
+- [Franka Panda](../entities/franka-panda.md) — referenced as alternative deployment target (custom end-effector mountable).
+- [xArm 7](../entities/xarm-7.md) — UFactory commercial 7-DOF arm; cross-embodiment transfer target (~10pt drop vs Stretch).
+- [Mahi Shafiullah](../entities/mahi-shafiullah.md) — co-equal lead author + corresponding author.
+- [Lerrel Pinto](../entities/lerrel-pinto.md) — co-senior author (NYU).
+- [Meta](../entities/meta-fair.md) — Soumith Chintala affiliation; Meta Inc.
+- [Dobb·E](../entities/dobb-e.md) — predecessor system; provides HPR encoder + Homes of New York dataset.
+- [VQ-BeT](../entities/vq-bet.md) — top-performing policy class in the ablation.
+- [Diffusion Policy](../entities/diffusion-policy.md) — runner-up policy class.
 - gpt-4o (OpenAI) — mLLM critic (no entity page yet).
 
 ## Concepts touched
-- [[imitation-learning|Imitation learning]] — multi-modal BC framework.
+- [Imitation learning](../concepts/imitation-learning.md) — multi-modal BC framework.
 - Cross-embodiment transfer.
 - Mobile manipulation.
-- [[vla-models|VLA-adjacent generalist policies]] — RUMs deliberately are *not* language-conditioned.
+- [VLA-adjacent generalist policies](../concepts/vla-models.md) — RUMs deliberately are *not* language-conditioned.
 - Self-critique / introspection — mLLM-as-verifier loop.
 
 ## Open questions
@@ -82,7 +82,7 @@ Full-paper companion to the [[robot-utility-models-website|RUM project page]]. I
 - The "co-training expert + non-expert hurts" finding contradicts mainstream practice — would benefit from independent reproduction.
 
 ## Why this matters in this wiki
-This paper is the **most rigorous example in the wiki of "low-cost robot + learned-from-data zero-shot policy"** as a deployment shape. It's the closest architectural precedent for the [[lewm-on-rosorin-pro-feasibility|LeWM-on-ROSOrin-Pro feasibility analysis]] — different paradigm (BC, not JEPA), but the same engineering shape: collect ~1,000 demos per task on a commodity-priced robot, train, deploy zero-shot. The paper's "diversity > quantity" lesson is also a useful guidepost for any data-collection effort on educational hardware.
+This paper is the **most rigorous example in the wiki of "low-cost robot + learned-from-data zero-shot policy"** as a deployment shape. It's the closest architectural precedent for the [LeWM-on-ROSOrin-Pro feasibility analysis](../syntheses/lewm-on-rosorin-pro-feasibility.md) — different paradigm (BC, not JEPA), but the same engineering shape: collect ~1,000 demos per task on a commodity-priced robot, train, deploy zero-shot. The paper's "diversity > quantity" lesson is also a useful guidepost for any data-collection effort on educational hardware.
 
 ## Code & artifacts
 - Project page: https://robotutilitymodels.com/

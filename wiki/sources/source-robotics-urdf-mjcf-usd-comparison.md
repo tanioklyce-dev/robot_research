@@ -9,7 +9,7 @@ tags: [openusd, urdf, mjcf, comparison, robot-description, format]
 ---
 
 ## Summary
-Practical practitioner-oriented comparison of the three dominant robot description formats — **URDF**, **MJCF**, and **USD** — with explicit use-case recommendations. Useful as a survey-level baseline; less authoritative than the [[openusd-rigid-body-physics-proposal|UsdPhysics whitepaper]] but more direct about practical positioning.
+Practical practitioner-oriented comparison of the three dominant robot description formats — **URDF**, **MJCF**, and **USD** — with explicit use-case recommendations. Useful as a survey-level baseline; less authoritative than the [UsdPhysics whitepaper](openusd-rigid-body-physics-proposal.md) but more direct about practical positioning.
 
 ## Key claims
 
@@ -17,7 +17,7 @@ Practical practitioner-oriented comparison of the three dominant robot descripti
 
 | | URDF | MJCF | USD |
 |---|---|---|---|
-| Origin | ROS | [[mujoco|MuJoCo]] physics engine | Pixar / NVIDIA Omniverse |
+| Origin | ROS | [MuJoCo](../entities/mujoco.md) physics engine | Pixar / NVIDIA Omniverse |
 | Technology | XML | XML | Scene graph |
 | Core purpose | Robot kinematics description | Physics simulation | General scene representation |
 
@@ -38,13 +38,13 @@ Practical practitioner-oriented comparison of the three dominant robot descripti
 The article notes URDF "is often converted into simulator-specific formats" but does **not** detail specific tools or bidirectional paths.
 
 ## Entities mentioned
-- [[openusd|OpenUSD]]
-- [[mujoco|MuJoCo]]
+- [OpenUSD](../entities/openusd.md)
+- [MuJoCo](../entities/mujoco.md)
 - (URDF, MJCF — concepts not yet stubbed in this wiki)
 
 ## Concepts touched
 - Robot description format trade-offs.
 
 ## Open questions
-- The article treats USD as primarily an Omniverse-native format and doesn't cover [[mujoco-playground|MuJoCo Playground]]'s OpenUSD adoption — a 2026-relevant fact. Suggests the article's center of gravity is still ROS/MuJoCo with USD as an outsider, even though the substrate convergence story (covered in [[newton-openusd-substrate-convergence|Newton + OpenUSD synthesis]]) implies USD is moving inside the MuJoCo stack too.
+- The article treats USD as primarily an Omniverse-native format and doesn't cover [MuJoCo Playground](../entities/mujoco-playground.md)'s OpenUSD adoption — a 2026-relevant fact. Suggests the article's center of gravity is still ROS/MuJoCo with USD as an outsider, even though the substrate convergence story (covered in [Newton + OpenUSD synthesis](../syntheses/newton-openusd-substrate-convergence.md)) implies USD is moving inside the MuJoCo stack too.
 - No mention of UsdPhysics-specific features (articulations, joint drives) — treats USD as a scene format rather than a physics-schema format.

@@ -8,7 +8,7 @@ sources: 2
 tags: [agibot, genie-sim, embodied-ai, isaac-sim, scene-generation]
 ---
 
-Open-source embodied-AI simulation platform from [[agibot|AGIBOT]], unveiled at CES 2026. Built on top of [[nvidia-isaac-sim|NVIDIA Isaac Sim]] / Omniverse, with LLM-driven scene generation and a large evaluation suite for [[vla-models|VLA models]].
+Open-source embodied-AI simulation platform from [AGIBOT](agibot.md), unveiled at CES 2026. Built on top of [NVIDIA Isaac Sim](nvidia-isaac-sim.md) / Omniverse, with LLM-driven scene generation and a large evaluation suite for [VLA models](../concepts/vla-models.md).
 
 ## Capabilities
 - Decoupled physics + rendering; physics up to 1,000 Hz.
@@ -18,17 +18,17 @@ Open-source embodied-AI simulation platform from [[agibot|AGIBOT]], unveiled at 
 - Built-in reward signals → closed-loop training and evaluation.
 - 100,000+ evaluation scenarios.
 - 10,000+ hours of synthetic dataset including real-world robot operation scenarios.
-- Benchmarks support [[nvidia-groot|GR00T]] series, Pi series, and GO-2 series.
+- Benchmarks support [GR00T](nvidia-groot.md) series, Pi series, and GO-2 series.
 - Fully open source: assets, datasets, evaluation code on GitHub.
 
 ## Why it matters
-Combines a research-grade evaluation harness (largest open embodied-AI dataset, 100k+ scenarios) with practical LLM-driven authoring — making it one of the most complete open stacks for benchmarking [[vla-models|VLA models]] in 2026.
+Combines a research-grade evaluation harness (largest open embodied-AI dataset, 100k+ scenarios) with practical LLM-driven authoring — making it one of the most complete open stacks for benchmarking [VLA models](../concepts/vla-models.md) in 2026.
 
 ## Related
-- [[agibot|AGIBOT]] — maintainer.
-- [[nvidia-isaac-sim|NVIDIA Isaac Sim]] — runtime substrate.
-- [[genie-envisioner|Genie Envisioner]] — companion world-model project from AGIBOT.
+- [AGIBOT](agibot.md) — maintainer.
+- [NVIDIA Isaac Sim](nvidia-isaac-sim.md) — runtime substrate.
+- [Genie Envisioner](genie-envisioner.md) — companion world-model project from AGIBOT.
 
 ## Mentioned in
-- [[agibot-genie-sim-3-announcement|AGIBOT Genie Sim 3.0 Announcement]]
-- [[maniskill-hab-paper|ManiSkill-HAB Paper]]
+- [AGIBOT Genie Sim 3.0 Announcement](../sources/agibot-genie-sim-3-announcement.md)
+- [ManiSkill-HAB Paper](../sources/maniskill-hab-paper.md)

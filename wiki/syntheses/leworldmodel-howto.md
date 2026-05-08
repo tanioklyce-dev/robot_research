@@ -6,7 +6,7 @@ updated: 2026-05-07
 tags: [leworldmodel, lewm, jepa, world-model, howto]
 ---
 
-Practical recipe for training and running [[leworldmodel|LeWorldModel]] (LeWM) — the bits the [[leworldmodel-paper|LeWorldModel Paper]] doesn't spell out. Commands sourced from the official `lucas-maes/le-wm` repo README; the gotchas section below comes from a real install on Ubuntu/WSL2 + Python 3.10 + uv 0.11 in May 2026.
+Practical recipe for training and running [LeWorldModel](../entities/leworldmodel.md) (LeWM) — the bits the [LeWorldModel Paper](../sources/leworldmodel-paper.md) doesn't spell out. Commands sourced from the official `lucas-maes/le-wm` repo README; the gotchas section below comes from a real install on Ubuntu/WSL2 + Python 3.10 + uv 0.11 in May 2026.
 
 ## Repo layout
 - Official code: https://github.com/lucas-maes/le-wm
@@ -55,7 +55,7 @@ Then:
 python train.py data=pusht
 ```
 
-- ~15M parameters, single GPU, "hours" of wall-time per the paper ([[leworldmodel-paper|LeWorldModel Paper]]).
+- ~15M parameters, single GPU, "hours" of wall-time per the paper ([LeWorldModel Paper](../sources/leworldmodel-paper.md)).
 - Checkpoints land under `$STABLEWM_HOME`.
 - Swap `data=pusht` for any of the four task datasets.
 
@@ -155,7 +155,7 @@ uv pip install --no-build-isolation ./gym-0.21.0
 
 ### 2. `gymnasium[all]` → `box2d-py 2.3.5` needs system `swig`
 
-`stable-worldmodel[env]` pulls [[gymnasium|gymnasium]]`[all]`, which pulls `box2d-py==2.3.5`, which has no manylinux wheel for Python 3.10 and builds C extensions via SWIG. Without it:
+`stable-worldmodel[env]` pulls [gymnasium](../entities/gymnasium.md)`[all]`, which pulls `box2d-py==2.3.5`, which has no manylinux wheel for Python 3.10 and builds C extensions via SWIG. Without it:
 
 ```
 error: command 'swig' failed: No such file or directory
@@ -186,13 +186,13 @@ uv pip install -U "datasets>=3.0"
 See the call-out under [Skip training — use pretrained](#skip-training--use-pretrained): you need `strip_target()` to filter Hydra `_target_` / `_partial_` keys from `config.json` before passing as kwargs.
 
 ## Caveats before committing time
-- Benchmarks are 2D/3D control benches (PushT, cube, two-rooms, reacher), not real robots. The "scales to real deployment" question is open ([[leworldmodel-paper|LeWorldModel Paper]] open questions).
+- Benchmarks are 2D/3D control benches (PushT, cube, two-rooms, reacher), not real robots. The "scales to real deployment" question is open ([LeWorldModel Paper](../sources/leworldmodel-paper.md) open questions).
 - Single-GPU, hours-scale training is for these tasks at their native resolution. No reported numbers for high-res or video-scale inputs.
 - Reconstruction-free, reward-free, task-agnostic — but **task-conditioned via the planner cost**, not via an end-to-end policy. If you want a behavior-cloning-style "policy.act(obs)" interface, this isn't it.
-- Different design point from [[v-jepa-2|V-JEPA 2]]: V-JEPA 2 = massive video pretraining + frozen encoder + post-training; LeWM = small, end-to-end pixel-trained, single-GPU.
+- Different design point from [V-JEPA 2](../entities/v-jepa-2.md): V-JEPA 2 = massive video pretraining + frozen encoder + post-training; LeWM = small, end-to-end pixel-trained, single-GPU.
 
 ## Sources
 - `lucas-maes/le-wm` README — install/train/eval commands; HF→ckpt conversion script.
 - `le-wm.github.io` — project page; HF dataset + checkpoint pointers.
-- [[leworldmodel-paper|LeWorldModel Paper]] — model design, claims, benchmarks.
+- [LeWorldModel Paper](../sources/leworldmodel-paper.md) — model design, claims, benchmarks.
 - Live install on 2026-05-07 (Python 3.10, uv 0.11, RTX 5070 WSL2): produced the four gotchas above and verified `AutoCostModel('pusht/lewm')` loads `quentinll/lewm-pusht` with 0 missing / 0 unexpected keys after conversion.

@@ -21,7 +21,7 @@ wiki/
 └── syntheses/        # cross-cutting analyses, comparisons, original thinking
 ```
 
-Subfolders are organizational only — `[[wikilinks]]` resolve across folders in Obsidian.
+Subfolders are organizational only — links use relative paths across them (e.g. `[JEPA](../concepts/jepa.md)`).
 
 ## Page conventions
 
@@ -39,9 +39,8 @@ tags: [robotics, manipulation]
 ```
 
 - **Filenames** — kebab-case slugs (e.g. `nvidia-isaac-sim.md`). No spaces, no special characters. The `title` frontmatter field carries the human-readable version.
-- **Wikilinks** — Always use the explicit slug-pipe-display form: `[[slug|Display Title]]`. The slug is the filename without `.md`; the display is the human-readable title. Never use bare `[[Display Title]]` — Obsidian creates empty placeholder files at the vault root when wikilinks don't match a filename.
-  - **Exception: `wiki/index.md`** uses standard markdown links with relative paths (e.g. `[Display](concepts/jepa.md)`) instead of wikilinks, because the index is the primary GitHub-rendered entry point and GitHub does not resolve `[[wikilinks]]`. Keep this exception when editing the index — do not "normalize" it back to wikilinks. All other wiki pages keep the `[[slug|Display]]` form.
-- **Citations** — Every factual claim derived from a source links to the source page (not the raw file): `Atlas can perform parkour ([[Boston Dynamics Atlas Demo 2024]])`.
+- **Links** — Use **standard markdown links with relative paths**, e.g. `[JEPA](../concepts/jepa.md)` from a sibling folder, `[Atlas](atlas.md)` from the same folder. Never use Obsidian `[[wikilinks]]` — GitHub does not resolve them and they render as literal text. Standard markdown links work in both GitHub and Obsidian.
+- **Citations** — Every factual claim derived from a source links to the source page (not the raw file): `Atlas can perform parkour ([Boston Dynamics Atlas Demo 2024](../sources/boston-dynamics-atlas-demo-2024.md))`.
 - **Contradictions** — When sources disagree, present both with citations and flag with an Obsidian callout: `> [!warning] Contradiction`.
 - **Confidence** — For uncertain or hedged claims use `> [!note]` callouts or explicit hedging language.
 - **Updates** — When updating a page, bump the `updated` date and `sources` count if relevant.
@@ -52,8 +51,8 @@ One page per ingested source. Filename is a slug of the title (kebab-case). Fron
 
 - **Summary** — One paragraph capturing the thesis/main contribution.
 - **Key claims** — Bulleted, with timestamp/page/section references where possible.
-- **Entities mentioned** — Wikilinks to entity pages.
-- **Concepts touched** — Wikilinks to concept pages.
+- **Entities mentioned** — Links to entity pages.
+- **Concepts touched** — Links to concept pages.
 - **Open questions** — Things this source raises that aren't answered yet.
 
 ### Entity pages (`entities/`)
@@ -71,7 +70,7 @@ Technical ideas (VLA models, sim-to-real, RLHF, whole-body control, etc.). Body:
 
 - Definition.
 - **Key references** — seminal sources/papers.
-- **Related concepts** — wikilinks.
+- **Related concepts** — links to other concept pages.
 - **Current state** — short paragraph on where the field stands, citing sources.
 - **Mentioned in** section.
 
@@ -101,7 +100,7 @@ A single ingest typically touches 5–15 wiki pages. That's normal — that's th
 Triggered when the user asks a question against the wiki.
 
 1. Read `wiki/index.md` first to find relevant pages.
-2. Read those pages and any wikilinked pages they reference.
+2. Read those pages and any linked pages they reference.
 3. Answer with citations to source pages (not raw sources). Hedge where the wiki is thin or sources disagree.
 4. If the answer represents non-trivial synthesis, offer to file it as a `wiki/syntheses/<slug>.md` page and log it.
 
@@ -111,36 +110,36 @@ Triggered when the user asks for a health check.
 
 - Contradictions across pages.
 - Stale claims (older sources superseded by newer ones — check `updated` dates and source frontmatter).
-- Orphan pages (no inbound wikilinks).
+- Orphan pages (no inbound links).
 - Concepts/entities frequently mentioned but lacking their own page.
-- Broken wikilinks.
+- Broken links.
 - Knowledge gaps that could be filled with a new source or targeted web search.
 
 Report findings as a punch list. Don't auto-fix without user direction.
 
 ## index.md format
 
-Catalog organized by category. Each entry: wikilink, one-line summary, source count or date.
+Catalog organized by category. Each entry: link, one-line summary, source count or date.
 
 ```markdown
 # Index
 
 ## Sources (chronological)
-- [[Boston Dynamics Atlas Demo 2024]] — YouTube demo of Atlas parkour. (2024-08-15)
+- [Boston Dynamics Atlas Demo 2024](sources/boston-dynamics-atlas-demo-2024.md) — YouTube demo of Atlas parkour. (2024-08-15)
 
 ## Entities
 ### Companies
-- [[Boston Dynamics]] — Robotics company, owned by Hyundai. (12 sources)
+- [Boston Dynamics](entities/boston-dynamics.md) — Robotics company, owned by Hyundai. (12 sources)
 ### Robots
-- [[Atlas]] — Humanoid robot from Boston Dynamics. (8 sources)
+- [Atlas](entities/atlas.md) — Humanoid robot from Boston Dynamics. (8 sources)
 ### People
-- [[Marc Raibert]] — Founder of Boston Dynamics. (4 sources)
+- [Marc Raibert](entities/marc-raibert.md) — Founder of Boston Dynamics. (4 sources)
 
 ## Concepts
-- [[Whole-body control]] — Coordinating full-body motion for humanoids. (5 sources)
+- [Whole-body control](concepts/whole-body-control.md) — Coordinating full-body motion for humanoids. (5 sources)
 
 ## Syntheses
-- [[Humanoid form factor tradeoffs]] — Cross-player comparison. (2026-04-10)
+- [Humanoid form factor tradeoffs](syntheses/humanoid-form-factor-tradeoffs.md) — Cross-player comparison. (2026-04-10)
 ```
 
 ## log.md format
@@ -150,12 +149,12 @@ Append-only. Each entry starts with `## [YYYY-MM-DD] <action> | <subject>` so it
 ```markdown
 ## [2026-05-06] bootstrap | Wiki initialized
 ## [2026-05-06] ingest | Boston Dynamics Atlas Demo 2024
-- Created [[Boston Dynamics Atlas Demo 2024]]
-- Updated [[Atlas]], [[Boston Dynamics]]
-- New concept: [[Whole-body control]]
+- Created [Boston Dynamics Atlas Demo 2024](sources/boston-dynamics-atlas-demo-2024.md)
+- Updated [Atlas](entities/atlas.md), [Boston Dynamics](entities/boston-dynamics.md)
+- New concept: [Whole-body control](concepts/whole-body-control.md)
 ## [2026-05-06] query | "How do humanoids handle uneven terrain?"
-- Synthesized from [[Atlas]], [[Digit]], [[Optimus]]
-- Filed as [[Humanoid terrain handling]]
+- Synthesized from [Atlas](entities/atlas.md), [Digit](entities/digit.md), [Optimus](entities/tesla-optimus.md)
+- Filed as [Humanoid terrain handling](syntheses/humanoid-terrain-handling.md)
 ```
 
 ## Roles

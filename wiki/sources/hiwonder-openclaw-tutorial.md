@@ -9,13 +9,13 @@ tags: [hiwonder, rosorin-pro, openclaw, llm-agent, manipulation, ros2]
 ---
 
 ## Summary
-Chapter 13 of the [[rosorin-pro|ROSOrin Pro]] docs — the practical tutorial for **[[openclaw|OpenClaw]]**, [[hiwonder|Hiwonder]]'s manipulation-aware LLM-agent framework. OpenClaw orchestrates the kit's chassis + 6-DOF arm + vision via natural-language LLM commands routed to predefined ROS 2 skills. **First example in the wiki of the [[llm-agent-architecture|LLM-agent pattern]] applied to manipulation on the educational tier** (alongside [[stretch-ai|stretch_ai]] on the research tier).
+Chapter 13 of the [ROSOrin Pro](../entities/rosorin-pro.md) docs — the practical tutorial for **[OpenClaw](../entities/openclaw.md)**, [Hiwonder](../entities/hiwonder.md)'s manipulation-aware LLM-agent framework. OpenClaw orchestrates the kit's chassis + 6-DOF arm + vision via natural-language LLM commands routed to predefined ROS 2 skills. **First example in the wiki of the [LLM-agent pattern](../concepts/llm-agent-architecture.md) applied to manipulation on the educational tier** (alongside [stretch_ai](../entities/stretch-ai.md) on the research tier).
 
 ## Key claims
 
 ### What OpenClaw is
 - An **AI-agent software framework**, not a hardware gripper. Despite the "Claw" suffix, this is the SDK that drives the arm + claw end-effector.
-- Architecture: LLM (OpenAI GPT) ↔ natural-language skill descriptions ↔ ROS 2 services ↔ hardware. Same control pattern as [[stretch-ai|stretch_ai]] but with a richer manipulation skill library.
+- Architecture: LLM (OpenAI GPT) ↔ natural-language skill descriptions ↔ ROS 2 services ↔ hardware. Same control pattern as [stretch_ai](../entities/stretch-ai.md) but with a richer manipulation skill library.
 - Cloud LLM: doc references `openai/gpt-5.4` — unusual version string; likely a recent model or placeholder.
 
 ### Skill library (the LLM's tool surface)
@@ -50,16 +50,16 @@ ROS 2 services and topics:
 - The framework is purely skill-based — LLM emits high-level intents; deterministic ROS skills do the work. Same `eval`-on-action-strings spirit as the base ROSOrin's embodied-AI demos.
 
 ## Entities mentioned
-- [[hiwonder|Hiwonder]]
-- [[rosorin-pro|ROSOrin Pro]]
-- [[openclaw|OpenClaw]]
-- [[rosorin-pro-arm|ROSOrin Pro 6-DOF arm]]
+- [Hiwonder](../entities/hiwonder.md)
+- [ROSOrin Pro](../entities/rosorin-pro.md)
+- [OpenClaw](../entities/openclaw.md)
+- [ROSOrin Pro 6-DOF arm](../entities/rosorin-pro-arm.md)
 
 ## Concepts touched
-- [[llm-agent-architecture|LLM-agent architecture]] — manipulation-capable variant.
+- [LLM-agent architecture](../concepts/llm-agent-architecture.md) — manipulation-capable variant.
 
 ## Open questions
 - `openai/gpt-5.4` — real model release or doc placeholder?
 - Is OpenClaw published as open source? The "Open" prefix suggests yes; no GitHub URL surfaced in the chapter 13 text.
 - Cross-vendor portability — could OpenClaw drive a Stretch or other ROS 2 robot, or is it tightly coupled to ROSOrin Pro's skill set?
-- Closed-loop replanning on skill failure — same open question I have about [[stretch-ai|stretch_ai]].
+- Closed-loop replanning on skill failure — same open question I have about [stretch_ai](../entities/stretch-ai.md).

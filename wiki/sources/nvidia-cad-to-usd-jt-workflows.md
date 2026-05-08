@@ -10,7 +10,7 @@ tags: [openusd, cad, jt, omniverse, conversion, robotics, optimization]
 ---
 
 ## Summary
-NVIDIA Technical Blog walking through a concrete CAD-to-USD pipeline using **Jupiter Tessellation (JT)** as the input format. Establishes the asset-side counterpart to the [[nvidia-openusd-for-robotic-simulation|OpenUSD-for-robotic-simulation blog]]: how factory / robot / environment geometry actually gets into a USD scene from upstream CAD systems.
+NVIDIA Technical Blog walking through a concrete CAD-to-USD pipeline using **Jupiter Tessellation (JT)** as the input format. Establishes the asset-side counterpart to the [OpenUSD-for-robotic-simulation blog](nvidia-openusd-for-robotic-simulation.md): how factory / robot / environment geometry actually gets into a USD scene from upstream CAD systems.
 
 ## Key claims
 
@@ -43,9 +43,9 @@ NVIDIA Technical Blog walking through a concrete CAD-to-USD pipeline using **Jup
 - Workflow: JT export → CLI conversion → optimization (vertex decimation 82%, hidden-mesh removal, payload/reference restructuring) → material assignment.
 
 ## Entities mentioned
-- [[openusd|OpenUSD]]
-- [[nvidia|NVIDIA]] (Omniverse, Kit, Exchange SDK)
-- [[nvidia-isaac-sim|NVIDIA Isaac Sim]] (implicit downstream consumer)
+- [OpenUSD](../entities/openusd.md)
+- [NVIDIA](../entities/nvidia.md) (Omniverse, Kit, Exchange SDK)
+- [NVIDIA Isaac Sim](../entities/nvidia-isaac-sim.md) (implicit downstream consumer)
 
 ## Concepts touched
 - CAD-to-simulation pipelines.

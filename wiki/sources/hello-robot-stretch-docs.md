@@ -9,21 +9,21 @@ tags: [hello-robot, stretch, mobile-manipulation, ros2, documentation]
 ---
 
 ## Summary
-Official documentation site (v0.3) for [[hello-robot|Hello Robot, Inc.]]'s [[stretch|Stretch]] mobile-manipulation robot. Tutorials, hardware manuals, and APIs for the Stretch 3 platform.
+Official documentation site (v0.3) for [Hello Robot, Inc.](../entities/hello-robot.md)'s [Stretch](../entities/stretch.md) mobile-manipulation robot. Tutorials, hardware manuals, and APIs for the Stretch 3 platform.
 
 ## Key claims
 - Stretch 3 hardware: telescoping arm, mobile base, gripper, RealSense cameras, LiDAR; modular tool-changer ("Changing Tools").
-- Two software paths: Python via `stretch_body` (foundation of [[stretch-ai|stretch_ai]]) and ROS 2 (Nav2, perception, autonomy).
-- Simulation backends documented: [[mujoco|MuJoCo]] (via "Stretch Mujoco" wrapper) and Gazebo.
+- Two software paths: Python via `stretch_body` (foundation of [stretch_ai](../entities/stretch-ai.md)) and ROS 2 (Nav2, perception, autonomy).
+- Simulation backends documented: [MuJoCo](../entities/mujoco.md) (via "Stretch Mujoco" wrapper) and Gazebo.
 - First-class topics: battery care, calibration, ArUco markers, FUNMAP perception module, deep perception.
 - Copyright: Hello Robot Inc. 2020–2025.
-- The docs landing page **does not mention LLMs, VLAs, or agentic AI** — that lives in the separate [[stretch-ai|stretch_ai]] repository.
+- The docs landing page **does not mention LLMs, VLAs, or agentic AI** — that lives in the separate [stretch_ai](../entities/stretch-ai.md) repository.
 
 ## Entities mentioned
-- [[hello-robot|Hello Robot]]
-- [[stretch|Stretch]]
-- [[stretch-ai|stretch_ai]]
-- [[mujoco|MuJoCo]]
+- [Hello Robot](../entities/hello-robot.md)
+- [Stretch](../entities/stretch.md)
+- [stretch_ai](../entities/stretch-ai.md)
+- [MuJoCo](../entities/mujoco.md)
 
 ## Concepts touched
 - Mobile manipulation

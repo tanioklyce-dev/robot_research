@@ -9,7 +9,7 @@ tags: [xarm, ufactory, robot-arm, manipulator, 7-dof, cross-embodiment]
 status: stub
 ---
 
-**xArm 7** — UFactory's commercial 7-DOF robotic arm. In this wiki, the **secondary tabletop manipulator** (after [[franka-panda|Franka Panda]]) appearing in cross-embodiment-transfer experiments. Specifically, [[robot-utility-models|Robot Utility Models]] used xArm 7 as the **transfer target** for policies trained on [[stretch|Stretch]]: ~10pt drop in success rate vs Stretch baseline (tissue 80%→70%, bag 84%→76%) — strong evidence that BC policies trained on one embodiment can transfer with minimal loss to a different one.
+**xArm 7** — UFactory's commercial 7-DOF robotic arm. In this wiki, the **secondary tabletop manipulator** (after [Franka Panda](franka-panda.md)) appearing in cross-embodiment-transfer experiments. Specifically, [Robot Utility Models](robot-utility-models.md) used xArm 7 as the **transfer target** for policies trained on [Stretch](stretch.md): ~10pt drop in success rate vs Stretch baseline (tissue 80%→70%, bag 84%→76%) — strong evidence that BC policies trained on one embodiment can transfer with minimal loss to a different one.
 
 ## Specs (per the RUM paper context)
 - **7 DOF.**
@@ -24,11 +24,11 @@ status: stub
 - **Alternative tabletop arm to Franka Panda.** Most JEPA / VLA / world-model work in this wiki defaults to Franka. xArm 7's appearance signals there's a second commercial 7-DOF option that lab teams use; could surface more if VLA work expands.
 
 ## Related
-- [[robot-utility-models|Robot Utility Models]] — primary cross-embodiment use.
-- [[robot-utility-models-paper|Robot Utility Models Paper]] — measured the transfer.
-- [[franka-panda|Franka Panda]] — primary tabletop alternative.
-- [[stretch|Stretch]] — RUM's training-platform partner.
+- [Robot Utility Models](robot-utility-models.md) — primary cross-embodiment use.
+- [Robot Utility Models Paper](../sources/robot-utility-models-paper.md) — measured the transfer.
+- [Franka Panda](franka-panda.md) — primary tabletop alternative.
+- [Stretch](stretch.md) — RUM's training-platform partner.
 
 ## Mentioned in
-- [[robot-utility-models-paper|Robot Utility Models Paper]]
-- [[robot-utility-models-website|Robot Utility Models Project Page]]
+- [Robot Utility Models Paper](../sources/robot-utility-models-paper.md)
+- [Robot Utility Models Project Page](../sources/robot-utility-models-website.md)

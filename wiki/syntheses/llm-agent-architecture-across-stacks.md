@@ -8,9 +8,9 @@ tags: [llm-agent, agentic-robotics, stretch-ai, rosorin, openclaw, qwen]
 
 # LLM-agent architecture across stacks — a converged pattern
 
-Three independent agentic-robotics stacks ingested into this wiki — [[stretch-ai|stretch_ai]] (research tier, [[hello-robot|Hello Robot]]), [[rosorin|ROSOrin]] (educational tier, [[hiwonder|Hiwonder]], mobile-only), and [[openclaw|OpenClaw]] (educational tier, Hiwonder, mobile + 6-DOF arm) — converge on the same control architecture: **a small LLM emits structured tool calls; a deterministic executor dispatches each call to a hand-written perception/manipulation skill**. Same shape across two vendors, two price points, and two capability classes. This page consolidates the evidence and draws the structural implications.
+Three independent agentic-robotics stacks ingested into this wiki — [stretch_ai](../entities/stretch-ai.md) (research tier, [Hello Robot](../entities/hello-robot.md)), [ROSOrin](../entities/rosorin.md) (educational tier, [Hiwonder](../entities/hiwonder.md), mobile-only), and [OpenClaw](../entities/openclaw.md) (educational tier, Hiwonder, mobile + 6-DOF arm) — converge on the same control architecture: **a small LLM emits structured tool calls; a deterministic executor dispatches each call to a hand-written perception/manipulation skill**. Same shape across two vendors, two price points, and two capability classes. This page consolidates the evidence and draws the structural implications.
 
-The umbrella concept is on [[llm-agent-architecture|LLM-agent architecture]]; this synthesis is the comparative cross-section.
+The umbrella concept is on [LLM-agent architecture](../concepts/llm-agent-architecture.md); this synthesis is the comparative cross-section.
 
 ## The shared shape
 
@@ -42,12 +42,12 @@ What every stack ships:
 
 ## Three implementations side by side
 
-| Dimension | [[stretch-ai|stretch_ai]] | [[rosorin|ROSOrin]] | [[openclaw|OpenClaw]] |
+| Dimension | [stretch_ai](../entities/stretch-ai.md) | [ROSOrin](../entities/rosorin.md) | [OpenClaw](../entities/openclaw.md) |
 |---|---|---|---|
-| Vendor | [[hello-robot|Hello Robot]] | [[hiwonder|Hiwonder]] | [[hiwonder|Hiwonder]] |
+| Vendor | [Hello Robot](../entities/hello-robot.md) | [Hiwonder](../entities/hiwonder.md) | [Hiwonder](../entities/hiwonder.md) |
 | Tier | Research | Educational | Educational |
-| Hardware | [[stretch|Stretch 3]] mobile manipulator | Jetson Orin Nano + diff-drive base | Jetson Orin Nano + 6-DOF arm + base |
-| Default local LLM | [[qwen|Qwen2.5-3B-Instruct]] | [[qwen|qwen3:1.7b]] via [[ollama|Ollama]] | (cloud-first; OpenAI GPT) |
+| Hardware | [Stretch 3](../entities/stretch.md) mobile manipulator | Jetson Orin Nano + diff-drive base | Jetson Orin Nano + 6-DOF arm + base |
+| Default local LLM | [Qwen2.5-3B-Instruct](../entities/qwen.md) | [qwen3:1.7b](../entities/qwen.md) via [Ollama](../entities/ollama.md) | (cloud-first; OpenAI GPT) |
 | Cloud LLMs supported | GPT-4o-mini, Gemma | GPT-4o, GPT-4o-mini, Qwen-plus, StepFun VLM | OpenAI GPT (`openai/gpt-5.4` per docs) |
 | ASR / TTS | Whisper / OS TTS | OpenAI ASR + sherpa-onnx (offline) | (inherits ROSOrin stack) |
 | Tool-call format | Python function signatures (`pickup(object_name)`, `place(location_name)`, ...) | JSON `{action: [...], response: ...}` | JSON over ROS 2 services |
@@ -55,7 +55,7 @@ What every stack ships:
 | Skill primitives | `pickup`, `place`, `find`, `explore`, `say`, `wave`, `nod_head`, `go_home` | `move`, `vision(query)`, chassis controls | `voice_pick`, `voice_give`, `/start_pick`, `/place`, `/claw_track_and_grab/start`, AprilTag pickup, depth-based grasping |
 | Manipulation? | Visual-servoing grasp | None (mobile-only) | Yes — full pick/place + tracking |
 | Simulation integrated? | None — real robot only | Gazebo (separate curriculum) | Gazebo (separate curriculum) |
-| Source | [[stretch-ai-llm-agent-docs|Stretch AI LLM Agent Documentation]] | [[hiwonder-rosorin-docs|Hiwonder ROSOrin Documentation]] | [[hiwonder-openclaw-tutorial|Hiwonder OpenClaw Practical Tutorial]] |
+| Source | [Stretch AI LLM Agent Documentation](../sources/stretch-ai-llm-agent-docs.md) | [Hiwonder ROSOrin Documentation](../sources/hiwonder-rosorin-docs.md) | [Hiwonder OpenClaw Practical Tutorial](../sources/hiwonder-openclaw-tutorial.md) |
 
 ## What converges (and why it matters)
 
@@ -69,12 +69,12 @@ What every stack ships:
 
 ## What's notably absent across all three stacks
 
-- **No VLA models.** No OpenVLA, no [[nvidia-groot|GR00T]], no Pi π0, no RT-X. The LLM-agent path and the [[vla-models|VLA]] path do not coexist in any of these stacks.
+- **No VLA models.** No OpenVLA, no [GR00T](../entities/nvidia-groot.md), no Pi π0, no RT-X. The LLM-agent path and the [VLA](../concepts/vla-models.md) path do not coexist in any of these stacks.
 - **No imitation learning, teleoperation, or demonstration collection** in stretch_ai's LLM agent or in either Hiwonder stack. (stretch_ai's *broader* repo includes BC and dexterous-teleop work, but the LLM agent doesn't touch it.)
 - **No LeRobot, ACT, or Diffusion Policy** anywhere in the deployed agent flow.
 - **No simulator in the agent loop.** Gazebo curricula exist alongside the LLM-agent demos in Hiwonder docs but are taught as separate chapters; the agent itself runs on real hardware.
 
-This absence is the most important structural fact this synthesis can offer: **there is a clear bifurcation in 2026 between research VLA work and deployed agentic robotics**. VLA happens in NVIDIA / Meta / Pi / Skild research stacks running on simulators ([[nvidia-isaac-lab|Isaac Lab]], [[mujoco-playground|MuJoCo Playground]], [[agibot-genie-sim|Genie Sim]], [[robocasa|RoboCasa]]). Deployed agentic stacks running on real customers' robots use LLM-orchestrated classical skill libraries. The two paths do not yet meet in any stack ingested here.
+This absence is the most important structural fact this synthesis can offer: **there is a clear bifurcation in 2026 between research VLA work and deployed agentic robotics**. VLA happens in NVIDIA / Meta / Pi / Skild research stacks running on simulators ([Isaac Lab](../entities/nvidia-isaac-lab.md), [MuJoCo Playground](../entities/mujoco-playground.md), [Genie Sim](../entities/agibot-genie-sim.md), [RoboCasa](../entities/robocasa.md)). Deployed agentic stacks running on real customers' robots use LLM-orchestrated classical skill libraries. The two paths do not yet meet in any stack ingested here.
 
 ## Trade-offs vs VLA
 
@@ -94,27 +94,27 @@ The LLM-agent pattern wins on shippability and debuggability today. VLAs win on 
 ## Implementation hazards visible in the sources
 
 > [!warning] `eval`-on-LLM-output as a dispatch mechanism
-> Both Hiwonder stacks dispatch via `eval(f'self.{a}')` on LLM-emitted strings ([[hiwonder-rosorin-docs|ROSOrin docs]], [[hiwonder-openclaw-tutorial|OpenClaw tutorial]]). This is fine for an educational kit on a closed local network, but it is a remote-code-execution vector if the LLM endpoint is ever attacker-influenced. stretch_ai's FSM dispatcher does not have this property. Worth flagging if any of these patterns are copied into production.
+> Both Hiwonder stacks dispatch via `eval(f'self.{a}')` on LLM-emitted strings ([ROSOrin docs](../sources/hiwonder-rosorin-docs.md), [OpenClaw tutorial](../sources/hiwonder-openclaw-tutorial.md)). This is fine for an educational kit on a closed local network, but it is a remote-code-execution vector if the LLM endpoint is ever attacker-influenced. stretch_ai's FSM dispatcher does not have this property. Worth flagging if any of these patterns are copied into production.
 
 > [!note] Closed-loop replanning is under-documented everywhere
 > All three sources describe how the LLM emits a plan. None describe in detail how skill failures (grasp failure, person blocking the path, AprilTag occluded) surface back to the LLM for re-planning. This is the most consequential gap between published demo behavior and robust deployment.
 
 ## Open questions
 
-- **Why does no stack support Claude as an LLM backend?** stretch_ai lists Qwen, Gemma, GPT-4o-mini explicitly with no Anthropic option ([[stretch-ai-llm-agent-docs|Stretch AI LLM Agent Documentation]]). Worth investigating whether this is licensing, pricing, or simply that the Hello Robot team hasn't gotten to it.
+- **Why does no stack support Claude as an LLM backend?** stretch_ai lists Qwen, Gemma, GPT-4o-mini explicitly with no Anthropic option ([Stretch AI LLM Agent Documentation](../sources/stretch-ai-llm-agent-docs.md)). Worth investigating whether this is licensing, pricing, or simply that the Hello Robot team hasn't gotten to it.
 - **Cross-vendor portability**: could OpenClaw's skill library run on a Stretch, or vice versa? Both expose ROS 2 surfaces in principle. No source addresses this.
 - **What does the `voice_pick` / `voice_give` action group actually contain in OpenClaw?** The doc names them but does not list the joint trajectories — implementation is opaque without the source repo.
 - **Will this pattern hold once VLAs ship into deployed products?** A VLA could in principle replace several skills in the library while leaving the LLM dispatcher above. This synthesis predicts the LLM-as-orchestrator-over-classical-skills pattern survives, with VLAs gradually moving in as individual primitives.
 
 ## Sources used in this synthesis
 
-- [[stretch-ai-llm-agent-docs|Stretch AI LLM Agent Documentation]]
-- [[hiwonder-rosorin-docs|Hiwonder ROSOrin Documentation]]
-- [[hiwonder-openclaw-tutorial|Hiwonder OpenClaw Practical Tutorial]]
-- [[hiwonder-rosorin-pro-user-manual|Hiwonder ROSOrin Pro User Manual]] (hardware context for OpenClaw)
+- [Stretch AI LLM Agent Documentation](../sources/stretch-ai-llm-agent-docs.md)
+- [Hiwonder ROSOrin Documentation](../sources/hiwonder-rosorin-docs.md)
+- [Hiwonder OpenClaw Practical Tutorial](../sources/hiwonder-openclaw-tutorial.md)
+- [Hiwonder ROSOrin Pro User Manual](../sources/hiwonder-rosorin-pro-user-manual.md) (hardware context for OpenClaw)
 
 ## Related
 
-- [[llm-agent-architecture|LLM-agent architecture]] — the umbrella concept page.
-- [[simulators-for-agentic-robotics-2026|Simulators for agentic robotics — 2026 landscape]] — section 6 covers the same real-robot stacks at a survey level; this page is the deeper comparison.
-- [[vla-models|VLA models]] — the contrasting paradigm.
+- [LLM-agent architecture](../concepts/llm-agent-architecture.md) — the umbrella concept page.
+- [Simulators for agentic robotics — 2026 landscape](simulators-for-agentic-robotics-2026.md) — section 6 covers the same real-robot stacks at a survey level; this page is the deeper comparison.
+- [VLA models](../concepts/vla-models.md) — the contrasting paradigm.

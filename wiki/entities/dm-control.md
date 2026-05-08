@@ -8,13 +8,13 @@ sources: 2
 tags: [dm-control, deepmind, mujoco, rl-benchmark, locomotion, manipulation]
 ---
 
-**DM Control Suite** ("DeepMind Control Suite") — Google DeepMind's open-source benchmark of **continuous-control RL tasks** on top of [[mujoco|MuJoCo]]. The default RL bench for locomotion (`cheetah`, `walker`, `humanoid`, `quadruped`) and simple manipulation (`reacher`, `finger`, `manipulator`). Predates Gymnasium-Robotics by years; now lives alongside it in the broader RL-benchmark ecosystem.
+**DM Control Suite** ("DeepMind Control Suite") — Google DeepMind's open-source benchmark of **continuous-control RL tasks** on top of [MuJoCo](mujoco.md). The default RL bench for locomotion (`cheetah`, `walker`, `humanoid`, `quadruped`) and simple manipulation (`reacher`, `finger`, `manipulator`). Predates Gymnasium-Robotics by years; now lives alongside it in the broader RL-benchmark ecosystem.
 
 ## Position in this wiki
 Reference appears across multiple ingested sources:
-- **[[stable-worldmodel|stable-worldmodel]]** — exposes 12 DM Control envs in its env zoo (per the canonical README).
-- **[[dino-wm|DINO-WM]]** — references **DM Control Reacher** as one of the eval envs.
-- **[[farama-projects-page|Farama Foundation Projects Page]]** — DM Control is bridged into the Gymnasium ecosystem via Shimmy.
+- **[stable-worldmodel](stable-worldmodel.md)** — exposes 12 DM Control envs in its env zoo (per the canonical README).
+- **[DINO-WM](dino-wm.md)** — references **DM Control Reacher** as one of the eval envs.
+- **[Farama Foundation Projects Page](../sources/farama-projects-page.md)** — DM Control is bridged into the Gymnasium ecosystem via Shimmy.
 
 ## Why it matters
 - **Standard locomotion bench.** When a paper says "we evaluate on cheetah," DM Control is implied.
@@ -22,16 +22,16 @@ Reference appears across multiple ingested sources:
 - **MuJoCo-coupled.** DM Control specifically uses MuJoCo (originally `mujoco-py`, now the maintained `dm_control` Python bindings) — meaning DM Control is a carrier for the MuJoCo-as-default-RL-physics pattern.
 
 ## Related
-- [[google-deepmind|Google DeepMind]] — origin lab.
-- [[mujoco|MuJoCo]] — physics backend.
-- [[mujoco-playground|MuJoCo Playground]] — sibling DeepMind RL-benchmark project (newer, JAX-based).
-- [[gymnasium-robotics|Gymnasium-Robotics]] — modern Farama-curated equivalent for robotics-specific tasks.
-- [[stable-worldmodel|stable-worldmodel]] — exposes DM Control envs to the LeWM-line.
+- [Google DeepMind](google-deepmind.md) — origin lab.
+- [MuJoCo](mujoco.md) — physics backend.
+- [MuJoCo Playground](mujoco-playground.md) — sibling DeepMind RL-benchmark project (newer, JAX-based).
+- [Gymnasium-Robotics](gymnasium-robotics.md) — modern Farama-curated equivalent for robotics-specific tasks.
+- [stable-worldmodel](stable-worldmodel.md) — exposes DM Control envs to the LeWM-line.
 
 ## Mentioned in
-- [[leworldmodel-howto|LeWorldModel — train and run howto]] (referenced via stable-worldmodel env zoo)
-- [[dino-wm-paper|DINO-WM Paper]] (DM Control Reacher as eval)
-- [[farama-projects-page|Farama Foundation Projects Page]] (Shimmy bridge)
+- [LeWorldModel — train and run howto](../syntheses/leworldmodel-howto.md) (referenced via stable-worldmodel env zoo)
+- [DINO-WM Paper](../sources/dino-wm-paper.md) (DM Control Reacher as eval)
+- [Farama Foundation Projects Page](../sources/farama-projects-page.md) (Shimmy bridge)
 
 ## Open questions / TBD
 - DM Control paper / project page not yet ingested as a source.

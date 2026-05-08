@@ -12,7 +12,7 @@ tags: [v-jepa-2, jepa, world-model, dense-features, meta-fair, video, real-robot
 ---
 
 ## Summary
-**V-JEPA 2.1** — direct successor to [[v-jepa-2-paper|V-JEPA 2]] from largely the same FAIR team (Bardes, Assran, Rabbat, Ballas, LeCun). Headline contribution: "**unlocking dense features**" in video self-supervised learning while retaining global scene understanding. Per the agent research that flagged this paper, it reports a **+20pt improvement on real-Franka grasping** vs V-JEPA 2-AC.
+**V-JEPA 2.1** — direct successor to [V-JEPA 2](v-jepa-2-paper.md) from largely the same FAIR team (Bardes, Assran, Rabbat, Ballas, LeCun). Headline contribution: "**unlocking dense features**" in video self-supervised learning while retaining global scene understanding. Per the agent research that flagged this paper, it reports a **+20pt improvement on real-Franka grasping** vs V-JEPA 2-AC.
 
 ## Key claims
 - "A family of self-supervised models that learn dense, high-quality visual representations for both images and videos while retaining strong global scene understanding" (abstract).
@@ -22,16 +22,16 @@ tags: [v-jepa-2, jepa, world-model, dense-features, meta-fair, video, real-robot
 - DOI: https://doi.org/10.48550/arXiv.2603.14482
 
 ## Entities mentioned
-- [[meta-fair|Meta FAIR]]
-- [[v-jepa-2|V-JEPA 2]] — predecessor.
-- [[yann-lecun|Yann LeCun]] — senior author.
-- [[adrien-bardes|Adrien Bardes]] — author.
-- [[franka-panda|Franka Panda]] — real-robot grasping platform (assumed; not explicit in abstract).
+- [Meta FAIR](../entities/meta-fair.md)
+- [V-JEPA 2](../entities/v-jepa-2.md) — predecessor.
+- [Yann LeCun](../entities/yann-lecun.md) — senior author.
+- [Adrien Bardes](../entities/adrien-bardes.md) — author.
+- [Franka Panda](../entities/franka-panda.md) — real-robot grasping platform (assumed; not explicit in abstract).
 
 ## Concepts touched
-- [[jepa|Joint-Embedding Predictive Architecture]]
-- [[world-model|World model]] — JEPA continues.
-- [[world-model-simulators|World-model simulators]] — latent-prediction paradigm continues.
+- [Joint-Embedding Predictive Architecture](../concepts/jepa.md)
+- [World model](../concepts/world-model.md) — JEPA continues.
+- [World-model simulators](../concepts/world-model-simulators.md) — latent-prediction paradigm continues.
 
 ## Open questions
 - Code/project URL not surfaced from the abstract page.
@@ -39,4 +39,4 @@ tags: [v-jepa-2, jepa, world-model, dense-features, meta-fair, video, real-robot
 - Exact +20pt grasping number is from secondary research; verify against paper body.
 
 ## Why this matters
-V-JEPA 2.1 continues the V-JEPA 2 pattern: **internet-scale video pretraining → real-robot eval → no simulator**. So while [[jepa-wms-paper|Terver et al. (jepa-wms)]] moves FAIR JEPA work into RoboCasa, V-JEPA 2.1 sustains the original sim-skipping line in parallel. The two papers together suggest **FAIR is hedging across both approaches**, not abandoning the sim-free path.
+V-JEPA 2.1 continues the V-JEPA 2 pattern: **internet-scale video pretraining → real-robot eval → no simulator**. So while [Terver et al. (jepa-wms)](jepa-wms-paper.md) moves FAIR JEPA work into RoboCasa, V-JEPA 2.1 sustains the original sim-skipping line in parallel. The two papers together suggest **FAIR is hedging across both approaches**, not abandoning the sim-free path.

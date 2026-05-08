@@ -25,8 +25,8 @@ status: stub
 ## Related
 - Boston Dynamics — manufacturer (no entity page yet).
 - Hyundai — owner.
-- [[robot-platforms-comparison|Robot platforms comparison]] / [[humanoid-platforms-survey|Humanoid platforms survey]] — landscape context.
-- [[unitree-h1|Unitree H1]] / [[figure|Figure]] / [[apptronik-apollo|Apptronik Apollo]] — competitors at the research-humanoid tier.
+- [Robot platforms comparison](../syntheses/robot-platforms-comparison.md) / [Humanoid platforms survey](../syntheses/humanoid-platforms-survey.md) — landscape context.
+- [Unitree H1](unitree-h1.md) / [Figure](figure.md) / [Apptronik Apollo](apptronik-apollo.md) — competitors at the research-humanoid tier.
 
 ## Mentioned in
 - *(no source pages directly cite Atlas; entity built from general knowledge)*

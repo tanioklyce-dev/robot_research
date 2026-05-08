@@ -19,12 +19,12 @@ Generate the next frame's *pixels*. Train and plan inside a learned video genera
 | Compute bound | Physics solver | Video model inference |
 
 Notable systems:
-- **[[nvidia-cosmos|NVIDIA Cosmos]]** — world foundation model (Cosmos-Predict2-2B-Video2World powers downstream simulators).
-- **[[genie-envisioner|Genie Envisioner]]** / GE-Sim2 — built on Cosmos-Predict2; introduces the World Action Model framework where action is a first-class variable; minute-scale stable rollouts ([[agibot-genie-envisioner-2-announcement|AGIBOT Genie Envisioner 2.0 Announcement]]).
-- **[[genesis|Genesis]]** — adjacent: physics-based but uses a [[vla-models|VLM]] agent to *generate* the simulation content from text.
+- **[NVIDIA Cosmos](../entities/nvidia-cosmos.md)** — world foundation model (Cosmos-Predict2-2B-Video2World powers downstream simulators).
+- **[Genie Envisioner](../entities/genie-envisioner.md)** / GE-Sim2 — built on Cosmos-Predict2; introduces the World Action Model framework where action is a first-class variable; minute-scale stable rollouts ([AGIBOT Genie Envisioner 2.0 Announcement](../sources/agibot-genie-envisioner-2-announcement.md)).
+- **[Genesis](../entities/genesis.md)** — adjacent: physics-based but uses a [VLM](vla-models.md) agent to *generate* the simulation content from text.
 
 ## Paradigm B: JEPA / latent-prediction world models
-Predict the next-state *representation* in a learned latent space — no pixels generated. See [[jepa|Joint-Embedding Predictive Architecture]] for the architectural definition. Pioneered in Yann LeCun's group at FAIR / NYU / Mila.
+Predict the next-state *representation* in a learned latent space — no pixels generated. See [Joint-Embedding Predictive Architecture](jepa.md) for the architectural definition. Pioneered in Yann LeCun's group at FAIR / NYU / Mila.
 
 | | Generative-video | JEPA / latent-prediction |
 |---|---|---|
@@ -34,8 +34,8 @@ Predict the next-state *representation* in a learned latent space — no pixels 
 | Pretraining at scale | Possible but costly | Web-video-scale pretraining is tractable |
 
 Notable systems:
-- **[[v-jepa-2|V-JEPA 2 / V-JEPA 2-AC]]** ([[meta-fair|Meta FAIR]] + [[mila|Mila]]) — 1B-param ViT-g pretrained on 1M+ hours of internet video; 300M-param action-conditioned predictor post-trained on 62 hr of Droid robot data; **zero-shot Franka manipulation in new labs** ([[v-jepa-2-paper|V-JEPA 2 Paper]]).
-- **[[leworldmodel|LeWorldModel]]** ([[mila|Mila]] + NYU + Samsung SAIL + Brown) — first stable end-to-end JEPA from raw pixels with just two loss terms; 15M params; single-GPU training; 48× faster planning ([[leworldmodel-paper|LeWorldModel Paper]]).
+- **[V-JEPA 2 / V-JEPA 2-AC](../entities/v-jepa-2.md)** ([Meta FAIR](../entities/meta-fair.md) + [Mila](../entities/mila.md)) — 1B-param ViT-g pretrained on 1M+ hours of internet video; 300M-param action-conditioned predictor post-trained on 62 hr of Droid robot data; **zero-shot Franka manipulation in new labs** ([V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)).
+- **[LeWorldModel](../entities/leworldmodel.md)** ([Mila](../entities/mila.md) + NYU + Samsung SAIL + Brown) — first stable end-to-end JEPA from raw pixels with just two loss terms; 15M params; single-GPU training; 48× faster planning ([LeWorldModel Paper](../sources/leworldmodel-paper.md)).
 
 ## Where world-model simulators are most useful (2026)
 - **Pretraining policies on observed-data distributions** before any physics-based fine-tuning.
@@ -50,12 +50,12 @@ Notable systems:
   - **JEPA** — latent collapse during training, predictor overfitting on small interaction sets.
 
 ## Related
-- [[vla-models|VLA models]] — the policies that train inside or alongside world-model environments.
-- [[sim-to-real-transfer|Sim-to-real transfer]] — relevance shifts: latent-prediction reduces the visual-axis gap but introduces a "model fidelity gap" instead.
-- [[jepa|Joint-Embedding Predictive Architecture]] — paradigm B's underlying architecture family.
+- [VLA models](vla-models.md) — the policies that train inside or alongside world-model environments.
+- [Sim-to-real transfer](sim-to-real-transfer.md) — relevance shifts: latent-prediction reduces the visual-axis gap but introduces a "model fidelity gap" instead.
+- [Joint-Embedding Predictive Architecture](jepa.md) — paradigm B's underlying architecture family.
 
 ## Mentioned in
-- [[agibot-genie-envisioner-2-announcement|AGIBOT Genie Envisioner 2.0 Announcement]]
-- [[genie-envisioner-paper|Genie Envisioner Paper]]
-- [[v-jepa-2-paper|V-JEPA 2 Paper]]
-- [[leworldmodel-paper|LeWorldModel Paper]]
+- [AGIBOT Genie Envisioner 2.0 Announcement](../sources/agibot-genie-envisioner-2-announcement.md)
+- [Genie Envisioner Paper](../sources/genie-envisioner-paper.md)
+- [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
+- [LeWorldModel Paper](../sources/leworldmodel-paper.md)

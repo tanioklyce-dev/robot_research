@@ -8,7 +8,7 @@ tags: [frc, simulation, ai, machine-learning, autonomous, pathplanning]
 
 # FRC simulation & AI landscape
 
-What simulation programs [[first-robotics-competition|FRC]] teams use for autonomous development and AI training, as of the 2026 REBUILT season. The landscape is stratified: most teams use trajectory-planning tools (no ML), a growing minority use physics simulators, and AI/ML remains a frontier pursued by elite teams.
+What simulation programs [FRC](../entities/first-robotics-competition.md) teams use for autonomous development and AI training, as of the 2026 REBUILT season. The landscape is stratified: most teams use trajectory-planning tools (no ML), a growing minority use physics simulators, and AI/ML remains a frontier pursued by elite teams.
 
 ## Tier 1: Trajectory planners (mainstream)
 
@@ -20,7 +20,7 @@ The vast majority of FRC teams develop autonomous routines by drawing paths in a
 | **[Choreo](https://choreo.autos/)** | Optimization-based: feed robot characteristics + constraints → mathematically optimal trajectory. | Rising. WPILib-endorsed. Replaces deprecated PathWeaver. |
 | **WPILib PathWeaver** | Legacy trajectory tool. | Deprecated, removed in 2027. |
 
-These tools produce **open-loop** trajectories. The robot uses odometry + [[apriltags|AprilTag]] pose estimation (via PhotonVision or Limelight) to correct drift, but the path itself is pre-planned, not learned.
+These tools produce **open-loop** trajectories. The robot uses odometry + [AprilTag](../concepts/apriltags.md) pose estimation (via PhotonVision or Limelight) to correct drift, but the path itself is pre-planned, not learned.
 
 ## Tier 2: Physics simulators (growing adoption)
 
@@ -65,7 +65,7 @@ These tools simulate robot-field interactions with actual physics, enabling clos
 
 AI/ML in FRC is **emerging but not mainstream**. The landmark event was Team 254's (The Cheesy Poofs) 2026 Championship Conference presentation: **"The Next Revolution: AI in FRC."**
 
-### [[team-254|Team 254]]'s presentation (April 2026) — [[team-254-ai-in-frc-presentation|full source page]]
+### [Team 254](../entities/team-254.md)'s presentation (April 2026) — [full source page](../sources/team-254-ai-in-frc-presentation.md)
 - Presenters: Jared Russell, Tom Bottiglieri, and others from 254. [YouTube recording](https://www.youtube.com/watch?v=oTcimMwxRoM).
 - Topics covered:
   1. **AI-assisted development ("vibe-coding")**: Using LLM coding agents (specifically **Claude Code**) as a core FRC dev workflow. Agent reads existing source + WPILib APIs, generates code, validates through compilation/tests, iterates.

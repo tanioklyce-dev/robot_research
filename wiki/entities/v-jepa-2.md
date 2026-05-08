@@ -8,7 +8,7 @@ sources: 2
 tags: [v-jepa-2, jepa, world-model, meta-fair, video, action-conditioned, franka]
 ---
 
-[[meta-fair|Meta FAIR]]'s flagship JEPA-style world model (June 2025). Two stages: **V-JEPA 2** (1B-param ViT-g video encoder pretrained on 1M+ hours of internet video) and **V-JEPA 2-AC** (300M-param action-conditioned predictor post-trained on 62 hr of Droid robot data). Notable for **zero-shot pick-and-place on Franka arms in new labs** via image-goal MPC. **Successor: [[v-jepa-2-1-paper|V-JEPA 2.1]]** (March 2026) — same FAIR group, "dense features" focus, +20pt real-Franka grasping per secondary research.
+[Meta FAIR](meta-fair.md)'s flagship JEPA-style world model (June 2025). Two stages: **V-JEPA 2** (1B-param ViT-g video encoder pretrained on 1M+ hours of internet video) and **V-JEPA 2-AC** (300M-param action-conditioned predictor post-trained on 62 hr of Droid robot data). Notable for **zero-shot pick-and-place on Franka arms in new labs** via image-goal MPC. **Successor: [V-JEPA 2.1](../sources/v-jepa-2-1-paper.md)** (March 2026) — same FAIR group, "dense features" focus, +20pt real-Franka grasping per secondary research.
 
 ## Architecture
 - **V-JEPA 2 encoder**: ViT-g, 1B parameters. Pretrained with visual mask denoising in representation space (not pixel space). EMA target encoder, L1 loss. 22M videos, 1M+ hours, 3D-RoPE positions, progressive resolution.
@@ -21,17 +21,17 @@ tags: [v-jepa-2, jepa, world-model, meta-fair, video, action-conditioned, franka
 - LLM-aligned VQA: 84.0 PerceptionTest, 76.9 TempCompass at 8B-parameter scale.
 
 ## Why it matters
-First public demonstration of a **latent-prediction world model** ([[jepa|JEPA]]) doing zero-shot real-robot manipulation in untouched labs. Validates the JEPA thesis: predict in representation space, not pixel space, and you can scale to internet-video pretraining without paying the cost of generating video. Sits in **paradigmatic contrast** to [[nvidia-cosmos|NVIDIA Cosmos]] / [[genie-envisioner|Genie Envisioner]] (generative-video world models).
+First public demonstration of a **latent-prediction world model** ([JEPA](../concepts/jepa.md)) doing zero-shot real-robot manipulation in untouched labs. Validates the JEPA thesis: predict in representation space, not pixel space, and you can scale to internet-video pretraining without paying the cost of generating video. Sits in **paradigmatic contrast** to [NVIDIA Cosmos](nvidia-cosmos.md) / [Genie Envisioner](genie-envisioner.md) (generative-video world models).
 
 ## Related
-- [[meta-fair|Meta FAIR]] — primary lab.
-- [[mila|Mila]] — co-affiliation (Artem Zholus dual appointment).
-- [[jepa|Joint-Embedding Predictive Architecture]] — architecture family.
-- [[world-model-simulators|World-model simulators]] — broader paradigm.
-- [[leworldmodel|LeWorldModel]] — sibling JEPA architecture (different group).
-- [[v-jepa-2-1-paper|V-JEPA 2.1 Paper]] — direct successor (March 2026), dense features focus.
-- [[jepa-wms|JEPA-WMs]] — same FAIR group's robot-specific JEPA work, but with sim (Dec 2025).
+- [Meta FAIR](meta-fair.md) — primary lab.
+- [Mila](mila.md) — co-affiliation (Artem Zholus dual appointment).
+- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — architecture family.
+- [World-model simulators](../concepts/world-model-simulators.md) — broader paradigm.
+- [LeWorldModel](leworldmodel.md) — sibling JEPA architecture (different group).
+- [V-JEPA 2.1 Paper](../sources/v-jepa-2-1-paper.md) — direct successor (March 2026), dense features focus.
+- [JEPA-WMs](jepa-wms.md) — same FAIR group's robot-specific JEPA work, but with sim (Dec 2025).
 
 ## Mentioned in
-- [[v-jepa-2-paper|V-JEPA 2 Paper]]
-- [[v-jepa-2-1-paper|V-JEPA 2.1 Paper]]
+- [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
+- [V-JEPA 2.1 Paper](../sources/v-jepa-2-1-paper.md)

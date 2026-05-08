@@ -27,7 +27,7 @@ The wiki is maintained by [Claude Code](https://claude.ai/code); the human curat
 - **[`wiki/log.md`](wiki/log.md)** — chronological record of ingests, queries, and lint passes.
 - **[`CLAUDE.md`](CLAUDE.md)** — wiki schema and ingest/query/lint workflows.
 
-Best read in [Obsidian](https://obsidian.md/) — the `wiki/` directory is configured as a vault. Wikilinks use `[[slug|Display]]` form (kebab-case filenames + human-readable display text), so they also render correctly in any plain markdown viewer.
+Browse on GitHub or open in [Obsidian](https://obsidian.md/) — the wiki uses standard markdown links with relative paths so navigation works in both. Filenames are kebab-case slugs.
 
 ## Working with the wiki
 

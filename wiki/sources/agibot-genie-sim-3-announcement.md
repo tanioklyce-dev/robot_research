@@ -9,10 +9,10 @@ tags: [agibot, genie-sim, embodied-ai, ces-2026, isaac-sim]
 ---
 
 ## Summary
-Coverage of [[agibot|AGIBOT]]'s CES 2026 launch of [[agibot-genie-sim|AGIBOT Genie Sim 3.0]], a fully open-source simulation platform built on [[nvidia-isaac-sim|NVIDIA Isaac Sim]] with LLM-driven scene generation and a large-scale evaluation suite for embodied AI policies.
+Coverage of [AGIBOT](../entities/agibot.md)'s CES 2026 launch of [AGIBOT Genie Sim 3.0](../entities/agibot-genie-sim.md), a fully open-source simulation platform built on [NVIDIA Isaac Sim](../entities/nvidia-isaac-sim.md) with LLM-driven scene generation and a large-scale evaluation suite for embodied AI policies.
 
 ## Key claims
-- Built on top of [[nvidia-isaac-sim|NVIDIA Isaac Sim]] / Omniverse.
+- Built on top of [NVIDIA Isaac Sim](../entities/nvidia-isaac-sim.md) / Omniverse.
 - Decoupled physics and rendering; physics runs at up to 1,000 Hz.
 - Massively parallel simulation for high data throughput.
 - LLM-driven natural-language scene generation: describe an environment, get structured scenes plus thousands of semantic variations with no manual logic.
@@ -20,21 +20,21 @@ Coverage of [[agibot|AGIBOT]]'s CES 2026 launch of [[agibot-genie-sim|AGIBOT Gen
 - Built-in reward signals enable closed-loop training and evaluation.
 - 100,000+ evaluation scenarios.
 - 10,000+ hours of synthetic dataset including real-world robot operation scenarios.
-- Benchmarks support [[nvidia-groot|GR00T]], Pi, and GO-2 model series.
+- Benchmarks support [GR00T](../entities/nvidia-groot.md), Pi, and GO-2 model series.
 - Fully open source on GitHub (assets, datasets, evaluation code).
 
 ## Entities mentioned
-- [[agibot|AGIBOT]]
-- [[agibot-genie-sim|AGIBOT Genie Sim 3.0]]
-- [[nvidia|NVIDIA]]
-- [[nvidia-isaac-sim|NVIDIA Isaac Sim]]
-- [[nvidia-groot|NVIDIA GR00T]]
+- [AGIBOT](../entities/agibot.md)
+- [AGIBOT Genie Sim 3.0](../entities/agibot-genie-sim.md)
+- [NVIDIA](../entities/nvidia.md)
+- [NVIDIA Isaac Sim](../entities/nvidia-isaac-sim.md)
+- [NVIDIA GR00T](../entities/nvidia-groot.md)
 
 ## Concepts touched
 - LLM-driven scene generation
-- [[vla-models|VLA models]] benchmarking
+- [VLA models](../concepts/vla-models.md) benchmarking
 - Closed-loop sim training
 
 ## Open questions
-- How does the spatial world model relate to [[genie-envisioner|Genie Envisioner]]? Are they complementary or overlapping?
+- How does the spatial world model relate to [Genie Envisioner](../entities/genie-envisioner.md)? Are they complementary or overlapping?
 - Adoption signals outside the Chinese embodied-AI ecosystem?

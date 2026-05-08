@@ -9,11 +9,11 @@ tags: [sapien, simulator, ucsd, manipulation]
 status: stub
 ---
 
-SAPIEN — open-source robot simulation framework originating from UCSD. The underlying physics and rendering substrate that [[maniskill|ManiSkill]] is built on.
+SAPIEN — open-source robot simulation framework originating from UCSD. The underlying physics and rendering substrate that [ManiSkill](maniskill.md) is built on.
 
 ## Related
-- [[maniskill|ManiSkill]] — the manipulation benchmark built on SAPIEN.
-- [[hillbot|Hillbot]] — primary maintainer of the ManiSkill stack on top of SAPIEN.
+- [ManiSkill](maniskill.md) — the manipulation benchmark built on SAPIEN.
+- [Hillbot](hillbot.md) — primary maintainer of the ManiSkill stack on top of SAPIEN.
 
 ## Mentioned in
-- [[maniskill-hab-paper|ManiSkill-HAB Paper]]
+- [ManiSkill-HAB Paper](../sources/maniskill-hab-paper.md)

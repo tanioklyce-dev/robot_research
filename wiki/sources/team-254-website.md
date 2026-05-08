@@ -14,7 +14,7 @@ tags: [frc, team-254, cheesy-poofs]
 
 ## Summary
 
-The official website of [[team-254|Team 254 (The Cheesy Poofs)]], a [[first-robotics-competition|FIRST Robotics Competition]] team based at Bellarmine College Preparatory in San Jose, California. Founded in 1998 at Broadway High School by NASA Ames Research Center. The site showcases their robot history, technical resources, and community programs.
+The official website of [Team 254 (The Cheesy Poofs)](../entities/team-254.md), a [FIRST Robotics Competition](../entities/first-robotics-competition.md) team based at Bellarmine College Preparatory in San Jose, California. Founded in 1998 at Broadway High School by NASA Ames Research Center. The site showcases their robot history, technical resources, and community programs.
 
 ## Key claims
 
@@ -41,8 +41,8 @@ The official website of [[team-254|Team 254 (The Cheesy Poofs)]], a [[first-robo
 - **Technical resources**: Documents, code repositories, and technical handbook available publicly.
 
 ## Entities mentioned
-- [[team-254|Team 254 (The Cheesy Poofs)]]
-- [[first-robotics-competition|FIRST Robotics Competition]]
+- [Team 254 (The Cheesy Poofs)](../entities/team-254.md)
+- [FIRST Robotics Competition](../entities/first-robotics-competition.md)
 
 ## Open questions
 - Where is Team 254's code repository? (GitHub account: github.com/Team254)

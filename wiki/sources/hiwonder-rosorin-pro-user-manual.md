@@ -9,7 +9,7 @@ tags: [hiwonder, rosorin-pro, user-manual, hardware-specs, jetson-orin-nano, man
 ---
 
 ## Summary
-Chapter 1 hardware reference for [[hiwonder|Hiwonder]]'s **[[rosorin-pro|ROSOrin Pro]]** — a 6-DOF arm + mobile-base variant of [[rosorin|ROSOrin]]. Same compute platform options (Jetson Orin Nano/NX, Jetson Nano, Raspberry Pi 5) and the same STM32F407VET6 low-level MCU as the base kit; adds an HX-12H-servo arm with a gripper end-effector. Note: ROSOrin Pro docs live on a different subdomain (`wiki.hiwonder.com`) than the base ROSOrin docs (`docs.hiwonder.com`).
+Chapter 1 hardware reference for [Hiwonder](../entities/hiwonder.md)'s **[ROSOrin Pro](../entities/rosorin-pro.md)** — a 6-DOF arm + mobile-base variant of [ROSOrin](../entities/rosorin.md). Same compute platform options (Jetson Orin Nano/NX, Jetson Nano, Raspberry Pi 5) and the same STM32F407VET6 low-level MCU as the base kit; adds an HX-12H-servo arm with a gripper end-effector. Note: ROSOrin Pro docs live on a different subdomain (`wiki.hiwonder.com`) than the base ROSOrin docs (`docs.hiwonder.com`).
 
 ## Key claims
 
@@ -19,7 +19,7 @@ Chapter 1 hardware reference for [[hiwonder|Hiwonder]]'s **[[rosorin-pro|ROSOrin
 - IMU: **MPU6050**, 3-axis accelerometer + 3-axis gyroscope, I2C.
 - Audio: "AI voice interaction box" referenced — same WonderEcho Pro / 6-microphone array architecture as the base ROSOrin docs.
 
-### Manipulator arm ([[rosorin-pro-arm|6-DOF arm]])
+### Manipulator arm ([6-DOF arm](../entities/rosorin-pro-arm.md))
 - 6 degrees of freedom.
 - Joint actuation: **HX-12H** bus servos — 0–240° rotation, 12 kg·cm stall torque @ 11.0 V, 0.2 s/60° speed.
 - Gripper controlled by the same HX-12H servo class.
@@ -39,9 +39,9 @@ Chapter 1 hardware reference for [[hiwonder|Hiwonder]]'s **[[rosorin-pro|ROSOrin
 - Charger-only charging; do not charge while powered on.
 
 ## Entities mentioned
-- [[hiwonder|Hiwonder]]
-- [[rosorin-pro|ROSOrin Pro]]
-- [[rosorin-pro-arm|ROSOrin Pro 6-DOF arm]]
+- [Hiwonder](../entities/hiwonder.md)
+- [ROSOrin Pro](../entities/rosorin-pro.md)
+- [ROSOrin Pro 6-DOF arm](../entities/rosorin-pro-arm.md)
 
 ## Concepts touched
 - Mobile manipulation (no concept page yet — bare text)

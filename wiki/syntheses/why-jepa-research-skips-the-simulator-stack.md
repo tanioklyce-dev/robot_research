@@ -9,45 +9,45 @@ tags: [jepa, world-model, simulators, v-jepa, leworldmodel, jepa-wms, dino-wm, v
 # Why JEPA research skips the simulator stack
 
 > [!warning] Major revision 2026-05-07
-> The first draft of this synthesis claimed JEPA research **structurally skips** heavy agentic-robotics simulators. After ingesting five additional JEPA / JEPA-adjacent papers, that generalization is too strong. The same FAIR group that produced [[v-jepa-2|V-JEPA 2]] (no sim) released [[jepa-wms|JEPA-WMs]] (Dec 2025) which trains and evaluates on [[robocasa|RoboCasa]] + Metaworld + DROID + real Franka. The pattern was real for first-generation JEPA-for-robotics work but is **fragmenting** as of 2026-Q1, not solidifying. This rewrite reflects that.
+> The first draft of this synthesis claimed JEPA research **structurally skips** heavy agentic-robotics simulators. After ingesting five additional JEPA / JEPA-adjacent papers, that generalization is too strong. The same FAIR group that produced [V-JEPA 2](../entities/v-jepa-2.md) (no sim) released [JEPA-WMs](../entities/jepa-wms.md) (Dec 2025) which trains and evaluates on [RoboCasa](../entities/robocasa.md) + Metaworld + DROID + real Franka. The pattern was real for first-generation JEPA-for-robotics work but is **fragmenting** as of 2026-Q1, not solidifying. This rewrite reflects that.
 
 ## The original observation, narrowed
 
-When this wiki contained only [[v-jepa-2-paper|V-JEPA 2]] and [[leworldmodel-paper|LeWorldModel]], a clean pattern was visible:
+When this wiki contained only [V-JEPA 2](../sources/v-jepa-2-paper.md) and [LeWorldModel](../sources/leworldmodel-paper.md), a clean pattern was visible:
 
 | Paper | Pretraining | Action-conditioning | Evaluation |
 |---|---|---|---|
-| [[v-jepa-2-paper\|V-JEPA 2]] (FAIR + Mila, Jun 2025) | 1M+ hr **internet video** | 62 hr **real Droid teleop** | **Zero-shot real Franka**, two new labs |
-| [[leworldmodel-paper\|LeWorldModel]] (Mila + NYU + Samsung SAIL + Brown, Mar 2026) | None — end-to-end from pixels | Action-conditioned at training | **PushT, cube, two-rooms, reacher** — _not real-robot data_ |
+| [V-JEPA 2](../sources/v-jepa-2-paper.md) (FAIR + Mila, Jun 2025) | 1M+ hr **internet video** | 62 hr **real Droid teleop** | **Zero-shot real Franka**, two new labs |
+| [LeWorldModel](../sources/leworldmodel-paper.md) (Mila + NYU + Samsung SAIL + Brown, Mar 2026) | None — end-to-end from pixels | Action-conditioned at training | **PushT, cube, two-rooms, reacher** — _not real-robot data_ |
 
-Across both papers, [[nvidia-isaac-lab|Isaac Lab]], [[mujoco-playground|MuJoCo Playground]], [[maniskill|ManiSkill]], [[robocasa|RoboCasa]], and [[genesis|Genesis]] were absent. That is still true _for those two papers_. The observation that prompted this synthesis is not wrong — it just doesn't generalize.
+Across both papers, [Isaac Lab](../entities/nvidia-isaac-lab.md), [MuJoCo Playground](../entities/mujoco-playground.md), [ManiSkill](../entities/maniskill.md), [RoboCasa](../entities/robocasa.md), and [Genesis](../entities/genesis.md) were absent. That is still true _for those two papers_. The observation that prompted this synthesis is not wrong — it just doesn't generalize.
 
 ## What broke the generalization
 
-**[[jepa-wms-paper|Terver, Yang, Ponce, Bardes, LeCun — "What drives success in physical planning with JEPA-WMs?"]]** (arxiv 2512.24497, Dec 30 2025 / revised Jan 8 2026, code at `facebookresearch/jepa-wms`).
+**[Terver, Yang, Ponce, Bardes, LeCun — "What drives success in physical planning with JEPA-WMs?"](../sources/jepa-wms-paper.md)** (arxiv 2512.24497, Dec 30 2025 / revised Jan 8 2026, code at `facebookresearch/jepa-wms`).
 
 This is the load-bearing source. Same FAIR group as V-JEPA 2 (Bardes and LeCun are senior on both). The repo README enumerates the actual environments:
 
 - **42 Metaworld tasks** (100 episodes each)
 - **Push-T**, **PointMaze**, **Wall**
-- **[[robocasa|RoboCasa]] kitchen manipulation**
+- **[RoboCasa](../entities/robocasa.md) kitchen manipulation**
 - **DROID** dataset (raw stereo HD, 8.7 TB; or non-stereo HD, 5.6 TB)
 - **Franka** robot trajectories
 - Optional video pretraining: Kinetics-400, Kinetics-710, SSv2, HowTo100M
 
-Within ~6 months of the V-JEPA 2 release, the same lab published a JEPA paper using a heavy household-manipulation sim ([[robocasa|RoboCasa]]) alongside real-robot data. The "watch for the first JEPA paper that explicitly trains in heavy sim" caveat from the original draft was already wrong by the time it was filed.
+Within ~6 months of the V-JEPA 2 release, the same lab published a JEPA paper using a heavy household-manipulation sim ([RoboCasa](../entities/robocasa.md)) alongside real-robot data. The "watch for the first JEPA paper that explicitly trains in heavy sim" caveat from the original draft was already wrong by the time it was filed.
 
 ## The full picture across seven JEPA / JEPA-adjacent papers
 
 | Paper | Pretraining substrate | Sim weight class | Sim platforms | Real robot |
 |---|---|---|---|---|
-| [[v-jepa-2-paper\|V-JEPA 2]] (Jun 2025) | Internet video | **None** | — | Real Franka, zero-shot |
-| [[v-jepa-2-1-paper\|V-JEPA 2.1]] (Mar 2026) | Internet video | **None** | — | Real-robot grasp + nav |
-| [[leworldmodel-paper\|LeWorldModel]] (Mar 2026) | End-to-end pixels | **Lightweight** | PushT, cube, two-rooms, reacher | None |
-| [[dino-wm-paper\|DINO-WM]] (Nov 2024) | Frozen DINOv2 features | **Lightweight** | PushT, Wall, PointMaze, Rope, Granular, Reacher (likely MuJoCo 2.1) | None |
-| [[dino-world-paper\|DINO-world]] (Jul 2025) | Frozen DINOv2 features | **Light video sim** | "driving and indoor scenes to simulated environments" (generic) | None |
-| [[vla-jepa-paper\|VLA-JEPA]] (Feb 2026) | JEPA-as-auxiliary | **Mid-weight** | LIBERO, LIBERO-Plus, **SimplerEnv** | Yes, unspecified |
-| [[jepa-wms-paper\|JEPA-WMs]] (Dec 2025) | Frozen DINOv2 + co-trained predictor | **Heavy** | **[[robocasa\|RoboCasa]]**, Metaworld, Push-T, Wall, PointMaze | DROID + Franka |
+| [V-JEPA 2](../sources/v-jepa-2-paper.md) (Jun 2025) | Internet video | **None** | — | Real Franka, zero-shot |
+| [V-JEPA 2.1](../sources/v-jepa-2-1-paper.md) (Mar 2026) | Internet video | **None** | — | Real-robot grasp + nav |
+| [LeWorldModel](../sources/leworldmodel-paper.md) (Mar 2026) | End-to-end pixels | **Lightweight** | PushT, cube, two-rooms, reacher | None |
+| [DINO-WM](../sources/dino-wm-paper.md) (Nov 2024) | Frozen DINOv2 features | **Lightweight** | PushT, Wall, PointMaze, Rope, Granular, Reacher (likely MuJoCo 2.1) | None |
+| [DINO-world](../sources/dino-world-paper.md) (Jul 2025) | Frozen DINOv2 features | **Light video sim** | "driving and indoor scenes to simulated environments" (generic) | None |
+| [VLA-JEPA](../sources/vla-jepa-paper.md) (Feb 2026) | JEPA-as-auxiliary | **Mid-weight** | LIBERO, LIBERO-Plus, **SimplerEnv** | Yes, unspecified |
+| [JEPA-WMs](../sources/jepa-wms-paper.md) (Dec 2025) | Frozen DINOv2 + co-trained predictor | **Heavy** | **[RoboCasa](../entities/robocasa.md)**, Metaworld, Push-T, Wall, PointMaze | DROID + Franka |
 
 Read across the rows, the JEPA literature fragments across **four sim weight classes**: no sim, lightweight benches, mid-weight (LIBERO / SimplerEnv), heavy (RoboCasa). The "JEPA skips sim" framing collapsed all four into one. They are different design choices for different research questions.
 
@@ -79,15 +79,15 @@ The first draft hypothesized four reasons JEPA research avoids sim. With more so
 | (a) Observation-scale data thesis: internet video > sim | **Supported by primary text.** V-JEPA 2 says this directly. |
 | (b) Latent-space sim-to-real bypass | **Inferred, not stated.** Plausible reading of behavior. No JEPA paper argues this. |
 | (c) DROID replacing sim's data-multiplier role | **Implicit.** V-JEPA 2 emphasizes "62 hr" as a feature but never frames it as substituting for sim. |
-| (d) Real-robot zero-shot as test of truth | **Behavior-supported, not stated.** V-JEPA 2 + V-JEPA 2.1 both headline real-Franka. But [[jepa-wms-paper\|Terver et al.]] also evaluates on real Franka **and** RoboCasa, so sim and real are complementary in the same paper, not opposed. |
+| (d) Real-robot zero-shot as test of truth | **Behavior-supported, not stated.** V-JEPA 2 + V-JEPA 2.1 both headline real-Franka. But [Terver et al.](../sources/jepa-wms-paper.md) also evaluates on real Franka **and** RoboCasa, so sim and real are complementary in the same paper, not opposed. |
 
 Hypothesis (a) is the only one with direct primary-source backing. The others are reasonable readings of paper behavior but are author inference, not paper rationale.
 
 ## Two corrections to flag
 
-1. **The `stable-worldmodel` env zoo is broader than the [[leworldmodel-howto|LeWM howto]] exposed.** The canonical repo (`rbalestr-lab/stable-worldmodel`) ships DM Control Suite (12 envs), Atari (ALE 100+), Push-T, Two-Room, OGBench cube + scene, Craftax, **and Gymnasium-Robotics Fetch (reach/push/slide/pick-and-place) under `swm/FetchReach-v3` etc.** It does not yet integrate Isaac Lab / MuJoCo Playground / ManiSkill / RoboCasa / Habitat. So the LeWM infrastructure is "many lightweight benches plus Fetch," not strictly "four 2D/3D toys." The howto page understates this and should be updated when the env zoo is verified end-to-end.
+1. **The `stable-worldmodel` env zoo is broader than the [LeWM howto](leworldmodel-howto.md) exposed.** The canonical repo (`rbalestr-lab/stable-worldmodel`) ships DM Control Suite (12 envs), Atari (ALE 100+), Push-T, Two-Room, OGBench cube + scene, Craftax, **and Gymnasium-Robotics Fetch (reach/push/slide/pick-and-place) under `swm/FetchReach-v3` etc.** It does not yet integrate Isaac Lab / MuJoCo Playground / ManiSkill / RoboCasa / Habitat. So the LeWM infrastructure is "many lightweight benches plus Fetch," not strictly "four 2D/3D toys." The howto page understates this and should be updated when the env zoo is verified end-to-end.
 
-2. **DINO-WM and JEPA-WMs share a research lineage.** Basile Terver is on [[dino-world-paper|DINO-world]] (Jul 2025) and lead-authors [[jepa-wms-paper|JEPA-WMs]] (Dec 2025). DINO-world's "DINOv2 features → world model" approach evolves into JEPA-WMs' RoboCasa + DROID + Franka full-stack evaluation in five months. The DINO-world → JEPA-WMs path is one continuous research line at FAIR moving from generic-video to robot-specific.
+2. **DINO-WM and JEPA-WMs share a research lineage.** Basile Terver is on [DINO-world](../sources/dino-world-paper.md) (Jul 2025) and lead-authors [JEPA-WMs](../sources/jepa-wms-paper.md) (Dec 2025). DINO-world's "DINOv2 features → world model" approach evolves into JEPA-WMs' RoboCasa + DROID + Franka full-stack evaluation in five months. The DINO-world → JEPA-WMs path is one continuous research line at FAIR moving from generic-video to robot-specific.
 
 ## Updated implications for tool builders and researchers
 
@@ -112,21 +112,21 @@ Hypothesis (a) is the only one with direct primary-source backing. The others ar
 
 ## Sources used in this synthesis
 
-- [[v-jepa-2-paper|V-JEPA 2 Paper]]
-- [[v-jepa-2-1-paper|V-JEPA 2.1 Paper]]
-- [[leworldmodel-paper|LeWorldModel Paper]]
-- [[leworldmodel-howto|LeWorldModel — train and run howto]]
-- [[dino-wm-paper|DINO-WM Paper]]
-- [[dino-world-paper|DINO-world Paper]]
-- [[vla-jepa-paper|VLA-JEPA Paper]]
-- [[jepa-wms-paper|JEPA-WMs Paper]]
-- [[v-jepa-2|V-JEPA 2 entity]] / [[jepa-wms|JEPA-WMs entity]] / [[dino-wm|DINO-WM entity]] / [[dino-world|DINO-world entity]] / [[vla-jepa|VLA-JEPA entity]]
-- [[jepa|JEPA concept page]]
-- [[generative-video-vs-jepa-world-models|Generative-video vs JEPA world models]] — companion synthesis on the paradigm split.
-- [[sim-heavy-vs-real-data-paths|Sim-heavy vs real-data paths to generalist policies]] — companion synthesis showing where the rest of the field sits.
+- [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
+- [V-JEPA 2.1 Paper](../sources/v-jepa-2-1-paper.md)
+- [LeWorldModel Paper](../sources/leworldmodel-paper.md)
+- [LeWorldModel — train and run howto](leworldmodel-howto.md)
+- [DINO-WM Paper](../sources/dino-wm-paper.md)
+- [DINO-world Paper](../sources/dino-world-paper.md)
+- [VLA-JEPA Paper](../sources/vla-jepa-paper.md)
+- [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
+- [V-JEPA 2 entity](../entities/v-jepa-2.md) / [JEPA-WMs entity](../entities/jepa-wms.md) / [DINO-WM entity](../entities/dino-wm.md) / [DINO-world entity](../entities/dino-world.md) / [VLA-JEPA entity](../entities/vla-jepa.md)
+- [JEPA concept page](../concepts/jepa.md)
+- [Generative-video vs JEPA world models](generative-video-vs-jepa-world-models.md) — companion synthesis on the paradigm split.
+- [Sim-heavy vs real-data paths to generalist policies](sim-heavy-vs-real-data-paths.md) — companion synthesis showing where the rest of the field sits.
 
 ## Related
 
-- [[jepa|Joint-Embedding Predictive Architecture]] — the architecture family.
-- [[world-model-simulators|World-model simulators]] — broader paradigm context.
-- [[openusd-support-across-simulators|OpenUSD support across simulators]] — companion catalog.
+- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — the architecture family.
+- [World-model simulators](../concepts/world-model-simulators.md) — broader paradigm context.
+- [OpenUSD support across simulators](openusd-support-across-simulators.md) — companion catalog.
