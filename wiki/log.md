@@ -277,3 +277,18 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Recommended path: tabletop pushing in Gazebo first, retrain LeWM with 8-D action space, deploy with image-goal MPC.
 - Architectural precedent: [[robot-utility-models|RUM]]-on-[[stretch|Stretch]] is the closest "low-cost robot + learned-from-data policy" blueprint, even though it's BC not JEPA.
 - Updated [[index|index.md]]: filed under Syntheses.
+
+## [2026-05-08] ingest | Robot Utility Models full paper (arxiv 2409.05865)
+- Source: [[robot-utility-models-paper|Robot Utility Models Paper]] — full paper companion to the existing project-page source. PDF at `raw/robot_utility_models_2409.05865v1.pdf`.
+- Extracted via pypdf (per memory note on broken pdftotext).
+- New paper-body content vs project page:
+  - **Architecture**: VQ-BeT + Diffusion Policy as top performers; ACT + MLP-BC as baselines. ResNet34 vision encoder initialized from Dobb·E HPR; transformer policy trunk; 500 epochs on 2× A100.
+  - **Stick-v2 details**: iPhone Pro + $25 BOM, 60 Hz RGB+depth, 100 Hz 6D pose via ARKit, no SLAM, no calibration. Trained gripper-aperture predictor from RGB.
+  - **2,950 robot rollouts** across NYC / Jersey City / Pittsburgh.
+  - **Performance breakdown**: 74.4% from raw VQ-BeT policy + 15.6% from gpt-4o-2024-05-13 retry → 90% headline.
+  - **Cross-embodiment**: Stretch → xArm 7 with ~10pt drop (tissue 80%→70%, bag 84%→76%).
+  - **Three data-recipe lessons**: data > algorithm; diversity > quantity (25 demos × many envs > 200 × few); expert > non-expert (co-training can hurt).
+- Updated entities: [[robot-utility-models|Robot Utility Models]] (1→2 sources, expanded with new architecture + ablation detail), [[lerrel-pinto|Lerrel Pinto]] (2→3), [[franka-panda|Franka Panda]] (4→5), [[stretch|Stretch]] (3→4), [[hello-robot|Hello Robot]] (3→4).
+- Updated concept: [[imitation-learning|Imitation learning]] (2→3).
+- Index: filed under Sources chronological; all source-count bumps reflected.
+- The paper provides the empirical backing for the [[lewm-on-rosorin-pro-feasibility|LeWM-on-ROSOrin-Pro feasibility]] synthesis's "RUM-on-Stretch is the closest deployment-shape precedent" claim.

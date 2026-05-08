@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-07
 updated: 2026-05-07
-sources: 4
+sources: 5
 tags: [franka, panda, robot-arm, manipulator, 7-dof, manipulation-platform]
 ---
 
@@ -54,3 +54,4 @@ The result: when a JEPA-style or VLA-style paper says "real-robot eval" without 
 - [[v-jepa-2-1-paper|V-JEPA 2.1 Paper]]
 - [[jepa-wms-paper|JEPA-WMs Paper]]
 - [[robot-utility-models-website|Robot Utility Models Project Page]]
+- [[robot-utility-models-paper|Robot Utility Models Paper]]

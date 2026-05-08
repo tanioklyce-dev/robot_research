@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-07
 updated: 2026-05-07
-sources: 3
+sources: 4
 tags: [stretch, mobile-manipulation, hello-robot, research-robot]
 ---
 
@@ -30,3 +30,4 @@ Mobile-manipulation robot from [[hello-robot|Hello Robot]]. Currently in third g
 - [[hello-robot-stretch-docs|Hello Robot Stretch Documentation]]
 - [[stretch-ai-llm-agent-docs|Stretch AI LLM Agent Documentation]]
 - [[robot-utility-models-website|Robot Utility Models Project Page]]
+- [[robot-utility-models-paper|Robot Utility Models Paper]]

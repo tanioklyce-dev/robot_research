@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-07
 updated: 2026-05-07
-sources: 3
+sources: 4
 tags: [hello-robot, stretch, mobile-manipulation, research-platform]
 ---
 
@@ -28,3 +28,4 @@ Hello Robot fills a niche the NVIDIA-centric simulation stack doesn't: **afforda
 - [[hello-robot-stretch-docs|Hello Robot Stretch Documentation]]
 - [[stretch-ai-llm-agent-docs|Stretch AI LLM Agent Documentation]]
 - [[robot-utility-models-website|Robot Utility Models Project Page]]
+- [[robot-utility-models-paper|Robot Utility Models Paper]]

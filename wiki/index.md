@@ -2,6 +2,7 @@
 
 ## Sources (chronological)
 - [[robot-utility-models-website|Robot Utility Models Project Page]] — NYU/Meta zero-shot generalist policies for Stretch. (2024-09)
+- [[robot-utility-models-paper|Robot Utility Models Paper]] — full RUM paper (arxiv 2409.05865); architecture, ablations, cross-embodiment numbers. (2024-09)
 - [[maniskill-hab-paper|ManiSkill-HAB Paper]] — GPU-parallel low-level manipulation chains for HAB. (2024-12)
 - [[genesis-project-page|Genesis Project Page]] — generative + ultra-fast physics engine launch. (2024-12)
 - [[mujoco-playground-paper|MuJoCo Playground Paper]] — DeepMind's MJX-based robot-learning framework. (2025-02)
@@ -37,7 +38,7 @@
 - [[nvidia|NVIDIA]] — owns most of the agentic-robotics simulation substrate. (8 sources)
 - [[hiwonder|Hiwonder]] — Chinese educational-robotics vendor; ROSOrin / ROSOrin Pro kits + OpenClaw. (3 sources)
 - [[agibot|AGIBOT]] — Shanghai embodied-AI / humanoid company. Open-source-heavy. (3 sources)
-- [[hello-robot|Hello Robot]] — Stretch mobile manipulator + stretch_ai stack. (3 sources)
+- [[hello-robot|Hello Robot]] — Stretch mobile manipulator + stretch_ai stack. (4 sources)
 - [[meta-fair|Meta FAIR]] — Yann LeCun's lab; JEPA research line. (1 source)
 - [[google-deepmind|Google DeepMind]] — MuJoCo, Newton co-development, MjcPhysics USD plugin. (3 sources)
 - [[mila|Mila]] — Quebec AI Institute; frequent JEPA collaborator. (2 sources) _stub_
@@ -70,8 +71,8 @@
 - [[pettingzoo|PettingZoo]] — multi-agent RL env API. (2 sources)
 
 ### Robot platforms
-- [[franka-panda|Franka Panda]] — 7-DOF research-grade arm; default tabletop manipulator across DROID, V-JEPA 2, JEPA-WMs, RUM. (4 sources)
-- [[stretch|Stretch]] — Hello Robot's mobile manipulator (Stretch 3). De-facto research platform. (3 sources)
+- [[franka-panda|Franka Panda]] — 7-DOF research-grade arm; default tabletop manipulator across DROID, V-JEPA 2, JEPA-WMs, RUM. (5 sources)
+- [[stretch|Stretch]] — Hello Robot's mobile manipulator (Stretch 3). De-facto research platform. (4 sources)
 - [[rosorin|ROSOrin]] — Hiwonder's Jetson Orin Nano educational mobile robot kit. (2 sources)
 - [[rosorin-pro|ROSOrin Pro]] — Hiwonder's 6-DOF arm + base variant of ROSOrin. (2 sources)
 - [[rosorin-pro-arm|ROSOrin Pro 6-DOF arm]] — HX-12H-servo manipulator on the ROSOrin Pro kit. (2 sources)
@@ -102,7 +103,7 @@
 
 ### VLA models / generalist policies
 - [[nvidia-groot|NVIDIA GR00T]] — open VLA bundled with Isaac Lab. (3 sources)
-- [[robot-utility-models|Robot Utility Models]] — NYU/Meta zero-shot mobile-manipulation BC. (1 source)
+- [[robot-utility-models|Robot Utility Models]] — NYU/Meta zero-shot mobile-manipulation BC. (2 sources)
 
 ### LLMs
 - [[qwen|Qwen]] — Alibaba's open-weights LLM family. Default local LLM in both stretch_ai (3B) and ROSOrin (1.7B). (2 sources)
@@ -117,7 +118,7 @@
 - [[basile-terver|Basile Terver]] — researcher (FAIR-affiliated, inferred); bread-crumb across DINO-world → JEPA-WMs lineage. (2 sources)
 - [[sergey-levine|Sergey Levine]] — UC Berkeley EECS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)
 - [[chelsea-finn|Chelsea Finn]] — Stanford CS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)
-- [[lerrel-pinto|Lerrel Pinto]] — NYU CS; co-senior on DINO-WM + co-author on RUM. (2 sources)
+- [[lerrel-pinto|Lerrel Pinto]] — NYU CS; co-senior on DINO-WM + co-author on RUM. (3 sources)
 - [[yuke-zhu|Yuke Zhu]] — UT Austin / NVIDIA Research; senior on RoboCasa365. (1 source)
 - [[karl-pertsch|Karl Pertsch]] — DROID co-lead with Khazatsky; Berkeley/Stanford. (0 source pages yet — referenced via entity pages)
 
@@ -127,7 +128,7 @@
 - [[sim-to-real-transfer|Sim-to-real transfer]] — bridging simulator-trained policies to real robots. (4 sources)
 - [[world-model-simulators|World-model simulators]] — narrower companion to [[world-model|World model]]: world-models-used-as-simulators (generative-video and JEPA paradigms). (4 sources)
 - [[jepa|Joint-Embedding Predictive Architecture]] — predict next-state representations, not pixels. (7 sources)
-- [[imitation-learning|Imitation learning]] — supervised learning from demonstrations. (2 sources)
+- [[imitation-learning|Imitation learning]] — supervised learning from demonstrations. (3 sources)
 - [[llm-agent-architecture|LLM-agent architecture]] — LLM-emits-tool-calls control pattern. (3 sources)
 
 ## Syntheses

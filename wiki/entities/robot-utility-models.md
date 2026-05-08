@@ -3,8 +3,8 @@ title: Robot Utility Models
 type: entity
 subtype: method
 created: 2026-05-07
-updated: 2026-05-07
-sources: 1
+updated: 2026-05-08
+sources: 2
 tags: [rum, generalist-policy, zero-shot, nyu, meta, behavior-cloning]
 ---
 
@@ -12,17 +12,27 @@ tags: [rum, generalist-policy, zero-shot, nyu, meta, behavior-cloning]
 
 ## Approach
 - Behavior-cloning policies trained on RGB video + 6D gripper pose + gripper-opening angle.
-- Custom data-collection rig: **"Stick V2" gripper** with an **iPhone POV mount** to keep camera viewpoint identical across collectors and target robots.
-- One model per task (5 task-specific "utility models" in the paper).
+- Best-performing policy classes per [[robot-utility-models-paper|paper]]: **VQ-BeT** (Lee et al. 2024) and **Diffusion Policy** (Chi et al. 2023). ACT and MLP-BC tested as baselines.
+- Vision encoder: ResNet34 initialized from the **Dobb·E HPR encoder** (Shafiullah et al. 2023) + transformer policy trunk.
+- Custom data-collection rig: **"Stick-v2"** — iPhone Pro + $25 BOM, 60 Hz RGB+depth, 100 Hz 6D pose via ARKit. No SLAM, no calibration.
+- One model per task (5 task-specific "utility models").
 - Visuomotor BC; **no language conditioning** (distinguishes RUMs from [[vla-models|VLA models]]).
 
 ## Headline result
 - **~90% success in unseen, novel environments** with no fine-tuning, on five tasks: open cabinet door, open drawer, pick up napkin, pick up paper bag, reorient a fallen object.
-- **Cross-embodiment**: trained on [[stretch|Stretch]], transferred zero-shot to xArm 7.
+- **74.4% from raw policy + 15.6% from gpt-4o retry** = 90% headline ([[robot-utility-models-paper|paper]]).
+- **2,950 robot rollouts** total across NYC, Jersey City, Pittsburgh.
+- **Cross-embodiment**: trained on [[stretch|Stretch]], transferred zero-shot to xArm 7 with ~10pt drop (tissue 80%→70%, bag 84%→76%).
 
 ## Scale
-- 5 tasks × 180 environments × 5,509 trajectories (~1,000 demos per task across ~36 envs per task).
+- 5 tasks × ~40 environments × ~1,000 demos per task (~25 demos per env on average).
+- Door opening: 1,200 demos; drawer opening: 525 demos.
 - 473 MB open-source dataset.
+
+## Three data-recipe lessons (paper headline takeaways)
+1. **Data > algorithm.** VQ-BeT and Diffusion Policy land within ~5pt; ACT and MLP-BC ~10–15pt below. The training data matters more than the policy class.
+2. **Diversity > quantity.** 25 demos × many envs beats 200 demos × few envs (strongest effect on reorientation: 68% vs 18%).
+3. **Expert > non-expert.** Co-training expert + non-expert can sometimes *hurt*, contradicting mainstream practice.
 
 ## Why it matters
 Demonstrates that **generalization in mobile manipulation does not require explicit VLA / language conditioning** — visuomotor BC at modest scale generalizes to novel environments if data diversity is high. Adjacent to but conceptually distinct from [[vla-models|VLA models]].
@@ -35,3 +45,4 @@ Demonstrates that **generalization in mobile manipulation does not require expli
 
 ## Mentioned in
 - [[robot-utility-models-website|Robot Utility Models Project Page]]
+- [[robot-utility-models-paper|Robot Utility Models Paper]]

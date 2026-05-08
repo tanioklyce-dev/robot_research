@@ -3,7 +3,7 @@ title: Imitation learning
 type: concept
 created: 2026-05-07
 updated: 2026-05-07
-sources: 2
+sources: 3
 tags: [imitation-learning, behavior-cloning, demonstrations]
 ---
 
@@ -26,4 +26,5 @@ tags: [imitation-learning, behavior-cloning, demonstrations]
 
 ## Mentioned in
 - [[robot-utility-models-website|Robot Utility Models Project Page]]
+- [[robot-utility-models-paper|Robot Utility Models Paper]]
 - [[robocasa365-paper|RoboCasa365 Paper]]

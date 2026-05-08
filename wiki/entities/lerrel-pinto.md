@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-08
 updated: 2026-05-08
-sources: 2
+sources: 3
 tags: [person, nyu, robot-learning, manipulation, foundation-models, dino-wm, rum]
 ---
 
@@ -30,6 +30,7 @@ If a future ingest brings in a Pinto-led paper that bridges those two — e.g. a
 ## Mentioned in
 - [[dino-wm-paper|DINO-WM Paper]]
 - [[robot-utility-models-website|Robot Utility Models Project Page]]
+- [[robot-utility-models-paper|Robot Utility Models Paper]]
 
 ## Open questions / TBD
 - Full publication trajectory (manipulation + foundation-model line) — not directly cited.
