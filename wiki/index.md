@@ -1,5 +1,31 @@
 # Index
 
+## Highlights
+
+Curated entry points across the wiki.
+
+**General**
+- [[simulators-for-agentic-robotics-2026|Simulators for agentic robotics — 2026 landscape]] — landscape survey across six categories.
+- [[log|Log]] — chronological record of ingests, queries, and lint passes.
+
+**FRC (FIRST Robotics Competition)**
+- [[frc-2026-game-manual|FRC 2026 Game Manual — REBUILT]] — deep ingest of the 166-page 2026 REBUILT game manual.
+- [[first-robotics-competition|FIRST Robotics Competition]] — competition overview, robot constraints, technical infrastructure.
+- [[frc-kitbot|FRC KitBot]] — the beginner-friendly KitBot platform.
+- [[frc-simulation-and-ai-landscape|FRC simulation & AI landscape]] — what simulation & AI tools FRC teams use (trajectory planners, physics sims, ML frontier).
+
+**JEPA / LeWorldModel**
+- [[jepa|Joint-Embedding Predictive Architecture]] — JEPA concept page.
+- [[latent-space|Learned latent space]] — the substrate JEPAs predict in.
+- [[leworldmodel-paper|LeWorldModel Paper]] — LeWM paper ingest.
+- [[leworldmodel-howto|LeWorldModel — train and run howto]] — how to install, train, and evaluate LeWM on a single GPU.
+- [[lewm-hello-world-project-scope|LeWM hello world — Project 1 detailed scope]] — reproduce LeWM PushT from scratch.
+- [[jepa-task-capabilities|JEPA task capabilities]] — what JEPA models can do, mapped per-paper.
+
+**ROSOrin Pro JEPA project ladder**
+- [[jepa-project-ladder-rosorin-pro|JEPA project ladder for ROSOrin Pro]] — six-rung educational/research project ladder for learning JEPA on ROSOrin Pro hardware.
+- [[lewm-on-rosorin-pro-feasibility|LeWM on ROSOrin Pro — feasibility analysis]] — feasibility analysis for deploying LeWM on ROSOrin Pro.
+
 ## Sources (chronological)
 - [[robot-utility-models-website|Robot Utility Models Project Page]] — NYU/Meta zero-shot generalist policies for Stretch. (2024-09)
 - [[robot-utility-models-paper|Robot Utility Models Paper]] — full RUM paper (arxiv 2409.05865); architecture, ablations, cross-embodiment numbers. (2024-09)
@@ -163,6 +189,7 @@
 - [[imitation-learning|Imitation learning]] — supervised learning from demonstrations. (3 sources)
 - [[llm-agent-architecture|LLM-agent architecture]] — LLM-emits-tool-calls control pattern. (3 sources)
 - [[apriltags|AprilTags]] — visual fiducial markers for 6-DOF pose estimation; standard in FRC and research robotics. (1 source)
+- [[latent-space|Learned latent space]] — vector space where a trained encoder represents inputs; substrate for JEPA prediction, DINOv2 features, VQ-BeT codebook. (7 sources)
 
 ## Syntheses
 - [[simulators-for-agentic-robotics-2026|Simulators for agentic robotics — 2026 landscape]] — full landscape survey, 6 categories. (updated 2026-05-07)

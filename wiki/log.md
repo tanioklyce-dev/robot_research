@@ -385,3 +385,8 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - New entity: [[team-254|Team 254: The Cheesy Poofs]] — history, 2026 season, AI contributions, key people.
 - Updated [[frc-simulation-and-ai-landscape|FRC simulation & AI landscape]] synthesis with wpilib-agent-tools details, FIRST Agentic CSA, and expanded Team 254 presentation coverage.
 - Updated index.md.
+
+## [2026-05-08] query | "what is a learned latent space?"
+- Answered conceptually + grounded in wiki entities (DINOv2, JEPA, LeWM, VQ-BeT).
+- Filed as new concept page [[latent-space|Learned latent space]] — pulls together the latent-space thread that runs across 7 sources but had no dedicated page.
+- Updated index.md.
