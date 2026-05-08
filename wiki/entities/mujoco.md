@@ -4,7 +4,7 @@ type: entity
 subtype: physics-engine
 created: 2026-05-07
 updated: 2026-05-07
-sources: 6
+sources: 7
 tags: [mujoco, physics-engine, deepmind, simulation]
 ---
 
@@ -43,3 +43,4 @@ tags: [mujoco, physics-engine, deepmind, simulation]
 - [[hello-robot-stretch-docs|Hello Robot Stretch Documentation]]
 - [[genesis-project-page|Genesis Project Page]]
 - [[leworldmodel-howto|LeWorldModel — train and run howto]] (legacy `mujoco-py` install hazard)
+- [[dino-wm-paper|DINO-WM Paper]] — likely MuJoCo 2.1 backend per secondary research; project page silent on engine.

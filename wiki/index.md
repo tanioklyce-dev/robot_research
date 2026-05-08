@@ -25,6 +25,11 @@
 - [[source-robotics-urdf-mjcf-usd-comparison|URDF vs MJCF vs USD comparison]] — practitioner survey. (2026-03-13)
 - [[farama-projects-page|Farama Foundation Projects Page]] — index of 19 RL env / API standards (Gymnasium, PettingZoo, Minari, …). (2026)
 - [[gymnasium-robotics-docs|Gymnasium-Robotics Documentation]] — six MuJoCo env families (Fetch, Shadow Hand, Maze, Adroit, Franka Kitchen, MaMuJoCo). (2026)
+- [[dino-wm-paper|DINO-WM Paper]] — DINOv2-feature world model + zero-shot planning; lightweight MuJoCo benches. (2024-11)
+- [[dino-world-paper|DINO-world Paper]] — FAIR DINOv2-latent video world model ("Back to the Features"). (2025-07)
+- [[jepa-wms-paper|JEPA-WMs Paper]] — Terver et al., FAIR; first JEPA paper to use RoboCasa + Metaworld + DROID + real Franka. (2025-12)
+- [[vla-jepa-paper|VLA-JEPA Paper]] — JEPA-as-auxiliary inside a VLA; LIBERO + SimplerEnv + real. (2026-02)
+- [[v-jepa-2-1-paper|V-JEPA 2.1 Paper]] — direct successor to V-JEPA 2; "dense features" + +20pt real-Franka grasping. (2026-03)
 
 ## Entities
 
@@ -73,8 +78,12 @@
 ### World models
 - [[nvidia-cosmos|NVIDIA Cosmos]] — world foundation model + simulation engine (generative video). (5 sources)
 - [[genie-envisioner|Genie Envisioner]] — AGIBOT's world simulator GE-Sim2 (generative video). (4 sources)
-- [[v-jepa-2|V-JEPA 2]] — Meta FAIR's JEPA world model (latent prediction); zero-shot Franka. (1 source)
+- [[v-jepa-2|V-JEPA 2]] — Meta FAIR's JEPA world model (latent prediction); zero-shot Franka. (2 sources)
 - [[leworldmodel|LeWorldModel]] — first stable end-to-end JEPA from raw pixels. (1 source)
+- [[jepa-wms|JEPA-WMs]] — FAIR (Terver et al.); first JEPA-for-robotics paper using RoboCasa. (1 source)
+- [[dino-wm|DINO-WM]] — NYU + FAIR; frozen DINOv2 features + learned predictor; zero-shot planning. (1 source)
+- [[dino-world|DINO-world]] — FAIR DINOv2 video world model ("Back to the Features"). (1 source)
+- [[vla-jepa|VLA-JEPA]] — JEPA-as-auxiliary inside a VLA policy. (1 source)
 
 ### VLA models / generalist policies
 - [[nvidia-groot|NVIDIA GR00T]] — open VLA bundled with Isaac Lab. (3 sources) _stub_
@@ -91,7 +100,7 @@
 - [[vla-models|VLA models]] — vision-language-action robot foundation models. (6 sources)
 - [[sim-to-real-transfer|Sim-to-real transfer]] — bridging simulator-trained policies to real robots. (4 sources)
 - [[world-model-simulators|World-model simulators]] — two paradigms: generative-video and JEPA latent-prediction. (4 sources)
-- [[jepa|Joint-Embedding Predictive Architecture]] — predict next-state representations, not pixels. (2 sources)
+- [[jepa|Joint-Embedding Predictive Architecture]] — predict next-state representations, not pixels. (7 sources)
 - [[imitation-learning|Imitation learning]] — supervised learning from demonstrations. (2 sources)
 - [[llm-agent-architecture|LLM-agent architecture]] — LLM-emits-tool-calls control pattern. (3 sources)
 
@@ -103,7 +112,16 @@
 - [[sim-heavy-vs-real-data-paths|Sim-heavy vs real-data paths to generalist policies]] — three-path comparison: synthetic teleop, real demos, observation pretraining. (2026-05-07)
 - [[leworldmodel-howto|LeWorldModel — train and run howto]] — install, train, and evaluate LeWM on a single GPU. (2026-05-07)
 - [[openusd-support-across-simulators|OpenUSD support across simulators]] — catalog of which simulators consume USD, how, and which are exceptions. (2026-05-07)
-- [[why-jepa-research-skips-the-simulator-stack|Why JEPA research skips the simulator stack]] — V-JEPA 2 and LeWM avoid heavy sim; pattern + plausible reasons. (2026-05-07)
+- [[why-jepa-research-skips-the-simulator-stack|Why JEPA research skips the simulator stack]] — JEPA literature fragments across sim weight classes (none / light / mid / heavy). Major revision after 5 new ingests. (updated 2026-05-07)
+
+### JEPA-related concepts/entities/sources to potentially expand
+- Metaworld — referenced by [[jepa-wms-paper|JEPA-WMs]] (42 tasks); deserves an entity page.
+- LIBERO / LIBERO-Plus — referenced by [[vla-jepa-paper|VLA-JEPA]]; benchmark concept/source pages.
+- SimplerEnv — referenced by [[vla-jepa-paper|VLA-JEPA]]; mid-weight Sapien-adjacent simulator.
+- DROID dataset — referenced by [[v-jepa-2-paper|V-JEPA 2]] and [[jepa-wms-paper|JEPA-WMs]]; referenced as "ingest TBD" in earlier known-gaps; now a confirmed cross-paper standard.
+- `stable-worldmodel` package — env zoo broader than [[leworldmodel-howto|LeWM howto]] exposed; verify and update.
+- PLDM — comparison baseline for LeWM; needs primary-source ingest.
+- DreamerV3, TD-MPC — also referenced as JEPA baselines.
 
 ## Known gaps / TBD
 - ABB / FANUC / KUKA / Yaskawa industrial-OEM Isaac-Sim adoption (referenced from a GTC 2026 search snippet; needs a primary-source ingest to file properly)

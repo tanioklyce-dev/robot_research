@@ -184,3 +184,24 @@ Append-only chronological record of wiki events. Each entry begins with `## [YYY
 - Four plausible reasons: (1) JEPA's data thesis is observation-scale, internet video beats sim; (2) latent-space prediction sidesteps pixel-level sim-to-real gap; (3) Droid removes sim's data-multiplier role; (4) test-of-truth is real-robot zero-shot.
 - Caveats explicit: sample size of two; `stable-worldmodel` env zoo may extend further than ingested; future JEPA work may converge back into sim once it scales up.
 - Updated [[index|index.md]]: filed under Syntheses.
+
+## [2026-05-07] ingest | Five JEPA / JEPA-adjacent papers (probe of original synthesis)
+- Triggered by: user query "find more information about JEPA and LeWorldModel and probe whether these methods use simulations." Research agent surfaced one paper that contradicts the original [[why-jepa-research-skips-the-simulator-stack|"JEPA skips sim" synthesis]] and four more that broaden the picture.
+- New sources:
+  - [[jepa-wms-paper|JEPA-WMs Paper]] (Terver, Yang, Ponce, Bardes, LeCun — FAIR, Dec 2025) — **first JEPA-for-robotics paper this wiki has ingested using heavy sim**: RoboCasa kitchen manipulation + 42 Metaworld tasks + Push-T + PointMaze + DROID + real Franka.
+  - [[v-jepa-2-1-paper|V-JEPA 2.1 Paper]] (Mur-Labadia et al. — FAIR + Mila, Mar 2026) — "dense features"; +20pt real-Franka grasping per secondary research; sustains the no-sim line.
+  - [[dino-wm-paper|DINO-WM Paper]] (Zhou, Pan, LeCun, Pinto — NYU + FAIR, Nov 2024) — DINOv2 patch features + zero-shot planning on PushT/Wall/PointMaze/Rope/Granular/Reacher.
+  - [[vla-jepa-paper|VLA-JEPA Paper]] (Sun et al., Feb 2026) — JEPA-as-auxiliary inside VLA on LIBERO + SimplerEnv + real.
+  - [[dino-world-paper|DINO-world Paper]] ("Back to the Features", Baldassarre et al. — FAIR, Jul 2025) — DINOv2 video world model; Basile Terver bridge author to JEPA-WMs.
+- New entities: [[jepa-wms|JEPA-WMs]], [[dino-wm|DINO-WM]], [[vla-jepa|VLA-JEPA]], [[dino-world|DINO-world]].
+- Updated entities: [[meta-fair|Meta FAIR]] sources 1→5, expanded JEPA-program description to include both encoder-co-trained (V-JEPA family) and frozen-DINOv2 (DINO-WM/DINO-world/JEPA-WMs) lines; [[v-jepa-2|V-JEPA 2]] sources 1→2 + V-JEPA 2.1 successor note; [[robocasa|RoboCasa]] sources 1→2 with JEPA-WMs cross-reference; [[mujoco|MuJoCo]] sources 6→7 (DINO-WM uses it).
+- Updated concept: [[jepa|JEPA]] sources 2→7; added all 5 new instances; added "Simulator stance — fragmenting, not avoiding" section; cross-referenced revised synthesis.
+- Index updated: 5 new sources under chronological list, 4 new world-model entities, JEPA concept source-count bump, JEPA-related expansion gaps section added.
+
+## [2026-05-07] synthesis | Major revision — Why JEPA research skips the simulator stack
+- Rewrote [[why-jepa-research-skips-the-simulator-stack|the synthesis]] in response to JEPA-WMs ingest (which directly contradicts the original claim).
+- New framing: JEPA literature **fragments across four sim weight classes** (none / lightweight / mid-weight / heavy), not "skips sim wholesale." Original V-JEPA 2 + LeWM observation is correct for those papers but does not generalize.
+- Each sim weight class explained by paper-specific question (representation learning vs. training-method vs. VLA-eval vs. physical-planning benchmark).
+- The four "why" hypotheses from the original draft re-labeled: only (a) "internet-scale video > sim" has direct primary-source backing; (b)/(c)/(d) are wiki-author inference, not paper rationale.
+- Two corrections folded in: `stable-worldmodel` env zoo includes DM Control + Gymnasium-Robotics Fetch (broader than the LeWM howto exposed); DINO-world → JEPA-WMs share research lineage via Basile Terver bread-crumb.
+- New "watch item": first JEPA paper to explicitly train inside Isaac Lab or MuJoCo Playground (RoboCasa happened in Dec 2025; those two haven't yet).
