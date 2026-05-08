@@ -163,6 +163,7 @@
 - [[why-jepa-research-skips-the-simulator-stack|Why JEPA research skips the simulator stack]] — JEPA literature fragments across sim weight classes (none / light / mid / heavy). Major revision after 5 new ingests. (updated 2026-05-07)
 - [[jepa-task-capabilities|JEPA task capabilities]] — reference index of seven task categories JEPA models demonstrate, mapped per-paper. (2026-05-08)
 - [[lewm-on-rosorin-pro-feasibility|LeWM on ROSOrin Pro — feasibility analysis]] — what's missing to deploy LeWM on Hiwonder ROSOrin Pro; realistic path; risks. (2026-05-08)
+- [[lewm-on-stretch-feasibility|LeWM on Stretch — feasibility analysis]] — companion: Stretch resolves the teleop-data blocker via RUM's open dataset; concrete LeWM-vs-RUM-BC experiment design. (2026-05-08)
 - [[robot-platforms-comparison|Robot platforms — comparison]] — at-a-glance table of every robot entity in the wiki by tier / type / use; flags missing humanoids + cross-tier transfer gap. (2026-05-08)
 - [[humanoid-platforms-survey|Humanoid platforms survey]] — companion to robot-platforms-comparison focused on humanoids; 10 entities listed by tier; AI-strategy archetypes + price stratification. (2026-05-08)
 - [[household-robot-decision-stretch-vs-g1|Household robot decision — Stretch vs Unitree G1]] — buying-decision comparison for navigate + floor pickup + dishes + cans use case. Recommends Stretch. (2026-05-08)

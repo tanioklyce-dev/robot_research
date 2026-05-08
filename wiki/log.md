@@ -326,3 +326,11 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - G1 framed as wrong tool *for this use case* — right tool for bipedal-humanoid research, not household chores.
 - Cost: ~$25k Stretch 3 vs ~$30–45k for fully-equipped G1; the headline ~$16k G1 number is misleading once you spec up to match manipulation capability.
 - Updated [[index|index.md]]: filed under Syntheses.
+
+## [2026-05-08] synthesis | LeWM on Stretch — feasibility analysis
+- Filed [[lewm-on-stretch-feasibility|LeWM on Stretch — feasibility analysis]] as companion to [[lewm-on-rosorin-pro-feasibility|LeWM on ROSOrin Pro]].
+- Stretch resolves blocker #2 (no teleop pipeline) via RUM's open 5,500-trajectory dataset — the single biggest practical advantage.
+- Concrete experiment proposed: train LeWM on RUM's open dataset, plan with image goals, compare directly to RUM's 90% BC baseline. Both projects open-source; data formats compatible (one-time HDF5 reformatting); same hardware. **Not possible on ROSOrin Pro at all.**
+- Other blockers (action-space retraining, LeWM unvalidated on real robots, no Stretch swm wrapper, single-arm payload limits) carry over.
+- Realistic expectation framed: LeWM-vs-BC parity, not "JEPA wins" — VQ-BeT won RUM's policy shootout fairly. Interesting LeWM-on-Stretch results would be *efficiency win* / *interpretable latent structure* / *48× planning speedup* extensions.
+- Updated [[index|index.md]]: filed under Syntheses.
