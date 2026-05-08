@@ -304,3 +304,9 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Updated [[robot-utility-models-paper|RUM paper source]] to wikilink the 5 new entities under "Entities mentioned." Updated [[pusht|PushT]] to wikilink Diffusion Policy. Updated [[lerrel-pinto|Lerrel Pinto]] to add Dobb·E + Shafiullah-as-advisee.
 - Index: new "Behavior-cloning methods" subsection added under Entities. xArm 7 added under Robot platforms. Dobb·E added under VLA models / generalist policies (alongside RUM). Shafiullah added under People.
 - Known gaps cleaned: xArm 7 removed; Mahi Shafiullah removed from People-low-priority list. New gaps surfaced: Cheng Chi, Seungjae Lee, plus standalone source pages for Dobb·E / VQ-BeT / Diffusion Policy / IBC.
+
+## [2026-05-08] entity + synthesis | TurtleBot + robot-platforms comparison
+- Created [[turtlebot|TurtleBot]] entity (stub). Four generations (2010 Willow Garage, 2012 Yujin, 2017 Robotis, 2022 Clearpath/iRobot). The educational-tier reference point that [[rosorin|ROSOrin]] / [[rosorin-pro|ROSOrin Pro]] succeed in modern form.
+- Created [[robot-platforms-comparison|Robot platforms — comparison]] synthesis. At-a-glance table for the 6 robot entities currently filed (Franka Panda, xArm 7, Stretch, ROSOrin Pro, ROSOrin, TurtleBot) sorted by tier (research / educational) and type (tabletop / mobile-manipulator / mobile-no-arm). Cross-tier observations on data availability, software-stack maturity, and the educational-tier convergence on "Jetson + LLM agent + ROS 2."
+- Flagged missing platforms in the wiki: humanoids (Atlas, Optimus, Unitree, AGIBOT humanoid line), iRobot Create 3, ALOHA/ViperX bimanual, UR5/UR10, xArm 6.
+- Index updated: TurtleBot added under Robot platforms; robot-platforms-comparison filed under Syntheses; TurtleBot removed from Known gaps.

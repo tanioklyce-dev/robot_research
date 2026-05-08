@@ -73,6 +73,7 @@
 ### Robot platforms
 - [[franka-panda|Franka Panda]] — 7-DOF research-grade arm; default tabletop manipulator across DROID, V-JEPA 2, JEPA-WMs, RUM. (5 sources)
 - [[xarm-7|xArm 7]] — UFactory commercial 7-DOF arm; secondary tabletop manipulator; RUM cross-embodiment transfer target (~10pt drop vs Stretch). (1 source) _stub_
+- [[turtlebot|TurtleBot]] — canonical educational ROS mobile robot (4 generations, 2010–present); reference point for [[rosorin|ROSOrin]] educational comparison. (0 sources) _stub_
 - [[stretch|Stretch]] — Hello Robot's mobile manipulator (Stretch 3). De-facto research platform. (4 sources)
 - [[rosorin|ROSOrin]] — Hiwonder's Jetson Orin Nano educational mobile robot kit. (2 sources)
 - [[rosorin-pro|ROSOrin Pro]] — Hiwonder's 6-DOF arm + base variant of ROSOrin. (2 sources)
@@ -149,6 +150,7 @@
 - [[why-jepa-research-skips-the-simulator-stack|Why JEPA research skips the simulator stack]] — JEPA literature fragments across sim weight classes (none / light / mid / heavy). Major revision after 5 new ingests. (updated 2026-05-07)
 - [[jepa-task-capabilities|JEPA task capabilities]] — reference index of seven task categories JEPA models demonstrate, mapped per-paper. (2026-05-08)
 - [[lewm-on-rosorin-pro-feasibility|LeWM on ROSOrin Pro — feasibility analysis]] — what's missing to deploy LeWM on Hiwonder ROSOrin Pro; realistic path; risks. (2026-05-08)
+- [[robot-platforms-comparison|Robot platforms — comparison]] — at-a-glance table of every robot entity in the wiki by tier / type / use; flags missing humanoids + cross-tier transfer gap. (2026-05-08)
 
 ### JEPA-related concepts/entities/sources to potentially expand
 - Metaworld — referenced by [[jepa-wms-paper|JEPA-WMs]] (42 tasks); deserves an entity page.
@@ -175,7 +177,6 @@
 - Stretch Mujoco — Hello Robot's MuJoCo wrapper; thin or substantive?
 - Dreamer/DreamerV3, TD-MPC, PLDM — world-model baselines referenced in LeWorldModel paper ([[dino-wm|DINO-WM]] now filed)
 - DROID paper itself (arxiv 2403.12945), Metaworld paper (arxiv 1910.10897), DINOv2 paper (arxiv 2304.07193), Dobb·E paper (arxiv 2306.16650), VQ-BeT paper (Lee et al. 2024), Diffusion Policy paper (arxiv 2303.04137), IBC paper (Florence et al. 2021, PushT origin) — entity pages exist but the papers themselves are not yet source pages; would let us cite design rationale directly
-- TurtleBot — canonical educational ROS robot, useful comparison for ROSOrin
 - StepFun — Chinese multimodal AI provider used by ROSOrin's Chinese-language fallback
 - sherpa-onnx — offline ASR + TTS toolkit used by ROSOrin
 - WonderEcho Pro — Hiwonder voice module accessory
