@@ -140,6 +140,7 @@
 - [[openusd-support-across-simulators|OpenUSD support across simulators]] — catalog of which simulators consume USD, how, and which are exceptions. (2026-05-07)
 - [[why-jepa-research-skips-the-simulator-stack|Why JEPA research skips the simulator stack]] — JEPA literature fragments across sim weight classes (none / light / mid / heavy). Major revision after 5 new ingests. (updated 2026-05-07)
 - [[jepa-task-capabilities|JEPA task capabilities]] — reference index of seven task categories JEPA models demonstrate, mapped per-paper. (2026-05-08)
+- [[lewm-on-rosorin-pro-feasibility|LeWM on ROSOrin Pro — feasibility analysis]] — what's missing to deploy LeWM on Hiwonder ROSOrin Pro; realistic path; risks. (2026-05-08)
 
 ### JEPA-related concepts/entities/sources to potentially expand
 - Metaworld — referenced by [[jepa-wms-paper|JEPA-WMs]] (42 tasks); deserves an entity page.

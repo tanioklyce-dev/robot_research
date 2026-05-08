@@ -269,3 +269,11 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Reference index, not analytical synthesis: maps 7 JEPA / JEPA-adjacent papers (V-JEPA 2, V-JEPA 2.1, LeWM, DINO-WM, DINO-world, VLA-JEPA, JEPA-WMs) to 7 task categories: real-robot manipulation, navigation, planning-as-cost-function, video understanding, dense vision, video prediction, probing/interpretability.
 - Includes a per-task per-model matrix, structural notes (cost-function-not-policy framing, no pixel generation, sim weight class independence), and a "what JEPA doesn't yet do" gap list.
 - Updated [[index|index.md]]: filed under Syntheses.
+
+## [2026-05-08] synthesis | LeWM on ROSOrin Pro — feasibility analysis
+- Filed [[lewm-on-rosorin-pro-feasibility|LeWM on ROSOrin Pro — feasibility analysis]] in response to user query "can LeWM be adapted to ROSOrin Pro?"
+- Combines [[leworldmodel|LeWM]] entity + [[leworldmodel-howto|howto]] + [[stable-worldmodel|stable-worldmodel]] with [[rosorin-pro|ROSOrin Pro]] hardware + [[openclaw|OpenClaw]] orchestration into a deployment-feasibility analysis.
+- Verdict: feasible but research-grade. Five blockers documented (action-space mismatch, no teleop pipeline, LeWM not yet validated on real robots, no Gazebo wrapper for stable-worldmodel, partial sensor integration). Five enabling factors documented (compute footprint, planner latency, no reward shaping, OpenClaw-as-orchestrator architectural fit, cheap-training iteration).
+- Recommended path: tabletop pushing in Gazebo first, retrain LeWM with 8-D action space, deploy with image-goal MPC.
+- Architectural precedent: [[robot-utility-models|RUM]]-on-[[stretch|Stretch]] is the closest "low-cost robot + learned-from-data policy" blueprint, even though it's BC not JEPA.
+- Updated [[index|index.md]]: filed under Syntheses.
