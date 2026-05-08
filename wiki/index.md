@@ -167,6 +167,8 @@
 - [[robot-platforms-comparison|Robot platforms — comparison]] — at-a-glance table of every robot entity in the wiki by tier / type / use; flags missing humanoids + cross-tier transfer gap. (2026-05-08)
 - [[humanoid-platforms-survey|Humanoid platforms survey]] — companion to robot-platforms-comparison focused on humanoids; 10 entities listed by tier; AI-strategy archetypes + price stratification. (2026-05-08)
 - [[household-robot-decision-stretch-vs-g1|Household robot decision — Stretch vs Unitree G1]] — buying-decision comparison for navigate + floor pickup + dishes + cans use case. Recommends Stretch. (2026-05-08)
+- [[jepa-project-ladder-rosorin-pro|JEPA project ladder for ROSOrin Pro]] — six-rung educational/research project ladder for learning JEPA on ROSOrin Pro hardware. (2026-05-08)
+- [[lewm-hello-world-project-scope|LeWM hello world — Project 1 detailed scope]] — phase-by-phase plan for reproducing LeWM PushT, training from scratch, one-knob ablation. (2026-05-08)
 
 ### JEPA-related concepts/entities/sources to potentially expand
 - Metaworld — referenced by [[jepa-wms-paper|JEPA-WMs]] (42 tasks); deserves an entity page.

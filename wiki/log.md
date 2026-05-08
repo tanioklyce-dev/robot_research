@@ -334,3 +334,19 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Other blockers (action-space retraining, LeWM unvalidated on real robots, no Stretch swm wrapper, single-arm payload limits) carry over.
 - Realistic expectation framed: LeWM-vs-BC parity, not "JEPA wins" — VQ-BeT won RUM's policy shootout fairly. Interesting LeWM-on-Stretch results would be *efficiency win* / *interpretable latent structure* / *48× planning speedup* extensions.
 - Updated [[index|index.md]]: filed under Syntheses.
+
+## [2026-05-08] synthesis | JEPA project ladder for ROSOrin Pro
+- User query: categorize what JEPA/LeWM is good at and recommend educational/amateur research projects for ROSOrin Pro.
+- Filed [[jepa-project-ladder-rosorin-pro|JEPA project ladder for ROSOrin Pro]] — companion to [[lewm-on-rosorin-pro-feasibility|feasibility analysis]] and [[jepa-task-capabilities|JEPA task capabilities]].
+- Five-tier ladder (A–E), six concrete projects ordered by ascending difficulty: (1) LeWM hello world, (2) latent probing study, (3) surprise detector on ROSOrin camera, (4) ROSOrin-Pro PushT in Gazebo, (5) plan-and-execute on real arm, (6a/b/c) OpenClaw integration / multi-task / real teleop dataset.
+- Each project tagged with outcome, effort estimate, risk level. Rolls up the feasibility doc's "research-grade not plug-and-play" framing into concrete next steps.
+- "How to pick" decision matrix at the end: learn-deeply path (1→2→3), real-research path (4→5), reliable-automation path (don't start with JEPA — do BC first).
+- Updated [[index|index.md]]: filed under Syntheses.
+
+## [2026-05-08] synthesis | LeWM hello world — Project 1 scope
+- User picked Project 1 from the [[jepa-project-ladder-rosorin-pro|project ladder]] for detailed scoping.
+- Filed [[lewm-hello-world-project-scope|LeWM hello world — Project 1 detailed scope]] with four phases: (1) reproduce pretrained PushT eval, (2) train from scratch + compare, (3) one-knob ablation (recommended: planning horizon), (4) writeup.
+- Confirmed install state on disk: repo at `~/projects_tanio/lewm/le-wm/`, HF checkpoint at `~/.stable-wm/hf_pusht/`, converted ckpt at `~/.stable-wm/pusht/lewm_object.ckpt` — Project 1's plumbing is done; remaining work is running and analysis.
+- Four success-criteria questions framed: paper success-rate match, from-scratch reproduction, two-loss behavior (MSE + SIGReg, anti-collapse canary), one-knob sensitivity.
+- Total ~2.5 days estimated. Connects forward to Project 2 (probes the from-scratch checkpoint) and Project 4 (reuses training pipeline with new dataset + action space).
+- Updated [[index|index.md]]: filed under Syntheses.
