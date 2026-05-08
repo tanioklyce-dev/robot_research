@@ -143,3 +143,9 @@ Append-only chronological record of wiki events. Each entry begins with `## [YYY
 - **Removed a stray `Mentioned in` entry**: I had added `openusd-rigid-body-physics-proposal` under [[newton-physics-engine|Newton]]'s "Mentioned in" but that source page does not list Newton in its "Entities mentioned" — only OpenUSD and NVIDIA. Removed.
 - **Added missing `Mentioned in` entries**: appended the four new sources to the relevant entity pages (NVIDIA, Isaac Sim, Cosmos, Disney Research, Newton, DeepMind) per the convention.
 - DeepMind's `_stub_` marker dropped from index since the entity page now has 3 sources and substantive content (MjcPhysics + Newton + MuJoCo).
+
+## [2026-05-07] synthesis | LeWorldModel — train and run howto
+- Filed [[leworldmodel-howto|LeWorldModel — train and run howto]] from `lucas-maes/le-wm` README + project page.
+- Updated [[leworldmodel-paper|LeWorldModel Paper]]: added `code` and `project_page` frontmatter; resolved the "code/website URLs missing" open question; added a Code & artifacts section.
+- Updated [[leworldmodel|LeWorldModel]]: added Code section + howto link; bumped sources 1 → 2.
+- Updated [[index|index.md]]: filed howto under Syntheses.

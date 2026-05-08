@@ -92,6 +92,7 @@
 - [[generative-video-vs-jepa-world-models|Generative-video vs JEPA world models]] — what each predicts, costs, and demonstrates. (2026-05-07)
 - [[newton-openusd-substrate-convergence|Newton + OpenUSD — the substrate convergence]] — vendor-neutral physics + scene format across Isaac Lab and MuJoCo Playground. (2026-05-07)
 - [[sim-heavy-vs-real-data-paths|Sim-heavy vs real-data paths to generalist policies]] — three-path comparison: synthetic teleop, real demos, observation pretraining. (2026-05-07)
+- [[leworldmodel-howto|LeWorldModel — train and run howto]] — install, train, and evaluate LeWM on a single GPU. (2026-05-07)
 
 ## Known gaps / TBD
 - ABB / FANUC / KUKA / Yaskawa industrial-OEM Isaac-Sim adoption (referenced from a GTC 2026 search snippet; needs a primary-source ingest to file properly)

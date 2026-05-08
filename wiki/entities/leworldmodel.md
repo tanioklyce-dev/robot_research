@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-07
 updated: 2026-05-07
-sources: 1
+sources: 2
 tags: [leworldmodel, lewm, jepa, world-model, mila, end-to-end, sigreg]
 ---
 
@@ -35,5 +35,11 @@ LeWorldModel (LeWM) — a JEPA-style world model from [[mila|Mila]], NYU, Samsun
 - [[v-jepa-2|V-JEPA 2]] — sibling JEPA model from a different group.
 - [[world-model-simulators|World-model simulators]] — broader paradigm.
 
+## Code
+- Official repo: https://github.com/lucas-maes/le-wm (built on `stable-worldmodel` + `stable-pretraining`)
+- Pretrained HF checkpoints: `quentinll/lewm-{pusht,cube,tworooms,reacher}`
+- See [[leworldmodel-howto|LeWorldModel — train and run howto]] for the practical recipe.
+
 ## Mentioned in
 - [[leworldmodel-paper|LeWorldModel Paper]]
+- [[leworldmodel-howto|LeWorldModel — train and run howto]]

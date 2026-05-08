@@ -7,6 +7,8 @@ author: Lucas Maes, Quentin Le Lidec, Damien Scieur, Yann LeCun, Randall Balestr
 affiliations: Mila / Université de Montréal, NYU, Samsung SAIL, Brown
 published: 2026-03-24
 ingested: 2026-05-07
+code: https://github.com/lucas-maes/le-wm
+project_page: https://le-wm.github.io/
 tags: [leworldmodel, lewm, jepa, world-model, end-to-end, sigreg, mila]
 ---
 
@@ -36,4 +38,9 @@ Preprint introducing **LeWorldModel (LeWM)** — claimed as the **first JEPA tra
 ## Open questions
 - Does LeWM scale to high-resolution real-robot deployment, or is "2D and 3D control" still a research bench?
 - How does SIGReg compare to other anti-collapse mechanisms (VICReg, BarlowTwins) at scale?
-- Code/website URLs are referenced via icons in the paper but weren't extracted by the PDF text pass — fetch from arxiv when needed.
+
+## Code & artifacts
+- Official repo: https://github.com/lucas-maes/le-wm
+- Project page: https://le-wm.github.io/
+- Pretrained HF checkpoints: `quentinll/lewm-{pusht,cube,tworooms,reacher}`
+- See [[leworldmodel-howto|LeWorldModel — train and run howto]] for install/train/eval commands.
