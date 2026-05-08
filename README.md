@@ -27,6 +27,22 @@ The wiki is maintained by [Claude Code](https://claude.ai/code); the human curat
 - **[`wiki/syntheses/simulators-for-agentic-robotics-2026.md`](wiki/syntheses/simulators-for-agentic-robotics-2026.md)** — landscape survey across six categories.
 - **[`wiki/log.md`](wiki/log.md)** — chronological record of ingests, queries, and lint passes.
 
+### FRC (FIRST Robotics Competition)
+- **[`wiki/sources/frc-2026-game-manual.md`](wiki/sources/frc-2026-game-manual.md)** — deep ingest of the 166-page 2026 REBUILT game manual.
+- **[`wiki/entities/first-robotics-competition.md`](wiki/entities/first-robotics-competition.md)** — competition overview, robot constraints, technical infrastructure.
+- **[`wiki/entities/frc-kitbot.md`](wiki/entities/frc-kitbot.md)** — the beginner-friendly KitBot platform.
+
+### JEPA / LeWorldModel
+- **[`wiki/concepts/jepa.md`](wiki/concepts/jepa.md)** — Joint-Embedding Predictive Architecture concept page.
+- **[`wiki/sources/leworldmodel-paper.md`](wiki/sources/leworldmodel-paper.md)** — LeWM paper ingest.
+- **[`wiki/syntheses/leworldmodel-howto.md`](wiki/syntheses/leworldmodel-howto.md)** — how to install, train, and evaluate LeWM on a single GPU.
+- **[`wiki/syntheses/lewm-hello-world-project-scope.md`](wiki/syntheses/lewm-hello-world-project-scope.md)** — Project 1: reproduce LeWM PushT from scratch.
+- **[`wiki/syntheses/jepa-task-capabilities.md`](wiki/syntheses/jepa-task-capabilities.md)** — what JEPA models can do, mapped per-paper.
+
+### ROSOrin Pro JEPA project ladder
+- **[`wiki/syntheses/jepa-project-ladder-rosorin-pro.md`](wiki/syntheses/jepa-project-ladder-rosorin-pro.md)** — six-rung educational/research project ladder for learning JEPA on ROSOrin Pro hardware.
+- **[`wiki/syntheses/lewm-on-rosorin-pro-feasibility.md`](wiki/syntheses/lewm-on-rosorin-pro-feasibility.md)** — feasibility analysis for deploying LeWM on ROSOrin Pro.
+
 Best read in [Obsidian](https://obsidian.md/) — the `wiki/` directory is configured as a vault. Wikilinks use `[[slug|Display]]` form (kebab-case filenames + human-readable display text), so they also render correctly in any plain markdown viewer.
 
 ## Working with the wiki

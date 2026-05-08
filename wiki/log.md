@@ -359,3 +359,22 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 ## [2026-05-08] expand | PushT entity — video link
 - Added a "See it in action" callout to [[pusht|PushT entity]] linking the [LeWM project page](https://le-wm.github.io/) GIFs (success rollouts, failure case, latent-space viz). LeWM-on-PushT specifically — closest reference to what Project 1 reproduces.
 - Verified via WebFetch: page hosts `pusht_1_half.gif`, `pusht_2_half.gif`, `pusht_3_fail_half.gif`, `pusht_viz_lewm.gif`. Diffusion Policy project page checked too but didn't surface direct video URLs at the standard paths.
+
+## [2026-05-08] ingest | FRC 2026 Game Manual — REBUILT
+- Created [[frc-2026-game-manual|FRC 2026 Game Manual — REBUILT]] — deep source page covering game mechanics (HUB alternation, FUEL scoring, TOWER climbing), field layout (BUMPS, TRENCHES, DEPOTS, AprilTags), robot construction rules (115lb/110in/30in constraints, motor allowlist, pneumatics), control system (roboRIO + FMS), drive team roles, and strategic analysis.
+- Created [[frc-kitbot-2026|FRC KitBot 2026]] — source page for the official KitBot resource page (AM14U6 chassis, Java code, CAD, multilingual docs).
+- New entity: [[first-robotics-competition|FIRST Robotics Competition]] — scale, format, 2026 game overview, robot constraints, technical infrastructure, vendor ecosystem, culture.
+- New entity: [[frc-kitbot|FRC KitBot]] — platform details, resources table, drivetrain comparison.
+- New entity: [[andymark|AndyMark]] — major FRC vendor (field elements, AM14U6 chassis, FUEL, motors), field variant distribution.
+- New entity: [[roborio|roboRIO]] — NI's mandatory FRC controller, specs, software ecosystem, comparison to research controllers.
+- New concept: [[apriltags|AprilTags]] — visual fiducials for 6-DOF pose estimation; tag families, FRC field usage (32 tags), research usage, key references.
+- Updated [[wiki/index.md]].
+
+## [2026-05-08] query + synthesis | FRC simulation programs for AI training
+- Web-searched Chief Delphi, WPILib docs, GitHub, and FRC community for simulation + AI/ML tools.
+- Key findings: three-tier landscape (trajectory planners → physics sims → ML frontier); Maple-Sim is the most active physics sim; Team 254's 2026 Championship presentation on "AI in FRC" (Claude Code, ClaudeScope, LLM agents running sims); no RL-trained policies have won FRC competitions yet.
+- Filed as [[frc-simulation-and-ai-landscape|FRC simulation & AI landscape]].
+- Updated index.md with new synthesis and 8 new known-gap entity candidates (Maple-Sim, xRC Simulator, WPILib, PhotonVision/Limelight, Chief Delphi, Team 254, MathWorks).
+
+## [2026-05-08] maintenance | README update
+- Added "Where to start" sections to README.md for FRC content, JEPA/LeWM content, and ROSOrin JEPA project ladder with direct links to key pages.

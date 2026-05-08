@@ -31,6 +31,8 @@
 - [[jepa-wms-paper|JEPA-WMs Paper]] — Terver et al., FAIR; first JEPA paper to use RoboCasa + Metaworld + DROID + real Franka. (2025-12)
 - [[vla-jepa-paper|VLA-JEPA Paper]] — JEPA-as-auxiliary inside a VLA; LIBERO + SimplerEnv + real. (2026-02)
 - [[v-jepa-2-1-paper|V-JEPA 2.1 Paper]] — direct successor to V-JEPA 2; "dense features" + +20pt real-Franka grasping. (2026-03)
+- [[frc-2026-game-manual|FRC 2026 Game Manual — REBUILT]] — 166-page rule book for FIRST Robotics Competition 2026; game mechanics, robot constraints, AprilTag field, scoring. (2026-01-10)
+- [[frc-kitbot-2026|FRC KitBot 2026]] — official KitBot resource page; AM14U6 chassis, Java code, CAD, multilingual docs. (2026-01)
 
 ## Entities
 
@@ -45,6 +47,8 @@
 - [[farama-foundation|Farama Foundation]] — non-profit; took over OpenAI gym → Gymnasium; 19 RL projects. (2 sources)
 - [[hillbot|Hillbot]] — UCSD spinoff that maintains ManiSkill. (1 source) _stub_
 - [[disney-research|Disney Research]] — Newton co-developer with NVIDIA + DeepMind. (2 sources) _stub_
+- [[first-robotics-competition|FIRST Robotics Competition]] — world's leading high-school robotics competition; ~3,700 teams, 30+ countries. (2 sources)
+- [[andymark|AndyMark]] — major FRC vendor; AM14U6 chassis, field elements, FUEL scoring elements. (2 sources)
 
 ### Simulators / frameworks
 - [[nvidia-isaac-sim|NVIDIA Isaac Sim]] — Omniverse-based robotics simulator. (4 sources)
@@ -91,10 +95,14 @@
 - [[rosorin|ROSOrin]] — Hiwonder's Jetson Orin Nano educational mobile robot kit. (2 sources)
 - [[rosorin-pro|ROSOrin Pro]] — Hiwonder's 6-DOF arm + base variant of ROSOrin. (2 sources)
 - [[rosorin-pro-arm|ROSOrin Pro 6-DOF arm]] — HX-12H-servo manipulator on the ROSOrin Pro kit. (2 sources)
+- [[frc-kitbot|FRC KitBot]] — beginner-friendly FRC robot on AndyMark AM14U6 chassis; included in Kickoff Kit. (2 sources)
 
 ### Software stacks
 - [[stretch-ai|stretch_ai]] — Hello Robot's open-source Python stack with an LLM agent. (4 sources)
 - [[openclaw|OpenClaw]] — Hiwonder's manipulation-aware LLM-agent framework for ROSOrin Pro. (1 source)
+
+### Controllers
+- [[roborio|roboRIO]] — NI's mandatory FRC robot controller (ARM Cortex-A9 + FPGA); WPILib ecosystem. (1 source)
 - [[stable-worldmodel|stable-worldmodel]] — Python infrastructure under LeWorldModel (env zoo + planning API + dataset format). DM Control + Gymnasium-Robotics Fetch + classic + OGBench + more. (1 source)
 
 ### Formats / standards
@@ -151,6 +159,7 @@
 - [[jepa|Joint-Embedding Predictive Architecture]] — predict next-state representations, not pixels. (7 sources)
 - [[imitation-learning|Imitation learning]] — supervised learning from demonstrations. (3 sources)
 - [[llm-agent-architecture|LLM-agent architecture]] — LLM-emits-tool-calls control pattern. (3 sources)
+- [[apriltags|AprilTags]] — visual fiducial markers for 6-DOF pose estimation; standard in FRC and research robotics. (1 source)
 
 ## Syntheses
 - [[simulators-for-agentic-robotics-2026|Simulators for agentic robotics — 2026 landscape]] — full landscape survey, 6 categories. (updated 2026-05-07)
@@ -169,6 +178,7 @@
 - [[household-robot-decision-stretch-vs-g1|Household robot decision — Stretch vs Unitree G1]] — buying-decision comparison for navigate + floor pickup + dishes + cans use case. Recommends Stretch. (2026-05-08)
 - [[jepa-project-ladder-rosorin-pro|JEPA project ladder for ROSOrin Pro]] — six-rung educational/research project ladder for learning JEPA on ROSOrin Pro hardware. (2026-05-08)
 - [[lewm-hello-world-project-scope|LeWM hello world — Project 1 detailed scope]] — phase-by-phase plan for reproducing LeWM PushT, training from scratch, one-knob ablation. (2026-05-08)
+- [[frc-simulation-and-ai-landscape|FRC simulation & AI landscape]] — what simulation programs FRC teams use for autonomous dev and AI training; three-tier analysis (trajectory planners / physics sims / ML frontier). (2026-05-08)
 
 ### JEPA-related concepts/entities/sources to potentially expand
 - Metaworld — referenced by [[jepa-wms-paper|JEPA-WMs]] (42 tasks); deserves an entity page.
@@ -205,3 +215,10 @@
 - Gymnasium-Robotics env families not ingested as standalone pages: Fetch, Shadow Hand, Maze (Ant/Point), Adroit (Door/Hammer/Pen/Relocate — staple in D4RL offline RL eval), Franka Kitchen (multi-task kitchen), MaMuJoCo (multi-agent locomotion). Promote when referenced.
 - Humanoids not yet filed: AGIBOT humanoid hardware (A2/X1/X2 — [[agibot|company]] is filed), Fourier GR-1/GR-2, LimX CL-2/CL-3, Booster T1, EngineAI PM01 (Chinese affordable). PAL TIAGo/TALOS, Pepper, Robotis OP3/DARwIn-MINI, Sanctuary Phoenix, Kawasaki Kaleido, AIST HRP-5P, Toyota T-HR3 (research / educational). See [[humanoid-platforms-survey|humanoid-platforms-survey]] for landscape context.
 - Boston Dynamics Spot — quadruped reference platform; no entity page ([[atlas|Atlas]] is filed).
+- Maple-Sim — Shenzhen Robotics Alliance's dyn4j-based FRC physics simulator; most active FRC sim project. Entity page on demand.
+- xRC Simulator — standalone Unity-based FRC driving/strategy simulator. Entity page on demand.
+- WPILib — open-source FRC software framework. Core to the entire FRC software ecosystem. Deserves entity page.
+- PhotonVision / Limelight — FRC vision processing solutions for AprilTag detection. Entity pages on demand.
+- Chief Delphi — FRC community forum; primary knowledge-sharing platform. Entity page on demand.
+- Team 254 (The Cheesy Poofs) — pioneering FRC team; 2026 "AI in FRC" presentation at Championship. Entity page on demand.
+- MathWorks / MATLAB — FRC sponsor; provides MATLAB + Simulink for autonomous algorithm design. Entity page on demand.
