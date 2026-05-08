@@ -31,6 +31,7 @@ The wiki is maintained by [Claude Code](https://claude.ai/code); the human curat
 - **[`wiki/sources/frc-2026-game-manual.md`](wiki/sources/frc-2026-game-manual.md)** — deep ingest of the 166-page 2026 REBUILT game manual.
 - **[`wiki/entities/first-robotics-competition.md`](wiki/entities/first-robotics-competition.md)** — competition overview, robot constraints, technical infrastructure.
 - **[`wiki/entities/frc-kitbot.md`](wiki/entities/frc-kitbot.md)** — the beginner-friendly KitBot platform.
+- **[`wiki/syntheses/frc-simulation-and-ai-landscape.md`](wiki/syntheses/frc-simulation-and-ai-landscape.md)** — what simulation & AI tools FRC teams use (trajectory planners, physics sims, ML frontier).
 
 ### JEPA / LeWorldModel
 - **[`wiki/concepts/jepa.md`](wiki/concepts/jepa.md)** — Joint-Embedding Predictive Architecture concept page.
