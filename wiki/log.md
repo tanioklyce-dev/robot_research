@@ -205,3 +205,10 @@ Append-only chronological record of wiki events. Each entry begins with `## [YYY
 - The four "why" hypotheses from the original draft re-labeled: only (a) "internet-scale video > sim" has direct primary-source backing; (b)/(c)/(d) are wiki-author inference, not paper rationale.
 - Two corrections folded in: `stable-worldmodel` env zoo includes DM Control + Gymnasium-Robotics Fetch (broader than the LeWM howto exposed); DINO-world → JEPA-WMs share research lineage via Basile Terver bread-crumb.
 - New "watch item": first JEPA paper to explicitly train inside Isaac Lab or MuJoCo Playground (RoboCasa happened in Dec 2025; those two haven't yet).
+
+## [2026-05-07] entity | DROID dataset
+- Created [[droid|DROID]] entity page — Distributed Robot Interaction Dataset, 350 hr / 76k traj / 564 scenes / 86 tasks of Franka Panda teleop across 13 institutions; lead authors Khazatsky + Pertsch, senior Finn + Levine. Source: project page at https://droid-dataset.github.io/.
+- Captured the OXE comparison (DROID +22% in-dist / +17% OOD vs Open-X Embodiment policies) and the BridgeV2/RH20T/RT-1 "order of magnitude more scenes" claim.
+- Wikilinked DROID across [[v-jepa-2-paper|V-JEPA 2]] and [[jepa-wms-paper|JEPA-WMs]] sources so Mentioned-in flows correctly.
+- Index updated: added Datasets subsection under Entities; removed DROID from Known gaps. Added Franka Panda + DROID-paper-itself to Known gaps as follow-ups.
+- Open: DROID **paper itself** (arxiv 2403.12945) not yet a source page; license terms not surfaced; Dec 2024 / Apr 2025 update deltas not documented.

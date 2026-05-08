@@ -26,7 +26,7 @@ tags: [jepa, world-model, jepa-wms, robocasa, metaworld, droid, franka, fair, me
   - **PointMaze** navigation trajectories
   - **Wall** environment trajectories
   - **RoboCasa kitchen manipulation**
-  - **DROID** dataset (raw, stereo HD, 8.7 TB; or non-stereo HD, 5.6 TB)
+  - **[[droid|DROID]]** dataset (raw, stereo HD, 8.7 TB; or non-stereo HD, 5.6 TB)
   - **Franka** robot trajectories with "unroll decode evaluation"
 - Optional pretraining video datasets: **Kinetics-400, Kinetics-710, Something-Something-v2, HowTo100M**.
 - Pretrained weights provided per environment.
@@ -43,6 +43,7 @@ tags: [jepa, world-model, jepa-wms, robocasa, metaworld, droid, franka, fair, me
 - [[v-jepa-2|V-JEPA 2]] — baseline.
 - [[dino-wm|DINO-WM]] — baseline.
 - [[robocasa|RoboCasa]] — manipulation eval.
+- [[droid|DROID]] — real-robot dataset (raw stereo HD or non-stereo HD).
 - (Metaworld is referenced but does not yet have an entity page — listed in [[index|index.md]] gaps.)
 
 ## Concepts touched

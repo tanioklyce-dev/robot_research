@@ -75,6 +75,9 @@
 ### Formats / standards
 - [[openusd|OpenUSD]] — open scene-description + robotics physics-schema layer (UsdPhysics, MjcPhysics, NewtonSceneAPI). (4 sources)
 
+### Datasets
+- [[droid|DROID]] — Distributed Robot Interaction Dataset; 350 hr / 76k traj / 564 scenes of Franka Panda teleop; the dominant real-robot dataset in JEPA-for-robotics work. (2 sources)
+
 ### World models
 - [[nvidia-cosmos|NVIDIA Cosmos]] — world foundation model + simulation engine (generative video). (5 sources)
 - [[genie-envisioner|Genie Envisioner]] — AGIBOT's world simulator GE-Sim2 (generative video). (4 sources)
@@ -118,7 +121,6 @@
 - Metaworld — referenced by [[jepa-wms-paper|JEPA-WMs]] (42 tasks); deserves an entity page.
 - LIBERO / LIBERO-Plus — referenced by [[vla-jepa-paper|VLA-JEPA]]; benchmark concept/source pages.
 - SimplerEnv — referenced by [[vla-jepa-paper|VLA-JEPA]]; mid-weight Sapien-adjacent simulator.
-- DROID dataset — referenced by [[v-jepa-2-paper|V-JEPA 2]] and [[jepa-wms-paper|JEPA-WMs]]; referenced as "ingest TBD" in earlier known-gaps; now a confirmed cross-paper standard.
 - `stable-worldmodel` package — env zoo broader than [[leworldmodel-howto|LeWM howto]] exposed; verify and update.
 - PLDM — comparison baseline for LeWM; needs primary-source ingest.
 - DreamerV3, TD-MPC — also referenced as JEPA baselines.
@@ -140,7 +142,8 @@
 - Stretch Mujoco — Hello Robot's MuJoCo wrapper; thin or substantive?
 - xArm 7 — UFactory manipulator used as cross-embodiment target by Robot Utility Models
 - DINO-WM, Dreamer/DreamerV3, TD-MPC, PLDM — world-model baselines referenced in LeWorldModel paper
-- Droid dataset — robot teleoperation dataset used by V-JEPA 2-AC
+- DROID paper itself (arxiv 2403.12945) — entity page exists at [[droid|DROID]] but the paper is not yet a source page; would let us cite design rationale directly
+- Franka Panda — single embodiment across DROID, V-JEPA 2, JEPA-WMs, RUM and many others; deserves its own entity page
 - Habitat (Meta) — embodied-AI sim, mentioned as legacy in synthesis
 - TurtleBot — canonical educational ROS robot, useful comparison for ROSOrin
 - StepFun — Chinese multimodal AI provider used by ROSOrin's Chinese-language fallback
