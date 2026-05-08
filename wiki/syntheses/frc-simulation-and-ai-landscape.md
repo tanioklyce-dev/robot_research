@@ -2,7 +2,7 @@
 title: FRC simulation & AI landscape
 type: synthesis
 created: 2026-05-08
-updated: 2026-05-08 (revised: Team 254 presentation deep-dive)
+updated: 2026-05-08
 tags: [frc, simulation, ai, machine-learning, autonomous, pathplanning]
 ---
 
