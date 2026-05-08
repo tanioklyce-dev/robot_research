@@ -263,3 +263,9 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 
 ### What lint still flags
 - Source-count drift detector noise: my actual-count algorithm includes synthesis pages and entity pages in the Mentioned-in count, while the schema's `sources:` field counts source pages only. The 10 fixes above all addressed real missing entries; future drift checks should filter to source-page targets only.
+
+## [2026-05-08] synthesis | JEPA task capabilities
+- Filed [[jepa-task-capabilities|JEPA task capabilities]] in response to user query "what tasks can a JEPA model perform?"
+- Reference index, not analytical synthesis: maps 7 JEPA / JEPA-adjacent papers (V-JEPA 2, V-JEPA 2.1, LeWM, DINO-WM, DINO-world, VLA-JEPA, JEPA-WMs) to 7 task categories: real-robot manipulation, navigation, planning-as-cost-function, video understanding, dense vision, video prediction, probing/interpretability.
+- Includes a per-task per-model matrix, structural notes (cost-function-not-policy framing, no pixel generation, sim weight class independence), and a "what JEPA doesn't yet do" gap list.
+- Updated [[index|index.md]]: filed under Syntheses.
