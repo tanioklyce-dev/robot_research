@@ -37,4 +37,3 @@ Newton's vendor-neutral governance plus its presence in both DeepMind's and NVID
 - [[nvidia-newton-physics-engine-developer-page|NVIDIA Newton Physics Engine Developer Page]]
 - [[nvidia-newton-contact-rich-manipulation-blog|NVIDIA Newton Contact-Rich Manipulation Blog]]
 - [[nvidia-openusd-for-robotic-simulation|Using OpenUSD for Modular and Scalable Robotic Simulation]]
-- [[openusd-rigid-body-physics-proposal|OpenUSD Rigid Body Physics Proposal]]

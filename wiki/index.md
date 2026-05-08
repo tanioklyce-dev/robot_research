@@ -27,20 +27,20 @@
 ## Entities
 
 ### Companies
-- [[nvidia|NVIDIA]] — owns most of the agentic-robotics simulation substrate. (5 sources)
+- [[nvidia|NVIDIA]] — owns most of the agentic-robotics simulation substrate. (8 sources)
 - [[hiwonder|Hiwonder]] — Chinese educational-robotics vendor; ROSOrin / ROSOrin Pro kits + OpenClaw. (3 sources) _stub_
 - [[agibot|AGIBOT]] — Shanghai embodied-AI / humanoid company. Open-source-heavy. (3 sources)
 - [[hello-robot|Hello Robot]] — Stretch mobile manipulator + stretch_ai stack. (3 sources)
 - [[meta-fair|Meta FAIR]] — Yann LeCun's lab; JEPA research line. (1 source)
-- [[google-deepmind|Google DeepMind]] — MuJoCo, Newton co-development. (2 sources) _stub_
+- [[google-deepmind|Google DeepMind]] — MuJoCo, Newton co-development, MjcPhysics USD plugin. (3 sources)
 - [[mila|Mila]] — Quebec AI Institute; frequent JEPA collaborator. (2 sources) _stub_
 - [[hillbot|Hillbot]] — UCSD spinoff that maintains ManiSkill. (1 source) _stub_
-- [[disney-research|Disney Research]] — Newton co-developer with NVIDIA + DeepMind. (1 source) _stub_
+- [[disney-research|Disney Research]] — Newton co-developer with NVIDIA + DeepMind. (2 sources) _stub_
 
 ### Simulators / frameworks
-- [[nvidia-isaac-sim|NVIDIA Isaac Sim]] — Omniverse-based robotics simulator. (2 sources)
+- [[nvidia-isaac-sim|NVIDIA Isaac Sim]] — Omniverse-based robotics simulator. (4 sources)
 - [[nvidia-isaac-lab|NVIDIA Isaac Lab]] — open-source learning framework on Isaac Sim. (3 sources)
-- [[newton-physics-engine|Newton physics engine]] — Linux-Foundation, GPU-accelerated. (3 sources)
+- [[newton-physics-engine|Newton physics engine]] — Linux-Foundation, GPU-accelerated. (4 sources)
 - [[mujoco-playground|MuJoCo Playground]] — DeepMind's MJX-based learning framework. (3 sources)
 - [[genesis|Genesis]] — generative + ultra-fast physics engine. (2 sources)
 - [[agibot-genie-sim|AGIBOT Genie Sim 3.0]] — open embodied-AI sim on Isaac Sim. (2 sources)
@@ -62,7 +62,7 @@
 - [[openusd|OpenUSD]] — open scene-description + robotics physics-schema layer (UsdPhysics, MjcPhysics, NewtonSceneAPI). (4 sources)
 
 ### World models
-- [[nvidia-cosmos|NVIDIA Cosmos]] — world foundation model + simulation engine (generative video). (4 sources)
+- [[nvidia-cosmos|NVIDIA Cosmos]] — world foundation model + simulation engine (generative video). (5 sources)
 - [[genie-envisioner|Genie Envisioner]] — AGIBOT's world simulator GE-Sim2 (generative video). (4 sources)
 - [[v-jepa-2|V-JEPA 2]] — Meta FAIR's JEPA world model (latent prediction); zero-shot Franka. (1 source)
 - [[leworldmodel|LeWorldModel]] — first stable end-to-end JEPA from raw pixels. (1 source)

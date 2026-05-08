@@ -136,3 +136,10 @@ Append-only chronological record of wiki events. Each entry begins with `## [YYY
   - **Isaac Sim 5.0 / Omniverse Kit SDK 107 → OpenUSD 24.05**.
 - **Open questions logged**: ABB/FANUC/KUKA/Yaskawa GTC 2026 adoption needs a primary source; URDF/MJCF/SDFormat → OpenUSD conceptual mapping shipping status; engineering.com 403 redo.
 - **Skipped sources** (deliberately): Okino SolidWorks-to-USD page (thin), newton-usd-schemas GitHub README (folded into the Newton entity page).
+
+## [2026-05-07] lint | Post-OpenUSD-ingest health check
+- All wikilinks resolve; no orphan pages; no escaped pipes in new content.
+- **Source-count drift fixed** on six entity pages whose frontmatter under-counted inbound source-page references after the ingest: [[nvidia|NVIDIA]] 5→8, [[nvidia-isaac-sim|NVIDIA Isaac Sim]] 2→4, [[newton-physics-engine|Newton physics engine]] 3→4 (already in ingest commit), [[nvidia-cosmos|NVIDIA Cosmos]] 4→5, [[google-deepmind|Google DeepMind]] 2→3 (already in ingest commit), [[disney-research|Disney Research]] 1→2. Mirrored counts in `index.md`.
+- **Removed a stray `Mentioned in` entry**: I had added `openusd-rigid-body-physics-proposal` under [[newton-physics-engine|Newton]]'s "Mentioned in" but that source page does not list Newton in its "Entities mentioned" — only OpenUSD and NVIDIA. Removed.
+- **Added missing `Mentioned in` entries**: appended the four new sources to the relevant entity pages (NVIDIA, Isaac Sim, Cosmos, Disney Research, Newton, DeepMind) per the convention.
+- DeepMind's `_stub_` marker dropped from index since the entity page now has 3 sources and substantive content (MjcPhysics + Newton + MuJoCo).

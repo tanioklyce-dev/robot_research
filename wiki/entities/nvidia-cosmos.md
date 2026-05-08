@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-06
 updated: 2026-05-07
-sources: 4
+sources: 5
 tags: [cosmos, world-model, video-generation, nvidia, foundation-model]
 ---
 
@@ -27,3 +27,4 @@ Cosmos is the underlying generative video model that's enabling the rise of [[wo
 ## Mentioned in
 - [[agibot-genie-envisioner-2-announcement|AGIBOT Genie Envisioner 2.0 Announcement]]
 - [[top-10-physical-ai-models-2026|Top 10 Physical AI Models 2026]]
+- [[nvidia-openusd-for-robotic-simulation|Using OpenUSD for Modular and Scalable Robotic Simulation]]

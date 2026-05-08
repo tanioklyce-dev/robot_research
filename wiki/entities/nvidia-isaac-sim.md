@@ -3,8 +3,8 @@ title: NVIDIA Isaac Sim
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-05-06
-sources: 2
+updated: 2026-05-07
+sources: 4
 tags: [simulator, nvidia, omniverse, openusd]
 ---
 
@@ -30,3 +30,5 @@ Isaac Sim 6.0 ships in the same release wave as [[nvidia-isaac-lab|Isaac Lab 3.0
 ## Mentioned in
 - [[nvidia-newton-contact-rich-manipulation-blog|NVIDIA Newton Contact-Rich Manipulation Blog]]
 - [[agibot-genie-sim-3-announcement|AGIBOT Genie Sim 3.0 Announcement]]
+- [[nvidia-openusd-for-robotic-simulation|Using OpenUSD for Modular and Scalable Robotic Simulation]]
+- [[nvidia-cad-to-usd-jt-workflows|Building CAD-to-USD Workflows with NVIDIA Omniverse]]

@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-06
 updated: 2026-05-07
-sources: 5
+sources: 8
 tags: [nvidia, gpu, simulation, physical-ai]
 ---
 
@@ -26,3 +26,6 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - [[agibot-genie-sim-3-announcement|AGIBOT Genie Sim 3.0 Announcement]]
 - [[top-10-physical-ai-models-2026|Top 10 Physical AI Models 2026]]
 - [[robocasa365-paper|RoboCasa365 Paper]]
+- [[openusd-rigid-body-physics-proposal|OpenUSD Rigid Body Physics Proposal]]
+- [[nvidia-openusd-for-robotic-simulation|Using OpenUSD for Modular and Scalable Robotic Simulation]]
+- [[nvidia-cad-to-usd-jt-workflows|Building CAD-to-USD Workflows with NVIDIA Omniverse]]
