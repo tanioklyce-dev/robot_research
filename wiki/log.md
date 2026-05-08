@@ -212,3 +212,19 @@ Append-only chronological record of wiki events. Each entry begins with `## [YYY
 - Wikilinked DROID across [[v-jepa-2-paper|V-JEPA 2]] and [[jepa-wms-paper|JEPA-WMs]] sources so Mentioned-in flows correctly.
 - Index updated: added Datasets subsection under Entities; removed DROID from Known gaps. Added Franka Panda + DROID-paper-itself to Known gaps as follow-ups.
 - Open: DROID **paper itself** (arxiv 2403.12945) not yet a source page; license terms not surfaced; Dec 2024 / Apr 2025 update deltas not documented.
+
+## [2026-05-07] entities | Batch 1 — Franka Panda + Metaworld + DINOv2 + PushT + 3 people + world-model concept
+- Filed 8 pages in one batch in response to "recommend entities, then file batch 1":
+  - [[franka-panda|Franka Panda]] — 7-DOF research arm; default tabletop manipulator across DROID, V-JEPA 2, V-JEPA 2.1, JEPA-WMs, RUM. (4 sources)
+  - [[metaworld|Metaworld]] — Yu/Quillen/Levine/Finn 2019 meta-RL benchmark; 50 manipulation tasks on simulated Sawyer; staple in JEPA-WMs (42 tasks) + MuJoCo Playground. (3 sources)
+  - [[dinov2|DINOv2]] — Meta FAIR self-supervised ViT (Oquab et al. 2023); 142M images, ViT-S/B/L/g; substrate for DINO-WM, DINO-world, JEPA-WMs. Apache 2.0. (3 sources)
+  - [[pusht|PushT]] — 2D T-block pushing benchmark; introduced by IBC (Florence et al. 2021), popularized by Diffusion Policy (Chi et al. 2023). Default lightweight bench across LeWM / DINO-WM / JEPA-WMs. (3 sources)
+  - [[yann-lecun|Yann LeCun]] — Meta VP, NYU, Turing Award 2018; senior on V-JEPA 2 / V-JEPA 2.1 / LeWM / DINO-WM / DINO-world / JEPA-WMs. (6 sources)
+  - [[adrien-bardes|Adrien Bardes]] — FAIR; co-senior on V-JEPA 2 / V-JEPA 2.1 / JEPA-WMs; the FAIR-side champion of the V-JEPA program. (3 sources)
+  - [[basile-terver|Basile Terver]] — bread-crumb author across DINO-world (Jul 2025) → JEPA-WMs (Dec 2025), the lineage signal called out in the JEPA-skips-sim synthesis. (2 sources)
+  - [[world-model|World model]] — broad concept page, distinct from the narrower [[world-model-simulators|World-model simulators]] companion. Covers generative-video / JEPA / frozen-feature / model-based-RL design points. (11 sources)
+- Sources for these pages were drawn from the existing wiki + a small primary-source pass on Metaworld (project page), DINOv2 (GitHub README), PushT (Diffusion Policy project page).
+- Primary sources note: people pages (LeCun, Bardes, Terver) are written from the wiki's own author-overlap context plus widely-known facts; primary-source bio fetches deferred.
+- Index updated: new Vision foundation models subsection (DINOv2); new People subsection (LeCun, Bardes, Terver); Franka Panda added under Robot platforms; Metaworld + PushT added under Simulators / frameworks; World-model concept added at top of Concepts.
+- Known gaps cleaned: Franka Panda removed; Metaworld removed from Farama gap list; LeCun removed from People-low-priority list. Added new gaps surfaced by ingest: Sergey Levine, Chelsea Finn, Karl Pertsch, Alexander Khazatsky, Lerrel Pinto, Pulkit Agrawal as future people pages.
+- Open: bidirectional source-to-entity cross-links (e.g. adding [[yann-lecun|Yann LeCun]] under "Entities mentioned" in V-JEPA 2 + LeWM + DINO-WM + DINO-world + JEPA-WMs source pages) **not done in this pass** — would tighten the graph but isn't load-bearing for retrieval. Worth a future lint pass.

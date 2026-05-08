@@ -53,16 +53,19 @@
 - [[mujoco-playground|MuJoCo Playground]] — DeepMind's MJX-based learning framework. (4 sources)
 - [[genesis|Genesis]] — generative + ultra-fast physics engine. (2 sources)
 - [[agibot-genie-sim|AGIBOT Genie Sim 3.0]] — open embodied-AI sim on Isaac Sim. (2 sources)
-- [[robocasa|RoboCasa]] — household manipulation benchmark (RoboCasa365 at ICLR 2026). (1 source)
+- [[robocasa|RoboCasa]] — household manipulation benchmark (RoboCasa365 at ICLR 2026). (2 sources)
 - [[maniskill|ManiSkill]] — [[sapien|SAPIEN]]-based GPU-parallel manipulation benchmark. (1 source)
 - [[sapien|SAPIEN]] — UCSD robot simulation framework underlying ManiSkill. (1 source) _stub_
 - [[gymnasium-robotics|Gymnasium-Robotics]] — Farama's [[mujoco|MuJoCo]]-backed robotics envs (Fetch / Hand / Maze / Adroit / Franka Kitchen / MaMuJoCo). (2 sources)
+- [[metaworld|Metaworld]] — Stanford/Berkeley meta-RL benchmark; 50 manipulation tasks on simulated Sawyer; staple across V-JEPA-line work. (3 sources)
+- [[pusht|PushT]] — 2D T-block pushing benchmark; default lightweight bench across LeWM / DINO-WM / JEPA-WMs. (3 sources)
 
 ### RL API standards
 - [[gymnasium|Gymnasium]] — single-agent RL env API; OpenAI gym successor under Farama. (2 sources)
 - [[pettingzoo|PettingZoo]] — multi-agent RL env API. (2 sources) _stub_
 
 ### Robot platforms
+- [[franka-panda|Franka Panda]] — 7-DOF research-grade arm; default tabletop manipulator across DROID, V-JEPA 2, JEPA-WMs, RUM. (4 sources)
 - [[stretch|Stretch]] — Hello Robot's mobile manipulator (Stretch 3). De-facto research platform. (3 sources)
 - [[rosorin|ROSOrin]] — Hiwonder's Jetson Orin Nano educational mobile robot kit. (2 sources)
 - [[rosorin-pro|ROSOrin Pro]] — Hiwonder's 6-DOF arm + base variant of ROSOrin. (2 sources)
@@ -77,6 +80,9 @@
 
 ### Datasets
 - [[droid|DROID]] — Distributed Robot Interaction Dataset; 350 hr / 76k traj / 564 scenes of Franka Panda teleop; the dominant real-robot dataset in JEPA-for-robotics work. (2 sources)
+
+### Vision foundation models
+- [[dinov2|DINOv2]] — Meta FAIR self-supervised ViT (142M images, ViT-S/B/L/g); substrate for DINO-WM, DINO-world, JEPA-WMs. Apache 2.0. (3 sources)
 
 ### World models
 - [[nvidia-cosmos|NVIDIA Cosmos]] — world foundation model + simulation engine (generative video). (5 sources)
@@ -99,10 +105,16 @@
 - [[ollama|Ollama]] — local LLM runtime (used by ROSOrin offline curriculum). (1 source) _stub_
 - [[mimicgen|MimicGen]] — synthetic-demo expansion tool used by RoboCasa365. (1 source) _stub_
 
+### People
+- [[yann-lecun|Yann LeCun]] — Meta VP / NYU; Turing Award 2018; architect of the JEPA program. Senior on 6 wiki sources. (6 sources)
+- [[adrien-bardes|Adrien Bardes]] — FAIR researcher; co-senior on V-JEPA 2, V-JEPA 2.1, JEPA-WMs. The FAIR-side champion of the V-JEPA program. (3 sources)
+- [[basile-terver|Basile Terver]] — researcher (FAIR-affiliated, inferred); bread-crumb across DINO-world → JEPA-WMs lineage. (2 sources)
+
 ## Concepts
+- [[world-model|World model]] — umbrella concept: learned predictive model of environment dynamics (generative-video / JEPA / frozen-feature / model-based-RL). (11 sources)
 - [[vla-models|VLA models]] — vision-language-action robot foundation models. (6 sources)
 - [[sim-to-real-transfer|Sim-to-real transfer]] — bridging simulator-trained policies to real robots. (4 sources)
-- [[world-model-simulators|World-model simulators]] — two paradigms: generative-video and JEPA latent-prediction. (4 sources)
+- [[world-model-simulators|World-model simulators]] — narrower companion to [[world-model|World model]]: world-models-used-as-simulators (generative-video and JEPA paradigms). (4 sources)
 - [[jepa|Joint-Embedding Predictive Architecture]] — predict next-state representations, not pixels. (7 sources)
 - [[imitation-learning|Imitation learning]] — supervised learning from demonstrations. (2 sources)
 - [[llm-agent-architecture|LLM-agent architecture]] — LLM-emits-tool-calls control pattern. (3 sources)
@@ -143,7 +155,6 @@
 - xArm 7 — UFactory manipulator used as cross-embodiment target by Robot Utility Models
 - DINO-WM, Dreamer/DreamerV3, TD-MPC, PLDM — world-model baselines referenced in LeWorldModel paper
 - DROID paper itself (arxiv 2403.12945) — entity page exists at [[droid|DROID]] but the paper is not yet a source page; would let us cite design rationale directly
-- Franka Panda — single embodiment across DROID, V-JEPA 2, JEPA-WMs, RUM and many others; deserves its own entity page
 - Habitat (Meta) — embodied-AI sim, mentioned as legacy in synthesis
 - TurtleBot — canonical educational ROS robot, useful comparison for ROSOrin
 - StepFun — Chinese multimodal AI provider used by ROSOrin's Chinese-language fallback
@@ -151,6 +162,6 @@
 - WonderEcho Pro — Hiwonder voice module accessory
 - Hiwonder vision/CV chapter (YOLOv11 + TensorRT) — could warrant its own concept/source page on a deeper ingest
 - HX-12H bus servo, COIN-D6 LiDAR, Deptrum Aurora930 depth camera, MPU6050 IMU — hardware-component pages on demand
-- People pages (low priority): Yann LeCun, Aaron Edsinger, Mahi Shafiullah, Yuke Zhu, Mahmoud Assran
-- Farama projects not ingested as standalone pages: Minari (offline RL dataset standard), Metaworld (meta-RL benchmark), Shimmy (DM Control / OpenSpiel bridge), MO-Gymnasium, MOMAland, MAgent2, MPE2, Minigrid, MiniWoB++, ViZDoom, ALE, HighwayEnv, Procgen2, Stable-Retro, Jumpy — listed in [[farama-projects-page|Farama Foundation Projects Page]]; promote to entity pages if they show up in a robotics paper.
+- People pages (low priority remaining): Aaron Edsinger, Mahi Shafiullah, Yuke Zhu, Mahmoud Assran, Sergey Levine, Chelsea Finn, Karl Pertsch, Alexander Khazatsky, Lerrel Pinto, Pulkit Agrawal — surfacing from DROID + RUM + DINO-WM ingest. ([[yann-lecun|Yann LeCun]], [[adrien-bardes|Adrien Bardes]], [[basile-terver|Basile Terver]] now filed.)
+- Farama projects not ingested as standalone pages: Minari (offline RL dataset standard), Shimmy (DM Control / OpenSpiel bridge), MO-Gymnasium, MOMAland, MAgent2, MPE2, Minigrid, MiniWoB++, ViZDoom, ALE, HighwayEnv, Procgen2, Stable-Retro, Jumpy — listed in [[farama-projects-page|Farama Foundation Projects Page]]; promote to entity pages if they show up in a robotics paper. ([[metaworld|Metaworld]] now filed.)
 - Gymnasium-Robotics env families not ingested as standalone pages: Fetch, Shadow Hand, Maze (Ant/Point), Adroit (Door/Hammer/Pen/Relocate — staple in D4RL offline RL eval), Franka Kitchen (multi-task kitchen), MaMuJoCo (multi-agent locomotion). Promote when referenced.
