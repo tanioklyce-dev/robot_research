@@ -74,6 +74,19 @@
 - [[franka-panda|Franka Panda]] — 7-DOF research-grade arm; default tabletop manipulator across DROID, V-JEPA 2, JEPA-WMs, RUM. (5 sources)
 - [[xarm-7|xArm 7]] — UFactory commercial 7-DOF arm; secondary tabletop manipulator; RUM cross-embodiment transfer target (~10pt drop vs Stretch). (1 source) _stub_
 - [[turtlebot|TurtleBot]] — canonical educational ROS mobile robot (4 generations, 2010–present); reference point for [[rosorin|ROSOrin]] educational comparison. (0 sources) _stub_
+- [[irobot-create-3|iRobot Create 3]] — Roomba-i3-derived ROS 2 mobile-robot base; chassis under [[turtlebot|TurtleBot 4]]. (0 sources) _stub_
+
+### Humanoids
+- [[atlas|Atlas]] — Boston Dynamics flagship; closed development; capability-bar humanoid. (0 sources) _stub_
+- [[tesla-optimus|Tesla Optimus]] — Tesla's vertically-integrated humanoid; closed development. (0 sources) _stub_
+- [[figure|Figure]] — Figure AI's humanoid line (01/02/03) + Helix VLA; BMW pilots. (0 sources) _stub_
+- [[1x-neo|1X NEO]] — household humanoid from 1X Technologies (Norway/US); OpenAI-aligned. (0 sources) _stub_
+- [[apptronik-apollo|Apptronik Apollo]] — UT Austin spinout; NVIDIA-aligned ([[nvidia-groot|GR00T]] target); Mercedes-Benz pilots. (0 sources) _stub_
+- [[digit|Digit]] — Agility Robotics; **first commercially-deployed humanoid** (GXO, Amazon). (0 sources) _stub_
+- [[unitree-h1|Unitree H1]] — Chinese affordable research humanoid (~$90k); rapid 2024–2026 academic adoption. (0 sources) _stub_
+- [[unitree-g1|Unitree G1]] — smaller, cheaper Unitree (~$16k); cheapest serious humanoid platform. (0 sources) _stub_
+- [[nao|NAO]] — SoftBank/Aldebaran 58-cm educational humanoid; canonical since 2008. (0 sources) _stub_
+- [[tonypi|TonyPi]] — Hiwonder hobby-tier biped kit ($300–700); educational-tier sibling of [[rosorin-pro|ROSOrin Pro]]. (0 sources) _stub_
 - [[stretch|Stretch]] — Hello Robot's mobile manipulator (Stretch 3). De-facto research platform. (4 sources)
 - [[rosorin|ROSOrin]] — Hiwonder's Jetson Orin Nano educational mobile robot kit. (2 sources)
 - [[rosorin-pro|ROSOrin Pro]] — Hiwonder's 6-DOF arm + base variant of ROSOrin. (2 sources)
@@ -151,6 +164,7 @@
 - [[jepa-task-capabilities|JEPA task capabilities]] — reference index of seven task categories JEPA models demonstrate, mapped per-paper. (2026-05-08)
 - [[lewm-on-rosorin-pro-feasibility|LeWM on ROSOrin Pro — feasibility analysis]] — what's missing to deploy LeWM on Hiwonder ROSOrin Pro; realistic path; risks. (2026-05-08)
 - [[robot-platforms-comparison|Robot platforms — comparison]] — at-a-glance table of every robot entity in the wiki by tier / type / use; flags missing humanoids + cross-tier transfer gap. (2026-05-08)
+- [[humanoid-platforms-survey|Humanoid platforms survey]] — companion to robot-platforms-comparison focused on humanoids; 10 entities listed by tier; AI-strategy archetypes + price stratification. (2026-05-08)
 
 ### JEPA-related concepts/entities/sources to potentially expand
 - Metaworld — referenced by [[jepa-wms-paper|JEPA-WMs]] (42 tasks); deserves an entity page.
@@ -185,3 +199,5 @@
 - People pages (low priority remaining): Aaron Edsinger, Mahmoud Assran, Alexander Khazatsky, Pulkit Agrawal, Pieter Abbeel, Cheng Chi, Seungjae Lee — surfacing from DROID + RUM + V-JEPA + RUM-paper ingest. ([[yann-lecun|Yann LeCun]], [[adrien-bardes|Adrien Bardes]], [[basile-terver|Basile Terver]], [[sergey-levine|Sergey Levine]], [[chelsea-finn|Chelsea Finn]], [[lerrel-pinto|Lerrel Pinto]], [[yuke-zhu|Yuke Zhu]], [[karl-pertsch|Karl Pertsch]], [[mahi-shafiullah|Mahi Shafiullah]] now filed.)
 - Farama projects not ingested as standalone pages: Minari (offline RL dataset standard), Shimmy (DM Control / OpenSpiel bridge), MO-Gymnasium, MOMAland, MAgent2, MPE2, Minigrid, MiniWoB++, ViZDoom, ALE, HighwayEnv, Procgen2, Stable-Retro, Jumpy — listed in [[farama-projects-page|Farama Foundation Projects Page]]; promote to entity pages if they show up in a robotics paper. ([[metaworld|Metaworld]] now filed.)
 - Gymnasium-Robotics env families not ingested as standalone pages: Fetch, Shadow Hand, Maze (Ant/Point), Adroit (Door/Hammer/Pen/Relocate — staple in D4RL offline RL eval), Franka Kitchen (multi-task kitchen), MaMuJoCo (multi-agent locomotion). Promote when referenced.
+- Humanoids not yet filed: AGIBOT humanoid hardware (A2/X1/X2 — [[agibot|company]] is filed), Fourier GR-1/GR-2, LimX CL-2/CL-3, Booster T1, EngineAI PM01 (Chinese affordable). PAL TIAGo/TALOS, Pepper, Robotis OP3/DARwIn-MINI, Sanctuary Phoenix, Kawasaki Kaleido, AIST HRP-5P, Toyota T-HR3 (research / educational). See [[humanoid-platforms-survey|humanoid-platforms-survey]] for landscape context.
+- Boston Dynamics Spot — quadruped reference platform; no entity page ([[atlas|Atlas]] is filed).

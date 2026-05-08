@@ -64,13 +64,12 @@ Same pattern — when a paper says "real-robot manipulation" without further qua
 
 Worth flagging robot platforms that show up in adjacent literature but don't have entity pages here yet:
 
-- **iRobot Create 3** — base of TurtleBot 4; no entity page.
-- **Boston Dynamics Atlas / Spot** — humanoid / quadruped reference platforms; no entity pages (they're occasionally referenced via [[nvidia-groot|GR00T]] and humanoid-VLA context but not directly).
-- **Unitree H1 / G1, Tesla Optimus, AGIBOT humanoid line** — humanoid platforms that VLA papers like [[nvidia-groot|GR00T]] target; not yet ingested.
+- **Boston Dynamics Spot** — quadruped reference platform (no entity page; [[atlas|Atlas]] is filed).
 - **Pi (Physical Intelligence) hardware** — already in known gaps as needing a primary source.
 - **ALOHA / ViperX bimanual setup** — Stanford bimanual teleop platform; referenced indirectly via Chelsea Finn but no entity page.
 - **xArm 6** (UFactory's 6-DOF cousin to xArm 7) — sometimes cited as a cheaper alternative.
 - **UR5 / UR10 / UR16** (Universal Robots) — collaborative arms common in industrial settings; not yet appearing in our literature.
+- **Humanoids** — see the dedicated [[humanoid-platforms-survey|Humanoid platforms survey]] for that landscape; 10 humanoid entities filed there.
 
 ## Sources used in this synthesis
 

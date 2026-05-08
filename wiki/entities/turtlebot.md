@@ -15,7 +15,7 @@ status: stub
 - **TurtleBot 1** (2010, Willow Garage) — Kobuki-style differential-drive base + Asus Xtion / Kinect + netbook compute.
 - **TurtleBot 2** (2012, Yujin Robot) — Kobuki base; long-running standard for ROS 1 education.
 - **TurtleBot 3** (2017, Robotis) — three variants: **Burger** (smallest), **Waffle**, **Waffle Pi** (Raspberry Pi compute). LDS-01 LiDAR + OpenCR control board.
-- **TurtleBot 4** (2022, Clearpath/iRobot) — iRobot Create 3 base + Raspberry Pi 4B + RPLIDAR + OAK-D camera. ROS 2-native.
+- **TurtleBot 4** (2022, Clearpath/iRobot) — [[irobot-create-3|iRobot Create 3]] base + Raspberry Pi 4B + RPLIDAR + OAK-D camera. ROS 2-native.
 
 > [!note] Generation-specific specs
 > Different TurtleBot generations have very different sensor / compute / footprint configurations. When a paper or curriculum says "TurtleBot," it's worth confirming the version. The most commonly cited contemporary configurations are TurtleBot 3 Waffle Pi (low-end) and TurtleBot 4 (modern).
