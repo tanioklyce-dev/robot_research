@@ -172,3 +172,15 @@ Append-only chronological record of wiki events. Each entry begins with `## [YYY
 - New entity: [[mujoco|MuJoCo]] — the physics engine itself (was a 110-mention gap). 7 source pages reference it; entity covers `mujoco` vs `mujoco-py` vs MJX vs MJCF, history (Roboti → DeepMind 2021), and ecosystem role.
 - Qualified the speculative "single-process CPU MuJoCo" claim on [[gymnasium-robotics|Gymnasium-Robotics]] with a `> [!note]` callout — the docs root didn't actually state CPU-only.
 - No broken wikilinks, no orphans, no contradictions surfaced.
+
+## [2026-05-07] synthesis | OpenUSD support across simulators
+- Filed [[openusd-support-across-simulators|OpenUSD support across simulators]] — reference catalog of which simulators consume USD natively (Isaac Sim/Lab, Genie Sim 3.0), via plugin (MuJoCo via MjcPhysics + mujoco-usd-converter), as substrate (Newton via newton-usd-schemas), or not at all (Genesis, ManiSkill/SAPIEN, Gymnasium-Robotics).
+- Companion to [[newton-openusd-substrate-convergence|Newton + OpenUSD — the substrate convergence]] (structural argument) and [[openusd|OpenUSD entity]] (format reference). Compiles the per-simulator answer into a single grep-able page.
+- Updated [[index|index.md]]: filed under Syntheses.
+
+## [2026-05-07] synthesis | Why JEPA research skips the simulator stack
+- Filed [[why-jepa-research-skips-the-simulator-stack|Why JEPA research skips the simulator stack]] — synthesis observing that V-JEPA 2 and LeWorldModel both avoid heavy agentic-robotics simulators (Isaac Lab, MuJoCo Playground, ManiSkill, RoboCasa, Genesis).
+- V-JEPA 2: internet video pretrain → real Droid teleop post-train → real Franka zero-shot eval (no sim anywhere). LeWM: trains/evals on PushT/cube/two-rooms/reacher (lightweight 2D/3D control benches, not real-robot sim).
+- Four plausible reasons: (1) JEPA's data thesis is observation-scale, internet video beats sim; (2) latent-space prediction sidesteps pixel-level sim-to-real gap; (3) Droid removes sim's data-multiplier role; (4) test-of-truth is real-robot zero-shot.
+- Caveats explicit: sample size of two; `stable-worldmodel` env zoo may extend further than ingested; future JEPA work may converge back into sim once it scales up.
+- Updated [[index|index.md]]: filed under Syntheses.
