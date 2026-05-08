@@ -23,6 +23,8 @@
 - [[nvidia-openusd-for-robotic-simulation|Using OpenUSD for Modular and Scalable Robotic Simulation]] — NVIDIA's robotics-USD position + roadmap. (2025-03-18)
 - [[nvidia-cad-to-usd-jt-workflows|Building CAD-to-USD Workflows with NVIDIA Omniverse]] — JT-to-USD pipeline, OpenUSD Exchange SDK. (2025-07-29)
 - [[source-robotics-urdf-mjcf-usd-comparison|URDF vs MJCF vs USD comparison]] — practitioner survey. (2026-03-13)
+- [[farama-projects-page|Farama Foundation Projects Page]] — index of 19 RL env / API standards (Gymnasium, PettingZoo, Minari, …). (2026)
+- [[gymnasium-robotics-docs|Gymnasium-Robotics Documentation]] — six MuJoCo env families (Fetch, Shadow Hand, Maze, Adroit, Franka Kitchen, MaMuJoCo). (2026)
 
 ## Entities
 
@@ -34,19 +36,26 @@
 - [[meta-fair|Meta FAIR]] — Yann LeCun's lab; JEPA research line. (1 source)
 - [[google-deepmind|Google DeepMind]] — MuJoCo, Newton co-development, MjcPhysics USD plugin. (3 sources)
 - [[mila|Mila]] — Quebec AI Institute; frequent JEPA collaborator. (2 sources) _stub_
+- [[farama-foundation|Farama Foundation]] — non-profit; took over OpenAI gym → Gymnasium; 19 RL projects. (2 sources)
 - [[hillbot|Hillbot]] — UCSD spinoff that maintains ManiSkill. (1 source) _stub_
 - [[disney-research|Disney Research]] — Newton co-developer with NVIDIA + DeepMind. (2 sources) _stub_
 
 ### Simulators / frameworks
 - [[nvidia-isaac-sim|NVIDIA Isaac Sim]] — Omniverse-based robotics simulator. (4 sources)
-- [[nvidia-isaac-lab|NVIDIA Isaac Lab]] — open-source learning framework on Isaac Sim. (3 sources)
+- [[nvidia-isaac-lab|NVIDIA Isaac Lab]] — open-source learning framework on Isaac Sim. (4 sources)
 - [[newton-physics-engine|Newton physics engine]] — Linux-Foundation, GPU-accelerated. (4 sources)
-- [[mujoco-playground|MuJoCo Playground]] — DeepMind's MJX-based learning framework. (3 sources)
+- [[mujoco|MuJoCo]] — DeepMind-maintained physics engine; substrate for Gymnasium-Robotics, MuJoCo Playground (via MJX), Adroit, Franka Kitchen, DM Control. (6 sources)
+- [[mujoco-playground|MuJoCo Playground]] — DeepMind's MJX-based learning framework. (4 sources)
 - [[genesis|Genesis]] — generative + ultra-fast physics engine. (2 sources)
 - [[agibot-genie-sim|AGIBOT Genie Sim 3.0]] — open embodied-AI sim on Isaac Sim. (2 sources)
 - [[robocasa|RoboCasa]] — household manipulation benchmark (RoboCasa365 at ICLR 2026). (1 source)
 - [[maniskill|ManiSkill]] — [[sapien|SAPIEN]]-based GPU-parallel manipulation benchmark. (1 source)
 - [[sapien|SAPIEN]] — UCSD robot simulation framework underlying ManiSkill. (1 source) _stub_
+- [[gymnasium-robotics|Gymnasium-Robotics]] — Farama's [[mujoco|MuJoCo]]-backed robotics envs (Fetch / Hand / Maze / Adroit / Franka Kitchen / MaMuJoCo). (2 sources)
+
+### RL API standards
+- [[gymnasium|Gymnasium]] — single-agent RL env API; OpenAI gym successor under Farama. (2 sources)
+- [[pettingzoo|PettingZoo]] — multi-agent RL env API. (2 sources) _stub_
 
 ### Robot platforms
 - [[stretch|Stretch]] — Hello Robot's mobile manipulator (Stretch 3). De-facto research platform. (3 sources)
@@ -120,3 +129,5 @@
 - Hiwonder vision/CV chapter (YOLOv11 + TensorRT) — could warrant its own concept/source page on a deeper ingest
 - HX-12H bus servo, COIN-D6 LiDAR, Deptrum Aurora930 depth camera, MPU6050 IMU — hardware-component pages on demand
 - People pages (low priority): Yann LeCun, Aaron Edsinger, Mahi Shafiullah, Yuke Zhu, Mahmoud Assran
+- Farama projects not ingested as standalone pages: Minari (offline RL dataset standard), Metaworld (meta-RL benchmark), Shimmy (DM Control / OpenSpiel bridge), MO-Gymnasium, MOMAland, MAgent2, MPE2, Minigrid, MiniWoB++, ViZDoom, ALE, HighwayEnv, Procgen2, Stable-Retro, Jumpy — listed in [[farama-projects-page|Farama Foundation Projects Page]]; promote to entity pages if they show up in a robotics paper.
+- Gymnasium-Robotics env families not ingested as standalone pages: Fetch, Shadow Hand, Maze (Ant/Point), Adroit (Door/Hammer/Pen/Relocate — staple in D4RL offline RL eval), Franka Kitchen (multi-task kitchen), MaMuJoCo (multi-agent locomotion). Promote when referenced.

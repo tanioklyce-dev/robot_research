@@ -14,7 +14,7 @@ Official documentation site (v0.3) for [[hello-robot|Hello Robot, Inc.]]'s [[str
 ## Key claims
 - Stretch 3 hardware: telescoping arm, mobile base, gripper, RealSense cameras, LiDAR; modular tool-changer ("Changing Tools").
 - Two software paths: Python via `stretch_body` (foundation of [[stretch-ai|stretch_ai]]) and ROS 2 (Nav2, perception, autonomy).
-- Simulation backends documented: [[mujoco-playground|MuJoCo]] (via "Stretch Mujoco" wrapper) and Gazebo.
+- Simulation backends documented: [[mujoco|MuJoCo]] (via "Stretch Mujoco" wrapper) and Gazebo.
 - First-class topics: battery care, calibration, ArUco markers, FUNMAP perception module, deep perception.
 - Copyright: Hello Robot Inc. 2020–2025.
 - The docs landing page **does not mention LLMs, VLAs, or agentic AI** — that lives in the separate [[stretch-ai|stretch_ai]] repository.
@@ -23,7 +23,7 @@ Official documentation site (v0.3) for [[hello-robot|Hello Robot, Inc.]]'s [[str
 - [[hello-robot|Hello Robot]]
 - [[stretch|Stretch]]
 - [[stretch-ai|stretch_ai]]
-- [[mujoco-playground|MuJoCo]]
+- [[mujoco|MuJoCo]]
 
 ## Concepts touched
 - Mobile manipulation

@@ -17,7 +17,7 @@ Practical practitioner-oriented comparison of the three dominant robot descripti
 
 | | URDF | MJCF | USD |
 |---|---|---|---|
-| Origin | ROS | MuJoCo physics engine | Pixar / NVIDIA Omniverse |
+| Origin | ROS | [[mujoco|MuJoCo]] physics engine | Pixar / NVIDIA Omniverse |
 | Technology | XML | XML | Scene graph |
 | Core purpose | Robot kinematics description | Physics simulation | General scene representation |
 
@@ -39,6 +39,7 @@ The article notes URDF "is often converted into simulator-specific formats" but 
 
 ## Entities mentioned
 - [[openusd|OpenUSD]]
+- [[mujoco|MuJoCo]]
 - (URDF, MJCF — concepts not yet stubbed in this wiki)
 
 ## Concepts touched

@@ -13,7 +13,7 @@ Project page for [[genesis|Genesis]], a generative and universal physics engine 
 
 ## Key claims
 - Headline benchmark: 43 million FPS simulating a Franka arm on a single RTX 4090.
-- Claims 10–80× faster than Isaac Gym/Sim/Lab and MuJoCo MJX without sacrificing fidelity.
+- Claims 10–80× faster than Isaac Gym/Sim/Lab and [[mujoco|MuJoCo]] MJX without sacrificing fidelity.
 - Pythonic API; lightweight install.
 - Includes a photorealistic renderer.
 - Native generative simulation: a [[vla-models|VLM]]-based agent uses simulator APIs as tools to build 4D worlds from natural-language descriptions.
@@ -21,6 +21,7 @@ Project page for [[genesis|Genesis]], a generative and universal physics engine 
 
 ## Entities mentioned
 - [[genesis|Genesis]]
+- [[mujoco|MuJoCo]]
 
 ## Concepts touched
 - Generative simulation

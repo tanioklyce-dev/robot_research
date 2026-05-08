@@ -9,10 +9,10 @@ tags: [mujoco, mjx, sim-to-real, gpu, robot-learning]
 ---
 
 ## Summary
-ArXiv paper introducing [[mujoco-playground|MuJoCo Playground]], an open-source framework for robot learning built on MuJoCo MJX, with end-to-end support for vision-based policy training and sim-to-real transfer. Demonstrated at RSS 2025.
+ArXiv paper introducing [[mujoco-playground|MuJoCo Playground]], an open-source framework for robot learning built on [[mujoco|MuJoCo]] MJX, with end-to-end support for vision-based policy training and sim-to-real transfer. Demonstrated at RSS 2025.
 
 ## Key claims
-- Built on MJX (MuJoCo's JAX-based GPU implementation).
+- Built on MJX ([[mujoco|MuJoCo]]'s JAX-based GPU implementation).
 - Supports quadrupeds, humanoids, dexterous hands, and robotic arms in a unified API.
 - Achieves zero-shot sim-to-real transfer from both state and pixel inputs.
 - Integrates the open-source Madrona batch GPU renderer for vision-based RL on a single GPU.
@@ -21,6 +21,7 @@ ArXiv paper introducing [[mujoco-playground|MuJoCo Playground]], an open-source 
 
 ## Entities mentioned
 - [[mujoco-playground|MuJoCo Playground]]
+- [[mujoco|MuJoCo]]
 - [[google-deepmind|Google DeepMind]]
 - [[newton-physics-engine|Newton physics engine]]
 

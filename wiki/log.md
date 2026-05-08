@@ -149,3 +149,26 @@ Append-only chronological record of wiki events. Each entry begins with `## [YYY
 - Updated [[leworldmodel-paper|LeWorldModel Paper]]: added `code` and `project_page` frontmatter; resolved the "code/website URLs missing" open question; added a Code & artifacts section.
 - Updated [[leworldmodel|LeWorldModel]]: added Code section + howto link; bumped sources 1 → 2.
 - Updated [[index|index.md]]: filed howto under Syntheses.
+
+## [2026-05-07] update | LeWorldModel howto: install gotchas added
+- Installed and verified `quentinll/lewm-pusht` end-to-end on RTX 5070 / WSL2 / Python 3.10.
+- Updated [[leworldmodel-howto|LeWorldModel — train and run howto]] with a Gotchas section covering four real snags: gym 0.21.0 PEP 440 metadata, box2d-py SWIG dep, datasets resolved to 1.1.1, and the README conversion script's missing `_target_` filter.
+- Expanded the "use pretrained" section with the actual HF→`_object.ckpt` conversion script + the `strip_target` fix.
+
+## [2026-05-07] ingest | Farama Foundation Projects Page
+- Source: [[farama-projects-page|Farama Foundation Projects Page]] (https://farama.org/projects).
+- New entities (focused scope): [[farama-foundation|Farama Foundation]], [[gymnasium|Gymnasium]], [[pettingzoo|PettingZoo]], [[gymnasium-robotics|Gymnasium-Robotics]].
+- Cross-referenced gym/gymnasium gotchas in [[leworldmodel-howto|LeWM howto]] to the new Gymnasium entity.
+- Deferred: Minari, Metaworld, Shimmy, MO-Gymnasium, MOMAland, MAgent2, MPE2, Minigrid, MiniWoB++, ViZDoom, ALE, HighwayEnv, Procgen2, Stable-Retro, Jumpy — listed in index "Known gaps" with the source page as the canonical reference.
+
+## [2026-05-07] ingest | Gymnasium-Robotics Documentation
+- Source: [[gymnasium-robotics-docs|Gymnasium-Robotics Documentation]] (https://robotics.farama.org/).
+- Expanded [[gymnasium-robotics|Gymnasium-Robotics]] from stub to real entity: confirmed MuJoCo backend (new bindings, not legacy mujoco-py), enumerated all six env families (Fetch, Shadow Hand, Maze, Adroit, Franka Kitchen, MaMuJoCo), added install snippet.
+- Bumped source counts: gymnasium-robotics 1→2, gymnasium 1→2, farama-foundation 1→2.
+- Added six env families to "Known gaps" for on-demand promotion (Adroit + Franka Kitchen most likely to surface, given D4RL / RoboCasa365 evaluation traditions).
+
+## [2026-05-07] lint | Source-count drift fixes + MuJoCo entity
+- Fixed source counts: [[leworldmodel|LeWorldModel]] 2→1 (synthesis pages don't count per schema); [[pettingzoo|PettingZoo]] 1→2; [[mujoco-playground|MuJoCo Playground]] 3→5; [[nvidia-isaac-lab|NVIDIA Isaac Lab]] 3→4. Index updated to match.
+- New entity: [[mujoco|MuJoCo]] — the physics engine itself (was a 110-mention gap). 7 source pages reference it; entity covers `mujoco` vs `mujoco-py` vs MJX vs MJCF, history (Roboti → DeepMind 2021), and ecosystem role.
+- Qualified the speculative "single-process CPU MuJoCo" claim on [[gymnasium-robotics|Gymnasium-Robotics]] with a `> [!note]` callout — the docs root didn't actually state CPU-only.
+- No broken wikilinks, no orphans, no contradictions surfaced.
