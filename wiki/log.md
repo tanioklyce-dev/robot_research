@@ -318,3 +318,11 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - All 11 entity stubs marked _stub_ — none has a primary source ingested. Anchored in general knowledge with explicit "no primary source" callouts.
 - Updated [[robot-platforms-comparison|robot-platforms-comparison]] synthesis: removed humanoids gap entry (now redirects to humanoid-platforms-survey).
 - Index: new "Humanoids" subsection under Robot platforms; iRobot Create 3 added under Robot platforms; humanoid-platforms-survey filed under Syntheses; Known gaps cleaned of filed entities; new gaps added (AGIBOT humanoid hardware, Fourier GR-1/2, LimX CL-2/3, Booster T1, EngineAI PM01, PAL TIAGo/TALOS, Pepper, Robotis OP3, Sanctuary Phoenix, Kawasaki Kaleido, HRP-5P, Toyota T-HR3).
+
+## [2026-05-08] synthesis | Household robot decision — Stretch vs Unitree G1
+- Filed [[household-robot-decision-stretch-vs-g1|Household robot decision — Stretch vs Unitree G1]] in response to user buying-decision query: research-grade robot for home navigation + floor pickup + dishes + cans.
+- Verdict: Stretch wins decisively. Three reasons: (1) exact use case is published academic research ([[robot-utility-models|RUM]] hit 90% on 3 of the 4 task categories across 2,950 real-home rollouts); (2) bundled software stack ([[stretch-ai|stretch_ai]] LLM agent, mapping, manipulation, navigation); (3) safety/reliability — wheeled bases don't fall.
+- Honest about ceiling: tasks 1–2 mostly solved out-of-the-box; task 3 (dishes) is partially feasible with DIY data; task 4 (can opening) is beyond both 2026 platforms regardless of choice.
+- G1 framed as wrong tool *for this use case* — right tool for bipedal-humanoid research, not household chores.
+- Cost: ~$25k Stretch 3 vs ~$30–45k for fully-equipped G1; the headline ~$16k G1 number is misleading once you spec up to match manipulation capability.
+- Updated [[index|index.md]]: filed under Syntheses.

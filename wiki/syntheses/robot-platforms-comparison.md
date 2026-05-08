@@ -12,14 +12,14 @@ A reference list of robot platforms with entity pages in this wiki, organized by
 
 ## At a glance
 
-| Robot | Tier | Type | Compute | Arm DOF | Mobility | Primary use here |
-|---|---|---|---|---|---|---|
-| [[franka-panda\|Franka Panda]] | Research | Tabletop manipulator | External GPU | 7 | None | DROID, V-JEPA 2, V-JEPA 2.1, JEPA-WMs, RUM cross-embodiment. The default real-robot arm. |
-| [[xarm-7\|xArm 7]] | Commercial | Tabletop manipulator | External | 7 | None | RUM cross-embodiment transfer target (~10pt drop vs Stretch). |
-| [[stretch\|Stretch]] | Research | Mobile manipulator | Onboard (NUC + RealSense) | 1 (telescoping) | Diff-drive | RUM zero-shot generalist policies; stretch_ai LLM agent. |
-| [[rosorin-pro\|ROSOrin Pro]] | Educational | Mobile manipulator | Jetson Orin Nano | 6 (HX-12H servos) | Diff/Ackermann | OpenClaw LLM-agent framework; LeWM-feasibility candidate. |
-| [[rosorin\|ROSOrin]] | Educational | Mobile robot (no arm) | Jetson Orin Nano | 0 | Diff/Ackermann | LLM-agent curriculum (cloud + offline). |
-| [[turtlebot\|TurtleBot]] | Educational | Mobile robot (no arm) | Raspberry Pi (gen 4) | 0 | Diff-drive | Reference / comparison point — not used directly in any wiki source. |
+| Robot                          | Tier        | Type                  | Compute                   | Arm DOF           | Mobility       | Primary use here                                                                         |
+| ------------------------------ | ----------- | --------------------- | ------------------------- | ----------------- | -------------- | ---------------------------------------------------------------------------------------- |
+| [[franka-panda\|Franka Panda]] | Research    | Tabletop manipulator  | External GPU              | 7                 | None           | DROID, V-JEPA 2, V-JEPA 2.1, JEPA-WMs, RUM cross-embodiment. The default real-robot arm. |
+| [[xarm-7\|xArm 7]]             | Commercial  | Tabletop manipulator  | External                  | 7                 | None           | RUM cross-embodiment transfer target (~10pt drop vs Stretch).                            |
+| [[stretch\|Stretch]]           | Research    | Mobile manipulator    | Onboard (NUC + RealSense) | 1 (telescoping)   | Diff-drive     | RUM zero-shot generalist policies; stretch_ai LLM agent.                                 |
+| [[rosorin-pro\|ROSOrin Pro]]   | Educational | Mobile manipulator    | Jetson Orin Nano          | 6 (HX-12H servos) | Diff/Ackermann | OpenClaw LLM-agent framework; LeWM-feasibility candidate.                                |
+| [[rosorin\|ROSOrin]]           | Educational | Mobile robot (no arm) | Jetson Orin Nano          | 0                 | Diff/Ackermann | LLM-agent curriculum (cloud + offline).                                                  |
+| [[turtlebot\|TurtleBot]]       | Educational | Mobile robot (no arm) | Raspberry Pi (gen 4)      | 0                 | Diff-drive     | Reference / comparison point — not used directly in any wiki source.                     |
 
 ## By tier
 
