@@ -32,6 +32,9 @@ Top-down 2D view of a square workspace. Three things on screen:
 
 Image resolution is typically 96×96 (canonical [[diffusion-policy|Diffusion Policy]] / IBC variant) or 224×224 (some world-model variants). The `stable-worldmodel` PushT shipped with [[leworldmodel|LeWM]] uses image observations.
 
+> [!tip] See it in action
+> The [LeWM project page](https://le-wm.github.io/) hosts GIFs of LeWM planning on PushT: success rollouts (`pusht_1_half.gif`, `pusht_2_half.gif`), a failure case (`pusht_3_fail_half.gif`), and a latent-space visualization (`pusht_viz_lewm.gif`). The success videos show side-by-side panels — planning rollout (left) vs visual goal image (right). This is the closest reference to what Project 1 (the [[lewm-hello-world-project-scope|LeWM hello world scope]]) reproduces.
+
 ### Observation space
 - **Image variant** — RGB rendering of the scene. Used by world-model papers ([[leworldmodel-paper|LeWM]], [[dino-wm|DINO-WM]]).
 - **State variant** — end-effector xy + T-block xy + T-block orientation angle. Used by some BC baselines.

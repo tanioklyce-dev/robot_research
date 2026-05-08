@@ -355,3 +355,7 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Added "Concrete mechanics" section to [[pusht|PushT entity]]: visual scene (gray T, green target, blue end-effector circle), observation variants (image vs state), 2D continuous action space, episode structure (IoU > 0.95 success), why-it's-hard (rotational asymmetry + no regrasping + position precision), dataset shape.
 - Linked from [[lewm-hello-world-project-scope|LeWM hello world project scope]] as prerequisite reading before Phase 1.
 - Bumped `updated` date on the entity. No change to source count (no new sources ingested).
+
+## [2026-05-08] expand | PushT entity — video link
+- Added a "See it in action" callout to [[pusht|PushT entity]] linking the [LeWM project page](https://le-wm.github.io/) GIFs (success rollouts, failure case, latent-space viz). LeWM-on-PushT specifically — closest reference to what Project 1 reproduces.
+- Verified via WebFetch: page hosts `pusht_1_half.gif`, `pusht_2_half.gif`, `pusht_3_fail_half.gif`, `pusht_viz_lewm.gif`. Diffusion Policy project page checked too but didn't surface direct video URLs at the standard paths.
