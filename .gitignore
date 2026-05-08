@@ -6,14 +6,12 @@
 Thumbs.db
 
 # Obsidian volatile state — per-machine workspace + cache.
-# Vault config (app.json, appearance.json, core-plugins.json) is kept tracked.
-# Same rules at both the wiki/ vault root and the project root, since
-# Obsidian may be opened against either location.
+# Vault config (app.json, appearance.json, core-plugins.json) is kept tracked
+# at wiki/.obsidian/, which is the canonical vault. A project-root .obsidian/
+# is treated as accidental (Obsidian opened against the wrong directory) and
+# ignored entirely.
 wiki/.obsidian/workspace.json
 wiki/.obsidian/workspace-mobile.json
 wiki/.obsidian/cache
 wiki/.obsidian/plugins/*/data.json
-/.obsidian/workspace.json
-/.obsidian/workspace-mobile.json
-/.obsidian/cache
-/.obsidian/plugins/*/data.json
+/.obsidian/
