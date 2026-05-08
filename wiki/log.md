@@ -121,3 +121,18 @@ Append-only chronological record of wiki events. Each entry begins with `## [YYY
 - Synthesis count: 1 (survey, updated) + 4 (new) = 5 on file.
 - No content contradictions detected between the four new syntheses or between them and the simulator survey. The standing GR00T N1.6 GA / N1.7 EA inconsistency is referenced consistently across pages.
 - Standing TBD items unchanged: Pi (Physical Intelligence), Skild AI, Drake internals, classic VLA benchmarks (LIBERO / RoboMimic). The four new syntheses surface these gaps from new angles but do not fill them.
+
+## [2026-05-07] research | OpenUSD as a robotics scene/physics format
+- User asked to research OpenUSD as a scene-description format for simulators, then asked to also explore SolidWorks-to-OpenUSD conversion. Web search (4 queries) + WebFetch (4 successful + 1 403) + 1 follow-up search.
+- **Sources ingested** (4): [[openusd-rigid-body-physics-proposal|OpenUSD Rigid Body Physics Proposal]] (openusd.org, 2020 v1.0), [[nvidia-openusd-for-robotic-simulation|Using OpenUSD for Modular and Scalable Robotic Simulation]] (NVIDIA blog 2025-03-18 by Aaron Luk, Pomi Lee, Renato Gasoto), [[source-robotics-urdf-mjcf-usd-comparison|URDF vs MJCF vs USD comparison]] (Source Robotics blog 2026-03-13), [[nvidia-cad-to-usd-jt-workflows|Building CAD-to-USD Workflows with NVIDIA Omniverse]] (NVIDIA blog 2025-07-29 by Justine Lin).
+- **New entity page** (1): [[openusd|OpenUSD]] — covers the format, the UsdPhysics schema, MjcPhysics + newton-usd-schemas extensions, and CAD ingestion paths.
+- **Updated existing**: [[google-deepmind|Google DeepMind]] (sources 2→3; documented authorship of the `MjcPhysics` USD plugin and `mujoco-usd-converter`); [[newton-physics-engine|Newton physics engine]] (sources 3→4; added the `newton-usd-schemas` repo and the schema-promotion-into-UsdPhysics design); [[newton-openusd-substrate-convergence|Newton + OpenUSD substrate convergence synthesis]] (substantial enrichment — added the "OpenUSD as physics schema" section, the "DeepMind authors USD plugins" section, the "CAD ingestion — the upstream half" section, and updated the convergence table to include physics-schema and CAD-ingestion rows).
+- **Key new claims captured**:
+  - **UsdPhysics is robotics-aware in the standard**. `PhysicsArticulationRootAPI` distinguishes "floating articulations" (mobile/aerial robots) from "fixed articulations" (industrial arms bolted down) — robotics jargon explicitly recognized in the OpenUSD spec.
+  - **DeepMind ships USD schema plugins**, not just consumes USD. `MjcPhysics` is a DeepMind-maintained USD plugin authoring MuJoCo-specific solver attributes onto USD prims.
+  - **`newton-usd-schemas` is a "proving ground"** — physics parameters generalizable across two Newton solvers may be promoted upstream into `UsdPhysics`. v0.2.0 released **2026-05-07** (the same day as this ingest), 52 commits, 7 releases — actively maintained.
+  - **`mujoco-usd-converter`** lives in the `newton-physics` GitHub org, hosting the cross-stack bridge in vendor-neutral governance.
+  - **CAD-to-USD geometry preservation is good; kinematic-joint preservation is the open question**. None of the ingested CAD sources documents automated SolidWorks-mate-to-`PhysicsJoint` conversion.
+  - **Isaac Sim 5.0 / Omniverse Kit SDK 107 → OpenUSD 24.05**.
+- **Open questions logged**: ABB/FANUC/KUKA/Yaskawa GTC 2026 adoption needs a primary source; URDF/MJCF/SDFormat → OpenUSD conceptual mapping shipping status; engineering.com 403 redo.
+- **Skipped sources** (deliberately): Okino SolidWorks-to-USD page (thin), newton-usd-schemas GitHub README (folded into the Newton entity page).

@@ -19,6 +19,10 @@
 - [[nvidia-newton-contact-rich-manipulation-blog|NVIDIA Newton Contact-Rich Manipulation Blog]] — Newton 1.0 GA at GTC 2026 inside Isaac Lab. (2026)
 - [[leworldmodel-paper|LeWorldModel Paper]] — first stable end-to-end JEPA from raw pixels. (2026-03)
 - [[top-10-physical-ai-models-2026|Top 10 Physical AI Models 2026]] — VLA model survey including GR00T N1.7 EA. (2026-04)
+- [[openusd-rigid-body-physics-proposal|OpenUSD Rigid Body Physics Proposal]] — UsdPhysics whitepaper, robotics schemas in the standard. (2020 / 26.05 docs)
+- [[nvidia-openusd-for-robotic-simulation|Using OpenUSD for Modular and Scalable Robotic Simulation]] — NVIDIA's robotics-USD position + roadmap. (2025-03-18)
+- [[nvidia-cad-to-usd-jt-workflows|Building CAD-to-USD Workflows with NVIDIA Omniverse]] — JT-to-USD pipeline, OpenUSD Exchange SDK. (2025-07-29)
+- [[source-robotics-urdf-mjcf-usd-comparison|URDF vs MJCF vs USD comparison]] — practitioner survey. (2026-03-13)
 
 ## Entities
 
@@ -54,6 +58,9 @@
 - [[stretch-ai|stretch_ai]] — Hello Robot's open-source Python stack with an LLM agent. (4 sources)
 - [[openclaw|OpenClaw]] — Hiwonder's manipulation-aware LLM-agent framework for ROSOrin Pro. (1 source)
 
+### Formats / standards
+- [[openusd|OpenUSD]] — open scene-description + robotics physics-schema layer (UsdPhysics, MjcPhysics, NewtonSceneAPI). (4 sources)
+
 ### World models
 - [[nvidia-cosmos|NVIDIA Cosmos]] — world foundation model + simulation engine (generative video). (4 sources)
 - [[genie-envisioner|Genie Envisioner]] — AGIBOT's world simulator GE-Sim2 (generative video). (4 sources)
@@ -87,6 +94,11 @@
 - [[sim-heavy-vs-real-data-paths|Sim-heavy vs real-data paths to generalist policies]] — three-path comparison: synthetic teleop, real demos, observation pretraining. (2026-05-07)
 
 ## Known gaps / TBD
+- ABB / FANUC / KUKA / Yaskawa industrial-OEM Isaac-Sim adoption (referenced from a GTC 2026 search snippet; needs a primary-source ingest to file properly)
+- URDF, MJCF, SDFormat — entity / concept pages; currently referenced as bare text from the OpenUSD discussion
+- MjcPhysics USD plugin — could become its own entity if it accumulates more references
+- newton-usd-schemas repo — could become its own entity if it accumulates more references
+- Engineering.com CAD-to-USD article — 403'd on fetch; revisit with a different access path
 - Drake (TRI/MIT) entity page
 - Gazebo (the simulator itself) — referenced by both Hello Robot and Hiwonder docs; deserves its own entity page distinct from MuJoCo Playground
 - Webots, CoppeliaSim, PyBullet entity pages (low priority — not agentic-robotics center of gravity)

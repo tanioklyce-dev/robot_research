@@ -3,20 +3,25 @@ title: Newton + OpenUSD — the substrate convergence
 type: synthesis
 created: 2026-05-07
 updated: 2026-05-07
-tags: [newton, openusd, physics-engine, isaac-lab, mujoco-playground, linux-foundation, infrastructure]
+tags: [newton, openusd, usdphysics, mjcphysics, physics-engine, isaac-lab, mujoco-playground, linux-foundation, infrastructure, cad]
 ---
 
 # Newton + OpenUSD — the substrate convergence
 
-A short synthesis on a structurally important fact buried in the simulator landscape: the GPU physics engine and the scene-description format underneath the two leading agentic-robotics training stacks are converging on a **vendor-neutral, cross-stack substrate**. Specifically, **[[newton-physics-engine|Newton]]** (the physics engine) and **OpenUSD** (the scene format) are now plug-compatible into both [[nvidia-isaac-lab|NVIDIA Isaac Lab]] and DeepMind's [[mujoco-playground|MuJoCo Playground]]. That is unusual; traditionally each simulator stack ships its own physics engine and scene format, which locks researchers in. This page works through what is converging, why it matters, and what is still uncertain.
+A synthesis on a structurally important fact buried in the simulator landscape: the GPU physics engine and the scene-description format underneath the two leading agentic-robotics training stacks are converging on a **vendor-neutral, cross-stack substrate**. **[[newton-physics-engine|Newton]]** (the physics engine) and **[[openusd|OpenUSD]]** (the scene format and physics-schema layer) are now plug-compatible into both [[nvidia-isaac-lab|NVIDIA Isaac Lab]] and DeepMind's [[mujoco-playground|MuJoCo Playground]]. That is unusual; traditionally each simulator stack ships its own physics engine and scene format, which locks researchers in. This page works through what is converging, why it matters, and what is still uncertain.
+
+> [!note] Updated 2026-05-07 with deeper OpenUSD detail
+> The first draft of this synthesis treated OpenUSD as a "scene format" — a useful but narrow framing. Subsequent ingest of the [[openusd-rigid-body-physics-proposal|UsdPhysics whitepaper]] and the [[nvidia-openusd-for-robotic-simulation|NVIDIA OpenUSD-for-robotic-simulation blog]] established that OpenUSD ships **formal robotics physics schemas** (articulations, joint drives, collision filtering) and that [[google-deepmind|DeepMind]] is **authoring** USD schema plugins (`MjcPhysics`), not merely consuming them. Both facts strengthen the convergence argument.
 
 ## What is actually converging
 
 | Layer | Old state | New state (2026) |
 |---|---|---|
 | Physics engine | PhysX (Isaac Sim only), MuJoCo (DeepMind only), Bullet, Drake — each silo | [[newton-physics-engine|Newton]] — pluggable into both Isaac Lab and MuJoCo Playground |
-| Scene format | Per-stack URDF / MJCF / proprietary | OpenUSD as a shared scene-description target |
+| Scene format | Per-stack URDF / MJCF / proprietary | [[openusd|OpenUSD]] as a shared scene-description target |
+| Physics schema | Per-engine internal | `UsdPhysics` baseline + per-solver USD plugins (`MjcPhysics`, `newton-usd-schemas`) |
 | GPU compute kernel | PhysX (CUDA), MJX (JAX), Warp, custom | NVIDIA Warp (Newton's compute kernel) plus MJX continuing |
+| CAD ingestion | Per-vendor exporters | OpenUSD Exchange SDK + Omniverse Connectors (SolidWorks, CATIA, AutoCAD, Creo, JT) |
 | Governance | Vendor-controlled | Linux Foundation, with [[nvidia|NVIDIA]] + [[google-deepmind|Google DeepMind]] + [[disney-research|Disney Research]] as co-developers |
 
 Two sources establish the cross-stack pluggability directly:
@@ -24,7 +29,27 @@ Two sources establish the cross-stack pluggability directly:
 - The [[nvidia-newton-physics-engine-developer-page|NVIDIA Newton Physics Engine Developer Page]] explicitly states Newton is "designed as a pluggable backend for both [[nvidia-isaac-lab|NVIDIA Isaac Lab]] and [[mujoco-playground|MuJoCo Playground]]."
 - The [[mujoco-playground-paper|MuJoCo Playground Paper]] (DeepMind, RSS 2025) says Playground "optionally backends to [[newton-physics-engine|Newton]] in 2026."
 
-Both vendors confirm it from their own side.
+Both vendors confirm it from their own side. The [[nvidia-openusd-for-robotic-simulation|NVIDIA OpenUSD-for-robotic-simulation blog]] (Aaron Luk, Pomi Lee, Renato Gasoto, March 2025) is the third source — it confirms Isaac Sim 5.0 / Omniverse Kit 107 runs OpenUSD 24.05 and treats USD as the scene format underneath the entire physics stack.
+
+## OpenUSD as a robotics physics schema, not just a scene format
+
+The [[openusd-rigid-body-physics-proposal|UsdPhysics whitepaper]] (Apple + NVIDIA + Pixar, v1.0, 2020) establishes that OpenUSD ships **formal robotics physics schemas**, not just scene-description geometry:
+
+- **`PhysicsArticulationRootAPI`** marks the root of an articulated robot and explicitly distinguishes **floating articulations** (mobile / aerial robots) from **fixed articulations** (industrial arms bolted to the floor) — robotics jargon recognized in the open standard.
+- **Joint subtypes** (revolute, prismatic, fixed, spherical, distance) and **joint drives** (`stiffness * (targetPosition - p) + damping * (targetVelocity - v)`) cover the motor models robotics needs.
+- **Mass / inertia / collision-filtering APIs** complete the rigid-body specification.
+
+This matters for the convergence argument: OpenUSD isn't just a 3D file format that happens to be loaded by multiple simulators. It is a **standardized robotics-physics representation** that both stacks can write and read, with the schema work itself happening in the open. The schema bakes robotics concepts in at the foundation, not as a vendor add-on.
+
+## DeepMind authors USD schema plugins, not just consumes them
+
+The single most consequential update to this synthesis since the first draft: **`MjcPhysics` is a USD schema plugin maintained by [[google-deepmind|Google DeepMind]]**. It authors MuJoCo-specific solver attributes (integrator type, constraint solver algorithm, tolerance, contact settings) onto USD prims, allowing MuJoCo's solver-specific knowledge to live inside a USD scene.
+
+Equally important: **`newton-usd-schemas`** (Apache 2.0, Linux Foundation governance) defines `NewtonSceneAPI` and is explicitly designed as a **"proving ground"** — physically meaningful parameters generalizable across at least two Newton solvers may eventually be **promoted into upstream `UsdPhysics`**. v0.2.0 was released 2026-05-07 (the day this synthesis was filed); 52 commits and 7 releases indicate active work.
+
+There is also a concrete **`mujoco-usd-converter`** tool living in the `newton-physics` GitHub org. The bridge between MuJoCo's MJCF format and USD is being built **inside the Newton ecosystem** — i.e., the cross-stack bridge is hosted in the cross-vendor governance domain, not by either parent vendor.
+
+The combined picture: **DeepMind ships USD plugins for MuJoCo**, **NVIDIA + DeepMind + Disney govern Newton**, **Newton hosts the MuJoCo→USD converter**, and **Newton's own schemas are designed to feed back into Pixar's UsdPhysics base**. That is not "DeepMind tolerating USD"; it is DeepMind investing engineering in USD as cross-stack infrastructure.
 
 ## Why a shared physics substrate is structurally unusual
 
@@ -42,16 +67,30 @@ The same [[nvidia-newton-physics-engine-developer-page|developer page]] flags "L
 
 ## Why OpenUSD is the other half
 
-Newton handles dynamics; OpenUSD (the Universal Scene Description format originated by Pixar) handles geometry, scene composition, and asset interchange. Both NVIDIA's Omniverse / Isaac Sim line and DeepMind's MJX-based stack now consume OpenUSD as a scene format. **Same scene, same physics, different training framework** is the new shape.
+OpenUSD handles geometry, scene composition, and asset interchange — and, via `UsdPhysics`, the formal robotics physics schemas described above. Both NVIDIA's Omniverse / Isaac Sim line and DeepMind's MJX-based stack now consume OpenUSD as a scene format and contribute to its physics-schema layer. **Same scene, same physics schema, same Newton runtime, different training framework** is the new shape.
 
-URDF and MJCF are not going away — they are still the dominant robot-description formats today — but for the multi-asset, multi-robot, scene-composition problems that VLA training demands, OpenUSD is the format both stacks are converging on.
+URDF and MJCF are not going away. The [[source-robotics-urdf-mjcf-usd-comparison|practitioner survey]] establishes that the three formats stratify by use case — URDF for ROS / motion planning, MJCF for MuJoCo RL, USD for large environments and Omniverse-modern simulators — and the [[nvidia-openusd-for-robotic-simulation|NVIDIA blog]] explicitly lists URDF / MJCF / SDFormat → OpenUSD conceptual mapping as **planned but unshipped** roadmap work. The convergence is happening at the physics-schema layer (`UsdPhysics` + per-solver plugins) and at the multi-asset scene-composition layer, while URDF and MJCF remain the dominant single-robot description formats above them.
+
+## CAD ingestion — the upstream half nobody else addresses
+
+Most of the simulator landscape ignores where assets come from. OpenUSD's third structural advantage is its position as **the target format for CAD-to-simulation pipelines**:
+
+- **NVIDIA's Omniverse Connector ecosystem** ships native connectors for SolidWorks, CATIA, AutoCAD, Creo. The [[nvidia-cad-to-usd-jt-workflows|JT pipeline blog]] documents the ISO-14306 Jupiter Tessellation case end-to-end: `omni.kit.converter.jt_core` + `omni.services.convert.cad`, built on the **OpenUSD Exchange SDK**, with `omni.scene.optimizer` producing 82% vertex reduction in their example.
+- **Okino PolyTrans|CAD+DCC** is a third-party SolidWorks→USD converter (via STEP AP204 / IGES BREP intermediates), giving an option outside the NVIDIA ecosystem.
+
+> [!warning] Joint / kinematic survival through CAD→USD is the open question
+> Sources cover geometry, hierarchy, and metadata preservation well. None explicitly addresses how SolidWorks mates → `PhysicsJoint` types is automated. The implication is that for robot-arm import, joint topology is **re-authored** inside USD/Isaac Sim after geometry import, despite Omniverse marketing claims about "eliminating manual URDF authoring." This is a meaningful caveat for any team planning a CAD-only-to-trained-policy pipeline.
+
+The implication for the convergence argument: even if the simulators converge on Newton+USD, the **CAD-to-physics-ready-asset workflow remains lossy** in 2026. That is the single biggest unresolved gap in the substrate story.
 
 ## Implications for policy researchers and tool builders
 
 - **Cross-stack policy mobility is on the table.** A research group training in Isaac Lab can plausibly evaluate against MuJoCo Playground (or vice versa) without re-authoring physics or scenes. This was not possible across competing stacks before 2026.
 - **Vendor-neutral substrate, vendor-specific framework.** The interesting ML differentiation moves *up the stack* — to environment APIs, learning frameworks ([[nvidia-isaac-lab|Isaac Lab]] vs Playground vs ManiSkill), and model libraries ([[nvidia-groot|GR00T]], [[vla-models|VLAs]]). The physics layer becomes commoditized infrastructure, like LLVM for compilers or Linux for OSes.
+- **The schema-promotion path is the long-term moat-eraser.** Newton's `newton-usd-schemas` is explicitly designed so that cross-solver-meaningful parameters get promoted into upstream `UsdPhysics`. If that pipeline runs, vendor-specific physics customization becomes a *temporary* extension that the standard absorbs over time — the reverse of the historical pattern where vendors hoard extensions.
 - **The lock-in moves to assets and tooling.** Whichever stack has better robot models, better scene libraries, and better RL infrastructure wins — but the floor (physics + scene format) is shared.
 - **Genesis and other custom-physics simulators are now exceptions.** [[genesis|Genesis]] uses its own Python-first custom physics; [[maniskill|ManiSkill]] sits on [[sapien|SAPIEN]]. Both can still win on domain-specific advantages (Genesis's claimed 10–80× speedup, SAPIEN's manipulation-realism), but they now have to justify the *non-Newton* choice.
+- **CAD ingestion is the lossy upstream step.** The substrate convergence is real at the simulator layer; CAD-to-USD pipelines preserve geometry well but kinematic-joint authoring is still a manual step. Teams targeting full CAD-to-trained-policy automation should budget for this gap.
 
 ## What is still uncertain
 
@@ -63,15 +102,22 @@ URDF and MJCF are not going away — they are still the dominant robot-descripti
 - **Disney's actual contribution depth?** [[disney-research|The Disney Research entity page]] is a stub. The relationship is real (the developer page lists Disney as a co-developer) but the specific technical contributions Disney makes to Newton are not yet documented in the wiki.
 - **Closed engines still ship policies in production.** Tesla Optimus, Pi π0, Skild, and other closed teams use undisclosed in-house simulators. The Newton / OpenUSD convergence is in the *open* research stack; closed industry stacks are not visibly affected.
 - **GR00T version drift.** Sources reference both GR00T N1.6 GA ([[nvidia-newton-contact-rich-manipulation-blog|NVIDIA Newton Contact-Rich Manipulation Blog]]) and N1.7 Early Access ([[top-10-physical-ai-models-2026|Top 10 Physical AI Models 2026]]) as the current Newton/Isaac Lab-bundled VLA. This is the same standing inconsistency tracked in the simulator survey; not Newton-specific but worth noting whenever Newton is described in context.
+- **CAD mate → `PhysicsJoint` automation.** The biggest *practical* gap. None of the four ingested OpenUSD/CAD sources documents automated SolidWorks-mate-to-USD-joint conversion. If anyone ships this, it changes the robot-design-to-trained-policy timeline meaningfully.
+- **Will URDF / MJCF / SDFormat → OpenUSD conceptual mapping ship?** The [[nvidia-openusd-for-robotic-simulation|NVIDIA blog]] (March 2025) lists this as planned roadmap work. As of 2026-05 it is unclear whether the mapping is now shipped, partially shipped, or still aspirational. Worth a follow-up source on the next ingest.
 
 ## Sources used in this synthesis
 
 - [[nvidia-newton-physics-engine-developer-page|NVIDIA Newton Physics Engine Developer Page]]
 - [[nvidia-newton-contact-rich-manipulation-blog|NVIDIA Newton Contact-Rich Manipulation Blog]]
 - [[mujoco-playground-paper|MuJoCo Playground Paper]]
+- [[openusd-rigid-body-physics-proposal|OpenUSD Rigid Body Physics Proposal]]
+- [[nvidia-openusd-for-robotic-simulation|Using OpenUSD for Modular and Scalable Robotic Simulation]]
+- [[source-robotics-urdf-mjcf-usd-comparison|Robot Simulation File Formats — URDF vs MJCF vs USD]]
+- [[nvidia-cad-to-usd-jt-workflows|Building CAD-to-USD Workflows with NVIDIA Omniverse]]
 
 ## Related
 
+- [[openusd|OpenUSD]] — entity page covering the format, UsdPhysics schema, and per-solver extensions.
 - [[newton-physics-engine|Newton physics engine]] — entity page.
 - [[nvidia-isaac-lab|NVIDIA Isaac Lab]] / [[mujoco-playground|MuJoCo Playground]] — the two stacks converging on Newton.
 - [[simulators-for-agentic-robotics-2026|Simulators for agentic robotics — 2026 landscape]] — surveys the broader simulator field; this page zooms into one structural insight from it.
