@@ -2,6 +2,10 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-09] ingest | New Video Series: What Developers Need to Know About OpenUSD
+- Created [nvidia-openusd-developer-video-series](sources/nvidia-openusd-developer-video-series.md)
+- Updated [OpenUSD](entities/openusd.md): added Hydra pipeline section; bumped to 5 sources
+
 ## [2026-05-09] query | "What does 'Joint' refer to in JEPA?"
 - Updated [Joint-Embedding Predictive Architecture](concepts/jepa.md): added "What 'Joint' means" section explaining joint embedding, the shared-encoder design, and contrast with generative architectures.
 

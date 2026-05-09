@@ -3,8 +3,8 @@ title: OpenUSD
 type: entity
 subtype: format
 created: 2026-05-07
-updated: 2026-05-07
-sources: 4
+updated: 2026-05-09
+sources: 5
 tags: [openusd, scene-description, usdphysics, pixar, format, robotics]
 ---
 
@@ -49,6 +49,10 @@ OpenUSD is the target format for CAD-to-simulation pipelines:
 > [!warning] Joint / kinematic survival through CAD→USD is the open question
 > Sources cover geometry, hierarchy, and metadata preservation well. None explicitly addresses how SolidWorks mates → `PhysicsJoint` types is automated. The implication is that for robot-arm import, joint topology is **re-authored** inside USD/Isaac Sim after geometry import, despite Omniverse marketing claims.
 
+## Hydra pipeline
+
+The **Hydra** subsystem is OpenUSD's generalized scene graph processor. It decouples scene data from the rendering backend via **render delegates** — pluggable runtime interfaces that any renderer (rasterizer, path-tracer, neural renderer) can implement without coupling to a specific data layout ([NVIDIA OpenUSD Developer Video Series](../sources/nvidia-openusd-developer-video-series.md)). This is what allows Isaac Sim to switch between RTX path-tracing and rasterized rendering against the same USD scene, and what would allow a neural world-model renderer to consume USD scenes directly.
+
 ## Versions and tooling
 - **OpenUSD Core Specification 1.0** establishes baseline standards for SimReady assets.
 - **Isaac Sim 5.0** runs on Omniverse Kit SDK 107 → OpenUSD **24.05** ([NVIDIA OpenUSD-for-robotic-simulation blog](../sources/nvidia-openusd-for-robotic-simulation.md)).
@@ -75,6 +79,7 @@ The three are **not converging** at the description-format level; they stratify 
 - [Newton + OpenUSD — the substrate convergence](../syntheses/newton-openusd-substrate-convergence.md) — the synthesis on what this convergence means.
 
 ## Mentioned in
+- [New Video Series: What Developers Need to Know About OpenUSD](../sources/nvidia-openusd-developer-video-series.md)
 - [OpenUSD Rigid Body Physics Proposal](../sources/openusd-rigid-body-physics-proposal.md)
 - [Using OpenUSD for Modular and Scalable Robotic Simulation](../sources/nvidia-openusd-for-robotic-simulation.md)
 - [Robot Simulation File Formats — URDF vs MJCF vs USD](../sources/source-robotics-urdf-mjcf-usd-comparison.md)
