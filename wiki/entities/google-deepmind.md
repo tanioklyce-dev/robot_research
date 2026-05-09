@@ -3,9 +3,9 @@ title: Google DeepMind
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-05-07
-sources: 3
-tags: [google-deepmind, mujoco, newton, mjcphysics, openusd, robotics-research]
+updated: 2026-05-08
+sources: 5
+tags: [google-deepmind, mujoco, newton, mjcphysics, openusd, robotics-research, biomechanics, dmpo, acme]
 ---
 
 Google's AI research lab. Maintains MuJoCo and [MuJoCo Playground](mujoco-playground.md), co-developed the [Newton physics engine](newton-physics-engine.md) with [NVIDIA](nvidia.md) and [Disney Research](disney-research.md) under the Linux Foundation, and ships **`MjcPhysics`** — a USD schema plugin that brings MuJoCo solver parameters into [OpenUSD](openusd.md) scenes.
@@ -17,7 +17,14 @@ Google's AI research lab. Maintains MuJoCo and [MuJoCo Playground](mujoco-playgr
 - **`MjcPhysics` USD schema plugin** — MuJoCo-specific solver attributes (integrator, constraint solver algorithm, tolerance, contact settings) authored as USD prims. Concrete evidence that DeepMind is invested in [OpenUSD](openusd.md) as a cross-stack substrate, not just consuming it ([NVIDIA OpenUSD-for-robotic-simulation blog](../sources/nvidia-openusd-for-robotic-simulation.md)).
 - **`mujoco-usd-converter`** — MuJoCo-to-USD bridge tool hosted in the `newton-physics` GitHub org, used alongside `MjcPhysics` schemas.
 
+## Biological / biomechanical simulation
+- **Virtual Rodent** (Merel et al. 2020, ICLR) — anatomically detailed mouse body in MuJoCo, deep-RL imitation. Direct ancestor of flybody.
+- **[flybody](flybody.md)** (Vaxenburg et al. 2025, *Nature*) — *Drosophila* whole-body simulator co-developed with [HHMI Janelia](hhmi-janelia.md). DeepMind contributed Yuval Tassa (corresponding author, MuJoCo lead), Matthew Botvinick, Guido Novati, plus the DMPO + Acme + Reverb training stack. Released open-source (Apache-2.0).
+- **DMPO + Acme + Reverb** — DeepMind's standard distributed-RL stack, used by both virtual rodent and flybody.
+
 ## Mentioned in
 - [MuJoCo Playground Paper](../sources/mujoco-playground-paper.md)
 - [NVIDIA Newton Physics Engine Developer Page](../sources/nvidia-newton-physics-engine-developer-page.md)
 - [Using OpenUSD for Modular and Scalable Robotic Simulation](../sources/nvidia-openusd-for-robotic-simulation.md)
+- [flybody Paper](../sources/flybody-paper.md)
+- [flybody GitHub](../sources/flybody-github.md)

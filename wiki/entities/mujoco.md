@@ -3,9 +3,9 @@ title: MuJoCo
 type: entity
 subtype: physics-engine
 created: 2026-05-07
-updated: 2026-05-07
-sources: 7
-tags: [mujoco, physics-engine, deepmind, simulation]
+updated: 2026-05-08
+sources: 9
+tags: [mujoco, physics-engine, deepmind, simulation, biomechanics]
 ---
 
 **Multi-Joint dynamics with Contact** — physics engine optimized for articulated body dynamics with rich contact modelling. The default substrate for a large slice of the RL / robot-learning ecosystem (every Gymnasium-Robotics env, the original Adroit and Franka Kitchen benchmarks, DM Control, MuJoCo Playground, and many others). Now maintained as open-source by Google DeepMind.
@@ -20,6 +20,7 @@ tags: [mujoco, physics-engine, deepmind, simulation]
 - Physics backend under [MuJoCo Playground](mujoco-playground.md) (via MJX), [Gymnasium-Robotics](gymnasium-robotics.md) (via vanilla bindings), and Hello Robot's wrappers ([Hello Robot Stretch Documentation](../sources/hello-robot-stretch-docs.md)).
 - Targeted as a **pluggable backend** by [Newton](newton-physics-engine.md) alongside Isaac/PhysX — Newton is positioned as compatible with both MuJoCo Playground and [Isaac Lab](nvidia-isaac-lab.md) ([NVIDIA Newton Physics Engine Developer Page](../sources/nvidia-newton-physics-engine-developer-page.md)).
 - Compared against [Genesis](genesis.md), NVIDIA PhysX, and Newton across throughput / accuracy axes in multiple sources.
+- **Biomechanical-simulation carrier.** [flybody](flybody.md) (Vaxenburg et al. 2025, *Nature*) builds an anatomically detailed *Drosophila melanogaster* in vanilla MuJoCo with phenomenological fluid + adhesion forces — extending MuJoCo's reach beyond rigid-robot bodies into [biomechanical animal simulation](../concepts/biomechanical-simulation.md). Same pattern as DeepMind's earlier virtual rodent.
 
 ## History
 - Originally developed by Roboti LLC (Emo Todorov).
@@ -44,3 +45,5 @@ tags: [mujoco, physics-engine, deepmind, simulation]
 - [Genesis Project Page](../sources/genesis-project-page.md)
 - [LeWorldModel — train and run howto](../syntheses/leworldmodel-howto.md) (legacy `mujoco-py` install hazard)
 - [DINO-WM Paper](../sources/dino-wm-paper.md) — likely MuJoCo 2.1 backend per secondary research; project page silent on engine.
+- [flybody Paper](../sources/flybody-paper.md) — fly biomechanical sim built on vanilla MuJoCo.
+- [flybody GitHub](../sources/flybody-github.md)
