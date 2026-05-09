@@ -2,6 +2,10 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-09] query | Assistive robotics R&D landscape and JEPA applicability
+- Filed [Assistive robotics — R&D landscape and JEPA applicability](syntheses/assistive-robotics-research-landscape.md)
+- Synthesized from: assistive-robotics concept, ok-robot, robot-utility-models, stretch, jepa-task-capabilities, v-jepa-2, dino-wm, vla-jepa
+
 ## [2026-05-09] ingest | Learning Control-Oriented Dynamical Structure from Data (ICML 2023)
 - Created [learning-control-oriented-dynamical-structure](sources/learning-control-oriented-dynamical-structure.md) (arXiv 2302.02529)
 - New entity: [Navid Azizan](entities/navid-azizan.md) — connects to MIT drone adaptive control source

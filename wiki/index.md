@@ -286,6 +286,7 @@ Curated entry points across the wiki.
 - [LeWM hello world — Project 1 detailed scope](syntheses/lewm-hello-world-project-scope.md) — phase-by-phase plan for reproducing LeWM PushT, training from scratch, one-knob ablation. (2026-05-08)
 - [FRC simulation & AI landscape](syntheses/frc-simulation-and-ai-landscape.md) — what simulation programs FRC teams use for autonomous dev and AI training; three-tier analysis (trajectory planners / physics sims / ML frontier); Team 254 presentation deep-dive. (updated 2026-05-08)
 - [Whole-organism agentic AI](syntheses/whole-organism-agentic-ai.md) — brain (FlyWire connectome + LIF dynamics) + body (flybody MuJoCo) for *Drosophila*; first plausible end-to-end animal-scale agent; contrasts with robotics-flavoured agentic AI. (2026-05-08)
+- [Assistive robotics — R&D landscape and JEPA applicability](syntheses/assistive-robotics-research-landscape.md) — seven blocking problems, timeline table, active researchers (wiki + beyond), four independent-researcher actions, JEPA applicability analysis. (2026-05-09)
 
 ### JEPA-related concepts/entities/sources to potentially expand
 - Metaworld — referenced by [JEPA-WMs](sources/jepa-wms-paper.md) (42 tasks); deserves an entity page.
