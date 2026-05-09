@@ -2,6 +2,20 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-09] ingest | batch: ALE + LeWM GitHub + V-JEPA 2 GitHub + 3 secondary articles
+- Created [Arcade Learning Environment — Farama Project Page](sources/ale-farama.md)
+- Created [LeWorldModel GitHub](sources/lewm-github.md)
+- Created [V-JEPA 2 GitHub](sources/vjepa2-github.md)
+- Created [Towards AI — LeCun / AMI Labs](sources/towardsai-lecun-ami-labs.md) (secondary, provisional)
+- Created [MLWorks — LeWM Navigate the World](sources/medium-lewm-navigate-world.md) (secondary, paywalled)
+- Created [Towards Deep Learning — World Model Learns Physics](sources/towardsdeeplearning-world-model-physics.md) (secondary, paywalled)
+- New entity: [Arcade Learning Environment](entities/ale.md)
+- New entity: [AMI Labs](entities/ami-labs.md) (provisional — single secondary source)
+- Updated [Yann LeCun](entities/yann-lecun.md): noted reported departure from Meta + AMI Labs founding (hedged)
+- Updated [V-JEPA 2](entities/v-jepa-2.md): added variant family table (ViT-L/H/g → ViT-B–G), 80M–2B param range, V-JEPA 2.1 training additions, dual license
+- Updated [LeWorldModel](entities/leworldmodel.md): added architecture component list (ViT+AR Predictor+action encoder+SIGReg), baseline list (PLDM/LeJEPA/IVL/IQL/GCBC/DINO-WM), MIT license
+- Updated [Farama Foundation](entities/farama-foundation.md): ALE now links to entity page
+
 ## [2026-05-09] ingest | New Video Series: What Developers Need to Know About OpenUSD
 - Created [nvidia-openusd-developer-video-series](sources/nvidia-openusd-developer-video-series.md)
 - Updated [OpenUSD](entities/openusd.md): added Hydra pipeline section; bumped to 5 sources

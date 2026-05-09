@@ -3,8 +3,8 @@ title: LeWorldModel
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-05-08
-sources: 3
+updated: 2026-05-09
+sources: 5
 tags: [leworldmodel, lewm, jepa, world-model, mila, end-to-end, sigreg]
 ---
 
@@ -16,6 +16,19 @@ LeWorldModel (LeWM) — a JEPA-style world model from [Mila](mila.md), NYU, Sams
   2. **SIGReg** — projects latent embeddings onto random univariate directions; runs a normality test on each; aggregates statistics to enforce isotropic Gaussian latents. Provides provable anti-collapse.
 - Reduces tunable loss hyperparameters from **6 to 1** vs. PLDM (the prior end-to-end JEPA baseline).
 - **15M parameters**; single GPU; hours of training.
+
+## Architecture components (from GitHub `jepa.py`)
+Four modules ([le-wm GitHub](../sources/lewm-github.md)):
+1. **ViT encoder** — raw pixel frames → latent `z`
+2. **AR Predictor** — autoregressively predicts next-step latent
+3. **Action encoder + projector MLPs** — encode actions into predictor input space
+4. **Gaussian regularizer (SIGReg)** — enforces isotropic Gaussian latents; the single hyperparameter
+
+## Baselines compared against
+PLDM, LeJEPA, IVL, IQL, GCBC, [DINO-WM](dino-wm.md) — checkpoints on Google Drive.
+
+## License
+MIT.
 
 ## Headline claims
 - **Plans up to 48× faster** than foundation-model-based world models (e.g. DINO-WM).
@@ -44,3 +57,6 @@ LeWorldModel (LeWM) — a JEPA-style world model from [Mila](mila.md), NYU, Sams
 ## Mentioned in
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md)
 - [LeWorldModel — train and run howto](../syntheses/leworldmodel-howto.md)
+- [le-wm GitHub](../sources/lewm-github.md)
+- [MLWorks — Navigate the World from Raw Pixels](../sources/medium-lewm-navigate-world.md)
+- [Towards Deep Learning — This World Model Learns Physics by Watching Videos](../sources/towardsdeeplearning-world-model-physics.md)

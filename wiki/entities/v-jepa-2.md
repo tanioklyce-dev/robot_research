@@ -3,12 +3,22 @@ title: V-JEPA 2
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-05-08
-sources: 4
+updated: 2026-05-09
+sources: 5
 tags: [v-jepa-2, jepa, world-model, meta-fair, video, action-conditioned, franka]
 ---
 
 [Meta FAIR](meta-fair.md)'s flagship JEPA-style world model (June 2025). Two stages: **V-JEPA 2** (1B-param ViT-g video encoder pretrained on 1M+ hours of internet video) and **V-JEPA 2-AC** (300M-param action-conditioned predictor post-trained on 62 hr of Droid robot data). Notable for **zero-shot pick-and-place on Franka arms in new labs** via image-goal MPC. **Successor: [V-JEPA 2.1](../sources/v-jepa-2-1-paper.md)** (March 2026) — same FAIR group, "dense features" focus, +20pt real-Franka grasping per secondary research.
+
+## Variant family ([V-JEPA 2 GitHub](../sources/vjepa2-github.md))
+
+| Variant | ViT backbone | Resolution | Notes |
+|---|---|---|---|
+| V-JEPA 2 | ViT-L/H/g | 256–384px | Original video pretraining |
+| V-JEPA 2.1 | ViT-B through ViT-G | 384px | Dense features; adds dense predictive loss + deep self-supervision + multi-modal tokenizers |
+| V-JEPA 2-AC | — | — | Action-conditioned post-training on top of V-JEPA 2 |
+
+**Parameter range across variants: 80M to 2B.** Pretrained checkpoints on PyTorch Hub and HuggingFace. License: MIT (majority) + Apache 2.0 (utility modules).
 
 ## Architecture
 - **V-JEPA 2 encoder**: ViT-g, 1B parameters. Pretrained with visual mask denoising in representation space (not pixel space). EMA target encoder, L1 loss. 22M videos, 1M+ hours, 3D-RoPE positions, progressive resolution.
@@ -36,3 +46,4 @@ First public demonstration of a **latent-prediction world model** ([JEPA](../con
 ## Mentioned in
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
 - [V-JEPA 2.1 Paper](../sources/v-jepa-2-1-paper.md)
+- [V-JEPA 2 GitHub](../sources/vjepa2-github.md)

@@ -53,12 +53,18 @@ Curated entry points across the wiki.
 - [NVIDIA Newton Physics Engine Developer Page](sources/nvidia-newton-physics-engine-developer-page.md) — Newton landing page; Linux-Foundation governance. (2026)
 - [NVIDIA Newton Contact-Rich Manipulation Blog](sources/nvidia-newton-contact-rich-manipulation-blog.md) — Newton 1.0 GA at GTC 2026 inside Isaac Lab. (2026)
 - [LeWorldModel Paper](sources/leworldmodel-paper.md) — first stable end-to-end JEPA from raw pixels. (2026-03)
+- [LeWorldModel GitHub (lucas-maes/le-wm)](sources/lewm-github.md) — MIT-licensed; ViT+AR Predictor+SIGReg; HuggingFace checkpoints for 4 envs; baseline list. (2026)
+- [V-JEPA 2 GitHub (facebookresearch/vjepa2)](sources/vjepa2-github.md) — variant family (ViT-B→g, 80M–2B), V-JEPA 2.1 training additions, dual license. (2026)
+- [MLWorks — LeWorldModel: Navigate the World from Raw Pixels](sources/medium-lewm-navigate-world.md) — secondary blog post (paywalled). (2026-03-30)
+- [Towards Deep Learning — This World Model Learns Physics by Watching Videos](sources/towardsdeeplearning-world-model-physics.md) — secondary blog post (paywalled). (2026-03-24)
+- [Towards AI — LeCun / AMI Labs / 3 World Models](sources/towardsai-lecun-ami-labs.md) — secondary journalism; reports LeCun founded AMI Labs with $1.03B (provisional). (2026-04-27)
 - [Top 10 Physical AI Models 2026](sources/top-10-physical-ai-models-2026.md) — VLA model survey including GR00T N1.7 EA. (2026-04)
 - [New Video Series: What Developers Need to Know About OpenUSD](sources/nvidia-openusd-developer-video-series.md) — NVIDIA blog; four core USD features incl. Hydra pipeline. (2024-04-11)
 - [OpenUSD Rigid Body Physics Proposal](sources/openusd-rigid-body-physics-proposal.md) — UsdPhysics whitepaper, robotics schemas in the standard. (2020 / 26.05 docs)
 - [Using OpenUSD for Modular and Scalable Robotic Simulation](sources/nvidia-openusd-for-robotic-simulation.md) — NVIDIA's robotics-USD position + roadmap. (2025-03-18)
 - [Building CAD-to-USD Workflows with NVIDIA Omniverse](sources/nvidia-cad-to-usd-jt-workflows.md) — JT-to-USD pipeline, OpenUSD Exchange SDK. (2025-07-29)
 - [URDF vs MJCF vs USD comparison](sources/source-robotics-urdf-mjcf-usd-comparison.md) — practitioner survey. (2026-03-13)
+- [Arcade Learning Environment — Farama Project Page](sources/ale-farama.md) — Farama's Atari 2600 RL benchmark; 100+ games, 23 multi-agent envs, Gymnasium API. (Unknown)
 - [Farama Foundation Projects Page](sources/farama-projects-page.md) — index of 19 RL env / API standards (Gymnasium, PettingZoo, Minari, …). (2026)
 - [Gymnasium-Robotics Documentation](sources/gymnasium-robotics-docs.md) — six MuJoCo env families (Fetch, Shadow Hand, Maze, Adroit, Franka Kitchen, MaMuJoCo). (2026)
 - [DINO-WM Paper](sources/dino-wm-paper.md) — DINOv2-feature world model + zero-shot planning; lightweight MuJoCo benches. (2024-11)
@@ -88,7 +94,8 @@ Curated entry points across the wiki.
 - [Meta FAIR](entities/meta-fair.md) — Yann LeCun's lab; JEPA research line. (6 sources)
 - [Google DeepMind](entities/google-deepmind.md) — MuJoCo, Newton co-development, MjcPhysics USD plugin. (5 sources)
 - [Mila](entities/mila.md) — Quebec AI Institute; frequent JEPA collaborator. (2 sources) _stub_
-- [Farama Foundation](entities/farama-foundation.md) — non-profit; took over OpenAI gym → Gymnasium; 19 RL projects. (2 sources)
+- [Farama Foundation](entities/farama-foundation.md) — non-profit; took over OpenAI gym → Gymnasium; 19 RL projects. (3 sources)
+- [AMI Labs](entities/ami-labs.md) — Yann LeCun's reported post-Meta AI lab; $1.03B seed round (single secondary source, provisional). (1 source)
 - [Hillbot](entities/hillbot.md) — UCSD spinoff that maintains ManiSkill. (1 source) _stub_
 - [Disney Research](entities/disney-research.md) — Newton co-developer with NVIDIA + DeepMind. (2 sources) _stub_
 - [FIRST Robotics Competition](entities/first-robotics-competition.md) — world's leading high-school robotics competition; ~3,700 teams, 30+ countries. (4 sources)
@@ -109,6 +116,7 @@ Curated entry points across the wiki.
 - [ManiSkill](entities/maniskill.md) — [SAPIEN](entities/sapien.md)-based GPU-parallel manipulation benchmark. (2 sources)
 - [SAPIEN](entities/sapien.md) — UCSD robot simulation framework underlying ManiSkill. (1 source) _stub_
 - [Gymnasium-Robotics](entities/gymnasium-robotics.md) — Farama's [MuJoCo](entities/mujoco.md)-backed robotics envs (Fetch / Hand / Maze / Adroit / Franka Kitchen / MaMuJoCo). (2 sources)
+- [Arcade Learning Environment](entities/ale.md) — Farama's Atari 2600 RL benchmark; 100+ single-agent + 23 multi-agent envs; Gymnasium API. (1 source)
 - [Metaworld](entities/metaworld.md) — Stanford/Berkeley meta-RL benchmark; 50 manipulation tasks on simulated Sawyer; staple across V-JEPA-line work. (1 source)
 - [PushT](entities/pusht.md) — 2D T-block pushing benchmark; default lightweight bench across LeWM / DINO-WM / JEPA-WMs. (3 sources)
 - [PointMaze](entities/pointmaze.md) — 2D point-mass maze navigation; default lightweight nav bench across LeWM / DINO-WM / JEPA-WMs. (0 sources)
@@ -172,8 +180,8 @@ Curated entry points across the wiki.
 ### World models
 - [NVIDIA Cosmos](entities/nvidia-cosmos.md) — world foundation model + simulation engine (generative video). (5 sources)
 - [Genie Envisioner](entities/genie-envisioner.md) — AGIBOT's world simulator GE-Sim2 (generative video). (4 sources)
-- [V-JEPA 2](entities/v-jepa-2.md) — Meta FAIR's JEPA world model (latent prediction); zero-shot Franka. (4 sources)
-- [LeWorldModel](entities/leworldmodel.md) — first stable end-to-end JEPA from raw pixels. (3 sources)
+- [V-JEPA 2](entities/v-jepa-2.md) — Meta FAIR's JEPA world model (latent prediction); zero-shot Franka. (5 sources)
+- [LeWorldModel](entities/leworldmodel.md) — first stable end-to-end JEPA from raw pixels. (5 sources)
 - [JEPA-WMs](entities/jepa-wms.md) — FAIR (Terver et al.); first JEPA-for-robotics paper using RoboCasa. (1 source)
 - [DINO-WM](entities/dino-wm.md) — NYU + FAIR; frozen DINOv2 features + learned predictor; zero-shot planning. (5 sources)
 - [DINO-world](entities/dino-world.md) — FAIR DINOv2 video world model ("Back to the Features"). (1 source)
@@ -196,7 +204,7 @@ Curated entry points across the wiki.
 - [MimicGen](entities/mimicgen.md) — synthetic-demo expansion tool used by RoboCasa365. (1 source) _stub_
 
 ### People
-- [Yann LeCun](entities/yann-lecun.md) — Meta VP / NYU; Turing Award 2018; architect of the JEPA program. Senior on 6 wiki sources. (6 sources)
+- [Yann LeCun](entities/yann-lecun.md) — NYU; Turing Award 2018; architect of the JEPA program; reported founder of AMI Labs (Apr 2026, provisional). (7 sources)
 - [Adrien Bardes](entities/adrien-bardes.md) — FAIR researcher; co-senior on V-JEPA 2, V-JEPA 2.1, JEPA-WMs. The FAIR-side champion of the V-JEPA program. (3 sources)
 - [Basile Terver](entities/basile-terver.md) — researcher (FAIR-affiliated, inferred); bread-crumb across DINO-world → JEPA-WMs lineage. (2 sources)
 - [Sergey Levine](entities/sergey-levine.md) — UC Berkeley EECS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)
@@ -271,7 +279,7 @@ Curated entry points across the wiki.
 - Hiwonder vision/CV chapter (YOLOv11 + TensorRT) — could warrant its own concept/source page on a deeper ingest
 - HX-12H bus servo, COIN-D6 LiDAR, Deptrum Aurora930 depth camera, MPU6050 IMU — hardware-component pages on demand
 - People pages (low priority remaining): Aaron Edsinger, Mahmoud Assran, Alexander Khazatsky, Pulkit Agrawal, Pieter Abbeel, Cheng Chi, Seungjae Lee — surfacing from DROID + RUM + V-JEPA + RUM-paper ingest. ([Yann LeCun](entities/yann-lecun.md), [Adrien Bardes](entities/adrien-bardes.md), [Basile Terver](entities/basile-terver.md), [Sergey Levine](entities/sergey-levine.md), [Chelsea Finn](entities/chelsea-finn.md), [Lerrel Pinto](entities/lerrel-pinto.md), [Yuke Zhu](entities/yuke-zhu.md), [Karl Pertsch](entities/karl-pertsch.md), [Mahi Shafiullah](entities/mahi-shafiullah.md) now filed.)
-- Farama projects not ingested as standalone pages: Minari (offline RL dataset standard), Shimmy (DM Control / OpenSpiel bridge), MO-Gymnasium, MOMAland, MAgent2, MPE2, Minigrid, MiniWoB++, ViZDoom, ALE, HighwayEnv, Procgen2, Stable-Retro, Jumpy — listed in [Farama Foundation Projects Page](sources/farama-projects-page.md); promote to entity pages if they show up in a robotics paper. ([Metaworld](entities/metaworld.md) now filed.)
+- Farama projects not ingested as standalone pages: Minari (offline RL dataset standard), Shimmy (DM Control / OpenSpiel bridge), MO-Gymnasium, MOMAland, MAgent2, MPE2, Minigrid, MiniWoB++, ViZDoom, HighwayEnv, Procgen2, Stable-Retro, Jumpy — listed in [Farama Foundation Projects Page](sources/farama-projects-page.md); promote to entity pages if they show up in a robotics paper. ([Metaworld](entities/metaworld.md) and [ALE](entities/ale.md) now filed.)
 - Gymnasium-Robotics env families not ingested as standalone pages: Fetch, Shadow Hand, Maze (Ant/Point), Adroit (Door/Hammer/Pen/Relocate — staple in D4RL offline RL eval), Franka Kitchen (multi-task kitchen), MaMuJoCo (multi-agent locomotion). Promote when referenced.
 - Humanoids not yet filed: AGIBOT humanoid hardware (A2/X1/X2 — [company](entities/agibot.md) is filed), Fourier GR-1/GR-2, LimX CL-2/CL-3, Booster T1, EngineAI PM01 (Chinese affordable). PAL TIAGo/TALOS, Pepper, Robotis OP3/DARwIn-MINI, Sanctuary Phoenix, Kawasaki Kaleido, AIST HRP-5P, Toyota T-HR3 (research / educational). See [humanoid-platforms-survey](syntheses/humanoid-platforms-survey.md) for landscape context.
 - Boston Dynamics Spot — quadruped reference platform; no entity page ([Atlas](entities/atlas.md) is filed).
