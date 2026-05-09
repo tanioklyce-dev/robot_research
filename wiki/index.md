@@ -26,6 +26,12 @@ Curated entry points across the wiki.
 - [JEPA project ladder for ROSOrin Pro](syntheses/jepa-project-ladder-rosorin-pro.md) — six-rung educational/research project ladder for learning JEPA on ROSOrin Pro hardware.
 - [LeWM on ROSOrin Pro — feasibility analysis](syntheses/lewm-on-rosorin-pro-feasibility.md) — feasibility analysis for deploying LeWM on ROSOrin Pro.
 
+**Whole-organism agentic AI (fruit fly)**
+- [Whole-organism agentic AI](syntheses/whole-organism-agentic-ai.md) — brain ([FlyWire](entities/flywire.md)) + body ([flybody](entities/flybody.md)) for *Drosophila*: the first plausible end-to-end animal-scale agent loop.
+- [flybody](entities/flybody.md) — HHMI Janelia + DeepMind whole-body fly physics in MuJoCo.
+- [FlyWire](entities/flywire.md) — complete adult *Drosophila* connectome.
+- [Biomechanical simulation](concepts/biomechanical-simulation.md) and [Connectome](concepts/connectome.md) — concept pages.
+
 ## Sources (chronological)
 - [Robot Utility Models Project Page](sources/robot-utility-models-website.md) — NYU/Meta zero-shot generalist policies for Stretch. (2024-09)
 - [Robot Utility Models Paper](sources/robot-utility-models-paper.md) — full RUM paper (arxiv 2409.05865); architecture, ablations, cross-embodiment numbers. (2024-09)
@@ -61,6 +67,9 @@ Curated entry points across the wiki.
 - [FRC KitBot 2026](sources/frc-kitbot-2026.md) — official KitBot resource page; AM14U6 chassis, Java code, CAD, multilingual docs. (2026-01)
 - [Team 254: The Next Revolution — AI in FRC](sources/team-254-ai-in-frc-presentation.md) — 2026 Championship Conference presentation; Claude Code, wpilib-agent-tools, closed-loop agent workflows. (2026-05-04)
 - [Team 254 Website](sources/team-254-website.md) — official site; robot history, programs, technical resources. (2026)
+- [Berkeley News — researchers simulate an entire fly brain on a laptop](sources/berkeley-fly-brain-news.md) — Phil Shiu's leaky-integrate-and-fire simulation of the full FlyWire connectome. (2024-10-02)
+- [flybody Paper — Vaxenburg et al. 2025, Nature](sources/flybody-paper.md) — anatomically detailed *Drosophila* whole-body MuJoCo simulator + DMPO-trained walking & vision-guided flight controllers. (2025-04-23)
+- [flybody GitHub (TuragaLab/flybody)](sources/flybody-github.md) — Apache-2.0 release: body XML, dm_control tasks, Ray-distributed DMPO training. (2024–2025)
 
 ## Entities
 
@@ -78,6 +87,7 @@ Curated entry points across the wiki.
 - [FIRST Robotics Competition](entities/first-robotics-competition.md) — world's leading high-school robotics competition; ~3,700 teams, 30+ countries. (2 sources)
 - [AndyMark](entities/andymark.md) — major FRC vendor; AM14U6 chassis, field elements, FUEL scoring elements. (2 sources)
 - [Team 254: The Cheesy Poofs](entities/team-254.md) — elite FRC team (2022 World Champions); 2026 "AI in FRC" presentation; Claude Code + wpilib-agent-tools. (2 sources)
+- [HHMI Janelia Research Campus](entities/hhmi-janelia.md) — HHMI's pure-research lab; Turaga lab leads flybody; *Drosophila* neuroscience & connectomics anchor. (1 source)
 
 ### Simulators / frameworks
 - [NVIDIA Isaac Sim](entities/nvidia-isaac-sim.md) — Omniverse-based robotics simulator. (4 sources)
@@ -98,6 +108,8 @@ Curated entry points across the wiki.
 - [LIBERO](entities/libero.md) — lifelong-learning manipulation benchmark; de-facto VLA-eval bench (Spatial / Object / Goal / 100 task families). (1 source)
 - [SimplerEnv](entities/simplerenv.md) — Sapien-adjacent mid-weight sim positioned as real-world-correlation harness; used by VLA-JEPA. (1 source)
 - [Habitat](entities/habitat.md) — Meta FAIR embodied-AI sim (navigation + manipulation in photorealistic 3D scenes); legacy substrate. (1 source)
+- [flybody](entities/flybody.md) — HHMI Janelia + Google DeepMind anatomically detailed *Drosophila* body in MuJoCo (102 DoFs, walking + flight); Apache-2.0. (2 sources)
+- [NeuroMechFly](entities/neuromechfly.md) — anatomically detailed *Drosophila* walking-and-grooming body sim (Lobato-Rios 2022; v2 Wang-Chen 2024); flybody predecessor. (1 source)
 
 ### RL API standards
 - [Gymnasium](entities/gymnasium.md) — single-agent RL env API; OpenAI gym successor under Farama. (2 sources)
@@ -139,6 +151,10 @@ Curated entry points across the wiki.
 
 ### Datasets
 - [DROID](entities/droid.md) — Distributed Robot Interaction Dataset; 350 hr / 76k traj / 564 scenes of Franka Panda teleop; the dominant real-robot dataset in JEPA-for-robotics work. (2 sources)
+
+### Model organisms / connectomes
+- [Drosophila melanogaster](entities/drosophila.md) — fruit fly; canonical "whole-organism AI" target; substrate for both [FlyWire](entities/flywire.md) and [flybody](entities/flybody.md). (2 sources)
+- [FlyWire](entities/flywire.md) — international consortium + dataset for the complete adult *Drosophila* brain connectome (139,255 neurons, ~50M synapses; *Nature* 2024). (1 source)
 
 ### Vision foundation models
 - [DINOv2](entities/dinov2.md) — Meta FAIR self-supervised ViT (142M images, ViT-S/B/L/g); substrate for DINO-WM, DINO-world, JEPA-WMs. Apache 2.0. (3 sources)
@@ -190,6 +206,8 @@ Curated entry points across the wiki.
 - [LLM-agent architecture](concepts/llm-agent-architecture.md) — LLM-emits-tool-calls control pattern. (3 sources)
 - [AprilTags](concepts/apriltags.md) — visual fiducial markers for 6-DOF pose estimation; standard in FRC and research robotics. (1 source)
 - [Learned latent space](concepts/latent-space.md) — vector space where a trained encoder represents inputs; substrate for JEPA prediction, DINOv2 features, VQ-BeT codebook. (7 sources)
+- [Biomechanical simulation](concepts/biomechanical-simulation.md) — physics-based simulation of an animal body; lineage *C. elegans* → Hydra → virtual rodent → flybody. (2 sources)
+- [Connectome](concepts/connectome.md) — complete wiring diagram of a nervous system; *C. elegans* → fly hemibrain → FlyWire → mouse → human. (2 sources)
 
 ## Syntheses
 - [Simulators for agentic robotics — 2026 landscape](syntheses/simulators-for-agentic-robotics-2026.md) — full landscape survey, 6 categories. (updated 2026-05-07)
@@ -209,6 +227,7 @@ Curated entry points across the wiki.
 - [JEPA project ladder for ROSOrin Pro](syntheses/jepa-project-ladder-rosorin-pro.md) — six-rung educational/research project ladder for learning JEPA on ROSOrin Pro hardware. (2026-05-08)
 - [LeWM hello world — Project 1 detailed scope](syntheses/lewm-hello-world-project-scope.md) — phase-by-phase plan for reproducing LeWM PushT, training from scratch, one-knob ablation. (2026-05-08)
 - [FRC simulation & AI landscape](syntheses/frc-simulation-and-ai-landscape.md) — what simulation programs FRC teams use for autonomous dev and AI training; three-tier analysis (trajectory planners / physics sims / ML frontier); Team 254 presentation deep-dive. (updated 2026-05-08)
+- [Whole-organism agentic AI](syntheses/whole-organism-agentic-ai.md) — brain (FlyWire connectome + LIF dynamics) + body (flybody MuJoCo) for *Drosophila*; first plausible end-to-end animal-scale agent; contrasts with robotics-flavoured agentic AI. (2026-05-08)
 
 ### JEPA-related concepts/entities/sources to potentially expand
 - Metaworld — referenced by [JEPA-WMs](sources/jepa-wms-paper.md) (42 tasks); deserves an entity page.
@@ -252,3 +271,7 @@ Curated entry points across the wiki.
 - Chief Delphi — FRC community forum; primary knowledge-sharing platform. Entity page on demand.
 - ~~Team 254~~ — now filed as [Team 254: The Cheesy Poofs](entities/team-254.md).
 - MathWorks / MATLAB — FRC sponsor; provides MATLAB + Simulink for autonomous algorithm design. Entity page on demand.
+- Shiu et al. *Nature* 2024 fly-brain paper, Lappalainen et al. 2024, Mi et al. 2022 — referenced via [Berkeley News](sources/berkeley-fly-brain-news.md) and [flybody Paper](sources/flybody-paper.md); not yet primary-source pages. See [Whole-organism agentic AI](syntheses/whole-organism-agentic-ai.md) for what's missing.
+- Phil Shiu, Yuval Tassa, Srinivas Turaga, Josh Merel — referenced across the fly-biology thread; entity pages on demand.
+- Virtual rodent (Merel et al. 2020, ICLR) — direct DeepMind ancestor of [flybody](entities/flybody.md); entity page on demand.
+- *C. elegans* / Hydra body sims (Boyle 2012, Wang 2023) — earlier whole-organism biomechanics; one-line references in flybody-paper.

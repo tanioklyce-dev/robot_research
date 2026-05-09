@@ -390,3 +390,13 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Answered conceptually + grounded in wiki entities (DINOv2, JEPA, LeWM, VQ-BeT).
 - Filed as new concept page [Learned latent space](concepts/latent-space.md) — pulls together the latent-space thread that runs across 7 sources but had no dedicated page.
 - Updated index.md.
+
+## [2026-05-08] ingest | Fly-biology thread — flybody + FlyWire (whole-organism agentic AI)
+- Added two raw papers: `raw/fly_simulation_s41586-024-07763-9.pdf` (Dorkenwald et al. FlyWire connectome) and `raw/fly_simulation_s41586-025-09029-4.pdf` (Vaxenburg et al. flybody).
+- Created 3 source pages: [flybody Paper](sources/flybody-paper.md) (Vaxenburg et al. 2025, *Nature* — 102-DoF *Drosophila* body in MuJoCo, DMPO walking + flight + vision-guided navigation), [flybody GitHub](sources/flybody-github.md) (Apache-2.0; body XML, dm_control tasks, Ray DMPO), and [Berkeley News fly brain](sources/berkeley-fly-brain-news.md) (Phil Shiu's LIF simulation of the full FlyWire connectome on a laptop).
+- Created 5 entity pages: [flybody](entities/flybody.md), [FlyWire](entities/flywire.md), [Drosophila melanogaster](entities/drosophila.md), [HHMI Janelia](entities/hhmi-janelia.md), [NeuroMechFly](entities/neuromechfly.md).
+- Created 2 concept pages: [Biomechanical simulation](concepts/biomechanical-simulation.md) (worm → Hydra → virtual rodent → fly lineage) and [Connectome](concepts/connectome.md) (synaptic-resolution wiring diagrams).
+- Created synthesis [Whole-organism agentic AI](syntheses/whole-organism-agentic-ai.md) — argues that brain (FlyWire + Shiu LIF dynamics) and body (flybody) sides have both reached open form for the same animal at full scale; contrasts whole-organism agentic AI vs robotics-flavoured agentic AI; identifies brain↔body integration, real muscle actuation, and proprioceptors as the open gaps.
+- Touched existing entities: [MuJoCo](entities/mujoco.md), [Google DeepMind](entities/google-deepmind.md), [DM Control](entities/dm-control.md) (each picked up references to the fly thread).
+- Updated [index.md](index.md): new "Whole-organism agentic AI" Highlights section, three sources in chronological list, new "Model organisms / connectomes" entity category, flybody + NeuroMechFly under Simulators, HHMI Janelia under Companies, two concept pages, one synthesis, deferred follow-ups (Shiu paper, Lappalainen 2024, Mi 2022, virtual rodent, *C. elegans*/Hydra sims) in Known Gaps.
+- Note: this entry retroactively logs work committed earlier today as "wip" / "work in progress" without log/index updates.
