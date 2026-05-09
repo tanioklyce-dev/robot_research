@@ -2,12 +2,29 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-09
 sources: 7
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun]
 ---
 
 **JEPA (Joint-Embedding Predictive Architecture)** — a family of world models that learn by **predicting the representation of a future state in a learned latent space**, rather than reconstructing pixels or generating video. Proposed by Yann LeCun (2022) as a path to learning world knowledge from observation alone.
+
+## What "Joint" means
+
+**Joint** refers to the fact that both the input (context) and the prediction target (future state) are embedded into the **same shared latent space** by the same encoder:
+
+- `z_t = encoder(x_t)` — current frame
+- `z_{t+1} = encoder(x_{t+1})` — future frame, *same encoder*
+- Loss: `|| predictor(z_t, a_t) − z_{t+1} ||`
+
+Both sides of the prediction live in the *jointly shared* embedding space. This contrasts with generative/autoregressive models, where the target remains in raw pixel space and the encoder only acts on the input side:
+
+| Architecture | Target is… |
+|---|---|
+| Generative / autoregressive | Raw pixels — not embedded |
+| JEPA | An embedding — same space as the input |
+
+The term **Joint Embedding** names the architecture class defined by this property: all learning — both encoding and prediction — happens inside a single shared representation space. It is also why representation collapse is the central failure mode: if the encoder collapses to a constant, the loss is trivially zero, with no pixel-level signal to expose the problem.
 
 ## Core idea
 - Encoder maps inputs to a latent embedding `z`.

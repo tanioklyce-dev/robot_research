@@ -2,6 +2,9 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-09] query | "What does 'Joint' refer to in JEPA?"
+- Updated [Joint-Embedding Predictive Architecture](concepts/jepa.md): added "What 'Joint' means" section explaining joint embedding, the shared-encoder design, and contrast with generative architectures.
+
 ## [2026-05-06] bootstrap | Wiki initialized
 - Created three-layer structure: `raw/`, `wiki/`, `CLAUDE.md`.
 - Configured for the robot research domain.
