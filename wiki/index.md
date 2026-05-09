@@ -80,6 +80,7 @@ Curated entry points across the wiki.
 - [UAVs Meet Agentic AI — Multidomain Survey](sources/uavs-agentic-ai-survey.md) — 4-layer agentic UAV architecture; 8 application domains; Cornell + U. Peloponnese. (2025-06)
 - [MIT Drone Adaptive Control](sources/mit-drone-adaptive-control.md) — meta-learning + mirror descent; 50% less tracking error; 15 min training data. (2025-06-09)
 - [Learning Control-Oriented Dynamical Structure from Data](sources/learning-control-oriented-dynamical-structure.md) — SD-LQR: learned SDC factorizations for SDRE nonlinear tracking; ICML 2023; Azizan et al. (2023-06)
+- [Are We Building Skynet? — Medium (2025)](sources/medium-are-we-building-skynet.md) — secondary journalism; MCP (>1,000 connectors), A2A (50+ supporters), Apollo Research Claude Opus 4 safety eval. (2025, date unknown)
 - [Arcade Learning Environment — Farama Project Page](sources/ale-farama.md) — Farama's Atari 2600 RL benchmark; 100+ games, 23 multi-agent envs, Gymnasium API. (Unknown)
 - [Farama Foundation Projects Page](sources/farama-projects-page.md) — index of 19 RL env / API standards (Gymnasium, PettingZoo, Minari, …). (2026)
 - [Gymnasium-Robotics Documentation](sources/gymnasium-robotics-docs.md) — six MuJoCo env families (Fetch, Shadow Hand, Maze, Adroit, Franka Kitchen, MaMuJoCo). (2026)
@@ -116,6 +117,7 @@ Curated entry points across the wiki.
 - [Mila](entities/mila.md) — Quebec AI Institute; frequent JEPA collaborator. (2 sources) _stub_
 - [Farama Foundation](entities/farama-foundation.md) — non-profit; took over OpenAI gym → Gymnasium; 19 RL projects. (3 sources)
 - [AMI Labs](entities/ami-labs.md) — Yann LeCun's reported post-Meta AI lab; $1.03B seed round (single secondary source, provisional). (1 source)
+- [Apollo Research](entities/apollo-research.md) — independent AI safety evaluation institute; red-teamed Claude Opus 4 (2025). (1 source)
 - [Hillbot](entities/hillbot.md) — UCSD spinoff that maintains ManiSkill. (1 source) _stub_
 - [Disney Research](entities/disney-research.md) — Newton co-developer with NVIDIA + DeepMind. (2 sources) _stub_
 - [FIRST Robotics Competition](entities/first-robotics-competition.md) — world's leading high-school robotics competition; ~3,700 teams, 30+ countries. (4 sources)
@@ -247,7 +249,7 @@ Curated entry points across the wiki.
 - [World-model simulators](concepts/world-model-simulators.md) — narrower companion to [World model](concepts/world-model.md): world-models-used-as-simulators (generative-video and JEPA paradigms). (9 sources)
 - [Joint-Embedding Predictive Architecture](concepts/jepa.md) — predict next-state representations, not pixels. (7 sources)
 - [Imitation learning](concepts/imitation-learning.md) — supervised learning from demonstrations. (7 sources)
-- [LLM-agent architecture](concepts/llm-agent-architecture.md) — LLM-emits-tool-calls control pattern. (4 sources)
+- [LLM-agent architecture](concepts/llm-agent-architecture.md) — LLM-emits-tool-calls control pattern; MCP and A2A as inter-agent/tool-access protocols. (5 sources)
 - [AprilTags](concepts/apriltags.md) — visual fiducial markers for 6-DOF pose estimation; standard in FRC and research robotics. (2 sources)
 - [Learned latent space](concepts/latent-space.md) — vector space where a trained encoder represents inputs; substrate for JEPA prediction, DINOv2 features, VQ-BeT codebook. (7 sources)
 - [Agentic UAVs](concepts/agentic-uavs.md) — autonomous aerial systems with goal-driven behavior; 4-layer architecture; 8 domains; adaptive control. (2 sources)

@@ -2,9 +2,9 @@
 title: LLM-agent architecture
 type: concept
 created: 2026-05-07
-updated: 2026-05-08
-sources: 4
-tags: [llm-agent, tool-use, agentic-robotics, planning]
+updated: 2026-05-09
+sources: 5
+tags: [llm-agent, tool-use, agentic-robotics, planning, mcp, a2a]
 ---
 
 **LLM-agent architecture for robots** — a control pattern in which a large language model converts natural-language goals into sequences of tool calls that a deterministic executor runs against perception/manipulation primitives. Distinct from end-to-end [VLA models](vla-models.md) (which output low-level actions directly) and from [world-model simulators](world-model-simulators.md) (which generate the training environment).
@@ -23,6 +23,23 @@ tags: [llm-agent, tool-use, agentic-robotics, planning]
 
 The pattern is **converging across tiers and capabilities** — research-grade (stretch_ai) and educational (ROSOrin / OpenClaw) stacks adopt the same architecture; mobile-only and arm-equipped variants adopt the same architecture; the only difference is the size and contents of the skill library.
 
+## Inter-agent communication protocols
+
+As LLM agents proliferate, two complementary protocols have emerged to connect them to external resources and to each other:
+
+### MCP — Model Context Protocol
+- Developed by **Anthropic**.
+- Standard interface for LLMs to access external tools, data sources, cloud storage, financial systems, IoT, and enterprise services.
+- **>1,000 community-built connectors** available (as of 2025).
+- In a robotics context, MCP is the natural connector layer for an LLM-agent robot to call external APIs (maps, object databases, smart-home systems) without custom integration per tool.
+
+### A2A — Agent-to-Agent Protocol
+- Backed by **Google**; **50+ corporate supporters** including Microsoft, Salesforce, and SAP.
+- Enables AI agents to discover each other and coordinate — one agent can delegate subtasks to another agent via a standardized handoff.
+- Relevant to multi-robot or heterogeneous-fleet architectures where a high-level planner (cloud LLM) delegates to a low-level executor (on-device LLM agent on the robot).
+
+These protocols represent the infrastructure layer that makes "networked AI" — multiple cooperating agents — practical at scale. Primary source: [Are We Building Skynet? (Medium, 2025)](../sources/medium-are-we-building-skynet.md) (secondary journalism; MCP and A2A facts corroborated by Anthropic and Google public documentation).
+
 ## Trade-offs vs. VLA
 - **Pro**: composes with battle-tested classical perception/manipulation; LLM only needs symbolic-level reasoning.
 - **Pro**: easy to swap LLMs (just change the API); easier to debug than end-to-end policies.
@@ -38,3 +55,4 @@ The pattern is **converging across tiers and capabilities** — research-grade (
 - [Stretch AI LLM Agent Documentation](../sources/stretch-ai-llm-agent-docs.md)
 - [Hiwonder ROSOrin Documentation](../sources/hiwonder-rosorin-docs.md)
 - [Hiwonder OpenClaw Practical Tutorial](../sources/hiwonder-openclaw-tutorial.md)
+- [Are We Building Skynet? (Medium, 2025)](../sources/medium-are-we-building-skynet.md)
