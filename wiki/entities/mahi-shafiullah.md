@@ -3,16 +3,17 @@ title: Mahi Shafiullah
 type: entity
 subtype: person
 created: 2026-05-08
-updated: 2026-05-08
-sources: 1
+updated: 2026-05-09
+sources: 2
 tags: [person, nyu, hello-robot, robot-learning, dobb-e, rum, shafiullah]
 ---
 
 **Nur Muhammad "Mahi" Shafiullah** — researcher at NYU + Hello Robot Inc. **Lead author on [Robot Utility Models](robot-utility-models.md)** (RUM, 2024) and **Dobb·E** (2023). Both projects share the same engineering thesis: low-cost commodity robots ([Stretch](stretch.md)) + carefully-collected diverse data + zero-shot deployment, no fine-tuning per environment. RUM's headline 90% success rate is largely his system.
 
 ## Papers in this wiki
-- **[Robot Utility Models Paper](../sources/robot-utility-models-paper.md)** (Etukuru, Naka, Hu, Lee, Mehu, Edsinger, Paxton, Chintala, Pinto, Shafiullah — Sep 2024) — **co-equal lead** with Etukuru ("(*) denotes equal contribution"). Corresponding author: mahi@cs.nyu.edu.
+- **[Robot Utility Models Paper](../sources/robot-utility-models-paper.md)** (Etukuru, Naka, Hu, Lee, Mehu, Edsinger, Paxton, Chintala, Pinto, Shafiullah — Sep 2024) — **co-equal lead** with Etukuru. Corresponding author: mahi@cs.nyu.edu.
 - **[Robot Utility Models Project Page](../sources/robot-utility-models-website.md)** — same.
+- **[OK-Robot](../entities/ok-robot.md)** (Liu, Orru, Vakil, Paxton, Shafiullah, Pinto — Jan 2024) — co-author. Zero-shot pick-and-drop in 10 NYC homes; 58.5% success. Predecessor / parallel to RUM.
 - **[Dobb·E](dobb-e.md)** (Shafiullah et al. 2023, predecessor system) — primary author.
 
 ## Why it matters in this wiki
@@ -30,6 +31,7 @@ The **dual NYU + Hello Robot affiliation** is structurally interesting: one foot
 ## Mentioned in
 - [Robot Utility Models Paper](../sources/robot-utility-models-paper.md)
 - [Robot Utility Models Project Page](../sources/robot-utility-models-website.md)
+- [OK-Robot Project Page](../sources/ok-robot-project-page.md)
 
 ## Open questions / TBD
 - Lab/group at NYU not directly cited; PhD advisor inferred (Pinto is co-senior).

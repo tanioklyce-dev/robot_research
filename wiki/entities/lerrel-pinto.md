@@ -3,8 +3,8 @@ title: Lerrel Pinto
 type: entity
 subtype: person
 created: 2026-05-08
-updated: 2026-05-08
-sources: 1
+updated: 2026-05-09
+sources: 2
 tags: [person, nyu, robot-learning, manipulation, foundation-models, dino-wm, rum]
 ---
 
@@ -12,7 +12,8 @@ tags: [person, nyu, robot-learning, manipulation, foundation-models, dino-wm, ru
 
 ## Papers in this wiki
 - **[DINO-WM](../sources/dino-wm-paper.md)** (Zhou, Pan, LeCun, Pinto — Nov 2024) — co-senior with LeCun. NYU side of the collaboration.
-- **[Robot Utility Models](../sources/robot-utility-models-website.md)** (Etukuru, Shafiullah, …, Pinto — Sep 2024) — co-author. The "5 utility models, ~90% zero-shot success" project from NYU with Meta researchers.
+- **[Robot Utility Models](../sources/robot-utility-models-website.md)** (Etukuru, Shafiullah, …, Pinto — Sep 2024) — co-author.
+- **[OK-Robot](../entities/ok-robot.md)** (Liu, Orru, Vakil, Paxton, Shafiullah, Pinto — Jan 2024) — co-senior with Shafiullah. Zero-shot pick-and-drop in 10 NYC homes; 58.5% success; 1.8× over OVMM baseline.
 
 ## Why it matters in this wiki
 Pinto sits at the intersection of two things this wiki tracks closely:
@@ -32,6 +33,7 @@ If a future ingest brings in a Pinto-led paper that bridges those two — e.g. a
 - [DINO-WM Paper](../sources/dino-wm-paper.md)
 - [Robot Utility Models Project Page](../sources/robot-utility-models-website.md)
 - [Robot Utility Models Paper](../sources/robot-utility-models-paper.md)
+- [OK-Robot Project Page](../sources/ok-robot-project-page.md)
 
 ## Open questions / TBD
 - Full publication trajectory (manipulation + foundation-model line) — not directly cited.

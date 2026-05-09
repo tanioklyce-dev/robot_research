@@ -35,6 +35,19 @@ Curated entry points across the wiki.
 - [Biomechanical simulation](concepts/biomechanical-simulation.md) and [Connectome](concepts/connectome.md) — concept pages.
 
 ## Sources (chronological)
+- [OK-Robot Project Page](sources/ok-robot-project-page.md) — zero-shot pick-and-drop in 10 NYC homes; 58.5% success; 1.8× over OVMM. (2024-01)
+- [HomeRobot — OVMM](sources/ovmm-homerobot.md) — Open Vocabulary Mobile Manipulation benchmark on Stretch; 20% real-world baseline. (2024)
+- [IEEE Spectrum — Stretch Assistive Robot](sources/ieee-spectrum-stretch-assistive.md) — Stretch as assistive device for quadriplegic user Henry Evans. (2023-10-08)
+- [TurtleBot 4 — Clearpath Robotics](sources/clearpath-turtlebot-4.md) — ROS 2 educational mobile robot on iRobot Create 3; Raspberry Pi 4B; two variants. (2022 era)
+- [Elephant Robotics — myAGV & Compound Collection](sources/elephant-robotics-myagv-compound.md) — affordable compound mobile robot kits; $1,498–$21,999. (Unknown)
+- [Elephant Robotics — myBuddy 280](sources/elephant-robotics-mybuddy-280.md) — 13 DOF dual-arm desktop robot; $1,619; ROS1 + MoveIt. (Unknown)
+- [Fauna Robotics — Sprout Creator Edition](sources/fauna-robotics-sprout.md) — 107cm, 29 DOF developer humanoid; Jetson AGX Orin 64GB; NYC. (Unknown)
+- [1X NEO Product Page](sources/1x-neo-product-page.md) — household humanoid specs; 22 DOF hands; Redwood AI VLM; $200 deposit. (Unknown)
+- [Reachy 2 — Pollen Robotics](sources/pollen-robotics-reachy.md) — open-source bimanual mobile manipulator; ROS 2 + Python SDK. (Unknown)
+- [ITU AI for Good — Assistive Robots](sources/itu-aiforgood-assistive-robots.md) — survey of 7 assistive robots at 2023 AI for Good Summit. (2023-04-12)
+- [Virginia Tech Assistive Robotics Lab](sources/virginia-tech-assistive-robotics-lab.md) — Prof. Alan Asbeck; exoskeletons, soft robotics, haptics. (Unknown)
+- [RELab tenoexo — ETH Zurich](sources/relab-ethz-tenoexo.md) — <150g hand orthosis; 5N/finger; benefit in spinal cord injury patients. (Unknown)
+- [6 Lessons from a Robotics Startup Failure (K-Scale Labs)](sources/robot-report-kscale-labs-lessons.md) — COO post-mortem; YC humanoid startup shutdown late 2025. (2026-03-02)
 - [Robot Utility Models Project Page](sources/robot-utility-models-website.md) — NYU/Meta zero-shot generalist policies for Stretch. (2024-09)
 - [Robot Utility Models Paper](sources/robot-utility-models-paper.md) — full RUM paper (arxiv 2409.05865); architecture, ablations, cross-embodiment numbers. (2024-09)
 - [ManiSkill-HAB Paper](sources/maniskill-hab-paper.md) — GPU-parallel low-level manipulation chains for HAB. (2024-12)
@@ -90,7 +103,11 @@ Curated entry points across the wiki.
 - [NVIDIA](entities/nvidia.md) — owns most of the agentic-robotics simulation substrate. (8 sources)
 - [Hiwonder](entities/hiwonder.md) — Chinese educational-robotics vendor; ROSOrin / ROSOrin Pro kits + OpenClaw. (3 sources)
 - [AGIBOT](entities/agibot.md) — Shanghai embodied-AI / humanoid company. Open-source-heavy. (3 sources)
-- [Hello Robot](entities/hello-robot.md) — Stretch mobile manipulator + stretch_ai stack. (4 sources)
+- [Hello Robot](entities/hello-robot.md) — Stretch mobile manipulator + stretch_ai stack. (6 sources)
+- [Elephant Robotics](entities/elephant-robotics.md) — Chinese edu-robotics vendor; myAGV + myBuddy 280 + arm ecosystem. (2 sources)
+- [Pollen Robotics](entities/pollen-robotics.md) — French open-source humanoid maker; Reachy 2. (1 source)
+- [Fauna Robotics](entities/fauna-robotics.md) — NYC; Sprout Creator Edition; 107cm, 29 DOF, Jetson AGX Orin. (1 source)
+- [K-Scale Labs](entities/k-scale-labs.md) — YC humanoid startup; shut down late 2025; notable post-mortem. (1 source)
 - [Meta FAIR](entities/meta-fair.md) — Yann LeCun's lab; JEPA research line. (6 sources)
 - [Google DeepMind](entities/google-deepmind.md) — MuJoCo, Newton co-development, MjcPhysics USD plugin. (5 sources)
 - [Mila](entities/mila.md) — Quebec AI Institute; frequent JEPA collaborator. (2 sources) _stub_
@@ -134,21 +151,24 @@ Curated entry points across the wiki.
 ### Robot platforms
 - [Franka Panda](entities/franka-panda.md) — 7-DOF research-grade arm; default tabletop manipulator across DROID, V-JEPA 2, JEPA-WMs, RUM. (5 sources)
 - [xArm 7](entities/xarm-7.md) — UFactory commercial 7-DOF arm; secondary tabletop manipulator; RUM cross-embodiment transfer target (~10pt drop vs Stretch). (1 source) _stub_
-- [TurtleBot](entities/turtlebot.md) — canonical educational ROS mobile robot (4 generations, 2010–present); reference point for [ROSOrin](entities/rosorin.md) educational comparison. (0 sources) _stub_
+- [TurtleBot](entities/turtlebot.md) — canonical educational ROS mobile robot (4 generations); TurtleBot 4: Clearpath + iRobot Create 3 + Raspberry Pi 4B + ROS 2. (1 source)
 - [iRobot Create 3](entities/irobot-create-3.md) — Roomba-i3-derived ROS 2 mobile-robot base; chassis under [TurtleBot 4](entities/turtlebot.md). (0 sources) _stub_
 
 ### Humanoids
 - [Atlas](entities/atlas.md) — Boston Dynamics flagship; closed development; capability-bar humanoid. (0 sources) _stub_
 - [Tesla Optimus](entities/tesla-optimus.md) — Tesla's vertically-integrated humanoid; closed development. (0 sources) _stub_
 - [Figure](entities/figure.md) — Figure AI's humanoid line (01/02/03) + Helix VLA; BMW pilots. (0 sources) _stub_
-- [1X NEO](entities/1x-neo.md) — household humanoid from 1X Technologies (Norway/US); OpenAI-aligned. (0 sources) _stub_
+- [1X NEO](entities/1x-neo.md) — household humanoid; 22 hand DOF/side; Redwood AI VLM; 22 dB; $200 deposit. (1 source)
 - [Apptronik Apollo](entities/apptronik-apollo.md) — UT Austin spinout; NVIDIA-aligned ([GR00T](entities/nvidia-groot.md) target); Mercedes-Benz pilots. (0 sources) _stub_
 - [Digit](entities/digit.md) — Agility Robotics; **first commercially-deployed humanoid** (GXO, Amazon). (0 sources) _stub_
 - [Unitree H1](entities/unitree-h1.md) — Chinese affordable research humanoid (~$90k); rapid 2024–2026 academic adoption. (0 sources) _stub_
 - [Unitree G1](entities/unitree-g1.md) — smaller, cheaper Unitree (~$16k); cheapest serious humanoid platform. (0 sources) _stub_
 - [NAO](entities/nao.md) — SoftBank/Aldebaran 58-cm educational humanoid; canonical since 2008. (0 sources) _stub_
 - [TonyPi](entities/tonypi.md) — Hiwonder hobby-tier biped kit ($300–700); educational-tier sibling of [ROSOrin Pro](entities/rosorin-pro.md). (0 sources) _stub_
-- [Stretch](entities/stretch.md) — Hello Robot's mobile manipulator (Stretch 3). De-facto research platform. (4 sources)
+- [Stretch](entities/stretch.md) — Hello Robot's mobile manipulator (Stretch 3). De-facto research platform. (7 sources)
+- [Reachy 2](entities/reachy.md) — Pollen Robotics' open-source bimanual mobile manipulator for embodied AI; ROS 2; 7 DOF/arm. (1 source)
+- [myAGV](entities/myagv.md) — Elephant Robotics autonomous mobile base; ROS; Raspberry Pi 4B; pairs with arms. (1 source)
+- [myBuddy 280](entities/mybuddy-280.md) — Elephant Robotics 13 DOF dual-arm desktop robot; $1,619; ROS1. (1 source)
 - [ROSOrin](entities/rosorin.md) — Hiwonder's Jetson Orin Nano educational mobile robot kit. (2 sources)
 - [ROSOrin Pro](entities/rosorin-pro.md) — Hiwonder's 6-DOF arm + base variant of ROSOrin. (2 sources)
 - [ROSOrin Pro 6-DOF arm](entities/rosorin-pro-arm.md) — HX-12H-servo manipulator on the ROSOrin Pro kit. (2 sources)
@@ -189,6 +209,7 @@ Curated entry points across the wiki.
 
 ### VLA models / generalist policies
 - [NVIDIA GR00T](entities/nvidia-groot.md) — open VLA bundled with Isaac Lab. (3 sources)
+- [OK-Robot](entities/ok-robot.md) — NYU zero-shot pick-and-drop framework; 58.5% in 10 homes; 1.8× over OVMM. (1 source)
 - [Robot Utility Models](entities/robot-utility-models.md) — NYU/Meta zero-shot mobile-manipulation BC. (3 sources)
 - [Dobb·E](entities/dobb-e.md) — NYU predecessor to RUM; HPR encoder + Stick-v1 + Homes of New York dataset. (1 source) _stub_
 
@@ -209,10 +230,10 @@ Curated entry points across the wiki.
 - [Basile Terver](entities/basile-terver.md) — researcher (FAIR-affiliated, inferred); bread-crumb across DINO-world → JEPA-WMs lineage. (2 sources)
 - [Sergey Levine](entities/sergey-levine.md) — UC Berkeley EECS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)
 - [Chelsea Finn](entities/chelsea-finn.md) — Stanford CS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)
-- [Lerrel Pinto](entities/lerrel-pinto.md) — NYU CS; co-senior on DINO-WM + co-author on RUM. (1 source)
+- [Lerrel Pinto](entities/lerrel-pinto.md) — NYU CS; co-senior on DINO-WM, RUM, and OK-Robot. (2 sources)
 - [Yuke Zhu](entities/yuke-zhu.md) — UT Austin / NVIDIA Research; senior on RoboCasa365. (0 sources)
 - [Karl Pertsch](entities/karl-pertsch.md) — DROID co-lead with Khazatsky; Berkeley/Stanford. (0 source pages yet — referenced via entity pages)
-- [Mahi Shafiullah](entities/mahi-shafiullah.md) — NYU + Hello Robot; lead author on Dobb·E + RUM. (1 source)
+- [Mahi Shafiullah](entities/mahi-shafiullah.md) — NYU + Hello Robot; lead/co-author on Dobb·E, RUM, and OK-Robot. (2 sources)
 - [Phil Shiu](entities/phil-shiu.md) — UC Berkeley → Eon Systems; lead author + maintainer of the FlyWire-based LIF brain simulation. (2 sources)
 
 ## Concepts
@@ -225,6 +246,7 @@ Curated entry points across the wiki.
 - [LLM-agent architecture](concepts/llm-agent-architecture.md) — LLM-emits-tool-calls control pattern. (4 sources)
 - [AprilTags](concepts/apriltags.md) — visual fiducial markers for 6-DOF pose estimation; standard in FRC and research robotics. (2 sources)
 - [Learned latent space](concepts/latent-space.md) — vector space where a trained encoder represents inputs; substrate for JEPA prediction, DINOv2 features, VQ-BeT codebook. (7 sources)
+- [Assistive robotics](concepts/assistive-robotics.md) — robots helping disabled/elderly users regain autonomy; Stretch, RELab tenoexo, social robots. (4 sources)
 - [Biomechanical simulation](concepts/biomechanical-simulation.md) — physics-based simulation of an animal body; lineage *C. elegans* → Hydra → virtual rodent → NeuroMechFly v1/v2 → flybody. (5 sources)
 - [Connectome](concepts/connectome.md) — complete wiring diagram of a nervous system; *C. elegans* → fly hemibrain → FlyWire → mouse → human. (3 sources)
 

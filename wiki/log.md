@@ -2,6 +2,13 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-09] ingest | mega-batch: OK-Robot, OVMM, Stretch assistive, TurtleBot 4, Elephant Robotics, Fauna, 1X NEO, Reachy 2, assistive-robotics cluster, K-Scale Labs
+- New sources (13): ok-robot-project-page, ovmm-homerobot, ieee-spectrum-stretch-assistive, clearpath-turtlebot-4, elephant-robotics-myagv-compound, elephant-robotics-mybuddy-280, fauna-robotics-sprout, 1x-neo-product-page, pollen-robotics-reachy, itu-aiforgood-assistive-robots, virginia-tech-assistive-robotics-lab, relab-ethz-tenoexo, robot-report-kscale-labs-lessons
+- New entities (8): ok-robot, elephant-robotics, myagv, mybuddy-280, fauna-robotics, pollen-robotics, reachy, k-scale-labs
+- New concept: assistive-robotics
+- Updated entities: 1x-neo (stub → primary specs), turtlebot (stub → TurtleBot 4 specs), stretch (+price, OVMM/OK-Robot/assistive use cases), hello-robot (+Aaron Edsinger, Charlie Kemp, assistive, OVMM), lerrel-pinto (+OK-Robot), mahi-shafiullah (+OK-Robot)
+- Skipped (failed/403): Reachy Mini HuggingFace, RobotShop myAGV Pro, Understanding Deep Learning book
+
 ## [2026-05-09] ingest | batch: ALE + LeWM GitHub + V-JEPA 2 GitHub + 3 secondary articles
 - Created [Arcade Learning Environment — Farama Project Page](sources/ale-farama.md)
 - Created [LeWorldModel GitHub](sources/lewm-github.md)
