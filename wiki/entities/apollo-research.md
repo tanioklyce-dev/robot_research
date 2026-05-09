@@ -31,3 +31,4 @@ Apollo Research evaluates models that may be used as the "brain" in LLM-agent ro
 
 ## Mentioned in
 - [Are We Building Skynet? (Medium, 2025)](../sources/medium-are-we-building-skynet.md)
+- [Claude's Constitution](../sources/claudes-constitution.md) — Anthropic commits to safety evaluations and transparency via system cards; Apollo Research conducts independent evaluations against these standards.
