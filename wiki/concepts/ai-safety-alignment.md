@@ -17,6 +17,8 @@ tags: [ai-safety, alignment, corrigibility, values, anthropic]
 Anthropic's four-tier priority order for Claude: **Broadly safe > Broadly ethical > Compliant with guidelines > Genuinely helpful**. Safety comes first because AI training is imperfect — a given model could have subtly mistaken values without being aware of it, and human oversight is the correction mechanism.
 
 ### Corrigibility
+See dedicated page: [Corrigibility](corrigibility.md).
+
 The degree to which an AI defers to human oversight and control. Framed as a dial:
 - **Fully corrigible**: AI always submits to principal hierarchy. Dangerous because it depends entirely on the principal hierarchy (e.g., Anthropic) having good values.
 - **Fully autonomous**: AI always acts on its own judgment. Dangerous because no external verification mechanism exists to confirm the AI's values meet the required bar.
@@ -48,6 +50,7 @@ The outcome Anthropic considers most catastrophic: global takeover by AIs pursui
 AI safety is directly relevant to the [LLM-agent architecture](../concepts/llm-agent-architecture.md) pattern used across the robot platforms in this wiki. When an LLM agent has real-world tool access (via MCP), executes multi-step tasks autonomously, and operates within multi-agent networks (via A2A), the behavioral guarantees of the underlying model matter for real-world outcomes. The behaviors that Anthropic categorizes as "broadly safe" — acting within sanctioned limits, avoiding drastic/irreversible actions, not acquiring resources beyond the task — are directly relevant to deployed robotic agents.
 
 ## Related concepts
+- [Corrigibility](corrigibility.md) — dedicated page on the corrigibility dial and broadly safe behaviors.
 - [LLM-agent architecture](../concepts/llm-agent-architecture.md) — the architecture whose runtime behavior safety alignment governs.
 - [Agentic UAVs](../concepts/agentic-uavs.md) — multi-agent aerial systems; safety constraints apply to multi-agent coordination.
 

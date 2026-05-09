@@ -50,6 +50,7 @@ These protocols represent the infrastructure layer that makes "networked AI" —
 - [VLA models](vla-models.md) — competing paradigm (end-to-end action prediction).
 - [stretch_ai](../entities/stretch-ai.md) — concrete implementation.
 - [World-model simulators](world-model-simulators.md) — orthogonal (training-environment paradigm, not control paradigm).
+- [AI safety and alignment](ai-safety-alignment.md) — safety properties of the LLM brain matter when it has real-world tool access via MCP.
 
 ## Mentioned in
 - [Stretch AI LLM Agent Documentation](../sources/stretch-ai-llm-agent-docs.md)

@@ -512,3 +512,25 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Created [Anthropic](entities/anthropic.md) — company entity; AI safety mission; Claude model family; principal hierarchy position; MCP protocol; safety evaluation commitment.
 - Created [AI safety and alignment](concepts/ai-safety-alignment.md) — concept page covering corrigibility, broadly safe behaviors, hard constraints, catastrophic risk framing; connects to LLM-agent architecture and agentic robot deployments in the wiki.
 - Updated [Apollo Research](entities/apollo-research.md) — added link to Claude's Constitution as context for their evaluation mandate.
+
+## [2026-05-09] lint | 3 issues found, 3 auto-fixed
+
+**Deterministic checks — all clean:**
+- 0 files missing from index (165 wiki files, all indexed)
+- 0 broken internal body links across all articles
+- 0 broken index links (false positives from regex on "Known gaps" prose dismissed)
+
+**Auto-fixed (3):**
+- `entities/apollo-research.md`: sources count 1→2 (Constitution added as second source)
+- `sources/claudes-constitution.md`: added link to `entities/anthropic.md` (was orphan)
+- `concepts/llm-agent-architecture.md`: added cross-link to `concepts/ai-safety-alignment.md`
+
+**Heuristic findings — report only:**
+- **Orphan stubs (3, low priority):** `entities/pointmaze.md`, `entities/simplerenv.md`, `entities/yuke-zhu.md` — indexed, exist, but no article links inbound. Promote when they appear in a paper ingest.
+- **Stale source counts:** Several entities have sources counts set manually during creation; true counts drift as wiki grows. No specific misfires found today.
+- **Missing concept page:** "Corrigibility" — mentioned extensively in Claude's Constitution and ai-safety-alignment but has no dedicated concept page. Low priority given good coverage in those pages.
+
+## [2026-05-09] new concept | Corrigibility
+- Created [Corrigibility](concepts/corrigibility.md) — corrigibility dial (fully corrigible ↔ fully autonomous); why both extremes are dangerous; asymmetric cost argument; what corrigibility does/does not mean; galaxy-brained reasoning risk; surgeon principle for independent judgment; implications for agentic robot deployments.
+- Updated [AI safety and alignment](concepts/ai-safety-alignment.md) — added corrigibility cross-link.
+- Updated [index.md](index.md) — new concept entry.

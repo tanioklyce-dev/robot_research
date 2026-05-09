@@ -8,6 +8,12 @@ Curated entry points across the wiki.
 - [Simulators for agentic robotics — 2026 landscape](syntheses/simulators-for-agentic-robotics-2026.md) — landscape survey across six categories.
 - [Log](log.md) — chronological record of ingests, queries, and lint passes.
 
+**AI Safety and Alignment**
+- [Claude's Constitution](sources/claudes-constitution.md) — Anthropic's primary specification for Claude's values, corrigibility model, principal hierarchy, and hard constraints.
+- [AI safety and alignment](concepts/ai-safety-alignment.md) — concept overview; connects to agentic robot deployments.
+- [Corrigibility](concepts/corrigibility.md) — the corrigibility dial, asymmetric cost argument, galaxy-brained reasoning risk.
+- [Apollo Research](entities/apollo-research.md) — independent safety evaluation institute; red-teamed Claude Opus 4.
+
 **FRC (FIRST Robotics Competition)**
 - [FRC 2026 Game Manual — REBUILT](sources/frc-2026-game-manual.md) — deep ingest of the 166-page 2026 REBUILT game manual.
 - [FIRST Robotics Competition](entities/first-robotics-competition.md) — competition overview, robot constraints, technical infrastructure.
@@ -252,6 +258,7 @@ Curated entry points across the wiki.
 - [Joint-Embedding Predictive Architecture](concepts/jepa.md) — predict next-state representations, not pixels. (7 sources)
 - [Imitation learning](concepts/imitation-learning.md) — supervised learning from demonstrations. (7 sources)
 - [AI safety and alignment](concepts/ai-safety-alignment.md) — corrigibility, broadly safe behaviors, hard constraints, catastrophic risk framing; connects to agentic robot deployments. (2 sources)
+- [Corrigibility](concepts/corrigibility.md) — the corrigibility dial (fully corrigible ↔ fully autonomous); asymmetric cost argument; galaxy-brained reasoning risk; agentic deployment implications. (1 source)
 - [LLM-agent architecture](concepts/llm-agent-architecture.md) — LLM-emits-tool-calls control pattern; MCP and A2A as inter-agent/tool-access protocols. (5 sources)
 - [AprilTags](concepts/apriltags.md) — visual fiducial markers for 6-DOF pose estimation; standard in FRC and research robotics. (2 sources)
 - [Learned latent space](concepts/latent-space.md) — vector space where a trained encoder represents inputs; substrate for JEPA prediction, DINOv2 features, VQ-BeT codebook. (7 sources)
