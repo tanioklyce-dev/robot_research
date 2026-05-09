@@ -40,6 +40,7 @@ Two-stage self-supervised world-model paper from [FAIR at Meta](../entities/meta
 - [Joint-Embedding Predictive Architecture](../concepts/jepa.md)
 - [World model](../concepts/world-model.md) — JEPA is one design point under this umbrella.
 - [World-model simulators](../concepts/world-model-simulators.md) — latent-prediction paradigm (vs. video generation)
+- [Learned latent space](../concepts/latent-space.md) — V-JEPA 2 predicts in the latent space its encoder learned from internet video.
 - [Sim-to-real transfer](../concepts/sim-to-real-transfer.md) — zero-shot to new robot environments
 
 ## Open questions

@@ -3,8 +3,8 @@ title: ManiSkill
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-05-06
-sources: 1
+updated: 2026-05-08
+sources: 2
 tags: [maniskill, sapien, manipulation, hillbot, benchmark]
 ---
 

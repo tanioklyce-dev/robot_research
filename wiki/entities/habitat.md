@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-08
 updated: 2026-05-08
-sources: 1
+sources: 0
 tags: [habitat, embodied-ai, simulator, meta-fair, navigation, manipulation]
 ---
 

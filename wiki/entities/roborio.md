@@ -3,7 +3,7 @@ title: roboRIO
 type: entity
 created: 2026-05-08
 updated: 2026-05-08
-sources: 1
+sources: 2
 tags: [frc, controller, ni, roborio, embedded]
 ---
 

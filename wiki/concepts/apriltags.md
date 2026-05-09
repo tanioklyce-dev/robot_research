@@ -3,7 +3,7 @@ title: AprilTags
 type: concept
 created: 2026-05-08
 updated: 2026-05-08
-sources: 1
+sources: 2
 tags: [vision, fiducials, localization, apriltags]
 ---
 

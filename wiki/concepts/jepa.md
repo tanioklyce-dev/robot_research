@@ -38,6 +38,7 @@ tags: [jepa, world-model, self-supervised, latent-prediction, lecun]
 The original wiki synthesis observed [V-JEPA 2](../entities/v-jepa-2.md) and [LeWM](../entities/leworldmodel.md) both skipping heavy agentic-robotics sim. With five additional ingests in May 2026, the picture is more nuanced: [JEPA-WMs](../entities/jepa-wms.md) uses [RoboCasa](../entities/robocasa.md); [VLA-JEPA](../entities/vla-jepa.md) uses SimplerEnv; [DINO-WM](../entities/dino-wm.md) uses lightweight MuJoCo benches; [V-JEPA 2.1](../sources/v-jepa-2-1-paper.md) continues the no-sim line. **The JEPA literature is fragmenting across simulator weight classes**, not avoiding sim wholesale. See [the revised synthesis](../syntheses/why-jepa-research-skips-the-simulator-stack.md).
 
 ## Related
+- [Learned latent space](latent-space.md) — the substrate JEPAs predict in; the entire design choice rests on this.
 - [World-model simulators](world-model-simulators.md) — JEPAs are one of two paradigms (the other being generative-video models).
 - [Meta FAIR](../entities/meta-fair.md) — center of the JEPA research line.
 - [Mila](../entities/mila.md) — frequent contributor.

@@ -3,8 +3,8 @@ title: V-JEPA 2
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-05-07
-sources: 2
+updated: 2026-05-08
+sources: 4
 tags: [v-jepa-2, jepa, world-model, meta-fair, video, action-conditioned, franka]
 ---
 
@@ -27,6 +27,7 @@ First public demonstration of a **latent-prediction world model** ([JEPA](../con
 - [Meta FAIR](meta-fair.md) — primary lab.
 - [Mila](mila.md) — co-affiliation (Artem Zholus dual appointment).
 - [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — architecture family.
+- [Learned latent space](../concepts/latent-space.md) — V-JEPA 2 trains its latent on 1M+ hours of internet video before action-conditioned post-training; canonical example of broad-pretraining → small-action-dataset.
 - [World-model simulators](../concepts/world-model-simulators.md) — broader paradigm.
 - [LeWorldModel](leworldmodel.md) — sibling JEPA architecture (different group).
 - [V-JEPA 2.1 Paper](../sources/v-jepa-2-1-paper.md) — direct successor (March 2026), dense features focus.

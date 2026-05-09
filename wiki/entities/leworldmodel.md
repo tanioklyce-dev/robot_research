@@ -3,8 +3,8 @@ title: LeWorldModel
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-05-07
-sources: 1
+updated: 2026-05-08
+sources: 3
 tags: [leworldmodel, lewm, jepa, world-model, mila, end-to-end, sigreg]
 ---
 
@@ -32,6 +32,7 @@ LeWorldModel (LeWM) — a JEPA-style world model from [Mila](mila.md), NYU, Sams
 ## Related
 - [Mila](mila.md) — primary affiliation.
 - [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — architecture family.
+- [Learned latent space](../concepts/latent-space.md) — LeWM is the first JEPA to learn its latent space *end-to-end from raw pixels* (no frozen DINOv2); SIGReg is the anti-collapse mechanism.
 - [V-JEPA 2](v-jepa-2.md) — sibling JEPA model from a different group.
 - [World-model simulators](../concepts/world-model-simulators.md) — broader paradigm.
 

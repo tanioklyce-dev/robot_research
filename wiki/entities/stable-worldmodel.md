@@ -4,7 +4,7 @@ type: entity
 subtype: software
 created: 2026-05-08
 updated: 2026-05-08
-sources: 1
+sources: 0
 tags: [stable-worldmodel, lewm, world-model, infrastructure, env-zoo, mila, balestriero]
 ---
 

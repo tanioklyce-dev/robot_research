@@ -56,6 +56,7 @@ tags: [jepa, world-model, jepa-wms, robocasa, metaworld, droid, franka, fair, me
 - [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — architecture family.
 - [World model](../concepts/world-model.md) — physical-planning-with-world-model focus.
 - [World-model simulators](../concepts/world-model-simulators.md) — latent-prediction paradigm.
+- [Learned latent space](../concepts/latent-space.md) — frozen DINOv2 patch features as the latent; predictor is the only learned piece.
 - [Sim-to-real transfer](../concepts/sim-to-real-transfer.md) — sim + real-world robot evaluation in the same paper.
 
 ## Open questions

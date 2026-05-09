@@ -3,8 +3,8 @@ title: DINO-WM
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-05-07
-sources: 1
+updated: 2026-05-08
+sources: 5
 tags: [dino-wm, dinov2, world-model, jepa-adjacent, lecun, pinto, nyu, meta-fair]
 ---
 
@@ -37,6 +37,7 @@ Plus eval variants: **WallRandom, PushObj, GranularRandom, DM Control Reacher**,
 
 ## Related
 - [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — JEPA-adjacent architecture.
+- [Learned latent space](../concepts/latent-space.md) — DINO-WM models dynamics in *frozen DINOv2 patch-feature space*; the latent is inherited, not learned.
 - [DINO-world](dino-world.md) — sibling DINOv2-feature world-model line from FAIR (Baldassarre et al. 2025).
 - [LeWorldModel](leworldmodel.md) — end-to-end JEPA contrast.
 - [V-JEPA 2](v-jepa-2.md) — full JEPA contrast.

@@ -3,8 +3,8 @@ title: Meta FAIR
 type: entity
 subtype: company
 created: 2026-05-07
-updated: 2026-05-07
-sources: 5
+updated: 2026-05-08
+sources: 6
 tags: [meta, fair, lecun, world-model, jepa]
 ---
 

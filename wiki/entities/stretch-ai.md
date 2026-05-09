@@ -3,8 +3,8 @@ title: stretch_ai
 type: entity
 subtype: product
 created: 2026-05-07
-updated: 2026-05-07
-sources: 4
+updated: 2026-05-08
+sources: 5
 tags: [stretch-ai, hello-robot, llm-agent, open-source, mapping]
 ---
 

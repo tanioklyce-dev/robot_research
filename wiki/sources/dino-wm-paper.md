@@ -39,6 +39,7 @@ tags: [dino-wm, world-model, dinov2, jepa-adjacent, zero-shot-planning, lecun, p
 - [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — JEPA-adjacent: predicts in DINOv2 latent space, but uses a frozen encoder rather than learning the encoder end-to-end.
 - [World model](../concepts/world-model.md) — frozen-foundation-feature design point.
 - [World-model simulators](../concepts/world-model-simulators.md) — latent-prediction paradigm.
+- [Learned latent space](../concepts/latent-space.md) — frozen DINOv2 patch-feature space; the predictor is what's learned.
 
 ## Open questions
 - Exact physics-engine confirmation needed.

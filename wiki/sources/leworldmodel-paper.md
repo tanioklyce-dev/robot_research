@@ -38,6 +38,7 @@ Preprint introducing **LeWorldModel (LeWM)** — claimed as the **first JEPA tra
 - [Joint-Embedding Predictive Architecture](../concepts/jepa.md)
 - [World model](../concepts/world-model.md) — end-to-end-pixel-trained design point.
 - [World-model simulators](../concepts/world-model-simulators.md) — latent-prediction paradigm
+- [Learned latent space](../concepts/latent-space.md) — first stable end-to-end-from-pixels JEPA latent; SIGReg is the anti-collapse mechanism that makes it work.
 
 ## Open questions
 - Does LeWM scale to high-resolution real-robot deployment, or is "2D and 3D control" still a research bench?

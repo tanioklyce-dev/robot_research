@@ -3,8 +3,8 @@ title: RoboCasa
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-05-07
-sources: 2
+updated: 2026-05-08
+sources: 3
 tags: [robocasa, household-manipulation, benchmark, ut-austin, nvidia, iclr-2026, mimicgen]
 ---
 

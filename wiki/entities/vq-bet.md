@@ -32,6 +32,7 @@ From [RUM paper](../sources/robot-utility-models-paper.md) §3.2:
 - [Diffusion Policy](diffusion-policy.md) — closest competitor; runner-up in the RUM ablation.
 - [Lerrel Pinto](lerrel-pinto.md) — co-senior on RUM, co-author on VQ-BeT (NYU lab).
 - [Imitation learning](../concepts/imitation-learning.md) — broader concept.
+- [Learned latent space](../concepts/latent-space.md) — VQ-BeT's discrete codebook is a learned latent *action* space; sibling design choice to predicting in continuous latent space.
 
 ## Mentioned in
 - [Robot Utility Models Paper](../sources/robot-utility-models-paper.md) — best-performing policy class.

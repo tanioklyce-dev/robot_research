@@ -32,6 +32,7 @@ tags: [v-jepa-2, jepa, world-model, dense-features, meta-fair, video, real-robot
 - [Joint-Embedding Predictive Architecture](../concepts/jepa.md)
 - [World model](../concepts/world-model.md) — JEPA continues.
 - [World-model simulators](../concepts/world-model-simulators.md) — latent-prediction paradigm continues.
+- [Learned latent space](../concepts/latent-space.md) — "dense features" angle: V-JEPA 2.1 explicitly tunes the latent's per-patch detail.
 
 ## Open questions
 - Code/project URL not surfaced from the abstract page.

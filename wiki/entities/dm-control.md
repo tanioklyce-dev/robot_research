@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-05-08
 updated: 2026-05-08
-sources: 4
+sources: 2
 tags: [dm-control, deepmind, mujoco, rl-benchmark, locomotion, manipulation, biomechanics]
 ---
 

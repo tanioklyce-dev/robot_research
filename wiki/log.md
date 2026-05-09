@@ -400,3 +400,12 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Touched existing entities: [MuJoCo](entities/mujoco.md), [Google DeepMind](entities/google-deepmind.md), [DM Control](entities/dm-control.md) (each picked up references to the fly thread).
 - Updated [index.md](index.md): new "Whole-organism agentic AI" Highlights section, three sources in chronological list, new "Model organisms / connectomes" entity category, flybody + NeuroMechFly under Simulators, HHMI Janelia under Companies, two concept pages, one synthesis, deferred follow-ups (Shiu paper, Lappalainen 2024, Mi 2022, virtual rodent, *C. elegans*/Hydra sims) in Known Gaps.
 - Note: this entry retroactively logs work committed earlier today as "wip" / "work in progress" without log/index updates.
+
+## [2026-05-08] lint | Source-count sync + latent-space backlinks
+- Lint pass found 0 broken links, 0 pages missing from index.md, 16 orphan pages (mostly syntheses, expected), and 33 stale `sources:` counts in entity/concept frontmatter.
+- **Synced 33 frontmatter source counts** to match actual link-graph reality (count of source pages linking to each entity/concept). Notable shifts: world-model-simulators 4→9, sim-to-real-transfer 4→8, imitation-learning 3→7, dino-wm 1→5, world-model 11→8 (overcount), metaworld 3→1 (overcount), several stub entities 1→0 (no source actually links to them).
+- **Synced 34 source-count badges in index.md** to match the corrected frontmatter.
+- **Added inbound links to [Learned latent space](concepts/latent-space.md)** — concept page was 0% linked despite declaring `sources: 7`. Added Related-section links from [JEPA](concepts/jepa.md), [DINOv2](entities/dinov2.md), [LeWM](entities/leworldmodel.md), [V-JEPA 2](entities/v-jepa-2.md), [DINO-WM](entities/dino-wm.md), [VQ-BeT](entities/vq-bet.md), and Concepts-touched links from the 7 source papers (V-JEPA 2 / 2.1, LeWM, JEPA-WMs, DINO-WM, DINO-world, VLA-JEPA). Source count is now genuinely 7.
+- Bumped `updated` date on all 33 + 1 touched pages.
+- Final state: 0 source-count mismatches.
+- Punch list deferred for future passes: orphan stub entities (Habitat / LIBERO / PointMaze / SimplerEnv / stable-worldmodel — exist but no source backlinks), missing "Mentioned in" entries (sample audit found ~3), well-mentioned-but-unpaged terms (WPILib 16x, DMPO 10x, Acme 7x), source-page frontmatter convention drift (`ingested:`/`published:` vs `created:`/`updated:`).

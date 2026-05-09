@@ -29,6 +29,7 @@ tags: [vla-jepa, jepa, vla-models, libero, simplerenv, world-model]
 - [VLA models](../concepts/vla-models.md) — policy class.
 - [World model](../concepts/world-model.md) — JEPA-as-auxiliary design point.
 - [World-model simulators](../concepts/world-model-simulators.md) — latent-prediction paradigm.
+- [Learned latent space](../concepts/latent-space.md) — JEPA prediction inside a VLA's representation space; auxiliary, not the primary objective.
 
 ## Open questions
 - Code/project URL not surfaced from the abstract page.

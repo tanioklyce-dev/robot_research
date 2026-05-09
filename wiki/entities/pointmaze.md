@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-05-08
 updated: 2026-05-08
-sources: 3
+sources: 0
 tags: [pointmaze, navigation-benchmark, mujoco, lightweight-sim, gymnasium-robotics]
 ---
 

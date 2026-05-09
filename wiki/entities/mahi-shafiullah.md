@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-08
 updated: 2026-05-08
-sources: 2
+sources: 1
 tags: [person, nyu, hello-robot, robot-learning, dobb-e, rum, shafiullah]
 ---
 

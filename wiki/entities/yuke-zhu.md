@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-08
 updated: 2026-05-08
-sources: 1
+sources: 0
 tags: [person, ut-austin, nvidia, embodied-ai, robocasa, manipulation]
 ---
 

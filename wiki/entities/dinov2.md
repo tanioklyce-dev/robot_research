@@ -43,6 +43,7 @@ This makes DINOv2 the most consequential **non-JEPA** building block in the JEPA
 
 ## Related
 - [Meta FAIR](meta-fair.md) — origin lab.
+- [Learned latent space](../concepts/latent-space.md) — DINOv2's 768-dim embedding is the substrate that downstream JEPA-adjacent models (DINO-WM / DINO-world / JEPA-WMs) freeze and predict in.
 - [DINO-WM](dino-wm.md) / [DINO-world](dino-world.md) / [JEPA-WMs](jepa-wms.md) — primary downstream consumers in this wiki.
 - [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — JEPA family. DINOv2 is JEPA-adjacent (encoder trained without action-conditioning) but predates the action-conditioned JEPA-WM line.
 - [LeWorldModel](leworldmodel.md) — end-to-end alternative to frozen-DINOv2 design.

@@ -34,6 +34,7 @@ tags: [dino-world, dinov2, world-model, video-prediction, jepa-adjacent, fair, m
 - [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — JEPA-adjacent (frozen encoder, latent prediction).
 - [World model](../concepts/world-model.md) — frozen-foundation-feature video world model.
 - [World-model simulators](../concepts/world-model-simulators.md) — latent-prediction paradigm.
+- [Learned latent space](../concepts/latent-space.md) — frozen DINOv2 features as the prediction target.
 
 ## Open questions
 - Specific simulator names — none surfaced from abstract.
