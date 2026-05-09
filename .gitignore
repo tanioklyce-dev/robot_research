@@ -13,5 +13,9 @@ Thumbs.db
 wiki/.obsidian/workspace.json
 wiki/.obsidian/workspace-mobile.json
 wiki/.obsidian/cache
+wiki/.obsidian/graph.json
 wiki/.obsidian/plugins/*/data.json
 /.obsidian/
+
+# Obsidian untitled/scratch canvases
+wiki/Untitled.canvas
