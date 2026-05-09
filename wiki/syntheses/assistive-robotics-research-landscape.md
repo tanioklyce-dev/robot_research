@@ -70,7 +70,7 @@ General manipulation datasets (DROID: 350 hr / 76k trajectories) exist but are n
 - **Virginia Tech Assistive Robotics Lab (Prof. Alan Asbeck)**: exoskeletons, soft robotics, haptics.
 
 ### Beyond the wiki
-- **UW Paul G. Allen School (Maya Cakmak)**: teleoperation UX for end-users with disabilities; Stretch + ROS; HRI for non-expert users. Closest to the HRI accessibility problem.
+- **[HCR Lab — Maya Cakmak](../entities/hcrlab.md) (UW Paul G. Allen School)**: the most directly relevant academic group for accessible HRI. Key results: long-term in-home deployments with quadriplegic user Henry Evans (Stretch, summers 2021–2023 — self-feeding, grooming, card games, medical device operation); HRI 2020 finding that people with severe motor impairments do NOT always prefer more autonomous robots (autonomy preference is user/context-specific); [end-user robot programming (EUP)](../concepts/end-user-robot-programming.md) tools transferred to commercial Stretch SE2; 2025 RO-MAN paper "Preserving Sense of Agency" ([HCR Lab publications](../sources/hcrlab-publications.md); [Maya Cakmak research overview](../sources/maya-cakmak-research.md)).
 - **CMU Quality of Life Technology Center (QoLT)**: long-running NSF center; HERB robot; power wheelchair integration; assistive manipulation at the systems level.
 - **Georgia Tech Healthcare Robotics Lab (Charlie Kemp, now at Hello Robot; formerly PI there)**: CURI, Henry Evans demos, object handover, robot-assisted dressing.
 - **Stanford GRAB Lab (Monroe Kennedy III)**: physical human-robot interaction; compliant manipulation; handover; care robotics.

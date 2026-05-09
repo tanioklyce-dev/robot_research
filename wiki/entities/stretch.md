@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-07
 updated: 2026-05-09
-sources: 7
+sources: 9
 tags: [stretch, mobile-manipulation, hello-robot, research-robot]
 ---
 
@@ -26,6 +26,8 @@ $20,000 ([IEEE Spectrum, 2023](../sources/ieee-spectrum-stretch-assistive.md)) �
 - **[Open Vocabulary Mobile Manipulation (OVMM)](../sources/ovmm-homerobot.md)** — baseline platform (20% real-world success rate).
 - **[OK-Robot](ok-robot.md)** — zero-shot pick-and-drop (58.5% success, 10 NYC homes); 1.8× over OVMM.
 - **[Assistive use](../concepts/assistive-robotics.md)** — documented in-home use by Henry Evans (quadriplegic); scratching, laundry, meals, social play ([IEEE Spectrum, 2023](../sources/ieee-spectrum-stretch-assistive.md)). "Assistive autonomy" concept: user-directed via GUI, not fully autonomous.
+- **[HCR Lab](hcrlab.md) long-term deployments** — [Maya Cakmak](maya-cakmak.md)'s lab ran 4-week summers deployments with Henry Evans in 2021, 2022, and 2023, expanding the task set each year. A prototype end-user programming (EUP) tool was built specifically for Henry in summer 2022 ([Maya Cakmak Research](../sources/maya-cakmak-research.md)).
+- **EUP transfer to Stretch SE2** — HCR Lab's end-user robot programming tools have been ported to the commercial Hello Robot Stretch SE2.
 
 ## Related
 - [Hello Robot](hello-robot.md) — vendor.

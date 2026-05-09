@@ -1,0 +1,51 @@
+---
+title: Maya Cakmak
+type: entity
+subtype: person
+created: 2026-05-09
+updated: 2026-05-09
+sources: 2
+tags: [maya-cakmak, assistive-robotics, eup, hcrlab, uw, hri]
+---
+
+**Maya Cakmak** — Associate Professor, Paul G. Allen School of Computer Science & Engineering, University of Washington. Director of the [Human-Centered Robotics Lab (HCR Lab)](hcrlab.md). Research goal: "make personal robot assistants in the home a reality" for persons with motor limitations and older adults.
+
+## Research tracks
+
+### Physically assistive robots
+Long-running work on mobile manipulators helping people with severe motor impairments — feeding, grooming, handover of objects, teleoperation for low-bandwidth users. Primary platform: [Hello Robot Stretch](stretch.md).
+
+Key results:
+- **Henry Evans long-term deployments** (quadriplegic, stroke): summers 2021–2023 using Stretch; achieved self-feeding, face wiping, scratching, lotion, medical device operation, card games, and handing objects to family. NIH grant secured for continued work ([Maya Cakmak Research](../sources/maya-cakmak-research.md)).
+- **Autonomy preference finding** (HRI 2020): people with severe motor impairments do NOT always prefer more autonomous robots. Autonomy–control tradeoff is user-specific and context-specific — an important design constraint often overlooked in the autonomy literature.
+- **Sense of agency** (RO-MAN 2025): "Preserving Sense of Agency: User Preferences for Robot Autonomy and User Control across Household Tasks" — direct study of when users want control vs. delegation.
+- **Robot-assisted feeding**: decade-long collaboration with UW Personal Robotics Lab (Siddhartha Srinivasa); HRI 2023 Best Design Paper Award for feeding in social contexts; HRI 2025 out-of-lab deployment lessons.
+- **Handovers**: ICRA 2021 Best HRI Paper Award; affordance-aware pose selection for users with arm mobility constraints.
+- **Systematic review**: "Physically Assistive Robots" in Annual Review of Control, Robotics, and Autonomous Systems (2024, with Nanavati and Ranganeni).
+
+### End-user robot programming (EUP)
+Enabling non-programmers (including users with disabilities) to customize and extend robot behavior for their specific needs.
+
+- **FLEX-SDK** (UIST 2022): open-source social robot toolkit; nine case studies at UW and other institutions over five years.
+- EUP tools transferred to commercial hardware: **Hello Robot Stretch SE2**.
+- University of Wisconsin collaboration (NRI grant): program verification/synthesis and tabletop figurine-based programming.
+- Literature survey: 45 papers on end-user program specification for robots.
+
+## Significance for assistive robotics
+
+Cakmak is the most directly relevant academic researcher to the "accessible HRI for low-motor users" problem identified in the [assistive robotics synthesis](../syntheses/assistive-robotics-research-landscape.md). Her lab is distinguished by:
+1. Including PwDs as participants throughout (not just evaluating on them at the end).
+2. Long-term deployments rather than controlled lab studies.
+3. The finding that more autonomy ≠ better: users want to preserve agency.
+4. EUP as a scalable solution to the customization problem.
+
+## Related
+- [HCR Lab](hcrlab.md) — her lab
+- [Stretch](stretch.md) — primary research platform
+- [Assistive robotics](../concepts/assistive-robotics.md)
+- [End-user robot programming](../concepts/end-user-robot-programming.md)
+- [Assistive robotics R&D landscape](../syntheses/assistive-robotics-research-landscape.md)
+
+## Mentioned in
+- [Maya Cakmak — Research Overview](../sources/maya-cakmak-research.md)
+- [HCR Lab Publications](../sources/hcrlab-publications.md)

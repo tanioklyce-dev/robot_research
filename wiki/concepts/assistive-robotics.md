@@ -3,7 +3,7 @@ title: Assistive Robotics
 type: concept
 created: 2026-05-09
 updated: 2026-05-09
-sources: 5
+sources: 7
 tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot, accessibility]
 ---
 
@@ -41,8 +41,18 @@ The 89.4% vs. 12.4% gap is the canonical quantification of the sim-to-real gap f
 - SDG 4 (Education): interactive learning support
 - SDG 10 (Reduced Inequalities): inclusive participation
 
+## Autonomy and agency
+
+A key finding from the [HCR Lab](../entities/hcrlab.md) ([Maya Cakmak](../entities/maya-cakmak.md), UW) challenges the assumption that more autonomy is always better: **people with severe motor impairments do NOT always prefer more autonomous robots** (HRI 2020). Autonomy preference is context- and person-specific. This motivates:
+
+- **"Assistive autonomy"** as a practical model — user stays in the loop via GUI/camera; the robot executes sub-tasks but the user retains control.
+- **[End-user robot programming (EUP)](end-user-robot-programming.md)** — tools that let users without programming skills customize robot behavior for their individual needs. HCR Lab's EUP tools have been transferred to the commercial Hello Robot Stretch SE2. A prototype tool was built specifically for Henry Evans in summer 2022.
+
+The 2025 RO-MAN paper "Preserving Sense of Agency: User Preferences for Robot Autonomy and User Control across Household Tasks" ([HCR Lab publications](../sources/hcrlab-publications.md)) is the most recent work in this line.
+
 ## Related concepts
 - [LLM-agent architecture](llm-agent-architecture.md) — the control pattern most current assistive robots use (user → LLM → robot actions)
+- [End-user robot programming](end-user-robot-programming.md) — enabling non-expert users to customize robot behavior; directly addresses the per-user personalization gap
 - [Imitation learning](imitation-learning.md) — policy training approach for manipulation tasks
 - [World model](world-model.md) — longer-term: world models could enable robots to plan assistive actions without per-task teleoperation
 
@@ -58,3 +68,5 @@ The 89.4% vs. 12.4% gap is the canonical quantification of the sim-to-real gap f
 - [RELab tenoexo](../sources/relab-ethz-tenoexo.md)
 - [Virginia Tech Assistive Robotics Lab](../sources/virginia-tech-assistive-robotics-lab.md)
 - [Stanford HAI — AI Index Report 2026](../sources/stanford-hai-ai-index-2026.md)
+- [HCR Lab Publications](../sources/hcrlab-publications.md)
+- [Maya Cakmak — Research Overview](../sources/maya-cakmak-research.md)

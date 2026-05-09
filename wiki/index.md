@@ -95,6 +95,8 @@ Curated entry points across the wiki.
 - [Claude's Constitution](sources/claudes-constitution.md) — Anthropic's 82-page specification of Claude's values, corrigibility model, principal hierarchy, honesty properties, and hard constraints. CC0 1.0. (2026-01-21)
 - [Are We Building Skynet? — Medium (2025)](sources/medium-are-we-building-skynet.md) — secondary journalism; MCP (>1,000 connectors), A2A (50+ supporters), Apollo Research Claude Opus 4 safety eval. (2025, date unknown)
 - [Stanford HAI — AI Index Report 2026](sources/stanford-hai-ai-index-2026.md) — 9th edition; 89.4% RLBench vs 12.4% BEHAVIOR-1K household tasks; model convergence at frontier; US–China gap 2.7%; $285.9B US AI investment; AI incidents 362. (2026)
+- [HCR Lab Publications](sources/hcrlab-publications.md) — Human-Centered Robotics Lab (UW) full publication record 2016–2025; autonomy preference finding; Henry Evans Stretch deployments; EUP transferred to Stretch SE2. (2025)
+- [Maya Cakmak — Research Overview](sources/maya-cakmak-research.md) — personal research narrative; stated goal quote; WHO statistic; HRI 2020 finding; Henry Evans summer deployment details; EUP rationale. (Unknown, continuously updated)
 - [Arcade Learning Environment — Farama Project Page](sources/ale-farama.md) — Farama's Atari 2600 RL benchmark; 100+ games, 23 multi-agent envs, Gymnasium API. (Unknown)
 - [Farama Foundation Projects Page](sources/farama-projects-page.md) — index of 19 RL env / API standards (Gymnasium, PettingZoo, Minari, …). (2026)
 - [Gymnasium-Robotics Documentation](sources/gymnasium-robotics-docs.md) — six MuJoCo env families (Fetch, Shadow Hand, Maze, Adroit, Franka Kitchen, MaMuJoCo). (2026)
@@ -122,6 +124,7 @@ Curated entry points across the wiki.
 - [Hiwonder](entities/hiwonder.md) — Chinese educational-robotics vendor; ROSOrin / ROSOrin Pro kits + OpenClaw. (3 sources)
 - [AGIBOT](entities/agibot.md) — Shanghai embodied-AI / humanoid company. Open-source-heavy. (3 sources)
 - [Hello Robot](entities/hello-robot.md) — Stretch mobile manipulator + stretch_ai stack. (6 sources)
+- [HCR Lab](entities/hcrlab.md) — Human-Centered Robotics Lab, UW (Maya Cakmak); assistive robots + EUP; Stretch platform; long-term in-home deployments. (2 sources)
 - [Elephant Robotics](entities/elephant-robotics.md) — Chinese edu-robotics vendor; myAGV + myBuddy 280 + arm ecosystem. (2 sources)
 - [Pollen Robotics](entities/pollen-robotics.md) — French open-source humanoid maker; Reachy 2. (1 source)
 - [Fauna Robotics](entities/fauna-robotics.md) — NYC; Sprout Creator Edition; 107cm, 29 DOF, Jetson AGX Orin. (1 source)
@@ -186,7 +189,7 @@ Curated entry points across the wiki.
 - [Unitree G1](entities/unitree-g1.md) — smaller, cheaper Unitree (~$16k); cheapest serious humanoid platform. (0 sources) _stub_
 - [NAO](entities/nao.md) — SoftBank/Aldebaran 58-cm educational humanoid; canonical since 2008. (0 sources) _stub_
 - [TonyPi](entities/tonypi.md) — Hiwonder hobby-tier biped kit ($300–700); educational-tier sibling of [ROSOrin Pro](entities/rosorin-pro.md). (0 sources) _stub_
-- [Stretch](entities/stretch.md) — Hello Robot's mobile manipulator (Stretch 3). De-facto research platform. (7 sources)
+- [Stretch](entities/stretch.md) — Hello Robot's mobile manipulator (Stretch 3). De-facto research platform. (9 sources)
 - [Reachy 2](entities/reachy.md) — Pollen Robotics' open-source bimanual mobile manipulator for embodied AI; ROS 2; 7 DOF/arm. (1 source)
 - [myAGV](entities/myagv.md) — Elephant Robotics autonomous mobile base; ROS; Raspberry Pi 4B; pairs with arms. (1 source)
 - [myBuddy 280](entities/mybuddy-280.md) — Elephant Robotics 13 DOF dual-arm desktop robot; $1,619; ROS1. (1 source)
@@ -257,6 +260,7 @@ Curated entry points across the wiki.
 - [Karl Pertsch](entities/karl-pertsch.md) — DROID co-lead with Khazatsky; Berkeley/Stanford. (0 source pages yet — referenced via entity pages)
 - [Mahi Shafiullah](entities/mahi-shafiullah.md) — NYU + Hello Robot; lead/co-author on Dobb·E, RUM, and OK-Robot. (2 sources)
 - [Phil Shiu](entities/phil-shiu.md) — UC Berkeley → Eon Systems; lead author + maintainer of the FlyWire-based LIF brain simulation. (2 sources)
+- [Maya Cakmak](entities/maya-cakmak.md) — UW; HCR Lab PI; physically assistive robots + EUP; Henry Evans long-term deployments; autonomy preference finding. (2 sources)
 
 ## Concepts
 - [World model](concepts/world-model.md) — umbrella concept: learned predictive model of environment dynamics (generative-video / JEPA / frozen-feature / model-based-RL). (8 sources)
@@ -271,7 +275,8 @@ Curated entry points across the wiki.
 - [AprilTags](concepts/apriltags.md) — visual fiducial markers for 6-DOF pose estimation; standard in FRC and research robotics. (2 sources)
 - [Learned latent space](concepts/latent-space.md) — vector space where a trained encoder represents inputs; substrate for JEPA prediction, DINOv2 features, VQ-BeT codebook. (7 sources)
 - [Agentic UAVs](concepts/agentic-uavs.md) — autonomous aerial systems with goal-driven behavior; 4-layer architecture; 8 domains; adaptive control. (2 sources)
-- [Assistive robotics](concepts/assistive-robotics.md) — robots helping disabled/elderly users regain autonomy; Stretch, RELab tenoexo, social robots. (4 sources)
+- [Assistive robotics](concepts/assistive-robotics.md) — robots helping disabled/elderly users regain autonomy; Stretch, RELab tenoexo, social robots; autonomy preference finding. (7 sources)
+- [End-user robot programming](concepts/end-user-robot-programming.md) — enabling non-experts to customize robot behavior; EUP approaches; HCR Lab tools transferred to Stretch SE2. (2 sources)
 - [Biomechanical simulation](concepts/biomechanical-simulation.md) — physics-based simulation of an animal body; lineage *C. elegans* → Hydra → virtual rodent → NeuroMechFly v1/v2 → flybody. (5 sources)
 - [Connectome](concepts/connectome.md) — complete wiring diagram of a nervous system; *C. elegans* → fly hemibrain → FlyWire → mouse → human. (3 sources)
 

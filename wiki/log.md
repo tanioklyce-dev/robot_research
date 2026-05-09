@@ -552,3 +552,14 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Created [Corrigibility](concepts/corrigibility.md) — corrigibility dial (fully corrigible ↔ fully autonomous); why both extremes are dangerous; asymmetric cost argument; what corrigibility does/does not mean; galaxy-brained reasoning risk; surgeon principle for independent judgment; implications for agentic robot deployments.
 - Updated [AI safety and alignment](concepts/ai-safety-alignment.md) — added corrigibility cross-link.
 - Updated [index.md](index.md) — new concept entry.
+
+## [2026-05-09] ingest | HCR Lab Publications + Maya Cakmak Research Overview
+- Fetched [HCR Lab Publications](sources/hcrlab-publications.md) from hcrlab.cs.washington.edu/publications/ — full publication record 2016–2025; key claims: HRI 2020 autonomy preference finding, Henry Evans Stretch deployments (summers 2021–2023), EUP transferred to Stretch SE2, feeding + handover award papers.
+- Fetched [Maya Cakmak — Research Overview](sources/maya-cakmak-research.md) from mayacakmak.io/research — narrative research overview; stated goal; WHO statistic (190M PwD); HRI 2020 key finding; Henry Evans summer deployment details (2021/2022/2023); EUP rationale; FLEX-SDK; 45-paper EUP survey.
+- Created [Maya Cakmak](entities/maya-cakmak.md) — UW professor, HCR Lab PI; two research tracks; Henry Evans deployments; autonomy preference + sense of agency findings; FLEX-SDK; systematic review; awards.
+- Created [HCR Lab](entities/hcrlab.md) — Human-Centered Robotics Lab, UW; primary platform Stretch; two tracks (assistive robots + EUP); notable awards; collaborators (Srinivasa, Fox, Mutlu, Björling).
+- Created [End-user robot programming](concepts/end-user-robot-programming.md) — EUP definition, rationale, key approaches (visual programming, PbD, multimodal, sketch+holes, tangible), FLEX-SDK, connection to assistive robotics.
+- Updated [Stretch](entities/stretch.md) — added HCR Lab long-term deployment bullets (summers 2021–2023, Henry Evans; EUP tool built for Henry in summer 2022); EUP transfer to Stretch SE2; sources 7→9.
+- Updated [Assistive robotics](concepts/assistive-robotics.md) — added "Autonomy and agency" section (HRI 2020 finding; assistive autonomy model; EUP as scalable response; sense of agency 2025 paper); added EUP cross-link to Related concepts; added HCR Lab sources to Mentioned in; sources 5→7.
+- Updated [Assistive robotics — R&D landscape](syntheses/assistive-robotics-research-landscape.md) — moved Cakmak from "Beyond the wiki" to "Strong in the wiki" with full specifics: HRI 2020 finding, summer deployments, EUP, sense of agency paper, HCR Lab sources.
+- Updated [index.md](index.md) — added 2 source entries, HCR Lab entity, Maya Cakmak entity, end-user-robot-programming concept; bumped Stretch sources 7→9; bumped assistive-robotics sources 4→7.
