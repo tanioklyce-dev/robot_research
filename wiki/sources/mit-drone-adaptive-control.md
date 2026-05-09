@@ -40,7 +40,11 @@ MathWorks, MIT-IBM Watson AI Lab, MIT-Amazon Science Hub, MIT-Google Program for
 - Multiple simultaneous disturbance sources (wind + payload shifting)
 - Continual learning — adaptation without retraining on historical data
 
+## Related prior work from same group
+[Learning Control-Oriented Dynamical Structure from Data](learning-control-oriented-dynamical-structure.md) (Richards, Slotine, Azizan, Pavone — ICML 2023) — Azizan's earlier work on learning SDC factorizations for SDRE-based nonlinear tracking. Complements this paper: that paper addresses model learning; this paper addresses runtime disturbance rejection.
+
 ## Entities mentioned
+- [Navid Azizan](../entities/navid-azizan.md) — senior author
 - [Agentic UAVs](../concepts/agentic-uavs.md) — domain context
 
 ## Open questions

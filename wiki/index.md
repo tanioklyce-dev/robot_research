@@ -79,6 +79,7 @@ Curated entry points across the wiki.
 - [URDF vs MJCF vs USD comparison](sources/source-robotics-urdf-mjcf-usd-comparison.md) — practitioner survey. (2026-03-13)
 - [UAVs Meet Agentic AI — Multidomain Survey](sources/uavs-agentic-ai-survey.md) — 4-layer agentic UAV architecture; 8 application domains; Cornell + U. Peloponnese. (2025-06)
 - [MIT Drone Adaptive Control](sources/mit-drone-adaptive-control.md) — meta-learning + mirror descent; 50% less tracking error; 15 min training data. (2025-06-09)
+- [Learning Control-Oriented Dynamical Structure from Data](sources/learning-control-oriented-dynamical-structure.md) — SD-LQR: learned SDC factorizations for SDRE nonlinear tracking; ICML 2023; Azizan et al. (2023-06)
 - [Arcade Learning Environment — Farama Project Page](sources/ale-farama.md) — Farama's Atari 2600 RL benchmark; 100+ games, 23 multi-agent envs, Gymnasium API. (Unknown)
 - [Farama Foundation Projects Page](sources/farama-projects-page.md) — index of 19 RL env / API standards (Gymnasium, PettingZoo, Minari, …). (2026)
 - [Gymnasium-Robotics Documentation](sources/gymnasium-robotics-docs.md) — six MuJoCo env families (Fetch, Shadow Hand, Maze, Adroit, Franka Kitchen, MaMuJoCo). (2026)
@@ -228,6 +229,7 @@ Curated entry points across the wiki.
 
 ### People
 - [Yann LeCun](entities/yann-lecun.md) — NYU; Turing Award 2018; architect of the JEPA program; reported founder of AMI Labs (Apr 2026, provisional). (7 sources)
+- [Navid Azizan](entities/navid-azizan.md) — MIT ME / IDSS / LIDS; learning-based control; SD-LQR (ICML 2023) + drone adaptive control (2025). (2 sources)
 - [Adrien Bardes](entities/adrien-bardes.md) — FAIR researcher; co-senior on V-JEPA 2, V-JEPA 2.1, JEPA-WMs. The FAIR-side champion of the V-JEPA program. (3 sources)
 - [Basile Terver](entities/basile-terver.md) — researcher (FAIR-affiliated, inferred); bread-crumb across DINO-world → JEPA-WMs lineage. (2 sources)
 - [Sergey Levine](entities/sergey-levine.md) — UC Berkeley EECS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)

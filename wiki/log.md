@@ -2,6 +2,11 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-09] ingest | Learning Control-Oriented Dynamical Structure from Data (ICML 2023)
+- Created [learning-control-oriented-dynamical-structure](sources/learning-control-oriented-dynamical-structure.md) (arXiv 2302.02529)
+- New entity: [Navid Azizan](entities/navid-azizan.md) — connects to MIT drone adaptive control source
+- Updated [MIT drone adaptive control](sources/mit-drone-adaptive-control.md): linked prior work + Azizan entity
+
 ## [2026-05-09] ingest | UAVs Meet Agentic AI survey + MIT drone adaptive control
 - Created [UAVs Meet Agentic AI survey](sources/uavs-agentic-ai-survey.md) (arXiv 2506.08045)
 - Created [MIT drone adaptive control](sources/mit-drone-adaptive-control.md) (MIT News, 2025-06-09)
