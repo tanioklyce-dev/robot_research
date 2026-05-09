@@ -4,7 +4,7 @@ type: entity
 subtype: dataset-consortium
 created: 2026-05-08
 updated: 2026-05-08
-sources: 2
+sources: 3
 tags: [flywire, connectome, drosophila, neuroscience, brain-mapping]
 ---
 
@@ -19,7 +19,7 @@ tags: [flywire, connectome, drosophila, neuroscience, brain-mapping]
 
 - **Dorkenwald et al.** — *"Neuronal wiring diagram of an adult brain"* (the connectome itself). *Nature* 634, 124–138.
 - **Schlegel et al.** — *"Whole-brain annotation and multi-connectome cell typing of *Drosophila*"*. *Nature* 634, 139–152.
-- **Shiu et al.** — *"A Drosophila computational brain model reveals sensorimotor processing"*. The leaky-integrate-and-fire dynamic model atop the connectome. ([Berkeley News](../sources/berkeley-fly-brain-news.md))
+- **Shiu et al.** — *"A Drosophila computational brain model reveals sensorimotor processing"*. The leaky-integrate-and-fire dynamic model atop the connectome. *Nature* 634, 210–219. ([source page](../sources/shiu-fly-brain-paper.md), [Berkeley News writeup](../sources/berkeley-fly-brain-news.md))
 
 ## Consortium leads
 
@@ -35,7 +35,7 @@ NIH BRAIN Initiative, Wellcome, Medical Research Council, Princeton, NSF.
 ## Why it matters here
 
 - **The brain side of whole-organism agentic AI.** Pairs naturally with [flybody](flybody.md) (the body side) — see [Whole-organism agentic AI](../syntheses/whole-organism-agentic-ai.md).
-- **Connectome-constrained predictors.** Lappalainen et al. 2024 (*Nature* 634:1132) and Mi et al. 2022 (ICLR) train deep nets whose connectivity is constrained by the FlyWire wiring — predicting fly visual-system neural activity at single-neuron resolution. This is the ML-on-connectome modality flybody-paper points to as the brain-side complement.
+- **Connectome-constrained predictors.** [Lappalainen et al. 2024](../sources/lappalainen-flyvis-paper.md) (*Nature* 634:1132) and Mi et al. 2022 (ICLR) train deep nets whose connectivity is constrained by the wiring — predicting fly visual-system neural activity at single-neuron resolution. This is the ML-on-connectome modality flybody-paper points to as the brain-side complement. (Lappalainen used the older optic-lobe FIB-25/FIB-19 reconstructions, not whole-brain FlyWire — the architectural template generalizes.)
 
 ## Related
 
@@ -47,3 +47,4 @@ NIH BRAIN Initiative, Wellcome, Medical Research Council, Princeton, NSF.
 
 - [Berkeley News — researchers simulate an entire fly brain on a laptop](../sources/berkeley-fly-brain-news.md)
 - [flybody Paper](../sources/flybody-paper.md) (cited as future brain-side integration)
+- [Shiu et al. 2024 — A Drosophila computational brain model](../sources/shiu-fly-brain-paper.md) (the connectome is the input)

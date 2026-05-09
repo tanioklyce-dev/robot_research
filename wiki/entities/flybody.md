@@ -41,8 +41,9 @@ tags: [flybody, drosophila, mujoco, biomechanical-simulation, deep-rl, hhmi-jane
 
 ## Lineage
 
-- **Predecessors.** Grand Unified Fly (Dickson et al. 2008), [NeuroMechFly](neuromechfly.md) v1/v2 (Lobato-Rios 2022 / Wang-Chen 2024), virtual rodent (Merel et al. 2020), Hydra (Wang et al. 2023), *C. elegans* (Boyle et al. 2012).
-- **Position.** flybody **unifies flight and walking** in a single body — a first for *Drosophila* models.
+- **Predecessors.** Grand Unified Fly (Dickson et al. 2008), [NeuroMechFly](neuromechfly.md) v1 (Lobato-Rios 2022) — walking + grooming, heuristic controller, virtual rodent (Merel et al. 2020), Hydra (Wang et al. 2023), *C. elegans* (Boyle et al. 2012).
+- **Contemporaries.** [NeuroMechFly v2](neuromechfly.md) (Wang-Chen 2024; flygym v2.x.x in 2026) is a parallel open-source *Drosophila* sim from EPFL's NeLy lab. Capability split is sharp: flybody owns flight + flat-policy RL; NeuroMechFly v2 owns olfaction + mechanosensory richness + brain–VNC hierarchy. Both are Apache-2.0 on MuJoCo. See [NeuroMechFly entity](neuromechfly.md) for the comparison table.
+- **Position.** flybody **unifies flight and walking** in a single body — a first for *Drosophila* models, and still uniquely capable of flight as of 2026.
 
 ## Datasets
 
@@ -64,6 +65,8 @@ tags: [flybody, drosophila, mujoco, biomechanical-simulation, deep-rl, hhmi-jane
 - [Drosophila melanogaster](drosophila.md) — model organism.
 - [Imitation learning](../concepts/imitation-learning.md) — training paradigm.
 - [Biomechanical simulation](../concepts/biomechanical-simulation.md) — concept umbrella.
+- [flyvis](flyvis.md) — sister project from the same lab (Turaga); brain-side connectome-constrained controller template; the natural integration partner.
+- [Drosophila brain model](drosophila-brain-model.md) — independent brain-side codebase (Shiu et al.); mechanistic-LIF alternative.
 
 ## Mentioned in
 

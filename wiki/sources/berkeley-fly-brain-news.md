@@ -35,7 +35,8 @@ UC Berkeley News article (2024-10-02) reporting that Phil Shiu (then UC Berkeley
 
 - [FlyWire](../entities/flywire.md) — connectome consortium and dataset.
 - [Drosophila melanogaster](../entities/drosophila.md) — model organism.
-- Phil Shiu (lead author; UC Berkeley → Eon)
+- [Phil Shiu](../entities/phil-shiu.md) — lead author; UC Berkeley → Eon Systems.
+- [Drosophila brain model](../entities/drosophila-brain-model.md) — open-source code (the artifact behind the "fly brain on a laptop" framing).
 - Gabriella Sterne (University of Rochester)
 - Kristin Scott (UC Berkeley, professor emerita)
 

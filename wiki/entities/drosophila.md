@@ -4,7 +4,7 @@ type: entity
 subtype: model-organism
 created: 2026-05-08
 updated: 2026-05-08
-sources: 2
+sources: 6
 tags: [drosophila, fruit-fly, model-organism, neuroscience, biomechanics]
 ---
 
@@ -33,3 +33,7 @@ The wiki cares about *Drosophila* not as biology per se but as **the smallest or
 - [Berkeley News — researchers simulate an entire fly brain on a laptop](../sources/berkeley-fly-brain-news.md)
 - [flybody Paper](../sources/flybody-paper.md)
 - [flybody GitHub](../sources/flybody-github.md)
+- [Shiu et al. 2024 — A Drosophila computational brain model](../sources/shiu-fly-brain-paper.md)
+- [Lappalainen et al. 2024 — Connectome-constrained networks (fly visual system)](../sources/lappalainen-flyvis-paper.md)
+- [flygym GitHub (NeLy-EPFL/flygym)](../sources/flygym-github.md)
+- [neuromechfly.org website](../sources/neuromechfly-website.md)

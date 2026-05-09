@@ -27,6 +27,10 @@ Newton 1.0 GA in March 2026 (GTC). Production-ready for Isaac Lab. Part of NVIDI
 ## Why it matters
 Newton's vendor-neutral governance plus its presence in both DeepMind's and NVIDIA's stacks positions it as the emerging shared physics substrate for agentic robotics — reducing simulator lock-in for policy researchers. The `newton-usd-schemas` "promotion path" into upstream `UsdPhysics` is the structural mechanism that turns vendor-specific solver work into open-standard infrastructure.
 
+## Cross-domain pull on the underlying compute layer
+
+Newton is built on **NVIDIA Warp**. Warp is also what [NeuroMechFly v2](neuromechfly.md) uses (via MJWarp) to deliver its ~300× GPU speedup over the v1 codebase ([flygym GitHub](../sources/flygym-github.md)). NeuroMechFly does not depend on Newton itself, but the same GPU compute layer is being commoditized for industrial-robotics simulation *and* for biological whole-body simulation. This is a meaningful real-world data point for the [Newton + OpenUSD substrate convergence](../syntheses/newton-openusd-substrate-convergence.md) thesis: physics-layer commoditization has cross-domain pull, not just intra-robotics pull.
+
 ## Related
 - [OpenUSD](openusd.md) — the scene/physics substrate Newton consumes and extends.
 - [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — primary integration.

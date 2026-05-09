@@ -27,9 +27,11 @@ Curated entry points across the wiki.
 - [LeWM on ROSOrin Pro — feasibility analysis](syntheses/lewm-on-rosorin-pro-feasibility.md) — feasibility analysis for deploying LeWM on ROSOrin Pro.
 
 **Whole-organism agentic AI (fruit fly)**
-- [Whole-organism agentic AI](syntheses/whole-organism-agentic-ai.md) — brain ([FlyWire](entities/flywire.md)) + body ([flybody](entities/flybody.md)) for *Drosophila*: the first plausible end-to-end animal-scale agent loop.
-- [flybody](entities/flybody.md) — HHMI Janelia + DeepMind whole-body fly physics in MuJoCo.
+- [Whole-organism agentic AI](syntheses/whole-organism-agentic-ai.md) — brain ([FlyWire](entities/flywire.md)) + body ([flybody](entities/flybody.md) / [NeuroMechFly v2](entities/neuromechfly.md)) for *Drosophila*: the first plausible end-to-end animal-scale agent loop.
+- [flybody](entities/flybody.md) — HHMI Janelia + DeepMind whole-body fly physics in MuJoCo (walking + flight).
+- [NeuroMechFly](entities/neuromechfly.md) — NeLy/EPFL parallel platform (walking + vision + olfaction + brain–VNC); active flygym v2.x.x with GPU acceleration.
 - [FlyWire](entities/flywire.md) — complete adult *Drosophila* connectome.
+- [Drosophila brain model](entities/drosophila-brain-model.md) and [flyvis](entities/flyvis.md) — open-source brain-side controllers (LIF + connectome-constrained DMN).
 - [Biomechanical simulation](concepts/biomechanical-simulation.md) and [Connectome](concepts/connectome.md) — concept pages.
 
 ## Sources (chronological)
@@ -70,6 +72,10 @@ Curated entry points across the wiki.
 - [Berkeley News — researchers simulate an entire fly brain on a laptop](sources/berkeley-fly-brain-news.md) — Phil Shiu's leaky-integrate-and-fire simulation of the full FlyWire connectome. (2024-10-02)
 - [flybody Paper — Vaxenburg et al. 2025, Nature](sources/flybody-paper.md) — anatomically detailed *Drosophila* whole-body MuJoCo simulator + DMPO-trained walking & vision-guided flight controllers. (2025-04-23)
 - [flybody GitHub (TuragaLab/flybody)](sources/flybody-github.md) — Apache-2.0 release: body XML, dm_control tasks, Ray-distributed DMPO training. (2024–2025)
+- [Shiu et al. 2024 — A Drosophila computational brain model](sources/shiu-fly-brain-paper.md) — *Nature* paper behind the "fly brain on a laptop" claim; LIF model on the full FlyWire connectome via Brian 2; MIT-licensed code. (2024-10-02)
+- [Lappalainen et al. 2024 — Connectome-constrained networks predict fly visual-system activity](sources/lappalainen-flyvis-paper.md) — *Nature* paper; PyTorch deep net with optic-lobe connectome as fixed connectivity mask; 64 cell types / 45k neurons; predicts T4/T5 motion selectivity. (2024-09-11)
+- [neuromechfly.org website](sources/neuromechfly-website.md) — project website for NeuroMechFly v2; vision + olfaction + brain–VNC; tutorials + installation; v2 launched March 2026. (2024–2026)
+- [flygym GitHub (NeLy-EPFL/flygym)](sources/flygym-github.md) — Apache-2.0 Python library implementing NeuroMechFly v2; v2.0.1 release. (2026-04-17)
 
 ## Entities
 
@@ -87,13 +93,14 @@ Curated entry points across the wiki.
 - [FIRST Robotics Competition](entities/first-robotics-competition.md) — world's leading high-school robotics competition; ~3,700 teams, 30+ countries. (4 sources)
 - [AndyMark](entities/andymark.md) — major FRC vendor; AM14U6 chassis, field elements, FUEL scoring elements. (2 sources)
 - [Team 254: The Cheesy Poofs](entities/team-254.md) — elite FRC team (2022 World Champions); 2026 "AI in FRC" presentation; Claude Code + wpilib-agent-tools. (2 sources)
-- [HHMI Janelia Research Campus](entities/hhmi-janelia.md) — HHMI's pure-research lab; Turaga lab leads flybody; *Drosophila* neuroscience & connectomics anchor. (2 sources)
+- [HHMI Janelia Research Campus](entities/hhmi-janelia.md) — HHMI's pure-research lab; Turaga lab leads flybody + flyvis; *Drosophila* neuroscience & connectomics anchor. (3 sources)
+- [NeLy-EPFL (Neuroengineering Laboratory)](entities/nely-epfl.md) — EPFL lab; maintains [NeuroMechFly](entities/neuromechfly.md) + the `flygym` Python library; European counterweight to HHMI Janelia in fly-body simulation. (2 sources)
 
 ### Simulators / frameworks
 - [NVIDIA Isaac Sim](entities/nvidia-isaac-sim.md) — Omniverse-based robotics simulator. (4 sources)
 - [NVIDIA Isaac Lab](entities/nvidia-isaac-lab.md) — open-source learning framework on Isaac Sim. (5 sources)
 - [Newton physics engine](entities/newton-physics-engine.md) — Linux-Foundation, GPU-accelerated. (4 sources)
-- [MuJoCo](entities/mujoco.md) — DeepMind-maintained physics engine; substrate for Gymnasium-Robotics, MuJoCo Playground (via MJX), Adroit, Franka Kitchen, DM Control. (9 sources)
+- [MuJoCo](entities/mujoco.md) — DeepMind-maintained physics engine; substrate for Gymnasium-Robotics, MuJoCo Playground (via MJX), Adroit, Franka Kitchen, DM Control, flybody, NeuroMechFly v2. (11 sources)
 - [MuJoCo Playground](entities/mujoco-playground.md) — DeepMind's MJX-based learning framework. (4 sources)
 - [Genesis](entities/genesis.md) — generative + ultra-fast physics engine. (2 sources)
 - [AGIBOT Genie Sim 3.0](entities/agibot-genie-sim.md) — open embodied-AI sim on Isaac Sim. (2 sources)
@@ -109,7 +116,7 @@ Curated entry points across the wiki.
 - [SimplerEnv](entities/simplerenv.md) — Sapien-adjacent mid-weight sim positioned as real-world-correlation harness; used by VLA-JEPA. (0 sources)
 - [Habitat](entities/habitat.md) — Meta FAIR embodied-AI sim (navigation + manipulation in photorealistic 3D scenes); legacy substrate. (0 sources)
 - [flybody](entities/flybody.md) — HHMI Janelia + Google DeepMind anatomically detailed *Drosophila* body in MuJoCo (102 DoFs, walking + flight); Apache-2.0. (3 sources)
-- [NeuroMechFly](entities/neuromechfly.md) — anatomically detailed *Drosophila* walking-and-grooming body sim (Lobato-Rios 2022; v2 Wang-Chen 2024); flybody predecessor. (1 source)
+- [NeuroMechFly](entities/neuromechfly.md) — NeLy/EPFL *Drosophila* body sim with vision + olfaction + brain–VNC hierarchy; v2 (Wang-Chen 2024); flygym v2.x.x package actively maintained 2026 with Warp/MJWarp GPU acceleration. Apache-2.0. (3 sources)
 
 ### RL API standards
 - [Gymnasium](entities/gymnasium.md) — single-agent RL env API; OpenAI gym successor under Farama. (2 sources)
@@ -153,8 +160,10 @@ Curated entry points across the wiki.
 - [DROID](entities/droid.md) — Distributed Robot Interaction Dataset; 350 hr / 76k traj / 564 scenes of Franka Panda teleop; the dominant real-robot dataset in JEPA-for-robotics work. (2 sources)
 
 ### Model organisms / connectomes
-- [Drosophila melanogaster](entities/drosophila.md) — fruit fly; canonical "whole-organism AI" target; substrate for both [FlyWire](entities/flywire.md) and [flybody](entities/flybody.md). (2 sources)
-- [FlyWire](entities/flywire.md) — international consortium + dataset for the complete adult *Drosophila* brain connectome (139,255 neurons, ~50M synapses; *Nature* 2024). (2 sources)
+- [Drosophila melanogaster](entities/drosophila.md) — fruit fly; canonical "whole-organism AI" target; substrate for both [FlyWire](entities/flywire.md) and [flybody](entities/flybody.md). (6 sources)
+- [FlyWire](entities/flywire.md) — international consortium + dataset for the complete adult *Drosophila* brain connectome (139,255 neurons, ~50M synapses; *Nature* 2024). (3 sources)
+- [Drosophila brain model](entities/drosophila-brain-model.md) — Phil Shiu's MIT-licensed Brian 2 LIF model on the FlyWire connectome (paper code). (1 source)
+- [flyvis](entities/flyvis.md) — TuragaLab's MIT-licensed PyTorch connectome-constrained DMN of the fly visual system; v1.1.3 March 2026. (1 source)
 
 ### Vision foundation models
 - [DINOv2](entities/dinov2.md) — Meta FAIR self-supervised ViT (142M images, ViT-S/B/L/g); substrate for DINO-WM, DINO-world, JEPA-WMs. Apache 2.0. (3 sources)
@@ -195,6 +204,7 @@ Curated entry points across the wiki.
 - [Yuke Zhu](entities/yuke-zhu.md) — UT Austin / NVIDIA Research; senior on RoboCasa365. (0 sources)
 - [Karl Pertsch](entities/karl-pertsch.md) — DROID co-lead with Khazatsky; Berkeley/Stanford. (0 source pages yet — referenced via entity pages)
 - [Mahi Shafiullah](entities/mahi-shafiullah.md) — NYU + Hello Robot; lead author on Dobb·E + RUM. (1 source)
+- [Phil Shiu](entities/phil-shiu.md) — UC Berkeley → Eon Systems; lead author + maintainer of the FlyWire-based LIF brain simulation. (2 sources)
 
 ## Concepts
 - [World model](concepts/world-model.md) — umbrella concept: learned predictive model of environment dynamics (generative-video / JEPA / frozen-feature / model-based-RL). (8 sources)
@@ -206,8 +216,8 @@ Curated entry points across the wiki.
 - [LLM-agent architecture](concepts/llm-agent-architecture.md) — LLM-emits-tool-calls control pattern. (4 sources)
 - [AprilTags](concepts/apriltags.md) — visual fiducial markers for 6-DOF pose estimation; standard in FRC and research robotics. (2 sources)
 - [Learned latent space](concepts/latent-space.md) — vector space where a trained encoder represents inputs; substrate for JEPA prediction, DINOv2 features, VQ-BeT codebook. (7 sources)
-- [Biomechanical simulation](concepts/biomechanical-simulation.md) — physics-based simulation of an animal body; lineage *C. elegans* → Hydra → virtual rodent → flybody. (3 sources)
-- [Connectome](concepts/connectome.md) — complete wiring diagram of a nervous system; *C. elegans* → fly hemibrain → FlyWire → mouse → human. (1 source)
+- [Biomechanical simulation](concepts/biomechanical-simulation.md) — physics-based simulation of an animal body; lineage *C. elegans* → Hydra → virtual rodent → NeuroMechFly v1/v2 → flybody. (5 sources)
+- [Connectome](concepts/connectome.md) — complete wiring diagram of a nervous system; *C. elegans* → fly hemibrain → FlyWire → mouse → human. (3 sources)
 
 ## Syntheses
 - [Simulators for agentic robotics — 2026 landscape](syntheses/simulators-for-agentic-robotics-2026.md) — full landscape survey, 6 categories. (updated 2026-05-07)
@@ -271,7 +281,8 @@ Curated entry points across the wiki.
 - Chief Delphi — FRC community forum; primary knowledge-sharing platform. Entity page on demand.
 - ~~Team 254~~ — now filed as [Team 254: The Cheesy Poofs](entities/team-254.md).
 - MathWorks / MATLAB — FRC sponsor; provides MATLAB + Simulink for autonomous algorithm design. Entity page on demand.
-- Shiu et al. *Nature* 2024 fly-brain paper, Lappalainen et al. 2024, Mi et al. 2022 — referenced via [Berkeley News](sources/berkeley-fly-brain-news.md) and [flybody Paper](sources/flybody-paper.md); not yet primary-source pages. See [Whole-organism agentic AI](syntheses/whole-organism-agentic-ai.md) for what's missing.
-- Phil Shiu, Yuval Tassa, Srinivas Turaga, Josh Merel — referenced across the fly-biology thread; entity pages on demand.
+- Mi et al. 2022 (ICLR) connectome-constrained latent-variable model — still referenced via [Connectome](concepts/connectome.md) and [flybody Paper](sources/flybody-paper.md) only; not yet a primary-source page. ([Shiu et al. 2024](sources/shiu-fly-brain-paper.md) and [Lappalainen et al. 2024](sources/lappalainen-flyvis-paper.md) now filed.)
+- Brian 2 spiking-NN simulator — substrate under [Shiu et al. 2024](sources/shiu-fly-brain-paper.md); entity page on demand. ([flyvis](entities/flyvis.md) and [Drosophila brain model](entities/drosophila-brain-model.md) now filed.)
+- Yuval Tassa, Srinivas Turaga (now senior on two ingested sources), Josh Merel, Janne Lappalainen, Kristin Scott, Jakob Macke — entity pages on demand. ([Phil Shiu](entities/phil-shiu.md) now filed.)
 - Virtual rodent (Merel et al. 2020, ICLR) — direct DeepMind ancestor of [flybody](entities/flybody.md); entity page on demand.
 - *C. elegans* / Hydra body sims (Boyle 2012, Wang 2023) — earlier whole-organism biomechanics; one-line references in flybody-paper.
