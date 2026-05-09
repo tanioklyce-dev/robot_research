@@ -2,6 +2,20 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-09] edit | index.md Highlights restructure
+- Added "Assistive Robotics" highlights block (after AI Safety and Alignment)
+- Moved "General" to end of Highlights list
+- Moved Log link to bottom of index.md
+
+## [2026-05-09] ingest | Stanford HAI AI Index Report 2026
+- Created [Stanford HAI — AI Index Report 2026](sources/stanford-hai-ai-index-2026.md)
+- New entity: [Physical Intelligence](entities/physical-intelligence.md) — π0/π0.6 VLAs
+- Updated [Figure](entities/figure.md): added BMW deployment data (11 months, 1,250+ hr, 90k+ parts, 30k vehicles); sources 0→1
+- Updated [VLA models](concepts/vla-models.md): added π0/π0.6 + Gemini Robotics; added research-stage assessment from AI Index; sources 8→9
+- Updated [Sim-to-real transfer](concepts/sim-to-real-transfer.md): added quantified gap table (89.4% RLBench vs 12.4% BEHAVIOR-1K); sources 8→9
+- Updated [Assistive robotics](concepts/assistive-robotics.md): added BEHAVIOR-1K 12.4% household task success section; sources 4→5
+- Updated [Assistive robotics synthesis](syntheses/assistive-robotics-research-landscape.md): updated reliability gap framing with BEHAVIOR-1K numbers
+
 ## [2026-05-09] query | Assistive robotics R&D landscape and JEPA applicability
 - Filed [Assistive robotics — R&D landscape and JEPA applicability](syntheses/assistive-robotics-research-landscape.md)
 - Synthesized from: assistive-robotics concept, ok-robot, robot-utility-models, stretch, jepa-task-capabilities, v-jepa-2, dino-wm, vla-jepa

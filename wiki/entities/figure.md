@@ -4,9 +4,9 @@ type: entity
 subtype: robot
 created: 2026-05-08
 updated: 2026-05-08
-sources: 0
+sources: 1
 tags: [figure, humanoid, bipedal, helix, openai, bmw]
-status: stub
+status: partial
 ---
 
 **Figure** — humanoid robot line from **Figure AI** (Brett Adcock, founded 2022). Generations: **Figure 01** (2023), **Figure 02** (August 2024), **Figure 03** (2025). Notable for early **OpenAI partnership** (dissolved 2024) and Figure's own end-to-end VLA, **Helix**, announced 2025. Industrial pilots at BMW (vehicle assembly) since early 2024.
@@ -33,8 +33,17 @@ status: stub
 - [VLA models](../concepts/vla-models.md) — Helix is in this paradigm.
 - [Humanoid platforms survey](../syntheses/humanoid-platforms-survey.md) — landscape.
 
+## Deployment data (from AI Index 2026)
+
+Figure 02 at BMW plant (South Carolina), 2025:
+- **11 months** on the line
+- **1,250+ runtime hours**
+- **90,000+ parts loaded** across 30,000+ vehicles
+
+([Stanford HAI — AI Index Report 2026](../sources/stanford-hai-ai-index-2026.md))
+
 ## Mentioned in
-- *(no source pages directly cite Figure; entity built from general knowledge)*
+- [Stanford HAI — AI Index Report 2026](../sources/stanford-hai-ai-index-2026.md)
 
 ## Open questions / TBD
 - **No primary source ingested.** Figure AI's blog + Helix announcement would anchor the VLA design and capability claims.

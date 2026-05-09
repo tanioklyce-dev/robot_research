@@ -12,7 +12,13 @@ Synthesized from: [Assistive robotics](../concepts/assistive-robotics.md), [OK-R
 
 ## The reliability gap is the central problem
 
-The headline number from the wiki: [OK-Robot](../entities/ok-robot.md) achieved 58.5% success across 10 real NYC homes — zero-shot, no prior mapping, open-vocabulary object queries. That's the state of the art for a household mobile manipulation system as of early 2024. A deployable assistive robot needs 99%+ reliability for a user who cannot recover from failures themselves. The gap between those two numbers frames everything else.
+The headline numbers from the wiki and the [Stanford HAI AI Index 2026](../sources/stanford-hai-ai-index-2026.md):
+
+- **OK-Robot**: 58.5% success across 10 real NYC homes — zero-shot, no prior mapping, open-vocabulary pick-and-drop. State of the art for a household mobile manipulation system as of early 2024.
+- **BEHAVIOR-1K 2025 Challenge** (1,000 household tasks from surveys of what people actually want robots to help with): top team full task success rate **12.4%**; Q-score (partial credit) ~26%.
+- **RLBench** (controlled simulation, short-horizon): EquAct reaches **89.4%** — the ceiling in simulation.
+
+A deployable assistive robot needs 99%+ reliability for a user who cannot recover from failures themselves. The 12.4% BEHAVIOR-1K number — from realistic household environments with long-horizon tasks — is the most honest current baseline. The gap between 12.4% and 99%+ frames everything else.
 
 ---
 

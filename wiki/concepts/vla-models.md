@@ -3,7 +3,7 @@ title: VLA models
 type: concept
 created: 2026-05-06
 updated: 2026-05-08
-sources: 8
+sources: 9
 tags: [vla, vision-language-action, foundation-model, robotics]
 ---
 
@@ -14,10 +14,14 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 
 ## Notable VLAs (2026)
 - **[NVIDIA GR00T](../entities/nvidia-groot.md)** N1.6 GA / N1.7 EA — 3B-parameter open VLA built on a Cosmos-Reason2-2B backbone; pretrained on ~20,854 hours of egocentric human video ([Top 10 Physical AI Models 2026](../sources/top-10-physical-ai-models-2026.md), [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)).
+- **[Physical Intelligence](../entities/physical-intelligence.md) π0 (2024) and π0.6 (2025)** — cross-platform generalist policies; π0/π0.6 demonstrated tasks like laundry folding across different robot platforms without task-specific retraining. Cited by [Stanford HAI AI Index 2026](../sources/stanford-hai-ai-index-2026.md) as the leading Physical AI VLA demonstration.
+- **Gemini Robotics** (Google DeepMind) — parallel generalist-policy effort alongside GR00T.
 - **Pi series** — Physical Intelligence's VLAs, benchmarked by [AGIBOT Genie Sim 3.0](../entities/agibot-genie-sim.md).
 - **GO-2 series** — also benchmarked by Genie Sim.
 - **SmolVLA** — runs on consumer hardware (single RTX, even MacBooks).
 - **LingBot-VLA** — Ant Group's foundation model for real-world manipulation.
+
+> [!note] State of the field (2026): The Stanford HAI AI Index 2026 describes VLA technology as still "at the research stage," noting "the gap between what these models can do in a controlled setting and what they can handle in the real world is still wide." The data constraint is cited as the key bottleneck: every robot training example requires a physical robot or high-fidelity sim. World Foundation Models ([NVIDIA Cosmos](../entities/nvidia-cosmos.md)) are one response, generating synthetic physics data at scale.
 
 ## Adjacent: utility models / non-language-conditioned policies
 - **[Robot Utility Models](../entities/robot-utility-models.md)** (NYU / Meta) — visuomotor behavior cloning achieving zero-shot ~90% success on novel environments **without language conditioning**. The "utility model" framing is a deliberate distinction from VLAs but solves an overlapping problem ([Robot Utility Models Project Page](../sources/robot-utility-models-website.md)).
@@ -39,3 +43,4 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 - [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)
 - [Robot Utility Models Project Page](../sources/robot-utility-models-website.md)
 - [Stretch AI LLM Agent Documentation](../sources/stretch-ai-llm-agent-docs.md)
+- [Stanford HAI — AI Index Report 2026](../sources/stanford-hai-ai-index-2026.md)

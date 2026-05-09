@@ -3,7 +3,7 @@ title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
 updated: 2026-05-08
-sources: 8
+sources: 9
 tags: [sim-to-real, domain-gap, rl, simulation]
 ---
 
@@ -19,6 +19,17 @@ Real-robot data collection is slow and expensive. Simulation gives unlimited che
 - **High-frequency physics** — match real-robot control rates (e.g. [AGIBOT Genie Sim 3.0](../entities/agibot-genie-sim.md)'s 1,000 Hz physics).
 - **Vision pretraining on real images** — augment sim data with real video to anchor representations.
 
+## Quantified gap (2025)
+
+The [Stanford HAI AI Index 2026](../sources/stanford-hai-ai-index-2026.md) provides the clearest independent measurement of the gap:
+
+| Setting | Benchmark | Top result |
+|---|---|---|
+| Controlled simulation (short-horizon) | RLBench | **89.4%** (EquAct, Jan 2026) |
+| Real household environments (long-horizon) | BEHAVIOR-1K full task success | **12.4%** (2025 Challenge winner) |
+
+The 89.4% vs. 12.4% contrast is the canonical sim-to-real gap for household manipulation as of 2025. RLBench tests 18 short-horizon tasks in a controlled simulator; BEHAVIOR-1K's 1,000 tasks come from surveys of what households actually want robots to do.
+
 ## Notable claims
 - [MuJoCo Playground](../entities/mujoco-playground.md) demonstrates **zero-shot** transfer from both state and pixel inputs across quadrupeds, humanoids, hands, and arms ([MuJoCo Playground Paper](../sources/mujoco-playground-paper.md)).
 - Tesla Optimus combines sim-to-real with imitation from human teleoperated/wearable-camera video.
@@ -32,3 +43,4 @@ Real-robot data collection is slow and expensive. Simulation gives unlimited che
 - [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)
 - [RoboCasa365 Paper](../sources/robocasa365-paper.md)
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
+- [Stanford HAI — AI Index Report 2026](../sources/stanford-hai-ai-index-2026.md)

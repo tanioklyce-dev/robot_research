@@ -3,7 +3,7 @@ title: Assistive Robotics
 type: concept
 created: 2026-05-09
 updated: 2026-05-09
-sources: 4
+sources: 5
 tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot, accessibility]
 ---
 
@@ -27,6 +27,15 @@ Assistive robotics is the **end-use case that motivates most mobile-manipulation
 
 The gap between the research benchmark (58.5% success on pick-and-drop, OK-Robot) and clinical deployment readiness remains large. Assistive deployments require reliability far exceeding current zero-shot benchmarks.
 
+## Real-world household task performance (2025 data)
+
+The [Stanford HAI AI Index 2026](../sources/stanford-hai-ai-index-2026.md) provides the best independent data point on where robots actually stand on household tasks:
+
+- **RLBench** (controlled simulation, short-horizon tasks): EquAct achieves **89.4% success** — a controlled benchmark that has progressed from ~48% in 2022. This is the "lab ceiling."
+- **BEHAVIOR-1K** (realistic household environments, human-centered tasks from surveys): 2025 Challenge top team full task success rate: **12.4%**. Q-score (partial credit): ~26%. The report's verdict: "Reliably executing household tasks in realistic environments is still beyond current capabilities."
+
+The 89.4% vs. 12.4% gap is the canonical quantification of the sim-to-real gap for household tasks as of 2025. See also [Sim-to-real transfer](sim-to-real-transfer.md).
+
 ## SDG alignment ([ITU AI for Good](../sources/itu-aiforgood-assistive-robots.md))
 - SDG 3 (Health): recovery acceleration, healthcare burden reduction
 - SDG 4 (Education): interactive learning support
@@ -48,3 +57,4 @@ The gap between the research benchmark (58.5% success on pick-and-drop, OK-Robot
 - [ITU AI for Good — assistive robots](../sources/itu-aiforgood-assistive-robots.md)
 - [RELab tenoexo](../sources/relab-ethz-tenoexo.md)
 - [Virginia Tech Assistive Robotics Lab](../sources/virginia-tech-assistive-robotics-lab.md)
+- [Stanford HAI — AI Index Report 2026](../sources/stanford-hai-ai-index-2026.md)

@@ -4,15 +4,18 @@
 
 Curated entry points across the wiki.
 
-**General**
-- [Simulators for agentic robotics — 2026 landscape](syntheses/simulators-for-agentic-robotics-2026.md) — landscape survey across six categories.
-- [Log](log.md) — chronological record of ingests, queries, and lint passes.
-
 **AI Safety and Alignment**
 - [Claude's Constitution](sources/claudes-constitution.md) — Anthropic's primary specification for Claude's values, corrigibility model, principal hierarchy, and hard constraints.
 - [AI safety and alignment](concepts/ai-safety-alignment.md) — concept overview; connects to agentic robot deployments.
 - [Corrigibility](concepts/corrigibility.md) — the corrigibility dial, asymmetric cost argument, galaxy-brained reasoning risk.
 - [Apollo Research](entities/apollo-research.md) — independent safety evaluation institute; red-teamed Claude Opus 4.
+
+**Assistive Robotics**
+- [Assistive robotics](concepts/assistive-robotics.md) — concept overview; sim-to-real gap quantified (89.4% RLBench vs 12.4% BEHAVIOR-1K household tasks).
+- [Assistive robotics — R&D landscape and JEPA applicability](syntheses/assistive-robotics-research-landscape.md) — seven blocking problems, timeline, active researchers, independent-researcher paths, JEPA fit.
+- [OK-Robot](entities/ok-robot.md) — zero-shot pick-and-drop in 10 homes; 58.5% success; state-of-the-art household manipulation.
+- [Robot Utility Models](entities/robot-utility-models.md) — NYU/Meta zero-shot BC; data diversity > data quantity insight.
+- [Stanford HAI — AI Index Report 2026](sources/stanford-hai-ai-index-2026.md) — 89.4% vs 12.4% gap; humanoid landscape; Physical AI assessment.
 
 **FRC (FIRST Robotics Competition)**
 - [FRC 2026 Game Manual — REBUILT](sources/frc-2026-game-manual.md) — deep ingest of the 166-page 2026 REBUILT game manual.
@@ -39,6 +42,9 @@ Curated entry points across the wiki.
 - [FlyWire](entities/flywire.md) — complete adult *Drosophila* connectome.
 - [Drosophila brain model](entities/drosophila-brain-model.md) and [flyvis](entities/flyvis.md) — open-source brain-side controllers (LIF + connectome-constrained DMN).
 - [Biomechanical simulation](concepts/biomechanical-simulation.md) and [Connectome](concepts/connectome.md) — concept pages.
+
+**General**
+- [Simulators for agentic robotics — 2026 landscape](syntheses/simulators-for-agentic-robotics-2026.md) — landscape survey across six categories.
 
 ## Sources (chronological)
 - [OK-Robot Project Page](sources/ok-robot-project-page.md) — zero-shot pick-and-drop in 10 NYC homes; 58.5% success; 1.8× over OVMM. (2024-01)
@@ -88,6 +94,7 @@ Curated entry points across the wiki.
 - [Learning Control-Oriented Dynamical Structure from Data](sources/learning-control-oriented-dynamical-structure.md) — SD-LQR: learned SDC factorizations for SDRE nonlinear tracking; ICML 2023; Azizan et al. (2023-06)
 - [Claude's Constitution](sources/claudes-constitution.md) — Anthropic's 82-page specification of Claude's values, corrigibility model, principal hierarchy, honesty properties, and hard constraints. CC0 1.0. (2026-01-21)
 - [Are We Building Skynet? — Medium (2025)](sources/medium-are-we-building-skynet.md) — secondary journalism; MCP (>1,000 connectors), A2A (50+ supporters), Apollo Research Claude Opus 4 safety eval. (2025, date unknown)
+- [Stanford HAI — AI Index Report 2026](sources/stanford-hai-ai-index-2026.md) — 9th edition; 89.4% RLBench vs 12.4% BEHAVIOR-1K household tasks; model convergence at frontier; US–China gap 2.7%; $285.9B US AI investment; AI incidents 362. (2026)
 - [Arcade Learning Environment — Farama Project Page](sources/ale-farama.md) — Farama's Atari 2600 RL benchmark; 100+ games, 23 multi-agent envs, Gymnasium API. (Unknown)
 - [Farama Foundation Projects Page](sources/farama-projects-page.md) — index of 19 RL env / API standards (Gymnasium, PettingZoo, Minari, …). (2026)
 - [Gymnasium-Robotics Documentation](sources/gymnasium-robotics-docs.md) — six MuJoCo env families (Fetch, Shadow Hand, Maze, Adroit, Franka Kitchen, MaMuJoCo). (2026)
@@ -126,6 +133,7 @@ Curated entry points across the wiki.
 - [AMI Labs](entities/ami-labs.md) — Yann LeCun's reported post-Meta AI lab; $1.03B seed round (single secondary source, provisional). (1 source)
 - [Anthropic](entities/anthropic.md) — developer of Claude; AI safety mission; author of Claude's Constitution; MCP protocol. (1 source)
 - [Apollo Research](entities/apollo-research.md) — independent AI safety evaluation institute; red-teamed Claude Opus 4 (2025). (2 sources)
+- [Physical Intelligence](entities/physical-intelligence.md) — San Francisco; π0/π0.6 cross-platform generalist VLAs. (1 source)
 - [Hillbot](entities/hillbot.md) — UCSD spinoff that maintains ManiSkill. (1 source) _stub_
 - [Disney Research](entities/disney-research.md) — Newton co-developer with NVIDIA + DeepMind. (2 sources) _stub_
 - [FIRST Robotics Competition](entities/first-robotics-competition.md) — world's leading high-school robotics competition; ~3,700 teams, 30+ countries. (4 sources)
@@ -305,7 +313,6 @@ Curated entry points across the wiki.
 - Drake (TRI/MIT) entity page
 - Gazebo (the simulator itself) — referenced by both Hello Robot and Hiwonder docs; deserves its own entity page distinct from MuJoCo Playground
 - Webots, CoppeliaSim, PyBullet entity pages (low priority — not agentic-robotics center of gravity)
-- Pi (Physical Intelligence) entity + simulation approach
 - Skild AI entity + approach
 - RoboMimic benchmark concept/source pages ([LIBERO](entities/libero.md) now filed)
 - TRI LBM (Toyota Research Institute Large Behavior Model) — referenced in RoboCasa365 paper as baseline
@@ -322,6 +329,10 @@ Curated entry points across the wiki.
 - Farama projects not ingested as standalone pages: Minari (offline RL dataset standard), Shimmy (DM Control / OpenSpiel bridge), MO-Gymnasium, MOMAland, MAgent2, MPE2, Minigrid, MiniWoB++, ViZDoom, HighwayEnv, Procgen2, Stable-Retro, Jumpy — listed in [Farama Foundation Projects Page](sources/farama-projects-page.md); promote to entity pages if they show up in a robotics paper. ([Metaworld](entities/metaworld.md) and [ALE](entities/ale.md) now filed.)
 - Gymnasium-Robotics env families not ingested as standalone pages: Fetch, Shadow Hand, Maze (Ant/Point), Adroit (Door/Hammer/Pen/Relocate — staple in D4RL offline RL eval), Franka Kitchen (multi-task kitchen), MaMuJoCo (multi-agent locomotion). Promote when referenced.
 - Humanoids not yet filed: AGIBOT humanoid hardware (A2/X1/X2 — [company](entities/agibot.md) is filed), Fourier GR-1/GR-2, LimX CL-2/CL-3, Booster T1, EngineAI PM01 (Chinese affordable). PAL TIAGo/TALOS, Pepper, Robotis OP3/DARwIn-MINI, Sanctuary Phoenix, Kawasaki Kaleido, AIST HRP-5P, Toyota T-HR3 (research / educational). See [humanoid-platforms-survey](syntheses/humanoid-platforms-survey.md) for landscape context.
+
+---
+
+[Log](log.md) — chronological record of ingests, queries, and lint passes.
 - Boston Dynamics Spot — quadruped reference platform; no entity page ([Atlas](entities/atlas.md) is filed).
 - Maple-Sim — Shenzhen Robotics Alliance's dyn4j-based FRC physics simulator; most active FRC sim project. Entity page on demand.
 - xRC Simulator — standalone Unity-based FRC driving/strategy simulator. Entity page on demand.
