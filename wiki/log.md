@@ -2,6 +2,11 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-09] ingest | UAVs Meet Agentic AI survey + MIT drone adaptive control
+- Created [UAVs Meet Agentic AI survey](sources/uavs-agentic-ai-survey.md) (arXiv 2506.08045)
+- Created [MIT drone adaptive control](sources/mit-drone-adaptive-control.md) (MIT News, 2025-06-09)
+- New concept: [Agentic UAVs](concepts/agentic-uavs.md) — 4-layer architecture, 8 domains, adaptive control thread
+
 ## [2026-05-09] ingest | mega-batch: OK-Robot, OVMM, Stretch assistive, TurtleBot 4, Elephant Robotics, Fauna, 1X NEO, Reachy 2, assistive-robotics cluster, K-Scale Labs
 - New sources (13): ok-robot-project-page, ovmm-homerobot, ieee-spectrum-stretch-assistive, clearpath-turtlebot-4, elephant-robotics-myagv-compound, elephant-robotics-mybuddy-280, fauna-robotics-sprout, 1x-neo-product-page, pollen-robotics-reachy, itu-aiforgood-assistive-robots, virginia-tech-assistive-robotics-lab, relab-ethz-tenoexo, robot-report-kscale-labs-lessons
 - New entities (8): ok-robot, elephant-robotics, myagv, mybuddy-280, fauna-robotics, pollen-robotics, reachy, k-scale-labs
