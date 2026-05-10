@@ -810,3 +810,22 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Updated [Glossary](glossary.md) — SIGReg entry rewritten: correct expansion (Sketched Isotropic Gaussian Regularizer), Balestriero 2025 attribution, Epps–Pulley test, Cramér–Wold theorem, λ default 0.1.
 - Updated [index.md](index.md) — Highlights bullet + Syntheses bullet for Module 12; reader can now traverse Modules 6 → 7 and 10 → 11 → 12.
 - Tier 4 is now complete. The curriculum's destination (Module 12) is reachable from the wiki's filed material. Five of fourteen modules are drafted.
+
+## [2026-05-10] curriculum-module | Module 9 drafted — Vision-Language-Action models
+- Created [Curriculum Module 9 — Vision-Language-Action models](syntheses/curriculum-09-vla.md) — sixth drafted module; closes the policy-side reading chain (Modules 6 → 7 → 9). Sibling of the world-model chain (Modules 10 → 11 → 12).
+- Structure (~13kB):
+  1. Curriculum-context callout — bridges into both Modules 7 and 11.
+  2. Five learning objectives.
+  3. Structural definition of a VLA (vision encoder + language tokens + trunk + action head); VLA vs VLM contrast.
+  4. **VLA vs BC** — comparison table; the "scaling up + language conditioning + VLM-pretraining" framing.
+  5. **Why VLAs aren't world models** — different jobs (actions vs next-state predictions); architectural similarity ≠ identity.
+  6. **Action-head design** — AR tokens (OpenVLA), flow matching (π0), DDPM (Diffusion Policy / hybrids); recap table from concepts/vla-models.md.
+  7. Major 2026 VLAs in one paragraph each: GR00T, π0, Helix (with S1/S2 caveat), Gemini Robotics (incl. -ER tool-call variant distinction), OpenVLA, smaller VLAs.
+  8. **Hierarchical S1/S2 pattern** — recurring across Helix, GR00T, Gemini Robotics-ER; rate-decoupling intuition (~10 Hz reasoning + ~200 Hz control).
+  9. **VLA-JEPA cross-over** — explicit architecture diagram showing the JEPA auxiliary loss alongside imitation loss; the "JEPA as a component, not a competitor" framing; bridge to Module 11.
+  10. **Anchor exercise** — sketch data flow for π0 / Diffusion Policy / LeWM-MPC on the same PushT episode (3-architecture ASCII diagram); compare per-tick latency budgets and predict 30 Hz feasibility on consumer hardware.
+  11. Recommended reading; What you should now be able to do; Closing the policy-side reading chain (with explicit "Module 13 evaluates both chains against deployment reality").
+  12. Related modules + Mentioned in + Open questions (OpenVLA + GR00T N1.x + π0.6 source pages still TBD; Helix peer-reviewed paper still doesn't exist; flow-matching concept page on demand).
+- Updated [Robot-learning curriculum](syntheses/robot-learning-curriculum.md) — Module 9 entry now links the drafted page; coverage table cell updated to "drafted" with full pre-existing-coverage list (concept page + 4 entity pages + 3 source pages); status frontmatter notes both reading chains complete.
+- Updated [index.md](index.md) — Highlights bullet for Module 9; Syntheses bullet for Module 9.
+- **Reader status:** Modules 6 → 7 → 9 (policy chain) and 10 → 11 → 12 (world-model chain) are both complete. The two paradigms cross over at [VLA-JEPA](entities/vla-jepa.md), covered in detail in this module. Six of fourteen modules drafted.
