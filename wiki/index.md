@@ -4,6 +4,10 @@
 
 Curated entry points across the wiki.
 
+**Curriculum / learning path**
+- [Robot-learning curriculum — from neurons to LeWorldModel](syntheses/robot-learning-curriculum.md) — 14-module bottom-up syllabus; PushT as the connecting thread; ends with a Stretch-platform capstone.
+- [Glossary](glossary.md) — flat acronym + term reference (BC, VLM, CNN, SSL, MPC, MSE, LSTM, SIGReg, …); cross-linked from every curriculum module.
+
 **AI Safety and Alignment**
 - [Claude's Constitution](sources/claudes-constitution.md) — Anthropic's primary specification for Claude's values, corrigibility model, principal hierarchy, and hard constraints.
 - [AI safety and alignment](concepts/ai-safety-alignment.md) — concept overview; connects to agentic robot deployments.
@@ -34,10 +38,6 @@ Curated entry points across the wiki.
 - [LeWorldModel — train and run howto](syntheses/leworldmodel-howto.md) — how to install, train, and evaluate LeWM on a single GPU.
 - [LeWM hello world — Project 1 detailed scope](syntheses/lewm-hello-world-project-scope.md) — reproduce LeWM PushT from scratch.
 - [JEPA task capabilities](syntheses/jepa-task-capabilities.md) — what JEPA models can do, mapped per-paper.
-
-**Curriculum / learning path**
-- [Robot-learning curriculum — from neurons to LeWorldModel](syntheses/robot-learning-curriculum.md) — 14-module bottom-up syllabus; PushT as the connecting thread; ends with a Stretch-platform capstone.
-- [Glossary](glossary.md) — flat acronym + term reference (BC, VLM, CNN, SSL, MPC, MSE, LSTM, SIGReg, …); cross-linked from every curriculum module.
 
 **ROSOrin Pro JEPA project ladder**
 - [JEPA project ladder for ROSOrin Pro](syntheses/jepa-project-ladder-rosorin-pro.md) — six-rung educational/research project ladder for learning JEPA on ROSOrin Pro hardware.
