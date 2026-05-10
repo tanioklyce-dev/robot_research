@@ -3,8 +3,8 @@ title: DINO-WM
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-05-08
-sources: 5
+updated: 2026-05-09
+sources: 6
 tags: [dino-wm, dinov2, world-model, jepa-adjacent, lecun, pinto, nyu, meta-fair]
 ---
 
@@ -46,3 +46,8 @@ Plus eval variants: **WallRandom, PushObj, GranularRandom, DM Control Reacher**,
 
 ## Mentioned in
 - [DINO-WM Paper](../sources/dino-wm-paper.md)
+- [LeWorldModel Paper](../sources/leworldmodel-paper.md) — cites DINO-WM as baseline
+- [LeWorldModel GitHub](../sources/lewm-github.md) — DINO-WM listed as baseline
+- [JEPA-WMs Paper](../sources/jepa-wms-paper.md) — cites DINO-WM as baseline
+- [DINO-world Paper](../sources/dino-world-paper.md) — sibling DINOv2-feature world-model line
+- [VLA-JEPA Paper](../sources/vla-jepa-paper.md) — DINO-WM as comparator

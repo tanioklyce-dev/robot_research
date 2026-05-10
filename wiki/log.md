@@ -2,6 +2,23 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-09] synthesis | Five new assistive-robotics syntheses
+- Filed [Levels of autonomy in assistive robotics](syntheses/levels-of-autonomy-in-assistive-robotics.md) — three orthogonal autonomy axes; HCR Lab finding cluster (HRI 2020 → Walker 2024 → Yang 2025 → Nanavati 2025); EUP-over-RUM stack as unbuilt integration target.
+- Filed [Long-term in-home robot deployments](syntheses/long-term-in-home-robot-deployments.md) — depth-sorted table; reliability gradient (RLBench 89.4% → BEHAVIOR-1K 12.4%); only one home has ≥1 month deployment data.
+- Filed [Stretch as the de-facto assistive-robotics platform](syntheses/stretch-as-assistive-platform.md) — six of seven in-home deployments use Stretch; eight features that compound; decision matrix for platform choice.
+- Filed [DINO-WM on Stretch — concrete experiment plan](syntheses/dino-wm-on-stretch-experiment.md) — sibling to LeWM-on-Stretch; lower-risk frozen-encoder variant; predictor-only training on RUM dataset; phase-by-phase plan.
+- Filed [Underserved PAR domains — dressing, bathing, medication](syntheses/underserved-par-domains.md) — sub-capability decomposition; medication-fetcher ranked most tractable for independent researcher.
+- Updated index.md Highlights and Syntheses sections.
+
+## [2026-05-09] lint | Audit of recent Sonnet ingestion + counts/cascade fixes
+- Audited HCR Lab ingest (6 papers, 2 entities, 2 concepts, 1 synthesis): coverage solid, citations rigorous, no contradictions found.
+- Fixed: synthesis heading "Six blocking problems" → "Seven blocking problems" (had 7 problem sections).
+- Synced index source counts: HCR Lab 2→8, Maya Cakmak 7→8, Anthropic 1→2, DINO-WM 5→6, V-JEPA 2 5→6.
+- Cascaded `Mentioned in` updates: DINO-WM (added LeWM, LeWM-GitHub, JEPA-WMs, DINO-world, VLA-JEPA), V-JEPA 2 (added JEPA-WMs, VLA-JEPA, towardsai-lecun).
+- Anthropic frontmatter sources 1→2.
+- No broken markdown links across 196 wiki pages. No orphan pages.
+- Remaining drift between frontmatter `sources:` and `Mentioned in` lists for ~40 pages — bookkeeping-only, not load-bearing for retrieval.
+
 ## [2026-05-09] edit | index.md Highlights restructure
 - Added "Assistive Robotics" highlights block (after AI Safety and Alignment)
 - Moved "General" to end of Highlights list

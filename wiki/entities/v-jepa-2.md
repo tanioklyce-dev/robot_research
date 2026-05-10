@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-07
 updated: 2026-05-09
-sources: 5
+sources: 6
 tags: [v-jepa-2, jepa, world-model, meta-fair, video, action-conditioned, franka]
 ---
 
@@ -47,3 +47,6 @@ First public demonstration of a **latent-prediction world model** ([JEPA](../con
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
 - [V-JEPA 2.1 Paper](../sources/v-jepa-2-1-paper.md)
 - [V-JEPA 2 GitHub](../sources/vjepa2-github.md)
+- [JEPA-WMs Paper](../sources/jepa-wms-paper.md) — direct successor / same FAIR group
+- [VLA-JEPA Paper](../sources/vla-jepa-paper.md) — comparator
+- [Towards AI — LeCun / AMI Labs](../sources/towardsai-lecun-ami-labs.md) — secondary journalism

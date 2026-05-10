@@ -22,7 +22,7 @@ A deployable assistive robot needs 99%+ reliability for a user who cannot recove
 
 ---
 
-## Six blocking problems
+## Seven blocking problems
 
 ### 1. Reliability gap (58.5% → 99%+)
 Current open-vocabulary pick-and-place fails roughly 4 times in 10. For [Henry Evans](../sources/ieee-spectrum-stretch-assistive.md) or any user with severe motor impairment, a dropped item, a knocked-over glass, or a failed grasp is not a recoverable nuisance — it may end the session. Reliability must compound across multi-step tasks, so a 90%-per-step rate gives ~35% success on a 10-step task.
