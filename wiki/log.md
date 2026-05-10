@@ -722,3 +722,35 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Updated [Robot-learning curriculum](syntheses/robot-learning-curriculum.md) — Module 6 entry now links the drafted page; coverage table cell updated to "drafted"; status frontmatter notes Modules 6 + 7 drafted.
 - Updated [index.md](index.md) — Highlights bullet for Module 6; Syntheses bullet for Module 6; reader-order is now Module 6 → Module 7.
 - Notes for sequencing: Modules 6 + 7 are now reader-consumable in order. The next prereqs that block reader-order continuation are Module 5 (DDPM math, "go deep") for the Diffusion Policy section of Module 7, and Modules 1–4 (Tier 1 ML foundations) for everything. Module 10 (world models, broad) is reader-dependency-light because Modules 6 + 7 + Tier 1 are its main prereqs and Module 10 itself is mostly synthesis from existing wiki pages.
+
+## [2026-05-10] curriculum-module | Module 10 drafted — World models, broad
+- Created [Curriculum Module 10 — World models, broad](syntheses/curriculum-10-world-models.md) — third drafted module; the bridge into Tier 4 (JEPA depth + LeWM deep-dive). Chosen as the next module because it had the most existing wiki material to lean on ([world-model concept](concepts/world-model.md), [WM simulators concept](concepts/world-model-simulators.md), [generative-video vs JEPA synthesis](syntheses/generative-video-vs-jepa-world-models.md), 8 WM entity pages including the just-filed Dreamer + TD-MPC) and unlocks the Tier-4 destination of the curriculum.
+- Structure (~14kB):
+  1. Curriculum-context callout — Tier 4 bridge framing; explicit statement that "LeWM = JEPA, end-to-end-trained, with MPC planner" reads as word-soup without this module.
+  2. Five learning objectives.
+  3. Functional definition — refers out to [`concepts/world-model.md`](concepts/world-model.md) for the design-axis table; flags world-model ≠ world-simulator distinction.
+  4. **The four families** with one example, one structural commitment, pros, cons each:
+     - Generative-video (Cosmos, Genie Envisioner — DDPM substrate)
+     - JEPA / latent-prediction (V-JEPA 2, LeWM, PLDM — LeCun's program)
+     - Frozen-foundation-feature (DINO-WM, JEPA-WMs — DINOv2 base)
+     - Reward-conditioned MBRL (Dreamer = generative; TD-MPC = decoder-free)
+     Plus a four-row comparison table.
+  5. **Planning vocabulary** — MPC loop pseudocode; CEM (full pseudo-code; named as the dominant sampler); MPPI as sibling; gradient-based MPC tradeoffs; "default to assuming MPC means CEM-MPC" rule of thumb.
+  6. **Horizon and compounding error** — the O(H) → O(H²) intuition; per-task horizon ranges (5–20 for JEPA / frozen / MBRL); value-bootstrap as the trick that lets MBRL extend effective horizon.
+  7. Generative-video vs JEPA tradeoff — points to the [existing synthesis](syntheses/generative-video-vs-jepa-world-models.md); surfaces three load-bearing facts (48× planning gap, action-free pretraining, complementary-not-competing paradigms).
+  8. **Where LeWM lives** — explicit 8-axis table positioning LeWM's choices against alternatives (end-to-end encoder vs frozen; SIGReg vs PLDM/V-JEPA collapse zoo; no value function vs Dreamer/TD-MPC; no reward at training vs MBRL). Each axis flagged as "a contestable bet" the reader should be able to evaluate by Module 12.
+  9. **Anchor exercise** — 3-line MPC pseudocode + three concrete extensions (CEM upgrade; toy-MLP-on-pendulum to *see* the optimal-horizon peak; gradient-based MPC comparison). Bridge to LeWM howto code.
+  10. Recommended reading (concept pages → generative-video-vs-JEPA synthesis → V-JEPA 2 / DreamerV3 / TD-MPC2 abstracts → LeWM Fig 1 only).
+  11. What you should now be able to do.
+  12. Hand-off to Module 11 — names V-JEPA progression, collapse-prevention zoo, DINO-WM vs end-to-end, JEPA-WMs.
+  13. Related modules + Mentioned in + Open questions (PLDM ingest still gap; Genie Envisioner deeper paper; CEM walkthrough; MPPI source).
+- Updated [Robot-learning curriculum](syntheses/robot-learning-curriculum.md) — Module 10 entry now links the drafted page; coverage table cell updated to "drafted" with full pre-existing-coverage list (concept + simulators concept + GV-vs-JEPA synthesis + Dreamer + TD-MPC entities and sources); status frontmatter notes Modules 6 + 7 + 10 drafted.
+- Updated [index.md](index.md) — Highlights bullet for Module 10; Syntheses bullet for Module 10; reader hint that Modules 6 → 7 and Module 10 are now consumable.
+- Sequencing note: Modules 6 + 7 + 10 are the three most-loaded modules in the curriculum (most pre-existing wiki material), and they're now drafted. Remaining work splits into:
+  - **Tier 1 greenfield** (Modules 1–4: NN, CNN, attention, SSL).
+  - **Module 5** (DDPM math, "go deep" — heaviest single piece because of derivations).
+  - **Module 8** (RL vocabulary — light; just enough to read MBRL papers).
+  - **Module 9** (VLA — has π0 + Helix sources; mostly synthesis from existing concept page).
+  - **Module 11** (JEPA depth — heavy synthesis; existing JEPA concept page + V-JEPA 2 / 2.1 / DINO-WM / JEPA-WMs / VLA-JEPA sources).
+  - **Module 12** (LeWM deep-dive with full SIGReg math — the destination, longest module).
+  - **Modules 13 + 14** (deployment + capstone — leans on already-rich syntheses).
