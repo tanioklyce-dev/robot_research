@@ -15,7 +15,7 @@ tags: [pldm, planning-with-latent-dynamics-models, jepa, end-to-end, offline-rl,
 > [!note] Ingest depth
 > This source page is **based on the OpenReview workshop PDF** extracted via pypdf. The full paper has 21 pages with detailed appendix; this ingest reads pages 1–5 (abstract + method + setup) and the headline results table (Table 1 / Table 2). Appendix E.1.1 has the full anti-collapse loss-term breakdown that's referenced but not unpacked here. Filed primarily to close cross-module TBDs in the curriculum (Modules 10, 11, 12).
 >
-> Predecessor paper: Sobal et al. 2022 ([arxiv 2211.10831](https://arxiv.org/abs/2211.10831), "Joint embedding predictive architectures focus on slow features") — the 2022 paper introduces the JEPA-as-WM framing; the 2025 paper is the planning-and-stress-test followup. The pair is collectively referenced as **PLDM** across the wiki.
+> Predecessor paper: [Sobal et al. 2022](sobal2022-jepa-slow-features-paper.md) ("Joint embedding predictive architectures focus on slow features") — the 2022 paper introduces the slow-features representational claim that motivates JEPA-as-WM; the 2025 paper is the planning-and-stress-test followup. The pair is collectively referenced as **PLDM** across the wiki.
 
 ## Summary
 
@@ -96,9 +96,7 @@ The PLDM paper itself doesn't dispute LeWM (it predates LeWM); the comparison ru
 
 ## Predecessor paper — Sobal et al. 2022
 
-[arxiv 2211.10831](https://arxiv.org/abs/2211.10831). "Joint embedding predictive architectures focus on slow features." Sobal, Jyothir S V, Jalagam, Carion, Cho, LeCun. Establishes that JEPA latents preferentially encode slowly-varying features — the framing that motivates planning in latent space rather than pixel space. The 2025 paper builds on this representational claim with the planning-and-stress-test methodology.
-
-The 2022 paper is not currently filed as a separate source page; it would deepen the PLDM lineage but is lower-priority since the 2025 paper is the LeWM-comparison reference.
+[Source page](sobal2022-jepa-slow-features-paper.md). Sobal, Jyothir S V, Jalagam, Carion, Cho, LeCun (NeurIPS 2022 SSL Theory and Practice Workshop). Establishes that JEPA latents preferentially encode **slowly-varying features** — the representational framing that motivates planning in latent space rather than pixel space. Includes the *fixed-distractor failure mode*: JEPA fails when distractor noise doesn't vary across timesteps. The 2025 paper builds on this representational claim with the planning-and-stress-test methodology.
 
 ## Entities mentioned
 
@@ -115,7 +113,7 @@ The 2022 paper is not currently filed as a separate source page; it would deepen
 
 ## Open questions / TBD
 
-- **Sobal et al. 2022 (arxiv 2211.10831)** as a separate source page — would close the PLDM lineage end-to-end. The "JEPA focuses on slow features" framing is foundational and could deepen Module 11's joint-embedding section.
+- ~~**Sobal et al. 2022 (arxiv 2211.10831)** as a separate source page~~ — Filed: [Sobal et al. 2022 — JEPA slow features](sobal2022-jepa-slow-features-paper.md) (2026-05-10).
 - **Appendix E.1.1 detailed loss decomposition** — the exact hyperparameter count and weight schedule isn't unpacked here. Worth a re-read if Module 12's "6 hyperparameters" framing needs to be sharpened.
 - **Author entity pages for Vlad Sobal** — appears as lead author on the PLDM lineage; could anchor the NYU LeCun-line research thread alongside [Lerrel Pinto](../entities/lerrel-pinto.md) and [Mahi Shafiullah](../entities/mahi-shafiullah.md).
 - **Comparison with [LeWM](../entities/leworldmodel.md) on PLDM's own benchmarks** — LeWM uses different environments (PushT, Reacher, OGBench-Cube, Two-Room — note: "Two-Room" appears in both papers but the LeWM Two-Room may differ from PLDM's Two-Rooms; worth verifying). A head-to-head on identical setups would isolate the SIGReg contribution.

@@ -151,6 +151,8 @@ Curated entry points across the wiki.
 - [π0 Paper](sources/pi-zero-paper.md) — Black, Brown, Driess et al., Physical Intelligence (arxiv 2410.24164); VLA flow-matching model on a pre-trained VLM backbone; cross-platform (single-arm, dual-arm, mobile manipulator); laundry folding + table cleaning + box assembly. Abstract-level ingest. (2024-10)
 - [Helix (Figure AI blog)](sources/helix-blog.md) — Figure AI; hierarchical S1/S2 VLA on Figure 02 humanoid (7B VLM @ 7–9 Hz + 80M transformer @ 200 Hz, end-to-end); ~500h teleop; onboard inference. Vendor blog only. (2025-02)
 - [PLDM Paper](sources/pldm-paper.md) — Sobal, Zhang, Cho, Balestriero, Rudner, LeCun (NYU + FAIR; WRL @ ICLR 2025); end-to-end JEPA WM trained with VICReg + inverse-dynamics + similarity loss (~6 anti-collapse hyperparameters); the canonical "end-to-end JEPA before LeWM" baseline. Stress-tested on 23 datasets / 6 generalization properties; only method that doesn't completely fail in any setting. (2025-02-28)
+- [Sobal et al. 2022 — JEPA slow features](sources/sobal2022-jepa-slow-features-paper.md) — Sobal, Jyothir S V, Jalagam, Carion, Cho, LeCun (NYU + FAIR; NeurIPS 2022 SSL workshop, arxiv 2211.10831); the PLDM precursor. Establishes that JEPA representations preferentially encode slowly-varying features (like the position of a moving dot); fixed-distractor noise breaks this bias. (2022-11-20)
+- [LeJEPA Paper](sources/lejepa-paper.md) — Balestriero & LeCun (Brown + NYU/FAIR, arxiv 2511.08544); the foundational SIGReg paper. Proves isotropic Gaussian is optimal for JEPA embeddings; proposes Sketched Isotropic Gaussian Regularization (SIGReg). Single hyperparameter, no stop-gradient, no teacher-student. ImageNet-1k linear-eval 79% on ViT-H/14; 10+ datasets / 60+ architectures. The methodological precursor to LeWM. (2025-11-11)
 
 ## Entities
 
@@ -273,7 +275,7 @@ Curated entry points across the wiki.
 - [VLA-JEPA](entities/vla-jepa.md) — JEPA-as-auxiliary inside a VLA policy. (1 source)
 - [Dreamer / DreamerV3](entities/dreamer.md) — Hafner-line MBRL family with generative WM + actor-critic in imagination; LeWM baseline. (1 source)
 - [TD-MPC / TD-MPC2](entities/td-mpc.md) — Hansen-line decoder-free MBRL with MPC + TD-bootstrapped value; LeWM baseline; closest MBRL relative to JEPA. (1 source)
-- [PLDM (Planning with Latent Dynamics Models)](entities/pldm.md) — Sobal-line end-to-end JEPA WM (NYU + FAIR); VICReg + inverse-dynamics + similarity multi-term loss; the canonical "end-to-end JEPA before LeWM" baseline. (1 source)
+- [PLDM (Planning with Latent Dynamics Models)](entities/pldm.md) — Sobal-line end-to-end JEPA WM (NYU + FAIR); VICReg + inverse-dynamics + similarity multi-term loss; the canonical "end-to-end JEPA before LeWM" baseline. (2 sources — 2022 precursor + 2025 paper)
 
 ### VLA models / generalist policies
 - [NVIDIA GR00T](entities/nvidia-groot.md) — open VLA bundled with Isaac Lab. (3 sources)
@@ -314,7 +316,7 @@ Curated entry points across the wiki.
 ## Concepts
 - [World model](concepts/world-model.md) — umbrella concept: learned predictive model of environment dynamics (generative-video / JEPA / frozen-feature / model-based-RL). (11 sources)
 - [VLA models](concepts/vla-models.md) — vision-language-action robot foundation models. (11 sources)
-- [Joint-Embedding Predictive Architecture](concepts/jepa.md) — predict next-state representations, not pixels. (8 sources)
+- [Joint-Embedding Predictive Architecture](concepts/jepa.md) — predict next-state representations, not pixels. (10 sources)
 - [Sim-to-real transfer](concepts/sim-to-real-transfer.md) — bridging simulator-trained policies to real robots. (8 sources)
 - [World-model simulators](concepts/world-model-simulators.md) — narrower companion to [World model](concepts/world-model.md): world-models-used-as-simulators (generative-video and JEPA paradigms). (9 sources)
 - [Imitation learning](concepts/imitation-learning.md) — supervised learning from demonstrations. (8 sources)

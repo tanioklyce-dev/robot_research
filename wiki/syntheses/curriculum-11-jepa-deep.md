@@ -136,15 +136,15 @@ loss     = ‖ẑ_{t+1} − z_{t+1}‖²
 
 **Used by.** [PLDM](../entities/pldm.md) and most pre-2026 end-to-end JEPAs.
 
-### 6. SIGReg — single regularizer (LeWM)
+### 6. SIGReg — single regularizer (LeJEPA / LeWM)
 
 **Idea.** Project embeddings onto random univariate directions; run a normality test on the resulting 1D distribution; backprop the test statistic. Encourages the latent to be **isotropic Gaussian**, which is incompatible with collapse to a constant (a constant has zero variance, far from any reasonable Gaussian).
 
-**Why it works.** Mathematical statement of "the latent should be diverse and Gaussian-shaped" with a provable anti-collapse guarantee — and only **one hyperparameter** (the SIGReg loss weight).
+**Why it works.** Mathematical statement of "the latent should be diverse and Gaussian-shaped" with a provable anti-collapse guarantee — and only **one hyperparameter** (the SIGReg loss weight). The foundational paper, [LeJEPA (Balestriero & LeCun 2025)](../sources/lejepa-paper.md), proves that isotropic Gaussian is the optimal embedding distribution for minimizing downstream prediction risk.
 
 **Cost.** SIGReg requires a random-projection step + a normality test + backprop through that test statistic. Computationally cheap. The math is non-trivial — Module 12's centerpiece.
 
-**Used by.** [LeWM](../entities/leworldmodel.md), only.
+**Used by.** [LeJEPA](../sources/lejepa-paper.md) (the SSL setting; ImageNet-1k linear-eval at 79% on ViT-H/14, validated across 10+ datasets / 60+ architectures); [LeWM](../entities/leworldmodel.md) (the action-conditioned WM setting).
 
 ### Side-by-side
 
@@ -154,7 +154,7 @@ loss     = ‖ẑ_{t+1} − z_{t+1}‖²
 | Variance-covariance | 3 (`λ₁`, `λ₂`, `λ₃`) | [VICReg](../glossary.md#vicreg), [Barlow Twins](../glossary.md#barlow-twins) | No EMA needed | More knobs |
 | Frozen encoder | 0 | [DINO-WM](../entities/dino-wm.md), [JEPA-WMs](../entities/jepa-wms.md) | Trivially stable; cheap | Stuck with off-the-shelf encoder |
 | Multi-fix soup | 4–6 | [PLDM](../entities/pldm.md), pre-2026 end-to-end JEPAs | Layered defense | Hyperparameter hell |
-| SIGReg | 1 | [LeWM](../entities/leworldmodel.md) | One knob; provable anti-collapse | Math is novel; one paper of evidence so far |
+| SIGReg | 1 | [LeJEPA](../sources/lejepa-paper.md) (SSL); [LeWM](../entities/leworldmodel.md) (WM) | One knob; provable anti-collapse | Math is novel; two papers of evidence (LeJEPA SSL + LeWM action-conditioned) |
 
 The LeWM contribution is exactly the bottom row: a *theoretical* simplification (one regularizer; one hyperparameter) that empirically beats the multi-fix soup on the same benchmarks. Module 12 derives the mathematics. Module 11's job is to make you ready to evaluate that contribution against the rest of the row above it.
 

@@ -3,7 +3,7 @@ title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
 updated: 2026-05-10
-sources: 8
+sources: 10
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun]
 ---
 
@@ -69,3 +69,5 @@ The original wiki synthesis observed [V-JEPA 2](../entities/v-jepa-2.md) and [Le
 - [DINO-world Paper](../sources/dino-world-paper.md)
 - [VLA-JEPA Paper](../sources/vla-jepa-paper.md)
 - [PLDM Paper](../sources/pldm-paper.md)
+- [Sobal et al. 2022 — JEPA slow features](../sources/sobal2022-jepa-slow-features-paper.md)
+- [LeJEPA Paper](../sources/lejepa-paper.md)

@@ -77,7 +77,7 @@ Everything Module 11 set up — the joint-embedding commitment, the collapse fai
 
 ## 2. SIGReg in detail
 
-The mathematical heart of the paper. SIGReg = **Sketched Isotropic Gaussian Regularizer**, introduced by **LeJEPA** (Balestriero & LeCun 2025, [arxiv 2511.08544](https://arxiv.org/abs/2511.08544); cited from the LeWM paper as ref [25]).
+The mathematical heart of the paper. SIGReg = **Sketched Isotropic Gaussian Regularizer**, introduced by **[LeJEPA](../sources/lejepa-paper.md)** (Balestriero & LeCun 2025, arxiv 2511.08544; cited from the LeWM paper as ref [25]).
 
 ### 2.1 The goal
 
@@ -470,7 +470,7 @@ Module 12 is the algorithmic destination. Modules 13 and 14 are the **deployment
 
 ## Open questions / TBD
 
-- **LeJEPA paper** (Balestriero & LeCun 2025, [arxiv 2511.08544](https://arxiv.org/abs/2511.08544)) as a separate source page — the foundational SIGReg paper. The SIGReg derivation in this module references the LeWM paper's exposition; the LeJEPA paper itself would let us cite the formal math directly.
+- ~~**LeJEPA paper** as a separate source page~~ — Filed: [LeJEPA Paper](../sources/lejepa-paper.md) (2026-05-10). The SIGReg derivation in this module references the LeWM paper's exposition; the LeJEPA paper itself is now linked for direct math reference.
 - ~~**PLDM source page.**~~ Filed: [PLDM Paper](../sources/pldm-paper.md) + [PLDM entity](../entities/pldm.md) (2026-05-10). The "6 hyperparameters → 1" comparison is now backed by primary source.
 - **Epps–Pulley original paper (1983)** — for completeness on the test statistic; low priority since the curriculum's needs are well-served by the LeWM paper's cite.
 - **Cramér–Wold (1936)** — historical citation; unlikely to be useful as a wiki source page.

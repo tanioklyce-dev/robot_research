@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-05-10
 updated: 2026-05-10
-sources: 1
+sources: 2
 tags: [pldm, planning-with-latent-dynamics-models, jepa, end-to-end-jepa, sobal, lecun, vicreg, mpc, mppi]
 ---
 
@@ -12,8 +12,8 @@ tags: [pldm, planning-with-latent-dynamics-models, jepa, end-to-end-jepa, sobal,
 
 ## Family lineage
 
-- **PLDM-2022** (Sobal, Jyothir S V, Jalagam, Carion, Cho, LeCun) — [arxiv 2211.10831](https://arxiv.org/abs/2211.10831). "Joint embedding predictive architectures focus on slow features." Establishes the representational framing: JEPA latents preferentially encode slowly-varying features, which is exactly what's useful for planning. *(Not yet a separate source page in the wiki.)*
-- **PLDM-2025** (Sobal, Zhang, Cho, Balestriero, Rudner, LeCun) — [WRL @ ICLR 2025 Workshop](https://openreview.net/forum?id=jON7H6A9UU). "Stress-Testing Offline Reward-Free Reinforcement Learning: A Case for Planning with Latent Dynamics Models." The planning-and-stress-test followup; the canonical PLDM reference. See [PLDM Paper](../sources/pldm-paper.md).
+- **PLDM-2022** (Sobal, Jyothir S V, Jalagam, Carion, Cho, LeCun) — [source page](../sources/sobal2022-jepa-slow-features-paper.md). "Joint embedding predictive architectures focus on slow features." Establishes the representational framing: JEPA latents preferentially encode slowly-varying features, which is exactly what's useful for planning. NeurIPS 2022 SSL workshop (short paper).
+- **PLDM-2025** (Sobal, Zhang, Cho, Balestriero, Rudner, LeCun) — [source page](../sources/pldm-paper.md). "Stress-Testing Offline Reward-Free Reinforcement Learning: A Case for Planning with Latent Dynamics Models." The planning-and-stress-test followup; the canonical PLDM reference. WRL @ ICLR 2025 Workshop.
 
 ## Architecture (per [PLDM Paper 2025](../sources/pldm-paper.md))
 
@@ -57,11 +57,10 @@ The four-row "JEPA-line" comparison (PLDM, LeWM, DINO-WM, V-JEPA 2-AC) is the su
 
 ## Mentioned in
 
-- [PLDM Paper](../sources/pldm-paper.md)
+- [PLDM Paper](../sources/pldm-paper.md) (2025)
+- [Sobal et al. 2022 — JEPA slow features](../sources/sobal2022-jepa-slow-features-paper.md) (predecessor)
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md) (as a baseline)
 
 ## Open questions / TBD
-
-- **PLDM-2022 source page** ([arxiv 2211.10831](https://arxiv.org/abs/2211.10831)) — would deepen the lineage and back the "JEPA focuses on slow features" representational framing.
 - **Author entity for Vlad Sobal** — appears as lead author across both papers; could anchor a NYU LeCun-line thread.
 - **A direct PLDM-vs-LeWM head-to-head on PushT or Two-Rooms** — would isolate the SIGReg contribution. LeWM reports 78% PushT vs LeWM's 96%; PLDM's own evaluation uses different environments.
