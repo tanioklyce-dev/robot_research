@@ -754,3 +754,24 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
   - **Module 11** (JEPA depth — heavy synthesis; existing JEPA concept page + V-JEPA 2 / 2.1 / DINO-WM / JEPA-WMs / VLA-JEPA sources).
   - **Module 12** (LeWM deep-dive with full SIGReg math — the destination, longest module).
   - **Modules 13 + 14** (deployment + capstone — leans on already-rich syntheses).
+
+## [2026-05-10] curriculum-module | Module 11 drafted — JEPA in depth
+- Created [Curriculum Module 11 — JEPA in depth](syntheses/curriculum-11-jepa-deep.md) — fourth drafted module; the Tier-4 successor to Module 10. The single most material-rich module in the curriculum (existing concept page + 6 source pages + 8 entity pages + 3 syntheses).
+- Structure (~17kB):
+  1. Curriculum-context callout — Tier-4 chain (Module 10 → 11 → 12); explicit framing that SIGReg math is deferred to Module 12.
+  2. Six learning objectives.
+  3. **What "joint embedding" means** — the architectural commitment (same encoder both sides; loss in latent space); contrast with generative/AR; **why representation collapse is a first-order failure mode** (loss=0 at constant latent).
+  4. **The collapse-prevention zoo** — six families with pseudocode where useful: EMA + stop-grad (BYOL/V-JEPA), variance-covariance (VICReg/Barlow Twins), frozen encoder (DINO-WM), asymmetric augmentation (SimCLR), multi-fix soup (PLDM, 4–6 hyperparameters), SIGReg (LeWM, 1 hyperparameter). Side-by-side comparison table.
+  5. **V-JEPA progression** — V-JEPA 1 → V-JEPA 2 (1B params, 22M videos, 1M+ hrs) → V-JEPA 2-AC (300M predictor, 62hr DROID, zero-shot Franka in 2 new labs) → V-JEPA 2.1 (dense features, +20pt grasping). Variant scale table; the 16,000× pretraining-vs-post-training data ratio.
+  6. **Frozen-feature variants** — DINO-WM (NYU+FAIR, lightweight benches), DINO-world (FAIR, video-scale), JEPA-WMs (FAIR Dec 2025, first JEPA-on-RoboCasa + real Franka).
+  7. **Action conditioning** — action-free pretraining + action-conditioned post-training; predictor-level pseudocode; tie back to home-robotics teleop scarcity (Module 13).
+  8. **VLA-JEPA** — JEPA-as-auxiliary in a VLA; the cross-over with Module 9.
+  9. **LeWM-vs-V-JEPA-2 axis-by-axis** — 9-row comparison table sharper than Module 10's: encoder size (1B vs 15M), encoder training (EMA+stop-grad vs nothing), pretraining data (1M+hr vs none), action stage (post-train vs co-train), anti-collapse mechanism (EMA + L1 + ... vs single SIGReg), anti-collapse hyperparameters (~3 vs 1). The two are not competing for the same job — generalist vs single-task — and LeWM's contribution is methodological (one knob), not scaling.
+  10. **Anchor exercise** — annotate LeWM Fig 1 against V-JEPA 2 and DINO-WM; deeper variant: implement a toy 2D JEPA and watch it collapse without anti-collapse mechanisms (then rescue it with each fix in turn).
+  11. Recommended reading (concept page → V-JEPA 2 + GitHub + 2.1 → DINO-WM → JEPA-WMs → VLA-JEPA → LeWM architecture only — explicit "do NOT yet read SIGReg derivation").
+  12. What you should now be able to do.
+  13. Hand-off to Module 12 — names the SIGReg derivation pieces (random projections + empirical CDF + Anderson-Darling-style normality test + backprop through test statistic).
+  14. Related modules + Mentioned in + Open questions (PLDM ingest still gap; toy-JEPA notebook; DINOv2 paper; LeCun 2022 position paper).
+- Updated [Robot-learning curriculum](syntheses/robot-learning-curriculum.md) — Module 11 entry now links the drafted page; coverage table cell updated to "drafted"; status frontmatter notes Modules 6 + 7 + 10 + 11 drafted.
+- Updated [index.md](index.md) — Highlights bullet for Module 11; Syntheses bullet for Module 11; reader-order is now Modules 6 → 7 and 10 → 11, all consumable.
+- Tier 4 is now half-drafted (Modules 10 + 11). Module 12 (LeWM deep-dive with full SIGReg math) is the destination and the longest module by design.
