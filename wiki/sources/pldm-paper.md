@@ -1,5 +1,5 @@
 ---
-title: PLDM Paper — Stress-Testing Offline Reward-Free RL: A Case for Planning with Latent Dynamics Models (Sobal et al., WRL @ ICLR 2025)
+title: "PLDM Paper — Stress-Testing Offline Reward-Free RL: A Case for Planning with Latent Dynamics Models (Sobal et al., WRL @ ICLR 2025)"
 type: source
 url: https://openreview.net/forum?id=jON7H6A9UU
 pdf: https://openreview.net/pdf?id=jON7H6A9UU

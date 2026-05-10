@@ -4,7 +4,7 @@ type: synthesis
 created: 2026-05-10
 updated: 2026-05-10
 tags: [curriculum, course, learning-path, jepa, diffusion-policy, vla, world-model, lewm, home-robotics]
-status: outline — module pages being written on signal (Modules 6 + 7 + 8 + 9 + 10 + 11 + 12 + 13 + 14 drafted 2026-05-10; Tiers 3–5 complete; remaining: Tier 1 modules 1–4 + Module 5 DDPM math)
+status: "outline — module pages being written on signal (Modules 6 + 7 + 8 + 9 + 10 + 11 + 12 + 13 + 14 drafted 2026-05-10; Tiers 3–5 complete; remaining — Tier 1 modules 1–4 + Module 5 DDPM math)"
 ---
 
 A bottom-up curriculum for building the mental model needed to read the [LeWorldModel paper](../sources/leworldmodel-paper.md) and reason about home-robotics policy-learning techniques (behavior cloning, diffusion policy, JEPA, VLA, world models).
