@@ -2,8 +2,8 @@
 title: World model
 type: concept
 created: 2026-05-07
-updated: 2026-05-08
-sources: 8
+updated: 2026-05-10
+sources: 10
 tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video]
 ---
 
@@ -30,7 +30,10 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 - **Generative video world models**: predict pixels. Examples: [NVIDIA Cosmos](../entities/nvidia-cosmos.md), [Genie Envisioner](../entities/genie-envisioner.md). Expensive to train and use at planning time, but produce inspectable rollouts. Treated as simulators in the agentic-robotics workflow ([world-model-simulators](world-model-simulators.md) concept).
 - **JEPA / latent-prediction**: predict the *representation* of the next state, not pixels. Examples: [V-JEPA 2](../entities/v-jepa-2.md), [LeWorldModel](../entities/leworldmodel.md), [JEPA-WMs](../entities/jepa-wms.md). ~100× cheaper than pixel-prediction; harder to inspect; LeWM reports up to 48× faster planning than foundation-model-based world models.
 - **Frozen-foundation-feature world models**: use [DINOv2](../entities/dinov2.md) (or similar) as a frozen encoder; learn only a predictor on top. Examples: [DINO-WM](../entities/dino-wm.md), [DINO-world](../entities/dino-world.md), [JEPA-WMs](../entities/jepa-wms.md) (likely). Trades off representation quality for training simplicity.
-- **Reward-conditioned model-based RL**: predict in a latent space optimized for reward prediction. Examples: Dreamer / DreamerV3, TD-MPC. Not yet ingested as standalone source pages but referenced as baselines in [LeWM](../sources/leworldmodel-paper.md).
+- **Reward-conditioned model-based RL**: predict in a latent space optimized for reward and/or value prediction. Two flavors now filed:
+    - **Generative-WM MBRL**: [Dreamer / DreamerV3](../entities/dreamer.md) ([source](../sources/dreamer-v3-paper.md)) — pixel/state reconstruction + actor-critic trained "in imagination."
+    - **Decoder-free MBRL**: [TD-MPC / TD-MPC2](../entities/td-mpc.md) ([source](../sources/td-mpc2-paper.md)) — implicit latent dynamics + local MPC + TD-bootstrapped value. Architecturally adjacent to JEPA.
+  Both cited as baselines in [LeWM](../sources/leworldmodel-paper.md).
 
 ## Common training challenges
 - **Representation collapse** — without anti-collapse mechanisms, encoder + predictor can learn trivial constants. Solutions vary by family: EMA targets (V-JEPA), stop-gradient, frozen encoders (DINO-WM), regularizers (LeWM's SIGReg).
@@ -68,7 +71,9 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 - [AGIBOT Genie Envisioner 2.0 Announcement](../sources/agibot-genie-envisioner-2-announcement.md)
 - [RoboCasa365 Paper](../sources/robocasa365-paper.md) (training-foundation-model context)
 - [Top 10 Physical AI Models 2026](../sources/top-10-physical-ai-models-2026.md)
+- [DreamerV3 Paper](../sources/dreamer-v3-paper.md)
+- [TD-MPC2 Paper](../sources/td-mpc2-paper.md)
 
 ## Open questions / TBD
-- Dreamer / DreamerV3 / TD-MPC source pages — would close the model-based-RL family of this concept.
 - LeCun's "A Path Towards Autonomous Machine Intelligence" (2022) — the original JEPA position paper, would anchor the LeCun stance behind half of this concept's content.
+- PlaNet / DreamerV1 / V2 / TD-MPC1 — earlier MBRL milestones; would deepen the family lineage but not strictly required (V3 / TD-MPC2 cover the baseline-citation role).

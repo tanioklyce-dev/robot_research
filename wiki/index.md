@@ -6,6 +6,7 @@ Curated entry points across the wiki.
 
 **Curriculum / learning path**
 - [Robot-learning curriculum — from neurons to LeWorldModel](syntheses/robot-learning-curriculum.md) — 14-module bottom-up syllabus; PushT as the connecting thread; ends with a Stretch-platform capstone.
+- [Curriculum Module 7 — BC lineage on PushT (IBC → BeT → DP)](syntheses/curriculum-07-bc-lineage-pusht.md) — first written module body; the policy-learning side of the LeWM ablation table.
 - [Glossary](glossary.md) — flat acronym + term reference (BC, VLM, CNN, SSL, MPC, MSE, LSTM, SIGReg, …); cross-linked from every curriculum module.
 
 **AI Safety and Alignment**
@@ -137,6 +138,10 @@ Curated entry points across the wiki.
 - [BET Paper](sources/bet-paper.md) — Shafiullah, Cui, Altanzaya, Pinto; NYU (NeurIPS 2022, arxiv 2206.11251); transformer + k-means action discretization; ancestor of VQ-BeT. (2022-06)
 - [UMI Project Page](sources/umi-paper.md) — Chi et al.; Stanford / Columbia / TRI (RSS 2024 Best Systems Finalist, arxiv 2402.10329); hand-held gripper data collection; 111 demos/hr; zero-shot UR5e + Franka transfer. (2024-02)
 - [TRI Website](sources/tri-website.md) — Toyota Research Institute homepage; mission + 5 research areas; co-affiliation hub for Diffusion Policy + UMI; home of TRI LBM. (continuously updated)
+- [DreamerV3 Paper](sources/dreamer-v3-paper.md) — Hafner, Pasukonis, Ba, Lillicrap (arxiv 2301.04104); single-config MBRL across 150+ tasks; first to mine Minecraft diamonds without human data/curricula. Abstract-level ingest. (2023-01)
+- [TD-MPC2 Paper](sources/td-mpc2-paper.md) — Hansen, Su, Wang (ICLR 2024, arxiv 2310.16828); decoder-free latent WM + MPC + TD-bootstrapped value; 104 tasks / 4 domains / 317M-param multi-task agent. Abstract-level ingest. (2023-10)
+- [π0 Paper](sources/pi-zero-paper.md) — Black, Brown, Driess et al., Physical Intelligence (arxiv 2410.24164); VLA flow-matching model on a pre-trained VLM backbone; cross-platform (single-arm, dual-arm, mobile manipulator); laundry folding + table cleaning + box assembly. Abstract-level ingest. (2024-10)
+- [Helix (Figure AI blog)](sources/helix-blog.md) — Figure AI; hierarchical S1/S2 VLA on Figure 02 humanoid (7B VLM @ 7–9 Hz + 80M transformer @ 200 Hz, end-to-end); ~500h teleop; onboard inference. Vendor blog only. (2025-02)
 
 ## Entities
 
@@ -158,7 +163,7 @@ Curated entry points across the wiki.
 - [AMI Labs](entities/ami-labs.md) — Yann LeCun's reported post-Meta AI lab; $1.03B seed round (single secondary source, provisional). (1 source)
 - [Anthropic](entities/anthropic.md) — developer of Claude; AI safety mission; author of Claude's Constitution; MCP protocol. (2 sources)
 - [Apollo Research](entities/apollo-research.md) — independent AI safety evaluation institute; red-teamed Claude Opus 4 (2025). (2 sources)
-- [Physical Intelligence](entities/physical-intelligence.md) — San Francisco; π0/π0.6 cross-platform generalist VLAs. (1 source)
+- [Physical Intelligence](entities/physical-intelligence.md) — San Francisco; π0/π0.6 cross-platform generalist VLAs. (2 sources)
 - [Hillbot](entities/hillbot.md) — UCSD spinoff that maintains ManiSkill. (1 source) _stub_
 - [Disney Research](entities/disney-research.md) — Newton co-developer with NVIDIA + DeepMind. (2 sources) _stub_
 - [FIRST Robotics Competition](entities/first-robotics-competition.md) — world's leading high-school robotics competition; ~3,700 teams, 30+ countries. (4 sources)
@@ -205,7 +210,7 @@ Curated entry points across the wiki.
 - [Atlas](entities/atlas.md) — Boston Dynamics flagship; closed development; capability-bar humanoid. (0 sources) _stub_
 - [Spot](entities/spot.md) — Boston Dynamics' commercial quadruped; the BD-platform-with-an-API; documented Gemini Robotics-ER 1.5 integration. (1 source)
 - [Tesla Optimus](entities/tesla-optimus.md) — Tesla's vertically-integrated humanoid; closed development. (0 sources) _stub_
-- [Figure](entities/figure.md) — Figure AI's humanoid line (01/02/03) + Helix VLA; BMW pilots. (0 sources) _stub_
+- [Figure](entities/figure.md) — Figure AI's humanoid line (01/02/03) + Helix VLA; BMW pilots. (2 sources)
 - [1X NEO](entities/1x-neo.md) — household humanoid; 22 hand DOF/side; Redwood AI VLM; 22 dB; $200 deposit. (1 source)
 - [Apptronik Apollo](entities/apptronik-apollo.md) — UT Austin spinout; NVIDIA-aligned ([GR00T](entities/nvidia-groot.md) target); Mercedes-Benz pilots. (0 sources) _stub_
 - [Digit](entities/digit.md) — Agility Robotics; **first commercially-deployed humanoid** (GXO, Amazon). (0 sources) _stub_
@@ -257,6 +262,8 @@ Curated entry points across the wiki.
 - [DINO-WM](entities/dino-wm.md) — NYU + FAIR; frozen DINOv2 features + learned predictor; zero-shot planning. (6 sources)
 - [DINO-world](entities/dino-world.md) — FAIR DINOv2 video world model ("Back to the Features"). (1 source)
 - [VLA-JEPA](entities/vla-jepa.md) — JEPA-as-auxiliary inside a VLA policy. (1 source)
+- [Dreamer / DreamerV3](entities/dreamer.md) — Hafner-line MBRL family with generative WM + actor-critic in imagination; LeWM baseline. (1 source)
+- [TD-MPC / TD-MPC2](entities/td-mpc.md) — Hansen-line decoder-free MBRL with MPC + TD-bootstrapped value; LeWM baseline; closest MBRL relative to JEPA. (1 source)
 
 ### VLA models / generalist policies
 - [NVIDIA GR00T](entities/nvidia-groot.md) — open VLA bundled with Isaac Lab. (3 sources)
@@ -295,8 +302,8 @@ Curated entry points across the wiki.
 - [Amal Nanavati](entities/amal-nanavati.md) — UW HCR Lab; robot-assisted feeding; PAR systematic review; out-of-lab deployment methodology. (4 sources)
 
 ## Concepts
-- [World model](concepts/world-model.md) — umbrella concept: learned predictive model of environment dynamics (generative-video / JEPA / frozen-feature / model-based-RL). (8 sources)
-- [VLA models](concepts/vla-models.md) — vision-language-action robot foundation models. (8 sources)
+- [World model](concepts/world-model.md) — umbrella concept: learned predictive model of environment dynamics (generative-video / JEPA / frozen-feature / model-based-RL). (10 sources)
+- [VLA models](concepts/vla-models.md) — vision-language-action robot foundation models. (11 sources)
 - [Sim-to-real transfer](concepts/sim-to-real-transfer.md) — bridging simulator-trained policies to real robots. (8 sources)
 - [World-model simulators](concepts/world-model-simulators.md) — narrower companion to [World model](concepts/world-model.md): world-models-used-as-simulators (generative-video and JEPA paradigms). (9 sources)
 - [Joint-Embedding Predictive Architecture](concepts/jepa.md) — predict next-state representations, not pixels. (7 sources)
@@ -337,7 +344,8 @@ Curated entry points across the wiki.
 - [Stretch as the de-facto assistive-robotics platform](syntheses/stretch-as-assistive-platform.md) — why every wiki-relevant in-home deployment uses Stretch; eight features that compound; what Stretch doesn't solve. (2026-05-09)
 - [DINO-WM on Stretch — concrete experiment plan](syntheses/dino-wm-on-stretch-experiment.md) — sibling to LeWM-on-Stretch; lower-risk frozen-encoder variant; train predictor only on RUM dataset. (2026-05-09)
 - [Underserved PAR domains — dressing, bathing, medication](syntheses/underserved-par-domains.md) — sub-capability decomposition for each; ranked researcher targets (medication-fetcher most tractable). (2026-05-09)
-- [Robot-learning curriculum — from neurons to LeWorldModel](syntheses/robot-learning-curriculum.md) — 14-module curriculum hub (outline only; module pages on signal). (2026-05-10)
+- [Robot-learning curriculum — from neurons to LeWorldModel](syntheses/robot-learning-curriculum.md) — 14-module curriculum hub (outline; module pages drafted on signal — Module 7 first). (2026-05-10)
+- [Curriculum Module 7 — BC lineage on PushT (IBC → BeT → DP)](syntheses/curriculum-07-bc-lineage-pusht.md) — first drafted module body; multi-modal-action problem + IBC/BeT/Diffusion Policy + bridge to world models; anchor exercise on PushT. (2026-05-10)
 
 ### JEPA-related concepts/entities/sources to potentially expand
 - Metaworld — referenced by [JEPA-WMs](sources/jepa-wms-paper.md) (42 tasks); deserves an entity page.
@@ -345,7 +353,7 @@ Curated entry points across the wiki.
 - SimplerEnv — referenced by [VLA-JEPA](sources/vla-jepa-paper.md); mid-weight Sapien-adjacent simulator.
 - `stable-worldmodel` package — env zoo broader than [LeWM howto](syntheses/leworldmodel-howto.md) exposed; verify and update.
 - PLDM — comparison baseline for LeWM; needs primary-source ingest.
-- DreamerV3, TD-MPC — also referenced as JEPA baselines.
+- ~~DreamerV3, TD-MPC~~ — both now filed: [DreamerV3 Paper](sources/dreamer-v3-paper.md) + [Dreamer entity](entities/dreamer.md), [TD-MPC2 Paper](sources/td-mpc2-paper.md) + [TD-MPC entity](entities/td-mpc.md).
 
 ## Known gaps / TBD
 - ABB / FANUC / KUKA / Yaskawa industrial-OEM Isaac-Sim adoption (referenced from a GTC 2026 search snippet; needs a primary-source ingest to file properly)
@@ -361,7 +369,7 @@ Curated entry points across the wiki.
 - TRI LBM (Toyota Research Institute Large Behavior Model) — referenced in RoboCasa365 paper as baseline. ([TRI](entities/tri.md) parent entity now filed.)
 - Octo — referenced in RoboCasa365 paper as baseline
 - Stretch Mujoco — Hello Robot's MuJoCo wrapper; thin or substantive?
-- Dreamer/DreamerV3, TD-MPC, PLDM — world-model baselines referenced in LeWorldModel paper ([DINO-WM](entities/dino-wm.md) now filed)
+- PLDM — world-model baseline referenced in LeWorldModel paper, still needs primary-source ingest. ([DINO-WM](entities/dino-wm.md), [Dreamer](entities/dreamer.md), [TD-MPC](entities/td-mpc.md) now filed.)
 - DROID paper itself (arxiv 2403.12945), Metaworld paper (arxiv 1910.10897), DINOv2 paper (arxiv 2304.07193), Dobb·E paper (arxiv 2306.16650), VQ-BeT paper (Lee et al. 2024) — entity pages exist but the papers themselves are not yet source pages; would let us cite design rationale directly. ([Diffusion Policy Paper](sources/diffusion-policy-paper.md), [IBC Paper](sources/ibc-paper.md), [BET Paper](sources/bet-paper.md), [DDPM Paper](sources/ddpm-paper.md), [UMI Project Page](sources/umi-paper.md) now filed.)
 - DDIM (Song, Meng, Ermon, ICLR 2021, arxiv 2010.02502) and iDDPM (Nichol & Dhariwal, ICML 2021) — diffusion-model advances Diffusion Policy uses directly; primary sources not yet filed.
 - R3M visual encoder (Nair et al. 2022) — appears in Diffusion Policy real-world Push-T ablation as alternative to end-to-end ResNet-18.

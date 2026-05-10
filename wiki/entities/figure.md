@@ -3,9 +3,9 @@ title: Figure
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-05-08
-sources: 1
-tags: [figure, humanoid, bipedal, helix, openai, bmw]
+updated: 2026-05-10
+sources: 2
+tags: [figure, humanoid, bipedal, helix, openai, bmw, vla, system-1-system-2]
 status: partial
 ---
 
@@ -17,10 +17,24 @@ status: partial
 - Cameras at head + body for visual reasoning.
 
 ## Helix (Figure's VLA)
-- End-to-end vision-language-action policy.
-- Trained on Figure-collected data + simulation.
-- Demos: bimanual manipulation, object handover between robots.
-- One of the few non-NVIDIA, non-open VLA systems with public capability demos.
+
+Announced [Feb 2025](../sources/helix-blog.md). Hierarchical two-tier VLA:
+
+- **S2 (System 2):** 7B-parameter internet-pretrained VLM @ 7–9 Hz — slow scene + language reasoning.
+- **S1 (System 1):** 80M-parameter transformer visuomotor policy @ 200 Hz — fast continuous control.
+- End-to-end gradient propagation between the two.
+
+Figure-claimed firsts ([Helix blog](../sources/helix-blog.md)):
+- First VLA with **high-rate continuous control of the entire humanoid upper body** (wrists, torso, head, individual fingers).
+- First VLA to operate **simultaneously on two robots** on a shared long-horizon task with novel objects.
+- Generalization to "thousands" of unseen household objects via natural-language prompts.
+- Runs **onboard** on embedded low-power GPUs.
+- One unified weight set across diverse tasks; no task-specific fine-tuning.
+
+Training: ~500 hours teleoperated demos ("<5%" of typical VLA datasets per Figure); auto-labeled hindsight instructions via VLM.
+
+> [!warning] Vendor source only
+> All Helix figures (parameter counts, frequencies, hours of data) come from Figure's blog post and have not been independently verified. Treat as marketing-grade until replicated in a paper or third-party evaluation.
 
 ## Position vs other humanoids
 - **AI-foundation-first strategy.** Figure's bet is that the humanoid policy stack matters more than the hardware — Helix is the differentiator.
@@ -44,8 +58,9 @@ Figure 02 at BMW plant (South Carolina), 2025:
 
 ## Mentioned in
 - [Stanford HAI — AI Index Report 2026](../sources/stanford-hai-ai-index-2026.md)
+- [Helix (Figure AI blog)](../sources/helix-blog.md)
 
 ## Open questions / TBD
-- **No primary source ingested.** Figure AI's blog + Helix announcement would anchor the VLA design and capability claims.
-- Helix specs (parameters, training data) — minimally disclosed publicly.
+- **No Helix paper.** Figure has not (as of ingest date) released a Helix paper; the blog is the only primary source. Architectural details may be incomplete or marketing-shaped.
 - Figure 03 detailed specs — evolved from 02 but not exhaustively documented publicly.
+- Comparison numbers vs other VLAs (LIBERO, real-world success rates) — not provided in the blog.

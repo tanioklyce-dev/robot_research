@@ -660,3 +660,45 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
   - Effort estimate updated for "go deep" decisions: ~125–205 hr without hardware phase.
   - Removed "Open scoping questions" section (now resolved).
 - Updated [index.md](index.md) — Curriculum highlights now lists [Glossary](glossary.md).
+
+## [2026-05-10] sort | Glossary alphabetized
+- User asked to sort [Glossary](glossary.md) alphabetically rather than by curriculum module.
+- Flattened the per-module sections into a single A–Z list (case-insensitive, hyphens ignored). Per-entry "(Module N)" annotations preserved so the curriculum mapping stays intact.
+- Added a fourth bullet under "How to use" noting the new sort order.
+
+## [2026-05-10] ingest | DreamerV3 + TD-MPC2 + π0 + Helix (curriculum-driven backfill of LeWM baselines and VLA exemplars)
+- All four ingests are abstract / blog-post depth (PDFs not in `raw/`). Filed to unblock curriculum modules 8–10 (RL + world models) and 9 (VLAs); flagged for re-ingest at higher fidelity if module bodies need it.
+- Created [DreamerV3 Paper](sources/dreamer-v3-paper.md) — Hafner, Pasukonis, Ba, Lillicrap (arxiv 2301.04104, Jan 2023); single-config MBRL across 150+ tasks; first to mine Minecraft diamonds without human data/curricula. Generative-style WM (predicts state + reward) + actor-critic in imagination.
+- Created [Dreamer / DreamerV3](entities/dreamer.md) entity — family lineage (PlaNet → V1 → V2 → V3); position table vs TD-MPC, LeWM, DINO-WM on the four design axes (latent dynamics, decoder?, planning method, value bootstrap?).
+- Created [TD-MPC2 Paper](sources/td-mpc2-paper.md) — Hansen, Su, Wang (ICLR 2024, arxiv 2310.16828); decoder-free latent WM + local trajectory MPC + TD-bootstrapped value; 104 tasks / 4 domains / 317M-param multi-task agent. The closest MBRL relative to JEPA in this wiki.
+- Created [TD-MPC / TD-MPC2](entities/td-mpc.md) entity — same 4-axis position table.
+- Created [π0 Paper](sources/pi-zero-paper.md) — Black, Brown, Driess et al., Physical Intelligence (arxiv 2410.24164, Oct 2024); VLA with **flow-matching** action head on a pre-trained VLM; cross-platform (single-arm, dual-arm, mobile manipulator); laundry folding + table cleaning + box assembly. 24 authors including Levine, Finn, Hausman, Ichter, Pertsch.
+- Created [Helix (Figure AI blog)](sources/helix-blog.md) — Figure AI (Feb 2025); hierarchical S1/S2 VLA (7B VLM @ 7–9 Hz + 80M transformer @ 200 Hz, end-to-end-trained); full humanoid upper-body continuous control; multi-robot collaboration; ~500h teleop ("<5%" of typical VLA datasets); onboard inference. Vendor blog only — flagged as marketing-grade until peer-reviewed.
+- Updated [World model](concepts/world-model.md) — closed the "Reward-conditioned MBRL not yet ingested as standalone source pages" hedge; added Dreamer (generative-WM MBRL) + TD-MPC (decoder-free MBRL) bullets with source/entity links; added both source pages to Mentioned in; sources 8 → 10. Removed Dreamer/TD-MPC from Open questions (now filed).
+- Updated [VLA models](concepts/vla-models.md) — π0 bullet now links the new source page and surfaces the flow-matching action-head choice; new Helix bullet (architecture + claims); added a hierarchical S1/S2 callout; added an "Action-head design across VLAs" comparison table contrasting OpenVLA (AR tokens), π0 (flow matching), Diffusion Policy (DDPM), Helix S1 (continuous regression at 200 Hz), GR00T. sources 9 → 11.
+- Updated [Physical Intelligence](entities/physical-intelligence.md) — π0 capability bullet now cites the new paper and names the flow-matching action head + cross-platform training. sources 1 → 2.
+- Updated [Figure](entities/figure.md) — full Helix subsection rewritten with S1/S2 specs, Figure-claimed firsts, training scale, marketing-only warning callout. sources 1 → 2 (corrected from 0 in index.md). Closed the "No primary source ingested" open question.
+- Updated [Glossary](glossary.md) — added source/entity links to the Dreamer / DreamerV3, TD-MPC, π0, and Helix entries.
+- Updated [index.md](index.md) — 4 new sources appended to chronological list; Dreamer + TD-MPC entities added under World models section; Physical Intelligence 1→2 sources, Figure 0→2 sources (`_stub_` removed); World-model concept 8→10, VLA-models concept 8→11; Known gaps lines for Dreamer/TD-MPC closed (PLDM still open).
+- Cross-cutting note for the curriculum: the four ingests collectively unblock Modules 8 (RL vocab — Dreamer + TD-MPC as named baselines), 9 (VLA — π0 + Helix as concrete exemplars), and 10 (world models — full four-family taxonomy now backed by primary sources).
+
+## [2026-05-10] curriculum-module | Module 7 drafted — BC lineage on PushT
+- Created [Curriculum Module 7 — BC lineage on PushT](syntheses/curriculum-07-bc-lineage-pusht.md) — first drafted curriculum module body (out of 14). Chosen as the template-setter because all five prerequisite source ingests ([IBC](sources/ibc-paper.md), [BET](sources/bet-paper.md), [DDPM](sources/ddpm-paper.md), [Diffusion Policy](sources/diffusion-policy-paper.md), [UMI](sources/umi-paper.md)) were already filed.
+- Structure:
+  1. Curriculum-context callout + acronym pointer to glossary.
+  2. "What this module is" + four learning objectives.
+  3. Pedagogical hook on PushT (why the task; multi-modality engineered in by design).
+  4. The failure mode of vanilla MSE-BC.
+  5. IBC: EBM-as-policy + InfoNCE. Strengths, weaknesses, why it matters.
+  6. BeT: k-means discretization + transformer + offset regression. Successor (VQ-BeT).
+  7. Diffusion Policy: conditional DDPM over action chunks + receding horizon. The contemporary default. Quantitative results from the paper.
+  8. Visual encoders side-note (ResNet-18 vs R3M vs DINOv2).
+  9. UMI in one paragraph (data-collection context).
+  10. **The bridge to Module 10** — BC lineage vs world-model lineage as two answers to the same PushT problem; comparison table.
+  11. Anchor exercise — run pretrained Diffusion Policy on PushT; sample-and-plot multi-modal action chunks; compare against MSE-BC baseline.
+  12. Recommended reading order.
+  13. What you should now be able to do.
+  14. Related curriculum modules + Mentioned in + Open questions.
+- Updated [Robot-learning curriculum](syntheses/robot-learning-curriculum.md) — Module 7 entry now links the drafted page (replacing "Future home"); coverage table cell updated to "drafted"; status frontmatter notes Module 7 drafted.
+- Updated [index.md](index.md) — new Highlights bullet under Curriculum (Module 7 link); new Syntheses bullet for the module page.
+- Pattern set for future modules: a curriculum module body should orient → state objectives → tell a narrative → end with an anchor exercise + reading order + open questions. Module 7 is ~12kB; expect tier-1 modules (NN, CNN, attention, SSL) to be similar size; tier-2/3 modules (Module 5, Module 7, Module 10) somewhat longer; Module 12 (LeWM deep-dive with full SIGReg math) will be the longest.

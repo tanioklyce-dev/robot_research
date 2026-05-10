@@ -85,7 +85,7 @@ The 2023 successor; the encoder used by [DINO-WM](entities/dino-wm.md), [DINO-wo
 **Deep Q-Network** — Mnih et al. 2015; Q-learning with a CNN value network; the original Atari result. *(Module 8.)*
 
 ### Dreamer / DreamerV3
-Hafner et al.; MBRL family that learns a recurrent latent dynamics model and trains an actor-critic in imagination. Baseline in LeWM. *(Module 10.)*
+Hafner et al. ([source page](sources/dreamer-v3-paper.md), [entity](entities/dreamer.md)); MBRL family that learns a recurrent latent dynamics model and trains an actor-critic in imagination. Baseline in LeWM. *(Module 10.)*
 
 ### DROID
 **Distributed Robot Interaction Dataset** — Khazatsky et al. 2024 ([entity](entities/droid.md)); 350 hr / 76k trajectories on Franka; the dominant real-robot dataset in JEPA-for-robotics work. *(Modules 11–13.)*
@@ -127,7 +127,7 @@ A vector representation of an input; the output of an encoder. The substrate JEP
 **Home Assistant Benchmark** — long-horizon household manipulation tasks (referenced by [ManiSkill-HAB](sources/maniskill-hab-paper.md)). *(Module 13.)*
 
 ### Helix
-[Figure](entities/figure.md) AI's VLA, deployed on Figure 02/03 humanoids. *(Module 9.)*
+[Figure](entities/figure.md) AI's VLA ([source page](sources/helix-blog.md)), deployed on Figure 02/03 humanoids. Hierarchical System 1 / System 2 design: 7B VLM @ 7–9 Hz + 80M transformer @ 200 Hz, end-to-end trained. *(Module 9.)*
 
 ### IBC
 **Implicit Behavior Cloning** — Florence et al., CoRL 2021 ([source page](sources/ibc-paper.md)); BC where the policy is an EBM over actions trained with InfoNCE. Introduced [PushT](entities/pusht.md). *(Module 7.)*
@@ -223,7 +223,7 @@ Open-weights VLA used as a baseline in many 2024–2026 papers. *(Module 9.)*
 **Physically Assistive Robotics** — robots that physically assist disabled users (feeding, dressing, transfer). See [Nanavati 2024 systematic review](sources/nanavati2024-physically-assistive-robots-review.md). *(Module 13.)*
 
 ### π0 / π0.6 (pi-zero)
-[Physical Intelligence](entities/physical-intelligence.md)'s flagship cross-platform VLA. *(Module 9.)*
+[Physical Intelligence](entities/physical-intelligence.md)'s flagship cross-platform VLA. π0 ([source page](sources/pi-zero-paper.md)) uses a flow-matching action head on a pre-trained VLM backbone. *(Module 9.)*
 
 ### PLDM
 **Planning with Latent-space Dynamics Models** — comparison baseline in [LeWM](sources/leworldmodel-paper.md); end-to-end JEPA-style WM with 6 anti-collapse hyperparameters. *(Module 11.)*
@@ -274,7 +274,7 @@ A pretrained visual encoder for manipulation (Nair et al. 2022); appears as a Di
 **Temporal Difference** — bootstrap-style update using `r + γ V(s') − V(s)`; backbone of value-based RL. *(Module 8.)*
 
 ### TD-MPC
-**Temporal Difference Model Predictive Control** — Hansen et al. 2022 / 2024; model-based control combining a learned latent dynamics model with MPC and TD-bootstrapping. Baseline in [LeWM](sources/leworldmodel-paper.md). *(Module 10.)*
+**Temporal Difference Model Predictive Control** — Hansen et al. 2022 / 2024 ([TD-MPC2 source page](sources/td-mpc2-paper.md), [entity](entities/td-mpc.md)); model-based control combining a learned latent dynamics model with MPC and TD-bootstrapping. Decoder-free (no pixel reconstruction). Baseline in [LeWM](sources/leworldmodel-paper.md). *(Module 10.)*
 
 ### TPU
 **Tensor Processing Unit** — Google's NN-specialized accelerator. *(Throughout.)*
