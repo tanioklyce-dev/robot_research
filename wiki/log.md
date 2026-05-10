@@ -931,4 +931,29 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - **Module 11 cascaded:** SIGReg row in the collapse-prevention zoo table now mentions the LeJEPA scale evidence (1.8B ViT-g, 10+ datasets / 60+ architectures) and names the formal proof tools (hyperspherical Cramér-Wold + Epps-Pulley) explicitly.
 - **Result:** Modules 11 + 12 now have primary-source-grade backing for the SIGReg derivation. The "average vs max" distinction in particular is one the curriculum was carrying without flagging; it's now explicit. The two source pages are the curriculum's deepest (along with the LeWM paper itself) for the SIGReg argument.
 
+## [2026-05-10] curriculum-module | Module 5 drafted — Generative modeling fundamentals (DDPM, full math)
+- Created [Curriculum Module 5 — Generative modeling fundamentals (DDPM, full math)](syntheses/curriculum-05-generative-models.md) — the curriculum's tenth drafted module, closing Tier 2 and the heaviest single piece by design (the "go deep" decision from 2026-05-10 required full ELBO derivation + KL bounds + classifier-free guidance derivation, written rigorously).
+- Structure (~31kB; among the longest curriculum modules alongside Module 12):
+  1. Curriculum-context callout with explicit "2–4 evenings" effort estimate.
+  2. Six learning objectives (write forward/reverse from memory; derive `L_simple` from ELBO; explain why dropping `λ_t` improves samples; derive CFG from Bayes' on score; place DDPM in the generative-models design space; explain why DDPM matters for Modules 7, 9, 10).
+  3. **§1 — Generative modeling primer** (AE, VAE, EBM, score matching) — brief but explicit family map; explicit positioning: DDPM is the dominant 2024–2026 paradigm.
+  4. **§2 — DDPM forward process** — single-step + chain + the closed-form marginal `q(x_t | x_0) = 𝒩(√ᾱ_t x_0, (1-ᾱ_t)I)` (Eq. 2.1) and the reparameterization `x_t = √ᾱ_t x_0 + √(1-ᾱ_t) ε` (Eq. 2.2).
+  5. **§3 — DDPM reverse process** — parameterized denoising; the prior matches the forward chain's limit.
+  6. **§4 — Full ELBO derivation** — bound via Jensen (4.1); per-step decomposition via Bayes/telescoping into L_T + L_{t-1} + L_0 (4.3); the forward posterior `q(x_{t-1} | x_t, x_0)` is Gaussian with explicit `μ̃_t` and `β̃_t` (4.4); KL between two Gaussians (closed form); reduction to a Gaussian-regression problem (4.5).
+  7. **§5 — From ELBO to `L_simple`** — the ε-reparameterization (5.1, 5.2); substitution that cancels `x_t` terms; the `λ_t`-weighted MSE form (5.3); the simplified loss (5.4); why dropping `λ_t` improves samples despite making the bound loose. Explicit callout: **this is Module 12's anchor exercise Part B**.
+  8. **§6 — Noise schedule** — linear (Ho et al.) vs cosine (iDDPM); the cosine schedule formula (6.1) and motivation.
+  9. **§7 — Sampling** — ancestral (DDPM) + DDIM (deterministic non-Markovian, decouples training-step count from inference-step count).
+  10. **§8 — Classifier-free guidance, full derivation** — Bayes' rule on score (8.2); the implicit-classifier identity (8.3); the guided distribution (8.4); the score-space combination (8.5); translation back to ε-parameterization (8.6); the "drop conditioning with `p_uncond ≈ 0.1` at training" trick.
+  11. **§9 — Conditional diffusion in general** — concatenation, cross-attention, AdaLN, time-step + condition embedding addition.
+  12. **§10 — Bridges** — to Module 6/7 (Diffusion Policy = conditional DDPM over action chunks, with a mapping table), Module 9 (π0's flow matching as a sibling), Module 10 (generative-video WMs as DDPM at scale), and EBM/IBC (sibling families that finesse explicit-density issues differently).
+  13. **Anchor exercise** — Part A: tiny DDPM on MNIST + DDIM sampling. Part B: derive `L_simple` from ELBO on paper, with five specific sub-tasks (Bayes/telescoping; complete-the-square for `q(x_{t-1} | x_t, x_0)`; ε-reparam; KL-of-Gaussians substitution; identify what's dropped going to `L_simple`).
+  14. Recommended reading (DDPM → Diffusion Policy §II → iDDPM → DDIM → CFG → Lilian Weng blog as backup).
+  15. What you should now be able to do.
+  16. Hand-off to Module 7 / 9 / 10 / 12 — names exact downstream consumers of this module's math.
+  17. Related modules + Mentioned in + Open questions (iDDPM / DDIM / CFG / score-matching primary-source pages still TBD; flow-matching concept page; DDPM-on-MNIST notebook artifact).
+- Updated [Robot-learning curriculum](syntheses/robot-learning-curriculum.md) — Module 5 entry now links the drafted page; module-list heading wraps "Module 5" in a markdown link; coverage table cell updated to "drafted"; status frontmatter notes **Tiers 2–5 complete**, only Tier 1 (Modules 1–4 ML foundations) remains.
+- Updated [index.md](index.md) — Highlights bullet for Module 5; Syntheses bullet for Module 5.
+- **Reader status:** Ten of fourteen modules drafted. **Tiers 2–5 are complete.** The curriculum is now reader-traversable from Module 5 through the destination (Module 12) and the deployment / capstone modules (13–14), in any order consistent with the module dependency graph. Remaining: Tier 1 (Modules 1–4 ML foundations, greenfield) only.
+
+
 

@@ -4,7 +4,7 @@ type: synthesis
 created: 2026-05-10
 updated: 2026-05-10
 tags: [curriculum, course, learning-path, jepa, diffusion-policy, vla, world-model, lewm, home-robotics]
-status: "outline — module pages being written on signal (Modules 6 + 7 + 8 + 9 + 10 + 11 + 12 + 13 + 14 drafted 2026-05-10; Tiers 3–5 complete; remaining — Tier 1 modules 1–4 + Module 5 DDPM math)"
+status: "outline — module pages being written on signal (Modules 5 + 6 + 7 + 8 + 9 + 10 + 11 + 12 + 13 + 14 drafted 2026-05-10; Tiers 2–5 complete; remaining — Tier 1 modules 1–4)"
 ---
 
 A bottom-up curriculum for building the mental model needed to read the [LeWorldModel paper](../sources/leworldmodel-paper.md) and reason about home-robotics policy-learning techniques (behavior cloning, diffusion policy, JEPA, VLA, world models).
@@ -76,11 +76,11 @@ Question 4 is the domain anchor — every module ends with a "what this unlocks 
 
 ### Tier 2 — Generative models for control
 
-#### Module 5 — Generative modeling fundamentals (with a DDPM destination, full math)
+#### [Module 5](curriculum-05-generative-models.md) — Generative modeling fundamentals (with a DDPM destination, full math)
 - **Concept beats:** [AE (autoencoder)](../glossary.md#ae), [VAE (variational autoencoder)](../glossary.md#vae), [EBM (energy-based model)](../glossary.md#ebm) (just enough for [IBC (implicit behavior cloning)](../glossary.md#ibc)), score matching intuition, **[DDPM (denoising diffusion probabilistic models)](../glossary.md#ddpm)** forward + reverse process — *full math walkthrough per decision (2)*: [ELBO (evidence lower bound)](../glossary.md#elbo) derivation, [KL (Kullback–Leibler) divergence](../glossary.md#kl) bounds, noise schedule, the simplified ε-prediction loss; [CFG (classifier-free guidance)](../glossary.md#cfg) derivation, conditional diffusion. [DDPM paper](../sources/ddpm-paper.md) ingest is the anchor reading.
 - **Why for LeWM:** prerequisite for [Diffusion Policy](../entities/diffusion-policy.md) (Module 7). Also sharpens the contrast in Module 10 between *generative-video world models* (which are giant conditional diffusion / flow models over pixels) and JEPA (which sidesteps generation entirely).
 - **Anchor exercise:** train a tiny DDPM on MNIST; sample. Then derive the simplified loss `L_simple = E[||ε − ε_θ(x_t, t)||²]` from the ELBO on paper.
-- **Future home:** `syntheses/curriculum-05-generative-models.md`
+- **Module page:** [Curriculum Module 5 — Generative modeling fundamentals (DDPM, full math)](curriculum-05-generative-models.md) **(drafted 2026-05-10)**.
 
 ### Tier 3 — Robot learning
 
@@ -179,7 +179,7 @@ Question 4 is the domain anchor — every module ends with a "what this unlocks 
 | 2 CNNs                           | none                                                                                                                                                                                                                                                     | full module                                               |
 | 3 Attention / transformers / ViT | none                                                                                                                                                                                                                                                     | full module                                               |
 | 4 SSL & embeddings               | partial in [latent-space](../concepts/latent-space.md), [JEPA](../concepts/jepa.md)                                                                                                                                                                      | broader SSL framing, collapse taxonomy                    |
-| 5 Generative / DDPM              | [DDPM paper](../sources/ddpm-paper.md) source ingest                                                                                                                                                                                                     | derivation walkthrough + pedagogy                         |
+| 5 Generative / DDPM              | [DDPM paper](../sources/ddpm-paper.md) source ingest                                                                                                                                                                                                     | **drafted** — [Curriculum Module 5 — Generative modeling fundamentals (DDPM, full math)](curriculum-05-generative-models.md) |
 | 6 Imitation learning             | [concept](../concepts/imitation-learning.md), [PushT entity](../entities/pusht.md)                                                                                                                                                                       | **drafted** — [Curriculum Module 6 — Imitation learning and behavior cloning](curriculum-06-imitation-learning.md) |
 | 7 BC lineage (IBC/BeT/DP)        | [IBC](../sources/ibc-paper.md), [BeT](../sources/bet-paper.md), [Diffusion Policy](../sources/diffusion-policy-paper.md), [UMI](../sources/umi-paper.md) all ingested                                                                                    | **drafted** — [Curriculum Module 7 — BC lineage on PushT](curriculum-07-bc-lineage-pusht.md) |
 | 8 RL vocab                       | none                                                                                                                                                                                                                                                     | **drafted** — [Curriculum Module 8 — Reinforcement learning vocabulary](curriculum-08-rl-vocabulary.md) |
