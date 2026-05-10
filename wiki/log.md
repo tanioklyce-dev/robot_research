@@ -866,3 +866,24 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Updated [Robot-learning curriculum](syntheses/robot-learning-curriculum.md) — Module 14 entry now links the drafted page; coverage table cell updated to "drafted"; status frontmatter notes Tiers 3–5 complete.
 - Updated [index.md](index.md) — Highlights bullet for Module 14; Syntheses bullet for Module 14.
 - **Reader status:** Eight of fourteen modules drafted. **Tiers 3–5 are complete.** Remaining: Tier 1 (Modules 1–4 ML foundations; greenfield), Module 5 (DDPM full math; heavy), Module 8 (RL vocabulary; light). A reader with ML basics already can traverse the entire curriculum end-to-end (Modules 6 → 7 → 9, 10 → 11 → 12, 13 → 14).
+
+## [2026-05-10] curriculum-module | Module 8 drafted — RL vocabulary
+- Created [Curriculum Module 8 — Reinforcement learning vocabulary](syntheses/curriculum-08-rl-vocabulary.md) — ninth drafted module. Deliberately **light** (~12kB) per the curriculum decision: "RL is not the focus; read for vocabulary, not implementation."
+- Structure:
+  1. Curriculum-context callout — explicit "skim in 10 min if you know RL; spend 1–2 hr if you don't."
+  2. Four learning objectives (read DreamerV3 paragraphs without confusion; parse TD-MPC2 abstract; distinguish policy gradient from value bootstrap; identify on/off-policy).
+  3. **MDP** — the (S, A, P, R, γ) tuple; Markov property as modeling assumption.
+  4. **Return, value (V/Q), policy** — three core objects + the V↔Q relationship.
+  5. **On/off-policy** distinction with concrete examples (PPO on-policy, DQN/SAC off-policy, BC off-policy-ish, modern robotics RL is mostly off-policy or fully offline).
+  6. **Policy gradient** — REINFORCE math; A2C variance-reduction; PPO as the modern default (clipped, on-policy, actor-critic).
+  7. **Q-learning** — Bellman recursion; DQN target-network trick; DDPG/TD3/SAC as continuous-action extensions.
+  8. **MFRL vs MBRL** — the model-question axis that maps onto Module 10's WM taxonomy (MBRL Family 4).
+  9. **Dreamer-class latent imagination** — the specific MBRL recipe (train WM from data; train actor-critic *in* the WM; use the actor on real data; loop). Wins (sample-efficient via free imagined rollouts; reward head extends effective horizon) vs losses (model fidelity; reward labels required at training).
+  10. Explicit "what this module is *not* doing" — RL theory, modern MFRL deep-dive, offline RL paradigm, implementation details.
+  11. **Anchor exercise** — "read a DreamerV3 figure caption out loud and have it parse"; explicit checklist of phrases (actor-critic, imagined rollouts, RSSM, two-hot reward, symlog, world model latent) and where each is defined in this module.
+  12. Recommended reading (Wikipedia → OpenAI Spinning Up → DreamerV3 abstract + intro → TD-MPC2 abstract → Sutton & Barto for depth).
+  13. What you should now be able to do; Hand-off (use as reference when reading Modules 10–12).
+  14. Related modules + Mentioned in + Open questions (Sutton & Barto + Spinning Up reference pages on demand; PPO + Dreamer notebook).
+- Updated [Robot-learning curriculum](syntheses/robot-learning-curriculum.md) — Module 8 entry now links the drafted page; coverage table cell updated to "drafted"; status frontmatter notes only Tier 1 + Module 5 remain.
+- Updated [index.md](index.md) — Highlights bullet for Module 8; Syntheses bullet for Module 8 (placed between Module 7 and Module 9 in chronological order).
+- **Reader status:** Nine of fourteen modules drafted. Remaining: Tier 1 (Modules 1–4) and Module 5 (DDPM math). All upper-tier modules (5–14) except Module 5 are now drafted.
