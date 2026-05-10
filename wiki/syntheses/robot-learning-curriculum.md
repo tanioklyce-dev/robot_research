@@ -16,18 +16,6 @@ Each module below is scoped to become its own synthesis page (`syntheses/curricu
 > [!note] Acronyms — see the [Glossary](../glossary.md)
 > Every acronym used below is also defined in the wiki's [Glossary](../glossary.md). Each module spells out acronyms on first mention with a link to the glossary entry. Reach for the glossary the first time any term is unclear.
 
-## Decisions (resolved 2026-05-10)
-
-The five scoping questions originally filed at the bottom of this page were resolved with the user:
-
-1. **Tier 1 granularity** — keep all four modules (NN, CNN, attention, SSL) at the current granularity. *No collapse.*
-2. **SIGReg math depth (Module 12)** — **go deep.** Full derivation of the random-projection + normality test + backprop-through-the-test-statistic, not just the high-level intuition.
-3. **DDPM math depth (Module 5)** — **go deep.** Full forward / reverse process, ELBO derivation, KL bounds, classifier-free guidance derivation.
-4. **Capstone (Module 14)** — **paper first, Stretch hardware second.** Module 14 is structured in two phases: phase A is paper / simulator-only (LeWM PushT reproduction + experiment-design write-up); phase B is hardware execution if a Stretch becomes available.
-5. **Module 13 + 14 inclusion** — **both included.** Tier 5 stays at two modules.
-
-Skipped entirely (confirmed): classical kinematics / dynamics / control, [ROS](../glossary.md#ros--ros-2) plumbing, [SLAM](../glossary.md#slam) / segmentation perception pipelines, formal MDP / RL theory beyond paper-reading vocabulary.
-
 ## Goal
 
 Be able to read [LeWorldModel](../sources/leworldmodel-paper.md) and answer:
@@ -77,7 +65,7 @@ Question 4 is the domain anchor — every module ends with a "what this unlocks 
 ### Tier 2 — Generative models for control
 
 #### [Module 5](curriculum-05-generative-models.md) — Generative modeling fundamentals (with a DDPM destination, full math)
-- **Concept beats:** [AE (autoencoder)](../glossary.md#ae), [VAE (variational autoencoder)](../glossary.md#vae), [EBM (energy-based model)](../glossary.md#ebm) (just enough for [IBC (implicit behavior cloning)](../glossary.md#ibc)), score matching intuition, **[DDPM (denoising diffusion probabilistic models)](../glossary.md#ddpm)** forward + reverse process — *full math walkthrough per decision (2)*: [ELBO (evidence lower bound)](../glossary.md#elbo) derivation, [KL (Kullback–Leibler) divergence](../glossary.md#kl) bounds, noise schedule, the simplified ε-prediction loss; [CFG (classifier-free guidance)](../glossary.md#cfg) derivation, conditional diffusion. [DDPM paper](../sources/ddpm-paper.md) ingest is the anchor reading.
+- **Concept beats:** [AE (autoencoder)](../glossary.md#ae), [VAE (variational autoencoder)](../glossary.md#vae), [EBM (energy-based model)](../glossary.md#ebm) (just enough for [IBC (implicit behavior cloning)](../glossary.md#ibc)), score matching intuition, **[DDPM (denoising diffusion probabilistic models)](../glossary.md#ddpm)** forward + reverse process — *full math walkthrough*: [ELBO (evidence lower bound)](../glossary.md#elbo) derivation, [KL (Kullback–Leibler) divergence](../glossary.md#kl) bounds, noise schedule, the simplified ε-prediction loss; [CFG (classifier-free guidance)](../glossary.md#cfg) derivation, conditional diffusion. [DDPM paper](../sources/ddpm-paper.md) ingest is the anchor reading.
 - **Why for LeWM:** prerequisite for [Diffusion Policy](../entities/diffusion-policy.md) (Module 7). Also sharpens the contrast in Module 10 between *generative-video world models* (which are giant conditional diffusion / flow models over pixels) and JEPA (which sidesteps generation entirely).
 - **Anchor exercise:** train a tiny DDPM on MNIST; sample. Then derive the simplified loss `L_simple = E[||ε − ε_θ(x_t, t)||²]` from the ELBO on paper.
 - **Module page:** [Curriculum Module 5 — Generative modeling fundamentals (DDPM, full math)](curriculum-05-generative-models.md) **(drafted 2026-05-10)**.
@@ -122,7 +110,7 @@ Question 4 is the domain anchor — every module ends with a "what this unlocks 
 - **Anchor exercise:** annotate the LeWM architecture figure with which design choices match V-JEPA 2 and which differ.
 - **Module page:** [Curriculum Module 11 — JEPA in depth](curriculum-11-jepa-deep.md) **(drafted 2026-05-10)**.
 
-#### [Module 12](curriculum-12-lewm-deep-dive.md) — LeWorldModel paper deep-dive (full math per decision 2)
+#### [Module 12](curriculum-12-lewm-deep-dive.md) — LeWorldModel paper deep-dive (full math)
 - **Concept beats:** the [LeWM paper](../sources/leworldmodel-paper.md) section by section; **[SIGReg](../glossary.md#sigreg) full derivation** — random unit-vector projection (sketched approach) → empirical characteristic function → **Epps–Pulley** univariate normality test → Cramér–Wold theorem (legitimacy argument) → backprop through the test statistic, with all intermediate steps; the two-loss claim (next-embedding [MSE](../glossary.md#mse) + SIGReg); 4-environment benchmark suite ([PushT](../entities/pusht.md), Reacher, OGBench-Cube, Two-Room); the BN-after-CLS engineering trick; planning protocol ([CEM](../glossary.md#cem)-[MPC](../glossary.md#mpc) details, horizon, action sampling); surprise / violation-of-expectation evaluation; latent probing; comparison table against [PLDM](../glossary.md#pldm) / [DINO-WM](../glossary.md#dino-wm) / [Dreamer](../glossary.md#dreamer--dreamerv3) / [TD-MPC](../glossary.md#td-mpc).
 - **Why for LeWM:** this is the destination. By module 12, every term should already be familiar — the deep-dive consolidates rather than introduces.
 - **Anchor exercise:** install [LeWM](../sources/lewm-github.md) per [the howto](leworldmodel-howto.md); reproduce a single PushT eval at a pretrained checkpoint. Then derive SIGReg's gradient-through-projection on paper.
@@ -136,7 +124,7 @@ Question 4 is the domain anchor — every module ends with a "what this unlocks 
 - **Anchor exercise:** read [DINO-WM on Stretch experiment plan](dino-wm-on-stretch-experiment.md) and [LeWM on Stretch feasibility](lewm-on-stretch-feasibility.md); state the one experiment most worth running.
 - **Module page:** [Curriculum Module 13 — Home robotics deployment reality](curriculum-13-home-robotics-deployment.md) **(drafted 2026-05-10)**.
 
-#### [Module 14](curriculum-14-capstone.md) — Capstone: paper-first, hardware-second (per decision 4)
+#### [Module 14](curriculum-14-capstone.md) — Capstone: paper-first, hardware-second
 - **Phase A (paper / sim — required):** reproduce LeWM PushT from scratch ([detailed scope already filed](lewm-hello-world-project-scope.md)); install / train / eval per [the howto](leworldmodel-howto.md); produce a written experiment-design memo for the smallest credible LeWM-on-Stretch or DINO-WM-on-Stretch experiment ([feasibility analysis](lewm-on-stretch-feasibility.md), [DINO-WM-on-Stretch plan](dino-wm-on-stretch-experiment.md)).
 - **Phase B (hardware — when Stretch is available):** execute the phase-A memo on a real [Stretch](../entities/stretch.md). Use the [RUM](../glossary.md#rum) open dataset to bootstrap the action-conditioning data. Compare against a Diffusion Policy baseline.
 - **Why for LeWM:** the only way to know if you understood it is to train it. Phase B is gated on hardware acquisition; the curriculum is fully completable on phase A alone.
