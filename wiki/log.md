@@ -702,3 +702,23 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Updated [Robot-learning curriculum](syntheses/robot-learning-curriculum.md) — Module 7 entry now links the drafted page (replacing "Future home"); coverage table cell updated to "drafted"; status frontmatter notes Module 7 drafted.
 - Updated [index.md](index.md) — new Highlights bullet under Curriculum (Module 7 link); new Syntheses bullet for the module page.
 - Pattern set for future modules: a curriculum module body should orient → state objectives → tell a narrative → end with an anchor exercise + reading order + open questions. Module 7 is ~12kB; expect tier-1 modules (NN, CNN, attention, SSL) to be similar size; tier-2/3 modules (Module 5, Module 7, Module 10) somewhat longer; Module 12 (LeWM deep-dive with full SIGReg math) will be the longest.
+
+## [2026-05-10] curriculum-module | Module 6 drafted — Imitation learning and behavior cloning
+- Created [Curriculum Module 6 — Imitation learning and behavior cloning](syntheses/curriculum-06-imitation-learning.md) — second drafted module; the conceptual prerequisite Module 7 implicitly assumed. Written after Module 7 to close the reader-order gap (Module 7 references "the multi-modal-action failure mode" as if Module 6 were already in place).
+- Structure (~12kB):
+  1. Curriculum-context callout + acronym pointer to glossary; explicit "Module 7 is the direct successor" framing.
+  2. Five learning objectives.
+  3. IL vs RL vs world-model + planning comparison table; explicit "why IL dominates 2023–2026 robotics" paragraph.
+  4. BC as the simplest possible IL — dataset, model, loss, training, inference, all spelled out.
+  5. Where the demonstrations come from — teleop, scripted, human video, cross-platform; the data-diversity-over-quantity scaling pattern (RUM finding).
+  6. **Failure mode 1: multi-modal action distributions** — precise statement, mode-averaging math (`E[a|s] = (a_1+a_2)/2` not in either mode), examples, hand-off to Module 7.
+  7. **Failure mode 2: distribution shift** — covariate-shift framing, the O(T²) Ross-Bagnell bound, DAgger as the classical fix, why DAgger isn't run in modern practice (data-coverage substitute).
+  8. Action chunking + receding-horizon control (orthogonal to action-head choice; Module 7 covers in detail).
+  9. Canonical PushT setup (brief; pointer to the [PushT entity](entities/pusht.md) for full mechanics).
+  10. **Anchor exercise** — train a vanilla MSE-MLP BC policy on state-variant PushT, roll out for 50 episodes, plot the policy alongside demo trajectories, observe mode-averaging at ambiguous states. Optional extension: mixture-of-Gaussians head (the LSTM-GMM Diffusion Policy ablation).
+  11. Recommended reading (concept page → PushT entity → Pomerleau 1989 → DAgger paper → RUM paper); explicit "do not yet read IBC/BeT/DP — that's Module 7."
+  12. Hand-off to Module 7 — names IBC, BeT, Diffusion Policy as the three answers to multi-modality.
+  13. Related modules + Mentioned in + Open questions.
+- Updated [Robot-learning curriculum](syntheses/robot-learning-curriculum.md) — Module 6 entry now links the drafted page; coverage table cell updated to "drafted"; status frontmatter notes Modules 6 + 7 drafted.
+- Updated [index.md](index.md) — Highlights bullet for Module 6; Syntheses bullet for Module 6; reader-order is now Module 6 → Module 7.
+- Notes for sequencing: Modules 6 + 7 are now reader-consumable in order. The next prereqs that block reader-order continuation are Module 5 (DDPM math, "go deep") for the Diffusion Policy section of Module 7, and Modules 1–4 (Tier 1 ML foundations) for everything. Module 10 (world models, broad) is reader-dependency-light because Modules 6 + 7 + Tier 1 are its main prereqs and Module 10 itself is mostly synthesis from existing wiki pages.

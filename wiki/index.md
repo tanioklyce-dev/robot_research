@@ -6,7 +6,8 @@ Curated entry points across the wiki.
 
 **Curriculum / learning path**
 - [Robot-learning curriculum — from neurons to LeWorldModel](syntheses/robot-learning-curriculum.md) — 14-module bottom-up syllabus; PushT as the connecting thread; ends with a Stretch-platform capstone.
-- [Curriculum Module 7 — BC lineage on PushT (IBC → BeT → DP)](syntheses/curriculum-07-bc-lineage-pusht.md) — first written module body; the policy-learning side of the LeWM ablation table.
+- [Curriculum Module 6 — Imitation learning and behavior cloning](syntheses/curriculum-06-imitation-learning.md) — IL/BC frame, multi-modality + distribution-shift failure modes, PushT setup; anchor exercise = train vanilla MSE-MLP BC and watch it fail.
+- [Curriculum Module 7 — BC lineage on PushT (IBC → BeT → DP)](syntheses/curriculum-07-bc-lineage-pusht.md) — direct successor to Module 6; the policy-learning side of the LeWM ablation table.
 - [Glossary](glossary.md) — flat acronym + term reference (BC, VLM, CNN, SSL, MPC, MSE, LSTM, SIGReg, …); cross-linked from every curriculum module.
 
 **AI Safety and Alignment**
@@ -344,8 +345,9 @@ Curated entry points across the wiki.
 - [Stretch as the de-facto assistive-robotics platform](syntheses/stretch-as-assistive-platform.md) — why every wiki-relevant in-home deployment uses Stretch; eight features that compound; what Stretch doesn't solve. (2026-05-09)
 - [DINO-WM on Stretch — concrete experiment plan](syntheses/dino-wm-on-stretch-experiment.md) — sibling to LeWM-on-Stretch; lower-risk frozen-encoder variant; train predictor only on RUM dataset. (2026-05-09)
 - [Underserved PAR domains — dressing, bathing, medication](syntheses/underserved-par-domains.md) — sub-capability decomposition for each; ranked researcher targets (medication-fetcher most tractable). (2026-05-09)
-- [Robot-learning curriculum — from neurons to LeWorldModel](syntheses/robot-learning-curriculum.md) — 14-module curriculum hub (outline; module pages drafted on signal — Module 7 first). (2026-05-10)
-- [Curriculum Module 7 — BC lineage on PushT (IBC → BeT → DP)](syntheses/curriculum-07-bc-lineage-pusht.md) — first drafted module body; multi-modal-action problem + IBC/BeT/Diffusion Policy + bridge to world models; anchor exercise on PushT. (2026-05-10)
+- [Robot-learning curriculum — from neurons to LeWorldModel](syntheses/robot-learning-curriculum.md) — 14-module curriculum hub (outline; module pages drafted on signal — Modules 6 + 7 first). (2026-05-10)
+- [Curriculum Module 6 — Imitation learning and behavior cloning](syntheses/curriculum-06-imitation-learning.md) — IL/BC frame, multi-modal failure mode, distribution shift / DAgger, action chunking + receding-horizon control, PushT setup. (2026-05-10)
+- [Curriculum Module 7 — BC lineage on PushT (IBC → BeT → DP)](syntheses/curriculum-07-bc-lineage-pusht.md) — multi-modal-action problem + IBC/BeT/Diffusion Policy + bridge to world models; anchor exercise on PushT. (2026-05-10)
 
 ### JEPA-related concepts/entities/sources to potentially expand
 - Metaworld — referenced by [JEPA-WMs](sources/jepa-wms-paper.md) (42 tasks); deserves an entity page.
