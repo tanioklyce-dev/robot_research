@@ -635,3 +635,11 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Updated [Mahi Shafiullah](entities/mahi-shafiullah.md) — BET as first-author paper; sources 2→3.
 - Updated [Lerrel Pinto](entities/lerrel-pinto.md) — BET as senior-author paper; earliest in his wiki trajectory; sources 2→3.
 - Updated [index.md](index.md) — 5 new source entries; new [TRI](entities/tri.md) under Companies; new [IBC](entities/ibc.md), [BET](entities/bet.md), [UMI](entities/umi.md) under Behavior-cloning methods; new "### Generative models" subsection with [DDPM](entities/ddpm.md); bumped Diffusion Policy 2→3, Franka Panda 6→7, PushT 4→5; updated Known gaps TBD list to reflect 5 resolutions and 4 new follow-on TBDs (DDIM, iDDPM, R3M, author pages for Chi/Song/Du/Tedrake).
+
+## [2026-05-10] curriculum-outline | Robot-learning curriculum from neurons to LeWorldModel
+- Created [Robot-learning curriculum](syntheses/robot-learning-curriculum.md) — 14-module bottom-up syllabus (NN → CNN → attention → SSL → generative → BC lineage → RL vocab → VLA → world models → JEPA depth → LeWM deep-dive → home-robotics deployment → capstone).
+- Audience: strong programmer with some ML / robotics exposure.
+- Format: module-per-synthesis. Hub is the syllabus; each module body is a separate synthesis page filed on signal.
+- PushT chosen as the connecting thread across tiers 2–4.
+- Updated [index.md](index.md) — new "Curriculum / learning path" highlights entry; new bullet under Syntheses.
+- Open scoping questions filed at the bottom of the curriculum page (Tier 1 brevity, math depth on SIGReg / DDPM, capstone hardware-or-paper, classical-robotics scope).

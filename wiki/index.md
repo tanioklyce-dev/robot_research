@@ -35,6 +35,9 @@ Curated entry points across the wiki.
 - [LeWM hello world — Project 1 detailed scope](syntheses/lewm-hello-world-project-scope.md) — reproduce LeWM PushT from scratch.
 - [JEPA task capabilities](syntheses/jepa-task-capabilities.md) — what JEPA models can do, mapped per-paper.
 
+**Curriculum / learning path**
+- [Robot-learning curriculum — from neurons to LeWorldModel](syntheses/robot-learning-curriculum.md) — 14-module bottom-up syllabus; PushT as the connecting thread; ends with a Stretch-platform capstone.
+
 **ROSOrin Pro JEPA project ladder**
 - [JEPA project ladder for ROSOrin Pro](syntheses/jepa-project-ladder-rosorin-pro.md) — six-rung educational/research project ladder for learning JEPA on ROSOrin Pro hardware.
 - [LeWM on ROSOrin Pro — feasibility analysis](syntheses/lewm-on-rosorin-pro-feasibility.md) — feasibility analysis for deploying LeWM on ROSOrin Pro.
@@ -333,6 +336,7 @@ Curated entry points across the wiki.
 - [Stretch as the de-facto assistive-robotics platform](syntheses/stretch-as-assistive-platform.md) — why every wiki-relevant in-home deployment uses Stretch; eight features that compound; what Stretch doesn't solve. (2026-05-09)
 - [DINO-WM on Stretch — concrete experiment plan](syntheses/dino-wm-on-stretch-experiment.md) — sibling to LeWM-on-Stretch; lower-risk frozen-encoder variant; train predictor only on RUM dataset. (2026-05-09)
 - [Underserved PAR domains — dressing, bathing, medication](syntheses/underserved-par-domains.md) — sub-capability decomposition for each; ranked researcher targets (medication-fetcher most tractable). (2026-05-09)
+- [Robot-learning curriculum — from neurons to LeWorldModel](syntheses/robot-learning-curriculum.md) — 14-module curriculum hub (outline only; module pages on signal). (2026-05-10)
 
 ### JEPA-related concepts/entities/sources to potentially expand
 - Metaworld — referenced by [JEPA-WMs](sources/jepa-wms-paper.md) (42 tasks); deserves an entity page.
