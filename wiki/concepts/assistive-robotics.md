@@ -2,8 +2,8 @@
 title: Assistive Robotics
 type: concept
 created: 2026-05-09
-updated: 2026-05-09
-sources: 13
+updated: 2026-05-10
+sources: 16
 tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot, accessibility]
 ---
 
@@ -60,7 +60,18 @@ A key finding from the [HCR Lab](../entities/hcrlab.md) ([Maya Cakmak](../entiti
 
 The 2025 RO-MAN paper "Preserving Sense of Agency: User Preferences for Robot Autonomy and User Control across Household Tasks" ([HCR Lab publications](../sources/hcrlab-publications.md)) is the most recent work in this line.
 
+## Communication and the output-interface gap
+
+The [PAR review](../sources/nanavati2024-physically-assistive-robots-review.md) §6.1.3 flags **output interfaces** — how the robot communicates state and intent back to the user — as comparatively under-researched. [Huh et al. 2026](../sources/huh2026-accessible-robot-comm.md) is the direct response for blind users: it shows that blind users systematically overestimate their situational awareness during silent autonomous execution (avg 7.5 inaccuracies per task) and overwhelmingly prefer **mixed-initiative narration** (proactive + question answering) over reactive answer-only modes. The full body of findings is summarized in the [Accessible robot communication](accessible-robot-communication.md) concept page.
+
+The navigation-domain counterpart is [DRAGON (Liu et al. 2024)](../sources/dragon-assistive-nav-2024.md), which pairs verbal output (CLIP-grounded scene description + VQA + dialogue) with kinesthetic guidance via a T-shaped handle for persons with visual impairments.
+
+## Domestic-robot precursors
+
+[Schneiders et al. 2021](../sources/schneiders2021-domestic-robots-automation.md) — the only ingested study of the *consumer-deployed* domestic-robot category (vacuum, lawnmower, hybrid). Identifies **task fragmentation** (one-task-becomes-many-sub-tasks) and **under-trust → co-located monitoring** patterns that recur in PAR deployments and accessible-communication research.
+
 ## Related concepts
+- [Accessible robot communication](accessible-robot-communication.md) — output-interface side of HRI for non-visual users
 - [LLM-agent architecture](llm-agent-architecture.md) — the control pattern most current assistive robots use (user → LLM → robot actions)
 - [End-user robot programming](end-user-robot-programming.md) — enabling non-expert users to customize robot behavior; directly addresses the per-user personalization gap
 - [Imitation learning](imitation-learning.md) — policy training approach for manipulation tasks
@@ -86,3 +97,6 @@ The 2025 RO-MAN paper "Preserving Sense of Agency: User Preferences for Robot Au
 - [Explicit-Input Teleoperation — Walker et al. 2024](../sources/walker2024-explicit-input-teleoperation.md)
 - [Grasping in Clutter IVFP — Murray et al. 2024](../sources/murray2024-grasping-clutter-ivfp.md)
 - [Multiple Ways of Working with Users — Nanavati et al. 2024](../sources/nanavati2024-multiple-ways-par.md)
+- [DRAGON Paper (Liu et al. 2024)](../sources/dragon-assistive-nav-2024.md)
+- [Designing Accessible Robot Communication for Blind People (Huh et al. 2026)](../sources/huh2026-accessible-robot-comm.md)
+- [Domestic Robots and the Dream of Automation (Schneiders et al. 2021)](../sources/schneiders2021-domestic-robots-automation.md)

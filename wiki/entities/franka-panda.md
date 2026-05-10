@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-07
 updated: 2026-05-10
-sources: 9
+sources: 10
 tags: [franka, panda, robot-arm, manipulator, 7-dof, manipulation-platform]
 ---
 
@@ -58,3 +58,4 @@ The result: when a JEPA-style or VLA-style paper says "real-robot eval" without 
 - [Robot Utility Models Paper](../sources/robot-utility-models-paper.md)
 - [Diffusion Policy Paper](../sources/diffusion-policy-paper.md)
 - [UMI Project Page](../sources/umi-paper.md) — Franka is one of two UMI deployment platforms (alongside UR5e); zero-shot cross-embodiment transfer demonstrated.
+- [Designing Accessible Robot Communication for Blind People — Huh et al. 2026](../sources/huh2026-accessible-robot-comm.md) — Panda used as the tabletop manipulator for set-table / clear-table tasks in the in-person observational study with blind participants.

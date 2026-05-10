@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-09
 updated: 2026-05-10
-sources: 8
+sources: 9
 tags: [maya-cakmak, assistive-robotics, eup, hcrlab, uw, hri]
 ---
 
@@ -25,6 +25,7 @@ Key results:
 - **Grasping in clutter**: [IVFP](../sources/murray2024-grasping-clutter-ivfp.md) — interactive visual failure prediction on Stretch RE1; autonomous reward signal enabling online policy improvement with less human supervision.
 - **Explicit-input teleoperation**: [Walker et al. IROS 2024](../sources/walker2024-explicit-input-teleoperation.md) — pointing-based explicit assistance; NVIDIA collaboration; operators prefer explicit over implicit inference-based assistance.
 - **PAR methodology**: [Multiple Ways of Working with Users](../sources/nanavati2024-multiple-ways-par.md) (A3DE @ HRI 2024) — cross-institutional reflection on participatory design for including PwD in PAR research.
+- **Accessible communication for blind users**: [Huh et al. CHI 2026 InterAI Workshop](../sources/huh2026-accessible-robot-comm.md) — co-author on a UC Berkeley × UT Austin × UW study deriving six design guidelines for accessible robot task communication; the empirical case for **mixed-initiative narration** as preferred by blind users (vs. reactive for sighted users), directly addressing the output-interface gap in [Nanavati et al. 2024](../sources/nanavati2024-physically-assistive-robots-review.md) §6.1.3.
 
 ### End-user robot programming (EUP)
 Enabling non-programmers (including users with disabilities) to customize and extend robot behavior for their specific needs.
@@ -58,3 +59,4 @@ Cakmak is the most directly relevant academic researcher to the "accessible HRI 
 - [Explicit-Input Teleoperation — Walker et al. 2024](../sources/walker2024-explicit-input-teleoperation.md)
 - [Grasping in Clutter IVFP — Murray et al. 2024](../sources/murray2024-grasping-clutter-ivfp.md)
 - [Multiple Ways of Working with Users — Nanavati et al. 2024](../sources/nanavati2024-multiple-ways-par.md)
+- [Designing Accessible Robot Communication for Blind People — Huh et al. 2026](../sources/huh2026-accessible-robot-comm.md)

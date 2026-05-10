@@ -30,6 +30,7 @@ Curated entry points across the wiki.
 
 **Assistive Robotics**
 - [Assistive robotics](concepts/assistive-robotics.md) — concept overview; sim-to-real gap quantified (89.4% RLBench vs 12.4% BEHAVIOR-1K household tasks).
+- [Accessible robot communication](concepts/accessible-robot-communication.md) — output-interface side of HRI for non-visual users; mixed-initiative narration preferred by blind users.
 - [Assistive robotics — R&D landscape](syntheses/assistive-robotics-research-landscape.md) — seven blocking problems, timeline, active researchers, independent-researcher paths, JEPA fit.
 - [Levels of autonomy in assistive robotics](syntheses/levels-of-autonomy-in-assistive-robotics.md) — three orthogonal autonomy axes; EUP preserves agency; variable-LoC design pattern.
 - [Long-term in-home robot deployments](syntheses/long-term-in-home-robot-deployments.md) — what the longitudinal record actually shows (Henry Evans summers + Nanavati 2025 + RUM/OK-Robot breadth).
@@ -38,6 +39,8 @@ Curated entry points across the wiki.
 - [OK-Robot](entities/ok-robot.md) — zero-shot pick-and-drop in 10 homes; 58.5% success; state-of-the-art household manipulation.
 - [Robot Utility Models](entities/robot-utility-models.md) — NYU/Meta zero-shot BC; data diversity > data quantity insight.
 - [Stanford HAI — AI Index Report 2026](sources/stanford-hai-ai-index-2026.md) — 89.4% vs 12.4% gap; humanoid landscape; Physical AI assessment.
+- [DRAGON (Liu et al. 2024)](sources/dragon-assistive-nav-2024.md) — TurtleBot guide robot for visually impaired users; CLIP-grounded landmark recognition + dialogue.
+- [Designing Accessible Robot Communication for Blind People (Huh et al. 2026)](sources/huh2026-accessible-robot-comm.md) — 6 DGs; mixed-initiative narration; observational + controlled study (10+20+20).
 
 **FRC (FIRST Robotics Competition)**
 - [FRC 2026 Game Manual — REBUILT](sources/frc-2026-game-manual.md) — deep ingest of the 166-page 2026 REBUILT game manual.
@@ -123,6 +126,9 @@ Curated entry points across the wiki.
 - [Sense of Agency — Yang et al. 2025](sources/yang2025-sense-of-agency.md) — EUP robots preserve sense of agency even when acting autonomously; high-risk tasks drive preference for control. (RO-MAN 2025)
 - [Feeding System Out-of-lab — Nanavati et al. 2025](sources/nanavati2025-feeding-out-of-lab.md) — open-source Kinova JACO feeding system; CBPR co-design; 3 lessons from out-of-lab deployment; HRI 2025 Best Systems Paper Finalist. (2025)
 - [Multiple Ways of Working with Users — Nanavati et al. 2024](sources/nanavati2024-multiple-ways-par.md) — methodology for PwD inclusion in PAR research; 3 projects; participatory + empowerment design. (A3DE @ HRI 2024)
+- [DRAGON — Dialogue-Based Robot for Assistive Navigation (Liu et al. 2024)](sources/dragon-assistive-nav-2024.md) — UIUC/Driggs-Campbell; TurtleBot 2i + CLIP landmark grounding + dialogue + VQA for persons with visual impairments. (IEEE RA-L 2024)
+- [Designing Accessible Robot Communication for Blind People (Huh et al. 2026)](sources/huh2026-accessible-robot-comm.md) — Berkeley × UT Austin × UW; Franka + Tiago observational study (10 blind) + Gemini-Live controlled study (20 blind + 20 sighted); 6 design guidelines; mixed-initiative narration is preferred by blind users. (CHI 2026 InterAI Workshop)
+- [Domestic Robots and the Dream of Automation (Schneiders et al. 2021)](sources/schneiders2021-domestic-robots-automation.md) — Aalborg; 24 Danish households; task fragmentation finding; strict task division contradicts Forlizzi 2007. (CHI 2021)
 - [Explicit-Input Teleoperation — Walker et al. 2024](sources/walker2024-explicit-input-teleoperation.md) — pointing-based explicit assistance vs. implicit inference; fewer failures, lower workload; NVIDIA collaboration. (IROS 2024)
 - [Grasping in Clutter IVFP — Murray et al. 2024](sources/murray2024-grasping-clutter-ivfp.md) — IVFP on Stretch RE1 in warehouse; pre-emptive failure detection; autonomous reward assignment. (2024)
 - [Arcade Learning Environment — Farama Project Page](sources/ale-farama.md) — Farama's Atari 2600 RL benchmark; 100+ games, 23 multi-agent envs, Gymnasium API. (Unknown)
@@ -166,7 +172,7 @@ Curated entry points across the wiki.
 - [Hiwonder](entities/hiwonder.md) — Chinese educational-robotics vendor; ROSOrin / ROSOrin Pro kits + OpenClaw. (3 sources)
 - [AGIBOT](entities/agibot.md) — Shanghai embodied-AI / humanoid company. Open-source-heavy. (3 sources)
 - [Hello Robot](entities/hello-robot.md) — Stretch mobile manipulator + stretch_ai stack. (7 sources)
-- [HCR Lab](entities/hcrlab.md) — Human-Centered Robotics Lab, UW (Maya Cakmak); assistive robots + EUP; Stretch platform; long-term in-home deployments. (8 sources)
+- [HCR Lab](entities/hcrlab.md) — Human-Centered Robotics Lab, UW (Maya Cakmak); assistive robots + EUP; Stretch platform; long-term in-home deployments. (9 sources)
 - [Elephant Robotics](entities/elephant-robotics.md) — Chinese edu-robotics vendor; myAGV + myBuddy 280 + arm ecosystem. (2 sources)
 - [Pollen Robotics](entities/pollen-robotics.md) — French open-source humanoid maker; Reachy 2. (1 source)
 - [Fauna Robotics](entities/fauna-robotics.md) — NYC; Sprout Creator Edition; 107cm, 29 DOF, Jetson AGX Orin. (1 source)
@@ -217,10 +223,11 @@ Curated entry points across the wiki.
 - [PettingZoo](entities/pettingzoo.md) — multi-agent RL env API. (2 sources)
 
 ### Robot platforms
-- [Franka Panda](entities/franka-panda.md) — 7-DOF research-grade arm; default tabletop manipulator across DROID, V-JEPA 2, JEPA-WMs, RUM, Diffusion Policy, UMI. (9 sources)
+- [Franka Panda](entities/franka-panda.md) — 7-DOF research-grade arm; default tabletop manipulator across DROID, V-JEPA 2, JEPA-WMs, RUM, Diffusion Policy, UMI, Huh-et-al-accessibility. (10 sources)
 - [xArm 7](entities/xarm-7.md) — UFactory commercial 7-DOF arm; secondary tabletop manipulator; RUM cross-embodiment transfer target (~10pt drop vs Stretch). (2 sources) _stub_
-- [TurtleBot](entities/turtlebot.md) — canonical educational ROS mobile robot (4 generations); TurtleBot 4: Clearpath + iRobot Create 3 + Raspberry Pi 4B + ROS 2. (1 source)
+- [TurtleBot](entities/turtlebot.md) — canonical educational ROS mobile robot (4 generations); TurtleBot 4 in education, TurtleBot 2i used in DRAGON 2024 assistive navigation. (2 sources)
 - [iRobot Create 3](entities/irobot-create-3.md) — Roomba-i3-derived ROS 2 mobile-robot base; chassis under [TurtleBot 4](entities/turtlebot.md). (1 source) _stub_
+- [Tiago](entities/tiago.md) — PAL Robotics dual-arm mobile manipulator; ROS-native; used in Huh et al. 2026 accessibility study. (1 source)
 
 ### Humanoids
 - [Atlas](entities/atlas.md) — Boston Dynamics flagship; closed development; capability-bar humanoid. (1 source) _stub_
@@ -311,12 +318,19 @@ Curated entry points across the wiki.
 - [Sergey Levine](entities/sergey-levine.md) — UC Berkeley EECS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)
 - [Chelsea Finn](entities/chelsea-finn.md) — Stanford CS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)
 - [Lerrel Pinto](entities/lerrel-pinto.md) — NYU CS; co-senior on DINO-WM, RUM, and OK-Robot. (5 sources)
-- [Yuke Zhu](entities/yuke-zhu.md) — UT Austin / NVIDIA Research; senior on RoboCasa365. (1 source)
+- [Yuke Zhu](entities/yuke-zhu.md) — UT Austin / NVIDIA Research; senior on RoboCasa365; co-author on Huh et al. 2026. (2 sources)
 - [Karl Pertsch](entities/karl-pertsch.md) — DROID co-lead with Khazatsky; Berkeley/Stanford. (0 source pages yet — referenced via entity pages)
 - [Mahi Shafiullah](entities/mahi-shafiullah.md) — NYU + Hello Robot; lead/co-author on Dobb·E, RUM, and OK-Robot. (5 sources)
 - [Phil Shiu](entities/phil-shiu.md) — UC Berkeley → Eon Systems; lead author + maintainer of the FlyWire-based LIF brain simulation. (2 sources)
-- [Maya Cakmak](entities/maya-cakmak.md) — UW; HCR Lab PI; physically assistive robots + EUP; Henry Evans long-term deployments; autonomy preference finding. (8 sources)
+- [Maya Cakmak](entities/maya-cakmak.md) — UW; HCR Lab PI; physically assistive robots + EUP; Henry Evans long-term deployments; autonomy preference finding. (9 sources)
 - [Amal Nanavati](entities/amal-nanavati.md) — UW HCR Lab; robot-assisted feeding; PAR systematic review; out-of-lab deployment methodology. (4 sources)
+- [Katherine Driggs-Campbell](entities/katherine-driggs-campbell.md) — UIUC ECE; senior on DRAGON; HRI + safety-critical autonomy + assistive navigation. (1 source)
+- [Shuijing Liu](entities/shuijing-liu.md) — UIUC ECE PhD (Driggs-Campbell); first author on DRAGON. (1 source)
+- [Mina Huh](entities/mina-huh.md) — UC Berkeley; accessibility + HRI; first author on Huh et al. 2026. (1 source)
+- [Amy Pavel](entities/amy-pavel.md) — UC Berkeley; accessibility + AI-mediated description; senior on Huh et al. 2026. (1 source)
+- [Roberto Martin-Martin](entities/roberto-martin-martin.md) — UT Austin CS; embodied AI, manipulation, mobile manipulation; co-author on Huh et al. 2026. (1 source)
+- [Huihan Liu](entities/huihan-liu.md) — UT Austin; robot learning; co-author on Huh et al. 2026 (distinct from Shuijing Liu). (1 source)
+- [Eike Schneiders](entities/eike-schneiders.md) — Aalborg University; qualitative HRI/HCI of domestic robots and automation. (1 source)
 
 ## Concepts
 - [World model](concepts/world-model.md) — umbrella concept: learned predictive model of environment dynamics (generative-video / JEPA / frozen-feature / model-based-RL). (14 sources)
@@ -331,7 +345,8 @@ Curated entry points across the wiki.
 - [AprilTags](concepts/apriltags.md) — visual fiducial markers for 6-DOF pose estimation; standard in FRC and research robotics. (2 sources)
 - [Learned latent space](concepts/latent-space.md) — vector space where a trained encoder represents inputs; substrate for JEPA prediction, DINOv2 features, VQ-BeT codebook. (10 sources)
 - [Agentic UAVs](concepts/agentic-uavs.md) — autonomous aerial systems with goal-driven behavior; 4-layer architecture; 8 domains; adaptive control. (2 sources)
-- [Assistive robotics](concepts/assistive-robotics.md) — robots helping disabled/elderly users regain autonomy; systematic review; three research themes; autonomy finding. (13 sources)
+- [Assistive robotics](concepts/assistive-robotics.md) — robots helping disabled/elderly users regain autonomy; systematic review; three research themes; autonomy finding. (16 sources)
+- [Accessible robot communication](concepts/accessible-robot-communication.md) — robot output-interface design for non-visual users; mixed-initiative narration findings; 6 design guidelines (Huh et al. 2026). (4 sources)
 - [End-user robot programming](concepts/end-user-robot-programming.md) — enabling non-experts to customize robot behavior; EUP approaches; sense of agency evidence; Stretch SE2 transfer. (7 sources)
 - [Biomechanical simulation](concepts/biomechanical-simulation.md) — physics-based simulation of an animal body; lineage *C. elegans* → Hydra → virtual rodent → NeuroMechFly v1/v2 → flybody. (5 sources)
 - [Connectome](concepts/connectome.md) — complete wiring diagram of a nervous system; *C. elegans* → fly hemibrain → FlyWire → mouse → human. (3 sources)

@@ -3,8 +3,8 @@ title: TurtleBot
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-05-09
-sources: 1
+updated: 2026-05-10
+sources: 2
 tags: [turtlebot, ros, education, mobile-robot, willow-garage, clearpath, open-robotics]
 ---
 
@@ -40,8 +40,9 @@ The interesting comparison: **ROSOrin / ROSOrin Pro is roughly "what you'd get i
 
 ## Mentioned in
 - [Clearpath TurtleBot 4 product page](../sources/clearpath-turtlebot-4.md)
+- [DRAGON Paper (Liu et al. 2024)](../sources/dragon-assistive-nav-2024.md) — TurtleBot 2i used as the base for an assistive-navigation guide robot for persons with visual impairments. A counter-example to the "TurtleBot no longer features in research" hypothesis below: this is a 2024 IEEE RA-L paper that builds an end-to-end assistive system on TurtleBot 2i, fitted with RPLIDAR A3, RealSense D435i, a wireless headset, and a T-shaped haptic handle.
 
 ## Open questions / TBD
 - Pricing not listed by Clearpath; sold via distributors.
 - ROS 2 version (Humble, Iron, or Jazzy) not specified on product page.
-- Whether any contemporary research paper still uses TurtleBot as a real-robot platform (the educational role is clear; research-platform role has largely moved to Stretch / Franka).
+- ~Whether any contemporary research paper still uses TurtleBot as a real-robot platform~ — partially answered: DRAGON 2024 uses TurtleBot 2i. The pattern appears to be "TurtleBot as a low-cost mobility platform when manipulation isn't the main contribution," which fits navigation-focused assistive work.

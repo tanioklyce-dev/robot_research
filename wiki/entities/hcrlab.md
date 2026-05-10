@@ -3,8 +3,8 @@ title: HCR Lab (Human-Centered Robotics Lab)
 type: entity
 subtype: organization
 created: 2026-05-09
-updated: 2026-05-09
-sources: 8
+updated: 2026-05-10
+sources: 9
 tags: [hcrlab, uw, maya-cakmak, assistive-robotics, eup]
 ---
 
@@ -46,3 +46,4 @@ The lab that most directly addresses the "accessible HRI for low-motor users" ga
 - [Explicit-Input Teleoperation — Walker et al. 2024](../sources/walker2024-explicit-input-teleoperation.md)
 - [Grasping in Clutter IVFP — Murray et al. 2024](../sources/murray2024-grasping-clutter-ivfp.md)
 - [Multiple Ways of Working with Users — Nanavati et al. 2024](../sources/nanavati2024-multiple-ways-par.md)
+- [Designing Accessible Robot Communication for Blind People — Huh et al. 2026](../sources/huh2026-accessible-robot-comm.md) — Cakmak co-authored; cross-institutional with UC Berkeley + UT Austin.
