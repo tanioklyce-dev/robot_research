@@ -1,0 +1,150 @@
+# Wiki overview
+
+A reader's introduction to this wiki — what it is, what's in it, where to start.
+
+## What this is
+
+A **persistent, LLM-maintained knowledge base** built incrementally from raw sources. The pattern is described in `raw/llm-wiki.md` and the operating conventions are in [`CLAUDE.md`](../CLAUDE.md). Three layers:
+
+1. **`raw/`** — source documents (papers, articles, transcripts, datasets). Immutable.
+2. **`wiki/`** — Claude-maintained markdown that sits between you and the raw sources. Summaries, entity pages, concept pages, and synthesis pages. Cross-linked.
+3. **`CLAUDE.md`** — schema and conventions (page formats, ingest workflow, lint workflow). Co-evolves with usage.
+
+The wiki is a **compounding artifact**. Each new source ingest enriches the cross-references; each new query may produce a new synthesis page. Over time the wiki becomes more useful, not less.
+
+## Quick stats (as of 2026-05-10)
+
+| Layer | Count |
+| --- | --- |
+| Source pages (`wiki/sources/`) | **89** |
+| Entity pages (`wiki/entities/`) | **121** |
+| Concept pages (`wiki/concepts/`) | **16** |
+| Synthesis pages (`wiki/syntheses/`) | **39** (incl. 14 curriculum modules) |
+| Top-level (`index.md`, `log.md`, `glossary.md`, `overview.md`) | **4** |
+| **Total wiki pages** | **269** |
+
+## The centerpiece — robot-learning curriculum
+
+The single most ambitious artifact in this wiki is a **14-module bottom-up curriculum** for going from neural-network basics to reading the [LeWorldModel paper](sources/leworldmodel-paper.md) and reasoning about home-robotics policy-learning techniques.
+
+**Status: all 14 modules drafted.** Reader-traversable from absolute beginning through the destination and capstone.
+
+- Hub: [Robot-learning curriculum — from neurons to LeWorldModel](syntheses/robot-learning-curriculum.md).
+- Glossary (cross-linked from every module): [glossary.md](glossary.md) — ~100 acronyms with one-line definitions.
+
+The curriculum has five tiers:
+
+| Tier | Modules | Theme |
+| --- | --- | --- |
+| **1** | [1](syntheses/curriculum-01-neural-networks.md), [2](syntheses/curriculum-02-cnns.md), [3](syntheses/curriculum-03-attention-and-transformers.md), [4](syntheses/curriculum-04-self-supervised-learning.md) | ML foundations: NN basics, CNNs, transformers/ViT, SSL. Brisk-but-rigorous refreshers; each module opens with a prereq diagnostic for self-assessment. |
+| **2** | [5](syntheses/curriculum-05-generative-models.md) | Generative modeling fundamentals with a full DDPM math walkthrough (ELBO → `L_simple` derivation, KL bounds, classifier-free-guidance derivation). |
+| **3** | [6](syntheses/curriculum-06-imitation-learning.md), [7](syntheses/curriculum-07-bc-lineage-pusht.md), [8](syntheses/curriculum-08-rl-vocabulary.md), [9](syntheses/curriculum-09-vla.md) | Robot learning paradigms: imitation learning, BC-lineage on PushT (IBC → BeT → Diffusion Policy), RL vocabulary, VLA models. |
+| **4** | [10](syntheses/curriculum-10-world-models.md), [11](syntheses/curriculum-11-jepa-deep.md), [12](syntheses/curriculum-12-lewm-deep-dive.md) | World models: four-family taxonomy, JEPA in depth (with the collapse-prevention zoo), the LeWM deep-dive with the full SIGReg derivation. |
+| **5** | [13](syntheses/curriculum-13-home-robotics-deployment.md), [14](syntheses/curriculum-14-capstone.md) | Deployment reality (the 89.4% / 12.4% RLBench-vs-BEHAVIOR-1K gap; Stretch as platform) + capstone (Phase A: reproduce LeWM PushT + experiment-design memo; Phase B: real-Stretch execution if hardware available). |
+
+The **destination** is Module 12 (LeWM deep-dive with full SIGReg math). The reading order is mostly linear, but the [module dependency graph](syntheses/robot-learning-curriculum.md) gives readers permission to skip Tier 1 modules they're comfortable with.
+
+## Other major themes
+
+Beyond the curriculum, the wiki has accumulated content across several clusters. Listed here briefly; full catalog is in [index.md](index.md).
+
+### JEPA / LeWorldModel
+
+The technical centerpiece. Primary sources for the entire SIGReg-LeWM-PLDM lineage are filed:
+
+- [LeWorldModel Paper](sources/leworldmodel-paper.md) (Maes et al. 2026) — the destination paper.
+- [LeJEPA Paper](sources/lejepa-paper.md) (Balestriero & LeCun 2025) — the SIGReg foundational paper.
+- [PLDM Paper](sources/pldm-paper.md) (Sobal et al. 2025) + [Sobal et al. 2022](sources/sobal2022-jepa-slow-features-paper.md) — the end-to-end-JEPA-baseline lineage.
+- [V-JEPA 2 Paper](sources/v-jepa-2-paper.md) and [V-JEPA 2.1 Paper](sources/v-jepa-2-1-paper.md) — Meta FAIR's parallel JEPA-at-scale line.
+- [DINO-WM Paper](sources/dino-wm-paper.md), [JEPA-WMs Paper](sources/jepa-wms-paper.md) — frozen-feature alternatives.
+- [DreamerV3 Paper](sources/dreamer-v3-paper.md), [TD-MPC2 Paper](sources/td-mpc2-paper.md) — the MBRL baselines LeWM benchmarks against.
+
+Concept pages: [Joint-Embedding Predictive Architecture](concepts/jepa.md), [World model](concepts/world-model.md), [World-model simulators](concepts/world-model-simulators.md), [Learned latent space](concepts/latent-space.md).
+
+Syntheses: [generative-video vs JEPA world models](syntheses/generative-video-vs-jepa-world-models.md), [LeWM-on-Stretch feasibility](syntheses/lewm-on-stretch-feasibility.md), [LeWM-on-ROSOrin-Pro feasibility](syntheses/lewm-on-rosorin-pro-feasibility.md), [LeWM howto](syntheses/leworldmodel-howto.md), [LeWM hello-world scope](syntheses/lewm-hello-world-project-scope.md).
+
+### Behavior cloning lineage
+
+The policy-learning side. Filed end-to-end:
+
+- [IBC Paper](sources/ibc-paper.md), [BET Paper](sources/bet-paper.md), [Diffusion Policy Paper](sources/diffusion-policy-paper.md), [DDPM Paper](sources/ddpm-paper.md), [UMI Project Page](sources/umi-paper.md).
+- VLAs: [π0 Paper](sources/pi-zero-paper.md), [Helix (Figure AI blog)](sources/helix-blog.md), [VLA-JEPA Paper](sources/vla-jepa-paper.md), and entities for [GR00T](entities/nvidia-groot.md), [Gemini Robotics](entities/gemini-robotics.md), [Physical Intelligence](entities/physical-intelligence.md), [Figure](entities/figure.md).
+
+Concept pages: [Imitation learning](concepts/imitation-learning.md), [VLA models](concepts/vla-models.md).
+
+### Assistive robotics
+
+A separate research thread feeding into the curriculum's Module 13 (home-robotics deployment).
+
+- [Maya Cakmak](entities/maya-cakmak.md)'s [HCR Lab](entities/hcrlab.md) at UW — long-term in-home deployments with Henry Evans.
+- [Amal Nanavati](entities/amal-nanavati.md) — robot-assisted feeding; PAR systematic review.
+- [Stretch](entities/stretch.md) (Hello Robot) — the de-facto research platform.
+- [Robot Utility Models](entities/robot-utility-models.md), [OK-Robot](entities/ok-robot.md) — the strongest current home-robotics results, both on Stretch, both BC-line.
+
+Syntheses: [Assistive robotics R&D landscape](syntheses/assistive-robotics-research-landscape.md), [Levels of autonomy in assistive robotics](syntheses/levels-of-autonomy-in-assistive-robotics.md), [Long-term in-home robot deployments](syntheses/long-term-in-home-robot-deployments.md), [Stretch as assistive platform](syntheses/stretch-as-assistive-platform.md), [Underserved PAR domains](syntheses/underserved-par-domains.md).
+
+### AI safety and alignment
+
+Auxiliary cluster — relevant context for agentic robotics.
+
+- [Claude's Constitution](sources/claudes-constitution.md) — Anthropic's primary specification.
+- Concept pages: [AI safety and alignment](concepts/ai-safety-alignment.md), [Corrigibility](concepts/corrigibility.md), [LLM-agent architecture](concepts/llm-agent-architecture.md).
+- Entities: [Anthropic](entities/anthropic.md), [Apollo Research](entities/apollo-research.md).
+
+### Simulators and infrastructure
+
+The sim-stack landscape circa 2026.
+
+- [Simulators for agentic robotics — 2026 landscape](syntheses/simulators-for-agentic-robotics-2026.md) — six-category survey.
+- [Newton + OpenUSD substrate convergence](syntheses/newton-openusd-substrate-convergence.md), [OpenUSD support across simulators](syntheses/openusd-support-across-simulators.md).
+- Entities: [NVIDIA Isaac Sim / Lab](entities/nvidia-isaac-sim.md), [MuJoCo](entities/mujoco.md), [MuJoCo Playground](entities/mujoco-playground.md), [Newton physics engine](entities/newton-physics-engine.md), [Genesis](entities/genesis.md), [AGIBOT Genie Sim](entities/agibot-genie-sim.md), [RoboCasa](entities/robocasa.md), [ManiSkill](entities/maniskill.md).
+
+### Whole-organism agentic AI (fruit fly)
+
+A discrete research thread on biological agent loops.
+
+- [Whole-organism agentic AI](syntheses/whole-organism-agentic-ai.md) — synthesis.
+- [flybody](entities/flybody.md), [NeuroMechFly](entities/neuromechfly.md), [FlyWire](entities/flywire.md), [Drosophila brain model](entities/drosophila-brain-model.md), [flyvis](entities/flyvis.md).
+- Primary sources: [flybody Paper](sources/flybody-paper.md), [Shiu et al. 2024](sources/shiu-fly-brain-paper.md), [Lappalainen et al. 2024](sources/lappalainen-flyvis-paper.md), [Berkeley News on fly brain](sources/berkeley-fly-brain-news.md).
+
+### FRC (FIRST Robotics Competition)
+
+A separate hobby/competition thread.
+
+- [FRC 2026 Game Manual](sources/frc-2026-game-manual.md), [FRC KitBot 2026](sources/frc-kitbot-2026.md), [Team 254 AI in FRC presentation](sources/team-254-ai-in-frc-presentation.md).
+- Entities: [FIRST Robotics Competition](entities/first-robotics-competition.md), [FRC KitBot](entities/frc-kitbot.md), [AndyMark](entities/andymark.md), [Team 254](entities/team-254.md), [roboRIO](entities/roborio.md).
+- Synthesis: [FRC simulation & AI landscape](syntheses/frc-simulation-and-ai-landscape.md).
+
+### ROSOrin Pro project ladder
+
+A practical project sequence for learning JEPA on educational hardware.
+
+- [JEPA project ladder for ROSOrin Pro](syntheses/jepa-project-ladder-rosorin-pro.md) — six-rung ladder.
+- [LeWM on ROSOrin Pro — feasibility](syntheses/lewm-on-rosorin-pro-feasibility.md).
+- Entities: [ROSOrin / ROSOrin Pro](entities/rosorin.md), [Hiwonder](entities/hiwonder.md), [OpenClaw](entities/openclaw.md).
+
+## Where to start (by intent)
+
+- **You want to learn the robotics-policy landscape end to end:** start with [the curriculum hub](syntheses/robot-learning-curriculum.md). The prereq diagnostic at the top of [Module 1](syntheses/curriculum-01-neural-networks.md) tells you whether you can skim Tier 1.
+- **You want to understand LeWM specifically:** start with [the curriculum hub](syntheses/robot-learning-curriculum.md), then jump to [Module 10](syntheses/curriculum-10-world-models.md) → [Module 11](syntheses/curriculum-11-jepa-deep.md) → [Module 12](syntheses/curriculum-12-lewm-deep-dive.md) (assumes ML basics).
+- **You want to set up a home-robot research project:** start with [Assistive robotics R&D landscape](syntheses/assistive-robotics-research-landscape.md) and [Module 13](syntheses/curriculum-13-home-robotics-deployment.md). Then [LeWM-on-Stretch feasibility](syntheses/lewm-on-stretch-feasibility.md) or [DINO-WM-on-Stretch experiment](syntheses/dino-wm-on-stretch-experiment.md) depending on which WM you'd prefer to try.
+- **You want to actually reproduce LeWM:** [LeWM howto](syntheses/leworldmodel-howto.md) + [hello-world scope](syntheses/lewm-hello-world-project-scope.md) + [Module 14 capstone](syntheses/curriculum-14-capstone.md).
+- **You're looking up an acronym:** [glossary.md](glossary.md). Ctrl-F.
+- **You want the full catalog:** [index.md](index.md). Every page listed, organized by category.
+- **You want to know what was done when:** [log.md](log.md). Append-only chronological record of ingests, syntheses, lint passes, and curriculum-module drafts. Grep with `grep "^## \[" log.md | tail -20` to see recent activity.
+
+## Conventions in one paragraph
+
+Pages use YAML frontmatter (`title`, `type`, `created`, `updated`, `sources`, `tags`). Every factual claim links to a source page (not a raw file). Filenames are kebab-case slugs. Links are standard markdown relative paths (no Obsidian `[[wikilinks]]`). Source-page conventions: `## Summary`, `## Key claims`, `## Entities mentioned`, `## Concepts touched`, `## Open questions`. Entity/concept pages end with a `## Mentioned in` section listing inbound sources. Contradictions across sources are flagged with `> [!warning] Contradiction` callouts. Full conventions are in [`CLAUDE.md`](../CLAUDE.md).
+
+## What's not here
+
+A few things this wiki deliberately doesn't cover:
+
+- **Classical robotics** (kinematics, dynamics, control theory, ROS plumbing, SLAM, segmentation pipelines) — out of scope for the curriculum, by design.
+- **Implementation details** of any specific algorithm beyond what's pedagogically useful.
+- **A literature-survey treatment** of the field — the wiki is curated around what's relevant to the curriculum's destination (LeWM on home robotics), not exhaustive.
+
+## Provenance
+
+This wiki is part of the `robot-research` repository. Built incrementally between approximately 2026-05-06 and 2026-05-10. The curriculum is the principal artifact; the surrounding entity / concept / source pages exist either as direct curriculum dependencies or as accumulated context from prior research threads (FRC, fruit-fly simulation, AI safety, assistive robotics).
