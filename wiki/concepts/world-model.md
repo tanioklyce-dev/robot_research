@@ -3,7 +3,7 @@ title: World model
 type: concept
 created: 2026-05-07
 updated: 2026-05-10
-sources: 10
+sources: 11
 tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video]
 ---
 
@@ -28,7 +28,7 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 ## Major design points represented in this wiki
 
 - **Generative video world models**: predict pixels. Examples: [NVIDIA Cosmos](../entities/nvidia-cosmos.md), [Genie Envisioner](../entities/genie-envisioner.md). Expensive to train and use at planning time, but produce inspectable rollouts. Treated as simulators in the agentic-robotics workflow ([world-model-simulators](world-model-simulators.md) concept).
-- **JEPA / latent-prediction**: predict the *representation* of the next state, not pixels. Examples: [V-JEPA 2](../entities/v-jepa-2.md), [LeWorldModel](../entities/leworldmodel.md), [JEPA-WMs](../entities/jepa-wms.md). ~100× cheaper than pixel-prediction; harder to inspect; LeWM reports up to 48× faster planning than foundation-model-based world models.
+- **JEPA / latent-prediction**: predict the *representation* of the next state, not pixels. End-to-end examples: [V-JEPA 2](../entities/v-jepa-2.md), [LeWorldModel](../entities/leworldmodel.md), [PLDM](../entities/pldm.md); frozen-feature variants ([DINO-WM](../entities/dino-wm.md), [JEPA-WMs](../entities/jepa-wms.md)) are listed below. ~100× cheaper than pixel-prediction; harder to inspect; LeWM reports up to 48× faster planning than foundation-model-based world models.
 - **Frozen-foundation-feature world models**: use [DINOv2](../entities/dinov2.md) (or similar) as a frozen encoder; learn only a predictor on top. Examples: [DINO-WM](../entities/dino-wm.md), [DINO-world](../entities/dino-world.md), [JEPA-WMs](../entities/jepa-wms.md) (likely). Trades off representation quality for training simplicity.
 - **Reward-conditioned model-based RL**: predict in a latent space optimized for reward and/or value prediction. Two flavors now filed:
     - **Generative-WM MBRL**: [Dreamer / DreamerV3](../entities/dreamer.md) ([source](../sources/dreamer-v3-paper.md)) — pixel/state reconstruction + actor-critic trained "in imagination."
@@ -73,6 +73,7 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 - [Top 10 Physical AI Models 2026](../sources/top-10-physical-ai-models-2026.md)
 - [DreamerV3 Paper](../sources/dreamer-v3-paper.md)
 - [TD-MPC2 Paper](../sources/td-mpc2-paper.md)
+- [PLDM Paper](../sources/pldm-paper.md)
 
 ## Open questions / TBD
 - LeCun's "A Path Towards Autonomous Machine Intelligence" (2022) — the original JEPA position paper, would anchor the LeCun stance behind half of this concept's content.

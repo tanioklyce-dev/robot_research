@@ -226,7 +226,7 @@ Open-weights VLA used as a baseline in many 2024–2026 papers. *(Module 9.)*
 [Physical Intelligence](entities/physical-intelligence.md)'s flagship cross-platform VLA. π0 ([source page](sources/pi-zero-paper.md)) uses a flow-matching action head on a pre-trained VLM backbone. *(Module 9.)*
 
 ### PLDM
-**Planning with Latent-space Dynamics Models** — comparison baseline in [LeWM](sources/leworldmodel-paper.md); end-to-end JEPA-style WM with 6 anti-collapse hyperparameters. *(Module 11.)*
+**Planning with Latent Dynamics Models** — Sobal et al. ([2025 source page](sources/pldm-paper.md), [entity](entities/pldm.md); 2022 precursor [arxiv 2211.10831](https://arxiv.org/abs/2211.10831) not yet a wiki source page). End-to-end JEPA-style WM trained with VICReg-inspired anti-collapse + inverse-dynamics + similarity loss; ~6 anti-collapse hyperparameters per [LeWM](sources/leworldmodel-paper.md)'s critique. The most-cited "end-to-end JEPA before LeWM" baseline. *(Module 11.)*
 
 ### PPO
 **Proximal Policy Optimization** — Schulman et al. 2017; the dominant on-policy actor-critic algorithm. *(Module 8.)*
@@ -259,7 +259,7 @@ A pretrained visual encoder for manipulation (Nair et al. 2022); appears as a Di
 **Stochastic Gradient Descent** — gradient descent on minibatches; the canonical NN optimizer. *(Module 1.)*
 
 ### SIGReg
-**Sketched Isotropic Gaussian Regularizer** (Balestriero 2025; the foundational reference cited from [LeWM](entities/leworldmodel.md) as [25]). The single anti-collapse regularizer in LeWM: project latent embeddings onto `M` random unit-norm directions; run the **Epps–Pulley** univariate normality test on each 1-D projection; average the test statistics; backprop the result as a loss term. Justified by the **Cramér–Wold theorem** — matching all 1-D marginals of a `d`-D distribution is equivalent to matching the full joint distribution. Encourages an isotropic Gaussian latent and gives a provable anti-collapse guarantee with a single hyperparameter (`λ`, the SIGReg loss weight; default 0.1) vs. 4–6 for prior end-to-end JEPAs ([PLDM](#pldm)). *(Module 4 introduction; [Module 12 derivation](syntheses/curriculum-12-lewm-deep-dive.md).)*
+**Sketched Isotropic Gaussian Regularizer** — introduced by **LeJEPA** (Balestriero & LeCun 2025, [arxiv 2511.08544](https://arxiv.org/abs/2511.08544); cited from [LeWM](entities/leworldmodel.md) as [25]). The single anti-collapse regularizer in LeWM: project latent embeddings onto `M` random unit-norm directions; run the **Epps–Pulley** univariate normality test on each 1-D projection; average the test statistics; backprop the result as a loss term. Justified by the **Cramér–Wold theorem** — matching all 1-D marginals of a `d`-D distribution is equivalent to matching the full joint distribution. Encourages an isotropic Gaussian latent and gives a provable anti-collapse guarantee with a single hyperparameter (`λ`, the SIGReg loss weight; default 0.1) vs. 4–6 for prior end-to-end JEPAs ([PLDM](#pldm)). *(Module 4 introduction; [Module 12 derivation](syntheses/curriculum-12-lewm-deep-dive.md).)*
 
 ### SimCLR
 **Simple framework for Contrastive Learning of Representations** — Chen et al. 2020; contrastive SSL with augmentation and a projection head. *(Module 4.)*

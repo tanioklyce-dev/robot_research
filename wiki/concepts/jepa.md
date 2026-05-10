@@ -2,8 +2,8 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-05-09
-sources: 7
+updated: 2026-05-10
+sources: 8
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun]
 ---
 
@@ -49,7 +49,7 @@ The term **Joint Embedding** names the architecture class defined by this proper
 - **JEPA-adjacent (frozen DINOv2 encoder, not co-trained):**
   - **[DINO-WM](../entities/dino-wm.md)** (Zhou et al., NYU + FAIR, Nov 2024) — DINOv2 features + learned predictor; zero-shot planning. Lightweight benches (PushT, Wall, PointMaze, Rope, Granular, Reacher).
   - **[DINO-world](../entities/dino-world.md)** (Baldassarre et al., FAIR, July 2025) — DINOv2 features for video world models; predates JEPA-WMs by 5 months and shares Basile Terver as a bridge author.
-- Comparison points (no entity pages yet): Dreamer / DreamerV3 (task-specific reward), TD-MPC (state-based), PLDM (end-to-end with 6 hyperparameters).
+- Comparison points: [Dreamer / DreamerV3](../entities/dreamer.md) (task-specific reward, generative WM); [TD-MPC](../entities/td-mpc.md) (state-based, decoder-free MBRL); [PLDM](../entities/pldm.md) (end-to-end JEPA with VICReg + inverse-dynamics, ~6 hyperparameters; [Sobal et al. 2025](../sources/pldm-paper.md)).
 
 ## Simulator stance — fragmenting, not avoiding
 The original wiki synthesis observed [V-JEPA 2](../entities/v-jepa-2.md) and [LeWM](../entities/leworldmodel.md) both skipping heavy agentic-robotics sim. With five additional ingests in May 2026, the picture is more nuanced: [JEPA-WMs](../entities/jepa-wms.md) uses [RoboCasa](../entities/robocasa.md); [VLA-JEPA](../entities/vla-jepa.md) uses SimplerEnv; [DINO-WM](../entities/dino-wm.md) uses lightweight MuJoCo benches; [V-JEPA 2.1](../sources/v-jepa-2-1-paper.md) continues the no-sim line. **The JEPA literature is fragmenting across simulator weight classes**, not avoiding sim wholesale. See [the revised synthesis](../syntheses/why-jepa-research-skips-the-simulator-stack.md).
@@ -68,3 +68,4 @@ The original wiki synthesis observed [V-JEPA 2](../entities/v-jepa-2.md) and [Le
 - [DINO-WM Paper](../sources/dino-wm-paper.md)
 - [DINO-world Paper](../sources/dino-world-paper.md)
 - [VLA-JEPA Paper](../sources/vla-jepa-paper.md)
+- [PLDM Paper](../sources/pldm-paper.md)

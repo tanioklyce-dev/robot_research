@@ -58,7 +58,7 @@ The curriculum's organizing axis. Two of these are well-developed in the wiki ([
 
 **Predict the next-state embedding, not pixels.** An encoder maps observation → latent vector `z`. A predictor maps `(z_t, a_t) → z_{t+1}`. Loss is in latent space (typically [MSE](../glossary.md#mse)), not pixel space. No decoder.
 
-- **Examples:** [V-JEPA 2 / V-JEPA 2-AC](../entities/v-jepa-2.md), [LeWorldModel](../entities/leworldmodel.md), PLDM.
+- **Examples:** [V-JEPA 2 / V-JEPA 2-AC](../entities/v-jepa-2.md), [LeWorldModel](../entities/leworldmodel.md), [PLDM](../entities/pldm.md).
 - **Substrate:** Yann LeCun's [JEPA program](../concepts/jepa.md). Explicit position taken against pixel-prediction.
 - **Pros:** Order-of-magnitude cheaper than generative-video both to train and to plan against. [LeWM reports up to 48× faster planning](../sources/leworldmodel-paper.md) than foundation-model-based world models. Pretraining is action-free and scales to web-video.
 - **Cons:** **Representation collapse** is a fundamental failure mode — without anti-collapse mechanisms, encoder + predictor can learn trivial constants. Latent space is opaque; failures aren't visually inspectable. Module 11 covers the collapse-prevention zoo (EMA target encoders, stop-gradient, frozen encoders, [SIGReg](../glossary.md#sigreg), …).
@@ -210,7 +210,7 @@ The bridge to Module 11 (JEPA depth) and Module 12 (LeWM specifically):
 What this configuration is responding to (each choice is a contestable decision):
 
 - **End-to-end encoder.** Departure from [DINO-WM](../entities/dino-wm.md)'s frozen-DINOv2 approach. Bet: a small task-shaped encoder beats a generic large encoder when training data is on-task.
-- **Single regularizer (SIGReg).** Departure from PLDM's 4–6 anti-collapse hyperparameters and V-JEPA's EMA + stop-gradient battery. Bet: random-projection + normality-test gives the *same* anti-collapse guarantee with one knob. [Module 12](robot-learning-curriculum.md) does the math.
+- **Single regularizer (SIGReg).** Departure from [PLDM](../entities/pldm.md)'s ~6 anti-collapse hyperparameters and V-JEPA's EMA + stop-gradient battery. Bet: random-projection + normality-test gives the *same* anti-collapse guarantee with one knob. [Module 12](curriculum-12-lewm-deep-dive.md) does the math.
 - **No value function.** Departure from Dreamer / TD-MPC. Bet: pure MPC against a strong dynamics model is enough; the compounding-error problem stays inside `H`.
 - **No reward at training.** Departure from MBRL. Bet: action-conditioned dynamics are a *task-agnostic* objective; goals come in only at planning time as cost functions over the latent space.
 
@@ -282,7 +282,7 @@ Module 10 names the four families and walks you through the planning vocabulary.
 
 ## Open questions / TBD
 
-- **PLDM source page.** Currently the only LeWM baseline still without a primary-source ingest. The 4–6 anti-collapse hyperparameter framing comes from secondary cites; would benefit from the primary paper.
+- ~~**PLDM source page.**~~ Filed: [PLDM Paper](../sources/pldm-paper.md) + [PLDM entity](../entities/pldm.md) (2026-05-10). The 4–6 anti-collapse hyperparameter framing now backed by the primary source.
 - **Genie Envisioner 2.0** as a deeper ingest. The wiki has the announcement filed; the underlying technical paper would deepen the generative-video paragraph.
 - **An end-to-end CEM implementation walkthrough** — currently the anchor exercise points the reader at `stable-worldmodel`'s code; a small standalone reference implementation might be worth filing as a separate page if multiple modules end up needing it.
 - **MPPI** as a sibling-of-CEM source page — would close the planner-sampler family.

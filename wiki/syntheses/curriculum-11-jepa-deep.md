@@ -26,7 +26,7 @@ By the end you should be able to:
 1. Define "joint embedding" precisely and explain why representation collapse is a *first-order* failure mode, not a curiosity.
 2. Walk the **V-JEPA 1 → V-JEPA 2 → V-JEPA 2-AC → V-JEPA 2.1** progression and name what each version added.
 3. Read any JEPA-line paper's training section and identify which collapse-prevention mechanisms it uses (EMA target, stop-gradient, frozen encoder, multi-term loss, normality regularizer).
-4. Distinguish **end-to-end JEPA** ([LeWM](../entities/leworldmodel.md), V-JEPA 2, [PLDM](../glossary.md#pldm)) from **frozen-feature pseudo-JEPA** ([DINO-WM](../entities/dino-wm.md), [DINO-world](../entities/dino-world.md), [JEPA-WMs](../entities/jepa-wms.md)) and articulate the tradeoff.
+4. Distinguish **end-to-end JEPA** ([LeWM](../entities/leworldmodel.md), V-JEPA 2, [PLDM](../entities/pldm.md)) from **frozen-feature pseudo-JEPA** ([DINO-WM](../entities/dino-wm.md), [DINO-world](../entities/dino-world.md), [JEPA-WMs](../entities/jepa-wms.md)) and articulate the tradeoff.
 5. Explain action conditioning in JEPA — including why pretraining is action-free and post-training adds actions.
 6. Position LeWM against V-JEPA 2 axis-by-axis as the setup for Module 12.
 
@@ -128,13 +128,13 @@ loss     = ‖ẑ_{t+1} − z_{t+1}‖²
 
 ### 5. Multiple-fix soup (PLDM-class)
 
-**Idea.** Combine several mechanisms — EMA + stop-gradient + variance-covariance + augmentation — and tune their relative weights. The pre-LeWM end-to-end JEPA literature mostly lives here.
+**Idea.** Combine several mechanisms — VICReg-style variance-covariance + similarity loss + inverse-dynamics auxiliary, sometimes with EMA or augmentation on top — and tune their relative weights. The pre-LeWM end-to-end JEPA literature mostly lives here. The canonical reference is [PLDM (Sobal et al. 2025)](../sources/pldm-paper.md), which combines a similarity loss + VICReg-inspired anti-collapse + inverse-dynamics modeling.
 
 **Why it works.** Layered defense. Each mechanism addresses a slightly different failure mode.
 
-**Cost.** **4–6 anti-collapse hyperparameters per design.** This is what [LeWM](../entities/leworldmodel.md) explicitly responds to — its critique of [PLDM](../glossary.md#pldm) is that 6 hyperparameters is more knobs than the underlying problem requires.
+**Cost.** **4–6 anti-collapse hyperparameters per design.** This is what [LeWM](../entities/leworldmodel.md) explicitly responds to — its critique of [PLDM](../entities/pldm.md) is that 6 hyperparameters is more knobs than the underlying problem requires.
 
-**Used by.** [PLDM](../glossary.md#pldm) and most pre-2026 end-to-end JEPAs.
+**Used by.** [PLDM](../entities/pldm.md) and most pre-2026 end-to-end JEPAs.
 
 ### 6. SIGReg — single regularizer (LeWM)
 
@@ -153,7 +153,7 @@ loss     = ‖ẑ_{t+1} − z_{t+1}‖²
 | EMA + stop-grad | 1 (`τ`) | [V-JEPA 2](../entities/v-jepa-2.md), [BYOL](../glossary.md#byol), [DINO](../glossary.md#dino) | Empirically robust; well-studied | Two encoders; ~2× FLOPs |
 | Variance-covariance | 3 (`λ₁`, `λ₂`, `λ₃`) | [VICReg](../glossary.md#vicreg), [Barlow Twins](../glossary.md#barlow-twins) | No EMA needed | More knobs |
 | Frozen encoder | 0 | [DINO-WM](../entities/dino-wm.md), [JEPA-WMs](../entities/jepa-wms.md) | Trivially stable; cheap | Stuck with off-the-shelf encoder |
-| Multi-fix soup | 4–6 | [PLDM](../glossary.md#pldm), pre-2026 end-to-end JEPAs | Layered defense | Hyperparameter hell |
+| Multi-fix soup | 4–6 | [PLDM](../entities/pldm.md), pre-2026 end-to-end JEPAs | Layered defense | Hyperparameter hell |
 | SIGReg | 1 | [LeWM](../entities/leworldmodel.md) | One knob; provable anti-collapse | Math is novel; one paper of evidence so far |
 
 The LeWM contribution is exactly the bottom row: a *theoretical* simplification (one regularizer; one hyperparameter) that empirically beats the multi-fix soup on the same benchmarks. Module 12 derives the mathematics. Module 11's job is to make you ready to evaluate that contribution against the rest of the row above it.
@@ -343,7 +343,7 @@ Module 11 has set up the entire LeWM contribution **except for the math**. By th
 
 ## Open questions / TBD
 
-- **PLDM source page.** The 4–6 anti-collapse hyperparameter framing is currently from secondary cites; primary source would tighten the LeWM-vs-PLDM comparison.
+- ~~**PLDM source page.**~~ Filed: [PLDM Paper](../sources/pldm-paper.md) + [PLDM entity](../entities/pldm.md) (2026-05-10). LeWM-vs-PLDM comparison now backed by the primary source.
 - **A worked toy-JEPA implementation page.** The anchor exercise's "implement a 2D JEPA and watch it collapse" extension would benefit from a sample notebook in the wiki.
 - **DINOv2 paper** as a source page — the canonical pretrained encoder behind the entire frozen-feature family deserves its own primary-source ingest. ([DINOv2 entity](../entities/dinov2.md) exists.)
 - **V-JEPA 1 source page** — useful for the progression history; lower priority since V-JEPA 2 superseded it as the canonical reference.

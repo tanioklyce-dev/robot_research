@@ -77,7 +77,7 @@ Everything Module 11 set up — the joint-embedding commitment, the collapse fai
 
 ## 2. SIGReg in detail
 
-The mathematical heart of the paper. SIGReg = **Sketched Isotropic Gaussian Regularizer** (Balestriero, 2025).
+The mathematical heart of the paper. SIGReg = **Sketched Isotropic Gaussian Regularizer**, introduced by **LeJEPA** (Balestriero & LeCun 2025, [arxiv 2511.08544](https://arxiv.org/abs/2511.08544); cited from the LeWM paper as ref [25]).
 
 ### 2.1 The goal
 
@@ -176,7 +176,7 @@ Two internal hyperparameters: `M` (number of random projections) and `K` (number
 Plus the **regularization weight `λ`** — the only effective hyperparameter. Default `λ = 0.1`. Tuning `λ`:
 
 - **Bisection search**, `O(log n)` complexity.
-- Compare against **PLDM**: 6 hyperparameters → grid search complexity `O(n^6)`.
+- Compare against **[PLDM](../entities/pldm.md)** ([source](../sources/pldm-paper.md)): ~6 hyperparameters → grid search complexity `O(n^6)`.
 
 This complexity gap — `O(log n)` vs `O(n^6)` — is the LeWM contribution distilled to one number. In practice it means: tune SIGReg in 5 minutes; tune PLDM for a week.
 
@@ -470,8 +470,8 @@ Module 12 is the algorithmic destination. Modules 13 and 14 are the **deployment
 
 ## Open questions / TBD
 
-- **Balestriero 2025 SIGReg paper** as a separate source page — the SIGReg derivation here cites the LeWM paper; the foundational SIGReg paper itself would let us cite the math directly.
-- **PLDM source page** — LeWM compares against PLDM; the PLDM paper isn't yet ingested. Closing this would tighten the "6 hyperparameters → 1" comparison.
+- **LeJEPA paper** (Balestriero & LeCun 2025, [arxiv 2511.08544](https://arxiv.org/abs/2511.08544)) as a separate source page — the foundational SIGReg paper. The SIGReg derivation in this module references the LeWM paper's exposition; the LeJEPA paper itself would let us cite the formal math directly.
+- ~~**PLDM source page.**~~ Filed: [PLDM Paper](../sources/pldm-paper.md) + [PLDM entity](../entities/pldm.md) (2026-05-10). The "6 hyperparameters → 1" comparison is now backed by primary source.
 - **Epps–Pulley original paper (1983)** — for completeness on the test statistic; low priority since the curriculum's needs are well-served by the LeWM paper's cite.
 - **Cramér–Wold (1936)** — historical citation; unlikely to be useful as a wiki source page.
 - **A worked SIGReg PyTorch reference** — could be a separate page if the GitHub implementation diverges from the paper's pseudocode in ways that matter pedagogically.

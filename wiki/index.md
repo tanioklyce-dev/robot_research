@@ -150,6 +150,7 @@ Curated entry points across the wiki.
 - [TD-MPC2 Paper](sources/td-mpc2-paper.md) — Hansen, Su, Wang (ICLR 2024, arxiv 2310.16828); decoder-free latent WM + MPC + TD-bootstrapped value; 104 tasks / 4 domains / 317M-param multi-task agent. Abstract-level ingest. (2023-10)
 - [π0 Paper](sources/pi-zero-paper.md) — Black, Brown, Driess et al., Physical Intelligence (arxiv 2410.24164); VLA flow-matching model on a pre-trained VLM backbone; cross-platform (single-arm, dual-arm, mobile manipulator); laundry folding + table cleaning + box assembly. Abstract-level ingest. (2024-10)
 - [Helix (Figure AI blog)](sources/helix-blog.md) — Figure AI; hierarchical S1/S2 VLA on Figure 02 humanoid (7B VLM @ 7–9 Hz + 80M transformer @ 200 Hz, end-to-end); ~500h teleop; onboard inference. Vendor blog only. (2025-02)
+- [PLDM Paper](sources/pldm-paper.md) — Sobal, Zhang, Cho, Balestriero, Rudner, LeCun (NYU + FAIR; WRL @ ICLR 2025); end-to-end JEPA WM trained with VICReg + inverse-dynamics + similarity loss (~6 anti-collapse hyperparameters); the canonical "end-to-end JEPA before LeWM" baseline. Stress-tested on 23 datasets / 6 generalization properties; only method that doesn't completely fail in any setting. (2025-02-28)
 
 ## Entities
 
@@ -272,6 +273,7 @@ Curated entry points across the wiki.
 - [VLA-JEPA](entities/vla-jepa.md) — JEPA-as-auxiliary inside a VLA policy. (1 source)
 - [Dreamer / DreamerV3](entities/dreamer.md) — Hafner-line MBRL family with generative WM + actor-critic in imagination; LeWM baseline. (1 source)
 - [TD-MPC / TD-MPC2](entities/td-mpc.md) — Hansen-line decoder-free MBRL with MPC + TD-bootstrapped value; LeWM baseline; closest MBRL relative to JEPA. (1 source)
+- [PLDM (Planning with Latent Dynamics Models)](entities/pldm.md) — Sobal-line end-to-end JEPA WM (NYU + FAIR); VICReg + inverse-dynamics + similarity multi-term loss; the canonical "end-to-end JEPA before LeWM" baseline. (1 source)
 
 ### VLA models / generalist policies
 - [NVIDIA GR00T](entities/nvidia-groot.md) — open VLA bundled with Isaac Lab. (3 sources)
@@ -310,11 +312,11 @@ Curated entry points across the wiki.
 - [Amal Nanavati](entities/amal-nanavati.md) — UW HCR Lab; robot-assisted feeding; PAR systematic review; out-of-lab deployment methodology. (4 sources)
 
 ## Concepts
-- [World model](concepts/world-model.md) — umbrella concept: learned predictive model of environment dynamics (generative-video / JEPA / frozen-feature / model-based-RL). (10 sources)
+- [World model](concepts/world-model.md) — umbrella concept: learned predictive model of environment dynamics (generative-video / JEPA / frozen-feature / model-based-RL). (11 sources)
 - [VLA models](concepts/vla-models.md) — vision-language-action robot foundation models. (11 sources)
+- [Joint-Embedding Predictive Architecture](concepts/jepa.md) — predict next-state representations, not pixels. (8 sources)
 - [Sim-to-real transfer](concepts/sim-to-real-transfer.md) — bridging simulator-trained policies to real robots. (8 sources)
 - [World-model simulators](concepts/world-model-simulators.md) — narrower companion to [World model](concepts/world-model.md): world-models-used-as-simulators (generative-video and JEPA paradigms). (9 sources)
-- [Joint-Embedding Predictive Architecture](concepts/jepa.md) — predict next-state representations, not pixels. (7 sources)
 - [Imitation learning](concepts/imitation-learning.md) — supervised learning from demonstrations. (8 sources)
 - [AI safety and alignment](concepts/ai-safety-alignment.md) — corrigibility, broadly safe behaviors, hard constraints, catastrophic risk framing; connects to agentic robot deployments. (2 sources)
 - [Corrigibility](concepts/corrigibility.md) — the corrigibility dial (fully corrigible ↔ fully autonomous); asymmetric cost argument; galaxy-brained reasoning risk; agentic deployment implications. (1 source)
@@ -368,7 +370,7 @@ Curated entry points across the wiki.
 - LIBERO / LIBERO-Plus — referenced by [VLA-JEPA](sources/vla-jepa-paper.md); benchmark concept/source pages.
 - SimplerEnv — referenced by [VLA-JEPA](sources/vla-jepa-paper.md); mid-weight Sapien-adjacent simulator.
 - `stable-worldmodel` package — env zoo broader than [LeWM howto](syntheses/leworldmodel-howto.md) exposed; verify and update.
-- PLDM — comparison baseline for LeWM; needs primary-source ingest.
+- ~~PLDM~~ — now filed: [PLDM Paper](sources/pldm-paper.md) + [PLDM entity](entities/pldm.md) (2026-05-10).
 - ~~DreamerV3, TD-MPC~~ — both now filed: [DreamerV3 Paper](sources/dreamer-v3-paper.md) + [Dreamer entity](entities/dreamer.md), [TD-MPC2 Paper](sources/td-mpc2-paper.md) + [TD-MPC entity](entities/td-mpc.md).
 
 ## Known gaps / TBD
@@ -385,7 +387,7 @@ Curated entry points across the wiki.
 - TRI LBM (Toyota Research Institute Large Behavior Model) — referenced in RoboCasa365 paper as baseline. ([TRI](entities/tri.md) parent entity now filed.)
 - Octo — referenced in RoboCasa365 paper as baseline
 - Stretch Mujoco — Hello Robot's MuJoCo wrapper; thin or substantive?
-- PLDM — world-model baseline referenced in LeWorldModel paper, still needs primary-source ingest. ([DINO-WM](entities/dino-wm.md), [Dreamer](entities/dreamer.md), [TD-MPC](entities/td-mpc.md) now filed.)
+- ~~PLDM~~ — now filed: [PLDM Paper](sources/pldm-paper.md) + [PLDM entity](entities/pldm.md) (2026-05-10). All four LeWM baselines ([DINO-WM](entities/dino-wm.md), [Dreamer](entities/dreamer.md), [TD-MPC](entities/td-mpc.md), [PLDM](entities/pldm.md)) now have primary-source pages.
 - DROID paper itself (arxiv 2403.12945), Metaworld paper (arxiv 1910.10897), DINOv2 paper (arxiv 2304.07193), Dobb·E paper (arxiv 2306.16650), VQ-BeT paper (Lee et al. 2024) — entity pages exist but the papers themselves are not yet source pages; would let us cite design rationale directly. ([Diffusion Policy Paper](sources/diffusion-policy-paper.md), [IBC Paper](sources/ibc-paper.md), [BET Paper](sources/bet-paper.md), [DDPM Paper](sources/ddpm-paper.md), [UMI Project Page](sources/umi-paper.md) now filed.)
 - DDIM (Song, Meng, Ermon, ICLR 2021, arxiv 2010.02502) and iDDPM (Nichol & Dhariwal, ICML 2021) — diffusion-model advances Diffusion Policy uses directly; primary sources not yet filed.
 - R3M visual encoder (Nair et al. 2022) — appears in Diffusion Policy real-world Push-T ablation as alternative to end-to-end ResNet-18.
