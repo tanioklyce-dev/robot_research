@@ -829,3 +829,21 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Updated [Robot-learning curriculum](syntheses/robot-learning-curriculum.md) — Module 9 entry now links the drafted page; coverage table cell updated to "drafted" with full pre-existing-coverage list (concept page + 4 entity pages + 3 source pages); status frontmatter notes both reading chains complete.
 - Updated [index.md](index.md) — Highlights bullet for Module 9; Syntheses bullet for Module 9.
 - **Reader status:** Modules 6 → 7 → 9 (policy chain) and 10 → 11 → 12 (world-model chain) are both complete. The two paradigms cross over at [VLA-JEPA](entities/vla-jepa.md), covered in detail in this module. Six of fourteen modules drafted.
+
+## [2026-05-10] curriculum-module | Module 13 drafted — Home robotics deployment reality
+- Created [Curriculum Module 13 — Home robotics deployment reality](syntheses/curriculum-13-home-robotics-deployment.md) — seventh drafted module. Deliberately leans on existing rich syntheses ([assistive-robotics-research-landscape.md](syntheses/assistive-robotics-research-landscape.md), [stretch-as-assistive-platform.md](syntheses/stretch-as-assistive-platform.md), [levels-of-autonomy-in-assistive-robotics.md](syntheses/levels-of-autonomy-in-assistive-robotics.md), [underserved-par-domains.md](syntheses/underserved-par-domains.md), [lewm-on-stretch-feasibility.md](syntheses/lewm-on-stretch-feasibility.md), [dino-wm-on-stretch-experiment.md](syntheses/dino-wm-on-stretch-experiment.md)) as a curriculum-shaped framing of work already done.
+- Structure (~12kB):
+  1. Curriculum-context callout — explicit "read these existing syntheses *with* this module" framing (not "read after").
+  2. Six learning objectives.
+  3. **The 89.4 / 12.4 gap** — RLBench vs BEHAVIOR-1K (per Stanford HAI AI Index 2026); what changes between them (clutter, horizons, robustness, diversity).
+  4. **Stretch convergence** — eight features compounding (price, Python API, ~22 dB, MuJoCo/Gazebo support, stretch_ai stack, active research community, Henry Evans deployments). What Stretch *doesn't* solve (bimanual, dexterity, whole-body).
+  5. **The "real-data" path** — RUM (NYU/Meta, ~90% on novel envs, data-diversity-over-quantity insight) + OK-Robot (10 NYC homes, 58.5%, VLM + classical pipeline). The honest-pull statement: **the strongest 2026 home-robotics result is BC, not WM** — the WM bet is not yet vindicated empirically.
+  6. **PAR + autonomy-preference** — Nanavati 2024 review (1,981 screened, 87 included, half no-PwD); Yang et al. 2025 sense-of-agency finding; Henry Evans summer-deployment record; three-axis autonomy decomposition.
+  7. **EUP** — what it is; why it's the natural home for data-efficient policy-learning techniques; HCR Lab as the dominant wiki-cited thread.
+  8. **Underserved PAR domains** table (dressing / bathing / medication) with **medication-fetcher** named as the most-tractable researcher target.
+  9. **Where LeWM-class techniques fit** — explicit "plausibly move" (data efficiency, planning speed, action-consequence safety/pre-emption) vs "plausibly does not move" (whole-body, long-horizon, robustness-from-pretraining) lists.
+  10. **Anchor exercise** — read [LeWM-on-Stretch feasibility](syntheses/lewm-on-stretch-feasibility.md) + [DINO-WM-on-Stretch plan](syntheses/dino-wm-on-stretch-experiment.md), pick one, defend the choice. Explicit framing as "argument for LeWM" vs "argument for DINO-WM" with my-personal-lean (DINO-WM first, LeWM second). Module 14 phase A is "actually scope the experiment you defended here."
+  11. Recommended reading + What you should now be able to do + Hand-off to Module 14 + Related modules + Mentioned in + Open questions (LeWM-on-Stretch result; BEHAVIOR-1K WM result; cross-paradigm head-to-head; long-horizon WM eval).
+- Updated [Robot-learning curriculum](syntheses/robot-learning-curriculum.md) — Module 13 entry now links the drafted page; coverage table cell updated to "drafted"; status frontmatter notes Module 13 drafted.
+- Updated [index.md](index.md) — Highlights bullet for Module 13; Syntheses bullet for Module 13.
+- **Reader status:** Seven of fourteen modules drafted. The deployment-reality framing is in place, ready for Module 14 (capstone) to land on top of it.

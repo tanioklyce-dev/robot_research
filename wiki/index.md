@@ -12,6 +12,7 @@ Curated entry points across the wiki.
 - [Curriculum Module 10 — World models, broad](syntheses/curriculum-10-world-models.md) — four-family WM taxonomy (generative-video / JEPA / frozen-feature / MBRL); MPC + CEM + gradient-based planning; horizon vs compounding error; bridge to LeWM.
 - [Curriculum Module 11 — JEPA in depth](syntheses/curriculum-11-jepa-deep.md) — joint-embedding architectural commitment; V-JEPA 1→2→2-AC→2.1 progression; the six-family collapse-prevention zoo (EMA/stop-grad, VICReg, frozen encoder, multi-fix soup, SIGReg); DINO-WM vs end-to-end JEPA; JEPA-WMs real-Franka.
 - [Curriculum Module 12 — LeWorldModel deep-dive (with full SIGReg math)](syntheses/curriculum-12-lewm-deep-dive.md) — **the curriculum's destination**. LeWM section by section; full SIGReg derivation (Cramér–Wold + Epps–Pulley + backprop through the test statistic); two-loss architecture; CEM-MPC planning; four-environment results; latent probing + violation-of-expectation; the BN-after-CLS engineering trick.
+- [Curriculum Module 13 — Home robotics deployment reality](syntheses/curriculum-13-home-robotics-deployment.md) — the deployment-reality module. 89.4% / 12.4% RLBench-vs-BEHAVIOR-1K gap; Stretch as de-facto platform; RUM + OK-Robot as the strongest current home-robotics results; PAR + EUP + autonomy-preference framing; underserved domains; where LeWM-class fits and doesn't.
 - [Glossary](glossary.md) — flat acronym + term reference (BC, VLM, CNN, SSL, MPC, MSE, LSTM, SIGReg, …); cross-linked from every curriculum module.
 
 **AI Safety and Alignment**
@@ -356,6 +357,7 @@ Curated entry points across the wiki.
 - [Curriculum Module 10 — World models, broad](syntheses/curriculum-10-world-models.md) — functional definition; four families (generative-video / JEPA / frozen-feature / MBRL); MPC + CEM + gradient-based planning; horizon vs compounding error; LeWM positioned in the taxonomy. (2026-05-10)
 - [Curriculum Module 11 — JEPA in depth](syntheses/curriculum-11-jepa-deep.md) — joint-embedding architecture; collapse-prevention zoo (EMA, VICReg, frozen encoder, multi-fix, SIGReg); V-JEPA progression; DINO-WM frozen-feature variants; JEPA-WMs first-real-Franka; LeWM-vs-V-JEPA-2 axis-by-axis. (2026-05-10)
 - [Curriculum Module 12 — LeWorldModel deep-dive (with full SIGReg math)](syntheses/curriculum-12-lewm-deep-dive.md) — the destination module. LeWM section by section; full SIGReg derivation (random projections + Epps–Pulley + Cramér–Wold + backprop); architecture (incl. the BN-after-CLS trick); CEM-MPC; four-env results; latent probing + VoE; what it means for the JEPA program. (2026-05-10)
+- [Curriculum Module 13 — Home robotics deployment reality](syntheses/curriculum-13-home-robotics-deployment.md) — the 89.4 / 12.4 gap; Stretch convergence; RUM + OK-Robot as strongest current results; PAR / EUP / autonomy-preference framing; where LeWM-class techniques plausibly fit (and don't). Anchor: pick LeWM-on-Stretch vs DINO-WM-on-Stretch. (2026-05-10)
 
 ### JEPA-related concepts/entities/sources to potentially expand
 - Metaworld — referenced by [JEPA-WMs](sources/jepa-wms-paper.md) (42 tasks); deserves an entity page.
