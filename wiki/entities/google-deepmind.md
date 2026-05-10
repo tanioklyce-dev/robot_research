@@ -3,12 +3,12 @@ title: Google DeepMind
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-05-08
-sources: 5
-tags: [google-deepmind, mujoco, newton, mjcphysics, openusd, robotics-research, biomechanics, dmpo, acme]
+updated: 2026-05-09
+sources: 6
+tags: [google-deepmind, mujoco, newton, mjcphysics, openusd, robotics-research, biomechanics, dmpo, acme, gemini-robotics]
 ---
 
-Google's AI research lab. Maintains MuJoCo and [MuJoCo Playground](mujoco-playground.md), co-developed the [Newton physics engine](newton-physics-engine.md) with [NVIDIA](nvidia.md) and [Disney Research](disney-research.md) under the Linux Foundation, and ships **`MjcPhysics`** — a USD schema plugin that brings MuJoCo solver parameters into [OpenUSD](openusd.md) scenes.
+Google's AI research lab. Maintains MuJoCo and [MuJoCo Playground](mujoco-playground.md), co-developed the [Newton physics engine](newton-physics-engine.md) with [NVIDIA](nvidia.md) and [Disney Research](disney-research.md) under the Linux Foundation, and ships **`MjcPhysics`** — a USD schema plugin that brings MuJoCo solver parameters into [OpenUSD](openusd.md) scenes. Separately, ships the [Gemini Robotics](gemini-robotics.md) family of robot foundation models (full VLA + the **-ER** embodied-reasoning VLM variant).
 
 ## Robotics simulation contributions
 - **MuJoCo** — the open-source physics engine (acquired and open-sourced by DeepMind in 2021).
@@ -16,6 +16,10 @@ Google's AI research lab. Maintains MuJoCo and [MuJoCo Playground](mujoco-playgr
 - **[Newton physics engine](newton-physics-engine.md)** co-development under Linux Foundation governance.
 - **`MjcPhysics` USD schema plugin** — MuJoCo-specific solver attributes (integrator, constraint solver algorithm, tolerance, contact settings) authored as USD prims. Concrete evidence that DeepMind is invested in [OpenUSD](openusd.md) as a cross-stack substrate, not just consuming it ([NVIDIA OpenUSD-for-robotic-simulation blog](../sources/nvidia-openusd-for-robotic-simulation.md)).
 - **`mujoco-usd-converter`** — MuJoCo-to-USD bridge tool hosted in the `newton-physics` GitHub org, used alongside `MjcPhysics` schemas.
+
+## Robot foundation models
+- **[Gemini Robotics](gemini-robotics.md)** — robot foundation model family built on the Gemini multimodal line. Two variants: a full **vision-language-action** model (emits low-level actions, listed on the [VLA models](../concepts/vla-models.md) concept page) and **Gemini Robotics-ER** (embodied-reasoning VLM that emits tool calls against a robot's API; fits the [LLM-agent architecture](../concepts/llm-agent-architecture.md) pattern).
+- **Formal partnership with [Boston Dynamics](boston-dynamics.md)** — announced separately; characterized as early-stage in the [BD Spot + Gemini Robotics blog](../sources/bostondynamics-spot-gemini-robotics.md). Productized via Boston Dynamics' AIVI-Learning offering powered by Gemini Robotics-ER 1.6.
 
 ## Biological / biomechanical simulation
 - **Virtual Rodent** (Merel et al. 2020, ICLR) — anatomically detailed mouse body in MuJoCo, deep-RL imitation. Direct ancestor of flybody.
@@ -28,3 +32,4 @@ Google's AI research lab. Maintains MuJoCo and [MuJoCo Playground](mujoco-playgr
 - [Using OpenUSD for Modular and Scalable Robotic Simulation](../sources/nvidia-openusd-for-robotic-simulation.md)
 - [flybody Paper](../sources/flybody-paper.md)
 - [flybody GitHub](../sources/flybody-github.md)
+- [Tools for Your To Do List with Spot and Gemini Robotics (Boston Dynamics blog)](../sources/bostondynamics-spot-gemini-robotics.md)

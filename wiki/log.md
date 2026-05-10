@@ -2,6 +2,18 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-09] ingest | Boston Dynamics blog: Tools for Your To Do List with Spot and Gemini Robotics
+- Created [Tools for Your To Do List with Spot and Gemini Robotics](sources/bostondynamics-spot-gemini-robotics.md) — Boston Dynamics Spot-team engineers wired Gemini Robotics-ER 1.5 into Spot via a tool-call layer over the Spot SDK; 2025 hackathon demo (living-room cleanup); productized as AIVI-Learning with ER 1.6.
+- Created [Boston Dynamics](entities/boston-dynamics.md) entity (parent company, Hyundai-owned) — first BD entity page; ties to Atlas/Spot/Stretch/Orbit/AIVI-Learning.
+- Created [Spot](entities/spot.md) entity — commercial quadruped; Spot SDK as the integration surface; documented Gemini Robotics-ER and Meta object-retrieval integrations.
+- Created [Gemini Robotics](entities/gemini-robotics.md) entity — Google DeepMind robot foundation models; full VLA + Gemini Robotics-ER (embodied-reasoning VLM that emits tool calls).
+- Updated [Google DeepMind](entities/google-deepmind.md) — added Gemini Robotics section, Boston Dynamics partnership, source count 5→6.
+- Updated [Meta FAIR](entities/meta-fair.md) — added cross-vendor Spot-for-object-retrieval reference, source count 6→7.
+- Updated [Atlas](entities/atlas.md) — linked to new Boston Dynamics + Spot entity pages.
+- Updated [LLM-agent architecture](concepts/llm-agent-architecture.md) — added Spot + Gemini Robotics-ER as a third concrete example; added note on "embodied reasoning" as vendor branding for the same architecture; source count 5→6.
+- Updated [VLA models](concepts/vla-models.md) — clarified Gemini Robotics two-variant structure (full VLA vs -ER VLM).
+- Updated [index.md](index.md) — added new source/entities; removed Spot from "needs-page" backlog.
+
 ## [2026-05-09] synthesis | Five new assistive-robotics syntheses
 - Filed [Levels of autonomy in assistive robotics](syntheses/levels-of-autonomy-in-assistive-robotics.md) — three orthogonal autonomy axes; HCR Lab finding cluster (HRI 2020 → Walker 2024 → Yang 2025 → Nanavati 2025); EUP-over-RUM stack as unbuilt integration target.
 - Filed [Long-term in-home robot deployments](syntheses/long-term-in-home-robot-deployments.md) — depth-sorted table; reliability gradient (RLBench 89.4% → BEHAVIOR-1K 12.4%); only one home has ≥1 month deployment data.

@@ -126,6 +126,7 @@ Curated entry points across the wiki.
 - [Lappalainen et al. 2024 — Connectome-constrained networks predict fly visual-system activity](sources/lappalainen-flyvis-paper.md) — *Nature* paper; PyTorch deep net with optic-lobe connectome as fixed connectivity mask; 64 cell types / 45k neurons; predicts T4/T5 motion selectivity. (2024-09-11)
 - [neuromechfly.org website](sources/neuromechfly-website.md) — project website for NeuroMechFly v2; vision + olfaction + brain–VNC; tutorials + installation; v2 launched March 2026. (2024–2026)
 - [flygym GitHub (NeLy-EPFL/flygym)](sources/flygym-github.md) — Apache-2.0 Python library implementing NeuroMechFly v2; v2.0.1 release. (2026-04-17)
+- [Tools for Your To Do List with Spot and Gemini Robotics (Boston Dynamics blog)](sources/bostondynamics-spot-gemini-robotics.md) — Spot + Gemini Robotics-ER 1.5 hackathon: tool-call layer over the Spot SDK; AIVI-Learning (ER 1.6) productization. (2025)
 
 ## Entities
 
@@ -139,8 +140,9 @@ Curated entry points across the wiki.
 - [Pollen Robotics](entities/pollen-robotics.md) — French open-source humanoid maker; Reachy 2. (1 source)
 - [Fauna Robotics](entities/fauna-robotics.md) — NYC; Sprout Creator Edition; 107cm, 29 DOF, Jetson AGX Orin. (1 source)
 - [K-Scale Labs](entities/k-scale-labs.md) — YC humanoid startup; shut down late 2025; notable post-mortem. (1 source)
-- [Meta FAIR](entities/meta-fair.md) — Yann LeCun's lab; JEPA research line. (6 sources)
-- [Google DeepMind](entities/google-deepmind.md) — MuJoCo, Newton co-development, MjcPhysics USD plugin. (5 sources)
+- [Meta FAIR](entities/meta-fair.md) — Yann LeCun's lab; JEPA research line. (7 sources)
+- [Google DeepMind](entities/google-deepmind.md) — MuJoCo, Newton co-development, MjcPhysics USD plugin, Gemini Robotics. (6 sources)
+- [Boston Dynamics](entities/boston-dynamics.md) — robotics company (Hyundai-owned); Spot + Atlas + Stretch + Orbit + AIVI-Learning. (1 source)
 - [Mila](entities/mila.md) — Quebec AI Institute; frequent JEPA collaborator. (2 sources) _stub_
 - [Farama Foundation](entities/farama-foundation.md) — non-profit; took over OpenAI gym → Gymnasium; 19 RL projects. (3 sources)
 - [AMI Labs](entities/ami-labs.md) — Yann LeCun's reported post-Meta AI lab; $1.03B seed round (single secondary source, provisional). (1 source)
@@ -190,6 +192,7 @@ Curated entry points across the wiki.
 
 ### Humanoids
 - [Atlas](entities/atlas.md) — Boston Dynamics flagship; closed development; capability-bar humanoid. (0 sources) _stub_
+- [Spot](entities/spot.md) — Boston Dynamics' commercial quadruped; the BD-platform-with-an-API; documented Gemini Robotics-ER 1.5 integration. (1 source)
 - [Tesla Optimus](entities/tesla-optimus.md) — Tesla's vertically-integrated humanoid; closed development. (0 sources) _stub_
 - [Figure](entities/figure.md) — Figure AI's humanoid line (01/02/03) + Helix VLA; BMW pilots. (0 sources) _stub_
 - [1X NEO](entities/1x-neo.md) — household humanoid; 22 hand DOF/side; Redwood AI VLM; 22 dB; $200 deposit. (1 source)
@@ -243,6 +246,7 @@ Curated entry points across the wiki.
 
 ### VLA models / generalist policies
 - [NVIDIA GR00T](entities/nvidia-groot.md) — open VLA bundled with Isaac Lab. (3 sources)
+- [Gemini Robotics](entities/gemini-robotics.md) — Google DeepMind robot foundation models; full VLA + Gemini Robotics-**ER** embodied-reasoning VLM (tool-call planner). (1 source)
 - [OK-Robot](entities/ok-robot.md) — NYU zero-shot pick-and-drop framework; 58.5% in 10 homes; 1.8× over OVMM. (1 source)
 - [Robot Utility Models](entities/robot-utility-models.md) — NYU/Meta zero-shot mobile-manipulation BC. (3 sources)
 - [Dobb·E](entities/dobb-e.md) — NYU predecessor to RUM; HPR encoder + Stick-v1 + Homes of New York dataset. (1 source) _stub_
@@ -282,7 +286,7 @@ Curated entry points across the wiki.
 - [Imitation learning](concepts/imitation-learning.md) — supervised learning from demonstrations. (7 sources)
 - [AI safety and alignment](concepts/ai-safety-alignment.md) — corrigibility, broadly safe behaviors, hard constraints, catastrophic risk framing; connects to agentic robot deployments. (2 sources)
 - [Corrigibility](concepts/corrigibility.md) — the corrigibility dial (fully corrigible ↔ fully autonomous); asymmetric cost argument; galaxy-brained reasoning risk; agentic deployment implications. (1 source)
-- [LLM-agent architecture](concepts/llm-agent-architecture.md) — LLM-emits-tool-calls control pattern; MCP and A2A as inter-agent/tool-access protocols. (5 sources)
+- [LLM-agent architecture](concepts/llm-agent-architecture.md) — LLM-emits-tool-calls control pattern; MCP and A2A as inter-agent/tool-access protocols. (6 sources)
 - [AprilTags](concepts/apriltags.md) — visual fiducial markers for 6-DOF pose estimation; standard in FRC and research robotics. (2 sources)
 - [Learned latent space](concepts/latent-space.md) — vector space where a trained encoder represents inputs; substrate for JEPA prediction, DINOv2 features, VQ-BeT codebook. (7 sources)
 - [Agentic UAVs](concepts/agentic-uavs.md) — autonomous aerial systems with goal-driven behavior; 4-layer architecture; 8 domains; adaptive control. (2 sources)
@@ -354,7 +358,7 @@ Curated entry points across the wiki.
 ---
 
 [Log](log.md) — chronological record of ingests, queries, and lint passes.
-- Boston Dynamics Spot — quadruped reference platform; no entity page ([Atlas](entities/atlas.md) is filed).
+- ~~Boston Dynamics Spot~~ — now filed as [Spot](entities/spot.md); [Boston Dynamics](entities/boston-dynamics.md) parent entity also filed.
 - Maple-Sim — Shenzhen Robotics Alliance's dyn4j-based FRC physics simulator; most active FRC sim project. Entity page on demand.
 - xRC Simulator — standalone Unity-based FRC driving/strategy simulator. Entity page on demand.
 - WPILib — open-source FRC software framework. Core to the entire FRC software ecosystem. Deserves entity page.

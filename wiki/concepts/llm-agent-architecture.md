@@ -3,7 +3,7 @@ title: LLM-agent architecture
 type: concept
 created: 2026-05-07
 updated: 2026-05-09
-sources: 5
+sources: 6
 tags: [llm-agent, tool-use, agentic-robotics, planning, mcp, a2a]
 ---
 
@@ -20,8 +20,11 @@ tags: [llm-agent, tool-use, agentic-robotics, planning, mcp, a2a]
 - **[stretch_ai](../entities/stretch-ai.md)'s LLM agent** ([Hello Robot](../entities/hello-robot.md), research tier) — `PickupExecutor` + `PickupTask` FSM, with [Qwen2.5-3B-Instruct](../entities/qwen.md) / Gemma / GPT-4o-mini as the planner ([Stretch AI LLM Agent Documentation](../sources/stretch-ai-llm-agent-docs.md)). Tool primitives: `pickup`, `explore`, `place`, `say`, `find`, `go_home`, etc.
 - **[Hiwonder ROSOrin](../entities/rosorin.md)'s embodied-AI demos** ([Hiwonder](../entities/hiwonder.md), educational tier, mobile-only) — same JSON tool-call pattern: LLM emits `{action: [...], response: ...}`, executor dispatches each call via `eval(f'self.{a}')`. Both cloud (GPT-4o, [Qwen-plus](../entities/qwen.md), StepFun VLM) and offline ([Ollama](../entities/ollama.md) + [qwen3:1.7b](../entities/qwen.md) + sherpa-onnx) variants ([Hiwonder ROSOrin Documentation](../sources/hiwonder-rosorin-docs.md)).
 - **[OpenClaw](../entities/openclaw.md) on [ROSOrin Pro](../entities/rosorin-pro.md)** ([Hiwonder](../entities/hiwonder.md), educational tier, mobile + 6-DOF arm) — same architecture, manipulation-capable. Skill library expands to include `pick`, `place`, `voice_pick`, `voice_give`, plus AprilTag pickup and depth-based interactive grasping. ROS 2 services like `/start_pick`, `/place`, `/claw_track_and_grab/start` ([Hiwonder OpenClaw Practical Tutorial](../sources/hiwonder-openclaw-tutorial.md)).
+- **[Gemini Robotics-ER 1.5](../entities/gemini-robotics.md) on [Spot](../entities/spot.md)** ([Boston Dynamics](../entities/boston-dynamics.md), commercial quadruped tier) — same architecture using a *frontier-grade* multimodal model from [Google DeepMind](../entities/google-deepmind.md). A thin layer over the Spot SDK exposes `GoTo`, `TakePicture`, object identification, `Pickup`, `PutDown`. Demonstrated cleaning a residential living room from handwritten task lists ("make sure all the shoes at the front door are on the shoe rack") ([Spot + Gemini Robotics blog](../sources/bostondynamics-spot-gemini-robotics.md)). Productized as Boston Dynamics' AIVI-Learning with ER 1.6.
 
-The pattern is **converging across tiers and capabilities** — research-grade (stretch_ai) and educational (ROSOrin / OpenClaw) stacks adopt the same architecture; mobile-only and arm-equipped variants adopt the same architecture; the only difference is the size and contents of the skill library.
+The pattern is **converging across tiers, capabilities, and price points** — research-grade (stretch_ai), educational (ROSOrin / OpenClaw), and commercial-quadruped-grade (Spot + Gemini Robotics) stacks adopt the same architecture; mobile-only and arm-equipped variants adopt the same architecture; open-weights small LLMs ([Qwen](../entities/qwen.md) 1.7B / 3B local) and frontier closed-weights VLMs (Gemini Robotics-ER, GPT-4o) plug into the same slot. The only differences are the size and contents of the skill library and the planner model.
+
+> [!note] On naming: Google calls this "embodied reasoning" (Gemini Robotics-**ER**). Functionally it is the LLM-agent / planner-emits-tool-calls pattern documented above. The framing is a vendor branding choice, not a new architecture.
 
 ## Inter-agent communication protocols
 
@@ -57,3 +60,4 @@ These protocols represent the infrastructure layer that makes "networked AI" —
 - [Hiwonder ROSOrin Documentation](../sources/hiwonder-rosorin-docs.md)
 - [Hiwonder OpenClaw Practical Tutorial](../sources/hiwonder-openclaw-tutorial.md)
 - [Are We Building Skynet? (Medium, 2025)](../sources/medium-are-we-building-skynet.md)
+- [Tools for Your To Do List with Spot and Gemini Robotics (Boston Dynamics blog)](../sources/bostondynamics-spot-gemini-robotics.md)

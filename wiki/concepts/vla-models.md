@@ -15,7 +15,7 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 ## Notable VLAs (2026)
 - **[NVIDIA GR00T](../entities/nvidia-groot.md)** N1.6 GA / N1.7 EA — 3B-parameter open VLA built on a Cosmos-Reason2-2B backbone; pretrained on ~20,854 hours of egocentric human video ([Top 10 Physical AI Models 2026](../sources/top-10-physical-ai-models-2026.md), [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)).
 - **[Physical Intelligence](../entities/physical-intelligence.md) π0 (2024) and π0.6 (2025)** — cross-platform generalist policies; π0/π0.6 demonstrated tasks like laundry folding across different robot platforms without task-specific retraining. Cited by [Stanford HAI AI Index 2026](../sources/stanford-hai-ai-index-2026.md) as the leading Physical AI VLA demonstration.
-- **Gemini Robotics** (Google DeepMind) — parallel generalist-policy effort alongside GR00T.
+- **[Gemini Robotics](../entities/gemini-robotics.md)** ([Google DeepMind](../entities/google-deepmind.md)) — parallel generalist-policy effort alongside GR00T. Note: the Gemini Robotics family ships in two variants — a full VLA (this entry) and **Gemini Robotics-ER**, an embodied-reasoning *VLM* that emits tool calls and is therefore an [LLM-agent architecture](llm-agent-architecture.md) planner rather than a VLA. Boston Dynamics' [Spot + Gemini Robotics demo](../sources/bostondynamics-spot-gemini-robotics.md) uses the -ER variant.
 - **Pi series** — Physical Intelligence's VLAs, benchmarked by [AGIBOT Genie Sim 3.0](../entities/agibot-genie-sim.md).
 - **GO-2 series** — also benchmarked by Genie Sim.
 - **SmolVLA** — runs on consumer hardware (single RTX, even MacBooks).

@@ -3,8 +3,8 @@ title: Meta FAIR
 type: entity
 subtype: company
 created: 2026-05-07
-updated: 2026-05-08
-sources: 6
+updated: 2026-05-09
+sources: 7
 tags: [meta, fair, lecun, world-model, jepa]
 ---
 
@@ -16,6 +16,7 @@ Meta's Fundamental AI Research lab ("FAIR at Meta"). Center of gravity for the [
 - **Simulator stance — observed pattern, not stated.** Early FAIR JEPA work (V-JEPA 2, June 2025) skipped sim entirely. The Dec 2025 JEPA-WMs paper moved into [RoboCasa](robocasa.md) + Metaworld + DROID + real Franka. V-JEPA 2.1 (March 2026) sustains the no-sim line with internet-video benchmarks + real-robot eval. FAIR is hedging across both. See [the revised synthesis](../syntheses/why-jepa-research-skips-the-simulator-stack.md).
 - **Open source**: facebookresearch/vjepa2, facebookresearch/jepa-wms.
 - **Adjacent**: [Robot Utility Models](robot-utility-models.md) (Meta-affiliated co-authors). [Habitat](habitat.md) — embodied-AI sim suite (note: notably absent from FAIR's own JEPA work despite shared institutional context).
+- **Cross-vendor robot research**: Meta has separately used Boston Dynamics' [Spot](spot.md) to test AI systems for locating and retrieving previously unseen objects ([referenced](../sources/bostondynamics-spot-gemini-robotics.md)). Indication that Meta uses external commercial robot platforms for embodied-AI research, not just its own (Habitat-Sim, simulated humanoids).
 
 ## Why it matters
 With NVIDIA pushing generative video as the world-model paradigm and AGIBOT pushing simulator-native scene generation, **FAIR's bet is latent-prediction JEPA** — predict next-state representation, not pixels. The contrast between paradigms is one of the most consequential open questions in agentic robotics 2026.
@@ -35,3 +36,4 @@ With NVIDIA pushing generative video as the world-model paradigm and AGIBOT push
 - [DINO-WM Paper](../sources/dino-wm-paper.md)
 - [DINO-world Paper](../sources/dino-world-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
+- [Tools for Your To Do List with Spot and Gemini Robotics (Boston Dynamics blog)](../sources/bostondynamics-spot-gemini-robotics.md) — references Meta using Spot for object-retrieval AI testing.
