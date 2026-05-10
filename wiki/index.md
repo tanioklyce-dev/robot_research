@@ -37,6 +37,7 @@ Curated entry points across the wiki.
 
 **Curriculum / learning path**
 - [Robot-learning curriculum — from neurons to LeWorldModel](syntheses/robot-learning-curriculum.md) — 14-module bottom-up syllabus; PushT as the connecting thread; ends with a Stretch-platform capstone.
+- [Glossary](glossary.md) — flat acronym + term reference (BC, VLM, CNN, SSL, MPC, MSE, LSTM, SIGReg, …); cross-linked from every curriculum module.
 
 **ROSOrin Pro JEPA project ladder**
 - [JEPA project ladder for ROSOrin Pro](syntheses/jepa-project-ladder-rosorin-pro.md) — six-rung educational/research project ladder for learning JEPA on ROSOrin Pro hardware.

@@ -643,3 +643,20 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - PushT chosen as the connecting thread across tiers 2–4.
 - Updated [index.md](index.md) — new "Curriculum / learning path" highlights entry; new bullet under Syntheses.
 - Open scoping questions filed at the bottom of the curriculum page (Tier 1 brevity, math depth on SIGReg / DDPM, capstone hardware-or-paper, classical-robotics scope).
+
+## [2026-05-10] resolve | Curriculum scoping decisions + glossary
+- User answered the 5 open scoping questions on [Robot-learning curriculum](syntheses/robot-learning-curriculum.md):
+  1. Tier 1 stays at 4 modules (NN / CNN / attention / SSL).
+  2. SIGReg math: **go deep** (full random-projection + normality test + backprop derivation in Module 12).
+  3. DDPM math: **go deep** (full forward/reverse + ELBO + KL + CFG derivation in Module 5).
+  4. Capstone: paper first (phase A required), Stretch hardware second (phase B gated on hardware).
+  5. Modules 13 + 14 both retained.
+- Created [Glossary](glossary.md) — flat acronym reference covering ~80 terms across NN basics, CNNs, sequence models, SSL, generative models, BC/IL, RL, VLA, world models, robot platforms, and infra. Each entry tags the curriculum module that introduces it.
+- Updated [Robot-learning curriculum](syntheses/robot-learning-curriculum.md):
+  - New "Decisions (resolved 2026-05-10)" section near the top.
+  - First-mention acronyms throughout all 14 modules now spell out and link to glossary anchors.
+  - Modules 5 and 12 expanded to flag the full-math depth.
+  - Module 14 split into phase A (paper / sim, required) + phase B (hardware, gated).
+  - Effort estimate updated for "go deep" decisions: ~125–205 hr without hardware phase.
+  - Removed "Open scoping questions" section (now resolved).
+- Updated [index.md](index.md) — Curriculum highlights now lists [Glossary](glossary.md).
