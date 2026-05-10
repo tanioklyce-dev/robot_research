@@ -84,25 +84,25 @@ Question 4 is the domain anchor — every module ends with a "what this unlocks 
 
 ### Tier 3 — Robot learning
 
-#### Module 6 — [IL (imitation learning)](../glossary.md#il) and [BC (behavior cloning)](../glossary.md#bc)
+#### [Module 6](curriculum-06-imitation-learning.md) — [IL (imitation learning)](../glossary.md#il) and [BC (behavior cloning)](../glossary.md#bc)
 - **Concept beats:** [imitation learning](../concepts/imitation-learning.md), BC as supervised learning, demonstration data, observation–action pairs, **multi-modal action distributions** (the central failure mode of vanilla [MSE](../glossary.md#mse)-BC), distribution shift / [DAgger (dataset aggregation)](../glossary.md#dagger), action chunking, the canonical [PushT](../entities/pusht.md) setup.
 - **Why for LeWM:** BC is the policy-side counterpart to world models. Many world-model papers (LeWM, [DINO-WM (DINO world model)](../glossary.md#dino-wm)) compose `BC-policy + world-model-`[`MPC (model predictive control)`](../glossary.md#mpc) baselines. You can't read [DP (diffusion policy)](../glossary.md#dp) / [IBC](../glossary.md#ibc) / [BeT (behavior transformer)](../glossary.md#bet) without owning multi-modal action distributions as a concept.
 - **Anchor exercise:** train a vanilla MSE-MLP BC policy on PushT demos; observe it fail by averaging modes.
 - **Module page:** [Curriculum Module 6 — Imitation learning and behavior cloning](curriculum-06-imitation-learning.md) **(drafted 2026-05-10)**.
 
-#### Module 7 — BC evolution: [IBC](../glossary.md#ibc) → [BeT](../glossary.md#bet) → [DP (diffusion policy)](../glossary.md#dp) (PushT case study)
+#### [Module 7](curriculum-07-bc-lineage-pusht.md) — BC evolution: [IBC](../glossary.md#ibc) → [BeT](../glossary.md#bet) → [DP (diffusion policy)](../glossary.md#dp) (PushT case study)
 - **Concept beats:** [EBM (energy-based model)](../glossary.md#ebm) BC and [InfoNCE](../glossary.md#infonce) training ([IBC](../entities/ibc.md)); k-means action discretization + transformer ([BeT](../entities/bet.md)); conditional [DDPM](../glossary.md#ddpm) over action chunks ([Diffusion Policy](../entities/diffusion-policy.md)); receding-horizon execution; visual encoders for policy ([ResNet](../glossary.md#resnet) vs end-to-end); [UMI (universal manipulation interface)](../glossary.md#umi) data collection (one paragraph — context for "where the demonstrations come from").
 - **Why for LeWM:** this is the *policy-learning lineage* the wiki has filed end-to-end ([IBC paper](../sources/ibc-paper.md), [BeT paper](../sources/bet-paper.md), [Diffusion Policy paper](../sources/diffusion-policy-paper.md), [UMI](../sources/umi-paper.md), [DDPM paper](../sources/ddpm-paper.md)). LeWM's ablations against [DINO-WM](../entities/dino-wm.md) implicitly ride on this lineage. Diffusion Policy is also the *thing on the other side* of "JEPA world model + planner" — they're both ways to get from PushT pixels to actions.
 - **Anchor exercise:** run pretrained Diffusion Policy on PushT; inspect a sampled action trajectory; quantify multi-modality.
 - **Module page:** [Curriculum Module 7 — BC lineage on PushT](curriculum-07-bc-lineage-pusht.md) **(drafted 2026-05-10)**.
 
-#### Module 8 — [RL (reinforcement learning)](../glossary.md#rl), enough to read a paper
+#### [Module 8](curriculum-08-rl-vocabulary.md) — [RL (reinforcement learning)](../glossary.md#rl), enough to read a paper
 - **Concept beats:** [MDP (Markov decision process)](../glossary.md#mdp), return, value function, policy, on-policy vs off-policy, policy gradient (REINFORCE → [PPO (proximal policy optimization)](../glossary.md#ppo) sketch), Q-learning sketch ([DQN — deep Q-network](../glossary.md#dqn)), **[MFRL (model-free)](../glossary.md#mfrl) vs [MBRL (model-based)](../glossary.md#mbrl) RL**, [Dreamer](../glossary.md#dreamer--dreamerv3)-class latent imagination as an MBRL technique (so the LeWM Dreamer / [TD-MPC (temporal-difference MPC)](../glossary.md#td-mpc) baselines parse).
 - **Why for LeWM:** LeWM compares against Dreamer (task-specific reward) and TD-MPC (state-based). Without knowing what reward, value, and policy gradient are, those baseline columns are illegible. RL is *not* the focus of this curriculum — read for vocabulary, not implementation.
 - **Anchor exercise:** read a Dreamer-V3 figure caption out loud and have it make sense.
 - **Module page:** [Curriculum Module 8 — Reinforcement learning vocabulary](curriculum-08-rl-vocabulary.md) **(drafted 2026-05-10)**.
 
-#### Module 9 — [VLA (vision-language-action) models](../glossary.md#vla)
+#### [Module 9](curriculum-09-vla.md) — [VLA (vision-language-action) models](../glossary.md#vla)
 - **Concept beats:** [VLA](../concepts/vla-models.md) = vision encoder + language tokens + action head, descended from [LLM (large language model)](../glossary.md#llm) and [VLM (vision-language model)](../glossary.md#vlm); instruction-conditioned policies; major instances ([NVIDIA GR00T](../glossary.md#gr00t), [π0](../glossary.md#π0--π06-pi-zero) / [Physical Intelligence](../entities/physical-intelligence.md), [Gemini Robotics](../entities/gemini-robotics.md), [Helix](../glossary.md#helix), [OpenVLA](../glossary.md#openvla)); how VLAs differ from BC (instruction-following, multi-task generalization); why VLAs *aren't* world models (they emit actions, not next states).
 - **Why for LeWM:** VLAs are the dominant paradigm for home-robotics generalists in 2025–2026. Knowing how they relate to (and don't replace) world models is essential for placing LeWM in the field. [VLA-JEPA](../entities/vla-jepa.md) is the explicit cross-over point — JEPA used as auxiliary loss inside a VLA.
 - **Anchor exercise:** sketch the data flow for π0 vs Diffusion Policy vs LeWM-MPC on the same PushT episode.
@@ -110,19 +110,19 @@ Question 4 is the domain anchor — every module ends with a "what this unlocks 
 
 ### Tier 4 — World models
 
-#### Module 10 — [WMs (world models)](../glossary.md#wm), broad
+#### [Module 10](curriculum-10-world-models.md) — [WMs (world models)](../glossary.md#wm), broad
 - **Concept beats:** [world model](../concepts/world-model.md) functional definition; the four families (generative-video / [WFM (world foundation model)](../glossary.md#wfm), [JEPA](../glossary.md#jepa) / latent-prediction, frozen-foundation-feature, [Dreamer](../glossary.md#dreamer--dreamerv3)-style reward-conditioned); [MPC](../glossary.md#mpc) vs [CEM (cross-entropy method)](../glossary.md#cem) vs gradient-based planning; planning horizon and compounding error; the [generative-video vs JEPA](generative-video-vs-jepa-world-models.md) tradeoff.
 - **Why for LeWM:** LeWM is "JEPA, end-to-end-trained, with MPC planner." Every word in that sentence comes from this module. Without a clean four-way taxonomy, the LeWM contribution looks like noise.
 - **Anchor exercise:** write a 3-line MPC loop pseudocode that plans against a learned next-state predictor and a cost function.
 - **Module page:** [Curriculum Module 10 — World models, broad](curriculum-10-world-models.md) **(drafted 2026-05-10)**.
 
-#### Module 11 — [JEPA (joint-embedding predictive architecture)](../glossary.md#jepa) in depth
+#### [Module 11](curriculum-11-jepa-deep.md) — [JEPA (joint-embedding predictive architecture)](../glossary.md#jepa) in depth
 - **Concept beats:** what "joint embedding" means (per [JEPA concept page](../concepts/jepa.md)); V-JEPA 1 → [V-JEPA 2](../entities/v-jepa-2.md) → V-JEPA 2-[AC (action-conditioned)](../glossary.md#ar) → V-JEPA 2.1 progression; [DINO-WM](../entities/dino-wm.md) (frozen-encoder JEPA-adjacent) vs end-to-end JEPA ([LeWM](../glossary.md#lewm), [PLDM](../glossary.md#pldm)); [JEPA-WMs](../glossary.md#jepa-wms) on real Franka; action conditioning; the collapse problem revisited.
 - **Why for LeWM:** LeWM is a single point in this design space. Need the surrounding axes to evaluate why "no [EMA](../glossary.md#ema), no stop-grad, no frozen encoder" is a real claim and not a marketing line.
 - **Anchor exercise:** annotate the LeWM architecture figure with which design choices match V-JEPA 2 and which differ.
 - **Module page:** [Curriculum Module 11 — JEPA in depth](curriculum-11-jepa-deep.md) **(drafted 2026-05-10)**.
 
-#### Module 12 — LeWorldModel paper deep-dive (full math per decision 2)
+#### [Module 12](curriculum-12-lewm-deep-dive.md) — LeWorldModel paper deep-dive (full math per decision 2)
 - **Concept beats:** the [LeWM paper](../sources/leworldmodel-paper.md) section by section; **[SIGReg](../glossary.md#sigreg) full derivation** — random unit-vector projection (sketched approach) → empirical characteristic function → **Epps–Pulley** univariate normality test → Cramér–Wold theorem (legitimacy argument) → backprop through the test statistic, with all intermediate steps; the two-loss claim (next-embedding [MSE](../glossary.md#mse) + SIGReg); 4-environment benchmark suite ([PushT](../entities/pusht.md), Reacher, OGBench-Cube, Two-Room); the BN-after-CLS engineering trick; planning protocol ([CEM](../glossary.md#cem)-[MPC](../glossary.md#mpc) details, horizon, action sampling); surprise / violation-of-expectation evaluation; latent probing; comparison table against [PLDM](../glossary.md#pldm) / [DINO-WM](../glossary.md#dino-wm) / [Dreamer](../glossary.md#dreamer--dreamerv3) / [TD-MPC](../glossary.md#td-mpc).
 - **Why for LeWM:** this is the destination. By module 12, every term should already be familiar — the deep-dive consolidates rather than introduces.
 - **Anchor exercise:** install [LeWM](../sources/lewm-github.md) per [the howto](leworldmodel-howto.md); reproduce a single PushT eval at a pretrained checkpoint. Then derive SIGReg's gradient-through-projection on paper.
@@ -130,13 +130,13 @@ Question 4 is the domain anchor — every module ends with a "what this unlocks 
 
 ### Tier 5 — Home robotics integration
 
-#### Module 13 — Home robotics — the deployment reality
+#### [Module 13](curriculum-13-home-robotics-deployment.md) — Home robotics — the deployment reality
 - **Concept beats:** [Stretch](../entities/stretch.md) as the de-facto research platform ([why](stretch-as-assistive-platform.md)); [RUM (robot utility models)](../glossary.md#rum) and [OK-Robot](../glossary.md#ok-robot) as the "real-data" path; the AI Index 89.4% [RLBench](https://github.com/stepjam/RLBench) vs 12.4% [BEHAVIOR-1K](../glossary.md#behavior-1k) gap; [PAR (physically assistive robotics)](../glossary.md#par) ([systematic review](../sources/nanavati2024-physically-assistive-robots-review.md)); [autonomy-preference finding](../syntheses/levels-of-autonomy-in-assistive-robotics.md); [EUP (end-user programming)](../glossary.md#eup); why [JEPA](../glossary.md#jepa) could matter here ([assistive-robotics R&D landscape](assistive-robotics-research-landscape.md)).
 - **Why for LeWM:** the user's actual goal. LeWM and friends are not deployed in homes today. This module places the technique inside the deployment reality and identifies which barriers it could plausibly move (data efficiency, planning speed) and which it won't (whole-body manipulation, dressing, bathing, real-world robustness).
 - **Anchor exercise:** read [DINO-WM on Stretch experiment plan](dino-wm-on-stretch-experiment.md) and [LeWM on Stretch feasibility](lewm-on-stretch-feasibility.md); state the one experiment most worth running.
 - **Module page:** [Curriculum Module 13 — Home robotics deployment reality](curriculum-13-home-robotics-deployment.md) **(drafted 2026-05-10)**.
 
-#### Module 14 — Capstone: paper-first, hardware-second (per decision 4)
+#### [Module 14](curriculum-14-capstone.md) — Capstone: paper-first, hardware-second (per decision 4)
 - **Phase A (paper / sim — required):** reproduce LeWM PushT from scratch ([detailed scope already filed](lewm-hello-world-project-scope.md)); install / train / eval per [the howto](leworldmodel-howto.md); produce a written experiment-design memo for the smallest credible LeWM-on-Stretch or DINO-WM-on-Stretch experiment ([feasibility analysis](lewm-on-stretch-feasibility.md), [DINO-WM-on-Stretch plan](dino-wm-on-stretch-experiment.md)).
 - **Phase B (hardware — when Stretch is available):** execute the phase-A memo on a real [Stretch](../entities/stretch.md). Use the [RUM](../glossary.md#rum) open dataset to bootstrap the action-conditioning data. Compare against a Diffusion Policy baseline.
 - **Why for LeWM:** the only way to know if you understood it is to train it. Phase B is gated on hardware acquisition; the curriculum is fully completable on phase A alone.
