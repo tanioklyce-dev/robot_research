@@ -3,8 +3,8 @@ title: NVIDIA Cosmos
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-05-07
-sources: 5
+updated: 2026-05-10
+sources: 7
 tags: [cosmos, world-model, video-generation, nvidia, foundation-model]
 ---
 

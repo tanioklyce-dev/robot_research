@@ -3,8 +3,8 @@ title: Genie Envisioner
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-05-07
-sources: 4
+updated: 2026-05-10
+sources: 5
 tags: [genie-envisioner, world-model, agibot, cosmos, manipulation]
 ---
 

@@ -3,8 +3,8 @@ title: Atlas
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-05-08
-sources: 0
+updated: 2026-05-10
+sources: 1
 tags: [atlas, boston-dynamics, humanoid, bipedal, research, hyundai]
 status: stub
 ---

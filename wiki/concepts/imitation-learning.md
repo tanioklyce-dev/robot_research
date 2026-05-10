@@ -2,8 +2,8 @@
 title: Imitation learning
 type: concept
 created: 2026-05-07
-updated: 2026-05-09
-sources: 8
+updated: 2026-05-10
+sources: 17
 tags: [imitation-learning, behavior-cloning, demonstrations]
 ---
 

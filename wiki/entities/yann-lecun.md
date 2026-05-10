@@ -3,8 +3,8 @@ title: Yann LeCun
 type: entity
 subtype: person
 created: 2026-05-07
-updated: 2026-05-09
-sources: 7
+updated: 2026-05-10
+sources: 12
 tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs]
 ---
 

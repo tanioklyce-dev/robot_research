@@ -3,8 +3,8 @@ title: Drosophila brain model (philshiu/Drosophila_brain_model)
 type: entity
 subtype: code-repository
 created: 2026-05-08
-updated: 2026-05-08
-sources: 1
+updated: 2026-05-10
+sources: 3
 license: MIT
 url: https://github.com/philshiu/Drosophila_brain_model
 tags: [fly-brain, leaky-integrate-and-fire, brian2, flywire, drosophila, open-source, mit-license]

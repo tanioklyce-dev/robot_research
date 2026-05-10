@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-10
 updated: 2026-05-10
-sources: 1
+sources: 4
 tags: [tri, toyota-research-institute, robotics-research, automated-driving, lbm, drake, organization]
 ---
 

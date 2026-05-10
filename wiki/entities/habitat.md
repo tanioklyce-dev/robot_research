@@ -3,8 +3,8 @@ title: Habitat
 type: entity
 subtype: product
 created: 2026-05-08
-updated: 2026-05-08
-sources: 0
+updated: 2026-05-10
+sources: 1
 tags: [habitat, embodied-ai, simulator, meta-fair, navigation, manipulation]
 ---
 

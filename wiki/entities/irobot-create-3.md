@@ -3,8 +3,8 @@ title: iRobot Create 3
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-05-08
-sources: 0
+updated: 2026-05-10
+sources: 1
 tags: [irobot, create-3, mobile-robot, ros2, education, roomba, turtlebot-base]
 status: stub
 ---

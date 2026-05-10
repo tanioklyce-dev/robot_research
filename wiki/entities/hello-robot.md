@@ -3,8 +3,8 @@ title: Hello Robot
 type: entity
 subtype: company
 created: 2026-05-07
-updated: 2026-05-09
-sources: 6
+updated: 2026-05-10
+sources: 7
 tags: [hello-robot, stretch, mobile-manipulation, research-platform]
 ---
 

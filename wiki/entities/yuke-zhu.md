@@ -3,8 +3,8 @@ title: Yuke Zhu
 type: entity
 subtype: person
 created: 2026-05-08
-updated: 2026-05-08
-sources: 0
+updated: 2026-05-10
+sources: 1
 tags: [person, ut-austin, nvidia, embodied-ai, robocasa, manipulation]
 ---
 

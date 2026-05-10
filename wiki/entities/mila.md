@@ -3,8 +3,8 @@ title: Mila
 type: entity
 subtype: company
 created: 2026-05-07
-updated: 2026-05-07
-sources: 2
+updated: 2026-05-10
+sources: 4
 tags: [mila, montreal, ai-research, jepa, lecun]
 status: stub
 ---

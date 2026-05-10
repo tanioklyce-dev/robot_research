@@ -3,8 +3,8 @@ title: LIBERO
 type: entity
 subtype: benchmark
 created: 2026-05-08
-updated: 2026-05-08
-sources: 0
+updated: 2026-05-10
+sources: 1
 tags: [libero, manipulation-benchmark, lifelong-learning, robosuite, mujoco]
 ---
 

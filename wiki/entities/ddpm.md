@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-05-10
 updated: 2026-05-10
-sources: 1
+sources: 2
 tags: [ddpm, diffusion-model, generative-model, score-matching, langevin-dynamics, ho-2020, abbeel-lab, foundational]
 ---
 

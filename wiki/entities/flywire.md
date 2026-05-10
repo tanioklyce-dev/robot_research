@@ -3,8 +3,8 @@ title: FlyWire
 type: entity
 subtype: dataset-consortium
 created: 2026-05-08
-updated: 2026-05-08
-sources: 3
+updated: 2026-05-10
+sources: 4
 tags: [flywire, connectome, drosophila, neuroscience, brain-mapping]
 ---
 

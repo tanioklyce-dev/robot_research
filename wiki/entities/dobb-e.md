@@ -3,8 +3,8 @@ title: Dobb·E
 type: entity
 subtype: method
 created: 2026-05-08
-updated: 2026-05-08
-sources: 1
+updated: 2026-05-10
+sources: 2
 tags: [dobb-e, behavior-cloning, hpr-encoder, stretch, nyu, shafiullah, predecessor]
 status: stub
 ---

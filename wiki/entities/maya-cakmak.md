@@ -3,8 +3,8 @@ title: Maya Cakmak
 type: entity
 subtype: person
 created: 2026-05-09
-updated: 2026-05-09
-sources: 7
+updated: 2026-05-10
+sources: 8
 tags: [maya-cakmak, assistive-robotics, eup, hcrlab, uw, hri]
 ---
 

@@ -3,8 +3,8 @@ title: Newton physics engine
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-05-07
-sources: 4
+updated: 2026-05-10
+sources: 5
 tags: [physics-engine, gpu, openusd, usdphysics, warp, linux-foundation]
 ---
 

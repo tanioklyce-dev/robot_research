@@ -3,8 +3,8 @@ title: 1X NEO
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-05-09
-sources: 1
+updated: 2026-05-10
+sources: 2
 tags: [1x-neo, humanoid, bipedal, household, consumer, redwood-ai, norway]
 ---
 

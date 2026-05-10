@@ -3,8 +3,8 @@ title: PointMaze
 type: entity
 subtype: benchmark
 created: 2026-05-08
-updated: 2026-05-08
-sources: 0
+updated: 2026-05-10
+sources: 3
 tags: [pointmaze, navigation-benchmark, mujoco, lightweight-sim, gymnasium-robotics]
 ---
 

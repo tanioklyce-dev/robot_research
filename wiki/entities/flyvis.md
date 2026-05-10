@@ -3,8 +3,8 @@ title: flyvis (TuragaLab/flyvis)
 type: entity
 subtype: code-repository
 created: 2026-05-08
-updated: 2026-05-08
-sources: 1
+updated: 2026-05-10
+sources: 2
 license: MIT
 url: https://github.com/TuragaLab/flyvis
 docs: https://turagalab.github.io/flyvis/

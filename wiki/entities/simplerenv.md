@@ -3,8 +3,8 @@ title: SimplerEnv
 type: entity
 subtype: product
 created: 2026-05-08
-updated: 2026-05-08
-sources: 0
+updated: 2026-05-10
+sources: 1
 tags: [simplerenv, manipulation-benchmark, sapien, real-world-eval, vla-eval]
 ---
 

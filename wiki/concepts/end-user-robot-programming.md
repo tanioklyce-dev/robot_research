@@ -2,8 +2,8 @@
 title: End-User Robot Programming
 type: concept
 created: 2026-05-09
-updated: 2026-05-09
-sources: 4
+updated: 2026-05-10
+sources: 7
 tags: [eup, robot-programming, hri, accessibility, customization]
 ---
 

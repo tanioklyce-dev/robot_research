@@ -3,8 +3,8 @@ title: Metaworld
 type: entity
 subtype: benchmark
 created: 2026-05-07
-updated: 2026-05-08
-sources: 1
+updated: 2026-05-10
+sources: 3
 tags: [metaworld, meta-rl, multi-task-rl, benchmark, mujoco, sawyer, stanford, berkeley]
 ---
 

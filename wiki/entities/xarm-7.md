@@ -3,8 +3,8 @@ title: xArm 7
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-05-08
-sources: 1
+updated: 2026-05-10
+sources: 2
 tags: [xarm, ufactory, robot-arm, manipulator, 7-dof, cross-embodiment]
 status: stub
 ---

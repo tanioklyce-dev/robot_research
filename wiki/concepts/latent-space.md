@@ -2,8 +2,8 @@
 title: Learned latent space
 type: concept
 created: 2026-05-08
-updated: 2026-05-08
-sources: 7
+updated: 2026-05-10
+sources: 10
 tags: [representation-learning, embeddings, world-model, jepa, self-supervised]
 ---
 

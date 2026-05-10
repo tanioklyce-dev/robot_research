@@ -3,8 +3,8 @@ title: DM Control Suite
 type: entity
 subtype: benchmark
 created: 2026-05-08
-updated: 2026-05-08
-sources: 2
+updated: 2026-05-10
+sources: 4
 tags: [dm-control, deepmind, mujoco, rl-benchmark, locomotion, manipulation, biomechanics]
 ---
 

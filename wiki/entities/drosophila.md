@@ -3,8 +3,8 @@ title: Drosophila melanogaster
 type: entity
 subtype: model-organism
 created: 2026-05-08
-updated: 2026-05-08
-sources: 6
+updated: 2026-05-10
+sources: 7
 tags: [drosophila, fruit-fly, model-organism, neuroscience, biomechanics]
 ---
 
