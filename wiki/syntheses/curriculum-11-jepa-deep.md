@@ -154,7 +154,7 @@ loss     = ‖ẑ_{t+1} − z_{t+1}‖²
 | Variance-covariance | 3 (`λ₁`, `λ₂`, `λ₃`) | [VICReg](../glossary.md#vicreg), [Barlow Twins](../glossary.md#barlow-twins) | No EMA needed | More knobs |
 | Frozen encoder | 0 | [DINO-WM](../entities/dino-wm.md), [JEPA-WMs](../entities/jepa-wms.md) | Trivially stable; cheap | Stuck with off-the-shelf encoder |
 | Multi-fix soup | 4–6 | [PLDM](../entities/pldm.md), pre-2026 end-to-end JEPAs | Layered defense | Hyperparameter hell |
-| SIGReg | 1 | [LeJEPA](../sources/lejepa-paper.md) (SSL); [LeWM](../entities/leworldmodel.md) (WM) | One knob; provable anti-collapse | Math is novel; two papers of evidence (LeJEPA SSL + LeWM action-conditioned) |
+| SIGReg | 1 | [LeJEPA](../sources/lejepa-paper.md) (SSL; up to 1.8B-param ViT-g; 10+ datasets / 60+ architectures); [LeWM](../entities/leworldmodel.md) (action-conditioned WM) | One knob; provable anti-collapse via hyperspherical Cramér–Wold + Epps–Pulley | Math is novel; two papers of evidence so far |
 
 The LeWM contribution is exactly the bottom row: a *theoretical* simplification (one regularizer; one hyperparameter) that empirically beats the multi-fix soup on the same benchmarks. Module 12 derives the mathematics. Module 11's job is to make you ready to evaluate that contribution against the rest of the row above it.
 

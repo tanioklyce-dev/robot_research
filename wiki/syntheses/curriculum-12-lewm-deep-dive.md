@@ -111,6 +111,9 @@ SIGReg(Z) = (1/M) Σ_{m=1..M} T(h^(m))           (Eq. 2)
 
 where `T(·)` is a univariate normality test statistic (more on which one in §2.4).
 
+> [!note] Average vs max — practical vs formal
+> The [LeJEPA paper](../sources/lejepa-paper.md) Theorem 2 actually defines the formally consistent statistic as the **max** over directions: `T_A = max_{a ∈ A} T({a^⊤ f_θ(x_n)})`. The paper's practical SIGReg (Definition 2) uses **average** instead — explicitly: "We replace the maximum over `a ∈ A` [...] by an average [...] to avoid sparse gradient over the directions in `A`." Max is the consistent statistic; average is the gradient-friendly approximation. Same kind of trade-off as VICReg's variance penalty.
+
 **Why is this a sound anti-collapse signal, not just a heuristic?** This is where the Cramér–Wold theorem earns its keep.
 
 ### 2.4 The Cramér–Wold theorem (the legitimacy argument)
@@ -143,13 +146,22 @@ where:
 
 The integral is computed numerically over a finite set of "integration knots" — a hyperparameter SIGReg also exposes but which is empirically insensitive (the paper notes both `M` and the number of knots can vary widely without affecting downstream performance).
 
-**Why Epps–Pulley specifically?**
+**Why Epps–Pulley specifically?** [LeJEPA §4.2](../sources/lejepa-paper.md) walks through the alternatives explicitly and rules each out:
 
-- It's a **smooth, differentiable** test statistic — `T(h)` has well-behaved gradients with respect to `h`. That's load-bearing because SIGReg's job is to be a **loss term**, which means we have to backprop through `T`.
-- It tests **the full distribution**, not just moments — heavy tails, multi-modality, and skewness all show up in the characteristic-function comparison.
-- It scales linearly in sample size (assuming a fixed integration grid) — so SIGReg is `O(M · n + M · K)` where `K` is the number of integration knots.
+- **Smooth, differentiable.** The ECF is a sum of complex exponentials; its gradient is `(i · t / n) · exp(i · t · h_k)` — available via standard autodiff.
+- **Bounded loss, gradient, *and curvature*.** Important practical property — second-order optimization tricks remain stable. Established in §4.2.3 of the paper.
+- **Distributable via `all_reduce`.** The ECF is a simple average of complex exponentials, so it parallelizes across GPUs without synchronization barriers.
+- **Tests the full distribution** — heavy tails, multi-modality, skewness all show up in the characteristic-function comparison.
+- **Scales linearly** in sample size — `O(M · N)` total for `M` projections and `N` samples per batch.
 
-Anderson-Darling and Kolmogorov-Smirnov, by contrast, are *quantile*-based and have non-smooth gradients (the AD statistic involves rank-based weighting; KS involves a max over the empirical CDF). They don't lend themselves to gradient-based optimization.
+The alternatives, ruled out one by one:
+
+- **Moment-based tests (Jarque-Bera, extended JB)** — Theorem 3 of LeJEPA proves finite-`K` moment matching is non-identifying, but going to large `K` is unstable: gradient magnitude grows as `O(k)` and Monte-Carlo gradient variance grows as `O(k² · m_{2(k-1)})`. Stability and identifiability can't be achieved simultaneously.
+- **CDF-based tests (Cramér–von Mises, Anderson-Darling, Watson)** — require sorting (rank statistics). Sorting *can* be `O(N log N)` (quicksort) but breaks the embarrassing parallelism of SGD on multi-GPU due to synchronization. Order statistics are also non-differentiable; smooth relaxations introduce more hyperparameters.
+- **Kolmogorov-Smirnov** — uses `ℓ_∞` instead of `ℓ_2`, producing **sparse gradients** (the supremum is reached at a single point).
+- **Shapiro-Wilk** — found unstable in practice (per LeJEPA §E).
+
+Epps-Pulley is the rigorous answer: it's the only family that's smooth, parallelizable, and consistent.
 
 ### 2.6 Backprop through the test statistic
 
