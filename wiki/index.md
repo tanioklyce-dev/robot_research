@@ -10,6 +10,7 @@ Curated entry points across the wiki.
 - [Curriculum Module 7 — BC lineage on PushT (IBC → BeT → DP)](syntheses/curriculum-07-bc-lineage-pusht.md) — direct successor to Module 6; the policy-learning side of the LeWM ablation table.
 - [Curriculum Module 10 — World models, broad](syntheses/curriculum-10-world-models.md) — four-family WM taxonomy (generative-video / JEPA / frozen-feature / MBRL); MPC + CEM + gradient-based planning; horizon vs compounding error; bridge to LeWM.
 - [Curriculum Module 11 — JEPA in depth](syntheses/curriculum-11-jepa-deep.md) — joint-embedding architectural commitment; V-JEPA 1→2→2-AC→2.1 progression; the six-family collapse-prevention zoo (EMA/stop-grad, VICReg, frozen encoder, multi-fix soup, SIGReg); DINO-WM vs end-to-end JEPA; JEPA-WMs real-Franka.
+- [Curriculum Module 12 — LeWorldModel deep-dive (with full SIGReg math)](syntheses/curriculum-12-lewm-deep-dive.md) — **the curriculum's destination**. LeWM section by section; full SIGReg derivation (Cramér–Wold + Epps–Pulley + backprop through the test statistic); two-loss architecture; CEM-MPC planning; four-environment results; latent probing + violation-of-expectation; the BN-after-CLS engineering trick.
 - [Glossary](glossary.md) — flat acronym + term reference (BC, VLM, CNN, SSL, MPC, MSE, LSTM, SIGReg, …); cross-linked from every curriculum module.
 
 **AI Safety and Alignment**
@@ -352,6 +353,7 @@ Curated entry points across the wiki.
 - [Curriculum Module 7 — BC lineage on PushT (IBC → BeT → DP)](syntheses/curriculum-07-bc-lineage-pusht.md) — multi-modal-action problem + IBC/BeT/Diffusion Policy + bridge to world models; anchor exercise on PushT. (2026-05-10)
 - [Curriculum Module 10 — World models, broad](syntheses/curriculum-10-world-models.md) — functional definition; four families (generative-video / JEPA / frozen-feature / MBRL); MPC + CEM + gradient-based planning; horizon vs compounding error; LeWM positioned in the taxonomy. (2026-05-10)
 - [Curriculum Module 11 — JEPA in depth](syntheses/curriculum-11-jepa-deep.md) — joint-embedding architecture; collapse-prevention zoo (EMA, VICReg, frozen encoder, multi-fix, SIGReg); V-JEPA progression; DINO-WM frozen-feature variants; JEPA-WMs first-real-Franka; LeWM-vs-V-JEPA-2 axis-by-axis. (2026-05-10)
+- [Curriculum Module 12 — LeWorldModel deep-dive (with full SIGReg math)](syntheses/curriculum-12-lewm-deep-dive.md) — the destination module. LeWM section by section; full SIGReg derivation (random projections + Epps–Pulley + Cramér–Wold + backprop); architecture (incl. the BN-after-CLS trick); CEM-MPC; four-env results; latent probing + VoE; what it means for the JEPA program. (2026-05-10)
 
 ### JEPA-related concepts/entities/sources to potentially expand
 - Metaworld — referenced by [JEPA-WMs](sources/jepa-wms-paper.md) (42 tasks); deserves an entity page.

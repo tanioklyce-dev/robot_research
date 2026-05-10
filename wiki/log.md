@@ -775,3 +775,38 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Updated [Robot-learning curriculum](syntheses/robot-learning-curriculum.md) — Module 11 entry now links the drafted page; coverage table cell updated to "drafted"; status frontmatter notes Modules 6 + 7 + 10 + 11 drafted.
 - Updated [index.md](index.md) — Highlights bullet for Module 11; Syntheses bullet for Module 11; reader-order is now Modules 6 → 7 and 10 → 11, all consumable.
 - Tier 4 is now half-drafted (Modules 10 + 11). Module 12 (LeWM deep-dive with full SIGReg math) is the destination and the longest module by design.
+
+## [2026-05-10] curriculum-module | Module 12 drafted — LeWorldModel deep-dive (with full SIGReg math)
+- Created [Curriculum Module 12 — LeWorldModel deep-dive (with full SIGReg math)](syntheses/curriculum-12-lewm-deep-dive.md) — **the curriculum destination**. Fifth drafted module, completes Tier 4.
+- Source: full PDF extraction of `raw/LeWorldMode_2603.19312v2.pdf` via pypdf (per [PDF extraction memory](file:///home/tklyce/.claude/projects/-home-tklyce-projects-tanio-robot-research/memory/pdf_extraction.md)). The paper's method, planning, and results sections were re-read from the PDF rather than from the paraphrased source page.
+- **Two corrections found during the deep-dive:**
+  - The curriculum hub previously described SIGReg's normality test as "Anderson-Darling-style." The paper actually uses **Epps–Pulley**. Curriculum hub fixed; module 12 flags the correction in a top-level callout.
+  - The glossary's SIGReg expansion was "Sliced Integral Gaussian Regularization" (with a TBD flag). The paper's actual name is **Sketched Isotropic Gaussian Regularizer** (Balestriero 2025, ref [25] in the LeWM paper). Glossary entry rewritten with the correct name + the Epps-Pulley / Cramér–Wold pieces in place.
+- Structure (~25kB; longest module by design):
+  1. Curriculum-context callout (destination framing) + the Epps–Pulley vs Anderson-Darling correction.
+  2. Six learning objectives.
+  3. **§1 — The two-loss architecture** with full forward-pass diagram + 10-line PyTorch pseudocode of the training step.
+  4. **§2 — SIGReg in detail (the mathematical centerpiece)**, eight subsections:
+     - 2.1 The goal (match isotropic Gaussian; rules out collapse trivially).
+     - 2.2 Why high-dim normality testing is hard (multivariate tests don't scale).
+     - 2.3 Random-projection sketch — projections `h^(m) = Z u^(m)` with `u^(m) ∈ S^{d-1}`.
+     - 2.4 **Cramér–Wold theorem** — formal justification (matching all 1D marginals = matching joint).
+     - 2.5 **Epps–Pulley univariate normality test** — explicit integral form via empirical characteristic function vs `e^{-t²/2}`; smooth + differentiable + full-distribution-sensitive (vs Anderson-Darling / KS which are quantile-based and non-smooth).
+     - 2.6 **Backprop through the test statistic** — the calculus chain `∂T/∂h_k → ∂T/∂Z`.
+     - 2.7 Hyperparameter analysis: M and K empirically insensitive; only λ matters (default 0.1; bisection-tunable in O(log n) vs PLDM's O(n^6)).
+     - 2.8 SIGReg in one sentence — every word maps to a design decision.
+  5. **§3 — Architecture details** including the **BN-after-CLS-token trick** (load-bearing! ViT's terminal LayerNorm pre-normalizes away the batch distribution SIGReg operates on; swapping to BN in the projection MLP is what makes SIGReg optimizable). Predictor: AdaLN-zero-init for action conditioning, 6-layer transformer + dropout.
+  6. **§4 — Latent planning (CEM-MPC)** — terminal goal-matching cost `C(ẑ_H) = ‖ẑ_H − z_g‖²`; CEM solver pseudocode; receding horizon; horizon vs compounding error tradeoff. The 48× speedup decomposed (~200× fewer tokens than DINO-WM).
+  7. **§5 — Empirical results** with the headline four-environment table (PushT, Reacher, OGBench-Cube, Two-Room) including the **Two-Room failure case** as a real SIGReg limitation (Gaussian prior over-regularizes when intrinsic task complexity is too low). Ablations on M, K, embedding dim d, encoder architecture (ResNet-18 also works → architecture-agnostic).
+  8. **§6 — Latent-space analysis**: physical-quantity probing (Table 1: LeWM beats PLDM, competitive with DINO-WM); latent decoder reconstruction (despite no reconstruction in training); t-SNE; **temporal latent path straightening as an emergent property** (LeWM beats PLDM on this without a smoothness term, despite PLDM having one).
+  9. **§7 — Violation-of-expectation framework** — surprise = `‖ẑ_{t+1} − z_{t+1}‖`, used to flag physically implausible events.
+  10. **§8 — What this all means** — LeWM as a *methodological* (not scaling) contribution; the bridge to home-robotics deployment via the 15M-param-trainable-on-a-single-GPU profile.
+  11. **Anchor exercise** — Part A: reproduce LeWM PushT (per [howto](syntheses/leworldmodel-howto.md) + [hello-world scope](syntheses/lewm-hello-world-project-scope.md)). Part B: derive the SIGReg gradient on paper.
+  12. Recommended reading (LeWM paper end-to-end, GitHub, V-JEPA 2 GitHub as counterpoint, Balestriero 2025 SIGReg paper, generative-video-vs-JEPA synthesis, hello-world scope).
+  13. What you should now be able to do.
+  14. Hand-off to Modules 13 + 14.
+  15. Related modules + Mentioned in + Open questions (Balestriero 2025 source page; PLDM ingest; Two-Room threshold quantification; SIGReg-at-scale).
+- Updated [Robot-learning curriculum](syntheses/robot-learning-curriculum.md) — Module 12 entry now links the drafted page; fixed the "Anderson-Darling-style" → "Epps–Pulley" / "Cramér–Wold" reference; coverage table cell updated to "drafted"; status frontmatter notes Modules 6 + 7 + 10 + 11 + 12 drafted (Tier 4 complete).
+- Updated [Glossary](glossary.md) — SIGReg entry rewritten: correct expansion (Sketched Isotropic Gaussian Regularizer), Balestriero 2025 attribution, Epps–Pulley test, Cramér–Wold theorem, λ default 0.1.
+- Updated [index.md](index.md) — Highlights bullet + Syntheses bullet for Module 12; reader can now traverse Modules 6 → 7 and 10 → 11 → 12.
+- Tier 4 is now complete. The curriculum's destination (Module 12) is reachable from the wiki's filed material. Five of fourteen modules are drafted.
