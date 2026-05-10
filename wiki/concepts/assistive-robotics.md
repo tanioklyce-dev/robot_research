@@ -3,7 +3,7 @@ title: Assistive Robotics
 type: concept
 created: 2026-05-09
 updated: 2026-05-09
-sources: 7
+sources: 13
 tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot, accessibility]
 ---
 
@@ -26,6 +26,16 @@ tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot
 Assistive robotics is the **end-use case that motivates most mobile-manipulation research** in this wiki — [Robot Utility Models](../entities/robot-utility-models.md), [OK-Robot](../entities/ok-robot.md), and [HomeRobot / OVMM](../sources/ovmm-homerobot.md) are all motivated by the same underlying goal: a robot that can help a person in their home without per-environment training.
 
 The gap between the research benchmark (58.5% success on pick-and-drop, OK-Robot) and clinical deployment readiness remains large. Assistive deployments require reliability far exceeding current zero-shot benchmarks.
+
+## Literature landscape (systematic review)
+
+The [Nanavati, Ranganeni & Cakmak 2024](../sources/nanavati2024-physically-assistive-robots-review.md) systematic review (*Annual Review of Control, Robotics, and Autonomous Systems*) is the canonical literature map for this field. From 1,981 screened papers, 87 met inclusion criteria (PAR + user study + mobile/manipulator robot for PwD):
+
+- **Scale of need**: 1.3 billion people globally experience significant disability (WHO).
+- **Domains most studied**: Navigation, eating/feeding, and pick-and-place/housework dominate. Three spikes against an otherwise thin distribution.
+- **Underserved domains**: Dressing, bathing/grooming, and managing medications have high user need relative to the proportion of PAR papers addressing them — the clearest research gaps.
+- **Participant inclusion**: ~half of PAR papers involve no participants with the target disability. All formative studies involved PwD; most summative evaluations did not.
+- **Three research themes**: (1) Interaction interfaces; (2) Levels of autonomy; (3) Adaptation.
 
 ## Real-world household task performance (2025 data)
 
@@ -70,3 +80,9 @@ The 2025 RO-MAN paper "Preserving Sense of Agency: User Preferences for Robot Au
 - [Stanford HAI — AI Index Report 2026](../sources/stanford-hai-ai-index-2026.md)
 - [HCR Lab Publications](../sources/hcrlab-publications.md)
 - [Maya Cakmak — Research Overview](../sources/maya-cakmak-research.md)
+- [Physically Assistive Robots — Systematic Review](../sources/nanavati2024-physically-assistive-robots-review.md)
+- [Sense of Agency — Yang et al. 2025](../sources/yang2025-sense-of-agency.md)
+- [Feeding System Out-of-lab — Nanavati et al. 2025](../sources/nanavati2025-feeding-out-of-lab.md)
+- [Explicit-Input Teleoperation — Walker et al. 2024](../sources/walker2024-explicit-input-teleoperation.md)
+- [Grasping in Clutter IVFP — Murray et al. 2024](../sources/murray2024-grasping-clutter-ivfp.md)
+- [Multiple Ways of Working with Users — Nanavati et al. 2024](../sources/nanavati2024-multiple-ways-par.md)

@@ -563,3 +563,18 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Updated [Assistive robotics](concepts/assistive-robotics.md) — added "Autonomy and agency" section (HRI 2020 finding; assistive autonomy model; EUP as scalable response; sense of agency 2025 paper); added EUP cross-link to Related concepts; added HCR Lab sources to Mentioned in; sources 5→7.
 - Updated [Assistive robotics — R&D landscape](syntheses/assistive-robotics-research-landscape.md) — moved Cakmak from "Beyond the wiki" to "Strong in the wiki" with full specifics: HRI 2020 finding, summer deployments, EUP, sense of agency paper, HCR Lab sources.
 - Updated [index.md](index.md) — added 2 source entries, HCR Lab entity, Maya Cakmak entity, end-user-robot-programming concept; bumped Stretch sources 7→9; bumped assistive-robotics sources 4→7.
+
+## [2026-05-09] ingest | 6 HCR Lab papers (murray2024, nanavati×3, walker2024, yang2025)
+- Created [Physically Assistive Robots — Systematic Review](sources/nanavati2024-physically-assistive-robots-review.md) — PRISMA review (*Annual Review*, 2024); 1,981 screened, 87 included; three themes (interaction interfaces, levels of autonomy, adaptation); dressing/bathing/medication underserved; ~half of PAR papers involve no PwD. (raw/nanavati2024physically.pdf)
+- Created [Sense of Agency — Yang et al. 2025](sources/yang2025-sense-of-agency.md) — RO-MAN 2025; four autonomy levels; EUP robots preserve sense of agency even when autonomous; high-risk tasks drive control preference; uses Stretch 3. (raw/yang2025senseofagency.pdf)
+- Created [Feeding System Out-of-lab — Nanavati et al. 2025](sources/nanavati2025-feeding-out-of-lab.md) — HRI 2025 Best Systems Paper Finalist; open-source Kinova JACO system; CBPR co-design with two SCI quadriplegic CRs; 3 key lessons: customizability, variable autonomy, context-dependence. (raw/nanavati2025lessons.pdf)
+- Created [Multiple Ways of Working with Users — Nanavati et al. 2024](sources/nanavati2024-multiple-ways-par.md) — A3DE @ HRI 2024 workshop; 3 PAR projects; participatory + empowerment design methodology. (raw/nanavati2024multiple.pdf)
+- Created [Explicit-Input Teleoperation — Walker et al. 2024](sources/walker2024-explicit-input-teleoperation.md) — IROS 2024; pointing-based explicit assistance vs. implicit inference; N=20 user study; Franka + Isaac Sim; NVIDIA collaboration. (raw/walker2024explicit.pdf)
+- Created [Grasping in Clutter IVFP — Murray et al. 2024](sources/murray2024-grasping-clutter-ivfp.md) — IVFP on Stretch RE1; interactive probing before extraction; autonomous reward assignment; Amazon Science Fellowship. (raw/murray2024learning.pdf)
+- Created [Amal Nanavati](entities/amal-nanavati.md) — UW HCR Lab; lead author on feeding system, systematic review, multiple ways; CBPR methodology.
+- Updated [Maya Cakmak](entities/maya-cakmak.md) — added specific paper citations for all 6 new papers; updated Mentioned in; sources 2→7.
+- Updated [HCR Lab](entities/hcrlab.md) — added all 6 papers to Mentioned in; sources 2→8.
+- Updated [Stretch](entities/stretch.md) — added sense of agency paper (Stretch 3 used) and IVFP paper (Stretch RE1); sources 9→11.
+- Updated [Assistive robotics](concepts/assistive-robotics.md) — added "Literature landscape" section (systematic review stats: 1.3B PwD, 87 papers, three themes, underserved domains); sources 7→13; added all 6 papers to Mentioned in.
+- Updated [End-user robot programming](concepts/end-user-robot-programming.md) — added sense of agency finding (EUP preserves agency) and feeding paper lessons; sources 2→4; updated Mentioned in.
+- Updated [index.md](index.md) — 6 new source entries; Amal Nanavati entity; updated source counts (Stretch 9→11, assistive-robotics 7→13, EUP 2→4, Maya Cakmak 2→7).

@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-07
 updated: 2026-05-09
-sources: 9
+sources: 11
 tags: [stretch, mobile-manipulation, hello-robot, research-robot]
 ---
 
@@ -42,3 +42,5 @@ $20,000 ([IEEE Spectrum, 2023](../sources/ieee-spectrum-stretch-assistive.md)) �
 - [IEEE Spectrum — Stretch assistive robot](../sources/ieee-spectrum-stretch-assistive.md)
 - [HomeRobot / OVMM](../sources/ovmm-homerobot.md)
 - [OK-Robot Project Page](../sources/ok-robot-project-page.md)
+- [Sense of Agency — Yang et al. 2025](../sources/yang2025-sense-of-agency.md)
+- [Grasping in Clutter IVFP — Murray et al. 2024](../sources/murray2024-grasping-clutter-ivfp.md)

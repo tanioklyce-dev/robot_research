@@ -4,7 +4,7 @@ type: entity
 subtype: organization
 created: 2026-05-09
 updated: 2026-05-09
-sources: 2
+sources: 8
 tags: [hcrlab, uw, maya-cakmak, assistive-robotics, eup]
 ---
 
@@ -40,3 +40,9 @@ The lab that most directly addresses the "accessible HRI for low-motor users" ga
 ## Mentioned in
 - [HCR Lab Publications](../sources/hcrlab-publications.md)
 - [Maya Cakmak — Research Overview](../sources/maya-cakmak-research.md)
+- [Physically Assistive Robots — Systematic Review](../sources/nanavati2024-physically-assistive-robots-review.md)
+- [Sense of Agency — Yang et al. 2025](../sources/yang2025-sense-of-agency.md)
+- [Feeding System Out-of-lab — Nanavati et al. 2025](../sources/nanavati2025-feeding-out-of-lab.md)
+- [Explicit-Input Teleoperation — Walker et al. 2024](../sources/walker2024-explicit-input-teleoperation.md)
+- [Grasping in Clutter IVFP — Murray et al. 2024](../sources/murray2024-grasping-clutter-ivfp.md)
+- [Multiple Ways of Working with Users — Nanavati et al. 2024](../sources/nanavati2024-multiple-ways-par.md)
