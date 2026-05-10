@@ -326,7 +326,7 @@ Module 11 has set up the entire LeWM contribution **except for the math**. By th
 3. LeWM claims to do it with **one regularizer (SIGReg) and one hyperparameter**.
 4. Module 12 is the math derivation of why SIGReg works, and the empirical evidence that it does.
 
-[Module 12](robot-learning-curriculum.md) will derive **SIGReg from random projections + the empirical CDF + an Anderson-Darling-style normality test + backprop through the test statistic**, then walk the LeWM paper section-by-section through the architecture, planning protocol, surprise evaluation, latent probing, and four-environment results table (PushT, PointMaze, Reacher, Cube) including the comparison columns against PLDM, DINO-WM, Dreamer, and TD-MPC.
+[Module 12](curriculum-12-lewm-deep-dive.md) will derive **SIGReg from random unit-norm projections + the Epps–Pulley univariate normality test (justified by Cramér–Wold) + backprop through the test statistic**, then walk the LeWM paper section-by-section through the architecture, planning protocol, surprise evaluation, latent probing, and four-environment results table (PushT, Reacher, OGBench-Cube, Two-Room) including the comparison columns against PLDM, DINO-WM, Dreamer, and TD-MPC.
 
 ## Related curriculum modules
 
