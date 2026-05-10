@@ -3,8 +3,8 @@ title: Franka Panda
 type: entity
 subtype: robot
 created: 2026-05-07
-updated: 2026-05-07
-sources: 5
+updated: 2026-05-10
+sources: 7
 tags: [franka, panda, robot-arm, manipulator, 7-dof, manipulation-platform]
 ---
 
@@ -28,6 +28,7 @@ Franka Panda is the **closest thing to a standard real-robot evaluation platform
 - **[V-JEPA 2.1](../sources/v-jepa-2-1-paper.md)** reports +20pt grasping over V-JEPA 2-AC on real Franka.
 - **[JEPA-WMs](jepa-wms.md)** uses Franka trajectories for "unroll decode evaluation" alongside DROID + RoboCasa.
 - **[Robot Utility Models](robot-utility-models.md)** lists Franka (and xArm 7) as cross-embodiment transfer targets from a Stretch-collected dataset.
+- **[Diffusion Policy](diffusion-policy.md)** uses Franka Panda for three of its four real-world tasks: 6-DoF mug flipping (90% success), sauce pouring (79%), and periodic sauce spreading (100%) ([paper](../sources/diffusion-policy-paper.md) §VI).
 
 The result: when a JEPA-style or VLA-style paper says "real-robot eval" without further qualification in 2024–2026, the default mental model is Franka.
 
@@ -55,3 +56,5 @@ The result: when a JEPA-style or VLA-style paper says "real-robot eval" without 
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
 - [Robot Utility Models Project Page](../sources/robot-utility-models-website.md)
 - [Robot Utility Models Paper](../sources/robot-utility-models-paper.md)
+- [Diffusion Policy Paper](../sources/diffusion-policy-paper.md)
+- [UMI Project Page](../sources/umi-paper.md) — Franka is one of two UMI deployment platforms (alongside UR5e); zero-shot cross-embodiment transfer demonstrated.

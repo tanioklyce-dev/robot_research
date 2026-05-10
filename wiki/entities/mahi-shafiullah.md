@@ -3,8 +3,8 @@ title: Mahi Shafiullah
 type: entity
 subtype: person
 created: 2026-05-08
-updated: 2026-05-09
-sources: 2
+updated: 2026-05-10
+sources: 3
 tags: [person, nyu, hello-robot, robot-learning, dobb-e, rum, shafiullah]
 ---
 
@@ -15,6 +15,7 @@ tags: [person, nyu, hello-robot, robot-learning, dobb-e, rum, shafiullah]
 - **[Robot Utility Models Project Page](../sources/robot-utility-models-website.md)** — same.
 - **[OK-Robot](../entities/ok-robot.md)** (Liu, Orru, Vakil, Paxton, Shafiullah, Pinto — Jan 2024) — co-author. Zero-shot pick-and-drop in 10 NYC homes; 58.5% success. Predecessor / parallel to RUM.
 - **[Dobb·E](dobb-e.md)** (Shafiullah et al. 2023, predecessor system) — primary author.
+- **[BET Paper](../sources/bet-paper.md)** (Shafiullah, Cui, Altanzaya, Pinto — NeurIPS 2022) — **first author**. The transformer-based BC method that established multi-modal-BC-via-action-discretization as a problem statement; direct ancestor of [VQ-BeT](vq-bet.md).
 
 ## Why it matters in this wiki
 Shafiullah is **the architect of the NYU-Stretch line** — Dobb·E → RUM is one continuous research thread, and the underlying engineering recipe (HPR encoder, Stick-handheld tools, Homes of New York dataset, zero-shot deployment) belongs to it. If a future paper extends the same thread (e.g. RUM-like policies on additional embodiments, or scaled-up multi-task RUM), Shafiullah is likely the lead-author signal to watch.
@@ -32,7 +33,8 @@ The **dual NYU + Hello Robot affiliation** is structurally interesting: one foot
 - [Robot Utility Models Paper](../sources/robot-utility-models-paper.md)
 - [Robot Utility Models Project Page](../sources/robot-utility-models-website.md)
 - [OK-Robot Project Page](../sources/ok-robot-project-page.md)
+- [BET Paper](../sources/bet-paper.md)
 
 ## Open questions / TBD
 - Lab/group at NYU not directly cited; PhD advisor inferred (Pinto is co-senior).
-- VQ-BeT paper (Lee et al. 2024) lists Shafiullah as a co-author — would add a third source page once ingested.
+- VQ-BeT paper (Lee et al. 2024) lists Shafiullah as a co-author — would add a fourth source page once ingested.

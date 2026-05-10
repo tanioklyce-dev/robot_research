@@ -127,6 +127,12 @@ Curated entry points across the wiki.
 - [neuromechfly.org website](sources/neuromechfly-website.md) — project website for NeuroMechFly v2; vision + olfaction + brain–VNC; tutorials + installation; v2 launched March 2026. (2024–2026)
 - [flygym GitHub (NeLy-EPFL/flygym)](sources/flygym-github.md) — Apache-2.0 Python library implementing NeuroMechFly v2; v2.0.1 release. (2026-04-17)
 - [Tools for Your To Do List with Spot and Gemini Robotics (Boston Dynamics blog)](sources/bostondynamics-spot-gemini-robotics.md) — Spot + Gemini Robotics-ER 1.5 hackathon: tool-call layer over the Spot SDK; AIVI-Learning (ER 1.6) productization. (2025)
+- [Diffusion Policy Paper](sources/diffusion-policy-paper.md) — Chi et al., Columbia / TRI / MIT (RSS 2023, arxiv 2303.04137); conditional DDPM over actions; 46.9% avg improvement across 12 tasks; UR5 + Franka real-world (Push-T 95%, mug flip 90%, sauce pouring 79%, sauce spreading 100%). (2023-03)
+- [DDPM Paper](sources/ddpm-paper.md) — Ho, Jain, Abbeel; UC Berkeley (NeurIPS 2020, arxiv 2006.11239); foundational diffusion-model class; CIFAR-10 FID 3.17. (2020-06)
+- [IBC Paper](sources/ibc-paper.md) — Florence et al., Google Research (CoRL 2021, arxiv 2109.00137); implicit-BC via energy-based models; introduced PushT benchmark; ancestor of Diffusion Policy. (2021-09)
+- [BET Paper](sources/bet-paper.md) — Shafiullah, Cui, Altanzaya, Pinto; NYU (NeurIPS 2022, arxiv 2206.11251); transformer + k-means action discretization; ancestor of VQ-BeT. (2022-06)
+- [UMI Project Page](sources/umi-paper.md) — Chi et al.; Stanford / Columbia / TRI (RSS 2024 Best Systems Finalist, arxiv 2402.10329); hand-held gripper data collection; 111 demos/hr; zero-shot UR5e + Franka transfer. (2024-02)
+- [TRI Website](sources/tri-website.md) — Toyota Research Institute homepage; mission + 5 research areas; co-affiliation hub for Diffusion Policy + UMI; home of TRI LBM. (continuously updated)
 
 ## Entities
 
@@ -156,6 +162,7 @@ Curated entry points across the wiki.
 - [Team 254: The Cheesy Poofs](entities/team-254.md) — elite FRC team (2022 World Champions); 2026 "AI in FRC" presentation; Claude Code + wpilib-agent-tools. (2 sources)
 - [HHMI Janelia Research Campus](entities/hhmi-janelia.md) — HHMI's pure-research lab; Turaga lab leads flybody + flyvis; *Drosophila* neuroscience & connectomics anchor. (3 sources)
 - [NeLy-EPFL (Neuroengineering Laboratory)](entities/nely-epfl.md) — EPFL lab; maintains [NeuroMechFly](entities/neuromechfly.md) + the `flygym` Python library; European counterweight to HHMI Janelia in fly-body simulation. (2 sources)
+- [Toyota Research Institute (TRI)](entities/tri.md) — Toyota's R&D arm; Los Altos + Cambridge; co-affiliation across [Diffusion Policy](entities/diffusion-policy.md) + [UMI](entities/umi.md); home of TRI LBM. (1 source)
 
 ### Simulators / frameworks
 - [NVIDIA Isaac Sim](entities/nvidia-isaac-sim.md) — Omniverse-based robotics simulator. (4 sources)
@@ -171,7 +178,7 @@ Curated entry points across the wiki.
 - [Gymnasium-Robotics](entities/gymnasium-robotics.md) — Farama's [MuJoCo](entities/mujoco.md)-backed robotics envs (Fetch / Hand / Maze / Adroit / Franka Kitchen / MaMuJoCo). (2 sources)
 - [Arcade Learning Environment](entities/ale.md) — Farama's Atari 2600 RL benchmark; 100+ single-agent + 23 multi-agent envs; Gymnasium API. (1 source)
 - [Metaworld](entities/metaworld.md) — Stanford/Berkeley meta-RL benchmark; 50 manipulation tasks on simulated Sawyer; staple across V-JEPA-line work. (1 source)
-- [PushT](entities/pusht.md) — 2D T-block pushing benchmark; default lightweight bench across LeWM / DINO-WM / JEPA-WMs. (3 sources)
+- [PushT](entities/pusht.md) — 2D T-block pushing benchmark; introduced by IBC, popularized by Diffusion Policy; default lightweight bench across LeWM / DINO-WM / JEPA-WMs. (5 sources)
 - [PointMaze](entities/pointmaze.md) — 2D point-mass maze navigation; default lightweight nav bench across LeWM / DINO-WM / JEPA-WMs. (0 sources)
 - [DM Control Suite](entities/dm-control.md) — DeepMind continuous-control RL benchmark on top of MuJoCo; pre-Gymnasium-Robotics legacy substrate. (2 sources)
 - [LIBERO](entities/libero.md) — lifelong-learning manipulation benchmark; de-facto VLA-eval bench (Spatial / Object / Goal / 100 task families). (0 sources)
@@ -185,7 +192,7 @@ Curated entry points across the wiki.
 - [PettingZoo](entities/pettingzoo.md) — multi-agent RL env API. (2 sources)
 
 ### Robot platforms
-- [Franka Panda](entities/franka-panda.md) — 7-DOF research-grade arm; default tabletop manipulator across DROID, V-JEPA 2, JEPA-WMs, RUM. (5 sources)
+- [Franka Panda](entities/franka-panda.md) — 7-DOF research-grade arm; default tabletop manipulator across DROID, V-JEPA 2, JEPA-WMs, RUM, Diffusion Policy, UMI. (7 sources)
 - [xArm 7](entities/xarm-7.md) — UFactory commercial 7-DOF arm; secondary tabletop manipulator; RUM cross-embodiment transfer target (~10pt drop vs Stretch). (1 source) _stub_
 - [TurtleBot](entities/turtlebot.md) — canonical educational ROS mobile robot (4 generations); TurtleBot 4: Clearpath + iRobot Create 3 + Raspberry Pi 4B + ROS 2. (1 source)
 - [iRobot Create 3](entities/irobot-create-3.md) — Roomba-i3-derived ROS 2 mobile-robot base; chassis under [TurtleBot 4](entities/turtlebot.md). (0 sources) _stub_
@@ -234,6 +241,9 @@ Curated entry points across the wiki.
 ### Vision foundation models
 - [DINOv2](entities/dinov2.md) — Meta FAIR self-supervised ViT (142M images, ViT-S/B/L/g); substrate for DINO-WM, DINO-world, JEPA-WMs. Apache 2.0. (3 sources)
 
+### Generative models
+- [DDPM](entities/ddpm.md) — Denoising Diffusion Probabilistic Models (Ho, Jain, Abbeel; NeurIPS 2020); foundational diffusion-model class; substrate of [Diffusion Policy](entities/diffusion-policy.md), [NVIDIA Cosmos](entities/nvidia-cosmos.md), [Genie Envisioner](entities/genie-envisioner.md). (1 source)
+
 ### World models
 - [NVIDIA Cosmos](entities/nvidia-cosmos.md) — world foundation model + simulation engine (generative video). (5 sources)
 - [Genie Envisioner](entities/genie-envisioner.md) — AGIBOT's world simulator GE-Sim2 (generative video). (4 sources)
@@ -252,8 +262,11 @@ Curated entry points across the wiki.
 - [Dobb·E](entities/dobb-e.md) — NYU predecessor to RUM; HPR encoder + Stick-v1 + Homes of New York dataset. (1 source) _stub_
 
 ### Behavior-cloning methods
+- [IBC](entities/ibc.md) — Implicit Behavioral Cloning (Florence et al., CoRL 2021); energy-based-model BC; introduced PushT; direct ancestor of Diffusion Policy. (1 source)
+- [BET](entities/bet.md) — Behavior Transformer (Shafiullah et al., NeurIPS 2022); transformer + k-means action discretization; ancestor of VQ-BeT. (1 source)
 - [VQ-BeT](entities/vq-bet.md) — Vector-Quantized Behavior Transformer (Lee et al. 2024); top performer in RUM ablation. (1 source) _stub_
-- [Diffusion Policy](entities/diffusion-policy.md) — Chi et al. 2023, Columbia/TRI/MIT; introduced/popularized PushT + UMI gripper. (1 source) _stub_
+- [Diffusion Policy](entities/diffusion-policy.md) — Chi et al. 2023, Columbia/TRI/MIT; conditional DDPM over actions; popularized PushT + UMI gripper + action-chunking convention. (3 sources)
+- [UMI](entities/umi.md) — Universal Manipulation Interface (Chi et al., RSS 2024); hand-held gripper data-collection system; same lead author as Diffusion Policy. (1 source)
 
 ### LLMs
 - [Qwen](entities/qwen.md) — Alibaba's open-weights LLM family. Default local LLM in both stretch_ai (3B) and ROSOrin (1.7B). (2 sources)
@@ -283,7 +296,7 @@ Curated entry points across the wiki.
 - [Sim-to-real transfer](concepts/sim-to-real-transfer.md) — bridging simulator-trained policies to real robots. (8 sources)
 - [World-model simulators](concepts/world-model-simulators.md) — narrower companion to [World model](concepts/world-model.md): world-models-used-as-simulators (generative-video and JEPA paradigms). (9 sources)
 - [Joint-Embedding Predictive Architecture](concepts/jepa.md) — predict next-state representations, not pixels. (7 sources)
-- [Imitation learning](concepts/imitation-learning.md) — supervised learning from demonstrations. (7 sources)
+- [Imitation learning](concepts/imitation-learning.md) — supervised learning from demonstrations. (8 sources)
 - [AI safety and alignment](concepts/ai-safety-alignment.md) — corrigibility, broadly safe behaviors, hard constraints, catastrophic risk framing; connects to agentic robot deployments. (2 sources)
 - [Corrigibility](concepts/corrigibility.md) — the corrigibility dial (fully corrigible ↔ fully autonomous); asymmetric cost argument; galaxy-brained reasoning risk; agentic deployment implications. (1 source)
 - [LLM-agent architecture](concepts/llm-agent-architecture.md) — LLM-emits-tool-calls control pattern; MCP and A2A as inter-agent/tool-access protocols. (6 sources)
@@ -340,11 +353,14 @@ Curated entry points across the wiki.
 - Webots, CoppeliaSim, PyBullet entity pages (low priority — not agentic-robotics center of gravity)
 - Skild AI entity + approach
 - RoboMimic benchmark concept/source pages ([LIBERO](entities/libero.md) now filed)
-- TRI LBM (Toyota Research Institute Large Behavior Model) — referenced in RoboCasa365 paper as baseline
+- TRI LBM (Toyota Research Institute Large Behavior Model) — referenced in RoboCasa365 paper as baseline. ([TRI](entities/tri.md) parent entity now filed.)
 - Octo — referenced in RoboCasa365 paper as baseline
 - Stretch Mujoco — Hello Robot's MuJoCo wrapper; thin or substantive?
 - Dreamer/DreamerV3, TD-MPC, PLDM — world-model baselines referenced in LeWorldModel paper ([DINO-WM](entities/dino-wm.md) now filed)
-- DROID paper itself (arxiv 2403.12945), Metaworld paper (arxiv 1910.10897), DINOv2 paper (arxiv 2304.07193), Dobb·E paper (arxiv 2306.16650), VQ-BeT paper (Lee et al. 2024), Diffusion Policy paper (arxiv 2303.04137), IBC paper (Florence et al. 2021, PushT origin) — entity pages exist but the papers themselves are not yet source pages; would let us cite design rationale directly
+- DROID paper itself (arxiv 2403.12945), Metaworld paper (arxiv 1910.10897), DINOv2 paper (arxiv 2304.07193), Dobb·E paper (arxiv 2306.16650), VQ-BeT paper (Lee et al. 2024) — entity pages exist but the papers themselves are not yet source pages; would let us cite design rationale directly. ([Diffusion Policy Paper](sources/diffusion-policy-paper.md), [IBC Paper](sources/ibc-paper.md), [BET Paper](sources/bet-paper.md), [DDPM Paper](sources/ddpm-paper.md), [UMI Project Page](sources/umi-paper.md) now filed.)
+- DDIM (Song, Meng, Ermon, ICLR 2021, arxiv 2010.02502) and iDDPM (Nichol & Dhariwal, ICML 2021) — diffusion-model advances Diffusion Policy uses directly; primary sources not yet filed.
+- R3M visual encoder (Nair et al. 2022) — appears in Diffusion Policy real-world Push-T ablation as alternative to end-to-end ResNet-18.
+- Cheng Chi, Shuran Song, Yilun Du, Russ Tedrake — author entity pages for the Diffusion Policy / UMI line.
 - StepFun — Chinese multimodal AI provider used by ROSOrin's Chinese-language fallback
 - sherpa-onnx — offline ASR + TTS toolkit used by ROSOrin
 - WonderEcho Pro — Hiwonder voice module accessory

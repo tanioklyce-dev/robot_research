@@ -607,3 +607,31 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Updated [Assistive robotics](concepts/assistive-robotics.md) — added "Literature landscape" section (systematic review stats: 1.3B PwD, 87 papers, three themes, underserved domains); sources 7→13; added all 6 papers to Mentioned in.
 - Updated [End-user robot programming](concepts/end-user-robot-programming.md) — added sense of agency finding (EUP preserves agency) and feeding paper lessons; sources 2→4; updated Mentioned in.
 - Updated [index.md](index.md) — 6 new source entries; Amal Nanavati entity; updated source counts (Stretch 9→11, assistive-robotics 7→13, EUP 2→4, Maya Cakmak 2→7).
+
+## [2026-05-09] ingest | Diffusion Policy paper (Chi et al., RSS 2023)
+- Created [Diffusion Policy Paper](sources/diffusion-policy-paper.md) — Chi, Feng, Du, Xu, Cousineau, Burchfiel, Song; Columbia / TRI / MIT; arxiv 2303.04137; conditional DDPM over actions with closed-loop receding-horizon action chunking, visual conditioning, time-series diffusion transformer. 12-task simulation sweep (RoboMimic + Push-T + BlockPush + Franka Kitchen) at 46.9% avg improvement; real-world UR5 Push-T (95%) + Franka mug-flip (90%) + sauce pouring (79%) + sauce spreading (100%); DDIM(10) inference at 0.1s on 3080. (raw/diffusion_policy_2023.pdf)
+- Updated [Diffusion Policy](entities/diffusion-policy.md) — promoted from stub; added approach mechanics (DDPM formulation, CNN+FiLM and Transformer backbones, ResNet-18 + spatial softmax + GroupNorm, DDIM acceleration); empirical headline (46.9% / four real-world tasks); position-vs-velocity-control finding; latency robustness; downstream conventions (action-chunking, UMI). sources 1→2.
+- Updated [PushT](entities/pusht.md) — added Diffusion Policy paper to Mentioned in (canonical PushT variant); resolved IBC/Diffusion-Policy TBD partially. sources 3→4.
+- Updated [Franka Panda](entities/franka-panda.md) — added Diffusion Policy real-world bullet (3 of 4 tasks: mug flipping 90%, pouring 79%, spreading 100%). sources 5→6.
+- Updated [Imitation learning](concepts/imitation-learning.md) — added action-chunking convention attribution + 46.9%/12-task headline; added paper to Mentioned in. sources 7→8.
+- Updated [index.md](index.md) — added paper entry; bumped Diffusion Policy 1→2 (de-stubbed); PushT 3→4; Franka Panda 5→6; Imitation learning 7→8.
+
+## [2026-05-10] ingest | IBC + BET + DDPM + UMI + TRI (BC-lineage and Diffusion Policy adjacencies)
+- Created [IBC Paper](sources/ibc-paper.md) — Florence, Lynch, Zeng et al., Google Research, CoRL 2021 (arxiv 2109.00137); implicit-BC via energy-based models; PushT origin. Abstract-level ingest (PDF not in raw/).
+- Created [IBC](entities/ibc.md) entity — energy-based-model BC method; direct ancestor of Diffusion Policy; weak on harder RoboMimic per Diffusion Policy ablation; training instability via InfoNCE noted.
+- Created [BET Paper](sources/bet-paper.md) — Shafiullah, Cui, Altanzaya, Pinto, NYU, NeurIPS 2022 (arxiv 2206.11251); transformer + k-means action discretization; multi-modal-BC problem statement. Abstract-level ingest.
+- Created [BET](entities/bet.md) entity — direct ancestor of [VQ-BeT](entities/vq-bet.md); strong on BlockPush (`p1=0.96`), weak on Franka Kitchen multi-stage.
+- Created [DDPM Paper](sources/ddpm-paper.md) — Ho, Jain, Abbeel, UC Berkeley, NeurIPS 2020 (arxiv 2006.11239); foundational diffusion-model paper; CIFAR-10 FID 3.17. Abstract-level ingest.
+- Created [DDPM](entities/ddpm.md) entity — substrate of [Diffusion Policy](entities/diffusion-policy.md); also implicit foil for the JEPA-vs-pixel-prediction argument; iDDPM/DDIM lineage noted.
+- Created [UMI Project Page](sources/umi-paper.md) — Chi, Xu, Pan, Cousineau, Burchfiel, Feng, Tedrake, Song; Stanford / Columbia / TRI; RSS 2024 Best Systems Finalist (arxiv 2402.10329); hand-held gripper with wrist GoPro; 30s/demo, 111 demos/hour, zero-shot UR5e + Franka transfer. Project-page ingest.
+- Created [UMI](entities/umi.md) entity — same-lead-author follow-on to Diffusion Policy; data-collection-side companion; cited as Stick-v2 design inspiration in [Robot Utility Models Paper](sources/robot-utility-models-paper.md) §2.1.
+- Created [TRI Website](sources/tri-website.md) — Toyota Research Institute homepage; mission + 5 research areas (automated driving, energy/materials, human-centered AI, human interactive driving, robotics); Atlas-robot reference TBD.
+- Created [TRI](entities/tri.md) entity — co-affiliation hub: Cousineau / Burchfiel / Feng on Diffusion Policy; same + Tedrake on UMI; TRI LBM referenced in RoboCasa365 paper as baseline. Drake on TBD list.
+- Updated [Diffusion Policy](entities/diffusion-policy.md) — closed 4 of 5 TBDs (IBC, BET, DDPM, UMI, TRI now filed); added direct-successor lineage section; added Related links to all 5 new entities. sources 2→3 (added UMI Project Page).
+- Updated [Diffusion Policy Paper](sources/diffusion-policy-paper.md) — closed same TBDs; updated Baselines references to point at new IBC/BET entity + source pages; TRI link redirected from placeholder to [TRI](entities/tri.md).
+- Updated [VQ-BeT](entities/vq-bet.md) — added BET as direct ancestor (k-means → learned VQ codebook); added IBC as earlier multi-modal-BC ancestor; added Mahi Shafiullah cross-link.
+- Updated [PushT](entities/pusht.md) — IBC paper now filed as origin; added to Mentioned in. sources 4→5.
+- Updated [Franka Panda](entities/franka-panda.md) — UMI added as deployment platform (1 of 2 alongside UR5e). sources 6→7.
+- Updated [Mahi Shafiullah](entities/mahi-shafiullah.md) — BET as first-author paper; sources 2→3.
+- Updated [Lerrel Pinto](entities/lerrel-pinto.md) — BET as senior-author paper; earliest in his wiki trajectory; sources 2→3.
+- Updated [index.md](index.md) — 5 new source entries; new [TRI](entities/tri.md) under Companies; new [IBC](entities/ibc.md), [BET](entities/bet.md), [UMI](entities/umi.md) under Behavior-cloning methods; new "### Generative models" subsection with [DDPM](entities/ddpm.md); bumped Diffusion Policy 2→3, Franka Panda 6→7, PushT 4→5; updated Known gaps TBD list to reflect 5 resolutions and 4 new follow-on TBDs (DDIM, iDDPM, R3M, author pages for Chi/Song/Du/Tedrake).

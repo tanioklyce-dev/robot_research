@@ -3,8 +3,8 @@ title: Lerrel Pinto
 type: entity
 subtype: person
 created: 2026-05-08
-updated: 2026-05-09
-sources: 2
+updated: 2026-05-10
+sources: 3
 tags: [person, nyu, robot-learning, manipulation, foundation-models, dino-wm, rum]
 ---
 
@@ -14,6 +14,7 @@ tags: [person, nyu, robot-learning, manipulation, foundation-models, dino-wm, ru
 - **[DINO-WM](../sources/dino-wm-paper.md)** (Zhou, Pan, LeCun, Pinto — Nov 2024) — co-senior with LeCun. NYU side of the collaboration.
 - **[Robot Utility Models](../sources/robot-utility-models-website.md)** (Etukuru, Shafiullah, …, Pinto — Sep 2024) — co-author.
 - **[OK-Robot](../entities/ok-robot.md)** (Liu, Orru, Vakil, Paxton, Shafiullah, Pinto — Jan 2024) — co-senior with Shafiullah. Zero-shot pick-and-drop in 10 NYC homes; 58.5% success; 1.8× over OVMM baseline.
+- **[BET Paper](../sources/bet-paper.md)** (Shafiullah, Cui, Altanzaya, Pinto — NeurIPS 2022) — **senior author**. Pinto's earliest paper in the wiki; established multi-modal-BC-via-action-discretization as a problem statement; direct ancestor of [VQ-BeT](vq-bet.md) and the broader Pinto-line BC trajectory.
 
 ## Why it matters in this wiki
 Pinto sits at the intersection of two things this wiki tracks closely:
@@ -34,6 +35,7 @@ If a future ingest brings in a Pinto-led paper that bridges those two — e.g. a
 - [Robot Utility Models Project Page](../sources/robot-utility-models-website.md)
 - [Robot Utility Models Paper](../sources/robot-utility-models-paper.md)
 - [OK-Robot Project Page](../sources/ok-robot-project-page.md)
+- [BET Paper](../sources/bet-paper.md)
 
 ## Open questions / TBD
 - Full publication trajectory (manipulation + foundation-model line) — not directly cited.

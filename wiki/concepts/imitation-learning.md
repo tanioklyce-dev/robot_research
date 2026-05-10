@@ -2,8 +2,8 @@
 title: Imitation learning
 type: concept
 created: 2026-05-07
-updated: 2026-05-08
-sources: 7
+updated: 2026-05-09
+sources: 8
 tags: [imitation-learning, behavior-cloning, demonstrations]
 ---
 
@@ -11,8 +11,8 @@ tags: [imitation-learning, behavior-cloning, demonstrations]
 
 ## Common variants
 - **Behavior cloning (BC)** — direct supervised mapping from observations to actions. Simplest and most common form. Used by [Robot Utility Models](../entities/robot-utility-models.md) for its 5 zero-shot policies.
-- **Action-chunked BC** — predict multi-step action sequences for smoother control.
-- **Diffusion policies** — model action distributions with a diffusion model; reduces multimodal collapse.
+- **Action-chunked BC** — predict multi-step action sequences for smoother control. Convention popularized by [Diffusion Policy](../entities/diffusion-policy.md) (predict `T_p`, execute `T_a < T_p` before re-planning); now near-default across 2024–2026 BC and [VLA models](vla-models.md).
+- **Diffusion policies** — model action distributions with a diffusion model; reduces multimodal collapse. [Diffusion Policy](../entities/diffusion-policy.md) (Chi et al., RSS 2023) reports an average **46.9% improvement** over LSTM-GMM / IBC / BET across 12 tasks, and is the canonical 2024–2026 BC baseline ([paper](../sources/diffusion-policy-paper.md) §V).
 
 ## Why it matters
 - Training method behind nearly every flagship "generalist" policy of 2024–2026: [GR00T](../entities/nvidia-groot.md), Pi VLAs, [RUMs](../entities/robot-utility-models.md), and the policies trained inside [RoboCasa365](../entities/robocasa.md)'s benchmark suite.
@@ -28,3 +28,4 @@ tags: [imitation-learning, behavior-cloning, demonstrations]
 - [Robot Utility Models Project Page](../sources/robot-utility-models-website.md)
 - [Robot Utility Models Paper](../sources/robot-utility-models-paper.md)
 - [RoboCasa365 Paper](../sources/robocasa365-paper.md)
+- [Diffusion Policy Paper](../sources/diffusion-policy-paper.md)

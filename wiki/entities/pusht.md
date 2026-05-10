@@ -3,8 +3,8 @@ title: PushT
 type: entity
 subtype: benchmark
 created: 2026-05-07
-updated: 2026-05-08
-sources: 3
+updated: 2026-05-10
+sources: 5
 tags: [pusht, push-t, manipulation-benchmark, ibc, diffusion-policy, lightweight-sim]
 ---
 
@@ -86,11 +86,12 @@ This is exactly the bundle of properties that makes it a good **world-model benc
 - [DINO-WM](dino-wm.md) / [JEPA-WMs](jepa-wms.md) — JEPA-family consumers.
 
 ## Mentioned in
+- [IBC Paper](../sources/ibc-paper.md) — origin of PushT (Florence et al., CoRL 2021).
+- [Diffusion Policy Paper](../sources/diffusion-policy-paper.md) — primary source for the canonical PushT variant; documents simulated + real-world (UR5) Push-T results.
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md)
 - [LeWorldModel — train and run howto](../syntheses/leworldmodel-howto.md)
 - [DINO-WM Paper](../sources/dino-wm-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
 
 ## Open questions / TBD
-- IBC paper (Florence et al., CoRL 2021) and Diffusion Policy paper (Chi et al., 2023) not yet source pages — would let us cite PushT design rationale directly.
-- Reward variants and observation modalities differ across packages; full taxonomy not yet documented.
+- Reward variants and observation modalities differ across packages; full taxonomy not yet documented. ([IBC Paper](../sources/ibc-paper.md) and [Diffusion Policy Paper](../sources/diffusion-policy-paper.md) now both filed.)
