@@ -4,7 +4,7 @@ type: synthesis
 created: 2026-05-10
 updated: 2026-05-10
 tags: [curriculum, course, learning-path, jepa, diffusion-policy, vla, world-model, lewm, home-robotics]
-status: "outline — module pages being written on signal (Modules 5 + 6 + 7 + 8 + 9 + 10 + 11 + 12 + 13 + 14 drafted 2026-05-10; Tiers 2–5 complete; remaining — Tier 1 modules 1–4)"
+status: "complete — all 14 modules drafted 2026-05-10. Reader-traversable bottom-up. Module bodies may be deepened or revised on signal."
 ---
 
 A bottom-up curriculum for building the mental model needed to read the [LeWorldModel paper](../sources/leworldmodel-paper.md) and reason about home-robotics policy-learning techniques (behavior cloning, diffusion policy, JEPA, VLA, world models).
@@ -50,29 +50,29 @@ Question 4 is the domain anchor — every module ends with a "what this unlocks 
 
 ### Tier 1 — ML foundations (refresher pace)
 
-#### Module 1 — Neural networks and training
+#### [Module 1](curriculum-01-neural-networks.md) — Neural networks and training
 - **Concept beats:** neuron, [MLP (multi-layer perceptron)](../glossary.md#mlp), forward pass, [MSE (mean squared error)](../glossary.md#mse) / [CE (cross-entropy)](../glossary.md#ce) loss, [SGD (stochastic gradient descent)](../glossary.md#sgd), backprop, overfitting / regularization, normalization ([BN — batch](../glossary.md#bn) / [LN — layer](../glossary.md#ln)), residual connections, why depth helps, [Adam](../glossary.md#adam).
 - **Why for LeWM:** every other module assumes you can read `loss = ||predictor(z_t, a_t) − z_{t+1}||²` and know what happens during a backward pass. Layer norm + residuals are the inner-loop primitive of every encoder we'll meet.
 - **Anchor exercise:** train an MLP digit classifier on a tiny dataset; reason about what "the embedding before the last layer" is.
-- **Future home:** `syntheses/curriculum-01-neural-networks.md`
+- **Module page:** [Curriculum Module 1 — Neural networks and training](curriculum-01-neural-networks.md) **(drafted 2026-05-10)**.
 
-#### Module 2 — [CNNs (convolutional neural networks)](../glossary.md#cnn) and visual representation learning
+#### [Module 2](curriculum-02-cnns.md) — [CNNs (convolutional neural networks)](../glossary.md#cnn) and visual representation learning
 - **Concept beats:** convolution, pooling, receptive field, feature maps, [ResNet (residual network)](../glossary.md#resnet) skip connections, ImageNet pretraining, fine-tuning, the meaning of "visual encoder."
 - **Why for LeWM:** the "encoder" half of every [JEPA](../glossary.md#jepa). [DINO-WM](../entities/dino-wm.md) uses a frozen [ViT (vision transformer)](../glossary.md#vit); [LeWM (LeWorldModel)](../glossary.md#lewm) uses a small ViT trained end-to-end. ResNet is the [BC (behavior cloning)](../glossary.md#bc)-line baseline visual encoder (used in [Diffusion Policy](../entities/diffusion-policy.md)'s real-world Push-T setup).
 - **Anchor exercise:** load a ResNet-18, extract features for a batch of PushT frames, visualize the feature similarity structure.
-- **Future home:** `syntheses/curriculum-02-cnns.md`
+- **Module page:** [Curriculum Module 2 — CNNs and visual representation learning](curriculum-02-cnns.md) **(drafted 2026-05-10)**.
 
-#### Module 3 — Sequence models and attention
+#### [Module 3](curriculum-03-attention-and-transformers.md) — Sequence models and attention
 - **Concept beats:** [RNN (recurrent neural network)](../glossary.md#rnn) / [LSTM (long short-term memory)](../glossary.md#lstm) (briefly — for context only), attention, self-attention, [MHA (multi-head attention)](../glossary.md#mha), [transformer](../glossary.md#transformer) block, [ViT (vision transformer)](../glossary.md#vit), positional encoding, causal masking.
 - **Why for LeWM:** LeWM's encoder is a ViT. Its predictor is a causal [AR (autoregressive)](../glossary.md#ar) transformer over `(z_t, a_t) → z_{t+1}`. [BeT (behavior transformer)](../glossary.md#bet) is a transformer over actions. [VLA (vision-language-action)](../glossary.md#vla) [models](../concepts/vla-models.md) are transformers conditioning on language.
 - **Anchor exercise:** patch a 64×64 PushT frame into 8×8 tokens, run them through a 2-layer transformer, inspect attention maps.
-- **Future home:** `syntheses/curriculum-03-attention-and-transformers.md`
+- **Module page:** [Curriculum Module 3 — Sequence models, attention, and transformers](curriculum-03-attention-and-transformers.md) **(drafted 2026-05-10)**.
 
-#### Module 4 — [SSL (self-supervised learning)](../glossary.md#ssl) and embeddings
+#### [Module 4](curriculum-04-self-supervised-learning.md) — [SSL (self-supervised learning)](../glossary.md#ssl) and embeddings
 - **Concept beats:** representation learning, contrastive learning ([SimCLR](../glossary.md#simclr) / [MoCo (momentum contrast)](../glossary.md#moco)) vs predictive ([MAE (masked autoencoder)](../glossary.md#mae) / [JEPA](../glossary.md#jepa)), the [latent space](../concepts/latent-space.md) as object, **representation collapse** as a failure mode, anti-collapse families: [EMA (exponential moving average)](../glossary.md#ema) target encoders + stop-gradient ([BYOL — bootstrap your own latent](../glossary.md#byol) / [DINO](../glossary.md#dino)), variance / covariance regularization ([VICReg](../glossary.md#vicreg), [Barlow Twins](../glossary.md#barlow-twins)), normality-based (LeWM's [SIGReg](../glossary.md#sigreg)).
 - **Why for LeWM:** this is the module that turns the LeWM abstract from word-soup into a sensible engineering claim. SIGReg is intelligible only against the backdrop of "every prior end-to-end JEPA needed 4–6 anti-collapse hyperparameters."
 - **Anchor exercise:** reproduce VICReg on CIFAR with and without the regularizer; observe collapse to constant.
-- **Future home:** `syntheses/curriculum-04-self-supervised-learning.md`
+- **Module page:** [Curriculum Module 4 — Self-supervised learning and embeddings](curriculum-04-self-supervised-learning.md) **(drafted 2026-05-10)**.
 
 ### Tier 2 — Generative models for control
 
@@ -175,10 +175,10 @@ Question 4 is the domain anchor — every module ends with a "what this unlocks 
 
 | Module                           | Existing wiki coverage                                                                                                                                                                                                                                   | Needs new                                                 |
 | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| 1 NN basics                      | none                                                                                                                                                                                                                                                     | full module                                               |
-| 2 CNNs                           | none                                                                                                                                                                                                                                                     | full module                                               |
-| 3 Attention / transformers / ViT | none                                                                                                                                                                                                                                                     | full module                                               |
-| 4 SSL & embeddings               | partial in [latent-space](../concepts/latent-space.md), [JEPA](../concepts/jepa.md)                                                                                                                                                                      | broader SSL framing, collapse taxonomy                    |
+| 1 NN basics                      | none                                                                                                                                                                                                                                                     | **drafted** — [Curriculum Module 1 — Neural networks and training](curriculum-01-neural-networks.md)         |
+| 2 CNNs                           | none                                                                                                                                                                                                                                                     | **drafted** — [Curriculum Module 2 — CNNs and visual representation learning](curriculum-02-cnns.md)         |
+| 3 Attention / transformers / ViT | none                                                                                                                                                                                                                                                     | **drafted** — [Curriculum Module 3 — Sequence models, attention, and transformers](curriculum-03-attention-and-transformers.md) |
+| 4 SSL & embeddings               | partial in [latent-space](../concepts/latent-space.md), [JEPA](../concepts/jepa.md)                                                                                                                                                                      | **drafted** — [Curriculum Module 4 — Self-supervised learning and embeddings](curriculum-04-self-supervised-learning.md) |
 | 5 Generative / DDPM              | [DDPM paper](../sources/ddpm-paper.md) source ingest                                                                                                                                                                                                     | **drafted** — [Curriculum Module 5 — Generative modeling fundamentals (DDPM, full math)](curriculum-05-generative-models.md) |
 | 6 Imitation learning             | [concept](../concepts/imitation-learning.md), [PushT entity](../entities/pusht.md)                                                                                                                                                                       | **drafted** — [Curriculum Module 6 — Imitation learning and behavior cloning](curriculum-06-imitation-learning.md) |
 | 7 BC lineage (IBC/BeT/DP)        | [IBC](../sources/ibc-paper.md), [BeT](../sources/bet-paper.md), [Diffusion Policy](../sources/diffusion-policy-paper.md), [UMI](../sources/umi-paper.md) all ingested                                                                                    | **drafted** — [Curriculum Module 7 — BC lineage on PushT](curriculum-07-bc-lineage-pusht.md) |
