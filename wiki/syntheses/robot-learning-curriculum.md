@@ -4,7 +4,7 @@ type: synthesis
 created: 2026-05-10
 updated: 2026-05-10
 tags: [curriculum, course, learning-path, jepa, diffusion-policy, vla, world-model, lewm, home-robotics]
-status: outline — module pages being written on signal (Modules 6 + 7 + 9 + 10 + 11 + 12 + 13 drafted 2026-05-10; Tier 4 complete; both reading chains complete; Module 13 deployment reality drafted)
+status: outline — module pages being written on signal (Modules 6 + 7 + 9 + 10 + 11 + 12 + 13 + 14 drafted 2026-05-10; Tiers 3–5 complete; remaining: Tier 1 modules 1–4 + Module 5 + Module 8)
 ---
 
 A bottom-up curriculum for building the mental model needed to read the [LeWorldModel paper](../sources/leworldmodel-paper.md) and reason about home-robotics policy-learning techniques (behavior cloning, diffusion policy, JEPA, VLA, world models).
@@ -141,7 +141,7 @@ Question 4 is the domain anchor — every module ends with a "what this unlocks 
 - **Phase B (hardware — when Stretch is available):** execute the phase-A memo on a real [Stretch](../entities/stretch.md). Use the [RUM](../glossary.md#rum) open dataset to bootstrap the action-conditioning data. Compare against a Diffusion Policy baseline.
 - **Why for LeWM:** the only way to know if you understood it is to train it. Phase B is gated on hardware acquisition; the curriculum is fully completable on phase A alone.
 - **Anchor exercise:** the capstone *is* the exercise. Phase-A deliverable: a 5–10 page memo + a working PushT-LeWM training run.
-- **Future home:** `syntheses/curriculum-14-capstone.md`
+- **Module page:** [Curriculum Module 14 — Capstone (paper-first, hardware-second)](curriculum-14-capstone.md) **(drafted 2026-05-10)**.
 
 ## Module dependency graph
 
@@ -188,7 +188,7 @@ Question 4 is the domain anchor — every module ends with a "what this unlocks 
 | 11 JEPA depth                    | [concept](../concepts/jepa.md), [V-JEPA 2 paper](../sources/v-jepa-2-paper.md), [V-JEPA 2.1](../sources/v-jepa-2-1-paper.md), [JEPA-WMs](../sources/jepa-wms-paper.md), [DINO-WM](../sources/dino-wm-paper.md), [VLA-JEPA](../sources/vla-jepa-paper.md) | **drafted** — [Curriculum Module 11 — JEPA in depth](curriculum-11-jepa-deep.md) |
 | 12 LeWM deep-dive                | [paper ingest](../sources/leworldmodel-paper.md), [howto](leworldmodel-howto.md), [GitHub](../sources/lewm-github.md), [feasibility](lewm-on-rosorin-pro-feasibility.md), [Stretch feasibility](lewm-on-stretch-feasibility.md)                          | **drafted** — [Curriculum Module 12 — LeWM deep-dive (with full SIGReg math)](curriculum-12-lewm-deep-dive.md) |
 | 13 Home robotics deployment      | rich — see [assistive-robotics R&D landscape](assistive-robotics-research-landscape.md), [Stretch as platform](stretch-as-assistive-platform.md), [autonomy levels](levels-of-autonomy-in-assistive-robotics.md)                                         | **drafted** — [Curriculum Module 13 — Home robotics deployment reality](curriculum-13-home-robotics-deployment.md) |
-| 14 Capstone                      | [hello-world Project 1](lewm-hello-world-project-scope.md), [Stretch feasibility](lewm-on-stretch-feasibility.md), [DINO-WM on Stretch](dino-wm-on-stretch-experiment.md)                                                                                | nothing new — points to the existing artifacts            |
+| 14 Capstone                      | [hello-world Project 1](lewm-hello-world-project-scope.md), [Stretch feasibility](lewm-on-stretch-feasibility.md), [DINO-WM on Stretch](dino-wm-on-stretch-experiment.md)                                                                                | **drafted** — [Curriculum Module 14 — Capstone (paper-first, hardware-second)](curriculum-14-capstone.md) |
 |                                  |                                                                                                                                                                                                                                                          |                                                           |
 
 ## Effort estimate (rough, post-decisions)

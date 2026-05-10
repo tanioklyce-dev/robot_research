@@ -847,3 +847,22 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Updated [Robot-learning curriculum](syntheses/robot-learning-curriculum.md) — Module 13 entry now links the drafted page; coverage table cell updated to "drafted"; status frontmatter notes Module 13 drafted.
 - Updated [index.md](index.md) — Highlights bullet for Module 13; Syntheses bullet for Module 13.
 - **Reader status:** Seven of fourteen modules drafted. The deployment-reality framing is in place, ready for Module 14 (capstone) to land on top of it.
+
+## [2026-05-10] curriculum-module | Module 14 drafted — Capstone (paper-first, hardware-second)
+- Created [Curriculum Module 14 — Capstone (paper-first, hardware-second)](syntheses/curriculum-14-capstone.md) — eighth drafted module; the curriculum's terminating exercise. Pointer page tying Modules 12 + 13 to existing wiki artifacts ([hello-world scope](syntheses/lewm-hello-world-project-scope.md), [LeWM howto](syntheses/leworldmodel-howto.md), [LeWM-on-Stretch feasibility](syntheses/lewm-on-stretch-feasibility.md), [DINO-WM-on-Stretch plan](syntheses/dino-wm-on-stretch-experiment.md)).
+- Structure (~10kB):
+  1. Curriculum-context callout — phase-A required, phase-B hardware-gated.
+  2. What the capstone is — three concrete deliverables.
+  3. **Phase A (paper / sim — required):**
+     - A.1: reproduce LeWM PushT (one-knob ablation flipping `λ` to feel collapse vs prediction-loss-failure failure modes; the BN-after-CLS engineering footgun explicitly flagged).
+     - A.2: SIGReg gradient derivation on paper.
+     - A.3: 5–10 page experiment-design memo with eight required sections (task, architecture, data, baselines, metrics, risk register, what-you'd-learn, phase-B gating).
+  4. **Phase B (real Stretch — gated):** hardware logistics ($25K Stretch RE3, 40–80+ hr execution); explicit "honest reporting" framing (report what you got, including failure-to-beat-baseline); follow-up memo / short paper as deliverable.
+  5. Beyond the capstone — two follow-on research questions (does SIGReg scale to Stretch data; does WM + planning beat or lose to BC + scaled data).
+  6. Recommended reading (re-read of all relevant prior artifacts).
+  7. What you should now be able to do.
+  8. Closing the curriculum — what understanding-becomes-capability looks like.
+  9. Related modules + Mentioned in + Open questions (no published LeWM-on-Stretch / DINO-WM-on-Stretch result yet — the capstone is designed to *be* that result).
+- Updated [Robot-learning curriculum](syntheses/robot-learning-curriculum.md) — Module 14 entry now links the drafted page; coverage table cell updated to "drafted"; status frontmatter notes Tiers 3–5 complete.
+- Updated [index.md](index.md) — Highlights bullet for Module 14; Syntheses bullet for Module 14.
+- **Reader status:** Eight of fourteen modules drafted. **Tiers 3–5 are complete.** Remaining: Tier 1 (Modules 1–4 ML foundations; greenfield), Module 5 (DDPM full math; heavy), Module 8 (RL vocabulary; light). A reader with ML basics already can traverse the entire curriculum end-to-end (Modules 6 → 7 → 9, 10 → 11 → 12, 13 → 14).
