@@ -271,8 +271,8 @@ If you want a deeper variant: replace MNIST with [CIFAR-10](https://www.cs.toron
 
 In order of effort:
 
-1. **3Blue1Brown's Neural Networks series** (YouTube, free) — for visual / intuitive coverage of forward pass + backprop. Most concise way to get the intuitions.
-2. **Goodfellow, Bengio, Courville — *Deep Learning*** (textbook, free online) — chapters 1–6. Authoritative but verbose. Skim.
+1. **3Blue1Brown's [Neural Networks series](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)** (YouTube, free) — for visual / intuitive coverage of forward pass + backprop. Most concise way to get the intuitions.
+2. **Goodfellow, Bengio, Courville — *[Deep Learning](https://www.deeplearningbook.org/)*** (textbook, free online) — chapters 1–6. Authoritative but verbose. Skim.
 3. **PyTorch's [60-minute blitz](https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html)** — hands-on starter; gets you to a working MLP fast.
 4. **Karpathy's [micrograd](https://github.com/karpathy/micrograd)** — backprop in ~100 lines of Python; the cleanest "I understand backprop" milestone.
 
