@@ -228,6 +228,9 @@ Open-weights VLA used as a baseline in many 2024–2026 papers. *(Module 9.)*
 ### PLDM
 **Planning with Latent Dynamics Models** — Sobal et al. ([2025 source page](sources/pldm-paper.md), [entity](entities/pldm.md); 2022 precursor [arxiv 2211.10831](https://arxiv.org/abs/2211.10831) not yet a wiki source page). End-to-end JEPA-style WM trained with VICReg-inspired anti-collapse + inverse-dynamics + similarity loss; ~6 anti-collapse hyperparameters per [LeWM](sources/leworldmodel-paper.md)'s critique. The most-cited "end-to-end JEPA before LeWM" baseline. *(Module 11.)*
 
+### Policy
+**Policy** — a function `π(a | o)` (or `π(a | s)`) mapping observation/state to an action (or action distribution). The thing IL and RL train: IL fits π to demonstrations, RL fits π to maximize expected reward. Action heads can be deterministic, Gaussian, categorical, k-means-discretized ([BeT](#bet) / [VQ-BeT](#vq-bet)), or diffusion-based ([Diffusion Policy](sources/diffusion-policy-paper.md)). *(Modules 6 & 8.)*
+
 ### PPO
 **Proximal Policy Optimization** — Schulman et al. 2017; the dominant on-policy actor-critic algorithm. *(Module 8.)*
 
