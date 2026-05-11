@@ -3,7 +3,7 @@ title: XLeRobot
 type: entity
 subtype: robot
 created: 2026-05-10
-updated: 2026-05-10
+updated: 2026-05-11
 sources: 1
 tags: [xlerobot, mobile-manipulator, dual-arm, lerobot, lekiwi, so-arm101, low-cost, household-robot, embodied-ai]
 ---
@@ -15,12 +15,17 @@ Repository: [github.com/Vector-Wangel/XLeRobot](https://github.com/Vector-Wangel
 ## Specs
 
 - **Arms**: 2× [SO-ARM101](so-arm101.md), each ~40 cm reach, 600–1000 g payload
-- **Base**: wheeled mobile platform inspired by [LeKiwi](lekiwi.md) / Bambot
-- **3D-printed**: 90% of mechanical parts
-- **Assembly time**: < 4 hours
-- **Optional sensors**: RGB camera, stereo RGB, **RealSense RGBD depth**
-- **Compute**: optional Raspberry Pi
-- **Form factor**: fixed height (no lift); uses an IKEA cart in the developer kit as a torso/base
+- **Base**: wheeled mobile platform inspired by [LeKiwi](lekiwi.md) / Bambot (2-wheel, mecanum, and 3× omni-wheel variants documented)
+- **Actuators**: **17× Feetech STS3215** servos at 12 V (same family as SO-100/SO-101)
+- **Mass**: ~12 kg (intentionally adult-liftable)
+- **Vertical workspace**: 0.5 m – 1.25 m (fixed-height torso, no lift)
+- **Reach from cart edge**: ~0.36 m
+- **Power**: Anker SOLIX C300 power station — 288 Wh, 300 W max output, 280 W max charge (~1 hr to full), **10+ hr** runtime
+- **3D-printed**: 90% of mechanical parts (tested on BambuLab A1 / PLA; PETG, PLA-CF, Tough PLA also supported)
+- **Assembly time**: **2–4 hr from scratch; 1–2 hr with pre-assembled SO101 arms** (8 high-level steps)
+- **Optional sensors**: RGB camera, stereo RGB (+$30), **RealSense D415 RGBD depth** (+$220)
+- **Compute model**: **PC-does-inference, Pi-relays-WiFi** — the optional Raspberry Pi 4/5 (+$79) is positioned as a *data-relay*, not the inference host. Heavy policy inference runs on a user PC, optionally via LeRobot's async policy server on port 8080.
+- **Form factor**: IKEA RÅSKOG cart serves as the torso/base in the developer kit
 
 ## Pricing
 
@@ -30,11 +35,17 @@ Repository: [github.com/Vector-Wangel/XLeRobot](https://github.com/Vector-Wangel
 
 ## Software
 
-- Framework: **[LeRobot](lerobot.md)** (Hugging Face)
-- Simulation: **[ManiSkill](maniskill.md)** with URDF support
-- Control interfaces: keyboard, **Xbox**, **Switch Joycon**, **VR (Quest 3)**
-- RL sim2real workflow (contributor Zhuoyi Lu)
-- Imitation-learning + reinforcement-learning environments
+XLeRobot is **explicitly a multi-stack reference platform** — the docs walk five distinct on-robot software workflows rather than committing to one.
+
+- **Framework**: **[LeRobot](lerobot.md)** (Hugging Face); install via `pip install -e .` on top of the LeRobot install
+- **Simulation**: **[ManiSkill](maniskill.md) 3.0** — scenes include `ReplicaCAD_SceneManipulation-v1`, AI2-THOR, RoboCasa Kitchen, `OpenCabinetDrawer-v1`
+- **Teleop**: keyboard, **Xbox**, **Switch Joycon**, **VR (Quest 3 → ManiSkill via WebSocket-over-HTTPS)**. Real-robot VR is **"coming soon"** as of v0.3.0 — only sim VR works today.
+- **VLA / policy options (three of them)**:
+  - **ACT** (Action Chunking Transformer) — LeRobot's default VLA; example uses 50 single-arm episodes
+  - **π0.5** via an **OpenPI fork** with bimanual SO-101 training support; ships with the `bimanual-toy-box-cleanup` HF dataset
+  - **SmolVLA** (`lerobot/smolvla_base`) — 12-D bimanual action space padded to 32-D during training; ~20 demos for drawer / pick-place / **zipper** tasks; **80k steps = ~1 hr 45 min on an A100**
+- **RL**: official XLeRobot RL "coming soon"; meanwhile the docs point users to `lerobot-sim2real` (Stone Tao, ManiSkill-PPO) and HuggingFace's HIL-SERL tutorial
+- **LLM agent**: a **LangChain-style stack** with **Google Gemini 3 Flash** default; tool library is **RoboCrew** (factory functions like `create_move_forward()`, `look_around()`, a VLA-calling manipulation tool); voice wakeword "hey robot"; demos include approach-a-human, grab-notebook-and-deliver
 
 ## Capabilities & limitations (per the docs)
 
@@ -76,6 +87,7 @@ This composition pattern — **buy-no-new-IP, glue together with 3D-printed brac
 - [ManiSkill](maniskill.md) — sim
 - [Stretch](stretch.md) — adjacent (single-arm, integrated, ~30× more expensive)
 - [Reachy 2](reachy.md) — adjacent (dual-arm, professional)
+- [V-JEPA 2](v-jepa-2.md) — **the docs' Related Works section cites V-JEPA 2 under "Task Planning"** — a direct intersection with the wiki's JEPA / world-model thread.
 
 ## Mentioned in
 
