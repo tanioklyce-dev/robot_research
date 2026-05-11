@@ -2,6 +2,15 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-10] ingest | LeRobot Worldwide Hackathon 2025 — All Winners HF Space
+- Created [LeRobot Worldwide Hackathon 2025 — All Winners](sources/lerobot-worldwide-hackathon-2025-winners.md) — June 14–15, 2025; 916 team members; ~400 submissions; 30 ranked winners pulled from the `maringetxway/all-winners` HF dataset (filenames carry rank + team).
+- Created [LeRobot Worldwide Hackathon 2025](entities/lerobot-worldwide-hackathon-2025.md) (event entity), [Hope Jr Arm](entities/hope-jr-arm.md) (stub — premium-tier prize hardware), [Remi Cadene](entities/remi-cadene.md) (LeRobot lead at HF).
+- Updated [LeRobot](entities/lerobot.md) 3→4 sources; added ecosystem-scale snapshot (916 / 400 / 30 / 189 datasets / 12 models) and linked Cadene as the project lead.
+- Updated [Hugging Face](entities/hugging-face.md) 3→4 sources; added robotics-adjacent people (Cadene, Wolf, Caous).
+- Updated [LeKiwi](entities/lekiwi.md) 2→3, [SO-ARM101](entities/so-arm101.md) 3→4, [Seeed Studio](entities/seeed-studio.md) 1→2 — flagged hackathon usage. Key market signal: LeKiwi was prize hardware in 22 of 30 ranked positions (top-3 + 6th–24th).
+- Added new index subsection "Events" with the hackathon entity. Added the source under chronological sources.
+- Headline: this is the ecosystem-scale evidence for the LeRobot stack ingested in the prior commit — ~400 community-team submissions on a single weekend means the buy → assemble → teleop → train → deploy loop is being closed in practice, not just in research papers.
+
 ## [2026-05-10] ingest | LeRobot ecosystem — XLeRobot, LeKiwi (SIGRobotics-UIUC), Seeed tutorial
 - Created [XLeRobot Documentation](sources/xlerobot-docs.md) — Vector Wang's $660 dual-arm household manipulator; 2× SO-ARM101 on LeKiwi-class base; built on LeRobot; v0.3.0 released 2025-08-30.
 - Created [Seeed Studio LeRobot LeKiwi Wiki](sources/seeed-lekiwi-wiki.md) — end-to-end build/teleop/train tutorial; STS3215 motor / Raspberry Pi 5 / ACT-policy spec; Seeed distributes LeKiwi hardware.

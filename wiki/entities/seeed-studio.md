@@ -4,7 +4,7 @@ type: entity
 subtype: organization
 created: 2026-05-10
 updated: 2026-05-10
-sources: 1
+sources: 2
 tags: [seeed-studio, distributor, open-hardware, shenzhen, lekiwi, raspberry-pi]
 ---
 
@@ -24,3 +24,4 @@ Seeed plays a **distribution + documentation role** distinct from the design aut
 ## Mentioned in
 
 - [Seeed Studio LeRobot LeKiwi Wiki](../sources/seeed-lekiwi-wiki.md)
+- [LeRobot Worldwide Hackathon 2025 — All Winners](../sources/lerobot-worldwide-hackathon-2025-winners.md) — sponsor.

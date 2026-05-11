@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-05-10
 updated: 2026-05-10
-sources: 3
+sources: 4
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator]
 ---
 
@@ -31,10 +31,14 @@ The canonical 7-step LeRobot workflow (install → motor config → calibration 
 
 ## Key facts
 
-- Maintained by [Hugging Face](hugging-face.md).
+- Maintained by [Hugging Face](hugging-face.md); robotics lead [Remi Cadene](remi-cadene.md).
 - Apache 2.0.
 - Active development; framework moves quickly enough that distributor tutorials (e.g., [Seeed Studio LeKiwi wiki](../sources/seeed-lekiwi-wiki.md)) carry "consult upstream for latest features" caveats.
 - Compatible hardware ecosystem: SO-ARM100/101 (The Robot Studio), Koch v1.1 (Dynamixel), LeKiwi (SIGRobotics-UIUC), XLeRobot (Vector Wang), Bambot, others.
+
+## Ecosystem scale (June 2025 snapshot)
+
+The [LeRobot Worldwide Hackathon 2025](lerobot-worldwide-hackathon-2025.md) (June 14–15, 2025) is the clearest community-scale signal for the framework: **916 registered team members, ~400 submissions, 30 ranked winners, 189 hackathon datasets, 12 hackathon models** ([all-winners HF Space](../sources/lerobot-worldwide-hackathon-2025-winners.md)). The `submissions` dataset alone has 11.3k downloads.
 
 ## Related
 
@@ -51,6 +55,7 @@ The canonical 7-step LeRobot workflow (install → motor config → calibration 
 - [XLeRobot Documentation](../sources/xlerobot-docs.md)
 - [Seeed Studio LeRobot LeKiwi Wiki](../sources/seeed-lekiwi-wiki.md)
 - [LeKiwi GitHub](../sources/lekiwi-github.md)
+- [LeRobot Worldwide Hackathon 2025 — All Winners](../sources/lerobot-worldwide-hackathon-2025-winners.md)
 
 ## Open questions / TBD
 

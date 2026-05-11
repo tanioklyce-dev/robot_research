@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-10
 updated: 2026-05-10
-sources: 3
+sources: 4
 tags: [so-arm, so-arm100, so-arm101, the-robot-studio, low-cost-arm, open-source, lerobot, leader-follower, teleoperation]
 ---
 
@@ -51,6 +51,7 @@ The leader-follower convention is the dominant data-collection pattern for imita
 - [XLeRobot Documentation](../sources/xlerobot-docs.md)
 - [Seeed Studio LeRobot LeKiwi Wiki](../sources/seeed-lekiwi-wiki.md)
 - [LeKiwi GitHub](../sources/lekiwi-github.md)
+- [LeRobot Worldwide Hackathon 2025 — All Winners](../sources/lerobot-worldwide-hackathon-2025-winners.md) — SO-101 was prize hardware for the 25th–30th tier.
 
 ## Open questions / TBD
 
