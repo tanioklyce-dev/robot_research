@@ -3,14 +3,15 @@ title: NVIDIA GR00T
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-05-10
-sources: 5
+updated: 2026-05-11
+sources: 6
 tags: [groot, vla, nvidia, foundation-model, humanoid]
 ---
 
-NVIDIA's open, commercially-licensed [VLA](../concepts/vla-models.md) foundation model line for humanoid robots. The flagship policy that ships with NVIDIA's Physical AI stack ([NVIDIA Isaac Lab](nvidia-isaac-lab.md), [NVIDIA Isaac Sim](nvidia-isaac-sim.md)).
+NVIDIA's open, commercially-licensed [VLA](../concepts/vla-models.md) foundation model line for humanoid robots. The flagship policy that ships with NVIDIA's Physical AI stack ([NVIDIA Isaac Lab](nvidia-isaac-lab.md), [NVIDIA Isaac Sim](nvidia-isaac-sim.md)). **Both site champions of the [October 2025 Seeed × NVIDIA × HF Embodied AI Hackathon](../sources/seeed-embodied-ai-hackathon-2025-recap.md) ran GR00T N1.5** (fine-tuned via NVIDIA Brev) on non-humanoid dual-arm platforms (XLeRobot, SO-ARM101) — the strongest external signal yet that GR00T fine-tunes work at weekend-hackathon data scales (150–300 episodes) outside the humanoid form factor it was designed for.
 
 ## Versions seen
+- **N1.5** — winning policy at both sites of the October 2025 Seeed × NVIDIA × HF Embodied AI Hackathon; fine-tuned via NVIDIA Brev; deployed on Jetson Thor.
 - **N1.6** — referenced as the version newly available in [NVIDIA Isaac Lab](nvidia-isaac-lab.md) alongside Newton 1.0 GA at GTC 2026 ([NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)).
 - **N1.7 Early Access** — 3B parameters, built on a Cosmos-Reason2-2B backbone, EgoScale pretraining on 20,854 hours of egocentric human video across 20+ task categories ([Top 10 Physical AI Models 2026](../sources/top-10-physical-ai-models-2026.md)).
 
@@ -27,3 +28,4 @@ NVIDIA's open, commercially-licensed [VLA](../concepts/vla-models.md) foundation
 - [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)
 - [Top 10 Physical AI Models 2026](../sources/top-10-physical-ai-models-2026.md)
 - [AGIBOT Genie Sim 3.0 Announcement](../sources/agibot-genie-sim-3-announcement.md)
+- [Seeed × NVIDIA × HF Embodied AI Hackathon 2025 Recap](../sources/seeed-embodied-ai-hackathon-2025-recap.md)

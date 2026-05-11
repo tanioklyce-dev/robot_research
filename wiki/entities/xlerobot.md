@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-10
 updated: 2026-05-11
-sources: 1
+sources: 2
 tags: [xlerobot, mobile-manipulator, dual-arm, lerobot, lekiwi, so-arm101, low-cost, household-robot, embodied-ai]
 ---
 
@@ -89,9 +89,19 @@ This composition pattern — **buy-no-new-IP, glue together with 3D-printed brac
 - [Reachy 2](reachy.md) — adjacent (dual-arm, professional)
 - [V-JEPA 2](v-jepa-2.md) — **the docs' Related Works section cites V-JEPA 2 under "Task Planning"** — a direct intersection with the wiki's JEPA / world-model thread.
 
+## In the wild — hackathon traction (Oct 2025)
+
+XLeRobot was the **dominant dual-arm platform** at the [October 2025 Seeed × NVIDIA × Hugging Face Embodied AI Hackathon](../sources/seeed-embodied-ai-hackathon-2025-recap.md), placing in winning teams on both sites:
+
+- **U.S. site champion — [SIGRobotics-UIUC](sigrobotics-uiuc.md) matcha-making bot** — bimanual XLeRobot + [GR00T N1.5](nvidia-groot.md) fine-tune via NVIDIA Brev + Jetson Thor deployment.
+- **China site 2nd runner-up — "Mate XLeRobot"** (Ryan, Isaac, Qi, KAHO, Bubbles) — **hardware-modded XLeRobot variant with a vertical lift-rail**, which directly addresses the fixed-height workspace limitation in the stock spec. First wiki-documented end-user hardware modification of the platform.
+
+These are the strongest external signals to date that the $660 BOM holds up when stacked against more expensive arms (FashionStar StarAI) in a competitive setting.
+
 ## Mentioned in
 
 - [XLeRobot Documentation](../sources/xlerobot-docs.md)
+- [Seeed × NVIDIA × HF Embodied AI Hackathon 2025 Recap](../sources/seeed-embodied-ai-hackathon-2025-recap.md)
 
 ## Open questions / TBD
 

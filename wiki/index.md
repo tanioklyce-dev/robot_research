@@ -133,6 +133,7 @@ Curated entry points across the wiki.
 - [Seeed Studio LeRobot LeKiwi Wiki](sources/seeed-lekiwi-wiki.md) — end-to-end build/use tutorial; 11-step assembly; ACT-policy training pipeline; Seeed distributes the hardware. (2025-06)
 - [LeKiwi GitHub (SIGRobotics-UIUC/LeKiwi)](sources/lekiwi-github.md) — 1,300+ stars; 3-wheel Kiwi-drive base; SO-ARM101 default arm; Dynamixel/Koch v1.1 alt; Apache 2.0. (2025)
 - [LeRobot Worldwide Hackathon 2025 — All Winners](sources/lerobot-worldwide-hackathon-2025-winners.md) — HF Space with 30 ranked teams; June 14–15, 2025; 916 team members, ~400 submissions; LeKiwi/SO-101/Hope Jr Arm prizes. (2025-06)
+- [Seeed × NVIDIA × HF Embodied AI Hackathon 2025 Recap](sources/seeed-embodied-ai-hackathon-2025-recap.md) — two-site (Shenzhen + Mountain View) October 2025 hackathon; 700+ devs, 30+ teams; both site champions ran GR00T N1.5 on XLeRobot / SO-ARM101; theme = home + cooking robots. (2025-11-06)
 - [Explicit-Input Teleoperation — Walker et al. 2024](sources/walker2024-explicit-input-teleoperation.md) — pointing-based explicit assistance vs. implicit inference; fewer failures, lower workload; NVIDIA collaboration. (IROS 2024)
 - [Grasping in Clutter IVFP — Murray et al. 2024](sources/murray2024-grasping-clutter-ivfp.md) — IVFP on Stretch RE1 in warehouse; pre-emptive failure detection; autonomous reward assignment. (2024)
 - [Arcade Learning Environment — Farama Project Page](sources/ale-farama.md) — Farama's Atari 2600 RL benchmark; 100+ games, 23 multi-agent envs, Gymnasium API. (Unknown)
@@ -176,8 +177,8 @@ Curated entry points across the wiki.
 - [NVIDIA](entities/nvidia.md) — owns most of the agentic-robotics simulation substrate. (13 sources)
 - [Hiwonder](entities/hiwonder.md) — Chinese educational-robotics vendor; ROSOrin / ROSOrin Pro kits + OpenClaw. (3 sources)
 - [Hugging Face](entities/hugging-face.md) — open-source AI company; maintainer of [LeRobot](entities/lerobot.md); HF Hub hosts model checkpoints across the wiki's JEPA / VLA / IL coverage. (4 sources)
-- [SIGRobotics-UIUC](entities/sigrobotics-uiuc.md) — student-led robotics org at UIUC; designs and maintains [LeKiwi](entities/lekiwi.md); Apache 2.0; 1,300+ GitHub stars. (2 sources)
-- [Seeed Studio](entities/seeed-studio.md) — Shenzhen open-hardware distributor; sells LeKiwi and hosts the canonical end-user tutorial; sponsor of LeRobot Hackathon 2025. (2 sources)
+- [SIGRobotics-UIUC](entities/sigrobotics-uiuc.md) — student-led robotics org at UIUC; designs and maintains [LeKiwi](entities/lekiwi.md); won U.S. site of the Oct 2025 Embodied AI Hackathon with a GR00T-driven matcha-making XLeRobot. (3 sources)
+- [Seeed Studio](entities/seeed-studio.md) — Shenzhen open-hardware distributor; sells LeKiwi and hosts the canonical end-user tutorial; co-organizer of LeRobot 2025 + Embodied AI 2025 hackathons. (3 sources)
 - [The Robot Studio](entities/the-robot-studio.md) — open-hardware design group behind the SO-ARM100/101 lineage. (3 sources) _stub_
 - [AGIBOT](entities/agibot.md) — Shanghai embodied-AI / humanoid company. Open-source-heavy. (3 sources)
 - [Hello Robot](entities/hello-robot.md) — Stretch mobile manipulator + stretch_ai stack. (7 sources)
@@ -254,7 +255,7 @@ Curated entry points across the wiki.
 - [Reachy 2](entities/reachy.md) — Pollen Robotics' open-source bimanual mobile manipulator for embodied AI; ROS 2; 7 DOF/arm. (1 source)
 - [myAGV](entities/myagv.md) — Elephant Robotics autonomous mobile base; ROS; Raspberry Pi 4B; pairs with arms. (1 source)
 - [LeKiwi](entities/lekiwi.md) — SIGRobotics-UIUC 3-wheel Kiwi-drive holonomic mobile manipulator; Raspberry Pi 5 + STS3215; sub-$1k; LeRobot ecosystem; 1,300+ stars. (3 sources)
-- [XLeRobot](entities/xlerobot.md) — Vector Wang's $660 dual-arm household manipulator (2× SO-ARM101 + LeKiwi base + LeRobot); 90% 3D-printed; v0.3.0 (Aug 2025). (1 source)
+- [XLeRobot](entities/xlerobot.md) — Vector Wang's $660 dual-arm household manipulator (2× SO-ARM101 + LeKiwi base + LeRobot); 90% 3D-printed; v0.3.0 (Aug 2025); 2 winning teams at Oct 2025 Embodied AI Hackathon (incl. matcha-bot champion). (2 sources)
 - [SO-ARM101](entities/so-arm101.md) — open-source low-cost arm (The Robot Studio); SO-ARM100 successor; default LeRobot manipulator; leader-follower teleoperation convention. (4 sources)
 - [Hope Jr Arm](entities/hope-jr-arm.md) — premium-tier prize arm at the LeRobot Worldwide Hackathon 2025; specs not yet ingested. (1 source) _stub_
 - [myBuddy 280](entities/mybuddy-280.md) — Elephant Robotics 13 DOF dual-arm desktop robot; $1,619; ROS1. (1 source)
@@ -304,7 +305,7 @@ Curated entry points across the wiki.
 - [PLDM (Planning with Latent Dynamics Models)](entities/pldm.md) — Sobal-line end-to-end JEPA WM (NYU + FAIR); VICReg + inverse-dynamics + similarity multi-term loss; the canonical "end-to-end JEPA before LeWM" baseline. (2 sources — 2022 precursor + 2025 paper)
 
 ### VLA models / generalist policies
-- [NVIDIA GR00T](entities/nvidia-groot.md) — open VLA bundled with Isaac Lab. (5 sources)
+- [NVIDIA GR00T](entities/nvidia-groot.md) — open VLA bundled with Isaac Lab; N1.5 won both sites of the Oct 2025 Embodied AI Hackathon. (6 sources)
 - [Gemini Robotics](entities/gemini-robotics.md) — Google DeepMind robot foundation models; full VLA + Gemini Robotics-**ER** embodied-reasoning VLM (tool-call planner). (1 source)
 - [OK-Robot](entities/ok-robot.md) — NYU zero-shot pick-and-drop framework; 58.5% in 10 homes; 1.8× over OVMM. (1 source)
 - [Robot Utility Models](entities/robot-utility-models.md) — NYU/Meta zero-shot mobile-manipulation BC. (5 sources)

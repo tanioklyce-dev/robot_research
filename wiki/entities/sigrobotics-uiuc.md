@@ -3,16 +3,17 @@ title: SIGRobotics-UIUC
 type: entity
 subtype: organization
 created: 2026-05-10
-updated: 2026-05-10
-sources: 2
-tags: [sigrobotics, uiuc, student-organization, lekiwi, open-hardware, lerobot]
+updated: 2026-05-11
+sources: 3
+tags: [sigrobotics, uiuc, student-organization, lekiwi, open-hardware, lerobot, hackathon]
 ---
 
-**SIGRobotics-UIUC** — student-led robotics organization at the University of Illinois Urbana-Champaign. Designs and maintains the **[LeKiwi](lekiwi.md)** open-source mobile manipulator (1,300+ GitHub stars). Apache 2.0; CAD in Fusion 360.
+**SIGRobotics-UIUC** — student-led robotics organization at the University of Illinois Urbana-Champaign. Designs and maintains the **[LeKiwi](lekiwi.md)** open-source mobile manipulator (1,300+ GitHub stars). Apache 2.0; CAD in Fusion 360. **Won the U.S. (Mountain View) site of the [October 2025 Seeed × NVIDIA × Hugging Face Embodied AI Hackathon](../sources/seeed-embodied-ai-hackathon-2025-recap.md)** with a matcha-making bimanual XLeRobot driven by a GR00T-N1.5 policy.
 
 ## Project
 
 - **[LeKiwi](lekiwi.md)** — sub-$1k 3-wheel holonomic Kiwi-drive mobile manipulator platform; default mounting target for the [SO-ARM101](so-arm101.md) arm in the [LeRobot](lerobot.md) ecosystem.
+- **Matcha-making bimanual robot (Oct 2025)** — U.S.-site champion at the Embodied AI Hackathon. Built on [XLeRobot](xlerobot.md); fine-tuned **[NVIDIA GR00T N1.5](nvidia-groot.md)** via NVIDIA Brev; deployed on Jetson Thor. Task: pour matcha powder, add water, whisk.
 
 ## Core contributors
 
@@ -39,6 +40,7 @@ UIUC has two assistive-robotics-relevant student/lab efforts now indexed: SIGRob
 
 - [LeKiwi GitHub](../sources/lekiwi-github.md)
 - [Seeed Studio LeRobot LeKiwi Wiki](../sources/seeed-lekiwi-wiki.md)
+- [Seeed × NVIDIA × HF Embodied AI Hackathon 2025 Recap](../sources/seeed-embodied-ai-hackathon-2025-recap.md)
 
 ## Open questions / TBD
 

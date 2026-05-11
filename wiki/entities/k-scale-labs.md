@@ -29,10 +29,11 @@ Six identified failure modes — see full analysis in [Robot Report source page]
 "Overconfidence in AI + underestimation of hardware complexity = systemic optimism bias that accelerated failure."
 
 ## Legacy
-Some code open-sourced before shutdown. The post-mortem (Xu, March 2026) is among the most candid first-hand accounts of humanoid startup failure available publicly.
+Some code open-sourced before shutdown. The post-mortem (Xu, March 2026) is among the most candid first-hand accounts of humanoid startup failure available publicly. Listed as a **mentor / partner** at the [Seeed × NVIDIA × HF Embodied AI Hackathon (October 2025)](../sources/seeed-embodied-ai-hackathon-2025-recap.md) — i.e., the company was still active in ecosystem-facing capacity weeks before the shutdown.
 
 ## Related
 - [Humanoid platforms survey](../syntheses/humanoid-platforms-survey.md) — landscape context
 
 ## Mentioned in
 - [Robot Report — 6 Lessons](../sources/robot-report-kscale-labs-lessons.md)
+- [Seeed × NVIDIA × HF Embodied AI Hackathon 2025 Recap](../sources/seeed-embodied-ai-hackathon-2025-recap.md)
