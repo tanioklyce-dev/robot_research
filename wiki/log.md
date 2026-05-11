@@ -2,6 +2,16 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-10] ingest | LeRobot ecosystem — XLeRobot, LeKiwi (SIGRobotics-UIUC), Seeed tutorial
+- Created [XLeRobot Documentation](sources/xlerobot-docs.md) — Vector Wang's $660 dual-arm household manipulator; 2× SO-ARM101 on LeKiwi-class base; built on LeRobot; v0.3.0 released 2025-08-30.
+- Created [Seeed Studio LeRobot LeKiwi Wiki](sources/seeed-lekiwi-wiki.md) — end-to-end build/teleop/train tutorial; STS3215 motor / Raspberry Pi 5 / ACT-policy spec; Seeed distributes LeKiwi hardware.
+- Created [LeKiwi GitHub (SIGRobotics-UIUC/LeKiwi)](sources/lekiwi-github.md) — 1,300+ stars; 3-wheel Kiwi-drive holonomic base; Apache 2.0; Dynamixel/Koch v1.1 alternative arm variant.
+- Created entities: [LeRobot](entities/lerobot.md), [LeKiwi](entities/lekiwi.md), [XLeRobot](entities/xlerobot.md), [SO-ARM101](entities/so-arm101.md) (SO-ARM100 lineage), [Vector Wang](entities/vector-wang.md), [SIGRobotics-UIUC](entities/sigrobotics-uiuc.md), [Seeed Studio](entities/seeed-studio.md), [The Robot Studio](entities/the-robot-studio.md), [Hugging Face](entities/hugging-face.md).
+- Updated [Imitation learning](concepts/imitation-learning.md) 17→20 sources; added "Frameworks and stacks" section comparing LeRobot vs. Stretch AI vs. research-code tiers.
+- Updated [index.md](index.md) — new sources under "Sources (chronological)"; new entities in Robot platforms, Software stacks, Companies, People; ACT/LeRobot tier flagged as the dominant sub-$1k IL stack.
+- Cross-cutting frame: the LeRobot stack is the **gluing-existing-pieces-together** answer to affordable mobile manipulation — SO-ARM101 (The Robot Studio) + LeKiwi (SIGRobotics-UIUC) + LeRobot (Hugging Face) composes into XLeRobot's $660 dual-arm rig. Distinct from the integrated-vendor approach of Hello Robot (Stretch) or Pollen Robotics (Reachy 2).
+- Noted UIUC footprint: [SIGRobotics-UIUC](entities/sigrobotics-uiuc.md) (low-cost mobile manipulation, LeKiwi) and the [Driggs-Campbell lab](entities/katherine-driggs-campbell.md) (assistive navigation, DRAGON) are independent UIUC groups both relevant to accessible robotics.
+
 ## [2026-05-10] ingest | Four new PDFs (DRAGON, Huh accessibility, Schneiders domestic, PAR review published version)
 - Created [DRAGON — Dialogue-Based Robot for Assistive Navigation (Liu et al. 2024)](sources/dragon-assistive-nav-2024.md) — IEEE RA-L 2024; UIUC/Driggs-Campbell; TurtleBot 2i + CLIP landmark grounding + dialogue + VQA for PwVI; N=5 user study.
 - Created [Designing Accessible Robot Communication for Blind People (Huh et al. 2026)](sources/huh2026-accessible-robot-comm.md) — CHI 2026 InterAI Workshop; cross-institutional (UC Berkeley × UT Austin × UW); observational (10 blind) + controlled (20 blind + 20 sighted) study; 6 design guidelines; mixed-initiative narration preferred by blind users; Cakmak among co-authors.

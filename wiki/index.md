@@ -129,6 +129,9 @@ Curated entry points across the wiki.
 - [DRAGON — Dialogue-Based Robot for Assistive Navigation (Liu et al. 2024)](sources/dragon-assistive-nav-2024.md) — UIUC/Driggs-Campbell; TurtleBot 2i + CLIP landmark grounding + dialogue + VQA for persons with visual impairments. (IEEE RA-L 2024)
 - [Designing Accessible Robot Communication for Blind People (Huh et al. 2026)](sources/huh2026-accessible-robot-comm.md) — Berkeley × UT Austin × UW; Franka + Tiago observational study (10 blind) + Gemini-Live controlled study (20 blind + 20 sighted); 6 design guidelines; mixed-initiative narration is preferred by blind users. (CHI 2026 InterAI Workshop)
 - [Domestic Robots and the Dream of Automation (Schneiders et al. 2021)](sources/schneiders2021-domestic-robots-automation.md) — Aalborg; 24 Danish households; task fragmentation finding; strict task division contradicts Forlizzi 2007. (CHI 2021)
+- [XLeRobot Documentation](sources/xlerobot-docs.md) — $660 dual-arm mobile manipulator; 2× SO-ARM101 on LeKiwi-class base; 90% 3D-printed; built on LeRobot. (v0.3.0, 2025-08-30)
+- [Seeed Studio LeRobot LeKiwi Wiki](sources/seeed-lekiwi-wiki.md) — end-to-end build/use tutorial; 11-step assembly; ACT-policy training pipeline; Seeed distributes the hardware. (2025-06)
+- [LeKiwi GitHub (SIGRobotics-UIUC/LeKiwi)](sources/lekiwi-github.md) — 1,300+ stars; 3-wheel Kiwi-drive base; SO-ARM101 default arm; Dynamixel/Koch v1.1 alt; Apache 2.0. (2025)
 - [Explicit-Input Teleoperation — Walker et al. 2024](sources/walker2024-explicit-input-teleoperation.md) — pointing-based explicit assistance vs. implicit inference; fewer failures, lower workload; NVIDIA collaboration. (IROS 2024)
 - [Grasping in Clutter IVFP — Murray et al. 2024](sources/murray2024-grasping-clutter-ivfp.md) — IVFP on Stretch RE1 in warehouse; pre-emptive failure detection; autonomous reward assignment. (2024)
 - [Arcade Learning Environment — Farama Project Page](sources/ale-farama.md) — Farama's Atari 2600 RL benchmark; 100+ games, 23 multi-agent envs, Gymnasium API. (Unknown)
@@ -170,6 +173,10 @@ Curated entry points across the wiki.
 ### Companies
 - [NVIDIA](entities/nvidia.md) — owns most of the agentic-robotics simulation substrate. (13 sources)
 - [Hiwonder](entities/hiwonder.md) — Chinese educational-robotics vendor; ROSOrin / ROSOrin Pro kits + OpenClaw. (3 sources)
+- [Hugging Face](entities/hugging-face.md) — open-source AI company; maintainer of [LeRobot](entities/lerobot.md); HF Hub hosts model checkpoints across the wiki's JEPA / VLA / IL coverage. (3 sources)
+- [SIGRobotics-UIUC](entities/sigrobotics-uiuc.md) — student-led robotics org at UIUC; designs and maintains [LeKiwi](entities/lekiwi.md); Apache 2.0; 1,300+ GitHub stars. (2 sources)
+- [Seeed Studio](entities/seeed-studio.md) — Shenzhen open-hardware distributor; sells LeKiwi and hosts the canonical end-user tutorial. (1 source)
+- [The Robot Studio](entities/the-robot-studio.md) — open-hardware design group behind the SO-ARM100/101 lineage. (3 sources) _stub_
 - [AGIBOT](entities/agibot.md) — Shanghai embodied-AI / humanoid company. Open-source-heavy. (3 sources)
 - [Hello Robot](entities/hello-robot.md) — Stretch mobile manipulator + stretch_ai stack. (7 sources)
 - [HCR Lab](entities/hcrlab.md) — Human-Centered Robotics Lab, UW (Maya Cakmak); assistive robots + EUP; Stretch platform; long-term in-home deployments. (9 sources)
@@ -244,6 +251,9 @@ Curated entry points across the wiki.
 - [Stretch](entities/stretch.md) — Hello Robot's mobile manipulator (Stretch 3). De-facto research platform. (11 sources)
 - [Reachy 2](entities/reachy.md) — Pollen Robotics' open-source bimanual mobile manipulator for embodied AI; ROS 2; 7 DOF/arm. (1 source)
 - [myAGV](entities/myagv.md) — Elephant Robotics autonomous mobile base; ROS; Raspberry Pi 4B; pairs with arms. (1 source)
+- [LeKiwi](entities/lekiwi.md) — SIGRobotics-UIUC 3-wheel Kiwi-drive holonomic mobile manipulator; Raspberry Pi 5 + STS3215; sub-$1k; LeRobot ecosystem; 1,300+ stars. (2 sources)
+- [XLeRobot](entities/xlerobot.md) — Vector Wang's $660 dual-arm household manipulator (2× SO-ARM101 + LeKiwi base + LeRobot); 90% 3D-printed; v0.3.0 (Aug 2025). (1 source)
+- [SO-ARM101](entities/so-arm101.md) — open-source low-cost arm (The Robot Studio); SO-ARM100 successor; default LeRobot manipulator; leader-follower teleoperation convention. (3 sources)
 - [myBuddy 280](entities/mybuddy-280.md) — Elephant Robotics 13 DOF dual-arm desktop robot; $1,619; ROS1. (1 source)
 - [ROSOrin](entities/rosorin.md) — Hiwonder's Jetson Orin Nano educational mobile robot kit. (2 sources)
 - [ROSOrin Pro](entities/rosorin-pro.md) — Hiwonder's 6-DOF arm + base variant of ROSOrin. (2 sources)
@@ -253,6 +263,7 @@ Curated entry points across the wiki.
 ### Software stacks
 - [stretch_ai](entities/stretch-ai.md) — Hello Robot's open-source Python stack with an LLM agent. (5 sources)
 - [OpenClaw](entities/openclaw.md) — Hiwonder's manipulation-aware LLM-agent framework for ROSOrin Pro. (1 source)
+- [LeRobot](entities/lerobot.md) — Hugging Face's open-source imitation-learning framework; de-facto stack for affordable mobile manipulators (SO-ARM, LeKiwi, XLeRobot, Bambot, Koch v1.1); ACT default policy. (3 sources)
 
 ### Controllers
 - [roboRIO](entities/roborio.md) — NI's mandatory FRC robot controller (ARM Cortex-A9 + FPGA); WPILib ecosystem. (2 sources)
@@ -331,6 +342,7 @@ Curated entry points across the wiki.
 - [Roberto Martin-Martin](entities/roberto-martin-martin.md) — UT Austin CS; embodied AI, manipulation, mobile manipulation; co-author on Huh et al. 2026. (1 source)
 - [Huihan Liu](entities/huihan-liu.md) — UT Austin; robot learning; co-author on Huh et al. 2026 (distinct from Shuijing Liu). (1 source)
 - [Eike Schneiders](entities/eike-schneiders.md) — Aalborg University; qualitative HRI/HCI of domestic robots and automation. (1 source)
+- [Vector Wang (Gaotian Wang)](entities/vector-wang.md) — creator of [XLeRobot](entities/xlerobot.md); composition-style affordable-robotics builder. (1 source)
 
 ## Concepts
 - [World model](concepts/world-model.md) — umbrella concept: learned predictive model of environment dynamics (generative-video / JEPA / frozen-feature / model-based-RL). (14 sources)
