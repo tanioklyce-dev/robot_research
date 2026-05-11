@@ -3,8 +3,8 @@ title: K-Scale Labs
 type: entity
 subtype: company
 created: 2026-05-09
-updated: 2026-05-09
-sources: 1
+updated: 2026-05-11
+sources: 3
 tags: [k-scale-labs, startup, humanoid, yc, shutdown, hardware]
 ---
 
@@ -29,7 +29,7 @@ Six identified failure modes — see full analysis in [Robot Report source page]
 "Overconfidence in AI + underestimation of hardware complexity = systemic optimism bias that accelerated failure."
 
 ## Legacy
-Some code open-sourced before shutdown. The post-mortem (Xu, March 2026) is among the most candid first-hand accounts of humanoid startup failure available publicly. Listed as a **mentor / partner** at the [Seeed × NVIDIA × HF Embodied AI Hackathon (October 2025)](../sources/seeed-embodied-ai-hackathon-2025-recap.md) — i.e., the company was still active in ecosystem-facing capacity weeks before the shutdown.
+Some code open-sourced before shutdown. The post-mortem (Xu, March 2026) is among the most candid first-hand accounts of humanoid startup failure available publicly. Listed as a **mentor / partner** at the [Seeed × NVIDIA × HF Embodied AI Hackathon (October 2025)](../sources/seeed-embodied-ai-hackathon-2025-recap.md) and as **sponsor of the [SIGRobotics-UIUC](sigrobotics-uiuc.md) "Mini Humanoid" project** ([`micro-sim`](https://github.com/SIGRobotics-UIUC/micro-sim)) — i.e., the company was still active in ecosystem-facing capacity (hackathon mentor + university-project sponsor) weeks-to-months before the shutdown. The sponsorship is still listed on the SIGRobotics projects page as of 2026-05-11, ~5 months after K-Scale's wind-down — UIUC may not yet have updated their site, or the project may have continued post-shutdown on existing seed funding.
 
 ## Related
 - [Humanoid platforms survey](../syntheses/humanoid-platforms-survey.md) — landscape context
@@ -37,3 +37,4 @@ Some code open-sourced before shutdown. The post-mortem (Xu, March 2026) is amon
 ## Mentioned in
 - [Robot Report — 6 Lessons](../sources/robot-report-kscale-labs-lessons.md)
 - [Seeed × NVIDIA × HF Embodied AI Hackathon 2025 Recap](../sources/seeed-embodied-ai-hackathon-2025-recap.md)
+- [SIGRobotics (ACM @ UIUC) — Projects page](../sources/sigrobotics-uiuc-projects-page.md)

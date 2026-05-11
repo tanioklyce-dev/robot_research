@@ -1019,6 +1019,16 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - **New entities surfaced but parked**: NVIDIA Jetson Thor + JetPack 7 SDK, NVIDIA Brev, Lightwheel, Solo Tech, FashionStar / StarAI, Circuit Launch, Mate XLeRobot. Listed at the bottom of the source page so a future ingest can pick them up.
 - **Open questions logged**: exact October 2025 dates, cash prize amounts (if any), public availability of winning team repos/datasets, and the structural-ecosystem question of why HF + Seeed ran two parallel hackathon brands in 2025 (LeRobot Worldwide June, Embodied AI October).
 
+## [2026-05-11] ingest | SIGRobotics (ACM @ UIUC) — Projects page
+- Created [SIGRobotics (ACM @ UIUC) — Projects page](sources/sigrobotics-uiuc-projects-page.md). The site is a React SPA on GitHub Pages — `/projects` returns 404 from the static host but project + sponsor data is hard-coded in the JS bundle (`/static/js/main.e69055b8.js`), which is how the content was extracted. Bundle hash will change on rebuild; documented in the source page's frontmatter.
+- **Four flagship projects surfaced**: [LeKiwi](entities/lekiwi.md), 3D-printed Koch arms (no public repo), **Mini Humanoid sponsored by [K-Scale Labs](entities/k-scale-labs.md)** ([micro-sim](https://github.com/SIGRobotics-UIUC/micro-sim)), and a "Turtlebot3 fetches coffee" project sponsored by UIUC CDS.
+- **Seven sponsors** named: FrodoBots (big), BitRobot Foundation (big), Saronic (big), Hugging Face LeRobot (normal), Neuralink (normal), ROBOTIS (normal), UIUC CS (normal).
+- **Gap-between-website-and-GitHub flagged**: the projects page shows 4 flagships but the GitHub org has ~25 public repos. Surfaced — but not yet broken out to their own pages — the **matcha-bot frontend (`seeed-hack-interface`)** and **`Isaac-GR00T-UIUC`** repos that constitute the Oct 2025 hackathon-win codebase; **F1Tenth autonomous racing**; a **Climbing Robot** project; the **`silent_speech`** EMG/HCI repo (probable Neuralink-sponsorship bridge); the bimanual SO-101 leader/follower repos; and the **FrodoBots Earth Rover Mini SDK** cluster (now explained: FrodoBots is a top-tier sponsor).
+- **K-Scale Labs sponsorship of SIGRobotics Mini Humanoid** is the most material new fact — it shows K-Scale was funding *university humanoid-policy work* on top of its hackathon mentorship, all the way into late 2025 before the Series-A failed. The SIGRobotics projects page still lists the sponsorship 5+ months after K-Scale's shutdown (either UIUC hasn't updated or the project continues on prior seed funding — flagged as an open question).
+- Updated entities: [SIGRobotics-UIUC](entities/sigrobotics-uiuc.md) (rewrote Projects section to enumerate flagships + GitHub-only projects; new Sponsors section; 3→4 sources); [K-Scale Labs](entities/k-scale-labs.md) (added Mini Humanoid sponsorship; 1→3 sources).
+- Updated [index.md](index.md) — added Sources-chronological bullet; refreshed SIGRobotics-UIUC and K-Scale Labs entries with new context + source counts.
+- **New entities surfaced but parked**: **FrodoBots / Earth Rover Mini**, **BitRobot Foundation**, **Saronic**, **ROBOTIS / Dynamixel**, **Koch arms (open-hardware lineage)**, **UIUC CDS**. Stub-worthy only if these come up in a second ingest.
+
 
 
 
