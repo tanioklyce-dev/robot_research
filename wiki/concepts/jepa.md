@@ -2,10 +2,13 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-05-10
-sources: 10
+updated: 2026-05-11
+sources: 11
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun]
 ---
+
+> [!note] Video overview
+> [Welch Labs — "Yann LeCun's $1B Bet Against LLMs" (2026-05-01, ~37 min)](../sources/welchlabs-lecun-1b-bet-against-llms.md) is the recommended popular-explainer for this page. It walks blurry-pixels → Siamese networks → representation collapse → Barlow Twins → DINO → JEPA with LeCun interview clips, and is a good first encounter with the JEPA story before the primary papers below.
 
 **JEPA (Joint-Embedding Predictive Architecture)** — a family of world models that learn by **predicting the representation of a future state in a learned latent space**, rather than reconstructing pixels or generating video. Proposed by Yann LeCun (2022) as a path to learning world knowledge from observation alone.
 
@@ -71,3 +74,4 @@ The original wiki synthesis observed [V-JEPA 2](../entities/v-jepa-2.md) and [Le
 - [PLDM Paper](../sources/pldm-paper.md)
 - [Sobal et al. 2022 — JEPA slow features](../sources/sobal2022-jepa-slow-features-paper.md)
 - [LeJEPA Paper](../sources/lejepa-paper.md)
+- [Welch Labs — Yann LeCun's $1B Bet Against LLMs (video)](../sources/welchlabs-lecun-1b-bet-against-llms.md)

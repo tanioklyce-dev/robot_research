@@ -168,6 +168,7 @@ Curated entry points across the wiki.
 - [PLDM Paper](sources/pldm-paper.md) — Sobal, Zhang, Cho, Balestriero, Rudner, LeCun (NYU + FAIR; WRL @ ICLR 2025); end-to-end JEPA WM trained with VICReg + inverse-dynamics + similarity loss (~6 anti-collapse hyperparameters); the canonical "end-to-end JEPA before LeWM" baseline. Stress-tested on 23 datasets / 6 generalization properties; only method that doesn't completely fail in any setting. (2025-02-28)
 - [Sobal et al. 2022 — JEPA slow features](sources/sobal2022-jepa-slow-features-paper.md) — Sobal, Jyothir S V, Jalagam, Carion, Cho, LeCun (NYU + FAIR; NeurIPS 2022 SSL workshop, arxiv 2211.10831); the PLDM precursor. Establishes that JEPA representations preferentially encode slowly-varying features (like the position of a moving dot); fixed-distractor noise breaks this bias. (2022-11-20)
 - [LeJEPA Paper](sources/lejepa-paper.md) — Balestriero & LeCun (Brown + NYU/FAIR, arxiv 2511.08544); the foundational SIGReg paper. Proves isotropic Gaussian is optimal for JEPA embeddings; proposes Sketched Isotropic Gaussian Regularization (SIGReg). Single hyperparameter, no stop-gradient, no teacher-student. ImageNet-1k linear-eval 79% on ViT-H/14; 10+ datasets / 60+ architectures. The methodological precursor to LeWM. (2025-11-11)
+- [Welch Labs — Yann LeCun's $1B Bet Against LLMs (video)](sources/welchlabs-lecun-1b-bet-against-llms.md) — 37-min popular-explainer with LeCun interview clips; arc from blurry generative video → Siamese → Barlow Twins → DINO → JEPA / world models; recommended curriculum-orientation video. (2026-05-01)
 
 ## Entities
 
@@ -327,7 +328,7 @@ Curated entry points across the wiki.
 - [LeRobot Worldwide Hackathon 2025](entities/lerobot-worldwide-hackathon-2025.md) — Hugging Face hybrid hackathon, June 14–15, 2025; 916 team members, ~400 submissions, 30 ranked winners; prizes: Hope Jr Arm / LeKiwi / SO-101. (1 source)
 
 ### People
-- [Yann LeCun](entities/yann-lecun.md) — NYU; Turing Award 2018; architect of the JEPA program; reported founder of AMI Labs (Apr 2026, provisional). (12 sources)
+- [Yann LeCun](entities/yann-lecun.md) — NYU; Turing Award 2018; architect of the JEPA program; reported founder of AMI Labs (Apr 2026, provisional). (13 sources)
 - [Navid Azizan](entities/navid-azizan.md) — MIT ME / IDSS / LIDS; learning-based control; SD-LQR (ICML 2023) + drone adaptive control (2025). (2 sources)
 - [Adrien Bardes](entities/adrien-bardes.md) — FAIR researcher; co-senior on V-JEPA 2, V-JEPA 2.1, JEPA-WMs. The FAIR-side champion of the V-JEPA program. (3 sources)
 - [Basile Terver](entities/basile-terver.md) — researcher (FAIR-affiliated, inferred); bread-crumb across DINO-world → JEPA-WMs lineage. (2 sources)
@@ -353,7 +354,7 @@ Curated entry points across the wiki.
 ## Concepts
 - [World model](concepts/world-model.md) — umbrella concept: learned predictive model of environment dynamics (generative-video / JEPA / frozen-feature / model-based-RL). (14 sources)
 - [VLA models](concepts/vla-models.md) — vision-language-action robot foundation models. (13 sources)
-- [Joint-Embedding Predictive Architecture](concepts/jepa.md) — predict next-state representations, not pixels. (10 sources)
+- [Joint-Embedding Predictive Architecture](concepts/jepa.md) — predict next-state representations, not pixels. (11 sources)
 - [Sim-to-real transfer](concepts/sim-to-real-transfer.md) — bridging simulator-trained policies to real robots. (9 sources)
 - [World-model simulators](concepts/world-model-simulators.md) — narrower companion to [World model](concepts/world-model.md): world-models-used-as-simulators (generative-video and JEPA paradigms). (14 sources)
 - [Imitation learning](concepts/imitation-learning.md) — supervised learning from demonstrations. (17 sources)

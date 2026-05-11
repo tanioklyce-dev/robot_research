@@ -3,8 +3,8 @@ title: Yann LeCun
 type: entity
 subtype: person
 created: 2026-05-07
-updated: 2026-05-10
-sources: 12
+updated: 2026-05-11
+sources: 13
 tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs]
 ---
 
@@ -26,8 +26,8 @@ LeCun introduced the JEPA framing publicly around 2022 and has driven its applic
 Six papers in this wiki carry his name. The world-model paradigm that distinguishes [FAIR](meta-fair.md) from [NVIDIA](nvidia.md) (generative video) and [AGIBOT](agibot.md) (sim-native) is, for practical purposes, LeCun's research direction.
 
 ## Public stance relevant to this wiki
-- **Latent-prediction over generative-video.** LeCun has argued publicly (talks, blog posts, social media) that pixel-level generative models are the wrong target for video world modeling — that prediction in representation space is more efficient and more aligned with what biological systems do. JEPA is the technical instantiation of that argument.
-- **Self-supervised learning at internet-scale.** The V-JEPA 2 framing — internet-scale video pretraining + small action-conditioning — is consistent with LeCun's broader "energy-based models / observation-only learning" agenda predating JEPA.
+- **Latent-prediction over generative-video.** LeCun has argued publicly (talks, blog posts, social media) that pixel-level generative models are the wrong target for video world modeling — that prediction in representation space is more efficient and more aligned with what biological systems do. JEPA is the technical instantiation of that argument. The on-camera framing of this position is the **[Welch Labs explainer "Yann LeCun's $1B Bet Against LLMs" (2026-05-01)](../sources/welchlabs-lecun-1b-bet-against-llms.md)**, which interviews LeCun and traces the blurry-pixels → Siamese → Barlow Twins → DINO → JEPA arc.
+- **Self-supervised learning at internet-scale.** The V-JEPA 2 framing — internet-scale video pretraining + small action-conditioning — is consistent with LeCun's broader "energy-based models / observation-only learning" agenda predating JEPA. The same Welch Labs video opens with his "intelligence is a cake" metaphor (SSL = cake, supervised = icing, RL = cherry).
 
 ## Position in the broader field
 LeCun is one of the small number of researchers whose **simultaneous senior position at a major lab + university appointment + Turing-award credibility** lets him drive a multi-year research program at scale. The JEPA program is the visible artifact of that.
@@ -47,6 +47,7 @@ LeCun is one of the small number of researchers whose **simultaneous senior posi
 - [DINO-world Paper](../sources/dino-world-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
 - [Towards AI — LeCun / AMI Labs article](../sources/towardsai-lecun-ami-labs.md)
+- [Welch Labs — Yann LeCun's $1B Bet Against LLMs (video)](../sources/welchlabs-lecun-1b-bet-against-llms.md)
 
 ## Open questions / TBD
 - LeCun's stated position papers ("A Path Towards Autonomous Machine Intelligence," 2022) are not yet source pages — they would anchor the "why latent prediction" rationale that current JEPA papers state only obliquely.

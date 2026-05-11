@@ -2,7 +2,7 @@
 title: Robot-learning curriculum — from neurons to LeWorldModel
 type: synthesis
 created: 2026-05-10
-updated: 2026-05-10
+updated: 2026-05-11
 tags: [curriculum, course, learning-path, jepa, diffusion-policy, vla, world-model, lewm, home-robotics]
 status: "complete — all 14 modules drafted 2026-05-10. Reader-traversable bottom-up. Module bodies may be deepened or revised on signal."
 ---
@@ -15,6 +15,9 @@ Each module below is scoped to become its own synthesis page (`syntheses/curricu
 
 > [!note] Acronyms — see the [Glossary](../glossary.md)
 > Every acronym used below is also defined in the wiki's [Glossary](../glossary.md). Each module spells out acronyms on first mention with a link to the glossary entry. Reach for the glossary the first time any term is unclear.
+
+> [!note] Video overview — recommended before starting
+> [Welch Labs — "Yann LeCun's $1B Bet Against LLMs" (2026-05-01, ~37 min)](../sources/welchlabs-lecun-1b-bet-against-llms.md) is a popular-explainer that walks the same arc this curriculum ends on: blurry generative-video → Siamese networks → representation collapse → Barlow Twins → DINO → JEPA / world models, with on-camera LeCun framing. **Watch it before Module 1** as a non-technical orientation to *why* the curriculum points at JEPA / [LeWM](../entities/leworldmodel.md) at all. Tier 1 is the same story rebuilt rigorously from first principles.
 
 ## Goal
 

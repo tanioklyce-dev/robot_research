@@ -995,6 +995,13 @@ DROID/Metaworld/DINOv2 papers as standalone source pages — entities are filed;
 - Updated [index.md](index.md) — four new Highlights bullets + four new Syntheses-chronological bullets; the curriculum-hub Highlights bullet now flags "all 14 modules drafted."
 - **Curriculum status: COMPLETE — 14 of 14 modules drafted.** The reader can traverse the entire curriculum bottom-up from absolute beginning (Module 1 NN basics, no prerequisites beyond linear algebra + chain rule) through the destination (Module 12 LeWM deep-dive with full SIGReg math) and the deployment + capstone modules (13, 14). The dependency graph (encoded in the hub) gives readers permission to skip Tier 1 modules they're already comfortable with — each Tier 1 module has a prereq diagnostic at the top for self-assessment.
 
+## [2026-05-11] ingest | Welch Labs — "Yann LeCun's $1B Bet Against LLMs" (YouTube, 2026-05-01)
+- Created [Welch Labs — Yann LeCun's $1B Bet Against LLMs (video)](sources/welchlabs-lecun-1b-bet-against-llms.md) — 37-min Welch Labs explainer (Stephen Welch et al.) with LeCun interview clips; arc: deep-learning limits → cake-of-intelligence → generative AI → blurry pixels → why-so-blurry → "do we need to be generative?" → Siamese networks → representation collapse → Barlow Twins → DINO → JEPA & world models → "is JEPA good?". Special thanks credits Yann LeCun, Stephane Deny, David Fan, Nicolas Ballas. Embeds the V-JEPA 2 robot-arm demos. Indirectly corroborates the [Towards AI / AMI Labs reporting](sources/towardsai-lecun-ami-labs.md) — the "$1B bet" framing.
+- Updated [Yann LeCun](entities/yann-lecun.md) — added in-text link from the "Latent-prediction over generative-video" and "Self-supervised learning at internet-scale" stances to the video as the on-camera articulation of these positions; added Mentioned-in entry; source count 12 → 13; updated 2026-05-11.
+- Updated [Joint-Embedding Predictive Architecture](concepts/jepa.md) — added a `> [!note] Video overview` callout near the top recommending the Welch Labs video as a popular-explainer; added Mentioned-in entry; source count 10 → 11; updated 2026-05-11.
+- Updated [Robot-learning curriculum](syntheses/robot-learning-curriculum.md) — added a `> [!note] Video overview — recommended before starting` callout near the beginning (right after the Acronyms note) pointing readers at the video as a non-technical orientation to *why* the curriculum points at JEPA / LeWM at all. Updated 2026-05-11.
+- Updated [index.md](index.md) — added Sources-chronological bullet for the new video source; bumped [Yann LeCun](entities/yann-lecun.md) and [JEPA concept](concepts/jepa.md) source counts.
+
 
 
 
