@@ -125,6 +125,7 @@ A practical project sequence for learning JEPA on educational hardware.
 
 ## Where to start (by intent)
 
+- **You're new to this repo entirely:** start with the [repo README](../README.md) for the directory layout, then come back here.
 - **You want to learn the robotics-policy landscape end to end:** start with [the curriculum hub](syntheses/robot-learning-curriculum.md). The prereq diagnostic at the top of [Module 1](syntheses/curriculum-01-neural-networks.md) tells you whether you can skim Tier 1.
 - **You want to understand LeWM specifically:** start with [the curriculum hub](syntheses/robot-learning-curriculum.md), then jump to [Module 10](syntheses/curriculum-10-world-models.md) → [Module 11](syntheses/curriculum-11-jepa-deep.md) → [Module 12](syntheses/curriculum-12-lewm-deep-dive.md) (assumes ML basics).
 - **You want to set up a home-robot research project:** start with [Assistive robotics R&D landscape](syntheses/assistive-robotics-research-landscape.md) and [Module 13](syntheses/curriculum-13-home-robotics-deployment.md). Then [LeWM-on-Stretch feasibility](syntheses/lewm-on-stretch-feasibility.md) or [DINO-WM-on-Stretch experiment](syntheses/dino-wm-on-stretch-experiment.md) depending on which WM you'd prefer to try.
