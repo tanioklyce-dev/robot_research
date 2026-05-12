@@ -105,6 +105,9 @@ Hafner et al. ([source page](sources/dreamer-v3-paper.md), [entity](entities/dre
 ### Embedding / Latent
 A vector representation of an input; the output of an encoder. The substrate JEPA models predict in. See [latent space](concepts/latent-space.md) concept page. *(Modules 2–4.)*
 
+### Encoder
+NN that maps a raw input (image, video clip, action sequence, etc.) into an embedding / latent vector. Concretely: a [CNN](#cnn) (ResNet for 2D images), a [ViT](#vit) (patches → tokens → transformer), or a 1D-CNN / transformer for sequences. In SSL the encoder is *what you train* — the downstream task uses its frozen output. In a [Joint-Embedding Predictive Architecture (JEPA)](concepts/jepa.md), one encoder embeds the context `x` and (often the same) encoder embeds the target `y`; the [predictor](#predictor) then operates between those embeddings. Distinguished from a *decoder* (which reverses the mapping to reconstruct pixels) — JEPA / [DINOv2](entities/dinov2.md)-line models deliberately have no decoder. *(Modules 2–4.)*
+
 ### EUP
 **End-User Programming** — letting non-experts customize robot behavior. See [concept page](concepts/end-user-robot-programming.md). *(Module 13.)*
 
@@ -231,6 +234,9 @@ Open-weights VLA used as a baseline in many 2024–2026 papers. *(Module 9.)*
 ### Policy
 **Policy** — a function `π(a | o)` (or `π(a | s)`) mapping observation/state to an action (or action distribution). The thing IL and RL train: IL fits π to demonstrations, RL fits π to maximize expected reward. Action heads can be deterministic, Gaussian, categorical, k-means-discretized ([BeT](#bet) / [VQ-BeT](#vq-bet)), or diffusion-based ([Diffusion Policy](sources/diffusion-policy-paper.md)). *(Modules 6 & 8.)*
 
+### Predictor
+The module in [JEPA](concepts/jepa.md)-line world models that maps a context embedding `z_t` (often plus an action `a_t`) to a predicted future embedding `ẑ_{t+1}`. Loss is computed in latent space against `z_{t+1} = encoder(x_{t+1})` — *not* against pixels. Typically a small MLP ([DINO-WM](entities/dino-wm.md)) or an [AR](#ar) transformer ([V-JEPA 2-AC](entities/v-jepa-2.md), [LeWM](entities/leworldmodel.md)). The predictor's existence — and the fact that it operates between embeddings rather than over pixels — is what makes "JEPA" predictive (the J for Joint and the P for Predictive). Optionally takes a latent variable `z` to capture irreducible uncertainty about the future ([LeCun 2022, §4.4](sources/lecun2022-path-towards-ami.md)). *(Modules 10–12.)*
+
 ### PPO
 **Proximal Policy Optimization** — Schulman et al. 2017; the dominant on-policy actor-critic algorithm. *(Module 8.)*
 
@@ -283,7 +289,7 @@ A pretrained visual encoder for manipulation (Nair et al. 2022); appears as a Di
 **Tensor Processing Unit** — Google's NN-specialized accelerator. *(Throughout.)*
 
 ### Transformer
-NN architecture (Vaswani et al. 2017) built around self-attention; replaced RNNs as the dominant sequence model. *(Module 3.)*
+NN architecture (Vaswani et al., *Attention Is All You Need*, NeurIPS 2017) built around **self-attention** instead of recurrence. A stack of identical blocks; each block applies multi-head self-attention + an MLP + residual connections + [LN](#ln). Replaced [RNNs](#rnn) / [LSTMs](#lstm) as the dominant sequence model and now spans three major shapes: **encoder-only** (BERT, [DINOv2](entities/dinov2.md), [ViT](#vit) for representation learning), **decoder-only** (GPT-family, [LLMs](#llm), [AR](#ar) world-model [predictors](#predictor) as in [LeWM](entities/leworldmodel.md)), and **encoder-decoder** (the original — translation, [VLA](#vla) action heads). Positional information is injected externally — learned position embeddings, sinusoidal embeddings, or modern variants like axial RoPE (used in [DINOv3](entities/dinov3.md)). *(Module 3.)*
 
 ### TRPO
 **Trust Region Policy Optimization** — Schulman et al. 2015; PPO's predecessor with a hard trust-region constraint. *(Module 8.)*
@@ -301,7 +307,7 @@ Robot description formats — XML-based ([URDF](concepts/world-model-simulators.
 **Variance-Invariance-Covariance Regularization** — Bardes, Ponce, LeCun 2022; non-contrastive SSL that prevents collapse via variance and covariance penalties. Same author family as JEPA / SIGReg. *(Module 4.)*
 
 ### ViT
-**Vision Transformer** — Dosovitskiy et al. 2020; transformer applied to image patches as tokens; the default visual encoder in JEPA-line models including [LeWM](entities/leworldmodel.md) and [V-JEPA 2](entities/v-jepa-2.md). *(Module 3.)*
+**Vision Transformer** — Dosovitskiy et al. 2020 (*An Image Is Worth 16x16 Words*). An image is split into a grid of non-overlapping patches (typically 14×14 or 16×16 pixels); each patch is flattened + linearly projected into a token; a learnable `[CLS]` token is prepended; positional embeddings are added; the resulting sequence is fed through a standard [transformer](#transformer) encoder. Output: a patch-token sequence plus the `[CLS]` token, which serves as the global image embedding. Sized by depth + width: ViT-S/14, ViT-B/14, ViT-L/14, ViT-g/14 (~1.1B params, [DINOv2](entities/dinov2.md)), ViT-7B/16 ([DINOv3](entities/dinov3.md)). The default visual [encoder](#encoder) in JEPA-line models including [LeWM](entities/leworldmodel.md), [V-JEPA 2](entities/v-jepa-2.md), and every DINO-line world model. *(Module 3.)*
 
 ### V-JEPA / V-JEPA 2 / V-JEPA 2-AC / V-JEPA 2.1
 **Video JEPA** family from Meta FAIR; "AC" = Action-Conditioned. See [V-JEPA 2 entity](entities/v-jepa-2.md). *(Module 11.)*
