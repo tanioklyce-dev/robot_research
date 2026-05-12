@@ -2,8 +2,8 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-05-11
-sources: 12
+updated: 2026-05-12
+sources: 14
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun]
 ---
 
@@ -65,6 +65,9 @@ The original wiki synthesis observed [V-JEPA 2](../entities/v-jepa-2.md) and [Le
 
 ## Mentioned in
 - [A Path Towards Autonomous Machine Intelligence (LeCun, 2022)](../sources/lecun2022-path-towards-ami.md) — canonical position paper / definition
+- [Barlow Twins Paper (Zbontar et al., ICML 2021)](../sources/barlow-twins-paper.md) — Joint-Embedding anti-collapse precursor (cross-correlation → I)
+- [VICReg Paper (Bardes, Ponce, LeCun, ICLR 2022)](../sources/vicreg-paper.md) — the regularizer LeCun 2022 endorses as JEPA's anti-collapse method
+- [Barlow 1961 — sensory messages](../sources/barlow1961-sensory-messages.md) — neuroscience origin of the redundancy-reduction principle behind both above
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
 - [V-JEPA 2.1 Paper](../sources/v-jepa-2-1-paper.md)
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md)

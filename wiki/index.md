@@ -173,6 +173,9 @@ Curated entry points across the wiki.
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs (video)](sources/welchlabs-lecun-1b-bet-against-llms.md) — 37-min popular-explainer with LeCun interview clips; arc from blurry generative video → Siamese → Barlow Twins → DINO → JEPA / world models; recommended curriculum-orientation video. (2026-05-01)
 
 ## Sources (foundational, out of chronological order)
+- [Barlow 1961 — Possible Principles Underlying the Transformations of Sensory Messages](sources/barlow1961-sensory-messages.md) — Horace Barlow's foundational neuroscience paper introducing the redundancy-reduction principle (recode redundant sensory input into a factorial code with statistically independent components). Eponymous source for Barlow Twins (2021). The lineage root for VICReg → SIGReg → DINOv3 Gram anchoring. (1961)
+- [Barlow Twins Paper](sources/barlow-twins-paper.md) — Zbontar, Jing, Misra, LeCun, Deny (FAIR + NYU; ICML 2021, arxiv 2103.03230). First non-asymmetric anti-collapse SSL method: cross-correlation between two augmented views' embeddings → identity. No predictor, no momentum encoder, no stop-gradient. ImageNet linear top-1 73.2%. Names itself after Horace Barlow's redundancy-reduction principle. (2021-03-04)
+- [VICReg Paper](sources/vicreg-paper.md) — Bardes, Ponce, LeCun (FAIR + Inria + NYU; ICLR 2022, arxiv 2105.04906). Three-term anti-collapse loss: variance hinge + covariance decorrelation + invariance MSE. Branches need not share weights or architecture — natural multi-modal SSL. The regularizer LeCun's AMI paper cites by name as the JEPA anti-collapse method; methodological precursor to SIGReg / LeJEPA. (2021-05-11)
 - [LeCun 2022 — A Path Towards Autonomous Machine Intelligence](sources/lecun2022-path-towards-ami.md) — LeCun's position paper. Defines the JEPA / H-JEPA architecture, the configurable world model + configurator framing, intrinsic-cost + critic, and the EBM training story behind all subsequent JEPA papers. The vision document AMI Labs was founded to execute. (2022-06-27)
 - [DINOv3 Paper](sources/dinov3-paper.md) — Siméoni et al., Meta AI Research (arxiv 2508.10104). 7B-parameter ViT SSL foundation model; introduces Gram anchoring (regularize patch-similarity structure toward an earlier "Gram teacher") to fix the long-training dense-feature degradation observed in DINOv2 at scale. Frozen-backbone COCO mAP 66.1; ADE20k mIoU 63.0. New SSL state-of-the-art and natural drop-in upgrade for the DINO-WM / DINO-world / JEPA-WMs lineage. (2025-08-13)
 
@@ -335,9 +338,9 @@ Curated entry points across the wiki.
 - [LeRobot Worldwide Hackathon 2025](entities/lerobot-worldwide-hackathon-2025.md) — Hugging Face hybrid hackathon, June 14–15, 2025; 916 team members, ~400 submissions, 30 ranked winners; prizes: Hope Jr Arm / LeKiwi / SO-101. (1 source)
 
 ### People
-- [Yann LeCun](entities/yann-lecun.md) — NYU; Turing Award 2018; architect of the JEPA program; reported founder of AMI Labs (Apr 2026, provisional). (14 sources)
+- [Yann LeCun](entities/yann-lecun.md) — NYU; Turing Award 2018; architect of the JEPA program; reported founder of AMI Labs (Apr 2026, provisional). (16 sources)
 - [Navid Azizan](entities/navid-azizan.md) — MIT ME / IDSS / LIDS; learning-based control; SD-LQR (ICML 2023) + drone adaptive control (2025). (2 sources)
-- [Adrien Bardes](entities/adrien-bardes.md) — FAIR researcher; co-senior on V-JEPA 2, V-JEPA 2.1, JEPA-WMs. The FAIR-side champion of the V-JEPA program. (3 sources)
+- [Adrien Bardes](entities/adrien-bardes.md) — FAIR researcher; lead author on VICReg (ICLR 2022); co-senior on V-JEPA 2, V-JEPA 2.1, JEPA-WMs. The FAIR-side champion of the V-JEPA program. (4 sources)
 - [Basile Terver](entities/basile-terver.md) — researcher (FAIR-affiliated, inferred); bread-crumb across DINO-world → JEPA-WMs lineage. (2 sources)
 - [Sergey Levine](entities/sergey-levine.md) — UC Berkeley EECS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)
 - [Chelsea Finn](entities/chelsea-finn.md) — Stanford CS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)

@@ -3,8 +3,8 @@ title: Yann LeCun
 type: entity
 subtype: person
 created: 2026-05-07
-updated: 2026-05-11
-sources: 14
+updated: 2026-05-12
+sources: 16
 tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs]
 ---
 
@@ -41,6 +41,8 @@ LeCun is one of the small number of researchers whose **simultaneous senior posi
 - [Basile Terver](basile-terver.md) — JEPA-WMs lead author working under LeCun.
 
 ## Mentioned in
+- [Barlow Twins Paper (Zbontar et al., ICML 2021)](../sources/barlow-twins-paper.md) — senior author; first non-asymmetric anti-collapse SSL method.
+- [VICReg Paper (Bardes, Ponce, LeCun, ICLR 2022)](../sources/vicreg-paper.md) — senior author; the regularizer LeCun later endorses in his AMI paper as JEPA's anti-collapse method.
 - [A Path Towards Autonomous Machine Intelligence (LeCun, 2022)](../sources/lecun2022-path-towards-ami.md)
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
 - [V-JEPA 2.1 Paper](../sources/v-jepa-2-1-paper.md)

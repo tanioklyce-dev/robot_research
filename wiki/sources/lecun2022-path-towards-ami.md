@@ -111,7 +111,7 @@ The key intuition (Section 4.5): a representation should capture **all and only 
 
 ### Anti-collapse for JEPA (Sections 4.4–4.5)
 
-LeCun proposes **VICReg** ([Bardes, Ponce, LeCun 2022](https://arxiv.org/abs/2105.04906)) as a JEPA-compatible non-contrastive regularizer with four criteria:
+LeCun proposes **[VICReg](vicreg-paper.md)** ([Bardes, Ponce, LeCun 2022](https://arxiv.org/abs/2105.04906)) as a JEPA-compatible non-contrastive regularizer with four criteria:
 
 1. **Variance** — hinge loss enforcing per-component standard deviation above a threshold (anti-collapse).
 2. **Covariance** — push pairwise covariances toward zero (decorrelate).

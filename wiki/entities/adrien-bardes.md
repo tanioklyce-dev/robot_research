@@ -3,8 +3,8 @@ title: Adrien Bardes
 type: entity
 subtype: person
 created: 2026-05-07
-updated: 2026-05-07
-sources: 3
+updated: 2026-05-12
+sources: 4
 tags: [person, meta-fair, jepa, self-supervised, v-jepa, jepa-wms]
 ---
 
@@ -18,7 +18,7 @@ tags: [person, meta-fair, jepa, self-supervised, v-jepa, jepa-wms]
 Three papers in nine months, all FAIR JEPA work. If the wiki tracked author centrality, Bardes would be the highest-density JEPA-for-robotics contributor after LeCun.
 
 ## Research thread
-- Pre-JEPA: contributor to **VICReg** ("Variance-Invariance-Covariance Regularization for Self-Supervised Learning," ICLR 2022) — the kind of self-supervised regularization that JEPA would later build on. Confirms a multi-year focus on self-supervised representation learning rather than generative or RL-first approaches.
+- Pre-JEPA: **lead author on [VICReg](../sources/vicreg-paper.md)** ("Variance-Invariance-Covariance Regularization for Self-Supervised Learning," ICLR 2022, arxiv 2105.04906) — the regularizer LeCun cites by name in [Path Towards AMI (2022)](../sources/lecun2022-path-towards-ami.md) as the canonical JEPA-compatible anti-collapse method. VICReg's three-term decomposition (variance + covariance + invariance) is the methodological precursor to the entire regularized-SSL branch including PLDM, LeJEPA / SIGReg, and LeWM.
 - 2025–present: V-JEPA program co-leadership at FAIR.
 
 ## Why it matters in this wiki
@@ -31,6 +31,7 @@ The [revised "JEPA + sim" synthesis](../syntheses/why-jepa-research-skips-the-si
 - [V-JEPA 2](v-jepa-2.md) / [JEPA-WMs](jepa-wms.md) — primary papers.
 
 ## Mentioned in
+- [VICReg Paper](../sources/vicreg-paper.md) — lead author; the ICLR 2022 paper that names Bardes's methodological-precursor work.
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
 - [V-JEPA 2.1 Paper](../sources/v-jepa-2-1-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
