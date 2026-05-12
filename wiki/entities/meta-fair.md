@@ -3,8 +3,8 @@ title: Meta FAIR
 type: entity
 subtype: company
 created: 2026-05-07
-updated: 2026-05-10
-sources: 11
+updated: 2026-05-11
+sources: 13
 tags: [meta, fair, lecun, world-model, jepa]
 ---
 
@@ -31,9 +31,11 @@ With NVIDIA pushing generative video as the world-model paradigm and AGIBOT push
 - [Robot Utility Models](robot-utility-models.md) — Meta-affiliated adjacent project.
 
 ## Mentioned in
+- [A Path Towards Autonomous Machine Intelligence (LeCun, 2022)](../sources/lecun2022-path-towards-ami.md) — the canonical FAIR/NYU position paper that defines the JEPA program.
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
 - [V-JEPA 2.1 Paper](../sources/v-jepa-2-1-paper.md)
 - [DINO-WM Paper](../sources/dino-wm-paper.md)
 - [DINO-world Paper](../sources/dino-world-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
+- [DINOv3 Paper](../sources/dinov3-paper.md) — Meta AI Research; SSL foundation model with Gram anchoring; the methodological precursor to whatever future DINO-WM-v3 / DINO-world-v3 papers emerge.
 - [Tools for Your To Do List with Spot and Gemini Robotics (Boston Dynamics blog)](../sources/bostondynamics-spot-gemini-robotics.md) — references Meta using Spot for object-retrieval AI testing.

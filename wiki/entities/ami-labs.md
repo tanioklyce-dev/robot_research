@@ -20,6 +20,8 @@ tags: [ami-labs, lecun, jepa, world-model, startup]
 ## Research context
 The article frames AMI Labs' founding as a bet against LLM scaling ("technological dead end"), with JEPA-style world models as the alternative path. Three world-model papers shipped within 60 days of the article's April 2026 publication date are attributed to LeCun's work ([V-JEPA 2.1](../sources/v-jepa-2-1-paper.md), [LeWorldModel](leworldmodel.md), and a third unnamed project).
 
+**Founding vision document.** AMI Labs' research direction is, in effect, the execution of LeCun's **["A Path Towards Autonomous Machine Intelligence" (2022)](../sources/lecun2022-path-towards-ami.md)** — a six-module differentiable agent architecture built around a configurable predictive world model, hierarchical JEPA as the substrate, and intrinsic-cost-driven behavior. The "AMI" in the lab's name corresponds directly to the "Autonomous Machine Intelligence" in the paper's title.
+
 ## Related
 - [Yann LeCun](yann-lecun.md) — reported founder.
 - [Meta FAIR](meta-fair.md) — LeCun's prior affiliation.

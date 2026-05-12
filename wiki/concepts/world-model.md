@@ -2,8 +2,8 @@
 title: World model
 type: concept
 created: 2026-05-07
-updated: 2026-05-10
-sources: 14
+updated: 2026-05-11
+sources: 15
 tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video]
 ---
 
@@ -60,6 +60,7 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 - [Why JEPA research skips the simulator stack](../syntheses/why-jepa-research-skips-the-simulator-stack.md) — synthesis on a JEPA-specific question.
 
 ## Mentioned in
+- [A Path Towards Autonomous Machine Intelligence (LeCun, 2022)](../sources/lecun2022-path-towards-ami.md) — canonical LeCun position paper; argues for configurable world model + hierarchical JEPA as the substrate
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
@@ -76,5 +77,4 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 - [PLDM Paper](../sources/pldm-paper.md)
 
 ## Open questions / TBD
-- LeCun's "A Path Towards Autonomous Machine Intelligence" (2022) — the original JEPA position paper, would anchor the LeCun stance behind half of this concept's content.
 - PlaNet / DreamerV1 / V2 / TD-MPC1 — earlier MBRL milestones; would deepen the family lineage but not strictly required (V3 / TD-MPC2 cover the baseline-citation role).

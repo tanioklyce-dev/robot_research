@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-07
 updated: 2026-05-11
-sources: 13
+sources: 14
 tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs]
 ---
 
@@ -27,6 +27,7 @@ Six papers in this wiki carry his name. The world-model paradigm that distinguis
 
 ## Public stance relevant to this wiki
 - **Latent-prediction over generative-video.** LeCun has argued publicly (talks, blog posts, social media) that pixel-level generative models are the wrong target for video world modeling — that prediction in representation space is more efficient and more aligned with what biological systems do. JEPA is the technical instantiation of that argument. The on-camera framing of this position is the **[Welch Labs explainer "Yann LeCun's $1B Bet Against LLMs" (2026-05-01)](../sources/welchlabs-lecun-1b-bet-against-llms.md)**, which interviews LeCun and traces the blurry-pixels → Siamese → Barlow Twins → DINO → JEPA arc.
+- **Canonical position paper.** **["A Path Towards Autonomous Machine Intelligence" (2022-06-27, v0.9.2)](../sources/lecun2022-path-towards-ami.md)** is LeCun's full architectural vision document: a six-module differentiable agent (perception, world model, actor, cost, short-term memory, configurator), JEPA / H-JEPA as the world-model substrate, intrinsic-cost + learned-critic as the reward replacement, and the long-form argument against contrastive SSL and generative video. **Every JEPA paper in this wiki instantiates a piece of this blueprint.** It is also the source of LeCun's repeated public claim that "LLMs are insufficient for common sense."
 - **Self-supervised learning at internet-scale.** The V-JEPA 2 framing — internet-scale video pretraining + small action-conditioning — is consistent with LeCun's broader "energy-based models / observation-only learning" agenda predating JEPA. The same Welch Labs video opens with his "intelligence is a cake" metaphor (SSL = cake, supervised = icing, RL = cherry).
 
 ## Position in the broader field
@@ -40,14 +41,17 @@ LeCun is one of the small number of researchers whose **simultaneous senior posi
 - [Basile Terver](basile-terver.md) — JEPA-WMs lead author working under LeCun.
 
 ## Mentioned in
+- [A Path Towards Autonomous Machine Intelligence (LeCun, 2022)](../sources/lecun2022-path-towards-ami.md)
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
 - [V-JEPA 2.1 Paper](../sources/v-jepa-2-1-paper.md)
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md)
 - [DINO-WM Paper](../sources/dino-wm-paper.md)
 - [DINO-world Paper](../sources/dino-world-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
+- [LeJEPA Paper](../sources/lejepa-paper.md)
 - [Towards AI — LeCun / AMI Labs article](../sources/towardsai-lecun-ami-labs.md)
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs (video)](../sources/welchlabs-lecun-1b-bet-against-llms.md)
 
 ## Open questions / TBD
-- LeCun's stated position papers ("A Path Towards Autonomous Machine Intelligence," 2022) are not yet source pages — they would anchor the "why latent prediction" rationale that current JEPA papers state only obliquely.
+- Has anyone built a working **Hierarchical JEPA (H-JEPA)** at the multi-time-scale envisioned in the [2022 position paper](../sources/lecun2022-path-towards-ami.md)? No JEPA paper in this wiki clearly does this — V-JEPA 2.1's "dense features" and JEPA-WMs' action-conditioned setup move in that direction but don't fully realize it.
+- Has the **configurator** module (Section 6 of the 2022 paper) ever been concretely instantiated? LeCun left it as a sketch; worth checking AMI Labs / later FAIR output.

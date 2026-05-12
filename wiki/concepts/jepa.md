@@ -3,14 +3,14 @@ title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
 updated: 2026-05-11
-sources: 11
+sources: 12
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun]
 ---
 
 > [!note] Video overview
 > [Welch Labs — "Yann LeCun's $1B Bet Against LLMs" (2026-05-01, ~37 min)](../sources/welchlabs-lecun-1b-bet-against-llms.md) is the recommended popular-explainer for this page. It walks blurry-pixels → Siamese networks → representation collapse → Barlow Twins → DINO → JEPA with LeCun interview clips, and is a good first encounter with the JEPA story before the primary papers below.
 
-**JEPA (Joint-Embedding Predictive Architecture)** — a family of world models that learn by **predicting the representation of a future state in a learned latent space**, rather than reconstructing pixels or generating video. Proposed by Yann LeCun (2022) as a path to learning world knowledge from observation alone.
+**JEPA (Joint-Embedding Predictive Architecture)** — a family of world models that learn by **predicting the representation of a future state in a learned latent space**, rather than reconstructing pixels or generating video. Defined and named by Yann LeCun in **["A Path Towards Autonomous Machine Intelligence" (2022)](../sources/lecun2022-path-towards-ami.md)**, the canonical reference for the entire JEPA program.
 
 ## What "Joint" means
 
@@ -64,6 +64,7 @@ The original wiki synthesis observed [V-JEPA 2](../entities/v-jepa-2.md) and [Le
 - [Mila](../entities/mila.md) — frequent contributor.
 
 ## Mentioned in
+- [A Path Towards Autonomous Machine Intelligence (LeCun, 2022)](../sources/lecun2022-path-towards-ami.md) — canonical position paper / definition
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
 - [V-JEPA 2.1 Paper](../sources/v-jepa-2-1-paper.md)
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md)

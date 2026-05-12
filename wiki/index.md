@@ -172,6 +172,10 @@ Curated entry points across the wiki.
 - [LeJEPA Paper](sources/lejepa-paper.md) — Balestriero & LeCun (Brown + NYU/FAIR, arxiv 2511.08544); the foundational SIGReg paper. Proves isotropic Gaussian is optimal for JEPA embeddings; proposes Sketched Isotropic Gaussian Regularization (SIGReg). Single hyperparameter, no stop-gradient, no teacher-student. ImageNet-1k linear-eval 79% on ViT-H/14; 10+ datasets / 60+ architectures. The methodological precursor to LeWM. (2025-11-11)
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs (video)](sources/welchlabs-lecun-1b-bet-against-llms.md) — 37-min popular-explainer with LeCun interview clips; arc from blurry generative video → Siamese → Barlow Twins → DINO → JEPA / world models; recommended curriculum-orientation video. (2026-05-01)
 
+## Sources (foundational, out of chronological order)
+- [LeCun 2022 — A Path Towards Autonomous Machine Intelligence](sources/lecun2022-path-towards-ami.md) — LeCun's position paper. Defines the JEPA / H-JEPA architecture, the configurable world model + configurator framing, intrinsic-cost + critic, and the EBM training story behind all subsequent JEPA papers. The vision document AMI Labs was founded to execute. (2022-06-27)
+- [DINOv3 Paper](sources/dinov3-paper.md) — Siméoni et al., Meta AI Research (arxiv 2508.10104). 7B-parameter ViT SSL foundation model; introduces Gram anchoring (regularize patch-similarity structure toward an earlier "Gram teacher") to fix the long-training dense-feature degradation observed in DINOv2 at scale. Frozen-backbone COCO mAP 66.1; ADE20k mIoU 63.0. New SSL state-of-the-art and natural drop-in upgrade for the DINO-WM / DINO-world / JEPA-WMs lineage. (2025-08-13)
+
 ## Entities
 
 ### Companies
@@ -287,7 +291,8 @@ Curated entry points across the wiki.
 - [flyvis](entities/flyvis.md) — TuragaLab's MIT-licensed PyTorch connectome-constrained DMN of the fly visual system; v1.1.3 March 2026. (1 source)
 
 ### Vision foundation models
-- [DINOv2](entities/dinov2.md) — Meta FAIR self-supervised ViT (142M images, ViT-S/B/L/g); substrate for DINO-WM, DINO-world, JEPA-WMs. Apache 2.0. (3 sources)
+- [DINOv2](entities/dinov2.md) — Meta FAIR self-supervised ViT (142M images, ViT-S/B/L/g); substrate for DINO-WM, DINO-world, JEPA-WMs. Apache 2.0. (4 sources)
+- [DINOv3](entities/dinov3.md) — Meta AI Research 7B-parameter ViT SSL foundation model (Aug 2025); Gram anchoring fixes dense-feature degradation; new SSL state-of-the-art on dense tasks (COCO mAP 66.1 frozen, ADE20k mIoU 63.0). (1 source)
 
 ### Generative models
 - [DDPM](entities/ddpm.md) — Denoising Diffusion Probabilistic Models (Ho, Jain, Abbeel; NeurIPS 2020); foundational diffusion-model class; substrate of [Diffusion Policy](entities/diffusion-policy.md), [NVIDIA Cosmos](entities/nvidia-cosmos.md), [Genie Envisioner](entities/genie-envisioner.md). (5 sources)
@@ -330,7 +335,7 @@ Curated entry points across the wiki.
 - [LeRobot Worldwide Hackathon 2025](entities/lerobot-worldwide-hackathon-2025.md) — Hugging Face hybrid hackathon, June 14–15, 2025; 916 team members, ~400 submissions, 30 ranked winners; prizes: Hope Jr Arm / LeKiwi / SO-101. (1 source)
 
 ### People
-- [Yann LeCun](entities/yann-lecun.md) — NYU; Turing Award 2018; architect of the JEPA program; reported founder of AMI Labs (Apr 2026, provisional). (13 sources)
+- [Yann LeCun](entities/yann-lecun.md) — NYU; Turing Award 2018; architect of the JEPA program; reported founder of AMI Labs (Apr 2026, provisional). (14 sources)
 - [Navid Azizan](entities/navid-azizan.md) — MIT ME / IDSS / LIDS; learning-based control; SD-LQR (ICML 2023) + drone adaptive control (2025). (2 sources)
 - [Adrien Bardes](entities/adrien-bardes.md) — FAIR researcher; co-senior on V-JEPA 2, V-JEPA 2.1, JEPA-WMs. The FAIR-side champion of the V-JEPA program. (3 sources)
 - [Basile Terver](entities/basile-terver.md) — researcher (FAIR-affiliated, inferred); bread-crumb across DINO-world → JEPA-WMs lineage. (2 sources)
