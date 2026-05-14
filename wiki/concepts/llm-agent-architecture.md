@@ -2,8 +2,8 @@
 title: LLM-agent architecture
 type: concept
 created: 2026-05-07
-updated: 2026-05-10
-sources: 8
+updated: 2026-05-14
+sources: 9
 tags: [llm-agent, tool-use, agentic-robotics, planning, mcp, a2a]
 ---
 
@@ -25,6 +25,14 @@ tags: [llm-agent, tool-use, agentic-robotics, planning, mcp, a2a]
 The pattern is **converging across tiers, capabilities, and price points** — research-grade (stretch_ai), educational (ROSOrin / OpenClaw), and commercial-quadruped-grade (Spot + Gemini Robotics) stacks adopt the same architecture; mobile-only and arm-equipped variants adopt the same architecture; open-weights small LLMs ([Qwen](../entities/qwen.md) 1.7B / 3B local) and frontier closed-weights VLMs (Gemini Robotics-ER, GPT-4o) plug into the same slot. The only differences are the size and contents of the skill library and the planner model.
 
 > [!note] On naming: Google calls this "embodied reasoning" (Gemini Robotics-**ER**). Functionally it is the LLM-agent / planner-emits-tool-calls pattern documented above. The framing is a vendor branding choice, not a new architecture.
+
+## Non-robotics example: agent-driven ML research
+
+The same control pattern works outside robotics. **[Karpathy's autoresearch (March 2026)](../sources/karpathy-autoresearch.md)** is the most distilled example in the wiki: an AI coding agent ([Claude Code](../entities/anthropic.md) or Codex) is pointed at a `program.md` instruction file and given a small but real LLM training pipeline (a simplified [nanochat](../sources/karpathy-nanochat.md)). The "tool calls" the agent makes are `edit train.py`, `run 5-minute experiment`, `compare val_bpb`, `keep or revert`. Over ~100 overnight iterations, this loop produced **two leaderboard improvements on the nanochat GPT-2 speedrun** (rows 5–6: 2.02 → 1.80 → 1.65 hours wall-clock), the first public evidence that a coding-agent loop can produce measurable improvements on a frontier ML training pipeline.
+
+The robotics variant of the pattern uses `find / pickup / place` tool primitives over a perception+manipulation skill library; autoresearch uses `edit / train / measure / commit` tool primitives over a training pipeline. **Same control flow, different action vocabulary.** The pattern's robustness across these very different domains is one of the strongest signals that "LLM-emits-actions-against-a-skill-library" is a load-bearing architectural primitive of 2026 AI systems, not a robotics-specific trick.
+
+The [Onchain AI Garage LeWM reproduction](../sources/onchain-ai-garage-lewm-reproduction.md) is an independent occurrence of the same pattern applied to a different ML target (reproducing a JEPA world model), supporting the same generality claim.
 
 ## Inter-agent communication protocols
 

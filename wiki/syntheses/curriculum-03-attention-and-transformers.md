@@ -296,8 +296,8 @@ Deeper variant: try patch sizes of 4×4, 8×8, 16×16. Smaller patches = more to
 
 In order:
 
-1. **Vaswani et al. 2017 — "Attention Is All You Need"** (arxiv 1706.03762) — the original transformer paper. Read the abstract + §3 (model architecture). The math is in §3.2.
-2. **Karpathy's [nanoGPT](https://github.com/karpathy/nanoGPT)** — a clean 300-line GPT implementation. Read the `model.py`; it's the cleanest transformer implementation I know.
+1. **[Vaswani et al. 2017 — "Attention Is All You Need"](../sources/attention-is-all-you-need.md)** (arxiv 1706.03762) — the original transformer paper. Read the abstract + §3 (model architecture). The math is in §3.2.
+2. **Karpathy's [nanoGPT](../sources/karpathy-nanogpt.md)** — a clean 300-line GPT implementation. Read the `model.py`; it's the cleanest transformer implementation I know. *Deprecated November 2025 in favour of [nanochat](../sources/karpathy-nanochat.md)* — but for the *architecture-reading* purpose of this module, `nanoGPT/model.py` is still the simpler and more pedagogical read. Use [nanochat](../sources/karpathy-nanochat.md) when you want to actually train an end-to-end ChatGPT-capability LLM (tokenizer + pretrain + SFT + RL + chat UI for ~$48 on an 8XH100 node).
 3. **Dosovitskiy et al. 2020 — ViT paper** (arxiv 2010.11929) — the original ViT. Read the abstract + §3 (method). Compare against §4 (their CNN-vs-ViT data-scaling experiments).
 4. **The Annotated Transformer** ([rush-nlp.com](http://nlp.seas.harvard.edu/annotated-transformer/)) — Vaswani et al. 2017 rewritten as runnable PyTorch with annotations. Excellent for "I understand it; now show me code."
 5. **Lilian Weng — [The Transformer Family](https://lilianweng.github.io/posts/2020-04-07-the-transformer-family/)** — survey of transformer variants. Useful for vocabulary.
