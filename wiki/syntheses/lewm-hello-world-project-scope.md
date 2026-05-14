@@ -99,7 +99,10 @@ Success rate vs knob value: one plot, a few lines of interpretation.
 
 `notes/project-1-summary.md` with: install confirmation, four answered questions above, three plots (Phase 1 rollout, Phase 2 training curves, Phase 3 knob sweep). This is the evidence base — Project 2 (probing) builds on the trained checkpoint from Phase 2 here.
 
-If results are interesting, file a `wiki/syntheses/lewm-pusht-reproduction.md` so the work compounds — this is the kind of **empirical result the wiki currently lacks** (everything to date is paper-derived, not reproduced locally).
+If results are interesting, file a `wiki/syntheses/lewm-pusht-reproduction.md` so the work compounds — this is the kind of **empirical result the wiki currently lacks**: until [Onchain AI Garage's Two Room reproduction (2026-04-24)](../sources/onchain-ai-garage-lewm-reproduction.md) everything was paper-derived, and that video is on Two Room not PushT. A PushT reproduction on consumer hardware is still wiki-novel.
+
+> [!note] Prior-art reproduction (Two Room, not PushT)
+> The [Onchain AI Garage video](../sources/onchain-ai-garage-lewm-reproduction.md) reaches **92% success on Two Room** in 4 epochs / ~8 hours on an RTX 3060 (12 GB VRAM, WSL2, Claude Code as implementation assistant). Useful evidence that the `stable-worldmodel` install + LEWM training pipeline works on a consumer GPU and that the headline gotchas (Python version, batch-128 OOM, WSL2 CUDA quirks, throughput) are tractable. Their environment was Two Room (the paper's *weakest* environment for LeWM) rather than PushT (the paper's headline). A PushT consumer-GPU reproduction is the wiki-novel next step.
 
 ## Risk register
 
@@ -119,6 +122,7 @@ Phase 1 + Phase 2 together are the foundation for everything downstream. Knob sw
 ## Sources used
 
 - [LeWorldModel — train and run howto](leworldmodel-howto.md) — install / train / eval recipe + the four documented gotchas.
+- [Onchain AI Garage — LeWM Two Room reproduction (2026-04-24)](../sources/onchain-ai-garage-lewm-reproduction.md) — prior-art consumer-GPU reproduction (92% on Two Room).
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md) — model, two-loss design, PushT result.
 - [LeWorldModel entity](../entities/leworldmodel.md) — capability summary.
 - [JEPA task capabilities](jepa-task-capabilities.md) — planner-as-cost-fn pattern (§3) and probing/interpretability (§7).

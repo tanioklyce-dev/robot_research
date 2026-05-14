@@ -2,7 +2,7 @@
 title: Curriculum Module 12 — LeWorldModel deep-dive (with full SIGReg math)
 type: synthesis
 created: 2026-05-10
-updated: 2026-05-10
+updated: 2026-05-14
 tags: [curriculum, module-12, leworldmodel, lewm, sigreg, jepa, latent-prediction, mpc, normality-test, epps-pulley, cramer-wold]
 prereqs: [curriculum-04, curriculum-10, curriculum-11]
 status: draft
@@ -431,6 +431,9 @@ Follow the [LeWM howto](leworldmodel-howto.md) and the [hello-world scope](lewm-
 4. Also pull the `quentinll/lewm-pusht` HuggingFace pretrained checkpoint and verify your reproduction matches.
 
 If you only have time for one experiment in the entire curriculum, this is the experiment.
+
+> [!note] Prior-art reproduction video
+> **[Onchain AI Garage — "I Reproduced LeCun's JEPA World Model That Doesn't Predict Tokens" (2026-04-24, 27 min)](../sources/onchain-ai-garage-lewm-reproduction.md)** is the first independent reproduction on record in this wiki. Trains LeWM on **Two Room** (not PushT) on a 5-year-old RTX 3060 (12 GB VRAM) in WSL2, using Claude Code as the implementation assistant, and lands **92% success vs the paper's 97%** after 4 epochs / ~8 hours. The first half doubles as a JEPA popular-explainer. Watch before you start the reproduction — it corroborates the four gotchas the [LeWM howto](leworldmodel-howto.md) documents and shows that paper-ballpark numbers are reachable on consumer hardware.
 
 ### Part B — Derive the SIGReg gradient on paper
 

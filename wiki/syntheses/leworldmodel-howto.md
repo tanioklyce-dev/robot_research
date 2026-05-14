@@ -2,11 +2,14 @@
 title: LeWorldModel — train and run howto
 type: synthesis
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-14
 tags: [leworldmodel, lewm, jepa, world-model, howto]
 ---
 
 Practical recipe for training and running [LeWorldModel](../entities/leworldmodel.md) (LeWM) — the bits the [LeWorldModel Paper](../sources/leworldmodel-paper.md) doesn't spell out. Commands sourced from the official `lucas-maes/le-wm` repo README; the gotchas section below comes from a real install on Ubuntu/WSL2 + Python 3.10 + uv 0.11 in May 2026.
+
+> [!note] Independent reproduction available
+> A community reproduction lands paper-ballpark numbers (**92% success on Two Room** vs the paper's 97%) on a 5-year-old **RTX 3060 with 12 GB VRAM** in WSL2, in 4 epochs / ~8 hours, **using Claude Code as the implementation assistant**: [Onchain AI Garage — "I Reproduced LeCun's JEPA World Model That Doesn't Predict Tokens" (2026-04-24, 27 min)](../sources/onchain-ai-garage-lewm-reproduction.md). The four gotchas below are all corroborated by their experience (Python version downgrade, batch-128 OOM → batch 64 + 2× grad accum, WSL2 CUDA-unknown errors, and the torch.compile / fewer-epochs throughput tweaks).
 
 ## Repo layout
 - Official code: https://github.com/lucas-maes/le-wm
