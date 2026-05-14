@@ -3,8 +3,8 @@ title: Yann LeCun
 type: entity
 subtype: person
 created: 2026-05-07
-updated: 2026-05-12
-sources: 16
+updated: 2026-05-14
+sources: 17
 tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs]
 ---
 
@@ -40,7 +40,11 @@ LeCun is one of the small number of researchers whose **simultaneous senior posi
 - [Adrien Bardes](adrien-bardes.md) — frequent JEPA co-senior.
 - [Basile Terver](basile-terver.md) — JEPA-WMs lead author working under LeCun.
 
+## Earlier work (AT&T Bell Labs era)
+- **[Bromley, Guyon, LeCun, Säckinger, Shah 1993 — "Signature Verification using a 'Siamese' Time Delay Neural Network"](../sources/bromley1993-siamese-signature-verification.md)** — co-author (third position). The **original [Siamese network](../concepts/siamese-network.md) paper**, written during LeCun's AT&T Bell Labs Holmdel period. Architecturally continuous with the 2020s JEPA program: two weight-tied encoders + a similarity head is the J/A in JEPA, 30 years before LeCun named the framework. The Welch Labs explainer's framing of JEPA as "the natural continuation of the Siamese-network research LeCun started in the 1990s" is literally correct — same author, same architectural family, different loss.
+
 ## Mentioned in
+- [Bromley et al. 1993 — Signature Verification using a Siamese TDNN](../sources/bromley1993-siamese-signature-verification.md) — co-author; original Siamese network paper.
 - [Barlow Twins Paper (Zbontar et al., ICML 2021)](../sources/barlow-twins-paper.md) — senior author; first non-asymmetric anti-collapse SSL method.
 - [VICReg Paper (Bardes, Ponce, LeCun, ICLR 2022)](../sources/vicreg-paper.md) — senior author; the regularizer LeCun later endorses in his AMI paper as JEPA's anti-collapse method.
 - [A Path Towards Autonomous Machine Intelligence (LeCun, 2022)](../sources/lecun2022-path-towards-ami.md)

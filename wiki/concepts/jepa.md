@@ -2,8 +2,8 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-05-12
-sources: 14
+updated: 2026-05-14
+sources: 15
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun]
 ---
 
@@ -13,6 +13,8 @@ tags: [jepa, world-model, self-supervised, latent-prediction, lecun]
 **JEPA (Joint-Embedding Predictive Architecture)** — a family of world models that learn by **predicting the representation of a future state in a learned latent space**, rather than reconstructing pixels or generating video. Defined and named by Yann LeCun in **["A Path Towards Autonomous Machine Intelligence" (2022)](../sources/lecun2022-path-towards-ami.md)**, the canonical reference for the entire JEPA program.
 
 ## What "Joint" means
+
+The **J (Joint-Embedding)** and **A (Architecture)** halves of JEPA descend directly from the **[Siamese network](siamese-network.md)** family — two weight-tied encoders, embeddings compared in a shared latent space — introduced by [Bromley, Guyon, LeCun, Säckinger, Shah 1993](../sources/bromley1993-siamese-signature-verification.md). JEPA's contribution is the **P (Predictive)**: a learned predictor between embeddings.
 
 **Joint** refers to the fact that both the input (context) and the prediction target (future state) are embedded into the **same shared latent space** by the same encoder:
 
@@ -64,6 +66,7 @@ The original wiki synthesis observed [V-JEPA 2](../entities/v-jepa-2.md) and [Le
 - [Mila](../entities/mila.md) — frequent contributor.
 
 ## Mentioned in
+- [Bromley et al. 1993 — Signature Verification using a Siamese TDNN](../sources/bromley1993-siamese-signature-verification.md) — eponymous Siamese-network paper; the J/A in JEPA descend from this architecture
 - [A Path Towards Autonomous Machine Intelligence (LeCun, 2022)](../sources/lecun2022-path-towards-ami.md) — canonical position paper / definition
 - [Barlow Twins Paper (Zbontar et al., ICML 2021)](../sources/barlow-twins-paper.md) — Joint-Embedding anti-collapse precursor (cross-correlation → I)
 - [VICReg Paper (Bardes, Ponce, LeCun, ICLR 2022)](../sources/vicreg-paper.md) — the regularizer LeCun 2022 endorses as JEPA's anti-collapse method

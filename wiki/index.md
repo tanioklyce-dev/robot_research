@@ -174,6 +174,8 @@ Curated entry points across the wiki.
 
 ## Sources (foundational, out of chronological order)
 - [Barlow 1961 — Possible Principles Underlying the Transformations of Sensory Messages](sources/barlow1961-sensory-messages.md) — Horace Barlow's foundational neuroscience paper introducing the redundancy-reduction principle (recode redundant sensory input into a factorial code with statistically independent components). Eponymous source for Barlow Twins (2021). The lineage root for VICReg → SIGReg → DINOv3 Gram anchoring. (1961)
+- [Bromley, Guyon, LeCun, Säckinger, Shah 1993 — Signature Verification using a "Siamese" Time Delay Neural Network](sources/bromley1993-siamese-signature-verification.md) — original Siamese network paper, AT&T Bell Labs / NIPS 1993. Two weight-tied TDNN sub-networks + cosine + `±1` targets for genuine vs forgery pairs. The architectural ancestor of every joint-embedding SSL system: Barlow Twins, VICReg, DINOv2/v3, and the J/A in [JEPA](concepts/jepa.md). LeCun's 1990s precursor to his 2020s JEPA program — same author, same architectural family, different loss. (1993)
+- [Vaswani et al. 2017 — Attention Is All You Need](sources/attention-is-all-you-need.md) — the Transformer paper. NeurIPS 2017; Google Brain / Google Research. Sequence transduction built entirely on attention, no recurrence, no convolution. Encoder–decoder, multi-head scaled dot-product attention, sinusoidal positional encoding, `h=8`, `d_model=512`, `N=6`. 28.4 BLEU EN-DE / 41.8 BLEU EN-FR. The foundation of every modern architecture downstream: LLMs, ViTs, VLA action heads, JEPA predictors, BeT / VQ-BeT policies, Diffusion Policy transformer backbones. (2017-06-12)
 - [Barlow Twins Paper](sources/barlow-twins-paper.md) — Zbontar, Jing, Misra, LeCun, Deny (FAIR + NYU; ICML 2021, arxiv 2103.03230). First non-asymmetric anti-collapse SSL method: cross-correlation between two augmented views' embeddings → identity. No predictor, no momentum encoder, no stop-gradient. ImageNet linear top-1 73.2%. Names itself after Horace Barlow's redundancy-reduction principle. (2021-03-04)
 - [VICReg Paper](sources/vicreg-paper.md) — Bardes, Ponce, LeCun (FAIR + Inria + NYU; ICLR 2022, arxiv 2105.04906). Three-term anti-collapse loss: variance hinge + covariance decorrelation + invariance MSE. Branches need not share weights or architecture — natural multi-modal SSL. The regularizer LeCun's AMI paper cites by name as the JEPA anti-collapse method; methodological precursor to SIGReg / LeJEPA. (2021-05-11)
 - [LeCun 2022 — A Path Towards Autonomous Machine Intelligence](sources/lecun2022-path-towards-ami.md) — LeCun's position paper. Defines the JEPA / H-JEPA architecture, the configurable world model + configurator framing, intrinsic-cost + critic, and the EBM training story behind all subsequent JEPA papers. The vision document AMI Labs was founded to execute. (2022-06-27)
@@ -338,7 +340,7 @@ Curated entry points across the wiki.
 - [LeRobot Worldwide Hackathon 2025](entities/lerobot-worldwide-hackathon-2025.md) — Hugging Face hybrid hackathon, June 14–15, 2025; 916 team members, ~400 submissions, 30 ranked winners; prizes: Hope Jr Arm / LeKiwi / SO-101. (1 source)
 
 ### People
-- [Yann LeCun](entities/yann-lecun.md) — NYU; Turing Award 2018; architect of the JEPA program; reported founder of AMI Labs (Apr 2026, provisional). (16 sources)
+- [Yann LeCun](entities/yann-lecun.md) — NYU; Turing Award 2018; architect of the JEPA program; reported founder of AMI Labs (Apr 2026, provisional). Co-authored the original 1993 Siamese network paper at AT&T Bell Labs. (17 sources)
 - [Navid Azizan](entities/navid-azizan.md) — MIT ME / IDSS / LIDS; learning-based control; SD-LQR (ICML 2023) + drone adaptive control (2025). (2 sources)
 - [Adrien Bardes](entities/adrien-bardes.md) — FAIR researcher; lead author on VICReg (ICLR 2022); co-senior on V-JEPA 2, V-JEPA 2.1, JEPA-WMs. The FAIR-side champion of the V-JEPA program. (4 sources)
 - [Basile Terver](entities/basile-terver.md) — researcher (FAIR-affiliated, inferred); bread-crumb across DINO-world → JEPA-WMs lineage. (2 sources)
@@ -364,7 +366,8 @@ Curated entry points across the wiki.
 ## Concepts
 - [World model](concepts/world-model.md) — umbrella concept: learned predictive model of environment dynamics (generative-video / JEPA / frozen-feature / model-based-RL). (14 sources)
 - [VLA models](concepts/vla-models.md) — vision-language-action robot foundation models. (13 sources)
-- [Joint-Embedding Predictive Architecture](concepts/jepa.md) — predict next-state representations, not pixels. (11 sources)
+- [Joint-Embedding Predictive Architecture](concepts/jepa.md) — predict next-state representations, not pixels. (15 sources)
+- [Siamese network](concepts/siamese-network.md) — two weight-tied encoders + similarity/distance/predictor head; ancestor of every joint-embedding SSL system since 1993. (5 sources)
 - [Sim-to-real transfer](concepts/sim-to-real-transfer.md) — bridging simulator-trained policies to real robots. (9 sources)
 - [World-model simulators](concepts/world-model-simulators.md) — narrower companion to [World model](concepts/world-model.md): world-models-used-as-simulators (generative-video and JEPA paradigms). (14 sources)
 - [Imitation learning](concepts/imitation-learning.md) — supervised learning from demonstrations. (17 sources)
