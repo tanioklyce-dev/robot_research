@@ -409,6 +409,7 @@ Curated entry points across the wiki.
 - [Optimal control](concepts/optimal-control.md) — minimize a cost over trajectory-control pairs subject to dynamics. Brachystochrone (1697) → Euler–Lagrange → Hamilton–Jacobi → Pontryagin's Maximum Principle (1956) → Bellman DP → modern LQR / MPC / iLQR / CEM / learned-WM-OC. The "RL = approximate OC under uncertainty" bridge. (12 sources)
 
 ## Syntheses
+- [Atari RL lineage — from ALE to Agent57 and MuZero](syntheses/atari-rl-lineage.md) — hub for the Atari/DQN material; DQN → Rainbow → A3C/PPO → Go-Explore/Agent57 → MuZero/Dreamer; why robotics moved on but kept the toolbox. (2026-05-15)
 - [Simulators for agentic robotics — 2026 landscape](syntheses/simulators-for-agentic-robotics-2026.md) — full landscape survey, 6 categories. (updated 2026-05-07)
 - [LLM-agent architecture across stacks](syntheses/llm-agent-architecture-across-stacks.md) — three-way comparison of stretch_ai, ROSOrin, OpenClaw. (2026-05-07)
 - [Generative-video vs JEPA world models](syntheses/generative-video-vs-jepa-world-models.md) — what each predicts, costs, and demonstrates. (2026-05-07)
