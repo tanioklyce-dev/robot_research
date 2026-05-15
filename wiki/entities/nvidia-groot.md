@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-06
 updated: 2026-05-15
-sources: 11
+sources: 12
 tags: [groot, vla, nvidia, foundation-model, humanoid]
 ---
 
@@ -14,7 +14,7 @@ NVIDIA's open, commercially-licensed [VLA](../concepts/vla-models.md) foundation
 - **N1** — original release; **GR00T N1: An Open Foundation Model for Generalist Humanoid Robots** ([arXiv 2503.14734](https://arxiv.org/abs/2503.14734), Mar 2025) — authors: Soroush Nasiriany, Abhiram Maddukuri, Lance Zhang, Adeet Parikh, Aaron Lo, Abhishek Joshi, Ajay Mandlekar, [Yuke Zhu](yuke-zhu.md). Featured in [NVIDIA GEAR Lab Publications](../sources/nvidia-gear-publications.md) as a top highlight.
 - **N1.5** — winning policy at both sites of the October 2025 Seeed × NVIDIA × HF Embodied AI Hackathon; fine-tuned via NVIDIA Brev; deployed on Jetson Thor.
 - **N1.6** — referenced as the version newly available in [NVIDIA Isaac Lab](nvidia-isaac-lab.md) alongside Newton 1.0 GA at GTC 2026 ([NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)).
-- **N1.7 Early Access** — 3B parameters, built on a Cosmos-Reason2-2B backbone, EgoScale pretraining on 20,854 hours of egocentric human video across 20+ task categories ([Top 10 Physical AI Models 2026](../sources/top-10-physical-ai-models-2026.md)).
+- **N1.7 Early Access** — 3B parameters, built on a Cosmos-Reason2-2B backbone, **[EgoScale](../sources/egoscale-paper.md) pretraining on 20,854 hours of egocentric human video** across 20+ task categories ([Top 10 Physical AI Models 2026](../sources/top-10-physical-ai-models-2026.md)). The EgoScale paper (Zheng et al., NVIDIA GEAR, Feb 2026) is the primary source for this corpus and publishes a clean log-linear scaling law `L = 0.024 − 0.003·ln(D)` (R² = 0.9983) relating human-data scale to validation loss — see [Scaling laws — VLAs and human data](../concepts/scaling-laws-vla.md).
 
 > [!warning] Version overlap
 > N1.6 and N1.7 EA appear referenced in parallel — likely a GA + EA release pattern. Confirm when a primary GR00T page replaces this stub.
@@ -32,3 +32,4 @@ NVIDIA's open, commercially-licensed [VLA](../concepts/vla-models.md) foundation
 - [AGIBOT Genie Sim 3.0 Announcement](../sources/agibot-genie-sim-3-announcement.md)
 - [Seeed × NVIDIA × HF Embodied AI Hackathon 2025 Recap](../sources/seeed-embodied-ai-hackathon-2025-recap.md)
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md)
+- [EgoScale Paper](../sources/egoscale-paper.md)

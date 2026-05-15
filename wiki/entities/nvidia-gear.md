@@ -4,7 +4,7 @@ type: entity
 subtype: research-lab
 created: 2026-05-15
 updated: 2026-05-15
-sources: 1
+sources: 2
 tags: [nvidia, gear, embodied-ai, humanoids, foundation-models, world-models]
 ---
 
@@ -45,3 +45,4 @@ GEAR is **the in-house research source** of essentially every NVIDIA-product ent
 
 ## Mentioned in
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md)
+- [EgoScale Paper](../sources/egoscale-paper.md)

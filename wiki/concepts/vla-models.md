@@ -3,7 +3,7 @@ title: VLA models
 type: concept
 created: 2026-05-06
 updated: 2026-05-15
-sources: 19
+sources: 20
 tags: [vla, vision-language-action, foundation-model, robotics]
 ---
 
@@ -13,7 +13,7 @@ tags: [vla, vision-language-action, foundation-model, robotics]
 A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbone), and an action head. Trained on large mixed datasets — robot teleoperation, human videos, simulation rollouts. Inference loop: image + text instruction → action token sequence → robot motors.
 
 ## Notable VLAs (2026)
-- **[NVIDIA GR00T](../entities/nvidia-groot.md)** N1.6 GA / N1.7 EA — 3B-parameter open VLA built on a Cosmos-Reason2-2B backbone; pretrained on ~20,854 hours of egocentric human video ([Top 10 Physical AI Models 2026](../sources/top-10-physical-ai-models-2026.md), [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)).
+- **[NVIDIA GR00T](../entities/nvidia-groot.md)** N1.6 GA / N1.7 EA — 3B-parameter open VLA built on a Cosmos-Reason2-2B backbone; pretrained on ~20,854 hours of egocentric human video ([Top 10 Physical AI Models 2026](../sources/top-10-physical-ai-models-2026.md), [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)). The pretraining corpus and a clean log-linear scaling law `L = 0.024 − 0.003·ln(D)` for it are documented in **[EgoScale](../sources/egoscale-paper.md)** (Zheng et al., NVIDIA GEAR, Feb 2026) — see [Scaling laws — VLAs and human data](scaling-laws-vla.md).
 - **[Physical Intelligence](../entities/physical-intelligence.md) π0 (2024) and π0.6 (2025)** — cross-platform generalist policies; π0 uses a **flow-matching** action head on a pre-trained VLM ([π0 Paper](../sources/pi-zero-paper.md)); demonstrated tasks like laundry folding, table cleaning, and box assembly across single-arm, dual-arm, and mobile manipulators without task-specific retraining. Cited by [Stanford HAI AI Index 2026](../sources/stanford-hai-ai-index-2026.md) as the leading Physical AI VLA demonstration.
 - **[Helix](../sources/helix-blog.md)** ([Figure AI](../entities/figure.md), Feb 2025) — full upper-body humanoid VLA on [Figure 02](../entities/figure.md). Hierarchical **System 1 / System 2** split: 7B-param VLM at 7–9 Hz for slow reasoning + 80M-param transformer at 200 Hz for fast control, end-to-end-trained. Trained on ~500 hours of teleop ("<5%" of typical VLA datasets per Figure). Runs onboard embedded GPUs.
 - **[Gemini Robotics](../entities/gemini-robotics.md)** ([Google DeepMind](../entities/google-deepmind.md)) — parallel generalist-policy effort alongside GR00T. Note: the Gemini Robotics family ships in two variants — a full VLA (this entry) and **Gemini Robotics-ER**, an embodied-reasoning *VLM* that emits tool calls and is therefore an [LLM-agent architecture](llm-agent-architecture.md) planner rather than a VLA. Boston Dynamics' [Spot + Gemini Robotics demo](../sources/bostondynamics-spot-gemini-robotics.md) uses the -ER variant.
@@ -32,9 +32,10 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 | **π0** | pretrained VLM | **flow matching** | [Source](../sources/pi-zero-paper.md). Diffusion-cousin generative head. |
 | [Diffusion Policy](../entities/diffusion-policy.md) (BC, not strictly a VLA) | ResNet-18 / no language | **DDPM** | The action-head reference for π0's flow-matching design choice. |
 | **Helix S1** | small transformer | continuous regression @ 200 Hz | Combined with **Helix S2** = 7B VLM @ 7–9 Hz. |
-| **GR00T N1.6/1.7** | Cosmos-Reason2-2B | (mixed; see [GR00T entity](../entities/nvidia-groot.md)) | 3B params; 20,854 hr egocentric video pretrain. |
+| **GR00T N1.6/1.7** | Cosmos-Reason2-2B | (mixed; see [GR00T entity](../entities/nvidia-groot.md)) | 3B params; 20,854 hr egocentric video pretrain — see [EgoScale](../sources/egoscale-paper.md) for the primary source and scaling law. |
+| **EgoScale** | pretrained VLM (~GR00T N1) | **flow matching** + DiT action expert | [Source](../sources/egoscale-paper.md). Same corpus as GR00T N1; reports the first published VLA scaling law. 22-DoF [Sharpa Wave](../entities/sharpa-wave.md) hand target. |
 
-> [!note] State of the field (2026): The Stanford HAI AI Index 2026 describes VLA technology as still "at the research stage," noting "the gap between what these models can do in a controlled setting and what they can handle in the real world is still wide." The data constraint is cited as the key bottleneck: every robot training example requires a physical robot or high-fidelity sim. World Foundation Models ([NVIDIA Cosmos](../entities/nvidia-cosmos.md)) are one response, generating synthetic physics data at scale.
+> [!note] State of the field (2026): The Stanford HAI AI Index 2026 describes VLA technology as still "at the research stage," noting "the gap between what these models can do in a controlled setting and what they can handle in the real world is still wide." The data constraint is cited as the key bottleneck: every robot training example requires a physical robot or high-fidelity sim. World Foundation Models ([NVIDIA Cosmos](../entities/nvidia-cosmos.md)) are one response, generating synthetic physics data at scale. A parallel response, validated empirically by [EgoScale](../sources/egoscale-paper.md), is pretraining on large-scale **egocentric human video** — 20,854 hr of which now yields a measured log-linear scaling law `L = 0.024 − 0.003·ln(D)` (R² = 0.9983) that predicts real-robot performance. See [Scaling laws — VLAs and human data](scaling-laws-vla.md).
 
 ## Adjacent: utility models / non-language-conditioned policies
 - **[Robot Utility Models](../entities/robot-utility-models.md)** (NYU / Meta) — visuomotor behavior cloning achieving zero-shot ~90% success on novel environments **without language conditioning**. The "utility model" framing is a deliberate distinction from VLAs but solves an overlapping problem ([Robot Utility Models Project Page](../sources/robot-utility-models-website.md)).
@@ -59,3 +60,4 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 - [Stanford HAI — AI Index Report 2026](../sources/stanford-hai-ai-index-2026.md)
 - [π0 Paper](../sources/pi-zero-paper.md)
 - [Helix (Figure AI blog)](../sources/helix-blog.md)
+- [EgoScale Paper](../sources/egoscale-paper.md)
