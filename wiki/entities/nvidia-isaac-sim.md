@@ -3,8 +3,8 @@ title: NVIDIA Isaac Sim
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-05-10
-sources: 5
+updated: 2026-05-14
+sources: 6
 tags: [simulator, nvidia, omniverse, openusd]
 ---
 
@@ -19,7 +19,7 @@ NVIDIA's flagship robotics simulation application, built on Omniverse and OpenUS
 - Hosts third-party platforms (e.g. [AGIBOT Genie Sim 3.0](agibot-genie-sim.md)).
 
 ## 2026 status
-Isaac Sim 6.0 ships in the same release wave as [Isaac Lab 3.0](nvidia-isaac-lab.md) and Omniverse NuRec, with expanded coverage of humanoids and dexterous tasks ([NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)).
+Isaac Sim 6.0 ships in the same release wave as [Isaac Lab 3.0](nvidia-isaac-lab.md) and Omniverse NuRec, with expanded coverage of humanoids and dexterous tasks ([NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)). The official browser-deployable [Isaac Launchable](../sources/isaac-launchable-repo.md) (on [NVIDIA Brev](nvidia-brev.md)) is still on **Isaac Sim 5.1 / Isaac Lab 2.3** as of v1.2.1 (Jan 2026) — useful for tutorials, not the latest stack.
 
 ## Related
 - [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — learning framework that runs on Isaac Sim.
@@ -32,3 +32,4 @@ Isaac Sim 6.0 ships in the same release wave as [Isaac Lab 3.0](nvidia-isaac-lab
 - [AGIBOT Genie Sim 3.0 Announcement](../sources/agibot-genie-sim-3-announcement.md)
 - [Using OpenUSD for Modular and Scalable Robotic Simulation](../sources/nvidia-openusd-for-robotic-simulation.md)
 - [Building CAD-to-USD Workflows with NVIDIA Omniverse](../sources/nvidia-cad-to-usd-jt-workflows.md)
+- [Isaac Launchable Repo](../sources/isaac-launchable-repo.md)

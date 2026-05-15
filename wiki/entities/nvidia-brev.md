@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-14
 updated: 2026-05-14
-sources: 1
+sources: 2
 tags: [nvidia, gpu, cloud, devtools, cost-management]
 ---
 
@@ -37,8 +37,13 @@ Brev does **not** have native auto-stop, idle-timeout, TTL, max-runtime, or spen
 
 Full guidance with examples in [NVIDIA Brev Docs — Cost-management guidance](../sources/nvidia-brev-docs.md#cost-management-guidance-synthesized).
 
+## Notable Launchables
+- **[Isaac Launchable](../sources/isaac-launchable-repo.md)** (`env-35JP2ywERLgqtD0b0MIeK1HnF46`) — official NVIDIA Brev Launchable for [Isaac Sim](nvidia-isaac-sim.md) 5.1 + [Isaac Lab](nvidia-isaac-lab.md) 2.3 + VS Code + Kit App Streaming. RT-core GPU required (no T4-tier escape); AWS-default; "learning only". The canonical example of a multi-container, browser-delivered Brev Launchable.
+
 ## Related
 - [NVIDIA](nvidia.md) — owner.
+- [NVIDIA Isaac Sim](nvidia-isaac-sim.md), [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — distributed via the Isaac Launchable.
 
 ## Mentioned in
 - [NVIDIA Brev Docs](../sources/nvidia-brev-docs.md)
+- [Isaac Launchable Repo](../sources/isaac-launchable-repo.md)

@@ -3,8 +3,8 @@ title: NVIDIA Isaac Lab
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-05-07
-sources: 5
+updated: 2026-05-14
+sources: 6
 tags: [framework, robot-learning, nvidia, isaac-lab, rl]
 ---
 
@@ -17,7 +17,7 @@ Open-source modular framework for robot learning and policy training. Sits on to
 - Bundles [NVIDIA GR00T](nvidia-groot.md) reasoning [VLA](../concepts/vla-models.md) (currently N1.6 GA / N1.7 EA).
 
 ## 2026 status
-Isaac Lab 3.0 with the GA release of the [Newton physics engine](newton-physics-engine.md) became the default training stack for NVIDIA's "Physical AI" stack at GTC 2026 ([NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)).
+Isaac Lab 3.0 with the GA release of the [Newton physics engine](newton-physics-engine.md) became the default training stack for NVIDIA's "Physical AI" stack at GTC 2026 ([NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)). The official browser-deployable [Isaac Launchable](../sources/isaac-launchable-repo.md) on [NVIDIA Brev](nvidia-brev.md) is still on **Isaac Lab 2.3** as of v1.2.1 (Jan 2026).
 
 ## Related
 - [NVIDIA Isaac Sim](nvidia-isaac-sim.md) — the simulator.
@@ -31,3 +31,4 @@ Isaac Lab 3.0 with the GA release of the [Newton physics engine](newton-physics-
 - [DINO-WM Paper](../sources/dino-wm-paper.md)
 - [Farama Foundation Projects Page](../sources/farama-projects-page.md)
 - [ManiSkill-HAB Paper](../sources/maniskill-hab-paper.md)
+- [Isaac Launchable Repo](../sources/isaac-launchable-repo.md)

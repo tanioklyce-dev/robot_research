@@ -177,6 +177,7 @@ Curated entry points across the wiki.
 - [karpathy/nanoGPT (GitHub repo)](sources/karpathy-nanogpt.md) — Karpathy's minimal GPT training repo. Two ~300-line files: `model.py` (cleanest decoder-only-transformer reference implementation) + `train.py`. **Deprecated November 2025** in favor of [nanochat](sources/karpathy-nanochat.md), but `model.py` is still the wiki's recommended *architecture-reading* exit-ramp at the bottom of [Curriculum Module 3](syntheses/curriculum-03-attention-and-transformers.md). (2022-12-28)
 - [karpathy/micrograd (GitHub repo)](sources/karpathy-micrograd.md) — Karpathy's tiny scalar-valued autograd engine (~100 lines) plus a ~50-line PyTorch-style NN library on top. The cleanest "I understand backprop" milestone. Linked from [Curriculum Module 1](syntheses/curriculum-01-neural-networks.md). (2020-04-13)
 - [NVIDIA Brev Docs](sources/nvidia-brev-docs.md) — NVIDIA's cross-cloud GPU-instance broker (`brev` CLI + Launchables; B200 → P4 catalog). Lifecycle is `Running ⇄ Stopped → Deleted` with hourly billing while running, no compute fees while stopped (capacity-loss risk on restart), and **no native auto-stop / TTL / spend-cap** — `brev stop --all` is the only real cost lever. (2025–2026)
+- [Isaac Launchable (isaac-sim/isaac-launchable)](sources/isaac-launchable-repo.md) — NVIDIA's official "try [Isaac Sim](entities/nvidia-isaac-sim.md) + [Isaac Lab](entities/nvidia-isaac-lab.md) in a browser" [Brev](entities/nvidia-brev.md) Launchable (`env-35JP2ywERLgqtD0b0MIeK1HnF46`). VS Code + Isaac Sim 5.1 + Isaac Lab 2.3 + Kit App Streaming. RT-core GPU required (no T4-tier escape); AWS-default; v1.2.1 (Jan 2026); 150★. (ongoing)
 
 ## Sources (pedagogical / curriculum companions, undated)
 - [Welch Labs — The Perceptron (YouTube, Feb 2025)](sources/welchlabs-perceptron.md) — "ChatGPT is made from 100 million of these." Stephen Welch's pedagogical prequel to the [LeCun $1B Bet video](sources/welchlabs-lecun-1b-bet-against-llms.md): Rosenblatt 1957 → Mark I (1958) → XOR roadblock (Minsky & Papert 1969) → backprop (Rumelhart/Hinton/Williams 1986) → MLP-at-scale (GPT-3). Recommended-viewing for [Curriculum Module 1](syntheses/curriculum-01-neural-networks.md). (2025-02)
@@ -233,8 +234,8 @@ Curated entry points across the wiki.
 - [Toyota Research Institute (TRI)](entities/tri.md) — Toyota's R&D arm; Los Altos + Cambridge; co-affiliation across [Diffusion Policy](entities/diffusion-policy.md) + [UMI](entities/umi.md); home of TRI LBM. (2 sources)
 
 ### Simulators / frameworks
-- [NVIDIA Isaac Sim](entities/nvidia-isaac-sim.md) — Omniverse-based robotics simulator. (5 sources)
-- [NVIDIA Isaac Lab](entities/nvidia-isaac-lab.md) — open-source learning framework on Isaac Sim. (5 sources)
+- [NVIDIA Isaac Sim](entities/nvidia-isaac-sim.md) — Omniverse-based robotics simulator. (6 sources)
+- [NVIDIA Isaac Lab](entities/nvidia-isaac-lab.md) — open-source learning framework on Isaac Sim. (6 sources)
 - [Newton physics engine](entities/newton-physics-engine.md) — Linux-Foundation, GPU-accelerated. (5 sources)
 - [MuJoCo](entities/mujoco.md) — DeepMind-maintained physics engine; substrate for Gymnasium-Robotics, MuJoCo Playground (via MJX), Adroit, Franka Kitchen, DM Control, flybody, NeuroMechFly v2. (11 sources)
 - [MuJoCo Playground](entities/mujoco-playground.md) — DeepMind's MJX-based learning framework. (4 sources)
@@ -352,7 +353,7 @@ Curated entry points across the wiki.
 ### Tools
 - [Ollama](entities/ollama.md) — local LLM runtime (used by ROSOrin offline curriculum). (1 source) _stub_
 - [MimicGen](entities/mimicgen.md) — synthetic-demo expansion tool used by RoboCasa365. (1 source) _stub_
-- [NVIDIA Brev](entities/nvidia-brev.md) — NVIDIA's cross-cloud GPU-instance broker (`brev` CLI + Launchables); no native auto-stop, so cost discipline is on the user. (1 source)
+- [NVIDIA Brev](entities/nvidia-brev.md) — NVIDIA's cross-cloud GPU-instance broker (`brev` CLI + Launchables); no native auto-stop, so cost discipline is on the user. (2 sources)
 
 ### Events
 - [LeRobot Worldwide Hackathon 2025](entities/lerobot-worldwide-hackathon-2025.md) — Hugging Face hybrid hackathon, June 14–15, 2025; 916 team members, ~400 submissions, 30 ranked winners; prizes: Hope Jr Arm / LeKiwi / SO-101. (1 source)
