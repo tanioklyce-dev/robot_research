@@ -202,7 +202,7 @@ Terver et al., FAIR, Dec 2025 ([source page](sources/jepa-wms-paper.md)); first 
 **Momentum Contrast** — He et al. 2020; contrastive SSL with a queue of negatives and momentum encoder. *(Module 4.)*
 
 ### MPC
-**Model Predictive Control** — at each step, plan a short-horizon action sequence using a model, execute the first action, replan. The control method paired with world models in [LeWM](entities/leworldmodel.md), [DINO-WM](entities/dino-wm.md), [V-JEPA 2-AC](entities/v-jepa-2.md). *(Module 10.)*
+**Model Predictive Control** — at each step, plan a short-horizon action sequence using a model, execute the first action, replan. The control method paired with world models in [LeWM](entities/leworldmodel.md), [DINO-WM](entities/dino-wm.md), [V-JEPA 2-AC](entities/v-jepa-2.md). Receding-horizon approximation of the classical *optimal-control* problem (Bernoulli 1697 → Pontryagin 1956; see [Sussmann & Willems 1997](sources/sussmann-willems-1997-300-years-optimal-control.md) for the lineage). *(Module 10.)*
 
 ### MSE
 **Mean Squared Error** — `mean((y - ŷ)²)`; the standard regression loss; the loss term in JEPA next-embedding prediction. *(Module 1.)*
@@ -310,7 +310,7 @@ Robot description formats — XML-based ([URDF](concepts/world-model-simulators.
 **Variance-Invariance-Covariance Regularization** — Bardes, Ponce, LeCun 2022; non-contrastive SSL that prevents collapse via variance and covariance penalties. Same author family as JEPA / SIGReg. *(Module 4.)*
 
 ### ViT
-**Vision Transformer** — Dosovitskiy et al. 2020 (*An Image Is Worth 16x16 Words*). An image is split into a grid of non-overlapping patches (typically 14×14 or 16×16 pixels); each patch is flattened + linearly projected into a token; a learnable `[CLS]` token is prepended; positional embeddings are added; the resulting sequence is fed through a standard [transformer](#transformer) encoder. Output: a patch-token sequence plus the `[CLS]` token, which serves as the global image embedding. Sized by depth + width: ViT-S/14, ViT-B/14, ViT-L/14, ViT-g/14 (~1.1B params, [DINOv2](entities/dinov2.md)), ViT-7B/16 ([DINOv3](entities/dinov3.md)). The default visual [encoder](#encoder) in JEPA-line models including [LeWM](entities/leworldmodel.md), [V-JEPA 2](entities/v-jepa-2.md), and every DINO-line world model. *(Module 3.)*
+**Vision Transformer** — [Dosovitskiy et al. 2020 (*An Image Is Worth 16x16 Words*)](sources/vit-paper.md). An image is split into a grid of non-overlapping patches (typically 14×14 or 16×16 pixels); each patch is flattened + linearly projected into a token; a learnable `[CLS]` token is prepended; positional embeddings are added; the resulting sequence is fed through a standard [transformer](#transformer) encoder. Output: a patch-token sequence plus the `[CLS]` token, which serves as the global image embedding. Sized by depth + width: ViT-S/14, ViT-B/14, ViT-L/14, ViT-g/14 (~1.1B params, [DINOv2](entities/dinov2.md)), ViT-7B/16 ([DINOv3](entities/dinov3.md)). The default visual [encoder](#encoder) in JEPA-line models including [LeWM](entities/leworldmodel.md), [V-JEPA 2](entities/v-jepa-2.md), and every DINO-line world model. *(Module 3.)*
 
 ### V-JEPA / V-JEPA 2 / V-JEPA 2-AC / V-JEPA 2.1
 **Video JEPA** family from Meta FAIR; "AC" = Action-Conditioned. See [V-JEPA 2 entity](entities/v-jepa-2.md). *(Module 11.)*

@@ -147,7 +147,7 @@ The Transformer trained only on 40K WSJ sentences hit 91.3 F1, beating Vinyals/K
 
 - **No causal-LM experiments.** The decoder-only / generative-pretraining direction emerged with GPT-1 (Radford et al., 2018) and was not in scope here. The paper is squarely encoder–decoder + supervised seq2seq.
 - **No pre-norm.** The post-norm form (`LayerNorm(x + Sublayer(x))`) used in the paper is notoriously unstable at deeper depths; pre-norm + better init was a later fix.
-- **No vision experiments.** [ViT](../glossary.md#vit) (Dosovitskiy et al. 2020) applied the encoder stack to images and is the bridge into this wiki's main subject matter.
+- **No vision experiments.** [ViT (Dosovitskiy et al. 2020)](vit-paper.md) applied the encoder stack to images and is the bridge into this wiki's main subject matter.
 - **No claim about scale.** The paper's "big" model is 213M parameters and trains in 3.5 days on 8 P100s. The architecture's scaling-law story — that performance keeps improving with `N`, `d_model`, and data — was discovered later (Kaplan et al. 2020, Chinchilla 2022).
 
 ## Entities mentioned
@@ -193,7 +193,7 @@ The Transformer is one of two architectures the curriculum builds out from (the 
 
 ## Curriculum hookup
 
-This is the primary reference for **[Curriculum Module 3 — Sequence models, attention, and transformers](../syntheses/curriculum-03-attention-and-transformers.md)**. Module 3's content (self-attention, MHA, transformer blocks, positional encoding, causal masking, ViT) is essentially "read this paper and Dosovitskiy 2020." The wiki was tracking the lineage via the glossary entry and downstream papers; this ingest fills in the primary source.
+This is the primary reference for **[Curriculum Module 3 — Sequence models, attention, and transformers](../syntheses/curriculum-03-attention-and-transformers.md)**. Module 3's content (self-attention, MHA, transformer blocks, positional encoding, causal masking, ViT) is essentially "read this paper and [Dosovitskiy 2020](vit-paper.md)." The wiki was tracking the lineage via the glossary entry and downstream papers; this ingest fills in the primary source.
 
 ## Open questions / TBD
 
