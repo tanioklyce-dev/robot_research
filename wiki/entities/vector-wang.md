@@ -3,8 +3,8 @@ title: Vector Wang (Gaotian Wang)
 type: entity
 subtype: person
 created: 2026-05-10
-updated: 2026-05-10
-sources: 1
+updated: 2026-05-15
+sources: 2
 tags: [person, xlerobot, embodied-ai, low-cost-robotics, open-source]
 ---
 

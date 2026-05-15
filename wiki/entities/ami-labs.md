@@ -3,8 +3,8 @@ title: AMI Labs
 type: entity
 subtype: organization
 created: 2026-05-09
-updated: 2026-05-09
-sources: 1
+updated: 2026-05-15
+sources: 2
 tags: [ami-labs, lecun, jepa, world-model, startup]
 ---
 

@@ -12,16 +12,16 @@ A **persistent, LLM-maintained knowledge base** built incrementally from raw sou
 
 The wiki is a **compounding artifact**. Each new source ingest enriches the cross-references; each new query may produce a new synthesis page. Over time the wiki becomes more useful, not less.
 
-## Quick stats (as of 2026-05-10)
+## Quick stats (as of 2026-05-15)
 
 | Layer | Count |
 | --- | --- |
-| Source pages (`wiki/sources/`) | **89** |
-| Entity pages (`wiki/entities/`) | **121** |
-| Concept pages (`wiki/concepts/`) | **16** |
-| Synthesis pages (`wiki/syntheses/`) | **39** (incl. 14 curriculum modules) |
+| Source pages (`wiki/sources/`) | **123** |
+| Entity pages (`wiki/entities/`) | **146** |
+| Concept pages (`wiki/concepts/`) | **20** |
+| Synthesis pages (`wiki/syntheses/`) | **41** (incl. 14 curriculum modules) |
 | Top-level (`index.md`, `log.md`, `glossary.md`, `overview.md`) | **4** |
-| **Total wiki pages** | **269** |
+| **Total wiki pages** | **334** |
 
 ## The centerpiece — robot-learning curriculum
 
@@ -148,4 +148,4 @@ A few things this wiki deliberately doesn't cover:
 
 ## Provenance
 
-This wiki is part of the `robot-research` repository. Built incrementally between approximately 2026-05-06 and 2026-05-10. The curriculum is the principal artifact; the surrounding entity / concept / source pages exist either as direct curriculum dependencies or as accumulated context from prior research threads (FRC, fruit-fly simulation, AI safety, assistive robotics).
+This wiki is part of the `robot-research` repository. Built incrementally starting 2026-05-06; actively maintained. The curriculum is the principal artifact; the surrounding entity / concept / source pages exist either as direct curriculum dependencies or as accumulated context from prior research threads (FRC, fruit-fly simulation, AI safety, assistive robotics).

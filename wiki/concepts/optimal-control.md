@@ -2,8 +2,8 @@
 title: Optimal control
 type: concept
 created: 2026-05-14
-updated: 2026-05-14
-sources: 12
+updated: 2026-05-15
+sources: 6
 tags: [optimal-control, mpc, lqr, pontryagin, hamilton-jacobi-bellman, dynamic-programming, brachystochrone, calculus-of-variations, control-theory, rl-bridge]
 ---
 
@@ -156,18 +156,18 @@ Modern **model-based reinforcement learning** ([DreamerV3](../sources/dreamer-v3
 
 ## Mentioned in
 
+Sources with explicit OC vocabulary and a back-link to this hub:
 - [Sussmann & Willems 1997 — 300 Years of Optimal Control](../sources/sussmann-willems-1997-300-years-optimal-control.md) (historical anchor)
 - [DS4DS 7.01 — Optimal Control, Introduction (Peitz & Wallscheid)](../sources/ds4ds-7-01-optimal-control-intro.md) (modern-pedagogy companion)
 - [Sutton & Barto — Reinforcement Learning: An Introduction (2nd ed., 2018)](../sources/sutton-barto-rl-textbook.md) (RL-side bridge)
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md) (CEM-MPC against learned JEPA)
 - [TD-MPC2 Paper](../sources/td-mpc2-paper.md) (MPC + TD-bootstrapped value)
 - [DreamerV3 Paper](../sources/dreamer-v3-paper.md) (latent-imagined-rollouts MBRL = approximate OC)
-- [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md) (action-conditioned predictor + MPC)
-- [PLDM Paper](../sources/pldm-paper.md)
-- [LeJEPA Paper](../sources/lejepa-paper.md)
-- [Learning control-oriented dynamical structure (Murray 2023)](../sources/learning-control-oriented-dynamical-structure.md) (OC priors in learned policies)
-- [MIT drone adaptive control](../sources/mit-drone-adaptive-control.md) (adaptive control = OC + online identification)
-- [Onchain AI Garage — LeWM reproduction (video)](../sources/onchain-ai-garage-lewm-reproduction.md)
+
+Aspirationally referenced from this page but not yet linked back from the source (these papers do MPC/planning but don't use the "optimal control" phrase explicitly — back-links pending if/when justified):
+- [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md), [PLDM Paper](../sources/pldm-paper.md), [LeJEPA Paper](../sources/lejepa-paper.md), [Learning control-oriented dynamical structure (Murray 2023)](../sources/learning-control-oriented-dynamical-structure.md), [MIT drone adaptive control](../sources/mit-drone-adaptive-control.md), [Onchain AI Garage — LeWM reproduction](../sources/onchain-ai-garage-lewm-reproduction.md).
+
+Synthesis / curriculum pages that link here:
 - [Curriculum Module 8 — RL vocabulary](../syntheses/curriculum-08-rl-vocabulary.md)
 - [Curriculum Module 10 — World models, broad](../syntheses/curriculum-10-world-models.md)
 - [Curriculum Module 11 — JEPA in depth](../syntheses/curriculum-11-jepa-deep.md)

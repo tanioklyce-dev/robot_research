@@ -3,8 +3,8 @@ title: Hugging Face
 type: entity
 subtype: organization
 created: 2026-05-10
-updated: 2026-05-10
-sources: 4
+updated: 2026-05-15
+sources: 7
 tags: [hugging-face, foundation-models, open-source, lerobot, robotics, ml-platform]
 ---
 

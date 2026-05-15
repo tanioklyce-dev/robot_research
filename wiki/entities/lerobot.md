@@ -3,8 +3,8 @@ title: LeRobot
 type: entity
 subtype: software-framework
 created: 2026-05-10
-updated: 2026-05-10
-sources: 4
+updated: 2026-05-15
+sources: 6
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator]
 ---
 

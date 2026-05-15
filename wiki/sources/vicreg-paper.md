@@ -140,6 +140,7 @@ The paper briefly demonstrates VICReg on **image-text pretraining** with MS-COCO
 - [Meta FAIR](../entities/meta-fair.md) (then "Facebook AI Research") — primary affiliation.
 
 ## Concepts touched
+- [Siamese network](../concepts/siamese-network.md)
 
 - [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — VICReg defines the joint-embedding *without* predictor; JEPA adds the predictor on top. The encoder-side anti-collapse machinery is shared.
 - **Representation collapse** — VICReg's three-term decomposition is the cleanest articulation of *which* collapse mode each term prevents.

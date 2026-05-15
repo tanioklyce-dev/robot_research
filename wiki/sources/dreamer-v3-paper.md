@@ -43,6 +43,7 @@ tags: [dreamer, dreamer-v3, world-model, model-based-rl, imagination, hafner, fo
 - [LeWorldModel](../entities/leworldmodel.md) — uses DreamerV3 as a baseline column.
 
 ## Concepts touched
+- [Optimal control](../concepts/optimal-control.md)
 
 - [World model](../concepts/world-model.md) — DreamerV3 is a Reward-conditioned MBRL exemplar.
 - [Imitation learning](../concepts/imitation-learning.md) — orthogonal but useful contrast (BC ≠ MBRL).

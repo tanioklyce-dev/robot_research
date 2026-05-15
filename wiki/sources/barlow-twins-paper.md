@@ -142,6 +142,7 @@ The paper reports two non-obvious empirical findings:
 - Stéphane Deny, Jure Zbontar, Li Jing, Ishan Misra — co-authors not yet tracked as separate entities; worth filing if they recur.
 
 ## Concepts touched
+- [Siamese network](../concepts/siamese-network.md)
 
 - [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — Barlow Twins is one of the canonical Joint-Embedding *non-predictive* architectures (no predictor on top of the embedding). It informs the encoder-side design of JEPA but does not itself predict a future.
 - **Representation collapse** — the central problem Barlow Twins solves; its anti-collapse mechanism is one of the "regularized methods" that LeCun (2022) explicitly endorses over contrastive methods.

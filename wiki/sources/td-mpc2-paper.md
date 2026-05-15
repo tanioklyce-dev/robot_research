@@ -44,6 +44,7 @@ tags: [td-mpc, td-mpc2, world-model, model-based-rl, mpc, latent-space, hansen, 
 - [Dreamer](../entities/dreamer.md) — sibling MBRL family.
 
 ## Concepts touched
+- [Optimal control](../concepts/optimal-control.md)
 
 - [World model](../concepts/world-model.md) — TD-MPC2 is a decoder-free MBRL exemplar.
 

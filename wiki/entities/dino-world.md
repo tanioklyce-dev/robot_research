@@ -3,8 +3,8 @@ title: DINO-world
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-05-07
-sources: 1
+updated: 2026-05-15
+sources: 3
 tags: [dino-world, dinov2, video-world-model, jepa-adjacent, fair, meta-fair, terver, baldassarre]
 ---
 

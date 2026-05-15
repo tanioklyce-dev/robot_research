@@ -2,8 +2,8 @@
 title: AI safety and alignment
 type: concept
 created: 2026-05-09
-updated: 2026-05-10
-sources: 3
+updated: 2026-05-15
+sources: 5
 tags: [ai-safety, alignment, corrigibility, values, anthropic]
 ---
 

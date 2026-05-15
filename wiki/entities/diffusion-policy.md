@@ -3,8 +3,8 @@ title: Diffusion Policy
 type: entity
 subtype: method
 created: 2026-05-08
-updated: 2026-05-10
-sources: 8
+updated: 2026-05-15
+sources: 9
 tags: [diffusion-policy, behavior-cloning, diffusion-model, ddpm, action-diffusion, chi-2023, columbia, tri, mit]
 ---
 

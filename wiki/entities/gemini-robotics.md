@@ -3,8 +3,8 @@ title: Gemini Robotics
 type: entity
 subtype: model
 created: 2026-05-09
-updated: 2026-05-09
-sources: 1
+updated: 2026-05-15
+sources: 2
 tags: [gemini-robotics, google-deepmind, vlm, vla, embodied-reasoning, foundation-model]
 ---
 

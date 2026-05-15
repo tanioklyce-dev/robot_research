@@ -90,6 +90,7 @@ Surprising finding: **50% of Network 5's outputs were redundant** — the 76-dim
 - **AT&T Bell Laboratories** — the institution producing simultaneous foundational work on CNNs (LeNet), Siamese networks (this paper), and statistical learning theory (Vapnik). The pre-2000 ML research mecca.
 
 ## Concepts touched
+- [Siamese network](../concepts/siamese-network.md)
 
 - **Siamese networks / Joint-Embedding** — defined here.
 - **Weight tying** — the two sub-networks share weights; explicit architectural constraint.

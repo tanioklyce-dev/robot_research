@@ -3,8 +3,8 @@ title: Anthropic
 type: entity
 subtype: company
 created: 2026-05-09
-updated: 2026-05-09
-sources: 2
+updated: 2026-05-15
+sources: 4
 tags: [company, ai-safety, llm, claude, alignment]
 ---
 

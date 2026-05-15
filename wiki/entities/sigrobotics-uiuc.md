@@ -3,8 +3,8 @@ title: SIGRobotics-UIUC
 type: entity
 subtype: organization
 created: 2026-05-10
-updated: 2026-05-11
-sources: 4
+updated: 2026-05-15
+sources: 6
 tags: [sigrobotics, uiuc, student-organization, lekiwi, open-hardware, lerobot, hackathon, mini-humanoid, koch-arms, frodobots]
 ---
 

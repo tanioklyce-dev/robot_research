@@ -2,8 +2,8 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-05-14
-sources: 15
+updated: 2026-05-15
+sources: 18
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun]
 ---
 

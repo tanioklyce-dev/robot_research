@@ -35,6 +35,7 @@ Preprint introducing **LeWorldModel (LeWM)** — claimed as the **first JEPA tra
 - [DINO-WM](../entities/dino-wm.md) — comparison baseline (foundation-based JEPA).
 
 ## Concepts touched
+- [Optimal control](../concepts/optimal-control.md)
 - [Joint-Embedding Predictive Architecture](../concepts/jepa.md)
 - [World model](../concepts/world-model.md) — end-to-end-pixel-trained design point.
 - [World-model simulators](../concepts/world-model-simulators.md) — latent-prediction paradigm

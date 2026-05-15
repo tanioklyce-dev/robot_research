@@ -194,6 +194,7 @@ These gaps define what the JEPA program has been *filling in* since 2022. The ho
 - Frequent technical citations: Hafner et al. (Dreamer / Director), Schmidhuber (intrinsic motivation), Bardes / Ponce (VICReg), Hadsell & Chopra (contrastive learning), Janner (trajectory transformers).
 
 ## Concepts touched
+- [Siamese network](../concepts/siamese-network.md)
 
 - [Joint-Embedding Predictive Architecture (JEPA)](../concepts/jepa.md) — defined here, named here.
 - [World model](../concepts/world-model.md) — the central object; the configurable engine.

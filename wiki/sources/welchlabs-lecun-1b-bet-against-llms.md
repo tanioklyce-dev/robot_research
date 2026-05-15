@@ -54,6 +54,7 @@ Special thanks credited at the end: **Yann LeCun, Stephane Deny, David Fan, Nico
 - [DINO-WM](../entities/dino-wm.md) / [DINO-world](../entities/dino-world.md) (background only)
 
 ## Concepts touched
+- [Siamese network](../concepts/siamese-network.md)
 
 - [Joint-Embedding Predictive Architecture (JEPA)](../concepts/jepa.md)
 - [World model](../concepts/world-model.md)

@@ -41,7 +41,7 @@ The book runs from **tabular bandits** (Ch 2) to **tabular MDP solution methods*
 - **Foundation for every MBRL / world-model paper in the wiki.** [DreamerV3](dreamer-v3-paper.md), [TD-MPC2](td-mpc2-paper.md), and the JEPA-line world models ([LeWM](leworldmodel-paper.md), [DINO-WM](dino-wm-paper.md), [DINO-world](dino-world-paper.md), [JEPA-WMs](jepa-wms-paper.md), [PLDM](pldm-paper.md)) all use Sutton-Barto vocabulary verbatim — value functions, policies, planning, on-policy / off-policy / offline, TD bootstrapping, actor-critic. The wiki tracks ~10 papers that assume this vocabulary; this is their primary source.
 - **Foundation for the RLHF / DPO / GRPO line that underlies VLA fine-tuning.** [Wolfe's SFT survey](wolfe-sft-blog.md) ends with RLHF; every wiki-tracked VLA ([π0](pi-zero-paper.md), [Helix](helix-blog.md), [GR00T](../entities/nvidia-groot.md)) uses some form of policy-gradient or preference-tuning RL at the end. PPO and SAC — the workhorses — derive from the policy-gradient chapter (Ch 11 here, Ch 13 in the 2018 final). Trace the lineage backwards and you land on this textbook.
 - **The "RL = approximate optimal control over an unknown model" framing** is the explicit bridge to [Sussmann & Willems 1997 — 300 Years of Optimal Control](sussmann-willems-1997-300-years-optimal-control.md). Bellman dynamic programming (Ch 4) is the discrete-time / stochastic extension of the [Pontryagin Maximum Principle](sussmann-willems-1997-300-years-optimal-control.md); when you sample instead of taking expectations against a known model, you get RL. The two books together — Sutton-Barto + Sussmann-Willems — are the wiki's primary-source foundation for the entire control-and-decision-making thread.
-- **The fly-brain / [biomechanical-simulation](../concepts/biomechanical-simulation.md) thread** uses RL-trained controllers ([flybody](../entities/flybody.md), [flygym](../entities/flygym.md), [NeuroMechFly](../entities/neuromechfly.md)); the *Whole-organism agentic AI* synthesis page describes them in Sutton-Barto language.
+- **The fly-brain / [biomechanical-simulation](../concepts/biomechanical-simulation.md) thread** uses RL-trained controllers ([flybody](../entities/flybody.md), flygym, [NeuroMechFly](../entities/neuromechfly.md)); the *Whole-organism agentic AI* synthesis page describes them in Sutton-Barto language.
 
 ## Structure (2018 final 2nd edition)
 
@@ -216,6 +216,7 @@ The wiki's RL-adjacent content (Module 8, Dreamer, TD-MPC, every JEPA-WM, every 
 (None of these have wiki entity pages yet. Sutton + Barto are the most overdue stubs — they keep appearing in the wiki's lineage diagrams as "Sutton & Barto 1998" without a target.)
 
 ## Concepts touched (the entire RL vocabulary)
+- [Optimal control](../concepts/optimal-control.md)
 
 - **Reinforcement learning** — the field. **Not yet a concept page**; this source is the natural anchor. The most overdue concept-page creation in the wiki.
 - **MDP / Markov Decision Process** — `(S, A, P, R, γ)`. Foundational.

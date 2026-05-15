@@ -1,5 +1,7 @@
 # Index
 
+> **New here?** Read the [wiki overview](overview.md) — what this is, what's in it, and where to start.
+
 ## Highlights
 
 Curated entry points across the wiki.

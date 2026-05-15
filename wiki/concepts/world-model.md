@@ -2,8 +2,8 @@
 title: World model
 type: concept
 created: 2026-05-07
-updated: 2026-05-11
-sources: 15
+updated: 2026-05-15
+sources: 16
 tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video]
 ---
 

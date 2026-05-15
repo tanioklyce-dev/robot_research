@@ -3,8 +3,8 @@ title: Stretch
 type: entity
 subtype: product
 created: 2026-05-07
-updated: 2026-05-09
-sources: 11
+updated: 2026-05-15
+sources: 13
 tags: [stretch, mobile-manipulation, hello-robot, research-robot]
 ---
 

@@ -2,8 +2,8 @@
 title: Siamese network
 type: concept
 created: 2026-05-14
-updated: 2026-05-14
-sources: 5
+updated: 2026-05-15
+sources: 6
 tags: [siamese, joint-embedding, weight-tying, ssl, foundational]
 ---
 
@@ -71,6 +71,7 @@ The **research frontier** is the predictor extension (JEPA) and removing the nee
 - [VICReg Paper](../sources/vicreg-paper.md)
 - [LeCun 2022 — Path Towards AMI](../sources/lecun2022-path-towards-ami.md)
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs (video)](../sources/welchlabs-lecun-1b-bet-against-llms.md)
+- [Onchain AI Garage — LeWM reproduction](../sources/onchain-ai-garage-lewm-reproduction.md)
 - [JEPA concept page](jepa.md)
 - [Curriculum Module 4 — Self-supervised learning](../syntheses/curriculum-04-self-supervised-learning.md)
 - [Curriculum Module 11 — JEPA in depth](../syntheses/curriculum-11-jepa-deep.md)

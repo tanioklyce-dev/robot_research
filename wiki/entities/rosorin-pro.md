@@ -3,8 +3,8 @@ title: ROSOrin Pro
 type: entity
 subtype: product
 created: 2026-05-07
-updated: 2026-05-07
-sources: 2
+updated: 2026-05-15
+sources: 4
 tags: [rosorin-pro, hiwonder, jetson-orin-nano, education, mobile-manipulation, llm-agent]
 ---
 

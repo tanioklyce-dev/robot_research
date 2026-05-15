@@ -3,8 +3,8 @@ title: V-JEPA 2
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-05-10
-sources: 7
+updated: 2026-05-15
+sources: 13
 tags: [v-jepa-2, jepa, world-model, meta-fair, video, action-conditioned, franka]
 ---
 
