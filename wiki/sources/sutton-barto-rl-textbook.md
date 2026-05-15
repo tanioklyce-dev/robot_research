@@ -1,23 +1,30 @@
 ---
-title: "Sutton & Barto — Reinforcement Learning: An Introduction (2nd ed., 2014–2015 in-progress draft)"
+title: "Sutton & Barto — Reinforcement Learning: An Introduction (2nd ed., MIT Press 2018 / 2020 reprint)"
 type: source
 url: http://incompleteideas.net/book/the-book.html
-local_path: raw/SuttonBartoIPRLBook2ndEd.pdf
+local_path: raw/RLbook2020.pdf
+draft_path: raw/SuttonBartoIPRLBook2ndEd.pdf
+isbn: 9780262039246
+license: CC BY-NC-ND 2.0 (electronic) / hardcover via MIT Press
 author: Richard S. Sutton, Andrew G. Barto
 affiliation: U Massachusetts Amherst (Barto); U Alberta / DeepMind (Sutton); A Bradford Book, The MIT Press
-published: 2014–2015 (in-progress draft of 2nd edition on file); 1st ed. 1998; final 2nd ed. printed 2018
-ingested: 2026-05-14
+published: 1st ed. 1998; 2nd ed. published 2018; 2020 reprint
+ingested: 2026-05-14 (initial against 2014–2015 in-progress draft); 2026-05-14 (updated against 2018 final 2nd edition)
 created: 2026-05-14
 updated: 2026-05-14
-tags: [reinforcement-learning, textbook, sutton-barto, foundational, mdp, value-function, bellman, dynamic-programming, monte-carlo, td-learning, q-learning, sarsa, eligibility-traces, actor-critic, mcts, mbrl, dedicated]
+tags: [reinforcement-learning, textbook, sutton-barto, foundational, mdp, value-function, bellman, dynamic-programming, monte-carlo, td-learning, q-learning, sarsa, eligibility-traces, actor-critic, policy-gradient, reinforce, mcts, mbrl, dqn, alphago, dedicated]
 ---
 
 > [!note] Ingest depth + version
-> The PDF on file (`raw/SuttonBartoIPRLBook2ndEd.pdf`, 352 pages, PDF metadata `CreationDate D:20150412`) is the **2014–2015 in-progress draft** of the 2nd edition (not the final 2018 print version). Content is mostly stable across versions; the **published 2018 2nd edition** is ~550 pages with reorganized Part III chapters (psychology, neuroscience, case studies, prospects), an expanded **policy-gradient chapter** (Ch 13 in the 2018 version, only a brief Ch 11 here), and chapters on **off-policy approximation methods** (Ch 10 here, expanded in 2018) and **deep RL applications**. Ingest below covers: front matter, Ch 1 (RL problem), Ch 3 (MDPs), Ch 4 (DP) → Ch 8 (planning + MCTS), Part II (function approximation), Part III (frontiers) at the **section-summary** level — not a verbatim reproduction. A future re-ingest against the 2018 final PDF should update the policy-gradient coverage and any added chapters.
+> **Two PDFs on file**, both now ingested:
+> - **`raw/RLbook2020.pdf`** (548 pages, PDF metadata `CreationDate D:20220426`; ©2018, 2020) — the **published 2018 final 2nd edition**, ISBN 9780262039246. **This is the canonical reference and the `local_path` target.** License: CC BY-NC-ND 2.0 (electronic).
+> - **`raw/SuttonBartoIPRLBook2ndEd.pdf`** (352 pages, PDF metadata `CreationDate D:20150412`) — the **2014–2015 in-progress draft** of the 2nd edition, retained as a historical reference for the field's drafting period. `draft_path` in frontmatter.
+>
+> Ingest covers both at the **section-summary** level: front matter, Ch 1 (RL problem), Ch 2 (bandits), Ch 3 (MDPs), Ch 4 (DP), Ch 5 (MC), Ch 6 (TD), Ch 7 (n-step bootstrapping), Ch 8 (planning + MCTS), Part II (function approximation — Ch 9–12 in 2018 final), **Ch 13 (Policy Gradient Methods — substantial new chapter in 2018 final)**, and Part III "Looking Deeper" (Ch 14–17 in 2018 final, including DQN/Atari + AlphaGo case studies). Not a verbatim reproduction; key equations transcribed, derivation outlines summarized.
 
 ## Summary
 
-**"Reinforcement Learning: An Introduction"** by Richard S. Sutton and Andrew G. Barto is the **canonical textbook for the field of reinforcement learning** — sometimes called "the RL bible." The 1st edition (1998) established the field's vocabulary; the 2nd edition (2014–2015 in-progress draft; final print 2018) updates and substantially expands the coverage to include the post-2010 deep-RL renaissance, function approximation, and policy-gradient methods.
+**"Reinforcement Learning: An Introduction"** by Richard S. Sutton and Andrew G. Barto is the **canonical textbook for the field of reinforcement learning** — sometimes called "the RL bible." The 1st edition (1998) established the field's vocabulary; the **2nd edition (MIT Press 2018, with a 2020 reprint)** is a 548-page substantial expansion that incorporates two decades of progress, including the function-approximation chapters (Ch 9–12), the full Policy Gradient Methods chapter (Ch 13) covering REINFORCE / Actor–Critic / Policy Gradient Theorem, and applications case studies (Ch 16) including **DQN on Atari** (Mnih et al. 2015) and **AlphaGo / AlphaGo Zero** (Silver et al. 2016, 2017). Sutton & Barto won the **2024 Turing Award** for the work this book consolidates.
 
 The book defines a **computational study of goal-directed learning from interaction**, distinct from both supervised learning (no labels, only scalar rewards) and unsupervised learning (there *is* a target — the cumulative reward). Sutton & Barto identify four sub-elements of an RL system (§1.3):
 
@@ -36,60 +43,137 @@ The book runs from **tabular bandits** (Ch 2) to **tabular MDP solution methods*
 - **The "RL = approximate optimal control over an unknown model" framing** is the explicit bridge to [Sussmann & Willems 1997 — 300 Years of Optimal Control](sussmann-willems-1997-300-years-optimal-control.md). Bellman dynamic programming (Ch 4) is the discrete-time / stochastic extension of the [Pontryagin Maximum Principle](sussmann-willems-1997-300-years-optimal-control.md); when you sample instead of taking expectations against a known model, you get RL. The two books together — Sutton-Barto + Sussmann-Willems — are the wiki's primary-source foundation for the entire control-and-decision-making thread.
 - **The fly-brain / [biomechanical-simulation](../concepts/biomechanical-simulation.md) thread** uses RL-trained controllers ([flybody](../entities/flybody.md), [flygym](../entities/flygym.md), [NeuroMechFly](../entities/neuromechfly.md)); the *Whole-organism agentic AI* synthesis page describes them in Sutton-Barto language.
 
-## Structure (current draft)
+## Structure (2018 final 2nd edition)
 
 **Front matter:**
-- Preface (pp. viii–xi) — historical motivation: Sutton & Barto started at UMass in 1979 under A. Harry Klopf's *heterostatic theory*; the seminal observation was "the simplest idea — a learning system that *wants* something — had received surprisingly little computational attention."
-- Series Forward (xii); Summary of Notation (xiii) — the **canonical RL notation** (`S_t`, `A_t`, `R_t`, `γ`, `π`, `v_π`, `q_π`, `v_*`, `q_*`, `δ_t`, `α`, `β`, `λ`, `E_t(s)`) that every subsequent RL paper uses.
+- Preface to the Second Edition (pp. xiii–xvi) — *"The twenty years since the publication of the first edition of this book have seen tremendous progress in artificial intelligence, propelled in large part by advances in machine learning, including advances in reinforcement learning."* Notes the project began in 2012; the new edition adds new topics and expands coverage of topics they now understand better; sets off the more mathematical parts in shaded boxes the non-mathematical reader may skip.
+- Preface to the First Edition (pp. xvii–xviii) — historical motivation: Sutton & Barto started at UMass in 1979 under A. Harry Klopf's *heterostatic theory*; the seminal observation was "the simplest idea — a learning system that *wants* something — had received surprisingly little computational attention."
+- Summary of Notation (p. xix) — the **canonical RL notation** (`S_t`, `A_t`, `R_t`, `γ`, `π`, `v_π`, `q_π`, `v_*`, `q_*`, `δ_t`, `α`, `β`, `λ`, `z_t`) that every subsequent RL paper uses. The 2018 edition refines notation slightly from the 1st edition — eligibility traces now denoted `z_t` (vector) rather than `e_t`; the change is called out in the new preface.
 
-**Chapter 1 — The Reinforcement Learning Problem** (pp. 1–25)
-- §1.1 The problem class — closed-loop, no labels, delayed reward.
+**Chapter 1 — Introduction** (pp. 1–22)
+- §1.1 RL as a problem class — closed-loop, no labels, delayed reward.
 - §1.2 Examples (Phil's breakfast; checkers; gazelle calf walking; mobile robot).
-- §1.3 Elements — policy / reward / value function / model. **The four-subelement decomposition the rest of the book is organized around.**
+- §1.3 Elements — **policy / reward / value function / model**. The four-subelement decomposition the rest of the book is organized around.
 - §1.5 Extended example: Tic-Tac-Toe. The minimal worked example.
-- §1.7 History of RL — long historical chapter; traces three threads (trial-and-error psychology; optimal control / DP; temporal-difference) and their 1980s convergence.
+- §1.7 Early History of Reinforcement Learning — traces three threads (trial-and-error psychology; optimal control / DP; temporal-difference) and their 1980s convergence.
 
 **Part I — Tabular Solution Methods (Chapters 2–8)**
 
-- **Ch 2 — Multi-arm Bandits** (pp. 31–47). `n`-armed bandit. Action-value methods. ε-greedy, optimistic initial values, UCB, gradient bandits. Sets up exploration-exploitation; **does not** yet have state.
-- **Ch 3 — Finite MDPs** (pp. 53–80). The agent-environment loop (Fig 3.1). Returns `G_t = R_{t+1} + γ R_{t+2} + …`. Episodic vs continuing tasks. The Markov property (§3.5). Value functions `v_π(s) = E_π[G_t | S_t = s]` and `q_π(s, a)`. **Bellman equations** (Eq 3.14 + Fig 3.4 backup diagrams). Optimal value functions `v_*`, `q_*`, optimal Bellman equations.
-- **Ch 4 — Dynamic Programming** (pp. 89–107). Policy evaluation (Eq 4.5, the iterative Bellman update). Policy improvement (4.7–4.9). Policy iteration. Value iteration. Asynchronous DP. **Generalized Policy Iteration (GPI)** (Fig 4.7) — the framework that unifies policy iteration, value iteration, MC, and TD.
-- **Ch 5 — Monte Carlo Methods** (pp. 113–138). MC prediction (sample average of returns). MC control with exploring starts. ε-soft policies. Off-policy prediction via importance sampling — the off-policy thread that becomes central in Ch 7–10.
-- **Ch 6 — Temporal-Difference Learning** (pp. 143–161). The book's pivotal chapter. Sutton & Barto's framing: *"If one had to identify one idea as central and novel to reinforcement learning, it would undoubtedly be temporal-difference (TD) learning."* TD(0): `V(S_t) ← V(S_t) + α [R_{t+1} + γ V(S_{t+1}) − V(S_t)]` (Eq 6.2). **Bootstrapping** (update an estimate using another estimate). **SARSA** (on-policy TD control) and **Q-learning** (off-policy TD control). The TD-vs-MC-vs-DP triangle.
-- **Ch 7 — Eligibility Traces** (pp. 167–190). `n`-step TD prediction. **TD(λ)** — forward and backward views. SARSA(λ), Watkins's Q(λ). The "unifying" chapter that bridges MC (λ=1) and TD(0) (λ=0).
-- **Ch 8 — Planning and Learning with Tabular Methods** (pp. 195–220). Models as samples or distributions. **Dyna-Q** (interleave real experience + planning from a learned model — the simplest MBRL). Prioritized sweeping. Trajectory sampling. **Monte Carlo Tree Search (§8.8)** — the AlphaGo / AlphaZero lineage primary reference.
+- **Ch 2 — Multi-armed Bandits** (pp. 25–44). `k`-armed bandit. Action-value methods. ε-greedy (with the 10-armed testbed), optimistic initial values, UCB, gradient bandits, associative search (contextual bandits). Sets up exploration-exploitation; **does not** yet have state.
+- **Ch 3 — Finite MDPs** (pp. 47–70). The agent-environment loop (Fig 3.1). Returns `G_t = R_{t+1} + γ R_{t+2} + …`. Episodic vs continuing tasks. Policies + value functions `v_π(s) = E_π[G_t | S_t = s]` and `q_π(s, a)`. **Bellman equations** + backup diagrams. Optimal value functions `v_*`, `q_*`, optimal Bellman equations.
+- **Ch 4 — Dynamic Programming** (pp. 73–89). Policy evaluation (the iterative Bellman update). Policy improvement. Policy iteration. Value iteration. Asynchronous DP. **Generalized Policy Iteration (GPI)** — the framework that unifies policy iteration, value iteration, MC, and TD.
+- **Ch 5 — Monte Carlo Methods** (pp. 91–116). MC prediction (sample average of returns). MC control with exploring starts. ε-soft policies. Off-policy prediction via importance sampling — the off-policy thread that becomes central in Ch 7 + Ch 11.
+- **Ch 6 — Temporal-Difference Learning** (pp. 119–140). **The book's pivotal chapter.** Sutton & Barto's framing: *"If one had to identify one idea as central and novel to reinforcement learning, it would undoubtedly be temporal-difference (TD) learning."* TD(0): `V(S_t) ← V(S_t) + α [R_{t+1} + γ V(S_{t+1}) − V(S_t)]`. **Bootstrapping** (update an estimate using another estimate). **SARSA** (on-policy TD control) and **Q-learning** (off-policy TD control). Expected Sarsa, Double Learning, Maximization Bias. The TD-vs-MC-vs-DP triangle.
+- **Ch 7 — n-step Bootstrapping** (pp. 141–158). Restructured chapter title vs the draft. `n`-step TD prediction → `n`-step SARSA → `n`-step off-policy learning → per-decision methods with control variates → tree-backup → **A unifying algorithm: n-step Q(σ)**. (The book's interpolating family that subsumes Q-learning, Expected SARSA, and tree-backup.)
+- **Ch 8 — Planning and Learning with Tabular Methods** (pp. 159–190). Models as samples or distributions. **Dyna-Q** (interleave real experience + planning from a learned model — the simplest MBRL). Prioritized sweeping. Expected vs. sample updates. Trajectory sampling. **Real-time Dynamic Programming (RTDP)**. **Planning at Decision Time**. Heuristic search. **Rollout algorithms**. **Monte Carlo Tree Search (§8.11)** — the AlphaGo / AlphaZero lineage primary reference. Summary of Part I + a dimensions-of-RL recap.
 
-**Part II — Approximate Solution Methods (Chapters 9–11)**
+**Part II — Approximate Solution Methods (Chapters 9–13)**
 
-- **Ch 9 — On-policy approximation of action values** (pp. 225–249). Function approximation: replace tabular `V(s)` / `Q(s, a)` with `V_w(s)` / `Q_w(s, a)`. Gradient-descent TD. Linear methods + tile-coding. Where the deep-RL line picks up.
-- **Ch 10 — Off-policy approximation** (p. 255 — in this draft, chapter is largely a placeholder; substantially expanded in the 2018 final).
-- **Ch 11 — Policy approximation** (pp. 257–263). **Actor-critic methods** (§11.1) — the policy-gradient line that becomes PPO / A3C / SAC / TRPO in the 2010s. Eligibility traces for actor-critic. R-learning + average-reward setting. (In the 2018 final, this becomes a full Ch 13 with policy-gradient theorems and modern algorithms.)
+- **Ch 9 — On-policy Prediction with Approximation** (pp. 197–242). Function approximation: replace tabular `V(s)` / `Q(s, a)` with `V_w(s)` / `Q_w(s, a)`. Stochastic-gradient + semi-gradient methods. Linear methods + tile coding. **Artificial neural networks (§9.7)** — convolutional ANNs, deep RL function approximation primer. **Memory-based** (§9.9) + **kernel-based** (§9.10) function approximation. **Interest and Emphasis** (§9.11) — the on-policy weighting that motivates emphatic-TD in Ch 11.
+- **Ch 10 — On-policy Control with Approximation** (pp. 243–256). **Episodic semi-gradient control** + semi-gradient n-step SARSA. **Average-reward setting** (§10.3) — alternative to discounted formulation for continuing tasks. **Deprecating the Discounted Setting** (§10.4) — Sutton's pointed argument that discounting causes more trouble than it solves for control with function approximation. Differential semi-gradient n-step SARSA.
+- **Ch 11 — Off-policy Methods with Approximation** (pp. 257–292) — substantial new chapter expanded over the draft. Semi-gradient methods, examples of off-policy divergence. **The Deadly Triad** (§11.3) — **function approximation + bootstrapping + off-policy training** can cause divergence. The conceptual diagnosis of why deep-RL training is fragile. Linear value-function geometry. Gradient descent in the Bellman error. **The Bellman error is not learnable** (§11.6) — a Sutton-style negative result that motivates the rest of the chapter. **Gradient-TD Methods** (§11.7) + **Emphatic-TD Methods** (§11.8). Variance reduction.
+- **Ch 12 — Eligibility Traces** (pp. 303–342) — moved here from the draft's Ch 7. Substantially expanded. The λ-return + offline λ-return algorithm + TD(λ) + n-step truncated λ-return. **True online TD(λ)** (van Seijen & Sutton 2014). Eligibility traces for SARSA + Watkins's Q(λ) + Tree-Backup(λ) — all generalized to off-policy with control variates. Closing equivalence proofs.
+- **Ch 13 — Policy Gradient Methods** (pp. 321–338) — **major new chapter in the 2018 final.** *(See "Ch 13 detail" below.)*
 
-**Part III — Frontiers (Chapters 12–15)**
+**Part III — Looking Deeper (Chapters 14–17)** *(retitled from "Frontiers" in the draft)*
 
-- **Ch 12 — Psychology** (p. 269). Connections to operant conditioning, Thorndike's law of effect, Pavlovian conditioning, secondary reinforcement. The historical link between RL and behaviorist psychology.
-- **Ch 13 — Neuroscience** (p. 271). Dopamine = reward prediction error (the Schultz/Dayan/Montague identification of TD-error with phasic dopamine signals). The link the wiki touches in [Whole-organism agentic AI](../syntheses/whole-organism-agentic-ai.md).
-- **Ch 14 — Applications and Case Studies** (pp. 273–301). TD-Gammon (Tesauro 1992 — the proof-of-concept that started modern RL). Samuel's checkers player. The Acrobot. Elevator dispatching. Dynamic channel allocation. Job-shop scheduling. The **canonical "RL works in the real world"** case studies, all pre-deep-RL.
-- **Ch 15 — Prospects** (pp. 303–309). The unified view; state estimation; temporal abstraction (options framework — Sutton, Precup, Singh 1999); predictive representations of state. Open frontiers as of ~2015.
+- **Ch 14 — Psychology** (pp. 341–375). Expanded substantially: classical + instrumental conditioning, blocking + higher-order conditioning, the **Rescorla–Wagner model** + **the TD model** of classical conditioning (the experimental-psychology cousin of TD-learning), delayed reinforcement, cognitive maps, habitual vs goal-directed behavior.
+- **Ch 15 — Neuroscience** (pp. 377–420). Expanded: neuroscience basics, **dopamine reward-prediction-error hypothesis** (the Schultz/Dayan/Montague identification, citations to Schultz 1998 and Dayan & Montague experimental work), addiction. **The link the wiki touches in [Whole-organism agentic AI](../syntheses/whole-organism-agentic-ai.md).**
+- **Ch 16 — Applications and Case Studies** (pp. 421–458) — **major expansion vs the draft.** *(See "Ch 16 detail" below.)*
+- **Ch 17 — Frontiers** (pp. 459–478). General Value Functions and auxiliary tasks. **Temporal Abstraction via Options** (Sutton, Precup, Singh 1999). **Observations and State** — POMDPs and predictive state representations. **Designing Reward Signals** (§17.4) — the "specifying a reward signal is brittle for real-world tasks" recognition that became central to robot-learning practice in the late 2010s. **RL and the Future of AI**.
+
+## Ch 13 detail — Policy Gradient Methods (pp. 321–338)
+
+The chapter the wiki cares about most — the lineage of REINFORCE → A2C / A3C → TRPO → PPO → SAC → GRPO, which underlies every RLHF-tuned LLM and every fine-tuning stage of the wiki's tracked VLAs.
+
+**Setup (§13.1).** Methods so far in the book are *action-value methods* — they learn `Q(s, a)` and act greedily / ε-greedy. This chapter introduces methods that *directly parameterize a policy* `π(a | s, θ)` and learn `θ` by gradient ascent on a performance objective `J(θ)`:
+
+```
+θ_{t+1} = θ_t + α · ∇̂J(θ_t)         (Eq. 13.1 — stochastic gradient ascent on policy parameters)
+```
+
+The chapter's central new equations:
+
+**Soft-max policy (Eq. 13.2)** — the canonical discrete-action parameterization:
+
+```
+π(a | s, θ) = exp(h(s, a, θ)) / Σ_b exp(h(s, b, θ))
+```
+
+**The Policy Gradient Theorem (Eq. 13.5, episodic case)** — the chapter's theoretical centerpiece, proved in a shaded box on p. 325 by repeated unrolling of the value-function recursion:
+
+```
+∇J(θ) ∝ Σ_s μ(s) Σ_a q_π(s, a) ∇π(a | s, θ)
+```
+
+where `μ(s)` is the on-policy state distribution and `q_π(s, a)` is the action-value function. The remarkable thing: **the gradient of performance with respect to policy parameters does not involve the derivative of the state distribution**. This is what makes the family tractable.
+
+**REINFORCE (Eq. 13.8, §13.3)** — the simplest policy-gradient algorithm. Substitute a Monte-Carlo return `G_t` for `q_π(s, a)`, and use the log-derivative trick `∇log π = ∇π / π`:
+
+```
+θ_{t+1} = θ_t + α · G_t · ∇log π(A_t | S_t, θ_t)
+```
+
+Sample-and-shout: high variance, but unbiased. The basic recipe behind every modern policy-gradient method.
+
+**REINFORCE with Baseline (Eq. 13.11, §13.4)** — subtract a *state-dependent* baseline `b(s)` (any function that doesn't depend on action) to reduce variance without introducing bias:
+
+```
+θ_{t+1} = θ_t + α · (G_t − b(S_t)) · ∇log π(A_t | S_t, θ_t)
+```
+
+The natural choice is `b(s) = v̂(s, w)` — a learned state-value function as the baseline. This is the conceptual gateway to actor-critic.
+
+**Actor-Critic Methods (§13.5).** Replace the Monte-Carlo return `G_t` with a *bootstrapped* TD-style estimate `G_{t:t+1} = R_{t+1} + γ v̂(S_{t+1}, w)`. Now the state-value function plays a *critic* role (evaluating the action via the one-step return), while the policy is the *actor*. One-step actor-critic update:
+
+```
+θ_{t+1} = θ_t + α^θ · δ_t · ∇log π(A_t | S_t, θ_t)
+w_{t+1} = w_t   + α^w · δ_t · ∇v̂(S_t, w_t)
+
+where δ_t = R_{t+1} + γ v̂(S_{t+1}, w) − v̂(S_t, w)   (TD error)
+```
+
+This is the conceptual ancestor of **A2C / A3C / TRPO / PPO / SAC** — the family that dominates modern deep-RL practice and the RLHF / VLA fine-tuning pipeline. **PPO** (Schulman et al. 2017) adds a clipped surrogate objective + multiple epochs over the same on-policy batch; **SAC** adds an entropy bonus + soft Q-functions; **GRPO** (DeepSeek 2024) drops the value critic in favor of group-relative advantages — but they all live in the Ch 13 framework.
+
+**Continuing problems + continuous actions (§13.6–13.7).** Reformulates policy gradient for the average-reward continuing case. For continuous action spaces: parameterize `π(a | s, θ)` as a Gaussian with mean `μ(s, θ_μ)` and (possibly state-dependent) standard deviation `σ(s, θ_σ)`. This is the recipe most robot-control papers use.
+
+## Ch 16 detail — Applications and Case Studies (pp. 421–458)
+
+The applications chapter expanded substantially in the 2018 final. Of the 8 case studies, three are directly relevant to the wiki's threads:
+
+- **§16.1 — TD-Gammon** (Tesauro 1992, expanded). The proof-of-concept that put RL on the map — TD(λ) with a one-hidden-layer ANN on backgammon, self-play, eligibility traces, learning rate `0.1`. TD-Gammon 0.0 → 1.0 → 3.0 progression. Beat the best previous backgammon programs and reached world-class human level. The original deep-RL avant la lettre.
+
+- **§16.5 — Human-level Video Game Play** — **DQN (Mnih et al. 2015, Nature)**. The watershed deep-RL paper: Q-learning + deep convolutional ANN + experience replay + target network, applied to 49 Atari 2600 games using identical hyperparameters per game (only the random initialization differs). Achieved at-or-above human level on a large fraction of the 49 games. The paper that started the post-2013 deep-RL renaissance. *Sutton & Barto cite this as the canonical demonstration that the framework scales.*
+
+- **§16.6 — Mastering the Game of Go** — **AlphaGo (§16.6.1)** and **AlphaGo Zero (§16.6.2)**. AlphaGo (Silver et al. 2016) combined a deep policy network (trained by supervised learning on human games + policy gradient) + a deep value network + MCTS rollouts. Beat 18-time world champion Lee Sedol 4–1 in March 2016. AlphaGo Zero (Silver et al. 2017) removed the human-data initialization — trained purely from self-play + MCTS — and reached superhuman level in 3 days, beating the original AlphaGo 100–0. **The cleanest demonstration in the book that the Ch 8 MCTS material + the Ch 13 policy-gradient material + deep function approximation compose into something the field had not previously believed possible.**
+
+Other case studies: Samuel's Checkers (§16.2, the historical 1959 system); Watson's Daily-Double Wagering (§16.3); Optimizing Memory Control (§16.4, learned DRAM controllers); Personalized Web Services (§16.7); Thermal Soaring (§16.8, RL-controlled glider drones).
 
 ## Key equations and concepts (the field's vocabulary)
 
-| Concept | Notation / equation | Section |
+| Concept | Notation / equation | Section (2018 final) |
 |---|---|---|
 | State, action, reward | `S_t ∈ S`, `A_t ∈ A(S_t)`, `R_t ∈ R ⊂ ℝ` | §3.1 |
-| Policy | `π(a | s) = P(A_t = a | S_t = s)` | §3.1 |
+| Policy | `π(a | s) = P(A_t = a | S_t = s)` | §3.5 |
 | Return | `G_t = R_{t+1} + γ R_{t+2} + γ² R_{t+3} + …` | §3.3 |
-| State-value function | `v_π(s) = E_π[G_t | S_t = s]` | §3.7 |
-| Action-value function | `q_π(s, a) = E_π[G_t | S_t = s, A_t = a]` | §3.7 |
-| Bellman equation (state-value) | `v_π(s) = Σ_a π(a|s) Σ_{s',r} p(s', r | s, a) [r + γ v_π(s')]` | §3.7 |
-| Bellman optimality | `v_*(s) = max_a Σ_{s',r} p(s', r | s, a) [r + γ v_*(s')]` | §3.8 |
-| TD(0) update | `V(S_t) ← V(S_t) + α [R_{t+1} + γ V(S_{t+1}) − V(S_t)]` | Eq 6.2 |
+| State-value function | `v_π(s) = E_π[G_t | S_t = s]` | §3.5 |
+| Action-value function | `q_π(s, a) = E_π[G_t | S_t = s, A_t = a]` | §3.5 |
+| Bellman equation (state-value) | `v_π(s) = Σ_a π(a|s) Σ_{s',r} p(s', r | s, a) [r + γ v_π(s')]` | §3.5 |
+| Bellman optimality | `v_*(s) = max_a Σ_{s',r} p(s', r | s, a) [r + γ v_*(s')]` | §3.6 |
 | TD error | `δ_t = R_{t+1} + γ V(S_{t+1}) − V(S_t)` | Ch 6 |
-| Q-learning | `Q(S_t, A_t) ← Q + α [R_{t+1} + γ max_a Q(S_{t+1}, a) − Q]` | Eq 6.8 |
-| SARSA | `Q(S_t, A_t) ← Q + α [R_{t+1} + γ Q(S_{t+1}, A_{t+1}) − Q]` | Eq 6.7 |
+| TD(0) update | `V(S_t) ← V(S_t) + α δ_t` | Ch 6 |
+| Q-learning | `Q(S_t, A_t) ← Q + α [R_{t+1} + γ max_a Q(S_{t+1}, a) − Q]` | §6.5 |
+| SARSA | `Q(S_t, A_t) ← Q + α [R_{t+1} + γ Q(S_{t+1}, A_{t+1}) − Q]` | §6.4 |
+| Expected SARSA | `Q(S_t, A_t) ← Q + α [R_{t+1} + γ Σ_a π(a|S_{t+1}) Q(S_{t+1}, a) − Q]` | §6.6 |
 | Discount factor | `γ ∈ [0, 1)` | §3.3 |
-| Eligibility trace | `E_t(s)` accumulates "credit" for state `s` to apply later updates | Ch 7 |
-| TD(λ) | interpolates between TD(0) (λ=0) and MC (λ=1) | Ch 7 |
+| Eligibility trace (vector) | `z_t ← γλ z_{t-1} + ∇v̂(S_t, w_t)` | Eq 12.5 |
+| TD(λ) | interpolates between TD(0) (λ=0) and MC (λ=1) | Ch 12 |
+| **Policy gradient theorem** | `∇J(θ) ∝ Σ_s μ(s) Σ_a q_π(s, a) ∇π(a | s, θ)` | **Eq 13.5** |
+| **REINFORCE update** | `θ_{t+1} = θ_t + α G_t ∇log π(A_t | S_t, θ_t)` | **Eq 13.8** |
+| **REINFORCE with baseline** | `θ_{t+1} = θ_t + α (G_t − b(S_t)) ∇log π(A_t | S_t, θ_t)` | **Eq 13.11** |
+| **One-step actor-critic** | `θ ← θ + α^θ δ_t ∇log π;  w ← w + α^w δ_t ∇v̂` | **§13.5** |
+| Soft-max policy | `π(a|s,θ) = exp(h(s,a,θ)) / Σ_b exp(h(s,b,θ))` | Eq 13.2 |
+| **Deadly Triad** | function approximation + bootstrapping + off-policy training → divergence risk | **§11.3** |
 
 ## Position in the optimal-control / RL lineage
 
@@ -104,12 +188,16 @@ The book runs from **tabular bandits** (Ch 2) to **tabular MDP solution methods*
 1989   Watkins — Q-learning thesis
 1992   Tesauro — TD-Gammon (deep RL avant la lettre)
 1998   Sutton & Barto 1st edition — the canonical textbook
-2013   Mnih et al. — DQN on Atari (deep-RL renaissance)
-2015   This draft — 2nd edition in progress
+2013   Mnih et al. — DQN on Atari (deep-RL renaissance; in Ch 16.5)
+2015   Mnih et al. — Nature paper on Atari DQN
+       In-progress 2nd-ed draft circulating (raw/SuttonBartoIPRLBook2ndEd.pdf)
+2016   Silver et al. — AlphaGo beats Lee Sedol (Ch 16.6.1)
 2017   Schulman et al. — PPO
-2018   Sutton & Barto 2nd edition (published)
+       Silver et al. — AlphaGo Zero (Ch 16.6.2)
+2018   Sutton & Barto 2nd edition (published; raw/RLbook2020.pdf, 2020 reprint)
 2019   Levine — UC Berkeley CS285 (canonical deep-RL course)
 2023+  DreamerV3 / TD-MPC2 / world-model + planning era
+2024   Sutton & Barto — Turing Award
 ```
 
 The wiki's RL-adjacent content (Module 8, Dreamer, TD-MPC, every JEPA-WM, every VLA's RLHF stage) sits in the post-2013 deep-RL branch of this tree, but all of it inherits the vocabulary fixed in this textbook.
@@ -168,8 +256,9 @@ The textbook does not address this directly (it pre-dates the "RL is sample-inef
 
 ## Open questions / TBD
 
-- **Re-ingest against the 2018 published 2nd edition.** The draft on file is 2015; the 2018 final adds substantial policy-gradient depth (Ch 13 in 2018 = "Policy Gradient Methods"), reorganizes Part III, adds chapters on deep RL applications, and incorporates corrections. Re-ingest worth doing if the wiki's RL coverage deepens.
 - **A wiki `concepts/reinforcement-learning.md` hub page.** The most overdue concept-page creation in the wiki. Would unify Module 8 + DreamerV3 + TD-MPC2 + every VLA's RLHF stage + the implicit MBRL framing in the JEPA-WM literature. This source is the natural anchor.
+- **A wiki `concepts/policy-gradient.md` page.** With Ch 13 now ingested, the Policy Gradient Theorem + REINFORCE + Actor-Critic vocabulary is ready to be hubbed. Would unify the SFT→RLHF pipeline (see [Wolfe SFT survey](wolfe-sft-blog.md), [HF TRL SFT Trainer](huggingface-trl-sft-trainer.md)) with the modern PPO / SAC / GRPO line. Defer until at least one PPO/RLHF primary-source paper is ingested.
+- **The Deadly Triad as a standalone concept page.** Function approximation + bootstrapping + off-policy is the cleanest theoretical explanation of why deep-RL training is fragile (Ch 11.3). Increasingly cited in modern RL papers; would help readers of any DQN / off-policy paper in the wiki.
 - **Entity stubs for Sutton + Barto.** They keep appearing in the wiki's lineage diagrams. A one-line stub each would let future ingests attach cleanly.
 - **The "RL = optimal control under uncertainty" framing as a bridge synthesis.** Sussmann-Willems-1997 + Sutton-Barto together support a natural `syntheses/optimal-control-and-rl.md` page; would unify Module 8 + Module 10 + the optimal-control thread. Defer until at least one more bridging source surfaces.
 - **TD-Gammon entity stub.** Mentioned in Ch 14.1 as the canonical "RL works at scale" demo (Tesauro 1992). Predates DQN by ~20 years; would be a useful "deep RL prehistory" pointer.
