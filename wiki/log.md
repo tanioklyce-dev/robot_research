@@ -1208,3 +1208,9 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - **Hardware reality check** elevated to its own section before the tiers because the entity pages flag two open questions the manuals don't answer (gripper payload + workspace reach), and getting either wrong invalidates Tiers 2/3. Recommends bench-testing 2×2 → 1×2 → 1×1 brick grasps before any ML investment.
 - Updated [index.md](index.md) — added the synthesis under JEPA / LeWorldModel highlights (paired with the JEPA project ladder).
 
+
+## [2026-05-15] file | Chain of thought concept page
+- Created [Chain of thought](concepts/chain-of-thought.md) — hub page seeded from general knowledge (no primary source ingested yet). Covers: definition + scratchpad-as-compute intuition; lineage (Wei 2022 → Kojima zero-shot → self-consistency → ToT → modern RL-trained reasoning models o1/R1/Claude extended thinking); faithfulness caveat; robotics relevance (embodied CoT in VLAs, S1/S2 split in Helix and GR00T, Gemini Robotics-ER).
+- Linked to [LLM-agent architecture](concepts/llm-agent-architecture.md), [VLA models](concepts/vla-models.md), [AI safety and alignment](concepts/ai-safety-alignment.md).
+- Updated [index.md](index.md) — added entry under Concepts with `(0 sources — hub page)` annotation.
+- Open follow-up: when a primary CoT source is ingested (Wei et al. 2022, an embodied-CoT VLA paper, or a reasoning-model report), promote this from a hub page to a sourced concept page and back-link from existing source pages that already gesture at CoT (Helix blog, GR00T pages, Spot + Gemini Robotics).
