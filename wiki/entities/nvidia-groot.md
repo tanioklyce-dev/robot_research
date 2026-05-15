@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-06
 updated: 2026-05-15
-sources: 12
+sources: 13
 tags: [groot, vla, nvidia, foundation-model, humanoid]
 ---
 
@@ -33,3 +33,4 @@ NVIDIA's open, commercially-licensed [VLA](../concepts/vla-models.md) foundation
 - [Seeed × NVIDIA × HF Embodied AI Hackathon 2025 Recap](../sources/seeed-embodied-ai-hackathon-2025-recap.md)
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md)
 - [EgoScale Paper](../sources/egoscale-paper.md)
+- [DreamDojo Paper](../sources/dreamdojo-paper.md)

@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-08
 updated: 2026-05-15
-sources: 4
+sources: 5
 tags: [person, ut-austin, nvidia, embodied-ai, robocasa, manipulation]
 ---
 
@@ -14,6 +14,7 @@ tags: [person, ut-austin, nvidia, embodied-ai, robocasa, manipulation]
 - **[RoboCasa365 Paper](../sources/robocasa365-paper.md)** (Nasiriany, Nasiriany, Maddukuri, Zhu — ICLR 2026) — senior author. 365 tasks across 60 kitchen activities, 2,500 scenes, 3,200+ objects, 2,200+ hours of teleop + synthetic data, 500K+ trajectories.
 - **[Designing Accessible Robot Communication for Blind People (Huh et al. 2026)](../sources/huh2026-accessible-robot-comm.md)** — co-author. UT Austin contribution (with [Roberto Martin-Martin](roberto-martin-martin.md) and [Huihan Liu](huihan-liu.md)) on the Tiago + Franka task design.
 - **[EgoScale Paper](../sources/egoscale-paper.md)** (Zheng et al., Feb 2026) — project lead alongside [Jim Fan](jim-fan.md) and Danfei Xu. First published VLA scaling law on 20,854 hr human-video pretraining; the primary source for the corpus underlying GR00T N1.7.
+- **[DreamDojo Paper](../sources/dreamdojo-paper.md)** (Gao, Liang et al., ICML 2026 Spotlight) — project lead alongside [Jim Fan](jim-fan.md) and [Joel Jang](joel-jang.md). The destination paper of the Dream* WM triplet; foundation generative-video world model trained on 44,711 hr of egocentric human video.
 
 ## Why it matters in this wiki
 - **Bridge between academic and NVIDIA-Research lineages.** Zhu's dual appointment is the connection that puts NVIDIA Research as a co-author on RoboCasa365 — explaining how RoboCasa fits into NVIDIA's broader Physical AI stack (Isaac Lab + GR00T + RoboCasa eval).
@@ -33,6 +34,7 @@ Adjacent Zhu-affiliated work not ingested: robosuite (the robosuite framework th
 - [Designing Accessible Robot Communication for Blind People — Huh et al. 2026](../sources/huh2026-accessible-robot-comm.md)
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md)
 - [EgoScale Paper](../sources/egoscale-paper.md)
+- [DreamDojo Paper](../sources/dreamdojo-paper.md)
 
 ## Open questions / TBD
 - Full lab affiliation at UT Austin (RPL — Robot Perception and Learning Lab) — implied but not directly cited.

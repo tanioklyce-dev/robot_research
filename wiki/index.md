@@ -182,6 +182,7 @@ Curated entry points across the wiki.
 - [Isaac Launchable (isaac-sim/isaac-launchable)](sources/isaac-launchable-repo.md) — NVIDIA's official "try [Isaac Sim](entities/nvidia-isaac-sim.md) + [Isaac Lab](entities/nvidia-isaac-lab.md) in a browser" [Brev](entities/nvidia-brev.md) Launchable (`env-35JP2ywERLgqtD0b0MIeK1HnF46`). VS Code + Isaac Sim 5.1 + Isaac Lab 2.3 + Kit App Streaming. RT-core GPU required (no T4-tier escape); AWS-default; v1.2.1 (Jan 2026); 150★. (ongoing)
 - [NVIDIA GEAR Lab — Publications](sources/nvidia-gear-publications.md) — 32 publications (Nov 2022 → Aug 2026) from NVIDIA's Generalist Embodied Agent Research lab ([Jim Fan](entities/jim-fan.md) + [Yuke Zhu](entities/yuke-zhu.md), founded Feb 2024). Five pillars: GR00T humanoid stack, Dream*-world-model line (DreamGen → DreamZero → DreamDojo), Eureka LLM-reward-design, MineDojo/Voyager/NitroGen open-ended agents, and Isaac Lab / RoboCasa / MimicGen / EgoScale data infrastructure. (extracted 2026-05-15)
 - [EgoScale Paper](sources/egoscale-paper.md) — NVIDIA GEAR (Zheng, Niu, Xie, ..., Yuke Zhu, Danfei Xu, Jim Fan, Feb 2026). First published VLA pretraining scaling law: `L = 0.024 − 0.003·ln(D)` (R² = 0.9983) on 20,854 hr of egocentric human video — the same corpus underlying GR00T N1.7. Two-stage transfer recipe (large-scale human pretrain + small aligned mid-training) yields +54% over no-pretrain and 88% one-shot shirt folding. (2026-02-18)
+- [DreamDojo Paper](sources/dreamdojo-paper.md) — NVIDIA GEAR + Berkeley + HKUST + 6 unis (Gao, Liang, ..., Yuke Zhu, Joel Jang, Jim Fan; Pieter Abbeel + Jitendra Malik on author list; ICML 2026 Spotlight). Foundation generative-video world model pretrained on **44,711 hr** of egocentric human video — the largest WM-pretraining corpus to date. **Continuous latent actions** as unified self-supervised proxy; built on Cosmos-Predict2.5 (2B + 14B variants); **Self-Forcing distillation** to 10.81 FPS real-time. Destination paper of the Dream* triplet (DreamGen → DreamZero → DreamDojo). (2026-02-06)
 
 ## Sources (pedagogical / curriculum companions, undated)
 - [Welch Labs — The Perceptron (YouTube, Feb 2025)](sources/welchlabs-perceptron.md) — "ChatGPT is made from 100 million of these." Stephen Welch's pedagogical prequel to the [LeCun $1B Bet video](sources/welchlabs-lecun-1b-bet-against-llms.md): Rosenblatt 1957 → Mark I (1958) → XOR roadblock (Minsky & Papert 1969) → backprop (Rumelhart/Hinton/Williams 1986) → MLP-at-scale (GPT-3). Recommended-viewing for [Curriculum Module 1](syntheses/curriculum-01-neural-networks.md). (2025-02)
@@ -206,8 +207,8 @@ Curated entry points across the wiki.
 ## Entities
 
 ### Companies
-- [NVIDIA](entities/nvidia.md) — owns most of the agentic-robotics simulation substrate; also owns [Brev](entities/nvidia-brev.md) GPU-cloud broker and the in-house [GEAR](entities/nvidia-gear.md) research lab. (18 sources)
-- [NVIDIA GEAR](entities/nvidia-gear.md) — Generalist Embodied Agent Research; co-led by [Jim Fan](entities/jim-fan.md) + [Yuke Zhu](entities/yuke-zhu.md); founded Feb 2024; source of GR00T, the Dream*-WM line, Eureka, and much of the Isaac Lab / RoboCasa / MimicGen substrate. (2 sources)
+- [NVIDIA](entities/nvidia.md) — owns most of the agentic-robotics simulation substrate; also owns [Brev](entities/nvidia-brev.md) GPU-cloud broker and the in-house [GEAR](entities/nvidia-gear.md) research lab. (19 sources)
+- [NVIDIA GEAR](entities/nvidia-gear.md) — Generalist Embodied Agent Research; co-led by [Jim Fan](entities/jim-fan.md) + [Yuke Zhu](entities/yuke-zhu.md); founded Feb 2024; source of GR00T, the Dream*-WM line, Eureka, and much of the Isaac Lab / RoboCasa / MimicGen substrate. (3 sources)
 - [Hiwonder](entities/hiwonder.md) — Chinese educational-robotics vendor; ROSOrin / ROSOrin Pro kits + OpenClaw. (3 sources)
 - [Hugging Face](entities/hugging-face.md) — open-source AI company; maintainer of [LeRobot](entities/lerobot.md); HF Hub hosts model checkpoints across the wiki's JEPA / VLA / IL coverage. (4 sources)
 - [SIGRobotics-UIUC](entities/sigrobotics-uiuc.md) — student-led robotics org at UIUC; designs and maintains [LeKiwi](entities/lekiwi.md); won U.S. site of the Oct 2025 Embodied AI Hackathon with a GR00T-driven matcha-making XLeRobot; sponsored by FrodoBots / Hugging Face / K-Scale Labs / Neuralink / ROBOTIS / others. (4 sources)
@@ -275,6 +276,7 @@ Curated entry points across the wiki.
 
 ### Humanoids
 - [Atlas](entities/atlas.md) — Boston Dynamics flagship; closed development; capability-bar humanoid. (1 source) _stub_
+- [Fourier GR-1](entities/fourier-gr-1.md) — Fourier Intelligence humanoid; primary OOD eval target across all four [DreamDojo](sources/dreamdojo-paper.md) benchmarks; one of four robot embodiments in DreamDojo's latent-action training. (1 source) _stub_
 - [Spot](entities/spot.md) — Boston Dynamics' commercial quadruped; the BD-platform-with-an-API; documented Gemini Robotics-ER 1.5 integration. (1 source)
 - [Tesla Optimus](entities/tesla-optimus.md) — Tesla's vertically-integrated humanoid; closed development. (0 sources) _stub_
 - [Figure](entities/figure.md) — Figure AI's humanoid line (01/02/03) + Helix VLA; BMW pilots. (2 sources)
@@ -341,7 +343,7 @@ Curated entry points across the wiki.
 - [PLDM (Planning with Latent Dynamics Models)](entities/pldm.md) — Sobal-line end-to-end JEPA WM (NYU + FAIR); VICReg + inverse-dynamics + similarity multi-term loss; the canonical "end-to-end JEPA before LeWM" baseline. (2 sources — 2022 precursor + 2025 paper)
 
 ### VLA models / generalist policies
-- [NVIDIA GR00T](entities/nvidia-groot.md) — open VLA bundled with Isaac Lab; N1.5 won both sites of the Oct 2025 Embodied AI Hackathon; N1.7 EA pretraining sourced via [EgoScale](sources/egoscale-paper.md). (12 sources)
+- [NVIDIA GR00T](entities/nvidia-groot.md) — open VLA bundled with Isaac Lab; N1.5 won both sites of the Oct 2025 Embodied AI Hackathon; N1.7 EA pretraining sourced via [EgoScale](sources/egoscale-paper.md); GR00T N1.5 used as the post-trained policy in [DreamDojo](sources/dreamdojo-paper.md)'s policy-eval demo. (13 sources)
 - [Gemini Robotics](entities/gemini-robotics.md) — Google DeepMind robot foundation models; full VLA + Gemini Robotics-**ER** embodied-reasoning VLM (tool-call planner). (1 source)
 - [OK-Robot](entities/ok-robot.md) — NYU zero-shot pick-and-drop framework; 58.5% in 10 homes; 1.8× over OVMM. (1 source)
 - [Robot Utility Models](entities/robot-utility-models.md) — NYU/Meta zero-shot mobile-manipulation BC. (5 sources)
@@ -374,8 +376,9 @@ Curated entry points across the wiki.
 - [Sergey Levine](entities/sergey-levine.md) — UC Berkeley EECS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)
 - [Chelsea Finn](entities/chelsea-finn.md) — Stanford CS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)
 - [Lerrel Pinto](entities/lerrel-pinto.md) — NYU CS; co-senior on DINO-WM, RUM, and OK-Robot. (5 sources)
-- [Jim Fan (Linxi Fan)](entities/jim-fan.md) — NVIDIA Director of Robotics, Distinguished Scientist; co-founder + co-lead of [NVIDIA GEAR](entities/nvidia-gear.md) (Feb 2024); co-leads [GR00T](entities/nvidia-groot.md); project lead on [EgoScale](sources/egoscale-paper.md); pre-GEAR author on MineDojo / VIMA / Voyager / Eureka. (2 sources)
-- [Yuke Zhu](entities/yuke-zhu.md) — UT Austin Associate Prof / NVIDIA Director; co-leads [GEAR](entities/nvidia-gear.md); senior on RoboCasa365 + the original RoboCasa + MimicGen line; project lead on [EgoScale](sources/egoscale-paper.md); co-author on Huh et al. 2026. (4 sources)
+- [Jim Fan (Linxi Fan)](entities/jim-fan.md) — NVIDIA Director of Robotics, Distinguished Scientist; co-founder + co-lead of [NVIDIA GEAR](entities/nvidia-gear.md) (Feb 2024); co-leads [GR00T](entities/nvidia-groot.md); project lead on [EgoScale](sources/egoscale-paper.md) + [DreamDojo](sources/dreamdojo-paper.md); pre-GEAR author on MineDojo / VIMA / Voyager / Eureka. (3 sources)
+- [Yuke Zhu](entities/yuke-zhu.md) — UT Austin Associate Prof / NVIDIA Director; co-leads [GEAR](entities/nvidia-gear.md); senior on RoboCasa365 + the original RoboCasa + MimicGen line; project lead on [EgoScale](sources/egoscale-paper.md) + [DreamDojo](sources/dreamdojo-paper.md); co-author on Huh et al. 2026. (5 sources)
+- [Joel Jang](entities/joel-jang.md) — research scientist at [NVIDIA GEAR](entities/nvidia-gear.md); third project lead on [DreamDojo](sources/dreamdojo-paper.md) alongside Yuke Zhu + Jim Fan. (1 source) _stub_
 - [Karl Pertsch](entities/karl-pertsch.md) — DROID co-lead with Khazatsky; Berkeley/Stanford. (0 source pages yet — referenced via entity pages)
 - [Mahi Shafiullah](entities/mahi-shafiullah.md) — NYU + Hello Robot; lead/co-author on Dobb·E, RUM, and OK-Robot. (5 sources)
 - [Phil Shiu](entities/phil-shiu.md) — UC Berkeley → Eon Systems; lead author + maintainer of the FlyWire-based LIF brain simulation. (2 sources)

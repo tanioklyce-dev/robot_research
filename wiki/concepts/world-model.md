@@ -3,7 +3,7 @@ title: World model
 type: concept
 created: 2026-05-07
 updated: 2026-05-15
-sources: 16
+sources: 17
 tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video]
 ---
 
@@ -27,7 +27,7 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 
 ## Major design points represented in this wiki
 
-- **Generative video world models**: predict pixels. Examples: [NVIDIA Cosmos](../entities/nvidia-cosmos.md), [Genie Envisioner](../entities/genie-envisioner.md). Expensive to train and use at planning time, but produce inspectable rollouts. Treated as simulators in the agentic-robotics workflow ([world-model-simulators](world-model-simulators.md) concept).
+- **Generative video world models**: predict pixels. Examples: [NVIDIA Cosmos](../entities/nvidia-cosmos.md), [Genie Envisioner](../entities/genie-envisioner.md), and **[DreamDojo](../sources/dreamdojo-paper.md)** (NVIDIA GEAR, ICML 2026 Spotlight; 14B-param Cosmos-Predict2.5 derivative pretrained on **44,711 hr of egocentric human video** — the largest WM-pretraining corpus to date; Self-Forcing distillation hits 10.81 FPS real-time). Expensive to train and use at planning time, but produce inspectable rollouts. Treated as simulators in the agentic-robotics workflow ([world-model-simulators](world-model-simulators.md) concept).
 - **JEPA / latent-prediction**: predict the *representation* of the next state, not pixels. End-to-end examples: [V-JEPA 2](../entities/v-jepa-2.md), [LeWorldModel](../entities/leworldmodel.md), [PLDM](../entities/pldm.md); frozen-feature variants ([DINO-WM](../entities/dino-wm.md), [JEPA-WMs](../entities/jepa-wms.md)) are listed below. ~100× cheaper than pixel-prediction; harder to inspect; LeWM reports up to 48× faster planning than foundation-model-based world models.
 - **Frozen-foundation-feature world models**: use [DINOv2](../entities/dinov2.md) (or similar) as a frozen encoder; learn only a predictor on top. Examples: [DINO-WM](../entities/dino-wm.md), [DINO-world](../entities/dino-world.md), [JEPA-WMs](../entities/jepa-wms.md) (likely). Trades off representation quality for training simplicity.
 - **Reward-conditioned model-based RL**: predict in a latent space optimized for reward and/or value prediction. Two flavors now filed:
@@ -75,6 +75,7 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 - [DreamerV3 Paper](../sources/dreamer-v3-paper.md)
 - [TD-MPC2 Paper](../sources/td-mpc2-paper.md)
 - [PLDM Paper](../sources/pldm-paper.md)
+- [DreamDojo Paper](../sources/dreamdojo-paper.md)
 
 ## Open questions / TBD
 - PlaNet / DreamerV1 / V2 / TD-MPC1 — earlier MBRL milestones; would deepen the family lineage but not strictly required (V3 / TD-MPC2 cover the baseline-citation role).

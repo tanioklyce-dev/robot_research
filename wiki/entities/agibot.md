@@ -3,8 +3,8 @@ title: AGIBOT
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-05-06
-sources: 3
+updated: 2026-05-15
+sources: 4
 tags: [agibot, china, embodied-ai, humanoid]
 ---
 

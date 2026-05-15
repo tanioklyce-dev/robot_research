@@ -3,16 +3,16 @@ title: NVIDIA Cosmos
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-05-10
-sources: 7
+updated: 2026-05-15
+sources: 8
 tags: [cosmos, world-model, video-generation, nvidia, foundation-model]
 ---
 
-NVIDIA's world foundation model and simulation platform for modeling physical environments at scale. Underpins downstream world-model simulators including [Genie Envisioner](genie-envisioner.md).
+NVIDIA's world foundation model and simulation platform for modeling physical environments at scale. Underpins downstream world-model simulators including [Genie Envisioner](genie-envisioner.md) (AGIBOT) and [DreamDojo](../sources/dreamdojo-paper.md) (NVIDIA GEAR).
 
 ## Capabilities
 - Generates physically-plausible video rollouts of dynamic scenes.
-- Variants released as "Cosmos-Predict" series — e.g. Cosmos-Predict2-2B-Video2World powers [GE-Sim2](genie-envisioner.md).
+- Variants released as "Cosmos-Predict" series — e.g. Cosmos-Predict2-2B-Video2World powers [GE-Sim2](genie-envisioner.md); **Cosmos-Predict2.5** is the backbone of [DreamDojo](../sources/dreamdojo-paper.md) (NVIDIA GEAR, ICML 2026 Spotlight) — a latent video diffusion model with DiT blocks + WAN2.2 tokenizer + flow-matching training, the architectural substrate for generative-video world models.
 - Used for autonomous-driving simulation, robot training, games, and metaverse applications requiring high-throughput simulation.
 - Cosmos-Reason2-2B is the backbone of [GR00T N1.7](nvidia-groot.md).
 
@@ -30,3 +30,4 @@ Cosmos is the underlying generative video model that's enabling the rise of [Wor
 - [Using OpenUSD for Modular and Scalable Robotic Simulation](../sources/nvidia-openusd-for-robotic-simulation.md)
 - [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
+- [DreamDojo Paper](../sources/dreamdojo-paper.md)
