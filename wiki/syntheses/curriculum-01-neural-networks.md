@@ -15,6 +15,12 @@ status: draft
 >
 > Acronyms used here are also in the [Glossary](../glossary.md). First-mention links go there.
 
+> [!note] Video overview — recommended before reading
+> [Welch Labs — "ChatGPT is made from 100 million of these [The Perceptron]" (Feb 2025)](../sources/welchlabs-perceptron.md) walks the same arc this module covers — Rosenblatt 1957 → Mark I (1958) → XOR roadblock (Minsky & Papert 1969) → backprop (Rumelhart/Hinton/Williams 1986) → MLP-at-scale (GPT-3) — at the popular-explainer level. Good 20-min orientation before doing the math here. Pairs with the deeper-into-the-transformer [3Blue1Brown — How might LLMs store facts (Chapter 7)](../sources/3blue1brown-mlp-in-llms.md) once Module 3 is in scope.
+
+> [!note] Don't have a year of PyTorch under your belt?
+> [fast.ai — Practical Deep Learning for Coders 2022](../sources/fastai-practical-deep-learning.md) (Jeremy Howard) is the strongest library-first onboarding ramp before this curriculum. Lessons 1–3 cover image classification, deployment, and SGD-from-scratch in a hands-on PyTorch + fastai + Hugging Face workflow. Come back to this module afterwards.
+
 ## Prereq diagnostic
 
 Can you answer these without notes?

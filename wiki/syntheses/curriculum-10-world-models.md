@@ -15,6 +15,9 @@ status: draft
 >
 > Acronyms used here are also in the [Glossary](../glossary.md). First-mention links go there.
 
+> [!note] Control-theory background (recommended)
+> The "MPC" in "WM + MPC" is the receding-horizon approximation of a classical optimal-control problem. If control theory is unfamiliar: [Sussmann & Willems 1997 — 300 Years of Optimal Control](../sources/sussmann-willems-1997-300-years-optimal-control.md) is the historical retrospective (Bernoulli → Pontryagin); [DS4DS 7.01 — Optimal Control, Introduction (Peitz & Wallscheid)](../sources/ds4ds-7-01-optimal-control-intro.md) is the modern-pedagogy video companion (the full DS4DS module 7 also covers LQR, linear MPC, and data-driven MPC via DMD across lessons 7.02–7.09). Together they form a complete optimal-control orientation pre-read for this module's MPC section.
+
 ## What this module is
 
 The curriculum's "what is a world model and what could you do with one" module. We define the term functionally, lay out **four families** of world models with one canonical example each, walk through the **three planning algorithms** (MPC, CEM, gradient-based) that operate against a learned world model, and end with the **compounding-error** budget that constrains how far you can plan.

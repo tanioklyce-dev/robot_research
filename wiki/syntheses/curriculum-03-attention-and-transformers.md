@@ -15,6 +15,9 @@ status: draft
 >
 > Acronyms used here are also in the [Glossary](../glossary.md). First-mention links go there.
 
+> [!note] Video overview — recommended after the architectural sections
+> Once you have the LN → MSA → MLP → residual block in your head, [3Blue1Brown — How might LLMs store facts (Chapter 7, Aug 2024)](../sources/3blue1brown-mlp-in-llms.md) is the strongest exit-ramp video for "what is the MLP block actually *doing* inside a transformer?" — up/down projection, ReLU, superposition (Johnson–Lindenstrauss), and the "~2/3 of GPT-3's parameters live in MLPs" arithmetic.
+
 ## Prereq diagnostic
 
 Can you answer these without notes?

@@ -15,6 +15,9 @@ status: draft
 >
 > Acronyms used here are also in the [Glossary](../glossary.md). First-mention links go there.
 
+> [!note] LLM-side background (recommended)
+> VLAs are vision-language models fine-tuned on robot-action demonstrations — structurally, this is **SFT applied to a multi-modal model with robot actions in the output space.** If the LLM/VLM training side is unfamiliar, read [Cameron Wolfe — Understanding and Using SFT for Language Models](../sources/wolfe-sft-blog.md) (theory + survey of the LLaMA-2 / Alpaca / LIMA recipes) and skim [Hugging Face TRL — SFT Trainer documentation](../sources/huggingface-trl-sft-trainer.md) (the de-facto trainer; VLM support out of the box) before continuing.
+
 ## What this module is
 
 A field guide to **Vision-Language-Action (VLA)** models in 2025–2026: what a VLA is structurally, how it differs from the BC lineage of [Module 7](curriculum-07-bc-lineage-pusht.md), why it isn't a world model (despite often appearing alongside one), and the major instances you'll see referenced everywhere — [NVIDIA GR00T](../entities/nvidia-groot.md), [π0 / Physical Intelligence](../entities/physical-intelligence.md), [Helix / Figure](../entities/figure.md), [Gemini Robotics](../entities/gemini-robotics.md), OpenVLA. We end with [VLA-JEPA](../entities/vla-jepa.md) — the cross-over point between this module and Module 11.
