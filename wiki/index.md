@@ -176,6 +176,7 @@ Curated entry points across the wiki.
 - [karpathy/nanochat (GitHub repo)](sources/karpathy-nanochat.md) — Karpathy's full end-to-end ChatGPT pipeline (tokenizer + pretrain + SFT + RL + chat UI) for ~$48 on an 8XH100 node. Single `--depth` complexity dial; "Time-to-GPT-2" speedrun leaderboard. Modern successor to [nanoGPT](sources/karpathy-nanogpt.md); the substrate [autoresearch](sources/karpathy-autoresearch.md) iterates on. Linked from [Curriculum Module 3](syntheses/curriculum-03-attention-and-transformers.md). (2025-10-13)
 - [karpathy/nanoGPT (GitHub repo)](sources/karpathy-nanogpt.md) — Karpathy's minimal GPT training repo. Two ~300-line files: `model.py` (cleanest decoder-only-transformer reference implementation) + `train.py`. **Deprecated November 2025** in favor of [nanochat](sources/karpathy-nanochat.md), but `model.py` is still the wiki's recommended *architecture-reading* exit-ramp at the bottom of [Curriculum Module 3](syntheses/curriculum-03-attention-and-transformers.md). (2022-12-28)
 - [karpathy/micrograd (GitHub repo)](sources/karpathy-micrograd.md) — Karpathy's tiny scalar-valued autograd engine (~100 lines) plus a ~50-line PyTorch-style NN library on top. The cleanest "I understand backprop" milestone. Linked from [Curriculum Module 1](syntheses/curriculum-01-neural-networks.md). (2020-04-13)
+- [NVIDIA Brev Docs](sources/nvidia-brev-docs.md) — NVIDIA's cross-cloud GPU-instance broker (`brev` CLI + Launchables; B200 → P4 catalog). Lifecycle is `Running ⇄ Stopped → Deleted` with hourly billing while running, no compute fees while stopped (capacity-loss risk on restart), and **no native auto-stop / TTL / spend-cap** — `brev stop --all` is the only real cost lever. (2025–2026)
 
 ## Sources (pedagogical / curriculum companions, undated)
 - [Welch Labs — The Perceptron (YouTube, Feb 2025)](sources/welchlabs-perceptron.md) — "ChatGPT is made from 100 million of these." Stephen Welch's pedagogical prequel to the [LeCun $1B Bet video](sources/welchlabs-lecun-1b-bet-against-llms.md): Rosenblatt 1957 → Mark I (1958) → XOR roadblock (Minsky & Papert 1969) → backprop (Rumelhart/Hinton/Williams 1986) → MLP-at-scale (GPT-3). Recommended-viewing for [Curriculum Module 1](syntheses/curriculum-01-neural-networks.md). (2025-02)
@@ -200,7 +201,7 @@ Curated entry points across the wiki.
 ## Entities
 
 ### Companies
-- [NVIDIA](entities/nvidia.md) — owns most of the agentic-robotics simulation substrate. (13 sources)
+- [NVIDIA](entities/nvidia.md) — owns most of the agentic-robotics simulation substrate; also owns [Brev](entities/nvidia-brev.md) GPU-cloud broker. (14 sources)
 - [Hiwonder](entities/hiwonder.md) — Chinese educational-robotics vendor; ROSOrin / ROSOrin Pro kits + OpenClaw. (3 sources)
 - [Hugging Face](entities/hugging-face.md) — open-source AI company; maintainer of [LeRobot](entities/lerobot.md); HF Hub hosts model checkpoints across the wiki's JEPA / VLA / IL coverage. (4 sources)
 - [SIGRobotics-UIUC](entities/sigrobotics-uiuc.md) — student-led robotics org at UIUC; designs and maintains [LeKiwi](entities/lekiwi.md); won U.S. site of the Oct 2025 Embodied AI Hackathon with a GR00T-driven matcha-making XLeRobot; sponsored by FrodoBots / Hugging Face / K-Scale Labs / Neuralink / ROBOTIS / others. (4 sources)
@@ -351,6 +352,7 @@ Curated entry points across the wiki.
 ### Tools
 - [Ollama](entities/ollama.md) — local LLM runtime (used by ROSOrin offline curriculum). (1 source) _stub_
 - [MimicGen](entities/mimicgen.md) — synthetic-demo expansion tool used by RoboCasa365. (1 source) _stub_
+- [NVIDIA Brev](entities/nvidia-brev.md) — NVIDIA's cross-cloud GPU-instance broker (`brev` CLI + Launchables); no native auto-stop, so cost discipline is on the user. (1 source)
 
 ### Events
 - [LeRobot Worldwide Hackathon 2025](entities/lerobot-worldwide-hackathon-2025.md) — Hugging Face hybrid hackathon, June 14–15, 2025; 916 team members, ~400 submissions, 30 ranked winners; prizes: Hope Jr Arm / LeKiwi / SO-101. (1 source)

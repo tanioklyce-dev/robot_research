@@ -3,8 +3,8 @@ title: NVIDIA
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-05-10
-sources: 13
+updated: 2026-05-14
+sources: 14
 tags: [nvidia, gpu, simulation, physical-ai]
 ---
 
@@ -15,9 +15,10 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - **Linux Foundation collaboration**: contributed Newton to the Linux Foundation under joint stewardship with [Google DeepMind](google-deepmind.md) and [Disney Research](disney-research.md).
 - **Ecosystem partnerships**: powers [AGIBOT Genie Sim 3.0](agibot-genie-sim.md) (built on Isaac Sim) and [GE-Sim2](genie-envisioner.md) (built on Cosmos-Predict2).
 - **Research arm**: NVIDIA Research is co-authored on the [RoboCasa365](robocasa.md) paper through Yuke Zhu's dual UT Austin / NVIDIA appointment ([RoboCasa365 Paper](../sources/robocasa365-paper.md)).
+- **Developer cloud**: owns [NVIDIA Brev](nvidia-brev.md), a cross-cloud GPU-instance broker for AI/ML dev work (acquired from brev.dev in 2024) ([NVIDIA Brev Docs](../sources/nvidia-brev-docs.md)).
 
 ## Related
-- [NVIDIA Isaac Sim](nvidia-isaac-sim.md), [NVIDIA Isaac Lab](nvidia-isaac-lab.md), [Newton physics engine](newton-physics-engine.md), [NVIDIA Cosmos](nvidia-cosmos.md) — products.
+- [NVIDIA Isaac Sim](nvidia-isaac-sim.md), [NVIDIA Isaac Lab](nvidia-isaac-lab.md), [Newton physics engine](newton-physics-engine.md), [NVIDIA Cosmos](nvidia-cosmos.md), [NVIDIA Brev](nvidia-brev.md) — products.
 - [AGIBOT](agibot.md) — major downstream user.
 
 ## Mentioned in
@@ -29,3 +30,4 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - [OpenUSD Rigid Body Physics Proposal](../sources/openusd-rigid-body-physics-proposal.md)
 - [Using OpenUSD for Modular and Scalable Robotic Simulation](../sources/nvidia-openusd-for-robotic-simulation.md)
 - [Building CAD-to-USD Workflows with NVIDIA Omniverse](../sources/nvidia-cad-to-usd-jt-workflows.md)
+- [NVIDIA Brev Docs](../sources/nvidia-brev-docs.md)

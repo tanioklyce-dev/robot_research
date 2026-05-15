@@ -1173,3 +1173,11 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - Updated [Sussmann & Willems source page](sources/sussmann-willems-1997-300-years-optimal-control.md) — resolved-marker on the previously-flagged concept-page open question.
 - Updated [DS4DS 7.01 source page](sources/ds4ds-7-01-optimal-control-intro.md) — resolved-marker on the same.
 
+## [2026-05-14] ingest | NVIDIA Brev — overview & docs
+- Created [NVIDIA Brev Docs](sources/nvidia-brev-docs.md) — meta-source covering the public Brev docs at `docs.nvidia.com/brev/*`: overview, quickstart, gpu-instances concept, environments, launchables, CLI getting-started, instance-management, gpu-types reference, and the AI-agent skill page.
+- Created [NVIDIA Brev](entities/nvidia-brev.md) — new entity (subtype: product). NVIDIA's cross-cloud GPU-instance broker; acquired from brev.dev in 2024. CLI surface: `brev list / start / stop / stop --all / delete / shell`, plus Launchables (shareable one-click GPU envs).
+- Updated [NVIDIA](entities/nvidia.md) — bumped sources 13 → 14; added Brev to the products line and to Mentioned-in.
+- Updated [index.md](index.md) — added Brev source to the chronological list and the Brev entity under Tools; bumped NVIDIA's source count.
+- **Cost-management focus**: this ingest was driven by the user's question "how do I use Brev without a large bill". Key finding: Brev has **no native auto-stop, idle-timeout, TTL, or spend-cap** as documented. The only real cost lever is the user running `brev stop --all` (or wiring it into their own scripts / cron). Stopped instances have ~zero compute cost but minor storage cost + capacity-loss restart risk; deleting (after `git push`) is the right call for multi-day breaks.
+- **Open questions on the source page**: web-console idle settings; programmatic usage/billing API; published rate sheet; spot/preemptible/reserved options.
+
