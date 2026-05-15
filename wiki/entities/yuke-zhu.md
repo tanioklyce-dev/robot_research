@@ -3,12 +3,12 @@ title: Yuke Zhu
 type: entity
 subtype: person
 created: 2026-05-08
-updated: 2026-05-10
-sources: 2
+updated: 2026-05-15
+sources: 3
 tags: [person, ut-austin, nvidia, embodied-ai, robocasa, manipulation]
 ---
 
-**Yuke Zhu** — Assistant Professor at UT Austin CS, with a dual appointment at [NVIDIA](nvidia.md) Research. Embodied-AI / manipulation researcher. In this wiki, **senior on [RoboCasa365](../sources/robocasa365-paper.md)** — the 365-task household-manipulation benchmark that appears across both the VLA cohort and (now) the JEPA cohort via [JEPA-WMs](jepa-wms.md).
+**Yuke Zhu** — Associate Professor at UT Austin CS; Director and Distinguished Research Scientist at [NVIDIA](nvidia.md) Research, where he **co-leads [GEAR](nvidia-gear.md) (Generalist Embodied Agent Research)** with [Jim Fan](jim-fan.md) (founded Feb 2024). Embodied-AI / manipulation researcher. In this wiki, **senior on [RoboCasa365](../sources/robocasa365-paper.md)** — the 365-task household-manipulation benchmark that appears across both the VLA cohort and (now) the JEPA cohort via [JEPA-WMs](jepa-wms.md).
 
 ## Papers in this wiki
 - **[RoboCasa365 Paper](../sources/robocasa365-paper.md)** (Nasiriany, Nasiriany, Maddukuri, Zhu — ICLR 2026) — senior author. 365 tasks across 60 kitchen activities, 2,500 scenes, 3,200+ objects, 2,200+ hours of teleop + synthetic data, 500K+ trajectories.
@@ -22,6 +22,7 @@ Adjacent Zhu-affiliated work not ingested: robosuite (the robosuite framework th
 
 ## Related
 - UT Austin CS / [NVIDIA](nvidia.md) Research — dual affiliation.
+- [NVIDIA GEAR](nvidia-gear.md) — co-founded with [Jim Fan](jim-fan.md), Feb 2024.
 - [RoboCasa](robocasa.md) / [RoboCasa365 Paper](../sources/robocasa365-paper.md) — primary line.
 - [MimicGen](mimicgen.md) — synthetic-demo tool referenced from RoboCasa365 (Zhu-affiliated).
 - [NVIDIA GR00T](nvidia-groot.md) — VLA model line that uses RoboCasa for evaluation.
@@ -29,6 +30,7 @@ Adjacent Zhu-affiliated work not ingested: robosuite (the robosuite framework th
 ## Mentioned in
 - [RoboCasa365 Paper](../sources/robocasa365-paper.md)
 - [Designing Accessible Robot Communication for Blind People — Huh et al. 2026](../sources/huh2026-accessible-robot-comm.md)
+- [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md)
 
 ## Open questions / TBD
 - Full lab affiliation at UT Austin (RPL — Robot Perception and Learning Lab) — implied but not directly cited.

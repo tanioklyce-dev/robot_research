@@ -178,6 +178,7 @@ Curated entry points across the wiki.
 - [karpathy/micrograd (GitHub repo)](sources/karpathy-micrograd.md) — Karpathy's tiny scalar-valued autograd engine (~100 lines) plus a ~50-line PyTorch-style NN library on top. The cleanest "I understand backprop" milestone. Linked from [Curriculum Module 1](syntheses/curriculum-01-neural-networks.md). (2020-04-13)
 - [NVIDIA Brev Docs](sources/nvidia-brev-docs.md) — NVIDIA's cross-cloud GPU-instance broker (`brev` CLI + Launchables; B200 → P4 catalog). Lifecycle is `Running ⇄ Stopped → Deleted` with hourly billing while running, no compute fees while stopped (capacity-loss risk on restart), and **no native auto-stop / TTL / spend-cap** — `brev stop --all` is the only real cost lever. (2025–2026)
 - [Isaac Launchable (isaac-sim/isaac-launchable)](sources/isaac-launchable-repo.md) — NVIDIA's official "try [Isaac Sim](entities/nvidia-isaac-sim.md) + [Isaac Lab](entities/nvidia-isaac-lab.md) in a browser" [Brev](entities/nvidia-brev.md) Launchable (`env-35JP2ywERLgqtD0b0MIeK1HnF46`). VS Code + Isaac Sim 5.1 + Isaac Lab 2.3 + Kit App Streaming. RT-core GPU required (no T4-tier escape); AWS-default; v1.2.1 (Jan 2026); 150★. (ongoing)
+- [NVIDIA GEAR Lab — Publications](sources/nvidia-gear-publications.md) — 32 publications (Nov 2022 → Aug 2026) from NVIDIA's Generalist Embodied Agent Research lab ([Jim Fan](entities/jim-fan.md) + [Yuke Zhu](entities/yuke-zhu.md), founded Feb 2024). Five pillars: GR00T humanoid stack, Dream*-world-model line (DreamGen → DreamZero → DreamDojo), Eureka LLM-reward-design, MineDojo/Voyager/NitroGen open-ended agents, and Isaac Lab / RoboCasa / MimicGen / EgoScale data infrastructure. (extracted 2026-05-15)
 
 ## Sources (pedagogical / curriculum companions, undated)
 - [Welch Labs — The Perceptron (YouTube, Feb 2025)](sources/welchlabs-perceptron.md) — "ChatGPT is made from 100 million of these." Stephen Welch's pedagogical prequel to the [LeCun $1B Bet video](sources/welchlabs-lecun-1b-bet-against-llms.md): Rosenblatt 1957 → Mark I (1958) → XOR roadblock (Minsky & Papert 1969) → backprop (Rumelhart/Hinton/Williams 1986) → MLP-at-scale (GPT-3). Recommended-viewing for [Curriculum Module 1](syntheses/curriculum-01-neural-networks.md). (2025-02)
@@ -202,7 +203,8 @@ Curated entry points across the wiki.
 ## Entities
 
 ### Companies
-- [NVIDIA](entities/nvidia.md) — owns most of the agentic-robotics simulation substrate; also owns [Brev](entities/nvidia-brev.md) GPU-cloud broker. (14 sources)
+- [NVIDIA](entities/nvidia.md) — owns most of the agentic-robotics simulation substrate; also owns [Brev](entities/nvidia-brev.md) GPU-cloud broker and the in-house [GEAR](entities/nvidia-gear.md) research lab. (15 sources)
+- [NVIDIA GEAR](entities/nvidia-gear.md) — Generalist Embodied Agent Research; co-led by [Jim Fan](entities/jim-fan.md) + [Yuke Zhu](entities/yuke-zhu.md); founded Feb 2024; source of GR00T, the Dream*-WM line, Eureka, and much of the Isaac Lab / RoboCasa / MimicGen substrate. (1 source)
 - [Hiwonder](entities/hiwonder.md) — Chinese educational-robotics vendor; ROSOrin / ROSOrin Pro kits + OpenClaw. (3 sources)
 - [Hugging Face](entities/hugging-face.md) — open-source AI company; maintainer of [LeRobot](entities/lerobot.md); HF Hub hosts model checkpoints across the wiki's JEPA / VLA / IL coverage. (4 sources)
 - [SIGRobotics-UIUC](entities/sigrobotics-uiuc.md) — student-led robotics org at UIUC; designs and maintains [LeKiwi](entities/lekiwi.md); won U.S. site of the Oct 2025 Embodied AI Hackathon with a GR00T-driven matcha-making XLeRobot; sponsored by FrodoBots / Hugging Face / K-Scale Labs / Neuralink / ROBOTIS / others. (4 sources)
@@ -235,7 +237,7 @@ Curated entry points across the wiki.
 
 ### Simulators / frameworks
 - [NVIDIA Isaac Sim](entities/nvidia-isaac-sim.md) — Omniverse-based robotics simulator. (6 sources)
-- [NVIDIA Isaac Lab](entities/nvidia-isaac-lab.md) — open-source learning framework on Isaac Sim. (6 sources)
+- [NVIDIA Isaac Lab](entities/nvidia-isaac-lab.md) — open-source learning framework on Isaac Sim; primary reference paper is [GEAR](entities/nvidia-gear.md)-authored (arXiv 2511.04831). (7 sources)
 - [Newton physics engine](entities/newton-physics-engine.md) — Linux-Foundation, GPU-accelerated. (5 sources)
 - [MuJoCo](entities/mujoco.md) — DeepMind-maintained physics engine; substrate for Gymnasium-Robotics, MuJoCo Playground (via MJX), Adroit, Franka Kitchen, DM Control, flybody, NeuroMechFly v2. (11 sources)
 - [MuJoCo Playground](entities/mujoco-playground.md) — DeepMind's MJX-based learning framework. (4 sources)
@@ -367,7 +369,8 @@ Curated entry points across the wiki.
 - [Sergey Levine](entities/sergey-levine.md) — UC Berkeley EECS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)
 - [Chelsea Finn](entities/chelsea-finn.md) — Stanford CS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)
 - [Lerrel Pinto](entities/lerrel-pinto.md) — NYU CS; co-senior on DINO-WM, RUM, and OK-Robot. (5 sources)
-- [Yuke Zhu](entities/yuke-zhu.md) — UT Austin / NVIDIA Research; senior on RoboCasa365; co-author on Huh et al. 2026. (2 sources)
+- [Jim Fan (Linxi Fan)](entities/jim-fan.md) — NVIDIA Director of Robotics, Distinguished Scientist; co-founder + co-lead of [NVIDIA GEAR](entities/nvidia-gear.md) (Feb 2024); co-leads [GR00T](entities/nvidia-groot.md); pre-GEAR author on MineDojo / VIMA / Voyager / Eureka. (1 source)
+- [Yuke Zhu](entities/yuke-zhu.md) — UT Austin Associate Prof / NVIDIA Director; co-leads [GEAR](entities/nvidia-gear.md); senior on RoboCasa365 + the original RoboCasa + MimicGen line; co-author on Huh et al. 2026. (3 sources)
 - [Karl Pertsch](entities/karl-pertsch.md) — DROID co-lead with Khazatsky; Berkeley/Stanford. (0 source pages yet — referenced via entity pages)
 - [Mahi Shafiullah](entities/mahi-shafiullah.md) — NYU + Hello Robot; lead/co-author on Dobb·E, RUM, and OK-Robot. (5 sources)
 - [Phil Shiu](entities/phil-shiu.md) — UC Berkeley → Eon Systems; lead author + maintainer of the FlyWire-based LIF brain simulation. (2 sources)

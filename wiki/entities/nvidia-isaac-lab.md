@@ -3,8 +3,8 @@ title: NVIDIA Isaac Lab
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-05-14
-sources: 6
+updated: 2026-05-15
+sources: 7
 tags: [framework, robot-learning, nvidia, isaac-lab, rl]
 ---
 
@@ -32,3 +32,4 @@ Isaac Lab 3.0 with the GA release of the [Newton physics engine](newton-physics-
 - [Farama Foundation Projects Page](../sources/farama-projects-page.md)
 - [ManiSkill-HAB Paper](../sources/maniskill-hab-paper.md)
 - [Isaac Launchable Repo](../sources/isaac-launchable-repo.md)
+- [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md) — Isaac Lab paper (arXiv 2511.04831, Nov 2025) is GEAR-authored.
