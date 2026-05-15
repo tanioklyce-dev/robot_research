@@ -250,7 +250,7 @@ A pretrained visual encoder for manipulation (Nair et al. 2022); appears as a Di
 **Residual Network** — He et al. 2015; CNN with skip connections (`x + F(x)`); enabled training of very deep networks; the BC-line baseline visual encoder. *(Module 2.)*
 
 ### RL
-**Reinforcement Learning** — learn a policy that maximizes expected reward through environment interaction. *(Module 8.)*
+**Reinforcement Learning** — learn a policy that maximizes expected reward through environment interaction. Canonical textbook: [Sutton & Barto](sources/sutton-barto-rl-textbook.md). *(Module 8.)*
 
 ### RNN
 **Recurrent Neural Network** — sequence model that maintains a hidden state across timesteps; superseded by transformers for most tasks. *(Module 3.)*

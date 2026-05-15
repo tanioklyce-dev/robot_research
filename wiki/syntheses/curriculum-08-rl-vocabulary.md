@@ -197,7 +197,7 @@ Things this module deliberately doesn't cover:
 - **Modern MFRL deep-dive** (PPO/SAC variants, distributional RL, soft Q-learning, …).
 - **Offline RL** as a paradigm (CQL, IQL, RvS, …) — though [Module 10](curriculum-10-world-models.md)'s reference to GCIQL / GCIVL as LeWM baselines is implicitly here.
 
-If you want depth on any of these, the standard reference is **Sutton & Barto's *Reinforcement Learning: An Introduction*** (the textbook). For deep RL specifically, the **OpenAI Spinning Up** lecture series is the canonical free entry point.
+If you want depth on any of these, the standard reference is **[Sutton & Barto's *Reinforcement Learning: An Introduction*](../sources/sutton-barto-rl-textbook.md)** (the textbook). For deep RL specifically, the **OpenAI Spinning Up** lecture series is the canonical free entry point.
 
 ## Anchor exercise
 
@@ -221,7 +221,7 @@ In order of effort:
 2. **OpenAI Spinning Up** (free, online) — for "I understand it from words; I'd like to see code."
 3. **[DreamerV3 paper](../sources/dreamer-v3-paper.md)** — read the abstract + intro. Pick out the RL terms and check yourself against this module.
 4. **[TD-MPC2 paper](../sources/td-mpc2-paper.md)** — read the abstract. Same drill.
-5. **Sutton & Barto** — only if you want depth and have a few weekends.
+5. **[Sutton & Barto](../sources/sutton-barto-rl-textbook.md)** — only if you want depth and have a few weekends. The wiki's primary-source page picks out Ch 1, 3, 4, 6, 8, 9, 11 as the most-relevant chapters for our threads.
 
 ## What you should now be able to do
 
