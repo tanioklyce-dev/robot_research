@@ -202,7 +202,7 @@ Terver et al., FAIR, Dec 2025 ([source page](sources/jepa-wms-paper.md)); first 
 **Momentum Contrast** — He et al. 2020; contrastive SSL with a queue of negatives and momentum encoder. *(Module 4.)*
 
 ### MPC
-**Model Predictive Control** — at each step, plan a short-horizon action sequence using a model, execute the first action, replan. The control method paired with world models in [LeWM](entities/leworldmodel.md), [DINO-WM](entities/dino-wm.md), [V-JEPA 2-AC](entities/v-jepa-2.md). Receding-horizon approximation of the classical *optimal-control* problem (Bernoulli 1697 → Pontryagin 1956; see [Sussmann & Willems 1997](sources/sussmann-willems-1997-300-years-optimal-control.md) for the lineage). *(Module 10.)*
+**Model Predictive Control** — at each step, plan a short-horizon action sequence using a model, execute the first action, replan. The control method paired with world models in [LeWM](entities/leworldmodel.md), [DINO-WM](entities/dino-wm.md), [V-JEPA 2-AC](entities/v-jepa-2.md). Receding-horizon approximation of the classical [optimal-control](concepts/optimal-control.md) problem (Bernoulli 1697 → Pontryagin 1956; see [Sussmann & Willems 1997](sources/sussmann-willems-1997-300-years-optimal-control.md) for the lineage). *(Module 10.)*
 
 ### MSE
 **Mean Squared Error** — `mean((y - ŷ)²)`; the standard regression loss; the loss term in JEPA next-embedding prediction. *(Module 1.)*

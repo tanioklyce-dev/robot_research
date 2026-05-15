@@ -100,4 +100,4 @@ Also relevant as background for [Module 8 — Reinforcement learning vocabulary]
 - **The DS4DS Julia notebooks** are a candidate for a hands-on supplement to the curriculum — particularly Module 10's MPC section. Worth a follow-up evaluation pass.
 - **Koopman operator methods (DS4DS module 8)** — not yet ingested but increasingly cross-relevant to the world-model literature. Logged.
 - **An `entities/data-science-for-dynamical-systems.md` stub** — would let future ingests from the course attach cleanly. Defer until a second DS4DS lesson is ingested.
-- **A wiki `concepts/optimal-control.md` page** (already flagged in the [Sussmann & Willems 1997 source](sussmann-willems-1997-300-years-optimal-control.md) open questions) — this video is the pedagogical-companion second source that would justify creating it.
+- ✅ **Resolved 2026-05-14:** A wiki [`concepts/optimal-control.md`](../concepts/optimal-control.md) hub page was created using this video as the modern-pedagogy companion, paired with [Sussmann & Willems 1997](sussmann-willems-1997-300-years-optimal-control.md) (historical anchor) and [Sutton & Barto](sutton-barto-rl-textbook.md) (RL bridge).

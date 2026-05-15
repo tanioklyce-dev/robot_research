@@ -146,7 +146,7 @@ This article sits at the historical hinge: it is the **canonical modern retrospe
 
 ## Open questions / TBD
 
-- **The wiki has no "optimal control" or "control theory" concept page.** Given the accumulation of MPC-flavored sources, one is overdue. The right shape is probably: definition → CoV vs OC distinction (lift from this article) → Euler–Lagrange / Hamilton–Jacobi / Pontryagin's MP → modern computational instances (LQR / iLQR / MPC / CEM / TD-MPC / learned-model RL). This source would be the anchor.
+- ✅ **Resolved 2026-05-14:** A wiki [`concepts/optimal-control.md`](../concepts/optimal-control.md) hub page was created using this article as the historical anchor, paired with [DS4DS 7.01](ds4ds-7-01-optimal-control-intro.md) (modern pedagogy) and [Sutton & Barto](sutton-barto-rl-textbook.md) (RL bridge).
 - **A "Bellman & dynamic programming" entity or concept stub.** Not in the article (Bellman's parallel 1950s development is conspicuously absent — the authors focus on the European calculus-of-variations lineage), but essential context for any wiki control-theory thread.
 - **The "Postscript to History" preprint** (Sussmann 1996) cited at the end of the bibliography is more technically detailed than this article. Not in the wiki's `raw/`; flagged for possible future ingest if a control-theory thread accumulates.
 - **Riemannian-metric formulation of the brachystochrone.** The article mentions (p. 35) that Bernoulli's path is the geodesic of the metric `ds² = (dx² + dy²) / (2gy)` — a clean connection between optimal control and Riemannian geometry. Could feed a "geometric control" concept page in the future.
