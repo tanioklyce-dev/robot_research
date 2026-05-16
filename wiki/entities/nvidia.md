@@ -17,10 +17,12 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - **Research arm**: NVIDIA Research is co-authored on the [RoboCasa365](robocasa.md) paper through Yuke Zhu's dual UT Austin / NVIDIA appointment ([RoboCasa365 Paper](../sources/robocasa365-paper.md)).
 - **Developer cloud**: owns [NVIDIA Brev](nvidia-brev.md), a cross-cloud GPU-instance broker for AI/ML dev work (acquired from brev.dev in 2024) ([NVIDIA Brev Docs](../sources/nvidia-brev-docs.md)).
 - **In-house research lab**: [NVIDIA GEAR](nvidia-gear.md) (Generalist Embodied Agent Research, founded Feb 2024) is the source of GR00T, the Dream*-world-model line (DreamGen / DreamZero / DreamDojo), the Eureka / DrEureka LLM-as-reward-designer line, the humanoid whole-body cluster (SONIC, HOVER, ASAP, Doorman, VIRAL), and much of the Isaac Lab + RoboCasa + MimicGen substrate ([GEAR Publications](../sources/nvidia-gear-publications.md)).
+- **Edge AI compute**: the Jetson product line — [Jetson Orin Nano](jetson-orin-nano.md), Orin NX, AGX Orin — paired with [JetPack](jetpack.md) SDK (CUDA + TensorRT + DeepStream + VPI) on [Jetson Linux](jetson-linux.md) BSP. The substrate for most wiki-tracked educational and research robots that aren't running on an x86 workstation.
 
 ## Related
 - [NVIDIA Isaac Sim](nvidia-isaac-sim.md), [NVIDIA Isaac Lab](nvidia-isaac-lab.md), [Newton physics engine](newton-physics-engine.md), [NVIDIA Cosmos](nvidia-cosmos.md), [NVIDIA Brev](nvidia-brev.md) — products.
 - [NVIDIA GEAR](nvidia-gear.md) — in-house research lab (Jim Fan + Yuke Zhu).
+- [Jetson Orin Nano](jetson-orin-nano.md), [JetPack](jetpack.md), [Jetson Linux](jetson-linux.md) — edge-AI hardware and software stack.
 - [AGIBOT](agibot.md) — major downstream user.
 
 ## Mentioned in
@@ -34,3 +36,8 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - [Building CAD-to-USD Workflows with NVIDIA Omniverse](../sources/nvidia-cad-to-usd-jt-workflows.md)
 - [NVIDIA Brev Docs](../sources/nvidia-brev-docs.md)
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md)
+- [NVIDIA Jetson Orin Nano Dev Kit software setup](../sources/nvidia-jetson-orin-nano-devkit-software-setup.md)
+- [JetPack 6.2.2 release](../sources/nvidia-jetpack-6-2-2-release.md)
+- [JetPack docs index](../sources/nvidia-jetpack-docs-index.md)
+- [Jetson Linux R36.5 release](../sources/nvidia-jetson-linux-r36-5-release.md)
+- [Jetson Linux R36.5 update mechanism](../sources/nvidia-jetson-linux-r36-5-update-mechanism.md)

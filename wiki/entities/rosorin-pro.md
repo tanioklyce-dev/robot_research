@@ -11,7 +11,7 @@ tags: [rosorin-pro, hiwonder, jetson-orin-nano, education, mobile-manipulation, 
 Educational mobile-manipulation robot kit from [Hiwonder](hiwonder.md) — the **6-DOF arm + mobile base** variant of [ROSOrin](rosorin.md). Same compute and chassis as the base kit; adds an HX-12H-servo arm with a gripper end-effector and ships [OpenClaw](openclaw.md) as the manipulation-aware LLM-agent framework.
 
 ## Hardware
-- Compute: Jetson Orin Nano / NX (also Jetson Nano, Raspberry Pi 5).
+- Compute: [Jetson Orin Nano](jetson-orin-nano.md) / NX (also Jetson Nano, Raspberry Pi 5).
 - Chassis: differential-drive (Ackermann variant available); same as base [ROSOrin](rosorin.md).
 - **[6-DOF arm](rosorin-pro-arm.md)**: HX-12H bus servos with a gripper end-effector.
 - Sensors: COIN-D6 LiDAR (360°, 12 m), Deptrum Aurora930 depth + RGB camera (640×400 @ 12 fps), MPU6050 IMU, 6-microphone circular array, WonderEcho Pro voice module.

@@ -48,6 +48,10 @@ AprilTags are widely used in research for:
 
 The [Stretch](../../entities/stretch.md) platform uses ArUco markers (a related fiducial system) for navigation landmarks. AprilTags and ArUco markers are functionally similar but use different encoding schemes.
 
+### First-party GPU/PVA-accelerated AprilTag pipeline on Jetson
+
+[JetPack 6.2.2](../../entities/jetpack.md) (mid-2025) added a native **AprilTag Detector and Pose Estimator** to VPI (3.2), giving Jetson Orin platforms a first-party, GPU/PVA-accelerated detection path — relevant to anyone running AprilTag-based perception on [Jetson Orin Nano](../../entities/jetson-orin-nano.md) carrier boards rather than reaching for the original `apriltag` C library on CPU ([JetPack 6.2.2 release](../../sources/nvidia-jetpack-6-2-2-release.md)).
+
 ## Key references
 
 - Olson, E. (2011). "AprilTag: A robust and flexible visual fiducial system." *ICRA 2011*.
@@ -60,3 +64,4 @@ The [Stretch](../../entities/stretch.md) platform uses ArUco markers (a related 
 
 ## Mentioned in
 - [FRC 2026 Game Manual](../../sources/frc-2026-game-manual.md) (§5.11)
+- [JetPack 6.2.2 release](../../sources/nvidia-jetpack-6-2-2-release.md) — VPI 3.2 ships a native AprilTag detector and pose estimator

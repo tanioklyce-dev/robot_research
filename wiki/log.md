@@ -1287,3 +1287,23 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - `git mv` preserves history. Rewrote 251 markdown files to update relative-path links across the wiki.
 - Restructured [index.md](index.md) Concepts and Syntheses sections to mirror the new subfolder layout with H3 subheadings.
 - Verification: every relative `.md` link in `wiki/` resolves to an existing file (script at `/tmp/check_links.py`).
+
+## [2026-05-16] file | Jetson Orin Nano flash-to-NVMe howto
+- Created [Jetson Orin Nano — flash Jetson OS to NVMe SSD howto](syntheses/projects/jetson-orin-nano-flash-howto.md) covering SDK Manager and CLI paths, recovery-mode setup, QSPI bootloader caveat, and microSD-then-migrate alternative.
+- Source: operational knowledge (no source-doc citation).
+- Linked to/from [ROSOrin Pro](entities/rosorin-pro.md) context as the closest carrier-board case in the wiki.
+
+## [2026-05-16] ingest | NVIDIA Jetson documentation cluster (5 sources)
+- Created sources:
+  - [NVIDIA Jetson Orin Nano Dev Kit software setup](sources/nvidia-jetson-orin-nano-devkit-software-setup.md) — recovery-mode procedure, SDK Manager host requirements (Ubuntu 20.04 / 8 GB / 25 GB), component selection.
+  - [Jetson Linux R36.5 update mechanism](sources/nvidia-jetson-linux-r36-5-update-mechanism.md) — apt point/minor update commands; 35.x→36.x reflash requirement; `nvidia-l4t-bootloader` QSPI handling.
+  - [JetPack 6.2.2 release](sources/nvidia-jetpack-6-2-2-release.md) — Jetson Linux 36.5 + CUDA 12.6.10 + TensorRT 10.3 + VPI 3.2; first-party AprilTag detector + pose estimator; 5× PVA speedup; HSM boot-signing.
+  - [JetPack docs index](sources/nvidia-jetpack-docs-index.md) — docs still pin 6.2.1, lags dev-site 6.2.2.
+  - [Jetson Linux R36.5 release](sources/nvidia-jetson-linux-r36-5-release.md) — Ubuntu 22.04 + kernel 5.15 + UEFI + OP-TEE; all production Orin modules + Dev Kits.
+- Created entities: [Jetson Orin Nano](entities/jetson-orin-nano.md), [JetPack](entities/jetpack.md), [Jetson Linux](entities/jetson-linux.md).
+- Updated:
+  - [Jetson Orin Nano flash howto](syntheses/projects/jetson-orin-nano-flash-howto.md) — citations added; new "Updating an existing install" apt section; clarified Ubuntu 20.04 as the documented host.
+  - [AprilTags](concepts/robotics/apriltags.md) — added JetPack 6.2.2 first-party VPI detector subsection; cross-linked Jetson Orin Nano.
+  - [NVIDIA](entities/nvidia.md) — added Jetson product line + edge-AI stack to the company entity; added five new sources to "Mentioned in."
+  - [ROSOrin Pro](entities/rosorin-pro.md) — replaced bare-text "Jetson Orin Nano" with link to the new entity.
+- Open follow-ups: VPI AprilTag tag-family / accuracy ingest; Jetson Orin Nano datasheet ingest for TOPS / GPU clock / memory bandwidth; Installation-and-Setup chapter ingest for canonical NVMe-boot procedure.

@@ -183,6 +183,11 @@ Curated entry points across the wiki.
 - [NVIDIA GEAR Lab — Publications](sources/nvidia-gear-publications.md) — 32 publications (Nov 2022 → Aug 2026) from NVIDIA's Generalist Embodied Agent Research lab ([Jim Fan](entities/jim-fan.md) + [Yuke Zhu](entities/yuke-zhu.md), founded Feb 2024). Five pillars: GR00T humanoid stack, Dream*-world-model line (DreamGen → DreamZero → DreamDojo), Eureka LLM-reward-design, MineDojo/Voyager/NitroGen open-ended agents, and Isaac Lab / RoboCasa / MimicGen / EgoScale data infrastructure. (extracted 2026-05-15)
 - [EgoScale Paper](sources/egoscale-paper.md) — NVIDIA GEAR (Zheng, Niu, Xie, ..., Yuke Zhu, Danfei Xu, Jim Fan, Feb 2026). First published VLA pretraining scaling law: `L = 0.024 − 0.003·ln(D)` (R² = 0.9983) on 20,854 hr of egocentric human video — the same corpus underlying GR00T N1.7. Two-stage transfer recipe (large-scale human pretrain + small aligned mid-training) yields +54% over no-pretrain and 88% one-shot shirt folding. (2026-02-18)
 - [DreamDojo Paper](sources/dreamdojo-paper.md) — NVIDIA GEAR + Berkeley + HKUST + 6 unis (Gao, Liang, ..., Yuke Zhu, Joel Jang, Jim Fan; Pieter Abbeel + Jitendra Malik on author list; ICML 2026 Spotlight). Foundation generative-video world model pretrained on **44,711 hr** of egocentric human video — the largest WM-pretraining corpus to date. **Continuous latent actions** as unified self-supervised proxy; built on Cosmos-Predict2.5 (2B + 14B variants); **Self-Forcing distillation** to 10.81 FPS real-time. Destination paper of the Dream* triplet (DreamGen → DreamZero → DreamDojo). (2026-02-06)
+- [NVIDIA Jetson Orin Nano Dev Kit software setup](sources/nvidia-jetson-orin-nano-devkit-software-setup.md) — official user-guide chapter; SDK Manager flow, FC REC + GND recovery jumper, Ubuntu 20.04 host requirement. (undated)
+- [JetPack 6.2.2 release](sources/nvidia-jetpack-6-2-2-release.md) — latest production JetPack 6; bundles Jetson Linux 36.5 + CUDA 12.6.10 + TensorRT 10.3 + DeepStream 7.1 + VPI 3.2; ships first-party AprilTag detector in VPI. (2025)
+- [JetPack docs index](sources/nvidia-jetpack-docs-index.md) — canonical JetPack documentation entry-point; lists 6.2.1, lags the developer-site release page. (last updated 2025-06-26)
+- [Jetson Linux R36.5 release](sources/nvidia-jetson-linux-r36-5-release.md) — L4T BSP release landing page; Ubuntu 22.04 + kernel 5.15 + UEFI + OP-TEE; covers all production Orin modules and Dev Kits. (2024)
+- [Jetson Linux R36.5 update mechanism](sources/nvidia-jetson-linux-r36-5-update-mechanism.md) — apt-based update procedures; point vs minor releases; 35.x→36.x reflash requirement; QSPI bootloader via `nvidia-l4t-bootloader`. (2024)
 
 ## Sources (pedagogical / curriculum companions, undated)
 - [Welch Labs Illustrated Guide to AI, Vol I (book)](sources/welchlabs-illustrated-guide-to-ai.md) — Stephen Welch's 376-page illustrated textbook (Feb 2026, Revision V15). 9 chapters: perceptron → gradient descent → backprop → deep learning → AlexNet → **neural scaling laws** → **mechanistic interpretability** → **attention (DeepSeek MLA)** → diffusion. Pairs chapter-by-chapter with Welch Labs YouTube videos; code at github.com/stephencwelch/ai_book. **The wiki's first ingested primary source on LLM-side scaling laws, mech-interp, and DeepSeek MLA.** (2026-02)
@@ -306,9 +311,12 @@ Curated entry points across the wiki.
 - [stretch_ai](entities/stretch-ai.md) — Hello Robot's open-source Python stack with an LLM agent. (5 sources)
 - [OpenClaw](entities/openclaw.md) — Hiwonder's manipulation-aware LLM-agent framework for ROSOrin Pro. (1 source)
 - [LeRobot](entities/lerobot.md) — Hugging Face's open-source imitation-learning framework; de-facto stack for affordable mobile manipulators (SO-ARM, LeKiwi, XLeRobot, Bambot, Koch v1.1); ACT default policy; 916-team Worldwide Hackathon in June 2025. (4 sources)
+- [JetPack SDK](entities/jetpack.md) — NVIDIA's bundled software stack for Jetson products; Jetson Linux + CUDA + cuDNN + TensorRT + DeepStream + VPI + DLA. Current production 6.2.2. (4 sources)
+- [Jetson Linux (L4T)](entities/jetson-linux.md) — the L4T BSP underneath JetPack; R36.5 current for Orin (Ubuntu 22.04 + kernel 5.15 + UEFI + OP-TEE). (3 sources)
 
-### Controllers
+### Controllers / edge AI compute
 - [roboRIO](entities/roborio.md) — NI's mandatory FRC robot controller (ARM Cortex-A9 + FPGA); WPILib ecosystem. (2 sources)
+- [Jetson Orin Nano](entities/jetson-orin-nano.md) — NVIDIA's entry-tier Ampere-GPU edge-AI module + Developer Kit; substrate for ROSOrin / ROSOrin Pro / many wiki-tracked educational robots. (6 sources)
 - [stable-worldmodel](entities/stable-worldmodel.md) — Python infrastructure under LeWorldModel (env zoo + planning API + dataset format). DM Control + Gymnasium-Robotics Fetch + classic + OGBench + more. (0 sources)
 
 ### Formats / standards
@@ -464,6 +472,7 @@ Curated entry points across the wiki.
 - [ROSOrin Pro — Lego pick-and-place project plan](syntheses/projects/rosorin-pro-lego-pick-place.md) — the BC-path sibling to the JEPA ladder; three tiers (OpenClaw color-threshold → LeRobot ACT/DP behavior cloning → GR00T fine-tune); recommends Tier 2 for "robust enough to use." (2026-05-15)
 - [LeWM hello world — Project 1 detailed scope](syntheses/projects/lewm-hello-world-project-scope.md) — phase-by-phase plan for reproducing LeWM PushT, training from scratch, one-knob ablation. (2026-05-08)
 - [DINO-WM on Stretch — concrete experiment plan](syntheses/projects/dino-wm-on-stretch-experiment.md) — sibling to LeWM-on-Stretch; lower-risk frozen-encoder variant; train predictor only on RUM dataset. (2026-05-09)
+- [Jetson Orin Nano — flash Jetson OS to NVMe SSD howto](syntheses/projects/jetson-orin-nano-flash-howto.md) — operational guide: SDK Manager or CLI `l4t_initrd_flash.sh`; QSPI bootloader caveat for pre-mid-2023 dev kits. (2026-05-16)
 
 ### World models
 - [Generative-video vs JEPA world models](syntheses/world-models/generative-video-vs-jepa-world-models.md) — what each predicts, costs, and demonstrates. (2026-05-07)
