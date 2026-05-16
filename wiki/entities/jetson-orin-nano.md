@@ -3,7 +3,7 @@ title: Jetson Orin Nano
 type: entity
 created: 2026-05-16
 updated: 2026-05-16
-sources: 6
+sources: 7
 tags: [jetson, nvidia, edge-ai, hardware, robotics-compute]
 ---
 
@@ -13,9 +13,17 @@ NVIDIA's entry-tier edge-AI compute module in the **Jetson Orin** family — Amp
 
 ## Variants
 
-- **Module**: bare SoM (system-on-module) that slots into custom carrier boards. Two production memory tiers: 4 GB and 8 GB.
-- **Developer Kit**: NVIDIA's reference carrier-board for the 8 GB module, with M.2 Key-M NVMe slot, microSD slot, USB-C, USB-A, Gigabit Ethernet, MIPI CSI camera connectors, 12-pin button header (includes FC REC + GND for force-recovery mode), DC barrel jack ([NVIDIA Software Setup](../sources/nvidia-jetson-orin-nano-devkit-software-setup.md)).
+- **Module**: bare SoM (system-on-module) that slots into custom carrier boards. Two production memory tiers: 4 GB (P3767-0004) and 8 GB (P3767-0003). The Developer Kit module with onboard SD card is P3767-0005 ([R36.5 release notes](../sources/nvidia-jetson-linux-r36-5-release-notes.md) §1.1).
+- **Developer Kit**: NVIDIA's reference carrier board (**P3768-0000**) for the 8 GB module, with M.2 Key-M NVMe slot, microSD slot, USB-C, USB-A, Gigabit Ethernet, MIPI CSI camera connectors, 12-pin button header (includes FC REC + GND for force-recovery mode), DC barrel jack ([NVIDIA Software Setup](../sources/nvidia-jetson-orin-nano-devkit-software-setup.md)).
+- **Sibling on the same carrier**: the P3768-0000 carrier also accepts **Jetson Orin NX** modules (8 GB P3767-0001 / 16 GB P3767-0000) — same flash config (`jetson-orin-nano-devkit.conf`) handles all five SKUs.
 - **Custom carrier integrations**: Hiwonder [ROSOrin Pro](rosorin-pro.md) and [ROSOrin](rosorin.md) both ship Orin Nano as one of the compute options ([Hiwonder ROSOrin Pro user manual](../sources/hiwonder-rosorin-pro-user-manual.md)).
+
+## Power modes
+
+R36.5 ships two flash-time power-mode profiles ([R36.5 release notes](../sources/nvidia-jetson-linux-r36-5-release-notes.md) §1.1):
+
+- **Standard** (`jetson-orin-nano-devkit.conf`): factory-default power envelopes.
+- **Super Mode** (`jetson-orin-nano-devkit-super.conf`): **25 W** for Orin Nano modules, **40 W** for Orin NX modules, MAXN for all — NVIDIA's "Super Mode" performance unlock. See the *Supported Modes and Power Efficiency* chapter of the Jetson Linux Developer Guide for details.
 
 ## Software stack
 
@@ -55,4 +63,5 @@ In-place updates use apt against NVIDIA's L4T Debian repository: `apt update && 
 - [NVIDIA Jetson Orin Nano Dev Kit software setup](../sources/nvidia-jetson-orin-nano-devkit-software-setup.md)
 - [JetPack 6.2.2 release](../sources/nvidia-jetpack-6-2-2-release.md)
 - [Jetson Linux R36.5 release](../sources/nvidia-jetson-linux-r36-5-release.md)
+- [Jetson Linux R36.5 release notes (PDF)](../sources/nvidia-jetson-linux-r36-5-release-notes.md)
 - [Jetson Linux R36.5 update mechanism](../sources/nvidia-jetson-linux-r36-5-update-mechanism.md)

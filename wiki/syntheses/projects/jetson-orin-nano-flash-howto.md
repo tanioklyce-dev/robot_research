@@ -18,7 +18,7 @@ Operational howto for writing a [Jetson Linux](../../entities/jetson-linux.md) (
 - Jetson Orin Nano Developer Kit with NVMe M.2 SSD installed in the on-board slot.
 - USB-C cable (data-capable, not power-only) from Jetson to host.
 - Barrel-jack 5 V / 4 A power supply (do **not** flash off USB-C power — a power blip mid-write can brick the board).
-- Ubuntu host: NVIDIA's official guide specifies **20.04 x86_64**, 8 GB RAM, 25 GB free disk ([software setup](../../sources/nvidia-jetson-orin-nano-devkit-software-setup.md)). 22.04 works with current SDK Manager releases in practice but is not the documented combo. WSL will not work (no native USB-recovery passthrough); a VM with USB passthrough can work but is fiddly.
+- Ubuntu host: **20.04 or 22.04 x86_64**, 8 GB RAM, 25 GB free disk. The user-guide chapter only lists 20.04 ([software setup](../../sources/nvidia-jetson-orin-nano-devkit-software-setup.md)) but the R36.5 release notes officially support both ([release notes §1.1](../../sources/nvidia-jetson-linux-r36-5-release-notes.md)). WSL will not work (no native USB-recovery passthrough); a VM with USB passthrough can work but is fiddly.
 
 ## Path A — NVIDIA SDK Manager (recommended for first-timers)
 
@@ -63,6 +63,9 @@ Flashes QSPI bootloader to internal flash and rootfs to `/dev/nvme0n1`.
 - **Don't unplug** the recovery USB cable mid-flash.
 - If `lsusb` doesn't show the NVIDIA device after entering recovery mode, the jumper isn't seating correctly or the cable isn't data-capable.
 - Custom carrier boards (e.g., [ROSOrin Pro](../../entities/rosorin-pro.md)) override the flash config — `jetson-orin-nano-devkit` is the wrong target for those; use the vendor's BSP and config.
+- **Multi-boot-media versions must match** ([R36.5 release notes §2.1](../../sources/nvidia-jetson-linux-r36-5-release-notes.md), issue 4201479): flashing different BSP versions to USB + NVMe + SD corrupts UEFI overlay partitions and crashes the system. Reflash all boot media together.
+- For more performance, use **`jetson-orin-nano-devkit-super.conf`** instead of `jetson-orin-nano-devkit.conf` — unlocks 25 W on Orin Nano modules and MAXN on all. The Path B command above passes the standard config; swap basenames for Super Mode.
+- If `l4t_initrd_flash.sh` previously failed near completion with "Either the device cannot mount the NFS server..." — that bug was **fixed in R36.5** (issue 4695663).
 
 ## Alternative — microSD boot, then migrate to NVMe
 

@@ -3,7 +3,7 @@ title: Jetson Linux (L4T)
 type: entity
 created: 2026-05-16
 updated: 2026-05-16
-sources: 3
+sources: 4
 tags: [nvidia, jetson, l4t, jetson-linux, bsp, linux, ubuntu]
 ---
 
@@ -13,13 +13,19 @@ NVIDIA's **Board Support Package** (BSP) for Jetson modules — the OS layer und
 
 ## Current release — R36.5
 
-As of late 2024 / 2025, **R36.5** is the supported line for Orin-class Jetsons ([Jetson Linux R36.5 release](../sources/nvidia-jetson-linux-r36-5-release.md)):
+**R36.5** is the supported line for Orin-class Jetsons ([Jetson Linux R36.5 release](../sources/nvidia-jetson-linux-r36-5-release.md), [R36.5 release notes PDF](../sources/nvidia-jetson-linux-r36-5-release-notes.md)). R36.5 is positioned as a **security-focused minor release** that pairs with [JetPack 6.2.2](../sources/nvidia-jetpack-6-2-2-release.md):
 
 - **Ubuntu 22.04** rootfs.
-- **Linux kernel 5.15**.
-- **UEFI bootloader** (replacing the older U-Boot-derived Tegra bootloader chain).
+- **Linux kernel 5.15 LTS** (modules under `/lib/modules/5.15.116-release-tegra/`).
+- **UEFI bootloader** (replacing the older U-Boot-derived Tegra bootloader chain). UEFI source is maintained publicly on GitHub.
 - **OP-TEE** Trusted Execution Environment.
 - NVIDIA drivers (GPU, multimedia, camera).
+- Cross-compile toolchain: **Bootlin GCC 11.3**.
+- Release tag: `jetson_36.5`.
+- **Host OS for flashing**: Ubuntu 20.04 OR 22.04 x86_64 (both supported per release notes).
+
+> [!note]
+> Under UEFI, the legacy **plugin manager is no longer supported** — peripheral registration (cameras, etc.) must use device tree overlays (`.dtbo`) or the Jetson-IO tool ([release notes §4.2](../sources/nvidia-jetson-linux-r36-5-release-notes.md)).
 
 ### Supported modules
 
@@ -67,7 +73,19 @@ Distributed via NVIDIA's **L4T Debian repository**. Three update tiers ([R36.5 u
 Two reference paths to put Jetson Linux on a device:
 
 1. **SDK Manager** — GUI flasher; handles QSPI + rootfs for the standard Dev Kits.
-2. **`l4t_initrd_flash.sh`** — CLI flasher inside the BSP archive; supports NVMe as the rootfs target.
+2. **`l4t_initrd_flash.sh`** — CLI flasher inside the BSP archive; supports NVMe / USB / SD as the rootfs target. An intermittent near-completion failure ("Either the device cannot mount the NFS server...") was **fixed in R36.5** ([release notes §3](../sources/nvidia-jetson-linux-r36-5-release-notes.md), issue 4695663).
+
+Each platform has a `.conf` basename used with `flash.sh`:
+
+| Config | Target |
+|---|---|
+| `jetson-orin-nano-devkit.conf` | Orin Nano 4GB/8GB, SD-Card dev-kit module, Orin NX 8GB/16GB on the P3768-0000 carrier |
+| `jetson-orin-nano-devkit-super.conf` | Same modules, **Super Mode** — 25W Orin Nano, 40W Orin NX, MAXN |
+| `jetson-agx-orin-devkit.conf` | AGX Orin dev-kit module + AGX Orin 32GB/64GB on the P3737-0000 carrier |
+| `jetson-agx-orin-devkit-industrial.conf` | AGX Orin Industrial (P3701-0008) |
+
+> [!warning]
+> **Multi-boot-media versions must match** ([release notes §2.1](../sources/nvidia-jetson-linux-r36-5-release-notes.md), issue 4201479): flashing different BSP versions to USB + NVMe corrupts UEFI overlay partitions and crashes the system.
 
 See [Jetson Orin Nano flash howto](../syntheses/projects/jetson-orin-nano-flash-howto.md) for the concrete Orin Nano + NVMe procedure.
 
@@ -81,6 +99,7 @@ See [Jetson Orin Nano flash howto](../syntheses/projects/jetson-orin-nano-flash-
 - [Jetson Orin Nano flash howto](../syntheses/projects/jetson-orin-nano-flash-howto.md)
 - [NVIDIA](nvidia.md)
 - [Jetson Linux R36.5 release](../sources/nvidia-jetson-linux-r36-5-release.md)
+- [Jetson Linux R36.5 release notes (PDF)](../sources/nvidia-jetson-linux-r36-5-release-notes.md)
 - [Jetson Linux R36.5 update mechanism](../sources/nvidia-jetson-linux-r36-5-update-mechanism.md)
 - [JetPack 6.2.2 release](../sources/nvidia-jetpack-6-2-2-release.md)
 - [JetPack docs index](../sources/nvidia-jetpack-docs-index.md)

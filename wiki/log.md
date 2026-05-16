@@ -1307,3 +1307,12 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
   - [NVIDIA](entities/nvidia.md) — added Jetson product line + edge-AI stack to the company entity; added five new sources to "Mentioned in."
   - [ROSOrin Pro](entities/rosorin-pro.md) — replaced bare-text "Jetson Orin Nano" with link to the new entity.
 - Open follow-ups: VPI AprilTag tag-family / accuracy ingest; Jetson Orin Nano datasheet ingest for TOPS / GPU clock / memory bandwidth; Installation-and-Setup chapter ingest for canonical NVMe-boot procedure.
+
+## [2026-05-16] ingest | Jetson Linux R36.5 Release Notes (PDF)
+- Downloaded `raw/jetson-linux-r36.5-release-notes.pdf` (17 pages, RN_10698-r36.5.0, Feb 2026 document revision).
+- Created [Jetson Linux R36.5 release notes (PDF)](sources/nvidia-jetson-linux-r36-5-release-notes.md). Substantive content beyond the landing page: full flash-config-to-module-SKU mapping; Super Mode envelopes (25W Orin Nano / 40W Orin NX / MAXN); host OS officially **20.04 OR 22.04** (broadens user-guide chapter's 20.04-only); Bootlin GCC 11.3 toolchain; multi-boot-media version-match warning; documented known + fixed issues (initrd-flash near-completion failure FIXED, UEFI assertion FIXED, CUDA-memory regression after 6.4.4→6.4.7 FIXED, GStreamer h264parse missing on Ubuntu 22.04 desktop images); UEFI source on GitHub; plugin manager retired in favour of DTBOs.
+- Updated:
+  - [Jetson Linux](entities/jetson-linux.md) — added GCC 11.3, release tag, multi-boot-media warning callout, flash-config table, plugin-manager-retired note; bumped sources to 4.
+  - [Jetson Orin Nano](entities/jetson-orin-nano.md) — added module part numbers (P3767-0003/-0004/-0005 + Orin NX SKUs on the P3768-0000 carrier) and a new Power Modes section covering Super Mode; bumped sources to 7.
+  - [Jetson Orin Nano flash howto](syntheses/projects/jetson-orin-nano-flash-howto.md) — corrected host-OS line (20.04 or 22.04 per release notes); added Super Mode option; added multi-boot-media warning; added fixed-in-R36.5 callout for the prior `l4t_initrd_flash.sh` failure.
+- New open question: what exactly is **Super Mode** under the hood (power-management policy, clock changes, thermal envelopes)? Needs *Supported Modes and Power Efficiency* chapter of the Developer Guide.
