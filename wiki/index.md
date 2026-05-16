@@ -190,6 +190,10 @@ Curated entry points across the wiki.
 - [Jetson Linux R36.5 update mechanism](sources/nvidia-jetson-linux-r36-5-update-mechanism.md) — apt-based update procedures; point vs minor releases; 35.x→36.x reflash requirement; QSPI bootloader via `nvidia-l4t-bootloader`. (2024)
 - [Jetson Linux R36.5 release notes (PDF)](sources/nvidia-jetson-linux-r36-5-release-notes.md) — 17-page official release notes; security-fix-focused minor pairing with JetPack 6.2.2; flash-config table with module part numbers; Super Mode (25W Orin Nano / 40W Orin NX / MAXN); known + fixed issues including the initrd-flash and UEFI-assertion fixes and the CUDA-memory regression. (2026-02 document revision)
 - [Platform Power and Performance — Orin series](sources/nvidia-jetson-platform-power-performance-orin.md) — Jetson Linux Developer Guide chapter; defines Super Mode = MAXN_SUPER; per-module nvpmodel tables (Orin Nano 4GB/8GB, Orin NX 8GB/16GB, AGX Orin 32GB/64GB); flash-config lock-in; nvpmodel runtime switching; OC3 87.5% throttle. (undated)
+- [NVIDIA Jetson Thor product page](sources/nvidia-jetson-thor-product-page.md) — official Thor specs: T5000 (2560-core Blackwell / 14-core Neoverse-V3AE / 128 GB LPDDR5X / 2070 FP4-sparse TFLOPS / 40–130W) and T4000 (1536-core / 12-core / 64 GB / 1200 FP4-sparse TFLOPS / 40–70W); 7.5× / 3.5× vs Orin. (2025)
+- [NVIDIA Blackwell-Powered Jetson Thor Now Available — Newsroom](sources/nvidia-jetson-thor-launch-newsroom.md) — Aug 25 2025 launch; $3,499 dev kit; named adopters: Agility, Amazon Robotics, Boston Dynamics, Caterpillar, Figure, Hexagon, Medtronic, Meta, 1X, John Deere, OpenAI, Physical Intelligence; Jensen "ultimate supercomputer" quote. (2025-08-25)
+- [NVIDIA DGX Spark Hardware Overview](sources/nvidia-dgx-spark-hardware-overview.md) — official GB10 Grace Blackwell spec: 20-core ARM (10× X925 + 10× A725), 6144-CUDA-core Blackwell with **4th-gen RT Cores**, 128 GB LPDDR5X **unified** at 273 GB/s, ConnectX-7, up to 1 PFLOP FP4 sparse, up to 200B-param inference (405B paired). (2025)
+- [Isaac Sim and Isaac Lab on NVIDIA Jetson AGX Thor — RS DesignSpark](sources/rs-designspark-isaac-sim-on-thor.md) — the authoritative explainer on Thor's no-RT-cores constraint; Isaac Sim/Lab cannot run on Thor even headless; NVIDIA's prescribed train-on-Spark / deploy-on-Thor workflow. (2025)
 - [DROID Paper](sources/droid-paper.md) — Khazatsky, Pertsch, Finn, Levine, +97 (2024-04). 76k trajectories / 350 hr / 564 scenes / 84 tasks; standardized Franka platform; scene-diversity-over-embodiment-diversity design. CC BY 4.0. (2024-04)
 - [Metaworld Paper](sources/metaworld-paper.md) — Yu, Quillen, ..., Hausman, Finn, Levine (CoRL 2019). 50-task manipulation benchmark for meta-RL / multi-task RL; ML10/ML45/MT10/MT50 splits; the surprising result: even 10 tasks defeats SOTA multi-task RL. (2019-10)
 - [DINOv2 Paper](sources/dinov2-paper.md) — Oquab, Darcet, ..., Bojanowski (Meta FAIR, 2023). LVD-142M curated SSL dataset; ViT-1B teacher distilled to ViT-S/B/L/g; surpasses OpenCLIP at image + pixel levels; substrate for the DINO-line robotics literature. (2023-04)
@@ -324,6 +328,8 @@ Curated entry points across the wiki.
 ### Controllers / edge AI compute
 - [roboRIO](entities/roborio.md) — NI's mandatory FRC robot controller (ARM Cortex-A9 + FPGA); WPILib ecosystem. (2 sources)
 - [Jetson Orin Nano](entities/jetson-orin-nano.md) — NVIDIA's entry-tier Ampere-GPU edge-AI module + Developer Kit; substrate for ROSOrin / ROSOrin Pro / many wiki-tracked educational robots. (6 sources)
+- [Jetson Thor](entities/jetson-thor.md) — NVIDIA's Blackwell-generation flagship on-robot compute (T5000 + T4000 + AGX Thor Dev Kit); 7.5× / 3.5× vs Orin; **no RT cores → can't host Isaac Sim**. (4 sources)
+- [NVIDIA DGX Spark](entities/dgx-spark.md) — GB10 Grace Blackwell desktop AI supercomputer; 128 GB unified memory, 4th-gen RT cores, ConnectX-7; train-on-Spark / deploy-on-Thor split. (1 source)
 - [stable-worldmodel](entities/stable-worldmodel.md) — Python infrastructure under LeWorldModel (env zoo + planning API + dataset format). DM Control + Gymnasium-Robotics Fetch + classic + OGBench + more. (0 sources)
 
 ### Formats / standards
@@ -471,6 +477,7 @@ Curated entry points across the wiki.
 - [Robot platforms — comparison](syntheses/platforms/robot-platforms-comparison.md) — at-a-glance table of every robot entity in the wiki by tier / type / use; flags missing humanoids + cross-tier transfer gap. (2026-05-08)
 - [Humanoid platforms survey](syntheses/platforms/humanoid-platforms-survey.md) — companion to robot-platforms-comparison focused on humanoids; 10 entities listed by tier; AI-strategy archetypes + price stratification. (2026-05-08)
 - [Household robot decision — Stretch vs Unitree G1](syntheses/platforms/household-robot-decision-stretch-vs-g1.md) — buying-decision comparison for navigate + floor pickup + dishes + cans use case. Recommends Stretch. (2026-05-08)
+- [Jetson Thor vs DGX Spark](syntheses/platforms/jetson-thor-vs-dgx-spark.md) — train-on-Spark / deploy-on-Thor split; RT-cores as the gating capability for Isaac Sim/Lab; decision tree for which-NVIDIA-box-for-what. (2026-05-16)
 
 ### Projects
 - [LeWM on ROSOrin Pro — feasibility analysis](syntheses/projects/lewm-on-rosorin-pro-feasibility.md) — what's missing to deploy LeWM on Hiwonder ROSOrin Pro; realistic path; risks. (2026-05-08)

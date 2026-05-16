@@ -63,6 +63,10 @@ Within a JetPack 6.x line, updates flow through apt against NVIDIA's L4T Debian 
 
 Jetson Xavier-class hardware is on the older JetPack 5.x / L4T 35.x track and not supported by JetPack 6.
 
+## JetPack 7 — Thor track
+
+The Blackwell-generation [Jetson Thor](jetson-thor.md) (T5000, T4000) is on a **separate JetPack 7.0 line**, not JetPack 6. JetPack 7 pairs Jetson Linux R37.x with a CUDA-13-class stack and ships alongside **Isaac ROS 4.0** (the Thor-compatible Isaac ROS release). Orin-class modules remain on the JetPack 6.x track for compatibility — JetPack 6 and JetPack 7 are parallel, not sequential. See [Jetson Thor](jetson-thor.md) for module-side software details.
+
 ## Mentioned in
 - [Jetson Orin Nano flash howto](../syntheses/projects/jetson-orin-nano-flash-howto.md)
 - [Jetson Orin Nano](jetson-orin-nano.md)

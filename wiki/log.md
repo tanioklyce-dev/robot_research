@@ -2,6 +2,35 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-16] query+ingest | Jetson Thor capabilities + DGX Spark comparison
+
+User asked: can Jetson Thor run AI training programs, run Isaac Sim, and other apps that run on DGX Spark? Wiki had no Thor or DGX Spark entity page (Thor had been flagged in the Seeed hackathon ingest as parked-for-future). Did targeted web research and built out the cluster.
+
+- **Headline answer**: Thor can run inference and edge fine-tuning brilliantly; **cannot run Isaac Sim or Isaac Lab even headless** (no RT cores — categorical Jetson-family limitation); cannot replace DGX Spark for clustered fine-tunes of large models. The correct mental model is **train on Spark, deploy on Thor**.
+
+- Created 4 source pages:
+  - [NVIDIA Jetson Thor product page](sources/nvidia-jetson-thor-product-page.md) — verbatim T5000 + T4000 specs.
+  - [NVIDIA Blackwell-Powered Jetson Thor Now Available — Newsroom](sources/nvidia-jetson-thor-launch-newsroom.md) — 2025-08-25 launch, $3,499 dev kit, 12-partner adopter list, Jensen "ultimate supercomputer" quote.
+  - [NVIDIA DGX Spark Hardware Overview](sources/nvidia-dgx-spark-hardware-overview.md) — GB10 SoC, 20-core ARM, 6144-CUDA-core Blackwell with 4th-gen RT cores, 128 GB LPDDR5X unified at 273 GB/s, ConnectX-7.
+  - [Isaac Sim and Isaac Lab on NVIDIA Jetson AGX Thor — RS DesignSpark](sources/rs-designspark-isaac-sim-on-thor.md) — the authoritative "no RT cores → no Isaac Sim" reference, including headless-still-needs-RT.
+
+- Created 2 entity pages:
+  - [Jetson Thor](entities/jetson-thor.md) — 2560-core Blackwell, 14-core Neoverse-V3AE, 128 GB / 273 GB/s, 2070 FP4-sparse TFLOPS, 40–130 W; T4000 sibling; AGX Thor Dev Kit $3,499. Full table of "what Thor can / can't do."
+  - [NVIDIA DGX Spark](entities/dgx-spark.md) — GB10 Grace Blackwell, 6144 CUDA + RT cores, 128 GB unified, ConnectX-7 pairing for 405B-param inference.
+
+- Created 1 synthesis: [Jetson Thor vs DGX Spark — train on Spark, deploy on Thor](syntheses/platforms/jetson-thor-vs-dgx-spark.md) — TL;DR capability matrix, why-similar / why-not-substitutes, FP4-inversion footnote (Thor's headline FP4 is 2× Spark's because Thor is FP4-sparse-tensor-optimized for on-robot deploy), recommended decision tree.
+
+- Updated:
+  - [NVIDIA Isaac Sim](entities/nvidia-isaac-sim.md): new "Hardware requirements" callout naming RT cores as the gating capability; sources 7→8.
+  - [NVIDIA Isaac Lab](entities/nvidia-isaac-lab.md): same RT-core inheritance note; train-on-RTX deploy-on-Jetson workflow; sources 7→8.
+  - [NVIDIA](entities/nvidia.md): Thor + DGX Spark added to product surface; sources 26→29.
+  - [NVIDIA GR00T](entities/nvidia-groot.md): Brev / Thor links wired through on the N1.5 hackathon-winner bullet.
+  - [index.md](index.md): 4 new source entries, Jetson Thor + DGX Spark added to Controllers / edge AI compute, new synthesis under Platforms.
+
+- **Cross-source insight**: Thor and DGX Spark have **identical** memory (128 GB LPDDR5X @ 273 GB/s), same GPU generation, similar AI throughput class, and similar sub-$5k price — but RT cores + form factor + ConnectX-7 turn them into **the two halves of one workflow**, not redundant SKUs. Thor's FP4-sparse-tensor throughput is actually ~2× Spark's, but this reflects Thor's edge-inference-quantized-model design point, not raw superiority.
+
+- **Open data we couldn't pin down**: T5000/T4000 production-module pricing through distribution; real benchmark numbers for GR00T N1.5/N1.7 EA on Thor; JetPack 7.x release cadence; whether subsequent Jetson generations will ever add RT cores (NVIDIA hasn't signalled this).
+
 ## [2026-05-14] ingest | Karpathy's four pedagogical repos — micrograd, nanoGPT, nanochat, autoresearch
 - Created [Andrej Karpathy](entities/andrej-karpathy.md) entity page — independent AI researcher/educator; formerly Tesla AI director + OpenAI founding member; in this wiki, the author of the four reference-implementation repos that anchor the curriculum's "now read the code" exit ramps.
 - Created [karpathy/micrograd (2020)](sources/karpathy-micrograd.md) — scalar-valued autograd in ~100 lines + ~50-line NN library. The cleanest "I understand backprop" milestone available.

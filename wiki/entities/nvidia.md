@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-06
 updated: 2026-05-16
-sources: 26
+sources: 29
 tags: [nvidia, gpu, simulation, physical-ai]
 ---
 
@@ -17,12 +17,14 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - **Research arm**: NVIDIA Research is co-authored on the [RoboCasa365](robocasa.md) paper through Yuke Zhu's dual UT Austin / NVIDIA appointment ([RoboCasa365 Paper](../sources/robocasa365-paper.md)).
 - **Developer cloud**: owns [NVIDIA Brev](nvidia-brev.md), a cross-cloud GPU-instance broker for AI/ML dev work (acquired from brev.dev in 2024) ([NVIDIA Brev Docs](../sources/nvidia-brev-docs.md)).
 - **In-house research lab**: [NVIDIA GEAR](nvidia-gear.md) (Generalist Embodied Agent Research, founded Feb 2024) is the source of GR00T, the Dream*-world-model line (DreamGen / DreamZero / DreamDojo), the Eureka / DrEureka LLM-as-reward-designer line, the humanoid whole-body cluster (SONIC, HOVER, ASAP, Doorman, VIRAL), and much of the Isaac Lab + RoboCasa + MimicGen substrate ([GEAR Publications](../sources/nvidia-gear-publications.md)).
-- **Edge AI compute**: the Jetson product line — [Jetson Orin Nano](jetson-orin-nano.md), Orin NX, AGX Orin — paired with [JetPack](jetpack.md) SDK (CUDA + TensorRT + DeepStream + VPI) on [Jetson Linux](jetson-linux.md) BSP. The substrate for most wiki-tracked educational and research robots that aren't running on an x86 workstation.
+- **Edge AI compute**: the Jetson product line — [Jetson Orin Nano](jetson-orin-nano.md), Orin NX, AGX Orin, and the new **Blackwell-generation [Jetson Thor](jetson-thor.md)** (T5000 + T4000 modules, AGX Thor Dev Kit, launched 2025-08-25) — paired with [JetPack](jetpack.md) SDK (CUDA + TensorRT + DeepStream + VPI) on [Jetson Linux](jetson-linux.md) BSP. The substrate for most wiki-tracked educational and research robots that aren't running on an x86 workstation.
+- **Personal AI supercomputer**: [DGX Spark](dgx-spark.md) — desktop-form-factor GB10 Grace Blackwell box with 128 GB unified memory and RT cores; NVIDIA's prescribed workstation for the train-on-Spark, deploy-on-Thor split ([Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.md)).
 
 ## Related
 - [NVIDIA Isaac Sim](nvidia-isaac-sim.md), [NVIDIA Isaac Lab](nvidia-isaac-lab.md), [Newton physics engine](newton-physics-engine.md), [NVIDIA Cosmos](nvidia-cosmos.md), [NVIDIA Brev](nvidia-brev.md) — products.
 - [NVIDIA GEAR](nvidia-gear.md) — in-house research lab (Jim Fan + Yuke Zhu).
-- [Jetson Orin Nano](jetson-orin-nano.md), [JetPack](jetpack.md), [Jetson Linux](jetson-linux.md) — edge-AI hardware and software stack.
+- [Jetson Orin Nano](jetson-orin-nano.md), [Jetson Thor](jetson-thor.md), [JetPack](jetpack.md), [Jetson Linux](jetson-linux.md) — edge-AI hardware and software stack.
+- [DGX Spark](dgx-spark.md) — desktop AI supercomputer; the workstation half of the Thor deploy / Spark train split.
 - [AGIBOT](agibot.md) — major downstream user.
 
 ## Mentioned in

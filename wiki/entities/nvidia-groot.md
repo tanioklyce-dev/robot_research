@@ -12,7 +12,7 @@ NVIDIA's open, commercially-licensed [VLA](../concepts/learning/vla-models.md) f
 
 ## Versions seen
 - **N1** — original release; **GR00T N1: An Open Foundation Model for Generalist Humanoid Robots** ([arXiv 2503.14734](https://arxiv.org/abs/2503.14734), Mar 2025) — authors: Soroush Nasiriany, Abhiram Maddukuri, Lance Zhang, Adeet Parikh, Aaron Lo, Abhishek Joshi, Ajay Mandlekar, [Yuke Zhu](yuke-zhu.md). Featured in [NVIDIA GEAR Lab Publications](../sources/nvidia-gear-publications.md) as a top highlight.
-- **N1.5** — winning policy at both sites of the October 2025 Seeed × NVIDIA × HF Embodied AI Hackathon; fine-tuned via NVIDIA Brev; deployed on Jetson Thor.
+- **N1.5** — winning policy at both sites of the October 2025 Seeed × NVIDIA × HF Embodied AI Hackathon; fine-tuned via [NVIDIA Brev](nvidia-brev.md); deployed on [Jetson Thor](jetson-thor.md).
 - **N1.6** — referenced as the version newly available in [NVIDIA Isaac Lab](nvidia-isaac-lab.md) alongside Newton 1.0 GA at GTC 2026 ([NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)).
 - **N1.7 Early Access** — 3B parameters, built on a Cosmos-Reason2-2B backbone, **[EgoScale](../sources/egoscale-paper.md) pretraining on 20,854 hours of egocentric human video** across 20+ task categories ([Top 10 Physical AI Models 2026](../sources/top-10-physical-ai-models-2026.md)). The EgoScale paper (Zheng et al., NVIDIA GEAR, Feb 2026) is the primary source for this corpus and publishes a clean log-linear scaling law `L = 0.024 − 0.003·ln(D)` (R² = 0.9983) relating human-data scale to validation loss — see [Scaling laws — VLAs and human data](../concepts/learning/scaling-laws-vla.md).
 
