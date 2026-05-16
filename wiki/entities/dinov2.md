@@ -3,8 +3,8 @@ title: DINOv2
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-05-15
-sources: 6
+updated: 2026-05-16
+sources: 7
 tags: [dinov2, vision-foundation-model, self-supervised, vit, meta-fair, dino, frozen-encoder]
 ---
 
@@ -52,11 +52,12 @@ This makes DINOv2 the most consequential **non-JEPA** building block in the JEPA
 **[DINOv3](dinov3.md)** ([paper, August 2025](../sources/dinov3-paper.md)) is the architectural and training-recipe successor: 7B params, patch size 16, axial RoPE + box jittering, constant-schedule 1M-iteration training, and **Gram anchoring** (a new regularizer that finally fixes the long-training dense-feature degradation observed in DINOv2 at scales above ~300M params). DINOv3 is the natural drop-in upgrade for the JEPA-adjacent world-model line below.
 
 ## Mentioned in
+- [DINOv2 Paper](../sources/dinov2-paper.md)
 - [DINO-WM Paper](../sources/dino-wm-paper.md)
 - [DINO-world Paper](../sources/dino-world-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
 - [DINOv3 Paper](../sources/dinov3-paper.md) — establishes DINOv3 as DINOv2's successor and the new SSL state-of-the-art
 
 ## Open questions / TBD
-- The DINOv2 paper itself (arxiv 2304.07193) is not yet a source page — would let us cite the training-objective and architectural details directly.
+- The [DINOv2 Paper](../sources/dinov2-paper.md) (arxiv 2304.07193) is now filed (2026-05-16). LVD-142M curation pipeline details and self-distillation specifics remain open from the abstract-level ingest — methods section would close them.
 - Cell/X-ray DINO variants (under FAIR Noncommercial Research License) not yet tracked.

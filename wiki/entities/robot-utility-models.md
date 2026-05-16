@@ -3,8 +3,8 @@ title: Robot Utility Models
 type: entity
 subtype: method
 created: 2026-05-07
-updated: 2026-05-10
-sources: 5
+updated: 2026-05-16
+sources: 7
 tags: [rum, generalist-policy, zero-shot, nyu, meta, behavior-cloning]
 ---
 

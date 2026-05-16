@@ -3,8 +3,8 @@ title: DROID
 type: entity
 subtype: dataset
 created: 2026-05-07
-updated: 2026-05-15
-sources: 5
+updated: 2026-05-16
+sources: 6
 tags: [droid, dataset, teleoperation, franka, robot-data, stanford, berkeley, oxe]
 ---
 
@@ -52,9 +52,9 @@ This makes DROID the single most reused real-robot dataset in the JEPA literatur
 13 institutions; lead authors **Alexander Khazatsky** and **Karl Pertsch**. Senior authors **Chelsea Finn** and **Sergey Levine**. Stanford and Berkeley lead, with collaborators across North America, Asia, and Europe.
 
 ## Open questions / TBD
-- DROID **paper itself** (arxiv 2403.12945) is not yet a source page in this wiki — the entity here is built from the project page; ingesting the paper would let us cite design-decision rationale (why stereo, why Franka-only, why 13-institution distributed collection) directly.
-- **License terms** not surfaced from the project page; needs paper-body or repo-LICENSE check before downstream-use claims.
+- DROID **paper itself** ([DROID Paper](../sources/droid-paper.md), arxiv 2403.12945) now filed (2026-05-16). License confirmed **CC BY 4.0**.
 - The Dec 2024 + Apr 2025 update deltas are not documented here; if the dataset has materially grown or changed task mix, this entity should reflect that.
+- The "+22% / +17%" OXE-vs-DROID claim is from the project page; not yet cross-verified against the paper body's numerical tables.
 
 ## Related
 - Franka Panda — single robot platform across the dataset.
@@ -65,5 +65,6 @@ This makes DROID the single most reused real-robot dataset in the JEPA literatur
 - [Why JEPA research skips the simulator stack](../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md) — DROID's role in JEPA-for-robotics evaluations is part of why JEPA work has been able to skip / fragment sim use.
 
 ## Mentioned in
+- [DROID Paper](../sources/droid-paper.md)
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)

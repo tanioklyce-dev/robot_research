@@ -3,13 +3,12 @@ title: VQ-BeT
 type: entity
 subtype: method
 created: 2026-05-08
-updated: 2026-05-15
-sources: 5
-tags: [vq-bet, behavior-cloning, transformer, vector-quantization, latent-action, lee-2024]
-status: stub
+updated: 2026-05-16
+sources: 6
+tags: [vq-bet, behavior-cloning, transformer, vector-quantization, latent-action, lee-2024, icml-2024]
 ---
 
-**VQ-BeT — Vector-Quantized Behavior Transformer.** Behavior-cloning method introduced in Lee et al. 2024 (*"Behavior Generation with Latent Actions"*). Discretizes the action space via a vector-quantization codebook, then trains a transformer to predict latent action codes autoregressively. **Direct successor to [BET](bet.md)** (Shafiullah, Cui, Altanzaya, Pinto, NeurIPS 2022) — VQ-BeT replaces BET's k-means action clustering with an end-to-end-learned vector-quantization codebook. The headline performer in the [Robot Utility Models paper](../sources/robot-utility-models-paper.md)'s ablation study, narrowly beating [Diffusion Policy](diffusion-policy.md) at full data scale.
+**VQ-BeT — Vector-Quantized Behavior Transformer.** Behavior-cloning method from NYU/Pinto lab; ICML 2024. Introduced in [Lee et al. 2024](../sources/vq-bet-paper.md) — *"Behavior Generation with Latent Actions"*. Discretizes the action space via a vector-quantization codebook, then trains a transformer to predict latent action codes autoregressively. **Direct successor to [BET](bet.md)** (Shafiullah, Cui, Altanzaya, Pinto, NeurIPS 2022) — VQ-BeT replaces BET's k-means action clustering with an end-to-end-learned vector-quantization codebook. The headline performer in the [Robot Utility Models paper](../sources/robot-utility-models-paper.md)'s ablation study, narrowly beating [Diffusion Policy](diffusion-policy.md) at full data scale.
 
 ## Approach
 - **Vector quantization on actions.** Continuous action sequences are encoded into a discrete codebook; the policy emits codebook indices.
@@ -38,9 +37,10 @@ From [RUM paper](../sources/robot-utility-models-paper.md) §3.2:
 - [Learned latent space](../concepts/world-models/latent-space.md) — VQ-BeT's discrete codebook is a learned latent *action* space; sibling design choice to predicting in continuous latent space.
 
 ## Mentioned in
+- [VQ-BeT Paper](../sources/vq-bet-paper.md)
 - [Robot Utility Models Paper](../sources/robot-utility-models-paper.md) — best-performing policy class.
 
 ## Open questions / TBD
-- **Primary source not yet ingested.** VQ-BeT paper (Lee et al. 2024) deserves its own source page.
-- How does VQ-BeT compare to Diffusion Policy outside the RUM ablation context — e.g. on industrial-grade benchmarks? Not documented here.
-- Codebook size, transformer architecture details — RUM paper doesn't give them; primary source needed.
+- [VQ-BeT Paper](../sources/vq-bet-paper.md) (arxiv 2403.03181, ICML 2024) now filed (2026-05-16). Headline claim from paper: **~5× faster inference than Diffusion Policy** while matching or beating it across **7 environments** (manipulation, driving, robotics).
+- Codebook size, transformer dimensions, hierarchy depth — still not surfaced; abstract is high-level. Paper body needed.
+- How does VQ-BeT compare to Diffusion Policy outside the RUM ablation context — e.g. on industrial-grade benchmarks?

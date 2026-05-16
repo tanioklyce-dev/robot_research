@@ -3,8 +3,8 @@ title: Lerrel Pinto
 type: entity
 subtype: person
 created: 2026-05-08
-updated: 2026-05-10
-sources: 5
+updated: 2026-05-16
+sources: 7
 tags: [person, nyu, robot-learning, manipulation, foundation-models, dino-wm, rum]
 ---
 

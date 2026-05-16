@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-05-07
 updated: 2026-05-16
-sources: 1
+sources: 2
 tags: [metaworld, meta-rl, multi-task-rl, benchmark, mujoco, sawyer, stanford, berkeley]
 ---
 
@@ -42,6 +42,7 @@ Metaworld functions as a **lightweight, standardized manipulation testbed** that
 - [PushT](pusht.md) — lightweight-sim cousin.
 
 ## Mentioned in
+- [Metaworld Paper](../sources/metaworld-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
 - [MuJoCo Playground Paper](../sources/mujoco-playground-paper.md) (referenced as eval suite)
 - [Farama Foundation Projects Page](../sources/farama-projects-page.md) (listed as deferred ingest)
@@ -49,4 +50,4 @@ Metaworld functions as a **lightweight, standardized manipulation testbed** that
 ## Open questions / TBD
 - License of the Metaworld code/assets — not surfaced from project page.
 - Real-robot correspondence — none claimed; Metaworld is sim-only.
-- The Metaworld paper itself (arxiv 1910.10897) is not yet a source page; would let us cite design rationale (e.g. why 50 tasks, why Sawyer).
+- The [Metaworld Paper](../sources/metaworld-paper.md) (arxiv 1910.10897) is now filed (2026-05-16). The 10-task multi-task-RL failure is the load-bearing 2019 result; whether it's been overturned by post-VLA scaling is open.
