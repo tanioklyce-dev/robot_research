@@ -25,6 +25,7 @@ The video sits as the **pedagogical prequel** to [Welch Labs — Yann LeCun's $1
 - **Direct pedagogical fit for [Curriculum Module 1 — Neural networks and training](../syntheses/curriculum-01-neural-networks.md).** Module 1's prereq diagnostic ("write the gradient of MSE w.r.t. a single-layer MLP from memory") is the formal version of the intuition this video builds. Recommended as a 20–30 min orientation video for readers who want history-and-intuition before the math.
 - **Closes the historical lineage** before Bromley/LeCun 1993 ([Siamese network](bromley1993-siamese-signature-verification.md)), Barlow Twins ([2021](barlow-twins-paper.md)), VICReg ([2022](vicreg-paper.md)), DINOv3 ([2025](dinov3-paper.md)), LeWM ([2026](leworldmodel-paper.md)) — every architecture in this wiki ultimately reduces to "a stack of perceptron-like units."
 - **Pairs with [Welch Labs — Yann LeCun's $1B Bet Against LLMs](welchlabs-lecun-1b-bet-against-llms.md)** as a Welch-Labs sequence: this video sets up "why MLPs at scale," the LeCun video argues "but MLPs at scale aren't enough, you need JEPA."
+- **This video is the companion to Chapter 1 of [The Welch Labs Illustrated Guide to AI, Vol I](welchlabs-illustrated-guide-to-ai.md)** ([Stephen Welch](../entities/stephen-welch.md), [Welch Labs](../entities/welch-labs.md), Feb 2026, 376 pp) — the printed deep-dive version of the perceptron material, with code + exercises.
 
 ## Key claims (per the linked coverage and FlowingData summary)
 

@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-09
 updated: 2026-05-15
-sources: 4
+sources: 5
 tags: [company, ai-safety, llm, claude, alignment]
 ---
 
@@ -31,6 +31,10 @@ Anthropic developed the **Model Context Protocol (MCP)**, a standard interface e
 ## Safety evaluation
 Models are externally evaluated by institutes such as [Apollo Research](../entities/apollo-research.md). Anthropic commits to transparency about gaps between intended behavior (per Claude's Constitution) and actual behavior (per system cards).
 
+## Mechanistic interpretability program
+Anthropic leads the modern **sparse-autoencoder + feature-steering** approach to [mechanistic interpretability](../concepts/mechanistic-interpretability.md). Chris Olah heads the program. The canonical reference paper is Templeton et al. 2024 — *Scaling Monosemanticity* — which Welch Labs' [Illustrated Guide to AI, Vol I, Ch 7](../sources/welchlabs-illustrated-guide-to-ai.md) walks through in pedagogy detail (the "internal-conflict feature steering" demonstration on Claude is the chapter's archetypal result). Olah's framing that *"~1% of the concepts have been extracted"* is the field's anchor caveat.
+
 ## Mentioned in
 - [Claude's Constitution](../sources/claudes-constitution.md)
 - [Are We Building Skynet? (Medium, 2025)](../sources/medium-are-we-building-skynet.md)
+- [Welch Labs Illustrated Guide to AI, Vol I](../sources/welchlabs-illustrated-guide-to-ai.md)

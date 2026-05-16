@@ -42,6 +42,7 @@ CoT appears in robotics primarily through the [LLM-agent architecture](llm-agent
 - Kojima et al., 2022 — *Large Language Models are Zero-Shot Reasoners*. arXiv:2205.11916.
 - Wang et al., 2022 — *Self-Consistency Improves Chain of Thought Reasoning in Language Models*. arXiv:2203.11171.
 - Yao et al., 2023 — *Tree of Thoughts: Deliberate Problem Solving with Large Language Models*. arXiv:2305.10601.
+- **[Welch Labs Illustrated Guide to AI, Vol I, Ch 8](../sources/welchlabs-illustrated-guide-to-ai.md)** (Welch, 2026) — pedagogy-grade reference. The attention chapter motivates DeepSeek's Multi-Head Latent Attention partly by *the volume of CoT tokens reasoning models like R1 must generate*; useful angle on why CoT-heavy reasoning models drove a new wave of attention-architecture innovation.
 
 > [!note] No primary sources ingested yet
 > This page is a hub / reference seeded from general knowledge rather than from a wiki source. When a CoT-relevant paper (e.g. the original Wei et al. paper, an embodied-CoT VLA paper, or a reasoning-model technical report) is ingested into `raw/`, expand this page with citations and bump `sources`.

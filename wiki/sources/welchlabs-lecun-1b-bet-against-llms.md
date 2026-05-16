@@ -44,6 +44,7 @@ Special thanks credited at the end: **Yann LeCun, Stephane Deny, David Fan, Nico
 - **First popular-explainer ingest of the JEPA narrative.** Every prior JEPA source in the wiki is a primary paper or a paywalled blog post. This one is the canonical free, audience-friendly walkthrough — useful as an **overview** for readers entering [Module 11 (JEPA deep)](../syntheses/curriculum-11-jepa-deep.md) cold.
 - **Provides on-camera LeCun framing.** The wiki's [Yann LeCun page](../entities/yann-lecun.md) lists his "Path Towards Autonomous Machine Intelligence" position paper as an open item; this video is the next-best primary articulation of that stance until that paper is ingested.
 - **Independently confirms the "$1B bet" framing** previously known only through the [Towards AI / AMI Labs article](towardsai-lecun-ami-labs.md) (a secondary source the wiki flagged as provisional). Welch Labs's collaboration with LeCun strengthens — but does not by itself fully verify — the AMI-Labs reporting.
+- **Companion to [The Welch Labs Illustrated Guide to AI, Vol I](welchlabs-illustrated-guide-to-ai.md)** ([Stephen Welch](../entities/stephen-welch.md), Feb 2026). The book's Vol I follows the LLM lineage (perceptron → attention → diffusion) and does *not* cover JEPA in depth — Vol II is teased in the preface and almost certainly covers the LeCun / JEPA position this video stages.
 
 ## Entities mentioned
 

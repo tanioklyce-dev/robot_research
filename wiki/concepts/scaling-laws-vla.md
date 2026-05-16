@@ -3,7 +3,7 @@ title: Scaling laws — VLAs and human data
 type: concept
 created: 2026-05-15
 updated: 2026-05-15
-sources: 1
+sources: 2
 tags: [scaling-laws, vla, human-data, egocentric, gr00t, egoscale, pretraining]
 ---
 
@@ -55,6 +55,7 @@ The critical empirical finding is that **(1) tracks (2)** — offline validation
 ## Key references
 - **[EgoScale Paper](../sources/egoscale-paper.md)** (Zheng et al., NVIDIA GEAR, Feb 2026) — the first and currently only VLA pretraining scaling law in the literature. 20,854 hr human video, log-linear loss-vs-data law, robot-performance correlation.
 - **Hoffmann et al. 2022** (Chinchilla) — not in `raw/`; the LLM-side reference scaling-law paper. Different functional form (power-law) and different problem (compute-optimal model-vs-data trade-off).
+- **[Welch Labs Illustrated Guide to AI, Vol I, Ch 6](../sources/welchlabs-illustrated-guide-to-ai.md)** (Welch, 2026) — pedagogy-grade companion. Walks through Kaplan et al. 2020 (the OpenAI scaling-law paper) with the fitted slopes (compute ≈ −0.050, params ≈ −0.076, dataset ≈ −0.09). The wiki's accessible-pedagogy entry point for the LLM-side scaling-law literature; useful complement when readers ask "is the EgoScale law really a robotics version of the LLM thing, or is it different?"
 
 ## Current state (2026-05)
 - One published scaling-law paper (EgoScale). Everything else in the VLA literature ([GR00T](../entities/nvidia-groot.md), [π0](../entities/physical-intelligence.md), [Helix](../entities/figure.md)) reports *single-point* training runs without a scaling sweep.
@@ -63,6 +64,7 @@ The critical empirical finding is that **(1) tracks (2)** — offline validation
 
 ## Mentioned in
 - [EgoScale Paper](../sources/egoscale-paper.md)
+- [Welch Labs Illustrated Guide to AI, Vol I](../sources/welchlabs-illustrated-guide-to-ai.md)
 
 ## Open follow-ups
 - **Chinchilla-style compute-optimal sweep** — would require a model-size dimension on top of the data-size sweep. Reasonable next paper for the GEAR team.

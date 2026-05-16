@@ -1261,3 +1261,22 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
   - **Self-Forcing paper** (Huang et al. 2025): the distillation paradigm DreamDojo uses. Candidate ingest for the WM-distillation thread.
   - **Continuous latent actions**: Gao et al. 2025 (LAPA) is the cited primary source. Worth a `concepts/latent-action-models.md` page if this pattern shows up in more WMs or VLAs.
   - **YAM robot**: in-house NVIDIA embodiment in DreamDojo's latent-action training. Identity not surfaced; open mystery for the wiki.
+
+## [2026-05-15] ingest | The Welch Labs Illustrated Guide to AI, Volume I (Stephen Welch, Feb 2026)
+- User asked to ingest `raw/WelchLabs_IllustratedGuideToAI_rev_15_feb_4_1.pdf` after noting it had been sitting in `raw/` since May 11 uningested. 376-page Adobe-InDesign-produced textbook (Rev V15, PDF date 2026-02-04). Author: Stephen Welch, Winston-Salem NC. Companion code at github.com/stephencwelch/ai_book; each chapter pairs with a Welch Labs YouTube video.
+- Created [Welch Labs Illustrated Guide to AI, Vol I](sources/welchlabs-illustrated-guide-to-ai.md) — section-summary-depth ingest. The 9-chapter sweep: perceptron → gradient descent → backprop → deep learning → AlexNet → neural scaling laws (Kaplan 2020) → mechanistic interpretability (Anthropic/Olah/Templeton 2024 SAEs) → attention (DeepSeek-V2 Multi-Head Latent Attention deep-dive) → diffusion. Vol II is teased.
+- **Closes three pedagogy primary-source gaps the wiki had**: (a) **LLM-side scaling laws** — Welch Ch 6 walks through Kaplan 2020 with fitted slopes; before this the wiki cited "Hoffmann/Chinchilla" without an ingested primary. (b) **Mechanistic interpretability** — Welch Ch 7 anchors on Anthropic's Templeton 2024 SAE work; the wiki had gestured at this via the Anthropic entity but no concept page. (c) **DeepSeek MLA** — Welch Ch 8 spends ~25 pages on Multi-Head Latent Attention; the wiki had no DeepSeek coverage at all.
+- Created [Welch Labs](entities/welch-labs.md) — pedagogy company / brand entity. With three sources now (this book + two videos) it warrants its own entity. Promoted to one of the wiki's three canonical pedagogy publishers (Sutton & Barto / 3Blue1Brown / Welch Labs).
+- Created [Stephen Welch](entities/stephen-welch.md) — author entity stub. 2014 startup-driven self-teaching → first YouTube series → 2024–2026 channel restart → book.
+- Created [Mechanistic interpretability](concepts/mechanistic-interpretability.md) — new concept hub seeded by Ch 7. Covers sparse autoencoders, feature steering, Olah's "1% extracted dark matter" framing, the canonical Claude "ask-it-to-forget" demonstration. Adjacent to [AI safety and alignment](concepts/ai-safety-alignment.md) and [Chain of thought](concepts/chain-of-thought.md).
+- Updated [Anthropic](entities/anthropic.md) — added Mechanistic interpretability program section; sources 4 → 5.
+- Updated [Scaling laws — VLAs and human data](concepts/scaling-laws-vla.md) — added Welch Ch 6 as the LLM-side pedagogy companion; sources 1 → 2.
+- Updated [Chain of thought](concepts/chain-of-thought.md) — added Welch Ch 8 reference for the "MLA is motivated by R1's CoT-token volume" angle.
+- Updated [Welch Labs Perceptron (video)](sources/welchlabs-perceptron.md) and [Welch Labs — LeCun's $1B Bet (video)](sources/welchlabs-lecun-1b-bet-against-llms.md) — cross-linked to the new book + author + brand entities. The perceptron video is Ch 1's companion; the LeCun-bet video is JEPA-side and likely belongs to Vol II.
+- Updated [index.md](index.md) — added book to pedagogical sources section, Welch Labs entity under Companies, Stephen Welch under People, plus the new Mechanistic interpretability concept entry.
+- **Open follow-ups** (flagged on the source page):
+  - **Templeton et al. 2024 — *Scaling Monosemanticity*** (Anthropic) — the primary mech-interp paper Ch 7 anchors on. Candidate ingest.
+  - **Kaplan et al. 2020 — *Scaling Laws for Neural Language Models*** (OpenAI) — the primary scaling-law paper Ch 6 anchors on. Candidate ingest; would also let the wiki's [scaling-laws-vla](concepts/scaling-laws-vla.md) page cite specifics.
+  - **Liu et al. 2024 — DeepSeek-V2 (Multi-Head Latent Attention)** — Ch 8's deep-dive subject. Candidate ingest + seeds an `entities/deepseek.md`.
+  - **Olah, July 2024 — "Dark Matter of Interpretability"** — Welch quotes this. Likely Transformer Circuits Thread post.
+  - **Hoffmann et al. 2022 — Chinchilla** — already flagged elsewhere; Welch Ch 6 may also reference.
