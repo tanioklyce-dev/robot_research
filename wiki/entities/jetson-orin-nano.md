@@ -3,7 +3,7 @@ title: Jetson Orin Nano
 type: entity
 created: 2026-05-16
 updated: 2026-05-16
-sources: 7
+sources: 8
 tags: [jetson, nvidia, edge-ai, hardware, robotics-compute]
 ---
 
@@ -20,10 +20,35 @@ NVIDIA's entry-tier edge-AI compute module in the **Jetson Orin** family — Amp
 
 ## Power modes
 
-R36.5 ships two flash-time power-mode profiles ([R36.5 release notes](../sources/nvidia-jetson-linux-r36-5-release-notes.md) §1.1):
+R36.5 ships three flash-time power-mode profiles ([R36.5 release notes](../sources/nvidia-jetson-linux-r36-5-release-notes.md) §1.1, [Platform Power and Performance — Orin series](../sources/nvidia-jetson-platform-power-performance-orin.md)):
 
-- **Standard** (`jetson-orin-nano-devkit.conf`): factory-default power envelopes.
-- **Super Mode** (`jetson-orin-nano-devkit-super.conf`): **25 W** for Orin Nano modules, **40 W** for Orin NX modules, MAXN for all — NVIDIA's "Super Mode" performance unlock. See the *Supported Modes and Power Efficiency* chapter of the Jetson Linux Developer Guide for details.
+- **Standard** (`jetson-orin-nano-devkit.conf`): factory-default envelopes (4GB → 10W default; 8GB → 15W default). Cannot enter the 25W or MAXN_SUPER profiles.
+- **Super Mode** (`jetson-orin-nano-devkit-super.conf`): unlocks **25 W** and **MAXN_SUPER** (peak 1728 MHz CPU / 1020 MHz GPU / 3199 MHz memory). NVIDIA's performance unlock for Orin Nano.
+- **Super + maxn-thermal** (`jetson-orin-nano-devkit-super-maxn.conf`): Super profiles with more conservative thermal settings for sustained MAXN_SUPER workloads — the recommended choice if the application will sit at peak performance for prolonged periods.
+
+> [!warning]
+> Super Mode is hardware-locked at **flash time**. A module flashed with the standard config physically cannot reach the 25W or MAXN_SUPER profiles — reflashing with the `-super` variant is the only path to unlock them ([Platform Power and Performance — Orin series](../sources/nvidia-jetson-platform-power-performance-orin.md)).
+
+### 8GB module (P3767-0003) — headline figures
+
+| Mode | Power | CPU max | GPU max | Memory max |
+|---|---|---|---|---|
+| Standard 15W (default) | 15 W | 1510 MHz / 6 cores | 625 MHz | 2133 MHz |
+| Standard 7W | 7 W | 960 MHz / 4 cores | 408 MHz | 2133 MHz |
+| Super 15W | 15 W | 1498 MHz / 6 cores | 612 MHz | 2133 MHz |
+| Super 25W | 25 W | 1344 MHz / 6 cores | 918 MHz | 3199 MHz |
+| **Super MAXN_SUPER** | n/a | **1728 MHz / 6 cores** | **1020 MHz** | **3199 MHz** |
+
+Step from default 15W to Super 25W: **+47% GPU clock, +50% memory clock** (CPU clock drops slightly). Full peak only at MAXN_SUPER.
+
+### Runtime switching
+
+```bash
+sudo /usr/sbin/nvpmodel -m <mode-id>   # set
+sudo /usr/sbin/nvpmodel -q             # query
+```
+
+Mode persists across reboots and SC7. **Mode IDs are not portable across module variants** — always cross-reference per module.
 
 ## Software stack
 
@@ -65,3 +90,4 @@ In-place updates use apt against NVIDIA's L4T Debian repository: `apt update && 
 - [Jetson Linux R36.5 release](../sources/nvidia-jetson-linux-r36-5-release.md)
 - [Jetson Linux R36.5 release notes (PDF)](../sources/nvidia-jetson-linux-r36-5-release-notes.md)
 - [Jetson Linux R36.5 update mechanism](../sources/nvidia-jetson-linux-r36-5-update-mechanism.md)
+- [Platform Power and Performance — Orin series](../sources/nvidia-jetson-platform-power-performance-orin.md)

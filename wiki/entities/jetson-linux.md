@@ -3,7 +3,7 @@ title: Jetson Linux (L4T)
 type: entity
 created: 2026-05-16
 updated: 2026-05-16
-sources: 4
+sources: 5
 tags: [nvidia, jetson, l4t, jetson-linux, bsp, linux, ubuntu]
 ---
 
@@ -80,7 +80,8 @@ Each platform has a `.conf` basename used with `flash.sh`:
 | Config | Target |
 |---|---|
 | `jetson-orin-nano-devkit.conf` | Orin Nano 4GB/8GB, SD-Card dev-kit module, Orin NX 8GB/16GB on the P3768-0000 carrier |
-| `jetson-orin-nano-devkit-super.conf` | Same modules, **Super Mode** — 25W Orin Nano, 40W Orin NX, MAXN |
+| `jetson-orin-nano-devkit-super.conf` | Same modules, **Super Mode** — 25W Orin Nano, 40W Orin NX, MAXN_SUPER ([Platform Power and Performance — Orin series](../sources/nvidia-jetson-platform-power-performance-orin.md)) |
+| `jetson-orin-nano-devkit-super-maxn.conf` | Super profiles + conservative thermal config for sustained MAXN_SUPER workloads |
 | `jetson-agx-orin-devkit.conf` | AGX Orin dev-kit module + AGX Orin 32GB/64GB on the P3737-0000 carrier |
 | `jetson-agx-orin-devkit-industrial.conf` | AGX Orin Industrial (P3701-0008) |
 
@@ -100,6 +101,7 @@ See [Jetson Orin Nano flash howto](../syntheses/projects/jetson-orin-nano-flash-
 - [NVIDIA](nvidia.md)
 - [Jetson Linux R36.5 release](../sources/nvidia-jetson-linux-r36-5-release.md)
 - [Jetson Linux R36.5 release notes (PDF)](../sources/nvidia-jetson-linux-r36-5-release-notes.md)
+- [Platform Power and Performance — Orin series](../sources/nvidia-jetson-platform-power-performance-orin.md)
 - [Jetson Linux R36.5 update mechanism](../sources/nvidia-jetson-linux-r36-5-update-mechanism.md)
 - [JetPack 6.2.2 release](../sources/nvidia-jetpack-6-2-2-release.md)
 - [JetPack docs index](../sources/nvidia-jetpack-docs-index.md)

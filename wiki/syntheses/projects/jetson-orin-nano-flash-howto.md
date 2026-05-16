@@ -64,12 +64,23 @@ Flashes QSPI bootloader to internal flash and rootfs to `/dev/nvme0n1`.
 - If `lsusb` doesn't show the NVIDIA device after entering recovery mode, the jumper isn't seating correctly or the cable isn't data-capable.
 - Custom carrier boards (e.g., [ROSOrin Pro](../../entities/rosorin-pro.md)) override the flash config — `jetson-orin-nano-devkit` is the wrong target for those; use the vendor's BSP and config.
 - **Multi-boot-media versions must match** ([R36.5 release notes §2.1](../../sources/nvidia-jetson-linux-r36-5-release-notes.md), issue 4201479): flashing different BSP versions to USB + NVMe + SD corrupts UEFI overlay partitions and crashes the system. Reflash all boot media together.
-- For more performance, use **`jetson-orin-nano-devkit-super.conf`** instead of `jetson-orin-nano-devkit.conf` — unlocks 25 W on Orin Nano modules and MAXN on all. The Path B command above passes the standard config; swap basenames for Super Mode.
+- For more performance, use **`jetson-orin-nano-devkit-super.conf`** instead of `jetson-orin-nano-devkit.conf` — unlocks 25 W and MAXN_SUPER on Orin Nano modules ([Platform Power and Performance — Orin series](../../sources/nvidia-jetson-platform-power-performance-orin.md)). For sustained MAXN_SUPER workloads use `jetson-orin-nano-devkit-super-maxn.conf` (more conservative thermals). The Path B command above passes the standard config; swap basenames for Super Mode. **Super Mode is hardware-locked at flash time** — you can't enable it later without reflashing.
 - If `l4t_initrd_flash.sh` previously failed near completion with "Either the device cannot mount the NFS server..." — that bug was **fixed in R36.5** (issue 4695663).
 
 ## Alternative — microSD boot, then migrate to NVMe
 
 If you want to avoid host-side flashing entirely, you can write the official microSD image to a card, boot from it, then run NVIDIA's `nvme_install.sh` script to copy rootfs to NVMe and switch boot device. Still requires the QSPI bootloader to support NVMe — same pre-mid-2023 caveat applies. Note that NVIDIA currently ships an SD image at **JetPack 6.2.1 / Jetson Linux 36.4.4**; apt-upgrade to JetPack 6.2.2 / Jetson Linux 36.5 after first boot ([JetPack 6.2.2 release](../../sources/nvidia-jetpack-6-2-2-release.md), [R36.5 update mechanism](../../sources/nvidia-jetson-linux-r36-5-update-mechanism.md)).
+
+## After flashing — switching power modes
+
+Once the Jetson is booted, change power modes at runtime ([Platform Power and Performance — Orin series](../../sources/nvidia-jetson-platform-power-performance-orin.md)):
+
+```bash
+sudo /usr/sbin/nvpmodel -q             # query current mode
+sudo /usr/sbin/nvpmodel -m <mode-id>   # set
+```
+
+Mode persists across reboots. **Mode IDs are not portable across modules** — on an 8GB Orin Nano flashed with the `-super` config, mode 1 = Super 25W and mode 2 = MAXN_SUPER; on a 4GB Orin Nano those IDs land on different modes. See [the entity page](../../entities/jetson-orin-nano.md) for the headline 8GB table.
 
 ## Updating an existing install
 

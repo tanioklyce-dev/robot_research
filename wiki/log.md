@@ -1316,3 +1316,12 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
   - [Jetson Orin Nano](entities/jetson-orin-nano.md) — added module part numbers (P3767-0003/-0004/-0005 + Orin NX SKUs on the P3768-0000 carrier) and a new Power Modes section covering Super Mode; bumped sources to 7.
   - [Jetson Orin Nano flash howto](syntheses/projects/jetson-orin-nano-flash-howto.md) — corrected host-OS line (20.04 or 22.04 per release notes); added Super Mode option; added multi-boot-media warning; added fixed-in-R36.5 callout for the prior `l4t_initrd_flash.sh` failure.
 - New open question: what exactly is **Super Mode** under the hood (power-management policy, clock changes, thermal envelopes)? Needs *Supported Modes and Power Efficiency* chapter of the Developer Guide.
+
+## [2026-05-16] ingest | Jetson Platform Power and Performance — Orin series (Developer Guide)
+- Created [Platform Power and Performance — Orin series](sources/nvidia-jetson-platform-power-performance-orin.md). Resolves the Super Mode open question from the prior ingest. Substance: Super Mode = MAXN_SUPER (experimental, hardware-locked at flash time); per-module nvpmodel tables for all six Orin SKUs (Orin Nano 4GB/8GB, Orin NX 8GB/16GB, AGX Orin 32GB/64GB); runtime switching via `sudo nvpmodel -m <id>` (persistent across reboots/SC7); OC3 87.5% throttle; `-super-maxn` flash variant for sustained MAXN_SUPER workloads.
+- Updated:
+  - [Jetson Orin Nano](entities/jetson-orin-nano.md) — replaced the brief Power Modes section with full 8GB module nvpmodel table; added third flash variant (`-super-maxn`); documented hardware-lock-in; added runtime switching section; bumped sources to 8.
+  - [Jetson Linux](entities/jetson-linux.md) — flash-config table grew to include the `-super-maxn` variant; bumped sources to 5.
+  - [Jetson Orin Nano flash howto](syntheses/projects/jetson-orin-nano-flash-howto.md) — added "After flashing — switching power modes" section with nvpmodel commands and mode-ID-is-not-portable caveat; gotchas paragraph updated with `-super-maxn` and the hardware-lock-in warning.
+- Headline 8GB number: Super 25W vs default 15W gives **+47% GPU clock, +50% memory clock**; full peak (1728 MHz CPU / 1020 MHz GPU) only at MAXN_SUPER.
+- New open questions: TOPS-per-mode breakdown (not in this chapter); Orin NX `-super` flash config variant (page implies one exists separate from the Orin Nano carrier config); when `tpc_pg_mask` change forces a reboot.
