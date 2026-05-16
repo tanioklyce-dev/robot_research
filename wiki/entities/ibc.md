@@ -44,7 +44,7 @@ From [Diffusion Policy Paper](../sources/diffusion-policy-paper.md) ablation Tab
 - [PushT](pusht.md) — benchmark introduced here.
 - [BET](bet.md) — sibling multi-modal BC method (action-discretization rather than energy-based).
 - [VQ-BeT](vq-bet.md) — BET's successor; also competes with IBC on multi-modal action distributions.
-- [Imitation learning](../concepts/imitation-learning.md) — broader concept; IBC is the implicit-model variant.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — broader concept; IBC is the implicit-model variant.
 
 ## Mentioned in
 

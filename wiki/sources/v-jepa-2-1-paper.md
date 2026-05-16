@@ -29,10 +29,10 @@ tags: [v-jepa-2, jepa, world-model, dense-features, meta-fair, video, real-robot
 - [Franka Panda](../entities/franka-panda.md) — real-robot grasping platform (assumed; not explicit in abstract).
 
 ## Concepts touched
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md)
-- [World model](../concepts/world-model.md) — JEPA continues.
-- [World-model simulators](../concepts/world-model-simulators.md) — latent-prediction paradigm continues.
-- [Learned latent space](../concepts/latent-space.md) — "dense features" angle: V-JEPA 2.1 explicitly tunes the latent's per-patch detail.
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md)
+- [World model](../concepts/world-models/world-model.md) — JEPA continues.
+- [World-model simulators](../concepts/world-models/world-model-simulators.md) — latent-prediction paradigm continues.
+- [Learned latent space](../concepts/world-models/latent-space.md) — "dense features" angle: V-JEPA 2.1 explicitly tunes the latent's per-patch detail.
 
 ## Open questions
 - Code/project URL not surfaced from the abstract page.

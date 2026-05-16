@@ -39,7 +39,7 @@ The world's leading high-school robotics competition, run by FIRST (For Inspirat
 
 ## Technical infrastructure
 - **Field Management System (FMS)**: Controls wireless, scoring, E-stop/A-stop, match timing. Ethernet-connected to each driver station.
-- **[AprilTags](../concepts/apriltags.md)**: 32 fiducial markers (36h11 family) on field elements enable autonomous vision-based navigation and targeting ([FRC 2026 Game Manual](../sources/frc-2026-game-manual.md), §5.11).
+- **[AprilTags](../concepts/robotics/apriltags.md)**: 32 fiducial markers (36h11 family) on field elements enable autonomous vision-based navigation and targeting ([FRC 2026 Game Manual](../sources/frc-2026-game-manual.md), §5.11).
 - **Driver Station**: WPILib software on team laptops; communicates with roboRIO via FMS network during matches.
 - **CAD**: Official field models in Onshape; low-cost build plans published for practice fields.
 

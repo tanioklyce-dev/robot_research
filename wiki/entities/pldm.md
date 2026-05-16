@@ -52,8 +52,8 @@ The four-row "JEPA-line" comparison (PLDM, LeWM, DINO-WM, V-JEPA 2-AC) is the su
 - [V-JEPA 2](v-jepa-2.md) — Meta FAIR's parallel JEPA-WM line at much larger scale.
 - [DINO-WM](dino-wm.md) — frozen-feature alternative; sidesteps PLDM's collapse problem entirely by not training the encoder.
 - [Yann LeCun](yann-lecun.md) — senior author.
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — umbrella concept.
-- [World model](../concepts/world-model.md) — umbrella concept; PLDM is a Family-2 (latent-prediction) entity.
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — umbrella concept.
+- [World model](../concepts/world-models/world-model.md) — umbrella concept; PLDM is a Family-2 (latent-prediction) entity.
 
 ## Mentioned in
 

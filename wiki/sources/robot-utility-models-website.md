@@ -30,8 +30,8 @@ Project page for **Robot Utility Models (RUMs)** — a framework from NYU and Me
 - [Franka Panda](../entities/franka-panda.md) — implicit cross-embodiment context (xArm 7 named explicitly; Franka not named in abstract but appears in adjacent literature comparing RUM transfer targets).
 
 ## Concepts touched
-- [Imitation learning](../concepts/imitation-learning.md) / behavior cloning
-- [VLA-adjacent generalist policies](../concepts/vla-models.md) (RUMs are visuomotor BC, no language conditioning)
+- [Imitation learning](../concepts/learning/imitation-learning.md) / behavior cloning
+- [VLA-adjacent generalist policies](../concepts/learning/vla-models.md) (RUMs are visuomotor BC, no language conditioning)
 - Cross-embodiment transfer
 - Mobile manipulation
 

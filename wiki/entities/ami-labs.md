@@ -25,7 +25,7 @@ The article frames AMI Labs' founding as a bet against LLM scaling ("technologic
 ## Related
 - [Yann LeCun](yann-lecun.md) — reported founder.
 - [Meta FAIR](meta-fair.md) — LeCun's prior affiliation.
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — research direction.
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — research direction.
 
 ## Mentioned in
 - [Towards AI — LeCun / AMI Labs article](../sources/towardsai-lecun-ami-labs.md)

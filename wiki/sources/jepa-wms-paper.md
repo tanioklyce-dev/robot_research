@@ -14,7 +14,7 @@ tags: [jepa, world-model, jepa-wms, robocasa, metaworld, droid, franka, fair, me
 ---
 
 ## Summary
-"What Drives Success in Physical Planning with Joint-Embedding Predictive World Models?" — preprint from [FAIR at Meta](../entities/meta-fair.md) investigating which architectural and training choices in [JEPA](../concepts/jepa.md)-style world models actually drive planning performance. Authors include **Adrien Bardes** and **Yann LeCun**, both senior authors on [V-JEPA 2](v-jepa-2-paper.md). The paper is the **first JEPA-for-robotics work this wiki has ingested that explicitly trains and evaluates inside [RoboCasa](../entities/robocasa.md)**, alongside Metaworld, Push-T, Wall, PointMaze, DROID, and a real Franka — and it directly contradicts the [earlier "JEPA skips heavy sim" synthesis](../syntheses/why-jepa-research-skips-the-simulator-stack.md) from this wiki.
+"What Drives Success in Physical Planning with Joint-Embedding Predictive World Models?" — preprint from [FAIR at Meta](../entities/meta-fair.md) investigating which architectural and training choices in [JEPA](../concepts/world-models/jepa.md)-style world models actually drive planning performance. Authors include **Adrien Bardes** and **Yann LeCun**, both senior authors on [V-JEPA 2](v-jepa-2-paper.md). The paper is the **first JEPA-for-robotics work this wiki has ingested that explicitly trains and evaluates inside [RoboCasa](../entities/robocasa.md)**, alongside Metaworld, Push-T, Wall, PointMaze, DROID, and a real Franka — and it directly contradicts the [earlier "JEPA skips heavy sim" synthesis](../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md) from this wiki.
 
 ## Key claims
 - Investigates technical choices — model architecture, training objectives, planning algorithms — across JEPA-WMs.
@@ -53,11 +53,11 @@ tags: [jepa, world-model, jepa-wms, robocasa, metaworld, droid, franka, fair, me
 - [Basile Terver](../entities/basile-terver.md) — first author; bread-crumb from DINO-world.
 
 ## Concepts touched
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — architecture family.
-- [World model](../concepts/world-model.md) — physical-planning-with-world-model focus.
-- [World-model simulators](../concepts/world-model-simulators.md) — latent-prediction paradigm.
-- [Learned latent space](../concepts/latent-space.md) — frozen DINOv2 patch features as the latent; predictor is the only learned piece.
-- [Sim-to-real transfer](../concepts/sim-to-real-transfer.md) — sim + real-world robot evaluation in the same paper.
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — architecture family.
+- [World model](../concepts/world-models/world-model.md) — physical-planning-with-world-model focus.
+- [World-model simulators](../concepts/world-models/world-model-simulators.md) — latent-prediction paradigm.
+- [Learned latent space](../concepts/world-models/latent-space.md) — frozen DINOv2 patch features as the latent; predictor is the only learned piece.
+- [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md) — sim + real-world robot evaluation in the same paper.
 
 ## Open questions
 - The abstract is generic ("simulated environments and real-world robotic data") and does not enumerate environments — the specific list comes from the GitHub README. A full-paper read may surface additional environments or design rationale.
@@ -66,4 +66,4 @@ tags: [jepa, world-model, jepa-wms, robocasa, metaworld, droid, franka, fair, me
 - How the proposed JEPA-WM differs architecturally from V-JEPA 2-AC and DINO-WM — abstract gives outcomes, not specifics.
 
 ## Why this matters
-This paper is the load-bearing evidence that **the FAIR JEPA research line is moving into heavy sim** — RoboCasa is the same household-manipulation benchmark used by [GR00T](../entities/nvidia-groot.md), [Robot Utility Models](../entities/robot-utility-models.md), and the broader VLA cohort. The pattern observed in [V-JEPA 2](v-jepa-2-paper.md) (no sim) and [LeWorldModel](leworldmodel-paper.md) (lightweight benches only) is breaking inside FAIR itself, within ~6 months of the V-JEPA 2 release. See [the revised synthesis](../syntheses/why-jepa-research-skips-the-simulator-stack.md) for the structural read.
+This paper is the load-bearing evidence that **the FAIR JEPA research line is moving into heavy sim** — RoboCasa is the same household-manipulation benchmark used by [GR00T](../entities/nvidia-groot.md), [Robot Utility Models](../entities/robot-utility-models.md), and the broader VLA cohort. The pattern observed in [V-JEPA 2](v-jepa-2-paper.md) (no sim) and [LeWorldModel](leworldmodel-paper.md) (lightweight benches only) is breaking inside FAIR itself, within ~6 months of the V-JEPA 2 release. See [the revised synthesis](../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md) for the structural read.

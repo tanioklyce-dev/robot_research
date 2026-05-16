@@ -12,7 +12,7 @@ tags: [pi-zero, pi0, vla, flow-matching, vision-language-action, physical-intell
 ---
 
 > [!note] Ingest depth
-> This source page is **based on the arxiv abstract page only** (paper PDF not in `raw/`). Filed as part of the curriculum-driven backfill for [Module 9 (VLA models)](../syntheses/robot-learning-curriculum.md). To deepen, drop the PDF in `raw/` and re-ingest.
+> This source page is **based on the arxiv abstract page only** (paper PDF not in `raw/`). Filed as part of the curriculum-driven backfill for [Module 9 (VLA models)](../syntheses/curriculum/robot-learning-curriculum.md). To deepen, drop the PDF in `raw/` and re-ingest.
 
 ## Summary
 
@@ -34,8 +34,8 @@ tags: [pi-zero, pi0, vla, flow-matching, vision-language-action, physical-intell
 ## Why it matters in this wiki
 
 - **Concrete VLA exemplar beyond OpenVLA / GR00T.** The wiki had Physical Intelligence filed as an entity but no primary source for π0 itself — that gap is now closed.
-- **Flow matching vs DDPM as action heads.** π0 uses **flow matching** in the same role [Diffusion Policy](../entities/diffusion-policy.md) uses **DDPM** — these are sibling generative-model families, and the curriculum [Module 9](../syntheses/robot-learning-curriculum.md) can now contrast them with a primary source on each side.
-- **Generalist-policy data point.** Cross-platform training (single-arm, dual-arm, mobile manipulator) is the kind of breadth claim curriculum [Module 13](../syntheses/robot-learning-curriculum.md) (home-robotics deployment) needs to interrogate.
+- **Flow matching vs DDPM as action heads.** π0 uses **flow matching** in the same role [Diffusion Policy](../entities/diffusion-policy.md) uses **DDPM** — these are sibling generative-model families, and the curriculum [Module 9](../syntheses/curriculum/robot-learning-curriculum.md) can now contrast them with a primary source on each side.
+- **Generalist-policy data point.** Cross-platform training (single-arm, dual-arm, mobile manipulator) is the kind of breadth claim curriculum [Module 13](../syntheses/curriculum/robot-learning-curriculum.md) (home-robotics deployment) needs to interrogate.
 
 ## Entities mentioned
 
@@ -45,8 +45,8 @@ tags: [pi-zero, pi0, vla, flow-matching, vision-language-action, physical-intell
 
 ## Concepts touched
 
-- [VLA models](../concepts/vla-models.md) — π0 is a defining instance.
-- [Imitation learning](../concepts/imitation-learning.md) — π0 is BC-flavored at training time (with a flow-matching head).
+- [VLA models](../concepts/learning/vla-models.md) — π0 is a defining instance.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — π0 is BC-flavored at training time (with a flow-matching head).
 
 ## Open questions / TBD
 

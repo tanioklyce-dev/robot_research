@@ -143,7 +143,7 @@ Latent action conditioning **matches** the ideal ground-truth-action setting *de
 NVIDIA GEAR's WM line is the **DreamGen → DreamZero → DreamDojo** triplet — flagged in the [NVIDIA GEAR Lab Publications](nvidia-gear-publications.md) page as the wiki's top WM-side follow-up cluster. DreamDojo is the third and most ambitious. With this ingest, the most-flagged generative-video-WM gap in the wiki is closed.
 
 ### Generative-video vs JEPA — DreamDojo is the new high-water mark on the pixel side
-The wiki's [generative-video vs JEPA world models](../syntheses/generative-video-vs-jepa-world-models.md) synthesis now has its largest, most ambitious generative-video data point. Where V-JEPA 2 (1B params, 1M+ hr internet video) had been the largest scale on either side, DreamDojo-14B (14B params, 44.7K hr human video) clearly tops it in compute *and* publishes head-to-head OOD wins vs Cosmos-Predict2.5. The synthesis page needs an update.
+The wiki's [generative-video vs JEPA world models](../syntheses/world-models/generative-video-vs-jepa-world-models.md) synthesis now has its largest, most ambitious generative-video data point. Where V-JEPA 2 (1B params, 1M+ hr internet video) had been the largest scale on either side, DreamDojo-14B (14B params, 44.7K hr human video) clearly tops it in compute *and* publishes head-to-head OOD wins vs Cosmos-Predict2.5. The synthesis page needs an update.
 
 ### Two parallel data-vs-method bets within NVIDIA GEAR
 - **[EgoScale](egoscale-paper.md)** (the *VLA* side): scaling law for action-policy pretraining on 20K hr human video. Output = a VLA.
@@ -186,17 +186,17 @@ If V-JEPA-2-AC, π0, or any of the other VLAs adopt this idea, a `concepts/laten
 - **Shenyuan Gao** (HKUST), **William Liang** (UC Berkeley) — co-first authors. Not entitied.
 
 ## Concepts touched
-- [World model](../concepts/world-model.md) — DreamDojo is a generative-video world model.
-- [World-model simulators](../concepts/world-model-simulators.md) — DreamDojo as simulator-substitute for policy evaluation.
-- [VLA models](../concepts/vla-models.md) — adjacent paradigm; DreamDojo + a VLA = train+eval pair (the GR00T N1.5 + DreamDojo policy-eval demo is the concrete example).
-- [Imitation learning](../concepts/imitation-learning.md) — DreamDojo's pretraining objective is structured imitation from human videos.
-- [Scaling laws — VLAs and human data](../concepts/scaling-laws-vla.md) — adjacent: DreamDojo doesn't fit a clean scaling law but shows monotone improvement in OOD physics with data scale (Table 3).
+- [World model](../concepts/world-models/world-model.md) — DreamDojo is a generative-video world model.
+- [World-model simulators](../concepts/world-models/world-model-simulators.md) — DreamDojo as simulator-substitute for policy evaluation.
+- [VLA models](../concepts/learning/vla-models.md) — adjacent paradigm; DreamDojo + a VLA = train+eval pair (the GR00T N1.5 + DreamDojo policy-eval demo is the concrete example).
+- [Imitation learning](../concepts/learning/imitation-learning.md) — DreamDojo's pretraining objective is structured imitation from human videos.
+- [Scaling laws — VLAs and human data](../concepts/learning/scaling-laws-vla.md) — adjacent: DreamDojo doesn't fit a clean scaling law but shows monotone improvement in OOD physics with data scale (Table 3).
 
 ## Open questions
 
 - **Quantitative scaling law for WM pretraining**: DreamDojo shows monotone improvement with data, but doesn't fit a closed-form scaling law (vs EgoScale's `L = a − b·ln(D)`). A WM-side scaling-law paper is the obvious follow-up.
 - **Real-robot transfer of DreamDojo-trained policies**: the paper demonstrates *policy evaluation* (DreamDojo simulates rollouts of an existing GR00T N1.5 policy), but does *not* publish results for "policy trained inside DreamDojo, deployed on real robot." The V-JEPA-2-AC-style zero-shot real-robot result is the open question for the generative-video paradigm.
-- **Head-to-head vs V-JEPA 2 / LeWorldModel**: no source has compared DreamDojo against the JEPA line on the same benchmark. The wiki's [generative-video vs JEPA](../syntheses/generative-video-vs-jepa-world-models.md) synthesis has been calling out this gap; it remains open.
+- **Head-to-head vs V-JEPA 2 / LeWorldModel**: no source has compared DreamDojo against the JEPA line on the same benchmark. The wiki's [generative-video vs JEPA](../syntheses/world-models/generative-video-vs-jepa-world-models.md) synthesis has been calling out this gap; it remains open.
 - **What is YAM?** Latent-action training uses Unitree G1 + Fourier GR-1 + AgiBot + YAM. The first three are identifiable; YAM is not surfaced in the body.
 - **Continuous latent actions across the GEAR program**: DreamDojo cites Gao et al. 2025 for the construct. Does EgoScale also use it? (EgoScale uses *retargeted joint-space hand actions*, not latent actions — so DreamDojo and EgoScale use *different* action representations even though they share the data pipeline.)
 - **Compute disclosure**: 256 H100s × 140k steps × two model sizes (2B + 14B) is a substantial training run. The paper doesn't report total GPU-hours.

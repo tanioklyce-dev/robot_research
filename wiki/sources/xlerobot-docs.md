@@ -45,9 +45,9 @@ The project's explicit positioning is *cheaper than an iPhone*, with capabilitie
 
 ## Concepts touched
 
-- [Imitation learning](../concepts/imitation-learning.md) — primary learning paradigm
-- [Assistive robotics](../concepts/assistive-robotics.md) — household manipulation tasks; positioned in the same affordable-platform space as [Stretch](../entities/stretch.md), [ROSOrin Pro](../entities/rosorin-pro.md), and similar
-- [Sim-to-real transfer](../concepts/sim-to-real-transfer.md) — ManiSkill sim → real, RL sim2real (Zhuoyi Lu)
+- [Imitation learning](../concepts/learning/imitation-learning.md) — primary learning paradigm
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md) — household manipulation tasks; positioned in the same affordable-platform space as [Stretch](../entities/stretch.md), [ROSOrin Pro](../entities/rosorin-pro.md), and similar
+- [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md) — ManiSkill sim → real, RL sim2real (Zhuoyi Lu)
 
 ## Open questions
 

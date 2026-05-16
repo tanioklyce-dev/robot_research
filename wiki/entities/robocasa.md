@@ -19,7 +19,7 @@ Large-scale simulation framework for training and benchmarking generalist robots
 - Three benchmark suites: multi-task learning, foundation-model training, lifelong learning.
 
 ## Cross-references in JEPA work
-- [JEPA-WMs](jepa-wms.md) (Terver et al., FAIR, Dec 2025) trains and evaluates on **RoboCasa kitchen manipulation** alongside Metaworld + DROID + real Franka — making this the first JEPA-for-robotics paper in the wiki to use heavy sim. See [paper](../sources/jepa-wms-paper.md) and [revised synthesis](../syntheses/why-jepa-research-skips-the-simulator-stack.md).
+- [JEPA-WMs](jepa-wms.md) (Terver et al., FAIR, Dec 2025) trains and evaluates on **RoboCasa kitchen manipulation** alongside Metaworld + DROID + real Franka — making this the first JEPA-for-robotics paper in the wiki to use heavy sim. See [paper](../sources/jepa-wms-paper.md) and [revised synthesis](../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md).
 
 ## Related
 - [MimicGen](mimicgen.md) — synthetic data generator powering RoboCasa365's demo expansion.

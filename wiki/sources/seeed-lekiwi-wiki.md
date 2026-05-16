@@ -61,8 +61,8 @@ This is one of the cleaner end-to-end "buy → assemble → train → deploy" tu
 
 ## Concepts touched
 
-- [Imitation learning](../concepts/imitation-learning.md) — ACT (Action Chunking Transformer) is the recommended default policy class for LeRobot tasks; this tutorial is one of the most-followed entry points for IL practitioners outside of Stretch / Franka.
-- [Assistive robotics](../concepts/assistive-robotics.md) — at sub-$1k for the base + arm, LeKiwi is among the cheapest mobile-manipulator platforms usable for accessible-robotics research.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — ACT (Action Chunking Transformer) is the recommended default policy class for LeRobot tasks; this tutorial is one of the most-followed entry points for IL practitioners outside of Stretch / Franka.
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md) — at sub-$1k for the base + arm, LeKiwi is among the cheapest mobile-manipulator platforms usable for accessible-robotics research.
 
 ## Open questions
 

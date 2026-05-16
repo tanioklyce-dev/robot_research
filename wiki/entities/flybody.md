@@ -53,7 +53,7 @@ tags: [flybody, drosophila, mujoco, biomechanical-simulation, deep-rl, hhmi-jane
 
 - **MuJoCo as a biology platform.** Reinforces MuJoCo's centrality and adds a biology-flavoured carrier alongside the existing robotics-flavoured carriers ([MuJoCo Playground](mujoco-playground.md), [Gymnasium-Robotics](gymnasium-robotics.md)).
 - **Imitation learning at scale on a non-rigid body.** DMPO-on-imitation generalizes to a 102-DoF morphology with wings — a meaningful stress test of the DeepMimic / virtual-rodent recipe.
-- **Whole-organism agentic AI.** Combined with the [FlyWire](flywire.md) connectome and Shiu et al.'s [brain dynamics](../sources/berkeley-fly-brain-news.md), flybody is one half of a plausible "whole-fly agent" research direction. See [Whole-organism agentic AI](../syntheses/whole-organism-agentic-ai.md).
+- **Whole-organism agentic AI.** Combined with the [FlyWire](flywire.md) connectome and Shiu et al.'s [brain dynamics](../sources/berkeley-fly-brain-news.md), flybody is one half of a plausible "whole-fly agent" research direction. See [Whole-organism agentic AI](../syntheses/agents/whole-organism-agentic-ai.md).
 
 ## Related
 
@@ -63,8 +63,8 @@ tags: [flybody, drosophila, mujoco, biomechanical-simulation, deep-rl, hhmi-jane
 - [DM Control](dm-control.md) — control API.
 - [NeuroMechFly](neuromechfly.md) — predecessor; walking-focused.
 - [Drosophila melanogaster](drosophila.md) — model organism.
-- [Imitation learning](../concepts/imitation-learning.md) — training paradigm.
-- [Biomechanical simulation](../concepts/biomechanical-simulation.md) — concept umbrella.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — training paradigm.
+- [Biomechanical simulation](../concepts/bio/biomechanical-simulation.md) — concept umbrella.
 - [flyvis](flyvis.md) — sister project from the same lab (Turaga); brain-side connectome-constrained controller template; the natural integration partner.
 - [Drosophila brain model](drosophila-brain-model.md) — independent brain-side codebase (Shiu et al.); mechanistic-LIF alternative.
 

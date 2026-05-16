@@ -63,12 +63,12 @@ The ninth edition of the Stanford HAI AI Index Report (2026). Comprehensive annu
 - [Physical Intelligence](../entities/physical-intelligence.md) — π0 (2024) and π0.6 (2025) VLAs demonstrating cross-platform generalization without task-specific retraining.
 
 ## Concepts touched
-- [VLA models](../concepts/vla-models.md) — π0/π0.6, GR00T, Gemini Robotics; VLA assessed as still research-stage; data bottleneck framing.
-- [Sim-to-real transfer](../concepts/sim-to-real-transfer.md) — 89.4% RLBench (sim) vs 12.4% BEHAVIOR-1K full task success (real household); canonical gap number.
-- [Assistive robotics](../concepts/assistive-robotics.md) — BEHAVIOR-1K 12.4% household task success; humanoid landscape for home use.
-- [AI safety and alignment](../concepts/ai-safety-alignment.md) — AI incidents 362 (up from 233); responsible AI not keeping pace with capability; safety–accuracy tradeoff.
-- [World-model simulators](../concepts/world-model-simulators.md) — World Foundation Models (Cosmos) as synthetic data source for robot training.
-- [LLM-agent architecture](../concepts/llm-agent-architecture.md) — AI agents on OSWorld 12% → 66.3%; still fail ~1 in 3 on structured benchmarks.
+- [VLA models](../concepts/learning/vla-models.md) — π0/π0.6, GR00T, Gemini Robotics; VLA assessed as still research-stage; data bottleneck framing.
+- [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md) — 89.4% RLBench (sim) vs 12.4% BEHAVIOR-1K full task success (real household); canonical gap number.
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md) — BEHAVIOR-1K 12.4% household task success; humanoid landscape for home use.
+- [AI safety and alignment](../concepts/safety/ai-safety-alignment.md) — AI incidents 362 (up from 233); responsible AI not keeping pace with capability; safety–accuracy tradeoff.
+- [World-model simulators](../concepts/world-models/world-model-simulators.md) — World Foundation Models (Cosmos) as synthetic data source for robot training.
+- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — AI agents on OSWorld 12% → 66.3%; still fail ~1 in 3 on structured benchmarks.
 
 ## Open questions
 - The report covers physical AI at a high level; deeper numbers (π0/π0.6 success rates, Gemini Robotics eval specifics) require primary sources from Physical Intelligence and Google.

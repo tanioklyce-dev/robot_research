@@ -21,7 +21,7 @@ Both papers share a theme: **learning to control nonlinear systems under data sc
 
 ## Related
 - MIT Mechanical Engineering / IDSS / LIDS — affiliation
-- [Agentic UAVs](../concepts/agentic-uavs.md) — domain context for drone work
+- [Agentic UAVs](../concepts/robotics/agentic-uavs.md) — domain context for drone work
 
 ## Mentioned in
 - [Learning Control-Oriented Dynamical Structure from Data](../sources/learning-control-oriented-dynamical-structure.md)

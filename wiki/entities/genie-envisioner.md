@@ -18,13 +18,13 @@ tags: [genie-envisioner, world-model, agibot, cosmos, manipulation]
 - Positioned as a "physical evolution engine" for embodied AI.
 
 ## Why it matters
-Most prominent example of the [World-model simulators](../concepts/world-model-simulators.md) paradigm in agentic robotics: training environments are generated rather than authored. Reduces dependence on physics engines for high-level skill learning, but real-world task fidelity is still being validated.
+Most prominent example of the [World-model simulators](../concepts/world-models/world-model-simulators.md) paradigm in agentic robotics: training environments are generated rather than authored. Reduces dependence on physics engines for high-level skill learning, but real-world task fidelity is still being validated.
 
 ## Related
 - [AGIBOT](agibot.md) — maintainer.
 - [NVIDIA Cosmos](nvidia-cosmos.md) — underlying generative video model.
 - [AGIBOT Genie Sim 3.0](agibot-genie-sim.md) — companion physics-based simulator from the same vendor.
-- [World-model simulators](../concepts/world-model-simulators.md) — concept page.
+- [World-model simulators](../concepts/world-models/world-model-simulators.md) — concept page.
 
 ## Mentioned in
 - [AGIBOT Genie Envisioner 2.0 Announcement](../sources/agibot-genie-envisioner-2-announcement.md)

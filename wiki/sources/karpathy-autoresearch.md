@@ -78,9 +78,9 @@ For smaller hardware the README recommends: TinyStories dataset (lower entropy),
 
 ## Curriculum / concept hookups
 
-- **[LLM-agent architecture concept](../concepts/llm-agent-architecture.md)** — autoresearch is a *non-robotics* worked example of an LLM-emits-actions agent pattern: instead of `find()`/`pickup()`/`place()` tool calls, the actions are `edit train.py`, `run experiment`, `compare metric`, `commit or revert`. Same control-flow pattern, applied to ML research.
-- **[Curriculum Module 3 — Sequence models, attention, transformers](../syntheses/curriculum-03-attention-and-transformers.md)** — natural place to introduce autoresearch as "the modern-2026 extension of the nanoGPT/nanochat reading path: an agent iterating on the training loop."
-- **[Curriculum Module 14 — Capstone](../syntheses/curriculum-14-capstone.md)** — the capstone's Phase A reproduces LeWM PushT + writes an experiment-design memo. autoresearch is the methodological cousin: a tight loop of "candidate change → 5-min experiment → keep or revert." Worth flagging as prior art for the experiment-design pattern.
+- **[LLM-agent architecture concept](../concepts/agents/llm-agent-architecture.md)** — autoresearch is a *non-robotics* worked example of an LLM-emits-actions agent pattern: instead of `find()`/`pickup()`/`place()` tool calls, the actions are `edit train.py`, `run experiment`, `compare metric`, `commit or revert`. Same control-flow pattern, applied to ML research.
+- **[Curriculum Module 3 — Sequence models, attention, transformers](../syntheses/curriculum/curriculum-03-attention-and-transformers.md)** — natural place to introduce autoresearch as "the modern-2026 extension of the nanoGPT/nanochat reading path: an agent iterating on the training loop."
+- **[Curriculum Module 14 — Capstone](../syntheses/curriculum/curriculum-14-capstone.md)** — the capstone's Phase A reproduces LeWM PushT + writes an experiment-design memo. autoresearch is the methodological cousin: a tight loop of "candidate change → 5-min experiment → keep or revert." Worth flagging as prior art for the experiment-design pattern.
 
 ## The framing claim
 

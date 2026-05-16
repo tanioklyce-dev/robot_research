@@ -59,7 +59,7 @@ From [RUM paper](../sources/robot-utility-models-paper.md) §3.2:
 ## Why it matters in this wiki
 
 - **Foundation BC method behind PushT and UMI.** Even when not deployed directly, Diffusion Policy's downstream artifacts (PushT bench, UMI grippers, action-chunking convention) are reused widely.
-- **The default BC baseline across imitation-learning papers ingested here.** When a 2024–2026 BC method is benchmarked, Diffusion Policy is almost always the comparison point ([RUM](../sources/robot-utility-models-paper.md), [VQ-BeT](vq-bet.md), and the broader [VLA models](../concepts/vla-models.md) literature).
+- **The default BC baseline across imitation-learning papers ingested here.** When a 2024–2026 BC method is benchmarked, Diffusion Policy is almost always the comparison point ([RUM](../sources/robot-utility-models-paper.md), [VQ-BeT](vq-bet.md), and the broader [VLA models](../concepts/learning/vla-models.md) literature).
 - **Direct successor in the multi-modal-BC lineage**: [IBC](ibc.md) (energy-based) → [BET](bet.md) (k-means action discretization) → [VQ-BeT](vq-bet.md) (learned VQ codebook) → Diffusion Policy (denoising-diffusion). Diffusion Policy supersedes IBC and BET empirically across the 12-task ablation.
 - **Substrate**: built directly on [DDPM](ddpm.md) (Ho, Jain, Abbeel, 2020). Adapts the DDPM mechanism by changing output type (action sequences) and adding observation conditioning.
 - **Companion data-collection system**: [UMI](umi.md) (Chi et al., RSS 2024) is the same lead author's follow-on — the data-pipeline side of a complete BC-for-real-robot stack.
@@ -80,7 +80,7 @@ From [RUM paper](../sources/robot-utility-models-paper.md) §3.2:
 - [TRI](tri.md) — co-affiliation (Cousineau, Burchfiel, Feng).
 - [Robot Utility Models](robot-utility-models.md) — uses Diffusion Policy as a baseline.
 - [PushT](pusht.md) — 2D pushing benchmark popularized here.
-- [Imitation learning](../concepts/imitation-learning.md) — broader concept.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — broader concept.
 
 ## Mentioned in
 

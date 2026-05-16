@@ -33,8 +33,8 @@ tags: [td-mpc, td-mpc2, world-model, model-based-rl, mpc, latent-space, hansen, 
 
 ## Why it matters in this wiki
 
-- **The TD-MPC baseline column.** TD-MPC (and by extension TD-MPC2) is one of the four world-model baselines in [LeWM](../entities/leworldmodel.md). With this source page filed, curriculum [Module 10](../syntheses/robot-learning-curriculum.md) can place it on the four-family taxonomy.
-- **Closest MBRL relative to JEPA in this wiki.** Decoder-free latent dynamics + planning is structurally analogous to LeWM's setup — the differences (TD-bootstrapped value vs MPC-only; single-task RL fine-tune vs generalist offline-trained predictor; collapse-prevention strategy) are the interesting axes for [Module 11](../syntheses/robot-learning-curriculum.md) (JEPA depth) and [Module 12](../syntheses/robot-learning-curriculum.md) (LeWM deep-dive).
+- **The TD-MPC baseline column.** TD-MPC (and by extension TD-MPC2) is one of the four world-model baselines in [LeWM](../entities/leworldmodel.md). With this source page filed, curriculum [Module 10](../syntheses/curriculum/robot-learning-curriculum.md) can place it on the four-family taxonomy.
+- **Closest MBRL relative to JEPA in this wiki.** Decoder-free latent dynamics + planning is structurally analogous to LeWM's setup — the differences (TD-bootstrapped value vs MPC-only; single-task RL fine-tune vs generalist offline-trained predictor; collapse-prevention strategy) are the interesting axes for [Module 11](../syntheses/curriculum/robot-learning-curriculum.md) (JEPA depth) and [Module 12](../syntheses/curriculum/robot-learning-curriculum.md) (LeWM deep-dive).
 - **Continuous-control RL canon.** Sits alongside [PPO](#), [SAC](#), and Dreamer as a default RL baseline whose vocabulary is needed to read modern RL/robotics papers (curriculum Module 8).
 
 ## Entities mentioned
@@ -44,9 +44,9 @@ tags: [td-mpc, td-mpc2, world-model, model-based-rl, mpc, latent-space, hansen, 
 - [Dreamer](../entities/dreamer.md) — sibling MBRL family.
 
 ## Concepts touched
-- [Optimal control](../concepts/optimal-control.md)
+- [Optimal control](../concepts/robotics/optimal-control.md)
 
-- [World model](../concepts/world-model.md) — TD-MPC2 is a decoder-free MBRL exemplar.
+- [World model](../concepts/world-models/world-model.md) — TD-MPC2 is a decoder-free MBRL exemplar.
 
 ## Open questions / TBD
 

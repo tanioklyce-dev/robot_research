@@ -20,7 +20,7 @@ Tiago is one of the few standard research platforms suited to **room-scale mobil
 ## Related
 - [Franka Panda](franka-panda.md) — companion tabletop platform in Huh et al. 2026
 - [Stretch](stretch.md) — closest research-platform counterpart in US labs
-- [Accessible robot communication](../concepts/accessible-robot-communication.md)
+- [Accessible robot communication](../concepts/robotics/accessible-robot-communication.md)
 
 ## Mentioned in
 - [Designing Accessible Robot Communication](../sources/huh2026-accessible-robot-comm.md)

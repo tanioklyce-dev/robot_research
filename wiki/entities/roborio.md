@@ -33,7 +33,7 @@ The mandatory robot controller for [FIRST Robotics Competition](first-robotics-c
 - **WPILib**: Open-source FRC framework providing motor control, sensor reading, autonomous command scheduling, and driver station communication.
 - **NetworkTables**: Publish/subscribe protocol for robot-to-dashboard and robot-to-coprocessor communication.
 - **PathPlanner / Choreo**: Third-party autonomous trajectory planning tools that generate paths followed by the roboRIO.
-- **PhotonVision / Limelight**: Vision coprocessor software that detects [AprilTags](../concepts/apriltags.md) and feeds pose estimates to the roboRIO for autonomous localization.
+- **PhotonVision / Limelight**: Vision coprocessor software that detects [AprilTags](../concepts/robotics/apriltags.md) and feeds pose estimates to the roboRIO for autonomous localization.
 
 ## Comparison to research-robotics controllers
 

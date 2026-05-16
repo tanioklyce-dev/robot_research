@@ -41,4 +41,4 @@ Balgrist University Hospital; Swiss Children's Rehab (UZH); EOC Neurocentro Luga
 NCCR Robotics (Swiss NSF); ETH Foundation; Bank Vontobel; NRF Singapore (CREATE).
 
 ## Entities mentioned
-- [Assistive robotics](../concepts/assistive-robotics.md) (concept)
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md) (concept)

@@ -94,10 +94,10 @@ This source is the **first wiki ingest of a hackathon where NVIDIA's GR00T N1.5 
 
 ## Concepts touched
 
-- [Imitation learning](../concepts/imitation-learning.md) — every winning project is BC- or VLA-line.
-- [VLA models](../concepts/vla-models.md) — GR00T N1.5, SmolVLA, ACT all instantiated.
-- [Sim-to-real transfer](../concepts/sim-to-real-transfer.md) — China champion used 90/10 real/sim split with domain randomization.
-- [Assistive robotics](../concepts/assistive-robotics.md) — *home robots* as theme positions all entries in the assistive / household-manipulation space the wiki tracks.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — every winning project is BC- or VLA-line.
+- [VLA models](../concepts/learning/vla-models.md) — GR00T N1.5, SmolVLA, ACT all instantiated.
+- [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md) — China champion used 90/10 real/sim split with domain randomization.
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md) — *home robots* as theme positions all entries in the assistive / household-manipulation space the wiki tracks.
 
 ## Open questions
 

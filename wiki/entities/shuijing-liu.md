@@ -15,7 +15,7 @@ tags: [person, uiuc, hri, assistive-robotics, navigation]
 
 ## Related
 - [Katherine Driggs-Campbell](katherine-driggs-campbell.md)
-- [Assistive robotics](../concepts/assistive-robotics.md)
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md)
 
 ## Mentioned in
 - [DRAGON Paper](../sources/dragon-assistive-nav-2024.md)

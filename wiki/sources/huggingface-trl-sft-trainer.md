@@ -38,10 +38,10 @@ trainer.train()
 ## Why it matters to this wiki
 
 - **The companion runnable artifact to [Wolfe's SFT theory survey](wolfe-sft-blog.md).** Wolfe explains *what* SFT is and why it works; this page is *how to actually run an SFT job* in 2026.
-- **VLM support out of the box** — relevant to every VLA in the wiki. The docs explicitly cover training Qwen2.5-VL with `SFTTrainer(model="Qwen/Qwen2.5-VL-3B-Instruct", ...)` on the LLaVA-Instruct-Mix dataset. Most VLA fine-tuning recipes ([OpenVLA](../concepts/vla-models.md), [Helix](helix-blog.md), [π0](pi-zero-paper.md) variants, [GR00T](../entities/nvidia-groot.md)) build on this exact pattern, often via a fork.
+- **VLM support out of the box** — relevant to every VLA in the wiki. The docs explicitly cover training Qwen2.5-VL with `SFTTrainer(model="Qwen/Qwen2.5-VL-3B-Instruct", ...)` on the LLaVA-Instruct-Mix dataset. Most VLA fine-tuning recipes ([OpenVLA](../concepts/learning/vla-models.md), [Helix](helix-blog.md), [π0](pi-zero-paper.md) variants, [GR00T](../entities/nvidia-groot.md)) build on this exact pattern, often via a fork.
 - **PEFT / LoRA integration** is first-class — `peft_config=LoraConfig()` is the one-line LoRA setup. Critical for fine-tuning 7B+ VLAs on a single consumer GPU, which is the canonical [SIGRobotics-UIUC](../entities/sigrobotics-uiuc.md) / [XLeRobot](../entities/xlerobot.md) / hackathon workflow.
 - **Liger Kernel + Unsloth integrations** — Liger Kernel (Triton kernels, 20% throughput / 60% memory) and Unsloth (2× faster, 70% less VRAM) are both supported via flags. These are the standard "fits on a 24 GB consumer card" optimization paths.
-- **Tool-calling SFT support** — relevant to the wiki's [LLM agent architecture concept](../concepts/llm-agent-architecture.md) and to the [stretch-ai LLM-agent docs](stretch-ai-llm-agent-docs.md) thread, where the robot's LLM controller calls tools that map to robot capabilities.
+- **Tool-calling SFT support** — relevant to the wiki's [LLM agent architecture concept](../concepts/agents/llm-agent-architecture.md) and to the [stretch-ai LLM-agent docs](stretch-ai-llm-agent-docs.md) thread, where the robot's LLM controller calls tools that map to robot capabilities.
 
 ## Key feature surface (per docs)
 
@@ -127,13 +127,13 @@ Standard: `global_step`, `epoch`, `num_tokens`, `loss`, `entropy`, `mean_token_a
 - **PEFT / LoRA / adapters** — parameter-efficient fine-tuning. Standard practice in 2026 for any model > 3B params on consumer hardware.
 - **Chat templates** — the data-formatting layer that turns conversational data into tokenizable strings with role markers.
 - **Vision-language fine-tuning** — the VLM-SFT path is the LLM-side of every VLA recipe.
-- **Tool calling** — relevant to [LLM agent architecture](../concepts/llm-agent-architecture.md).
+- **Tool calling** — relevant to [LLM agent architecture](../concepts/agents/llm-agent-architecture.md).
 
 ## Curriculum hookup
 
-Strong recommended-reading entry for [Curriculum Module 9 — Vision-Language-Action models](../syntheses/curriculum-09-vla.md), specifically at the "how is a VLA actually trained?" section. The TRL SFTTrainer is what every wiki-tracked VLA's training pipeline either is built on directly or is a fork of.
+Strong recommended-reading entry for [Curriculum Module 9 — Vision-Language-Action models](../syntheses/curriculum/curriculum-09-vla.md), specifically at the "how is a VLA actually trained?" section. The TRL SFTTrainer is what every wiki-tracked VLA's training pipeline either is built on directly or is a fork of.
 
-Also relevant to [Curriculum Module 14 — Capstone](../syntheses/curriculum-14-capstone.md) for the "training a small LLM / VLM end-to-end" path; pairs naturally with [karpathy/nanochat](karpathy-nanochat.md) (which builds the SFT trainer from scratch as one of its stages).
+Also relevant to [Curriculum Module 14 — Capstone](../syntheses/curriculum/curriculum-14-capstone.md) for the "training a small LLM / VLM end-to-end" path; pairs naturally with [karpathy/nanochat](karpathy-nanochat.md) (which builds the SFT trainer from scratch as one of its stages).
 
 ## Position in the Hugging Face alignment stack
 

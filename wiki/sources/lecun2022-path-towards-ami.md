@@ -17,7 +17,7 @@ tags: [lecun, jepa, h-jepa, world-model, ami, energy-based-model, self-supervise
 
 ## Summary
 
-**"A Path Towards Autonomous Machine Intelligence"** — LeCun's 2022 position paper, the **architectural blueprint for the entire [JEPA](../concepts/jepa.md) research program** that has since produced [V-JEPA 2](v-jepa-2-paper.md), [V-JEPA 2.1](v-jepa-2-1-paper.md), [LeWorldModel](leworldmodel-paper.md), [DINO-WM](dino-wm-paper.md), [DINO-world](dino-world-paper.md), [JEPA-WMs](jepa-wms-paper.md), [PLDM](pldm-paper.md), [LeJEPA](lejepa-paper.md), and [VLA-JEPA](vla-jepa-paper.md).
+**"A Path Towards Autonomous Machine Intelligence"** — LeCun's 2022 position paper, the **architectural blueprint for the entire [JEPA](../concepts/world-models/jepa.md) research program** that has since produced [V-JEPA 2](v-jepa-2-paper.md), [V-JEPA 2.1](v-jepa-2-1-paper.md), [LeWorldModel](leworldmodel-paper.md), [DINO-WM](dino-wm-paper.md), [DINO-world](dino-world-paper.md), [JEPA-WMs](jepa-wms-paper.md), [PLDM](pldm-paper.md), [LeJEPA](lejepa-paper.md), and [VLA-JEPA](vla-jepa-paper.md).
 
 The paper is **explicitly not a technical paper** — it is a vision document. LeCun proposes an overall cognitive architecture for autonomous agents that combines: (1) a configurable, predictive **world model** trained by self-supervised learning, (2) **hierarchical Joint-Embedding Predictive Architectures (JEPA / H-JEPA)** as the technical mechanism for that world model, (3) **non-contrastive, regularized energy-based learning** as the training paradigm (precursor to VICReg / SIGReg / DINO-style training), and (4) behavior driven by **intrinsic costs + a learned critic**, not external reward.
 
@@ -194,11 +194,11 @@ These gaps define what the JEPA program has been *filling in* since 2022. The ho
 - Frequent technical citations: Hafner et al. (Dreamer / Director), Schmidhuber (intrinsic motivation), Bardes / Ponce (VICReg), Hadsell & Chopra (contrastive learning), Janner (trajectory transformers).
 
 ## Concepts touched
-- [Siamese network](../concepts/siamese-network.md)
+- [Siamese network](../concepts/world-models/siamese-network.md)
 
-- [Joint-Embedding Predictive Architecture (JEPA)](../concepts/jepa.md) — defined here, named here.
-- [World model](../concepts/world-model.md) — the central object; the configurable engine.
-- [Self-supervised learning](../concepts/jepa.md) (closely entwined with JEPA on this wiki).
+- [Joint-Embedding Predictive Architecture (JEPA)](../concepts/world-models/jepa.md) — defined here, named here.
+- [World model](../concepts/world-models/world-model.md) — the central object; the configurable engine.
+- [Self-supervised learning](../concepts/world-models/jepa.md) (closely entwined with JEPA on this wiki).
 - **Energy-based models (EBM)** — *concept page worth creating*; this paper is the canonical reference.
 - **Hierarchical JEPA (H-JEPA)** — extension to multi-scale prediction; *concept page worth creating*.
 - **Configurator** — proposed top-level executive module; no concept page yet.

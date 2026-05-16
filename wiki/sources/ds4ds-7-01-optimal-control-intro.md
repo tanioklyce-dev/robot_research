@@ -36,7 +36,7 @@ Each lecture is paired with a Julia/Jupyter notebook in the [GitHub course repo]
 ## Why it matters to this wiki
 
 - **The modern-pedagogy companion to [Sussmann & Willems 1997](sussmann-willems-1997-300-years-optimal-control.md).** Where the Sussmann–Willems essay is the **historical retrospective** (Bernoulli → Euler–Lagrange → Hamilton–Jacobi → Pontryagin), DS4DS 7.01–7.09 is the **forward-looking computational treatment** — discrete-time formulation, LQR, MPC (linear and data-driven), differential predictive control. Together they form a complete optimal-control orientation: history + theory + computational practice.
-- **MPC primary-source pedagogy.** [MPC](../glossary.md#mpc) is invoked across the wiki — [LeWM](../entities/leworldmodel.md), [DINO-WM](../entities/dino-wm.md), [V-JEPA 2-AC](../entities/v-jepa-2.md), [TD-MPC2](td-mpc2-paper.md), [Curriculum Module 10](../syntheses/curriculum-10-world-models.md) — without a dedicated MPC pedagogical source. DS4DS 7.06 (Linear MPC) and 7.07 (Data-driven MPC via DMD) fill that gap.
+- **MPC primary-source pedagogy.** [MPC](../glossary.md#mpc) is invoked across the wiki — [LeWM](../entities/leworldmodel.md), [DINO-WM](../entities/dino-wm.md), [V-JEPA 2-AC](../entities/v-jepa-2.md), [TD-MPC2](td-mpc2-paper.md), [Curriculum Module 10](../syntheses/curriculum/curriculum-10-world-models.md) — without a dedicated MPC pedagogical source. DS4DS 7.06 (Linear MPC) and 7.07 (Data-driven MPC via DMD) fill that gap.
 - **Bridge to Koopman-operator methods.** The DS4DS course's Koopman module is relevant to the wiki's growing world-model / learned-dynamics thread — a candidate future ingest once Koopman comes up in a wiki-tracked paper.
 - **Open-education provenance.** CC BY-SA 4.0 + Julia / Jupyter makes this resource directly usable for the wiki's curriculum-companion role (cf. [karpathy/nanoGPT](karpathy-nanogpt.md), [karpathy/micrograd](karpathy-micrograd.md), [karpathy/nanochat](karpathy-nanochat.md), [karpathy/autoresearch](karpathy-autoresearch.md) as the same archetype).
 
@@ -77,9 +77,9 @@ Neither has a wiki entity page; candidate stubs if a future control-theory threa
 
 ## Curriculum hookup
 
-This video and the surrounding DS4DS module 7 series are a strong **recommended-viewing companion** for [Curriculum Module 10 — World models, broad](../syntheses/curriculum-10-world-models.md), where MPC + CEM + gradient-based planning over a learned WM are covered conceptually but without a controls-theory pedagogical anchor. Module 10's existing "Recommended reading" list can pick up DS4DS 7.06 (Linear MPC) and 7.07 (Data-driven MPC) as the controls-side companions to the WM-side coverage.
+This video and the surrounding DS4DS module 7 series are a strong **recommended-viewing companion** for [Curriculum Module 10 — World models, broad](../syntheses/curriculum/curriculum-10-world-models.md), where MPC + CEM + gradient-based planning over a learned WM are covered conceptually but without a controls-theory pedagogical anchor. Module 10's existing "Recommended reading" list can pick up DS4DS 7.06 (Linear MPC) and 7.07 (Data-driven MPC) as the controls-side companions to the WM-side coverage.
 
-Also relevant as background for [Module 8 — Reinforcement learning vocabulary](../syntheses/curriculum-08-rl-vocabulary.md), where MBRL / Dreamer-class methods can be framed as "RL doing approximate optimal control over a learned model."
+Also relevant as background for [Module 8 — Reinforcement learning vocabulary](../syntheses/curriculum/curriculum-08-rl-vocabulary.md), where MBRL / Dreamer-class methods can be framed as "RL doing approximate optimal control over a learned model."
 
 ## Position in the lineage
 
@@ -100,4 +100,4 @@ Also relevant as background for [Module 8 — Reinforcement learning vocabulary]
 - **The DS4DS Julia notebooks** are a candidate for a hands-on supplement to the curriculum — particularly Module 10's MPC section. Worth a follow-up evaluation pass.
 - **Koopman operator methods (DS4DS module 8)** — not yet ingested but increasingly cross-relevant to the world-model literature. Logged.
 - **An `entities/data-science-for-dynamical-systems.md` stub** — would let future ingests from the course attach cleanly. Defer until a second DS4DS lesson is ingested.
-- ✅ **Resolved 2026-05-14:** A wiki [`concepts/optimal-control.md`](../concepts/optimal-control.md) hub page was created using this video as the modern-pedagogy companion, paired with [Sussmann & Willems 1997](sussmann-willems-1997-300-years-optimal-control.md) (historical anchor) and [Sutton & Barto](sutton-barto-rl-textbook.md) (RL bridge).
+- ✅ **Resolved 2026-05-14:** A wiki [`concepts/optimal-control.md`](../concepts/robotics/optimal-control.md) hub page was created using this video as the modern-pedagogy companion, paired with [Sussmann & Willems 1997](sussmann-willems-1997-300-years-optimal-control.md) (historical anchor) and [Sutton & Barto](sutton-barto-rl-textbook.md) (RL bridge).

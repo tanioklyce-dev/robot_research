@@ -20,7 +20,7 @@ tags: [mujoco, physics-engine, deepmind, simulation, biomechanics]
 - Physics backend under [MuJoCo Playground](mujoco-playground.md) (via MJX), [Gymnasium-Robotics](gymnasium-robotics.md) (via vanilla bindings), and Hello Robot's wrappers ([Hello Robot Stretch Documentation](../sources/hello-robot-stretch-docs.md)).
 - Targeted as a **pluggable backend** by [Newton](newton-physics-engine.md) alongside Isaac/PhysX — Newton is positioned as compatible with both MuJoCo Playground and [Isaac Lab](nvidia-isaac-lab.md) ([NVIDIA Newton Physics Engine Developer Page](../sources/nvidia-newton-physics-engine-developer-page.md)).
 - Compared against [Genesis](genesis.md), NVIDIA PhysX, and Newton across throughput / accuracy axes in multiple sources.
-- **Biomechanical-simulation carrier.** Two parallel open-source *Drosophila* whole-body sims run on MuJoCo: [flybody](flybody.md) (HHMI Janelia + DeepMind, 2025 *Nature*; vanilla MuJoCo + phenomenological fluid + adhesion) and [NeuroMechFly v2](neuromechfly.md) (NeLy / EPFL; flygym v2.x.x in 2026; MuJoCo + optional Warp/MJWarp GPU backend, ~300× speedup). Both Apache-2.0. Both extend MuJoCo's reach beyond rigid-robot bodies into [biomechanical animal simulation](../concepts/biomechanical-simulation.md), continuing the DeepMind virtual-rodent pattern.
+- **Biomechanical-simulation carrier.** Two parallel open-source *Drosophila* whole-body sims run on MuJoCo: [flybody](flybody.md) (HHMI Janelia + DeepMind, 2025 *Nature*; vanilla MuJoCo + phenomenological fluid + adhesion) and [NeuroMechFly v2](neuromechfly.md) (NeLy / EPFL; flygym v2.x.x in 2026; MuJoCo + optional Warp/MJWarp GPU backend, ~300× speedup). Both Apache-2.0. Both extend MuJoCo's reach beyond rigid-robot bodies into [biomechanical animal simulation](../concepts/bio/biomechanical-simulation.md), continuing the DeepMind virtual-rodent pattern.
 
 ## History
 - Originally developed by Roboti LLC (Emo Todorov).
@@ -29,7 +29,7 @@ tags: [mujoco, physics-engine, deepmind, simulation, biomechanics]
 
 ## Why it matters here
 - Effectively the lingua franca of contact-rich robot simulation. If a paper says "we evaluate on Fetch" or "we use the Adroit benchmark" or "our envs use the Gymnasium API," a MuJoCo backend is implied.
-- The `mujoco` vs `mujoco-py` split is a real install-time hazard — see the `gym 0.21.0` saga in [LeWM howto](../syntheses/leworldmodel-howto.md). The legacy bindings are the primary reason ancient Gym pins are painful to install.
+- The `mujoco` vs `mujoco-py` split is a real install-time hazard — see the `gym 0.21.0` saga in [LeWM howto](../syntheses/world-models/leworldmodel-howto.md). The legacy bindings are the primary reason ancient Gym pins are painful to install.
 
 ## Related
 - [MuJoCo Playground](mujoco-playground.md) — JAX-on-MJX learning framework on top.
@@ -43,7 +43,7 @@ tags: [mujoco, physics-engine, deepmind, simulation, biomechanics]
 - [Farama Foundation Projects Page](../sources/farama-projects-page.md)
 - [Hello Robot Stretch Documentation](../sources/hello-robot-stretch-docs.md)
 - [Genesis Project Page](../sources/genesis-project-page.md)
-- [LeWorldModel — train and run howto](../syntheses/leworldmodel-howto.md) (legacy `mujoco-py` install hazard)
+- [LeWorldModel — train and run howto](../syntheses/world-models/leworldmodel-howto.md) (legacy `mujoco-py` install hazard)
 - [DINO-WM Paper](../sources/dino-wm-paper.md) — likely MuJoCo 2.1 backend per secondary research; project page silent on engine.
 - [flybody Paper](../sources/flybody-paper.md) — fly biomechanical sim built on vanilla MuJoCo.
 - [flybody GitHub](../sources/flybody-github.md)

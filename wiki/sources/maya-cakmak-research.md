@@ -34,8 +34,8 @@ Maya Cakmak's personal research overview page. Narrative account of her two rese
 - [Stretch](../entities/stretch.md) — Henry Evans deployments; EUP tool transfer to SE2
 
 ## Concepts touched
-- [Assistive robotics](../concepts/assistive-robotics.md) — physically assistive robots track
-- [End-user robot programming](../concepts/end-user-robot-programming.md) — EUP track
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md) — physically assistive robots track
+- [End-user robot programming](../concepts/robotics/end-user-robot-programming.md) — EUP track
 
 ## Open questions
 - Full publications on the Henry Evans deployments: are there HRI/RO-MAN papers specifically on the summer 2021/2022/2023 work, or is this described only in this narrative?

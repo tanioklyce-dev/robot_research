@@ -32,7 +32,7 @@ Coverage of [AGIBOT](../entities/agibot.md)'s CES 2026 launch of [AGIBOT Genie S
 
 ## Concepts touched
 - LLM-driven scene generation
-- [VLA models](../concepts/vla-models.md) benchmarking
+- [VLA models](../concepts/learning/vla-models.md) benchmarking
 - Closed-loop sim training
 
 ## Open questions

@@ -82,12 +82,12 @@ Three dimensions of adaptation in PAR research:
 
 ## Concepts touched
 
-- [Assistive robotics](../concepts/assistive-robotics.md)
-- [Accessible robot communication](../concepts/accessible-robot-communication.md) — §6.1.3 output-interface gap is the entry point for [Huh et al. 2026](huh2026-accessible-robot-comm.md)
-- [End-user robot programming](../concepts/end-user-robot-programming.md) — levels of autonomy + adaptation themes intersect with EUP
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md)
+- [Accessible robot communication](../concepts/robotics/accessible-robot-communication.md) — §6.1.3 output-interface gap is the entry point for [Huh et al. 2026](huh2026-accessible-robot-comm.md)
+- [End-user robot programming](../concepts/robotics/end-user-robot-programming.md) — levels of autonomy + adaptation themes intersect with EUP
 
 ## Mentioned in
-- [Assistive robotics — R&D landscape](../syntheses/assistive-robotics-research-landscape.md)
-- [Levels of autonomy in assistive robotics](../syntheses/levels-of-autonomy-in-assistive-robotics.md)
-- [Underserved PAR domains](../syntheses/underserved-par-domains.md)
+- [Assistive robotics — R&D landscape](../syntheses/assistive/assistive-robotics-research-landscape.md)
+- [Levels of autonomy in assistive robotics](../syntheses/assistive/levels-of-autonomy-in-assistive-robotics.md)
+- [Underserved PAR domains](../syntheses/assistive/underserved-par-domains.md)
 - [Designing Accessible Robot Communication for Blind People (Huh et al. 2026)](huh2026-accessible-robot-comm.md) — direct follow-up on §6.1.3 output-interface gap.

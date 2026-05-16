@@ -64,7 +64,7 @@ Per the project website: model composition, experimental replay, GPU acceleratio
 
 ## Concepts touched
 
-- [Biomechanical simulation](../concepts/biomechanical-simulation.md) — current state of the art for *Drosophila* with sensing + brain↔VNC architecture.
+- [Biomechanical simulation](../concepts/bio/biomechanical-simulation.md) — current state of the art for *Drosophila* with sensing + brain↔VNC architecture.
 
 ## Open questions
 

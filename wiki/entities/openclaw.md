@@ -16,7 +16,7 @@ tags: [openclaw, hiwonder, llm-agent, manipulation, ros2]
 - LLM-as-orchestrator pattern, same control architecture as [stretch_ai](stretch-ai.md). No VLA, no policy learning, no teleoperation.
 
 ## Why it matters
-Concrete demonstration that the [LLM-agent pattern](../concepts/llm-agent-architecture.md) scales from mobile-only ([ROSOrin](rosorin.md)) to manipulation-capable platforms in the same vendor's product line. The skill library expands; the architecture is unchanged. Educational-tier counterpart to [stretch_ai](stretch-ai.md)'s `PickupExecutor`.
+Concrete demonstration that the [LLM-agent pattern](../concepts/agents/llm-agent-architecture.md) scales from mobile-only ([ROSOrin](rosorin.md)) to manipulation-capable platforms in the same vendor's product line. The skill library expands; the architecture is unchanged. Educational-tier counterpart to [stretch_ai](stretch-ai.md)'s `PickupExecutor`.
 
 ## Notable demos (from chapter 13)
 - Color-based pick-and-place (red block).
@@ -30,7 +30,7 @@ Concrete demonstration that the [LLM-agent pattern](../concepts/llm-agent-archit
 - [Hiwonder](hiwonder.md) — vendor.
 - [ROSOrin Pro 6-DOF arm](rosorin-pro-arm.md) — the hardware OpenClaw drives.
 - [stretch_ai](stretch-ai.md) — sibling LLM-agent stack from Hello Robot, research tier.
-- [LLM-agent architecture](../concepts/llm-agent-architecture.md) — design pattern.
+- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — design pattern.
 
 ## Open questions
 - Open-source status — the "Open" prefix suggests yes but no GitHub URL surfaced in the chapter 13 docs.

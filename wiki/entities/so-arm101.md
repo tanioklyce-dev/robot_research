@@ -44,7 +44,7 @@ The leader-follower convention is the dominant data-collection pattern for imita
 - [LeKiwi](lekiwi.md) — default mobile-base companion
 - [XLeRobot](xlerobot.md) — dual-SO-ARM101 composition
 - [Franka Panda](franka-panda.md) — research-tier counterpart
-- [Imitation learning](../concepts/imitation-learning.md)
+- [Imitation learning](../concepts/learning/imitation-learning.md)
 
 ## Mentioned in
 

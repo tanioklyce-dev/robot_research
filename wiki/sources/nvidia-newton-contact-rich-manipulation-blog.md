@@ -25,7 +25,7 @@ NVIDIA technical blog announcing Newton 1.0 GA (announced at GTC 2026) as a prod
 - [NVIDIA](../entities/nvidia.md)
 
 ## Concepts touched
-- [Sim-to-real transfer](../concepts/sim-to-real-transfer.md)
+- [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md)
 - Contact-rich manipulation
 - Reinforcement learning for locomotion
 

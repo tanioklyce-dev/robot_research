@@ -36,8 +36,8 @@ Two-part survey study investigating how robot autonomy levels affect users' sens
 
 ## Concepts touched
 
-- [End-user robot programming](../concepts/end-user-robot-programming.md) — the paper's main design implication is that EUP is the best autonomy level for preserving sense of agency
-- [Assistive robotics](../concepts/assistive-robotics.md) — household task context
+- [End-user robot programming](../concepts/robotics/end-user-robot-programming.md) — the paper's main design implication is that EUP is the best autonomy level for preserving sense of agency
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md) — household task context
 
 ## Open questions
 

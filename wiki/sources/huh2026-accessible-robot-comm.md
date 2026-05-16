@@ -65,9 +65,9 @@ The first study finds that blind users **systematically overestimate their situa
 
 ## Concepts touched
 
-- [Accessible robot communication](../concepts/accessible-robot-communication.md)
-- [Assistive robotics](../concepts/assistive-robotics.md) — extends the "output interfaces are underexplored" gap flagged in the [Nanavati/Cakmak 2024 review](nanavati2024-physically-assistive-robots-review.md), §6.1.3
-- [LLM-agent architecture](../concepts/llm-agent-architecture.md) — narration pipeline is a streaming multimodal model (Gemini Live) consuming (video + joint-state + task plan) and emitting (speech + question-answering)
+- [Accessible robot communication](../concepts/robotics/accessible-robot-communication.md)
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md) — extends the "output interfaces are underexplored" gap flagged in the [Nanavati/Cakmak 2024 review](nanavati2024-physically-assistive-robots-review.md), §6.1.3
+- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — narration pipeline is a streaming multimodal model (Gemini Live) consuming (video + joint-state + task plan) and emitting (speech + question-answering)
 
 ## Open questions
 

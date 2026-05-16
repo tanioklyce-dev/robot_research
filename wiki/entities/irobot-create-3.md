@@ -33,7 +33,7 @@ status: stub
 - iRobot — manufacturer.
 - [TurtleBot](turtlebot.md) — TurtleBot 4 uses Create 3 as base.
 - [ROSOrin](rosorin.md) — competing educational mobile-robot kit (more integrated).
-- [Robot platforms comparison](../syntheses/robot-platforms-comparison.md) — base-tier hardware context.
+- [Robot platforms comparison](../syntheses/platforms/robot-platforms-comparison.md) — base-tier hardware context.
 
 ## Mentioned in
 - *(no source pages directly cite Create 3; entity built from general knowledge)*

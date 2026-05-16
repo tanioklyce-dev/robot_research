@@ -47,8 +47,8 @@ Official open-source release of [flybody](../entities/flybody.md) — the anatom
 
 ## Concepts touched
 
-- [Biomechanical simulation](../concepts/biomechanical-simulation.md) — the open-source artifact for fly biomechanics.
-- [Imitation learning](../concepts/imitation-learning.md) — DMPO imitation against real-fly kinematics.
+- [Biomechanical simulation](../concepts/bio/biomechanical-simulation.md) — the open-source artifact for fly biomechanics.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — DMPO imitation against real-fly kinematics.
 
 ## Open questions
 

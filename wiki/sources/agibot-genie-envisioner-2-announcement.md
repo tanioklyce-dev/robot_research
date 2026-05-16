@@ -24,7 +24,7 @@ Announcement of [Genie Envisioner](../entities/genie-envisioner.md) 2.0 (GE-Sim2
 - [NVIDIA Cosmos](../entities/nvidia-cosmos.md)
 
 ## Concepts touched
-- [World-model simulators](../concepts/world-model-simulators.md)
+- [World-model simulators](../concepts/world-models/world-model-simulators.md)
 - World Action Model framework
 - Generative-model-based training environments
 

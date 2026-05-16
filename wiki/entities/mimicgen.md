@@ -19,7 +19,7 @@ Synthetic data-generation tool used by [RoboCasa](robocasa.md) / RoboCasa365 to 
 ## Related
 - [RoboCasa](robocasa.md) — primary downstream consumer.
 - [NVIDIA GEAR](nvidia-gear.md) — originating research lab.
-- [Imitation learning](../concepts/imitation-learning.md) — MimicGen expands demonstrations used for behavior cloning.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — MimicGen expands demonstrations used for behavior cloning.
 
 ## Mentioned in
 - [RoboCasa365 Paper](../sources/robocasa365-paper.md)

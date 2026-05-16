@@ -17,12 +17,12 @@ tags: [video, reproduction, leworldmodel, lewm, jepa, sigreg, two-room, rtx-3060
 
 ## Summary
 
-**A walk-through video where the host trains [LeWM](../entities/leworldmodel.md) from scratch on Two Room** using the official `stable-worldmodel` repo, on a 5-year-old consumer GPU (RTX 3060, 12 GB VRAM) running WSL2 on Windows, using Claude Code as the implementation assistant. The first half is a popular-explainer for [JEPA](../concepts/jepa.md) and the LeWM paper's contribution; the second half is the actual reproduction. Result: **92% success rate on Two Room** (paper: 97%) after **4 epochs / ~8 hours of training** (paper: 10 epochs on an L40S in a few hours).
+**A walk-through video where the host trains [LeWM](../entities/leworldmodel.md) from scratch on Two Room** using the official `stable-worldmodel` repo, on a 5-year-old consumer GPU (RTX 3060, 12 GB VRAM) running WSL2 on Windows, using Claude Code as the implementation assistant. The first half is a popular-explainer for [JEPA](../concepts/world-models/jepa.md) and the LeWM paper's contribution; the second half is the actual reproduction. Result: **92% success rate on Two Room** (paper: 97%) after **4 epochs / ~8 hours of training** (paper: 10 epochs on an L40S in a few hours).
 
-**Why this matters to the wiki.** Until this ingest, **the wiki had no independent reproduction of LeWM on record** — everything was paper-derived. This video is **the first concrete data point that LeWM trains and produces paper-ballpark numbers on consumer hardware**, validating the [LeWM hello-world project scope](../syntheses/lewm-hello-world-project-scope.md) and the [LeWM howto](../syntheses/leworldmodel-howto.md) as feasible. Specifically:
+**Why this matters to the wiki.** Until this ingest, **the wiki had no independent reproduction of LeWM on record** — everything was paper-derived. This video is **the first concrete data point that LeWM trains and produces paper-ballpark numbers on consumer hardware**, validating the [LeWM hello-world project scope](../syntheses/projects/lewm-hello-world-project-scope.md) and the [LeWM howto](../syntheses/world-models/leworldmodel-howto.md) as feasible. Specifically:
 
 - **Hardware floor lowered.** The paper's headline GPU is an L40S (181 TFLOPS). This reproduction lands paper-ballpark Two Room numbers on an **RTX 3060 (13 TFLOPS, ~14× slower)** — i.e. the project is trainable on hobbyist hardware in single-overnight runs.
-- **End-to-end pipeline works.** The host successfully runs `stable-worldmodel` install + LEWM training + CEM-MPC evaluation through a series of WSL2 gotchas (Python version downgrade, batch-size-128 OOM → batch 64 + 2× grad accumulation, `expandable_segments` tweak, num_workers 4→2 for CUDA-stability). The four gotchas the [LeWM howto](../syntheses/leworldmodel-howto.md) documents are corroborated.
+- **End-to-end pipeline works.** The host successfully runs `stable-worldmodel` install + LEWM training + CEM-MPC evaluation through a series of WSL2 gotchas (Python version downgrade, batch-size-128 OOM → batch 64 + 2× grad accumulation, `expandable_segments` tweak, num_workers 4→2 for CUDA-stability). The four gotchas the [LeWM howto](../syntheses/world-models/leworldmodel-howto.md) documents are corroborated.
 - **Training dynamics roughly match the paper.** Prediction loss: 0.08 → 0.014 (paper: 0.25 → ~0). SIGReg loss: 28 → 1.4 (paper: 40 → ~0). The host explicitly comments that the **SIGReg loss curve descending alongside the prediction loss** is the no-collapse signal — corroborating the curriculum's framing.
 
 **Quality caveat.** This is a popular-explainer video, not a research artifact. The host appears to use Claude Code throughout for both planning and execution; some technical descriptions are slightly imprecise (e.g., conflating Two Room being the "smallest" environment with it being the "easiest"). Treat the *outcome* (92% on Two Room) as the load-bearing claim; the *narration* is curriculum-orientation material, not a paper-quality source.
@@ -37,7 +37,7 @@ tags: [video, reproduction, leworldmodel, lewm, jepa, sigreg, two-room, rtx-3060
 
 ## Training notes (the gotchas)
 
-The host worked through several issues that **directly mirror the four gotchas the [LeWM howto](../syntheses/leworldmodel-howto.md) documents**:
+The host worked through several issues that **directly mirror the four gotchas the [LeWM howto](../syntheses/world-models/leworldmodel-howto.md) documents**:
 
 1. **Python version mismatch** — newest Python broke dependencies; had to downgrade.
 2. **Batch 128 OOM at training time** (forward pass fits, full training state doesn't on 12 GB). Resolved via batch 64 + 2× gradient accumulation for an effective batch of 128.
@@ -72,7 +72,7 @@ The framing is on-point but pop-rendered; **for the wiki this video is the popul
 
 ## What the video confirms that the wiki was previously inferring
 
-1. **LeWM trains on 12 GB consumer GPUs.** The [LeWM-on-ROSOrin-Pro feasibility analysis](../syntheses/lewm-on-rosorin-pro-feasibility.md) and [LeWM hello-world project scope](../syntheses/lewm-hello-world-project-scope.md) assumed this; this video is the first independent confirmation.
+1. **LeWM trains on 12 GB consumer GPUs.** The [LeWM-on-ROSOrin-Pro feasibility analysis](../syntheses/projects/lewm-on-rosorin-pro-feasibility.md) and [LeWM hello-world project scope](../syntheses/projects/lewm-hello-world-project-scope.md) assumed this; this video is the first independent confirmation.
 2. **The `stable-worldmodel` install is the friction point, not the science.** Most of the host's day was spent on Python versions, WSL2 quirks, and batch sizing — not on understanding the architecture or hyperparameters.
 3. **SIGReg loss descending alongside the prediction loss is the no-collapse signal.** The curriculum (Module 12) frames this as the diagnostic to watch; the host independently arrives at the same diagnostic in the video.
 4. **Two Room is a real environment, fully runnable.** Earlier wiki entries flagged Two Room as "the LeWM failure-mode environment" — the paper's Two Room result is *weaker* than PLDM (it's where SIGReg's isotropic-Gaussian assumption is most strained). This video shows the failure-mode result is still 92% on consumer hardware, i.e. **"weakest result" is not "broken."**
@@ -86,10 +86,10 @@ The framing is on-point but pop-rendered; **for the wiki this video is the popul
 
 ## Concepts touched
 
-- **[JEPA](../concepts/jepa.md)** — primary topic of the explainer half.
-- **[Joint-Embedding Predictive Architecture / Siamese ancestors](../concepts/siamese-network.md)** — implicit; the host frames LeWM as JEPA-as-research-program.
-- **[Latent space](../concepts/latent-space.md)** — the "latent vector Z" the encoder produces.
-- **[World model](../concepts/world-model.md)** — the "world model level" of prediction the host distinguishes from "latent level" and "token level."
+- **[JEPA](../concepts/world-models/jepa.md)** — primary topic of the explainer half.
+- **[Joint-Embedding Predictive Architecture / Siamese ancestors](../concepts/world-models/siamese-network.md)** — implicit; the host frames LeWM as JEPA-as-research-program.
+- **[Latent space](../concepts/world-models/latent-space.md)** — the "latent vector Z" the encoder produces.
+- **[World model](../concepts/world-models/world-model.md)** — the "world model level" of prediction the host distinguishes from "latent level" and "token level."
 - **SIGReg** — named ("Sig Reg") and shown as a loss curve; explained as the no-collapse signal.
 - **CEM-MPC** — the host names "CEM (Cross Entropy Method)" as the search algorithm used in evaluation. Light treatment, but correct.
 
@@ -97,13 +97,13 @@ The framing is on-point but pop-rendered; **for the wiki this video is the popul
 
 This video is the **first independent reproduction artifact** in the wiki. Add as supplementary material to:
 
-- **[Curriculum Module 12 — LeWorldModel deep-dive](../syntheses/curriculum-12-lewm-deep-dive.md)** — popular-explainer + reproduction companion to the paper.
-- **[LeWorldModel — train and run howto](../syntheses/leworldmodel-howto.md)** — corroborates the four gotchas the howto already documents.
-- **[LeWM hello-world project scope](../syntheses/lewm-hello-world-project-scope.md)** — concrete prior art for "what happens when someone outside the paper authors reproduces LeWM."
+- **[Curriculum Module 12 — LeWorldModel deep-dive](../syntheses/curriculum/curriculum-12-lewm-deep-dive.md)** — popular-explainer + reproduction companion to the paper.
+- **[LeWorldModel — train and run howto](../syntheses/world-models/leworldmodel-howto.md)** — corroborates the four gotchas the howto already documents.
+- **[LeWM hello-world project scope](../syntheses/projects/lewm-hello-world-project-scope.md)** — concrete prior art for "what happens when someone outside the paper authors reproduces LeWM."
 
 ## Open questions / TBD
 
-- **Was this *actually* a from-scratch train, or did the host use a HuggingFace pretrained checkpoint?** The host says training was from scratch, and the loss curves shown are training curves — but the wiki's [hello-world scope](../syntheses/lewm-hello-world-project-scope.md) explicitly contrasts "loading the `quentinll/lewm-pusht` HF checkpoint" with "training from scratch." If a follow-up reproduction is desired, distinguishing these is critical.
+- **Was this *actually* a from-scratch train, or did the host use a HuggingFace pretrained checkpoint?** The host says training was from scratch, and the loss curves shown are training curves — but the wiki's [hello-world scope](../syntheses/projects/lewm-hello-world-project-scope.md) explicitly contrasts "loading the `quentinll/lewm-pusht` HF checkpoint" with "training from scratch." If a follow-up reproduction is desired, distinguishing these is critical.
 - **The host's prediction-loss starting value (0.08) is substantially lower than the paper's (0.25)** — possibly due to a different normalization, Two Room being simpler than PushT, or different hyperparameters. Worth checking against `stable-worldmodel` defaults.
 - **Newsletter URL** (`on-chain-ai-garage.com`) is mentioned verbally but not verified. If the author becomes a recurring source, this is worth confirming.
 - **The host's use of Claude Code throughout** is wiki-relevant — it's the first example in the wiki of someone using a coding agent end-to-end to drive a JEPA reproduction. The pattern (plan in main session → handoff markdown → execute in WSL session) is a generalizable template.

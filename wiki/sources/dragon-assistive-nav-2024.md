@@ -46,10 +46,10 @@ To the authors' knowledge it is the **first work to show that visual-language gr
 
 ## Concepts touched
 
-- [Assistive robotics](../concepts/assistive-robotics.md) — navigation-domain PAR for visual impairment (one of the three "spikes" identified in the [Nanavati/Cakmak PAR review](nanavati2024-physically-assistive-robots-review.md))
-- [Accessible robot communication](../concepts/accessible-robot-communication.md) — kinesthetic + verbal multimodal output; relates to monitoring/transparency strategies for non-visual users
-- [LLM-agent architecture](../concepts/llm-agent-architecture.md) — dialogue intent recognition + module routing pattern (DRAGON predates LLM-as-router; intents go through a trained classifier instead)
-- [VLA models](../concepts/vla-models.md) — note: DRAGON is *not* a VLA in the modern sense; it composes a VL grounding model (CLIP) with a classical planner
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md) — navigation-domain PAR for visual impairment (one of the three "spikes" identified in the [Nanavati/Cakmak PAR review](nanavati2024-physically-assistive-robots-review.md))
+- [Accessible robot communication](../concepts/robotics/accessible-robot-communication.md) — kinesthetic + verbal multimodal output; relates to monitoring/transparency strategies for non-visual users
+- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — dialogue intent recognition + module routing pattern (DRAGON predates LLM-as-router; intents go through a trained classifier instead)
+- [VLA models](../concepts/learning/vla-models.md) — note: DRAGON is *not* a VLA in the modern sense; it composes a VL grounding model (CLIP) with a classical planner
 
 ## Open questions
 

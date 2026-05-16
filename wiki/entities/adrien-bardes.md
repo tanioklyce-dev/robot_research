@@ -22,12 +22,12 @@ Three papers in nine months, all FAIR JEPA work. If the wiki tracked author cent
 - 2025–present: V-JEPA program co-leadership at FAIR.
 
 ## Why it matters in this wiki
-The [revised "JEPA + sim" synthesis](../syntheses/why-jepa-research-skips-the-simulator-stack.md) argues that the same FAIR group that produced V-JEPA 2 (no sim) released JEPA-WMs (heavy sim) within 6 months. **Bardes is the bridge author** that makes this a "same group" claim and not just a "FAIR umbrella" claim — he co-senior'd both papers. When tracking the trajectory of FAIR's JEPA research direction, Bardes's next paper is the leading indicator.
+The [revised "JEPA + sim" synthesis](../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md) argues that the same FAIR group that produced V-JEPA 2 (no sim) released JEPA-WMs (heavy sim) within 6 months. **Bardes is the bridge author** that makes this a "same group" claim and not just a "FAIR umbrella" claim — he co-senior'd both papers. When tracking the trajectory of FAIR's JEPA research direction, Bardes's next paper is the leading indicator.
 
 ## Related
 - [Meta FAIR](meta-fair.md) — affiliation.
 - [Yann LeCun](yann-lecun.md) — frequent co-senior collaborator.
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — research program.
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — research program.
 - [V-JEPA 2](v-jepa-2.md) / [JEPA-WMs](jepa-wms.md) — primary papers.
 
 ## Mentioned in

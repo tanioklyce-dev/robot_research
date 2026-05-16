@@ -26,7 +26,7 @@ status: stub
 - [Boston Dynamics](boston-dynamics.md) — manufacturer.
 - [Spot](spot.md) — sibling product (commercial quadruped); the BD platform that has the public foundation-model integration story (Atlas does not).
 - Hyundai — owner.
-- [Robot platforms comparison](../syntheses/robot-platforms-comparison.md) / [Humanoid platforms survey](../syntheses/humanoid-platforms-survey.md) — landscape context.
+- [Robot platforms comparison](../syntheses/platforms/robot-platforms-comparison.md) / [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — landscape context.
 - [Unitree H1](unitree-h1.md) / [Figure](figure.md) / [Apptronik Apollo](apptronik-apollo.md) — competitors at the research-humanoid tier.
 
 ## Mentioned in

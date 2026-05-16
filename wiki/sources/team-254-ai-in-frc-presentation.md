@@ -38,7 +38,7 @@ A 45-minute conference presentation by [Team 254 (The Cheesy Poofs)](../entities
 - Acknowledged as experimental; best results require stronger orchestrator models; all outputs require normal engineering review.
 
 ### AI-based computer vision
-- Demystifying CV applications: object detection (game pieces), [AprilTag](../concepts/apriltags.md) localization, and integration with motion control.
+- Demystifying CV applications: object detection (game pieces), [AprilTag](../concepts/robotics/apriltags.md) localization, and integration with motion control.
 - Teams use YOLOv5/v8 on Jetson hardware; RoboFlow for dataset annotation.
 
 ### Scouting data analysis
@@ -80,11 +80,11 @@ Mixed, with several recurring themes from the Chief Delphi discussion (5+ pages)
 - [Team 254 (The Cheesy Poofs)](../entities/team-254.md)
 - [FIRST Robotics Competition](../entities/first-robotics-competition.md)
 - [roboRIO](../entities/roborio.md) (via WPILib simulation)
-- [AprilTags](../concepts/apriltags.md) (vision applications)
+- [AprilTags](../concepts/robotics/apriltags.md) (vision applications)
 
 ## Concepts touched
-- [LLM-agent architecture](../concepts/llm-agent-architecture.md) — closed-loop agents running simulations, analyzing logs, deploying code
-- [Sim-to-real transfer](../concepts/sim-to-real-transfer.md) — simulation sandbox → real robot deployment pipeline
+- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — closed-loop agents running simulations, analyzing logs, deploying code
+- [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md) — simulation sandbox → real robot deployment pipeline
 
 ## Open questions
 - Will Team 254 publish the slide deck? (Requested but not yet available as of ingestion.)

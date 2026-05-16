@@ -8,7 +8,7 @@ sources: 2
 tags: [agibot, genie-sim, embodied-ai, isaac-sim, scene-generation]
 ---
 
-Open-source embodied-AI simulation platform from [AGIBOT](agibot.md), unveiled at CES 2026. Built on top of [NVIDIA Isaac Sim](nvidia-isaac-sim.md) / Omniverse, with LLM-driven scene generation and a large evaluation suite for [VLA models](../concepts/vla-models.md).
+Open-source embodied-AI simulation platform from [AGIBOT](agibot.md), unveiled at CES 2026. Built on top of [NVIDIA Isaac Sim](nvidia-isaac-sim.md) / Omniverse, with LLM-driven scene generation and a large evaluation suite for [VLA models](../concepts/learning/vla-models.md).
 
 ## Capabilities
 - Decoupled physics + rendering; physics up to 1,000 Hz.
@@ -22,7 +22,7 @@ Open-source embodied-AI simulation platform from [AGIBOT](agibot.md), unveiled a
 - Fully open source: assets, datasets, evaluation code on GitHub.
 
 ## Why it matters
-Combines a research-grade evaluation harness (largest open embodied-AI dataset, 100k+ scenarios) with practical LLM-driven authoring — making it one of the most complete open stacks for benchmarking [VLA models](../concepts/vla-models.md) in 2026.
+Combines a research-grade evaluation harness (largest open embodied-AI dataset, 100k+ scenarios) with practical LLM-driven authoring — making it one of the most complete open stacks for benchmarking [VLA models](../concepts/learning/vla-models.md) in 2026.
 
 ## Related
 - [AGIBOT](agibot.md) — maintainer.

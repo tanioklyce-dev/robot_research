@@ -24,7 +24,7 @@ Reflected on cross-institutional approaches to including PwD in PAR research des
 ## Related
 - [HCR Lab](hcrlab.md) — home lab
 - [Maya Cakmak](maya-cakmak.md) — PI
-- [Assistive robotics](../concepts/assistive-robotics.md)
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md)
 
 ## Mentioned in
 - [Lessons Learned — Robot-assisted Feeding System for Out-of-lab Use](../sources/nanavati2025-feeding-out-of-lab.md)

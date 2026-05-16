@@ -34,7 +34,7 @@ DINOv2 is the **substrate** for an entire branch of the JEPA-adjacent world-mode
 - **[DINO-world](dino-world.md)** ([paper](../sources/dino-world-paper.md)) — DINOv2 features for video world models. Title literally is *"Back to the Features: DINO as a Foundation for Video World Models."*
 - **[JEPA-WMs](jepa-wms.md)** ([paper](../sources/jepa-wms-paper.md)) — likely uses DINOv2-feature predictor (DINO-world's design point evolves into JEPA-WMs); explicit framing in paper body should confirm.
 
-This makes DINOv2 the most consequential **non-JEPA** building block in the JEPA-for-robotics line. The design choice of *frozen DINOv2 vs. end-to-end-trained encoder* is itself an axis of the [JEPA](../concepts/jepa.md) design space — see [LeWorldModel](leworldmodel.md) for the end-to-end alternative.
+This makes DINOv2 the most consequential **non-JEPA** building block in the JEPA-for-robotics line. The design choice of *frozen DINOv2 vs. end-to-end-trained encoder* is itself an axis of the [JEPA](../concepts/world-models/jepa.md) design space — see [LeWorldModel](leworldmodel.md) for the end-to-end alternative.
 
 ## Position vs other foundation models
 - **Self-supervised, not supervised** — contrast with CLIP / SigLIP / EVA family (image-text-paired).
@@ -43,9 +43,9 @@ This makes DINOv2 the most consequential **non-JEPA** building block in the JEPA
 
 ## Related
 - [Meta FAIR](meta-fair.md) — origin lab.
-- [Learned latent space](../concepts/latent-space.md) — DINOv2's 768-dim embedding is the substrate that downstream JEPA-adjacent models (DINO-WM / DINO-world / JEPA-WMs) freeze and predict in.
+- [Learned latent space](../concepts/world-models/latent-space.md) — DINOv2's 768-dim embedding is the substrate that downstream JEPA-adjacent models (DINO-WM / DINO-world / JEPA-WMs) freeze and predict in.
 - [DINO-WM](dino-wm.md) / [DINO-world](dino-world.md) / [JEPA-WMs](jepa-wms.md) — primary downstream consumers in this wiki.
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — JEPA family. DINOv2 is JEPA-adjacent (encoder trained without action-conditioning) but predates the action-conditioned JEPA-WM line.
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — JEPA family. DINOv2 is JEPA-adjacent (encoder trained without action-conditioning) but predates the action-conditioned JEPA-WM line.
 - [LeWorldModel](leworldmodel.md) — end-to-end alternative to frozen-DINOv2 design.
 
 ## Successor: DINOv3

@@ -111,7 +111,7 @@ The third option is essentially the direction the rest of the JEPA program took 
 
 ## How this paper relates to LeWM / LeJEPA / PLDM
 
-- **The "slow features" framing** is the *positive* claim that motivates JEPA-as-WM: a JEPA preferentially captures slowly-varying features, which is exactly what's useful for control. [Module 11](../syntheses/curriculum-11-jepa-deep.md) §2 ("What 'joint embedding' means") draws on this representational argument.
+- **The "slow features" framing** is the *positive* claim that motivates JEPA-as-WM: a JEPA preferentially captures slowly-varying features, which is exactly what's useful for control. [Module 11](../syntheses/curriculum/curriculum-11-jepa-deep.md) §2 ("What 'joint embedding' means") draws on this representational argument.
 - **The fixed-distractor failure mode** is the *negative* claim that motivates everything else in the JEPA program: VICReg + SimCLR are not enough. You need *additional* mechanisms (temporal-constancy regularization, EMA, frozen encoders, or [SIGReg](../glossary.md#sigreg)) to prevent the slowest-feature-wins collapse.
 - **PLDM 2025** ([source](pldm-paper.md)) is the planning-and-stress-test followup. The 2022 paper's diagnostic motivates the 2025 paper's choice of multi-term anti-collapse loss (VICReg-inspired + inverse-dynamics + similarity).
 
@@ -122,8 +122,8 @@ The third option is essentially the direction the rest of the JEPA program took 
 
 ## Concepts touched
 
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — this paper's central diagnosis.
-- [Learned latent space](../concepts/latent-space.md) — what the slow-features framing is about.
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — this paper's central diagnosis.
+- [Learned latent space](../concepts/world-models/latent-space.md) — what the slow-features framing is about.
 
 ## Open questions / TBD
 

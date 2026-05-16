@@ -12,7 +12,7 @@ tags: [vla-jepa, jepa, vla-models, libero, simplerenv, world-model]
 ---
 
 ## Summary
-**VLA-JEPA — "Enhancing Vision-Language-Action Model with Latent World Model."** Augments a [VLA](../concepts/vla-models.md) policy with a JEPA-style latent world-model objective: "leakage-free state prediction" where a target encoder produces latent representations from future frames while the student pathway sees only the current observation. Trains/evaluates on **LIBERO, LIBERO-Plus, SimplerEnv**, plus real-world manipulation. **First JEPA paper in this wiki to use mid-weight sim (SimplerEnv)** — sits between LeWM-style lightweight benches and Terver et al.'s RoboCasa.
+**VLA-JEPA — "Enhancing Vision-Language-Action Model with Latent World Model."** Augments a [VLA](../concepts/learning/vla-models.md) policy with a JEPA-style latent world-model objective: "leakage-free state prediction" where a target encoder produces latent representations from future frames while the student pathway sees only the current observation. Trains/evaluates on **LIBERO, LIBERO-Plus, SimplerEnv**, plus real-world manipulation. **First JEPA paper in this wiki to use mid-weight sim (SimplerEnv)** — sits between LeWM-style lightweight benches and Terver et al.'s RoboCasa.
 
 ## Key claims
 - "Leakage-free state prediction": target encoder produces latent representations from future frames; student sees only current observation.
@@ -25,11 +25,11 @@ tags: [vla-jepa, jepa, vla-models, libero, simplerenv, world-model]
 - (LIBERO and SimplerEnv are referenced but do not yet have entity pages — added to known-gaps.)
 
 ## Concepts touched
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — JEPA-as-auxiliary-objective in a VLA pipeline.
-- [VLA models](../concepts/vla-models.md) — policy class.
-- [World model](../concepts/world-model.md) — JEPA-as-auxiliary design point.
-- [World-model simulators](../concepts/world-model-simulators.md) — latent-prediction paradigm.
-- [Learned latent space](../concepts/latent-space.md) — JEPA prediction inside a VLA's representation space; auxiliary, not the primary objective.
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — JEPA-as-auxiliary-objective in a VLA pipeline.
+- [VLA models](../concepts/learning/vla-models.md) — policy class.
+- [World model](../concepts/world-models/world-model.md) — JEPA-as-auxiliary design point.
+- [World-model simulators](../concepts/world-models/world-model-simulators.md) — latent-prediction paradigm.
+- [Learned latent space](../concepts/world-models/latent-space.md) — JEPA prediction inside a VLA's representation space; auxiliary, not the primary objective.
 
 ## Open questions
 - Code/project URL not surfaced from the abstract page.
@@ -44,4 +44,4 @@ VLA-JEPA is a **third design point** in the JEPA-for-robotics taxonomy:
 - [JEPA-WMs (Terver et al.)](jepa-wms-paper.md) — RoboCasa + Metaworld + real Franka.
 - **VLA-JEPA — JEPA-as-auxiliary-objective inside a VLA policy, evaluated on LIBERO + SimplerEnv + real.**
 
-The simulator-environments-of-choice are now **fragmenting across the JEPA literature**, not consolidating. This makes the simple "JEPA skips heavy sim" pattern from the [original synthesis](../syntheses/why-jepa-research-skips-the-simulator-stack.md) hard to defend.
+The simulator-environments-of-choice are now **fragmenting across the JEPA literature**, not consolidating. This makes the simple "JEPA skips heavy sim" pattern from the [original synthesis](../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md) hard to defend.

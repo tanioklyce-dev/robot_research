@@ -18,13 +18,13 @@ Open-source Python software stack from [Hello Robot](hello-robot.md) for the [St
 - **Tool primitives** the LLM can call: `pickup`, `explore`, `place`, `say`, `wave`, `nod_head`, `find`, `go_home`, etc.
 
 ## Why it matters
-Most concrete public example of an **LLM-controlled real-robot stack**. Unlike [VLA models](../concepts/vla-models.md) (which learn end-to-end action prediction) or [world-model simulators](../concepts/world-model-simulators.md) (which provide training environments), stretch_ai's LLM agent invokes deterministic perception/manipulation primitives on hardware. This is the "[LLM-agent architecture](../concepts/llm-agent-architecture.md)" pattern in shipped form.
+Most concrete public example of an **LLM-controlled real-robot stack**. Unlike [VLA models](../concepts/learning/vla-models.md) (which learn end-to-end action prediction) or [world-model simulators](../concepts/world-models/world-model-simulators.md) (which provide training environments), stretch_ai's LLM agent invokes deterministic perception/manipulation primitives on hardware. This is the "[LLM-agent architecture](../concepts/agents/llm-agent-architecture.md)" pattern in shipped form.
 
 ## Related
 - [Hello Robot](hello-robot.md) — maintainer.
 - [Stretch](stretch.md) — target platform.
-- [LLM-agent architecture](../concepts/llm-agent-architecture.md) — design pattern.
-- [VLA models](../concepts/vla-models.md) — competing paradigm.
+- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — design pattern.
+- [VLA models](../concepts/learning/vla-models.md) — competing paradigm.
 
 ## Mentioned in
 - [Hello Robot Stretch Documentation](../sources/hello-robot-stretch-docs.md)

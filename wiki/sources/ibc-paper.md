@@ -53,7 +53,7 @@ From [Diffusion Policy Paper](diffusion-policy-paper.md) §I, §V, §VII:
 
 ## Concepts touched
 
-- [Imitation learning](../concepts/imitation-learning.md) — IBC sits in the BC family but as an *implicit* (energy-based) variant.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — IBC sits in the BC family but as an *implicit* (energy-based) variant.
 - Energy-based models (no entity page; could become one if more EBM-line work surfaces).
 - Multi-modal action distributions — the same modeling challenge that motivates [Diffusion Policy](../entities/diffusion-policy.md), [VQ-BeT](../entities/vq-bet.md), [BET](../entities/bet.md).
 

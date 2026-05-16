@@ -63,17 +63,17 @@ A single, anatomically constrained LIF model — wiring straight from the connec
 
 ## Concepts touched
 
-- [Connectome](../concepts/connectome.md) — the input substrate.
-- [Biomechanical simulation](../concepts/biomechanical-simulation.md) — companion thread; this paper is brain-only.
+- [Connectome](../concepts/bio/connectome.md) — the input substrate.
+- [Biomechanical simulation](../concepts/bio/biomechanical-simulation.md) — companion thread; this paper is brain-only.
 
 ## Open questions
 
-- **No body, no environment.** The model takes synthetic spike inputs to designated sensory neurons and reads out spike outputs from designated motor neurons. There is no fly body, no MuJoCo coupling, no closed loop. Pairing it with [flybody](../entities/flybody.md) is the obvious next step but is not implemented in this paper or its repo. See [Whole-organism agentic AI](../syntheses/whole-organism-agentic-ai.md).
+- **No body, no environment.** The model takes synthetic spike inputs to designated sensory neurons and reads out spike outputs from designated motor neurons. There is no fly body, no MuJoCo coupling, no closed loop. Pairing it with [flybody](../entities/flybody.md) is the obvious next step but is not implemented in this paper or its repo. See [Whole-organism agentic AI](../syntheses/agents/whole-organism-agentic-ai.md).
 - **No learning.** All "weights" are connectome-given counts × `Wsyn` × ±polarity. No plasticity, no training. This is intentional — the paper's claim is precisely that the connectome alone is enough — but it limits the model to circuits where intrinsic dynamics and neuromodulation are not load-bearing.
 - **Excluded biology.** No gap junctions (EM invisibility), no neuropeptides, no glia, no non-spiking neurons, no morphologically detailed compartments. The authors flag circuits with "extensive basal inhibition" or heavy neuromodulation as poorly predicted; absolute firing rates are not expected to match real recordings.
 - **Glutamate uniformly inhibitory** — known oversimplification; in vivo polarity varies by receptor.
 
 ## Why it matters here
 
-- **Closes a wiki gap.** This paper was [previously TBD](../syntheses/whole-organism-agentic-ai.md) — only its [Berkeley News writeup](berkeley-fly-brain-news.md) was ingested. Now we have the primary source, the runtime substrate (Brian 2), and the actual reproducibility surface (MIT-licensed Python repo + bundled connectivity data + external simulation archive).
-- **First half of the brain-side reproducibility answer.** Combined with [Lappalainen et al. 2024](lappalainen-flyvis-paper.md) (connectome-constrained deep nets), this defines two distinct, both-open-source ways to *use* a connectome — see the two paradigms now documented on [Connectome](../concepts/connectome.md).
+- **Closes a wiki gap.** This paper was [previously TBD](../syntheses/agents/whole-organism-agentic-ai.md) — only its [Berkeley News writeup](berkeley-fly-brain-news.md) was ingested. Now we have the primary source, the runtime substrate (Brian 2), and the actual reproducibility surface (MIT-licensed Python repo + bundled connectivity data + external simulation archive).
+- **First half of the brain-side reproducibility answer.** Combined with [Lappalainen et al. 2024](lappalainen-flyvis-paper.md) (connectome-constrained deep nets), this defines two distinct, both-open-source ways to *use* a connectome — see the two paradigms now documented on [Connectome](../concepts/bio/connectome.md).

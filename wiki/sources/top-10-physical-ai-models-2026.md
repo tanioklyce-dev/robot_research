@@ -9,7 +9,7 @@ tags: [survey, vla, physical-ai, listicle]
 ---
 
 ## Summary
-MarkTechPost listicle surveying ten leading physical-AI / [VLA models](../concepts/vla-models.md) in early 2026, including NVIDIA GR00T N1.7, SmolVLA, and Ant Group's LingBot-VLA.
+MarkTechPost listicle surveying ten leading physical-AI / [VLA models](../concepts/learning/vla-models.md) in early 2026, including NVIDIA GR00T N1.7, SmolVLA, and Ant Group's LingBot-VLA.
 
 ## Key claims
 - NVIDIA GR00T N1.7 Early Access is a 3B-parameter open, commercially licensed VLA built on a Cosmos-Reason2-2B backbone.
@@ -21,7 +21,7 @@ MarkTechPost listicle surveying ten leading physical-AI / [VLA models](../concep
 - [NVIDIA Cosmos](../entities/nvidia-cosmos.md)
 
 ## Concepts touched
-- [VLA models](../concepts/vla-models.md)
+- [VLA models](../concepts/learning/vla-models.md)
 - Open vs. closed VLA licensing
 - Egocentric pretraining datasets
 

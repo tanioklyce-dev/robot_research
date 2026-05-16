@@ -94,8 +94,8 @@ The submission IDs are non-contiguous and reach ~400, so the **total submission 
 
 ## Concepts touched
 
-- [Imitation learning](../concepts/imitation-learning.md) — the dominant learning paradigm across hackathon submissions; teams collected demonstration datasets and trained policies (default ACT) following the canonical 7-step LeRobot workflow.
-- [Assistive robotics](../concepts/assistive-robotics.md) — adjacent: hackathon proves the community-scale feasibility of $1k-class mobile manipulators, which is the bet underlying [XLeRobot](../entities/xlerobot.md) and similar accessible-robotics platforms.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — the dominant learning paradigm across hackathon submissions; teams collected demonstration datasets and trained policies (default ACT) following the canonical 7-step LeRobot workflow.
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md) — adjacent: hackathon proves the community-scale feasibility of $1k-class mobile manipulators, which is the bet underlying [XLeRobot](../entities/xlerobot.md) and similar accessible-robotics platforms.
 
 ## Open questions
 

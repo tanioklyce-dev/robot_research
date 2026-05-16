@@ -65,12 +65,12 @@ The two projects are best read as **complementary**, not competitive. A serious 
 
 ## Lineage
 
-Bread-crumb in the **biomechanical-simulation lineage** that runs *C. elegans* (Boyle 2012) → Hydra (Wang 2023) → virtual rodent (Merel 2020) → NeuroMechFly v1/v2 → flybody (Vaxenburg 2025). See [Biomechanical simulation](../concepts/biomechanical-simulation.md).
+Bread-crumb in the **biomechanical-simulation lineage** that runs *C. elegans* (Boyle 2012) → Hydra (Wang 2023) → virtual rodent (Merel 2020) → NeuroMechFly v1/v2 → flybody (Vaxenburg 2025). See [Biomechanical simulation](../concepts/bio/biomechanical-simulation.md).
 
 ## Why it matters here
 
-- **Sensing-rich body for whole-organism agentic AI.** NeuroMechFly v2's olfaction + mechanosensory channels open up sensor modalities that flybody can't currently deliver. For brain-side controllers ([Drosophila brain model](drosophila-brain-model.md), [flyvis](flyvis.md)) the practical question becomes: which body do you couple to, given which sensors your controller cares about? See [Whole-organism agentic AI](../syntheses/whole-organism-agentic-ai.md).
-- **Cross-domain Newton-stack consumer.** v2's GPU path uses NVIDIA Warp via MJWarp. Newton (NVIDIA + DeepMind + Disney + Linux Foundation) is built on the same Warp substrate — i.e., the GPU compute layer being commoditized for industrial-robotics simulation also benefits non-robotics biology simulation. Reinforces the [Newton + OpenUSD substrate convergence](../syntheses/newton-openusd-substrate-convergence.md) claim that the physics layer is becoming a shared substrate.
+- **Sensing-rich body for whole-organism agentic AI.** NeuroMechFly v2's olfaction + mechanosensory channels open up sensor modalities that flybody can't currently deliver. For brain-side controllers ([Drosophila brain model](drosophila-brain-model.md), [flyvis](flyvis.md)) the practical question becomes: which body do you couple to, given which sensors your controller cares about? See [Whole-organism agentic AI](../syntheses/agents/whole-organism-agentic-ai.md).
+- **Cross-domain Newton-stack consumer.** v2's GPU path uses NVIDIA Warp via MJWarp. Newton (NVIDIA + DeepMind + Disney + Linux Foundation) is built on the same Warp substrate — i.e., the GPU compute layer being commoditized for industrial-robotics simulation also benefits non-robotics biology simulation. Reinforces the [Newton + OpenUSD substrate convergence](../syntheses/simulators/newton-openusd-substrate-convergence.md) claim that the physics layer is becoming a shared substrate.
 - **Active development.** v2.0.1 in April 2026 puts NeuroMechFly in the same "actively maintained ~1.5 years post-publication" bucket as [flyvis](flyvis.md). The brain-side and body-side artifacts are all currently live software, not abandoned demos.
 
 ## Open integrations
@@ -87,8 +87,8 @@ Bread-crumb in the **biomechanical-simulation lineage** that runs *C. elegans* (
 - [Drosophila melanogaster](drosophila.md) — shared organism.
 - [MuJoCo](mujoco.md) — physics backend.
 - [Newton physics engine](newton-physics-engine.md) — adjacent (shared NVIDIA Warp compute layer).
-- [Biomechanical simulation](../concepts/biomechanical-simulation.md) — concept umbrella.
-- [Whole-organism agentic AI](../syntheses/whole-organism-agentic-ai.md) — synthesis.
+- [Biomechanical simulation](../concepts/bio/biomechanical-simulation.md) — concept umbrella.
+- [Whole-organism agentic AI](../syntheses/agents/whole-organism-agentic-ai.md) — synthesis.
 
 ## Mentioned in
 

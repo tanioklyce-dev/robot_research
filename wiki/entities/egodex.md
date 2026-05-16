@@ -32,7 +32,7 @@ The Apple-published primary paper for EgoDex is cited as **Hoque et al. 2025** i
 ## Related
 - [EgoScale Paper](../sources/egoscale-paper.md) — only wiki source citing this dataset.
 - [NVIDIA GR00T](nvidia-groot.md) — VLA family pretrained on the same combined corpus (20k hr in-the-wild + EgoDex).
-- [Imitation learning](../concepts/imitation-learning.md) — pretraining-from-human-data paradigm.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — pretraining-from-human-data paradigm.
 
 ## Mentioned in
 - [EgoScale Paper](../sources/egoscale-paper.md)

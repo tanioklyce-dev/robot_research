@@ -17,15 +17,15 @@ tags: [transformer, attention, self-attention, multi-head, positional-encoding, 
 
 ## Summary
 
-**"Attention Is All You Need"** — Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, Polosukhin (Google Brain / Google Research; NeurIPS 2017, arxiv 1706.03762). The paper that introduces the **Transformer**: a sequence-transduction architecture built **entirely on attention**, with no recurrence and no convolution. It is the most-cited NN architecture paper of the 2010s and the foundation of essentially every modern large model — [LLMs](../glossary.md#llm), [ViTs](../glossary.md#vit), [VLA action heads](../concepts/vla-models.md), [JEPA](../concepts/jepa.md) predictors, [behavior transformers](bet-paper.md), [diffusion-policy](diffusion-policy-paper.md) backbones — all descend from this design.
+**"Attention Is All You Need"** — Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, Polosukhin (Google Brain / Google Research; NeurIPS 2017, arxiv 1706.03762). The paper that introduces the **Transformer**: a sequence-transduction architecture built **entirely on attention**, with no recurrence and no convolution. It is the most-cited NN architecture paper of the 2010s and the foundation of essentially every modern large model — [LLMs](../glossary.md#llm), [ViTs](../glossary.md#vit), [VLA action heads](../concepts/learning/vla-models.md), [JEPA](../concepts/world-models/jepa.md) predictors, [behavior transformers](bet-paper.md), [diffusion-policy](diffusion-policy-paper.md) backbones — all descend from this design.
 
 **Headline results.** On WMT 2014 EN→DE the big Transformer reached **28.4 BLEU**, +2.0 over the previous best (including ensembles). On EN→FR, **41.8 BLEU** state-of-the-art among single models, at <1/4 the training cost of the previous SOTA. Trained on 8× P100 GPUs: base in 12 hours, big in 3.5 days. The Transformer also generalized to **English constituency parsing** (Section 6.3), suggesting the architecture was not specific to translation.
 
 **Why it matters to this wiki.** Every architecture in the curriculum past Module 3 is either a transformer or contains transformer blocks. Specifically:
 
-- **[ViT](../glossary.md#vit)** — applies the encoder stack to image patches; backbone of every [DINO](../entities/dinov3.md)-line and [JEPA](../concepts/jepa.md) encoder.
+- **[ViT](../glossary.md#vit)** — applies the encoder stack to image patches; backbone of every [DINO](../entities/dinov3.md)-line and [JEPA](../concepts/world-models/jepa.md) encoder.
 - **[LLMs](../glossary.md#llm)** — decoder-only transformers.
-- **[VLAs](../concepts/vla-models.md)** — VLM (transformer) + action head (often a transformer).
+- **[VLAs](../concepts/learning/vla-models.md)** — VLM (transformer) + action head (often a transformer).
 - **JEPA predictors** — AR transformers operating on latent tokens (e.g. [LeWM](../entities/leworldmodel.md), [V-JEPA 2-AC](../entities/v-jepa-2.md)).
 - **[Behavior Transformer / VQ-BeT](bet-paper.md)** — decoder-only transformer policies.
 
@@ -193,7 +193,7 @@ The Transformer is one of two architectures the curriculum builds out from (the 
 
 ## Curriculum hookup
 
-This is the primary reference for **[Curriculum Module 3 — Sequence models, attention, and transformers](../syntheses/curriculum-03-attention-and-transformers.md)**. Module 3's content (self-attention, MHA, transformer blocks, positional encoding, causal masking, ViT) is essentially "read this paper and [Dosovitskiy 2020](vit-paper.md)." The wiki was tracking the lineage via the glossary entry and downstream papers; this ingest fills in the primary source.
+This is the primary reference for **[Curriculum Module 3 — Sequence models, attention, and transformers](../syntheses/curriculum/curriculum-03-attention-and-transformers.md)**. Module 3's content (self-attention, MHA, transformer blocks, positional encoding, causal masking, ViT) is essentially "read this paper and [Dosovitskiy 2020](vit-paper.md)." The wiki was tracking the lineage via the glossary entry and downstream papers; this ingest fills in the primary source.
 
 ## Open questions / TBD
 

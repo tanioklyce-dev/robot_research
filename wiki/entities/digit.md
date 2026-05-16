@@ -25,7 +25,7 @@ status: stub
 ## Related
 - Agility Robotics — manufacturer (Oregon, US).
 - [Atlas](atlas.md) / [Figure](figure.md) — generalist-humanoid competitors.
-- [Humanoid platforms survey](../syntheses/humanoid-platforms-survey.md) — landscape; Digit is the "deployed-at-scale" data point.
+- [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — landscape; Digit is the "deployed-at-scale" data point.
 
 ## Mentioned in
 - *(no source pages directly cite Digit; entity built from general knowledge)*

@@ -9,7 +9,7 @@ tags: [hiwonder, rosorin-pro, openclaw, llm-agent, manipulation, ros2]
 ---
 
 ## Summary
-Chapter 13 of the [ROSOrin Pro](../entities/rosorin-pro.md) docs — the practical tutorial for **[OpenClaw](../entities/openclaw.md)**, [Hiwonder](../entities/hiwonder.md)'s manipulation-aware LLM-agent framework. OpenClaw orchestrates the kit's chassis + 6-DOF arm + vision via natural-language LLM commands routed to predefined ROS 2 skills. **First example in the wiki of the [LLM-agent pattern](../concepts/llm-agent-architecture.md) applied to manipulation on the educational tier** (alongside [stretch_ai](../entities/stretch-ai.md) on the research tier).
+Chapter 13 of the [ROSOrin Pro](../entities/rosorin-pro.md) docs — the practical tutorial for **[OpenClaw](../entities/openclaw.md)**, [Hiwonder](../entities/hiwonder.md)'s manipulation-aware LLM-agent framework. OpenClaw orchestrates the kit's chassis + 6-DOF arm + vision via natural-language LLM commands routed to predefined ROS 2 skills. **First example in the wiki of the [LLM-agent pattern](../concepts/agents/llm-agent-architecture.md) applied to manipulation on the educational tier** (alongside [stretch_ai](../entities/stretch-ai.md) on the research tier).
 
 ## Key claims
 
@@ -56,7 +56,7 @@ ROS 2 services and topics:
 - [ROSOrin Pro 6-DOF arm](../entities/rosorin-pro-arm.md)
 
 ## Concepts touched
-- [LLM-agent architecture](../concepts/llm-agent-architecture.md) — manipulation-capable variant.
+- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — manipulation-capable variant.
 
 ## Open questions
 - `openai/gpt-5.4` — real model release or doc placeholder?

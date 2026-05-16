@@ -9,7 +9,7 @@ tags: [mila, montreal, ai-research, jepa, lecun]
 status: stub
 ---
 
-Mila — Quebec AI Institute (full name: Mila — Quebec AI Institute, affiliated with Université de Montréal and Polytechnique Montréal). Frequent collaborator on the [JEPA](../concepts/jepa.md) research line, both as primary affiliation ([LeWorldModel](leworldmodel.md)) and via dual appointments on Meta-led work ([V-JEPA 2](v-jepa-2.md) core-team member Artem Zholus).
+Mila — Quebec AI Institute (full name: Mila — Quebec AI Institute, affiliated with Université de Montréal and Polytechnique Montréal). Frequent collaborator on the [JEPA](../concepts/world-models/jepa.md) research line, both as primary affiliation ([LeWorldModel](leworldmodel.md)) and via dual appointments on Meta-led work ([V-JEPA 2](v-jepa-2.md) core-team member Artem Zholus).
 
 ## What we know
 - Co-authored on [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md) (Artem Zholus, Sarath Chandar dual appointments).
@@ -17,7 +17,7 @@ Mila — Quebec AI Institute (full name: Mila — Quebec AI Institute, affiliate
 
 ## Related
 - [Meta FAIR](meta-fair.md) — frequent collaborator.
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — research line where Mila contributes prominently.
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — research line where Mila contributes prominently.
 
 ## Mentioned in
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)

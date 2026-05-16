@@ -62,8 +62,8 @@ From [Diffusion Policy Paper](diffusion-policy-paper.md) Tables I, IV:
 
 ## Concepts touched
 
-- [Imitation learning](../concepts/imitation-learning.md) — BC variant with discrete action codebook.
-- [Learned latent space](../concepts/latent-space.md) — BET's k-means clustering can be read as a *learned-frozen* discrete action space, sibling to VQ-BeT's end-to-end learned codebook and Diffusion Policy's continuous-latent diffusion.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — BC variant with discrete action codebook.
+- [Learned latent space](../concepts/world-models/latent-space.md) — BET's k-means clustering can be read as a *learned-frozen* discrete action space, sibling to VQ-BeT's end-to-end learned codebook and Diffusion Policy's continuous-latent diffusion.
 
 ## Open questions / TBD
 

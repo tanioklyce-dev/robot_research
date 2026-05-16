@@ -27,7 +27,7 @@ The Pro docs (`wiki.hiwonder.com/projects/rosorin-pro/...`) add three chapters r
 Base-ROSOrin chapters (chassis, LiDAR, camera, mapping/nav, OpenCV, ML, Gazebo, voice, AI courses) are preserved with renumbering.
 
 ## Why it matters
-First **manipulation-capable LLM-agent** example in the wiki on the educational tier. Confirms the [LLM-agent pattern](../concepts/llm-agent-architecture.md) extends naturally from mobile-only ([ROSOrin](rosorin.md)) to mobile + arm — same JSON tool-call architecture, just a richer skill library.
+First **manipulation-capable LLM-agent** example in the wiki on the educational tier. Confirms the [LLM-agent pattern](../concepts/agents/llm-agent-architecture.md) extends naturally from mobile-only ([ROSOrin](rosorin.md)) to mobile + arm — same JSON tool-call architecture, just a richer skill library.
 
 ## Related
 - [Hiwonder](hiwonder.md) — vendor.

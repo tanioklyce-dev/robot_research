@@ -33,8 +33,8 @@ tags: [dreamer, dreamer-v3, world-model, model-based-rl, imagination, hafner, fo
 
 ## Why it matters in this wiki
 
-- **The Dreamer baseline column.** Dreamer / DreamerV3 is one of the four world-model baselines in [LeWM](../entities/leworldmodel.md); the entity now exists so curriculum [Module 10](../syntheses/robot-learning-curriculum.md) can talk about MBRL coherently.
-- **Generative-WM family exemplar.** DreamerV3 predicts environment state (and reward) — the *opposite end* of the world-model design axis from JEPA, which sidesteps generation entirely. The DreamerV3 vs LeWM contrast is one of the cleanest framings in the [generative-video vs JEPA synthesis](../syntheses/generative-video-vs-jepa-world-models.md).
+- **The Dreamer baseline column.** Dreamer / DreamerV3 is one of the four world-model baselines in [LeWM](../entities/leworldmodel.md); the entity now exists so curriculum [Module 10](../syntheses/curriculum/robot-learning-curriculum.md) can talk about MBRL coherently.
+- **Generative-WM family exemplar.** DreamerV3 predicts environment state (and reward) — the *opposite end* of the world-model design axis from JEPA, which sidesteps generation entirely. The DreamerV3 vs LeWM contrast is one of the cleanest framings in the [generative-video vs JEPA synthesis](../syntheses/world-models/generative-video-vs-jepa-world-models.md).
 - **MBRL canon.** With Dreamer, [TD-MPC](td-mpc2-paper.md), and [LeWM](leworldmodel-paper.md) all on the wiki, the model-based-RL family is no longer a referenced-but-unbacked stub.
 
 ## Entities mentioned
@@ -43,10 +43,10 @@ tags: [dreamer, dreamer-v3, world-model, model-based-rl, imagination, hafner, fo
 - [LeWorldModel](../entities/leworldmodel.md) — uses DreamerV3 as a baseline column.
 
 ## Concepts touched
-- [Optimal control](../concepts/optimal-control.md)
+- [Optimal control](../concepts/robotics/optimal-control.md)
 
-- [World model](../concepts/world-model.md) — DreamerV3 is a Reward-conditioned MBRL exemplar.
-- [Imitation learning](../concepts/imitation-learning.md) — orthogonal but useful contrast (BC ≠ MBRL).
+- [World model](../concepts/world-models/world-model.md) — DreamerV3 is a Reward-conditioned MBRL exemplar.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — orthogonal but useful contrast (BC ≠ MBRL).
 
 ## Open questions / TBD
 

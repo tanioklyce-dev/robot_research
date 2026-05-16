@@ -8,12 +8,12 @@ sources: 16
 tags: [meta, fair, lecun, world-model, jepa]
 ---
 
-Meta's Fundamental AI Research lab ("FAIR at Meta"). Center of gravity for the [JEPA](../concepts/jepa.md) research line under Yann LeCun. Maintains [V-JEPA 2](v-jepa-2.md) / [V-JEPA 2.1](../sources/v-jepa-2-1-paper.md), [DINO-WM](dino-wm.md) (with NYU), [DINO-world](dino-world.md), and [JEPA-WMs](jepa-wms.md) (Terver et al.). Adjacent to other Meta-affiliated efforts — [Robot Utility Models](robot-utility-models.md) (NYU + Meta authors include Soumith Chintala and Chris Paxton) and the Habitat embodied-AI suite.
+Meta's Fundamental AI Research lab ("FAIR at Meta"). Center of gravity for the [JEPA](../concepts/world-models/jepa.md) research line under Yann LeCun. Maintains [V-JEPA 2](v-jepa-2.md) / [V-JEPA 2.1](../sources/v-jepa-2-1-paper.md), [DINO-WM](dino-wm.md) (with NYU), [DINO-world](dino-world.md), and [JEPA-WMs](jepa-wms.md) (Terver et al.). Adjacent to other Meta-affiliated efforts — [Robot Utility Models](robot-utility-models.md) (NYU + Meta authors include Soumith Chintala and Chris Paxton) and the Habitat embodied-AI suite.
 
 ## What we know
 - **JEPA program**: V-JEPA → [V-JEPA 2](v-jepa-2.md) → V-JEPA 2-AC → [V-JEPA 2.1](../sources/v-jepa-2-1-paper.md) (March 2026, "dense features"). And in parallel, [DINO-WM](dino-wm.md) (Nov 2024, with NYU) → [DINO-world](dino-world.md) (July 2025, video) → [JEPA-WMs](jepa-wms.md) (Dec 2025, robot-specific). Two parallel lines: *encoder-co-trained* (V-JEPA family) and *frozen DINOv2 features* (DINO-WM / DINO-world / JEPA-WMs).
 - **Key people**: Yann LeCun (chief AI scientist), Mahmoud Assran, Adrien Bardes, Nicolas Ballas, Michael Rabbat, Franziska Meier (V-JEPA 2 core team). Adrien Bardes is also senior on [JEPA-WMs](../sources/jepa-wms-paper.md). Basile Terver is the bread-crumb across [DINO-world](../sources/dino-world-paper.md) and [JEPA-WMs](../sources/jepa-wms-paper.md). Federico Baldassarre + Piotr Bojanowski + Maximilian Seitzer carry the DINO-world line.
-- **Simulator stance — observed pattern, not stated.** Early FAIR JEPA work (V-JEPA 2, June 2025) skipped sim entirely. The Dec 2025 JEPA-WMs paper moved into [RoboCasa](robocasa.md) + Metaworld + DROID + real Franka. V-JEPA 2.1 (March 2026) sustains the no-sim line with internet-video benchmarks + real-robot eval. FAIR is hedging across both. See [the revised synthesis](../syntheses/why-jepa-research-skips-the-simulator-stack.md).
+- **Simulator stance — observed pattern, not stated.** Early FAIR JEPA work (V-JEPA 2, June 2025) skipped sim entirely. The Dec 2025 JEPA-WMs paper moved into [RoboCasa](robocasa.md) + Metaworld + DROID + real Franka. V-JEPA 2.1 (March 2026) sustains the no-sim line with internet-video benchmarks + real-robot eval. FAIR is hedging across both. See [the revised synthesis](../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md).
 - **Open source**: facebookresearch/vjepa2, facebookresearch/jepa-wms.
 - **Adjacent**: [Robot Utility Models](robot-utility-models.md) (Meta-affiliated co-authors). [Habitat](habitat.md) — embodied-AI sim suite (note: notably absent from FAIR's own JEPA work despite shared institutional context).
 - **Cross-vendor robot research**: Meta has separately used Boston Dynamics' [Spot](spot.md) to test AI systems for locating and retrieving previously unseen objects ([referenced](../sources/bostondynamics-spot-gemini-robotics.md)). Indication that Meta uses external commercial robot platforms for embodied-AI research, not just its own (Habitat-Sim, simulated humanoids).
@@ -26,7 +26,7 @@ With NVIDIA pushing generative video as the world-model paradigm and AGIBOT push
 - [DINO-WM](dino-wm.md) — JEPA-adjacent (FAIR + NYU).
 - [DINO-world](dino-world.md) — DINOv2 video world model.
 - [JEPA-WMs](jepa-wms.md) — Terver et al. (Dec 2025), the heavy-sim FAIR JEPA paper.
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — research program.
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — research program.
 - [Mila](mila.md) — frequent collaborator.
 - [Robot Utility Models](robot-utility-models.md) — Meta-affiliated adjacent project.
 

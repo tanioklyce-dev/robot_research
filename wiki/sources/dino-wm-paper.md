@@ -36,10 +36,10 @@ tags: [dino-wm, world-model, dinov2, jepa-adjacent, zero-shot-planning, lecun, p
 - [NVIDIA Isaac Lab](../entities/nvidia-isaac-lab.md) — referenced as platform context (no direct training there).
 
 ## Concepts touched
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — JEPA-adjacent: predicts in DINOv2 latent space, but uses a frozen encoder rather than learning the encoder end-to-end.
-- [World model](../concepts/world-model.md) — frozen-foundation-feature design point.
-- [World-model simulators](../concepts/world-model-simulators.md) — latent-prediction paradigm.
-- [Learned latent space](../concepts/latent-space.md) — frozen DINOv2 patch-feature space; the predictor is what's learned.
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — JEPA-adjacent: predicts in DINOv2 latent space, but uses a frozen encoder rather than learning the encoder end-to-end.
+- [World model](../concepts/world-models/world-model.md) — frozen-foundation-feature design point.
+- [World-model simulators](../concepts/world-models/world-model-simulators.md) — latent-prediction paradigm.
+- [Learned latent space](../concepts/world-models/latent-space.md) — frozen DINOv2 patch-feature space; the predictor is what's learned.
 
 ## Open questions
 - Exact physics-engine confirmation needed.

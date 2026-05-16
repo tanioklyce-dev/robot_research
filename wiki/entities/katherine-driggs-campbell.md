@@ -18,8 +18,8 @@ DRAGON is one of the few **assistive-navigation** papers in the wiki that pairs 
 
 ## Related
 - [Shuijing Liu](shuijing-liu.md) — first author on DRAGON
-- [Assistive robotics](../concepts/assistive-robotics.md)
-- [Accessible robot communication](../concepts/accessible-robot-communication.md)
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md)
+- [Accessible robot communication](../concepts/robotics/accessible-robot-communication.md)
 
 ## Mentioned in
 - [DRAGON Paper](../sources/dragon-assistive-nav-2024.md)

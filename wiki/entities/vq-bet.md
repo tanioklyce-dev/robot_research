@@ -34,8 +34,8 @@ From [RUM paper](../sources/robot-utility-models-paper.md) §3.2:
 - [IBC](ibc.md) — earlier ancestor in the multi-modal-BC lineage (energy-based-model variant).
 - [Lerrel Pinto](lerrel-pinto.md) — co-senior on RUM, co-author on VQ-BeT (NYU lab).
 - [Mahi Shafiullah](mahi-shafiullah.md) — co-author on VQ-BeT, BET first author.
-- [Imitation learning](../concepts/imitation-learning.md) — broader concept.
-- [Learned latent space](../concepts/latent-space.md) — VQ-BeT's discrete codebook is a learned latent *action* space; sibling design choice to predicting in continuous latent space.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — broader concept.
+- [Learned latent space](../concepts/world-models/latent-space.md) — VQ-BeT's discrete codebook is a learned latent *action* space; sibling design choice to predicting in continuous latent space.
 
 ## Mentioned in
 - [Robot Utility Models Paper](../sources/robot-utility-models-paper.md) — best-performing policy class.

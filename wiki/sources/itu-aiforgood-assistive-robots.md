@@ -28,7 +28,7 @@ Overview article from the 2023 AI for Good Global Summit covering seven assistiv
 - SDG 10 (Reduced Inequalities): promotes inclusive participation
 
 ## Entities mentioned
-- [Assistive robotics](../concepts/assistive-robotics.md) (concept)
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md) (concept)
 
 ## Open questions
 - ReHandyBot, iReCHeCk, QT Robot — no entity pages in wiki; promote if they appear again.

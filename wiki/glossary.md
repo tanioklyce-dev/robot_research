@@ -2,7 +2,7 @@
 
 A flat index of acronyms used across this wiki, with one-line definitions and a pointer to the curriculum module where each is introduced. Designed to be linked into from any wiki page on first mention of an acronym.
 
-> Cross-referenced from [Robot-learning curriculum](syntheses/robot-learning-curriculum.md). When a curriculum module is written, the relevant glossary entries pick up a link to that module page.
+> Cross-referenced from [Robot-learning curriculum](syntheses/curriculum/robot-learning-curriculum.md). When a curriculum module is written, the relevant glossary entries pick up a link to that module page.
 
 ## How to use
 - Search this page (`Ctrl-F`) for any acronym you encounter elsewhere in the wiki.
@@ -103,13 +103,13 @@ Hafner et al. ([source page](sources/dreamer-v3-paper.md), [entity](entities/dre
 **Exponential Moving Average** — running weighted average of past values; used in [V-JEPA](entities/v-jepa-2.md) / BYOL-line as a "target encoder" — a slowly-updating teacher whose outputs serve as prediction targets, preventing collapse. [LeWM](entities/leworldmodel.md)'s contribution is doing without EMA. *(Module 4.)*
 
 ### Embedding / Latent
-A vector representation of an input; the output of an encoder. The substrate JEPA models predict in. See [latent space](concepts/latent-space.md) concept page. *(Modules 2–4.)*
+A vector representation of an input; the output of an encoder. The substrate JEPA models predict in. See [latent space](concepts/world-models/latent-space.md) concept page. *(Modules 2–4.)*
 
 ### Encoder
-NN that maps a raw input (image, video clip, action sequence, etc.) into an embedding / latent vector. Concretely: a [CNN](#cnn) (ResNet for 2D images), a [ViT](#vit) (patches → tokens → transformer), or a 1D-CNN / transformer for sequences. In SSL the encoder is *what you train* — the downstream task uses its frozen output. In a [Joint-Embedding Predictive Architecture (JEPA)](concepts/jepa.md), one encoder embeds the context `x` and (often the same) encoder embeds the target `y`; the [predictor](#predictor) then operates between those embeddings. Distinguished from a *decoder* (which reverses the mapping to reconstruct pixels) — JEPA / [DINOv2](entities/dinov2.md)-line models deliberately have no decoder. *(Modules 2–4.)*
+NN that maps a raw input (image, video clip, action sequence, etc.) into an embedding / latent vector. Concretely: a [CNN](#cnn) (ResNet for 2D images), a [ViT](#vit) (patches → tokens → transformer), or a 1D-CNN / transformer for sequences. In SSL the encoder is *what you train* — the downstream task uses its frozen output. In a [Joint-Embedding Predictive Architecture (JEPA)](concepts/world-models/jepa.md), one encoder embeds the context `x` and (often the same) encoder embeds the target `y`; the [predictor](#predictor) then operates between those embeddings. Distinguished from a *decoder* (which reverses the mapping to reconstruct pixels) — JEPA / [DINOv2](entities/dinov2.md)-line models deliberately have no decoder. *(Modules 2–4.)*
 
 ### EUP
-**End-User Programming** — letting non-experts customize robot behavior. See [concept page](concepts/end-user-robot-programming.md). *(Module 13.)*
+**End-User Programming** — letting non-experts customize robot behavior. See [concept page](concepts/robotics/end-user-robot-programming.md). *(Module 13.)*
 
 ### FCN
 **Fully Convolutional Network** — CNN with no fully-connected head, used for dense prediction. *(Module 2.)*
@@ -139,7 +139,7 @@ NN that maps a raw input (image, video clip, action sequence, etc.) into an embe
 **improved DDPM** — Nichol & Dhariwal 2021; learned variance + cosine noise schedule. *(Module 5.)*
 
 ### IL
-**Imitation Learning** — learn a policy from demonstrations. See [imitation learning concept](concepts/imitation-learning.md). *(Module 6.)*
+**Imitation Learning** — learn a policy from demonstrations. See [imitation learning concept](concepts/learning/imitation-learning.md). *(Module 6.)*
 
 ### InfoNCE
 **Information Noise-Contrastive Estimation** — the contrastive loss family used by SimCLR, MoCo, and (in policy form) [IBC](entities/ibc.md). *(Module 4 / 7.)*
@@ -148,7 +148,7 @@ NN that maps a raw input (image, video clip, action sequence, etc.) into an embe
 **Intersection over Union** — overlap metric for bounding boxes / masks. *(Module 2.)*
 
 ### JEPA
-**Joint-Embedding Predictive Architecture** — predict the *embedding* of the next state, not pixels. Yann LeCun's program. See [concept page](concepts/jepa.md). *(Module 11.)*
+**Joint-Embedding Predictive Architecture** — predict the *embedding* of the next state, not pixels. Yann LeCun's program. See [concept page](concepts/world-models/jepa.md). *(Module 11.)*
 
 ### JEPA-WMs
 Terver et al., FAIR, Dec 2025 ([source page](sources/jepa-wms-paper.md)); first JEPA-for-robotics paper using [RoboCasa](entities/robocasa.md). *(Module 11.)*
@@ -202,7 +202,7 @@ Terver et al., FAIR, Dec 2025 ([source page](sources/jepa-wms-paper.md)); first 
 **Momentum Contrast** — He et al. 2020; contrastive SSL with a queue of negatives and momentum encoder. *(Module 4.)*
 
 ### MPC
-**Model Predictive Control** — at each step, plan a short-horizon action sequence using a model, execute the first action, replan. The control method paired with world models in [LeWM](entities/leworldmodel.md), [DINO-WM](entities/dino-wm.md), [V-JEPA 2-AC](entities/v-jepa-2.md). Receding-horizon approximation of the classical [optimal-control](concepts/optimal-control.md) problem (Bernoulli 1697 → Pontryagin 1956; see [Sussmann & Willems 1997](sources/sussmann-willems-1997-300-years-optimal-control.md) for the lineage). *(Module 10.)*
+**Model Predictive Control** — at each step, plan a short-horizon action sequence using a model, execute the first action, replan. The control method paired with world models in [LeWM](entities/leworldmodel.md), [DINO-WM](entities/dino-wm.md), [V-JEPA 2-AC](entities/v-jepa-2.md). Receding-horizon approximation of the classical [optimal-control](concepts/robotics/optimal-control.md) problem (Bernoulli 1697 → Pontryagin 1956; see [Sussmann & Willems 1997](sources/sussmann-willems-1997-300-years-optimal-control.md) for the lineage). *(Module 10.)*
 
 ### MSE
 **Mean Squared Error** — `mean((y - ŷ)²)`; the standard regression loss; the loss term in JEPA next-embedding prediction. *(Module 1.)*
@@ -235,7 +235,7 @@ Open-weights VLA used as a baseline in many 2024–2026 papers. *(Module 9.)*
 **Policy** — a function `π(a | o)` (or `π(a | s)`) mapping observation/state to an action (or action distribution). The thing IL and RL train: IL fits π to demonstrations, RL fits π to maximize expected reward. Action heads can be deterministic, Gaussian, categorical, k-means-discretized ([BeT](#bet) / [VQ-BeT](#vq-bet)), or diffusion-based ([Diffusion Policy](sources/diffusion-policy-paper.md)). *(Modules 6 & 8.)*
 
 ### Predictor
-The module in [JEPA](concepts/jepa.md)-line world models that maps a context embedding `z_t` (often plus an action `a_t`) to a predicted future embedding `ẑ_{t+1}`. Loss is computed in latent space against `z_{t+1} = encoder(x_{t+1})` — *not* against pixels. Typically a small MLP ([DINO-WM](entities/dino-wm.md)) or an [AR](#ar) transformer ([V-JEPA 2-AC](entities/v-jepa-2.md), [LeWM](entities/leworldmodel.md)). The predictor's existence — and the fact that it operates between embeddings rather than over pixels — is what makes "JEPA" predictive (the J for Joint and the P for Predictive). Optionally takes a latent variable `z` to capture irreducible uncertainty about the future ([LeCun 2022, §4.4](sources/lecun2022-path-towards-ami.md)). *(Modules 10–12.)*
+The module in [JEPA](concepts/world-models/jepa.md)-line world models that maps a context embedding `z_t` (often plus an action `a_t`) to a predicted future embedding `ẑ_{t+1}`. Loss is computed in latent space against `z_{t+1} = encoder(x_{t+1})` — *not* against pixels. Typically a small MLP ([DINO-WM](entities/dino-wm.md)) or an [AR](#ar) transformer ([V-JEPA 2-AC](entities/v-jepa-2.md), [LeWM](entities/leworldmodel.md)). The predictor's existence — and the fact that it operates between embeddings rather than over pixels — is what makes "JEPA" predictive (the J for Joint and the P for Predictive). Optionally takes a latent variable `z` to capture irreducible uncertainty about the future ([LeCun 2022, §4.4](sources/lecun2022-path-towards-ami.md)). *(Modules 10–12.)*
 
 ### PPO
 **Proximal Policy Optimization** — Schulman et al. 2017; the dominant on-policy actor-critic algorithm. *(Module 8.)*
@@ -268,10 +268,10 @@ A pretrained visual encoder for manipulation (Nair et al. 2022); appears as a Di
 **Stochastic Gradient Descent** — gradient descent on minibatches; the canonical NN optimizer. *(Module 1.)*
 
 ### Siamese network
-NN architecture with two (or more) weight-tied sub-networks applied to two inputs, with a downstream head over the two embeddings. Introduced by [Bromley, Guyon, LeCun, Säckinger, Shah 1993](sources/bromley1993-siamese-signature-verification.md) for signature verification — two TDNNs + cosine + `±1` targets. Architectural ancestor of [Barlow Twins](sources/barlow-twins-paper.md), [VICReg](sources/vicreg-paper.md), [DINOv2](entities/dinov2.md)/[v3](entities/dinov3.md), and the J/A in [JEPA](concepts/jepa.md). See [concept page](concepts/siamese-network.md). *(Module 4.)*
+NN architecture with two (or more) weight-tied sub-networks applied to two inputs, with a downstream head over the two embeddings. Introduced by [Bromley, Guyon, LeCun, Säckinger, Shah 1993](sources/bromley1993-siamese-signature-verification.md) for signature verification — two TDNNs + cosine + `±1` targets. Architectural ancestor of [Barlow Twins](sources/barlow-twins-paper.md), [VICReg](sources/vicreg-paper.md), [DINOv2](entities/dinov2.md)/[v3](entities/dinov3.md), and the J/A in [JEPA](concepts/world-models/jepa.md). See [concept page](concepts/world-models/siamese-network.md). *(Module 4.)*
 
 ### SIGReg
-**Sketched Isotropic Gaussian Regularizer** — introduced by **[LeJEPA](sources/lejepa-paper.md)** (Balestriero & LeCun 2025; cited from [LeWM](entities/leworldmodel.md) as [25]). The single anti-collapse regularizer in LeWM: project latent embeddings onto `M` random unit-norm directions; run the **Epps–Pulley** univariate normality test on each 1-D projection; average the test statistics; backprop the result as a loss term. Justified by the **Cramér–Wold theorem** — matching all 1-D marginals of a `d`-D distribution is equivalent to matching the full joint distribution. Encourages an isotropic Gaussian latent and gives a provable anti-collapse guarantee with a single hyperparameter (`λ`, the SIGReg loss weight; default 0.1) vs. 4–6 for prior end-to-end JEPAs ([PLDM](#pldm)). *(Module 4 introduction; [Module 12 derivation](syntheses/curriculum-12-lewm-deep-dive.md).)*
+**Sketched Isotropic Gaussian Regularizer** — introduced by **[LeJEPA](sources/lejepa-paper.md)** (Balestriero & LeCun 2025; cited from [LeWM](entities/leworldmodel.md) as [25]). The single anti-collapse regularizer in LeWM: project latent embeddings onto `M` random unit-norm directions; run the **Epps–Pulley** univariate normality test on each 1-D projection; average the test statistics; backprop the result as a loss term. Justified by the **Cramér–Wold theorem** — matching all 1-D marginals of a `d`-D distribution is equivalent to matching the full joint distribution. Encourages an isotropic Gaussian latent and gives a provable anti-collapse guarantee with a single hyperparameter (`λ`, the SIGReg loss weight; default 0.1) vs. 4–6 for prior end-to-end JEPAs ([PLDM](#pldm)). *(Module 4 introduction; [Module 12 derivation](syntheses/curriculum/curriculum-12-lewm-deep-dive.md).)*
 
 ### SimCLR
 **Simple framework for Contrastive Learning of Representations** — Chen et al. 2020; contrastive SSL with augmentation and a projection head. *(Module 4.)*
@@ -301,7 +301,7 @@ NN architecture ([Vaswani et al., *Attention Is All You Need*, NeurIPS 2017](sou
 **Universal Manipulation Interface** — Chi et al., RSS 2024 ([source page](sources/umi-paper.md)); hand-held gripper for collecting in-the-wild demonstrations at high throughput (111 demos/hr). *(Module 7.)*
 
 ### URDF / MJCF / USD
-Robot description formats — XML-based ([URDF](concepts/world-model-simulators.md) for ROS, MJCF for [MuJoCo](entities/mujoco.md)) and scene-description ([USD / OpenUSD](entities/openusd.md) for NVIDIA Omniverse). *(Module 13.)*
+Robot description formats — XML-based ([URDF](concepts/world-models/world-model-simulators.md) for ROS, MJCF for [MuJoCo](entities/mujoco.md)) and scene-description ([USD / OpenUSD](entities/openusd.md) for NVIDIA Omniverse). *(Module 13.)*
 
 ### VAE
 **Variational Autoencoder** — Kingma & Welling 2013; AE with a probabilistic latent space and KL regularization. *(Module 5.)*
@@ -316,7 +316,7 @@ Robot description formats — XML-based ([URDF](concepts/world-model-simulators.
 **Video JEPA** family from Meta FAIR; "AC" = Action-Conditioned. See [V-JEPA 2 entity](entities/v-jepa-2.md). *(Module 11.)*
 
 ### VLA
-**Vision-Language-Action** — VLM adapted to emit *actions* rather than text; the dominant 2024–2026 generalist-policy paradigm. See [VLA concept](concepts/vla-models.md). *(Module 9.)*
+**Vision-Language-Action** — VLM adapted to emit *actions* rather than text; the dominant 2024–2026 generalist-policy paradigm. See [VLA concept](concepts/learning/vla-models.md). *(Module 9.)*
 
 ### VLM
 **Vision-Language Model** — multimodal model accepting image + text, emitting text (e.g. GPT-4V, Gemini, Claude with vision). *(Module 9.)*
@@ -328,11 +328,11 @@ Robot description formats — XML-based ([URDF](concepts/world-model-simulators.
 **World Foundation Model** — NVIDIA marketing term for very-large generative-video world models like [Cosmos](entities/nvidia-cosmos.md). A *type* of WM, not a synonym. *(Module 10.)*
 
 ### WM
-**World Model** — learned predictive model of environment dynamics: `s_{t+1} = f(s_t, a_t)`. See [concept page](concepts/world-model.md). *(Module 10.)*
+**World Model** — learned predictive model of environment dynamics: `s_{t+1} = f(s_t, a_t)`. See [concept page](concepts/world-models/world-model.md). *(Module 10.)*
 
 ---
 
 ## Mentioned in
-- [Robot-learning curriculum](syntheses/robot-learning-curriculum.md) — primary consumer.
+- [Robot-learning curriculum](syntheses/curriculum/robot-learning-curriculum.md) — primary consumer.
 - [Index](index.md).
 - Linked from individual module synthesis pages as they're written.

@@ -29,7 +29,7 @@ Newton's vendor-neutral governance plus its presence in both DeepMind's and NVID
 
 ## Cross-domain pull on the underlying compute layer
 
-Newton is built on **NVIDIA Warp**. Warp is also what [NeuroMechFly v2](neuromechfly.md) uses (via MJWarp) to deliver its ~300× GPU speedup over the v1 codebase ([flygym GitHub](../sources/flygym-github.md)). NeuroMechFly does not depend on Newton itself, but the same GPU compute layer is being commoditized for industrial-robotics simulation *and* for biological whole-body simulation. This is a meaningful real-world data point for the [Newton + OpenUSD substrate convergence](../syntheses/newton-openusd-substrate-convergence.md) thesis: physics-layer commoditization has cross-domain pull, not just intra-robotics pull.
+Newton is built on **NVIDIA Warp**. Warp is also what [NeuroMechFly v2](neuromechfly.md) uses (via MJWarp) to deliver its ~300× GPU speedup over the v1 codebase ([flygym GitHub](../sources/flygym-github.md)). NeuroMechFly does not depend on Newton itself, but the same GPU compute layer is being commoditized for industrial-robotics simulation *and* for biological whole-body simulation. This is a meaningful real-world data point for the [Newton + OpenUSD substrate convergence](../syntheses/simulators/newton-openusd-substrate-convergence.md) thesis: physics-layer commoditization has cross-domain pull, not just intra-robotics pull.
 
 ## Related
 - [OpenUSD](openusd.md) — the scene/physics substrate Newton consumes and extends.

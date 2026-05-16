@@ -90,10 +90,10 @@ This is evidence that human-pretrained representations generalize across **kinem
 The wiki had already noted that [NVIDIA GR00T](../entities/nvidia-groot.md) N1.7 EA is "pretrained on 20,854 hours of egocentric human video" without a primary source. **EgoScale is that primary source.** The exact 20,854-hour figure matches; the EgoScale paper is the public scaling-law analysis for the corpus GR00T is built on.
 
 ### Establishes a "VLA scaling laws" thread
-The wiki's [VLA models](../concepts/vla-models.md) concept page tracks ~10 VLAs but has nothing on training-data-vs-performance scaling laws. EgoScale is the first to publish a clean one. Seeded as the new [scaling laws — VLAs and human data](../concepts/scaling-laws-vla.md) concept page.
+The wiki's [VLA models](../concepts/learning/vla-models.md) concept page tracks ~10 VLAs but has nothing on training-data-vs-performance scaling laws. EgoScale is the first to publish a clean one. Seeded as the new [scaling laws — VLAs and human data](../concepts/learning/scaling-laws-vla.md) concept page.
 
 ### Architectural placement
-EgoScale's **flow-matching action head** sits in the action-head taxonomy already in [VLA models](../concepts/vla-models.md):
+EgoScale's **flow-matching action head** sits in the action-head taxonomy already in [VLA models](../concepts/learning/vla-models.md):
 - π0 — flow-matching action head ✓
 - EgoScale — flow-matching action head (DiT + flow matching, similar to GR00T N1) ✓
 - Diffusion Policy — DDPM
@@ -101,7 +101,7 @@ EgoScale's **flow-matching action head** sits in the action-head taxonomy alread
 - OpenVLA — autoregressive action tokens
 
 ### Adjacent to but distinct from sim-to-real
-EgoScale takes **the opposite path** from the [sim-to-real](../concepts/sim-to-real-transfer.md) literature: instead of generating synthetic data in simulation and bridging to real robots, it pretrains directly on *real* human video. The 20,854-hour figure shifts the comparison from "how much sim do you need?" to "how much human video do you need?" Cosmos / World-Foundation-Model line and EgoScale are two parallel responses to the same VLA-data-bottleneck.
+EgoScale takes **the opposite path** from the [sim-to-real](../concepts/learning/sim-to-real-transfer.md) literature: instead of generating synthetic data in simulation and bridging to real robots, it pretrains directly on *real* human video. The 20,854-hour figure shifts the comparison from "how much sim do you need?" to "how much human video do you need?" Cosmos / World-Foundation-Model line and EgoScale are two parallel responses to the same VLA-data-bottleneck.
 
 ## Entities mentioned
 
@@ -124,10 +124,10 @@ EgoScale takes **the opposite path** from the [sim-to-real](../concepts/sim-to-r
 - Trevor Darrell (Berkeley), Furong Huang (UMD), Danfei Xu (GA Tech / NVIDIA) — co-authors.
 
 ## Concepts touched
-- [VLA models](../concepts/vla-models.md) — EgoScale is the flow-matching-VLA scaling-law paper.
-- [Scaling laws — VLAs and human data](../concepts/scaling-laws-vla.md) — new hub seeded by this paper.
-- [Imitation learning](../concepts/imitation-learning.md) — large-scale human video imitation as the pretraining objective.
-- [Sim-to-real transfer](../concepts/sim-to-real-transfer.md) — adjacent paradigm; EgoScale is the *real-data-pretrain* alternative.
+- [VLA models](../concepts/learning/vla-models.md) — EgoScale is the flow-matching-VLA scaling-law paper.
+- [Scaling laws — VLAs and human data](../concepts/learning/scaling-laws-vla.md) — new hub seeded by this paper.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — large-scale human video imitation as the pretraining objective.
+- [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md) — adjacent paradigm; EgoScale is the *real-data-pretrain* alternative.
 
 ## Open questions
 

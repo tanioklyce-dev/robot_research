@@ -33,7 +33,7 @@ The official [FIRST Robotics Competition](../entities/first-robotics-competition
 - [FRC KitBot](../entities/frc-kitbot.md) (the robot platform itself)
 
 ## Concepts touched
-- [Imitation learning](../concepts/imitation-learning.md) — KitBot Java code as a starting point for autonomous routines
+- [Imitation learning](../concepts/learning/imitation-learning.md) — KitBot Java code as a starting point for autonomous routines
 
 ## Open questions
 - What sensors come standard with the KitBot vs. what teams typically add?

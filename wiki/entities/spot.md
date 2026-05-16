@@ -43,7 +43,7 @@ tags: [spot, boston-dynamics, quadruped, commercial, sdk, orbit]
 - [Boston Dynamics](boston-dynamics.md) — manufacturer.
 - [Atlas](atlas.md) — sibling product (humanoid).
 - [Gemini Robotics](gemini-robotics.md) — Google DeepMind model integrated via the SDK.
-- [LLM-agent architecture](../concepts/llm-agent-architecture.md) — the integration pattern used in the hackathon demo.
+- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — the integration pattern used in the hackathon demo.
 
 ## Mentioned in
 

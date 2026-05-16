@@ -22,7 +22,7 @@ github_stats: 58K stars, 10K forks (May 2026); officially deprecated 2025-11
 
 **nanoGPT** — "The simplest, fastest repository for training/finetuning medium-sized GPTs." A rewrite of Karpathy's earlier `minGPT` that prioritizes "teeth over education": `train.py` reproduces GPT-2 (124M) on OpenWebText in ~4 days on a single 8XA100 40GB node. Two files matter: **`model.py` is a ~300-line GPT model definition**, and **`train.py` is a ~300-line training loop**. The model can optionally load OpenAI's GPT-2 weights.
 
-**Why it matters to this wiki.** `model.py` is the **canonical clean reference implementation of a decoder-only transformer** — the de-facto "read this to understand transformers in code" pointer in the field. The repo is the recommended exit-ramp at the bottom of [Curriculum Module 3](../syntheses/curriculum-03-attention-and-transformers.md) for *architecture*; for *training pipelines* in 2026 use the successor [nanochat](karpathy-nanochat.md).
+**Why it matters to this wiki.** `model.py` is the **canonical clean reference implementation of a decoder-only transformer** — the de-facto "read this to understand transformers in code" pointer in the field. The repo is the recommended exit-ramp at the bottom of [Curriculum Module 3](../syntheses/curriculum/curriculum-03-attention-and-transformers.md) for *architecture*; for *training pipelines* in 2026 use the successor [nanochat](karpathy-nanochat.md).
 
 ## What's in the repo
 
@@ -57,7 +57,7 @@ If you want both pedagogy *and* state-of-the-art training, read nanoGPT's `model
 
 ## Curriculum hookup
 
-Recommended reading for **[Curriculum Module 3 — Sequence models, attention, transformers](../syntheses/curriculum-03-attention-and-transformers.md)**, alongside the **[Attention Is All You Need paper](attention-is-all-you-need.md)** ingest. Specifically:
+Recommended reading for **[Curriculum Module 3 — Sequence models, attention, transformers](../syntheses/curriculum/curriculum-03-attention-and-transformers.md)**, alongside the **[Attention Is All You Need paper](attention-is-all-you-need.md)** ingest. Specifically:
 
 - Module 3 §3 (self-attention) → `CausalSelfAttention` class in `model.py`.
 - Module 3 §5 (positional encoding) → learned `nn.Embedding(block_size, n_embd)` in `model.py` (nanoGPT uses learned positions, not sinusoidal — the paper showed they perform comparably).

@@ -69,10 +69,10 @@ Full-paper companion to the [RUM project page](robot-utility-models-website.md).
 - gpt-4o (OpenAI) — mLLM critic (no entity page yet).
 
 ## Concepts touched
-- [Imitation learning](../concepts/imitation-learning.md) — multi-modal BC framework.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — multi-modal BC framework.
 - Cross-embodiment transfer.
 - Mobile manipulation.
-- [VLA-adjacent generalist policies](../concepts/vla-models.md) — RUMs deliberately are *not* language-conditioned.
+- [VLA-adjacent generalist policies](../concepts/learning/vla-models.md) — RUMs deliberately are *not* language-conditioned.
 - Self-critique / introspection — mLLM-as-verifier loop.
 
 ## Open questions
@@ -82,7 +82,7 @@ Full-paper companion to the [RUM project page](robot-utility-models-website.md).
 - The "co-training expert + non-expert hurts" finding contradicts mainstream practice — would benefit from independent reproduction.
 
 ## Why this matters in this wiki
-This paper is the **most rigorous example in the wiki of "low-cost robot + learned-from-data zero-shot policy"** as a deployment shape. It's the closest architectural precedent for the [LeWM-on-ROSOrin-Pro feasibility analysis](../syntheses/lewm-on-rosorin-pro-feasibility.md) — different paradigm (BC, not JEPA), but the same engineering shape: collect ~1,000 demos per task on a commodity-priced robot, train, deploy zero-shot. The paper's "diversity > quantity" lesson is also a useful guidepost for any data-collection effort on educational hardware.
+This paper is the **most rigorous example in the wiki of "low-cost robot + learned-from-data zero-shot policy"** as a deployment shape. It's the closest architectural precedent for the [LeWM-on-ROSOrin-Pro feasibility analysis](../syntheses/projects/lewm-on-rosorin-pro-feasibility.md) — different paradigm (BC, not JEPA), but the same engineering shape: collect ~1,000 demos per task on a commodity-priced robot, train, deploy zero-shot. The paper's "diversity > quantity" lesson is also a useful guidepost for any data-collection effort on educational hardware.
 
 ## Code & artifacts
 - Project page: https://robotutilitymodels.com/

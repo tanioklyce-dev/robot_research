@@ -37,7 +37,7 @@ Enabling non-programmers (including users with disabilities) to customize and ex
 
 ## Significance for assistive robotics
 
-Cakmak is the most directly relevant academic researcher to the "accessible HRI for low-motor users" problem identified in the [assistive robotics synthesis](../syntheses/assistive-robotics-research-landscape.md). Her lab is distinguished by:
+Cakmak is the most directly relevant academic researcher to the "accessible HRI for low-motor users" problem identified in the [assistive robotics synthesis](../syntheses/assistive/assistive-robotics-research-landscape.md). Her lab is distinguished by:
 1. Including PwDs as participants throughout (not just evaluating on them at the end).
 2. Long-term deployments rather than controlled lab studies.
 3. The finding that more autonomy ≠ better: users want to preserve agency.
@@ -46,9 +46,9 @@ Cakmak is the most directly relevant academic researcher to the "accessible HRI 
 ## Related
 - [HCR Lab](hcrlab.md) — her lab
 - [Stretch](stretch.md) — primary research platform
-- [Assistive robotics](../concepts/assistive-robotics.md)
-- [End-user robot programming](../concepts/end-user-robot-programming.md)
-- [Assistive robotics R&D landscape](../syntheses/assistive-robotics-research-landscape.md)
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md)
+- [End-user robot programming](../concepts/robotics/end-user-robot-programming.md)
+- [Assistive robotics R&D landscape](../syntheses/assistive/assistive-robotics-research-landscape.md)
 
 ## Mentioned in
 - [Maya Cakmak — Research Overview](../sources/maya-cakmak-research.md)

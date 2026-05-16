@@ -29,7 +29,7 @@ status: stub
 ## Related
 - Unitree Robotics — manufacturer.
 - [Unitree H1](unitree-h1.md) — full-size sibling.
-- [Humanoid platforms survey](../syntheses/humanoid-platforms-survey.md) — landscape; G1 is the educational-research bridge.
+- [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — landscape; G1 is the educational-research bridge.
 
 ## Mentioned in
 - *(no source pages directly cite Unitree G1; entity built from general knowledge)*

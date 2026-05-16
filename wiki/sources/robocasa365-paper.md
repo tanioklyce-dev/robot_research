@@ -32,8 +32,8 @@ ICLR 2026 conference paper introducing RoboCasa365 — a large-scale simulation 
 - [NVIDIA](../entities/nvidia.md)
 
 ## Concepts touched
-- [Sim-to-real transfer](../concepts/sim-to-real-transfer.md)
-- [Imitation learning](../concepts/imitation-learning.md) / synthetic demo expansion
+- [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md)
+- [Imitation learning](../concepts/learning/imitation-learning.md) / synthetic demo expansion
 - Generalist robot foundation models
 - Multi-task and lifelong learning
 

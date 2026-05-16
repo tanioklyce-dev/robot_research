@@ -18,10 +18,24 @@ wiki/
 ├── sources/          # one page per ingested source
 ├── entities/         # companies, robots, products, people, labs
 ├── concepts/         # technical concepts, methods, trends
+│   ├── learning/         # imitation, sim-to-real, scaling laws, VLAs, CoT
+│   ├── world-models/     # JEPA, latent-space, world-model, siamese, ...
+│   ├── agents/           # LLM-agent architecture
+│   ├── safety/           # alignment, corrigibility, mech-interp
+│   ├── robotics/         # assistive, EUP, optimal control, AprilTags, UAVs, ...
+│   └── bio/              # biomechanical simulation, connectomes
 └── syntheses/        # cross-cutting analyses, comparisons, original thinking
+    ├── curriculum/       # the 14-module robot-learning curriculum
+    ├── platforms/        # platform comparisons & buying decisions
+    ├── projects/         # concrete project scoping (Stretch, ROSOrin Pro)
+    ├── world-models/     # JEPA / LeWM / video-WM analysis
+    ├── simulators/       # sim stack landscape (Newton, OpenUSD, FRC, ...)
+    ├── assistive/        # in-home / PAR / autonomy levels
+    ├── agents/           # agentic-AI architecture
+    └── rl/               # RL history & lineage
 ```
 
-Subfolders are organizational only — links use relative paths across them (e.g. `[JEPA](../concepts/jepa.md)`).
+Subfolders are organizational only — links use relative paths across them (e.g. `[JEPA](../concepts/world-models/jepa.md)` from `wiki/sources/`, `[JEPA](../world-models/jepa.md)` from a sibling concept folder). When ingesting a new source, place new concept/synthesis pages in the appropriate subfolder; create a new subfolder only if the topic clearly doesn't fit any existing group.
 
 ## Page conventions
 

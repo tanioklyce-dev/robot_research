@@ -31,7 +31,7 @@ status: stub
 - [Hiwonder](hiwonder.md) — vendor.
 - [ROSOrin](rosorin.md) / [ROSOrin Pro](rosorin-pro.md) — educational-tier siblings (mobile, mobile-manipulation respectively).
 - [NAO](nao.md) — educational-humanoid reference at the next price tier up.
-- [Humanoid platforms survey](../syntheses/humanoid-platforms-survey.md) — landscape.
+- [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — landscape.
 
 ## Mentioned in
 - *(no source pages directly cite TonyPi; entity built from general knowledge)*

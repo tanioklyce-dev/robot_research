@@ -29,20 +29,20 @@ The single most ambitious artifact in this wiki is a **14-module bottom-up curri
 
 **Status: all 14 modules drafted.** Reader-traversable from absolute beginning through the destination and capstone.
 
-- Hub: [Robot-learning curriculum — from neurons to LeWorldModel](syntheses/robot-learning-curriculum.md).
+- Hub: [Robot-learning curriculum — from neurons to LeWorldModel](syntheses/curriculum/robot-learning-curriculum.md).
 - Glossary (cross-linked from every module): [glossary.md](glossary.md) — ~100 acronyms with one-line definitions.
 
 The curriculum has five tiers:
 
 | Tier | Modules | Theme |
 | --- | --- | --- |
-| **1** | [1](syntheses/curriculum-01-neural-networks.md), [2](syntheses/curriculum-02-cnns.md), [3](syntheses/curriculum-03-attention-and-transformers.md), [4](syntheses/curriculum-04-self-supervised-learning.md) | ML foundations: NN basics, CNNs, transformers/ViT, SSL. Brisk-but-rigorous refreshers; each module opens with a prereq diagnostic for self-assessment. |
-| **2** | [5](syntheses/curriculum-05-generative-models.md) | Generative modeling fundamentals with a full DDPM math walkthrough (ELBO → `L_simple` derivation, KL bounds, classifier-free-guidance derivation). |
-| **3** | [6](syntheses/curriculum-06-imitation-learning.md), [7](syntheses/curriculum-07-bc-lineage-pusht.md), [8](syntheses/curriculum-08-rl-vocabulary.md), [9](syntheses/curriculum-09-vla.md) | Robot learning paradigms: imitation learning, BC-lineage on PushT (IBC → BeT → Diffusion Policy), RL vocabulary, VLA models. |
-| **4** | [10](syntheses/curriculum-10-world-models.md), [11](syntheses/curriculum-11-jepa-deep.md), [12](syntheses/curriculum-12-lewm-deep-dive.md) | World models: four-family taxonomy, JEPA in depth (with the collapse-prevention zoo), the LeWM deep-dive with the full SIGReg derivation. |
-| **5** | [13](syntheses/curriculum-13-home-robotics-deployment.md), [14](syntheses/curriculum-14-capstone.md) | Deployment reality (the 89.4% / 12.4% RLBench-vs-BEHAVIOR-1K gap; Stretch as platform) + capstone (Phase A: reproduce LeWM PushT + experiment-design memo; Phase B: real-Stretch execution if hardware available). |
+| **1** | [1](syntheses/curriculum/curriculum-01-neural-networks.md), [2](syntheses/curriculum/curriculum-02-cnns.md), [3](syntheses/curriculum/curriculum-03-attention-and-transformers.md), [4](syntheses/curriculum/curriculum-04-self-supervised-learning.md) | ML foundations: NN basics, CNNs, transformers/ViT, SSL. Brisk-but-rigorous refreshers; each module opens with a prereq diagnostic for self-assessment. |
+| **2** | [5](syntheses/curriculum/curriculum-05-generative-models.md) | Generative modeling fundamentals with a full DDPM math walkthrough (ELBO → `L_simple` derivation, KL bounds, classifier-free-guidance derivation). |
+| **3** | [6](syntheses/curriculum/curriculum-06-imitation-learning.md), [7](syntheses/curriculum/curriculum-07-bc-lineage-pusht.md), [8](syntheses/curriculum/curriculum-08-rl-vocabulary.md), [9](syntheses/curriculum/curriculum-09-vla.md) | Robot learning paradigms: imitation learning, BC-lineage on PushT (IBC → BeT → Diffusion Policy), RL vocabulary, VLA models. |
+| **4** | [10](syntheses/curriculum/curriculum-10-world-models.md), [11](syntheses/curriculum/curriculum-11-jepa-deep.md), [12](syntheses/curriculum/curriculum-12-lewm-deep-dive.md) | World models: four-family taxonomy, JEPA in depth (with the collapse-prevention zoo), the LeWM deep-dive with the full SIGReg derivation. |
+| **5** | [13](syntheses/curriculum/curriculum-13-home-robotics-deployment.md), [14](syntheses/curriculum/curriculum-14-capstone.md) | Deployment reality (the 89.4% / 12.4% RLBench-vs-BEHAVIOR-1K gap; Stretch as platform) + capstone (Phase A: reproduce LeWM PushT + experiment-design memo; Phase B: real-Stretch execution if hardware available). |
 
-The **destination** is Module 12 (LeWM deep-dive with full SIGReg math). The reading order is mostly linear, but the [module dependency graph](syntheses/robot-learning-curriculum.md) gives readers permission to skip Tier 1 modules they're comfortable with.
+The **destination** is Module 12 (LeWM deep-dive with full SIGReg math). The reading order is mostly linear, but the [module dependency graph](syntheses/curriculum/robot-learning-curriculum.md) gives readers permission to skip Tier 1 modules they're comfortable with.
 
 ## Other major themes
 
@@ -59,9 +59,9 @@ The technical centerpiece. Primary sources for the entire SIGReg-LeWM-PLDM linea
 - [DINO-WM Paper](sources/dino-wm-paper.md), [JEPA-WMs Paper](sources/jepa-wms-paper.md) — frozen-feature alternatives.
 - [DreamerV3 Paper](sources/dreamer-v3-paper.md), [TD-MPC2 Paper](sources/td-mpc2-paper.md) — the MBRL baselines LeWM benchmarks against.
 
-Concept pages: [Joint-Embedding Predictive Architecture](concepts/jepa.md), [World model](concepts/world-model.md), [World-model simulators](concepts/world-model-simulators.md), [Learned latent space](concepts/latent-space.md).
+Concept pages: [Joint-Embedding Predictive Architecture](concepts/world-models/jepa.md), [World model](concepts/world-models/world-model.md), [World-model simulators](concepts/world-models/world-model-simulators.md), [Learned latent space](concepts/world-models/latent-space.md).
 
-Syntheses: [generative-video vs JEPA world models](syntheses/generative-video-vs-jepa-world-models.md), [LeWM-on-Stretch feasibility](syntheses/lewm-on-stretch-feasibility.md), [LeWM-on-ROSOrin-Pro feasibility](syntheses/lewm-on-rosorin-pro-feasibility.md), [LeWM howto](syntheses/leworldmodel-howto.md), [LeWM hello-world scope](syntheses/lewm-hello-world-project-scope.md).
+Syntheses: [generative-video vs JEPA world models](syntheses/world-models/generative-video-vs-jepa-world-models.md), [LeWM-on-Stretch feasibility](syntheses/projects/lewm-on-stretch-feasibility.md), [LeWM-on-ROSOrin-Pro feasibility](syntheses/projects/lewm-on-rosorin-pro-feasibility.md), [LeWM howto](syntheses/world-models/leworldmodel-howto.md), [LeWM hello-world scope](syntheses/projects/lewm-hello-world-project-scope.md).
 
 ### Behavior cloning lineage
 
@@ -70,7 +70,7 @@ The policy-learning side. Filed end-to-end:
 - [IBC Paper](sources/ibc-paper.md), [BET Paper](sources/bet-paper.md), [Diffusion Policy Paper](sources/diffusion-policy-paper.md), [DDPM Paper](sources/ddpm-paper.md), [UMI Project Page](sources/umi-paper.md).
 - VLAs: [π0 Paper](sources/pi-zero-paper.md), [Helix (Figure AI blog)](sources/helix-blog.md), [VLA-JEPA Paper](sources/vla-jepa-paper.md), and entities for [GR00T](entities/nvidia-groot.md), [Gemini Robotics](entities/gemini-robotics.md), [Physical Intelligence](entities/physical-intelligence.md), [Figure](entities/figure.md).
 
-Concept pages: [Imitation learning](concepts/imitation-learning.md), [VLA models](concepts/vla-models.md).
+Concept pages: [Imitation learning](concepts/learning/imitation-learning.md), [VLA models](concepts/learning/vla-models.md).
 
 ### Assistive robotics
 
@@ -81,29 +81,29 @@ A separate research thread feeding into the curriculum's Module 13 (home-robotic
 - [Stretch](entities/stretch.md) (Hello Robot) — the de-facto research platform.
 - [Robot Utility Models](entities/robot-utility-models.md), [OK-Robot](entities/ok-robot.md) — the strongest current home-robotics results, both on Stretch, both BC-line.
 
-Syntheses: [Assistive robotics R&D landscape](syntheses/assistive-robotics-research-landscape.md), [Levels of autonomy in assistive robotics](syntheses/levels-of-autonomy-in-assistive-robotics.md), [Long-term in-home robot deployments](syntheses/long-term-in-home-robot-deployments.md), [Stretch as assistive platform](syntheses/stretch-as-assistive-platform.md), [Underserved PAR domains](syntheses/underserved-par-domains.md).
+Syntheses: [Assistive robotics R&D landscape](syntheses/assistive/assistive-robotics-research-landscape.md), [Levels of autonomy in assistive robotics](syntheses/assistive/levels-of-autonomy-in-assistive-robotics.md), [Long-term in-home robot deployments](syntheses/assistive/long-term-in-home-robot-deployments.md), [Stretch as assistive platform](syntheses/assistive/stretch-as-assistive-platform.md), [Underserved PAR domains](syntheses/assistive/underserved-par-domains.md).
 
 ### AI safety and alignment
 
 Auxiliary cluster — relevant context for agentic robotics.
 
 - [Claude's Constitution](sources/claudes-constitution.md) — Anthropic's primary specification.
-- Concept pages: [AI safety and alignment](concepts/ai-safety-alignment.md), [Corrigibility](concepts/corrigibility.md), [LLM-agent architecture](concepts/llm-agent-architecture.md).
+- Concept pages: [AI safety and alignment](concepts/safety/ai-safety-alignment.md), [Corrigibility](concepts/safety/corrigibility.md), [LLM-agent architecture](concepts/agents/llm-agent-architecture.md).
 - Entities: [Anthropic](entities/anthropic.md), [Apollo Research](entities/apollo-research.md).
 
 ### Simulators and infrastructure
 
 The sim-stack landscape circa 2026.
 
-- [Simulators for agentic robotics — 2026 landscape](syntheses/simulators-for-agentic-robotics-2026.md) — six-category survey.
-- [Newton + OpenUSD substrate convergence](syntheses/newton-openusd-substrate-convergence.md), [OpenUSD support across simulators](syntheses/openusd-support-across-simulators.md).
+- [Simulators for agentic robotics — 2026 landscape](syntheses/simulators/simulators-for-agentic-robotics-2026.md) — six-category survey.
+- [Newton + OpenUSD substrate convergence](syntheses/simulators/newton-openusd-substrate-convergence.md), [OpenUSD support across simulators](syntheses/simulators/openusd-support-across-simulators.md).
 - Entities: [NVIDIA Isaac Sim / Lab](entities/nvidia-isaac-sim.md), [MuJoCo](entities/mujoco.md), [MuJoCo Playground](entities/mujoco-playground.md), [Newton physics engine](entities/newton-physics-engine.md), [Genesis](entities/genesis.md), [AGIBOT Genie Sim](entities/agibot-genie-sim.md), [RoboCasa](entities/robocasa.md), [ManiSkill](entities/maniskill.md).
 
 ### Whole-organism agentic AI (fruit fly)
 
 A discrete research thread on biological agent loops.
 
-- [Whole-organism agentic AI](syntheses/whole-organism-agentic-ai.md) — synthesis.
+- [Whole-organism agentic AI](syntheses/agents/whole-organism-agentic-ai.md) — synthesis.
 - [flybody](entities/flybody.md), [NeuroMechFly](entities/neuromechfly.md), [FlyWire](entities/flywire.md), [Drosophila brain model](entities/drosophila-brain-model.md), [flyvis](entities/flyvis.md).
 - Primary sources: [flybody Paper](sources/flybody-paper.md), [Shiu et al. 2024](sources/shiu-fly-brain-paper.md), [Lappalainen et al. 2024](sources/lappalainen-flyvis-paper.md), [Berkeley News on fly brain](sources/berkeley-fly-brain-news.md).
 
@@ -113,23 +113,23 @@ A separate hobby/competition thread.
 
 - [FRC 2026 Game Manual](sources/frc-2026-game-manual.md), [FRC KitBot 2026](sources/frc-kitbot-2026.md), [Team 254 AI in FRC presentation](sources/team-254-ai-in-frc-presentation.md).
 - Entities: [FIRST Robotics Competition](entities/first-robotics-competition.md), [FRC KitBot](entities/frc-kitbot.md), [AndyMark](entities/andymark.md), [Team 254](entities/team-254.md), [roboRIO](entities/roborio.md).
-- Synthesis: [FRC simulation & AI landscape](syntheses/frc-simulation-and-ai-landscape.md).
+- Synthesis: [FRC simulation & AI landscape](syntheses/simulators/frc-simulation-and-ai-landscape.md).
 
 ### ROSOrin Pro project ladder
 
 A practical project sequence for learning JEPA on educational hardware.
 
-- [JEPA project ladder for ROSOrin Pro](syntheses/jepa-project-ladder-rosorin-pro.md) — six-rung ladder.
-- [LeWM on ROSOrin Pro — feasibility](syntheses/lewm-on-rosorin-pro-feasibility.md).
+- [JEPA project ladder for ROSOrin Pro](syntheses/projects/jepa-project-ladder-rosorin-pro.md) — six-rung ladder.
+- [LeWM on ROSOrin Pro — feasibility](syntheses/projects/lewm-on-rosorin-pro-feasibility.md).
 - Entities: [ROSOrin / ROSOrin Pro](entities/rosorin.md), [Hiwonder](entities/hiwonder.md), [OpenClaw](entities/openclaw.md).
 
 ## Where to start (by intent)
 
 - **You're new to this repo entirely:** start with the [repo README](../README.md) for the directory layout, then come back here.
-- **You want to learn the robotics-policy landscape end to end:** start with [the curriculum hub](syntheses/robot-learning-curriculum.md). The prereq diagnostic at the top of [Module 1](syntheses/curriculum-01-neural-networks.md) tells you whether you can skim Tier 1.
-- **You want to understand LeWM specifically:** start with [the curriculum hub](syntheses/robot-learning-curriculum.md), then jump to [Module 10](syntheses/curriculum-10-world-models.md) → [Module 11](syntheses/curriculum-11-jepa-deep.md) → [Module 12](syntheses/curriculum-12-lewm-deep-dive.md) (assumes ML basics).
-- **You want to set up a home-robot research project:** start with [Assistive robotics R&D landscape](syntheses/assistive-robotics-research-landscape.md) and [Module 13](syntheses/curriculum-13-home-robotics-deployment.md). Then [LeWM-on-Stretch feasibility](syntheses/lewm-on-stretch-feasibility.md) or [DINO-WM-on-Stretch experiment](syntheses/dino-wm-on-stretch-experiment.md) depending on which WM you'd prefer to try.
-- **You want to actually reproduce LeWM:** [LeWM howto](syntheses/leworldmodel-howto.md) + [hello-world scope](syntheses/lewm-hello-world-project-scope.md) + [Module 14 capstone](syntheses/curriculum-14-capstone.md).
+- **You want to learn the robotics-policy landscape end to end:** start with [the curriculum hub](syntheses/curriculum/robot-learning-curriculum.md). The prereq diagnostic at the top of [Module 1](syntheses/curriculum/curriculum-01-neural-networks.md) tells you whether you can skim Tier 1.
+- **You want to understand LeWM specifically:** start with [the curriculum hub](syntheses/curriculum/robot-learning-curriculum.md), then jump to [Module 10](syntheses/curriculum/curriculum-10-world-models.md) → [Module 11](syntheses/curriculum/curriculum-11-jepa-deep.md) → [Module 12](syntheses/curriculum/curriculum-12-lewm-deep-dive.md) (assumes ML basics).
+- **You want to set up a home-robot research project:** start with [Assistive robotics R&D landscape](syntheses/assistive/assistive-robotics-research-landscape.md) and [Module 13](syntheses/curriculum/curriculum-13-home-robotics-deployment.md). Then [LeWM-on-Stretch feasibility](syntheses/projects/lewm-on-stretch-feasibility.md) or [DINO-WM-on-Stretch experiment](syntheses/projects/dino-wm-on-stretch-experiment.md) depending on which WM you'd prefer to try.
+- **You want to actually reproduce LeWM:** [LeWM howto](syntheses/world-models/leworldmodel-howto.md) + [hello-world scope](syntheses/projects/lewm-hello-world-project-scope.md) + [Module 14 capstone](syntheses/curriculum/curriculum-14-capstone.md).
 - **You're looking up an acronym:** [glossary.md](glossary.md). Ctrl-F.
 - **You want the full catalog:** [index.md](index.md). Every page listed, organized by category.
 - **You want to know what was done when:** [log.md](log.md). Append-only chronological record of ingests, syntheses, lint passes, and curriculum-module drafts. Grep with `grep "^## \[" log.md | tail -20` to see recent activity.

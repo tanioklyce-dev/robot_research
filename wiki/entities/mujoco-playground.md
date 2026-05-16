@@ -18,7 +18,7 @@ Google DeepMind's open-source robot-learning framework built on MuJoCo MJX (the 
 - `pip install playground` install path; minutes to first trained policy.
 
 ## 2026 status
-Presented at RSS 2025; widely cited for [Sim-to-real transfer](../concepts/sim-to-real-transfer.md) research. Now interoperates with [Newton physics engine](newton-physics-engine.md) alongside its native MJX backend.
+Presented at RSS 2025; widely cited for [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md) research. Now interoperates with [Newton physics engine](newton-physics-engine.md) alongside its native MJX backend.
 
 ## Related
 - [Google DeepMind](google-deepmind.md) — maintainer.

@@ -29,14 +29,14 @@ Educational mobile robot kit from [Hiwonder](hiwonder.md) built around a Jetson 
 - **Embodied AI** (chapter 10.3): same JSON tool-call pattern as [stretch_ai](stretch-ai.md) — LLM emits `{action: [...], response: ...}`, executor dispatches skill calls via `eval(f'self.{a}')`. Demos: real-time detection, vision tracking, smart home assistant.
 
 ## Why it matters
-Concrete evidence that the **[LLM-agent architecture pattern](../concepts/llm-agent-architecture.md)** has reached the educational tier — a kit you can buy for a classroom now ships with both cloud and offline LLM-driven agent workflows. ROSOrin's `eval`-on-action-strings approach is a signal that the pattern is settling into a standard recipe across vendors.
+Concrete evidence that the **[LLM-agent architecture pattern](../concepts/agents/llm-agent-architecture.md)** has reached the educational tier — a kit you can buy for a classroom now ships with both cloud and offline LLM-driven agent workflows. ROSOrin's `eval`-on-action-strings approach is a signal that the pattern is settling into a standard recipe across vendors.
 
 ## Related
 - [Hiwonder](hiwonder.md) — vendor.
 - [ROSOrin Pro](rosorin-pro.md) — manipulation-capable sibling kit (adds 6-DOF arm + [OpenClaw](openclaw.md) LLM-agent framework).
 - [Stretch](stretch.md) — research-tier counterpart from [Hello Robot](hello-robot.md).
 - [Ollama](ollama.md) / [Qwen](qwen.md) — local LLM stack used in chapter 10.5.
-- [LLM-agent architecture](../concepts/llm-agent-architecture.md) — design pattern the curriculum implements.
+- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — design pattern the curriculum implements.
 
 ## Mentioned in
 - [Hiwonder ROSOrin Documentation](../sources/hiwonder-rosorin-docs.md)

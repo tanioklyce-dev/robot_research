@@ -31,8 +31,8 @@ Documentation for the LLM agent component of [stretch_ai](../entities/stretch-ai
 - [stretch_ai](../entities/stretch-ai.md)
 
 ## Concepts touched
-- [LLM-agent architecture](../concepts/llm-agent-architecture.md): LLM emits tool calls, deterministic executor runs them.
-- [VLA models](../concepts/vla-models.md) (contrast: this is NOT a VLA — it wraps classical perception/manipulation rather than learning end-to-end action prediction).
+- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md): LLM emits tool calls, deterministic executor runs them.
+- [VLA models](../concepts/learning/vla-models.md) (contrast: this is NOT a VLA — it wraps classical perception/manipulation rather than learning end-to-end action prediction).
 
 ## Open questions
 - Why no Claude / Anthropic backend?

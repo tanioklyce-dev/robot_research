@@ -69,7 +69,7 @@ These are the **two competing 2025 attempts to make large-scale SSL stable**. Th
 ## Related
 - [DINOv2](dinov2.md) — direct predecessor.
 - [Meta FAIR](meta-fair.md) — origin lab.
-- [Learned latent space](../concepts/latent-space.md) — DINOv3 produces the embeddings downstream world models predict in.
+- [Learned latent space](../concepts/world-models/latent-space.md) — DINOv3 produces the embeddings downstream world models predict in.
 - [DINO-WM](dino-wm.md) / [DINO-world](dino-world.md) / [JEPA-WMs](jepa-wms.md) — DINOv2 users; candidates for DINOv3 upgrade.
 
 ## Mentioned in

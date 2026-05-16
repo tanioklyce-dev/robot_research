@@ -23,7 +23,7 @@ This is the **first wiki ingest of a research / student-org institutional landin
 | Project | Description | Status | Notes |
 |---|---|---|---|
 | **[LeKiwi](../entities/lekiwi.md)** | Open-source, low-cost mobile manipulator. "A SIGRobotics × Hugging Face LeRobot collaboration." | Ongoing | The org's flagship — [github.com/SIGRobotics-UIUC/LeKiwi](https://github.com/SIGRobotics-UIUC/LeKiwi). Already extensively covered in the wiki. |
-| **Robot Arms (Koch arms)** | 3D-printed Koch arms for table-top manipulation via [imitation learning](../concepts/imitation-learning.md). | Ongoing | No public repo linked from the projects page. Koch arms are an open-hardware lineage that pre-dates SO-100. |
+| **Robot Arms (Koch arms)** | 3D-printed Koch arms for table-top manipulation via [imitation learning](../concepts/learning/imitation-learning.md). | Ongoing | No public repo linked from the projects page. Koch arms are an open-hardware lineage that pre-dates SO-100. |
 | **Mini Humanoid** | Training locomotion policies on the org's own 3D-printed humanoid. **Sponsored by [K-Scale Labs](../entities/k-scale-labs.md).** | Ongoing | Repo: [github.com/SIGRobotics-UIUC/micro-sim](https://github.com/SIGRobotics-UIUC/micro-sim) ("Training in simulation"). The K-Scale Labs sponsorship is **a new fact** for the wiki — K-Scale was funding UIUC humanoid-policy work even as it ran out of Series-A runway in late 2025. |
 | **TB3 Mobile Manipulator** | "Get a Turtlebot3 to get us a cup of coffee." **Sponsored by UIUC CDS.** | Ongoing | No public repo. UIUC CDS = (best guess) Coordinated Science Lab or Computational Data Sciences, not stated explicitly. |
 
@@ -84,8 +84,8 @@ The gap between the website's 4-project view and the GitHub org's 25-repo realit
 
 ## Concepts touched
 
-- [Imitation learning](../concepts/imitation-learning.md) — Koch arms project framing.
-- [Sim-to-real transfer](../concepts/sim-to-real-transfer.md) — implicit in Mini Humanoid (training in `micro-sim`).
+- [Imitation learning](../concepts/learning/imitation-learning.md) — Koch arms project framing.
+- [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md) — implicit in Mini Humanoid (training in `micro-sim`).
 
 ## Open questions
 

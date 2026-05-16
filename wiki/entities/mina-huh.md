@@ -15,7 +15,7 @@ tags: [person, uc-berkeley, accessibility, hci, hri, blind-users]
 
 ## Related
 - [Amy Pavel](amy-pavel.md) — senior collaborator
-- [Accessible robot communication](../concepts/accessible-robot-communication.md)
+- [Accessible robot communication](../concepts/robotics/accessible-robot-communication.md)
 
 ## Mentioned in
 - [Designing Accessible Robot Communication](../sources/huh2026-accessible-robot-comm.md)

@@ -44,19 +44,19 @@ MIT.
 
 ## Related
 - [Mila](mila.md) — primary affiliation.
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — architecture family.
-- [Learned latent space](../concepts/latent-space.md) — LeWM is the first JEPA to learn its latent space *end-to-end from raw pixels* (no frozen DINOv2); SIGReg is the anti-collapse mechanism.
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — architecture family.
+- [Learned latent space](../concepts/world-models/latent-space.md) — LeWM is the first JEPA to learn its latent space *end-to-end from raw pixels* (no frozen DINOv2); SIGReg is the anti-collapse mechanism.
 - [V-JEPA 2](v-jepa-2.md) — sibling JEPA model from a different group.
-- [World-model simulators](../concepts/world-model-simulators.md) — broader paradigm.
+- [World-model simulators](../concepts/world-models/world-model-simulators.md) — broader paradigm.
 
 ## Code
 - Official repo: https://github.com/lucas-maes/le-wm (built on `stable-worldmodel` + `stable-pretraining`)
 - Pretrained HF checkpoints: `quentinll/lewm-{pusht,cube,tworooms,reacher}`
-- See [LeWorldModel — train and run howto](../syntheses/leworldmodel-howto.md) for the practical recipe.
+- See [LeWorldModel — train and run howto](../syntheses/world-models/leworldmodel-howto.md) for the practical recipe.
 
 ## Mentioned in
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md)
-- [LeWorldModel — train and run howto](../syntheses/leworldmodel-howto.md)
+- [LeWorldModel — train and run howto](../syntheses/world-models/leworldmodel-howto.md)
 - [le-wm GitHub](../sources/lewm-github.md)
 - [MLWorks — Navigate the World from Raw Pixels](../sources/medium-lewm-navigate-world.md)
 - [Towards Deep Learning — This World Model Learns Physics by Watching Videos](../sources/towardsdeeplearning-world-model-physics.md)

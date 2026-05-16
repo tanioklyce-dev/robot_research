@@ -17,8 +17,8 @@ tags: [person, aalborg-university, hri, hci, domestic-robots, qualitative-resear
 Schneiders 2021 is one of the **earliest deployment-reality** anchors in this wiki. Domestic vacuum and lawnmower robots are the only category of consumer robots that has reached genuine household saturation, and their adoption patterns prefigure many of the problems facing mobile manipulators and humanoids: task fragmentation, under-trust, the gap between marketed and actual autonomy, and uneven adoption within multi-person households.
 
 ## Related
-- [Assistive robotics](../concepts/assistive-robotics.md) — domestic robots as the consumer precursor
-- [Accessible robot communication](../concepts/accessible-robot-communication.md) — under-trust + co-located-monitoring connection
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md) — domestic robots as the consumer precursor
+- [Accessible robot communication](../concepts/robotics/accessible-robot-communication.md) — under-trust + co-located-monitoring connection
 
 ## Mentioned in
 - [Domestic Robots and the Dream of Automation](../sources/schneiders2021-domestic-robots-automation.md)

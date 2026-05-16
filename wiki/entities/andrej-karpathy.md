@@ -14,9 +14,9 @@ tags: [person, openai, tesla, education, pedagogy, nanogpt, micrograd, nanochat,
 
 Karpathy's repos are referenced as the **"read this code to understand the concept" exit ramp** at the bottom of curriculum modules:
 
-- **[Module 1 — Neural networks and training](../syntheses/curriculum-01-neural-networks.md)** — [micrograd](../sources/karpathy-micrograd.md) for backprop.
-- **[Module 3 — Sequence models, attention, transformers](../syntheses/curriculum-03-attention-and-transformers.md)** — [nanoGPT](../sources/karpathy-nanogpt.md) (deprecated as of Nov 2025) → [nanochat](../sources/karpathy-nanochat.md) for transformer training end to end.
-- **[LLM-agent architecture concept](../concepts/llm-agent-architecture.md)** — [autoresearch](../sources/karpathy-autoresearch.md) (Mar 2026) as a worked example of an agent autonomously iterating on a real LLM training loop.
+- **[Module 1 — Neural networks and training](../syntheses/curriculum/curriculum-01-neural-networks.md)** — [micrograd](../sources/karpathy-micrograd.md) for backprop.
+- **[Module 3 — Sequence models, attention, transformers](../syntheses/curriculum/curriculum-03-attention-and-transformers.md)** — [nanoGPT](../sources/karpathy-nanogpt.md) (deprecated as of Nov 2025) → [nanochat](../sources/karpathy-nanochat.md) for transformer training end to end.
+- **[LLM-agent architecture concept](../concepts/agents/llm-agent-architecture.md)** — [autoresearch](../sources/karpathy-autoresearch.md) (Mar 2026) as a worked example of an agent autonomously iterating on a real LLM training loop.
 
 The repos share a deliberate design philosophy: **a single hackable file** (or two), **no framework abstractions**, **runs on a single GPU**, **pedagogically transparent over production-ready**. This makes them ideal anchor implementations for understanding modern ML — and explicitly the pattern this wiki's curriculum is structured to teach against.
 
@@ -41,7 +41,7 @@ Karpathy's [Zero to Hero](https://karpathy.ai/zero-to-hero.html) lecture series 
 The repos are also the most direct demonstration that **modern ML capability can be reproduced on accessible compute**: micrograd on a laptop, nanoGPT on a single GPU, nanochat on an 8-GPU node for under $100. This is the same "consumer-hardware reproducibility" thread that the [Onchain AI Garage LeWM reproduction](../sources/onchain-ai-garage-lewm-reproduction.md) sits inside.
 
 ## Related
-- [LLM-agent architecture concept](../concepts/llm-agent-architecture.md) — autoresearch is an example.
+- [LLM-agent architecture concept](../concepts/agents/llm-agent-architecture.md) — autoresearch is an example.
 - [Anthropic](anthropic.md) — Claude Code is one of the agents commonly used with autoresearch.
 
 ## Mentioned in
@@ -49,9 +49,9 @@ The repos are also the most direct demonstration that **modern ML capability can
 - [nanoGPT repo (Karpathy, 2022)](../sources/karpathy-nanogpt.md)
 - [nanochat repo (Karpathy, 2025)](../sources/karpathy-nanochat.md)
 - [autoresearch repo (Karpathy, 2026)](../sources/karpathy-autoresearch.md)
-- [Curriculum Module 1 — Neural networks and training](../syntheses/curriculum-01-neural-networks.md)
-- [Curriculum Module 2 — CNNs and visual representation learning](../syntheses/curriculum-02-cnns.md) — CS231n reference.
-- [Curriculum Module 3 — Sequence models, attention, transformers](../syntheses/curriculum-03-attention-and-transformers.md)
+- [Curriculum Module 1 — Neural networks and training](../syntheses/curriculum/curriculum-01-neural-networks.md)
+- [Curriculum Module 2 — CNNs and visual representation learning](../syntheses/curriculum/curriculum-02-cnns.md) — CS231n reference.
+- [Curriculum Module 3 — Sequence models, attention, transformers](../syntheses/curriculum/curriculum-03-attention-and-transformers.md)
 
 ## Open questions / TBD
 - The [Zero to Hero](https://karpathy.ai/zero-to-hero.html) lecture series is referenced from Module 1's "Open questions" but not yet filed as a wiki source page. Would be the most-referenced single Karpathy artifact alongside the repos.

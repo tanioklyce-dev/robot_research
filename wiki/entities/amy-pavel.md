@@ -18,7 +18,7 @@ Pavel's group represents the **accessibility / HCI side** of the new wave of rob
 
 ## Related
 - [Mina Huh](mina-huh.md)
-- [Accessible robot communication](../concepts/accessible-robot-communication.md)
+- [Accessible robot communication](../concepts/robotics/accessible-robot-communication.md)
 
 ## Mentioned in
 - [Designing Accessible Robot Communication](../sources/huh2026-accessible-robot-comm.md)

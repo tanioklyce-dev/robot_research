@@ -30,7 +30,7 @@ Reference appears across multiple ingested sources:
 - [stable-worldmodel](stable-worldmodel.md) — exposes DM Control envs to the LeWM-line.
 
 ## Mentioned in
-- [LeWorldModel — train and run howto](../syntheses/leworldmodel-howto.md) (referenced via stable-worldmodel env zoo)
+- [LeWorldModel — train and run howto](../syntheses/world-models/leworldmodel-howto.md) (referenced via stable-worldmodel env zoo)
 - [DINO-WM Paper](../sources/dino-wm-paper.md) (DM Control Reacher as eval)
 - [Farama Foundation Projects Page](../sources/farama-projects-page.md) (Shimmy bridge)
 - [flybody Paper](../sources/flybody-paper.md) (`dm_control` env API for *Drosophila* sim)

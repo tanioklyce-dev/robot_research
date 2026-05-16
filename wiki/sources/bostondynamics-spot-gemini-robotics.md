@@ -43,9 +43,9 @@ Two Boston Dynamics Spot-team engineers wired Google DeepMind's [Gemini Robotics
 
 ## Concepts touched
 
-- [LLM-agent architecture](../concepts/llm-agent-architecture.md) — Gemini-emits-tool-calls-against-Spot-SDK is a textbook instance.
-- [VLA models](../concepts/vla-models.md) — explicitly contrasted: Gemini Robotics-ER is a VLM/embodied-reasoner that emits tool calls, *not* a VLA emitting low-level actions. (Google does have a separate full Gemini Robotics VLA; this post is about the -ER variant.)
-- [AI safety and alignment](../concepts/ai-safety-alignment.md) — the SDK / tool surface is the safety boundary; model can only invoke pre-defined capabilities.
+- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — Gemini-emits-tool-calls-against-Spot-SDK is a textbook instance.
+- [VLA models](../concepts/learning/vla-models.md) — explicitly contrasted: Gemini Robotics-ER is a VLM/embodied-reasoner that emits tool calls, *not* a VLA emitting low-level actions. (Google does have a separate full Gemini Robotics VLA; this post is about the -ER variant.)
+- [AI safety and alignment](../concepts/safety/ai-safety-alignment.md) — the SDK / tool surface is the safety boundary; model can only invoke pre-defined capabilities.
 
 ## Open questions
 

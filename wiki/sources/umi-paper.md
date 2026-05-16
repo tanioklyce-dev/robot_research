@@ -65,7 +65,7 @@ tags: [umi, universal-manipulation-interface, hand-held-gripper, in-the-wild-dat
 
 ## Concepts touched
 
-- [Imitation learning](../concepts/imitation-learning.md) — UMI is a data-collection enabler for BC.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — UMI is a data-collection enabler for BC.
 - Cross-embodiment transfer — UMI's relative-trajectory action representation is one mechanism for it.
 - Sim-to-real / real-to-real — UMI bypasses sim entirely; data is collected in the deployment environment by hand.
 

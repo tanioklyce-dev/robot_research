@@ -42,11 +42,11 @@ UC Berkeley News article (2024-10-02) reporting that Phil Shiu (then UC Berkeley
 
 ## Concepts touched
 
-- [Connectome](../concepts/connectome.md) — complete wiring diagram of a nervous system.
-- [Biomechanical simulation](../concepts/biomechanical-simulation.md) — companion thread (this work models the brain only, not the body).
+- [Connectome](../concepts/bio/connectome.md) — complete wiring diagram of a nervous system.
+- [Biomechanical simulation](../concepts/bio/biomechanical-simulation.md) — companion thread (this work models the brain only, not the body).
 
 ## Open questions
 
 - The Berkeley article doesn't name the simulation software or any code release. The Shiu et al. *Nature* paper itself would be the primary source for those details — TBD as a follow-up ingest.
 - How accurate is "leaky integrate-and-fire" against real fly neural recordings? The article reports qualitative behavioural validation, not neuron-level RMSE.
-- The article frames the work as brain-only. Pairing it with a body simulator like [flybody](../entities/flybody.md) is the natural whole-organism follow-up — see [Whole-organism agentic AI](../syntheses/whole-organism-agentic-ai.md).
+- The article frames the work as brain-only. Pairing it with a body simulator like [flybody](../entities/flybody.md) is the natural whole-organism follow-up — see [Whole-organism agentic AI](../syntheses/agents/whole-organism-agentic-ai.md).

@@ -55,8 +55,8 @@ LeKiwi is structurally a 3-wheel holonomic Kiwi-drive base with a stacked-base-p
 
 ## Concepts touched
 
-- [Imitation learning](../concepts/imitation-learning.md) — primary use case (data-collection → training pipeline)
-- [Assistive robotics](../concepts/assistive-robotics.md) — fits the same low-cost mobile-manipulator slot occupied by [ROSOrin Pro](../entities/rosorin-pro.md) and (at higher cost) [Stretch](../entities/stretch.md)
+- [Imitation learning](../concepts/learning/imitation-learning.md) — primary use case (data-collection → training pipeline)
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md) — fits the same low-cost mobile-manipulator slot occupied by [ROSOrin Pro](../entities/rosorin-pro.md) and (at higher cost) [Stretch](../entities/stretch.md)
 
 ## Open questions
 

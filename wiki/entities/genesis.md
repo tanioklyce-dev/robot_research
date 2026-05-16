@@ -13,7 +13,7 @@ Generative and universal physics engine for robotics and embodied AI, released D
 ## Capabilities
 - Headline benchmark: 43M FPS on a Franka arm (single RTX 4090, ~430,000× real-time).
 - Claimed 10–80× speedup over Isaac Gym/Sim/Lab and [MuJoCo MJX](mujoco-playground.md) on comparable workloads.
-- **Generative simulation**: a [VLM](../concepts/vla-models.md)-based agent uses simulator APIs as tools to construct 4D worlds from natural-language prompts.
+- **Generative simulation**: a [VLM](../concepts/learning/vla-models.md)-based agent uses simulator APIs as tools to construct 4D worlds from natural-language prompts.
 - Output modalities: scenes, tasks, rewards, assets, motions, policies, trajectories, camera paths, physically-accurate videos.
 - Photorealistic rendering integrated.
 
@@ -24,7 +24,7 @@ Active open-source project. Adoption claims are strong but real-world production
 > The 43M FPS figure refers to a Franka arm in a benign scenario. Throughput on contact-rich tasks is likely much lower. Validate before relying on the headline number for capacity planning.
 
 ## Related
-- [VLA models](../concepts/vla-models.md), [World-model simulators](../concepts/world-model-simulators.md) — adjacent paradigms Genesis touches.
+- [VLA models](../concepts/learning/vla-models.md), [World-model simulators](../concepts/world-models/world-model-simulators.md) — adjacent paradigms Genesis touches.
 
 ## Mentioned in
 - [Genesis Project Page](../sources/genesis-project-page.md)

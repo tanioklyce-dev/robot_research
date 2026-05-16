@@ -14,7 +14,7 @@ tags: [habitat, embodied-ai, simulator, meta-fair, navigation, manipulation]
 Habitat is a **legacy embodied-AI sim** referenced for context across multiple syntheses but not yet a primary training environment in any ingested source:
 
 - **[ManiSkill-HAB Paper](../sources/maniskill-hab-paper.md)** — explicitly compares against Habitat 2.0 throughput (ManiSkill-HAB ~3× faster).
-- **[Simulators landscape synthesis](../syntheses/simulators-for-agentic-robotics-2026.md)** — Habitat referenced as a mature point of comparison.
+- **[Simulators landscape synthesis](../syntheses/simulators/simulators-for-agentic-robotics-2026.md)** — Habitat referenced as a mature point of comparison.
 - **[Meta FAIR](meta-fair.md)** entity page — Habitat noted as adjacent embodied-AI sim suite.
 
 ## Why it matters
@@ -26,7 +26,7 @@ Habitat is a **legacy embodied-AI sim** referenced for context across multiple s
 - [Meta FAIR](meta-fair.md) — origin lab.
 - [ManiSkill](maniskill.md) — competing/successor manipulation benchmark.
 - [RoboCasa](robocasa.md) — newer household-manipulation benchmark.
-- [Simulators for agentic robotics — 2026 landscape](../syntheses/simulators-for-agentic-robotics-2026.md) — landscape synthesis.
+- [Simulators for agentic robotics — 2026 landscape](../syntheses/simulators/simulators-for-agentic-robotics-2026.md) — landscape synthesis.
 
 ## Mentioned in
 - [ManiSkill-HAB Paper](../sources/maniskill-hab-paper.md)

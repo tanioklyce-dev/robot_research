@@ -16,7 +16,7 @@ tags: [rum, generalist-policy, zero-shot, nyu, meta, behavior-cloning]
 - Vision encoder: ResNet34 initialized from the **Dobb·E HPR encoder** (Shafiullah et al. 2023) + transformer policy trunk.
 - Custom data-collection rig: **"Stick-v2"** — iPhone Pro + $25 BOM, 60 Hz RGB+depth, 100 Hz 6D pose via ARKit. No SLAM, no calibration.
 - One model per task (5 task-specific "utility models").
-- Visuomotor BC; **no language conditioning** (distinguishes RUMs from [VLA models](../concepts/vla-models.md)).
+- Visuomotor BC; **no language conditioning** (distinguishes RUMs from [VLA models](../concepts/learning/vla-models.md)).
 
 ## Headline result
 - **~90% success in unseen, novel environments** with no fine-tuning, on five tasks: open cabinet door, open drawer, pick up napkin, pick up paper bag, reorient a fallen object.
@@ -35,13 +35,13 @@ tags: [rum, generalist-policy, zero-shot, nyu, meta, behavior-cloning]
 3. **Expert > non-expert.** Co-training expert + non-expert can sometimes *hurt*, contradicting mainstream practice.
 
 ## Why it matters
-Demonstrates that **generalization in mobile manipulation does not require explicit VLA / language conditioning** — visuomotor BC at modest scale generalizes to novel environments if data diversity is high. Adjacent to but conceptually distinct from [VLA models](../concepts/vla-models.md).
+Demonstrates that **generalization in mobile manipulation does not require explicit VLA / language conditioning** — visuomotor BC at modest scale generalizes to novel environments if data diversity is high. Adjacent to but conceptually distinct from [VLA models](../concepts/learning/vla-models.md).
 
 ## Related
 - [Stretch](stretch.md) — primary hardware platform.
 - [Hello Robot](hello-robot.md) — robot vendor (co-founder Aaron Edsinger is a paper co-author).
-- [VLA models](../concepts/vla-models.md) — adjacent paradigm.
-- [Imitation learning](../concepts/imitation-learning.md) — underlying training method.
+- [VLA models](../concepts/learning/vla-models.md) — adjacent paradigm.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — underlying training method.
 
 ## Mentioned in
 - [Robot Utility Models Project Page](../sources/robot-utility-models-website.md)

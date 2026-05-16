@@ -44,8 +44,8 @@ Repo description: *"A connectome-constrained deep mechanistic network (DMN) mode
 ## Why it matters here
 
 - **The brain-side controller template** for whole-organism agentic AI. If you wanted to put a connectome-constrained controller inside [flybody](flybody.md), flyvis is the existing engineering pattern: deep net + connectome mask + task objective + ensemble.
-- **Same lab as flybody.** Srinivas Turaga is senior on both flyvis (brain side, 2024) and flybody (body side, 2025). The integration the [whole-organism synthesis](../syntheses/whole-organism-agentic-ai.md) identifies as "open" sits inside one PI's research program — not across institutions.
-- **One of two paradigms** for using a connectome computationally — the *connectome-constrained deep learning* path. Companion is mechanistic LIF ([Drosophila brain model](drosophila-brain-model.md)). See [Connectome](../concepts/connectome.md).
+- **Same lab as flybody.** Srinivas Turaga is senior on both flyvis (brain side, 2024) and flybody (body side, 2025). The integration the [whole-organism synthesis](../syntheses/agents/whole-organism-agentic-ai.md) identifies as "open" sits inside one PI's research program — not across institutions.
+- **One of two paradigms** for using a connectome computationally — the *connectome-constrained deep learning* path. Companion is mechanistic LIF ([Drosophila brain model](drosophila-brain-model.md)). See [Connectome](../concepts/bio/connectome.md).
 - **Visual system only.** A whole-brain version (using the FlyWire connectome) is the obvious next step but is not done in this codebase.
 
 ## Related
@@ -55,8 +55,8 @@ Repo description: *"A connectome-constrained deep mechanistic network (DMN) mode
 - [flybody](flybody.md) — sister project from the same lab; body-side complement.
 - [Drosophila brain model (philshiu)](drosophila-brain-model.md) — sister project from a different group; mechanistic-LIF paradigm.
 - [FlyWire](flywire.md) — *not* the connectome flyvis trains on (it predates whole-brain FlyWire and uses optic-lobe FIB-25/FIB-19); the architectural template generalizes.
-- [Connectome](../concepts/connectome.md) — concept.
-- [Whole-organism agentic AI](../syntheses/whole-organism-agentic-ai.md) — synthesis.
+- [Connectome](../concepts/bio/connectome.md) — concept.
+- [Whole-organism agentic AI](../syntheses/agents/whole-organism-agentic-ai.md) — synthesis.
 
 ## Mentioned in
 

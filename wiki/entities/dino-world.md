@@ -23,7 +23,7 @@ tags: [dino-world, dinov2, video-world-model, jepa-adjacent, fair, meta-fair, te
 Per the abstract, generic only — "driving and indoor scenes to simulated environments." No specific simulator names surfaced.
 
 ## Related
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — JEPA-adjacent.
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — JEPA-adjacent.
 - [DINO-WM](dino-wm.md) — sibling DINOv2-feature world model.
 - [V-JEPA 2](v-jepa-2.md) — full JEPA contrast (encoder co-trained).
 - [Meta FAIR](meta-fair.md) — primary lab.

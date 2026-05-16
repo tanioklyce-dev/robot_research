@@ -23,7 +23,7 @@ tags: [phil-shiu, fly-brain, flywire, leaky-integrate-and-fire, biological-ai, u
 
 ## Why it matters here
 
-- **Anchors the brain-side reproducibility surface.** The wiki's brain↔body integration story (see [Whole-organism agentic AI](../syntheses/whole-organism-agentic-ai.md)) depends on having a runnable brain simulation; Shiu's released code is that artifact, and he is the person to track for follow-on work.
+- **Anchors the brain-side reproducibility surface.** The wiki's brain↔body integration story (see [Whole-organism agentic AI](../syntheses/agents/whole-organism-agentic-ai.md)) depends on having a runnable brain simulation; Shiu's released code is that artifact, and he is the person to track for follow-on work.
 - **AI-bridge framing.** Among the Shiu paper's 27 co-authors, he is the one positioning the work explicitly in AI/ML terms. That framing is what made the [Berkeley News](../sources/berkeley-fly-brain-news.md) coverage relevant to this wiki's "alternate paths to capable agents" thread.
 
 ## Related
@@ -32,8 +32,8 @@ tags: [phil-shiu, fly-brain, flywire, leaky-integrate-and-fire, biological-ai, u
 - [Drosophila brain model](drosophila-brain-model.md) — code release.
 - [Berkeley News — fly brain on a laptop](../sources/berkeley-fly-brain-news.md) — interview.
 - [FlyWire](flywire.md) — connectome.
-- [Connectome](../concepts/connectome.md) — concept page.
-- [Whole-organism agentic AI](../syntheses/whole-organism-agentic-ai.md) — synthesis.
+- [Connectome](../concepts/bio/connectome.md) — concept page.
+- [Whole-organism agentic AI](../syntheses/agents/whole-organism-agentic-ai.md) — synthesis.
 
 ## Mentioned in
 

@@ -8,7 +8,7 @@ sources: 5
 tags: [openusd, scene-description, usdphysics, pixar, format, robotics]
 ---
 
-**OpenUSD (Universal Scene Description)** — Pixar-originated, now multi-vendor open standard for describing 3D scenes. In robotics, it has become the **shared scene format and physics-schema layer** across the major simulation stacks ([NVIDIA Isaac Sim](nvidia-isaac-sim.md) / [Isaac Lab](nvidia-isaac-lab.md), [MuJoCo Playground](mujoco-playground.md) via the MjcPhysics plugin, the [Newton](newton-physics-engine.md) ecosystem). See [Newton + OpenUSD — the substrate convergence](../syntheses/newton-openusd-substrate-convergence.md) for the structural argument; this page is the entity reference.
+**OpenUSD (Universal Scene Description)** — Pixar-originated, now multi-vendor open standard for describing 3D scenes. In robotics, it has become the **shared scene format and physics-schema layer** across the major simulation stacks ([NVIDIA Isaac Sim](nvidia-isaac-sim.md) / [Isaac Lab](nvidia-isaac-lab.md), [MuJoCo Playground](mujoco-playground.md) via the MjcPhysics plugin, the [Newton](newton-physics-engine.md) ecosystem). See [Newton + OpenUSD — the substrate convergence](../syntheses/simulators/newton-openusd-substrate-convergence.md) for the structural argument; this page is the entity reference.
 
 ## Why it matters in robotics
 
@@ -76,7 +76,7 @@ The three are **not converging** at the description-format level; they stratify 
 - [Newton physics engine](newton-physics-engine.md) — primary 2026 physics consumer of UsdPhysics.
 - [NVIDIA Isaac Sim](nvidia-isaac-sim.md) / [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — flagship USD-native robotics stack.
 - [MuJoCo Playground](mujoco-playground.md) — MJX-based stack with MjcPhysics USD plugin support.
-- [Newton + OpenUSD — the substrate convergence](../syntheses/newton-openusd-substrate-convergence.md) — the synthesis on what this convergence means.
+- [Newton + OpenUSD — the substrate convergence](../syntheses/simulators/newton-openusd-substrate-convergence.md) — the synthesis on what this convergence means.
 
 ## Mentioned in
 - [New Video Series: What Developers Need to Know About OpenUSD](../sources/nvidia-openusd-developer-video-series.md)

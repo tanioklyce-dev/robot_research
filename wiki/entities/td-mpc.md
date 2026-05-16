@@ -26,7 +26,7 @@ tags: [td-mpc, td-mpc2, world-model, model-based-rl, mbrl, mpc, hansen, decoder-
 
 - **LeWM baseline column.** TD-MPC (and TD-MPC2 by extension) is one of the four world-model baselines in [LeWM](leworldmodel.md).
 - **Closest MBRL relative to JEPA in the wiki.** Decoder-free latent dynamics + planning is structurally analogous to [LeWM](leworldmodel.md) and [DINO-WM](dino-wm.md). The differences (TD-bootstrapped value vs MPC-only; per-task RL fine-tune vs offline-trained generalist; collapse-prevention strategy) are the curriculum-relevant axes.
-- **MBRL canon.** Required reading for curriculum [Module 8](../syntheses/robot-learning-curriculum.md) (RL) and [Module 10](../syntheses/robot-learning-curriculum.md) (world models).
+- **MBRL canon.** Required reading for curriculum [Module 8](../syntheses/curriculum/robot-learning-curriculum.md) (RL) and [Module 10](../syntheses/curriculum/robot-learning-curriculum.md) (world models).
 
 ## Position vs adjacent methods
 
@@ -41,7 +41,7 @@ tags: [td-mpc, td-mpc2, world-model, model-based-rl, mbrl, mpc, hansen, decoder-
 
 - [Dreamer](dreamer.md) — sibling MBRL family with pixel reconstruction.
 - [LeWorldModel](leworldmodel.md) — JEPA-style end-to-end latent WM baseline-vs-TD-MPC in the LeWM paper.
-- [World model](../concepts/world-model.md) — umbrella concept.
+- [World model](../concepts/world-models/world-model.md) — umbrella concept.
 
 ## Mentioned in
 

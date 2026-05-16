@@ -114,7 +114,7 @@ The catastrophic outcome to avoid: global takeover by AIs pursuing misaligned go
 - **Holden Karnofsky** — feedback throughout drafting; coordination across the organization.
 
 ## Related concept pages
-- [AI safety and alignment](../concepts/ai-safety-alignment.md)
+- [AI safety and alignment](../concepts/safety/ai-safety-alignment.md)
 - [Anthropic](../entities/anthropic.md) — publisher; Anthropic's principal hierarchy position is defined in this document
 - [Apollo Research](../entities/apollo-research.md) — evaluates Claude against some of these properties in adversarial settings
 

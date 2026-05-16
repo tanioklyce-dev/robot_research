@@ -26,19 +26,19 @@ tags: [stable-worldmodel, lewm, world-model, infrastructure, env-zoo, mila, bale
 - **Not the model itself.** `stable-worldmodel` is the harness; [LeWorldModel](leworldmodel.md) is the model that lives on top.
 
 ## Why it matters
-- **Underrepresented in the wiki.** The [LeWM howto](../syntheses/leworldmodel-howto.md) originally described only PushT / cube / two-rooms / reacher — a small slice of what `swm` ships. Lint pass surfaced this as a 7-reference gap.
-- **Implicitly load-bearing for the JEPA-skips-sim synthesis.** When discussions describe LeWM as "lightweight benches only," the truth is "a broad zoo of lightweight benches *plus* Fetch-class manipulation envs that bridges toward heavier sim." The synthesis ([revised version](../syntheses/why-jepa-research-skips-the-simulator-stack.md)) now reflects this nuance.
+- **Underrepresented in the wiki.** The [LeWM howto](../syntheses/world-models/leworldmodel-howto.md) originally described only PushT / cube / two-rooms / reacher — a small slice of what `swm` ships. Lint pass surfaced this as a 7-reference gap.
+- **Implicitly load-bearing for the JEPA-skips-sim synthesis.** When discussions describe LeWM as "lightweight benches only," the truth is "a broad zoo of lightweight benches *plus* Fetch-class manipulation envs that bridges toward heavier sim." The synthesis ([revised version](../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md)) now reflects this nuance.
 
 ## Related
 - [LeWorldModel](leworldmodel.md) — the model `stable-worldmodel` was built around.
-- [LeWorldModel — train and run howto](../syntheses/leworldmodel-howto.md) — practical commands targeting `stable-worldmodel`.
+- [LeWorldModel — train and run howto](../syntheses/world-models/leworldmodel-howto.md) — practical commands targeting `stable-worldmodel`.
 - [Mila](mila.md) — Balestriero's lab affiliation.
 - [Gymnasium-Robotics](gymnasium-robotics.md) — Fetch envs `swm` exposes via `swm/FetchReach-v3` etc.
 - [MuJoCo](mujoco.md) / DM Control — env-zoo dependencies.
 
 ## Mentioned in
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md)
-- [LeWorldModel — train and run howto](../syntheses/leworldmodel-howto.md)
+- [LeWorldModel — train and run howto](../syntheses/world-models/leworldmodel-howto.md)
 
 ## Open questions / TBD
 - Roadmap for heavier-sim integration (Isaac Lab / MuJoCo Playground / RoboCasa) — not stated in the README.

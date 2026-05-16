@@ -18,7 +18,7 @@ Google's AI research lab. Maintains MuJoCo and [MuJoCo Playground](mujoco-playgr
 - **`mujoco-usd-converter`** — MuJoCo-to-USD bridge tool hosted in the `newton-physics` GitHub org, used alongside `MjcPhysics` schemas.
 
 ## Robot foundation models
-- **[Gemini Robotics](gemini-robotics.md)** — robot foundation model family built on the Gemini multimodal line. Two variants: a full **vision-language-action** model (emits low-level actions, listed on the [VLA models](../concepts/vla-models.md) concept page) and **Gemini Robotics-ER** (embodied-reasoning VLM that emits tool calls against a robot's API; fits the [LLM-agent architecture](../concepts/llm-agent-architecture.md) pattern).
+- **[Gemini Robotics](gemini-robotics.md)** — robot foundation model family built on the Gemini multimodal line. Two variants: a full **vision-language-action** model (emits low-level actions, listed on the [VLA models](../concepts/learning/vla-models.md) concept page) and **Gemini Robotics-ER** (embodied-reasoning VLM that emits tool calls against a robot's API; fits the [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) pattern).
 - **Formal partnership with [Boston Dynamics](boston-dynamics.md)** — announced separately; characterized as early-stage in the [BD Spot + Gemini Robotics blog](../sources/bostondynamics-spot-gemini-robotics.md). Productized via Boston Dynamics' AIVI-Learning offering powered by Gemini Robotics-ER 1.6.
 
 ## Biological / biomechanical simulation

@@ -60,7 +60,7 @@ The model "can see, smell, walk over challenging terrain, and interact with the 
 
 ## Concepts touched
 
-- [Biomechanical simulation](../concepts/biomechanical-simulation.md) — most-actively-developed *Drosophila* sim in this lineage.
+- [Biomechanical simulation](../concepts/bio/biomechanical-simulation.md) — most-actively-developed *Drosophila* sim in this lineage.
 
 ## Open questions
 

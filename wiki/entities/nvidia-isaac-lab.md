@@ -14,7 +14,7 @@ Open-source modular framework for robot learning and policy training. Sits on to
 - Pluggable physics backends: PhysX, [Newton](newton-physics-engine.md), NVIDIA Warp, MuJoCo.
 - Massively parallel environment vectorization for RL.
 - Isaac Lab-Arena: open-source policy evaluation framework.
-- Bundles [NVIDIA GR00T](nvidia-groot.md) reasoning [VLA](../concepts/vla-models.md) (currently N1.6 GA / N1.7 EA).
+- Bundles [NVIDIA GR00T](nvidia-groot.md) reasoning [VLA](../concepts/learning/vla-models.md) (currently N1.6 GA / N1.7 EA).
 
 ## 2026 status
 Isaac Lab 3.0 with the GA release of the [Newton physics engine](newton-physics-engine.md) became the default training stack for NVIDIA's "Physical AI" stack at GTC 2026 ([NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)). The official browser-deployable [Isaac Launchable](../sources/isaac-launchable-repo.md) on [NVIDIA Brev](nvidia-brev.md) is still on **Isaac Lab 2.3** as of v1.2.1 (Jan 2026).

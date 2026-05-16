@@ -17,7 +17,7 @@ NVIDIA's world foundation model and simulation platform for modeling physical en
 - Cosmos-Reason2-2B is the backbone of [GR00T N1.7](nvidia-groot.md).
 
 ## Why it matters
-Cosmos is the underlying generative video model that's enabling the rise of [World-model simulators](../concepts/world-model-simulators.md) in agentic robotics — where the simulator is a learned model rather than a physics engine. Sits in **paradigmatic contrast** to the [JEPA](../concepts/jepa.md) / latent-prediction world-model line ([V-JEPA 2](v-jepa-2.md), [LeWorldModel](leworldmodel.md)) — Cosmos generates pixels; JEPA predicts representations.
+Cosmos is the underlying generative video model that's enabling the rise of [World-model simulators](../concepts/world-models/world-model-simulators.md) in agentic robotics — where the simulator is a learned model rather than a physics engine. Sits in **paradigmatic contrast** to the [JEPA](../concepts/world-models/jepa.md) / latent-prediction world-model line ([V-JEPA 2](v-jepa-2.md), [LeWorldModel](leworldmodel.md)) — Cosmos generates pixels; JEPA predicts representations.
 
 ## Related
 - [Genie Envisioner](genie-envisioner.md) — built on Cosmos-Predict2.

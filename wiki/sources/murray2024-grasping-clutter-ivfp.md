@@ -31,8 +31,8 @@ Proposes Interactive Visual Failure Prediction (IVFP) — using robot probing mo
 
 ## Concepts touched
 
-- [Assistive robotics](../concepts/assistive-robotics.md) — grasping in clutter is blocking problem #2 in the synthesis
-- [Imitation learning](../concepts/imitation-learning.md) — IVFP provides autonomous reward for policy improvement
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md) — grasping in clutter is blocking problem #2 in the synthesis
+- [Imitation learning](../concepts/learning/imitation-learning.md) — IVFP provides autonomous reward for policy improvement
 
 ## Open questions
 

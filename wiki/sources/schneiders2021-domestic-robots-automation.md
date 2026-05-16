@@ -66,8 +66,8 @@ A qualitative CHI 2021 study of **24 Danish households** that own consumer domes
 
 ## Concepts touched
 
-- [Assistive robotics](../concepts/assistive-robotics.md) — adjacent: domestic robots are the consumer-market precursor to PARs, with the same fragmented-task pattern observed in [Nanavati 2025 feeding deployments](nanavati2025-feeding-out-of-lab.md)
-- [Accessible robot communication](../concepts/accessible-robot-communication.md) — under-trust + co-located monitoring foreshadows the monitoring problem [Huh et al. 2026](huh2026-accessible-robot-comm.md) tackle for blind users
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md) — adjacent: domestic robots are the consumer-market precursor to PARs, with the same fragmented-task pattern observed in [Nanavati 2025 feeding deployments](nanavati2025-feeding-out-of-lab.md)
+- [Accessible robot communication](../concepts/robotics/accessible-robot-communication.md) — under-trust + co-located monitoring foreshadows the monitoring problem [Huh et al. 2026](huh2026-accessible-robot-comm.md) tackle for blind users
 
 ## Open questions
 

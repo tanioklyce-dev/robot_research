@@ -34,8 +34,8 @@ The lab that most directly addresses the "accessible HRI for low-motor users" ga
 ## Related
 - [Maya Cakmak](maya-cakmak.md) — PI
 - [Stretch](stretch.md) — primary research platform
-- [Assistive robotics](../concepts/assistive-robotics.md)
-- [End-user robot programming](../concepts/end-user-robot-programming.md)
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md)
+- [End-user robot programming](../concepts/robotics/end-user-robot-programming.md)
 
 ## Mentioned in
 - [HCR Lab Publications](../sources/hcrlab-publications.md)

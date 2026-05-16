@@ -31,9 +31,9 @@ Complete publication record (2016–2025) of the Human-Centered Robotics Lab (HC
 - [Hello Robot](../entities/hello-robot.md) — manufacturer; mentioned re: Stretch SE2 EUP transfer
 
 ## Concepts touched
-- [Assistive robotics](../concepts/assistive-robotics.md) — core research domain
-- [End-user robot programming](../concepts/end-user-robot-programming.md) — major second track
-- [LLM-agent architecture](../concepts/llm-agent-architecture.md) — 2024 CoRL paper synthesizes robot policies from language + visual demonstrations
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md) — core research domain
+- [End-user robot programming](../concepts/robotics/end-user-robot-programming.md) — major second track
+- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — 2024 CoRL paper synthesizes robot policies from language + visual demonstrations
 
 ## Open questions
 - What are the specific failure modes documented in the HRI 2025 out-of-lab feeding deployment?

@@ -36,8 +36,8 @@ Plus eval variants: **WallRandom, PushObj, GranularRandom, DM Control Reacher**,
 - **Different design point from LeWM.** DINO-WM uses a frozen pretrained DINOv2 encoder; LeWM trains the encoder end-to-end with SIGReg. The two stake out the "frozen pretrained" vs "end-to-end" axis of the JEPA-style world-model design space.
 
 ## Related
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — JEPA-adjacent architecture.
-- [Learned latent space](../concepts/latent-space.md) — DINO-WM models dynamics in *frozen DINOv2 patch-feature space*; the latent is inherited, not learned.
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — JEPA-adjacent architecture.
+- [Learned latent space](../concepts/world-models/latent-space.md) — DINO-WM models dynamics in *frozen DINOv2 patch-feature space*; the latent is inherited, not learned.
 - [DINO-world](dino-world.md) — sibling DINOv2-feature world-model line from FAIR (Baldassarre et al. 2025).
 - [LeWorldModel](leworldmodel.md) — end-to-end JEPA contrast.
 - [V-JEPA 2](v-jepa-2.md) — full JEPA contrast.

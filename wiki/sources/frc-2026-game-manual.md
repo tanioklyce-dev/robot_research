@@ -14,7 +14,7 @@ tags: [frc, competition, robotics, game-design, educational-robotics]
 
 ## Summary
 
-The official 166-page rule book for the 2026 [FIRST Robotics Competition](../entities/first-robotics-competition.md) season game **REBUILT**, presented by the Gene Haas Foundation. The game challenges two three-robot alliances to score foam-ball FUEL into HUBs, navigate obstacle structures (BUMPS and TRENCHES), and climb a three-rung TOWER — all within a 2-minute-40-second match. A distinctive alternating-HUB mechanic ties autonomous performance to teleop strategy, making AUTO results consequential throughout the match. The manual also specifies comprehensive robot construction constraints (weight, size, motors, power, pneumatics, software), the [AprilTag](../concepts/apriltags.md)-instrumented field, and the [roboRIO](../entities/roborio.md)-based control system. Version TU22 (Team Update 22).
+The official 166-page rule book for the 2026 [FIRST Robotics Competition](../entities/first-robotics-competition.md) season game **REBUILT**, presented by the Gene Haas Foundation. The game challenges two three-robot alliances to score foam-ball FUEL into HUBs, navigate obstacle structures (BUMPS and TRENCHES), and climb a three-rung TOWER — all within a 2-minute-40-second match. A distinctive alternating-HUB mechanic ties autonomous performance to teleop strategy, making AUTO results consequential throughout the match. The manual also specifies comprehensive robot construction constraints (weight, size, motors, power, pneumatics, software), the [AprilTag](../concepts/robotics/apriltags.md)-instrumented field, and the [roboRIO](../entities/roborio.md)-based control system. Version TU22 (Team Update 22).
 
 ## Key claims
 
@@ -125,12 +125,12 @@ The official 166-page rule book for the 2026 [FIRST Robotics Competition](../ent
 - [FRC KitBot](../entities/frc-kitbot.md) (referenced in bumper guide, §8.4)
 - [AndyMark](../entities/andymark.md) (field elements, chassis, FUEL am-5801, field variants)
 - [roboRIO](../entities/roborio.md) (mandatory controller, R710)
-- [AprilTags](../concepts/apriltags.md) (36h11 vision fiducials, 32 on field)
+- [AprilTags](../concepts/robotics/apriltags.md) (36h11 vision fiducials, 32 on field)
 
 ## Concepts touched
-- [AprilTags](../concepts/apriltags.md) — 32 fiducial markers enabling autonomous vision
-- [Sim-to-real transfer](../concepts/sim-to-real-transfer.md) — FRC teams increasingly use simulation for autonomous development
-- [Imitation learning](../concepts/imitation-learning.md) — FRC autonomous modes are typically hand-coded, but ML approaches emerging
+- [AprilTags](../concepts/robotics/apriltags.md) — 32 fiducial markers enabling autonomous vision
+- [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md) — FRC teams increasingly use simulation for autonomous development
+- [Imitation learning](../concepts/learning/imitation-learning.md) — FRC autonomous modes are typically hand-coded, but ML approaches emerging
 
 ## Open questions
 - What simulation tools do FRC teams use for autonomous development and AI training?

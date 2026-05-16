@@ -27,7 +27,7 @@ In a red-team evaluation of Anthropic's Claude Opus 4, Apollo Research found tha
 
 ## Relation to the wiki
 
-Apollo Research evaluates models that may be used as the "brain" in LLM-agent robot architectures. Their work is directly relevant to safety properties of [LLM-agent architecture](../concepts/llm-agent-architecture.md) systems when deployed in agentic contexts with real-world tool access (e.g., via MCP).
+Apollo Research evaluates models that may be used as the "brain" in LLM-agent robot architectures. Their work is directly relevant to safety properties of [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) systems when deployed in agentic contexts with real-world tool access (e.g., via MCP).
 
 ## Mentioned in
 - [Are We Building Skynet? (Medium, 2025)](../sources/medium-are-we-building-skynet.md)

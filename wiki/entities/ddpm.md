@@ -48,14 +48,14 @@ Otherwise the training/sampling structure is identical, including the iDDPM nois
 
 - **Substrate of [Diffusion Policy](diffusion-policy.md)** — without DDPM, Diffusion Policy is not a research direction.
 - **Substrate of generative-video world models** — [NVIDIA Cosmos](nvidia-cosmos.md), [Genie Envisioner](genie-envisioner.md) trace to DDPM lineage.
-- **Implicit foil for the JEPA argument** — [JEPA](../concepts/jepa.md)'s pitch ("predict in latent space, not pixels") is positioned against the diffusion-pixel-prediction approach DDPM established. DDPM is the *thing JEPA argues against* in [V-JEPA 2](v-jepa-2.md), [LeWM](leworldmodel.md), and [JEPA-WMs](jepa-wms.md).
+- **Implicit foil for the JEPA argument** — [JEPA](../concepts/world-models/jepa.md)'s pitch ("predict in latent space, not pixels") is positioned against the diffusion-pixel-prediction approach DDPM established. DDPM is the *thing JEPA argues against* in [V-JEPA 2](v-jepa-2.md), [LeWM](leworldmodel.md), and [JEPA-WMs](jepa-wms.md).
 
 ## Related
 
 - [Diffusion Policy](diffusion-policy.md) — direct robotics adaptation.
 - [NVIDIA Cosmos](nvidia-cosmos.md) / [Genie Envisioner](genie-envisioner.md) — generative-video world models built on diffusion.
-- [JEPA](../concepts/jepa.md) — predict-in-latent-space alternative; positioned as a JEPA-vs-pixel-diffusion debate.
-- [World model](../concepts/world-model.md) / [World-model simulators](../concepts/world-model-simulators.md) — generative-video branch trace here.
+- [JEPA](../concepts/world-models/jepa.md) — predict-in-latent-space alternative; positioned as a JEPA-vs-pixel-diffusion debate.
+- [World model](../concepts/world-models/world-model.md) / [World-model simulators](../concepts/world-models/world-model-simulators.md) — generative-video branch trace here.
 
 ## Mentioned in
 

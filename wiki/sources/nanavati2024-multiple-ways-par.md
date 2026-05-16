@@ -34,8 +34,8 @@ Cross-institutional reflection on methodology for including people with motor im
 
 ## Concepts touched
 
-- [Assistive robotics](../concepts/assistive-robotics.md) — participation methodology for PAR research
-- [End-user robot programming](../concepts/end-user-robot-programming.md) — empowerment design as related principle
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md) — participation methodology for PAR research
+- [End-user robot programming](../concepts/robotics/end-user-robot-programming.md) — empowerment design as related principle
 
 ## Open questions
 

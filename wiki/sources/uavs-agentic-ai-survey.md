@@ -17,7 +17,7 @@ Comprehensive multidomain survey defining **agentic UAVs** — autonomous aerial
 ### Agentic UAV definition
 Agentic UAVs are distinguished from traditional UAVs by operating at **autonomy levels 4–5** (context-aware, minimal human oversight) vs. traditional systems at levels 1–2 (rule-based, operator-dependent). The defining capabilities: learned policies, multimodal sensor fusion, dynamic goal planning, onboard edge AI.
 
-### Four-layer architecture ([concept page](../concepts/agentic-uavs.md))
+### Four-layer architecture ([concept page](../concepts/robotics/agentic-uavs.md))
 1. **Perception** — multimodal sensing: RGB, thermal, LiDAR, hyperspectral
 2. **Cognition** — RL, task decomposition, affordance reasoning, transformer attention for memory
 3. **Control** — MPC + neural policy networks for trajectory execution
@@ -50,7 +50,7 @@ Mathematical formalism: `o_t = Φ(s_t)` — sensor inputs → semantic represent
 
 ## Entities mentioned
 - [NVIDIA](../entities/nvidia.md) — Jetson mentioned as edge AI processor
-- [Agentic UAVs](../concepts/agentic-uavs.md) — concept page
+- [Agentic UAVs](../concepts/robotics/agentic-uavs.md) — concept page
 
 ## Open questions
 - No specific benchmarks cited with performance numbers — survey-level only

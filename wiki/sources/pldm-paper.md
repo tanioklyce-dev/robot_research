@@ -37,7 +37,7 @@ The high anti-collapse-hyperparameter count (cited downstream as "6 hyperparamet
 
 - **Encoder + predictor.** Encoder maps observations to latent embeddings; predictor maps `(z_t, a_t) → ẑ_{t+1}`. End-to-end-trained; no frozen pretrained encoder.
 - **Similarity loss** (the prediction objective): `L_sim = (1/N) Σ_b ‖ẑ_{t,b} − z_{t,b}‖²`.
-- **Anti-collapse via VICReg-inspired objective** (Bardes et al. 2021) — the variance / invariance / covariance regularization family from [Module 11](../syntheses/curriculum-11-jepa-deep.md)'s collapse-prevention zoo §2.
+- **Anti-collapse via VICReg-inspired objective** (Bardes et al. 2021) — the variance / invariance / covariance regularization family from [Module 11](../syntheses/curriculum/curriculum-11-jepa-deep.md)'s collapse-prevention zoo §2.
 - **Plus inverse-dynamics modeling** (Lesort et al. 2018) — predict the action `a_t` from `(z_t, z_{t+1})` as an auxiliary loss.
 - **Net loss-term count.** Multi-term: at minimum (similarity, VICReg-variance, VICReg-covariance, VICReg-invariance, inverse-dynamics) = 5 terms. With the typical sub-decompositions and the VICReg variants used in practice, this reaches ~7 terms / 4–6 anti-collapse hyperparameters that need joint tuning ([LeWM paper](../sources/leworldmodel-paper.md) section 2 critique).
 
@@ -107,9 +107,9 @@ The PLDM paper itself doesn't dispute LeWM (it predates LeWM); the comparison ru
 
 ## Concepts touched
 
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — PLDM is an end-to-end JEPA exemplar.
-- [World model](../concepts/world-model.md) — Family 2 (latent-prediction); end-to-end variant.
-- [Imitation learning](../concepts/imitation-learning.md) — the GCBC baseline shows the BC-vs-WM comparison directly.
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — PLDM is an end-to-end JEPA exemplar.
+- [World model](../concepts/world-models/world-model.md) — Family 2 (latent-prediction); end-to-end variant.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — the GCBC baseline shows the BC-vs-WM comparison directly.
 
 ## Open questions / TBD
 

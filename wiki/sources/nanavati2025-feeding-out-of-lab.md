@@ -33,8 +33,8 @@ End-to-end open-source robot-assisted feeding system designed for out-of-lab use
 
 ## Concepts touched
 
-- [Assistive robotics](../concepts/assistive-robotics.md) — the most detailed out-of-lab feeding deployment in the wiki
-- [End-user robot programming](../concepts/end-user-robot-programming.md) — customizability and variable autonomy as key design choices
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md) — the most detailed out-of-lab feeding deployment in the wiki
+- [End-user robot programming](../concepts/robotics/end-user-robot-programming.md) — customizability and variable autonomy as key design choices
 
 ## Open questions
 

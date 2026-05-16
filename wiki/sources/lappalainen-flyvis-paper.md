@@ -68,8 +68,8 @@ Connectome data tells you *which* neurons connect, but not *how strongly* or wit
 
 ## Concepts touched
 
-- [Connectome](../concepts/connectome.md) — substrate. Together with [Shiu et al. 2024](shiu-fly-brain-paper.md), this defines the two main ways to *use* a connectome computationally (mechanistic LIF vs. connectome-constrained deep learning).
-- [Imitation learning](../concepts/imitation-learning.md) — *not* used here; training is task-supervised on optic flow, not imitation.
+- [Connectome](../concepts/bio/connectome.md) — substrate. Together with [Shiu et al. 2024](shiu-fly-brain-paper.md), this defines the two main ways to *use* a connectome computationally (mechanistic LIF vs. connectome-constrained deep learning).
+- [Imitation learning](../concepts/learning/imitation-learning.md) — *not* used here; training is task-supervised on optic flow, not imitation.
 
 ## Open questions
 
@@ -77,10 +77,10 @@ Connectome data tells you *which* neurons connect, but not *how strongly* or wit
 - **Single computation.** Trained only for motion detection. Other visual computations (looming, colour, visual learning) would need separate task objectives.
 - **Connectome incompleteness.** FIB-25/FIB-19 are local reconstructions stitched together. Some cell types lack experimental neurotransmitter data and required educated guesses.
 - **Sparsity caveat.** The authors attribute success in part to the *sparse* structure of the visual-system connectome. They note that for non-sparse circuits, predictions degrade unless connection strengths (not just counts) are also known.
-- **No body, no closed loop.** Same gap as Shiu et al. — a connectome-constrained controller producing motor commands inside [flybody](../entities/flybody.md) is the integration target identified in [Whole-organism agentic AI](../syntheses/whole-organism-agentic-ai.md), and flyvis is the existing template that integration would build on.
+- **No body, no closed loop.** Same gap as Shiu et al. — a connectome-constrained controller producing motor commands inside [flybody](../entities/flybody.md) is the integration target identified in [Whole-organism agentic AI](../syntheses/agents/whole-organism-agentic-ai.md), and flyvis is the existing template that integration would build on.
 
 ## Why it matters here
 
-- **Closes a wiki gap.** Previously referenced only via the [Connectome](../concepts/connectome.md) concept page and the [whole-organism synthesis](../syntheses/whole-organism-agentic-ai.md). Now ingested as a primary source.
+- **Closes a wiki gap.** Previously referenced only via the [Connectome](../concepts/bio/connectome.md) concept page and the [whole-organism synthesis](../syntheses/agents/whole-organism-agentic-ai.md). Now ingested as a primary source.
 - **The brain-side controller template.** flyvis is the closest existing analogue to what a "fly agent" controller inside flybody would look like: a deep net whose architecture is anatomically constrained, trained end-to-end on a task, predictive of real neural activity. The synthesis's "Lappalainen-style controller" framing now has a primary source.
 - **Same lab as flybody.** Turaga is senior on both papers — flyvis (brain side, 2024) and [flybody](flybody-paper.md) (body side, 2025). The integration the synthesis identifies as "open" sits inside one PI's research program.

@@ -43,4 +43,4 @@ Team 254 delivered the landmark presentation **"The Next Revolution: AI in FRC"*
 ## Mentioned in
 - [The Next Revolution: AI in FRC (2026 Championship)](../sources/team-254-ai-in-frc-presentation.md)
 - [Team 254 Website](../sources/team-254-website.md)
-- [FRC simulation & AI landscape](../syntheses/frc-simulation-and-ai-landscape.md) (synthesis)
+- [FRC simulation & AI landscape](../syntheses/simulators/frc-simulation-and-ai-landscape.md) (synthesis)

@@ -21,7 +21,7 @@ ArXiv paper introducing [Genie Envisioner](../entities/genie-envisioner.md) as a
 - [AGIBOT](../entities/agibot.md)
 
 ## Concepts touched
-- [World-model simulators](../concepts/world-model-simulators.md)
+- [World-model simulators](../concepts/world-models/world-model-simulators.md)
 - Foundation models for manipulation
 
 ## Open questions

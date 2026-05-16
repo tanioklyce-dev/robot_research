@@ -37,11 +37,11 @@ Two-stage self-supervised world-model paper from [FAIR at Meta](../entities/meta
 - [NVIDIA Cosmos](../entities/nvidia-cosmos.md) / [Genie Envisioner](../entities/genie-envisioner.md) — paradigmatic-contrast generative-video world models (cited as comparison points).
 
 ## Concepts touched
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md)
-- [World model](../concepts/world-model.md) — JEPA is one design point under this umbrella.
-- [World-model simulators](../concepts/world-model-simulators.md) — latent-prediction paradigm (vs. video generation)
-- [Learned latent space](../concepts/latent-space.md) — V-JEPA 2 predicts in the latent space its encoder learned from internet video.
-- [Sim-to-real transfer](../concepts/sim-to-real-transfer.md) — zero-shot to new robot environments
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md)
+- [World model](../concepts/world-models/world-model.md) — JEPA is one design point under this umbrella.
+- [World-model simulators](../concepts/world-models/world-model-simulators.md) — latent-prediction paradigm (vs. video generation)
+- [Learned latent space](../concepts/world-models/latent-space.md) — V-JEPA 2 predicts in the latent space its encoder learned from internet video.
+- [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md) — zero-shot to new robot environments
 
 ## Open questions
 - How does V-JEPA 2-AC compare to [NVIDIA Cosmos](../entities/nvidia-cosmos.md) / [Genie Envisioner](../entities/genie-envisioner.md) on robot tasks where the latter would generate video rollouts?

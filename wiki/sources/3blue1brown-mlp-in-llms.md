@@ -28,10 +28,10 @@ The lesson covers:
 
 ## Why it matters to this wiki
 
-- **Direct pedagogical fit for [Curriculum Module 3 — Sequence models, attention, and transformers](../syntheses/curriculum-03-attention-and-transformers.md).** Module 3 covers the transformer block at the architectural level (LN → MSA → residual → LN → MLP → residual) but does not unpack the MLP's role in detail; this lesson is the natural exit-ramp video for "what is the MLP block actually *doing* inside a transformer?"
+- **Direct pedagogical fit for [Curriculum Module 3 — Sequence models, attention, and transformers](../syntheses/curriculum/curriculum-03-attention-and-transformers.md).** Module 3 covers the transformer block at the architectural level (LN → MSA → residual → LN → MLP → residual) but does not unpack the MLP's role in detail; this lesson is the natural exit-ramp video for "what is the MLP block actually *doing* inside a transformer?"
 - **Bridges Module 1 and Module 3.** Module 1 builds the MLP from scratch (perceptron → MLP → backprop), Module 3 uses MLP as one of two sublayers inside a transformer block. This lesson is the conceptual bridge: "the MLP block in a transformer is a *stack of perceptrons doing fact lookup*."
 - **Companion to [Welch Labs — Perceptron](welchlabs-perceptron.md).** Welch Labs covers MLPs at the *scale-up* level ("100M perceptrons make a ChatGPT"); 3Blue1Brown covers MLPs at the *mechanistic* level ("here's what the perceptron stack is actually computing inside GPT-3"). The two videos together give Module 1+3 readers complementary intuition.
-- **Foundation for interpretability literature** — superposition + Johnson–Lindenstrauss are the conceptual basis for sparse-autoencoder feature decomposition (Anthropic, Bricken et al. 2023), which is increasingly relevant to AI-safety / alignment work the wiki tracks (see [Claude's Constitution](claudes-constitution.md), [AI safety and alignment](../concepts/ai-safety-alignment.md)).
+- **Foundation for interpretability literature** — superposition + Johnson–Lindenstrauss are the conceptual basis for sparse-autoencoder feature decomposition (Anthropic, Bricken et al. 2023), which is increasingly relevant to AI-safety / alignment work the wiki tracks (see [Claude's Constitution](claudes-constitution.md), [AI safety and alignment](../concepts/safety/ai-safety-alignment.md)).
 
 ## Key claims (transcribed from the lesson page)
 
@@ -53,14 +53,14 @@ The lesson covers:
 - **Multilayer perceptron (MLP)** — the FFN block inside every transformer. Not yet a wiki concept page; candidate stub.
 - **Superposition / Johnson–Lindenstrauss** — the geometric phenomenon underlying high-dimensional feature packing. Foundational for interpretability.
 - **Key–value lookup as MLP interpretation** — the framing that "MLP rows are keys + values." Related to the **Geva et al. 2021** "Transformer Feed-Forward Layers Are Key-Value Memories" paper (not in the wiki; candidate ingest).
-- **Mechanistic interpretability** — the broader research program; the wiki touches it via [Claude's Constitution](claudes-constitution.md) and the [AI safety and alignment](../concepts/ai-safety-alignment.md) concept page but does not yet have a dedicated entry point.
+- **Mechanistic interpretability** — the broader research program; the wiki touches it via [Claude's Constitution](claudes-constitution.md) and the [AI safety and alignment](../concepts/safety/ai-safety-alignment.md) concept page but does not yet have a dedicated entry point.
 
 ## Curriculum hookup
 
 Recommended-viewing pointer for **two** curriculum modules:
 
-- **[Curriculum Module 1 — Neural networks and training](../syntheses/curriculum-01-neural-networks.md)** — at the "MLP as universal approximator" section. Pairs with [Welch Labs — Perceptron](welchlabs-perceptron.md) as the popular-video reading list.
-- **[Curriculum Module 3 — Sequence models, attention, and transformers](../syntheses/curriculum-03-attention-and-transformers.md)** — at the "transformer block: MSA + MLP" section. Strongest exit-ramp video for "what the MLP block does inside a transformer."
+- **[Curriculum Module 1 — Neural networks and training](../syntheses/curriculum/curriculum-01-neural-networks.md)** — at the "MLP as universal approximator" section. Pairs with [Welch Labs — Perceptron](welchlabs-perceptron.md) as the popular-video reading list.
+- **[Curriculum Module 3 — Sequence models, attention, and transformers](../syntheses/curriculum/curriculum-03-attention-and-transformers.md)** — at the "transformer block: MSA + MLP" section. Strongest exit-ramp video for "what the MLP block does inside a transformer."
 
 Note: the URL `/lessons/mlp` is somewhat misleading — the lesson is specifically about MLPs *inside transformers* and fact storage, not a general MLP primer. The 3Blue1Brown *Deep Learning* series has Chapter 1 (vanilla NN intro) and Chapter 4 (backpropagation) for those purposes.
 

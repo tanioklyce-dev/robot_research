@@ -46,7 +46,7 @@ The [LeRobot Worldwide Hackathon 2025](lerobot-worldwide-hackathon-2025.md) (Jun
 - [SO-ARM101](so-arm101.md) — arm platform
 - [LeKiwi](lekiwi.md) — mobile base
 - [XLeRobot](xlerobot.md) — dual-arm composition
-- [Imitation learning](../concepts/imitation-learning.md)
+- [Imitation learning](../concepts/learning/imitation-learning.md)
 - [Diffusion Policy](diffusion-policy.md) — alternative IL approach
 - [Stretch AI](stretch-ai.md) — counterpart IL/agent stack on Stretch
 

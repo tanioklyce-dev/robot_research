@@ -23,7 +23,7 @@ The architecture itself — **two weight-tied encoders + a similarity head, trai
 
 - **Contrastive SSL** ([SimCLR](../sources/barlow-twins-paper.md), MoCo, BYOL).
 - **Anti-collapse SSL** ([Barlow Twins](barlow-twins-paper.md), [VICReg](vicreg-paper.md), [DINOv2](../entities/dinov2.md), [DINOv3](../entities/dinov3.md)).
-- **[JEPA](../concepts/jepa.md)** — joint-embedding *predictive* architectures (the J in JEPA comes from this lineage).
+- **[JEPA](../concepts/world-models/jepa.md)** — joint-embedding *predictive* architectures (the J in JEPA comes from this lineage).
 - Face/voice/image-pair verification systems (Schroff/FaceNet 2015, etc.).
 
 The naming is mundane — **"Siamese"** simply refers to the two-conjoined-twin topology of weight-tied sub-networks — but the architectural idea (compare embeddings rather than classify) has had outsized influence. This is the **eponymous original source**.
@@ -90,13 +90,13 @@ Surprising finding: **50% of Network 5's outputs were redundant** — the 76-dim
 - **AT&T Bell Laboratories** — the institution producing simultaneous foundational work on CNNs (LeNet), Siamese networks (this paper), and statistical learning theory (Vapnik). The pre-2000 ML research mecca.
 
 ## Concepts touched
-- [Siamese network](../concepts/siamese-network.md)
+- [Siamese network](../concepts/world-models/siamese-network.md)
 
 - **Siamese networks / Joint-Embedding** — defined here.
 - **Weight tying** — the two sub-networks share weights; explicit architectural constraint.
 - **Pairwise contrastive training** — genuine:genuine vs genuine:forgery targets are a primitive form of contrastive loss.
 - **TDNN (Time Delay Neural Network)** — the sub-network type; predecessor of 1D convolutional networks.
-- **[Joint-Embedding Predictive Architecture](../concepts/jepa.md)** — descendant. JEPA's *J* is from this lineage; the *P* (predictive) is what's added.
+- **[Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md)** — descendant. JEPA's *J* is from this lineage; the *P* (predictive) is what's added.
 - **Representation collapse** — interestingly, not a problem for this paper because of the **explicit negative targets** (cos = −1 for genuine:forgery). The collapse problem only emerges in the SSL era when one tries to learn embeddings *without* labels.
 
 ## Position in the lineage
@@ -130,7 +130,7 @@ SimSiam 2020 (no negatives, stop-gradient)              ↓
 
 ## Curriculum hookup
 
-This is foundational material for **[Curriculum Module 4 — Self-supervised learning and embeddings](../syntheses/curriculum-04-self-supervised-learning.md)** (where joint-embedding architectures are introduced) and **[Module 11 — JEPA in depth](../syntheses/curriculum-11-jepa-deep.md)** (where the J in JEPA is unpacked). The Welch Labs popular explainer (recommended on the [JEPA concept page](../concepts/jepa.md)) hits the Siamese-network step around the 15-minute mark.
+This is foundational material for **[Curriculum Module 4 — Self-supervised learning and embeddings](../syntheses/curriculum/curriculum-04-self-supervised-learning.md)** (where joint-embedding architectures are introduced) and **[Module 11 — JEPA in depth](../syntheses/curriculum/curriculum-11-jepa-deep.md)** (where the J in JEPA is unpacked). The Welch Labs popular explainer (recommended on the [JEPA concept page](../concepts/world-models/jepa.md)) hits the Siamese-network step around the 15-minute mark.
 
 ## Open questions / TBD
 

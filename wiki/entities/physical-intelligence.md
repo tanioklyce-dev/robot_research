@@ -21,7 +21,7 @@ tags: [physical-intelligence, vla, pi0, generalist-policy, robotics]
 Physical Intelligence and [NVIDIA GR00T](../entities/nvidia-groot.md) / Gemini Robotics represent the main non-academic demonstration that VLA-style generalist policies can work across real robot platforms. The [Stanford HAI AI Index 2026](../sources/stanford-hai-ai-index-2026.md) cites π0/π0.6 as the leading examples of Physical AI / foundation models for robotics.
 
 ## Related
-- [VLA models](../concepts/vla-models.md) — π0/π0.6 are in this paradigm.
+- [VLA models](../concepts/learning/vla-models.md) — π0/π0.6 are in this paradigm.
 - [NVIDIA GR00T](../entities/nvidia-groot.md) — parallel generalist-policy effort.
 
 ## Mentioned in

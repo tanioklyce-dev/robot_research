@@ -9,7 +9,7 @@ tags: [hiwonder, rosorin, jetson-orin-nano, ros2, education, gazebo, ollama, qwe
 ---
 
 ## Summary
-Sphinx documentation site for [Hiwonder](../entities/hiwonder.md)'s **[ROSOrin](../entities/rosorin.md)** educational robot kit on a Jetson Orin Nano compute platform. Covers the full curriculum: hardware setup, ROS 2 (Humble) basics, mapping/navigation, perception (OpenCV + YOLOv11 + TensorRT), Gazebo simulation, and "Large AI Model Courses" with both cloud (GPT-4o, [Qwen](../entities/qwen.md), StepFun) and offline ([Ollama](../entities/ollama.md) + [Qwen](../entities/qwen.md) + sherpa-onnx) flavors. The Embodied AI section uses the same JSON tool-call [LLM-agent pattern](../concepts/llm-agent-architecture.md) as [stretch_ai](../entities/stretch-ai.md).
+Sphinx documentation site for [Hiwonder](../entities/hiwonder.md)'s **[ROSOrin](../entities/rosorin.md)** educational robot kit on a Jetson Orin Nano compute platform. Covers the full curriculum: hardware setup, ROS 2 (Humble) basics, mapping/navigation, perception (OpenCV + YOLOv11 + TensorRT), Gazebo simulation, and "Large AI Model Courses" with both cloud (GPT-4o, [Qwen](../entities/qwen.md), StepFun) and offline ([Ollama](../entities/ollama.md) + [Qwen](../entities/qwen.md) + sherpa-onnx) flavors. The Embodied AI section uses the same JSON tool-call [LLM-agent pattern](../concepts/agents/llm-agent-architecture.md) as [stretch_ai](../entities/stretch-ai.md).
 
 ## Key claims
 
@@ -75,7 +75,7 @@ Same architecture as [stretch_ai](../entities/stretch-ai.md):
 - [stretch_ai](../entities/stretch-ai.md) — referenced for the parallel LLM-agent pattern.
 
 ## Concepts touched
-- [LLM-agent architecture](../concepts/llm-agent-architecture.md) — same JSON tool-call pattern as stretch_ai, here extended to a fully offline variant via Ollama + sherpa-onnx.
+- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — same JSON tool-call pattern as stretch_ai, here extended to a fully offline variant via Ollama + sherpa-onnx.
 - Mobile robotics (no entity for the concept yet — bare text).
 
 ## Open questions

@@ -19,14 +19,14 @@ tags: [drosophila, fruit-fly, model-organism, neuroscience, biomechanics]
 
 ## Position in this wiki
 
-The wiki cares about *Drosophila* not as biology per se but as **the smallest organism for which both a connectome and a whole-body physics sim now exist** — i.e., the smallest viable target for "whole-organism agentic AI." See [Whole-organism agentic AI](../syntheses/whole-organism-agentic-ai.md).
+The wiki cares about *Drosophila* not as biology per se but as **the smallest organism for which both a connectome and a whole-body physics sim now exist** — i.e., the smallest viable target for "whole-organism agentic AI." See [Whole-organism agentic AI](../syntheses/agents/whole-organism-agentic-ai.md).
 
 ## Related
 
 - [FlyWire](flywire.md) — adult brain connectome.
 - [flybody](flybody.md) — whole-body physics simulator.
 - [NeuroMechFly](neuromechfly.md) — earlier walking-focused body sim.
-- [Connectome](../concepts/connectome.md) — concept page.
+- [Connectome](../concepts/bio/connectome.md) — concept page.
 
 ## Mentioned in
 

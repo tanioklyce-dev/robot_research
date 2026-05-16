@@ -19,7 +19,7 @@ github_stats: 15.8K stars, 2.4K forks (May 2026)
 
 **micrograd** — Karpathy's "tiny Autograd engine (with a bite!)." A scalar-valued reverse-mode autodiff engine in **~100 lines of Python**, plus a ~50-line neural-net library on top that mimics PyTorch's API. The DAG operates only on scalars (each neuron is chopped into individual adds/multiplies), but this is enough to build and train an MLP binary classifier on 2D data. **Potentially useful for educational purposes** — and it has been: 15.8K GitHub stars (as of May 2026) make it one of the most-referenced pedagogical ML repos.
 
-**Why it matters to this wiki.** The cleanest "I understand backprop" milestone available anywhere. The full backward pass is a few dozen lines you can step through in a debugger. Once you can read `engine.py` end to end, every later autograd library (PyTorch, JAX, etc.) is a more-engineered version of the same idea. The repo is **the recommended exit-ramp at the bottom of [Curriculum Module 1](../syntheses/curriculum-01-neural-networks.md)**.
+**Why it matters to this wiki.** The cleanest "I understand backprop" milestone available anywhere. The full backward pass is a few dozen lines you can step through in a debugger. Once you can read `engine.py` end to end, every later autograd library (PyTorch, JAX, etc.) is a more-engineered version of the same idea. The repo is **the recommended exit-ramp at the bottom of [Curriculum Module 1](../syntheses/curriculum/curriculum-01-neural-networks.md)**.
 
 ## What's in the repo
 
@@ -55,7 +55,7 @@ The expression tree gets built dynamically; `g.backward()` walks the DAG in reve
 
 ## Curriculum hookup
 
-This repo is the **recommended hands-on exercise for [Curriculum Module 1 — Neural networks and training](../syntheses/curriculum-01-neural-networks.md)**. After reading the module's coverage of MLPs + forward pass + backprop + SGD, working through `engine.py` is the cleanest way to validate the math is no longer mysterious. Specifically:
+This repo is the **recommended hands-on exercise for [Curriculum Module 1 — Neural networks and training](../syntheses/curriculum/curriculum-01-neural-networks.md)**. After reading the module's coverage of MLPs + forward pass + backprop + SGD, working through `engine.py` is the cleanest way to validate the math is no longer mysterious. Specifically:
 
 - Module 1 §3 (forward pass) → matches the `__add__ / __mul__ / __pow__` forward semantics in `engine.py`.
 - Module 1 §4 (backprop) → matches the local `_backward` closures + the topological-sort walk in `Value.backward()`.

@@ -49,8 +49,8 @@ Per the [Shiu source page](../sources/shiu-fly-brain-paper.md), bulk simulation 
 
 ## Why it matters here
 
-- **The most reproducible piece of the brain side** of the [whole-organism agentic AI](../syntheses/whole-organism-agentic-ai.md) stack. Code is MIT, the connectivity is bundled, the runtime is laptop-class, and no GPU is needed — so anyone can reproduce the central result.
-- **One of two paradigms** for using a connectome computationally — the *mechanistic LIF* path. The companion is connectome-constrained deep learning ([flyvis](flyvis.md)). See [Connectome](../concepts/connectome.md) for the comparison.
+- **The most reproducible piece of the brain side** of the [whole-organism agentic AI](../syntheses/agents/whole-organism-agentic-ai.md) stack. Code is MIT, the connectivity is bundled, the runtime is laptop-class, and no GPU is needed — so anyone can reproduce the central result.
+- **One of two paradigms** for using a connectome computationally — the *mechanistic LIF* path. The companion is connectome-constrained deep learning ([flyvis](flyvis.md)). See [Connectome](../concepts/bio/connectome.md) for the comparison.
 - **Brain-only.** Takes synthetic spike inputs to designated sensory neurons; reads spike outputs from designated motor neurons. There is no body, no environment, no closed loop. Pairing with [flybody](flybody.md) is the obvious next step but is not implemented here.
 
 ## Related
@@ -60,8 +60,8 @@ Per the [Shiu source page](../sources/shiu-fly-brain-paper.md), bulk simulation 
 - [FlyWire](flywire.md) — input connectome.
 - [flyvis](flyvis.md) — sister project (deep-learning paradigm; same domain).
 - [flybody](flybody.md) — body-side complement; unintegrated.
-- [Connectome](../concepts/connectome.md) — concept.
-- [Whole-organism agentic AI](../syntheses/whole-organism-agentic-ai.md) — synthesis.
+- [Connectome](../concepts/bio/connectome.md) — concept.
+- [Whole-organism agentic AI](../syntheses/agents/whole-organism-agentic-ai.md) — synthesis.
 
 ## Mentioned in
 

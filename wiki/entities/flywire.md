@@ -34,14 +34,14 @@ NIH BRAIN Initiative, Wellcome, Medical Research Council, Princeton, NSF.
 
 ## Why it matters here
 
-- **The brain side of whole-organism agentic AI.** Pairs naturally with [flybody](flybody.md) (the body side) — see [Whole-organism agentic AI](../syntheses/whole-organism-agentic-ai.md).
+- **The brain side of whole-organism agentic AI.** Pairs naturally with [flybody](flybody.md) (the body side) — see [Whole-organism agentic AI](../syntheses/agents/whole-organism-agentic-ai.md).
 - **Connectome-constrained predictors.** [Lappalainen et al. 2024](../sources/lappalainen-flyvis-paper.md) (*Nature* 634:1132) and Mi et al. 2022 (ICLR) train deep nets whose connectivity is constrained by the wiring — predicting fly visual-system neural activity at single-neuron resolution. This is the ML-on-connectome modality flybody-paper points to as the brain-side complement. (Lappalainen used the older optic-lobe FIB-25/FIB-19 reconstructions, not whole-brain FlyWire — the architectural template generalizes.)
 
 ## Related
 
 - [Drosophila melanogaster](drosophila.md) — model organism.
 - [flybody](flybody.md) — body-side complement.
-- [Connectome](../concepts/connectome.md) — concept page.
+- [Connectome](../concepts/bio/connectome.md) — concept page.
 
 ## Mentioned in
 

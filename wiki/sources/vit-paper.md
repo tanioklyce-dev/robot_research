@@ -23,7 +23,7 @@ tags: [vit, vision-transformer, transformer, attention, patches, classification,
 
 **The central empirical claim.** *Large-scale training trumps inductive bias.* CNNs bake in locality, two-dimensional neighborhood structure, and translation equivariance at every layer; ViT has none of that — its self-attention layers are global, only the MLPs are local. On mid-sized datasets (ImageNet alone, ~1.3M images), ViT underperforms ResNets of comparable size, exactly because of the missing inductive bias. But at ImageNet-21k scale (14M images) the gap closes, and at JFT-300M scale (303M images) ViT overtakes — and ResNets *plateau* while ViT *keeps improving*. This is the data-scaling argument that drove the entire 2021–2026 transition of vision foundation models from CNN backbones to ViT backbones.
 
-**Why it matters to this wiki.** Every visual [encoder](../glossary.md#encoder) downstream of Module 2 in the [robot-learning curriculum](../syntheses/robot-learning-curriculum.md) — [DINOv2](../entities/dinov2.md), [DINOv3](../entities/dinov3.md), [V-JEPA 2](../entities/v-jepa-2.md), [LeWM](../entities/leworldmodel.md), [DINO-WM](../entities/dino-wm.md), [DINO-world](../entities/dino-world.md), [JEPA-WMs](../entities/jepa-wms.md), [PLDM](../sources/pldm-paper.md), [LeJEPA](../sources/lejepa-paper.md) — is a ViT, and most of them are descended specifically from the patch tokenization + learned positional embedding + `[CLS]` recipe in this paper. The wiki was tracking ViT via the [glossary entry](../glossary.md#vit) and many downstream sources; this ingest fills in the primary reference.
+**Why it matters to this wiki.** Every visual [encoder](../glossary.md#encoder) downstream of Module 2 in the [robot-learning curriculum](../syntheses/curriculum/robot-learning-curriculum.md) — [DINOv2](../entities/dinov2.md), [DINOv3](../entities/dinov3.md), [V-JEPA 2](../entities/v-jepa-2.md), [LeWM](../entities/leworldmodel.md), [DINO-WM](../entities/dino-wm.md), [DINO-world](../entities/dino-world.md), [JEPA-WMs](../entities/jepa-wms.md), [PLDM](../sources/pldm-paper.md), [LeJEPA](../sources/lejepa-paper.md) — is a ViT, and most of them are descended specifically from the patch tokenization + learned positional embedding + `[CLS]` recipe in this paper. The wiki was tracking ViT via the [glossary entry](../glossary.md#vit) and many downstream sources; this ingest fills in the primary reference.
 
 ## Abstract (verbatim, §0)
 
@@ -182,7 +182,7 @@ The authors run a small **masked patch prediction** experiment — analogous to 
 - **[Self-attention](../glossary.md#sa)**, **[Multi-head attention](../glossary.md#mha)** — inherited.
 - **[Encoder](../glossary.md#encoder)** — ViT is encoder-only; the `[CLS]` output is the image embedding consumed by all downstream tasks.
 - **Patch tokenization** — the conceptual innovation of this paper; not yet broken out as a glossary entry but referenced from many wiki source pages.
-- **[Joint-Embedding Predictive Architecture (JEPA)](../concepts/jepa.md)** — every JEPA encoder in this wiki is a ViT (V-JEPA 1/2/2.1, DINO-WM, DINO-world, JEPA-WMs, LeWM, LeJEPA, PLDM).
+- **[Joint-Embedding Predictive Architecture (JEPA)](../concepts/world-models/jepa.md)** — every JEPA encoder in this wiki is a ViT (V-JEPA 1/2/2.1, DINO-WM, DINO-world, JEPA-WMs, LeWM, LeJEPA, PLDM).
 - **Scaling / data-scaling laws for vision** — Figure 4 is one of the earliest controlled studies showing CNN-vs-ViT crossover as data scales; precursor to Zhai et al. 2022.
 
 ## Position in the lineage
@@ -211,7 +211,7 @@ This wiki touches the descendants on three branches: the **DINO line** ([DINOv2]
 
 ## Curriculum hookup
 
-This is the **canonical reference for [ViT in Curriculum Module 3 — Sequence models, attention, and transformers](../syntheses/curriculum-03-attention-and-transformers.md)**. Module 3 already cites this paper twice — once in the "vision transformer recipe" section, once as the ViT primary source for the "Recommended reading" list. The wiki was carrying ViT entirely via the [glossary entry](../glossary.md#vit) and the many downstream sources that depend on it; this ingest closes the gap and is the natural primary-source companion to the [Vaswani et al. 2017](attention-is-all-you-need.md) ingest of 2026-05-14.
+This is the **canonical reference for [ViT in Curriculum Module 3 — Sequence models, attention, and transformers](../syntheses/curriculum/curriculum-03-attention-and-transformers.md)**. Module 3 already cites this paper twice — once in the "vision transformer recipe" section, once as the ViT primary source for the "Recommended reading" list. The wiki was carrying ViT entirely via the [glossary entry](../glossary.md#vit) and the many downstream sources that depend on it; this ingest closes the gap and is the natural primary-source companion to the [Vaswani et al. 2017](attention-is-all-you-need.md) ingest of 2026-05-14.
 
 Module 3's anchor exercise ("tiny transformer on PushT 8×8 patches with attention-map visualization") is essentially a from-scratch ViT-mini. Reading §3 of this paper alongside `model.py` in [karpathy/nanoGPT](karpathy-nanogpt.md) gives the reader the encoder-only ↔ decoder-only contrast at the implementation level.
 

@@ -20,11 +20,11 @@ Non-profit that took over stewardship of OpenAI's `gym` library and rebuilt it a
 - **Incubating**: [Arcade Learning Environment](ale.md), HighwayEnv, MPE2, Procgen2, Stable-Retro.
 
 ## Why it matters here
-- **The `gym` 0.21.0 install pain in [the LeWM howto](../syntheses/leworldmodel-howto.md) is a Farama-era artifact** — `stable-worldmodel[env]` still pins the legacy OpenAI `gym` 0.21.0 transitively, while also pulling Farama's modern `gymnasium`. The two coexist in the same dep tree, which is why the install hit both PEP 440 metadata bugs (in old gym) and SWIG/box2d-py issues (in `gymnasium[all]`).
+- **The `gym` 0.21.0 install pain in [the LeWM howto](../syntheses/world-models/leworldmodel-howto.md) is a Farama-era artifact** — `stable-worldmodel[env]` still pins the legacy OpenAI `gym` 0.21.0 transitively, while also pulling Farama's modern `gymnasium`. The two coexist in the same dep tree, which is why the install hit both PEP 440 metadata bugs (in old gym) and SWIG/box2d-py issues (in `gymnasium[all]`).
 - Farama is the gravitational center of "RL env API" decisions across the broader robotics-learning ecosystem — anything claiming to be a "drop-in" RL env library is almost certainly implementing the Gymnasium API.
 
 ## Mentioned in
 - [Farama Foundation Projects Page](../sources/farama-projects-page.md)
 - [Gymnasium-Robotics Documentation](../sources/gymnasium-robotics-docs.md)
-- [LeWorldModel — train and run howto](../syntheses/leworldmodel-howto.md) (indirectly, via `gymnasium[all]` dep chain)
+- [LeWorldModel — train and run howto](../syntheses/world-models/leworldmodel-howto.md) (indirectly, via `gymnasium[all]` dep chain)
 - [Arcade Learning Environment — Farama Project Page](../sources/ale-farama.md)

@@ -17,7 +17,7 @@ tags: [dexterous-hand, end-effector, sharpa, manipulation, hardware]
 
 ## Why it matters in this wiki
 - **Primary dexterous-manipulation target in [EgoScale](../sources/egoscale-paper.md)** — the 22-DoF action space is what makes the human-data scaling law a *dexterous* manipulation result rather than a gripper-only one. EgoScale's ablation explicitly compares 22-DoF joint-space against fingertip-SE(3) and wrist-only representations; joint-space wins.
-- **Action-space link to [VLA models](../concepts/vla-models.md).** Joint-angle action outputs are the natural pairing for a high-DoF hand; pairing with a coarser representation (wrist only or SE(3)) loses contact-rich performance.
+- **Action-space link to [VLA models](../concepts/learning/vla-models.md).** Joint-angle action outputs are the natural pairing for a high-DoF hand; pairing with a coarser representation (wrist only or SE(3)) loses contact-rich performance.
 
 ## Related
 - [EgoScale Paper](../sources/egoscale-paper.md) — the only wiki source citing this hand.

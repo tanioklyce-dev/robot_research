@@ -12,7 +12,7 @@ tags: [helix, figure, vla, humanoid, system-1-system-2, hierarchical-policy, onb
 ---
 
 > [!note] Ingest depth
-> This source page is **based on the Figure AI blog post**, not a peer-reviewed paper. Architectural and training-data claims come from Figure's marketing copy and have **not been independently verified**. Filed as part of the curriculum-driven backfill for [Module 9 (VLA models)](../syntheses/robot-learning-curriculum.md).
+> This source page is **based on the Figure AI blog post**, not a peer-reviewed paper. Architectural and training-data claims come from Figure's marketing copy and have **not been independently verified**. Filed as part of the curriculum-driven backfill for [Module 9 (VLA models)](../syntheses/curriculum/robot-learning-curriculum.md).
 
 ## Summary
 
@@ -44,7 +44,7 @@ tags: [helix, figure, vla, humanoid, system-1-system-2, hierarchical-policy, onb
 
 ## Why it matters in this wiki
 
-- **Architecturally the most novel of the four backfill ingests.** The S1/S2 hierarchical split — slow-VLM-as-planner + fast-policy-as-controller, with end-to-end gradients — is a structural pattern that's becoming load-bearing across VLAs (similar splits appear in NVIDIA GR00T N1 and elsewhere). Worth tracking in [VLA models concept](../concepts/vla-models.md).
+- **Architecturally the most novel of the four backfill ingests.** The S1/S2 hierarchical split — slow-VLM-as-planner + fast-policy-as-controller, with end-to-end gradients — is a structural pattern that's becoming load-bearing across VLAs (similar splits appear in NVIDIA GR00T N1 and elsewhere). Worth tracking in [VLA models concept](../concepts/learning/vla-models.md).
 - **Closes a long-standing open question on the [Figure entity](../entities/figure.md).** Helix had been referenced via the entity page only; the primary source is now filed.
 - **Data-efficiency claim.** "<5%" of a typical VLA dataset is striking enough to warrant cross-checking against [GR00T](../entities/nvidia-groot.md)'s 20,854 hours of egocentric video pretraining — different training-data flavors but worth comparing in any VLA-data-economics synthesis.
 
@@ -60,8 +60,8 @@ tags: [helix, figure, vla, humanoid, system-1-system-2, hierarchical-policy, onb
 
 ## Concepts touched
 
-- [VLA models](../concepts/vla-models.md) — Helix is an instance with an unusual hierarchical structure.
-- [LLM-agent architecture](../concepts/llm-agent-architecture.md) — orthogonal pattern (LLM-emits-tool-calls); contrast.
+- [VLA models](../concepts/learning/vla-models.md) — Helix is an instance with an unusual hierarchical structure.
+- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — orthogonal pattern (LLM-emits-tool-calls); contrast.
 
 ## Open questions / TBD
 

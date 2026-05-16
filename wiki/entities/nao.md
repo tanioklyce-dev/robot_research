@@ -32,7 +32,7 @@ status: stub
 - Aldebaran / SoftBank Robotics — manufacturer.
 - Pepper — larger SoftBank social-robot sibling (no entity page yet).
 - [TurtleBot](turtlebot.md) — educational mobile-robot reference (analogous role for non-humanoids).
-- [Humanoid platforms survey](../syntheses/humanoid-platforms-survey.md) — landscape.
+- [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — landscape.
 
 ## Mentioned in
 - *(no source pages directly cite NAO; entity built from general knowledge)*

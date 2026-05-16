@@ -11,7 +11,7 @@ tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs]
 > [!note] Reported organizational change (single secondary source)
 > A Towards AI blog post (April 2026) reports LeCun departed Meta ~November/December 2025 to found [AMI Labs](ami-labs.md) with a $1.03B seed round. This has not been confirmed by a primary source in this wiki. The affiliation below reflects this uncertainty.
 
-**Yann LeCun** — Silver Professor at NYU; Turing Award (2018, with Bengio + Hinton). Formerly VP & Chief AI Scientist at [Meta FAIR](meta-fair.md). Per secondary reporting (April 2026), now founder of [AMI Labs](ami-labs.md). In this wiki, **the architect of the [JEPA](../concepts/jepa.md) research program** and the senior author or co-author across nearly every Meta-affiliated world-model paper ingested.
+**Yann LeCun** — Silver Professor at NYU; Turing Award (2018, with Bengio + Hinton). Formerly VP & Chief AI Scientist at [Meta FAIR](meta-fair.md). Per secondary reporting (April 2026), now founder of [AMI Labs](ami-labs.md). In this wiki, **the architect of the [JEPA](../concepts/world-models/jepa.md) research program** and the senior author or co-author across nearly every Meta-affiliated world-model paper ingested.
 
 ## Role in the JEPA program
 LeCun introduced the JEPA framing publicly around 2022 and has driven its application to vision and robotics through the FAIR / Mila pipeline. He is **senior author** on every FAIR-affiliated JEPA / JEPA-adjacent paper this wiki has ingested:
@@ -36,12 +36,12 @@ LeCun is one of the small number of researchers whose **simultaneous senior posi
 ## Related
 - [Meta FAIR](meta-fair.md) — prior primary affiliation.
 - [AMI Labs](ami-labs.md) — reported new lab (provisional).
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — research program LeCun architected.
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — research program LeCun architected.
 - [Adrien Bardes](adrien-bardes.md) — frequent JEPA co-senior.
 - [Basile Terver](basile-terver.md) — JEPA-WMs lead author working under LeCun.
 
 ## Earlier work (AT&T Bell Labs era)
-- **[Bromley, Guyon, LeCun, Säckinger, Shah 1993 — "Signature Verification using a 'Siamese' Time Delay Neural Network"](../sources/bromley1993-siamese-signature-verification.md)** — co-author (third position). The **original [Siamese network](../concepts/siamese-network.md) paper**, written during LeCun's AT&T Bell Labs Holmdel period. Architecturally continuous with the 2020s JEPA program: two weight-tied encoders + a similarity head is the J/A in JEPA, 30 years before LeCun named the framework. The Welch Labs explainer's framing of JEPA as "the natural continuation of the Siamese-network research LeCun started in the 1990s" is literally correct — same author, same architectural family, different loss.
+- **[Bromley, Guyon, LeCun, Säckinger, Shah 1993 — "Signature Verification using a 'Siamese' Time Delay Neural Network"](../sources/bromley1993-siamese-signature-verification.md)** — co-author (third position). The **original [Siamese network](../concepts/world-models/siamese-network.md) paper**, written during LeCun's AT&T Bell Labs Holmdel period. Architecturally continuous with the 2020s JEPA program: two weight-tied encoders + a similarity head is the J/A in JEPA, 30 years before LeCun named the framework. The Welch Labs explainer's framing of JEPA as "the natural continuation of the Siamese-network research LeCun started in the 1990s" is literally correct — same author, same architectural family, different loss.
 
 ## Mentioned in
 - [Bromley et al. 1993 — Signature Verification using a Siamese TDNN](../sources/bromley1993-siamese-signature-verification.md) — co-author; original Siamese network paper.

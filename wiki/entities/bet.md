@@ -45,8 +45,8 @@ From [Diffusion Policy Paper](../sources/diffusion-policy-paper.md) Tables I, IV
 - [IBC](ibc.md) — earlier ancestor in the multi-modal-BC line via energy-based models.
 - [Mahi Shafiullah](mahi-shafiullah.md) — first author.
 - [Lerrel Pinto](lerrel-pinto.md) — senior author (NYU Pinto lab).
-- [Imitation learning](../concepts/imitation-learning.md) — broader concept.
-- [Learned latent space](../concepts/latent-space.md) — k-means clustering as a frozen-discrete latent action space; sibling to VQ-BeT's end-to-end variant.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — broader concept.
+- [Learned latent space](../concepts/world-models/latent-space.md) — k-means clustering as a frozen-discrete latent action space; sibling to VQ-BeT's end-to-end variant.
 
 ## Mentioned in
 

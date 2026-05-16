@@ -44,8 +44,8 @@ Training: ~500 hours teleoperated demos ("<5%" of typical VLA datasets per Figur
 ## Related
 - Figure AI — manufacturer.
 - [Atlas](atlas.md) / [Tesla Optimus](tesla-optimus.md) / [Apptronik Apollo](apptronik-apollo.md) — research-humanoid competitors.
-- [VLA models](../concepts/vla-models.md) — Helix is in this paradigm.
-- [Humanoid platforms survey](../syntheses/humanoid-platforms-survey.md) — landscape.
+- [VLA models](../concepts/learning/vla-models.md) — Helix is in this paradigm.
+- [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — landscape.
 
 ## Deployment data (from AI Index 2026)
 

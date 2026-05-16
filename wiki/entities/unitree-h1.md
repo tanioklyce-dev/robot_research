@@ -31,7 +31,7 @@ status: stub
 - Unitree Robotics — manufacturer (Hangzhou, China).
 - [Unitree G1](unitree-g1.md) — smaller, cheaper sibling.
 - [Atlas](atlas.md) / [Figure](figure.md) / [Tesla Optimus](tesla-optimus.md) — flagship-tier competitors.
-- [Humanoid platforms survey](../syntheses/humanoid-platforms-survey.md) — landscape.
+- [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — landscape.
 
 ## Mentioned in
 - *(no source pages directly cite Unitree H1; entity built from general knowledge)*

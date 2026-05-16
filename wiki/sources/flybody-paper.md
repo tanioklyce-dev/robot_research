@@ -73,14 +73,14 @@ The paper situates flybody against:
 
 ## Concepts touched
 
-- [Biomechanical simulation](../concepts/biomechanical-simulation.md) — flybody is the latest entry in the worm/Hydra/rodent/fly lineage.
-- [Imitation learning](../concepts/imitation-learning.md) — DeepMimic-style imitation against high-speed real-fly trajectories.
-- [Sim-to-real transfer](../concepts/sim-to-real-transfer.md) — inverse direction here: real fly data → sim policy. Same toolchain.
-- [World model](../concepts/world-model.md) — orthogonal: flybody is a *physics-based* simulator, not a learned dynamics model.
+- [Biomechanical simulation](../concepts/bio/biomechanical-simulation.md) — flybody is the latest entry in the worm/Hydra/rodent/fly lineage.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — DeepMimic-style imitation against high-speed real-fly trajectories.
+- [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md) — inverse direction here: real fly data → sim policy. Same toolchain.
+- [World model](../concepts/world-models/world-model.md) — orthogonal: flybody is a *physics-based* simulator, not a learned dynamics model.
 
 ## Open questions
 
-- **No connectome integration.** flybody intentionally stops at the body. The combination with FlyWire is gestured at in Discussion but not implemented. See [Whole-organism agentic AI](../syntheses/whole-organism-agentic-ai.md).
+- **No connectome integration.** flybody intentionally stops at the body. The combination with FlyWire is gestured at in Discussion but not implemented. See [Whole-organism agentic AI](../syntheses/agents/whole-organism-agentic-ai.md).
 - **Muscle actuation is simplified to torques.** The paper notes incorporating real muscle actuation across the whole body "will require substantial effort" — needs muscle insertion sites, DoFs, and activation dynamics.
 - **No proprioception model.** Sensory inputs are idealized; the proprioceptor mapping (hair plates, etc.) is acknowledged as future work.
 - **MJX port?** The paper doesn't mention an MJX (JAX/GPU) version of flybody. Distributed RL relies on Ray + Acme over CPU MuJoCo — running cost is not stated.

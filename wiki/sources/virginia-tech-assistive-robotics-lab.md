@@ -25,4 +25,4 @@ Exoskeletons, human motion sensing, haptic feedback, soft robotics.
 Prof. Alan Asbeck (director).
 
 ## Entities mentioned
-- [Assistive robotics](../concepts/assistive-robotics.md) (concept)
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md) (concept)

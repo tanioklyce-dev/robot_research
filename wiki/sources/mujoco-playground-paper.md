@@ -26,10 +26,10 @@ ArXiv paper introducing [MuJoCo Playground](../entities/mujoco-playground.md), a
 - [Newton physics engine](../entities/newton-physics-engine.md)
 
 ## Concepts touched
-- [Sim-to-real transfer](../concepts/sim-to-real-transfer.md)
+- [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md)
 - GPU-accelerated RL
 - Vision-based policy learning
 
 ## Open questions
 - How does Playground's throughput compare to Isaac Lab on identical tasks?
-- Does Madrona renderer match Omniverse photorealism enough for [VLA](../concepts/vla-models.md) training?
+- Does Madrona renderer match Omniverse photorealism enough for [VLA](../concepts/learning/vla-models.md) training?

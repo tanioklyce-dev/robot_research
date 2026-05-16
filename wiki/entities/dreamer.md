@@ -27,8 +27,8 @@ tags: [dreamer, dreamer-v3, world-model, model-based-rl, mbrl, hafner, generativ
 ## Why it's in this wiki
 
 - **LeWM baseline column.** Dreamer / DreamerV3 is one of the four world-model baselines [LeWM](leworldmodel.md) compares against.
-- **Generative-WM family exemplar.** Predicts environment state and reward — opposite end of the world-model design axis from [JEPA](../concepts/jepa.md), which sidesteps generation entirely.
-- **MBRL canon.** Required vocabulary for curriculum [Module 8](../syntheses/robot-learning-curriculum.md) (RL) and [Module 10](../syntheses/robot-learning-curriculum.md) (world models).
+- **Generative-WM family exemplar.** Predicts environment state and reward — opposite end of the world-model design axis from [JEPA](../concepts/world-models/jepa.md), which sidesteps generation entirely.
+- **MBRL canon.** Required vocabulary for curriculum [Module 8](../syntheses/curriculum/robot-learning-curriculum.md) (RL) and [Module 10](../syntheses/curriculum/robot-learning-curriculum.md) (world models).
 
 ## Position vs adjacent methods
 
@@ -43,7 +43,7 @@ tags: [dreamer, dreamer-v3, world-model, model-based-rl, mbrl, hafner, generativ
 
 - [TD-MPC](td-mpc.md) — sibling decoder-free MBRL family.
 - [LeWorldModel](leworldmodel.md) — JEPA-style end-to-end latent WM baseline-vs-Dreamer in the LeWM paper.
-- [World model](../concepts/world-model.md) — umbrella concept.
+- [World model](../concepts/world-models/world-model.md) — umbrella concept.
 
 ## Mentioned in
 

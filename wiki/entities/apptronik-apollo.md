@@ -27,7 +27,7 @@ status: stub
 - [NVIDIA GR00T](nvidia-groot.md) — VLA targeted at Apollo.
 - [NVIDIA](nvidia.md) — strategic partner.
 - [Atlas](atlas.md) / [Figure](figure.md) — industrial-humanoid competitors.
-- [Humanoid platforms survey](../syntheses/humanoid-platforms-survey.md) — landscape.
+- [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — landscape.
 
 ## Mentioned in
 - *(no source pages directly cite Apollo; entity built from general knowledge)*

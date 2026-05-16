@@ -21,7 +21,7 @@ Qwen has become a default open-weights LLM for agentic robotics on edge devices 
 
 ## Related
 - [Ollama](ollama.md) — common runtime.
-- [LLM-agent architecture](../concepts/llm-agent-architecture.md) — the dominant use pattern.
+- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — the dominant use pattern.
 
 ## Mentioned in
 - [Hiwonder ROSOrin Documentation](../sources/hiwonder-rosorin-docs.md)

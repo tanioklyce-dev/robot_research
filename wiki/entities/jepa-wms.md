@@ -8,7 +8,7 @@ sources: 4
 tags: [jepa-wms, jepa, world-model, fair, meta-fair, robocasa, metaworld, droid, lecun, bardes]
 ---
 
-**JEPA-WMs** — a family of [JEPA](../concepts/jepa.md)-style world models for physical planning, introduced by [FAIR](meta-fair.md) in [Terver et al. (Dec 2025)](../sources/jepa-wms-paper.md) ("What Drives Success in Physical Planning with Joint-Embedding Predictive World Models?"). Authors include **Adrien Bardes** and **Yann LeCun** — both senior on [V-JEPA 2](v-jepa-2.md). The work is the **first JEPA-for-robotics paper this wiki has ingested that explicitly uses heavy sim** ([RoboCasa](robocasa.md) kitchen manipulation).
+**JEPA-WMs** — a family of [JEPA](../concepts/world-models/jepa.md)-style world models for physical planning, introduced by [FAIR](meta-fair.md) in [Terver et al. (Dec 2025)](../sources/jepa-wms-paper.md) ("What Drives Success in Physical Planning with Joint-Embedding Predictive World Models?"). Authors include **Adrien Bardes** and **Yann LeCun** — both senior on [V-JEPA 2](v-jepa-2.md). The work is the **first JEPA-for-robotics paper this wiki has ingested that explicitly uses heavy sim** ([RoboCasa](robocasa.md) kitchen manipulation).
 
 ## Approach
 - Investigates which architectural and training choices in JEPA-WMs drive planning performance.
@@ -28,15 +28,15 @@ From the official `facebookresearch/jepa-wms` README:
 Pretrained weights ship per environment; HF dataset at https://huggingface.co/datasets/facebook/jepa-wms.
 
 ## Why it matters
-JEPA-WMs is the load-bearing source for the [revised "JEPA + sim" synthesis](../syntheses/why-jepa-research-skips-the-simulator-stack.md). The same FAIR group that produced V-JEPA 2 (no simulator) and the broader JEPA push moved into RoboCasa within ~6 months. The original "JEPA skips heavy sim" generalization broke before this wiki was even one ingest old.
+JEPA-WMs is the load-bearing source for the [revised "JEPA + sim" synthesis](../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md). The same FAIR group that produced V-JEPA 2 (no simulator) and the broader JEPA push moved into RoboCasa within ~6 months. The original "JEPA skips heavy sim" generalization broke before this wiki was even one ingest old.
 
 ## Related
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — architecture family.
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — architecture family.
 - [V-JEPA 2](v-jepa-2.md) — predecessor + baseline.
 - [DINO-WM](dino-wm.md) — baseline.
 - [RoboCasa](robocasa.md) — heavy-sim manipulation benchmark.
 - [Meta FAIR](meta-fair.md) — primary lab.
-- [Why JEPA research skips the simulator stack](../syntheses/why-jepa-research-skips-the-simulator-stack.md) — revised synthesis citing this paper as the contradicting evidence.
+- [Why JEPA research skips the simulator stack](../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md) — revised synthesis citing this paper as the contradicting evidence.
 
 ## Code
 - Repo: https://github.com/facebookresearch/jepa-wms

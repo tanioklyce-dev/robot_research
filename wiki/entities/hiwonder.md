@@ -20,7 +20,7 @@ Educational-robotics vendor that builds [ROSOrin](rosorin.md) and other Jetson-b
 - Curriculum spans cloud LLMs (OpenAI / OpenRouter) and offline runtimes ([Ollama](ollama.md) + [Qwen](qwen.md) + sherpa-onnx).
 
 ## Why it matters
-Represents the **educational tier** of the agentic-robotics ecosystem — distinct from research platforms like [Stretch](stretch.md). Hiwonder ships a complete LLM-agent demo on its kits, which is meaningful evidence that the [LLM-agent pattern](../concepts/llm-agent-architecture.md) (not VLA) is the dominant accessible-robotics approach in 2026.
+Represents the **educational tier** of the agentic-robotics ecosystem — distinct from research platforms like [Stretch](stretch.md). Hiwonder ships a complete LLM-agent demo on its kits, which is meaningful evidence that the [LLM-agent pattern](../concepts/agents/llm-agent-architecture.md) (not VLA) is the dominant accessible-robotics approach in 2026.
 
 ## Related
 - [ROSOrin](rosorin.md) — base mobile-only kit.

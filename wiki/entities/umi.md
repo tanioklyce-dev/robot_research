@@ -59,7 +59,7 @@ From [UMI Project Page](../sources/umi-paper.md):
 - [DROID](droid.md) — alternative diversity-first dataset (Franka teleop rather than hand-held gripper).
 - [TRI](tri.md) — TRI co-authors (Cousineau, Burchfiel, Feng, Tedrake).
 - [Franka Panda](franka-panda.md) — one of two deployment platforms (alongside UR5e).
-- [Imitation learning](../concepts/imitation-learning.md) — broader concept.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — broader concept.
 
 ## Mentioned in
 

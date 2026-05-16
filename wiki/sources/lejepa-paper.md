@@ -179,14 +179,14 @@ Single hyperparameter `λ`. No stop-gradient, no teacher-student, no EMA target 
 - Action conditioning in the predictor (causal AR transformer with AdaLN action input).
 - Planning protocol: CEM-MPC against the learned dynamics.
 - Robotics-relevant evaluation on PushT, Reacher, OGBench-Cube, Two-Room.
-- The BN-after-CLS engineering trick (LeJEPA's pure-SSL setting can use LayerNorm on the encoder output; LeWM's offline-RL setting needs Batch Norm in the projection MLP because LayerNorm pre-normalizes away the batch distribution SIGReg operates on — see [Module 12 §3.1](../syntheses/curriculum-12-lewm-deep-dive.md)).
+- The BN-after-CLS engineering trick (LeJEPA's pure-SSL setting can use LayerNorm on the encoder output; LeWM's offline-RL setting needs Batch Norm in the projection MLP because LayerNorm pre-normalizes away the batch distribution SIGReg operates on — see [Module 12 §3.1](../syntheses/curriculum/curriculum-12-lewm-deep-dive.md)).
 
 The relationship is the same as VICReg → V-JEPA: a paper introduces an anti-collapse regularizer in a pure-SSL setting, and a successor paper uses the same regularizer for world modeling with actions.
 
 ## Why it matters in this wiki
 
-- **The foundational reference for SIGReg.** [Module 12 §2](../syntheses/curriculum-12-lewm-deep-dive.md) re-derives SIGReg from the LeWM paper's exposition; the LeJEPA paper itself is now the source for the rigorous version with formal theorems (Theorem 1 isotropic-Gaussian optimality; Lemma 3 hyperspherical Cramér-Wold; Theorem 2 directional-test sufficiency).
-- **Resolves a hedge in [Module 12 §2](../syntheses/curriculum-12-lewm-deep-dive.md):** the curriculum module says SIGReg "averages" the test statistic across projections. The LeJEPA paper's Theorem 2 actually defines the consistent statistic as the **max**, with the practical SIGReg using **average** for gradient flow. Module 12 has been updated to flag this distinction.
+- **The foundational reference for SIGReg.** [Module 12 §2](../syntheses/curriculum/curriculum-12-lewm-deep-dive.md) re-derives SIGReg from the LeWM paper's exposition; the LeJEPA paper itself is now the source for the rigorous version with formal theorems (Theorem 1 isotropic-Gaussian optimality; Lemma 3 hyperspherical Cramér-Wold; Theorem 2 directional-test sufficiency).
+- **Resolves a hedge in [Module 12 §2](../syntheses/curriculum/curriculum-12-lewm-deep-dive.md):** the curriculum module says SIGReg "averages" the test statistic across projections. The LeJEPA paper's Theorem 2 actually defines the consistent statistic as the **max**, with the practical SIGReg using **average** for gradient flow. Module 12 has been updated to flag this distinction.
 - **Validation breadth (10+ datasets / 60+ architectures)** is what makes LeWM's "single hyperparameter" claim credible at small scale. Without LeJEPA's broad pretraining-side validation, LeWM's four-environment robotics-side results could be hand-tuned. With LeJEPA's results in hand, LeWM is more naturally read as a confirmation that the LeJEPA recipe holds when extended to the action-conditioned setting.
 - **Scaling evidence:** the 1.8B ViT-g stable training run is the strongest published evidence that SIGReg-only training works at scale. Module 11's collapse-prevention zoo can now state this with primary-source backing.
 
@@ -194,19 +194,19 @@ The relationship is the same as VICReg → V-JEPA: a paper introduces an anti-co
 
 - [LeWorldModel](../entities/leworldmodel.md) — the action-conditioned application of this paper's methodology.
 - [Yann LeCun](../entities/yann-lecun.md) — co-author.
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — the architecture family this paper provides theory for.
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — the architecture family this paper provides theory for.
 
 ## Concepts touched
 
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — LeJEPA is "JEPA done correctly" (per the paper's framing).
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — LeJEPA is "JEPA done correctly" (per the paper's framing).
 - [Self-Supervised Learning](../glossary.md#ssl) — LeJEPA is positioned as a heuristics-free SSL method.
-- [Learned latent space](../concepts/latent-space.md) — the isotropic-Gaussian-target framing.
+- [Learned latent space](../concepts/world-models/latent-space.md) — the isotropic-Gaussian-target framing.
 - [VICReg](../glossary.md#vicreg) — implicit comparison: VICReg targets variance + covariance + invariance separately; LeJEPA targets the *full distribution* (isotropic Gaussian) via SIGReg.
 
 ## Open questions / TBD
 
 - **Author entity page for Randall Balestriero** — co-author on multiple JEPA-line papers in this wiki ([PLDM 2025](pldm-paper.md), this paper, [LeWM](leworldmodel-paper.md)). Could anchor the SIGReg-line research thread.
-- **§B.4, §B.7, §B.8, §B.9, §B.11 detailed proofs** — referenced but not unpacked here. Worth re-reading if [Module 12](../syntheses/curriculum-12-lewm-deep-dive.md) needs to defend the SIGReg derivation against pushback.
+- **§B.4, §B.7, §B.8, §B.9, §B.11 detailed proofs** — referenced but not unpacked here. Worth re-reading if [Module 12](../syntheses/curriculum/curriculum-12-lewm-deep-dive.md) needs to defend the SIGReg derivation against pushback.
 - **Sobolev smoothness coefficient framework (§4.1, Theorem 5)** — alluded to in Figure 4 caption ("the greater α is, the more global will be the impact of SIGReg for a given M"). Connects SIGReg's effective coverage of the hypersphere to the smoothness of the embedding distribution. Not surfaced in this ingest; would deepen the "SIGReg is immune to the curse of dimensionality" claim.
 - **PyTorch reference implementation (algorithm 1, §5)** — the ~50-line code snippet. Re-read if the curriculum needs a reproducible reference for capstone-style work.
 - **Empirical comparison vs DINOv2 / V-JEPA 2 at matched compute** — the paper reports 79% on ViT-H/14 but the head-to-head against DINOv2 / V-JEPA 2 at the same compute budget is in §6 / appendix tables not surfaced here.

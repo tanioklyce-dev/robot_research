@@ -40,7 +40,7 @@ DROID is the **dominant real-robot dataset cited across the JEPA-for-robotics li
 - **[V-JEPA 2](v-jepa-2.md)** ([paper](../sources/v-jepa-2-paper.md)) — V-JEPA 2-AC post-trained on **62 hr of unlabeled DROID robot videos** (a subset of the full 350 hr); zero-shot Franka manipulation in two new labs followed.
 - **[JEPA-WMs](jepa-wms.md)** ([paper](../sources/jepa-wms-paper.md)) — uses the **raw DROID dataset in stereo HD (8.7 TB)** or **non-stereo HD-only video (5.6 TB)** as one of the training/eval data sources alongside RoboCasa, Metaworld, and a real Franka.
 
-This makes DROID the single most reused real-robot dataset in the JEPA literature ingested here. It also features in the [sim-heavy vs real-data paths synthesis](../syntheses/sim-heavy-vs-real-data-paths.md) as the substrate for the "observation-pretraining + small real teleop" path to generalist policies — without DROID, V-JEPA 2's "62 hr → zero-shot Franka" existence proof would not exist.
+This makes DROID the single most reused real-robot dataset in the JEPA literature ingested here. It also features in the [sim-heavy vs real-data paths synthesis](../syntheses/simulators/sim-heavy-vs-real-data-paths.md) as the substrate for the "observation-pretraining + small real teleop" path to generalist policies — without DROID, V-JEPA 2's "62 hr → zero-shot Franka" existence proof would not exist.
 
 ## Distribution
 - **TensorFlow Datasets**: `gs://gresearch/robotics`.
@@ -61,8 +61,8 @@ This makes DROID the single most reused real-robot dataset in the JEPA literatur
 - [V-JEPA 2](v-jepa-2.md) — primary JEPA consumer.
 - [JEPA-WMs](jepa-wms.md) — secondary JEPA consumer; uses the raw dataset.
 - [Robot Utility Models](robot-utility-models.md) — alternative real-robot data philosophy (mobile-manipulation, single embodiment, Stretch).
-- [Sim-heavy vs real-data paths synthesis](../syntheses/sim-heavy-vs-real-data-paths.md) — DROID is the empirical anchor of path C (observation pretraining + small real teleop).
-- [Why JEPA research skips the simulator stack](../syntheses/why-jepa-research-skips-the-simulator-stack.md) — DROID's role in JEPA-for-robotics evaluations is part of why JEPA work has been able to skip / fragment sim use.
+- [Sim-heavy vs real-data paths synthesis](../syntheses/simulators/sim-heavy-vs-real-data-paths.md) — DROID is the empirical anchor of path C (observation pretraining + small real teleop).
+- [Why JEPA research skips the simulator stack](../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md) — DROID's role in JEPA-for-robotics evaluations is part of why JEPA work has been able to skip / fragment sim use.
 
 ## Mentioned in
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)

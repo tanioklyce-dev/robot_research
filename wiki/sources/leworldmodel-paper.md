@@ -35,11 +35,11 @@ Preprint introducing **LeWorldModel (LeWM)** — claimed as the **first JEPA tra
 - [DINO-WM](../entities/dino-wm.md) — comparison baseline (foundation-based JEPA).
 
 ## Concepts touched
-- [Optimal control](../concepts/optimal-control.md)
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md)
-- [World model](../concepts/world-model.md) — end-to-end-pixel-trained design point.
-- [World-model simulators](../concepts/world-model-simulators.md) — latent-prediction paradigm
-- [Learned latent space](../concepts/latent-space.md) — first stable end-to-end-from-pixels JEPA latent; SIGReg is the anti-collapse mechanism that makes it work.
+- [Optimal control](../concepts/robotics/optimal-control.md)
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md)
+- [World model](../concepts/world-models/world-model.md) — end-to-end-pixel-trained design point.
+- [World-model simulators](../concepts/world-models/world-model-simulators.md) — latent-prediction paradigm
+- [Learned latent space](../concepts/world-models/latent-space.md) — first stable end-to-end-from-pixels JEPA latent; SIGReg is the anti-collapse mechanism that makes it work.
 
 ## Open questions
 - Does LeWM scale to high-resolution real-robot deployment, or is "2D and 3D control" still a research bench?
@@ -49,4 +49,4 @@ Preprint introducing **LeWorldModel (LeWM)** — claimed as the **first JEPA tra
 - Official repo: https://github.com/lucas-maes/le-wm
 - Project page: https://le-wm.github.io/
 - Pretrained HF checkpoints: `quentinll/lewm-{pusht,cube,tworooms,reacher}`
-- See [LeWorldModel — train and run howto](../syntheses/leworldmodel-howto.md) for install/train/eval commands.
+- See [LeWorldModel — train and run howto](../syntheses/world-models/leworldmodel-howto.md) for install/train/eval commands.

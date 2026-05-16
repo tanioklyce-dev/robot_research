@@ -31,14 +31,14 @@ tags: [v-jepa-2, jepa, world-model, meta-fair, video, action-conditioned, franka
 - LLM-aligned VQA: 84.0 PerceptionTest, 76.9 TempCompass at 8B-parameter scale.
 
 ## Why it matters
-First public demonstration of a **latent-prediction world model** ([JEPA](../concepts/jepa.md)) doing zero-shot real-robot manipulation in untouched labs. Validates the JEPA thesis: predict in representation space, not pixel space, and you can scale to internet-video pretraining without paying the cost of generating video. Sits in **paradigmatic contrast** to [NVIDIA Cosmos](nvidia-cosmos.md) / [Genie Envisioner](genie-envisioner.md) (generative-video world models).
+First public demonstration of a **latent-prediction world model** ([JEPA](../concepts/world-models/jepa.md)) doing zero-shot real-robot manipulation in untouched labs. Validates the JEPA thesis: predict in representation space, not pixel space, and you can scale to internet-video pretraining without paying the cost of generating video. Sits in **paradigmatic contrast** to [NVIDIA Cosmos](nvidia-cosmos.md) / [Genie Envisioner](genie-envisioner.md) (generative-video world models).
 
 ## Related
 - [Meta FAIR](meta-fair.md) — primary lab.
 - [Mila](mila.md) — co-affiliation (Artem Zholus dual appointment).
-- [Joint-Embedding Predictive Architecture](../concepts/jepa.md) — architecture family.
-- [Learned latent space](../concepts/latent-space.md) — V-JEPA 2 trains its latent on 1M+ hours of internet video before action-conditioned post-training; canonical example of broad-pretraining → small-action-dataset.
-- [World-model simulators](../concepts/world-model-simulators.md) — broader paradigm.
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — architecture family.
+- [Learned latent space](../concepts/world-models/latent-space.md) — V-JEPA 2 trains its latent on 1M+ hours of internet video before action-conditioned post-training; canonical example of broad-pretraining → small-action-dataset.
+- [World-model simulators](../concepts/world-models/world-model-simulators.md) — broader paradigm.
 - [LeWorldModel](leworldmodel.md) — sibling JEPA architecture (different group).
 - [V-JEPA 2.1 Paper](../sources/v-jepa-2-1-paper.md) — direct successor (March 2026), dense features focus.
 - [JEPA-WMs](jepa-wms.md) — same FAIR group's robot-specific JEPA work, but with sim (Dec 2025).

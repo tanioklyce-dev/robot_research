@@ -32,8 +32,8 @@ Proposes an explicit-input teleoperation assistance interface where the operator
 
 ## Concepts touched
 
-- [Assistive robotics](../concepts/assistive-robotics.md) — teleoperation interface for assistive manipulation
-- [End-user robot programming](../concepts/end-user-robot-programming.md) — explicit user control vs. autonomous inference
+- [Assistive robotics](../concepts/robotics/assistive-robotics.md) — teleoperation interface for assistive manipulation
+- [End-user robot programming](../concepts/robotics/end-user-robot-programming.md) — explicit user control vs. autonomous inference
 
 ## Open questions
 

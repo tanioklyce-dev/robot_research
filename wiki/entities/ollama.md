@@ -16,7 +16,7 @@ The dominant on-device LLM runtime for hobbyist / educational robotics in 2026. 
 
 ## Related
 - [Qwen](qwen.md) — common model family served via Ollama.
-- [LLM-agent architecture](../concepts/llm-agent-architecture.md) — Ollama is one of several runtimes that support this pattern locally.
+- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — Ollama is one of several runtimes that support this pattern locally.
 
 ## Mentioned in
 - [Hiwonder ROSOrin Documentation](../sources/hiwonder-rosorin-docs.md)

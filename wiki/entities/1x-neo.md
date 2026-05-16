@@ -44,7 +44,7 @@ The **tendon-driven / soft-touch / quiet** design philosophy is a deliberate hou
 ## Related
 - 1X Technologies — manufacturer (Norway / US)
 - [Figure](figure.md) / [Atlas](atlas.md) / [Tesla Optimus](tesla-optimus.md) — humanoid competitors
-- [Humanoid platforms survey](../syntheses/humanoid-platforms-survey.md)
+- [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md)
 
 ## Mentioned in
 - [1X NEO product page](../sources/1x-neo-product-page.md)

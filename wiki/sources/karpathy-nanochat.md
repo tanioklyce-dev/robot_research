@@ -21,7 +21,7 @@ github_stats: 53K stars, 7.2K forks (May 2026); active master branch
 
 **The single complexity dial:** `--depth` (number of transformer layers). Everything else — width, head count, LR schedule, training horizon, weight decays — is computed automatically to be compute-optimal. GPT-2 capability lives around `--depth=24–26`. This is a deliberate pedagogical choice: it forces all candidate changes to the repo to be *principled* (must work across the depth sweep), not depth-specific hacks.
 
-**Why it matters to this wiki.** nanochat is the **modern reference end-to-end LLM training pipeline** — the wiki's recommended companion to [nanoGPT](karpathy-nanogpt.md)'s `model.py` for [Curriculum Module 3](../syntheses/curriculum-03-attention-and-transformers.md), and the substrate that [autoresearch](karpathy-autoresearch.md) (Karpathy's March 2026 agent-driven research project) iterates on. The fact that a GPT-2-capability model now costs ~$48 to reproduce is a wiki-relevant data point on its own: it pins the **"how reproducible is modern LLM training on consumer/prosumer compute?"** question with a concrete number.
+**Why it matters to this wiki.** nanochat is the **modern reference end-to-end LLM training pipeline** — the wiki's recommended companion to [nanoGPT](karpathy-nanogpt.md)'s `model.py` for [Curriculum Module 3](../syntheses/curriculum/curriculum-03-attention-and-transformers.md), and the substrate that [autoresearch](karpathy-autoresearch.md) (Karpathy's March 2026 agent-driven research project) iterates on. The fact that a GPT-2-capability model now costs ~$48 to reproduce is a wiki-relevant data point on its own: it pins the **"how reproducible is modern LLM training on consumer/prosumer compute?"** question with a concrete number.
 
 ## The Time-to-GPT-2 leaderboard (README, May 2026)
 
@@ -88,7 +88,7 @@ The `runs/speedrun.sh` script is the **single entry point**: it runs the entire 
 
 ## Curriculum hookup
 
-Recommended companion to [nanoGPT](karpathy-nanogpt.md) for **[Curriculum Module 3 — Sequence models, attention, transformers](../syntheses/curriculum-03-attention-and-transformers.md)**:
+Recommended companion to [nanoGPT](karpathy-nanogpt.md) for **[Curriculum Module 3 — Sequence models, attention, transformers](../syntheses/curriculum/curriculum-03-attention-and-transformers.md)**:
 
 - **Architecture:** read `nanochat/gpt.py` (or stick with nanoGPT's `model.py` if simpler is better).
 - **End-to-end training pipeline:** read `runs/speedrun.sh` + the `scripts/base_train.py` it calls.
@@ -100,7 +100,7 @@ The repo also sets up [autoresearch](karpathy-autoresearch.md): "The training co
 ## What nanochat is *not*
 
 - Not a production framework. There are no model factories, no flexible configs, no plugin architecture. "Accessibility is about overall cost but also about cognitive complexity."
-- Not multimodal. Text-only. No vision, no audio. For VLA-class systems see the wiki's [VLA models](../concepts/vla-models.md) concept page.
+- Not multimodal. Text-only. No vision, no audio. For VLA-class systems see the wiki's [VLA models](../concepts/learning/vla-models.md) concept page.
 - Not state-of-the-art on raw capability. A $48 model trained in 2 hours is GPT-2-grade, "a bit like talking to a kindergartener." For frontier capability you need ~6 orders of magnitude more compute.
 - Not designed for distributed training across nodes. Single-node only (1–8 GPUs).
 

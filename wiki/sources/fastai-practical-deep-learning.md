@@ -33,19 +33,19 @@ tags: [fastai, course, pedagogical, deep-learning, pytorch, transfer-learning, c
 
 ## Why it matters to this wiki
 
-- **The strongest "first-touch" pedagogical resource for the entire [Robot-learning curriculum](../syntheses/robot-learning-curriculum.md) Tier 1.** The wiki's curriculum starts at Module 1 (NN basics) and assumes the reader is willing to derive backprop and read papers; the fast.ai course is the **on-ramp** for readers who haven't yet trained a single model. Recommended-viewing for readers who fail Module 1's prereq diagnostic and want a hands-on running-code introduction first.
+- **The strongest "first-touch" pedagogical resource for the entire [Robot-learning curriculum](../syntheses/curriculum/robot-learning-curriculum.md) Tier 1.** The wiki's curriculum starts at Module 1 (NN basics) and assumes the reader is willing to derive backprop and read papers; the fast.ai course is the **on-ramp** for readers who haven't yet trained a single model. Recommended-viewing for readers who fail Module 1's prereq diagnostic and want a hands-on running-code introduction first.
 - **Companion to [karpathy/micrograd](karpathy-micrograd.md) and [karpathy/nanoGPT](karpathy-nanogpt.md).** Karpathy's repos are "build NNs from scratch in pure Python / PyTorch primitives"; fast.ai is "use the highest-level library and ship a model today." The two approaches are pedagogically complementary — bottom-up vs. top-down. Both are now in the wiki.
 - **PyTorch + Hugging Face Transformers literacy.** Many of the wiki's downstream-tracked codebases ([nanoGPT](karpathy-nanogpt.md), [nanochat](karpathy-nanochat.md), [LeWM](leworldmodel-paper.md), [V-JEPA 2](vjepa2-github.md), [Diffusion Policy](diffusion-policy-paper.md), [HF TRL SFT Trainer](huggingface-trl-sft-trainer.md)) assume PyTorch fluency. fast.ai is the most widely-recommended path to that fluency.
-- **Transfer learning + ResNet pretraining** are first-class topics — feed directly into [Curriculum Module 2 — CNNs](../syntheses/curriculum-02-cnns.md).
-- **Data ethics chapter** (lesson 9) is a tangential but interesting cross-link with the wiki's [AI safety and alignment](../concepts/ai-safety-alignment.md) thread — fast.ai has been one of the louder voices on dataset-bias and deployment-ethics issues in the practical-ML community.
+- **Transfer learning + ResNet pretraining** are first-class topics — feed directly into [Curriculum Module 2 — CNNs](../syntheses/curriculum/curriculum-02-cnns.md).
+- **Data ethics chapter** (lesson 9) is a tangential but interesting cross-link with the wiki's [AI safety and alignment](../concepts/safety/ai-safety-alignment.md) thread — fast.ai has been one of the louder voices on dataset-bias and deployment-ethics issues in the practical-ML community.
 
 ## Curriculum hookup
 
 This is a **prerequisite-companion** rather than a primary-source, so it doesn't sit inside the curriculum per se — it sits *before* it for readers who need it. Suggested placement:
 
-- In the [Robot-learning curriculum](../syntheses/robot-learning-curriculum.md) top-matter, under a `> [!note] Don't have a year of PyTorch under your belt?` callout pointing at this course as Tier 0.
-- In [Module 1's "Prereq diagnostic"](../syntheses/curriculum-01-neural-networks.md): readers who fail the diagnostic should be pointed here first.
-- In [Module 2 — CNNs](../syntheses/curriculum-02-cnns.md) at the "transfer learning + ImageNet pretraining" section: fast.ai Lesson 1 + Lesson 8 are the canonical hands-on coverage of this workflow.
+- In the [Robot-learning curriculum](../syntheses/curriculum/robot-learning-curriculum.md) top-matter, under a `> [!note] Don't have a year of PyTorch under your belt?` callout pointing at this course as Tier 0.
+- In [Module 1's "Prereq diagnostic"](../syntheses/curriculum/curriculum-01-neural-networks.md): readers who fail the diagnostic should be pointed here first.
+- In [Module 2 — CNNs](../syntheses/curriculum/curriculum-02-cnns.md) at the "transfer learning + ImageNet pretraining" section: fast.ai Lesson 1 + Lesson 8 are the canonical hands-on coverage of this workflow.
 
 ## Authors
 
@@ -89,6 +89,6 @@ fast.ai occupies the **top-down, library-first** quadrant. The wiki's curriculum
 
 ## Open questions / TBD
 
-- **Part 2 of the course (From Stable Diffusion to LLMs from scratch).** Howard ran a 2022 Part 2 that covered diffusion models from scratch and is a much closer fit to the wiki's [Curriculum Module 5 — Generative modeling fundamentals (DDPM, full math)](../syntheses/curriculum-05-generative-models.md). Worth a follow-up evaluation pass — the Part 2 page is at https://course.fast.ai/Lessons/part2.html.
+- **Part 2 of the course (From Stable Diffusion to LLMs from scratch).** Howard ran a 2022 Part 2 that covered diffusion models from scratch and is a much closer fit to the wiki's [Curriculum Module 5 — Generative modeling fundamentals (DDPM, full math)](../syntheses/curriculum/curriculum-05-generative-models.md). Worth a follow-up evaluation pass — the Part 2 page is at https://course.fast.ai/Lessons/part2.html.
 - **The `fastai` library itself** as a wiki tool reference — useful but probably below the bar; the library is widely used outside research-track DL, less so inside it.
 - **A `entities/fast-ai.md` stub** — would let future fast.ai source ingests (Part 2, the *fastbook* companion) attach cleanly. Defer until a second fast.ai source surfaces.

@@ -45,7 +45,7 @@ MathWorks, MIT-IBM Watson AI Lab, MIT-Amazon Science Hub, MIT-Google Program for
 
 ## Entities mentioned
 - [Navid Azizan](../entities/navid-azizan.md) — senior author
-- [Agentic UAVs](../concepts/agentic-uavs.md) — domain context
+- [Agentic UAVs](../concepts/robotics/agentic-uavs.md) — domain context
 
 ## Open questions
 - arXiv ID for the underlying paper not provided in the article.

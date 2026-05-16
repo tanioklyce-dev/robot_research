@@ -68,8 +68,8 @@ DDPM's most relevant descendants for this wiki:
 
 ## Concepts touched
 
-- [World model](../concepts/world-model.md) — generative-video world models trace to DDPM.
-- [Imitation learning](../concepts/imitation-learning.md) — Diffusion Policy's BC formulation builds on DDPM.
+- [World model](../concepts/world-models/world-model.md) — generative-video world models trace to DDPM.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — Diffusion Policy's BC formulation builds on DDPM.
 
 ## Open questions / TBD
 

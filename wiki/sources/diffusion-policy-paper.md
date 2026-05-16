@@ -78,10 +78,10 @@ Introduces **Diffusion Policy** — a behavior-cloning method that represents a 
 
 ## Concepts touched
 
-- [Imitation learning](../concepts/imitation-learning.md) — the paper's training paradigm; key example of "diffusion policies" as a BC variant.
+- [Imitation learning](../concepts/learning/imitation-learning.md) — the paper's training paradigm; key example of "diffusion policies" as a BC variant.
 - Multi-modal action distributions — the paper's core thesis: diffusion captures multimodality without per-mode hyperparameters (k-means count, GMM components).
 - Receding-horizon / model-predictive control — borrowed from classical control, fused with action-sequence prediction.
-- Action sequence prediction (a.k.a. **action chunking**) — the paper popularized predicting `T_p` actions and executing `T_a` before re-planning; this convention persists across [VLA models](../concepts/vla-models.md) and downstream BC work (RUM, ACT, Pi VLAs).
+- Action sequence prediction (a.k.a. **action chunking**) — the paper popularized predicting `T_p` actions and executing `T_a` before re-planning; this convention persists across [VLA models](../concepts/learning/vla-models.md) and downstream BC work (RUM, ACT, Pi VLAs).
 
 ## Why it matters in this wiki
 

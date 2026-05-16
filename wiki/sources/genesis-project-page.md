@@ -16,7 +16,7 @@ Project page for [Genesis](../entities/genesis.md), a generative and universal p
 - Claims 10–80× faster than Isaac Gym/Sim/Lab and [MuJoCo](../entities/mujoco.md) MJX without sacrificing fidelity.
 - Pythonic API; lightweight install.
 - Includes a photorealistic renderer.
-- Native generative simulation: a [VLM](../concepts/vla-models.md)-based agent uses simulator APIs as tools to build 4D worlds from natural-language descriptions.
+- Native generative simulation: a [VLM](../concepts/learning/vla-models.md)-based agent uses simulator APIs as tools to build 4D worlds from natural-language descriptions.
 - Outputs include scenes, tasks, rewards, assets, motions, policies, trajectories, camera paths, and physically-accurate videos.
 
 ## Entities mentioned
@@ -25,10 +25,10 @@ Project page for [Genesis](../entities/genesis.md), a generative and universal p
 
 ## Concepts touched
 - Generative simulation
-- [VLM](../concepts/vla-models.md) / LLM-driven scene authoring
+- [VLM](../concepts/learning/vla-models.md) / LLM-driven scene authoring
 - High-throughput parallel physics
 
 ## Open questions
 - The 43M FPS claim is for a specific scenario (single Franka, no contact). What's typical throughput on contact-rich tasks?
 - How widely is Genesis actually adopted in industry vs. research demos?
-- How does it integrate with [VLA models](../concepts/vla-models.md) beyond scene generation — is closed-loop policy training first-class?
+- How does it integrate with [VLA models](../concepts/learning/vla-models.md) beyond scene generation — is closed-loop policy training first-class?

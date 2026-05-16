@@ -8,7 +8,7 @@ sources: 1
 tags: [libero, manipulation-benchmark, lifelong-learning, robosuite, mujoco]
 ---
 
-**LIBERO — "Lifelong Robot Learning Benchmark."** Procedural manipulation benchmark designed to test **lifelong / continual policy learning** across diverse manipulation tasks. Suite of task families ("Spatial," "Object," "Goal," and "100" — long-tail) commonly used as a [VLA](../concepts/vla-models.md) evaluation harness in 2024–2026. Built on robosuite + MuJoCo.
+**LIBERO — "Lifelong Robot Learning Benchmark."** Procedural manipulation benchmark designed to test **lifelong / continual policy learning** across diverse manipulation tasks. Suite of task families ("Spatial," "Object," "Goal," and "100" — long-tail) commonly used as a [VLA](../concepts/learning/vla-models.md) evaluation harness in 2024–2026. Built on robosuite + MuJoCo.
 
 ## Position in this wiki
 Primary reference is [VLA-JEPA](../sources/vla-jepa-paper.md) (Sun et al., Feb 2026), which evaluates on **LIBERO + LIBERO-Plus + SimplerEnv + real-world manipulation**. LIBERO has effectively become the de-facto VLA-eval bench — alongside [RoboCasa](robocasa.md) for household manipulation and [Metaworld](metaworld.md) for multi-task RL.

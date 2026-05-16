@@ -30,7 +30,7 @@ Across the JEPA literature, PointMaze is **the default 2D navigation bench** the
 
 ## Mentioned in
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md)
-- [LeWorldModel — train and run howto](../syntheses/leworldmodel-howto.md)
+- [LeWorldModel — train and run howto](../syntheses/world-models/leworldmodel-howto.md)
 - [DINO-WM Paper](../sources/dino-wm-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
 

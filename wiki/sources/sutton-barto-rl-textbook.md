@@ -37,11 +37,11 @@ The book runs from **tabular bandits** (Ch 2) to **tabular MDP solution methods*
 
 ## Why it matters to this wiki
 
-- **The canonical reference for [Curriculum Module 8 — Reinforcement learning vocabulary](../syntheses/curriculum-08-rl-vocabulary.md).** Module 8 already names this textbook as "the standard reference" in its Recommended-reading list — this ingest fills in the primary-source link.
+- **The canonical reference for [Curriculum Module 8 — Reinforcement learning vocabulary](../syntheses/curriculum/curriculum-08-rl-vocabulary.md).** Module 8 already names this textbook as "the standard reference" in its Recommended-reading list — this ingest fills in the primary-source link.
 - **Foundation for every MBRL / world-model paper in the wiki.** [DreamerV3](dreamer-v3-paper.md), [TD-MPC2](td-mpc2-paper.md), and the JEPA-line world models ([LeWM](leworldmodel-paper.md), [DINO-WM](dino-wm-paper.md), [DINO-world](dino-world-paper.md), [JEPA-WMs](jepa-wms-paper.md), [PLDM](pldm-paper.md)) all use Sutton-Barto vocabulary verbatim — value functions, policies, planning, on-policy / off-policy / offline, TD bootstrapping, actor-critic. The wiki tracks ~10 papers that assume this vocabulary; this is their primary source.
 - **Foundation for the RLHF / DPO / GRPO line that underlies VLA fine-tuning.** [Wolfe's SFT survey](wolfe-sft-blog.md) ends with RLHF; every wiki-tracked VLA ([π0](pi-zero-paper.md), [Helix](helix-blog.md), [GR00T](../entities/nvidia-groot.md)) uses some form of policy-gradient or preference-tuning RL at the end. PPO and SAC — the workhorses — derive from the policy-gradient chapter (Ch 11 here, Ch 13 in the 2018 final). Trace the lineage backwards and you land on this textbook.
 - **The "RL = approximate optimal control over an unknown model" framing** is the explicit bridge to [Sussmann & Willems 1997 — 300 Years of Optimal Control](sussmann-willems-1997-300-years-optimal-control.md). Bellman dynamic programming (Ch 4) is the discrete-time / stochastic extension of the [Pontryagin Maximum Principle](sussmann-willems-1997-300-years-optimal-control.md); when you sample instead of taking expectations against a known model, you get RL. The two books together — Sutton-Barto + Sussmann-Willems — are the wiki's primary-source foundation for the entire control-and-decision-making thread.
-- **The fly-brain / [biomechanical-simulation](../concepts/biomechanical-simulation.md) thread** uses RL-trained controllers ([flybody](../entities/flybody.md), flygym, [NeuroMechFly](../entities/neuromechfly.md)); the *Whole-organism agentic AI* synthesis page describes them in Sutton-Barto language.
+- **The fly-brain / [biomechanical-simulation](../concepts/bio/biomechanical-simulation.md) thread** uses RL-trained controllers ([flybody](../entities/flybody.md), flygym, [NeuroMechFly](../entities/neuromechfly.md)); the *Whole-organism agentic AI* synthesis page describes them in Sutton-Barto language.
 
 ## Structure (2018 final 2nd edition)
 
@@ -78,7 +78,7 @@ The book runs from **tabular bandits** (Ch 2) to **tabular MDP solution methods*
 **Part III — Looking Deeper (Chapters 14–17)** *(retitled from "Frontiers" in the draft)*
 
 - **Ch 14 — Psychology** (pp. 341–375). Expanded substantially: classical + instrumental conditioning, blocking + higher-order conditioning, the **Rescorla–Wagner model** + **the TD model** of classical conditioning (the experimental-psychology cousin of TD-learning), delayed reinforcement, cognitive maps, habitual vs goal-directed behavior.
-- **Ch 15 — Neuroscience** (pp. 377–420). Expanded: neuroscience basics, **dopamine reward-prediction-error hypothesis** (the Schultz/Dayan/Montague identification, citations to Schultz 1998 and Dayan & Montague experimental work), addiction. **The link the wiki touches in [Whole-organism agentic AI](../syntheses/whole-organism-agentic-ai.md).**
+- **Ch 15 — Neuroscience** (pp. 377–420). Expanded: neuroscience basics, **dopamine reward-prediction-error hypothesis** (the Schultz/Dayan/Montague identification, citations to Schultz 1998 and Dayan & Montague experimental work), addiction. **The link the wiki touches in [Whole-organism agentic AI](../syntheses/agents/whole-organism-agentic-ai.md).**
 - **Ch 16 — Applications and Case Studies** (pp. 421–458) — **major expansion vs the draft.** *(See "Ch 16 detail" below.)*
 - **Ch 17 — Frontiers** (pp. 459–478). General Value Functions and auxiliary tasks. **Temporal Abstraction via Options** (Sutton, Precup, Singh 1999). **Observations and State** — POMDPs and predictive state representations. **Designing Reward Signals** (§17.4) — the "specifying a reward signal is brittle for real-world tasks" recognition that became central to robot-learning practice in the late 2010s. **RL and the Future of AI**.
 
@@ -216,7 +216,7 @@ The wiki's RL-adjacent content (Module 8, Dreamer, TD-MPC, every JEPA-WM, every 
 (None of these have wiki entity pages yet. Sutton + Barto are the most overdue stubs — they keep appearing in the wiki's lineage diagrams as "Sutton & Barto 1998" without a target.)
 
 ## Concepts touched (the entire RL vocabulary)
-- [Optimal control](../concepts/optimal-control.md)
+- [Optimal control](../concepts/robotics/optimal-control.md)
 
 - **Reinforcement learning** — the field. **Not yet a concept page**; this source is the natural anchor. The most overdue concept-page creation in the wiki.
 - **MDP / Markov Decision Process** — `(S, A, P, R, γ)`. Foundational.
@@ -238,12 +238,12 @@ The wiki's RL-adjacent content (Module 8, Dreamer, TD-MPC, every JEPA-WM, every 
 
 ## Curriculum hookup
 
-This is the **primary-source canonical textbook** for [Curriculum Module 8 — Reinforcement learning vocabulary](../syntheses/curriculum-08-rl-vocabulary.md). Module 8's existing Recommended-reading list already names "Sutton & Barto" at position 5 (low priority because Module 8 is vocabulary-only); this ingest now lets that line link to a wiki source page rather than a bare author/title.
+This is the **primary-source canonical textbook** for [Curriculum Module 8 — Reinforcement learning vocabulary](../syntheses/curriculum/curriculum-08-rl-vocabulary.md). Module 8's existing Recommended-reading list already names "Sutton & Barto" at position 5 (low priority because Module 8 is vocabulary-only); this ingest now lets that line link to a wiki source page rather than a bare author/title.
 
 The book is also referenced implicitly by:
-- **[Module 10 — World models, broad](../syntheses/curriculum-10-world-models.md)** — MBRL framing.
-- **[Module 11 — JEPA in depth](../syntheses/curriculum-11-jepa-deep.md)** — when a JEPA-WM paper says "we train an off-policy goal-conditioned value function," that's Sutton-Barto language.
-- **[Module 13 — Home robotics deployment reality](../syntheses/curriculum-13-home-robotics-deployment.md)** — when discussing why pure-RL approaches struggle on real robots (sample inefficiency, reward specification, compounding error).
+- **[Module 10 — World models, broad](../syntheses/curriculum/curriculum-10-world-models.md)** — MBRL framing.
+- **[Module 11 — JEPA in depth](../syntheses/curriculum/curriculum-11-jepa-deep.md)** — when a JEPA-WM paper says "we train an off-policy goal-conditioned value function," that's Sutton-Barto language.
+- **[Module 13 — Home robotics deployment reality](../syntheses/curriculum/curriculum-13-home-robotics-deployment.md)** — when discussing why pure-RL approaches struggle on real robots (sample inefficiency, reward specification, compounding error).
 
 For readers who want a depth pass: the Module-8-recommended path is **Wikipedia → OpenAI Spinning Up → DreamerV3 paper → TD-MPC2 paper → Sutton & Barto** (with this textbook as the late, deep stop). Few wiki readers will read all 550 pages of the 2018 final; the natural target chapters for our wiki's threads are **Ch 1, 3, 4, 6, 8, 9, 11** (foundations + the MBRL / function-approximation / policy-gradient bridges).
 
@@ -251,9 +251,9 @@ For readers who want a depth pass: the Module-8-recommended path is **Wikipedia 
 
 The textbook does not address this directly (it pre-dates the "RL is sample-inefficient for robots" consensus of 2018+), but the framework explains why:
 
-- **Sample inefficiency.** A Bellman-style update is fast in a tabular MDP and easy in a simulator (DreamerV3 burns 10⁸+ steps in MuJoCo); on a real robot, ~10⁴ steps/hour is the budget — six orders of magnitude. **Sim-to-real** ([wiki/concepts/sim-to-real-transfer.md](../concepts/sim-to-real-transfer.md)) is the standard workaround.
+- **Sample inefficiency.** A Bellman-style update is fast in a tabular MDP and easy in a simulator (DreamerV3 burns 10⁸+ steps in MuJoCo); on a real robot, ~10⁴ steps/hour is the budget — six orders of magnitude. **Sim-to-real** ([wiki/concepts/sim-to-real-transfer.md](../concepts/learning/sim-to-real-transfer.md)) is the standard workaround.
 - **Reward specification.** Sutton & Barto's framework *assumes* a reward signal arrives from the environment. For real-world tasks (folding laundry, pouring coffee, helping with breakfast), specifying a dense scalar reward is brittle — the field has largely punted to **demonstrations (BC) + RL fine-tuning** instead, which is what every wiki-tracked VLA / IL line does.
-- **Compounding error in long-horizon tasks.** The book's TD-learning derivation makes the bias-variance trade-off explicit (Ch 6.2): MC is unbiased but high-variance; TD is low-variance but biased through bootstrapping. For long-horizon real-robot tasks, both options break — which is why **learned world models** (the [Module 10–12](../syntheses/curriculum-10-world-models.md) thread) exist.
+- **Compounding error in long-horizon tasks.** The book's TD-learning derivation makes the bias-variance trade-off explicit (Ch 6.2): MC is unbiased but high-variance; TD is low-variance but biased through bootstrapping. For long-horizon real-robot tasks, both options break — which is why **learned world models** (the [Module 10–12](../syntheses/curriculum/curriculum-10-world-models.md) thread) exist.
 
 ## Open questions / TBD
 
