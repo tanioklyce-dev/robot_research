@@ -57,4 +57,4 @@ sudo apt dist-upgrade
 
 ## Open questions
 - The page does not enumerate which exact QSPI-firmware payloads ship in `nvidia-l4t-bootloader` for R36.5. Worth pulling from the release notes.
-- For Orin Nano specifically: is bootloader update through apt sufficient to enable NVMe boot on pre-mid-2023 dev kits, or is an SDK-Manager reflash still required? (Cross-reference with [Jetson Orin Nano flash howto](../syntheses/projects/jetson-orin-nano-flash-howto.md).)
+- For [Jetson Orin Nano](../entities/jetson-orin-nano.md) specifically: is bootloader update through apt sufficient to enable NVMe boot on pre-mid-2023 dev kits, or is an SDK-Manager reflash still required? (Cross-reference with [Jetson Orin Nano flash howto](../syntheses/projects/jetson-orin-nano-flash-howto.md).)

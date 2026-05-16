@@ -9,7 +9,7 @@ tags: [hiwonder, rosorin-pro, user-manual, hardware-specs, jetson-orin-nano, man
 ---
 
 ## Summary
-Chapter 1 hardware reference for [Hiwonder](../entities/hiwonder.md)'s **[ROSOrin Pro](../entities/rosorin-pro.md)** — a 6-DOF arm + mobile-base variant of [ROSOrin](../entities/rosorin.md). Same compute platform options (Jetson Orin Nano/NX, Jetson Nano, Raspberry Pi 5) and the same STM32F407VET6 low-level MCU as the base kit; adds an HX-12H-servo arm with a gripper end-effector. Note: ROSOrin Pro docs live on a different subdomain (`wiki.hiwonder.com`) than the base ROSOrin docs (`docs.hiwonder.com`).
+Chapter 1 hardware reference for [Hiwonder](../entities/hiwonder.md)'s **[ROSOrin Pro](../entities/rosorin-pro.md)** — a 6-DOF arm + mobile-base variant of [ROSOrin](../entities/rosorin.md). Same compute platform options ([Jetson Orin Nano](../entities/jetson-orin-nano.md)/NX, Jetson Nano, Raspberry Pi 5) and the same STM32F407VET6 low-level MCU as the base kit; adds an HX-12H-servo arm with a gripper end-effector. Note: ROSOrin Pro docs live on a different subdomain (`wiki.hiwonder.com`) than the base ROSOrin docs (`docs.hiwonder.com`).
 
 ## Key claims
 

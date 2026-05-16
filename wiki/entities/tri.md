@@ -3,8 +3,8 @@ title: Toyota Research Institute (TRI)
 type: entity
 subtype: company
 created: 2026-05-10
-updated: 2026-05-10
-sources: 4
+updated: 2026-05-16
+sources: 2
 tags: [tri, toyota-research-institute, robotics-research, automated-driving, lbm, drake, organization]
 ---
 

@@ -2,8 +2,8 @@
 title: Imitation learning
 type: concept
 created: 2026-05-07
-updated: 2026-05-15
-sources: 23
+updated: 2026-05-16
+sources: 25
 tags: [imitation-learning, behavior-cloning, demonstrations, lerobot, act]
 ---
 

@@ -3,7 +3,7 @@ title: JetPack SDK
 type: entity
 created: 2026-05-16
 updated: 2026-05-16
-sources: 4
+sources: 6
 tags: [nvidia, jetson, jetpack, sdk, cuda, tensorrt]
 ---
 

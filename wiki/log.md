@@ -1325,3 +1325,11 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
   - [Jetson Orin Nano flash howto](syntheses/projects/jetson-orin-nano-flash-howto.md) — added "After flashing — switching power modes" section with nvpmodel commands and mode-ID-is-not-portable caveat; gotchas paragraph updated with `-super-maxn` and the hardware-lock-in warning.
 - Headline 8GB number: Super 25W vs default 15W gives **+47% GPU clock, +50% memory clock**; full peak (1728 MHz CPU / 1020 MHz GPU) only at MAXN_SUPER.
 - New open questions: TOPS-per-mode breakdown (not in this chapter); Orin NX `-super` flash config variant (page implies one exists separate from the Orin Nano carrier config); when `tpc_pg_mask` change forces a reboot.
+
+## [2026-05-16] lint | Post-Jetson-cluster health check
+- Ran `/tmp/lint_wiki.py` across 356 markdown pages. Clean: **0 broken links**, **0 orphan pages**, **0 sparse pages** (every non-source page has at least 2 outbound `.md` links).
+- Found **14 entity/concept pages** with `sources: N` frontmatter drift of |diff| ≥ 2 between the claimed count and the actual number of source pages with markdown links to them.
+- Fixed:
+  - Added missing entity backlinks from three pre-existing source pages that mention Jetson Orin Nano in body but weren't linked: [Hiwonder ROSOrin docs](sources/hiwonder-rosorin-docs.md), [Hiwonder ROSOrin Pro user manual](sources/hiwonder-rosorin-pro-user-manual.md), [R36.5 update mechanism](sources/nvidia-jetson-linux-r36-5-update-mechanism.md).
+  - Brought 13 remaining drifted `sources: N` values into agreement with the script-measured count. Definition of `sources:` is now mechanically consistent — "number of source-page markdown links to this page." Pages affected: nvidia (19→26), pointmaze (3→0), amal-nanavati (4→1), the-robot-studio (3→1), metaworld (3→1), tri (4→2), jetpack (4→6), nvidia-cosmos (8→10), jetson-linux (5→7), genie-envisioner (5→7), dm-control (4→2), scaling-laws-vla (2→4), imitation-learning (23→25).
+- Caveat: entities with `sources: 0` after the fix (pointmaze) are mentioned in source body text but not linked — worth adding backlinks in a future pass if those entities matter for navigation.

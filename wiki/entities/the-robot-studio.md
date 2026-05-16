@@ -3,8 +3,8 @@ title: The Robot Studio
 type: entity
 subtype: organization
 created: 2026-05-10
-updated: 2026-05-10
-sources: 3
+updated: 2026-05-16
+sources: 1
 tags: [the-robot-studio, so-arm, so-arm100, so-arm101, open-hardware, low-cost-arm, lerobot]
 ---
 

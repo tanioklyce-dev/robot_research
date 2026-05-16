@@ -3,8 +3,8 @@ title: Amal Nanavati
 type: entity
 subtype: person
 created: 2026-05-09
-updated: 2026-05-10
-sources: 4
+updated: 2026-05-16
+sources: 1
 tags: [amal-nanavati, assistive-robotics, hcrlab, uw, par, feeding-robot, systematic-review]
 ---
 
