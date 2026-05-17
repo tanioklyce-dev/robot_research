@@ -3,7 +3,7 @@ title: Wiki-query agent on DGX Spark — deployment plan
 type: synthesis
 created: 2026-05-17
 updated: 2026-05-17
-tags: [deployment, llm-wiki, queryable-agent, dgx-spark, qwen, vllm, ollama, local-llm, hosting]
+tags: [deployment, llm-wiki, queryable-agent, dgx-spark, qwen, vllm, ollama, local-llm, hosting, cloud-rental]
 ---
 
 A scoping plan for making this LLM-wiki **queryable online as an agent**, served from a **local [DGX Spark](../../entities/dgx-spark.md)** running an open-source LLM. Captures the design decisions from a 2026-05-17 conversation so the rationale doesn't get lost if execution drifts later.
@@ -84,6 +84,25 @@ At query time: the frontend sends the user question + the relevant wiki pages (l
 
 vs Anthropic-API-on-a-VPS path: Anthropic Claude Sonnet at ~$0.005–$0.02 per query with caching = **$15–$60/month at 100 queries/day**, scaling linearly. Spark wins on TCO once query volume crosses a threshold the wiki could plausibly reach.
 
+## Rent before you buy
+
+DGX Spark instances are available **as cloud rentals** from third-party providers, which makes a pilot-first approach attractive:
+
+| Provider | Price | Access |
+| --- | --- | --- |
+| **Enverge** ([spark.enverge.ai](https://spark.enverge.ai/)) | **$0.48 / hr** | SSH + Docker; 128 GB Spark instance |
+| **Server Room** ([serverroom.net/spark](https://www.serverroom.net/spark)) | quoted; not public-listed | dedicated, pre-configured |
+| **Primcast** ([primcast.com/spark](https://www.primcast.com/spark)) | quoted | dedicated, pre-optimized NVIDIA AI stack |
+| Peer-to-peer | varies | active discussion on the [NVIDIA DGX Spark / GB10 forum](https://forums.developer.nvidia.com/t/anyone-renting-out-their-dgx-spark-when-not-using-it/362924) |
+
+**Buy-vs-rent math at $0.48/hr**:
+- 24/7 always-on: **$345 / month**. Spark dev kit (~$3,500) pays back at ~10–12 months always-on.
+- Burst / evaluation use: a month-long Qwen 2.5 72B + vLLM evaluation, even running aggressively, is on the order of **$50–$100**.
+
+**Recommendation: pilot on rented Spark first.** Spin up an Enverge instance, run the full deployment plan above (vLLM + Qwen 2.5 72B + frontend + tunnel) end-to-end, measure quality on real wiki questions, validate concurrency, see whether queries-per-day actually justify the box. Then commit to buying — at which point the rental work transfers 1:1 to owned hardware. The pilot is cheap enough that it's a no-brainer relative to committing $3.5k up front for an unvalidated UX.
+
+Also check [NVIDIA Brev](../../entities/nvidia-brev.md): Spark wasn't in Brev's catalog at the time of the wiki's Brev ingest, but the catalog grows and Brev would be the lowest-friction NVIDIA-native path if it shows up.
+
 ## Open questions / TBD
 
 - **Retrieval strategy**: full-context load (CLAUDE.md + index + on-demand pages) vs proper RAG with embeddings. Default plan is full-context since Qwen 2.5 72B handles 128k. Revisit if quality is poor.
@@ -103,4 +122,4 @@ vs Anthropic-API-on-a-VPS path: Anthropic Claude Sonnet at ~$0.005–$0.02 per q
 
 ## Provenance
 
-This page exists because a 2026-05-17 conversation walked through how to make the wiki queryable, who pays the fees in each option, BYOK trust dynamics, local-LLM model choice on consumer + server tiers, and the Thor-vs-Spark comparison for inference. The decision (Spark + Qwen 2.5 72B Q8 + vLLM) is captured here so future re-decisions inherit the rationale.
+This page exists because a 2026-05-17 conversation walked through how to make the wiki queryable, who pays the fees in each option, BYOK trust dynamics, local-LLM model choice on consumer + server tiers, and the Thor-vs-Spark comparison for inference. The decision (Spark + Qwen 2.5 72B Q8 + vLLM) is captured here so future re-decisions inherit the rationale. Updated later the same day with the rent-before-buy section after surfacing that Spark is available as a cloud rental ($0.48/hr from Enverge).
