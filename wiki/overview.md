@@ -30,6 +30,9 @@ A starter shortlist — eight platforms across the spectrum from "tabletop arm u
 ## Open-source robot AI research projects
 If you want to explore the open-source landscape: [Open-source robot AI research projects](syntheses/platforms/open-source-robot-ai-projects.md) — grouped catalog (LeRobot ecosystem, JEPA code, open VLAs, simulators, RL benchmarks, open robot platforms, and more).
 
+## Agentic UAVs (drones)
+If your interest is in the air rather than the ground: [Agentic UAVs](concepts/robotics/agentic-uavs.md) — four-layer architecture (perception / cognition / control / communication), key enabling technologies, and how learned-controller research connects to the open-source [PX4 Autopilot](entities/px4-autopilot.md) flight stack on [Pixhawk](entities/pixhawk.md) hardware.
+
 ## NVIDIA GPU rental landscape
 If you need GPU compute for training, fine-tuning, or running policies and world models: [NVIDIA GPU rental landscape](syntheses/platforms/nvidia-gpu-rental-landscape.md) — providers, pricing, and how to choose (Brev / RunPod / Lambda Labs / CoreWeave / Vast.ai / DGX Cloud / DGX Spark rentals at $0.48/hr).
 
