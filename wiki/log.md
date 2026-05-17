@@ -2,6 +2,26 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-17] ingest | PX4 Autopilot documentation
+
+User pointed at `docs.px4.io/main/en/` — the canonical doc site for PX4, the dominant open-source autopilot for drones. Big gap in the wiki: existed UAV-AI research coverage ([Agentic UAVs concept](concepts/robotics/agentic-uavs.md), the [UAVs Survey](sources/uavs-agentic-ai-survey.md), [MIT drone adaptive control](sources/mit-drone-adaptive-control.md)) but no entity for the autopilot substrate underneath.
+
+- **Created 1 source**: [PX4 Autopilot Documentation (docs.px4.io/main)](sources/px4-docs-main.md). Top-of-tree summary of the ~250-page docs site. Covers project facts (BSD 3-Clause, Dronecode Foundation, v1.16 stable / v1.17 alpha), vehicle types, [Pixhawk](entities/pixhawk.md) FMUv3–v6X-RT hardware, software architecture (NuttX RTOS + uORB pub-sub + EKF2 + control allocation), communication (MAVLink + ROS 2 / uXRCE-DDS + DroneCAN), GCS + SDKs (QGroundControl + MAVSDK), simulation (Gazebo + SIH + AirSim + HITL), and — most relevant to this wiki — the **Neural Networks subsystem** (TFLM + RAPTOR Adaptive RL NN Module + MC NN Control Module).
+
+- **Created 4 entities**:
+  - [PX4 Autopilot](entities/px4-autopilot.md) — the project; primary entity.
+  - [Pixhawk](entities/pixhawk.md) — open-hardware flight-controller standard underneath PX4.
+  - [Dronecode Foundation](entities/dronecode-foundation.md) — Linux Foundation Collaborative Project; steward of PX4 + MAVLink + Pixhawk + QGroundControl + MAVSDK. Same governance shape as [Farama Foundation](entities/farama-foundation.md).
+  - [MAVLink](entities/mavlink.md) — telemetry / command protocol; spoken across PX4 + ArduPilot + ground-station tooling.
+
+- **Updated**:
+  - [Agentic UAVs concept](concepts/robotics/agentic-uavs.md) — new "Open-source autopilot substrate" section linking PX4 + Pixhawk + Dronecode + MAVLink + the RAPTOR module as the production realization of the concept's Control layer; sources 2→3.
+  - [index.md](index.md) — PX4 under Software stacks; Pixhawk added under Controllers / edge AI compute; Dronecode under Companies; MAVLink under Formats / standards; PX4 docs added to chronological Sources.
+
+- **Cross-source insight**: PX4's compute-split model — **deterministic real-time control on a [Pixhawk](entities/pixhawk.md) flight controller; AI / perception / planning on a [Jetson](entities/jetson-thor.md) companion computer** — is structurally identical to the wiki's recurring "CPU for control, GPU for AI" pattern. Same shape as [Jetson Thor / DGX Spark train-vs-deploy](syntheses/platforms/jetson-thor-vs-dgx-spark.md) and [Stretch 4](entities/stretch.md)'s NUC + optional Jetson Orin NX split. Three independent product lines (UAV, edge-AI cluster, mobile manipulator) converging on the same compute-split architecture in 2026.
+
+- **Open questions** (logged on the source page): RAPTOR algorithm specifics, TFLM-on-FMUv6X-RT empirical performance, MC NN Control vs classical-allocator comparisons, whether anyone has shipped a VLA + PX4 integration, Auterion Skynode entity, PX4 + Newton physics-engine sim option.
+
 ## [2026-05-17] query+synthesis | "Summary of renting NVIDIA GPUs"
 
 Spun off from the wiki-query-agent deployment plan after surfacing that [DGX Spark](entities/dgx-spark.md) is rentable from third-party providers — Brev didn't have it. That gap motivated a broader survey.

@@ -2,9 +2,9 @@
 title: Agentic UAVs
 type: concept
 created: 2026-05-09
-updated: 2026-05-09
-sources: 2
-tags: [uav, drone, agentic-ai, edge-ai, swarm, autonomous, multi-domain]
+updated: 2026-05-17
+sources: 3
+tags: [uav, drone, agentic-ai, edge-ai, swarm, autonomous, multi-domain, px4, pixhawk, mavlink]
 ---
 
 **Agentic UAVs** — unmanned aerial vehicles that go beyond preprogrammed waypoint execution to exhibit "goal-driven behavior, contextual reasoning, and interactive autonomy." Distinguished from traditional UAVs by operating at **autonomy levels 4–5** (context-aware, minimal human oversight) rather than levels 1–2 (rule-based, operator-dependent). The term is defined and surveyed in [Sapkota et al. 2025](../../sources/uavs-agentic-ai-survey.md) (Cornell / University of the Peloponnese).
@@ -49,10 +49,16 @@ The agentic UAV architecture (perception / cognition / control / communication) 
 1. **Aerial constraints** — strict latency and power budgets make heavy VLM inference less feasible onboard
 2. **Swarm coordination** — V2X protocols are more formalized for aerial than ground (regulatory pressure from aviation)
 
+## Open-source autopilot substrate
+
+The "Control" layer in the four-layer architecture is, in production, almost always [**PX4 Autopilot**](../../entities/px4-autopilot.md) — the open-source autopilot stewarded by the [Dronecode Foundation](../../entities/dronecode-foundation.md), running on [Pixhawk](../../entities/pixhawk.md)-class flight controllers and talking to companion computers (often [Jetson](../../entities/jetson-thor.md)-class) over [MAVLink](../../entities/mavlink.md) and ROS 2 / uXRCE-DDS. PX4 institutionalizes the learned-controller pattern through its **Neural Networks** subsystem — including **TensorFlow Lite Micro** for on-device inference and the **RAPTOR Adaptive RL NN Module** for reinforcement-learning-based adaptive control. The latter is the PX4-side analog of [Navid Azizan](../../entities/navid-azizan.md)'s [meta-learning adaptive control](../../sources/mit-drone-adaptive-control.md) line. Details in the [PX4 docs ingest](../../sources/px4-docs-main.md).
+
 ## Key references
+- [PX4 Autopilot Documentation (docs.px4.io/main)](../../sources/px4-docs-main.md) — the open-source autopilot underneath most production agentic-UAV stacks.
 - [UAVs Meet Agentic AI survey](../../sources/uavs-agentic-ai-survey.md) (Sapkota et al., 2025) — foundational multidomain survey
 - [MIT drone adaptive control](../../sources/mit-drone-adaptive-control.md) (Tang, Sun, Azizan, 2025) — 50% error reduction via meta-learning + mirror descent
 
 ## Mentioned in
 - [UAVs Meet Agentic AI survey](../../sources/uavs-agentic-ai-survey.md)
 - [MIT drone adaptive control](../../sources/mit-drone-adaptive-control.md)
+- [PX4 Autopilot Documentation (docs.px4.io/main)](../../sources/px4-docs-main.md)
