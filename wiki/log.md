@@ -2,6 +2,25 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-17] ingest | Logical Intelligence Kona product page (primary source)
+
+Follow-up to the morning's Aleph EBM video ingest. User pointed at `logicalintelligence.com/kona-ebms-energy-based-models` — the [Kona](entities/kona.md) product page, dated **2026-05-14**. **First primary-source coverage of Kona** in the wiki (everything prior was secondary).
+
+- The page is short and marketing-light on architecture: no training procedure, no parameter count, no benchmark numbers. Its value is **verbatim positioning copy** ("Certainty, Not Probability." / "It does not predict likely outcomes. It enforces constraints." / "Replaces trust with proof") and the **live Sudoku demo** at `sudoku.logicalintelligence.com`.
+- Methodologically interesting demo detail: **code execution is disabled for both Kona and LLMs** to prevent LLMs from brute-forcing Sudoku via a code interpreter. Without that control the comparison would be meaningless.
+- "Kona evaluates the entire puzzle at once" + "all possible states of a system" language is consistent with **non-autoregressive whole-state evaluation** — corroborates the earlier framing from the Bodnia interview summary.
+
+- **Created 1 source**: [Kona EBMs page](sources/2026-05-14-logical-intelligence-kona-ebms-page.md). Explicitly flagged as marketing-light; paired with the video source page for the substance.
+
+- **Updated**:
+  - [Kona](entities/kona.md): new "Logical Intelligence's own positioning" section with the verbatim quotes; new "Public demo" section linking to the Sudoku page; sources 1→2.
+  - [Logical Intelligence](entities/logical-intelligence.md): sources 1→2; Mentioned-in updated.
+  - [Aleph](entities/aleph.md): sources 1→2 (page name-checks Aleph as the orchestrator that "delivers verified reasoning today").
+  - [Energy-based models](concepts/learning/energy-based-models.md): sources 4→5; added vendor-authored positioning to Key references.
+  - [index.md](index.md): new source line at the top of chronological 2026-05 cluster.
+
+- **Open questions still open from the morning's ingest** — this page doesn't close any of them. Architecture, training, inference procedure, and benchmark numbers all remain undocumented in this wiki. Need a real Kona tech report.
+
 ## [2026-05-17] ingest | "Aleph and Energy-Based Models: The AI That Refuses to Bullshit" (YouTube)
 
 User dropped a YouTube URL (NYmXYF8A3Q4). Video page itself was gated (no transcript), but search + WebFetch surfaced the subject: an editorial commentary on **[Logical Intelligence](entities/logical-intelligence.md)**'s January 2026 launch and the May 2026 [Aleph](entities/aleph.md) PutnamBench result. Built the ingest from primary materials (Logical Intelligence blog, BusinessWire press release, an Eve Bodnia interview summary) and cited those as the substantive sources; the video itself enters as the entry-point.

@@ -3,7 +3,7 @@ title: Energy-based models (EBMs)
 type: concept
 created: 2026-05-17
 updated: 2026-05-17
-sources: 4
+sources: 5
 tags: [ebm, energy-based-model, infonce, jepa, ibc, lecun, kona, latent-variable, constraint-satisfaction]
 ---
 
@@ -33,6 +33,7 @@ The wiki has three quite-different EBM applications, all downstream of [Yann LeC
 - **[IBC Paper (Florence et al., CoRL 2021)](../../sources/ibc-paper.md)** — first EBM-for-policy result in this wiki; introduced [PushT](../../entities/pusht.md); ancestor of [Diffusion Policy](../../entities/diffusion-policy.md).
 - **[Aleph and Energy-Based Models: The AI That Refuses to Bullshit (video, 2026-05)](../../sources/2026-05-aleph-ebm-refuses-bullshit-video.md)** — first commercialized EBM-for-reasoning surface in this wiki ([Kona](../../entities/kona.md) + [Aleph](../../entities/aleph.md)).
 - **[Welch Labs — LeCun's $1B Bet Against LLMs](../../sources/welchlabs-lecun-1b-bet-against-llms.md)** — popular explainer; covers the EBM ↔ JEPA ↔ "intelligence is a cake" arc.
+- **[Kona EBMs page — Logical Intelligence (2026-05-14)](../../sources/2026-05-14-logical-intelligence-kona-ebms-page.md)** — first vendor-authored EBM-for-reasoning positioning page in the wiki. Verbatim framing: "It does not predict likely outcomes. It enforces constraints." / "Certainty, Not Probability." Marketing-light on tech but useful for citing how a commercial EBM player describes its own value proposition.
 
 ## Why LeCun pushes EBMs
 
@@ -53,6 +54,7 @@ This is the long thread connecting the [1993 Siamese signature-verification pape
 - [IBC Paper](../../sources/ibc-paper.md)
 - [Aleph and Energy-Based Models: The AI That Refuses to Bullshit (video)](../../sources/2026-05-aleph-ebm-refuses-bullshit-video.md)
 - [Welch Labs — LeCun's $1B Bet Against LLMs](../../sources/welchlabs-lecun-1b-bet-against-llms.md)
+- [Kona: Energy-Based Models (EBMs) for AI Reasoning — Logical Intelligence page](../../sources/2026-05-14-logical-intelligence-kona-ebms-page.md)
 
 ## Open questions / TBD
 

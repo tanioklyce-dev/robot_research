@@ -4,7 +4,7 @@ type: entity
 subtype: organization
 created: 2026-05-17
 updated: 2026-05-17
-sources: 1
+sources: 2
 tags: [logical-intelligence, ebm, energy-based-model, reasoning, lecun, freedman, startup, formal-verification, post-llm]
 ---
 
@@ -64,3 +64,4 @@ No source in this wiki addresses whether the two are collaborating, parallel, or
 ## Mentioned in
 
 - [Aleph and Energy-Based Models: The AI That Refuses to Bullshit (video)](../sources/2026-05-aleph-ebm-refuses-bullshit-video.md)
+- [Kona: Energy-Based Models (EBMs) for AI Reasoning — Logical Intelligence page](../sources/2026-05-14-logical-intelligence-kona-ebms-page.md) — first primary-source page authored by the company itself.

@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-17
 updated: 2026-05-17
-sources: 1
+sources: 2
 tags: [aleph, logical-intelligence, agent, lean, formal-verification, putnambench, gpt-5.2, theorem-proving, ebm]
 ---
 
@@ -55,3 +55,4 @@ Cited via [Aleph EBM video](../sources/2026-05-aleph-ebm-refuses-bullshit-video.
 ## Mentioned in
 
 - [Aleph and Energy-Based Models: The AI That Refuses to Bullshit (video)](../sources/2026-05-aleph-ebm-refuses-bullshit-video.md)
+- [Kona: Energy-Based Models (EBMs) for AI Reasoning — Logical Intelligence page](../sources/2026-05-14-logical-intelligence-kona-ebms-page.md) — Aleph name-checked as "delivering verified reasoning today."
