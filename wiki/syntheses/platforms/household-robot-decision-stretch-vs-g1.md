@@ -2,13 +2,16 @@
 title: Household robot decision — Stretch vs Unitree G1
 type: synthesis
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-17
 tags: [stretch, unitree-g1, decision, household-robot, comparison, hello-robot, recommendation]
 ---
 
 # Household robot decision — Stretch vs Unitree G1
 
 A buying-decision comparison for the use case: **a research-grade robot to navigate a home, pick things off the floor, put away dishes, and open cans.** Two candidates: [Hello Robot Stretch 3](../../entities/stretch.md) (research-tier mobile manipulator) and [Unitree G1](../../entities/unitree-g1.md) (affordable bipedal humanoid). This page documents the comparison + recommendation so future similar decisions can reuse the analysis.
+
+> [!note] Updated 2026-05-17 — Stretch 4 supersedes Stretch 3
+> This analysis was written against **Stretch 3** ($20k–$25k starter). On **2026-05-12, Hello Robot launched [Stretch 4](../../sources/hello-robot-stretch-4-launch.md)**: **$29,950 base** (+$2,495 for the optional Jetson Orin NX), new omnidirectional holonomic base, dual hemispherical 3D LiDAR, ~2× faster motion, 10% more reach. The price gap to G1 ($16k EDU base) widens; the qualitative recommendation below — "Stretch wins for this use case" — still holds, because the underlying argument (purpose-built mobile manipulator + bundled software + published household evidence vs research-grade humanoid hardware) is unchanged. **If you're making this decision today, evaluate Stretch 4, not Stretch 3.** Published household-task evidence in this wiki (RUM, OK-Robot, Henry Evans deployments) is still Stretch 2/3 — Stretch 4 transfer is an open question.
 
 > [!note] TL;DR
 > **Stretch 3 wins decisively for this use case.** G1 is exciting research hardware but the wrong tool for "useful chores around the house." Stretch has bundled software, published academic evidence on the exact tasks (RUM), and is purpose-built for unmodified home environments. G1 is research-grade humanoid hardware where you'd build the household stack from scratch.

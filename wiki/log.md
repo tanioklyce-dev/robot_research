@@ -2,6 +2,35 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-17] ingest | Stretch 4 launch (Hello Robot purchase + product page)
+
+User pointed at `hello-robot.com/purchase/` for **Stretch 4 details**. Hello Robot launched **Stretch 4 on 2026-05-12** — a generational jump from Stretch 3, not a point release.
+
+- **Created**: [Stretch 4 launch source](sources/hello-robot-stretch-4-launch.md). Combines the purchase page (canonical pricing + accessories) with the product page (spec table) and the forum launch announcement (the most substantive published technical writeup). The official datasheet PDF returned 404 at ingest time.
+
+- **Headline changes vs Stretch 3**:
+  - **Mobile base: differential-drive → 3-wheel omnidirectional holonomic** (8" wheels for carpet/rug/threshold).
+  - **~2× faster** across arm, lift, and base. **+10% reach** (horizontal + vertical).
+  - **8 redundant DOF + gripper** (was 7).
+  - **New 3DOF ambidextrous cobot-style wrist**; no external cabling; integrated Luxonis OAK-SR wrist depth.
+  - **Sensor suite rebuilt**: dual hemispherical 3D LiDAR (>2M depth readings/sec), global-shutter fisheye RGB with 10 Hz RGB-D point cloud, 12 MP central RGB, OAK-SR at wrist.
+  - **Power**: 512 Wh LiFePO4, 10× cycle life vs Stretch 3, 8 hr light-CPU runtime, self-charging dock.
+  - **Compute split**: Intel Ultra 5 NUC (32 GB / 1 TB) as primary; **Jetson Orin NX is now a $2,495 optional accessory** (was bundled in Stretch 3).
+  - **ROS 2 Jazzy** (was Humble); 100 Hz Stretch Body; MuJoCo-based self-collision avoidance; IMU overtilt detection.
+  - **Pricing**: $20k → **$29,950** base; +$2,495 Jetson; +$1,495 dock / parallel gripper / spare battery. Fully-loaded research config approaches $40k.
+  - **Certification**: still laboratory and research use only.
+
+- **Updated**:
+  - [Stretch entity](entities/stretch.md) — rewritten to make Stretch 4 the current generation; new spec table; generations table; Stretch 3 specs preserved as historical; sources 13→14.
+  - [Hello Robot entity](entities/hello-robot.md) — current-product line updated to Stretch 4; ROS 2 Jazzy noted; sources 7→8.
+  - [overview.md](overview.md) — Stretch row in the newcomer robots table updated to current price + Stretch 4 generation.
+  - [Household robot decision — Stretch vs G1 synthesis](syntheses/platforms/household-robot-decision-stretch-vs-g1.md) — top-of-page callout noting Stretch 4 supersedes Stretch 3 in the analysis; recommendation unchanged but pricing gap to G1 widens.
+  - [index.md](index.md) — new Sources entry.
+
+- **Cross-source insight**: Hello Robot's Stretch 4 follows the same compute-split pattern the wiki articulates in the [Jetson Thor / DGX Spark synthesis](syntheses/platforms/jetson-thor-vs-dgx-spark.md) at a different scale — **deterministic control on CPU, AI inference on GPU/Jetson**. Stretch 3 mixed both onto one NUC; Stretch 4 separates them, with the Jetson now buyer-specified rather than always-included. Cheaper for control-only buyers; more expensive for AI-heavy workflows.
+
+- **Open questions** (logged on the source page): policy transfer from Stretch 3 to Stretch 4 (the [Robot Utility Models](entities/robot-utility-models.md) / [OK-Robot](entities/ok-robot.md) / [Dobb·E](entities/dobb-e.md) results are all S2/S3 — Stretch 4's holonomic base + new wrist DOF make non-trivial action-space transfer); stretch_ai compatibility; what "Enterprise" tier means; home/clinical certification roadmap; gripper finger-force / max-base-speed specs (datasheet PDF needed).
+
 ## [2026-05-17] lint + ingest | Lint pass + JetPack 7 / Jetson Thor whitepaper-stand-in
 
 User asked for a lint pass and approved all three suggested follow-ups: source-count drift fixes, overview.md formatting + Quick-stats refresh, and ingesting the dangling JetPack 7 whitepaper reference.
