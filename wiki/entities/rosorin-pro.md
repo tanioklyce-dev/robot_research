@@ -3,10 +3,12 @@ title: ROSOrin Pro
 type: entity
 subtype: product
 created: 2026-05-07
-updated: 2026-05-15
+updated: 2026-05-17
 sources: 4
 tags: [rosorin-pro, hiwonder, jetson-orin-nano, education, mobile-manipulation, llm-agent]
 ---
+
+**Hiwonder product page:** [hiwonder.com/products/rosorin-pro](https://www.hiwonder.com/products/rosorin-pro)
 
 Educational mobile-manipulation robot kit from [Hiwonder](hiwonder.md) — the **6-DOF arm + mobile base** variant of [ROSOrin](rosorin.md). Same compute and chassis as the base kit; adds an HX-12H-servo arm with a gripper end-effector and ships [OpenClaw](openclaw.md) as the manipulation-aware LLM-agent framework.
 

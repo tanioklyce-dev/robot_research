@@ -12,18 +12,51 @@ A **persistent, LLM-maintained knowledge base** built incrementally from raw sou
 
 The wiki is a **compounding artifact**. Each new source ingest enriches the cross-references; each new query may produce a new synthesis page. Over time the wiki becomes more useful, not less.
 
-## Quick stats (as of 2026-05-15)
+## Where to start (by intent)
 
-| Layer | Count |
-| --- | --- |
-| Source pages (`wiki/sources/`) | **123** |
-| Entity pages (`wiki/entities/`) | **146** |
-| Concept pages (`wiki/concepts/`) | **20** |
-| Synthesis pages (`wiki/syntheses/`) | **41** (incl. 14 curriculum modules) |
-| Top-level (`index.md`, `log.md`, `glossary.md`, `overview.md`) | **4** |
-| **Total wiki pages** | **334** |
+- **You're new to this repo entirely:** start with the [repo README](../README.md) for the directory layout, then come back here.
+- **You want to learn the robotics-policy landscape end to end:** start with [the curriculum hub](syntheses/curriculum/robot-learning-curriculum.md). The prereq diagnostic at the top of [Module 1](syntheses/curriculum/curriculum-01-neural-networks.md) tells you whether you can skim Tier 1.
+- **You want to understand LeWM specifically:** start with [the curriculum hub](syntheses/curriculum/robot-learning-curriculum.md), then jump to [Module 10](syntheses/curriculum/curriculum-10-world-models.md) → [Module 11](syntheses/curriculum/curriculum-11-jepa-deep.md) → [Module 12](syntheses/curriculum/curriculum-12-lewm-deep-dive.md) (assumes ML basics).
+- **You want to set up a home-robot research project:** start with [Assistive robotics R&D landscape](syntheses/assistive/assistive-robotics-research-landscape.md) and [Module 13](syntheses/curriculum/curriculum-13-home-robotics-deployment.md). Then [LeWM-on-Stretch feasibility](syntheses/projects/lewm-on-stretch-feasibility.md) or [DINO-WM-on-Stretch experiment](syntheses/projects/dino-wm-on-stretch-experiment.md) depending on which WM you'd prefer to try.
+- **You want to actually reproduce LeWM:** [LeWM howto](syntheses/world-models/leworldmodel-howto.md) + [hello-world scope](syntheses/projects/lewm-hello-world-project-scope.md) + [Module 14 capstone](syntheses/curriculum/curriculum-14-capstone.md).
+- **You're looking up an acronym:** [glossary.md](glossary.md). Ctrl-F.
+- **You want the full catalog:** [index.md](index.md). Every page listed, organized by category.
+- **You want to know what was done when:** [log.md](log.md). Append-only chronological record of ingests, syntheses, lint passes, and curriculum-module drafts. Grep with `grep "^## \[" log.md | tail -20` to see recent activity.
 
-## The centerpiece — robot-learning curriculum
+### Robots you can actually buy and learn with
+
+A starter shortlist — eight platforms across the spectrum from "tabletop arm under $500" to "research-grade mobile manipulator." Each entity page links to a vendor or GitHub product page near the top so you can dig into specs and pricing.
+
+| Platform | Form | Price tier | Why it's on this list |
+| --- | --- | --- | --- |
+| [SO-ARM101](entities/so-arm101.md) | tabletop arm | sub-$500 | Open-source low-cost arm; default manipulator across the [LeRobot](entities/lerobot.md) ecosystem. Cheapest entry to imitation-learning data collection. |
+| [XLeRobot](entities/xlerobot.md) | dual-arm mobile manipulator | $660 | $660 dual-arm household robot built from two SO-ARM101s on a [LeKiwi](entities/lekiwi.md)-style base; 90% 3D-printed. Won two Embodied AI Hackathon 2025 prizes. |
+| [LeKiwi](entities/lekiwi.md) | mobile manipulator | sub-$1k | Open-source 3-wheel holonomic mobile manipulator from SIGRobotics-UIUC; commercial kits via [Seeed Studio](entities/seeed-studio.md). Pairs with SO-ARM101. |
+| [myBuddy 280](entities/mybuddy-280.md) | dual-arm desktop | $1,619 | Elephant Robotics 13-DOF dual-arm tabletop robot with touchscreen + ROS 1 / MoveIt. Lower-ceiling, more polished alternative to XLeRobot. |
+| [TurtleBot 4](entities/turtlebot.md) | mobile-only (no arm) | ~$1,895 | Canonical ROS 2 educational mobile robot; iRobot Create 3 base + Raspberry Pi 4B. Best starting point if you want a navigation-first platform. |
+| [ROSOrin Pro](entities/rosorin-pro.md) | educational mobile manipulator | educational tier | Hiwonder's 6-DOF arm + mobile base kit on a Jetson Orin Nano; ships with the [OpenClaw](entities/openclaw.md) LLM-agent curriculum. The most curriculum-bundled starting kit on this list. |
+| [Reachy 2](entities/reachy.md) | bimanual mobile manipulator (humanoid form) | higher tier | Pollen Robotics' open-source bimanual mobile manipulator; ROS 2; positioned explicitly as an embodied-AI development platform. |
+| [Stretch](entities/stretch.md) | research-grade mobile manipulator | ~$20,000 | Hello Robot's third-generation mobile manipulator — the de-facto research platform behind [Robot Utility Models](entities/robot-utility-models.md), [OK-Robot](entities/ok-robot.md), [stretch_ai](entities/stretch-ai.md), and most academic in-home deployments tracked in this wiki. |
+
+If you want the broader landscape (humanoids you can't easily buy, simulators, FRC platforms, etc.), see [index.md](index.md) under **Entities → Robot platforms** and **Humanoids**.
+
+
+### JEPA / LeWorldModel
+
+The technical centerpiece. Primary sources for the entire SIGReg-LeWM-PLDM lineage are filed:
+
+- [LeWorldModel Paper](sources/leworldmodel-paper.md) (Maes et al. 2026) — the destination paper.
+- [LeJEPA Paper](sources/lejepa-paper.md) (Balestriero & LeCun 2025) — the SIGReg foundational paper.
+- [PLDM Paper](sources/pldm-paper.md) (Sobal et al. 2025) + [Sobal et al. 2022](sources/sobal2022-jepa-slow-features-paper.md) — the end-to-end-JEPA-baseline lineage.
+- [V-JEPA 2 Paper](sources/v-jepa-2-paper.md) and [V-JEPA 2.1 Paper](sources/v-jepa-2-1-paper.md) — Meta FAIR's parallel JEPA-at-scale line.
+- [DINO-WM Paper](sources/dino-wm-paper.md), [JEPA-WMs Paper](sources/jepa-wms-paper.md) — frozen-feature alternatives.
+- [DreamerV3 Paper](sources/dreamer-v3-paper.md), [TD-MPC2 Paper](sources/td-mpc2-paper.md) — the MBRL baselines LeWM benchmarks against.
+
+Concept pages: [Joint-Embedding Predictive Architecture](concepts/world-models/jepa.md), [World model](concepts/world-models/world-model.md), [World-model simulators](concepts/world-models/world-model-simulators.md), [Learned latent space](concepts/world-models/latent-space.md).
+
+Syntheses: [generative-video vs JEPA world models](syntheses/world-models/generative-video-vs-jepa-world-models.md), [LeWM-on-Stretch feasibility](syntheses/projects/lewm-on-stretch-feasibility.md), [LeWM-on-ROSOrin-Pro feasibility](syntheses/projects/lewm-on-rosorin-pro-feasibility.md), [LeWM howto](syntheses/world-models/leworldmodel-howto.md), [LeWM hello-world scope](syntheses/projects/lewm-hello-world-project-scope.md).
+
+## Robot AI curriculum
 
 The single most ambitious artifact in this wiki is a **14-module bottom-up curriculum** for going from neural-network basics to reading the [LeWorldModel paper](sources/leworldmodel-paper.md) and reasoning about home-robotics policy-learning techniques.
 
@@ -47,21 +80,6 @@ The **destination** is Module 12 (LeWM deep-dive with full SIGReg math). The rea
 ## Other major themes
 
 Beyond the curriculum, the wiki has accumulated content across several clusters. Listed here briefly; full catalog is in [index.md](index.md).
-
-### JEPA / LeWorldModel
-
-The technical centerpiece. Primary sources for the entire SIGReg-LeWM-PLDM lineage are filed:
-
-- [LeWorldModel Paper](sources/leworldmodel-paper.md) (Maes et al. 2026) — the destination paper.
-- [LeJEPA Paper](sources/lejepa-paper.md) (Balestriero & LeCun 2025) — the SIGReg foundational paper.
-- [PLDM Paper](sources/pldm-paper.md) (Sobal et al. 2025) + [Sobal et al. 2022](sources/sobal2022-jepa-slow-features-paper.md) — the end-to-end-JEPA-baseline lineage.
-- [V-JEPA 2 Paper](sources/v-jepa-2-paper.md) and [V-JEPA 2.1 Paper](sources/v-jepa-2-1-paper.md) — Meta FAIR's parallel JEPA-at-scale line.
-- [DINO-WM Paper](sources/dino-wm-paper.md), [JEPA-WMs Paper](sources/jepa-wms-paper.md) — frozen-feature alternatives.
-- [DreamerV3 Paper](sources/dreamer-v3-paper.md), [TD-MPC2 Paper](sources/td-mpc2-paper.md) — the MBRL baselines LeWM benchmarks against.
-
-Concept pages: [Joint-Embedding Predictive Architecture](concepts/world-models/jepa.md), [World model](concepts/world-models/world-model.md), [World-model simulators](concepts/world-models/world-model-simulators.md), [Learned latent space](concepts/world-models/latent-space.md).
-
-Syntheses: [generative-video vs JEPA world models](syntheses/world-models/generative-video-vs-jepa-world-models.md), [LeWM-on-Stretch feasibility](syntheses/projects/lewm-on-stretch-feasibility.md), [LeWM-on-ROSOrin-Pro feasibility](syntheses/projects/lewm-on-rosorin-pro-feasibility.md), [LeWM howto](syntheses/world-models/leworldmodel-howto.md), [LeWM hello-world scope](syntheses/projects/lewm-hello-world-project-scope.md).
 
 ### Behavior cloning lineage
 
@@ -123,20 +141,21 @@ A practical project sequence for learning JEPA on educational hardware.
 - [LeWM on ROSOrin Pro — feasibility](syntheses/projects/lewm-on-rosorin-pro-feasibility.md).
 - Entities: [ROSOrin / ROSOrin Pro](entities/rosorin.md), [Hiwonder](entities/hiwonder.md), [OpenClaw](entities/openclaw.md).
 
-## Where to start (by intent)
-
-- **You're new to this repo entirely:** start with the [repo README](../README.md) for the directory layout, then come back here.
-- **You want to learn the robotics-policy landscape end to end:** start with [the curriculum hub](syntheses/curriculum/robot-learning-curriculum.md). The prereq diagnostic at the top of [Module 1](syntheses/curriculum/curriculum-01-neural-networks.md) tells you whether you can skim Tier 1.
-- **You want to understand LeWM specifically:** start with [the curriculum hub](syntheses/curriculum/robot-learning-curriculum.md), then jump to [Module 10](syntheses/curriculum/curriculum-10-world-models.md) → [Module 11](syntheses/curriculum/curriculum-11-jepa-deep.md) → [Module 12](syntheses/curriculum/curriculum-12-lewm-deep-dive.md) (assumes ML basics).
-- **You want to set up a home-robot research project:** start with [Assistive robotics R&D landscape](syntheses/assistive/assistive-robotics-research-landscape.md) and [Module 13](syntheses/curriculum/curriculum-13-home-robotics-deployment.md). Then [LeWM-on-Stretch feasibility](syntheses/projects/lewm-on-stretch-feasibility.md) or [DINO-WM-on-Stretch experiment](syntheses/projects/dino-wm-on-stretch-experiment.md) depending on which WM you'd prefer to try.
-- **You want to actually reproduce LeWM:** [LeWM howto](syntheses/world-models/leworldmodel-howto.md) + [hello-world scope](syntheses/projects/lewm-hello-world-project-scope.md) + [Module 14 capstone](syntheses/curriculum/curriculum-14-capstone.md).
-- **You're looking up an acronym:** [glossary.md](glossary.md). Ctrl-F.
-- **You want the full catalog:** [index.md](index.md). Every page listed, organized by category.
-- **You want to know what was done when:** [log.md](log.md). Append-only chronological record of ingests, syntheses, lint passes, and curriculum-module drafts. Grep with `grep "^## \[" log.md | tail -20` to see recent activity.
 
 ## Conventions in one paragraph
 
 Pages use YAML frontmatter (`title`, `type`, `created`, `updated`, `sources`, `tags`). Every factual claim links to a source page (not a raw file). Filenames are kebab-case slugs. Links are standard markdown relative paths (no Obsidian `[[wikilinks]]`). Source-page conventions: `## Summary`, `## Key claims`, `## Entities mentioned`, `## Concepts touched`, `## Open questions`. Entity/concept pages end with a `## Mentioned in` section listing inbound sources. Contradictions across sources are flagged with `> [!warning] Contradiction` callouts. Full conventions are in [`CLAUDE.md`](../CLAUDE.md).
+
+## Quick stats (as of 2026-05-15)
+
+| Layer | Count |
+| --- | --- |
+| Source pages (`wiki/sources/`) | **123** |
+| Entity pages (`wiki/entities/`) | **146** |
+| Concept pages (`wiki/concepts/`) | **20** |
+| Synthesis pages (`wiki/syntheses/`) | **41** (incl. 14 curriculum modules) |
+| Top-level (`index.md`, `log.md`, `glossary.md`, `overview.md`) | **4** |
+| **Total wiki pages** | **334** |
 
 ## What's not here
 

@@ -3,10 +3,12 @@ title: TurtleBot
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-05-10
+updated: 2026-05-17
 sources: 2
 tags: [turtlebot, ros, education, mobile-robot, willow-garage, clearpath, open-robotics]
 ---
+
+**Clearpath product page (current generation, TurtleBot 4):** [clearpathrobotics.com/turtlebot-4](https://clearpathrobotics.com/turtlebot-4/)
 
 **TurtleBot** — the **canonical educational ROS mobile robot.** Originated at Willow Garage (2010) as a low-cost open-source platform to teach ROS; has gone through four generations under different stewards. Now maintained by Open Robotics. Most CS / robotics curricula that teach ROS still use TurtleBot as the reference platform.
 

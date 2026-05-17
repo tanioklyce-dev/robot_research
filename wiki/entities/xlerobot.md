@@ -3,14 +3,14 @@ title: XLeRobot
 type: entity
 subtype: robot
 created: 2026-05-10
-updated: 2026-05-15
+updated: 2026-05-17
 sources: 5
 tags: [xlerobot, mobile-manipulator, dual-arm, lerobot, lekiwi, so-arm101, low-cost, household-robot, embodied-ai]
 ---
 
-**XLeRobot** — $660 household **dual-arm mobile manipulator** built by [Gaotian "Vector" Wang](vector-wang.md). Composes two [SO-ARM101](so-arm101.md) arms (~40 cm reach each) onto a [LeKiwi](lekiwi.md)-class wheeled base, with optional cameras and Raspberry Pi compute. 90% 3D-printed. Apache 2.0. Version 0.3.0 released August 30, 2025. Project tagline: *"Bring Embodied AI to Every Family Around the World" at a price cheaper than an iPhone*.
+**Open-source hardware:** [github.com/Vector-Wangel/XLeRobot](https://github.com/Vector-Wangel/XLeRobot) (Apache 2.0). Docs: [xlerobot.readthedocs.io](https://xlerobot.readthedocs.io).
 
-Repository: [github.com/Vector-Wangel/XLeRobot](https://github.com/Vector-Wangel/XLeRobot). Docs: [xlerobot.readthedocs.io](https://xlerobot.readthedocs.io).
+**XLeRobot** — $660 household **dual-arm mobile manipulator** built by [Gaotian "Vector" Wang](vector-wang.md). Composes two [SO-ARM101](so-arm101.md) arms (~40 cm reach each) onto a [LeKiwi](lekiwi.md)-class wheeled base, with optional cameras and Raspberry Pi compute. 90% 3D-printed. Apache 2.0. Version 0.3.0 released August 30, 2025. Project tagline: *"Bring Embodied AI to Every Family Around the World" at a price cheaper than an iPhone*.
 
 ## Specs
 

@@ -3,10 +3,12 @@ title: LeKiwi
 type: entity
 subtype: robot
 created: 2026-05-10
-updated: 2026-05-15
+updated: 2026-05-17
 sources: 6
 tags: [lekiwi, mobile-manipulator, kiwi-drive, holonomic, sigrobotics-uiuc, lerobot, low-cost, raspberry-pi, open-source]
 ---
+
+**Open-source hardware:** [github.com/SIGRobotics-UIUC/LeKiwi](https://github.com/SIGRobotics-UIUC/LeKiwi) (Apache 2.0). Commercial kits via [Seeed Studio](seeed-studio.md).
 
 **LeKiwi** — low-cost, open-source **3-wheel holonomic Kiwi-drive mobile manipulator** from [SIGRobotics-UIUC](sigrobotics-uiuc.md). Apache 2.0. 1,300+ GitHub stars / 138 forks as of ingest. Sold commercially by [Seeed Studio](seeed-studio.md); designs and code maintained by SIGRobotics. Designed as a low-cost imitation-learning data-collection platform within the [LeRobot](lerobot.md) ecosystem. The base typically mounts an [SO-ARM101](so-arm101.md) arm to function as a full mobile manipulator.
 

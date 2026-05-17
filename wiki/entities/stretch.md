@@ -3,10 +3,12 @@ title: Stretch
 type: entity
 subtype: product
 created: 2026-05-07
-updated: 2026-05-15
+updated: 2026-05-17
 sources: 13
 tags: [stretch, mobile-manipulation, hello-robot, research-robot]
 ---
+
+**Vendor:** [hello-robot.com](https://hello-robot.com/) — Stretch 3 product features at [hello-robot.com/stretch-3-whats-new](https://hello-robot.com/stretch-3-whats-new); purchase information at [hello-robot.com/purchase](https://hello-robot.com/purchase/).
 
 Mobile-manipulation robot from [Hello Robot](hello-robot.md). Currently in third generation (Stretch 3). The de-facto research platform for academic mobile-manipulation work in 2024–2026.
 

@@ -3,10 +3,12 @@ title: SO-ARM101 (SO-ARM100 lineage)
 type: entity
 subtype: robot
 created: 2026-05-10
-updated: 2026-05-15
+updated: 2026-05-17
 sources: 5
 tags: [so-arm, so-arm100, so-arm101, the-robot-studio, low-cost-arm, open-source, lerobot, leader-follower, teleoperation]
 ---
+
+**Open-source hardware:** [github.com/TheRobotStudio/SO-ARM100](https://github.com/TheRobotStudio/SO-ARM100) — BOM, CAD, and firmware for both SO-ARM100 and SO-ARM101 designs. Apache 2.0.
 
 **SO-ARM101** — open-source low-cost manipulator arm, successor to the **SO-ARM100** lineage from [The Robot Studio](the-robot-studio.md). The standard arm option across most LeRobot-compatible mobile manipulators in this wiki, including [LeKiwi](lekiwi.md) and [XLeRobot](xlerobot.md). Designed to be sourced primarily from off-the-shelf servos + 3D-printed brackets; supports **leader–follower teleoperation** (two arms wired together; the user moves the leader, the follower mirrors) — the canonical data-collection mode for the [LeRobot](lerobot.md) framework.
 

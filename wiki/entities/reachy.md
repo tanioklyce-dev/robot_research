@@ -3,10 +3,12 @@ title: Reachy 2
 type: entity
 subtype: robot
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-05-17
 sources: 1
 tags: [reachy, pollen-robotics, open-source, humanoid, embodied-ai, ros2]
 ---
+
+**Vendor product page:** [pollen-robotics.com/reachy](https://www.pollen-robotics.com/reachy/)
 
 **Reachy 2** — open-source bimanual mobile manipulator from [Pollen Robotics](pollen-robotics.md) (France). "The first open-source humanoid robot specifically designed for the development of embodied AI and real-world applications." Torso-on-wheels form factor (not full bipedal); 7 DOF per arm; multiple variants from single-arm stationary to dual-arm + mobile base.
 
