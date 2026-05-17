@@ -496,6 +496,7 @@ Curated entry points across the wiki.
 - [Household robot decision — Stretch vs Unitree G1](syntheses/platforms/household-robot-decision-stretch-vs-g1.md) — buying-decision comparison for navigate + floor pickup + dishes + cans use case. Recommends Stretch. (2026-05-08)
 - [Jetson Thor vs DGX Spark](syntheses/platforms/jetson-thor-vs-dgx-spark.md) — train-on-Spark / deploy-on-Thor split; RT-cores as the gating capability for Isaac Sim/Lab; decision tree for which-NVIDIA-box-for-what. (2026-05-16)
 - [Open-source robot AI research projects — landscape](syntheses/platforms/open-source-robot-ai-projects.md) — grouped catalog of every open-source project tracked in this wiki: LeRobot ecosystem, JEPA / world-model code, open VLAs, BC baselines, Karpathy's repos, whole-organism fly, open simulators, Farama RL stack, open robot platforms, the orgs behind them. (2026-05-17)
+- [NVIDIA GPU rental landscape](syntheses/platforms/nvidia-gpu-rental-landscape.md) — providers, pricing, and how to choose: NVIDIA-native (Brev, DGX Cloud, Launchables), AI-focused clouds (RunPod, Lambda Labs, CoreWeave, Vast.ai, Modal), hyperscalers, DGX Spark-specific (Enverge $0.48/hr, Server Room, Primcast), peer-to-peer. H100 spans $1.25–$6.98/hr across 15+ providers in mid-2026. (2026-05-17)
 
 ### Projects
 - [LeWM on ROSOrin Pro — feasibility analysis](syntheses/projects/lewm-on-rosorin-pro-feasibility.md) — what's missing to deploy LeWM on Hiwonder ROSOrin Pro; realistic path; risks. (2026-05-08)

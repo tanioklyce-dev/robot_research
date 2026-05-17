@@ -101,7 +101,7 @@ DGX Spark instances are available **as cloud rentals** from third-party provider
 
 **Recommendation: pilot on rented Spark first.** Spin up an Enverge instance, run the full deployment plan above (vLLM + Qwen 2.5 72B + frontend + tunnel) end-to-end, measure quality on real wiki questions, validate concurrency, see whether queries-per-day actually justify the box. Then commit to buying — at which point the rental work transfers 1:1 to owned hardware. The pilot is cheap enough that it's a no-brainer relative to committing $3.5k up front for an unvalidated UX.
 
-Also check [NVIDIA Brev](../../entities/nvidia-brev.md): Spark wasn't in Brev's catalog at the time of the wiki's Brev ingest, but the catalog grows and Brev would be the lowest-friction NVIDIA-native path if it shows up.
+Also check [NVIDIA Brev](../../entities/nvidia-brev.md): Spark wasn't in Brev's catalog at the time of the wiki's Brev ingest, but the catalog grows and Brev would be the lowest-friction NVIDIA-native path if it shows up. For the broader rental landscape across all NVIDIA GPU classes (H100/H200/B200/B300/A100/L4/Spark/etc.), see [NVIDIA GPU rental landscape](../platforms/nvidia-gpu-rental-landscape.md).
 
 ## Open questions / TBD
 

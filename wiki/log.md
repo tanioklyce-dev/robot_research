@@ -2,6 +2,16 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-17] query+synthesis | "Summary of renting NVIDIA GPUs"
+
+Spun off from the wiki-query-agent deployment plan after surfacing that [DGX Spark](entities/dgx-spark.md) is rentable from third-party providers — Brev didn't have it. That gap motivated a broader survey.
+
+- **Created**: [NVIDIA GPU rental landscape](syntheses/platforms/nvidia-gpu-rental-landscape.md). Grouped catalog of providers across four tiers — NVIDIA-native (Brev, DGX Cloud, Launchables), AI-focused clouds (RunPod, Lambda Labs, CoreWeave, Vast.ai, Modal, Paperspace, Together AI, FluidStack / Crusoe / Spheron), hyperscalers (AWS / GCP / Azure / Oracle), DGX Spark-specific (Enverge, Server Room, Primcast), peer-to-peer (Vast.ai, NVIDIA forum P2P).
+- **Pricing data** (per GPU-hr, mid-2026): H100 $1.25 (spot floor) – $6.98 across 15+ providers; B200 ~$2.12–$8; B300 $2.45–$6.80; A100 ~$0.80–$3; DGX Spark $0.48 (Enverge).
+- **Decision guide** for picking a provider by use case (NVIDIA devtools / multi-GPU NVLink / production SLA / hobbyist / sporadic inference / DGX Spark specifically / already-on-hyperscaler).
+- **Cross-source insight**: GPU rental pricing has compressed sharply in 2026 vs the 2023–2024 H100 supply crunch — H100 spot at $1.25/hr is a meaningful change vs $4–$8 during peak demand. Blackwell B200/B300 supply has caught up enough that they're now in similar price bands as H200.
+- **Updated**: [NVIDIA Brev entity](entities/nvidia-brev.md) (cross-link to the rental landscape); [wiki-query agent deployment plan](syntheses/projects/wiki-query-agent-on-dgx-spark.md) (cross-link to the rental landscape from its Brev callout); [index.md](index.md) (new Platforms synthesis entry).
+
 ## [2026-05-17] query+synthesis | "How to make this wiki queryable online as an agent?"
 
 User asked how to serve the wiki online as an agent. Conversation walked through:

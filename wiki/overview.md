@@ -27,7 +27,11 @@ A starter shortlist — eight platforms across the spectrum from "tabletop arm u
 | [Stretch 4](entities/stretch.md) | research-grade mobile manipulator | **$29,950** | Hello Robot's fourth-generation mobile manipulator (launched 2026-05-12) — new 3-wheel omnidirectional holonomic base, dual hemispherical 3D LiDAR, 8 redundant DOF + gripper, Intel Ultra 5 NUC, optional Jetson Orin NX ($2,495 add-on). The de-facto research platform behind [Robot Utility Models](entities/robot-utility-models.md), [OK-Robot](entities/ok-robot.md), [stretch_ai](entities/stretch-ai.md), and most academic in-home deployments tracked in this wiki (those policies were trained on Stretch 2 / 3 — Stretch 4 transfer is an open question). |
 | [Reachy 2](entities/reachy.md) | bimanual mobile manipulator (humanoid form) | higher tier | Pollen Robotics' open-source bimanual mobile manipulator; ROS 2; positioned explicitly as an embodied-AI development platform. |
 
+## Open-source robot AI research projects
 If you want to explore the open-source landscape: [Open-source robot AI research projects](syntheses/platforms/open-source-robot-ai-projects.md) — grouped catalog (LeRobot ecosystem, JEPA code, open VLAs, simulators, RL benchmarks, open robot platforms, and more).
+
+## NVIDIA GPU rental landscape
+If you need GPU compute for training, fine-tuning, or running policies and world models: [NVIDIA GPU rental landscape](syntheses/platforms/nvidia-gpu-rental-landscape.md) — providers, pricing, and how to choose (Brev / RunPod / Lambda Labs / CoreWeave / Vast.ai / DGX Cloud / DGX Spark rentals at $0.48/hr).
 
 ## Where else to start (by intent)
 - **You're new to this repo entirely:** start with the [repo README](../README.md) for the directory layout, then come back here.

@@ -43,6 +43,7 @@ Full guidance with examples in [NVIDIA Brev Docs — Cost-management guidance](.
 ## Related
 - [NVIDIA](nvidia.md) — owner.
 - [NVIDIA Isaac Sim](nvidia-isaac-sim.md), [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — distributed via the Isaac Launchable.
+- [NVIDIA GPU rental landscape](../syntheses/platforms/nvidia-gpu-rental-landscape.md) — comparative survey across Brev + other NVIDIA-GPU rental providers (RunPod / Lambda Labs / CoreWeave / Vast.ai / Modal / DGX Cloud / hyperscalers / DGX Spark-specific).
 
 ## Mentioned in
 - [NVIDIA Brev Docs](../sources/nvidia-brev-docs.md)
