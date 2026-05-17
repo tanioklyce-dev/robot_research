@@ -2,6 +2,22 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-17] query+synthesis | "How to make this wiki queryable online as an agent?"
+
+User asked how to serve the wiki online as an agent. Conversation walked through:
+- Three hosting paths (Anthropic API + file_search; static-site + RAG; MCP server).
+- Trust dynamics of BYOK API-key UIs and who-pays-the-fees.
+- Local open-source LLM options across consumer + server hardware tiers.
+- Thor vs Spark for the inference workload specifically.
+
+**User's decision: [DGX Spark](entities/dgx-spark.md) as the inference server**, justified by the other workloads the box handles (training, fine-tuning, Isaac Sim — RT-core-dependent things Thor can't do). Wiki query is the marginal use case, not the justifying one.
+
+- **Created**: [Wiki-query agent on DGX Spark — deployment plan](syntheses/projects/wiki-query-agent-on-dgx-spark.md). Captures the three-option comparison, the Spark-over-Thor rationale, Qwen 2.5 72B Q8 as the default model recommendation (matches the wiki's existing Qwen precedent via [stretch_ai](entities/stretch-ai.md) + [ROSOrin](entities/rosorin.md)), vLLM as the serving stack, architecture sketch with Cloudflare/Tailscale exposure, cost ballpark, and open questions (retrieval strategy, conversation memory, tool use, update cadence, evaluation).
+
+- **Cross-source insight**: The wiki's "Qwen + Ollama" local-LLM pattern (already in production for stretch_ai's LLM agent and the ROSOrin offline curriculum) generalizes cleanly to the wiki-self-hosting case. Qwen 2.5 72B at Q8 is the same family scaled up to fit Spark's 128 GB unified memory.
+
+- **Updated**: [index.md](index.md) — new Projects-syntheses entry.
+
 ## [2026-05-17] ingest | Stretch 4 launch (Hello Robot purchase + product page)
 
 User pointed at `hello-robot.com/purchase/` for **Stretch 4 details**. Hello Robot launched **Stretch 4 on 2026-05-12** — a generational jump from Stretch 3, not a point release.

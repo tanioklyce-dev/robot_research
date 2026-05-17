@@ -505,6 +505,7 @@ Curated entry points across the wiki.
 - [LeWM hello world — Project 1 detailed scope](syntheses/projects/lewm-hello-world-project-scope.md) — phase-by-phase plan for reproducing LeWM PushT, training from scratch, one-knob ablation. (2026-05-08)
 - [DINO-WM on Stretch — concrete experiment plan](syntheses/projects/dino-wm-on-stretch-experiment.md) — sibling to LeWM-on-Stretch; lower-risk frozen-encoder variant; train predictor only on RUM dataset. (2026-05-09)
 - [Jetson Orin Nano — flash Jetson OS to NVMe SSD howto](syntheses/projects/jetson-orin-nano-flash-howto.md) — operational guide: SDK Manager or CLI `l4t_initrd_flash.sh`; QSPI bootloader caveat for pre-mid-2023 dev kits. (2026-05-16)
+- [Wiki-query agent on DGX Spark — deployment plan](syntheses/projects/wiki-query-agent-on-dgx-spark.md) — scoping plan for serving this wiki as a queryable agent from a local DGX Spark running Qwen 2.5 72B Q8 via vLLM. Compares Anthropic-API / RAG-site / MCP / local-LLM paths; explains why Spark over Thor (RT cores for the dev-box use case). (2026-05-17)
 
 ### World models
 - [Generative-video vs JEPA world models](syntheses/world-models/generative-video-vs-jepa-world-models.md) — what each predicts, costs, and demonstrates. (2026-05-07)
