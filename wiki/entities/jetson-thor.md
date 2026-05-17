@@ -3,9 +3,9 @@ title: Jetson Thor
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-05-16
-sources: 4
-tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai]
+updated: 2026-05-17
+sources: 5
+tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai, jetpack-7, nvfp4, mig]
 ---
 
 # Jetson Thor
@@ -47,10 +47,22 @@ NVIDIA reference carrier + T5000 module. **$3,499 starting** ([NVIDIA Newsroom](
 
 ## Software stack
 
-- **OS / BSP**: Jetson Linux R37.x line ("for Thor"); ARM64 Ubuntu.
-- **SDK**: **[JetPack 7.0](jetpack.md)** — Thor's launch SDK, paired with CUDA 13-class libraries, TensorRT, DeepStream, VPI.
+- **OS / BSP**: **[Jetson Linux 38.2](jetson-linux.md)** — Linux kernel **6.8**, **Ubuntu 24.04 LTS** rootfs, SBSA-aligned ([JetPack 7 software-stack reference](../sources/nvidia-jetpack-7-thor-whitepaper.md)).
+- **SDK**: **[JetPack 7.0](jetpack.md)** — Thor's launch SDK. **CUDA 13 / cuDNN 9.12 / TensorRT 10.13**, with **MIG**, an **NVIDIA-optimized preemptible real-time kernel**, and **CSI-over-Ethernet (CoE)** via Holoscan Sensor Bridge.
+- **Quantization formats**: **NVFP4** (Blackwell 4-bit float), **FP8**, **W4A16**.
 - **Robotics stack**: NVIDIA Isaac platform — **Isaac ROS 4.0** (Thor-compatible release), [Isaac GR00T](nvidia-groot.md) deploy target, NVIDIA Holoscan, NVIDIA Metropolis.
 - **Containers**: NIM microservices for VLM / VLA / perception models packaged for the JetPack 7 runtime.
+- **AI-serving frameworks** documented in the JetPack 7 release: **vLLM**, **SGLang**, **MLC**, **llama.cpp**, **Ollama**, **Hugging Face Transformers**.
+
+### Post-launch generative-AI throughput (single-Thor, Sept 2025)
+
+Numbers from the [JetPack 7 software-stack reference](../sources/nvidia-jetpack-7-thor-whitepaper.md) — a **7×** improvement over Thor's August launch on the same silicon, driven by NVFP4 + speculative decoding:
+
+| Model | Sept 2025 tok/s | + EAGLE-3 speculative decoding |
+|---|---|---|
+| Llama 3.3 70B | 41.5 | **88.62** |
+| DeepSeek R1 70B | 40.29 | — |
+| Llama 3.3 W4A16 | — | **16.19** (2.5× uplift) |
 
 ## What Thor can and cannot do
 
@@ -94,7 +106,8 @@ See [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.m
 ## Open questions
 - T5000 / T4000 module pricing through distribution.
 - Real measured throughput for GR00T N1.5 / N1.7 EA on Thor (latency, concurrent-model count, power).
-- JetPack 7.x update cadence vs the JetPack 6.x line maintained for Orin.
+- JetPack 7.1 timeline (referenced in NVIDIA developer forums; not yet released).
+- Per-MIG-instance performance envelope — JetPack 7 primary sources publish single-Thor numbers only.
 - Whether subsequent Jetson generations will add RT cores or whether NVIDIA's strategy is permanent: simulate-off-Jetson, deploy-on-Jetson.
 
 ## Mentioned in
@@ -103,3 +116,4 @@ See [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.m
 - [NVIDIA Blackwell-Powered Jetson Thor Now Available — Newsroom](../sources/nvidia-jetson-thor-launch-newsroom.md)
 - [Isaac Sim and Isaac Lab on NVIDIA Jetson AGX Thor — RS DesignSpark](../sources/rs-designspark-isaac-sim-on-thor.md)
 - [Seeed Embodied AI Hackathon 2025 Recap](../sources/seeed-embodied-ai-hackathon-2025-recap.md) — winning-bot deployment target.
+- [JetPack 7.0 for Jetson Thor software-stack reference](../sources/nvidia-jetpack-7-thor-whitepaper.md) — primary source for the JetPack 7 / Jetson Linux 38.2 contents + post-launch 7× generative-AI throughput.

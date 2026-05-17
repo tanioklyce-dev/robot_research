@@ -2,9 +2,9 @@
 title: Jetson Linux (L4T)
 type: entity
 created: 2026-05-16
-updated: 2026-05-16
-sources: 7
-tags: [nvidia, jetson, l4t, jetson-linux, bsp, linux, ubuntu]
+updated: 2026-05-17
+sources: 8
+tags: [nvidia, jetson, l4t, jetson-linux, bsp, linux, ubuntu, jetson-thor]
 ---
 
 # Jetson Linux (L4T)
@@ -94,6 +94,21 @@ See [Jetson Orin Nano flash howto](../syntheses/projects/jetson-orin-nano-flash-
 
 [JetPack](jetpack.md) **bundles Jetson Linux**. JetPack 6.x maps to L4T R36.x; JetPack 5.x mapped to R35.x. The OS layer can be upgraded by itself via apt; the wider JetPack stack (CUDA, TensorRT, etc.) follows the same release cadence and is installed alongside via `nvidia-jetpack`.
 
+## R38 line — Jetson Thor track
+
+The Blackwell-generation [Jetson Thor](jetson-thor.md) ships on a separate L4T line, **Jetson Linux 38.2**, bundled with [JetPack 7.0](jetpack.md) at Thor's launch (2025-08-25). Key differences vs the R36.x line ([JetPack 7.0 for Jetson Thor software-stack reference](../sources/nvidia-jetpack-7-thor-whitepaper.md)):
+
+| Axis | R36.x (Orin) | R38.2 (Thor) |
+|---|---|---|
+| Linux kernel | 5.15 LTS | **6.8** |
+| Ubuntu rootfs | 22.04 | **24.04 LTS** |
+| Architectural framing | embedded BSP | **SBSA-aligned**, server-class ARM |
+| Real-time | not in default kernel | **preemptible real-time kernel** ships in release |
+| GPU partitioning | n/a | **Multi-Instance GPU (MIG)** |
+| Sensor bridge | CSI / GMSL via Argus | adds **CSI-over-Ethernet** via Holoscan Sensor Bridge |
+
+R36.x continues as the Orin line; R38.2 is Thor-only. The two lines are parallel, not sequential.
+
 ## Mentioned in
 - [Jetson Orin Nano](jetson-orin-nano.md)
 - [JetPack](jetpack.md)
@@ -106,3 +121,4 @@ See [Jetson Orin Nano flash howto](../syntheses/projects/jetson-orin-nano-flash-
 - [JetPack 6.2.2 release](../sources/nvidia-jetpack-6-2-2-release.md)
 - [JetPack docs index](../sources/nvidia-jetpack-docs-index.md)
 - [NVIDIA Jetson Orin Nano Dev Kit software setup](../sources/nvidia-jetson-orin-nano-devkit-software-setup.md)
+- [JetPack 7.0 for Jetson Thor software-stack reference](../sources/nvidia-jetpack-7-thor-whitepaper.md) — primary source for the R38.2 / kernel 6.8 / Ubuntu 24.04 line.

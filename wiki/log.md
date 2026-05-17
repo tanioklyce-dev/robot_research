@@ -2,6 +2,37 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-17] lint + ingest | Lint pass + JetPack 7 / Jetson Thor whitepaper-stand-in
+
+User asked for a lint pass and approved all three suggested follow-ups: source-count drift fixes, overview.md formatting + Quick-stats refresh, and ingesting the dangling JetPack 7 whitepaper reference.
+
+- **Lint findings** (382-page scan): 1 broken link (the JetPack 7 reference), 0 orphan pages, 4 source-count drifts (|diff|≥2), 1 stale claim (overview Quick-stats date), 4 minor overview.md formatting issues, 3 known knowledge gaps.
+
+- **Ingest**: Created [JetPack 7.0 for Jetson Thor software-stack reference](sources/nvidia-jetpack-7-thor-whitepaper.md) as a stand-in for the never-published "whitepaper" the [Jetson Thor launch newsroom](sources/nvidia-jetson-thor-launch-newsroom.md) referenced. Combines two NVIDIA primary materials: the **2025-08-25 forum release announcement** (Jetson Linux 38.2 / kernel 6.8 / Ubuntu 24.04 / CUDA 13 / cuDNN 9.12 / TensorRT 10.13 / MIG / preemptible real-time kernel / SBSA / Holoscan Sensor Bridge / CSI-over-Ethernet) and the **2025-10-15 technical blog** on Thor's 7× post-launch generative-AI throughput improvement (NVFP4 + EAGLE-3 speculative decoding; Llama 3.3 70B 12.64 → 41.5 → 88.62 tok/s).
+
+- **Factual correction caught during ingest**: [jetpack.md](entities/jetpack.md) previously claimed JetPack 7 paired with **Jetson Linux R37.x**. The actual pairing is **R38.2** (kernel 6.8, Ubuntu 24.04). Fixed on jetpack.md + jetson-thor.md + jetson-linux.md.
+
+- **Lint cleanups applied**:
+  - Source-count drift bumped on 4 pages: [vla-models](concepts/learning/vla-models.md) 20→22, [assistive-robotics](concepts/robotics/assistive-robotics.md) 20→22, [kona](entities/kona.md) 2→4, [nvidia-groot](entities/nvidia-groot.md) 13→15.
+  - [overview.md](overview.md): fixed broken table row (TurtleBot 4 missing leading `|`), heading typo ("Where to else start" → "Where else to start"), grammar ("You're want" → "You want"), and refreshed Quick-stats (date 2026-05-15→2026-05-17; totals 334→383).
+
+- **Updated entity pages** post-ingest:
+  - [jetson-thor.md](entities/jetson-thor.md): software-stack section expanded with full JetPack 7 contents; new quantization-format list; new post-launch generative-AI throughput table; tags + sources 4→5; open-questions refreshed (added per-MIG-instance perf, JetPack 7.1 timeline).
+  - [jetpack.md](entities/jetpack.md): JetPack 7 section rewritten with verbatim component versions, MIG / real-time kernel / SBSA / CoE callouts, and AI-serving-framework list; sources 6→7.
+  - [jetson-linux.md](entities/jetson-linux.md): new "R38 line — Jetson Thor track" section with R36 vs R38 comparison table; sources 7→8.
+
+- **Index + log**: new Sources entry under chronological Jetson cluster.
+
+- **Result**: 0 broken links remain; all originally drifted source-counts now match; overview.md formatting clean; the wiki's JetPack 7 / Thor software story is now accurate (was R37, now correctly R38.2).
+
+## [2026-05-17] query+synthesis | "List open-source robot AI research projects"
+
+User asked for a grouped catalog of every open-source project tracked in this wiki, dropping the "community" qualifier (so big-lab open releases stay in — Meta FAIR's JEPAs, NVIDIA GR00T, DeepMind's MuJoCo, etc.). Filed as a synthesis page so the work compounds.
+
+- **Created**: [Open-source robot AI research projects — landscape](syntheses/platforms/open-source-robot-ai-projects.md). Filed under `platforms/` as the loosest fit; explicitly notes scope (closed products excluded) and gaps (OpenVLA, RLHF-line open implementations, Voyager).
+- **Categories**: LeRobot ecosystem; JEPA / world-model open code; open VLAs; BC baselines; Karpathy's pedagogical repos; whole-organism fly; open simulators + physics engines; Farama Foundation RL stack; open vision foundation models; OpenUSD; open generative models; open robot platforms; educational kits with open code; orgs that maintain the above.
+- **Updated**: [index.md](index.md) — new entry under Platforms syntheses.
+
 ## [2026-05-17] ingest | Logical Intelligence Kona product page (primary source)
 
 Follow-up to the morning's Aleph EBM video ingest. User pointed at `logicalintelligence.com/kona-ebms-energy-based-models` — the [Kona](entities/kona.md) product page, dated **2026-05-14**. **First primary-source coverage of Kona** in the wiki (everything prior was secondary).

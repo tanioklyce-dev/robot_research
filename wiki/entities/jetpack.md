@@ -2,9 +2,9 @@
 title: JetPack SDK
 type: entity
 created: 2026-05-16
-updated: 2026-05-16
-sources: 6
-tags: [nvidia, jetson, jetpack, sdk, cuda, tensorrt]
+updated: 2026-05-17
+sources: 7
+tags: [nvidia, jetson, jetpack, sdk, cuda, tensorrt, jetpack-7, jetson-thor, mig, sbsa]
 ---
 
 # JetPack SDK
@@ -65,7 +65,27 @@ Jetson Xavier-class hardware is on the older JetPack 5.x / L4T 35.x track and no
 
 ## JetPack 7 — Thor track
 
-The Blackwell-generation [Jetson Thor](jetson-thor.md) (T5000, T4000) is on a **separate JetPack 7.0 line**, not JetPack 6. JetPack 7 pairs Jetson Linux R37.x with a CUDA-13-class stack and ships alongside **Isaac ROS 4.0** (the Thor-compatible Isaac ROS release). Orin-class modules remain on the JetPack 6.x track for compatibility — JetPack 6 and JetPack 7 are parallel, not sequential. See [Jetson Thor](jetson-thor.md) for module-side software details.
+The Blackwell-generation [Jetson Thor](jetson-thor.md) (T5000, T4000) is on a **separate JetPack 7.0 line**, not JetPack 6. Orin-class modules remain on the JetPack 6.x track for compatibility — JetPack 6 and JetPack 7 are parallel, not sequential.
+
+JetPack 7.0 launched alongside Thor on **2025-08-25** ([JetPack 7.0 for Jetson Thor software-stack reference](../sources/nvidia-jetpack-7-thor-whitepaper.md)) with the following bundle:
+
+| Component | Version |
+|---|---|
+| [Jetson Linux (L4T)](jetson-linux.md) | **38.2** (kernel **6.8**, Ubuntu **24.04 LTS** rootfs) |
+| CUDA | **13** |
+| cuDNN | **9.12** |
+| TensorRT | **10.13** |
+
+Architectural commitments distinguishing JetPack 7 from JetPack 6:
+
+- **SBSA (Server Base System Architecture) alignment** — Thor is positioned as a server-class ARM platform.
+- **NVIDIA optimized preemptible real-time kernel** — ships in the release.
+- **Multi-Instance GPU (MIG)** — Thor's Blackwell GPU can be partitioned (new on Jetson).
+- **CSI-over-Ethernet (CoE)** via Holoscan Sensor Bridge.
+
+Supported AI serving frameworks shipped or documented: **vLLM**, **SGLang**, **MLC**, **llama.cpp**, **Ollama**, **Hugging Face Transformers**. JetPack 7 also enables Thor's NVFP4 (Blackwell 4-bit float) quantization, which underpins the **7× post-launch generative-AI throughput improvement** documented in the [JetPack 7 software-stack reference](../sources/nvidia-jetpack-7-thor-whitepaper.md). Isaac ROS on Thor is on a separate, Thor-compatible release track (specific version not enumerated in the JetPack 7 primary sources).
+
+See [Jetson Thor](jetson-thor.md) for module-side software details.
 
 ## Mentioned in
 - [Jetson Orin Nano flash howto](../syntheses/projects/jetson-orin-nano-flash-howto.md)
@@ -77,3 +97,4 @@ The Blackwell-generation [Jetson Thor](jetson-thor.md) (T5000, T4000) is on a **
 - [Jetson Linux R36.5 release](../sources/nvidia-jetson-linux-r36-5-release.md)
 - [Jetson Linux R36.5 update mechanism](../sources/nvidia-jetson-linux-r36-5-update-mechanism.md)
 - [NVIDIA Jetson Orin Nano Dev Kit software setup](../sources/nvidia-jetson-orin-nano-devkit-software-setup.md)
+- [JetPack 7.0 for Jetson Thor software-stack reference](../sources/nvidia-jetpack-7-thor-whitepaper.md) — primary source for JetPack 7 / Jetson Linux 38.2 contents.

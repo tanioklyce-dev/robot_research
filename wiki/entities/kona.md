@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-17
 updated: 2026-05-17
-sources: 2
+sources: 4
 tags: [kona, logical-intelligence, ebm, energy-based-reasoning-model, ebrm, non-autoregressive, latent-variable, reasoning, post-llm, lecun]
 ---
 

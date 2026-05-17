@@ -2,8 +2,8 @@
 title: VLA models
 type: concept
 created: 2026-05-06
-updated: 2026-05-15
-sources: 20
+updated: 2026-05-17
+sources: 22
 tags: [vla, vision-language-action, foundation-model, robotics]
 ---
 

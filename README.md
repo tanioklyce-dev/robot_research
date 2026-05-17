@@ -4,6 +4,15 @@ A personal knowledge base on **agentic robotics** — robots controlled by AI ag
 
 The wiki is maintained by [Claude Code](https://claude.ai/code); the human curates sources and asks questions. As of the initial commit, 50 wiki pages cover NVIDIA's Physical AI stack (Isaac Sim/Lab, Newton, Cosmos, GR00T), AGIBOT's Genie Sim 3.0 + Genie Envisioner, MuJoCo Playground, Genesis, RoboCasa365, ManiSkill, Hello Robot's Stretch + stretch_ai, Robot Utility Models, and the JEPA line (V-JEPA 2, LeWorldModel).
 
+## Where to start
+
+- **[`wiki/overview.md`](wiki/overview.md)** — reader's introduction: what this wiki is, how it's organized, and a starter shortlist of robots you can buy and learn with.
+- **[`wiki/index.md`](wiki/index.md)** — catalog of every page; the **Highlights** section at the top of the index is the curated entry-point list.
+- **[`wiki/log.md`](wiki/log.md)** — chronological record of ingests, queries, and lint passes.
+- **[`CLAUDE.md`](CLAUDE.md)** — wiki schema and ingest/query/lint workflows.
+
+Browse on GitHub or open in [Obsidian](https://obsidian.md/) — the wiki uses standard markdown links with relative paths so navigation works in both. Filenames are kebab-case slugs.
+
 ## Structure
 
 ```
@@ -20,14 +29,6 @@ The wiki is maintained by [Claude Code](https://claude.ai/code); the human curat
     ├── concepts/           # technical concepts (VLA, JEPA, sim-to-real, ...)
     └── syntheses/          # cross-cutting analyses
 ```
-
-## Where to start
-
-- **[`wiki/index.md`](wiki/index.md)** — catalog of every page; the **Highlights** section at the top of the index is the curated entry-point list.
-- **[`wiki/log.md`](wiki/log.md)** — chronological record of ingests, queries, and lint passes.
-- **[`CLAUDE.md`](CLAUDE.md)** — wiki schema and ingest/query/lint workflows.
-
-Browse on GitHub or open in [Obsidian](https://obsidian.md/) — the wiki uses standard markdown links with relative paths so navigation works in both. Filenames are kebab-case slugs.
 
 ## Working with the wiki
 

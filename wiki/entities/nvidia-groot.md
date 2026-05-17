@@ -3,8 +3,8 @@ title: NVIDIA GR00T
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-05-15
-sources: 13
+updated: 2026-05-17
+sources: 15
 tags: [groot, vla, nvidia, foundation-model, humanoid]
 ---
 
