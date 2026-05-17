@@ -54,7 +54,7 @@ From [Diffusion Policy Paper](diffusion-policy-paper.md) §I, §V, §VII:
 ## Concepts touched
 
 - [Imitation learning](../concepts/learning/imitation-learning.md) — IBC sits in the BC family but as an *implicit* (energy-based) variant.
-- Energy-based models (no entity page; could become one if more EBM-line work surfaces).
+- [Energy-based models](../concepts/learning/energy-based-models.md) — concept page (filed 2026-05-17 after [the Aleph EBM video ingest](2026-05-aleph-ebm-refuses-bullshit-video.md) surfaced [Kona](../entities/kona.md) as the second commercialized EBM line in this wiki).
 - Multi-modal action distributions — the same modeling challenge that motivates [Diffusion Policy](../entities/diffusion-policy.md), [VQ-BeT](../entities/vq-bet.md), [BET](../entities/bet.md).
 
 ## Open questions / TBD

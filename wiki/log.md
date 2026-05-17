@@ -2,6 +2,40 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-17] ingest | "Aleph and Energy-Based Models: The AI That Refuses to Bullshit" (YouTube)
+
+User dropped a YouTube URL (NYmXYF8A3Q4). Video page itself was gated (no transcript), but search + WebFetch surfaced the subject: an editorial commentary on **[Logical Intelligence](entities/logical-intelligence.md)**'s January 2026 launch and the May 2026 [Aleph](entities/aleph.md) PutnamBench result. Built the ingest from primary materials (Logical Intelligence blog, BusinessWire press release, an Eve Bodnia interview summary) and cited those as the substantive sources; the video itself enters as the entry-point.
+
+- **Headline data points**:
+  - **Aleph (GPT-5.2) hits 99.4% / 668-of-672 on [PutnamBench](concepts/learning/putnambench.md)** with Lean proofs (May 2026), beating ByteDance and Apple. Three-stage Plan → Prove → Refine agentic pipeline; Lean kernel as the deterministic verifier.
+  - **[Kona](entities/kona.md)** = non-autoregressive **energy-based reasoning model**; 16M–200M parameters; reasons in abstract vector space, not language. Q1 2026 pilots in energy / advanced manufacturing / semiconductor.
+  - **Leadership**: [Eve Bodnia](entities/eve-bodnia.md) CEO; [Yann LeCun](entities/yann-lecun.md) Founding Chair of Tech Research Board; Fields Medalist [Michael Freedman](entities/michael-freedman.md) Chief of Math; [Vlad Isenbaev](entities/vlad-isenbaev.md) Chief of AI; [Patrick Hillmann](entities/patrick-hillmann.md) CSO.
+
+- **Notable disambiguation**: LeCun is **also** Founding Chair at Logical Intelligence — separate from his reported Executive Chairman role at [AMI Labs](entities/ami-labs.md). The wiki previously treated AMI Labs as LeCun's sole post-Meta affiliation. Updated [yann-lecun.md](entities/yann-lecun.md) note + Related sections to reflect both. Whether the two companies collaborate, are parallel, or one is a subsidiary is not addressed by any source.
+
+- **Created 1 source**: [Aleph EBM video](sources/2026-05-aleph-ebm-refuses-bullshit-video.md). Transparent about ingest depth — the video page itself is gated; substantive technical claims are cited to Logical Intelligence blog + BusinessWire + Bodnia interview summary, not "the video says X."
+
+- **Created 7 entities**: [Logical Intelligence](entities/logical-intelligence.md), [Aleph](entities/aleph.md), [Kona](entities/kona.md), [Eve Bodnia](entities/eve-bodnia.md), [Michael Freedman](entities/michael-freedman.md), [Vlad Isenbaev](entities/vlad-isenbaev.md) _stub_, [Patrick Hillmann](entities/patrick-hillmann.md) _stub_.
+
+- **Created 4 concept pages**:
+  - **[Energy-based models (EBMs)](concepts/learning/energy-based-models.md)** — long-overdue. The [IBC source page](sources/ibc-paper.md) explicitly flagged this gap in May 2025; [LeCun's 2022 AMI paper page](sources/lecun2022-path-towards-ami.md) flagged it as "worth creating." Page connects the three EBM applications in the wiki: IBC (BC), JEPA (predictive representation learning), Kona (reasoning) — same LeCun-line architectural commitment, three different problems.
+  - **[Formal verification](concepts/learning/formal-verification.md)** — the "translate / propose / verify" pipeline; deterministic checker as the structural cure for hallucination.
+  - **[Lean theorem prover](concepts/learning/lean-theorem-prover.md)** — stub focused on Aleph's use; Mathlib + tactic + term mode + kernel-determinism.
+  - **[PutnamBench](concepts/learning/putnambench.md)** — the benchmark.
+
+- **Updated**:
+  - [Yann LeCun](entities/yann-lecun.md): added Logical Intelligence affiliation alongside AMI Labs in the org-change callout; new Related-section entries; Mentioned-in updated; tags + sources count 18→19.
+  - [IBC source page](sources/ibc-paper.md): "Energy-based models (no entity page; could become one if more EBM-line work surfaces)" line replaced with a real concept-page link — that note has been load-bearing for a year.
+  - [LeCun 2022 source page](sources/lecun2022-path-towards-ami.md): EBM-concept-page open question resolved; replaced with link to the new concept page.
+  - [index.md](index.md): new source line (post-Welch Labs); new Companies entry (Logical Intelligence); new section "Reasoning / formal-verification models" under Entities for Aleph + Kona (they don't fit BC / VLA / WM); 4 new People entries; 4 new Concepts entries under Learning.
+
+- **Cross-source insight**: The wiki now has **three distinct EBM applications** all downstream of LeCun's 2022 vision: IBC (imitation learning), JEPA (predictive representation learning), Kona (reasoning / constraint satisfaction). Same architectural commitment, three different problem domains, different training-side machinery at each. The new [EBM concept page](concepts/learning/energy-based-models.md) is the hub that connects them.
+
+- **Caveats called out on the relevant pages**:
+  - Cost/extrapolation claims about Kona are from a single founder interview summary; reproduced with attribution, not endorsement.
+  - Reproducibility of Aleph + GPT-5.2 by third parties is unverified (the Lean proofs themselves are mechanically verifiable; the agent that produced them may require Logical Intelligence's hosted stack).
+  - The video's own substance beyond the editorial framing is unverified — no transcript surfaced.
+
 ## [2026-05-16] query+ingest | Jetson Thor capabilities + DGX Spark comparison
 
 User asked: can Jetson Thor run AI training programs, run Isaac Sim, and other apps that run on DGX Spark? Wiki had no Thor or DGX Spark entity page (Thor had been flagged in the Seeed hackathon ingest as parked-for-future). Did targeted web research and built out the cluster.

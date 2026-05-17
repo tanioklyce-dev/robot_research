@@ -199,7 +199,7 @@ These gaps define what the JEPA program has been *filling in* since 2022. The ho
 - [Joint-Embedding Predictive Architecture (JEPA)](../concepts/world-models/jepa.md) — defined here, named here.
 - [World model](../concepts/world-models/world-model.md) — the central object; the configurable engine.
 - [Self-supervised learning](../concepts/world-models/jepa.md) (closely entwined with JEPA on this wiki).
-- **Energy-based models (EBM)** — *concept page worth creating*; this paper is the canonical reference.
+- **[Energy-based models (EBM)](../concepts/learning/energy-based-models.md)** — concept page (filed 2026-05-17 after [the Aleph EBM video ingest](2026-05-aleph-ebm-refuses-bullshit-video.md)); this paper is one of the canonical references and the conceptual root for both the JEPA line and the [Kona](../entities/kona.md) reasoning line.
 - **Hierarchical JEPA (H-JEPA)** — extension to multi-scale prediction; *concept page worth creating*.
 - **Configurator** — proposed top-level executive module; no concept page yet.
 - **Intrinsic motivation / intrinsic cost** — concept worth filing; central to LeCun's proposal.

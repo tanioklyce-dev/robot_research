@@ -173,6 +173,7 @@ Curated entry points across the wiki.
 - [Sobal et al. 2022 — JEPA slow features](sources/sobal2022-jepa-slow-features-paper.md) — Sobal, Jyothir S V, Jalagam, Carion, Cho, LeCun (NYU + FAIR; NeurIPS 2022 SSL workshop, arxiv 2211.10831); the PLDM precursor. Establishes that JEPA representations preferentially encode slowly-varying features (like the position of a moving dot); fixed-distractor noise breaks this bias. (2022-11-20)
 - [LeJEPA Paper](sources/lejepa-paper.md) — Balestriero & LeCun (Brown + NYU/FAIR, arxiv 2511.08544); the foundational SIGReg paper. Proves isotropic Gaussian is optimal for JEPA embeddings; proposes Sketched Isotropic Gaussian Regularization (SIGReg). Single hyperparameter, no stop-gradient, no teacher-student. ImageNet-1k linear-eval 79% on ViT-H/14; 10+ datasets / 60+ architectures. The methodological precursor to LeWM. (2025-11-11)
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs (video)](sources/welchlabs-lecun-1b-bet-against-llms.md) — 37-min popular-explainer with LeCun interview clips; arc from blurry generative video → Siamese → Barlow Twins → DINO → JEPA / world models; recommended curriculum-orientation video. (2026-05-01)
+- [Aleph and Energy-Based Models: The AI That Refuses to Bullshit (video)](sources/2026-05-aleph-ebm-refuses-bullshit-video.md) — editorial commentary on [Logical Intelligence](entities/logical-intelligence.md)'s Jan 2026 launch + May 2026 [Aleph](entities/aleph.md) PutnamBench result. Thesis: real reasoning isn't next-token prediction. Aleph + GPT-5.2 hits **99.4% / 668-of-672 on PutnamBench in Lean**, beating ByteDance + Apple. [Kona](entities/kona.md) = non-autoregressive EBM reasoning model under the orchestration. [Yann LeCun](entities/yann-lecun.md) as Founding Chair of Tech Research Board (separate from [AMI Labs](entities/ami-labs.md)); Fields Medalist [Michael Freedman](entities/michael-freedman.md) as Chief of Math. (~2026-05-15)
 - [Onchain AI Garage — I Reproduced LeCun's JEPA World Model (video)](sources/onchain-ai-garage-lewm-reproduction.md) — 27-min walk-through reproducing LeWM on Two Room. RTX 3060 / 12 GB VRAM in WSL2, Claude Code as implementation assistant; **92% success vs paper's 97%** after 4 epochs / ~8 hours. First independent LeWM reproduction in the wiki; corroborates the four [LeWM howto](syntheses/world-models/leworldmodel-howto.md) gotchas. Linked from [Curriculum Module 12](syntheses/curriculum/curriculum-12-lewm-deep-dive.md). (2026-04-24)
 - [karpathy/autoresearch (GitHub repo)](sources/karpathy-autoresearch.md) — Karpathy's agent-driven LLM training research repo. Single GPU + simplified nanochat + 5-min experiment budget + an AI coding agent that edits `train.py`, runs the experiment, compares val_bpb, and keeps or reverts. Produced two nanochat speedrun-leaderboard improvements (2.02 → 1.65 hours wall-clock). First public evidence that an agent loop can produce measurable gains on a frontier ML training pipeline. Linked from the [LLM-agent architecture](concepts/agents/llm-agent-architecture.md) concept as the non-robotics example of the LLM-emits-tool-calls pattern. (2026-03-06)
 - [karpathy/nanochat (GitHub repo)](sources/karpathy-nanochat.md) — Karpathy's full end-to-end ChatGPT pipeline (tokenizer + pretrain + SFT + RL + chat UI) for ~$48 on an 8XH100 node. Single `--depth` complexity dial; "Time-to-GPT-2" speedrun leaderboard. Modern successor to [nanoGPT](sources/karpathy-nanogpt.md); the substrate [autoresearch](sources/karpathy-autoresearch.md) iterates on. Linked from [Curriculum Module 3](syntheses/curriculum/curriculum-03-attention-and-transformers.md). (2025-10-13)
@@ -245,6 +246,7 @@ Curated entry points across the wiki.
 - [Mila](entities/mila.md) — Quebec AI Institute; frequent JEPA collaborator. (4 sources) _stub_
 - [Farama Foundation](entities/farama-foundation.md) — non-profit; took over OpenAI gym → Gymnasium; 19 RL projects. (3 sources)
 - [AMI Labs](entities/ami-labs.md) — Yann LeCun's reported post-Meta AI lab; $1.03B seed round (single secondary source, provisional). (1 source)
+- [Logical Intelligence](entities/logical-intelligence.md) — commercializes [energy-based reasoning models](concepts/learning/energy-based-models.md) for critical systems; Eve Bodnia CEO, [Yann LeCun](entities/yann-lecun.md) Founding Chair of Tech Research Board, [Michael Freedman](entities/michael-freedman.md) Chief of Math. Products: [Aleph](entities/aleph.md) (formal-verification agent) + [Kona](entities/kona.md) (EBM reasoning model). Distinct from AMI Labs. (1 source)
 - [Anthropic](entities/anthropic.md) — developer of Claude; AI safety mission; author of Claude's Constitution; MCP protocol. (2 sources)
 - [Apollo Research](entities/apollo-research.md) — independent AI safety evaluation institute; red-teamed Claude Opus 4 (2025). (2 sources)
 - [Physical Intelligence](entities/physical-intelligence.md) — San Francisco; π0/π0.6 cross-platform generalist VLAs. (2 sources)
@@ -387,6 +389,10 @@ Curated entry points across the wiki.
 - [MimicGen](entities/mimicgen.md) — synthetic-demo expansion tool used by RoboCasa365. (1 source) _stub_
 - [NVIDIA Brev](entities/nvidia-brev.md) — NVIDIA's cross-cloud GPU-instance broker (`brev` CLI + Launchables); no native auto-stop, so cost discipline is on the user. (2 sources)
 
+### Reasoning / formal-verification models
+- [Aleph](entities/aleph.md) — [Logical Intelligence](entities/logical-intelligence.md)'s agentic orchestration product; pairs frontier LLM (GPT-5.2) + [Kona](entities/kona.md) + [Lean](concepts/learning/lean-theorem-prover.md); **99.4% / 668-of-672 on [PutnamBench](concepts/learning/putnambench.md)** (May 2026). (1 source)
+- [Kona](entities/kona.md) — non-autoregressive [energy-based reasoning model](concepts/learning/energy-based-models.md) from [Logical Intelligence](entities/logical-intelligence.md); 16M–200M params; pilots in energy / advanced manufacturing / semiconductor (Q1 2026). (1 source)
+
 ### Events
 - [LeRobot Worldwide Hackathon 2025](entities/lerobot-worldwide-hackathon-2025.md) — Hugging Face hybrid hackathon, June 14–15, 2025; 916 team members, ~400 submissions, 30 ranked winners; prizes: Hope Jr Arm / LeKiwi / SO-101. (1 source)
 
@@ -417,6 +423,10 @@ Curated entry points across the wiki.
 - [Eike Schneiders](entities/eike-schneiders.md) — Aalborg University; qualitative HRI/HCI of domestic robots and automation. (1 source)
 - [Vector Wang (Gaotian Wang)](entities/vector-wang.md) — creator of [XLeRobot](entities/xlerobot.md); composition-style affordable-robotics builder. (1 source)
 - [Remi Cadene](entities/remi-cadene.md) — robotics lead at [Hugging Face](entities/hugging-face.md); responsible for [LeRobot](entities/lerobot.md); co-organizer of the [Worldwide Hackathon 2025](entities/lerobot-worldwide-hackathon-2025.md). (1 source)
+- [Eve Bodnia](entities/eve-bodnia.md) — Founder + CEO of [Logical Intelligence](entities/logical-intelligence.md); EBM-for-reasoning agenda. (1 source)
+- [Michael Freedman](entities/michael-freedman.md) — Fields Medal 1986; Chief of Mathematics at [Logical Intelligence](entities/logical-intelligence.md). (1 source)
+- [Vlad Isenbaev](entities/vlad-isenbaev.md) — Chief of AI at [Logical Intelligence](entities/logical-intelligence.md); ICPC World Champion; ex-Facebook/Cruise/Nuro. (1 source) _stub_
+- [Patrick Hillmann](entities/patrick-hillmann.md) — Chief Strategy Officer at [Logical Intelligence](entities/logical-intelligence.md); ex-Binance CSO. (1 source) _stub_
 
 ## Concepts
 
@@ -426,6 +436,10 @@ Curated entry points across the wiki.
 - [Sim-to-real transfer](concepts/learning/sim-to-real-transfer.md) — bridging simulator-trained policies to real robots. (9 sources)
 - [Scaling laws — VLAs and human data](concepts/learning/scaling-laws-vla.md) — the empirical data-vs-performance relationship for VLA pretraining; seeded from [EgoScale](sources/egoscale-paper.md)'s log-linear loss law (R² = 0.9983) on 20,854 hr of egocentric human video; LLM-side companion via Welch Labs Ch 6 (Kaplan 2020). (2 sources)
 - [Chain of thought](concepts/learning/chain-of-thought.md) — intermediate-reasoning-token technique; origin (Wei 2022); zero-shot/self-consistency/ToT; modern reasoning models; embodied CoT in VLAs and S1/S2 splits. (0 sources — hub page)
+- [Energy-based models (EBMs)](concepts/learning/energy-based-models.md) — `E_θ(x, y)` low when compatible; inference is `argmin_y E`. Connects [IBC](entities/ibc.md), [JEPA](concepts/world-models/jepa.md) training, and [Kona](entities/kona.md) — three different applications of the same LeCun-line commitment to non-autoregressive learning. (4 sources)
+- [Formal verification](concepts/learning/formal-verification.md) — machine-checkable proofs; "translate, propose, verify" pipeline; deterministic kernel as the hallucination cure. Used by [Aleph](entities/aleph.md). (1 source)
+- [Lean theorem prover](concepts/learning/lean-theorem-prover.md) — the verification substrate underneath [Aleph](entities/aleph.md); Mathlib; tactic + term mode; PutnamBench-native. (1 source)
+- [PutnamBench](concepts/learning/putnambench.md) — 672 Putnam Exam problems formalized in [Lean](concepts/learning/lean-theorem-prover.md); machine-checkable formal-reasoning benchmark; [Aleph](entities/aleph.md) at 99.4% (May 2026). (1 source)
 
 ### World models
 - [World model](concepts/world-models/world-model.md) — umbrella concept: learned predictive model of environment dynamics (generative-video / JEPA / frozen-feature / model-based-RL). (14 sources)

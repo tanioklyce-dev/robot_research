@@ -3,15 +3,19 @@ title: Yann LeCun
 type: entity
 subtype: person
 created: 2026-05-07
-updated: 2026-05-15
-sources: 18
-tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs]
+updated: 2026-05-17
+sources: 19
+tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs, logical-intelligence, ebm]
 ---
 
-> [!note] Reported organizational change (single secondary source)
-> A Towards AI blog post (April 2026) reports LeCun departed Meta ~November/December 2025 to found [AMI Labs](ami-labs.md) with a $1.03B seed round. This has not been confirmed by a primary source in this wiki. The affiliation below reflects this uncertainty.
+> [!note] Reported organizational changes
+> Two post-Meta affiliations are recorded in this wiki, with different evidentiary weight:
+> - **[AMI Labs](ami-labs.md)** (founder, reported) — single secondary source ([Towards AI, April 2026](../sources/towardsai-lecun-ami-labs.md)); provisional.
+> - **[Logical Intelligence](logical-intelligence.md)** (Founding Chair of Technical Research Board, announced 2026-01-21) — surfaced via [the Aleph EBM video source](../sources/2026-05-aleph-ebm-refuses-bullshit-video.md) drawing on the BusinessWire press release. The Logical Intelligence/yann-lecun bio page additionally lists him as "Executive Chairman of AMI Labs."
+>
+> These appear to be two separate companies, both downstream of LeCun's EBM-and-world-models agenda. Whether they collaborate, are parallel, or one is a subsidiary of the other is not addressed by any source in this wiki.
 
-**Yann LeCun** — Silver Professor at NYU; Turing Award (2018, with Bengio + Hinton). Formerly VP & Chief AI Scientist at [Meta FAIR](meta-fair.md). Per secondary reporting (April 2026), now founder of [AMI Labs](ami-labs.md). In this wiki, **the architect of the [JEPA](../concepts/world-models/jepa.md) research program** and the senior author or co-author across nearly every Meta-affiliated world-model paper ingested.
+**Yann LeCun** — Silver Professor at NYU; Turing Award (2018, with Bengio + Hinton). Formerly VP & Chief AI Scientist at [Meta FAIR](meta-fair.md). Per secondary reporting (April 2026), now founder of [AMI Labs](ami-labs.md). As of **2026-01-21**, also Founding Chair of the Technical Research Board at **[Logical Intelligence](logical-intelligence.md)**. In this wiki, **the architect of the [JEPA](../concepts/world-models/jepa.md) research program** and the senior author or co-author across nearly every Meta-affiliated world-model paper ingested.
 
 ## Role in the JEPA program
 LeCun introduced the JEPA framing publicly around 2022 and has driven its application to vision and robotics through the FAIR / Mila pipeline. He is **senior author** on every FAIR-affiliated JEPA / JEPA-adjacent paper this wiki has ingested:
@@ -36,6 +40,8 @@ LeCun is one of the small number of researchers whose **simultaneous senior posi
 ## Related
 - [Meta FAIR](meta-fair.md) — prior primary affiliation.
 - [AMI Labs](ami-labs.md) — reported new lab (provisional).
+- [Logical Intelligence](logical-intelligence.md) — Founding Chair of Technical Research Board (2026-01-21); commercializes EBMs for reasoning. Distinct from AMI Labs.
+- [Energy-based models](../concepts/learning/energy-based-models.md) — the long-running thread that underlies both JEPA and the new Kona work.
 - [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — research program LeCun architected.
 - [Adrien Bardes](adrien-bardes.md) — frequent JEPA co-senior.
 - [Basile Terver](basile-terver.md) — JEPA-WMs lead author working under LeCun.
@@ -57,6 +63,7 @@ LeCun is one of the small number of researchers whose **simultaneous senior posi
 - [LeJEPA Paper](../sources/lejepa-paper.md)
 - [Towards AI — LeCun / AMI Labs article](../sources/towardsai-lecun-ami-labs.md)
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs (video)](../sources/welchlabs-lecun-1b-bet-against-llms.md)
+- [Aleph and Energy-Based Models: The AI That Refuses to Bullshit (video)](../sources/2026-05-aleph-ebm-refuses-bullshit-video.md) — names LeCun as Founding Chair of Logical Intelligence's Technical Research Board; verbatim quote on EBMs as "reasoning and inference by minimizing an energy function."
 
 ## Open questions / TBD
 - Has anyone built a working **Hierarchical JEPA (H-JEPA)** at the multi-time-scale envisioned in the [2022 position paper](../sources/lecun2022-path-towards-ami.md)? No JEPA paper in this wiki clearly does this — V-JEPA 2.1's "dense features" and JEPA-WMs' action-conditioned setup move in that direction but don't fully realize it.
