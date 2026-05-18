@@ -9,6 +9,10 @@ This directory uses the **LLM Wiki pattern**: an LLM-maintained, persistent know
 2. **`wiki/`** — Claude-maintained markdown. Summaries, entity pages, concept pages, source pages, syntheses. Claude owns this entirely; the user reads it.
 3. **`CLAUDE.md`** (this file) — Schema and conventions. Co-evolves with usage. When workflows or conventions change, update this file.
 
+### User-owned exception: `wiki/notes/`
+
+`wiki/notes/` is the **user's personal notes directory**. **Read-only for Claude — never edit files in this directory unless the user explicitly asks.** It's fine to read these notes for context if relevant to a question. When running lint, treat orphaned pages under `wiki/notes/` as expected (the user's notes don't need to be cross-linked into the rest of the wiki).
+
 ## Wiki structure
 
 ```

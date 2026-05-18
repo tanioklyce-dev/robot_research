@@ -2,13 +2,15 @@
 title: Jetson Orin Nano — flash Jetson OS to NVMe SSD howto
 type: synthesis
 created: 2026-05-16
-updated: 2026-05-16
-tags: [jetson, hardware, setup, howto]
+updated: 2026-05-17
+tags: [jetson, hardware, setup, howto, uefi, efibootmgr, boot-order]
 ---
 
 # Jetson Orin Nano — flash Jetson OS to NVMe SSD
 
 Operational howto for writing a [Jetson Linux](../../entities/jetson-linux.md) (L4T) image to an NVMe SSD on a **[Jetson Orin Nano](../../entities/jetson-orin-nano.md) Developer Kit** so the device boots from the SSD instead of microSD. Path-A recovery procedure and host requirements follow NVIDIA's official guide ([Jetson Orin Nano Dev Kit software setup](../../sources/nvidia-jetson-orin-nano-devkit-software-setup.md)); the apt-update vs reflash distinction follows the L4T BSP update mechanism ([Jetson Linux R36.5 update mechanism](../../sources/nvidia-jetson-linux-r36-5-update-mechanism.md)). Current production target is **[JetPack 6.2.2](../../sources/nvidia-jetpack-6-2-2-release.md)** (Jetson Linux 36.5).
+
+This page also covers **SD-primary with NVMe fallback** (UEFI auto-fallback) — see the section below.
 
 > [!note]
 > Steps below assume the NVIDIA Dev Kit. A custom carrier board (e.g., Hiwonder [ROSOrin Pro](../../entities/rosorin-pro.md), Seeed reComputer) ships its own BSP overlay and may have different recovery-pin locations and flash configs — check the carrier vendor's docs.
@@ -56,6 +58,16 @@ sudo ./tools/kernel_flash/l4t_initrd_flash.sh \
 
 Flashes QSPI bootloader to internal flash and rootfs to `/dev/nvme0n1`.
 
+### Community wrapper — JetsonHacks `bootFromExternalStorage`
+
+The [**jetsonhacks/bootFromExternalStorage**](https://github.com/jetsonhacks/bootFromExternalStorage) toolkit wraps the same `l4t_initrd_flash.sh` workflow Path B invokes, with helper scripts that handle the host-side BSP / rootfs downloads, signing-key generation, and flash config. Useful when:
+
+- You'd rather run `./get_jetson_files.sh && ./flash_jetson_external_storage.sh` than assemble the `l4t_initrd_flash.sh` command line by hand.
+- You want a single script that works across recent JetPack 5.x / 6.x versions on the Orin Nano / NX / AGX Orin Dev Kits and external NVMe + USB targets.
+- You're already familiar with the JetsonHacks tutorials and want consistency with their other Jetson setup scripts.
+
+It produces the same end state as Path B (QSPI bootloader + rootfs on external storage); same caveats apply (modern QSPI required, multi-boot-media versions must match, etc.).
+
 ## Gotchas
 
 - **Older dev kits (pre-mid-2023)** shipped with a QSPI bootloader that cannot see NVMe. Both paths above update the bootloader, but you cannot skip the QSPI flash step and only copy a rootfs to the SSD — the bootloader update is mandatory.
@@ -70,6 +82,117 @@ Flashes QSPI bootloader to internal flash and rootfs to `/dev/nvme0n1`.
 ## Alternative — microSD boot, then migrate to NVMe
 
 If you want to avoid host-side flashing entirely, you can write the official microSD image to a card, boot from it, then run NVIDIA's `nvme_install.sh` script to copy rootfs to NVMe and switch boot device. Still requires the QSPI bootloader to support NVMe — same pre-mid-2023 caveat applies. Note that NVIDIA currently ships an SD image at **JetPack 6.2.1 / Jetson Linux 36.4.4**; apt-upgrade to JetPack 6.2.2 / Jetson Linux 36.5 after first boot ([JetPack 6.2.2 release](../../sources/nvidia-jetpack-6-2-2-release.md), [R36.5 update mechanism](../../sources/nvidia-jetson-linux-r36-5-update-mechanism.md)).
+
+## SD-primary with NVMe fallback (UEFI auto-fallback)
+
+A different boot configuration from the "flash NVMe instead of SD" paths above: keep the microSD as the primary boot device, but have UEFI **automatically fall through to NVMe when the SD has no boot partition** (or has been pulled). This is the right setup if you want SD-card-based development with a recoverable NVMe backup of the OS.
+
+### How it works
+
+R36.5 uses a **UEFI firmware** with a `BootOrder` variable in NVRAM. UEFI walks the boot entries in order; **if an entry's bootloader is missing or its `extlinux.conf` is absent, UEFI silently moves to the next entry.** So "SD if bootable, else NVMe" reduces to: (1) make both bootable; (2) put SD first in `BootOrder`.
+
+### Prerequisite — modern QSPI bootloader
+
+The QSPI bootloader must be new enough to enumerate NVMe. **Pre-mid-2023 dev kits cannot see NVMe** at all from the QSPI bootloader stage (see Gotchas above). Confirm with:
+
+```bash
+sudo efibootmgr -v
+```
+
+If no NVMe-capable boot entry appears, update the bootloader within your JetPack 6.x line:
+
+```bash
+sudo apt update
+sudo apt install --reinstall nvidia-l4t-bootloader
+sudo reboot
+```
+
+If apt won't pull a Jetson with new-enough firmware (true for the very oldest QSPI), reflash from a host using the Path B `l4t_initrd_flash.sh` command above — that flashes both QSPI and the rootfs.
+
+### Step 1 — Install Jetson OS on the NVMe (from the running SD system)
+
+The easiest path uses NVIDIA's bundled tool:
+
+```bash
+sudo /opt/nvidia/l4t-bootloader-config/nvme_install.sh
+```
+
+This clones the running rootfs to NVMe, partitions it (GPT + ESP + ext4 rootfs), installs kernel + `extlinux.conf`, and registers an EFI boot entry.
+
+If `nvme_install.sh` isn't on your install (varies by BSP variant), the manual path:
+
+```bash
+# 1. Partition NVMe — GPT + small ESP + ext4 rootfs
+sudo parted -s /dev/nvme0n1 mklabel gpt
+sudo parted -s /dev/nvme0n1 mkpart ESP fat32 1MiB 513MiB
+sudo parted -s /dev/nvme0n1 set 1 esp on
+sudo parted -s /dev/nvme0n1 mkpart rootfs ext4 513MiB 100%
+sudo mkfs.fat -F32 /dev/nvme0n1p1
+sudo mkfs.ext4   /dev/nvme0n1p2
+
+# 2. Mount and rsync the running rootfs
+sudo mkdir -p /mnt/nvme
+sudo mount /dev/nvme0n1p2 /mnt/nvme
+sudo rsync -aAXHv \
+    --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","/boot/efi/*"} \
+    / /mnt/nvme/
+
+# 3. Copy the ESP
+sudo mkdir -p /mnt/nvme/boot/efi
+sudo mount /dev/nvme0n1p1 /mnt/nvme/boot/efi
+sudo rsync -aAXHv /boot/efi/ /mnt/nvme/boot/efi/
+
+# 4. Rewrite NVMe's /etc/fstab and extlinux.conf to point at its own UUIDs
+NVME_ROOT_UUID=$(sudo blkid -s UUID -o value /dev/nvme0n1p2)
+NVME_ESP_UUID=$(sudo blkid -s UUID -o value /dev/nvme0n1p1)
+sudo sed -i "s|UUID=[^ ]* */ |UUID=$NVME_ROOT_UUID / |" /mnt/nvme/etc/fstab
+sudo sed -i "s|UUID=[^ ]* */boot/efi|UUID=$NVME_ESP_UUID /boot/efi|" /mnt/nvme/etc/fstab
+sudo sed -i "s|root=[^ ]*|root=UUID=$NVME_ROOT_UUID|" /mnt/nvme/boot/extlinux/extlinux.conf
+
+sudo umount /mnt/nvme/boot/efi /mnt/nvme
+```
+
+### Step 2 — Set UEFI boot order: SD first, NVMe second
+
+List current entries:
+
+```bash
+sudo efibootmgr -v
+```
+
+Typical output:
+```
+Boot0000* ubuntu      HD(1,GPT,…)/File(\EFI\ubuntu\shimaa64.efi)   <- SD's bootloader
+Boot0001* L4T         HD(1,GPT,…)/File(\EFI\BOOT\bootaa64.efi)     <- NVMe's bootloader
+Boot0002* UEFI ...                                                  <- USB / network fallbacks
+BootOrder: 0001,0000,0002
+```
+
+Reorder so the SD entry comes first:
+
+```bash
+sudo efibootmgr -o 0000,0001
+```
+
+UEFI now tries the SD bootloader first. If `\EFI\ubuntu\shimaa64.efi` (or your equivalent) isn't found — which is exactly the case when the SD has no boot partition — it **automatically falls through to entry 0001 (NVMe)** without user intervention.
+
+### Step 3 — Verify
+
+```bash
+sudo efibootmgr -v   # confirm BootOrder = 0000,0001,...
+sudo poweroff
+```
+
+- Pull SD card, power on → boots NVMe.
+- Reinsert SD, power on → boots SD.
+- An SD with the rootfs but no ESP / no `extlinux.conf` → UEFI falls through to NVMe.
+
+### Caveats specific to this configuration
+
+- **Multi-boot-media BSP versions must match.** Mixing different L4T versions across SD and NVMe corrupts UEFI overlay partitions and crashes the system ([R36.5 release notes §2.1, issue 4201479](../../sources/nvidia-jetson-linux-r36-5-release-notes.md)). Keep both media on the same L4T release. Apt-upgrade both rootfses in lockstep.
+- **A blank NVMe is invisible to UEFI** — it must have a valid ESP + bootloader files to be a fallback. The Step 1 procedures above produce that; a raw `dd` of the SD image does not (UUIDs collide and extlinux still points at SD).
+- **`extlinux.conf` paths must reference each rootfs's own UUID**, not `/dev/mmcblk0p1` or `/dev/nvme0n1p1` literals. The rsync + sed in Step 1 handles this; verify before powering off.
+- **`efibootmgr` settings are persisted in QSPI NVRAM**, not on the SD or NVMe. Reflashing QSPI may reset `BootOrder` — re-run Step 2 after any QSPI flash.
 
 ## After flashing — switching power modes
 
@@ -96,3 +219,4 @@ The `nvidia-l4t-bootloader` package carries QSPI bootloader payloads, so apt upg
 - [ROSOrin Pro](../../entities/rosorin-pro.md) — Hiwonder humanoid arm built around a Jetson Orin Nano on a custom carrier; flashing path differs.
 - [JEPA project ladder for ROSOrin Pro](jepa-project-ladder-rosorin-pro.md) — projects that assume a working Jetson.
 - [ROSOrin Pro — Lego pick-and-place project plan](rosorin-pro-lego-pick-place.md) — same.
+- **[jetsonhacks/bootFromExternalStorage](https://github.com/jetsonhacks/bootFromExternalStorage)** — community toolkit that wraps `l4t_initrd_flash.sh` for booting Jetson Orin from NVMe / USB; recommended user-friendly alternative to running Path B by hand.

@@ -2,6 +2,13 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-17] query+howto | "Configure Orin Nano to boot NVMe when SD has no boot partition"
+
+User running Jetson Orin Nano on L4T 36.5.0 from SD asked how to configure UEFI auto-fallback to NVMe. Reduces to: (a) make both media bootable; (b) put SD first in `BootOrder`; (c) trust UEFI's built-in skip-on-missing-bootloader behavior.
+
+- **Updated**: [Jetson Orin Nano flash howto](syntheses/projects/jetson-orin-nano-flash-howto.md) — new section **"SD-primary with NVMe fallback (UEFI auto-fallback)"** with: prerequisite QSPI-bootloader check, two paths to install OS on NVMe from a running SD system (`nvme_install.sh` and manual rsync + partitioning), `efibootmgr -o` boot-order configuration, verification procedure, and configuration-specific caveats (multi-boot-media version match, ESP requirements, `extlinux.conf` UUID rewrites, QSPI-NVRAM persistence). Tags + intro updated to reflect broader scope; previously the page covered only "replace SD with NVMe."
+- **Mechanism documented**: UEFI's `BootOrder` variable + automatic-fallthrough-when-entry's-bootloader-is-missing behavior. This is the user-friendly version of dual-boot fallback on Jetson without resorting to GRUB or manual chain-loading.
+
 ## [2026-05-17] ingest | PX4 Autopilot documentation
 
 User pointed at `docs.px4.io/main/en/` — the canonical doc site for PX4, the dominant open-source autopilot for drones. Big gap in the wiki: existed UAV-AI research coverage ([Agentic UAVs concept](concepts/robotics/agentic-uavs.md), the [UAVs Survey](sources/uavs-agentic-ai-survey.md), [MIT drone adaptive control](sources/mit-drone-adaptive-control.md)) but no entity for the autopilot substrate underneath.
