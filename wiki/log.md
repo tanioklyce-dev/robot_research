@@ -2,6 +2,45 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-25] ingest | π0.7 + π*0.6 — completes the π-series spine (π0 → π0.7 + π*0.6)
+
+User dropped `raw/pi07.pdf` and `raw/pistar06.pdf` mid-session and asked to ingest both. Both are direct successors to π0 from [Physical Intelligence](entities/physical-intelligence.md) and were referenced as gaps in this morning's π0 entity ingest. The two papers represent Physical Intelligence's late-2025 push along two complementary axes — π0.7 = "scale data + diversify the prompt" and π*0.6 = "iterate on deployment experience via RL."
+
+### π0.7 (https://pi.website/pi07)
+
+- **Created**: [π0.7 source page](sources/pi07-paper.md) — 5 B-param VLA = Gemma3 4B VLM + 860 M flow-matching action expert + MEM video-history encoder; **Knowledge Insulation (KI) training** with FAST tokens + stop-gradient to VLM. Captures the **diversified prompt** structure (subtask instructions, **subgoal images from a separate BAGEL 14B world model**, episode metadata = speed/quality/mistake, control mode), each component randomly dropped during training. Documents the data mixture (demonstrations + autonomous rollouts incl. failures + open-source robot datasets + egocentric human video + non-robot web data) and the demonstrated emergent capabilities (espresso machine, laundry folding, trash bag, box folding, vegetable peeling out-of-the-box; zero-shot cross-embodiment; compositional generalization like sweet-potato-into-air-fryer).
+- **Created**: [π0.7 entity](entities/pi07.md) — first credible "emergent capabilities" VLA; the architectural contribution is the diversified-prompt recipe, not a new module.
+
+### π*0.6 + RECAP (https://pi.website/blog/pistar06)
+
+- **Created**: [π*0.6 source page](sources/pistar06-paper.md) — π0.6 + RECAP ("RL with Experience and Corrections via Advantage-conditioned Policies"). Three-step iterated recipe: data collection (autonomous rollouts + human-gated-DAgger interventions + sparse outcome rewards) → multi-task **distributional value function** training (201 bins, MC return target, same architecture as policy but smaller VLM backbone) → **advantage-conditioned** policy training via CFGRL-style classifier-free guidance. Sidesteps the policy-gradient problem on flow-matching VLAs by training the policy with and without an improvement indicator, then conditioning on "improved" at inference. Demonstrated tasks: 13-hr espresso machine, 2+ hr novel-laundry-folding in a new home, factory-grade box assembly. Headline: 2× throughput, ½ failure rate on hardest tasks.
+- **Created**: [π*0.6 entity](entities/pistar06.md) — the wiki's first VLA-scale real-world RL recipe that works on expressive flow-matching action heads.
+
+### Cross-source updates
+
+- [Physical Intelligence entity](entities/physical-intelligence.md) — full rewrite of the model-line table to capture **π0 → π0.5 → π0.6 → π0.6-MEM → π0.7 + π*0.6 (RL branch)** lineage. Three primary sources (π0, π0.7, π*0.6) are ingested; three intermediates (π0.5, π0.6, π0.6-MEM) remain not-separately-ingested. Sources count 3 → 5.
+- [π0 entity](entities/pi-zero.md) — Related section + "default π-series reference" now point at π0.7 and π*0.6 successors.
+- [VLA models concept](concepts/learning/vla-models.md) — full π0.7 + π*0.6 entries added to the notable-VLAs list; action-head taxonomy table expanded to show **π0 (full bidirectional SA) / π0.7 (KI + stop-gradient) / π*0.6 (advantage conditioning) / SmolVLA (interleaved CA + causal SA)** as four distinct architectural variants within the flow-matching family.
+- [index.md](index.md) — new chronological source entries for both papers; π0.7 + π*0.6 added to the VLA-list; Physical Intelligence source count bumped.
+
+### Cross-source insight
+
+The four π-papers ingested today (π0 full HTML + π0.7 + π*0.6 + SmolVLA) reveal **a tightly converged architectural recipe** for late-2025 VLAs: **frozen-or-stop-gradient pretrained VLM backbone + flow-matching action expert + action chunks of length n ≈ 50**. The remaining design variation is concentrated in three dimensions:
+
+1. **Backbone**: PaliGemma 3 B (π0) → Gemma3 4B+MEM (π0.7) → SmolVLM-2 (SmolVLA, ~0.4 B).
+2. **Action-expert attention**: full bidirectional SA (π0) → KI + stop-gradient (π0.7, π*0.6) → interleaved CA + causal SA (SmolVLA).
+3. **Training signal**: pure IL on demonstrations (π0) → IL + diverse-data + diversified-prompt (π0.7) → offline RL + advantage conditioning (π*0.6) → IL on community datasets + async inference (SmolVLA).
+
+**No one design wins everywhere.** SmolVLA beats π0 on real-world SO-100 at ~7× fewer params; π0.7 claims emergent capabilities π0 doesn't show; π*0.6 doubles throughput on the same hardware via RL. The 2025 VLA design space is now exploring all four dimensions of the variation simultaneously.
+
+### Lingering wiki gaps
+
+- **π0.5 / π0.6 / π0.6-MEM** intermediate papers — referenced extensively across π0.7 + π*0.6 but no primary sources.
+- **Flow matching** concept page — now load-bearing across π0, π0.7, π*0.6, SmolVLA, EgoScale, and the LeRobot tutorial.
+- **Knowledge Insulation (KI) + FAST tokens** — referenced training recipe used by both π0.7 and π*0.6; deserves its own concept page if a third paper uses it.
+- **BAGEL 14B world model** — referenced as π0.7's subgoal-image generator; not in the wiki.
+- **MEM memory system + Gemma3** — referenced architectural components; not separately filed.
+
 ## [2026-05-25] ingest | π0 full-HTML deepening + SmolVLA paper — closes the two largest VLA gaps
 
 User asked to ingest `https://arxiv.org/html/2410.24164v1` and a new raw file. The raw file turned out to be `raw/2506.01844v1.pdf` = the **SmolVLA paper** (Shukor et al., HF/Sorbonne/valeo.ai/ENS, June 2025) — the other VLA entity gap flagged in this morning's LeRobot tutorial ingest. Both ingests landed at once, filling the two largest VLA gaps the wiki had been carrying.

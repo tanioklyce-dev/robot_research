@@ -38,7 +38,7 @@ Laundry folding (long-horizon, dual-arm, deformable), table bussing (combinatori
 
 - **The canonical flow-matching VLA**. π0 popularized the **flow-matching action expert** pattern that downstream VLAs (notably [SmolVLA](smolvla.md), and now also EgoScale's DiT action expert) have adopted. Action-head taxonomy is now: **autoregressive tokens (OpenVLA)** vs **DDPM (Diffusion Policy)** vs **flow matching (π0, SmolVLA, EgoScale)** — see [VLA models concept page](../concepts/learning/vla-models.md).
 - **Strongest 2024 cross-embodiment demonstration**. The "one checkpoint, 7 robot configs" claim was the first credible proof that a single generalist robot policy could span hardware tiers.
-- **The default π-series reference**. Successors π0.5 and π0.6 are tracked under [Physical Intelligence](physical-intelligence.md) but not separately ingested as of 2026-05-25.
+- **The default π-series reference.** Direct successors **[π0.7](pi07.md)** (5 B params; Gemma3 4B + MEM + diversified-prompt conditioning + KI training; emergent compositional generalization) and **[π*0.6](pistar06.md)** (RL-from-deployment recipe via advantage conditioning) are now filed. Intermediate π0.5 / π0.6 / π0.6-MEM remain not-separately-ingested. See [Physical Intelligence entity](physical-intelligence.md) for the full lineage table.
 - **Downstream artifact in LeRobot ecosystem**. Available at `lerobot/pi0_base`; used in the [LeRobot "Robot Learning: A Tutorial"](../sources/lerobot-robot-learning-tutorial.md) as the canonical VLA code example.
 - **The baseline [SmolVLA](smolvla.md) explicitly beats** on real-world SO-100 multi-task (SmolVLA 0.45 B = 78.3% vs π0 3.5 B = 61.7% avg). Smaller model + community data + interleaved cross-attention wins the comparison.
 
@@ -59,6 +59,8 @@ The two are the canonical contrast points in the [LeRobot tutorial](../sources/l
 ## Related
 
 - [Physical Intelligence](physical-intelligence.md) — vendor / origin.
+- [π0.7](pi07.md) — direct successor (2025); 5 B params; Gemma3 4B + diversified-prompt conditioning + KI training; first VLA with emergent compositional generalization.
+- [π*0.6](pistar06.md) — RL-finetuned sibling (2025); RECAP recipe via advantage conditioning; 2× throughput / ½ failure rate on hardest tasks.
 - [SmolVLA](smolvla.md) — smaller open-source contemporary; uses π0 as baseline.
 - [VLA models](../concepts/learning/vla-models.md) — broader concept.
 - [Diffusion Policy](diffusion-policy.md) — sibling continuous-action approach via DDPM (vs π0's flow matching).
