@@ -49,6 +49,18 @@ From [RUM paper](../sources/robot-utility-models-paper.md) §3.2:
 - **Top performer at smaller data scale** (20–40% of full data) — better data-efficiency on lower-scale corpora.
 - Used as a strong baseline; not RUM's deployed policy class.
 
+## DDPM action head vs flow matching — VLA design contrast
+
+Diffusion Policy's DDPM-over-actions is one of three action-head families in the wiki's [VLA models taxonomy](../concepts/learning/vla-models.md):
+
+| Family | Reference |
+|---|---|
+| **Autoregressive action tokens** | OpenVLA |
+| **DDPM** (this entity) | Diffusion Policy |
+| **Flow matching** | [π0](pi-zero.md), [SmolVLA](smolvla.md), EgoScale |
+
+The flow-matching alternative was popularized by [π0](pi-zero.md) (Black et al. 2024, Physical Intelligence) and adopted by [SmolVLA](smolvla.md) (Shukor et al. 2025, HF) with **interleaved cross-attention + causal self-attention** in the action expert. The [LeRobot tutorial](../sources/lerobot-robot-learning-tutorial.md) introduces both DDPM and flow matching as siblings in its generative-models chapter, before specializing into the policy-specific applications. Both are continuous-action approaches that avoid action-tokenization quantization; the choice between them is increasingly the architectural distinction across 2024–2026 BC / VLA work.
+
 ## Performance characteristics in Mobile ALOHA
 
 From [Mobile ALOHA paper](../sources/mobile-aloha-paper.md) §6.2, evaluated against [ACT](act.md) and VINN+chunking on bimanual mobile manipulation:
@@ -96,6 +108,7 @@ From [Mobile ALOHA paper](../sources/mobile-aloha-paper.md) §6.2, evaluated aga
 - [Robot Utility Models Paper](../sources/robot-utility-models-paper.md) — second-best policy class in RUM ablation.
 - [UMI Project Page](../sources/umi-paper.md) — UMI uses Diffusion Policy as its canonical policy class (same lead author).
 - [Mobile ALOHA Paper](../sources/mobile-aloha-paper.md) — evaluated alongside [ACT](act.md) and VINN+chunking on bimanual mobile manipulation.
+- [SmolVLA Paper](../sources/smolvla-paper.md) — referenced as DDPM-class baseline alongside SmolVLA's flow-matching action expert.
 
 ## Open questions / TBD
 

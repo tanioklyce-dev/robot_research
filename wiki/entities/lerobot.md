@@ -20,6 +20,11 @@ LeRobot is the **dominant open-source IL framework for the affordable mobile-man
 - **[Stretch AI](stretch-ai.md)** — Hello Robot's stack targeted at the $20k Stretch platform.
 - **LeRobot** — broader and lower-cost; supports SO-ARM101, LeKiwi, and downstream compositions like XLeRobot at ~$600–$1,000.
 
+LeRobot also distributes **two reference VLA checkpoints** directly:
+
+- **[`lerobot/pi0_base`](pi-zero.md)** — Physical Intelligence's [π0](pi-zero.md) (3.3 B params; PaliGemma + flow-matching action expert).
+- **[`lerobot/smolvla_base`](smolvla.md)** — Hugging Face LeRobot team's [SmolVLA](smolvla.md) (450 M params; SmolVLM-2 + flow-matching action expert with interleaved CA + causal SA + async-inference stack). **SmolVLA beats π0-3.5 B by +16.6 pts on real-world SO-100 multi-task** despite ~7× fewer params.
+
 The canonical 7-step LeRobot workflow (install → motor config → calibration → teleop → data collection → train → evaluate) is repeated across nearly every LeRobot-compatible hardware tutorial. **ACT (Action Chunking with Transformers)** is the default reference policy class, though Diffusion Policy and others are supported.
 
 ## Composition stack examples in this wiki
@@ -60,6 +65,8 @@ The [LeRobot Worldwide Hackathon 2025](lerobot-worldwide-hackathon-2025.md) (Jun
 
 ## Mentioned in
 
+- [SmolVLA Paper](../sources/smolvla-paper.md) — team-authored VLA built on LeRobot framework.
+- [π0 Paper](../sources/pi-zero-paper.md) — Physical Intelligence's VLA; distributed via LeRobot.
 - [Robot Learning: A Tutorial (LeRobot)](../sources/lerobot-robot-learning-tutorial.md) — official team-authored tutorial.
 - [Grievous GitHub](../sources/grievous-github.md) — downstream hardware project built on LeRobot.
 - [XLeRobot Documentation](../sources/xlerobot-docs.md)

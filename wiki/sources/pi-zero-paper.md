@@ -2,54 +2,84 @@
 title: π0 Paper — A Vision-Language-Action Flow Model for General Robot Control (Black et al., Physical Intelligence, 2024)
 type: source
 url: https://arxiv.org/abs/2410.24164
+html: https://arxiv.org/html/2410.24164v1
+blog: https://physicalintelligence.company/blog/pi0
 author: "Kevin Black, Noah Brown, Danny Driess, Adnan Esmail, Michael Equi, Chelsea Finn, Niccolo Fusai, Lachy Groom, Karol Hausman, Brian Ichter, Szymon Jakubczak, Tim Jones, Liyiming Ke, Sergey Levine, Adrian Li-Bell, Mohith Mothukuri, Suraj Nair, Karl Pertsch, Lucy Xiaoyang Shi, James Tanner, Quan Vuong, Anna Walling, Haohuan Wang, Ury Zhilinsky"
-affiliation: Physical Intelligence (and academic collaborators)
+affiliation: Physical Intelligence
 published: 2024-10-31 (arxiv v1); 2026-01-08 (last revised)
-ingested: 2026-05-10
+ingested: 2026-05-10 (abstract); 2026-05-25 (full HTML deepening)
 created: 2026-05-10
-updated: 2026-05-10
-tags: [pi-zero, pi0, vla, flow-matching, vision-language-action, physical-intelligence, generalist-policy, levine]
+updated: 2026-05-25
+tags: [pi-zero, pi0, vla, flow-matching, vision-language-action, physical-intelligence, generalist-policy, paligemma, action-expert, cross-embodiment, levine, primary-source]
 ---
-
-> [!note] Ingest depth
-> This source page is **based on the arxiv abstract page only** (paper PDF not in `raw/`). Filed as part of the curriculum-driven backfill for [Module 9 (VLA models)](../syntheses/curriculum/robot-learning-curriculum.md). To deepen, drop the PDF in `raw/` and re-ingest.
 
 ## Summary
 
-**π0** ("pi-zero") — [Physical Intelligence](../entities/physical-intelligence.md), led by a 24-author roster including Sergey Levine, Chelsea Finn, Karol Hausman, Brian Ichter, Karl Pertsch (October 2024). A **vision-language-action flow-matching model**: a pre-trained vision-language model (VLM) provides the perception + language backbone; a **flow-matching action head** generates continuous action sequences. Trained across heterogeneous robot data — single-arm, dual-arm, mobile manipulators — and evaluated on long-horizon manipulation tasks including **laundry folding, table cleaning, and box assembly**. Cited by the [Stanford HAI AI Index 2026](stanford-hai-ai-index-2026.md) as a leading Physical-AI VLA demonstration.
+**π0** ("pi-zero") — [Physical Intelligence](../entities/physical-intelligence.md)'s flagship vision-language-action model (24 authors including Black, Brown, Driess, Finn, Hausman, Ichter, Levine, Pertsch; October 2024). The architecture: take a **pretrained 3 B-parameter PaliGemma VLM** and bolt on a **flow-matching "action expert"** that turns VLM features + a noisy action chunk into continuous joint commands. Train end-to-end on **~10,000 hours of in-house cross-embodiment teleop data** across 7 robot configurations and 68 tasks, plus OXE + DROID + Bridge. Result: one model that performs **laundry folding, table bussing, microwave dish loading, egg-carton stacking, box assembly, and grocery bagging** on single-arm, dual-arm, and mobile-manipulator embodiments without per-platform retraining.
 
-## Abstract (verbatim opener)
+Full HTML ingested 2026-05-25 — supersedes the prior abstract-only ingest. The wiki now also has a [dedicated π0 entity](../entities/pi-zero.md) and a separate ingest of the **[SmolVLA paper](smolvla-paper.md)** (Shukor et al., HF, June 2025), which uses π0 as its primary VLA baseline.
 
-> "We propose ... a flow matching architecture built on top of a pre-trained vision-language model (VLM) to inherit Internet-scale semantic knowledge."
+## Architecture (paper §IV)
 
-(Paraphrased framing of the main claim from the arxiv abstract page; full abstract to be re-verified once the PDF lands in `raw/`.)
+- **Base VLM**: **PaliGemma 3 B** ([Beyer et al., 2024](https://arxiv.org/abs/2407.07726)) — chosen for "convenient tradeoff between size and performance" and **suitability for real-time control**. The framework is VLM-agnostic.
+- **Action expert**: a transformer module added to the VLM that emits flow-based outputs. **Total params: 3.3 B** (PaliGemma 3 B + ~0.3 B action expert).
+- **Attention pattern**: the action expert uses a **full bidirectional attention mask** — all action tokens within a chunk attend to each other. (Contrast with [SmolVLA](../entities/smolvla.md), which interleaves cross-attention and **causal** self-attention.)
+- **Inputs**: 3 RGB images + sensorimotor state + a natural-language task instruction.
+- **Outputs**: action chunks; flow-matching head trained to predict the vector field that denoises actions from Gaussian noise toward the demonstration action distribution, with the flow-matching time variable `τ` sampled from a **Beta distribution**.
 
-## Key claims
+## Training data (paper §V)
 
-- **Architecture: VLM backbone + flow-matching action head.** The action decoder is **flow matching**, a diffusion-cousin generative-modeling technique. The continuous-action head is conditioned on VLM features and language tokens.
-- **Cross-platform training.** Single training run produces a policy that runs on single-arm, dual-arm, and mobile-manipulator embodiments without per-platform retraining (the headline "general robot control" claim).
-- **Tasks demonstrated.** Laundry folding, table cleaning, box assembly — long-horizon, dexterous, household-flavoured tasks that stress beyond-PushT-class capability.
-- **Internet-scale prior.** The VLM backbone gives semantic generalization the action head alone could not provide (instruction-following, object naming, etc.).
+- **~10,000 hours of dexterous manipulation** collected in-house by Physical Intelligence.
+- Across **7 robot configurations and 68 tasks** (single-arm, dual-arm, mobile manipulator).
+- Augmented with **OXE** ([Open X-Embodiment](../entities/droid.md)), **[DROID](../entities/droid.md)**, **Bridge**, and other open robot datasets.
 
-## Why it matters in this wiki
+## Training recipe (paper §V)
 
-- **Concrete VLA exemplar beyond OpenVLA / GR00T.** The wiki had Physical Intelligence filed as an entity but no primary source for π0 itself — that gap is now closed.
-- **Flow matching vs DDPM as action heads.** π0 uses **flow matching** in the same role [Diffusion Policy](../entities/diffusion-policy.md) uses **DDPM** — these are sibling generative-model families, and the curriculum [Module 9](../syntheses/curriculum/robot-learning-curriculum.md) can now contrast them with a primary source on each side.
-- **Generalist-policy data point.** Cross-platform training (single-arm, dual-arm, mobile manipulator) is the kind of breadth claim curriculum [Module 13](../syntheses/curriculum/robot-learning-curriculum.md) (home-robotics deployment) needs to interrogate.
+- **Pre-training** on the full mixture → broad coverage.
+- **Post-training** (fine-tuning) on task-specific data → dexterity for laundry, bussing, etc.
+- Pre-training corresponds to the "robot-foundation-model" framing: one model, many tasks; fine-tune for specialization.
+- High-level VLM policy is used to **direct π0 with sub-task language commands** in the multi-stage experiments (the "human-VLA-VLM stack").
+
+## Results (paper §VI)
+
+### Tasks demonstrated
+Laundry folding (long-horizon, dual-arm, deformable), table bussing (combinatorial — many dishes, utensils, trash), dishes in microwave, eggs-into-carton stacking, box assembly, grocery bagging.
+
+### Baselines
+- **OpenVLA** (autoregressive action tokens) — trained for 160k steps for fair comparison.
+- **Octo** (transformer-from-scratch on demonstration data) — trained for 320k steps and additionally on the same data mixture as π0.
+- Plus a **cross-embodiment-fine-tuned OpenVLA** on UR5e to give the baseline its strongest shot.
+
+### Headline finding (§VI-D)
+π0 **substantially beats both baselines** on the bussing-task family — paper reports "large improvements over all baselines, including prior VLA models and models designed specifically for dexterous manipulation." The bussing task evaluates the fraction of objects correctly placed in receptacles; harder variants stack utensils on trash and include objects not seen in pre-training.
+
+### Cross-embodiment finding (§VI-B)
+A single π0 checkpoint follows language commands across single-arm, dual-arm, and mobile-manipulator platforms — "zero shot after pre-training."
+
+### Language-following finding (§VI-B)
+The model **follows commands from a high-level VLM policy** as well as from a human — opening the door to hierarchical VLM-as-planner + π0-as-controller stacks.
+
+## Discussion / Limitations (paper §VII)
+
+- π0 is presented as **a prototype**, not the final word — Physical Intelligence has since iterated to π0.5 / π0.6 ([referenced via Physical Intelligence entity](../entities/physical-intelligence.md); not separately ingested).
+- The **flow-matching head + bidirectional action attention** is one design point; SmolVLA's contrast (causal self-attention + interleaved cross-attention, with a smaller base VLM) shows the architectural space isn't settled.
+- **Data scale and curation are load-bearing**: 10k hours of in-house teleop is the kind of investment that's hard for academic labs to match — which is why subsequent work like [SmolVLA](smolvla-paper.md) (22.9k episodes ≈ 0.6k hours equivalent, from 481 community datasets) and [EgoScale](egoscale-paper.md) (egocentric human video) have been exploring alternative data regimes.
 
 ## Entities mentioned
 
-- [Physical Intelligence](../entities/physical-intelligence.md) — the company; π0 is its flagship.
-- [Sergey Levine](../entities/sergey-levine.md), [Chelsea Finn](../entities/chelsea-finn.md), [Karl Pertsch](../entities/karl-pertsch.md) — author overlaps with [DROID](../entities/droid.md) / Metaworld lineage.
-- [Franka Panda](../entities/franka-panda.md) — likely platform; verify on PDF.
+- [Physical Intelligence](../entities/physical-intelligence.md) — the company.
+- [π0](../entities/pi-zero.md) — model entity (new, filed by this ingest).
+- [Sergey Levine](../entities/sergey-levine.md), [Chelsea Finn](../entities/chelsea-finn.md), [Karl Pertsch](../entities/karl-pertsch.md) — author overlaps with DROID / Metaworld lineage.
+- [Franka Panda](../entities/franka-panda.md), UR5e — referenced platforms.
+- [DROID](../entities/droid.md) — training-data component.
 
 ## Concepts touched
 
-- [VLA models](../concepts/learning/vla-models.md) — π0 is a defining instance.
+- [VLA models](../concepts/learning/vla-models.md) — π0 is a defining instance; the flow-matching action head is contrasted there with DDPM (Diffusion Policy) and autoregressive tokens (OpenVLA).
 - [Imitation learning](../concepts/learning/imitation-learning.md) — π0 is BC-flavored at training time (with a flow-matching head).
 
 ## Open questions / TBD
 
-- **Full paper not yet ingested** — abstract-level only. The flow-matching loss formulation, VLM choice, training-data composition, and quantitative success rates are unquoted.
-- **Flow matching as a concept page.** Worth a dedicated `concepts/flow-matching.md` if it resurfaces in later VLA / world-model work.
-- **π0.5 and π0.6 follow-ons** — referenced in [Physical Intelligence entity](../entities/physical-intelligence.md); separate primary sources would close the family.
+- **Flow matching concept page** still not filed. With both π0 and [SmolVLA](smolvla-paper.md) using it, plus [DDPM](../entities/ddpm.md) as the substrate the LeRobot tutorial introduces it through, it's now load-bearing enough to deserve its own concept page in `concepts/learning/flow-matching.md`.
+- **π0.5 / π0.6 primary sources** — referenced in [Physical Intelligence](../entities/physical-intelligence.md) and [Stanford HAI AI Index 2026](stanford-hai-ai-index-2026.md); not yet ingested. The π series is one of the wiki's known-active gaps.
+- **Quantitative results table** — the paper presents head-to-head numbers per task; this ingest captures the structure but not the per-task percentages (paper PDF would supplement the HTML for exact values).

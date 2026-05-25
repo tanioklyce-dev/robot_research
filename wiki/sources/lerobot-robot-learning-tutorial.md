@@ -72,20 +72,22 @@ This is the **closest published equivalent to the wiki's own [Robot-learning cur
 - [ACT](../entities/act.md) — covered in the IL chapter as the canonical action-chunking method.
 - [Diffusion Policy](../entities/diffusion-policy.md) — covered alongside ACT.
 - [DDPM](../entities/ddpm.md) — substrate for the diffusion-policy material.
-- [Physical Intelligence](../entities/physical-intelligence.md) — π₀'s lab.
+- [π0](../entities/pi-zero.md) — featured VLA exemplar; full entity filed 2026-05-25 alongside the π0 paper deepening.
+- [SmolVLA](../entities/smolvla.md) — Hugging Face's affordable-VLA; full entity filed 2026-05-25 alongside the SmolVLA paper ingest. **Several of the tutorial's authors (Capuano, Pascal, Zouitine, Aractingi, Wolf, Cadene) are also SmolVLA co-authors.**
+- [Physical Intelligence](../entities/physical-intelligence.md) — π0's lab.
 
 ## Concepts touched
 
 - [Imitation learning](../concepts/learning/imitation-learning.md) — entire chapter; this tutorial is now the wiki's canonical pedagogical reference for IL.
-- [VLA models](../concepts/learning/vla-models.md) — entire chapter; π₀ + SmolVLA + VLM-for-VLA framing.
+- [VLA models](../concepts/learning/vla-models.md) — entire chapter; π0 + SmolVLA + VLM-for-VLA framing.
 - Generative models — VAE / Diffusion / Flow Matching introduced as preliminaries to IL.
-- Async inference — practical deployment topic.
+- Async inference — practical deployment topic; now also documented operationally in the [SmolVLA paper §3.3](smolvla-paper.md).
 
 ## Open questions
 
-- **π₀ entity** — referenced extensively here and across [Physical Intelligence](../entities/physical-intelligence.md), [DreamDojo](dreamdojo-paper.md), [VLA models concept](../concepts/learning/vla-models.md), and the [tri.md](../entities/tri.md) page — but **no dedicated π₀ entity exists yet**. Worth filing after this tutorial gives a coherent single-source description.
-- **SmolVLA entity** — same gap; SmolVLA is Hugging Face's own VLA family and is referenced here, in [DreamDojo](dreamdojo-paper.md), and in [scaling-laws-vla.md](../concepts/learning/scaling-laws-vla.md). Should get its own entity.
-- **Francesco Capuano + co-authors** — LeRobot/HF team; no individual entity pages.
+- ~~**π0 entity**~~ — **filed 2026-05-25** as [pi-zero.md](../entities/pi-zero.md) via the [π0 paper full-HTML deepening ingest](pi-zero-paper.md).
+- ~~**SmolVLA entity**~~ — **filed 2026-05-25** as [smolvla.md](../entities/smolvla.md) via the [SmolVLA paper ingest](smolvla-paper.md).
+- **Francesco Capuano + co-authors** — LeRobot/HF team; no individual entity pages yet, though [Remi Cadene](../entities/remi-cadene.md) is filed.
 - **Reproducibility of the code examples** — the examples target Capuano-hosted HF models (`fracapuano/...`); whether they remain stable as `lerobot` evolves is an open question.
 - **Relationship to wiki's own curriculum** — the [Robot-learning curriculum](../syntheses/curriculum/robot-learning-curriculum.md) is bottom-up from neurons; the LeRobot tutorial is mid-stack-first (jumps into RL/IL/VLA with ML prerequisites assumed). Likely complementary entries on the same map; worth a synthesis comparing the two pedagogical paths once readers have used both.
 

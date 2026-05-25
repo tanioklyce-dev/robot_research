@@ -2,9 +2,9 @@
 title: VLA models
 type: concept
 created: 2026-05-06
-updated: 2026-05-17
-sources: 22
-tags: [vla, vision-language-action, foundation-model, robotics]
+updated: 2026-05-25
+sources: 24
+tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, flow-matching]
 ---
 
 **Vision-Language-Action (VLA) models** are robot foundation models that take visual input plus a language instruction and emit low-level actions for a robot to execute. The dominant model class powering "agentic" robotics in 2026.
@@ -14,11 +14,11 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 
 ## Notable VLAs (2026)
 - **[NVIDIA GR00T](../../entities/nvidia-groot.md)** N1.6 GA / N1.7 EA — 3B-parameter open VLA built on a Cosmos-Reason2-2B backbone; pretrained on ~20,854 hours of egocentric human video ([Top 10 Physical AI Models 2026](../../sources/top-10-physical-ai-models-2026.md), [NVIDIA Newton Contact-Rich Manipulation Blog](../../sources/nvidia-newton-contact-rich-manipulation-blog.md)). The pretraining corpus and a clean log-linear scaling law `L = 0.024 − 0.003·ln(D)` for it are documented in **[EgoScale](../../sources/egoscale-paper.md)** (Zheng et al., NVIDIA GEAR, Feb 2026) — see [Scaling laws — VLAs and human data](scaling-laws-vla.md).
-- **[Physical Intelligence](../../entities/physical-intelligence.md) π0 (2024) and π0.6 (2025)** — cross-platform generalist policies; π0 uses a **flow-matching** action head on a pre-trained VLM ([π0 Paper](../../sources/pi-zero-paper.md)); demonstrated tasks like laundry folding, table cleaning, and box assembly across single-arm, dual-arm, and mobile manipulators without task-specific retraining. Cited by [Stanford HAI AI Index 2026](../../sources/stanford-hai-ai-index-2026.md) as the leading Physical AI VLA demonstration.
+- **[π0](../../entities/pi-zero.md)** ([Physical Intelligence](../../entities/physical-intelligence.md), Oct 2024 — [paper](../../sources/pi-zero-paper.md)) — 3.3 B-param VLA = PaliGemma 3 B VLM + flow-matching action expert with full bidirectional self-attention. Trained on **~10,000 hours of in-house dexterous teleop** across 7 robot configurations + 68 tasks + OXE + DROID + Bridge. Tasks: laundry folding, table bussing, microwave dish loading, egg-carton stacking, box assembly, grocery bagging. Beats OpenVLA and Octo as baselines. Available as [`lerobot/pi0_base`](https://huggingface.co/lerobot/pi0_base). Cited by [Stanford HAI AI Index 2026](../../sources/stanford-hai-ai-index-2026.md) as the leading Physical AI VLA demonstration. **π0.6** (2025) referenced but no primary source yet.
 - **[Helix](../../sources/helix-blog.md)** ([Figure AI](../../entities/figure.md), Feb 2025) — full upper-body humanoid VLA on [Figure 02](../../entities/figure.md). Hierarchical **System 1 / System 2** split: 7B-param VLM at 7–9 Hz for slow reasoning + 80M-param transformer at 200 Hz for fast control, end-to-end-trained. Trained on ~500 hours of teleop ("<5%" of typical VLA datasets per Figure). Runs onboard embedded GPUs.
 - **[Gemini Robotics](../../entities/gemini-robotics.md)** ([Google DeepMind](../../entities/google-deepmind.md)) — parallel generalist-policy effort alongside GR00T. Note: the Gemini Robotics family ships in two variants — a full VLA (this entry) and **Gemini Robotics-ER**, an embodied-reasoning *VLM* that emits tool calls and is therefore an [LLM-agent architecture](../agents/llm-agent-architecture.md) planner rather than a VLA. Boston Dynamics' [Spot + Gemini Robotics demo](../../sources/bostondynamics-spot-gemini-robotics.md) uses the -ER variant.
 - **GO-2 series** — benchmarked by [Genie Sim](../../entities/agibot-genie-sim.md).
-- **SmolVLA** — runs on consumer hardware (single RTX, even MacBooks).
+- **[SmolVLA](../../entities/smolvla.md)** ([Hugging Face](../../entities/hugging-face.md) LeRobot team, June 2025 — [paper](../../sources/smolvla-paper.md)) — **450 M-param** affordable-VLA reference; SmolVLM-2 backbone + flow-matching action expert with **interleaved cross-attention + causal self-attention**. Pretrained on **22.9 K episodes from 481 community HF datasets** (≈10× less data than π0) with VLM-cleaned task annotations + camera-view normalization. **Beats π0-3.5 B by +16.6 pts on real-world SO-100 multi-task** (78.3 vs 61.7 avg across pick-place + stacking + sorting). Introduces a **server/client async inference stack** with a threshold-`g` queue management policy and observation similarity filter — the practical-deployment piece most VLA papers skip. Available as [`lerobot/smolvla_base`](https://huggingface.co/lerobot/smolvla_base); runs on consumer GPUs and CPUs.
 - **LingBot-VLA** — Ant Group's foundation model for real-world manipulation.
 
 > [!note] Hierarchical System 1 / System 2 VLA pattern
@@ -28,8 +28,9 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 
 | VLA | Backbone | Action head | Notes |
 | --- | --- | --- | --- |
-| **OpenVLA** | Llama-2 | autoregressive action tokens | Open-weights baseline. |
-| **π0** | pretrained VLM | **flow matching** | [Source](../../sources/pi-zero-paper.md). Diffusion-cousin generative head. |
+| **OpenVLA** | Llama-2 (7B) | autoregressive action tokens | Open-weights baseline. |
+| **[π0](../../entities/pi-zero.md)** | PaliGemma 3B | **flow matching** + **full bidirectional SA** | [Source](../../sources/pi-zero-paper.md). 3.3 B total. The canonical flow-matching VLA. |
+| **[SmolVLA](../../entities/smolvla.md)** | SmolVLM-2 (~0.4 B) | **flow matching** + **interleaved CA + causal SA** | [Source](../../sources/smolvla-paper.md). 450 M total. 22.9 K episodes from 481 community HF datasets. Beats π0-3.5B on real-world SO-100. |
 | [Diffusion Policy](../../entities/diffusion-policy.md) (BC, not strictly a VLA) | ResNet-18 / no language | **DDPM** | The action-head reference for π0's flow-matching design choice. |
 | **Helix S1** | small transformer | continuous regression @ 200 Hz | Combined with **Helix S2** = 7B VLM @ 7–9 Hz. |
 | **GR00T N1.6/1.7** | Cosmos-Reason2-2B | (mixed; see [GR00T entity](../../entities/nvidia-groot.md)) | 3B params; 20,854 hr egocentric video pretrain — see [EgoScale](../../sources/egoscale-paper.md) for the primary source and scaling law. |
@@ -51,6 +52,9 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 - [World-model simulators](../world-models/world-model-simulators.md) — alternate paradigm for VLA training environments.
 
 ## Mentioned in
+- [π0 Paper](../../sources/pi-zero-paper.md)
+- [SmolVLA Paper](../../sources/smolvla-paper.md)
+- [Robot Learning: A Tutorial (LeRobot)](../../sources/lerobot-robot-learning-tutorial.md)
 - [AGIBOT Genie Sim 3.0 Announcement](../../sources/agibot-genie-sim-3-announcement.md)
 - [Top 10 Physical AI Models 2026](../../sources/top-10-physical-ai-models-2026.md)
 - [Genesis Project Page](../../sources/genesis-project-page.md)
@@ -58,6 +62,5 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 - [Robot Utility Models Project Page](../../sources/robot-utility-models-website.md)
 - [Stretch AI LLM Agent Documentation](../../sources/stretch-ai-llm-agent-docs.md)
 - [Stanford HAI — AI Index Report 2026](../../sources/stanford-hai-ai-index-2026.md)
-- [π0 Paper](../../sources/pi-zero-paper.md)
 - [Helix (Figure AI blog)](../../sources/helix-blog.md)
 - [EgoScale Paper](../../sources/egoscale-paper.md)

@@ -2,6 +2,44 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-25] ingest | π0 full-HTML deepening + SmolVLA paper — closes the two largest VLA gaps
+
+User asked to ingest `https://arxiv.org/html/2410.24164v1` and a new raw file. The raw file turned out to be `raw/2506.01844v1.pdf` = the **SmolVLA paper** (Shukor et al., HF/Sorbonne/valeo.ai/ENS, June 2025) — the other VLA entity gap flagged in this morning's LeRobot tutorial ingest. Both ingests landed at once, filling the two largest VLA gaps the wiki had been carrying.
+
+### π0 — full HTML deepening (arxiv 2410.24164)
+
+Existing `pi-zero-paper.md` was abstract-only since 2026-05-10. Full HTML ingested today.
+
+- **Deepened**: [π0 source page](sources/pi-zero-paper.md) — full architectural detail (PaliGemma 3 B VLM + flow-matching action expert with full bidirectional attention; 3.3 B total params), training data (10,000 hr in-house teleop across 7 robot configs / 68 tasks + OXE + DROID + Bridge), the demonstrated task list (laundry folding, table bussing, microwave dish loading, egg-carton stacking, box assembly, grocery bagging), baselines (beats OpenVLA + Octo), and the VLM-as-planner + π0-as-controller stack.
+- **Created**: [π0 entity](entities/pi-zero.md) — split off from [Physical Intelligence](entities/physical-intelligence.md) since π0 is now sufficient as a standalone entity (5 sources). Includes a head-to-head architectural comparison table vs SmolVLA.
+- **Updated**: [Physical Intelligence entity](entities/physical-intelligence.md) — points at the new π0 entity; sources count 2 → 3.
+
+### SmolVLA — new ingest (arxiv 2506.01844)
+
+- **Created**: [SmolVLA source page](sources/smolvla-paper.md). Captures the three contributions (lightweight architecture, community-data pretraining, async inference), the architectural details (SmolVLM-2 backbone + interleaved CA + causal SA action expert at hidden=0.75×VLM + layer N=L/2 feature read + 64 visual tokens/frame), training data (481 community HF datasets / 22.9 K episodes / 10.6 M frames), the VLM-cleaned-task-annotation + camera-view-normalization tricks, the async-inference RobotClient/PolicyServer architecture with threshold-`g` + observation similarity filter, the analytical derivation of the queue-non-empty condition, the LIBERO + Meta-World + real-world SO-100 + real-world SO-101 result tables, and the implementation envelope (200 K steps × batch 256, ~30 K GPU hours total, can train on a single GPU).
+- **Created**: [SmolVLA entity](entities/smolvla.md). The canonical affordable-VLA reference; **beats π0-3.5 B by +16.6 pts on real-world SO-100 multi-task** despite ~7× fewer params.
+
+### Cross-source updates
+
+- [VLA models concept](concepts/learning/vla-models.md) — π0 entry deepened with the full training-data + task list; SmolVLA entry expanded with all the architectural + result detail; action-head taxonomy table updated to show **autoregressive (OpenVLA) vs DDPM (Diffusion Policy) vs flow matching (π0, SmolVLA, EgoScale)** as the three families.
+- [Diffusion Policy entity](entities/diffusion-policy.md) — new section explicitly framing DDPM-vs-flow-matching as the wiki's central continuous-action-head contrast; mentioned-in extended.
+- [LeRobot entity](entities/lerobot.md) — π0 and SmolVLA called out as the two LeRobot-distributed reference VLA checkpoints; mentioned-in extended.
+- [LeRobot tutorial source page](sources/lerobot-robot-learning-tutorial.md) — the two "π0 entity / SmolVLA entity" open questions are now resolved and stricken; SmolVLA author overlap with the tutorial authors noted.
+- [index.md](index.md) — π0 + SmolVLA source entries expanded; new VLA-list entries for both; Physical Intelligence source-count bumped.
+
+### Cross-source insight worth flagging
+
+The two ingests **establish a clean architectural taxonomy across 2024–2025 VLAs**:
+
+- **Action head**: autoregressive tokens (OpenVLA) → DDPM (Diffusion Policy) → flow matching (π0, SmolVLA, EgoScale). The flow-matching family is winning the 2025 design contest.
+- **Attention pattern within action expert**: full bidirectional SA (π0) → interleaved CA + causal SA (SmolVLA) — SmolVLA's empirical win at smaller scale suggests the SmolVLA pattern may become the new default.
+- **Data**: corporate teleop at scale (π0: 10,000 hr in-house) vs community datasets (SmolVLA: 22.9 K episodes from 481 HF datasets) vs egocentric human video (EgoScale: 20,854 hr). All three approaches are now backed by published artifacts.
+- **The empirical surprise**: SmolVLA-0.45 B > π0-3.5 B on real-world SO-100 multi-task. **Smaller model + community data + better attention pattern + careful inference engineering beats raw param-count + corporate-data.** Same direction as the [Mobile ALOHA co-training pattern](sources/mobile-aloha-paper.md), [RUM data diversity finding](entities/robot-utility-models.md), and [EgoScale's human-video scaling law](sources/egoscale-paper.md).
+
+### Lingering wiki gap surfaced
+
+**Flow matching** as a concept is now load-bearing across π0, SmolVLA, EgoScale, and the LeRobot tutorial — but no dedicated `concepts/learning/flow-matching.md` page exists. Worth filing on a future pass.
+
 ## [2026-05-25] ingest | Mobile ALOHA project page + Grievous (downstream) + LeRobot tutorial (HF Space)
 
 User asked to ingest three URLs in one batch: the [Mobile ALOHA project page](sources/mobile-aloha-project-page.md), the [alexkoven/Grievous repo](sources/grievous-github.md), and the [LeRobot "Robot Learning: A Tutorial" HF Space](sources/lerobot-robot-learning-tutorial.md). All three turned out to be tightly intertwined with the morning's [Mobile ALOHA paper](sources/mobile-aloha-paper.md) ingest and the wiki's existing heavy [LeRobot](entities/lerobot.md) / [XLeRobot](entities/xlerobot.md) coverage.
