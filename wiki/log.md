@@ -2,6 +2,22 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-25] ingest | JEPA-WMs GitHub (reproducibility recipe)
+
+User asked to ingest `https://github.com/facebookresearch/jepa-wms`. README pulled via curl from raw.githubusercontent.com (no auth required for public repos; bypasses WebFetch). Distinct ingest from this morning's TMLR-paper deepening: the paper is the *what* and *why*, the GitHub repo is the *how-to-actually-clone-and-run-it*.
+
+- **Created**: [JEPA-WMs GitHub source page](sources/jepa-wms-github.md). Captures the 12 downloadable checkpoints (5 JEPA-WMs + 5 DINO-WM + 2 V-JEPA-2-AC variants + 4 VM2M decoder heads), TorchHub + HF loading patterns, conda+uv install recipe, the 5 `JEPAWM_*` env vars, the 6 shipped HF datasets vs the gsutil-only DROID download (5.6–8.7 TB), the paper-config → environment mapping, the `Basile-Terver/robosuite` and `Basile-Terver/robocasa` forks, the MuJoCo 2.1 PointMaze quirk, and — most importantly — the **CC-BY-NC 4.0 license** which constrains downstream Stretch / ROSOrin Pro projects to non-commercial use.
+
+- **The single most operationally useful fact in the repo**: it ships **both** V-JEPA-2-AC variants. `vjepa2_ac_droid` is the **rollout-loss-bug-fixed** retraining that produced the paper Table 2 numbers (formerly only described in §C); `vjepa2_ac_oss` is the original [V-JEPA 2 GitHub](sources/vjepa2-github.md) checkpoint. This closes the loop on the [V-JEPA 2 entity callout](entities/v-jepa-2.md) about the bug-fix — the fixed weights are now downloadable rather than requiring user retraining.
+
+- **Updated**: [JEPA-WMs entity](entities/jepa-wms.md) — sources 4 → 5; Code section now lists the GitHub source page + checkpoint count + CC-BY-NC license caveat; Mentioned-in extended.
+
+- **Updated**: [V-JEPA 2 entity](entities/v-jepa-2.md) — callout extended to point to the downloadable `vjepa2_ac_droid` (fixed) and `vjepa2_ac_oss` (original) checkpoint pair.
+
+- **Updated**: [index.md](index.md) — new chronological-sources entry; positioned next to the paper.
+
+- **Open questions** (logged on the source page): dataset license inheritance for the re-hosted Push-T / PointMaze / Wall sets (originally from `apple/ml-dino-wm`); divergence between the Basile-Terver forks of robosuite/robocasa vs upstream; bit-exact reproducibility of Table 2 numbers (README ships config filenames but doesn't claim it); SLURM-free distributed-training path for non-HPC users.
+
 ## [2026-05-25] ingest | Stretch 4 datasheet (Rev 5) + JEPA-WMs TMLR-version deepening
 
 User dropped two PDFs in `raw/` and asked to ingest. Both turned out to be deepenings of existing wiki entries, not new topics.

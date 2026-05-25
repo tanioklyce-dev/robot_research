@@ -4,8 +4,8 @@ type: entity
 subtype: model
 created: 2026-05-07
 updated: 2026-05-25
-sources: 4
-tags: [jepa-wms, jepa, world-model, fair, meta-fair, robocasa, metaworld, droid, lecun, bardes, ponce, adaln, rope, dinov3, cem]
+sources: 5
+tags: [jepa-wms, jepa, world-model, fair, meta-fair, robocasa, metaworld, droid, lecun, bardes, ponce, adaln, rope, dinov3, cem, cc-by-nc]
 ---
 
 **JEPA-WMs** — a family of [JEPA](../concepts/world-models/jepa.md)-style world models for physical planning, formalized by [FAIR](meta-fair.md) in [Terver et al. (TMLR 05/2026)](../sources/jepa-wms-paper.md) ("What Drives Success in Physical Planning with Joint-Embedding Predictive World Models?"). Authors: **Basile Terver** (Meta FAIR + Inria), **Tsung-Yen Yang** (Meta FAIR), **Jean Ponce** (ENS/PSL + NYU), **Adrien Bardes** (Meta FAIR), **Yann LeCun** (NYU).
@@ -90,9 +90,12 @@ JEPA-WMs is the load-bearing source for the [revised "JEPA + sim" synthesis](../
 - [Why JEPA research skips the simulator stack](../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md) — revised synthesis citing this paper as the contradicting evidence.
 
 ## Code
-- Repo: https://github.com/facebookresearch/jepa-wms
+- Repo: https://github.com/facebookresearch/jepa-wms — see [JEPA-WMs GitHub source page](../sources/jepa-wms-github.md) for full reproducibility recipe.
+- Model checkpoints: https://huggingface.co/facebook/jepa-wms (5 JEPA-WMs + 5 DINO-WM baselines + 2 V-JEPA-2-AC baselines + 4 VM2M decoder heads).
 - Dataset: https://huggingface.co/datasets/facebook/jepa-wms
 - OpenReview: https://openreview.net/forum?id=cHZn5Gdh8e
+- **License: CC-BY-NC 4.0** — non-commercial; constrains downstream Stretch / ROSOrin Pro project use to research and personal scope.
 
 ## Mentioned in
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
+- [JEPA-WMs GitHub](../sources/jepa-wms-github.md)
