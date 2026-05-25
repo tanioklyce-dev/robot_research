@@ -21,7 +21,7 @@ tags: [stretch, stretch-4, hello-robot, mobile-manipulator, jetson-orin-nx, ros2
 > 2. The [Hello Robot forum launch post](https://forum.hello-robot.com/t/introducing-stretch-4/1505) (2026-05-12) — the most substantive published technical-spec writeup.
 > 3. [The Robot Report's coverage](https://www.therobotreport.com/hello-robots-latest-stretch-4-is-bigger-faster-and-stronger-than-previous-versions/) — independent corroboration of the launch (HTTP 403 on direct fetch; key facts via search snippet).
 >
-> The [official Stretch 4 datasheet PDF](https://hello-robot.com/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf) is referenced on the purchase page but returned 404 at ingest time. If it surfaces later, drop it in `raw/` and deepen this page.
+> **Datasheet now ingested:** The [official Stretch 4 datasheet PDF (Rev 5, As Launched)](https://hello-robot.com/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf) was 404 at the time of this page's first ingest, but surfaced on 2026-05-25 — see [Stretch 4 Datasheet source page](hello-robot-stretch-4-datasheet.md) for exact sensor SKUs (Hesai J128 LiDAR, Luxonis OAK-FFC AR0234 / IMX378 / OAK-D SR), the specific Intel NUC 15 + Jetson Orin NX configuration, the active-safety architecture, and the FCC-Class-A "not yet certified" caveat. This launch page remains the narrative + pricing reference; the datasheet is the canonical spec sheet.
 
 ## Summary
 
@@ -159,7 +159,7 @@ Use cases listed in nav: **Assist**, **Research**, **Enterprise**. Certification
 
 ## Open questions / TBD
 
-- **Datasheet PDF** — referenced from the purchase page but 404 at ingest. Drop in `raw/` if it surfaces.
+- **~~Datasheet PDF~~** — **resolved 2026-05-25**: datasheet surfaced and is now ingested as the [Stretch 4 Datasheet source page](hello-robot-stretch-4-datasheet.md). Spec table in [Stretch entity](../entities/stretch.md) is the merged view.
 - **Stretch 3 policy transfer**: do [Robot Utility Models](../entities/robot-utility-models.md), [OK-Robot](../entities/ok-robot.md), and [Dobb·E](../entities/dobb-e.md) transfer to Stretch 4, or do they need retraining? The new base kinematics + wrist DOF make this nontrivial.
 - **`stretch_ai` compatibility**: does the existing [stretch_ai](../entities/stretch-ai.md) stack work on Stretch 4 out of the box, or is there a Stretch-4-specific branch?
 - **Enterprise tier specifics**: the use-case nav lists Assist / Research / Enterprise but the launch post doesn't elaborate on what "Enterprise" means in practice. Worth a separate ingest if Hello Robot publishes a deployment program page.

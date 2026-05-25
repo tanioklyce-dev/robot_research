@@ -2,9 +2,9 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-05-15
+updated: 2026-05-25
 sources: 18
-tags: [jepa, world-model, self-supervised, latent-prediction, lecun]
+tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem]
 ---
 
 > [!note] Video overview
@@ -55,6 +55,22 @@ The term **Joint Embedding** names the architecture class defined by this proper
   - **[DINO-WM](../../entities/dino-wm.md)** (Zhou et al., NYU + FAIR, Nov 2024) — DINOv2 features + learned predictor; zero-shot planning. Lightweight benches (PushT, Wall, PointMaze, Rope, Granular, Reacher).
   - **[DINO-world](../../entities/dino-world.md)** (Baldassarre et al., FAIR, July 2025) — DINOv2 features for video world models; predates JEPA-WMs by 5 months and shares Basile Terver as a bridge author.
 - Comparison points: [Dreamer / DreamerV3](../../entities/dreamer.md) (task-specific reward, generative WM); [TD-MPC](../../entities/td-mpc.md) (state-based, decoder-free MBRL); [PLDM](../../entities/pldm.md) (end-to-end JEPA with VICReg + inverse-dynamics, ~6 hyperparameters; [Sobal et al. 2025](../../sources/pldm-paper.md)).
+
+## Design-axis lessons for JEPA-WM-style robot planning
+
+The first systematic ablation across architectural / training / planning axes for JEPA-style world models came from [JEPA-WMs (Terver et al., TMLR 05/2026)](../../sources/jepa-wms-paper.md), which beat both [DINO-WM](../../entities/dino-wm.md) and [V-JEPA 2-AC](../../entities/v-jepa-2.md) on every evaluated environment. The findings have become load-bearing recommendations for anyone building this class:
+
+| Axis | Finding |
+| --- | --- |
+| **Frozen encoder** | DINO ≫ V-JEPA. Fine object segmentation matters more than video pretraining for control. DINOv3 wins only on photorealistic envs (DROID, Robocasa); DINOv2 ties or wins on synthetic. |
+| **Predictor conditioning** | **AdaLN+RoPE > sincos / sequence conditioning** on average; per-block AdaLN prevents action-information vanishing through depth. Task-dependent — Metaworld prefers sincos+ftcond. |
+| **Multi-step rollout loss** | k = 2 helps in sim; **k = 6 helps on DROID**. Acts as data augmentation against compounding error (scheduled-sampling-analogous). The optimum shifts upward when the per-step error δ_K is dominated by the effective Lipschitz constant Λ_K — i.e., when horizons are long and dynamics are complex. |
+| **Context length W** | Must satisfy planning context Wp ≤ training W. Optimal W = 3 in sim, **W = 5 on DROID**. Going higher reduces unique training slices and hurts. |
+| **Proprioception** | Always helps when embodiments are aligned (vision alone can't resolve fine end-effector distance). Drop only when targets are misaligned (e.g. DROID → Robocasa zero-shot). |
+| **Planner** | **CEM with L₂ embedding distance** is the default that wins overall. NG (Nevergrad NGOpt) ties on real-world manipulation with zero hyperparameter tuning. Gradient-based (Adam, GD) only works on smooth-cost envs like Metaworld; fails on 2D nav + contact-rich manip. L₂ > L₁ consistently. |
+| **Model scaling** | Encoder + predictor scaling **only pays off on real-world data** (DROID); saturates at ViT-S, depth 6 on simulated benches. Practical rule: scale capacity only when dynamics are genuinely complex. |
+
+These are the first published systematic ablations of these axes for JEPA-style world models and should anchor any JEPA-WM build that follows.
 
 ## Simulator stance — fragmenting, not avoiding
 The original wiki synthesis observed [V-JEPA 2](../../entities/v-jepa-2.md) and [LeWM](../../entities/leworldmodel.md) both skipping heavy agentic-robotics sim. With five additional ingests in May 2026, the picture is more nuanced: [JEPA-WMs](../../entities/jepa-wms.md) uses [RoboCasa](../../entities/robocasa.md); [VLA-JEPA](../../entities/vla-jepa.md) uses SimplerEnv; [DINO-WM](../../entities/dino-wm.md) uses lightweight MuJoCo benches; [V-JEPA 2.1](../../sources/v-jepa-2-1-paper.md) continues the no-sim line. **The JEPA literature is fragmenting across simulator weight classes**, not avoiding sim wholesale. See [the revised synthesis](../../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md).

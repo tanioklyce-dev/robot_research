@@ -2,6 +2,36 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-25] ingest | Stretch 4 datasheet (Rev 5) + JEPA-WMs TMLR-version deepening
+
+User dropped two PDFs in `raw/` and asked to ingest. Both turned out to be deepenings of existing wiki entries, not new topics.
+
+### Stretch 4 datasheet — `raw/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf`
+
+The official 2-page Hello Robot spec sheet that the [Stretch 4 launch source page](sources/hello-robot-stretch-4-launch.md) explicitly flagged as **404 at first-ingest time** (2026-05-17). It has now surfaced and is the canonical Stretch 4 spec reference.
+
+- **Created**: [Stretch 4 Datasheet source page](sources/hello-robot-stretch-4-datasheet.md). Captures exact sensor model numbers (**Hesai J128** LiDAR; **Luxonis OAK-FFC AR0234** wide-FOV; **Luxonis OAK-FFC IMX378** high-res; **OAK-D SR** wrist depth with 4 TOPs), specific compute (**Intel NUC 15 Core Ultra 5 225H** + 32 GiB + 1 TB; **Jetson Orin NX** with 16 GB + 128 GB + WiFi 5.2), the safety architecture (motor-current force limiting + 100 Hz watchdog + IMU tilt avoidance + dedicated head Runstop + **6× Pixart cliff curtains**), **24 V Feetech RS485 tool bus**, environmental envelope (10–30 °C / IP20 / 10–90 % RH), 12-month warranty, **not-yet-FCC-Class-A** caveat, plus absolute dynamic-speed numbers (lift 50 cm/s; arm 70 cm/s; base 60 cm/s; 20 mm step clearance).
+- **Updated**: [Stretch entity](entities/stretch.md) — merged spec table now cites both launch page and datasheet, with per-row source attribution. Added contradiction-callout for the **9 DOF (datasheet) vs 8 + gripper (launch)** countings of the same hardware. Footprint corrected from 45 cm → 43 cm.
+- **Updated**: [Hello Robot entity](entities/hello-robot.md) — sensor + compute SKUs now reflect datasheet detail; sources count 8 → 9.
+- **Updated**: [Stretch 4 launch source page](sources/hello-robot-stretch-4-launch.md) — closed the "datasheet missing" TBD; provenance callout points to the new datasheet source page.
+- **Updated**: [index.md](index.md) — datasheet added to Sources (chronological).
+
+### JEPA-WMs TMLR-version full-paper deepening — `raw/7271_What_Drives_Success_in_Ph.pdf`
+
+55-page TMLR-published (05/2026) version of Terver et al. The wiki had ingested only the arxiv-abstract + GitHub-README level on 2026-05-07; the full paper has now landed.
+
+- **Updated**: [JEPA-WMs source page](sources/jepa-wms-paper.md) — full content rewrite. Confirms authors / affiliations (Meta FAIR + Inria + ENS/PSL + NYU). Adds the **recommended recipe per task type** (Table 1), the **head-to-head results table** (Table 2 — Ours beats DINO-WM on every env; beats V-JEPA-2-AC on every env where both ran), and all **8 design-axis findings** (encoder type, predictor architecture, multi-step rollout, proprioception, context length, planner, model + data scaling).
+- **Updated**: [JEPA-WMs entity](entities/jepa-wms.md) — full rewrite. Recipe table + results table + design-axis findings now anchor the entity.
+- **Updated**: [JEPA concept page](concepts/world-models/jepa.md) — new **"Design-axis lessons for JEPA-WM-style robot planning"** section consolidating the seven findings as load-bearing recommendations for anyone building this class.
+- **Updated**: [DINO-WM entity](entities/dino-wm.md) — added the head-to-head loss row (DINO-WM beaten on every env by JEPA-WMs).
+- **Updated**: [V-JEPA 2 entity](entities/v-jepa-2.md) — added callout that FAIR's own JEPA-WMs recipe beats V-JEPA-2-AC on Rc-R + DROID, with the structural-reason explanation (DINO's fine object segmentation > V-JEPA's coarser segmentation for control).
+- **Created**: [Jean Ponce entity](entities/jean-ponce.md) — recurring senior author on FAIR JEPA-line papers (VICReg 2022; JEPA-WMs 2026); ENS/PSL + NYU.
+- **Updated**: [index.md](index.md) — JEPA-WMs entry now reflects the TMLR publication + recipe + head-to-head numbers.
+
+### Cross-source insight (worth flagging)
+
+The wiki now has two parallel deepenings landing on the same day, both compute-split-flavored: **Stretch 4 (control on NUC 15 + AI on Jetson Orin NX)** and **JEPA-WMs (planning loop = encoder forward + predictor unroll + CEM)**. The Stretch 4 datasheet locks in a per-platform shape for the [Jetson Thor / DGX Spark train-vs-deploy](syntheses/platforms/jetson-thor-vs-dgx-spark.md) pattern that's been recurring across the wiki. The JEPA-WMs recipe gives the **first published reasoning about what to run on that AI accelerator** for image-goal planning — DINOv3-L encoder + AdaLN+RoPE predictor (depth 12) + 2-step rollout + CEM-L₂. A future synthesis could connect the two.
+
 ## [2026-05-17] query+howto | "Configure Orin Nano to boot NVMe when SD has no boot partition"
 
 User running Jetson Orin Nano on L4T 36.5.0 from SD asked how to configure UEFI auto-fallback to NVMe. Reduces to: (a) make both media bootable; (b) put SD first in `BootOrder`; (c) trust UEFI's built-in skip-on-missing-bootloader behavior.

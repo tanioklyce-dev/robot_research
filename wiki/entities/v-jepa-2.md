@@ -3,7 +3,7 @@ title: V-JEPA 2
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-05-16
+updated: 2026-05-25
 sources: 16
 tags: [v-jepa-2, jepa, world-model, meta-fair, video, action-conditioned, franka]
 ---
@@ -32,6 +32,9 @@ tags: [v-jepa-2, jepa, world-model, meta-fair, video, action-conditioned, franka
 
 ## Why it matters
 First public demonstration of a **latent-prediction world model** ([JEPA](../concepts/world-models/jepa.md)) doing zero-shot real-robot manipulation in untouched labs. Validates the JEPA thesis: predict in representation space, not pixel space, and you can scale to internet-video pretraining without paying the cost of generating video. Sits in **paradigmatic contrast** to [NVIDIA Cosmos](nvidia-cosmos.md) / [Genie Envisioner](genie-envisioner.md) (generative-video world models).
+
+> [!note] V-JEPA-2-AC beaten by FAIR's own JEPA-WMs recipe
+> The same FAIR group's **[JEPA-WMs (Terver et al., TMLR 05/2026)](../sources/jepa-wms-paper.md)** beats V-JEPA-2-AC on every env where both were evaluated — **Rc-R 25.4 vs 16.2, Rc-Pl 30.7 vs 33.1 (tie), DROID 48.2 vs 42.9**. The JEPA-WMs ablation also surfaces a structural reason: **DINO encoders outperform V-JEPA encoders** as the frozen backbone for control, because DINO's fine object segmentation translates object motion into localized sparse token changes the predictor can learn efficiently. V-JEPA's coarser segmentation spreads object information across overlapping tokens. The JEPA-WMs numbers come from a retraining with a "rollout-loss bug fix" the authors document in §C of the paper.
 
 ## Related
 - [Meta FAIR](meta-fair.md) — primary lab.

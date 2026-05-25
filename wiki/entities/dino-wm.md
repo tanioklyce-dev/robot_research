@@ -3,7 +3,7 @@ title: DINO-WM
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-05-16
+updated: 2026-05-25
 sources: 16
 tags: [dino-wm, dinov2, world-model, jepa-adjacent, lecun, pinto, nyu, meta-fair]
 ---
@@ -34,6 +34,7 @@ Plus eval variants: **WallRandom, PushObj, GranularRandom, DM Control Reacher**,
 ## Why it matters
 - **Lightweight-sim JEPA-adjacent baseline.** Cited as a baseline in both [LeWM](../sources/leworldmodel-paper.md) and [JEPA-WMs (Terver et al.)](../sources/jepa-wms-paper.md) — meaning DINO-WM is the comparison every later JEPA-style robotics paper has to beat.
 - **Different design point from LeWM.** DINO-WM uses a frozen pretrained DINOv2 encoder; LeWM trains the encoder end-to-end with SIGReg. The two stake out the "frozen pretrained" vs "end-to-end" axis of the JEPA-style world-model design space.
+- **Beaten by JEPA-WMs on every evaluated env** ([Terver et al., TMLR 05/2026](../sources/jepa-wms-paper.md), Table 2): Maze 83.9 vs 81.6, Wall **78.8 vs 64.1**, Push-T 70.2 vs 66.0, MW-R **58.2 vs 44.8**, MW-RW 41.6 vs 35.1, Rc-R 25.4 vs 19.1, Rc-Pl 30.7 vs 21.7, DROID 48.2 vs 39.4. The JEPA-WMs recipe (AdaLN+RoPE predictor + 2-step rollout + proprioception + CEM-L₂ planner; DINOv3-L for photorealistic envs) is the **first published systematic improvement** on the DINO-WM baseline.
 
 ## Related
 - [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — JEPA-adjacent architecture.
