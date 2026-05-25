@@ -4,8 +4,8 @@ type: entity
 subtype: method
 created: 2026-05-25
 updated: 2026-05-25
-sources: 1
-tags: [act, action-chunking, transformer, imitation-learning, behavior-cloning, aloha, mobile-aloha, tony-zhao, stanford]
+sources: 3
+tags: [act, action-chunking, transformer, imitation-learning, behavior-cloning, aloha, mobile-aloha, tony-zhao, stanford, lerobot]
 ---
 
 **ACT (Action Chunking Transformer)** — imitation-learning method introduced by **Tony Z. Zhao et al. (Stanford, RSS 2023)** as the default policy for [ALOHA](aloha.md). Predicts a **chunk** (sequence) of future actions per timestep from observation history, instead of one action at a time. The "chunking" formulation is the contribution: it improves trajectory coherence, reduces per-step inference latency, and is now near-default across 2024–2026 BC and [VLA models](../concepts/learning/vla-models.md).
@@ -24,18 +24,27 @@ tags: [act, action-chunking, transformer, imitation-learning, behavior-cloning, 
 - **Popularized action chunking** as an IL primitive. The 2023 result that predicting a sequence outperforms per-step prediction is now baseline assumption across [Diffusion Policy](diffusion-policy.md), the Pi VLAs, and [RUMs](robot-utility-models.md).
 - **Method-agnostic co-training compatibility** — Mobile ALOHA shows ACT + co-training beats no-co-train in 5/7 tasks, with average +34% absolute improvement; Diffusion Policy + co-train also benefits (+30/+20 on Wipe Wine / Push Chairs) but less than ACT; VINN+chunking gets mixed results.
 
+## Codebase evolution
+
+- **Original ACT** — first introduced with original ALOHA (Zhao et al. RSS 2023).
+- **[ACT++](act-plus-plus.md)** ([MarkFzp/act-plus-plus](https://github.com/MarkFzp/act-plus-plus)) — the mobile-extended successor shipped with [Mobile ALOHA](aloha.md). Adds the 16-dim action vector (14 arms + 2 base), the co-training-with-static-data recipe, and the action-chunk delay-shift trick.
+- **LeRobot's ACT implementation** — independent re-implementation in the [LeRobot](lerobot.md) framework; covered in the **["Robot Learning: A Tutorial"](../sources/lerobot-robot-learning-tutorial.md)** with a runnable code example (`fracapuano/robot_learning_tutorial_act_example_model`).
+
 ## Open questions
 
-- The original 2023 ACT paper is **not yet ingested** in this wiki — the wiki's view of ACT comes via the Mobile ALOHA paper (which uses it as a baseline and describes its mechanics in passing) plus references on [chelsea-finn.md](chelsea-finn.md) and [imitation-learning.md](../concepts/learning/imitation-learning.md). A direct ACT paper ingest would refine architectural details (encoder depth, action-chunk length k, training tricks, the VAE-style action distribution model).
+- The original 2023 ACT paper is **not yet ingested** in this wiki — the wiki's view of ACT comes via the Mobile ALOHA paper (which uses it as a baseline and describes its mechanics in passing) plus the [LeRobot tutorial](../sources/lerobot-robot-learning-tutorial.md) and references on [chelsea-finn.md](chelsea-finn.md) and [imitation-learning.md](../concepts/learning/imitation-learning.md). A direct ACT paper ingest would refine architectural details (encoder depth, action-chunk length k, training tricks, the VAE-style action distribution model).
 - **Multi-task / language-conditioned ACT** — the wiki has no coverage of multi-task extensions; the published 2023/2024 work is single-task.
 
 ## Related
 - [ALOHA / Mobile ALOHA](aloha.md) — the platform ACT was introduced with.
+- [ACT++](act-plus-plus.md) — the mobile-extended codebase.
 - [Diffusion Policy](diffusion-policy.md) — contemporary BC method; both use action chunking.
 - [Tony Z. Zhao](tony-zhao.md) — first author.
 - [Chelsea Finn](chelsea-finn.md) — senior author.
 - [Imitation learning](../concepts/learning/imitation-learning.md) — concept; ACT is the canonical action-chunked BC reference.
-- [LeRobot](lerobot.md) — surfaces ACT as a reference policy.
+- [LeRobot](lerobot.md) — surfaces ACT as a reference policy; LeRobot tutorial uses ACT as the canonical IL example.
 
 ## Mentioned in
 - [Mobile ALOHA Paper](../sources/mobile-aloha-paper.md)
+- [Mobile ALOHA project page](../sources/mobile-aloha-project-page.md)
+- [Robot Learning: A Tutorial (LeRobot)](../sources/lerobot-robot-learning-tutorial.md)

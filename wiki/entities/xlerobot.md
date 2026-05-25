@@ -98,10 +98,15 @@ XLeRobot was the **dominant dual-arm platform** at the [October 2025 Seeed × NV
 
 These are the strongest external signals to date that the $660 BOM holds up when stacked against more expensive arms (FashionStar StarAI) in a competitive setting.
 
+## Downstream projects
+
+- **[Grievous](grievous.md)** ([source](../sources/grievous-github.md)) — Alex Koven's in-progress "cheap, human-like, fully-autonomous testbed" explicitly building on Mobile ALOHA + XLeRobot + [LeRobot](lerobot.md). First wiki-tracked attempt to combine XLeRobot's cost-reduction strategy with [Mobile ALOHA](aloha.md)'s bimanual-mobile design.
+
 ## Mentioned in
 
 - [XLeRobot Documentation](../sources/xlerobot-docs.md)
 - [Seeed × NVIDIA × HF Embodied AI Hackathon 2025 Recap](../sources/seeed-embodied-ai-hackathon-2025-recap.md)
+- [Grievous GitHub](../sources/grievous-github.md) — design ancestor.
 
 ## Open questions / TBD
 

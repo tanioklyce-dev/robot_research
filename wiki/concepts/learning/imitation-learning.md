@@ -23,8 +23,9 @@ tags: [imitation-learning, behavior-cloning, demonstrations, lerobot, act, co-tr
 
 The IL training stacks documented in this wiki cluster by hardware tier:
 
-- **[LeRobot](../../entities/lerobot.md)** ([Hugging Face](../../entities/hugging-face.md)) — open-source IL framework spanning sub-$1k hardware ([SO-ARM101](../../entities/so-arm101.md), [LeKiwi](../../entities/lekiwi.md), [XLeRobot](../../entities/xlerobot.md)) up through professional platforms. Canonical 7-step workflow (install → motor config → calibrate → teleop → record demos → train → evaluate). **ACT (Action Chunking with Transformers)** is the default reference policy.
+- **[LeRobot](../../entities/lerobot.md)** ([Hugging Face](../../entities/hugging-face.md)) — open-source IL framework spanning sub-$1k hardware ([SO-ARM101](../../entities/so-arm101.md), [LeKiwi](../../entities/lekiwi.md), [XLeRobot](../../entities/xlerobot.md)) up through professional platforms. Canonical 7-step workflow (install → motor config → calibrate → teleop → record demos → train → evaluate). **ACT (Action Chunking with Transformers)** is the default reference policy. The team-authored **["Robot Learning: A Tutorial"](../../sources/lerobot-robot-learning-tutorial.md)** (Capuano et al. arXiv 2510.12403; interactive at [huggingface.co/spaces/lerobot/robot-learning-tutorial](https://huggingface.co/spaces/lerobot/robot-learning-tutorial)) is the canonical onboarding text — Classical Robotics → RL → IL → Generalist VLAs, with runnable code examples for ACT, Diffusion Policy, async inference, π₀, and SmolVLA.
 - **[Stretch AI](../../entities/stretch-ai.md)** (Hello Robot) — LLM-agent + IL stack for the $20k [Stretch](../../entities/stretch.md) platform.
+- **[Mobile ALOHA + ACT++](../../entities/aloha.md)** (Stanford) — hardware + ML stack for $32k bimanual mobile manipulation; ACT++ codebase at [MarkFzp/act-plus-plus](https://github.com/MarkFzp/act-plus-plus).
 - **Research code** — Diffusion Policy, RUM, and similar each ship their own training code; typically run on [Franka Panda](../../entities/franka-panda.md), UR5e, or [Stretch](../../entities/stretch.md).
 
 ## Related
@@ -35,6 +36,7 @@ The IL training stacks documented in this wiki cluster by hardware tier:
 
 ## Mentioned in
 - [Mobile ALOHA Paper](../../sources/mobile-aloha-paper.md)
+- [Robot Learning: A Tutorial (LeRobot)](../../sources/lerobot-robot-learning-tutorial.md) — official team-authored tutorial; IL has its own chapter.
 - [Robot Utility Models Project Page](../../sources/robot-utility-models-website.md)
 - [Robot Utility Models Paper](../../sources/robot-utility-models-paper.md)
 - [RoboCasa365 Paper](../../sources/robocasa365-paper.md)

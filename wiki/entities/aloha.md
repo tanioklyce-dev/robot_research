@@ -4,8 +4,8 @@ type: entity
 subtype: product
 created: 2026-05-25
 updated: 2026-05-25
-sources: 1
-tags: [aloha, mobile-aloha, bimanual, mobile-manipulation, teleoperation, viperx-300, stanford, low-cost, open-source]
+sources: 2
+tags: [aloha, mobile-aloha, bimanual, mobile-manipulation, teleoperation, viperx-300, stanford, low-cost, open-source, act-plus-plus]
 ---
 
 **ALOHA** ("A Low-cost Open-source HArdware system") — Stanford's **low-cost bimanual puppeteering teleoperation platform**, built around 4× Trossen [ViperX 300](viperx-300.md) arms (2 leaders + 2 followers). Introduced in 2023 by **Zhao, Kumar, Levine, Finn** as the data-collection rig for [ACT](act.md). Defines the academic-budget reference for bimanual robot teleoperation.
@@ -38,9 +38,11 @@ tags: [aloha, mobile-aloha, bimanual, mobile-manipulation, teleoperation, viperx
 
 ## Software / data
 
-- Fully open-source: hardware + software + tutorials (3D printing, assembly, install) at https://mobile-aloha.github.io.
+- Fully open-source: hardware + software + tutorials (3D printing, assembly, install) at https://mobile-aloha.github.io ([project page source](../sources/mobile-aloha-project-page.md)).
+- **Hardware code**: https://github.com/MarkFzp/mobile-aloha (BOM + assembly + drivers).
+- **ML code**: https://github.com/MarkFzp/act-plus-plus — named **[ACT++](act-plus-plus.md)**, the mobile-extended successor to the original [ACT](act.md) codebase.
 - Static-ALOHA dataset: **825 demonstrations** across ~12 disjoint tabletop tasks; released via the [RT-X embodied dataset collection](../sources/mobile-aloha-paper.md).
-- Mobile-ALOHA in-domain datasets: 20–50 demos per task across 7 evaluated tasks.
+- Mobile-ALOHA in-domain datasets: 20–50 demos per task across 7 evaluated tasks. Hosted on Google Drive (link on project page).
 
 ## Why it matters in this wiki
 
@@ -54,13 +56,21 @@ tags: [aloha, mobile-aloha, bimanual, mobile-manipulation, teleoperation, viperx
 - **[Tony Z. Zhao](tony-zhao.md)** — Mobile ALOHA co-lead; **first author on original ALOHA + ACT**.
 - **[Chelsea Finn](chelsea-finn.md)** — senior author.
 
+## Downstream projects
+
+- **[Grievous](grievous.md)** ([source](../sources/grievous-github.md)) — Alex Koven's in-progress "cheap, human-like, fully-autonomous testbed" explicitly building on Mobile ALOHA + [XLeRobot](xlerobot.md) + [LeRobot](lerobot.md). First wiki-tracked attempt to cost-reduce Mobile ALOHA from $32k toward the [XLeRobot](xlerobot.md) tier.
+
 ## Related
 - [ACT (Action Chunking Transformer)](act.md) — the IL method introduced alongside original ALOHA; the platform's default policy class.
+- [ACT++](act-plus-plus.md) — the mobile-extended ML codebase shipped with Mobile ALOHA.
 - [Diffusion Policy](diffusion-policy.md) — alternative IL method evaluated on Mobile ALOHA.
 - [ViperX 300](viperx-300.md) — the underlying 6-DOF arm SKU.
 - [Imitation learning](../concepts/learning/imitation-learning.md) — concept the platform is built around.
 - [Stretch](stretch.md) — single-arm mobile-manip contrast; cited in Mobile ALOHA's related-work as having no bimanual / whole-body teleop interface.
 - [Franka Panda](franka-panda.md) — cost reference (one Mobile ALOHA ≈ one Panda arm).
+- [Grievous](grievous.md) — first downstream-of-Mobile-ALOHA cost-reduction effort.
 
 ## Mentioned in
 - [Mobile ALOHA Paper](../sources/mobile-aloha-paper.md)
+- [Mobile ALOHA Project Page](../sources/mobile-aloha-project-page.md)
+- [Grievous GitHub](../sources/grievous-github.md) — design ancestor.

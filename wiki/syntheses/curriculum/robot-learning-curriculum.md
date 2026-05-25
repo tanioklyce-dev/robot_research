@@ -2,8 +2,8 @@
 title: Robot-learning curriculum — from neurons to LeWorldModel
 type: synthesis
 created: 2026-05-10
-updated: 2026-05-11
-tags: [curriculum, course, learning-path, jepa, diffusion-policy, vla, world-model, lewm, home-robotics]
+updated: 2026-05-25
+tags: [curriculum, course, learning-path, jepa, diffusion-policy, vla, world-model, lewm, home-robotics, lerobot-tutorial]
 status: "complete — all 14 modules drafted 2026-05-10. Reader-traversable bottom-up. Module bodies may be deepened or revised on signal."
 ---
 
@@ -18,6 +18,9 @@ Each module below is scoped to become its own synthesis page (`syntheses/curricu
 
 > [!note] Video overview — recommended before starting
 > [Welch Labs — "Yann LeCun's $1B Bet Against LLMs" (2026-05-01, ~37 min)](../../sources/welchlabs-lecun-1b-bet-against-llms.md) is a popular-explainer that walks the same arc this curriculum ends on: blurry generative-video → Siamese networks → representation collapse → Barlow Twins → DINO → JEPA / world models, with on-camera LeCun framing. **Watch it before Module 1** as a non-technical orientation to *why* the curriculum points at JEPA / [LeWM](../../entities/leworldmodel.md) at all. Tier 1 is the same story rebuilt rigorously from first principles.
+
+> [!note] Parallel official tutorial — the LeRobot team's "Robot Learning: A Tutorial"
+> **[Robot Learning: A Tutorial](../../sources/lerobot-robot-learning-tutorial.md)** (Capuano, Pascal, Zouitine, Wolf, Aractingi — Hugging Face LeRobot team; arXiv 2510.12403; interactive HF Space at [huggingface.co/spaces/lerobot/robot-learning-tutorial](https://huggingface.co/spaces/lerobot/robot-learning-tutorial)) is the team-authored canonical onboarding for `lerobot`. Chapter arc: **Classical Robotics → RL → IL → Generalist (VLA) Policies**, with runnable code examples for ACT, Diffusion Policy, async inference, π₀, and SmolVLA. Complementary to this curriculum: their tutorial is **mid-stack-first** (jumps into RL/IL/VLA with ML prerequisites assumed); this curriculum is **bottom-up** (Tier 1 builds the ML foundations before anything robotics). A reader who's already comfortable with deep learning fundamentals may prefer the LeRobot tutorial directly; a reader who needs the ML refresher will find more value here in Tiers 1–2 and then can cross-read Modules 6–9 alongside the LeRobot tutorial's IL + Generalist chapters.
 
 ## Goal
 

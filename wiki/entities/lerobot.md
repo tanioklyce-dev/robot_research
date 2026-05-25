@@ -3,9 +3,9 @@ title: LeRobot
 type: entity
 subtype: software-framework
 created: 2026-05-10
-updated: 2026-05-15
-sources: 6
-tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator]
+updated: 2026-05-25
+sources: 8
+tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial]
 ---
 
 **LeRobot** — open-source **imitation-learning framework for robotics** maintained by [Hugging Face](hugging-face.md). Provides standardized tooling for: motor configuration, calibration, teleoperation, demonstration recording, dataset management, policy training (ACT, Diffusion Policy, others), and autonomous evaluation. Has emerged as the de-facto OSS stack for low-cost mobile manipulators (SO-ARM100/101, LeKiwi, XLeRobot, Bambot, Koch v1.1) and is bringing the "buy → assemble → teleop → train → deploy" pipeline within reach of sub-$1k hobbyist hardware.
@@ -40,6 +40,14 @@ The canonical 7-step LeRobot workflow (install → motor config → calibration 
 
 The [LeRobot Worldwide Hackathon 2025](lerobot-worldwide-hackathon-2025.md) (June 14–15, 2025) is the clearest community-scale signal for the framework: **916 registered team members, ~400 submissions, 30 ranked winners, 189 hackathon datasets, 12 hackathon models** ([all-winners HF Space](../sources/lerobot-worldwide-hackathon-2025-winners.md)). The `submissions` dataset alone has 11.3k downloads.
 
+## Official pedagogical reference
+
+**["Robot Learning: A Tutorial"](../sources/lerobot-robot-learning-tutorial.md)** (Capuano, Pascal, Zouitine, Wolf, Aractingi — Oct 14, 2025; arXiv 2510.12403 + HF Space at https://huggingface.co/spaces/lerobot/robot-learning-tutorial) is the **team-authored canonical tutorial** for the framework — a chapter arc from Classical Robotics through RL and IL to Generalist (VLA) policies, with runnable `lerobot` code examples (ACT, Diffusion Policy, async inference, [π₀](physical-intelligence.md), SmolVLA). 410 likes on the Space at ingest time. This is the recommended single-source onboarding for the framework, complementary to the wiki's own [bottom-up curriculum](../syntheses/curriculum/robot-learning-curriculum.md).
+
+## Downstream / hardware-ecosystem projects
+
+- **[Grievous](grievous.md)** ([source](../sources/grievous-github.md)) — Alex Koven's in-progress "cheap, human-like, fully-autonomous testbed" registered as `lerobot.robots.grievous.grievous_host`. Design ancestors: [Mobile ALOHA](aloha.md) + [XLeRobot](xlerobot.md).
+
 ## Related
 
 - [Hugging Face](hugging-face.md) — maintainer
@@ -52,6 +60,8 @@ The [LeRobot Worldwide Hackathon 2025](lerobot-worldwide-hackathon-2025.md) (Jun
 
 ## Mentioned in
 
+- [Robot Learning: A Tutorial (LeRobot)](../sources/lerobot-robot-learning-tutorial.md) — official team-authored tutorial.
+- [Grievous GitHub](../sources/grievous-github.md) — downstream hardware project built on LeRobot.
 - [XLeRobot Documentation](../sources/xlerobot-docs.md)
 - [Seeed Studio LeRobot LeKiwi Wiki](../sources/seeed-lekiwi-wiki.md)
 - [LeKiwi GitHub](../sources/lekiwi-github.md)

@@ -2,6 +2,33 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-25] ingest | Mobile ALOHA project page + Grievous (downstream) + LeRobot tutorial (HF Space)
+
+User asked to ingest three URLs in one batch: the [Mobile ALOHA project page](sources/mobile-aloha-project-page.md), the [alexkoven/Grievous repo](sources/grievous-github.md), and the [LeRobot "Robot Learning: A Tutorial" HF Space](sources/lerobot-robot-learning-tutorial.md). All three turned out to be tightly intertwined with the morning's [Mobile ALOHA paper](sources/mobile-aloha-paper.md) ingest and the wiki's existing heavy [LeRobot](entities/lerobot.md) / [XLeRobot](entities/xlerobot.md) coverage.
+
+- **3 new source pages**:
+  - [Mobile ALOHA project page (mobile-aloha.github.io)](sources/mobile-aloha-project-page.md) — companion to the paper; surfaces the tutorial Google Doc, the dataset Drive folder, author homepages (Fu, Zhao, Finn), and **the [ACT++](entities/act-plus-plus.md) codebase name** (`MarkFzp/act-plus-plus`) that the paper itself only cites as "ACT [104]".
+  - [Grievous (alexkoven/Grievous)](sources/grievous-github.md) — early-stage WIP testbed "based on Mobile ALOHA + XLeRobot, built on LeRobot." RPi5-on-robot + remote-PC inference. Direct downstream of Mobile ALOHA + XLeRobot + LeRobot — all three of which are already heavily covered.
+  - [Robot Learning: A Tutorial (LeRobot)](sources/lerobot-robot-learning-tutorial.md) — Hugging Face LeRobot team-authored tutorial (Capuano, Pascal, Zouitine, Wolf, Aractingi); arXiv 2510.12403 + interactive HF Space (410 likes). Chapter arc Classical Robotics → RL → IL → Generalist VLAs with runnable `lerobot` code examples for ACT, Diffusion Policy, async inference, π₀, and SmolVLA. **First HF-Space ingest in the wiki.**
+
+- **2 new entities**:
+  - [Grievous](entities/grievous.md) — the testbed project.
+  - [ACT++](entities/act-plus-plus.md) — the mobile-extended ACT codebase; bundles the 16-dim action vector + co-training + action-chunk delay-shift introduced by Mobile ALOHA.
+
+- **Updated**:
+  - [ALOHA / Mobile ALOHA entity](entities/aloha.md) — added Hardware Code + ML Code (ACT++) repo URLs; new Downstream Projects section listing Grievous; Mentioned-in extended.
+  - [ACT entity](entities/act.md) — new "Codebase evolution" section (original ACT → ACT++ → LeRobot's re-implementation); sources count 1 → 3.
+  - [XLeRobot entity](entities/xlerobot.md) — new Downstream Projects section listing Grievous.
+  - [LeRobot entity](entities/lerobot.md) — new "Official pedagogical reference" section pointing at the Capuano-et-al. tutorial; new "Downstream / hardware-ecosystem projects" listing Grievous; sources count 6 → 8.
+  - [Imitation learning concept](concepts/learning/imitation-learning.md) — LeRobot tutorial called out as the canonical IL onboarding text; ACT++ codebase added to Frameworks-and-stacks bullet.
+  - [Robot-learning curriculum synthesis](syntheses/curriculum/robot-learning-curriculum.md) — new callout pointing at the LeRobot tutorial as the parallel official version; explains the bottom-up (wiki) vs mid-stack-first (LeRobot) split.
+  - [Mobile ALOHA paper source](sources/mobile-aloha-paper.md) — cross-link to the project page; ACT++ surfaced as the codebase name.
+  - [index.md](index.md) — 3 new chronological sources; Grievous + ACT++ added to entity lists; Mobile ALOHA + ACT source counts bumped.
+
+- **Cross-source insight worth flagging**: the three ingests **trace a single emerging cost-reduction arc** — Mobile ALOHA ($32k bimanual mobile, 2024) → XLeRobot ($660 bimanual stationary on a cart, Aug 2025) → Grievous (in-progress synthesis of both, 2026). The LeRobot tutorial is the pedagogical glue that makes this arc traversable in a single weekend by a new practitioner. All four artifacts (Mobile ALOHA, XLeRobot, Grievous, LeRobot tutorial) share the same software substrate ([LeRobot](entities/lerobot.md)) and the same default IL method ([ACT](entities/act.md)). The wiki now has the full lineage filed.
+
+- **Open questions** (logged on the source pages): π₀ and SmolVLA still don't have their own entities despite being referenced across [DreamDojo](sources/dreamdojo-paper.md), [scaling-laws-vla.md](concepts/learning/scaling-laws-vla.md), [Physical Intelligence entity](entities/physical-intelligence.md), and now this tutorial; worth filing as a follow-up pass. Grievous's hardware BOM, license, and form-factor ("human-like") are also unresolved.
+
 ## [2026-05-25] ingest | Mobile ALOHA — fills a long-standing ALOHA / ACT gap
 
 User dropped `raw/mobile-aloha.pdf` and asked to ingest. The paper is Fu, Zhao, Finn (Stanford, Jan 2024) — bimanual mobile manipulation via whole-body teleoperation + a co-training-with-static-data IL recipe. **The ingest closes an explicit wiki gap**: both [chelsea-finn.md](entities/chelsea-finn.md) and the [robot-platforms-comparison synthesis](syntheses/platforms/robot-platforms-comparison.md) had previously flagged "ALOHA / ACT — not yet ingested."
