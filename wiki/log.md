@@ -2,6 +2,22 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-25] ingest | The Elements of Differentiable Programming (Blondel & Roulet, Google DeepMind)
+
+User dropped `raw/2403.14606v3.pdf` — Blondel & Roulet's **485-page reference textbook** on differentiable programming, draft v3 (June 24, 2025), free on arXiv. The wiki's most comprehensive single mathematical-foundation reference to date.
+
+- **Created**: [Blondel & Roulet source page](sources/blondel-roulet-differentiable-programming.md) — captures the 5-part / 18-chapter structure (Fundamentals → Differentiable programs → Differentiating through programs → Smoothing programs → Optimizing differentiable programs) plus a chapter-to-wiki-content mapping table tying each major section to the wiki's existing threads (transformers ch. 4.8 → every VLA; autodiff ch. 8 → every learned model; REINFORCE ch. 12.3 → [RECAP](entities/pistar06.md); reparametrization ch. 12.4 → flow matching in [π0](entities/pi-zero.md) / [π0.7](entities/pi07.md) / [SmolVLA](entities/smolvla.md); softmax + sparsemax ch. 13.5 → attention + action heads; Fenchel-Young losses ch. 18 → unifying VLA action-head taxonomy). Filed in the textbook-precedent style (cf. [Welch Labs Vol I](sources/welchlabs-illustrated-guide-to-ai.md), [Sutton & Barto](sources/sutton-barto-rl-textbook.md)) — section-summary depth, not deep ingest.
+
+- **Created**: [Mathieu Blondel entity](entities/mathieu-blondel.md) — Google DeepMind research scientist; **Fenchel-Young loss + sparsemax** lineage + **JAX ecosystem** contributions (JAXopt, optax). The author who unifies softmax / cross-entropy / sparsemax / hinge loss into one Fenchel-Young construction — which is directly the framework the wiki's VLA action-head taxonomy (autoregressive tokens vs DDPM vs flow matching) sits inside.
+
+- **Updated**: [Robot-learning curriculum hub](syntheses/curriculum/robot-learning-curriculum.md) — new "Rigorous mathematical companion" callout pointing at the Blondel & Roulet book as the **lookup reference** when a curriculum module hand-waves through a derivation. Specifically called out for Module 1 (backprop = ch. 8 autodiff), Module 3 (transformers = ch. 4.8), Module 5 (generative models + reparametrization = chs. 12.4 + 13), Module 8 (RL gradient estimators = ch. 12.3).
+
+- **Updated**: [index.md](index.md) — new chronological source entry; Mathieu Blondel added to People.
+
+### Cross-source insight
+
+The book formalizes a framing the wiki has been implicitly using across many ingests: **every action-distribution choice in VLAs (autoregressive tokens, DDPM, flow matching, sparsemax) is an instance of a Fenchel-Young loss with a different convex-conjugate regularizer.** This unifies the [vla-models taxonomy](concepts/learning/vla-models.md) under one mathematical structure. Worth a future synthesis page once a couple more wiki ingests reinforce the connection.
+
 ## [2026-05-25] ingest | π0.7 + π*0.6 — completes the π-series spine (π0 → π0.7 + π*0.6)
 
 User dropped `raw/pi07.pdf` and `raw/pistar06.pdf` mid-session and asked to ingest both. Both are direct successors to π0 from [Physical Intelligence](entities/physical-intelligence.md) and were referenced as gaps in this morning's π0 entity ingest. The two papers represent Physical Intelligence's late-2025 push along two complementary axes — π0.7 = "scale data + diversify the prompt" and π*0.6 = "iterate on deployment experience via RL."
