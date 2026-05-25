@@ -146,6 +146,7 @@ Curated entry points across the wiki.
 - [DINO-world Paper](sources/dino-world-paper.md) — FAIR DINOv2-latent video world model ("Back to the Features"). (2025-07)
 - [JEPA-WMs Paper](sources/jepa-wms-paper.md) — Terver, Yang, Ponce, Bardes, LeCun (FAIR + Inria + ENS/PSL + NYU; TMLR 05/2026). First systematic ablation of JEPA-WM design choices (encoder / predictor arch / multi-step rollout / context / proprioception / planner / scaling). Recommended recipe — **DINOv3-L + AdaLN+RoPE predictor + 6-step rollout + CEM-L₂** on real manipulation; **DINOv2-S + 2-step rollout** in sim. **Beats DINO-WM and V-JEPA-2-AC on every evaluated env** (Wall 78.8 vs 64.1; MW-R 58.2 vs 44.8; DROID 48.2 vs 39.4/42.9). First JEPA paper to use RoboCasa + Metaworld + DROID + real Franka. (TMLR 05/2026; arxiv preprint 2025-12)
 - [JEPA-WMs GitHub (facebookresearch/jepa-wms)](sources/jepa-wms-github.md) — official PyTorch implementation + 12 pretrained checkpoints (5 JEPA-WMs paper recipe + 5 DINO-WM baselines + 2 V-JEPA-2-AC variants, including the **"fixed" rollout-loss-bug-corrected** version used in the paper Table 2) + 4 VM2M decoder heads. Conda + uv install; env vars `JEPAWM_DSET / JEPAWM_LOGS / JEPAWM_HOME`. Datasets on HF (`facebook/jepa-wms`); DROID requires separate `gsutil` download (5.6–8.7 TB). **License: CC-BY-NC 4.0** — non-commercial only. (2025-12-30)
+- [Mobile ALOHA Paper (Fu, Zhao, Finn — Stanford)](sources/mobile-aloha-paper.md) — **$32k bimanual mobile manipulator** with whole-body teleoperation (operator tethered to AgileX Tracer base, backdrives wheels by walking while both hands run [ALOHA](entities/aloha.md) leader arms). Closes long-standing wiki gap (ALOHA / ACT were repeatedly flagged as missing). Key result: **co-training 825 static-bimanual demos + 20–50 in-domain mobile-bimanual demos boosts success by up to +90% absolute** (avg +34% across 7 tasks: Wipe Wine, Cook Shrimp, Rinse Pan, Use Cabinet, Call Elevator, Push Chairs, High Five). Method-agnostic — works with [ACT](entities/act.md), [Diffusion Policy](entities/diffusion-policy.md), and (weakly) VINN. Robust to 30/50/70% co-train mixture; beats pre-train→fine-tune. Hardware: 4× [Trossen ViperX 300](entities/viperx-300.md) + RTX 3070 Ti laptop + 1.26 kWh battery; 12 hr runtime. Fully open-source (hardware + software + tutorials). (2024-01)
 - [VLA-JEPA Paper](sources/vla-jepa-paper.md) — JEPA-as-auxiliary inside a VLA; LIBERO + SimplerEnv + real. (2026-02)
 - [V-JEPA 2.1 Paper](sources/v-jepa-2-1-paper.md) — direct successor to V-JEPA 2; "dense features" + +20pt real-Franka grasping. (2026-03)
 - [FRC 2026 Game Manual — REBUILT](sources/frc-2026-game-manual.md) — 166-page rule book for FIRST Robotics Competition 2026; game mechanics, robot constraints, AprilTag field, scoring. (2026-01-10)
@@ -315,6 +316,8 @@ Curated entry points across the wiki.
 - [NAO](entities/nao.md) — SoftBank/Aldebaran 58-cm educational humanoid; canonical since 2008. (0 sources) _stub_
 - [TonyPi](entities/tonypi.md) — Hiwonder hobby-tier biped kit ($300–700); educational-tier sibling of [ROSOrin Pro](entities/rosorin-pro.md). (2 sources) _stub_
 - [Stretch](entities/stretch.md) — Hello Robot's mobile manipulator (Stretch 3). De-facto research platform. (11 sources)
+- [Mobile ALOHA](entities/aloha.md) — Stanford bimanual mobile manipulator with whole-body teleop; 4× [ViperX 300](entities/viperx-300.md) + AgileX Tracer base; $32k incl. onboard compute + power; the [ACT](entities/act.md) + co-training-with-static-data reference. (1 source)
+- [Trossen ViperX 300](entities/viperx-300.md) — 6-DOF benchtop arm; the bimanual-teleop SKU underneath [ALOHA / Mobile ALOHA](entities/aloha.md). (1 source)
 - [Reachy 2](entities/reachy.md) — Pollen Robotics' open-source bimanual mobile manipulator for embodied AI; ROS 2; 7 DOF/arm. (1 source)
 - [myAGV](entities/myagv.md) — Elephant Robotics autonomous mobile base; ROS; Raspberry Pi 4B; pairs with arms. (1 source)
 - [LeKiwi](entities/lekiwi.md) — SIGRobotics-UIUC 3-wheel Kiwi-drive holonomic mobile manipulator; Raspberry Pi 5 + STS3215; sub-$1k; LeRobot ecosystem; 1,300+ stars. (3 sources)
@@ -388,7 +391,8 @@ Curated entry points across the wiki.
 - [IBC](entities/ibc.md) — Implicit Behavioral Cloning (Florence et al., CoRL 2021); energy-based-model BC; introduced PushT; direct ancestor of Diffusion Policy. (1 source)
 - [BET](entities/bet.md) — Behavior Transformer (Shafiullah et al., NeurIPS 2022); transformer + k-means action discretization; ancestor of VQ-BeT. (1 source)
 - [VQ-BeT](entities/vq-bet.md) — Vector-Quantized Behavior Transformer (Lee et al. 2024); top performer in RUM ablation. (1 source) _stub_
-- [Diffusion Policy](entities/diffusion-policy.md) — Chi et al. 2023, Columbia/TRI/MIT; conditional DDPM over actions; popularized PushT + UMI gripper + action-chunking convention. (3 sources)
+- [Diffusion Policy](entities/diffusion-policy.md) — Chi et al. 2023, Columbia/TRI/MIT; conditional DDPM over actions; popularized PushT + UMI gripper + action-chunking convention. (4 sources)
+- [ACT (Action Chunking Transformer)](entities/act.md) — Zhao et al. 2023, Stanford; default IL policy for [ALOHA / Mobile ALOHA](entities/aloha.md); operationalized **action chunking** as a first-class IL primitive (now near-default across 2024–2026 BC + VLA). (1 source)
 - [UMI](entities/umi.md) — Universal Manipulation Interface (Chi et al., RSS 2024); hand-held gripper data-collection system; same lead author as Diffusion Policy. (1 source)
 
 ### LLMs
@@ -413,7 +417,9 @@ Curated entry points across the wiki.
 - [Adrien Bardes](entities/adrien-bardes.md) — FAIR researcher; lead author on VICReg (ICLR 2022); co-senior on V-JEPA 2, V-JEPA 2.1, JEPA-WMs. The FAIR-side champion of the V-JEPA program. (4 sources)
 - [Basile Terver](entities/basile-terver.md) — researcher (FAIR-affiliated, inferred); bread-crumb across DINO-world → JEPA-WMs lineage. (2 sources)
 - [Sergey Levine](entities/sergey-levine.md) — UC Berkeley EECS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)
-- [Chelsea Finn](entities/chelsea-finn.md) — Stanford CS; senior on DROID + Metaworld. (0 source pages yet — referenced via entity pages)
+- [Chelsea Finn](entities/chelsea-finn.md) — Stanford CS; senior on DROID + Metaworld + Mobile ALOHA. (1 source page: Mobile ALOHA)
+- [Tony Z. Zhao](entities/tony-zhao.md) — Stanford CS; first author on original ALOHA + [ACT](entities/act.md); co-lead on [Mobile ALOHA](entities/aloha.md). (1 source)
+- [Zipeng Fu](entities/zipeng-fu.md) — Stanford CS PhD; co-lead on [Mobile ALOHA](entities/aloha.md). (1 source)
 - [Lerrel Pinto](entities/lerrel-pinto.md) — NYU CS; co-senior on DINO-WM, RUM, and OK-Robot. (5 sources)
 - [Jim Fan (Linxi Fan)](entities/jim-fan.md) — NVIDIA Director of Robotics, Distinguished Scientist; co-founder + co-lead of [NVIDIA GEAR](entities/nvidia-gear.md) (Feb 2024); co-leads [GR00T](entities/nvidia-groot.md); project lead on [EgoScale](sources/egoscale-paper.md) + [DreamDojo](sources/dreamdojo-paper.md); pre-GEAR author on MineDojo / VIMA / Voyager / Eureka. (3 sources)
 - [Yuke Zhu](entities/yuke-zhu.md) — UT Austin Associate Prof / NVIDIA Director; co-leads [GEAR](entities/nvidia-gear.md); senior on RoboCasa365 + the original RoboCasa + MimicGen line; project lead on [EgoScale](sources/egoscale-paper.md) + [DreamDojo](sources/dreamdojo-paper.md); co-author on Huh et al. 2026. (5 sources)

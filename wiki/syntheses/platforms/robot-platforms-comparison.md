@@ -2,8 +2,8 @@
 title: Robot platforms — comparison
 type: synthesis
 created: 2026-05-08
-updated: 2026-05-08
-tags: [robots, hardware, comparison, list, manipulators, mobile-robots]
+updated: 2026-05-25
+tags: [robots, hardware, comparison, list, manipulators, mobile-robots, aloha, mobile-aloha]
 ---
 
 # Robot platforms — comparison
@@ -17,6 +17,7 @@ A reference list of robot platforms with entity pages in this wiki, organized by
 | [Franka Panda](../../entities/franka-panda.md) | Research    | Tabletop manipulator  | External GPU              | 7                 | None           | DROID, V-JEPA 2, V-JEPA 2.1, JEPA-WMs, RUM cross-embodiment. The default real-robot arm. |
 | [xArm 7](../../entities/xarm-7.md)             | Commercial  | Tabletop manipulator  | External                  | 7                 | None           | RUM cross-embodiment transfer target (~10pt drop vs Stretch).                            |
 | [Stretch](../../entities/stretch.md)           | Research    | Mobile manipulator    | Onboard (NUC + RealSense) | 1 (telescoping)   | Diff-drive     | RUM zero-shot generalist policies; stretch_ai LLM agent.                                 |
+| [Mobile ALOHA](../../entities/aloha.md)        | Research    | Bimanual mobile manip | Onboard (laptop + RTX 3070 Ti) | 2× 6 (ViperX 300) | Diff-drive (AgileX Tracer) | ACT + Diffusion Policy + VINN benchmarking on bimanual mobile manip; whole-body teleop; $32k. |
 | [ROSOrin Pro](../../entities/rosorin-pro.md)   | Educational | Mobile manipulator    | Jetson Orin Nano          | 6 (HX-12H servos) | Diff/Ackermann | OpenClaw LLM-agent framework; LeWM-feasibility candidate.                                |
 | [ROSOrin](../../entities/rosorin.md)           | Educational | Mobile robot (no arm) | Jetson Orin Nano          | 0                 | Diff/Ackermann | LLM-agent curriculum (cloud + offline).                                                  |
 | [TurtleBot](../../entities/turtlebot.md)       | Educational | Mobile robot (no arm) | Raspberry Pi (gen 4)      | 0                 | Diff-drive     | Reference / comparison point — not used directly in any wiki source.                     |
@@ -26,7 +27,8 @@ A reference list of robot platforms with entity pages in this wiki, organized by
 ### Research-grade ($10k–$30k+)
 - **[Franka Panda](../../entities/franka-panda.md)** (UFactory's commercial tier sits adjacent). 7-DOF torque-controlled arm, 1 kHz FCI control. Standard real-robot platform across the JEPA / VLA / DROID literature. Used in V-JEPA 2 (zero-shot pick-and-place), V-JEPA 2.1 (real-Franka grasping +20pt), JEPA-WMs (Franka unroll decode), RUM (transferred to via custom mount), DROID (single embodiment for entire dataset).
 - **[xArm 7](../../entities/xarm-7.md)** (UFactory). Commercial alternative to Franka. Same 7-DOF tabletop class. Appears in this wiki only as RUM's cross-embodiment transfer target — but a useful data point for how BC policies generalize across hardware (~10pt drop).
-- **[Stretch](../../entities/stretch.md)** (Hello Robot, Stretch 3). Mobile manipulation: telescoping arm + differential-drive base + RealSense cameras + LiDAR. Anchor of the NYU + Hello Robot research line ([RUM](../../entities/robot-utility-models.md), [stretch_ai](../../entities/stretch-ai.md) LLM agent, [Dobb·E](../../entities/dobb-e.md)). The de-facto research-tier mobile manipulator for academic work in 2024–2026.
+- **[Stretch](../../entities/stretch.md)** (Hello Robot; Stretch 4 launched 2026-05-12). Mobile manipulation: telescoping arm + omnidirectional holonomic base + dual hemispherical 3D LiDAR (Stretch 4) + RealSense cameras. Anchor of the NYU + Hello Robot research line ([RUM](../../entities/robot-utility-models.md), [stretch_ai](../../entities/stretch-ai.md) LLM agent, [Dobb·E](../../entities/dobb-e.md)). The de-facto research-tier single-arm mobile manipulator for academic work in 2024–2026.
+- **[Mobile ALOHA](../../entities/aloha.md)** (Stanford; Fu, Zhao, Finn 2024). Bimanual mobile manipulator with whole-body teleoperation. 4× [ViperX 300](../../entities/viperx-300.md) (2 leaders + 2 followers) + AgileX Tracer base + 3 webcams + RTX 3070 Ti laptop = **$32k**. Comparable in budget to a single Franka arm, ~6× cheaper than PR2/TIAGo. Anchors the [ACT](../../entities/act.md) + co-training-with-static-data IL pattern.
 
 ### Educational ($1k–$5k)
 - **[ROSOrin Pro](../../entities/rosorin-pro.md)** (Hiwonder). 6-DOF arm + mobile base + Jetson Orin Nano. Ships with [OpenClaw](../../entities/openclaw.md) LLM-agent framework. Closest educational-tier analog to Stretch + stretch_ai, but with a real arm (vs Stretch's telescoping single-DOF arm).
@@ -39,7 +41,8 @@ A reference list of robot platforms with entity pages in this wiki, organized by
 [Franka Panda](../../entities/franka-panda.md), [xArm 7](../../entities/xarm-7.md).
 
 ### Mobile manipulators (arm + mobility)
-[Stretch](../../entities/stretch.md) (research), [ROSOrin Pro](../../entities/rosorin-pro.md) (educational).
+**Single-arm:** [Stretch](../../entities/stretch.md) (research), [ROSOrin Pro](../../entities/rosorin-pro.md) (educational).
+**Bimanual:** [Mobile ALOHA](../../entities/aloha.md) (research). The only ingested bimanual mobile manipulator.
 
 ### Mobile robots without arms
 [ROSOrin](../../entities/rosorin.md), [TurtleBot](../../entities/turtlebot.md).
@@ -54,8 +57,8 @@ A reference list of robot platforms with entity pages in this wiki, organized by
 ### Educational tier is converging on "Jetson + LLM agent + ROS 2"
 The [ROSOrin](../../entities/rosorin.md) / [ROSOrin Pro](../../entities/rosorin-pro.md) / [OpenClaw](../../entities/openclaw.md) stack represents a generational update of the [TurtleBot](../../entities/turtlebot.md) educational role: same target audience (CS / robotics students learning ROS), but with **Jetson Orin Nano compute (~10× the Raspberry Pi)** and a **bundled agentic-AI / LLM-agent curriculum** that TurtleBot doesn't have. The interesting question is whether TurtleBot 5 (or whichever follows) will close that gap, or whether Hiwonder's lineage takes over the educational niche entirely.
 
-### Research-tier mobile manipulation = Stretch
-There's basically one option in this wiki: **Hello Robot Stretch.** ROSOrin Pro is the educational-tier alternative; Boston Dynamics Spot + Atlas would be the heavy-tier alternatives but aren't ingested here. So when an academic paper says "real-robot mobile manipulation," **Stretch is implied**.
+### Research-tier mobile manipulation = Stretch (single-arm) or Mobile ALOHA (bimanual)
+Two options in this wiki: **[Hello Robot Stretch](../../entities/stretch.md)** for single-arm + telescoping reach, and **[Mobile ALOHA](../../entities/aloha.md)** for bimanual + whole-body teleop. ROSOrin Pro is the educational-tier alternative; Boston Dynamics Spot + Atlas would be the heavy-tier alternatives but aren't ingested here. When an academic paper says "real-robot mobile manipulation," **Stretch is implied for single-arm work, Mobile ALOHA for bimanual**. Both ship onboard compute and target the academic budget band ($20–32k).
 
 ### Tabletop manipulation = Franka, with xArm 7 as second option
 Same pattern — when a paper says "real-robot manipulation" without further qualification, **Franka is implied**. xArm 7 appears as a transfer target rather than a primary platform.
@@ -66,7 +69,7 @@ Worth flagging robot platforms that show up in adjacent literature but don't hav
 
 - **Boston Dynamics Spot** — quadruped reference platform (no entity page; [Atlas](../../entities/atlas.md) is filed).
 - **Pi (Physical Intelligence) hardware** — already in known gaps as needing a primary source.
-- **ALOHA / ViperX bimanual setup** — Stanford bimanual teleop platform; referenced indirectly via Chelsea Finn but no entity page.
+- ~~**ALOHA / ViperX bimanual setup** — Stanford bimanual teleop platform; referenced indirectly via Chelsea Finn but no entity page.~~ **Filed 2026-05-25** as [ALOHA / Mobile ALOHA](../../entities/aloha.md) + [ViperX 300](../../entities/viperx-300.md) entities via the [Mobile ALOHA paper](../../sources/mobile-aloha-paper.md) ingest.
 - **xArm 6** (UFactory's 6-DOF cousin to xArm 7) — sometimes cited as a cheaper alternative.
 - **UR5 / UR10 / UR16** (Universal Robots) — collaborative arms common in industrial settings; not yet appearing in our literature.
 - **Humanoids** — see the dedicated [Humanoid platforms survey](humanoid-platforms-survey.md) for that landscape; 10 humanoid entities filed there.

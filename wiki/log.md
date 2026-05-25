@@ -2,6 +2,28 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-25] ingest | Mobile ALOHA — fills a long-standing ALOHA / ACT gap
+
+User dropped `raw/mobile-aloha.pdf` and asked to ingest. The paper is Fu, Zhao, Finn (Stanford, Jan 2024) — bimanual mobile manipulation via whole-body teleoperation + a co-training-with-static-data IL recipe. **The ingest closes an explicit wiki gap**: both [chelsea-finn.md](entities/chelsea-finn.md) and the [robot-platforms-comparison synthesis](syntheses/platforms/robot-platforms-comparison.md) had previously flagged "ALOHA / ACT — not yet ingested."
+
+- **Created**: [Mobile ALOHA source page](sources/mobile-aloha-paper.md). Captures the $32k hardware envelope (4× ViperX 300 + AgileX Tracer base + RTX 3070 Ti laptop + 1.26 kWh battery; 12 hr runtime; whole-body teleop via waist-tether-to-base + wheel-backdrive), the seven evaluated tasks with success-rate table (avg +34% absolute from co-training, up to +90% on Rinse Pan / Call Elevator / Push Chairs), method compatibility across ACT / Diffusion Policy / VINN, the data-efficiency + mixture-robustness + co-train-vs-pre-train ablations, and the mobile-platform-specific **action-chunk delay-shift trick** (execute first k−d arm actions + last k−d base actions to compensate for the base's velocity-control delay).
+
+- **Created 5 new entities**:
+  - [ALOHA / Mobile ALOHA](entities/aloha.md) — platform line covering both original (2023) + Mobile (2024).
+  - [ACT (Action Chunking Transformer)](entities/act.md) — IL method introduced with ALOHA; operationalized action chunking as a first-class IL primitive.
+  - [Tony Z. Zhao](entities/tony-zhao.md) — original ALOHA + ACT first author; Mobile ALOHA co-lead.
+  - [Zipeng Fu](entities/zipeng-fu.md) — Mobile ALOHA co-lead; Stanford Graduate Fellowship.
+  - [Trossen ViperX 300](entities/viperx-300.md) — the 6-DOF benchtop arm SKU underneath ALOHA / Mobile ALOHA; wiki's first Trossen-class arm entry.
+
+- **Updated**:
+  - [Chelsea Finn entity](entities/chelsea-finn.md) — Mobile ALOHA added as her third paper in the wiki; the "ALOHA / ACT not yet ingested" note now relaxed (still flagged for the original 2023 paper, which is covered here only transitively).
+  - [Imitation learning concept](concepts/learning/imitation-learning.md) — new bullet on action-chunked BC crediting ACT as the originator (vs Diffusion Policy as popularizer); new bullet on **co-training across heterogeneous datasets** as a method-agnostic IL primitive; Mobile ALOHA's mobile-platform delay-shift trick called out.
+  - [Diffusion Policy entity](entities/diffusion-policy.md) — Mobile ALOHA evaluation added (Diffusion Policy underperforms ACT in the very-low-demo regime — 50 demos is below DP's typical floor of ≥250).
+  - [Robot platforms comparison synthesis](syntheses/platforms/robot-platforms-comparison.md) — Mobile ALOHA added to the at-a-glance table and the research-tier list; "Research-tier mobile manipulation = Stretch" framing updated to "Stretch (single-arm) or Mobile ALOHA (bimanual)"; "ALOHA / ViperX bimanual setup — no entity page" gap closed.
+  - [index.md](index.md) — new chronological source entry; Mobile ALOHA + ViperX 300 added under mobile manipulators; ACT added under BC methods; Tony Zhao + Zipeng Fu added under People; Chelsea Finn source count incremented.
+
+- **Cross-source insight**: Mobile ALOHA is the **smallest-scale clean evidence** for the "data diversity > data quantity" pattern that runs across the wiki at multiple scales — [Robot Utility Models](entities/robot-utility-models.md) at NYC-homes scale, [EgoScale](sources/egoscale-paper.md) at 20k-hour egocentric scale, and now Mobile ALOHA at 825-static-demos + 20–50-in-domain scale. Same shape (mix small-targeted + larger-out-of-domain), same direction (positive transfer), wildly different orders of magnitude.
+
 ## [2026-05-25] ingest | JEPA-WMs GitHub (reproducibility recipe)
 
 User asked to ingest `https://github.com/facebookresearch/jepa-wms`. README pulled via curl from raw.githubusercontent.com (no auth required for public repos; bypasses WebFetch). Distinct ingest from this morning's TMLR-paper deepening: the paper is the *what* and *why*, the GitHub repo is the *how-to-actually-clone-and-run-it*.

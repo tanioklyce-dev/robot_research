@@ -3,9 +3,9 @@ title: Diffusion Policy
 type: entity
 subtype: method
 created: 2026-05-08
-updated: 2026-05-15
-sources: 9
-tags: [diffusion-policy, behavior-cloning, diffusion-model, ddpm, action-diffusion, chi-2023, columbia, tri, mit]
+updated: 2026-05-25
+sources: 10
+tags: [diffusion-policy, behavior-cloning, diffusion-model, ddpm, action-diffusion, chi-2023, columbia, tri, mit, mobile-aloha]
 ---
 
 **Diffusion Policy** — behavior-cloning method that models the action distribution as a **conditional denoising diffusion process over the action space**. Introduced by Chi et al. 2023 (*"Diffusion Policy: Visuomotor Policy Learning via Action Diffusion"*, arxiv [2303.04137](https://arxiv.org/abs/2303.04137), RSS 2023). Affiliated with Columbia / TRI / MIT (Cheng Chi, Siyuan Feng, Yilun Du, Zhenjia Xu, Eric Cousineau, Benjamin Burchfiel, Shuran Song). One of the dominant BC methods of the 2023–2026 window; the canonical baseline against which downstream BC methods are benchmarked.
@@ -49,6 +49,14 @@ From [RUM paper](../sources/robot-utility-models-paper.md) §3.2:
 - **Top performer at smaller data scale** (20–40% of full data) — better data-efficiency on lower-scale corpora.
 - Used as a strong baseline; not RUM's deployed policy class.
 
+## Performance characteristics in Mobile ALOHA
+
+From [Mobile ALOHA paper](../sources/mobile-aloha-paper.md) §6.2, evaluated against [ACT](act.md) and VINN+chunking on bimanual mobile manipulation:
+- **Push Chairs**: 100% co-train / 80% no-co-train — matches ACT.
+- **Wipe Wine**: 65% co-train / 35% no-co-train — **underperforms ACT (95% co-train)**. Authors hypothesize 50 demos is below Diffusion Policy's typical floor (≥250 demos) given its expressiveness.
+- **Co-training helps**: +30% (Wipe Wine) / +20% (Push Chairs), confirming the [Mobile ALOHA](aloha.md) co-training pattern is method-agnostic.
+- **Practical takeaway**: in the very-low-demo regime (≤50), [ACT](act.md) currently wins on bimanual mobile manipulation; Diffusion Policy needs more data to express its full advantage.
+
 ## Notable downstream artifacts and conventions
 
 - **PushT as a canonical benchmark** — [PushT](pusht.md) was introduced by IBC (Florence et al., CoRL 2021) but Diffusion Policy made it canonical; it now propagates across [LeWM](leworldmodel.md), [DINO-WM](dino-wm.md), [JEPA-WMs](jepa-wms.md), and the world-model line broadly.
@@ -87,6 +95,7 @@ From [RUM paper](../sources/robot-utility-models-paper.md) §3.2:
 - [Diffusion Policy Paper](../sources/diffusion-policy-paper.md) — primary source.
 - [Robot Utility Models Paper](../sources/robot-utility-models-paper.md) — second-best policy class in RUM ablation.
 - [UMI Project Page](../sources/umi-paper.md) — UMI uses Diffusion Policy as its canonical policy class (same lead author).
+- [Mobile ALOHA Paper](../sources/mobile-aloha-paper.md) — evaluated alongside [ACT](act.md) and VINN+chunking on bimanual mobile manipulation.
 
 ## Open questions / TBD
 
