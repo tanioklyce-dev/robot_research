@@ -30,11 +30,12 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 
 | VLA | Backbone | Action head | Notes |
 | --- | --- | --- | --- |
-| **OpenVLA** | Llama-2 (7B) | autoregressive action tokens | Open-weights baseline. |
-| **[π0](../../entities/pi-zero.md)** | PaliGemma 3B | **flow matching** + **full bidirectional SA** | [Source](../../sources/pi-zero-paper.md). 3.3 B total. The canonical flow-matching VLA. |
-| **[π0.7](../../entities/pi07.md)** | Gemma3 4B + MEM | **flow matching** + **KI + stop-gradient to VLM** | [Source](../../sources/pi07-paper.md). 5 B total. Diversified prompt (subgoal images + metadata + control mode). First emergent-capability VLA. |
-| **[π*0.6](../../entities/pistar06.md)** | π0.6 + advantage indicator | **flow matching** + **advantage conditioning** (CFGRL) | [Source](../../sources/pistar06-paper.md). RECAP recipe = offline RL on demos → iterate on deployment data + human interventions. 2× throughput, ½ failure rate. |
-| **[SmolVLA](../../entities/smolvla.md)** | SmolVLM-2 (~0.4 B) | **flow matching** + **interleaved CA + causal SA** | [Source](../../sources/smolvla-paper.md). 450 M total. 22.9 K episodes from 481 community HF datasets. Beats π0-3.5B on real-world SO-100. |
+| **[OpenVLA](../../entities/openvla.md)** | Llama-2 (7B) | autoregressive action tokens | Open-weights baseline; cited by π0, SmolVLA, JEPA-WMs, EgoScale. |
+| **[Octo](../../entities/octo.md)** | transformer from scratch | continuous regression on action chunks | 0.09 B; trained on [OXE](../../entities/open-x-embodiment.md); the pre-flow-matching baseline. |
+| **[π0](../../entities/pi-zero.md)** | [PaliGemma](../../entities/paligemma.md) 3B | **[flow matching](flow-matching.md)** + **full bidirectional SA** | [Source](../../sources/pi-zero-paper.md). 3.3 B total. The canonical flow-matching VLA. |
+| **[π0.7](../../entities/pi07.md)** | [Gemma3](../../entities/gemma3.md) 4B + MEM | **[flow matching](flow-matching.md)** + **KI + stop-gradient to VLM** | [Source](../../sources/pi07-paper.md). 5 B total. Diversified prompt (subgoal images via [BAGEL](../../entities/bagel.md) + metadata + control mode). First emergent-capability VLA. |
+| **[π*0.6](../../entities/pistar06.md)** | [π0.6](../../entities/pi-zero-6.md) + advantage indicator | **[flow matching](flow-matching.md)** + **advantage conditioning** (CFGRL) | [Source](../../sources/pistar06-paper.md). RECAP recipe = offline RL on demos → iterate on deployment data + human interventions. 2× throughput, ½ failure rate. |
+| **[SmolVLA](../../entities/smolvla.md)** | [SmolVLM-2](../../entities/smolvlm.md) (~0.4 B) | **[flow matching](flow-matching.md)** + **interleaved CA + causal SA** | [Source](../../sources/smolvla-paper.md). 450 M total. 22.9 K episodes from 481 community HF datasets. Beats π0-3.5B on real-world SO-100. |
 | [Diffusion Policy](../../entities/diffusion-policy.md) (BC, not strictly a VLA) | ResNet-18 / no language | **DDPM** | The action-head reference for π0's flow-matching design choice. |
 | **Helix S1** | small transformer | continuous regression @ 200 Hz | Combined with **Helix S2** = 7B VLM @ 7–9 Hz. |
 | **GR00T N1.6/1.7** | Cosmos-Reason2-2B | (mixed; see [GR00T entity](../../entities/nvidia-groot.md)) | 3B params; 20,854 hr egocentric video pretrain — see [EgoScale](../../sources/egoscale-paper.md) for the primary source and scaling law. |

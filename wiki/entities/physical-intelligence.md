@@ -20,9 +20,9 @@ tags: [physical-intelligence, vla, pi-zero, pi-zero-7, pi-star-zero-6, generalis
 | Model | Year | Architecture | Headline contribution | Primary source |
 |---|---|---|---|---|
 | **[π0](pi-zero.md)** | Oct 2024 | PaliGemma 3 B VLM + 0.3 B flow-matching action expert (3.3 B total); **full bidirectional SA** in action expert | First cross-embodiment flow-matching VLA; 10,000 hr in-house teleop + OXE/DROID/Bridge; beat OpenVLA + Octo on bussing | [paper](../sources/pi-zero-paper.md) ✓ |
-| **π0.5** | — | Adds intermediate-subtask conditioning | (intermediate; not separately ingested) | — |
-| **π0.6** | — | Larger backbone + more diverse conditioning | (intermediate; not separately ingested) | — |
-| **π0.6-MEM** | — | Adds MEM video history / memory encoder | (intermediate; not separately ingested) | — |
+| **[π0.5](pi-zero-6.md)** | — | Adds intermediate-subtask conditioning | (intermediate; documented via [pi-zero-6.md](pi-zero-6.md) anchor) | — |
+| **[π0.6](pi-zero-6.md)** | — | Larger backbone + more diverse conditioning | (intermediate; documented via [pi-zero-6.md](pi-zero-6.md) anchor) | — |
+| **[π0.6-MEM](pi-zero-6.md)** | — | Adds MEM video history / memory encoder | (intermediate; documented via [pi-zero-6.md](pi-zero-6.md) anchor) | — |
 | **[π0.7](pi07.md)** | 2025 | **Gemma3 4B + 860M flow-matching action expert** (5 B total); MEM video encoder; **Knowledge Insulation (KI)** training; **stop-gradient** to VLM | **First "emergent capabilities" VLA**: out-of-the-box espresso machine + laundry + box folding + sweet-potato-into-air-fryer compositional generalization via **diversified prompt** (subgoal images from BAGEL 14B world model + episode metadata + control mode) | [paper](../sources/pi07-paper.md) ✓ |
 | **[π*0.6](pistar06.md)** | 2025 | π0.6 + advantage-indicator conditioning (CFGRL-style) | **RECAP recipe** — RL from deployment via advantage-conditioned policy extraction; **2× throughput, ½ failure rate** on hardest tasks; 13-hr continuous espresso operation | [paper](../sources/pistar06-paper.md) ✓ |
 

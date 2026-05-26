@@ -153,8 +153,8 @@ Analytical result: queue stays non-empty iff `g ≥ E[ℓ_S] / (∆t · n)` wher
 
 ## Open questions
 
-- **Flow matching concept page** still not filed. Now both [π0](pi-zero-paper.md) and SmolVLA use flow matching; worth `concepts/learning/flow-matching.md` next.
-- **LIBERO entity** — referenced extensively across SmolVLA, OpenVLA, EgoScale; not yet filed in the wiki.
+- **~~Flow matching concept page~~** — **filed 2026-05-25** as [flow-matching.md](../concepts/learning/flow-matching.md) after both π0 and SmolVLA pushed it over the load-bearing threshold.
+- **~~LIBERO entity~~** — already exists at [libero.md](../entities/libero.md); the prior wording was stale.
 - **Async-inference latency budget on edge hardware** — paper benchmarks on cloud GPU; how the async stack performs with the PolicyServer on a [Jetson Thor](../entities/jetson-thor.md) or [Orin NX](../entities/jetson-thor.md) (Stretch 4 onboard compute, e.g.) is an open empirical question.
 - **The 481-community-dataset list** — paper mentions Appendix A.1; this ingest captures the headline numbers but not the per-dataset composition.
 

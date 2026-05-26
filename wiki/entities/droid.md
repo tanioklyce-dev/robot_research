@@ -8,7 +8,7 @@ sources: 6
 tags: [droid, dataset, teleoperation, franka, robot-data, stanford, berkeley, oxe]
 ---
 
-**DROID — Distributed Robot Interaction Dataset.** Large-scale **real-robot teleoperation dataset** of Franka Panda manipulation collected across diverse real-world environments. Designed as a step beyond [RUM](robot-utility-models.md)-class single-platform corpora and the Open-X Embodiment aggregated multi-platform corpus, by emphasizing **scene diversity** rather than embodiment diversity. Released April 2024 by a 13-institution consortium led by Alexander Khazatsky and Karl Pertsch, with Chelsea Finn and Sergey Levine senior. Project page: https://droid-dataset.github.io/. Primary paper: arxiv 2403.12945.
+**DROID — Distributed Robot Interaction Dataset.** Large-scale **real-robot teleoperation dataset** of Franka Panda manipulation collected across diverse real-world environments. Designed as a step beyond [RUM](robot-utility-models.md)-class single-platform corpora and the **[Open X-Embodiment (OXE)](open-x-embodiment.md)** aggregated multi-platform corpus, by emphasizing **scene diversity** rather than embodiment diversity. (DROID is **also a constituent of OXE** — DROID = the Franka-Panda-only subset; OXE = the 22-embodiment umbrella.) Released April 2024 by a 13-institution consortium led by Alexander Khazatsky and Karl Pertsch, with Chelsea Finn and Sergey Levine senior. Project page: https://droid-dataset.github.io/. Primary paper: arxiv 2403.12945.
 
 ## Composition (latest figures)
 - **76,000 demonstration trajectories**

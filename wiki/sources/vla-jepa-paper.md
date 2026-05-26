@@ -22,7 +22,8 @@ tags: [vla-jepa, jepa, vla-models, libero, simplerenv, world-model]
 
 ## Entities mentioned
 - [VLA-JEPA](../entities/vla-jepa.md) — model (entity created with this ingest).
-- (LIBERO and SimplerEnv are referenced but do not yet have entity pages — added to known-gaps.)
+- [LIBERO](../entities/libero.md) — primary eval suite (entity filed separately).
+- [SimplerEnv](../entities/simplerenv.md) — secondary eval (entity filed separately).
 
 ## Concepts touched
 - [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — JEPA-as-auxiliary-objective in a VLA pipeline.

@@ -2,6 +2,43 @@
 
 Append-only chronological record of wiki events. Each entry begins with `## [YYYY-MM-DD] <action> | <subject>` for grep-ability.
 
+## [2026-05-25] lint | LINT audit + flow-matching concept page + 8 entity stubs + 2 stale-claim fixes
+
+User invoked `/LINT`. Audit found 0 broken links and 0 orphans across 414 files (excluding wiki/notes/); 2 hub-only-inbound pages; 12+ under-covered entities/concepts; 3 stale TODOs. User asked me to act on items 1–4 of the punch list.
+
+- **Item 2 (cleanup)**: edited [vla-jepa-paper.md](sources/vla-jepa-paper.md) and [smolvla-paper.md](sources/smolvla-paper.md) to remove the stale "LIBERO entity not yet filed / SimplerEnv has no entity" claims; both entities exist. SmolVLA's open-questions section now links the new flow-matching concept page.
+
+- **Item 1 (flow matching concept)**: filed [flow-matching.md](concepts/learning/flow-matching.md). Captures mechanics (Beta-sampled τ, straight-line interpolant, vector-field regression target, ~10 ODE steps at inference), the **VLA action-head taxonomy** (autoregressive tokens / DDPM / flow matching, with the three families framed as instances of a Fenchel-Young loss per Blondel & Roulet ch. 18), and the architectural variation across flow-matching VLAs (π0 = full bidirectional SA; π0.7 / π*0.6 = KI + stop-gradient; SmolVLA = interleaved CA + causal SA). Closes 50 mentions × 16 files of dangling "flow matching" references.
+
+- **Item 3 (7 entity stubs)**: filed thin entity pages for the most-under-covered things:
+  - [OpenVLA](entities/openvla.md) — 49 mentions across 23 files. The reference 7 B open-VLA baseline (Kim et al. 2024, Llama-2 backbone + autoregressive action tokens).
+  - [Octo](entities/octo.md) — 17 mentions across 10 files. Transformer-from-scratch generalist policy on OXE (Octo Model Team 2024).
+  - [PaliGemma](entities/paligemma.md) — 19 mentions across 10 files. Google's 3 B VLM (SigLIP + Gemma 2B); backbone of π0.
+  - [Gemma3](entities/gemma3.md) — 20 mentions across 8 files. Google's 2025 VLM family (1B/4B/12B/27B with built-in 400M vision encoder); backbone of π0.7.
+  - [SmolVLM-2](entities/smolvlm.md) — 13 mentions across 7 files. Hugging Face's compact 0.4 B VLM (SigLIP + SmolLM2); backbone of SmolVLA.
+  - [Open X-Embodiment (OXE)](entities/open-x-embodiment.md) — 15 mentions across 9 files. The 22-embodiment umbrella corpus that [DROID](entities/droid.md) is a single-embodiment subset of.
+  - [BAGEL](entities/bagel.md) — 12 mentions across 6 files. 14 B mixture-of-transformers image-gen + editing model; the substrate of π0.7's subgoal-image world model.
+
+- **Item 4 (π0.6 stub anchoring)**: filed [pi-zero-6.md](entities/pi-zero-6.md) as the anchor for the **π0.5 / π0.6 / π0.6-MEM** intermediate generations (combined ~84 mentions across 14+ files). None has a publicly released primary paper the wiki has ingested; documented entirely via downstream references in π0.7 and π*0.6.
+
+- **Cross-link updates** for the 9 new entity / concept pages:
+  - [Physical Intelligence](entities/physical-intelligence.md) — π-series lineage table now links the intermediate generations through pi-zero-6.md.
+  - [VLA models concept](concepts/learning/vla-models.md) — action-head taxonomy table now links new entities (OpenVLA, Octo, PaliGemma, Gemma3, SmolVLM-2, BAGEL, flow-matching concept).
+  - [DROID](entities/droid.md) — explicit "constituent of OXE" note added.
+  - [index.md](index.md) — new entries under Datasets (OXE), new "VLM backbones" subsection (PaliGemma + Gemma3 + SmolVLM-2), new "Generative models for image / world" subsection (BAGEL), VLA-list extended with OpenVLA + Octo + pi-zero-6, Learning concepts list now includes flow-matching.
+
+### Lint results not addressed (lower priority)
+
+- Knowledge Insulation (KI) / FAST tokens concept page — 16 mentions; held for a third paper to use it.
+- CFGRL / AWR / human-gated DAgger concept pages — held until used outside the RECAP-related ingest cluster.
+- MEM (memory encoder) entity — held; mentioned only via π0.6-MEM / π0.7.
+- SO-100 entity — 29 mentions but distinct from SO-ARM101 (which has an entity); filing it should wait for a dedicated primary source.
+- Vincent Roulet, Alex Koven, Francesco Capuano person entities — low priority.
+
+### Cross-source insight
+
+The lint surfaced a concrete **structural recommendation** for the wiki's VLA design-pattern coverage: now that flow matching is filed as its own concept and OpenVLA + Octo + π0 + π0.7 + π*0.6 + SmolVLA + EgoScale all have entities, the [VLA action-head taxonomy table](concepts/learning/vla-models.md#action-head-design-across-vlas) is the densest single artifact tying late-2025 VLA design space together. A future synthesis page on "VLA architectural design space, mid-2026" would consolidate this into a comparison study.
+
 ## [2026-05-25] ingest | The Elements of Differentiable Programming (Blondel & Roulet, Google DeepMind)
 
 User dropped `raw/2403.14606v3.pdf` — Blondel & Roulet's **485-page reference textbook** on differentiable programming, draft v3 (June 24, 2025), free on arXiv. The wiki's most comprehensive single mathematical-foundation reference to date.

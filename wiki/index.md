@@ -360,6 +360,7 @@ Curated entry points across the wiki.
 
 ### Datasets
 - [DROID](entities/droid.md) — Distributed Robot Interaction Dataset; 350 hr / 76k traj / 564 scenes of Franka Panda teleop; the dominant real-robot dataset in JEPA-for-robotics work. (4 sources)
+- [Open X-Embodiment (OXE)](entities/open-x-embodiment.md) — 22-embodiment + ~500-skill umbrella corpus (O'Neill et al. 2024); the standard cross-embodiment pretraining corpus for [π0](entities/pi-zero.md), [Octo](entities/octo.md), [OpenVLA](entities/openvla.md). [DROID](entities/droid.md) is the Franka-Panda subset. (0 sources) _stub_
 - [EgoDex](entities/egodex.md) — 829 hr Apple Vision Pro–captured egocentric dataset; 194 tabletop manipulation tasks; clean wrist + hand keypoints. The high-precision complement to in-the-wild egocentric data in [EgoScale](sources/egoscale-paper.md) pretraining. (1 source)
 
 ### Model organisms / connectomes
@@ -371,6 +372,14 @@ Curated entry points across the wiki.
 ### Vision foundation models
 - [DINOv2](entities/dinov2.md) — Meta FAIR self-supervised ViT (142M images, ViT-S/B/L/g); substrate for DINO-WM, DINO-world, JEPA-WMs. Apache 2.0. (4 sources)
 - [DINOv3](entities/dinov3.md) — Meta AI Research 7B-parameter ViT SSL foundation model (Aug 2025); Gram anchoring fixes dense-feature degradation; new SSL state-of-the-art on dense tasks (COCO mAP 66.1 frozen, ADE20k mIoU 63.0). (1 source)
+
+### VLM backbones (for VLAs)
+- [PaliGemma](entities/paligemma.md) — Google's 3 B VLM (SigLIP + Gemma 2B; Beyer et al. 2024); backbone of [π0](entities/pi-zero.md). (0 sources) _stub_
+- [Gemma3](entities/gemma3.md) — Google's 2025 VLM family (1B/4B/12B/27B; built-in 400M vision encoder); backbone of [π0.7](entities/pi07.md). (0 sources) _stub_
+- [SmolVLM-2](entities/smolvlm.md) — Hugging Face's compact ~0.4 B VLM (SigLIP + SmolLM2; Marafioti et al. 2025); backbone of [SmolVLA](entities/smolvla.md). (0 sources) _stub_
+
+### Generative models for image / world
+- [BAGEL](entities/bagel.md) — 14B mixture-of-transformers image-gen + editing model (2025); used as the subgoal-image world model substrate in [π0.7](entities/pi07.md). (0 sources) _stub_
 
 ### Generative models
 - [DDPM](entities/ddpm.md) — Denoising Diffusion Probabilistic Models (Ho, Jain, Abbeel; NeurIPS 2020); foundational diffusion-model class; substrate of [Diffusion Policy](entities/diffusion-policy.md), [NVIDIA Cosmos](entities/nvidia-cosmos.md), [Genie Envisioner](entities/genie-envisioner.md). (5 sources)
@@ -393,7 +402,10 @@ Curated entry points across the wiki.
 - [π0](entities/pi-zero.md) — [Physical Intelligence](entities/physical-intelligence.md)'s 3.3 B VLA (Oct 2024); PaliGemma 3 B VLM + flow-matching action expert; cross-embodiment teleop on 7 robots / 68 tasks / 10k hours. The canonical flow-matching VLA. (5 sources)
 - [π0.7](entities/pi07.md) — [Physical Intelligence](entities/physical-intelligence.md)'s 5 B VLA (2025); Gemma3 4B + MEM video encoder + 860 M flow-matching action expert; diversified prompt with subgoal images + episode metadata; first VLA with emergent compositional generalization (espresso machine, sweet-potato-into-air-fryer out-of-the-box). (1 source)
 - [π*0.6](entities/pistar06.md) — [Physical Intelligence](entities/physical-intelligence.md)'s RL-adapted π0.6 (2025); RECAP recipe = offline-RL pretraining + iterative deployment with advantage-conditioned policy extraction; 2× throughput, ½ failure rate; 13-hr continuous espresso operation. (1 source)
+- [π0.6 (and π0.5, π0.6-MEM intermediates)](entities/pi-zero-6.md) — anchor for the intermediate π-series generations between [π0](entities/pi-zero.md) and [π0.7](entities/pi07.md) / [π*0.6](entities/pistar06.md). No primary source ingested. (0 sources) _stub_
 - [SmolVLA](entities/smolvla.md) — [Hugging Face](entities/hugging-face.md) LeRobot team's 450 M VLA (June 2025); SmolVLM-2 + flow-matching with interleaved CA + causal SA; 22.9 K community-dataset episodes; **beats π0-3.5 B by +16.6 pts on real-world SO-100 multi-task**; async-inference RobotClient/PolicyServer stack. (4 sources)
+- [OpenVLA](entities/openvla.md) — Kim et al. 2024; 7B open-weights baseline (Llama-2 backbone + autoregressive action tokens); the reference comparison VLA across nearly every 2024–2025 VLA paper. (0 sources) _stub_
+- [Octo](entities/octo.md) — Octo Model Team 2024; transformer-from-scratch generalist policy trained on [OXE](entities/open-x-embodiment.md); pre-flow-matching-era baseline. (0 sources) _stub_
 - [Gemini Robotics](entities/gemini-robotics.md) — Google DeepMind robot foundation models; full VLA + Gemini Robotics-**ER** embodied-reasoning VLM (tool-call planner). (1 source)
 - [OK-Robot](entities/ok-robot.md) — NYU zero-shot pick-and-drop framework; 58.5% in 10 homes; 1.8× over OVMM. (1 source)
 - [Robot Utility Models](entities/robot-utility-models.md) — NYU/Meta zero-shot mobile-manipulation BC. (5 sources)
@@ -463,6 +475,7 @@ Curated entry points across the wiki.
 ### Learning
 - [VLA models](concepts/learning/vla-models.md) — vision-language-action robot foundation models. (20 sources)
 - [Imitation learning](concepts/learning/imitation-learning.md) — supervised learning from demonstrations. (17 sources)
+- [Flow matching](concepts/learning/flow-matching.md) — learn a vector field that transports noise to actions; the dominant continuous-action-head technique in 2025+ VLAs ([π0](entities/pi-zero.md), [π0.7](entities/pi07.md), [π*0.6](entities/pistar06.md), [SmolVLA](entities/smolvla.md), [EgoScale](sources/egoscale-paper.md)). Sibling-not-subclass of [DDPM](entities/ddpm.md). (7 sources)
 - [Sim-to-real transfer](concepts/learning/sim-to-real-transfer.md) — bridging simulator-trained policies to real robots. (9 sources)
 - [Scaling laws — VLAs and human data](concepts/learning/scaling-laws-vla.md) — the empirical data-vs-performance relationship for VLA pretraining; seeded from [EgoScale](sources/egoscale-paper.md)'s log-linear loss law (R² = 0.9983) on 20,854 hr of egocentric human video; LLM-side companion via Welch Labs Ch 6 (Kaplan 2020). (2 sources)
 - [Chain of thought](concepts/learning/chain-of-thought.md) — intermediate-reasoning-token technique; origin (Wei 2022); zero-shot/self-consistency/ToT; modern reasoning models; embodied CoT in VLAs and S1/S2 splits. (0 sources — hub page)
