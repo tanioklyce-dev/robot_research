@@ -72,6 +72,9 @@ Active, narrowly-scoped, solo. Risk profile for a personal project: **moderate**
 ## Related
 
 - [LeRobot](lerobot.md) — upstream framework.
+- [ROS 2](ros2.md) — middleware substrate.
+- [lerobot-ros](lerobot-ros.md) — **sibling generic bridge** using Python sub-classing (vs Rosetta's YAML); Jazzy only; 194 stars (most popular of the 3).
+- [so101-ros2](so101-ros2.md) — **sibling SO-101-specific bridge**; ships URDF/USD + Isaac Sim integration; Humble only; 50 stars.
 - [SO-ARM101](so-arm101.md) — reference contract.
 - [Turtlebot](turtlebot.md) — reference contract.
 - [ROSOrin Pro](rosorin-pro.md) — closest non-shipped use case in this wiki; see the [LeRobot-on-ROSOrin-Pro synthesis](../syntheses/projects/lerobot-on-rosorin-pro.md).

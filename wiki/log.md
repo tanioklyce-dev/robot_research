@@ -1790,3 +1790,21 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - Updated entities: [LeRobot](entities/lerobot.md) (added Rosetta to "Downstream / hardware-ecosystem projects" section; 9→10 sources), [SO-ARM101](entities/so-arm101.md) (6→7 sources; reference manipulator contract), [TurtleBot](entities/turtlebot.md) (2→3 sources; reference mobile-base contract), [ROSOrin Pro](entities/rosorin-pro.md) (added LeRobot-integration-path section pointing to Rosetta).
 - Updated [index.md](index.md): added Rosetta to chronological sources + Software stacks section; bumped LeRobot / SO-ARM101 / TurtleBot index entries.
 - Open questions surfaced: Rosetta's production maturity (76 stars / solo author / 8 months old — moderate risk); whether **Wall-X** and **X-VLA** (both Rosetta-supported but not in wiki) deserve their own entity pages; relationship between Rosetta and upstream HF LeRobot team (any upstreaming conversation?); distribution channel (PyPI vs source).
+
+## [2026-05-28] ingest | 3-source LeRobot↔ROS 2 bridge landscape — lerobot-ros, so101_ros2, ROS 2 Humble docs
+- Created 3 source pages: [lerobot-ros GitHub](sources/lerobot-ros-github.md) (`ycheng517/lerobot-ros`, 194 stars), [so101_ros2 readthedocs](sources/so101-ros2-readthedocs.md) (`nimiCurtis/so101_ros2`, 50 stars), [ROS 2 Humble docs](sources/ros2-humble-docs.md).
+- Created 3 entity pages: [lerobot-ros](entities/lerobot-ros.md), [so101-ros2](entities/so101-ros2.md), [ROS 2](entities/ros2.md). The ROS 2 entity is **overdue** — 20+ existing entities mention ROS 2 but none was an entity page until now.
+- **Three-bridge comparison surfaced**: this is now the complete LeRobot↔ROS 2 landscape in the wiki —
+
+  | Bridge | Approach | Hardware | ROS 2 distro | Stars | License |
+  |---|---|---|---|---|---|
+  | [Rosetta](entities/rosetta.md) | YAML contract | any ROS 2 robot | distro-agnostic | 76 | Apache-2.0 |
+  | [lerobot-ros](entities/lerobot-ros.md) | Python sub-class | any ros2_control / MoveIt arm | **Jazzy only** | **194** | not specified |
+  | [so101-ros2](entities/so101-ros2.md) | SO-101 workspace | **SO-101 only** | **Humble only** | 50 | MIT |
+
+  Selection axes: (1) hardware (mobile bases need Rosetta — only one with a TurtleBot3 contract); (2) ROS 2 distribution (Humble vs Jazzy is operationally load-bearing); (3) operational footprint (lerobot-ros minimal, so101_ros2 heavy — needs author's LeRobot fork).
+- ROS 2 release timeline captured: **Lyrical Luth** (May 22 2026, newest), **Kilted Kaiju** (May 2025, non-LTS), **Jazzy Jalisco** (May 2024, LTS, EOL May 2029), **Humble Hawksbill** (May 2022, LTS, EOL May 2027). New distro every May 23rd (World Turtle Day). Cross-distro communication "not guaranteed."
+- **Synthesis update**: [LeRobot on ROSOrin Pro](syntheses/projects/lerobot-on-rosorin-pro.md) revised callout now compares all 3 bridges; **Rosetta confirmed as the right choice for ROSOrin Pro** because ROSOrin Pro is Humble (rules out lerobot-ros) and not SO-101 (rules out so101_ros2), and only Rosetta has mobile-base support.
+- Updated entities: [LeRobot](entities/lerobot.md) (added 3-bridge table; sources 10→12), [Rosetta](entities/rosetta.md) (cross-linked siblings), [SO-ARM101](entities/so-arm101.md) (now the most-tooled platform in the LeRobot↔ROS 2 ecosystem; sources 7→9), [ROSOrin Pro](entities/rosorin-pro.md) (LeRobot integration path section now notes distro split).
+- Updated [index.md](index.md): added 4 new sources (3 GitHub/docs + ROS 2 Humble); added 4 new entity entries (lerobot-ros, so101-ros2, ROS 2, plus LeRobot/SO-ARM101 source-count bumps).
+- Open questions surfaced: ycheng517/lerobot-ros has **no license** (blocks redistribution); nimiCurtis/so101_ros2 depends on author's LeRobot **fork** rather than upstream (maintenance risk if upstream drifts); ROS 2 Lyrical Luth (May 2026) LTS status not yet confirmed publicly.

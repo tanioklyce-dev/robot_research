@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-05-10
 updated: 2026-05-28
-sources: 10
+sources: 12
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026]
 ---
 
@@ -107,7 +107,16 @@ The [LeRobot Worldwide Hackathon 2025](lerobot-worldwide-hackathon-2025.md) (Jun
 ## Downstream / hardware-ecosystem projects
 
 - **[Grievous](grievous.md)** ([source](../sources/grievous-github.md)) — Alex Koven's in-progress "cheap, human-like, fully-autonomous testbed" registered as `lerobot.robots.grievous.grievous_host`. Design ancestors: [Mobile ALOHA](aloha.md) + [XLeRobot](xlerobot.md).
-- **[Rosetta](rosetta.md)** ([source](../sources/rosetta-github.md)) — solo-author Apache-2.0 bridge to ROS 2 (76 stars, Sep 2025). YAML-contract-driven mapping of ROS 2 topics to LeRobot features; ships `lerobot_robot_rosetta` and `lerobot_teleoperator_rosetta` plugins; extends supported policies with π0.5, [GR00T](nvidia-groot.md), Wall-X, X-VLA. **Resolves the FeeTech/Dynamixel-only middleware limitation** for any ROS 2-controllable robot — see the [LeRobot on ROSOrin Pro synthesis](../syntheses/projects/lerobot-on-rosorin-pro.md).
+
+### LeRobot ↔ [ROS 2](ros2.md) bridges (3 independent projects)
+
+| Project | Approach | Hardware | ROS 2 distro | Stars (May 2026) | License |
+|---|---|---|---|---|---|
+| **[Rosetta](rosetta.md)** ([source](../sources/rosetta-github.md)) | YAML contract | any ROS 2 robot | distro-agnostic | 76 | Apache-2.0 |
+| **[lerobot-ros](lerobot-ros.md)** ([source](../sources/lerobot-ros-github.md)) | Python sub-class | any ros2_control / MoveIt arm | **Jazzy only** | **194** | not specified |
+| **[so101-ros2](so101-ros2.md)** ([source](../sources/so101-ros2-readthedocs.md)) | SO-101 workspace | **SO-101 only** | **Humble only** | 50 | MIT |
+
+Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distribution — Humble vs Jazzy is operationally load-bearing. All three address LeRobot's [ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) Limitation #2 (algorithm coverage non-exhaustive) by adding integrations the upstream lacks.
 
 ## Related
 
@@ -122,7 +131,9 @@ The [LeRobot Worldwide Hackathon 2025](lerobot-worldwide-hackathon-2025.md) (Jun
 ## Mentioned in
 
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **canonical academic reference**; Cadene, Aliberts, Capuano, …, Wolf; 17 HF authors.
-- [Rosetta GitHub](../sources/rosetta-github.md) — downstream ROS 2 bridge.
+- [Rosetta GitHub](../sources/rosetta-github.md) — downstream ROS 2 bridge (YAML-contract).
+- [lerobot-ros GitHub](../sources/lerobot-ros-github.md) — downstream ROS 2 bridge (Python sub-class, Jazzy).
+- [so101_ros2 readthedocs](../sources/so101-ros2-readthedocs.md) — downstream ROS 2 bridge (SO-101-specific, Humble + Isaac Sim).
 - [SmolVLA Paper](../sources/smolvla-paper.md) — team-authored VLA built on LeRobot framework.
 - [π0 Paper](../sources/pi-zero-paper.md) — Physical Intelligence's VLA; distributed via LeRobot.
 - [Robot Learning: A Tutorial (LeRobot)](../sources/lerobot-robot-learning-tutorial.md) — official team-authored tutorial.

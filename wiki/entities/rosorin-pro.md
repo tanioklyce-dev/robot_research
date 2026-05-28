@@ -33,7 +33,7 @@ First **manipulation-capable LLM-agent** example in the wiki on the educational 
 
 ## LeRobot integration path
 
-ROSOrin Pro's ROS 2-native control surface (`/joint_states`, `~/arm_group_control`, `/controller/cmd_vel`) makes it a natural target for [Rosetta](rosetta.md) — the community LeRobot↔ROS 2 bridge. The shipped reference contracts ([`so_101.yaml`](https://github.com/iblnkn/rosetta/blob/main/contracts/so_101.yaml) for arm + [`turtlebot3.yaml`](https://github.com/iblnkn/rosetta/blob/main/contracts/turtlebot3.yaml) for base) cover the two control axes between them. See the [LeRobot-on-ROSOrin-Pro synthesis](../syntheses/projects/lerobot-on-rosorin-pro.md) for the concrete porting plan.
+ROSOrin Pro's [ROS 2](ros2.md)-native (Humble) control surface (`/joint_states`, `~/arm_group_control`, `/controller/cmd_vel`) makes it a natural target for the LeRobot↔ROS 2 bridges. **Distribution split matters**: ROSOrin Pro is Humble, so the viable bridges are [Rosetta](rosetta.md) (distro-agnostic, YAML contract) — **[lerobot-ros](lerobot-ros.md) is Jazzy-only and [so101-ros2](so101-ros2.md) is SO-101-only**, neither directly applies. See the [LeRobot-on-ROSOrin-Pro synthesis](../syntheses/projects/lerobot-on-rosorin-pro.md) for the concrete porting plan; Rosetta's shipped [`so_101.yaml`](https://github.com/iblnkn/rosetta/blob/main/contracts/so_101.yaml) (arm) + [`turtlebot3.yaml`](https://github.com/iblnkn/rosetta/blob/main/contracts/turtlebot3.yaml) (base) reference contracts cover both control axes between them.
 
 ## Related
 - [Hiwonder](hiwonder.md) — vendor.
