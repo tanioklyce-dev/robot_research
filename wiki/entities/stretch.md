@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-07
 updated: 2026-05-25
-sources: 15
+sources: 16
 tags: [stretch, stretch-3, stretch-4, mobile-manipulation, hello-robot, research-robot, holonomic-base, lidar, ros2-jazzy, hesai-lidar, luxonis, feetech]
 ---
 
@@ -107,3 +107,4 @@ These were all demonstrated on **Stretch 2 / 3**; whether they transfer to Stret
 - [OK-Robot Project Page](../sources/ok-robot-project-page.md)
 - [Sense of Agency — Yang et al. 2025](../sources/yang2025-sense-of-agency.md)
 - [Grasping in Clutter IVFP — Murray et al. 2024](../sources/murray2024-grasping-clutter-ivfp.md)
+- [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **Stretch-3 is one of 8 natively-supported [LeRobot](lerobot.md) platforms** (§3.1) — the mobile-manipulator anchor of the platform list alongside [LeKiwi](lekiwi.md) at the low end.

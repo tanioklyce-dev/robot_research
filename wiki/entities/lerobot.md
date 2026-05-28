@@ -3,14 +3,14 @@ title: LeRobot
 type: entity
 subtype: software-framework
 created: 2026-05-10
-updated: 2026-05-25
-sources: 8
-tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial]
+updated: 2026-05-28
+sources: 9
+tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026]
 ---
 
-**LeRobot** — open-source **imitation-learning framework for robotics** maintained by [Hugging Face](hugging-face.md). Provides standardized tooling for: motor configuration, calibration, teleoperation, demonstration recording, dataset management, policy training (ACT, Diffusion Policy, others), and autonomous evaluation. Has emerged as the de-facto OSS stack for low-cost mobile manipulators (SO-ARM100/101, LeKiwi, XLeRobot, Bambot, Koch v1.1) and is bringing the "buy → assemble → teleop → train → deploy" pipeline within reach of sub-$1k hobbyist hardware.
+**LeRobot** — open-source **end-to-end robot learning library** maintained by [Hugging Face](hugging-face.md). Provides a vertically-integrated stack: unified Python middleware for low-level motor control, the `LeRobotDataset` format for multimodal high-frame-rate data, an optimized async inference stack (physical + logical decoupling), and reference PyTorch implementations of SOTA robot-learning algorithms across RL (HIL-SERL, TD-MPC), single-task BC (ACT, Diffusion Policy, VQ-BET), and multi-task VLAs (π0, SmolVLA). De-facto OSS stack for the affordable mobile-manipulator class (SO-ARM100/101, LeKiwi, XLeRobot, Koch v1.1) bringing "buy → assemble → teleop → train → deploy" within reach of sub-$1k hobbyist hardware.
 
-Repository: [github.com/huggingface/lerobot](https://github.com/huggingface/lerobot).
+Repository: [github.com/huggingface/lerobot](https://github.com/huggingface/lerobot). **Canonical academic reference:** [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) (Cadene, Aliberts, Capuano, …, Wolf — 17 HF authors).
 
 ## Why it matters in this wiki
 
@@ -41,6 +41,61 @@ The canonical 7-step LeRobot workflow (install → motor config → calibration 
 - Active development; framework moves quickly enough that distributor tutorials (e.g., [Seeed Studio LeKiwi wiki](../sources/seeed-lekiwi-wiki.md)) carry "consult upstream for latest features" caveats.
 - Compatible hardware ecosystem: SO-ARM100/101 (The Robot Studio), Koch v1.1 (Dynamixel), LeKiwi (SIGRobotics-UIUC), XLeRobot (Vector Wang), Bambot, others.
 
+### Officially-supported real-world platforms (ICLR 2026 paper, Table 1a)
+
+| Robot | Type | Cost (single / bimanual) |
+|---|---|---|
+| [SO-100/101](so-arm101.md) | Manipulator | ~€225 / €550 |
+| Koch-v1.1 | Manipulator | ~€670 / €1346 |
+| [ALOHA-2](aloha.md) | Bimanual manipulator | ~€21k |
+| [HopeJR-Arm](hope-jr-arm.md) | Humanoid arm + hand | ~€500 |
+| [LeKiwi](lekiwi.md) | Mobile manipulator | ~€230 |
+| [Stretch-3](stretch.md) | Mobile manipulator | (Hello Robot) |
+| [Reachy-2](reachy.md) | Humanoid | (Pollen Robotics) |
+
+Went from **3 manipulation setups (Koch-v1.1, SO-100, ALOHA) at start of 2025 → 8 platforms (regular, humanoid, mobile)** by paper submission (Feb 2026). Middleware integrates directly with FeeTech and Dynamixel low-level SDKs.
+
+### Supported algorithms (ICLR 2026 paper, §3.3)
+
+| Paradigm | Implementations |
+|---|---|
+| RL | [HIL-SERL](hcrlab.md), [TD-MPC](td-mpc.md) |
+| Single-task BC | [ACT](act.md), [Diffusion Policy](diffusion-policy.md), [VQ-BET](vq-bet.md) |
+| Multi-task VLA | [π0](pi-zero.md), [SmolVLA](smolvla.md) |
+
+ACT dominates uploads + downloads — paper attributes this to small size + usability with as few as **50 real-world trajectories**.
+
+### `LeRobotDataset` format
+
+`.parquet` tabular records + `.mp4` compressed videos + lightweight metadata. **Streaming variant `StreamingLeRobotDataset`** uses `IterableDataset` + `torchcodec` for on-the-fly video decode — bounded memory regardless of dataset size, comparable timing to pre-loaded in the steady-state. **16K+ openly-shared datasets from 2.2K+ contributors as of Sep 2025** ([ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md)).
+
+### Optimized inference stack
+
+Decouples **action prediction** from **action execution** at two levels:
+
+- **Physical decoupling** — inference on remote machine over network; control loop runs onboard.
+- **Logical decoupling** — async producer-consumer; predict next action chunk while current chunk is executing. Overlapping chunks merged via user-defined aggregation `f`.
+
+Benchmark on **SmolVLA + SO-100** across 3 real-world tasks (Table 5, 60s episodes): async preserves comparable success (78.3% → 73.3%, drop only on sorting) while **doubling throughput** in fixed time (1.8 → 3.8 cubes). See [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) Appendix E.
+
+### Native simulation integration
+
+- **[LIBERO](libero.md)** — 4 task suites (SPATIAL, OBJECT, GOAL, LONG/90); the de-facto VLA-eval bench.
+- **[Metaworld](metaworld.md)** — 50 manipulation tasks; MT10/MT50 for multi-task, ML1/ML10/ML45 for meta-learning.
+
+Simulation is used **for evaluation, not training** — the library philosophy is to train on real-world data ([ICLR 2026 paper, §4](../sources/lerobot-iclr-2026-paper.md)).
+
+### Compute footprint (ICLR 2026 paper, Tables 2 + 3, fp32)
+
+| Model | # Params | Peak mem (A100) | Avg latency RTX 4090 | A100 |
+|---|---|---|---|---|
+| ACT | 52 M | 211 MB | **5.0 ms** | 13.8 ms |
+| Diffusion Policy | 263 M | 1.12 GB | 69.8 ms | 613.9 ms |
+| π0 | 3.5 B | 13.32 GB | 209.4 ms | 569.0 ms |
+| SmolVLA | 450 M | 1.75 GB | 99.2 ms | 278.8 ms |
+
+ACT runs **~100–200 Hz** on high-end GPUs. **π0 fails to complete inference within 5 s on CPU and MPS** — confirms frontier VLAs need a GPU; SmolVLA runs even on CPU.
+
 ## Ecosystem scale (June 2025 snapshot)
 
 The [LeRobot Worldwide Hackathon 2025](lerobot-worldwide-hackathon-2025.md) (June 14–15, 2025) is the clearest community-scale signal for the framework: **916 registered team members, ~400 submissions, 30 ranked winners, 189 hackathon datasets, 12 hackathon models** ([all-winners HF Space](../sources/lerobot-worldwide-hackathon-2025-winners.md)). The `submissions` dataset alone has 11.3k downloads.
@@ -65,6 +120,7 @@ The [LeRobot Worldwide Hackathon 2025](lerobot-worldwide-hackathon-2025.md) (Jun
 
 ## Mentioned in
 
+- [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **canonical academic reference**; Cadene, Aliberts, Capuano, …, Wolf; 17 HF authors.
 - [SmolVLA Paper](../sources/smolvla-paper.md) — team-authored VLA built on LeRobot framework.
 - [π0 Paper](../sources/pi-zero-paper.md) — Physical Intelligence's VLA; distributed via LeRobot.
 - [Robot Learning: A Tutorial (LeRobot)](../sources/lerobot-robot-learning-tutorial.md) — official team-authored tutorial.
@@ -79,3 +135,5 @@ The [LeRobot Worldwide Hackathon 2025](lerobot-worldwide-hackathon-2025.md) (Jun
 - Stable release cadence — distributor tutorials note framework volatility, but the upstream release history is not yet ingested.
 - Performance comparison: ACT (LeRobot default) vs. [Diffusion Policy](diffusion-policy.md) / [VQ-BeT](vq-bet.md) / [BET](bet.md) on the same low-cost hardware. No head-to-head numbers in ingested sources.
 - Relationship to [Stretch AI](stretch-ai.md) — both are LLM/IL-adjacent open robot stacks. Any cross-pollination?
+- **Quantization / graph compilation roadmap** — ICLR 2026 paper Limitation #3; current numbers leave headroom for π0 onboard deployment.
+- **No world-model algorithms supported** ([Dreamer](dreamer.md), [V-JEPA-2](v-jepa-2.md)) — coverage roadmap question or deliberate scope decision?

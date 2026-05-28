@@ -3,8 +3,8 @@ title: TD-MPC / TD-MPC2
 type: entity
 subtype: method
 created: 2026-05-10
-updated: 2026-05-10
-sources: 2
+updated: 2026-05-28
+sources: 3
 tags: [td-mpc, td-mpc2, world-model, model-based-rl, mbrl, mpc, hansen, decoder-free, latent-prediction]
 ---
 
@@ -47,6 +47,7 @@ tags: [td-mpc, td-mpc2, world-model, model-based-rl, mbrl, mpc, hansen, decoder-
 
 - [TD-MPC2 Paper](../sources/td-mpc2-paper.md)
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md) (as a baseline)
+- [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **the only model-based / world-model method natively integrated in LeRobot** (alongside HIL-SERL on the RL side). Notable for being the closest thing in LeRobot's current algorithm coverage to the wiki's broader world-model focus (Dreamer, V-JEPA-2, DINO-WM are not yet integrated).
 
 ## Open questions / TBD
 

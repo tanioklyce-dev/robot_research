@@ -4,7 +4,7 @@ type: entity
 subtype: organization
 created: 2026-05-10
 updated: 2026-05-15
-sources: 7
+sources: 8
 tags: [hugging-face, foundation-models, open-source, lerobot, robotics, ml-platform]
 ---
 
@@ -33,6 +33,7 @@ tags: [hugging-face, foundation-models, open-source, lerobot, robotics, ml-platf
 
 ## Mentioned in
 
+- [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **17 HF authors** (Cadene, Aliberts, Capuano, Aractingi, Zouitine, Kooijmans, Choghari, Russi, Pascal, Palma, Shukor, Moss, Soare, Aubakirova, Lhoest, Gallouédec, Wolf); ICLR 2026 conference paper; canonical academic reference for the [LeRobot](lerobot.md) framework.
 - [Seeed Studio LeRobot LeKiwi Wiki](../sources/seeed-lekiwi-wiki.md)
 - [LeKiwi GitHub](../sources/lekiwi-github.md)
 - [XLeRobot Documentation](../sources/xlerobot-docs.md)

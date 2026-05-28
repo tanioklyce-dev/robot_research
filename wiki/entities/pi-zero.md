@@ -3,8 +3,8 @@ title: π0 (pi-zero)
 type: entity
 subtype: model
 created: 2026-05-25
-updated: 2026-05-25
-sources: 5
+updated: 2026-05-28
+sources: 6
 tags: [pi-zero, pi0, vla, flow-matching, physical-intelligence, paligemma, action-expert, generalist-policy, cross-embodiment, lerobot, hugging-face]
 ---
 
@@ -80,3 +80,4 @@ The two are the canonical contrast points in the [LeRobot tutorial](../sources/l
 - [SmolVLA Paper](../sources/smolvla-paper.md) — uses π0 as primary baseline; beaten on real-world SO-100 multi-task.
 - [Robot Learning: A Tutorial (LeRobot)](../sources/lerobot-robot-learning-tutorial.md) — covered as canonical VLA example.
 - [Stanford HAI — AI Index Report 2026](../sources/stanford-hai-ai-index-2026.md) — cited as leading Physical AI VLA.
+- [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — supported reference policy at **3.5 B params** (largest in LeRobot's lineup); **13.32 GB peak mem on A100**; **fails inference within 5 s on both CPU and MPS** — confirms π0 needs GPU for onboard deployment. Distributed as `lerobot/pi0` checkpoint.

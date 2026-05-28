@@ -3,8 +3,8 @@ title: ACT (Action Chunking Transformer)
 type: entity
 subtype: method
 created: 2026-05-25
-updated: 2026-05-25
-sources: 3
+updated: 2026-05-28
+sources: 4
 tags: [act, action-chunking, transformer, imitation-learning, behavior-cloning, aloha, mobile-aloha, tony-zhao, stanford, lerobot]
 ---
 
@@ -44,7 +44,17 @@ tags: [act, action-chunking, transformer, imitation-learning, behavior-cloning, 
 - [Imitation learning](../concepts/learning/imitation-learning.md) — concept; ACT is the canonical action-chunked BC reference.
 - [LeRobot](lerobot.md) — surfaces ACT as a reference policy; LeRobot tutorial uses ACT as the canonical IL example.
 
+## LeRobot ICLR 2026 benchmark numbers
+
+From [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) Tables 2 + 3 (fp32):
+
+- **52 M params** (smallest of the 4 reference policies).
+- **Peak memory** 211 MB on RTX 4090/A100; 462 MB MPS; 817 MB CPU.
+- **Avg latency** 5.0 ms RTX 4090, 13.8 ms A100 — **~100–200 Hz** on high-end GPUs.
+- Paper attributes ACT's popularity dominance (Figure 7) to (1) small size + fast inference and (2) usability with as few as **50 real-world trajectories**.
+
 ## Mentioned in
 - [Mobile ALOHA Paper](../sources/mobile-aloha-paper.md)
 - [Mobile ALOHA project page](../sources/mobile-aloha-project-page.md)
 - [Robot Learning: A Tutorial (LeRobot)](../sources/lerobot-robot-learning-tutorial.md)
+- [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — supported by LeRobot; benchmark numbers above; explicitly cited as the dominant single-task BC policy in the ecosystem.

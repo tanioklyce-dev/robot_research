@@ -3,8 +3,8 @@ title: SO-ARM101 (SO-ARM100 lineage)
 type: entity
 subtype: robot
 created: 2026-05-10
-updated: 2026-05-17
-sources: 5
+updated: 2026-05-28
+sources: 6
 tags: [so-arm, so-arm100, so-arm101, the-robot-studio, low-cost-arm, open-source, lerobot, leader-follower, teleoperation]
 ---
 
@@ -54,6 +54,7 @@ The leader-follower convention is the dominant data-collection pattern for imita
 - [Seeed Studio LeRobot LeKiwi Wiki](../sources/seeed-lekiwi-wiki.md)
 - [LeKiwi GitHub](../sources/lekiwi-github.md)
 - [LeRobot Worldwide Hackathon 2025 — All Winners](../sources/lerobot-worldwide-hackathon-2025-winners.md) — SO-101 was prize hardware for the 25th–30th tier.
+- [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — Table 1a price (~€225 single / €550 bimanual); confirms SO-101 ranks **top** for community-contributed datasets (3,965 datasets, 320K downloads, 58K episodes as of Sep 2025) and SO-100 (5,161 datasets, 279K downloads, 79K episodes). **Together SO-10X contributes 50%+ of all community datasets** in the LeRobotDataset format. Cited as Knight et al. 2024.
 
 ## Open questions / TBD
 

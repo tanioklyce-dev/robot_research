@@ -3,8 +3,8 @@ title: Diffusion Policy
 type: entity
 subtype: method
 created: 2026-05-08
-updated: 2026-05-25
-sources: 10
+updated: 2026-05-28
+sources: 11
 tags: [diffusion-policy, behavior-cloning, diffusion-model, ddpm, action-diffusion, chi-2023, columbia, tri, mit, mobile-aloha]
 ---
 
@@ -109,6 +109,7 @@ From [Mobile ALOHA paper](../sources/mobile-aloha-paper.md) §6.2, evaluated aga
 - [UMI Project Page](../sources/umi-paper.md) — UMI uses Diffusion Policy as its canonical policy class (same lead author).
 - [Mobile ALOHA Paper](../sources/mobile-aloha-paper.md) — evaluated alongside [ACT](act.md) and VINN+chunking on bimanual mobile manipulation.
 - [SmolVLA Paper](../sources/smolvla-paper.md) — referenced as DDPM-class baseline alongside SmolVLA's flow-matching action expert.
+- [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — supported reference policy; 263 M params, 10 denoising steps, **69.8 ms** RTX 4090 latency, **CPU latency 3454 ms (100% timeout)** — incompatible with onboard deployment without GPU.
 
 ## Open questions / TBD
 

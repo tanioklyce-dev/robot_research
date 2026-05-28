@@ -3,9 +3,9 @@ title: Reachy 2
 type: entity
 subtype: robot
 created: 2026-05-09
-updated: 2026-05-17
-sources: 1
-tags: [reachy, pollen-robotics, open-source, humanoid, embodied-ai, ros2]
+updated: 2026-05-28
+sources: 2
+tags: [reachy, pollen-robotics, open-source, humanoid, embodied-ai, ros2, lerobot]
 ---
 
 **Vendor product page:** [pollen-robotics.com/reachy](https://www.pollen-robotics.com/reachy/)
@@ -43,5 +43,10 @@ Not listed. Contact required.
 - [Fauna Robotics](fauna-robotics.md) — comparable positioning (developer humanoid platform)
 - [Stretch](stretch.md) — comparable research-platform role, different form factor
 
+## LeRobot integration
+
+[LeRobot](lerobot.md) natively supports Reachy 2 as one of its 8 hardware platforms ([ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md), §3.1). Citation is **Mick et al. 2019** — the original "Reachy, a 3D-printed human-like robotic arm" paper from Frontiers in Neurorobotics.
+
 ## Mentioned in
 - [Reachy 2 product page](../sources/pollen-robotics-reachy.md)
+- [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — Reachy-2 listed among 8 natively-supported platforms.

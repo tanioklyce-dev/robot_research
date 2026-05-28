@@ -3,8 +3,8 @@ title: LIBERO
 type: entity
 subtype: benchmark
 created: 2026-05-08
-updated: 2026-05-10
-sources: 1
+updated: 2026-05-28
+sources: 2
 tags: [libero, manipulation-benchmark, lifelong-learning, robosuite, mujoco]
 ---
 
@@ -26,7 +26,8 @@ Primary reference is [VLA-JEPA](../sources/vla-jepa-paper.md) (Sun et al., Feb 2
 
 ## Mentioned in
 - [VLA-JEPA Paper](../sources/vla-jepa-paper.md)
+- [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **natively integrated** as one of two simulation benchmarks (alongside [Metaworld](metaworld.md)). Confirms the four task families: SPATIAL, OBJECT, GOAL, plus continuing-task LIBERO-90 and long-horizon LIBERO-LONG.
 
 ## Open questions / TBD
-- Original LIBERO paper not yet ingested as a source — would let us cite design rationale (why the four task families, what "lifelong" means concretely).
-- Authors and host institution not surfaced in this wiki yet.
+- Original LIBERO paper (Liu et al., NeurIPS 2023) not yet ingested as a source — would let us cite design rationale (why the four task families, what "lifelong" means concretely).
+- Authors per the LeRobot ICLR 2026 citation: **Bo Liu, Yifeng Zhu, Chongkai Gao, Yihao Feng, Qiang Liu, Yuke Zhu, Peter Stone** (NeurIPS 2023, 36:44776–44791).

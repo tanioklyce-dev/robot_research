@@ -3,8 +3,8 @@ title: VQ-BeT
 type: entity
 subtype: method
 created: 2026-05-08
-updated: 2026-05-16
-sources: 6
+updated: 2026-05-28
+sources: 7
 tags: [vq-bet, behavior-cloning, transformer, vector-quantization, latent-action, lee-2024, icml-2024]
 ---
 
@@ -39,6 +39,7 @@ From [RUM paper](../sources/robot-utility-models-paper.md) §3.2:
 ## Mentioned in
 - [VQ-BeT Paper](../sources/vq-bet-paper.md)
 - [Robot Utility Models Paper](../sources/robot-utility-models-paper.md) — best-performing policy class.
+- [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — supported single-task BC policy alongside [ACT](act.md) and [Diffusion Policy](diffusion-policy.md); note that the paper omits VQ-BET from Figures 7a/7b upload/download tracking because users typically don't upload VQ-BET checkpoints.
 
 ## Open questions / TBD
 - [VQ-BeT Paper](../sources/vq-bet-paper.md) (arxiv 2403.03181, ICML 2024) now filed (2026-05-16). Headline claim from paper: **~5× faster inference than Diffusion Policy** while matching or beating it across **7 environments** (manipulation, driving, robotics).

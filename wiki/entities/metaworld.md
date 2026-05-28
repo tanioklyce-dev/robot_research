@@ -3,8 +3,8 @@ title: Metaworld
 type: entity
 subtype: benchmark
 created: 2026-05-07
-updated: 2026-05-16
-sources: 2
+updated: 2026-05-28
+sources: 3
 tags: [metaworld, meta-rl, multi-task-rl, benchmark, mujoco, sawyer, stanford, berkeley]
 ---
 
@@ -46,6 +46,7 @@ Metaworld functions as a **lightweight, standardized manipulation testbed** that
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
 - [MuJoCo Playground Paper](../sources/mujoco-playground-paper.md) (referenced as eval suite)
 - [Farama Foundation Projects Page](../sources/farama-projects-page.md) (listed as deferred ingest)
+- [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **natively integrated** as one of two simulation benchmarks (alongside [LIBERO](libero.md)). Used because of the shared-robot / shared-skill structure, useful for transfer evaluation.
 
 ## Open questions / TBD
 - License of the Metaworld code/assets — not surfaced from project page.

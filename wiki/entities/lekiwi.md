@@ -3,8 +3,8 @@ title: LeKiwi
 type: entity
 subtype: robot
 created: 2026-05-10
-updated: 2026-05-17
-sources: 6
+updated: 2026-05-28
+sources: 7
 tags: [lekiwi, mobile-manipulator, kiwi-drive, holonomic, sigrobotics-uiuc, lerobot, low-cost, raspberry-pi, open-source]
 ---
 
@@ -68,6 +68,7 @@ For the wiki's assistive-robotics and accessible-robotics themes, LeKiwi is the 
 - [Seeed Studio LeRobot LeKiwi Wiki](../sources/seeed-lekiwi-wiki.md)
 - [XLeRobot Documentation](../sources/xlerobot-docs.md)
 - [LeRobot Worldwide Hackathon 2025 — All Winners](../sources/lerobot-worldwide-hackathon-2025-winners.md) — LeKiwi was prize hardware in 22 of 30 ranked positions (top-3 + 6th–24th).
+- [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — listed at **~€230** in Table 1a as the canonical mobile-manipulator platform; BOM citation in Appendix A.
 
 ## Open questions / TBD
 
