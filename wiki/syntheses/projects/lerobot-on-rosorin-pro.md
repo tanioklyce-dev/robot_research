@@ -3,12 +3,15 @@ title: LeRobot on ROSOrin Pro — adaptation plan for in-home floor-pickup-and-t
 type: synthesis
 created: 2026-05-28
 updated: 2026-05-28
-tags: [lerobot, rosorin-pro, hiwonder, hx-12h, openclaw, smolvla, act, dobb-e, robot-utility-models, async-inference, floor-pickup, in-home, feasibility, project-plan]
+tags: [lerobot, rosorin-pro, hiwonder, hx-12h, openclaw, smolvla, act, dobb-e, robot-utility-models, async-inference, floor-pickup, in-home, feasibility, project-plan, rosetta]
 ---
 
 # LeRobot on ROSOrin Pro — adaptation plan for in-home floor-pickup-and-tidy
 
-A practical question: **can [LeRobot](../../entities/lerobot.md) be adapted to drive a [ROSOrin Pro](../../entities/rosorin-pro.md), and would it actually improve the robot's AI control toward the end-user goal of "navigate the house, pick objects off the floor, put them away in an organized fashion"?** Short answer: **yes to both, but the demo-collection bottleneck — not LeRobot adoption — is the dominant cost.** This page maps the concrete porting work and the realistic ladder for the in-home tidy goal.
+A practical question: **can [LeRobot](../../entities/lerobot.md) be adapted to drive a [ROSOrin Pro](../../entities/rosorin-pro.md), and would it actually improve the robot's AI control toward the end-user goal of "navigate the house, pick objects off the floor, put them away in an organized fashion"?** Short answer: **yes to both, and the integration is much shorter than originally scoped here** — there is a community bridge ([Rosetta](../../entities/rosetta.md), Sep 2025) that resolves the LeRobot↔ROS 2 gap declaratively, so the dominant cost shifts to **demo collection**.
+
+> [!warning] Updated 2026-05-28 — Rosetta changes the recommended porting approach
+> The original "Path 1 — wrap `~/arm_group_control` in a `lerobot.robots.rosorin_pro` Python class" plan below is **superseded** by [Rosetta](../../entities/rosetta.md): an Apache-2.0 community project that lets you write a **YAML contract** mapping ROS 2 topics to LeRobot features, then auto-generates the recorder + dataset converter + inference client. Ships reference contracts for [SO-101](../../entities/so-arm101.md) (a 6-DOF arm with multi-cam) and [TurtleBot3](../../entities/turtlebot.md) (a wheeled mobile base) — between them, those two contract templates almost certainly cover ROSOrin Pro. The remaining content below is preserved for context on the underlying gaps; the [revised recommended ladder](#recommended-ladder-updated-2026-05-28-with-rosetta) section is the current plan.
 
 > [!note] Why this pairing
 > [ROSOrin Pro](../../entities/rosorin-pro.md) ships with the [OpenClaw](../../entities/openclaw.md) LLM-agent that orchestrates **deterministic, hand-coded** skills (color-thresholded grasps, AprilTag-anchored deliveries). It will not generalize to "any object that doesn't belong on the floor." A learned visuomotor policy — exactly what [LeRobot](../../entities/lerobot.md)'s reference algorithms ([ACT](../../entities/act.md), [Diffusion Policy](../../entities/diffusion-policy.md), [SmolVLA](../../entities/smolvla.md), [π0](../../entities/pi-zero.md)) produce — is the missing primitive.
@@ -95,17 +98,17 @@ Try [`lerobot/smolvla_base`](../../entities/smolvla.md) zero-shot via the async 
 **Pros**: zero collection cost.
 **Cons**: likely a baseline, not a solution. Reserve for an early sanity check.
 
-## Recommended ladder
+## Recommended ladder (updated 2026-05-28 with Rosetta)
 
-Smallest-bet first:
+Smallest-bet first. **Step 1 is dramatically shorter than originally scoped** — what was "1–2 weeks of writing `lerobot.robots.rosorin_pro` in Python" becomes "1 day of writing a Rosetta YAML contract."
 
 | Step | Effort | Goal | Stop condition |
 |---|---|---|---|
 | **0.** Zero-shot SmolVLA on ROSOrin (Path C) via SmolVLA-compatible kinematic adapter on a laptop GPU policy server. | 1–3 days | Baseline; check whether anything transfers across the embodiment gap. | If success >20%, lean harder on SmolVLA. If <5%, expect to need real demos. |
-| **1.** Write `lerobot.robots.rosorin_pro` (Gap 1, option 1 — wrap `~/arm_group_control`). | 1–2 weeks | LeRobot can move the arm + read joint state + record demos in `LeRobotDataset` format. | Demos round-trip: collect via OpenClaw, replay via LeRobot. |
-| **2.** Dobb·E-style "Stick" demo collection (Path A) — 50–200 floor-pickup trajectories in your house. | 1–2 weeks of evenings | A small in-distribution dataset. | Replay validates camera + retargeting on actual ROSOrin. |
-| **3.** Train [ACT](../../entities/act.md) (52 M params, real-time on Orin Nano) on the combined community + Dobb·E + ROSOrin data. | 1 day (single GPU) + iteration | First learned floor-pickup skill. | Replace OpenClaw's `/start_pick` with the ACT policy; rest of OpenClaw orchestration is unchanged. |
-| **4.** If ACT plateaus, build an SO-100 leader (Path B) and migrate to SmolVLA via async inference. | 2–4 weeks (hardware build + retargeting + policy training) | Open-vocab pickup with language conditioning. | "Pick up the sock by the couch and put it in the laundry hamper" works on average. |
+| **1.** Write a [Rosetta](../../entities/rosetta.md) YAML contract for ROSOrin Pro — `observation.images.{front,wrist}` from the Aurora930 RGB, `observation.state` from `/joint_states` + odom, `action` publishing `JointState` to `~/arm_group_control` for the arm and `TwistStamped` to `/controller/cmd_vel` for the base. Combine the [`so_101.yaml`](https://github.com/iblnkn/rosetta/blob/main/contracts/so_101.yaml) and [`turtlebot3.yaml`](https://github.com/iblnkn/rosetta/blob/main/contracts/turtlebot3.yaml) reference contracts. | **1 day** | LeRobot can record + replay demos via `episode_recorder_node` → MCAP → LeRobotDataset Parquet. | Demos round-trip end-to-end. |
+| **2.** Dobb·E-style "Stick" demo collection (Path A) — 50–200 floor-pickup trajectories in your house, recorded to MCAP via Rosetta's `episode_keyboard_node`. | 1–2 weeks of evenings | A small in-distribution dataset; convert to LeRobotDataset; optionally push to HF Hub. | Replay validates camera + retargeting on actual ROSOrin. |
+| **3.** Train [ACT](../../entities/act.md) (52 M params, real-time on Orin Nano) on the combined community + Dobb·E + ROSOrin data using `lerobot-train --policy.type=act`. | 1 day (single GPU) + iteration | First learned floor-pickup skill. Deploy via `rosetta_client_node` (ROS 2 action). | Replace OpenClaw's deterministic `/start_pick` with a ROS 2 action call to the Rosetta client; rest of OpenClaw orchestration is unchanged. |
+| **4.** If ACT plateaus, scale up. Two branches: (a) build an SO-100 leader (~€225) and use [`so_101_hil.yaml`](https://github.com/iblnkn/rosetta/blob/main/contracts/so_101_hil.yaml)-style HIL contract to capture intervention demos; (b) migrate to SmolVLA via Rosetta's gRPC policy-server async inference (laptop or desktop GPU). | 2–4 weeks | Open-vocab pickup with language conditioning. | "Pick up the sock by the couch and put it in the laundry hamper" works on average. |
 
 The recommended near-term **architecture** keeps OpenClaw as the orchestrator (LLM dispatching ROS services + navigation) and swaps only the *deterministic* pick skill for a learned LeRobot policy. This is the same composition pattern as [stretch_ai](../../entities/stretch-ai.md) on the research tier — LLM-as-orchestrator + learned manipulation primitive — and the most efficient use of the work already invested in ROSOrin Pro's nav stack.
 
@@ -125,6 +128,7 @@ The recommended near-term **architecture** keeps OpenClaw as the orchestrator (L
 
 ## Related
 
+- [Rosetta](../../entities/rosetta.md) — the LeRobot↔ROS 2 bridge that resolves Gap 1; YAML-contract-driven; ships SO-101 and TurtleBot3 reference contracts. **Read this first** — it dictates the Step 1 approach.
 - [LeRobot ICLR 2026 paper](../../sources/lerobot-iclr-2026-paper.md) — canonical reference for the framework.
 - [LeRobot entity](../../entities/lerobot.md) — current state of supported platforms / algorithms.
 - [ROSOrin Pro](../../entities/rosorin-pro.md) — target hardware.

@@ -3,8 +3,8 @@ title: TurtleBot
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-05-17
-sources: 2
+updated: 2026-05-28
+sources: 3
 tags: [turtlebot, ros, education, mobile-robot, willow-garage, clearpath, open-robotics]
 ---
 
@@ -43,6 +43,7 @@ The interesting comparison: **ROSOrin / ROSOrin Pro is roughly "what you'd get i
 ## Mentioned in
 - [Clearpath TurtleBot 4 product page](../sources/clearpath-turtlebot-4.md)
 - [DRAGON Paper (Liu et al. 2024)](../sources/dragon-assistive-nav-2024.md) — TurtleBot 2i used as the base for an assistive-navigation guide robot for persons with visual impairments. A counter-example to the "TurtleBot no longer features in research" hypothesis below: this is a 2024 IEEE RA-L paper that builds an end-to-end assistive system on TurtleBot 2i, fitted with RPLIDAR A3, RealSense D435i, a wireless headset, and a T-shaped haptic handle.
+- [Rosetta GitHub](../sources/rosetta-github.md) — ships `turtlebot3.yaml`, the reference contract for a wheeled mobile base in [LeRobot](lerobot.md) via [Rosetta](rosetta.md). 20-dim observation.state composed from wheel JointState + IMU + Odometry; 2-dim `geometry_msgs/TwistStamped` action; `safety_behavior: zeros`; `adjunct: [/tf, /scan]`. This is the canonical "mobile base" Rosetta contract template.
 
 ## Open questions / TBD
 - Pricing not listed by Clearpath; sold via distributors.

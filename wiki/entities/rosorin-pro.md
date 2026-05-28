@@ -3,7 +3,7 @@ title: ROSOrin Pro
 type: entity
 subtype: product
 created: 2026-05-07
-updated: 2026-05-17
+updated: 2026-05-28
 sources: 4
 tags: [rosorin-pro, hiwonder, jetson-orin-nano, education, mobile-manipulation, llm-agent]
 ---
@@ -31,11 +31,16 @@ Base-ROSOrin chapters (chassis, LiDAR, camera, mapping/nav, OpenCV, ML, Gazebo, 
 ## Why it matters
 First **manipulation-capable LLM-agent** example in the wiki on the educational tier. Confirms the [LLM-agent pattern](../concepts/agents/llm-agent-architecture.md) extends naturally from mobile-only ([ROSOrin](rosorin.md)) to mobile + arm — same JSON tool-call architecture, just a richer skill library.
 
+## LeRobot integration path
+
+ROSOrin Pro's ROS 2-native control surface (`/joint_states`, `~/arm_group_control`, `/controller/cmd_vel`) makes it a natural target for [Rosetta](rosetta.md) — the community LeRobot↔ROS 2 bridge. The shipped reference contracts ([`so_101.yaml`](https://github.com/iblnkn/rosetta/blob/main/contracts/so_101.yaml) for arm + [`turtlebot3.yaml`](https://github.com/iblnkn/rosetta/blob/main/contracts/turtlebot3.yaml) for base) cover the two control axes between them. See the [LeRobot-on-ROSOrin-Pro synthesis](../syntheses/projects/lerobot-on-rosorin-pro.md) for the concrete porting plan.
+
 ## Related
 - [Hiwonder](hiwonder.md) — vendor.
 - [ROSOrin](rosorin.md) — mobile-only sibling kit.
 - [ROSOrin Pro 6-DOF arm](rosorin-pro-arm.md) — manipulator hardware.
 - [OpenClaw](openclaw.md) — manipulation-aware LLM-agent framework that ships with this kit.
+- [Rosetta](rosetta.md) — LeRobot↔ROS 2 bridge; YAML-contract path to running [LeRobot](lerobot.md) policies on this platform.
 - [Stretch](stretch.md) — research-tier arm + base counterpart from [Hello Robot](hello-robot.md).
 
 ## Mentioned in

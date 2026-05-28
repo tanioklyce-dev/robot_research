@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-05-10
 updated: 2026-05-28
-sources: 9
+sources: 10
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026]
 ---
 
@@ -107,6 +107,7 @@ The [LeRobot Worldwide Hackathon 2025](lerobot-worldwide-hackathon-2025.md) (Jun
 ## Downstream / hardware-ecosystem projects
 
 - **[Grievous](grievous.md)** ([source](../sources/grievous-github.md)) — Alex Koven's in-progress "cheap, human-like, fully-autonomous testbed" registered as `lerobot.robots.grievous.grievous_host`. Design ancestors: [Mobile ALOHA](aloha.md) + [XLeRobot](xlerobot.md).
+- **[Rosetta](rosetta.md)** ([source](../sources/rosetta-github.md)) — solo-author Apache-2.0 bridge to ROS 2 (76 stars, Sep 2025). YAML-contract-driven mapping of ROS 2 topics to LeRobot features; ships `lerobot_robot_rosetta` and `lerobot_teleoperator_rosetta` plugins; extends supported policies with π0.5, [GR00T](nvidia-groot.md), Wall-X, X-VLA. **Resolves the FeeTech/Dynamixel-only middleware limitation** for any ROS 2-controllable robot — see the [LeRobot on ROSOrin Pro synthesis](../syntheses/projects/lerobot-on-rosorin-pro.md).
 
 ## Related
 
@@ -121,6 +122,7 @@ The [LeRobot Worldwide Hackathon 2025](lerobot-worldwide-hackathon-2025.md) (Jun
 ## Mentioned in
 
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **canonical academic reference**; Cadene, Aliberts, Capuano, …, Wolf; 17 HF authors.
+- [Rosetta GitHub](../sources/rosetta-github.md) — downstream ROS 2 bridge.
 - [SmolVLA Paper](../sources/smolvla-paper.md) — team-authored VLA built on LeRobot framework.
 - [π0 Paper](../sources/pi-zero-paper.md) — Physical Intelligence's VLA; distributed via LeRobot.
 - [Robot Learning: A Tutorial (LeRobot)](../sources/lerobot-robot-learning-tutorial.md) — official team-authored tutorial.
