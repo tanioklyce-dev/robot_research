@@ -1,12 +1,22 @@
 ---
-title: OpenClaw
+title: OpenClaw (Hiwonder, robotics)
 type: entity
 subtype: product
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-28
 sources: 1
-tags: [openclaw, hiwonder, llm-agent, manipulation, ros2]
+tags: [openclaw, hiwonder, llm-agent, manipulation, ros2, name-collision]
 ---
+
+> [!warning] Disambiguation — three projects share the "OpenClaw / Claw" name
+> | Project | What it is | Where it lives |
+> |---|---|---|
+> | **This page — Hiwonder OpenClaw** | Manipulation-aware ROS 2 LLM-agent framework on [ROSOrin Pro](rosorin-pro.md) | Hiwonder docs (likely closed source) |
+> | [OpenClaw (Steinberger, personal AI)](openclaw-personal-ai.md) | 375K-star MIT personal AI assistant; "Molty space lobster" naming | `github.com/openclaw/openclaw` |
+> | [NemoClaw](nemoclaw.md) | NVIDIA security wrapper around the Steinberger OpenClaw | `nvidia.com/ai/nemoclaw` |
+> | [Hermes Agent](hermes-agent.md) | Sibling agent framework that imports *from* the Steinberger OpenClaw via `hermes claw migrate` | `github.com/nousresearch/hermes-agent` |
+>
+> This page is **only** about Hiwonder's robotics-specific OpenClaw. The three other projects are an unrelated name family and share no code or design with this one.
 
 [Hiwonder](hiwonder.md)'s **manipulation-aware LLM-agent framework** that ships with [ROSOrin Pro](rosorin-pro.md). Despite the "Claw" suffix, OpenClaw is the *software* SDK — not a hardware gripper. Architecture: LLM (OpenAI GPT) → skill descriptions → ROS 2 service dispatch → robot hardware.
 
@@ -39,3 +49,8 @@ Concrete demonstration that the [LLM-agent pattern](../concepts/agents/llm-agent
 
 ## Mentioned in
 - [Hiwonder OpenClaw Practical Tutorial](../sources/hiwonder-openclaw-tutorial.md)
+
+## See also (different projects, same name)
+- [OpenClaw (Steinberger, personal AI)](openclaw-personal-ai.md) — the 375K-star MIT personal-AI-assistant framework.
+- [NemoClaw](nemoclaw.md) — NVIDIA's security wrapper around the Steinberger OpenClaw.
+- [Hermes Agent](hermes-agent.md) — Nous Research's competing agentic framework; ships `hermes claw migrate` to import from the Steinberger OpenClaw.
