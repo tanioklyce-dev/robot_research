@@ -112,7 +112,7 @@ Use cases listed in nav: **Assist**, **Research**, **Enterprise**. Certification
 - **MuJoCo-based self-collision avoidance**; **IMU-based overtilt detection**.
 - **ROS 2 Jazzy** (Stretch 3 was Humble).
 - **Python SDK** open-source.
-- **Nav2** for navigation autonomy.
+- **[Nav2](../entities/nav2.md)** for navigation autonomy.
 - "Reference demos for autonomy and Embodied AI" — links to the [Hello Robot Develop page](https://hello-robot.com/develop/) (not separately ingested).
 
 ## Stretch 4 vs Stretch 3 — at a glance

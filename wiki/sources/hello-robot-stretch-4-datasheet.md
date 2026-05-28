@@ -59,7 +59,7 @@ tags: [stretch, stretch-4, hello-robot, datasheet, primary-source, mobile-manipu
 
 ### 6. Developer ports & power
 - **Power**: **512 Wh LiFePO4** battery, **quick-swap**, integrated charger and BMS.
-- **Tooling**: **quick-release tool plate** with **24 V Feetech RS485 bus**.
+- **Tooling**: **quick-release tool plate** with **24 V [Feetech](../entities/feetech.md) RS485 bus**.
 - **Expansion ports**:
   - Base: HDMI, Ethernet, 3× USB 3.2 Type A.
   - Head: USB 3.2 Type A, Type C.

@@ -56,7 +56,7 @@ This is the **closest published equivalent to the wiki's own [Robot-learning cur
   - `lerobot/smolvla_base`
   - `microsoft/resnet-18`
 - **Datasets** used in examples: `lerobot/example_hil_serl_dataset`, `lerobot/svla_so101_pickplace` — the latter is on the [SO-ARM101](../entities/so-arm101.md) platform, anchoring the IL examples to the wiki's affordable-robot tier.
-- **Generative-model coverage** is unusually broad for a robot-learning tutorial — VAEs + Diffusion + Flow Matching all introduced in one chapter, then specialized into Diffusion Policy + π₀'s flow matching downstream.
+- **Generative-model coverage** is unusually broad for a robot-learning tutorial — VAEs + Diffusion + [Flow Matching](../concepts/learning/flow-matching.md) all introduced in one chapter, then specialized into Diffusion Policy + π₀'s flow matching downstream.
 - **Async inference** has its own subsection — practical concern for high-rate-control deployment that most academic papers skip.
 - **VLAs front and center**: π₀ and SmolVLA are the named exemplars. SmolVLA is Hugging Face's own VLA; π₀ is Physical Intelligence's flow-matching VLA.
 

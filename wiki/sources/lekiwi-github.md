@@ -11,7 +11,7 @@ tags: [lekiwi, sigrobotics-uiuc, github, open-source, mobile-manipulator, kiwi-d
 
 The canonical open-source repository for **LeKiwi**, a low-cost mobile manipulator from SIGRobotics at UIUC. Apache 2.0. Includes CAD (Fusion 360), URDFs, BOM, assembly guides, and Python software for teleoperation, data collection, and streaming. 1,300+ GitHub stars, 138 forks, 95 commits, no formal release tags as of ingest (active development).
 
-LeKiwi is structurally a 3-wheel holonomic Kiwi-drive base with a stacked-base-plate mounting convention (3.5 mm holes, 20 mm spacing) that hosts either an [SO-ARM101](../entities/so-arm101.md) arm or a Dynamixel/ROBOTIS Koch-v1.1 alternative. Designed for teleoperation, demonstration collection, and imitation-learning policy training within the [LeRobot](../entities/lerobot.md) ecosystem.
+LeKiwi is structurally a 3-wheel holonomic Kiwi-drive base with a stacked-base-plate mounting convention (3.5 mm holes, 20 mm spacing) that hosts either an [SO-ARM101](../entities/so-arm101.md) arm or a [Dynamixel](../entities/dynamixel.md)/ROBOTIS Koch-v1.1 alternative. Designed for teleoperation, demonstration collection, and imitation-learning policy training within the [LeRobot](../entities/lerobot.md) ecosystem.
 
 ## Key claims
 

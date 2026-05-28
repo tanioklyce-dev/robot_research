@@ -26,7 +26,7 @@ Product page for myBuddy 280, Elephant Robotics' dual-arm collaborative robot wi
 
 ## Software
 - Python; Windows/Linux/macOS
-- ROS1 + RViz + MoveIt
+- ROS1 + RViz + [MoveIt](../entities/moveit.md)
 - myBlockly, myStudio
 - Serial + TCP/IP
 - Open-source URDF

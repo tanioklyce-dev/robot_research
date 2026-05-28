@@ -30,7 +30,7 @@ Three iterated steps:
 
 ### Why advantage conditioning (paper §IV-B)
 
-Direct policy gradient (PPO, REINFORCE) on flow-matching VLAs is hard — flow-matching models don't readily provide tractable log-likelihoods. AWR (advantage-weighted regression) works but discards or down-weights significant portions of data. **Advantage conditioning** sidesteps both: the policy is trained on ALL data with supervised learning + an extra "is this action good?" input from the value function. Closely related to **CFGRL** (classifier-free guidance RL [4]) and the broader "condition the policy on a function of trajectory" lineage.
+Direct policy gradient (PPO, REINFORCE) on [flow-matching](../concepts/learning/flow-matching.md) VLAs is hard — flow-matching models don't readily provide tractable log-likelihoods. AWR (advantage-weighted regression) works but discards or down-weights significant portions of data. **Advantage conditioning** sidesteps both: the policy is trained on ALL data with supervised learning + an extra "is this action good?" input from the value function. Closely related to **CFGRL** (classifier-free guidance RL [4]) and the broader "condition the policy on a function of trajectory" lineage.
 
 The Bayes-rule derivation (§IV-B): if `p(I | A^πref(o,a)) = π^ref(a|I,o) / π^ref(a|o)`, then the improved policy is `π̂(a|o,ℓ) ∝ π^ref(a|o,ℓ) · (π^ref(a|I,o,ℓ) / π^ref(a|o,ℓ))^β`. For β=1, `π̂(a|o,ℓ) = π^ref(a|I,o,ℓ)` — i.e., just train the policy to model both with and without the improvement indicator, then condition on "improved" at inference.
 

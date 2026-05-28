@@ -26,7 +26,7 @@ tags: [pedagogical, textbook, differentiable-programming, automatic-differentiat
 
 Five parts × 18 chapters cover the entire mathematical substrate of modern ML, from univariate calculus through transformer architectures and quasi-Newton optimization. Two cross-cutting framings tie everything together: **the optimization perspective** and **the probabilistic perspective**, with explicit analogies between the two (e.g. softmax = argmax + entropic regularization = Gibbs distribution).
 
-This is the **most comprehensive single reference** for the math underneath every other ML/robotics ingest in this wiki — autodiff, transformers, flow matching, REINFORCE, reparametrization trick, Gumbel-softmax, Fenchel-Young losses, second-order optimization, all in one volume.
+This is the **most comprehensive single reference** for the math underneath every other ML/robotics ingest in this wiki — autodiff, transformers, [flow matching](../concepts/learning/flow-matching.md), REINFORCE, reparametrization trick, Gumbel-softmax, Fenchel-Young losses, second-order optimization, all in one volume.
 
 ## Structure — 5 parts, 18 chapters
 

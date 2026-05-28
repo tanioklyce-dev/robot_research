@@ -27,7 +27,7 @@ Product page for TurtleBot 4, "the next-generation of the world's most popular o
 - Runtime: 2.5–4.0 hours
 - Computer: Raspberry Pi 4B (4 GB)
 - Sensors: 2D LiDAR (RPLIDAR-A1), IMU, wheel encoders, infrared, cliff/bump/slip detection
-- Software: ROS 2 pre-installed + Ignition Gazebo simulation model + micro-ROS support
+- Software: ROS 2 pre-installed + Ignition [Gazebo](../entities/gazebo.md) simulation model + micro-ROS support
 - Base: [iRobot Create 3](../entities/irobot-create-3.md)
 
 ## Entities mentioned

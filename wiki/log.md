@@ -1820,3 +1820,14 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - **Did NOT** do the bookkeeping batch on the 45 source-count drift cases — user opted to do the entity stubs instead (per "Do 3. Then add MoveIt, Gazebo, Nav2."). Drift remains as a deferred TODO.
 - **Did NOT** do the flow-matching backlink pass — same reason; deferred.
 - Open questions surfaced by the new stubs: HX-12H ([ROSOrin Pro](entities/rosorin-pro.md)) is the third motor lineage not in LeRobot's SDK — deserves its own page; Koch-v1.1 is the largest gap in LeRobot's platform coverage with no entity yet (Dynamixel-based, ~€670, in [Table 1a](sources/lerobot-iclr-2026-paper.md)); PickNik Robotics and Open Navigation as organizations have no entity pages despite their stewardship roles.
+
+## [2026-05-28] lint | Backlink + source-count cleanup pass — zero drift
+- Added 18 markdown-link backlinks across 13 source pages to resolve the mention-without-link gaps surfaced by the prior lint:
+  - **flow-matching** backlinks in `pi07-paper.md`, `pistar06-paper.md`, `egoscale-paper.md`, `dreamdojo-paper.md`, `blondel-roulet-differentiable-programming.md`, `lerobot-robot-learning-tutorial.md` (6 sources).
+  - **FeeTech** backlinks in `hello-robot-stretch-4-datasheet.md`, `sigrobotics-uiuc-projects-page.md`.
+  - **Dynamixel** backlinks in `lekiwi-github.md`, `sigrobotics-uiuc-projects-page.md`.
+  - **MoveIt** backlinks in `elephant-robotics-mybuddy-280.md`, `nanavati2025-feeding-out-of-lab.md`.
+  - **Gazebo** backlinks in `clearpath-turtlebot-4.md`, `hello-robot-stretch-docs.md`, `hiwonder-rosorin-docs.md`, `px4-docs-main.md`.
+  - **Nav2** backlinks in `hello-robot-stretch-docs.md`, `hiwonder-rosorin-docs.md`, `hello-robot-stretch-4-launch.md`.
+- Ran `/tmp/fix_source_counts.py` to bring **44 frontmatter `sources: N` fields into agreement** with the measured count of source-page markdown links. Biggest fixes: imitation-learning 29→37, droid 6→11, franka-panda 10→15, chelsea-finn 4→8, stretch 16→20. Definition is now mechanically consistent across the wiki: `sources:` = "number of source-page markdown links to this page" (matching the convention established in the 2026-05-16 lint pass).
+- Lint result: **0 broken links, 0 orphans, 0 source-count drift cases** across 438 wiki pages. The only remaining mention-gap is **URDF** (9 source-page mentions, no entity) — left as deferred since URDF is a file format rather than an entity; could be a concept page if cross-linking becomes useful.

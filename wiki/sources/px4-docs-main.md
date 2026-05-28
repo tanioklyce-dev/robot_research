@@ -97,7 +97,7 @@ The split is **architecturally identical to the [Jetson Thor / DGX Spark split](
 
 ### Simulation ecosystem
 
-- **Gazebo (new)** — official, current — vehicles, plugins, worlds, multi-vehicle.
+- **[Gazebo](../entities/gazebo.md) (new)** — official, current — vehicles, plugins, worlds, multi-vehicle.
 - **Gazebo Classic** — legacy but documented.
 - **SIH (Simulation in Hardware)** — software-in-the-loop on real flight-controller hardware.
 - **jMAVSim**, **FlightGear**, **JSBSim**, **AirSim** — community-supported.

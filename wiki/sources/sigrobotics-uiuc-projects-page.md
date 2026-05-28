@@ -39,7 +39,7 @@ Tiered visually as "big" or "normal" in the bundle:
 **Normal sponsors:**
 - **Hugging Face LeRobot** — confirms the wiki's existing understanding that SIGRobotics is a deliberate LeRobot-ecosystem partner
 - **Neuralink** — surprising; not an obvious match. Possibly tied to the `silent_speech` (EMG-from-silent-speech) work in the GitHub org
-- **ROBOTIS** (`en.robotis.com`) — Dynamixel-servo manufacturer; consistent with the `DynamixelLeKiwi` LeKiwi variant in the repo
+- **ROBOTIS** (`en.robotis.com`) — [Dynamixel](../entities/dynamixel.md)-servo manufacturer; consistent with the `DynamixelLeKiwi` LeKiwi variant in the repo
 - **UIUC CS / Siebel School of Computing & Data Science** — university-level institutional sponsor
 
 ## Tagline
@@ -78,7 +78,7 @@ The gap between the website's 4-project view and the GitHub org's 25-repo realit
 - **FrodoBots / Earth Rover Mini** — top-tier sponsor; SIG has ~5 repos around the Earth Rover platform. Worth a stub entity if the wiki picks up consumer / educational rover hardware as a thread.
 - **BitRobot Foundation** — top-tier sponsor; unclear positioning at the moment.
 - **Saronic** — autonomous maritime; unrelated to the wiki's current threads (home robotics, JEPA) — probably skip.
-- **ROBOTIS / Dynamixel** — referenced via the `DynamixelLeKiwi` variant; could justify a stub if Dynamixel servos appear as a recurring component (they already do — SO-100 / SO-101 vs. Feetech STS3215 vs. Dynamixel is the basic actuator-choice axis).
+- **ROBOTIS / Dynamixel** — _resolved_ ([Dynamixel](../entities/dynamixel.md) entity created 2026-05-28); referenced via the `DynamixelLeKiwi` variant. [Feetech](../entities/feetech.md) STS3215 vs. Dynamixel is the basic actuator-choice axis.
 - **Neuralink as SIGRobotics sponsor** — surprising; flagged but no clear action item.
 - **Koch arms** — open-hardware arm lineage that precedes SO-100/SO-101. If the wiki ever does an arm-lineage timeline, Koch is a node.
 

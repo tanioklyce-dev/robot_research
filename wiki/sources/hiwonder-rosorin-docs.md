@@ -25,7 +25,7 @@ Sphinx documentation site for [Hiwonder](../entities/hiwonder.md)'s **[ROSOrin](
 - Workflow runs in an Ubuntu VM via VMware Workstation (per chapter 9.1).
 - ROS packages live under `/home/ubuntu/ros2_ws/src/robot_gazebo/`.
 
-### Chapter 9 — Gazebo simulation
+### Chapter 9 — [Gazebo](../entities/gazebo.md) simulation
 - URDF/xacro models with sensor plugins for LiDAR + IMU.
 - Two world files: `worlds.launch.py` (basic) and `room_worlds.launch.py` (mapped environment for SLAM/nav).
 - Workflow:
@@ -34,7 +34,7 @@ Sphinx documentation site for [Hiwonder](../entities/hiwonder.md)'s **[ROSOrin](
   - `ros2 run robot_gazebo teleop_key_control` — teleop while mapping
   - `ros2 run nav2_map_server map_saver_cli` — save map
   - `ros2 launch robot_gazebo navigation.launch.py map:=map_01` — Nav2 with saved map
-- Standard ROS 2 / Gazebo + Nav2 + RViz "2D Pose Estimate" / "2D Nav Goal" workflow.
+- Standard ROS 2 / Gazebo + [Nav2](../entities/nav2.md) + RViz "2D Pose Estimate" / "2D Nav Goal" workflow.
 - **Gazebo version not explicitly stated** in visible content (likely Gazebo Classic given the ROS 2 Humble pairing, but unconfirmed).
 
 ### Chapter 10 — Large AI Model Courses

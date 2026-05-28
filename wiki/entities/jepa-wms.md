@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-07
 updated: 2026-05-25
-sources: 5
+sources: 7
 tags: [jepa-wms, jepa, world-model, fair, meta-fair, robocasa, metaworld, droid, lecun, bardes, ponce, adaln, rope, dinov3, cem, cc-by-nc]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-25
 updated: 2026-05-25
-sources: 0
+sources: 2
 tags: [pi-zero-6, pi-zero-5, pi-zero-6-mem, pi-zero, physical-intelligence, vla, flow-matching, intermediate, lineage]
 status: stub
 ---

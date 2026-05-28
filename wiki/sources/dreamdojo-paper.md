@@ -27,7 +27,7 @@ Two technical ideas carry the paper:
 1. **Continuous latent actions as unified proxy labels.** Most internet human video is unlabeled. DreamDojo trains a VAE with an information bottleneck on consecutive frame pairs `(f_t, f_{t+1})` to extract a continuous low-dim embedding that captures the *action* between frames — self-supervised, cross-embodiment. Used as the action condition during world-model pretraining; the model is post-trained on real robot action spaces afterward.
 2. **Self-Forcing distillation** from a bidirectional, 35-step diffusion teacher to a causal, **4-step autoregressive student**, hitting **10.81 FPS at 640×480** for arbitrary-horizon real-time interaction. This is what makes live teleoperation, online model-based planning, and large-scale policy evaluation tractable.
 
-Built on **[NVIDIA Cosmos-Predict2.5](../entities/nvidia-cosmos.md)** (latent video diffusion w/ DiT + WAN2.2 tokenizer + flow-matching). Two variants: **2B** and **14B** parameters. Pretrained 140k steps on **256 NVIDIA H100 GPUs**.
+Built on **[NVIDIA Cosmos-Predict2.5](../entities/nvidia-cosmos.md)** (latent video diffusion w/ DiT + WAN2.2 tokenizer + [flow-matching](../concepts/learning/flow-matching.md)). Two variants: **2B** and **14B** parameters. Pretrained 140k steps on **256 NVIDIA H100 GPUs**.
 
 ## Key claims
 

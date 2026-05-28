@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-05-28
 updated: 2026-05-28
-sources: 1
+sources: 3
 tags: [lerobot-ros, lerobot, ros2, jazzy, ros2_control, moveit, moveit-servo, ycheng517, downstream, generic-bridge]
 ---
 

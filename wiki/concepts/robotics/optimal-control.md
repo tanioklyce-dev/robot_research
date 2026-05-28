@@ -3,7 +3,7 @@ title: Optimal control
 type: concept
 created: 2026-05-14
 updated: 2026-05-15
-sources: 6
+sources: 9
 tags: [optimal-control, mpc, lqr, pontryagin, hamilton-jacobi-bellman, dynamic-programming, brachystochrone, calculus-of-variations, control-theory, rl-bridge]
 ---
 

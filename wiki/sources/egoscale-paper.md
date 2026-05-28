@@ -19,7 +19,7 @@ tags: [egoscale, nvidia-gear, vla, dexterous-manipulation, scaling-laws, human-d
 
 ## Summary
 
-**EgoScale** is the first explicit *scaling-law* analysis for Vision–Language–Action (VLA) pretraining on egocentric human video. The paper pretrains a flow-matching VLA on **20,854 hours of egocentric human video** — the same corpus [GR00T N1.7](../entities/nvidia-groot.md) is built on — and uncovers a clean log-linear relationship between validation loss and data scale:
+**EgoScale** is the first explicit *scaling-law* analysis for Vision–Language–Action (VLA) pretraining on egocentric human video. The paper pretrains a [flow-matching](../concepts/learning/flow-matching.md) VLA on **20,854 hours of egocentric human video** — the same corpus [GR00T N1.7](../entities/nvidia-groot.md) is built on — and uncovers a clean log-linear relationship between validation loss and data scale:
 
 ```
 L = 0.024 − 0.003 · ln(D)         R² = 0.9983

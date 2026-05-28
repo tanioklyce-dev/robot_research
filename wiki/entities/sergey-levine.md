@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-08
 updated: 2026-05-16
-sources: 3
+sources: 5
 tags: [person, uc-berkeley, robot-learning, rl, droid, metaworld]
 ---
 
