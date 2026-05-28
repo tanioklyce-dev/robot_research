@@ -8,8 +8,8 @@ sources: 1
 tags: [openclaw, personal-ai-assistant, steinberger, molty, claw-ecosystem, multi-platform, local-first, gateway, ClawHub, typescript]
 ---
 
-> [!warning] This is NOT [Hiwonder's OpenClaw](openclaw.md)
-> This page is about `github.com/openclaw/openclaw` — the **personal AI assistant** framework originated by **Peter Steinberger** and community, with **375K GitHub stars** (May 2026). It shares a name and nothing else with [Hiwonder's OpenClaw](openclaw.md), which is a manipulation-aware ROS 2 LLM-agent framework for the [ROSOrin Pro](rosorin-pro.md) educational robot. Hermes Agent's `hermes claw migrate` command refers to *this* OpenClaw.
+> [!note] This is the upstream of [Hiwonder's OpenClaw](openclaw.md)
+> This page is about `github.com/openclaw/openclaw` — the **personal AI assistant** framework originated by **Peter Steinberger** and community, with **375K GitHub stars** (May 2026). Per user (2026-05-28), **Hiwonder's [OpenClaw](openclaw.md) robotics framework is a downstream distribution built on top of this project** — Hiwonder adds ROS 2 manipulation extensions + AprilTag pickup + depth-grasping + the [ROSOrin Pro](rosorin-pro.md) hardware integration, but inherits the upstream's skill registry (ClawHub), extension system, and gateway architecture. Pending primary-source confirmation (the Hiwonder docs ingested so far don't cite this upstream explicitly).
 
 **OpenClaw** — open-source **personal AI assistant** designed to run on the user's own devices and respond on the messaging platforms they already use. **MIT-licensed, TypeScript, Node 24 runtime**. **375K stars / 78.3K forks** (May 2026) — by star count one of the largest open-source agentic-AI projects. Naming origin: *"Molty, a space lobster AI assistant"* (with an unmistakable Claude homophone alongside). Founding voice: **Peter Steinberger** + community.
 
@@ -42,12 +42,13 @@ Multiple providers with configurable fallover; primary subscription path is **Op
 
 ## Position in the Claw ecosystem
 
-OpenClaw is the **foundational layer** that the other two projects relate to:
+OpenClaw is the **foundational layer** that the other projects relate to:
 
 | Project | Role vs OpenClaw |
 |---|---|
 | **OpenClaw** | The foundation |
 | [NemoClaw](nemoclaw.md) | NVIDIA wrapper that **adds privacy / security / Nemotron local-LLM** to OpenClaw |
+| [OpenClaw (Hiwonder)](openclaw.md) | **Robotics distribution**: adds ROS 2 + manipulation skills + ROSOrin Pro hardware integration on top of upstream OpenClaw |
 | [Hermes Agent](hermes-agent.md) | Sibling / competitor with a built-in **`hermes claw migrate`** import-from-OpenClaw path |
 
 ## Robot-platform fit
@@ -58,7 +59,7 @@ OpenClaw is the **foundational layer** that the other two projects relate to:
 
 - [Hermes Agent](hermes-agent.md) — sibling / competitor; migration-from-OpenClaw target.
 - [NemoClaw](nemoclaw.md) — NVIDIA-wrapped OpenClaw with privacy/security.
-- [OpenClaw (Hiwonder, robotics)](openclaw.md) — **name collision; unrelated**.
+- [OpenClaw (Hiwonder, robotics)](openclaw.md) — downstream **robotics distribution** built on this upstream (per user; pending primary-source confirmation).
 - [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — concept page.
 
 ## Mentioned in

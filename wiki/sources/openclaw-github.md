@@ -16,8 +16,8 @@ tags: [openclaw, personal-ai-assistant, gateway, multi-platform, claw-ecosystem,
 
 GitHub README for **OpenClaw** (`github.com/openclaw/openclaw`), the **personal AI assistant** project that has become the dominant open-source agentic framework of the 2025–2026 wave. **375K stars / 78.3K forks** (May 2026) — by star count one of the largest open-source projects in the AI/agent space. MIT-licensed, TypeScript / Node 24 runtime. Naming origin: **"Molty, a space lobster AI assistant"** created by **Peter Steinberger** and community (the "Claw" pun trades on both the lobster and the Claude homophone).
 
-> [!warning] Name collision — this is NOT [Hiwonder's OpenClaw](../entities/openclaw.md)
-> Hiwonder's [OpenClaw](../entities/openclaw.md) is a **manipulation-aware ROS 2 LLM-agent framework** that ships on the [ROSOrin Pro](../entities/rosorin-pro.md) educational robot. *This* OpenClaw is a **personal AI assistant** with multi-platform messaging gateways, no robot integration. The two projects share a name and nothing else. Hermes Agent's `hermes claw migrate` command refers to this OpenClaw, not Hiwonder's. See the disambiguation note on the [Hiwonder OpenClaw entity](../entities/openclaw.md).
+> [!note] Hiwonder's [OpenClaw](../entities/openclaw.md) is a downstream distribution of this project
+> Per user (2026-05-28; pending primary-source confirmation), [Hiwonder's robotics OpenClaw](../entities/openclaw.md) — the framework that ships on [ROSOrin Pro](../entities/rosorin-pro.md) — is **built on top of** this upstream and adds ROS 2 manipulation extensions + the hardware integration. Both inherit the upstream's gateway architecture, skill registry (ClawHub), and extension system. Hermes Agent's `hermes claw migrate` command should plausibly work from either install.
 
 ## What it is
 

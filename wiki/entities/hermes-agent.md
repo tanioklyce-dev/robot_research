@@ -45,8 +45,8 @@ Hermes Agent is the **Nous Research entry** in a 3-project landscape of open-sou
 | [NemoClaw](nemoclaw.md) | NVIDIA | Security + Nemotron + DGX-aware wrapper over OpenClaw | (early preview) | — |
 | **Hermes Agent** | Nous Research | Self-improving sibling; offers `hermes claw migrate` import-from-OpenClaw path | MIT | 171K |
 
-> [!warning] OpenClaw name collision
-> Hermes Agent's `hermes claw migrate` command refers to the [Steinberger OpenClaw personal AI assistant](openclaw-personal-ai.md), NOT [Hiwonder's manipulation-aware OpenClaw](openclaw.md) on [ROSOrin Pro](rosorin-pro.md). The two OpenClaws share a name and absolutely nothing else.
+> [!note] OpenClaw migration covers the whole Claw family
+> Hermes Agent's `hermes claw migrate` command imports from the [Steinberger OpenClaw personal AI assistant](openclaw-personal-ai.md). Per user (2026-05-28; pending primary-source confirmation), [Hiwonder's robotics OpenClaw](openclaw.md) is a downstream distribution of the same upstream — so a `hermes claw migrate` from a Hiwonder ROSOrin Pro install should plausibly carry over (settings, skills, API keys) **even though the robot-specific ROS 2 extensions won't have Hermes-Agent equivalents** until someone writes a ros-mcp-server bridge.
 
 ## Robot-platform fit
 
@@ -72,7 +72,7 @@ Sized for the [DGX Spark](dgx-spark.md) tier per NVIDIA's positioning — 128 GB
 
 - [OpenClaw (Steinberger)](openclaw-personal-ai.md) — foundational sibling; offers migration path TO Hermes.
 - [NemoClaw](nemoclaw.md) — NVIDIA-secured sibling stack.
-- [OpenClaw (Hiwonder)](openclaw.md) — **unrelated name-collision** robot framework.
+- [OpenClaw (Hiwonder)](openclaw.md) — downstream robotics distribution of Steinberger OpenClaw; same upstream family (per user; pending primary-source confirmation).
 - [DGX Spark](dgx-spark.md) — flagship local-hardware target.
 - [Qwen](qwen.md) — recommended LLM family.
 - [Ollama](ollama.md) — supported runtime.

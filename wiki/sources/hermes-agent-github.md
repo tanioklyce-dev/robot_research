@@ -87,8 +87,8 @@ Windows install via PowerShell (early beta). Post-install commands:
 | **`hermes claw migrate`** | **Migrate from OpenClaw** (see note below) |
 | `hermes doctor` | Diagnose issues |
 
-> [!warning] OpenClaw migration is *not* about Hiwonder's [OpenClaw](../entities/openclaw.md)
-> The `hermes claw migrate` command imports "settings, memories, skills, API keys" — none of which Hiwonder's manipulation-aware [OpenClaw](../entities/openclaw.md) ROS 2 framework has. This is a **name collision**: Hermes Agent's "OpenClaw" appears to be a different (likely defunct or community-fork) autonomous CLI agent — possibly a Claude-Code-style coding agent given the "Claw" pun on Claude — that the Hermes ecosystem subsumes. As of this ingest, `github.com/nousresearch/openclaw` returns 404 and the Nous Research homepage does not list OpenClaw as a product. Worth investigating separately if it becomes load-bearing.
+> [!note] `hermes claw migrate` targets the OpenClaw upstream — including downstream distributions
+> The `hermes claw migrate` command imports from [Steinberger OpenClaw](../entities/openclaw-personal-ai.md) (`github.com/openclaw/openclaw`, MIT, 375K stars). Per user (2026-05-28; pending primary-source confirmation), **[Hiwonder's robotics OpenClaw](../entities/openclaw.md) is itself a downstream distribution of the same upstream** — so a `hermes claw migrate` from a Hiwonder ROSOrin Pro install should plausibly carry over the upstream-shaped state (settings, skills, API keys), though the robot-specific ROS 2 extensions won't have Hermes-Agent equivalents until someone writes a `ros-mcp-server` bridge.
 
 ## Built-in tool categories (40+ tools)
 

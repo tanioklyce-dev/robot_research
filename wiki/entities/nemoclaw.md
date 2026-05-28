@@ -11,8 +11,8 @@ tags: [nemoclaw, nvidia, openclaw, nemotron, nvidia-agent-toolkit, nvidia-opensh
 
 **NVIDIA NemoClaw** — NVIDIA's **open-source stack that wraps [OpenClaw (Steinberger)](openclaw-personal-ai.md) with privacy and security controls + NVIDIA-native local-LLM inference**. *"Adds privacy and security controls to OpenClaw."* Early-preview status; no GA pricing / release date stated on the [product page](../sources/nvidia-nemoclaw-page.md).
 
-> [!warning] NemoClaw ≠ Hiwonder's OpenClaw
-> NemoClaw wraps [the Steinberger OpenClaw personal-AI-assistant framework](openclaw-personal-ai.md), not [Hiwonder's manipulation-aware OpenClaw](openclaw.md). The "Claw" lineage is the Steinberger / Molty side; Hiwonder's ROS-2 framework is an unrelated name collision.
+> [!note] NemoClaw and [Hiwonder OpenClaw](openclaw.md) are sibling distributions of the same upstream
+> Both wrap [the Steinberger OpenClaw personal-AI-assistant framework](openclaw-personal-ai.md). NemoClaw adds NVIDIA security + Nemotron local LLM for **desktop / workstation** use; [Hiwonder OpenClaw](openclaw.md) adds ROS 2 + manipulation skills + [ROSOrin Pro](rosorin-pro.md) hardware integration for **robot** use (per user 2026-05-28; pending primary-source confirmation of the Hiwonder upstream relationship).
 
 ## What it bundles
 
@@ -58,7 +58,7 @@ For the ROSOrin Pro use case specifically: NemoClaw is **not** a viable swap for
 
 - [OpenClaw (Steinberger)](openclaw-personal-ai.md) — the framework NemoClaw wraps.
 - [Hermes Agent](hermes-agent.md) — competing sibling stack.
-- [OpenClaw (Hiwonder, robotics)](openclaw.md) — unrelated name collision.
+- [OpenClaw (Hiwonder, robotics)](openclaw.md) — sibling distribution (robotics) wrapping the same upstream.
 - [NVIDIA](nvidia.md) — vendor.
 - [DGX Spark](dgx-spark.md) — featured hardware target.
 - [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — concept.
