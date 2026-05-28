@@ -595,6 +595,7 @@ Curated entry points across the wiki.
 ### Agents
 - [LLM-agent architecture across stacks](syntheses/agents/llm-agent-architecture-across-stacks.md) — three-way comparison of stretch_ai, ROSOrin, OpenClaw. (2026-05-07)
 - [Whole-organism agentic AI](syntheses/agents/whole-organism-agentic-ai.md) — brain (FlyWire connectome + LIF dynamics) + body (flybody MuJoCo) for *Drosophila*; first plausible end-to-end animal-scale agent; contrasts with robotics-flavoured agentic AI. (2026-05-08)
+- [OpenClaw vs Hermes Agent as a robot's high-level thinker and planner](syntheses/agents/openclaw-vs-hermes-as-robot-brain.md) — 3-path framework (brain swap / agent-loop migration / full Hermes+ros-mcp-server+LeRobot rebuild) reframed around the Claw-ecosystem upstream lineage (Hiwonder OpenClaw built on Steinberger OpenClaw, per user; pending primary-source confirmation). Recommendation: start with Path A (local-LLM brain swap), add Path B selectively for Honcho memory + sub-agents + self-evolving skills. (2026-05-28)
 
 ### RL
 - [Atari RL lineage — from ALE to Agent57 and MuZero](syntheses/rl/atari-rl-lineage.md) — hub for the Atari/DQN material; DQN → Rainbow → A3C/PPO → Go-Explore/Agent57 → MuZero/Dreamer; why robotics moved on but kept the toolbox. (2026-05-15)
