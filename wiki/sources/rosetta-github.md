@@ -17,7 +17,7 @@ tags: [rosetta, lerobot, ros2, bridge, yaml-contract, mcap, async-inference, grp
 
 **Rosetta** — an open-source framework that integrates [LeRobot](../entities/lerobot.md) with ROS 2, "enabling the ROS2 community to leverage state-of-the-art imitation learning and policy training capabilities" (README). Solo project by GitHub user **iblnkn**; Apache 2.0; created Sep 14 2025; **76 stars / 14 forks / 4 open issues / last push 2026-05-24**. Python 99.4%.
 
-The project's premise: LeRobot's middleware is FeeTech/Dynamixel-native ([LeRobot ICLR 2026 paper](lerobot-iclr-2026-paper.md) §3.1), but the production robot world runs on ROS 2. Rosetta bridges that gap declaratively — a **YAML "contract"** maps arbitrary ROS 2 topics to LeRobot's data model, so any ROS 2-controllable robot can be a LeRobot platform without writing a `lerobot.robots.<myrobot>` Python class.
+The project's premise: LeRobot's middleware is [FeeTech](../entities/feetech.md)/[Dynamixel](../entities/dynamixel.md)-native ([LeRobot ICLR 2026 paper](lerobot-iclr-2026-paper.md) §3.1), but the production robot world runs on [ROS 2](../entities/ros2.md). Rosetta bridges that gap declaratively — a **YAML "contract"** maps arbitrary ROS 2 topics to LeRobot's data model, so any ROS 2-controllable robot can be a LeRobot platform without writing a `lerobot.robots.<myrobot>` Python class.
 
 ## The 5-step pipeline (README "Core Workflow")
 

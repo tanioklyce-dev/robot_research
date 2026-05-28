@@ -18,7 +18,7 @@ tags: [lerobot-ros, lerobot, ros2, jazzy, ros2_control, moveit, moveit-servo, jo
 
 **`ycheng517/lerobot-ros`** — a **generic Python-class-based** ROS 2 wrapper for [LeRobot](../entities/lerobot.md). Tagline: "lightweight interface for controlling ROS-based robotic arms using LeRobot." **194 stars / 28 forks / 3 open issues** as of May 2026 — the **most-starred LeRobot↔ROS 2 bridge** in the wiki, ~2.5× the star count of [Rosetta](rosetta-github.md) (76) and ~4× of [so101-ros2](so101-ros2-readthedocs.md) (50). Python 100%; ROS 2 **Jazzy only** ("This repo is only tested on Jazzy"); no license listed in repo metadata.
 
-The thesis: any robot arm with a [ros2_control](https://control.ros.org/) or [MoveIt 2](https://moveit.ai/) interface can be made a LeRobot platform by **sub-classing `ROS2Robot` and `ROS2Config`** with the right joint names, control mode, and limits. The architecture is the orthogonal alternative to [Rosetta](rosetta-github.md)'s YAML-contract approach — **Python sub-class vs declarative YAML**.
+The thesis: any robot arm with a [ros2_control](https://control.ros.org/) or [MoveIt 2](../entities/moveit.md) interface can be made a LeRobot platform by **sub-classing `ROS2Robot` and `ROS2Config`** with the right joint names, control mode, and limits. The architecture is the orthogonal alternative to [Rosetta](rosetta-github.md)'s YAML-contract approach — **Python sub-class vs declarative YAML**.
 
 ## Topics: `embodied-ai, lerobot, robotic-arm, robotics, ros2`. Description: *"Lightweight interface for controlling ROS-based robotic arms using LeRobot."*
 
@@ -87,7 +87,7 @@ cd lerobot-ros
 pip install -e lerobot_robot_ros lerobot_teleoperator_devices
 ```
 
-Simulated SO-101 setup: see [Pavankv92/lerobot_ws](https://github.com/Pavankv92/lerobot_ws). Then 3 terminals:
+Simulated SO-101 setup uses [Gazebo](../entities/gazebo.md) — see [Pavankv92/lerobot_ws](https://github.com/Pavankv92/lerobot_ws). Then 3 terminals:
 
 ```bash
 # Terminal 1 — Gazebo sim

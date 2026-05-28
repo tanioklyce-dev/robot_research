@@ -43,6 +43,7 @@ The leader-follower convention is the dominant data-collection pattern for imita
 
 - [The Robot Studio](the-robot-studio.md) — origin / design authority
 - [LeRobot](lerobot.md) — primary software framework
+- [FeeTech](feetech.md) — motor bus servo lineage
 - [LeKiwi](lekiwi.md) — default mobile-base companion
 - [XLeRobot](xlerobot.md) — dual-SO-ARM101 composition
 - [Franka Panda](franka-panda.md) — research-tier counterpart

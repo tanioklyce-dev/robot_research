@@ -56,6 +56,8 @@ Gripper modes: trajectory (via `JointTrajectoryController`) or action (via `Grip
 
 - [LeRobot](lerobot.md) — upstream framework.
 - [ROS 2](ros2.md) — middleware substrate; Jazzy specifically.
+- [MoveIt](moveit.md) — required for end-effector velocity control mode (via `moveit_servo`).
+- [Gazebo](gazebo.md) — quickstart simulator for the simulated SO-101.
 - [Rosetta](rosetta.md) — sibling LeRobot↔ROS 2 bridge (YAML approach).
 - [so101-ros2](so101-ros2.md) — sibling LeRobot↔ROS 2 bridge (hardware-specific approach).
 - [SO-ARM101](so-arm101.md) — reference quickstart robot.

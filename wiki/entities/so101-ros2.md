@@ -71,7 +71,8 @@ Requires **two conda envs** (LeRobot wants Python 3.10; Isaac Sim 5.0+ wants 3.1
 - [LeRobot](lerobot.md) — upstream framework (this project uses an author fork).
 - [ROS 2](ros2.md) — middleware substrate; Humble specifically.
 - [SO-ARM101](so-arm101.md) — the only supported hardware.
-- [NVIDIA Isaac Sim](nvidia-isaac-sim.md) — integrated simulator.
+- [MoveIt](moveit.md) — used in the SO-101 motion-planning stack.
+- [NVIDIA Isaac Sim](nvidia-isaac-sim.md) — integrated simulator (distinct from [Gazebo](gazebo.md), which is what sibling bridges use).
 - [SmolVLA](smolvla.md) / [π0.5/0.6](pi-zero-6.md) — supported deployment policies.
 - [Rosetta](rosetta.md) — sibling generic LeRobot↔ROS 2 bridge.
 - [lerobot-ros](lerobot-ros.md) — sibling generic LeRobot↔ROS 2 bridge.

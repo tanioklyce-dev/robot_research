@@ -58,6 +58,8 @@ For the wiki's assistive-robotics and accessible-robotics themes, LeKiwi is the 
 - [SIGRobotics-UIUC](sigrobotics-uiuc.md) — design authority
 - [Seeed Studio](seeed-studio.md) — distributor
 - [SO-ARM101](so-arm101.md) — standard arm option
+- [FeeTech](feetech.md) — STS3215 wheel servos
+- [Dynamixel](dynamixel.md) — alternative motor option (ROBOTIS Koch v1.1 + XL430)
 - [XLeRobot](xlerobot.md) — downstream composition (dual-arm)
 - [Stretch](stretch.md) — the price-point above
 - [ROSOrin Pro](rosorin-pro.md) — adjacent educational-tier kit

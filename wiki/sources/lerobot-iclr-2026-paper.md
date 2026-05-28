@@ -41,7 +41,7 @@ The thesis: robot learning is bottlenecked by **fragmentation** (per-platform mi
 
 > The paper notes LeRobot **went from 3 manipulation setups (Koch-v1.1, SO-100, ALOHA) at the start of 2025 to 8 platforms (regular, humanoid, and mobile) by paper submission** — and flags maintaining that rate as paramount.
 
-BOM links for each platform are in Appendix A. Middleware is built on the low-level SDKs of major low-cost actuator producers (**FeeTech, Dynamixel**) and is designed to be "easily extensible and highly composable."
+BOM links for each platform are in Appendix A. Middleware is built on the low-level SDKs of major low-cost actuator producers (**[FeeTech](../entities/feetech.md), [Dynamixel](../entities/dynamixel.md)**) and is designed to be "easily extensible and highly composable."
 
 ### Dataset ecosystem (Table 1b + Figure 5, §3.2)
 

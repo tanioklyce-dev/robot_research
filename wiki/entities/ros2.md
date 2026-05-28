@@ -49,8 +49,9 @@ A reader asking "can I run a LeRobot-trained policy on my Humble robot?" must ch
 
 - **DDS**: pub/sub middleware (default `rmw_fastdds_cpp` or `rmw_cyclonedds_cpp`).
 - **ros2_control**: real-time control framework (used by [lerobot-ros](lerobot-ros.md), [so101-ros2](so101-ros2.md)).
-- **MoveIt 2**: motion planning + kinematics (used for end-effector control in [lerobot-ros](lerobot-ros.md)).
-- **Nav2**: autonomous navigation stack (used by every mobile robot in the wiki).
+- **[MoveIt 2](moveit.md)**: motion planning + kinematics (used for end-effector control in [lerobot-ros](lerobot-ros.md)).
+- **[Nav2](nav2.md)**: autonomous navigation stack (used by every mobile robot in the wiki).
+- **[Gazebo](gazebo.md)**: default open-source simulator.
 - **rclpy / rclcpp**: Python and C++ client libraries.
 - **rosbag2**: data recording (MCAP is the default modern container format).
 - **Ament + colcon**: build tooling.

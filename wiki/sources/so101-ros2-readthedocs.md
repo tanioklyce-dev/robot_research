@@ -100,12 +100,12 @@ No support for SO-100, Koch-v1.1, or any other arm — by design.
 | Dimension | [so101_ros2](../entities/so101-ros2.md) (this) | [Rosetta](../entities/rosetta.md) | [lerobot-ros](../entities/lerobot-ros.md) |
 |---|---|---|---|
 | **Approach** | SO-101 reference workspace | YAML contract (generic) | Python sub-class (generic) |
-| **Hardware coverage** | **SO-101 only** | any ROS 2 robot | any ros2_control / MoveIt arm |
+| **Hardware coverage** | **SO-101 only** | any ROS 2 robot | any ros2_control / [MoveIt](../entities/moveit.md) arm |
 | **Packages** | **8** (full workspace) | 5 | 2 |
 | **Stars (May 2026)** | 50 | 76 | **194** |
 | **ROS 2 distro** | **Humble** | distro-agnostic | **Jazzy only** |
 | **License** | **MIT** | Apache-2.0 | not specified |
-| **Sim** | **Isaac Sim 5.0+** | not specified | Gazebo (per quickstart) |
+| **Sim** | **[Isaac Sim](../entities/nvidia-isaac-sim.md) 5.0+** | not specified | [Gazebo](../entities/gazebo.md) (per quickstart) |
 | **URDF / USD** | shipped (`so101_description`) | not in scope | not in scope |
 | **Policies tested** | **SmolVLA + π0.5** | full LeRobot menu + π0.5 + GR00T + Wall-X + X-VLA (claimed) | not the focus |
 | **Operational footprint** | 2 conda envs + author's LeRobot fork | 1 env + upstream LeRobot | 1 env + upstream LeRobot |

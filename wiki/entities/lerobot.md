@@ -39,7 +39,8 @@ The canonical 7-step LeRobot workflow (install → motor config → calibration 
 - Maintained by [Hugging Face](hugging-face.md); robotics lead [Remi Cadene](remi-cadene.md).
 - Apache 2.0.
 - Active development; framework moves quickly enough that distributor tutorials (e.g., [Seeed Studio LeKiwi wiki](../sources/seeed-lekiwi-wiki.md)) carry "consult upstream for latest features" caveats.
-- Compatible hardware ecosystem: SO-ARM100/101 (The Robot Studio), Koch v1.1 (Dynamixel), LeKiwi (SIGRobotics-UIUC), XLeRobot (Vector Wang), Bambot, others.
+- Compatible hardware ecosystem: SO-ARM100/101 (The Robot Studio, [FeeTech](feetech.md)), Koch v1.1 ([Dynamixel](dynamixel.md)), LeKiwi (SIGRobotics-UIUC), XLeRobot (Vector Wang), Bambot, others.
+- Native motor SDK support: **[FeeTech](feetech.md) + [Dynamixel](dynamixel.md) only** ([ICLR 2026 paper §3.1](../sources/lerobot-iclr-2026-paper.md)). Other motor lineages (e.g. Hiwonder HX-12H on [ROSOrin Pro](rosorin-pro.md)) require a bridge layer like [Rosetta](rosetta.md).
 
 ### Officially-supported real-world platforms (ICLR 2026 paper, Table 1a)
 

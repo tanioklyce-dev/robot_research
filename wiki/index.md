@@ -280,6 +280,7 @@ Curated entry points across the wiki.
 - [Toyota Research Institute (TRI)](entities/tri.md) — Toyota's R&D arm; Los Altos + Cambridge; co-affiliation across [Diffusion Policy](entities/diffusion-policy.md) + [UMI](entities/umi.md); home of TRI LBM. (2 sources)
 
 ### Simulators / frameworks
+- [Gazebo](entities/gazebo.md) — canonical open-source ROS simulator (Open Robotics); Gazebo Harmonic + ROS 2 Jazzy/Humble; default for [TurtleBot](entities/turtlebot.md), [Stretch](entities/stretch.md), [ROSOrin](entities/rosorin.md), [PX4](entities/px4-autopilot.md); contrast with [Isaac Sim](entities/nvidia-isaac-sim.md) (NVIDIA, higher-fidelity, GPU-required). (6 sources)
 - [NVIDIA Isaac Sim](entities/nvidia-isaac-sim.md) — Omniverse-based robotics simulator. (6 sources)
 - [NVIDIA Isaac Lab](entities/nvidia-isaac-lab.md) — open-source learning framework on Isaac Sim; primary reference paper is [GEAR](entities/nvidia-gear.md)-authored (arXiv 2511.04831). (7 sources)
 - [Newton physics engine](entities/newton-physics-engine.md) — Linux-Foundation, GPU-accelerated. (5 sources)
@@ -351,6 +352,8 @@ Curated entry points across the wiki.
 - [lerobot-ros](entities/lerobot-ros.md) — generic Python-class-based LeRobot↔ROS 2 wrapper by ycheng517 (**194 stars**, the most popular of 3 bridges; Jul 2025); Jazzy only; ros2_control + MoveIt Servo; minimal 2-package architecture; no license listed; arm-focused. (1 source)
 - [so101-ros2](entities/so101-ros2.md) — SO-101-specific MIT-licensed ROS 2 workspace + LeRobot bridge by nimiCurtis (50 stars, Jun 2025); Humble only; 8 packages incl. URDF/USD + Isaac Sim 5.0+ integration; tested SmolVLA + π0.5 deployment; needs author's LeRobot fork. (1 source)
 - [ROS 2](entities/ros2.md) — Open Robotics' middleware framework; LTS distros Humble (2022, EOL May 2027) + Jazzy (2024, EOL May 2029); operationally load-bearing for LeRobot↔ROS 2 bridge selection. (1 source)
+- [MoveIt](entities/moveit.md) — PickNik-maintained ROS 2 motion-planning + kinematics stack (MoveIt 2); MoveIt Servo for real-time end-effector control; the canonical Cartesian-planning layer on top of ros2_control; used by [lerobot-ros](entities/lerobot-ros.md) (CARTESIAN_VELOCITY mode), [so101-ros2](entities/so101-ros2.md), [myBuddy 280](entities/elephant-robotics.md). (4 sources)
+- [Nav2](entities/nav2.md) — canonical ROS 2 autonomous navigation stack (Open Navigation); SLAM + costmaps + behavior tree + planner + controller; successor to ROS 1 `move_base`; the "house navigation is solved" layer bundled with every mobile platform here ([Stretch](entities/stretch.md), [ROSOrin Pro](entities/rosorin-pro.md), [TurtleBot](entities/turtlebot.md)); composes with [LeRobot](entities/lerobot.md) policies (Nav2 = nav, LeRobot = visuomotor manipulation). (3 sources)
 - [PX4 Autopilot](entities/px4-autopilot.md) — Dronecode Foundation's BSD-licensed open-source autopilot for UAVs / drones (multirotor / fixed-wing / VTOL / heli / rover / experimental); NuttX RTOS + uORB + MAVLink + ROS 2 bridge; v1.16 stable, v1.17 alpha; first-class Neural Networks subsystem (TFLM + RAPTOR Adaptive RL + MC NN Control). (1 source)
 - [JetPack SDK](entities/jetpack.md) — NVIDIA's bundled software stack for Jetson products; Jetson Linux + CUDA + cuDNN + TensorRT + DeepStream + VPI + DLA. Current production 6.2.2. (4 sources)
 - [Jetson Linux (L4T)](entities/jetson-linux.md) — the L4T BSP underneath JetPack; R36.5 current for Orin (Ubuntu 22.04 + kernel 5.15 + UEFI + OP-TEE). (3 sources)
@@ -362,6 +365,10 @@ Curated entry points across the wiki.
 - [NVIDIA DGX Spark](entities/dgx-spark.md) — GB10 Grace Blackwell desktop AI supercomputer; 128 GB unified memory, 4th-gen RT cores, ConnectX-7; train-on-Spark / deploy-on-Thor split. (1 source)
 - [stable-worldmodel](entities/stable-worldmodel.md) — Python infrastructure under LeWorldModel (env zoo + planning API + dataset format). DM Control + Gymnasium-Robotics Fetch + classic + OGBench + more. (0 sources)
 - [Pixhawk](entities/pixhawk.md) — open-hardware flight-controller standard (Dronecode); FMUv3–v6X-RT family; 30+ manufacturer-supported boards (Holybro, CUAV, CubePilot, ARK, ModalAI); the dominant hardware target for PX4. (1 source)
+
+### Motor SDKs / hardware components
+- [FeeTech](entities/feetech.md) — Chinese smart serial bus servos (STS3215, SCS series); the low-cost / hobby-tier motor lineage; one of two SDKs LeRobot's middleware natively integrates ([ICLR 2026 paper §3.1](sources/lerobot-iclr-2026-paper.md)); used by SO-100/101, LeKiwi, Stretch 4 tool bus. (4 sources)
+- [Dynamixel](entities/dynamixel.md) — ROBOTIS (Korea) smart serial bus servos (XL430, XM430, XM540); the research / education premium-tier motor lineage; one of two SDKs LeRobot's middleware natively integrates; used by Koch-v1.1, LeKiwi alt-config. (4 sources)
 
 ### Formats / standards
 - [OpenUSD](entities/openusd.md) — open scene-description + robotics physics-schema layer (UsdPhysics, MjcPhysics, NewtonSceneAPI). (5 sources)
