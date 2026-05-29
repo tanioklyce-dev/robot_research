@@ -1,58 +1,76 @@
 ---
-title: OpenClaw (Hiwonder, robotics distribution)
+title: OpenClaw
 type: entity
-subtype: product
-created: 2026-05-07
+subtype: software-framework
+created: 2026-05-28
 updated: 2026-05-28
 sources: 1
-tags: [openclaw, hiwonder, llm-agent, manipulation, ros2, claw-ecosystem, downstream-distribution]
+tags: [openclaw, personal-ai-assistant, steinberger, molty, claw-ecosystem, multi-platform, local-first, gateway, ClawHub, typescript]
 ---
 
-> [!note] Hiwonder OpenClaw is a **downstream robotics distribution of [Steinberger OpenClaw](openclaw-personal-ai.md)**
-> Per user (2026-05-28; not yet confirmed via primary source — the Hiwonder docs ingested so far don't cite the Steinberger upstream explicitly). Hiwonder's OpenClaw is **built on top of** the [OpenClaw personal-AI-assistant framework](openclaw-personal-ai.md) (375K stars, MIT, `github.com/openclaw/openclaw`), adding ROS 2 manipulation-skill extensions, AprilTag pickup, depth-based interactive grasping, and the [ROSOrin Pro](rosorin-pro.md) hardware integration on top. This means Hiwonder OpenClaw inherits the upstream's skill registry (ClawHub), extension system, and gateway architecture.
->
-> The full Claw ecosystem as currently understood:
->
-> | Project | Role |
-> |---|---|
-> | [OpenClaw (Steinberger)](openclaw-personal-ai.md) | Foundational MIT framework (`github.com/openclaw/openclaw`, 375K stars) |
-> | **This page — Hiwonder OpenClaw** | **Robotics distribution of Steinberger OpenClaw**; adds ROS 2 + manipulation skills + ROSOrin Pro hardware integration |
-> | [NemoClaw](nemoclaw.md) | NVIDIA's privacy/security wrapper around the same upstream (`nvidia.com/ai/nemoclaw`) |
-> | [Hermes Agent](hermes-agent.md) | Nous Research's competing fork-or-sibling; ships `hermes claw migrate` to import installs from any OpenClaw-family deployment |
+**OpenClaw** — open-source **personal AI assistant** designed to run on the user's own devices and respond on the messaging platforms they already use. **MIT-licensed, TypeScript, Node 24 runtime**. **375K stars / 78.3K forks** (May 2026) — by star count one of the largest open-source agentic-AI projects. Repository: `github.com/openclaw/openclaw`. Naming origin: *"Molty, a space lobster AI assistant"* (with an unmistakable Claude homophone alongside). Founding voice: **Peter Steinberger** + community.
 
-[Hiwonder](hiwonder.md)'s **manipulation-aware LLM-agent framework** that ships with [ROSOrin Pro](rosorin-pro.md). Despite the "Claw" suffix, OpenClaw is the *software* SDK — not a hardware gripper. Architecture: LLM (OpenAI GPT) → skill descriptions → ROS 2 service dispatch → robot hardware.
+## What it is
 
-## What it does
-- Translates natural-language commands ("pick up a red block", "deliver the package") into sequences of ROS 2 service calls against a predefined skill library.
-- Skills include arm primitives (`pick`, `place`, `voice_pick`, `voice_give`, `camera_up`, `init`), chassis primitives (`cmd_vel`, navigation goals), and vision (color tracking, AprilTag pickup, depth-based interactive grasping on Jetson Orin).
-- LLM-as-orchestrator pattern, same control architecture as [stretch_ai](stretch-ai.md). No VLA, no policy learning, no teleoperation.
+*"A personal AI assistant you run on your own devices. It answers you on the channels you already use."* Operating model:
 
-## Why it matters
-Concrete demonstration that the [LLM-agent pattern](../concepts/agents/llm-agent-architecture.md) scales from mobile-only ([ROSOrin](rosorin.md)) to manipulation-capable platforms in the same vendor's product line. The skill library expands; the architecture is unchanged. Educational-tier counterpart to [stretch_ai](stretch-ai.md)'s `PickupExecutor`.
+- **Local-first daemon** (launchd / systemd) — runs on user's own machine; optional remote exposure via Tailscale or SSH.
+- **20+ messaging platforms**: WhatsApp, Telegram, Slack, Discord, Signal, iMessage, etc.
+- **Voice** on macOS / iOS / Android.
+- **Live Canvas** for visual interaction.
+- **Multi-channel routing** — each conversation gets an isolated agent workspace.
+- **Tool execution**: browser automation, cron, webhooks.
 
-## Notable demos (from chapter 13)
-- Color-based pick-and-place (red block).
-- Interactive grasping (user mouse-draws bounding box; depth-based).
-- Smart-home assistant (navigate, observe, summarize).
-- Package / fruit-basket delivery via AprilTag (ID 0 / ID 1).
-- Factory warehouse → production line task chain.
+## Architecture (per [GitHub README](../sources/openclaw-github.md))
+
+- Runtime: **Node 24** (recommended) or Node 22.19+.
+- Core components: Gateway daemon, bundled agents, extension system.
+- Skill registry: **ClawHub** (community-contributed skills).
+- Companion apps: optional macOS / iOS / Android.
+
+## Model providers
+
+Multiple providers with configurable fallover; primary subscription path is **OpenAI (ChatGPT / Codex)**. README is provider-neutral: *"current flagship model from the provider you trust."*
+
+## Security model
+
+- **DM pairing** — unknown senders receive codes (pairing-before-trust).
+- **Sandboxing** for group / channel sessions.
+
+## Position in the Claw ecosystem
+
+OpenClaw is the foundation. Sibling and downstream projects:
+
+| Project | Relationship to OpenClaw |
+|---|---|
+| **OpenClaw** | The foundation |
+| [NemoClaw](nemoclaw.md) | NVIDIA wrapper that **adds privacy / security / Nemotron local-LLM** |
+| [Hermes Agent](hermes-agent.md) | Sibling / competitor with a built-in **`hermes claw migrate`** import-from-OpenClaw path |
+| [openclaw_controller](openclaw-controller.md) | [Hiwonder](hiwonder.md)'s **ROS 2 bridge module** — exposes the [ROSOrin Pro](rosorin-pro.md)'s skills (arm `pick`/`place`, AprilTag pickup, depth grasping, chassis `cmd_vel`, …) so OpenClaw can dispatch them. Not a fork of OpenClaw — it sits below OpenClaw as an extension. |
+
+## Robot-platform fit
+
+**No native robot integration in upstream.** Hiwonder's [`openclaw_controller`](openclaw-controller.md) bridge is the only production path today — it wraps the ROSOrin Pro's ROS 2 services so OpenClaw can call them as skills. The same approach would work for any ROS 2 robot if someone wrote an equivalent bridge.
 
 ## Related
-- [ROSOrin Pro](rosorin-pro.md) — target platform.
-- [Hiwonder](hiwonder.md) — vendor.
-- [ROSOrin Pro 6-DOF arm](rosorin-pro-arm.md) — the hardware OpenClaw drives.
-- [stretch_ai](stretch-ai.md) — sibling LLM-agent stack from Hello Robot, research tier.
-- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — design pattern.
 
-## Open questions
-- Open-source status — the "Open" prefix suggests yes but no GitHub URL surfaced in the chapter 13 docs.
-- LLM version: `openai/gpt-5.4` is the model string in the docs. Real OpenAI release or placeholder? Worth verifying.
-- Cross-vendor portability — could OpenClaw drive other ROS 2 robots (e.g. Stretch), or is it tightly coupled to ROSOrin Pro's skill set?
+- [Hermes Agent](hermes-agent.md) — sibling / competitor; migration-from-OpenClaw target.
+- [NemoClaw](nemoclaw.md) — NVIDIA-wrapped OpenClaw with privacy/security.
+- [openclaw_controller](openclaw-controller.md) — Hiwonder's ROS 2 bridge module that puts OpenClaw on a robot.
+- [Hiwonder](hiwonder.md) — vendor of `openclaw_controller` and the [ROSOrin Pro](rosorin-pro.md).
+- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — concept page.
 
 ## Mentioned in
-- [Hiwonder OpenClaw Practical Tutorial](../sources/hiwonder-openclaw-tutorial.md)
 
-## See also (Claw ecosystem)
-- [OpenClaw (Steinberger, personal AI)](openclaw-personal-ai.md) — **the upstream** that Hiwonder's distribution is built on (per user, 2026-05-28; pending primary-source confirmation).
-- [NemoClaw](nemoclaw.md) — NVIDIA's privacy/security wrapper around the same upstream.
-- [Hermes Agent](hermes-agent.md) — Nous Research's competing agentic framework; ships `hermes claw migrate` to import from OpenClaw-family installs.
+- [OpenClaw GitHub README](../sources/openclaw-github.md) — primary source.
+- [NVIDIA NemoClaw product page](../sources/nvidia-nemoclaw-page.md) — referenced as the framework NemoClaw wraps.
+- [Hermes Agent GitHub README](../sources/hermes-agent-github.md) — referenced via the `hermes claw migrate` command.
+- [Hiwonder OpenClaw Practical Tutorial](../sources/hiwonder-openclaw-tutorial.md) — Hiwonder's tutorial on driving the ROSOrin Pro via OpenClaw + `openclaw_controller`.
+
+## Open questions
+
+- **Verify the 375K star count** independently — that's strikingly large for any open-source project.
+- **Peter Steinberger** — would be a natural entity page (also notable for PSPDFKit, Inboard).
+- **ClawHub** — community skill registry; comparable to [agentskills.io](https://agentskills.io) (Hermes Agent's standard)?
+- **Anthropic Claude relationship** — official line is "Molty the space lobster"; the homophone with "Claude" is unmistakable. Any official Anthropic position?
+- **Other robot-control extensions** — beyond Hiwonder's `openclaw_controller`, does the community have any? None surfaced.

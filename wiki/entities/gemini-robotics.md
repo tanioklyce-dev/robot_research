@@ -31,7 +31,7 @@ Boston Dynamics' **AIVI-Learning** product is described as "the next evolution" 
 
 ## Position in the foundation-model landscape
 
-- **Architecturally distinct from a VLA when used in -ER mode.** Gemini Robotics-ER is closer in spirit to GPT-4o-as-planner inside [stretch_ai](stretch-ai.md) or to [Qwen](qwen.md) inside [OpenClaw](openclaw.md): the model emits structured tool calls; classical perception/manipulation primitives execute them. Compare with [NVIDIA GR00T](nvidia-groot.md) (true VLA, emits actions) and the V-JEPA family (latent-prediction world models, not policies at all).
+- **Architecturally distinct from a VLA when used in -ER mode.** Gemini Robotics-ER is closer in spirit to GPT-4o-as-planner inside [stretch_ai](stretch-ai.md) or to [Qwen](qwen.md) driving [OpenClaw](openclaw.md) on a ROSOrin Pro: the model emits structured tool calls; classical perception/manipulation primitives execute them. Compare with [NVIDIA GR00T](nvidia-groot.md) (true VLA, emits actions) and the V-JEPA family (latent-prediction world models, not policies at all).
 - **Two-product strategy is unusual.** Most foundation-model providers ship a single robotics offering. Google's split (full VLA *and* embodied-reasoner-with-tools) lets them serve both end-to-end research and integration-into-existing-robots use cases.
 - **Hardware-agnostic ambitions.** The -ER variant explicitly does *not* assume a particular embodiment — anything with a camera and a callable API surface is a target.
 

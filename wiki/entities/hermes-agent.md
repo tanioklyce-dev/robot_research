@@ -41,18 +41,19 @@ Hermes Agent is the **Nous Research entry** in a 3-project landscape of open-sou
 
 | Project | Author | Role | License | Stars |
 |---|---|---|---|---|
-| [OpenClaw (personal AI)](openclaw-personal-ai.md) | Peter Steinberger + community | Foundational personal-AI-assistant framework | MIT | **375K** |
+| [OpenClaw](openclaw.md) | Peter Steinberger + community | Foundational personal-AI-assistant framework | MIT | **375K** |
 | [NemoClaw](nemoclaw.md) | NVIDIA | Security + Nemotron + DGX-aware wrapper over OpenClaw | (early preview) | — |
 | **Hermes Agent** | Nous Research | Self-improving sibling; offers `hermes claw migrate` import-from-OpenClaw path | MIT | 171K |
+| [openclaw_controller](openclaw-controller.md) | Hiwonder | ROS 2 bridge module that puts OpenClaw on the [ROSOrin Pro](rosorin-pro.md) — not a fork; sits below OpenClaw as an extension | — | — |
 
-> [!note] OpenClaw migration covers the whole Claw family
-> Hermes Agent's `hermes claw migrate` command imports from the [Steinberger OpenClaw personal AI assistant](openclaw-personal-ai.md). Per user (2026-05-28; pending primary-source confirmation), [Hiwonder's robotics OpenClaw](openclaw.md) is a downstream distribution of the same upstream — so a `hermes claw migrate` from a Hiwonder ROSOrin Pro install should plausibly carry over (settings, skills, API keys) **even though the robot-specific ROS 2 extensions won't have Hermes-Agent equivalents** until someone writes a ros-mcp-server bridge.
+> [!note] OpenClaw migration on a ROSOrin Pro
+> Hermes Agent's `hermes claw migrate` command imports an existing [OpenClaw](openclaw.md) install (settings, skills, API keys). On a ROSOrin Pro running OpenClaw via Hiwonder's [`openclaw_controller`](openclaw-controller.md) bridge, that migration should carry the OpenClaw side cleanly **but the robot-specific ROS 2 services exposed by `openclaw_controller` won't have Hermes-Agent equivalents** until someone writes a ros-mcp-server that wraps the same services.
 
 ## Robot-platform fit
 
 **Hermes Agent has no native robot integration.** The closest analogue is the community **`computer-use-linux` MCP server** for desktop automation (AT-SPI accessibility trees, X11/Wayland input, screenshots) — the same architectural pattern a robot integration would follow: **write an MCP server that wraps ROS 2 actions / topics / services as MCP tools, register with Hermes**.
 
-Would-be advantages over a per-robot LLM-agent stack like [Hiwonder OpenClaw](openclaw.md) or [stretch_ai](stretch-ai.md):
+Would-be advantages over the current OpenClaw + [`openclaw_controller`](openclaw-controller.md) stack on the ROSOrin Pro or [stretch_ai](stretch-ai.md):
 
 - **Self-evolving skill library** — robot would gain new manipulation primitives from experience, not just from hand-coded ROS skills.
 - **Sub-agent decomposition** — long tidy tasks could be decomposed into isolated sub-agents (find-objects, navigate, manipulate, verify) running in parallel.
@@ -70,9 +71,9 @@ Sized for the [DGX Spark](dgx-spark.md) tier per NVIDIA's positioning — 128 GB
 
 ## Related
 
-- [OpenClaw (Steinberger)](openclaw-personal-ai.md) — foundational sibling; offers migration path TO Hermes.
+- [OpenClaw](openclaw.md) — foundational sibling; offers migration path TO Hermes.
 - [NemoClaw](nemoclaw.md) — NVIDIA-secured sibling stack.
-- [OpenClaw (Hiwonder)](openclaw.md) — downstream robotics distribution of Steinberger OpenClaw; same upstream family (per user; pending primary-source confirmation).
+- [openclaw_controller](openclaw-controller.md) — Hiwonder's ROS 2 bridge module that runs OpenClaw on the ROSOrin Pro.
 - [DGX Spark](dgx-spark.md) — flagship local-hardware target.
 - [Qwen](qwen.md) — recommended LLM family.
 - [Ollama](ollama.md) — supported runtime.
@@ -90,4 +91,4 @@ Sized for the [DGX Spark](dgx-spark.md) tier per NVIDIA's positioning — 128 GB
 - **Self-evolving skills mechanism** — concrete details not in the README; how does it actually generate new tools?
 - **"Most used agent in the world" claim** — what's the OpenRouter measurement methodology?
 - **Hermes 4 LLM vs Hermes Agent** — Nous Research's flagship LLM and flagship agent share the "Hermes" brand; relationship not yet captured in this wiki.
-- **`hermes claw migrate` lineage** — Steinberger OpenClaw → Hermes migration path is built-in. Is there a competitive/cooperative relationship between the two projects?
+- **`hermes claw migrate` lineage** — OpenClaw → Hermes migration path is built-in. Is there a competitive/cooperative relationship between the two projects?

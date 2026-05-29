@@ -51,7 +51,7 @@ Per README: **ACT, [SmolVLA](smolvla.md), [π0](pi-zero.md), [π0.5](pi-zero-6.m
 
 ## Why it matters in this wiki
 
-Rosetta directly **resolves the central gap** identified in the [LeRobot on ROSOrin Pro synthesis](../syntheses/projects/lerobot-on-rosorin-pro.md): the "HX-12H servos aren't in LeRobot's FeeTech/Dynamixel-native middleware" problem. ROSOrin Pro is a ROS 2 robot exposing `/joint_states` and accepting `~/arm_group_control` strings ([OpenClaw](openclaw.md)). With Rosetta, the LeRobot integration is a **YAML contract**, not a Python driver — possibly a 1-day task instead of 1–2 weeks.
+Rosetta directly **resolves the central gap** identified in the [LeRobot on ROSOrin Pro synthesis](../syntheses/projects/lerobot-on-rosorin-pro.md): the "HX-12H servos aren't in LeRobot's FeeTech/Dynamixel-native middleware" problem. ROSOrin Pro is a ROS 2 robot exposing `/joint_states` and accepting `~/arm_group_control` strings (the same services Hiwonder's [`openclaw_controller`](openclaw-controller.md) wraps for [OpenClaw](openclaw.md)). With Rosetta, the LeRobot integration is a **YAML contract**, not a Python driver — possibly a 1-day task instead of 1–2 weeks.
 
 The shipped `turtlebot3.yaml` contract is the closest reference for a wheeled mobile base; the `so_101.yaml` contract is the closest reference for a 6-DOF tabletop arm. ROSOrin Pro is essentially "TurtleBot3 base + SO-101-class arm" — both contract templates apply.
 
@@ -78,7 +78,7 @@ Active, narrowly-scoped, solo. Risk profile for a personal project: **moderate**
 - [SO-ARM101](so-arm101.md) — reference contract.
 - [Turtlebot](turtlebot.md) — reference contract.
 - [ROSOrin Pro](rosorin-pro.md) — closest non-shipped use case in this wiki; see the [LeRobot-on-ROSOrin-Pro synthesis](../syntheses/projects/lerobot-on-rosorin-pro.md).
-- [OpenClaw](openclaw.md) — the LLM-orchestrator on ROSOrin Pro that would dispatch a Rosetta-trained policy as a learned skill.
+- [OpenClaw](openclaw.md) — the LLM-orchestrator on ROSOrin Pro (via [`openclaw_controller`](openclaw-controller.md)) that would dispatch a Rosetta-trained policy as a learned skill.
 - [GR00T](nvidia-groot.md) — supported policy not in upstream LeRobot.
 
 ## Mentioned in

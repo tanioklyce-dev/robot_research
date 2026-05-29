@@ -21,7 +21,7 @@ A starter shortlist — eight platforms across the spectrum from "tabletop arm u
 | [SO-ARM101](entities/so-arm101.md) | tabletop arm | sub-$500 | Open-source low-cost arm; default manipulator across the [LeRobot](entities/lerobot.md) ecosystem. Cheapest entry to imitation-learning data collection. |
 | [LeKiwi](entities/lekiwi.md) | mobile manipulator | sub-$1k | Open-source 3-wheel holonomic mobile manipulator from SIGRobotics-UIUC; commercial kits via [Seeed Studio](entities/seeed-studio.md). Pairs with SO-ARM101. |
 | [XLeRobot](entities/xlerobot.md) | dual-arm mobile manipulator | $660 | $660 dual-arm household robot built from two SO-ARM101s on a [LeKiwi](entities/lekiwi.md)-style base; 90% 3D-printed. Won two Embodied AI Hackathon 2025 prizes. |
-| [ROSOrin Pro](entities/rosorin-pro.md) | educational mobile manipulator | educational tier | Hiwonder's 6-DOF arm + mobile base kit on a Jetson Orin Nano; ships with the [OpenClaw](entities/openclaw.md) LLM-agent curriculum. The most curriculum-bundled starting kit on this list. |
+| [ROSOrin Pro](entities/rosorin-pro.md) | educational mobile manipulator | educational tier | Hiwonder's 6-DOF arm + mobile base kit on a Jetson Orin Nano; ships upstream [OpenClaw](entities/openclaw.md) plus Hiwonder's [`openclaw_controller`](entities/openclaw-controller.md) ROS 2 bridge as the LLM-agent curriculum. The most curriculum-bundled starting kit on this list. |
 | [TurtleBot 4](entities/turtlebot.md) | mobile-only (no arm) | ~$1,895 | Canonical ROS 2 educational mobile robot; iRobot Create 3 base + Raspberry Pi 4B. Best starting point if you want a navigation-first platform. |
 | [myBuddy 280](entities/mybuddy-280.md) | dual-arm desktop | $1,619 | Elephant Robotics 13-DOF dual-arm tabletop robot with touchscreen + ROS 1 / MoveIt. Lower-ceiling, more polished alternative to XLeRobot. |
 | [Stretch 4](entities/stretch.md) | research-grade mobile manipulator | **$29,950** | Hello Robot's fourth-generation mobile manipulator (launched 2026-05-12) — new 3-wheel omnidirectional holonomic base, dual hemispherical 3D LiDAR, 8 redundant DOF + gripper, Intel Ultra 5 NUC, optional Jetson Orin NX ($2,495 add-on). The de-facto research platform behind [Robot Utility Models](entities/robot-utility-models.md), [OK-Robot](entities/ok-robot.md), [stretch_ai](entities/stretch-ai.md), and most academic in-home deployments tracked in this wiki (those policies were trained on Stretch 2 / 3 — Stretch 4 transfer is an open question). |
@@ -147,7 +147,7 @@ A practical project sequence for learning JEPA on educational hardware.
 
 - [JEPA project ladder for ROSOrin Pro](syntheses/projects/jepa-project-ladder-rosorin-pro.md) — six-rung ladder.
 - [LeWM on ROSOrin Pro — feasibility](syntheses/projects/lewm-on-rosorin-pro-feasibility.md).
-- Entities: [ROSOrin / ROSOrin Pro](entities/rosorin.md), [Hiwonder](entities/hiwonder.md), [OpenClaw](entities/openclaw.md).
+- Entities: [ROSOrin / ROSOrin Pro](entities/rosorin.md), [Hiwonder](entities/hiwonder.md), [OpenClaw](entities/openclaw.md), [openclaw_controller](entities/openclaw-controller.md).
 
 
 ## Conventions in one paragraph

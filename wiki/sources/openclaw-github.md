@@ -16,8 +16,8 @@ tags: [openclaw, personal-ai-assistant, gateway, multi-platform, claw-ecosystem,
 
 GitHub README for **OpenClaw** (`github.com/openclaw/openclaw`), the **personal AI assistant** project that has become the dominant open-source agentic framework of the 2025–2026 wave. **375K stars / 78.3K forks** (May 2026) — by star count one of the largest open-source projects in the AI/agent space. MIT-licensed, TypeScript / Node 24 runtime. Naming origin: **"Molty, a space lobster AI assistant"** created by **Peter Steinberger** and community (the "Claw" pun trades on both the lobster and the Claude homophone).
 
-> [!note] Hiwonder's [OpenClaw](../entities/openclaw.md) is a downstream distribution of this project
-> Per user (2026-05-28; pending primary-source confirmation), [Hiwonder's robotics OpenClaw](../entities/openclaw.md) — the framework that ships on [ROSOrin Pro](../entities/rosorin-pro.md) — is **built on top of** this upstream and adds ROS 2 manipulation extensions + the hardware integration. Both inherit the upstream's gateway architecture, skill registry (ClawHub), and extension system. Hermes Agent's `hermes claw migrate` command should plausibly work from either install.
+> [!note] How OpenClaw runs on the [ROSOrin Pro](../entities/rosorin-pro.md)
+> Hiwonder's ROSOrin Pro doesn't ship a separate OpenClaw distribution — it runs upstream OpenClaw plus [`openclaw_controller`](../entities/openclaw-controller.md), a ROS 2 bridge module Hiwonder publishes that exposes the robot's services (arm, chassis, vision) as skills OpenClaw can dispatch. Hermes Agent's `hermes claw migrate` should target the OpenClaw side cleanly; the robot-specific ROS 2 services would need a separate ros-mcp-server bridge to be reachable from Hermes Agent.
 
 ## What it is
 
@@ -62,7 +62,8 @@ Multiple supported with configurable fallover. Headline pairing: **OpenAI (ChatG
 
 ## Entities mentioned
 
-- [OpenClaw (Steinberger, personal AI assistant)](../entities/openclaw-personal-ai.md) — this project.
+- [OpenClaw](../entities/openclaw.md) — this project.
+- [openclaw_controller](../entities/openclaw-controller.md) — Hiwonder's ROS 2 bridge module that puts this framework on the ROSOrin Pro.
 - [NemoClaw](../entities/nemoclaw.md) — NVIDIA's wrapper.
 - [Hermes Agent](../entities/hermes-agent.md) — sibling / competitor (with migration path *from* OpenClaw).
 

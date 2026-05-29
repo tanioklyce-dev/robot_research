@@ -9,10 +9,10 @@ status: early preview
 tags: [nemoclaw, nvidia, openclaw, nemotron, nvidia-agent-toolkit, nvidia-openshell, guardrails, privacy, dgx-spark, rtx-pro, claw-ecosystem]
 ---
 
-**NVIDIA NemoClaw** — NVIDIA's **open-source stack that wraps [OpenClaw (Steinberger)](openclaw-personal-ai.md) with privacy and security controls + NVIDIA-native local-LLM inference**. *"Adds privacy and security controls to OpenClaw."* Early-preview status; no GA pricing / release date stated on the [product page](../sources/nvidia-nemoclaw-page.md).
+**NVIDIA NemoClaw** — NVIDIA's **open-source stack that wraps [OpenClaw](openclaw.md) with privacy and security controls + NVIDIA-native local-LLM inference**. *"Adds privacy and security controls to OpenClaw."* Early-preview status; no GA pricing / release date stated on the [product page](../sources/nvidia-nemoclaw-page.md).
 
-> [!note] NemoClaw and [Hiwonder OpenClaw](openclaw.md) are sibling distributions of the same upstream
-> Both wrap [the Steinberger OpenClaw personal-AI-assistant framework](openclaw-personal-ai.md). NemoClaw adds NVIDIA security + Nemotron local LLM for **desktop / workstation** use; [Hiwonder OpenClaw](openclaw.md) adds ROS 2 + manipulation skills + [ROSOrin Pro](rosorin-pro.md) hardware integration for **robot** use (per user 2026-05-28; pending primary-source confirmation of the Hiwonder upstream relationship).
+> [!note] NemoClaw is a distribution of OpenClaw; the ROSOrin Pro stack uses a different mechanism
+> NemoClaw is a desktop/workstation distribution of OpenClaw — it adds NVIDIA security + Nemotron local LLM. The ROSOrin Pro, by contrast, isn't a separate OpenClaw distribution at all — it runs stock upstream OpenClaw plus Hiwonder's [`openclaw_controller`](openclaw-controller.md) ROS 2 bridge module. So NemoClaw and `openclaw_controller` aren't peers: NemoClaw replaces the OpenClaw distribution; `openclaw_controller` is an extension that sits below any OpenClaw distribution.
 
 ## What it bundles
 
@@ -42,7 +42,7 @@ NemoClaw is the **NVIDIA-secured production wrapper** in the 3-project landscape
 
 | Project | Layer | License |
 |---|---|---|
-| [OpenClaw (Steinberger)](openclaw-personal-ai.md) | Foundation | MIT |
+| [OpenClaw](openclaw.md) | Foundation | MIT |
 | **NemoClaw** | NVIDIA security wrapper + Nemotron + hardware-aware deployment | (early preview) |
 | [Hermes Agent](hermes-agent.md) | Competing sibling stack | MIT |
 
@@ -52,13 +52,13 @@ The interesting question (worth a future synthesis): is NemoClaw + OpenClaw NVID
 
 **No robot integration documented.** Inherits OpenClaw's MCP / extension story — a robot integration would require writing an MCP server exposing ROS 2 actions / topics / services.
 
-For the ROSOrin Pro use case specifically: NemoClaw is **not** a viable swap for [Hiwonder's OpenClaw](openclaw.md). They're different categories. NemoClaw could theoretically be the planner brain in a future *robot-extended* version of itself, but not today.
+For the ROSOrin Pro use case specifically: NemoClaw is **not** a drop-in swap for the upstream [OpenClaw](openclaw.md) running there today — Hiwonder's [`openclaw_controller`](openclaw-controller.md) bridge talks to upstream OpenClaw, and a NemoClaw-side equivalent of the same ROS 2 wiring would need to be written. NemoClaw could theoretically be the planner brain in a future *robot-extended* version of itself, but not today.
 
 ## Related
 
-- [OpenClaw (Steinberger)](openclaw-personal-ai.md) — the framework NemoClaw wraps.
+- [OpenClaw](openclaw.md) — the framework NemoClaw wraps.
 - [Hermes Agent](hermes-agent.md) — competing sibling stack.
-- [OpenClaw (Hiwonder, robotics)](openclaw.md) — sibling distribution (robotics) wrapping the same upstream.
+- [openclaw_controller](openclaw-controller.md) — Hiwonder's ROS 2 bridge module (the robot-side mechanism that puts OpenClaw on a ROSOrin Pro).
 - [NVIDIA](nvidia.md) — vendor.
 - [DGX Spark](dgx-spark.md) — featured hardware target.
 - [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — concept.

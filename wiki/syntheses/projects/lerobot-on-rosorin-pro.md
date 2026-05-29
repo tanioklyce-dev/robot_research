@@ -33,7 +33,7 @@ From [ROSOrin Pro entity](../../entities/rosorin-pro.md) + [user manual](../../s
 - **Base**: differential-drive (Ackermann variant).
 - **Sensors**: COIN-D6 LiDAR (360°, 12 m, 9.5–10.5 Hz); Deptrum Aurora930 depth + RGB (640×400 @ **12 fps**, 15–300 cm); MPU6050 IMU; 6-mic array.
 - **Low-level MCU**: STM32F407VET6 (168 MHz; 512 KB Flash).
-- **Stack**: ROS 2 Humble (Ubuntu 22.04 on Orin); SLAM + Nav2 wired up; OpenClaw exposes string-command services: `~/arm_group_control`, `/start_pick`, `/place`, `/controller/cmd_vel`, plus skill-level launch files (`navigation_manager.launch.py`, `smart_scene_navigation.launch.py`).
+- **Stack**: ROS 2 Humble (Ubuntu 22.04 on Orin); SLAM + Nav2 wired up; Hiwonder's [`openclaw_controller`](../../entities/openclaw-controller.md) ROS 2 module exposes string-command services to upstream [OpenClaw](../../entities/openclaw.md): `~/arm_group_control`, `/start_pick`, `/place`, `/controller/cmd_vel`, plus skill-level launch files (`navigation_manager.launch.py`, `smart_scene_navigation.launch.py`).
 
 ## What LeRobot provides (per ICLR 2026 paper)
 
@@ -53,7 +53,7 @@ From [LeRobot ICLR 2026 paper](../../sources/lerobot-iclr-2026-paper.md):
 
 Two ports of entry, in order of preference:
 
-1. **Wrap the existing ROS 2 service interface.** Implement `lerobot.robots.rosorin_pro` and `lerobot.teleoperators.rosorin_pro` classes that publish to `~/arm_group_control` and read `~/move_status` (the same services [OpenClaw](../../entities/openclaw.md) uses per [chapter 13](../../sources/hiwonder-openclaw-tutorial.md)). Latency is bounded by ROS 2 round-trips; pragmatically the fastest path to a working integration.
+1. **Wrap the existing ROS 2 service interface.** Implement `lerobot.robots.rosorin_pro` and `lerobot.teleoperators.rosorin_pro` classes that publish to `~/arm_group_control` and read `~/move_status` (the same services Hiwonder's [`openclaw_controller`](../../entities/openclaw-controller.md) bridge already wraps for [OpenClaw](../../entities/openclaw.md) per [chapter 13](../../sources/hiwonder-openclaw-tutorial.md)). Latency is bounded by ROS 2 round-trips; pragmatically the fastest path to a working integration.
 2. **Talk to the STM32F407 directly over serial**, bypassing ROS — what LeRobot's existing FeeTech driver does. Cleaner integration but requires reverse-engineering Hiwonder's serial protocol.
 
 Start with (1).
@@ -130,7 +130,7 @@ The recommended near-term **architecture** keeps OpenClaw as the orchestrator (L
 
 - **Servo-protocol reverse-engineering** — if Path 1 latency is too high, would falling back to direct STM32 serial talk to the HX-12H bus actually be faster than the ROS round-trip? Bench-test before committing.
 - **Aurora930 12 fps cap** — is this hardware-limited or driver-limited? If driver, can we raise it? 30 Hz is the LeRobot default; 12 Hz halves the effective control loop bandwidth.
-- **Open-source status of OpenClaw** — [the entity page flags](../../entities/openclaw.md) that no GitHub URL has been surfaced. If OpenClaw is closed, building the learned-skill replacement is the right play; if it's open, you may be able to upstream the LeRobot integration as an alternative skill backend.
+- **Open-source status of Hiwonder's `openclaw_controller` bridge** — upstream [OpenClaw](../../entities/openclaw.md) is MIT (`github.com/openclaw/openclaw`, 375K stars), but the [bridge module's source / license](../../entities/openclaw-controller.md) hasn't surfaced. If the bridge is closed, building the learned-skill replacement is the right play; if it's open, you may be able to upstream the LeRobot integration as an alternative skill backend in `openclaw_controller`.
 - **Async inference on consumer WiFi** — LeRobot's async stack assumes a network. Home WiFi jitter could destabilize the producer-consumer queue. Bench-test before relying on it.
 - **Path B's leader/follower kinematic mismatch** — what fraction of SO-100 demos actually transfer to HX-12H joint space after retargeting? No data; would need an early bench experiment.
 

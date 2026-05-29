@@ -87,8 +87,8 @@ Windows install via PowerShell (early beta). Post-install commands:
 | **`hermes claw migrate`** | **Migrate from OpenClaw** (see note below) |
 | `hermes doctor` | Diagnose issues |
 
-> [!note] `hermes claw migrate` targets the OpenClaw upstream — including downstream distributions
-> The `hermes claw migrate` command imports from [Steinberger OpenClaw](../entities/openclaw-personal-ai.md) (`github.com/openclaw/openclaw`, MIT, 375K stars). Per user (2026-05-28; pending primary-source confirmation), **[Hiwonder's robotics OpenClaw](../entities/openclaw.md) is itself a downstream distribution of the same upstream** — so a `hermes claw migrate` from a Hiwonder ROSOrin Pro install should plausibly carry over the upstream-shaped state (settings, skills, API keys), though the robot-specific ROS 2 extensions won't have Hermes-Agent equivalents until someone writes a `ros-mcp-server` bridge.
+> [!note] `hermes claw migrate` targets OpenClaw
+> The `hermes claw migrate` command imports from [OpenClaw](../entities/openclaw.md) (`github.com/openclaw/openclaw`, MIT, 375K stars). On a ROSOrin Pro, OpenClaw runs alongside Hiwonder's [`openclaw_controller`](../entities/openclaw-controller.md) ROS 2 bridge — the migration should carry the OpenClaw side cleanly (settings, skills, API keys), but the robot-specific ROS 2 services exposed by `openclaw_controller` won't have Hermes-Agent equivalents until someone writes a `ros-mcp-server` bridge that wraps the same services.
 
 ## Built-in tool categories (40+ tools)
 
@@ -137,7 +137,7 @@ This is the closest analogue to a robot-control MCP — it's the same architectu
 
 ## Open questions
 
-- **What is the "OpenClaw" that Hermes Agent migrates from?** Not Hiwonder's. Possibly a defunct Nous Research project or an Anthropic-Claude-adjacent CLI agent. Investigation TBD.
+- **What is the "OpenClaw" that Hermes Agent migrates from?** Per the README it targets `github.com/openclaw/openclaw` (Steinberger / community). The Nous Research → OpenClaw relationship — competitive, cooperative, or unrelated origin — isn't clear from the README alone.
 - **How does "self-evolving skills" actually work?** README references the mechanism but doesn't describe it concretely. Worth digging into the `/skills` directory.
 - **Honcho dialectic modeling** for user profiles — what is the persistence schema and privacy model?
 - **Is there a Robot-control MCP server in the community yet?** None surfaced in this ingest.

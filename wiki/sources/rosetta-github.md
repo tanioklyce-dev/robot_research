@@ -124,7 +124,7 @@ This is the operational complement to the upcoming `rosetta_rl` package and alig
 
 ## Why this matters for this wiki
 
-This directly addresses **Gap 1** from the just-filed [LeRobot on ROSOrin Pro synthesis](../syntheses/projects/lerobot-on-rosorin-pro.md): the "HX-12H servos ≠ FeeTech/Dynamixel SDKs" problem. ROSOrin Pro is a ROS 2 robot that already exposes joint state on `/joint_states` and accepts arm commands via `~/arm_group_control` ([OpenClaw tutorial](hiwonder-openclaw-tutorial.md)). With Rosetta, the LeRobot integration becomes a **YAML contract** rather than a Python driver subclass — possibly a 1-day task instead of 1–2 weeks.
+This directly addresses **Gap 1** from the just-filed [LeRobot on ROSOrin Pro synthesis](../syntheses/projects/lerobot-on-rosorin-pro.md): the "HX-12H servos ≠ FeeTech/Dynamixel SDKs" problem. ROSOrin Pro is a ROS 2 robot that already exposes joint state on `/joint_states` and accepts arm commands via `~/arm_group_control` — the same services Hiwonder's [`openclaw_controller`](../entities/openclaw-controller.md) bridge wraps for [OpenClaw](../entities/openclaw.md) per the [OpenClaw tutorial](hiwonder-openclaw-tutorial.md). With Rosetta, the LeRobot integration becomes a **YAML contract** rather than a Python driver subclass — possibly a 1-day task instead of 1–2 weeks.
 
 The TurtleBot3 contract is particularly relevant — it demonstrates a working contract for a **wheeled mobile base** publishing to `/cmd_vel` (exactly the same control surface ROSOrin Pro exposes via `/controller/cmd_vel`).
 

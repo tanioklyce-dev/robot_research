@@ -10,7 +10,7 @@ tags: [rosorin-pro, hiwonder, jetson-orin-nano, education, mobile-manipulation, 
 
 **Hiwonder product page:** [hiwonder.com/products/rosorin-pro](https://www.hiwonder.com/products/rosorin-pro)
 
-Educational mobile-manipulation robot kit from [Hiwonder](hiwonder.md) — the **6-DOF arm + mobile base** variant of [ROSOrin](rosorin.md). Same compute and chassis as the base kit; adds an HX-12H-servo arm with a gripper end-effector and ships [OpenClaw](openclaw.md) as the manipulation-aware LLM-agent framework.
+Educational mobile-manipulation robot kit from [Hiwonder](hiwonder.md) — the **6-DOF arm + mobile base** variant of [ROSOrin](rosorin.md). Same compute and chassis as the base kit; adds an HX-12H-servo arm with a gripper end-effector and ships upstream [OpenClaw](openclaw.md) as the LLM-agent brain, driven through Hiwonder's [`openclaw_controller`](openclaw-controller.md) ROS 2 bridge module.
 
 ## Hardware
 - Compute: [Jetson Orin Nano](jetson-orin-nano.md) / NX (also Jetson Nano, Raspberry Pi 5).
@@ -39,7 +39,8 @@ ROSOrin Pro's [ROS 2](ros2.md)-native (Humble) control surface (`/joint_states`,
 - [Hiwonder](hiwonder.md) — vendor.
 - [ROSOrin](rosorin.md) — mobile-only sibling kit.
 - [ROSOrin Pro 6-DOF arm](rosorin-pro-arm.md) — manipulator hardware.
-- [OpenClaw](openclaw.md) — manipulation-aware LLM-agent framework that ships with this kit.
+- [OpenClaw](openclaw.md) — LLM-agent framework that ships on this kit.
+- [openclaw_controller](openclaw-controller.md) — Hiwonder's ROS 2 bridge module that exposes the kit's skills to OpenClaw.
 - [Rosetta](rosetta.md) — LeRobot↔ROS 2 bridge; YAML-contract path to running [LeRobot](lerobot.md) policies on this platform.
 - [Stretch](stretch.md) — research-tier arm + base counterpart from [Hello Robot](hello-robot.md).
 

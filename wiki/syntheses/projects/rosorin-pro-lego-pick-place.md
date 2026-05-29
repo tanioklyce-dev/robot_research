@@ -47,8 +47,8 @@ These are flagged on the entity pages as **open questions** that the manuals don
 
 **Recipe**
 1. Place a single Lego color (start with the easiest — bright red) on a non-reflective tabletop in good lighting.
-2. Stick an [AprilTag](../../concepts/robotics/apriltags.md) on each bin — [OpenClaw](../../entities/openclaw.md)'s chapter-13 demos already include AprilTag-targeted delivery (IDs 0/1).
-3. Use OpenClaw's existing skill library: color-tracking → arm `pick` → AprilTag-targeted `place`. Per the [OpenClaw entity](../../entities/openclaw.md): *"Color-based pick-and-place (red block) … Package / fruit-basket delivery via AprilTag (ID 0 / ID 1)"* — Lego is the same task with the same skills.
+2. Stick an [AprilTag](../../concepts/robotics/apriltags.md) on each bin — the chapter-13 [OpenClaw](../../entities/openclaw.md) demos already include AprilTag-targeted delivery (IDs 0/1).
+3. Use the existing skill library exposed by Hiwonder's [`openclaw_controller`](../../entities/openclaw-controller.md) bridge: color-tracking → arm `pick` → AprilTag-targeted `place`. Per the [`openclaw_controller` entity](../../entities/openclaw-controller.md): *"Color-based pick-and-place (red block) … Package / fruit-basket delivery via AprilTag (ID 0 / ID 1)"* — Lego is the same task with the same skills.
 4. Optionally wrap with the LLM agent: *"Sort all the red Legos into bin 0, all the blue Legos into bin 1."* OpenClaw's GPT-orchestrator pattern decomposes this into the existing skill calls ([LLM-agent architecture](../../concepts/agents/llm-agent-architecture.md)).
 
 **Outcome** — Working sorter for one or two pre-defined Lego colors → fixed AprilTag bins, on a clean tabletop, with good lighting. Verifies hardware end-to-end.
@@ -100,7 +100,8 @@ The October 2025 [Embodied AI Hackathon winners](../../sources/seeed-embodied-ai
 
 - [ROSOrin Pro entity](../../entities/rosorin-pro.md) — hardware spec.
 - [ROSOrin Pro 6-DOF arm entity](../../entities/rosorin-pro-arm.md) — gripper / payload open questions.
-- [OpenClaw entity](../../entities/openclaw.md) — chapter-13 skill library; AprilTag delivery; color-tracking pick.
+- [`openclaw_controller` entity](../../entities/openclaw-controller.md) — chapter-13 skill library; AprilTag delivery; color-tracking pick.
+- [OpenClaw entity](../../entities/openclaw.md) — LLM-agent framework on top.
 - [Hiwonder OpenClaw Practical Tutorial](../../sources/hiwonder-openclaw-tutorial.md) — the demo recipes Tier 1 is built on.
 - [LeWM-on-ROSOrin-Pro feasibility analysis](lewm-on-rosorin-pro-feasibility.md) — the "BC first, JEPA later" framing; the educational-tier-tax framing; the "no teleop pipeline ships" gap.
 - [JEPA project ladder for ROSOrin Pro](jepa-project-ladder-rosorin-pro.md) — sibling synthesis on the JEPA path; same hardware, different goal.

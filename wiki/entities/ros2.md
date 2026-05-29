@@ -61,7 +61,7 @@ A reader asking "can I run a LeRobot-trained policy on my Humble robot?" must ch
 
 - [LeRobot](lerobot.md) — non-ROS framework; bridged via [Rosetta](rosetta.md), [lerobot-ros](lerobot-ros.md), [so101-ros2](so101-ros2.md).
 - [PX4 Autopilot](px4-autopilot.md) — UAV stack with first-class ROS 2 bridge.
-- [Stretch AI](stretch-ai.md) / [OpenClaw](openclaw.md) — LLM-agent stacks built on ROS 2.
+- [Stretch AI](stretch-ai.md) / [OpenClaw](openclaw.md) (the latter via Hiwonder's [`openclaw_controller`](openclaw-controller.md) bridge) — LLM-agent stacks built on ROS 2.
 
 ## Mentioned in
 

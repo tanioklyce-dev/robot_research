@@ -30,7 +30,7 @@ The single most active open-source robotics-AI scene tracked in this wiki.
 
 ## Open educational kits with some open code
 
-- [ROSOrin / ROSOrin Pro](../../entities/rosorin-pro.md) — [Hiwonder](../../entities/hiwonder.md) educational kits; the Hiwonder docs + their [OpenClaw](../../entities/openclaw.md) framework are open enough to read and adapt.
+- [ROSOrin / ROSOrin Pro](../../entities/rosorin-pro.md) — [Hiwonder](../../entities/hiwonder.md) educational kits; the Hiwonder docs are open enough to read and adapt. The Pro ships upstream [OpenClaw](../../entities/openclaw.md) (MIT, 375K stars) plus Hiwonder's [`openclaw_controller`](../../entities/openclaw-controller.md) ROS 2 bridge module.
 - [myBuddy 280](../../entities/mybuddy-280.md) — [Elephant Robotics](../../entities/elephant-robotics.md); open URDF + ROS 1 stack + myBlockly/myStudio tooling.
 - [myAGV](../../entities/myagv.md) — Elephant mobile base with ROS / open Raspberry Pi pipeline.
 - [TonyPi](../../entities/tonypi.md) — Hiwonder hobby-tier biped kit; open assembly + control reference.

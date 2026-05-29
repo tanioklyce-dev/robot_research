@@ -8,7 +8,7 @@ tags: [llm-agent, agentic-robotics, stretch-ai, rosorin, openclaw, qwen]
 
 # LLM-agent architecture across stacks — a converged pattern
 
-Three independent agentic-robotics stacks ingested into this wiki — [stretch_ai](../../entities/stretch-ai.md) (research tier, [Hello Robot](../../entities/hello-robot.md)), [ROSOrin](../../entities/rosorin.md) (educational tier, [Hiwonder](../../entities/hiwonder.md), mobile-only), and [OpenClaw](../../entities/openclaw.md) (educational tier, Hiwonder, mobile + 6-DOF arm) — converge on the same control architecture: **a small LLM emits structured tool calls; a deterministic executor dispatches each call to a hand-written perception/manipulation skill**. Same shape across two vendors, two price points, and two capability classes. This page consolidates the evidence and draws the structural implications.
+Three independent agentic-robotics stacks ingested into this wiki — [stretch_ai](../../entities/stretch-ai.md) (research tier, [Hello Robot](../../entities/hello-robot.md)), [ROSOrin](../../entities/rosorin.md) (educational tier, [Hiwonder](../../entities/hiwonder.md), mobile-only), and [OpenClaw](../../entities/openclaw.md) on the [ROSOrin Pro](../../entities/rosorin-pro.md) (educational tier; upstream OpenClaw plus Hiwonder's [`openclaw_controller`](../../entities/openclaw-controller.md) ROS 2 bridge module, mobile + 6-DOF arm) — converge on the same control architecture: **a small LLM emits structured tool calls; a deterministic executor dispatches each call to a hand-written perception/manipulation skill**. Same shape across two vendors, two price points, and two capability classes. This page consolidates the evidence and draws the structural implications.
 
 The umbrella concept is on [LLM-agent architecture](../../concepts/agents/llm-agent-architecture.md); this synthesis is the comparative cross-section.
 
@@ -42,9 +42,9 @@ What every stack ships:
 
 ## Three implementations side by side
 
-| Dimension | [stretch_ai](../../entities/stretch-ai.md) | [ROSOrin](../../entities/rosorin.md) | [OpenClaw](../../entities/openclaw.md) |
+| Dimension | [stretch_ai](../../entities/stretch-ai.md) | [ROSOrin](../../entities/rosorin.md) | [OpenClaw](../../entities/openclaw.md) on ROSOrin Pro |
 |---|---|---|---|
-| Vendor | [Hello Robot](../../entities/hello-robot.md) | [Hiwonder](../../entities/hiwonder.md) | [Hiwonder](../../entities/hiwonder.md) |
+| Vendor / origin | [Hello Robot](../../entities/hello-robot.md) | [Hiwonder](../../entities/hiwonder.md) | OpenClaw: Steinberger / community; ROS 2 bridge ([`openclaw_controller`](../../entities/openclaw-controller.md)): [Hiwonder](../../entities/hiwonder.md) |
 | Tier | Research | Educational | Educational |
 | Hardware | [Stretch 3](../../entities/stretch.md) mobile manipulator | Jetson Orin Nano + diff-drive base | Jetson Orin Nano + 6-DOF arm + base |
 | Default local LLM | [Qwen2.5-3B-Instruct](../../entities/qwen.md) | [qwen3:1.7b](../../entities/qwen.md) via [Ollama](../../entities/ollama.md) | (cloud-first; OpenAI GPT) |
@@ -65,7 +65,7 @@ What every stack ships:
 
 **3. Skills live below the LLM, not inside it.** None of the three stacks asks the LLM to do perception or low-level control — vision is YOLO/MediaPipe/AprilTag/visual-servoing, navigation is Nav2/A*/RRT, grasping is classical or learned BC. The LLM is constrained to symbolic reasoning over a fixed action vocabulary. **Implication:** these are not VLA stacks (see "What's notably absent" below); they are classical robotics with an LLM dispatcher bolted on top.
 
-**4. The pattern scales from mobile-only to mobile + arm without architectural change.** Comparing ROSOrin to OpenClaw: same vendor, same compute, same dispatcher pattern; OpenClaw simply adds manipulation primitives to the skill library. **Implication:** the architecture absorbs new capabilities by extending the skill library rather than re-architecting the controller.
+**4. The pattern scales from mobile-only to mobile + arm without architectural change.** Comparing ROSOrin to the ROSOrin Pro's OpenClaw + `openclaw_controller` setup: same vendor packaging the kit, same compute, same dispatcher pattern; the Pro simply adds manipulation primitives to the skill library (via `openclaw_controller`). **Implication:** the architecture absorbs new capabilities by extending the skill library rather than re-architecting the controller.
 
 ## What's notably absent across all three stacks
 
@@ -87,14 +87,14 @@ This absence is the most important structural fact this synthesis can offer: **t
 | Closed-loop reactivity | Limited by prompt-cycle latency | Frame-rate possible |
 | Generalization to unseen objects | Bounded by skill library | Can transfer with right pretraining |
 | Sim-to-real burden | None (no policy to transfer) | High (the entire sim category 1 stack exists for this) |
-| Production readiness | Shipping today (stretch_ai, OpenClaw) | Mostly research |
+| Production readiness | Shipping today (stretch_ai, OpenClaw + `openclaw_controller`) | Mostly research |
 
 The LLM-agent pattern wins on shippability and debuggability today. VLAs win on data-driven generalization in the limit — but only if the training pipeline (sim, data, evaluation) is in place.
 
 ## Implementation hazards visible in the sources
 
 > [!warning] `eval`-on-LLM-output as a dispatch mechanism
-> Both Hiwonder stacks dispatch via `eval(f'self.{a}')` on LLM-emitted strings ([ROSOrin docs](../../sources/hiwonder-rosorin-docs.md), [OpenClaw tutorial](../../sources/hiwonder-openclaw-tutorial.md)). This is fine for an educational kit on a closed local network, but it is a remote-code-execution vector if the LLM endpoint is ever attacker-influenced. stretch_ai's FSM dispatcher does not have this property. Worth flagging if any of these patterns are copied into production.
+> Both Hiwonder kits dispatch via `eval(f'self.{a}')` on LLM-emitted strings ([ROSOrin docs](../../sources/hiwonder-rosorin-docs.md), [OpenClaw tutorial](../../sources/hiwonder-openclaw-tutorial.md)) — on the ROSOrin Pro this dispatch sits inside `openclaw_controller`. This is fine for an educational kit on a closed local network, but it is a remote-code-execution vector if the LLM endpoint is ever attacker-influenced. stretch_ai's FSM dispatcher does not have this property. Worth flagging if any of these patterns are copied into production.
 
 > [!note] Closed-loop replanning is under-documented everywhere
 > All three sources describe how the LLM emits a plan. None describe in detail how skill failures (grasp failure, person blocking the path, AprilTag occluded) surface back to the LLM for re-planning. This is the most consequential gap between published demo behavior and robust deployment.
@@ -102,8 +102,8 @@ The LLM-agent pattern wins on shippability and debuggability today. VLAs win on 
 ## Open questions
 
 - **Why does no stack support Claude as an LLM backend?** stretch_ai lists Qwen, Gemma, GPT-4o-mini explicitly with no Anthropic option ([Stretch AI LLM Agent Documentation](../../sources/stretch-ai-llm-agent-docs.md)). Worth investigating whether this is licensing, pricing, or simply that the Hello Robot team hasn't gotten to it.
-- **Cross-vendor portability**: could OpenClaw's skill library run on a Stretch, or vice versa? Both expose ROS 2 surfaces in principle. No source addresses this.
-- **What does the `voice_pick` / `voice_give` action group actually contain in OpenClaw?** The doc names them but does not list the joint trajectories — implementation is opaque without the source repo.
+- **Cross-vendor portability**: could `openclaw_controller`'s skill library run on a Stretch, or vice versa? Both expose ROS 2 surfaces in principle. No source addresses this.
+- **What do the `voice_pick` / `voice_give` action groups actually contain in `openclaw_controller`?** The doc names them but does not list the joint trajectories — implementation is opaque without the source repo.
 - **Will this pattern hold once VLAs ship into deployed products?** A VLA could in principle replace several skills in the library while leaving the LLM dispatcher above. This synthesis predicts the LLM-as-orchestrator-over-classical-skills pattern survives, with VLAs gradually moving in as individual primitives.
 
 ## Sources used in this synthesis

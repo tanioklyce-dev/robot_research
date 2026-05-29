@@ -15,7 +15,7 @@ The 6-DOF manipulator that ships on [ROSOrin Pro](rosorin-pro.md). Built around 
 - 6 degrees of freedom.
 - Joint actuation: HX-12H bus servos (0–240° rotation, 12 kg·cm stall torque @ 11.0 V, 0.2 s/60° speed).
 - Gripper controlled by the same HX-12H servo class.
-- Driven by [OpenClaw](openclaw.md)'s skill library (`pick`, `place`, action groups `voice_pick`, `voice_give`, `init`, `camera_up`).
+- Driven via Hiwonder's [`openclaw_controller`](openclaw-controller.md) ROS 2 module, which exposes the skill library (`pick`, `place`, action groups `voice_pick`, `voice_give`, `init`, `camera_up`) to upstream [OpenClaw](openclaw.md).
 - Software interface: ROS 2 service `~/arm_group_control` accepts string commands.
 
 ## Open questions
@@ -26,7 +26,7 @@ The 6-DOF manipulator that ships on [ROSOrin Pro](rosorin-pro.md). Built around 
 
 ## Related
 - [ROSOrin Pro](rosorin-pro.md) — host platform.
-- [OpenClaw](openclaw.md) — software that drives it.
+- [OpenClaw](openclaw.md) — LLM-agent that drives it (via [`openclaw_controller`](openclaw-controller.md)).
 
 ## Mentioned in
 - [Hiwonder ROSOrin Pro User Manual](../sources/hiwonder-rosorin-pro-user-manual.md)

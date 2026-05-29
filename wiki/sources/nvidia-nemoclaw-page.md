@@ -10,13 +10,13 @@ tags: [nemoclaw, nvidia, openclaw, nemotron, nvidia-agent-toolkit, nvidia-opensh
 
 ## Summary
 
-Official product page for **NVIDIA NemoClaw** — *"an open source stack that adds privacy and security controls to [OpenClaw](../entities/openclaw-personal-ai.md)."* Positions NemoClaw as the **enterprise-/production-grade NVIDIA wrapper** around the community OpenClaw personal-AI-assistant framework. Early preview status (no GA pricing / release date stated on the landing page).
+Official product page for **NVIDIA NemoClaw** — *"an open source stack that adds privacy and security controls to [OpenClaw](../entities/openclaw.md)."* Positions NemoClaw as the **enterprise-/production-grade NVIDIA wrapper** around the community OpenClaw personal-AI-assistant framework. Early preview status (no GA pricing / release date stated on the landing page).
 
 ## What it is
 
 NemoClaw bundles:
 
-- **OpenClaw** as the foundational agent framework (the Steinberger / community project, **not** [Hiwonder's OpenClaw](../entities/openclaw.md)).
+- **OpenClaw** as the foundational agent framework ([the Steinberger / community project](../entities/openclaw.md)). NemoClaw is a desktop/workstation distribution of that framework — distinct from the ROSOrin Pro stack, which runs the same upstream OpenClaw plus Hiwonder's [`openclaw_controller`](../entities/openclaw-controller.md) ROS 2 bridge.
 - **NVIDIA Agent Toolkit** — security infrastructure.
 - **NVIDIA OpenShell** — open-source runtime for **policy-based guardrails**.
 - **NVIDIA Nemotron** — NVIDIA's local-LLM family for privacy-preserving inference.
@@ -39,14 +39,14 @@ The product positioning: *"always-on, self-evolving agents"* with **privacy and 
 
 | Project | Layer | Role |
 |---|---|---|
-| [OpenClaw](../entities/openclaw-personal-ai.md) (Steinberger) | Foundation | Open-source personal AI assistant framework |
+| [OpenClaw](../entities/openclaw.md) | Foundation | Open-source personal AI assistant framework |
 | **NemoClaw** | NVIDIA wrapper | Adds security + Nemotron + hardware-aware deployment to OpenClaw |
 | [Hermes Agent](../entities/hermes-agent.md) (Nous) | Sibling / competitor | Self-improving agent with import-from-OpenClaw path |
 
 ## Entities mentioned
 
 - [NemoClaw](../entities/nemoclaw.md) — this product.
-- [OpenClaw (Steinberger)](../entities/openclaw-personal-ai.md) — foundation.
+- [OpenClaw](../entities/openclaw.md) — foundation.
 - [NVIDIA DGX Spark](../entities/dgx-spark.md) — featured hardware.
 - [NVIDIA](../entities/nvidia.md) — vendor.
 

@@ -21,16 +21,16 @@ Nous's [Hermes Agent](hermes-agent.md) is the principal **Nous Research entry in
 
 | Project | Author | Stars |
 |---|---|---|
-| [OpenClaw (Steinberger)](openclaw-personal-ai.md) | Peter Steinberger + community | 375K |
+| [OpenClaw](openclaw.md) | Peter Steinberger + community | 375K |
 | [NemoClaw](nemoclaw.md) | NVIDIA (wraps OpenClaw) | early preview |
 | **[Hermes Agent](hermes-agent.md)** | **Nous Research** | 171K |
 
-The relationship is somewhere between competitive and cooperative — Hermes Agent ships a `hermes claw migrate` command to import from Steinberger OpenClaw, suggesting Nous expects users to flow toward Hermes from the upstream framework.
+The relationship is somewhere between competitive and cooperative — Hermes Agent ships a `hermes claw migrate` command to import from OpenClaw, suggesting Nous expects users to flow toward Hermes from the upstream framework.
 
 ## Related
 
 - [Hermes Agent](hermes-agent.md) — primary agent framework.
-- [OpenClaw (Steinberger)](openclaw-personal-ai.md) — sibling / competitor.
+- [OpenClaw](openclaw.md) — sibling / competitor.
 - [NemoClaw](nemoclaw.md) — NVIDIA-wrapped sibling.
 
 ## Mentioned in

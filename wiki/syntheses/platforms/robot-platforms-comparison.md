@@ -18,7 +18,7 @@ A reference list of robot platforms with entity pages in this wiki, organized by
 | [xArm 7](../../entities/xarm-7.md)             | Commercial  | Tabletop manipulator  | External                  | 7                 | None           | RUM cross-embodiment transfer target (~10pt drop vs Stretch).                            |
 | [Stretch](../../entities/stretch.md)           | Research    | Mobile manipulator    | Onboard (NUC + RealSense) | 1 (telescoping)   | Diff-drive     | RUM zero-shot generalist policies; stretch_ai LLM agent.                                 |
 | [Mobile ALOHA](../../entities/aloha.md)        | Research    | Bimanual mobile manip | Onboard (laptop + RTX 3070 Ti) | 2× 6 (ViperX 300) | Diff-drive (AgileX Tracer) | ACT + Diffusion Policy + VINN benchmarking on bimanual mobile manip; whole-body teleop; $32k. |
-| [ROSOrin Pro](../../entities/rosorin-pro.md)   | Educational | Mobile manipulator    | Jetson Orin Nano          | 6 (HX-12H servos) | Diff/Ackermann | OpenClaw LLM-agent framework; LeWM-feasibility candidate.                                |
+| [ROSOrin Pro](../../entities/rosorin-pro.md)   | Educational | Mobile manipulator    | Jetson Orin Nano          | 6 (HX-12H servos) | Diff/Ackermann | OpenClaw LLM-agent (via Hiwonder's openclaw_controller ROS 2 bridge); LeWM-feasibility candidate.                                |
 | [ROSOrin](../../entities/rosorin.md)           | Educational | Mobile robot (no arm) | Jetson Orin Nano          | 0                 | Diff/Ackermann | LLM-agent curriculum (cloud + offline).                                                  |
 | [TurtleBot](../../entities/turtlebot.md)       | Educational | Mobile robot (no arm) | Raspberry Pi (gen 4)      | 0                 | Diff-drive     | Reference / comparison point — not used directly in any wiki source.                     |
 
@@ -31,7 +31,7 @@ A reference list of robot platforms with entity pages in this wiki, organized by
 - **[Mobile ALOHA](../../entities/aloha.md)** (Stanford; Fu, Zhao, Finn 2024). Bimanual mobile manipulator with whole-body teleoperation. 4× [ViperX 300](../../entities/viperx-300.md) (2 leaders + 2 followers) + AgileX Tracer base + 3 webcams + RTX 3070 Ti laptop = **$32k**. Comparable in budget to a single Franka arm, ~6× cheaper than PR2/TIAGo. Anchors the [ACT](../../entities/act.md) + co-training-with-static-data IL pattern.
 
 ### Educational ($1k–$5k)
-- **[ROSOrin Pro](../../entities/rosorin-pro.md)** (Hiwonder). 6-DOF arm + mobile base + Jetson Orin Nano. Ships with [OpenClaw](../../entities/openclaw.md) LLM-agent framework. Closest educational-tier analog to Stretch + stretch_ai, but with a real arm (vs Stretch's telescoping single-DOF arm).
+- **[ROSOrin Pro](../../entities/rosorin-pro.md)** (Hiwonder). 6-DOF arm + mobile base + Jetson Orin Nano. Ships upstream [OpenClaw](../../entities/openclaw.md) as the LLM-agent brain plus Hiwonder's [`openclaw_controller`](../../entities/openclaw-controller.md) ROS 2 bridge module that wires it to the robot. Closest educational-tier analog to Stretch + stretch_ai, but with a real arm (vs Stretch's telescoping single-DOF arm).
 - **[ROSOrin](../../entities/rosorin.md)** (Hiwonder). No-arm sibling of ROSOrin Pro. Mobile robot only; Jetson Orin Nano + cloud/offline LLM-agent curriculum.
 - **[TurtleBot](../../entities/turtlebot.md)** (multiple vendors per generation; current: Open Robotics / Clearpath). Reference educational mobile robot since 2010. Lacks the agentic-AI bundling that ROSOrin / ROSOrin Pro now ship.
 
