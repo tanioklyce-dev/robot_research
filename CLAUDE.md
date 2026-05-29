@@ -137,6 +137,12 @@ Triggered when the user asks for a health check.
 
 Report findings as a punch list. Don't auto-fix without user direction.
 
+### Git
+
+**Commit ingests (and other wiki edits) directly to `main` when the user asks to commit/push — do not branch or open a PR by default.** This is a solo, append-mostly knowledge wiki with no CI and no collaborators, so the usual "branch off the default branch" habit adds ceremony without benefit; one-commit-per-ingest already gives clean, revertable history.
+
+Switch to a branch-based flow (feature branch → PR → review the rendered diff → squash-merge) only when one of these is true: (1) a **collaborator** joins and wants a review surface, (2) a **large or multi-session ingest** needs to be staged and reviewed as a unit before becoming canonical, or (3) the user wants a **draft buffer** for speculative material they may discard. Absent one of those, prefer direct-to-`main`.
+
 ## index.md format
 
 Catalog organized by category. Each entry: link, one-line summary, source count or date.
