@@ -27,7 +27,8 @@ wiki/
 │   ├── agents/           # LLM-agent architecture
 │   ├── safety/           # alignment, corrigibility, mech-interp
 │   ├── robotics/         # assistive, EUP, optimal control, AprilTags, UAVs, ...
-│   └── bio/              # biomechanical simulation, connectomes
+│   ├── bio/              # biomechanical simulation, connectomes
+│   └── economics/        # economics-of-ML: collectivist AI, mechanism design, PPI
 └── syntheses/        # cross-cutting analyses, comparisons, original thinking
     ├── curriculum/       # the 14-module robot-learning curriculum
     ├── platforms/        # platform comparisons & buying decisions
@@ -36,7 +37,8 @@ wiki/
     ├── simulators/       # sim stack landscape (Newton, OpenUSD, FRC, ...)
     ├── assistive/        # in-home / PAR / autonomy levels
     ├── agents/           # agentic-AI architecture
-    └── rl/               # RL history & lineage
+    ├── rl/               # RL history & lineage
+    └── society/          # AI-and-society / economics-of-ML cross-cutting analyses
 ```
 
 Subfolders are organizational only — links use relative paths across them (e.g. `[JEPA](../concepts/world-models/jepa.md)` from `wiki/sources/`, `[JEPA](../world-models/jepa.md)` from a sibling concept folder). When ingesting a new source, place new concept/synthesis pages in the appropriate subfolder; create a new subfolder only if the topic clearly doesn't fit any existing group.

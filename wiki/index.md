@@ -223,6 +223,7 @@ Curated entry points across the wiki.
 - [Hermes Agent GitHub README](sources/hermes-agent-github.md) — `nousresearch/hermes-agent`; MIT; **171K stars / 28.7K forks / v0.14.0 (May 16 2026)**; Python 89% + TypeScript 8%; 7-layer architecture (Agent Core / Terminal Backends / Gateway / Skills / Tools / MCP / Memory); 6 terminal backends; 7+ messaging platforms; 200+ models via OpenRouter / Nous Portal / NIM / etc.; `hermes claw migrate` from OpenClaw. (2026)
 - [OpenClaw GitHub README](sources/openclaw-github.md) — `github.com/openclaw/openclaw`; MIT; **375K stars / 78.3K forks**; TypeScript / Node 24; local-first personal AI assistant; 20+ messaging platforms; ClawHub skill registry; "Molty space lobster" naming. On the [ROSOrin Pro](entities/rosorin-pro.md), runs as upstream + Hiwonder's [`openclaw_controller`](entities/openclaw-controller.md) ROS 2 bridge module. (2026)
 - [NVIDIA NemoClaw product page](sources/nvidia-nemoclaw-page.md) — NVIDIA's early-preview privacy/security wrapper over [OpenClaw](entities/openclaw.md); bundles NVIDIA Agent Toolkit + OpenShell policy guardrails + Nemotron local LLM; targets RTX PCs / RTX Pro / DGX Station / [DGX Spark](entities/dgx-spark.md). (2026)
+- [A Collectivist, Economic Perspective on AI (Jordan, 2025)](sources/jordan-collectivist-economic-ai.md) — [Michael I. Jordan](entities/michael-i-jordan.md) essay (Inria/Berkeley; arXiv 2507.06268v3, cs.CY). AI's North Star should be a **market**, not "intelligence"; an LLM is a *collectivist artifact* (a culture, not a person). Proposes the **tripartite blend** of [computational + inferential + economic thinking](concepts/economics/three-thinking-styles.md); worked hooks: statistical contract theory (e-values ⟺ incentive-compatible contracts), three-layer data markets, [prediction-powered inference](concepts/economics/prediction-powered-inference.md). **Opens the wiki's economics-of-ML wing; no robotics content.** (2025-12-15)
 
 ## Sources (pedagogical / curriculum companions, undated)
 - [Welch Labs Illustrated Guide to AI, Vol I (book)](sources/welchlabs-illustrated-guide-to-ai.md) — Stephen Welch's 376-page illustrated textbook (Feb 2026, Revision V15). 9 chapters: perceptron → gradient descent → backprop → deep learning → AlexNet → **neural scaling laws** → **mechanistic interpretability** → **attention (DeepSeek MLA)** → diffusion. Pairs chapter-by-chapter with Welch Labs YouTube videos; code at github.com/stephencwelch/ai_book. **The wiki's first ingested primary source on LLM-side scaling laws, mech-interp, and DeepSeek MLA.** (2026-02)
@@ -248,6 +249,7 @@ Curated entry points across the wiki.
 ## Entities
 
 ### Companies
+- [UnitedMasters](entities/unitedmasters.md) — music distribution/licensing company; [Jordan](entities/michael-i-jordan.md)'s real-world **three-way collectivist-AI market** (musicians ↔ listeners ↔ brands, incentives built in); >1.5M musicians. (1 source)
 - [NVIDIA](entities/nvidia.md) — owns most of the agentic-robotics simulation substrate; also owns [Brev](entities/nvidia-brev.md) GPU-cloud broker and the in-house [GEAR](entities/nvidia-gear.md) research lab. (19 sources)
 - [NVIDIA GEAR](entities/nvidia-gear.md) — Generalist Embodied Agent Research; co-led by [Jim Fan](entities/jim-fan.md) + [Yuke Zhu](entities/yuke-zhu.md); founded Feb 2024; source of GR00T, the Dream*-WM line, Eureka, and much of the Isaac Lab / RoboCasa / MimicGen substrate. (3 sources)
 - [Hiwonder](entities/hiwonder.md) — Chinese educational-robotics vendor; ROSOrin / ROSOrin Pro kits + `openclaw_controller` ROS 2 bridge for OpenClaw. (3 sources)
@@ -492,6 +494,7 @@ Curated entry points across the wiki.
 - [Michael Freedman](entities/michael-freedman.md) — Fields Medal 1986; Chief of Mathematics at [Logical Intelligence](entities/logical-intelligence.md). (1 source)
 - [Vlad Isenbaev](entities/vlad-isenbaev.md) — Chief of AI at [Logical Intelligence](entities/logical-intelligence.md); ICPC World Champion; ex-Facebook/Cruise/Nuro. (1 source) _stub_
 - [Patrick Hillmann](entities/patrick-hillmann.md) — Chief Strategy Officer at [Logical Intelligence](entities/logical-intelligence.md); ex-Binance CSO. (1 source) _stub_
+- [Michael I. Jordan](entities/michael-i-jordan.md) — Inria Paris + UC Berkeley; ML+statistics pioneer turned economics-of-ML; author of the [collectivist-economic AI](sources/jordan-collectivist-economic-ai.md) essay. (1 source)
 
 ## Concepts
 
@@ -516,6 +519,12 @@ Curated entry points across the wiki.
 
 ### Agents
 - [LLM-agent architecture](concepts/agents/llm-agent-architecture.md) — LLM-emits-tool-calls control pattern; MCP and A2A as inter-agent/tool-access protocols. (8 sources)
+
+### Economics
+- [Three thinking styles](concepts/economics/three-thinking-styles.md) — [Jordan](entities/michael-i-jordan.md)'s computational ⊕ inferential ⊕ economic framework; the missing piece is the *tripartite* blend; "no Maxwell's equations… we are winging it." (1 source)
+- [Collectivist AI / AI-as-market](concepts/economics/collectivist-ai.md) — AI best modeled as a **market** of strategic human + non-human participants; producer vs consumer roles; three-way and three-layer market archetypes. (1 source)
+- [Mechanism design & statistical contract theory](concepts/economics/mechanism-design.md) — mechanism design = inverse game theory; Stackelberg equilibria; the e-value ⟺ incentive-compatible-contract result (Bates et al. 2024). (1 source)
+- [Prediction-powered inference (PPI)](concepts/economics/prediction-powered-inference.md) — correct a foundation model's biased uncertainty using local ground truth (Angelopoulos et al. 2023); reinterpreted as an implicit incentive mechanism. (1 source)
 
 ### Safety
 - [AI safety and alignment](concepts/safety/ai-safety-alignment.md) — corrigibility, broadly safe behaviors, hard constraints, catastrophic risk framing; connects to agentic robot deployments. (3 sources)
@@ -599,6 +608,9 @@ Curated entry points across the wiki.
 
 ### RL
 - [Atari RL lineage — from ALE to Agent57 and MuZero](syntheses/rl/atari-rl-lineage.md) — hub for the Atari/DQN material; DQN → Rainbow → A3C/PPO → Go-Explore/Agent57 → MuZero/Dreamer; why robotics moved on but kept the toolbox. (2026-05-15)
+
+### Society
+- [Three critiques of the LLM-as-intelligence North Star](syntheses/society/critiques-of-the-intelligence-north-star.md) — [LeCun](sources/lecun2022-path-towards-ami.md) (world models) vs [Jordan](sources/jordan-collectivist-economic-ai.md) (markets) vs [Constitution](sources/claudes-constitution.md) (alignment): three senior arguments that "scale the LLM toward intelligence" is the wrong target, and where they conflict (esp. alignment as **bright line vs. tradeoff**). (2026-05-29)
 
 ### JEPA-related concepts/entities/sources to potentially expand
 - Metaworld — referenced by [JEPA-WMs](sources/jepa-wms-paper.md) (42 tasks); deserves an entity page.

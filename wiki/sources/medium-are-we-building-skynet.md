@@ -53,6 +53,9 @@ Author places current systems at Stage 2–3.
 ## Entities mentioned
 - [Apollo Research](../entities/apollo-research.md) — independent AI safety evaluation institute; evaluated Claude Opus 4
 
+## See also
+- [A Collectivist, Economic Perspective on AI (Jordan, 2025)](jordan-collectivist-economic-ai.md) — a rigorous treatment of the same "hype vs. hysteria" discourse this piece sits inside; Jordan opens by calling that dialogue "untethered to reality" and argues the *market*, not autonomy/Skynet, is the load-bearing metaphor. The two are a useful sensational-vs-serious pair on the AI-society axis.
+
 ## Open questions
 - Apollo Research primary report on Claude Opus 4 not linked; primary source not yet in wiki.
 - A2A protocol specification location (GitHub / Google AI blog) not cited in article.

@@ -2,8 +2,8 @@
 title: AI safety and alignment
 type: concept
 created: 2026-05-09
-updated: 2026-05-15
-sources: 5
+updated: 2026-05-29
+sources: 6
 tags: [ai-safety, alignment, corrigibility, values, anthropic]
 ---
 
@@ -49,8 +49,13 @@ The outcome Anthropic considers most catastrophic: global takeover by AIs pursui
 
 AI safety is directly relevant to the [LLM-agent architecture](../agents/llm-agent-architecture.md) pattern used across the robot platforms in this wiki. When an LLM agent has real-world tool access (via MCP), executes multi-step tasks autonomously, and operates within multi-agent networks (via A2A), the behavioral guarantees of the underlying model matter for real-world outcomes. The behaviors that Anthropic categorizes as "broadly safe" — acting within sanctioned limits, avoiding drastic/irreversible actions, not acquiring resources beyond the task — are directly relevant to deployed robotic agents.
 
+## An economic counterpoint: alignment as tradeoff, not bright line
+
+[Jordan (2025)](../../sources/jordan-collectivist-economic-ai.md) offers a sharply different framing. Where Anthropic's Constitution reserves a short list of **hard constraints / bright lines** (and treats a compelling argument to cross one as cause for *more* suspicion), Jordan argues that the broad cluster — privacy, fairness, ownership, **alignment**, reputation, transparency — should be expressible as **tradeoffs** via the [tripartite blend](../economics/three-thinking-styles.md) of computational, inferential, and economic thinking, not reduced to black-and-white distinctions. He also reframes the same power-concentration worry the Constitution names as a catastrophic outcome (a small group seizing illegitimate control) as a **[market-design](../economics/collectivist-ai.md) failure** to be fixed with incentives and [mechanism design](../economics/mechanism-design.md) rather than prohibitions. The two stances are not strictly contradictory, but they encode opposite *defaults* — see [Three critiques of the LLM-as-intelligence North Star](../../syntheses/society/critiques-of-the-intelligence-north-star.md).
+
 ## Related concepts
 - [Corrigibility](corrigibility.md) — dedicated page on the corrigibility dial and broadly safe behaviors.
+- [Mechanism design](../economics/mechanism-design.md) — incentive design as an alternative lever to value-alignment for shaping multi-agent behavior.
 - [LLM-agent architecture](../agents/llm-agent-architecture.md) — the architecture whose runtime behavior safety alignment governs.
 - [Agentic UAVs](../robotics/agentic-uavs.md) — multi-agent aerial systems; safety constraints apply to multi-agent coordination.
 
