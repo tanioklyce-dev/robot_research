@@ -1,6 +1,10 @@
 # Claude Code project state (per-machine, not part of the wiki)
 .claude/
 
+# Project-root scratch notes (residual personal-setup material distilled out of
+# wiki/notes/ that isn't appropriate for the canonical wiki). Per-machine, not tracked.
+/notes/
+
 # OS noise
 .DS_Store
 Thumbs.db
