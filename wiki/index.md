@@ -229,6 +229,7 @@ Curated entry points across the wiki.
 - [OpenClaw GitHub README](sources/openclaw-github.md) — `github.com/openclaw/openclaw`; MIT; **375K stars / 78.3K forks**; TypeScript / Node 24; local-first personal AI assistant; 20+ messaging platforms; ClawHub skill registry; "Molty space lobster" naming. On the [ROSOrin Pro](entities/rosorin-pro.md), runs as upstream + Hiwonder's [`openclaw_controller`](entities/openclaw-controller.md) ROS 2 bridge module. (2026)
 - [NVIDIA NemoClaw product page](sources/nvidia-nemoclaw-page.md) — NVIDIA's early-preview privacy/security wrapper over [OpenClaw](entities/openclaw.md); bundles NVIDIA Agent Toolkit + OpenShell policy guardrails + Nemotron local LLM; targets RTX PCs / RTX Pro / DGX Station / [DGX Spark](entities/dgx-spark.md). (2026)
 - [A Collectivist, Economic Perspective on AI (Jordan, 2025)](sources/jordan-collectivist-economic-ai.md) — [Michael I. Jordan](entities/michael-i-jordan.md) essay (Inria/Berkeley; arXiv 2507.06268v3, cs.CY). AI's North Star should be a **market**, not "intelligence"; an LLM is a *collectivist artifact* (a culture, not a person). Proposes the **tripartite blend** of [computational + inferential + economic thinking](concepts/economics/three-thinking-styles.md); worked hooks: statistical contract theory (e-values ⟺ incentive-compatible contracts), three-layer data markets, [prediction-powered inference](concepts/economics/prediction-powered-inference.md). **Opens the wiki's economics-of-ML wing; no robotics content.** (2025-12-15)
+- [Computational Life: How Self-replicating Programs Emerge from Simple Interaction](sources/computational-life-self-replicating-programs-paper.md) — [Agüera y Arcas](entities/blaise-aguera-y-arcas.md) et al. (Google Paradigms of Intelligence + U. Chicago; arXiv 2406.19108). Self-replicators **spontaneously arise** from random, self-modifying programs with **no fitness function** (BFF/Brainfuck, Forth, Z80, Intel 8080); sharp pre-life→life transition detected via novel "high-order entropy"; SUBLEQ a counterexample. **Opens the wiki's [artificial-life / emergence](concepts/alife/artificial-life-and-self-replication.md) wing.** (2024-06-27)
 
 ## Sources (pedagogical / curriculum companions, undated)
 - [Welch Labs Illustrated Guide to AI, Vol I (book)](sources/welchlabs-illustrated-guide-to-ai.md) — Stephen Welch's 376-page illustrated textbook (Feb 2026, Revision V15). 9 chapters: perceptron → gradient descent → backprop → deep learning → AlexNet → **neural scaling laws** → **mechanistic interpretability** → **attention (DeepSeek MLA)** → diffusion. Pairs chapter-by-chapter with Welch Labs YouTube videos; code at github.com/stephencwelch/ai_book. **The wiki's first ingested primary source on LLM-side scaling laws, mech-interp, and DeepSeek MLA.** (2026-02)
@@ -502,6 +503,7 @@ Curated entry points across the wiki.
 - [Vlad Isenbaev](entities/vlad-isenbaev.md) — Chief of AI at [Logical Intelligence](entities/logical-intelligence.md); ICPC World Champion; ex-Facebook/Cruise/Nuro. (1 source) _stub_
 - [Patrick Hillmann](entities/patrick-hillmann.md) — Chief Strategy Officer at [Logical Intelligence](entities/logical-intelligence.md); ex-Binance CSO. (1 source) _stub_
 - [Michael I. Jordan](entities/michael-i-jordan.md) — Inria Paris + UC Berkeley; ML+statistics pioneer turned economics-of-ML; author of the [collectivist-economic AI](sources/jordan-collectivist-economic-ai.md) essay. (1 source)
+- [Blaise Agüera y Arcas](entities/blaise-aguera-y-arcas.md) — Google VP/Fellow; leads the Paradigms of Intelligence Team (non-LLM-centric, emergence-based view of intelligence); lead author of [Computational Life](sources/computational-life-self-replicating-programs-paper.md). (1 source)
 
 ## Concepts
 
@@ -532,6 +534,9 @@ Curated entry points across the wiki.
 - [Collectivist AI / AI-as-market](concepts/economics/collectivist-ai.md) — AI best modeled as a **market** of strategic human + non-human participants; producer vs consumer roles; three-way and three-layer market archetypes. (1 source)
 - [Mechanism design & statistical contract theory](concepts/economics/mechanism-design.md) — mechanism design = inverse game theory; Stackelberg equilibria; the e-value ⟺ incentive-compatible-contract result (Bates et al. 2024). (1 source)
 - [Prediction-powered inference (PPI)](concepts/economics/prediction-powered-inference.md) — correct a foundation model's biased uncertainty using local ground truth (Angelopoulos et al. 2023); reinterpreted as an implicit incentive mechanism. (1 source)
+
+### Artificial Life
+- [Artificial life and the emergence of self-replication](concepts/alife/artificial-life-and-self-replication.md) — self-replication + open-ended complexity arise from random interacting self-modifying programs with **no fitness function** (Agüera y Arcas et al.); "high-order entropy" detects the pre-life→life transition; SUBLEQ counterexample. (1 source)
 
 ### Safety
 - [AI safety and alignment](concepts/safety/ai-safety-alignment.md) — corrigibility, broadly safe behaviors, hard constraints, catastrophic risk framing; connects to agentic robot deployments. (3 sources)

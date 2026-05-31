@@ -28,7 +28,8 @@ wiki/
 │   ├── safety/           # alignment, corrigibility, mech-interp
 │   ├── robotics/         # assistive, EUP, optimal control, AprilTags, UAVs, ...
 │   ├── bio/              # biomechanical simulation, connectomes
-│   └── economics/        # economics-of-ML: collectivist AI, mechanism design, PPI
+│   ├── economics/        # economics-of-ML: collectivist AI, mechanism design, PPI
+│   └── alife/            # artificial life, emergence, self-replication, complexity
 └── syntheses/        # cross-cutting analyses, comparisons, original thinking
     ├── curriculum/       # the 14-module robot-learning curriculum
     ├── platforms/        # platform comparisons & buying decisions

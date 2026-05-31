@@ -1946,3 +1946,10 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 ## [2026-05-31] note | AGX Thor "Supported Hardware" page is a redirect (no ingest)
 - Checked the Supported Hardware subpage: empty — one-line redirect to the **Jetson Thor Series Supported Components List, DA-12429-001**, a download-gated PDF on the Jetson Download Center (WebFetch can't pull it)
 - No source page created (nothing to ingest). Recorded the concrete pointer in the [user-guide index](sources/nvidia-jetson-agx-thor-devkit-user-guide-index.md) and [carrier-board spec](sources/nvidia-jetson-thor-carrier-board-spec.md) open questions: the SCL is the authoritative source for the Micro-Fit mating part + camera/M.2/QSFP28 compatibility; needs the PDF downloaded to raw/ to ingest
+
+## [2026-05-31] ingest | Computational Life (Agüera y Arcas et al., 2024) — arXiv 2406.19108
+- New topic branch (no prior coverage): artificial life / emergence. PDF in raw/2406.19108v2.pdf
+- Created [source page](sources/computational-life-self-replicating-programs-paper.md), entity [Blaise Agüera y Arcas](entities/blaise-aguera-y-arcas.md), and concept [Artificial life and the emergence of self-replication](concepts/alife/artificial-life-and-self-replication.md) in a **new `concepts/alife/` folder**
+- Thesis: self-replicators spontaneously arise from random self-modifying programs with no fitness function (BFF/Brainfuck, Forth, Z80, 8080); sharp pre-life→life transition via novel "high-order entropy"; SUBLEQ counterexample
+- Tied into [critiques of the intelligence north star](syntheses/society/critiques-of-the-intelligence-north-star.md) as a 4th "paradigm of intelligence" (emergence axis, alongside LeCun/Jordan/Constitution)
+- Registered `concepts/alife/` in [CLAUDE.md](../CLAUDE.md) structure tree; updated [index.md](index.md) (new source + entity + concept + Artificial Life section)
