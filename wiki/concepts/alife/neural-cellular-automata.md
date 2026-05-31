@@ -19,6 +19,7 @@ tags: [neural-cellular-automata, nca, self-organization, morphogenesis, cellular
 - Lineage (not separately ingested): Mordvintsev et al., "Growing Neural Cellular Automata" (Distill, 2020); Niklasson et al. texture NCA (2021); Pajouheshgar et al. DyNCA / mesh NCA (2023–24).
 
 ## Related concepts
+- **Synthesis:** [Local rules, global complexity: learned vs. evolved vs. emergent self-organization](../../syntheses/alife/local-rules-global-complexity.md) — situates NCA (the *learned* corner) against evolved (Tierra/Avida) and emergent (Computational Life) self-organization.
 - [Artificial life and the emergence of self-replication](artificial-life-and-self-replication.md) — NCA is the **learnable self-organization** wing; contrast the digital-evolution line (Tierra/Avida) which *evolves* rules and the Computational Life soup where replicators *emerge*. NCA instead *learns* a local rule toward a target.
 - [Evolutionary computation](evolutionary-computation.md) — alternative (gradient-free) route to designing self-organizing/embodied systems.
 - [Flocking and boids](flocking-and-boids.md) — hand-designed local rules → emergence; NCA is the learned-rule counterpart.

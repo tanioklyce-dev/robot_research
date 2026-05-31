@@ -34,6 +34,8 @@ The wiki's code-substrate results have a striking **biological counterpart**. [X
 > Both [Computational Life](../../sources/computational-life-self-replicating-programs-paper.md) (self-modifying code) and [Xenobots](../../sources/kriegman-2021-kinematic-self-replication.md) (frog cells) get replication with **no designed fitness function** — but via very different mechanisms (random self-modification on a shared tape vs. ciliary mechanics aggregating feedstock). A genuine cross-substrate parallel, not the same phenomenon.
 
 ## Related concepts
+- **Synthesis:** [Local rules, global complexity: learned vs. evolved vs. emergent self-organization](../../syntheses/alife/local-rules-global-complexity.md) — the cross-cutting analysis of this whole branch (the "where does the local rule come from / what information becomes structure?" spectrum).
+- [Neural Cellular Automata](neural-cellular-automata.md) — the learnable self-organization wing.
 - [Evolutionary computation](evolutionary-computation.md) — gradient-free population search; the design engine behind Xenobots; a classic ALife tool.
 - [Flocking and boids](flocking-and-boids.md) — sibling emergence model (continuous steering substrate).
 - [JEPA](../world-models/jepa.md) — objective-light learning (different domain, same anti-hand-design spirit).

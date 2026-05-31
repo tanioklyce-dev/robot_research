@@ -668,6 +668,9 @@ Curated entry points across the wiki.
 ### RL
 - [Atari RL lineage — from ALE to Agent57 and MuZero](syntheses/rl/atari-rl-lineage.md) — hub for the Atari/DQN material; DQN → Rainbow → A3C/PPO → Go-Explore/Agent57 → MuZero/Dreamer; why robotics moved on but kept the toolbox. (2026-05-15)
 
+### Artificial Life
+- [Local rules, global complexity: learned vs. evolved vs. emergent self-organization](syntheses/alife/local-rules-global-complexity.md) — cross-cutting analysis of the whole ALife branch. The shared bet (complex global behavior from simple local rules) read as a **"where does the local rule come from?" spectrum**: hand-designed (boids/Core War) → learned (NCA) → evolved (Tierra/Avida) → emergent (Computational Life), reframed as **"what information becomes structure?"** (designer → target-via-gradient → environment-via-selection → nothing). Mordvintsev as the learned↔emergent bridge; Xenobots as the all-three hybrid. (2026-05-31)
+
 ### Society
 - [Three critiques of the LLM-as-intelligence North Star](syntheses/society/critiques-of-the-intelligence-north-star.md) — [LeCun](sources/lecun2022-path-towards-ami.md) (world models) vs [Jordan](sources/jordan-collectivist-economic-ai.md) (markets) vs [Constitution](sources/claudes-constitution.md) (alignment): three senior arguments that "scale the LLM toward intelligence" is the wrong target, and where they conflict (esp. alignment as **bright line vs. tradeoff**). (2026-05-29)
 
