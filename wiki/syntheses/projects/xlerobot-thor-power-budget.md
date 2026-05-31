@@ -2,7 +2,7 @@
 title: XLeRobot + AGX Thor power budget — is a 300 W battery enough?
 type: synthesis
 created: 2026-05-30
-updated: 2026-05-30
+updated: 2026-05-31
 tags: [xlerobot, jetson-thor, power, battery, anker-c300, sts3215, energy-budget, projects]
 ---
 
@@ -56,7 +56,7 @@ The wiki's stock "**10+ hr**" ([XLeRobot](../../entities/xlerobot.md)) assumes *
 
 **NVIDIA does not bless any battery for the AGX Thor *Dev Kit*.** An NVIDIA staffer states the dev kit "is required to be used with the power supply that is bundled with the kit" ([External Power Supply Recommendation](https://forums.developer.nvidia.com/t/external-power-supply-recommendation/366448)) — battery operation is off-label and DIY. The robotics-intended path is the bare **T5000 module** on a custom carrier (rails **SYS_VIN_HV 22 A @ 9 V**, **SYS_VIN_MV 6 A @ 5 V** — [T5000 power thread](https://forums.developer.nvidia.com/t/queries-regarding-power-consumption-of-thor-t5000-module/348819)).
 
-For powering the dev kit from a battery, the input window is **9–28 VDC, up to 8 A**, via the latching **Molex Micro-Fit 3.0 J83** port (preferred over USB-C because it secures) or USB-C PD, with the **168 W enforced cap** ([Voltage Input via Microfit](https://forums.developer.nvidia.com/t/voltage-input-for-nvidia-jetson-agx-thor-development-kit-power-via-microfit-port/369186)). No one names a specific commercial battery; the community data points ([Battery for Jetson Thor Developer's Kit](https://forums.developer.nvidia.com/t/battery-for-jetson-thor-developers-kit/350320)):
+For powering the dev kit from a battery, the input window is **9–28 VDC**, with — per the [Carrier Board Spec (SP-12533-001)](../../sources/nvidia-jetson-thor-carrier-board-spec.md) — **max 5 A over USB-C vs 15 A over the latching Micro-Fit 3.0 J83**, under the **168 W enforced cap**. Two consequences the earlier forum-only picture missed: **USB-C (≈140 W) can't reach the 168 W ceiling — only Micro-Fit can**; and the **bundled adapter is USB-C**, so a battery is a genuinely separate Micro-Fit feed. A **CYPD8225 PD controller arbitrates first-come-first-serve**, so you can't sum the two inputs. No one names a specific commercial battery; the community data points ([Battery for Jetson Thor Developer's Kit](https://forums.developer.nvidia.com/t/battery-for-jetson-thor-developers-kit/350320)):
 
 | Source | Setup | Notes |
 |---|---|---|
@@ -72,11 +72,30 @@ downingbots' 550 Wh → 1.6 hr independently corroborates the runtime math above
 > - **Safe-by-construction direct feed:** **6S Li-ion** (25.2 V max) or **4S LiFePO4** (14.6 V max). **7S Li-ion** (29.4 V max) is too high.
 > - Anything that can exceed 28 V needs a **DC-DC buck regulator** ahead of the Micro-Fit.
 
-## Recommendations
+## Updated battery recommendation (canonical)
 
-- **Want more runtime? Buy more Wh, not more W.** A ~500–600 Wh pack roughly doubles working time with no higher output rating needed.
-- **Wire two rails** (12 V motors + 28 V/PD Thor); respect each port's cap, not just the 300 W aggregate.
-- **Prefer a DC-native battery** over an AC power station. The C300 *DC* variant (or a bare LiFePO4 12 V/24 V pack + buck converters) skips the AC-inversion loss, is lighter, and derives 12 V + a Thor rail more efficiently — a better fit than inverting to AC only to rectify back to DC.
+Incorporating the carrier-spec facts (5 A USB-C / 15 A Micro-Fit; USB-C bundled; first-come-first-serve):
+
+1. **Feed the Micro-Fit J83, not USB-C.** It's the only input that carries the full 168 W (USB-C tops out ~140 W) and it latches. USB-C is fine for bench/light use.
+2. **Put a DC-DC regulator between battery and Micro-Fit**, set to a fixed **~19–20 V** (well inside 9–28 V). This is the single best choice: it **eliminates the 28 V-ceiling trap entirely** regardless of pack chemistry, and at ~20 V the 168 W draw is only ~8.4 A (well under the 15 A limit). A buck-boost also holds the rail steady as the pack sags.
+3. **Chemistry: Li-ion or LiFePO4** (fast charge, energy-dense). For *direct* feed without a regulator, only **6S Li-ion** (≤25.2 V) or **4S LiFePO4** (≤14.6 V) are inherently safe — see the 28 V-ceiling warning above.
+4. **Size for watt-hours: ~300–500 Wh** for ~2 hr at ~150–250 W robot draw (corroborated by downingbots' 550 Wh ≈ 1.6 hr at full load). Buy Wh, not W.
+5. **Don't wire both inputs** — first-come-first-serve means the second does nothing.
+6. **Off-label caveat:** NVIDIA officially supports only the bundled USB-C PSU; and the spec's caution is explicit — **connect the module + all peripherals before applying power.**
+
+### For the XLeRobot specifically
+A cleaner build than the stock Anker AC station: **one 24 V-class DC pack + two DC-DC converters** —
+- **converter A → ~20 V into Thor's Micro-Fit** (≤168 W),
+- **converter B → 12 V for the 17× STS3215 motor bus.**
+
+This gives both rails efficiently (no AC-inversion loss), respects each input's current limit, and is lighter than inverting to AC only to rectify back to DC.
+
+## Summary takeaways
+
+- **300 W *rate* is fine** for normal operation; 600 W surge covers transients. Rate is not your constraint.
+- **Two rails, capped separately**: 12 V motors + a 9–28 V Thor feed. With the stock C300, no single port serves both; with a custom pack, the dual-DC-DC build above is cleaner.
+- **Runtime, not rate, is the limit**: a Thor drops the XLeRobot from "10+ hr" to **~1.5–2.5 hr**. Buy **watt-hours, not watts**.
+- **Prefer a DC-native pack** over an AC power station — skipping AC inversion is lighter and more efficient for a robot. See the canonical recommendation above for the regulator-into-Micro-Fit topology.
 
 ## Related
 

@@ -1932,3 +1932,7 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - **Notable finding**: AGX Thor dev kit has **no 40-pin GPIO header and no MIPI-CSI camera connectors** (Orin→Thor change) — sensors move to Ethernet (5 GbE / QSFP28 4×25 Gbps, CSI-over-Ethernet), USB, CAN
 - Filled remaining IO: M.2 Key E (Wi-Fi/BT preinstalled), 2× CAN (J47), Automation Header (J42, auto-power-on via pin5↔6), RTC battery (J13), fan/audio headers, 699-pin module connector
 - Resolved the [hardware-layout page](sources/nvidia-jetson-agx-thor-devkit-hardware-layout.md) open questions; updated [index.md](index.md)
+
+## [2026-05-31] update | Canonical battery recommendation for Thor (post carrier-spec)
+- Folded the updated recommendation into [Thor power budget synthesis](syntheses/projects/xlerobot-thor-power-budget.md): regulator→Micro-Fit topology (fixed ~19–20 V kills the 28 V-ceiling trap), Micro-Fit (15 A) over USB-C (5 A) for full load, first-come-first-serve (no summing), ~300–500 Wh for ~2 hr
+- Added the XLeRobot dual-DC-DC build (one 24 V pack → ~20 V Thor Micro-Fit + 12 V motor bus); corrected the old "28 V/PD" framing and de-duplicated the recommendations block
