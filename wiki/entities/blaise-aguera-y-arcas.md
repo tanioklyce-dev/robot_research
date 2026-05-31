@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-31
 updated: 2026-05-31
-sources: 1
+sources: 3
 tags: [person, google, paradigms-of-intelligence, artificial-life, emergence, intelligence-paradigms]
 ---
 
@@ -29,6 +29,7 @@ See [critiques of the intelligence north star](../syntheses/society/critiques-of
 ## Mentioned in
 - [Computational Life (paper)](../sources/computational-life-self-replicating-programs-paper.md)
 - [cubff (paradigms-of-intelligence/cubff)](../sources/cubff-github.md) — his team's code release behind the paper.
+- [BFF — Emergent Complexity experiment (Jonas Werner)](../sources/jonas-werner-bff-emergent-complexity.md) — independent reproduction of his Computational Life BFF result.
 
 ## Open questions / TBD
 - Co-author **Alexander Mordvintsev** (Neural Cellular Automata) suggests a deeper Google ALife / self-organization line worth its own coverage.

@@ -3,7 +3,7 @@ title: Artificial life and the emergence of self-replication
 type: concept
 created: 2026-05-31
 updated: 2026-05-31
-sources: 2
+sources: 3
 tags: [artificial-life, alife, self-replication, origins-of-life, emergence, complexity, open-endedness, kolmogorov-complexity, cellular-automata, flocking, boids]
 ---
 
@@ -14,6 +14,7 @@ tags: [artificial-life, alife, self-replication, origins-of-life, emergence, com
 - **No objective required.** Replication is not selected for — it arises from random interaction + self-modification (with or without background mutation). This is the striking part: complexity without a designed reward.
 - **Substrate-general.** Shown in **BFF** (an extended Brainfuck where programs share one read/write tape), **Forth**, and **real CPU instruction sets** (Zilog **Z80**, Intel **8080**) — not just toy languages.
 - **A counterexample bounds the claim.** In **SUBLEQ** (a one-instruction set) spontaneous emergence is **not** observed, and the shortest hand-crafted self-replicator is much longer — implicating **reachability of short replicators under random self-modification** as the gating condition.
+- **Independently reproduced.** [Jonas Werner's BFF reproduction (2026)](../../sources/jonas-werner-bff-emergent-complexity.md) reimplements the BFF soup from scratch (C+OpenMP) and confirms the spontaneous-replicator result and its sharp phase transition (he calls it **"gelation"**) — operations/interaction jumping ~700→6,000–12,000 as diversity collapses — on a commodity desktop in minutes, on multiple random seeds.
 
 ## Mechanism
 The enabling ingredient is a **shared read/write substrate**: when randomly paired programs are concatenated and executed on a common tape, one program can rewrite another. Self-modification + this shared medium make self-replicating motifs reachable by random walk; once a replicator appears it spreads and **takes over the soup** (the "life" phase). Setup follows an isolated-system variant of **Fontana's Turing gas**.
@@ -34,3 +35,4 @@ The paper introduces **high-order entropy** = (Shannon entropy over tokens/bytes
 ## Mentioned in
 - [Computational Life (Agüera y Arcas et al., 2024)](../../sources/computational-life-self-replicating-programs-paper.md)
 - [cubff (paradigms-of-intelligence/cubff)](../../sources/cubff-github.md) — the runnable engine for the anchor result.
+- [BFF — Emergent Complexity experiment (Jonas Werner)](../../sources/jonas-werner-bff-emergent-complexity.md) — independent CPU reproduction of the BFF result.

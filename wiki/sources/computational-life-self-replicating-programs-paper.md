@@ -28,6 +28,7 @@ When **random, non-self-replicating programs** are dropped into a soup with **no
   - **Real-world instruction sets** — a **Zilog Z80** emulator and the **Intel 8080**: self-replication emerges here too, showing the result isn't an artifact of toy languages.
 - **Counterexample — SUBLEQ.** In the minimalist one-instruction-set language **SUBLEQ** (and RSUBLEQ4), the pre-life→life transition is **not observed to arise spontaneously**, even though hand-crafted self-replicators exist — and the **shortest hand-crafted SUBLEQ self-replicator is much longer** than in the other substrates. Suggests the *reachability* of short replicators by random walk is what gates emergence.
 - **Code released**: [`paradigms-of-intelligence/cubff`](cubff-github.md) ("cubff") — ingested as its own source page; SUBLEQ variants via `--lang subleq` / `--lang rsubleq4`, BFF variants via `--lang bff_noheads` etc.
+- **Independently reproduced**: [Jonas Werner's BFF reproduction (2026)](jonas-werner-bff-emergent-complexity.md) reimplements the BFF soup from scratch (C+OpenMP, no relation to cubff) and confirms spontaneous self-replicators + the sharp phase transition on a commodity desktop.
 
 ## Entities mentioned
 - [Blaise Agüera y Arcas](../entities/blaise-aguera-y-arcas.md) — lead author; leads Google's Paradigms of Intelligence Team.
