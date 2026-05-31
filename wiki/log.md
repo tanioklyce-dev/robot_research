@@ -1891,3 +1891,9 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 ## [2026-05-30] ingest | In-vault Obsidian stub for the D435i bracket
 - Created [bracket pointer page](syntheses/projects/xlerobot-d435i-bracket.md) + copied preview.png into the vault (Obsidian can't follow links out to sibling `hardware/`)
 - Linked it from the [camera-options synthesis](syntheses/projects/xlerobot-camera-options-low-light.md) and [index.md](index.md)
+
+## [2026-05-30] query | "Is a 300W battery enough for XLeRobot + AGX Thor + motors/arms?"
+- Filed [XLeRobot + AGX Thor power budget](syntheses/projects/xlerobot-thor-power-budget.md)
+- Conclusion: 300 W *rate* is fine (600 W surge covers peaks); real constraints are (1) output-port wiring — 12 V motors + 28 V/PD Thor, no single C300 port serves both — and (2) capacity: 288 Wh → ~1.5–2.5 hr with a Thor (vs stock 10+ hr). Recommend more Wh (not W) + DC-native pack.
+- Folded verified specs into entities: [XLeRobot](entities/xlerobot.md) (C300 600 W surge + per-port caps + STS3215 currents 30 mA/180 mA/2.7 A) and [Jetson Thor](entities/jetson-thor.md) (dev kit 28 V/5 A 140 W ADP-240LB, 9–28 V input, ~168 W cap)
+- Updated [index.md](index.md); bumped Jetson Thor updated date

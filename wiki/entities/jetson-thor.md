@@ -3,7 +3,7 @@ title: Jetson Thor
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-05-17
+updated: 2026-05-30
 sources: 8
 tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai, jetpack-7, nvfp4, mig]
 ---
@@ -41,6 +41,8 @@ Two production module SKUs plus an AGX-style Developer Kit ([Jetson Thor product
 
 ### Jetson AGX Thor Developer Kit
 NVIDIA reference carrier + T5000 module. **$3,499 starting** ([NVIDIA Newsroom](../sources/nvidia-jetson-thor-launch-newsroom.md)). Styled like an RTX Founders Edition; AGX-class connectivity.
+
+**Power input**: ships with a **28 V / 5 A (140 W) adapter** (ADP-240LB); accepts **9–28 V** via Microfit barrel or USB-C, with a **~168 W enforced cap** to protect the adapter ([Jetson Linux dev guide — Jetson Thor power](https://docs.nvidia.com/jetson/archives/r38.2/DeveloperGuide/SD/PlatformPowerAndPerformance/JetsonThor.html)). Note this 28 V input is a *different rail* than the 12 V used by most low-cost arm/base platforms — see the [XLeRobot + Thor power budget](../syntheses/projects/xlerobot-thor-power-budget.md) for the battery/wiring implications.
 
 ## Versus AGX Orin (headline)
 **7.5× more AI compute, 3.5× better energy efficiency** ([Jetson Thor product page](../sources/nvidia-jetson-thor-product-page.md)).

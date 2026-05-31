@@ -16,11 +16,11 @@ tags: [xlerobot, mobile-manipulator, dual-arm, lerobot, lekiwi, so-arm101, low-c
 
 - **Arms**: 2× [SO-ARM101](so-arm101.md), each ~40 cm reach, 600–1000 g payload
 - **Base**: wheeled mobile platform inspired by [LeKiwi](lekiwi.md) / Bambot (2-wheel, mecanum, and 3× omni-wheel variants documented)
-- **Actuators**: **17× Feetech STS3215** servos at 12 V (same family as SO-100/SO-101)
+- **Actuators**: **17× Feetech STS3215** servos at 12 V (same family as SO-100/SO-101) — per-servo ~30 mA idle / ~180 mA no-load running / **2.7 A stall** ([RobotShop STS3215](https://www.robotshop.com/products/feetech-12v-30kgcm-magnetic-encoding-servo-sts3215))
 - **Mass**: ~12 kg (intentionally adult-liftable)
 - **Vertical workspace**: 0.5 m – 1.25 m (fixed-height torso, no lift)
 - **Reach from cart edge**: ~0.36 m
-- **Power**: Anker SOLIX C300 power station — 288 Wh, 300 W max output, 280 W max charge (~1 hr to full), **10+ hr** runtime
+- **Power**: Anker SOLIX C300 power station — 288 Wh, 300 W max output (**600 W surge**), 280 W max charge (~1 hr to full), **10+ hr** runtime (stock; *no high-power compute*). Output ports are individually capped: AC 300 W, USB-C PD 140 W, 12 V car port ~120 W ([Anker C300](https://www.ankersolix.com/products/c300)). Adding an [AGX Thor](jetson-thor.md) collapses runtime to **~1.5–2.5 hr** and requires a second voltage rail (12 V motors + 28 V/PD Thor) — see [XLeRobot + Thor power budget](../syntheses/projects/xlerobot-thor-power-budget.md).
 - **3D-printed**: 90% of mechanical parts (tested on BambuLab A1 / PLA; PETG, PLA-CF, Tough PLA also supported)
 - **Assembly time**: **2–4 hr from scratch; 1–2 hr with pre-assembled SO101 arms** (8 high-level steps)
 - **Optional sensors**: RGB camera, stereo RGB (+$30), **RealSense D415 RGBD depth** (+$220). For **low-light / cluttered** operation the **D435i** (global shutter, wider FOV, IMU) is a better swap than the stock D415, though it needs a mount tweak (different housing: D435i 90×25×25 mm vs D415 99×20×23 mm — the press-fit shell won't fit as-printed) — see [XLeRobot camera options for low-light + clutter](../syntheses/projects/xlerobot-camera-options-low-light.md).
