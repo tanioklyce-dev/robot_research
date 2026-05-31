@@ -33,9 +33,9 @@ The **primary-source origin of the self-reproducing-program game** — and the d
 
 ## Concepts touched
 - [Artificial life and the emergence of self-replication](../concepts/alife/artificial-life-and-self-replication.md) — Darwin is the **earliest** entry in the wiki's digital-replicator lineage (1961), predating Core War (1984).
-- Self-replication, code relocation, adaptive search, emergent ecological dynamics (precursor framing to digital evolution / Tierra / Avida — not yet ingested).
+- Self-replication, code relocation, adaptive search, emergent ecological dynamics (precursor framing to digital evolution / [Tierra](ray-1991-tierra-synthesis-of-life.md) / [Avida](adami-brown-1994-avida.md)).
 
 ## Open questions
 - **Umpire-mediated (Darwin) vs. shared-tape (Core War / [Computational Life](computational-life-self-replicating-programs-paper.md)) substrates** differ in *how* one program can affect another — a clean axis for a future cross-substrate synthesis of the self-replication branch.
-- Darwin had **adaptation within a round** (Morris's self-tuning increment) but no across-generation *evolution* of code — the flyer's "(Hopefully) Evolution" went largely unrealized; the evolved-replicator step is **Tierra/Avida** (still un-ingested).
+- Darwin had **adaptation within a round** (Morris's self-tuning increment) but no across-generation *evolution* of code — the flyer's "(Hopefully) Evolution" went largely unrealized; the evolved-replicator step is [Tierra](ray-1991-tierra-synthesis-of-life.md) / [Avida](adami-brown-1994-avida.md).
 - Exact canonical URL of this McIlroy transcript not captured (local PDF; widely mirrored from McIlroy's pages).

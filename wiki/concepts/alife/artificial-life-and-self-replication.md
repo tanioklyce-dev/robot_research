@@ -3,7 +3,7 @@ title: Artificial life and the emergence of self-replication
 type: concept
 created: 2026-05-31
 updated: 2026-05-31
-sources: 12
+sources: 14
 tags: [artificial-life, alife, self-replication, origins-of-life, emergence, complexity, open-endedness, kolmogorov-complexity, cellular-automata, flocking, boids]
 ---
 
@@ -37,14 +37,19 @@ The wiki's code-substrate results have a striking **biological counterpart**. [X
 - [Evolutionary computation](evolutionary-computation.md) — gradient-free population search; the design engine behind Xenobots; a classic ALife tool.
 - [Flocking and boids](flocking-and-boids.md) — sibling emergence model (continuous steering substrate).
 - [JEPA](../world-models/jepa.md) — objective-light learning (different domain, same anti-hand-design spirit).
-- Open-endedness, cellular automata, self-organization — **not yet covered**; natural neighbors as this branch grows (e.g. co-author Mordvintsev's Neural Cellular Automata line).
+- **Open-ended evolution** — now substantially covered via [Tierra](../../entities/tierra.md) & [Avida](../../entities/avida.md) (see lineage below). Cellular automata, self-organization, and Mordvintsev's Neural Cellular Automata line remain natural neighbors not yet covered.
 
-### Programming games & the digital-replicator lineage
+### Programming games
 A related tradition: **programming games** where you write code for an autonomous agent and then watch it run unattended.
 - **[Core War](../../entities/core-war.md)** ([Dewdney, 1984](../../sources/dewdney-1984-core-war-scientific-american.md)) is the **self-replication-relevant** member: Redcode "warriors" battle in a shared circular memory, and its canonical warrior — the **Imp** (`MOV 0 1`) — is a one-instruction program that **copies itself through memory**. Hand-written replicators, run on the [pMARS](../../sources/pmars-koth.md) simulator.
 - **[CRobots](../../sources/crobots-github.md)** (Poindexter, 1985) is the **non-replicating** cousin — C-programmed battle robots in an instruction-limited VM; hand-coded and static.
 
-These hand-written replicators sit one step before **evolved/emergent** ones. The lineage: von Neumann's self-replicating-machine theory → **[Darwin](../../sources/darwin-1961-bell-labs-game.md)** (Bell Labs, 1961 — Vyssotsky/McIlroy/Morris; the earliest digital-organism arena) / Worm → **[Core War](../../entities/core-war.md)** (1984, hand-written) → **Tierra** (Tom Ray, 1991) & **Avida** (evolved digital replicators; *not yet ingested*) → **[Computational Life / BFF](../../sources/computational-life-self-replicating-programs-paper.md)** (replicators that *emerge* from a self-modifying-code soup with no fitness function). Tierra/Avida are the clearest remaining gap in this chain.
+### The digital-replicator lineage (now ingested end-to-end)
+These hand-written replicators sit one step before **evolved/emergent** ones. The full chain:
+
+**von Neumann**'s self-replicating-machine theory → **[Darwin](../../sources/darwin-1961-bell-labs-game.md)** (Bell Labs, 1961 — earliest digital-organism arena; *adapts within a round* but doesn't evolve code) → **[Core War](../../entities/core-war.md)** (1984 — hand-written self-replicating warriors, *no evolution*) → **[Tierra](../../entities/tierra.md)** ([Ray, 1991](../../sources/ray-1991-tierra-synthesis-of-life.md)) & **[Avida](../../entities/avida.md)** ([Adami & Brown, 1994](../../sources/adami-brown-1994-avida.md)) — *open-ended evolution from a hand-written ancestor*, with a whole ecology (parasites, hyper-parasites, sociality, cheaters) emerging → **[Computational Life / BFF](../../sources/computational-life-self-replicating-programs-paper.md)** (2024) — replicators that *emerge from random code with no ancestor and no fitness function at all*.
+
+The chain has a clear **"how much is designed in?" gradient**: Core War (designed replicator, no evolution) → Tierra/Avida (designed *ancestor* + selection → evolution; Avida even rewards specified tasks) → Computational Life (nothing designed — no ancestor, no fitness, replication *and* its rise are emergent). Tierra→Avida itself trades Tierra's **global reaper** (which homogenizes the soup) for **local, cellular-automaton-style** interaction that sustains diversity.
 
 ## Mentioned in
 - [Computational Life (Agüera y Arcas et al., 2024)](../../sources/computational-life-self-replicating-programs-paper.md)
@@ -55,6 +60,8 @@ These hand-written replicators sit one step before **evolved/emergent** ones. Th
 - [Kriegman et al. 2021 — Kinematic self-replication in reconfigurable organisms](../../sources/kriegman-2021-kinematic-self-replication.md) — spontaneous kinematic self-replication in Xenobots.
 - [AI-Designed Living Robots Can Self-Replicate (IEEE EMBS feature)](../../sources/embs-xenobots-self-replicate-feature.md) — secondary coverage of the self-replication result.
 - [CRobots (troglobit/crobots)](../../sources/crobots-github.md) — non-replicating programming-game cousin (see Programming games note above).
+- [An Approach to the Synthesis of Life (Ray, 1991)](../../sources/ray-1991-tierra-synthesis-of-life.md) — Tierra; open-ended evolution from a hand-written ancestor.
+- [Evolutionary Learning in … 'Avida' (Adami & Brown, 1994)](../../sources/adami-brown-1994-avida.md) — spatial digital evolution; evolving computation.
 - [Darwin (Bell Labs, 1961; McIlroy transcript)](../../sources/darwin-1961-bell-labs-game.md) — the earliest digital-organism arena; Core War's direct ancestor.
 - [Dewdney 1984 — Core War (Scientific American)](../../sources/dewdney-1984-core-war-scientific-american.md) — the founding self-replicating programming game (the Imp).
 - [pMARS — Portable Redcode Simulator (KOTH.org)](../../sources/pmars-koth.md) — the standard Core War simulator.
