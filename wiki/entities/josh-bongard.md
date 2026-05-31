@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-31
 updated: 2026-05-31
-sources: 2
+sources: 4
 tags: [person, evolutionary-robotics, artificial-life, evolutionary-computation, xenobots, soft-robotics, embodied-cognition]
 ---
 
@@ -17,4 +17,6 @@ tags: [person, evolutionary-robotics, artificial-life, evolutionary-computation,
 
 ## Mentioned in
 - [Kriegman et al. 2020 — A scalable pipeline for designing reconfigurable organisms](../sources/kriegman-2020-reconfigurable-organisms.md)
+- [Blackiston et al. 2021 — A cellular platform for synthetic living machines](../sources/blackiston-2021-cellular-platform-synthetic-living-machines.md)
 - [Kriegman et al. 2021 — Kinematic self-replication in reconfigurable organisms](../sources/kriegman-2021-kinematic-self-replication.md)
+- [AI-Designed Living Robots Can Self-Replicate (IEEE EMBS feature)](../sources/embs-xenobots-self-replicate-feature.md)

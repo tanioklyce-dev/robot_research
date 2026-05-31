@@ -3,7 +3,7 @@ title: Artificial life and the emergence of self-replication
 type: concept
 created: 2026-05-31
 updated: 2026-05-31
-sources: 5
+sources: 8
 tags: [artificial-life, alife, self-replication, origins-of-life, emergence, complexity, open-endedness, kolmogorov-complexity, cellular-automata, flocking, boids]
 ---
 
@@ -39,9 +39,15 @@ The wiki's code-substrate results have a striking **biological counterpart**. [X
 - [JEPA](../world-models/jepa.md) — objective-light learning (different domain, same anti-hand-design spirit).
 - Open-endedness, cellular automata, self-organization — **not yet covered**; natural neighbors as this branch grows (e.g. co-author Mordvintsev's Neural Cellular Automata line).
 
+### Programming games (cultural lineage)
+A related-but-distinct tradition: **programming games** where you write code for an autonomous agent and then watch it run unattended. [CRobots](../../sources/crobots-github.md) (Tom Poindexter, 1985) is a canonical example — C-programmed battle robots in an instruction-limited VM — but its agents are **hand-coded and static** (no replication, no emergence). The self-replication-relevant member of this family is **Core War** (Redcode warriors that copy themselves through memory), **not yet ingested** — the closest programming-game cousin to the self-modifying-code soup of [Computational Life](../../sources/computational-life-self-replicating-programs-paper.md).
+
 ## Mentioned in
 - [Computational Life (Agüera y Arcas et al., 2024)](../../sources/computational-life-self-replicating-programs-paper.md)
 - [cubff (paradigms-of-intelligence/cubff)](../../sources/cubff-github.md) — the runnable engine for the anchor result.
 - [BFF — Emergent Complexity experiment (Jonas Werner)](../../sources/jonas-werner-bff-emergent-complexity.md) — independent CPU reproduction of the BFF result.
 - [Kriegman et al. 2020 — A scalable pipeline for designing reconfigurable organisms](../../sources/kriegman-2020-reconfigurable-organisms.md) — AI-designed living machines (Xenobots).
+- [Blackiston et al. 2021 — A cellular platform for synthetic living machines](../../sources/blackiston-2021-cellular-platform-synthetic-living-machines.md) — cilia-driven self-organizing "Xenobots 2.0".
 - [Kriegman et al. 2021 — Kinematic self-replication in reconfigurable organisms](../../sources/kriegman-2021-kinematic-self-replication.md) — spontaneous kinematic self-replication in Xenobots.
+- [AI-Designed Living Robots Can Self-Replicate (IEEE EMBS feature)](../../sources/embs-xenobots-self-replicate-feature.md) — secondary coverage of the self-replication result.
+- [CRobots (troglobit/crobots)](../../sources/crobots-github.md) — programming-game cultural lineage (see Programming games note above).

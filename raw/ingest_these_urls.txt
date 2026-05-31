@@ -1,0 +1,4 @@
+https://www.science.org/doi/epdf/10.1126/scirobotics.abf1571
+https://www.embs.org/feature/ai-designed-living-robots-can-self-replicate/
+https://github.com/troglobit/crobots
+
