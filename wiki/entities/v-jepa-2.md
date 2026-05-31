@@ -54,3 +54,4 @@ First public demonstration of a **latent-prediction world model** ([JEPA](../con
 - [VLA-JEPA Paper](../sources/vla-jepa-paper.md) — comparator
 - [Towards AI — LeCun / AMI Labs](../sources/towardsai-lecun-ami-labs.md) — secondary journalism
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) — V-JEPA 2 as the vision-encoder layer of the JEPA "alternative stack"
+- [HWM — Hierarchical Planning with Latent World Models](../sources/hwm-paper.md) — V-JEPA2-AC is the **real-Franka base** HWM wraps (pick-&-place 0%→70% from a single goal image)

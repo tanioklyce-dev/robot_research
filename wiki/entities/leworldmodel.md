@@ -43,8 +43,8 @@ The [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms
 - A separately-trained **decoder** maps predicted embeddings back to images purely for *visualization* (a "learned cartoon sketch" of push-t physics) — it is not in the planning loop.
 - **Horizon limit**: reliably plans only **~5 prediction loops** ahead before the rollout drifts "off the rails" — the practical ceiling that motivates hierarchy.
 
-> [!note] Hierarchical extension (push-t 5 → 15 steps)
-> Per the same source, LeCun and collaborators applied a **2-layer hierarchical world model** to push-t, **extending the horizon from 5 to 15 steps**, with the higher level's predictions acting as **sub-goals** for the lower-level planner. The paper is not named in the video — see the [LeCun open-question note](yann-lecun.md). This is the wiki's first tracked Hierarchical-JEPA control result.
+> [!note] The hierarchical push-t result is [HWM](hwm.md), and its base is DINO-WM (not LeWM)
+> The Welch Labs video showed LeWM for the *single-level* push-t demo, then described a hierarchical extension "from 5 to 15 steps." That hierarchical work is **[HWM — "Hierarchical Planning with Latent World Models"](../sources/hwm-paper.md)** (Zhang et al., incl. LeCun, April 2026), which instantiates its **Push-T** experiments on **[DINO-WM](dino-wm.md)**, not LeWorldModel. HWM is a model-agnostic two-level planning wrapper; its real numbers are Push-T **17%→61%** (d=75) and Franka **0%→70%**, not "5→15 steps." LeWM remains the *single-level* baseline the video used to explain CEM planning.
 
 ## Why it matters
 - Strips JEPA training down to two losses, making latent-prediction world models more practical for resource-limited research.

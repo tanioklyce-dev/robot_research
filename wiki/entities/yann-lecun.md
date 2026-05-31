@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-07
 updated: 2026-05-31
-sources: 20
+sources: 21
 tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs, logical-intelligence, ebm]
 ---
 
@@ -66,8 +66,9 @@ LeCun is one of the small number of researchers whose **simultaneous senior posi
 - [Towards AI — LeCun / AMI Labs article](../sources/towardsai-lecun-ami-labs.md)
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs (video)](../sources/welchlabs-lecun-1b-bet-against-llms.md)
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) — VLA critique, hierarchical-JEPA push-t result, AMI near-term plan.
+- [Hierarchical Planning with Latent World Models (HWM, paper)](../sources/hwm-paper.md) — senior author; the realized H-JEPA.
 - [Aleph and Energy-Based Models: The AI That Refuses to Bullshit (video)](../sources/2026-05-aleph-ebm-refuses-bullshit-video.md) — names LeCun as Founding Chair of Logical Intelligence's Technical Research Board; verbatim quote on EBMs as "reasoning and inference by minimizing an energy function."
 
-## Open questions / TBD
-- Has anyone built a working **Hierarchical JEPA (H-JEPA)** at the multi-time-scale envisioned in the [2022 position paper](../sources/lecun2022-path-towards-ami.md)? **Partial answer (2026-05):** the [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) reports that LeCun and collaborators applied a **2-layer hierarchical world model to push-t, extending the planning horizon from 5 to 15 steps** (higher level's predictions → sub-goals for the lower) — the first concrete H-JEPA result the wiki tracks. The underlying paper is **not named** in the video (candidates: the [LeWorldModel](../sources/leworldmodel-paper.md) arXiv 2603.19312 or its identifiability follow-up 2605.26379) — locating and ingesting it is the open follow-up. V-JEPA 2.1's "dense features" and JEPA-WMs' action-conditioned setup move the same direction.
+## Resolved / TBD
+- ~~Has anyone built a working **Hierarchical JEPA (H-JEPA)** at the multi-time-scale envisioned in the [2022 position paper](../sources/lecun2022-path-towards-ami.md)?~~ **Resolved (2026-05-31):** **[HWM — "Hierarchical Planning with Latent World Models"](../sources/hwm-paper.md)** (Zhang, Terver, …, LeCun, Ballas — arXiv 2604.03208, April 2026) is the concrete realization: a two-temporal-scale latent MPC wrapper (high-level macro-actions → subgoals → low-level primitive actions), model-agnostic across [DINO-WM](dino-wm.md), [PLDM](pldm.md), and [V-JEPA 2](v-jepa-2.md)-AC. Real-Franka pick-&-place **0%→70%** from a single goal image; Push-T **17%→61%** at the hardest horizon. (This is the paper the [Welch Labs Part 2 video](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) referenced but couldn't name — and its "5→15 steps" was a simplification of the paper's d=25→75 task-horizon framing.) Note it's **two** levels and goal-image-conditioned; the N-level *emergent* hierarchy and language conditioning remain open.
 - Has the **configurator** module (Section 6 of the 2022 paper) ever been concretely instantiated? LeCun left it as a sketch; worth checking AMI Labs / later FAIR output.

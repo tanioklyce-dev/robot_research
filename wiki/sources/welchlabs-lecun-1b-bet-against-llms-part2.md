@@ -65,6 +65,6 @@ Chapter-by-chapter (timestamps from the official description):
 
 ## Open questions
 
-- **Which paper reports the hierarchical push-t 5→15 result?** Not named in the description; the LeWM arXiv (2603.19312) and its identifiability follow-up (2605.26379) are the candidates. Worth locating and ingesting as the primary source.
+- ~~**Which paper reports the hierarchical push-t 5→15 result?**~~ **Resolved:** it's **[HWM — "Hierarchical Planning with Latent World Models"](hwm-paper.md)** (Zhang, Terver, …, LeCun, Ballas — arXiv 2604.03208, April 2026), with Balestriero (the credited collaborator) among the authors. The video's "5→15 steps" was a simplification — the paper reports **Push-T 17%→61%** across task horizons d=25→75 (on a DINO-WM base, not LeWM), and **real-Franka 0%→70%** from a single goal image.
 - **VL-JEPA vs VLA-JEPA naming** will keep causing confusion; the wiki should keep the disambiguation note current if either group renames.
 - The "1.6B beats 7B on GQA" and "35% vs 20%" figures are the video's framing of the [VL-JEPA paper](https://arxiv.org/abs/2512.10942); the paper's own abstract emphasizes "50% fewer trainable params, 2.85× fewer decoding ops, comparable to InstructBLIP/QwenVL." Reconcile against the paper body if/when ingested.

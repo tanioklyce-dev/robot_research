@@ -3,7 +3,7 @@ title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
 updated: 2026-05-31
-sources: 22
+sources: 23
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem]
 ---
 
@@ -74,7 +74,9 @@ The first systematic ablation across architectural / training / planning axes fo
 These are the first published systematic ablations of these axes for JEPA-style world models and should anchor any JEPA-WM build that follows.
 
 ## Hierarchical JEPA (H-JEPA) — long-horizon planning
-The single-level JEPA planning ceiling is short: [LeWorldModel](../../entities/leworldmodel.md) on push-t reliably plans only **~5 prediction loops** ahead before rollouts drift. LeCun's prescribed fix (from the [2022 position paper](../../sources/lecun2022-path-towards-ami.md), restated on camera in the [Welch Labs Part 2 explainer](../../sources/welchlabs-lecun-1b-bet-against-llms-part2.md)): a **hierarchy of predictors** — low levels make detailed short-term predictions; high levels make abstract long-term predictions (fewer details → slower divergence from reality). The **inter-layer interface is an embedding space, "not semantic, certainly not language"** ("your cat can do hierarchical planning"). LeCun's analogy: planning a NYU→Paris trip as sub-goals (airport → taxi → street), not millisecond muscle control. **First tracked result**: LeCun and collaborators applied a **2-layer hierarchical world model to push-t, extending the horizon from 5 → 15 steps** (higher-level predictions = sub-goals for the lower planner). The hope is that the hierarchy becomes **emergent** given the right architecture (à la CNN feature hierarchies), though it "probably requires training on semi-expert trajectories." The underlying paper is not yet named/ingested — see the [LeCun open-question note](../../entities/yann-lecun.md).
+The single-level JEPA planning ceiling is short: [LeWorldModel](../../entities/leworldmodel.md) on push-t reliably plans only **~5 prediction loops** ahead before rollouts drift. LeCun's prescribed fix (from the [2022 position paper](../../sources/lecun2022-path-towards-ami.md), restated on camera in the [Welch Labs Part 2 explainer](../../sources/welchlabs-lecun-1b-bet-against-llms-part2.md)): a **hierarchy of predictors** — low levels make detailed short-term predictions; high levels make abstract long-term predictions (fewer details → slower divergence from reality). The **inter-layer interface is an embedding space, "not semantic, certainly not language"** ("your cat can do hierarchical planning"). LeCun's analogy: planning a NYU→Paris trip as sub-goals (airport → taxi → street), not millisecond muscle control.
+
+**Realized as [HWM](../../entities/hwm.md) ("Hierarchical Planning with Latent World Models", [Zhang et al., arXiv 2604.03208, April 2026](../../sources/hwm-paper.md); senior authors LeCun + Ballas).** A **model-agnostic** two-temporal-scale latent MPC wrapper: a high-level planner optimizes latent **macro-actions** to the goal, its first predicted latent becomes a **subgoal**, and a low-level planner optimizes primitive actions toward it (CEM at both scales). Demonstrated on top of [DINO-WM](../../entities/dino-wm.md) (Push-T: **17% → 61%** at the hardest horizon d=75), [PLDM](../../entities/pldm.md) (Diverse Maze: **+39%**), and [V-JEPA 2](../../entities/v-jepa-2.md)-AC (real-Franka pick-&-place: **0% → 70%** from a single goal image). Fig. 6 gives the empirical case: low-level model wins at short horizons (≤1 s), high-level at long horizons (≥1.5 s). **Caveats:** only **two** levels (not the N-level *emergent* hierarchy of the vision) and **goal-image-conditioned** (not language). The Welch Labs video's "push-t 5 → 15 steps" was a simplification of the paper's d=25→75 task-horizon framing.
 
 ## Simulator stance — fragmenting, not avoiding
 The original wiki synthesis observed [V-JEPA 2](../../entities/v-jepa-2.md) and [LeWM](../../entities/leworldmodel.md) both skipping heavy agentic-robotics sim. With five additional ingests in May 2026, the picture is more nuanced: [JEPA-WMs](../../entities/jepa-wms.md) uses [RoboCasa](../../entities/robocasa.md); [VLA-JEPA](../../entities/vla-jepa.md) uses SimplerEnv; [DINO-WM](../../entities/dino-wm.md) uses lightweight MuJoCo benches; [V-JEPA 2.1](../../sources/v-jepa-2-1-paper.md) continues the no-sim line. **The JEPA literature is fragmenting across simulator weight classes**, not avoiding sim wholesale. See [the revised synthesis](../../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md).
@@ -99,6 +101,7 @@ The original wiki synthesis observed [V-JEPA 2](../../entities/v-jepa-2.md) and 
 - [DINO-world Paper](../../sources/dino-world-paper.md)
 - [VLA-JEPA Paper](../../sources/vla-jepa-paper.md)
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) — VL-JEPA, hierarchical JEPA, CEM latent-space planning
+- [Hierarchical Planning with Latent World Models (HWM, paper)](../../sources/hwm-paper.md) — the realized H-JEPA
 - [PLDM Paper](../../sources/pldm-paper.md)
 - [Sobal et al. 2022 — JEPA slow features](../../sources/sobal2022-jepa-slow-features-paper.md)
 - [LeJEPA Paper](../../sources/lejepa-paper.md)

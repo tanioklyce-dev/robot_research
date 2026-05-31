@@ -1910,3 +1910,12 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - **Partially answers an open question**: hierarchical-JEPA push-t result (horizon 5→15) updated on [Yann LeCun](entities/yann-lecun.md) H-JEPA TBD + added to [JEPA concept](concepts/world-models/jepa.md) (new H-JEPA section)
 - Updated: [LeWorldModel](entities/leworldmodel.md) (CEM planning recipe + ~5-loop horizon + hierarchical note), [VLA models](concepts/learning/vla-models.md) (LeCun "VLA are doomed" critique callout), [AMI Labs](entities/ami-labs.md) (tagline + near-term industrial plan), [Welch Labs](entities/welch-labs.md) (Part 2 in series), [V-JEPA 2](entities/v-jepa-2.md), Part 1 source (sequel link)
 - Updated [index.md](index.md): new source + new VL-JEPA entity
+
+## [2026-05-31] ingest | HWM — "Hierarchical Planning with Latent World Models" (arXiv 2604.03208)
+- Follow-up to the Part 2 video ingest: located + ingested the paper behind the hierarchical-JEPA push-t claim. PDF → raw/2026-04-hierarchical-planning-latent-world-models-2604.03208.pdf
+- Authors incl. LeCun + Ballas (joint advising), Terver, Bardes, Balestriero (the video's credited collaborator) — confirms attribution
+- Created [source page](sources/hwm-paper.md) + entity [HWM](entities/hwm.md)
+- **Resolved the wiki's long-standing H-JEPA open question** on [Yann LeCun](entities/yann-lecun.md); updated [JEPA concept](concepts/world-models/jepa.md) H-JEPA section with the named paper + real numbers
+- **Corrected the video's "push-t 5→15 steps"** everywhere: real framing is task horizon d=25→75, success 17%→61% (DINO-WM base); Franka 0%→70% (V-JEPA2-AC); Maze +39% (PLDM); 3–4× less planning compute
+- Fixed [LeWorldModel](entities/leworldmodel.md) attribution (HWM push-t base is DINO-WM, not LeWM — LeWM was the single-level demo)
+- Cross-linked base models [DINO-WM](entities/dino-wm.md), [PLDM](entities/pldm.md), [V-JEPA 2](entities/v-jepa-2.md); updated [index.md](index.md)
