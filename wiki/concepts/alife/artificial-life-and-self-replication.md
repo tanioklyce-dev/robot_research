@@ -3,8 +3,8 @@ title: Artificial life and the emergence of self-replication
 type: concept
 created: 2026-05-31
 updated: 2026-05-31
-sources: 1
-tags: [artificial-life, alife, self-replication, origins-of-life, emergence, complexity, open-endedness, kolmogorov-complexity, cellular-automata]
+sources: 2
+tags: [artificial-life, alife, self-replication, origins-of-life, emergence, complexity, open-endedness, kolmogorov-complexity, cellular-automata, flocking, boids]
 ---
 
 **Artificial Life (ALife)** studies "life as it could be" — the general principles of living/complex systems abstracted away from biochemistry. A central question: **how does self-replication, and then open-ended complexity, arise from non-living "pre-life" dynamics?** This concept page anchors the wiki's ALife / emergence / complexity branch.
@@ -27,8 +27,10 @@ The paper introduces **high-order entropy** = (Shannon entropy over tokens/bytes
 - **Methodological echo of [JEPA](../world-models/jepa.md)**: both get useful structure *without a hand-designed objective* — JEPA predicts in latent space instead of reconstructing pixels; this gets complexity with **no fitness function at all**.
 
 ## Related concepts
+- [Flocking and boids](flocking-and-boids.md) — sibling emergence model (continuous steering substrate).
 - [JEPA](../world-models/jepa.md) — objective-light learning (different domain, same anti-hand-design spirit).
 - Open-endedness, cellular automata, self-organization — **not yet covered**; natural neighbors as this branch grows (e.g. co-author Mordvintsev's Neural Cellular Automata line).
 
 ## Mentioned in
 - [Computational Life (Agüera y Arcas et al., 2024)](../../sources/computational-life-self-replicating-programs-paper.md)
+- [cubff (paradigms-of-intelligence/cubff)](../../sources/cubff-github.md) — the runnable engine for the anchor result.

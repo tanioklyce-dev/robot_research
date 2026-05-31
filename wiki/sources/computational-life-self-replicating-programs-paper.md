@@ -27,7 +27,7 @@ When **random, non-self-replicating programs** are dropped into a soup with **no
   - **Forth** — stack-based language; also produces self-replicators (soup + long-tape).
   - **Real-world instruction sets** — a **Zilog Z80** emulator and the **Intel 8080**: self-replication emerges here too, showing the result isn't an artifact of toy languages.
 - **Counterexample — SUBLEQ.** In the minimalist one-instruction-set language **SUBLEQ** (and RSUBLEQ4), the pre-life→life transition is **not observed to arise spontaneously**, even though hand-crafted self-replicators exist — and the **shortest hand-crafted SUBLEQ self-replicator is much longer** than in the other substrates. Suggests the *reachability* of short replicators by random walk is what gates emergence.
-- **Code released**: [`paradigms-of-intelligence/cubff`](https://github.com/paradigms-of-intelligence/cubff) ("cubff"); SUBLEQ variants via `--lang subleq` / `--lang rsubleq4`.
+- **Code released**: [`paradigms-of-intelligence/cubff`](cubff-github.md) ("cubff") — ingested as its own source page; SUBLEQ variants via `--lang subleq` / `--lang rsubleq4`, BFF variants via `--lang bff_noheads` etc.
 
 ## Entities mentioned
 - [Blaise Agüera y Arcas](../entities/blaise-aguera-y-arcas.md) — lead author; leads Google's Paradigms of Intelligence Team.

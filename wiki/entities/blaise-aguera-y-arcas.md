@@ -28,6 +28,7 @@ See [critiques of the intelligence north star](../syntheses/society/critiques-of
 
 ## Mentioned in
 - [Computational Life (paper)](../sources/computational-life-self-replicating-programs-paper.md)
+- [cubff (paradigms-of-intelligence/cubff)](../sources/cubff-github.md) — his team's code release behind the paper.
 
 ## Open questions / TBD
 - Co-author **Alexander Mordvintsev** (Neural Cellular Automata) suggests a deeper Google ALife / self-organization line worth its own coverage.

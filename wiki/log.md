@@ -1953,3 +1953,12 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - Thesis: self-replicators spontaneously arise from random self-modifying programs with no fitness function (BFF/Brainfuck, Forth, Z80, 8080); sharp pre-life→life transition via novel "high-order entropy"; SUBLEQ counterexample
 - Tied into [critiques of the intelligence north star](syntheses/society/critiques-of-the-intelligence-north-star.md) as a 4th "paradigm of intelligence" (emergence axis, alongside LeCun/Jordan/Constitution)
 - Registered `concepts/alife/` in [CLAUDE.md](../CLAUDE.md) structure tree; updated [index.md](index.md) (new source + entity + concept + Artificial Life section)
+
+## [2026-05-31] ingest | Boids (Reynolds) + cubff — flocking & ALife emergence
+- Sources requested: red3d.com/cwr/boids/, Stanford SoCo boids page, and github.com/paradigms-of-intelligence/cubff
+- Note: user originally listed `apankrat/bff` (an unrelated standalone Brainfuck interpreter) but corrected to `paradigms-of-intelligence/cubff` (the actual Computational Life substrate)
+- Raw captures: raw/reynolds-boids-red3d.md, raw/stanford-soco-boids-2008.md, raw/cubff-github-readme.md
+- Created sources [Boids (Reynolds)](sources/reynolds-boids-page.md), [Boids — Stanford SoCo](sources/stanford-soco-boids.md), [cubff](sources/cubff-github.md)
+- New concept [Flocking and boids](concepts/alife/flocking-and-boids.md) (three rules; emergence/edge-of-chaos; swarm-intelligence/robotics bridges) — sibling to Computational Life in the `concepts/alife/` branch
+- New entity [Craig Reynolds](entities/craig-reynolds.md)
+- Updated [Artificial life concept](concepts/alife/artificial-life-and-self-replication.md) (added boids sibling section + related/mentioned links; sources 1→2), [Computational Life source](sources/computational-life-self-replicating-programs-paper.md) (cubff code → its own source page), [Blaise Agüera y Arcas](entities/blaise-aguera-y-arcas.md) (cubff mention), [index.md](index.md)
