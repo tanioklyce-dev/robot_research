@@ -1942,3 +1942,7 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - Captures the user-guide TOC: Quick Start, BSP/Docker/CUDA/JetPack SDK setup, Hardware Layout (ingested), Supported Hardware, Interim Solutions (UEFI/USB/headless), Troubleshooting
 - Flags highest-value un-ingested subpages: Supported Hardware (likely Micro-Fit part #) + Quick Start/JetPack SDK Setup (first-boot/flash)
 - Added to [Jetson Thor](entities/jetson-thor.md) Mentioned-in (sources 10→11); updated [index.md](index.md)
+
+## [2026-05-31] note | AGX Thor "Supported Hardware" page is a redirect (no ingest)
+- Checked the Supported Hardware subpage: empty — one-line redirect to the **Jetson Thor Series Supported Components List, DA-12429-001**, a download-gated PDF on the Jetson Download Center (WebFetch can't pull it)
+- No source page created (nothing to ingest). Recorded the concrete pointer in the [user-guide index](sources/nvidia-jetson-agx-thor-devkit-user-guide-index.md) and [carrier-board spec](sources/nvidia-jetson-thor-carrier-board-spec.md) open questions: the SCL is the authoritative source for the Micro-Fit mating part + camera/M.2/QSFP28 compatibility; needs the PDF downloaded to raw/ to ingest

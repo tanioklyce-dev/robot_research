@@ -32,4 +32,4 @@ The **landing/index page of the official AGX Thor Developer Kit User Guide** —
 
 ## Open questions
 - This page has **no kit/box contents, first-boot steps, or version specs** — those are on the Quick Start and JetPack SDK Setup subpages (not yet ingested).
-- **Supported Hardware** subpage is the likely source for the exact **Micro-Fit mating-connector part** and the camera/peripheral compatibility list (relevant given the [no-onboard-CSI finding](nvidia-jetson-thor-carrier-board-spec.md)).
+- **Supported Hardware subpage is itself empty** — checked 2026-05-31; it is a one-line redirect to the **Jetson Thor Series Supported Components List, doc DA-12429-001**, a **download-gated PDF** on the [Jetson Download Center](https://developer.nvidia.com/embedded/downloads). That SCL (not the web pages) is the authoritative source for the **exact Micro-Fit mating-connector part**, supported cameras, M.2 modules, and QSFP28 optics. **To ingest it, the PDF must be downloaded into `raw/`** (same flow as the Carrier Board Spec) — WebFetch can't pull the gated download.

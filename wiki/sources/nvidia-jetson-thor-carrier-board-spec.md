@@ -60,6 +60,6 @@ The **official NVIDIA carrier-board product specification** for the Jetson Thor 
 - **The "no 40-pin / no CSI" finding is a real integration constraint** for anyone porting an Orin-era robot wiring harness to Thor — sensors must move to Ethernet/USB/CAN.
 
 ## Open questions
-- Exact **Micro-Fit part number** is deferred to the **Supported Component List DA-12429-001** (the wiki already records the board-side part `2147561041` from a forum thread; reconcile against the SCL when ingested).
+- Exact **Micro-Fit part number** is deferred to the **Supported Components List DA-12429-001** — a **download-gated PDF** on the [Jetson Download Center](https://developer.nvidia.com/embedded/downloads) (the dev-kit "Supported Hardware" web page is just a redirect to it; confirmed empty 2026-05-31). The wiki records the board-side part `2147561041` from a forum thread; reconcile against the SCL once the PDF is downloaded to `raw/` and ingested.
 - The **8 A (layout page) vs 15 A (this spec, Micro-Fit)** input-current discrepancy — likely "rated dev-kit draw" vs "connector capability"; worth confirming.
 - The **Jetson Thor Series Modules Design Guide** (referenced for routing) would be the next doc for anyone designing a custom carrier.
