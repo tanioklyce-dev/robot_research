@@ -59,6 +59,8 @@ tags: [robotics, manipulation]
 ---
 ```
 
+> **Source-page exception.** `sources/` pages use **`published` + `ingested`** instead of `created`/`updated` (see the [Source pages](#source-pages-sources) section) — a source's "created" date is its publication date and its "updated" event is the ingest. The `created`/`updated` pair above is the convention for **entity / concept / synthesis** pages. `tags` is universal; `sources:` is entity/concept-only.
+
 - **Filenames** — kebab-case slugs (e.g. `nvidia-isaac-sim.md`). No spaces, no special characters. The `title` frontmatter field carries the human-readable version.
 - **Links** — Use **standard markdown links with relative paths**, e.g. `[JEPA](../concepts/jepa.md)` from a sibling folder, `[Atlas](atlas.md)` from the same folder. Never use Obsidian `[[wikilinks]]` — GitHub does not resolve them and they render as literal text. Standard markdown links work in both GitHub and Obsidian.
 - **Citations** — Every factual claim derived from a source links to the source page (not the raw file): `Atlas can perform parkour ([Boston Dynamics Atlas Demo 2024](../sources/boston-dynamics-atlas-demo-2024.md))`.
@@ -68,7 +70,7 @@ tags: [robotics, manipulation]
 
 ### Source pages (`sources/`)
 
-One page per ingested source. Filename is a slug of the title (kebab-case). Frontmatter includes `url`, `author`, `published`, `ingested`. Body sections:
+One page per ingested source. Filename is a slug of the title (kebab-case). Frontmatter uses `url`, `author`, `published`, `ingested` (plus `title`, `type`, `tags`, and optionally `local_path`, `venue`, `license`, `format`) — **source pages do not carry `created`/`updated`/`sources`**; `published` is the source's own date and `ingested` is when it entered the wiki. Body sections:
 
 - **Summary** — One paragraph capturing the thesis/main contribution.
 - **Key claims** — Bulleted, with timestamp/page/section references where possible.

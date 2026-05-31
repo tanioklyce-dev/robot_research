@@ -3,8 +3,8 @@ title: OpenClaw
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-05-28
-sources: 1
+updated: 2026-05-31
+sources: 5
 tags: [openclaw, personal-ai-assistant, steinberger, molty, claw-ecosystem, multi-platform, local-first, gateway, ClawHub, typescript]
 ---
 

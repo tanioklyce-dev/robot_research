@@ -37,5 +37,5 @@ A Stanford "Sociology of Computing" (SoCo) **student write-up of boids** (Timmie
 - [Agentic UAVs](../concepts/robotics/agentic-uavs.md) — swarm robotics is the applied-robotics neighbor of boids.
 
 ## Open questions
-- Secondary student source — no novel claims beyond Reynolds; treat as corroborating + framing, not authoritative on implementation detail.
+- Secondary student source — no novel claims beyond Reynolds; treat as corroborating + framing, not authoritative on implementation detail. For the authoritative version see the primary source: [Reynolds 1987](reynolds-flocks-herds-schools-1987.md).
 - The page references pseudocode it doesn't fully reproduce; a concrete reference implementation (e.g. for a curriculum demo) is not yet captured in the wiki.

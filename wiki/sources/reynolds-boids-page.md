@@ -39,3 +39,6 @@ Craig Reynolds' own canonical page for **boids** — his 1986 "computer model of
 ## Open questions
 - The page asserts "edge of chaos" qualitatively; the wiki has no quantitative dynamical-systems analysis of boids parameter regimes yet.
 - Reynolds' later **steering-behaviors** taxonomy (seek, flee, pursue, wander, path-following, etc.) extends boids to general autonomous-agent navigation — not yet ingested.
+
+> [!note] Primary source now ingested
+> The seminal paper this page summarizes is fully ingested at [Reynolds 1987 — Flocks, Herds, and Schools](reynolds-flocks-herds-schools-1987.md), which has the original rule names + priority arbitration + localized-perception detail this overview elides.

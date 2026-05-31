@@ -3,8 +3,8 @@ title: openclaw_controller (Hiwonder ROS 2 bridge for OpenClaw)
 type: entity
 subtype: software-module
 created: 2026-05-07
-updated: 2026-05-28
-sources: 1
+updated: 2026-05-31
+sources: 5
 tags: [openclaw, openclaw-controller, hiwonder, ros2, manipulation, claw-ecosystem, rosorin-pro, bridge-module]
 ---
 
