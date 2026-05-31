@@ -1881,3 +1881,9 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - XLeRobot head-camera mount is a press-fit *shell* keyed to the body → stock D415 shell will NOT fit D435i as-printed
 - Fix is trivial: shared D400-series rear mount (2× M3, 45 mm apart + ¼-20); docs say "use any head camera... little modification to the last mounting link" + ship STEP files
 - Corrected prior wrong "same housing footprint" claim in [synthesis](syntheses/projects/xlerobot-camera-options-low-light.md), [XLeRobot entity](entities/xlerobot.md), [index.md](index.md)
+
+## [2026-05-30] build | XLeRobot → D435i printable mounting bracket
+- Created `hardware/xlerobot-d435i-bracket/` (d435i_bracket.stl + .scad + preview.png + README)
+- Parametric L-bracket bolting to the D435i 45 mm M3 front pattern; foot cantilevers over camera top to the robot link
+- Caveats documented: `cam_m3_z` (M3 vertical position) not in Intel datasheet → caliper-confirm; robot-side hole pattern is a placeholder
+- Linked from [synthesis](syntheses/projects/xlerobot-camera-options-low-light.md) (new "Printable mount" section)

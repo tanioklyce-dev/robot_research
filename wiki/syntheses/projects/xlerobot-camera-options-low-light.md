@@ -50,6 +50,10 @@ The global-shutter + wide-FOV + IMU combination is precisely the "navigate with 
 2. If reliable in-gripper depth is also wanted, the natural two-camera setup this product family is built around (and what [Stretch](../../entities/stretch.md) does — head depth + wrist D405) is **D435i for the scene + D405 at the wrist**.
 3. **Add illumination** (or use IR streams) so low light doesn't quietly degrade the RGB policy.
 
+## Printable mount
+
+Because the stock XLeRobot press-fit shell is keyed to the D415's slimmer body and won't accept the D435i, a parametric L-bracket that bolts to the D435i's 45 mm M3 front pattern lives at [`hardware/xlerobot-d435i-bracket/`](../../../hardware/xlerobot-d435i-bracket/) (STL + OpenSCAD source + README). Two dimensions need confirming before a final print: the M3 holes' vertical position (`cam_m3_z`, not in the Intel datasheet — caliper it) and the robot-side hole pattern (set to your actual mounting-link).
+
 ## Sourcing note
 
 RealSense **spun out of Intel** and now sells through **realsenseai.com**; the older Intel SKUs have had EOL churn, so check current stock/price there before committing.
