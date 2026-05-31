@@ -45,5 +45,5 @@ Official NVIDIA documentation page giving the **physical connector/port layout o
 - **New datapoint: QSFP28 4×25 Gbps + 5 GbE.** Surprisingly high-bandwidth networking for an on-robot module — relevant to multi-sensor / CSI-over-Ethernet (Holoscan Sensor Bridge) and distributed-compute setups, and a differentiator vs the Orin generation.
 
 ## Open questions
-- The **Carrier Board Specification** (referenced but not linked here) holds the 40-pin header, CSI, M.2 Key E, fan, and CAN details — the natural next ingest if those matter for a build.
+- ~~The **Carrier Board Specification** holds the 40-pin header, CSI, M.2 Key E, fan, and CAN details.~~ **Ingested:** [Carrier Board Spec SP-12533-001 v1.2](nvidia-jetson-thor-carrier-board-spec.md). Result: M.2 Key E (Wi-Fi/BT preinstalled), CAN (2×), Automation Header, fan header, and RTC battery connector are present — but there is **no 40-pin GPIO header and no MIPI-CSI camera connector** on the Thor dev kit (a real change from Orin). It also revises the current limits to **USB-C 5 A / Micro-Fit 15 A** (vs the "8 A" stated on this page).
 - USB-C is **PD Sink** only (no listed source/DFP power-out wattage beyond data) — worth confirming whether either USB-C can *source* power to peripherals.

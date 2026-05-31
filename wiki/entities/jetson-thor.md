@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-16
 updated: 2026-05-31
-sources: 9
+sources: 10
 tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai, jetpack-7, nvfp4, mig]
 ---
 
@@ -42,15 +42,20 @@ Two production module SKUs plus an AGX-style Developer Kit ([Jetson Thor product
 ### Jetson AGX Thor Developer Kit
 NVIDIA reference carrier + T5000 module. **$3,499 starting** ([NVIDIA Newsroom](../sources/nvidia-jetson-thor-launch-newsroom.md)). Styled like an RTX Founders Edition; AGX-class connectivity.
 
-**Power input**: ships with a **28 V / 5 A (140 W) adapter** (ADP-240LB); accepts **9–28 V, up to 8 A** via Micro-Fit or USB-C, with a **~168 W enforced cap** to protect the adapter ([Jetson Linux dev guide — Jetson Thor power](https://docs.nvidia.com/jetson/archives/r38.2/DeveloperGuide/SD/PlatformPowerAndPerformance/JetsonThor.html)). The latching DC port is a **Molex Micro-Fit 3.0, connector J83 — board part `2147561041`, a 2×2 / 4-pin *male* header (needs a female mating connector)** ([NVIDIA forum: correct Micro-Fit connector](https://forums.developer.nvidia.com/t/what-is-the-correct-male-microfit-connector-for-the-jetson-agx-thor-developer-kit/347250)); NVIDIA points robotics users to it over USB-C because it secures. **For battery operation NVIDIA officially says to use the bundled PSU only** — running the dev kit off a battery is DIY/off-label. Note the 28 V input is a *different rail* than the 12 V used by most low-cost arm/base platforms — see the [XLeRobot + Thor power budget](../syntheses/projects/xlerobot-thor-power-budget.md) for battery chemistry, the 28 V ceiling trap, and wiring implications.
+**Power input** (primary source: [Carrier Board Spec SP-12533-001 v1.2](../sources/nvidia-jetson-thor-carrier-board-spec.md)): main input **`VCC_SRC` = 9–28 V**, max **5 A over USB-C, 15 A over Micro-Fit 3.0** (Table 6-2), with a **~168 W enforced cap** ([Jetson Linux dev guide](https://docs.nvidia.com/jetson/archives/r38.2/DeveloperGuide/SD/PlatformPowerAndPerformance/JetsonThor.html)). The **bundled power adapter is USB-C** (28 V / 5 A = 140 W); the **Micro-Fit 3.0 (J83, 3.0 mm-pitch 2×2 header**, board part `2147561041` per a [forum thread](https://forums.developer.nvidia.com/t/what-is-the-correct-male-microfit-connector-for-the-jetson-agx-thor-developer-kit/347250)) is the **alternative** input — its advantage is **higher current (15 A vs 5 A) and a latching connector**, so it can carry the full 168 W where USB-C's 140 W falls ~28 W short. A **CYPD8225 PD controller arbitrates first-come-first-serve** — if both inputs are connected only the first is used; **they don't sum.** **For battery operation NVIDIA officially says to use the bundled PSU only** — off-label otherwise. The input is a *different rail* than the 12 V used by most low-cost arm/base platforms — see the [XLeRobot + Thor power budget](../syntheses/projects/xlerobot-thor-power-budget.md) for battery chemistry, the 28 V ceiling trap, and wiring.
 
 **IO / board layout** (primary source: [AGX Thor Dev Kit — Hardware Layout](../sources/nvidia-jetson-agx-thor-devkit-hardware-layout.md)):
 - **Power**: Micro-Fit **9–28 V DC, up to 8 A** (confirmed from official docs). The **two USB-C ports are PD Sink 140 W** — i.e. USB-C input is hard-capped **28 W below the 168 W power ceiling**, so full-load operation needs the 28 V brick / Micro-Fit, not USB-C.
 - **USB**: 2× USB-A **USB 3.2 Gen 2 (10 Gbps)**; 2× USB-C (USB 3.2 Gen 1, 5 Gbps; port *5a* also does Force-Recovery); debug USB-C behind the lid.
 - **Networking**: **5 GbE (RJ45)** + a **QSFP28 cage, 4× 25 Gbps** (100 Gb-class) — unusually high bandwidth for an edge module; relevant to CSI-over-Ethernet / distributed compute.
 - **Display**: DisplayPort + HDMI.
-- **Storage**: **J103 M.2 Key M**, ships with a **1 TB NVMe SSD**.
-- **Buttons**: Power (11), Force Recovery (12), Reset (13), white status LED (14). Recovery = hold 12, tap 13, release 12.
+- **Storage / wireless**: **M.2 Key M (J103)** PCIe ×4 + I2C, NVMe SSD preinstalled (1 TB); **M.2 Key E (J505)** PCIe ×1 + USB 2.0 + I2S + UART, **Wi-Fi/BT module preinstalled**.
+- **Robotics IO**: **CAN header (J47)** — 2× CAN (26-pin, 1.27 mm); **Automation Header (J42)** — Power/Reset/Force-Recovery/Sleep/Overcurrent-Throttle/Auto-Power-ON (12-pin 2×6; tie pin 5↔6 for boot-on-power); fan header (12 V/1.5 A); audio panel header (J511); RTC backup-battery connector (J13).
+- **Module connector**: 699-pin (11×65) board-to-board. Operating temp 0–35 °C.
+- **Buttons**: Power, Force Recovery, Reset, white status LED. Recovery = hold Force-Recovery, tap Reset, release.
+
+> [!note] No 40-pin GPIO header, no MIPI-CSI camera connectors
+> Unlike the Orin generation, the AGX Thor Dev Kit carrier board has **neither a 40-pin expansion header nor onboard CSI camera connectors** ([Carrier Board Spec](../sources/nvidia-jetson-thor-carrier-board-spec.md)). Sensors/peripherals move to **Ethernet (5 GbE / QSFP28 4×25 Gbps, i.e. CSI-over-Ethernet via Holoscan Sensor Bridge), USB, and CAN.** A real porting constraint for Orin-era robot wiring harnesses.
 
 ## Versus AGX Orin (headline)
 **7.5× more AI compute, 3.5× better energy efficiency** ([Jetson Thor product page](../sources/nvidia-jetson-thor-product-page.md)).
@@ -128,3 +133,4 @@ See [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.m
 - [Seeed Embodied AI Hackathon 2025 Recap](../sources/seeed-embodied-ai-hackathon-2025-recap.md) — winning-bot deployment target.
 - [JetPack 7.0 for Jetson Thor software-stack reference](../sources/nvidia-jetpack-7-thor-whitepaper.md) — primary source for the JetPack 7 / Jetson Linux 38.2 contents + post-launch 7× generative-AI throughput.
 - [AGX Thor Dev Kit — Hardware Layout (User Guide)](../sources/nvidia-jetson-agx-thor-devkit-hardware-layout.md) — primary source for dev-kit IO: Micro-Fit 9–28 V/8 A, USB-C PD Sink 140 W, QSFP28 4×25 Gbps, M.2 Key M 1 TB NVMe, buttons.
+- [Jetson Thor Module Carrier Board Spec (SP-12533-001 v1.2)](../sources/nvidia-jetson-thor-carrier-board-spec.md) — authoritative carrier-board spec: USB-C 5 A / Micro-Fit 15 A current split, bundled adapter is USB-C, first-come-first-serve PD, M.2 Key E + CAN + Automation Header + RTC, **no 40-pin / no CSI**.

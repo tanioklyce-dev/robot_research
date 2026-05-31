@@ -1925,3 +1925,10 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - Confirms from official source: Micro-Fit 9–28 V/8 A; **USB-C PD Sink 140 W** (28 W below the 168 W ceiling → full load needs the 28 V brick/Micro-Fit, not USB-C); 2× USB-A 10 Gbps; **5 GbE + QSFP28 4×25 Gbps**; DP+HDMI; M.2 Key M 1 TB NVMe; power/recovery/reset buttons + LED
 - Folded IO/layout into [Jetson Thor](entities/jetson-thor.md) (new IO/board-layout block; sources 8→9) and added the USB-C-140 W primary-source note to the [Thor power budget](syntheses/projects/xlerobot-thor-power-budget.md)
 - Updated [index.md](index.md)
+
+## [2026-05-31] ingest | NVIDIA Jetson Thor Module Carrier Board Spec (SP-12533-001 v1.2)
+- PDF in raw/Jetson_Thor_Module_Carrier_Board_Spec_SP-12533-001_v1.2.pdf; created [source page](sources/nvidia-jetson-thor-carrier-board-spec.md)
+- **Power correction**: bundled adapter is **USB-C** (not Micro-Fit); max current **5 A USB-C / 15 A Micro-Fit** (Table 6-2); CYPD8225 PD controller = first-come-first-serve (inputs don't sum). Updated [Jetson Thor entity](entities/jetson-thor.md) (sources 9→10) + [Thor power budget](syntheses/projects/xlerobot-thor-power-budget.md)
+- **Notable finding**: AGX Thor dev kit has **no 40-pin GPIO header and no MIPI-CSI camera connectors** (Orin→Thor change) — sensors move to Ethernet (5 GbE / QSFP28 4×25 Gbps, CSI-over-Ethernet), USB, CAN
+- Filled remaining IO: M.2 Key E (Wi-Fi/BT preinstalled), 2× CAN (J47), Automation Header (J42, auto-power-on via pin5↔6), RTC battery (J13), fan/audio headers, 699-pin module connector
+- Resolved the [hardware-layout page](sources/nvidia-jetson-agx-thor-devkit-hardware-layout.md) open questions; updated [index.md](index.md)

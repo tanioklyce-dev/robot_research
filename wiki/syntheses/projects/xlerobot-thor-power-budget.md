@@ -31,7 +31,7 @@ Worst-case draw, from verified specs:
 
 ## 2. The real gotcha — two voltage rails, capped ports
 
-Motors run at **12 V**; the Thor wants **28 V** (range 9–28 V, via Micro-Fit or USB-C PD). NVIDIA's own dev-kit docs confirm the Thor's **USB-C ports are PD *Sink* 140 W** ([AGX Thor Hardware Layout](../../sources/nvidia-jetson-agx-thor-devkit-hardware-layout.md)) — i.e. powering Thor over USB-C tops out **28 W below its 168 W ceiling**, so full-load operation must use the 28 V brick / Micro-Fit. The C300 exposes *individually capped ports*, not generic DC:
+Motors run at **12 V**; the Thor wants **9–28 V** (via USB-C PD or Micro-Fit). Per NVIDIA's [Carrier Board Spec](../../sources/nvidia-jetson-thor-carrier-board-spec.md), the input maxes at **5 A over USB-C (≈140 W @ 28 V) vs 15 A over Micro-Fit** — so USB-C tops out **~28 W below the 168 W ceiling** (full load needs Micro-Fit), the **bundled adapter is USB-C** (Micro-Fit is the higher-current/latching alternative), and a PD controller arbitrates **first-come-first-serve** (you can't sum USB-C + Micro-Fit). The C300 exposes *individually capped ports*, not generic DC:
 
 - **AC outlet:** 300 W / 600 W surge
 - **USB-C PD:** up to **140 W**
