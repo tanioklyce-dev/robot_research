@@ -3,7 +3,7 @@ title: Artificial life and the emergence of self-replication
 type: concept
 created: 2026-05-31
 updated: 2026-05-31
-sources: 8
+sources: 11
 tags: [artificial-life, alife, self-replication, origins-of-life, emergence, complexity, open-endedness, kolmogorov-complexity, cellular-automata, flocking, boids]
 ---
 
@@ -39,8 +39,12 @@ The wiki's code-substrate results have a striking **biological counterpart**. [X
 - [JEPA](../world-models/jepa.md) — objective-light learning (different domain, same anti-hand-design spirit).
 - Open-endedness, cellular automata, self-organization — **not yet covered**; natural neighbors as this branch grows (e.g. co-author Mordvintsev's Neural Cellular Automata line).
 
-### Programming games (cultural lineage)
-A related-but-distinct tradition: **programming games** where you write code for an autonomous agent and then watch it run unattended. [CRobots](../../sources/crobots-github.md) (Tom Poindexter, 1985) is a canonical example — C-programmed battle robots in an instruction-limited VM — but its agents are **hand-coded and static** (no replication, no emergence). The self-replication-relevant member of this family is **Core War** (Redcode warriors that copy themselves through memory), **not yet ingested** — the closest programming-game cousin to the self-modifying-code soup of [Computational Life](../../sources/computational-life-self-replicating-programs-paper.md).
+### Programming games & the digital-replicator lineage
+A related tradition: **programming games** where you write code for an autonomous agent and then watch it run unattended.
+- **[Core War](../../entities/core-war.md)** ([Dewdney, 1984](../../sources/dewdney-1984-core-war-scientific-american.md)) is the **self-replication-relevant** member: Redcode "warriors" battle in a shared circular memory, and its canonical warrior — the **Imp** (`MOV 0 1`) — is a one-instruction program that **copies itself through memory**. Hand-written replicators, run on the [pMARS](../../sources/pmars-koth.md) simulator.
+- **[CRobots](../../sources/crobots-github.md)** (Poindexter, 1985) is the **non-replicating** cousin — C-programmed battle robots in an instruction-limited VM; hand-coded and static.
+
+These hand-written replicators sit one step before **evolved/emergent** ones. The lineage: von Neumann's self-replicating-machine theory → Darwin/Worm/**Core War** (1984, hand-written) → **Tierra** (Tom Ray, 1991) & **Avida** (evolved digital replicators; *not yet ingested*) → **[Computational Life / BFF](../../sources/computational-life-self-replicating-programs-paper.md)** (replicators that *emerge* from a self-modifying-code soup with no fitness function). Tierra/Avida are the clearest remaining gap in this chain.
 
 ## Mentioned in
 - [Computational Life (Agüera y Arcas et al., 2024)](../../sources/computational-life-self-replicating-programs-paper.md)
@@ -50,4 +54,7 @@ A related-but-distinct tradition: **programming games** where you write code for
 - [Blackiston et al. 2021 — A cellular platform for synthetic living machines](../../sources/blackiston-2021-cellular-platform-synthetic-living-machines.md) — cilia-driven self-organizing "Xenobots 2.0".
 - [Kriegman et al. 2021 — Kinematic self-replication in reconfigurable organisms](../../sources/kriegman-2021-kinematic-self-replication.md) — spontaneous kinematic self-replication in Xenobots.
 - [AI-Designed Living Robots Can Self-Replicate (IEEE EMBS feature)](../../sources/embs-xenobots-self-replicate-feature.md) — secondary coverage of the self-replication result.
-- [CRobots (troglobit/crobots)](../../sources/crobots-github.md) — programming-game cultural lineage (see Programming games note above).
+- [CRobots (troglobit/crobots)](../../sources/crobots-github.md) — non-replicating programming-game cousin (see Programming games note above).
+- [Dewdney 1984 — Core War (Scientific American)](../../sources/dewdney-1984-core-war-scientific-american.md) — the founding self-replicating programming game (the Imp).
+- [pMARS — Portable Redcode Simulator (KOTH.org)](../../sources/pmars-koth.md) — the standard Core War simulator.
+- [corewars.org — community hub](../../sources/corewars-org.md) — present-day Core War landing page.

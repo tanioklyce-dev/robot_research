@@ -12,7 +12,7 @@ tags: [programming-game, autonomous-agents, virtual-machine, c, core-war-lineage
 
 ## Summary
 
-**CROBOTS** ("see-robots") is a classic **programming game**: you write a **C-language program** that controls an autonomous battle robot, compile it, and then **up to four robots run unattended** in a virtual arena, scanning for and firing on each other — *all strategy is coded beforehand, with no real-time human input*. Created by **Tom Poindexter in 1985** (DOS shareware), it was relicensed **GPL-2.0** in 2013 and is maintained today by **Joachim Wiberg ("troglobit")** as a cross-platform continuation. It belongs to the **"program-an-autonomous-agent" game** genre (cousin to **Core War**), which is why it sits adjacent to — but is distinct from — the wiki's artificial-life and autonomous-agent threads.
+**CROBOTS** ("see-robots") is a classic **programming game**: you write a **C-language program** that controls an autonomous battle robot, compile it, and then **up to four robots run unattended** in a virtual arena, scanning for and firing on each other — *all strategy is coded beforehand, with no real-time human input*. Created by **Tom Poindexter in 1985** (DOS shareware), it was relicensed **GPL-2.0** in 2013 and is maintained today by **Joachim Wiberg ("troglobit")** as a cross-platform continuation. It belongs to the **"program-an-autonomous-agent" game** genre (cousin to [Core War](../entities/core-war.md)), which is why it sits adjacent to — but is distinct from — the wiki's artificial-life and autonomous-agent threads.
 
 ## Key claims / facts
 
@@ -23,7 +23,7 @@ tags: [programming-game, autonomous-agents, virtual-machine, c, core-war-lineage
 - **Audience.** Programmers, C learners, and people interested in compiler/VM design.
 
 ## Why this is in the wiki (and what it is *not*)
-- **Programming-game / autonomous-agent lineage.** CRobots is a canonical example of **"write code, then watch it act autonomously"** — the deterministic, pre-programmed ancestor of today's agent arenas and multi-agent battle environments. It connects culturally to the wiki's [artificial-life branch](../concepts/alife/artificial-life-and-self-replication.md) via the **Core War programming-game family** (Core War's Redcode warriors are the self-replication-relevant sibling; CRobots itself does **not** self-replicate).
+- **Programming-game / autonomous-agent lineage.** CRobots is a canonical example of **"write code, then watch it act autonomously"** — the deterministic, pre-programmed ancestor of today's agent arenas and multi-agent battle environments. It connects culturally to the wiki's [artificial-life branch](../concepts/alife/artificial-life-and-self-replication.md) via the [Core War](../entities/core-war.md) programming-game family (Core War's Redcode warriors are the self-replication-relevant sibling; CRobots itself does **not** self-replicate).
 - **Not a learning system.** CRobots robots are **hand-coded and static** — no learning, no evolution, no self-modification. It is therefore a contrast/baseline to the wiki's [RL](../syntheses/curriculum/curriculum-08-rl-vocabulary.md), [evolutionary computation](../concepts/alife/evolutionary-computation.md), and self-modifying-soup ([cubff](cubff-github.md)) approaches, not an instance of them.
 
 ## Concepts touched
@@ -31,4 +31,4 @@ tags: [programming-game, autonomous-agents, virtual-machine, c, core-war-lineage
 - [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — historical contrast: hand-coded autonomous agents vs. LLM-driven ones.
 
 ## Open questions
-- The user grouped CRobots with the Xenobots self-replication links — the likely throughline is **"autonomous agents / self-acting programs,"** but CRobots has **no replication or emergence** of its own. If the intent was the *self-replicating* programming-game tradition, **Core War** (not yet in the wiki) is the closer match and a natural next ingest.
+- The user grouped CRobots with the Xenobots self-replication links — the likely throughline is **"autonomous agents / self-acting programs,"** but CRobots has **no replication or emergence** of its own. The *self-replicating* programming-game cousin, [Core War](../entities/core-war.md), has since been ingested ([Dewdney 1984](dewdney-1984-core-war-scientific-american.md)).
