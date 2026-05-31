@@ -1897,3 +1897,8 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - Conclusion: 300 W *rate* is fine (600 W surge covers peaks); real constraints are (1) output-port wiring — 12 V motors + 28 V/PD Thor, no single C300 port serves both — and (2) capacity: 288 Wh → ~1.5–2.5 hr with a Thor (vs stock 10+ hr). Recommend more Wh (not W) + DC-native pack.
 - Folded verified specs into entities: [XLeRobot](entities/xlerobot.md) (C300 600 W surge + per-port caps + STS3215 currents 30 mA/180 mA/2.7 A) and [Jetson Thor](entities/jetson-thor.md) (dev kit 28 V/5 A 140 W ADP-240LB, 9–28 V input, ~168 W cap)
 - Updated [index.md](index.md); bumped Jetson Thor updated date
+
+## [2026-05-30] query | "Recommended battery power supplies for Jetson Thor (web + NVIDIA forums)"
+- Folded forum findings into [XLeRobot + Thor power budget](syntheses/projects/xlerobot-thor-power-budget.md): new "What NVIDIA and the forums recommend" section + 28 V-ceiling battery-chemistry cheat-sheet
+- Key facts: NVIDIA says dev kit must use bundled PSU (battery = off-label); input 9–28 V / 8 A via Molex Micro-Fit 3.0 J83; community uses 9–28 V Li-ion/LiFePO4 packs ~2 hr; 2× 12 V SLA→24 V/550 Wh datapoint corroborates runtime
+- Added Micro-Fit connector part `2147561041` (2×2 male, needs female mate) + 8 A figure to [Jetson Thor](entities/jetson-thor.md)

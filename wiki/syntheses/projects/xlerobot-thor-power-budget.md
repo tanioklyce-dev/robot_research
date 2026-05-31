@@ -52,6 +52,26 @@ The wiki's stock "**10+ hr**" ([XLeRobot](../../entities/xlerobot.md)) assumes *
 
 **~1.5–2.5 hr of real working time, down from 10+ hr.** Capacity, not rate, is what bites.
 
+## What NVIDIA and the forums recommend
+
+**NVIDIA does not bless any battery for the AGX Thor *Dev Kit*.** An NVIDIA staffer states the dev kit "is required to be used with the power supply that is bundled with the kit" ([External Power Supply Recommendation](https://forums.developer.nvidia.com/t/external-power-supply-recommendation/366448)) — battery operation is off-label and DIY. The robotics-intended path is the bare **T5000 module** on a custom carrier (rails **SYS_VIN_HV 22 A @ 9 V**, **SYS_VIN_MV 6 A @ 5 V** — [T5000 power thread](https://forums.developer.nvidia.com/t/queries-regarding-power-consumption-of-thor-t5000-module/348819)).
+
+For powering the dev kit from a battery, the input window is **9–28 VDC, up to 8 A**, via the latching **Molex Micro-Fit 3.0 J83** port (preferred over USB-C because it secures) or USB-C PD, with the **168 W enforced cap** ([Voltage Input via Microfit](https://forums.developer.nvidia.com/t/voltage-input-for-nvidia-jetson-agx-thor-development-kit-power-via-microfit-port/369186)). No one names a specific commercial battery; the community data points ([Battery for Jetson Thor Developer's Kit](https://forums.developer.nvidia.com/t/battery-for-jetson-thor-developers-kit/350320)):
+
+| Source | Setup | Notes |
+|---|---|---|
+| downingbots | **2× 26 Ah 12 V SLA in series** → 24 V, ~550 Wh | Chosen for safety/cost + existing recharger; **~1.6 hr at full load** |
+| nleak (reply) | Recommends **Li-ion / LiFePO4** instead | Charges far faster (0.5–3C vs <0.1C for SLA) |
+| Another deployment | Custom wheeled humanoid, battery via Micro-Fit | **~2 hr** on AI models, "easily/safely recharged" |
+
+downingbots' 550 Wh → 1.6 hr independently corroborates the runtime math above. De-facto recipe: **any pack in the 9–28 V window, fed to the Micro-Fit port, sized for ~150–250 W and ~2 hr; Li-ion/LiFePO4 chemistry.**
+
+> [!warning] The 28 V ceiling is the trap when picking a "24 V" pack
+> - **2× 12 V SLA in series** floats to ~27–29 V charged — right at/over the limit.
+> - **8S LiFePO4** ("24 V nominal") charges to **29.2 V → exceeds 28 V.** Don't direct-feed.
+> - **Safe-by-construction direct feed:** **6S Li-ion** (25.2 V max) or **4S LiFePO4** (14.6 V max). **7S Li-ion** (29.4 V max) is too high.
+> - Anything that can exceed 28 V needs a **DC-DC buck regulator** ahead of the Micro-Fit.
+
 ## Recommendations
 
 - **Want more runtime? Buy more Wh, not more W.** A ~500–600 Wh pack roughly doubles working time with no higher output rating needed.
