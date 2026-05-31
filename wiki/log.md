@@ -1919,3 +1919,9 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - **Corrected the video's "push-t 5→15 steps"** everywhere: real framing is task horizon d=25→75, success 17%→61% (DINO-WM base); Franka 0%→70% (V-JEPA2-AC); Maze +39% (PLDM); 3–4× less planning compute
 - Fixed [LeWorldModel](entities/leworldmodel.md) attribution (HWM push-t base is DINO-WM, not LeWM — LeWM was the single-level demo)
 - Cross-linked base models [DINO-WM](entities/dino-wm.md), [PLDM](entities/pldm.md), [V-JEPA 2](entities/v-jepa-2.md); updated [index.md](index.md)
+
+## [2026-05-31] ingest | NVIDIA Jetson AGX Thor Dev Kit — Hardware Layout (User Guide)
+- Created [source page](sources/nvidia-jetson-agx-thor-devkit-hardware-layout.md) (primary NVIDIA docs)
+- Confirms from official source: Micro-Fit 9–28 V/8 A; **USB-C PD Sink 140 W** (28 W below the 168 W ceiling → full load needs the 28 V brick/Micro-Fit, not USB-C); 2× USB-A 10 Gbps; **5 GbE + QSFP28 4×25 Gbps**; DP+HDMI; M.2 Key M 1 TB NVMe; power/recovery/reset buttons + LED
+- Folded IO/layout into [Jetson Thor](entities/jetson-thor.md) (new IO/board-layout block; sources 8→9) and added the USB-C-140 W primary-source note to the [Thor power budget](syntheses/projects/xlerobot-thor-power-budget.md)
+- Updated [index.md](index.md)

@@ -3,8 +3,8 @@ title: Jetson Thor
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-05-30
-sources: 8
+updated: 2026-05-31
+sources: 9
 tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai, jetpack-7, nvfp4, mig]
 ---
 
@@ -43,6 +43,14 @@ Two production module SKUs plus an AGX-style Developer Kit ([Jetson Thor product
 NVIDIA reference carrier + T5000 module. **$3,499 starting** ([NVIDIA Newsroom](../sources/nvidia-jetson-thor-launch-newsroom.md)). Styled like an RTX Founders Edition; AGX-class connectivity.
 
 **Power input**: ships with a **28 V / 5 A (140 W) adapter** (ADP-240LB); accepts **9–28 V, up to 8 A** via Micro-Fit or USB-C, with a **~168 W enforced cap** to protect the adapter ([Jetson Linux dev guide — Jetson Thor power](https://docs.nvidia.com/jetson/archives/r38.2/DeveloperGuide/SD/PlatformPowerAndPerformance/JetsonThor.html)). The latching DC port is a **Molex Micro-Fit 3.0, connector J83 — board part `2147561041`, a 2×2 / 4-pin *male* header (needs a female mating connector)** ([NVIDIA forum: correct Micro-Fit connector](https://forums.developer.nvidia.com/t/what-is-the-correct-male-microfit-connector-for-the-jetson-agx-thor-developer-kit/347250)); NVIDIA points robotics users to it over USB-C because it secures. **For battery operation NVIDIA officially says to use the bundled PSU only** — running the dev kit off a battery is DIY/off-label. Note the 28 V input is a *different rail* than the 12 V used by most low-cost arm/base platforms — see the [XLeRobot + Thor power budget](../syntheses/projects/xlerobot-thor-power-budget.md) for battery chemistry, the 28 V ceiling trap, and wiring implications.
+
+**IO / board layout** (primary source: [AGX Thor Dev Kit — Hardware Layout](../sources/nvidia-jetson-agx-thor-devkit-hardware-layout.md)):
+- **Power**: Micro-Fit **9–28 V DC, up to 8 A** (confirmed from official docs). The **two USB-C ports are PD Sink 140 W** — i.e. USB-C input is hard-capped **28 W below the 168 W power ceiling**, so full-load operation needs the 28 V brick / Micro-Fit, not USB-C.
+- **USB**: 2× USB-A **USB 3.2 Gen 2 (10 Gbps)**; 2× USB-C (USB 3.2 Gen 1, 5 Gbps; port *5a* also does Force-Recovery); debug USB-C behind the lid.
+- **Networking**: **5 GbE (RJ45)** + a **QSFP28 cage, 4× 25 Gbps** (100 Gb-class) — unusually high bandwidth for an edge module; relevant to CSI-over-Ethernet / distributed compute.
+- **Display**: DisplayPort + HDMI.
+- **Storage**: **J103 M.2 Key M**, ships with a **1 TB NVMe SSD**.
+- **Buttons**: Power (11), Force Recovery (12), Reset (13), white status LED (14). Recovery = hold 12, tap 13, release 12.
 
 ## Versus AGX Orin (headline)
 **7.5× more AI compute, 3.5× better energy efficiency** ([Jetson Thor product page](../sources/nvidia-jetson-thor-product-page.md)).
@@ -119,3 +127,4 @@ See [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.m
 - [Isaac Sim and Isaac Lab on NVIDIA Jetson AGX Thor — RS DesignSpark](../sources/rs-designspark-isaac-sim-on-thor.md)
 - [Seeed Embodied AI Hackathon 2025 Recap](../sources/seeed-embodied-ai-hackathon-2025-recap.md) — winning-bot deployment target.
 - [JetPack 7.0 for Jetson Thor software-stack reference](../sources/nvidia-jetpack-7-thor-whitepaper.md) — primary source for the JetPack 7 / Jetson Linux 38.2 contents + post-launch 7× generative-AI throughput.
+- [AGX Thor Dev Kit — Hardware Layout (User Guide)](../sources/nvidia-jetson-agx-thor-devkit-hardware-layout.md) — primary source for dev-kit IO: Micro-Fit 9–28 V/8 A, USB-C PD Sink 140 W, QSFP28 4×25 Gbps, M.2 Key M 1 TB NVMe, buttons.
