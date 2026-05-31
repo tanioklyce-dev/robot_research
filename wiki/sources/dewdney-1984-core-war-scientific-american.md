@@ -16,7 +16,7 @@ The **founding document of Core War** — A. K. Dewdney's May 1984 *Scientific A
 
 ## Key claims / content
 
-- **Origin folklore → real implementation.** Inspired by the (apocryphal) **Creeper/Reaper** story of self-replicating programs spreading across a networked lab; Dewdney traces the real lineage to two earlier programs — **Darwin** (M. Douglas McIlroy, AT&T Bell Labs) and **Worm** (John F. Shoch, Xerox PARC). Dewdney + student **David Jones** built the actual game at the University of Western Ontario.
+- **Origin folklore → real implementation.** Inspired by the (apocryphal) **Creeper/Reaper** story of self-replicating programs spreading across a networked lab; Dewdney traces the real lineage to two earlier programs — **[Darwin](darwin-1961-bell-labs-game.md)** (Vyssotsky/McIlroy/Morris, Bell Labs, 1961) and **Worm** (John F. Shoch, Xerox PARC). Dewdney + student **David Jones** built the actual game at the University of Western Ontario.
 - **Circular core.** Memory is a ring of **8,000 addresses** (0–7999, where 8000 ≡ 0). Programs use **relative addressing only** — a warrior can't know its absolute position.
 - **MARS (Memory Array Redcode Simulator).** Time-shares execution, running **one instruction from each warrior in alternation** until a program hits a non-executable instruction (it then loses).
 - **Redcode instruction set** (between high-level language and machine code): `MOV` (copy), `ADD`/`SUB` (arithmetic), `JMP` (jump), `JMZ`/`JMG` (conditional jumps), `DJZ` (decrement-and-jump-if-zero), `CMP` (compare, skip-if-unequal), `DAT` (non-executable data — landing on it kills a process). Addressing modes: **direct**, **indirect (`@`)**, **immediate (`#`)**.
@@ -31,7 +31,8 @@ The **founding document of Core War** — A. K. Dewdney's May 1984 *Scientific A
 ## Entities mentioned
 - [Core War](../entities/core-war.md) — the game introduced here.
 - [A. K. Dewdney](../entities/ak-dewdney.md) — author; co-creator with **David Jones**.
-- John von Neumann (self-replicating-machine theory, the conceptual backdrop); McIlroy (Darwin); Shoch (Worm). *(No standalone pages.)*
+- [Darwin (Bell Labs, 1961)](darwin-1961-bell-labs-game.md) — the direct ancestor; [McIlroy](../entities/doug-mcilroy.md) / [Vyssotsky](../entities/victor-vyssotsky.md) / [Morris](../entities/robert-morris.md).
+- John von Neumann (self-replicating-machine theory, the conceptual backdrop); Shoch (Worm). *(No standalone pages.)*
 
 ## Concepts touched
 - [Artificial life and the emergence of self-replication](../concepts/alife/artificial-life-and-self-replication.md) — Core War is the **programming-game** ancestor of the self-replicating-code thread; the Imp is a hand-written self-replicator.
