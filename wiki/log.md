@@ -1887,3 +1887,7 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - Parametric L-bracket bolting to the D435i 45 mm M3 front pattern; foot cantilevers over camera top to the robot link
 - Caveats documented: `cam_m3_z` (M3 vertical position) not in Intel datasheet → caliper-confirm; robot-side hole pattern is a placeholder
 - Linked from [synthesis](syntheses/projects/xlerobot-camera-options-low-light.md) (new "Printable mount" section)
+
+## [2026-05-30] ingest | In-vault Obsidian stub for the D435i bracket
+- Created [bracket pointer page](syntheses/projects/xlerobot-d435i-bracket.md) + copied preview.png into the vault (Obsidian can't follow links out to sibling `hardware/`)
+- Linked it from the [camera-options synthesis](syntheses/projects/xlerobot-camera-options-low-light.md) and [index.md](index.md)

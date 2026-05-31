@@ -52,7 +52,7 @@ The global-shutter + wide-FOV + IMU combination is precisely the "navigate with 
 
 ## Printable mount
 
-Because the stock XLeRobot press-fit shell is keyed to the D415's slimmer body and won't accept the D435i, a parametric L-bracket that bolts to the D435i's 45 mm M3 front pattern lives at [`hardware/xlerobot-d435i-bracket/`](../../../hardware/xlerobot-d435i-bracket/) (STL + OpenSCAD source + README). Two dimensions need confirming before a final print: the M3 holes' vertical position (`cam_m3_z`, not in the Intel datasheet — caliper it) and the robot-side hole pattern (set to your actual mounting-link).
+Because the stock XLeRobot press-fit shell is keyed to the D415's slimmer body and won't accept the D435i, a parametric L-bracket that bolts to the D435i's 45 mm M3 front pattern lives at [`hardware/xlerobot-d435i-bracket/`](../../../hardware/xlerobot-d435i-bracket/) (STL + OpenSCAD source + README) — see the in-vault [bracket pointer page](xlerobot-d435i-bracket.md) for the preview and details. Two dimensions need confirming before a final print: the M3 holes' vertical position (`cam_m3_z`, not in the Intel datasheet — caliper it) and the robot-side hole pattern (set to your actual mounting-link).
 
 ## Sourcing note
 
