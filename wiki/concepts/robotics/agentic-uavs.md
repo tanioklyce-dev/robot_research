@@ -2,9 +2,9 @@
 title: Agentic UAVs
 type: concept
 created: 2026-05-09
-updated: 2026-05-17
-sources: 3
-tags: [uav, drone, agentic-ai, edge-ai, swarm, autonomous, multi-domain, px4, pixhawk, mavlink]
+updated: 2026-05-31
+sources: 4
+tags: [uav, drone, agentic-ai, edge-ai, swarm, swarm-intelligence, autonomous, multi-domain, px4, pixhawk, mavlink]
 ---
 
 **Agentic UAVs** — unmanned aerial vehicles that go beyond preprogrammed waypoint execution to exhibit "goal-driven behavior, contextual reasoning, and interactive autonomy." Distinguished from traditional UAVs by operating at **autonomy levels 4–5** (context-aware, minimal human oversight) rather than levels 1–2 (rule-based, operator-dependent). The term is defined and surveyed in [Sapkota et al. 2025](../../sources/uavs-agentic-ai-survey.md) (Cornell / University of the Peloponnese).
@@ -17,6 +17,8 @@ tags: [uav, drone, agentic-ai, edge-ai, swarm, autonomous, multi-domain, px4, pi
 | **Cognition** | Decision-making, memory | RL, task decomposition, transformer attention |
 | **Control** | Trajectory execution | MPC, neural policy networks |
 | **Communication** | Swarm coordination | V2X protocols |
+
+When many agentic UAVs coordinate as a collective, the relevant frame is [**swarm intelligence**](swarm-intelligence.md) — decentralized command-and-control, emergent coordination, and swarm-optimization metaheuristics (surveyed for drones in [Raj & Kos 2026](../../sources/raj-kos-drone-swarm-review-2026.md)).
 
 This layered decomposition maps cleanly onto the [LLM-agent architecture](../agents/llm-agent-architecture.md) pattern seen in ground robots (perception → reasoning → action → communication), but adapted for aerial constraints (strict latency: τ_c < 100 ms, strict power budget).
 
@@ -62,3 +64,4 @@ The "Control" layer in the four-layer architecture is, in production, almost alw
 - [UAVs Meet Agentic AI survey](../../sources/uavs-agentic-ai-survey.md)
 - [MIT drone adaptive control](../../sources/mit-drone-adaptive-control.md)
 - [PX4 Autopilot Documentation (docs.px4.io/main)](../../sources/px4-docs-main.md)
+- [Recent Developments and Applications of Drone Swarm (Raj & Kos, 2026)](../../sources/raj-kos-drone-swarm-review-2026.md) — extends the agentic-UAV frame to the swarm level; see [swarm intelligence](swarm-intelligence.md).

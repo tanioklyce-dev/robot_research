@@ -1962,3 +1962,9 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - New concept [Flocking and boids](concepts/alife/flocking-and-boids.md) (three rules; emergence/edge-of-chaos; swarm-intelligence/robotics bridges) — sibling to Computational Life in the `concepts/alife/` branch
 - New entity [Craig Reynolds](entities/craig-reynolds.md)
 - Updated [Artificial life concept](concepts/alife/artificial-life-and-self-replication.md) (added boids sibling section + related/mentioned links; sources 1→2), [Computational Life source](sources/computational-life-self-replicating-programs-paper.md) (cubff code → its own source page), [Blaise Agüera y Arcas](entities/blaise-aguera-y-arcas.md) (cubff mention), [index.md](index.md)
+
+## [2026-05-31] ingest | Drone Swarm review (Raj & Kos, 2026) — Sensors 26(10):2943
+- Source PDF raw/sensors-26-02943.pdf (21 pp, CC BY); extracted via pypdf
+- Created [source page](sources/raj-kos-drone-swarm-review-2026.md): UAV-swarm review — C2 taxonomy (consensus/centralized/emergent/hierarchical), trajectory generation (SARG, LEVIOSA), DL trajectory prediction (DynGN, EvolveGCN, LSTM), counter-swarm/anti-drone (ODCDM/CBAA, loyal wingman), swarm metaheuristics (PSO/ACO/GWO/…), 1000-drone @ 99.95% from 5% informed agents, SwarmGPT; heavy military/dual-use framing
+- New concept [Swarm intelligence](concepts/robotics/swarm-intelligence.md) — bridges [flocking/boids](concepts/alife/flocking-and-boids.md) (ALife) ↔ [agentic UAVs](concepts/robotics/agentic-uavs.md) (robotics)
+- Updated [agentic UAVs](concepts/robotics/agentic-uavs.md) (sources 3→4, added swarm-intelligence link), [flocking and boids](concepts/alife/flocking-and-boids.md) (linked swarm-intelligence), [index.md](index.md)

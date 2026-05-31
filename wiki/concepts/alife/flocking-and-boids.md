@@ -34,10 +34,11 @@ Naively **O(n²)** — every boid queries every other for neighbors — but **sp
 
 ## Applications
 - **Computer animation / VFX** — *Stanley and Stella* (1987); ***Batman Returns*** (1992, first feature film) used modified boids for bats and penguins; standard in films and games for crowds/flocks since ([Reynolds page](../../sources/reynolds-boids-page.md)).
-- **Swarm intelligence & robotics** — boids is a foundational instance of decentralized, local-rule control; the [Stanford source](../../sources/stanford-soco-boids.md) links it to **ant colony optimization** and **swarm robotics** (mapping, foraging). The applied-robotics neighbor in this wiki is [agentic UAVs](../robotics/agentic-uavs.md), where multi-drone coordination echoes the same local-rule logic.
+- **Swarm intelligence & robotics** — boids is a foundational instance of decentralized, local-rule control; the [Stanford source](../../sources/stanford-soco-boids.md) links it to **ant colony optimization** and **swarm robotics** (mapping, foraging). This generalizes into the [swarm intelligence](../robotics/swarm-intelligence.md) concept, whose current engineering frontier is aerial swarms — see [agentic UAVs](../robotics/agentic-uavs.md), where 1000-drone coordination from 5% informed agents echoes the same local-rule logic ([Raj & Kos 2026](../../sources/raj-kos-drone-swarm-review-2026.md)).
 
 ## Related concepts
 - [Artificial life and the emergence of self-replication](artificial-life-and-self-replication.md) — parent branch; boids = emergence in continuous steering, Computational Life = emergence in self-modifying code.
+- [Swarm intelligence](../robotics/swarm-intelligence.md) — the generalization of boids into decentralized control + optimization.
 - [Agentic UAVs](../robotics/agentic-uavs.md) — swarm/multi-agent robotics as the engineering descendant.
 - Cellular automata, open-endedness, self-organization — adjacent ALife topics flagged but **not yet covered**.
 
