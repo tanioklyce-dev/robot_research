@@ -15,6 +15,9 @@ tags: [video, jepa, world-model, v-jepa-2, lecun, ami-labs, barlow-twins, dino, 
 
 A 37-minute Welch Labs explainer that traces the technical and intellectual arc from **the blur problem in generative video models** to **JEPA / world models**, framed around Yann LeCun's "$1B bet against LLMs" (the [AMI Labs](../entities/ami-labs.md) launch reported by [Towards AI](towardsai-lecun-ami-labs.md)). Features interview clips with LeCun and credits Stephane Deny, David Fan, and Nicolas Ballas for technical input. Pedagogically the video walks the same anti-collapse zoo the wiki covers in [curriculum Module 4](../syntheses/curriculum/curriculum-04-self-supervised-learning.md) and [Module 11](../syntheses/curriculum/curriculum-11-jepa-deep.md): generative-pixel prediction → "why so blurry?" → Siamese networks → representation collapse → Barlow Twins → DINO → JEPA.
 
+> [!note] Sequel
+> **[Part 2 — "Yann LeCun's $1B Bet Against LLMs [Part 2]" (2026-05-30, ~41 min)](welchlabs-lecun-1b-bet-against-llms-part2.md)** picks up where this leaves off: instead of the path *to* JEPA, it climbs the "alternative stack" ([V-JEPA 2](../entities/v-jepa-2.md) encoder → [VL-JEPA](../entities/vl-jepa.md) VLM → [LeWorldModel](../entities/leworldmodel.md) + planning + hierarchical JEPA) and stages LeCun's full "VLA are doomed" critique.
+
 > [!note] Welch Labs prequel
 > [Welch Labs — "ChatGPT is made from 100 million of these [The Perceptron]" (Feb 2025)](welchlabs-perceptron.md) is the pedagogical prequel to this video: Rosenblatt 1957 → Mark I → XOR roadblock → backprop → MLP-at-scale. Watch it first if you want the "what is a neural network at all?" foundation before this one's "what's wrong with LLMs?" argument.
 

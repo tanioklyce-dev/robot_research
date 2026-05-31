@@ -3,8 +3,8 @@ title: LeWorldModel
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-05-15
-sources: 21
+updated: 2026-05-31
+sources: 22
 tags: [leworldmodel, lewm, jepa, world-model, mila, end-to-end, sigreg]
 ---
 
@@ -37,6 +37,15 @@ MIT.
 - Surprise scores reliably detect physically implausible events.
 - Reconstruction-free, reward-free, task-agnostic, pixel-based.
 
+## Planning recipe (push-t, per the Welch Labs Part 2 walkthrough)
+The [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) concretizes how LeWM plans, beyond the architecture:
+- **Cross-entropy method (CEM)**: sample ~**500 random action trajectories**, roll each out through the world model (actions batched in **groups of 5**), score by **Euclidean distance in embedding space** between the final predicted embedding and the **goal-image embedding**, keep an **elite set of ~30**, refit a Gaussian and resample, repeat. **All planning happens in latent space** — no decoding required to score.
+- A separately-trained **decoder** maps predicted embeddings back to images purely for *visualization* (a "learned cartoon sketch" of push-t physics) — it is not in the planning loop.
+- **Horizon limit**: reliably plans only **~5 prediction loops** ahead before the rollout drifts "off the rails" — the practical ceiling that motivates hierarchy.
+
+> [!note] Hierarchical extension (push-t 5 → 15 steps)
+> Per the same source, LeCun and collaborators applied a **2-layer hierarchical world model** to push-t, **extending the horizon from 5 to 15 steps**, with the higher level's predictions acting as **sub-goals** for the lower-level planner. The paper is not named in the video — see the [LeCun open-question note](yann-lecun.md). This is the wiki's first tracked Hierarchical-JEPA control result.
+
 ## Why it matters
 - Strips JEPA training down to two losses, making latent-prediction world models more practical for resource-limited research.
 - Provides a single-GPU baseline that's hard to argue against — research labs without massive compute can do JEPA work.
@@ -57,6 +66,7 @@ MIT.
 ## Mentioned in
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md)
 - [LeWorldModel — train and run howto](../syntheses/world-models/leworldmodel-howto.md)
+- [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) — CEM planning + hierarchical push-t walkthrough.
 - [le-wm GitHub](../sources/lewm-github.md)
 - [MLWorks — Navigate the World from Raw Pixels](../sources/medium-lewm-navigate-world.md)
 - [Towards Deep Learning — This World Model Learns Physics by Watching Videos](../sources/towardsdeeplearning-world-model-physics.md)

@@ -1902,3 +1902,11 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - Folded forum findings into [XLeRobot + Thor power budget](syntheses/projects/xlerobot-thor-power-budget.md): new "What NVIDIA and the forums recommend" section + 28 V-ceiling battery-chemistry cheat-sheet
 - Key facts: NVIDIA says dev kit must use bundled PSU (battery = off-label); input 9–28 V / 8 A via Molex Micro-Fit 3.0 J83; community uses 9–28 V Li-ion/LiFePO4 packs ~2 hr; 2× 12 V SLA→24 V/550 Wh datapoint corroborates runtime
 - Added Micro-Fit connector part `2147561041` (2×2 male, needs female mate) + 8 A figure to [Jetson Thor](entities/jetson-thor.md)
+
+## [2026-05-31] ingest | Welch Labs — "Yann LeCun's $1B Bet Against LLMs [Part 2]"
+- Source: YouTube v_jDvpEGTIg (Welch Labs, 2026-05-30, 40:57). Transcript saved to raw/2026-05-30-welchlabs-lecun-1b-bet-against-llms-part2.txt (yt-dlp auto-captions, deduped)
+- Created [source page](sources/welchlabs-lecun-1b-bet-against-llms-part2.md) and new entity [VL-JEPA](entities/vl-jepa.md) (Meta/LeCun, Chen et al., arXiv 2512.10942)
+- **Name-collision flagged**: VL-JEPA (Meta, vision-language) ≠ [VLA-JEPA](entities/vla-jepa.md) (USTC, VLA + latent WM) — disambiguation callouts added to both
+- **Partially answers an open question**: hierarchical-JEPA push-t result (horizon 5→15) updated on [Yann LeCun](entities/yann-lecun.md) H-JEPA TBD + added to [JEPA concept](concepts/world-models/jepa.md) (new H-JEPA section)
+- Updated: [LeWorldModel](entities/leworldmodel.md) (CEM planning recipe + ~5-loop horizon + hierarchical note), [VLA models](concepts/learning/vla-models.md) (LeCun "VLA are doomed" critique callout), [AMI Labs](entities/ami-labs.md) (tagline + near-term industrial plan), [Welch Labs](entities/welch-labs.md) (Part 2 in series), [V-JEPA 2](entities/v-jepa-2.md), Part 1 source (sequel link)
+- Updated [index.md](index.md): new source + new VL-JEPA entity

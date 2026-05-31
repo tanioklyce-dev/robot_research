@@ -3,15 +3,15 @@ title: Welch Labs
 type: entity
 subtype: pedagogy
 created: 2026-05-15
-updated: 2026-05-15
-sources: 3
+updated: 2026-05-31
+sources: 4
 tags: [welch-labs, stephen-welch, pedagogy, youtube, textbook, ai-education]
 ---
 
 **Welch Labs** — independent AI-pedagogy operation founded by **[Stephen Welch](stephen-welch.md)**. Operates a YouTube channel (running since ~2014, restarted in 2024–2025) and as of Feb 2026 publishes a **376-page illustrated textbook**, [*The Welch Labs Illustrated Guide to AI, Volume I*](../sources/welchlabs-illustrated-guide-to-ai.md). Based in Winston-Salem, NC.
 
 ## What Welch Labs publishes
-- **YouTube videos** — chapter-aligned with the book. Each book chapter has a corresponding Welch Labs video. The wiki has filed two: [Welch Labs Perceptron (Ch 1 companion)](../sources/welchlabs-perceptron.md) and [Welch Labs — Yann LeCun's $1B Bet Against LLMs](../sources/welchlabs-lecun-1b-bet-against-llms.md).
+- **YouTube videos** — chapter-aligned with the book. Each book chapter has a corresponding Welch Labs video. The wiki has filed three: [Welch Labs Perceptron (Ch 1 companion)](../sources/welchlabs-perceptron.md) and the two-part JEPA series — [Part 1](../sources/welchlabs-lecun-1b-bet-against-llms.md) (path *to* JEPA) and [Part 2](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) (the JEPA "alternative stack": V-JEPA 2 → VL-JEPA → LeWorldModel + planning). The series "clocked in at well over an hour" and likely seeds the book's teased Vol II.
 - **The Illustrated Guide to AI book** — Vol I (Feb 2026, 376 pp); Vol II teased in the preface. 9 chapters: perceptron → gradient descent → backprop → deep learning → AlexNet → scaling laws → mechanistic interpretability → attention → diffusion.
 - **Supporting code** at [github.com/stephencwelch/ai_book](https://github.com/stephencwelch/ai_book).
 - **Exercise solutions** at the back of the book; a printable PDF of exercises only at [welchlabs.com/ai_book](https://welchlabs.com/ai_book).
@@ -36,6 +36,7 @@ tags: [welch-labs, stephen-welch, pedagogy, youtube, textbook, ai-education]
 - [Welch Labs Illustrated Guide to AI, Vol I](../sources/welchlabs-illustrated-guide-to-ai.md)
 - [Welch Labs Perceptron (video)](../sources/welchlabs-perceptron.md)
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs (video)](../sources/welchlabs-lecun-1b-bet-against-llms.md)
+- [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md)
 
 ## Open questions
 - Volume II contents — teased in the Vol I preface but not yet announced. Likely covers JEPA / world models given Welch's LeCun-bet video.

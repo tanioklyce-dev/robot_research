@@ -2,8 +2,8 @@
 title: VLA models
 type: concept
 created: 2026-05-06
-updated: 2026-05-25
-sources: 29
+updated: 2026-05-31
+sources: 30
 tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning]
 ---
 
@@ -41,6 +41,9 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 | **GR00T N1.6/1.7** | Cosmos-Reason2-2B | (mixed; see [GR00T entity](../../entities/nvidia-groot.md)) | 3B params; 20,854 hr egocentric video pretrain — see [EgoScale](../../sources/egoscale-paper.md) for the primary source and scaling law. |
 | **EgoScale** | pretrained VLM (~GR00T N1) | **flow matching** + DiT action expert | [Source](../../sources/egoscale-paper.md). Same corpus as GR00T N1; reports the first published VLA scaling law. 22-DoF [Sharpa Wave](../../entities/sharpa-wave.md) hand target. |
 
+> [!note] LeCun's critique — "VLA are doomed"
+> [Yann LeCun](../../entities/yann-lecun.md), on camera in the [Welch Labs Part 2 explainer](../../sources/welchlabs-lecun-1b-bet-against-llms-part2.md), attacks the whole VLA paradigm on two grounds: **(1) behavioral cloning doesn't scale** — you can't collect demos for every task variation, and policies are "completely helpless" / brittle in slightly-new situations; **(2) no explicit planning** — VLAs run end-to-end (images + joints → next joints) with "no world model," so they "cannot predict the consequences of their actions." His JEPA + latent-planning program ([LeWorldModel](../../entities/leworldmodel.md) + CEM) is the proposed alternative. **The standing counterargument is in this very page**: RT-2's 2023 Taylor-Swift generalization and [π0.7](../../entities/pi07.md)'s out-of-distribution emergent capabilities (air fryer, microwave) show VLAs *do* generalize beyond their demos — generalization is a sliding scale, and whether it's *enough* is the open empirical question. JEPA control, meanwhile, is still far behind VLAs on the same tasks (push-t plans only ~5 steps ahead). See [critiques of the intelligence north star](../../syntheses/society/critiques-of-the-intelligence-north-star.md).
+
 > [!note] State of the field (2026): The Stanford HAI AI Index 2026 describes VLA technology as still "at the research stage," noting "the gap between what these models can do in a controlled setting and what they can handle in the real world is still wide." The data constraint is cited as the key bottleneck: every robot training example requires a physical robot or high-fidelity sim. World Foundation Models ([NVIDIA Cosmos](../../entities/nvidia-cosmos.md)) are one response, generating synthetic physics data at scale. A parallel response, validated empirically by [EgoScale](../../sources/egoscale-paper.md), is pretraining on large-scale **egocentric human video** — 20,854 hr of which now yields a measured log-linear scaling law `L = 0.024 − 0.003·ln(D)` (R² = 0.9983) that predicts real-robot performance. See [Scaling laws — VLAs and human data](scaling-laws-vla.md).
 
 ## Adjacent: utility models / non-language-conditioned policies
@@ -71,3 +74,4 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 - [Stanford HAI — AI Index Report 2026](../../sources/stanford-hai-ai-index-2026.md)
 - [Helix (Figure AI blog)](../../sources/helix-blog.md)
 - [EgoScale Paper](../../sources/egoscale-paper.md)
+- [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) — LeCun's BC-doesn't-scale + no-planning critique of VLAs

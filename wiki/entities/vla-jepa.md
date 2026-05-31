@@ -3,10 +3,13 @@ title: VLA-JEPA
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-31
 sources: 1
 tags: [vla-jepa, vla-models, jepa, world-model, libero, simplerenv]
 ---
+
+> [!warning] Name collision — not the same as [VL-JEPA](vl-jepa.md)
+> **VLA-JEPA** (this page) is a USTC robot-policy paper (Sun et al., arXiv 2602.10098, Feb 2026) that adds a JEPA *auxiliary* objective inside a vision-language-**action** policy. **[VL-JEPA](vl-jepa.md)** is a separate Meta/LeCun **vision-language** model (Chen et al., arXiv 2512.10942, Dec 2025) that reframes the whole VLM by predicting text embeddings. Different groups, different ideas.
 
 **VLA-JEPA** — "Enhancing Vision-Language-Action Model with Latent World Model." Augments a [VLA](../concepts/learning/vla-models.md) policy with a **JEPA-style latent world-model auxiliary objective**. Introduced in [Sun et al. (Feb 2026)](../sources/vla-jepa-paper.md) (USTC + collaborators).
 
@@ -29,6 +32,7 @@ tags: [vla-jepa, vla-models, jepa, world-model, libero, simplerenv]
 ## Related
 - [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — auxiliary objective.
 - [VLA models](../concepts/learning/vla-models.md) — wraps JEPA into a VLA policy.
+- [VL-JEPA](vl-jepa.md) — **different paper, similar name** (Meta vision-language JEPA; see warning above).
 - [World-model simulators](../concepts/world-models/world-model-simulators.md) — latent-prediction paradigm.
 
 ## Mentioned in

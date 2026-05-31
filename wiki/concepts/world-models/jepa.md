@@ -2,8 +2,8 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-05-25
-sources: 21
+updated: 2026-05-31
+sources: 22
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem]
 ---
 
@@ -50,7 +50,8 @@ The term **Joint Embedding** names the architecture class defined by this proper
 - **[V-JEPA 2.1](../../sources/v-jepa-2-1-paper.md)** (FAIR + Mila, March 2026) — successor; "dense features" focus; +20pt real-Franka grasping over V-JEPA 2-AC.
 - **[LeWorldModel](../../entities/leworldmodel.md)** ([Mila](../../entities/mila.md) + NYU + Samsung SAIL + Brown, March 2026) — first stable end-to-end JEPA with two-term loss; single-GPU training.
 - **[JEPA-WMs](../../entities/jepa-wms.md)** (Terver et al., FAIR, Dec 2025) — moves JEPA into [RoboCasa](../../entities/robocasa.md) + Metaworld + DROID + real Franka; outperforms DINO-WM and V-JEPA 2-AC on the proposed setup.
-- **[VLA-JEPA](../../entities/vla-jepa.md)** (Sun et al., Feb 2026) — JEPA-as-auxiliary-objective inside a VLA policy; uses LIBERO + SimplerEnv + real.
+- **[VLA-JEPA](../../entities/vla-jepa.md)** (Sun et al., USTC, Feb 2026) — JEPA-as-auxiliary-objective inside a VLA policy; uses LIBERO + SimplerEnv + real.
+- **[VL-JEPA](../../entities/vl-jepa.md)** (Chen et al., Meta/LeCun, Dec 2025) — JEPA reframing of a full **vision-language model**: predict the *embedding* of output text instead of generating tokens. **Different paper from VLA-JEPA despite the name** (see the warning on either entity). 1.6B beats 7B on GQA; ~50% fewer trainable params vs token-space VLM training.
 - **JEPA-adjacent (frozen DINOv2 encoder, not co-trained):**
   - **[DINO-WM](../../entities/dino-wm.md)** (Zhou et al., NYU + FAIR, Nov 2024) — DINOv2 features + learned predictor; zero-shot planning. Lightweight benches (PushT, Wall, PointMaze, Rope, Granular, Reacher).
   - **[DINO-world](../../entities/dino-world.md)** (Baldassarre et al., FAIR, July 2025) — DINOv2 features for video world models; predates JEPA-WMs by 5 months and shares Basile Terver as a bridge author.
@@ -71,6 +72,9 @@ The first systematic ablation across architectural / training / planning axes fo
 | **Model scaling** | Encoder + predictor scaling **only pays off on real-world data** (DROID); saturates at ViT-S, depth 6 on simulated benches. Practical rule: scale capacity only when dynamics are genuinely complex. |
 
 These are the first published systematic ablations of these axes for JEPA-style world models and should anchor any JEPA-WM build that follows.
+
+## Hierarchical JEPA (H-JEPA) — long-horizon planning
+The single-level JEPA planning ceiling is short: [LeWorldModel](../../entities/leworldmodel.md) on push-t reliably plans only **~5 prediction loops** ahead before rollouts drift. LeCun's prescribed fix (from the [2022 position paper](../../sources/lecun2022-path-towards-ami.md), restated on camera in the [Welch Labs Part 2 explainer](../../sources/welchlabs-lecun-1b-bet-against-llms-part2.md)): a **hierarchy of predictors** — low levels make detailed short-term predictions; high levels make abstract long-term predictions (fewer details → slower divergence from reality). The **inter-layer interface is an embedding space, "not semantic, certainly not language"** ("your cat can do hierarchical planning"). LeCun's analogy: planning a NYU→Paris trip as sub-goals (airport → taxi → street), not millisecond muscle control. **First tracked result**: LeCun and collaborators applied a **2-layer hierarchical world model to push-t, extending the horizon from 5 → 15 steps** (higher-level predictions = sub-goals for the lower planner). The hope is that the hierarchy becomes **emergent** given the right architecture (à la CNN feature hierarchies), though it "probably requires training on semi-expert trajectories." The underlying paper is not yet named/ingested — see the [LeCun open-question note](../../entities/yann-lecun.md).
 
 ## Simulator stance — fragmenting, not avoiding
 The original wiki synthesis observed [V-JEPA 2](../../entities/v-jepa-2.md) and [LeWM](../../entities/leworldmodel.md) both skipping heavy agentic-robotics sim. With five additional ingests in May 2026, the picture is more nuanced: [JEPA-WMs](../../entities/jepa-wms.md) uses [RoboCasa](../../entities/robocasa.md); [VLA-JEPA](../../entities/vla-jepa.md) uses SimplerEnv; [DINO-WM](../../entities/dino-wm.md) uses lightweight MuJoCo benches; [V-JEPA 2.1](../../sources/v-jepa-2-1-paper.md) continues the no-sim line. **The JEPA literature is fragmenting across simulator weight classes**, not avoiding sim wholesale. See [the revised synthesis](../../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md).
@@ -94,6 +98,7 @@ The original wiki synthesis observed [V-JEPA 2](../../entities/v-jepa-2.md) and 
 - [DINO-WM Paper](../../sources/dino-wm-paper.md)
 - [DINO-world Paper](../../sources/dino-world-paper.md)
 - [VLA-JEPA Paper](../../sources/vla-jepa-paper.md)
+- [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) — VL-JEPA, hierarchical JEPA, CEM latent-space planning
 - [PLDM Paper](../../sources/pldm-paper.md)
 - [Sobal et al. 2022 — JEPA slow features](../../sources/sobal2022-jepa-slow-features-paper.md)
 - [LeJEPA Paper](../../sources/lejepa-paper.md)
