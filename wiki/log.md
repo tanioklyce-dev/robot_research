@@ -1936,3 +1936,9 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 ## [2026-05-31] update | Canonical battery recommendation for Thor (post carrier-spec)
 - Folded the updated recommendation into [Thor power budget synthesis](syntheses/projects/xlerobot-thor-power-budget.md): regulator→Micro-Fit topology (fixed ~19–20 V kills the 28 V-ceiling trap), Micro-Fit (15 A) over USB-C (5 A) for full load, first-come-first-serve (no summing), ~300–500 Wh for ~2 hr
 - Added the XLeRobot dual-DC-DC build (one 24 V pack → ~20 V Thor Micro-Fit + 12 V motor bus); corrected the old "28 V/PD" framing and de-duplicated the recommendations block
+
+## [2026-05-31] ingest | AGX Thor Dev Kit — User Guide (landing/index)
+- Created [source page](sources/nvidia-jetson-agx-thor-devkit-user-guide-index.md) as a doc-set map (navigation hub; thin on net-new facts)
+- Captures the user-guide TOC: Quick Start, BSP/Docker/CUDA/JetPack SDK setup, Hardware Layout (ingested), Supported Hardware, Interim Solutions (UEFI/USB/headless), Troubleshooting
+- Flags highest-value un-ingested subpages: Supported Hardware (likely Micro-Fit part #) + Quick Start/JetPack SDK Setup (first-boot/flash)
+- Added to [Jetson Thor](entities/jetson-thor.md) Mentioned-in (sources 10→11); updated [index.md](index.md)

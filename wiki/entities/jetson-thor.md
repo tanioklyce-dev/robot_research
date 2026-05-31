@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-16
 updated: 2026-05-31
-sources: 10
+sources: 11
 tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai, jetpack-7, nvfp4, mig]
 ---
 
@@ -134,3 +134,4 @@ See [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.m
 - [JetPack 7.0 for Jetson Thor software-stack reference](../sources/nvidia-jetpack-7-thor-whitepaper.md) — primary source for the JetPack 7 / Jetson Linux 38.2 contents + post-launch 7× generative-AI throughput.
 - [AGX Thor Dev Kit — Hardware Layout (User Guide)](../sources/nvidia-jetson-agx-thor-devkit-hardware-layout.md) — primary source for dev-kit IO: Micro-Fit 9–28 V/8 A, USB-C PD Sink 140 W, QSFP28 4×25 Gbps, M.2 Key M 1 TB NVMe, buttons.
 - [Jetson Thor Module Carrier Board Spec (SP-12533-001 v1.2)](../sources/nvidia-jetson-thor-carrier-board-spec.md) — authoritative carrier-board spec: USB-C 5 A / Micro-Fit 15 A current split, bundled adapter is USB-C, first-come-first-serve PD, M.2 Key E + CAN + Automation Header + RTC, **no 40-pin / no CSI**.
+- [AGX Thor Dev Kit — User Guide (landing/index)](../sources/nvidia-jetson-agx-thor-devkit-user-guide-index.md) — doc-set map: Quick Start, BSP/Docker/CUDA/JetPack SDK setup, Hardware Layout, Supported Hardware, Interim Solutions, Troubleshooting.
