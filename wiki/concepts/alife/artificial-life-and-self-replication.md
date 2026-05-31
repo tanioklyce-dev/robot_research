@@ -3,7 +3,7 @@ title: Artificial life and the emergence of self-replication
 type: concept
 created: 2026-05-31
 updated: 2026-05-31
-sources: 3
+sources: 5
 tags: [artificial-life, alife, self-replication, origins-of-life, emergence, complexity, open-endedness, kolmogorov-complexity, cellular-automata, flocking, boids]
 ---
 
@@ -27,7 +27,14 @@ The paper introduces **high-order entropy** = (Shannon entropy over tokens/bytes
 - **Connects to the wiki's intelligence-paradigms thread.** It's the [Paradigms of Intelligence](../../entities/blaise-aguera-y-arcas.md) view: intelligence/life as **emergent from simple interaction**, a complement to [LeCun](../../entities/yann-lecun.md)'s world-models bet and [Michael I. Jordan](../../entities/michael-i-jordan.md)'s collectivist/economic view — see [critiques of the intelligence north star](../../syntheses/society/critiques-of-the-intelligence-north-star.md).
 - **Methodological echo of [JEPA](../world-models/jepa.md)**: both get useful structure *without a hand-designed objective* — JEPA predicts in latent space instead of reconstructing pixels; this gets complexity with **no fitness function at all**.
 
+## Self-replication in *living matter* — Xenobots
+The wiki's code-substrate results have a striking **biological counterpart**. [Xenobots ("reconfigurable organisms")](../../entities/xenobots.md), built from frog (*Xenopus*) stem cells, exhibit **kinematic self-replication**: swarms push loose dissociated cells into piles that mature into new motile organisms ([Kriegman et al. 2021](../../sources/kriegman-2021-kinematic-self-replication.md)). Like the Computational Life soup, this replication **arises spontaneously, without selection or genetic engineering** — though here AI ([evolutionary computation](evolutionary-computation.md)) is used only to *amplify* it (the C-shaped semitorus triples replication rounds), not to originate it. The organisms themselves are **AI-designed in silico, built in vivo** ([Kriegman et al. 2020](../../sources/kriegman-2020-reconfigurable-organisms.md)).
+
+> [!note] Two senses of "self-replication without selection"
+> Both [Computational Life](../../sources/computational-life-self-replicating-programs-paper.md) (self-modifying code) and [Xenobots](../../sources/kriegman-2021-kinematic-self-replication.md) (frog cells) get replication with **no designed fitness function** — but via very different mechanisms (random self-modification on a shared tape vs. ciliary mechanics aggregating feedstock). A genuine cross-substrate parallel, not the same phenomenon.
+
 ## Related concepts
+- [Evolutionary computation](evolutionary-computation.md) — gradient-free population search; the design engine behind Xenobots; a classic ALife tool.
 - [Flocking and boids](flocking-and-boids.md) — sibling emergence model (continuous steering substrate).
 - [JEPA](../world-models/jepa.md) — objective-light learning (different domain, same anti-hand-design spirit).
 - Open-endedness, cellular automata, self-organization — **not yet covered**; natural neighbors as this branch grows (e.g. co-author Mordvintsev's Neural Cellular Automata line).
@@ -36,3 +43,5 @@ The paper introduces **high-order entropy** = (Shannon entropy over tokens/bytes
 - [Computational Life (Agüera y Arcas et al., 2024)](../../sources/computational-life-self-replicating-programs-paper.md)
 - [cubff (paradigms-of-intelligence/cubff)](../../sources/cubff-github.md) — the runnable engine for the anchor result.
 - [BFF — Emergent Complexity experiment (Jonas Werner)](../../sources/jonas-werner-bff-emergent-complexity.md) — independent CPU reproduction of the BFF result.
+- [Kriegman et al. 2020 — A scalable pipeline for designing reconfigurable organisms](../../sources/kriegman-2020-reconfigurable-organisms.md) — AI-designed living machines (Xenobots).
+- [Kriegman et al. 2021 — Kinematic self-replication in reconfigurable organisms](../../sources/kriegman-2021-kinematic-self-replication.md) — spontaneous kinematic self-replication in Xenobots.

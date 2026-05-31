@@ -32,7 +32,7 @@ An **independent, from-scratch reproduction** of the BFF "primordial soup" exper
 ## Entities mentioned
 - [Blaise Agüera y Arcas](../entities/blaise-aguera-y-arcas.md) — author of the [Computational Life paper](computational-life-self-replicating-programs-paper.md) this reproduces (via the Google Paradigms of Intelligence Team).
 - Jonas Werner — author of the post and reproduction code.
-- **Xenobots** (Tufts / U. Vermont, 2021) — referenced as a biological cousin: frog-embryo cells that self-organize into novel forms with unexpected reproductive strategies. *Not yet an entity page.*
+- [Xenobots](../entities/xenobots.md) (Tufts / U. Vermont, 2021) — referenced as a biological cousin: frog-embryo cells that self-organize into novel forms with unexpected reproductive strategies. *(Now ingested in depth — see [Kriegman 2020](kriegman-2020-reconfigurable-organisms.md) / [2021](kriegman-2021-kinematic-self-replication.md).)*
 - **Donald Hoffman** — "Fitness Beats Truth" theorem, invoked in the philosophical coda. *Not yet a page.*
 
 ## Concepts touched
