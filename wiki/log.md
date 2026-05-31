@@ -1875,3 +1875,9 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - Key caveat surfaced: active IR stereo gives depth-in-the-dark + works on clutter/textureless surfaces, but RGB stream stays dark/noisy → LeRobot policies are RGB-driven, so add illumination
 - Ruled out: D455 (too wide for mount, long-range wasted), D405 for nav (no IR projector → bad in low light)
 - Updated [XLeRobot](entities/xlerobot.md) (optional-sensors line + D435i pointer; bumped updated date) and [index.md](index.md)
+
+## [2026-05-30] verify | D435i mount fit vs stock XLeRobot D415 shell
+- Verified: D415 (99×20×23 mm) and D435i (90×25×25 mm) do NOT share a housing — differ on all 3 axes
+- XLeRobot head-camera mount is a press-fit *shell* keyed to the body → stock D415 shell will NOT fit D435i as-printed
+- Fix is trivial: shared D400-series rear mount (2× M3, 45 mm apart + ¼-20); docs say "use any head camera... little modification to the last mounting link" + ship STEP files
+- Corrected prior wrong "same housing footprint" claim in [synthesis](syntheses/projects/xlerobot-camera-options-low-light.md), [XLeRobot entity](entities/xlerobot.md), [index.md](index.md)

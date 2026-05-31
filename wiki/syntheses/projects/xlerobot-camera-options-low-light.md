@@ -30,12 +30,14 @@ For low light + clutter + a **moving wheeled base**, the D415 is the wrong membe
 | Depth FOV | ~65° × 40° (narrow) | ~87° × 58° (wide) — fewer blind spots in clutter |
 | IMU | none | **yes** (the "i") — aids base odometry / SLAM |
 | Low-light depth | OK (has IR projector) | Better — global-shutter sensors rated for good low-light sensitivity |
-| Housing | ~90 × 25 × 25 mm | **same** ~90 × 25 × 25 mm — stock 3D-printed mount should fit |
+| Housing | **99 × 20 × 23 mm** (long, slim) | **90 × 25 × 25 mm** (shorter, taller, thicker) — **different body** |
 
 The global-shutter + wide-FOV + IMU combination is precisely the "navigate with the lights off, around obstacles, while moving" profile. ([Intel D435i specs](https://www.intel.com/content/www/us/en/products/sku/190004/intel-realsense-depth-camera-d435i/specifications.html), [Intel compare page](https://www.intelrealsense.com/compare/))
 
-> [!note] Mount compatibility is likely but unverified
-> The D435i shares the D415's external housing dimensions, so the existing XLeRobot mount STL should fit with little/no change — confirm against the specific part before ordering.
+> [!warning] The stock D415 press-fit shell does NOT fit the D435i as-printed (verified 2026-05-30)
+> The two cameras share no housing: **D415 = 99 × 20 × 23 mm**, **D435i = 90 × 25 × 25 mm** — they differ on all three axes. The XLeRobot head-camera mount is a **press-fit shell keyed to the camera body** ("the single RGB head camera connector and shell, one for webcam & realsense" — [XLeRobot 3D-printing docs](https://xlerobot.readthedocs.io/en/latest/hardware/getting_started/3d.html)), and a shell sized to the D415's slim 20 × 23 mm cross-section will not accept the chunkier 25 × 25 mm D435i.
+>
+> **The fix is trivial, and the docs anticipate it.** Both cameras share the standardized D400-series rear mounting — **2× M3 holes 45 mm apart** (+ ¼-20 tripod thread) — so a flat screw bracket transfers across the series. The docs say outright: *"You can use any head camera you like, just make a little modification to the last mounting link,"* and ship STEP files. So either re-scale the shell to 90 × 25 × 25 mm or print a bracket off the 45 mm M3 hole pattern. ([Intel D415 specs](https://www.intel.com/content/www/us/en/products/sku/128256/intel-realsense-depth-camera-d415/specifications.html))
 
 ## The other candidates
 
@@ -44,7 +46,7 @@ The global-shutter + wide-FOV + IMU combination is precisely the "navigate with 
 
 ## Recommendation
 
-1. **Swap the stock D415 for the D435i** as the base/head sensor — global shutter, wide FOV, IMU, same mount footprint.
+1. **Swap the stock D415 for the D435i** as the base/head sensor — global shutter, wide FOV, IMU. Budget a small mount tweak: the stock press-fit shell is keyed to the D415's slimmer body and won't fit the D435i, but a re-scaled shell or a bracket off the shared 45 mm M3 rear holes is a quick reprint (see the warning callout above).
 2. If reliable in-gripper depth is also wanted, the natural two-camera setup this product family is built around (and what [Stretch](../../entities/stretch.md) does — head depth + wrist D405) is **D435i for the scene + D405 at the wrist**.
 3. **Add illumination** (or use IR streams) so low light doesn't quietly degrade the RGB policy.
 
