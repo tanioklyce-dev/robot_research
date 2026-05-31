@@ -32,5 +32,5 @@ See [critiques of the intelligence north star](../syntheses/society/critiques-of
 - [BFF — Emergent Complexity experiment (Jonas Werner)](../sources/jonas-werner-bff-emergent-complexity.md) — independent reproduction of his Computational Life BFF result.
 
 ## Open questions / TBD
-- Co-author **Alexander Mordvintsev** (Neural Cellular Automata) suggests a deeper Google ALife / self-organization line worth its own coverage.
+- Co-author [Alexander Mordvintsev](alexander-mordvintsev.md) ([Neural Cellular Automata](../concepts/alife/neural-cellular-automata.md)) — now has his own page, tying Google's learnable-self-organization line to the Computational Life emergent-replication line.
 - Agüera y Arcas's earlier writing on LLMs, language, and intelligence is not yet ingested — would flesh out the "Paradigms of Intelligence" stance beyond this one ALife paper.

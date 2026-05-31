@@ -32,7 +32,7 @@ When **random, non-self-replicating programs** are dropped into a soup with **no
 
 ## Entities mentioned
 - [Blaise Agüera y Arcas](../entities/blaise-aguera-y-arcas.md) — lead author; leads Google's Paradigms of Intelligence Team.
-- Co-authors: Alakuijala, James Evans (U. Chicago), Ben Laurie, **Alexander Mordvintsev** (of Neural Cellular Automata / "Growing CA" fame), Niklasson, Randazzo, Versari.
+- Co-authors: Alakuijala, James Evans (U. Chicago), Ben Laurie, **[Alexander Mordvintsev](../entities/alexander-mordvintsev.md)** (originator of [Neural Cellular Automata](../concepts/alife/neural-cellular-automata.md) / "Growing CA"), Niklasson, Randazzo, Versari.
 
 ## Concepts touched
 - [Artificial life and the emergence of self-replication](../concepts/alife/artificial-life-and-self-replication.md) — the concept this source anchors.
@@ -45,5 +45,5 @@ When **random, non-self-replicating programs** are dropped into a soup with **no
 
 ## Open questions
 - What *exactly* gates emergence? SUBLEQ's failure points at **replicator reachability / minimum description length** under random self-modification, but the paper leaves the precise condition open.
-- Relationship to **open-endedness** research — now partly contextualized by the ingested [Tierra](ray-1991-tierra-synthesis-of-life.md) / [Avida](adami-brown-1994-avida.md) digital-evolution lineage (Computational Life is the *no-ancestor, no-fitness* endpoint of that chain; see the [lineage on the concept page](../concepts/alife/artificial-life-and-self-replication.md)). Mordvintsev's **Neural Cellular Automata** line remains a natural next ingest.
+- Relationship to **open-endedness** research — now contextualized by the ingested [Tierra](ray-1991-tierra-synthesis-of-life.md) / [Avida](adami-brown-1994-avida.md) digital-evolution lineage (Computational Life is the *no-ancestor, no-fitness* endpoint of that chain; see the [lineage on the concept page](../concepts/alife/artificial-life-and-self-replication.md)). Co-author [Mordvintsev](../entities/alexander-mordvintsev.md)'s **[Neural Cellular Automata](../concepts/alife/neural-cellular-automata.md)** line is now ingested too — leaving the formal connection between *learned* (NCA), *evolved* (Avida), and *emergent* (this paper) local rules as the open synthesis.
 - Any connection drawn by the authors between this and large-model "emergence" claims? (The "Paradigms of Intelligence" team framing invites it, but the paper stays within ALife.)

@@ -37,5 +37,5 @@ The **original Avida paper** — the **tierra-inspired** system that became the 
 - Open-ended evolution, error catastrophe, cellular-automata locality, evolution of computational complexity.
 
 ## Open questions
-- This is the **1994 origin** paper; Avida's most cited result — **"The Evolution of Complex Features" (Lenski, Ofria, Pennock & Adami, *Nature* 2003)**, where the EQU logic function evolves only when simpler intermediate functions are rewarded — is **not yet ingested** and is the obvious next step for this thread.
+- This is the **1994 origin** paper; Avida's most cited result — **["The evolutionary origin of complex features" (Lenski, Ofria, Pennock & Adami, *Nature* 2003)](lenski-2003-evolutionary-origin-complex-features.md)**, where the EQU logic function evolves only when simpler intermediate functions are rewarded — is now ingested.
 - Avida vs. [Computational Life](computational-life-self-replicating-programs-paper.md): Avida still uses an **externally specified reward landscape**; Computational Life has **no fitness function at all** — the contrast that defines the end of the lineage.

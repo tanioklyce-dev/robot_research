@@ -3,7 +3,7 @@ title: Artificial life and the emergence of self-replication
 type: concept
 created: 2026-05-31
 updated: 2026-05-31
-sources: 14
+sources: 16
 tags: [artificial-life, alife, self-replication, origins-of-life, emergence, complexity, open-endedness, kolmogorov-complexity, cellular-automata, flocking, boids]
 ---
 
@@ -37,7 +37,8 @@ The wiki's code-substrate results have a striking **biological counterpart**. [X
 - [Evolutionary computation](evolutionary-computation.md) — gradient-free population search; the design engine behind Xenobots; a classic ALife tool.
 - [Flocking and boids](flocking-and-boids.md) — sibling emergence model (continuous steering substrate).
 - [JEPA](../world-models/jepa.md) — objective-light learning (different domain, same anti-hand-design spirit).
-- **Open-ended evolution** — now substantially covered via [Tierra](../../entities/tierra.md) & [Avida](../../entities/avida.md) (see lineage below). Cellular automata, self-organization, and Mordvintsev's Neural Cellular Automata line remain natural neighbors not yet covered.
+- [Neural Cellular Automata](neural-cellular-automata.md) — the **learnable** self-organization sibling (learned local rule → morphogenesis); now covered.
+- **Open-ended evolution** — substantially covered via [Tierra](../../entities/tierra.md) & [Avida](../../entities/avida.md) (see lineage below). General cellular automata and broader self-organization theory remain natural neighbors not yet covered.
 
 ### Programming games
 A related tradition: **programming games** where you write code for an autonomous agent and then watch it run unattended.
@@ -51,6 +52,11 @@ These hand-written replicators sit one step before **evolved/emergent** ones. Th
 
 The chain has a clear **"how much is designed in?" gradient**: Core War (designed replicator, no evolution) → Tierra/Avida (designed *ancestor* + selection → evolution; Avida even rewards specified tasks) → Computational Life (nothing designed — no ancestor, no fitness, replication *and* its rise are emergent). Tierra→Avida itself trades Tierra's **global reaper** (which homogenizes the soup) for **local, cellular-automaton-style** interaction that sustains diversity.
 
+**Evolution of complexity (the Avida capstone).** [Lenski, Ofria, Pennock & Adami (2003)](../../sources/lenski-2003-evolutionary-origin-complex-features.md) used Avida to show that a *complex* feature (the EQU logic function) **evolves from a replicate-only ancestor by building on simpler rewarded functions** — and crucially **fails to evolve at all (0/50 populations) when only the complex function is rewarded** (vs 23/50 in reward-all). Deleterious mutations can serve as **stepping-stones**. This is the strongest evidence in the lineage that **incremental Darwinian assembly** — not a designed endpoint — produces complexity, and it sets up the question Computational Life answers in the extreme: what if there's **no reward structure at all**?
+
+### Learnable self-organization — Neural Cellular Automata
+A sibling of the digital-evolution line that *learns* rather than *evolves* its local rule: **[Neural Cellular Automata](neural-cellular-automata.md)** (NCA), where a shared neural update rule, trained by backprop, makes a grid of cells **self-organize into a target pattern** with regeneration and robustness ([Pajouheshgar et al. 2025](../../sources/pajouheshgar-2025-nca-cells-to-pixels.md)). Notably, **[Alexander Mordvintsev](../../entities/alexander-mordvintsev.md)** — who originated NCA — is also a co-author of [Computational Life](../../sources/computational-life-self-replicating-programs-paper.md), personally tying the **learned-rule** and **emergent-replicator** wings of this branch together.
+
 ## Mentioned in
 - [Computational Life (Agüera y Arcas et al., 2024)](../../sources/computational-life-self-replicating-programs-paper.md)
 - [cubff (paradigms-of-intelligence/cubff)](../../sources/cubff-github.md) — the runnable engine for the anchor result.
@@ -62,6 +68,8 @@ The chain has a clear **"how much is designed in?" gradient**: Core War (designe
 - [CRobots (troglobit/crobots)](../../sources/crobots-github.md) — non-replicating programming-game cousin (see Programming games note above).
 - [An Approach to the Synthesis of Life (Ray, 1991)](../../sources/ray-1991-tierra-synthesis-of-life.md) — Tierra; open-ended evolution from a hand-written ancestor.
 - [Evolutionary Learning in … 'Avida' (Adami & Brown, 1994)](../../sources/adami-brown-1994-avida.md) — spatial digital evolution; evolving computation.
+- [The evolutionary origin of complex features (Lenski et al., 2003)](../../sources/lenski-2003-evolutionary-origin-complex-features.md) — Avida; complex features need rewarded simpler steps (0/50 vs 23/50).
+- [Neural Cellular Automata: From Cells to Pixels (Pajouheshgar et al., 2025)](../../sources/pajouheshgar-2025-nca-cells-to-pixels.md) — learnable self-organization (Mordvintsev NCA line).
 - [Darwin (Bell Labs, 1961; McIlroy transcript)](../../sources/darwin-1961-bell-labs-game.md) — the earliest digital-organism arena; Core War's direct ancestor.
 - [Dewdney 1984 — Core War (Scientific American)](../../sources/dewdney-1984-core-war-scientific-american.md) — the founding self-replicating programming game (the Imp).
 - [pMARS — Portable Redcode Simulator (KOTH.org)](../../sources/pmars-koth.md) — the standard Core War simulator.

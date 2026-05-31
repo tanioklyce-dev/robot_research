@@ -4,7 +4,7 @@ type: entity
 subtype: software
 created: 2026-05-31
 updated: 2026-05-31
-sources: 1
+sources: 2
 tags: [avida, tierra, artificial-life, alife, digital-evolution, self-replication, open-ended-evolution, cellular-automata, chris-adami, charles-ofria]
 ---
 
@@ -17,7 +17,7 @@ tags: [avida, tierra, artificial-life, alife, digital-evolution, self-replicatio
 
 ## Why it matters for this wiki
 - **Locality improves evolvability.** Genotype-age power-law exponent **D ≈ 1.14 (Avida) vs. ≈ 1.6 (Tierra)**: local interaction sustains **near-maximal diversity** and avoids Tierra's global-reaper **metastable traps / premature homogenization**. Also distributes across processors near-linearly.
-- **Evolving computation.** Demonstrates **evolution of arithmetic** from non-arithmetic replicators — the seed of Avida's famous later result on the **evolution of complex features** (Lenski/Ofria/Pennock/Adami, *Nature* 2003; not yet ingested).
+- **Evolving computation.** Demonstrates **evolution of arithmetic** from non-arithmetic replicators — the seed of Avida's famous result on the **evolution of complex features** ([Lenski, Ofria, Pennock & Adami, *Nature* 2003](../sources/lenski-2003-evolutionary-origin-complex-features.md)): the complex EQU function evolves **only when simpler functions are also rewarded** (0/50 vs 23/50).
 - **Lineage position:** the spatial successor to [Tierra](tierra.md) in the digital-evolution line (von Neumann → [Darwin](../sources/darwin-1961-bell-labs-game.md) → [Core War](core-war.md) → Tierra/**Avida** → [Computational Life](../sources/computational-life-self-replicating-programs-paper.md)). Unlike Computational Life, Avida still uses an **externally specified reward**. See [artificial life and the emergence of self-replication](../concepts/alife/artificial-life-and-self-replication.md).
 
 ## Related
@@ -25,3 +25,4 @@ tags: [avida, tierra, artificial-life, alife, digital-evolution, self-replicatio
 
 ## Mentioned in
 - [Evolutionary Learning in the 2D Artificial Life System 'Avida' (Adami & Brown, 1994)](../sources/adami-brown-1994-avida.md)
+- [The evolutionary origin of complex features (Lenski, Ofria, Pennock & Adami, 2003)](../sources/lenski-2003-evolutionary-origin-complex-features.md)

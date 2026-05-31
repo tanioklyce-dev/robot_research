@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-31
 updated: 2026-05-31
-sources: 1
+sources: 2
 tags: [person, avida, artificial-life, digital-evolution, information-theory, complexity, self-replication]
 ---
 
@@ -16,3 +16,4 @@ tags: [person, avida, artificial-life, digital-evolution, information-theory, co
 
 ## Mentioned in
 - [Evolutionary Learning in the 2D Artificial Life System 'Avida' (Adami & Brown, 1994)](../sources/adami-brown-1994-avida.md)
+- [The evolutionary origin of complex features (Lenski, Ofria, Pennock & Adami, 2003)](../sources/lenski-2003-evolutionary-origin-complex-features.md)
