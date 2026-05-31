@@ -1868,3 +1868,10 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - Cross-linked into [AI safety and alignment](concepts/safety/ai-safety-alignment.md) (alignment-as-tradeoff counterpoint; bumped 5→6 sources) and [Are We Building Skynet?](sources/medium-are-we-building-skynet.md) (See also)
 - Updated [index.md](index.md): new source, +2 entities, new Concepts ### Economics + Syntheses ### Society sections
 - Updated [CLAUDE.md](../CLAUDE.md) structure tree: registered `concepts/economics/` + `syntheses/society/`
+
+## [2026-05-30] query | "What cameras for XLeRobot in low-light + clutter? (e.g. RealSense D435i)"
+- Filed [XLeRobot camera options for low-light + clutter](syntheses/projects/xlerobot-camera-options-low-light.md)
+- Recommendation: swap stock RealSense D415 → **D435i** (global shutter, wider FOV, IMU, same mount footprint); optional D405 at wrist for close-range manipulation
+- Key caveat surfaced: active IR stereo gives depth-in-the-dark + works on clutter/textureless surfaces, but RGB stream stays dark/noisy → LeRobot policies are RGB-driven, so add illumination
+- Ruled out: D455 (too wide for mount, long-range wasted), D405 for nav (no IR projector → bad in low light)
+- Updated [XLeRobot](entities/xlerobot.md) (optional-sensors line + D435i pointer; bumped updated date) and [index.md](index.md)

@@ -3,7 +3,7 @@ title: XLeRobot
 type: entity
 subtype: robot
 created: 2026-05-10
-updated: 2026-05-17
+updated: 2026-05-30
 sources: 7
 tags: [xlerobot, mobile-manipulator, dual-arm, lerobot, lekiwi, so-arm101, low-cost, household-robot, embodied-ai]
 ---
@@ -23,7 +23,7 @@ tags: [xlerobot, mobile-manipulator, dual-arm, lerobot, lekiwi, so-arm101, low-c
 - **Power**: Anker SOLIX C300 power station — 288 Wh, 300 W max output, 280 W max charge (~1 hr to full), **10+ hr** runtime
 - **3D-printed**: 90% of mechanical parts (tested on BambuLab A1 / PLA; PETG, PLA-CF, Tough PLA also supported)
 - **Assembly time**: **2–4 hr from scratch; 1–2 hr with pre-assembled SO101 arms** (8 high-level steps)
-- **Optional sensors**: RGB camera, stereo RGB (+$30), **RealSense D415 RGBD depth** (+$220)
+- **Optional sensors**: RGB camera, stereo RGB (+$30), **RealSense D415 RGBD depth** (+$220). For **low-light / cluttered** operation the **D435i** (global shutter, wider FOV, IMU, same housing footprint) is a better swap than the stock D415 — see [XLeRobot camera options for low-light + clutter](../syntheses/projects/xlerobot-camera-options-low-light.md).
 - **Compute model**: **PC-does-inference, Pi-relays-WiFi** — the optional Raspberry Pi 4/5 (+$79) is positioned as a *data-relay*, not the inference host. Heavy policy inference runs on a user PC, optionally via LeRobot's async policy server on port 8080.
 - **Form factor**: IKEA RÅSKOG cart serves as the torso/base in the developer kit
 
