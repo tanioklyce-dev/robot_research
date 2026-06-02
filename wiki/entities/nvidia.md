@@ -3,8 +3,8 @@ title: NVIDIA
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-05-17
-sources: 31
+updated: 2026-06-02
+sources: 33
 tags: [nvidia, gpu, simulation, physical-ai]
 ---
 
@@ -16,6 +16,7 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - **Ecosystem partnerships**: powers [AGIBOT Genie Sim 3.0](agibot-genie-sim.md) (built on Isaac Sim) and [GE-Sim2](genie-envisioner.md) (built on Cosmos-Predict2).
 - **Research arm**: NVIDIA Research is co-authored on the [RoboCasa365](robocasa.md) paper through Yuke Zhu's dual UT Austin / NVIDIA appointment ([RoboCasa365 Paper](../sources/robocasa365-paper.md)).
 - **Developer cloud**: owns [NVIDIA Brev](nvidia-brev.md), a cross-cloud GPU-instance broker for AI/ML dev work (acquired from brev.dev in 2024) ([NVIDIA Brev Docs](../sources/nvidia-brev-docs.md)).
+- **Omnimodal world model**: **[Cosmos 3](nvidia-cosmos.md)** (June 2026) unified the Cosmos platform into a single Mixture-of-Transformers model spanning language/image/video/audio/action — #1 open-weight T2I + I2V (Artificial Analysis) and #1 RoboArena policy at launch ([Cosmos 3 technical report](../sources/cosmos-3-technical-report.md), led by [Ming-Yu Liu](ming-yu-liu.md)).
 - **In-house research lab**: [NVIDIA GEAR](nvidia-gear.md) (Generalist Embodied Agent Research, founded Feb 2024) is the source of GR00T, the Dream*-world-model line (DreamGen / DreamZero / DreamDojo), the Eureka / DrEureka LLM-as-reward-designer line, the humanoid whole-body cluster (SONIC, HOVER, ASAP, Doorman, VIRAL), and much of the Isaac Lab + RoboCasa + MimicGen substrate ([GEAR Publications](../sources/nvidia-gear-publications.md)).
 - **Edge AI compute**: the Jetson product line — [Jetson Orin Nano](jetson-orin-nano.md), Orin NX, AGX Orin, and the new **Blackwell-generation [Jetson Thor](jetson-thor.md)** (T5000 + T4000 modules, AGX Thor Dev Kit, launched 2025-08-25) — paired with [JetPack](jetpack.md) SDK (CUDA + TensorRT + DeepStream + VPI) on [Jetson Linux](jetson-linux.md) BSP. The substrate for most wiki-tracked educational and research robots that aren't running on an x86 workstation.
 - **Personal AI supercomputer**: [DGX Spark](dgx-spark.md) — desktop-form-factor GB10 Grace Blackwell box with 128 GB unified memory and RT cores; NVIDIA's prescribed workstation for the train-on-Spark, deploy-on-Thor split ([Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.md)).
@@ -28,6 +29,8 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - [AGIBOT](agibot.md) — major downstream user.
 
 ## Mentioned in
+- [Cosmos 3 Technical Report](../sources/cosmos-3-technical-report.md)
+- [Develop Physical AI with NVIDIA Cosmos 3 (HF blog)](../sources/nvidia-cosmos-3-hf-blog.md)
 - [NVIDIA Newton Physics Engine Developer Page](../sources/nvidia-newton-physics-engine-developer-page.md)
 - [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)
 - [AGIBOT Genie Sim 3.0 Announcement](../sources/agibot-genie-sim-3-announcement.md)

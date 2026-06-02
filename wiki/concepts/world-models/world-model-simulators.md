@@ -2,8 +2,8 @@
 title: World-model simulators
 type: concept
 created: 2026-05-06
-updated: 2026-05-15
-sources: 12
+updated: 2026-06-02
+sources: 13
 tags: [world-model, generative-simulation, video-generation, jepa, latent-prediction, paradigm-shift]
 ---
 
@@ -19,7 +19,7 @@ Generate the next frame's *pixels*. Train and plan inside a learned video genera
 | Compute bound | Physics solver | Video model inference |
 
 Notable systems:
-- **[NVIDIA Cosmos](../../entities/nvidia-cosmos.md)** — world foundation model (Cosmos-Predict2-2B-Video2World powers downstream simulators).
+- **[NVIDIA Cosmos](../../entities/nvidia-cosmos.md)** — world foundation model (Cosmos-Predict2-2B-Video2World powers downstream simulators). **[Cosmos 3](../../sources/cosmos-3-technical-report.md)** (June 2026) goes further: one omnimodal Mixture-of-Transformers model is *itself* a forward-dynamics simulator, an inverse-dynamics model, **and** a policy — a [world-action model](world-action-model.md) rather than a simulator you train a separate policy inside.
 - **[Genie Envisioner](../../entities/genie-envisioner.md)** / GE-Sim2 — built on Cosmos-Predict2; introduces the World Action Model framework where action is a first-class variable; minute-scale stable rollouts ([AGIBOT Genie Envisioner 2.0 Announcement](../../sources/agibot-genie-envisioner-2-announcement.md)).
 - **[Genesis](../../entities/genesis.md)** — adjacent: physics-based but uses a [VLM](../learning/vla-models.md) agent to *generate* the simulation content from text.
 
@@ -59,3 +59,4 @@ Notable systems:
 - [Genie Envisioner Paper](../../sources/genie-envisioner-paper.md)
 - [V-JEPA 2 Paper](../../sources/v-jepa-2-paper.md)
 - [LeWorldModel Paper](../../sources/leworldmodel-paper.md)
+- [Cosmos 3 Technical Report](../../sources/cosmos-3-technical-report.md)

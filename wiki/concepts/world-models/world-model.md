@@ -2,9 +2,9 @@
 title: World model
 type: concept
 created: 2026-05-07
-updated: 2026-05-15
-sources: 17
-tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video]
+updated: 2026-06-02
+sources: 18
+tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video, omnimodal, world-action-model]
 ---
 
 **World model** — a **learned predictive model of environment dynamics**: given the current state (or observation) and an action, predict the next state (or observation). The umbrella term covers a wide range of approaches that all share this functional definition. Used for **planning**, **policy improvement** (model-based RL), **imagination**, and **representation learning**.
@@ -28,6 +28,7 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 ## Major design points represented in this wiki
 
 - **Generative video world models**: predict pixels. Examples: [NVIDIA Cosmos](../../entities/nvidia-cosmos.md), [Genie Envisioner](../../entities/genie-envisioner.md), and **[DreamDojo](../../sources/dreamdojo-paper.md)** (NVIDIA GEAR, ICML 2026 Spotlight; 14B-param Cosmos-Predict2.5 derivative pretrained on **44,711 hr of egocentric human video** — the largest WM-pretraining corpus to date; Self-Forcing distillation hits 10.81 FPS real-time). Expensive to train and use at planning time, but produce inspectable rollouts. Treated as simulators in the agentic-robotics workflow ([world-model-simulators](world-model-simulators.md) concept).
+- **Omnimodal world models / [world-action models](world-action-model.md)**: predict pixels **and** actions in one network. **[Cosmos 3](../../sources/cosmos-3-technical-report.md)** (NVIDIA, June 2026) is the canonical instance — a dual-tower Mixture-of-Transformers (AR reasoner + diffusion generator) jointly modeling language/image/video/audio/action, queryable as a VLM, video generator, forward-dynamics model, inverse-dynamics model, or video-action policy. Still a pixel-predictor (generative-video family), but it folds the world model, the VLM, and the policy into a single model — see the [WAM concept](world-action-model.md).
 - **JEPA / latent-prediction**: predict the *representation* of the next state, not pixels. End-to-end examples: [V-JEPA 2](../../entities/v-jepa-2.md), [LeWorldModel](../../entities/leworldmodel.md), [PLDM](../../entities/pldm.md); frozen-feature variants ([DINO-WM](../../entities/dino-wm.md), [JEPA-WMs](../../entities/jepa-wms.md)) are listed below. ~100× cheaper than pixel-prediction; harder to inspect; LeWM reports up to 48× faster planning than foundation-model-based world models.
 - **Frozen-foundation-feature world models**: use [DINOv2](../../entities/dinov2.md) (or similar) as a frozen encoder; learn only a predictor on top. Examples: [DINO-WM](../../entities/dino-wm.md), [DINO-world](../../entities/dino-world.md), [JEPA-WMs](../../entities/jepa-wms.md) (likely). Trades off representation quality for training simplicity.
 - **Reward-conditioned model-based RL**: predict in a latent space optimized for reward and/or value prediction. Two flavors now filed:
@@ -56,6 +57,7 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 ## Related
 - [World-model simulators](world-model-simulators.md) — narrower companion concept (world-model as drop-in simulator replacement).
 - [Joint-Embedding Predictive Architecture](jepa.md) — one design point under this umbrella.
+- [World-action model (WAM)](world-action-model.md) — the FD/ID/policy unification (Cosmos 3, Dream*, GE-Sim2).
 - [Generative-video vs JEPA world models](../../syntheses/world-models/generative-video-vs-jepa-world-models.md) — synthesis comparing two major design points.
 - [Why JEPA research skips the simulator stack](../../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md) — synthesis on a JEPA-specific question.
 
@@ -76,6 +78,7 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 - [TD-MPC2 Paper](../../sources/td-mpc2-paper.md)
 - [PLDM Paper](../../sources/pldm-paper.md)
 - [DreamDojo Paper](../../sources/dreamdojo-paper.md)
+- [Cosmos 3 Technical Report](../../sources/cosmos-3-technical-report.md)
 
 ## Open questions / TBD
 - PlaNet / DreamerV1 / V2 / TD-MPC1 — earlier MBRL milestones; would deepen the family lineage but not strictly required (V3 / TD-MPC2 cover the baseline-citation role).

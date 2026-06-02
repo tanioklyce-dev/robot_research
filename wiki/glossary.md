@@ -114,6 +114,9 @@ NN that maps a raw input (image, video clip, action sequence, etc.) into an embe
 ### FCN
 **Fully Convolutional Network** — CNN with no fully-connected head, used for dense prediction. *(Module 2.)*
 
+### FD / ID
+**Forward Dynamics / Inverse Dynamics** — in world/action modeling: FD predicts future observations given actions (= an action-conditioned [world model](concepts/world-models/world-model.md)); ID infers the actions that explain an observed transition. Two of the three modes of a [world-action model](concepts/world-models/world-action-model.md) (the third is *policy*). Central to [Cosmos 3](sources/cosmos-3-technical-report.md). *(Module 10.)*
+
 ### GAN
 **Generative Adversarial Network** — generator + discriminator trained adversarially. Largely superseded by diffusion in 2022+. *(Module 5.)*
 
@@ -200,6 +203,9 @@ Terver et al., FAIR, Dec 2025 ([source page](sources/jepa-wms-paper.md)); first 
 
 ### MoCo
 **Momentum Contrast** — He et al. 2020; contrastive SSL with a queue of negatives and momentum encoder. *(Module 4.)*
+
+### MoT
+**Mixture-of-Transformers** — Liang et al. 2025; a transformer where each layer holds **separate parameter sets per modality/function** (e.g. one tower for autoregressive reasoning, one for diffusion generation) that interact only through shared attention. The backbone of [Cosmos 3](sources/cosmos-3-technical-report.md) (AR reasoner tower + DM generator tower). Distinct from Mixture-of-Experts (token-routed FFNs). *(Module 10.)*
 
 ### MPC
 **Model Predictive Control** — at each step, plan a short-horizon action sequence using a model, execute the first action, replan. The control method paired with world models in [LeWM](entities/leworldmodel.md), [DINO-WM](entities/dino-wm.md), [V-JEPA 2-AC](entities/v-jepa-2.md). Receding-horizon approximation of the classical [optimal-control](concepts/robotics/optimal-control.md) problem (Bernoulli 1697 → Pontryagin 1956; see [Sussmann & Willems 1997](sources/sussmann-willems-1997-300-years-optimal-control.md) for the lineage). *(Module 10.)*
@@ -323,6 +329,9 @@ Robot description formats — XML-based ([URDF](concepts/world-models/world-mode
 
 ### VQ-BeT
 **Vector-Quantized Behavior Transformer** — Lee et al. 2024; replaces BeT's k-means with a learned VQ codebook; top performer in [RUM](entities/robot-utility-models.md) ablations. *(Module 7.)*
+
+### WAM
+**World-Action Model** — a model that jointly couples a world model and an action model, so the same network can do forward dynamics, inverse dynamics, **and** act as a policy (predicting actions *and* their visual consequence). Instances: [Cosmos 3](sources/cosmos-3-technical-report.md), DreamZero, GE-Sim2. See [WAM concept](concepts/world-models/world-action-model.md). *(Module 10.)*
 
 ### WFM
 **World Foundation Model** — NVIDIA marketing term for very-large generative-video world models like [Cosmos](entities/nvidia-cosmos.md). A *type* of WM, not a synonym. *(Module 10.)*

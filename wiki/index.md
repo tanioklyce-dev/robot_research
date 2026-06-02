@@ -249,6 +249,8 @@ Curated entry points across the wiki.
 - [Boids (Craig Reynolds) — red3d.com](sources/reynolds-boids-page.md) — Reynolds' later overview page for the [boids](concepts/alife/flocking-and-boids.md) model; three rules (separation/alignment/cohesion), *Batman Returns* (1992), "edge of chaos," O(n²)→~O(n). (1986; page maintained)
 - [Boids — Stanford SoCo (Wong, 2008)](sources/stanford-soco-boids.md) — student write-up restating the three rules; frames boids within **swarm intelligence**, ant colony optimization, and swarm robotics. (2008-09)
 - [Recent Developments and Applications of Drone Swarm (Raj & Kos, 2026)](sources/raj-kos-drone-swarm-review-2026.md) — *Sensors* 26(10):2943 review of UAV swarms; command-and-control taxonomy (consensus/centralized/emergent/hierarchical), trajectory generation + DL prediction, **anti-drone/counter-swarm** (military), swarm metaheuristics (PSO/ACO/…), 1000-drone @ 99.95% from 5% informed agents, LEVIOSA/SwarmGPT LLM interfaces. Anchors [swarm intelligence](concepts/robotics/swarm-intelligence.md). (2026-05-08)
+- [Cosmos 3: Omnimodal World Models for Physical AI (Technical Report)](sources/cosmos-3-technical-report.md) — NVIDIA's 138-pg report (led by [Ming-Yu Liu](entities/ming-yu-liu.md)). One **Mixture-of-Transformers** model unifying language/image/video/audio/action for understanding + generation — a [world-action model](concepts/world-models/world-action-model.md) that's also a VLM, video generator, and FD/ID model. Nano (16B) + Super (64B); **#1 open-weight T2I + I2V** (Artificial Analysis) and **#1 RoboArena** policy; beats π0.5 on RoboLab. OpenMDW-1.1. (2026-06-01)
+- [Develop Physical AI with NVIDIA Cosmos 3 (HF blog)](sources/nvidia-cosmos-3-hf-blog.md) — launch/onboarding companion to the technical report; Nano/Super sizes, Diffusers `Cosmos3OmniPipeline`, SDG datasets, Cosmos-Framework post-training. Omits audio (the report includes it). (2026-06-01)
 
 ## Sources (pedagogical / curriculum companions, undated)
 - [Welch Labs Illustrated Guide to AI, Vol I (book)](sources/welchlabs-illustrated-guide-to-ai.md) — Stephen Welch's 376-page illustrated textbook (Feb 2026, Revision V15). 9 chapters: perceptron → gradient descent → backprop → deep learning → AlexNet → **neural scaling laws** → **mechanistic interpretability** → **attention (DeepSeek MLA)** → diffusion. Pairs chapter-by-chapter with Welch Labs YouTube videos; code at github.com/stephencwelch/ai_book. **The wiki's first ingested primary source on LLM-side scaling laws, mech-interp, and DeepSeek MLA.** (2026-02)
@@ -275,7 +277,7 @@ Curated entry points across the wiki.
 
 ### Companies
 - [UnitedMasters](entities/unitedmasters.md) — music distribution/licensing company; [Jordan](entities/michael-i-jordan.md)'s real-world **three-way collectivist-AI market** (musicians ↔ listeners ↔ brands, incentives built in); >1.5M musicians. (1 source)
-- [NVIDIA](entities/nvidia.md) — owns most of the agentic-robotics simulation substrate; also owns [Brev](entities/nvidia-brev.md) GPU-cloud broker and the in-house [GEAR](entities/nvidia-gear.md) research lab. (19 sources)
+- [NVIDIA](entities/nvidia.md) — owns most of the agentic-robotics simulation substrate; also owns [Brev](entities/nvidia-brev.md) GPU-cloud broker and the in-house [GEAR](entities/nvidia-gear.md) research lab. (21 sources)
 - [NVIDIA GEAR](entities/nvidia-gear.md) — Generalist Embodied Agent Research; co-led by [Jim Fan](entities/jim-fan.md) + [Yuke Zhu](entities/yuke-zhu.md); founded Feb 2024; source of GR00T, the Dream*-WM line, Eureka, and much of the Isaac Lab / RoboCasa / MimicGen substrate. (3 sources)
 - [Hiwonder](entities/hiwonder.md) — Chinese educational-robotics vendor; ROSOrin / ROSOrin Pro kits + `openclaw_controller` ROS 2 bridge for OpenClaw. (3 sources)
 - [Hugging Face](entities/hugging-face.md) — open-source AI company; maintainer of [LeRobot](entities/lerobot.md); HF Hub hosts model checkpoints across the wiki's JEPA / VLA / IL coverage. (5 sources)
@@ -443,7 +445,7 @@ Curated entry points across the wiki.
 - [DDPM](entities/ddpm.md) — Denoising Diffusion Probabilistic Models (Ho, Jain, Abbeel; NeurIPS 2020); foundational diffusion-model class; substrate of [Diffusion Policy](entities/diffusion-policy.md), [NVIDIA Cosmos](entities/nvidia-cosmos.md), [Genie Envisioner](entities/genie-envisioner.md). (5 sources)
 
 ### World models
-- [NVIDIA Cosmos](entities/nvidia-cosmos.md) — world foundation model + simulation engine (generative video). (7 sources)
+- [NVIDIA Cosmos](entities/nvidia-cosmos.md) — world foundation model + simulation engine (generative video); **Cosmos 3** (June 2026) unified it into an omnimodal Mixture-of-Transformers [world-action model](concepts/world-models/world-action-model.md). (9 sources)
 - [Genie Envisioner](entities/genie-envisioner.md) — AGIBOT's world simulator GE-Sim2 (generative video). (5 sources)
 - [V-JEPA 2](entities/v-jepa-2.md) — Meta FAIR's JEPA world model (latent prediction); zero-shot Franka. (8 sources)
 - [LeWorldModel](entities/leworldmodel.md) — first stable end-to-end JEPA from raw pixels. (14 sources)
@@ -507,6 +509,7 @@ Curated entry points across the wiki.
 - [Zipeng Fu](entities/zipeng-fu.md) — Stanford CS PhD; co-lead on [Mobile ALOHA](entities/aloha.md). (1 source)
 - [Lerrel Pinto](entities/lerrel-pinto.md) — NYU CS; co-senior on DINO-WM, RUM, and OK-Robot. (5 sources)
 - [Jim Fan (Linxi Fan)](entities/jim-fan.md) — NVIDIA Director of Robotics, Distinguished Scientist; co-founder + co-lead of [NVIDIA GEAR](entities/nvidia-gear.md) (Feb 2024); co-leads [GR00T](entities/nvidia-groot.md); project lead on [EgoScale](sources/egoscale-paper.md) + [DreamDojo](sources/dreamdojo-paper.md); pre-GEAR author on MineDojo / VIMA / Voyager / Eureka. (3 sources)
+- [Ming-Yu Liu](entities/ming-yu-liu.md) — NVIDIA VP/distinguished researcher; supervision lead of [Cosmos 3](sources/cosmos-3-technical-report.md) and the [Cosmos](entities/nvidia-cosmos.md) world-foundation-model line. (1 source)
 - [Yuke Zhu](entities/yuke-zhu.md) — UT Austin Associate Prof / NVIDIA Director; co-leads [GEAR](entities/nvidia-gear.md); senior on RoboCasa365 + the original RoboCasa + MimicGen line; project lead on [EgoScale](sources/egoscale-paper.md) + [DreamDojo](sources/dreamdojo-paper.md); co-author on Huh et al. 2026. (5 sources)
 - [Joel Jang](entities/joel-jang.md) — research scientist at [NVIDIA GEAR](entities/nvidia-gear.md); third project lead on [DreamDojo](sources/dreamdojo-paper.md) alongside Yuke Zhu + Jim Fan. (1 source) _stub_
 - [Stephen Welch](entities/stephen-welch.md) — founder of [Welch Labs](entities/welch-labs.md); independent AI educator; author of the [Illustrated Guide to AI Vol I](sources/welchlabs-illustrated-guide-to-ai.md). Based in Winston-Salem, NC. (3 sources)
@@ -560,9 +563,10 @@ Curated entry points across the wiki.
 - [PutnamBench](concepts/learning/putnambench.md) — 672 Putnam Exam problems formalized in [Lean](concepts/learning/lean-theorem-prover.md); machine-checkable formal-reasoning benchmark; [Aleph](entities/aleph.md) at 99.4% (May 2026). (1 source)
 
 ### World models
-- [World model](concepts/world-models/world-model.md) — umbrella concept: learned predictive model of environment dynamics (generative-video / JEPA / frozen-feature / model-based-RL). (14 sources)
+- [World model](concepts/world-models/world-model.md) — umbrella concept: learned predictive model of environment dynamics (generative-video / JEPA / frozen-feature / model-based-RL / omnimodal WAM). (15 sources)
 - [Joint-Embedding Predictive Architecture](concepts/world-models/jepa.md) — predict next-state representations, not pixels. (15 sources)
 - [World-model simulators](concepts/world-models/world-model-simulators.md) — narrower companion to [World model](concepts/world-models/world-model.md): world-models-used-as-simulators (generative-video and JEPA paradigms). (14 sources)
+- [World-action model (WAM)](concepts/world-models/world-action-model.md) — one model doing forward dynamics + inverse dynamics + policy (predicting actions *and* their visual consequence); instances [Cosmos 3](sources/cosmos-3-technical-report.md), Dream*, GE-Sim2. (3 sources)
 - [Learned latent space](concepts/world-models/latent-space.md) — vector space where a trained encoder represents inputs; substrate for JEPA prediction, DINOv2 features, VQ-BeT codebook. (10 sources)
 - [Siamese network](concepts/world-models/siamese-network.md) — two weight-tied encoders + similarity/distance/predictor head; ancestor of every joint-embedding SSL system since 1993. (5 sources)
 

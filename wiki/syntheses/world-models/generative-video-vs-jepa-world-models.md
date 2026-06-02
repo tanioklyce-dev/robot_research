@@ -2,8 +2,8 @@
 title: Generative-video vs JEPA world models — what they predict, what it costs, what works
 type: synthesis
 created: 2026-05-07
-updated: 2026-05-15
-tags: [world-models, jepa, generative-video, cosmos, genie-envisioner, dreamdojo, v-jepa-2, leworldmodel]
+updated: 2026-06-02
+tags: [world-models, jepa, generative-video, cosmos, cosmos-3, world-action-model, genie-envisioner, dreamdojo, v-jepa-2, leworldmodel]
 ---
 
 # Generative-video vs JEPA world models
@@ -17,7 +17,7 @@ The simulator survey ([Simulators for agentic robotics — 2026 landscape](../si
 | Output | Next-frame **pixels** | Next-state **embedding** (no pixels) |
 | Loss computed in | Pixel space | Representation space |
 | Decoder required? | Yes | No |
-| Canonical instances | [NVIDIA Cosmos](../../entities/nvidia-cosmos.md), [Genie Envisioner](../../entities/genie-envisioner.md) / GE-Sim2, **[DreamDojo](../../sources/dreamdojo-paper.md)** (the 2026 high-water mark) | [V-JEPA 2](../../entities/v-jepa-2.md) / V-JEPA 2-AC, [LeWorldModel](../../entities/leworldmodel.md) |
+| Canonical instances | [NVIDIA Cosmos](../../entities/nvidia-cosmos.md) / **[Cosmos 3](../../sources/cosmos-3-technical-report.md)** (the omnimodal [WAM](../../concepts/world-models/world-action-model.md)), [Genie Envisioner](../../entities/genie-envisioner.md) / GE-Sim2, **[DreamDojo](../../sources/dreamdojo-paper.md)** | [V-JEPA 2](../../entities/v-jepa-2.md) / V-JEPA 2-AC, [LeWorldModel](../../entities/leworldmodel.md) |
 | Lead labs | NVIDIA, [AGIBOT](../../entities/agibot.md) | [Meta FAIR](../../entities/meta-fair.md), [Mila](../../entities/mila.md), NYU (the LeCun program) |
 
 The asymmetry runs deep: a video generator has to commit to a specific RGB rendering of every imagined future; a JEPA only has to commit to an embedding. Most of the cost difference between the two paradigms traces to that single design choice.
@@ -52,6 +52,9 @@ V-JEPA 2's two-stage recipe — 1M+ hours of action-free internet video, then 62
 
 > [!note] V-JEPA 2-AC's zero-shot Franka result is the most concrete cross-paradigm validation available
 > [V-JEPA 2 Paper](../../sources/v-jepa-2-paper.md) reports **zero-shot deployment on Franka arms in two new labs** for image-goal pick-and-place via MPC, with **no robot-specific data, no task-specific training, no rewards** — the model came in pretrained on internet video plus 62 hr of Droid, and worked on hardware it had never seen. This is the strongest published evidence that latent-prediction world models can produce real-robot capability with minimal robot data.
+
+> [!note] Cosmos 3 partially closes the generative-video real-robot gap — as a *policy*, not zero-shot transfer
+> Until June 2026 the generative-video side had no strong *real-robot policy* result. **[Cosmos 3](../../sources/cosmos-3-technical-report.md)**'s Cosmos3-Nano-Policy-DROID (a generative, joint video+action diffusion policy — a [world-action model](../../concepts/world-models/world-action-model.md)) **tops the RoboArena real-world leaderboard** and beats π0.5 on RoboLab-120. This is a genuine generative-video-family real-robot win — but note it's a *policy that imagines its own consequence*, post-trained on DROID, **not** the V-JEPA-2-AC-style "trained-inside-the-model, deployed-zero-shot-on-novel-hardware via MPC" result. The cleanest cross-paradigm test (MPC planning inside a pixel world model → novel hardware) is still open on the generative-video side.
 
 | | Generative-video | JEPA |
 |---|---|---|
@@ -103,6 +106,7 @@ The two paradigms are not independent. [GR00T](../../entities/nvidia-groot.md) N
 - [AGIBOT Genie Envisioner 2.0 Announcement](../../sources/agibot-genie-envisioner-2-announcement.md)
 - [Top 10 Physical AI Models 2026](../../sources/top-10-physical-ai-models-2026.md) (background on Cosmos / GR00T)
 - [DreamDojo Paper](../../sources/dreamdojo-paper.md) (the 2026 generative-video high-water mark)
+- [Cosmos 3 Technical Report](../../sources/cosmos-3-technical-report.md) (the omnimodal world-action-model — generative-video side's strongest real-robot policy)
 
 ## Related
 

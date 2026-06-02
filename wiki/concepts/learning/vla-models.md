@@ -2,9 +2,9 @@
 title: VLA models
 type: concept
 created: 2026-05-06
-updated: 2026-05-31
-sources: 30
-tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning]
+updated: 2026-06-02
+sources: 31
+tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos]
 ---
 
 **Vision-Language-Action (VLA) models** are robot foundation models that take visual input plus a language instruction and emit low-level actions for a robot to execute. The dominant model class powering "agentic" robotics in 2026.
@@ -22,6 +22,10 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 - **GO-2 series** — benchmarked by [Genie Sim](../../entities/agibot-genie-sim.md).
 - **[SmolVLA](../../entities/smolvla.md)** ([Hugging Face](../../entities/hugging-face.md) LeRobot team, June 2025 — [paper](../../sources/smolvla-paper.md)) — **450 M-param** affordable-VLA reference; SmolVLM-2 backbone + flow-matching action expert with **interleaved cross-attention + causal self-attention**. Pretrained on **22.9 K episodes from 481 community HF datasets** (≈10× less data than π0) with VLM-cleaned task annotations + camera-view normalization. **Beats π0-3.5 B by +16.6 pts on real-world SO-100 multi-task** (78.3 vs 61.7 avg across pick-place + stacking + sorting). Introduces a **server/client async inference stack** with a threshold-`g` queue management policy and observation similarity filter — the practical-deployment piece most VLA papers skip. Available as [`lerobot/smolvla_base`](https://huggingface.co/lerobot/smolvla_base); runs on consumer GPUs and CPUs.
 - **LingBot-VLA** — Ant Group's foundation model for real-world manipulation.
+- **[Cosmos 3](../../sources/cosmos-3-technical-report.md) policy (Cosmos3-Nano-Policy-DROID)** ([NVIDIA](../../entities/nvidia-cosmos.md), June 2026) — not a conventional VLA but a [world-action model](../world-models/world-action-model.md): its policy mode jointly denoises **actions and their predicted future frames** in one Mixture-of-Transformers network. Post-trained on DROID, it **tops RoboArena** (real-world A/B) and beats **π0.5** on RoboLab-120 (39.7% vs 28.1% under specific instructions; π0 3.5, GR00T N1.6 5.3). The clearest evidence that a pixel-generating world model can also be a SOTA real-robot policy — the generative-video answer to "VLAs don't plan."
+
+> [!note] World-action models (WAM) vs VLAs
+> A WAM ([Cosmos 3](../../sources/cosmos-3-technical-report.md), DreamZero, GE-Sim2) is a VLA-superset that also models the **visual consequence** of an action (forward dynamics) and can run inverse dynamics — see the [world-action-model concept](../world-models/world-action-model.md). It directly answers part of LeCun's "VLAs have no world model / can't predict consequences" critique (callout below), but from inside the *generative-video* (pixel-prediction) camp rather than the JEPA (latent-prediction) camp.
 
 > [!note] Hierarchical System 1 / System 2 VLA pattern
 > Helix's slow-VLM-as-planner + fast-policy-as-controller split (with end-to-end gradients between them) is appearing in multiple 2025+ VLAs. The decoupled rates let each component specialize: scene/language reasoning at ~10 Hz, motor control at ~200 Hz. Worth tracking as a structural pattern alongside the action-head design choice (autoregressive tokens vs DDPM-over-actions vs flow-matching).
@@ -40,6 +44,7 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 | **Helix S1** | small transformer | continuous regression @ 200 Hz | Combined with **Helix S2** = 7B VLM @ 7–9 Hz. |
 | **GR00T N1.6/1.7** | Cosmos-Reason2-2B | (mixed; see [GR00T entity](../../entities/nvidia-groot.md)) | 3B params; 20,854 hr egocentric video pretrain — see [EgoScale](../../sources/egoscale-paper.md) for the primary source and scaling law. |
 | **EgoScale** | pretrained VLM (~GR00T N1) | **flow matching** + DiT action expert | [Source](../../sources/egoscale-paper.md). Same corpus as GR00T N1; reports the first published VLA scaling law. 22-DoF [Sharpa Wave](../../entities/sharpa-wave.md) hand target. |
+| **[Cosmos 3](../../sources/cosmos-3-technical-report.md) policy** (WAM, not a plain VLA) | Qwen3-VL (8B Nano) dual-tower MoT | **diffusion over joint video+action tokens** | [Source](../../sources/cosmos-3-technical-report.md). Denoises actions *and* their predicted frames together. #1 RoboArena; beats π0.5 on RoboLab-120. |
 
 > [!note] LeCun's critique — "VLA are doomed"
 > [Yann LeCun](../../entities/yann-lecun.md), on camera in the [Welch Labs Part 2 explainer](../../sources/welchlabs-lecun-1b-bet-against-llms-part2.md), attacks the whole VLA paradigm on two grounds: **(1) behavioral cloning doesn't scale** — you can't collect demos for every task variation, and policies are "completely helpless" / brittle in slightly-new situations; **(2) no explicit planning** — VLAs run end-to-end (images + joints → next joints) with "no world model," so they "cannot predict the consequences of their actions." His JEPA + latent-planning program ([LeWorldModel](../../entities/leworldmodel.md) + CEM) is the proposed alternative. **The standing counterargument is in this very page**: RT-2's 2023 Taylor-Swift generalization and [π0.7](../../entities/pi07.md)'s out-of-distribution emergent capabilities (air fryer, microwave) show VLAs *do* generalize beyond their demos — generalization is a sliding scale, and whether it's *enough* is the open empirical question. JEPA control, meanwhile, is still far behind VLAs on the same tasks (push-t plans only ~5 steps ahead). See [critiques of the intelligence north star](../../syntheses/society/critiques-of-the-intelligence-north-star.md).
@@ -75,3 +80,4 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 - [Helix (Figure AI blog)](../../sources/helix-blog.md)
 - [EgoScale Paper](../../sources/egoscale-paper.md)
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) — LeCun's BC-doesn't-scale + no-planning critique of VLAs
+- [Cosmos 3 Technical Report](../../sources/cosmos-3-technical-report.md) — Cosmos3-Nano-Policy-DROID (world-action model) tops RoboArena, beats π0.5 on RoboLab
