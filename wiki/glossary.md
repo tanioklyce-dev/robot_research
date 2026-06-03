@@ -45,8 +45,14 @@ Stanford household-task benchmark; 12.4% best result (per [AI Index 2026](source
 ### CEM
 **Cross-Entropy Method** — derivative-free sampling-based optimizer; used inside MPC against learned world models. *(Module 10.)*
 
+### CA
+**Cellular Automaton** — a grid of discrete-state cells updated in parallel by a shared local rule; complex global behavior with no central controller. Canonical: [Conway's Game of Life](entities/game-of-life.md) (2D), Wolfram's elementary CAs / Rule 30 (1D). See [cellular automata](concepts/alife/cellular-automata.md). *(ALife branch.)*
+
 ### CFG
 **Classifier-Free Guidance** — Ho & Salimans 2022; train one conditional + one unconditional model, sample by extrapolating between them; the standard conditioning method for diffusion. *(Module 5.)*
+
+### Computational irreducibility
+**Computational irreducibility** ([Wolfram](entities/stephen-wolfram.md)) — for many systems there is no shortcut to the outcome: the only way to know the state after *n* steps is to run the *n* steps. Underlies why simple [CAs](concepts/alife/cellular-automata.md) are inexhaustibly rich; rhymes with compounding rollout error in [world models](concepts/world-models/world-model.md). *(ALife branch.)*
 
 ### CNN
 **Convolutional Neural Network** — NN whose layers slide a small filter across the input (image), exploiting local spatial structure. *(Module 2.)*
@@ -119,6 +125,9 @@ NN that maps a raw input (image, video clip, action sequence, etc.) into an embe
 
 ### GAN
 **Generative Adversarial Network** — generator + discriminator trained adversarially. Largely superseded by diffusion in 2022+. *(Module 5.)*
+
+### Game of Life
+Conway's 1970 2D [cellular automaton](concepts/alife/cellular-automata.md); one neighbor-count rule yields gliders, glider guns, and Turing-completeness. The archetypal Class-4 CA and the subject of [Wolfram's construction-vs-search innovation study](sources/wolfram-2025-game-of-life-engineering.md). See [Game of Life](entities/game-of-life.md). *(ALife branch.)*
 
 ### GPU
 **Graphics Processing Unit** — parallel compute substrate for NN training. *(Throughout.)*
@@ -248,6 +257,9 @@ The module in [JEPA](concepts/world-models/jepa.md)-line world models that maps 
 
 ### R3M
 A pretrained visual encoder for manipulation (Nair et al. 2022); appears as a Diffusion Policy ablation. *(Module 7.)*
+
+### Rule 30
+[Wolfram](entities/stephen-wolfram.md)'s 1D elementary [cellular automaton](concepts/alife/cellular-automata.md) that produces apparent randomness from a trivial rule; the canonical example of [computational irreducibility](concepts/alife/cellular-automata.md). *(ALife branch.)*
 
 ### ReLU
 **Rectified Linear Unit** — the activation function `max(0, x)`; default nonlinearity in deep networks since ~2012. *(Module 1.)*

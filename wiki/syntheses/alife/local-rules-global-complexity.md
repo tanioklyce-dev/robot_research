@@ -2,8 +2,8 @@
 title: "Local rules, global complexity: learned vs. evolved vs. emergent self-organization"
 type: synthesis
 created: 2026-05-31
-updated: 2026-05-31
-tags: [artificial-life, alife, self-organization, self-replication, emergence, digital-evolution, neural-cellular-automata, complexity, paradigms-of-intelligence]
+updated: 2026-06-02
+tags: [artificial-life, alife, self-organization, self-replication, emergence, digital-evolution, cellular-automata, game-of-life, neural-cellular-automata, complexity, search-vs-construction, computational-irreducibility, paradigms-of-intelligence]
 ---
 
 > Cross-cutting analysis of the wiki's [artificial-life branch](../../concepts/alife/artificial-life-and-self-replication.md). Every system in it shares one commitment — **complex global behavior from simple local interactions, with no central controller** — yet they differ on the question that actually matters: **where does the local rule come from, and what information turns into structure?**
@@ -18,7 +18,7 @@ The interesting structure isn't in *that* they self-organize — it's in **what 
 
 | Route | Rule source | Objective | Ancestor needed? | "Complexity" lives in | Exemplars |
 |---|---|---|---|---|---|
-| **Hand-designed** | a human writes it | implicit (designer's intent) | n/a | the *dynamics* the rule produces | [Boids](../../concepts/alife/flocking-and-boids.md); [Darwin](../../sources/darwin-1961-bell-labs-game.md) (1961); [Core War](../../entities/core-war.md) (1984) |
+| **Hand-designed** | a human writes it | implicit (designer's intent) | n/a | the *dynamics* the rule produces | [Boids](../../concepts/alife/flocking-and-boids.md); **[Conway's Game of Life](../../entities/game-of-life.md) (1970)**; [Darwin](../../sources/darwin-1961-bell-labs-game.md) (1961); [Core War](../../entities/core-war.md) (1984) |
 | **Learned** | gradient descent toward a target | a **designed target** (image / texture / shape) | seed pattern | the *learned local rule* | [Neural Cellular Automata](../../concepts/alife/neural-cellular-automata.md) ([Pajouheshgar 2025](../../sources/pajouheshgar-2025-nca-cells-to-pixels.md)) |
 | **Evolved** | mutation + selection discover it | a **designed fitness/reward** (often) | a hand-written **self-replicator** | the *evolved ecology / genome* | [Tierra](../../entities/tierra.md) ([Ray 1991](../../sources/ray-1991-tierra-synthesis-of-life.md)); [Avida](../../entities/avida.md) ([Adami 1994](../../sources/adami-brown-1994-avida.md), [Lenski 2003](../../sources/lenski-2003-evolutionary-origin-complex-features.md)) |
 | **Emergent** | a random walk through program space | **none at all** | none | the *emergence event itself* | [Computational Life / BFF](../../sources/computational-life-self-replicating-programs-paper.md) (2024) |
@@ -37,6 +37,17 @@ The deeper way to read the spectrum is **information-theoretic** — what is the
 - **Emergent (Computational Life):** the striking case — there is **no external information source at all**. No target, no fitness, no ancestor. Complexity (measured by rising **high-order entropy**) appears from **the reachability of short self-replicators under random self-modification** plus the shared-tape substrate. The information comes from *nowhere external* — it's manufactured by the dynamics once a replicator is stumbled upon. This is why the result is surprising in a way the others are not.
 
 So the branch isn't really "four kinds of ALife." It's **one question — what authors the structure? — answered at four removes from the designer:** human → target-via-gradient → environment-via-selection → nothing.
+
+## A second, orthogonal axis: where do the *patterns* come from? (Wolfram)
+
+The spectrum above asks where the **rule** comes from. [Stephen Wolfram](../../entities/stephen-wolfram.md)'s [50-year retrospective on Game-of-Life engineering](../../sources/wolfram-2025-game-of-life-engineering.md) surfaces a *different* question that only makes sense once the rule is **fixed**: given Conway's rule, where do the useful **structures** (gliders, guns, oscillators) come from? His answer is a clean dichotomy:
+
+- **Construction ("invention")** — a human combines known modular parts. Result: larger, **modular, comprehensible** structures with decomposable causal graphs.
+- **Search ("discovery")** — algorithmic exploration of pattern space ("**mining the computational universe**"). Result: minimal but often an **irreducible "blob"** with no separable parts.
+
+Two findings give this teeth: (1) as patterns are optimized for size, their **"modularity index" drops** — comprehensibility is something *construction adds*, not a property solutions have; and (2) as compute grew, **search overtook construction** (≈60% construction early → ≈70% search recent). Evolved/searched/learned solutions all look alike — "lumps of irreducible computation," same as biological evolution and ML.
+
+This axis is **orthogonal** to the rule-source spectrum and clarifies the whole branch. The rule-source spectrum's right end (evolved/emergent) and Wolfram's "search" end are the **same phenomenon seen twice**: both manufacture structure with no comprehensible modular design, because both are forms of *mining* rather than *designing*. The deep tension the wiki keeps hitting — **designed/comprehensible vs mined/emergent** — is exactly Wolfram's construction-vs-search, and exactly the [JEPA](../../concepts/world-models/jepa.md) anti-hand-design instinct. Wolfram even frames irreducible computation as a "spark" to be "**caged**" by static structure, and analogizes that caging to AI alignment.
 
 ## Why the bins are fuzzy (and that's the point)
 
@@ -71,5 +82,7 @@ There's also a methodological rhyme with [JEPA](../../concepts/world-models/jepa
 
 ## See also
 - [Artificial life and the emergence of self-replication](../../concepts/alife/artificial-life-and-self-replication.md) — the concept page this synthesizes.
+- [Cellular automata](../../concepts/alife/cellular-automata.md) — the foundational substrate; home of Wolfram's construction-vs-search axis.
+- [Game of Life engineering essay (Wolfram, 2025)](../../sources/wolfram-2025-game-of-life-engineering.md) — the source for the second (construction-vs-search) axis.
 - [Neural Cellular Automata](../../concepts/alife/neural-cellular-automata.md), [Evolutionary computation](../../concepts/alife/evolutionary-computation.md), [Flocking and boids](../../concepts/alife/flocking-and-boids.md).
 - [Critiques of the intelligence north star](../society/critiques-of-the-intelligence-north-star.md) — the paradigms-of-intelligence framing.
