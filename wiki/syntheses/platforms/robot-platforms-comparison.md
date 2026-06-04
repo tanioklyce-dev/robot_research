@@ -2,8 +2,8 @@
 title: Robot platforms — comparison
 type: synthesis
 created: 2026-05-08
-updated: 2026-05-25
-tags: [robots, hardware, comparison, list, manipulators, mobile-robots, aloha, mobile-aloha]
+updated: 2026-06-03
+tags: [robots, hardware, comparison, list, manipulators, mobile-robots, aloha, mobile-aloha, xlerobot, bimanual]
 ---
 
 # Robot platforms — comparison
@@ -18,6 +18,7 @@ A reference list of robot platforms with entity pages in this wiki, organized by
 | [xArm 7](../../entities/xarm-7.md)             | Commercial  | Tabletop manipulator  | External                  | 7                 | None           | RUM cross-embodiment transfer target (~10pt drop vs Stretch).                            |
 | [Stretch](../../entities/stretch.md)           | Research    | Mobile manipulator    | Onboard (NUC + RealSense) | 1 (telescoping)   | Diff-drive     | RUM zero-shot generalist policies; stretch_ai LLM agent.                                 |
 | [Mobile ALOHA](../../entities/aloha.md)        | Research    | Bimanual mobile manip | Onboard (laptop + RTX 3070 Ti) | 2× 6 (ViperX 300) | Diff-drive (AgileX Tracer) | ACT + Diffusion Policy + VINN benchmarking on bimanual mobile manip; whole-body teleop; $32k. |
+| [XLeRobot](../../entities/xlerobot.md)         | Educational | Bimanual mobile manip | External PC (or onboard [Jetson Orin Nano](../../entities/jetson-orin-nano.md)) | 2× (5+1) SO-101 + 2-DoF neck | Holonomic (LeKiwi omni) | **Cheapest bimanual mobile manipulator** ($660 tethered → $1.3k untethered); LeRobot/SO-101; onboard-Jetson untethered build + on-edge VLA benchmarks ([Cutting the Cord](../../sources/cutting-the-cord-untethered-xlerobot.md)). |
 | [ROSOrin Pro](../../entities/rosorin-pro.md)   | Educational | Mobile manipulator    | Jetson Orin Nano          | 6 (HX-12H servos) | Diff/Ackermann | OpenClaw LLM-agent (via Hiwonder's openclaw_controller ROS 2 bridge); LeWM-feasibility candidate.                                |
 | [ROSOrin](../../entities/rosorin.md)           | Educational | Mobile robot (no arm) | Jetson Orin Nano          | 0                 | Diff/Ackermann | LLM-agent curriculum (cloud + offline).                                                  |
 | [TurtleBot](../../entities/turtlebot.md)       | Educational | Mobile robot (no arm) | Raspberry Pi (gen 4)      | 0                 | Diff-drive     | Reference / comparison point — not used directly in any wiki source.                     |
@@ -31,6 +32,7 @@ A reference list of robot platforms with entity pages in this wiki, organized by
 - **[Mobile ALOHA](../../entities/aloha.md)** (Stanford; Fu, Zhao, Finn 2024). Bimanual mobile manipulator with whole-body teleoperation. 4× [ViperX 300](../../entities/viperx-300.md) (2 leaders + 2 followers) + AgileX Tracer base + 3 webcams + RTX 3070 Ti laptop = **$32k**. Comparable in budget to a single Franka arm, ~6× cheaper than PR2/TIAGo. Anchors the [ACT](../../entities/act.md) + co-training-with-static-data IL pattern.
 
 ### Educational ($1k–$5k)
+- **[XLeRobot](../../entities/xlerobot.md)** (open-source, LeRobot ecosystem). **Bimanual** mobile manipulator: 2× [SO-101](../../entities/so-arm101.md) arms (5+1 DoF each) + 2-DoF neck on a [LeKiwi](../../entities/lekiwi.md) holonomic omni base; 90% 3D-printed; **$660 tethered** (external PC) up to **~$1.3k untethered** with onboard [Jetson Orin Nano](../../entities/jetson-orin-nano.md). The educational-tier analog to [Mobile ALOHA](../../entities/aloha.md) at ~1/25th the cost — the wiki's **cheapest bimanual mobile manipulator**. The [Cutting the Cord](../../sources/cutting-the-cord-untethered-xlerobot.md) build adds onboard compute, a Tri-Bus power topology, and the wiki's first on-edge VLA latency numbers; see [Jetson onboard compute for XLeRobot](jetson-onboard-compute-xlerobot.md).
 - **[ROSOrin Pro](../../entities/rosorin-pro.md)** (Hiwonder). 6-DOF arm + mobile base + Jetson Orin Nano. Ships upstream [OpenClaw](../../entities/openclaw.md) as the LLM-agent brain plus Hiwonder's [`openclaw_controller`](../../entities/openclaw-controller.md) ROS 2 bridge module that wires it to the robot. Closest educational-tier analog to Stretch + stretch_ai, but with a real arm (vs Stretch's telescoping single-DOF arm).
 - **[ROSOrin](../../entities/rosorin.md)** (Hiwonder). No-arm sibling of ROSOrin Pro. Mobile robot only; Jetson Orin Nano + cloud/offline LLM-agent curriculum.
 - **[TurtleBot](../../entities/turtlebot.md)** (multiple vendors per generation; current: Open Robotics / Clearpath). Reference educational mobile robot since 2010. Lacks the agentic-AI bundling that ROSOrin / ROSOrin Pro now ship.
@@ -42,7 +44,7 @@ A reference list of robot platforms with entity pages in this wiki, organized by
 
 ### Mobile manipulators (arm + mobility)
 **Single-arm:** [Stretch](../../entities/stretch.md) (research), [ROSOrin Pro](../../entities/rosorin-pro.md) (educational).
-**Bimanual:** [Mobile ALOHA](../../entities/aloha.md) (research). The only ingested bimanual mobile manipulator.
+**Bimanual:** [Mobile ALOHA](../../entities/aloha.md) (research, $32k) and [XLeRobot](../../entities/xlerobot.md) (educational, $660–1.3k) — the two ingested bimanual mobile manipulators, ~25× apart in cost.
 
 ### Mobile robots without arms
 [ROSOrin](../../entities/rosorin.md), [TurtleBot](../../entities/turtlebot.md).
@@ -58,7 +60,10 @@ A reference list of robot platforms with entity pages in this wiki, organized by
 The [ROSOrin](../../entities/rosorin.md) / [ROSOrin Pro](../../entities/rosorin-pro.md) / [OpenClaw](../../entities/openclaw.md) stack represents a generational update of the [TurtleBot](../../entities/turtlebot.md) educational role: same target audience (CS / robotics students learning ROS), but with **Jetson Orin Nano compute (~10× the Raspberry Pi)** and a **bundled agentic-AI / LLM-agent curriculum** that TurtleBot doesn't have. The interesting question is whether TurtleBot 5 (or whichever follows) will close that gap, or whether Hiwonder's lineage takes over the educational niche entirely.
 
 ### Research-tier mobile manipulation = Stretch (single-arm) or Mobile ALOHA (bimanual)
-Two options in this wiki: **[Hello Robot Stretch](../../entities/stretch.md)** for single-arm + telescoping reach, and **[Mobile ALOHA](../../entities/aloha.md)** for bimanual + whole-body teleop. ROSOrin Pro is the educational-tier alternative; Boston Dynamics Spot + Atlas would be the heavy-tier alternatives but aren't ingested here. When an academic paper says "real-robot mobile manipulation," **Stretch is implied for single-arm work, Mobile ALOHA for bimanual**. Both ship onboard compute and target the academic budget band ($20–32k).
+Two options in this wiki: **[Hello Robot Stretch](../../entities/stretch.md)** for single-arm + telescoping reach, and **[Mobile ALOHA](../../entities/aloha.md)** for bimanual + whole-body teleop. ROSOrin Pro (single-arm) and **[XLeRobot](../../entities/xlerobot.md) (bimanual)** are the educational-tier alternatives; Boston Dynamics Spot + Atlas would be the heavy-tier alternatives but aren't ingested here. When an academic paper says "real-robot mobile manipulation," **Stretch is implied for single-arm work, Mobile ALOHA for bimanual**. Both ship onboard compute and target the academic budget band ($20–32k).
+
+> [!note] The educational-tier bimanual gap is now filled
+> Until XLeRobot, bimanual mobile manipulation in this wiki meant **Mobile ALOHA at $32k** — research-tier only. [XLeRobot](../../entities/xlerobot.md) brings the same form factor (dual arms + mobile base) to **$660–1.3k** via 3D printing + [LeRobot](../../entities/lerobot.md)-ecosystem [SO-101](../../entities/so-arm101.md) arms, with an onboard-Jetson untethered path ([Cutting the Cord](../../sources/cutting-the-cord-untethered-xlerobot.md)). The open question is capability: XLeRobot's 1 kg/arm payload + ~40 cm reach + hobby servos are a real step down from ViperX-300-class hardware — the cost collapse is genuine, the capability parity is not.
 
 ### Tabletop manipulation = Franka, with xArm 7 as second option
 Same pattern — when a paper says "real-robot manipulation" without further qualification, **Franka is implied**. xArm 7 appears as a transfer target rather than a primary platform.
@@ -76,7 +81,8 @@ Worth flagging robot platforms that show up in adjacent literature but don't hav
 
 ## Sources used in this synthesis
 
-- Per-platform entity pages: [Franka Panda](../../entities/franka-panda.md), [xArm 7](../../entities/xarm-7.md), [Stretch](../../entities/stretch.md), [ROSOrin Pro](../../entities/rosorin-pro.md), [ROSOrin](../../entities/rosorin.md), [TurtleBot](../../entities/turtlebot.md).
+- Per-platform entity pages: [Franka Panda](../../entities/franka-panda.md), [xArm 7](../../entities/xarm-7.md), [Stretch](../../entities/stretch.md), [Mobile ALOHA](../../entities/aloha.md), [XLeRobot](../../entities/xlerobot.md), [ROSOrin Pro](../../entities/rosorin-pro.md), [ROSOrin](../../entities/rosorin.md), [TurtleBot](../../entities/turtlebot.md).
+- [Cutting the Cord (Shaw et al., 2026)](../../sources/cutting-the-cord-untethered-xlerobot.md) — XLeRobot untethered build (cost, DoF, payload, onboard compute).
 - Companion source pages: [RUM Paper](../../sources/robot-utility-models-paper.md) (cross-embodiment data), [DROID](../../entities/droid.md) entity (Franka data scale), [ROSOrin Pro User Manual](../../sources/hiwonder-rosorin-pro-user-manual.md) (educational-tier specs).
 
 ## Related

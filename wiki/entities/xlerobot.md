@@ -86,6 +86,8 @@ This composition pattern — **buy-no-new-IP, glue together with 3D-printed brac
 - [LeRobot](lerobot.md) — software
 - [ManiSkill](maniskill.md) — sim
 - [Stretch](stretch.md) — adjacent (single-arm, integrated, ~30× more expensive)
+- [Mobile ALOHA](aloha.md) — the research-tier bimanual-mobile counterpart (~25× the cost)
+- [Robot platforms — comparison](../syntheses/platforms/robot-platforms-comparison.md) — where XLeRobot sits by tier/type (educational bimanual mobile manipulator)
 - [Reachy 2](reachy.md) — adjacent (dual-arm, professional)
 - [V-JEPA 2](v-jepa-2.md) — **the docs' Related Works section cites V-JEPA 2 under "Task Planning"** — a direct intersection with the wiki's JEPA / world-model thread.
 

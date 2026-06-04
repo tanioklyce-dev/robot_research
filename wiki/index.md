@@ -632,7 +632,7 @@ Curated entry points across the wiki.
 - [Curriculum Module 14 — Capstone (paper-first, hardware-second)](syntheses/curriculum/curriculum-14-capstone.md) — the capstone. Phase A: reproduce LeWM PushT + 5–10 page experiment-design memo for a Stretch experiment. Phase B (gated): execute on real Stretch, compare to a Diffusion Policy baseline. The curriculum is completable on phase A alone. (2026-05-10)
 
 ### Platforms
-- [Robot platforms — comparison](syntheses/platforms/robot-platforms-comparison.md) — at-a-glance table of every robot entity in the wiki by tier / type / use; flags missing humanoids + cross-tier transfer gap. (2026-05-08)
+- [Robot platforms — comparison](syntheses/platforms/robot-platforms-comparison.md) — at-a-glance table of every robot entity in the wiki by tier / type / use; now includes [XLeRobot](entities/xlerobot.md) as the educational-tier bimanual mobile manipulator (vs Mobile ALOHA, ~25× apart); flags missing humanoids + cross-tier transfer gap. (2026-05-08)
 - [Humanoid platforms survey](syntheses/platforms/humanoid-platforms-survey.md) — companion to robot-platforms-comparison focused on humanoids; 10 entities listed by tier; AI-strategy archetypes + price stratification. (2026-05-08)
 - [Household robot decision — Stretch vs Unitree G1](syntheses/platforms/household-robot-decision-stretch-vs-g1.md) — buying-decision comparison for navigate + floor pickup + dishes + cans use case. Recommends Stretch. (2026-05-08)
 - [Jetson Thor vs DGX Spark](syntheses/platforms/jetson-thor-vs-dgx-spark.md) — train-on-Spark / deploy-on-Thor split; RT-cores as the gating capability for Isaac Sim/Lab; decision tree for which-NVIDIA-box-for-what. (2026-05-16)
