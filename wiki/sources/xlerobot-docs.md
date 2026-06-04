@@ -69,7 +69,7 @@ The 2026-05-10 ingest above covered the landing page. This section adds detail f
 - **Mass**: ~12 kg (intentionally adult-liftable)
 - **Vertical workspace**: 0.5 m – 1.25 m above ground (fixed-height torso; no lift)
 - **Reach from cart edge**: ~0.36 m (workspace constraint vs. Aloha-class)
-- **Power**: Anker SOLIX C300 — 288 Wh, 300 W max output, 280 W max charge (~1 hr to full), **10+ hr** normal-operation runtime; supplies dual 12 V arms + base + Pi at ~180 W draw. (The BOM's $179.99 line is the **C300 DC Power Bank, A1726** — DC-only; the wiki's Thor analysis substitutes the AC **C300 Power Station, A1722** for its AC outlet + 12 V port — see [Anker C300 DC vs C300 vs C1000](../syntheses/platforms/anker-portable-power-stations.md).)
+- **Power**: Anker SOLIX C300 — 288 Wh, 300 W max output, 280 W max charge (~1 hr to full), **10+ hr** normal-operation runtime; supplies dual 12 V arms + base + Pi at ~180 W draw. (The BOM's $179.99 line is the **C300 DC Power Bank, A1726** — DC-only but **with a 12 V/10 A car outlet + USB-C**, so it serves both robot rails; the wiki's Thor analysis opts for the AC **C300 Power Station, A1722** for its 600 W surge + AC outlet — see [Anker C300 DC vs C300 vs C1000](../syntheses/platforms/anker-portable-power-stations.md).)
 - **Actuators**: **17× Feetech STS3215 servos at 12 V** — the same servo family used by SO-100/SO-101 (cf. [SO-ARM101](../entities/so-arm101.md))
 
 **BOM (`getting_started/material.html`).** Detailed parts list with regional pricing (US / EU / CN / IN). Standout line items:

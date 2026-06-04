@@ -35,7 +35,7 @@ Switch at runtime, persists across reboot: `sudo nvpmodel -m 3` (then `nvpmodel 
 The [C300](https://www.ankersolix.com/products/c300) is rated **300 W output** (the *rate* it can deliver) **and 288 Wh capacity** (the *energy* it stores). The question "is 300 W enough" is about rate; rate turns out not to be the limiting factor.
 
 > [!note] Which C300 — the analysis assumes the AC station
-> The official [BOM](https://xlerobot.readthedocs.io/en/latest/hardware/getting_started/material.html) lists the **C300 DC Power Bank (A1726)** — DC-only, 2.8 kg, **no AC outlet, no 12 V car port, no surge**. This page assumes the recommended **substitution to the C300 Portable Power Station (A1722, 4.1 kg)**, whose AC outlet + 12 V car port + 600 W surge are exactly what make the two-rail wiring in §2 work. On the stock DC bank you'd instead power both rails off its 2× 140 W USB-C (motors via a PD→12 V buck). See [Anker C300 DC vs C300 vs C1000](../platforms/anker-portable-power-stations.md).
+> The official [BOM](https://xlerobot.readthedocs.io/en/latest/hardware/getting_started/material.html) lists the **C300 DC Power Bank (A1726)** — 2.8 kg, DC-only (no AC outlet, hard 300 W cap), but it **does have a 12 V/10 A car outlet + USB-C**, so it serves both robot rails on its own (the [Cutting the Cord](../../sources/cutting-the-cord-untethered-xlerobot.md) Tri-Bus runs on exactly this unit). This page assumes the **C300 Portable Power Station (A1722, 4.1 kg)** instead, taken for its **600 W surge headroom + AC outlet** — a margin, not a necessity. The §2 wiring works on either; the AC just adds surge. See [Anker C300 DC vs C300 vs C1000](../platforms/anker-portable-power-stations.md).
 
 ## 1. Rate — adequate, with surge headroom
 
