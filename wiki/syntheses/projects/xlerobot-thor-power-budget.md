@@ -2,13 +2,33 @@
 title: XLeRobot + AGX Thor power budget — is a 300 W battery enough?
 type: synthesis
 created: 2026-05-30
-updated: 2026-05-31
-tags: [xlerobot, jetson-thor, power, battery, anker-c300, sts3215, energy-budget, projects]
+updated: 2026-06-03
+tags: [xlerobot, jetson-thor, power, battery, anker-c300, sts3215, energy-budget, nvpmodel, power-modes, projects]
 ---
 
 # XLeRobot + AGX Thor power budget
 
 Can the stock XLeRobot battery — an **Anker SOLIX C300** (288 Wh, 300 W output) — run an **NVIDIA Jetson AGX Thor** plus the base motors and arms? Short answer: **the 300 W rate is fine; the binding constraints are the output-port wiring and the energy capacity.** Sibling to [LeRobot on ROSOrin Pro](lerobot-on-rosorin-pro.md) and the [XLeRobot camera options](xlerobot-camera-options-low-light.md) page — same "bolt powerful compute onto a cheap platform, mind the integration" theme.
+
+> [!note] This analysis assumes you software-cap Thor's power with `nvpmodel`
+> Thor's draw is **not** a fixed 130 W — it's a software-selectable budget (70 / 90 / 120 W, or uncapped MAXN). Pinning a lower mode is the single biggest lever for a battery robot: it bounds peak draw, removes the surge risk against the 300 W rail, and stretches runtime — at a throughput cost. The [§0 nvpmodel section](#0-the-biggest-lever--software-cap-thors-watts-nvpmodel) below works this through; the rate/runtime numbers that follow assume a **70 W cap (Mode 3)** unless noted.
+
+## 0. The biggest lever — software-cap Thor's watts (`nvpmodel`)
+
+Per NVIDIA's [Jetson Thor Platform Power and Performance chapter (R38.4)](../../sources/nvidia-jetson-thor-platform-power-performance.md), the **T5000** module's power is a software-selected budget. You are not stuck at the 130 W TDP:
+
+| `nvpmodel` mode | Module budget | CPU | GPU (TPC) | Best for |
+|---|---|---|---|---|
+| 0 — MAXN | uncapped, throttles @ **130 W** TDP | 14 cores @ 2601 MHz | **10** @ 1386 MHz | bench / burst; *not* sustained |
+| 1 — 120 W (default) | **120 W** | 14 @ 2601 | **10** @ 1386 | full-throughput sustained |
+| 2 — 90 W | **90 W** | 14 @ 2601 | **6** @ 1530 | CPU-heavy, GPU-light |
+| 3 — 70 W | **70 W** | 12 @ 1998 | **6** @ 1530 | **battery robots** |
+
+Switch at runtime, persists across reboot: `sudo nvpmodel -m 3` (then `nvpmodel -q` to confirm).
+
+- **The trade-off is mostly GPU.** Any sub-120 W mode drops the GPU from **10 → 6 TPC (~−40 % GPU throughput)**; the CPU is barely affected at 90 W and only modestly clocked-down at 70 W. So **CPU/perception/control loops** lose little at 70 W, while **GPU-bound VLA inference** takes roughly a 40 % hit. For latency-sensitive single-policy VLA you may prefer 90 W (full CPU, reduced GPU) or accept the slower 70 W loop; for classic ROS perception + control, **70 W is nearly free.**
+- **Capping fixes the rate problem outright.** At Mode 3, Thor is bounded ≤ 70 W, so the worst-case "heavy inference + manipulation" spike that previously flirted with the 300 W rail no longer does (see §1, §3). You stop depending on the C300's surge pad.
+- **It can also simplify the wiring.** At 70 W, Thor's compute rail fits comfortably inside a single **USB-C PD feed (140 W)** with ~70 W to spare — so the "you must use Micro-Fit to reach the 168 W ceiling" constraint (§2) only bites if you run MAXN/120 W. Capped, USB-C alone powers the compute. (Motors still need their own 12 V rail regardless.)
 
 ## "300 W" is two specs
 
@@ -20,14 +40,19 @@ Worst-case draw, from verified specs:
 
 | Load | Draw |
 |---|---|
-| **AGX Thor dev kit** | 40 W idle → ~130 W inference; ships with a **28 V / 5 A = 140 W** adapter (ADP-240LB), ~168 W enforced cap ([NVIDIA Jetson Linux dev guide](https://docs.nvidia.com/jetson/archives/r38.2/DeveloperGuide/SD/PlatformPowerAndPerformance/JetsonThor.html)) |
+| **AGX Thor module** | 40 W idle → **software-capped budget: 70 / 90 / 120 W**, MAXN throttles @ 130 W TDP ([Thor Platform Power & Performance, R38.4](../../sources/nvidia-jetson-thor-platform-power-performance.md)). Dev kit ships with a **28 V / 5 A = 140 W** adapter (ADP-240LB) under a **~168 W** total-system cap. |
 | **17× [Feetech STS3215](../../entities/so-arm101.md)** holding/idle | ~30–180 mA each → **~30–60 W** total ([RobotShop](https://www.robotshop.com/products/feetech-12v-30kgcm-magnetic-encoding-servo-sts3215)) |
+| 17× STS3215 active manipulation | ~**90 W** typical (a few servos moving under load; not all-stall) |
 | 17× STS3215 theoretical all-stall | 17 × 2.7 A × 12 V ≈ **550 W** (never simultaneous) |
 | Pi relay + cameras | ~15 W |
 
-- **Normal operation:** ~150 W (Thor ~70 + motors ~60 + 15) — comfortably under 300 W. ✅
-- **Peak transient** (both arms lifting + base accelerating + Thor max): ~300–400 W — exceeds 300 W rated, but the C300's **600 W SurgePad** absorbs brief spikes. ⚠️
-- Only sustained multi-servo-stall-while-driving-at-full-inference threatens the rail. In practice, **rate is fine.**
+Assuming a **70 W Thor cap (Mode 3)**:
+- **Normal operation:** ~145 W (Thor ~70 + motors ~60 + 15) — comfortably under 300 W. ✅
+- **Heavy (capped):** ~175 W (Thor **70**, hard-capped + motors active ~90 + 15) — still a wide margin to 300 W. ✅
+- **Peak transient** (both arms lifting + base accelerating): the only way back toward the rail is many servos stalling at once; the C300's **600 W SurgePad** covers brief spikes, but with Thor pinned at 70 W you rarely get near it.
+
+> [!note] What capping changes vs. running uncapped
+> At **MAXN/120 W**, heavy inference + manipulation peaked ~**225–245 W** and leaned on the surge pad. At **Mode 3 (70 W)** the same scenario is ~**175 W** — **the rate question stops being interesting.** The cost is ~40 % GPU throughput (see §0). This is the recommended posture for the XLeRobot unless a specific VLA needs full GPU.
 
 ## 2. The real gotcha — two voltage rails, capped ports
 
@@ -42,15 +67,17 @@ Motors run at **12 V**; the Thor wants **9–28 V** (via USB-C PD or Micro-Fit).
 
 ## 3. The number that really changes — runtime
 
-The wiki's stock "**10+ hr**" ([XLeRobot](../../entities/xlerobot.md)) assumes *no Thor*. With one:
+The wiki's stock "**10+ hr**" ([XLeRobot](../../entities/xlerobot.md)) assumes *no Thor*. With one, **the nvpmodel cap moves the runtime too** — capping draw stretches it:
 
-| Mode | Avg draw | Runtime (288 Wh, ~AC losses) |
+| Scenario | Thor @ **70 W cap** (Mode 3) | Thor uncapped (120 W / MAXN) |
 |---|---|---|
-| Light / idle | ~115 W | ~2.5 hr |
-| Normal | ~150 W | **~1.5–1.7 hr** |
-| Heavy inference + manipulation | ~245 W | ~1.2 hr |
+| Light / idle | ~95 W → **~2.6–3.0 hr** | ~115 W → ~2.5 hr |
+| Normal | ~145 W → **~1.7–1.8 hr** | ~150 W → ~1.5–1.7 hr |
+| Heavy inference + manipulation | ~175 W → **~1.4–1.5 hr** | ~225–245 W → ~1.1–1.2 hr |
 
-**~1.5–2.5 hr of real working time, down from 10+ hr.** Capacity, not rate, is what bites.
+*(288 Wh usable, derated for AC-inversion / DC-DC losses.)*
+
+**~1.4–3.0 hr of real working time, down from 10+ hr.** Capping Thor at 70 W buys roughly **+15–25 % runtime in the heavy case** (≈1.2 → 1.5 hr) and flattens the draw, but **capacity, not rate, is still what bites** — the cap helps at the margin; a bigger pack helps more (§"Updated battery recommendation"). The honest framing: software-capping is free runtime + safety headroom you should take, but it won't turn a 288 Wh station into an all-day robot.
 
 ## What NVIDIA and the forums recommend
 
@@ -92,7 +119,8 @@ This gives both rails efficiently (no AC-inversion loss), respects each input's 
 
 ## Summary takeaways
 
-- **300 W *rate* is fine** for normal operation; 600 W surge covers transients. Rate is not your constraint.
+- **Software-cap Thor first (`sudo nvpmodel -m 3`, 70 W).** It's the cheapest win: bounds peak draw, removes surge dependence, adds ~15–25 % heavy-mode runtime, and lets a single USB-C PD feed power the compute. Cost is ~40 % GPU throughput — fine for control/perception, a real hit for GPU-bound VLA (use 90 W or accept a slower loop). See [§0](#0-the-biggest-lever--software-cap-thors-watts-nvpmodel).
+- **300 W *rate* is fine** for normal operation; 600 W surge covers transients — and with a 70 W cap you're nowhere near the rail. Rate is not your constraint.
 - **Two rails, capped separately**: 12 V motors + a 9–28 V Thor feed. With the stock C300, no single port serves both; with a custom pack, the dual-DC-DC build above is cleaner.
 - **Runtime, not rate, is the limit**: a Thor drops the XLeRobot from "10+ hr" to **~1.5–2.5 hr**. Buy **watt-hours, not watts**.
 - **Prefer a DC-native pack** over an AC power station — skipping AC inversion is lighter and more efficient for a robot. See the canonical recommendation above for the regulator-into-Micro-Fit topology.
@@ -100,5 +128,6 @@ This gives both rails efficiently (no AC-inversion loss), respects each input's 
 ## Related
 
 - [XLeRobot](../../entities/xlerobot.md) — platform (17× STS3215 @ 12 V; stock Anker C300)
-- [Jetson Thor](../../entities/jetson-thor.md) — the compute being added (40–130 W module; dev kit 28 V/140 W PSU)
+- [Jetson Thor](../../entities/jetson-thor.md) — the compute being added (40–130 W module; software-capped via nvpmodel; dev kit 28 V/140 W PSU)
+- [Jetson Thor Platform Power & Performance (R38.4)](../../sources/nvidia-jetson-thor-platform-power-performance.md) — the nvpmodel power-mode source for §0
 - [XLeRobot camera options for low-light + clutter](xlerobot-camera-options-low-light.md) — sibling integration analysis

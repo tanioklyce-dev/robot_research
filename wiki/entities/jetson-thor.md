@@ -3,8 +3,8 @@ title: Jetson Thor
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-05-31
-sources: 11
+updated: 2026-06-03
+sources: 12
 tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai, jetpack-7, nvfp4, mig]
 ---
 
@@ -38,6 +38,9 @@ Two production module SKUs plus an AGX-style Developer Kit ([Jetson Thor product
 | Memory bandwidth | 273 GB/s |
 | AI performance | 1200 TFLOPS (FP4 sparse) |
 | Power | 40 W – 70 W |
+
+### Power modes (`nvpmodel`)
+Thor's power is a **software-selectable budget**, not a fixed draw ([Thor Platform Power & Performance, R38.4](../sources/nvidia-jetson-thor-platform-power-performance.md)). **T5000**: Mode 0 **MAXN** (uncapped, throttles at the 130 W TDP), Mode 1 **120 W** (default), Mode 2 **90 W**, Mode 3 **70 W**. **T4000**: Mode 0 MAXN, Mode 1 **70 W** (default); module TDP 90 W. The main trade-off is GPU — sub-120 W modes drop the GPU from **10 → 6 TPC (~−40 % throughput)** while barely touching the CPU. Set with `sudo nvpmodel -m <id>` (persists across reboot/SC7). Decisive for battery robots — see [XLeRobot + Thor power budget](../syntheses/projects/xlerobot-thor-power-budget.md).
 
 ### Jetson AGX Thor Developer Kit
 NVIDIA reference carrier + T5000 module. **$3,499 starting** ([NVIDIA Newsroom](../sources/nvidia-jetson-thor-launch-newsroom.md)). Styled like an RTX Founders Edition; AGX-class connectivity.
@@ -135,3 +138,4 @@ See [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.m
 - [AGX Thor Dev Kit — Hardware Layout (User Guide)](../sources/nvidia-jetson-agx-thor-devkit-hardware-layout.md) — primary source for dev-kit IO: Micro-Fit 9–28 V/8 A, USB-C PD Sink 140 W, QSFP28 4×25 Gbps, M.2 Key M 1 TB NVMe, buttons.
 - [Jetson Thor Module Carrier Board Spec (SP-12533-001 v1.2)](../sources/nvidia-jetson-thor-carrier-board-spec.md) — authoritative carrier-board spec: USB-C 5 A / Micro-Fit 15 A current split, bundled adapter is USB-C, first-come-first-serve PD, M.2 Key E + CAN + Automation Header + RTC, **no 40-pin / no CSI**.
 - [AGX Thor Dev Kit — User Guide (landing/index)](../sources/nvidia-jetson-agx-thor-devkit-user-guide-index.md) — doc-set map: Quick Start, BSP/Docker/CUDA/JetPack SDK setup, Hardware Layout, Supported Hardware, Interim Solutions, Troubleshooting.
+- [Jetson Linux Developer Guide — Platform Power and Performance (Jetson Thor, R38.4)](../sources/nvidia-jetson-thor-platform-power-performance.md) — primary source for the T5000/T4000 nvpmodel power modes (70/90/120 W + MAXN), per-mode CPU/GPU caps, and the 168 W system cap vs module TDP distinction.
