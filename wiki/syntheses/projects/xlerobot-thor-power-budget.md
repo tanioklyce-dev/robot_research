@@ -2,8 +2,8 @@
 title: XLeRobot + AGX Thor power budget — is a 300 W battery enough?
 type: synthesis
 created: 2026-05-30
-updated: 2026-06-03
-tags: [xlerobot, jetson-thor, power, battery, anker-c300, sts3215, energy-budget, nvpmodel, power-modes, projects]
+updated: 2026-06-04
+tags: [xlerobot, jetson-thor, power, battery, anker-c300, sts3215, energy-budget, nvpmodel, power-modes, tiered-power, projects]
 ---
 
 # XLeRobot + AGX Thor power budget
@@ -120,6 +120,28 @@ A cleaner build than the stock Anker AC station: **one 24 V-class DC pack + two 
 
 This gives both rails efficiently (no AC-inversion loss), respects each input's current limit, and is lighter than inverting to AC only to rectify back to DC.
 
+## Putting a Jetson Thor onboard — the two-pack (tiered-power) option
+
+[Cutting the Cord](../../sources/cutting-the-cord-untethered-xlerobot.md) shipped an **[Orin Nano](../../entities/jetson-orin-nano.md)** precisely because a **[Jetson Thor](../../entities/jetson-thor.md)** (40–130 W) **"exceeds the power budget"** of a single 288 Wh pack — and named the fix: *"tiered compute architectures or an additional power supply, including using an additional Anker."* A **second [C300 DC](../platforms/anker-portable-power-stations.md)** dedicated to Thor is that fix, and it works.
+
+**Topology — dedicate pack #2 to Thor:**
+- **Pack #1** = the existing Tri-Bus: wheels/neck on a 140 W USB-C rail, the 17× [STS3215](../../entities/so-arm101.md) arms on the 12 V/10 A car outlet, sensors. Unchanged.
+- **Pack #2** = Thor alone, fed from one **140 W USB-C** port (USB-C→DC PD-140 W cable), with Thor pinned to **`nvpmodel -m 3` (70 W)**. Optionally move the high-draw arm bus onto pack #2's car outlet as well.
+
+**Why it works:**
+- **Delivery** — Thor's input is 9–28 V / USB-C PD (bundled adapter = 28 V/5 A = 140 W), so a C300 DC 140 W port feeds it directly. Capped at 70 W (even 90 W), it sits well inside the port; at 120 W the *total* board draw nears the 140 W USB-C ceiling, so **70–90 W is the target on a USB-C feed**. No Micro-Fit needed.
+- **Isolation** — a separate pack is the strongest form of the Tri-Bus principle: Thor never shares a rail with motor transients, so the 12.2 V→0.3 V brownout that killed the shared-bus design can't reach it.
+- **Runtime** — Thor @ 70 W ≈ **~3.5 hr** on its own 288 Wh (@ 120 W ≈ ~2 hr). Since the motor pack runs ~1.5–1.7 hr, **the motors become the binding limit** and Thor stops eating into their runtime.
+
+**Costs / caveats:**
+- **Weight** — +2.8 kg (pack #2) + Thor (~1–1.5 kg dev kit) + its active cooler ≈ **+4–5 kg** on a ~12 kg robot; the holonomic base carries it but COM/agility suffer.
+- **Cooling** — Thor at 70–130 W needs **active cooling** (its stock heatsink-fan); the paper's passive duct was sized for a 7–25 W Orin Nano.
+- **PD handshake** — verify the C300 DC's 140 W port negotiates 28 V/5 A EPR with Thor's PD sink before relying on it (EPR handshakes can be finicky).
+- **Fit, not feasibility** — this is a **$3,499 Thor on a ~$1.5 k robot**. Per the [compute comparison](../platforms/jetson-onboard-compute-xlerobot.md), unless you specifically need Thor's **128 GB for large/multiple VLAs**, an **Orin NX 16 GB** (10–40 W, fits the *single* existing pack, ~$600, drop-in on the Nano carrier) gets you onboard VLA inference with no second pack, no added weight, and no cooling rework.
+
+> [!note] One pack is marginal, not impossible
+> With aggressive 70 W capping, Thor (70 W) + robot (~80 W avg) ≈ 150 W is under the 300 W rate cap — so a *single* C300 DC can technically power both for light use. But energy drain + per-port contention are why the paper judged it over-budget; the second pack removes the doubt and the brownout risk.
+
 ## Summary takeaways
 
 - **Software-cap Thor first (`sudo nvpmodel -m 3`, 70 W).** It's the cheapest win: bounds peak draw, removes surge dependence, adds ~15–25 % heavy-mode runtime, and lets a single USB-C PD feed power the compute. Cost is ~40 % GPU throughput — fine for control/perception, a real hit for GPU-bound VLA (use 90 W or accept a slower loop). See [§0](#0-the-biggest-lever--software-cap-thors-watts-nvpmodel).
@@ -127,6 +149,7 @@ This gives both rails efficiently (no AC-inversion loss), respects each input's 
 - **Two rails, capped separately**: 12 V motors + a 9–28 V Thor feed. On the C300 (A1722) you use two ports (AC/USB-C for Thor + 12 V car port for motors) — no single port gives both voltages; with a custom pack, the dual-DC-DC build above is cleaner.
 - **Runtime, not rate, is the limit**: a Thor drops the XLeRobot from "10+ hr" to **~1.5–2.5 hr**. Buy **watt-hours, not watts**.
 - **Prefer a DC-native pack** over an AC power station — skipping AC inversion is lighter and more efficient for a robot. See the canonical recommendation above for the regulator-into-Micro-Fit topology.
+- **To put a Thor onboard, add a second C300 DC** dedicated to it (the paper's own "additional power supply" fix): Thor @ 70 W on its own 288 Wh ≈ 3.5 hr, cleanest brownout isolation, motors stay on pack #1. Costs ~+4–5 kg + active cooling, and an Orin NX 16 GB on the *single* pack is usually the better fit unless you need Thor's 128 GB. See [the two-pack option](#putting-a-jetson-thor-onboard--the-two-pack-tiered-power-option).
 
 ## Related
 
