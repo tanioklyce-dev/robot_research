@@ -2,8 +2,8 @@
 title: VLA models
 type: concept
 created: 2026-05-06
-updated: 2026-06-02
-sources: 31
+updated: 2026-06-03
+sources: 32
 tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos]
 ---
 
@@ -51,6 +51,9 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 
 > [!note] State of the field (2026): The Stanford HAI AI Index 2026 describes VLA technology as still "at the research stage," noting "the gap between what these models can do in a controlled setting and what they can handle in the real world is still wide." The data constraint is cited as the key bottleneck: every robot training example requires a physical robot or high-fidelity sim. World Foundation Models ([NVIDIA Cosmos](../../entities/nvidia-cosmos.md)) are one response, generating synthetic physics data at scale. A parallel response, validated empirically by [EgoScale](../../sources/egoscale-paper.md), is pretraining on large-scale **egocentric human video** — 20,854 hr of which now yields a measured log-linear scaling law `L = 0.024 − 0.003·ln(D)` (R² = 0.9983) that predicts real-robot performance. See [Scaling laws — VLAs and human data](scaling-laws-vla.md).
 
+> [!note] On-edge inference latency — the action head, not the VLM, is the bottleneck
+> First measured on-robot numbers ([Cutting the Cord, 2026](../../sources/cutting-the-cord-untethered-xlerobot.md), Jetson [Orin Nano](../../entities/jetson-orin-nano.md) Super, FP16, end-to-end camera→action): **[ACT](../../entities/act.md) 36 ms → 27.8 Hz** (reactive control); **[Diffusion Policy](../../entities/diffusion-policy.md) 540 ms → 1.8 Hz**; **[SmolVLA](../../entities/smolvla.md)-450M 714 ms → 1.4 Hz**. The striking finding: SmolVLA adds only *minor* overhead over Diffusion Policy — the latency wall is the **iterative action expert + denoising/flow steps (T=10)**, not the high-parameter semantic head. Implication for edge deployment: cutting sampling steps (or distillation) buys more than shrinking the VLM, and **diffusion/flow-matching VLAs run at ~1–2 Hz on 67-TOPS-class compute** — fine for slow/scripted tasks, too slow for reactive closed-loop. Motivates the async-inference server/client pattern (SmolVLA) and bigger onboard compute — see [Jetson onboard compute for XLeRobot](../../syntheses/platforms/jetson-onboard-compute-xlerobot.md).
+
 ## Adjacent: utility models / non-language-conditioned policies
 - **[Robot Utility Models](../../entities/robot-utility-models.md)** (NYU / Meta) — visuomotor behavior cloning achieving zero-shot ~90% success on novel environments **without language conditioning**. The "utility model" framing is a deliberate distinction from VLAs but solves an overlapping problem ([Robot Utility Models Project Page](../../sources/robot-utility-models-website.md)).
 - **[stretch_ai](../../entities/stretch-ai.md)'s LLM agent** — uses an LLM to emit tool calls, *not* low-level actions. A VLA-substitute architecture for high-level planning, paired with classical perception/manipulation primitives ([Stretch AI LLM Agent Documentation](../../sources/stretch-ai-llm-agent-docs.md), [LLM-agent architecture](../agents/llm-agent-architecture.md)).
@@ -81,3 +84,4 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 - [EgoScale Paper](../../sources/egoscale-paper.md)
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) — LeCun's BC-doesn't-scale + no-planning critique of VLAs
 - [Cosmos 3 Technical Report](../../sources/cosmos-3-technical-report.md) — Cosmos3-Nano-Policy-DROID (world-action model) tops RoboArena, beats π0.5 on RoboLab
+- [Cutting the Cord (Shaw et al., 2026)](../../sources/cutting-the-cord-untethered-xlerobot.md) — on-edge ACT/Diffusion/SmolVLA latency on Jetson Orin Nano

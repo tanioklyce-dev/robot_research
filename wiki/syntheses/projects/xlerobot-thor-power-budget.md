@@ -34,6 +34,9 @@ Switch at runtime, persists across reboot: `sudo nvpmodel -m 3` (then `nvpmodel 
 
 The [C300](https://www.ankersolix.com/products/c300) is rated **300 W output** (the *rate* it can deliver) **and 288 Wh capacity** (the *energy* it stores). The question "is 300 W enough" is about rate; rate turns out not to be the limiting factor.
 
+> [!note] Which C300 — the analysis assumes the AC station
+> The official [BOM](https://xlerobot.readthedocs.io/en/latest/hardware/getting_started/material.html) lists the **C300 DC Power Bank (A1726)** — DC-only, 2.8 kg, **no AC outlet, no 12 V car port, no surge**. This page assumes the recommended **substitution to the C300 Portable Power Station (A1722, 4.1 kg)**, whose AC outlet + 12 V car port + 600 W surge are exactly what make the two-rail wiring in §2 work. On the stock DC bank you'd instead power both rails off its 2× 140 W USB-C (motors via a PD→12 V buck). See [Anker C300 DC vs C300 vs C1000](../platforms/anker-portable-power-stations.md).
+
 ## 1. Rate — adequate, with surge headroom
 
 Worst-case draw, from verified specs:
@@ -121,7 +124,7 @@ This gives both rails efficiently (no AC-inversion loss), respects each input's 
 
 - **Software-cap Thor first (`sudo nvpmodel -m 3`, 70 W).** It's the cheapest win: bounds peak draw, removes surge dependence, adds ~15–25 % heavy-mode runtime, and lets a single USB-C PD feed power the compute. Cost is ~40 % GPU throughput — fine for control/perception, a real hit for GPU-bound VLA (use 90 W or accept a slower loop). See [§0](#0-the-biggest-lever--software-cap-thors-watts-nvpmodel).
 - **300 W *rate* is fine** for normal operation; 600 W surge covers transients — and with a 70 W cap you're nowhere near the rail. Rate is not your constraint.
-- **Two rails, capped separately**: 12 V motors + a 9–28 V Thor feed. With the stock C300, no single port serves both; with a custom pack, the dual-DC-DC build above is cleaner.
+- **Two rails, capped separately**: 12 V motors + a 9–28 V Thor feed. On the C300 (A1722) you use two ports (AC/USB-C for Thor + 12 V car port for motors) — no single port gives both voltages; with a custom pack, the dual-DC-DC build above is cleaner.
 - **Runtime, not rate, is the limit**: a Thor drops the XLeRobot from "10+ hr" to **~1.5–2.5 hr**. Buy **watt-hours, not watts**.
 - **Prefer a DC-native pack** over an AC power station — skipping AC inversion is lighter and more efficient for a robot. See the canonical recommendation above for the regulator-into-Micro-Fit topology.
 
@@ -130,4 +133,7 @@ This gives both rails efficiently (no AC-inversion loss), respects each input's 
 - [XLeRobot](../../entities/xlerobot.md) — platform (17× STS3215 @ 12 V; stock Anker C300)
 - [Jetson Thor](../../entities/jetson-thor.md) — the compute being added (40–130 W module; software-capped via nvpmodel; dev kit 28 V/140 W PSU)
 - [Jetson Thor Platform Power & Performance (R38.4)](../../sources/nvidia-jetson-thor-platform-power-performance.md) — the nvpmodel power-mode source for §0
+- [Onboard compute for XLeRobot — Orin Nano vs AGX Orin vs Thor](../platforms/jetson-onboard-compute-xlerobot.md) — the compute-tier side of this decision (why Thor is over-budget here)
+- [Cutting the Cord (Shaw et al., 2026)](../../sources/cutting-the-cord-untethered-xlerobot.md) — independent untethered XLeRobot build; its **Tri-Bus topology** corroborates the two-rail / motor-transient problem (a 12.2 V→0.3 V brownout on the stock shared bus) and isolates the Jetson on its own rail
+- [Anker C300 DC vs C300 vs C1000](../platforms/anker-portable-power-stations.md) — the power-source comparison (incl. the C300-SKU contradiction the paper surfaces)
 - [XLeRobot camera options for low-light + clutter](xlerobot-camera-options-low-light.md) — sibling integration analysis

@@ -20,7 +20,7 @@ tags: [xlerobot, mobile-manipulator, dual-arm, lerobot, lekiwi, so-arm101, low-c
 - **Mass**: ~12 kg (intentionally adult-liftable)
 - **Vertical workspace**: 0.5 m – 1.25 m (fixed-height torso, no lift)
 - **Reach from cart edge**: ~0.36 m
-- **Power**: Anker SOLIX C300 power station — 288 Wh, 300 W max output (**600 W surge**), 280 W max charge (~1 hr to full), **10+ hr** runtime (stock; *no high-power compute*). Output ports are individually capped: AC 300 W, USB-C PD 140 W, 12 V car port ~120 W ([Anker C300](https://www.ankersolix.com/products/c300)). Adding an [AGX Thor](jetson-thor.md) collapses runtime to **~1.5–2.5 hr** and requires a second voltage rail (12 V motors + 28 V/PD Thor) — see [XLeRobot + Thor power budget](../syntheses/projects/xlerobot-thor-power-budget.md).
+- **Power**: 288 Wh LiFePO4 Anker SOLIX C300, **10+ hr** runtime (stock; *no high-power compute*). The official [BOM](https://xlerobot.readthedocs.io/en/latest/hardware/getting_started/material.html) lists the **C300 DC Power Bank (A1726, $179.99)** — DC-only, **2.8 kg**, 2× 140 W USB-C, **no AC outlet / no 12 V car port / no surge** (hard-capped 300 W). For a Thor build the recommended **substitution is the C300 Portable Power Station (A1722, ~$200, 4.1 kg)** — adds 2× AC 300 W / **600 W surge** + a 12 V/~120 W car port, so a single unit serves both robot rails. Why the swap, and the C1000 alternative: [Anker C300 DC vs C300 vs C1000](../syntheses/platforms/anker-portable-power-stations.md). Adding an [AGX Thor](jetson-thor.md) collapses runtime to **~1.4–2.5 hr** and requires a second voltage rail (12 V motors + 28 V/PD Thor) — see [XLeRobot + Thor power budget](../syntheses/projects/xlerobot-thor-power-budget.md).
 - **3D-printed**: 90% of mechanical parts (tested on BambuLab A1 / PLA; PETG, PLA-CF, Tough PLA also supported)
 - **Assembly time**: **2–4 hr from scratch; 1–2 hr with pre-assembled SO101 arms** (8 high-level steps)
 - **Optional sensors**: RGB camera, stereo RGB (+$30), **RealSense D415 RGBD depth** (+$220). For **low-light / cluttered** operation the **D435i** (global shutter, wider FOV, IMU) is a better swap than the stock D415, though it needs a mount tweak (different housing: D435i 90×25×25 mm vs D415 99×20×23 mm — the press-fit shell won't fit as-printed) — see [XLeRobot camera options for low-light + clutter](../syntheses/projects/xlerobot-camera-options-low-light.md).
@@ -100,11 +100,14 @@ These are the strongest external signals to date that the $660 BOM holds up when
 
 ## Downstream projects
 
+- **[Cutting the Cord](../sources/cutting-the-cord-untethered-xlerobot.md)** ([Nikolaus Correll](nikolaus-correll.md) lab, CU Boulder, 2026) — the first measured **untethered, onboard-GPU XLeRobot** (<$1,300 / $1,202 BOM). Adds embedded [Jetson Orin Nano](jetson-orin-nano.md) compute, a **Tri-Bus power topology** that isolates the Jetson from motor voltage transients (fixing a 12.2 V→0.3 V brownout on the stock shared bus), a stiffer "High-Shell" 4-wall print topology (1 kg/arm payload, 98.7 % grasp success), and onboard SLAM/IK/VR-teleop. Provides the wiki's first on-edge VLA latency numbers and grounds the [Jetson onboard-compute comparison](../syntheses/platforms/jetson-onboard-compute-xlerobot.md). NB: it cites its C300 (ref) as the **"C300 DC," $159.99, with a 12 V/10 A car outlet + 3 USB-C** — see the C300-SKU flag in [Anker C300 DC vs C300 vs C1000](../syntheses/platforms/anker-portable-power-stations.md).
 - **[Grievous](grievous.md)** ([source](../sources/grievous-github.md)) — Alex Koven's in-progress "cheap, human-like, fully-autonomous testbed" explicitly building on Mobile ALOHA + XLeRobot + [LeRobot](lerobot.md). First wiki-tracked attempt to combine XLeRobot's cost-reduction strategy with [Mobile ALOHA](aloha.md)'s bimanual-mobile design.
 
 ## Mentioned in
 
 - [XLeRobot Documentation](../sources/xlerobot-docs.md)
+- [Cutting the Cord (Shaw et al., 2026)](../sources/cutting-the-cord-untethered-xlerobot.md) — untethered onboard-Jetson evolution.
+- [Jetson onboard compute for XLeRobot](../syntheses/platforms/jetson-onboard-compute-xlerobot.md) — Orin Nano vs AGX Orin vs Thor.
 - [Seeed × NVIDIA × HF Embodied AI Hackathon 2025 Recap](../sources/seeed-embodied-ai-hackathon-2025-recap.md)
 - [Grievous GitHub](../sources/grievous-github.md) — design ancestor.
 

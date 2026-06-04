@@ -2,8 +2,8 @@
 title: Jetson Orin Nano
 type: entity
 created: 2026-05-16
-updated: 2026-05-16
-sources: 8
+updated: 2026-06-03
+sources: 9
 tags: [jetson, nvidia, edge-ai, hardware, robotics-compute]
 ---
 
@@ -50,6 +50,12 @@ sudo /usr/sbin/nvpmodel -q             # query
 
 Mode persists across reboots and SC7. **Mode IDs are not portable across module variants** — always cross-reference per module.
 
+## Measured performance & robotics deployment
+
+- **Module figures (Super):** **67 INT8 TOPS, 102 GB/s memory bandwidth, 7–25 W** ([Cutting the Cord](../sources/cutting-the-cord-untethered-xlerobot.md)) — the first ingested source to pin these numbers.
+- **On-edge policy latency** (Orin Nano, MAXN SUPER, FP16, end-to-end camera→action; [same source](../sources/cutting-the-cord-untethered-xlerobot.md)): **ACT 36 ms → 27.8 Hz** (reactive control ✅); **Diffusion Policy 540 ms → 1.8 Hz**; **SmolVLA-450M 714 ms → 1.4 Hz** (diffusion/flow-matching action heads are the bottleneck, *not* the VLM). No thermal throttling after 30 min continuous SmolVLA (max 54.6 °C).
+- **First measured onboard-XLeRobot build:** Correll lab's untethered [XLeRobot](xlerobot.md) embeds the Orin Nano Super ($249) with ~60 W of power headroom on a 288 Wh pack — the **validated default** in the [Jetson onboard-compute comparison](../syntheses/platforms/jetson-onboard-compute-xlerobot.md).
+
 ## Software stack
 
 - **OS / BSP**: [Jetson Linux](jetson-linux.md) — currently the R36.5 line (Ubuntu 22.04 + kernel 5.15 + UEFI + OP-TEE) for Orin-class modules ([Jetson Linux R36.5](../sources/nvidia-jetson-linux-r36-5-release.md)).
@@ -74,10 +80,12 @@ In-place updates use apt against NVIDIA's L4T Debian repository: `apt update && 
 
 ## Open questions
 
-- Exact module-level performance figures (TOPS, GPU clock, memory bandwidth) are not in any currently-ingested source. A datasheet ingest would let the wiki cite specifics.
+- ~~Exact module-level performance figures (TOPS, GPU clock, memory bandwidth) are not in any currently-ingested source.~~ **Resolved** for the Super tier: **67 INT8 TOPS / 102 GB/s / 7–25 W** ([Cutting the Cord](../sources/cutting-the-cord-untethered-xlerobot.md)). An NVIDIA datasheet ingest would still add per-mode TOPS.
 - VPI 3.2 in JetPack 6.2.2 ships a native [AprilTags](../concepts/robotics/apriltags.md) detector/pose-estimator — Orin Nano performance vs CPU `apriltag` library and Coral TPU would be a useful comparison.
 
 ## Mentioned in
+- [Cutting the Cord (Shaw et al., 2026)](../sources/cutting-the-cord-untethered-xlerobot.md) — measured onboard-XLeRobot build + 67-TOPS / on-edge-VLA-latency numbers.
+- [Jetson onboard compute for XLeRobot](../syntheses/platforms/jetson-onboard-compute-xlerobot.md) — Orin Nano vs AGX Orin vs Thor.
 - [Jetson Orin Nano flash howto](../syntheses/projects/jetson-orin-nano-flash-howto.md)
 - [LeWM on ROSOrin Pro feasibility](../syntheses/projects/lewm-on-rosorin-pro-feasibility.md)
 - [ROSOrin Pro Lego pick-and-place](../syntheses/projects/rosorin-pro-lego-pick-place.md)
