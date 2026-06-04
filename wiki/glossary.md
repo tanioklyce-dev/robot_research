@@ -159,6 +159,9 @@ Conway's 1970 2D [cellular automaton](concepts/alife/cellular-automata.md); one 
 ### IoU
 **Intersection over Union** — overlap metric for bounding boxes / masks. *(Module 2.)*
 
+### Jacobian
+The `m×n` matrix of partial derivatives of a vector function `f: Rⁿ→Rᵐ`, `(∂f/∂x)ᵢⱼ = ∂fᵢ/∂xⱼ`. Vectorized backprop = multiplying Jacobians via the chain rule; SGD then uses the "gradient shape = parameter shape" convention. See [Clark's CS224n gradient notes](sources/clark-computing-nn-gradients.md). *(Module 1.)*
+
 ### JEPA
 **Joint-Embedding Predictive Architecture** — predict the *embedding* of the next state, not pixels. Yann LeCun's program. See [concept page](concepts/world-models/jepa.md). *(Module 11.)*
 

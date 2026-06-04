@@ -133,7 +133,7 @@ A neural network is a deep composition. The chain rule extends:
 
 This is **backpropagation**: compute the loss `L`, then propagate `∂L/∂h_l` backward layer by layer using the chain rule. Each layer needs to know `∂h_l/∂h_{l-1}` (for the upstream gradient) and `∂h_l/∂θ_l` (for the layer's own parameter update).
 
-Most of the time you don't compute backprop by hand — PyTorch's autograd does it from a graph trace. You should be able to do it by hand for a 2-layer MLP, though, to ground the intuition.
+Most of the time you don't compute backprop by hand — PyTorch's autograd does it from a graph trace. You should be able to do it by hand for a 2-layer MLP, though, to ground the intuition. The cleanest reference for doing exactly that *in vectorized form* is [Kevin Clark's CS224n gradient notes](../../sources/clark-computing-nn-gradients.md): seven reusable Jacobian identities (incl. the workhorse `∂J/∂θ = ŷ − y` for softmax-CE) plus a full worked backward pass for a 1-hidden-layer classifier, ending exactly at the [anchor exercise](#anchor-exercise) below.
 
 ### Stochastic Gradient Descent ([SGD](../../glossary.md#sgd))
 
@@ -281,6 +281,7 @@ In order of effort:
 2. **Goodfellow, Bengio, Courville — *[Deep Learning](https://www.deeplearningbook.org/)*** (textbook, free online) — chapters 1–6. Authoritative but verbose. Skim.
 3. **PyTorch's [60-minute blitz](https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html)** — hands-on starter; gets you to a working MLP fast.
 4. **Karpathy's [micrograd](../../sources/karpathy-micrograd.md)** — backprop in ~100 lines of Python; the cleanest "I understand backprop" milestone. ([repo](https://github.com/karpathy/micrograd); wiki source page covers structure, the `Value`-class scalar autograd design, and the demo notebook.)
+5. **[Kevin Clark — Computing Neural Network Gradients (CS224n)](../../sources/clark-computing-nn-gradients.md)** — the vectorized-backprop cheat sheet: Jacobian identities + the "gradient shape = parameter shape" convention + a worked 1-layer-NN backward pass. Do this *after* micrograd (scalar) to graduate to matrix/vector form; it's the on-ramp to the rigorous [Elements of Differentiable Programming](../../sources/blondel-roulet-differentiable-programming.md).
 
 ## What you should now be able to do
 
@@ -310,6 +311,7 @@ Every subsequent module assumes you can read the math in §1–8.
 ## Mentioned in
 
 - [Robot-learning curriculum](robot-learning-curriculum.md)
+- [Computing Neural Network Gradients (Kevin Clark, CS224n)](../../sources/clark-computing-nn-gradients.md) — vectorized-backprop reference for §3.
 - [Index](../../index.md)
 
 ## Open questions / TBD
