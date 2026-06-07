@@ -66,3 +66,4 @@ The world's leading high-school robotics competition, run by FIRST (For Inspirat
 ## Mentioned in
 - [FRC 2026 Game Manual](../sources/frc-2026-game-manual.md)
 - [FRC KitBot 2026](../sources/frc-kitbot-2026.md)
+- [Team 4414 HighTide — 2026 Technical Binder](../sources/team-4414-hightide-2026-binder.md)

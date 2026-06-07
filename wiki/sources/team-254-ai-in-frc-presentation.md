@@ -90,5 +90,6 @@ Mixed, with several recurring themes from the Chief Delphi discussion (5+ pages)
 - Will Team 254 publish the slide deck? (Requested but not yet available as of ingestion.)
 - How does wpilib-agent-tools compare to research-robotics agent frameworks (e.g., [stretch_ai](../entities/stretch-ai.md)'s LLM agent)?
 - What specific Claude Code configuration (CLAUDE.md, skills) did 254 use for FRC?
+  - **Partial real-world answer**: [Team 4414 HighTide](team-4414-hightide-2026-binder.md) reports an "AI-first" workflow where "little code is written by hand," a **state-machine (not command-based) codebase chosen because it's easier for AI to reason about**, and **skill files** that help agents "build autos, parse logs, or optimize loop time."
 - Does ClaudeScope have a public repository?
 - How will WPILib's 2027 API changes (naming scheme) affect LLM agent reliability?

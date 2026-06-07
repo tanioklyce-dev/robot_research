@@ -2123,3 +2123,13 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - Example carriers (Super J401 / Robotics J401 / J401 open-source / A603 compact / A608 comms-oriented / Mini J501 AGX Orin) mapped to priorities via a worked edge-AI-vision case (connectivity→Super J401, compact→A603, interconnect→A608, prototyping→J401, robot→Robotics J401). Prototype→production = validate on mature carrier then trim/ODM.
 - **Naming reconciliation captured:** "J401" = carrier board for Orin Nano/NX; populated with a module = the "J40xx" product (J401 + Orin NX 16 GB = J4012). So Robotics J401 carrier ↔ Robotics J4012 product. A603/A608 are new compact/comms carriers.
 - Cross-linked: [selection-guide source](sources/seeed-jetson-selection-guide.md), [Seeed entity](entities/seeed-studio.md), [onboard-compute comparison](syntheses/platforms/jetson-onboard-compute-xlerobot.md), [index](index.md). Did not create a person entity for Liyan Gong (blog author, no other wiki anchor).
+
+## [2026-06-07] ingest | Team 4414 HighTide — 2026 Technical Binder
+- Source: https://2026.team4414.com/ (JS SPA; content extracted from compiled bundle)
+- Created [Team 4414 HighTide — 2026 Technical Binder](sources/team-4414-hightide-2026-binder.md)
+- Created entity [Team 4414 (HighTide)](entities/team-4414-hightide.md)
+- Updated [FIRST Robotics Competition](entities/first-robotics-competition.md) (Mentioned in)
+- Cross-linked from [Team 254 AI-in-FRC presentation](sources/team-254-ai-in-frc-presentation.md) (real-world answer to "what Claude/skills config does a team use") — AI-first dev, state-machine codebase, agent skill files
+- Updated [index.md](index.md) (FRC highlights, Sources, Entities/Companies)
+- Notable: REBUILT FUEL shooter (swerve + Dye Rotor + 4×Kraken-X44 copper-mass flywheel + turret); precomputed 2nd-order-polynomial shot calculator with pitch/yaw tilt compensation + turret tangential-velocity correction (shoot-on-the-bump-under-defense); "Tide Apps" in-house tool suite
+- Open: model/harness used; whether Tide Apps + skill files are open-sourced; 2026 results; team location/roster not on the page

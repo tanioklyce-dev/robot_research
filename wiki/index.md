@@ -49,6 +49,7 @@ Curated entry points across the wiki.
 - [FIRST Robotics Competition](entities/first-robotics-competition.md) — competition overview, robot constraints, technical infrastructure.
 - [FRC KitBot](entities/frc-kitbot.md) — the beginner-friendly KitBot platform.
 - [FRC simulation & AI landscape](syntheses/simulators/frc-simulation-and-ai-landscape.md) — what simulation & AI tools FRC teams use (trajectory planners, physics sims, ML frontier).
+- [Team 4414 (HighTide)](entities/team-4414-hightide.md) — software-forward 2026 team; AI-first dev workflow + precomputed shot calculator; concrete instance of the [Team 254 AI-in-FRC](sources/team-254-ai-in-frc-presentation.md) playbook.
 
 **JEPA / LeWorldModel**
 - [Joint-Embedding Predictive Architecture](concepts/world-models/jepa.md) — JEPA concept page.
@@ -157,6 +158,7 @@ Curated entry points across the wiki.
 - [FRC KitBot 2026](sources/frc-kitbot-2026.md) — official KitBot resource page; AM14U6 chassis, Java code, CAD, multilingual docs. (2026-01)
 - [Team 254: The Next Revolution — AI in FRC](sources/team-254-ai-in-frc-presentation.md) — 2026 Championship Conference presentation; Claude Code, wpilib-agent-tools, closed-loop agent workflows. (2026-05-04)
 - [Team 254 Website](sources/team-254-website.md) — official site; robot history, programs, technical resources. (2026)
+- [Team 4414 HighTide — 2026 Technical Binder](sources/team-4414-hightide-2026-binder.md) — self-published binder; REBUILT FUEL shooter (swerve + Dye Rotor + 4×Kraken-X44 flywheel + turret); precomputed tilt-compensated shot calculator; **AI-first dev loop** (state-machine codebase, agent skill files) + "Tide Apps" tool suite. Real-world counterpart to the [Team 254 AI-in-FRC](sources/team-254-ai-in-frc-presentation.md) talk. (2026)
 - [Berkeley News — researchers simulate an entire fly brain on a laptop](sources/berkeley-fly-brain-news.md) — Phil Shiu's leaky-integrate-and-fire simulation of the full FlyWire connectome. (2024-10-02)
 - [flybody Paper — Vaxenburg et al. 2025, Nature](sources/flybody-paper.md) — anatomically detailed *Drosophila* whole-body MuJoCo simulator + DMPO-trained walking & vision-guided flight controllers. (2025-04-23)
 - [flybody GitHub (TuragaLab/flybody)](sources/flybody-github.md) — Apache-2.0 release: body XML, dm_control tasks, Ray-distributed DMPO training. (2024–2025)
@@ -316,6 +318,7 @@ Curated entry points across the wiki.
 - [FIRST Robotics Competition](entities/first-robotics-competition.md) — world's leading high-school robotics competition; ~3,700 teams, 30+ countries. (4 sources)
 - [AndyMark](entities/andymark.md) — major FRC vendor; AM14U6 chassis, field elements, FUEL scoring elements. (2 sources)
 - [Team 254: The Cheesy Poofs](entities/team-254.md) — elite FRC team (2022 World Champions); 2026 "AI in FRC" presentation; Claude Code + wpilib-agent-tools. (2 sources)
+- [Team 4414 (HighTide)](entities/team-4414-hightide.md) — software-forward FRC team; 2026 REBUILT FUEL shooter; AI-first dev ("little code written by hand"), state-machine codebase, shot-trajectory precompute. (1 source)
 - [HHMI Janelia Research Campus](entities/hhmi-janelia.md) — HHMI's pure-research lab; Turaga lab leads flybody + flyvis; *Drosophila* neuroscience & connectomics anchor. (3 sources)
 - [NeLy-EPFL (Neuroengineering Laboratory)](entities/nely-epfl.md) — EPFL lab; maintains [NeuroMechFly](entities/neuromechfly.md) + the `flygym` Python library; European counterweight to HHMI Janelia in fly-body simulation. (3 sources)
 - [Toyota Research Institute (TRI)](entities/tri.md) — Toyota's R&D arm; Los Altos + Cambridge; co-affiliation across [Diffusion Policy](entities/diffusion-policy.md) + [UMI](entities/umi.md); home of TRI LBM. (2 sources)
