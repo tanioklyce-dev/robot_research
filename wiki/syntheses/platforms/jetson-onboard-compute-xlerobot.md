@@ -69,8 +69,12 @@ The [paper's on-edge benchmark](../../sources/cutting-the-cord-untethered-xlerob
 
 **Bottom line:** for the XLeRobot as-specced, **Orin Nano is the right default and the only one proven untethered**; **Orin NX 16 GB is the natural drop-in upgrade** when onboard VLAs need more than 8 GB / ~1–2 Hz (and usually the better buy than AGX Orin here); **AGX Orin** is for when you want 64 GB and peak throughput; **Thor is the wrong tool** until the robot (and its battery) grow up.
 
+> [!note] The NPU alternative (not on this Jetson ladder)
+> A [Raspberry Pi 5](../../entities/raspberry-pi-5.md) + **[AI HAT+ 2 / Hailo-10H](../../sources/raspberry-pi-ai-hat-plus-2.md)** (40 TOPS INT4, 8 GB, $180) is a *non-CUDA* onboard option. It can host a local **LLM/VLM agent layer + vision** but is **not** a substitute for any tier here when it comes to the control policy: a [Hailo](../../entities/hailo.md) NPU runs only models compiled to its HEF format, so it does **not** run LeRobot's PyTorch ACT/Diffusion/SmolVLA/π0.5 as-is. Use it alongside (Pi-as-host + onboard LLM), not instead of, the Jetson for policy inference.
+
 ## Related
 - [Cutting the Cord (Shaw et al., 2026)](../../sources/cutting-the-cord-untethered-xlerobot.md) — the measured onboard-Orin-Nano XLeRobot build this page is built on.
+- [Raspberry Pi AI HAT+ 2 (Hailo-10H)](../../sources/raspberry-pi-ai-hat-plus-2.md) / [Hailo](../../entities/hailo.md) — the NPU alternative to this CUDA ladder.
 - [XLeRobot + AGX Thor power budget](../projects/xlerobot-thor-power-budget.md) — the battery/runtime/two-rail analysis.
 - [Anker C300 DC vs C300 vs C1000](anker-portable-power-stations.md) — the power-source side of the same decision.
 - [Jetson Thor Platform Power & Performance (R38.4)](../../sources/nvidia-jetson-thor-platform-power-performance.md) — Thor's nvpmodel caps (why 70 W is reachable).

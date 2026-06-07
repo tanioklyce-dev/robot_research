@@ -2133,3 +2133,20 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - Updated [index.md](index.md) (FRC highlights, Sources, Entities/Companies)
 - Notable: REBUILT FUEL shooter (swerve + Dye Rotor + 4×Kraken-X44 copper-mass flywheel + turret); precomputed 2nd-order-polynomial shot calculator with pitch/yaw tilt compensation + turret tangential-velocity correction (shoot-on-the-bump-under-defense); "Tide Apps" in-house tool suite
 - Open: model/harness used; whether Tide Apps + skill files are open-sourced; 2026 results; team location/roster not on the page
+
+## [2026-06-07] ingest | Raspberry Pi AI HAT+ 2 (Hailo-10H)
+- Source: https://www.raspberrypi.com/products/ai-hat-plus-2/
+- Created [Raspberry Pi AI HAT+ 2 (Hailo-10H)](sources/raspberry-pi-ai-hat-plus-2.md)
+- Created entity [Hailo](entities/hailo.md) (company + 8L/8/10H accelerator family) and [Raspberry Pi 5](entities/raspberry-pi-5.md)
+- Updated [XLeRobot](entities/xlerobot.md) compute-model bullet (added NPU vs CUDA onboard options)
+- Updated [Jetson onboard compute for XLeRobot](syntheses/platforms/jetson-onboard-compute-xlerobot.md) with an "NPU alternative" callout
+- Updated [index.md](index.md) (Sources, Entities/Companies)
+- Correction to prior query answer: "AI HAT+ 2" = the Hailo-10H board (one product, not two). AI HAT+ 2 = generative AI (40 TOPS INT4, 8 GB, $180, local LLM/VLM); original AI HAT+ = Hailo-8/8L vision CNN
+- XLeRobot takeaway: 10H can host an onboard LLM/VLM agent layer + vision, but is NOT CUDA — does not run LeRobot ACT/Diffusion/SmolVLA/π0.5 policies; Jetson Orin Nano/NX remains the validated control-policy path
+
+## [2026-06-07] ingest+synthesis | hailo-apps (GitHub) + Hailo-vs-Jetson synthesis
+- Source: https://github.com/hailo-ai/hailo-apps
+- Created [hailo-apps (GitHub)](sources/hailo-apps-github.md) — MIT; rel 26.03.1 (2026-04-13); Hailo-8/8L/10H on Pi5/Ubuntu/Windows; vision CLIs + Hailo-10H `gen_ai_apps` (LLM/VLM/Voice2Action); HailoRT+TAPPAS deps; "AI-Powered Development" agent beta
+- Updated [Hailo](entities/hailo.md) (toolchain section + 2 sources + Mentioned in)
+- Filed synthesis [Hailo NPU (AI HAT+ 2) vs Jetson (CUDA) for an onboard XLeRobot brain](syntheses/platforms/hailo-npu-vs-jetson-xlerobot.md) — NPU runs compiled HEF models only; Jetson runs PyTorch policies as-is; map by layer (Hailo = perception+LLM agent, Jetson = control policy); usually both
+- Cross-linked from [AI HAT+ 2 source](sources/raspberry-pi-ai-hat-plus-2.md); updated [index.md](index.md) (Sources, Entities, Syntheses)
