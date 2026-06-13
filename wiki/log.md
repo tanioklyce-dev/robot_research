@@ -2150,3 +2150,9 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - Updated [Hailo](entities/hailo.md) (toolchain section + 2 sources + Mentioned in)
 - Filed synthesis [Hailo NPU (AI HAT+ 2) vs Jetson (CUDA) for an onboard XLeRobot brain](syntheses/platforms/hailo-npu-vs-jetson-xlerobot.md) — NPU runs compiled HEF models only; Jetson runs PyTorch policies as-is; map by layer (Hailo = perception+LLM agent, Jetson = control policy); usually both
 - Cross-linked from [AI HAT+ 2 source](sources/raspberry-pi-ai-hat-plus-2.md); updated [index.md](index.md) (Sources, Entities, Syntheses)
+## [2026-06-13] ingest | NVIDIA Jetson AI Lab — HuggingFace LeRobot (archived tutorial)
+- Created [NVIDIA Jetson AI Lab LeRobot tutorial](sources/nvidia-jetson-ai-lab-lerobot.md) — `dustynv/lerobot` containerized recipe to run LeRobot on Jetson (Koch v1.1 + ACT); archived/deprecated, pins pre-refactor LeRobot CLI + JetPack 6 GA/6.1
+- New entity: [jetson-containers](entities/jetson-containers.md) — Dustin Franklin/NVIDIA Docker-on-Jetson framework + dustynv/* registry + autotag
+- Updated [LeRobot](entities/lerobot.md) (new "Running LeRobot on Jetson (containerized)" subsection; 14→15 sources), [ACT](entities/act.md) (onboard-Jetson training instance; 6→7 sources), [Jetson Orin Nano](entities/jetson-orin-nano.md) (containerized LeRobot target; 9→10 sources)
+- Updated [index.md](index.md) (new source + jetson-containers entity)
+- Distinct from prior onboard story: Cutting the Cord measures policy latency on a self-built stack; the 3 ROS 2 bridges adapt LeRobot to ROS 2 — this is NVIDIA's container path to run LeRobot itself on edge silicon

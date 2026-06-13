@@ -3,8 +3,8 @@ title: ACT (Action Chunking Transformer)
 type: entity
 subtype: method
 created: 2026-05-25
-updated: 2026-05-28
-sources: 6
+updated: 2026-06-13
+sources: 7
 tags: [act, action-chunking, transformer, imitation-learning, behavior-cloning, aloha, mobile-aloha, tony-zhao, stanford, lerobot]
 ---
 
@@ -28,7 +28,7 @@ tags: [act, action-chunking, transformer, imitation-learning, behavior-cloning, 
 
 - **Original ACT** — first introduced with original ALOHA (Zhao et al. RSS 2023).
 - **[ACT++](act-plus-plus.md)** ([MarkFzp/act-plus-plus](https://github.com/MarkFzp/act-plus-plus)) — the mobile-extended successor shipped with [Mobile ALOHA](aloha.md). Adds the 16-dim action vector (14 arms + 2 base), the co-training-with-static-data recipe, and the action-chunk delay-shift trick.
-- **LeRobot's ACT implementation** — independent re-implementation in the [LeRobot](lerobot.md) framework; covered in the **["Robot Learning: A Tutorial"](../sources/lerobot-robot-learning-tutorial.md)** with a runnable code example (`fracapuano/robot_learning_tutorial_act_example_model`).
+- **LeRobot's ACT implementation** — independent re-implementation in the [LeRobot](lerobot.md) framework; covered in the **["Robot Learning: A Tutorial"](../sources/lerobot-robot-learning-tutorial.md)** with a runnable code example (`fracapuano/robot_learning_tutorial_act_example_model`). NVIDIA's archived **[Jetson AI Lab LeRobot tutorial](../sources/nvidia-jetson-ai-lab-lerobot.md)** uses ACT as the default policy trained *onboard a Jetson* (`policy=act_koch_real`) on Koch v1.1 — a concrete edge-training instance of ACT being chosen for its small footprint.
 
 ## Open questions
 
@@ -58,3 +58,4 @@ From [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) Tables 2 +
 - [Mobile ALOHA project page](../sources/mobile-aloha-project-page.md)
 - [Robot Learning: A Tutorial (LeRobot)](../sources/lerobot-robot-learning-tutorial.md)
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — supported by LeRobot; benchmark numbers above; explicitly cited as the dominant single-task BC policy in the ecosystem.
+- [NVIDIA Jetson AI Lab — HuggingFace LeRobot (archived)](../sources/nvidia-jetson-ai-lab-lerobot.md) — ACT as the default onboard-Jetson training target on Koch v1.1.

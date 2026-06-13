@@ -3,8 +3,8 @@ title: LeRobot
 type: entity
 subtype: software-framework
 created: 2026-05-10
-updated: 2026-05-28
-sources: 14
+updated: 2026-06-13
+sources: 15
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026]
 ---
 
@@ -109,6 +109,10 @@ The [LeRobot Worldwide Hackathon 2025](lerobot-worldwide-hackathon-2025.md) (Jun
 
 - **[Grievous](grievous.md)** ([source](../sources/grievous-github.md)) — Alex Koven's in-progress "cheap, human-like, fully-autonomous testbed" registered as `lerobot.robots.grievous.grievous_host`. Design ancestors: [Mobile ALOHA](aloha.md) + [XLeRobot](xlerobot.md).
 
+### Running LeRobot on Jetson (containerized)
+
+NVIDIA's **[Jetson AI Lab LeRobot tutorial](../sources/nvidia-jetson-ai-lab-lerobot.md)** (now archived) packages LeRobot as the **`dustynv/lerobot`** Docker image, deployed via the **[jetson-containers](jetson-containers.md)** framework + `autotag`, to run the full teleop → record → train ([ACT](act.md)) → eval loop **onboard a Jetson** (AGX Orin / Orin NX 16 GB / [Orin Nano 8 GB](jetson-orin-nano.md)). Bundles JupyterLab + Rerun.io + PulseAudio-TTS; uses **Koch v1.1** as the reference robot. It is NVIDIA's containerized "get LeRobot running on edge silicon" recipe — distinct from the ROS 2 bridges below (which adapt LeRobot to ROS 2 robots) and from [Cutting the Cord](../sources/cutting-the-cord-untethered-xlerobot.md) (which measures policy latency on a self-built onboard stack). **Caveat:** the tutorial is deprecated and pins the pre-refactor LeRobot CLI (`control_robot.py` / Hydra `train.py`) + JetPack 6 GA/6.1, not the current `lerobot-record`/`lerobot-train` entry points.
+
 ### LeRobot ↔ [ROS 2](ros2.md) bridges (3 independent projects)
 
 | Project | Approach | Hardware | ROS 2 distro | Stars (May 2026) | License |
@@ -132,6 +136,7 @@ Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distri
 ## Mentioned in
 
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **canonical academic reference**; Cadene, Aliberts, Capuano, …, Wolf; 17 HF authors.
+- [NVIDIA Jetson AI Lab — HuggingFace LeRobot (archived)](../sources/nvidia-jetson-ai-lab-lerobot.md) — `dustynv/lerobot` containerized Jetson recipe (Koch v1.1 + ACT).
 - [Rosetta GitHub](../sources/rosetta-github.md) — downstream ROS 2 bridge (YAML-contract).
 - [lerobot-ros GitHub](../sources/lerobot-ros-github.md) — downstream ROS 2 bridge (Python sub-class, Jazzy).
 - [so101_ros2 readthedocs](../sources/so101-ros2-readthedocs.md) — downstream ROS 2 bridge (SO-101-specific, Humble + Isaac Sim).

@@ -2,8 +2,8 @@
 title: Jetson Orin Nano
 type: entity
 created: 2026-05-16
-updated: 2026-06-03
-sources: 9
+updated: 2026-06-13
+sources: 10
 tags: [jetson, nvidia, edge-ai, hardware, robotics-compute]
 ---
 
@@ -55,6 +55,7 @@ Mode persists across reboots and SC7. **Mode IDs are not portable across module 
 - **Module figures (Super):** **67 INT8 TOPS, 102 GB/s memory bandwidth, 7–25 W** ([Cutting the Cord](../sources/cutting-the-cord-untethered-xlerobot.md)) — the first ingested source to pin these numbers.
 - **On-edge policy latency** (Orin Nano, MAXN SUPER, FP16, end-to-end camera→action; [same source](../sources/cutting-the-cord-untethered-xlerobot.md)): **ACT 36 ms → 27.8 Hz** (reactive control ✅); **Diffusion Policy 540 ms → 1.8 Hz**; **SmolVLA-450M 714 ms → 1.4 Hz** (diffusion/flow-matching action heads are the bottleneck, *not* the VLM). No thermal throttling after 30 min continuous SmolVLA (max 54.6 °C).
 - **First measured onboard-XLeRobot build:** Correll lab's untethered [XLeRobot](xlerobot.md) embeds the Orin Nano Super ($249) with ~60 W of power headroom on a 288 Wh pack — the **validated default** in the [Jetson onboard-compute comparison](../syntheses/platforms/jetson-onboard-compute-xlerobot.md).
+- **Containerized LeRobot path:** NVIDIA's archived [Jetson AI Lab LeRobot tutorial](../sources/nvidia-jetson-ai-lab-lerobot.md) lists Orin Nano **8 GB** as a supported (but caveated) target for running the full LeRobot teleop→train→eval loop via the `dustynv/lerobot` [jetson-containers](jetson-containers.md) image — the 8 GB tier is the tight one for onboard ACT training.
 
 ## Software stack
 
@@ -85,6 +86,7 @@ In-place updates use apt against NVIDIA's L4T Debian repository: `apt update && 
 
 ## Mentioned in
 - [Cutting the Cord (Shaw et al., 2026)](../sources/cutting-the-cord-untethered-xlerobot.md) — measured onboard-XLeRobot build + 67-TOPS / on-edge-VLA-latency numbers.
+- [NVIDIA Jetson AI Lab — HuggingFace LeRobot (archived)](../sources/nvidia-jetson-ai-lab-lerobot.md) — Orin Nano 8 GB as a containerized LeRobot target.
 - [Jetson onboard compute for XLeRobot](../syntheses/platforms/jetson-onboard-compute-xlerobot.md) — Orin Nano vs AGX Orin vs Thor.
 - [Jetson Orin Nano flash howto](../syntheses/projects/jetson-orin-nano-flash-howto.md)
 - [LeWM on ROSOrin Pro feasibility](../syntheses/projects/lewm-on-rosorin-pro-feasibility.md)
