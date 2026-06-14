@@ -2156,3 +2156,9 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - Updated [LeRobot](entities/lerobot.md) (new "Running LeRobot on Jetson (containerized)" subsection; 14→15 sources), [ACT](entities/act.md) (onboard-Jetson training instance; 6→7 sources), [Jetson Orin Nano](entities/jetson-orin-nano.md) (containerized LeRobot target; 9→10 sources)
 - Updated [index.md](index.md) (new source + jetson-containers entity)
 - Distinct from prior onboard story: Cutting the Cord measures policy latency on a self-built stack; the 3 ROS 2 bridges adapt LeRobot to ROS 2 — this is NVIDIA's container path to run LeRobot itself on edge silicon
+## [2026-06-13] ingest | Seeed jetson-examples — nvblox recipe (README)
+- Created [Seeed jetson-examples — nvblox recipe (README)](sources/seeed-jetson-examples-nvblox.md)
+- New entities: [Isaac ROS NVBlox (nvblox)](entities/nvblox.md), [Isaac ROS](entities/isaac-ros.md), [Orbbec (Gemini2)](entities/orbbec.md)
+- Updated [Seeed Studio](entities/seeed-studio.md) (added jetson-examples / nvblox; sources 4→5)
+- Updated [index.md](index.md) (new source + 3 entities)
+- Note: recipe uses Orbbec Gemini2 (not RealSense); requires Jetson Orin + JetPack 6.x + Docker + ~60 GB; Seeed deep-dive targets AGX Orin.

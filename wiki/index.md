@@ -205,6 +205,7 @@ Curated entry points across the wiki.
 - [JetPack docs index](sources/nvidia-jetpack-docs-index.md) — canonical JetPack documentation entry-point; lists 6.2.1, lags the developer-site release page. (last updated 2025-06-26)
 - [Jetson Linux R36.5 release](sources/nvidia-jetson-linux-r36-5-release.md) — L4T BSP release landing page; Ubuntu 22.04 + kernel 5.15 + UEFI + OP-TEE; covers all production Orin modules and Dev Kits. (2024)
 - [Jetson Linux R36.5 update mechanism](sources/nvidia-jetson-linux-r36-5-update-mechanism.md) — apt-based update procedures; point vs minor releases; 35.x→36.x reflash requirement; QSPI bootloader via `nvidia-l4t-bootloader`. (2024)
+- [Seeed jetson-examples — nvblox recipe (README)](sources/seeed-jetson-examples-nvblox.md) — one-command `reComputer run nvblox` to a GPU 3D-mapping demo: [Isaac ROS NVBlox](entities/nvblox.md) on Jetson Orin + JetPack 6.x + Docker + Orbbec Gemini2; ~60 GB; `NVBLOX_MODE=prepare/run` two-phase. (2025)
 - [Jetson Linux R36.5 release notes (PDF)](sources/nvidia-jetson-linux-r36-5-release-notes.md) — 17-page official release notes; security-fix-focused minor pairing with JetPack 6.2.2; flash-config table with module part numbers; Super Mode (25W Orin Nano / 40W Orin NX / MAXN); known + fixed issues including the initrd-flash and UEFI-assertion fixes and the CUDA-memory regression. (2026-02 document revision)
 - [Platform Power and Performance — Orin series](sources/nvidia-jetson-platform-power-performance-orin.md) — Jetson Linux Developer Guide chapter; defines Super Mode = MAXN_SUPER; per-module nvpmodel tables (Orin Nano 4GB/8GB, Orin NX 8GB/16GB, AGX Orin 32GB/64GB); flash-config lock-in; nvpmodel runtime switching; OC3 87.5% throttle. (undated)
 - [NVIDIA Jetson Thor product page](sources/nvidia-jetson-thor-product-page.md) — official Thor specs: T5000 (2560-core Blackwell / 14-core Neoverse-V3AE / 128 GB LPDDR5X / 2070 FP4-sparse TFLOPS / 40–130W) and T4000 (1536-core / 12-core / 64 GB / 1200 FP4-sparse TFLOPS / 40–70W); 7.5× / 3.5× vs Orin. (2025)
@@ -410,6 +411,8 @@ Curated entry points across the wiki.
 - [PX4 Autopilot](entities/px4-autopilot.md) — Dronecode Foundation's BSD-licensed open-source autopilot for UAVs / drones (multirotor / fixed-wing / VTOL / heli / rover / experimental); NuttX RTOS + uORB + MAVLink + ROS 2 bridge; v1.16 stable, v1.17 alpha; first-class Neural Networks subsystem (TFLM + RAPTOR Adaptive RL + MC NN Control). (1 source)
 - [JetPack SDK](entities/jetpack.md) — NVIDIA's bundled software stack for Jetson products; Jetson Linux + CUDA + cuDNN + TensorRT + DeepStream + VPI + DLA. Current production 6.2.2. (4 sources)
 - [Jetson Linux (L4T)](entities/jetson-linux.md) — the L4T BSP underneath JetPack; R36.5 current for Orin (Ubuntu 22.04 + kernel 5.15 + UEFI + OP-TEE). (3 sources)
+- [Isaac ROS](entities/isaac-ros.md) — NVIDIA's GPU-accelerated ROS 2 perception/navigation packages for Jetson; the edge counterpart to Isaac Sim/Lab. (1 source)
+- [Isaac ROS NVBlox (nvblox)](entities/nvblox.md) — NVIDIA GPU 3D volumetric mapping from RGB-D/stereo depth; Seeed packages it as a `reComputer run nvblox` recipe. (1 source)
 
 ### Controllers / edge AI compute
 - [roboRIO](entities/roborio.md) — NI's mandatory FRC robot controller (ARM Cortex-A9 + FPGA); WPILib ecosystem. (2 sources)
@@ -422,6 +425,7 @@ Curated entry points across the wiki.
 ### Motor SDKs / hardware components
 - [FeeTech](entities/feetech.md) — Chinese smart serial bus servos (STS3215, SCS series); the low-cost / hobby-tier motor lineage; one of two SDKs LeRobot's middleware natively integrates ([ICLR 2026 paper §3.1](sources/lerobot-iclr-2026-paper.md)); used by SO-100/101, LeKiwi, Stretch 4 tool bus. (4 sources)
 - [Dynamixel](entities/dynamixel.md) — ROBOTIS (Korea) smart serial bus servos (XL430, XM430, XM540); the research / education premium-tier motor lineage; one of two SDKs LeRobot's middleware natively integrates; used by Koch-v1.1, LeKiwi alt-config. (4 sources)
+- [Orbbec (Gemini2)](entities/orbbec.md) — RGB-D depth-camera vendor; the Gemini2 is the depth source in Seeed's [nvblox](entities/nvblox.md) mapping recipe; a RealSense alternative on Jetson. (1 source)
 
 ### Formats / standards
 - [OpenUSD](entities/openusd.md) — open scene-description + robotics physics-schema layer (UsdPhysics, MjcPhysics, NewtonSceneAPI). (5 sources)
