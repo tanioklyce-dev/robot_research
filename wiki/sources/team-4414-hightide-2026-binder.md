@@ -26,11 +26,11 @@ The site is a JavaScript single-page app; content was extracted from the page's 
 
 ## External context (added 2026-06-14, not from the binder)
 
-The binder omits team identity and results; these come from outside sources:
+The binder omits team identity and results; these come from the [TBA 2026 record](tba-team-4414-2026.md):
 
-- **Team:** HighTide Robotics, **Ventura County, CA**; founded **2018** ([team4414.com](https://www.team4414.com/), [The Blue Alliance](https://www.thebluealliance.com/team/4414)).
+- **Team:** HighTide, Team 4414; **Ventura, CA**; FIRST California District; **rookie year 2012** (an earlier "founded 2018" note from a team-site snippet was wrong — see the [TBA source](tba-team-4414-2026.md)).
 - **2026 robot name:** **RIPCURRENT** (the FUEL shooter documented in this binder).
-- **2026 results:** **70–2–0** official record; **#1 in the FIRST California district** (365 pts); **FIRST Championship Champions (world champions) for REBUILT**, as alliance captain ([TBA 2026](https://www.thebluealliance.com/team/4414/2026)). The AI-first program documented here is a **championship-winning** one — not just an aspirational write-up.
+- **2026 results:** **70–2–0**; **#1 in the FIRST California district** (365 pts); **REBUILT FIRST World Champions** — Rank 1 + alliance captain at all five events, plus Innovation in Control ×2, Industrial Design, and Excellence in Engineering awards. The AI-first program documented here is a **championship-winning** one — not just an aspirational write-up.
 - **Open-source status:** public org [github.com/team4414](https://github.com/team4414) contains **only 2019-era repos**; the 2026 code, "Tide Apps," and agent skill files are **not public**.
 - **Still unresolved:** which AI agent/model harness HighTide uses (Claude Code / Codex / Cursor / other) — not stated on the binder and not found in external sources.
 

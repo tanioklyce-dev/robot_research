@@ -3,25 +3,42 @@ title: Team 4414 (HighTide)
 type: entity
 created: 2026-06-07
 updated: 2026-06-14
-sources: 1
+sources: 2
 tags: [frc, team, ai, llm-agent, swerve, competition, world-champion]
 ---
 
 # Team 4414 — HighTide
 
-A [FIRST Robotics Competition](first-robotics-competition.md) team from **Ventura County, California** (founded **2018**), competing in the 2026 [REBUILT](../sources/frc-2026-game-manual.md) season. Known for an unusually software-forward program: precomputed shot trajectories and an explicitly **AI-first development workflow** — and, as of 2026, a **REBUILT World Champion**.
+A [FIRST Robotics Competition](first-robotics-competition.md) team — **HighTide**, from **Ventura, California** (FIRST California District; **rookie year 2012**) — that won the 2026 [REBUILT](../sources/frc-2026-game-manual.md) **FIRST World Championship**. Known for an unusually software-forward program: precomputed shot trajectories and an explicitly **AI-first development workflow**.
 
 > [!note] Sourcing
-> The technical profile below is drawn from the team's self-published [2026 Technical Binder](../sources/team-4414-hightide-2026-binder.md), which does **not** state location, roster, sponsors, or results. The team-identity and 2026-results facts in the next section were added 2026-06-14 from **external sources** (The Blue Alliance, FIRST, the team's GitHub) — see citations there.
+> The *technical* profile (robot subsystems, software methodology) is drawn from the team's self-published [2026 Technical Binder](../sources/team-4414-hightide-2026-binder.md), which does **not** state location, roster, sponsors, or results. The *identity and results* facts come from [The Blue Alliance's 2026 record](../sources/tba-team-4414-2026.md).
 
 ## Team identity & 2026 results
 
-> [!note] Externally sourced (not from the binder)
-> - **Program:** HighTide Robotics, Ventura County, CA; founded 2018 ([Team 4414 site](https://www.team4414.com/), [The Blue Alliance](https://www.thebluealliance.com/team/4414)).
-> - **2026 robot name:** **RIPCURRENT** (the FUEL shooter described below).
-> - **2026 record:** **70–2–0** in official play; ranked **#1 in the FIRST California district** (365 points) ([TBA 2026](https://www.thebluealliance.com/team/4414/2026)).
-> - **2026 result:** **FIRST Championship Champions (world champions) for REBUILT**, as an alliance captain (Houston) ([TBA 2026](https://www.thebluealliance.com/team/4414/2026)). This is the strongest possible external validation of the AI-first program described below.
-> - **Open source:** the public GitHub org [github.com/team4414](https://github.com/team4414) holds **only 2019-era repos** — the 2026 RIPCURRENT code, the "Tide Apps" suite, and the agent skill files are **not public**.
+Per [The Blue Alliance (2026)](../sources/tba-team-4414-2026.md):
+
+- **Program:** HighTide, Team 4414; **Ventura, CA**; FIRST California District; **rookie year 2012**. Sponsors: fabworks., Gene Haas Foundation, DoD STEM, Google, West Coast Products, & family/community.
+- **2026 robot:** **RIPCURRENT** (the FUEL shooter described below).
+- **2026 record:** **70–2–0**; **#1 in the FIRST California district** (365 points).
+- **2026 result:** **REBUILT FIRST World Champions** — Rank 1 and alliance captain at every event, won all five:
+
+| Event | Rank | Record | Awards |
+|---|---|---|---|
+| Ventura County District | 1 | 17–0–0 | Winner; Innovation in Control (nVent) |
+| Orange County District | 1 | 16–1–0 | Winner; Industrial Design |
+| CA Southern State Championship | 1 | 17–0–0 | DCMP Winner; Innovation in Control (nVent) |
+| Daly Division (Houston) | 1 | 15–0–0 | Division Winner; Excellence in Engineering (Littelfuse) |
+| Einstein Field (Houston) | — | 5–1–0 | **Championship Winner** |
+
+> [!note] World-champion validation of an AI-first program
+> The AI-first dev loop documented below isn't aspirational — it produced a **world-championship** robot, making HighTide the wiki's strongest real-world data point for agent-assisted engineering yielding a top competitive result.
+
+> [!warning] "Founded 2018" was wrong
+> An earlier (2026-06-14) note here said "founded 2018" from a team-site search snippet. TBA lists **rookie year 2012**; any 2018 figure likely refers to a later *HighTide* rebrand, not the FRC team's founding. Corrected to lead with 2012.
+
+> [!note] 2026 code is not public
+> The public org [github.com/team4414](https://github.com/team4414) holds **only 2019-era repos** — the RIPCURRENT code, "Tide Apps," and agent skill files are not published.
 
 ## 2026 robot
 
@@ -53,4 +70,5 @@ HighTide is a concrete real-world instance of the practices surveyed in the [Tea
 - [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md)
 
 ## Mentioned in
-- [Team 4414 HighTide — 2026 Technical Binder](../sources/team-4414-hightide-2026-binder.md)
+- [Team 4414 HighTide — 2026 Technical Binder](../sources/team-4414-hightide-2026-binder.md) — robot + AI-first software methodology.
+- [The Blue Alliance — Team 4414 (2026 season)](../sources/tba-team-4414-2026.md) — full competition record; REBUILT World Champions.

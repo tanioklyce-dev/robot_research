@@ -2213,3 +2213,10 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
   - Team identity: HighTide Robotics, Ventura County CA, founded 2018
   - Still open: which AI agent/model harness they use (not found)
 - Updated entity [Team 4414 (HighTide)](entities/team-4414-hightide.md) (identity + results section, externally cited; world-champion tag) and [index.md](index.md)
+
+## [2026-06-14] ingest | The Blue Alliance — Team 4414 (2026 season)
+- Created [The Blue Alliance — Team 4414 (2026 season)](sources/tba-team-4414-2026.md) — full FRC competition record (TBA blocks WebFetch 403; fetched via curl + browser UA, parsed HTML)
+- Updated entity [Team 4414 (HighTide)](entities/team-4414-hightide.md): added event-by-event results table + proper TBA citation; sources 1→2
+- **Correction:** rookie year is **2012** per TBA — supersedes the "founded 2018" added earlier 2026-06-14 from a team-site snippet; fixed in entity + binder source
+- Updated [index.md](index.md) (new source + entity source-count + rookie-year fix)
+- Record: 70-2-0; #1 FIRST California district (365 pts); REBUILT World Champions. Events: Ventura County 17-0 (Winner + Innovation in Control/nVent); Orange County 16-1 (Winner + Industrial Design); CA Southern State Champ 17-0 (DCMP Winner + Innovation in Control); Daly Division 15-0 (Div Winner + Excellence in Engineering/Littelfuse); Einstein 5-1 (Championship Winner). Captain of Alliance 1 at all events. Sponsors: fabworks./Gene Haas/DoD STEM/Google/WCP.
