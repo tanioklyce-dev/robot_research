@@ -2,8 +2,6 @@
 title: "NeLy-EPFL/flygym (GitHub)"
 type: source
 subtype: code-repository
-created: 2026-05-08
-updated: 2026-05-08
 url: https://github.com/NeLy-EPFL/flygym/
 author: Neuroengineering Laboratory (NeLy), EPFL
 published: 2026-04-17

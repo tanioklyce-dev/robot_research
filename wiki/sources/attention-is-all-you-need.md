@@ -7,8 +7,6 @@ author: Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
 affiliation: Google Brain, Google Research (Gomez at U Toronto)
 published: 2017-06-12 (v1, arxiv); NeurIPS 2017 (Long Beach); v7 2023-08-02
 ingested: 2026-05-14
-created: 2026-05-14
-updated: 2026-05-14
 tags: [transformer, attention, self-attention, multi-head, positional-encoding, vaswani, google-brain, foundational, neurips-2017, sequence-modeling]
 ---
 

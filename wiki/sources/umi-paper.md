@@ -7,8 +7,6 @@ author: Cheng Chi, Zhenjia Xu, Chuer Pan, Eric Cousineau, Benjamin Burchfiel, Si
 affiliation: Stanford / Columbia / Toyota Research Institute
 published: 2024-02 (arxiv); RSS 2024 (Best Systems Paper Award Finalist)
 ingested: 2026-05-09
-created: 2026-05-09
-updated: 2026-05-09
 tags: [umi, universal-manipulation-interface, hand-held-gripper, in-the-wild-data-collection, diffusion-policy-followon, chi-2024, stanford, columbia, tri]
 ---
 

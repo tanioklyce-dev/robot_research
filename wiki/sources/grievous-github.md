@@ -5,8 +5,6 @@ url: https://github.com/alexkoven/Grievous
 author: Alex Koven
 published: 2026 (active development; ingested at early-stage repo state)
 ingested: 2026-05-25
-created: 2026-05-25
-updated: 2026-05-25
 tags: [grievous, mobile-aloha, xlerobot, lerobot, raspberry-pi-5, downstream, testbed, low-cost, wip]
 ---
 

@@ -6,8 +6,6 @@ author: Andrej Karpathy
 affiliation: independent / Stanford alumnus / formerly Tesla & OpenAI
 published: 2020-04-13 (initial commit)
 ingested: 2026-05-14
-created: 2026-05-14
-updated: 2026-05-14
 tags: [karpathy, autograd, backprop, pedagogy, github, reference-implementation, micrograd]
 github_stats: 15.8K stars, 2.4K forks (May 2026)
 ---

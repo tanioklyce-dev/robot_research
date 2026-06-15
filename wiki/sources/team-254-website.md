@@ -1,8 +1,6 @@
 ---
 title: Team 254 Website
 type: source
-created: 2026-05-08
-updated: 2026-05-08
 url: https://www.team254.com/
 author: Team 254
 published: 2026

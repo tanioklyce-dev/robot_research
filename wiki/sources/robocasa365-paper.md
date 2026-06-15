@@ -7,7 +7,6 @@ author: Soroush Nasiriany, Sepehr Nasiriany, Abhiram Maddukuri, Yuke Zhu
 affiliations: UT Austin, NVIDIA Research
 published: 2026 (ICLR 2026 conference paper)
 ingested: 2026-05-06
-updated: 2026-05-07
 tags: [robocasa, household-manipulation, benchmark, simulation, iclr-2026, mimicgen]
 ---
 

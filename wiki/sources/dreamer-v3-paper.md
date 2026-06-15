@@ -6,8 +6,6 @@ author: Danijar Hafner, Jurgis Pasukonis, Jimmy Ba, Timothy Lillicrap
 affiliation: Not stated on the arxiv abstract page (Hafner-line work; DeepMind / Toronto / collaborators)
 published: 2023-01-10 (arxiv v1); 2024-04-17 (v2)
 ingested: 2026-05-10
-created: 2026-05-10
-updated: 2026-05-10
 tags: [dreamer, dreamer-v3, world-model, model-based-rl, imagination, hafner, foundational, mbrl]
 ---
 

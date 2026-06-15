@@ -7,8 +7,6 @@ author: Younes Belkada (initial contributor) + Hugging Face TRL maintainers
 affiliation: Hugging Face
 published: continuously updated; current docs reflect TRL v1.4.0 (as of 2026-05)
 ingested: 2026-05-14
-created: 2026-05-14
-updated: 2026-05-14
 license: Apache 2.0 (TRL library)
 tags: [trl, sft, supervised-fine-tuning, hugging-face, llm, vlm, peft, lora, liger-kernel, unsloth, alignment, library-docs]
 ---

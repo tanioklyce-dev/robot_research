@@ -8,8 +8,6 @@ author: Michael I. Jordan
 affiliation: Inria Paris + University of California, Berkeley
 published: 2025-07-08 (v1); 2025-12-15 (v3)
 ingested: 2026-05-29
-created: 2026-05-29
-updated: 2026-05-29
 tags: [position-paper, michael-jordan, economics-of-ml, mechanism-design, collectivist-ai, prediction-powered-inference, ai-society, foundational, cs-cy]
 ---
 

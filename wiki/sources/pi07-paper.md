@@ -7,8 +7,6 @@ author: "Physical Intelligence (86 authors: Bo Ai, Ali Amin, â€¦, Kevin Black, â
 affiliations: Physical Intelligence
 published: 2025
 ingested: 2026-05-25
-created: 2026-05-25
-updated: 2026-05-25
 tags: [pi-zero-7, pi07, pi-zero, pi-zero-6, vla, flow-matching, gemma3, multimodal-conditioning, subgoal-images, episode-metadata, knowledge-insulation, fast-tokens, mem, bagel, world-model, emergent-capabilities, physical-intelligence, primary-source]
 ---
 

@@ -10,8 +10,6 @@ published: 2024 (v1); 2025-06-24 (v3 draft)
 pages: 485
 license: arXiv non-exclusive
 ingested: 2026-05-25
-created: 2026-05-25
-updated: 2026-05-25
 tags: [pedagogical, textbook, differentiable-programming, automatic-differentiation, jvp, vjp, backpropagation, optimization, gradient-descent, sgd, adam, fenchel-young-loss, sparsemax, reinforce, reparametrization-trick, gumbel-softmax, smoothing, mathieu-blondel, google-deepmind, primary-source]
 ---
 

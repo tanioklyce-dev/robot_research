@@ -7,8 +7,6 @@ author: Vlad Sobal, Jyothir S V, Siddhartha Jalagam, Nicolas Carion, Kyunghyun C
 affiliation: NYU (Sobal, Jyothir S V, Jalagam); Meta AI (Carion, LeCun); Prescient Design / Genentech (Cho); CIFAR Fellow (Cho); NYU (LeCun)
 published: 2022-11-20 (NeurIPS 2022 SSL Theory and Practice Workshop, short paper)
 ingested: 2026-05-10 (deepened from PDF)
-created: 2026-05-10
-updated: 2026-05-10
 tags: [pldm, sobal, jepa, slow-features, representation-learning, vicreg, simclr, lecun, precursor, fixed-distractor-failure]
 ---
 

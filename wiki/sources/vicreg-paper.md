@@ -7,8 +7,6 @@ author: Adrien Bardes, Jean Ponce, Yann LeCun
 affiliation: Facebook AI Research (Bardes, LeCun); Inria / École normale supérieure / NYU
 published: 2021-05-11 (v1); 2022-01-28 (v3); ICLR 2022
 ingested: 2026-05-12
-created: 2026-05-12
-updated: 2026-05-12
 tags: [vicreg, ssl, variance, covariance, invariance, anti-collapse, bardes, lecun, ponce, joint-embedding, foundational]
 ---
 

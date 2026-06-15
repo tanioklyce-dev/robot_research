@@ -8,8 +8,6 @@ author: Francesco Capuano, Caroline Pascal, Adil Zouitine, Thomas Wolf, Michel A
 affiliations: Hugging Face (LeRobot team)
 published: 2025-10-14
 ingested: 2026-05-25
-created: 2026-05-25
-updated: 2026-05-25
 tags: [lerobot, tutorial, pedagogy, imitation-learning, vla, smolvla, pi0, act, diffusion-policy, hugging-face, hf-space, primary-source]
 ---
 

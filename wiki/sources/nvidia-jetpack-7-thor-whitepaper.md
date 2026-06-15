@@ -9,8 +9,6 @@ secondary_urls:
 author: NVIDIA Developer (forum announcement) + NVIDIA Technical Blog
 published: 2025-08-25 (release announcement); 2025-10-15 (generative-AI performance blog)
 ingested: 2026-05-17
-created: 2026-05-17
-updated: 2026-05-17
 tags: [jetpack-7, jetson-linux-38, jetson-thor, cuda-13, tensorrt-10, blackwell, mig, real-time-kernel, sbsa, holoscan, nvfp4, llama, deepseek]
 ---
 

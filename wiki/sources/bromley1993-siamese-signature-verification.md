@@ -7,8 +7,6 @@ author: Jane Bromley, Isabelle Guyon, Yann LeCun, Eduard Säckinger, Roopak Shah
 affiliation: AT&T Bell Laboratories, Holmdel NJ
 published: 1993 (NIPS 6 proceedings; AT&T Bell Labs copyright 1994)
 ingested: 2026-05-14
-created: 2026-05-14
-updated: 2026-05-14
 tags: [siamese-network, lecun, guyon, bromley, sickinger, att-bell-labs, foundational, historical, signature-verification, joint-embedding, ancestor]
 ---
 

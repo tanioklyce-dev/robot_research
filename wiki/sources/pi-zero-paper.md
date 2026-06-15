@@ -8,8 +8,6 @@ author: "Kevin Black, Noah Brown, Danny Driess, Adnan Esmail, Michael Equi, Chel
 affiliation: Physical Intelligence
 published: 2024-10-31 (arxiv v1); 2026-01-08 (last revised)
 ingested: 2026-05-10 (abstract); 2026-05-25 (full HTML deepening)
-created: 2026-05-10
-updated: 2026-05-25
 tags: [pi-zero, pi0, vla, flow-matching, vision-language-action, physical-intelligence, generalist-policy, paligemma, action-expert, cross-embodiment, levine, primary-source]
 ---
 

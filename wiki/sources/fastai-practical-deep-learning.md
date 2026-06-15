@@ -6,8 +6,6 @@ author: Jeremy Howard (and the fast.ai team, originally co-founded with Rachel T
 affiliation: fast.ai; recorded at University of Queensland
 published: 2022 (Part 1 — 9 lessons of ~90 min each); cumulative platform from 2017 onwards
 ingested: 2026-05-14
-created: 2026-05-14
-updated: 2026-05-14
 license: Course videos and notebooks are free / openly available; fastbook (the companion text) is Apache 2.0 with a no-commercial-republish clause on the book version
 tags: [fastai, course, pedagogical, deep-learning, pytorch, transfer-learning, cnn, nlp, jeremy-howard, curriculum-companion]
 ---

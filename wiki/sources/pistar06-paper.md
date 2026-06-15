@@ -7,8 +7,6 @@ author: "Physical Intelligence (53 authors: Ali Amin, Raichelle Aniceto, …, Ke
 affiliations: Physical Intelligence
 published: 2025
 ingested: 2026-05-25
-created: 2026-05-25
-updated: 2026-05-25
 tags: [pi-star-zero-6, pistar06, pi-zero-6, pi-zero, recap, vla, flow-matching, advantage-conditioning, offline-rl, online-rl, distributional-value-function, classifier-free-guidance, dagger, human-intervention, real-world-rl, physical-intelligence, primary-source]
 ---
 

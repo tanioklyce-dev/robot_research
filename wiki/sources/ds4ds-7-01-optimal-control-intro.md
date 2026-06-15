@@ -8,8 +8,6 @@ author: Sebastian Peitz, Oliver Wallscheid
 affiliation: Data Science for Dynamical Systems (DS4DS) — open-education initiative; Peitz at TU Dortmund, Wallscheid at U Siegen / Paderborn
 published: 2024-01-21
 ingested: 2026-05-14
-created: 2026-05-14
-updated: 2026-05-14
 license: CC BY-SA 4.0 (course materials); Julia / Jupyter notebooks on GitHub
 tags: [optimal-control, video, pedagogical, ds4ds, peitz, wallscheid, julia, jupyter, mpc, dynamical-systems, curriculum-module-10]
 ---

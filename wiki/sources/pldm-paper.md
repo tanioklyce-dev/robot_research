@@ -7,8 +7,6 @@ author: Vlad Sobal, Wancong Zhang, Kyunghyun Cho, Randall Balestriero, Tim G. J.
 affiliation: NYU (Sobal, Zhang, Cho); Brown / FAIR (Balestriero); NYU / Oxford (Rudner); NYU / Meta FAIR (LeCun) — affiliations inferred from co-author cross-references
 published: 2025-02-28 (WRL @ ICLR 2025 Workshop)
 ingested: 2026-05-10
-created: 2026-05-10
-updated: 2026-05-10
 tags: [pldm, planning-with-latent-dynamics-models, jepa, end-to-end, offline-rl, reward-free-rl, sobal, lecun, vicreg, mpc, mppi]
 ---
 

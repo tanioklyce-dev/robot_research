@@ -4,7 +4,7 @@ type: entity
 subtype: software-library
 created: 2026-06-14
 updated: 2026-06-14
-sources: 1
+sources: 2
 tags: [ultralytics, yolo, object-detection, segmentation, pose-estimation, computer-vision, edge-ai, pytorch, agpl]
 ---
 

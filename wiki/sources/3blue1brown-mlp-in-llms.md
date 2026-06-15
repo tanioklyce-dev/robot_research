@@ -6,8 +6,6 @@ author: Grant Sanderson (3Blue1Brown); text adaptation by Justin Sun
 affiliation: 3Blue1Brown (independent educational-video channel)
 published: 2024-08-31
 ingested: 2026-05-14
-created: 2026-05-14
-updated: 2026-05-14
 tags: [mlp, ffn, transformer, llm, gpt-3, superposition, johnson-lindenstrauss, interpretability, video, pedagogical, 3blue1brown, curriculum-module-1, curriculum-module-3]
 ---
 

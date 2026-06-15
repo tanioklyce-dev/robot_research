@@ -6,8 +6,6 @@ author: Nicklas Hansen, Hao Su, Xiaolong Wang
 affiliation: Not stated on the arxiv abstract page (UC San Diego, Hansen / Su / Wang labs based on prior work)
 published: 2023-10-25 (arxiv v1); 2024-03-21 (v2); ICLR 2024
 ingested: 2026-05-10
-created: 2026-05-10
-updated: 2026-05-10
 tags: [td-mpc, td-mpc2, world-model, model-based-rl, mpc, latent-space, hansen, mbrl, decoder-free]
 ---
 

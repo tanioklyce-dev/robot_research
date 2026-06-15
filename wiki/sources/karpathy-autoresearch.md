@@ -6,8 +6,6 @@ author: Andrej Karpathy
 affiliation: independent / formerly OpenAI & Tesla
 published: 2026-03-06 (initial commit)
 ingested: 2026-05-14
-created: 2026-05-14
-updated: 2026-05-14
 tags: [karpathy, autoresearch, llm-agent, agent-research, nanochat, github, reference-implementation, claude-code, codex]
 github_stats: 81K stars, 11.8K forks (May 2026)
 ---

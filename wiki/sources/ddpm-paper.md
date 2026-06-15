@@ -6,8 +6,6 @@ author: Jonathan Ho, Ajay Jain, Pieter Abbeel
 affiliation: UC Berkeley (Abbeel lab)
 published: 2020-06-19 (arxiv v1); 2020-12-16 (v2); NeurIPS 2020
 ingested: 2026-05-09
-created: 2026-05-09
-updated: 2026-05-09
 tags: [ddpm, diffusion-model, generative-model, score-matching, langevin-dynamics, ho-2020, abbeel-lab, foundational]
 ---
 

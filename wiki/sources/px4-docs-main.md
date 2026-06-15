@@ -5,8 +5,6 @@ url: https://docs.px4.io/main/en/
 author: Dronecode Foundation + PX4 community
 published: continuously updated (this ingest based on the 2026-05-17 build of the `main` branch)
 ingested: 2026-05-17
-created: 2026-05-17
-updated: 2026-05-17
 tags: [px4, pixhawk, dronecode, uav, drone, autopilot, mavlink, ros2, uxrce-dds, nuttx, tensorflow-lite-micro, raptor-rl]
 ---
 

@@ -10,8 +10,6 @@ author: Richard S. Sutton, Andrew G. Barto
 affiliation: U Massachusetts Amherst (Barto); U Alberta / DeepMind (Sutton); A Bradford Book, The MIT Press
 published: 1st ed. 1998; 2nd ed. published 2018; 2020 reprint
 ingested: 2026-05-14 (initial against 2014–2015 in-progress draft); 2026-05-14 (updated against 2018 final 2nd edition)
-created: 2026-05-14
-updated: 2026-05-14
 tags: [reinforcement-learning, textbook, sutton-barto, foundational, mdp, value-function, bellman, dynamic-programming, monte-carlo, td-learning, q-learning, sarsa, eligibility-traces, actor-critic, policy-gradient, reinforce, mcts, mbrl, dqn, alphago, dedicated]
 ---
 

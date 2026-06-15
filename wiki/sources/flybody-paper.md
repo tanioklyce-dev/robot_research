@@ -2,8 +2,6 @@
 title: "Whole-body physics simulation of fruit fly locomotion (Vaxenburg et al. 2025)"
 type: source
 subtype: paper
-created: 2026-05-08
-updated: 2026-05-08
 url: https://doi.org/10.1038/s41586-025-09029-4
 author: Vaxenburg, Siwanowicz, Merel, Robie, Morrow, Novati, Stefanidi, Both, Card, Reiser, Botvinick, Branson, Tassa, Turaga
 published: 2025-04-23

@@ -2,8 +2,6 @@
 title: "TuragaLab/flybody (GitHub)"
 type: source
 subtype: code-repository
-created: 2026-05-08
-updated: 2026-05-08
 url: https://github.com/TuragaLab/flybody
 author: Vaxenburg et al. (TuragaLab + Google DeepMind)
 published: 2024-2025

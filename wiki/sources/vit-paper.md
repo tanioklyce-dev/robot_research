@@ -7,8 +7,6 @@ author: Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn,
 affiliation: Google Research, Brain Team
 published: 2020-10-22 (v1 arxiv); ICLR 2021; v2 2021-06-03
 ingested: 2026-05-14
-created: 2026-05-14
-updated: 2026-05-14
 tags: [vit, vision-transformer, transformer, attention, patches, classification, imagenet, jft-300m, foundational, iclr-2021, google-research]
 ---
 

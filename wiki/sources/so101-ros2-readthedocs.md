@@ -5,9 +5,9 @@ url: https://so101-ros2.readthedocs.io/latest/
 github: https://github.com/nimiCurtis/so101_ros2
 license: MIT
 author: nimiCurtis (Nimi Curtis, GitHub user)
-created: 2025-06-12
 last_pushed: 2025-12-13 (v0.1.1 release)
 ingested: 2026-05-28
+published: 2025-06-12
 stars: 50
 forks: 8
 languages: Python 81.1% / C++ 13.5% / CMake 4.5% / Shell 0.9%

@@ -6,8 +6,6 @@ author: Cameron R. Wolfe, Ph.D.
 affiliation: Deep (Learning) Focus Substack newsletter; Wolfe is Director of AI at Rebuy and ex-Alegion ML lead
 published: 2023-09-11
 ingested: 2026-05-14
-created: 2026-05-14
-updated: 2026-05-14
 tags: [sft, supervised-fine-tuning, llm, alignment, rlhf, lima, instruction-tuning, alpaca, vicuna, llama2, falcon, wolfe, blog, pedagogical]
 ---
 

@@ -9,8 +9,6 @@ secondary_urls:
 author: Hello Robot (corporate site + forum); reporting via The Robot Report
 published: 2026-05-12 (launch announcement)
 ingested: 2026-05-17
-created: 2026-05-17
-updated: 2026-05-17
 tags: [stretch, stretch-4, hello-robot, mobile-manipulator, jetson-orin-nx, ros2-jazzy, holonomic-base, lidar, primary-source]
 ---
 

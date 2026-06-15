@@ -218,7 +218,7 @@ Curated entry points across the wiki.
 - [JetPack 7.0 for Jetson Thor software-stack reference](sources/nvidia-jetpack-7-thor-whitepaper.md) — stand-in for the never-published "JetPack 7 whitepaper"; combines NVIDIA's 2025-08-25 forum announcement (Jetson Linux 38.2 / kernel 6.8 / Ubuntu 24.04 / CUDA 13 / TensorRT 10.13 / MIG / real-time kernel / SBSA) with the Oct 2025 7×-generative-AI-throughput blog (NVFP4 + EAGLE-3 specdec; Llama 3.3 70B 41.5→88.62 tok/s). Corrects the wiki's prior R37.x → R38.2 mis-pairing. (2025-08-25 / 2025-10-15)
 - [Stretch 4 launch — Hello Robot purchase + product + forum announcement](sources/hello-robot-stretch-4-launch.md) — Hello Robot's [Stretch 4](entities/stretch.md) launch (2026-05-12, $29,950 base). New omnidirectional holonomic base; ~2× faster arm/lift/base; +10% reach; 8 redundant DOF + gripper; dual hemispherical 3D LiDAR (>2M depth readings/sec) + fisheye RGB + 12 MP central + Luxonis OAK-SR wrist; Intel Ultra 5 NUC + optional $2,495 Jetson Orin NX; ROS 2 Jazzy + MuJoCo self-collision avoidance. Generational jump (differential→holonomic base; 7→8 DOF); Stretch-3-trained policies likely need retraining to transfer. (2026-05-12)
 - [Stretch 4 Datasheet (Rev 5, As Launched)](sources/hello-robot-stretch-4-datasheet.md) — official Hello Robot spec sheet PDF, two pages. Adds exact sensor SKUs (Hesai J128 LiDAR; Luxonis OAK-FFC AR0234 / IMX378 / OAK-D SR), specific compute (Intel NUC 15 Core Ultra 5 225H + Jetson Orin NX 16 GB / 128 GB), active-safety architecture (motor-current force limiting + 100 Hz watchdog + 6× Pixart cliff curtains + head Runstop), 24 V Feetech RS485 tool bus, environmental ratings (10–30 °C / IP20 / 10–90 % RH), 12-month warranty, and the **"not yet FCC Class A certified"** caveat. Datasheet count: **9 DOF** (including omni base + optional tool) — see [warning callout on Stretch entity](entities/stretch.md) reconciling against the launch page's "8 + gripper" framing. (2026-05-12)
-- [PX4 Autopilot Documentation (docs.px4.io/main)](sources/px4-docs-main.md) — top-of-tree summary of the canonical PX4 docs site. BSD-licensed open-source autopilot for drones / autonomous vehicles (Dronecode Foundation / Linux Foundation). v1.16 stable / v1.17 alpha; six vehicle classes; [Pixhawk](entities/pixhawk.md) FMUv3–v6X-RT hardware family; NuttX RTOS + uORB pub-sub + [MAVLink](entities/mavlink.md) + ROS 2 / uXRCE-DDS bridge. Notable for the wiki: **dedicated Neural Networks subsystem** (TensorFlow Lite Micro, RAPTOR Adaptive RL NN Module, MC NN Control), Jetson companion-computer carriers, and direct overlap with the wiki's [agentic UAVs concept](concepts/robotics/agentic-uavs.md) + [MIT drone adaptive control](sources/mit-drone-adaptive-control.md). (continuously updated)
+- [PX4 Autopilot Documentation (docs.px4.io/main)](sources/px4-docs-main.md) — top-of-tree summary of the canonical PX4 docs site. BSD-licensed open-source autopilot for drones / autonomous vehicles (Dronecode Foundation / Linux Foundation). v1.17.0 stable (2026-05-13; was v1.16 at docs-ingest); six vehicle classes; [Pixhawk](entities/pixhawk.md) FMUv3–v6X-RT hardware family; NuttX RTOS + uORB pub-sub + [MAVLink](entities/mavlink.md) + ROS 2 / uXRCE-DDS bridge. Notable for the wiki: **dedicated Neural Networks subsystem** (TensorFlow Lite Micro, RAPTOR Adaptive RL NN Module, MC NN Control), Jetson companion-computer carriers, and direct overlap with the wiki's [agentic UAVs concept](concepts/robotics/agentic-uavs.md) + [MIT drone adaptive control](sources/mit-drone-adaptive-control.md). (continuously updated)
 - [PX4-Autopilot (GitHub repo)](sources/px4-autopilot-github.md) — code-repo view of [PX4](entities/px4-autopilot.md): C++ / BSD-3 / created 2012; ~12k★ / 15.5k forks (forks > stars = board-porting signature); build via `git clone --recursive && make px4_sitl` or Docker SITL; Dronecode-governed. **v1.17.0 stable (2026-05-13)** — supersedes the docs ingest's v1.16. (2012-08; v1.17.0 stable 2026-05)
 - [NVIDIA DGX Spark Hardware Overview](sources/nvidia-dgx-spark-hardware-overview.md) — official GB10 Grace Blackwell spec: 20-core ARM (10× X925 + 10× A725), 6144-CUDA-core Blackwell with **4th-gen RT Cores**, 128 GB LPDDR5X **unified** at 273 GB/s, ConnectX-7, up to 1 PFLOP FP4 sparse, up to 200B-param inference (405B paired). (2025)
 - [Isaac Sim and Isaac Lab on NVIDIA Jetson AGX Thor — RS DesignSpark](sources/rs-designspark-isaac-sim-on-thor.md) — the authoritative explainer on Thor's no-RT-cores constraint; Isaac Sim/Lab cannot run on Thor even headless; NVIDIA's prescribed train-on-Spark / deploy-on-Thor workflow. (2025)
@@ -298,32 +298,32 @@ Curated entry points across the wiki.
 
 ### Companies
 - [UnitedMasters](entities/unitedmasters.md) — music distribution/licensing company; [Jordan](entities/michael-i-jordan.md)'s real-world **three-way collectivist-AI market** (musicians ↔ listeners ↔ brands, incentives built in); >1.5M musicians. (1 source)
-- [NVIDIA](entities/nvidia.md) — owns most of the agentic-robotics simulation substrate; also owns [Brev](entities/nvidia-brev.md) GPU-cloud broker and the in-house [GEAR](entities/nvidia-gear.md) research lab. (21 sources)
+- [NVIDIA](entities/nvidia.md) — owns most of the agentic-robotics simulation substrate; also owns [Brev](entities/nvidia-brev.md) GPU-cloud broker and the in-house [GEAR](entities/nvidia-gear.md) research lab. (33 sources)
 - [NVIDIA GEAR](entities/nvidia-gear.md) — Generalist Embodied Agent Research; co-led by [Jim Fan](entities/jim-fan.md) + [Yuke Zhu](entities/yuke-zhu.md); founded Feb 2024; source of GR00T, the Dream*-WM line, Eureka, and much of the Isaac Lab / RoboCasa / MimicGen substrate. (3 sources)
-- [Hiwonder](entities/hiwonder.md) — Chinese educational-robotics vendor; ROSOrin / ROSOrin Pro kits + `openclaw_controller` ROS 2 bridge for OpenClaw. (3 sources)
+- [Hiwonder](entities/hiwonder.md) — Chinese educational-robotics vendor; ROSOrin / ROSOrin Pro kits + `openclaw_controller` ROS 2 bridge for OpenClaw. (4 sources)
 - [Hailo](entities/hailo.md) — edge-AI NPU vendor; silicon in Raspberry Pi's AI HATs (Hailo-8/8L vision; **Hailo-10H** generative-AI). The wiki's non-CUDA onboard-compute option vs. Jetson. (2 sources)
 - [Raspberry Pi 5](entities/raspberry-pi-5.md) — low-cost SBC host/relay in XLeRobot/LeKiwi/Grievous builds; host for the Hailo [AI HAT+ 2](sources/raspberry-pi-ai-hat-plus-2.md). (1 source)
-- [Hugging Face](entities/hugging-face.md) — open-source AI company; maintainer of [LeRobot](entities/lerobot.md); HF Hub hosts model checkpoints across the wiki's JEPA / VLA / IL coverage. (5 sources)
-- [SIGRobotics-UIUC](entities/sigrobotics-uiuc.md) — student-led robotics org at UIUC; designs and maintains [LeKiwi](entities/lekiwi.md); won U.S. site of the Oct 2025 Embodied AI Hackathon with a GR00T-driven matcha-making XLeRobot; sponsored by FrodoBots / Hugging Face / K-Scale Labs / Neuralink / ROBOTIS / others. (4 sources)
-- [Seeed Studio](entities/seeed-studio.md) — Shenzhen open-hardware distributor; sells LeKiwi and hosts the canonical end-user tutorial; co-organizer of LeRobot 2025 + Embodied AI 2025 hackathons. (3 sources)
-- [The Robot Studio](entities/the-robot-studio.md) — open-hardware design group behind **both** the SO-ARM100/101 lineage **and** the HopeJR humanoid arm (confirmed via [LeRobot ICLR 2026 paper](sources/lerobot-iclr-2026-paper.md) Appendix A). (4 sources)
-- [AGIBOT](entities/agibot.md) — Shanghai embodied-AI / humanoid company. Open-source-heavy. (3 sources)
-- [Hello Robot](entities/hello-robot.md) — Stretch mobile manipulator + stretch_ai stack. (7 sources)
+- [Hugging Face](entities/hugging-face.md) — open-source AI company; maintainer of [LeRobot](entities/lerobot.md); HF Hub hosts model checkpoints across the wiki's JEPA / VLA / IL coverage. (11 sources)
+- [SIGRobotics-UIUC](entities/sigrobotics-uiuc.md) — student-led robotics org at UIUC; designs and maintains [LeKiwi](entities/lekiwi.md); won U.S. site of the Oct 2025 Embodied AI Hackathon with a GR00T-driven matcha-making XLeRobot; sponsored by FrodoBots / Hugging Face / K-Scale Labs / Neuralink / ROBOTIS / others. (6 sources)
+- [Seeed Studio](entities/seeed-studio.md) — Shenzhen open-hardware distributor; sells LeKiwi and hosts the canonical end-user tutorial; co-organizer of LeRobot 2025 + Embodied AI 2025 hackathons. (6 sources)
+- [The Robot Studio](entities/the-robot-studio.md) — open-hardware design group behind **both** the SO-ARM100/101 lineage **and** the HopeJR humanoid arm (confirmed via [LeRobot ICLR 2026 paper](sources/lerobot-iclr-2026-paper.md) Appendix A). (2 sources)
+- [AGIBOT](entities/agibot.md) — Shanghai embodied-AI / humanoid company. Open-source-heavy. (4 sources)
+- [Hello Robot](entities/hello-robot.md) — Stretch mobile manipulator + stretch_ai stack. (9 sources)
 - [HCR Lab](entities/hcrlab.md) — Human-Centered Robotics Lab, UW (Maya Cakmak); assistive robots + EUP; Stretch platform; long-term in-home deployments. (9 sources)
 - [Elephant Robotics](entities/elephant-robotics.md) — Chinese edu-robotics vendor; myAGV + myBuddy 280 + arm ecosystem. (2 sources)
 - [Pollen Robotics](entities/pollen-robotics.md) — French open-source humanoid maker; Reachy 2. (1 source)
 - [Fauna Robotics](entities/fauna-robotics.md) — NYC; Sprout Creator Edition; 107cm, 29 DOF, Jetson AGX Orin. (1 source)
 - [K-Scale Labs](entities/k-scale-labs.md) — YC humanoid startup; shut down late 2025; notable post-mortem; was Embodied AI Hackathon mentor + SIGRobotics-UIUC "Mini Humanoid" project sponsor. (3 sources)
-- [Welch Labs](entities/welch-labs.md) — independent AI-pedagogy operation (Stephen Welch). YouTube channel + the Feb 2026 *Illustrated Guide to AI* book + GitHub code. One of the wiki's three canonical pedagogy publishers alongside Sutton & Barto and 3Blue1Brown. (3 sources)
-- [Meta FAIR](entities/meta-fair.md) — Yann LeCun's lab; JEPA research line. (11 sources)
-- [Google DeepMind](entities/google-deepmind.md) — MuJoCo, Newton co-development, MjcPhysics USD plugin, Gemini Robotics. (7 sources)
+- [Welch Labs](entities/welch-labs.md) — independent AI-pedagogy operation (Stephen Welch). YouTube channel + the Feb 2026 *Illustrated Guide to AI* book + GitHub code. One of the wiki's three canonical pedagogy publishers alongside Sutton & Barto and 3Blue1Brown. (4 sources)
+- [Meta FAIR](entities/meta-fair.md) — Yann LeCun's lab; JEPA research line. (18 sources)
+- [Google DeepMind](entities/google-deepmind.md) — MuJoCo, Newton co-development, MjcPhysics USD plugin, Gemini Robotics. (8 sources)
 - [Boston Dynamics](entities/boston-dynamics.md) — robotics company (Hyundai-owned); Spot + Atlas + Stretch + Orbit + AIVI-Learning. (1 source)
 - [Mila](entities/mila.md) — Quebec AI Institute; frequent JEPA collaborator. (4 sources) _stub_
 - [Farama Foundation](entities/farama-foundation.md) — non-profit; took over OpenAI gym → Gymnasium; 19 RL projects. (3 sources)
 - [Dronecode Foundation](entities/dronecode-foundation.md) — non-profit (Linux Foundation Collaborative Project); steward of PX4, MAVLink, Pixhawk, QGroundControl, MAVSDK. (1 source)
-- [AMI Labs](entities/ami-labs.md) — Yann LeCun's reported post-Meta AI lab; $1.03B seed round (single secondary source, provisional). (1 source)
-- [Logical Intelligence](entities/logical-intelligence.md) — commercializes [energy-based reasoning models](concepts/learning/energy-based-models.md) for critical systems; Eve Bodnia CEO, [Yann LeCun](entities/yann-lecun.md) Founding Chair of Tech Research Board, [Michael Freedman](entities/michael-freedman.md) Chief of Math. Products: [Aleph](entities/aleph.md) (formal-verification agent) + [Kona](entities/kona.md) (EBM reasoning model). Distinct from AMI Labs. (1 source)
-- [Anthropic](entities/anthropic.md) — developer of Claude; AI safety mission; author of Claude's Constitution; MCP protocol. (2 sources)
+- [AMI Labs](entities/ami-labs.md) — Yann LeCun's reported post-Meta AI lab; $1.03B seed round (single secondary source, provisional). (3 source)
+- [Logical Intelligence](entities/logical-intelligence.md) — commercializes [energy-based reasoning models](concepts/learning/energy-based-models.md) for critical systems; Eve Bodnia CEO, [Yann LeCun](entities/yann-lecun.md) Founding Chair of Tech Research Board, [Michael Freedman](entities/michael-freedman.md) Chief of Math. Products: [Aleph](entities/aleph.md) (formal-verification agent) + [Kona](entities/kona.md) (EBM reasoning model). Distinct from AMI Labs. (2 source)
+- [Anthropic](entities/anthropic.md) — developer of Claude; AI safety mission; author of Claude's Constitution; MCP protocol. (5 sources)
 - [Apollo Research](entities/apollo-research.md) — independent AI safety evaluation institute; red-teamed Claude Opus 4 (2025). (2 sources)
 - [Physical Intelligence](entities/physical-intelligence.md) — San Francisco; π-series (π0 / π0.5 / π0.6 / π0.6-MEM / π0.7 / π*0.6) cross-platform generalist VLAs. (5 sources)
 - [Hillbot](entities/hillbot.md) — UCSD spinoff that maintains ManiSkill. (1 source) _stub_
@@ -333,42 +333,42 @@ Curated entry points across the wiki.
 - [Team 254: The Cheesy Poofs](entities/team-254.md) — elite FRC team (2022 World Champions); 2026 "AI in FRC" presentation; Claude Code + wpilib-agent-tools. (2 sources)
 - [Team 4414 (HighTide)](entities/team-4414-hightide.md) — Ventura CA FRC team (rookie year 2012); **2026 REBUILT World Champions** (RIPCURRENT, 70–2–0, Rank 1 every event); AI-first dev ("little code written by hand"), state-machine codebase, shot-trajectory precompute. (2 sources)
 - [HHMI Janelia Research Campus](entities/hhmi-janelia.md) — HHMI's pure-research lab; Turaga lab leads flybody + flyvis; *Drosophila* neuroscience & connectomics anchor. (3 sources)
-- [NeLy-EPFL (Neuroengineering Laboratory)](entities/nely-epfl.md) — EPFL lab; maintains [NeuroMechFly](entities/neuromechfly.md) + the `flygym` Python library; European counterweight to HHMI Janelia in fly-body simulation. (3 sources)
+- [NeLy-EPFL (Neuroengineering Laboratory)](entities/nely-epfl.md) — EPFL lab; maintains [NeuroMechFly](entities/neuromechfly.md) + the `flygym` Python library; European counterweight to HHMI Janelia in fly-body simulation. (2 sources)
 - [Toyota Research Institute (TRI)](entities/tri.md) — Toyota's R&D arm; Los Altos + Cambridge; co-affiliation across [Diffusion Policy](entities/diffusion-policy.md) + [UMI](entities/umi.md); home of TRI LBM. (2 sources)
 
 ### Simulators / frameworks
 - [Gazebo](entities/gazebo.md) — canonical open-source ROS simulator (Open Robotics); Gazebo Harmonic + ROS 2 Jazzy/Humble; default for [TurtleBot](entities/turtlebot.md), [Stretch](entities/stretch.md), [ROSOrin](entities/rosorin.md), [PX4](entities/px4-autopilot.md); contrast with [Isaac Sim](entities/nvidia-isaac-sim.md) (NVIDIA, higher-fidelity, GPU-required). (6 sources)
-- [NVIDIA Isaac Sim](entities/nvidia-isaac-sim.md) — Omniverse-based robotics simulator. (6 sources)
-- [NVIDIA Isaac Lab](entities/nvidia-isaac-lab.md) — open-source learning framework on Isaac Sim; primary reference paper is [GEAR](entities/nvidia-gear.md)-authored (arXiv 2511.04831). (7 sources)
+- [NVIDIA Isaac Sim](entities/nvidia-isaac-sim.md) — Omniverse-based robotics simulator. (11 sources)
+- [NVIDIA Isaac Lab](entities/nvidia-isaac-lab.md) — open-source learning framework on Isaac Sim; primary reference paper is [GEAR](entities/nvidia-gear.md)-authored (arXiv 2511.04831). (8 sources)
 - [Newton physics engine](entities/newton-physics-engine.md) — Linux-Foundation, GPU-accelerated. (5 sources)
-- [MuJoCo](entities/mujoco.md) — DeepMind-maintained physics engine; substrate for Gymnasium-Robotics, MuJoCo Playground (via MJX), Adroit, Franka Kitchen, DM Control, flybody, NeuroMechFly v2. (11 sources)
+- [MuJoCo](entities/mujoco.md) — DeepMind-maintained physics engine; substrate for Gymnasium-Robotics, MuJoCo Playground (via MJX), Adroit, Franka Kitchen, DM Control, flybody, NeuroMechFly v2. (13 sources)
 - [MuJoCo Playground](entities/mujoco-playground.md) — DeepMind's MJX-based learning framework. (4 sources)
 - [Genesis](entities/genesis.md) — generative + ultra-fast physics engine. (2 sources)
 - [AGIBOT Genie Sim 3.0](entities/agibot-genie-sim.md) — open embodied-AI sim on Isaac Sim. (2 sources)
-- [RoboCasa](entities/robocasa.md) — household manipulation benchmark (RoboCasa365 at ICLR 2026). (4 sources)
-- [ManiSkill](entities/maniskill.md) — [SAPIEN](entities/sapien.md)-based GPU-parallel manipulation benchmark. (1 source)
+- [RoboCasa](entities/robocasa.md) — household manipulation benchmark (RoboCasa365 at ICLR 2026). (6 sources)
+- [ManiSkill](entities/maniskill.md) — [SAPIEN](entities/sapien.md)-based GPU-parallel manipulation benchmark. (3 source)
 - [SAPIEN](entities/sapien.md) — UCSD robot simulation framework underlying ManiSkill. (1 source) _stub_
-- [Gymnasium-Robotics](entities/gymnasium-robotics.md) — Farama's [MuJoCo](entities/mujoco.md)-backed robotics envs (Fetch / Hand / Maze / Adroit / Franka Kitchen / MaMuJoCo). (11 sources)
+- [Gymnasium-Robotics](entities/gymnasium-robotics.md) — Farama's [MuJoCo](entities/mujoco.md)-backed robotics envs (Fetch / Hand / Maze / Adroit / Franka Kitchen / MaMuJoCo). (2 sources)
 - [Arcade Learning Environment](entities/ale.md) — Farama's Atari 2600 RL benchmark; 100+ single-agent + 23 multi-agent envs; Gymnasium API. (1 source)
-- [Metaworld](entities/metaworld.md) — Stanford/Berkeley meta-RL benchmark; 50 manipulation tasks on simulated Sawyer; staple across V-JEPA-line work; natively integrated in LeRobot. (4 sources)
-- [PushT](entities/pusht.md) — 2D T-block pushing benchmark; introduced by IBC, popularized by Diffusion Policy; default lightweight bench across LeWM / DINO-WM / JEPA-WMs. (5 sources)
-- [PointMaze](entities/pointmaze.md) — 2D point-mass maze navigation; default lightweight nav bench across LeWM / DINO-WM / JEPA-WMs. (3 sources)
-- [DM Control Suite](entities/dm-control.md) — DeepMind continuous-control RL benchmark on top of MuJoCo; pre-Gymnasium-Robotics legacy substrate. (4 sources)
+- [Metaworld](entities/metaworld.md) — Stanford/Berkeley meta-RL benchmark; 50 manipulation tasks on simulated Sawyer; staple across V-JEPA-line work; natively integrated in LeRobot. (5 sources)
+- [PushT](entities/pusht.md) — 2D T-block pushing benchmark; introduced by IBC, popularized by Diffusion Policy; default lightweight bench across LeWM / DINO-WM / JEPA-WMs. (7 sources)
+- [PointMaze](entities/pointmaze.md) — 2D point-mass maze navigation; default lightweight nav bench across LeWM / DINO-WM / JEPA-WMs. (2 sources)
+- [DM Control Suite](entities/dm-control.md) — DeepMind continuous-control RL benchmark on top of MuJoCo; pre-Gymnasium-Robotics legacy substrate. (2 sources)
 - [LIBERO](entities/libero.md) — lifelong-learning manipulation benchmark (Liu et al. NeurIPS 2023); de-facto VLA-eval bench (SPATIAL / OBJECT / GOAL / 90 / LONG task families); natively integrated in LeRobot. (2 sources)
 - [SimplerEnv](entities/simplerenv.md) — Sapien-adjacent mid-weight sim positioned as real-world-correlation harness; used by VLA-JEPA. (1 source)
 - [Habitat](entities/habitat.md) — Meta FAIR embodied-AI sim (navigation + manipulation in photorealistic 3D scenes); legacy substrate. (1 source)
-- [flybody](entities/flybody.md) — HHMI Janelia + Google DeepMind anatomically detailed *Drosophila* body in MuJoCo (102 DoFs, walking + flight); Apache-2.0. (3 sources)
-- [NeuroMechFly](entities/neuromechfly.md) — NeLy/EPFL *Drosophila* body sim with vision + olfaction + brain–VNC hierarchy; v2 (Wang-Chen 2024); flygym v2.x.x package actively maintained 2026 with Warp/MJWarp GPU acceleration. Apache-2.0. (3 sources)
+- [flybody](entities/flybody.md) — HHMI Janelia + Google DeepMind anatomically detailed *Drosophila* body in MuJoCo (102 DoFs, walking + flight); Apache-2.0. (7 sources)
+- [NeuroMechFly](entities/neuromechfly.md) — NeLy/EPFL *Drosophila* body sim with vision + olfaction + brain–VNC hierarchy; v2 (Wang-Chen 2024); flygym v2.x.x package actively maintained 2026 with Warp/MJWarp GPU acceleration. Apache-2.0. (4 sources)
 
 ### RL API standards
 - [Gymnasium](entities/gymnasium.md) — single-agent RL env API; OpenAI gym successor under Farama. (3 sources)
 - [PettingZoo](entities/pettingzoo.md) — multi-agent RL env API. (2 sources)
 
 ### Robot platforms
-- [Franka Panda](entities/franka-panda.md) — 7-DOF research-grade arm; default tabletop manipulator across DROID, V-JEPA 2, JEPA-WMs, RUM, Diffusion Policy, UMI, Huh-et-al-accessibility. (10 sources)
+- [Franka Panda](entities/franka-panda.md) — 7-DOF research-grade arm; default tabletop manipulator across DROID, V-JEPA 2, JEPA-WMs, RUM, Diffusion Policy, UMI, Huh-et-al-accessibility. (15 sources)
 - [xArm 7](entities/xarm-7.md) — UFactory commercial 7-DOF arm; secondary tabletop manipulator; RUM cross-embodiment transfer target (~10pt drop vs Stretch). (2 sources) _stub_
 - [Sharpa Wave hand](entities/sharpa-wave.md) — 22-DoF anthropomorphic dexterous hand; primary post-training target on Galaxea R1Pro in [EgoScale](sources/egoscale-paper.md). Joint-space control. (1 source) _stub_
-- [TurtleBot](entities/turtlebot.md) — canonical educational ROS mobile robot (4 generations); TurtleBot 4 in education, TurtleBot 2i used in DRAGON 2024 assistive navigation; Rosetta ships `turtlebot3.yaml` as the reference mobile-base contract. (3 sources)
+- [TurtleBot](entities/turtlebot.md) — canonical educational ROS mobile robot (4 generations); TurtleBot 4 in education, TurtleBot 2i used in DRAGON 2024 assistive navigation; Rosetta ships `turtlebot3.yaml` as the reference mobile-base contract. (5 sources)
 - [iRobot Create 3](entities/irobot-create-3.md) — Roomba-i3-derived ROS 2 mobile-robot base; chassis under [TurtleBot 4](entities/turtlebot.md). (1 source) _stub_
 - [Tiago](entities/tiago.md) — PAL Robotics dual-arm mobile manipulator; ROS-native; used in Huh et al. 2026 accessibility study. (1 source)
 
@@ -385,48 +385,48 @@ Curated entry points across the wiki.
 - [Unitree G1](entities/unitree-g1.md) — smaller, cheaper Unitree (~$16k); cheapest serious humanoid platform. (0 sources) _stub_
 - [NAO](entities/nao.md) — SoftBank/Aldebaran 58-cm educational humanoid; canonical since 2008. (0 sources) _stub_
 - [TonyPi](entities/tonypi.md) — Hiwonder hobby-tier biped kit ($300–700); educational-tier sibling of [ROSOrin Pro](entities/rosorin-pro.md). (2 sources) _stub_
-- [Stretch](entities/stretch.md) — Hello Robot's mobile manipulator (Stretch 3 / Stretch 4). De-facto research platform; natively supported in LeRobot. (16 sources)
+- [Stretch](entities/stretch.md) — Hello Robot's mobile manipulator (Stretch 3 / Stretch 4). De-facto research platform; natively supported in LeRobot. (20 sources)
 - [Mobile ALOHA](entities/aloha.md) — Stanford bimanual mobile manipulator with whole-body teleop; 4× [ViperX 300](entities/viperx-300.md) + AgileX Tracer base; $32k incl. onboard compute + power; the [ACT](entities/act.md) + co-training-with-static-data reference; ALOHA-2 is in LeRobot's 8 supported platforms (~€21k). (3 sources)
 - [Trossen ViperX 300](entities/viperx-300.md) — 6-DOF benchtop arm; the bimanual-teleop SKU underneath [ALOHA / Mobile ALOHA](entities/aloha.md). (1 source)
 - [Grievous](entities/grievous.md) — Alex Koven's WIP cheap-bimanual-mobile testbed; design based on [Mobile ALOHA](entities/aloha.md) + [XLeRobot](entities/xlerobot.md); software on [LeRobot](entities/lerobot.md); RPi5-host + remote-PC. First downstream-of-Mobile-ALOHA project ingested here. (1 source) _stub_
 - [Reachy 2](entities/reachy.md) — Pollen Robotics' open-source bimanual mobile manipulator for embodied AI; ROS 2; 7 DOF/arm; natively supported in LeRobot. (2 sources)
 - [myAGV](entities/myagv.md) — Elephant Robotics autonomous mobile base; ROS; Raspberry Pi 4B; pairs with arms. (1 source)
-- [LeKiwi](entities/lekiwi.md) — SIGRobotics-UIUC 3-wheel Kiwi-drive holonomic mobile manipulator; Raspberry Pi 5 + STS3215; sub-$1k; LeRobot ecosystem; 1,300+ stars; ICLR 2026 paper lists at ~€230. (7 sources)
-- [XLeRobot](entities/xlerobot.md) — Vector Wang's $660 dual-arm household manipulator (2× SO-ARM101 + LeKiwi base + LeRobot); 90% 3D-printed; v0.3.0 (Aug 2025); 2 winning teams at Oct 2025 Embodied AI Hackathon (incl. matcha-bot champion). (2 sources)
-- [SO-ARM101](entities/so-arm101.md) — open-source low-cost arm (The Robot Studio); SO-ARM100 successor; default LeRobot manipulator; SO-10X drives 50%+ of community-contributed LeRobotDatasets as of Sep 2025; **most-tooled platform in the LeRobot↔ROS 2 ecosystem** — reference robot for all 3 bridges (Rosetta `so_101.yaml`, lerobot-ros quickstart, dedicated so101_ros2 workspace). (9 sources)
+- [LeKiwi](entities/lekiwi.md) — SIGRobotics-UIUC 3-wheel Kiwi-drive holonomic mobile manipulator; Raspberry Pi 5 + STS3215; sub-$1k; LeRobot ecosystem; 1,300+ stars; ICLR 2026 paper lists at ~€230. (9 sources)
+- [XLeRobot](entities/xlerobot.md) — Vector Wang's $660 dual-arm household manipulator (2× SO-ARM101 + LeKiwi base + LeRobot); 90% 3D-printed; v0.3.0 (Aug 2025); 2 winning teams at Oct 2025 Embodied AI Hackathon (incl. matcha-bot champion). (7 sources)
+- [SO-ARM101](entities/so-arm101.md) — open-source low-cost arm (The Robot Studio); SO-ARM100 successor; default LeRobot manipulator; SO-10X drives 50%+ of community-contributed LeRobotDatasets as of Sep 2025; **most-tooled platform in the LeRobot↔ROS 2 ecosystem** — reference robot for all 3 bridges (Rosetta `so_101.yaml`, lerobot-ros quickstart, dedicated so101_ros2 workspace). (11 sources)
 - [HopeJR-Arm](entities/hope-jr-arm.md) — humanoid arm + hand from [The Robot Studio](entities/the-robot-studio.md); ~€500; one of 8 LeRobot-supported platforms; BOM in TheRobotStudio/HOPEJr repo. (2 sources)
 - [myBuddy 280](entities/mybuddy-280.md) — Elephant Robotics 13 DOF dual-arm desktop robot; $1,619; ROS1. (1 source)
 - [ROSOrin](entities/rosorin.md) — Hiwonder's Jetson Orin Nano educational mobile robot kit. (2 sources)
-- [ROSOrin Pro](entities/rosorin-pro.md) — Hiwonder's 6-DOF arm + base variant of ROSOrin. (2 sources)
+- [ROSOrin Pro](entities/rosorin-pro.md) — Hiwonder's 6-DOF arm + base variant of ROSOrin. (4 sources)
 - [ROSOrin Pro 6-DOF arm](entities/rosorin-pro-arm.md) — HX-12H-servo manipulator on the ROSOrin Pro kit. (2 sources)
 - [NexArm](entities/nexarm.md) — Hiwonder's LeRobot-native leader-follower imitation-learning arm; 6-DOF, 500mm/500g/±2mm, from $279.99; ACT/Diffusion Policy/π0; dual-camera + drag teaching. A commercial [SO-ARM101](entities/so-arm101.md) competitor. (1 source)
 - [FRC KitBot](entities/frc-kitbot.md) — beginner-friendly FRC robot on AndyMark AM14U6 chassis; included in Kickoff Kit. (2 sources)
 
 ### Software stacks
-- [stretch_ai](entities/stretch-ai.md) — Hello Robot's open-source Python stack with an LLM agent. (5 sources)
-- [OpenClaw](entities/openclaw.md) — MIT-licensed local-first personal-AI-assistant framework (TypeScript / Node 24); **375K stars** as of May 2026; multi-platform messaging gateway (20+); "Molty space lobster" naming origin (with unmistakable Claude homophone); ClawHub skill registry. Foundation of the Claw ecosystem. (1 source)
-- [openclaw_controller](entities/openclaw-controller.md) — Hiwonder's ROS 2 bridge module that puts upstream OpenClaw on the [ROSOrin Pro](entities/rosorin-pro.md); exposes the kit's arm / chassis / vision skills (`pick`, `place`, AprilTag pickup, depth grasping, `cmd_vel`, …) as OpenClaw-dispatchable tools. Not a fork of OpenClaw — an extension that sits below it. (1 source)
+- [stretch_ai](entities/stretch-ai.md) — Hello Robot's open-source Python stack with an LLM agent. (7 sources)
+- [OpenClaw](entities/openclaw.md) — MIT-licensed local-first personal-AI-assistant framework (TypeScript / Node 24); **375K stars** as of May 2026; multi-platform messaging gateway (20+); "Molty space lobster" naming origin (with unmistakable Claude homophone); ClawHub skill registry. Foundation of the Claw ecosystem. (5 source)
+- [openclaw_controller](entities/openclaw-controller.md) — Hiwonder's ROS 2 bridge module that puts upstream OpenClaw on the [ROSOrin Pro](entities/rosorin-pro.md); exposes the kit's arm / chassis / vision skills (`pick`, `place`, AprilTag pickup, depth grasping, `cmd_vel`, …) as OpenClaw-dispatchable tools. Not a fork of OpenClaw — an extension that sits below it. (5 source)
 - [NemoClaw](entities/nemoclaw.md) — NVIDIA's open-source security/privacy wrapper over [OpenClaw](entities/openclaw.md); bundles NVIDIA Agent Toolkit + OpenShell (policy guardrails) + Nemotron local LLM; targets RTX PCs, RTX Pro, DGX Station, [DGX Spark](entities/dgx-spark.md); early preview. (1 source)
 - [Hermes Agent](entities/hermes-agent.md) — Nous Research's MIT-licensed self-improving agentic framework (Python 89%); **171K stars**; multi-platform messaging (Telegram/Discord/Slack/WhatsApp/Signal/CLI/email); 40+ built-in tools; sub-agents; persistent memory (Honcho dialectic); 200+ models via OpenRouter/Nous Portal/NIM/etc.; MCP integration; `hermes claw migrate` from OpenClaw. *"Most used agent in the world according to OpenRouter"* per NVIDIA blog. (2 sources)
-- [LeRobot](entities/lerobot.md) — Hugging Face's open-source **end-to-end robot learning library** ([ICLR 2026](sources/lerobot-iclr-2026-paper.md)); 8 platforms; 16K+ datasets / 2.2K+ contributors (Sep 2025); async producer-consumer inference; reference RL + BC + VLA implementations; 916-team Worldwide Hackathon in June 2025; **three independent community ROS 2 bridges** (Rosetta / lerobot-ros / so101-ros2). (12 sources)
-- [Rosetta](entities/rosetta.md) — solo-author Apache-2.0 bridge from [LeRobot](entities/lerobot.md) to [ROS 2](entities/ros2.md) (76 stars, Sep 2025); YAML-contract-driven topic-to-LeRobot-feature mapping; ships SO-101 + TurtleBot3 reference contracts + experimental HIL support; extends supported policies with π0.5, GR00T, Wall-X, X-VLA. Distro-agnostic; best fit for non-arm or non-Jazzy ROS 2 robots. (1 source)
-- [lerobot-ros](entities/lerobot-ros.md) — generic Python-class-based LeRobot↔ROS 2 wrapper by ycheng517 (**194 stars**, the most popular of 3 bridges; Jul 2025); Jazzy only; ros2_control + MoveIt Servo; minimal 2-package architecture; no license listed; arm-focused. (1 source)
-- [so101-ros2](entities/so101-ros2.md) — SO-101-specific MIT-licensed ROS 2 workspace + LeRobot bridge by nimiCurtis (50 stars, Jun 2025); Humble only; 8 packages incl. URDF/USD + Isaac Sim 5.0+ integration; tested SmolVLA + π0.5 deployment; needs author's LeRobot fork. (1 source)
-- [ROS 2](entities/ros2.md) — Open Robotics' middleware framework; LTS distros Humble (2022, EOL May 2027) + Jazzy (2024, EOL May 2029); operationally load-bearing for LeRobot↔ROS 2 bridge selection. (1 source)
+- [LeRobot](entities/lerobot.md) — Hugging Face's open-source **end-to-end robot learning library** ([ICLR 2026](sources/lerobot-iclr-2026-paper.md)); 8 platforms; 16K+ datasets / 2.2K+ contributors (Sep 2025); async producer-consumer inference; reference RL + BC + VLA implementations; 916-team Worldwide Hackathon in June 2025; **three independent community ROS 2 bridges** (Rosetta / lerobot-ros / so101-ros2). (15 sources)
+- [Rosetta](entities/rosetta.md) — solo-author Apache-2.0 bridge from [LeRobot](entities/lerobot.md) to [ROS 2](entities/ros2.md) (76 stars, Sep 2025); YAML-contract-driven topic-to-LeRobot-feature mapping; ships SO-101 + TurtleBot3 reference contracts + experimental HIL support; extends supported policies with π0.5, GR00T, Wall-X, X-VLA. Distro-agnostic; best fit for non-arm or non-Jazzy ROS 2 robots. (3 source)
+- [lerobot-ros](entities/lerobot-ros.md) — generic Python-class-based LeRobot↔ROS 2 wrapper by ycheng517 (**194 stars**, the most popular of 3 bridges; Jul 2025); Jazzy only; ros2_control + MoveIt Servo; minimal 2-package architecture; no license listed; arm-focused. (3 source)
+- [so101-ros2](entities/so101-ros2.md) — SO-101-specific MIT-licensed ROS 2 workspace + LeRobot bridge by nimiCurtis (50 stars, Jun 2025); Humble only; 8 packages incl. URDF/USD + Isaac Sim 5.0+ integration; tested SmolVLA + π0.5 deployment; needs author's LeRobot fork. (3 source)
+- [ROS 2](entities/ros2.md) — Open Robotics' middleware framework; LTS distros Humble (2022, EOL May 2027) + Jazzy (2024, EOL May 2029); operationally load-bearing for LeRobot↔ROS 2 bridge selection. (4 source)
 - [MoveIt](entities/moveit.md) — PickNik-maintained ROS 2 motion-planning + kinematics stack (MoveIt 2); MoveIt Servo for real-time end-effector control; the canonical Cartesian-planning layer on top of ros2_control; used by [lerobot-ros](entities/lerobot-ros.md) (CARTESIAN_VELOCITY mode), [so101-ros2](entities/so101-ros2.md), [myBuddy 280](entities/elephant-robotics.md). (4 sources)
 - [Nav2](entities/nav2.md) — canonical ROS 2 autonomous navigation stack (Open Navigation); SLAM + costmaps + behavior tree + planner + controller; successor to ROS 1 `move_base`; the "house navigation is solved" layer bundled with every mobile platform here ([Stretch](entities/stretch.md), [ROSOrin Pro](entities/rosorin-pro.md), [TurtleBot](entities/turtlebot.md)); composes with [LeRobot](entities/lerobot.md) policies (Nav2 = nav, LeRobot = visuomotor manipulation). (3 sources)
-- [PX4 Autopilot](entities/px4-autopilot.md) — Dronecode Foundation's BSD-licensed open-source autopilot for UAVs / drones (multirotor / fixed-wing / VTOL / heli / rover / experimental); NuttX RTOS + uORB + MAVLink + ROS 2 bridge; v1.16 stable, v1.17 alpha; first-class Neural Networks subsystem (TFLM + RAPTOR Adaptive RL + MC NN Control). (1 source)
-- [JetPack SDK](entities/jetpack.md) — NVIDIA's bundled software stack for Jetson products; Jetson Linux + CUDA + cuDNN + TensorRT + DeepStream + VPI + DLA. Current production 6.2.2. (4 sources)
-- [Jetson Linux (L4T)](entities/jetson-linux.md) — the L4T BSP underneath JetPack; R36.5 current for Orin (Ubuntu 22.04 + kernel 5.15 + UEFI + OP-TEE). (3 sources)
+- [PX4 Autopilot](entities/px4-autopilot.md) — Dronecode Foundation's BSD-licensed open-source autopilot for UAVs / drones (multirotor / fixed-wing / VTOL / heli / rover / experimental); NuttX RTOS + uORB + MAVLink + ROS 2 bridge; v1.17.0 stable (2026-05-13); first-class Neural Networks subsystem (TFLM + RAPTOR Adaptive RL + MC NN Control). (5 source)
+- [JetPack SDK](entities/jetpack.md) — NVIDIA's bundled software stack for Jetson products; Jetson Linux + CUDA + cuDNN + TensorRT + DeepStream + VPI + DLA. Current production 6.2.2. (7 sources)
+- [Jetson Linux (L4T)](entities/jetson-linux.md) — the L4T BSP underneath JetPack; R36.5 current for Orin (Ubuntu 22.04 + kernel 5.15 + UEFI + OP-TEE). (8 sources)
 - [Isaac ROS](entities/isaac-ros.md) — NVIDIA's GPU-accelerated ROS 2 perception/navigation packages for Jetson; the edge counterpart to Isaac Sim/Lab. (1 source)
 - [Isaac ROS NVBlox (nvblox)](entities/nvblox.md) — NVIDIA GPU 3D volumetric mapping from RGB-D/stereo depth; Seeed packages it as a `reComputer run nvblox` recipe. (1 source)
 
 ### Controllers / edge AI compute
 - [roboRIO](entities/roborio.md) — NI's mandatory FRC robot controller (ARM Cortex-A9 + FPGA); WPILib ecosystem. (2 sources)
-- [Jetson Orin Nano](entities/jetson-orin-nano.md) — NVIDIA's entry-tier Ampere-GPU edge-AI module + Developer Kit; substrate for ROSOrin / ROSOrin Pro / many wiki-tracked educational robots; containerized [LeRobot](entities/lerobot.md) target via [jetson-containers](entities/jetson-containers.md). (10 sources)
-- [Jetson Thor](entities/jetson-thor.md) — NVIDIA's Blackwell-generation flagship on-robot compute (T5000 + T4000 + AGX Thor Dev Kit); 7.5× / 3.5× vs Orin; **no RT cores → can't host Isaac Sim**. (4 sources)
-- [NVIDIA DGX Spark](entities/dgx-spark.md) — GB10 Grace Blackwell desktop AI supercomputer; 128 GB unified memory, 4th-gen RT cores, ConnectX-7; train-on-Spark / deploy-on-Thor split. (1 source)
-- [stable-worldmodel](entities/stable-worldmodel.md) — Python infrastructure under LeWorldModel (env zoo + planning API + dataset format). DM Control + Gymnasium-Robotics Fetch + classic + OGBench + more. (0 sources)
+- [Jetson Orin Nano](entities/jetson-orin-nano.md) — NVIDIA's entry-tier Ampere-GPU edge-AI module + Developer Kit; substrate for ROSOrin / ROSOrin Pro / many wiki-tracked educational robots; containerized [LeRobot](entities/lerobot.md) target via [jetson-containers](entities/jetson-containers.md). (11 sources)
+- [Jetson Thor](entities/jetson-thor.md) — NVIDIA's Blackwell-generation flagship on-robot compute (T5000 + T4000 + AGX Thor Dev Kit); 7.5× / 3.5× vs Orin; **no RT cores → can't host Isaac Sim**. (13 sources)
+- [NVIDIA DGX Spark](entities/dgx-spark.md) — GB10 Grace Blackwell desktop AI supercomputer; 128 GB unified memory, 4th-gen RT cores, ConnectX-7; train-on-Spark / deploy-on-Thor split. (4 source)
+- [stable-worldmodel](entities/stable-worldmodel.md) — Python infrastructure under LeWorldModel (env zoo + planning API + dataset format). DM Control + Gymnasium-Robotics Fetch + classic + OGBench + more. (1 sources)
 - [Pixhawk](entities/pixhawk.md) — open-hardware flight-controller standard (Dronecode); FMUv3–v6X-RT family; 30+ manufacturer-supported boards (Holybro, CUAV, CubePilot, ARK, ModalAI); the dominant hardware target for PX4. (1 source)
 
 ### Motor SDKs / hardware components
@@ -439,15 +439,15 @@ Curated entry points across the wiki.
 - [MAVLink](entities/mavlink.md) — lightweight binary telemetry / command protocol for drones (Dronecode); spoken by PX4 + ArduPilot + QGroundControl + MAVSDK + MAVROS. (1 source)
 
 ### Datasets
-- [DROID](entities/droid.md) — Distributed Robot Interaction Dataset; 350 hr / 76k traj / 564 scenes of Franka Panda teleop; the dominant real-robot dataset in JEPA-for-robotics work. (4 sources)
+- [DROID](entities/droid.md) — Distributed Robot Interaction Dataset; 350 hr / 76k traj / 564 scenes of Franka Panda teleop; the dominant real-robot dataset in JEPA-for-robotics work. (11 sources)
 - [Open X-Embodiment (OXE)](entities/open-x-embodiment.md) — 22-embodiment + ~500-skill umbrella corpus (O'Neill et al. 2024); the standard cross-embodiment pretraining corpus for [π0](entities/pi-zero.md), [Octo](entities/octo.md), [OpenVLA](entities/openvla.md). [DROID](entities/droid.md) is the Franka-Panda subset. (0 sources) _stub_
-- [EgoDex](entities/egodex.md) — 829 hr Apple Vision Pro–captured egocentric dataset; 194 tabletop manipulation tasks; clean wrist + hand keypoints. The high-precision complement to in-the-wild egocentric data in [EgoScale](sources/egoscale-paper.md) pretraining. (1 source)
+- [EgoDex](entities/egodex.md) — 829 hr Apple Vision Pro–captured egocentric dataset; 194 tabletop manipulation tasks; clean wrist + hand keypoints. The high-precision complement to in-the-wild egocentric data in [EgoScale](sources/egoscale-paper.md) pretraining. (2 source)
 
 ### Model organisms / connectomes
-- [Drosophila melanogaster](entities/drosophila.md) — fruit fly; canonical "whole-organism AI" target; substrate for both [FlyWire](entities/flywire.md) and [flybody](entities/flybody.md). (6 sources)
+- [Drosophila melanogaster](entities/drosophila.md) — fruit fly; canonical "whole-organism AI" target; substrate for both [FlyWire](entities/flywire.md) and [flybody](entities/flybody.md). (7 sources)
 - [FlyWire](entities/flywire.md) — international consortium + dataset for the complete adult *Drosophila* brain connectome (139,255 neurons, ~50M synapses; *Nature* 2024). (4 sources)
 - [Drosophila brain model](entities/drosophila-brain-model.md) — Phil Shiu's MIT-licensed Brian 2 LIF model on the FlyWire connectome (paper code). (3 sources)
-- [flyvis](entities/flyvis.md) — TuragaLab's MIT-licensed PyTorch connectome-constrained DMN of the fly visual system; v1.1.3 March 2026. (1 source)
+- [flyvis](entities/flyvis.md) — TuragaLab's MIT-licensed PyTorch connectome-constrained DMN of the fly visual system; v1.1.3 March 2026. (2 source)
 
 ### Biohybrid / living machines
 - [Xenobots (reconfigurable organisms)](entities/xenobots.md) — AI-designed living machines built from frog (*Xenopus*) stem cells; two generations (sculpted-cardiac 2020 → self-assembling cilia-driven 2021); locomotion + manipulation + collective behavior + self-repair + spontaneous kinematic self-replication. Biological counterpart to code-based self-replication. (5 sources)
@@ -459,8 +459,8 @@ Curated entry points across the wiki.
 - [Avida](entities/avida.md) — Adami/Brown 1994 tierra-inspired digital-evolution platform; 2D + local interactions; rewards computational tasks so complexity evolves. The standard digital-evolution research tool; substrate for the famous Lenski et al. 2003 EQU result. (2 sources)
 
 ### Vision foundation models
-- [DINOv2](entities/dinov2.md) — Meta FAIR self-supervised ViT (142M images, ViT-S/B/L/g); substrate for DINO-WM, DINO-world, JEPA-WMs. Apache 2.0. (4 sources)
-- [DINOv3](entities/dinov3.md) — Meta AI Research 7B-parameter ViT SSL foundation model (Aug 2025); Gram anchoring fixes dense-feature degradation; new SSL state-of-the-art on dense tasks (COCO mAP 66.1 frozen, ADE20k mIoU 63.0). (1 source)
+- [DINOv2](entities/dinov2.md) — Meta FAIR self-supervised ViT (142M images, ViT-S/B/L/g); substrate for DINO-WM, DINO-world, JEPA-WMs. Apache 2.0. (9 sources)
+- [DINOv3](entities/dinov3.md) — Meta AI Research 7B-parameter ViT SSL foundation model (Aug 2025); Gram anchoring fixes dense-feature degradation; new SSL state-of-the-art on dense tasks (COCO mAP 66.1 frozen, ADE20k mIoU 63.0). (6 source)
 
 ### VLM backbones (for VLAs)
 - [PaliGemma](entities/paligemma.md) — Google's 3 B VLM (SigLIP + Gemma 2B; Beyer et al. 2024); backbone of [π0](entities/pi-zero.md). (0 sources) _stub_
@@ -474,42 +474,42 @@ Curated entry points across the wiki.
 - [DDPM](entities/ddpm.md) — Denoising Diffusion Probabilistic Models (Ho, Jain, Abbeel; NeurIPS 2020); foundational diffusion-model class; substrate of [Diffusion Policy](entities/diffusion-policy.md), [NVIDIA Cosmos](entities/nvidia-cosmos.md), [Genie Envisioner](entities/genie-envisioner.md). (5 sources)
 
 ### World models
-- [NVIDIA Cosmos](entities/nvidia-cosmos.md) — world foundation model + simulation engine (generative video); **Cosmos 3** (June 2026) unified it into an omnimodal Mixture-of-Transformers [world-action model](concepts/world-models/world-action-model.md). (9 sources)
-- [Genie Envisioner](entities/genie-envisioner.md) — AGIBOT's world simulator GE-Sim2 (generative video). (5 sources)
-- [V-JEPA 2](entities/v-jepa-2.md) — Meta FAIR's JEPA world model (latent prediction); zero-shot Franka. (8 sources)
-- [LeWorldModel](entities/leworldmodel.md) — first stable end-to-end JEPA from raw pixels. (14 sources)
-- [JEPA-WMs](entities/jepa-wms.md) — FAIR (Terver et al.); first JEPA-for-robotics paper using RoboCasa. (1 source)
-- [DINO-WM](entities/dino-wm.md) — NYU + FAIR; frozen DINOv2 features + learned predictor; zero-shot planning. (10 sources)
-- [DINO-world](entities/dino-world.md) — FAIR DINOv2 video world model ("Back to the Features"). (1 source)
+- [NVIDIA Cosmos](entities/nvidia-cosmos.md) — world foundation model + simulation engine (generative video); **Cosmos 3** (June 2026) unified it into an omnimodal Mixture-of-Transformers [world-action model](concepts/world-models/world-action-model.md). (12 sources)
+- [Genie Envisioner](entities/genie-envisioner.md) — AGIBOT's world simulator GE-Sim2 (generative video). (7 sources)
+- [V-JEPA 2](entities/v-jepa-2.md) — Meta FAIR's JEPA world model (latent prediction); zero-shot Franka. (18 sources)
+- [LeWorldModel](entities/leworldmodel.md) — first stable end-to-end JEPA from raw pixels. (22 sources)
+- [JEPA-WMs](entities/jepa-wms.md) — FAIR (Terver et al.); first JEPA-for-robotics paper using RoboCasa. (7 source)
+- [DINO-WM](entities/dino-wm.md) — NYU + FAIR; frozen DINOv2 features + learned predictor; zero-shot planning. (16 sources)
+- [DINO-world](entities/dino-world.md) — FAIR DINOv2 video world model ("Back to the Features"). (3 source)
 - [VLA-JEPA](entities/vla-jepa.md) — JEPA-as-auxiliary inside a VLA policy (USTC, Sun et al.). (1 source)
 - [VL-JEPA](entities/vl-jepa.md) — JEPA reframing of a full vision-language model (Meta/LeCun, Chen et al.); predicts text embeddings, not tokens. **Distinct from VLA-JEPA despite the name.** (1 source)
 - [HWM (Hierarchical World Models)](entities/hwm.md) — model-agnostic two-level latent-MPC planning wrapper; the realized Hierarchical JEPA (Zhang et al. incl. LeCun). (1 source)
-- [Dreamer / DreamerV3](entities/dreamer.md) — Hafner-line MBRL family with generative WM + actor-critic in imagination; LeWM baseline. (2 sources)
+- [Dreamer / DreamerV3](entities/dreamer.md) — Hafner-line MBRL family with generative WM + actor-critic in imagination; LeWM baseline. (4 sources)
 - [TD-MPC / TD-MPC2](entities/td-mpc.md) — Hansen-line decoder-free MBRL with MPC + TD-bootstrapped value; LeWM baseline; closest MBRL relative to JEPA; **the only model-based method natively in LeRobot**. (3 sources)
 - [PLDM (Planning with Latent Dynamics Models)](entities/pldm.md) — Sobal-line end-to-end JEPA WM (NYU + FAIR); VICReg + inverse-dynamics + similarity multi-term loss; the canonical "end-to-end JEPA before LeWM" baseline. (2 sources — 2022 precursor + 2025 paper)
 
 ### VLA models / generalist policies
-- [NVIDIA GR00T](entities/nvidia-groot.md) — open VLA bundled with Isaac Lab; N1.5 won both sites of the Oct 2025 Embodied AI Hackathon; N1.7 EA pretraining sourced via [EgoScale](sources/egoscale-paper.md); GR00T N1.5 used as the post-trained policy in [DreamDojo](sources/dreamdojo-paper.md)'s policy-eval demo. (13 sources)
-- [π0](entities/pi-zero.md) — [Physical Intelligence](entities/physical-intelligence.md)'s 3.3 B VLA (Oct 2024); PaliGemma 3 B VLM + flow-matching action expert; cross-embodiment teleop on 7 robots / 68 tasks / 10k hours. The canonical flow-matching VLA; LeRobot-supported (lerobot/pi0). (6 sources)
-- [π0.7](entities/pi07.md) — [Physical Intelligence](entities/physical-intelligence.md)'s 5 B VLA (2025); Gemma3 4B + MEM video encoder + 860 M flow-matching action expert; diversified prompt with subgoal images + episode metadata; first VLA with emergent compositional generalization (espresso machine, sweet-potato-into-air-fryer out-of-the-box). (1 source)
-- [π*0.6](entities/pistar06.md) — [Physical Intelligence](entities/physical-intelligence.md)'s RL-adapted π0.6 (2025); RECAP recipe = offline-RL pretraining + iterative deployment with advantage-conditioned policy extraction; 2× throughput, ½ failure rate; 13-hr continuous espresso operation. (1 source)
+- [NVIDIA GR00T](entities/nvidia-groot.md) — open VLA bundled with Isaac Lab; N1.5 won both sites of the Oct 2025 Embodied AI Hackathon; N1.7 EA pretraining sourced via [EgoScale](sources/egoscale-paper.md); GR00T N1.5 used as the post-trained policy in [DreamDojo](sources/dreamdojo-paper.md)'s policy-eval demo. (15 sources)
+- [π0](entities/pi-zero.md) — [Physical Intelligence](entities/physical-intelligence.md)'s 3.3 B VLA (Oct 2024); PaliGemma 3 B VLM + flow-matching action expert; cross-embodiment teleop on 7 robots / 68 tasks / 10k hours. The canonical flow-matching VLA; LeRobot-supported (lerobot/pi0). (9 sources)
+- [π0.7](entities/pi07.md) — [Physical Intelligence](entities/physical-intelligence.md)'s 5 B VLA (2025); Gemma3 4B + MEM video encoder + 860 M flow-matching action expert; diversified prompt with subgoal images + episode metadata; first VLA with emergent compositional generalization (espresso machine, sweet-potato-into-air-fryer out-of-the-box). (4 source)
+- [π*0.6](entities/pistar06.md) — [Physical Intelligence](entities/physical-intelligence.md)'s RL-adapted π0.6 (2025); RECAP recipe = offline-RL pretraining + iterative deployment with advantage-conditioned policy extraction; 2× throughput, ½ failure rate; 13-hr continuous espresso operation. (3 source)
 - [π0.6 (and π0.5, π0.6-MEM intermediates)](entities/pi-zero-6.md) — anchor for the intermediate π-series generations between [π0](entities/pi-zero.md) and [π0.7](entities/pi07.md) / [π*0.6](entities/pistar06.md). No primary source ingested. (0 sources) _stub_
-- [SmolVLA](entities/smolvla.md) — [Hugging Face](entities/hugging-face.md) LeRobot team's 450 M VLA (June 2025); SmolVLM-2 + flow-matching with interleaved CA + causal SA; 22.9 K community-dataset episodes; **beats π0-3.5 B by +16.6 pts on real-world SO-100 multi-task**; async-inference RobotClient/PolicyServer stack; runs on CPU (only frontier VLA that does). (5 sources)
+- [SmolVLA](entities/smolvla.md) — [Hugging Face](entities/hugging-face.md) LeRobot team's 450 M VLA (June 2025); SmolVLM-2 + flow-matching with interleaved CA + causal SA; 22.9 K community-dataset episodes; **beats π0-3.5 B by +16.6 pts on real-world SO-100 multi-task**; async-inference RobotClient/PolicyServer stack; runs on CPU (only frontier VLA that does). (8 sources)
 - [OpenVLA](entities/openvla.md) — Kim et al. 2024; 7B open-weights baseline (Llama-2 backbone + autoregressive action tokens); the reference comparison VLA across nearly every 2024–2025 VLA paper. (0 sources) _stub_
 - [Octo](entities/octo.md) — Octo Model Team 2024; transformer-from-scratch generalist policy trained on [OXE](entities/open-x-embodiment.md); pre-flow-matching-era baseline. (0 sources) _stub_
-- [Gemini Robotics](entities/gemini-robotics.md) — Google DeepMind robot foundation models; full VLA + Gemini Robotics-**ER** embodied-reasoning VLM (tool-call planner). (1 source)
+- [Gemini Robotics](entities/gemini-robotics.md) — Google DeepMind robot foundation models; full VLA + Gemini Robotics-**ER** embodied-reasoning VLM (tool-call planner). (2 source)
 - [OK-Robot](entities/ok-robot.md) — NYU zero-shot pick-and-drop framework; 58.5% in 10 homes; 1.8× over OVMM. (1 source)
-- [Robot Utility Models](entities/robot-utility-models.md) — NYU/Meta zero-shot mobile-manipulation BC. (5 sources)
+- [Robot Utility Models](entities/robot-utility-models.md) — NYU/Meta zero-shot mobile-manipulation BC. (7 sources)
 - [Dobb·E](entities/dobb-e.md) — NYU predecessor to RUM; HPR encoder + Stick-v1 + Homes of New York dataset. (2 sources) _stub_
 
 ### Behavior-cloning methods
-- [IBC](entities/ibc.md) — Implicit Behavioral Cloning (Florence et al., CoRL 2021); energy-based-model BC; introduced PushT; direct ancestor of Diffusion Policy. (1 source)
-- [BET](entities/bet.md) — Behavior Transformer (Shafiullah et al., NeurIPS 2022); transformer + k-means action discretization; ancestor of VQ-BeT. (1 source)
+- [IBC](entities/ibc.md) — Implicit Behavioral Cloning (Florence et al., CoRL 2021); energy-based-model BC; introduced PushT; direct ancestor of Diffusion Policy. (2 source)
+- [BET](entities/bet.md) — Behavior Transformer (Shafiullah et al., NeurIPS 2022); transformer + k-means action discretization; ancestor of VQ-BeT. (6 source)
 - [VQ-BeT](entities/vq-bet.md) — Vector-Quantized Behavior Transformer (Lee et al. 2024); top performer in RUM ablation; LeRobot-supported. (7 sources)
 - [Diffusion Policy](entities/diffusion-policy.md) — Chi et al. 2023, Columbia/TRI/MIT; conditional DDPM over actions; popularized PushT + UMI gripper + action-chunking convention; LeRobot-supported (263 M params; CPU-incompatible without acceleration). (11 sources)
-- [ACT (Action Chunking Transformer)](entities/act.md) — Zhao et al. 2023, Stanford; default IL policy for [ALOHA / Mobile ALOHA](entities/aloha.md); operationalized **action chunking** as a first-class IL primitive (now near-default across 2024–2026 BC + VLA); LeRobot's most-used policy (52 M params, ~100–200 Hz on RTX 4090). (4 sources)
+- [ACT (Action Chunking Transformer)](entities/act.md) — Zhao et al. 2023, Stanford; default IL policy for [ALOHA / Mobile ALOHA](entities/aloha.md); operationalized **action chunking** as a first-class IL primitive (now near-default across 2024–2026 BC + VLA); LeRobot's most-used policy (52 M params, ~100–200 Hz on RTX 4090). (7 sources)
 - [ACT++](entities/act-plus-plus.md) — the mobile-extended ML codebase shipped with [Mobile ALOHA](entities/aloha.md) (`MarkFzp/act-plus-plus`); adds the 16-dim base+arm action vector + co-training + action-chunk delay-shift. (2 sources)
-- [UMI](entities/umi.md) — Universal Manipulation Interface (Chi et al., RSS 2024); hand-held gripper data-collection system; same lead author as Diffusion Policy. (1 source)
+- [UMI](entities/umi.md) — Universal Manipulation Interface (Chi et al., RSS 2024); hand-held gripper data-collection system; same lead author as Diffusion Policy. (2 source)
 
 ### LLMs
 - [Qwen](entities/qwen.md) — Alibaba's open-weights LLM family. Default local LLM in both stretch_ai (3B) and ROSOrin (1.7B). (2 sources)
@@ -519,18 +519,18 @@ Curated entry points across the wiki.
 - [MimicGen](entities/mimicgen.md) — synthetic-demo expansion tool used by RoboCasa365. (1 source) _stub_
 - [NVIDIA Brev](entities/nvidia-brev.md) — NVIDIA's cross-cloud GPU-instance broker (`brev` CLI + Launchables); no native auto-stop, so cost discipline is on the user. (2 sources)
 - [jetson-containers](entities/jetson-containers.md) — Dustin Franklin / NVIDIA framework for building + running Docker images on Jetson (aarch64/L4T); `dustynv/*` image registry + `autotag`/`run.sh` helpers; the deployment substrate behind Jetson AI Lab tutorials (incl. `dustynv/lerobot`). The edge-side counterpart to Brev. (2 sources)
-- [jetson-examples (reComputer runner)](entities/jetson-examples.md) — Seeed's MIT `reComputer run <example>` CLI atop [jetson-containers](entities/jetson-containers.md); ~37 one-command Jetson AI recipes (LLM/VLM/vision/gen-AI/robotics); `pip3 install jetson-examples`; $250 contribution bounty. (2 sources)
-- [Ultralytics YOLO](entities/ultralytics-yolo.md) — de-facto real-time CV library + model family (detect/segment/classify/pose/OBB/track); flagship YOLO26; `pip install ultralytics`; ONNX/TensorRT edge export; AGPL-3.0/Enterprise. (1 source)
+- [jetson-examples (reComputer runner)](entities/jetson-examples.md) — Seeed's MIT `reComputer run <example>` CLI atop [jetson-containers](entities/jetson-containers.md); ~37 one-command Jetson AI recipes (LLM/VLM/vision/gen-AI/robotics); `pip3 install jetson-examples`; $250 contribution bounty. (3 sources)
+- [Ultralytics YOLO](entities/ultralytics-yolo.md) — de-facto real-time CV library + model family (detect/segment/classify/pose/OBB/track); flagship YOLO26; `pip install ultralytics`; ONNX/TensorRT edge export; AGPL-3.0/Enterprise. (2 source)
 
 ### Reasoning / formal-verification models
-- [Aleph](entities/aleph.md) — [Logical Intelligence](entities/logical-intelligence.md)'s agentic orchestration product; pairs frontier LLM (GPT-5.2) + [Kona](entities/kona.md) + [Lean](concepts/learning/lean-theorem-prover.md); **99.4% / 668-of-672 on [PutnamBench](concepts/learning/putnambench.md)** (May 2026). (1 source)
-- [Kona](entities/kona.md) — non-autoregressive [energy-based reasoning model](concepts/learning/energy-based-models.md) from [Logical Intelligence](entities/logical-intelligence.md); 16M–200M params; pilots in energy / advanced manufacturing / semiconductor (Q1 2026). (1 source)
+- [Aleph](entities/aleph.md) — [Logical Intelligence](entities/logical-intelligence.md)'s agentic orchestration product; pairs frontier LLM (GPT-5.2) + [Kona](entities/kona.md) + [Lean](concepts/learning/lean-theorem-prover.md); **99.4% / 668-of-672 on [PutnamBench](concepts/learning/putnambench.md)** (May 2026). (2 source)
+- [Kona](entities/kona.md) — non-autoregressive [energy-based reasoning model](concepts/learning/energy-based-models.md) from [Logical Intelligence](entities/logical-intelligence.md); 16M–200M params; pilots in energy / advanced manufacturing / semiconductor (Q1 2026). (4 source)
 
 ### Events
 - [LeRobot Worldwide Hackathon 2025](entities/lerobot-worldwide-hackathon-2025.md) — Hugging Face hybrid hackathon, June 14–15, 2025; 916 team members, ~400 submissions, 30 ranked winners; prizes: Hope Jr Arm / LeKiwi / SO-101. (1 source)
 
 ### People
-- [Yann LeCun](entities/yann-lecun.md) — NYU; Turing Award 2018; architect of the JEPA program; reported founder of AMI Labs (Apr 2026, provisional). Co-authored the original 1993 Siamese network paper at AT&T Bell Labs. (17 sources)
+- [Yann LeCun](entities/yann-lecun.md) — NYU; Turing Award 2018; architect of the JEPA program; reported founder of AMI Labs (Apr 2026, provisional). Co-authored the original 1993 Siamese network paper at AT&T Bell Labs. (21 sources)
 - [Andrej Karpathy](entities/andrej-karpathy.md) — independent AI researcher/educator; formerly Tesla AI director + OpenAI founding member; author of micrograd / nanoGPT / nanochat / autoresearch — the wiki's recommended pedagogical reference implementations for backprop, transformers, end-to-end LLM training, and agent-driven ML research. (4 sources)
 - [Kevin Clark](entities/kevin-clark.md) — Stanford NLP PhD (Manning group); ELECTRA lead author; wrote the CS224n [vectorized-backprop gradient notes](sources/clark-computing-nn-gradients.md). (1 source)
 - [Navid Azizan](entities/navid-azizan.md) — MIT ME / IDSS / LIDS; learning-based control; SD-LQR (ICML 2023) + drone adaptive control (2025). (2 sources)
@@ -540,7 +540,7 @@ Curated entry points across the wiki.
 - [Chelsea Finn](entities/chelsea-finn.md) — Stanford CS; senior on DROID + Metaworld + Mobile ALOHA. (1 source page: Mobile ALOHA)
 - [Tony Z. Zhao](entities/tony-zhao.md) — Stanford CS; first author on original ALOHA + [ACT](entities/act.md); co-lead on [Mobile ALOHA](entities/aloha.md). (1 source)
 - [Zipeng Fu](entities/zipeng-fu.md) — Stanford CS PhD; co-lead on [Mobile ALOHA](entities/aloha.md). (1 source)
-- [Lerrel Pinto](entities/lerrel-pinto.md) — NYU CS; co-senior on DINO-WM, RUM, and OK-Robot. (5 sources)
+- [Lerrel Pinto](entities/lerrel-pinto.md) — NYU CS; co-senior on DINO-WM, RUM, and OK-Robot. (7 sources)
 - [Nikolaus Correll](entities/nikolaus-correll.md) — CU Boulder robotics; senior author of [Cutting the Cord](sources/cutting-the-cord-untethered-xlerobot.md) (untethered onboard-Jetson XLeRobot); robotics education. (1 source)
 - [Jim Fan (Linxi Fan)](entities/jim-fan.md) — NVIDIA Director of Robotics, Distinguished Scientist; co-founder + co-lead of [NVIDIA GEAR](entities/nvidia-gear.md) (Feb 2024); co-leads [GR00T](entities/nvidia-groot.md); project lead on [EgoScale](sources/egoscale-paper.md) + [DreamDojo](sources/dreamdojo-paper.md); pre-GEAR author on MineDojo / VIMA / Voyager / Eureka. (3 sources)
 - [Ming-Yu Liu](entities/ming-yu-liu.md) — NVIDIA VP/distinguished researcher; supervision lead of [Cosmos 3](sources/cosmos-3-technical-report.md) and the [Cosmos](entities/nvidia-cosmos.md) world-foundation-model line. (1 source)
@@ -549,10 +549,10 @@ Curated entry points across the wiki.
 - [Stephen Welch](entities/stephen-welch.md) — founder of [Welch Labs](entities/welch-labs.md); independent AI educator; author of the [Illustrated Guide to AI Vol I](sources/welchlabs-illustrated-guide-to-ai.md). Based in Winston-Salem, NC. (3 sources)
 - [Mathieu Blondel](entities/mathieu-blondel.md) — Google DeepMind; co-author of [The Elements of Differentiable Programming](sources/blondel-roulet-differentiable-programming.md) (Blondel & Roulet, 485 pp, draft v3 June 2025); long-running research line on Fenchel-Young losses + sparsemax + structured prediction + JAX ecosystem (JAXopt, optax). (1 source)
 - [Karl Pertsch](entities/karl-pertsch.md) — DROID co-lead with Khazatsky; Berkeley/Stanford. (0 source pages yet — referenced via entity pages)
-- [Mahi Shafiullah](entities/mahi-shafiullah.md) — NYU + Hello Robot; lead/co-author on Dobb·E, RUM, and OK-Robot. (5 sources)
+- [Mahi Shafiullah](entities/mahi-shafiullah.md) — NYU + Hello Robot; lead/co-author on Dobb·E, RUM, and OK-Robot. (7 sources)
 - [Phil Shiu](entities/phil-shiu.md) — UC Berkeley → Eon Systems; lead author + maintainer of the FlyWire-based LIF brain simulation. (2 sources)
 - [Maya Cakmak](entities/maya-cakmak.md) — UW; HCR Lab PI; physically assistive robots + EUP; Henry Evans long-term deployments; autonomy preference finding. (9 sources)
-- [Amal Nanavati](entities/amal-nanavati.md) — UW HCR Lab; robot-assisted feeding; PAR systematic review; out-of-lab deployment methodology. (4 sources)
+- [Amal Nanavati](entities/amal-nanavati.md) — UW HCR Lab; robot-assisted feeding; PAR systematic review; out-of-lab deployment methodology. (1 sources)
 - [Katherine Driggs-Campbell](entities/katherine-driggs-campbell.md) — UIUC ECE; senior on DRAGON; HRI + safety-critical autonomy + assistive navigation. (1 source)
 - [Shuijing Liu](entities/shuijing-liu.md) — UIUC ECE PhD (Driggs-Campbell); first author on DRAGON. (1 source)
 - [Mina Huh](entities/mina-huh.md) — UC Berkeley; accessibility + HRI; first author on Huh et al. 2026. (1 source)
@@ -560,7 +560,7 @@ Curated entry points across the wiki.
 - [Roberto Martin-Martin](entities/roberto-martin-martin.md) — UT Austin CS; embodied AI, manipulation, mobile manipulation; co-author on Huh et al. 2026. (1 source)
 - [Huihan Liu](entities/huihan-liu.md) — UT Austin; robot learning; co-author on Huh et al. 2026 (distinct from Shuijing Liu). (1 source)
 - [Eike Schneiders](entities/eike-schneiders.md) — Aalborg University; qualitative HRI/HCI of domestic robots and automation. (1 source)
-- [Vector Wang (Gaotian Wang)](entities/vector-wang.md) — creator of [XLeRobot](entities/xlerobot.md); composition-style affordable-robotics builder. (1 source)
+- [Vector Wang (Gaotian Wang)](entities/vector-wang.md) — creator of [XLeRobot](entities/xlerobot.md); composition-style affordable-robotics builder. (2 source)
 - [Remi Cadene](entities/remi-cadene.md) — robotics lead at [Hugging Face](entities/hugging-face.md); responsible for [LeRobot](entities/lerobot.md); **lead author on ICLR 2026 LeRobot paper**; SmolVLA co-author; co-organizer of the [Worldwide Hackathon 2025](entities/lerobot-worldwide-hackathon-2025.md). (3 sources)
 - [Eve Bodnia](entities/eve-bodnia.md) — Founder + CEO of [Logical Intelligence](entities/logical-intelligence.md); EBM-for-reasoning agenda. (1 source)
 - [Michael Freedman](entities/michael-freedman.md) — Fields Medal 1986; Chief of Mathematics at [Logical Intelligence](entities/logical-intelligence.md). (1 source)

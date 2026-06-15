@@ -7,8 +7,6 @@ author: Oriane Siméoni, Huy V. Vo, Maximilian Seitzer, Federico Baldassarre, Ma
 affiliation: Meta AI Research (+ WRI, Inria for two co-authors)
 published: 2025-08-13 (v1)
 ingested: 2026-05-11
-created: 2026-05-11
-updated: 2026-05-11
 tags: [dinov3, dino, ssl, foundation-model, vit, meta-fair, gram-anchoring, dense-features, distillation, baldassarre]
 ---
 

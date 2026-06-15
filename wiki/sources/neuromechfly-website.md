@@ -2,8 +2,6 @@
 title: "neuromechfly.org (project website)"
 type: source
 subtype: project-website
-created: 2026-05-08
-updated: 2026-05-08
 url: https://neuromechfly.org/
 author: Neuroengineering Laboratory (NeLy), EPFL
 published: 2024-onwards

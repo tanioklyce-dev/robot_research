@@ -6,8 +6,6 @@ demo_url: https://sudoku.logicalintelligence.com
 author: Logical Intelligence (corporate page; no individual byline)
 published: 2026-05-14
 ingested: 2026-05-17
-created: 2026-05-17
-updated: 2026-05-17
 tags: [logical-intelligence, kona, ebm, energy-based-model, primary-source, positioning, sudoku-demo, certification, post-llm]
 ---
 

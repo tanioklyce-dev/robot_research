@@ -8,8 +8,6 @@ license: CC-BY-NC 4.0
 author: Meta FAIR (Basile Terver, Tsung-Yen Yang, Jean Ponce, Adrien Bardes, Yann LeCun)
 published: 2025-12-30
 ingested: 2026-05-25
-created: 2026-05-25
-updated: 2026-05-25
 tags: [jepa-wms, jepa, world-model, fair, meta-fair, github, reproducibility, dinov2, dinov3, vjepa-2-ac, droid, robocasa, metaworld, cc-by-nc, primary-source]
 ---
 

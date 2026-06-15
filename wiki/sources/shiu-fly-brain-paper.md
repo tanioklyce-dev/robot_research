@@ -2,8 +2,6 @@
 title: "A Drosophila computational brain model reveals sensorimotor processing (Shiu et al. 2024)"
 type: source
 subtype: paper
-created: 2026-05-08
-updated: 2026-05-08
 url: https://doi.org/10.1038/s41586-024-07763-9
 pmcid: PMC11446845
 author: Shiu, Sterne, Spiller, Franconville, Sandoval, Zhou, Simha, Kang, Yu, Kim, Dorkenwald, Matsliah, Schlegel, Yu, McKellar, Sterling, Costa, Eichler, Bates, Eckstein, Funke, Jefferis, Murthy, Bidaye, Hampel, Seeds, Scott

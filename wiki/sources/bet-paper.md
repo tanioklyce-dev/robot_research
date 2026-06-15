@@ -6,8 +6,6 @@ author: Nur Muhammad Mahi Shafiullah, Zichen Jeff Cui, Ariuntuya Altanzaya, Lerr
 affiliation: NYU (Pinto lab)
 published: 2022-06-22 (arxiv v1); revised 2022-10-11 (v2); NeurIPS 2022
 ingested: 2026-05-09
-created: 2026-05-09
-updated: 2026-05-09
 tags: [bet, behavior-transformer, action-discretization, k-means, transformer, multi-modal-bc, shafiullah-2022, pinto-lab, nyu]
 ---
 

@@ -6,7 +6,6 @@ local_path: raw/nanavati2024physically.pdf (preprint); raw/annurev-control-06282
 author: Amal Nanavati, Vinitha Ranganeni, Maya Cakmak
 published: 2024 (Advance online November 21, 2023)
 ingested: 2026-05-09
-updated: 2026-05-10
 tags: [assistive-robotics, systematic-review, par, hcrlab, maya-cakmak, amal-nanavati]
 ---
 

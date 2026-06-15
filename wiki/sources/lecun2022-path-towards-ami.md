@@ -7,8 +7,6 @@ author: Yann LeCun
 affiliation: Courant Institute (NYU) + Meta-FAIR
 published: 2022-06-27 (Version 0.9.2)
 ingested: 2026-05-11
-created: 2026-05-11
-updated: 2026-05-11
 tags: [lecun, jepa, h-jepa, world-model, ami, energy-based-model, self-supervised, configurator, intrinsic-motivation, position-paper, foundational]
 ---
 

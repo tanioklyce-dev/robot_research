@@ -5,8 +5,6 @@ url: https://www.tri.global/
 author: Toyota Research Institute
 published: continuously updated
 ingested: 2026-05-09
-created: 2026-05-09
-updated: 2026-05-09
 tags: [tri, toyota-research-institute, organization, robotics, automated-driving, lbm]
 ---
 

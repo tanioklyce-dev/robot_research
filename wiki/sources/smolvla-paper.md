@@ -7,8 +7,6 @@ author: "Mustafa Shukor*, Dana Aubakirova*, Francesco Capuano*, Pepijn Kooijmans
 affiliations: Hugging Face, Sorbonne University, valeo.ai, École Normale Supérieure Paris-Saclay
 published: 2025-06-02
 ingested: 2026-05-25
-created: 2026-05-25
-updated: 2026-05-25
 tags: [smolvla, vla, vision-language-action, flow-matching, hugging-face, lerobot, smolvlm-2, async-inference, community-datasets, so-arm100, so-arm101, primary-source]
 ---
 

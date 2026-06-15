@@ -5,8 +5,6 @@ url: https://www.youtube.com/watch?v=NYmXYF8A3Q4
 author: unknown (YouTube channel not surfaced from the video page or search snippets)
 published: ~2026-05-15 (search snippet: "uploaded 2 days ago" as of 2026-05-17)
 ingested: 2026-05-17
-created: 2026-05-17
-updated: 2026-05-17
 tags: [video, energy-based-model, ebm, aleph, kona, logical-intelligence, yann-lecun, formal-verification, lean, putnambench, reasoning, post-llm]
 ---
 

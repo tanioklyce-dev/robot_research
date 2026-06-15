@@ -6,8 +6,6 @@ author: Pete Florence, Corey Lynch, Andy Zeng, Oscar Ramirez, Ayzaan Wahid, Laur
 affiliation: Google Research (Robotics at Google)
 published: 2021-09-01 (arxiv); CoRL 2021
 ingested: 2026-05-09
-created: 2026-05-09
-updated: 2026-05-09
 tags: [ibc, implicit-behavioral-cloning, energy-based-model, infonce, push-t, behavior-cloning, florence-2021, google-research]
 ---
 

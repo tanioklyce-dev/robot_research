@@ -2,8 +2,6 @@
 title: "Berkeley News — researchers simulate an entire fly brain on a laptop"
 type: source
 subtype: news-article
-created: 2026-05-08
-updated: 2026-05-08
 url: https://news.berkeley.edu/2024/10/02/researchers-simulate-an-entire-fly-brain-on-a-laptop-is-a-human-brain-next/
 author: UC Berkeley News
 published: 2024-10-02

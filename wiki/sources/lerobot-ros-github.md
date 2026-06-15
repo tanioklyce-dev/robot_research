@@ -4,9 +4,9 @@ type: source
 url: https://github.com/ycheng517/lerobot-ros
 license: not specified in repo metadata
 author: ycheng517 (GitHub user)
-created: 2025-07-27
 last_pushed: 2025-11-06
 ingested: 2026-05-28
+published: 2025-07-27
 stars: 194
 forks: 28
 languages: Python 100%

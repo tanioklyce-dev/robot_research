@@ -7,8 +7,6 @@ affiliation: independent / newsletter ("AI Garage Weekly" at on-chain-ai-garage.
 published: 2026-04-24
 duration: 27 min (1634 s)
 ingested: 2026-05-14
-created: 2026-05-14
-updated: 2026-05-14
 tags: [video, reproduction, leworldmodel, lewm, jepa, sigreg, two-room, rtx-3060, wsl2, claude-code, popular-explainer]
 ---
 

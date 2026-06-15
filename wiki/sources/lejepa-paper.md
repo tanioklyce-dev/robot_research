@@ -7,8 +7,6 @@ author: Randall Balestriero, Yann LeCun
 affiliation: Brown University + Meta-FAIR (Balestriero, equal contribution); New York University + Meta-FAIR (LeCun, equal contribution)
 published: 2025-11-11 (v1); 2025-11-14 (v3)
 ingested: 2026-05-10 (deepened from PDF)
-created: 2026-05-10
-updated: 2026-05-10
 tags: [lejepa, sigreg, jepa, ssl, anti-collapse, isotropic-gaussian, balestriero, lecun, foundational, sketched-regularization, cramer-wold, epps-pulley, characteristic-function]
 ---
 

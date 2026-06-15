@@ -6,8 +6,6 @@ author: Andrej Karpathy
 affiliation: independent / formerly OpenAI & Tesla
 published: 2025-10-13 (initial commit / "original nanochat post"); active development through 2026
 ingested: 2026-05-14
-created: 2026-05-14
-updated: 2026-05-14
 tags: [karpathy, nanochat, gpt, llm, transformer, pedagogy, github, reference-implementation, training-pipeline, speedrun, leaderboard]
 github_stats: 53K stars, 7.2K forks (May 2026); active master branch
 ---

@@ -7,8 +7,6 @@ author: Horace B. Barlow
 affiliation: Physiological Laboratory, Cambridge University
 published: 1961 (chapter 13 in *Sensory Communication*, ed. W. A. Rosenblith, MIT Press)
 ingested: 2026-05-12
-created: 2026-05-12
-updated: 2026-05-12
 tags: [barlow, neuroscience, redundancy-reduction, factorial-code, sensory-coding, information-theory, foundational, historical]
 ---
 

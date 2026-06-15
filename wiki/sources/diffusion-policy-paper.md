@@ -6,8 +6,6 @@ project_page: https://diffusion-policy.cs.columbia.edu
 author: Cheng Chi, Siyuan Feng, Yilun Du, Zhenjia Xu, Eric Cousineau, Benjamin Burchfiel, Shuran Song
 published: 2023-03 (arxiv); RSS 2023
 ingested: 2026-05-09
-created: 2026-05-09
-updated: 2026-05-09
 tags: [diffusion-policy, behavior-cloning, ddpm, action-diffusion, push-t, robomimic, franka, ur5, columbia, tri, mit]
 ---
 

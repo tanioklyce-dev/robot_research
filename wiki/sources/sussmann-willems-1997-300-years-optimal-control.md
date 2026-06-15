@@ -7,8 +7,6 @@ author: Hector J. Sussmann (Rutgers), Jan C. Willems (Groningen)
 affiliation: Department of Mathematics, Rutgers University (Sussmann; partly supported by NSF Grant DMS95-00798 and AFOSR Grant 0923); Department of Mathematics, University of Groningen (Willems)
 published: 1997-06 — IEEE Control Systems Magazine, Vol. 17, No. 3, pp. 32–44 ("Historical Perspectives")
 ingested: 2026-05-14
-created: 2026-05-14
-updated: 2026-05-14
 tags: [optimal-control, history, calculus-of-variations, brachystochrone, pontryagin-maximum-principle, hamilton-jacobi-bellman, euler-lagrange, weierstrass, foundational, ieee-csm]
 ---
 

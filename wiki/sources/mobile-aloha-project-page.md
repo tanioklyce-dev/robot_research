@@ -5,8 +5,6 @@ url: https://mobile-aloha.github.io
 author: Zipeng Fu, Tony Z. Zhao, Chelsea Finn (Stanford)
 published: 2024-01
 ingested: 2026-05-25
-created: 2026-05-25
-updated: 2026-05-25
 tags: [mobile-aloha, aloha, act, act-plus-plus, stanford, project-page, primary-source, tutorial, hardware-code, ml-code]
 ---
 

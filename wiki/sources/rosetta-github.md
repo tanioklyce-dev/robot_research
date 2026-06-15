@@ -4,9 +4,9 @@ type: source
 url: https://github.com/iblnkn/rosetta
 license: Apache-2.0
 author: iblnkn (GitHub user)
-created: 2025-09-14
 last_pushed: 2026-05-24
 ingested: 2026-05-28
+published: 2025-09-14
 stars: 76
 forks: 14
 languages: Python 99.4% / CMake 0.6%

@@ -6,8 +6,6 @@ local_path: raw/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf
 author: Hello Robot, Inc.
 published: 2026-05-12
 ingested: 2026-05-25
-created: 2026-05-25
-updated: 2026-05-25
 tags: [stretch, stretch-4, hello-robot, datasheet, primary-source, mobile-manipulator, hesai-lidar, luxonis, jetson-orin-nx, feetech]
 ---
 

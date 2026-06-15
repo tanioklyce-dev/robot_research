@@ -2,8 +2,6 @@
 title: "Connectome-constrained networks predict neural activity across the fly visual system (Lappalainen et al. 2024)"
 type: source
 subtype: paper
-created: 2026-05-08
-updated: 2026-05-08
 url: https://doi.org/10.1038/s41586-024-07939-3
 pmcid: PMC11525180
 author: Lappalainen, Tschopp, Prakhya, McGill, Nern, Shinomiya, Takemura, Gruntman, Macke, Turaga

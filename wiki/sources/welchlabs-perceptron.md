@@ -6,8 +6,6 @@ author: Welch Labs (Stephen Welch)
 affiliation: Welch Labs (independent educational-video channel)
 published: 2025-02 — submitted to Hacker News 2025-02-12; covered by Frank's World of Data Science 2025-02-03
 ingested: 2026-05-14
-created: 2026-05-14
-updated: 2026-05-14
 tags: [perceptron, welch-labs, video, pedagogical, rosenblatt, mark-i, history, mlp, llm, gpt-3, curriculum-module-1]
 ---
 

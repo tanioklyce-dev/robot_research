@@ -6,8 +6,6 @@ author: Figure AI
 affiliation: Figure AI
 published: 2025-02-20
 ingested: 2026-05-10
-created: 2026-05-10
-updated: 2026-05-10
 tags: [helix, figure, vla, humanoid, system-1-system-2, hierarchical-policy, onboard-inference]
 ---
 

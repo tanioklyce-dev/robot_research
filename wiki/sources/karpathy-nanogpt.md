@@ -6,8 +6,6 @@ author: Andrej Karpathy
 affiliation: independent / formerly OpenAI & Tesla
 published: 2022-12-28 (initial commit)
 ingested: 2026-05-14
-created: 2026-05-14
-updated: 2026-05-14
 tags: [karpathy, nanogpt, gpt, transformer, pedagogy, github, reference-implementation, deprecated]
 github_stats: 58K stars, 10K forks (May 2026); officially deprecated 2025-11
 ---

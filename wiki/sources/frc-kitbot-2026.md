@@ -1,8 +1,6 @@
 ---
 title: FRC KitBot 2026 — REBUILT Season
 type: source
-created: 2026-05-08
-updated: 2026-05-08
 url: https://www.firstinspires.org/resources/library/frc/kitbot
 author: FIRST
 published: 2026-01

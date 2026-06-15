@@ -1,8 +1,6 @@
 ---
 title: FRC 2026 Game Manual — REBUILT
 type: source
-created: 2026-05-08
-updated: 2026-05-08
 url: https://firstfrc.blob.core.windows.net/frc2026/Manual/2026GameManual.pdf
 author: FIRST
 published: 2026-01-10

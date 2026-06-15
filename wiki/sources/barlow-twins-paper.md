@@ -7,8 +7,6 @@ author: Jure Zbontar, Li Jing, Ishan Misra, Yann LeCun, Stéphane Deny
 affiliation: Facebook AI Research (+ NYU for LeCun)
 published: 2021-03-04 (v1); 2021-06-14 (v3); ICML 2021 (PMLR 139)
 ingested: 2026-05-12
-created: 2026-05-12
-updated: 2026-05-12
 tags: [barlow-twins, ssl, redundancy-reduction, anti-collapse, cross-correlation, lecun, zbontar, jing, misra, deny, information-bottleneck, foundational]
 ---
 

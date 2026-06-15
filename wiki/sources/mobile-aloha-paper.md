@@ -8,8 +8,6 @@ author: Zipeng Fu*, Tony Z. Zhao*, Chelsea Finn
 affiliations: Stanford University
 published: 2024-01
 ingested: 2026-05-25
-created: 2026-05-25
-updated: 2026-05-25
 tags: [mobile-aloha, aloha, act, bimanual, mobile-manipulation, imitation-learning, co-training, stanford, chelsea-finn, tony-zhao, zipeng-fu, viperx-300, behavior-cloning, primary-source]
 ---
 

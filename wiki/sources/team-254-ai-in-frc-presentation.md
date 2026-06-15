@@ -1,8 +1,6 @@
 ---
 title: "Team 254: The Next Revolution — AI in FRC (2026 Championship)"
 type: source
-created: 2026-05-08
-updated: 2026-05-08
 url: https://www.youtube.com/watch?v=oTcimMwxRoM
 author: Team 254 (Jared Russell, Tom Bottiglieri, et al.)
 published: 2026-05-04
