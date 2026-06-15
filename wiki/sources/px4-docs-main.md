@@ -15,7 +15,7 @@ tags: [px4, pixhawk, dronecode, uav, drone, autopilot, mavlink, ros2, uxrce-dds,
 
 ## Summary
 
-**PX4** — the dominant **open-source autopilot for drones and autonomous vehicles**, hosted by the [Dronecode Foundation](../entities/dronecode-foundation.md) under the Linux Foundation. BSD 3-Clause licensed; vendor-neutral; **stable v1.16**, **v1.17 alpha** in active development. Supports six vehicle classes (multirotor, fixed-wing, VTOL, helicopter, rover, experimental — airships, submarines, balloons), 30+ official flight controller boards, and 40+ sensor families. The architectural pattern: **NuttX RTOS + uORB pub-sub messaging + MAVLink telemetry + ROS 2 bridge (uXRCE-DDS)** — analogous to the ROS 2 ecosystem on ground robots, but with hard-real-time guarantees and embedded-class compute.
+**PX4** — the dominant **open-source autopilot for drones and autonomous vehicles**, hosted by the [Dronecode Foundation](../entities/dronecode-foundation.md) under the Linux Foundation. BSD 3-Clause licensed; vendor-neutral; stable v1.16, v1.17 alpha at the time of this ingest (**now superseded: v1.17.0 went stable 2026-05-13** — see [repo ingest](px4-autopilot-github.md)). Supports six vehicle classes (multirotor, fixed-wing, VTOL, helicopter, rover, experimental — airships, submarines, balloons), 30+ official flight controller boards, and 40+ sensor families. The architectural pattern: **NuttX RTOS + uORB pub-sub messaging + MAVLink telemetry + ROS 2 bridge (uXRCE-DDS)** — analogous to the ROS 2 ecosystem on ground robots, but with hard-real-time guarantees and embedded-class compute.
 
 For this wiki, PX4 is **the open-source autopilot substrate underneath [agentic UAVs](../concepts/robotics/agentic-uavs.md)** — the layer the [UAVs Agentic AI Survey](uavs-agentic-ai-survey.md)'s "Control" tier sits on top of, and the platform the [MIT drone adaptive control work](mit-drone-adaptive-control.md) is the kind of research that lands in over time.
 
@@ -27,8 +27,8 @@ For this wiki, PX4 is **the open-source autopilot substrate underneath [agentic 
 | License (docs) | CC BY 4.0 |
 | Governance | **[Dronecode Foundation](../entities/dronecode-foundation.md)** — Linux Foundation Collaborative Project |
 | Trademark holder | Dronecode Foundation ("vendor-neutral stewardship") |
-| Current stable | **v1.16** |
-| In development | v1.17 alpha; `main` alpha |
+| Current stable | v1.16 at ingest → **v1.17.0** (2026-05-13) |
+| In development | v1.18 line; `main` alpha |
 | Languages | C++ (flight stack), Python (tooling, tests), shell |
 
 ## Vehicle types

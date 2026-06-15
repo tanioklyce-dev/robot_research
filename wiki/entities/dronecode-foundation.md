@@ -39,3 +39,4 @@ The Dronecode umbrella spans the major open-source UAV-software components:
 ## Mentioned in
 
 - [PX4 Autopilot Documentation (docs.px4.io/main)](../sources/px4-docs-main.md)
+- [PX4-Autopilot (GitHub repo)](../sources/px4-autopilot-github.md) — Dronecode-governed, vendor-neutral BSD-3 flight stack ("no single vendor controls the roadmap").

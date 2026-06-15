@@ -2196,3 +2196,11 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - Updated [index.md](index.md) (new source under UAV cluster)
 - Facts: ROS 2 wrapper over Ollama serves LLM (Gemma3 4B / Qwen2.5 3B / Llama-3.2 3B / DeepSeek-LLM 7B → discrete Turn/Move) + VLM (Gemma3 12B / Llama3.2-Vision 11B / LLaVA1.6 7B → binary object checks) → path planner → low-level PX4. HW: Jetson Orin Nano + Pixhawk 6c Mini + ZED Mini, ~0.56 m quad. Sim: PX4 SITL in Isaac Sim. Results: best mission success 40% (Gemma3); valid commands 100% (Gemma3/Qwen2.5/Llama-3.2) vs 38% (DeepSeek); VLM 97–100% valid. Code: github.com/limshoonkit/ros2-agent-ws.
 - Significance: first fully-onboard, open-source, local-LLM realization of the agentic-UAV pattern; LLM-agent (not VLA); partly counters the concept's "onboard VLM infeasible" assumption — VLMs run, command-format validity is the wall. Notable: uses Isaac Sim (not PX4's default Gazebo) for SITL.
+
+## [2026-06-14] ingest | PX4-Autopilot (GitHub repo)
+- Created [PX4-Autopilot (GitHub repo)](sources/px4-autopilot-github.md) — code-repo companion to the docs ingest
+- Updated entity [PX4 Autopilot](entities/px4-autopilot.md): release v1.16→**v1.17.0 stable (2026-05-13)**; added repo facts (C++/BSD-3/2012; ~12k★/15.5k forks); sources 4→5; updated date
+- Updated entity [Dronecode Foundation](entities/dronecode-foundation.md) (governance mention)
+- Staleness fix: annotated [PX4 docs source](sources/px4-docs-main.md) (its "v1.16 stable / v1.17 alpha" now superseded by v1.17.0)
+- Updated [index.md](index.md) (new source under UAV cluster)
+- Facts: PX4/PX4-Autopilot; BSD-3-Clause; C++; created 2012-08-04; ~12k stars / 15.5k forks (forks > stars); ~470 watchers; ~1489 open issues; NuttX/Linux/macOS; build `git clone --recursive && make px4_sitl`; Docker `px4io/px4-sitl:latest`; latest release v1.17.0 (2026-05-13); Dronecode/Linux Foundation governance; community via weekly dev call + Discord + PX4 Discuss.

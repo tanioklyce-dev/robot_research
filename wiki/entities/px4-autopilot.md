@@ -3,20 +3,23 @@ title: PX4 Autopilot
 type: entity
 subtype: software
 created: 2026-05-17
-updated: 2026-05-17
-sources: 4
+updated: 2026-06-14
+sources: 5
 tags: [px4, autopilot, uav, drone, open-source, bsd, nuttx, uorb, mavlink, ros2, dronecode]
 ---
 
-**Vendor / docs**: [docs.px4.io/main/en](https://docs.px4.io/main/en/) — official documentation. Code: [github.com/PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot).
+**Vendor / docs**: [docs.px4.io/main/en](https://docs.px4.io/main/en/) — official documentation. Code: [github.com/PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) ([repo ingest](../sources/px4-autopilot-github.md)) — C++, BSD-3-Clause, created 2012-08-04; one of the most-forked robotics repos (~12k★ / 15.5k forks — forks exceed stars, the board-porting signature).
 
 **PX4** — the dominant **open-source autopilot for drones and autonomous vehicles**. BSD 3-Clause licensed; hosted by the [Dronecode Foundation](dronecode-foundation.md) under the Linux Foundation. The flight-stack-of-record for the [Pixhawk](pixhawk.md) hardware standard and 30+ manufacturer-supported boards beyond it. Supports six vehicle classes — multirotor, fixed-wing, VTOL, helicopter, rover, experimental (airships, submarines, balloons, autogyros).
 
 ## Current release
 
-- **Stable: v1.16** (recommended for production).
-- **v1.17 alpha** in active development.
-- `main` branch is rolling alpha.
+- **Stable: v1.17.0** (released **2026-05-13**; recommended for production).
+- `main` branch is rolling alpha (v1.18 line in development).
+- Build from source: `git clone … --recursive && make px4_sitl`; or Docker SITL `px4io/px4-sitl:latest`.
+
+> [!note] Supersedes earlier "v1.16 stable / v1.17 alpha"
+> The [docs ingest](../sources/px4-docs-main.md) (2026-05-17) recorded v1.16 stable / v1.17 alpha; the [repo ingest](../sources/px4-autopilot-github.md) confirms **v1.17.0 went stable 2026-05-13**.
 
 ## Architectural commitments
 
@@ -75,4 +78,5 @@ Vision / perception with AI integration: collision prevention, precision landing
 ## Mentioned in
 
 - [PX4 Autopilot Documentation (docs.px4.io/main)](../sources/px4-docs-main.md)
+- [PX4-Autopilot (GitHub repo)](../sources/px4-autopilot-github.md) — code-repo view: build system, SITL, BSD-3 governance, v1.17.0 stable.
 - [Taking Flight with Dialogue (Lim et al. 2025)](../sources/taking-flight-with-dialogue-px4-drone-agent.md) — PX4 Offboard mode driven over ROS 2 by a local-LLM agent; SITL in Isaac Sim + real quad.
