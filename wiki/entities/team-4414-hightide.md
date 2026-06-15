@@ -2,17 +2,26 @@
 title: Team 4414 (HighTide)
 type: entity
 created: 2026-06-07
-updated: 2026-06-07
+updated: 2026-06-14
 sources: 1
-tags: [frc, team, ai, llm-agent, swerve, competition]
+tags: [frc, team, ai, llm-agent, swerve, competition, world-champion]
 ---
 
 # Team 4414 — HighTide
 
-A [FIRST Robotics Competition](first-robotics-competition.md) team competing in the 2026 [REBUILT](../sources/frc-2026-game-manual.md) season. Known for an unusually software-forward program: precomputed shot trajectories and an explicitly **AI-first development workflow**.
+A [FIRST Robotics Competition](first-robotics-competition.md) team from **Ventura County, California** (founded **2018**), competing in the 2026 [REBUILT](../sources/frc-2026-game-manual.md) season. Known for an unusually software-forward program: precomputed shot trajectories and an explicitly **AI-first development workflow** — and, as of 2026, a **REBUILT World Champion**.
 
-> [!note] What we know
-> Profile drawn from the team's self-published [2026 Technical Binder](../sources/team-4414-hightide-2026-binder.md). The binder does not state the team's location, roster, sponsors, or competition results, so those are not recorded here.
+> [!note] Sourcing
+> The technical profile below is drawn from the team's self-published [2026 Technical Binder](../sources/team-4414-hightide-2026-binder.md), which does **not** state location, roster, sponsors, or results. The team-identity and 2026-results facts in the next section were added 2026-06-14 from **external sources** (The Blue Alliance, FIRST, the team's GitHub) — see citations there.
+
+## Team identity & 2026 results
+
+> [!note] Externally sourced (not from the binder)
+> - **Program:** HighTide Robotics, Ventura County, CA; founded 2018 ([Team 4414 site](https://www.team4414.com/), [The Blue Alliance](https://www.thebluealliance.com/team/4414)).
+> - **2026 robot name:** **RIPCURRENT** (the FUEL shooter described below).
+> - **2026 record:** **70–2–0** in official play; ranked **#1 in the FIRST California district** (365 points) ([TBA 2026](https://www.thebluealliance.com/team/4414/2026)).
+> - **2026 result:** **FIRST Championship Champions (world champions) for REBUILT**, as an alliance captain (Houston) ([TBA 2026](https://www.thebluealliance.com/team/4414/2026)). This is the strongest possible external validation of the AI-first program described below.
+> - **Open source:** the public GitHub org [github.com/team4414](https://github.com/team4414) holds **only 2019-era repos** — the 2026 RIPCURRENT code, the "Tide Apps" suite, and the agent skill files are **not public**.
 
 ## 2026 robot
 

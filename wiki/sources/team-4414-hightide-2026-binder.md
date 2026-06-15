@@ -5,6 +5,7 @@ url: https://2026.team4414.com/
 author: FRC Team 4414 (HighTide)
 published: 2026
 ingested: 2026-06-07
+reverified: 2026-06-14
 tags: [frc, ai, llm-agent, claude-code, mechanical-design, swerve, scouting, competition]
 format: website (single-page technical binder)
 ---
@@ -19,6 +20,19 @@ A self-published single-page "technical binder" website documenting [Team 4414 (
 > This is a vendor/team self-published marketing-style binder, not a peer-reviewed or third-party source. It documents design intent and claimed engineering; competition results, team location, awards, and roster are **not stated on the page** and are not asserted here.
 
 The site is a JavaScript single-page app; content was extracted from the page's compiled bundle. Structure: Mechanical (§01–06), Software (§07), Prototyping (§08–10), and "Tide Apps" in-house tools (§11).
+
+> [!note] Re-verified 2026-06-14
+> Re-pulled the live SPA's compiled JS bundle and diffed against this page — **content unchanged** since the 2026-06-07 ingest (no new subsystems/sections; awards/sponsors/results/GitHub still absent from the binder itself). Separately, several open questions below were resolved via **external** web research on the same date — see the new "External context" section.
+
+## External context (added 2026-06-14, not from the binder)
+
+The binder omits team identity and results; these come from outside sources:
+
+- **Team:** HighTide Robotics, **Ventura County, CA**; founded **2018** ([team4414.com](https://www.team4414.com/), [The Blue Alliance](https://www.thebluealliance.com/team/4414)).
+- **2026 robot name:** **RIPCURRENT** (the FUEL shooter documented in this binder).
+- **2026 results:** **70–2–0** official record; **#1 in the FIRST California district** (365 pts); **FIRST Championship Champions (world champions) for REBUILT**, as alliance captain ([TBA 2026](https://www.thebluealliance.com/team/4414/2026)). The AI-first program documented here is a **championship-winning** one — not just an aspirational write-up.
+- **Open-source status:** public org [github.com/team4414](https://github.com/team4414) contains **only 2019-era repos**; the 2026 code, "Tide Apps," and agent skill files are **not public**.
+- **Still unresolved:** which AI agent/model harness HighTide uses (Claude Code / Codex / Cursor / other) — not stated on the binder and not found in external sources.
 
 ## Robot overview
 
@@ -107,7 +121,7 @@ A suite of custom team software:
 - [AprilTags](../concepts/robotics/apriltags.md) — REBUILT field localization (used by any shoot-on-the-move targeting, though not named explicitly on the page).
 
 ## Open questions
-- What model(s) and agent harness does HighTide use for its "AI-first" loop? (Claude Code? Codex? Cursor?) Not stated on the page.
-- Are the "Tide Apps" and skill files open-sourced (cf. [wpilib-agent-tools](team-254-ai-in-frc-presentation.md))?
-- What competition results / awards did the robot achieve in 2026? Not on the binder.
-- How does a fully state-machine (no command-based) WPILib architecture perform in practice vs. the standard command framework?
+- What model(s) and agent harness does HighTide use for its "AI-first" loop? (Claude Code? Codex? Cursor?) **Still unresolved** — not on the binder, not found via external search.
+- ~~Are the "Tide Apps" and skill files open-sourced?~~ **Resolved (2026-06-14):** No — the public [github.com/team4414](https://github.com/team4414) org holds only 2019-era repos; 2026 code + Tide Apps are not public.
+- ~~What competition results / awards did the robot achieve in 2026?~~ **Resolved (2026-06-14):** RIPCURRENT went 70–2–0 and won the **REBUILT World Championship** ([TBA 2026](https://www.thebluealliance.com/team/4414/2026)).
+- How does a fully state-machine (no command-based) WPILib architecture perform in practice vs. the standard command framework? (Now partly answered by the championship result, though not isolated as a variable.)

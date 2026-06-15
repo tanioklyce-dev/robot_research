@@ -2204,3 +2204,12 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - Staleness fix: annotated [PX4 docs source](sources/px4-docs-main.md) (its "v1.16 stable / v1.17 alpha" now superseded by v1.17.0)
 - Updated [index.md](index.md) (new source under UAV cluster)
 - Facts: PX4/PX4-Autopilot; BSD-3-Clause; C++; created 2012-08-04; ~12k stars / 15.5k forks (forks > stars); ~470 watchers; ~1489 open issues; NuttX/Linux/macOS; build `git clone --recursive && make px4_sitl`; Docker `px4io/px4-sitl:latest`; latest release v1.17.0 (2026-05-13); Dronecode/Linux Foundation governance; community via weekly dev call + Discord + PX4 Discuss.
+
+## [2026-06-14] reverify+research | Team 4414 HighTide 2026 binder
+- Re-pulled live SPA bundle for https://2026.team4414.com/ — content unchanged since 2026-06-07 ingest (no re-ingest needed); added `reverified: 2026-06-14` + note to [source](sources/team-4414-hightide-2026-binder.md)
+- External research resolved 2 of 4 open questions:
+  - **2026 results**: robot **RIPCURRENT**; **70–2–0**; #1 FIRST California district (365 pts); **REBUILT World Champions** (alliance captain, Houston) — via The Blue Alliance / FIRST
+  - **Open-source status**: public github.com/team4414 holds only 2019-era repos; 2026 code + Tide Apps NOT public
+  - Team identity: HighTide Robotics, Ventura County CA, founded 2018
+  - Still open: which AI agent/model harness they use (not found)
+- Updated entity [Team 4414 (HighTide)](entities/team-4414-hightide.md) (identity + results section, externally cited; world-champion tag) and [index.md](index.md)
