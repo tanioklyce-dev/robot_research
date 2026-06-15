@@ -2,8 +2,8 @@
 title: Agentic UAVs
 type: concept
 created: 2026-05-09
-updated: 2026-05-31
-sources: 4
+updated: 2026-06-14
+sources: 5
 tags: [uav, drone, agentic-ai, edge-ai, swarm, swarm-intelligence, autonomous, multi-domain, px4, pixhawk, mavlink]
 ---
 
@@ -55,7 +55,15 @@ The agentic UAV architecture (perception / cognition / control / communication) 
 
 The "Control" layer in the four-layer architecture is, in production, almost always [**PX4 Autopilot**](../../entities/px4-autopilot.md) — the open-source autopilot stewarded by the [Dronecode Foundation](../../entities/dronecode-foundation.md), running on [Pixhawk](../../entities/pixhawk.md)-class flight controllers and talking to companion computers (often [Jetson](../../entities/jetson-thor.md)-class) over [MAVLink](../../entities/mavlink.md) and ROS 2 / uXRCE-DDS. PX4 institutionalizes the learned-controller pattern through its **Neural Networks** subsystem — including **TensorFlow Lite Micro** for on-device inference and the **RAPTOR Adaptive RL NN Module** for reinforcement-learning-based adaptive control. The latter is the PX4-side analog of [Navid Azizan](../../entities/navid-azizan.md)'s [meta-learning adaptive control](../../sources/mit-drone-adaptive-control.md) line. Details in the [PX4 docs ingest](../../sources/px4-docs-main.md).
 
+## Concrete open-source instance (PX4 + ROS 2 + local LLMs)
+
+[Lim et al. 2025](../../sources/taking-flight-with-dialogue-px4-drone-agent.md) is the wiki's first **fully-onboard, open-source, local-LLM** realization of this architecture — not a survey abstraction but a working build: a [ROS 2](../../entities/ros2.md) wrapper around [Ollama](../../entities/ollama.md) serves an LLM (cognition: dialogue → discrete `Turn`/`Move` commands) and a VLM (perception: binary object checks), feeding a path-planner that emits low-level [PX4](../../entities/px4-autopilot.md) actions, all on an onboard [Jetson Orin Nano](../../entities/jetson-orin-nano.md) (+ Pixhawk 6c Mini + ZED Mini). It maps directly onto the four-layer table above (perception=VLM, cognition=LLM, control=PX4/planner) and is a pure **LLM-agent (not VLA)** instance.
+
+> [!note] Onboard VLMs run — but reliability is the wall
+> This work partly tests the concept page's assumption that "heavy VLM inference is less feasible onboard." Sub-8B local VLMs *do* run on the Orin Nano and return 97–100% valid binary responses; the bottleneck is **command-format validity** at the LLM stage (Gemma3/Qwen2.5/Llama-3.2 hit 100% valid commands, DeepSeek-LLM only 38%), and end-to-end **mission success tops out at 40%**. The limiting factor is language-to-command reliability, not perception or compute.
+
 ## Key references
+- [Taking Flight with Dialogue (Lim et al. 2025)](../../sources/taking-flight-with-dialogue-px4-drone-agent.md) — open-source PX4 + ROS 2 + Ollama local-LLM drone agent; the concrete onboard instance of this concept.
 - [PX4 Autopilot Documentation (docs.px4.io/main)](../../sources/px4-docs-main.md) — the open-source autopilot underneath most production agentic-UAV stacks.
 - [UAVs Meet Agentic AI survey](../../sources/uavs-agentic-ai-survey.md) (Sapkota et al., 2025) — foundational multidomain survey
 - [MIT drone adaptive control](../../sources/mit-drone-adaptive-control.md) (Tang, Sun, Azizan, 2025) — 50% error reduction via meta-learning + mirror descent
@@ -65,3 +73,4 @@ The "Control" layer in the four-layer architecture is, in production, almost alw
 - [MIT drone adaptive control](../../sources/mit-drone-adaptive-control.md)
 - [PX4 Autopilot Documentation (docs.px4.io/main)](../../sources/px4-docs-main.md)
 - [Recent Developments and Applications of Drone Swarm (Raj & Kos, 2026)](../../sources/raj-kos-drone-swarm-review-2026.md) — extends the agentic-UAV frame to the swarm level; see [swarm intelligence](swarm-intelligence.md).
+- [Taking Flight with Dialogue (Lim et al. 2025)](../../sources/taking-flight-with-dialogue-px4-drone-agent.md) — concrete open-source onboard instance (PX4 + ROS 2 + Ollama + Jetson Orin Nano).

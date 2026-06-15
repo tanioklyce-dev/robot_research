@@ -4,7 +4,7 @@ type: entity
 subtype: software
 created: 2026-05-17
 updated: 2026-05-17
-sources: 3
+sources: 4
 tags: [px4, autopilot, uav, drone, open-source, bsd, nuttx, uorb, mavlink, ros2, dronecode]
 ---
 
@@ -75,3 +75,4 @@ Vision / perception with AI integration: collision prevention, precision landing
 ## Mentioned in
 
 - [PX4 Autopilot Documentation (docs.px4.io/main)](../sources/px4-docs-main.md)
+- [Taking Flight with Dialogue (Lim et al. 2025)](../sources/taking-flight-with-dialogue-px4-drone-agent.md) — PX4 Offboard mode driven over ROS 2 by a local-LLM agent; SITL in Isaac Sim + real quad.

@@ -3,8 +3,8 @@ title: NVIDIA Isaac Sim
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-05-16
-sources: 10
+updated: 2026-06-14
+sources: 11
 tags: [simulator, nvidia, omniverse, openusd]
 ---
 
@@ -42,3 +42,4 @@ Isaac Sim 6.0 ships in the same release wave as [Isaac Lab 3.0](nvidia-isaac-lab
 - [Isaac Launchable Repo](../sources/isaac-launchable-repo.md)
 - [Isaac Sim and Isaac Lab on NVIDIA Jetson AGX Thor](../sources/rs-designspark-isaac-sim-on-thor.md)
 - [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.md)
+- [Taking Flight with Dialogue (Lim et al. 2025)](../sources/taking-flight-with-dialogue-px4-drone-agent.md) — used as the rendering + physics engine for PX4 SITL drone simulation (in lieu of PX4's default Gazebo).

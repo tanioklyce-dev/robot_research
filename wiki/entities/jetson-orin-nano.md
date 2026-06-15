@@ -3,7 +3,7 @@ title: Jetson Orin Nano
 type: entity
 created: 2026-05-16
 updated: 2026-06-13
-sources: 10
+sources: 11
 tags: [jetson, nvidia, edge-ai, hardware, robotics-compute]
 ---
 
@@ -90,6 +90,7 @@ In-place updates use apt against NVIDIA's L4T Debian repository: `apt update && 
 - [Jetson onboard compute for XLeRobot](../syntheses/platforms/jetson-onboard-compute-xlerobot.md) — Orin Nano vs AGX Orin vs Thor.
 - [Jetson Orin Nano flash howto](../syntheses/projects/jetson-orin-nano-flash-howto.md)
 - [LeWM on ROSOrin Pro feasibility](../syntheses/projects/lewm-on-rosorin-pro-feasibility.md)
+- [Taking Flight with Dialogue (Lim et al. 2025)](../sources/taking-flight-with-dialogue-px4-drone-agent.md) — onboard companion computer for a PX4 drone running local LLM+VLM agents via Ollama.
 - [ROSOrin Pro Lego pick-and-place](../syntheses/projects/rosorin-pro-lego-pick-place.md)
 - [Robot platforms comparison](../syntheses/platforms/robot-platforms-comparison.md)
 - [LLM-agent architecture across stacks](../syntheses/agents/llm-agent-architecture-across-stacks.md)

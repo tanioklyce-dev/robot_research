@@ -2188,3 +2188,11 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - Updated [index.md](index.md) (new source + new entity)
 - Facts: $279.99 base; 4 variants (Leader/Follower/IL Standard Kit/IL Advanced Kit); 6-DOF; 500mm reach; 500g payload; ±2mm repeat; leader 1.2kg/follower 1.3kg; HX-10HM/12H/30HM/65HM bus servos; 12V5A; USB/BT/Wi-Fi; dual-camera; parallel-rail gripper; LeRobot-native (ACT/Diffusion Policy/π0); leader-follower teleop + drag teaching.
 - Significance: educational OEM Hiwonder shipping a LeRobot-FIRST arm = vendor-side convergence on the SO-ARM101 leader-follower playbook.
+
+## [2026-06-14] ingest | Taking Flight with Dialogue (Lim et al. 2025) — PX4 local-LLM drone agent
+- Created [Taking Flight with Dialogue (Lim et al. 2025)](sources/taking-flight-with-dialogue-px4-drone-agent.md) (arXiv 2506.07509v1)
+- Updated concept [Agentic UAVs](concepts/robotics/agentic-uavs.md) — added "concrete open-source instance" section + onboard-VLM finding; sources 4→5
+- Updated entities: [PX4 Autopilot](entities/px4-autopilot.md) (3→4), [Ollama](entities/ollama.md) (1→2; de-stubbed tag), [NVIDIA Isaac Sim](entities/nvidia-isaac-sim.md) (10→11), [Jetson Orin Nano](entities/jetson-orin-nano.md) (10→11)
+- Updated [index.md](index.md) (new source under UAV cluster)
+- Facts: ROS 2 wrapper over Ollama serves LLM (Gemma3 4B / Qwen2.5 3B / Llama-3.2 3B / DeepSeek-LLM 7B → discrete Turn/Move) + VLM (Gemma3 12B / Llama3.2-Vision 11B / LLaVA1.6 7B → binary object checks) → path planner → low-level PX4. HW: Jetson Orin Nano + Pixhawk 6c Mini + ZED Mini, ~0.56 m quad. Sim: PX4 SITL in Isaac Sim. Results: best mission success 40% (Gemma3); valid commands 100% (Gemma3/Qwen2.5/Llama-3.2) vs 38% (DeepSeek); VLM 97–100% valid. Code: github.com/limshoonkit/ros2-agent-ws.
+- Significance: first fully-onboard, open-source, local-LLM realization of the agentic-UAV pattern; LLM-agent (not VLA); partly counters the concept's "onboard VLM infeasible" assumption — VLMs run, command-format validity is the wall. Notable: uses Isaac Sim (not PX4's default Gazebo) for SITL.

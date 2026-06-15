@@ -4,9 +4,8 @@ type: entity
 subtype: tool
 created: 2026-05-07
 updated: 2026-05-07
-sources: 1
-tags: [ollama, llm-runtime, local-llm, edge-inference]
-status: stub
+sources: 2
+tags: [ollama, llm-runtime, local-llm, edge-inference, uav]
 ---
 
 Open-source local-LLM runtime / server (ollama.com). Used by [ROSOrin](rosorin.md)'s offline curriculum (chapter 10.5) to run [qwen3:1.7b](qwen.md) on a Jetson Orin Nano. Invocation pattern: `ollama serve` starts the local HTTP server; client code wraps it via a thin class (`speech.OllamaAPI`).
@@ -20,3 +19,4 @@ The dominant on-device LLM runtime for hobbyist / educational robotics in 2026. 
 
 ## Mentioned in
 - [Hiwonder ROSOrin Documentation](../sources/hiwonder-rosorin-docs.md)
+- [Taking Flight with Dialogue (Lim et al. 2025)](../sources/taking-flight-with-dialogue-px4-drone-agent.md) — a ROS 2 wrapper encapsulates Ollama to serve interchangeable LLMs + VLMs for onboard drone control on a Jetson Orin Nano.
