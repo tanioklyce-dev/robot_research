@@ -2226,3 +2226,10 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - **#2** Replaced stale "v1.16 stable / v1.17 alpha" with **v1.17.0 stable (2026-05-13)** on both PX4 index lines (entity + docs-source description).
 - **#3** Removed off-schema `created:`/`updated:` from **66** source-page frontmatters (schema: sources use `published`+`ingested`). 3 of those used `created` as their only date (GitHub repos) → restored as `published:` ([rosetta-github](sources/rosetta-github.md), [lerobot-ros-github](sources/lerobot-ros-github.md), [so101-ros2-readthedocs](sources/so101-ros2-readthedocs.md)) rather than dropping the date.
 - Not fixed (out of scope / pre-existing): 6 source pages have only `ingested` and no publish date (farama-projects-page, gymnasium-robotics-docs, hermes-agent-github, lekiwi-github, nvidia-nemoclaw-page, openclaw-github); 4 historical `openclaw-personal-ai.md` links in this log (append-only record of a rename).
+
+## [2026-06-14] ingest | The Blue Alliance (homepage)
+- Created [The Blue Alliance (homepage)](sources/the-blue-alliance-homepage.md) (fetched via curl + browser UA; TBA 403s WebFetch)
+- New entity: [The Blue Alliance](entities/the-blue-alliance.md) — open-source volunteer FRC data platform (teams/results/match video/GameDay webcasts/public API/myTBA + Android+iOS apps); wiki's authoritative FRC results source
+- Cross-linked [tba-team-4414-2026 source](sources/tba-team-4414-2026.md) + [FIRST Robotics Competition](entities/first-robotics-competition.md) (4→5 sources)
+- Updated [index.md](index.md) (new source + entity)
+- Note: a dedicated TBA API ingest would be the next step if the wiki starts pulling FRC data programmatically.

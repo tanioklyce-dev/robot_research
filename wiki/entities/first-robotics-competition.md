@@ -2,8 +2,8 @@
 title: FIRST Robotics Competition
 type: entity
 created: 2026-05-08
-updated: 2026-05-08
-sources: 4
+updated: 2026-06-14
+sources: 5
 tags: [frc, competition, educational-robotics, stem]
 ---
 
@@ -67,3 +67,4 @@ The world's leading high-school robotics competition, run by FIRST (For Inspirat
 - [FRC 2026 Game Manual](../sources/frc-2026-game-manual.md)
 - [FRC KitBot 2026](../sources/frc-kitbot-2026.md)
 - [Team 4414 HighTide — 2026 Technical Binder](../sources/team-4414-hightide-2026-binder.md)
+- [The Blue Alliance (homepage)](../sources/the-blue-alliance-homepage.md) — community results/scouting platform for FRC; see [The Blue Alliance](the-blue-alliance.md).
