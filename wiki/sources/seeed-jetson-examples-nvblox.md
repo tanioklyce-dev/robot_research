@@ -14,7 +14,7 @@ tags: [seeed-studio, jetson, nvblox, isaac-ros, 3d-mapping, perception, orbbec, 
 
 ## Summary
 
-A one-command recipe in Seeed's **`jetson-examples`** repo (the `reComputer` example runner) for standing up **[Isaac ROS NVBlox](../entities/nvblox.md)** — NVIDIA's GPU-accelerated real-time 3D mapping framework — on a Jetson Orin device. The recipe wraps the heavy Isaac ROS / nvblox container setup behind `reComputer run nvblox`: it downloads a base Docker image archive, loads it, builds a derived image, prepares the ROS workspaces, and launches a **static [Orbbec Gemini2](../entities/orbbec.md) RGB-D mapping demo**. It is the "buy-the-carrier, run-one-command" path to a working volumetric-mapping demo on Seeed [reComputer](../entities/seeed-studio.md) hardware.
+A one-command recipe in Seeed's **[`jetson-examples`](seeed-jetson-examples.md)** repo (the [`reComputer` example runner](../entities/jetson-examples.md)) for standing up **[Isaac ROS NVBlox](../entities/nvblox.md)** — NVIDIA's GPU-accelerated real-time 3D mapping framework — on a Jetson Orin device. The recipe wraps the heavy Isaac ROS / nvblox container setup behind `reComputer run nvblox`: it downloads a base Docker image archive, loads it, builds a derived image, prepares the ROS workspaces, and launches a **static [Orbbec Gemini2](../entities/orbbec.md) RGB-D mapping demo**. It is the "buy-the-carrier, run-one-command" path to a working volumetric-mapping demo on Seeed [reComputer](../entities/seeed-studio.md) hardware.
 
 ## Key claims
 
@@ -40,6 +40,7 @@ A one-command recipe in Seeed's **`jetson-examples`** repo (the `reComputer` exa
 
 ## Entities mentioned
 
+- [jetson-examples / reComputer runner](../entities/jetson-examples.md) (parent repo: [source page](seeed-jetson-examples.md))
 - [Isaac ROS NVBlox (nvblox)](../entities/nvblox.md)
 - [Isaac ROS](../entities/isaac-ros.md)
 - [Orbbec / Gemini2](../entities/orbbec.md)

@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-06-13
 updated: 2026-06-13
-sources: 1
+sources: 2
 tags: [jetson, nvidia, docker, edge-ai, jetson-containers, dustynv, infrastructure, lerobot]
 ---
 
@@ -26,6 +26,7 @@ It is the **operational answer to "the aarch64 dependency problem"** for edge ro
 
 ## Related
 
+- [jetson-examples](jetson-examples.md) — Seeed's one-command `reComputer run` recipe catalog built on top of jetson-containers.
 - [LeRobot](lerobot.md) — packaged as `dustynv/lerobot`.
 - [Jetson Orin Nano](jetson-orin-nano.md) — typical target module.
 - [NVIDIA](nvidia.md) — sponsor / publisher of Jetson AI Lab.
@@ -38,3 +39,4 @@ It is the **operational answer to "the aarch64 dependency problem"** for edge ro
 ## Mentioned in
 
 - [NVIDIA Jetson AI Lab — HuggingFace LeRobot (archived tutorial)](../sources/nvidia-jetson-ai-lab-lerobot.md) — uses `dustynv/lerobot` + `autotag` to run LeRobot on Jetson.
+- [Seeed jetson-examples (repo + reComputer runner)](../sources/seeed-jetson-examples.md) — `reComputer run` recipes wrap jetson-containers images.
