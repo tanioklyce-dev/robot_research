@@ -2162,3 +2162,29 @@ User submitted six URLs for review. All six judged pertinent to existing wiki th
 - Updated [Seeed Studio](entities/seeed-studio.md) (added jetson-examples / nvblox; sources 4→5)
 - Updated [index.md](index.md) (new source + 3 entities)
 - Note: recipe uses Orbbec Gemini2 (not RealSense); requires Jetson Orin + JetPack 6.x + Docker + ~60 GB; Seeed deep-dive targets AGX Orin.
+
+## [2026-06-14] ingest | Seeed jetson-examples (repo + reComputer runner)
+- Created [Seeed jetson-examples (repo + reComputer runner)](sources/seeed-jetson-examples.md) — full repo-level ingest (supersedes the prior nvblox-only sub-recipe)
+- New entity: [jetson-examples (reComputer runner)](entities/jetson-examples.md)
+- Updated [jetson-containers](entities/jetson-containers.md) (added jetson-examples as the consumer layer on top; sources 1→2)
+- Updated [Seeed Studio](entities/seeed-studio.md) (linked repo source + entity; sources 5→6)
+- Cross-linked the existing [nvblox recipe](sources/seeed-jetson-examples-nvblox.md) to its parent repo
+- Updated [index.md](index.md) (new source + new entity; bumped jetson-containers source count)
+- Facts: MIT; 264★/40 forks; created 2024-06-24, last push 2026-06-11; `pip3 install jetson-examples` + `reComputer run <example>`; ~37 recipes; JetPack 4.6→7.1; built on jetson-containers; $250 contribution bounty.
+
+## [2026-06-14] ingest | Ultralytics YOLO (GitHub)
+- Created [Ultralytics YOLO (GitHub)](sources/ultralytics-github.md)
+- New entity: [Ultralytics YOLO](entities/ultralytics-yolo.md)
+- Cross-linked [jetson-examples](entities/jetson-examples.md) source + entity (upstream of the YOLO recipes)
+- Updated [index.md](index.md) (new source + new entity)
+- Facts: AGPL-3.0 (or Enterprise); 58k★/11k forks; created 2022-09-11, updated daily; `pip install ultralytics`; flagship YOLO26 (n/s/m/l/x); families v3/v5/v6/v8/v9/v10/11/12/26 + RT-DETR + SAM/FastSAM + YOLO-NAS; tasks detect/segment/classify/pose/OBB/track; COCO+ImageNet pretrained; ONNX/TensorRT export.
+- Correction: README WebFetch claimed "semantic segmentation / Cityscapes" — not an Ultralytics task; excluded as a fetch-model hallucination (verified actual task set + model dirs via GitHub API).
+
+## [2026-06-14] ingest | Hiwonder NexArm 6-Axis (product page)
+- Created [Hiwonder NexArm 6-Axis (product page)](sources/hiwonder-nexarm-product-page.md)
+- New entity: [NexArm](entities/nexarm.md)
+- Updated [Hiwonder](entities/hiwonder.md) (now spans LLM-agent + LeRobot IL tiers; sources 3→4)
+- Updated [SO-ARM101](entities/so-arm101.md) (added NexArm as a commercial leader-follower competitor)
+- Updated [index.md](index.md) (new source + new entity)
+- Facts: $279.99 base; 4 variants (Leader/Follower/IL Standard Kit/IL Advanced Kit); 6-DOF; 500mm reach; 500g payload; ±2mm repeat; leader 1.2kg/follower 1.3kg; HX-10HM/12H/30HM/65HM bus servos; 12V5A; USB/BT/Wi-Fi; dual-camera; parallel-rail gripper; LeRobot-native (ACT/Diffusion Policy/π0); leader-follower teleop + drag teaching.
+- Significance: educational OEM Hiwonder shipping a LeRobot-FIRST arm = vendor-side convergence on the SO-ARM101 leader-follower playbook.

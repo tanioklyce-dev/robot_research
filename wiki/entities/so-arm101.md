@@ -47,6 +47,7 @@ The leader-follower convention is the dominant data-collection pattern for imita
 - [LeKiwi](lekiwi.md) — default mobile-base companion
 - [XLeRobot](xlerobot.md) — dual-SO-ARM101 composition
 - [Franka Panda](franka-panda.md) — research-tier counterpart
+- [NexArm](nexarm.md) — Hiwonder's commercial leader-follower competitor (6-DOF, from $279.99; LeRobot-native)
 - [Imitation learning](../concepts/learning/imitation-learning.md)
 
 ## Mentioned in
