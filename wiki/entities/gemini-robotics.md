@@ -3,8 +3,8 @@ title: Gemini Robotics
 type: entity
 subtype: model
 created: 2026-05-09
-updated: 2026-05-15
-sources: 2
+updated: 2026-07-04
+sources: 3
 tags: [gemini-robotics, google-deepmind, vlm, vla, embodied-reasoning, foundation-model]
 ---
 
@@ -12,6 +12,14 @@ tags: [gemini-robotics, google-deepmind, vlm, vla, embodied-reasoning, foundatio
 
 - **Gemini Robotics** — full vision-language-**action** model (VLA); emits low-level robot actions directly. Listed alongside [NVIDIA GR00T](nvidia-groot.md) and [Physical Intelligence π0/π0.6](physical-intelligence.md) on the [VLA models concept page](../concepts/learning/vla-models.md).
 - **Gemini Robotics-ER** ("ER" = embodied reasoning) — vision-language model (VLM) that provides high-level reasoning over visual input and emits *tool calls*, not motor actions. Designed to be plugged into a robot's existing API (i.e. acts as the planner in an [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md), not as the policy). Versions 1.5 and 1.6 referenced below.
+
+## Gemini Robotics 1.5 (primary report now ingested)
+
+The [Gemini Robotics 1.5 tech report](../sources/gemini-robotics-1-5-report.md) is the wiki's first deep DeepMind-robotics source. It pairs **GR 1.5** (a multi-embodiment VLA controlling [ALOHA](aloha.md) 2 / bi-arm [Franka](franka-panda.md) / [Apollo](apptronik-apollo.md) humanoid with **one checkpoint**) and **GR-ER 1.5** (the embodied-reasoning orchestrator), both on **Gemini 2.5**. Three headline mechanisms:
+- **Motion Transfer** — cross-embodiment recipe giving **zero-shot skill transfer** across dissimilar robots (success 0.40–0.58 where single-embodiment baselines are ~0).
+- **Embodied Thinking** — "think before acting": interleaves actions with NL reasoning traces; lifts multi-step ALOHA progress 0.26→0.55, with emergent success-detection + error-recovery replanning.
+- **Agentic orchestration** — GR-ER 1.5 orchestrator + GR 1.5 action model roughly **halves total failure (22% vs 44.5%)** vs a generic Gemini-2.5-Flash orchestrator; the biggest gain is planning. Lesson: dedicated embodied reasoning matters, not just a strong VLA + off-the-shelf VLM.
+- **Safety**: ASIMOV-2.0 benchmark + Auto-Red-Teaming; ISO 15066 alignment. **Stated weakness: dexterity ≈ prior generation.**
 
 ## Gemini Robotics-ER (the variant most documented in the wiki)
 
@@ -45,12 +53,13 @@ Boston Dynamics' **AIVI-Learning** product is described as "the next evolution" 
 
 ## Mentioned in
 
+- [Gemini Robotics 1.5 tech report](../sources/gemini-robotics-1-5-report.md) — **primary technical source** (GR 1.5 VLA + GR-ER 1.5).
 - [Tools for Your To Do List with Spot and Gemini Robotics (Boston Dynamics blog)](../sources/bostondynamics-spot-gemini-robotics.md)
 
 ## Open questions / TBD
 
-- **Primary technical source not yet ingested.** The DeepMind model card / paper for Gemini Robotics-ER would clarify training data, evaluation, and the exact distinction between ER 1.5 and ER 1.6.
-- **Full Gemini Robotics VLA** — referenced via the [VLA models](../concepts/learning/vla-models.md) concept page but no primary source ingested.
+- ~~Primary technical source not yet ingested~~ — filed 2026-07-04: [Gemini Robotics 1.5 report](../sources/gemini-robotics-1-5-report.md). (Exact model sizes / action-decoder details still undisclosed by DeepMind; appendices not in the PDF.)
+- **ER 1.6** — the AIVI-Learning productization variant post-dates the 1.5 report; no dedicated source.
 - **Open weights?** No; both variants appear to be closed / API-only.
 - **Latency and cost.** Not documented in the BD blog; likely cloud-API-bound.
 - **Other documented integrations besides Spot.** Apptronik (NVIDIA-aligned) has been mentioned in DeepMind press; needs a primary-source ingest.

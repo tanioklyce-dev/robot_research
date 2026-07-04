@@ -4,7 +4,7 @@ type: entity
 subtype: research-lab
 created: 2026-05-15
 updated: 2026-07-04
-sources: 6
+sources: 7
 tags: [nvidia, gear, embodied-ai, humanoids, foundation-models, world-models]
 ---
 
@@ -47,6 +47,7 @@ GEAR is **the in-house research source** of essentially every NVIDIA-product ent
 - [GR00T N1 Paper](../sources/groot-n1-paper.md) — the lab's flagship VLA primary source
 - [DreamGen Paper](../sources/dreamgen-paper.md) — the Dream\* line's root
 - [FLARE Paper](../sources/flare-paper.md) — implicit-WM auxiliary loss (adopted by GR00T N1.5)
+- [SONIC Paper](../sources/sonic-paper.md) — the GEAR-SONIC humanoid whole-body controller
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md)
 - [EgoScale Paper](../sources/egoscale-paper.md)
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)

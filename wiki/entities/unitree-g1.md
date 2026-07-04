@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-08
 updated: 2026-07-04
-sources: 3
+sources: 4
 tags: [unitree-g1, humanoid, bipedal, china, affordable, accessible, groot]
 ---
 
@@ -24,7 +24,7 @@ tags: [unitree-g1, humanoid, bipedal, china, affordable, accessible, groot]
 The G1 is the GR00T line's main **cross-embodiment / whole-body** target beyond [Fourier GR-1](fourier-gr-1.md):
 - **[GR00T N1.5](../sources/groot-n1_5.md)** post-training (1K demos): seen objects 44.0% → **98.8%**, novel objects **84.2%** — the first strong non-GR-1 humanoid result in the GR00T line.
 - **[GR00T N1.6](../sources/groot-n1_6.md)** adds G1 **whole-body loco-manipulation** teleop data to pretraining.
-- **[GR00T N1.7 EA](../sources/isaac-gr00t-github.md)** ships `UNITREE_G1` and `UNITREE_G1_SONIC` embodiment tags — the latter for end-to-end language-conditioned manipulation + locomotion via the GEAR-SONIC controller.
+- **[GR00T N1.7 EA](../sources/isaac-gr00t-github.md)** ships `UNITREE_G1` and `UNITREE_G1_SONIC` embodiment tags — the latter for end-to-end language-conditioned manipulation + locomotion via the **[GEAR-SONIC](gear-sonic.md)** controller ([paper](../sources/sonic-paper.md)). SONIC is a **G1-only** whole-body controller (29 joints): a motion-tracking RL policy scaled to 611 h / 100M+ frames of mocap, with direct sim-to-real (99.2%) and a universal-token interface a GR00T N1.5 VLA drives for loco-manipulation. G1 is the sole robot SONIC targets — the strongest signal it's becoming GR00T's de-facto humanoid.
 
 ## Position vs other humanoids
 - **Smaller than [H1](unitree-h1.md)** — G1 is ~1.3 m vs H1 ~1.8 m. Reduced reach, payload, walking speed.
@@ -37,6 +37,7 @@ The G1 is the GR00T line's main **cross-embodiment / whole-body** target beyond 
 - [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — landscape; G1 is the educational-research bridge.
 
 ## Mentioned in
+- [SONIC Paper](../sources/sonic-paper.md) — SONIC is a G1-only whole-body controller (primary robot)
 - [GR00T N1.5 research page](../sources/groot-n1_5.md) — cross-embodiment post-training (98.8% seen / 84.2% novel)
 - [GR00T N1.6 research page](../sources/groot-n1_6.md) — whole-body loco-manipulation data
 - [Isaac-GR00T GitHub](../sources/isaac-gr00t-github.md) — `UNITREE_G1` / `UNITREE_G1_SONIC` embodiment tags

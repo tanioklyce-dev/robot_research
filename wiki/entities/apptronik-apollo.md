@@ -3,8 +3,8 @@ title: Apptronik Apollo
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-05-08
-sources: 0
+updated: 2026-07-04
+sources: 1
 tags: [apollo, apptronik, humanoid, bipedal, nvidia-partnership, ut-austin]
 status: stub
 ---
@@ -30,7 +30,7 @@ status: stub
 - [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — landscape.
 
 ## Mentioned in
-- *(no source pages directly cite Apollo; entity built from general knowledge)*
+- [Gemini Robotics 1.5 tech report](../sources/gemini-robotics-1-5-report.md) — Apollo is one of GR 1.5's three training/eval embodiments (ALOHA / Franka / Apollo).
 
 ## Open questions / TBD
 - **No primary source ingested.** Apptronik's product pages + GR00T-on-Apollo announcements would anchor specs and partnership details.
