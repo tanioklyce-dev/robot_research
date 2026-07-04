@@ -143,5 +143,6 @@ The recommended near-term **architecture** keeps OpenClaw as the orchestrator (L
 - [OpenClaw](../../entities/openclaw.md) — current LLM-orchestrator on the platform.
 - [Robot Utility Models](../../entities/robot-utility-models.md) / [Dobb·E](../../entities/dobb-e.md) — closest in-home tidy precedent.
 - [stretch_ai](../../entities/stretch-ai.md) — LLM-agent + learned-skill composition on Stretch; same architectural pattern.
+- [Fleet agentic control framework](fleet-agentic-framework.md) — the multi-robot generalization; this ROSOrin Pro plan is the reusable per-robot recipe inside it.
 - [LeWM on ROSOrin Pro — feasibility analysis](lewm-on-rosorin-pro-feasibility.md) — sibling project on the same hardware with a world-model approach.
 - [ROSOrin Pro LEGO pick-place](rosorin-pro-lego-pick-place.md) — smaller-scope ROSOrin project from earlier wiki work.

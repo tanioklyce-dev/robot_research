@@ -10,6 +10,13 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-07-04] Fleet-framework build pieces (from the fleet synthesis)
+Surfaced by [Fleet agentic control framework](syntheses/projects/fleet-agentic-framework.md) — genuine wiki gaps that are also the project's DIY work:
+- [ ] **ROS 2 ↔ MCP server** — no wiki source documents one; it's the load-bearing integration for any Claw-ecosystem agent to command a ROS 2 robot. If a community one appears (or one is built), ingest/document it.
+- [ ] **A2A for multi-robot robotics** — the wiki names the [A2A protocol](concepts/agents/llm-agent-architecture.md) but has **no robotics instance**; watch for the first real one.
+- [ ] **HIL-SERL** has no dedicated concept/source page (only referenced via LeRobot); would anchor the "minimal-human continual-improvement" flywheel.
+- [ ] **Cross-embodiment policy transfer at hobby scale** — SO-ARM101 (XLeRobot/LeKiwi) ↔ HX-12H (ROSOrin Pro); no wiki data on how well policies transfer across these specific arms.
+
 ## [2026-07-04] New gaps from the SONIC / Gemini-1.5 / YAM batch
 - [ ] **Vision-language navigation (VLN)** — flagged by the [Awesome-Embodied-Robotics list](sources/awesome-embodied-robotics-agent.md) as a genuine wiki gap (ALFRED / R2R / VLN-CE); no concept or source yet.
 - [ ] **Household simulators** beyond the [Habitat](entities/habitat.md) stub — AI2-THOR, iGibson (same list).

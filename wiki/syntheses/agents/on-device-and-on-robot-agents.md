@@ -45,6 +45,7 @@ Cloud endpoints are the easy default ([NemoClaw Hermes quickstart](../../sources
 The remaining gap is the same one flagged across the Claw ecosystem: **none of these agent stacks has a native robot integration** — bridging them to a physical robot still means writing an MCP-server-over-ROS-2 that exposes the robot's skills as tools ([OpenClaw vs Hermes](openclaw-vs-hermes-as-robot-brain.md), [Hermes Agent](../../entities/hermes-agent.md#robot-platform-fit)). Once that bridge exists, the tier question — edge vs local-server vs cloud for the *reasoning* half — is a deployment knob, not an architecture rewrite.
 
 ## Related
+- [Fleet agentic control framework](../projects/fleet-agentic-framework.md) — a concrete build applying these three tiers across a real XLeRobot / LeKiwi / ROSOrin Pro + DGX Spark fleet.
 - [OpenClaw vs Hermes as a robot brain](openclaw-vs-hermes-as-robot-brain.md) — *which* agent framework.
 - [LLM-agent architecture across stacks](llm-agent-architecture-across-stacks.md) — the *shared shape* (LLM emits tool calls).
 - [LLM-agent architecture](../../concepts/agents/llm-agent-architecture.md) — umbrella concept.
