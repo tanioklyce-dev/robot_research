@@ -2,8 +2,8 @@
 title: Imitation learning
 type: concept
 created: 2026-05-07
-updated: 2026-05-25
-sources: 37
+updated: 2026-07-04
+sources: 40
 tags: [imitation-learning, behavior-cloning, demonstrations, lerobot, act, co-training, mobile-aloha]
 ---
 
@@ -17,6 +17,7 @@ tags: [imitation-learning, behavior-cloning, demonstrations, lerobot, act, co-tr
 
 ## Why it matters
 - Training method behind nearly every flagship "generalist" policy of 2024–2026: [GR00T](../../entities/nvidia-groot.md), Pi VLAs, [RUMs](../../entities/robot-utility-models.md), and the policies trained inside [RoboCasa365](../../entities/robocasa.md)'s benchmark suite.
+- **The theoretical why, stated in 2013:** [Kober, Bagnell & Peters](../../sources/kober-rl-robotics-survey-2013.md) (§5.1) identified demonstrations' most dramatic benefit as **removing the need for global exploration** — knowing a good policy's state distribution turns the learning problem from provably intractable to polynomial (Kakade & Langford 2002). Today's BC-dominated field is that observation operating at scale; the caveat also carries over: local improvement around demonstrations finds only local optima (the survey's "Fosbury Flop" argument).
 - Bottlenecks: demo quantity, demo diversity, embodiment gap. [MimicGen](../../entities/mimicgen.md)-style synthetic-demo expansion is one mitigation, large simulator corpora ([RoboCasa365](../../entities/robocasa.md), [Genie Sim 3.0](../../entities/agibot-genie-sim.md)) are another.
 
 ## Frameworks and stacks
@@ -35,6 +36,9 @@ The IL training stacks documented in this wiki cluster by hardware tier:
 - [MimicGen](../../entities/mimicgen.md) — synthetic demo expansion.
 
 ## Mentioned in
+- [Kober, Bagnell & Peters 2013 — RL in Robotics Survey](../../sources/kober-rl-robotics-survey-2013.md) — §5.1 demonstrations-remove-global-exploration; kinesthetic teach-in; apprenticeship learning.
+- [The State of Robot Motion Generation (Bekris et al. 2024)](../../sources/state-of-robot-motion-generation-2024.md) — LfD as one of four implicit-model families; compounding-distributional-shift framing.
+- [GR00T N1 Paper](../../sources/groot-n1-paper.md) — foundation-scale BC over the data pyramid.
 - [Mobile ALOHA Paper](../../sources/mobile-aloha-paper.md)
 - [Robot Learning: A Tutorial (LeRobot)](../../sources/lerobot-robot-learning-tutorial.md) — official team-authored tutorial; IL has its own chapter.
 - [Robot Utility Models Project Page](../../sources/robot-utility-models-website.md)

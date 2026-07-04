@@ -2,8 +2,8 @@
 title: Optimal control
 type: concept
 created: 2026-05-14
-updated: 2026-05-15
-sources: 9
+updated: 2026-07-04
+sources: 12
 tags: [optimal-control, mpc, lqr, pontryagin, hamilton-jacobi-bellman, dynamic-programming, brachystochrone, calculus-of-variations, control-theory, rl-bridge]
 ---
 
@@ -96,6 +96,8 @@ The control is chosen *pointwise in time* to minimize the Hamiltonian — and cr
 
 Modern **model-based reinforcement learning** ([DreamerV3](../../sources/dreamer-v3-paper.md), [TD-MPC2](../../sources/td-mpc2-paper.md), every JEPA-line world model) is *optimal control over a learned dynamics model*. The whole [Curriculum Module 10 — World models, broad](../../syntheses/curriculum/curriculum-10-world-models.md) thread is "use a neural network to estimate `f`, then run MPC + CEM (or value iteration) against it."
 
+The "RL = adaptive optimal control" bridge is not a retrospective reading: [Kober, Bagnell & Peters 2013](../../sources/kober-rl-robotics-survey-2013.md) (§1.2) state it explicitly and observe that a key robotics approach *even then* was classical OC (LQR, DDP) applied to learned models — and that robot RL in practice sits "closer to classical optimal control than to ML-textbook RL" (§8.3). The original [TD-MPC paper](../../sources/td-mpc-paper.md) (Hansen et al., ICML 2022) is the cleanest modern realization: MPPI-style sampling MPC over a learned decoder-free latent model with a TD-learned terminal value function.
+
 ## Why it matters in this wiki
 
 1. **Every learned-world-model paper does OC over its learned `f`.** [LeWM](../../entities/leworldmodel.md) uses CEM-MPC over its trained JEPA. [DINO-WM](../../entities/dino-wm.md) plans with MPC + cross-entropy. [V-JEPA 2-AC](../../entities/v-jepa-2.md) does MPC against the action-conditioned predictor. [TD-MPC2](../../sources/td-mpc2-paper.md) literally has "MPC" in the name + learns a value function for the terminal cost. [PLDM](../../sources/pldm-paper.md), [JEPA-WMs](../../entities/jepa-wms.md) likewise.
@@ -161,8 +163,11 @@ Sources with explicit OC vocabulary and a back-link to this hub:
 - [DS4DS 7.01 — Optimal Control, Introduction (Peitz & Wallscheid)](../../sources/ds4ds-7-01-optimal-control-intro.md) (modern-pedagogy companion)
 - [Sutton & Barto — Reinforcement Learning: An Introduction (2nd ed., 2018)](../../sources/sutton-barto-rl-textbook.md) (RL-side bridge)
 - [LeWorldModel Paper](../../sources/leworldmodel-paper.md) (CEM-MPC against learned JEPA)
+- [TD-MPC Paper](../../sources/td-mpc-paper.md) (the original: MPPI + TOLD latent model + learned terminal value)
 - [TD-MPC2 Paper](../../sources/td-mpc2-paper.md) (MPC + TD-bootstrapped value)
 - [DreamerV3 Paper](../../sources/dreamer-v3-paper.md) (latent-imagined-rollouts MBRL = approximate OC)
+- [Kober, Bagnell & Peters 2013 — RL in Robotics Survey](../../sources/kober-rl-robotics-survey-2013.md) ("RL = adaptive optimal control"; LQR/DDP over learned models)
+- [The State of Robot Motion Generation (Bekris et al. 2024)](../../sources/state-of-robot-motion-generation-2024.md) (control & feedback-based planning as one of four explicit-model families: LQR, LQR-Trees, MPC/NMPC, operational-space control)
 
 Aspirationally referenced from this page but not yet linked back from the source (these papers do MPC/planning but don't use the "optimal control" phrase explicitly — back-links pending if/when justified):
 - [V-JEPA 2 Paper](../../sources/v-jepa-2-paper.md), [PLDM Paper](../../sources/pldm-paper.md), [LeJEPA Paper](../../sources/lejepa-paper.md), [Learning control-oriented dynamical structure (Murray 2023)](../../sources/learning-control-oriented-dynamical-structure.md), [MIT drone adaptive control](../../sources/mit-drone-adaptive-control.md), [Onchain AI Garage — LeWM reproduction](../../sources/onchain-ai-garage-lewm-reproduction.md).

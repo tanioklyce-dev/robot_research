@@ -3,17 +3,19 @@ title: VQ-BeT
 type: entity
 subtype: method
 created: 2026-05-08
-updated: 2026-05-28
+updated: 2026-07-04
 sources: 7
 tags: [vq-bet, behavior-cloning, transformer, vector-quantization, latent-action, lee-2024, icml-2024]
 ---
 
 **VQ-BeT — Vector-Quantized Behavior Transformer.** Behavior-cloning method from NYU/Pinto lab; ICML 2024. Introduced in [Lee et al. 2024](../sources/vq-bet-paper.md) — *"Behavior Generation with Latent Actions"*. Discretizes the action space via a vector-quantization codebook, then trains a transformer to predict latent action codes autoregressively. **Direct successor to [BET](bet.md)** (Shafiullah, Cui, Altanzaya, Pinto, NeurIPS 2022) — VQ-BeT replaces BET's k-means action clustering with an end-to-end-learned vector-quantization codebook. The headline performer in the [Robot Utility Models paper](../sources/robot-utility-models-paper.md)'s ablation study, narrowly beating [Diffusion Policy](diffusion-policy.md) at full data scale.
 
-## Approach
-- **Vector quantization on actions.** Continuous action sequences are encoded into a discrete codebook; the policy emits codebook indices.
-- **Transformer trunk** predicts next code given history of observations + previous actions.
-- **Multi-modal action support** — the discrete codebook naturally captures multiple plausible action modes for the same observation, a known failure mode of plain regressive BC.
+## Approach (deepened 2026-07-04 from the [full paper](../sources/vq-bet-paper.md))
+- **Residual VQ-VAE action tokenizer** — exactly **N_q = 2 residual layers** in all experiments: a **primary code** (coarse, dataset-wide clustering) + a **secondary code** (residual refinement). Codebooks of 8–16 codes per layer (64–256 combinations); latent dim 512; EMA codebook updates; trained first, then frozen.
+- **MinGPT trunk** (6 layers / 6 heads / 120-dim; parameter count unpublished) predicts primary then secondary codes; **focal loss** on codes (secondary down-weighted, β≈0.1) + **L1 offset head** that restores full continuous fidelity on top of the decoded centroid.
+- **Multi-modal action support** — the discrete codebook naturally captures multiple plausible action modes for the same observation, a known failure mode of plain regressive BC; measured via behavior entropy (best on 4/5 envs).
+- **Mostly no action chunking** — chunking *hurt* where tried; the paper argues VQ-BeT is fast enough (3–18 ms/step) to run fully closed-loop even on a Stretch CPU. A standing counterpoint to the [Diffusion Policy](diffusion-policy.md)/ACT chunking orthodoxy.
+- **Speed**: 5× faster inference than Diffusion Policy in sim; **25× on real robots** — because receding-horizon DP fails outright (0/30) on low-cost hardware and must run closed-loop ([paper](../sources/vq-bet-paper.md) Table 7/11).
 
 ## Performance characteristics in RUM
 From [RUM paper](../sources/robot-utility-models-paper.md) §3.2:
@@ -42,6 +44,7 @@ From [RUM paper](../sources/robot-utility-models-paper.md) §3.2:
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — supported single-task BC policy alongside [ACT](act.md) and [Diffusion Policy](diffusion-policy.md); note that the paper omits VQ-BET from Figures 7a/7b upload/download tracking because users typically don't upload VQ-BET checkpoints.
 
 ## Open questions / TBD
-- [VQ-BeT Paper](../sources/vq-bet-paper.md) (arxiv 2403.03181, ICML 2024) now filed (2026-05-16). Headline claim from paper: **~5× faster inference than Diffusion Policy** while matching or beating it across **7 environments** (manipulation, driving, robotics).
-- Codebook size, transformer dimensions, hierarchy depth — still not surfaced; abstract is high-level. Paper body needed.
-- How does VQ-BeT compare to Diffusion Policy outside the RUM ablation context — e.g. on industrial-grade benchmarks?
+- ~~Codebook size, transformer dimensions, hierarchy depth~~ — resolved 2026-07-04 from the full PDF (N_q=2 RVQ, 8–16 codes/layer, MinGPT 6/6/120); see [paper page](../sources/vq-bet-paper.md).
+- ~~VQ-BeT vs Diffusion Policy outside RUM~~ — the paper's own head-to-head: SOTA 5/7 unconditional + 6/7 conditional benchmarks, plus 47/50 vs 45/50 single-phase and 19/30 vs 11/30 two-phase on real Stretch.
+- Parameter count unpublished; training cost vs Diffusion Policy unreported.
+- RL fine-tuning over the RVQ token space — natural follow-up the paper doesn't attempt.

@@ -2,12 +2,12 @@
 title: Flow matching
 type: concept
 created: 2026-05-25
-updated: 2026-05-25
-sources: 7
+updated: 2026-07-04
+sources: 8
 tags: [flow-matching, generative-model, ode, continuous-actions, vla, action-head, pi-zero, smolvla, lipman, esser]
 ---
 
-**Flow matching** — a continuous-time generative-modeling technique that learns a **vector field** `v_θ(x_τ, τ)` whose flow transports samples from a noise distribution to a data distribution. Trained by regressing on a closed-form target vector field along straight-line (or other) interpolants between noise and data, without the score-matching detour DDPM-class diffusion models take. **The dominant continuous-action-head technique in 2025+ VLAs** — used by [π0](../../entities/pi-zero.md), [π0.7](../../entities/pi07.md), [π*0.6](../../entities/pistar06.md), [SmolVLA](../../entities/smolvla.md), and [EgoScale](../../sources/egoscale-paper.md). Sibling-not-subclass of [DDPM](../../entities/ddpm.md): both are continuous-action approaches that avoid action-tokenization quantization, but flow matching trains a deterministic vector field rather than a noise-prediction network.
+**Flow matching** — a continuous-time generative-modeling technique that learns a **vector field** `v_θ(x_τ, τ)` whose flow transports samples from a noise distribution to a data distribution. Trained by regressing on a closed-form target vector field along straight-line (or other) interpolants between noise and data, without the score-matching detour DDPM-class diffusion models take. **The dominant continuous-action-head technique in 2025+ VLAs** — used by [π0](../../entities/pi-zero.md), [π0.7](../../entities/pi07.md), [π*0.6](../../entities/pistar06.md), [SmolVLA](../../entities/smolvla.md), [GR00T N1](../../sources/groot-n1-paper.md) (DiT action head, Beta(1.5,1) timestep prior following π0, only **K=4 Euler steps** at inference), and [EgoScale](../../sources/egoscale-paper.md). Sibling-not-subclass of [DDPM](../../entities/ddpm.md): both are continuous-action approaches that avoid action-tokenization quantization, but flow matching trains a deterministic vector field rather than a noise-prediction network.
 
 ## Mechanics (per π0 / SmolVLA conventions)
 
@@ -79,6 +79,7 @@ SmolVLA's interleaved CA+SA pattern empirically wins on real-world SO-100 multi-
 
 ## Mentioned in
 
+- [GR00T N1 paper](../../sources/groot-n1-paper.md) — flow-matching DiT System 1; K=4 Euler steps.
 - [π0 paper](../../sources/pi-zero-paper.md)
 - [π0.7 paper](../../sources/pi07-paper.md)
 - [π*0.6 paper](../../sources/pistar06-paper.md)

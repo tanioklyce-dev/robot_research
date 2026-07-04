@@ -2,8 +2,8 @@
 title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
-updated: 2026-05-16
-sources: 15
+updated: 2026-07-04
+sources: 16
 tags: [sim-to-real, domain-gap, rl, simulation]
 ---
 
@@ -11,6 +11,9 @@ tags: [sim-to-real, domain-gap, rl, simulation]
 
 ## Why it matters
 Real-robot data collection is slow and expensive. Simulation gives unlimited cheap training time. The whole agentic-robotics stack assumes that policies trained in simulators (Isaac Lab, MuJoCo Playground, Genesis, Genie Sim) will generalize to real robots — so the quality of sim-to-real determines whether simulation investment pays off.
+
+## Historical lineage
+The problem predates the deep-learning era under the name **simulation bias**: [Kober, Bagnell & Peters 2013](../../sources/kober-rl-robotics-survey-2013.md) (§6) describe policies exploiting model errors as "analogous to overfitting," note that direct sim-to-real transfer had been demonstrated in only a handful of cases, and catalogue the mitigation that became domain randomization — **artificial noise injection** (Jakobi et al. 1995; Atkeson 1998). Their observation that transfer works better for *self-stabilizing* tasks still explains much of the locomotion-vs-manipulation transfer asymmetry.
 
 ## Common techniques
 - **Domain randomization** — randomize physics, textures, lighting, friction in sim so the policy learns invariances.
@@ -39,6 +42,7 @@ The 89.4% vs. 12.4% contrast is the canonical sim-to-real gap for household mani
 - [World-model simulators](../world-models/world-model-simulators.md) — sidesteps sim-to-real partially by training inside a learned model of reality.
 
 ## Mentioned in
+- [Kober, Bagnell & Peters 2013 — RL in Robotics Survey](../../sources/kober-rl-robotics-survey-2013.md) — simulation bias, noise injection, self-stabilizing transfer.
 - [MuJoCo Playground Paper](../../sources/mujoco-playground-paper.md)
 - [NVIDIA Newton Contact-Rich Manipulation Blog](../../sources/nvidia-newton-contact-rich-manipulation-blog.md)
 - [RoboCasa365 Paper](../../sources/robocasa365-paper.md)

@@ -3,8 +3,8 @@ title: Joel Jang
 type: entity
 subtype: person
 created: 2026-05-15
-updated: 2026-05-15
-sources: 1
+updated: 2026-07-04
+sources: 2
 tags: [person, nvidia, gear, world-models, embodied-ai]
 ---
 
@@ -20,8 +20,9 @@ The third co-lead of the GEAR world-model program. While Jim Fan is the public-f
 
 ## Mentioned in
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)
+- [GR00T N1 Paper](../sources/groot-n1-paper.md) — core contributor
 
 ## Open questions
-- Full academic background / prior affiliations / GR00T involvement.
+- Full academic background / prior affiliations. (GR00T involvement now confirmed: core contributor on [GR00T N1](../sources/groot-n1-paper.md).)
 - Whether Jang co-led DreamGen / DreamZero too, or only DreamDojo.
 - Role at GEAR — pure research-scientist or team lead.

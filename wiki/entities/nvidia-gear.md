@@ -3,8 +3,8 @@ title: NVIDIA GEAR Lab
 type: entity
 subtype: research-lab
 created: 2026-05-15
-updated: 2026-05-15
-sources: 3
+updated: 2026-07-04
+sources: 4
 tags: [nvidia, gear, embodied-ai, humanoids, foundation-models, world-models]
 ---
 
@@ -44,6 +44,7 @@ GEAR is **the in-house research source** of essentially every NVIDIA-product ent
 - [NVIDIA GR00T](nvidia-groot.md), [NVIDIA Isaac Lab](nvidia-isaac-lab.md), [RoboCasa](robocasa.md), [MimicGen](mimicgen.md) — outputs.
 
 ## Mentioned in
+- [GR00T N1 Paper](../sources/groot-n1-paper.md) — the lab's flagship VLA primary source
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md)
 - [EgoScale Paper](../sources/egoscale-paper.md)
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)

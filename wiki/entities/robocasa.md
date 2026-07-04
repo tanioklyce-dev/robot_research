@@ -3,8 +3,8 @@ title: RoboCasa
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-05-15
-sources: 6
+updated: 2026-07-04
+sources: 7
 tags: [robocasa, household-manipulation, benchmark, ut-austin, nvidia, iclr-2026, mimicgen]
 ---
 
@@ -18,6 +18,9 @@ Large-scale simulation framework for training and benchmarking generalist robots
 - **500K+ trajectories** in the released dataset.
 - Three benchmark suites: multi-task learning, foundation-model training, lifelong learning.
 
+## Use in GR00T N1
+[GR00T N1](../sources/groot-n1-paper.md) uses the RoboCasa framework twice: as one of its three simulation evaluation benchmarks (24 kitchen tasks, [Franka Panda](franka-panda.md); GR00T 32.1% vs Diffusion Policy 25.6% at 100 demos) and as the substrate for its GR-1 sim pre-training set (540k DexMimicGen-generated demos with mink whole-body IK).
+
 ## Cross-references in JEPA work
 - [JEPA-WMs](jepa-wms.md) (Terver et al., FAIR, Dec 2025) trains and evaluates on **RoboCasa kitchen manipulation** alongside Metaworld + DROID + real Franka — making this the first JEPA-for-robotics paper in the wiki to use heavy sim. See [paper](../sources/jepa-wms-paper.md) and [revised synthesis](../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md).
 
@@ -30,6 +33,7 @@ Large-scale simulation framework for training and benchmarking generalist robots
 - [JEPA-WMs](jepa-wms.md) — uses RoboCasa as a JEPA-WM evaluation environment.
 
 ## Mentioned in
+- [GR00T N1 Paper](../sources/groot-n1-paper.md)
 - [RoboCasa365 Paper](../sources/robocasa365-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md)

@@ -3,8 +3,8 @@ title: Open X-Embodiment (OXE)
 type: entity
 subtype: dataset
 created: 2026-05-25
-updated: 2026-05-25
-sources: 0
+updated: 2026-07-04
+sources: 1
 tags: [open-x-embodiment, oxe, dataset, cross-embodiment, robot-data, rt-x, levine, finn]
 status: stub
 ---
@@ -22,6 +22,7 @@ status: stub
   - [π0.7](pi07.md), [π*0.6](pistar06.md) (heterogeneous data mixture including OXE).
   - [Octo](octo.md) (trained from scratch on OXE; ~800K trajectories from this corpus).
   - [OpenVLA](openvla.md) (cross-embodiment-pretrained on OXE).
+  - [GR00T N1](nvidia-groot.md) — OXE constituents (RT-1 338.4 h, Bridge-v2 111.1 h, Language Table 195.7 h, [DROID](droid.md) 428.3 h, MUTEX, RoboSet, Plex) form part of the 3,288.8 h real-robot layer of its data pyramid ([GR00T N1 Paper](../sources/groot-n1-paper.md)).
 - **Includes [DROID](droid.md)** as one of its constituent datasets — the wiki's primary OXE-component entity.
 - **Successor lineage**: OXE → RT-X → DROID → larger open robot corpora. OXE is the umbrella; DROID is the single-embodiment standardized Franka subset most commonly used.
 

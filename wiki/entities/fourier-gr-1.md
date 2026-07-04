@@ -3,21 +3,24 @@ title: Fourier GR-1
 type: entity
 subtype: humanoid
 created: 2026-05-15
-updated: 2026-05-15
-sources: 1
+updated: 2026-07-04
+sources: 2
 tags: [humanoid, fourier-intelligence, robot-platform, gr-1, dexterous-manipulation]
 ---
 
-**Fourier GR-1** — humanoid robot from Fourier Intelligence (Shanghai). Used as the **primary out-of-distribution evaluation target** in [DreamDojo](../sources/dreamdojo-paper.md): all four eval benchmarks (In-lab Eval, EgoDex Eval, DreamDojo-HV Eval, Counterfactual Eval) are constructed using GR-1, with the robot replicating objects and actions observed in the human-video pretraining sets.
+**Fourier GR-1** — humanoid robot from Fourier Intelligence (Shanghai). NVIDIA GEAR's standard humanoid evaluation platform: the **primary real-robot platform for [GR00T N1](../sources/groot-n1-paper.md)** (88.4 h in-house teleop pretraining set; all real-world post-training evals) and the **primary out-of-distribution evaluation target** in [DreamDojo](../sources/dreamdojo-paper.md) (all four eval benchmarks constructed on GR-1).
 
 ## Why it matters in this wiki
-DreamDojo's headline OOD-generalization results (Table 3 PSNR improvements, Table 4 human-preference wins for DreamDojo-14B) are all reported on GR-1. The robot is the *measurement device* by which DreamDojo's pretraining gains are validated. Per the DreamDojo source page, GR-1 is also one of four robot embodiments used in latent-action-model training (alongside Unitree G1, AgiBot, YAM).
+- **GR00T N1** ([paper](../sources/groot-n1-paper.md)): GR-1 with dexterous hands is the embodiment behind the headline 76.8%-vs-46.4% real-robot result, the 88.4 h teleop corpus (VIVE Ultimate Tracker + Xsens Metagloves, 20 Hz), the DexMimicGen sim pretraining embodiment (mink whole-body IK), and the WAN2.1-generated neural trajectories.
+- **DreamDojo**: headline OOD-generalization results (Table 3 PSNR, Table 4 human-preference wins for DreamDojo-14B) are all reported on GR-1. Also one of four embodiments in latent-action-model training (alongside Unitree G1, AgiBot, YAM).
 
 ## Related
-- [DreamDojo Paper](../sources/dreamdojo-paper.md) — primary use case.
-- [NVIDIA GEAR](nvidia-gear.md) — built around this platform for the DreamDojo evals.
+- [GR00T N1 Paper](../sources/groot-n1-paper.md) — primary VLA trained/evaluated on this platform.
+- [DreamDojo Paper](../sources/dreamdojo-paper.md) — world-model eval use case.
+- [NVIDIA GEAR](nvidia-gear.md) — uses GR-1 as its de-facto humanoid testbed across both lines.
 
 ## Mentioned in
+- [GR00T N1 Paper](../sources/groot-n1-paper.md)
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)
 
 ## Open questions

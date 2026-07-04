@@ -3,8 +3,8 @@ title: Jim Fan (Linxi Fan)
 type: entity
 subtype: person
 created: 2026-05-15
-updated: 2026-05-15
-sources: 3
+updated: 2026-07-04
+sources: 4
 tags: [person, nvidia, gear, embodied-ai, agents, robotics]
 ---
 
@@ -26,6 +26,7 @@ Co-leads the lab's foundation-model program. Public spokesperson for [GR00T N1](
 - [NVIDIA](nvidia.md) — employer.
 
 ## Mentioned in
+- [GR00T N1 Paper](../sources/groot-n1-paper.md) — research lead
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md)
 - [EgoScale Paper](../sources/egoscale-paper.md)
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)

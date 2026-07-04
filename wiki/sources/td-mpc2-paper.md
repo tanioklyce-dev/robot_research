@@ -48,6 +48,6 @@ tags: [td-mpc, td-mpc2, world-model, model-based-rl, mpc, latent-space, hansen, 
 
 ## Open questions / TBD
 
-- **Full paper not yet ingested** — abstract-level only. The exact MPC sampling scheme (CEM? MPPI?), value-bootstrap details, and 4-domain task breakdown are unquoted here.
-- **TD-MPC1 as a separate source.** The 2022 paper (Hansen, Wang, Su) introduces the architecture; useful to file as a separate page if the family lineage gets curriculum weight.
+- **Full paper not yet ingested** — abstract-level only. The exact MPC sampling scheme, value-bootstrap details, and 4-domain task breakdown are unquoted here. (The TD-MPC1 mechanics — MPPI sampling, TOLD losses, terminal-value decomposition — are now fully documented in the [TD-MPC Paper](td-mpc-paper.md) page and carry over structurally.)
+- ~~TD-MPC1 as a separate source~~ — filed 2026-07-04: [TD-MPC Paper](td-mpc-paper.md).
 - **Author entity page for Nicklas Hansen** — would anchor TD-MPC1 → TD-MPC2 lineage.

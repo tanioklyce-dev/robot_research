@@ -3,14 +3,15 @@ title: Yuke Zhu
 type: entity
 subtype: person
 created: 2026-05-08
-updated: 2026-05-15
-sources: 5
+updated: 2026-07-04
+sources: 6
 tags: [person, ut-austin, nvidia, embodied-ai, robocasa, manipulation]
 ---
 
 **Yuke Zhu** — Associate Professor at UT Austin CS; Director and Distinguished Research Scientist at [NVIDIA](nvidia.md) Research, where he **co-leads [GEAR](nvidia-gear.md) (Generalist Embodied Agent Research)** with [Jim Fan](jim-fan.md) (founded Feb 2024). Embodied-AI / manipulation researcher. In this wiki, **senior on [RoboCasa365](../sources/robocasa365-paper.md)** — the 365-task household-manipulation benchmark that appears across both the VLA cohort and (now) the JEPA cohort via [JEPA-WMs](jepa-wms.md).
 
 ## Papers in this wiki
+- **[GR00T N1 Paper](../sources/groot-n1-paper.md)** (NVIDIA, Mar 2025) — research lead alongside [Jim Fan](jim-fan.md). The open dual-system humanoid VLA foundation model; RoboCasa + DexMimicGen are its sim-benchmark substrate — the concrete instance of the UT Austin ↔ NVIDIA bridge.
 - **[RoboCasa365 Paper](../sources/robocasa365-paper.md)** (Nasiriany, Nasiriany, Maddukuri, Zhu — ICLR 2026) — senior author. 365 tasks across 60 kitchen activities, 2,500 scenes, 3,200+ objects, 2,200+ hours of teleop + synthetic data, 500K+ trajectories.
 - **[Designing Accessible Robot Communication for Blind People (Huh et al. 2026)](../sources/huh2026-accessible-robot-comm.md)** — co-author. UT Austin contribution (with [Roberto Martin-Martin](roberto-martin-martin.md) and [Huihan Liu](huihan-liu.md)) on the Tiago + Franka task design.
 - **[EgoScale Paper](../sources/egoscale-paper.md)** (Zheng et al., Feb 2026) — project lead alongside [Jim Fan](jim-fan.md) and Danfei Xu. First published VLA scaling law on 20,854 hr human-video pretraining; the primary source for the corpus underlying GR00T N1.7.
@@ -30,6 +31,7 @@ Adjacent Zhu-affiliated work not ingested: robosuite (the robosuite framework th
 - [NVIDIA GR00T](nvidia-groot.md) — VLA model line that uses RoboCasa for evaluation.
 
 ## Mentioned in
+- [GR00T N1 Paper](../sources/groot-n1-paper.md)
 - [RoboCasa365 Paper](../sources/robocasa365-paper.md)
 - [Designing Accessible Robot Communication for Blind People — Huh et al. 2026](../sources/huh2026-accessible-robot-comm.md)
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md)
