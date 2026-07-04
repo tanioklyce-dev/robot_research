@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-05-10
 updated: 2026-07-04
-sources: 16
+sources: 17
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026]
 ---
 
@@ -137,6 +137,7 @@ Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distri
 
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **canonical academic reference**; Cadene, Aliberts, Capuano, …, Wolf; 17 HF authors.
 - [GR00T N1 Paper](../sources/groot-n1-paper.md) — NVIDIA **extends the `LeRobotDataset` format** (`modality.json`, fine-grained state/action semantics, explicit rotation representations) for GR00T's cross-embodiment training corpus.
+- [Isaac-GR00T GitHub](../sources/isaac-gr00t-github.md) — the GR00T codebase consumes "a flavor of the **LeRobot v2** dataset format" + `meta/modality.json`; the concrete fine-tuning data path for all GR00T versions.
 - [NVIDIA Jetson AI Lab — HuggingFace LeRobot (archived)](../sources/nvidia-jetson-ai-lab-lerobot.md) — `dustynv/lerobot` containerized Jetson recipe (Koch v1.1 + ACT).
 - [Rosetta GitHub](../sources/rosetta-github.md) — downstream ROS 2 bridge (YAML-contract).
 - [lerobot-ros GitHub](../sources/lerobot-ros-github.md) — downstream ROS 2 bridge (Python sub-class, Jazzy).

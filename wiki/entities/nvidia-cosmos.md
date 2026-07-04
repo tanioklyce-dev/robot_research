@@ -3,8 +3,8 @@ title: NVIDIA Cosmos
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-06-02
-sources: 12
+updated: 2026-07-04
+sources: 14
 tags: [cosmos, world-model, omnimodal, mixture-of-transformers, world-action-model, video-generation, nvidia, foundation-model]
 ---
 
@@ -23,7 +23,11 @@ The major release that subsumes the earlier separate Cosmos-Predict / Cosmos-Rea
 - Generates physically-plausible video rollouts of dynamic scenes.
 - Variants released as "Cosmos-Predict" series — e.g. Cosmos-Predict2-2B-Video2World powers [GE-Sim2](genie-envisioner.md); **Cosmos-Predict2.5** is the backbone of [DreamDojo](../sources/dreamdojo-paper.md) (NVIDIA GEAR, ICML 2026 Spotlight) — a latent video diffusion model with DiT blocks + WAN2.2 tokenizer + flow-matching training, the architectural substrate for generative-video world models.
 - Used for autonomous-driving simulation, robot training, games, and metaverse applications requiring high-throughput simulation.
-- Cosmos-Reason2-2B is the backbone of [GR00T N1.7](nvidia-groot.md).
+
+## Cosmos as the GR00T VLM backbone
+The [GR00T](nvidia-groot.md) VLA line migrated onto Cosmos across two releases — a concrete instance of the Cosmos *reasoning* tower feeding the GR00T *policy* line:
+- **[GR00T N1.6](../sources/groot-n1_6.md)** (Dec 2025) — internal **Cosmos-2B VLM variant** trained on general VL + embodied-reasoning (next-action prediction); replaced the Eagle backbone used through N1.5.
+- **[GR00T N1.7 EA](../sources/isaac-gr00t-github.md)** — **Cosmos-Reason2-2B (Qwen3-VL architecture)**, confirmed via the Isaac-GR00T repo. Note Cosmos 3's reasoner tower is itself initialized from Qwen3-VL — the two lines share architectural ancestry.
 
 ## Why it matters
 Cosmos is the underlying generative video model that's enabling the rise of [World-model simulators](../concepts/world-models/world-model-simulators.md) in agentic robotics — where the simulator is a learned model rather than a physics engine. Sits in **paradigmatic contrast** to the [JEPA](../concepts/world-models/jepa.md) / latent-prediction world-model line ([V-JEPA 2](v-jepa-2.md), [LeWorldModel](leworldmodel.md)) — Cosmos generates pixels; JEPA predicts representations. Cosmos 3 sharpens this: it is the strongest **generative-video-side** demonstration that one pixel-predicting model can also be a competitive real-robot **policy** (see [generative-video vs JEPA](../syntheses/world-models/generative-video-vs-jepa-world-models.md)), without crossing over to latent-space planning.
@@ -35,6 +39,8 @@ Cosmos is the underlying generative video model that's enabling the rise of [Wor
 
 ## Mentioned in
 - [Cosmos 3 Technical Report](../sources/cosmos-3-technical-report.md)
+- [GR00T N1.6 research page](../sources/groot-n1_6.md) — Cosmos-2B VLM backbone
+- [Isaac-GR00T GitHub](../sources/isaac-gr00t-github.md) — Cosmos-Reason2-2B (N1.7 backbone)
 - [Develop Physical AI with NVIDIA Cosmos 3 (HF blog)](../sources/nvidia-cosmos-3-hf-blog.md)
 - [AGIBOT Genie Envisioner 2.0 Announcement](../sources/agibot-genie-envisioner-2-announcement.md)
 - [Top 10 Physical AI Models 2026](../sources/top-10-physical-ai-models-2026.md)
