@@ -2252,3 +2252,14 @@ Follow-up to the GR00T N1 paper ingest earlier today; fleshes out the full versi
 - Major rewrite of [nvidia-groot](entities/nvidia-groot.md) (16→19): added a 4-row version table (backbone progression Eagle→Cosmos-2B→Cosmos-Reason2-2B), per-version detail, a Codebase section, and **resolved the version-overlap warning** (N1.6 = last stable, N1.7 EA = current early-access default).
 - Updated [nvidia-cosmos](entities/nvidia-cosmos.md) (12→14; Cosmos-as-GR00T-backbone section), **de-stubbed [unitree-g1](entities/unitree-g1.md)** (0→3; now the GR00T cross-embodiment/whole-body target), [lerobot](entities/lerobot.md) (16→17; N1.7 consumes LeRobot v2).
 - Updated [vla-models concept](concepts/learning/vla-models.md) (33→36; version-line + frozen-VLM data point) and [index.md](index.md).
+
+## [2026-07-04] lint | Post-ingest health check + 6 count-mismatch fixes
+- Ran full lint: **0 broken links** (7,175 checked), **0 orphan pages**, every `sources/` page linked from index.
+- Fixed **6** index/frontmatter source-count mismatches (all pre-existing, none from today's ingests), using distinct linked-citing-source-pages as ground truth:
+  - [apptronik-apollo](entities/apptronik-apollo.md) index 5→**0** (general-knowledge stub; no source pages cite it — the "Apollo" hits in skynet/constitution sources are Apollo *Research*, not Apptronik).
+  - [tonypi](entities/tonypi.md) index 2→**0** (no citing sources).
+  - [dobb-e](entities/dobb-e.md) 2/3→**4** (frontmatter 3→4; +VQ-BeT + Stretch-4-launch to Mentioned-in).
+  - [grievous](entities/grievous.md) index 1→**3** (+SmolVLA + Mobile-ALOHA-project to Mentioned-in).
+  - [ollama](entities/ollama.md) 1/2→**5** (frontmatter 2→5; +seeed-jetson-examples + hermes-agent ×2).
+  - [pi-zero-6](entities/pi-zero-6.md) index 0→**2** (added missing Mentioned-in section: so101-ros2 + rosetta).
+- Created [backlog.md](backlog.md) for deferred items + knowledge gaps (DreamGen/FLARE/Eagle entities; RL hub page; robot-RL-lineage synthesis; stale `_stub_` markers). Linked from [index.md](index.md).

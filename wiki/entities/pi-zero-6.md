@@ -3,7 +3,7 @@ title: π0.6 (and intermediates π0.5, π0.6-MEM)
 type: entity
 subtype: model
 created: 2026-05-25
-updated: 2026-05-25
+updated: 2026-07-04
 sources: 2
 tags: [pi-zero-6, pi-zero-5, pi-zero-6-mem, pi-zero, physical-intelligence, vla, flow-matching, intermediate, lineage]
 status: stub
@@ -57,6 +57,10 @@ The wiki's two strongest 2025 VLAs — **[π0.7](pi07.md)** and **[π*0.6](pista
 - [π0](pi-zero.md), [π0.7](pi07.md), [π*0.6](pistar06.md) — primary-source ingested π-series entries.
 - [Physical Intelligence](physical-intelligence.md) — see the full lineage table on this entity.
 - [Flow matching](../concepts/learning/flow-matching.md) — action-head family used throughout the π-series.
+
+## Mentioned in
+- [so101_ros2 readthedocs](../sources/so101-ros2-readthedocs.md) — π0.5/π0.6 among supported deployment policies.
+- [Rosetta GitHub](../sources/rosetta-github.md) — π0.5 (sibling of π0.7) among supported policies.
 
 ## Open questions
 

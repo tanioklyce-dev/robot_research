@@ -1,6 +1,8 @@
 # Index
 
 > **New here?** Read the [wiki overview](overview.md) — what this is, what's in it, and where to start.
+>
+> **Maintainer:** open items and knowledge gaps live in the [backlog](backlog.md).
 
 ## Highlights
 
@@ -389,16 +391,16 @@ Curated entry points across the wiki.
 - [Tesla Optimus](entities/tesla-optimus.md) — Tesla's vertically-integrated humanoid; closed development. (0 sources) _stub_
 - [Figure](entities/figure.md) — Figure AI's humanoid line (01/02/03) + Helix VLA; BMW pilots. (2 sources)
 - [1X NEO](entities/1x-neo.md) — household humanoid; 22 hand DOF/side; Redwood AI VLM; 22 dB; $200 deposit. (2 sources)
-- [Apptronik Apollo](entities/apptronik-apollo.md) — UT Austin spinout; NVIDIA-aligned ([GR00T](entities/nvidia-groot.md) target); Mercedes-Benz pilots. (5 sources) _stub_
+- [Apptronik Apollo](entities/apptronik-apollo.md) — UT Austin spinout; NVIDIA-aligned ([GR00T](entities/nvidia-groot.md) target); Mercedes-Benz pilots. (0 sources) _stub_
 - [Digit](entities/digit.md) — Agility Robotics; **first commercially-deployed humanoid** (GXO, Amazon). (0 sources) _stub_
 - [Unitree H1](entities/unitree-h1.md) — Chinese affordable research humanoid (~$90k); rapid 2024–2026 academic adoption. (0 sources) _stub_
 - [Unitree G1](entities/unitree-g1.md) — smaller, cheaper Unitree (~$16k); cheapest serious humanoid platform; the [GR00T](entities/nvidia-groot.md) line's main cross-embodiment / whole-body target ([N1.5](sources/groot-n1_5.md) 98.8% seen; N1.7 `UNITREE_G1_SONIC` whole-body). (3 sources)
 - [NAO](entities/nao.md) — SoftBank/Aldebaran 58-cm educational humanoid; canonical since 2008. (0 sources) _stub_
-- [TonyPi](entities/tonypi.md) — Hiwonder hobby-tier biped kit ($300–700); educational-tier sibling of [ROSOrin Pro](entities/rosorin-pro.md). (2 sources) _stub_
+- [TonyPi](entities/tonypi.md) — Hiwonder hobby-tier biped kit ($300–700); educational-tier sibling of [ROSOrin Pro](entities/rosorin-pro.md). (0 sources) _stub_
 - [Stretch](entities/stretch.md) — Hello Robot's mobile manipulator (Stretch 3 / Stretch 4). De-facto research platform; natively supported in LeRobot. (20 sources)
 - [Mobile ALOHA](entities/aloha.md) — Stanford bimanual mobile manipulator with whole-body teleop; 4× [ViperX 300](entities/viperx-300.md) + AgileX Tracer base; $32k incl. onboard compute + power; the [ACT](entities/act.md) + co-training-with-static-data reference; ALOHA-2 is in LeRobot's 8 supported platforms (~€21k). (3 sources)
 - [Trossen ViperX 300](entities/viperx-300.md) — 6-DOF benchtop arm; the bimanual-teleop SKU underneath [ALOHA / Mobile ALOHA](entities/aloha.md). (1 source)
-- [Grievous](entities/grievous.md) — Alex Koven's WIP cheap-bimanual-mobile testbed; design based on [Mobile ALOHA](entities/aloha.md) + [XLeRobot](entities/xlerobot.md); software on [LeRobot](entities/lerobot.md); RPi5-host + remote-PC. First downstream-of-Mobile-ALOHA project ingested here. (1 source) _stub_
+- [Grievous](entities/grievous.md) — Alex Koven's WIP cheap-bimanual-mobile testbed; design based on [Mobile ALOHA](entities/aloha.md) + [XLeRobot](entities/xlerobot.md); software on [LeRobot](entities/lerobot.md); RPi5-host + remote-PC. First downstream-of-Mobile-ALOHA project ingested here. (3 sources) _stub_
 - [Reachy 2](entities/reachy.md) — Pollen Robotics' open-source bimanual mobile manipulator for embodied AI; ROS 2; 7 DOF/arm; natively supported in LeRobot. (2 sources)
 - [myAGV](entities/myagv.md) — Elephant Robotics autonomous mobile base; ROS; Raspberry Pi 4B; pairs with arms. (1 source)
 - [LeKiwi](entities/lekiwi.md) — SIGRobotics-UIUC 3-wheel Kiwi-drive holonomic mobile manipulator; Raspberry Pi 5 + STS3215; sub-$1k; LeRobot ecosystem; 1,300+ stars; ICLR 2026 paper lists at ~€230. (9 sources)
@@ -503,14 +505,14 @@ Curated entry points across the wiki.
 - [π0](entities/pi-zero.md) — [Physical Intelligence](entities/physical-intelligence.md)'s 3.3 B VLA (Oct 2024); PaliGemma 3 B VLM + flow-matching action expert; cross-embodiment teleop on 7 robots / 68 tasks / 10k hours. The canonical flow-matching VLA; LeRobot-supported (lerobot/pi0). (9 sources)
 - [π0.7](entities/pi07.md) — [Physical Intelligence](entities/physical-intelligence.md)'s 5 B VLA (2025); Gemma3 4B + MEM video encoder + 860 M flow-matching action expert; diversified prompt with subgoal images + episode metadata; first VLA with emergent compositional generalization (espresso machine, sweet-potato-into-air-fryer out-of-the-box). (4 source)
 - [π*0.6](entities/pistar06.md) — [Physical Intelligence](entities/physical-intelligence.md)'s RL-adapted π0.6 (2025); RECAP recipe = offline-RL pretraining + iterative deployment with advantage-conditioned policy extraction; 2× throughput, ½ failure rate; 13-hr continuous espresso operation. (3 source)
-- [π0.6 (and π0.5, π0.6-MEM intermediates)](entities/pi-zero-6.md) — anchor for the intermediate π-series generations between [π0](entities/pi-zero.md) and [π0.7](entities/pi07.md) / [π*0.6](entities/pistar06.md). No primary source ingested. (0 sources) _stub_
+- [π0.6 (and π0.5, π0.6-MEM intermediates)](entities/pi-zero-6.md) — anchor for the intermediate π-series generations between [π0](entities/pi-zero.md) and [π0.7](entities/pi07.md) / [π*0.6](entities/pistar06.md). No primary source ingested. (2 sources) _stub_
 - [SmolVLA](entities/smolvla.md) — [Hugging Face](entities/hugging-face.md) LeRobot team's 450 M VLA (June 2025); SmolVLM-2 + flow-matching with interleaved CA + causal SA; 22.9 K community-dataset episodes; **beats π0-3.5 B by +16.6 pts on real-world SO-100 multi-task**; async-inference RobotClient/PolicyServer stack; runs on CPU (only frontier VLA that does). (8 sources)
 - [OpenVLA](entities/openvla.md) — Kim et al. 2024; 7B open-weights baseline (Llama-2 backbone + autoregressive action tokens); the reference comparison VLA across nearly every 2024–2025 VLA paper. (0 sources) _stub_
 - [Octo](entities/octo.md) — Octo Model Team 2024; transformer-from-scratch generalist policy trained on [OXE](entities/open-x-embodiment.md); pre-flow-matching-era baseline. (0 sources) _stub_
 - [Gemini Robotics](entities/gemini-robotics.md) — Google DeepMind robot foundation models; full VLA + Gemini Robotics-**ER** embodied-reasoning VLM (tool-call planner). (2 source)
 - [OK-Robot](entities/ok-robot.md) — NYU zero-shot pick-and-drop framework; 58.5% in 10 homes; 1.8× over OVMM. (1 source)
 - [Robot Utility Models](entities/robot-utility-models.md) — NYU/Meta zero-shot mobile-manipulation BC. (7 sources)
-- [Dobb·E](entities/dobb-e.md) — NYU predecessor to RUM; HPR encoder + Stick-v1 + Homes of New York dataset. (2 sources) _stub_
+- [Dobb·E](entities/dobb-e.md) — NYU predecessor to RUM; HPR encoder + Stick-v1 + Homes of New York dataset. (4 sources)
 
 ### Behavior-cloning methods
 - [IBC](entities/ibc.md) — Implicit Behavioral Cloning (Florence et al., CoRL 2021); energy-based-model BC; introduced PushT; direct ancestor of Diffusion Policy. (2 source)
@@ -525,7 +527,7 @@ Curated entry points across the wiki.
 - [Qwen](entities/qwen.md) — Alibaba's open-weights LLM family. Default local LLM in both stretch_ai (3B) and ROSOrin (1.7B). (2 sources)
 
 ### Tools
-- [Ollama](entities/ollama.md) — local LLM runtime (used by ROSOrin offline curriculum). (1 source) _stub_
+- [Ollama](entities/ollama.md) — local LLM runtime (used by ROSOrin offline curriculum). (5 sources) _stub_
 - [MimicGen](entities/mimicgen.md) — synthetic-demo expansion tool used by RoboCasa365; **DexMimicGen** variant multiplies demos ~780k-trajectory-scale for [GR00T N1](sources/groot-n1-paper.md). (3 sources) _stub_
 - [NVIDIA Brev](entities/nvidia-brev.md) — NVIDIA's cross-cloud GPU-instance broker (`brev` CLI + Launchables); no native auto-stop, so cost discipline is on the user. (2 sources)
 - [jetson-containers](entities/jetson-containers.md) — Dustin Franklin / NVIDIA framework for building + running Docker images on Jetson (aarch64/L4T); `dustynv/*` image registry + `autotag`/`run.sh` helpers; the deployment substrate behind Jetson AI Lab tutorials (incl. `dustynv/lerobot`). The edge-side counterpart to Brev. (2 sources)

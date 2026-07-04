@@ -3,7 +3,7 @@ title: Grievous
 type: entity
 subtype: product
 created: 2026-05-25
-updated: 2026-05-25
+updated: 2026-07-04
 sources: 3
 tags: [grievous, mobile-aloha, xlerobot, lerobot, raspberry-pi-5, downstream, testbed, wip]
 ---
@@ -38,3 +38,5 @@ The **first downstream-of-Mobile-ALOHA project ingested here** and the first con
 
 ## Mentioned in
 - [Grievous GitHub source page](../sources/grievous-github.md)
+- [SmolVLA Paper](../sources/smolvla-paper.md) — Grievous named among the sub-$1k hardware lines that can run SmolVLA.
+- [Mobile ALOHA project page](../sources/mobile-aloha-project-page.md) — flags Grievous as a downstream-of-Mobile-ALOHA project to re-check.

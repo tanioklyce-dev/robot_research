@@ -3,8 +3,8 @@ title: Dobb·E
 type: entity
 subtype: method
 created: 2026-05-08
-updated: 2026-05-16
-sources: 3
+updated: 2026-07-04
+sources: 4
 tags: [dobb-e, behavior-cloning, hpr-encoder, stretch, nyu, shafiullah, predecessor]
 ---
 
@@ -28,6 +28,8 @@ Dobb·E is the **load-bearing predecessor** to the RUM project. Without it, RUM 
 - [Dobb·E Paper](../sources/dobb-e-paper.md)
 - [Robot Utility Models Paper](../sources/robot-utility-models-paper.md) — references Dobb·E for HPR encoder, Homes of New York dataset, and Stick-v1.
 - [Robot Utility Models Project Page](../sources/robot-utility-models-website.md)
+- [VQ-BeT Paper](../sources/vq-bet-paper.md) — cites the Dobb·E → RUM → VQ-BeT NYU continuity; uses the HPR encoder + Stick.
+- [Stretch 4 launch](../sources/hello-robot-stretch-4-launch.md) — Dobb·E named among Stretch-3-trained policies whose Stretch 4 transfer is an open question.
 
 ## Open questions / TBD
 - [Dobb·E Paper](../sources/dobb-e-paper.md) now filed (2026-05-16) at the abstract level. Confirmed: 13 hours / 22 NY homes / CC-BY-4.0 / 81% success on 109 tasks. **arxiv ID corrected to 2311.16098** (the earlier 2306.16650 reference may be an even-earlier preprint or a typo).

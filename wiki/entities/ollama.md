@@ -3,8 +3,8 @@ title: Ollama
 type: entity
 subtype: tool
 created: 2026-05-07
-updated: 2026-05-07
-sources: 2
+updated: 2026-07-04
+sources: 5
 tags: [ollama, llm-runtime, local-llm, edge-inference, uav]
 ---
 
@@ -20,3 +20,6 @@ The dominant on-device LLM runtime for hobbyist / educational robotics in 2026. 
 ## Mentioned in
 - [Hiwonder ROSOrin Documentation](../sources/hiwonder-rosorin-docs.md)
 - [Taking Flight with Dialogue (Lim et al. 2025)](../sources/taking-flight-with-dialogue-px4-drone-agent.md) — a ROS 2 wrapper encapsulates Ollama to serve interchangeable LLMs + VLMs for onboard drone control on a Jetson Orin Nano.
+- [Seeed jetson-examples](../sources/seeed-jetson-examples.md) — Ollama as one of the LLM-serving recipes.
+- [NVIDIA RTX AI Garage — Hermes Agent](../sources/nvidia-rtx-ai-garage-hermes-agent.md) — supported runtime (via NVIDIA blog).
+- [Hermes Agent GitHub README](../sources/hermes-agent-github.md) — supported runtime.
