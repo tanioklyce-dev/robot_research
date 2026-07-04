@@ -28,6 +28,7 @@ status: stub
 
 ## Related
 
+- [Gemma 4](gemma4.md) — successor (2026); first MoE variant + multimodal E2B/E4B edge variants.
 - [π0.7](pi07.md), [π*0.6](pistar06.md) — primary downstream users.
 - [PaliGemma](paligemma.md) — predecessor; backbone of π0.
 - [SmolVLM-2](smolvlm.md) — Hugging Face's smaller alternative for SmolVLA.

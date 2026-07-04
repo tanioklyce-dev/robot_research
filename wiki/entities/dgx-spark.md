@@ -3,8 +3,8 @@ title: NVIDIA DGX Spark
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-05-31
-sources: 4
+updated: 2026-07-04
+sources: 5
 tags: [dgx-spark, gb10, grace-blackwell, workstation, unified-memory, physical-ai]
 ---
 
@@ -93,6 +93,7 @@ Note: Thor's FP4-sparse headline is **about 2× higher** than DGX Spark's — th
 - Spark's pricing tiers across the 1 TB vs 4 TB SKUs through different channels.
 
 ## Mentioned in
+- [Gemma 4 edge blog (NVIDIA)](../sources/nvidia-gemma-4-edge-blog.md) — runs the Gemma-4-31B in BF16 (128 GB unified); the **local-AI-server** tier for on-robot agents ([synthesis](../syntheses/agents/on-device-and-on-robot-agents.md)).
 - [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.md)
 - [NVIDIA DGX Spark Hardware Overview](../sources/nvidia-dgx-spark-hardware-overview.md)
 - [Isaac Sim and Isaac Lab on NVIDIA Jetson AGX Thor](../sources/rs-designspark-isaac-sim-on-thor.md)

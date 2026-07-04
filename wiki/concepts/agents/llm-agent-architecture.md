@@ -59,6 +59,7 @@ These protocols represent the infrastructure layer that makes "networked AI" —
 
 ## Related
 - [VLA models](../learning/vla-models.md) — competing paradigm (end-to-end action prediction).
+- [On-device / on-robot / local-server agents](../../syntheses/agents/on-device-and-on-robot-agents.md) — *where* the agent brain runs (edge vs LAN server vs cloud); the deployment-topology companion.
 - [stretch_ai](../../entities/stretch-ai.md) — concrete implementation.
 - [World-model simulators](../world-models/world-model-simulators.md) — orthogonal (training-environment paradigm, not control paradigm).
 - [AI safety and alignment](../safety/ai-safety-alignment.md) — safety properties of the LLM brain matter when it has real-world tool access via MCP.

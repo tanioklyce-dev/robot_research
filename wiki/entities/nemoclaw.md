@@ -3,8 +3,8 @@ title: NVIDIA NemoClaw
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-05-28
-sources: 1
+updated: 2026-07-04
+sources: 2
 status: early preview
 tags: [nemoclaw, nvidia, openclaw, nemotron, nvidia-agent-toolkit, nvidia-openshell, guardrails, privacy, dgx-spark, rtx-pro, claw-ecosystem]
 ---
@@ -36,6 +36,10 @@ Same compute matrix as the broader NVIDIA "agent on local hardware" pitch — ru
 3. **Compute-aware deployment** — NemoClaw *"evaluates available compute resources to run high-performance open models like NVIDIA Nemotron locally."*
 4. **NVIDIA Nemotron** as the default inference target rather than a cloud API.
 
+## Agent variants (from the [Hermes quickstart](../sources/nvidia-nemoclaw-hermes-quickstart.md))
+
+NemoClaw is not tied to one agent: `NEMOCLAW_AGENT` selects which agent runs in the OpenShell sandbox — **default OpenClaw**, or **[Hermes](hermes-agent.md)** via the `nemohermes` alias. Both can run side by side (distinct sandbox names). Each sandbox exposes a browser **dashboard (port 18789)** + an **OpenAI-compatible API (port 8642)**; the default model in the Hermes quickstart is **`nvidia/nemotron-3-super-120b-a12b`** served via **NVIDIA inference endpoints** (i.e., the quickstart's default is endpoint-hosted, distinct from the [product page](../sources/nvidia-nemoclaw-page.md)'s local-Nemotron-on-DGX-Spark pitch). **OpenShell** applies **network-policy tiers** gating each sandbox's egress and stores credentials in sandbox scope — the concrete form of the "policy-based guardrails" claim.
+
 ## Position in the Claw ecosystem
 
 NemoClaw is the **NVIDIA-secured production wrapper** in the 3-project landscape:
@@ -66,12 +70,13 @@ For the ROSOrin Pro use case specifically: NemoClaw is **not** a drop-in swap fo
 ## Mentioned in
 
 - [NVIDIA NemoClaw product page](../sources/nvidia-nemoclaw-page.md) — primary source.
+- [NemoClaw Quickstart with Hermes](../sources/nvidia-nemoclaw-hermes-quickstart.md) — concrete recipe (`nemohermes`, OpenShell sandbox, ports, Nemotron endpoint).
 
 ## Open questions
 
 - **What's in the NVIDIA Agent Toolkit?** Not enumerated.
-- **NVIDIA OpenShell policy language** — Rego-like? Allowlist-style?
-- **Nemotron model family** — sizes, quality tiers, fp4/fp8 options.
+- **NVIDIA OpenShell policy language** — the quickstart confirms **network-policy tiers + presets** (allowlist-style egress control) but not the underlying policy language.
+- **Nemotron model family** — the Hermes default is `nemotron-3-super-120b-a12b` (a 120B-total / 12B-active MoE); full family sizes/fp4-fp8 tiers still not enumerated.
 - **GA timeline / pricing**.
 - **Relationship to [Hermes Agent](hermes-agent.md)** — both NVIDIA blog-promoted; one cooperative, one competitive?
 - **Robot extension** — none today; would close a real gap.

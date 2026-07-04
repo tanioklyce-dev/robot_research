@@ -3,8 +3,8 @@ title: Hermes Agent
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-05-28
-sources: 2
+updated: 2026-07-04
+sources: 3
 tags: [hermes-agent, nous-research, agentic-framework, self-improvement, mcp, sub-agents, skills, openrouter, multi-platform, qwen-3-6, dgx-spark, claw-ecosystem]
 ---
 
@@ -67,7 +67,11 @@ What's missing:
 
 ## Compute requirements
 
-Sized for the [DGX Spark](dgx-spark.md) tier per NVIDIA's positioning — 128 GB unified memory + 1 PFLOP AI can serve a **120B-MoE model all day** as the brain. Lower-tier hardware works with smaller models (8B–35B class via [Ollama](ollama.md) / llama.cpp / LM Studio).
+Sized for the [DGX Spark](dgx-spark.md) tier per NVIDIA's positioning — 128 GB unified memory + 1 PFLOP AI can serve a **120B-MoE model all day** as the brain. Lower-tier hardware works with smaller models (8B–35B class via [Ollama](ollama.md) / llama.cpp / LM Studio). See the [on-device / on-robot / local-server agents synthesis](../syntheses/agents/on-device-and-on-robot-agents.md) for the deployment-tier framing.
+
+## Running Hermes inside NemoClaw
+
+NVIDIA ships Hermes as a **selectable agent variant in [NemoClaw](nemoclaw.md)** ([quickstart](../sources/nvidia-nemoclaw-hermes-quickstart.md)): `export NEMOCLAW_AGENT=hermes` (the `nemohermes` alias) creates an **OpenShell sandbox** running Hermes instead of the default OpenClaw agent — dashboard on port 18789, OpenAI-compatible API on port 8642, default model `nvidia/nemotron-3-super-120b-a12b` via NVIDIA inference endpoints, with OpenShell network-policy tiers gating egress. Hermes and OpenClaw sandboxes can run side by side. This is the concrete NVIDIA-blessed local-deployment path (contrast the raw [GitHub](../sources/hermes-agent-github.md) install).
 
 ## Related
 
@@ -84,6 +88,7 @@ Sized for the [DGX Spark](dgx-spark.md) tier per NVIDIA's positioning — 128 GB
 
 - [NVIDIA RTX AI Garage — Hermes Agent on DGX Spark](../sources/nvidia-rtx-ai-garage-hermes-agent.md) — Gore, May 13 2026.
 - [Hermes Agent GitHub README](../sources/hermes-agent-github.md) — primary source.
+- [NemoClaw Quickstart with Hermes](../sources/nvidia-nemoclaw-hermes-quickstart.md) — the NemoClaw deployment path (`nemohermes` + OpenShell sandbox).
 
 ## Open questions
 

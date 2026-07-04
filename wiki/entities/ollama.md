@@ -15,7 +15,9 @@ The dominant on-device LLM runtime for hobbyist / educational robotics in 2026. 
 
 ## Related
 - [Qwen](qwen.md) — common model family served via Ollama.
+- [Gemma 4](gemma4.md) — supported on the edge (E2B/E4B on Jetson Orin Nano) + workstation via Ollama.
 - [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — Ollama is one of several runtimes that support this pattern locally.
+- [On-device / on-robot / local-server agents](../syntheses/agents/on-device-and-on-robot-agents.md) — Ollama is the dominant edge + workstation runtime in the deployment-tier analysis.
 
 ## Mentioned in
 - [Hiwonder ROSOrin Documentation](../sources/hiwonder-rosorin-docs.md)
