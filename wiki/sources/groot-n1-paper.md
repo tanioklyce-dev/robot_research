@@ -17,7 +17,7 @@ The primary paper behind [NVIDIA GR00T](../entities/nvidia-groot.md) N1 — an o
 ## Key claims
 
 ### Architecture (§2.1)
-- **System 2** = NVIDIA **Eagle-2 VLM** (finetuned from a SmolLM2 LLM + SigLIP-2 image encoder), 10 Hz on an L40 GPU. **System 1** = Diffusion Transformer (DiT, adaLN timestep conditioning) trained with **action flow matching**, 120 Hz action generation.
+- **System 2** = NVIDIA **[Eagle](../entities/eagle-vlm.md)-2 VLM** (finetuned from a SmolLM2 LLM + SigLIP-2 image encoder), 10 Hz on an L40 GPU. **System 1** = Diffusion Transformer (DiT, adaLN timestep conditioning) trained with **action flow matching**, 120 Hz action generation.
 - **GR00T-N1-2B: 2.2B total parameters (1.34B in the VLM)**; sampling a 16-action chunk takes **63.9 ms** on an L40 in bf16.
 - Images at 224×224 + pixel shuffle → 64 tokens/frame; vision-language features taken from a **middle LLM layer (layer 12)** rather than the final layer — faster *and* higher policy success.
 - DiT alternates cross-attention (to VLM tokens) with self-attention (over noised action + state embeddings). **Embodiment-specific MLP state/action encoders + decoder** handle variable dimensions across embodiments. Explicit contrast with [π0](../entities/pi-zero.md)'s mixture-of-experts bridging: simple cross-attention decouples VLM and action-module architecture choices (§5).

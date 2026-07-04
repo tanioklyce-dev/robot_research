@@ -16,13 +16,13 @@ A clear ~quarterly cadence, with a **backbone progression Eagle → Cosmos-2B �
 
 | Version | Date | VLM backbone | Key change | Checkpoint |
 |---|---|---|---|---|
-| **N1** | 2025-03 | Eagle-2 (SmolLM2 + SigLIP-2) | dual-system VLA + data pyramid; VLM **unfrozen** | `nvidia/GR00T-N1-2B` |
-| **N1.5** | 2025-06-11 | Eagle 2.5 | VLM **frozen** + FLARE loss; huge language-following gains | `nvidia/GR00T-N1.5-3B` |
+| **N1** | 2025-03 | [Eagle](eagle-vlm.md)-2 (SmolLM2 + SigLIP-2) | dual-system VLA + data pyramid; VLM **unfrozen** | `nvidia/GR00T-N1-2B` |
+| **N1.5** | 2025-06-11 | [Eagle](eagle-vlm.md) 2.5 | VLM **frozen** + [FLARE](../concepts/world-models/flare.md) loss; huge language-following gains | `nvidia/GR00T-N1.5-3B` |
 | **N1.6** | 2025-12-15 | Cosmos-2B variant | reasoning-integrated backbone; DiT 16→32 layers; state-relative actions | `nvidia/GR00T-N1.6-3B` |
 | **N1.7 EA** | current | Cosmos-Reason2-2B (Qwen3-VL) | 20K-hr EgoScale human video; shared relative-EEF action space | `nvidia/GR00T-N1.7-3B` |
 
 - **N1** — **GR00T N1: An Open Foundation Model for Generalist Humanoid Robots** ([arXiv 2503.14734](https://arxiv.org/abs/2503.14734)); full paper ingested — see [GR00T N1 Paper](../sources/groot-n1-paper.md). ~50 contributors; research leads [Jim Fan](jim-fan.md) + [Yuke Zhu](yuke-zhu.md).
-- **N1.5** ([research page](../sources/groot-n1_5.md)) — **frozen** Eagle 2.5 VLM + simplified adapter + **FLARE** (Future LAtent Representation Alignment) loss (coef 0.2) + DreamGen neural trajectories. **Real GR-1 language-following 46.6% → 93.3%, success 43.3% → 83.0%**; RoboCasa 30-demo 17.4 → 47.5; [Unitree G1](unitree-g1.md) seen-objects 44.0% → **98.8%** (first strong non-GR-1 humanoid result). Won both sites of the October 2025 Seeed × NVIDIA × HF Embodied AI Hackathon (fine-tuned via [NVIDIA Brev](nvidia-brev.md); deployed on [Jetson Thor](jetson-thor.md)).
+- **N1.5** ([research page](../sources/groot-n1_5.md)) — **frozen** [Eagle 2.5](eagle-vlm.md) VLM + simplified adapter + **[FLARE](../concepts/world-models/flare.md)** (Future LAtent REpresentation Alignment) loss (coef 0.2) + [DreamGen](dreamgen.md) neural trajectories. **Real GR-1 language-following 46.6% → 93.3%, success 43.3% → 83.0%**; RoboCasa 30-demo 17.4 → 47.5; [Unitree G1](unitree-g1.md) seen-objects 44.0% → **98.8%** (first strong non-GR-1 humanoid result). Won both sites of the October 2025 Seeed × NVIDIA × HF Embodied AI Hackathon (fine-tuned via [NVIDIA Brev](nvidia-brev.md); deployed on [Jetson Thor](jetson-thor.md)).
 - **N1.6** ([research page](../sources/groot-n1_6.md)) — **internal Cosmos-2B VLM variant** trained on embodied-reasoning + general VL; DiT doubled to 32 layers; adapter removed, top-4 VLM layers unfrozen; **state-relative action chunks**; adds bimanual YAM / AGIBot Genie1 / Galaxea R1 Pro (BEHAVIOR) / Unitree G1 whole-body loco-manip data. "Outperforms N1.5" (no published numbers). Also the version newly available in [Isaac Lab](nvidia-isaac-lab.md) alongside Newton 1.0 GA at GTC 2026 ([Newton blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)).
 - **N1.7 Early Access** — 3B, **Cosmos-Reason2-2B (Qwen3-VL) backbone** (confirmed via [Isaac-GR00T repo](../sources/isaac-gr00t-github.md)); **[EgoScale](../sources/egoscale-paper.md) pretraining on 20,854 h of egocentric human video**; shared relative-EEF action space across robot + human embodiments; whole-body [Unitree G1](unitree-g1.md) via the `UNITREE_G1_SONIC` tag + GEAR-SONIC controller. EgoScale (Zheng et al., NVIDIA GEAR, Feb 2026) publishes the log-linear scaling law `L = 0.024 − 0.003·ln(D)` (R² = 0.9983) — see [Scaling laws — VLAs and human data](../concepts/learning/scaling-laws-vla.md).
 
@@ -41,7 +41,9 @@ Apache-2.0 code (weights under NVIDIA Open Model License), ~7.5k★. LeRobot-v2 
 
 ## Related
 - [NVIDIA GEAR](nvidia-gear.md) — research lab; co-leads ([Jim Fan](jim-fan.md) + [Yuke Zhu](yuke-zhu.md)) own the GR00T program.
-- [NVIDIA Cosmos](nvidia-cosmos.md) — backbone (Cosmos-Reason2-2B for N1.7).
+- [Eagle VLM](eagle-vlm.md) — VLM backbone through N1.5 (Eagle-2 → Eagle 2.5).
+- [DreamGen](dreamgen.md) — source of the neural-trajectory synthetic data; [FLARE](../concepts/world-models/flare.md) — N1.5's auxiliary loss.
+- [NVIDIA Cosmos](nvidia-cosmos.md) — backbone from N1.6 (Cosmos-2B → Cosmos-Reason2-2B).
 - [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — bundled training/eval framework.
 - [VLA models](../concepts/learning/vla-models.md) — concept page.
 - [AGIBOT Genie Sim 3.0](agibot-genie-sim.md) — third-party benchmark that tests GR00T.

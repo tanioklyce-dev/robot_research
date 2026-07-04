@@ -10,14 +10,19 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-07-04] Concept-subdir count audit (NEW — found during DreamGen/FLARE/Eagle ingest)
+- [ ] **Re-lint concept catalog counts for pages in subdirectories.** The [2026-07-04] lint's mismatch checker used regex `(?:entities|concepts)/([a-z0-9-]+\.md)` which does **not** match `concepts/<subdir>/<page>.md` (world-models/, learning/, robotics/, …), so all subdirectory concept counts went unverified. Use a corrected regex like `(?:entities|concepts)(?:/[a-z0-9-]+)+\.md`. **10 known stale index counts** (index vs frontmatter, found 2026-07-04; verify ground truth before syncing — frontmatter itself may be over/undercounted, per the entity lesson last session): `scaling-laws-vla` 2/4, `energy-based-models` 4/5, `latent-space` 10/14, `siamese-network` 5/8, `llm-agent-architecture` 8/18, `ai-safety-alignment` 3/6, `assistive-robotics` 16/22, `agentic-uavs` 4/5, `biomechanical-simulation` 5/7, `connectome` 3/4. (jepa/world-model/world-model-simulators already fixed; nvidia-gear + joel-jang were this-session-introduced and fixed immediately.)
+
 ## [2026-07-04] Lint pass (post GR00T-version-line ingest)
 
 Clean at time of writing: 0 broken links (7,175 checked), 0 orphan pages, all `sources/` pages linked from index, all catalog counts synced to frontmatter (6 mismatches fixed this session — apptronik-apollo, tonypi, dobb-e, grievous, ollama, pi-zero-6).
 
 ### Knowledge gaps — NVIDIA GR00T line (highest value first)
-- [ ] **DreamGen entity** (~9 mentions) — the first paper of NVIDIA GEAR's Dream* world-model triplet (**DreamGen → DreamZero → DreamDojo**). [DreamDojo](sources/dreamdojo-paper.md) has a source page; DreamGen is the missing root. Referenced by [GR00T N1.5](sources/groot-n1_5.md) (neural trajectories) and [nvidia-gear](entities/nvidia-gear.md). **Best single gap to fill.**
-- [ ] **FLARE concept note** (~5 mentions) — Future LAtent Representation Alignment loss, the auxiliary objective introduced in [GR00T N1.5](sources/groot-n1_5.md) that lets action-less human video contribute to manipulation skill. Listed as "FLARE (implicit WM)" in [GEAR publications](sources/nvidia-gear-publications.md). A JEPA-adjacent auxiliary loss inside a VLA — worth a short concept page cross-linked to [world-model](concepts/world-models/world-model.md) + [VLA-JEPA](sources/vla-jepa-paper.md).
-- [ ] **Eagle VLM entity** (~3 body mentions) — NVIDIA's in-house VLM family (Eagle-2 in [GR00T N1](sources/groot-n1-paper.md), Eagle 2.5 in [N1.5](sources/groot-n1_5.md)) before the Cosmos migration. Lower priority — superseded as the GR00T backbone by Cosmos-2B/Cosmos-Reason2-2B from N1.6 on.
+- [x] ~~**DreamGen entity**~~ — filed 2026-07-04: [DreamGen entity](entities/dreamgen.md) + [DreamGen paper](sources/dreamgen-paper.md).
+- [x] ~~**FLARE concept note**~~ — filed 2026-07-04: [FLARE concept](concepts/world-models/flare.md) + [FLARE paper](sources/flare-paper.md).
+- [x] ~~**Eagle VLM entity**~~ — filed 2026-07-04: [Eagle entity](entities/eagle-vlm.md) + [Eagle-1](sources/eagle-paper.md) + [Eagle 2.5](sources/eagle-2-5-paper.md) papers.
+- [ ] **Eagle 2** — the exact GR00T N1 production backbone has no standalone paper on file (only Eagle-1 research study + Eagle 2.5). Low priority.
+- [ ] **DreamZero** — the middle Dream\* entry (DreamGen → **DreamZero** → DreamDojo) still has no source page.
 - [ ] **YAM arms**, **Galaxea R1 Pro**, **GEAR-SONIC controller** — new embodiments/controller from [GR00T N1.6](sources/groot-n1_6.md) / [N1.7](sources/isaac-gr00t-github.md). Low priority; file only if they recur in a future source.
 
 ### Deferred stub-marker cleanups (cosmetic, not counted as lint failures)

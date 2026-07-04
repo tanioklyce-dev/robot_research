@@ -2,8 +2,8 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-05-31
-sources: 23
+updated: 2026-07-04
+sources: 24
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem]
 ---
 
@@ -84,6 +84,7 @@ The original wiki synthesis observed [V-JEPA 2](../../entities/v-jepa-2.md) and 
 ## Related
 - [Learned latent space](latent-space.md) — the substrate JEPAs predict in; the entire design choice rests on this.
 - [World-model simulators](world-model-simulators.md) — JEPAs are one of two paradigms (the other being generative-video models).
+- [FLARE](flare.md) — a JEPA-adjacent *auxiliary* loss (future-latent alignment with an EMA teacher) added inside a VLA policy; the same joint-embedding-of-the-future commitment applied as a policy co-training signal rather than a standalone WM.
 - [Meta FAIR](../../entities/meta-fair.md) — center of the JEPA research line.
 - [Mila](../../entities/mila.md) — frequent contributor.
 
@@ -100,6 +101,7 @@ The original wiki synthesis observed [V-JEPA 2](../../entities/v-jepa-2.md) and 
 - [DINO-WM Paper](../../sources/dino-wm-paper.md)
 - [DINO-world Paper](../../sources/dino-world-paper.md)
 - [VLA-JEPA Paper](../../sources/vla-jepa-paper.md)
+- [FLARE Paper](../../sources/flare-paper.md) — JEPA-adjacent future-latent-alignment auxiliary loss (NVIDIA GEAR; adopted by GR00T N1.5)
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) — VL-JEPA, hierarchical JEPA, CEM latent-space planning
 - [Hierarchical Planning with Latent World Models (HWM, paper)](../../sources/hwm-paper.md) — the realized H-JEPA
 - [PLDM Paper](../../sources/pldm-paper.md)

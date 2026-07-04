@@ -16,13 +16,13 @@ The GR00T **N1.5** research page — an incremental but high-impact update to [G
 ## Key claims
 
 ### Architecture changes vs N1
-- **VLM frozen during both pretraining and finetuning** (N1 unfroze the vision encoder). Backbone upgraded to NVIDIA **Eagle 2.5** for improved grounding — N1.5's VLM scores **40.4 IoU on GR-1 grounding vs 35.5 for Qwen2.5-VL**.
+- **VLM frozen during both pretraining and finetuning** (N1 unfroze the vision encoder). Backbone upgraded to NVIDIA **[Eagle 2.5](../entities/eagle-vlm.md)** ([paper](eagle-2-5-paper.md)) for improved grounding — N1.5's VLM scores **40.4 IoU on GR-1 grounding vs 35.5 for Qwen2.5-VL**.
 - **Simplified adapter**: the MLP connecting vision encoder → LLM adds **layer normalization** to both visual and text token embeddings.
 - DiT cross-attention to vision-language embeddings unchanged from N1.
-- **New objective**: adds **FLARE** (Future LAtent Representation Alignment) loss at coefficient **0.2** alongside the flow-matching loss — this is the mechanism that lets human video (no action labels) contribute to manipulation skill.
+- **New objective**: adds **[FLARE](../concepts/world-models/flare.md)** (Future LAtent REpresentation Alignment) loss at coefficient **0.2** alongside the flow-matching loss — this is the mechanism that lets human video (no action labels) contribute to manipulation skill ([FLARE paper](flare-paper.md), NVIDIA GEAR, May 2025).
 
 ### Training data
-- Pretraining mixture: internal GR-1 teleop, OpenX-Embodiment, simulated GR-1 (DexMimicGen), **neural trajectories from [DreamGen](../entities/nvidia-gear.md)**, and **AgiBot-Beta**.
+- Pretraining mixture: internal GR-1 teleop, OpenX-Embodiment, simulated GR-1 (DexMimicGen), **neural trajectories from [DreamGen](../entities/dreamgen.md)** ([paper](dreamgen-paper.md)), and **AgiBot-Beta**.
 - Trained **250K steps on 1K H100 GPUs, global batch size 16,384**.
 
 ### Results (verbatim numbers)
@@ -45,10 +45,10 @@ The GR00T **N1.5** research page — an incremental but high-impact update to [G
 
 ## Concepts touched
 - [VLA models](../concepts/learning/vla-models.md) — the frozen-VLM design choice is a notable divergence from N1's unfrozen-encoder recipe.
-- [Flow matching](../concepts/learning/flow-matching.md) — action head; FLARE is an auxiliary latent-alignment loss on top.
-- [World model](../concepts/world-models/world-model.md) — FLARE aligns to *future latent representations* (a JEPA-adjacent auxiliary objective inside a VLA, echoing [VLA-JEPA](vla-jepa-paper.md)).
+- [Flow matching](../concepts/learning/flow-matching.md) — action head; [FLARE](../concepts/world-models/flare.md) is an auxiliary latent-alignment loss on top.
+- [FLARE](../concepts/world-models/flare.md) / [World model](../concepts/world-models/world-model.md) — FLARE aligns to *future latent representations* (a JEPA-adjacent auxiliary objective inside a VLA, echoing [VLA-JEPA](vla-jepa-paper.md)).
 - [Imitation learning](../concepts/learning/imitation-learning.md) — DreamGen neural trajectories as synthetic demonstration data.
 
 ## Open questions
-- FLARE has no dedicated wiki page; it appears in the [GEAR publications](nvidia-gear-publications.md) as "FLARE (implicit WM)" — the N1.5 page is the first concrete use in a shipped model. Worth a concept note if it recurs.
-- Eagle / Eagle 2.5 VLM family — no entity page; NVIDIA's in-house VLM line underneath N1/N1.5.
+- ~~FLARE has no dedicated wiki page~~ — now filed: [FLARE paper](flare-paper.md) + [FLARE concept](../concepts/world-models/flare.md) (2026-07-04).
+- ~~Eagle / Eagle 2.5 VLM family — no entity page~~ — now filed: [Eagle entity](../entities/eagle-vlm.md) + [Eagle-1](eagle-paper.md) / [Eagle 2.5](eagle-2-5-paper.md) papers (2026-07-04).

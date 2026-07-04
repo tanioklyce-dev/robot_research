@@ -4,7 +4,7 @@ type: entity
 subtype: research-lab
 created: 2026-05-15
 updated: 2026-07-04
-sources: 4
+sources: 6
 tags: [nvidia, gear, embodied-ai, humanoids, foundation-models, world-models]
 ---
 
@@ -20,7 +20,7 @@ tags: [nvidia, gear, embodied-ai, humanoids, foundation-models, world-models]
 Mapped to the four pillars and visible in the [GEAR publications list](../sources/nvidia-gear-publications.md):
 
 - **GR00T pillar (humanoid whole-body)** — GR00T N1 (foundation), SONIC, CHIP, HOVER, ASAP, Doorman, VIRAL, Sim-to-Real Vision-Based Dexterous Manipulation.
-- **Dream* world-model pillar** — DreamGen (CoRL 2025) → DreamZero → DreamDojo (ICML 2026 spotlight); FLARE (implicit WM); World Simulation with Video FMs paper.
+- **Dream* world-model pillar** — [DreamGen](dreamgen.md) ([paper](../sources/dreamgen-paper.md), 2025) → DreamZero → [DreamDojo](../sources/dreamdojo-paper.md) (ICML 2026 spotlight); [FLARE](../concepts/world-models/flare.md) ([paper](../sources/flare-paper.md), implicit WM); World Simulation with Video FMs paper.
 - **Eureka pillar** — Eureka (ICLR 2024), DrEureka (RSS 2024) — LLM-as-reward-designer.
 - **Open-ended agents pillar** — MineDojo (NeurIPS 2022 outstanding) → Voyager (TMLR 2024) → AMAGO → NitroGen (CVPR 2026 oral).
 - **Sim / synthetic-data infrastructure** — Isaac Lab paper (Nov 2025), RoboCasa (RSS 2024), MimicGen (CoRL 2023 outstanding), MimicPlay, EgoScale, SCIZOR, Sim-and-Real Co-Training.
@@ -45,6 +45,8 @@ GEAR is **the in-house research source** of essentially every NVIDIA-product ent
 
 ## Mentioned in
 - [GR00T N1 Paper](../sources/groot-n1-paper.md) — the lab's flagship VLA primary source
+- [DreamGen Paper](../sources/dreamgen-paper.md) — the Dream\* line's root
+- [FLARE Paper](../sources/flare-paper.md) — implicit-WM auxiliary loss (adopted by GR00T N1.5)
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md)
 - [EgoScale Paper](../sources/egoscale-paper.md)
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)

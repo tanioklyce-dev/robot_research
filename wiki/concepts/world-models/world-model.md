@@ -3,7 +3,7 @@ title: World model
 type: concept
 created: 2026-05-07
 updated: 2026-07-04
-sources: 19
+sources: 20
 tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video, omnimodal, world-action-model]
 ---
 
@@ -75,6 +75,7 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 - [RoboCasa365 Paper](../../sources/robocasa365-paper.md) (training-foundation-model context)
 - [Top 10 Physical AI Models 2026](../../sources/top-10-physical-ai-models-2026.md)
 - [DreamerV3 Paper](../../sources/dreamer-v3-paper.md)
+- [FLARE Paper](../../sources/flare-paper.md) — implicit (non-reconstructive) latent WM applied as a VLA policy co-training loss; see [FLARE concept](flare.md)
 - [TD-MPC Paper](../../sources/td-mpc-paper.md) — TOLD; the reward-centric decoder-free corner of the WM design space (2022)
 - [TD-MPC2 Paper](../../sources/td-mpc2-paper.md)
 - [PLDM Paper](../../sources/pldm-paper.md)

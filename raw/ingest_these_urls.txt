@@ -1,4 +1,3 @@
-https://www.science.org/doi/epdf/10.1126/scirobotics.abf1571
-https://www.embs.org/feature/ai-designed-living-robots-can-self-replicate/
-https://github.com/troglobit/crobots
-
+# Ingest queue — one URL per line. Cleared 2026-07-04 (all prior entries ingested:
+# scirobotics.abf1571 -> blackiston-2021; embs feature -> embs-xenobots-self-replicate-feature;
+# troglobit/crobots -> crobots-github). Add new URLs below.

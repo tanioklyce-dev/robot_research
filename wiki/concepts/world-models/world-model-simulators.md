@@ -2,8 +2,8 @@
 title: World-model simulators
 type: concept
 created: 2026-05-06
-updated: 2026-06-02
-sources: 13
+updated: 2026-07-04
+sources: 14
 tags: [world-model, generative-simulation, video-generation, jepa, latent-prediction, paradigm-shift]
 ---
 
@@ -55,6 +55,7 @@ Notable systems:
 - [Joint-Embedding Predictive Architecture](jepa.md) — paradigm B's underlying architecture family.
 
 ## Mentioned in
+- [DreamGen Paper](../../sources/dreamgen-paper.md) — video WM used as a **synthetic data generator** ("neural trajectories") rather than a real-time planner; the data-generation face of this concept.
 - [AGIBOT Genie Envisioner 2.0 Announcement](../../sources/agibot-genie-envisioner-2-announcement.md)
 - [Genie Envisioner Paper](../../sources/genie-envisioner-paper.md)
 - [V-JEPA 2 Paper](../../sources/v-jepa-2-paper.md)

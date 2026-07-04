@@ -33,6 +33,7 @@ tags: [vla-jepa, vla-models, jepa, world-model, libero, simplerenv]
 - [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — auxiliary objective.
 - [VLA models](../concepts/learning/vla-models.md) — wraps JEPA into a VLA policy.
 - [VL-JEPA](vl-jepa.md) — **different paper, similar name** (Meta vision-language JEPA; see warning above).
+- [FLARE](../concepts/world-models/flare.md) — the **closest wiki analogue**: NVIDIA GEAR's JEPA-as-auxiliary-inside-a-VLA (future-latent alignment at λ=0.2, adopted by GR00T N1.5). Same "add a latent-prediction auxiliary loss to a VLA policy" pattern from a different lab.
 - [World-model simulators](../concepts/world-models/world-model-simulators.md) — latent-prediction paradigm.
 
 ## Mentioned in
