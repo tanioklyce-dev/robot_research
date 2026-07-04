@@ -149,6 +149,7 @@ LeRobot supplies most of the loop:
 - **A real-time whole-fleet safety layer** — the MCP allowlist covers per-action safety; physical-safety interlocks (e-stop, collision limits) stay in Layer 1.
 
 ## Related
+- [Fleet framework — implementation notes](fleet-framework-implementation-notes.md) — the code-level appendix: the concrete MCP tool schema (JSON) for the SO-ARM101 robots + the scheduled-training pipeline on the Spark (systemd units, promotion-gate script).
 - [Where the compute lives — agents on the robot vs on a local AI server](../agents/on-device-and-on-robot-agents.md) — the deployment-tier framing behind Layers 2/3.
 - [LLM-agent architecture across stacks](../agents/llm-agent-architecture-across-stacks.md) — the converged orchestrator pattern + the hazards.
 - [LLM-agent architecture](../../concepts/agents/llm-agent-architecture.md) — umbrella concept; MCP + A2A.
