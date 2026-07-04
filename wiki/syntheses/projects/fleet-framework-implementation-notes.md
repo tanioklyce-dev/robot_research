@@ -239,7 +239,7 @@ The **promotion gate** ("new must beat deployed on a held-out split") is the saf
 
 ### Cross-embodiment shortcut
 
-XLeRobot and LeKiwi share the SO-ARM101 arm → **co-train one policy** on the union of both dataset repos (`myfleet/soarm_tidy`) and deploy the same checkpoint to both, halving the training queue and pooling data. ROSOrin Pro (HX-12H) stays separate. The hobby-scale version of the [GR00T cross-embodiment bet](../../entities/nvidia-groot.md) — and an open question (how well SO-ARM101↔HX-12H transfers).
+All three robots share the SO-ARM101 arm (ROSOrin Pro [after the arm swap](fleet-agentic-framework.md)) → **co-train one policy** on the union of all dataset repos (`myfleet/soarm_tidy`) and deploy the same checkpoint fleet-wide, pooling every robot's data into one model. This is why the loop above lists a single `soarm_tidy` task instead of one per robot — hardware homogenization turned the [GR00T-style cross-embodiment problem](../../entities/nvidia-groot.md) into a config detail. (Match the camera setup across robots so the shared observation space lines up.)
 
 ### The minimal-human loop, closed
 

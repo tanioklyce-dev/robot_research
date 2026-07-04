@@ -47,6 +47,9 @@ From [LeRobot ICLR 2026 paper](../../sources/lerobot-iclr-2026-paper.md):
 
 ## The three concrete gaps
 
+> [!tip] The clean sidestep: swap the arm to an SO-ARM101
+> Gaps 1–3 below all stem from the HX-12H arm. If you're building a **multi-robot fleet** (see [Fleet agentic control framework](fleet-agentic-framework.md)), the simplest move is to **replace the HX-12H with an [SO-ARM101](../../entities/so-arm101.md)** — it makes the arm LeRobot-native (erasing Gap 1 entirely), matches the fleet's shared action space (one policy for all robots), and keeps the ROSOrin Pro's valuable Nav2/SLAM base. Reach is comparable and the 11.1 V pack powers the 12 V STS3215 bus. This plan below (bridge the *existing* HX-12H arm) remains the right path if you want to keep the stock arm.
+
 ### Gap 1 — Motor SDK lineage (FeeTech / Dynamixel ≠ HX-12H)
 
 [LeRobot's middleware](../../entities/lerobot.md) is built explicitly on FeeTech and Dynamixel low-level SDKs ([ICLR 2026 paper §3.1](../../sources/lerobot-iclr-2026-paper.md)). The ROSOrin Pro's HX-12H bus servos are a Hiwonder lineage not in LeRobot's tree. None of LeRobot's 8 supported platforms ([SO-100/101](../../entities/so-arm101.md), Koch-v1.1, [ALOHA-2](../../entities/aloha.md), [HopeJR-Arm](../../entities/hope-jr-arm.md), [LeKiwi](../../entities/lekiwi.md), [Stretch-3](../../entities/stretch.md), [Reachy-2](../../entities/reachy.md)) covers it.

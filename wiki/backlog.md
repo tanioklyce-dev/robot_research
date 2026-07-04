@@ -15,7 +15,7 @@ Surfaced by [Fleet agentic control framework](syntheses/projects/fleet-agentic-f
 - [ ] **ROS 2 ↔ MCP server** — no wiki source documents one; it's the load-bearing integration for any Claw-ecosystem agent to command a ROS 2 robot. If a community one appears (or one is built), ingest/document it.
 - [ ] **A2A for multi-robot robotics** — the wiki names the [A2A protocol](concepts/agents/llm-agent-architecture.md) but has **no robotics instance**; watch for the first real one.
 - [ ] **HIL-SERL** has no dedicated concept/source page (only referenced via LeRobot); would anchor the "minimal-human continual-improvement" flywheel.
-- [ ] **Cross-embodiment policy transfer at hobby scale** — SO-ARM101 (XLeRobot/LeKiwi) ↔ HX-12H (ROSOrin Pro); no wiki data on how well policies transfer across these specific arms.
+- [~] ~~**Cross-embodiment policy transfer at hobby scale** — SO-ARM101 ↔ HX-12H~~ — **being designed out** (2026-07-04): the fleet owner is swapping the ROSOrin Pro's HX-12H for an [SO-ARM101](entities/so-arm101.md), homogenizing all three robots to one arm → one shared policy, no transfer problem. See the [fleet framework arm-swap decision](syntheses/projects/fleet-agentic-framework.md). (The measurement question only matters if someone keeps a mixed-arm fleet.)
 
 ## [2026-07-04] New gaps from the SONIC / Gemini-1.5 / YAM batch
 - [ ] **Vision-language navigation (VLN)** — flagged by the [Awesome-Embodied-Robotics list](sources/awesome-embodied-robotics-agent.md) as a genuine wiki gap (ALFRED / R2R / VLN-CE); no concept or source yet.

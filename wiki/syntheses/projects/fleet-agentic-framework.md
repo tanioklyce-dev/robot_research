@@ -16,11 +16,18 @@ A concrete scope for **one framework deployed across a heterogeneous robot fleet
 |---|---|---|---|---|
 | **[XLeRobot](../../entities/xlerobot.md)** | LeKiwi-class wheeled | 2× [SO-ARM101](../../entities/so-arm101.md) (FeeTech STS3215) | Jetson **Orin NX 16 GB** | LeRobot-native |
 | **[LeKiwi](../../entities/lekiwi.md)** | 3-wheel holonomic Kiwi | 1× [SO-ARM101](../../entities/so-arm101.md) (FeeTech STS3215) | Jetson **Orin NX 16 GB** (planned; supersedes RPi5+Hailo) | LeRobot-native |
-| **[ROSOrin Pro](../../entities/rosorin-pro.md)** | differential-drive | 1× 6-DOF HX-12H (Hiwonder) | Jetson **Orin Nano Super 8 GB** | ROS 2-native |
+| **[ROSOrin Pro](../../entities/rosorin-pro.md)** | mecanum (holonomic)† | 1× [SO-ARM101](../../entities/so-arm101.md) *(swapped from HX-12H — see below)* | Jetson **Orin Nano Super 8 GB** | LeRobot-native (post-swap) |
 | **[DGX Spark](../../entities/dgx-spark.md)** | — | — | GB10, 128 GB unified | Central hub |
 
 > [!note] The Orin NX upgrade homogenizes the edge
 > With an Orin NX 16 GB on the LeKiwi, **all three robots are first-class CUDA policy nodes** and the earlier hard constraint — **[Hailo NPUs cannot run LeRobot control policies](../../entities/hailo.md#relevance-in-this-wiki-npu-vs-jetson-for-xlerobot)** — no longer blocks anything. The RPi5 + Hailo-10H can stay on the LeKiwi as an **optional speech/vision coprocessor** (its `gen_ai_apps` do STT/VLM well) or be retired; the Orin NX is now the LeKiwi's AI brain.
+
+> [!tip] Arm-swap homogenization — the decision that collapses the fleet to one embodiment
+> Rather than solve **[SO-ARM101↔HX-12H cross-embodiment transfer](fleet-framework-implementation-notes.md#cross-embodiment-shortcut)** (an open ML problem), **replace the ROSOrin Pro's HX-12H arm with an [SO-ARM101](../../entities/so-arm101.md)**. Then *all three robots share the same arm* → **one policy trains for the whole fleet, one checkpoint deploys everywhere**, the [servo-lineage gap](lerobot-on-rosorin-pro.md#gap-1-motor-sdk-lineage-feetech-dynamixel-hx-12h) disappears, and the ROSOrin Pro moves into the LeRobot-native class. You keep its genuinely valuable part — the **finished Nav2 + SLAM + LiDAR nav stack** — and retire only the arm.
+>
+> ![SO-101 (bottom, extended) next to the ROSOrin Pro with its arm extended — reach parity, and the base is mecanum/holonomic](../../../raw/assets/so-101-vs-rosorin-pro-reach.jpeg)
+>
+> Reach-comparison photo (owner's hardware): the SO-101 is the **same reach class** as the HX-12H arm — no meaningful reach loss for tabletop/floor tidy — and its **5-DOF + gripper matches XLeRobot/LeKiwi exactly**. Bounded catches: a 3D-printed **adapter plate** (both CADs open); **12 V STS3215 servos** run fine off the ROSOrin's [11.1 V 3S pack](../../entities/rosorin-pro.md); drive the arm **directly from the Jetson via a FeeTech USB bus adapter** (bypassing the STM32/`openclaw_controller`, base only); and — the one load-bearing detail — **put a wrist camera on the SO-101 to match the fleet observation space**. **†The owner's base is mecanum/holonomic** (not the differential-drive the [entity](../../entities/rosorin-pro.md) lists), which is a bonus — same holonomic motion class as LeKiwi.
 
 ## Headline: you assemble this, you don't adopt it
 
@@ -31,9 +38,9 @@ The wiki's sharpest structural finding is a **bifurcation** — every *deployed*
 ## Two integration classes (this fleet splits cleanly)
 
 - **LeRobot-native (XLeRobot, LeKiwi).** FeeTech STS3215 + [SO-ARM101](../../entities/so-arm101.md) is [one of LeRobot's 8 supported platforms](../../sources/lerobot-iclr-2026-paper.md) — LeRobot drives the motors directly, no ROS 2 required for the policy. You *add* ROS 2 (for Nav2 + the agent + coordination) and bridge the two.
-- **ROS 2-native (ROSOrin Pro).** ROS 2 Humble drives everything; the HX-12H servos are a Hiwonder lineage **not** in LeRobot's FeeTech/Dynamixel tree ([the servo-lineage gap](lerobot-on-rosorin-pro.md#gap-1-motor-sdk-lineage-feetech-dynamixel-hx-12h)). You *add* LeRobot via Rosetta, which wraps the existing ROS 2 service surface and sidesteps the servo mismatch.
+- **ROSOrin Pro (after the arm swap).** With the HX-12H replaced by an [SO-ARM101](../../entities/so-arm101.md), the arm is **LeRobot-native** (driven directly over a FeeTech USB bus), and only the **base** stays on ROS 2 — but that base is the ROSOrin Pro's strongest asset (Nav2 + SLAM + LiDAR, already wired). So it joins the LeRobot-native class, and the [servo-lineage gap](lerobot-on-rosorin-pro.md#gap-1-motor-sdk-lineage-feetech-dynamixel-hx-12h) that made it the outlier simply goes away. *(Had you kept the HX-12H, this would be the ROS 2-native / bridge-via-Rosetta case — preserved as the [LeRobot-on-ROSOrin-Pro plan](lerobot-on-rosorin-pro.md).)*
 
-Both classes converge on the same runtime shape — **LeRobot policies for manipulation + ROS 2 for orchestration, bridged by [Rosetta](../../entities/rosetta.md)** — which is why one framework can span the fleet. Rosetta is the right bridge because it is **distro-agnostic and YAML-contract-based**; the alternatives can't span a mixed fleet ([lerobot-ros](../../entities/lerobot-ros.md) is Jazzy-only; [so101-ros2](../../entities/so101-ros2.md) is Humble + SO-101-only).
+Both classes converge on the same runtime shape — **LeRobot policies for manipulation + ROS 2 for orchestration + nav, bridged by [Rosetta](../../entities/rosetta.md)** — which is why one framework can span the fleet. Rosetta is the right bridge because it is **distro-agnostic and YAML-contract-based**; the alternatives can't span a mixed fleet ([lerobot-ros](../../entities/lerobot-ros.md) is Jazzy-only; [so101-ros2](../../entities/so101-ros2.md) is Humble + SO-101-only).
 
 ## Three-layer reference architecture
 
@@ -124,7 +131,7 @@ LeRobot supplies most of the loop:
 
 1. **ROS 2↔MCP server = DIY** (above) — the load-bearing new code.
 2. **Multi-robot A2A is greenfield** — no robotics precedent in the wiki; start with central MCP.
-3. **Cross-embodiment.** Three arm embodiments (XLeRobot 2×SO-ARM101, LeKiwi 1×SO-ARM101, ROSOrin Pro HX-12H) → policies won't transfer for free. XLeRobot↔LeKiwi share the SO-ARM101 arm (best transfer odds); ROSOrin Pro is separate. Either collect per-embodiment data or adopt a cross-embodiment recipe (the [GR00T lesson](../../entities/nvidia-groot.md): explicit multi-embodiment training + shared action space).
+3. **Cross-embodiment — designed out by the arm swap.** With all three robots on the [SO-ARM101](../../entities/so-arm101.md) (5-DOF + gripper), there is **one action space and one policy for the fleet** — the cross-embodiment transfer problem is avoided by hardware homogenization rather than solved by ML. (Had you kept the HX-12H, you'd face three embodiments and need per-embodiment data or a cross-embodiment recipe — the [GR00T lesson](../../entities/nvidia-groot.md). The swap is a bounded hardware task substituting for that open ML problem.) One residual: match the **camera setup** across robots so the shared observation space lines up.
 4. **ROSOrin Pro specifics** — HX-12H servo lineage (Rosetta wraps ROS 2 services to sidestep) + the [Aurora930 12 fps camera cap](lerobot-on-rosorin-pro.md#gap-2-cameras-and-sampling-rate) (LeRobot default is 30 Hz).
 5. **Closed-loop replanning** — design the failure→observation→replan path deliberately; it's the demo-vs-deployment gap.
 6. **`eval`-dispatch RCE** — never dispatch LeRobot/agent actions via `eval` on model output; the MCP allowlist replaces it.
@@ -139,7 +146,7 @@ LeRobot supplies most of the loop:
 | **2.** Write the **ROS 2↔MCP server**; put a **Gemma-4-E4B** agent onboard with STT/TTS. | Single-robot natural-language autonomy. | "Pick up the sock and put it in the basket" works spoken. |
 | **3.** Stand up **master control (Gemma-4-31B / Hermes) on the Spark**; command that one robot over network MCP. | Central brain drives one robot. | Master decomposes a 3-step task and monitors it. |
 | **4.** Fan out to the **second Orin NX robot** — near-identical; reuse the SO-ARM101 policy + MCP server. | Two-robot fleet, shared policy. | Both robots run the same stack. |
-| **5.** Integrate **ROSOrin Pro** (Rosetta HX-12H contract + its existing Nav2/OpenClaw; E2B agent). | Full heterogeneous fleet. | All three under one framework. |
+| **5.** Integrate **ROSOrin Pro**: swap in the SO-ARM101 (adapter plate + wrist cam + FeeTech USB), reuse its Nav2/SLAM base, deploy the **same fleet policy**; E2B agent. | Homogeneous fleet, one shared policy. | All three run the same stack + checkpoint. |
 | **6.** **Master coordinates all three** (assign by capability/location); add **A2A** only if peer negotiation is needed. | Fleet coordination. | "Tidy the living room" is split across robots. |
 | **7.** **HIL-SERL + scheduled retraining** → the minimal-human continual-improvement flywheel. | Autonomy target. | Policies improve week-over-week with occasional interventions only. |
 

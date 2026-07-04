@@ -3,7 +3,7 @@ title: ROSOrin Pro
 type: entity
 subtype: product
 created: 2026-05-07
-updated: 2026-05-28
+updated: 2026-07-04
 sources: 4
 tags: [rosorin-pro, hiwonder, jetson-orin-nano, education, mobile-manipulation, llm-agent]
 ---
@@ -14,8 +14,8 @@ Educational mobile-manipulation robot kit from [Hiwonder](hiwonder.md) — the *
 
 ## Hardware
 - Compute: [Jetson Orin Nano](jetson-orin-nano.md) / NX (also Jetson Nano, Raspberry Pi 5).
-- Chassis: differential-drive (Ackermann variant available); same as base [ROSOrin](rosorin.md).
-- **[6-DOF arm](rosorin-pro-arm.md)**: HX-12H bus servos with a gripper end-effector.
+- Chassis: differential-drive (Ackermann variant available); same as base [ROSOrin](rosorin.md). **A mecanum / omnidirectional (holonomic) chassis variant also ships** — confirmed on an owner's unit (reach-comparison photo in the [fleet framework synthesis](../syntheses/projects/fleet-agentic-framework.md)); which chassis you get depends on the kit SKU.
+- **[6-DOF arm](rosorin-pro-arm.md)**: HX-12H bus servos with a gripper end-effector. **Swappable for an [SO-ARM101](so-arm101.md)** to make the arm LeRobot-native and homogenize a mixed fleet — see the [fleet framework](../syntheses/projects/fleet-agentic-framework.md) arm-swap decision (the 11.1 V 3S pack powers the 12 V STS3215 bus; drive it from the Jetson over a FeeTech USB adapter; add a wrist cam for observation-space parity).
 - Sensors: COIN-D6 LiDAR (360°, 12 m), Deptrum Aurora930 depth + RGB camera (640×400 @ 12 fps), MPU6050 IMU, 6-microphone circular array, WonderEcho Pro voice module.
 - Battery: 11.1 V 6000 mAh.
 - Low-level MCU: STM32F407VET6.
