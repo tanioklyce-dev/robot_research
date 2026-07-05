@@ -3,8 +3,8 @@ title: NVIDIA NemoClaw
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-07-04
-sources: 2
+updated: 2026-07-05
+sources: 3
 status: early preview
 tags: [nemoclaw, nvidia, openclaw, nemotron, nvidia-agent-toolkit, nvidia-openshell, guardrails, privacy, dgx-spark, rtx-pro, claw-ecosystem]
 ---
@@ -54,7 +54,7 @@ The interesting question (worth a future synthesis): is NemoClaw + OpenClaw NVID
 
 ## Robot-platform fit
 
-**No robot integration documented.** Inherits OpenClaw's MCP / extension story — a robot integration would require writing an MCP server exposing ROS 2 actions / topics / services.
+**No robot integration documented first-party**, but [AgenticROS](agenticros.md) now provides one: a dedicated NemoClaw integration that runs the plugin **sandboxed with policy-enforced egress** while ROS 2 stays on the host ([AgenticROS GitHub](../sources/agenticros-github.md)) — consistent with NemoClaw's security-wrapper positioning.
 
 For the ROSOrin Pro use case specifically: NemoClaw is **not** a drop-in swap for the upstream [OpenClaw](openclaw.md) running there today — Hiwonder's [`openclaw_controller`](openclaw-controller.md) bridge talks to upstream OpenClaw, and a NemoClaw-side equivalent of the same ROS 2 wiring would need to be written. NemoClaw could theoretically be the planner brain in a future *robot-extended* version of itself, but not today.
 
@@ -71,6 +71,7 @@ For the ROSOrin Pro use case specifically: NemoClaw is **not** a drop-in swap fo
 
 - [NVIDIA NemoClaw product page](../sources/nvidia-nemoclaw-page.md) — primary source.
 - [NemoClaw Quickstart with Hermes](../sources/nvidia-nemoclaw-hermes-quickstart.md) — concrete recipe (`nemohermes`, OpenShell sandbox, ports, Nemotron endpoint).
+- [AgenticROS GitHub](../sources/agenticros-github.md) — community ROS 2 bridge with a dedicated sandboxed NemoClaw integration.
 
 ## Open questions
 

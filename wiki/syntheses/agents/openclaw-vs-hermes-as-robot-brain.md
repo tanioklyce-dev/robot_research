@@ -2,7 +2,7 @@
 title: OpenClaw vs Hermes Agent as a robot's high-level thinker and planner
 type: synthesis
 created: 2026-05-28
-updated: 2026-05-28
+updated: 2026-07-05
 tags: [openclaw, hermes-agent, llm-agent, agent-framework, claw-ecosystem, rosorin-pro, robot-brain, hiwonder, nous-research, openclaw-controller, comparison]
 ---
 
@@ -137,7 +137,7 @@ The most-future-proof composition; same as [Path C in the LeRobot on ROSOrin Pro
 - **`openclaw_controller` source / license / extensibility** — is the ROS 2 bridge open-source? Easy to add new skills, or fixed at the set Hiwonder ships?
 - **Quantified tool-call quality comparison** — frontier GPT-4-class vs Qwen 3.6 27B on the ROSOrin Pro skill library specifically. No public benchmark covers this.
 - **NemoClaw status** — early preview; if it ships GA with strong Nemotron tool-call performance, it becomes a viable Path A option that brings NVIDIA's policy-guardrails layer.
-- **Is there a community `ros-mcp-server` yet?** — if anyone has written this, it changes Path B and C economics. No evidence in current sources.
+- ~~**Is there a community `ros-mcp-server` yet?** — if anyone has written this, it changes Path B and C economics. No evidence in current sources.~~ **Resolved 2026-07-05**: [AgenticROS](../../entities/agenticros.md) is exactly this — an OpenClaw-native plugin (Path A) *and* an MCP server Hermes registers (Paths B/C), covering nav/camera skills; manipulation still needs [ros2-mcp-server](../../entities/ros2-mcp-server.md)-class tools. See [AgenticROS vs the fleet framework](../projects/agenticros-vs-fleet-framework.md).
 
 ## Related
 

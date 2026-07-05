@@ -3,8 +3,8 @@ title: OpenClaw
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-05-31
-sources: 5
+updated: 2026-07-05
+sources: 6
 tags: [openclaw, personal-ai-assistant, steinberger, molty, claw-ecosystem, multi-platform, local-first, gateway, ClawHub, typescript]
 ---
 
@@ -50,7 +50,9 @@ OpenClaw is the foundation. Sibling and downstream projects:
 
 ## Robot-platform fit
 
-**No native robot integration in upstream.** Hiwonder's [`openclaw_controller`](openclaw-controller.md) bridge is the only production path today — it wraps the ROSOrin Pro's ROS 2 services so OpenClaw can call them as skills. The same approach would work for any ROS 2 robot if someone wrote an equivalent bridge.
+**No native robot integration in upstream**, but two external bridges now exist:
+- Hiwonder's [`openclaw_controller`](openclaw-controller.md) — vendor-specific; wraps the ROSOrin Pro's ROS 2 services so OpenClaw can call them as skills.
+- **[AgenticROS](agenticros.md)** — a generic community bridge whose **flagship adapter is a native OpenClaw gateway plugin** (config UI + teleop web app), exposing any ROS 2 robot's capability manifest to OpenClaw ([AgenticROS GitHub](../sources/agenticros-github.md)). Supersedes the claim that `openclaw_controller` is the only production path.
 
 ## Related
 
@@ -66,6 +68,7 @@ OpenClaw is the foundation. Sibling and downstream projects:
 - [NVIDIA NemoClaw product page](../sources/nvidia-nemoclaw-page.md) — referenced as the framework NemoClaw wraps.
 - [Hermes Agent GitHub README](../sources/hermes-agent-github.md) — referenced via the `hermes claw migrate` command.
 - [Hiwonder OpenClaw Practical Tutorial](../sources/hiwonder-openclaw-tutorial.md) — Hiwonder's tutorial on driving the ROSOrin Pro via OpenClaw + `openclaw_controller`.
+- [AgenticROS GitHub](../sources/agenticros-github.md) — community ROS 2 bridge whose flagship adapter is an OpenClaw plugin.
 
 ## Open questions
 

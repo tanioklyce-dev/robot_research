@@ -2,13 +2,13 @@
 title: ROS 2 ↔ MCP server — design doc
 type: synthesis
 created: 2026-07-04
-updated: 2026-07-04
+updated: 2026-07-05
 tags: [project-scope, mcp, ros2, fleet, agent, tool-schema, design, rosetta, nav2, so-arm101]
 ---
 
 # ROS 2 ↔ MCP server — design doc
 
-The load-bearing piece of new code in the [fleet agentic control framework](fleet-agentic-framework.md): a server that **exposes a ROS 2 robot's skills as [MCP](../../concepts/agents/llm-agent-architecture.md#mcp-model-context-protocol) tools**, so an LLM agent — on-robot ([Gemma-4-E4B](../../entities/gemma4.md)) or on the fleet master (Gemma-4-31B / [Hermes](../../entities/hermes-agent.md) on the [DGX Spark](../../entities/dgx-spark.md)) — can command it in natural language. This is the integration the wiki keeps flagging as [missing across the whole Claw ecosystem](../../entities/hermes-agent.md#robot-platform-fit): none of Hermes / OpenClaw / NemoClaw ships one.
+The load-bearing piece of new code in the [fleet agentic control framework](fleet-agentic-framework.md): a server that **exposes a ROS 2 robot's skills as [MCP](../../concepts/agents/llm-agent-architecture.md#mcp-model-context-protocol) tools**, so an LLM agent — on-robot ([Gemma-4-E4B](../../entities/gemma4.md)) or on the fleet master (Gemma-4-31B / [Hermes](../../entities/hermes-agent.md) on the [DGX Spark](../../entities/dgx-spark.md)) — can command it in natural language. This is the integration the wiki had flagged as [missing across the whole Claw ecosystem](../../entities/hermes-agent.md#robot-platform-fit): none of Hermes / OpenClaw / NemoClaw ships one **first-party** (the community [AgenticROS](../../entities/agenticros.md) now covers the nav-level part — see the prior-art note below).
 
 > [!note] The code lives outside the wiki
 > The wiki is a markdown knowledge base; the server is deployable software. It lives in a **separate git repo** — [`ros2-mcp-server`](../../entities/ros2-mcp-server.md) ([github.com/tanioklyce-dev/ros2-mcp-server](https://github.com/tanioklyce-dev/ros2-mcp-server), MIT). This page is the design; the repo is the implementation. It round-trips back into the wiki as a normal [source page](../../sources/ros2-mcp-server-github.md) + [entity](../../entities/ros2-mcp-server.md), exactly like [Rosetta](../../entities/rosetta.md) / [lerobot-ros](../../entities/lerobot-ros.md) — the wiki *documents* code repos, it doesn't contain them.
@@ -23,12 +23,15 @@ LLM agent  ──tools/list, tools/call (MCP)──▶  ros2-mcp-server  ──r
 
 Layer-2 of the framework's [three-layer architecture](fleet-agentic-framework.md): the agent emits tool calls; this server runs them against Layer-1 skills ([Nav2](../../entities/nav2.md) for nav, a [LeRobot](../../entities/lerobot.md) policy via [Rosetta](../../entities/rosetta.md) for manipulation).
 
+> [!note] Prior art discovered 2026-07-05 — AgenticROS
+> [AgenticROS](../../entities/agenticros.md) ([source](../../sources/agenticros-github.md)) is a community Apache-2.0 bridge that independently converges on decisions 1, 2, 4, and 5 below (typed capability manifests, per-robot capability filtering, deterministic mission compilation, `/estop` bypassing the AI). It diverges on 3 (typed outputs but no closed failure-reason vocabulary) and additionally exposes a raw `ros2_publish`/`ros2_service_call` surface behind validator hooks. It has no manipulation/[LeRobot](../../entities/lerobot.md) path — which is this server's remit. See [AgenticROS vs the fleet framework](agenticros-vs-fleet-framework.md); consider adopting its `blocks_base`/`interruptible` capability flags.
+
 ## Five design decisions
 
 1. **Semantic tools only — the tool set *is* the safety boundary.** `navigate_to`, `pick_object`, `place_object`, `list_visible_objects`, `say`, `record_episode`, `report_outcome`. No raw joint control on the default surface (that's an admin-gated escape hatch). Same property as [Gemini-ER on Spot](../../entities/gemini-robotics.md): the agent "can't invent capabilities beyond the API." The full JSON tool schema is in the [implementation notes](fleet-framework-implementation-notes.md#part-1-mcp-tool-schema-for-the-so-arm101-robots).
 2. **Config-driven tool filtering.** One server binary; one YAML per robot (`arms`, `cameras`, `policy_endpoint`). `tools/list` is *generated* from it, so the LLM only ever sees tools the robot can do: single-arm robots ([LeKiwi](../../entities/lekiwi.md), post-swap [ROSOrin](../../entities/rosorin-pro.md)) don't get `handover` or the `arm` argument; dual-arm [XLeRobot](../../entities/xlerobot.md) gets the `arm` enum + `handover`. The two single-arm configs are byte-identical → they point at the same [shared checkpoint](fleet-framework-implementation-notes.md#cross-embodiment-shortcut-two-checkpoints-from-one-data-pool).
-3. **Structured result envelope, not prose.** Every action returns `{status, reason, observation}` from a closed reason vocabulary (`no_grasp_found`, `gripper_slipped`, `path_blocked`, …). This is what makes the agent's [closed-loop replanning](llm-agent-architecture-across-stacks.md#implementation-hazards-visible-in-the-sources) work — a `{failed, gripper_slipped}` becomes "retry with the other arm."
-4. **Deterministic dispatch — never `eval` model output.** A fixed `name → handler` table; unknown tools return `{rejected, unknown_tool}`. This closes the [RCE hazard](llm-agent-architecture-across-stacks.md#implementation-hazards-visible-in-the-sources) both Hiwonder kits have (`eval(f'self.{a}')`).
+3. **Structured result envelope, not prose.** Every action returns `{status, reason, observation}` from a closed reason vocabulary (`no_grasp_found`, `gripper_slipped`, `path_blocked`, …). This is what makes the agent's [closed-loop replanning](../agents/llm-agent-architecture-across-stacks.md#implementation-hazards-visible-in-the-sources) work — a `{failed, gripper_slipped}` becomes "retry with the other arm."
+4. **Deterministic dispatch — never `eval` model output.** A fixed `name → handler` table; unknown tools return `{rejected, unknown_tool}`. This closes the [RCE hazard](../agents/llm-agent-architecture-across-stacks.md#implementation-hazards-visible-in-the-sources) both Hiwonder kits have (`eval(f'self.{a}')`).
 5. **`stop` is out-of-band.** A blocking `pick`/`navigate` call can't also receive a cancel through the same channel, so `stop` is **not** a normal MCP tool — it's a separate transport (a dedicated ROS 2 topic / second MCP session / hardware e-stop). Routing emergency-stop through the blocked channel would be the classic mistake.
 
 ## Transport

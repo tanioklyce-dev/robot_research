@@ -2,8 +2,8 @@
 title: LLM-agent architecture
 type: concept
 created: 2026-05-07
-updated: 2026-07-04
-sources: 28
+updated: 2026-07-05
+sources: 29
 tags: [llm-agent, tool-use, agentic-robotics, planning, mcp, a2a]
 ---
 
@@ -43,6 +43,7 @@ As LLM agents proliferate, two complementary protocols have emerged to connect t
 - Standard interface for LLMs to access external tools, data sources, cloud storage, financial systems, IoT, and enterprise services.
 - **>1,000 community-built connectors** available (as of 2025).
 - In a robotics context, MCP is the natural connector layer for an LLM-agent robot to call external APIs (maps, object databases, smart-home systems) without custom integration per tool.
+- The direction also runs inward: **ROS 2↔MCP bridges expose the robot itself as MCP tools** — first-party [ros2-mcp-server](../../entities/ros2-mcp-server.md) (manipulation-first) and community [AgenticROS](../../entities/agenticros.md) (nav-first, six agent platforms; [source](../../sources/agenticros-github.md)).
 
 ### A2A — Agent-to-Agent Protocol
 - Backed by **Google**; **50+ corporate supporters** including Microsoft, Salesforce, and SAP.
@@ -71,3 +72,4 @@ These protocols represent the infrastructure layer that makes "networked AI" —
 - [Hiwonder OpenClaw Practical Tutorial](../../sources/hiwonder-openclaw-tutorial.md)
 - [Are We Building Skynet? (Medium, 2025)](../../sources/medium-are-we-building-skynet.md)
 - [Tools for Your To Do List with Spot and Gemini Robotics (Boston Dynamics blog)](../../sources/bostondynamics-spot-gemini-robotics.md)
+- [AgenticROS GitHub](../../sources/agenticros-github.md)

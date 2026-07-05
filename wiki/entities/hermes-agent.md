@@ -3,8 +3,8 @@ title: Hermes Agent
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-07-04
-sources: 3
+updated: 2026-07-05
+sources: 4
 tags: [hermes-agent, nous-research, agentic-framework, self-improvement, mcp, sub-agents, skills, openrouter, multi-platform, qwen-3-6, dgx-spark, claw-ecosystem]
 ---
 
@@ -51,7 +51,7 @@ Hermes Agent is the **Nous Research entry** in a 3-project landscape of open-sou
 
 ## Robot-platform fit
 
-**Hermes Agent has no native robot integration.** The closest analogue is the community **`computer-use-linux` MCP server** for desktop automation (AT-SPI accessibility trees, X11/Wayland input, screenshots) — the same architectural pattern a robot integration would follow: **write an MCP server that wraps ROS 2 actions / topics / services as MCP tools, register with Hermes**.
+**Hermes Agent has no native robot integration**, but the community bridge now exists: **[AgenticROS](agenticros.md)** ships an MCP server (`@agenticros/claude-code`, shared with Claude Code/Desktop and Codex) that Hermes registers as a standard MCP client via `.hermes/config.yaml`, exposing missions, follow-me, find-object, memory, and the full ROS command surface ([AgenticROS GitHub](../sources/agenticros-github.md)). This is exactly the "write an MCP server that wraps ROS 2 actions/topics/services, register with Hermes" pattern this page previously predicted — though AgenticROS covers nav/camera skills only, no manipulation (see [ros2-mcp-server](ros2-mcp-server.md) for that layer).
 
 Would-be advantages over the current OpenClaw + [`openclaw_controller`](openclaw-controller.md) stack on the ROSOrin Pro or [stretch_ai](stretch-ai.md):
 
@@ -89,10 +89,11 @@ NVIDIA ships Hermes as a **selectable agent variant in [NemoClaw](nemoclaw.md)**
 - [NVIDIA RTX AI Garage — Hermes Agent on DGX Spark](../sources/nvidia-rtx-ai-garage-hermes-agent.md) — Gore, May 13 2026.
 - [Hermes Agent GitHub README](../sources/hermes-agent-github.md) — primary source.
 - [NemoClaw Quickstart with Hermes](../sources/nvidia-nemoclaw-hermes-quickstart.md) — the NemoClaw deployment path (`nemohermes` + OpenShell sandbox).
+- [AgenticROS GitHub](../sources/agenticros-github.md) — community ROS 2 MCP server that registers with Hermes.
 
 ## Open questions
 
-- **No native robot integration** — has anyone in the community built a ROS-MCP server for Hermes? Would be high-value.
+- ~~**No native robot integration** — has anyone in the community built a ROS-MCP server for Hermes? Would be high-value.~~ **Resolved 2026-07-05**: [AgenticROS](agenticros.md) is exactly this (nav/camera skills; no manipulation yet).
 - **Self-evolving skills mechanism** — concrete details not in the README; how does it actually generate new tools?
 - **"Most used agent in the world" claim** — what's the OpenRouter measurement methodology?
 - **Hermes 4 LLM vs Hermes Agent** — Nous Research's flagship LLM and flagship agent share the "Hermes" brand; relationship not yet captured in this wiki.

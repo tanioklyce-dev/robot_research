@@ -3,8 +3,8 @@ title: ros2-mcp-server
 type: entity
 subtype: software-framework
 created: 2026-07-04
-updated: 2026-07-04
-sources: 1
+updated: 2026-07-05
+sources: 2
 tags: [ros2-mcp-server, mcp, ros2, fleet, agent, tool-schema, first-party, skeleton]
 ---
 
@@ -13,6 +13,9 @@ tags: [ros2-mcp-server, mcp, ros2, fleet, agent, tool-schema, first-party, skele
 ## What it is (and isn't)
 - **Is**: an *agent↔ROS 2* tool-calling layer — the LLM emits `navigate_to` / `pick_object` / `say`; a deterministic dispatcher runs each against Nav2 + a LeRobot policy.
 - **Isn't**: a [LeRobot↔ROS 2 data bridge](rosetta.md). It sits **above** [Rosetta](rosetta.md) / [lerobot-ros](lerobot-ros.md) / [so101-ros2](so101-ros2.md) and *calls* Rosetta's policy action for the actual manipulation. Complementary layers.
+
+> [!note] No longer the only bridge of its kind (2026-07-05)
+> One day after this skeleton was pushed, [AgenticROS](agenticros.md) was ingested — a community Apache-2.0 TypeScript bridge exposing ROS 2 capability manifests to OpenClaw/NemoClaw/Claude/Codex/Hermes/Gemini. It independently converges on four of the five design decisions below (semantic verbs, per-robot capability filtering, deterministic dispatch, out-of-band estop) — but has **no manipulation/LeRobot story**, which remains this repo's reason to exist. Full comparison: [AgenticROS vs the fleet framework](../syntheses/projects/agenticros-vs-fleet-framework.md).
 
 ## Design (from the [design doc](../syntheses/projects/ros2-mcp-server-design.md))
 - **Semantic tools only** — the tool set is the safety boundary (no raw joint control on the default surface).
@@ -32,7 +35,9 @@ Early **skeleton** (1 commit, MIT, pushed 2026-07-04). Imports + config/tool-fil
 
 ## Mentioned in
 - [ros2-mcp-server GitHub](../sources/ros2-mcp-server-github.md) — primary source.
+- [AgenticROS GitHub](../sources/agenticros-github.md) — the community counterpart it is compared against.
 
 ## Open questions
 - Skeleton, unwired against hardware (rclpy stubs); SSE transport not implemented.
-- Whether it becomes a reusable/publishable ROS-MCP bridge beyond the SO-ARM101 fleet.
+- Whether it becomes a reusable/publishable ROS-MCP bridge beyond the SO-ARM101 fleet — or whether its manipulation tools instead land upstream as an [AgenticROS](agenticros.md) skill (see the [comparison](../syntheses/projects/agenticros-vs-fleet-framework.md#4-what-to-leverage)).
+- Adopt AgenticROS's `blocks_base` / `interruptible` capability flags into the tool schema.
