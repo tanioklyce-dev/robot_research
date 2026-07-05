@@ -87,7 +87,7 @@ The [local-AI-server tier](../agents/on-device-and-on-robot-agents.md): master c
 
 ## The key piece you build: a ROS 2 ↔ MCP server
 
-This is the highest-value new code, and the standing gap across the whole Claw ecosystem — [none of Hermes/OpenClaw/NemoClaw ships one](../../entities/hermes-agent.md#robot-platform-fit). Design:
+This is the highest-value new code, and the standing gap across the whole Claw ecosystem — [none of Hermes/OpenClaw/NemoClaw ships one](../../entities/hermes-agent.md#robot-platform-fit). **Design doc + skeleton now exist**: see [ROS 2 ↔ MCP server — design doc](ros2-mcp-server-design.md) (the `ros2-mcp-server` repo, a sibling project — config-driven tool filtering, structured-result envelope, deterministic dispatch, out-of-band stop; `rclpy` bridge stubbed and ready to wire). Design in brief:
 
 - **Exposes each robot's ROS 2 action/service surface as [MCP](../../concepts/agents/llm-agent-architecture.md#mcp-model-context-protocol) tools** — one tool per skill: `goto(location)`, `find(object)`, `pick(object)`, `place(target)`, `say(text)`, `explore()`, `get_state()`, `record_episode(task)`. The tool set *is* the robot's capability contract.
 - **Runs as an MCP server** on the robot (local agent) and is also reachable over the network (so the Spark master is an MCP client of every robot).

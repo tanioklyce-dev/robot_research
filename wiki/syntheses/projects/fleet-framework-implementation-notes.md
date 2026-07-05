@@ -288,6 +288,7 @@ The nightly job consumes whatever the fleet produced. To keep producing useful d
 
 ## Related
 - [Fleet agentic control framework](fleet-agentic-framework.md) — the parent architecture (this page is its implementation appendix).
+- [ROS 2 ↔ MCP server — design doc](ros2-mcp-server-design.md) — the server that serves this tool schema (design + the `ros2-mcp-server` skeleton repo).
 - [LLM-agent architecture](../../concepts/agents/llm-agent-architecture.md) — MCP + the tool-call pattern.
 - [Rosetta](../../entities/rosetta.md) — the LeRobot↔ROS 2 bridge these tools + the recorder sit on.
 - [LeRobot on ROSOrin Pro](lerobot-on-rosorin-pro.md) — the per-robot recipe (HX-12H contract, compute budget).
