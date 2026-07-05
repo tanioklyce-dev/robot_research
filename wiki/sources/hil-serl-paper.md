@@ -20,7 +20,7 @@ The paper's thesis is that with the right *system-level* design choices — not 
 ## Key claims
 
 - **Headline result (§4.3, Table 1a).** 100% success within 1–2.5 hr real-world training on nearly all of 7 tasks (100 eval trials each). HG-DAgger baseline averages **49.7%**. Average improvement **+101% success, 1.8× faster cycle time** (9.6 s → 5.4 s). Gap widens most on the hardest tasks: RAM insertion (29%→100%), Timing belt (2%→100%, "+4900%"), Jenga whipping (8%→100%).
-- **Method = system integration, not a new algorithm (§3).** Builds on **[RLPD](../concepts/learning/real-world-robot-rl.md)** (Ball et al. 2023) — an off-policy actor-critic that samples training batches **50/50 from a demo buffer and an on-policy RL buffer**. Predecessor is **[SERL](../concepts/learning/real-world-robot-rl.md)** (Luo et al. 2024); HIL-SERL's novelty over SERL is the **online human-correction loop** (SERL used demos only).
+- **Method = system integration, not a new algorithm (§3).** Builds on **[RLPD](../entities/rlpd.md)** ([Ball et al. 2023](rlpd-paper.md)) — an off-policy actor-critic that samples training batches **50/50 from a demo buffer and an on-policy RL buffer**. Predecessor is **[SERL](../entities/serl.md)** ([Luo et al. 2024](serl-paper.md)); HIL-SERL's novelty over SERL is the **online human-correction loop** (SERL used demos only).
 - **Human-in-the-loop corrections (§3.4).** Human intervenes via SpaceMouse at any timestep; intervention actions go to **both** the demo and RL buffers, while the policy's own surrounding transitions go **only** to the RL buffer. Interventions are frequent early, then taper toward **0% intervention rate** as the policy converges — the intervention-rate curve is the paper's convergence signal. Similar in spirit to HG-DAgger, but the data trains an RL objective, not supervised BC.
 - **Sparse classifier reward (§3.3).** No reward shaping. A **binary success classifier** (trained offline on ~200 positive + ~1000 negative teleop frames, ~5 min of data, >95% eval accuracy) provides the only reward signal.
 - **Pretrained vision backbone.** **ResNet-10 pretrained on ImageNet**, shared across wrist + side cameras; embeddings concatenated with proprioception into an MLP. Images cropped and resized to **128×128**. Only 20–30 demos initialize the demo buffer.
@@ -35,12 +35,14 @@ The paper's thesis is that with the right *system-level* design choices — not 
 - **Hardware/compute.** Single- and dual-arm impedance-controlled setups (impedance controller with reference limiting for contact-rich tasks; feedforward wrenches for dynamic tasks); onboard computation on a **single NVIDIA RTX 4090**. Control loop 10 Hz. Distributed actor/learner/replay architecture.
 
 > [!note] Robot arm not named in the extracted text
-> The specific manipulator model is shown in figures/supplementary but does not appear in the extractable body text. HIL-SERL's predecessor [SERL](../concepts/learning/real-world-robot-rl.md) used [Franka Panda](../entities/franka-panda.md) arms, so that is the likely platform, but this ingest does not assert it from the source text.
+> The specific manipulator model is shown in figures/supplementary but does not appear in the extractable body text. HIL-SERL's predecessor [SERL](serl-paper.md) designed its impedance controller around [Franka Panda](../entities/franka-panda.md), and the follow-on [AutoSERL](autoserl-paper.md) runs HIL-SERL-style insertion on a Franka, so Franka is the likely platform — but this ingest does not assert it from the HIL-SERL source text.
 
 ## Entities mentioned
 
-- [Sergey Levine](../entities/sergey-levine.md) — senior author; **first ingested source that directly cites Levine** (prior appearances flowed through DROID/Metaworld entity pages).
-- [Jianlan Luo](../entities/jianlan-luo.md) — lead author; also lead of SERL and RLPD-for-manipulation line.
+- [Sergey Levine](../entities/sergey-levine.md) — senior author.
+- [Jianlan Luo](../entities/jianlan-luo.md) — lead author; also lead of [SERL](../entities/serl.md).
+- [RLPD](../entities/rlpd.md) — the off-policy base algorithm.
+- [SERL](../entities/serl.md) — the demo-only predecessor system.
 - [Diffusion Policy](../entities/diffusion-policy.md) — baseline that underperforms on reactive/contact-rich tasks here.
 - [Franka Panda](../entities/franka-panda.md) — likely (unconfirmed in text) manipulator.
 

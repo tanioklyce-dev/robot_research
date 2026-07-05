@@ -4,15 +4,16 @@ type: entity
 subtype: person
 created: 2026-07-05
 updated: 2026-07-05
-sources: 1
+sources: 2
 tags: [person, uc-berkeley, reinforcement-learning, real-world-rl, manipulation]
 ---
 
-**Jianlan Luo** — robot-learning researcher in [Sergey Levine](sergey-levine.md)'s lab at UC Berkeley EECS. Lead author on the **SERL → HIL-SERL** line of work that made **sample-efficient real-world reinforcement learning** for dexterous manipulation practical.
+**Jianlan Luo** — robot-learning researcher in [Sergey Levine](sergey-levine.md)'s lab at UC Berkeley EECS. Lead author on the **[SERL](../sources/serl-paper.md) → [HIL-SERL](../sources/hil-serl-paper.md)** line of work that made **sample-efficient real-world reinforcement learning** for dexterous manipulation practical.
 
 ## Papers in this wiki
 
-- **[HIL-SERL](../sources/hil-serl-paper.md)** (Luo, Xu, Wu, Levine — Oct 2024) — lead author. Human-in-the-loop real-world RL reaching 100% success on dexterous/dual-arm tasks in 1–2.5 hr. Maintained the main research codebase.
+- **[SERL](../sources/serl-paper.md)** (Luo, Hu, …, Finn, Gupta, Levine — Jan 2024) — co-first author. Open-source real-world-RL suite ([RLPD](../entities/rlpd.md) + reward classifier + auto-reset + impedance control); 25–50 min/policy.
+- **[HIL-SERL](../sources/hil-serl-paper.md)** (Luo, Xu, Wu, Levine — Oct 2024) — lead author. SERL + online human corrections; 100% success on dexterous/dual-arm tasks in 1–2.5 hr. Maintained the main research codebase.
 
 ## Why it matters in this wiki
 
@@ -20,14 +21,16 @@ Luo is the throughline of the wiki's **[real-world robotic RL](../concepts/learn
 
 ## Related
 
-- [Sergey Levine](sergey-levine.md) — PhD/postdoc advisor and senior author on HIL-SERL.
+- [Sergey Levine](sergey-levine.md) — advisor and senior author on SERL + HIL-SERL.
+- [SERL](../entities/serl.md) / [RLPD](../entities/rlpd.md) — the suite he co-authored and the algorithm it wraps.
 - [Real-world robotic RL](../concepts/learning/real-world-robot-rl.md) — the concept his work anchors.
 
 ## Mentioned in
 
+- [SERL paper](../sources/serl-paper.md) — co-first author.
 - [HIL-SERL paper](../sources/hil-serl-paper.md) — lead author.
+- [AutoSERL paper](../sources/autoserl-paper.md) — his SERL/HIL-SERL are the baselines it extends.
 
 ## Open questions / TBD
 
-- **SERL** (Luo et al. 2024, the demo-only predecessor) and **RLPD** (Ball et al. 2023, the base algorithm) are referenced but not yet ingested as their own source pages.
 - Luo's earlier cable-routing / assembly RL papers (Luo et al. 2019/2021/2023) are cited throughout HIL-SERL and would deepen the real-world-RL lineage.

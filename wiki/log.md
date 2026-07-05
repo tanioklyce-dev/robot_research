@@ -2345,3 +2345,12 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - Updated [Sergey Levine](entities/sergey-levine.md) (first source that directly cites him; sources 5→6), [Diffusion Policy](entities/diffusion-policy.md) (DP underperforms on reactive tasks; 11→12), [Imitation learning](concepts/learning/imitation-learning.md) (RL-ceiling counterpoint; 40→41)
 - Note: the other new raw file `xlerobot_cutting_the_cord_2603.09051v1.pdf` is a byte-identical duplicate of already-ingested `raw/2603.09051v1.pdf` → [Cutting the Cord](sources/cutting-the-cord-untethered-xlerobot.md); no re-ingest
 - Robot arm not named in extractable text (shown only in figures); SERL predecessor used Franka Panda — flagged, not asserted
+## [2026-07-05] ingest | Real-world RL cluster — RLPD + SERL + AutoSERL (3 papers)
+- Sources: `raw/RL_2302.02948v4.pdf` (RLPD), `raw/SERL_2401.16013v4.pdf` (SERL), `raw/RL_2607.01651v1.pdf` (AutoSERL / "One Demonstration Is Enough")
+- Created [RLPD Paper](sources/rlpd-paper.md) — off-policy base algorithm (symmetric sampling + LayerNorm + ensembles); ~2.5× on D4RL
+- Created [SERL Paper](sources/serl-paper.md) — open-source real-world-RL suite; 25–50 min/policy; HIL-SERL's demo-only predecessor
+- Created [AutoSERL Paper](sources/autoserl-paper.md) — automates HIL-SERL's human-intervention from one demo; matches HIL-SERL; first external group (CAS/PKU/PsiBot)
+- New entities: [RLPD](entities/rlpd.md), [SERL](entities/serl.md) (both subtype:method)
+- Major update: [Real-world robotic RL](concepts/learning/real-world-robot-rl.md) — now the full RLPD→SERL→HIL-SERL→AutoSERL lineage table (1→4 sources)
+- Updated [Sergey Levine](entities/sergey-levine.md) (senior on all 3 Berkeley papers; 6→8), [Jianlan Luo](entities/jianlan-luo.md) (+SERL co-first; 1→2), [Chelsea Finn](entities/chelsea-finn.md) (+SERL; 8→9), [Franka Panda](entities/franka-panda.md) (+SERL/HIL-SERL/AutoSERL; 15→18), [HIL-SERL Paper](sources/hil-serl-paper.md) (RLPD/SERL now linked as ingested)
+- Note: 4th new raw file `xlerobot_cutting_the_cord_2603.09051v1.pdf` is again a byte-identical dup of `2603.09051v1.pdf` (md5 confirmed) → no re-ingest

@@ -174,7 +174,10 @@ Curated entry points across the wiki.
 - [flygym GitHub (NeLy-EPFL/flygym)](sources/flygym-github.md) — Apache-2.0 Python library implementing NeuroMechFly v2; v2.0.1 release. (2026-04-17)
 - [Tools for Your To Do List with Spot and Gemini Robotics (Boston Dynamics blog)](sources/bostondynamics-spot-gemini-robotics.md) — Spot + Gemini Robotics-ER 1.5 hackathon: tool-call layer over the Spot SDK; AIVI-Learning (ER 1.6) productization. (2025)
 - [Diffusion Policy Paper](sources/diffusion-policy-paper.md) — Chi et al., Columbia / TRI / MIT (RSS 2023, arxiv 2303.04137); conditional DDPM over actions; 46.9% avg improvement across 12 tasks; UR5 + Franka real-world (Push-T 95%, mug flip 90%, sauce pouring 79%, sauce spreading 100%). (2023-03)
+- [RLPD Paper](sources/rlpd-paper.md) — Ball, Smith, Kostrikov, [Levine](entities/sergey-levine.md) (ICML 2023, arxiv 2302.02948). The off-policy base algorithm of the [real-world RL](concepts/learning/real-world-robot-rl.md) lineage: **symmetric 50/50 sampling + critic LayerNorm + large ensembles/CDQ**; **~2.5×** over prior offline-to-online on D4RL benchmarks, no extra compute. Benchmark-only; real-robot payoff comes via [SERL](entities/serl.md)/[HIL-SERL](sources/hil-serl-paper.md). (2023-02)
+- [SERL Paper](sources/serl-paper.md) — Luo, Hu, …, [Finn](entities/chelsea-finn.md), Gupta, [Levine](entities/sergey-levine.md) (arxiv 2401.16013). Open-source **[real-world RL](concepts/learning/real-world-robot-rl.md) suite** = [RLPD](entities/rlpd.md) + reward classifier/VICE + forward-backward auto-reset + impedance control on [Franka](entities/franka-panda.md). PCB insertion / cable routing / object relocation in **25–50 min/policy**, near-perfect + robust; **HIL-SERL's demo-only predecessor**. (2024-01)
 - [HIL-SERL Paper](sources/hil-serl-paper.md) — Luo, Xu, Wu, [Levine](entities/sergey-levine.md) (UC Berkeley, arxiv 2410.21845). Human-in-the-loop **[real-world RL](concepts/learning/real-world-robot-rl.md)** (RLPD off-policy + 20–30 demos + online SpaceMouse corrections + sparse classifier reward + ResNet-10). **100% success in 1–2.5 hr** across 7 dexterous/dual-arm tasks (RAM insert, timing belt, Jenga whip, pan flip, IKEA/dashboard/motherboard assembly); **+101% success & 1.8× faster vs. HG-DAgger** on the same data; beats [Diffusion Policy](entities/diffusion-policy.md) (27–56%) on reactive contact-rich tasks. First real-world RL dual-arm image-based coordination. (2024-10)
+- [AutoSERL Paper (One Demonstration Is Enough)](sources/autoserl-paper.md) — Liu, Yu, …, Ceyao Zhang (CAS / PKU-PsiBot / Peking U, arxiv 2607.01651). Automates HIL-SERL's human-intervention role from a **single demonstration** (sliding-window guidance + safety recovery + intervention-termination). **Matches [HIL-SERL](sources/hil-serl-paper.md)**, beats [SERL](entities/serl.md)-20-demos / BC / MILES; 100% on insertion; Franka + UR5, 6 tasks. First external group to extend the SERL ladder. (2026-07)
 - [DDPM Paper](sources/ddpm-paper.md) — Ho, Jain, Abbeel; UC Berkeley (NeurIPS 2020, arxiv 2006.11239); foundational diffusion-model class; CIFAR-10 FID 3.17. (2020-06)
 - [IBC Paper](sources/ibc-paper.md) — Florence et al., Google Research (CoRL 2021, arxiv 2109.00137); implicit-BC via energy-based models; introduced PushT benchmark; ancestor of Diffusion Policy. (2021-09)
 - [BET Paper](sources/bet-paper.md) — Shafiullah, Cui, Altanzaya, Pinto; NYU (NeurIPS 2022, arxiv 2206.11251); transformer + k-means action discretization; ancestor of VQ-BeT. (2022-06)
@@ -549,6 +552,10 @@ Curated entry points across the wiki.
 - [ACT++](entities/act-plus-plus.md) — the mobile-extended ML codebase shipped with [Mobile ALOHA](entities/aloha.md) (`MarkFzp/act-plus-plus`); adds the 16-dim base+arm action vector + co-training + action-chunk delay-shift. (2 sources)
 - [UMI](entities/umi.md) — Universal Manipulation Interface (Chi et al., RSS 2024); hand-held gripper data-collection system; same lead author as Diffusion Policy. (2 source)
 
+### Real-world RL methods / systems
+- [RLPD](entities/rlpd.md) — Reinforcement Learning with Prior Data (Ball, Smith, Kostrikov, Levine; ICML 2023); off-policy SAC recipe = symmetric sampling + critic LayerNorm + ensembles; ~2.5× over prior offline-to-online. Base algorithm of the SERL family. (3 sources)
+- [SERL](entities/serl.md) — Sample-Efficient Robotic RL suite (Luo et al. 2024); RLPD + reward classifier + forward-backward auto-reset + impedance control; 25–50 min/policy; HIL-SERL's predecessor. (3 sources)
+
 ### LLMs
 - [Qwen](entities/qwen.md) — Alibaba's open-weights LLM family. Default local LLM in both stretch_ai (3B) and ROSOrin (1.7B). (2 sources)
 
@@ -574,8 +581,8 @@ Curated entry points across the wiki.
 - [Navid Azizan](entities/navid-azizan.md) — MIT ME / IDSS / LIDS; learning-based control; SD-LQR (ICML 2023) + drone adaptive control (2025). (2 sources)
 - [Adrien Bardes](entities/adrien-bardes.md) — FAIR researcher; lead author on VICReg (ICLR 2022); co-senior on V-JEPA 2, V-JEPA 2.1, JEPA-WMs. The FAIR-side champion of the V-JEPA program. (4 sources)
 - [Basile Terver](entities/basile-terver.md) — researcher (FAIR-affiliated, inferred); bread-crumb across DINO-world → JEPA-WMs lineage. (2 sources)
-- [Sergey Levine](entities/sergey-levine.md) — UC Berkeley EECS; senior on HIL-SERL (real-world RL) + DROID + Metaworld. (1 source page: HIL-SERL)
-- [Jianlan Luo](entities/jianlan-luo.md) — UC Berkeley (Levine lab); lead author on SERL → HIL-SERL real-world RL. (1 source)
+- [Sergey Levine](entities/sergey-levine.md) — UC Berkeley EECS; senior across the real-world-RL lineage (RLPD + SERL + HIL-SERL) + DROID + Metaworld. (3 direct-citing source pages)
+- [Jianlan Luo](entities/jianlan-luo.md) — UC Berkeley (Levine lab); (co-)lead author on SERL → HIL-SERL real-world RL. (2 sources)
 - [Chelsea Finn](entities/chelsea-finn.md) — Stanford CS; senior on DROID + Metaworld + Mobile ALOHA. (1 source page: Mobile ALOHA)
 - [Tony Z. Zhao](entities/tony-zhao.md) — Stanford CS; first author on original ALOHA + [ACT](entities/act.md); co-lead on [Mobile ALOHA](entities/aloha.md). (1 source)
 - [Zipeng Fu](entities/zipeng-fu.md) — Stanford CS PhD; co-lead on [Mobile ALOHA](entities/aloha.md). (1 source)
@@ -629,7 +636,7 @@ Curated entry points across the wiki.
 ### Learning
 - [VLA models](concepts/learning/vla-models.md) — vision-language-action robot foundation models. (36 sources)
 - [Imitation learning](concepts/learning/imitation-learning.md) — supervised learning from demonstrations. (41 sources)
-- [Real-world robotic RL](concepts/learning/real-world-robot-rl.md) — training RL directly on hardware; the RLPD/SERL/HIL-SERL recipe (off-policy + demos + human corrections + sparse classifier reward). Anchored by [HIL-SERL](sources/hil-serl-paper.md). (1 source)
+- [Real-world robotic RL](concepts/learning/real-world-robot-rl.md) — training RL directly on hardware; the [RLPD](entities/rlpd.md)→[SERL](entities/serl.md)→[HIL-SERL](sources/hil-serl-paper.md)→[AutoSERL](sources/autoserl-paper.md) lineage (off-policy + demos + human/automated corrections + sparse classifier reward). (4 sources)
 - [Flow matching](concepts/learning/flow-matching.md) — learn a vector field that transports noise to actions; the dominant continuous-action-head technique in 2025+ VLAs ([π0](entities/pi-zero.md), [π0.7](entities/pi07.md), [π*0.6](entities/pistar06.md), [SmolVLA](entities/smolvla.md), [GR00T N1](sources/groot-n1-paper.md), [EgoScale](sources/egoscale-paper.md)). Sibling-not-subclass of [DDPM](entities/ddpm.md). (8 sources)
 - [Sim-to-real transfer](concepts/learning/sim-to-real-transfer.md) — bridging simulator-trained policies to real robots; "simulation bias" lineage back to [Kober 2013](sources/kober-rl-robotics-survey-2013.md); the 12.4% [BEHAVIOR-1K](entities/behavior-benchmark.md) hard end. (17 sources)
 - [Scaling laws — VLAs and human data](concepts/learning/scaling-laws-vla.md) — the empirical data-vs-performance relationship for VLA pretraining; seeded from [EgoScale](sources/egoscale-paper.md)'s log-linear loss law (R² = 0.9983) on 20,854 hr of egocentric human video; LLM-side companion via Welch Labs Ch 6 (Kaplan 2020). (8 sources)

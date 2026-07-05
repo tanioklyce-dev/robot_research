@@ -3,8 +3,8 @@ title: Chelsea Finn
 type: entity
 subtype: person
 created: 2026-05-08
-updated: 2026-05-25
-sources: 8
+updated: 2026-07-05
+sources: 9
 tags: [person, stanford, meta-learning, robot-learning, droid, metaworld, aloha, mobile-aloha]
 ---
 
@@ -14,6 +14,7 @@ tags: [person, stanford, meta-learning, robot-learning, droid, metaworld, aloha,
 - **[Mobile ALOHA](../sources/mobile-aloha-paper.md)** (Fu, Zhao, Finn — Jan 2024) — senior author on the bimanual mobile-manipulation system. Brings the **[ALOHA](aloha.md) / [ACT](act.md) lineage** into the wiki. Co-leads [Zipeng Fu](zipeng-fu.md) and [Tony Z. Zhao](tony-zhao.md) are Finn's students.
 - **[Metaworld](metaworld.md)** (Yu, Quillen, Levine, Finn — CoRL 2019) — co-senior on the 50-task meta-RL benchmark; the meta-learning framing is largely Finn's research lineage applied to robot manipulation.
 - **[DROID](droid.md)** (Khazatsky, Pertsch, …, Finn, Levine — Apr 2024) — senior author on the 13-institution real-robot teleoperation dataset.
+- **[SERL](../sources/serl-paper.md)** (Luo, Hu, …, Finn, Gupta, Levine — Jan 2024) — co-author on the open-source [real-world RL](../concepts/learning/real-world-robot-rl.md) suite; the RL-side counterpart to her imitation-heavy ALOHA work.
 
 ## Why it matters in this wiki
 Three infrastructure papers from three angles: **Metaworld** (sim, meta-RL framing) and **DROID** (real, scene-diversity framing) both shared with [Levine](sergey-levine.md); plus **Mobile ALOHA** (open hardware + co-training pattern) on the bimanual-mobile-manipulation front. The Stanford-Berkeley-multi-institution axis these papers represent is the closest thing to a "standard reference setup" across the robot-learning literature ingested here.
@@ -28,6 +29,7 @@ Finn-affiliated work not yet directly ingested but commonly referenced: original
 
 ## Mentioned in
 - [Mobile ALOHA Paper](../sources/mobile-aloha-paper.md) — senior author.
+- [SERL paper](../sources/serl-paper.md) — co-author.
 - DROID project page (linked via [DROID](droid.md) entity)
 - Metaworld project page (linked via [Metaworld](metaworld.md) entity)
 

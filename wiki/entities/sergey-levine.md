@@ -4,19 +4,21 @@ type: entity
 subtype: person
 created: 2026-05-08
 updated: 2026-07-05
-sources: 6
+sources: 8
 tags: [person, uc-berkeley, robot-learning, rl, real-world-rl, droid, metaworld]
 ---
 
-**Sergey Levine** — Associate Professor at UC Berkeley EECS. Robot-learning and reinforcement-learning researcher; one of the most prolific senior figures in the field across the 2015–2026 window. In this wiki, **senior on [HIL-SERL](../sources/hil-serl-paper.md)** (real-world RL), **[DROID](droid.md)**, and co-senior on **[Metaworld](metaworld.md)**.
+**Sergey Levine** — Associate Professor at UC Berkeley EECS. Robot-learning and reinforcement-learning researcher; one of the most prolific senior figures in the field across the 2015–2026 window. In this wiki, **senior across the [real-world robotic RL](../concepts/learning/real-world-robot-rl.md) lineage** ([RLPD](../sources/rlpd-paper.md) → [SERL](../sources/serl-paper.md) → [HIL-SERL](../sources/hil-serl-paper.md)), plus **[DROID](droid.md)** and co-senior on **[Metaworld](metaworld.md)**.
 
 ## Papers in this wiki
-- **[HIL-SERL](../sources/hil-serl-paper.md)** (Luo, Xu, Wu, Levine — Oct 2024) — senior author. Human-in-the-loop [real-world RL](../concepts/learning/real-world-robot-rl.md); 100% success on dexterous/dual-arm manipulation in 1–2.5 hr. **The first ingested source that directly cites Levine** (the two below flow through DROID/Metaworld entity pages, not ingested papers).
+- **[RLPD](../sources/rlpd-paper.md)** (Ball, Smith, Kostrikov, Levine — ICML 2023) — senior author. The off-policy algorithm (symmetric sampling + LayerNorm + ensembles) at the base of the whole real-world-RL line.
+- **[SERL](../sources/serl-paper.md)** (Luo, Hu, …, Finn, Gupta, Levine — Jan 2024) — senior author. Open-source real-world-RL suite; HIL-SERL's predecessor.
+- **[HIL-SERL](../sources/hil-serl-paper.md)** (Luo, Xu, Wu, Levine — Oct 2024) — senior author. Human-in-the-loop real-world RL; 100% success on dexterous/dual-arm manipulation in 1–2.5 hr.
 - **[DROID](droid.md)** (Khazatsky, Pertsch, …, Finn, Levine — Apr 2024) — senior author on the 13-institution real-robot teleoperation dataset.
 - **[Metaworld](metaworld.md)** (Yu, Quillen, Levine, Finn — CoRL 2019) — co-senior on the 50-task meta-RL benchmark.
 
 ## Why it matters in this wiki
-Two of Levine's three appearances here are **infrastructure papers** — DROID (the canonical real-robot dataset) and Metaworld (the canonical meta-RL benchmark) — that the JEPA-for-robotics literature (V-JEPA 2, JEPA-WMs) and the broader RL/world-model literature rely on. The third, **[HIL-SERL](../sources/hil-serl-paper.md)**, is a *method* paper and the wiki's anchor for [real-world robotic RL](../concepts/learning/real-world-robot-rl.md): RL trained directly on hardware to superhuman reliability, the counterpoint to the imitation-learning mainstream.
+Levine's appearances split two ways. **Infrastructure papers** — DROID (the canonical real-robot dataset) and Metaworld (the canonical meta-RL benchmark) — underpin the JEPA-for-robotics literature (V-JEPA 2, JEPA-WMs) and the broader RL/world-model literature. **Method papers** — the [RLPD](../sources/rlpd-paper.md) → [SERL](../sources/serl-paper.md) → [HIL-SERL](../sources/hil-serl-paper.md) lineage — are the wiki's anchor for [real-world robotic RL](../concepts/learning/real-world-robot-rl.md): RL trained directly on hardware to superhuman reliability, the counterpoint to the imitation-learning mainstream. Levine is senior author on all three.
 
 Adjacent papers from Levine's group not yet ingested but commonly referenced: SAC, RT-1, RT-2, Octo, OpenVLA — multiple of these would deepen the wiki's coverage of the model-based-RL and VLA threads.
 
@@ -29,11 +31,13 @@ Adjacent papers from Levine's group not yet ingested but commonly referenced: SA
 - [Karl Pertsch](karl-pertsch.md) — DROID co-lead.
 
 ## Mentioned in
-- [HIL-SERL paper](../sources/hil-serl-paper.md) — senior author (directly cited).
+- [RLPD paper](../sources/rlpd-paper.md) — senior author.
+- [SERL paper](../sources/serl-paper.md) — senior author.
+- [HIL-SERL paper](../sources/hil-serl-paper.md) — senior author.
 - DROID project page (linked via [DROID](droid.md) entity)
 - Metaworld project page (linked via [Metaworld](metaworld.md) entity)
 
 ## Open questions / TBD
-- **SERL** (Luo et al. 2024, HIL-SERL's demo-only predecessor) and **RLPD** (Ball et al. 2023) referenced but not yet ingested.
 - DROID paper (arxiv 2403.12945) and Metaworld paper (arxiv 1910.10897) still worth filing to anchor those citations directly.
+- **AutoSERL** (Liu et al. 2026) extends the SERL line but is *not* a Levine paper — first external group to build on the ladder.
 - Octo / OpenVLA / RT-1 papers — Levine-affiliated; not yet ingested.

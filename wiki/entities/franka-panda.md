@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-07
 updated: 2026-05-10
-sources: 15
+sources: 18
 tags: [franka, panda, robot-arm, manipulator, 7-dof, manipulation-platform]
 ---
 
@@ -57,5 +57,8 @@ The result: when a JEPA-style or VLA-style paper says "real-robot eval" without 
 - [Robot Utility Models Project Page](../sources/robot-utility-models-website.md)
 - [Robot Utility Models Paper](../sources/robot-utility-models-paper.md)
 - [Diffusion Policy Paper](../sources/diffusion-policy-paper.md)
+- [SERL paper](../sources/serl-paper.md) — the manipulator SERL's impedance controller is designed around; PCB/cable/relocation tasks.
+- [HIL-SERL paper](../sources/hil-serl-paper.md) — likely (unconfirmed in text) platform for the impedance-controlled tasks.
+- [AutoSERL paper](../sources/autoserl-paper.md) — insertion-task platform (plug + USB insertion) alongside a UR5 for hanging/hinge tasks.
 - [UMI Project Page](../sources/umi-paper.md) — Franka is one of two UMI deployment platforms (alongside UR5e); zero-shot cross-embodiment transfer demonstrated.
 - [Designing Accessible Robot Communication for Blind People — Huh et al. 2026](../sources/huh2026-accessible-robot-comm.md) — Panda used as the tabletop manipulator for set-table / clear-table tasks in the in-person observational study with blind participants.
