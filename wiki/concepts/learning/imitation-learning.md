@@ -2,8 +2,8 @@
 title: Imitation learning
 type: concept
 created: 2026-05-07
-updated: 2026-07-04
-sources: 40
+updated: 2026-07-05
+sources: 41
 tags: [imitation-learning, behavior-cloning, demonstrations, lerobot, act, co-training, mobile-aloha]
 ---
 
@@ -19,6 +19,7 @@ tags: [imitation-learning, behavior-cloning, demonstrations, lerobot, act, co-tr
 - Training method behind nearly every flagship "generalist" policy of 2024–2026: [GR00T](../../entities/nvidia-groot.md), Pi VLAs, [RUMs](../../entities/robot-utility-models.md), and the policies trained inside [RoboCasa365](../../entities/robocasa.md)'s benchmark suite.
 - **The theoretical why, stated in 2013:** [Kober, Bagnell & Peters](../../sources/kober-rl-robotics-survey-2013.md) (§5.1) identified demonstrations' most dramatic benefit as **removing the need for global exploration** — knowing a good policy's state distribution turns the learning problem from provably intractable to polynomial (Kakade & Langford 2002). Today's BC-dominated field is that observation operating at scale; the caveat also carries over: local improvement around demonstrations finds only local optima (the survey's "Fosbury Flop" argument).
 - Bottlenecks: demo quantity, demo diversity, embodiment gap. [MimicGen](../../entities/mimicgen.md)-style synthetic-demo expansion is one mitigation, large simulator corpora ([RoboCasa365](../../entities/robocasa.md), [Genie Sim 3.0](../../entities/agibot-genie-sim.md)) are another.
+- **Where IL tops out — the RL counterpoint.** IL can only match, not exceed, the demonstrator, and has no mechanism to self-correct beyond the demonstrations. [HIL-SERL](../../sources/hil-serl-paper.md) (Luo et al. 2024) makes this concrete: on the *same* human data, **[real-world RL](real-world-robot-rl.md) with human-gated corrections beats HG-DAgger by ~+101% success (49.7%→100%) and runs 1.8× faster**, and beats [Diffusion Policy](../../entities/diffusion-policy.md) (27–56%) on reactive contact-rich tasks. The interactive-imitation family (DAgger / HG-DAgger) uses the same human-takeover mechanic but trains supervised — folding those corrections into an *RL* update instead is the crux.
 
 ## Frameworks and stacks
 
@@ -30,6 +31,7 @@ The IL training stacks documented in this wiki cluster by hardware tier:
 - **Research code** — Diffusion Policy, RUM, and similar each ship their own training code; typically run on [Franka Panda](../../entities/franka-panda.md), UR5e, or [Stretch](../../entities/stretch.md).
 
 ## Related
+- [Real-world robotic RL](real-world-robot-rl.md) — the paradigm that seeds on IL demos but surpasses IL via autonomous self-correction; HIL-SERL anchor.
 - [VLA models](vla-models.md) — typically trained via imitation learning on robot demos plus human video.
 - [Sim-to-real transfer](sim-to-real-transfer.md) — sim-trained imitation policies frequently need real-world adaptation.
 - [Robot Utility Models](../../entities/robot-utility-models.md) — zero-shot BC.
@@ -37,6 +39,7 @@ The IL training stacks documented in this wiki cluster by hardware tier:
 
 ## Mentioned in
 - [Kober, Bagnell & Peters 2013 — RL in Robotics Survey](../../sources/kober-rl-robotics-survey-2013.md) — §5.1 demonstrations-remove-global-exploration; kinesthetic teach-in; apprenticeship learning.
+- [HIL-SERL paper](../../sources/hil-serl-paper.md) — RL-with-human-corrections beats HG-DAgger / BC / Diffusion Policy on the same data; the IL-ceiling counterpoint.
 - [The State of Robot Motion Generation (Bekris et al. 2024)](../../sources/state-of-robot-motion-generation-2024.md) — LfD as one of four implicit-model families; compounding-distributional-shift framing.
 - [GR00T N1 Paper](../../sources/groot-n1-paper.md) — foundation-scale BC over the data pyramid.
 - [Mobile ALOHA Paper](../../sources/mobile-aloha-paper.md)

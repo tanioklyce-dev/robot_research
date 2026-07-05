@@ -2337,3 +2337,11 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 ## [2026-07-04] ingest | Round-trip: ros2-mcp-server repo → source page + entity
 - The [ros2-mcp-server](entities/ros2-mcp-server.md) skeleton was pushed to [github.com/tanioklyce-dev/ros2-mcp-server](https://github.com/tanioklyce-dev/ros2-mcp-server) (MIT), then ingested back per the "wiki documents code repos, doesn't contain them" pattern: [source page](sources/ros2-mcp-server-github.md) + [entity](entities/ros2-mcp-server.md). Framed honestly as an early skeleton and a *different layer* from the LeRobot↔ROS 2 bridges ([Rosetta](entities/rosetta.md) et al.) — agent↔ROS 2 tool-calling that sits above and calls Rosetta underneath.
 - Updated the [design doc](syntheses/projects/ros2-mcp-server-design.md) callout (now-on-GitHub), the [fleet framework](syntheses/projects/fleet-agentic-framework.md) "key piece" section, index (source + entity + design-doc line), and struck the ROS2-MCP backlog item (build→publish→ingest complete; remaining work is in the repo).
+## [2026-07-05] ingest | HIL-SERL — Precise and Dexterous Manipulation via Human-in-the-Loop RL (Luo et al. 2024)
+- Source: `raw/RL_with_HumanInTheLoop_2410.21845v3.pdf` (arxiv 2410.21845 v3)
+- Created [HIL-SERL Paper](sources/hil-serl-paper.md) — real-world RL; 100% success in 1–2.5 hr across 7 dexterous/dual-arm tasks; +101% / 1.8× vs HG-DAgger; RLPD + demos + online human corrections + sparse classifier reward
+- New concept: [Real-world robotic RL](concepts/learning/real-world-robot-rl.md) — RLPD/SERL/HIL-SERL recipe; the RL-beats-imitation counterpoint
+- New entity: [Jianlan Luo](entities/jianlan-luo.md) — SERL/HIL-SERL lead author
+- Updated [Sergey Levine](entities/sergey-levine.md) (first source that directly cites him; sources 5→6), [Diffusion Policy](entities/diffusion-policy.md) (DP underperforms on reactive tasks; 11→12), [Imitation learning](concepts/learning/imitation-learning.md) (RL-ceiling counterpoint; 40→41)
+- Note: the other new raw file `xlerobot_cutting_the_cord_2603.09051v1.pdf` is a byte-identical duplicate of already-ingested `raw/2603.09051v1.pdf` → [Cutting the Cord](sources/cutting-the-cord-untethered-xlerobot.md); no re-ingest
+- Robot arm not named in extractable text (shown only in figures); SERL predecessor used Franka Panda — flagged, not asserted

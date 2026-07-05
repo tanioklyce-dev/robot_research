@@ -3,8 +3,8 @@ title: Diffusion Policy
 type: entity
 subtype: method
 created: 2026-05-08
-updated: 2026-05-28
-sources: 11
+updated: 2026-07-05
+sources: 12
 tags: [diffusion-policy, behavior-cloning, diffusion-model, ddpm, action-diffusion, chi-2023, columbia, tri, mit, mobile-aloha]
 ---
 
@@ -110,6 +110,7 @@ From [Mobile ALOHA paper](../sources/mobile-aloha-paper.md) §6.2, evaluated aga
 - [Mobile ALOHA Paper](../sources/mobile-aloha-paper.md) — evaluated alongside [ACT](act.md) and VINN+chunking on bimanual mobile manipulation.
 - [SmolVLA Paper](../sources/smolvla-paper.md) — referenced as DDPM-class baseline alongside SmolVLA's flow-matching action expert.
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — supported reference policy; 263 M params, 10 denoising steps, **69.8 ms** RTX 4090 latency, **CPU latency 3454 ms (100% timeout)** — incompatible with onboard deployment without GPU.
+- [HIL-SERL paper](../sources/hil-serl-paper.md) — baseline; DP trained on 200 demos gets only **27% / 28% / 56%** (RAM insertion / dashboard / object flipping) vs. HIL-SERL's 100%. Argues DP's expressive multi-modal distribution helps "memorize" motions but **not** the continuous closed-loop visual servoing that reactive contact-rich tasks demand. A pointed limit on where imitation-flavored DP tops out relative to [real-world RL](../concepts/learning/real-world-robot-rl.md).
 
 ## Open questions / TBD
 
