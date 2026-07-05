@@ -14,13 +14,20 @@ A concrete scope for **one framework deployed across a heterogeneous robot fleet
 
 | Node | Base | Arm(s) | Compute | Class |
 |---|---|---|---|---|
-| **[XLeRobot](../../entities/xlerobot.md)** | LeKiwi-class wheeled | 2× [SO-ARM101](../../entities/so-arm101.md) (FeeTech STS3215) | Jetson **Orin NX 16 GB** | LeRobot-native |
+| **[XLeRobot](../../entities/xlerobot.md)** | 2-wheel differential‡ | 2× [SO-ARM101](../../entities/so-arm101.md) (FeeTech STS3215) | Jetson **Orin NX 16 GB** | LeRobot-native |
 | **[LeKiwi](../../entities/lekiwi.md)** | 3-wheel holonomic Kiwi | 1× [SO-ARM101](../../entities/so-arm101.md) (FeeTech STS3215) | Jetson **Orin NX 16 GB** (planned; supersedes RPi5+Hailo) | LeRobot-native |
 | **[ROSOrin Pro](../../entities/rosorin-pro.md)** | mecanum (holonomic)† | 1× [SO-ARM101](../../entities/so-arm101.md) *(swapped from HX-12H — see below)* | Jetson **Orin Nano Super 8 GB** | LeRobot-native (post-swap) |
 | **[DGX Spark](../../entities/dgx-spark.md)** | — | — | GB10, 128 GB unified | Central hub |
 
 > [!note] The Orin NX upgrade homogenizes the edge
 > With an Orin NX 16 GB on the LeKiwi, **all three robots are first-class CUDA policy nodes** and the earlier hard constraint — **[Hailo NPUs cannot run LeRobot control policies](../../entities/hailo.md#relevance-in-this-wiki-npu-vs-jetson-for-xlerobot)** — no longer blocks anything. The RPi5 + Hailo-10H can stay on the LeKiwi as an **optional speech/vision coprocessor** (its `gen_ai_apps` do STT/VLM well) or be retired; the Orin NX is now the LeKiwi's AI brain.
+
+> [!note] ‡ Three different base drives — and it doesn't matter for the policy
+> The fleet's bases are **all different**: XLeRobot **2-wheel differential** (owner's build, non-holonomic — photo below), LeKiwi **3-wheel holonomic Kiwi**, ROSOrin Pro **4-wheel mecanum** (holonomic). This is **irrelevant to the shared manipulation policy** — base drive is the [Nav2](../../entities/nav2.md) layer, below the policy line; the policy sees arm joints + camera views, not base kinematics, and Nav2 is per-robot regardless. The *one* consequence is **pre-grasp positioning**: the holonomic bases can strafe sideways to fine-align before a grasp, whereas the differential XLeRobot must turn-then-approach — so its MCP `navigate_to` should target a grasp-ready pose head-on rather than "get close then align." A behavior/config difference, not a blocker.
+>
+> ![Owner's XLeRobot — two SO-ARM101 arms + 2 wrist cams + mast head cam on a utility-cart frame; 2-wheel differential drive at the base](../../../raw/assets/xlerobot-owner-diff-drive.jpeg)
+>
+> Owner's XLeRobot: note the **2 wrist cams + mast/head cam** (already the [camera-parity](fleet-framework-implementation-notes.md#camera-parity-spec) layout) and the **two driven front wheels** (differential, not the LeKiwi 3-wheel omni base the [XLeRobot entity](../../entities/xlerobot.md) intro implies — though it does list a 2-wheel variant).
 
 > [!tip] Arm-swap homogenization — the decision that collapses the fleet to one embodiment
 > Rather than solve **[SO-ARM101↔HX-12H cross-embodiment transfer](fleet-framework-implementation-notes.md#cross-embodiment-shortcut)** (an open ML problem), **replace the ROSOrin Pro's HX-12H arm with an [SO-ARM101](../../entities/so-arm101.md)**. Then *all three robots share the same arm* → **the two single-arm robots (LeKiwi + ROSOrin) share one checkpoint, and XLeRobot co-trains a dual-arm checkpoint off the same pooled SO-ARM101 data** (dual-arm ⇒ 2× the joints + a second wrist cam, so it can't be the *same* checkpoint — see [camera parity](fleet-framework-implementation-notes.md#camera-parity-spec)). The [servo-lineage gap](lerobot-on-rosorin-pro.md#gap-1-motor-sdk-lineage-feetech-dynamixel-hx-12h) disappears and the ROSOrin Pro moves into the LeRobot-native class. You keep its genuinely valuable part — the **finished Nav2 + SLAM + LiDAR nav stack** — and retire only the arm.

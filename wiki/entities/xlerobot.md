@@ -15,7 +15,7 @@ tags: [xlerobot, mobile-manipulator, dual-arm, lerobot, lekiwi, so-arm101, low-c
 ## Specs
 
 - **Arms**: 2× [SO-ARM101](so-arm101.md), each ~40 cm reach, 600–1000 g payload
-- **Base**: wheeled mobile platform inspired by [LeKiwi](lekiwi.md) / Bambot (2-wheel, mecanum, and 3× omni-wheel variants documented)
+- **Base**: wheeled mobile platform inspired by [LeKiwi](lekiwi.md) / Bambot (2-wheel, mecanum, and 3× omni-wheel variants documented). **Note:** an owner build in the [fleet framework](../syntheses/projects/fleet-agentic-framework.md) uses the **2-wheel differential** variant (non-holonomic — turn-then-approach, no sideways strafe), *not* the LeKiwi 3-wheel omni base the intro implies; photo there.
 - **Actuators**: **17× Feetech STS3215** servos at 12 V (same family as SO-100/SO-101) — per-servo ~30 mA idle / ~180 mA no-load running / **2.7 A stall** ([RobotShop STS3215](https://www.robotshop.com/products/feetech-12v-30kgcm-magnetic-encoding-servo-sts3215))
 - **Mass**: ~12 kg (intentionally adult-liftable)
 - **Vertical workspace**: 0.5 m – 1.25 m (fixed-height torso, no lift)
