@@ -49,18 +49,19 @@ ros2_mcp_server/
   config.py     per-robot YAML -> RobotConfig (arms, cameras, policy_endpoint)
   tools.py      tool registry (JSON schemas) + build_tools(config) filtering
   envelope.py   the {status, reason, observation} Result type + reason vocabulary
-  ros_bridge.py the ONLY rclpy module (Nav2 / policy / detector / TTS) — stubs to wire
+  ros_bridge.py the ONLY rclpy module — lifecycle + robot_info pub/sub wired; Nav2 /
+                policy / detector / TTS action-service calls still stubs
   skills/       one module per family (navigation, manipulation, perception, speech, data, control)
 configs/        lekiwi.yaml, xlerobot.yaml, rosorin.yaml
 tests/          config filtering + envelope + skill tests (pass without ROS 2)
 ```
 
-`rclpy` is sourced from the ROS 2 environment, **not** pip — and the bridge falls back to a **stub mode** (`{rejected, ros_unavailable}`) when ROS 2 is absent, so the package imports, launches, and tests on a plain laptop / CI. Verified: single-arm config yields 8 tools (no `handover`, no `arm`), dual-arm yields 9 (with both).
+`rclpy` is sourced from the ROS 2 environment, **not** pip — and the bridge falls back to a **stub mode** (`{rejected, ros_unavailable}`) when ROS 2 is absent, so the package imports, launches, and tests on a plain laptop / CI. Verified: single-arm config yields 8 robot tools (no `handover`, no `arm`), dual-arm 9 (with both); with the meta tools (`run_mission`, `compile_mission`, `get_capabilities`) the served `tools/list` is **11 / 12** (+`find_robots_for` on a `fleet_role: master` server).
 
 ## Wiring checklist (skeleton → real)
 
 The `ros_bridge.py` methods are the only TODOs:
-1. `start()` — `rclpy.init()`, node + action clients, spin an executor.
+1. ~~`start()` — `rclpy.init()`, node, spin an executor~~ **wired** (`5921d35`: node under the config namespace, `MultiThreadedExecutor` on a daemon thread, plus the `robot_info` heartbeat pub/sub); the **action clients** it should create are still TODO.
 2. `navigate_to_pose` → Nav2 `NavigateToPose`.
 3. `run_policy` → the [Rosetta](../../entities/rosetta.md)/LeRobot async policy action at `policy_endpoint` (skills: pick/place/handover).
 4. `detect_objects` → an open-vocab detector/VLM service.

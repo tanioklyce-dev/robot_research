@@ -21,7 +21,7 @@ Three projects sharing one upstream, plus a ROS 2 bridge that puts the upstream 
 | [Hermes Agent](../../entities/hermes-agent.md) | **Nous Research sibling** with self-evolving skills + sub-agents + Honcho memory; imports from upstream OpenClaw | MIT | **171K** | ❌ desktop/cloud focus; *"most used agent in the world according to OpenRouter"* per [NVIDIA blog](../../sources/nvidia-rtx-ai-garage-hermes-agent.md) |
 | Hiwonder `openclaw_controller` | **ROS 2 bridge module** that wires upstream OpenClaw to the [ROSOrin Pro](../../entities/rosorin-pro.md) skill set (arm primitives, AprilTag pickup, depth-based interactive grasping, chassis cmd_vel, etc.) | — | — | ✅ ROSOrin Pro-specific |
 
-Notable: **the only thing in this family that ships a robot integration today is Hiwonder's `openclaw_controller` bridge.** Even Hermes Agent and NemoClaw, despite stronger agent-loop architectures, have no robot bindings — an equivalent bridge has to be written.
+Notable: **nothing in this family ships a robot integration first-party.** At writing (2026-05-28), Hiwonder's `openclaw_controller` bridge was the only external one; since 2026-07-05, [AgenticROS](../../entities/agenticros.md) provides a generic community bridge for the whole family (OpenClaw plugin + MCP server for Hermes + sandboxed NemoClaw) — see the resolved open question below and [AgenticROS vs the fleet framework](../projects/agenticros-vs-fleet-framework.md).
 
 ## What's actually at stake — the two-layer reframing
 

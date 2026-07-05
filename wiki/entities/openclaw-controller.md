@@ -3,7 +3,7 @@ title: openclaw_controller (Hiwonder ROS 2 bridge for OpenClaw)
 type: entity
 subtype: software-module
 created: 2026-05-07
-updated: 2026-05-31
+updated: 2026-07-05
 sources: 5
 tags: [openclaw, openclaw-controller, hiwonder, ros2, manipulation, claw-ecosystem, rosorin-pro, bridge-module]
 ---
@@ -18,7 +18,7 @@ tags: [openclaw, openclaw-controller, hiwonder, ros2, manipulation, claw-ecosyst
 
 ## Why it matters
 
-Concrete demonstration that the [LLM-agent pattern](../concepts/agents/llm-agent-architecture.md) scales from mobile-only ([ROSOrin](rosorin.md)) to manipulation-capable platforms in the same vendor's product line — the skill library expands, the architecture is unchanged. The bridge module is also the **only production path today for running OpenClaw on a robot**; equivalent bridges for other ROS 2 robots would have to be written from scratch. Educational-tier counterpart to [stretch_ai](stretch-ai.md)'s `PickupExecutor`.
+Concrete demonstration that the [LLM-agent pattern](../concepts/agents/llm-agent-architecture.md) scales from mobile-only ([ROSOrin](rosorin.md)) to manipulation-capable platforms in the same vendor's product line — the skill library expands, the architecture is unchanged. The bridge module was the **first production path for running OpenClaw on a robot** — and the only one until 2026-07-05, when the generic community bridge [AgenticROS](agenticros.md) was ingested ([source](../sources/agenticros-github.md)); `openclaw_controller` remains the ROSOrin-Pro-specific vendor path. Educational-tier counterpart to [stretch_ai](stretch-ai.md)'s `PickupExecutor`.
 
 ## Notable demos (from chapter 13)
 
