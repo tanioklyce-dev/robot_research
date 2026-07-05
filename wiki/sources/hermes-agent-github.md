@@ -4,6 +4,7 @@ type: source
 url: https://github.com/nousresearch/hermes-agent
 license: MIT
 author: Nous Research
+published: rolling (v0.14.0 released 2026-05-16)
 ingested: 2026-05-28
 stars: 171000
 forks: 28700

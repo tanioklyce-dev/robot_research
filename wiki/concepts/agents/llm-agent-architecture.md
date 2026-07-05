@@ -73,3 +73,4 @@ These protocols represent the infrastructure layer that makes "networked AI" —
 - [Are We Building Skynet? (Medium, 2025)](../../sources/medium-are-we-building-skynet.md)
 - [Tools for Your To Do List with Spot and Gemini Robotics (Boston Dynamics blog)](../../sources/bostondynamics-spot-gemini-robotics.md)
 - [AgenticROS GitHub](../../sources/agenticros-github.md)
+- [Awesome-Embodied-Robotics-and-Agent](../../sources/awesome-embodied-robotics-agent.md) — community-curated external index of the same LLM/VLM-embodied-agent landscape; useful coverage cross-check.

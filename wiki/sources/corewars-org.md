@@ -2,7 +2,7 @@
 title: "corewars.org — Core War community hub"
 type: source
 url: https://www.corewars.org/
-author: corewars.org (webmaster: "SB" / Sapan Bhatia)
+author: 'corewars.org (webmaster: "SB" / Sapan Bhatia)'
 published: unknown (rolling)
 ingested: 2026-05-31
 format: web

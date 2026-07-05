@@ -3,6 +3,7 @@ title: LeKiwi GitHub Repository (SIGRobotics-UIUC/LeKiwi)
 type: source
 url: https://github.com/SIGRobotics-UIUC/LeKiwi
 author: SIGRobotics-UIUC — Manav Chandaka, Bhargav Chandaka, Pepijn Kooijmans (CAD); Pepijn Kooijmans, Gloria Wang, Bhargav Chandaka, Advait Patel (software)
+published: 2025 (rolling repo)
 ingested: 2026-05-10
 tags: [lekiwi, sigrobotics-uiuc, github, open-source, mobile-manipulator, kiwi-drive, raspberry-pi, so-arm101]
 ---

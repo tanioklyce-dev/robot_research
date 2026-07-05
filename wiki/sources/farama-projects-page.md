@@ -3,6 +3,7 @@ title: Farama Foundation Projects Page
 type: source
 url: https://farama.org/projects
 author: Farama Foundation
+published: unknown (rolling project index; snapshot 2026)
 ingested: 2026-05-07
 tags: [farama, gymnasium, pettingzoo, rl, multi-agent, offline-rl, robotics]
 ---

@@ -3,6 +3,7 @@ title: Gymnasium-Robotics Documentation
 type: source
 url: https://robotics.farama.org/
 author: Farama Foundation
+published: unknown (rolling docs site; snapshot 2026)
 ingested: 2026-05-07
 tags: [farama, gymnasium, gymnasium-robotics, mujoco, rl, robotics]
 ---

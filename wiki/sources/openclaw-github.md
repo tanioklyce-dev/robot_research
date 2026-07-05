@@ -4,6 +4,7 @@ type: source
 url: https://github.com/openclaw/openclaw
 license: MIT
 author: openclaw org (originated by Peter Steinberger + community)
+published: rolling (snapshot 2026-05-28)
 ingested: 2026-05-28
 stars: 375000
 forks: 78300
