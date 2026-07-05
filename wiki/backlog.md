@@ -20,7 +20,7 @@ Surfaced by [Fleet agentic control framework](syntheses/projects/fleet-agentic-f
 ## [2026-07-04] New gaps from the SONIC / Gemini-1.5 / YAM batch
 - [ ] **Vision-language navigation (VLN)** — flagged by the [Awesome-Embodied-Robotics list](sources/awesome-embodied-robotics-agent.md) as a genuine wiki gap (ALFRED / R2R / VLN-CE); no concept or source yet.
 - [ ] **Household simulators** beyond the [Habitat](entities/habitat.md) stub — AI2-THOR, iGibson (same list).
-- [x] ~~**BEHAVIOR / BEHAVIOR-1K**~~ — **fully ingested 2026-07-04**: [paper](sources/behavior-1k-paper.md) + upgraded [BEHAVIOR entity](entities/behavior-benchmark.md) + new [OmniGibson entity](entities/omnigibson.md). Residual: **iGibson** predecessor + a standalone OmniGibson doc/repo ingest (exact Isaac Sim version / robot list) still open; **AI2-THOR / Habitat** peer sims still un-ingested.
+- [x] ~~**BEHAVIOR / BEHAVIOR-1K + OmniGibson**~~ — **fully ingested 2026-07-04**: [BEHAVIOR-1K paper](sources/behavior-1k-paper.md) + [BEHAVIOR entity](entities/behavior-benchmark.md) + [OmniGibson entity](entities/omnigibson.md) + dedicated [OmniGibson codebase ingest](sources/omnigibson-github.md) (Isaac Sim 4.1.0, 14-robot roster, install). Residual: **iGibson** predecessor lineage + **AI2-THOR / Habitat** peer sims still un-ingested; exact OmniGibson VRAM/disk minimums (inherited from Isaac Sim 4.1.0) unconfirmed.
 - [ ] **Nemotron entity** (carried) — now also referenced from the SONIC-adjacent NVIDIA stack.
 
 ## [2026-07-04] Agents / edge-inference ingest — follow-ups

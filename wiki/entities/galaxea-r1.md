@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-07-04
 updated: 2026-07-04
-sources: 2
+sources: 3
 tags: [galaxea, galaxea-r1, wheeled-humanoid, bimanual, mobile-manipulator, groot]
 ---
 
@@ -20,6 +20,7 @@ tags: [galaxea, galaxea-r1, wheeled-humanoid, bimanual, mobile-manipulator, groo
 - A wheeled-bimanual mobile manipulator in the same broad class as [Stretch](stretch.md) / [Reachy 2](reachy.md), but full-size dual-arm with a torso.
 
 ## Related
+- [OmniGibson](omnigibson.md) — the R1 / **R1 Pro** are supported robots in OmniGibson; [GR00T N1.6](../sources/groot-n1_6.md)'s "simulated Galaxea R1 Pro on BEHAVIOR" is literally the OmniGibson R1Pro running [BEHAVIOR-1K](behavior-benchmark.md) tasks.
 - [GR00T N1.6](nvidia-groot.md) — uses simulated R1 Pro on BEHAVIOR.
 - [YAM](yam.md), [Unitree G1](unitree-g1.md), [AgiBot](agibot.md) — peer N1.6 data embodiments.
 - [Stretch](stretch.md), [Reachy](reachy.md) — mobile-manipulator peers.
@@ -27,6 +28,7 @@ tags: [galaxea, galaxea-r1, wheeled-humanoid, bimanual, mobile-manipulator, groo
 ## Mentioned in
 - [Galaxea R1 User Guide](../sources/galaxea-r1-user-guide.md) — primary source.
 - [GR00T N1.6 research page](../sources/groot-n1_6.md) — simulated R1 Pro training data.
+- [OmniGibson codebase](../sources/omnigibson-github.md) — R1 / R1 Pro are supported OmniGibson robots.
 
 ## Open questions
 - R1 vs R1 Pro differences; software stack (ROS 2/SDK), price, availability, battery/runtime.
