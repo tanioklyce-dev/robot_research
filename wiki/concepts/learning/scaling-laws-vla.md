@@ -2,8 +2,8 @@
 title: Scaling laws — VLAs and human data
 type: concept
 created: 2026-05-15
-updated: 2026-05-16
-sources: 4
+updated: 2026-07-04
+sources: 8
 tags: [scaling-laws, vla, human-data, egocentric, gr00t, egoscale, pretraining]
 ---
 

@@ -3,10 +3,9 @@ title: Mila
 type: entity
 subtype: company
 created: 2026-05-07
-updated: 2026-05-10
+updated: 2026-07-04
 sources: 4
 tags: [mila, montreal, ai-research, jepa, lecun]
-status: stub
 ---
 
 Mila — Quebec AI Institute (full name: Mila — Quebec AI Institute, affiliated with Université de Montréal and Polytechnique Montréal). Frequent collaborator on the [JEPA](../concepts/world-models/jepa.md) research line, both as primary affiliation ([LeWorldModel](leworldmodel.md)) and via dual appointments on Meta-led work ([V-JEPA 2](v-jepa-2.md) core-team member Artem Zholus).

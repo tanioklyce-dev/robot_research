@@ -20,7 +20,7 @@ Surfaced by [Fleet agentic control framework](syntheses/projects/fleet-agentic-f
 ## [2026-07-04] New gaps from the SONIC / Gemini-1.5 / YAM batch
 - [ ] **Vision-language navigation (VLN)** — flagged by the [Awesome-Embodied-Robotics list](sources/awesome-embodied-robotics-agent.md) as a genuine wiki gap (ALFRED / R2R / VLN-CE); no concept or source yet.
 - [ ] **Household simulators** beyond the [Habitat](entities/habitat.md) stub — AI2-THOR, iGibson (same list).
-- [ ] **BEHAVIOR / BEHAVIOR-1K** — referenced by [GR00T N1.6](sources/groot-n1_6.md) (Galaxea R1 Pro sim) + the [sim-to-real gap table](concepts/learning/sim-to-real-transfer.md); no entity/source.
+- [x] ~~**BEHAVIOR / BEHAVIOR-1K**~~ — stub filed 2026-07-04: [BEHAVIOR entity](entities/behavior-benchmark.md) (primary BEHAVIOR-1K paper + OmniGibson still un-ingested — deepen when filed).
 - [ ] **Nemotron entity** (carried) — now also referenced from the SONIC-adjacent NVIDIA stack.
 
 ## [2026-07-04] Agents / edge-inference ingest — follow-ups

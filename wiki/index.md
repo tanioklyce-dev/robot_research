@@ -342,7 +342,7 @@ Curated entry points across the wiki.
 - [Meta FAIR](entities/meta-fair.md) — Yann LeCun's lab; JEPA research line. (18 sources)
 - [Google DeepMind](entities/google-deepmind.md) — MuJoCo, Newton co-development, MjcPhysics USD plugin, Gemini Robotics. (8 sources)
 - [Boston Dynamics](entities/boston-dynamics.md) — robotics company (Hyundai-owned); Spot + Atlas + Stretch + Orbit + AIVI-Learning. (1 source)
-- [Mila](entities/mila.md) — Quebec AI Institute; frequent JEPA collaborator. (4 sources) _stub_
+- [Mila](entities/mila.md) — Quebec AI Institute; frequent JEPA collaborator. (4 sources)
 - [Farama Foundation](entities/farama-foundation.md) — non-profit; took over OpenAI gym → Gymnasium; 19 RL projects. (3 sources)
 - [Dronecode Foundation](entities/dronecode-foundation.md) — non-profit (Linux Foundation Collaborative Project); steward of PX4, MAVLink, Pixhawk, QGroundControl, MAVSDK. (1 source)
 - [AMI Labs](entities/ami-labs.md) — Yann LeCun's reported post-Meta AI lab; $1.03B seed round (single secondary source, provisional). (3 source)
@@ -382,6 +382,7 @@ Curated entry points across the wiki.
 - [LIBERO](entities/libero.md) — lifelong-learning manipulation benchmark (Liu et al. NeurIPS 2023); de-facto VLA-eval bench (SPATIAL / OBJECT / GOAL / 90 / LONG task families); natively integrated in LeRobot. (2 sources)
 - [SimplerEnv](entities/simplerenv.md) — Sapien-adjacent mid-weight sim positioned as real-world-correlation harness; used by VLA-JEPA. (1 source)
 - [Habitat](entities/habitat.md) — Meta FAIR embodied-AI sim (navigation + manipulation in photorealistic 3D scenes); legacy substrate. (1 source)
+- [BEHAVIOR / BEHAVIOR-1K](entities/behavior-benchmark.md) — Stanford's 1,000-task household-activity benchmark (OmniGibson/Omniverse); the **hard end of the sim-to-real gap** (12.4% real-household success vs 89.4% RLBench); a [GR00T N1.6](sources/groot-n1_6.md) sim data substrate. (2 sources) _stub_
 - [flybody](entities/flybody.md) — HHMI Janelia + Google DeepMind anatomically detailed *Drosophila* body in MuJoCo (102 DoFs, walking + flight); Apache-2.0. (7 sources)
 - [NeuroMechFly](entities/neuromechfly.md) — NeLy/EPFL *Drosophila* body sim with vision + olfaction + brain–VNC hierarchy; v2 (Wang-Chen 2024); flygym v2.x.x package actively maintained 2026 with Warp/MJWarp GPU acceleration. Apache-2.0. (4 sources)
 
@@ -415,7 +416,7 @@ Curated entry points across the wiki.
 - [Stretch](entities/stretch.md) — Hello Robot's mobile manipulator (Stretch 3 / Stretch 4). De-facto research platform; natively supported in LeRobot. (20 sources)
 - [Mobile ALOHA](entities/aloha.md) — Stanford bimanual mobile manipulator with whole-body teleop; 4× [ViperX 300](entities/viperx-300.md) + AgileX Tracer base; $32k incl. onboard compute + power; the [ACT](entities/act.md) + co-training-with-static-data reference; ALOHA-2 is in LeRobot's 8 supported platforms (~€21k). (3 sources)
 - [Trossen ViperX 300](entities/viperx-300.md) — 6-DOF benchtop arm; the bimanual-teleop SKU underneath [ALOHA / Mobile ALOHA](entities/aloha.md). (1 source)
-- [Grievous](entities/grievous.md) — Alex Koven's WIP cheap-bimanual-mobile testbed; design based on [Mobile ALOHA](entities/aloha.md) + [XLeRobot](entities/xlerobot.md); software on [LeRobot](entities/lerobot.md); RPi5-host + remote-PC. First downstream-of-Mobile-ALOHA project ingested here. (3 sources) _stub_
+- [Grievous](entities/grievous.md) — Alex Koven's WIP cheap-bimanual-mobile testbed; design based on [Mobile ALOHA](entities/aloha.md) + [XLeRobot](entities/xlerobot.md); software on [LeRobot](entities/lerobot.md); RPi5-host + remote-PC. First downstream-of-Mobile-ALOHA project ingested here. (3 sources)
 - [Reachy 2](entities/reachy.md) — Pollen Robotics' open-source bimanual mobile manipulator for embodied AI; ROS 2; 7 DOF/arm; natively supported in LeRobot. (2 sources)
 - [myAGV](entities/myagv.md) — Elephant Robotics autonomous mobile base; ROS; Raspberry Pi 4B; pairs with arms. (1 source)
 - [LeKiwi](entities/lekiwi.md) — SIGRobotics-UIUC 3-wheel Kiwi-drive holonomic mobile manipulator; Raspberry Pi 5 + STS3215; sub-$1k; LeRobot ecosystem; 1,300+ stars; ICLR 2026 paper lists at ~€230. (9 sources)
@@ -546,8 +547,8 @@ Curated entry points across the wiki.
 - [Qwen](entities/qwen.md) — Alibaba's open-weights LLM family. Default local LLM in both stretch_ai (3B) and ROSOrin (1.7B). (2 sources)
 
 ### Tools
-- [Ollama](entities/ollama.md) — local LLM runtime (used by ROSOrin offline curriculum). (5 sources) _stub_
-- [MimicGen](entities/mimicgen.md) — synthetic-demo expansion tool used by RoboCasa365; **DexMimicGen** variant multiplies demos ~780k-trajectory-scale for [GR00T N1](sources/groot-n1-paper.md). (3 sources) _stub_
+- [Ollama](entities/ollama.md) — local LLM runtime (used by ROSOrin offline curriculum). (5 sources)
+- [MimicGen](entities/mimicgen.md) — synthetic-demo expansion tool used by RoboCasa365; **DexMimicGen** variant multiplies demos ~780k-trajectory-scale for [GR00T N1](sources/groot-n1-paper.md). (3 sources)
 - [NVIDIA Brev](entities/nvidia-brev.md) — NVIDIA's cross-cloud GPU-instance broker (`brev` CLI + Launchables); no native auto-stop, so cost discipline is on the user. (2 sources)
 - [jetson-containers](entities/jetson-containers.md) — Dustin Franklin / NVIDIA framework for building + running Docker images on Jetson (aarch64/L4T); `dustynv/*` image registry + `autotag`/`run.sh` helpers; the deployment substrate behind Jetson AI Lab tutorials (incl. `dustynv/lerobot`). The edge-side counterpart to Brev. (2 sources)
 - [jetson-examples (reComputer runner)](entities/jetson-examples.md) — Seeed's MIT `reComputer run <example>` CLI atop [jetson-containers](entities/jetson-containers.md); ~37 one-command Jetson AI recipes (LLM/VLM/vision/gen-AI/robotics); `pip3 install jetson-examples`; $250 contribution bounty. (3 sources)
@@ -576,7 +577,7 @@ Curated entry points across the wiki.
 - [Jim Fan (Linxi Fan)](entities/jim-fan.md) — NVIDIA Director of Robotics, Distinguished Scientist; co-founder + co-lead of [NVIDIA GEAR](entities/nvidia-gear.md) (Feb 2024); research lead on [GR00T N1](sources/groot-n1-paper.md); project lead on [EgoScale](sources/egoscale-paper.md) + [DreamDojo](sources/dreamdojo-paper.md); pre-GEAR author on MineDojo / VIMA / Voyager / Eureka. (4 sources)
 - [Ming-Yu Liu](entities/ming-yu-liu.md) — NVIDIA VP/distinguished researcher; supervision lead of [Cosmos 3](sources/cosmos-3-technical-report.md) and the [Cosmos](entities/nvidia-cosmos.md) world-foundation-model line. (1 source)
 - [Yuke Zhu](entities/yuke-zhu.md) — UT Austin Associate Prof / NVIDIA Director; co-leads [GEAR](entities/nvidia-gear.md); research lead on [GR00T N1](sources/groot-n1-paper.md); senior on RoboCasa365 + the original RoboCasa + MimicGen line; project lead on [EgoScale](sources/egoscale-paper.md) + [DreamDojo](sources/dreamdojo-paper.md). (6 sources)
-- [Joel Jang](entities/joel-jang.md) — research scientist at [NVIDIA GEAR](entities/nvidia-gear.md); **co-first author of [DreamGen](sources/dreamgen-paper.md)**, project lead on [DreamDojo](sources/dreamdojo-paper.md), author on [FLARE](sources/flare-paper.md) + [GR00T N1](sources/groot-n1-paper.md). (4 sources) _stub_
+- [Joel Jang](entities/joel-jang.md) — research scientist at [NVIDIA GEAR](entities/nvidia-gear.md); **co-first author of [DreamGen](sources/dreamgen-paper.md)**, project lead on [DreamDojo](sources/dreamdojo-paper.md), author on [FLARE](sources/flare-paper.md) + [GR00T N1](sources/groot-n1-paper.md). (4 sources)
 - [Stephen Welch](entities/stephen-welch.md) — founder of [Welch Labs](entities/welch-labs.md); independent AI educator; author of the [Illustrated Guide to AI Vol I](sources/welchlabs-illustrated-guide-to-ai.md). Based in Winston-Salem, NC. (3 sources)
 - [Mathieu Blondel](entities/mathieu-blondel.md) — Google DeepMind; co-author of [The Elements of Differentiable Programming](sources/blondel-roulet-differentiable-programming.md) (Blondel & Roulet, 485 pp, draft v3 June 2025); long-running research line on Fenchel-Young losses + sparsemax + structured prediction + JAX ecosystem (JAXopt, optax). (1 source)
 - [Karl Pertsch](entities/karl-pertsch.md) — DROID co-lead with Khazatsky; Berkeley/Stanford. (0 source pages yet — referenced via entity pages)
@@ -623,7 +624,7 @@ Curated entry points across the wiki.
 - [Imitation learning](concepts/learning/imitation-learning.md) — supervised learning from demonstrations. (40 sources)
 - [Flow matching](concepts/learning/flow-matching.md) — learn a vector field that transports noise to actions; the dominant continuous-action-head technique in 2025+ VLAs ([π0](entities/pi-zero.md), [π0.7](entities/pi07.md), [π*0.6](entities/pistar06.md), [SmolVLA](entities/smolvla.md), [GR00T N1](sources/groot-n1-paper.md), [EgoScale](sources/egoscale-paper.md)). Sibling-not-subclass of [DDPM](entities/ddpm.md). (8 sources)
 - [Sim-to-real transfer](concepts/learning/sim-to-real-transfer.md) — bridging simulator-trained policies to real robots; "simulation bias" lineage back to [Kober 2013](sources/kober-rl-robotics-survey-2013.md). (16 sources)
-- [Scaling laws — VLAs and human data](concepts/learning/scaling-laws-vla.md) — the empirical data-vs-performance relationship for VLA pretraining; seeded from [EgoScale](sources/egoscale-paper.md)'s log-linear loss law (R² = 0.9983) on 20,854 hr of egocentric human video; LLM-side companion via Welch Labs Ch 6 (Kaplan 2020). (2 sources)
+- [Scaling laws — VLAs and human data](concepts/learning/scaling-laws-vla.md) — the empirical data-vs-performance relationship for VLA pretraining; seeded from [EgoScale](sources/egoscale-paper.md)'s log-linear loss law (R² = 0.9983) on 20,854 hr of egocentric human video; LLM-side companion via Welch Labs Ch 6 (Kaplan 2020). (8 sources)
 - [Chain of thought](concepts/learning/chain-of-thought.md) — intermediate-reasoning-token technique; origin (Wei 2022); zero-shot/self-consistency/ToT; modern reasoning models; embodied CoT in VLAs and S1/S2 splits. (0 sources — hub page)
 - [Energy-based models (EBMs)](concepts/learning/energy-based-models.md) — `E_θ(x, y)` low when compatible; inference is `argmin_y E`. Connects [IBC](entities/ibc.md), [JEPA](concepts/world-models/jepa.md) training, and [Kona](entities/kona.md) — three different applications of the same LeCun-line commitment to non-autoregressive learning. (4 sources)
 - [Formal verification](concepts/learning/formal-verification.md) — machine-checkable proofs; "translate, propose, verify" pipeline; deterministic kernel as the hallucination cure. Used by [Aleph](entities/aleph.md). (1 source)
@@ -636,11 +637,11 @@ Curated entry points across the wiki.
 - [FLARE (Future Latent Representation Alignment)](concepts/world-models/flare.md) — a JEPA-adjacent **auxiliary loss** adding implicit world modeling to a flow-matching VLA policy (align learnable future tokens to a future-observation embedding via an EMA teacher, λ=0.2); NVIDIA GEAR, adopted by [GR00T N1.5](sources/groot-n1_5.md). (2 sources)
 - [World-model simulators](concepts/world-models/world-model-simulators.md) — narrower companion to [World model](concepts/world-models/world-model.md): world-models-used-as-simulators (generative-video and JEPA paradigms). (14 sources)
 - [World-action model (WAM)](concepts/world-models/world-action-model.md) — one model doing forward dynamics + inverse dynamics + policy (predicting actions *and* their visual consequence); instances [Cosmos 3](sources/cosmos-3-technical-report.md), Dream*, GE-Sim2. (3 sources)
-- [Learned latent space](concepts/world-models/latent-space.md) — vector space where a trained encoder represents inputs; substrate for JEPA prediction, DINOv2 features, VQ-BeT codebook. (10 sources)
-- [Siamese network](concepts/world-models/siamese-network.md) — two weight-tied encoders + similarity/distance/predictor head; ancestor of every joint-embedding SSL system since 1993. (5 sources)
+- [Learned latent space](concepts/world-models/latent-space.md) — vector space where a trained encoder represents inputs; substrate for JEPA prediction, DINOv2 features, VQ-BeT codebook. (18 sources)
+- [Siamese network](concepts/world-models/siamese-network.md) — two weight-tied encoders + similarity/distance/predictor head; ancestor of every joint-embedding SSL system since 1993. (8 sources)
 
 ### Agents
-- [LLM-agent architecture](concepts/agents/llm-agent-architecture.md) — LLM-emits-tool-calls control pattern; MCP and A2A as inter-agent/tool-access protocols. (8 sources)
+- [LLM-agent architecture](concepts/agents/llm-agent-architecture.md) — LLM-emits-tool-calls control pattern; MCP and A2A as inter-agent/tool-access protocols. (28 sources)
 
 ### Economics
 - [Three thinking styles](concepts/economics/three-thinking-styles.md) — [Jordan](entities/michael-i-jordan.md)'s computational ⊕ inferential ⊕ economic framework; the missing piece is the *tripartite* blend; "no Maxwell's equations… we are winging it." (1 source)
@@ -656,23 +657,23 @@ Curated entry points across the wiki.
 - [Flocking and boids](concepts/alife/flocking-and-boids.md) — Reynolds' 1986 boids; three local steering rules (separation/alignment/cohesion) → emergent flocking; "edge of chaos"; bridges to swarm intelligence/robotics. Sibling emergence model to Computational Life. (3 sources)
 
 ### Safety
-- [AI safety and alignment](concepts/safety/ai-safety-alignment.md) — corrigibility, broadly safe behaviors, hard constraints, catastrophic risk framing; connects to agentic robot deployments. (3 sources)
+- [AI safety and alignment](concepts/safety/ai-safety-alignment.md) — corrigibility, broadly safe behaviors, hard constraints, catastrophic risk framing; connects to agentic robot deployments. (8 sources)
 - [Corrigibility](concepts/safety/corrigibility.md) — the corrigibility dial (fully corrigible ↔ fully autonomous); asymmetric cost argument; galaxy-brained reasoning risk; agentic deployment implications. (1 source)
 - [Mechanistic interpretability](concepts/safety/mechanistic-interpretability.md) — reading and steering features inside trained neural nets; sparse autoencoders (Anthropic / Templeton et al. 2024); Chris Olah's "dark matter of interpretability" (~1% of concepts extracted). Seeded by [Welch Labs Illustrated Guide Ch 7](sources/welchlabs-illustrated-guide-to-ai.md). (1 source)
 
 ### Robotics
-- [Assistive robotics](concepts/robotics/assistive-robotics.md) — robots helping disabled/elderly users regain autonomy; systematic review; three research themes; autonomy finding. (16 sources)
+- [Assistive robotics](concepts/robotics/assistive-robotics.md) — robots helping disabled/elderly users regain autonomy; systematic review; three research themes; autonomy finding. (22 sources)
 - [End-user robot programming](concepts/robotics/end-user-robot-programming.md) — enabling non-experts to customize robot behavior; EUP approaches; sense of agency evidence; Stretch SE2 transfer. (7 sources)
 - [Accessible robot communication](concepts/robotics/accessible-robot-communication.md) — robot output-interface design for non-visual users; mixed-initiative narration findings; 6 design guidelines (Huh et al. 2026). (4 sources)
 - [Optimal control](concepts/robotics/optimal-control.md) — minimize a cost over trajectory-control pairs subject to dynamics. Brachystochrone (1697) → Euler–Lagrange → Hamilton–Jacobi → Pontryagin's Maximum Principle (1956) → Bellman DP → modern LQR / MPC / iLQR / CEM / learned-WM-OC. The "RL = approximate OC under uncertainty" bridge. (12 sources)
 - [Motion planning (classical)](concepts/robotics/motion-planning.md) — computing collision-free paths given an explicit world model: search-based (A*), sampling-based (PRM/RRT*, OMPL), optimization-based (CHOMP/TrajOpt/GCS), + ML-for-planning. The deployed core of classical robotics; what learned policies replace. (2 sources)
 - [Task and motion planning (TAMP)](concepts/robotics/task-and-motion-planning.md) — long-horizon tasks via symbolic task planning + low-level motion planning; the decomposition that keeps re-emerging inside LLM-planner stacks and System 2 / System 1 VLAs. (1 source)
 - [AprilTags](concepts/robotics/apriltags.md) — visual fiducial markers for 6-DOF pose estimation; standard in FRC and research robotics. (2 sources)
-- [Agentic UAVs](concepts/robotics/agentic-uavs.md) — autonomous aerial systems with goal-driven behavior; 4-layer architecture; 8 domains; adaptive control. (4 sources)
+- [Agentic UAVs](concepts/robotics/agentic-uavs.md) — autonomous aerial systems with goal-driven behavior; 4-layer architecture; 8 domains; adaptive control. (7 sources)
 - [Swarm intelligence](concepts/robotics/swarm-intelligence.md) — decentralized collectives with emergent global behavior from local rules; bridges [boids](concepts/alife/flocking-and-boids.md)/ALife to UAV swarms; C2 taxonomy, swarm metaheuristics (PSO/ACO), 1000-drone guidance, anti-drone. (1 source)
 
 ### Bio
-- [Biomechanical simulation](concepts/bio/biomechanical-simulation.md) — physics-based simulation of an animal body; lineage *C. elegans* → Hydra → virtual rodent → NeuroMechFly v1/v2 → flybody. (5 sources)
+- [Biomechanical simulation](concepts/bio/biomechanical-simulation.md) — physics-based simulation of an animal body; lineage *C. elegans* → Hydra → virtual rodent → NeuroMechFly v1/v2 → flybody. (7 sources)
 - [Connectome](concepts/bio/connectome.md) — complete wiring diagram of a nervous system; *C. elegans* → fly hemibrain → FlyWire → mouse → human. (3 sources)
 
 ## Syntheses

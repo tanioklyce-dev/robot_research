@@ -29,7 +29,7 @@ The [Stanford HAI AI Index 2026](../../sources/stanford-hai-ai-index-2026.md) pr
 | Setting | Benchmark | Top result |
 |---|---|---|
 | Controlled simulation (short-horizon) | RLBench | **89.4%** (EquAct, Jan 2026) |
-| Real household environments (long-horizon) | BEHAVIOR-1K full task success | **12.4%** (2025 Challenge winner) |
+| Real household environments (long-horizon) | [BEHAVIOR-1K](../../entities/behavior-benchmark.md) full task success | **12.4%** (2025 Challenge winner) |
 
 The 89.4% vs. 12.4% contrast is the canonical sim-to-real gap for household manipulation as of 2025. RLBench tests 18 short-horizon tasks in a controlled simulator; BEHAVIOR-1K's 1,000 tasks come from surveys of what households actually want robots to do.
 

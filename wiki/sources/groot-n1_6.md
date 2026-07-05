@@ -22,7 +22,7 @@ The GR00T **N1.6** research page. The major change vs [N1.5](groot-n1_5.md) is t
 - **State-relative action chunks** for most embodiments, replacing absolute joint angles / EEF positions.
 
 ### Training data
-- Adds to N1.5's mixture "several thousand hours" of teleoperated data from: **bimanual [YAM](../entities/yam.md) arms, [AGIBot](../entities/agibot.md) Genie1, simulated [Galaxea R1 Pro](../entities/galaxea-r1.md) on the BEHAVIOR suite, and whole-body loco-manipulation with [Unitree G1](../entities/unitree-g1.md)** (via [GEAR-SONIC](../entities/gear-sonic.md)).
+- Adds to N1.5's mixture "several thousand hours" of teleoperated data from: **bimanual [YAM](../entities/yam.md) arms, [AGIBot](../entities/agibot.md) Genie1, simulated [Galaxea R1 Pro](../entities/galaxea-r1.md) on the [BEHAVIOR](../entities/behavior-benchmark.md) suite, and whole-body loco-manipulation with [Unitree G1](../entities/unitree-g1.md)** (via [GEAR-SONIC](../entities/gear-sonic.md)).
 - Pretraining: **300K steps, global batch size 16,384**. Post-training: typically 10K–30K steps, global batch size ≤1K.
 
 ### Results
