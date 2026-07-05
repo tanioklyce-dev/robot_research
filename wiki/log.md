@@ -2354,3 +2354,10 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - Major update: [Real-world robotic RL](concepts/learning/real-world-robot-rl.md) — now the full RLPD→SERL→HIL-SERL→AutoSERL lineage table (1→4 sources)
 - Updated [Sergey Levine](entities/sergey-levine.md) (senior on all 3 Berkeley papers; 6→8), [Jianlan Luo](entities/jianlan-luo.md) (+SERL co-first; 1→2), [Chelsea Finn](entities/chelsea-finn.md) (+SERL; 8→9), [Franka Panda](entities/franka-panda.md) (+SERL/HIL-SERL/AutoSERL; 15→18), [HIL-SERL Paper](sources/hil-serl-paper.md) (RLPD/SERL now linked as ingested)
 - Note: 4th new raw file `xlerobot_cutting_the_cord_2603.09051v1.pdf` is again a byte-identical dup of `2603.09051v1.pdf` (md5 confirmed) → no re-ingest
+## [2026-07-05] ingest | SAC — Soft Actor-Critic (Haarnoja et al. 2018)
+- Source: `raw/RL_SoftActorCritic_1801.01290v2.pdf` (arxiv 1801.01290, ICML 2018)
+- Created [SAC Paper](sources/sac-paper.md) — max-entropy off-policy actor-critic; the algorithmic root under RLPD→SERL→HIL-SERL
+- New entity: [SAC](entities/sac.md) (subtype:method) — long-referenced across the wiki (glossary, curriculum M8, TD-MPC, BEHAVIOR-1K, LeRobot) but had no page until now
+- Updated [Real-world robotic RL](concepts/learning/real-world-robot-rl.md) — SAC prepended to lineage table (4→5 sources), [RLPD](entities/rlpd.md) (SAC now linked as its base), [Sergey Levine](entities/sergey-levine.md) (+SAC as 2018 root; 8→9), [glossary](glossary.md) SAC anchor → entity/source pages, index
+- Open: practical SAC (auto temperature, 1812.05905) and authors Haarnoja/Abbeel not yet filed
+- Also added: `raw/RobotLearning_ATutorial_2510.12403v1.pdf` — the arXiv PDF for the already-ingested [Robot Learning: A Tutorial](sources/lerobot-robot-learning-tutorial.md) (was web-only); added `local_path` to that source page. No re-ingest (content unchanged).

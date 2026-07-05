@@ -283,7 +283,7 @@ A pretrained visual encoder for manipulation (Nair et al. 2022); appears as a Di
 **Robot Utility Models** — Etukuru et al., NYU/Meta 2024 ([entity](entities/robot-utility-models.md)); zero-shot mobile-manipulation BC on [Stretch](entities/stretch.md). *(Module 13.)*
 
 ### SAC
-**Soft Actor-Critic** — Haarnoja et al. 2018; max-entropy off-policy actor-critic for continuous control. *(Module 8.)*
+**Soft Actor-Critic** — Haarnoja et al. 2018; max-entropy off-policy actor-critic for continuous control. See [SAC](entities/sac.md) / [SAC paper](sources/sac-paper.md); the algorithmic root of the [real-world robotic RL](concepts/learning/real-world-robot-rl.md) lineage. *(Module 8.)*
 
 ### SGD
 **Stochastic Gradient Descent** — gradient descent on minibatches; the canonical NN optimizer. *(Module 1.)*

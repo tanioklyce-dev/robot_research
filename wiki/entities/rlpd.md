@@ -8,7 +8,7 @@ sources: 3
 tags: [reinforcement-learning, off-policy-rl, sac, layernorm, offline-data, sample-efficiency, algorithm]
 ---
 
-**RLPD** (Reinforcement Learning with Prior Data) — an off-policy actor-critic RL recipe (Ball, Smith, Kostrikov, [Levine](sergey-levine.md); ICML 2023) that incorporates offline data (demos or sub-optimal trajectories) into online learning using standard [SAC](../concepts/learning/real-world-robot-rl.md) plus three minimal design choices, **without** offline pretraining or imitation regularizers. It is the **base algorithm** of the wiki's [real-world robotic RL](../concepts/learning/real-world-robot-rl.md) lineage.
+**RLPD** (Reinforcement Learning with Prior Data) — an off-policy actor-critic RL recipe (Ball, Smith, Kostrikov, [Levine](sergey-levine.md); ICML 2023) that incorporates offline data (demos or sub-optimal trajectories) into online learning using standard **[SAC](sac.md)** plus three minimal design choices, **without** offline pretraining or imitation regularizers. It is the **base algorithm** of the wiki's [real-world robotic RL](../concepts/learning/real-world-robot-rl.md) lineage.
 
 ## The three design choices
 
@@ -30,6 +30,7 @@ When any of these papers says "off-policy update," "sample from both buffers," o
 
 ## Related
 
+- [SAC](sac.md) — the max-entropy off-policy actor-critic RLPD is built on.
 - [Real-world robotic RL](../concepts/learning/real-world-robot-rl.md) — the concept RLPD anchors algorithmically.
 - [SERL](serl.md) — first real-robot system built on it.
 - [Sergey Levine](sergey-levine.md) — senior author.

@@ -4,6 +4,7 @@ type: source
 url: https://huggingface.co/spaces/lerobot/robot-learning-tutorial
 live_url: https://lerobot-robot-learning-tutorial.hf.space
 arxiv: https://arxiv.org/abs/2510.12403
+local_path: raw/RobotLearning_ATutorial_2510.12403v1.pdf
 author: Francesco Capuano, Caroline Pascal, Adil Zouitine, Thomas Wolf, Michel Aractingi
 affiliations: Hugging Face (LeRobot team)
 published: 2025-10-14
