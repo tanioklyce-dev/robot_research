@@ -3,7 +3,7 @@ title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
 updated: 2026-07-04
-sources: 16
+sources: 17
 tags: [sim-to-real, domain-gap, rl, simulation]
 ---
 
@@ -47,4 +47,5 @@ The 89.4% vs. 12.4% contrast is the canonical sim-to-real gap for household mani
 - [NVIDIA Newton Contact-Rich Manipulation Blog](../../sources/nvidia-newton-contact-rich-manipulation-blog.md)
 - [RoboCasa365 Paper](../../sources/robocasa365-paper.md)
 - [V-JEPA 2 Paper](../../sources/v-jepa-2-paper.md)
-- [Stanford HAI — AI Index Report 2026](../../sources/stanford-hai-ai-index-2026.md)
+- [Stanford HAI — AI Index Report 2026](../../sources/stanford-hai-ai-index-2026.md) — the 12.4% [BEHAVIOR-1K](../../entities/behavior-benchmark.md) challenge figure.
+- [BEHAVIOR-1K Paper](../../sources/behavior-1k-paper.md) — the hard, long-horizon end of the gap; end-to-end RL 0.0, real-robot 0–22% ([OmniGibson](../../entities/omnigibson.md) sim).

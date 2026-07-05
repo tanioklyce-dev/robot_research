@@ -3,8 +3,8 @@ title: Roberto Martin-Martin
 type: entity
 subtype: person
 created: 2026-05-10
-updated: 2026-05-10
-sources: 1
+updated: 2026-07-04
+sources: 2
 tags: [person, ut-austin, robot-learning, manipulation, hri]
 ---
 
@@ -23,3 +23,4 @@ Martin-Martin is one of two senior UT Austin co-authors (with Zhu) anchoring the
 
 ## Mentioned in
 - [Designing Accessible Robot Communication](../sources/huh2026-accessible-robot-comm.md)
+- [BEHAVIOR-1K Paper](../sources/behavior-1k-paper.md) — co-author
