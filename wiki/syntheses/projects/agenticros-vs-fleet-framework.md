@@ -46,6 +46,9 @@ The one divergence: AgenticROS **also** exposes a raw command surface (`ros2_pub
 
 ## 4. What to leverage
 
+> [!tip] Adoption status (2026-07-05, same day)
+> Items 1–5 below were implemented in `ros2-mcp-server` ([commit `c4ef908`](../../sources/ros2-mcp-server-github.md#agenticros-pattern-layer-added-2026-07-05-commit-c4ef908)): capability flags with `base_busy` enforcement, `run_mission` templated step graphs, the heartbeat + `find_robots_for` fleet layer (as a `fleet_role: master` mode), `compile_mission` as the no-LLM fast path, and Zenoh as an `rmw:` config knob. The "use directly" trials and upstream contributions remain open.
+
 **Adopt the patterns (cheap, high value):**
 1. **`blocks_base` + `interruptible` capability flags** — the exclusive-base-motion claim solves a real mobile-manipulator contention problem (nav vs. arm-with-planted-base) the [MCP tool schema](fleet-framework-implementation-notes.md) doesn't cover. Add both fields to the tool schema.
 2. **Mission step-graphs with `{{stepId.outputs.field}}` templating** — a clean intermediate representation for the Spark master's task decomposition: the master LLM emits a mission graph once, a deterministic executor runs it, instead of round-tripping the LLM per step.
