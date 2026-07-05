@@ -2381,3 +2381,6 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - Resolves the previous entry's open item ("wire publish_robot_info/subscribe_robot_info")
 - Updated [ros2-mcp-server GitHub](sources/ros2-mcp-server-github.md) (wiring section + fake-rclpy caveat), [ros2-mcp-server](entities/ros2-mcp-server.md) (status: wired vs TODO split)
 - Open: verify on a real ROS 2 install (`ros2 topic echo /lekiwi/mcp/robot_info` → 1 Hz cards); action/service primitives + SSE transport still stubs
+## [2026-07-05] note | Session handoff → next session on the XLeRobot (Jetson Orin NX 16 GB)
+- Handoff written to `ros2-mcp-server/docs/IMPLEMENTATION_NOTES.md` (repo commit `f546979`): machine-survey checklist, first real-rclpy validation of the wired heartbeat (`ros2 topic echo /xlerobot/mcp/robot_info`), known stub-mode-test risk with ROS 2 sourced, XLeRobot-adapted wiring order (joint_states → speak → detector; no Nav2/Rosetta on that machine yet), two-server fleet demo stretch goal
+- Session summary: ingested [AgenticROS](sources/agenticros-github.md) → [decision analysis](syntheses/projects/agenticros-vs-fleet-framework.md) → adopted all 5 leverage patterns in ros2-mcp-server (`c4ef908`) → wired robot_info bridge (`5921d35`)
