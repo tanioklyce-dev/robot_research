@@ -25,7 +25,7 @@ tags: [ros2-mcp-server, mcp, ros2, fleet, agent, tool-schema, first-party, skele
 - **AgenticROS-pattern layer (2026-07-05)** — `blocks_base`/`interruptible` capability flags (`base_busy` enforcement via a base lock); `run_mission` step graphs with `{{stepId.outputs.field}}` templating; `compile_mission` deterministic NL→mission fast path; `get_capabilities` + `robot_info` heartbeat + `find_robots_for` on `fleet_role: master`; `rmw: rmw_zenoh_cpp` Zenoh knob ([source](../sources/ros2-mcp-server-github.md)).
 
 ## Status
-Early **skeleton**, growing (MIT; created 2026-07-04, AgenticROS-pattern layer added 2026-07-05, commit `c4ef908`). 23 tests pass without ROS 2 (bridge stub mode); the `ros_bridge.py` ROS 2 calls remain the TODOs (now including `publish_robot_info`/`subscribe_robot_info` for the fleet heartbeat). Will deepen as it's wired against the fleet.
+Early **skeleton**, growing (MIT; created 2026-07-04; AgenticROS-pattern layer `c4ef908` + robot_info wiring `5921d35`, both 2026-07-05). 26 tests pass without ROS 2 (bridge stub mode). **Wired**: node lifecycle (executor on a daemon thread) + the fleet `robot_info` heartbeat pub/sub (graph-scan discovery, thread-safe marshaling) — verified against a fake rclpy, not yet real hardware. **Still TODO**: the action/service primitives (Nav2, Rosetta policy, detector, TTS) and SSE transport.
 
 ## Related
 - [Rosetta](rosetta.md) — the LeRobot↔ROS 2 policy bridge it calls underneath.

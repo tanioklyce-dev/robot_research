@@ -33,7 +33,8 @@ Implements the leverage items from the [AgenticROS decision analysis](../synthes
 - **`compile_mission`** — deterministic NL→mission compiler (no LLM): "go to the kitchen, then pick up the sock, then place it in the basket" → a 4-step graph with find-then-pick auto-expansion and "it"-binding to the last detection; unrecognized goals return `recognized_verbs` for agent self-correction.
 - **Fleet presence** — `get_capabilities` capability card on every robot + a 1 Hz heartbeat on `<namespace>/mcp/robot_info` (bridge stub); `fleet_role: master` servers ([`configs/spark-master.yaml`](https://github.com/tanioklyce-dev/ros2-mcp-server/blob/main/configs/spark-master.yaml)) keep a `FleetRegistry` and expose `find_robots_for({capability, kind, online})`.
 - **Zenoh knob** — `rmw: rmw_zenoh_cpp` in the per-robot YAML sets `RMW_IMPLEMENTATION` before `rclpy` loads (router-based LAN discovery instead of DDS multicast).
-- New envelope reasons: `base_busy`, `invalid_mission`, `unrecognized_goal`. New bridge stubs: `publish_robot_info` / `subscribe_robot_info`.
+- New envelope reasons: `base_busy`, `invalid_mission`, `unrecognized_goal`.
+- **Bridge wiring started (commit `5921d35`, same day)** — the node lifecycle (`start`/`stop`: rclpy node under the config namespace + `MultiThreadedExecutor` on a daemon thread) and the fleet pub/sub are **wired**, no longer stubs: `publish_robot_info` publishes the JSON card on `<ns>/mcp/robot_info` (QoS depth 1); `subscribe_robot_info` discovers heartbeat topics by graph scan (once + 2 s rescan — ROS 2 has no topic wildcards) and marshals decoded cards onto the asyncio loop; malformed payloads dropped. 26 tests + a fake-rclpy smoke test. The action/service primitives (Nav2, Rosetta policy, detector, TTS) remain the TODO stubs.
 
 ## Entities mentioned
 - [ros2-mcp-server](../entities/ros2-mcp-server.md) — this repo's entity. [Rosetta](../entities/rosetta.md) — the LeRobot↔ROS 2 policy bridge its `run_policy` targets. [Nav2](../entities/nav2.md) — the nav action its `navigate_to` targets.
@@ -44,6 +45,6 @@ Implements the leverage items from the [AgenticROS decision analysis](../synthes
 - [AgenticROS](../entities/agenticros.md) — the community bridge whose capability-flag / mission-graph / heartbeat patterns the 2026-07-05 layer adopts.
 
 ## Open questions
-- **Skeleton, not proven** — the `ros_bridge.py` ROS 2 calls (Nav2, Rosetta policy, detector, TTS) are TODO stubs; unwired against real hardware.
+- **Skeleton, not proven** — the `ros_bridge.py` action/service calls (Nav2, Rosetta policy, detector, TTS) are TODO stubs; the wired lifecycle + robot_info pub/sub were verified against a **fake rclpy** only, not a real ROS 2 install (check: `ros2 topic echo /lekiwi/mcp/robot_info` should show 1 Hz JSON cards).
 - **SSE transport** for the fleet-master deployment is not yet implemented.
 - Whether it generalizes beyond the SO-ARM101 fleet (the tool set is generic; only the configs are fleet-specific).
