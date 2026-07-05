@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-07-05
 updated: 2026-07-05
-sources: 1
+sources: 2
 tags: [reinforcement-learning, off-policy-rl, maximum-entropy-rl, actor-critic, continuous-control, algorithm]
 ---
 
@@ -14,7 +14,7 @@ tags: [reinforcement-learning, off-policy-rl, maximum-entropy-rl, actor-critic, 
 
 SAC optimizes a **maximum-entropy** objective — expected reward *plus* policy entropy, weighted by a temperature α: the agent succeeds at the task while staying as stochastic as possible. This buys **exploration** (keeps sampling alternatives) and **robustness** (doesn't collapse to one mode prematurely). It pairs this with an **off-policy** replay-buffer update and a **stochastic** actor (vs. DDPG's deterministic policy), getting both sample efficiency and stability — famously **consistent across random seeds**, which is what makes it usable without per-task hyperparameter tuning ([SAC paper](../sources/sac-paper.md)).
 
-Original formulation: separate soft **value**, soft **Q**, and **policy** networks; reparameterization-trick policy gradient; proven-convergent soft policy iteration. The practical SAC most code runs (clipped double-Q, no V-network, **automatically-tuned temperature α**) comes from the follow-up (Haarnoja et al. 2018b, arXiv 1812.05905).
+Two papers define SAC. The **[original](../sources/sac-paper.md)** (ICML 2018) introduces the max-entropy actor-critic with separate soft **value**, soft **Q**, and **policy** networks; reparameterization-trick policy gradient; proven-convergent soft policy iteration. The **[Algorithms and Applications](../sources/sac-applications-paper.md)** follow-up (1812.05905) defines the *practical* SAC most code runs: it drops the V-network, uses **clipped double-Q**, and — the key delta — **automatically tunes the temperature α** by casting max-entropy RL as an entropy-*constrained* optimization whose dual variable is α, adjusted by gradient descent to hit a **target entropy** (typically `−dim(action space)`). That paper also gave SAC's first **real-robot** demonstrations: a Minitaur quadruped walking directly in the real world in ~2 hr, and a dexterous hand rotating a valve from images.
 
 ## Why it matters in this wiki
 
@@ -33,11 +33,11 @@ SAC is the base layer the whole real-world-RL stack stands on:
 
 ## Mentioned in
 
-- [SAC paper](../sources/sac-paper.md) — primary source.
+- [SAC paper](../sources/sac-paper.md) — original (ICML 2018).
+- [SAC Applications paper](../sources/sac-applications-paper.md) — practical SAC (automatic α + real-robot demos).
 - [RLPD paper](../sources/rlpd-paper.md) — base algorithm.
-- [HIL-SERL paper](../sources/hil-serl-paper.md) — inherited via RLPD (entropy-regularized actor).
+- [HIL-SERL paper](../sources/hil-serl-paper.md) — inherited via RLPD (entropy-regularized actor with adaptive α).
 
 ## Open questions / TBD
 
-- The practical **1812.05905** SAC (automatic temperature tuning) is what systems actually run; not yet a separate source page.
-- Tuomas Haarnoja / Pieter Abbeel / Aurick Zhou — author pages not yet filed.
+- Tuomas Haarnoja / Pieter Abbeel / Aurick Zhou / Abhishek Gupta — author pages not yet filed.

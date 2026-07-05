@@ -2361,3 +2361,8 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - Updated [Real-world robotic RL](concepts/learning/real-world-robot-rl.md) — SAC prepended to lineage table (4→5 sources), [RLPD](entities/rlpd.md) (SAC now linked as its base), [Sergey Levine](entities/sergey-levine.md) (+SAC as 2018 root; 8→9), [glossary](glossary.md) SAC anchor → entity/source pages, index
 - Open: practical SAC (auto temperature, 1812.05905) and authors Haarnoja/Abbeel not yet filed
 - Also added: `raw/RobotLearning_ATutorial_2510.12403v1.pdf` — the arXiv PDF for the already-ingested [Robot Learning: A Tutorial](sources/lerobot-robot-learning-tutorial.md) (was web-only); added `local_path` to that source page. No re-ingest (content unchanged).
+## [2026-07-05] ingest | SAC: Algorithms and Applications — the practical SAC (Haarnoja et al. 1812.05905)
+- Source downloaded to `raw/RL_SAC_AlgorithmsApplications_1812.05905v2.pdf` (arxiv 1812.05905v2) at user request
+- Created [SAC Applications Paper](sources/sac-applications-paper.md) — automatic temperature (α) tuning via entropy-constrained dual; drops value net + clipped double-Q; first real-robot SAC (Minitaur ~2 hr, dexterous-hand valve from images)
+- Updated [SAC](entities/sac.md) entity (now covers both papers; the "practical SAC" open question resolved; 1→2 sources), [SAC paper](sources/sac-paper.md) (1812.05905 now linked/ingested), [Sergey Levine](entities/sergey-levine.md) (+SAC-Applications; 9→10; senior on all 5 method papers), [Real-world robotic RL](concepts/learning/real-world-robot-rl.md) (5→6 sources), [glossary](glossary.md), index
+- Open: practical-SAC authors (Haarnoja/Abbeel/Gupta/Tucker/Tan/Ha/Kumar) not filed

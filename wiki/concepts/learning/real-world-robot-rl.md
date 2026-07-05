@@ -45,6 +45,7 @@ The [HIL-SERL analysis](../../sources/hil-serl-paper.md) (§5) argues RL's relia
 ## Key references
 
 - **[SAC paper](../../sources/sac-paper.md)** (Haarnoja, Zhou, Abbeel, Levine — ICML 2018) — the max-entropy off-policy actor-critic at the root; sample-efficient and seed-stable continuous control.
+- **[SAC Applications paper](../../sources/sac-applications-paper.md)** (Haarnoja et al. 2018) — the *practical* SAC (automatic temperature α) + the earliest real-robot RL results (Minitaur walking in ~2 hr, dexterous-hand valve from images).
 - **[RLPD paper](../../sources/rlpd-paper.md)** (Ball, Smith, Kostrikov, Levine — ICML 2023) — SAC + symmetric sampling + LayerNorm + ensembles.
 - **[SERL paper](../../sources/serl-paper.md)** (Luo et al. 2024) — the open-source reference implementation; RLPD + reward classifier + auto-reset + impedance control; 25–50 min/policy.
 - **[HIL-SERL paper](../../sources/hil-serl-paper.md)** (Luo et al. 2024) — 100% success in 1–2.5 hr real-world training across 7 dexterous/dual-arm tasks; the mature recipe (SERL + online human corrections).
@@ -66,6 +67,7 @@ Real-world RL for manipulation went from "considered infeasible" to **100% succe
 ## Mentioned in
 
 - [SAC paper](../../sources/sac-paper.md) — algorithmic root.
+- [SAC Applications paper](../../sources/sac-applications-paper.md) — practical SAC + first real-robot demos.
 - [RLPD paper](../../sources/rlpd-paper.md) — base algorithm.
 - [SERL paper](../../sources/serl-paper.md) — reference implementation.
 - [HIL-SERL paper](../../sources/hil-serl-paper.md) — the mature recipe.
