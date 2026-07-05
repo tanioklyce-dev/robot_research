@@ -113,21 +113,43 @@ A failed `pick_object` returns `{"status":"failed","reason":"gripper_slipped","o
 One server, config-driven; `tools/list` is generated from it, so the LLM only sees tools the robot can do:
 
 ```yaml
-# xlerobot.mcp.yaml
+# xlerobot.mcp.yaml  (dual-arm)
 embodiment: xlerobot
 arms: [left, right]                              # pick/place expose 'arm'; handover listed
-policy_endpoint: grpc://spark.local:8080/soarm_tidy_act
-cameras: [head, left_wrist, right_wrist]
+policy_endpoint: grpc://spark.local:8080/soarm_tidy_dualarm   # dual-arm checkpoint
+cameras: [front, left_wrist, right_wrist]
 ```
 ```yaml
-# lekiwi.mcp.yaml
-embodiment: lekiwi
+# lekiwi.mcp.yaml  /  rosorin.mcp.yaml  (single-arm — IDENTICAL)
+embodiment: lekiwi                               # (rosorin: same file, embodiment: rosorin)
 arms: [main]                                     # 'arm' enum omitted; handover NOT listed
-policy_endpoint: grpc://spark.local:8080/soarm_tidy_act   # same checkpoint — shared SO-ARM101
-cameras: [head, wrist]
+policy_endpoint: grpc://spark.local:8080/soarm_tidy_single    # shared single-arm checkpoint
+cameras: [front, wrist]
 ```
 
-Because XLeRobot and LeKiwi share the SO-ARM101 arm, they can point at the **same policy checkpoint** — the cross-embodiment bet from the parent synthesis.
+**LeKiwi and the ROSOrin-with-SO-ARM101 are the *same* single-arm robot to the policy** — identical obs + action space → one shared checkpoint. **XLeRobot is dual-arm** (2× joints + a second wrist cam) → a *separate* checkpoint, but co-trained off the same pooled SO-ARM101 data (its per-arm wrist streams are the same distribution). Camera parity (next) is what makes that pooling valid.
+
+### Camera parity spec
+
+The one detail that makes or breaks the shared checkpoint: every robot's LeRobotDataset must present the **same observation keys, resolution, and framerate**, from **same-model cameras in matched positions**.
+
+**Layout** — LeRobot's SO-101 convention (wrist-per-arm + one forward workspace cam):
+
+| Robot | Cameras | Dataset keys |
+|---|---|---|
+| LeKiwi | 1 wrist + 1 front | `observation.images.{wrist, front}` |
+| ROSOrin-SO101 | 1 wrist + 1 front | `observation.images.{wrist, front}` — **identical to LeKiwi** |
+| XLeRobot | 2 wrist + 1 front | `observation.images.{left_wrist, right_wrist, front}` |
+
+**Lock fleet-wide:**
+1. **Same camera hardware** — one wrist-cam model (per arm) + one front-cam model (per robot). Same model ⇒ same intrinsics/color, closing a big domain gap. Reference: [ALOHA uses a Logitech C920-class](lerobot-on-rosorin-pro.md#gap-2-cameras-and-sampling-rate) workspace cam.
+2. **Same resolution + FPS into the dataset** — pick one (e.g. **640×480 @ 30 fps**) and downsample at record time regardless of native capability.
+3. **Retire the Aurora930 from the policy** — it's [12 fps, breaking 30 Hz parity](lerobot-on-rosorin-pro.md#gap-2-cameras-and-sampling-rate). Give the ROSOrin the same 30-fps USB front cam as the others; keep the Aurora930 **depth for Nav2 only**, out of the observation.
+4. **Identical wrist mount** — same bracket + position/angle on every SO-101 gripper (free — same arm hardware). The wrist cam's extrinsics are then automatically shared, so the wrist view looks the same on all three robots.
+5. **Standardized front-cam placement** — matched height + downward pitch so the workspace fills a similar frame region (the fiddly one; the chassis differ in height — aim for visual similarity).
+6. **RGB-only, fixed exposure/WB** — SO-101 policies are RGB; depth sensors (Aurora930, XLeRobot's [D435i](xlerobot-camera-options-low-light.md)) stay on the navigation side.
+
+**Design lever:** the wrist cam is bolted to the *identical* arm, so it's the one channel whose extrinsics are parity-guaranteed fleet-wide — **weight the policy toward the wrist view** (primary manipulation signal) and treat the front cam as coarse scene context. A wrist-heavy policy transfers most cleanly across the fleet.
 
 ### Worked trace ("put the sock in the hamper")
 
@@ -196,38 +218,46 @@ TimeoutStartSec=6h
 
 ### The job (`train_fleet.sh`) with a promotion gate
 
+Two checkpoints, each from its own dataset (single-arm actions vs dual-arm actions are different dimensions, so they can't be one Parquet — the *sharing* is the arm + camera setup + visual distribution, not the action vectors):
+
 ```bash
 #!/usr/bin/env bash
 set -euo pipefail
-ROBOTS=(soarm_tidy rosorin_tidy)          # XLeRobot+LeKiwi co-trained as soarm_tidy
+# checkpoint -> dataset repo
+declare -A DATASET=(
+  [soarm_tidy_single]=myfleet/soarm_single     # LeKiwi + ROSOrin episodes (1-arm actions)
+  [soarm_tidy_dualarm]=myfleet/soarm_dual       # XLeRobot episodes (2-arm actions)
+)
 CKPT_ROOT=/spark/checkpoints
 MIN_NEW_EPISODES=25
 
-for task in "${ROBOTS[@]}"; do
-  repo="myfleet/${task}"
-  new=$(python /opt/fleet/count_new_episodes.py "$repo" "$CKPT_ROOT/$task/last_trained.json")
-  [ "$new" -lt "$MIN_NEW_EPISODES" ] && { echo "skip $task ($new new)"; continue; }
+for ckpt in "${!DATASET[@]}"; do
+  repo="${DATASET[$ckpt]}"
+  new=$(python /opt/fleet/count_new_episodes.py "$repo" "$CKPT_ROOT/$ckpt/last_trained.json")
+  [ "$new" -lt "$MIN_NEW_EPISODES" ] && { echo "skip $ckpt ($new new)"; continue; }
 
-  out="$CKPT_ROOT/$task/$(date +%F_%H%M)"
+  out="$CKPT_ROOT/$ckpt/$(date +%F_%H%M)"
   lerobot-train \
     --dataset.repo_id="$repo" \
     --policy.type=act --policy.device=cuda \
     --batch_size=64 --steps=100000 \
     --output_dir="$out" \
-    --wandb.enable=true --job_name="$task"
+    --wandb.enable=true --job_name="$ckpt"
 
   score=$(python /opt/fleet/eval_policy.py "$out" "$repo:val")
-  base=$(cat "$CKPT_ROOT/$task/deployed_score" 2>/dev/null || echo 0)
+  base=$(cat "$CKPT_ROOT/$ckpt/deployed_score" 2>/dev/null || echo 0)
   if python -c "import sys; sys.exit(0 if $score >= $base else 1)"; then
-      hf upload "myfleet/${task}_act" "$out/pretrained_model"
-      echo "$score" > "$CKPT_ROOT/$task/deployed_score"
-      systemctl restart "policy-server@${task}"     # Rosetta gRPC / LeRobot PolicyServer
-      echo "promoted $task @ $score ($new new episodes)"
+      hf upload "myfleet/${ckpt}" "$out/pretrained_model"
+      echo "$score" > "$CKPT_ROOT/$ckpt/deployed_score"
+      systemctl restart "policy-server@${ckpt}"     # Rosetta gRPC / LeRobot PolicyServer
+      echo "promoted $ckpt @ $score ($new new episodes)"
   else
-      echo "GATE FAIL $task: new=$score < deployed=$base — kept old" | /opt/fleet/notify.sh
+      echo "GATE FAIL $ckpt: new=$score < deployed=$base — kept old" | /opt/fleet/notify.sh
   fi
 done
 ```
+
+(The single-arm data can additionally *pretrain* the dual-arm checkpoint — same visual encoder, same per-arm wrist distribution — but that's an optional co-train step, not a shared training run.)
 
 The **promotion gate** ("new must beat deployed on a held-out split") is the safety valve for unattended auto-deploy. Pair it with a periodic *real* smoke test — offline metrics under-predict real success.
 
@@ -237,9 +267,13 @@ The **promotion gate** ("new must beat deployed on a held-out split") is the saf
 - **Capacity**: 128 GB unified. ACT (52 M) trains in minutes; SmolVLA (450 M) fine-tune ~1–2 h; even a π0-class (3.5 B) fine-tune fits thanks to unified memory. All robots train sequentially in one overnight window on a single Spark.
 - **Double duty**: the Spark also *serves* the [async policy](../../entities/lerobot.md) (`policy-server@task`), so retrain + serve are co-located and `systemctl restart` is the hot-swap.
 
-### Cross-embodiment shortcut
+### Cross-embodiment shortcut → two checkpoints from one data pool
 
-All three robots share the SO-ARM101 arm (ROSOrin Pro [after the arm swap](fleet-agentic-framework.md)) → **co-train one policy** on the union of all dataset repos (`myfleet/soarm_tidy`) and deploy the same checkpoint fleet-wide, pooling every robot's data into one model. This is why the loop above lists a single `soarm_tidy` task instead of one per robot — hardware homogenization turned the [GR00T-style cross-embodiment problem](../../entities/nvidia-groot.md) into a config detail. (Match the camera setup across robots so the shared observation space lines up.)
+All three robots share the SO-ARM101 arm (ROSOrin Pro [after the arm swap](fleet-agentic-framework.md)) → **two checkpoints from two datasets**, split only by arm count (single- vs dual-arm actions are different dimensions, so not one Parquet):
+- **`soarm_tidy_single`** ← `myfleet/soarm_single` (**LeKiwi + ROSOrin** episodes pooled — identical single-arm obs + action). One checkpoint, two robots.
+- **`soarm_tidy_dualarm`** ← `myfleet/soarm_dual` (**XLeRobot** episodes — 2× action dims + a second wrist cam). Optionally *pretrained* on the single-arm data (same visual encoder + per-arm wrist distribution, given [camera parity](#camera-parity-spec)).
+
+Hardware homogenization turned the [GR00T-style cross-embodiment problem](../../entities/nvidia-groot.md) into "one arm, two head-counts" — a data-plumbing detail, not an ML problem. The LeKiwi↔ROSOrin data genuinely pools into one checkpoint; the win for XLeRobot is a shared arm/camera setup + optional pretrain, not a shared training run.
 
 ### The minimal-human loop, closed
 
