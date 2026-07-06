@@ -8,6 +8,11 @@ tags: [project-scope, fleet, agentic-robotics, lerobot, ros2, rosetta, gemma4, d
 
 # Fleet agentic control framework — LeRobot + ROS 2 + on-edge Gemma + DGX Spark master control
 
+> [!note] Reference architecture (public)
+> This page is the **general reference architecture**. The detailed, fleet-specific
+> execution plan — device configs, network topology, calibration, build sequencing —
+> is maintained separately.
+
 A concrete scope for **one framework deployed across a heterogeneous robot fleet**, integrated with both **[ROS 2](../../entities/ros2.md)** and **[LeRobot](../../entities/lerobot.md)**, that (a) collects demonstrations and streams them to Hugging Face, (b) trains on a central **[DGX Spark](../../entities/dgx-spark.md)** with minimal human interaction, (c) lets the robots coordinate under a **master control AI on the Spark**, and (d) does on-device speech I/O. Target model family: **[Gemma 4](../../entities/gemma4.md)** (E4B on the edge, larger variants on the Spark).
 
 ## The fleet
@@ -23,18 +28,16 @@ A concrete scope for **one framework deployed across a heterogeneous robot fleet
 > With an Orin NX 16 GB on the LeKiwi, **all three robots are first-class CUDA policy nodes** and the earlier hard constraint — **[Hailo NPUs cannot run LeRobot control policies](../../entities/hailo.md#relevance-in-this-wiki-npu-vs-jetson-for-xlerobot)** — no longer blocks anything. The RPi5 + Hailo-10H can stay on the LeKiwi as an **optional speech/vision coprocessor** (its `gen_ai_apps` do STT/VLM well) or be retired; the Orin NX is now the LeKiwi's AI brain.
 
 > [!note] ‡ Three different base drives — and it doesn't matter for the policy
-> The fleet's bases are **all different**: XLeRobot **2-wheel differential** (owner's build, non-holonomic — photo below), LeKiwi **3-wheel holonomic Kiwi**, ROSOrin Pro **4-wheel mecanum** (holonomic). This is **irrelevant to the shared manipulation policy** — base drive is the [Nav2](../../entities/nav2.md) layer, below the policy line; the policy sees arm joints + camera views, not base kinematics, and Nav2 is per-robot regardless. The *one* consequence is **pre-grasp positioning**: the holonomic bases can strafe sideways to fine-align before a grasp, whereas the differential XLeRobot must turn-then-approach — so its MCP `navigate_to` should target a grasp-ready pose head-on rather than "get close then align." A behavior/config difference, not a blocker.
+> The fleet's bases are **all different**: XLeRobot **2-wheel differential** (non-holonomic), LeKiwi **3-wheel holonomic Kiwi**, ROSOrin Pro **4-wheel mecanum** (holonomic). This is **irrelevant to the shared manipulation policy** — base drive is the [Nav2](../../entities/nav2.md) layer, below the policy line; the policy sees arm joints + camera views, not base kinematics, and Nav2 is per-robot regardless. The *one* consequence is **pre-grasp positioning**: the holonomic bases can strafe sideways to fine-align before a grasp, whereas the differential XLeRobot must turn-then-approach — so its MCP `navigate_to` should target a grasp-ready pose head-on rather than "get close then align." A behavior/config difference, not a blocker.
 >
-> ![Owner's XLeRobot — two SO-ARM101 arms + 2 wrist cams + mast head cam on a utility-cart frame; 2-wheel differential drive at the base](../../../raw/assets/xlerobot-owner-diff-drive.jpeg)
->
-> Owner's XLeRobot: note the **2 wrist cams + mast/head cam** (already the [camera-parity](fleet-framework-implementation-notes.md#camera-parity-spec) layout) and the **two driven front wheels** (differential, not the LeKiwi 3-wheel omni base the [XLeRobot entity](../../entities/xlerobot.md) intro implies — though it does list a 2-wheel variant).
+> A dual-arm XLeRobot build carries **2 wrist cams + a mast/head cam** — already the
+> [camera-parity](fleet-framework-implementation-notes.md#camera-parity-spec) layout — on a
+> 2-wheel differential base (the [XLeRobot entity](../../entities/xlerobot.md) lists a 2-wheel variant).
 
 > [!tip] Arm-swap homogenization — the decision that collapses the fleet to one embodiment
 > Rather than solve **[SO-ARM101↔HX-12H cross-embodiment transfer](fleet-framework-implementation-notes.md#cross-embodiment-shortcut)** (an open ML problem), **replace the ROSOrin Pro's HX-12H arm with an [SO-ARM101](../../entities/so-arm101.md)**. Then *all three robots share the same arm* → **the two single-arm robots (LeKiwi + ROSOrin) share one checkpoint, and XLeRobot co-trains a dual-arm checkpoint off the same pooled SO-ARM101 data** (dual-arm ⇒ 2× the joints + a second wrist cam, so it can't be the *same* checkpoint — see [camera parity](fleet-framework-implementation-notes.md#camera-parity-spec)). The [servo-lineage gap](lerobot-on-rosorin-pro.md#gap-1-motor-sdk-lineage-feetech-dynamixel-hx-12h) disappears and the ROSOrin Pro moves into the LeRobot-native class. You keep its genuinely valuable part — the **finished Nav2 + SLAM + LiDAR nav stack** — and retire only the arm.
 >
-> ![SO-101 (bottom, extended) next to the ROSOrin Pro with its arm extended — reach parity, and the base is mecanum/holonomic](../../../raw/assets/so-101-vs-rosorin-pro-reach.jpeg)
->
-> Reach-comparison photo (owner's hardware): the SO-101 is the **same reach class** as the HX-12H arm — no meaningful reach loss for tabletop/floor tidy — and its **5-DOF + gripper matches XLeRobot/LeKiwi exactly**. Bounded catches: a 3D-printed **adapter plate** (both CADs open); **12 V STS3215 servos** run fine off the ROSOrin's [11.1 V 3S pack](../../entities/rosorin-pro.md); drive the arm **directly from the Jetson via a FeeTech USB bus adapter** (bypassing the STM32/`openclaw_controller`, base only); and — the one load-bearing detail — **put a wrist camera on the SO-101 to match the fleet observation space**. **†The owner's base is mecanum/holonomic** (not the differential-drive the [entity](../../entities/rosorin-pro.md) lists), which is a bonus — same holonomic motion class as LeKiwi.
+> The SO-101 is the **same reach class** as the HX-12H arm — no meaningful reach loss for tabletop/floor tidy — and its **5-DOF + gripper matches XLeRobot/LeKiwi exactly**. Bounded catches: a 3D-printed **adapter plate** (both CADs open); **12 V STS3215 servos** run fine off the ROSOrin's [11.1 V 3S pack](../../entities/rosorin-pro.md); drive the arm **directly from the Jetson via a FeeTech USB bus adapter** (bypassing the STM32/`openclaw_controller`, base only); and — the one load-bearing detail — **put a wrist camera on the SO-101 to match the fleet observation space**. **†A mecanum ROSOrin base is holonomic** — same motion class as LeKiwi.
 
 ## Headline: you assemble this, you don't adopt it
 

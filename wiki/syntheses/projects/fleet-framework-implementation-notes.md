@@ -8,6 +8,10 @@ tags: [project-scope, implementation, mcp, tool-schema, so-arm101, lerobot, rose
 
 # Fleet framework — implementation notes
 
+> [!note] Reference architecture (public)
+> General code shapes (tool schema, training pipeline). The fleet-specific execution
+> details — real endpoints, device configs, calibration — are maintained separately.
+
 Two concrete build-outs of the [Fleet agentic control framework](fleet-agentic-framework.md): the **ROS 2↔MCP tool schema** for the SO-ARM101 robots ([XLeRobot](../../entities/xlerobot.md), [LeKiwi](../../entities/lekiwi.md)), and the **scheduled-training pipeline** on the [DGX Spark](../../entities/dgx-spark.md). The parent page has the architecture; this page has the code shapes.
 
 > [!note] Version caveat
