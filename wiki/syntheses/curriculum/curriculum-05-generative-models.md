@@ -38,7 +38,7 @@ Encoder `g_φ: 𝒳 → 𝒵`, decoder `d_ψ: 𝒵 → 𝒳`. Loss: `L = ‖x �
 
 ### Variational Autoencoder ([VAE](../../glossary.md#vae))
 
-Kingma & Welling 2013. The minimal-modification fix that makes an AE generative:
+[Kingma & Welling 2013](../../sources/vae-paper.md) (full paper ingested 2026-07-06; see also the [VAE concept page](../../concepts/learning/variational-autoencoder.md)). The minimal-modification fix that makes an AE generative:
 
 - Encoder produces a *distribution* `q_φ(z | x) = 𝒩(μ_φ(x), σ²_φ(x))` instead of a point.
 - Prior `p(z) = 𝒩(0, I)` over `𝒵`.

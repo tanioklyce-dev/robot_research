@@ -46,6 +46,7 @@ This is the long thread connecting the [1993 Siamese signature-verification pape
 - [Joint-Embedding Predictive Architecture](../world-models/jepa.md) — JEPA is a particular EBM family for predictive representation learning.
 - [Diffusion Policy](../../entities/diffusion-policy.md) and [DDPM](../../sources/ddpm-paper.md) — score-based / denoising models, derivable as a sub-family of EBMs.
 - [IBC](../../entities/ibc.md) — first EBM-for-policy in this wiki.
+- [Variational autoencoder](variational-autoencoder.md) — the explicit-density sibling: amortized variational inference ([VAE Paper](../../sources/vae-paper.md)) where EBMs go unnormalized.
 - [Formal verification](formal-verification.md) — what EBM-style reasoning models like [Kona](../../entities/kona.md) are positioned to slot underneath.
 
 ## Mentioned in

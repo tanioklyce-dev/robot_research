@@ -2,8 +2,8 @@
 title: World model
 type: concept
 created: 2026-05-07
-updated: 2026-07-04
-sources: 20
+updated: 2026-07-06
+sources: 21
 tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video, omnimodal, world-action-model]
 ---
 
@@ -62,6 +62,7 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 - [Why JEPA research skips the simulator stack](../../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md) — synthesis on a JEPA-specific question.
 
 ## Mentioned in
+- [Wake-Sleep Paper (Hinton et al., 1995)](../../sources/wake-sleep-paper.md) — the sleep phase trains on model-generated "fantasies" — the 1995 ancestor of learning-in-imagination, complete with its stated failure mode (fantasy distribution ≠ data distribution)
 - [A Path Towards Autonomous Machine Intelligence (LeCun, 2022)](../../sources/lecun2022-path-towards-ami.md) — canonical LeCun position paper; argues for configurable world model + hierarchical JEPA as the substrate
 - [V-JEPA 2 Paper](../../sources/v-jepa-2-paper.md)
 - [LeWorldModel Paper](../../sources/leworldmodel-paper.md)

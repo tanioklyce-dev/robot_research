@@ -2,8 +2,8 @@
 title: Learned latent space
 type: concept
 created: 2026-05-08
-updated: 2026-07-04
-sources: 18
+updated: 2026-07-06
+sources: 22
 tags: [representation-learning, embeddings, world-model, jepa, self-supervised]
 ---
 
@@ -34,6 +34,10 @@ A **learned latent space** is the network's own internal coordinate system for "
   - **Internet-scale pretraining**: the encoder can be pretrained on action-free observation data (web video) and the predictor post-trained on small action-conditioned datasets. [V-JEPA 2](../../entities/v-jepa-2.md) is the canonical example: 1M+ hours pretraining → 62 hr post-training → zero-shot Franka.
 - **[LeWorldModel](../../entities/leworldmodel.md)** — first stable JEPA that learns its latent space *end-to-end from raw pixels* (no frozen encoder), via a single SIGReg regularizer that enforces a Gaussian latent.
 
+### As a probabilistic generative latent (the VAE lineage)
+- **[Variational autoencoder](../learning/variational-autoencoder.md)** ([VAE Paper](../../sources/vae-paper.md), Kingma & Welling 2013; concurrently [Rezende et al. 2014](../../sources/stochastic-backpropagation-paper.md)) — the canonical *probabilistic* learned latent space: an explicit prior `p(z) = N(0, I)` plus a KL term shape the geometry, and sampling from the prior generates data. This is the historical root of "learned latent space with a sampling story"; latent-diffusion stacks (Stable Diffusion) still run their diffusion inside a VAE-defined latent.
+- **Disentanglement** — [β-VAE](../../sources/beta-vae-paper.md) (Higgins et al. 2017) showed that upweighting the KL term (β > 1) pressures individual latent dimensions to align with independent generative factors (position, scale, rotation…), at the cost of reconstruction fidelity — the canonical demonstration that *latent structure* is a tunable property, distinct from reconstruction quality.
+
 ### As an action distribution
 - **[VQ-BeT](../../entities/vq-bet.md)** uses a *vector-quantized* latent space — a learned **codebook** of discrete action tokens. The policy emits codebook indices, which decode back to continuous actions. This is the top performer in the [RUM](../../entities/robot-utility-models.md) ablation.
 
@@ -54,6 +58,10 @@ A **learned latent space** is the network's own internal coordinate system for "
 
 ## Mentioned in
 
+- [VAE Paper](../../sources/vae-paper.md)
+- [Stochastic Backpropagation Paper](../../sources/stochastic-backpropagation-paper.md)
+- [β-VAE Paper](../../sources/beta-vae-paper.md)
+- [Wake-Sleep Paper](../../sources/wake-sleep-paper.md)
 - [V-JEPA 2 Paper](../../sources/v-jepa-2-paper.md)
 - [V-JEPA 2.1 Paper](../../sources/v-jepa-2-1-paper.md)
 - [LeWorldModel Paper](../../sources/leworldmodel-paper.md)

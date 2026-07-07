@@ -32,7 +32,7 @@ tags: [act, action-chunking, transformer, imitation-learning, behavior-cloning, 
 
 ## Open questions
 
-- The original 2023 ACT paper is **not yet ingested** in this wiki — the wiki's view of ACT comes via the Mobile ALOHA paper (which uses it as a baseline and describes its mechanics in passing) plus the [LeRobot tutorial](../sources/lerobot-robot-learning-tutorial.md) and references on [chelsea-finn.md](chelsea-finn.md) and [imitation-learning.md](../concepts/learning/imitation-learning.md). A direct ACT paper ingest would refine architectural details (encoder depth, action-chunk length k, training tricks, the VAE-style action distribution model).
+- The original 2023 ACT paper is **not yet ingested** in this wiki — the wiki's view of ACT comes via the Mobile ALOHA paper (which uses it as a baseline and describes its mechanics in passing) plus the [LeRobot tutorial](../sources/lerobot-robot-learning-tutorial.md) and references on [chelsea-finn.md](chelsea-finn.md) and [imitation-learning.md](../concepts/learning/imitation-learning.md). A direct ACT paper ingest would refine architectural details (encoder depth, action-chunk length k, training tricks, the [VAE](../concepts/learning/variational-autoencoder.md)-style action distribution model — a conditional VAE, whose substrate paper is now ingested as the [VAE Paper](../sources/vae-paper.md)).
 - **Multi-task / language-conditioned ACT** — the wiki has no coverage of multi-task extensions; the published 2023/2024 work is single-task.
 
 ## Related

@@ -52,6 +52,7 @@ Otherwise the training/sampling structure is identical, including the iDDPM nois
 
 ## Related
 
+- [Variational autoencoder](../concepts/learning/variational-autoencoder.md) — upstream: DDPM's training objective is a weighted variational bound, the ELBO machinery introduced by the [VAE Paper](../sources/vae-paper.md); a diffusion model can be read as a hierarchical VAE with a fixed encoder.
 - [Diffusion Policy](diffusion-policy.md) — direct robotics adaptation.
 - [NVIDIA Cosmos](nvidia-cosmos.md) / [Genie Envisioner](genie-envisioner.md) — generative-video world models built on diffusion.
 - [JEPA](../concepts/world-models/jepa.md) — predict-in-latent-space alternative; positioned as a JEPA-vs-pixel-diffusion debate.

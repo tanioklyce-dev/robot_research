@@ -325,7 +325,7 @@ NN architecture ([Vaswani et al., *Attention Is All You Need*, NeurIPS 2017](sou
 Robot description formats — XML-based ([URDF](concepts/world-models/world-model-simulators.md) for ROS, MJCF for [MuJoCo](entities/mujoco.md)) and scene-description ([USD / OpenUSD](entities/openusd.md) for NVIDIA Omniverse). *(Module 13.)*
 
 ### VAE
-**Variational Autoencoder** — Kingma & Welling 2013; AE with a probabilistic latent space and KL regularization. *(Module 5.)*
+**Variational Autoencoder** — Kingma & Welling 2013 ([source page](sources/vae-paper.md), [concept page](concepts/learning/variational-autoencoder.md)); AE with a probabilistic latent space and KL regularization. *(Module 5.)*
 
 ### VICReg
 **Variance-Invariance-Covariance Regularization** — Bardes, Ponce, LeCun 2022; non-contrastive SSL that prevents collapse via variance and covariance penalties. Same author family as JEPA / SIGReg. *(Module 4.)*
