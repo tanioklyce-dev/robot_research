@@ -2417,3 +2417,8 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - Flagged `> [!warning]` contradiction: README's GA date (2026-04-18) predates the wiki's 07-04 ingest that recorded "EA" — GA labeling possibly retroactive
 - Updated [NVIDIA GR00T](entities/nvidia-groot.md) (version table + N1.7 bullet + EA/GA timeline caveat) and index entry
 - Open: no N1.7 research page/paper for the capacity expansion; "RoboLab" benchmark unidentified
+## [2026-07-07] ingest | ZeroMQ official website (zeromq.org)
+- Created [ZeroMQ — official website](sources/zeromq-org.md) — brokerless messaging library homepage: transports (inproc/IPC/TCP/UDP/TIPC/multicast/WebSocket), patterns (pub-sub/push-pull/req-rep), async I/O, adopters (Jupyter/Bitcoin/Spotify); homepage carries no version/license (noted)
+- New entity: [ZeroMQ](entities/zeromq.md) — includes the wiki's **robot-transport map** (DDS ↔ ROS 2 intra-robot; gRPC ↔ LeRobot async inference; ZMQ ↔ Isaac-GR00T policy server) with the observation that both GR00T and LeRobot bypass DDS for the latency-sensitive robot↔GPU-policy hop
+- Updated [Isaac-GR00T GitHub](sources/isaac-gr00t-github.md) (ZMQ mention now links the entity), index (Tools section + chronological sources)
+- Open: which ZMQ pattern GR00T's service uses (REQ/REP vs DEALER/ROUTER); libzmq version/license unverified from a wiki source
