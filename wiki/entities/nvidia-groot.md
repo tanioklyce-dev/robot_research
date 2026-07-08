@@ -3,8 +3,8 @@ title: NVIDIA GR00T
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-07-04
-sources: 19
+updated: 2026-07-07
+sources: 20
 tags: [groot, vla, nvidia, foundation-model, humanoid]
 ---
 
@@ -19,7 +19,7 @@ A clear ~quarterly cadence, with a **backbone progression Eagle → Cosmos-2B �
 | **N1** | 2025-03 | [Eagle](eagle-vlm.md)-2 (SmolLM2 + SigLIP-2) | dual-system VLA + data pyramid; VLM **unfrozen** | `nvidia/GR00T-N1-2B` |
 | **N1.5** | 2025-06-11 | [Eagle](eagle-vlm.md) 2.5 | VLM **frozen** + [FLARE](../concepts/world-models/flare.md) loss; huge language-following gains | `nvidia/GR00T-N1.5-3B` |
 | **N1.6** | 2025-12-15 | Cosmos-2B variant | reasoning-integrated backbone; DiT 16→32 layers; state-relative actions | `nvidia/GR00T-N1.6-3B` |
-| **N1.7 EA** | current | Cosmos-Reason2-2B (Qwen3-VL) | 20K-hr EgoScale human video; shared relative-EEF action space | `nvidia/GR00T-N1.7-3B` |
+| **N1.7** | EA → **GA in LeRobot 2026-07-07** | Cosmos-Reason2-2B (Qwen3-VL) | 20K-hr EgoScale human video; shared relative-EEF action space; native [LeRobot](lerobot.md) integration; **N1.5 dropped** | `nvidia/GR00T-N1.7-3B` |
 
 - **N1** — **GR00T N1: An Open Foundation Model for Generalist Humanoid Robots** ([arXiv 2503.14734](https://arxiv.org/abs/2503.14734)); full paper ingested — see [GR00T N1 Paper](../sources/groot-n1-paper.md). ~50 contributors; research leads [Jim Fan](jim-fan.md) + [Yuke Zhu](yuke-zhu.md).
 - **N1.5** ([research page](../sources/groot-n1_5.md)) — **frozen** [Eagle 2.5](eagle-vlm.md) VLM + simplified adapter + **[FLARE](../concepts/world-models/flare.md)** (Future LAtent REpresentation Alignment) loss (coef 0.2) + [DreamGen](dreamgen.md) neural trajectories. **Real GR-1 language-following 46.6% → 93.3%, success 43.3% → 83.0%**; RoboCasa 30-demo 17.4 → 47.5; [Unitree G1](unitree-g1.md) seen-objects 44.0% → **98.8%** (first strong non-GR-1 humanoid result). Won both sites of the October 2025 Seeed × NVIDIA × HF Embodied AI Hackathon (fine-tuned via [NVIDIA Brev](nvidia-brev.md); deployed on [Jetson Thor](jetson-thor.md)).
@@ -28,6 +28,10 @@ A clear ~quarterly cadence, with a **backbone progression Eagle → Cosmos-2B �
 
 > [!note] Version overlap resolved
 > The earlier "N1.6 vs N1.7 EA in parallel" ambiguity is a normal GA-plus-EA pattern: N1.6 (Dec 2025, Cosmos-2B) is the last stable release; N1.7 EA (Cosmos-Reason2-2B) is the current early-access default in the [Isaac-GR00T repo](../sources/isaac-gr00t-github.md), with N1.5/N1.6 on release branches.
+
+### N1.7 GA in LeRobot (2026-07-07)
+
+The [NVIDIA HF blog](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) graduates N1.7 to general availability **inside [LeRobot](lerobot.md)** (`--policy.type=groot`, base `nvidia/GR00T-N1.7-3B`), branding it "the latest open, commercially viable VLA foundation model" and stating **N1.5 is no longer supported**. LeRobot and the [Isaac-GR00T](../sources/isaac-gr00t-github.md) open-source path use **identical weights**; post-training requires **LeRobot Dataset v3.0** (a step past the "flavor of LeRobot v2" the repo consumed). **First published N1.7 benchmark numbers** — [LIBERO](libero.md) avg **96.5% vs 87%** for GR00T 1.5 (Spatial 95 vs 82, Object 100 vs 99, Goal 98 vs n/a, Long 93 vs 82; NVIDIA-reported self-comparison), with per-suite fine-tuned checkpoints released (`nvidia/gr00t17-lerobot-libero_*-640`). The reference fine-tune recipe targets the **$100-class [SO-101](so-arm101.md)** (relative actions excluding gripper, chunk 16, bf16, 20k steps, batch 64), with demonstrations collected via the new [Isaac Teleop](nvidia-isaac-teleop.md) framework (leader arm or XR headset) — the first-party version of the GR00T-on-affordable-LeRobot-hardware pattern the [Seeed hackathon champions](../sources/seeed-embodied-ai-hackathon-2025-recap.md) improvised with N1.5.
 
 ## Codebase — [Isaac-GR00T](../sources/isaac-gr00t-github.md)
 Apache-2.0 code (weights under NVIDIA Open Model License), ~7.5k★. LeRobot-v2 data format + `modality.json`; **embodiment tags** (`LIBERO_PANDA`, `OXE_DROID_…`, `UNITREE_G1_SONIC`, `NEW_EMBODIMENT`) drive cross-embodiment fine-tuning. Inference 16 GB+ VRAM, fine-tune 40 GB+; runs on [Jetson Thor](jetson-thor.md) / [Orin](jetson-orin-nano.md) / [DGX Spark](dgx-spark.md). PyTorch 2.7 + flash-attn 2.7.4 + `uv`.
@@ -53,6 +57,7 @@ Apache-2.0 code (weights under NVIDIA Open Model License), ~7.5k★. LeRobot-v2 
 - [GR00T N1.5 research page](../sources/groot-n1_5.md) — frozen VLM + FLARE
 - [GR00T N1.6 research page](../sources/groot-n1_6.md) — Cosmos-2B backbone + state-relative actions
 - [Isaac-GR00T GitHub](../sources/isaac-gr00t-github.md) — the official codebase (N1.7 EA default)
+- [NVIDIA Isaac Teleop and GR00T 1.7 in LeRobot (HF blog)](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) — N1.7 GA in LeRobot; LIBERO numbers; N1.5 deprecation
 - [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)
 - [Top 10 Physical AI Models 2026](../sources/top-10-physical-ai-models-2026.md)
 - [AGIBOT Genie Sim 3.0 Announcement](../sources/agibot-genie-sim-3-announcement.md)

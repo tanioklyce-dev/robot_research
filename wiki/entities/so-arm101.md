@@ -3,8 +3,8 @@ title: SO-ARM101 (SO-ARM100 lineage)
 type: entity
 subtype: robot
 created: 2026-05-10
-updated: 2026-05-28
-sources: 11
+updated: 2026-07-07
+sources: 12
 tags: [so-arm, so-arm100, so-arm101, the-robot-studio, low-cost-arm, open-source, lerobot, leader-follower, teleoperation]
 ---
 
@@ -52,6 +52,7 @@ The leader-follower convention is the dominant data-collection pattern for imita
 
 ## Mentioned in
 
+- [NVIDIA Isaac Teleop and GR00T 1.7 in LeRobot (HF blog)](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) — the reference platform for NVIDIA's first-party [GR00T](nvidia-groot.md) 1.7 fine-tune walkthrough (50-episode teleop → 20k-step fine-tune → rollout), incl. XR-headset teleop via [Isaac Teleop](nvidia-isaac-teleop.md).
 - [XLeRobot Documentation](../sources/xlerobot-docs.md)
 - [Seeed Studio LeRobot LeKiwi Wiki](../sources/seeed-lekiwi-wiki.md)
 - [LeKiwi GitHub](../sources/lekiwi-github.md)

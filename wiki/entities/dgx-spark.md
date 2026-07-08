@@ -3,8 +3,8 @@ title: NVIDIA DGX Spark
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-07-04
-sources: 5
+updated: 2026-07-07
+sources: 6
 tags: [dgx-spark, gb10, grace-blackwell, workstation, unified-memory, physical-ai]
 ---
 
@@ -60,7 +60,7 @@ See [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.m
 
 ## Software stack
 
-DGX Spark runs **DGX OS** (Ubuntu-derived) with the full NVIDIA AI stack: CUDA, cuDNN, TensorRT, NIM, Triton, NeMo, BioNeMo, Omniverse / Isaac Sim / Isaac Lab. Because the underlying GB10 is ARM64, software needs ARM-compatible builds — most NVIDIA-shipped containers are already multi-arch.
+DGX Spark runs **DGX OS** (Ubuntu-derived) with the full NVIDIA AI stack: CUDA, cuDNN, TensorRT, NIM, Triton, NeMo, BioNeMo, Omniverse / Isaac Sim / Isaac Lab. Because the underlying GB10 is ARM64, software needs ARM-compatible builds — most NVIDIA-shipped containers are already multi-arch. For PyTorch workflows on the CUDA-13 stack, NVIDIA's [GR00T-in-LeRobot recipe](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) pins `torch==2.11.0+cu130` / `torchvision==0.26.0+cu13` from the cu130 wheel index — the concrete "Spark needs its own torch wheels" gotcha for [LeRobot](lerobot.md)/GR00T fine-tuning.
 
 ## Comparison to Jetson Thor at a glance
 
@@ -97,3 +97,4 @@ Note: Thor's FP4-sparse headline is **about 2× higher** than DGX Spark's — th
 - [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.md)
 - [NVIDIA DGX Spark Hardware Overview](../sources/nvidia-dgx-spark-hardware-overview.md)
 - [Isaac Sim and Isaac Lab on NVIDIA Jetson AGX Thor](../sources/rs-designspark-isaac-sim-on-thor.md)
+- [NVIDIA Isaac Teleop and GR00T 1.7 in LeRobot (HF blog)](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) — CUDA-13 torch pin for Spark users.
