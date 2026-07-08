@@ -41,4 +41,4 @@ Official homepage of **[ZeroMQ](../entities/zeromq.md)** (ØMQ / 0MQ / zmq) — 
 ## Open questions / TBD
 
 - Current libzmq version and license text — homepage carries neither; the GitHub repo would settle both.
-- Which ZMQ pattern and transport Isaac-GR00T's service actually uses (REQ/REP vs DEALER/ROUTER; TCP presumably) — not documented in the [repo README ingest](isaac-gr00t-github.md).
+- ~~Which ZMQ pattern and transport Isaac-GR00T's service actually uses (REQ/REP vs DEALER/ROUTER; TCP presumably) — not documented in the [repo README ingest](isaac-gr00t-github.md).~~ **Resolved 2026-07-07 from repo code**: REQ/REP over TCP port 5555, msgpack-numpy — details on the [Isaac-GR00T source page](isaac-gr00t-github.md) and [ZeroMQ entity](../entities/zeromq.md).

@@ -2422,3 +2422,7 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - New entity: [ZeroMQ](entities/zeromq.md) — includes the wiki's **robot-transport map** (DDS ↔ ROS 2 intra-robot; gRPC ↔ LeRobot async inference; ZMQ ↔ Isaac-GR00T policy server) with the observation that both GR00T and LeRobot bypass DDS for the latency-sensitive robot↔GPU-policy hop
 - Updated [Isaac-GR00T GitHub](sources/isaac-gr00t-github.md) (ZMQ mention now links the entity), index (Tools section + chronological sources)
 - Open: which ZMQ pattern GR00T's service uses (REQ/REP vs DEALER/ROUTER); libzmq version/license unverified from a wiki source
+## [2026-07-07] update | GR00T ZMQ pattern resolved from repo code
+- Resolved the open question from the [ZeroMQ ingest](sources/zeromq-org.md): Isaac-GR00T's inference service (`gr00t/policy/server_client.py`, checked against NVIDIA/Isaac-GR00T `main`) uses **synchronous REQ/REP over TCP, default port 5555**, msgpack-numpy serialization with a hard `allow_pickle=False` boundary, 15 s send/recv timeouts, client socket re-init on `zmq.error.Again` (REQ sockets invalidate after a failed receive)
+- Updated [ZeroMQ](entities/zeromq.md) (GR00T bullet + open question struck), [Isaac-GR00T GitHub](sources/isaac-gr00t-github.md) (inference-service line now carries the code-level detail), [zeromq.org source](sources/zeromq-org.md) (open question struck)
+- Still open: libzmq version/license unverified from a wiki source

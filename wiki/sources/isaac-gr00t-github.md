@@ -33,7 +33,7 @@ The official open-source codebase for the [GR00T](../entities/nvidia-groot.md) V
 
 ### Architecture & components
 - "combination of vision-language foundation model and diffusion transformer head that denoises continuous actions."
-- Inference service: [ZeroMQ](../entities/zeromq.md) server/client; PyTorch-eager / TensorRT / ONNX inference modes; `torchcodec` as the sole video-decoding backend (**FFmpeg 4–7 only; FFmpeg 8 unsupported**).
+- Inference service: [ZeroMQ](../entities/zeromq.md) server/client — per repo code (`gr00t/policy/server_client.py`, checked 2026-07-07; not in the README): **REQ/REP over TCP, default port 5555**, msgpack-numpy serialization (`allow_pickle=False`), 15 s send/recv timeouts with client socket re-init on timeout; PyTorch-eager / TensorRT / ONNX inference modes; `torchcodec` as the sole video-decoding backend (**FFmpeg 4–7 only; FFmpeg 8 unsupported**).
 - The `nvidia/Cosmos-Reason2-2B` backbone is a **gated HF model** — HF authentication required at install; repo clones with `--recurse-submodules` + Git LFS for parquet demo data.
 
 ### Platform / dependency matrix (updated at GA)
