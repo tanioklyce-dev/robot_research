@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-07-08
 updated: 2026-07-08
-sources: 4
+sources: 5
 tags: [russ-tedrake, mit, csail, tri, lbm, drake, underactuated-robotics, locomotion, manipulation, physical-ai]
 ---
 
@@ -18,7 +18,7 @@ MIT roboticist and industry research leader — **Toyota Professor at MIT** (EEC
 - **Formative path** ([podcast](../sources/automated-podcast-tedrake-rocket-ship.md)): Detroit-area childhood (GM father); Ford Wayne Assembly paint-shop internship in high school (the fan-shutdown/82 °F walk-off story — his stated first hard lesson in automation-meets-labor); video-game AI with John Laird at Michigan + Microsoft Research summers; MIT Leg Lab basement (Troody, M2) as the gateway to bipeds.
 - **Thesis line**: passive dynamic walkers + RL — the "Toddler" robot **learned to walk in ~20 minutes** (2004), contemporary with Abbeel's helicopters; "RL before it was cool" ([podcast](../sources/automated-podcast-tedrake-rocket-ship.md)).
 - **MIT**: leads the Robot Locomotion Group; led **Team MIT in the DARPA Robotics Challenge**; teaches the canonical **Underactuated Robotics** and **Robot Manipulation** courses/textbooks (live-web facts: [CSAIL](https://www.csail.mit.edu/person/russ-tedrake), [Quest](https://quest.mit.edu/about/people/russ-tedrake)). Multiple MIT teaching awards (2021 Jamieson, 2023 Teaching with Digital Technology, 2024 Distinguished Educator).
-- **TRI**: built the LBM program ("the science of LBMs — the initial scaling laws... at a level a startup wouldn't be motivated to do and academia couldn't resource"); previously VP of Robotics Research — the affiliation on the [UMI paper](../sources/umi-paper.md) and the TRI cohort around [Diffusion Policy](diffusion-policy.md) ([TRI website](../sources/tri-website.md)).
+- **TRI**: built the LBM program ("the science of LBMs — the initial scaling laws... at a level a startup wouldn't be motivated to do and academia couldn't resource"); senior author on the **[TRI LBM paper](../sources/tri-lbm-paper.md)** (82 authors, Science Robotics 2026 — the program's primary source, with Drake as its simulator); previously VP of Robotics Research — the affiliation on the [UMI paper](../sources/umi-paper.md) and the TRI cohort around [Diffusion Policy](diffusion-policy.md) ([TRI website](../sources/tri-website.md)).
 - **Startup (2026, stealth)**: confirmed on the [Automated Podcast](../sources/automated-podcast-tedrake-rocket-ship.md); the name apparently references LBMs ("it's in the company name"); claimed differentiation across data / deployments / operations / business; founding motivation explicitly includes steering physical AI toward **"amplifying, not replacing people."** Advisor to CarbonSix Inc. (live-web fact; separate from the startup).
 
 ## Positions he argues (from ingested sources)
@@ -44,6 +44,7 @@ Open-source **model-based design and simulation/dynamics library** from his MIT 
 ## Mentioned in
 
 - [Automated Podcast — Robotics Is Finally on a Rocket Ship](../sources/automated-podcast-tedrake-rocket-ship.md) — **primary ingest**; career + LBM taxonomy + startup.
+- [TRI LBM paper](../sources/tri-lbm-paper.md) — senior author; the LBM program's primary source (Drake as simulator).
 - [TRI Website](../sources/tri-website.md) — TRI role, cohort.
 - [UMI Paper](../sources/umi-paper.md) — co-author (TRI).
 - [State of Robot Motion Generation 2024](../sources/state-of-robot-motion-generation-2024.md) — GCS (his group) among named classical methods; [Kober RL survey](../sources/kober-rl-robotics-survey-2013.md) — early Tedrake biped RL cited.

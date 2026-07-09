@@ -3,8 +3,8 @@ title: UMI (Universal Manipulation Interface)
 type: entity
 subtype: method
 created: 2026-05-10
-updated: 2026-05-10
-sources: 2
+updated: 2026-07-08
+sources: 3
 tags: [umi, universal-manipulation-interface, hand-held-gripper, in-the-wild-data-collection, diffusion-policy-followon, chi-2024, stanford, columbia, tri]
 ---
 
@@ -66,6 +66,7 @@ From [UMI Project Page](../sources/umi-paper.md):
 - [UMI Project Page](../sources/umi-paper.md) — primary source.
 - [Diffusion Policy](diffusion-policy.md) — predecessor; UMI follows on the same author's earlier work.
 - [Robot Utility Models Paper](../sources/robot-utility-models-paper.md) — Stick-v2 design inspiration.
+- [TRI LBM paper](../sources/tri-lbm-paper.md) — 32 h of UMI data in the LBM pretraining corpus.
 
 ## Open questions / TBD
 

@@ -3,8 +3,8 @@ title: Open X-Embodiment (OXE)
 type: entity
 subtype: dataset
 created: 2026-05-25
-updated: 2026-07-04
-sources: 1
+updated: 2026-07-08
+sources: 2
 tags: [open-x-embodiment, oxe, dataset, cross-embodiment, robot-data, rt-x, levine, finn]
 status: stub
 ---

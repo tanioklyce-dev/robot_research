@@ -3,7 +3,7 @@ title: Large Behavior Models (LBMs)
 type: concept
 created: 2026-07-08
 updated: 2026-07-08
-sources: 3
+sources: 4
 tags: [lbm, large-behavior-model, tri, vla, diffusion-policy, multitask, foundation-model, manipulation]
 ---
 
@@ -13,11 +13,13 @@ tags: [lbm, large-behavior-model, tri, vla, diffusion-policy, multitask, foundat
 
 ## Lineage
 
-"Large behavior models was the **multitask version of [Diffusion Policy](../../entities/diffusion-policy.md)**, in my vernacular" ([Tedrake](../../sources/automated-podcast-tedrake-rocket-ship.md)) — i.e. the LBM program extended the single-task diffusion-policy recipe across a large corpus of simulated and real robot data, with TRI's contribution framed as the **"science of LBMs"**: initial scaling laws and rigorous, statistically-grounded evaluation at an experiment scale neither startups nor academia would fund. The headline empirical finding: **multitask pre-training substantively improves robustness on individual tasks** — capabilities transfer in from other tasks ([podcast](../../sources/automated-podcast-tedrake-rocket-ship.md); primary paper at toyotaresearchinstitute.github.io/lbm1, **not yet ingested**).
+"Large behavior models was the **multitask version of [Diffusion Policy](../../entities/diffusion-policy.md)**, in my vernacular" ([Tedrake](../../sources/automated-podcast-tedrake-rocket-ship.md)) — i.e. the LBM program extended the single-task diffusion-policy recipe across a large corpus of simulated and real robot data, with TRI's contribution framed as the **"science of LBMs"**: initial scaling laws and rigorous, statistically-grounded evaluation at an experiment scale neither startups nor academia would fund.
+
+The [primary paper](../../sources/tri-lbm-paper.md) (82 authors, Science Robotics 2026) delivers exactly that: a **diffusion transformer** (ViT VL encoders + AdaLN denoising head, 16-step/1.6 s action chunks — notably **not a VLA**) pretrained on ~1,695 h of mixed data (bimanual Franka teleop + sim + [UMI](../../entities/umi.md) + Open X-Embodiment), evaluated over 1,800 real + 47,000+ sim rollouts with blind randomized A/B trials and Clopper-Pearson CIs. Findings: **multitask pretraining improves success and robustness and cuts fine-tuning data 3–5×**; scaling is **smooth and predictable** (no discontinuities); **zero-shot is weak** (language steerability); **data-normalization-level choices often dominate architecture changes**. Its methodological warning shot: at 50 rollouts per task, success-rate CIs are **20–30 percentage points wide** — most published robot-learning comparisons are statistically underpowered.
 
 ## Key references
 
-- **TRI LBM paper** ("A Careful Examination of Large Behavior Models…", 2025) — the primary source; still a wanted ingest (flagged since the [TRI website](../../sources/tri-website.md) page). Referenced as a baseline in [RoboCasa365](../../sources/robocasa365-paper.md).
+- **[TRI LBM paper](../../sources/tri-lbm-paper.md)** ("A Careful Examination of Large Behavior Models for Multitask Dexterous Manipulation", arXiv 2025-07 / Science Robotics 2026) — **the primary source** (ingested 2026-07-08). Referenced as a baseline in [RoboCasa365](../../sources/robocasa365-paper.md).
 - [Automated Podcast interview](../../sources/automated-podcast-tedrake-rocket-ship.md) — the definitional/taxonomic source.
 - [Diffusion Policy paper](../../sources/diffusion-policy-paper.md) — the single-task ancestor.
 
@@ -29,10 +31,11 @@ tags: [lbm, large-behavior-model, tri, vla, diffusion-policy, multitask, foundat
 
 ## Current state
 
-The term is TRI-house vocabulary that is escaping into general use (RoboCasa365 uses "large behavior models" for multitask manipulation policies generally; [Tedrake's stealth startup](../../entities/russ-tedrake.md) apparently carries it in its name). In practice the field's public systems are almost all the VLA subtype; the video-backbone alternative Tedrake advocates is so far best evidenced by [Cosmos 3's](../../entities/nvidia-cosmos.md) policy mode topping RoboArena. Whether "LBM" displaces "VLA" as the umbrella term likely depends on his startup's visibility.
+The term is TRI-house vocabulary that is escaping into general use (RoboCasa365 uses "large behavior models" for multitask manipulation policies generally; [Tedrake's stealth startup](../../entities/russ-tedrake.md) apparently carries it in its name). In practice the field's public systems are almost all the VLA subtype — and notably **LBM 1.0 itself is not a VLA** (ViT-encoder diffusion transformer, no VLM backbone — [paper](../../sources/tri-lbm-paper.md)), while the video-backbone alternative Tedrake now advocates is best evidenced by [Cosmos 3's](../../entities/nvidia-cosmos.md) policy mode topping RoboArena. Whether "LBM" displaces "VLA" as the umbrella term likely depends on his startup's visibility.
 
 ## Mentioned in
 
+- [TRI LBM paper](../../sources/tri-lbm-paper.md) — **primary source**.
 - [Automated Podcast — Tedrake](../../sources/automated-podcast-tedrake-rocket-ship.md)
 - [TRI Website](../../sources/tri-website.md)
 - [RoboCasa365 Paper](../../sources/robocasa365-paper.md) — LBM as baseline class.

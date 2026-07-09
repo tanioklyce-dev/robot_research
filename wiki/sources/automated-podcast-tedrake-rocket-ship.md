@@ -59,6 +59,6 @@ A 47-minute career-spanning interview with [Russ Tedrake](../entities/russ-tedra
 ## Open questions
 
 - **The startup**: name (LBM-referencing?), funding, team, product focus; reveal reportedly at Robotics Summit & Expo. Also whether he has left TRI or holds dual roles (his SVP-of-LBMs role at TRI is described in present tense by some sources, past by others).
-- **TRI LBM paper** (toyotaresearchinstitute.github.io/lbm1) — the multitask-robustness and scaling-law claims deserve a primary ingest; flagged since the [TRI website ingest](tri-website.md).
+- ~~**TRI LBM paper** — deserves a primary ingest~~ — **ingested 2026-07-08** ([tri-lbm-paper](tri-lbm-paper.md)); confirms the multitask-robustness and smooth-scaling claims with numbers (3–5× fine-tune data efficiency; 20–30-pt CI width at 50 rollouts).
 - Who exactly coined "large behavior model" at TRI (captions garble the name — "Bill Brad…"; plausibly a TRI colleague).
 - Whether his "video backbone for longer context" position is borne out publicly (cf. [Cosmos 3](../entities/nvidia-cosmos.md) policy mode as the wiki's closest analog).
