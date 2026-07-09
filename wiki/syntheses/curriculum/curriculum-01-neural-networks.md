@@ -329,6 +329,7 @@ If you want a deeper variant: replace MNIST with [CIFAR-10](https://www.cs.toron
 In order of effort:
 
 1. **3Blue1Brown's [Neural Networks series](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)** (YouTube, free) — for visual / intuitive coverage of forward pass + backprop. Most concise way to get the intuitions.
+1. **Karpathy's [Neural Networks: Zero to Hero](../../sources/karpathy-nn-zero-to-hero.md)** (YouTube, free) — lectures 1–5 live-code this module's §1–§5 from scratch (backprop → MLP → train/dev/test hygiene → activation statistics + BatchNorm → manual backprop). The *do-the-work* video companion to this module: lecture 1 builds micrograd (below) on video; lecture 5 is the video form of the Clark notes (below).
 2. **Goodfellow, Bengio, Courville — *[Deep Learning](https://www.deeplearningbook.org/)*** (textbook, free online) — chapters 1–6. Authoritative but verbose. Skim.
 3. **PyTorch's [60-minute blitz](https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html)** — hands-on starter; gets you to a working MLP fast.
 4. **Karpathy's [micrograd](../../sources/karpathy-micrograd.md)** — backprop in ~100 lines of Python; the cleanest "I understand backprop" milestone. ([repo](https://github.com/karpathy/micrograd); wiki source page covers structure, the `Value`-class scalar autograd design, and the demo notebook.)
@@ -367,5 +368,5 @@ Every subsequent module assumes you can read the math in §1–8.
 
 ## Open questions / TBD
 
-- **Karpathy's neural-network-from-scratch lecture series** as a wiki source page — would be the cleanest external reference for this module if filed.
+- ~~**Karpathy's neural-network-from-scratch lecture series** as a wiki source page~~ — **resolved 2026-07-09**: filed as [Neural Networks: Zero to Hero](../../sources/karpathy-nn-zero-to-hero.md); added to the recommended-reading list above.
 - **A "common training pathologies" reference page** — vanishing gradients, exploding gradients, dead ReLU, loss-not-decreasing failure modes — would help readers debug their own experiments.

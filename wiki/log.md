@@ -2499,3 +2499,9 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - Added §0 "How to read the math" notation primer (vectors, matrices, dot products, norms, partial derivatives/gradients, Greek-letter conventions)
 - New explanatory material woven in: why nonlinearity is not optional (linear layers collapse), saturation → vanishing gradients, softmax/logits/NLL unpacked, gradient-descent-as-downhill-steps, Adam's per-parameter adaptive step intuition, what normalization fixes and the BN-vs-LN axis difference, residuals as gradient highway, cosine annealing, epoch/t-SNE definitions in the anchor exercise
 - No factual content, links, or callouts removed; audience note in the header updated (teaches rather than refreshes)
+## [2026-07-09] ingest | Karpathy — Neural Networks: Zero to Hero (lecture series)
+- Created [Neural Networks: Zero to Hero](sources/karpathy-nn-zero-to-hero.md) — 10 videos, ~19.5 h, 2022-08 → 2024-06 (micrograd → makemore ×5 → GPT → State of GPT talk → tokenizer → GPT-2 124M reproduction); metadata verified via yt-dlp; ingested from course page + nn-zero-to-hero repo README (videos not watched)
+- Resolves the open TBD in [Module 1](syntheses/curriculum/curriculum-01-neural-networks.md) and on [Andrej Karpathy](entities/andrej-karpathy.md) (sources 4 → 5)
+- Added to recommended reading: [Module 1](syntheses/curriculum/curriculum-01-neural-networks.md) (lectures 1–5 = video companion to §1–§5) and [Module 3](syntheses/curriculum/curriculum-03-attention-and-transformers.md) (lectures 7/9/10 = build-along GPT path)
+- Cross-linked from [micrograd](sources/karpathy-micrograd.md) (lecture 1 builds it); updated [index](index.md)
+- Open: later Karpathy long-forms ("Intro to LLMs", "Deep Dive into LLMs") are outside this playlist — separate ingest if needed; caption-level ingest of lecture 4 is the candidate feed for the planned "common training pathologies" page

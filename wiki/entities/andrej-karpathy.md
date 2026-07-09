@@ -3,8 +3,8 @@ title: Andrej Karpathy
 type: entity
 subtype: person
 created: 2026-05-14
-updated: 2026-05-14
-sources: 4
+updated: 2026-07-09
+sources: 5
 tags: [person, openai, tesla, education, pedagogy, nanogpt, micrograd, nanochat, autoresearch]
 ---
 
@@ -36,7 +36,7 @@ The progression is structurally coherent: **autograd → architecture → traini
 
 ## Pedagogical influence
 
-Karpathy's [Zero to Hero](https://karpathy.ai/zero-to-hero.html) lecture series + the nano repos are the **most-referenced "how do I actually learn this?" answer** in the curriculum modules. They are not academic papers; they are working code with explanatory framing, which is a much higher pedagogical-value combination than either alone.
+Karpathy's [Neural Networks: Zero to Hero](../sources/karpathy-nn-zero-to-hero.md) lecture series (10 videos, ~19.5 h, 2022–2024: micrograd → makemore ×5 → GPT → tokenizer → GPT-2 reproduction) + the nano repos are the **most-referenced "how do I actually learn this?" answer** in the curriculum modules. They are not academic papers; they are working code with explanatory framing, which is a much higher pedagogical-value combination than either alone.
 
 The repos are also the most direct demonstration that **modern ML capability can be reproduced on accessible compute**: micrograd on a laptop, nanoGPT on a single GPU, nanochat on an 8-GPU node for under $100. This is the same "consumer-hardware reproducibility" thread that the [Onchain AI Garage LeWM reproduction](../sources/onchain-ai-garage-lewm-reproduction.md) sits inside.
 
@@ -45,6 +45,7 @@ The repos are also the most direct demonstration that **modern ML capability can
 - [Anthropic](anthropic.md) — Claude Code is one of the agents commonly used with autoresearch.
 
 ## Mentioned in
+- [Neural Networks: Zero to Hero (Karpathy, 2022–2024)](../sources/karpathy-nn-zero-to-hero.md)
 - [micrograd repo (Karpathy, 2020)](../sources/karpathy-micrograd.md)
 - [nanoGPT repo (Karpathy, 2022)](../sources/karpathy-nanogpt.md)
 - [nanochat repo (Karpathy, 2025)](../sources/karpathy-nanochat.md)
@@ -54,5 +55,5 @@ The repos are also the most direct demonstration that **modern ML capability can
 - [Curriculum Module 3 — Sequence models, attention, transformers](../syntheses/curriculum/curriculum-03-attention-and-transformers.md)
 
 ## Open questions / TBD
-- The [Zero to Hero](https://karpathy.ai/zero-to-hero.html) lecture series is referenced from Module 1's "Open questions" but not yet filed as a wiki source page. Would be the most-referenced single Karpathy artifact alongside the repos.
+- ~~The Zero to Hero lecture series is referenced from Module 1's "Open questions" but not yet filed as a wiki source page.~~ **Resolved 2026-07-09**: filed as [Neural Networks: Zero to Hero](../sources/karpathy-nn-zero-to-hero.md).
 - Karpathy has discussed the autoresearch project in two tweets ([1](https://x.com/karpathy/status/2029701092347630069), [2](https://x.com/karpathy/status/2031135152349524125)) — worth ingesting if the wiki ever needs more context on the design rationale.

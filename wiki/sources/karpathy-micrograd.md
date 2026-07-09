@@ -59,7 +59,7 @@ This repo is the **recommended hands-on exercise for [Curriculum Module 1 — Ne
 - Module 1 §4 (backprop) → matches the local `_backward` closures + the topological-sort walk in `Value.backward()`.
 - Module 1 §6 (SGD) → matches `nn.py`'s `zero_grad` + parameter-by-parameter update loop.
 
-The repo also pairs naturally with Karpathy's **[Zero to Hero](https://karpathy.ai/zero-to-hero.html)** lecture series — the first lecture builds micrograd from scratch on video.
+The repo also pairs naturally with Karpathy's **[Neural Networks: Zero to Hero](karpathy-nn-zero-to-hero.md)** lecture series — the first lecture (2h25m) builds micrograd from scratch on video.
 
 ## Why it has staying power
 
@@ -78,6 +78,7 @@ Most "implement autograd from scratch" tutorials hand-wave the topological sort,
 
 ## Related sources
 
+- [Neural Networks: Zero to Hero](karpathy-nn-zero-to-hero.md) — lecture 1 builds this repo live on video.
 - [karpathy/nanoGPT](karpathy-nanogpt.md) — same author, same minimalism, applied to GPT training.
 - [karpathy/nanochat](karpathy-nanochat.md) — same author, evolved to a full ChatGPT pipeline.
 - [karpathy/autoresearch](karpathy-autoresearch.md) — same author, agent-driven research on nanochat training.
