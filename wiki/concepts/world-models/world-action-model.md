@@ -2,8 +2,8 @@
 title: World-action model (WAM)
 type: concept
 created: 2026-06-02
-updated: 2026-06-02
-sources: 3
+updated: 2026-07-08
+sources: 4
 tags: [world-action-model, wam, world-model, vla, forward-dynamics, inverse-dynamics, policy, cosmos, dreamzero]
 ---
 
@@ -39,6 +39,7 @@ A WAM is therefore a superset of both the "video generator as simulator" ([world
 As of mid-2026 the strongest published WAMs are generative-video / diffusion models (Cosmos 3, the Dream* line, GE-Sim2) — i.e. they live on the **pixel-prediction** side of the [generative-video vs JEPA](../../syntheses/world-models/generative-video-vs-jepa-world-models.md) split. Cosmos 3 is the first to show a WAM's policy mode reaching SOTA on both a sim benchmark (RoboLab) and a real-world crowdsourced benchmark (RoboArena), which is the clearest evidence that the FD+ID+policy unification pays off rather than just adding cost. Whether jointly modeling the visual consequence improves *deployment* robustness over a pure action head, at fixed compute, is not yet isolated.
 
 ## Mentioned in
+- [History-Guided Video Diffusion (DFoT)](../../sources/history-guided-video-diffusion-paper.md) — sampling-time score composition (History Guidance) as a control knob for action-conditioned video models; physical-robot IL result (83%) composing memory + reactivity behaviors never co-present in training data.
 - [Cosmos 3 Technical Report](../../sources/cosmos-3-technical-report.md)
 - [Develop Physical AI with NVIDIA Cosmos 3 (HF blog)](../../sources/nvidia-cosmos-3-hf-blog.md)
 - [AGIBOT Genie Envisioner 2.0 Announcement](../../sources/agibot-genie-envisioner-2-announcement.md)

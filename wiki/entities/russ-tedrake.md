@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-07-08
 updated: 2026-07-08
-sources: 5
+sources: 6
 tags: [russ-tedrake, mit, csail, tri, lbm, drake, underactuated-robotics, locomotion, manipulation, physical-ai]
 ---
 
@@ -20,6 +20,8 @@ MIT roboticist and industry research leader — **Toyota Professor at MIT** (EEC
 - **MIT**: leads the Robot Locomotion Group; led **Team MIT in the DARPA Robotics Challenge**; teaches the canonical **Underactuated Robotics** and **Robot Manipulation** courses/textbooks (live-web facts: [CSAIL](https://www.csail.mit.edu/person/russ-tedrake), [Quest](https://quest.mit.edu/about/people/russ-tedrake)). Multiple MIT teaching awards (2021 Jamieson, 2023 Teaching with Digital Technology, 2024 Distinguished Educator).
 - **TRI**: built the LBM program ("the science of LBMs — the initial scaling laws... at a level a startup wouldn't be motivated to do and academia couldn't resource"); senior author on the **[TRI LBM paper](../sources/tri-lbm-paper.md)** (82 authors, Science Robotics 2026 — the program's primary source, with Drake as its simulator); previously VP of Robotics Research — the affiliation on the [UMI paper](../sources/umi-paper.md) and the TRI cohort around [Diffusion Policy](diffusion-policy.md) ([TRI website](../sources/tri-website.md)).
 - **Startup (2026, stealth)**: confirmed on the [Automated Podcast](../sources/automated-podcast-tedrake-rocket-ship.md); the name apparently references LBMs ("it's in the company name"); claimed differentiation across data / deployments / operations / business; founding motivation explicitly includes steering physical AI toward **"amplifying, not replacing people."** Advisor to CarbonSix Inc. (live-web fact; separate from the startup).
+
+- **MIT video-diffusion line**: senior author (with Vincent Sitzmann) on **[History-Guided Video Diffusion / DFoT](../sources/history-guided-video-diffusion-paper.md)** (ICML 2025) and its ancestor Diffusion Forcing — his group's evidence base for the "video backbones win for long context" position from the [podcast](../sources/automated-podcast-tedrake-rocket-ship.md); includes a physical-robot result (83% on a memory+reactivity task via sampling-time score composition).
 
 ## Positions he argues (from ingested sources)
 
@@ -45,6 +47,7 @@ Open-source **model-based design and simulation/dynamics library** from his MIT 
 
 - [Automated Podcast — Robotics Is Finally on a Rocket Ship](../sources/automated-podcast-tedrake-rocket-ship.md) — **primary ingest**; career + LBM taxonomy + startup.
 - [TRI LBM paper](../sources/tri-lbm-paper.md) — senior author; the LBM program's primary source (Drake as simulator).
+- [History-Guided Video Diffusion (DFoT)](../sources/history-guided-video-diffusion-paper.md) — senior author; MIT-side video-diffusion/world-model line.
 - [TRI Website](../sources/tri-website.md) — TRI role, cohort.
 - [UMI Paper](../sources/umi-paper.md) — co-author (TRI).
 - [State of Robot Motion Generation 2024](../sources/state-of-robot-motion-generation-2024.md) — GCS (his group) among named classical methods; [Kober RL survey](../sources/kober-rl-robotics-survey-2013.md) — early Tedrake biped RL cited.
