@@ -3,8 +3,8 @@ title: Jetson Thor
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-06-03
-sources: 13
+updated: 2026-07-08
+sources: 15
 tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai, jetpack-7, nvfp4, mig]
 ---
 
@@ -89,7 +89,7 @@ Numbers from the [JetPack 7 software-stack reference](../sources/nvidia-jetpack-
 
 | Workload | On Thor? | Notes |
 |---|---|---|
-| VLA / VLM **inference** (GR00T N1.5/N1.6/N1.7, π0, OpenVLA-class) | ✅ Yes | The headline use case. 128 GB + 2,070 FP4 TFLOPS lets multiple models run concurrently. |
+| VLA / VLM **inference** (GR00T N1.5/N1.6/N1.7, π0, OpenVLA-class) | ✅ Yes | The headline use case. 128 GB + 2,070 FP4 TFLOPS lets multiple models run concurrently. Measured: GR00T N1.6 **10.9 Hz** official TensorRT, **22–24 Hz** community-optimized — see below. |
 | ROS 2 perception, sensor fusion, control loops | ✅ Yes | Isaac ROS 4.0 ships GEMs tuned for Thor. |
 | **On-device fine-tuning** of small / quantized VLAs | ✅ Possible | 128 GB memory enables it; not the primary design target. |
 | **Isaac Sim** (full or headless) | ❌ No | RT cores required even headless. Train on [DGX Spark](dgx-spark.md) or RTX workstation, deploy here. |
@@ -97,6 +97,19 @@ Numbers from the [JetPack 7 software-stack reference](../sources/nvidia-jetpack-
 | Omniverse RTX viewports / NuRec | ❌ No | RT-core gated. |
 | LLM **pretraining** of large models | ❌ No | Not the form factor or thermal envelope. |
 | Multi-box **clustered** training | ❌ No | Thor lacks DGX Spark's ConnectX-7 pairing. |
+
+### Measured VLA inference (GR00T / π0.5)
+
+First real numbers (previously an open question on this page). End-to-end, batch 1:
+
+| Model | Path | Latency | Rate | Source |
+|---|---|---|---|---|
+| GR00T N1.6-3B | PyTorch eager | 117 ms | 8.6 Hz | [Isaac GR00T TensorRT docs](../sources/isaac-gr00t-tensorrt-deployment-docs.md) |
+| GR00T N1.6-3B | Official TensorRT (DiT head only, BF16) | 92 ms | **10.9 Hz** | [Isaac GR00T TensorRT docs](../sources/isaac-gr00t-tensorrt-deployment-docs.md) |
+| GR00T N1.6 | Community hand-written CUDA kernels | 41–45 ms | **22–24 Hz** | [NVIDIA forums (May 2026)](../sources/nvidia-forum-thor-realtime-vla-inference.md) |
+| π0.5 | Community hand-written CUDA kernels | 44 ms | 23 Hz | [NVIDIA forums (May 2026)](../sources/nvidia-forum-thor-realtime-vla-inference.md) |
+
+Thor's official TensorRT speedup (1.27×) is the weakest in NVIDIA's own table (desktop GPUs get 1.73–2.14×) and no NVFP4/FP8 GR00T path exists yet — i.e. the official engine is under-tuned for Blackwell-on-Jetson and the community ~23 Hz is the better estimate of Thor's current ceiling. No N1.7-specific numbers published yet (horizon-40 action head may cost more). Cross-platform comparison: [GR00T inference on Jetson](../syntheses/platforms/gr00t-inference-on-jetson.md) (AGX Orin 64 GB manages 5.8 Hz TensorRT; Orin NX 16 GB unbenchmarked and below the 16 GB+ memory floor).
 
 ## Named adopters
 
@@ -123,7 +136,7 @@ See [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.m
 
 ## Open questions
 - T5000 / T4000 module pricing through distribution.
-- Real measured throughput for GR00T N1.5 / N1.7 EA on Thor (latency, concurrent-model count, power).
+- ~~Real measured throughput for GR00T on Thor (latency)~~ — answered 2026-07-08 (N1.6: 10.9 Hz official TRT / 22–24 Hz community; see above). Still open: **N1.7-specific** latency, concurrent-model count, and power draw during inference.
 - JetPack 7.1 timeline (referenced in NVIDIA developer forums; not yet released).
 - Per-MIG-instance performance envelope — JetPack 7 primary sources publish single-Thor numbers only.
 - Whether subsequent Jetson generations will add RT cores or whether NVIDIA's strategy is permanent: simulate-off-Jetson, deploy-on-Jetson.
@@ -140,3 +153,5 @@ See [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.m
 - [AGX Thor Dev Kit — User Guide (landing/index)](../sources/nvidia-jetson-agx-thor-devkit-user-guide-index.md) — doc-set map: Quick Start, BSP/Docker/CUDA/JetPack SDK setup, Hardware Layout, Supported Hardware, Interim Solutions, Troubleshooting.
 - [Jetson Linux Developer Guide — Platform Power and Performance (Jetson Thor, R38.4)](../sources/nvidia-jetson-thor-platform-power-performance.md) — primary source for the T5000/T4000 nvpmodel power modes (70/90/120 W + MAXN), per-mode CPU/GPU caps, and the 168 W system cap vs module TDP distinction.
 - [Cutting the Cord (Shaw et al., 2026)](../sources/cutting-the-cord-untethered-xlerobot.md) — frames Thor's 40–130 W as exceeding a low-cost mobile manipulator's power budget (Orin Nano is the fit).
+- [Isaac GR00T docs — TensorRT optimization](../sources/isaac-gr00t-tensorrt-deployment-docs.md) — first official GR00T-on-Thor latency (92 ms / 10.9 Hz TensorRT, N1.6).
+- [NVIDIA forums — real-time VLA inference on Thor & RTX](../sources/nvidia-forum-thor-realtime-vla-inference.md) — community 22–24 Hz GR00T N1.6 / 23 Hz π0.5 on Thor via custom CUDA kernels.

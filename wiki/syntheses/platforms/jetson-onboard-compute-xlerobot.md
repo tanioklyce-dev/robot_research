@@ -79,6 +79,7 @@ The [paper's on-edge benchmark](../../sources/cutting-the-cord-untethered-xlerob
 - [Anker C300 DC vs C300 vs C1000](anker-portable-power-stations.md) — the power-source side of the same decision.
 - [Jetson Thor Platform Power & Performance (R38.4)](../../sources/nvidia-jetson-thor-platform-power-performance.md) — Thor's nvpmodel caps (why 70 W is reachable).
 - [Jetson Thor vs DGX Spark](jetson-thor-vs-dgx-spark.md) — the train-vs-deploy split for the Thor tier.
+- [GR00T inference on Jetson](gr00t-inference-on-jetson.md) — measured GR00T-3B rates across these same tiers (Thor 10.9–24 Hz, AGX Orin 5.8 Hz, Orin NX unbenchmarked and below the 16 GB memory floor) — the model-side check on this page's "3 B-class VLAs become workable" claims.
 - [VLA models](../../concepts/learning/vla-models.md) — the policies whose edge latency drives this decision.
 - [Seeed Jetson selection guide](../../sources/seeed-jetson-selection-guide.md) — corroborates the four-tier spec ladder; maps modules to buyable reComputer carriers (J30xx → Orin Nano, J40xx → Orin NX, J4012 → Orin NX 16 GB).
 - [Seeed — choosing a Jetson carrier board](../../sources/seeed-jetson-carrier-board-selection.md) — the carrier-board-level decision (module tier → form → priorities); the **Robotics J401** carrier is the robot-oriented match for the Orin NX pick here.

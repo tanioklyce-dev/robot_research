@@ -3,8 +3,8 @@ title: NVIDIA GR00T
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-07-07
-sources: 20
+updated: 2026-07-08
+sources: 22
 tags: [groot, vla, nvidia, foundation-model, humanoid]
 ---
 
@@ -36,6 +36,10 @@ The [NVIDIA HF blog](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) gra
 ## Codebase — [Isaac-GR00T](../sources/isaac-gr00t-github.md)
 Apache-2.0 code (weights under NVIDIA Open Model License), ~7.5k★. LeRobot-v2 data format + `modality.json`; **embodiment tags** (`LIBERO_PANDA`, `OXE_DROID_…`, `UNITREE_G1_SONIC`, `NEW_EMBODIMENT`) drive cross-embodiment fine-tuning. Inference 16 GB+ VRAM, fine-tune 40 GB+; runs on [Jetson Thor](jetson-thor.md) / [Orin](jetson-orin-nano.md) / [DGX Spark](dgx-spark.md). PyTorch 2.7 + flash-attn 2.7.4 + `uv`.
 
+### Inference performance (edge)
+
+First measured latency numbers, from the [official TensorRT deployment docs](../sources/isaac-gr00t-tensorrt-deployment-docs.md) (benchmarks **N1.6-3B** — no N1.7 numbers published yet) and a [community forum report](../sources/nvidia-forum-thor-realtime-vla-inference.md): **[Jetson Thor](jetson-thor.md) 92 ms / 10.9 Hz** official TensorRT (22–24 Hz with community hand-written CUDA kernels), **Jetson AGX Orin 173 ms / 5.8 Hz** TensorRT (300 ms eager), RTX 5090 31 ms / 32.1 Hz. The official recipe compiles only the DiT action head (VLM stays PyTorch eager); BF16 recommended. Orin NX 16 GB is unbenchmarked and sits at the 16 GB memory floor — use the ZMQ policy server off-board instead. Full analysis: [GR00T inference on Jetson](../syntheses/platforms/gr00t-inference-on-jetson.md).
+
 ## N1 architecture & data (from the primary paper)
 
 - **Dual-system VLA** ([GR00T N1 Paper](../sources/groot-n1-paper.md)): Eagle-2 VLM (SmolLM2 + SigLIP-2; System 2, 10 Hz) + flow-matching Diffusion Transformer (System 1, 120 Hz), trained jointly end-to-end. GR00T-N1-2B = 2.2B params (1.34B VLM); 16-action chunk in 63.9 ms on an L40; K=4 Euler steps at inference; VLM features taken from middle layer 12.
@@ -62,6 +66,8 @@ Apache-2.0 code (weights under NVIDIA Open Model License), ~7.5k★. LeRobot-v2 
 - [Top 10 Physical AI Models 2026](../sources/top-10-physical-ai-models-2026.md)
 - [AGIBOT Genie Sim 3.0 Announcement](../sources/agibot-genie-sim-3-announcement.md)
 - [Seeed × NVIDIA × HF Embodied AI Hackathon 2025 Recap](../sources/seeed-embodied-ai-hackathon-2025-recap.md)
+- [Isaac GR00T docs — TensorRT optimization](../sources/isaac-gr00t-tensorrt-deployment-docs.md) — official edge-inference latency (Thor 10.9 Hz, AGX Orin 5.8 Hz; N1.6)
+- [NVIDIA forums — real-time VLA inference on Thor & RTX](../sources/nvidia-forum-thor-realtime-vla-inference.md) — community 22–24 Hz on Thor
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md)
 - [EgoScale Paper](../sources/egoscale-paper.md)
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)
