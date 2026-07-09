@@ -3,8 +3,8 @@ title: Dreamer / DreamerV3
 type: entity
 subtype: method
 created: 2026-05-10
-updated: 2026-05-10
-sources: 4
+updated: 2026-07-09
+sources: 6
 tags: [dreamer, dreamer-v3, world-model, model-based-rl, mbrl, hafner, generative-wm]
 ---
 
@@ -45,10 +45,17 @@ tags: [dreamer, dreamer-v3, world-model, model-based-rl, mbrl, hafner, generativ
 - [LeWorldModel](leworldmodel.md) — JEPA-style end-to-end latent WM baseline-vs-Dreamer in the LeWM paper.
 - [World model](../concepts/world-models/world-model.md) — umbrella concept.
 
+## Downstream (2025–26 ingests)
+
+- **[S5WM](../sources/s5wm-paper.md)** (UZH RPG, 2025) — replaces the RSSM with a parallelizable **S5 state-space model**: up to 10× faster WM training / 4× overall at equal sample efficiency; flown on real racing quadrotors. Attacks the *wall-clock* cost of the Dreamer recipe.
+- **[EAWM / EADream](../sources/eawm-paper.md)** (ICLR 2026) — adds an **event-segmentation prediction objective** on top of Dreamer-class backbones: +10–45% across Atari 100K / Craftax / DMC(-GB2), SOTA. Attacks the *representation objective* (events, not pixels).
+
 ## Mentioned in
 
 - [DreamerV3 Paper](../sources/dreamer-v3-paper.md)
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md) (as a baseline)
+- [S5WM paper](../sources/s5wm-paper.md) — RSSM→SSM swap
+- [EAWM paper](../sources/eawm-paper.md) — event-aware objective on Dreamer backbones
 
 ## Open questions / TBD
 

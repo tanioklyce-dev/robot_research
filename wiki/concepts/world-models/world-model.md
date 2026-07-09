@@ -2,8 +2,8 @@
 title: World model
 type: concept
 created: 2026-05-07
-updated: 2026-07-06
-sources: 21
+updated: 2026-07-09
+sources: 23
 tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video, omnimodal, world-action-model]
 ---
 
@@ -32,7 +32,7 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 - **JEPA / latent-prediction**: predict the *representation* of the next state, not pixels. End-to-end examples: [V-JEPA 2](../../entities/v-jepa-2.md), [LeWorldModel](../../entities/leworldmodel.md), [PLDM](../../entities/pldm.md); frozen-feature variants ([DINO-WM](../../entities/dino-wm.md), [JEPA-WMs](../../entities/jepa-wms.md)) are listed below. ~100× cheaper than pixel-prediction; harder to inspect; LeWM reports up to 48× faster planning than foundation-model-based world models.
 - **Frozen-foundation-feature world models**: use [DINOv2](../../entities/dinov2.md) (or similar) as a frozen encoder; learn only a predictor on top. Examples: [DINO-WM](../../entities/dino-wm.md), [DINO-world](../../entities/dino-world.md), [JEPA-WMs](../../entities/jepa-wms.md) (likely). Trades off representation quality for training simplicity.
 - **Reward-conditioned model-based RL**: predict in a latent space optimized for reward and/or value prediction. Two flavors now filed:
-    - **Generative-WM MBRL**: [Dreamer / DreamerV3](../../entities/dreamer.md) ([source](../../sources/dreamer-v3-paper.md)) — pixel/state reconstruction + actor-critic trained "in imagination."
+    - **Generative-WM MBRL**: [Dreamer / DreamerV3](../../entities/dreamer.md) ([source](../../sources/dreamer-v3-paper.md)) — pixel/state reconstruction + actor-critic trained "in imagination." Two 2025–26 refinement axes now ingested: **backbone wall-clock** ([S5WM](../../sources/s5wm-paper.md): RSSM→S5, 4× faster, real quadrotors) and **prediction objective** ([EAWM](../../sources/eawm-paper.md): event segmentation instead of raw frames, +10–45%, ICLR 2026 SOTA).
     - **Decoder-free MBRL**: [TD-MPC / TD-MPC2](../../entities/td-mpc.md) ([source](../../sources/td-mpc2-paper.md)) — implicit latent dynamics + local MPC + TD-bootstrapped value. Architecturally adjacent to JEPA.
   Both cited as baselines in [LeWM](../../sources/leworldmodel-paper.md).
 

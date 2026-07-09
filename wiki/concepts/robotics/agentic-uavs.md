@@ -2,8 +2,8 @@
 title: Agentic UAVs
 type: concept
 created: 2026-05-09
-updated: 2026-07-04
-sources: 7
+updated: 2026-07-09
+sources: 8
 tags: [uav, drone, agentic-ai, edge-ai, swarm, swarm-intelligence, autonomous, multi-domain, px4, pixhawk, mavlink]
 ---
 
@@ -74,3 +74,4 @@ The "Control" layer in the four-layer architecture is, in production, almost alw
 - [PX4 Autopilot Documentation (docs.px4.io/main)](../../sources/px4-docs-main.md)
 - [Recent Developments and Applications of Drone Swarm (Raj & Kos, 2026)](../../sources/raj-kos-drone-swarm-review-2026.md) — extends the agentic-UAV frame to the swarm level; see [swarm intelligence](swarm-intelligence.md).
 - [Taking Flight with Dialogue (Lim et al. 2025)](../../sources/taking-flight-with-dialogue-px4-drone-agent.md) — concrete open-source onboard instance (PX4 + ROS 2 + Ollama + Jetson Orin Nano).
+- [S5WM paper](../../sources/s5wm-paper.md) — MBRL (Dreamer-family, SSM-accelerated) reaching **real agile quadrotor flight / drone racing** (UZH RPG); the learning-side counterpart to this page's mostly agent/autonomy-stack coverage.
