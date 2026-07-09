@@ -3,8 +3,8 @@ title: Hugging Face
 type: entity
 subtype: organization
 created: 2026-05-10
-updated: 2026-05-15
-sources: 11
+updated: 2026-07-08
+sources: 12
 tags: [hugging-face, foundation-models, open-source, lerobot, robotics, ml-platform]
 ---
 
@@ -22,7 +22,7 @@ tags: [hugging-face, foundation-models, open-source, lerobot, robotics, ml-platf
 ## Robotics-adjacent people
 
 - [Remi Cadene](remi-cadene.md) — LeRobot lead.
-- Thomas Wolf — co-founder of HF; co-organizer of the [LeRobot Worldwide Hackathon 2025](lerobot-worldwide-hackathon-2025.md).
+- Thomas Wolf — co-founder & chief science officer; co-organizer of the [LeRobot Worldwide Hackathon 2025](lerobot-worldwide-hackathon-2025.md); voice of the open-source framing in the [NVIDIA partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md).
 - Marine Caous (`maringetxway`) — hackathon curator; maintains the `all-winners` dataset.
 
 ## Related
@@ -38,4 +38,5 @@ tags: [hugging-face, foundation-models, open-source, lerobot, robotics, ml-platf
 - [LeKiwi GitHub](../sources/lekiwi-github.md)
 - [XLeRobot Documentation](../sources/xlerobot-docs.md)
 - [LeRobot Worldwide Hackathon 2025 — All Winners](../sources/lerobot-worldwide-hackathon-2025-winners.md)
+- [NVIDIA + HF LeRobot partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md) — "16 million AI builders"; five-part NVIDIA integration into LeRobot.
 - (Plus indirect references across many model-checkpoint-bearing sources)

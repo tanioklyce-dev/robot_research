@@ -3,8 +3,8 @@ title: NVIDIA Cosmos
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-07-04
-sources: 14
+updated: 2026-07-08
+sources: 15
 tags: [cosmos, world-model, omnimodal, mixture-of-transformers, world-action-model, video-generation, nvidia, foundation-model]
 ---
 
@@ -18,6 +18,7 @@ The major release that subsumes the earlier separate Cosmos-Predict / Cosmos-Rea
 - **Variants**: Cosmos3-Edge (4B, deferred), **Cosmos3-Nano (16B)**, **Cosmos3-Super (64B)** — Nano/Super released under **OpenMDW-1.1** with code, checkpoints, SDG datasets, and the Cosmos-HUE benchmark.
 - **Headline results**: **#1 open-weight Text-to-Image and Image-to-Video** (Artificial Analysis, 2026-05-28); **#1 policy model on RoboArena** real-world leaderboard (2026-05-30); Cosmos3-Nano-Policy-DROID beats π0.5 on RoboLab-120 (39.7% vs 28.1% under specific instructions). SOTA reasoning in robotics/smart-infra/driving among open + most closed baselines (trails Gemini 3.1 Pro on general + robotics).
 - **Central method claim**: **unified action mid-training** across camera / autonomous-vehicle / robot / egocentric embodiments yields a reusable action prior that accelerates adaptation (LIBERO-10 new-embodiment: 24.6% vs 0.0% at 500 post-train iters for mid- vs pre-trained init).
+- **Coming to [LeRobot](lerobot.md) "soon"** ([NVIDIA + HF partnership blog, 2026-07-06](../sources/nvidia-hf-lerobot-open-robotics-blog.md)) — pitched for data generation/augmentation, scenario simulation, and policy development "when real-world data is limited or too expensive"; no date, variant, or integration surface announced.
 
 ## Capabilities (pre-Cosmos-3 line)
 - Generates physically-plausible video rollouts of dynamic scenes.
@@ -42,6 +43,7 @@ Cosmos is the underlying generative video model that's enabling the rise of [Wor
 - [GR00T N1.6 research page](../sources/groot-n1_6.md) — Cosmos-2B VLM backbone
 - [Isaac-GR00T GitHub](../sources/isaac-gr00t-github.md) — Cosmos-Reason2-2B (N1.7 backbone)
 - [Develop Physical AI with NVIDIA Cosmos 3 (HF blog)](../sources/nvidia-cosmos-3-hf-blog.md)
+- [NVIDIA + HF LeRobot partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md) — Cosmos 3 coming to LeRobot "soon" (data gen/augmentation for policy training).
 - [AGIBOT Genie Envisioner 2.0 Announcement](../sources/agibot-genie-envisioner-2-announcement.md)
 - [Top 10 Physical AI Models 2026](../sources/top-10-physical-ai-models-2026.md)
 - [Using OpenUSD for Modular and Scalable Robotic Simulation](../sources/nvidia-openusd-for-robotic-simulation.md)

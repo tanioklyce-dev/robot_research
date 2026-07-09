@@ -3,8 +3,8 @@ title: LeRobot
 type: entity
 subtype: software-framework
 created: 2026-05-10
-updated: 2026-07-07
-sources: 18
+updated: 2026-07-08
+sources: 19
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026]
 ---
 
@@ -101,6 +101,10 @@ ACT runs **~100–200 Hz** on high-end GPUs. **π0 fails to complete inference w
 
 The [LeRobot Worldwide Hackathon 2025](lerobot-worldwide-hackathon-2025.md) (June 14–15, 2025) is the clearest community-scale signal for the framework: **916 registered team members, ~400 submissions, 30 ranked winners, 189 hackathon datasets, 12 hackathon models** ([all-winners HF Space](../sources/lerobot-worldwide-hackathon-2025-winners.md)). The `submissions` dataset alone has 11.3k downloads.
 
+## NVIDIA partnership (July 2026)
+
+The [NVIDIA corporate blog (2026-07-06)](../sources/nvidia-hf-lerobot-open-robotics-blog.md) frames a five-part NVIDIA↔HF integration ("3M robotics developers × 16M AI builders"): (1) **[GR00T](nvidia-groot.md) 1.7 as a native policy** (detailed in the [HF blog](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md)); (2) **[Isaac Teleop](nvidia-isaac-teleop.md)** for demonstration collection; (3) **[Cosmos 3](nvidia-cosmos.md) coming "soon"** for data generation/augmentation; (4) **Isaac Lab-Arena environments registrable in the LeRobot Environment Hub (EnvHub)** to train/evaluate GR00T, π, and [SmolVLA](smolvla.md) — first named sighting of EnvHub as a LeRobot component; (5) **[Jetson Thor](jetson-thor.md) + [Reachy 2](reachy.md)** for VLA deployment on open-source humanoids. NVIDIA also claims the "largest open source physical AI dataset" (15M+ downloads, 350k+ trajectories, 57M grasps — unnamed in the post).
+
 ## Official pedagogical reference
 
 **["Robot Learning: A Tutorial"](../sources/lerobot-robot-learning-tutorial.md)** (Capuano, Pascal, Zouitine, Wolf, Aractingi — Oct 14, 2025; arXiv 2510.12403 + HF Space at https://huggingface.co/spaces/lerobot/robot-learning-tutorial) is the **team-authored canonical tutorial** for the framework — a chapter arc from Classical Robotics through RL and IL to Generalist (VLA) policies, with runnable `lerobot` code examples (ACT, Diffusion Policy, async inference, [π₀](physical-intelligence.md), SmolVLA). 410 likes on the Space at ingest time. This is the recommended single-source onboarding for the framework, complementary to the wiki's own [bottom-up curriculum](../syntheses/curriculum/robot-learning-curriculum.md).
@@ -139,6 +143,7 @@ Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distri
 - [GR00T N1 Paper](../sources/groot-n1-paper.md) — NVIDIA **extends the `LeRobotDataset` format** (`modality.json`, fine-grained state/action semantics, explicit rotation representations) for GR00T's cross-embodiment training corpus.
 - [Isaac-GR00T GitHub](../sources/isaac-gr00t-github.md) — the GR00T codebase consumes "a flavor of the **LeRobot v2** dataset format" + `meta/modality.json`; the concrete fine-tuning data path for all GR00T versions.
 - [NVIDIA Isaac Teleop and GR00T 1.7 in LeRobot (HF blog)](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) — **[GR00T](nvidia-groot.md) 1.7 becomes a native LeRobot policy** (`--policy.type=groot`, identical weights to the open-source path); GR00T post-training requires **LeRobot Dataset v3.0**; surfaces the `lerobot-rollout` CLI with an **RTC (real-time chunking) inference mode**; [Isaac Teleop](nvidia-isaac-teleop.md) plugs XR-headset teleop into the standard record pipeline on [SO-101](so-arm101.md).
+- [NVIDIA + HF LeRobot partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md) — the corporate-blog umbrella: EnvHub/Isaac Lab-Arena, Cosmos 3 coming, Thor + Reachy 2, ecosystem stats.
 - [NVIDIA Jetson AI Lab — HuggingFace LeRobot (archived)](../sources/nvidia-jetson-ai-lab-lerobot.md) — `dustynv/lerobot` containerized Jetson recipe (Koch v1.1 + ACT).
 - [Rosetta GitHub](../sources/rosetta-github.md) — downstream ROS 2 bridge (YAML-contract).
 - [lerobot-ros GitHub](../sources/lerobot-ros-github.md) — downstream ROS 2 bridge (Python sub-class, Jazzy).

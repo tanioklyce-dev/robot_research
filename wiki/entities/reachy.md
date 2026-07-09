@@ -3,8 +3,8 @@ title: Reachy 2
 type: entity
 subtype: robot
 created: 2026-05-09
-updated: 2026-05-28
-sources: 2
+updated: 2026-07-08
+sources: 3
 tags: [reachy, pollen-robotics, open-source, humanoid, embodied-ai, ros2, lerobot]
 ---
 
@@ -47,6 +47,9 @@ Not listed. Contact required.
 
 [LeRobot](lerobot.md) natively supports Reachy 2 as one of its 8 hardware platforms ([ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md), §3.1). Citation is **Mick et al. 2019** — the original "Reachy, a 3D-printed human-like robotic arm" paper from Frontiers in Neurorobotics.
 
+As of the July 2026 NVIDIA↔HF partnership, NVIDIA announced **[Jetson Thor](jetson-thor.md) integration with Reachy 2** "to support deployment of VLA models on open source humanoid robots" ([NVIDIA blog, 2026-07-06](../sources/nvidia-hf-lerobot-open-robotics-blog.md)) — one sentence, no technical detail yet (reference image? LeRobot plugin?), but it makes Reachy 2 the named open-hardware deploy target for the Thor + LeRobot VLA stack. Notable given Reachy 2 shipped **CPU-powered** ([product page](../sources/pollen-robotics-reachy.md)) — Thor would be its first vendor-blessed GPU brain.
+
 ## Mentioned in
 - [Reachy 2 product page](../sources/pollen-robotics-reachy.md)
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — Reachy-2 listed among 8 natively-supported platforms.
+- [NVIDIA + HF LeRobot partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md) — Jetson Thor integration for VLA deployment.

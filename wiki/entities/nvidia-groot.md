@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-06
 updated: 2026-07-08
-sources: 22
+sources: 23
 tags: [groot, vla, nvidia, foundation-model, humanoid]
 ---
 
@@ -62,6 +62,7 @@ First measured latency numbers, from the [official TensorRT deployment docs](../
 - [GR00T N1.6 research page](../sources/groot-n1_6.md) — Cosmos-2B backbone + state-relative actions
 - [Isaac-GR00T GitHub](../sources/isaac-gr00t-github.md) — the official codebase (N1.7 EA default)
 - [NVIDIA Isaac Teleop and GR00T 1.7 in LeRobot (HF blog)](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) — N1.7 GA in LeRobot; LIBERO numbers; N1.5 deprecation
+- [NVIDIA + HF LeRobot partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md) — corporate umbrella; brands 1.7 "the **first** open and commercially viable robot foundation model" (HF blog says "latest")
 - [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)
 - [Top 10 Physical AI Models 2026](../sources/top-10-physical-ai-models-2026.md)
 - [AGIBOT Genie Sim 3.0 Announcement](../sources/agibot-genie-sim-3-announcement.md)

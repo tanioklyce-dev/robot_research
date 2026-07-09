@@ -3,8 +3,8 @@ title: NVIDIA Isaac Lab
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-05-16
-sources: 8
+updated: 2026-07-08
+sources: 9
 tags: [framework, robot-learning, nvidia, isaac-lab, rl]
 ---
 
@@ -13,7 +13,7 @@ Open-source modular framework for robot learning and policy training. Sits on to
 ## Capabilities
 - Pluggable physics backends: PhysX, [Newton](newton-physics-engine.md), NVIDIA Warp, MuJoCo.
 - Massively parallel environment vectorization for RL.
-- Isaac Lab-Arena: open-source policy evaluation framework.
+- Isaac Lab-Arena: open-source policy evaluation framework. As of July 2026, Lab-Arena environments can be **registered in the [LeRobot](lerobot.md) Environment Hub (EnvHub)** to train/evaluate GR00T, π, and SmolVLA policies inside the LeRobot ecosystem ([NVIDIA + HF partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md)).
 - Bundles [NVIDIA GR00T](nvidia-groot.md) reasoning [VLA](../concepts/learning/vla-models.md) (currently N1.6 GA / N1.7 EA).
 
 ## 2026 status
@@ -40,3 +40,4 @@ Isaac Lab inherits Isaac Sim's RT-core requirement: it cannot run on [Jetson Tho
 - [Isaac Sim and Isaac Lab on NVIDIA Jetson AGX Thor](../sources/rs-designspark-isaac-sim-on-thor.md)
 - [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.md)
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md) — Isaac Lab paper (arXiv 2511.04831, Nov 2025) is GEAR-authored.
+- [NVIDIA + HF LeRobot partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md) — Lab-Arena ↔ LeRobot EnvHub registration.

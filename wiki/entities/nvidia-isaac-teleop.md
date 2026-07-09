@@ -3,8 +3,8 @@ title: NVIDIA Isaac Teleop
 type: entity
 subtype: product
 created: 2026-07-07
-updated: 2026-07-07
-sources: 1
+updated: 2026-07-08
+sources: 2
 tags: [isaac-teleop, teleoperation, nvidia, data-collection, xr, vr, cloudxr, lerobot, so-101]
 ---
 
@@ -29,3 +29,4 @@ The wiki's demonstration-collection lineage: leader-arm teleop ([ALOHA](aloha.md
 ## Mentioned in
 
 - [NVIDIA Isaac Teleop and GR00T 1.7 in LeRobot (HF blog)](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) — announcement; primary source.
+- [NVIDIA + HF LeRobot partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md) — the corporate-blog umbrella (2026-07-06, a day earlier); one-line framing as the partnership's data-collection leg. Docs at nvidia.github.io/IsaacTeleop.

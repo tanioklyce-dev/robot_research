@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-16
 updated: 2026-07-08
-sources: 15
+sources: 16
 tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai, jetpack-7, nvfp4, mig]
 ---
 
@@ -117,6 +117,8 @@ From the [NVIDIA Newsroom launch release](../sources/nvidia-jetson-thor-launch-n
 
 In the wiki's own observed deployments, the U.S.-side **SIGRobotics-UIUC matcha-bot** at the October 2025 Seeed × NVIDIA × HF hackathon ran [GR00T N1.5](nvidia-groot.md) on Jetson Thor (fine-tuned upstream via [NVIDIA Brev](nvidia-brev.md)) ([Seeed Embodied AI Hackathon 2025 Recap](../sources/seeed-embodied-ai-hackathon-2025-recap.md)) — the earliest hackathon-scale Thor deployment the wiki tracks.
 
+As of the July 2026 NVIDIA↔HF partnership, Thor is also the announced VLA-deployment brain for **[Reachy 2](reachy.md)**, LeRobot's open-source humanoid ([NVIDIA + HF partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md)) — detail TBD.
+
 ## Position in the NVIDIA AI hardware lineup
 
 - **Thor** — on-robot brain (deploy + inference; sensor-side).
@@ -155,3 +157,4 @@ See [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.m
 - [Cutting the Cord (Shaw et al., 2026)](../sources/cutting-the-cord-untethered-xlerobot.md) — frames Thor's 40–130 W as exceeding a low-cost mobile manipulator's power budget (Orin Nano is the fit).
 - [Isaac GR00T docs — TensorRT optimization](../sources/isaac-gr00t-tensorrt-deployment-docs.md) — first official GR00T-on-Thor latency (92 ms / 10.9 Hz TensorRT, N1.6).
 - [NVIDIA forums — real-time VLA inference on Thor & RTX](../sources/nvidia-forum-thor-realtime-vla-inference.md) — community 22–24 Hz GR00T N1.6 / 23 Hz π0.5 on Thor via custom CUDA kernels.
+- [NVIDIA + HF LeRobot partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md) — Thor + Reachy 2 integration for open-humanoid VLA deployment.
