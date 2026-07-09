@@ -2,8 +2,8 @@
 title: World-model simulators
 type: concept
 created: 2026-05-06
-updated: 2026-07-08
-sources: 15
+updated: 2026-07-09
+sources: 16
 tags: [world-model, generative-simulation, video-generation, jepa, latent-prediction, paradigm-shift]
 ---
 
@@ -57,6 +57,7 @@ Notable systems:
 ## Mentioned in
 - [DreamGen Paper](../../sources/dreamgen-paper.md) — video WM used as a **synthetic data generator** ("neural trajectories") rather than a real-time planner; the data-generation face of this concept.
 - [History-Guided Video Diffusion (DFoT)](../../sources/history-guided-video-diffusion-paper.md) — the rollout-stability datapoint: history-guided sampling stabilizes autoregressive extension to **862 frames from one image** (~54× training clip length), and existing VDMs can be fine-tuned into it at ~12.5% cost — long-horizon stability being the gating requirement for video-as-simulator.
+- [DIAMOND paper](../../sources/diamond-paper.md) — early playable instance: a diffusion WM trained on 87 h of CS:GO becomes an **interactive neural game engine** (Dust II), the research-scale ancestor of the Genie/Cosmos playable-world wave.
 - [AGIBOT Genie Envisioner 2.0 Announcement](../../sources/agibot-genie-envisioner-2-announcement.md)
 - [Genie Envisioner Paper](../../sources/genie-envisioner-paper.md)
 - [V-JEPA 2 Paper](../../sources/v-jepa-2-paper.md)

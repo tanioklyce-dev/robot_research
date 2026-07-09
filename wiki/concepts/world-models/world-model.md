@@ -3,7 +3,7 @@ title: World model
 type: concept
 created: 2026-05-07
 updated: 2026-07-09
-sources: 23
+sources: 29
 tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video, omnimodal, world-action-model]
 ---
 
@@ -82,6 +82,12 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 - [PLDM Paper](../../sources/pldm-paper.md)
 - [DreamDojo Paper](../../sources/dreamdojo-paper.md)
 - [Cosmos 3 Technical Report](../../sources/cosmos-3-technical-report.md)
+- [World Models (Ha & Schmidhuber, 2018)](../../sources/world-models-paper.md) — **the origin source**; V-M-C + learning-in-the-dream
+- [PlaNet paper](../../sources/planet-paper.md) — RSSM origin; planning-vs-imagination fork
+- [MuZero paper](../../sources/muzero-paper.md) — the value-equivalent (plan-only) corner, now sourced
+- [EfficientZero paper](../../sources/efficientzero-paper.md) — Atari-100K sample-efficiency milestone
+- [DayDreamer paper](../../sources/daydreamer-paper.md) — imagination-MBRL on 4 real robots, no simulator
+- [DIAMOND paper](../../sources/diamond-paper.md) — diffusion world model; CS:GO neural game engine
 
 ## Open questions / TBD
-- PlaNet / DreamerV1 / V2 / TD-MPC1 — earlier MBRL milestones; would deepen the family lineage but not strictly required (V3 / TD-MPC2 cover the baseline-citation role).
+- ~~PlaNet / DreamerV1 / V2 / TD-MPC1 — earlier MBRL milestones~~ — PlaNet, [World Models](../../sources/world-models-paper.md), [MuZero](../../sources/muzero-paper.md), [EfficientZero](../../sources/efficientzero-paper.md), [DayDreamer](../../sources/daydreamer-paper.md), [DIAMOND](../../sources/diamond-paper.md) all ingested 2026-07-09; V1/V2 remain covered via the [Dreamer entity](../../entities/dreamer.md) lineage table.

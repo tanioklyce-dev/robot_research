@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-05-10
 updated: 2026-07-09
-sources: 6
+sources: 8
 tags: [dreamer, dreamer-v3, world-model, model-based-rl, mbrl, hafner, generative-wm]
 ---
 
@@ -12,10 +12,11 @@ tags: [dreamer, dreamer-v3, world-model, model-based-rl, mbrl, hafner, generativ
 
 ## Family lineage
 
-- **PlaNet** (Hafner et al. 2019) — recurrent latent dynamics with planning (no actor-critic).
+- **[PlaNet](../sources/planet-paper.md)** (Hafner et al. 2019) — recurrent latent dynamics (RSSM) with CEM planning (no actor-critic); ~200× sample-efficiency vs A3C.
 - **Dreamer / DreamerV1** (Hafner et al. 2020) — actor-critic in imagination on top of PlaNet's RSSM.
 - **DreamerV2** (Hafner et al. 2021) — Atari-class scaling; discrete latent.
 - **DreamerV3** (Hafner et al. 2023) — single-config generality across 150+ tasks; first algorithm to mine Minecraft diamonds without human data or curricula. See [DreamerV3 Paper](../sources/dreamer-v3-paper.md).
+- **[DayDreamer](../sources/daydreamer-paper.md)** (Wu, Escontrela, Hafner et al. 2022) — Dreamer on **4 physical robots, online, no simulator**: A1 quadruped walks in 1 hour from scratch; UR5/XArm visual pick-place. The real-robot existence proof for the family.
 
 ## Key capabilities (DreamerV3)
 
@@ -56,8 +57,10 @@ tags: [dreamer, dreamer-v3, world-model, model-based-rl, mbrl, hafner, generativ
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md) (as a baseline)
 - [S5WM paper](../sources/s5wm-paper.md) — RSSM→SSM swap
 - [EAWM paper](../sources/eawm-paper.md) — event-aware objective on Dreamer backbones
+- [PlaNet paper](../sources/planet-paper.md) — lineage origin
+- [DayDreamer paper](../sources/daydreamer-paper.md) — real-robot deployment
 
 ## Open questions / TBD
 
-- **Author entity page for Danijar Hafner** — would anchor the PlaNet → V1 → V2 → V3 lineage end to end.
-- **PlaNet, Dreamer V1/V2** as separate source pages — useful if the lineage gets curriculum weight, but DreamerV3 alone is sufficient as the baseline reference.
+- ~~Author entity page for Danijar Hafner~~ — created 2026-07-09 ([danijar-hafner](danijar-hafner.md)).
+- ~~PlaNet as separate source page~~ — [ingested 2026-07-09](../sources/planet-paper.md). Dreamer V1/V2 remain lineage-table-only (V3 suffices as baseline reference).

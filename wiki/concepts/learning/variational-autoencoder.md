@@ -2,8 +2,8 @@
 title: Variational autoencoder (VAE)
 type: concept
 created: 2026-07-06
-updated: 2026-07-06
-sources: 9
+updated: 2026-07-09
+sources: 10
 tags: [vae, generative-model, variational-inference, elbo, reparameterization-trick, latent-variable, kingma, foundational]
 ---
 
@@ -51,3 +51,4 @@ As a standalone image generator the VAE is superseded (blurry Gaussian-decoder s
 - [Robot Learning: A Tutorial (LeRobot)](../../sources/lerobot-robot-learning-tutorial.md) — generative-models chapter.
 - [LeRobot ICLR 2026 Paper](../../sources/lerobot-iclr-2026-paper.md) — cites Kingma & Welling 2022 (VAE) in its reference set.
 - [The Elements of Differentiable Programming](../../sources/blondel-roulet-differentiable-programming.md) — reparameterization trick (ch. 12).
+- [World Models (Ha & Schmidhuber, 2018)](../../sources/world-models-paper.md) — the V model: a canonical VAE application (frame compression for a world model).
