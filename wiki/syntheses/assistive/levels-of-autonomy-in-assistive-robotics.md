@@ -17,6 +17,9 @@ What is the right level of autonomy for an assistive robot? The default assumpti
 
 [Nanavati, Ranganeni & Cakmak 2024](../../sources/nanavati2024-physically-assistive-robots-review.md) — the canonical PRISMA review of physically assistive robots (87 papers from 1,981 screened) — identifies **levels of autonomy** as one of three research themes structuring the field, alongside interaction interfaces and adaptation. The review treats autonomy as a *design choice*, not a *target*: different points on the autonomy spectrum suit different tasks, users, and contexts. This is the field-level baseline.
 
+> [!note] Historical precedent — QoLT's "symbiosis" framing (2014)
+> The position predates the empirical record: the [CMU/Pitt QoLT Center](../../entities/cmu-qolt-center.md)'s 2014 annual report states it as institutional doctrine — *"Whereas the goal of traditional robot autonomy is intelligence to function with minimal human involvement, the goal of QoLT symbiosis is for intelligent systems to function in concert with a person"* ([QoLT 2014 annual report](../../sources/qolt-2014-annual-report.md)). The HRI 2020 → Yang 2025 findings below are the empirical vindication of a design stance the assistive field's first big center had already adopted.
+
 ---
 
 ## Three orthogonal axes of "autonomy"
