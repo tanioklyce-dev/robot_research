@@ -3,7 +3,7 @@ title: NVIDIA DGX Spark
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-07-07
+updated: 2026-07-08
 sources: 6
 tags: [dgx-spark, gb10, grace-blackwell, workstation, unified-memory, physical-ai]
 ---
@@ -41,6 +41,7 @@ CPU and GPU share the full 128 GB coherently — no host-to-VRAM staging, no PCI
 - **Robot policy training**: full [Isaac Sim](nvidia-isaac-sim.md) / [Isaac Lab](nvidia-isaac-lab.md) workflows including the RTX-rendered viewport, RL with massive environment vectorization, [GR00T](nvidia-groot.md) fine-tuning. RT cores are the gating capability vs [Jetson Thor](jetson-thor.md) ([Isaac Sim and Isaac Lab on Jetson AGX Thor — RS DesignSpark](../sources/rs-designspark-isaac-sim-on-thor.md)).
 - **Omniverse / NuRec / synthetic data generation** — anything that needs the RTX renderer.
 - **CUDA-X / NIM** development across the same software stack DGX-class data-centre hardware uses.
+- **Off-board VLA policy serving**: hosting [GR00T](nvidia-groot.md) inference for robots too small to run it onboard, via the Isaac-GR00T ZMQ service. Estimated ~90–120 ms per call (Thor-class — Spark shares Thor's 273 GB/s bandwidth, the binding constraint for batch-1 3B inference); no measured number published yet — see [GR00T on Spark over ZMQ to XLeRobot](../syntheses/projects/gr00t-spark-zmq-xlerobot.md).
 
 ## What DGX Spark is **not**
 
@@ -87,6 +88,7 @@ Note: Thor's FP4-sparse headline is **about 2× higher** than DGX Spark's — th
 - [NVIDIA](nvidia.md) — vendor.
 
 ## Open questions
+- Measured GR00T-3B inference latency on Spark (wiki estimate: ~90–120 ms / 8–11 Hz TensorRT BF16, from the bandwidth anchor — [analysis](../syntheses/projects/gr00t-spark-zmq-xlerobot.md)).
 - Real-world Isaac Lab steps-per-second on Spark vs an RTX 5090 vs an H100.
 - 70B fine-tune wall-clock estimates (LoRA vs full).
 - Compatibility status of third-party ARM64-incompatible CUDA tooling.

@@ -56,6 +56,7 @@ The realistic Orin NX pattern is the one the stack is built for anyway: **run GR
 - [Isaac GR00T docs — TensorRT optimization](../../sources/isaac-gr00t-tensorrt-deployment-docs.md) — the official benchmark table (N1.6).
 - [NVIDIA forums — real-time VLA inference on Thor & RTX](../../sources/nvidia-forum-thor-realtime-vla-inference.md) — the 22–24 Hz community result.
 - [Jetson onboard compute for XLeRobot](jetson-onboard-compute-xlerobot.md) — the same four tiers from the power-budget side.
+- [GR00T on DGX Spark over ZMQ to XLeRobot](../projects/gr00t-spark-zmq-xlerobot.md) — the off-board serving path for the Orin NX, quantified (~7–10 Hz wired, ~5–8 Hz Wi-Fi).
 - [Jetson Thor vs DGX Spark](jetson-thor-vs-dgx-spark.md) — where fine-tuning happens.
 - [Cutting the Cord](../../sources/cutting-the-cord-untethered-xlerobot.md) — the Orin *Nano* measured baseline for smaller policies (ACT 27.8 Hz, SmolVLA 1.4 Hz).
 
