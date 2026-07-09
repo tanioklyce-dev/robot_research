@@ -3,13 +3,13 @@ title: Robot safety standards (ISO 13482 and the machinery-safety framework)
 type: concept
 created: 2026-07-08
 updated: 2026-07-08
-sources: 1
+sources: 2
 tags: [iso-13482, iso-10218, ts-15066, safety-standards, certification, ce-marking, service-robots, personal-care-robots, assistive, regulation]
 ---
 
 # Robot safety standards (ISO 13482 and the machinery-safety framework)
 
-The international machinery-safety framework for robots that operate **near untrained people** — centered on **ISO 13482**, the first safety standard (2014) for robots in close contact with the general public. Everything earlier (the ISO 10218 industrial family) assumed a fenced robot or a trained operator. This page is web-researched (2026-07-08, sparked by the [awesome-physical-ai gap analysis](../../sources/awesome-physical-ai-github.md)); no primary standard document has been ingested — ISO standards are paywalled, so claims below rest on ISO's public abstracts/news and secondary sources.
+The international machinery-safety framework for robots that operate **near untrained people** — centered on **ISO 13482**, the first safety standard (2014) for robots in close contact with the general public. Everything earlier (the ISO 10218 industrial family) assumed a fenced robot or a trained operator. This page is web-researched (2026-07-08, sparked by the [awesome-physical-ai gap analysis](../../sources/awesome-physical-ai-github.md)); no primary standard document has been ingested — ISO standards are paywalled, so claims rest on ISO's public abstracts/news, secondary sources, and the ingested [Fosch-Villaronga et al. critique](../../sources/fosch-villaronga-iso13482-exoskeletons.md) (which quotes the standard's clauses directly).
 
 ## ISO 13482 in brief
 
@@ -33,7 +33,11 @@ CE marking is the commercial lever: **EN ISO 13482 is harmonized** under the EU 
 - **CYBERDYNE HAL exoskeleton** (Tsukuba, JP) — **first ever**, certified by JQA against the *draft* standard, 2013-02 ([ISO news](https://www.iso.org/news/2014/09/Ref1882.html)).
 - **Panasonic Resyone** (bed↔wheelchair) — first against the published 2014 standard; **Panasonic HOSPI** (hospital delivery) followed ([Panasonic newsroom](https://news.panasonic.com/global/topics/5001)).
 - **Yujin GoCart** — Korea's first, 2021.
-- A decade in: **dozens of certified robots, not thousands**; academic criticism of the category scheme as legally confusing (Fosch-Villaronga line of work).
+- A decade in: **dozens of certified robots, not thousands**.
+
+## The documented gaps (Fosch-Villaronga et al., 2023)
+
+The [primary academic critique](../../sources/fosch-villaronga-iso13482-exoskeletons.md) (Leiden eLaw, *Technology in Society* 2023; systematic review of 71 works, exoskeleton-focused) classifies the 2014 standard's deficiencies into **six areas** — missing hazards (cognitive/psychological, overtrust, third parties, travel instability), insufficient requirements, **scarce V&V methods** (no test measures or usable HRI models — no defined way to *demonstrate* conformity), incomplete information-for-use, missing normative references, and confusing language — plus structural problems: "personal care" never defined, the **medical-device boundary** unclear, function-based categories too heterogeneous (they argue for per-category standards), and a **narrow physical-safety focus** that drops privacy, cognitive accessibility, and gender considerations that materially affect safety. The 2025 revision's restructuring-by-robot-type responds directly to the per-category argument; how much else it closes is an open question on the [source page](../../sources/fosch-villaronga-iso13482-exoskeletons.md).
 
 ## The looming collision with learned policies
 
@@ -52,4 +56,5 @@ ISO 13482 remains the only game in town for non-industrial robot safety certific
 
 ## Mentioned in
 
+- [Fosch-Villaronga et al. — ISO 13482 and robotic exoskeletons](../../sources/fosch-villaronga-iso13482-exoskeletons.md) — **primary source for the documented-gaps section**.
 - [awesome-physical-ai (GitHub list)](../../sources/awesome-physical-ai-github.md) — the governance/standards gap that prompted this page.
