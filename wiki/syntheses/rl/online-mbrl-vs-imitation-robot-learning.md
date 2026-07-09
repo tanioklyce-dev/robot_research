@@ -1,67 +1,72 @@
 ---
-title: "Why online model-based RL lost to imitation/VLAs for robots (2022–2026)"
+title: "Why online model-based RL lost to imitation for robots (2022→2026)"
 type: synthesis
 created: 2026-07-09
 updated: 2026-07-09
-tags: [mbrl, dreamer, daydreamer, imitation-learning, vla, world-model, robot-learning, sample-efficiency, generalization, rl]
+tags: [mbrl, dreamer, daydreamer, imitation-learning, vla, lbm, world-model, sim-to-real, deployment, rl-history]
 ---
 
-# Why online model-based RL lost to imitation/VLAs for robots (2022–2026)
+# Why online model-based RL lost to imitation for robots (2022→2026)
 
-In 2022, [DayDreamer](../../sources/daydreamer-paper.md) made a striking demonstration: [Dreamer](../../entities/dreamer.md) learning **online, on four real robots, with no simulator** — an A1 quadruped going from lying on its back to walking in **one hour without resets**. It looked like a template for robot learning: skip the simulator, skip the demonstrations, let the robot dream its own trials. Four years later the field's dominant paradigm is the near-opposite — **[imitation learning](../../concepts/learning/imitation-learning.md) at scale** ([Diffusion Policy](../../entities/diffusion-policy.md), [ACT](../../entities/act.md)) and **[VLA](../../concepts/learning/vla-models.md)/[LBM](../../concepts/learning/large-behavior-models.md) foundation models** ([π0](../../entities/pi-zero.md), [GR00T](../../entities/nvidia-groot.md)) pretrained on huge offline datasets. This page asks why, and argues the answer is not that online MBRL failed but that it **optimized the wrong axis for where the value turned out to be**.
+In 2022, [DayDreamer](../../sources/daydreamer-paper.md) demonstrated the thing model-based RL had promised for years: a real quadruped learning to walk **in one hour, online, on hardware, with no simulator, no demonstrations, and no resets** — plus visual pick-and-place on two arms. It looked like the opening of an era. Instead, by 2026 essentially every serious robot-learning effort the wiki tracks — [GR00T](../../entities/nvidia-groot.md), [π0/π0.7/π*0.6](../../entities/pi-zero.md), [TRI's LBMs](../../concepts/learning/large-behavior-models.md), the whole [LeRobot](../../entities/lerobot.md) ecosystem — is **imitation-first**: pretrain on demonstrations, fine-tune on demonstrations, deploy a frozen policy. Online world-model RL on robots all but vanished from the frontier. This page reconstructs why, from ingested sources.
 
 > [!note] Scope
-> "Won/lost" here means *which paradigm the robot-learning frontier built on*, not which is technically superior. Online MBRL remains excellent at what it targets; the field's objective function changed underneath it. Model-based *ideas* did not lose — see the coda.
+> "Won/lost" here means *which paradigm the robot-learning frontier built on*, not which is technically superior. Online MBRL remains excellent at what it targets; the field's objective function changed underneath it. Model-based *ideas* did not lose — see "where world models actually went."
 
-## The bet each paradigm made
+## The short answer
 
-| | Online MBRL (DayDreamer line) | Imitation / VLA (the winner) |
-|---|---|---|
-| Scarce resource it optimizes | **Environment interactions** (sample efficiency) | **Human demonstrations / offline data** (leverage a pretrained prior) |
-| Where competence comes from | The robot's own trial-and-error, compressed by a world model | Internet + teleop data baked into a base model, then fine-tuned ([Tedrake's "build a bridge"](../../sources/automated-podcast-tedrake-rocket-ship.md)) |
-| Unit of deployment | One policy, one robot, one task, learned in place | One model, many tasks, many embodiments, prompted by language |
-| What it needs to work | A reward function, a reset-free setup, online compute on the robot | A dataset and a strong base model |
+Online MBRL solved the wrong bottleneck. Its selling point was **sample efficiency of reward-driven learning** — but the field's binding constraints turned out to be **task specification, semantic generality, deployment safety, and data economics**, and imitation attacks all four directly. Meanwhile MBRL's home turf (locomotion) was captured by a *different* trick, and world models themselves survived by moving up the stack.
 
-DayDreamer's own framing was that world-model imagination supplies the cheap trials everyone else gets from a simulator — a **sample-efficiency** argument. The winning paradigm sidesteps the question: don't be efficient with online trials, **have almost none** and start from a model that already knows how the world looks and moves.
+## Five forces
 
-## Four reasons the imitation/VLA bet paid off
+### 1. The interface problem: rewards don't scale to household semantics
 
-**1. The binding constraint was generalization, not sample efficiency.** MBRL's headline is "learn a good policy in few interactions." But a DayDreamer A1 that walks perfectly has learned *one task on one robot*; it generalizes to a new task or object roughly not at all. The 2023–26 [TRI LBM result](../../sources/tri-lbm-paper.md) reframed the goal: **multitask pretraining is what buys robustness and fast adaptation to new tasks** — exactly the axis online single-task MBRL does not touch. The field discovered it cared more about "works on the 200th task" than "learns the 1st task in an hour."
+DayDreamer's tasks had natural reward signals (forward velocity, object-at-goal). The tasks the field actually wanted — "set the breakfast table," "install the bike rotor" ([TRI LBM](../../sources/tri-lbm-paper.md)), open-vocabulary tabletop work ([GR00T 1.7 in LeRobot](../../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md)) — have **no writable reward function**, but they have cheap demonstrations. Imitation replaces reward engineering with teleoperation, and the VLM backbone gives language conditioning for free ([N1.5's language-following jump 46.6%→93.3%](../../sources/groot-n1_5.md)). A reward-driven learner has no comparable language story: the 2022-era world model takes actions and pixels; it cannot be *told* anything.
 
-**2. A reward function is a worse interface than a demonstration.** MBRL needs a reward; robotics rewards are sparse, hand-designed, and hard to specify for dexterous tasks (fold laundry, bus a table). Imitation needs a *demonstration*, which for manipulation is far cheaper to produce than a good reward — and the whole [LeRobot](../../entities/lerobot.md)/teleop tooling stack ([ALOHA](../../entities/aloha.md), leader arms, [Isaac Teleop](../../entities/nvidia-isaac-teleop.md)) drove the cost of demonstrations toward zero. The interface that scaled was the one humans could supply without writing a reward.
+### 2. Foundation-model economics: bridge-building beats from-scratch
 
-**3. The "no simulator, learn on hardware" pitch aged badly against two trends.** DayDreamer's differentiator was skipping the simulator — but (a) sim got dramatically better and cheaper ([Isaac Lab](../../entities/nvidia-isaac-lab.md), massively parallel envs, [sim-to-real](../../concepts/learning/sim-to-real-transfer.md) via domain randomization now "surprisingly turnkey" per [Tedrake](../../sources/automated-podcast-tedrake-rocket-ship.md)), so the sim tax MBRL avoided shrank; and (b) the winning move became pretraining on **data you already have** (internet video, cross-embodiment corpora like [Open X-Embodiment](../../entities/open-x-embodiment.md)) rather than generating trials at all. Online hardware learning is also operationally painful — reset-free is hard, exploration can damage the robot, and per-robot online compute doesn't amortize.
+[Tedrake's reframe](../../sources/automated-podcast-tedrake-rocket-ship.md): robot learning starts from a base model that already carries world knowledge, and the data problem is **"building a bridge"** from that common sense to one new output — actions. Online MBRL is the opposite bet: learn dynamics *from scratch, per robot, per environment*, from the robot's own experience. That made sense pre-foundation-models. After [OXE](../../entities/open-x-embodiment.md), 20K-hour egocentric corpora ([EgoScale](../../sources/egoscale-paper.md)), and VLM/video backbones, the amortization math is brutal: a [TRI LBM](../../sources/tri-lbm-paper.md) fine-tune needs **3–5× less data per new task** *because of* multitask pretraining, and a hackathon team fine-tunes GR00T on [150–300 episodes](../../sources/seeed-embodied-ai-hackathon-2025-recap.md). DayDreamer's one hour is genuinely impressive — and it buys **one task on one robot**, with none of it transferring.
 
-**4. The LLM-scaling prior transferred, and it favored offline.** The field watched GPT and concluded the recipe is *big model + big offline data + light task adaptation*. VLAs are that recipe ported to robots; online MBRL is not. Investment, talent, and tooling flowed to the paradigm that looked like the thing that was working elsewhere.
+### 3. Locomotion was captured by parallel simulation, not world models
+
+DayDreamer's flagship domain fell to a different attack within the same two years: **massively parallel GPU simulation + domain randomization + model-free PPO** ([Isaac Lab](../../entities/nvidia-isaac-lab.md)/legged-gym-style). As Tedrake put it, domain randomization over stairs and bumps was "**somehow good enough** to make a robot walk over almost anything in the real world — not expected it would be that easy" ([podcast](../../sources/automated-podcast-tedrake-rocket-ship.md)); humanoid locomotion is now "surprisingly turnkey" ([GEAR-SONIC](../../entities/gear-sonic.md) being the wiki's exemplar). When a simulator gives you millions of free samples in parallel, MBRL's sample-efficiency argument evaporates — and its *wall-clock* cost becomes the liability ([S5WM](../../sources/s5wm-paper.md) exists precisely because the world model made training 4× slower than it needed to be).
+
+### 4. Deployment operations: exploration on hardware doesn't certify
+
+An online learner **explores on the physical robot** — near furniture, objects, and eventually people. Everything the wiki has ingested about deployment points the other way: [ISO 13482-style certification](../../concepts/robotics/robot-safety-standards.md) assumes fixed, verifiable behavior (already hard for a *frozen* learned policy; harder still for one that changes overnight); [TRI's evaluation methodology](../../sources/tri-lbm-paper.md) (blind randomized A/B, 50+ rollouts per task) presumes a static policy to measure; and the commercial deploy loop (train → validate → ship checkpoints to [Thor](../../entities/jetson-thor.md)) has no slot for on-robot weight updates. Imitation's train-offline/deploy-frozen shape fit the industry; online RL's shape didn't.
+
+### 5. The tooling flywheel went to demonstrations
+
+The $100 [SO-101](../../entities/so-arm101.md) leader arm, [UMI](../../entities/umi.md) grippers, [Isaac Teleop](../../entities/nvidia-isaac-teleop.md)'s XR pipeline, `LeRobotDataset` + the HF Hub — an entire commodity infrastructure emerged for **collecting and sharing demonstrations**, with community-scale network effects ([worldwide hackathons](../../entities/lerobot-worldwide-hackathon-2025.md), 16K+ datasets). Nothing comparable emerged for on-robot RL: DayDreamer shipped async actor/learner infrastructure, but there was no data flywheel — online experience is consumed where it's produced, so nothing compounds across the community.
+
+## Where world models actually went
+
+The *models* won even as the *training loop* lost. World models re-entered robot learning up the stack:
+
+- **As policy backbones/objectives** — [Cosmos 3's policy mode](../../sources/cosmos-3-technical-report.md) tops RoboArena; [FLARE](../../concepts/world-models/flare.md)'s latent-WM loss trains GR00T N1.5; [V-JEPA 2](../../entities/v-jepa-2.md)-AC plans from latents; Tedrake argues video backbones win for long context ([DFoT](../../sources/history-guided-video-diffusion-paper.md) being his group's evidence).
+- **As data generators** — [DreamGen's neural trajectories](../../sources/dreamgen-paper.md) (827 h of GR00T N1's pyramid), Cosmos-3-for-LeRobot's stated purpose ([NVIDIA↔HF partnership](../../sources/nvidia-hf-lerobot-open-robotics-blog.md)).
+- **As simulators/engines** — the [world-model-simulators](../../concepts/world-models/world-model-simulators.md) line; [DIAMOND](../../sources/diamond-paper.md)'s CS:GO neural game engine at research scale.
+- **And RL itself returned — but offline, on top of imitation**: [π*0.6's RECAP](../../sources/pistar06-paper.md) (offline RL pretraining + advantage-conditioned improvement from deployment data + human interventions) is 2025–26's "learning from experience," with the exploration problem tamed by an IL foundation and human gates. That is the synthesis position: **not** imitation *versus* RL, but RL as a **post-training** layer on an imitation-pretrained policy — the from-scratch online learner is the part that lost, not the model-based idea.
 
 ## What online MBRL still owns
 
-- **Locomotion / agile control with a clean reward.** Where a reward *is* specifiable and dynamics are fast and contact-rich, model-based (and model-free) RL in sim remains the state of the art — legged locomotion and drone racing. [S5WM](../../sources/s5wm-paper.md) (real agile-quadrotor flight, [Scaramuzza](../../concepts/robotics/agentic-uavs.md) lab) is a 2025 datapoint that the *engineering* frontier there is now wall-clock, not sample count.
-- **Sample efficiency when data genuinely can't be pretrained away.** New embodiment, no relevant prior, expensive interaction → MBRL's core pitch still holds.
-
-## Coda: model-based ideas didn't lose — they migrated
-
-The dichotomy is softening from both sides, and the model-based *machinery* is quietly everywhere:
-
-- **World models became the simulator/data-engine, not the policy learner.** The generative-video line ([DreamGen](../../entities/dreamgen.md) neural trajectories, [Cosmos](../../entities/nvidia-cosmos.md), [DIAMOND](../../sources/diamond-paper.md)'s neural game engine) uses learned world models to *generate training data or environments* for imitation/VLA policies — the world model as a data flywheel rather than a thing you plan inside. That is model-based RL's substrate winning under a different job description.
-- **RL came back as a *post-training* layer on imitation.** [π*0.6/RECAP](../../entities/pistar06.md) and [HIL-SERL](../../concepts/learning/imitation-learning.md) do offline-RL / advantage-conditioning / human-gated correction *on top of* a pretrained policy — RL as fine-tuning, not as the from-scratch learner. The winning stack is **pretrain-by-imitation, then RL-to-improve**, not RL-from-scratch.
-- **[Tedrake's LBM ⊃ VLA taxonomy](../../concepts/learning/large-behavior-models.md)** explicitly keeps a **video/world-model backbone** as a first-class option for the policy — so the next generation of generalist policies may re-absorb world models through the front door.
-
-So the honest summary: **online, from-scratch, single-task MBRL lost the role of "how robots acquire skills"** to offline imitation + foundation-model pretraining, because the field's binding constraint turned out to be generalization-per-dollar-of-human-effort rather than interactions-per-task. But the learned-world-model idea reappeared as the simulator, the data generator, and a candidate policy backbone — it lost the battle it was fighting in 2022 and won three others it wasn't.
+- **Agile control with a clean reward.** Where a reward *is* specifiable and dynamics are fast and contact-rich — legged locomotion, drone racing — RL in sim remains SOTA, and [S5WM](../../sources/s5wm-paper.md) (real racing quadrotors, [Scaramuzza](../../concepts/robotics/agentic-uavs.md) lab) shows the frontier there is now wall-clock, not sample count.
+- **New embodiment, no usable prior, expensive interaction.** When there's nothing to pretrain from and a simulator is unavailable, MBRL's core sample-efficiency pitch still holds — DayDreamer's actual sweet spot.
 
 ## Related
 
-- [DayDreamer](../../sources/daydreamer-paper.md) — the 2022 high-water mark for the online-MBRL-on-robots thesis this page interrogates.
+- [DayDreamer](../../sources/daydreamer-paper.md) — the 2022 high-water mark this page interrogates.
 - [Dreamer / DreamerV3](../../entities/dreamer.md) — the algorithm family; [Danijar Hafner](../../entities/danijar-hafner.md) — its through-line.
-- [TRI LBM paper](../../sources/tri-lbm-paper.md) — the multitask-pretraining-buys-robustness result that reframed the goal.
-- [Automated Podcast — Tedrake](../../sources/automated-podcast-tedrake-rocket-ship.md) — the "build a bridge from a base model" data reframe, and "deployment is the milestone."
+- [TRI LBM paper](../../sources/tri-lbm-paper.md) — multitask-pretraining-buys-robustness, and the static-policy evaluation methodology.
+- [Automated Podcast — Tedrake](../../sources/automated-podcast-tedrake-rocket-ship.md) — the "build a bridge" data reframe and "deployment is the milestone."
 - [VLA models](../../concepts/learning/vla-models.md) / [Large behavior models](../../concepts/learning/large-behavior-models.md) — the winning paradigm.
 - [Imitation learning](../../concepts/learning/imitation-learning.md) — its substrate, incl. the RL-as-post-training coda ([π*0.6](../../entities/pistar06.md)).
-- [World model](../../concepts/world-models/world-model.md) — where the model-based machinery migrated (simulator / data engine).
-- [Atari RL lineage](atari-rl-lineage.md) — the "Atari trained the field, the benchmark moved on" companion argument, one abstraction level down.
+- [Robot safety standards](../../concepts/robotics/robot-safety-standards.md) — why on-robot exploration doesn't fit the certification model.
+- [World model](../../concepts/world-models/world-model.md) — where the model-based machinery migrated.
+- [Atari RL lineage](atari-rl-lineage.md) — the "the benchmark moved on, the toolbox stayed" companion, one level down.
 
 ## Open questions
 
-- Does the pretrain-then-RL stack eventually re-privilege *online* interaction (RL post-training is the fastest-growing piece)? If so, MBRL-for-post-training (world model to imagine fine-tuning rollouts) is an under-explored corner.
-- Will a video/world-model-backbone LBM (Tedrake's stated bet) beat VLM-backbone VLAs — i.e. does the world model win as the *policy* backbone after all?
+- Does the pretrain-then-RL stack eventually re-privilege *online* interaction (RL post-training is the fastest-growing piece)? MBRL-for-post-training — a world model to imagine fine-tuning rollouts — is an under-explored corner.
+- Does a video/world-model-backbone LBM (Tedrake's stated bet) beat VLM-backbone VLAs — i.e. does the world model win as the *policy* backbone after all?
 - Is there a real-robot task class where DayDreamer-style online MBRL is still the best answer in 2026, or has sim + pretraining swallowed all of it?
