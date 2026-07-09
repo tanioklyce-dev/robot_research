@@ -133,3 +133,4 @@ The [Farama Foundation](../../entities/farama-foundation.md) maintains 19 RL pro
 - [Robot platforms comparison](robot-platforms-comparison.md) — narrower platform-by-platform comparison.
 - [Simulators for agentic robotics — 2026 landscape](../simulators/simulators-for-agentic-robotics-2026.md) — narrower simulator-specific survey.
 - [Wiki overview](../../overview.md) — newcomer entry-point and starter shortlist of acquirable robots.
+- [awesome-physical-ai (GitHub list)](../../sources/awesome-physical-ai-github.md) — external solo-curated catalog of the same landscape; its source page carries a coverage-vs-this-wiki gap analysis (robot-safety standards, MBRL world models, locomotion corpus, evaluation methodology).
