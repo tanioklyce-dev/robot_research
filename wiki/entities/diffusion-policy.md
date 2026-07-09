@@ -3,8 +3,8 @@ title: Diffusion Policy
 type: entity
 subtype: method
 created: 2026-05-08
-updated: 2026-07-05
-sources: 20
+updated: 2026-07-08
+sources: 21
 tags: [diffusion-policy, behavior-cloning, diffusion-model, ddpm, action-diffusion, chi-2023, columbia, tri, mit, mobile-aloha]
 ---
 
@@ -98,6 +98,7 @@ From [Mobile ALOHA paper](../sources/mobile-aloha-paper.md) §6.2, evaluated aga
 - [VQ-BeT](vq-bet.md) — closest competitor in RUM's ablation.
 - [UMI](umi.md) — same-lead-author follow-on; data-collection-side companion.
 - [TRI](tri.md) — co-affiliation (Cousineau, Burchfiel, Feng).
+- [Large behavior models](../concepts/learning/large-behavior-models.md) — the multitask successor: "LBM = the multitask version of Diffusion Policy" per [Tedrake](russ-tedrake.md) ([Automated Podcast](../sources/automated-podcast-tedrake-rocket-ship.md)).
 - [Robot Utility Models](robot-utility-models.md) — uses Diffusion Policy as a baseline.
 - [PushT](pusht.md) — 2D pushing benchmark popularized here.
 - [Imitation learning](../concepts/learning/imitation-learning.md) — broader concept.

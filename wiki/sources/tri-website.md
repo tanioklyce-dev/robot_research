@@ -48,9 +48,9 @@ The pattern: TRI is consistently the *industrial arm* of academic robotics-found
 
 ## Open questions / TBD
 
-- **TRI LBM primary source** — referenced but not ingested. Likely substantial enough for its own source page.
-- **Drake (Tedrake's library)** — open-source TRI/MIT simulation library; TBD entity page.
-- **Russ Tedrake** — entity page; senior figure across TRI publications, MIT robot-locomotion line.
+- **TRI LBM primary source** — referenced but not ingested. Likely substantial enough for its own source page. (Program context now on the [LBM concept page](../concepts/learning/large-behavior-models.md), 2026-07-08.)
+- ~~**Drake (Tedrake's library)** — TBD entity page~~ — anchored as a section on [Russ Tedrake](../entities/russ-tedrake.md) (2026-07-08).
+- ~~**Russ Tedrake** — entity page~~ — created 2026-07-08 ([russ-tedrake](../entities/russ-tedrake.md)), on the back of the [Automated Podcast ingest](automated-podcast-tedrake-rocket-ship.md).
 - **TRI Atlas robot development** — homepage references "Atlas robot development through single AI models"; unclear whether this overlaps with Boston Dynamics Atlas or is separate. Needs verification.
 - **Founding year and leadership** — homepage didn't surface; could be added on a deeper fetch.
 

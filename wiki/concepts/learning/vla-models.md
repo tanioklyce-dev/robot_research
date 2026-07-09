@@ -2,8 +2,8 @@
 title: VLA models
 type: concept
 created: 2026-05-06
-updated: 2026-07-04
-sources: 36
+updated: 2026-07-08
+sources: 37
 tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos]
 ---
 
@@ -11,6 +11,9 @@ tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero
 
 ## Definition
 A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbone), and an action head. Trained on large mixed datasets — robot teleoperation, human videos, simulation rollouts. Inference loop: image + text instruction → action token sequence → robot motors.
+
+> [!note] VLA as a subtype of LBM
+> On [Russ Tedrake](../../entities/russ-tedrake.md)'s taxonomy, a VLA is one architectural choice within the broader class of **[large behavior models](large-behavior-models.md)** (any image-sequences→actions model): the choice of uptraining a VLM. The alternative — a video/world-model backbone (better for long context, per Tedrake) — is realized in [world-action models](../world-models/world-action-model.md) like Cosmos 3's policy mode ([Automated Podcast, 2026-07](../../sources/automated-podcast-tedrake-rocket-ship.md)).
 
 ## Notable VLAs (2026)
 - **[NVIDIA GR00T](../../entities/nvidia-groot.md)** N1.6 GA / N1.7 EA — 3B-parameter open VLA built on a Cosmos-Reason2-2B backbone; pretrained on ~20,854 hours of egocentric human video ([Top 10 Physical AI Models 2026](../../sources/top-10-physical-ai-models-2026.md), [NVIDIA Newton Contact-Rich Manipulation Blog](../../sources/nvidia-newton-contact-rich-manipulation-blog.md)). The pretraining corpus and a clean log-linear scaling law `L = 0.024 − 0.003·ln(D)` for it are documented in **[EgoScale](../../sources/egoscale-paper.md)** (Zheng et al., NVIDIA GEAR, Feb 2026) — see [Scaling laws — VLAs and human data](scaling-laws-vla.md). The founding **N1** recipe is now fully documented from its [primary paper](../../sources/groot-n1-paper.md): 2.2B dual-system (Eagle-2 VLM @ 10 Hz + flow-matching DiT @ 120 Hz, jointly trained), **data pyramid** (8,375.7 h = real robot + human video + DexMimicGen sim + 827 h video-model "neural trajectories"), real GR-1 76.8% vs Diffusion Policy 46.4%, and a documented **catastrophic-forgetting** case in post-training. The version line ([N1.5](../../sources/groot-n1_5.md) frozen-VLM + FLARE → [N1.6](../../sources/groot-n1_6.md) Cosmos-2B reasoning backbone + state-relative actions → N1.7 EA Cosmos-Reason2-2B + EgoScale) shows a **backbone progression Eagle → Cosmos** and a move toward reasoning-integrated whole-body control — see the [GR00T entity](../../entities/nvidia-groot.md) version table. N1.5 is the clearest data point on the frozen-VLM design choice: it lifted real-GR-1 language-following from 46.6% to 93.3%.
@@ -64,6 +67,7 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 - **Closed-loop training** — RL fine-tuning of action heads in fast GPU-parallel environments (Isaac Lab, MuJoCo Playground, Genesis).
 
 ## Related
+- [Large behavior models](large-behavior-models.md) — the TRI-coined superclass (VLA = uptrained-VLM subtype).
 - [Sim-to-real transfer](sim-to-real-transfer.md) — the bridge from simulator-trained policies to real robots.
 - [World-model simulators](../world-models/world-model-simulators.md) — alternate paradigm for VLA training environments.
 
