@@ -34,6 +34,7 @@ Curated entry points across the wiki.
 
 **Assistive Robotics**
 - [Assistive robotics](concepts/robotics/assistive-robotics.md) — concept overview; sim-to-real gap quantified (89.4% RLBench vs 12.4% BEHAVIOR-1K household tasks).
+- [Robot safety standards (ISO 13482)](concepts/robotics/robot-safety-standards.md) — the machinery-safety framework for robots near untrained people: ISO 13482 (2014 personal-care → 2025 "service robots" retitle, FDIS), 10218-1/-2:2025 (+15066 merged), EU Machinery Regulation 2023/1230 (applies 2027-01); certification precedents (CYBERDYNE HAL 2013, Panasonic Resyone/HOSPI, Yujin GoCart); flags the deterministic-safety-functions vs learned-policy collision. Web-researched; no standard text ingested. (1 source)
 - [Accessible robot communication](concepts/robotics/accessible-robot-communication.md) — output-interface side of HRI for non-visual users; mixed-initiative narration preferred by blind users.
 - [Assistive robotics — R&D landscape](syntheses/assistive/assistive-robotics-research-landscape.md) — seven blocking problems, timeline, active researchers, independent-researcher paths, JEPA fit.
 - [Levels of autonomy in assistive robotics](syntheses/assistive/levels-of-autonomy-in-assistive-robotics.md) — three orthogonal autonomy axes; EUP preserves agency; variable-LoC design pattern.
@@ -704,6 +705,7 @@ Curated entry points across the wiki.
 
 ### Robotics
 - [Assistive robotics](concepts/robotics/assistive-robotics.md) — robots helping disabled/elderly users regain autonomy; systematic review; three research themes; autonomy finding. (22 sources)
+- [Robot safety standards (ISO 13482)](concepts/robotics/robot-safety-standards.md) — machinery-safety framework for robots near untrained people; 2025 "service robots" retitle; certification precedents; the deterministic-safety vs learned-policy collision. (1 source)
 - [End-user robot programming](concepts/robotics/end-user-robot-programming.md) — enabling non-experts to customize robot behavior; EUP approaches; sense of agency evidence; Stretch SE2 transfer. (7 sources)
 - [Accessible robot communication](concepts/robotics/accessible-robot-communication.md) — robot output-interface design for non-visual users; mixed-initiative narration findings; 6 design guidelines (Huh et al. 2026). (4 sources)
 - [Optimal control](concepts/robotics/optimal-control.md) — minimize a cost over trajectory-control pairs subject to dynamics. Brachystochrone (1697) → Euler–Lagrange → Hamilton–Jacobi → Pontryagin's Maximum Principle (1956) → Bellman DP → modern LQR / MPC / iLQR / CEM / learned-WM-OC. The "RL = approximate OC under uncertainty" bridge. (12 sources)

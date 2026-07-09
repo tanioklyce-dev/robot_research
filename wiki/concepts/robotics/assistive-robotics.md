@@ -2,7 +2,7 @@
 title: Assistive Robotics
 type: concept
 created: 2026-05-09
-updated: 2026-05-17
+updated: 2026-07-08
 sources: 22
 tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot, accessibility]
 ---
@@ -76,6 +76,7 @@ The navigation-domain counterpart is [DRAGON (Liu et al. 2024)](../../sources/dr
 - [End-user robot programming](end-user-robot-programming.md) — enabling non-expert users to customize robot behavior; directly addresses the per-user personalization gap
 - [Imitation learning](../learning/imitation-learning.md) — policy training approach for manipulation tasks
 - [World model](../world-models/world-model.md) — longer-term: world models could enable robots to plan assistive actions without per-task teleoperation
+- [Robot safety standards](robot-safety-standards.md) — ISO 13482 is the certification pathway for in-home/assistive deployment ("mobile servant robot" category)
 
 ## Key references
 - [IEEE Spectrum — Stretch assistive robot](../../sources/ieee-spectrum-stretch-assistive.md) (2023)

@@ -22,7 +22,7 @@ A solo-curated (111★ / 11 forks, MIT) "awesome list" spanning the whole Physic
 
 **Categories the wiki lacks or is thin on (gap-mine):**
 - **Safety & robustness tooling** — Safety Gym(nasium), OmniSafe, Constrained Policy Optimization, **Control Barrier Functions**, RSS, VerifAI. The wiki's safety folder is alignment/mech-interp-oriented; *robot control safety* is a real gap.
-- **Governance & standards** — ISO 10218/15066 (collaborative robots), **ISO 13482** (personal-care robots — directly relevant to assistive syntheses), UL 4600, ISO 26262, EU AI Act / Machinery Regulation. Nothing in the wiki covers robot standards.
+- **Governance & standards** — ISO 10218/15066 (collaborative robots), **ISO 13482** (personal-care robots), UL 4600, ISO 26262, EU AI Act / Machinery Regulation. ~~Nothing in the wiki covers robot standards~~ — [Robot safety standards](../concepts/robotics/robot-safety-standards.md) created 2026-07-08 from this gap.
 - **Model-based-RL world-model line** — DreamerV3/DayDreamer, TD-MPC2, PlaNet, MuZero, Genie 2, GAIA-1, UniSim: the wiki's world-model coverage is JEPA-vs-generative-video; the *MBRL* lineage is mostly absent.
 - **Locomotion corpus** — RMA, legged_gym/RSL-RL, ANYmal Parkour, HumanPlus/OmniH2O/H2O/ASAP/HOVER, Walk These Ways. The wiki tracks locomotion only via GR00T-adjacent whole-body work ([SONIC](../entities/gear-sonic.md)).
 - **Sim-to-real classics** — Eureka, DeXtreme, Automatic Domain Randomization, BayesSim — would deepen [sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md)'s historical spine.
@@ -42,5 +42,5 @@ Directory-style — hundreds; only wiki-linked ones enumerated above. Companies 
 
 ## Open questions
 
-- Which gap categories are worth wiki investment: **robot-safety standards (ISO 13482/10218)** for the assistive line, **MBRL world models (Dreamer/TD-MPC2)** for the world-model line, and **evaluation methodology (rliable/robomimic/RoboArena)** look highest-value.
+- Which gap categories are worth wiki investment: ~~robot-safety standards~~ (done — [robot safety standards](../concepts/robotics/robot-safety-standards.md)), **MBRL world models (Dreamer/TD-MPC2)** and **evaluation methodology (rliable/robomimic/RoboArena)** remain.
 - Whether a bigger-community awesome list (Awesome LLM Robotics, Awesome World Models — both in its "Related lists") would be a better recurring directory source than this one.

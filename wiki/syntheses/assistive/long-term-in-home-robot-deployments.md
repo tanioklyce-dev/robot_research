@@ -91,3 +91,4 @@ Of the seven deployment-shape rows in the table above, **six use Stretch**. The 
 - [Levels of autonomy in assistive robotics](levels-of-autonomy-in-assistive-robotics.md) — the autonomy design pattern these deployments converge on.
 - [Assistive robotics — R&D landscape and JEPA applicability](assistive-robotics-research-landscape.md) — broader R&D context.
 - [Assistive robotics](../../concepts/robotics/assistive-robotics.md) — concept overview.
+- [Robot safety standards](../../concepts/robotics/robot-safety-standards.md) — ISO 13482 ("mobile servant robot") is the certification/CE pathway an in-home deployment would face, and its deterministic-safety-function machinery is unresolved for learned policies.
