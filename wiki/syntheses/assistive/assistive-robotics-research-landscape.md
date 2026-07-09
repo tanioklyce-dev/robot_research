@@ -2,7 +2,7 @@
 title: Assistive robotics — R&D landscape and JEPA applicability
 type: synthesis
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-07-09
 tags: [assistive-robotics, jepa, research-landscape, independent-researcher]
 ---
 
@@ -71,7 +71,7 @@ General manipulation datasets (DROID: 350 hr / 76k trajectories) exist but are n
 
 ### Beyond the wiki
 - **[HCR Lab — Maya Cakmak](../../entities/hcrlab.md) (UW Paul G. Allen School)**: the most directly relevant academic group for accessible HRI. Key results: long-term in-home deployments with quadriplegic user Henry Evans (Stretch, summers 2021–2023 — self-feeding, grooming, card games, medical device operation); HRI 2020 finding that people with severe motor impairments do NOT always prefer more autonomous robots (autonomy preference is user/context-specific); [end-user robot programming (EUP)](../../concepts/robotics/end-user-robot-programming.md) tools transferred to commercial Stretch SE2; 2025 RO-MAN paper "Preserving Sense of Agency" ([HCR Lab publications](../../sources/hcrlab-publications.md); [Maya Cakmak research overview](../../sources/maya-cakmak-research.md)).
-- **CMU Quality of Life Technology Center (QoLT)**: long-running NSF center; HERB robot; power wheelchair integration; assistive manipulation at the systems level.
+- **[CMU Quality of Life Technology Center (QoLT)](../../entities/cmu-qolt-center.md)**: NSF Engineering Research Center (CMU + Pitt, 2006 – mid-2010s, ~$30M; now graduated); PerMMA robotic wheelchair + HERB robot; power wheelchair integration; assistive manipulation at the systems level. Historical rather than active — see the entity page for why its wind-down is a relevant data point for this synthesis's timeline pessimism.
 - **Georgia Tech Healthcare Robotics Lab (Charlie Kemp, now at Hello Robot; formerly PI there)**: CURI, Henry Evans demos, object handover, robot-assisted dressing.
 - **Stanford GRAB Lab (Monroe Kennedy III)**: physical human-robot interaction; compliant manipulation; handover; care robotics.
 - **Stanford HAI + CRUSE (Allison Okamura)**: haptics, teleoperation, surgical and care robotics.

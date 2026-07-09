@@ -2,7 +2,7 @@
 title: Long-term in-home robot deployments — what we know
 type: synthesis
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-07-09
 tags: [in-home, deployment, longitudinal, henry-evans, stretch, hcrlab, rum, ok-robot, hello-robot, assistive-robotics]
 ---
 
@@ -18,7 +18,7 @@ What does the wiki actually know about deploying mobile manipulators in real hom
 | Depth | Source | Platform | Homes | Duration | Tasks | Outcome |
 |---|---|---|---|---|---|---|
 | **Years (longitudinal)** | [HCR Lab + Hello Robot Henry Evans deployments](../../sources/maya-cakmak-research.md) | [Stretch](../../entities/stretch.md) | 1 | Summers 2021, 2022, 2023 — ~4 weeks each, 3 years recurring | Self-feeding, face wiping, scratching, lotion, percussion vest, printer, card games with granddaughter, handing a rose to wife Jane. EUP tool prototyped specifically for Henry in summer 2022. | Restored agency; reduced caregiver burden; expanding task set each year. Continuing under NIH grant. |
-| **Days (in-home)** | [Nanavati et al. 2025](../../sources/nanavati2025-feeding-out-of-lab.md) | Kinova JACO 6-DOF + custom F/T fork (~$50k) | 1 | 5 days, 10 meals | Self-feeding in real home contexts — multiple meals, multiple environments within the home. | CR2 fed himself across diverse contexts; HRI 2025 Best Systems Paper Finalist. Earliest in-home deployment of an open-source feeding system. |
+| **Days (in-home)** | [Nanavati et al. 2025](../../sources/nanavati2025-feeding-out-of-lab.md) | [Kinova JACO](../../entities/kinova-jaco.md) 6-DOF + custom F/T fork (~$50k) | 1 | 5 days, 10 meals | Self-feeding in real home contexts — multiple meals, multiple environments within the home. | CR2 fed himself across diverse contexts; HRI 2025 Best Systems Paper Finalist. Earliest in-home deployment of an open-source feeding system. |
 | **Day** | [IEEE Spectrum — Stretch assistive](../../sources/ieee-spectrum-stretch-assistive.md) (2023) | [Stretch](../../entities/stretch.md) | 1 (Henry Evans) | Snapshot reporting | Scratching, blanket moves, retrieving items, transporting laundry, cards, meals, delivering flowers. | Public narrative documentation of the assistive use case; predates the HCR Lab summer-deployment papers. |
 | **Hours per home (broad)** | [Robot Utility Models Paper (Etukuru et al. 2024)](../../sources/robot-utility-models-paper.md) | [Stretch](../../entities/stretch.md) | 25 evaluation homes (5 per task × 5 tasks) | Hours each (10 trials/env, 1.31 avg retries) | Door opening, drawer opening, reorientation, tissue pickup, bag pickup. | 90% average success (74.4% raw + 15.6% mLLM-retry). Cross-embodiment to xArm 7: −10pt drop. |
 | **Hours per home (broad)** | [OK-Robot project page](../../sources/ok-robot-project-page.md) | [Stretch](../../entities/stretch.md) | 10 NYC homes | Hours per home; 171 pick-and-drop tasks total | Open-vocabulary pick-and-drop. | 58.5% overall; 82% in uncluttered homes. Top failure: semantic memory retrieval, manipulation poses, hardware. |

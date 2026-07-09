@@ -2,7 +2,7 @@
 title: Levels of autonomy in assistive robotics
 type: synthesis
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-07-09
 tags: [assistive-robotics, autonomy, sense-of-agency, eup, hcrlab, variable-loc, hri]
 ---
 
@@ -52,7 +52,7 @@ End-user programmed robots highly preserved agency *even when acting autonomousl
 Same study ([Yang et al. 2025](../../sources/yang2025-sense-of-agency.md)). In high-risk scenarios (e.g., preparing a snack for a child with allergies, medication tasks), participants strongly preferred robots that prioritize user control. In low-risk contexts, higher autonomy was acceptable. Risk is a moderator, not a confound.
 
 ### 4. Variable level-of-control is essential for real-world deployment
-[Nanavati et al., HRI 2025 — Lessons Learned from Out-of-Lab Feeding](../../sources/nanavati2025-feeding-out-of-lab.md). The open-source Kinova-JACO feeding system implements three operating modes the user can switch between mid-meal:
+[Nanavati et al., HRI 2025 — Lessons Learned from Out-of-Lab Feeding](../../sources/nanavati2025-feeding-out-of-lab.md). The open-source [Kinova-JACO](../../entities/kinova-jaco.md) feeding system implements three operating modes the user can switch between mid-meal:
 
 - **Supervisory** — pause when needed
 - **Decision support** — robot offers multiple options; user picks

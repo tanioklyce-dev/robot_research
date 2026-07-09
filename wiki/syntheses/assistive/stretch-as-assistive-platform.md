@@ -2,7 +2,7 @@
 title: Stretch as the de-facto assistive-robotics platform
 type: synthesis
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-07-09
 tags: [stretch, hello-robot, assistive-robotics, research-platform, mobile-manipulation, eup, hcrlab]
 ---
 
@@ -38,7 +38,7 @@ The de-facto status is not a research community fashion — it is the platform e
 | Alternative | Why it loses for assistive R&D |
 |---|---|
 | **PR2 / older research mobile manipulators** | $400k+ ([IEEE Spectrum](../../sources/ieee-spectrum-stretch-assistive.md)); requires multiple people to move; out of academic budget; no longer commercially supported. |
-| **Arm-only platforms (Kinova JACO, Franka Panda, xArm 7)** | No mobility — limits tasks to whatever's reachable from a fixed mount. Useful for feeding ([Nanavati 2025](../../sources/nanavati2025-feeding-out-of-lab.md) uses JACO) but cannot do fetch tasks. Franka Panda is research-grade arm but ~$30k arm-only with no chassis. |
+| **Arm-only platforms ([Kinova JACO](../../entities/kinova-jaco.md), Franka Panda, xArm 7)** | No mobility — limits tasks to whatever's reachable from a fixed mount. Useful for feeding ([Nanavati 2025](../../sources/nanavati2025-feeding-out-of-lab.md) uses JACO) but cannot do fetch tasks. Franka Panda is research-grade arm but ~$30k arm-only with no chassis. Note the commercial assistive JACO (~$35k, wheelchair-mounted, insurance-reimbursed in DE/NL) plays a different game entirely — see [entity page](../../entities/kinova-jaco.md). |
 | **Boston Dynamics Spot / quadrupeds** | Designed for inspection and locomotion, not manipulation. No assistive deployments in the wiki. |
 | **Humanoids ([1X NEO](../../entities/1x-neo.md), [Unitree G1](../../entities/unitree-g1.md), [Apptronik Apollo](../../entities/apptronik-apollo.md), [Figure 02](../../entities/figure.md))** | Form-factor right; safety, cost, software, and openness wrong (as of 2026). NEO requires a $200 deposit, ships unknown date; G1 is the cheapest at ~$16k but lacks the tooling Stretch ships; Apollo and Figure are closed development. No long in-home assistive deployment exists for any humanoid in this wiki. |
 | **[TurtleBot 4](../../entities/turtlebot.md)** | Mobile base only — no manipulator. Educational platform; not an assistive device. |

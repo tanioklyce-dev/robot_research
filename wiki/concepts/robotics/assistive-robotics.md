@@ -2,8 +2,8 @@
 title: Assistive Robotics
 type: concept
 created: 2026-05-09
-updated: 2026-07-08
-sources: 22
+updated: 2026-07-09
+sources: 23
 tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot, accessibility]
 ---
 
@@ -13,6 +13,7 @@ tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot
 
 ### Mobile manipulation for daily tasks
 - [Stretch](../../entities/stretch.md) ([Hello Robot](../../entities/hello-robot.md)) — the most documented example in this wiki. $20k; single-arm mobile manipulator; used by Henry Evans (quadriplegic) for scratching, meal assistance, laundry, social play ([IEEE Spectrum, 2023](../../sources/ieee-spectrum-stretch-assistive.md)).
+- [Kinova Jaco](../../entities/kinova-jaco.md) ([Kinova](../../entities/kinova.md)) — the **commercial** wheelchair-mounted arm (launched 2010, ~$35k): marketed as a medical device, Cartesian control through the wheelchair's own drive controls, insurance-reimbursed in Germany/Netherlands. The field's longest-standing shipped manipulation product; research editions carry the academic feeding work ([Kinova Jaco product page + user guide](../../sources/kinova-jaco-assistive-arm.md)).
 - The concept of **"assistive autonomy"** — user directs the robot via a GUI + camera view, rather than full autonomy — is the practical operating model for current-generation assistive manipulation.
 
 ### Wearable assistive devices
@@ -68,6 +69,8 @@ The navigation-domain counterpart is [DRAGON (Liu et al. 2024)](../../sources/dr
 
 ## Domestic-robot precursors
 
+**Institutional precursor:** the [CMU/Pitt Quality of Life Technology Center](../../entities/cmu-qolt-center.md) (NSF ERC, 2006 – mid-2010s) ran the first large-scale systems-level program in this space — PerMMA (two-armed robotic wheelchair with user/remote-assistant blended control) and HERB — and its clinician-partnered, user-in-the-loop methodology prefigures current PAR practice.
+
 [Schneiders et al. 2021](../../sources/schneiders2021-domestic-robots-automation.md) — the only ingested study of the *consumer-deployed* domestic-robot category (vacuum, lawnmower, hybrid). Identifies **task fragmentation** (one-task-becomes-many-sub-tasks) and **under-trust → co-located monitoring** patterns that recur in PAR deployments and accessible-communication research.
 
 ## Related concepts
@@ -79,6 +82,7 @@ The navigation-domain counterpart is [DRAGON (Liu et al. 2024)](../../sources/dr
 - [Robot safety standards](robot-safety-standards.md) — ISO 13482 is the certification pathway for in-home/assistive deployment ("mobile servant robot" category); the [Fosch-Villaronga critique](../../sources/fosch-villaronga-iso13482-exoskeletons.md) documents its gaps (incl. cognitive accessibility as a safety issue)
 
 ## Key references
+- [Kinova Jaco product page + user guide](../../sources/kinova-jaco-assistive-arm.md) (2021)
 - [IEEE Spectrum — Stretch assistive robot](../../sources/ieee-spectrum-stretch-assistive.md) (2023)
 - [ITU AI for Good — assistive robots](../../sources/itu-aiforgood-assistive-robots.md) (2023)
 - [RELab tenoexo](../../sources/relab-ethz-tenoexo.md) (ETH Zurich)
@@ -93,6 +97,7 @@ The navigation-domain counterpart is [DRAGON (Liu et al. 2024)](../../sources/dr
 - [HCR Lab Publications](../../sources/hcrlab-publications.md)
 - [Maya Cakmak — Research Overview](../../sources/maya-cakmak-research.md)
 - [Physically Assistive Robots — Systematic Review](../../sources/nanavati2024-physically-assistive-robots-review.md)
+- [Kinova Jaco product page + user guide](../../sources/kinova-jaco-assistive-arm.md)
 - [Sense of Agency — Yang et al. 2025](../../sources/yang2025-sense-of-agency.md)
 - [Feeding System Out-of-lab — Nanavati et al. 2025](../../sources/nanavati2025-feeding-out-of-lab.md)
 - [Explicit-Input Teleoperation — Walker et al. 2024](../../sources/walker2024-explicit-input-teleoperation.md)
