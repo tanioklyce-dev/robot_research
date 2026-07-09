@@ -38,5 +38,5 @@ tags: [daydreamer, dreamer, mbrl, real-robot, no-simulator, quadruped, manipulat
 
 ## Open questions
 
-- Why didn't this line take over robot learning? (2022→2026: the field went VLA/imitation instead — data-driven generalists beat online specialists. Worth a synthesis if the tension sharpens.)
+- Why didn't this line take over robot learning? → filed as [Why online MBRL lost to imitation/VLAs (2022–2026)](../syntheses/rl/online-mbrl-vs-imitation-robot-learning.md).
 - EAWM×DayDreamer-style test (event-aware WM on hardware) — the open question filed on [EAWM](eawm-paper.md).

@@ -45,6 +45,7 @@ tags: [dreamer, dreamer-v3, world-model, model-based-rl, mbrl, hafner, generativ
 - [TD-MPC](td-mpc.md) — sibling decoder-free MBRL family.
 - [LeWorldModel](leworldmodel.md) — JEPA-style end-to-end latent WM baseline-vs-Dreamer in the LeWM paper.
 - [World model](../concepts/world-models/world-model.md) — umbrella concept.
+- [Why online MBRL lost to imitation/VLAs (2022–2026)](../syntheses/rl/online-mbrl-vs-imitation-robot-learning.md) — where the DayDreamer thesis landed.
 
 ## Downstream (2025–26 ingests)
 

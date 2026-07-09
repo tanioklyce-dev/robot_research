@@ -117,4 +117,5 @@ In other words, Atari trained the field. The benchmark moved on; the toolbox sta
 - [Optimal control](../../concepts/robotics/optimal-control.md) — DQN's placement in the deep-RL renaissance timeline.
 - [Dreamer](../../entities/dreamer.md) — the modern model-based RL line that closes the loop MuZero opened.
 - [World model](../../concepts/world-models/world-model.md) — taxonomy that places MuZero / Dreamer in the broader landscape.
+- [Why online MBRL lost to imitation/VLAs (2022–2026)](online-mbrl-vs-imitation-robot-learning.md) — the robot-side companion to "the benchmark moved on": why the winning robot paradigm is offline imitation, not online RL.
 - [Chain of thought](../../concepts/learning/chain-of-thought.md) — the LLM-side analogue of "search at decision time" that MCTS provides AlphaGo/MuZero.
