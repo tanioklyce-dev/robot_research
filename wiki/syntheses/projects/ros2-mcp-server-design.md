@@ -43,20 +43,33 @@ Layer-2 of the framework's [three-layer architecture](fleet-agentic-framework.md
 
 ### The execution rail: what it catches, and what it does not
 
-| Call | Verdict |
-|---|---|
-| `navigate_to(pose=…)` outside the geofence | `outside_geofence` |
-| `navigate_to(pose=…)` inside a named keep-out | `inside_keepout` |
-| `navigate_to(location="top_of_stairs")` | `forbidden_waypoint` |
-| `place_object(target="toilet")` | `unsafe_place_target` |
+| Call | Verdict | Tier |
+|---|---|---|
+| `navigate_to(pose=…)` outside the geofence | `outside_geofence` | 1 |
+| `navigate_to(pose=…)` inside a named keep-out | `inside_keepout` | 1 |
+| `navigate_to(location="top_of_stairs")` | `forbidden_waypoint` | 1 |
+| `place_object(target="toilet")` | `unsafe_place_target` | 1 |
+| `pick_object` whose detected label is on the never-pick list | `unsafe_object` | **2** |
+| `pick_object` on an id never detected, or below the confidence floor | `unknown_object` | **2** |
+| `pick_object` on a detection too old to trust | `stale_object` | **2** |
 
-> [!warning] Tier 1 only — two named gaps remain open
-> The rail is a pure function of the tool **arguments**. Two harms it explicitly does **not** catch, because the server retains no world state:
+**Tier 2 — object-aware picking** (`e2853d1`). `object_id` was opaque, so the rail could refuse to *drive* at the stairs but not to *grasp* a blade. **`world.ObjectCache`** is the missing memory: `list_visible_objects` upserts every detection, the rail looks the id up before a grasp.
+
+> [!warning] Tier 2's design finding: a stale label is worse than no label
+> The naive cache is a **downgrade**. The tool schema warns ids *"expire when the scene changes"* — and a cache that ignores that doesn't leave the rail *blind*, it makes the rail **confidently wrong** (green-lighting `pick(obj_3)` because obj_3 *was* a sock 30 s ago, in a scene that has moved). Blind fails safe; confidently-wrong fails **toward the actuator**. So the cache's key behavior is **refusing to answer**: past `object_ttl_s` a lookup reports `stale_object`, not a label — and `stale` is distinct from `unknown` because the agent's recovery differs (*go look again* vs. *you never looked*).
 >
-> - **`pick_object(object_id="obj_3")` cannot tell a sock from a knife.** `object_id` is opaque; the label lives in the detector's reply, which is handed to the LLM and **dropped**. Closing this needs an `id → label` cache in `ros_bridge` (**Tier 2**) — and inherits the schema's own warning that *"ids are ephemeral and expire when the scene changes"*, so a stale label would be a *wrong* safety decision, not merely a missed one.
-> - **`pick(pills)` → `place(trash)` is not caught.** Each call is individually fine; the **sequence** is the harm. Needs held-object provenance from `run_policy` (**Tier 3**).
+> **Fails closed:** configuring `unsafe_pick_labels` derives `require_known_object` — a denylist you can consult only *sometimes* is not a denylist, and a *lazy planner* that never calls `list_visible_objects` would otherwise bypass it by default.
 >
-> This is why **`trash` is deliberately absent** from the shipped `forbidden_place_targets`: whether disposal is safe depends on what is held, so a blanket ban would stop the robot tidying while providing no real protection against the pills case. Shipping it would be safety theater; a test pins the reasoning in place.
+> **Limit, pinned by a test:** it is a blocklist over the **detector's vocabulary**. A model that says `"cleaver"` or `"utensil"` walks past a list that says `"knife"`. And `detect_objects` is **still a stub** — none of Tier 2 has met a real detector.
+
+> [!warning] Tier 3 remains open — and shapes two shipped defaults
+> **`pick(pills)` → `place(trash)` is not caught.** Each call is individually fine; the **sequence** is the harm. Needs held-object provenance from `run_policy`.
+>
+> Two consequences, both pinned by tests rather than left as folklore:
+> - **`trash` is absent** from `forbidden_place_targets` — disposal safety depends on what is held, so a blanket ban stops the robot tidying while protecting no one.
+> - **Medication is absent** from `unsafe_pick_labels` — banning the grasp would destroy the [fetcher-only medication scope](../assistive/underserved-par-domains.md#realistic-researcher-target-2), *the one deployable medication target in this wiki*, while leaving the real failure mode (disposal) wide open.
+>
+> **Blocking the wrong step and calling it safety is theater.**
 >
 > The **geofence ships unset** (a commented worked example) — a fabricated polygon either rejects every legitimate goal or silently permits everything, and both are worse than leaving it off. **Measure it in the robot's own map frame.** The name-based rails (waypoints, place targets) are live by default, since they need no map knowledge. Malformed polygons and typo'd `safety:` keys (`keepout` vs `keepouts`, which would silently disable a zone) raise at config load rather than degrading to "no constraint".
 >

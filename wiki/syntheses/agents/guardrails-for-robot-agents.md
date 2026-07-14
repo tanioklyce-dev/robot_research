@@ -65,13 +65,26 @@ But note what an allowlist *is*: a **static, name-level** rail. It answers "may 
 
 That is the real content of a robot execution rail. It needs argument-level predicates, world-state preconditions (layer 2), and for the last case some notion of *irreversibility* — which is, interestingly, exactly the vocabulary [Claude's Constitution](../../sources/claudes-constitution.md) uses at layer 5 ("avoiding drastic, irreversible, or catastrophic actions"). The alignment people already named the property; the robotics people have to implement it.
 
-> [!note] Status update (2026-07-13): the first two lines of this got built
+> [!note] Status update (2026-07-13): three of the four lines got built
 > When this page was written, **no stack in the wiki had an argument-level rail**. The fleet's [`ros2-mcp-server`](../../entities/ros2-mcp-server.md) now does ([commit `b925ddc`](../../sources/ros2-mcp-server-github.md#execution-rail-added-2026-07-13-commit-b925ddc)): `policy.py` adds a base **geofence**, named **keep-out zones**, **forbidden waypoints**, and **forbidden place targets**, hooked into the single `dispatch()` path so mission steps and compiled NL goals hit the same rail as a direct tool call. Deterministic — a set lookup and a point-in-polygon test, not a guard model. It kills `pick(knife)`'s cousins (`navigate_to(top_of_stairs)`, `place(X, toilet)`) but **not `pick(knife)` itself**:
 >
-> - **Tier 2 (open, but with a date)** — `pick_object` can't tell a sock from a knife; `object_id` is opaque and the detector's label is dropped. Needs an id→label cache. **The detector it would cache doesn't exist yet**: `detect_objects` is still a stub, scheduled for the current on-robot session (an open-vocab model — OWL-ViT / YOLO-World class — on the [XLeRobot](../../entities/xlerobot.md)'s Orin NX 16 GB). Tier 2 is therefore blocked on the same work that makes `pick_object` functional at all — which is the right time to build it, since the cache is a few lines *if written alongside the detector* and a retrofit otherwise.
+> - **Tier 2 (built 2026-07-13, [`e2853d1`](../../sources/ros2-mcp-server-github.md#execution-rail-tier-2--object-aware-picking-added-2026-07-13-commit-e2853d1))** — `pick(knife)` is now caught. [`world.ObjectCache`](../../entities/ros2-mcp-server.md) remembers what each `object_id` *is*: `list_visible_objects` upserts every detection, and the rail looks the id up before a grasp → `unsafe_object`. **Staleness turned out to be the whole design problem** — see below.
 > - **Tier 3 (open)** — `pick(pills)` → `place(trash)` is still uncaught. Each call is fine; the *sequence* is the harm. Needs held-object provenance.
 >
 > The honest lesson: `trash` was deliberately **left out** of the forbidden targets, because a rail that can't see what's held cannot distinguish "throw away the wrapper" from "throw away the pills," and banning disposal outright would stop the robot tidying while protecting no one. **The cheap tier is genuinely cheap; the tier that catches the motivating example is not.** That asymmetry is the thing to carry forward.
+
+### Tier 2's real lesson: a stale label is worse than no label
+
+The obvious version of this feature — cache `id → label`, look it up before a pick — is a **downgrade**, and seeing why is the transferable insight.
+
+The tool schema already warned that *"ids are ephemeral and expire when the scene changes."* A cache that ignores that doesn't leave the rail blind; it makes the rail **confidently wrong** — green-lighting `pick(obj_3)` because obj_3 *was* a sock thirty seconds ago, in a scene that has since moved. Blind fails safe (refuse, ask a human). Confidently-wrong fails *toward the actuator*. **Wrong-and-confident beats blind on no axis that matters**, so the cache's most important behavior is refusing to answer: entries carry a timestamp, and a lookup past the TTL reports `stale_object` rather than a label.
+
+Two corollaries that generalize to any world-state-aware guardrail:
+
+- **Distinguish "stale" from "unknown" in the *reason*, not just internally.** They imply different agent recoveries — *go look again* vs. *you never looked* — and a rail that collapses them denies the agent its own fix.
+- **Fail closed, or the check is decorative.** Configuring a never-pick list automatically requires a known object, because a denylist you can consult only sometimes isn't a denylist: an agent that simply never calls `list_visible_objects` would bypass it entirely. The bypass isn't adversarial — it's what a *lazy planner* does by default.
+
+And the limit, pinned by a test rather than papered over: **Tier 2 is a blocklist over the *detector's* vocabulary.** An open-vocab model that reports a knife as `"cleaver"` or `"utensil"` walks straight past a list that says `"knife"`. The rail is only ever as sharp as the perception under it.
 
 ## Finding 2: the text rails are a base-URL swap away
 
@@ -108,7 +121,7 @@ Mapped onto the fleet's existing [build ladder](../projects/fleet-agentic-framew
 
 | When | Do | Cost |
 |---|---|---|
-| ~~**Ladder step 2**~~ **DONE 2026-07-13** | ~~**Argument-level predicates in the MCP server.**~~ Shipped as [`policy.py`](../../entities/ros2-mcp-server.md) (`b925ddc`): geofence, keep-outs, forbidden waypoints + place targets, enforced in `dispatch()`. **Still open: Tier 2** (id→label cache, so `pick(knife)` can be caught) **and Tier 3** (held-object provenance, for `pick(pills)`→`place(trash)`). | Was hours, as estimated. The remaining tiers are not. |
+| ~~**Ladder step 2**~~ **DONE 2026-07-13** | ~~**Argument-level predicates in the MCP server.**~~ Shipped as [`policy.py`](../../entities/ros2-mcp-server.md) — Tier 1 (`b925ddc`: geofence, keep-outs, forbidden waypoints + place targets) and **Tier 2** (`e2853d1`: [`world.ObjectCache`](../../entities/ros2-mcp-server.md), so `pick(knife)` is refused). Both enforced in `dispatch()`. **Still open: Tier 3** — held-object provenance, for `pick(pills)`→`place(trash)`. | Tier 1 was hours, as estimated. Tier 2 was a day and turned on a subtlety (staleness). Tier 3 is design work. |
 | **Ladder step 2** | **An input rail on perception-derived text.** At minimum: never concatenate OCR/VLM output into the planner's *instruction* context — keep it in a clearly delimited observation channel, and strip imperative-mood system-prompt-shaped strings. | Cheap, and it is the only defense anyone has against physical injection. |
 | **Ladder step 3** (Spark master control) | **Stand up a NeMo Guardrails server on the Spark**; point the master's base URL at it. Get input/dialog/output rails on the fleet brain, where the latency is affordable. | ~A day, mostly YAML. |
 | **Anytime** | **Run [garak](../../entities/garak.md) against your planner endpoint.** Nobody in the wiki has red-teamed an embodied agent; you'd be first, and the result is a number you can put in a table. | An afternoon. |

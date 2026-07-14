@@ -51,6 +51,28 @@ Implements the leverage items from the [AgenticROS decision analysis](../synthes
 
 **Revised next-action order for this machine** (the generic "Nav2 first" order is wrong here — the XLeRobot has neither Nav2 nor Rosetta yet): `joint_states()` → `speak()` → `detect_objects()` (fixture stub first, then a real open-vocab model — the Orin NX 16 GB can run OWL-ViT / YOLO-World class detectors) → `run_policy` → **defer Nav2** until a nav stack exists on this base.
 
+### Execution rail Tier 2 — object-aware picking (added 2026-07-13, commit `e2853d1`)
+
+Closes the gap Tier 1 left open: **`pick(knife)`**, the example that motivated the whole rail. `object_id` was opaque — the detector's label was produced by `detect_objects`, handed to the LLM, and dropped — so the rail could refuse to *drive* at the stairs but not to *grasp* a blade. **`world.ObjectCache`** is the missing memory: `list_visible_objects` upserts every detection, and the rail looks the id up before a grasp. **81 tests pass** (24 new).
+
+| Call | Verdict |
+|---|---|
+| `pick_object` whose detected label is on the never-pick list | `unsafe_object` |
+| `pick_object` on an id never detected, or below the confidence floor | `unknown_object` |
+| `pick_object` on a detection too old to trust | `stale_object` |
+
+> [!warning] The design finding: **a stale label is worse than no label**
+> The naive version of this feature is a **downgrade**. The tool schema already warned that *"ids are ephemeral and expire when the scene changes"* — and a cache that ignores that doesn't leave the rail *blind*, it makes the rail **confidently wrong**: green-lighting `pick(obj_3)` because obj_3 *was* a sock thirty seconds ago, in a scene that has since moved. Blind fails safe (refuse, ask a human); confidently-wrong fails **toward the actuator**. So the cache's most important behavior is **refusing to answer**: entries carry a timestamp, and a lookup past `object_ttl_s` reports `stale_object` rather than a label. `stale` and `unknown` are reported **distinctly**, because the agent's recovery differs — *go look again* vs. *you never looked*.
+
+**It fails closed.** Configuring `unsafe_pick_labels` derives `require_known_object = true`: a denylist you can consult only *sometimes* is not a denylist — an agent that simply never calls `list_visible_objects` would bypass it entirely, and that bypass isn't adversarial, it's what a *lazy planner* does by default. Omitting the cache from `policy.check` also refuses rather than waving picks through. A robot with no `safety:` block is unaffected.
+
+**Upsert, not replace** — `list_visible_objects(query="sock")` returns a *filtered* view of the scene, so replacing the cache on each call would evict everything the filter didn't ask about. Entries the detector stops reporting age out via the TTL instead.
+
+> [!note] Medication is deliberately **not** on the never-pick list — and a test pins the reasoning
+> The obvious "safe" default (forbid grasping pills) would have silently destroyed the **fetcher-only medication scope** that [Underserved PAR domains](../syntheses/assistive/underserved-par-domains.md#realistic-researcher-target-2) identifies as *the one deployable medication target in this wiki*. The harm is **disposal** (`pick(pills)` → `place(trash)`), not **pickup**, and the two are indistinguishable at the grasp. Banning the grasp breaks the legitimate task while leaving the real failure mode wide open — that needs **held-object provenance (Tier 3, unbuilt)**. Same reasoning keeps `trash` off `forbidden_place_targets`. **Blocking the wrong step and calling it safety is theater.**
+
+**The limit, pinned by a test rather than papered over:** Tier 2 is a blocklist over the **detector's vocabulary**. An open-vocab model that reports a knife as `"cleaver"` or `"utensil"` walks straight past a list that says `"knife"`. The rail is only ever as sharp as the perception under it — and `detect_objects` is *still a stub*, so **nothing here has run against a real detector.**
+
 ### FeeTech → `/joint_states` publisher (added 2026-07-13, commit `8087288`)
 
 The answer to the blocker above. `nodes/feetech_joint_states.py` — a **separate process** (entry point `feetech-joint-states`, optional `[feetech]` dep on `feetech-servo-sdk`) that reads SO-ARM101 servo positions off the FeeTech USB bus and republishes them as `sensor_msgs/JointState`, so `ros_bridge.joint_states()` finally has a topic to subscribe to. `ros_bridge.py` stays the only rclpy module *in the server*; `nodes/` holds drivers the server depends on but does not contain.

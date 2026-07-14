@@ -104,6 +104,13 @@ Medication looks easier than dressing or bathing — it's a discrete task with c
 
 The **fetcher-only** scope is achievable: Stretch + pre-organized pill organizer + open-vocabulary fetch. This pulls the medication task into the existing RUM/OK-Robot capability envelope without taking on the high-stakes pill-manipulation step. It's a less ambitious contribution than full medication management, but it's deployable today.
 
+> [!note] A safety layer that bans picking up medication would destroy this target (2026-07-13)
+> When [ros2-mcp-server](../../entities/ros2-mcp-server.md) gained an [object-aware execution rail](../agents/guardrails-for-robot-agents.md) — a never-pick list of detector labels — **medication was deliberately left off it**, and this section is why. The obvious "safe" default is to forbid the robot from grasping pills; it would have silently killed the **fetcher-only scope** identified above as the *one deployable medication target in this wiki*.
+>
+> The harm in the medication case is **disposal** (`pick(pills)` → `place(trash)`), not **pickup** — and the two are not distinguishable at the grasp. Banning the grasp breaks the legitimate task while leaving the actual failure mode wide open; catching the real one needs **held-object provenance** (Tier 3, unbuilt). **Blocking the wrong step and calling it safety is theater**, and this is the cleanest example the wiki has of a plausible safety default that would have cost more capability than it bought.
+>
+> Consistent with [Yang et al. 2025](../../sources/yang2025-sense-of-agency.md)'s finding above: on high-risk tasks users want *control*, not a robot that unilaterally refuses. A confirmation prompt is the right shape here — not a prohibition.
+
 ---
 
 ## A pattern across all three
