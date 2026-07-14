@@ -28,13 +28,39 @@ Layer-2 of the framework's [three-layer architecture](fleet-agentic-framework.md
 >
 > **Adopted same day** ([repo commit `c4ef908`](../../sources/ros2-mcp-server-github.md#agenticros-pattern-layer-added-2026-07-05-commit-c4ef908)): `blocks_base`/`interruptible` capability flags (with `base_busy` enforcement), `run_mission` step graphs with `{{stepId.outputs.field}}` templating, a `compile_mission` deterministic NL→mission fast path, the `robot_info` heartbeat + `find_robots_for` fleet layer (`fleet_role: master`), and a Zenoh RMW config knob.
 
-## Five design decisions
+## Six design decisions
 
 1. **Semantic tools only — the tool set *is* the safety boundary.** `navigate_to`, `pick_object`, `place_object`, `list_visible_objects`, `say`, `record_episode`, `report_outcome`. No raw joint control on the default surface (that's an admin-gated escape hatch). Same property as [Gemini-ER on Spot](../../entities/gemini-robotics.md): the agent "can't invent capabilities beyond the API." The full JSON tool schema is in the [implementation notes](fleet-framework-implementation-notes.md#part-1-mcp-tool-schema-for-the-so-arm101-robots).
 2. **Config-driven tool filtering.** One server binary; one YAML per robot (`arms`, `cameras`, `policy_endpoint`). `tools/list` is *generated* from it, so the LLM only ever sees tools the robot can do: single-arm robots ([LeKiwi](../../entities/lekiwi.md), post-swap [ROSOrin](../../entities/rosorin-pro.md)) don't get `handover` or the `arm` argument; dual-arm [XLeRobot](../../entities/xlerobot.md) gets the `arm` enum + `handover`. The two single-arm configs are byte-identical → they point at the same [shared checkpoint](fleet-framework-implementation-notes.md#cross-embodiment-shortcut-two-checkpoints-from-one-data-pool).
 3. **Structured result envelope, not prose.** Every action returns `{status, reason, observation}` from a closed reason vocabulary (`no_grasp_found`, `gripper_slipped`, `path_blocked`, …). This is what makes the agent's [closed-loop replanning](../agents/llm-agent-architecture-across-stacks.md#implementation-hazards-visible-in-the-sources) work — a `{failed, gripper_slipped}` becomes "retry with the other arm."
 4. **Deterministic dispatch — never `eval` model output.** A fixed `name → handler` table; unknown tools return `{rejected, unknown_tool}`. This closes the [RCE hazard](../agents/llm-agent-architecture-across-stacks.md#implementation-hazards-visible-in-the-sources) both Hiwonder kits have (`eval(f'self.{a}')`).
 5. **`stop` is out-of-band.** A blocking `pick`/`navigate` call can't also receive a cancel through the same channel, so `stop` is **not** a normal MCP tool — it's a separate transport (a dedicated ROS 2 topic / second MCP session / hardware e-stop). Routing emergency-stop through the blocked channel would be the classic mistake.
+6. **The allowlist guards the *verb*; an argument-level rail guards the *noun*.** Added 2026-07-13 (repo commit [`0b57b68`](../../sources/ros2-mcp-server-github.md#execution-rail-added-2026-07-13-commit-0b57b68)) after [Guardrails for robot agents](../agents/guardrails-for-robot-agents.md) established that decision 1 is a **static, name-level [execution rail](../../concepts/safety/ai-guardrails.md)** in NVIDIA's enterprise-guardrail vocabulary — and that a name-level rail lets `navigate_to(pose=<top of the stairs>)` straight through, because it is a well-formed call to an allowed tool. [`policy.py`](../../entities/ros2-mcp-server.md) adds a base **geofence**, named **keep-out zones**, **forbidden waypoints**, and **forbidden place targets**, configured per robot under `safety:`.
+
+   The hook is in **`dispatch()`** — after the `unknown_tool` allowlist, before the base lock. That placement is load-bearing: `missions.py` routes through the same function, so a **compiled NL goal — exactly where an injected instruction would arrive — hits the same rail as a direct `tools/call`**. And unlike a system-prompt instruction ("never go near the stairs"), a [prompt injection](../../concepts/safety/ai-red-teaming.md) cannot argue it away: the server, not the model, is the trust boundary. It is a set lookup and a point-in-polygon test — **not a guard model**, so none of the guardrail latency budget applies.
+
+   Denials return through the decision-3 envelope (`{status: rejected, reason: outside_geofence, observation: {x, y}}`) with four new entries in the closed reason vocabulary, so the agent re-plans rather than crashing.
+
+### The execution rail: what it catches, and what it does not
+
+| Call | Verdict |
+|---|---|
+| `navigate_to(pose=…)` outside the geofence | `outside_geofence` |
+| `navigate_to(pose=…)` inside a named keep-out | `inside_keepout` |
+| `navigate_to(location="top_of_stairs")` | `forbidden_waypoint` |
+| `place_object(target="toilet")` | `unsafe_place_target` |
+
+> [!warning] Tier 1 only — two named gaps remain open
+> The rail is a pure function of the tool **arguments**. Two harms it explicitly does **not** catch, because the server retains no world state:
+>
+> - **`pick_object(object_id="obj_3")` cannot tell a sock from a knife.** `object_id` is opaque; the label lives in the detector's reply, which is handed to the LLM and **dropped**. Closing this needs an `id → label` cache in `ros_bridge` (**Tier 2**) — and inherits the schema's own warning that *"ids are ephemeral and expire when the scene changes"*, so a stale label would be a *wrong* safety decision, not merely a missed one.
+> - **`pick(pills)` → `place(trash)` is not caught.** Each call is individually fine; the **sequence** is the harm. Needs held-object provenance from `run_policy` (**Tier 3**).
+>
+> This is why **`trash` is deliberately absent** from the shipped `forbidden_place_targets`: whether disposal is safe depends on what is held, so a blanket ban would stop the robot tidying while providing no real protection against the pills case. Shipping it would be safety theater; a test pins the reasoning in place.
+>
+> The **geofence ships unset** (a commented worked example) — a fabricated polygon either rejects every legitimate goal or silently permits everything, and both are worse than leaving it off. **Measure it in the robot's own map frame.** The name-based rails (waypoints, place targets) are live by default, since they need no map knowledge. Malformed polygons and typo'd `safety:` keys (`keepout` vs `keepouts`, which would silently disable a zone) raise at config load rather than degrading to "no constraint".
+>
+> It is a blocklist, not a proof — a seatbelt, not an airbag.
 
 ## Transport
 
@@ -46,14 +72,15 @@ Layer-2 of the framework's [three-layer architecture](fleet-agentic-framework.md
 ```
 ros2_mcp_server/
   server.py     MCP entrypoint: build tools from config, dispatch tools/call
-  config.py     per-robot YAML -> RobotConfig (arms, cameras, policy_endpoint)
-  tools.py      tool registry (JSON schemas) + build_tools(config) filtering
+  config.py     per-robot YAML -> RobotConfig (arms, cameras, policy_endpoint) + SafetyPolicy
+  tools.py      tool registry (JSON schemas) + build_tools(config) filtering + dispatch
+  policy.py     the argument-level execution rail (decision 6), enforced inside dispatch()
   envelope.py   the {status, reason, observation} Result type + reason vocabulary
   ros_bridge.py the ONLY rclpy module — lifecycle + robot_info pub/sub wired; Nav2 /
                 policy / detector / TTS action-service calls still stubs
   skills/       one module per family (navigation, manipulation, perception, speech, data, control)
-configs/        lekiwi.yaml, xlerobot.yaml, rosorin.yaml
-tests/          config filtering + envelope + skill tests (pass without ROS 2)
+configs/        lekiwi.yaml, xlerobot.yaml, rosorin.yaml  (each now carries a `safety:` block)
+tests/          config filtering + envelope + skill + policy tests (pass without ROS 2)
 ```
 
 `rclpy` is sourced from the ROS 2 environment, **not** pip — and the bridge falls back to a **stub mode** (`{rejected, ros_unavailable}`) when ROS 2 is absent, so the package imports, launches, and tests on a plain laptop / CI. Verified: single-arm config yields 8 robot tools (no `handover`, no `arm`), dual-arm 9 (with both); with the meta tools (`run_mission`, `compile_mission`, `get_capabilities`) the served `tools/list` is **11 / 12** (+`find_robots_for` on a `fleet_role: master` server).

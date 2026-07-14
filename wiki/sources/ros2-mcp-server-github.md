@@ -4,7 +4,7 @@ type: source
 url: https://github.com/tanioklyce-dev/ros2-mcp-server
 author: tanioklyce-dev (first-party)
 published: 2026-07-04 (created)
-ingested: 2026-07-04 (re-ingested 2026-07-05 after the AgenticROS-pattern layer landed)
+ingested: 2026-07-04 (re-ingested 2026-07-05 after the AgenticROS-pattern layer; 2026-07-13 after the execution rail)
 format: github-repo
 license: MIT
 tags: [ros2-mcp-server, mcp, ros2, fleet, agent, tool-schema, skeleton, first-party, so-arm101]
@@ -35,6 +35,19 @@ Implements the leverage items from the [AgenticROS decision analysis](../synthes
 - **Zenoh knob** — `rmw: rmw_zenoh_cpp` in the per-robot YAML sets `RMW_IMPLEMENTATION` before `rclpy` loads (router-based LAN discovery instead of DDS multicast).
 - New envelope reasons: `base_busy`, `invalid_mission`, `unrecognized_goal`.
 - **Bridge wiring started (commit `5921d35`, same day)** — the node lifecycle (`start`/`stop`: rclpy node under the config namespace + `MultiThreadedExecutor` on a daemon thread) and the fleet pub/sub are **wired**, no longer stubs: `publish_robot_info` publishes the JSON card on `<ns>/mcp/robot_info` (QoS depth 1); `subscribe_robot_info` discovers heartbeat topics by graph scan (once + 2 s rescan — ROS 2 has no topic wildcards) and marshals decoded cards onto the asyncio loop; malformed payloads dropped. 26 tests + a fake-rclpy smoke test. The action/service primitives (Nav2, Rosetta policy, detector, TTS) remain the TODO stubs.
+
+### Execution rail (added 2026-07-13, commit `0b57b68`)
+
+The argument-level safety layer, prompted by [Guardrails for robot agents](../syntheses/agents/guardrails-for-robot-agents.md) — which observed that the repo's "the tool set *is* the safety boundary" is a **static, name-level [execution rail](../concepts/safety/ai-guardrails.md)** in NVIDIA's enterprise-guardrail vocabulary, and that a name-level rail lets `navigate_to(pose=<top of the stairs>)` through, since it is a well-formed call to an allowed tool. **43 tests pass** without ROS 2; ruff-clean.
+
+- **`policy.py`** — `check(tool, args, cfg) -> Verdict`. Four predicates, each a pure function of the tool arguments + static config: base **geofence** (ray-cast point-in-polygon) → `outside_geofence`; named **keep-out zones** → `inside_keepout`; **forbidden waypoints** → `forbidden_waypoint`; **forbidden place targets** (destinations wrong for *any* object — toilet/stove/sink) → `unsafe_place_target`. Configured per robot under a new `safety:` block.
+- **Hooked into `dispatch()`**, after the `unknown_tool` allowlist and before the base lock — the *single* dispatch path, so `missions.py` routes through it too and a **compiled NL goal hits the same rail as a direct `tools/call`**. A test asserts missions cannot route around it. Unlike a system-prompt instruction, a prompt injection cannot argue it away: the server is the trust boundary, not the model.
+- **Not a guard model** — a set lookup and a point-in-polygon test (microseconds), so none of the LLM-guardrail latency budget applies.
+- **Fails closed** — an unparseable pose while a geofence is configured is a rejection, not a free pass; malformed polygons and typo'd `safety:` keys (`keepout` vs `keepouts`, which would silently disable a zone) raise at **config load**.
+- New envelope reasons: `outside_geofence`, `inside_keepout`, `forbidden_waypoint`, `unsafe_place_target`.
+
+> [!warning] Tier 1 — two gaps left open, deliberately
+> `pick_object` **cannot tell a sock from a knife** (`object_id` is opaque; the detector's label is handed to the LLM and dropped → needs an id→label cache, **Tier 2**). And `pick(pills)` → `place(trash)` is **not caught** — each call is individually fine, the *sequence* is the harm → needs held-object provenance (**Tier 3**). Consequently `trash` is deliberately **absent** from the shipped `forbidden_place_targets`: disposal safety depends on what is held, so a blanket ban would stop the robot tidying while providing no protection against the pills case. A test pins that reasoning. The **geofence ships unset** (commented worked example) — it must be measured in the robot's own map frame, since a fabricated polygon either rejects everything or permits everything.
 
 ## Entities mentioned
 - [ros2-mcp-server](../entities/ros2-mcp-server.md) — this repo's entity. [Rosetta](../entities/rosetta.md) — the LeRobot↔ROS 2 policy bridge its `run_policy` targets. [Nav2](../entities/nav2.md) — the nav action its `navigate_to` targets.

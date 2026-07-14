@@ -49,7 +49,7 @@ Robotics, it turns out, has been writing that policy for years without calling i
 
 | Stack | Execution rail | Grade |
 |---|---|---|
-| **[Fleet ros2-mcp-server](../projects/ros2-mcp-server-design.md)** | Semantic tools only; **deterministic `name→handler` dispatch**, unknown tools rejected; config-driven tool filtering so the LLM only sees tools the robot *has*; no raw joint control on the default surface; **`stop` on an out-of-band channel** | **A–** |
+| **[Fleet ros2-mcp-server](../projects/ros2-mcp-server-design.md)** | Semantic tools only; **deterministic `name→handler` dispatch**, unknown tools rejected; config-driven tool filtering so the LLM only sees tools the robot *has*; no raw joint control on the default surface; **`stop` on an out-of-band channel**. **Since 2026-07-13, also argument-level** ([`policy.py`](../../entities/ros2-mcp-server.md): geofence, keep-outs, forbidden waypoints/place-targets) — see below. | **A–** → **A** |
 | **[Gemini-ER on Spot](../../entities/gemini-robotics.md)** | Thin SDK wrapper; the agent "can't invent capabilities beyond the API" | **B** |
 | **[stretch_ai](../../entities/stretch-ai.md)** | FSM executor over a fixed primitive set | **B–** |
 | **[Hiwonder ROSOrin / OpenClaw](../../concepts/agents/llm-agent-architecture.md)** | **`eval(f'self.{a}')` on model output** — arbitrary code execution from LLM text | **F** |
@@ -63,10 +63,15 @@ But note what an allowlist *is*: a **static, name-level** rail. It answers "may 
 - `navigate_to(top_of_stairs)` — allowed everything, **catastrophic in context**.
 - `pick(pill_bottle)` then `place(trash)` — each call individually fine, **the sequence is the harm**.
 
-That is the real content of a robot execution rail, and **nobody in this wiki has written one** — not NVIDIA, not the fleet, not Boston Dynamics. It needs argument-level predicates, world-state preconditions (layer 2), and for the last case some notion of *irreversibility* — which is, interestingly, exactly the vocabulary [Claude's Constitution](../../sources/claudes-constitution.md) uses at layer 5 ("avoiding drastic, irreversible, or catastrophic actions"). The alignment people already named the property; the robotics people have to implement it.
+That is the real content of a robot execution rail. It needs argument-level predicates, world-state preconditions (layer 2), and for the last case some notion of *irreversibility* — which is, interestingly, exactly the vocabulary [Claude's Constitution](../../sources/claudes-constitution.md) uses at layer 5 ("avoiding drastic, irreversible, or catastrophic actions"). The alignment people already named the property; the robotics people have to implement it.
 
-> [!note] The cheapest version of irreversibility-awareness is a confirmation prompt
-> Partition the tool set by reversibility. `navigate_to`, `say`, `find` are cheap and reversible → run freely. `place(X, trash)`, anything involving stairs/stoves/medication → **require a human confirm**. This is a two-line policy, it is not research, and no stack in the wiki does it.
+> [!note] Status update (2026-07-13): the first two lines of this got built
+> When this page was written, **no stack in the wiki had an argument-level rail**. The fleet's [`ros2-mcp-server`](../../entities/ros2-mcp-server.md) now does ([commit `0b57b68`](../../sources/ros2-mcp-server-github.md#execution-rail-added-2026-07-13-commit-0b57b68)): `policy.py` adds a base **geofence**, named **keep-out zones**, **forbidden waypoints**, and **forbidden place targets**, hooked into the single `dispatch()` path so mission steps and compiled NL goals hit the same rail as a direct tool call. Deterministic — a set lookup and a point-in-polygon test, not a guard model. It kills `pick(knife)`'s cousins (`navigate_to(top_of_stairs)`, `place(X, toilet)`) but **not `pick(knife)` itself**:
+>
+> - **Tier 2 (open)** — `pick_object` can't tell a sock from a knife; `object_id` is opaque and the detector's label is dropped. Needs an id→label cache.
+> - **Tier 3 (open)** — `pick(pills)` → `place(trash)` is still uncaught. Each call is fine; the *sequence* is the harm. Needs held-object provenance.
+>
+> The honest lesson: `trash` was deliberately **left out** of the forbidden targets, because a rail that can't see what's held cannot distinguish "throw away the wrapper" from "throw away the pills," and banning disposal outright would stop the robot tidying while protecting no one. **The cheap tier is genuinely cheap; the tier that catches the motivating example is not.** That asymmetry is the thing to carry forward.
 
 ## Finding 2: the text rails are a base-URL swap away
 
@@ -103,7 +108,7 @@ Mapped onto the fleet's existing [build ladder](../projects/fleet-agentic-framew
 
 | When | Do | Cost |
 |---|---|---|
-| **Ladder step 2** (MCP server + on-robot agent) | **Argument-level predicates in the MCP server.** You already have deterministic dispatch; add per-tool argument validation and a reversibility partition. Dangerous target → return `{rejected, needs_confirmation}` instead of executing. | Hours. This is the highest value-per-line change on this page. |
+| ~~**Ladder step 2**~~ **DONE 2026-07-13** | ~~**Argument-level predicates in the MCP server.**~~ Shipped as [`policy.py`](../../entities/ros2-mcp-server.md) (`0b57b68`): geofence, keep-outs, forbidden waypoints + place targets, enforced in `dispatch()`. **Still open: Tier 2** (id→label cache, so `pick(knife)` can be caught) **and Tier 3** (held-object provenance, for `pick(pills)`→`place(trash)`). | Was hours, as estimated. The remaining tiers are not. |
 | **Ladder step 2** | **An input rail on perception-derived text.** At minimum: never concatenate OCR/VLM output into the planner's *instruction* context — keep it in a clearly delimited observation channel, and strip imperative-mood system-prompt-shaped strings. | Cheap, and it is the only defense anyone has against physical injection. |
 | **Ladder step 3** (Spark master control) | **Stand up a NeMo Guardrails server on the Spark**; point the master's base URL at it. Get input/dialog/output rails on the fleet brain, where the latency is affordable. | ~A day, mostly YAML. |
 | **Anytime** | **Run [garak](../../entities/garak.md) against your planner endpoint.** Nobody in the wiki has red-teamed an embodied agent; you'd be first, and the result is a number you can put in a table. | An afternoon. |
