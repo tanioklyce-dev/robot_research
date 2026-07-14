@@ -2,8 +2,8 @@
 title: LLM-agent architecture
 type: concept
 created: 2026-05-07
-updated: 2026-07-05
-sources: 30
+updated: 2026-07-13
+sources: 32
 tags: [llm-agent, tool-use, agentic-robotics, planning, mcp, a2a]
 ---
 
@@ -52,6 +52,21 @@ As LLM agents proliferate, two complementary protocols have emerged to connect t
 
 These protocols represent the infrastructure layer that makes "networked AI" — multiple cooperating agents — practical at scale. Primary source: [Are We Building Skynet? (Medium, 2025)](../../sources/medium-are-we-building-skynet.md) (secondary journalism; MCP and A2A facts corroborated by Anthropic and Google public documentation).
 
+## The missing layer: guardrails on the planner
+
+Every implementation above shares an omission. The pattern is *LLM → tool call → actuator*, and in none of the ingested sources is there anything **between** the LLM and the skill library: no input sanitization, no policy check on the emitted tool call, no jailbreak detector. The planner's context is filled from user speech and from perception (OCR'd labels, VLM scene descriptions), and whatever comes out is dispatched — in ROSOrin's case literally via `eval(f'self.{a}')` ([Hiwonder ROSOrin Documentation](../../sources/hiwonder-rosorin-docs.md)).
+
+The [NVIDIA safety recipe](../../sources/nvidia-safety-recipe-agentic-ai.md) and the [NeMo Guardrails library docs](../../sources/nemo-guardrails-library-overview.md) are the wiki's primary sources on what the missing layer looks like in industry: a build→deploy→run lifecycle ending in [runtime guardrails](../safety/ai-guardrails.md) — content safety, topic control, jailbreak detection, PII — plus an **execution rail** that validates tool calls before they run. **Full treatment: [Guardrails for robot agents](../../syntheses/agents/guardrails-for-robot-agents.md).**
+
+Two things follow for robots specifically:
+
+- **[Prompt injection](../safety/ai-red-teaming.md) becomes physical.** A chat agent's untrusted input arrives in the user's message. A robot's planner ingests text from *the environment* — signage, labels, screens, whiteboards — so the attack is available to anyone who can **leave a note where the robot will look**.
+- **The guard models don't cover the dangerous channel.** Every shipped guardrail *model* classifies text; the robot's harmful output is a *tool call* (`pickup(knife)`, `drive(toward_stairs)`). The execution rail is the right hook and it does exist — but it ships **empty**, as a place to put your own Python function, because "is this tool call safe" is irreducibly domain-specific. In practice this job falls to hand-written preconditions in the skill library, or to the deterministic [machinery-safety layer (ISO 13482)](../robotics/robot-safety-standards.md), a separate stack that knows nothing about LLMs. A robot that satisfies ISO 13482 will not crush you; nothing in it stops the planner from calmly deciding to put your medication in the trash.
+- **An MCP allowlist *is* an execution rail** — a static, name-level one. The [fleet's ros2-mcp-server](../../syntheses/projects/ros2-mcp-server-design.md) ("the tool set *is* the safety boundary", deterministic `name→handler` dispatch, out-of-band `stop`) independently derived most of the properties NVIDIA's execution rail asks for. What it still lacks is **argument-level and world-state-level** policy: `pick(knife)` and `place(cup, on=laptop)` pass any name-level allowlist.
+
+> [!note] Unmeasured, not merely unmitigated
+> No ingested source red-teams an embodied LLM agent. The wiki cannot say how exploitable these stacks are — only that none of them appear to have looked.
+
 ## Trade-offs vs. VLA
 - **Pro**: composes with battle-tested classical perception/manipulation; LLM only needs symbolic-level reasoning.
 - **Pro**: easy to swap LLMs (just change the API); easier to debug than end-to-end policies.
@@ -65,6 +80,9 @@ These protocols represent the infrastructure layer that makes "networked AI" —
 - [stretch_ai](../../entities/stretch-ai.md) — concrete implementation.
 - [World-model simulators](../world-models/world-model-simulators.md) — orthogonal (training-environment paradigm, not control paradigm).
 - [AI safety and alignment](../safety/ai-safety-alignment.md) — safety properties of the LLM brain matter when it has real-world tool access via MCP.
+- [Guardrails for robot agents](../../syntheses/agents/guardrails-for-robot-agents.md) — **the synthesis**: the five-layer safety cake, why the MCP allowlist is already an execution rail, and the unguarded perception channel.
+- [AI guardrails](../safety/ai-guardrails.md) — the enforcement layer that *should* sit between the planner and the skill library, and currently doesn't.
+- [AI red-teaming](../safety/ai-red-teaming.md) — prompt injection through the perception channel is this pattern's distinctive attack surface.
 
 ## Mentioned in
 - [Stretch AI LLM Agent Documentation](../../sources/stretch-ai-llm-agent-docs.md)
@@ -74,3 +92,5 @@ These protocols represent the infrastructure layer that makes "networked AI" —
 - [Tools for Your To Do List with Spot and Gemini Robotics (Boston Dynamics blog)](../../sources/bostondynamics-spot-gemini-robotics.md)
 - [AgenticROS GitHub](../../sources/agenticros-github.md)
 - [Awesome-Embodied-Robotics-and-Agent](../../sources/awesome-embodied-robotics-agent.md) — community-curated external index of the same LLM/VLM-embodied-agent landscape; useful coverage cross-check.
+- [Safeguard Agentic AI Systems with the NVIDIA Safety Recipe](../../sources/nvidia-safety-recipe-agentic-ai.md) — the guardrail layer this pattern lacks.
+- [NeMo Guardrails — Library Overview](../../sources/nemo-guardrails-library-overview.md) — execution rails, tool-call validation, LangGraph multi-agent safety.

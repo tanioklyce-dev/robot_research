@@ -54,11 +54,13 @@ The product positioning: *"always-on, self-evolving agents"* with **privacy and 
 ## Concepts touched
 
 - [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — NemoClaw productionizes the pattern with enterprise guardrails.
+- [AI guardrails](../concepts/safety/ai-guardrails.md) — OpenShell's "policy-based guardrails" are the same layer NVIDIA sells to enterprises as [NeMo Guardrails](../entities/nemo-guardrails.md); see the [NVIDIA safety recipe](nvidia-safety-recipe-agentic-ai.md).
 
 ## Open questions
 
 - **What does "NVIDIA Agent Toolkit" actually contain?** Not enumerated on landing page; needs follow-up source.
 - **NVIDIA OpenShell** — distinct from a Unix shell; what's the policy-language model? (Like Anthropic's `--allowedTools` allowlists? Like Open Policy Agent / Rego?)
+  - *Partial answer (2026-07-13):* NVIDIA's enterprise guardrail runtime, [NeMo Guardrails](../entities/nemo-guardrails.md), uses **Colang** — a DSL for conversational flows — and organizes policy into five **rail** types (input / dialog / retrieval / execution / output), i.e. closer to Rego-style policy-with-dialog-state than to a flat allowlist. Whether OpenShell *is* NeMo Guardrails under a different name, or a separate runtime sharing the pattern, is still unconfirmed.
 - **Nemotron model family** — which sizes / quality tiers? Not a wiki entity yet.
 - **GA timeline / pricing** — early preview status; no release date.
 - **Does NemoClaw or OpenClaw have a robot-control extension?** No evidence on this landing page.

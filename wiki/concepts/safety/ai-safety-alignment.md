@@ -2,8 +2,8 @@
 title: AI safety and alignment
 type: concept
 created: 2026-05-09
-updated: 2026-07-04
-sources: 8
+updated: 2026-07-13
+sources: 9
 tags: [ai-safety, alignment, corrigibility, values, anthropic]
 ---
 
@@ -45,6 +45,14 @@ The outcome Anthropic considers most catastrophic: global takeover by AIs pursui
 
 **System cards:** Anthropic publishes model-specific system cards that track where behavior diverges from Claude's Constitution's ideals — the empirical complement to the normative specification.
 
+## The other pole: deployment-time enforcement
+
+Everything above is **training-time** alignment authored by the *model provider*. There is a second, far more prosaic safety tradition — **deployment-time enforcement** authored by the *model deployer*: evaluate the model against a written policy, safety post-train it, and then wrap it in a runtime filter that inspects every input, output, and tool call. See [AI guardrails](ai-guardrails.md) and [AI red-teaming](ai-red-teaming.md).
+
+The [NVIDIA safety recipe](../../sources/nvidia-safety-recipe-agentic-ai.md) is the wiki's primary source on this pole, and its implicit thesis is the more pessimistic one: **assume the aligned model will still fail, and put a filter in front of it.** Its own numbers support the pessimism — a purpose-post-trained model still failed roughly a third of adversarial security probes (56% → 63%).
+
+These two poles are complements, not competitors. Note in particular that a guardrail layer *is* an external oversight mechanism — precisely the thing the [corrigibility](corrigibility.md) argument says you want to preserve. The asymmetric-cost argument carries over cleanly: if the model's values are good, the guardrail costs a little latency; if they're subtly bad, the guardrail is what stands between a bad decision and a real-world action.
+
 ## Relation to agentic AI in this wiki
 
 AI safety is directly relevant to the [LLM-agent architecture](../agents/llm-agent-architecture.md) pattern used across the robot platforms in this wiki. When an LLM agent has real-world tool access (via MCP), executes multi-step tasks autonomously, and operates within multi-agent networks (via A2A), the behavioral guarantees of the underlying model matter for real-world outcomes. The behaviors that Anthropic categorizes as "broadly safe" — acting within sanctioned limits, avoiding drastic/irreversible actions, not acquiring resources beyond the task — are directly relevant to deployed robotic agents.
@@ -55,6 +63,8 @@ AI safety is directly relevant to the [LLM-agent architecture](../agents/llm-age
 
 ## Related concepts
 - [Corrigibility](corrigibility.md) — dedicated page on the corrigibility dial and broadly safe behaviors.
+- [AI guardrails](ai-guardrails.md) — the deployment-time enforcement pole (runtime rails, content safety / topic control / jailbreak detection).
+- [AI red-teaming](ai-red-teaming.md) — how the failures that guardrails catch get found in the first place.
 - [Mechanism design](../economics/mechanism-design.md) — incentive design as an alternative lever to value-alignment for shaping multi-agent behavior.
 - [LLM-agent architecture](../agents/llm-agent-architecture.md) — the architecture whose runtime behavior safety alignment governs.
 - [Agentic UAVs](../robotics/agentic-uavs.md) — multi-agent aerial systems; safety constraints apply to multi-agent coordination.
@@ -62,3 +72,4 @@ AI safety is directly relevant to the [LLM-agent architecture](../agents/llm-age
 ## Mentioned in
 - [Claude's Constitution](../../sources/claudes-constitution.md)
 - [Are We Building Skynet? (Medium, 2025)](../../sources/medium-are-we-building-skynet.md)
+- [Safeguard Agentic AI Systems with the NVIDIA Safety Recipe](../../sources/nvidia-safety-recipe-agentic-ai.md)

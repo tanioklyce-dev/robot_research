@@ -3,8 +3,8 @@ title: NVIDIA Brev
 type: entity
 subtype: product
 created: 2026-05-14
-updated: 2026-05-14
-sources: 2
+updated: 2026-07-13
+sources: 3
 tags: [nvidia, gpu, cloud, devtools, cost-management]
 ---
 
@@ -48,3 +48,4 @@ Full guidance with examples in [NVIDIA Brev Docs — Cost-management guidance](.
 ## Mentioned in
 - [NVIDIA Brev Docs](../sources/nvidia-brev-docs.md)
 - [Isaac Launchable Repo](../sources/isaac-launchable-repo.md)
+- [Safeguard Agentic AI Systems with the NVIDIA Safety Recipe](../sources/nvidia-safety-recipe-agentic-ai.md) — the safety recipe shipped as a one-click Brev Launchable from `build.nvidia.com`; a second example of NVIDIA using Launchables as the default delivery vehicle for a reference workflow.

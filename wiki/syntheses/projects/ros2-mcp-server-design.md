@@ -72,4 +72,5 @@ The `ros_bridge.py` methods are the only TODOs:
 - [Fleet agentic control framework](fleet-agentic-framework.md) — this server is Layer 2's bridge.
 - [Fleet framework — implementation notes](fleet-framework-implementation-notes.md) — the full MCP tool schema + return envelope this implements.
 - [LLM-agent architecture](../../concepts/agents/llm-agent-architecture.md) — MCP + the tool-call pattern.
+- [Guardrails for robot agents](../agents/guardrails-for-robot-agents.md) — **decision 1 ("the tool set *is* the safety boundary") is an [execution rail](../../concepts/safety/ai-guardrails.md)** in NVIDIA's enterprise-guardrail vocabulary, independently derived. The synthesis grades this server **A–** against that standard and names what's still missing: argument-level predicates (`pick(knife)` passes a name-level allowlist), a reversibility partition with confirmation prompts, and an input rail on perception-derived text. The first two are hours of work in `tools.py`.
 - [Rosetta](../../entities/rosetta.md) — the LeRobot↔ROS 2 bridge the `run_policy` action targets.

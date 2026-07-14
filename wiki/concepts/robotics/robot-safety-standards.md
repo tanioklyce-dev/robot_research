@@ -49,6 +49,7 @@ The [primary academic critique](../../sources/fosch-villaronga-iso13482-exoskele
 - [Assistive robotics](assistive-robotics.md) — the deployment domain where this standard bites first (in-home robots near vulnerable users).
 - [Levels of autonomy in assistive robotics](../../syntheses/assistive/levels-of-autonomy-in-assistive-robotics.md) — autonomy level determines which safety functions must be machine-side.
 - [VLA models](../learning/vla-models.md) / [Large behavior models](../learning/large-behavior-models.md) — the learned-policy side of the collision above.
+- [AI guardrails](../safety/ai-guardrails.md) — **the other safety layer, and a disjoint one.** ISO 13482 governs *physical* harm via deterministic safety functions; LLM guardrails govern *semantic* harm via learned text classifiers. Neither knows the other exists. A robot that satisfies ISO 13482 will not crush you; nothing in the standard stops an [LLM planner](../agents/llm-agent-architecture.md) from deciding to throw away your medication. No ingested source bridges the two.
 
 ## Current state
 

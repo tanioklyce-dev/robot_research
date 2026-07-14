@@ -19,11 +19,13 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - **Omnimodal world model**: **[Cosmos 3](nvidia-cosmos.md)** (June 2026) unified the Cosmos platform into a single Mixture-of-Transformers model spanning language/image/video/audio/action — #1 open-weight T2I + I2V (Artificial Analysis) and #1 RoboArena policy at launch ([Cosmos 3 technical report](../sources/cosmos-3-technical-report.md), led by [Ming-Yu Liu](ming-yu-liu.md)).
 - **In-house research lab**: [NVIDIA GEAR](nvidia-gear.md) (Generalist Embodied Agent Research, founded Feb 2024) is the source of GR00T, the Dream*-world-model line (DreamGen / DreamZero / DreamDojo), the Eureka / DrEureka LLM-as-reward-designer line, the humanoid whole-body cluster (SONIC, HOVER, ASAP, Doorman, VIRAL), and much of the Isaac Lab + RoboCasa + MimicGen substrate ([GEAR Publications](../sources/nvidia-gear-publications.md)).
 - **Edge AI compute**: the Jetson product line — [Jetson Orin Nano](jetson-orin-nano.md), Orin NX, AGX Orin, and the new **Blackwell-generation [Jetson Thor](jetson-thor.md)** (T5000 + T4000 modules, AGX Thor Dev Kit, launched 2025-08-25) — paired with [JetPack](jetpack.md) SDK (CUDA + TensorRT + DeepStream + VPI) on [Jetson Linux](jetson-linux.md) BSP. The substrate for most wiki-tracked educational and research robots that aren't running on an x86 workstation.
+- **Agentic-AI safety stack**: NVIDIA also owns the *guardrail* layer — [NeMo Guardrails](nemo-guardrails.md) (programmable runtime rails + the NemoGuard content-safety / topic-control / jailbreak-detect NIMs) and [garak](garak.md) (open-source LLM vulnerability scanner), packaged as a build→deploy→run "safety recipe" ([NVIDIA safety recipe](../sources/nvidia-safety-recipe-agentic-ai.md), July 2025; blueprint deprecated 2026-04-22 in favor of NeMo Microservices). The same pattern reappears as NVIDIA OpenShell inside [NemoClaw](../sources/nvidia-nemoclaw-page.md). Notable as the one part of NVIDIA's agentic stack with **no robotics story yet** — every guard model classifies text, not tool calls.
 - **Personal AI supercomputer**: [DGX Spark](dgx-spark.md) — desktop-form-factor GB10 Grace Blackwell box with 128 GB unified memory and RT cores; NVIDIA's prescribed workstation for the train-on-Spark, deploy-on-Thor split ([Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.md)).
 
 ## Related
 - [NVIDIA Isaac Sim](nvidia-isaac-sim.md), [NVIDIA Isaac Lab](nvidia-isaac-lab.md), [Newton physics engine](newton-physics-engine.md), [NVIDIA Cosmos](nvidia-cosmos.md), [NVIDIA Brev](nvidia-brev.md) — products.
 - [NVIDIA GEAR](nvidia-gear.md) — in-house research lab (Jim Fan + Yuke Zhu).
+- [NeMo Guardrails](nemo-guardrails.md), [garak](garak.md) — the agentic-AI safety layer (runtime rails + red-team scanner).
 - [Jetson Orin Nano](jetson-orin-nano.md), [Jetson Thor](jetson-thor.md), [JetPack](jetpack.md), [Jetson Linux](jetson-linux.md) — edge-AI hardware and software stack.
 - [DGX Spark](dgx-spark.md) — desktop AI supercomputer; the workstation half of the Thor deploy / Spark train split.
 - [AGIBOT](agibot.md) — major downstream user.
@@ -40,6 +42,7 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - [Using OpenUSD for Modular and Scalable Robotic Simulation](../sources/nvidia-openusd-for-robotic-simulation.md)
 - [Building CAD-to-USD Workflows with NVIDIA Omniverse](../sources/nvidia-cad-to-usd-jt-workflows.md)
 - [NVIDIA Brev Docs](../sources/nvidia-brev-docs.md)
+- [Safeguard Agentic AI Systems with the NVIDIA Safety Recipe](../sources/nvidia-safety-recipe-agentic-ai.md)
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md)
 - [NVIDIA Jetson Orin Nano Dev Kit software setup](../sources/nvidia-jetson-orin-nano-devkit-software-setup.md)
 - [JetPack 6.2.2 release](../sources/nvidia-jetpack-6-2-2-release.md)

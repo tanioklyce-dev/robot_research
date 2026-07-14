@@ -164,6 +164,7 @@ LeRobot supplies most of the loop:
 - **Navigation** — already Nav2 + SLAM; the framework adds nothing there.
 - **Room-scale memory / object permanence** — an agent-memory problem (Hermes Honcho, or a vector store in the master), not a policy problem.
 - **A real-time whole-fleet safety layer** — the MCP allowlist covers per-action safety; physical-safety interlocks (e-stop, collision limits) stay in Layer 1.
+  - *Follow-up (2026-07-13):* the allowlist turns out to be a **static, name-level [execution rail](../../concepts/safety/ai-guardrails.md)** in the enterprise-guardrail sense — the same abstraction [NeMo Guardrails](../../entities/nemo-guardrails.md) asks for, arrived at independently. What it doesn't cover: **argument-level** policy (`pick(knife)` passes any name-level allowlist), world-state preconditions (`place(cup, on=laptop)`), irreversible *sequences*, and — the wide-open one — **[prompt injection through the perception channel](../../concepts/safety/ai-red-teaming.md)**, since a multimodal Layer-2 agent reads text and pixels straight out of the room. Concrete additions mapped onto the build ladder above: **[Guardrails for robot agents](../agents/guardrails-for-robot-agents.md)**.
 
 ## Related
 - [Fleet framework — implementation notes](fleet-framework-implementation-notes.md) — the code-level appendix: the concrete MCP tool schema (JSON) for the SO-ARM101 robots + the scheduled-training pipeline on the Spark (systemd units, promotion-gate script).
