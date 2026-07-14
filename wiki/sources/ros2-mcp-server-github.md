@@ -51,7 +51,23 @@ Implements the leverage items from the [AgenticROS decision analysis](../synthes
 
 **Revised next-action order for this machine** (the generic "Nav2 first" order is wrong here — the XLeRobot has neither Nav2 nor Rosetta yet): `joint_states()` → `speak()` → `detect_objects()` (fixture stub first, then a real open-vocab model — the Orin NX 16 GB can run OWL-ViT / YOLO-World class detectors) → `run_policy` → **defer Nav2** until a nav stack exists on this base.
 
-### Execution rail (added 2026-07-13, commit `0b57b68`)
+### FeeTech → `/joint_states` publisher (added 2026-07-13, commit `8087288`)
+
+The answer to the blocker above. `nodes/feetech_joint_states.py` — a **separate process** (entry point `feetech-joint-states`, optional `[feetech]` dep on `feetech-servo-sdk`) that reads SO-ARM101 servo positions off the FeeTech USB bus and republishes them as `sensor_msgs/JointState`, so `ros_bridge.joint_states()` finally has a topic to subscribe to. `ros_bridge.py` stays the only rclpy module *in the server*; `nodes/` holds drivers the server depends on but does not contain.
+
+**57 tests pass** (14 new), ruff-clean — but **it has never touched a servo**, and it's built so that matters as little as possible:
+
+- **A `MotorBus` seam splits testable code from the wire.** Config parsing, tick→radian conversion (wrapped to [−π, π), since the encoder is absolute over 0–4095 and a zero pose near a tick boundary would otherwise jump by 2π), multi-bus ordering, and failure handling are all pure Python and tested with a fake bus.
+- **Every protocol specific is confined to one small `ScservoBus` class** — the register addresses and `scservo_sdk` calls are the *only* unvalidated surface, and are flagged as such in the source.
+- **`--probe` is the hardware acceptance test**: read each servo once, print raw ticks, exit. A wrong register address surfaces as garbage on a terminal rather than as a moving arm. The source tells you to cross-check against LeRobot's own `SCS_SERIES_CONTROL_TABLE` on the robot — *"if it disagrees with this file, LeRobot is right."*
+- **`--probe` doubles as calibration**: shipped `offset_ticks` are `0` = raw encoder zero, **not** the arm's zero pose.
+
+Design decisions worth carrying: a failing bus **raises rather than publishing a partial `JointState`**, and a failed read publishes **nothing** rather than last-known values (a stale JointState is a *wrong* JointState — a consumer can't tell "the arm stopped" from "the bus went away"); duplicate joint names across buses are rejected at load (consumers index by name); one bus per arm, with the same servo ids 1–6 on separate ports, which is how both SO-ARM101 arms ship.
+
+> [!warning] Explicitly temporary, and bus ownership is exclusive
+> A serial port has exactly one owner: if LeRobot is teleoperating or recording it holds `/dev/ttyACM*` and this node cannot open it, and vice versa. Serving both at once means one process owns the bus and serves the other — **which is [Rosetta](../entities/rosetta.md)'s job.** When Rosetta owns the arm bus on this robot, state should come from the Rosetta contract and **this node retires.** Also: every value in the shipped `configs/feetech_xlerobot.yaml` is a placeholder guessed off-robot (ports, ids, names, offsets, signs), and `/dev/ttyACM*` numbering is assigned at enumeration — **it can swap the two arms across a reboot**, so prefer `/dev/serial/by-id/...`.
+
+### Execution rail (added 2026-07-13, commit `b925ddc`)
 
 The argument-level safety layer, prompted by [Guardrails for robot agents](../syntheses/agents/guardrails-for-robot-agents.md) — which observed that the repo's "the tool set *is* the safety boundary" is a **static, name-level [execution rail](../concepts/safety/ai-guardrails.md)** in NVIDIA's enterprise-guardrail vocabulary, and that a name-level rail lets `navigate_to(pose=<top of the stairs>)` through, since it is a well-formed call to an allowed tool. **43 tests pass** without ROS 2; ruff-clean.
 
