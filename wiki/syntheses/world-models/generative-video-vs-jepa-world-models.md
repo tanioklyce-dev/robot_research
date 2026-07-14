@@ -2,8 +2,8 @@
 title: Generative-video vs JEPA world models — what they predict, what it costs, what works
 type: synthesis
 created: 2026-05-07
-updated: 2026-06-02
-tags: [world-models, jepa, generative-video, cosmos, cosmos-3, world-action-model, genie-envisioner, dreamdojo, v-jepa-2, leworldmodel]
+updated: 2026-07-13
+tags: [world-models, jepa, generative-video, cosmos, cosmos-3, world-action-model, genie-envisioner, dreamdojo, v-jepa-2, leworldmodel, waymo, genie-3]
 ---
 
 # Generative-video vs JEPA world models
@@ -17,7 +17,7 @@ The simulator survey ([Simulators for agentic robotics — 2026 landscape](../si
 | Output | Next-frame **pixels** | Next-state **embedding** (no pixels) |
 | Loss computed in | Pixel space | Representation space |
 | Decoder required? | Yes | No |
-| Canonical instances | [NVIDIA Cosmos](../../entities/nvidia-cosmos.md) / **[Cosmos 3](../../sources/cosmos-3-technical-report.md)** (the omnimodal [WAM](../../concepts/world-models/world-action-model.md)), [Genie Envisioner](../../entities/genie-envisioner.md) / GE-Sim2, **[DreamDojo](../../sources/dreamdojo-paper.md)** | [V-JEPA 2](../../entities/v-jepa-2.md) / V-JEPA 2-AC, [LeWorldModel](../../entities/leworldmodel.md) |
+| Canonical instances | [NVIDIA Cosmos](../../entities/nvidia-cosmos.md) / **[Cosmos 3](../../sources/cosmos-3-technical-report.md)** (the omnimodal [WAM](../../concepts/world-models/world-action-model.md)), [Genie Envisioner](../../entities/genie-envisioner.md) / GE-Sim2, **[DreamDojo](../../sources/dreamdojo-paper.md)**, **[Waymo World Model](../../sources/waymo-world-model.md)** (driving; camera+lidar; [Genie 3](../../entities/genie-3.md)-derived) | [V-JEPA 2](../../entities/v-jepa-2.md) / V-JEPA 2-AC, [LeWorldModel](../../entities/leworldmodel.md) |
 | Lead labs | NVIDIA, [AGIBOT](../../entities/agibot.md) | [Meta FAIR](../../entities/meta-fair.md), [Mila](../../entities/mila.md), NYU (the LeCun program) |
 
 The asymmetry runs deep: a video generator has to commit to a specific RGB rendering of every imagined future; a JEPA only has to commit to an embedding. Most of the cost difference between the two paradigms traces to that single design choice.
@@ -107,6 +107,7 @@ The two paradigms are not independent. [GR00T](../../entities/nvidia-groot.md) N
 - [Top 10 Physical AI Models 2026](../../sources/top-10-physical-ai-models-2026.md) (background on Cosmos / GR00T)
 - [DreamDojo Paper](../../sources/dreamdojo-paper.md) (the 2026 generative-video high-water mark)
 - [Cosmos 3 Technical Report](../../sources/cosmos-3-technical-report.md) (the omnimodal world-action-model — generative-video side's strongest real-robot policy)
+- [The Waymo World Model blog](../../sources/waymo-world-model.md) (the generative-video paradigm ported to autonomous driving — camera+lidar, Genie-3-derived)
 
 ## Related
 

@@ -2,8 +2,8 @@
 title: Assistive Robotics
 type: concept
 created: 2026-05-09
-updated: 2026-07-09
-sources: 23
+updated: 2026-07-13
+sources: 24
 tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot, accessibility]
 ---
 
@@ -21,6 +21,10 @@ tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot
 
 ### Social and educational assistive robots
 - **Furhat**, **Social Robot Haru**, **QT Robot**, **Buddy** — robots supporting older adults' social connection, children's educational tasks, and emotional wellbeing ([ITU AI for Good, 2023](../../sources/itu-aiforgood-assistive-robots.md)).
+
+## The demand-side: aging in place
+
+The human need this field serves is captured by **[aging in place](aging-in-place.md)** — most older adults want to stay in their own homes and turn to caregivers only when needed ([NIA](../../sources/nia-aging-in-place.md)). The NIA's taxonomy of "help you can receive at home" (personal care / chores / meals / money management / health care / transportation / safety) is effectively the target list for physically-assistive robots. Two things stand out: (1) mainstream 2023 elder-care guidance names **no assistive robots** at all — only wearable emergency alert systems — showing how far the research frontier sits from deployed practice; and (2) the intimate **ADLs** NIA lists (bathing, dressing, toileting) are precisely the [underserved PAR domains](../../syntheses/assistive/underserved-par-domains.md), while robotics attention concentrates on the IADLs (fetch, tidy, pick-and-place).
 
 ## Why this matters for the broader wiki
 
@@ -74,6 +78,7 @@ The navigation-domain counterpart is [DRAGON (Liu et al. 2024)](../../sources/dr
 [Schneiders et al. 2021](../../sources/schneiders2021-domestic-robots-automation.md) — the only ingested study of the *consumer-deployed* domestic-robot category (vacuum, lawnmower, hybrid). Identifies **task fragmentation** (one-task-becomes-many-sub-tasks) and **under-trust → co-located monitoring** patterns that recur in PAR deployments and accessible-communication research.
 
 ## Related concepts
+- [Aging in place](aging-in-place.md) — the demand-side / human-needs context that motivates in-home assistive robotics
 - [Accessible robot communication](accessible-robot-communication.md) — output-interface side of HRI for non-visual users
 - [LLM-agent architecture](../agents/llm-agent-architecture.md) — the control pattern most current assistive robots use (user → LLM → robot actions)
 - [End-user robot programming](end-user-robot-programming.md) — enabling non-expert users to customize robot behavior; directly addresses the per-user personalization gap
@@ -106,3 +111,4 @@ The navigation-domain counterpart is [DRAGON (Liu et al. 2024)](../../sources/dr
 - [DRAGON Paper (Liu et al. 2024)](../../sources/dragon-assistive-nav-2024.md)
 - [Designing Accessible Robot Communication for Blind People (Huh et al. 2026)](../../sources/huh2026-accessible-robot-comm.md)
 - [Domestic Robots and the Dream of Automation (Schneiders et al. 2021)](../../sources/schneiders2021-domestic-robots-automation.md)
+- [Aging in Place: Growing Older at Home (NIA)](../../sources/nia-aging-in-place.md)

@@ -2525,3 +2525,25 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - Gold quote: QoLT's "symbiosis over autonomy" doctrine (2014) — added as a historical-precedent callout to [levels of autonomy in assistive robotics](syntheses/assistive/levels-of-autonomy-in-assistive-robotics.md), which it anticipates by ~6 years
 - Entity sources 0 → 1; end date "mid-2010s" → 2006–2016 everywhere
 - Open: Vol 2 (per-project detail) not ingested; Navity's fate unknown
+
+## [2026-07-13] ingest | Aging in Place: Growing Older at Home (NIA)
+- Created [Aging in Place: Growing Older at Home (NIA)](sources/nia-aging-in-place.md) — NIH consumer guide; reviewed 2023-10-12
+- New concept: [Aging in place](concepts/robotics/aging-in-place.md) — the demand-side ADL/IADL needs taxonomy behind assistive robotics
+- Updated [Assistive robotics](concepts/robotics/assistive-robotics.md) — added a "demand-side: aging in place" section; sources 23 → 24
+- Key framing: NIA's "help you can receive at home" list = the target list for physically-assistive robots; intimate ADLs (bathing/dressing/toileting) are exactly the underserved PAR domains; mainstream 2023 elder-care guidance names **no robots**, only wearable emergency-alert systems
+- Open: ADL-vs-IADL robotics coverage skew; NIH in-home-technology initiative not ingested
+
+## [2026-07-13] ingest | The Waymo World Model blog
+- Created [The Waymo World Model blog](sources/waymo-world-model.md) — published 2026-02-06
+- New entities: [Waymo](entities/waymo.md) (company + the WWM model), [Genie 3](entities/genie-3.md) (Google DeepMind foundational generative world model; stub)
+- Updated [World model](concepts/world-models/world-model.md) (generative-video family; sources 29 → 30), [Generative-video vs JEPA world models](syntheses/world-models/generative-video-vs-jepa-world-models.md) (added WWM as driving-domain instance), [Google DeepMind](entities/google-deepmind.md) (new "Generative world models" section for Genie 3; sources 8 → 9)
+- Key facts: generative-video WM for AV simulation; built on Genie 3 via driving post-training; **camera+lidar** multi-sensor output (vs RGB-only robotics WMs); driving-action/scene-layout/language control; "one of three pillars" of safe-AI approach
+- Open: no params/data/FPS numbers (marketing post); Genie 3 primary source is a gap; camera-lidar co-generation mechanism undisclosed; closed/internal
+
+## [2026-07-13] ingest | Sensori Robotics — Yuri
+- Created [Sensori Robotics — Yuri (company site)](sources/sensori-robotics-yuri.md) — ingest-dated (no page date)
+- New entities: [Sensori Robotics](entities/sensori-robotics.md) (company, Southlake TX), [Yuri](entities/yuri.md) (robot)
+- Updated [Robot platforms comparison](syntheses/platforms/robot-platforms-comparison.md) (added Yuri row + tier writeup), [Open-source robot AI projects](syntheses/platforms/open-source-robot-ai-projects.md) (OpenArm+/OpenBase entry)
+- Key facts: integrated bimanual Physical-AI rig; 2× 7-DOF backdrivable OpenArm+ arms; Jetson AGX Orin 64 GB; ROS 2 Humble + CAN-FD; **bilateral force-feedback teleop** (OpenLeader + Quest 3) out-of-box; LeRobot recording; GR00T/π0/X-VLA/SmolVLA support; Desktop + Mobile (OpenBase) configs; open OpenArm+/OpenBase hardware
+- Correction: marketing "dual-arm humanoid" → really a bimanual (mobile) manipulator (no legs); research-tier, quote-only price
+- Open: price/payload/reach, team, funding all undisclosed

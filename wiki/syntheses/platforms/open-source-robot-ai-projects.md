@@ -2,7 +2,7 @@
 title: Open-source robot AI research projects — landscape
 type: synthesis
 created: 2026-05-17
-updated: 2026-05-17
+updated: 2026-07-13
 tags: [open-source, ecosystem, lerobot, jepa, simulators, fly, karpathy, landscape-survey]
 ---
 
@@ -24,6 +24,7 @@ The single most active open-source robotics-AI scene tracked in this wiki.
 
 - [Stretch](../../entities/stretch.md) + [stretch_ai](../../entities/stretch-ai.md) — [Hello Robot](../../entities/hello-robot.md) mobile manipulator with open Python stack (LLM-agent included).
 - [Reachy 2](../../entities/reachy.md) — [Pollen Robotics](../../entities/pollen-robotics.md) open-source bimanual mobile manipulator; ROS 2.
+- [Yuri](../../entities/yuri.md) + **OpenArm+ / OpenBase** — [Sensori Robotics](../../entities/sensori-robotics.md)'s integrated bimanual Physical-AI rig; arm + base designs open (github.com/SensoriRobotics, docs.openarm.dev), but sold as a supported turnkey product with force-feedback teleop + LeRobot recording (quote-only price; "a complete robot, not a box of parts").
 - [TurtleBot](../../entities/turtlebot.md) — Open Robotics-maintained; ROS 2 native in TurtleBot 4.
 - [iRobot Create 3](../../entities/irobot-create-3.md) — Roomba-i3-derived ROS 2 mobile base under TurtleBot 4.
 - [Hope Jr Arm](../../entities/hope-jr-arm.md), [Koch v1.1](../../entities/lekiwi.md) (Dynamixel-based, used as a LeKiwi arm variant) — additional open-arm options.

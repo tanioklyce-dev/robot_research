@@ -2,8 +2,8 @@
 title: World model
 type: concept
 created: 2026-05-07
-updated: 2026-07-09
-sources: 29
+updated: 2026-07-13
+sources: 30
 tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video, omnimodal, world-action-model]
 ---
 
@@ -27,7 +27,7 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 
 ## Major design points represented in this wiki
 
-- **Generative video world models**: predict pixels. Examples: [NVIDIA Cosmos](../../entities/nvidia-cosmos.md), [Genie Envisioner](../../entities/genie-envisioner.md), and **[DreamDojo](../../sources/dreamdojo-paper.md)** (NVIDIA GEAR, ICML 2026 Spotlight; 14B-param Cosmos-Predict2.5 derivative pretrained on **44,711 hr of egocentric human video** — the largest WM-pretraining corpus to date; Self-Forcing distillation hits 10.81 FPS real-time). Expensive to train and use at planning time, but produce inspectable rollouts. Treated as simulators in the agentic-robotics workflow ([world-model-simulators](world-model-simulators.md) concept).
+- **Generative video world models**: predict pixels. Examples: [NVIDIA Cosmos](../../entities/nvidia-cosmos.md), [Genie Envisioner](../../entities/genie-envisioner.md), the **[Waymo World Model](../../sources/waymo-world-model.md)** (autonomous-driving domain; built on [Genie 3](../../entities/genie-3.md); notably generates **camera + lidar**, not just RGB), and **[DreamDojo](../../sources/dreamdojo-paper.md)** (NVIDIA GEAR, ICML 2026 Spotlight; 14B-param Cosmos-Predict2.5 derivative pretrained on **44,711 hr of egocentric human video** — the largest WM-pretraining corpus to date; Self-Forcing distillation hits 10.81 FPS real-time). Expensive to train and use at planning time, but produce inspectable rollouts. Treated as simulators in the agentic-robotics workflow ([world-model-simulators](world-model-simulators.md) concept).
 - **Omnimodal world models / [world-action models](world-action-model.md)**: predict pixels **and** actions in one network. **[Cosmos 3](../../sources/cosmos-3-technical-report.md)** (NVIDIA, June 2026) is the canonical instance — a dual-tower Mixture-of-Transformers (AR reasoner + diffusion generator) jointly modeling language/image/video/audio/action, queryable as a VLM, video generator, forward-dynamics model, inverse-dynamics model, or video-action policy. Still a pixel-predictor (generative-video family), but it folds the world model, the VLM, and the policy into a single model — see the [WAM concept](world-action-model.md).
 - **JEPA / latent-prediction**: predict the *representation* of the next state, not pixels. End-to-end examples: [V-JEPA 2](../../entities/v-jepa-2.md), [LeWorldModel](../../entities/leworldmodel.md), [PLDM](../../entities/pldm.md); frozen-feature variants ([DINO-WM](../../entities/dino-wm.md), [JEPA-WMs](../../entities/jepa-wms.md)) are listed below. ~100× cheaper than pixel-prediction; harder to inspect; LeWM reports up to 48× faster planning than foundation-model-based world models.
 - **Frozen-foundation-feature world models**: use [DINOv2](../../entities/dinov2.md) (or similar) as a frozen encoder; learn only a predictor on top. Examples: [DINO-WM](../../entities/dino-wm.md), [DINO-world](../../entities/dino-world.md), [JEPA-WMs](../../entities/jepa-wms.md) (likely). Trades off representation quality for training simplicity.
@@ -82,6 +82,7 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 - [PLDM Paper](../../sources/pldm-paper.md)
 - [DreamDojo Paper](../../sources/dreamdojo-paper.md)
 - [Cosmos 3 Technical Report](../../sources/cosmos-3-technical-report.md)
+- [The Waymo World Model blog](../../sources/waymo-world-model.md) — generative-video WM for AV simulation; Genie-3-derived; camera+lidar output
 - [World Models (Ha & Schmidhuber, 2018)](../../sources/world-models-paper.md) — **the origin source**; V-M-C + learning-in-the-dream
 - [PlaNet paper](../../sources/planet-paper.md) — RSSM origin; planning-vs-imagination fork
 - [MuZero paper](../../sources/muzero-paper.md) — the value-equivalent (plan-only) corner, now sourced

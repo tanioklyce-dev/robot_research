@@ -325,6 +325,9 @@ Curated entry points across the wiki.
 - [EfficientZero — Mastering Atari with Limited Data](sources/efficientzero-paper.md) — Ye et al., NeurIPS 2021 (raw PDF). [MuZero](sources/muzero-paper.md) + self-supervised consistency + value-prefix + off-policy correction → **194.3% mean HNS on Atari 100K in 2 h of gameplay** — first super-human at that budget, ~500× less data than DQN. Context for every 100K number ([EAWM](sources/eawm-paper.md), [DIAMOND](sources/diamond-paper.md)). (2021-11)
 - [DayDreamer — World Models for Physical Robot Learning](sources/daydreamer-paper.md) — Wu*/Escontrela*/[Hafner](entities/danijar-hafner.md)*, Goldberg, Abbeel; CoRL 2022 (raw PDF). **[Dreamer](entities/dreamer.md) on 4 real robots, online, no simulator**: A1 quadruped from lying-down to walking **in 1 hour without resets** (+10-min perturbation adaptation); UR5/XArm visual pick-place; Sphero nav. The real-robot existence proof for imagination-based MBRL — and the explicit alternative to sim-to-real. (2022-06)
 - [DIAMOND — Diffusion for World Modeling](sources/diamond-paper.md) — Alonso*/Jelley* et al., NeurIPS 2024 (raw PDF). **Diffusion model as the world model** (discrete latents discard decision-relevant pixels): **1.46 mean HNS on Atari 100K**, best for agents trained entirely in imagination; 87 h of CS:GO → playable **neural game engine** (Dust II). The bridge between the wiki's MBRL and video-diffusion threads; ancestor of the Genie/[Cosmos](entities/nvidia-cosmos.md) playable-world wave. (2024-05)
+- [Aging in Place: Growing Older at Home (NIA)](sources/nia-aging-in-place.md) — NIH consumer guide; the demand-side needs taxonomy (ADLs/IADLs) behind assistive robotics; names no robots, only wearable emergency-alert systems. (2023-10-12)
+- [The Waymo World Model blog](sources/waymo-world-model.md) — generative-video world model for autonomous-driving simulation; built on Google DeepMind's [Genie 3](entities/genie-3.md); camera+lidar multi-sensor output. (2026-02-06)
+- [Sensori Robotics — Yuri (company site)](sources/sensori-robotics-yuri.md) — integrated dual-arm (2× 7-DOF) Physical-AI rig, Desktop + Mobile; bilateral force-feedback teleop; LeRobot recording; open OpenArm+/OpenBase; quote-only price. (ingested 2026-07-13)
 
 ## Sources (pedagogical / curriculum companions, undated)
 - [Computing Neural Network Gradients (Kevin Clark, CS224n)](sources/clark-computing-nn-gradients.md) — the vectorized-backprop cheat sheet: seven Jacobian identities (incl. `∂J/∂θ = ŷ − y` for softmax-CE), the "gradient shape = parameter shape" convention, and a worked 1-layer-NN backward pass. The matrix/vector step up from [micrograd](sources/karpathy-micrograd.md); on-ramp to [Differentiable Programming](sources/blondel-roulet-differentiable-programming.md). Linked from [Curriculum Module 1](syntheses/curriculum/curriculum-01-neural-networks.md). (2019-01)
@@ -356,6 +359,8 @@ Curated entry points across the wiki.
 ## Entities
 
 ### Companies
+- [Sensori Robotics](entities/sensori-robotics.md) — Southlake TX; sells the [Yuri](entities/yuri.md) integrated bimanual Physical-AI rig; open OpenArm+/OpenBase hardware; commercial integrator on top of open hardware. (1 source)
+- [Waymo](entities/waymo.md) — Alphabet's autonomous-driving company; author of the [Waymo World Model](sources/waymo-world-model.md) (generative-video AV simulation, built on [Genie 3](entities/genie-3.md)). (1 source)
 - [UnitedMasters](entities/unitedmasters.md) — music distribution/licensing company; [Jordan](entities/michael-i-jordan.md)'s real-world **three-way collectivist-AI market** (musicians ↔ listeners ↔ brands, incentives built in); >1.5M musicians. (1 source)
 - [Standard Bots](entities/standard-bots.md) — US industrial 6-axis arm maker (RO1/Core, $37k); self-serve **learn-by-demonstration** AI platform; the commercial/industrial face of imitation learning. (1 source)
 - [NVIDIA](entities/nvidia.md) — owns most of the agentic-robotics simulation substrate; also owns [Brev](entities/nvidia-brev.md) GPU-cloud broker and the in-house [GEAR](entities/nvidia-gear.md) research lab. (33 sources)
@@ -441,6 +446,7 @@ Curated entry points across the wiki.
 - [Tiago](entities/tiago.md) — PAL Robotics dual-arm mobile manipulator; ROS-native; used in Huh et al. 2026 accessibility study. (1 source)
 - [YAM (i2RT)](entities/yam.md) — 6-DOF CAN-bus tabletop arm for embodied-AI data collection ($2,999–$4,999); a bimanual YAM pair supplied [GR00T N1.6](sources/groot-n1_6.md) teleop data. (2 sources)
 - [Galaxea R1](entities/galaxea-r1.md) — wheeled dual-arm humanoid (24 DOF; 5 kg; 550 TOPS); a supported [OmniGibson](entities/omnigibson.md) robot (R1/R1Pro); simulated R1 Pro on BEHAVIOR is a [GR00T N1.6](sources/groot-n1_6.md) data embodiment. (3 sources)
+- [Yuri](entities/yuri.md) ([Sensori Robotics](entities/sensori-robotics.md)) — integrated bimanual manipulator (2× 7-DOF OpenArm+; Jetson AGX Orin 64 GB); Desktop (tabletop) + Mobile (wheeled OpenBase); bilateral force-feedback teleop out-of-box; LeRobot recording + GR00T/π0/X-VLA/SmolVLA support; research-tier, quote-only. (1 source)
 
 ### Humanoids
 - [Atlas](entities/atlas.md) — Boston Dynamics flagship; closed development; capability-bar humanoid. (1 source) _stub_
@@ -551,6 +557,8 @@ Curated entry points across the wiki.
 - [NVIDIA Cosmos](entities/nvidia-cosmos.md) — world foundation model + simulation engine (generative video); **Cosmos 3** (June 2026) unified it into an omnimodal Mixture-of-Transformers [world-action model](concepts/world-models/world-action-model.md); also the VLM backbone of [GR00T](entities/nvidia-groot.md) N1.6 (Cosmos-2B) + N1.7 (Cosmos-Reason2-2B); coming to [LeRobot](entities/lerobot.md) "soon" (July 2026). (15 sources)
 - [DreamGen](entities/dreamgen.md) — NVIDIA GEAR; video-WM-as-**synthetic-data-generator** ("neural trajectories"); root of the Dream\* line ([DreamGen](sources/dreamgen-paper.md) → DreamZero → [DreamDojo](sources/dreamdojo-paper.md)); the synthetic layer of the [GR00T](entities/nvidia-groot.md) data pyramid. (3 sources)
 - [Genie Envisioner](entities/genie-envisioner.md) — AGIBOT's world simulator GE-Sim2 (generative video). (7 sources)
+- [Genie 3](entities/genie-3.md) — Google DeepMind's general-purpose generative world model (photorealistic interactive 3D environments); foundation the [Waymo World Model](sources/waymo-world-model.md) is post-trained from. Distinct from AGIBOT's Genie Envisioner/Sim. (1 source) _stub_
+- [Waymo World Model](entities/waymo.md) — Waymo's Genie-3-derived generative-video WM for AV simulation; camera+lidar output; three control axes (action/scene/language). (1 source)
 - [V-JEPA 2](entities/v-jepa-2.md) — Meta FAIR's JEPA world model (latent prediction); zero-shot Franka. (18 sources)
 - [LeWorldModel](entities/leworldmodel.md) — first stable end-to-end JEPA from raw pixels. (22 sources)
 - [JEPA-WMs](entities/jepa-wms.md) — FAIR (Terver et al.); first JEPA-for-robotics paper using RoboCasa. (7 source)
@@ -720,7 +728,8 @@ Curated entry points across the wiki.
 - [Mechanistic interpretability](concepts/safety/mechanistic-interpretability.md) — reading and steering features inside trained neural nets; sparse autoencoders (Anthropic / Templeton et al. 2024); Chris Olah's "dark matter of interpretability" (~1% of concepts extracted). Seeded by [Welch Labs Illustrated Guide Ch 7](sources/welchlabs-illustrated-guide-to-ai.md). (1 source)
 
 ### Robotics
-- [Assistive robotics](concepts/robotics/assistive-robotics.md) — robots helping disabled/elderly users regain autonomy; systematic review; three research themes; autonomy finding. (22 sources)
+- [Assistive robotics](concepts/robotics/assistive-robotics.md) — robots helping disabled/elderly users regain autonomy; systematic review; three research themes; autonomy finding. (24 sources)
+- [Aging in place](concepts/robotics/aging-in-place.md) — "staying in your own home as you get older"; the demand-side ADL/IADL needs taxonomy (NIA) that motivates in-home assistive robotics; mainstream elder-care guidance names no robots. (1 source)
 - [Robot safety standards (ISO 13482)](concepts/robotics/robot-safety-standards.md) — machinery-safety framework for robots near untrained people; 2025 "service robots" retitle; certification precedents; the deterministic-safety vs learned-policy collision. (2 sources)
 - [End-user robot programming](concepts/robotics/end-user-robot-programming.md) — enabling non-experts to customize robot behavior; EUP approaches; sense of agency evidence; Stretch SE2 transfer. (7 sources)
 - [Accessible robot communication](concepts/robotics/accessible-robot-communication.md) — robot output-interface design for non-visual users; mixed-initiative narration findings; 6 design guidelines (Huh et al. 2026). (4 sources)

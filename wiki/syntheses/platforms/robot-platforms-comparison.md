@@ -2,8 +2,8 @@
 title: Robot platforms — comparison
 type: synthesis
 created: 2026-05-08
-updated: 2026-06-03
-tags: [robots, hardware, comparison, list, manipulators, mobile-robots, aloha, mobile-aloha, xlerobot, bimanual]
+updated: 2026-07-13
+tags: [robots, hardware, comparison, list, manipulators, mobile-robots, aloha, mobile-aloha, xlerobot, yuri, bimanual]
 ---
 
 # Robot platforms — comparison
@@ -18,6 +18,7 @@ A reference list of robot platforms with entity pages in this wiki, organized by
 | [xArm 7](../../entities/xarm-7.md)             | Commercial  | Tabletop manipulator  | External                  | 7                 | None           | RUM cross-embodiment transfer target (~10pt drop vs Stretch).                            |
 | [Stretch](../../entities/stretch.md)           | Research    | Mobile manipulator    | Onboard (NUC + RealSense) | 1 (telescoping)   | Diff-drive     | RUM zero-shot generalist policies; stretch_ai LLM agent.                                 |
 | [Mobile ALOHA](../../entities/aloha.md)        | Research    | Bimanual mobile manip | Onboard (laptop + RTX 3070 Ti) | 2× 6 (ViperX 300) | Diff-drive (AgileX Tracer) | ACT + Diffusion Policy + VINN benchmarking on bimanual mobile manip; whole-body teleop; $32k. |
+| [Yuri](../../entities/yuri.md) ([Sensori](../../entities/sensori-robotics.md)) | Research    | Bimanual manip (Desktop / Mobile) | Onboard (Jetson AGX Orin 64 GB) | 2× 7 (OpenArm+) | None (Desktop) / wheeled OpenBase (Mobile) | Integrated Physical-AI data-collection rig; bilateral force-feedback teleop out-of-box; LeRobot recording; GR00T/π0/X-VLA/SmolVLA support. Quote-only price. |
 | [XLeRobot](../../entities/xlerobot.md)         | Educational | Bimanual mobile manip | External PC (or onboard [Jetson Orin Nano](../../entities/jetson-orin-nano.md)) | 2× (5+1) SO-101 + 2-DoF neck | Holonomic (LeKiwi omni) | **Cheapest bimanual mobile manipulator** ($660 tethered → $1.3k untethered); LeRobot/SO-101; onboard-Jetson untethered build + on-edge VLA benchmarks ([Cutting the Cord](../../sources/cutting-the-cord-untethered-xlerobot.md)). |
 | [ROSOrin Pro](../../entities/rosorin-pro.md)   | Educational | Mobile manipulator    | Jetson Orin Nano          | 6 (HX-12H servos) | Diff/Ackermann | OpenClaw LLM-agent (via Hiwonder's openclaw_controller ROS 2 bridge); LeWM-feasibility candidate.                                |
 | [ROSOrin](../../entities/rosorin.md)           | Educational | Mobile robot (no arm) | Jetson Orin Nano          | 0                 | Diff/Ackermann | LLM-agent curriculum (cloud + offline).                                                  |
@@ -30,6 +31,7 @@ A reference list of robot platforms with entity pages in this wiki, organized by
 - **[xArm 7](../../entities/xarm-7.md)** (UFactory). Commercial alternative to Franka. Same 7-DOF tabletop class. Appears in this wiki only as RUM's cross-embodiment transfer target — but a useful data point for how BC policies generalize across hardware (~10pt drop).
 - **[Stretch](../../entities/stretch.md)** (Hello Robot; Stretch 4 launched 2026-05-12). Mobile manipulation: telescoping arm + omnidirectional holonomic base + dual hemispherical 3D LiDAR (Stretch 4) + RealSense cameras. Anchor of the NYU + Hello Robot research line ([RUM](../../entities/robot-utility-models.md), [stretch_ai](../../entities/stretch-ai.md) LLM agent, [Dobb·E](../../entities/dobb-e.md)). The de-facto research-tier single-arm mobile manipulator for academic work in 2024–2026.
 - **[Mobile ALOHA](../../entities/aloha.md)** (Stanford; Fu, Zhao, Finn 2024). Bimanual mobile manipulator with whole-body teleoperation. 4× [ViperX 300](../../entities/viperx-300.md) (2 leaders + 2 followers) + AgileX Tracer base + 3 webcams + RTX 3070 Ti laptop = **$32k**. Comparable in budget to a single Franka arm, ~6× cheaper than PR2/TIAGo. Anchors the [ACT](../../entities/act.md) + co-training-with-static-data IL pattern.
+- **[Yuri](../../entities/yuri.md)** ([Sensori Robotics](../../entities/sensori-robotics.md), Southlake TX; 2026). **Integrated, supported** bimanual Physical-AI rig: 2× 7-DOF backdrivable **OpenArm+** arms + RealSense head + Jetson AGX Orin 64 GB, in Desktop (benchtop) or Mobile (wheeled **OpenBase**) form. Its differentiators are **out-of-the-box bilateral force-feedback teleoperation** (OpenLeader arms + Quest 3), a day-one [LeRobot](../../entities/lerobot.md)-recording + VLA-eval stack (GR00T / π0 / X-VLA / SmolVLA), and US-based support — "a complete robot, not a box of parts." Arms/base released as open hardware (OpenArm+ / OpenBase). Price is quote-only but the spec places it in the **research tier**, adjacent to Mobile ALOHA. The bimanual counterpart to Sensori's integrator role vs. the self-assembled [LeRobot](../../entities/lerobot.md) kits.
 
 ### Educational ($1k–$5k)
 - **[XLeRobot](../../entities/xlerobot.md)** (open-source, LeRobot ecosystem). **Bimanual** mobile manipulator: 2× [SO-101](../../entities/so-arm101.md) arms (5+1 DoF each) + 2-DoF neck on a [LeKiwi](../../entities/lekiwi.md) holonomic omni base; 90% 3D-printed; **$660 tethered** (external PC) up to **~$1.3k untethered** with onboard [Jetson Orin Nano](../../entities/jetson-orin-nano.md). The educational-tier analog to [Mobile ALOHA](../../entities/aloha.md) at ~1/25th the cost — the wiki's **cheapest bimanual mobile manipulator**. The [Cutting the Cord](../../sources/cutting-the-cord-untethered-xlerobot.md) build adds onboard compute, a Tri-Bus power topology, and the wiki's first on-edge VLA latency numbers; see [Jetson onboard compute for XLeRobot](jetson-onboard-compute-xlerobot.md).
@@ -44,7 +46,7 @@ A reference list of robot platforms with entity pages in this wiki, organized by
 
 ### Mobile manipulators (arm + mobility)
 **Single-arm:** [Stretch](../../entities/stretch.md) (research), [ROSOrin Pro](../../entities/rosorin-pro.md) (educational).
-**Bimanual:** [Mobile ALOHA](../../entities/aloha.md) (research, $32k) and [XLeRobot](../../entities/xlerobot.md) (educational, $660–1.3k) — the two ingested bimanual mobile manipulators, ~25× apart in cost.
+**Bimanual:** [Mobile ALOHA](../../entities/aloha.md) (research, $32k) and [XLeRobot](../../entities/xlerobot.md) (educational, $660–1.3k) — the two ingested bimanual *mobile* manipulators, ~25× apart in cost; plus [Yuri](../../entities/yuri.md) (Sensori; Desktop is bimanual tabletop, Mobile adds a wheeled base), the integrated force-feedback-teleop research-tier option.
 
 ### Mobile robots without arms
 [ROSOrin](../../entities/rosorin.md), [TurtleBot](../../entities/turtlebot.md).
