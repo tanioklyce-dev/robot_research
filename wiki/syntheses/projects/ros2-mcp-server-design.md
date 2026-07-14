@@ -87,13 +87,20 @@ tests/          config filtering + envelope + skill + policy tests (pass without
 
 ## Wiring checklist (skeleton → real)
 
+> [!note] Validated on real hardware, 2026-07-05 — and the order below changed because of it
+> The server now runs on the [XLeRobot](../../entities/xlerobot.md)'s Jetson Orin NX under **ROS 2 Humble**: node up, 1 Hz JSON capability cards on `<ns>/mcp/robot_info`, clean start/stop ([source](../../sources/ros2-mcp-server-github.md#first-real-hardware-validation-2026-07-05-on-the-xlerobot-commits-c89869f--bf2653c)). Everything prior had only met a *fake* rclpy.
+>
+> **The generic order below is wrong for that machine.** The XLeRobot has neither Nav2 nor Rosetta yet, and — the real finding — it is **LeRobot-native**, so its FeeTech-USB arms publish **no `/joint_states`** for `joint_states()` to subscribe to (see [gap 4b](fleet-agentic-framework.md#gaps-risks-and-hazards-be-clear-eyed)). Revised order **on the XLeRobot**: a FeeTech→`JointState` publisher, then `joint_states()` → `speak()` → `detect_objects()` (fixture stub, then a real open-vocab model — the Orin NX 16 GB can run OWL-ViT / YOLO-World class detectors) → `run_policy`; **defer Nav2** until a nav stack exists on this base.
+
 The `ros_bridge.py` methods are the only TODOs:
-1. ~~`start()` — `rclpy.init()`, node, spin an executor~~ **wired** (`5921d35`: node under the config namespace, `MultiThreadedExecutor` on a daemon thread, plus the `robot_info` heartbeat pub/sub); the **action clients** it should create are still TODO.
-2. `navigate_to_pose` → Nav2 `NavigateToPose`.
+1. ~~`start()` — `rclpy.init()`, node, spin an executor~~ **wired** (`5921d35`) **and hardware-validated** (2026-07-05, ROS 2 Humble); the **action clients** it should create are still TODO.
+2. `navigate_to_pose` → Nav2 `NavigateToPose`. *(Deferred on the XLeRobot — no nav stack yet.)*
 3. `run_policy` → the [Rosetta](../../entities/rosetta.md)/LeRobot async policy action at `policy_endpoint` (skills: pick/place/handover).
-4. `detect_objects` → an open-vocab detector/VLM service.
-5. `joint_states`, `speak`, `start_recording` (Rosetta episode_recorder), `estop`.
-6. Named-waypoint resolution; SSE transport for the fleet-master deployment.
+4. `detect_objects` → an open-vocab detector/VLM service. **Also the unlock for the [execution rail's Tier 2](#the-execution-rail-what-it-catches-and-what-it-does-not)** — an `id → label` cache over this service's replies is what would let `policy.py` refuse `pick_object` on a knife.
+5. `joint_states` (**needs a FeeTech→`JointState` publisher on LeRobot-native robots**), `speak`, `start_recording` (Rosetta episode_recorder), `estop`.
+6. Named-waypoint resolution; SSE transport for the fleet-master deployment (**add auth** — the tool set is a real actuator surface).
+
+**Environment gotcha:** running `pytest` with ROS 2 sourced needs `PYTEST_DISABLE_PLUGIN_AUTOLOAD=1` (Humble's `launch_testing` plugins are incompatible with pytest 9).
 
 ## Related
 - [Fleet agentic control framework](fleet-agentic-framework.md) — this server is Layer 2's bridge.

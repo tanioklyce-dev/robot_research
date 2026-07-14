@@ -4,7 +4,7 @@ type: source
 url: https://github.com/tanioklyce-dev/ros2-mcp-server
 author: tanioklyce-dev (first-party)
 published: 2026-07-04 (created)
-ingested: 2026-07-04 (re-ingested 2026-07-05 after the AgenticROS-pattern layer; 2026-07-13 after the execution rail)
+ingested: 2026-07-04 (re-ingested 2026-07-05 AgenticROS layer; 2026-07-13 real-hardware validation + execution rail)
 format: github-repo
 license: MIT
 tags: [ros2-mcp-server, mcp, ros2, fleet, agent, tool-schema, skeleton, first-party, so-arm101]
@@ -34,7 +34,22 @@ Implements the leverage items from the [AgenticROS decision analysis](../synthes
 - **Fleet presence** — `get_capabilities` capability card on every robot + a 1 Hz heartbeat on `<namespace>/mcp/robot_info` (bridge stub); `fleet_role: master` servers ([`configs/spark-master.yaml`](https://github.com/tanioklyce-dev/ros2-mcp-server/blob/main/configs/spark-master.yaml)) keep a `FleetRegistry` and expose `find_robots_for({capability, kind, online})`.
 - **Zenoh knob** — `rmw: rmw_zenoh_cpp` in the per-robot YAML sets `RMW_IMPLEMENTATION` before `rclpy` loads (router-based LAN discovery instead of DDS multicast).
 - New envelope reasons: `base_busy`, `invalid_mission`, `unrecognized_goal`.
-- **Bridge wiring started (commit `5921d35`, same day)** — the node lifecycle (`start`/`stop`: rclpy node under the config namespace + `MultiThreadedExecutor` on a daemon thread) and the fleet pub/sub are **wired**, no longer stubs: `publish_robot_info` publishes the JSON card on `<ns>/mcp/robot_info` (QoS depth 1); `subscribe_robot_info` discovers heartbeat topics by graph scan (once + 2 s rescan — ROS 2 has no topic wildcards) and marshals decoded cards onto the asyncio loop; malformed payloads dropped. 26 tests + a fake-rclpy smoke test. The action/service primitives (Nav2, Rosetta policy, detector, TTS) remain the TODO stubs.
+- **Bridge wiring started (commit `5921d35`, same day)** — the node lifecycle (`start`/`stop`: rclpy node under the config namespace + `MultiThreadedExecutor` on a daemon thread) and the fleet pub/sub are **wired**, no longer stubs: `publish_robot_info` publishes the JSON card on `<ns>/mcp/robot_info` (QoS depth 1); `subscribe_robot_info` discovers heartbeat topics by graph scan (once + 2 s rescan — ROS 2 has no topic wildcards) and marshals decoded cards onto the asyncio loop; malformed payloads dropped. 26 tests + a fake-rclpy smoke test — **since validated against real ROS 2 Humble on the XLeRobot** (below). The action/service primitives (Nav2, Rosetta policy, detector, TTS) remain the TODO stubs.
+
+### First real-hardware validation (2026-07-05, on the XLeRobot; commits `c89869f` + `bf2653c`)
+
+**The first time this code met real ROS 2** — everything before this was verified against a *fake* rclpy. Run on the [XLeRobot](../entities/xlerobot.md)'s **Jetson Orin NX 16 GB**, **ROS 2 Humble** ([`docs/IMPLEMENTATION_NOTES.md`](https://github.com/tanioklyce-dev/ros2-mcp-server/blob/main/docs/IMPLEMENTATION_NOTES.md)):
+
+- **It works.** The server brings up node `/<ns>/mcp_<embodiment>` and beacons JSON capability cards on `<ns>/mcp/robot_info` at 1 Hz — verified with `ros2 topic echo` — with clean start/stop. The graph-scan heartbeat design survived contact with a real DDS graph.
+- **The predicted test break happened, and was fixed.** The prior session had flagged that `test_stub_mode_bridge_keeps_heartbeat_contract` asserts `bridge.available == False`, which is only true when rclpy is *missing* — so with ROS 2 sourced it would start a real node inside pytest. It did. Now skipped via `importlib.util.find_spec` (commit `c89869f`).
+- **New environment gotcha:** running `pytest` with ROS 2 sourced needs **`PYTEST_DISABLE_PLUGIN_AUTOLOAD=1`** — Humble's `launch_testing` plugins are incompatible with pytest 9.
+
+> [!warning] The finding that matters: LeRobot-native robots have no ROS 2 joint states
+> The XLeRobot is **LeRobot-native** — its SO-ARM101 arms are driven directly over the **FeeTech USB bus**, so **no ROS 2 driver publishes `/joint_states`**. The bridge's `joint_states()` method (and therefore the `get_robot_state` tool, the *first* end-to-end tool call the plan calls for) has **nothing to subscribe to**. Wiring it needs a thin publisher that reads the arms over FeeTech and republishes as `sensor_msgs/JointState`, or deferral to the [Rosetta](../entities/rosetta.md) contract.
+>
+> This is a **structural consequence of the fleet's LeRobot-native/ROS-2 split**, not an XLeRobot quirk — see [the fleet framework's gap list](../syntheses/projects/fleet-agentic-framework.md#gaps-risks-and-hazards-be-clear-eyed).
+
+**Revised next-action order for this machine** (the generic "Nav2 first" order is wrong here — the XLeRobot has neither Nav2 nor Rosetta yet): `joint_states()` → `speak()` → `detect_objects()` (fixture stub first, then a real open-vocab model — the Orin NX 16 GB can run OWL-ViT / YOLO-World class detectors) → `run_policy` → **defer Nav2** until a nav stack exists on this base.
 
 ### Execution rail (added 2026-07-13, commit `0b57b68`)
 
