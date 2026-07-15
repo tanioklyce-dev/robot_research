@@ -3,7 +3,7 @@ title: LeKiwi
 type: entity
 subtype: robot
 created: 2026-05-10
-updated: 2026-05-28
+updated: 2026-07-15
 sources: 9
 tags: [lekiwi, mobile-manipulator, kiwi-drive, holonomic, sigrobotics-uiuc, lerobot, low-cost, raspberry-pi, open-source]
 ---
@@ -16,7 +16,8 @@ tags: [lekiwi, mobile-manipulator, kiwi-drive, holonomic, sigrobotics-uiuc, lero
 
 - **Drive**: 3-wheel Kiwi (holonomic / omnidirectional) using **3× STS3215 servo motors** (12V, 1:345 gear ratio)
 - **Encoders**: 12-bit magnetic angle sensors
-- **Wheels**: 3× omnidirectional
+- **Wheels**: 3× omnidirectional **4-inch (~102 mm) VEX omni**, mounted at **120° intervals** ([LeKiwi GitHub](../sources/lekiwi-github.md))
+- **Base plate**: **~216 × 213 mm** footprint (roughly a ~216 mm disc/rounded-triangle), **two stacked layers @ 7 mm each** — measured from the CAD bounding box of `3DPrintMeshes/base_plate_layer{1,2}.stl` in the [LeKiwi repo](../sources/lekiwi-github.md). The **arm mounts dead-center** on the second-layer top plate (4× M5×25); the **Raspberry Pi mounts on that same second-layer plate**. See [Does a J4012 fit on a LeKiwi base?](../syntheses/projects/j4012-on-lekiwi-base-fit.md) for the mounting-clearance analysis.
 - **Compute**: **Raspberry Pi 5** (4–16 GB RAM); software requires Python 3.10, PyTorch 2.6
 - **Power**: two options — 12V 5A Li-ion battery (heavier payload) OR 65W laptop power bank (5V, lighter)
 - **Communication**: UART motor control; USB-C interface on motor control board; wireless streaming of joint angles + camera feeds for compute-offload to a laptop
