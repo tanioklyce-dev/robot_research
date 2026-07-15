@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-10
 updated: 2026-07-15
-sources: 9
+sources: 10
 tags: [lekiwi, mobile-manipulator, kiwi-drive, holonomic, sigrobotics-uiuc, lerobot, low-cost, raspberry-pi, open-source]
 ---
 
@@ -72,6 +72,17 @@ For the wiki's assistive-robotics and accessible-robotics themes, LeKiwi is the 
 - [XLeRobot Documentation](../sources/xlerobot-docs.md)
 - [LeRobot Worldwide Hackathon 2025 — All Winners](../sources/lerobot-worldwide-hackathon-2025-winners.md) — LeKiwi was prize hardware in 22 of 30 ranked positions (top-3 + 6th–24th).
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — listed at **~€230** in Table 1a as the canonical mobile-manipulator platform; BOM citation in Appendix A.
+- [alfredang/lerobot — ChatGPT LeKiwi + onboard Jetson + ROS 2 SLAM](../sources/alfredang-lerobot-lekiwi-chatgpt.md) — a documented onboard-**Jetson Orin Nano** LeKiwi build (Jetson replaces the RPi); GPT-4o Vision brain + SLAM-Toolbox; a HTTP/ZMQ ROS 2↔LeRobot shim.
+
+## Onboard-Jetson examples in the wild
+
+The stock LeKiwi ships a [Raspberry Pi 5](raspberry-pi-5.md) and offloads heavy compute to a laptop, but Jetson-on-LeKiwi is a real, documented swap:
+
+- **[alfredang/lerobot](../sources/alfredang-lerobot-lekiwi-chatgpt.md)** — a **Jetson Orin Nano 8 GB mounted on the base**, explicitly replacing the RPi ("Early Version"), running LeRobot + ROS 2 Humble SLAM + a GPT-4o vision loop. The closest documented case to a stock 3-wheel LeKiwi carrying a Jetson.
+- **[Cutting the Cord (Shaw et al., 2026)](../sources/cutting-the-cord-untethered-xlerobot.md)** — the measured, peer-reviewed onboard-**Orin Nano** build, but on the LeKiwi-*class* [XLeRobot](xlerobot.md) (dual-arm on an IKEA cart), not the round 3-wheel plate.
+
+> [!note] Caveat for large carriers
+> Both documented mounts use a **bare Orin Nano module** (~Pi footprint, drops into the RPi spot). Neither validates the boxed **reComputer Robotics J4012** (130×121×66 mm) — see [Does a J4012 fit on a LeKiwi base?](../syntheses/projects/j4012-on-lekiwi-base-fit.md) for why the large carrier needs a raised-tier mount instead.
 
 ## Open questions / TBD
 

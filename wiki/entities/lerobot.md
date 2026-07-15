@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-05-10
 updated: 2026-07-08
-sources: 19
+sources: 20
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026]
 ---
 
@@ -148,6 +148,7 @@ Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distri
 - [Rosetta GitHub](../sources/rosetta-github.md) — downstream ROS 2 bridge (YAML-contract).
 - [lerobot-ros GitHub](../sources/lerobot-ros-github.md) — downstream ROS 2 bridge (Python sub-class, Jazzy).
 - [so101_ros2 readthedocs](../sources/so101-ros2-readthedocs.md) — downstream ROS 2 bridge (SO-101-specific, Humble + Isaac Sim).
+- [alfredang/lerobot — ChatGPT LeKiwi](../sources/alfredang-lerobot-lekiwi-chatgpt.md) — a community build using LeRobot for motor control alongside ROS 2 SLAM, bridged over an HTTP/ZMQ shim (not native nodes); onboard Jetson Orin Nano; GPT-4o vision brain (no learned policy).
 - [SmolVLA Paper](../sources/smolvla-paper.md) — team-authored VLA built on LeRobot framework.
 - [π0 Paper](../sources/pi-zero-paper.md) — Physical Intelligence's VLA; distributed via LeRobot.
 - [Robot Learning: A Tutorial (LeRobot)](../sources/lerobot-robot-learning-tutorial.md) — official team-authored tutorial.

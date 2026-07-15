@@ -2629,3 +2629,10 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - J4012 = 130 × 121 × 66 mm (XT30 19–54 V) — fits footprint, clears wheels if top-deck-mounted; arm owns center → needs raised-tier/offset mount + separate rail
 - Updated [LeKiwi](entities/lekiwi.md) with measured base-plate + wheel dimensions
 - Filed [Does a J4012 fit on a LeKiwi base?](syntheses/projects/j4012-on-lekiwi-base-fit.md)
+
+## [2026-07-15] ingest | alfredang/lerobot — ChatGPT LeKiwi + onboard Jetson + ROS 2 SLAM
+- Created [alfredang/lerobot](sources/alfredang-lerobot-lekiwi-chatgpt.md) — onboard Jetson Orin Nano 8 GB on a LeKiwi (replaces RPi); LeRobot motors + ROS 2 Humble SLAM-Toolbox + GPT-4o vision brain over an HTTP/ZMQ shim; documented onboard-Jetson-LeKiwi + a loose ROS 2↔LeRobot integration pattern
+- Updated [LeKiwi](entities/lekiwi.md) — added "Onboard-Jetson examples in the wild" section (this build + Cutting the Cord), sources 9→10
+- Updated [Jetson Orin Nano](entities/jetson-orin-nano.md) (11→12), [LeRobot](entities/lerobot.md) (19→20), [ROS 2](entities/ros2.md) (4→5) Mentioned-in
+- Added "Examples in the wild" section to [J4012-on-LeKiwi fit](syntheses/projects/j4012-on-lekiwi-base-fit.md) — caveat: documented mounts are bare Orin modules, not the J4012 box
+- Lint note: OpenAI / GPT-4o is referenced across 5+ sources with no entity page (candidate)

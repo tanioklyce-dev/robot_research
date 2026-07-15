@@ -43,6 +43,16 @@ Workable mounts, in rough order of preference:
 
 The J4012 wants a **19–54 V XT30 rail** ([selection guide](../../sources/seeed-jetson-selection-guide.md)) — it does **not** run off LeKiwi's **12 V STS3215 motor bus**. Mounting is only half the integration: you need a separate higher-voltage source (a battery in range, or a buck/boost stage), which is the same rail concern flagged in the [XLeRobot power-budget analysis](xlerobot-thor-power-budget.md). Fits the [onboard-compute picture](../platforms/jetson-onboard-compute-xlerobot.md) too — the J4012 is exactly the "buy-a-robot-ready-carrier" version of the Orin NX 16 GB drop-in upgrade.
 
+## Examples in the wild — but of bare modules, not the J4012 box
+
+Jetson-on-LeKiwi is documented and works — just not (yet) with this large carrier:
+
+- **[alfredang/lerobot](../../sources/alfredang-lerobot-lekiwi-chatgpt.md)** — a **Jetson Orin Nano 8 GB mounted on a LeKiwi base**, explicitly replacing the Raspberry Pi; runs LeRobot + ROS 2 Humble SLAM + a GPT-4o vision loop. The closest documented onboard-Jetson stock-LeKiwi build.
+- **[Cutting the Cord (Shaw et al., 2026)](../../sources/cutting-the-cord-untethered-xlerobot.md)** — the measured onboard-**Orin Nano** build, on the LeKiwi-*class* [XLeRobot](../../entities/xlerobot.md) (dual-arm / IKEA cart).
+- Vendor listings (Seeed/resellers) advertise LeKiwi as **Orin NX-compatible** via the 20 mm modular mounting, but ship Pi-5-based.
+
+**The catch that keeps this page relevant:** every documented mount uses a **bare Orin Nano module** (~Pi footprint that drops into the RPi spot) — *none* mounts the boxed **reComputer Robotics J4012** (130 × 121 × 66 mm). The real builds succeed precisely because a bare module *doesn't* trigger the arm/height conflict analyzed above; the J4012's ~2.5× footprint and 66 mm height still needs the raised-tier mount.
+
 ## Bottom line
 
 - **Fits the base footprint?** Yes — the ~216 mm plate comfortably contains a 130 × 121 mm box.
@@ -54,7 +64,8 @@ The J4012 wants a **19–54 V XT30 rail** ([selection guide](../../sources/seeed
 > Base-plate footprint and wheel size are from the LeKiwi CAD and Seeed/XLeRobot docs; the J4012 dimensions are from the [Seeed selection guide](../../sources/seeed-jetson-selection-guide.md). Not yet measured: the SO-ARM101 shoulder **swing radius / keep-out circle** at the base, and the exact wheel-well standoff height — both would let this go from "needs a riser" to a specific standoff spec. If you want that, the next step is the SO-ARM101 base CAD.
 
 ## Related
-- [LeKiwi](../../entities/lekiwi.md) — the base (now carries measured plate dimensions).
+- [alfredang/lerobot](../../sources/alfredang-lerobot-lekiwi-chatgpt.md) — the documented onboard-Jetson-Orin-Nano LeKiwi build.
+- [LeKiwi](../../entities/lekiwi.md) — the base (now carries measured plate dimensions + onboard-Jetson examples).
 - [Onboard compute for XLeRobot — Orin Nano vs NX vs AGX Orin vs Thor](../platforms/jetson-onboard-compute-xlerobot.md) — where the J4012 sits in the Jetson ladder (the Orin NX 16 GB drop-in pick).
 - [Seeed Jetson selection guide](../../sources/seeed-jetson-selection-guide.md) — J4012 dimensions, power input, interfaces.
 - [XLeRobot + AGX Thor power budget](xlerobot-thor-power-budget.md) — the higher-voltage-rail concern in detail.

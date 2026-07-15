@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-05-28
 updated: 2026-05-28
-sources: 4
+sources: 5
 tags: [ros2, ros, middleware, dds, ament, colcon, humble, jazzy, kilted, lyrical, robotics, open-source]
 ---
 
@@ -66,6 +66,7 @@ A reader asking "can I run a LeRobot-trained policy on my Humble robot?" must ch
 ## Mentioned in
 
 - [ROS 2 Humble docs](../sources/ros2-humble-docs.md) — official documentation reference; primary source.
+- [alfredang/lerobot — ChatGPT LeKiwi](../sources/alfredang-lerobot-lekiwi-chatgpt.md) — ROS 2 Humble (SLAM Toolbox + rplidar_ros) running in parallel with LeRobot on a LeKiwi, bridged to the control loop over HTTP rather than native topics.
 
 ## Open questions
 

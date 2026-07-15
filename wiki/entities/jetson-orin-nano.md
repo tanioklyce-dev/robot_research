@@ -3,7 +3,7 @@ title: Jetson Orin Nano
 type: entity
 created: 2026-05-16
 updated: 2026-06-13
-sources: 11
+sources: 12
 tags: [jetson, nvidia, edge-ai, hardware, robotics-compute]
 ---
 
@@ -86,6 +86,7 @@ In-place updates use apt against NVIDIA's L4T Debian repository: `apt update && 
 
 ## Mentioned in
 - [Cutting the Cord (Shaw et al., 2026)](../sources/cutting-the-cord-untethered-xlerobot.md) — measured onboard-XLeRobot build + 67-TOPS / on-edge-VLA-latency numbers.
+- [alfredang/lerobot — ChatGPT LeKiwi](../sources/alfredang-lerobot-lekiwi-chatgpt.md) — an Orin Nano 8 GB mounted onboard a LeKiwi, replacing the RPi; runs LeRobot + ROS 2 SLAM + a GPT-4o loop.
 - [NVIDIA Jetson AI Lab — HuggingFace LeRobot (archived)](../sources/nvidia-jetson-ai-lab-lerobot.md) — Orin Nano 8 GB as a containerized LeRobot target.
 - [Jetson onboard compute for XLeRobot](../syntheses/platforms/jetson-onboard-compute-xlerobot.md) — Orin Nano vs AGX Orin vs Thor.
 - [Jetson Orin Nano flash howto](../syntheses/projects/jetson-orin-nano-flash-howto.md)
