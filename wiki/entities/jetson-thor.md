@@ -46,7 +46,7 @@ NVIDIA extended the family *downward* with three smaller-memory, lower-power SKU
 | SKU | AI compute | Memory | CPU | Notes |
 |---|---|---|---|---|
 | **Jetson T3000** | 865 TFLOPS (FP4) | **32 GB** LPDDR5X, 273 GB/s | 8-core Neoverse Arm | 25 GbE; **~50% smaller / lower power than T5000**; "inference comparable to T5000 for multimodal workloads" |
-| **IGX T3000** | = T3000 | 32 GB | — | **Integrated functional safety**; runs **NVIDIA Halos for Robotics** full-stack safety system |
+| **IGX T3000** | = T3000 | 32 GB | — | **Integrated functional safety** (a Thor-SoC SoM with a **Functional Safety Island**); runs **[NVIDIA Halos](nvidia-halos.md)** full-stack safety system ([Halos for Robotics](../sources/nvidia-halos-robotics.md)) |
 | **Jetson T2000** | 400 TFLOPS (FP4) | **16 GB** | — | Entry-level Thor architecture |
 
 > [!warning] The "Thor = 128 GB" assumption only holds for T5000

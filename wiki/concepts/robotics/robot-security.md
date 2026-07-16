@@ -33,7 +33,7 @@ The wiki's own [ROS 2↔MCP server](../../entities/ros2-mcp-server.md) work sits
 
 ## Related concepts
 
-- [Robot safety standards (ISO 13482)](robot-safety-standards.md) — the *safety* neighbor (physical harm, not adversarial).
+- [Robot safety standards (ISO 13482)](robot-safety-standards.md) — the *safety* neighbor (physical harm, not adversarial); its productized instance is **[NVIDIA Halos](../../entities/nvidia-halos.md)** (functional safety on IGX Thor). Halos hardens the robot against *accidents*; RSF hardens it against *attackers* — orthogonal layers on the same machine.
 - [AI guardrails](../safety/ai-guardrails.md), [LLM-agent architecture / input rail](../agents/llm-agent-architecture.md) — the AI-layer security thread.
 
 ## Mentioned in
