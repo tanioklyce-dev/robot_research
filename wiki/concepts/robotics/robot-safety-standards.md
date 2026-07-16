@@ -44,6 +44,8 @@ The [primary academic critique](../../sources/fosch-villaronga-iso13482-exoskele
 > [!note] Open frontier
 > The standard's machinery assumes **deterministic, verifiable safety functions**; everything this wiki tracks ([VLAs](../learning/vla-models.md), [LBMs](../learning/large-behavior-models.md), learned locomotion) is a stochastic learned policy. How a [GR00T](../../entities/nvidia-groot.md)-driven mobile servant robot demonstrates ISO 13482 conformity is essentially unresolved — the practical pattern is likely a certified classical **safety layer** (protective stops, speed/force limiting, geofencing) wrapping an uncertified learned policy. Connects directly to [Tedrake](../../entities/russ-tedrake.md)'s "deployment is the milestone the field has to *earn*" thesis and the EU Machinery Regulation's incoming AI requirements.
 
+A concrete instance of that predicted pattern arrived 2026-07-15: NVIDIA's **IGX T3000** ([Jetson Thor](../../entities/jetson-thor.md) SKU) ships with **integrated functional safety** running **NVIDIA Halos for Robotics**, a full-stack safety system ([blog](../../sources/nvidia-jetson-thor-t3000-t2000-blog.md)) — i.e. a hardware-attested deterministic safety layer *underneath* the learned VLA that the same module runs. Whether Halos suffices for ISO 13482 / EU-MR conformity of the learned policy on top is still the open question.
+
 ## Related concepts
 
 - [Assistive robotics](assistive-robotics.md) — the deployment domain where this standard bites first (in-home robots near vulnerable users).

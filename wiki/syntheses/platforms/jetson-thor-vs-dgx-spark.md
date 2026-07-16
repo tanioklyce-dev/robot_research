@@ -10,6 +10,9 @@ tags: [jetson-thor, dgx-spark, nvidia, physical-ai, training-vs-deployment, isaa
 
 NVIDIA's two new Blackwell-generation **personal-scale** AI hardware products — [Jetson Thor](../../entities/jetson-thor.md) (Aug 2025) and [DGX Spark](../../entities/dgx-spark.md) — look superficially similar (Blackwell GPU, 128 GB LPDDR5X at 273 GB/s, ARM CPU, sub-$5k). They are **not** substitutes. They are the two halves of the same physical-AI workflow: **train and simulate on Spark; deploy and infer on Thor**.
 
+> [!warning] The 128 GB match holds only for the Thor **T5000**
+> This whole comparison assumes "Thor" = the **128 GB T5000** — the SKU that mirrors Spark's memory. As of **2026-07-15** NVIDIA expanded the Thor family downward ([T3000/T2000 blog](../../sources/nvidia-jetson-thor-t3000-t2000-blog.md)): **T3000 = 32 GB, T2000 = 16 GB** (GA Q1 2027). On those tiers the "a model that fits on Spark fits on Thor" oracle **breaks** — a 3B VLA that trains comfortably in Spark's 128 GB may not deploy on a 16 GB T2000 without aggressive quantization. The train-on-Spark/deploy-on-Thor split still holds; the *memory-parity convenience* is a T5000-only property.
+
 ## TL;DR — answer to "can Thor run what Spark runs?"
 
 | Capability | Jetson Thor | DGX Spark |

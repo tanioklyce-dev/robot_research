@@ -3,9 +3,9 @@ title: Jetson Thor
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-07-08
-sources: 16
-tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai, jetpack-7, nvfp4, mig]
+updated: 2026-07-15
+sources: 17
+tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai, jetpack-7, nvfp4, mig, t3000, t2000, igx]
 ---
 
 # Jetson Thor
@@ -39,6 +39,22 @@ Two production module SKUs plus an AGX-style Developer Kit ([Jetson Thor product
 | AI performance | 1200 TFLOPS (FP4 sparse) |
 | Power | 40 W – 70 W |
 
+### Lower tiers — T3000 / T2000 / IGX T3000 (announced 2026-07-15)
+
+NVIDIA extended the family *downward* with three smaller-memory, lower-power SKUs ([T3000/T2000 blog](../sources/nvidia-jetson-thor-t3000-t2000-blog.md)), so the Jetson line now advertises **"70 TOPS to 2,000 teraflops"** end to end. **Emulation** later July 2026 (JetPack 7.2.1); **GA Q1 2027**; pricing undisclosed.
+
+| SKU | AI compute | Memory | CPU | Notes |
+|---|---|---|---|---|
+| **Jetson T3000** | 865 TFLOPS (FP4) | **32 GB** LPDDR5X, 273 GB/s | 8-core Neoverse Arm | 25 GbE; **~50% smaller / lower power than T5000**; "inference comparable to T5000 for multimodal workloads" |
+| **IGX T3000** | = T3000 | 32 GB | — | **Integrated functional safety**; runs **NVIDIA Halos for Robotics** full-stack safety system |
+| **Jetson T2000** | 400 TFLOPS (FP4) | **16 GB** | — | Entry-level Thor architecture |
+
+> [!warning] The "Thor = 128 GB" assumption only holds for T5000
+> The wiki's [train-on-Spark / deploy-on-Thor](../syntheses/platforms/jetson-thor-vs-dgx-spark.md) framing rests on Thor and [DGX Spark](dgx-spark.md) sharing **128 GB**. That is true **only of the T5000/T4000** (128/64 GB). **T3000 = 32 GB, T2000 = 16 GB** — the smaller tiers are *not* memory-matched to Spark, and 16 GB is the floor the wiki already flags for 3B-VLA deployment (cf. Orin NX 16 GB). Match the tier to the model: T5000 for concurrent multi-VLA, T2000/T3000 for a single quantized policy.
+
+> [!note] Lower-power tiers vs. the mobile-robot power budget
+> T3000 ("~50% lower power than T5000") and the entry T2000 are exactly what the [XLeRobot + Thor power budget](../syntheses/projects/xlerobot-thor-power-budget.md) problem needed — [Cutting the Cord](../sources/cutting-the-cord-untethered-xlerobot.md) judged the T5000's **40–130 W** to *exceed* a 288 Wh mobile-robot budget. Actual T2000/T3000 wattage isn't quantified in the announcement yet, so this is promise, not a validated fit.
+
 ### Power modes (`nvpmodel`)
 Thor's power is a **software-selectable budget**, not a fixed draw ([Thor Platform Power & Performance, R38.4](../sources/nvidia-jetson-thor-platform-power-performance.md)). **T5000**: Mode 0 **MAXN** (uncapped, throttles at the 130 W TDP), Mode 1 **120 W** (default), Mode 2 **90 W**, Mode 3 **70 W**. **T4000**: Mode 0 MAXN, Mode 1 **70 W** (default); module TDP 90 W. The main trade-off is GPU — sub-120 W modes drop the GPU from **10 → 6 TPC (~−40 % throughput)** while barely touching the CPU. Set with `sudo nvpmodel -m <id>` (persists across reboot/SC7). Decisive for battery robots — see [XLeRobot + Thor power budget](../syntheses/projects/xlerobot-thor-power-budget.md). For a small mobile manipulator, even the 70 W floor is high: [Cutting the Cord (2026)](../sources/cutting-the-cord-untethered-xlerobot.md) judges Thor's **40–130 W to "exceed the power budget"** of a 288 Wh XLeRobot, where a 7–25 W [Orin Nano](jetson-orin-nano.md) is the validated fit — see [Jetson onboard compute for XLeRobot](../syntheses/platforms/jetson-onboard-compute-xlerobot.md).
 
@@ -71,6 +87,7 @@ NVIDIA reference carrier + T5000 module. **$3,499 starting** ([NVIDIA Newsroom](
 - **Robotics stack**: NVIDIA Isaac platform — **Isaac ROS 4.0** (Thor-compatible release), [Isaac GR00T](nvidia-groot.md) deploy target, NVIDIA Holoscan, NVIDIA Metropolis.
 - **Containers**: NIM microservices for VLM / VLA / perception models packaged for the JetPack 7 runtime.
 - **AI-serving frameworks** documented in the JetPack 7 release: **vLLM**, **SGLang**, **MLC**, **llama.cpp**, **Ollama**, **Hugging Face Transformers**.
+- **Edge foundation models / agents** ([T3000/T2000 blog](../sources/nvidia-jetson-thor-t3000-t2000-blog.md), 2026-07): **[Cosmos 3](nvidia-cosmos.md) Edge** (4B embodied FM, "post-train for a specific embodiment in ~a day") delivered to the Thor lineup; **Nemotron** open models; **NemoClaw** agentic-orchestration blueprints; and **Jetson Agent Skills** — on-device agents that automate memory optimization / config / deployment (case studies report **up to 15 GB** memory reduction).
 
 ### Post-launch generative-AI throughput (single-Thor, Sept 2025)
 
@@ -113,7 +130,7 @@ Thor's official TensorRT speedup (1.27×) is the weakest in NVIDIA's own table (
 
 ## Named adopters
 
-From the [NVIDIA Newsroom launch release](../sources/nvidia-jetson-thor-launch-newsroom.md): **Agility Robotics, Amazon Robotics, [Boston Dynamics](boston-dynamics.md), Caterpillar, Figure, Hexagon, Medtronic, Meta, 1X, John Deere, OpenAI, Physical Intelligence**.
+From the [NVIDIA Newsroom launch release](../sources/nvidia-jetson-thor-launch-newsroom.md): **Agility Robotics, Amazon Robotics, [Boston Dynamics](boston-dynamics.md), Caterpillar, Figure, Hexagon, Medtronic, Meta, 1X, John Deere, OpenAI, Physical Intelligence**. The [T3000/T2000 expansion blog](../sources/nvidia-jetson-thor-t3000-t2000-blog.md) adds **FANUC, Hitachi, Techman Robot, UBTech, Agile Robots, GROOVE X (LOVOT), SandStar, NoTraffic** plus the carrier/edge ecosystem (ADLINK, Advantech, AAEON, Aetina, Auvidea, AVerMedia, [Seeed Studio](seeed-studio.md), Antmicro, RidgeRun).
 
 In the wiki's own observed deployments, the U.S.-side **SIGRobotics-UIUC matcha-bot** at the October 2025 Seeed × NVIDIA × HF hackathon ran [GR00T N1.5](nvidia-groot.md) on Jetson Thor (fine-tuned upstream via [NVIDIA Brev](nvidia-brev.md)) ([Seeed Embodied AI Hackathon 2025 Recap](../sources/seeed-embodied-ai-hackathon-2025-recap.md)) — the earliest hackathon-scale Thor deployment the wiki tracks.
 
