@@ -2,7 +2,7 @@
 title: XLeRobot + AGX Thor power budget — is a 300 W battery enough?
 type: synthesis
 created: 2026-05-30
-updated: 2026-06-04
+updated: 2026-07-15
 tags: [xlerobot, jetson-thor, power, battery, anker-c300, sts3215, energy-budget, nvpmodel, power-modes, tiered-power, projects]
 ---
 
@@ -81,6 +81,27 @@ The wiki's stock "**10+ hr**" ([XLeRobot](../../entities/xlerobot.md)) assumes *
 *(288 Wh usable, derated for AC-inversion / DC-DC losses.)*
 
 **~1.4–3.0 hr of real working time, down from 10+ hr.** Capping Thor at 70 W buys roughly **+15–25 % runtime in the heavy case** (≈1.2 → 1.5 hr) and flattens the draw, but **capacity, not rate, is still what bites** — the cap helps at the margin; a bigger pack helps more (§"Updated battery recommendation"). The honest framing: software-capping is free runtime + safety headroom you should take, but it won't turn a 288 Wh station into an all-day robot.
+
+## 3b. Thor-only runtime — one 140 W USB-C feed
+
+The numbers above are the **whole robot** (Thor + motors + sensors). The isolated question — *how long does a **T5000 Thor alone** run on a dedicated 288 Wh pack fed from a single 140 W USB-C port* (a USB-C→DC PD-140 W cable) — is the [two-pack option](#putting-a-jetson-thor-onboard--the-two-pack-tiered-power-option)'s pack #2, and the runtime is set entirely by the `nvpmodel` cap.
+
+**Usable energy:** 288 Wh × ~85–90 % (DC→USB-C PD conversion + real-world cutoff) ≈ **~250 Wh** at the port. A PD-trigger→DC cable passing 28 V/5 A adds little loss (Thor's onboard buck is already in its rated draw).
+
+**Runtime = ~250 Wh ÷ actual board draw** (module cap + ~10–20 W dev-kit peripherals: NVMe, fan, Wi-Fi, USB):
+
+| `nvpmodel` | Module cap | Board draw* | Thor-only runtime |
+|---|---|---|---|
+| Idle / light inference | ~30–40 W | ~45–55 W | **~4.5–5.5 hr** |
+| **Mode 3 — 70 W** (battery default) | 70 W | ~85 W | **~3–3.5 hr** |
+| **Mode 2 — 90 W** | 90 W | ~105 W | **~2.4 hr** |
+| **Mode 1 — 120 W** (default) | 120 W | ~135 W | **~1.9 hr** |
+| Mode 0 — MAXN | up to 130 W → **168 W board** | — | ❌ **not on one 140 W port** |
+
+\*Module-only draw (ignoring peripherals) gives the optimistic bound the two-pack section quotes — **70 W ≈ 3.5 hr, 120 W ≈ 2 hr**; peripherals trim ~15–20 %. A typical **VLA-inference workload** averages a mid mode → **~2.5–3.5 hr**.
+
+> [!warning] One 140 W USB-C port caps you below MAXN
+> Thor's board can pull up to **168 W** at full tilt, but USB-C PD sink is hard-limited to **140 W** (§2) — an uncapped/full-load Thor **browns out on a single port**. Stay at `nvpmodel ≤ 120 W`; **70–90 W gives comfortable headroom** after peripherals. To run unthrottled you must feed the **Micro-Fit** (15 A / 168 W) instead — see the [canonical battery recommendation](#updated-battery-recommendation-canonical). Replicating the stock config: the bundled 28 V/5 A brick is USB-C and has the same 140 W limit, so you're not losing performance you otherwise had — just running it off a battery.
 
 ## What NVIDIA and the forums recommend
 
