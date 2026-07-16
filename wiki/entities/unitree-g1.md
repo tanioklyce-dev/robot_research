@@ -3,9 +3,9 @@ title: Unitree G1
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-07-04
-sources: 4
-tags: [unitree-g1, humanoid, bipedal, china, affordable, accessible, groot]
+updated: 2026-07-15
+sources: 6
+tags: [unitree-g1, humanoid, bipedal, china, affordable, accessible, groot, whole-body-control]
 ---
 
 **Unitree G1** — smaller, cheaper bipedal humanoid from Unitree Robotics. Released May 2024. **Starter price ~$16,000** — the cheapest credible serious humanoid platform. Targeted at developers and researchers.
@@ -31,13 +31,18 @@ The G1 is the GR00T line's main **cross-embodiment / whole-body** target beyond 
 - **Cheaper than every other humanoid in this wiki by far.** [TurtleBot](turtlebot.md) still cheaper but isn't a humanoid; among humanoids, G1 is the floor.
 - **Limited dexterous manipulation** — basic grippers; not the multi-finger hands of [Atlas](atlas.md) or [Figure](figure.md).
 
+The G1 is fast becoming the **de-facto benchmark platform for learned [whole-body control](../concepts/robotics/whole-body-control.md)** — it is the common target across [SONIC](../sources/sonic-paper.md) (NVIDIA GEAR), [MotionBricks](../sources/motionbricks-paper.md) (NVIDIA, SIGGRAPH 2026), and [BumbleBee](../sources/bumblebee-experts-to-generalist-wbc.md) ([BeingBeyond](beingbeyond.md)), which all evaluate WBC methods on it. (Note DoF varies by config — SONIC uses the 29-joint G1; BumbleBee a 23-joint config.)
+
 ## Related
 - Unitree Robotics — manufacturer.
 - [Unitree H1](unitree-h1.md) — full-size sibling.
+- [Whole-body control](../concepts/robotics/whole-body-control.md) — the concept for which G1 is the shared benchmark robot.
 - [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — landscape; G1 is the educational-research bridge.
 
 ## Mentioned in
 - [SONIC Paper](../sources/sonic-paper.md) — SONIC is a G1-only whole-body controller (primary robot)
+- [MotionBricks Paper](../sources/motionbricks-paper.md) — NVIDIA real-time motion model deployed on G1 for WBC
+- [BumbleBee Paper](../sources/bumblebee-experts-to-generalist-wbc.md) — expert→generalist WBC, SOTA on G1
 - [GR00T N1.5 research page](../sources/groot-n1_5.md) — cross-embodiment post-training (98.8% seen / 84.2% novel)
 - [GR00T N1.6 research page](../sources/groot-n1_6.md) — whole-body loco-manipulation data
 - [Isaac-GR00T GitHub](../sources/isaac-gr00t-github.md) — `UNITREE_G1` / `UNITREE_G1_SONIC` embodiment tags

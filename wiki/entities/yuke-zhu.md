@@ -3,9 +3,9 @@ title: Yuke Zhu
 type: entity
 subtype: person
 created: 2026-05-08
-updated: 2026-07-04
-sources: 6
-tags: [person, ut-austin, nvidia, embodied-ai, robocasa, manipulation]
+updated: 2026-07-15
+sources: 7
+tags: [person, ut-austin, nvidia, embodied-ai, robocasa, manipulation, whole-body-control]
 ---
 
 **Yuke Zhu** — Associate Professor at UT Austin CS; Director and Distinguished Research Scientist at [NVIDIA](nvidia.md) Research, where he **co-leads [GEAR](nvidia-gear.md) (Generalist Embodied Agent Research)** with [Jim Fan](jim-fan.md) (founded Feb 2024). Embodied-AI / manipulation researcher. In this wiki, **senior on [RoboCasa365](../sources/robocasa365-paper.md)** — the 365-task household-manipulation benchmark that appears across both the VLA cohort and (now) the JEPA cohort via [JEPA-WMs](jepa-wms.md).
@@ -35,6 +35,7 @@ Adjacent Zhu-affiliated work not ingested: robosuite (the robosuite framework th
 - [RoboCasa365 Paper](../sources/robocasa365-paper.md)
 - [Designing Accessible Robot Communication for Blind People — Huh et al. 2026](../sources/huh2026-accessible-robot-comm.md)
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md)
+- [MotionBricks Paper](../sources/motionbricks-paper.md) — senior author (with [Xue Bin Peng](xue-bin-peng.md)); real-time motion model + G1 WBC
 - [EgoScale Paper](../sources/egoscale-paper.md)
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)
 

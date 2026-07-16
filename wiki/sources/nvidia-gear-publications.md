@@ -31,7 +31,7 @@ GEAR's research portfolio cleanly maps to four lab-stated focus areas:
 5. **GR00T N1: An Open Foundation Model for Generalist Humanoid Robots** — arXiv 2503.14734 (Mar 2025). [paper](https://arxiv.org/abs/2503.14734) · [product page](https://developer.nvidia.com/isaac/gr00t) — Authors: Soroush Nasiriany, Abhiram Maddukuri*, Lance Zhang*, Adeet Parikh, Aaron Lo, Abhishek Joshi, Ajay Mandlekar, Yuke Zhu. Already cited via the [NVIDIA GR00T entity](../entities/nvidia-groot.md).
 
 ### 2026 venues (newest)
-6. **MotionBricks: Scalable Real-Time Motions with Modular Latent Generative Model and Smart Primitives** — SIGGRAPH 2026 (Aug). [arXiv 2604.24833](https://arxiv.org/abs/2604.24833) · [project](https://nvlabs.github.io/motionbricks/)
+6. **MotionBricks: Scalable Real-Time Motions with Modular Latent Generative Model and Smart Primitives** — SIGGRAPH 2026 (Aug). [arXiv 2604.24833](https://arxiv.org/abs/2604.24833) · [project](https://nvlabs.github.io/motionbricks/) — **✅ ingested 2026-07-15**: [MotionBricks paper](motionbricks-paper.md).
 7. **CaP-X: A Framework for Benchmarking and Improving Coding Agents for Robot Manipulation** — ICML 2026 (Oral). [arXiv 2603.22435](https://arxiv.org/abs/2603.22435) · [project](https://capgym.github.io/)
 8. **NitroGen: An Open Foundation Model for Generalist Gaming Agents** — CVPR 2026 (Oral). [arXiv 2601.02427](https://arxiv.org/abs/2601.02427) · [project](https://nitrogen.minedojo.org/) — Successor to MineDojo; "open foundation model for gaming agents".
 9. **Opening the Sim-to-Real Door for Humanoid Pixel-to-Action Policy Transfer** ("Doorman") — CVPR 2026. [arXiv 2512.01061](https://arxiv.org/abs/2512.01061) · [project](https://doorman-humanoid.github.io/)

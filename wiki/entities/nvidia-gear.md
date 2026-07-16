@@ -3,9 +3,9 @@ title: NVIDIA GEAR Lab
 type: entity
 subtype: research-lab
 created: 2026-05-15
-updated: 2026-07-04
-sources: 7
-tags: [nvidia, gear, embodied-ai, humanoids, foundation-models, world-models]
+updated: 2026-07-15
+sources: 8
+tags: [nvidia, gear, embodied-ai, humanoids, foundation-models, world-models, whole-body-control]
 ---
 
 **G**eneralist **E**mbodied **A**gent **R**esearch — NVIDIA Research lab founded Feb 2024 and co-led by [Jim Fan](jim-fan.md) and [Yuke Zhu](yuke-zhu.md). Stated mission: "build foundation models for embodied agents in virtual and physical worlds." Houses NVIDIA's [GR00T](nvidia-groot.md) program and is the in-house source of much of the [Isaac Lab](nvidia-isaac-lab.md) / [RoboCasa](robocasa.md) / [MimicGen](mimicgen.md) lineage.
@@ -48,6 +48,7 @@ GEAR is **the in-house research source** of essentially every NVIDIA-product ent
 - [DreamGen Paper](../sources/dreamgen-paper.md) — the Dream\* line's root
 - [FLARE Paper](../sources/flare-paper.md) — implicit-WM auxiliary loss (adopted by GR00T N1.5)
 - [SONIC Paper](../sources/sonic-paper.md) — the GEAR-SONIC humanoid whole-body controller
+- [MotionBricks Paper](../sources/motionbricks-paper.md) — real-time modular latent motion model ([Xue Bin Peng](xue-bin-peng.md), [Yuke Zhu](yuke-zhu.md) senior); animation + G1 WBC; SIGGRAPH 2026
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md)
 - [EgoScale Paper](../sources/egoscale-paper.md)
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)

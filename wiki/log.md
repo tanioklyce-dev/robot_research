@@ -2643,3 +2643,10 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - Updated [Russ Tedrake](entities/russ-tedrake.md) (co-founder/CEO), [TRI](entities/tri.md) (LBM-leadership spin-out), [Large Behavior Models](concepts/learning/large-behavior-models.md) (commercialization section), [Diffusion Policy](entities/diffusion-policy.md) (commercial deployment), [Automated Podcast source](sources/automated-podcast-tedrake-rocket-ship.md) (open question resolved)
 - Flagged contradiction: podcast hinted the name "references LBMs"; actual name references Thoreau's *Walden*
 - Updated [index.md](index.md)
+## [2026-07-15] ingest | BumbleBee + MotionBricks (humanoid whole-body control) + pinball-robot project notes
+- Created sources: [BumbleBee — From Experts to a Generalist (WBC)](sources/bumblebee-experts-to-generalist-wbc.md) (arXiv 2506.12779, BeingBeyond + Peking Univ), [MotionBricks](sources/motionbricks-paper.md) (arXiv 2604.24833, NVIDIA, SIGGRAPH 2026)
+- New concept: [Whole-body control (WBC)](concepts/robotics/whole-body-control.md) — hub for the SONIC / MotionBricks / BumbleBee cluster; model-scaling vs data-clustering framing; delta-action sim-to-real; G1 as shared benchmark
+- New entities: [BeingBeyond](entities/beingbeyond.md) (company), [Zongqing Lu](entities/zongqing-lu.md), [Xue Bin Peng](entities/xue-bin-peng.md) (people)
+- New synthesis: [Pinball-playing robot — project scoping](syntheses/projects/pinball-playing-robot.md) from raw/project_notes_on_robots_from_claude.txt (XLeRobot + Thor; timescale decomposition; solenoid flipper effectors; reflex budget)
+- Updated [Unitree G1](entities/unitree-g1.md) (de-facto WBC benchmark), [NVIDIA GEAR](entities/nvidia-gear.md) + [Yuke Zhu](entities/yuke-zhu.md) (MotionBricks), [SONIC source](sources/sonic-paper.md) (WBC concept + MotionBricks sibling link), [GEAR publications](sources/nvidia-gear-publications.md) (MotionBricks marked ingested), [glossary](glossary.md) (WBC entry), [index.md](index.md)
+- Note: raw/ingest.txt was empty (nothing to ingest)

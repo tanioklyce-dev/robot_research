@@ -348,6 +348,9 @@ Robot description formats — XML-based ([URDF](concepts/world-models/world-mode
 ### WAM
 **World-Action Model** — a model that jointly couples a world model and an action model, so the same network can do forward dynamics, inverse dynamics, **and** act as a policy (predicting actions *and* their visual consequence). Instances: [Cosmos 3](sources/cosmos-3-technical-report.md), DreamZero, GE-Sim2. See [WAM concept](concepts/world-models/world-action-model.md). *(Module 10.)*
 
+### WBC
+**Whole-Body Control** — coordinating all of a high-DoF humanoid's joints into stable, dynamically-feasible motion (walk/jump/crouch/loco-manipulate); for learned humanoids, usually posed as RL **motion tracking** of retargeted human mocap. The low-level "System 1" beneath a [VLA](#vla). See [WBC concept](concepts/robotics/whole-body-control.md); instances [SONIC](sources/sonic-paper.md), [MotionBricks](sources/motionbricks-paper.md), [BumbleBee](sources/bumblebee-experts-to-generalist-wbc.md) — all on the [Unitree G1](entities/unitree-g1.md).
+
 ### WFM
 **World Foundation Model** — NVIDIA marketing term for very-large generative-video world models like [Cosmos](entities/nvidia-cosmos.md). A *type* of WM, not a synonym. *(Module 10.)*
 

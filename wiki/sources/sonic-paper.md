@@ -43,7 +43,7 @@ Primary source for **[GEAR-SONIC](../entities/gear-sonic.md)** ("**S**upersizing
 - [GR00T N1.5](../entities/nvidia-groot.md) VLA (on the token interface); baselines BeyondMimic, Any2Track, OpenHomie, AMP/ASE/CALM. FSQ, SMPL, BONES-SEED, GEM.
 
 ## Concepts touched
-- Humanoid **whole-body control** + **loco-manipulation** (feet as manipulators); motion tracking as a scaling task; **scaling laws for control** (model/data/compute).
+- Humanoid **[whole-body control](../concepts/robotics/whole-body-control.md)** + **loco-manipulation** (feet as manipulators); motion tracking as a scaling task; **scaling laws for control** (model/data/compute). SONIC is the **model-level "scale one policy"** exemplar; [BumbleBee](bumblebee-experts-to-generalist-wbc.md) is the **data-level "cluster + distill"** counterpoint. Its sibling [MotionBricks](motionbricks-paper.md) (same NVIDIA orbit) adds the object-interaction axis SONIC lacks (SONIC is locomotion-only).
 - [Optimal control](../concepts/robotics/optimal-control.md)-adjacent: RL (PPO, asymmetric actor-critic); [sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md) + domain randomization.
 - **Vector quantization** (FSQ vs VQ-VAE); universal/shared **latent token action space** as a VLA↔controller interface — a discrete-action-space cousin of [VQ-BeT](../entities/vq-bet.md)'s codebook, here for whole-body control.
 - [VLA models](../concepts/learning/vla-models.md) — SONIC is the low-level System-1 that a GR00T System-2 drives.
