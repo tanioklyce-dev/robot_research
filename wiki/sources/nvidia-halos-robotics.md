@@ -25,7 +25,7 @@ tags: [nvidia-halos, functional-safety, robot-safety, igx, jetson-thor, physical
 
 **Inside-Out vs. Outside-In safety** (the source's central framing)
 - **Inside-Out** — *"on-board robot sensors managing the immediate safety envelope."* Flagship: **[Agility Robotics](../entities/digit.md)' Digit** humanoid running **onboard IGX Thor + Halos Core**.
-- **Outside-In** — *"external infrastructure (like external cameras) to monitor the environment and establish virtual zones"* (virtual fences, dynamic zoning, occlusion alerts). Use cases: autonomous forklift trailer loading, mobile-robot zoning in shared spaces. The **NVIDIA Halos Outside-In Safety Blueprint** is **open-source**.
+- **Outside-In** — *"external infrastructure (like external cameras) to monitor the environment and establish virtual zones"* (virtual fences, dynamic zoning, occlusion alerts). Use cases: autonomous forklift trailer loading, mobile-robot zoning in shared spaces. The **NVIDIA Halos Outside-In Safety Blueprint** is **open-source** — code ingested at [halos-outside-in-safety GitHub](halos-outside-in-safety-github.md) (Apache-2.0; Metropolis VSS → Safety Core → Isaac Sim SIL/HIL).
 
 **Certification pathway**
 - **First ANAB-accredited inspection program for AI functional safety in physical AI.**

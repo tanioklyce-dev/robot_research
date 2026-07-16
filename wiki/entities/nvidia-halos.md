@@ -4,8 +4,8 @@ type: entity
 subtype: product
 created: 2026-07-15
 updated: 2026-07-15
-sources: 2
-tags: [nvidia-halos, functional-safety, robot-safety, igx, jetson-thor, physical-ai, qnx, holoscan, certification, anab, tuv]
+sources: 3
+tags: [nvidia-halos, functional-safety, robot-safety, igx, jetson-thor, physical-ai, qnx, holoscan, certification, anab, tuv, outside-in, metropolis]
 ---
 
 # NVIDIA Halos (for Robotics)
@@ -22,7 +22,7 @@ tags: [nvidia-halos, functional-safety, robot-safety, igx, jetson-thor, physical
 ## Two safety modes
 
 - **Inside-Out** — onboard sensors manage the robot's immediate safety envelope. Flagship: **[Agility Robotics' Digit](digit.md)** (onboard IGX Thor + Halos Core) — the **inaugural humanoid partner**.
-- **Outside-In** — external cameras / infrastructure establish virtual zones (fences, dynamic zoning, occlusion alerts) for forklift loading, shared-space AMRs. The **Outside-In Safety Blueprint is open-source**.
+- **Outside-In** — external cameras / infrastructure establish virtual zones (fences, dynamic zoning, occlusion alerts) for forklift loading, shared-space AMRs. The **[Outside-In Safety Blueprint](../sources/halos-outside-in-safety-github.md) is open-source** (Apache-2.0, early access): 3 pillars — **AI Perception** (Metropolis VSS, swappable) → **Safety Core** (the *Outside-In Safety Framework / OISF*, ex-*Proactive Safety Framework*; emits a MUTE/UNMUTE decision) → **closed-loop SIL/HIL testing** ([Isaac Sim](nvidia-isaac-sim.md)). Reference use case: **automated trailer loading** (cameras watch workers + forklifts to gate dock entry). Ships a **Claude Code skill** (`hoisa-deploy-profile`) for deployment. **Not production-safety-certified** on its own — it's the *swappable, uncertified* infrastructure-perception side, vs. the certified Inside-Out IGX-FSI stack.
 
 ## Certification
 
@@ -42,6 +42,7 @@ The **first ANAB-accredited inspection program for AI functional safety in physi
 ## Mentioned in
 
 - [NVIDIA Halos for Robotics](../sources/nvidia-halos-robotics.md) — primary source.
+- [Halos Outside-In Safety Blueprint (GitHub)](../sources/halos-outside-in-safety-github.md) — the open-source Outside-In code (Metropolis VSS + Safety Core + Isaac Sim SIL/HIL).
 - [Jetson Thor T3000/T2000 blog](../sources/nvidia-jetson-thor-t3000-t2000-blog.md) — IGX T3000 runs Halos.
 
 ## Open questions
