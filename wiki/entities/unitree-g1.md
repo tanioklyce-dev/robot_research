@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-08
 updated: 2026-07-15
-sources: 6
+sources: 9
 tags: [unitree-g1, humanoid, bipedal, china, affordable, accessible, groot, whole-body-control]
 ---
 
@@ -43,6 +43,9 @@ The G1 is fast becoming the **de-facto benchmark platform for learned [whole-bod
 - [SONIC Paper](../sources/sonic-paper.md) — SONIC is a G1-only whole-body controller (primary robot)
 - [MotionBricks Paper](../sources/motionbricks-paper.md) — NVIDIA real-time motion model deployed on G1 for WBC
 - [BumbleBee Paper](../sources/bumblebee-experts-to-generalist-wbc.md) — expert→generalist WBC, SOTA on G1
+- [GR00T-WholeBodyControl GitHub](../sources/gr00t-wholebodycontrol-github.md) — primary supported robot for the SONIC/MotionBricks/Decoupled-WBC code
+- [WBC-AGILE GitHub](../sources/wbc-agile-github.md) — validated WBC engine on G1 (+ Booster T1)
+- [GR00T end-to-end workflow docs](../sources/nvidia-gr00t-e2e-workflow-docs.md) — the G1 is the workflow's robot (pick-and-place, sim + Jetson-Thor real path)
 - [GR00T N1.5 research page](../sources/groot-n1_5.md) — cross-embodiment post-training (98.8% seen / 84.2% novel)
 - [GR00T N1.6 research page](../sources/groot-n1_6.md) — whole-body loco-manipulation data
 - [Isaac-GR00T GitHub](../sources/isaac-gr00t-github.md) — `UNITREE_G1` / `UNITREE_G1_SONIC` embodiment tags

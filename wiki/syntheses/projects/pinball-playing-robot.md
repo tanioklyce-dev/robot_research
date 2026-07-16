@@ -47,6 +47,7 @@ A recurring idea in the notes: a **rig that clamps onto the cabinet** (referenci
 
 - **Reward is free**: OCR the machine's score display (DMD/LCD) and use **score-delta** as the learning signal.
 - **Order**: (1) **imitation first** — teleoperate through games, collect demos (~400 demonstrations cited as a working dataset scale), fine-tune GR00T on the slow behaviors; (2) a **separately trained/tuned reactive flipper policy** bootstrapped in the fast loop; (3) **real-world RL with score-as-reward as phase three**, not phase one (sample-efficiency heavy).
+- **Reference recipe**: NVIDIA's [GR00T end-to-end workflow](../../sources/nvidia-gr00t-e2e-workflow-docs.md) is the first-party version of this loop (teleop → collect → fine-tune → eval → deploy) on the same G1+Thor+Isaac-ROS+LeRobot stack — a concrete template for the slow-behavior half, even though its task is tabletop pick-and-place rather than pinball.
 - **Embodiment caveat**: XLeRobot's bimanual+base config is **not a GR00T pretrained embodiment** → you fine-tune a NEW_EMBODIMENT regardless.
 - **Safety** (from the notes' Q&A): rigorous sim validation + physical **e-stop** + software deployment safeguards; classical control / kill-switches as the reflex-layer safety net — consistent with the "whole-body controller = System 0 policy" framing.
 

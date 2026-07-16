@@ -3,12 +3,12 @@ title: GEAR-SONIC
 type: entity
 subtype: method
 created: 2026-07-04
-updated: 2026-07-04
-sources: 2
+updated: 2026-07-15
+sources: 3
 tags: [gear-sonic, sonic, whole-body-control, humanoid, loco-manipulation, motion-tracking, unitree-g1, nvidia, gear, groot]
 ---
 
-**GEAR-SONIC** ("Supersizing mOtion tracking for Natural humanoId Control") — NVIDIA GEAR's generalist **humanoid whole-body controller**, and the concrete controller behind the **`UNITREE_G1_SONIC`** embodiment tag in [Isaac-GR00T](../sources/isaac-gr00t-github.md). Primary source: [SONIC paper](../sources/sonic-paper.md) (arXiv 2511.07820); code `NVlabs/GR00T-WholeBodyControl`; checkpoints `nvidia/GEAR-SONIC`. Resolves the "GEAR-SONIC controller" gap flagged during the GR00T whole-body-control ingest.
+**GEAR-SONIC** ("Supersizing mOtion tracking for Natural humanoId Control") — NVIDIA GEAR's generalist **humanoid whole-body controller**, and the concrete controller behind the **`UNITREE_G1_SONIC`** embodiment tag in [Isaac-GR00T](../sources/isaac-gr00t-github.md). Primary source: [SONIC paper](../sources/sonic-paper.md) (arXiv 2511.07820); code [`NVlabs/GR00T-WholeBodyControl`](../sources/gr00t-wholebodycontrol-github.md) (`gear_sonic` training + `gear_sonic_deploy` C++/TensorRT); checkpoints `nvidia/GEAR-SONIC`. Resolves the "GEAR-SONIC controller" gap flagged during the GR00T whole-body-control ingest.
 
 ## Core idea
 **Motion tracking is the scalable foundational task** for humanoid control (dense per-frame mocap supervision that survives dataset scaling, unlike adversarial imitation). A single PPO motion-tracking policy scaled across model / data / compute (1.2M→42M params; ~700 h mocap → 611 h / 100M+ frames; ~2K→21K GPU-hrs) yields a robust, natural, zero-shot-generalizing [Unitree G1](unitree-g1.md) controller with direct sim-to-real.
@@ -30,6 +30,7 @@ SONIC exposes a **universal token action space** (FSQ-quantized) that decouples 
 
 ## Mentioned in
 - [SONIC Paper](../sources/sonic-paper.md) — primary source.
+- [GR00T-WholeBodyControl GitHub](../sources/gr00t-wholebodycontrol-github.md) — the code (`gear_sonic` training + `gear_sonic_deploy` C++ deploy); shares the repo with MotionBricks + Decoupled WBC.
 - [Isaac-GR00T GitHub](../sources/isaac-gr00t-github.md) — `UNITREE_G1_SONIC` tag + GEAR-SONIC controller.
 
 ## Open questions

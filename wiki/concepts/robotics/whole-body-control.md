@@ -3,8 +3,8 @@ title: Whole-Body Control (WBC)
 type: concept
 created: 2026-07-15
 updated: 2026-07-15
-sources: 3
-tags: [whole-body-control, wbc, humanoid, motion-tracking, loco-manipulation, unitree-g1, rl, sim-to-real, amass]
+sources: 5
+tags: [whole-body-control, wbc, humanoid, motion-tracking, loco-manipulation, unitree-g1, booster-t1, rl, sim-to-real, amass, agile, code]
 ---
 
 # Whole-Body Control (WBC)
@@ -31,6 +31,11 @@ The dominant real-world-adaptation trick in this cluster is **delta-action model
 - **[BumbleBee](../../sources/bumblebee-experts-to-generalist-wbc.md)** ([BeingBeyond](../../entities/beingbeyond.md) + Peking Univ, 2025-09) — clustered expert→generalist distillation; SOTA general WBC on G1, with the largest margin in realistic MuJoCo dynamics.
 - Prior art referenced across the above: **ASAP, HOVER, OmniH2O/H2O, HumanPlus, Exbody2** (see the [GEAR publications page](../../sources/nvidia-gear-publications.md) for HOVER/ASAP arXiv links).
 
+## Code / tooling
+
+- **[GR00T-WholeBodyControl](../../sources/gr00t-wholebodycontrol-github.md)** (NVlabs) — the unified NVIDIA WBC toolchain: [GEAR-SONIC](../../entities/gear-sonic.md) training (`gear_sonic`, PPO) + C++/TensorRT deploy (`gear_sonic_deploy`) + [MotionBricks](../../sources/motionbricks-paper.md) + **Decoupled WBC** (the [GR00T](../../entities/nvidia-groot.md) N1.5/N1.6 controllers). Apache-2.0 code + NVIDIA Open Model License weights.
+- **[WBC-AGILE](../../sources/wbc-agile-github.md)** ("A Generic Isaac-Lab based Engine for humanoid loco-manipulation," NVIDIA + ETH) — a reusable Isaac-Lab RL **engine** (teacher-student distillation, privileged critic) rather than a single controller; validated sim-to-real on **[Unitree G1](../../entities/unitree-g1.md) + [Booster T1](../../entities/booster-t1.md)** (a second benchmark humanoid). It's the "AGILE" underneath [Isaac Teleop](../../entities/nvidia-isaac-teleop.md) in NVIDIA's [GR00T end-to-end workflow](../../sources/nvidia-gr00t-e2e-workflow-docs.md).
+
 ## Related concepts
 
 - [VLA models](../learning/vla-models.md) — the high-level System-2 layer WBC sits under.
@@ -40,5 +45,6 @@ The dominant real-world-adaptation trick in this cluster is **delta-action model
 ## Mentioned in
 
 - [SONIC paper](../../sources/sonic-paper.md), [MotionBricks paper](../../sources/motionbricks-paper.md), [BumbleBee paper](../../sources/bumblebee-experts-to-generalist-wbc.md).
+- [GR00T-WholeBodyControl GitHub](../../sources/gr00t-wholebodycontrol-github.md), [WBC-AGILE GitHub](../../sources/wbc-agile-github.md) — the code/tooling.
 - [NVIDIA GEAR publications](../../sources/nvidia-gear-publications.md) — several WBC papers (SONIC, HOVER, ASAP, MotionBricks) in the GEAR line.
-- [Unitree G1](../../entities/unitree-g1.md) — the common target platform.
+- [Unitree G1](../../entities/unitree-g1.md) — the common target platform; [Booster T1](../../entities/booster-t1.md) — AGILE's second benchmark humanoid.

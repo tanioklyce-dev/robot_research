@@ -23,10 +23,11 @@ The wiki's demonstration-collection lineage: leader-arm teleop ([ALOHA](aloha.md
 ## Open questions / TBD
 
 - Supported headsets, CloudXR licensing/requirements, and the full retargeter list are not in the announcement; the Isaac Teleop docs would fill this in.
-- Whether it drives Isaac Sim embodiments beyond the SO-101 example (humanoids, bimanual rigs) — implied by "real and sim" but not shown.
+- Whether it drives Isaac Sim embodiments beyond the SO-101 example (humanoids, bimanual rigs) — implied by "real and sim" but not shown. (Partly answered: NVIDIA's [GR00T end-to-end workflow](../sources/nvidia-gr00t-e2e-workflow-docs.md) uses Isaac Teleop **"with AGILE"** to teleoperate a whole-body [Unitree G1](unitree-g1.md) — i.e. the [WBC-AGILE](../sources/wbc-agile-github.md) loco/whole-body engine underneath the teleop layer.)
 - Relationship to earlier NVIDIA teleop work (Isaac Lab teleop devices, GR00T-Teleop/AVP pipelines) — unclear if this is a rebrand, superset, or new stack.
 
 ## Mentioned in
 
 - [NVIDIA Isaac Teleop and GR00T 1.7 in LeRobot (HF blog)](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) — announcement; primary source.
 - [NVIDIA + HF LeRobot partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md) — the corporate-blog umbrella (2026-07-06, a day earlier); one-line framing as the partnership's data-collection leg. Docs at nvidia.github.io/IsaacTeleop.
+- [GR00T end-to-end workflow docs](../sources/nvidia-gr00t-e2e-workflow-docs.md) — Isaac Teleop "with AGILE" as the teleop leg of the G1 pick-and-place workflow.
