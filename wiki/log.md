@@ -2636,3 +2636,10 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - Updated [Jetson Orin Nano](entities/jetson-orin-nano.md) (11→12), [LeRobot](entities/lerobot.md) (19→20), [ROS 2](entities/ros2.md) (4→5) Mentioned-in
 - Added "Examples in the wild" section to [J4012-on-LeKiwi fit](syntheses/projects/j4012-on-lekiwi-base-fit.md) — caveat: documented mounts are bare Orin modules, not the J4012 box
 - Lint note: OpenAI / GPT-4o is referenced across 5+ sources with no entity page (candidate)
+## [2026-07-15] ingest | Walden Robotics — launch from stealth (Tedrake's startup revealed)
+- Created [Walden Robotics — Launch from Stealth](sources/walden-robotics-launch.md) (source)
+- Created [Walden Robotics](entities/walden-robotics.md) (company), [Ben Burchfiel](entities/ben-burchfiel.md), [Siyuan Feng](entities/siyuan-feng.md) (people)
+- **Resolved the tracked "stealth startup" open question**: it's Walden Robotics — Cambridge MA, TRI spin-out (Jan 2026), $300M seed / $1.1B, Toyota-co-led; manufacturing/logistics robots on LBMs + Diffusion Policy; production at a Toyota NC plant since Feb 2026
+- Updated [Russ Tedrake](entities/russ-tedrake.md) (co-founder/CEO), [TRI](entities/tri.md) (LBM-leadership spin-out), [Large Behavior Models](concepts/learning/large-behavior-models.md) (commercialization section), [Diffusion Policy](entities/diffusion-policy.md) (commercial deployment), [Automated Podcast source](sources/automated-podcast-tedrake-rocket-ship.md) (open question resolved)
+- Flagged contradiction: podcast hinted the name "references LBMs"; actual name references Thoreau's *Walden*
+- Updated [index.md](index.md)

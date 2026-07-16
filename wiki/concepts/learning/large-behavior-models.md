@@ -2,9 +2,9 @@
 title: Large Behavior Models (LBMs)
 type: concept
 created: 2026-07-08
-updated: 2026-07-08
-sources: 4
-tags: [lbm, large-behavior-model, tri, vla, diffusion-policy, multitask, foundation-model, manipulation]
+updated: 2026-07-15
+sources: 5
+tags: [lbm, large-behavior-model, tri, vla, diffusion-policy, multitask, foundation-model, manipulation, walden-robotics]
 ---
 
 # Large Behavior Models (LBMs)
@@ -22,6 +22,10 @@ The [primary paper](../../sources/tri-lbm-paper.md) (82 authors, Science Robotic
 - **[TRI LBM paper](../../sources/tri-lbm-paper.md)** ("A Careful Examination of Large Behavior Models for Multitask Dexterous Manipulation", arXiv 2025-07 / Science Robotics 2026) — **the primary source** (ingested 2026-07-08). Referenced as a baseline in [RoboCasa365](../../sources/robocasa365-paper.md).
 - [Automated Podcast interview](../../sources/automated-podcast-tedrake-rocket-ship.md) — the definitional/taxonomic source.
 - [Diffusion Policy paper](../../sources/diffusion-policy-paper.md) — the single-task ancestor.
+
+## Commercialization
+
+As of **2026-07-15**, the LBM program has a named commercial vehicle: **[Walden Robotics](../../entities/walden-robotics.md)**, spun out of [TRI](../../entities/tri.md) and led by [Russ Tedrake](../../entities/russ-tedrake.md), with the TRI LBM leadership ([Ben Burchfiel](../../entities/ben-burchfiel.md), [Siyuan Feng](../../entities/siyuan-feng.md), et al.). Walden markets **LBMs + [Diffusion Policy](../../entities/diffusion-policy.md)** for manufacturing/logistics, pairing autonomy with a human-remote-assist fallback so policies keep improving from real-world practice ([Walden launch](../../sources/walden-robotics-launch.md)). This is the concept's academic-to-industrial bridge.
 
 ## Related concepts
 

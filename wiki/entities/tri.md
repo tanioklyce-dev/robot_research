@@ -3,9 +3,9 @@ title: Toyota Research Institute (TRI)
 type: entity
 subtype: company
 created: 2026-05-10
-updated: 2026-07-08
-sources: 4
-tags: [tri, toyota-research-institute, robotics-research, automated-driving, lbm, drake, organization]
+updated: 2026-07-15
+sources: 5
+tags: [tri, toyota-research-institute, robotics-research, automated-driving, lbm, drake, organization, walden-robotics, spinout]
 ---
 
 **Toyota Research Institute (TRI)** — research subsidiary of Toyota Motor Corporation. Headquarters: Los Altos, CA. Second site: Cambridge, MA. Mission: *"create new tools and capabilities focused on improving the human condition."* Houses one of the strongest US industrial-academic robotics research hybrids; recurring co-authorship with Stanford / Columbia / MIT across the [Diffusion Policy](diffusion-policy.md) and [UMI](umi.md) papers, and home of the **TRI LBM (Large Behavior Model)** referenced as a baseline in [RoboCasa365](robocasa.md).
@@ -40,7 +40,7 @@ The pattern: TRI is the *industrial resourcing partner* in academic robotics-fou
 ## Why it matters in this wiki
 
 - **Co-affiliation hub** — Diffusion Policy, UMI, and (referenced) LBM converge here. Single entity page consolidates the cross-references.
-- **[Russ Tedrake](russ-tedrake.md)** (now with his own entity page) bridges MIT robot-locomotion research (Drake, model-based control) and TRI's data-driven robotics line; title reported as Senior VP of Large Behavior Models (earlier VP of Robotics Research). As of mid-2026 he has founded a **stealth physical AI startup** ([podcast](../sources/automated-podcast-tedrake-rocket-ship.md)) — TRI's LBM talent flowing outward is worth tracking.
+- **[Russ Tedrake](russ-tedrake.md)** (with his own entity page) bridges MIT robot-locomotion research (Drake, model-based control) and TRI's data-driven robotics line; title reported as Senior VP of Large Behavior Models (earlier VP of Robotics Research). **The "TRI LBM talent flowing outward" watch has now resolved into a spin-out**: the LBM program's leadership — Tedrake plus [Ben Burchfiel](ben-burchfiel.md), [Siyuan Feng](siyuan-feng.md), Adrien Gaidon, and Rares Ambrus — left to found **[Walden Robotics](walden-robotics.md)** (spun out of TRI Jan 2026, launched 2026-07-15, $300M/$1.1B). Toyota Motor Corp + three Toyota-linked funds co-led the round, so TRI/Toyota remains a close partner and anchor investor rather than a severed tie.
 - **TRI LBM as future ingest** — TRI's generalist policy program is a credible counterpart to [NVIDIA GR00T](nvidia-groot.md), [Physical Intelligence](physical-intelligence.md)'s π0 line, and [Gemini Robotics](gemini-robotics.md). Promotion to a primary source page would substantially strengthen the VLA/generalist-policy synthesis.
 
 ## Related
@@ -58,6 +58,7 @@ The pattern: TRI is the *industrial resourcing partner* in academic robotics-fou
 - [RoboCasa365 Paper](../sources/robocasa365-paper.md) — TRI LBM as baseline.
 - [Automated Podcast — Tedrake (2026-07)](../sources/automated-podcast-tedrake-rocket-ship.md) — LBM program framing, "amplify not replace" as TRI-rooted philosophy, Tedrake's departure-to-startup signal.
 - [TRI LBM paper](../sources/tri-lbm-paper.md) — the program's primary source; 82 TRI authors.
+- [Walden Robotics — Launch from Stealth](../sources/walden-robotics-launch.md) — the TRI-LBM-leadership spin-out; Toyota as co-lead investor.
 
 ## Open questions / TBD
 

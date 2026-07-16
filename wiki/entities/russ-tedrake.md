@@ -3,14 +3,14 @@ title: Russ Tedrake
 type: entity
 subtype: person
 created: 2026-07-08
-updated: 2026-07-08
-sources: 6
-tags: [russ-tedrake, mit, csail, tri, lbm, drake, underactuated-robotics, locomotion, manipulation, physical-ai]
+updated: 2026-07-15
+sources: 7
+tags: [russ-tedrake, mit, csail, tri, lbm, drake, underactuated-robotics, locomotion, manipulation, physical-ai, walden-robotics]
 ---
 
 # Russ Tedrake
 
-MIT roboticist and industry research leader — **Toyota Professor at MIT** (EECS / Mechanical Engineering / Aero-Astro, CSAIL) and the architect of [TRI](tri.md)'s **[Large Behavior Models](../concepts/learning/large-behavior-models.md)** program (title reported as Senior VP of Large Behavior Models, earlier VP of Robotics Research). As of mid-2026, **founder of a still-stealth physical AI startup** ([Automated Podcast, 2026-07-01](../sources/automated-podcast-tedrake-rocket-ship.md)). One of the field's rare model-based-control ↔ learning bridges: the same person behind the optimization/dynamics stack (Drake, underactuated robotics) and one of the leading generalist-manipulation-policy programs.
+MIT roboticist and industry research leader — **Toyota Professor at MIT** (EECS / Mechanical Engineering / Aero-Astro, CSAIL) and the architect of [TRI](tri.md)'s **[Large Behavior Models](../concepts/learning/large-behavior-models.md)** program (title reported as Senior VP of Large Behavior Models, earlier VP of Robotics Research). As of **2026-07-15**, **co-founder & CEO of [Walden Robotics](walden-robotics.md)** — the physical-AI startup previously tracked here as "still-stealth" ([Automated Podcast, 2026-07-01](../sources/automated-podcast-tedrake-rocket-ship.md)), revealed as a manufacturing-robotics company spun out of TRI. One of the field's rare model-based-control ↔ learning bridges: the same person behind the optimization/dynamics stack (Drake, underactuated robotics) and one of the leading generalist-manipulation-policy programs.
 
 ## Career
 
@@ -19,7 +19,7 @@ MIT roboticist and industry research leader — **Toyota Professor at MIT** (EEC
 - **Thesis line**: passive dynamic walkers + RL — the "Toddler" robot **learned to walk in ~20 minutes** (2004), contemporary with Abbeel's helicopters; "RL before it was cool" ([podcast](../sources/automated-podcast-tedrake-rocket-ship.md)).
 - **MIT**: leads the Robot Locomotion Group; led **Team MIT in the DARPA Robotics Challenge**; teaches the canonical **Underactuated Robotics** and **Robot Manipulation** courses/textbooks (live-web facts: [CSAIL](https://www.csail.mit.edu/person/russ-tedrake), [Quest](https://quest.mit.edu/about/people/russ-tedrake)). Multiple MIT teaching awards (2021 Jamieson, 2023 Teaching with Digital Technology, 2024 Distinguished Educator).
 - **TRI**: built the LBM program ("the science of LBMs — the initial scaling laws... at a level a startup wouldn't be motivated to do and academia couldn't resource"); senior author on the **[TRI LBM paper](../sources/tri-lbm-paper.md)** (82 authors, Science Robotics 2026 — the program's primary source, with Drake as its simulator); previously VP of Robotics Research — the affiliation on the [UMI paper](../sources/umi-paper.md) and the TRI cohort around [Diffusion Policy](diffusion-policy.md) ([TRI website](../sources/tri-website.md)).
-- **Startup (2026, stealth)**: confirmed on the [Automated Podcast](../sources/automated-podcast-tedrake-rocket-ship.md); the name apparently references LBMs ("it's in the company name"); claimed differentiation across data / deployments / operations / business; founding motivation explicitly includes steering physical AI toward **"amplifying, not replacing people."** Advisor to CarbonSix Inc. (live-web fact; separate from the startup).
+- **[Walden Robotics](walden-robotics.md) (co-founder & CEO, revealed 2026-07-15)**: the startup confirmed-but-unnamed on the [Automated Podcast](../sources/automated-podcast-tedrake-rocket-ship.md). Cambridge, MA; **spun out of TRI in Jan 2026**; **$300M seed at $1.1B**; builds general-purpose manufacturing robots on **[LBMs](../concepts/learning/large-behavior-models.md) + [Diffusion Policy](diffusion-policy.md)** with a human-remote-assist deployment model; already in production at a Toyota NC plant since Feb 2026. Brought along TRI robot-learning leadership ([Ben Burchfiel](ben-burchfiel.md) CTO, [Siyuan Feng](siyuan-feng.md) Principal Architect, Adrien Gaidon CSO, Rares Ambrus Head of AI). Note the earlier "name references LBMs" hint did **not** pan out literally — the name references **Thoreau's *Walden*** ([launch](../sources/walden-robotics-launch.md)). Advisor to CarbonSix Inc. (live-web fact; separate from Walden).
 
 - **MIT video-diffusion line**: senior author (with Vincent Sitzmann) on **[History-Guided Video Diffusion / DFoT](../sources/history-guided-video-diffusion-paper.md)** (ICML 2025) and its ancestor Diffusion Forcing — his group's evidence base for the "video backbones win for long context" position from the [podcast](../sources/automated-podcast-tedrake-rocket-ship.md); includes a physical-robot result (83% on a memory+reactivity task via sampling-time score composition).
 
@@ -37,6 +37,7 @@ Open-source **model-based design and simulation/dynamics library** from his MIT 
 
 ## Related
 
+- [Walden Robotics](walden-robotics.md) — his company (CEO); the commercialization of the LBM line.
 - [TRI](tri.md) — institutional home of the LBM program.
 - [Large behavior models](../concepts/learning/large-behavior-models.md) — his coined-at-TRI model class.
 - [Diffusion Policy](diffusion-policy.md) — the single-task ancestor of LBMs ("LBM = multitask diffusion policy, in my vernacular").
@@ -45,6 +46,7 @@ Open-source **model-based design and simulation/dynamics library** from his MIT 
 
 ## Mentioned in
 
+- [Walden Robotics — Launch from Stealth](../sources/walden-robotics-launch.md) — co-founder & CEO; the startup reveal.
 - [Automated Podcast — Robotics Is Finally on a Rocket Ship](../sources/automated-podcast-tedrake-rocket-ship.md) — **primary ingest**; career + LBM taxonomy + startup.
 - [TRI LBM paper](../sources/tri-lbm-paper.md) — senior author; the LBM program's primary source (Drake as simulator).
 - [History-Guided Video Diffusion (DFoT)](../sources/history-guided-video-diffusion-paper.md) — senior author; MIT-side video-diffusion/world-model line.

@@ -3,8 +3,8 @@ title: Diffusion Policy
 type: entity
 subtype: method
 created: 2026-05-08
-updated: 2026-07-08
-sources: 22
+updated: 2026-07-15
+sources: 23
 tags: [diffusion-policy, behavior-cloning, diffusion-model, ddpm, action-diffusion, chi-2023, columbia, tri, mit, mobile-aloha]
 ---
 
@@ -99,6 +99,7 @@ From [Mobile ALOHA paper](../sources/mobile-aloha-paper.md) §6.2, evaluated aga
 - [UMI](umi.md) — same-lead-author follow-on; data-collection-side companion.
 - [TRI](tri.md) — co-affiliation (Cousineau, Burchfiel, Feng).
 - [Large behavior models](../concepts/learning/large-behavior-models.md) — the multitask successor: "LBM = the multitask version of Diffusion Policy" per [Tedrake](russ-tedrake.md) ([Automated Podcast](../sources/automated-podcast-tedrake-rocket-ship.md)); realized at scale in the [TRI LBM paper](../sources/tri-lbm-paper.md) (~1,700 h, 82 authors).
+- [Walden Robotics](walden-robotics.md) — the Diffusion-Policy/LBM authors' 2026 startup; markets Diffusion Policy + LBMs for manufacturing (its commercial deployment).
 - [Robot Utility Models](robot-utility-models.md) — uses Diffusion Policy as a baseline.
 - [PushT](pusht.md) — 2D pushing benchmark popularized here.
 - [Imitation learning](../concepts/learning/imitation-learning.md) — broader concept.
@@ -110,6 +111,7 @@ From [Mobile ALOHA paper](../sources/mobile-aloha-paper.md) §6.2, evaluated aga
 - [UMI Project Page](../sources/umi-paper.md) — UMI uses Diffusion Policy as its canonical policy class (same lead author).
 - [Mobile ALOHA Paper](../sources/mobile-aloha-paper.md) — evaluated alongside [ACT](act.md) and VINN+chunking on bimanual mobile manipulation.
 - [SmolVLA Paper](../sources/smolvla-paper.md) — referenced as DDPM-class baseline alongside SmolVLA's flow-matching action expert.
+- [Walden Robotics — Launch from Stealth](../sources/walden-robotics-launch.md) — names Diffusion Policy as a production model class in its stack.
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — supported reference policy; 263 M params, 10 denoising steps, **69.8 ms** RTX 4090 latency, **CPU latency 3454 ms (100% timeout)** — incompatible with onboard deployment without GPU.
 - [HIL-SERL paper](../sources/hil-serl-paper.md) — baseline; DP trained on 200 demos gets only **27% / 28% / 56%** (RAM insertion / dashboard / object flipping) vs. HIL-SERL's 100%. Argues DP's expressive multi-modal distribution helps "memorize" motions but **not** the continuous closed-loop visual servoing that reactive contact-rich tasks demand. A pointed limit on where imitation-flavored DP tops out relative to [real-world RL](../concepts/learning/real-world-robot-rl.md).
 

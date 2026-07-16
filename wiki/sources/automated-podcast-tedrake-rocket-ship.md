@@ -58,7 +58,7 @@ A 47-minute career-spanning interview with [Russ Tedrake](../entities/russ-tedra
 
 ## Open questions
 
-- **The startup**: name (LBM-referencing?), funding, team, product focus; reveal reportedly at Robotics Summit & Expo. Also whether he has left TRI or holds dual roles (his SVP-of-LBMs role at TRI is described in present tense by some sources, past by others).
+- ~~**The startup**: name (LBM-referencing?), funding, team, product focus~~ — **resolved 2026-07-15**: it's **[Walden Robotics](../entities/walden-robotics.md)** ([launch](walden-robotics-launch.md)) — Cambridge MA, spun out of TRI Jan 2026, **$300M seed / $1.1B**, LBM + Diffusion Policy for **manufacturing/logistics**, TRI robot-learning leadership as co-founders. The "name references LBMs" hint did **not** pan out literally — "Walden" references **Thoreau**. Whether Tedrake fully left TRI vs. dual role remains open, but the Toyota-heavy cap table implies an ongoing partnership.
 - ~~**TRI LBM paper** — deserves a primary ingest~~ — **ingested 2026-07-08** ([tri-lbm-paper](tri-lbm-paper.md)); confirms the multitask-robustness and smooth-scaling claims with numbers (3–5× fine-tune data efficiency; 20–30-pt CI width at 50 rollouts).
 - Who exactly coined "large behavior model" at TRI (captions garble the name — "Bill Brad…"; plausibly a TRI colleague).
 - Whether his "video backbone for longer context" position is borne out publicly (cf. [Cosmos 3](../entities/nvidia-cosmos.md) policy mode as the wiki's closest analog).
