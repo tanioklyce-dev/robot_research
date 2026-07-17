@@ -2,8 +2,8 @@
 title: XLeRobot + AGX Thor power budget — is a 300 W battery enough?
 type: synthesis
 created: 2026-05-30
-updated: 2026-07-15
-tags: [xlerobot, jetson-thor, power, battery, anker-c300, sts3215, energy-budget, nvpmodel, power-modes, tiered-power, projects]
+updated: 2026-07-17
+tags: [xlerobot, jetson-thor, power, battery, anker-c300, v-mount, d-tap, sts3215, energy-budget, nvpmodel, power-modes, tiered-power, projects]
 ---
 
 # XLeRobot + AGX Thor power budget
@@ -141,6 +141,58 @@ A cleaner build than the stock Anker AC station: **one 24 V-class DC pack + two 
 
 This gives both rails efficiently (no AC-inversion loss), respects each input's current limit, and is lighter than inverting to AC only to rectify back to DC.
 
+## V-mount / D-Tap batteries — the direct-voltage option
+
+A **V-mount (V-lock) cine battery** is the cleanest off-the-shelf way to feed Thor, because it **already outputs the right voltage**. A V-mount's **D-Tap** port delivers *unregulated battery voltage* — for a 14.8 V-nominal Li-ion pack that's ~16.8 V full → ~12 V at cutoff, a range that sits **entirely inside Thor's 9–28 V window**. So a **D-Tap → Micro-Fit 3.0 cable feeds Thor directly**, with two advantages over the §"Updated battery recommendation" regulator path:
+
+1. **No DC-DC regulator needed** — 14.8 V is already in-window (contrast the canonical build's ~20 V buck). Fewer parts, no conversion loss.
+2. **It goes into Micro-Fit, so it bypasses the USB-C 140 W cap** — a D-Tap→Micro-Fit feed can carry the **full 168 W**, unlike any USB-C-PD battery (including the C300's 140 W port, §2/§3b).
+
+This is a well-trodden path for Jetson generally — [JetsonHacks has a dedicated V-mount-for-Jetson guide](https://jetsonhacks.com/2024/05/23/v-mount-battery-to-power-nvidia-jetson-electronics-projects/) (the same channel behind the wiki's [Claude-Code-on-Jetson demo](../../sources/jetsonhacks-ai-coding-jetson-claude-code.md)).
+
+> [!note] Inherently safe against the 28 V ceiling
+> A single 14.8 V-nominal pack tops out at ~16.8 V charged — **well under Thor's 28 V input limit**, so unlike a 6S/7S Li-ion or 8S LiFePO4 pack (the §"28 V ceiling trap"), a V-mount is **safe to direct-feed with no regulator**. Do *not* series two V-mounts into 29.6 V.
+
+### Size by continuous current, not just watt-hours
+
+The catch is the **D-Tap current rating**. At 14.8 V nominal, 168 W ≈ 11.4 A — and because Thor is a constant-*power* load, the current *rises as the pack sags* (168 W ÷ 12 V cutoff = 14 A). So **only a 15 A-rated pack holds the full 168 W across the whole discharge.** A 10 A pack (e.g. the mini **Moman Power 95**, 95 Wh) tops out ~148 W and will trip its over-current protection under MAXN; a 12 A pack is marginal at 168 W (fine if you cap Thor ≤120–140 W).
+
+| Battery | Capacity | Cont. current | Max out | Runtime @ 120 W | Notes |
+|---|---|---|---|---|---|
+| Moman Power 95 | 95 Wh | 10 A | ~148 W | ~0.7 hr | **Under-rated for 168 W** — cap Thor ≤120 W; airline-legal |
+| **Moman Power 99** | 99 Wh | **15 A** | 200 W | ~0.75 hr | Same mini form factor as the 95 but clears 168 W; adds 65 W USB-C; airline-legal (<100 Wh) |
+| **SHAPE Mini 150 Wh** | 150 Wh | **15 A** | 216 W | ~1.1 hr | Twist D-Tap + USB-C in/out |
+| FXLION Square BP-M200 | 198 Wh | 12 A | ~170 W | ~1.5 hr | Marginal at full 168 W — comfortable to ~140 W |
+| **Watson VM-230-SP** | 230 Wh | **15 A** | ~216 W | ~1.7 hr (~1.2 hr @ 168 W) | Ground-use only (>160 Wh) |
+| **FXLION High-Power (265 Wh+)** | 265 Wh+ | **15 A** sustained | 222 W | ~2.0 hr | Max headroom + runtime; ground-use only |
+
+*(Runtime = ~90 % of Wh ÷ draw.)* Airline note: **>100 Wh needs carrier approval; >160 Wh is generally barred from flights** — the 99 Wh packs are the only travel-legal ones here.
+
+### High-voltage (26 V) V-mounts — most runtime, but they need a buck
+
+A separate cine-battery class runs at **26 V nominal** (e.g. **IndiPRO Micro-Series 26 V 260 Wh**, **FXLION BP-7S230 230 Wh / BP-7S270 270 Wh**). These are the **largest-capacity, highest-current** V-mounts here — but they are **7S Li-ion**, which means:
+
+> [!warning] A charged 26 V pack is ~29.4 V — over Thor's 28 V limit. Do NOT direct-feed.
+> Both use a **29.4 V charger** (IndiPRO 29.4 V/2.5 A; FXLION 29.4 V/5 A), confirming 7S chemistry: full charge **29.4 V**, sagging to ~21 V at cutoff. The top of that range **exceeds Thor's 28 V `VCC_SRC` ceiling** — this is the §"28 V ceiling trap" made concrete. Unlike a 14.8 V pack, **you cannot wire the 26 V D-Tap straight into Micro-Fit** — a full pack would over-volt Thor.
+
+The fix is the one from the §"Updated battery recommendation": put a **DC-DC buck between the 26 V D-Tap and Micro-Fit, fixed at ~20 V** (or ≤24 V). With that regulator these become **the best V-mount option for Thor** — in effect the canonical "24 V-class pack + buck → Micro-Fit" build delivered as a hot-swappable cine battery. Bonus: at 26 V the load current is low (168 W ÷ 26 V ≈ 6.5 A), so wiring and connector heating are easy; the buck's ~20 V output draws ~8.4 A.
+
+| Battery | Capacity | Cont. current | D-Tap for Thor's 168 W? | Runtime @ 120 W | Notes |
+|---|---|---|---|---|---|
+| **FXLION BP-7S270** | 270 Wh | 10 A norm / **15 A** max | ✅ D-Tap outputs 26 V @ 10–15 A directly | **~2.0 hr** (~1.4 hr @ 168 W) | Best runtime; native high-current D-Tap. Ground-use only |
+| **FXLION BP-7S230** | 230 Wh | 10 A / **15 A** | ✅ same | ~1.7 hr (~1.2 hr @ 168 W) | Smaller sibling |
+| **IndiPRO Micro-Series 26 V** | 260 Wh | **15 A** (via plate) | ⚠️ **built-in D-Tap only 4.1 A / 50 W** — needs a V-mount *plate* with a ~10 A direct-terminal D-Tap | ~1.9 hr (~1.3 hr @ 168 W) | Big capacity, but its own D-Tap is too weak for Thor; budget an extra plate |
+
+**Verdict:** all three beat the 14.8 V packs on capacity/runtime and can deliver the full 168 W — **but only through a buck regulator** (their charged 29.4 V rules out direct-feed). Between them, the **FXLION BP-7S270** is the cleanest (native 15 A D-Tap, most Wh); the **IndiPRO** matches on capacity but its 50 W built-in D-Tap forces you to add a V-mount plate to reach Thor's current. If you'd rather skip the regulator entirely, stay with a **14.8 V, 15 A pack** (previous table) and accept less runtime.
+
+### When to pick a V-mount over the canonical dual-DC-DC build
+
+- **A 14.8 V V-mount** wins for **maximum simplicity + a self-contained Thor pack**: **no regulator** (direct D-Tap→Micro-Fit), hot-swappable, standard cine chargers, and it can hit full 168 W with a 15 A pack. Best when Thor is the *only* thing on it (like the [two-pack option](#putting-a-jetson-thor-onboard--the-two-pack-tiered-power-option)'s pack #2) — its 14.8 V rail doesn't match the 12 V motor bus, so it's not a one-pack-both-rails solution.
+- **A 26 V V-mount (+ buck)** wins for **most runtime in a cine form factor** — but it *does* need the regulator (29.4 V charged > 28 V), so it's the canonical build with a hot-swappable pack, not a simpler one.
+- **The §canonical 24 V-pack + dual-DC-DC build** wins when you want **one pack driving both rails** (20 V → Thor, 12 V → motors) at higher efficiency.
+
+Still required either way: a **fabricated D-Tap → Micro-Fit 3.0 (2×2, 3.0 mm) cable** — none exists off-the-shelf for Thor yet — polarity-correct, and it remains **off-label** vs NVIDIA's "bundled PSU only" guidance.
+
 ## Putting a Jetson Thor onboard — the two-pack (tiered-power) option
 
 [Cutting the Cord](../../sources/cutting-the-cord-untethered-xlerobot.md) shipped an **[Orin Nano](../../entities/jetson-orin-nano.md)** precisely because a **[Jetson Thor](../../entities/jetson-thor.md)** (40–130 W) **"exceeds the power budget"** of a single 288 Wh pack — and named the fix: *"tiered compute architectures or an additional power supply, including using an additional Anker."* A **second [C300 DC](../platforms/anker-portable-power-stations.md)** dedicated to Thor is that fix, and it works.
@@ -170,6 +222,7 @@ This gives both rails efficiently (no AC-inversion loss), respects each input's 
 - **Two rails, capped separately**: 12 V motors + a 9–28 V Thor feed. On the C300 (A1722) you use two ports (AC/USB-C for Thor + 12 V car port for motors) — no single port gives both voltages; with a custom pack, the dual-DC-DC build above is cleaner.
 - **Runtime, not rate, is the limit**: a Thor drops the XLeRobot from "10+ hr" to **~1.5–2.5 hr**. Buy **watt-hours, not watts**.
 - **Prefer a DC-native pack** over an AC power station — skipping AC inversion is lighter and more efficient for a robot. See the canonical recommendation above for the regulator-into-Micro-Fit topology.
+- **A V-mount / D-Tap cine battery is the simplest off-the-shelf Thor feed** — its 14.8 V D-Tap is already inside the 9–28 V window (no regulator) and goes into Micro-Fit (so it can reach the full 168 W, unlike USB-C). Size by **continuous current — a 15 A pack** to hold 168 W; the 10 A mini Moman Power 95 falls short. For **most runtime**, a **26 V cine pack** (FXLION BP-7S270 270 Wh, IndiPRO 260 Wh) is biggest — but it charges to 29.4 V, so it **needs a buck** (can't direct-feed like 14.8 V). See [§V-mount / D-Tap](#v-mount--d-tap-batteries--the-direct-voltage-option).
 - **To put a Thor onboard, add a second C300 DC** dedicated to it (the paper's own "additional power supply" fix): Thor @ 70 W on its own 288 Wh ≈ 3.5 hr, cleanest brownout isolation, motors stay on pack #1. Costs ~+4–5 kg + active cooling, and an Orin NX 16 GB on the *single* pack is usually the better fit unless you need Thor's 128 GB. See [the two-pack option](#putting-a-jetson-thor-onboard--the-two-pack-tiered-power-option).
 
 ## Related
@@ -180,4 +233,5 @@ This gives both rails efficiently (no AC-inversion loss), respects each input's 
 - [Onboard compute for XLeRobot — Orin Nano vs AGX Orin vs Thor](../platforms/jetson-onboard-compute-xlerobot.md) — the compute-tier side of this decision (why Thor is over-budget here)
 - [Cutting the Cord (Shaw et al., 2026)](../../sources/cutting-the-cord-untethered-xlerobot.md) — independent untethered XLeRobot build; its **Tri-Bus topology** corroborates the two-rail / motor-transient problem (a 12.2 V→0.3 V brownout on the stock shared bus) and isolates the Jetson on its own rail
 - [Anker C300 DC vs C300 vs C1000](../platforms/anker-portable-power-stations.md) — the power-source comparison (incl. the C300-SKU contradiction the paper surfaces)
+- [JetsonHacks — V-mount battery to power NVIDIA Jetson](https://jetsonhacks.com/2024/05/23/v-mount-battery-to-power-nvidia-jetson-electronics-projects/) — external primary reference for the §V-mount/D-Tap option; same channel as the wiki's [Claude-Code-on-Jetson demo](../../sources/jetsonhacks-ai-coding-jetson-claude-code.md)
 - [XLeRobot camera options for low-light + clutter](xlerobot-camera-options-low-light.md) — sibling integration analysis
