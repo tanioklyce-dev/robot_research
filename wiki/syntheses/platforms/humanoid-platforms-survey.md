@@ -2,7 +2,7 @@
 title: Humanoid platforms survey
 type: synthesis
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-07-16
 tags: [humanoids, hardware, comparison, list, bipedal, education, research]
 ---
 
@@ -11,7 +11,7 @@ tags: [humanoids, hardware, comparison, list, bipedal, education, research]
 Companion to [Robot platforms — comparison](robot-platforms-comparison.md) focused specifically on **humanoids**. Drives 2026 industry attention disproportionate to academic ingest in this wiki — most humanoid work is closed-development (Tesla, Atlas) or vendor-published (Figure, 1X), so the academic + open-source bias of the rest of the wiki under-represents this category. This page is a **list-with-comparison** to anchor future ingests.
 
 > [!note] Coverage caveat
-> All entity pages referenced here are stubs filed from general knowledge. None has a primary source ingested in this wiki yet. Treat the specs as orientation, not citation.
+> Most entity pages referenced here are stubs filed from general knowledge. Exceptions with primary sources: [Agile ONE](../../entities/agile-one.md) and [EngineAI T800](../../entities/engineai-t800.md) (added 2026-07-16). Treat the remaining specs as orientation, not citation.
 
 ## At a glance
 
@@ -20,6 +20,8 @@ Companion to [Robot platforms — comparison](robot-platforms-comparison.md) foc
 | [Atlas](../../entities/atlas.md) | Research (closed) | Boston Dynamics / Hyundai | ~1.5 m | Internal-only | Proprietary BD stack |
 | [Tesla Optimus](../../entities/tesla-optimus.md) | Research (closed) | Tesla | ~1.73 m | Internal; aspirational $20–30k | Vertically integrated, FSD-derived |
 | [Figure 02 / 03](../../entities/figure.md) | Research (closed) | Figure AI | ~1.68 m | Industrial pilots only | Helix VLA (in-house) |
+| [Agile ONE](../../entities/agile-one.md) | Industrial | [Agile Robots](../../entities/agile-robots.md) (Munich) | 1.74 m | Unannounced (integrated-stack) | DeepMind partner; AgileCore |
+| [EngineAI T800](../../entities/engineai-t800.md) | Affordable / heavy-duty | [EngineAI](../../entities/engineai.md) (Shenzhen) | 1.73 m | ~PM01 sibling <$15k tier | Open; combat-league testbed |
 | [1X NEO](../../entities/1x-neo.md) | Research / household (closed) | 1X Technologies | ~1.65 m | Pre-orders ~$20k+ | OpenAI-aligned FM |
 | [Apptronik Apollo](../../entities/apptronik-apollo.md) | Research / industrial | Apptronik | ~1.73 m | Industrial pilots | NVIDIA-aligned ([GR00T](../../entities/nvidia-groot.md)) |
 | [Digit](../../entities/digit.md) | Industrial (deployed) | Agility Robotics | ~1.75 m | Pilot pricing | Narrow-task BC |
@@ -56,7 +58,7 @@ The **pedagogy tier**. [NAO](../../entities/nao.md) is the canonical platform si
 ### Geographic clustering
 - **US / North America**: Atlas (US, Hyundai-owned), Tesla, Figure, Apptronik, Agility, 1X (Norway-US dual).
 - **China**: Unitree (H1, G1), [AGIBOT](../../entities/agibot.md) (humanoid line not separately filed), Fourier (GR-1, GR-2), LimX (CL-2), Booster Robotics (T1) — collectively a **rapidly growing affordable-humanoid cluster**.
-- **Europe**: Aldebaran/SoftBank NAO (France), PAL Robotics (Spain), Engineered Arts (UK).
+- **Europe**: Aldebaran/SoftBank NAO (France), PAL Robotics (Spain), Engineered Arts (UK), **[Agile Robots](../../entities/agile-robots.md) (Germany)** — the DLR-spinout [Agile ONE](../../entities/agile-one.md) is the first serious *European industrial* humanoid entrant, betting on integration-into-a-stack rather than a standalone unit.
 - **Japan**: AIST HRP series, Toyota T-HR3, Kawasaki Kaleido — historically strong but lower visibility in 2024–2026 vs the US-China dynamic.
 
 ### Price stratification (2026)
@@ -76,7 +78,7 @@ The ingested literature skews toward **academic JEPA / VLA / world-model work** 
 
 - **AGIBOT humanoid hardware** — [company](../../entities/agibot.md) is filed but the specific humanoid platforms (A2, X1, X2) aren't separate entities yet.
 - **Fourier GR-1 / GR-2** — Chinese affordable research humanoid.
-- **LimX CL-2 / CL-3, Booster T1, EngineAI PM01** — affordable Chinese humanoids.
+- **LimX CL-2 / CL-3, Booster T1** — affordable Chinese humanoids. ([EngineAI](../../entities/engineai.md) + its [T800](../../entities/engineai-t800.md) are now filed; SA01/SE01/PM01-front-flip still unfiled.)
 - **PAL Robotics TIAGo / TALOS** — European research-tier.
 - **Pepper** — SoftBank social-robot sibling of NAO.
 - **Robotis OP3, DARwIn-MINI** — RoboCup-tier educational humanoids.

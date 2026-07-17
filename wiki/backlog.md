@@ -10,6 +10,13 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-07-16] Agile / Techman / EngineAI ingest — follow-ups
+- [ ] **NavBot store** — deliberately not filed as a source (user call, thin page). If it recurs, a source page could anchor the **[NavBot-D1 quadruped ($4,999)](https://navbot.com/collections/complete-robots)**, EN01 wheel-legged kit, OpenDuck Mini RL kit — open-source-robotics-store tier alongside Elephant/Hiwonder. Reviewed 2026-07-16.
+- [ ] **Universal Robots entity** — referenced from the new [cobots concept](concepts/robotics/collaborative-robots.md) as the market leader (~50% share) but has no entity page. File if cobots recur.
+- [ ] **EngineAI SA01 / SE01 / PM01** — company + [T800](entities/engineai-t800.md) filed; the cheaper/earlier models (incl. the world-first-front-flip **PM01**, <$15k) are only mentioned in prose. Break out if referenced.
+- [ ] **Agile Robots "Thor Series"** — Agile Robots markets a product line called "Thor" (its own naming). Confirm it's unrelated to [NVIDIA Jetson Thor](entities/jetson-thor.md) (assumed collision).
+- [ ] **Autonomy of URKL combat robots** — unresolved whether T800 fighters run learned policies, scripted move-sets, or teleop. Watch for a technical source that settles it (decides whether combat leagues are a real autonomy benchmark).
+
 ## [2026-07-04] Fleet-framework build pieces (from the fleet synthesis)
 Surfaced by [Fleet agentic control framework](syntheses/projects/fleet-agentic-framework.md) — genuine wiki gaps that are also the project's DIY work:
 - [x] ~~**ROS 2 ↔ MCP server**~~ — **built + published + ingested 2026-07-04**: [design doc](syntheses/projects/ros2-mcp-server-design.md), the [`ros2-mcp-server`](https://github.com/tanioklyce-dev/ros2-mcp-server) repo (MIT), and the round-trip [source page](sources/ros2-mcp-server-github.md) + [entity](entities/ros2-mcp-server.md). Remaining (in the *repo*, not the wiki): wire the `ros_bridge` ROS 2 calls + SSE transport; re-ingest to deepen the source page as the repo matures.

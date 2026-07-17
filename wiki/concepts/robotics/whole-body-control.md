@@ -41,6 +41,7 @@ The dominant real-world-adaptation trick in this cluster is **delta-action model
 - [VLA models](../learning/vla-models.md) — the high-level System-2 layer WBC sits under.
 - [Sim-to-real transfer](../learning/sim-to-real-transfer.md), [imitation learning](../learning/imitation-learning.md) (DAgger distillation), [optimal control](optimal-control.md) (the model-based counterpart).
 - [Motion planning](motion-planning.md) — the classical-planning neighbor; WBC here is learned, not planned.
+- [Robot combat sports as a development testbed](robot-combat-sports.md) — humanoid fighting leagues ([URKL](../../sources/urkl-robot-combat-league.md) / [EngineAI T800](../../entities/engineai-t800.md)) as an adversarial real-world stress-test of the balance/fall-recovery WBC exercises.
 
 ## Mentioned in
 
