@@ -87,7 +87,7 @@ NVIDIA reference carrier + T5000 module. **$3,499 starting** ([NVIDIA Newsroom](
 - **Robotics stack**: NVIDIA Isaac platform — **Isaac ROS 4.0** (Thor-compatible release), [Isaac GR00T](nvidia-groot.md) deploy target, NVIDIA Holoscan, NVIDIA Metropolis.
 - **Containers**: NIM microservices for VLM / VLA / perception models packaged for the JetPack 7 runtime.
 - **AI-serving frameworks** documented in the JetPack 7 release: **vLLM**, **SGLang**, **MLC**, **llama.cpp**, **Ollama**, **Hugging Face Transformers**.
-- **Edge foundation models / agents** ([T3000/T2000 blog](../sources/nvidia-jetson-thor-t3000-t2000-blog.md), 2026-07): **[Cosmos 3](nvidia-cosmos.md) Edge** (4B embodied FM, "post-train for a specific embodiment in ~a day") delivered to the Thor lineup; **Nemotron** open models; **NemoClaw** agentic-orchestration blueprints; and **Jetson Agent Skills** — on-device agents that automate memory optimization / config / deployment (case studies report **up to 15 GB** memory reduction).
+- **Edge foundation models / agents** ([T3000/T2000 blog](../sources/nvidia-jetson-thor-t3000-t2000-blog.md), 2026-07): **[Cosmos 3](nvidia-cosmos.md) Edge** (4B embodied FM, "post-train for a specific embodiment in ~a day") delivered to the Thor lineup; **Nemotron** open models; **NemoClaw** agentic-orchestration blueprints; and **Jetson Agent Skills** — on-device agents that automate memory optimization / config / deployment (case studies report **up to 15 GB** memory reduction). Now shipping as the open **[Jetson Device Skills](jetson-device-skills.md)** catalog (JetPack 7.2; [agent-skill](../concepts/agents/agent-skills.md) `SKILL.md` bundles for Claude Code / Cursor / Codex).
 
 ### Post-launch generative-AI throughput (single-Thor, Sept 2025)
 

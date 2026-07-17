@@ -10,6 +10,13 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-07-16] NVIDIA batch (Jetson skills / DeepStream / RoboLab / Halos blog) — follow-ups
+- [ ] **TensorRT entity** — referenced as bare text from [DeepStream](entities/nvidia-deepstream.md), JetPack, and several Jetson pages; no entity page. File if it keeps recurring.
+- [ ] **NVIDIA SRL (Seattle Robotics Lab) entity** — [RoboLab](entities/nvidia-robolab.md) is filed but its parent lab (Dieter Fox / Birchfield / Ramos / Tremblay group) isn't; would anchor DROID + a lot of NVIDIA robot-eval work. The `/labs/srl/` attribution is inferred from the URL path — confirm the lab's official name before filing.
+- [ ] **RoboArena** — the *real-world* leaderboard cited alongside RoboLab in the [Cosmos entity](entities/nvidia-cosmos.md); no page. Pairs with the evaluation-methodology gap (rliable / robomimic).
+- [ ] **DeepStream vs Isaac ROS** perception-boundary synthesis — if both keep recurring (video-analytics/IVA vs robot-perception/VSLAM).
+- [ ] **Halos deploy-skill name reconciliation** — `hoisa-deploy-profile` (Trust Center) vs `warehouse-deploy` / `halos-deploy` (blog); confirm on next Halos update.
+
 ## [2026-07-16] Agile / Techman / EngineAI ingest — follow-ups
 - [ ] **NavBot store** — deliberately not filed as a source (user call, thin page). If it recurs, a source page could anchor the **[NavBot-D1 quadruped ($4,999)](https://navbot.com/collections/complete-robots)**, EN01 wheel-legged kit, OpenDuck Mini RL kit — open-source-robotics-store tier alongside Elephant/Hiwonder. Reviewed 2026-07-16.
 - [ ] **Universal Robots entity** — referenced from the new [cobots concept](concepts/robotics/collaborative-robots.md) as the market leader (~50% share) but has no entity page. File if cobots recur.

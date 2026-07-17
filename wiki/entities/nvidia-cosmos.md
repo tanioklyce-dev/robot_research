@@ -3,7 +3,7 @@ title: NVIDIA Cosmos
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-07-15
+updated: 2026-07-16
 sources: 16
 tags: [cosmos, world-model, omnimodal, mixture-of-transformers, world-action-model, video-generation, nvidia, foundation-model, edge]
 ---
@@ -16,7 +16,7 @@ The major release that subsumes the earlier separate Cosmos-Predict / Cosmos-Rea
 
 - **Dual-tower MoT**: an autoregressive **reasoner** tower (next-token prediction, initialized from Qwen3-VL) + a diffusion **generator** tower (flow-matching), sharing joint attention. The same model operates as a VLM, T2I/T2V/I2V generator, audio-visual generator, forward-/inverse-dynamics model, or video-action **policy** — no architectural changes between modes.
 - **Variants**: **Cosmos3-Edge (4B)**, **Cosmos3-Nano (16B)**, **Cosmos3-Super (64B)** — Nano/Super released under **OpenMDW-1.1** with code, checkpoints, SDG datasets, and the Cosmos-HUE benchmark. Cosmos3-Edge, previously deferred, is now being **delivered to the [Jetson Thor](jetson-thor.md) lineup** as an on-robot embodied foundation model that "can post-train for a specific embodiment in ~a day" ([Thor T3000/T2000 blog](../sources/nvidia-jetson-thor-t3000-t2000-blog.md), 2026-07-15).
-- **Headline results**: **#1 open-weight Text-to-Image and Image-to-Video** (Artificial Analysis, 2026-05-28); **#1 policy model on RoboArena** real-world leaderboard (2026-05-30); Cosmos3-Nano-Policy-DROID beats π0.5 on RoboLab-120 (39.7% vs 28.1% under specific instructions). SOTA reasoning in robotics/smart-infra/driving among open + most closed baselines (trails Gemini 3.1 Pro on general + robotics).
+- **Headline results**: **#1 open-weight Text-to-Image and Image-to-Video** (Artificial Analysis, 2026-05-28); **#1 policy model on RoboArena** real-world leaderboard (2026-05-30); Cosmos3-Nano-Policy-DROID beats π0.5 on [RoboLab-120](nvidia-robolab.md) (39.7% vs 28.1% under specific instructions). SOTA reasoning in robotics/smart-infra/driving among open + most closed baselines (trails Gemini 3.1 Pro on general + robotics).
 - **Central method claim**: **unified action mid-training** across camera / autonomous-vehicle / robot / egocentric embodiments yields a reusable action prior that accelerates adaptation (LIBERO-10 new-embodiment: 24.6% vs 0.0% at 500 post-train iters for mid- vs pre-trained init).
 - **Coming to [LeRobot](lerobot.md) "soon"** ([NVIDIA + HF partnership blog, 2026-07-06](../sources/nvidia-hf-lerobot-open-robotics-blog.md)) — pitched for data generation/augmentation, scenario simulation, and policy development "when real-world data is limited or too expensive"; no date, variant, or integration surface announced.
 
@@ -34,6 +34,8 @@ The [GR00T](nvidia-groot.md) VLA line migrated onto Cosmos across two releases �
 Cosmos is the underlying generative video model that's enabling the rise of [World-model simulators](../concepts/world-models/world-model-simulators.md) in agentic robotics — where the simulator is a learned model rather than a physics engine. Sits in **paradigmatic contrast** to the [JEPA](../concepts/world-models/jepa.md) / latent-prediction world-model line ([V-JEPA 2](v-jepa-2.md), [LeWorldModel](leworldmodel.md)) — Cosmos generates pixels; JEPA predicts representations. Cosmos 3 sharpens this: it is the strongest **generative-video-side** demonstration that one pixel-predicting model can also be a competitive real-robot **policy** (see [generative-video vs JEPA](../syntheses/world-models/generative-video-vs-jepa-world-models.md)), without crossing over to latent-space planning.
 
 ## Related
+- [Cosmos 3 project page](https://research.nvidia.com/labs/cosmos-lab/cosmos3/) — the Cosmos Lab landing page (reviewed 2026-07-16; content already captured by the ingested [technical report](../sources/cosmos-3-technical-report.md) — no separate source page, to avoid duplication). Frames Cosmos 3 as connecting "understanding, generation, simulation, and action through a shared omnimodal world model"; #1 open model on Physical-AI reasoning + generation.
+- [RoboLab](nvidia-robolab.md) — the NVIDIA SRL sim benchmark Cosmos 3 policies are scored on (RoboLab-120).
 - [Genie Envisioner](genie-envisioner.md) — built on Cosmos-Predict2.
 - [NVIDIA](nvidia.md) — vendor.
 - [NVIDIA Isaac Sim](nvidia-isaac-sim.md) / [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — adjacent stack components for synthetic data.
