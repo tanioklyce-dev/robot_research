@@ -2735,3 +2735,7 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - New entity: [MolmoAct](entities/molmoact.md) — Allen Institute discrete-token "action reasoning" VLA (Lee et al. 2508.07917); LIBERO 86.8.
 - All three grounded in ingested sources (pi07/pistar06/VLA-0/Cosmos-3); primaries flagged un-ingested. New backlog candidate: **Molmo** VLM entity.
 - Backlinks wired: [pi07](entities/pi07.md), [pistar06](entities/pistar06.md), [vla-models](concepts/learning/vla-models.md) (KI/FAST links + 2 new table rows: π0-FAST, MolmoAct), [flow-matching](concepts/learning/flow-matching.md), [pi07-paper](sources/pi07-paper.md) (open-Q resolved), [vla-0-paper](sources/vla-0-paper.md) (entities/concepts sections), [libero](entities/libero.md); added to [index](index.md); 2 backlog items struck.
+
+## [2026-07-17] entity | Molmo VLM (backlog follow-up)
+- New entity: [Molmo](entities/molmo.md) — Allen Institute (Ai2) fully-open (weights + PixMo data) VLM family (Deitke et al. 2409.17146); signature pixel-**pointing** capability; the backbone under [MolmoAct](entities/molmoact.md). Grounded in the MolmoAct link; primary source + OLMo/OLMoE LLMs flagged un-ingested.
+- Wired: [molmoact](entities/molmoact.md) (backbone link + note updated), [index](index.md) VLM-backbones section; backlog item struck.

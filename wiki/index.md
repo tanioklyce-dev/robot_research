@@ -585,6 +585,7 @@ Curated entry points across the wiki.
 - [Gemma3](entities/gemma3.md) — Google's 2025 VLM family (1B/4B/12B/27B; built-in 400M vision encoder); backbone of [π0.7](entities/pi07.md). (0 sources) _stub_
 - [Gemma 4](entities/gemma4.md) — Google's 2026 multimodal family; **first MoE Gemma**; edge variants (E2B/E4B multimodal) → Jetson, 31B → DGX Spark; native function-calling; an on-robot System-2 candidate. (1 source)
 - [SmolVLM-2](entities/smolvlm.md) — Hugging Face's compact ~0.4 B VLM (SigLIP + SmolLM2; Marafioti et al. 2025); backbone of [SmolVLA](entities/smolvla.md). (0 sources) _stub_
+- [Molmo](entities/molmo.md) — Allen Institute (Ai2) **fully-open** (weights + PixMo data) VLM family (Deitke et al. 2409.17146); signature **pointing** capability; backbone of [MolmoAct](entities/molmoact.md). Primary source not yet ingested. (1 source) _stub_
 
 ### Generative models for image / world
 - [BAGEL](entities/bagel.md) — 14B mixture-of-transformers image-gen + editing model (2025); used as the subgoal-image world model substrate in [π0.7](entities/pi07.md). (0 sources) _stub_
