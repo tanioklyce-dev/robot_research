@@ -2696,3 +2696,18 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - Added a Summary takeaway + Related link to the [JetsonHacks V-mount-for-Jetson guide](https://jetsonhacks.com/2024/05/23/v-mount-battery-to-power-nvidia-jetson-electronics-projects/); bumped updated date + tags (v-mount, d-tap).
 - Web-searched product specs (Moman Power 95/99, SHAPE, FXLION, Watson); Thor input facts already in-wiki ([carrier board spec](sources/nvidia-jetson-thor-carrier-board-spec.md): 9–28 V, 168 W cap, 5 A USB-C / 15 A Micro-Fit).
 - Follow-up: added **§High-voltage (26 V) V-mounts** subsection — IndiPRO Micro-Series 26 V 260 Wh + FXLION BP-7S230/270 (230/270 Wh). Key finding: these are **7S Li-ion (29.4 V charged)** → **exceed Thor's 28 V ceiling, cannot direct-feed; require a DC-DC buck to ~20 V** (effectively the canonical build in cine form). FXLION 270 Wh = best (native 10–15 A D-Tap, most runtime ~2 hr@120 W); IndiPRO's built-in D-Tap is only 4.1 A/50 W → needs a V-mount plate for Thor's current. Table + updated "when to pick" + takeaway.
+
+## [2026-07-17] ingest | Enhancing YOLOv11n for Reliable Child Detection (PTIT 2026)
+- New source: [ptit-yolov11n-child-detection](sources/ptit-yolov11n-child-detection.md) (arXiv 2602.10592v1; raw PDF). Architecture-free edge-CV: fine-tuned YOLOv11n + scene-aware synthetic-child compositing / CCTV-degradation augmentation + SAHI at inference → mAP@0.5:0.95 0.760→0.783 on Roboflow Daycare (single-camera-bound, modest gains).
+- New concept: [SAHI (Slicing Aided Hyper Inference)](concepts/robotics/sahi-slicing-inference.md) — inference-time small-object patch-slicing + NMS merge; model-agnostic.
+- Updated [Ultralytics YOLO](entities/ultralytics-yolo.md) (sources 2→3; YOLOv11n child-detection mention).
+- Glossary: added SAHI, YOLO, mAP, NMS.
+- Updated [index](index.md) (source + concept). Framing: peripheral to wiki core, filed as an [Ultralytics YOLO](entities/ultralytics-yolo.md)-adjacent edge-perception recipe.
+
+## [2026-07-17] ingest | Learning to play Table Tennis using Multi-agent RL (USC project)
+- New source: [usc-table-tennis-marl](sources/usc-table-tennis-marl.md) (USC semester project, unrefereed; raw PDF RL_TableTennis.pdf). Self-play MARL in a custom Unity ML-Agents ping-pong env; PPO / SAC / MA-POCA + reward/bat-size curricula; best = SAC self-play (ELO 1200→2352). Flagged as illustrative, not benchmark.
+- New entity: [Unity ML-Agents Toolkit](entities/unity-ml-agents.md) — game-engine RL framework (PPO/SAC/MA-POCA + self-play/ELO + curriculum). First game-engine-RL sim in the wiki.
+- New concept: [Multi-agent RL (MARL)](concepts/learning/multi-agent-rl.md) — Markov Games, non-stationarity, IL vs CTDE (MADDPG / MA-POCA), self-play/ELO, cooperation spectrum. Closes a long-standing MARL gap (term used across the wiki, no page).
+- Updated [SAC](entities/sac.md) (sources 2→3; best-algorithm-here mention).
+- Glossary: added MARL, MADDPG, MA-POCA, CTDE, Markov Game (MG), Elo.
+- Updated [index](index.md) (source + entity + concept).

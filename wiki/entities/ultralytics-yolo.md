@@ -3,8 +3,8 @@ title: Ultralytics YOLO
 type: entity
 subtype: software-library
 created: 2026-06-14
-updated: 2026-06-14
-sources: 2
+updated: 2026-07-17
+sources: 3
 tags: [ultralytics, yolo, object-detection, segmentation, pose-estimation, computer-vision, edge-ai, pytorch, agpl]
 ---
 
@@ -41,3 +41,4 @@ It is the **perception workhorse** that shows up across the wiki's edge-robotics
 
 - [Ultralytics YOLO (GitHub)](../sources/ultralytics-github.md) — primary repo ingest.
 - [Seeed jetson-examples (repo + reComputer runner)](../sources/seeed-jetson-examples.md) — `ultralytics-yolo` / `yolo11` / `yolo26` / `yolov10` recipes.
+- [Enhancing YOLOv11n for Reliable Child Detection (PTIT 2026)](../sources/ptit-yolov11n-child-detection.md) — YOLOv11n fine-tuned from Ultralytics COCO weights + [SAHI](../concepts/robotics/sahi-slicing-inference.md) for small-object recall on edge CCTV.

@@ -57,6 +57,9 @@ Stanford household-task benchmark; 12.4% best result (per [AI Index 2026](source
 ### CNN
 **Convolutional Neural Network** — NN whose layers slide a small filter across the input (image), exploiting local spatial structure. *(Module 2.)*
 
+### CTDE
+**Centralized Training, Decentralized Execution** — MARL paradigm: agents train with global/joint information (e.g. a centralized critic) but act on local observations only. [MADDPG](#maddpg) and Unity's [MA-POCA](#ma-poca) are instances. See [multi-agent RL](concepts/learning/multi-agent-rl.md). *(RL branch.)*
+
 ### COCO / ImageNet
 Vision benchmark datasets used for pretraining / evaluating CNNs and ViTs. *(Module 2.)*
 
@@ -104,6 +107,9 @@ Hafner et al. ([source page](sources/dreamer-v3-paper.md), [entity](entities/dre
 
 ### ELBO
 **Evidence Lower Bound** — variational lower bound on log-likelihood; the underlying objective for VAEs and the diffusion training loss. *(Module 5.)*
+
+### Elo
+**Elo rating** — relative-skill score (from chess; Arpad Elo) used as the fitness signal in self-play RL; rises as an agent beats stronger past versions of itself. The [USC table-tennis project](sources/usc-table-tennis-marl.md) tracks self-play by Elo (init 1200 → 2352 for its best SAC agent). *(RL branch.)*
 
 ### EMA
 **Exponential Moving Average** — running weighted average of past values; used in [V-JEPA](entities/v-jepa-2.md) / BYOL-line as a "target encoder" — a slowly-updating teacher whose outputs serve as prediction targets, preventing collapse. [LeWM](entities/leworldmodel.md)'s contribution is doing without EMA. *(Module 4.)*
@@ -189,8 +195,20 @@ Terver et al., FAIR, Dec 2025 ([source page](sources/jepa-wms-paper.md)); first 
 ### LSTM
 **Long Short-Term Memory** — RNN variant with gating mechanisms that let it learn long-range dependencies; standard pre-2018 sequence model. *(Module 3.)*
 
+### MADDPG
+**Multi-Agent Deep Deterministic Policy Gradient** — Lowe et al. 2017; the canonical [CTDE](#ctde) actor-critic — each agent keeps a critic over the *joint* action to update a decentralized policy. See [multi-agent RL](concepts/learning/multi-agent-rl.md). *(RL branch.)*
+
 ### MAE
 **Masked Autoencoder** — He et al. 2021; reconstruct image patches with most of the image masked. Predictive (not contrastive) SSL. *(Module 4.)*
+
+### mAP
+**mean Average Precision** — the standard object-detection accuracy metric (area under precision–recall, averaged over classes); reported at a single IoU (mAP@0.5) or averaged over IoU 0.5–0.95 (mAP@0.5:0.95). Used throughout [YOLOv11n child detection](sources/ptit-yolov11n-child-detection.md). *(Perception.)*
+
+### MA-POCA
+**MultiAgent POsthumous Credit Assignment** — Unity ML-Agents' [CTDE](#ctde) trainer with a shared "coach" critic that tolerates agents joining/leaving mid-episode; self-play-compatible. See [Unity ML-Agents](entities/unity-ml-agents.md) / [multi-agent RL](concepts/learning/multi-agent-rl.md). *(RL branch.)*
+
+### MARL
+**Multi-Agent Reinforcement Learning** — RL with several simultaneously-learning agents (cooperative / competitive / mixed), formalized as a [Markov Game](#mg); the central difficulty is non-stationarity. See [concept page](concepts/learning/multi-agent-rl.md). *(RL branch.)*
 
 ### MBRL
 **Model-Based Reinforcement Learning** — RL with an explicit learned dynamics model (a world model). Dreamer is the canonical MBRL family. *(Modules 8 / 10.)*
@@ -203,6 +221,9 @@ Terver et al., FAIR, Dec 2025 ([source page](sources/jepa-wms-paper.md)); first 
 
 ### MFRL
 **Model-Free Reinforcement Learning** — RL without an explicit dynamics model; learn value or policy directly. *(Module 8.)*
+
+### MG
+**Markov Game** — a.k.a. stochastic game; the N-agent generalization of an [MDP](#mdp) where transition and reward depend on the *joint* action of all agents. The formalism behind [MARL](#marl). *(RL branch.)*
 
 ### MHA
 **Multi-Head Attention** — running self-attention with several independent attention heads in parallel. *(Module 3.)*
@@ -227,6 +248,9 @@ Terver et al., FAIR, Dec 2025 ([source page](sources/jepa-wms-paper.md)); first 
 
 ### NCE
 **Noise-Contrastive Estimation** — Gutmann & Hyvärinen 2010; train by classifying real vs noise. Generalizes to InfoNCE in SSL. *(Modules 4 / 5.)*
+
+### NMS
+**Non-Maximum Suppression** — post-processing that removes overlapping duplicate detections by keeping the highest-confidence box and dropping others above an [IoU](#iou) threshold; the merge step in [SAHI](concepts/robotics/sahi-slicing-inference.md). *(Perception.)*
 
 ### NN
 **Neural Network** — a function built by stacking layers of weighted sums and nonlinearities; trained by gradient descent on a loss. Umbrella term. *(Module 1.)*
@@ -284,6 +308,9 @@ A pretrained visual encoder for manipulation (Nair et al. 2022); appears as a Di
 
 ### SAC
 **Soft Actor-Critic** — Haarnoja et al. 2018; max-entropy off-policy actor-critic for continuous control. See [SAC](entities/sac.md) / [original paper](sources/sac-paper.md) / [Algorithms and Applications](sources/sac-applications-paper.md) (practical SAC = automatic temperature α); the algorithmic root of the [real-world robotic RL](concepts/learning/real-world-robot-rl.md) lineage. *(Module 8.)*
+
+### SAHI
+**Slicing Aided Hyper Inference** — Akyon et al. 2022; inference-time small-object trick — slice the image into overlapping patches, detect per patch, merge via [NMS](#nms). See [concept page](concepts/robotics/sahi-slicing-inference.md). *(Perception.)*
 
 ### SGD
 **Stochastic Gradient Descent** — gradient descent on minibatches; the canonical NN optimizer. *(Module 1.)*
@@ -356,6 +383,9 @@ Robot description formats — XML-based ([URDF](concepts/world-models/world-mode
 
 ### WM
 **World Model** — learned predictive model of environment dynamics: `s_{t+1} = f(s_t, a_t)`. See [concept page](concepts/world-models/world-model.md). *(Module 10.)*
+
+### YOLO
+**You Only Look Once** — Redmon et al. 2016; the single-stage real-time object-detector family. The modern lineage (…v8 / v10 / v11 / v26) is maintained as [Ultralytics YOLO](entities/ultralytics-yolo.md); YOLOv11n is the edge-sized variant used in [child detection](sources/ptit-yolov11n-child-detection.md). *(Perception.)*
 
 ---
 

@@ -3,8 +3,8 @@ title: SAC (Soft Actor-Critic)
 type: entity
 subtype: method
 created: 2026-07-05
-updated: 2026-07-05
-sources: 2
+updated: 2026-07-17
+sources: 3
 tags: [reinforcement-learning, off-policy-rl, maximum-entropy-rl, actor-critic, continuous-control, algorithm]
 ---
 
@@ -37,6 +37,7 @@ SAC is the base layer the whole real-world-RL stack stands on:
 - [SAC Applications paper](../sources/sac-applications-paper.md) — practical SAC (automatic α + real-robot demos).
 - [RLPD paper](../sources/rlpd-paper.md) — base algorithm.
 - [HIL-SERL paper](../sources/hil-serl-paper.md) — inherited via RLPD (entropy-regularized actor with adaptive α).
+- [USC table-tennis MARL project](../sources/usc-table-tennis-marl.md) — SAC was the best self-play algorithm (ELO 2352), beating PPO and MA-POCA in a [Unity ML-Agents](unity-ml-agents.md) ping-pong environment.
 
 ## Open questions / TBD
 
