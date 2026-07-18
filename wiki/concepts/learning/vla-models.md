@@ -36,11 +36,12 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 ### Action-head design across VLAs
 
 > [!note] Four families, not three
-> VLAs are usually grouped into three action-head families — **discrete action tokens** (OpenVLA, RT-2), **generative action heads** (π0/SmolVLA flow-matching, Diffusion Policy DDPM), and **custom architectures** (OpenVLA-OFT's ACT head, π0-FAST's DCT tokenizer). [VLA-0](../../entities/vla-0.md) argues for a fourth: **action-as-text** — no head, no new tokens, no architecture change; the VLM just prints the action as integers. With the right recipe it is competitive-to-best ([VLA-0 paper](../../sources/vla-0-paper.md)).
+> VLAs are usually grouped into three action-head families — **discrete action tokens** (OpenVLA, RT-2), **generative action heads** (π0/SmolVLA flow-matching, Diffusion Policy DDPM), and **custom architectures** ([OpenVLA-OFT](../../entities/openvla-oft.md)'s ACT head, π0-FAST's DCT tokenizer). [VLA-0](../../entities/vla-0.md) argues for a fourth: **action-as-text** — no head, no new tokens, no architecture change; the VLM just prints the action as integers. With the right recipe it is competitive-to-best ([VLA-0 paper](../../sources/vla-0-paper.md)).
 
 | VLA | Backbone | Action head | Notes |
 | --- | --- | --- | --- |
 | **[OpenVLA](../../entities/openvla.md)** | Llama-2 (7B) | autoregressive action tokens | Open-weights baseline; cited by π0, SmolVLA, JEPA-WMs, EgoScale. |
+| **[OpenVLA-OFT](../../entities/openvla-oft.md)** | OpenVLA (Llama-2 7B) | **custom ACT head** (parallel decoding + continuous actions + FiLM) | "Optimized Fine-Tuning" recipe; lifts OpenVLA's LIBERO 76.5 → **97.1** (top of the wiki's LIBERO table). The custom-architecture-family exemplar. |
 | **[Octo](../../entities/octo.md)** | transformer from scratch | continuous regression on action chunks | 0.09 B; trained on [OXE](../../entities/open-x-embodiment.md); the pre-flow-matching baseline. |
 | **[π0](../../entities/pi-zero.md)** | [PaliGemma](../../entities/paligemma.md) 3B | **[flow matching](flow-matching.md)** + **full bidirectional SA** | [Source](../../sources/pi-zero-paper.md). 3.3 B total. The canonical flow-matching VLA. |
 | **[π0.7](../../entities/pi07.md)** | [Gemma3](../../entities/gemma3.md) 4B + MEM | **[flow matching](flow-matching.md)** + **KI + stop-gradient to VLM** | [Source](../../sources/pi07-paper.md). 5 B total. Diversified prompt (subgoal images via [BAGEL](../../entities/bagel.md) + metadata + control mode). First emergent-capability VLA. |

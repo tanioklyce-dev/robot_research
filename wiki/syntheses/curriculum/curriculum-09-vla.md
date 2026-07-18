@@ -114,7 +114,7 @@ The biggest 2024–2026 design axis. Four flavors (three classic action heads + 
 
 - Introduced by **[VLA-0](../../entities/vla-0.md)** ([source](../../sources/vla-0-paper.md)). No new tokens, no vocabulary change, no architecture change — the "zero-modification" design.
 - Arbitrary action resolution (unlike discrete-token binning) without touching the vocabulary.
-- Needs a **recipe** to work: [ACT](../../entities/act.md)-style prediction ensembling + masked-action augmentation. With it, VLA-0 tops π0 / GR00T-N1 / SmolVLA / OpenVLA-OFT on [LIBERO](../../entities/libero.md) with no action pretraining. Cost: slow autoregressive decode (~4 Hz).
+- Needs a **recipe** to work: [ACT](../../entities/act.md)-style prediction ensembling + masked-action augmentation. With it, VLA-0 tops π0 / GR00T-N1 / SmolVLA / [OpenVLA-OFT](../../entities/openvla-oft.md) on [LIBERO](../../entities/libero.md) with no action pretraining. Cost: slow autoregressive decode (~4 Hz).
 
 ### Comparison (recapping the table from [`concepts/vla-models.md`](../../concepts/learning/vla-models.md))
 

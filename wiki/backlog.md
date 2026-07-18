@@ -11,7 +11,7 @@ tags: [backlog, lint, todo, knowledge-gaps]
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
 ## [2026-07-17] VLA-0 ingest — lint follow-ups
-- [ ] **OpenVLA-OFT entity** — referenced in **5 pages** and the single model that beats [VLA-0](entities/vla-0.md) on LIBERO (rank 1.5 vs 2.8); currently only prose. Highest-value of the dangling VLA baselines. (Moo Jin Kim / Finn / Liang 2025, arXiv 2502.19645; specialized parallel-decoding ACT head.)
+- [x] ~~**OpenVLA-OFT entity**~~ — **filed 2026-07-17**: [OpenVLA-OFT entity](entities/openvla-oft.md) (grounded in the [VLA-0 paper](sources/vla-0-paper.md); primary arXiv 2502.19645 still un-ingested → noted as an open question on the page). Wired into openvla / vla-0 / libero / vla-models / curriculum-09 + index.
 - [ ] **π0-FAST / π0.5-KI entities** — recurring [Physical Intelligence](entities/physical-intelligence.md)-line baselines in **5 pages**. π0-FAST = DCT action tokenization (Pertsch et al. 2501.09747); π0.5-KI = knowledge-insulation variant (Driess et al. 2505.23705). File if they keep recurring.
 - [ ] **MolmoAct entity** — discrete-token "action reasoning" VLA (Lee et al. 2508.07917); mentioned in 3 pages.
 - [ ] **`## Mentioned in` section missing** on 7 stub entities: [openvla](entities/openvla.md), [octo](entities/octo.md), [paligemma](entities/paligemma.md), [smolvlm](entities/smolvlm.md), [gemma3](entities/gemma3.md), [bagel](entities/bagel.md), [open-x-embodiment](entities/open-x-embodiment.md). Cosmetic; normalize on a stub-cleanup pass.

@@ -34,7 +34,7 @@ VLA-0 is the wiki's clearest "**the simplest thing works best, with the right re
 ## Related
 
 - [VLA models](../concepts/learning/vla-models.md) — the concept; VLA-0 is the "action-as-text" entry.
-- [OpenVLA](openvla.md) — discrete-token family; OpenVLA-OFT (custom) is the only pretrained model above VLA-0 on LIBERO.
+- [OpenVLA](openvla.md) / [OpenVLA-OFT](openvla-oft.md) — discrete-token family; OFT (custom architecture) is the only pretrained model above VLA-0 on LIBERO.
 - [SmolVLA](smolvla.md) / [π0](pi-zero.md) — generative-action-head family VLA-0 outperforms.
 - [ACT](act.md) — source of the ensembling trick.
 - [Qwen](qwen.md) — the backbone VLM.
