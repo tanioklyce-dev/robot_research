@@ -85,7 +85,7 @@ Paper claims π0.7's compositional generalization is the **VLA equivalent of the
 
 ## Open questions
 
-- **Knowledge Insulation (KI) training recipe** — referenced as [103] but not separately ingested; the FAST-tokens-on-VLM + stop-gradient-to-action-expert pattern likely deserves its own concept page on a future pass.
+- **Knowledge Insulation (KI) training recipe** — referenced as [103]; now has a wiki [Knowledge Insulation concept page](../concepts/learning/knowledge-insulation.md) (FAST-tokens-on-VLM + stop-gradient-to-action-expert). The KI paper itself (Driess et al., arXiv 2505.23705) is still not separately ingested.
 - **π0.5 / π0.6 / π0.6-MEM** — referenced throughout but no primary sources ingested. The π series now spans π0 → π0.5 → π0.6 → π0.6-MEM → π0.7 → π*0.6 (RL variant). Three of these six (π0, π0.7, π*0.6) are now in the wiki; the middle three remain gaps.
 - **Quantitative results vs π0 / π0.6 / SmolVLA** — the paper makes qualitative + emergent-capability claims; head-to-head numbers across the π series aren't pulled into this ingest.
 - **BAGEL 14B world model entity** — referenced as the subgoal-image substrate; not in the wiki yet.

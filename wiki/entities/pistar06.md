@@ -36,7 +36,7 @@ Bayes-rule derivation (paper §IV-B): `π̂(a|o,ℓ) ∝ π^ref(a|o,ℓ) · (π^
 
 - **Built on π0.6** ("improvement on π0.5 with larger backbone + diverse conditioning").
 - Adds **advantage-indicator conditioning** to the VLA prefix.
-- Same **Knowledge Insulation (KI)** training recipe as [π0.7](pi07.md) — VLM trained via next-token prediction with FAST tokens; flow-matching action expert with **stop-gradient** (no gradient flow back to VLM).
+- Same **[Knowledge Insulation (KI)](../concepts/learning/knowledge-insulation.md)** training recipe as [π0.7](pi07.md) — VLM trained via next-token prediction with [FAST](fast-action-tokenization.md) tokens; flow-matching action expert with **stop-gradient** (no gradient flow back to VLM).
 - Value function: same architecture as policy, smaller VLM backbone.
 
 ## Data composition

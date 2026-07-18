@@ -41,7 +41,7 @@ The flow-matching head is a small transformer ("action expert") that attends to 
 | Model | Action-expert attention |
 |---|---|
 | [π0](../../entities/pi-zero.md) | **Full bidirectional self-attention** — all action tokens attend to each other |
-| [π0.7](../../entities/pi07.md) / [π*0.6](../../entities/pistar06.md) | Full bidirectional SA + **Knowledge Insulation (KI) training** — VLM trained via next-token prediction with FAST tokens; action expert gets **stop-gradient** to VLM |
+| [π0.7](../../entities/pi07.md) / [π*0.6](../../entities/pistar06.md) | Full bidirectional SA + **[Knowledge Insulation (KI)](knowledge-insulation.md) training** — VLM trained via next-token prediction with [FAST](../../entities/fast-action-tokenization.md) tokens; action expert gets **stop-gradient** to VLM |
 | [SmolVLA](../../entities/smolvla.md) | **Interleaved cross-attention + causal self-attention** — each block is either CA (action tokens cross-attend to VLM keys/values) or SA (causal masked, action tokens attend only to past tokens) |
 
 SmolVLA's interleaved CA+SA pattern empirically wins on real-world SO-100 multi-task at smaller scale; whether it scales to π0.7's regime is open.
