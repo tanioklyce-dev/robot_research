@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-05-08
 updated: 2026-07-17
-sources: 6
+sources: 7
 tags: [libero, manipulation-benchmark, lifelong-learning, robosuite, mujoco]
 ---
 
@@ -38,6 +38,7 @@ Primary reference is [VLA-JEPA](../sources/vla-jepa-paper.md) (Sun et al., Feb 2
 - [VLA-0 paper](../sources/vla-0-paper.md) — primary simulation benchmark; the wiki's most complete cross-method LIBERO comparison (11 models, with/without action pretraining).
 - [Knowledge Insulation paper](../sources/knowledge-insulation-paper.md) — LIBERO-90 + LIBERO-Spatial SOTA claim; π0.5-KI vs π0 / π0-FAST / OpenVLA-OFT (Table 1).
 - [OpenVLA-OFT paper](../sources/openvla-oft-paper.md) — the 97.1% SOTA + 26× throughput result; the primary source for OFT's LIBERO numbers.
+- [FAST paper](../sources/fast-paper.md) — evaluates π0-FAST across the four LIBERO suites.
 
 ## Open questions / TBD
 - Original LIBERO paper (Liu et al., NeurIPS 2023) not yet ingested as a source — would let us cite design rationale (why the four task families, what "lifelong" means concretely).

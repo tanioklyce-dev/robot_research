@@ -3,49 +3,50 @@ title: FAST (action tokenization) / π0-FAST
 type: entity
 subtype: method
 created: 2026-07-17
-updated: 2026-07-17
-sources: 4
-tags: [fast, action-tokenization, dct, vla, discrete-tokens, autoregressive, physical-intelligence, pi-zero]
+updated: 2026-07-18
+sources: 5
+tags: [fast, action-tokenization, dct, bpe, vla, discrete-tokens, autoregressive, physical-intelligence, pi-zero]
 ---
 
 # FAST (action tokenization) / π0-FAST
 
-**FAST** (*Efficient Action Tokenization for Vision-Language-Action Models*; Pertsch, Stachowicz, Ichter, Driess, Nair, Vuong, Mees, [Finn](chelsea-finn.md), [Levine](sergey-levine.md), 2025 — arXiv 2501.09747) is a **[Physical Intelligence](physical-intelligence.md)** scheme for turning continuous robot actions into a **compact sequence of discrete tokens** using the **Discrete Cosine Transform (DCT)**. **π0-FAST** is the model that results from training [π0](pi-zero.md) to autoregressively predict FAST tokens.
+**FAST** — **F**requency-space **A**ction **S**equence **T**okenization (Pertsch, Stachowicz, Ichter, Driess, Nair, Vuong, Mees, [Finn](chelsea-finn.md), [Levine](sergey-levine.md); [paper](../sources/fast-paper.md), arXiv 2501.09747, RSS 2025) — is a **[Physical Intelligence](physical-intelligence.md)** scheme that turns continuous robot action chunks into short discrete token sequences via **Discrete Cosine Transform (DCT) compression** + Byte-Pair Encoding. **π0-FAST** is the autoregressive [π0](pi-zero.md) policy trained on FAST tokens.
 
 ## Why it matters in this wiki
 
 FAST is the discrete-token approach that recurs on two fronts across the wiki:
 
-1. **As a baseline model** — π0-FAST appears in nearly every 2025–2026 VLA comparison ([VLA-0](vla-0.md), [Cosmos 3](../sources/cosmos-3-technical-report.md)) as the autoregressive-discrete-token point of reference.
-2. **As a component inside better VLAs** — the [Knowledge Insulation](../concepts/learning/knowledge-insulation.md) recipe used by [π0.7](pi07.md) and [π*0.6](pistar06.md) supervises the VLM backbone with **FAST tokens** (next-token prediction) while a flow-matching expert does the actual continuous control. So FAST lives on inside the current PI flagships even though π0-FAST itself is a weaker standalone policy.
+1. **As a baseline model** — π0-FAST appears in nearly every 2025–2026 VLA comparison ([VLA-0](vla-0.md), [OpenVLA-OFT](openvla-oft.md), [Cosmos 3](../sources/cosmos-3-technical-report.md)) as the autoregressive-discrete-token point of reference.
+2. **As a component inside better VLAs** — the [Knowledge Insulation](../concepts/learning/knowledge-insulation.md) recipe used by [π0.7](pi07.md) and [π*0.6](pistar06.md) supervises the VLM backbone with **FAST tokens** (next-token prediction) while a flow-matching expert does the continuous control. So FAST lives on inside the current PI flagships even though π0-FAST itself is a weaker standalone policy.
 
-The DCT idea: rather than naïvely binning each action dimension (which explodes token count or caps resolution — the discrete-token tradeoff), FAST transforms action *chunks* into the frequency domain and keeps the significant coefficients, giving a **short, high-resolution** token sequence the VLM can generate like text.
+Its central insight ([FAST paper](../sources/fast-paper.md)): **naïve per-dimension/per-timestep binning fails on high-frequency data** because consecutive action tokens become highly correlated → each carries near-zero marginal information → next-token training stalls (the model degenerates to copying the last token). This is why OpenVLA fit low-frequency BridgeV2/RT-1 but struggled on DROID. Compressing in the frequency domain first restores high-information tokens.
 
-## Where it lands in the taxonomy
+## The FAST pipeline
 
-The [VLA-0 paper](../sources/vla-0-paper.md) classifies π0-FAST under **custom architecture** (its DCT tokenizer is a bespoke scheme), though it is functionally a **discrete-token** VLA. Either way, it's the "actions-as-discrete-tokens, done efficiently" pole — the opposite of VLA-0's "actions-as-plain-text" and the flow-matching heads of [π0](pi-zero.md)/[SmolVLA](smolvla.md).
+Normalize actions (quantile-based, robust to outliers) → **DCT** per action dimension → **quantize** (scale-and-round; the scale γ trades compression vs. fidelity) → **flatten column-first** (low-frequency components first → more stable rollouts) → **BPE** to squash the sparse coefficient matrix into dense tokens. Fully analytical + invertible; only two (insensitive) hyperparameters — DCT rounding scale (10), BPE vocab (1024). Requires **no change to the pretrained transformer**, so it drops into any autoregressive VLA (tested on π0/PaliGemma-3B and OpenVLA/Prismatic-7B).
+
+**FAST+** = a **universal** tokenizer trained on **~1M cross-embodied action chunks**; works black-box on any robot's 1-second chunks, released as a HuggingFace `AutoProcessor` (`physical-intelligence/fast`).
 
 ## Reported numbers (from ingested sources)
 
-- **LIBERO** ([VLA-0 paper](../sources/vla-0-paper.md), Table I): π0-FAST **86.0** avg with large-scale action pretraining (Spatial 90 / Object 86 / Goal 95 / Long 73); a **π0-FAST-PaliGemma** no-pretraining variant scores 71.8. Below [VLA-0](vla-0.md) (94.7) and [OpenVLA-OFT](openvla-oft.md) (97.1).
-- **RoboLab-120** ([Cosmos 3 report](../sources/cosmos-3-technical-report.md), Table 19): π0-FAST **14.9%** avg success vs Cosmos3-Nano 39.7 / π0.5 28.1 / π0 3.5.
-- **LIBERO** ([KI paper](../sources/knowledge-insulation-paper.md), Table 1): π0-FAST Spatial 96.4 / Object 96.8 / Goal 88.6 / **Long 60.2** — the weak Long-horizon score exposes autoregressive FAST decoding's cost; the [KI](../concepts/learning/knowledge-insulation.md) recipe (same team) lifts Long to 85.8.
-- **Inference speed** ([KI paper](../sources/knowledge-insulation-paper.md) §4): ~**750 ms** to decode a 1 s action chunk on an RTX 4090 (~1.3 Hz) — the autoregressive-decoding cost that motivates flow-matching experts.
+- **Compression** ([FAST paper](../sources/fast-paper.md), Table I; 1 s chunks, naïve→FAST): BridgeV2 (5 Hz) 35→20; DROID (15 Hz) 105→29; Bussing (20 Hz) 140→28; **Shirt-fold (50 Hz) 700→53 (13.2×)** — FAST lands at ~30 tokens/chunk/arm **regardless of frequency**.
+- **π0-FAST vs π0-diffusion** ([FAST paper](../sources/fast-paper.md)): **matches** the SOTA π0 flow-matching VLA on dexterous/long-horizon tasks while **training up to 5× faster**; scales to 10k hours; enables the **first zero-shot DROID eval** in an unseen environment.
+- **LIBERO** ([KI paper](../sources/knowledge-insulation-paper.md), Table 1): π0-FAST Spatial 96.4 / Object 96.8 / Goal 88.6 / **Long 60.2** — the weak Long score exposes autoregressive FAST decoding's cost; [KI](../concepts/learning/knowledge-insulation.md) (same team) lifts Long to 85.8.
+- **RoboLab-120** ([Cosmos 3 report](../sources/cosmos-3-technical-report.md)): π0-FAST **14.9%** avg vs Cosmos3-Nano 39.7 / π0.5 28.1 / π0 3.5.
+- **Inference speed** ([KI paper](../sources/knowledge-insulation-paper.md) §4): ~**750 ms** to decode a 1 s chunk on an RTX 4090 (~1.3 Hz) — the autoregressive-decoding cost that motivates flow-matching experts and [OpenVLA-OFT](openvla-oft.md)'s parallel decoding.
 
 ## Related
 
 - [Knowledge Insulation](../concepts/learning/knowledge-insulation.md) — uses FAST tokens to supervise the VLM backbone; the reason FAST persists inside [π0.7](pi07.md) / [π*0.6](pistar06.md).
 - [π0](pi-zero.md) — the base VLA; π0-FAST = π0 + FAST tokenization.
-- [VLA-0](vla-0.md) — the action-as-text contrast; VLA-0 argues FAST-style tokenization is unnecessary complexity.
+- [OpenVLA-OFT](openvla-oft.md) / [VLA-0](vla-0.md) — the parallel-decoding and action-as-text alternatives to FAST's autoregressive-discrete-token approach.
+- [DROID](droid.md) — the high-frequency dataset FAST first makes trainable.
 - [VLA models](../concepts/learning/vla-models.md) — action-head taxonomy.
-
-## Open questions
-
-- **Primary source (arXiv 2501.09747) not yet ingested** — filing it would give the exact DCT pipeline, token-count/compression figures, and the cross-embodiment results, rather than the baseline numbers relayed by [VLA-0](vla-0.md) / [Cosmos 3](../sources/cosmos-3-technical-report.md).
 
 ## Mentioned in
 
+- [FAST paper](../sources/fast-paper.md) — the introducing primary source.
 - [VLA-0 paper](../sources/vla-0-paper.md) — π0-FAST as a custom-architecture / discrete-token baseline.
 - [Cosmos 3 technical report](../sources/cosmos-3-technical-report.md) — π0-FAST as a RoboLab-120 baseline.
 - [π0.7 paper](../sources/pi07-paper.md) / [π*0.6 paper](../sources/pistar06-paper.md) — FAST tokens inside the Knowledge Insulation recipe.
-- [Knowledge Insulation paper](../sources/knowledge-insulation-paper.md) — uses FAST as the discrete representation-learning objective; finds FAST beats naïve tokenization for this role.
+- [Knowledge Insulation paper](../sources/knowledge-insulation-paper.md) — uses FAST as the discrete representation-learning objective; finds it beats naïve tokenization for that role.

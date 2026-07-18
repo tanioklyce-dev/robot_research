@@ -123,6 +123,9 @@ NN that maps a raw input (image, video clip, action sequence, etc.) into an embe
 ### EUP
 **End-User Programming** — letting non-experts customize robot behavior. See [concept page](concepts/robotics/end-user-robot-programming.md). *(Module 13.)*
 
+### FAST
+**Frequency-space Action Sequence Tokenization** — Pertsch et al. 2025 ([entity](entities/fast-action-tokenization.md) / [paper](sources/fast-paper.md)); DCT + BPE compression of robot action chunks into discrete tokens, so autoregressive VLAs can learn high-frequency dexterous tasks that naïve per-timestep binning fails on. Powers π0-FAST; reused inside [Knowledge Insulation](concepts/learning/knowledge-insulation.md). *(Module 9.)*
+
 ### FCN
 **Fully Convolutional Network** — CNN with no fully-connected head, used for dense prediction. *(Module 2.)*
 
