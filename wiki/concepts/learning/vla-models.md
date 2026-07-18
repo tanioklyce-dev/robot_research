@@ -41,7 +41,7 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 | VLA | Backbone | Action head | Notes |
 | --- | --- | --- | --- |
 | **[OpenVLA](../../entities/openvla.md)** | Llama-2 (7B) | autoregressive action tokens | Open-weights baseline; cited by π0, SmolVLA, JEPA-WMs, EgoScale. |
-| **[OpenVLA-OFT](../../entities/openvla-oft.md)** | OpenVLA (Llama-2 7B) | **custom ACT head** (parallel decoding + continuous actions + FiLM) | "Optimized Fine-Tuning" recipe; lifts OpenVLA's LIBERO 76.5 → **97.1** (top of the wiki's LIBERO table). The custom-architecture-family exemplar. |
+| **[OpenVLA-OFT](../../entities/openvla-oft.md)** | OpenVLA (Llama-2 7B) | **parallel decoding + action chunking + continuous L1 head** (+FiLM = OFT+) | [Source](../../sources/openvla-oft-paper.md). "Optimized Fine-Tuning" recipe; lifts OpenVLA's LIBERO 76.5 → **97.1** at **26× throughput** (top of the wiki's LIBERO table). The custom-architecture-family exemplar. |
 | **[π0-FAST](../../entities/fast-action-tokenization.md)** | [π0](../../entities/pi-zero.md) (PaliGemma) | **[FAST](../../entities/fast-action-tokenization.md)** DCT discrete tokens | Efficient discrete-token tokenization (Pertsch et al.). Also the token scheme [KI](knowledge-insulation.md) uses to supervise the VLM inside π0.7 / π*0.6. LIBERO 86.0. |
 | **[MolmoAct](../../entities/molmoact.md)** | Molmo (Allen Institute) | discrete action tokens + spatial reasoning | Open "action reasoning" VLA (Lee et al.); reasons in space before acting. LIBERO 86.8. |
 | **[Octo](../../entities/octo.md)** | transformer from scratch | continuous regression on action chunks | 0.09 B; trained on [OXE](../../entities/open-x-embodiment.md); the pre-flow-matching baseline. |

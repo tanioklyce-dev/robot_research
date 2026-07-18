@@ -2746,3 +2746,9 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - **Identity confirmed**: KI paper's "Ours (from generalist)" LIBERO avg 94.3 == VLA-0 paper's relayed "π0.5-KI 94.3" → π0.5-KI = π0.5 + KI.
 - Rewrote [Knowledge Insulation concept](concepts/learning/knowledge-insulation.md) (3→4 sources) to primary-grounded; resolved the pi07-paper KI open-question.
 - Updated: [FAST](entities/fast-action-tokenization.md) (3→4; LIBERO-Long 60.2 + 750ms/1.3Hz inference), [LIBERO](entities/libero.md) (4→5; π0.5-KI SOTA row + full Table 1), [physical-intelligence](entities/physical-intelligence.md) (5→6), [pi-zero-6](entities/pi-zero-6.md) (2→3; π0.5-KI now sourced), [pi07-paper](sources/pi07-paper.md). Glossary: added KI. Index: source + 5 count syncs.
+
+## [2026-07-17] ingest | OpenVLA-OFT (Kim/Finn/Liang, RSS 2025) — primary source
+- Curled arXiv 2502.19645 into raw/ (session's sixth ingest); promoted the OpenVLA-OFT entity from stub to primary-grounded, de-stubbed in index.
+- New source: [openvla-oft-paper](sources/openvla-oft-paper.md). Controlled study of 3 VLA fine-tuning axes (decoding: AR vs parallel; representation: discrete vs continuous; objective: CE vs L1 vs diffusion). OFT recipe = parallel decoding + action chunking + continuous L1 head. PD+AC alone +14% abs LIBERO; continuous +5%; L1≈diffusion but faster. Lifts OpenVLA 76.5→97.1 at 26× throughput (43× w/ 25-step chunks); OFT+ (FiLM) runs bimanual ALOHA @25Hz, beats π0/RDT-1B/DP/ACT by up to 15% abs.
+- Rewrote [OpenVLA-OFT entity](entities/openvla-oft.md) (1→2 sources, de-stub) to primary-grounded.
+- Updated: [OpenVLA](entities/openvla.md) (OFT primary ingested), [LIBERO](entities/libero.md) (5→6; OFT SOTA+throughput row + primary), [vla-models](concepts/learning/vla-models.md) (OFT table row cites primary), [ACT](entities/act.md) (L1 head lineage). Glossary: added OFT. Index: source + de-stub + 2 count syncs.

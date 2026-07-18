@@ -60,3 +60,4 @@ From [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) Tables 2 +
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — supported by LeRobot; benchmark numbers above; explicitly cited as the dominant single-task BC policy in the ecosystem.
 - [NVIDIA Jetson AI Lab — HuggingFace LeRobot (archived)](../sources/nvidia-jetson-ai-lab-lerobot.md) — ACT as the default onboard-Jetson training target on Koch v1.1.
 - [VLA-0 paper](../sources/vla-0-paper.md) — borrows ACT's **prediction-ensembling / action-chunking** trick as its single biggest accuracy lever (+2 pts on LIBERO).
+- [OpenVLA-OFT paper](../sources/openvla-oft-paper.md) — adopts ACT's **L1-regression continuous-action head** + action chunking; finds L1 matches diffusion at lower cost.

@@ -4,54 +4,46 @@ type: entity
 subtype: model
 created: 2026-07-17
 updated: 2026-07-17
-sources: 1
-tags: [openvla-oft, vla, vision-language-action, custom-architecture, parallel-decoding, action-chunking, film, libero, baseline]
-status: stub
+sources: 2
+tags: [openvla-oft, vla, vision-language-action, parallel-decoding, action-chunking, l1-regression, film, libero, aloha]
 ---
 
 # OpenVLA-OFT
 
-**OpenVLA-OFT** ("**O**ptimized **F**ine-**T**uning"; Moo Jin Kim, [Chelsea Finn](chelsea-finn.md), Percy Liang, 2025 — *Fine-Tuning Vision-Language-Action Models: Optimizing Speed and Success*, arXiv 2502.19645) is the successor recipe to [OpenVLA](openvla.md) that swaps its slow autoregressive action-token decoding for a **custom, ACT-style action head with parallel decoding**. It sits in the **custom-architecture** family of the [VLA action-head taxonomy](../concepts/learning/vla-models.md) and is the **top-scoring model on [LIBERO](libero.md)** in the wiki's most complete cross-method table.
+**OpenVLA-OFT** ("**O**ptimized **F**ine-**T**uning"; Moo Jin Kim, [Chelsea Finn](chelsea-finn.md), Percy Liang, Stanford — [paper](../sources/openvla-oft-paper.md), arXiv 2502.19645, RSS 2025) is a **fine-tuning recipe** for VLAs, instantiated on [OpenVLA](openvla.md), that replaces slow autoregressive action-token decoding with **parallel decoding + action chunking + continuous actions + an L1-regression head**. It is the **top-scoring model on [LIBERO](libero.md)** in the wiki and the custom-architecture exemplar of the [VLA action-head taxonomy](../concepts/learning/vla-models.md).
 
 ## Why it matters in this wiki
 
-OpenVLA-OFT is the **benchmark to beat**: on LIBERO it is the single model that finishes above [VLA-0](vla-0.md) — the only pretrained VLA VLA-0 could not surpass ([VLA-0 paper](../sources/vla-0-paper.md), Table I). It also marks how far the OpenVLA line moved: plain OpenVLA (autoregressive discrete tokens) scores **76.5** avg on LIBERO, while OpenVLA-OFT's parallel-decoding redesign reaches **97.1** — a ~20-point jump from the *fine-tuning recipe alone*, on the same base model. That makes it the wiki's cleanest evidence that **action-head/decoding design, not just backbone or data, drives VLA success** — the same thesis [VLA-0](vla-0.md) argues from the opposite (minimalist) direction.
+OpenVLA-OFT is the **benchmark to beat** and the wiki's cleanest "**the fine-tuning recipe, not the base model, was the bottleneck**" data point: keeping the *same* OpenVLA weights, OFT raises LIBERO average success **76.5% → 97.1%** while making action generation **26× faster**. It's the one pretrained model that finishes above [VLA-0](vla-0.md) on LIBERO ([VLA-0 paper](../sources/vla-0-paper.md)), and one of the baselines the [Knowledge Insulation](../concepts/learning/knowledge-insulation.md) paper measures itself against — the two are contemporaneous answers to the same "how do you fine-tune a VLA well?" question, from the L1-regression and flow-matching sides respectively.
 
-## Architecture
+## The OFT recipe (three design choices)
 
-> [!note] Primary source not yet ingested
-> Architecture details below are from the OpenVLA-OFT paper (arXiv 2502.19645), **not yet ingested** as a wiki source; benchmark numbers are cited from the [VLA-0 paper](../sources/vla-0-paper.md), which reproduces them. Deepen this page when 2502.19645 lands in `raw/`.
+The paper studies three axes for adapting a VLA and picks the winning combination ([OFT paper](../sources/openvla-oft-paper.md) §IV):
 
-OFT keeps the [OpenVLA](openvla.md) VLM backbone but replaces the output stage with three changes ([VLA-0 paper](../sources/vla-0-paper.md), Fig. 2, classifies it as "Custom — VLM + parallel decoding + FiLM"):
+1. **Parallel decoding + action chunking** — feed **empty action embeddings** and replace the causal mask with **bidirectional attention**, so a whole K-step action chunk emits in **one forward pass** instead of K·D sequential token decodes. Alone this adds **+14% absolute** LIBERO success (biggest on Long-horizon) *and* the throughput win.
+2. **Continuous action representation** — an **MLP action head** maps decoder hidden states to real-valued actions (vs. 256-bin discretization). Adds **+5% absolute** over discrete.
+3. **L1-regression objective** — plain mean-L1 loss on continuous actions ([ACT](act.md)-style). **Matches diffusion** in success but trains and infers far faster (diffusion needs ~50 denoising steps).
 
-- **Parallel decoding + action chunking** — emit a whole action chunk in one forward pass instead of autoregressively token-by-token; the large inference-speed win over vanilla OpenVLA.
-- **Continuous action representation** (regression head) rather than discretized action tokens — removing the resolution/vocabulary tradeoff that discrete-token VLAs pay.
-- **FiLM language conditioning** — feature-wise modulation to strengthen instruction grounding.
+**OFT+** = the recipe **+ FiLM** (feature-wise linear modulation infusing language embeddings into ViT features), used for the real **ALOHA** experiments where multi-camera setups create spurious correlations that hurt language following.
 
-The specialized head is what the [VLA-0](vla-0.md) authors call OFT's "**ACT head**" — the [Action-Chunking-Transformer](act.md) lineage applied inside a VLA.
+## Key facts
 
-## LIBERO results (via [VLA-0 paper](../sources/vla-0-paper.md), Table I)
-
-| Variant | Spatial | Object | Goal | Long | Avg | Rank |
-|---|---|---|---|---|---|---|
-| OpenVLA-OFT, **with** large-scale action pretraining | 97.6 | 98.4 | 97.9 | 94.5 | **97.1** | **1.5** (best) |
-| OpenVLA-OFT, **no** action pretraining | 94.3 | 95.2 | 91.7 | 86.5 | 91.9 | 2.8 |
-
-For comparison in the same table: [VLA-0](vla-0.md) 94.7 (no pretraining), π0.5-KI 94.3, π0 94.2, [GR00T-N1](nvidia-groot.md) 93.9, [SmolVLA](smolvla.md)-2.25B 88.8, plain [OpenVLA](openvla.md) 76.5.
+- **Base model:** [OpenVLA](openvla.md) 7B (Prismatic VLM, 1M [OXE](open-x-embodiment.md) episodes), adapted via LoRA on ~500 demos.
+- **LIBERO** ([OFT paper](../sources/openvla-oft-paper.md), Table I): Spatial **97.6** / Object **98.4** / Goal **97.9** / Long **94.5** / avg **97.1** — SOTA; vs base OpenVLA 76.5, π0 94.2.
+- **Efficiency:** **26×** throughput (8-step chunks) to **43×** (25-step) over base OpenVLA; latency **0.07 ms** (single-arm/1 image) → **0.321 ms** (bimanual/3 images), vs OpenVLA's 0.33 s per timestep.
+- **Real-world:** OpenVLA-OFT+ runs dexterous bimanual **ALOHA** tasks at **25 Hz**, beating fine-tuned π0 / RDT-1B and from-scratch [Diffusion Policy](diffusion-policy.md) / [ACT](act.md) by **up to 15% absolute**.
+- **Paradigm:** pure offline imitation — no separate low-level controller, no online RL. Open-source (code + checkpoints).
 
 ## Related
 
 - [OpenVLA](openvla.md) — the base model / predecessor; OFT is its optimized fine-tuning recipe.
 - [VLA-0](vla-0.md) — the action-as-text VLA that OFT (pretrained) narrowly tops on LIBERO.
-- [ACT](act.md) — the action-chunking lineage OFT's parallel-decoding head draws on.
+- [Knowledge Insulation](../concepts/learning/knowledge-insulation.md) — the PI recipe attacking the same problem from the flow-matching side.
+- [ACT](act.md) — source of the L1-regression continuous-action head.
 - [VLA models](../concepts/learning/vla-models.md) — the concept; OFT is the "custom architecture" family exemplar.
 - [Chelsea Finn](chelsea-finn.md) — co-author.
 
-## Open questions
-
-- **Primary source (arXiv 2502.19645) not ingested** — filing it would let this page carry OFT's own reported numbers (real-robot results, the exact speedup factor over autoregressive OpenVLA, ALOHA/bridge evaluations) rather than only the LIBERO figures relayed by VLA-0.
-- How much of the 76.5 → 97.1 LIBERO gain is parallel decoding vs. continuous actions vs. FiLM? The ablation lives in the un-ingested paper.
-
 ## Mentioned in
 
-- [VLA-0 paper](../sources/vla-0-paper.md) — the ingested source that reports OFT's LIBERO numbers and classifies it as a custom-architecture VLA.
+- [OpenVLA-OFT paper](../sources/openvla-oft-paper.md) — the introducing primary source.
+- [VLA-0 paper](../sources/vla-0-paper.md) — reports OFT as the top LIBERO model (rank 1.5), the only pretrained model above VLA-0.

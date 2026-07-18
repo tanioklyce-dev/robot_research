@@ -258,6 +258,9 @@ Terver et al., FAIR, Dec 2025 ([source page](sources/jepa-wms-paper.md)); first 
 ### NN
 **Neural Network** — a function built by stacking layers of weighted sums and nonlinearities; trained by gradient descent on a loss. Umbrella term. *(Module 1.)*
 
+### OFT
+**Optimized Fine-Tuning** — Kim/Finn/Liang 2025 VLA fine-tuning recipe: parallel decoding + action chunking + continuous L1-regression head (+FiLM). Instantiated as [OpenVLA-OFT](entities/openvla-oft.md); lifts OpenVLA's [LIBERO](entities/libero.md) 76.5→97.1 at 26× throughput. *(Module 9.)*
+
 ### OK-Robot
 NYU 2024 ([entity](entities/ok-robot.md)); zero-shot pick-and-drop in 10 NYC homes; 58.5% success. *(Module 13.)*
 
