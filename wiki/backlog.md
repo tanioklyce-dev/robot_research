@@ -2,7 +2,7 @@
 title: Wiki Backlog — deferred lint items & knowledge gaps
 type: meta
 created: 2026-07-04
-updated: 2026-07-17
+updated: 2026-07-18
 tags: [backlog, lint, todo, knowledge-gaps]
 ---
 
@@ -10,12 +10,17 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-07-18] VLA-cluster session — wrap-up notes (where things stand)
+Session arc: ingested 3 raw drops (VLA-0, YOLOv11n child-detection, USC table-tennis MARL) → filed the VLA-baseline cluster VLA-0 pointed at (OpenVLA-OFT, FAST/π0-FAST, MolmoAct, Molmo + concepts: Knowledge Insulation, multi-agent-rl, SAHI) → then paid down the "primary un-ingested" debt by ingesting **4 VLA primaries**: VLA-0 (2510.13054), Knowledge Insulation (2505.23705), OpenVLA-OFT (2502.19645), FAST (2501.09747). The VLA action-representation design space is now anchored on those four ingested primaries.
+- [ ] **Remaining un-ingested VLA primaries (secondary-grounded satellites):** **MolmoAct** (2508.07917) + **Molmo** (2409.17146, Ai2) — the Allen-Institute lineage, distinct from the Physical-Intelligence one. Plus **OLMo / OLMoE** (Molmo's LLM backbones) have no entity. Lower priority than the PI cluster; ingest if that lineage recurs.
+- [ ] **Author page — Moo Jin Kim** (OpenVLA + OpenVLA-OFT first author); flagged on [openvla.md](entities/openvla.md). Karl Pertsch / Levine / Finn already filed.
+
 ## [2026-07-17] VLA-0 ingest — lint follow-ups
-- [x] ~~**OpenVLA-OFT entity**~~ — **filed 2026-07-17**: [OpenVLA-OFT entity](entities/openvla-oft.md) (grounded in the [VLA-0 paper](sources/vla-0-paper.md); primary arXiv 2502.19645 still un-ingested → noted as an open question on the page). Wired into openvla / vla-0 / libero / vla-models / curriculum-09 + index.
-- [x] ~~**π0-FAST / π0.5-KI entities**~~ — **filed 2026-07-17**: [FAST / π0-FAST entity](entities/fast-action-tokenization.md) (DCT tokenization; also the KI token scheme) + [Knowledge Insulation concept](concepts/learning/knowledge-insulation.md) (the home for π0.5-KI; resolves the pi07-paper-flagged KI-page gap). Grounded in ingested pi07/pistar06/VLA-0; primaries 2501.09747 + 2505.23705 still un-ingested.
-- [x] ~~**MolmoAct entity**~~ — **filed 2026-07-17**: [MolmoAct entity](entities/molmoact.md) (grounded in VLA-0's LIBERO row; primary 2508.07917 + Molmo backbone un-ingested → noted). **Molmo (Allen Institute open VLM)** still has no entity — new backlog candidate below.
-- [x] ~~**Molmo entity**~~ — **filed 2026-07-17**: [Molmo entity](entities/molmo.md) (Ai2 fully-open VLM; pointing capability; [MolmoAct](entities/molmoact.md) backbone). Primary arXiv 2409.17146 + OLMo/OLMoE LLMs still un-ingested → noted on the page.
-- [ ] **`## Mentioned in` section missing** on 7 stub entities: [openvla](entities/openvla.md), [octo](entities/octo.md), [paligemma](entities/paligemma.md), [smolvlm](entities/smolvlm.md), [gemma3](entities/gemma3.md), [bagel](entities/bagel.md), [open-x-embodiment](entities/open-x-embodiment.md). Cosmetic; normalize on a stub-cleanup pass.
+- [x] ~~**OpenVLA-OFT entity**~~ — filed 2026-07-17; **primary ingested 2026-07-18** ([openvla-oft-paper](sources/openvla-oft-paper.md), arXiv 2502.19645): parallel decoding + action chunking + continuous L1 head; 76.5→97.1 LIBERO at 26× throughput. Entity now primary-grounded + de-stubbed.
+- [x] ~~**π0-FAST / π0.5-KI entities**~~ — filed 2026-07-17; **both primaries ingested**: [FAST paper](sources/fast-paper.md) (2501.09747, 2026-07-18; acronym corrected to *Frequency-space Action Sequence Tokenization*) + [Knowledge Insulation paper](sources/knowledge-insulation-paper.md) (2505.23705, 2026-07-17). Both concept/entity pages now primary-grounded.
+- [x] ~~**MolmoAct entity**~~ — **filed 2026-07-17**: [MolmoAct entity](entities/molmoact.md) (grounded in VLA-0's LIBERO row; **primary 2508.07917 still un-ingested** → see wrap-up above).
+- [x] ~~**Molmo entity**~~ — **filed 2026-07-17**: [Molmo entity](entities/molmo.md) (Ai2 fully-open VLM; pointing capability; [MolmoAct](entities/molmoact.md) backbone). **Primary arXiv 2409.17146 + OLMo/OLMoE LLMs still un-ingested** → see wrap-up above.
+- [ ] **`## Mentioned in` section missing** on 6 stub entities: [octo](entities/octo.md), [paligemma](entities/paligemma.md), [smolvlm](entities/smolvlm.md), [gemma3](entities/gemma3.md), [bagel](entities/bagel.md), [open-x-embodiment](entities/open-x-embodiment.md). (openvla fixed 2026-07-18 during FAST ingest.) Cosmetic; normalize on a stub-cleanup pass.
 - [ ] **13 pre-existing index/frontmatter source-count mismatches** (2026-07-17 lint): mostly off-by-one — `lerobot` 19/20, `nvidia-cosmos` 15/16, `google-deepmind` 8/9, `jetson-orin-nano` 11/12, `nvidia-halos` 3/4, `nvidia-brev` 2/3, `ros2` 4/5, `robot-safety-standards` 2/3, `ai-red-teaming` 4/5, `large-behavior-models` 4/5, `world-model` 29/30; plus two larger needing ground-truth recount before syncing: **`latent-space` 18/22**, **`whole-body-control` 3/5**. (The 4 self-introduced this session were fixed in-commit.)
 
 ## [2026-07-16] NVIDIA batch (Jetson skills / DeepStream / RoboLab / Halos blog) — follow-ups
