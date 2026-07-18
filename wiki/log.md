@@ -2719,3 +2719,8 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - Updated [curriculum Module 9 (VLA)](syntheses/curriculum/curriculum-09-vla.md): added §4 Action-as-text, recap-table row, and "four flavors" framing.
 - Updated entities: [SmolVLA](entities/smolvla.md) (8→9; real SO-100 loss to VLA-0), [OpenVLA](entities/openvla.md) (0→1; OFT is the only pretrained model above VLA-0 on LIBERO), [LIBERO](entities/libero.md) (3→4; full cross-method table), [Qwen](entities/qwen.md) (Qwen2.5-VL-3B backbone), [ACT](entities/act.md) (ensembling borrowed).
 - Updated [index](index.md) (source + entity + concept bump). Core VLA paper — well-connected to existing VLA thread.
+
+## [2026-07-17] lint | Wiki health check (post 3-paper ingest)
+- **Clean**: 0 broken links (711 pages), 0 orphan pages, 0 missing/malformed frontmatter, 0 Obsidian wikilinks, 0 source-page date-field violations, no contradictions surfaced.
+- **Fixed**: 4 self-introduced index/frontmatter source-count mismatches ([smolvla](entities/smolvla.md) 8→9, [libero](entities/libero.md) 3→4, [sac](entities/sac.md) 2→3, [ultralytics-yolo](entities/ultralytics-yolo.md) 2→3); struck stale "Octo — RoboCasa365 baseline" line in index Known-gaps ([octo](entities/octo.md) is fully filed).
+- **Deferred to [backlog](backlog.md)**: OpenVLA-OFT (5 pages, beats VLA-0 on LIBERO) / π0-FAST / π0.5-KI / MolmoAct as entity-page candidates; 7 stub entities missing `## Mentioned in`; 13 pre-existing index/frontmatter count mismatches (incl. latent-space 18/22, whole-body-control 3/5).

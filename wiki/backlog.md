@@ -2,13 +2,20 @@
 title: Wiki Backlog — deferred lint items & knowledge gaps
 type: meta
 created: 2026-07-04
-updated: 2026-07-04
+updated: 2026-07-17
 tags: [backlog, lint, todo, knowledge-gaps]
 ---
 
 # Wiki Backlog
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
+
+## [2026-07-17] VLA-0 ingest — lint follow-ups
+- [ ] **OpenVLA-OFT entity** — referenced in **5 pages** and the single model that beats [VLA-0](entities/vla-0.md) on LIBERO (rank 1.5 vs 2.8); currently only prose. Highest-value of the dangling VLA baselines. (Moo Jin Kim / Finn / Liang 2025, arXiv 2502.19645; specialized parallel-decoding ACT head.)
+- [ ] **π0-FAST / π0.5-KI entities** — recurring [Physical Intelligence](entities/physical-intelligence.md)-line baselines in **5 pages**. π0-FAST = DCT action tokenization (Pertsch et al. 2501.09747); π0.5-KI = knowledge-insulation variant (Driess et al. 2505.23705). File if they keep recurring.
+- [ ] **MolmoAct entity** — discrete-token "action reasoning" VLA (Lee et al. 2508.07917); mentioned in 3 pages.
+- [ ] **`## Mentioned in` section missing** on 7 stub entities: [openvla](entities/openvla.md), [octo](entities/octo.md), [paligemma](entities/paligemma.md), [smolvlm](entities/smolvlm.md), [gemma3](entities/gemma3.md), [bagel](entities/bagel.md), [open-x-embodiment](entities/open-x-embodiment.md). Cosmetic; normalize on a stub-cleanup pass.
+- [ ] **13 pre-existing index/frontmatter source-count mismatches** (2026-07-17 lint): mostly off-by-one — `lerobot` 19/20, `nvidia-cosmos` 15/16, `google-deepmind` 8/9, `jetson-orin-nano` 11/12, `nvidia-halos` 3/4, `nvidia-brev` 2/3, `ros2` 4/5, `robot-safety-standards` 2/3, `ai-red-teaming` 4/5, `large-behavior-models` 4/5, `world-model` 29/30; plus two larger needing ground-truth recount before syncing: **`latent-space` 18/22**, **`whole-body-control` 3/5**. (The 4 self-introduced this session were fixed in-commit.)
 
 ## [2026-07-16] NVIDIA batch (Jetson skills / DeepStream / RoboLab / Halos blog) — follow-ups
 - [ ] **TensorRT entity** — referenced as bare text from [DeepStream](entities/nvidia-deepstream.md), JetPack, and several Jetson pages; no entity page. File if it keeps recurring.
