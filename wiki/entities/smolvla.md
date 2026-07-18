@@ -3,8 +3,8 @@ title: SmolVLA
 type: entity
 subtype: model
 created: 2026-05-25
-updated: 2026-05-28
-sources: 8
+updated: 2026-07-17
+sources: 9
 tags: [smolvla, vla, vision-language-action, flow-matching, hugging-face, lerobot, smolvlm-2, async-inference, community-datasets, so-arm101, affordable-vla]
 ---
 
@@ -79,3 +79,4 @@ tags: [smolvla, vla, vision-language-action, flow-matching, hugging-face, lerobo
 - [π0 Paper](../sources/pi-zero-paper.md) — referenced via SmolVLA-as-contrasting-design ingestion.
 - [π0 entity](pi-zero.md) — direct comparison.
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — 450 M params, 1.75 GB peak mem A100, **99.2 ms** RTX 4090 latency; **only frontier VLA that runs on CPU** (2028 ms ± 303, 2% timeout). Async vs sync benchmark (Appendix E Table 5) reproduces SmolVLA's own async-inference results on SO-100 (1.8 → 3.8 cubes in 60s with async).
+- [VLA-0 paper](../sources/vla-0-paper.md) — used as the real-world SO-100 baseline; **[VLA-0](vla-0.md) beats SmolVLA by 12.5 pts** on 4 real tasks despite SmolVLA's large-scale SO-100 pretraining (VLA-0 trained from scratch). On LIBERO, VLA-0's 94.7 avg > SmolVLA-2.25B's 88.8.

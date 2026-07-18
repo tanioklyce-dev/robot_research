@@ -2,9 +2,9 @@
 title: VLA models
 type: concept
 created: 2026-05-06
-updated: 2026-07-08
-sources: 37
-tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos]
+updated: 2026-07-17
+sources: 38
+tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos, vla-0, action-as-text]
 ---
 
 **Vision-Language-Action (VLA) models** are robot foundation models that take visual input plus a language instruction and emit low-level actions for a robot to execute. The dominant model class powering "agentic" robotics in 2026.
@@ -35,6 +35,9 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 
 ### Action-head design across VLAs
 
+> [!note] Four families, not three
+> VLAs are usually grouped into three action-head families — **discrete action tokens** (OpenVLA, RT-2), **generative action heads** (π0/SmolVLA flow-matching, Diffusion Policy DDPM), and **custom architectures** (OpenVLA-OFT's ACT head, π0-FAST's DCT tokenizer). [VLA-0](../../entities/vla-0.md) argues for a fourth: **action-as-text** — no head, no new tokens, no architecture change; the VLM just prints the action as integers. With the right recipe it is competitive-to-best ([VLA-0 paper](../../sources/vla-0-paper.md)).
+
 | VLA | Backbone | Action head | Notes |
 | --- | --- | --- | --- |
 | **[OpenVLA](../../entities/openvla.md)** | Llama-2 (7B) | autoregressive action tokens | Open-weights baseline; cited by π0, SmolVLA, JEPA-WMs, EgoScale. |
@@ -43,6 +46,7 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 | **[π0.7](../../entities/pi07.md)** | [Gemma3](../../entities/gemma3.md) 4B + MEM | **[flow matching](flow-matching.md)** + **KI + stop-gradient to VLM** | [Source](../../sources/pi07-paper.md). 5 B total. Diversified prompt (subgoal images via [BAGEL](../../entities/bagel.md) + metadata + control mode). First emergent-capability VLA. |
 | **[π*0.6](../../entities/pistar06.md)** | [π0.6](../../entities/pi-zero-6.md) + advantage indicator | **[flow matching](flow-matching.md)** + **advantage conditioning** (CFGRL) | [Source](../../sources/pistar06-paper.md). RECAP recipe = offline RL on demos → iterate on deployment data + human interventions. 2× throughput, ½ failure rate. |
 | **[SmolVLA](../../entities/smolvla.md)** | [SmolVLM-2](../../entities/smolvlm.md) (~0.4 B) | **[flow matching](flow-matching.md)** + **interleaved CA + causal SA** | [Source](../../sources/smolvla-paper.md). 450 M total. 22.9 K episodes from 481 community HF datasets. Beats π0-3.5B on real-world SO-100. |
+| **[VLA-0](../../entities/vla-0.md)** | [Qwen2.5-VL](../../entities/qwen.md) 3B | **action-as-text** (integers; *no head, no new tokens, no arch change*) | [Source](../../sources/vla-0-paper.md). The **"zero-modification" 4th family** — VLM predicts the action as a string of integers. Recipe = [ACT](../../entities/act.md)-style prediction ensembling (+2 pts) + masked-action augmentation (+1.2). Beats π0 / GR00T-N1 / OpenVLA-OFT / SmolVLA on LIBERO (avg 94.7) **without** action pretraining; +12.5 pts over SmolVLA on real SO-100. Slow (~4 Hz). |
 | [Diffusion Policy](../../entities/diffusion-policy.md) (BC, not strictly a VLA) | ResNet-18 / no language | **DDPM** | The action-head reference for π0's flow-matching design choice. |
 | **Helix S1** | small transformer | continuous regression @ 200 Hz | Combined with **Helix S2** = 7B VLM @ 7–9 Hz. |
 | **GR00T N1.6/1.7** | Cosmos-Reason2-2B | (mixed; see [GR00T entity](../../entities/nvidia-groot.md)) | 3B params; 20,854 hr egocentric video pretrain — see [EgoScale](../../sources/egoscale-paper.md) for the primary source and scaling law. |

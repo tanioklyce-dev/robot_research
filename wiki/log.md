@@ -2711,3 +2711,11 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - Updated [SAC](entities/sac.md) (sources 2→3; best-algorithm-here mention).
 - Glossary: added MARL, MADDPG, MA-POCA, CTDE, Markov Game (MG), Elo.
 - Updated [index](index.md) (source + entity + concept).
+
+## [2026-07-17] ingest | VLA-0 — Building State-of-the-Art VLAs with Zero Modification
+- New source: [vla-0-paper](sources/vla-0-paper.md) (NVIDIA, Goyal et al.; arXiv 2510.13054; raw PDF). "Action-as-text" VLA — unmodified Qwen2.5-VL-3B prints actions as integer strings (no head, no new tokens, no arch change). Recipe = ACT-style prediction ensembling (+2 pts) + masked-action augmentation (+1.2). LIBERO avg 94.7 (rank 1.0 among no-pretraining models; rank 2.8 overall, 2nd to OpenVLA-OFT); beats π0/GR00T-N1/SmolVLA/OpenVLA/Octo/MolmoAct without action pretraining; +12.5 pts over SmolVLA on real SO-100; ~4 Hz inference.
+- New entity: [VLA-0](entities/vla-0.md).
+- Updated concept [VLA models](concepts/learning/vla-models.md) (sources 37→38): added VLA-0 to the action-head table + a "four families, not three" callout (action-as-text = 4th family).
+- Updated [curriculum Module 9 (VLA)](syntheses/curriculum/curriculum-09-vla.md): added §4 Action-as-text, recap-table row, and "four flavors" framing.
+- Updated entities: [SmolVLA](entities/smolvla.md) (8→9; real SO-100 loss to VLA-0), [OpenVLA](entities/openvla.md) (0→1; OFT is the only pretrained model above VLA-0 on LIBERO), [LIBERO](entities/libero.md) (3→4; full cross-method table), [Qwen](entities/qwen.md) (Qwen2.5-VL-3B backbone), [ACT](entities/act.md) (ensembling borrowed).
+- Updated [index](index.md) (source + entity + concept bump). Core VLA paper — well-connected to existing VLA thread.

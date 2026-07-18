@@ -3,8 +3,8 @@ title: OpenVLA
 type: entity
 subtype: model
 created: 2026-05-25
-updated: 2026-05-25
-sources: 0
+updated: 2026-07-17
+sources: 1
 tags: [openvla, vla, vision-language-action, open-weights, llama-2, autoregressive-action-tokens, baseline]
 status: stub
 ---
@@ -44,5 +44,5 @@ status: stub
 ## Open questions
 
 - **Primary source not yet ingested.** When the Kim et al. 2024 paper lands in `raw/`, deepen this entity with architecture details (vision encoder, action-bin scheme, training data mixture, exact LIBERO/SimplerEnv numbers).
-- **OpenVLA-OFT / OpenVLA v2** — successor work referenced in 2025 papers; not ingested.
+- **OpenVLA-OFT / OpenVLA v2** — successor work referenced in 2025 papers; not ingested. Notably, **OpenVLA-OFT (with large-scale action pretraining) is the *only* model above [VLA-0](vla-0.md) on LIBERO** (rank 1.5 vs 2.8) per the [VLA-0 paper](../sources/vla-0-paper.md); plain OpenVLA (76.5 avg) sits far below.
 - **Author entity pages** — Moo Jin Kim (first author) doesn't have a page. Karl Pertsch + Levine + Finn do.

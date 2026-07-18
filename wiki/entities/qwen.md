@@ -15,6 +15,7 @@ Open-weights LLM family from Alibaba (Tongyi Qianwen). Frequently deployed in ro
 - **`qwen3:1.7b`** — used by [ROSOrin](rosorin.md)'s offline curriculum via [Ollama](ollama.md) ([Hiwonder ROSOrin Documentation](../sources/hiwonder-rosorin-docs.md)).
 - **`qwen25-3B-Instruct`** — default local LLM in [stretch_ai](stretch-ai.md)'s LLM agent ([Stretch AI LLM Agent Documentation](../sources/stretch-ai-llm-agent-docs.md)).
 - **`Qwen-plus-latest`** — cloud variant accessed via OpenRouter in ROSOrin's chapter 10 cloud curriculum.
+- **`Qwen2.5-VL-3B`** — the unmodified VLM backbone of **[VLA-0](vla-0.md)**, NVIDIA's action-as-text VLA ([VLA-0 paper](../sources/vla-0-paper.md)). A robotics use of Qwen's *vision-language* variant (vs. the text-only variants above).
 
 ## Why it matters
 Qwen has become a default open-weights LLM for agentic robotics on edge devices because of (a) permissive license, (b) small variants that fit on Jetson-class hardware, (c) good multilingual support including Chinese. The fact that two unrelated robot stacks ([stretch_ai](stretch-ai.md) and [ROSOrin](rosorin.md)) independently default to Qwen 1.5–3B variants is itself a signal.
@@ -26,3 +27,4 @@ Qwen has become a default open-weights LLM for agentic robotics on edge devices 
 ## Mentioned in
 - [Hiwonder ROSOrin Documentation](../sources/hiwonder-rosorin-docs.md)
 - [Stretch AI LLM Agent Documentation](../sources/stretch-ai-llm-agent-docs.md)
+- [VLA-0 paper](../sources/vla-0-paper.md) — Qwen2.5-VL-3B as the VLA backbone.

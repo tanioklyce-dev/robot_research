@@ -3,8 +3,8 @@ title: LIBERO
 type: entity
 subtype: benchmark
 created: 2026-05-08
-updated: 2026-07-07
-sources: 3
+updated: 2026-07-17
+sources: 4
 tags: [libero, manipulation-benchmark, lifelong-learning, robosuite, mujoco]
 ---
 
@@ -27,11 +27,13 @@ Primary reference is [VLA-JEPA](../sources/vla-jepa-paper.md) (Sun et al., Feb 2
 ## Reported numbers in this wiki
 
 - **[GR00T](nvidia-groot.md) 1.7 (LeRobot-trained, NVIDIA-reported)** — Spatial **95%**, Object **100%**, Goal **98%**, Long **93%**, avg **96.5%**; vs GR00T 1.5 avg 87% ([NVIDIA HF blog, 2026-07-07](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md)). Per-suite fine-tuned checkpoints released (`nvidia/gr00t17-lerobot-libero_*-640`). Vendor self-comparison — no third-party baselines in the post.
+- **[VLA-0](vla-0.md) (NVIDIA, no action pretraining)** — Spatial **97.0**, Object **97.8**, Goal **96.2**, Long **87.6**, avg **94.7** — **best rank (1.0) among no-pretraining models** and rank 2.8 overall, above π0 (94.2), π0.5-KI (94.3), GR00T-N1 (93.9), MolmoAct (86.8), OpenVLA (76.5); only OpenVLA-OFT-pretrained (97.1) is higher. A rare **cross-method LIBERO table with consistent baselines** ([VLA-0 paper](../sources/vla-0-paper.md), Table I).
 
 ## Mentioned in
 - [VLA-JEPA Paper](../sources/vla-jepa-paper.md)
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **natively integrated** as one of two simulation benchmarks (alongside [Metaworld](metaworld.md)). Confirms the four task families: SPATIAL, OBJECT, GOAL, plus continuing-task LIBERO-90 and long-horizon LIBERO-LONG.
 - [NVIDIA Isaac Teleop and GR00T 1.7 in LeRobot (HF blog)](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) — GR00T 1.7 vs 1.5 LIBERO table; describes LIBERO as "130 language-annotated tabletop manipulation tasks."
+- [VLA-0 paper](../sources/vla-0-paper.md) — primary simulation benchmark; the wiki's most complete cross-method LIBERO comparison (11 models, with/without action pretraining).
 
 ## Open questions / TBD
 - Original LIBERO paper (Liu et al., NeurIPS 2023) not yet ingested as a source — would let us cite design rationale (why the four task families, what "lifelong" means concretely).

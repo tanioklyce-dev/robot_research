@@ -26,7 +26,7 @@ By the end of the module you should be able to:
 
 1. Define a VLA structurally (vision encoder + language encoder/decoder + action head) and identify which component each part of a paper's architecture diagram corresponds to.
 2. Explain why VLAs aren't world models — they emit actions, not next states; they're policies, not dynamics models.
-3. Distinguish the three dominant **action-head** choices in 2026 (autoregressive action tokens vs flow matching vs DDPM-over-actions) and explain when you'd reach for each.
+3. Distinguish the dominant **action-head** choices in 2026 (autoregressive action tokens vs flow matching vs DDPM-over-actions — plus the head-free "action-as-text" alternative) and explain when you'd reach for each.
 4. Read a VLA paper's training section and identify the backbone (which VLM), the action head, the data scale (hours of teleop / hours of human video), and any hierarchical structure (system 1 / system 2).
 5. Place [VLA-JEPA](../../entities/vla-jepa.md) at the cross-over between Modules 9 and 11 and explain why the JEPA-as-auxiliary framing is interesting.
 
@@ -82,7 +82,7 @@ A VLA can be **trained alongside** a world model, **fine-tuned with** a world-mo
 
 ## Action-head design across VLAs
 
-The biggest 2024–2026 design axis. Three flavors:
+The biggest 2024–2026 design axis. Four flavors (three classic action heads + one that drops the head entirely):
 
 ### 1. Autoregressive action tokens
 
@@ -108,11 +108,20 @@ The biggest 2024–2026 design axis. Three flavors:
 - Multi-modal action distributions handled exactly as in BC.
 - More inference steps than flow matching; same denoising-network structure.
 
+### 4. Action-as-text (no head at all)
+
+**Idea.** Skip the action head entirely — prompt the VLM to **print the action as a string of integers** (normalize the continuous action to e.g. `[0,1000]`, generate `H×D` space-separated numbers), trained with the base VLM's cross-entropy loss.
+
+- Introduced by **[VLA-0](../../entities/vla-0.md)** ([source](../../sources/vla-0-paper.md)). No new tokens, no vocabulary change, no architecture change — the "zero-modification" design.
+- Arbitrary action resolution (unlike discrete-token binning) without touching the vocabulary.
+- Needs a **recipe** to work: [ACT](../../entities/act.md)-style prediction ensembling + masked-action augmentation. With it, VLA-0 tops π0 / GR00T-N1 / SmolVLA / OpenVLA-OFT on [LIBERO](../../entities/libero.md) with no action pretraining. Cost: slow autoregressive decode (~4 Hz).
+
 ### Comparison (recapping the table from [`concepts/vla-models.md`](../../concepts/learning/vla-models.md))
 
 | VLA | Backbone | Action head | Notes |
 | --- | --- | --- | --- |
 | **OpenVLA** | Llama-2 | autoregressive action tokens | Open-weights baseline. |
+| **[VLA-0](../../entities/vla-0.md)** | [Qwen2.5-VL](../../entities/qwen.md) 3B | action-as-text (no head) | [Source](../../sources/vla-0-paper.md). Zero-modification; tops LIBERO with no action pretraining. |
 | **[π0](../../sources/pi-zero-paper.md)** | pretrained VLM | flow matching | Physical Intelligence flagship. |
 | **[Diffusion Policy](../../entities/diffusion-policy.md)** (BC, not strictly a VLA) | ResNet-18 / no language | DDPM | Reference for π0's action-head choice. |
 | **[Helix S1](../../sources/helix-blog.md)** | small transformer | continuous regression @ 200 Hz | Combined with **Helix S2** = 7B VLM @ 7–9 Hz. |
