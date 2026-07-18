@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-07-17
 updated: 2026-07-17
-sources: 3
+sources: 4
 tags: [fast, action-tokenization, dct, vla, discrete-tokens, autoregressive, physical-intelligence, pi-zero]
 ---
 
@@ -29,6 +29,8 @@ The [VLA-0 paper](../sources/vla-0-paper.md) classifies π0-FAST under **custom 
 
 - **LIBERO** ([VLA-0 paper](../sources/vla-0-paper.md), Table I): π0-FAST **86.0** avg with large-scale action pretraining (Spatial 90 / Object 86 / Goal 95 / Long 73); a **π0-FAST-PaliGemma** no-pretraining variant scores 71.8. Below [VLA-0](vla-0.md) (94.7) and [OpenVLA-OFT](openvla-oft.md) (97.1).
 - **RoboLab-120** ([Cosmos 3 report](../sources/cosmos-3-technical-report.md), Table 19): π0-FAST **14.9%** avg success vs Cosmos3-Nano 39.7 / π0.5 28.1 / π0 3.5.
+- **LIBERO** ([KI paper](../sources/knowledge-insulation-paper.md), Table 1): π0-FAST Spatial 96.4 / Object 96.8 / Goal 88.6 / **Long 60.2** — the weak Long-horizon score exposes autoregressive FAST decoding's cost; the [KI](../concepts/learning/knowledge-insulation.md) recipe (same team) lifts Long to 85.8.
+- **Inference speed** ([KI paper](../sources/knowledge-insulation-paper.md) §4): ~**750 ms** to decode a 1 s action chunk on an RTX 4090 (~1.3 Hz) — the autoregressive-decoding cost that motivates flow-matching experts.
 
 ## Related
 
@@ -46,3 +48,4 @@ The [VLA-0 paper](../sources/vla-0-paper.md) classifies π0-FAST under **custom 
 - [VLA-0 paper](../sources/vla-0-paper.md) — π0-FAST as a custom-architecture / discrete-token baseline.
 - [Cosmos 3 technical report](../sources/cosmos-3-technical-report.md) — π0-FAST as a RoboLab-120 baseline.
 - [π0.7 paper](../sources/pi07-paper.md) / [π*0.6 paper](../sources/pistar06-paper.md) — FAST tokens inside the Knowledge Insulation recipe.
+- [Knowledge Insulation paper](../sources/knowledge-insulation-paper.md) — uses FAST as the discrete representation-learning objective; finds FAST beats naïve tokenization for this role.

@@ -4,7 +4,7 @@ type: entity
 subtype: organization
 created: 2026-05-09
 updated: 2026-05-25
-sources: 5
+sources: 6
 tags: [physical-intelligence, vla, pi-zero, pi-zero-7, pi-star-zero-6, generalist-policy, robotics, flow-matching, recap]
 ---
 
@@ -47,5 +47,6 @@ Physical Intelligence and [NVIDIA GR00T](../entities/nvidia-groot.md) / Gemini R
 - [π0 Paper](../sources/pi-zero-paper.md) — primary source for π0.
 - [π0.7 Paper](../sources/pi07-paper.md) — primary source for π0.7.
 - [π*0.6 Paper](../sources/pistar06-paper.md) — primary source for π*0.6 + RECAP.
+- [Knowledge Insulation Paper](../sources/knowledge-insulation-paper.md) — the KI training recipe (π0.5-KI) behind π0.7 / π*0.6.
 - [SmolVLA Paper](../sources/smolvla-paper.md) — uses π0 as primary baseline.
 - [Stanford HAI — AI Index Report 2026](../sources/stanford-hai-ai-index-2026.md)

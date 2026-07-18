@@ -2739,3 +2739,10 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 ## [2026-07-17] entity | Molmo VLM (backlog follow-up)
 - New entity: [Molmo](entities/molmo.md) — Allen Institute (Ai2) fully-open (weights + PixMo data) VLM family (Deitke et al. 2409.17146); signature pixel-**pointing** capability; the backbone under [MolmoAct](entities/molmoact.md). Grounded in the MolmoAct link; primary source + OLMo/OLMoE LLMs flagged un-ingested.
 - Wired: [molmoact](entities/molmoact.md) (backbone link + note updated), [index](index.md) VLM-backbones section; backlog item struck.
+
+## [2026-07-17] ingest | Knowledge Insulation (Driess et al. 2025) — primary source
+- Curled arXiv 2505.23705 into raw/ (my suggestion, session's fifth ingest); the KI concept page was previously secondary-grounded, now primary.
+- New source: [knowledge-insulation-paper](sources/knowledge-insulation-paper.md). Naïvely grafting a flow-matching action expert onto a VLM (π0) corrupts the backbone (hurts language following + training speed); freezing gives 0%. KI = joint discrete(FAST)/continuous training + VLM-data co-training + stop-gradient (attention-level). Trains ~7.5× faster than π0; SOTA LIBERO-90 (96.0) + LIBERO-Spatial (98.0); DROID 0.55 vs π0 0.49.
+- **Identity confirmed**: KI paper's "Ours (from generalist)" LIBERO avg 94.3 == VLA-0 paper's relayed "π0.5-KI 94.3" → π0.5-KI = π0.5 + KI.
+- Rewrote [Knowledge Insulation concept](concepts/learning/knowledge-insulation.md) (3→4 sources) to primary-grounded; resolved the pi07-paper KI open-question.
+- Updated: [FAST](entities/fast-action-tokenization.md) (3→4; LIBERO-Long 60.2 + 750ms/1.3Hz inference), [LIBERO](entities/libero.md) (4→5; π0.5-KI SOTA row + full Table 1), [physical-intelligence](entities/physical-intelligence.md) (5→6), [pi-zero-6](entities/pi-zero-6.md) (2→3; π0.5-KI now sourced), [pi07-paper](sources/pi07-paper.md). Glossary: added KI. Index: source + 5 count syncs.

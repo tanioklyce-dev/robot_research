@@ -4,8 +4,8 @@ type: entity
 subtype: model
 created: 2026-05-25
 updated: 2026-07-04
-sources: 2
-tags: [pi-zero-6, pi-zero-5, pi-zero-6-mem, pi-zero, physical-intelligence, vla, flow-matching, intermediate, lineage]
+sources: 3
+tags: [pi-zero-6, pi-zero-5, pi-zero-6-mem, pi-zero, physical-intelligence, vla, flow-matching, intermediate, lineage, knowledge-insulation]
 status: stub
 ---
 
@@ -20,6 +20,7 @@ The wiki's two strongest 2025 VLAs — **[π0.7](pi07.md)** and **[π*0.6](pista
 
 - Adds **intermediate-subtask conditioning** — high-level text describing the next semantic subtask (e.g. "open the fridge door") in addition to the overall task description ("clean the kitchen"). [π0.7 paper](../sources/pi07-paper.md) §V-A: "Following π0.5, we include intermediate, higher-level text that captures the next semantic subtask as part of the prompt."
 - The "VLM-as-planner + π-VLA-as-controller" stack pattern starts here.
+- **π0.5-KI** — π0.5 trained with the [Knowledge Insulation](../concepts/learning/knowledge-insulation.md) recipe — *does* have an ingested primary ([KI paper](../sources/knowledge-insulation-paper.md), Driess et al. 2505.23705); it's that paper's "Ours (from generalist model)" (LIBERO avg 94.3). So while plain π0.5 has no paper, the π0.5-**KI** variant referenced across the wiki is fully sourced.
 
 ### π0.6 (intermediate after π0.5)
 

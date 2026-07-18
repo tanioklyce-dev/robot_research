@@ -174,6 +174,9 @@ The `m×n` matrix of partial derivatives of a vector function `f: Rⁿ→Rᵐ`, 
 ### JEPA-WMs
 Terver et al., FAIR, Dec 2025 ([source page](sources/jepa-wms-paper.md)); first JEPA-for-robotics paper using [RoboCasa](entities/robocasa.md). *(Module 11.)*
 
+### KI
+**Knowledge Insulation** — [Physical Intelligence](entities/physical-intelligence.md) VLA training recipe (Driess et al. 2505.23705): train the VLM backbone on discrete [FAST](entities/fast-action-tokenization.md) action tokens + co-train on VLM data, while a flow-matching action expert learns continuous actions with a **stop-gradient** to the backbone — so the action head can't corrupt pretrained knowledge. Behind [π0.7](entities/pi07.md) / [π*0.6](entities/pistar06.md). See [concept page](concepts/learning/knowledge-insulation.md). *(Module 9.)*
+
 ### KL
 **Kullback–Leibler divergence** — asymmetric distance between two probability distributions; building block for VAE / diffusion losses. *(Module 5.)*
 
