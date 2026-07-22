@@ -2,7 +2,7 @@
 title: Fast-ball tracking for robots — what transfers from broadcast sports CV
 type: synthesis
 created: 2026-07-21
-updated: 2026-07-21 (field evidence added)
+updated: 2026-07-22 (§9 — cross-machine transfer failure)
 tags: [object-tracking, heatmap, tracknet, motion-attention, pinball, table-tennis, latency, perception, reflex-control, project]
 ---
 
@@ -16,6 +16,8 @@ Short version: **the perception core transfers well and beats the approach curre
 > This is analysis, not a validated build. The sourced claims carry citations; the latency arithmetic and the causal/non-causal split are my own reasoning over those sources and are flagged where they occur.
 >
 > **[§8 Field evidence](#8-field-evidence-added-2026-07-21) (2026-07-21)** revisits every recommendation against a first-party implementation ([pinball_tracker](../../sources/pinball-tracker-repo.md)). Two were refuted. Read it before acting on §7.
+>
+> **[§9 Cross-machine transfer](#9-cross-machine-transfer-failure-added-2026-07-22) (2026-07-22)** — a third machine was labeled and the same model scored **0.232 F1** on it. This partly **un-revises** §8's data-cost finding and re-ranks the levers in §7. Read §9 before §8's optimism.
 
 ## 1. What the literature actually establishes
 
@@ -100,11 +102,18 @@ The cluster's most under-advertised finding: **cross-sport transfer fails outrig
 
 Pinball is further from tennis than badminton is. **Assume no pretrained weights help; assume you label your own data.** V1 used **20,844 frames** for tennis; the V3 shuttlecock set and V4's multi-ball set are comparable in scale.
 
-> [!warning] Revised by field evidence — see [§8](#8-field-evidence-added-2026-07-21)
+> [!warning] Revised by field evidence — see [§8](#8-field-evidence-added-2026-07-21), then [§9](#9-cross-machine-transfer-failure-added-2026-07-22)
 > This section originally called 20k frames "the actual cost of entry." A
 > first-party implementation reaches **0.878 F1 held-out on 600 training
 > frames** — ~20× less. Weakly evidenced (see §8 for the caveats), but enough
 > that "start at ~1k and measure" beats committing to a 10–20k campaign.
+>
+> **Partly un-revised 2026-07-22.** A *second* held-out machine drops the same
+> model to **0.232 F1** ([§9](#9-cross-machine-transfer-failure-added-2026-07-22)).
+> 600 frames bought one lucky generalization hop, not a robust tracker — which
+> is much closer to this section's original pessimism than §8's revision
+> suggested. "Start at ~1k and measure" survives as *method*; the implied
+> conclusion that ~1k is *sufficient* does not.
 
 Two things make it much cheaper than it sounds, and they compound:
 
@@ -191,6 +200,14 @@ frames** — roughly 20× less than estimated.
 > a 10–20k campaign up front" — a materially different plan from the original
 > recommendation either way.
 
+> [!warning] The hedge above was right — see [§9](#9-cross-machine-transfer-failure-added-2026-07-22)
+> "A promising lower bound on a single easy-ish generalization step" is exactly
+> what it turned out to be. The third machine landed on 2026-07-22 and the same
+> model scored **0.232 F1** on it. **Do not cite the 20×-cheaper finding without
+> §9.** The defensible version is: 600 frames can clear *one* favourable
+> machine-to-machine hop; they do not buy a tracker that survives an arbitrary
+> new playfield.
+
 Plausible reasons the estimate was too high: homography normalization removes a
 large source of variance the tennis datasets had to learn through; a pinball
 playfield is planar and bounded where a tennis court is not; and a 1.95M-param
@@ -219,10 +236,117 @@ has no explicit motion signal — no frame differencing anywhere, motion is pure
 implicit via frame stacking, matching TrackNet V1/V2. It remains the cheapest
 available accuracy lever and is still unvalidated on pinball footage.
 
+**As of 2026-07-22 it now has a concrete failure to aim at** — see
+[§9](#9-cross-machine-transfer-failure-added-2026-07-22), which argues V3-style
+**background estimation** may be the better-targeted of the two untried levers
+for this particular failure, because the distractors that break the model are
+*stationary*.
+
+## 9. Cross-machine transfer failure (added 2026-07-22)
+
+§8 was written when [pinball_tracker](../../sources/pinball-tracker-repo.md) had
+one held-out machine. It now has two, and the second one breaks it.
+
+| source (split) | machine | P | R | F1 |
+|---|---|---|---|---|
+| `foofighters_deadflip` (val) | Foo Fighters Pro | 0.903 | 0.927 | **0.914** |
+| `pokemon_cooltoy` (test) | Pokémon Premium | 0.212 | 0.256 | **0.232** |
+
+Same checkpoint, same evaluation recipe, both machines unseen in training. The
+project ruled out coordinate error, scale mismatch, decode threshold, and
+segment/track artifacts before accepting the result — details on the
+[source page](../../sources/pinball-tracker-repo.md). The attributed cause:
+the Pokémon playfield is dense with **round, shiny, ball-like decorations** (a
+large Pokéball toy, Pikachu figurines, glossy plastics) that the model fires on
+instead of the ball.
+
+### This is the literature's failure mode, reproduced
+
+The number is strikingly close to the family's own published transfer result:
+
+| transfer | F1 | Recall |
+|---|---|---|
+| V1, tennis → badminton, zero-shot ([V1 §V](../../sources/tracknet-huang-2019.md)) | 35.2 | 22.9% |
+| pinball_tracker, Godzilla → Pokémon | 23.2 | 25.6% |
+
+Same recall-dominated shape at the same scale — and consistent with V1's
+10-fold cross-validation dropping recall **97.3 → 75.7** across courts and
+lighting *within* one sport. §6's original claim that "**cross-sport transfer
+fails outright**" generalizes further than written: for this model family,
+**cross-*venue* transfer is the unsolved problem**, and a pinball machine is a
+venue whose entire visual identity is bespoke art. Two machines is a small
+sample, but the failure is not anomalous — it is what the family does.
+
+### Consequence: augmentation is unlikely to be the fix
+
+The project is probing whether heavy photometric augmentation on a single train
+machine can close the gap. **Nothing in this literature cluster shows
+augmentation closing a transfer gap of this magnitude.** V3 uses mixup and
+still needs in-domain data; V1's answer to badminton was to label badminton.
+Augmentation perturbs the pixels you have — it does not synthesize a Pokéball
+toy into Godzilla's playfield, and the failure is object-level, not
+lighting-level. Worth measuring, but the prior should be low.
+
+### The better-targeted lever: background estimation, not motion attention
+
+§8 lists motion attention as the cheapest untried lever, and it still is *in
+general*. But for **this specific failure** I think [V3's background
+estimation](../../sources/tracknetv3-repo.md) is the sharper tool, and the
+reason is a property of the distractors:
+
+**The objects that break the model do not move.** A Pokéball toy and a row of
+figurines are geometrically static. A median background image over a rally —
+which §3 already identifies as the one V3 trick that transfers to a fixed rig,
+computable once at setup with no future frames and no per-frame cost — captures
+them almost exactly. Fed as an auxiliary input, it lets the network learn to
+discount whatever is *always there*. Balls move; toys don't. That is a direct
+answer to the measured failure, where motion attention is an indirect one.
+
+> [!warning] Motion attention has a pinball-specific risk the source papers don't face
+> Frame differencing on a playfield is dominated by **insert and flasher
+> flicker** — lamps changing intensity at fixed positions. This is exactly what
+> sank classical bootstrap labeling at 8% of frames ([§8](#refuted--recommendation-5-was-wrong)).
+> V4's module is structurally better than that baseline: the difference map is
+> *multiplied into* appearance features late in the network (`A_t ⊚ V_t`) rather
+> than deciding alone, so a blinking insert must also look like a ball to
+> survive. But badminton has no analogue of a playfield full of animated lamps,
+> so V4's reported +0.4–0.6 F1 should **not** be assumed to carry over. Measure
+> it on pinball footage before believing it.
+
+Both are cheap enough to test, and they are orthogonal — background estimation
+suppresses *static* clutter, motion attention amplifies *moving* evidence. On a
+static-camera rig there is no reason not to try both.
+
+### Revised recommendation ordering for the pinball fast loop
+
+Superseding §7's item 5 and re-ranking the accuracy levers:
+
+1. **Training diversity is the blocking issue, not a polish item.** One train
+   machine does not cover arbitrary playfield art. Label a second *train*
+   machine — chosen for clutter, not convenience — before tuning anything else.
+2. **Background estimation** — best-matched to the measured failure, and free at
+   inference on a fixed rig.
+3. **Motion attention** — still the cheapest general lever; carries the
+   lamp-flicker caveat above.
+4. **Augmentation** — worth a run, low prior.
+5. **Match `max-peaks` to the true ball count when evaluating.** The project
+   found that a peak cap above the real object count manufactures false
+   positives: its val clip scored 0.537 F1 (precision 0.376) at the default cap
+   of 4 versus 0.914 at the correct cap of 1. This is the practical face of the
+   open multi-ball formulation question below, and it silently corrupts any
+   precision number in this family.
+
+> [!note] What would change this conclusion
+> A single additional cluttered *training* machine lifting Pokémon materially
+> would confirm "diversity, not architecture." If it doesn't, the problem is
+> architectural — the model is keying on appearance in a way that stacked frames
+> alone don't fix — and background estimation / motion attention move from
+> optional levers to required ones.
+
 ## Related
 
 - [pinball_tracker (repo)](../../sources/pinball-tracker-repo.md) — the
-  first-party implementation providing the field evidence in §8.
+  first-party implementation providing the field evidence in §8 and §9.
 - [Pinball-playing robot — project scoping](pinball-playing-robot.md) — the project this revises; see its Vision + reflex budget section.
 - [XLeRobot camera options (low light)](xlerobot-camera-options-low-light.md) — sensor-side sibling analysis.
 - [TrackNet (model family)](../../entities/tracknet.md), [heatmap-based object localization](../../concepts/robotics/heatmap-object-localization.md), [motion attention](../../concepts/robotics/motion-attention.md).
@@ -234,4 +358,5 @@ available accuracy lever and is still unvalidated on pinball footage.
 - **No TrackNet-on-Jetson benchmark exists.** This is the single biggest unknown in the recommendation above and the first thing to measure.
 - Does motion attention survive **ego-motion compensation** (homography-warp before differencing), or does warping residual break the learned normalization? Untested anywhere.
 - ~~Can the VGG-16 encoder be replaced with an edge-scale backbone?~~ **Partially answered — see [§8](#8-field-evidence-added-2026-07-21)**: a ~1.95M-param U-Net reaches 0.878 F1 held-out. Still no controlled ablation; the TrackNet family has never ablated the backbone at all.
-- For pinball specifically: **multi-ball modes**. V4's multi-ball dataset labels a "primary" ball, but pinball multiball has no primary — you may need all of them, which is a different output formulation (multiple peaks, no argmax).
+- For pinball specifically: **multi-ball modes**. V4's multi-ball dataset labels a "primary" ball, but pinball multiball has no primary — you may need all of them, which is a different output formulation (multiple peaks, no argmax). **Now has a concrete cost attached** ([§9](#9-cross-machine-transfer-failure-added-2026-07-22)): with no argmax you must cap the peak count, and a cap above the true ball count manufactures false positives — 0.537 vs 0.914 F1 on the same clip. A per-frame ball-count estimate, rather than a fixed cap, is the unbuilt piece.
+- **Does cross-machine transfer have a floor?** Two held-out machines gave 0.914 and 0.232 with no obvious a-priori way to tell which kind a new machine would be ([§9](#9-cross-machine-transfer-failure-added-2026-07-22)). Predicting transfer difficulty from playfield properties (clutter density, count of spherical decorations, GI brightness) is unexplored and would be worth more than another point estimate.

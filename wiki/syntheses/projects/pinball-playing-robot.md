@@ -2,7 +2,7 @@
 title: Pinball-playing robot — project scoping
 type: synthesis
 created: 2026-07-15
-updated: 2026-07-21
+updated: 2026-07-22
 source_notes: raw/project_notes_on_robots_from_claude.txt
 tags: [pinball, xlerobot, jetson-thor, dgx-spark, gr00t, so-arm101, solenoid, reflex-control, global-shutter-camera, physical-ai, project]
 ---
@@ -44,6 +44,8 @@ A recurring idea in the notes: a **rig that clamps onto the cabinet** (referenci
 
 > [!note] Tracker choice revised — see [Fast-ball tracking for robots](fast-ball-tracking-for-robots.md)
 > The "frame-differencing + YOLO-nano" recommendation above has the **right instinct** (fuse motion + appearance) but the weaker mechanism. A **[TrackNetV2-class heatmap tracker + V4 motion attention](../../entities/tracknet.md)** is the better-evidenced version: heatmap output beats a YOLO baseline by **~30 F1** at this object scale, and V4's learned motion fusion replaces the hand-tuned two-cue arbitration. The chrome-ball-through-glass problem *strengthens* the case, since motion is stable when appearance isn't. **Avoid TrackNetV3** — its gain comes from a non-causal trajectory-inpainting module a reflex loop cannot run; that job belongs to the Kalman predictor below. Full analysis, including the latency and labeling-cost implications, on the linked page.
+>
+> **Update 2026-07-22 — the open risk is transfer, not architecture.** Field measurement now shows the built tracker scoring **0.914 F1 on one unseen machine and 0.232 on another** ([§9](fast-ball-tracking-for-robots.md#9-cross-machine-transfer-failure-added-2026-07-22)). For a robot that is supposed to approach *any* showroom machine, this is the perception risk that matters most — and it is a **data-coverage** problem, not a backbone choice. Budget for labeling several visually distinct machines. One cheap architectural mitigation is newly favoured: **V3's background estimation** (the median-background trick §3 already blesses for a fixed rig) directly suppresses the static playfield decorations that caused the failure.
 
 - **Predict, don't react**: feed the tracker into a ballistic/Kalman predictor and **pre-fire the solenoid** by the total pipeline latency (detector + inference + decision + solenoid mechanical delay, ~15–30 ms if the tracker stays lean). Keep the trigger path short — fire over direct GPIO/UART to the solenoid MCU, not through USB/ROS topics.
 
@@ -66,7 +68,7 @@ The project uses the wiki's canonical [train-on-Spark, deploy-on-Thor](../platfo
 ## Related
 
 - [Fast-ball tracking for robots](fast-ball-tracking-for-robots.md) — **the perception deep-dive for this project's fast loop**: which parts of the TrackNet literature are causal enough to use, and why the rig fork buys a static camera. See its **§8 Field evidence** for what a real implementation confirmed and refuted.
-- [pinball_tracker (repo)](../../sources/pinball-tracker-repo.md) — **the fast loop, actually built**: heatmap U-Net + homography normalization, F1 0.878 held-out on an unseen machine. Also the source of two corrections to the analysis page: classical-CV bootstrap labeling tracks only ~8% of frames (hand-label instead), and 600 training frames went much further than the 10–20k estimate.
+- [pinball_tracker (repo)](../../sources/pinball-tracker-repo.md) — **the fast loop, actually built**: heatmap U-Net + homography normalization. Held-out F1 **0.914 on a second machine but 0.232 on a third** (2026-07-22) — the tracker works, but **does not yet transfer to an arbitrary playfield**, which is the live risk for a robot expected to walk up to any showroom machine. Also the source of two corrections to the analysis page: classical-CV bootstrap labeling tracks only ~8% of frames (hand-label instead), and 600 training frames went further than the 10–20k estimate *on one favourable hop* — see [§9](fast-ball-tracking-for-robots.md#9-cross-machine-transfer-failure-added-2026-07-22).
 - [XLeRobot Thor power budget](xlerobot-thor-power-budget.md), [GR00T on Spark → ZMQ → XLeRobot](gr00t-spark-zmq-xlerobot.md), [XLeRobot camera options (low light)](xlerobot-camera-options-low-light.md) — sibling project pages on the same platform.
 - [Jetson Thor vs DGX Spark](../platforms/jetson-thor-vs-dgx-spark.md) — the compute-split rationale.
 - [XLeRobot](../../entities/xlerobot.md), [SO-ARM101](../../entities/so-arm101.md), [GR00T](../../entities/nvidia-groot.md), [Isaac ROS](../../entities/isaac-ros.md), [Jetson Thor](../../entities/jetson-thor.md), [DGX Spark](../../entities/dgx-spark.md).

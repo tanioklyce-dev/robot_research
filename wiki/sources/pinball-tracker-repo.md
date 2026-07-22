@@ -81,6 +81,54 @@ MIT, Python, ~4.6k LOC, 56 commits as of ingest.
   median **6.8–8.7 mm/frame**, p95 42–59, max **162.5 mm/frame**, peak speed
   **4.87 m/s**. The wiki's only measured ball-speed data.
 
+## Update (2026-07-22) — the third machine, and the generalization claim breaks
+
+The `pokemon_cooltoy` test split (empty at ingest, and the subject of this
+page's first open question) is now **labeled**: 1,556 rows, source frames
+32705–33304, three balls in multiball (600/418/538), all `tracked`. The
+decorative **Pokéball toy** was excluded as a hard negative on the same logic as
+the Foo Fighters captive ball; all three labeled tracks roam ~470×980 px at
+3–11 px/frame median speed, confirming none of them is the stationary sphere.
+
+The project's `best.pt` (the epoch-28 checkpoint behind the 0.878/0.920 figures
+above) was then scored on **both** held-out machines with one recipe
+(`pbt-predict` → greedy match in image space at 30 px tolerance):
+
+| source (split) | P | R | F1 | loc |
+|---|---|---|---|---|
+| `foofighters_deadflip` (val) | 0.903 | 0.927 | **0.914** | 6.9 px |
+| `pokemon_cooltoy` (test) | 0.212 | 0.256 | **0.232** | 16.9 px |
+
+Foo Fighters reproduces the previously reported baseline (0.914 vs 0.920),
+confirming the recipe. **Pokémon collapses.** The project ruled out the
+mundane explanations: no coordinate/import error (median GT↔pred offset
++2.6/+4.1 px), no scale mismatch (all three sources warp to 257×534 at the same
+px/mm), not a decode threshold (recall is *identical* at 0.265 for
+`--peak-threshold` 0.1/0.2/default — the model emits **no** heat at the ball
+locations, not weak heat), and not a bad segment or single bad track (recall
+0.21/0.28/0.30 across the three balls, 0.04–0.48 across 60-frame buckets).
+Overlay inspection attributes it to a playfield dense with **round, shiny,
+ball-like decorations** — the Pokéball toy, Pikachu figurines, glossy plastics —
+which the model fires on instead (3.16 predictions/frame against 2.59 real
+balls).
+
+> [!note] This closely matches the family's documented transfer failure
+> V1's zero-shot tennis→badminton result is **35.2 F1 at 22.9% recall**
+> ([V1 §V](tracknet-huang-2019.md)); this is **23.2 F1 at 25.6% recall** on an
+> unseen machine. Same recall-dominated shape, same order of magnitude. The
+> collapse is consistent with [TrackNet](../entities/tracknet.md)'s known
+> cross-domain behaviour rather than an implementation defect — which is
+> evidence *for* the family's "label your own domain" conclusion, not against
+> this implementation.
+
+**Methodology correction with teeth.** The project's own eval recipe silently
+depends on `--max-peaks` matching the clip's ball count. At the default of 4,
+the *val* clip (one ball in play) scores **0.537 F1 at precision 0.376** —
+manufactured peaks, not a real regression. Any TrackNet-family evaluation that
+caps peaks above the true object count will understate precision the same way;
+this is the practical face of the multi-ball formulation question in
+[fast-ball-tracking §8](../syntheses/projects/fast-ball-tracking-for-robots.md).
+
 ## Entities mentioned
 
 - [TrackNet](../entities/tracknet.md) — the model family this implements a
@@ -106,12 +154,22 @@ MIT, Python, ~4.6k LOC, 56 commits as of ingest.
 
 ## Open questions
 
-- **Val is one ball flight.** 600 consecutive frames of a single trajectory,
-  only 201 human keyframes (the rest CVAT interpolation), and the same set both
-  selects the checkpoint and reports the result. The **test split is empty**
-  (`pokemon_cooltoy` registered but unlabeled), so there is no unconsumed
-  held-out set. `0.878 ± 0.020` is promising but weakly evidenced; labeling the
-  third machine is what would upgrade it to a trend.
+- ~~**Val is one ball flight** ... labeling the third machine is what would
+  upgrade it to a trend.~~ **Answered 2026-07-22 — and the answer is negative.**
+  The third machine was labeled and the same checkpoint scores **0.232 F1** on
+  it. The 0.878/0.920 val figure was one generalization *point*, not a trend;
+  see the Update section above. Val remains one ball flight and still both
+  selects the checkpoint and reports its own result, so that methodological
+  caveat stands independently.
+- **What actually fixes the domain gap here is untested.** The project's next
+  lever is more training diversity (a second *train* machine), with
+  [motion attention](../concepts/robotics/motion-attention.md) and V3-style
+  background estimation as the cheaper untried alternatives — see
+  [fast-ball-tracking §9](../syntheses/projects/fast-ball-tracking-for-robots.md).
+- **Does augmentation substitute for domain diversity?** Being probed directly
+  as of 2026-07-22 (photometric jitter skewed toward the brighter target
+  palette, on the same single train machine). No result yet. The literature
+  offers no case of augmentation closing a transfer gap of this size.
 - **Zero negative examples.** All 2,400 labeled rows are `tracked` — no drained
   playfield, no occlusion. The model has never been shown what "no ball" looks
   like.

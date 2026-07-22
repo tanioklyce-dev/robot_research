@@ -2,9 +2,9 @@
 title: TrackNet (model family)
 type: entity
 created: 2026-07-21
-updated: 2026-07-21
-sources: 4
-tags: [object-tracking, heatmap, small-object-detection, computer-vision, sports-analytics, tennis, badminton, open-source]
+updated: 2026-07-22
+sources: 5
+tags: [object-tracking, heatmap, small-object-detection, computer-vision, sports-analytics, tennis, badminton, pinball, open-source]
 ---
 
 # TrackNet (model family)
@@ -46,6 +46,7 @@ A tennis ball in broadcast video is **2–12 pixels across (mean ≈ 5)** and sm
 
 - **Cross-sport transfer fails.** Tennis-trained V1 applied zero-shot to badminton: **35.2 F1** (recall 22.9%) ([V1 §V](../sources/tracknet-huang-2019.md)). Every new sport needs its own labelled data — which is why the [labeling tool in the Keras repo](../sources/weekenddeeplearning-tracknet-repo.md) matters.
 - **Cross-video generalization is much weaker than headline numbers.** V1's 10-fold cross-validation drops recall from 97.3% to **75.7%**.
+- **Independently reproduced outside sports (2026-07-22).** A first-party pinball tracker ([pinball_tracker](../sources/pinball-tracker-repo.md)) trained on one machine scores **0.914 F1** on a second machine and **0.232 F1 (recall 25.6%)** on a third — nearly the same figure and the same recall-dominated shape as V1's tennis→badminton **35.2 F1 / 22.9% recall**. Notably the two held-out venues differ by a factor of ~4 in F1 with no reliable way to predict which kind a new venue will be. This is the family's most consistently reproduced weakness, and it generalizes past "sport" to **any change of venue with bespoke visual content**. See [fast-ball-tracking §9](../syntheses/projects/fast-ball-tracking-for-robots.md).
 - **Static-camera assumption.** V3's background estimation and V4's frame differencing both assume a roughly fixed camera. Neither paper tests a panning or robot-mounted camera — the key open question for robotics reuse.
 
 ## Implementations
@@ -62,3 +63,4 @@ A tennis ball in broadcast video is **2–12 pixels across (mean ≈ 5)** and sm
 - [TrackNetV4: Enhancing Fast Sports Object Tracking with Motion Attention Maps (2024)](../sources/tracknetv4-motion-attention-2024.md)
 - [TrackNetV3 — reference implementation](../sources/tracknetv3-repo.md)
 - [TrackNet (weekenddeeplearning) — Keras reimplementation](../sources/weekenddeeplearning-tracknet-repo.md)
+- [pinball_tracker (tanioklyce-dev)](../sources/pinball-tracker-repo.md) — first-party implementation of a TrackNet-class tracker outside sports; the wiki's only measured field evidence for this family.
