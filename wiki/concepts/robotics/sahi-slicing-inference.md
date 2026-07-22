@@ -23,6 +23,8 @@ A standard detector runs on a downsized full frame, so genuinely small objects o
 
 - [AprilTags](apriltags.md) — a different route to reliable small-target perception (fiducial markers vs. slicing a general detector).
 - [Ultralytics YOLO](../../entities/ultralytics-yolo.md) — the detector family SAHI most commonly wraps; complements it as a drop-in inference stage.
+- [Heatmap-based object localization](heatmap-object-localization.md) — the **rival** answer to small-object detection: change the *output representation* (dense per-pixel map) rather than the *inference procedure* (slicing). Heatmaps win for a single known object class ([TrackNet](../../entities/tracknet.md) beats YOLOv7 by ~30 F1 on shuttlecock tracking); SAHI wins when you need general multi-class detection with extent.
+- [Motion attention](motion-attention.md) — a *temporal* cheap bolt-on for small-object recall where SAHI is a *spatial* one; orthogonal and in principle stackable.
 
 ## Current state
 

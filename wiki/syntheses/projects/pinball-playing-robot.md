@@ -2,7 +2,7 @@
 title: Pinball-playing robot — project scoping
 type: synthesis
 created: 2026-07-15
-updated: 2026-07-15
+updated: 2026-07-21
 source_notes: raw/project_notes_on_robots_from_claude.txt
 tags: [pinball, xlerobot, jetson-thor, dgx-spark, gr00t, so-arm101, solenoid, reflex-control, global-shutter-camera, physical-ai, project]
 ---
@@ -41,6 +41,10 @@ A recurring idea in the notes: a **rig that clamps onto the cabinet** (referenci
 - **Camera**: global-shutter, **low-res / high-FPS**, not megapixels. Target sensor **AR0234** (1920×1200 GS, ~120 FPS); **GMSL2 into a Holoscan Sensor Bridge** is the cleanest Thor-native low-latency path (D3 Embedded ships a GMSL2 Holoscan bundle for the AGX Thor dev kit, JetPack 7). Avoid 25MP GS cameras — bottlenecked to ~35–50 FPS. **Gating factor is the JetPack-7/Thor driver, not the sensor** — confirm the exact SKU has a Thor driver before buying.
 - **Frame-rate math**: at 120 FPS (~8.3 ms/frame) a 3 m/s ball moves ~25 mm/frame (~one ball diameter — trackable with a predictor); 5+ m/s → ~40 mm/frame (coarse; ROI-crop the lower playfield to push FPS up).
 - **Chrome-ball-through-glass is the real enemy**: glass reflects showroom lights; the 27 mm mirror ball reflects the playfield's own flashing GI, so color/brightness are unstable. Mitigations in impact order: **circular polarizer + steep camera angle** to kill specular glare; **lens hood**; and **track by combining high-FPS frame-differencing + a YOLO-nano-class ball detector** fine-tuned on own footage — never a single cue.
+
+> [!note] Tracker choice revised — see [Fast-ball tracking for robots](fast-ball-tracking-for-robots.md)
+> The "frame-differencing + YOLO-nano" recommendation above has the **right instinct** (fuse motion + appearance) but the weaker mechanism. A **[TrackNetV2-class heatmap tracker + V4 motion attention](../../entities/tracknet.md)** is the better-evidenced version: heatmap output beats a YOLO baseline by **~30 F1** at this object scale, and V4's learned motion fusion replaces the hand-tuned two-cue arbitration. The chrome-ball-through-glass problem *strengthens* the case, since motion is stable when appearance isn't. **Avoid TrackNetV3** — its gain comes from a non-causal trajectory-inpainting module a reflex loop cannot run; that job belongs to the Kalman predictor below. Full analysis, including the latency and labeling-cost implications, on the linked page.
+
 - **Predict, don't react**: feed the tracker into a ballistic/Kalman predictor and **pre-fire the solenoid** by the total pipeline latency (detector + inference + decision + solenoid mechanical delay, ~15–30 ms if the tracker stays lean). Keep the trigger path short — fire over direct GPIO/UART to the solenoid MCU, not through USB/ROS topics.
 
 ## Learning path
@@ -61,6 +65,7 @@ The project uses the wiki's canonical [train-on-Spark, deploy-on-Thor](../platfo
 
 ## Related
 
+- [Fast-ball tracking for robots](fast-ball-tracking-for-robots.md) — **the perception deep-dive for this project's fast loop**: which parts of the TrackNet literature are causal enough to use, why the rig fork buys a static camera, and how to bootstrap the training labels.
 - [XLeRobot Thor power budget](xlerobot-thor-power-budget.md), [GR00T on Spark → ZMQ → XLeRobot](gr00t-spark-zmq-xlerobot.md), [XLeRobot camera options (low light)](xlerobot-camera-options-low-light.md) — sibling project pages on the same platform.
 - [Jetson Thor vs DGX Spark](../platforms/jetson-thor-vs-dgx-spark.md) — the compute-split rationale.
 - [XLeRobot](../../entities/xlerobot.md), [SO-ARM101](../../entities/so-arm101.md), [GR00T](../../entities/nvidia-groot.md), [Isaac ROS](../../entities/isaac-ros.md), [Jetson Thor](../../entities/jetson-thor.md), [DGX Spark](../../entities/dgx-spark.md).

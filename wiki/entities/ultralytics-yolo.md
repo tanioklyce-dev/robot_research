@@ -3,8 +3,8 @@ title: Ultralytics YOLO
 type: entity
 subtype: software-library
 created: 2026-06-14
-updated: 2026-07-17
-sources: 3
+updated: 2026-07-21
+sources: 5
 tags: [ultralytics, yolo, object-detection, segmentation, pose-estimation, computer-vision, edge-ai, pytorch, agpl]
 ---
 
@@ -31,6 +31,7 @@ It is the **perception workhorse** that shows up across the wiki's edge-robotics
 - [jetson-examples](jetson-examples.md) — one-command YOLO recipes for Jetson.
 - [jetson-containers](jetson-containers.md) — container substrate those recipes build on.
 - [Jetson Orin Nano](jetson-orin-nano.md) — typical TensorRT edge-inference target.
+- [TrackNet](tracknet.md) — where YOLO **loses**: on shuttlecock tracking a YOLOv7 baseline scores **68.0 F1** vs TrackNetV3's **97.5**, because balls 2–12 px across defeat box regression. A useful boundary marker on YOLO's applicability.
 
 ## Open questions
 
@@ -42,3 +43,5 @@ It is the **perception workhorse** that shows up across the wiki's edge-robotics
 - [Ultralytics YOLO (GitHub)](../sources/ultralytics-github.md) — primary repo ingest.
 - [Seeed jetson-examples (repo + reComputer runner)](../sources/seeed-jetson-examples.md) — `ultralytics-yolo` / `yolo11` / `yolo26` / `yolov10` recipes.
 - [Enhancing YOLOv11n for Reliable Child Detection (PTIT 2026)](../sources/ptit-yolov11n-child-detection.md) — YOLOv11n fine-tuned from Ultralytics COCO weights + [SAHI](../concepts/robotics/sahi-slicing-inference.md) for small-object recall on edge CCTV.
+- [TrackNetV4 (Raj et al. 2024)](../sources/tracknetv4-motion-attention-2024.md) — uses **YOLOv7** as the bounding-box baseline that [heatmap localization](../concepts/robotics/heatmap-object-localization.md) outperforms by ~30 F1 on tiny fast objects.
+- [TrackNet (Huang et al. 2019)](../sources/tracknet-huang-2019.md) — cites the YOLO family as the fast one-stage alternative it deliberately rejects for tiny-object tracking.

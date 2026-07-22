@@ -2763,3 +2763,21 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - Session total: **5 papers ingested** (VLA-0, YOLOv11n child-detection, USC table-tennis MARL, Knowledge Insulation, OpenVLA-OFT, FAST — 6 counting the two non-VLA raw drops), **8+ new entity/concept pages**, 1 clean lint pass, ~20 source-count syncs, ~13 glossary entries.
 - **VLA action-representation design space** now anchored on 4 ingested primaries: [VLA-0](sources/vla-0-paper.md) (action-as-text), [Knowledge Insulation](sources/knowledge-insulation-paper.md) (flow-matching + stop-gradient), [OpenVLA-OFT](sources/openvla-oft-paper.md) (parallel decoding + L1), [FAST](sources/fast-paper.md) (DCT tokenization). Remaining secondary-grounded satellites: MolmoAct + Molmo (Allen-Institute lineage) — see [backlog](backlog.md).
 - All commits pushed to main; working tree clean at session end.
+
+## [2026-07-21] ingest | TrackNet family — 2 papers + 2 repos
+- Created [TrackNet (Huang et al. 2019)](sources/tracknet-huang-2019.md) — founding paper, `raw/1907.03698v1.pdf`
+- Created [TrackNetV4 — Motion Attention Maps (Raj/Wang/Gedeon 2024)](sources/tracknetv4-motion-attention-2024.md) — `raw/2409.14543v1.pdf`
+- Created [TrackNetV3 — reference implementation](sources/tracknetv3-repo.md) — github.com/qaz812345/TrackNetV3 (MIT, PyTorch)
+- Created [TrackNet — Keras reimplementation](sources/weekenddeeplearning-tracknet-repo.md) — github.com/weekenddeeplearning/TrackNet (GPL-3.0, Keras)
+- New entity: [TrackNet (model family)](entities/tracknet.md) — first perception/tracking-model entity; opens a new `### Perception / tracking models` index section
+- New concepts: [Heatmap-based object localization](concepts/robotics/heatmap-object-localization.md), [Motion attention](concepts/robotics/motion-attention.md)
+- Updated [SAHI](concepts/robotics/sahi-slicing-inference.md) (cross-linked as the rival/complementary small-object approach), [Ultralytics YOLO](entities/ultralytics-yolo.md) (3 → 5 sources; added the YOLOv7-loses-to-heatmaps boundary marker)
+- Cross-cutting finding: **heatmap output beats box regression by ~30 F1 at 2–12 px object scale** — a clean boundary on YOLO's applicability, previously unrecorded in the wiki
+- Open thread: the whole family assumes a **static camera** (V3 background estimation, V4 frame differencing). Unaddressed for robot-mounted perception — the gap to close before any [table-tennis-robot](sources/usc-table-tennis-marl.md) reuse
+## [2026-07-21] synthesis | Fast-ball tracking for robots — what transfers from broadcast sports CV
+- Filed [Fast-ball tracking for robots](syntheses/projects/fast-ball-tracking-for-robots.md), synthesizing the TrackNet cluster against [pinball-playing-robot](syntheses/projects/pinball-playing-robot.md) and [USC table-tennis MARL](sources/usc-table-tennis-marl.md)
+- **Causality wall**: V3's InpaintNet trajectory rectification is **non-causal** (inpaints gaps from surrounding frames) — it carries V3's entire recall gain (94.56→99.33) and is unusable in a reflex loop. Recommendation: **V2 + V4 motion attention**, not V3
+- **Revised a prior decision**: pinball page's "frame-differencing + YOLO-nano" tracker → TrackNetV2-class heatmap + V4 motion attention (right instinct, weaker mechanism). Callout added in place on [pinball-playing-robot](syntheses/projects/pinball-playing-robot.md)
+- Static-camera assumption sorts the two candidate projects: **pinball satisfies it by design** (cabinet-clamped rig + planar playfield → 2-D heatmap is sufficient) and is an argument for the self-contained-rig fork; **table tennis violates it twice** (ego-motion + non-planar → needs homography compensation + stereo, both untested)
+- Chrome-ball-through-glass *strengthens* the motion-attention case: motion signature is stable when appearance isn't; V4's absolute differencing specifically matters under GI flashes
+- Open: **no TrackNet-on-Jetson benchmark exists anywhere** — flagged as the first thing to measure; backbone (VGG-16) never ablated by the family
