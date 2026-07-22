@@ -81,11 +81,11 @@ MIT, Python, ~4.6k LOC, 56 commits as of ingest.
   median **6.8–8.7 mm/frame**, p95 42–59, max **162.5 mm/frame**, peak speed
   **4.87 m/s**. The wiki's only measured ball-speed data.
 
-## Update (2026-07-22) — the third machine, and the generalization claim breaks
+## Update (2026-07-22) — the third machine
 
 The `pokemon_cooltoy` test split (empty at ingest, and the subject of this
 page's first open question) is now **labeled**: 1,556 rows, source frames
-32705–33304, three balls in multiball (600/418/538), all `tracked`. The
+32700–33299, three balls in multiball (600/418/538), all `tracked`. The
 decorative **Pokéball toy** was excluded as a hard negative on the same logic as
 the Foo Fighters captive ball; all three labeled tracks roam ~470×980 px at
 3–11 px/frame median speed, confirming none of them is the stationary sphere.
@@ -97,29 +97,38 @@ above) was then scored on **both** held-out machines with one recipe
 | source (split) | P | R | F1 | loc |
 |---|---|---|---|---|
 | `foofighters_deadflip` (val) | 0.903 | 0.927 | **0.914** | 6.9 px |
-| `pokemon_cooltoy` (test) | 0.212 | 0.256 | **0.232** | 16.9 px |
+| `pokemon_cooltoy` (test) | 0.572 | 0.540 | **0.555** | 8.8 px |
+
+> [!warning] Corrected 2026-07-22
+> This row first read **0.232 F1 / 16.9 px**, computed against labels that were
+> **5 frames out of alignment** with the video: the task clip starts at source
+> frame 32700, not the 32705 in its filename, and the import trusted the
+> filename. The "collapse" reading, and the claim that it reproduced V1's
+> tennis→badminton failure, are withdrawn. The bug was invisible to every
+> aggregate metric and was caught by a human watching an overlay video and
+> noticing the labels trailed the ball.
 
 Foo Fighters reproduces the previously reported baseline (0.914 vs 0.920),
-confirming the recipe. **Pokémon collapses.** The project ruled out the
-mundane explanations: no coordinate/import error (median GT↔pred offset
-+2.6/+4.1 px), no scale mismatch (all three sources warp to 257×534 at the same
-px/mm), not a decode threshold (recall is *identical* at 0.265 for
-`--peak-threshold` 0.1/0.2/default — the model emits **no** heat at the ball
-locations, not weak heat), and not a bad segment or single bad track (recall
-0.21/0.28/0.30 across the three balls, 0.04–0.48 across 60-frame buckets).
-Overlay inspection attributes it to a playfield dense with **round, shiny,
-ball-like decorations** — the Pokéball toy, Pikachu figurines, glossy plastics —
-which the model fires on instead (3.16 predictions/frame against 2.59 real
-balls).
+confirming the recipe. **A second venue costs ~0.36 F1** — substantial, but the
+model still tracks the ball most of the time (localization ~8.8 px, inside a ball
+radius). Residual failures concentrate where the playfield is densest with
+**round, shiny, ball-like decorations** (Pokéball toy, Pikachu figurines) and in
+the pop-bumper scrum.
 
-> [!note] This closely matches the family's documented transfer failure
-> V1's zero-shot tennis→badminton result is **35.2 F1 at 22.9% recall**
-> ([V1 §V](tracknet-huang-2019.md)); this is **23.2 F1 at 25.6% recall** on an
-> unseen machine. Same recall-dominated shape, same order of magnitude. The
-> collapse is consistent with [TrackNet](../entities/tracknet.md)'s known
-> cross-domain behaviour rather than an implementation defect — which is
-> evidence *for* the family's "label your own domain" conclusion, not against
-> this implementation.
+The project's original triage of this gap ruled out spatial offset, scale
+mismatch, decode threshold, and per-ball/per-segment artifacts — but **not
+temporal alignment**, which was the actual cause. A constant frame lag is
+invisible to all of those checks; notably the "recall is identical across decode
+thresholds, so the model emits no heat at the ball" argument was an artifact of
+comparing against ground truth in the wrong place.
+
+> [!note] Magnitude: cross-*court*, not cross-*sport*
+> An earlier version of this page claimed the result matched V1's zero-shot
+> tennis→badminton **35.2 F1 / 22.9% recall**. With corrected labels it does
+> not — 0.555 is a different regime, and the resemblance was produced by the
+> alignment bug. The honest comparison is V1's 10-fold cross-validation, where
+> recall drops **97.3 → 75.7** across courts and lighting *within* one sport.
+> A per-venue penalty is real; a collapse is not.
 
 **Methodology correction with teeth.** The project's own eval recipe silently
 depends on `--max-peaks` matching the clip's ball count. At the default of 4,
@@ -156,20 +165,24 @@ this is the practical face of the multi-ball formulation question in
 
 - ~~**Val is one ball flight** ... labeling the third machine is what would
   upgrade it to a trend.~~ **Answered 2026-07-22 — and the answer is negative.**
-  The third machine was labeled and the same checkpoint scores **0.232 F1** on
-  it. The 0.878/0.920 val figure was one generalization *point*, not a trend;
-  see the Update section above. Val remains one ball flight and still both
+  The third machine was labeled and the same checkpoint scores **0.555 F1** on
+  it (after correcting a 5-frame label misalignment that first made it read
+  0.232). The 0.878/0.920 val figure was one generalization *point*, not a
+  trend; see the Update section above. Val remains one ball flight and still both
   selects the checkpoint and reports its own result, so that methodological
   caveat stands independently.
-- **What actually fixes the domain gap here is untested.** The project's next
-  lever is more training diversity (a second *train* machine), with
-  [motion attention](../concepts/robotics/motion-attention.md) and V3-style
-  background estimation as the cheaper untried alternatives — see
+- ~~**What actually fixes the domain gap here is untested.**~~ **Partly answered
+  2026-07-22:** training on **two** machines (Godzilla + Foo Fighters, Pokémon
+  still held out) lifts the held-out score **0.555 → 0.638**, and a fixed-volume
+  control attributes **+0.043 to diversity** and **+0.040 to the extra data**.
+  Real, at roughly +0.04 F1 per cabinet labeled. [Background
+  estimation](../sources/tracknetv3-repo.md) and [motion
+  attention](../concepts/robotics/motion-attention.md) remain untried. See
   [fast-ball-tracking §9](../syntheses/projects/fast-ball-tracking-for-robots.md).
 - ~~**Does augmentation substitute for domain diversity?**~~ **Answered
   2026-07-22: no.** Directional photometric jitter on the same single train
-  machine moved Pokémon **0.232 → 0.229** (noise) while *improving* Foo Fighters
-  0.914 → 0.928 on precision. Augmentation hardens what the model already sees;
+  machine moved Pokémon **0.555 → 0.566** (small enough to be single-run noise)
+  while *improving* Foo Fighters 0.914 → 0.928 on precision. Augmentation hardens what the model already sees;
   it cannot supply an object class absent from training. See
   [fast-ball-tracking §9](../syntheses/projects/fast-ball-tracking-for-robots.md).
 - **Zero negative examples.** All 2,400 labeled rows are `tracked` — no drained
