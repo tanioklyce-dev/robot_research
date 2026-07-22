@@ -2,7 +2,7 @@
 title: Fast-ball tracking for robots — what transfers from broadcast sports CV
 type: synthesis
 created: 2026-07-21
-updated: 2026-07-22 (§9 — cross-machine transfer failure)
+updated: 2026-07-22 (§9 — cross-machine transfer; augmentation probe null)
 tags: [object-tracking, heatmap, tracknet, motion-attention, pinball, table-tennis, latency, perception, reflex-control, project]
 ---
 
@@ -277,15 +277,47 @@ fails outright**" generalizes further than written: for this model family,
 venue whose entire visual identity is bespoke art. Two machines is a small
 sample, but the failure is not anomalous — it is what the family does.
 
-### Consequence: augmentation is unlikely to be the fix
+### Consequence: augmentation is not the fix — predicted, then measured
 
-The project is probing whether heavy photometric augmentation on a single train
-machine can close the gap. **Nothing in this literature cluster shows
-augmentation closing a transfer gap of this magnitude.** V3 uses mixup and
-still needs in-domain data; V1's answer to badminton was to label badminton.
-Augmentation perturbs the pixels you have — it does not synthesize a Pokéball
-toy into Godzilla's playfield, and the failure is object-level, not
-lighting-level. Worth measuring, but the prior should be low.
+The prediction filed here on 2026-07-22, before the run finished: *nothing in
+this literature cluster shows augmentation closing a transfer gap of this
+magnitude.* V3 uses mixup and still needs in-domain data; V1's answer to
+badminton was to label badminton. Augmentation perturbs the pixels you have — it
+does not synthesize a Pokéball toy into Godzilla's playfield, and the failure is
+object-level, not lighting-level.
+
+**Measured the same day, and the prediction held.** Same training recipe, only
+the augmentation config changed (photometric jitter aimed *directionally* at the
+brighter target palette rather than sprayed symmetrically):
+
+| | Foo Fighters (val) | Pokémon (test) |
+|---|---|---|
+| baseline | 0.914 | **0.232** |
+| directional augmentation | **0.928** | **0.229** |
+
+Pokémon moved **−0.003** — noise. Localization stayed identical at 16.9 px and
+the internals barely shifted (recall 0.256→0.232, precision 0.212→0.226): the
+model still fires on the same round shiny decorations. **Augmentation is
+eliminated as a route past a venue gap of this size**, which is a stronger
+statement than the literature offered — the papers never tried and failed, they
+simply labeled the new domain.
+
+> [!note] It is not worthless — it just solves a different problem
+> Foo Fighters *improved* 0.914 → 0.928, entirely on precision (0.903 → 0.942,
+> false positives 60 → 34). Augmentation bought in-distribution robustness on
+> the machine that already worked, and nothing on the hard domain gap. That is a
+> clean demonstration of the boundary: **augmentation hardens what the model has
+> already learned to see; it cannot teach an object class the training set never
+> contained.** Keep it on — just do not budget it against transfer.
+
+One transferable method note: **symmetric jitter sprays away from a known
+target.** Pokémon is brighter than Godzilla's dark booth, so symmetric
+brightness spends half its draws moving the wrong way; the first config
+brightened in only 56% of draws and some draws crushed the frame to black,
+destroying signal. Aiming the range (98% brightening, bounded) is strictly
+better when the direction of the domain shift is known. Inspect rendered
+augmented samples before spending epochs — both that and a cutout setting that
+fully erased the ball in ~30% of samples were caught by eye, not by loss curves.
 
 ### The better-targeted lever: background estimation, not motion attention
 
@@ -328,7 +360,10 @@ Superseding §7's item 5 and re-ranking the accuracy levers:
    inference on a fixed rig.
 3. **Motion attention** — still the cheapest general lever; carries the
    lamp-flicker caveat above.
-4. **Augmentation** — worth a run, low prior.
+4. ~~**Augmentation** — worth a run, low prior.~~ **Run and eliminated
+   (2026-07-22):** 0.232 → 0.229 on the target machine. Keep it on for the
+   in-distribution precision it does buy (+0.014 on the machine that already
+   worked), but it is not a transfer lever.
 5. **Match `max-peaks` to the true ball count when evaluating.** The project
    found that a peak cap above the real object count manufactures false
    positives: its val clip scored 0.537 F1 (precision 0.376) at the default cap

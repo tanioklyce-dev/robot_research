@@ -166,10 +166,12 @@ this is the practical face of the multi-ball formulation question in
   [motion attention](../concepts/robotics/motion-attention.md) and V3-style
   background estimation as the cheaper untried alternatives — see
   [fast-ball-tracking §9](../syntheses/projects/fast-ball-tracking-for-robots.md).
-- **Does augmentation substitute for domain diversity?** Being probed directly
-  as of 2026-07-22 (photometric jitter skewed toward the brighter target
-  palette, on the same single train machine). No result yet. The literature
-  offers no case of augmentation closing a transfer gap of this size.
+- ~~**Does augmentation substitute for domain diversity?**~~ **Answered
+  2026-07-22: no.** Directional photometric jitter on the same single train
+  machine moved Pokémon **0.232 → 0.229** (noise) while *improving* Foo Fighters
+  0.914 → 0.928 on precision. Augmentation hardens what the model already sees;
+  it cannot supply an object class absent from training. See
+  [fast-ball-tracking §9](../syntheses/projects/fast-ball-tracking-for-robots.md).
 - **Zero negative examples.** All 2,400 labeled rows are `tracked` — no drained
   playfield, no occlusion. The model has never been shown what "no ball" looks
   like.
