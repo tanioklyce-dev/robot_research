@@ -2,11 +2,12 @@
 title: "Cosmos 3: Omnimodal World Models for Physical AI (Technical Report)"
 type: source
 url: https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf
+arxiv: https://arxiv.org/abs/2606.02800
 author: NVIDIA (lead supervision Ming-Yu Liu; 55+ contributors, Appendix G)
-published: 2026-06-01
-ingested: 2026-06-02
+published: 2026-06-01 (lab PDF; arXiv v4 dated 2026-06-24)
+ingested: 2026-06-02 (arXiv v4 diffed 2026-07-21 — no substantive change)
 local_path: raw/technical-report.pdf
-venue: NVIDIA Cosmos Lab technical report
+venue: NVIDIA Cosmos Lab technical report / arXiv:2606.02800 [cs.CV]
 license: OpenMDW-1.1 (Linux Foundation) for code/weights/datasets/benchmark
 format: PDF (138 pp.)
 tags: [cosmos, world-model, omnimodal, mixture-of-transformers, world-action-model, vla, video-generation, physical-ai, nvidia, diffusion, forward-dynamics, inverse-dynamics, droid]
@@ -19,6 +20,11 @@ tags: [cosmos, world-model, omnimodal, mixture-of-transformers, world-action-mod
 Cosmos 3 is NVIDIA's family of **omnimodal world models** that jointly process and generate **language, image, video, audio, and action** within a single **Mixture-of-Transformers (MoT)** architecture. Its thesis is that the separation of Physical AI into distinct model classes — VLMs for perception, video generators / forward-dynamics models for simulation, and VLAs / world-action models for control — is "fundamentally limiting," because understanding requires reasoning about future evolution and generation requires a compact world representation. A single network handles all of them: depending on input→output configuration the *same* model acts as a VLM, a text-to-image / text-to-video / image-to-video generator, an audio-visual generator, a forward-dynamics model, an inverse-dynamics model, or a joint video-action **policy**. NVIDIA reports it as state-of-the-art across a broad understanding+generation suite, the **#1 open-weight Text-to-Image and Image-to-Video model (Artificial Analysis leaderboard, 2026-05-28)** and the **#1 policy model on RoboArena's real-world benchmark (2026-05-30)** at the time of writing. Everything (code, checkpoints, curated synthetic datasets, eval benchmark) is released under the **OpenMDW-1.1** license.
 
 This is a generational leap from the prior Cosmos-Predict / Cosmos-Reason / Cosmos-Transfer / Cosmos-Policy line (see [NVIDIA Cosmos](../entities/nvidia-cosmos.md)): those were separate models; Cosmos 3 subsumes them into one omni-model.
+
+> [!note] Version check — arXiv v4 vs. the ingested lab PDF (2026-07-21)
+> This page was written from the **lab-hosted PDF dated 2026-06-01** (138 pp.). The paper also exists as **arXiv:2606.02800**, whose **v4 is dated 2026-06-24** (139 pp.). The two were diffed at full text: **no substantive change.** Section structure is identical; every headline figure this page cites is byte-identical (Text2Video 80.0, Image2Video 82.8, Veo-3.1 79.1/82.6, RoboLab-120 39.7 vs 28.1, LIBERO-10 24.6 vs 0.0, the 4B/16B/64B variants, OpenMDW-1.1). The delta is **one added figure** (renumbering Figs. 28+ onward), **one added bibliography entry**, and a one-page reflow. **Nothing on this page needs revision** — recorded so the version gap isn't re-investigated later.
+>
+> The v4 PDF was **deliberately not committed** to `raw/` (28 MB, ~99% identical to the archived lab PDF). Re-fetch from arXiv if ever needed; the diff conclusion above is the durable artifact.
 
 ## Model architecture
 

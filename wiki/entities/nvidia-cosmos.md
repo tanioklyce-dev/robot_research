@@ -3,7 +3,7 @@ title: NVIDIA Cosmos
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-07-16
+updated: 2026-07-21
 sources: 16
 tags: [cosmos, world-model, omnimodal, mixture-of-transformers, world-action-model, video-generation, nvidia, foundation-model, edge]
 ---
@@ -34,7 +34,7 @@ The [GR00T](nvidia-groot.md) VLA line migrated onto Cosmos across two releases �
 Cosmos is the underlying generative video model that's enabling the rise of [World-model simulators](../concepts/world-models/world-model-simulators.md) in agentic robotics — where the simulator is a learned model rather than a physics engine. Sits in **paradigmatic contrast** to the [JEPA](../concepts/world-models/jepa.md) / latent-prediction world-model line ([V-JEPA 2](v-jepa-2.md), [LeWorldModel](leworldmodel.md)) — Cosmos generates pixels; JEPA predicts representations. Cosmos 3 sharpens this: it is the strongest **generative-video-side** demonstration that one pixel-predicting model can also be a competitive real-robot **policy** (see [generative-video vs JEPA](../syntheses/world-models/generative-video-vs-jepa-world-models.md)), without crossing over to latent-space planning.
 
 ## Related
-- [Cosmos 3 project page](https://research.nvidia.com/labs/cosmos-lab/cosmos3/) — the Cosmos Lab landing page (reviewed 2026-07-16; content already captured by the ingested [technical report](../sources/cosmos-3-technical-report.md) — no separate source page, to avoid duplication). Frames Cosmos 3 as connecting "understanding, generation, simulation, and action through a shared omnimodal world model"; #1 open model on Physical-AI reasoning + generation.
+- [Cosmos 3 project page](https://research.nvidia.com/labs/cosmos-lab/cosmos3/) — the Cosmos Lab landing page (reviewed 2026-07-16, **re-reviewed 2026-07-21**; content already captured by the ingested [technical report](../sources/cosmos-3-technical-report.md) — no separate source page, to avoid duplication). Canonical citation is **arXiv:2606.02800**; **v4 (2026-06-24) was diffed against the ingested 2026-06-01 lab PDF on 2026-07-21 — no substantive change**, see the version-check callout on the source page. Frames Cosmos 3 as connecting "understanding, generation, simulation, and action through a shared omnimodal world model"; #1 open model on Physical-AI reasoning + generation.
 - [RoboLab](nvidia-robolab.md) — the NVIDIA SRL sim benchmark Cosmos 3 policies are scored on (RoboLab-120).
 - [Genie Envisioner](genie-envisioner.md) — built on Cosmos-Predict2.
 - [NVIDIA](nvidia.md) — vendor.

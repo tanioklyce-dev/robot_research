@@ -2793,3 +2793,9 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
   - **Still untested** — motion attention; the project has no explicit motion signal at all
 - Inline ⚠️ pointers added at each superseded claim so a reader can't act on the refuted advice without seeing §8
 - Related: code review filed in the project repo at `docs/REVIEW-2026-07-21.md` (findings only, no code modified)
+## [2026-07-21] dedup | Cosmos 3 arXiv v4 (raw/2606.02800v4.pdf) — NOT re-ingested
+- `raw/2606.02800v4.pdf` is the **arXiv version of the already-ingested** [Cosmos 3 technical report](sources/cosmos-3-technical-report.md) (lab PDF, ingested 2026-06-02). Second Cosmos 3 dedup in a week — the [project page was likewise rejected 2026-07-16](sources/cosmos-3-technical-report.md)
+- **Full-text diffed v4 (2026-06-24, 139 pp.) against the ingested lab PDF (2026-06-01, 138 pp.): no substantive change.** Section structure identical; every headline figure byte-identical (T2V 80.0, I2V 82.8, Veo-3.1 79.1/82.6, RoboLab-120 39.7 vs 28.1, LIBERO-10 24.6 vs 0.0, 4B/16B/64B, OpenMDW-1.1). Delta = one added figure (renumbering Figs. 28+), one added bibliography entry, one-page reflow
+- **Actionable delta was metadata only**: recorded canonical **arXiv:2606.02800** (absent from the wiki until now — flagged in the preceding project-page review), added a version-check callout to the source page, bumped the entity reverify date
+- **`raw/2606.02800v4.pdf` deliberately left untracked** (28 MB, ~99% identical to the archived `raw/technical-report.pdf`) — `local_path` still points only at the committed lab PDF. The diff conclusion is the durable artifact; re-fetch from arXiv if ever needed
+- No new source/entity/concept pages. Recorded so the version gap isn't re-investigated a third time
