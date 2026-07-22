@@ -65,7 +65,8 @@ The project uses the wiki's canonical [train-on-Spark, deploy-on-Thor](../platfo
 
 ## Related
 
-- [Fast-ball tracking for robots](fast-ball-tracking-for-robots.md) — **the perception deep-dive for this project's fast loop**: which parts of the TrackNet literature are causal enough to use, why the rig fork buys a static camera, and how to bootstrap the training labels.
+- [Fast-ball tracking for robots](fast-ball-tracking-for-robots.md) — **the perception deep-dive for this project's fast loop**: which parts of the TrackNet literature are causal enough to use, and why the rig fork buys a static camera. See its **§8 Field evidence** for what a real implementation confirmed and refuted.
+- [pinball_tracker (repo)](../../sources/pinball-tracker-repo.md) — **the fast loop, actually built**: heatmap U-Net + homography normalization, F1 0.878 held-out on an unseen machine. Also the source of two corrections to the analysis page: classical-CV bootstrap labeling tracks only ~8% of frames (hand-label instead), and 600 training frames went much further than the 10–20k estimate.
 - [XLeRobot Thor power budget](xlerobot-thor-power-budget.md), [GR00T on Spark → ZMQ → XLeRobot](gr00t-spark-zmq-xlerobot.md), [XLeRobot camera options (low light)](xlerobot-camera-options-low-light.md) — sibling project pages on the same platform.
 - [Jetson Thor vs DGX Spark](../platforms/jetson-thor-vs-dgx-spark.md) — the compute-split rationale.
 - [XLeRobot](../../entities/xlerobot.md), [SO-ARM101](../../entities/so-arm101.md), [GR00T](../../entities/nvidia-groot.md), [Isaac ROS](../../entities/isaac-ros.md), [Jetson Thor](../../entities/jetson-thor.md), [DGX Spark](../../entities/dgx-spark.md).

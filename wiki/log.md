@@ -2781,3 +2781,15 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - Static-camera assumption sorts the two candidate projects: **pinball satisfies it by design** (cabinet-clamped rig + planar playfield → 2-D heatmap is sufficient) and is an argument for the self-contained-rig fork; **table tennis violates it twice** (ego-motion + non-planar → needs homography compensation + stereo, both untested)
 - Chrome-ball-through-glass *strengthens* the motion-attention case: motion signature is stable when appearance isn't; V4's absolute differencing specifically matters under GI flashes
 - Open: **no TrackNet-on-Jetson benchmark exists anywhere** — flagged as the first thing to measure; backbone (VGG-16) never ablated by the family
+## [2026-07-21] ingest+revision | pinball_tracker (first-party) — field evidence against the fast-ball synthesis
+- Created [pinball_tracker GitHub](sources/pinball-tracker-repo.md) — first-party implementation of the [pinball robot](syntheses/projects/pinball-playing-robot.md)'s fast loop. ~1.95M-param heatmap U-Net + playfield homography; **F1 0.878 ± 0.02 held-out on an unseen machine** from 600 training frames; ~50 FPS desktop; MIT
+- **Converged independently.** Built days *before* the TrackNet ingest, and arrived at heatmap-over-boxes + frame stacking for the same stated reasons — the wiki's first case of convergent design validating a synthesis conclusion
+- Added **§8 Field evidence** to [fast-ball-tracking-for-robots](syntheses/projects/fast-ball-tracking-for-robots.md), auditing every recommendation against the implementation:
+  - **Confirmed** — heatmap over boxes; static-camera/planar-playfield deployment; the causality discipline (independent audit found no future-frame usage in the inference path)
+  - **Refuted (rec 5)** — "bootstrap the labels with classical CV" tracked **24/300 frames (~8%)**. On a playfield a **lit insert is a rounder, brighter, more stable blob than a motion-blurred mirror ball**, and a locked-on insert satisfies a constant-velocity physics gate forever. Same appearance-instability argument §2 makes *for* motion-weighted tracking — not applied to the labeler. Revised to: hand-label the seed set
+  - **Revised (§6)** — 10–20k-frame data budget was ~20× too high; 600 frames sufficed. Filed as a promising lower bound, not a finding: val is one 10s flight, 201 human keyframes, test split empty
+  - **Partially answered** — logged open question "can VGG-16 be replaced with an edge-scale backbone?" → yes on this evidence (~1/8th params, 0.878 F1). No controlled ablation
+  - **Corrected** — asserted pinball flipper shots run 5–8 m/s; measured peak over 2,400 labeled rows is **4.87 m/s**. Wiki now carries real kinematics
+  - **Still untested** — motion attention; the project has no explicit motion signal at all
+- Inline ⚠️ pointers added at each superseded claim so a reader can't act on the refuted advice without seeing §8
+- Related: code review filed in the project repo at `docs/REVIEW-2026-07-21.md` (findings only, no code modified)
