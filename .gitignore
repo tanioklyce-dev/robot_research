@@ -23,3 +23,15 @@ wiki/.obsidian/plugins/*/data.json
 
 # Obsidian untitled/scratch canvases
 wiki/Untitled.canvas
+
+# Duplicate raw sources — deliberate exclusions, NOT a blanket raw/ rule.
+# raw/ is the immutable source archive and its PDFs are normally committed;
+# these specific files are near-identical copies of something already archived,
+# excluded to keep the repo (and the slow pushes) smaller. Each one has its
+# dedup rationale recorded in wiki/log.md.
+#
+# arXiv v4 of the Cosmos 3 technical report (2026-06-24, 28 MB). Full-text
+# diffed against the archived raw/technical-report.pdf (2026-06-01): identical
+# structure, byte-identical headline figures, delta is one figure + one citation
+# + a one-page reflow. See sources/cosmos-3-technical-report.md.
+raw/2606.02800v4.pdf
