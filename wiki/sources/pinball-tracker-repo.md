@@ -150,6 +150,10 @@ this is the practical face of the multi-ball formulation question in
 - [Motion attention](../concepts/robotics/motion-attention.md) — **not**
   implemented; motion is purely implicit via frame stacking, matching TrackNet
   V1/V2. The remaining cheap accuracy lever.
+- [Detection evaluation metrics](../concepts/robotics/detection-evaluation-metrics.md)
+  — the project's `docs/EVALUATION.md` is a worked, first-party account of these
+  metrics *and* the wrong numbers each produced when a hidden condition
+  (peak cap, tolerance, split boundary, checkpoint selection) was violated.
 
 ## Related
 
