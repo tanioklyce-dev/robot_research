@@ -175,7 +175,14 @@ this is the practical face of the multi-ball formulation question in
   2026-07-22:** training on **two** machines (Godzilla + Foo Fighters, Pokémon
   still held out) lifts the held-out score **0.555 → 0.638**, and a fixed-volume
   control attributes **+0.043 to diversity** and **+0.040 to the extra data**.
-  Real, at roughly +0.04 F1 per cabinet labeled. [Background
+  Real, at roughly +0.04 F1 per cabinet labeled. **Update 2026-07-23:** two
+  *clutter-matched* machines (Avengers IQ + Elvira HoH, both dense with round
+  decorations) added to training lift the val-selected Pokémon score to **0.606**
+  and push **precision to 0.735** (the highest recorded; precision was the
+  failure) with best-yet localization 6.9 px — but they do **not** beat plain
+  diversity on aggregate F1 (0.639 vs Godzilla+FF's 0.638 on `last.pt`). Labeling
+  for the failure mode improved the error *profile*, not the headline number. See
+  [fast-ball-tracking §9](../syntheses/projects/fast-ball-tracking-for-robots.md). [Background
   estimation](../sources/tracknetv3-repo.md) and [motion
   attention](../concepts/robotics/motion-attention.md) remain untried. See
   [fast-ball-tracking §9](../syntheses/projects/fast-ball-tracking-for-robots.md).

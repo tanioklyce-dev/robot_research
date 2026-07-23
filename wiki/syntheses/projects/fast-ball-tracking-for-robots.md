@@ -2,7 +2,7 @@
 title: Fast-ball tracking for robots — what transfers from broadcast sports CV
 type: synthesis
 created: 2026-07-21
-updated: 2026-07-22 (§9 corrected — label misalignment; transfer, augmentation, diversity all re-measured)
+updated: 2026-07-23 (§9 — clutter-matched diversity: 3 machines, Pokémon 0.606)
 tags: [object-tracking, heatmap, tracknet, motion-attention, pinball, table-tennis, latency, perception, reflex-control, project]
 ---
 
@@ -422,6 +422,68 @@ sample of one. For a robot expected to face an arbitrary showroom machine, buyin
 transfer one cabinet at a time is a slow road, which keeps **background
 estimation** (below) attractive as a complement, since its target — static
 playfield decorations — is what the extra machine did least to address.
+
+### Tested: clutter-matched diversity (added 2026-07-23)
+
+The obvious follow-up: Foo Fighters is a second *machine*, but it is not a
+*cluttered* one — it lacks the round shiny decorations that actually break the
+model on Pokémon. So two machines were labeled specifically for that failure
+mode — **Avengers: Infinity Quest** and **Elvira's House of Horrors**, both
+dense with round inserts and toy sculptures, Elvira on a new camera rig — and
+added to training (Godzilla + AIQ + Elvira; Foo Fighters kept as val, Pokémon
+still the untouched test). These were **multiball** clips (2–6 balls), a harder
+labeling job than the single-ball sources.
+
+Because this run *has* a val split (Foo Fighters), its `best.pt` is a real
+val-selected checkpoint — so the honest comparison is against another
+val-selected `best.pt`, i.e. the one-machine baseline, **not** the `last.pt`
+numbers above (which came from runs with no val split). Both checkpoint families,
+Pokémon test, corrected labels:
+
+| training | checkpoint | P | R | F1 | loc |
+|---|---|---|---|---|---|
+| Godzilla only | best.pt (val-sel) | 0.495 | 0.600 | 0.542 | 9.6 px |
+| **Godzilla + AIQ + Elvira** | **best.pt (val-sel)** | 0.595 | 0.618 | **0.606** | **6.9 px** |
+| Godzilla only | last.pt | 0.572 | 0.540 | 0.555 | 8.8 px |
+| Godzilla + FF | last.pt | 0.671 | 0.608 | 0.638 | 8.1 px |
+| **Godzilla + AIQ + Elvira** | **last.pt** | **0.735** | 0.565 | **0.639** | 7.1 px |
+
+**A "yes, and" result — and the "and" is the interesting part.**
+
+- **Diversity helps again.** Val-selected, adding the two cluttered machines
+  lifts Pokémon **0.542 → 0.606** (+0.064). The val machine (Foo Fighters)
+  improved too: best val F1 **0.920 → 0.963**.
+- **But clutter-matching did *not* beat plain diversity on aggregate F1.** On the
+  comparable `last.pt`, Godzilla+FF (0.638) and Godzilla+AIQ+Elvira (0.639) are a
+  dead heat. The hypothesis was that machines *sharing the failure mode* would
+  help more per cabinet. On F1 alone, they did not.
+- **Where they did help is precisely the failure mode.** The cluttered-machine
+  model reaches **precision 0.735** — the highest Pokémon precision recorded, and
+  precision (firing on decorations) was *the* defect — plus the best localization
+  yet (7.1 px, down from 8.1). It bought that precision with recall (0.608 →
+  0.565): the model became more conservative, firing on fewer decorations but
+  also missing more real balls. For a reflex controller that trades a gap against
+  an outlier, that is arguably the *better* error profile even at equal F1, but
+  it is not the free lunch "label the failure mode" implied.
+
+> [!warning] What this comparison is not
+> - **The training sets are not nested.** "2 machines" is Godzilla+FF; "3
+>   machines" is Godzilla+AIQ+Elvira, with **no Foo Fighters**. So this is not
+>   "2 → 3"; it is two different three-vs-two compositions. The clean isolation
+>   (hold everything fixed, add one cluttered machine) was not run.
+> - **Still one test machine.** Pokémon cannot distinguish "clutter-matching
+>   plateaus" from "these two particular machines happened not to transfer
+>   better." A second cluttered *test* machine is what would settle it.
+> - **Pokémon has now been scored many times.** Every such score erodes it as
+>   held-out evidence. Treat the precision gain as the durable finding and the
+>   F1 as a soft point estimate.
+
+**Reading.** Labeling for the failure mode did not raise the headline number
+beyond what any second machine gave, but it moved the *error profile* toward the
+defect it was aimed at — higher precision, tighter localization, fewer decoration
+false positives. That is consistent with the failure being real and addressable,
+and with **background estimation** (next) being the more direct tool for it,
+since the residual precision loss is still about *static* clutter.
 
 ### Revised recommendation ordering for the pinball fast loop
 
