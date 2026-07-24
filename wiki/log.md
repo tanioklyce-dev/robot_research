@@ -2880,3 +2880,10 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
   - [HWM](entities/hwm.md) and [stable-worldmodel](entities/stable-worldmodel.md) are actually **2-sourced** (HWM: paper + Welch Labs video; stable-worldmodel: LeWM GitHub README + onchain-ai-garage repro log) — linkified both, bumped to `sources: 2`. Also corrected stable-worldmodel's "Mentioned in" (the LeWM *paper* never names the package)
   - [Molmo](entities/molmo.md) is genuinely **0-sourced** (a `status: stub` referenced only by the MolmoAct *entity*); set `sources: 0`. Knowledge gap flagged in-page: Molmo/PixMo paper (arXiv 2409.17146) not yet ingested
 - Verify: **0 broken links, 0 sources-count mismatches wiki-wide** (now including zero-source pages) — the whole wiki's counts are link-verifiable
+## [2026-07-24] ingest | Molmo and PixMo (Deitke et al. 2024) — closes the Molmo gap
+- Created [Molmo and PixMo paper](sources/molmo-pixmo-paper.md) (arXiv 2409.17146, Ai2) — the source flagged missing in the last lint
+- Thesis: contribution is **data not model** — PixMo collected with **no external VLM** (anti-distillation): 60–90s speech-captions (196-word avg), 162k free-form Q&A, innovative 2D pointing set (Hungarian point-matching eval → cross-link to [detection-evaluation-metrics](concepts/robotics/detection-evaluation-metrics.md)); 4 backbones (OLMoE/OLMo/Qwen2); Molmo-72B 2nd human-pref behind GPT-4o
+- Updated [Molmo](entities/molmo.md): sources 0→1, dropped `status: stub` + "not ingested" caveats, fixed title ("Vision-Language" not "Multimodal"), confirmed architecture/backbones/vision-encoder + added benchmark
+- Recompute knock-on: the new source added inbound links lifting [detection-evaluation-metrics](concepts/robotics/detection-evaluation-metrics.md) 8→9, [vla-models](concepts/learning/vla-models.md) 70→71, [molmoact](entities/molmoact.md) 1→2, [qwen](entities/qwen.md) 5→6; index synced
+- PDF archived to raw/2409.17146.pdf. Verify: 0 broken links, 0 count mismatches
+- Remaining gap: OLMo / OLMoE (Molmo's fully-open LLM backbones) still unentitied/unsourced — noted as next ingest
