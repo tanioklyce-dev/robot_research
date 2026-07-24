@@ -192,9 +192,16 @@ this is the practical face of the multi-ball formulation question in
   an overstated "the model can't track a ball on GotG" working note: matched to 1
   peak it tracks fine (0.803 recall); the insert-lock was a *track-continuity*
   artifact of a loose peak budget, not a detection failure. See
-  [fast-ball-tracking §9](../syntheses/projects/fast-ball-tracking-for-robots.md). [Background
-  estimation](../sources/tracknetv3-repo.md) and [motion
-  attention](../concepts/robotics/motion-attention.md) remain untried. See
+  [fast-ball-tracking §9](../syntheses/projects/fast-ball-tracking-for-robots.md).
+  **2026-07-24: [background estimation](tracknetv3-repo.md) built and it is the
+  session's big win** — a V3-style median-background aux input lifted Pokémon
+  0.606 → **0.687** and GotG 0.780 → **0.968**, precision-driven exactly as the
+  static-clutter hypothesis predicted (GotG precision +0.230). The first
+  *architectural* lever that clearly worked, partly superseding the diversity
+  levers. [Motion attention](../concepts/robotics/motion-attention.md) remains
+  untried (now complementary — suppress static vs amplify moving). Caveat: the
+  background is a whole-clip median (setup-footage stand-in; non-causal if
+  computed live). See
   [fast-ball-tracking §9](../syntheses/projects/fast-ball-tracking-for-robots.md).
 - ~~**Does augmentation substitute for domain diversity?**~~ **Answered
   2026-07-22: no.** Directional photometric jitter on the same single train

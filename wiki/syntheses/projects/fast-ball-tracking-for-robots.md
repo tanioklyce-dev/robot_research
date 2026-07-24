@@ -2,7 +2,7 @@
 title: Fast-ball tracking for robots — what transfers from broadcast sports CV
 type: synthesis
 created: 2026-07-21
-updated: 2026-07-23 (§9 — second test machine GotG 0.780; "can't track" walked back)
+updated: 2026-07-24 (§9 — background estimation confirmed: GotG 0.780→0.968, precision-driven)
 tags: [object-tracking, heatmap, tracknet, motion-attention, pinball, table-tennis, latency, perception, reflex-control, project]
 ---
 
@@ -18,6 +18,8 @@ Short version: **the perception core transfers well and beats the approach curre
 > **[§8 Field evidence](#8-field-evidence-added-2026-07-21) (2026-07-21)** revisits every recommendation against a first-party implementation ([pinball_tracker](../../sources/pinball-tracker-repo.md)). Two were refuted. Read it before acting on §7.
 >
 > **[§9 Cross-machine transfer](#9-cross-machine-transfer-added-2026-07-22-substantially-corrected-same-day) (2026-07-22)** — a third machine was labeled and the same model scored **0.555 F1** on it. §9 was **substantially corrected the same day** — a 5-frame label-alignment bug had made this look like a collapse (0.232). It still partly **un-revises** §8's data-cost finding and re-ranks the levers in §7. Read §9 before §8's optimism.
+>
+> **Background estimation confirmed (2026-07-24)** — the precision hypothesis §9 built toward held: a V3-style median-background aux input lifted the held-out cluttered machines **Pokémon 0.606→0.687** and **GotG 0.780→0.968**, precision-driven. The first architectural lever that clearly worked; it partly supersedes the diversity/labeling levers.
 
 ## 1. What the literature actually establishes
 
@@ -524,37 +526,90 @@ real; reading the *gap* between the two as machine difficulty is not licensed.
 > recurring lesson: the confident-sounding version of a finding is the one to
 > distrust.
 
+### Tested: background estimation — the hypothesis confirmed (added 2026-07-24)
+
+Every subsection above pointed at the same next lever: the residual failure is
+*precision* on *static* decorations, and **[V3-style background
+estimation](../../sources/tracknetv3-repo.md)** targets exactly that — a
+per-source **median image** captures the always-present clutter (the moving ball
+averages out), fed as an auxiliary input so the net learns "ball = deviation from
+the background." It was implemented in [pinball_tracker](../../sources/pinball-tracker-repo.md)
+(median appended as a 4th frame-group; the fixed-camera assumption from §3 holds,
+so the median is computed once) and the three-machine model retrained with it,
+everything else identical. Scored `best.pt` ↔ `best.pt`, matched `--max-peaks`:
+
+| machine | | P | R | F1 |
+|---|---|---|---|---|
+| Foo Fighters (val, 1-ball) | no-bg | 0.940 | 0.940 | 0.940 |
+| | **+bg** | 0.955 | 0.928 | 0.942 |
+| Pokémon (test, 3-ball) | no-bg | 0.595 | 0.618 | 0.606 |
+| | **+bg** | 0.688 | 0.685 | **0.687** |
+| Guardians (test, 1-ball) | no-bg | 0.758 | 0.803 | 0.780 |
+| | **+bg** | 0.988 | 0.948 | **0.968** |
+
+**The precision hypothesis held exactly.** Precision rose most on the cluttered
+test machines (Pokémon **+0.094**, GotG **+0.230**) and barely on Foo Fighters
+(**+0.015** — nothing static to suppress there). Recall rose too (not a
+precision-for-recall trade). GotG went from the model's *worst* held-out machine
+(0.780) to its *best* (**0.968**). This is the first *architectural* lever the
+project tried that clearly worked, and — unusually for this page — it worked for
+the exact mechanism it was predicted to. The chain across §9 held up: identify the
+failure as static-clutter precision → argue background estimation over motion
+attention → build it → confirm.
+
+> [!note] The clutter-matched training work is partly *superseded* by this
+> The earlier finding — labeling for the failure mode raised precision but not F1
+> — now reads as "diversity was a weak lever for a problem an architectural change
+> solves cleanly." Background estimation lifted GotG precision +0.230 where a
+> whole extra cluttered *training* machine lifted Pokémon precision only ~+0.14
+> (0.595→0.735 on `last.pt`). **When a failure has a structural cause (static
+> objects are in the background), a structural fix beats more data.** A standing
+> reminder to reach for the mechanism before the labeling campaign.
+
+> [!warning] The number estimates *setup-footage* deployment, not a live median
+> The background is computed as the median over the **whole scored clip**, which
+> includes frames after the current one — fine as a proxy for **setup footage** of
+> a fixed machine (compute the median once before play; near-identical to a
+> whole-clip median since decorations don't move), but a *live per-frame* median
+> would be **non-causal** — a reflex loop cannot median future frames, the same
+> causality wall §3 draws for InpaintNet. Background estimation stays in the
+> "usable in a reflex loop" row of §3's table **only via a precomputed
+> setup-footage median**, which is trivial on the fixed cabinet rig. The learned
+> skill transfers legitimately: the model trained on other machines' backgrounds
+> and applied "discount the static channel" to GotG's unseen one — no
+> test-machine leakage.
+
 ### Revised recommendation ordering for the pinball fast loop
 
 Superseding §7's item 5 and re-ranking the accuracy levers:
 
-1. **Training diversity is the blocking issue, not a polish item.** One train
-   machine does not cover arbitrary playfield art. Label additional *train*
-   machines — chosen for clutter, not convenience — before tuning anything else.
-   **Now measured (2026-07-22):** a second machine lifts the held-out target
-   0.555 → 0.638. Real, but ~+0.04 F1 per cabinet labeled, so treat
-   it as necessary-not-sufficient and pair it with item 2.
-2. **Background estimation** — best-matched to the measured failure, and free at
-   inference on a fixed rig.
-3. **Motion attention** — still the cheapest general lever; carries the
-   lamp-flicker caveat above.
+1. ~~**Background estimation** — best-matched to the measured failure.~~ **Built
+   and confirmed (2026-07-24):** Pokémon 0.606 → 0.687, GotG 0.780 → **0.968**,
+   precision-driven. The top lever — see the subsection above. Now the follow-up
+   is making it *causal* (a precomputed setup-footage median, not a whole-clip
+   one).
+2. ~~**Training diversity is the blocking issue.**~~ **Downgraded.** Real but weak
+   (~+0.04 F1/cabinet, 0.555 → 0.638 for a second machine), and largely
+   *superseded* by background estimation, which solved the static-clutter cause
+   structurally where more data only diluted it. Reach for the mechanism first.
+3. **Motion attention** — cheapest remaining lever, now *complementary* to
+   background estimation (suppresses static clutter vs amplifies moving evidence —
+   orthogonal). Carries the lamp-flicker caveat above.
 4. ~~**Augmentation** — worth a run, low prior.~~ **Run and eliminated
-   (2026-07-22):** 0.555 → 0.566 on the target machine. Keep it on for the
-   in-distribution precision it does buy (+0.014 on the machine that already
-   worked), but it is not a transfer lever.
-5. **Match `max-peaks` to the true ball count when evaluating.** The project
-   found that a peak cap above the real object count manufactures false
-   positives: its val clip scored 0.537 F1 (precision 0.376) at the default cap
-   of 4 versus 0.914 at the correct cap of 1. This is the practical face of the
-   open multi-ball formulation question below, and it silently corrupts any
-   precision number in this family.
+   (2026-07-22):** 0.555 → 0.566. Keep it on for the small in-distribution
+   precision it buys, but it is not a transfer lever.
+5. **Match `max-peaks` to the true ball count when evaluating.** A peak cap above
+   the real object count manufactures false positives: the project's val clip
+   scored 0.537 F1 (precision 0.376) at the default cap of 4 versus 0.914 at the
+   correct cap of 1. Silently corrupts any precision number in this family.
 
-> [!note] What would change this conclusion
-> A single additional cluttered *training* machine lifting Pokémon materially
-> would confirm "diversity, not architecture." If it doesn't, the problem is
-> architectural — the model is keying on appearance in a way that stacked frames
-> alone don't fix — and background estimation / motion attention move from
-> optional levers to required ones.
+> [!note] The conclusion the page arrived at
+> The question above — "diversity, not architecture?" — resolved toward
+> **architecture**. A cluttered *training* machine helped precision modestly; the
+> *architectural* fix (background estimation) helped it decisively (GotG precision
+> +0.230), because the failure had a structural cause the mechanism matched. The
+> general lesson for this family: when a detector fires on *static* objects, feed
+> it the static background — do not try to label your way out.
 
 ## Related
 
