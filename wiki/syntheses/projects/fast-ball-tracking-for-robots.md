@@ -2,7 +2,7 @@
 title: Fast-ball tracking for robots — what transfers from broadcast sports CV
 type: synthesis
 created: 2026-07-21
-updated: 2026-07-24 (§9 — background estimation confirmed: GotG 0.780→0.968, precision-driven)
+updated: 2026-07-24 (§9 — background estimation confirmed AND shown causal/deployable via 5s trailing median)
 tags: [object-tracking, heatmap, tracknet, motion-attention, pinball, table-tennis, latency, perception, reflex-control, project]
 ---
 
@@ -578,6 +578,32 @@ attention → build it → confirm.
 > skill transfers legitimately: the model trained on other machines' backgrounds
 > and applied "discount the static channel" to GotG's unseen one — no
 > test-machine leakage.
+
+**Update — the causal version was tested, and it holds.** A strictly-**past** 5s
+trailing-window median (median over `[t-W, t-1]`, no future frames) is causal
+*and* adaptive, with no retraining:
+
+| machine | whole-clip (non-causal) | 5s trailing, causal (steady) |
+|---|---|---|
+| GotG | 0.968 (P 0.988) | **0.948** (P 0.979) |
+| Pokémon | 0.687 (P 0.688) | **0.709** (P 0.773) |
+
+Precision — the whole point — is fully preserved, so **background estimation
+earns its "usable in a reflex loop" row in §3 for real, not just via setup
+footage.** Two findings worth keeping: (1) **Pokémon *improves*** causally,
+because a 5s window tracks the current multiball mode's lighting where a
+whole-clip median blurs across modes — adaptivity is a genuine gain, not just a
+causality tax; (2) the predicted **cradle failure** is real and was characterized
+— a ball held still *longer than ~half the window* leaks into the median and
+becomes a **blind spot**. Stress-tested on a 110-frame stationary segment, recall
+there collapses monotonically as the window shrinks below the cradle length
+(0.958 → 0.815 → 0.570 → 0.300 at whole/5s/2s/1s) while **precision stays 1.000**
+— a miss, never a false positive. The fix is window ≫ longest cradle (a real
+cradle is 1–3 s; 5–10 s is safe), or **ball-aware masking** (mask the tracked
+ball out of the median so it can never enter it). This is the general recipe for
+a *causal background* under a fixed camera, and it settles the §3 open question of
+whether V3's background trick survives the reflex-loop causality constraint: **it
+does.**
 
 ### Revised recommendation ordering for the pinball fast loop
 
