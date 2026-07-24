@@ -3,8 +3,8 @@ title: Ultralytics YOLO
 type: entity
 subtype: software-library
 created: 2026-06-14
-updated: 2026-07-21
-sources: 5
+updated: 2026-07-23
+sources: 10
 tags: [ultralytics, yolo, object-detection, segmentation, pose-estimation, computer-vision, edge-ai, pytorch, agpl]
 ---
 
@@ -26,8 +26,22 @@ It is the **perception workhorse** that shows up across the wiki's edge-robotics
 - **License:** **AGPL-3.0** (copyleft) or Enterprise License for commercial use.
 - **Repo:** ultralytics/ultralytics — Python; created 2022-09-11; updated daily.
 
+## Lineage (v1 → v26)
+
+Ultralytics did **not** author the original YOLO — the paradigm was founded by
+[Redmon et al. 2016](../sources/yolo-you-only-look-once-2016.md) (grid-regression,
+one-pass detection). Ultralytics' contribution is **v5's modular PyTorch
+foundation** and the sustained engineering that turned YOLO from a research model
+into the de-facto library. The line since: anchor-free + decoupled head (v8) →
+efficiency modules (v11) → **NMS-free end-to-end** ([YOLOv10](../sources/yolov10-nms-free-2024.md),
+now default in **YOLO26** with STAL/ProgLoss/MuSGD,
+[Sapkota & Karkee 2025](../sources/sapkota-ultralytics-yolo-evolution-2025.md)).
+Full version-by-version diff: [YOLO version lineage](../syntheses/vision/yolo-version-lineage.md).
+The paradigm itself: [Single-stage object detection](../concepts/robotics/single-stage-object-detection.md).
+
 ## Related
 
+- [Single-stage object detection](../concepts/robotics/single-stage-object-detection.md) — the paradigm YOLO belongs to.
 - [jetson-examples](jetson-examples.md) — one-command YOLO recipes for Jetson.
 - [jetson-containers](jetson-containers.md) — container substrate those recipes build on.
 - [Jetson Orin Nano](jetson-orin-nano.md) — typical TensorRT edge-inference target.
@@ -40,6 +54,11 @@ It is the **perception workhorse** that shows up across the wiki's edge-robotics
 
 ## Mentioned in
 
+- [YOLO: You Only Look Once (Redmon et al. 2016)](../sources/yolo-you-only-look-once-2016.md) — the founding paper of the paradigm.
+- [YOLOv10 (Wang et al. 2024)](../sources/yolov10-nms-free-2024.md) — NMS-free end-to-end detection.
+- [Terven & Cordova-Esparza 2023](../sources/terven-yolo-survey-2023.md) — survey v1→v8/NAS.
+- [Kotthapalli et al. 2025](../sources/kotthapalli-yolo-survey-2025.md) — survey through v11 + multi-task.
+- [Sapkota & Karkee 2025](../sources/sapkota-ultralytics-yolo-evolution-2025.md) — overview anchored on YOLO26.
 - [Ultralytics YOLO (GitHub)](../sources/ultralytics-github.md) — primary repo ingest.
 - [Seeed jetson-examples (repo + reComputer runner)](../sources/seeed-jetson-examples.md) — `ultralytics-yolo` / `yolo11` / `yolo26` / `yolov10` recipes.
 - [Enhancing YOLOv11n for Reliable Child Detection (PTIT 2026)](../sources/ptit-yolov11n-child-detection.md) — YOLOv11n fine-tuned from Ultralytics COCO weights + [SAHI](../concepts/robotics/sahi-slicing-inference.md) for small-object recall on edge CCTV.

@@ -2851,3 +2851,15 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - **Not cleanly comparable:** they differ in ball count (1 vs 3), hence `--max-peaks` (1 vs 3), hence precision headroom. GotG's higher F1 is partly a tighter peak budget, not purely an easier machine. Two honest held-out points; the *gap* between them is confounded
 - **Walked back an overstatement.** The GotG-prep note claimed "the model cannot track a ball on GotG at all — it locks onto inserts." With `--max-peaks` matched to 1 ball it tracks fine: **0.780 F1 / 0.803 recall / 6.7 px**, its best held-out result after FF. The insert-lock was a **track-continuity artifact** in the free `max_peaks=4` scan (stationary inserts form long tracks while the fast ball fragments), not a detection failure. The from-scratch labeling decision was still right (cap-4 pre-labels *were* insert-dominated); the reason was mis-stated. A clean instance of the peak-budget dependence of precision — and of the project's recurring lesson that the confident-sounding version of a finding is the one to distrust
 - Updated [fast-ball-tracking §9](syntheses/projects/fast-ball-tracking-for-robots.md) (new subsection + ⚠️ callout), [pinball_tracker](sources/pinball-tracker-repo.md); the pinball repo's `docs/STATUS.md` carries the same correction as a warning callout rather than a silent edit
+## [2026-07-23] ingest | YOLO detection lineage — 2 primary papers + 3 surveys
+- Created [YOLO: You Only Look Once (Redmon et al. 2016)](sources/yolo-you-only-look-once-2016.md) — founds single-stage detection (grid regression, 7×7, 63.4% mAP @ 45 fps)
+- Created [YOLOv10 (Wang et al. 2024)](sources/yolov10-nms-free-2024.md) — NMS-free via consistent dual assignments
+- Created [Terven & Cordova-Esparza 2023](sources/terven-yolo-survey-2023.md) (v1→v8/NAS), [Kotthapalli et al. 2025](sources/kotthapalli-yolo-survey-2025.md) (→v11, multi-task), [Sapkota & Karkee 2025](sources/sapkota-ultralytics-yolo-evolution-2025.md) (YOLO26)
+- New concept: [Single-stage object detection](concepts/robotics/single-stage-object-detection.md)
+- New synthesis: [The YOLO version lineage (v1→v26)](syntheses/vision/yolo-version-lineage.md) (new `syntheses/vision/` folder)
+- Updated [Ultralytics YOLO](entities/ultralytics-yolo.md) — added lineage section + 5 mentioned-in (sources 5→10)
+- PDFs archived to raw/ (1506.02640, 2405.14458, 2304.00501, 2508.02067, 2510.09653)
+- Open thread: STAL (YOLO26 small-target label assignment) vs heatmap output — same problem, opposite ends, no head-to-head; ties to [fast-ball-tracking](syntheses/projects/fast-ball-tracking-for-robots.md)
+## [2026-07-23] ingest | H01 — petascale human-cortex reconstruction (Lichtman Lab / Google)
+- Created [H01 release](sources/h01-human-cortex-reconstruction.md) and entity [H01](entities/h01-connectome.md) — 1.4 PB, ~1 mm³ human cortex, 183M synapses, 100 proofread cells
+- Updated [Connectome](concepts/bio/connectome.md) — added the human/H01 instance (sources 3→4); flagged it is a *dense fragment*, not a complete connectome, so the connectome→AI pathways (simulation / connectome-constrained nets) don't yet apply
