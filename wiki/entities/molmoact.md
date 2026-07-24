@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-07-17
 updated: 2026-07-17
-sources: 2
+sources: 3
 tags: [molmoact, vla, vision-language-action, discrete-tokens, spatial-reasoning, allen-institute, molmo, baseline]
 status: stub
 ---

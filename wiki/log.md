@@ -2887,3 +2887,10 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - Recompute knock-on: the new source added inbound links lifting [detection-evaluation-metrics](concepts/robotics/detection-evaluation-metrics.md) 8→9, [vla-models](concepts/learning/vla-models.md) 70→71, [molmoact](entities/molmoact.md) 1→2, [qwen](entities/qwen.md) 5→6; index synced
 - PDF archived to raw/2409.17146.pdf. Verify: 0 broken links, 0 count mismatches
 - Remaining gap: OLMo / OLMoE (Molmo's fully-open LLM backbones) still unentitied/unsourced — noted as next ingest
+## [2026-07-24] ingest | OLMo (Groeneveld et al. 2024) — the open LLM under Molmo
+- Created [OLMo paper](sources/olmo-paper.md) (arXiv 2402.00838, Ai2) + entity [OLMo](entities/olmo.md) — closes the OLMo half of the gap the Molmo ingest flagged
+- Thesis: "truly open" = the **whole pipeline** (weights + full **Dolma** corpus + training/eval code + hundreds of checkpoints + W&B logs, **Apache 2.0**), not just weights. OLMo-1B/7B (2/2.46T tokens); LLaMA-lineage arch (no-bias, non-param LN, SwiGLU, RoPE); NVIDIA+AMD portable; peer to Llama-2-7B/MPT/Falcon/Pythia
+- Positioned as the open **LLM decoder** at the base of the wiki's open VLM/VLA stack: OLMo-7B backs [Molmo](entities/molmo.md)'s 100%-open variant → [MolmoAct](entities/molmoact.md)
+- Wired OLMo into [Molmo](entities/molmo.md) (OLMo-7B backbone) + [molmo source](sources/molmo-pixmo-paper.md); knock-on count bumps from the new source: [vla-models](concepts/learning/vla-models.md) 71→72, [molmoact](entities/molmoact.md) 2→3, [molmo](entities/molmo.md) 1→2; index synced
+- PDF archived (raw/2402.00838.pdf). Verify: 0 broken links, 0 count mismatches
+- Remaining open-model gaps: **OLMoE** (MoE backbone, 2409.02060), **OLMo 2** (2025), and **Dolma** / **Ai2** entities (Ai2 now recurs across OLMo/Molmo/MolmoAct/YOLO)
