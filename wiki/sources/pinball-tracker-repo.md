@@ -185,7 +185,13 @@ this is the practical face of the multi-ball formulation question in
   and push **precision to 0.735** (the highest recorded; precision was the
   failure) with best-yet localization 6.9 px — but they do **not** beat plain
   diversity on aggregate F1 (0.639 vs Godzilla+FF's 0.638 on `last.pt`). Labeling
-  for the failure mode improved the error *profile*, not the headline number. See
+  for the failure mode improved the error *profile*, not the headline number.
+  A **second held-out test machine** (Guardians of the Galaxy, 1-ball) then scored
+  **0.780** — though ball-count differences (1 vs Pokémon's 3, hence `--max-peaks`
+  1 vs 3, hence precision headroom) confound a direct comparison. Also walked back
+  an overstated "the model can't track a ball on GotG" working note: matched to 1
+  peak it tracks fine (0.803 recall); the insert-lock was a *track-continuity*
+  artifact of a loose peak budget, not a detection failure. See
   [fast-ball-tracking §9](../syntheses/projects/fast-ball-tracking-for-robots.md). [Background
   estimation](../sources/tracknetv3-repo.md) and [motion
   attention](../concepts/robotics/motion-attention.md) remain untried. See

@@ -2,7 +2,7 @@
 title: Fast-ball tracking for robots — what transfers from broadcast sports CV
 type: synthesis
 created: 2026-07-21
-updated: 2026-07-23 (§9 — clutter-matched diversity: 3 machines, Pokémon 0.606)
+updated: 2026-07-23 (§9 — second test machine GotG 0.780; "can't track" walked back)
 tags: [object-tracking, heatmap, tracknet, motion-attention, pinball, table-tennis, latency, perception, reflex-control, project]
 ---
 
@@ -474,6 +474,8 @@ Pokémon test, corrected labels:
 > - **Still one test machine.** Pokémon cannot distinguish "clutter-matching
 >   plateaus" from "these two particular machines happened not to transfer
 >   better." A second cluttered *test* machine is what would settle it.
+>   *(Addressed 2026-07-23 — see the next subsection; a second test machine now
+>   exists, though ball-count differences confound a direct comparison.)*
 > - **Pokémon has now been scored many times.** Every such score erodes it as
 >   held-out evidence. Treat the precision gain as the durable finding and the
 >   F1 as a soft point estimate.
@@ -484,6 +486,43 @@ defect it was aimed at — higher precision, tighter localization, fewer decorat
 false positives. That is consistent with the failure being real and addressable,
 and with **background estimation** (next) being the more direct tool for it,
 since the residual precision loss is still about *static* clutter.
+
+### A second held-out test machine (added 2026-07-23)
+
+The §-above's own caveat — "still one test machine" — was then addressed. A
+**second cluttered test machine**, Guardians of the Galaxy (Stern Premium 2017,
+Dead Flip rig), was hand-labeled and held out, and the three-machine `best.pt`
+scored on both:
+
+| test machine | balls | P | R | F1 | loc |
+|---|---|---|---|---|---|
+| Pokémon | 3 | 0.595 | 0.618 | **0.606** | 6.9 px |
+| Guardians of the Galaxy | 1 | 0.758 | 0.803 | **0.780** | 6.7 px |
+
+Two honest held-out points now exist instead of one — but they are **not cleanly
+comparable**, and the reason is instructive. They differ in **ball count** (1 vs
+3), which sets `--max-peaks` (1 vs 3), which sets **precision headroom**: three
+peaks per frame is three chances to fire on a decoration, one peak is one. So
+GotG's higher F1 is *partly* a tighter peak budget, not purely an easier machine.
+The trend "cross-venue transfer sits around 0.6–0.8 on cluttered machines" is
+real; reading the *gap* between the two as machine difficulty is not licensed.
+
+> [!warning] A "can't track it" claim, walked back
+> While preparing GotG the working note was: *"the current best model cannot
+> track a ball on GotG at all — it locks onto the round inserts."* **Overstated.**
+> With `--max-peaks` matched to the true ball count (1), the model tracks GotG's
+> ball at **0.780 F1 / 0.803 recall / 6.7 px** — its best held-out result after
+> Foo Fighters. What was actually seen was narrower: in a *free* scan at
+> `max_peaks=4`, given a peak budget larger than the ball count, the model also
+> fires on the round inserts, and because inserts are **stationary and always
+> present** they form long continuous tracks while the fast ball fragments — so
+> the *longest track* was an insert. That is a **track-continuity artifact under
+> a loose peak budget**, not a detection failure. (The decision to hand-label
+> GotG from scratch was still correct — cap-4 pre-labels *were* insert-dominated
+> and would have misled a labeler — but the reason was mis-stated.) A clean
+> instance of the peak-budget dependence of precision, and of this project's
+> recurring lesson: the confident-sounding version of a finding is the one to
+> distrust.
 
 ### Revised recommendation ordering for the pinball fast loop
 
