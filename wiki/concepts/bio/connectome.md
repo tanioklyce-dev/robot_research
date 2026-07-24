@@ -2,8 +2,8 @@
 title: Connectome
 type: concept
 created: 2026-05-08
-updated: 2026-07-04
-sources: 3
+updated: 2026-07-23
+sources: 4
 tags: [connectome, neuroscience, brain-mapping, biological-ai, drosophila]
 ---
 
@@ -16,6 +16,7 @@ A **connectome** is a complete wiring diagram of a nervous system — every neur
 - ***Drosophila* MANC / FANC** — male/female adult ventral nerve cord, 2024.
 - ***Drosophila* whole brain** — [FlyWire](../../entities/flywire.md), October 2024. **139,255 neurons, ~50M synapses.** First complete adult-brain connectome of any organism.
 - **Mouse and human** — current frontier targets, multiple orders of magnitude harder (~70M neurons in mouse, ~86B in human). Berkeley News' Phil Shiu names mouse as the next stop and human as the long-term ambition ([Berkeley News](../../sources/berkeley-fly-brain-news.md)).
+- **Human — [H01](../../entities/h01-connectome.md)** (Lichtman Lab / Google, *Science* 2024). A **1.4-petabyte, ~1 mm³** EM reconstruction of human cortex — **tens of thousands of neurons, 183M synapses, 100 proofread cells** ([H01 release](../../sources/h01-human-cortex-reconstruction.md)). Crucially it is a **dense fragment, not a complete connectome**: it makes the human scale concrete (petabytes for a pinhead of cortex) without yet being the whole-circuit artifact the two AI pathways below require.
 
 ## Two ways to use a connectome for AI
 
@@ -47,6 +48,7 @@ Connectomes are the **brain side** of the whole-organism agentic-AI program (the
 ## Related
 
 - [FlyWire](../../entities/flywire.md) — the *Drosophila* connectome dataset.
+- [H01](../../entities/h01-connectome.md) — the petascale human-cortex fragment.
 - [flybody](../../entities/flybody.md) — body-side complement.
 - [Drosophila melanogaster](../../entities/drosophila.md) — model organism for whole-organism AI.
 - [Biomechanical simulation](biomechanical-simulation.md) — companion concept.
@@ -55,6 +57,7 @@ Connectomes are the **brain side** of the whole-organism agentic-AI program (the
 ## Mentioned in
 
 - [Berkeley News — researchers simulate an entire fly brain on a laptop](../../sources/berkeley-fly-brain-news.md)
+- [H01 — A Browsable Petascale Reconstruction of the Human Cortex](../../sources/h01-human-cortex-reconstruction.md)
 - [flybody Paper](../../sources/flybody-paper.md)
 - [Shiu et al. 2024 — A Drosophila computational brain model](../../sources/shiu-fly-brain-paper.md)
 - [Lappalainen et al. 2024 — Connectome-constrained networks (fly visual system)](../../sources/lappalainen-flyvis-paper.md)
