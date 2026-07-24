@@ -4,7 +4,7 @@ type: entity
 subtype: research-center
 created: 2026-07-09
 updated: 2026-07-09
-sources: 1
+sources: 2
 tags: [assistive-robotics, nsf-erc, cmu, pitt, upmc, permma, herb, wheelchair, virtual-coach, defunct]
 ---
 

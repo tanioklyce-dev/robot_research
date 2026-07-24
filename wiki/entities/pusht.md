@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-05-07
 updated: 2026-05-10
-sources: 7
+sources: 8
 tags: [pusht, push-t, manipulation-benchmark, ibc, diffusion-policy, lightweight-sim]
 ---
 

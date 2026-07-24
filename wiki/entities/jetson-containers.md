@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-06-13
 updated: 2026-06-13
-sources: 2
+sources: 3
 tags: [jetson, nvidia, docker, edge-ai, jetson-containers, dustynv, infrastructure, lerobot]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: hardware-standard
 created: 2026-05-17
 updated: 2026-05-17
-sources: 1
+sources: 2
 tags: [pixhawk, flight-controller, autopilot, uav, drone, open-hardware, dronecode]
 ---
 

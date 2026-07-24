@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-10
 updated: 2026-05-10
-sources: 1
+sources: 3
 tags: [tiago, pal-robotics, mobile-manipulator, ros, research-platform]
 ---
 

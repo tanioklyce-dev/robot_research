@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-09
 updated: 2026-05-15
-sources: 5
+sources: 6
 tags: [company, ai-safety, llm, claude, alignment]
 ---
 

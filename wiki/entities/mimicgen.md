@@ -4,7 +4,7 @@ type: entity
 subtype: tool
 created: 2026-05-07
 updated: 2026-07-04
-sources: 3
+sources: 5
 tags: [mimicgen, synthetic-data, demonstrations, mandlekar, gear]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: pedagogy
 created: 2026-05-15
 updated: 2026-05-31
-sources: 4
+sources: 3
 tags: [welch-labs, stephen-welch, pedagogy, youtube, textbook, ai-education]
 ---
 

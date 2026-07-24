@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-08
 updated: 2026-05-10
-sources: 1
+sources: 3
 tags: [simplerenv, manipulation-benchmark, sapien, real-world-eval, vla-eval]
 ---
 

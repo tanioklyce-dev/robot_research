@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-07-15
 updated: 2026-07-15
-sources: 4
+sources: 1
 tags: [siyuan-feng, walden-robotics, tri, diffusion-policy, lbm, locomotion, manipulation, robot-software]
 ---
 

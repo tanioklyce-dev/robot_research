@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-07-04
 updated: 2026-07-13
-sources: 2
+sources: 4
 tags: [ros2-mcp-server, mcp, ros2, fleet, agent, tool-schema, first-party, skeleton, execution-rail, guardrails]
 ---
 

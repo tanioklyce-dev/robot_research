@@ -4,7 +4,7 @@ type: entity
 subtype: software
 created: 2026-05-31
 updated: 2026-05-31
-sources: 3
+sources: 6
 tags: [core-war, programming-game, self-replication, redcode, mars, artificial-life, alife, von-neumann, digital-evolution, retro]
 ---
 

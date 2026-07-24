@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-09
 updated: 2026-05-09
-sources: 1
+sources: 4
 tags: [pollen-robotics, france, open-source, humanoid, reachy, embodied-ai]
 ---
 

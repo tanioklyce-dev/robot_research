@@ -3,7 +3,7 @@ title: Flow matching
 type: concept
 created: 2026-05-25
 updated: 2026-07-04
-sources: 8
+sources: 15
 tags: [flow-matching, generative-model, ode, continuous-actions, vla, action-head, pi-zero, smolvla, lipman, esser]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-07-05
 updated: 2026-07-05
-sources: 1
+sources: 2
 tags: [agenticros, ros2, mcp, openclaw, hermes-agent, nemoclaw, fleet, skills-marketplace, zenoh, typescript, agent-robot-bridge]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-10
 updated: 2026-05-28
-sources: 3
+sources: 4
 tags: [person, remi-cadene, hugging-face, lerobot, robotics, open-source, iclr-2026]
 ---
 

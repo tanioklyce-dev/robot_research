@@ -4,7 +4,7 @@ type: entity
 subtype: software-library
 created: 2026-06-14
 updated: 2026-07-23
-sources: 10
+sources: 11
 tags: [ultralytics, yolo, object-detection, segmentation, pose-estimation, computer-vision, edge-ai, pytorch, agpl]
 ---
 
@@ -19,7 +19,7 @@ It is the **perception workhorse** that shows up across the wiki's edge-robotics
 ## Key facts
 
 - **Install / use:** `pip install ultralytics`; `from ultralytics import YOLO; YOLO("yolo26n.pt")`; or `yolo predict model=yolo26n.pt source=...`.
-- **Current flagship:** **YOLO26** (n/s/m/l/x). Back-catalog in-repo: YOLOv3/v5/v6/v8/v9/v10/11/12/26, **RT-DETR**, **SAM** + **FastSAM**, **YOLO-NAS**.
+- **Current flagship:** **YOLO26** (n/s/m/l/x). Back-catalog in-repo: YOLOv3/v5/v6/v8/v9/v10/11/12/26, **[RT-DETR](rt-detr.md)**, **SAM** + **FastSAM**, **YOLO-NAS**.
 - **Tasks:** Detect, Segment (instance), Classify, Pose, OBB; **Track** on top of detect/segment/pose.
 - **Pretrained on:** COCO (detect/segment/pose/OBB), ImageNet (classify) — auto-downloaded.
 - **Export:** ONNX, TensorRT (Jetson edge path), CoreML, TFLite, OpenVINO, etc.

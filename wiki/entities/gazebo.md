@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-05-28
 updated: 2026-05-28
-sources: 6
+sources: 7
 tags: [gazebo, gz-sim, ignition, simulator, ros2, open-source, urdf, sdf, open-robotics]
 ---
 

@@ -25,7 +25,7 @@ The most current YOLO overview — anchored on **YOLO26**, the [Ultralytics](../
   - **STAL (Small-Target-Aware Label Assignment)** — assignment biased toward small objects, directly targeting YOLO's oldest weakness (v1's "flocks of birds").
   - **MuSGD optimizer** — a new optimizer for training stability.
 - **Backward lineage.** YOLO11 (hybrid task assignment, efficiency modules) → YOLOv8 (decoupled head, anchor-free) → **YOLOv5 (the modular PyTorch foundation** that made the whole modern lineage tractable). This "v5 as foundation" framing matches the [Terven survey](terven-yolo-survey-2023.md)'s read.
-- **Benchmarking.** Quantitative MS-COCO comparison of v5/v8/v11/26 with cross-comparisons to **YOLOv12, YOLOv13, RT-DETR, and DEIM** (DETR with Improved Matching), across precision, recall, F1, mAP, and inference speed — the accuracy/efficiency trade-off surface.
+- **Benchmarking.** Quantitative MS-COCO comparison of v5/v8/v11/26 with cross-comparisons to **YOLOv12, YOLOv13, [RT-DETR](../entities/rt-detr.md), and DEIM** (DETR with Improved Matching), across precision, recall, F1, mAP, and inference speed — the accuracy/efficiency trade-off surface.
 - **Deployment perspective.** Export formats, quantization strategies, and named application domains (**robotics**, agriculture, surveillance, manufacturing) — the practitioner's view this wiki's edge stack ([jetson-examples](../entities/jetson-examples.md), Hailo apps) actually consumes.
 - **Open challenges named:** dense-scene limitations, **hybrid CNN-Transformer** integration, **open-vocabulary** detection, and **edge-aware training**.
 

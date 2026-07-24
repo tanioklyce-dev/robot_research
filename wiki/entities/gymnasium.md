@@ -4,7 +4,7 @@ type: entity
 subtype: api-standard
 created: 2026-05-07
 updated: 2026-05-10
-sources: 3
+sources: 5
 tags: [farama, gymnasium, gym, rl, api-standard]
 ---
 

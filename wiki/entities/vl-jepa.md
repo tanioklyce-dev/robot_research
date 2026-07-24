@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-31
 updated: 2026-05-31
-sources: 1
+sources: 2
 tags: [vl-jepa, jepa, vlm, vision-language, meta, lecun, gqa, embedding-prediction]
 ---
 

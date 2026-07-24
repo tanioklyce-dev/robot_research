@@ -3,7 +3,7 @@ title: Heatmap-based object localization
 type: concept
 created: 2026-07-21
 updated: 2026-07-21
-sources: 4
+sources: 9
 tags: [object-detection, object-tracking, small-object-detection, computer-vision, heatmap, perception]
 ---
 

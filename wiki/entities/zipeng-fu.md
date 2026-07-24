@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-25
 updated: 2026-05-25
-sources: 1
+sources: 2
 tags: [zipeng-fu, stanford, mobile-aloha, imitation-learning]
 ---
 

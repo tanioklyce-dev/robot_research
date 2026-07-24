@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-07
 updated: 2026-05-07
-sources: 2
+sources: 4
 tags: [person, meta-fair, jepa-wms, dino-world, lineage]
 ---
 

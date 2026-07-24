@@ -3,7 +3,7 @@ title: Whole-Body Control (WBC)
 type: concept
 created: 2026-07-15
 updated: 2026-07-15
-sources: 5
+sources: 8
 tags: [whole-body-control, wbc, humanoid, motion-tracking, loco-manipulation, unitree-g1, booster-t1, rl, sim-to-real, amass, agile, code]
 ---
 

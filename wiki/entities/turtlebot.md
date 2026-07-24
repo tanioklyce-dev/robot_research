@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-08
 updated: 2026-05-28
-sources: 5
+sources: 6
 tags: [turtlebot, ros, education, mobile-robot, willow-garage, clearpath, open-robotics]
 ---
 

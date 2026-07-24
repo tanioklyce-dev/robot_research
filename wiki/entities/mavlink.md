@@ -4,7 +4,7 @@ type: entity
 subtype: protocol
 created: 2026-05-17
 updated: 2026-05-17
-sources: 1
+sources: 2
 tags: [mavlink, protocol, telemetry, uav, drone, px4, ardupilot, dronecode]
 ---
 

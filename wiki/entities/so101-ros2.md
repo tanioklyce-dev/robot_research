@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-05-28
 updated: 2026-05-28
-sources: 3
+sources: 5
 tags: [so101-ros2, lerobot, ros2, humble, so-101, isaac-sim, smolvla, pi05, nimicurtis, downstream, hardware-specific]
 ---
 

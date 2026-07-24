@@ -4,7 +4,7 @@ type: entity
 subtype: organization
 created: 2026-05-17
 updated: 2026-05-17
-sources: 1
+sources: 2
 tags: [dronecode, linux-foundation, governance, px4, mavlink, qgroundcontrol, mavsdk, uav, open-source]
 ---
 

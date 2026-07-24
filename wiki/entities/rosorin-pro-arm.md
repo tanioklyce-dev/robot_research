@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-07
 updated: 2026-05-07
-sources: 2
+sources: 3
 tags: [rosorin-pro, arm, manipulator, hx-12h, hiwonder, 6-dof]
 status: stub
 ---

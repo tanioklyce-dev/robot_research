@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-07-06
 updated: 2026-07-06
-sources: 4
+sources: 3
 tags: [person, toronto, wake-sleep, helmholtz-machine, backpropagation, turing-award, deep-learning]
 ---
 

@@ -39,6 +39,7 @@ anchors on **YOLO26**. The v1 and v10 rows are grounded in the
 | **v7** | 2022, Wang et al. | **E-ELAN** (extended efficient layer aggregation) + trainable bag-of-freebies + model re-parameterization. (The v7 box baseline is this wiki's [heatmap-vs-boxes](../../concepts/robotics/heatmap-object-localization.md) reference: 68.0 vs 97.5 F1.) |
 | **v8** | 2023, Ultralytics | **Anchor-free + decoupled head**, C2f blocks, and **multi-task** as first-class (detect/seg/pose/cls/OBB). Undoes v2's anchors, now with better label assignment. |
 | **YOLO-NAS** | 2023, Deci | **Neural-architecture-searched**, quantization-friendly design. |
+| **[RT-DETR](../../entities/rt-detr.md)** | 2023–24, Baidu | Not a YOLO — the **transformer** (DETR) line brought to real-time; NMS-free by set prediction. The standing benchmark foil the YOLO papers measure against. |
 | **v9** | 2024, Wang et al. | **PGI** (programmable gradient information) + **GELAN** — better gradient flow to deeper layers. |
 | **v10** | 2024, Tsinghua | **NMS-free, end-to-end** via consistent dual assignments (one-to-many + one-to-one heads); removes the last post-processing step ([paper](../../sources/yolov10-nms-free-2024.md)). |
 | **v11** | 2024, Ultralytics | Efficiency modules (C3k2), multi-task refinements; replaced v8 as Ultralytics flagship. |

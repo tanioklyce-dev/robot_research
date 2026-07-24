@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-06
 updated: 2026-06-02
-sources: 33
+sources: 47
 tags: [nvidia, gpu, simulation, physical-ai]
 ---
 

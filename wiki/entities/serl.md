@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-07-05
 updated: 2026-07-05
-sources: 3
+sources: 5
 tags: [reinforcement-learning, real-world-rl, open-source, software-suite, reward-classifier, forward-backward, impedance-control]
 ---
 

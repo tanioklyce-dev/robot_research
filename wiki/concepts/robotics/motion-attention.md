@@ -3,7 +3,7 @@ title: Motion attention (frame differencing as a learnable prompt)
 type: concept
 created: 2026-07-21
 updated: 2026-07-21
-sources: 2
+sources: 3
 tags: [object-tracking, attention, motion, frame-differencing, computer-vision, small-object-detection, perception]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: software
 created: 2026-05-31
 updated: 2026-05-31
-sources: 1
+sources: 2
 tags: [tierra, artificial-life, alife, digital-evolution, self-replication, open-ended-evolution, parasitism, thomas-ray]
 ---
 

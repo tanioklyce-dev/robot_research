@@ -4,7 +4,7 @@ type: entity
 subtype: format
 created: 2026-05-07
 updated: 2026-05-09
-sources: 5
+sources: 6
 tags: [openusd, scene-description, usdphysics, pixar, format, robotics]
 ---
 

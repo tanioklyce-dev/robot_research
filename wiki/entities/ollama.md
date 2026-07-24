@@ -4,7 +4,7 @@ type: entity
 subtype: tool
 created: 2026-05-07
 updated: 2026-07-04
-sources: 5
+sources: 6
 tags: [ollama, llm-runtime, local-llm, edge-inference, uav]
 ---
 

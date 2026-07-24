@@ -3,7 +3,7 @@ title: Michael I. Jordan
 type: entity
 created: 2026-05-29
 updated: 2026-05-29
-sources: 1
+sources: 2
 tags: [person, machine-learning, statistics, economics-of-ml, berkeley, inria]
 ---
 

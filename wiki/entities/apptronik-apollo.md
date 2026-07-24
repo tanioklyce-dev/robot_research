@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-08
 updated: 2026-07-04
-sources: 1
+sources: 2
 tags: [apollo, apptronik, humanoid, bipedal, nvidia-partnership, ut-austin]
 status: stub
 ---

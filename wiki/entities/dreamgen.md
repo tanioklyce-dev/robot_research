@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-07-04
 updated: 2026-07-04
-sources: 3
+sources: 2
 tags: [dreamgen, neural-trajectories, video-world-model, synthetic-data, nvidia, gear, vla, dream-star]
 ---
 

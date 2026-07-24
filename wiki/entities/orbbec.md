@@ -4,7 +4,7 @@ type: entity
 subtype: hardware-vendor
 created: 2026-06-13
 updated: 2026-06-13
-sources: 1
+sources: 2
 tags: [orbbec, rgb-d, depth-camera, perception, sensor, realsense-alternative]
 ---
 

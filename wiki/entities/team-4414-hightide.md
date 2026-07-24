@@ -3,7 +3,7 @@ title: Team 4414 (HighTide)
 type: entity
 created: 2026-06-07
 updated: 2026-06-14
-sources: 2
+sources: 3
 tags: [frc, team, ai, llm-agent, swerve, competition, world-champion]
 ---
 

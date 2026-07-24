@@ -3,7 +3,7 @@ title: Energy-based models (EBMs)
 type: concept
 created: 2026-05-17
 updated: 2026-07-04
-sources: 4
+sources: 5
 tags: [ebm, energy-based-model, infonce, jepa, ibc, lecun, kona, latent-variable, constraint-satisfaction]
 ---
 

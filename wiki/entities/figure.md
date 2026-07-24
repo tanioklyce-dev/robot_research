@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-08
 updated: 2026-05-10
-sources: 2
+sources: 3
 tags: [figure, humanoid, bipedal, helix, openai, bmw, vla, system-1-system-2]
 status: partial
 ---

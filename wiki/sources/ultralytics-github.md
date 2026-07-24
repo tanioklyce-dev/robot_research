@@ -28,7 +28,7 @@ tags: [ultralytics, yolo, object-detection, segmentation, pose-estimation, compu
   model = YOLO("yolo26n.pt")        # load pretrained
   results = model("image.jpg")       # predict
   ```
-- **Current flagship: YOLO26** (n/s/m/l/x size variants). The repo ships a deep back-catalog of model families under `ultralytics/cfg/models/`: **YOLOv3, v5, v6, v8, v9, v10, 11, 12, 26**, plus **RT-DETR** (real-time transformer detector). Additional model classes under `ultralytics/models/`: **SAM** (Segment Anything) + **FastSAM**, and **YOLO-NAS**. (Newer families drop the "v" prefix: 11/12/26.)
+- **Current flagship: YOLO26** (n/s/m/l/x size variants). The repo ships a deep back-catalog of model families under `ultralytics/cfg/models/`: **YOLOv3, v5, v6, v8, v9, v10, 11, 12, 26**, plus **[RT-DETR](../entities/rt-detr.md)** (real-time transformer detector). Additional model classes under `ultralytics/models/`: **SAM** (Segment Anything) + **FastSAM**, and **YOLO-NAS**. (Newer families drop the "v" prefix: 11/12/26.)
 - **Tasks:** Detect, Segment (instance), Classify, Pose, OBB; **Track** mode layers on top of detect/segment/pose models. *(The README's mention of "semantic segmentation / Cityscapes" does not match Ultralytics' actual task set — instance segmentation on COCO is the segmentation task; treat that line as an error.)*
 - **Pretrained weights:** COCO (detect / segment / pose / OBB), ImageNet (classify) — auto-downloaded by checkpoint name.
 - **Export / deployment:** ONNX and TensorRT are highlighted; the Ultralytics export pipeline broadly targets edge/server runtimes (ONNX, TensorRT, CoreML, TFLite, OpenVINO, etc.). TensorRT export is the relevant path for [Jetson](../entities/jetson-orin-nano.md) edge inference.

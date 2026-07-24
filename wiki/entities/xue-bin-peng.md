@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-07-15
 updated: 2026-07-15
-sources: 2
+sources: 1
 tags: [xue-bin-peng, nvidia, gear, simon-fraser-university, physics-based-animation, whole-body-control, humanoid, rl, amp, motion-generation]
 ---
 

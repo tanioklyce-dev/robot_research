@@ -25,7 +25,7 @@ YOLOv10 (Tsinghua University) removes the **last non-end-to-end piece** of the Y
   - **Spatial-channel decoupled downsampling** — separate spatial reduction from channel expansion to cut cost.
   - **Rank-guided block design** — allocate blocks/compute by measured stage redundancy rather than uniformly.
   - **Large-kernel convolution** and **partial self-attention (PSA)** — cheap ways to enlarge receptive field / add global context only where accuracy benefits.
-- **COCO benchmarks (val2017).** YOLOv10-S **46.3 AP @ 1.84 ms / 3.3M params**; -M 52.5 AP; -B 53.1 AP; -L 53.4 AP; -X **54.4 AP**. **YOLOv10-S is ~1.8× faster than RT-DETR-R18 at similar AP with ~40% fewer parameters**; **YOLOv10-B has 46% lower latency than YOLOv9-C at equal AP with 25% fewer parameters.**
+- **COCO benchmarks (val2017).** YOLOv10-S **46.3 AP @ 1.84 ms / 3.3M params**; -M 52.5 AP; -B 53.1 AP; -L 53.4 AP; -X **54.4 AP**. **YOLOv10-S is ~1.8× faster than [RT-DETR](../entities/rt-detr.md)-R18 at similar AP with ~40% fewer parameters**; **YOLOv10-B has 46% lower latency than YOLOv9-C at equal AP with 25% fewer parameters.**
 
 ## Entities mentioned
 

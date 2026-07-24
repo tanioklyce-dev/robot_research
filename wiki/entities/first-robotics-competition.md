@@ -3,7 +3,7 @@ title: FIRST Robotics Competition
 type: entity
 created: 2026-05-08
 updated: 2026-06-14
-sources: 5
+sources: 7
 tags: [frc, competition, educational-robotics, stem]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-07-05
 updated: 2026-07-05
-sources: 3
+sources: 6
 tags: [reinforcement-learning, off-policy-rl, sac, layernorm, offline-data, sample-efficiency, algorithm]
 ---
 

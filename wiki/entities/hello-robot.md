@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-07
 updated: 2026-05-25
-sources: 9
+sources: 10
 tags: [hello-robot, stretch, mobile-manipulation, research-platform]
 ---
 

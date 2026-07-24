@@ -4,7 +4,7 @@ type: entity
 subtype: software-tool
 created: 2026-06-14
 updated: 2026-06-14
-sources: 3
+sources: 4
 tags: [seeed-studio, jetson, recomputer, jetson-containers, docker, edge-ai, one-command-deploy]
 ---
 

@@ -3,7 +3,7 @@ title: TrackNet (model family)
 type: entity
 created: 2026-07-21
 updated: 2026-07-22
-sources: 5
+sources: 8
 tags: [object-tracking, heatmap, small-object-detection, computer-vision, sports-analytics, tennis, badminton, pinball, open-source]
 ---
 

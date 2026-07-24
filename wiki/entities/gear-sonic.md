@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-07-04
 updated: 2026-07-15
-sources: 3
+sources: 5
 tags: [gear-sonic, sonic, whole-body-control, humanoid, loco-manipulation, motion-tracking, unitree-g1, nvidia, gear, groot]
 ---
 

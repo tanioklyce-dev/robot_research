@@ -3,7 +3,7 @@ title: Neural Cellular Automata (NCA)
 type: concept
 created: 2026-05-31
 updated: 2026-05-31
-sources: 1
+sources: 3
 tags: [neural-cellular-automata, nca, self-organization, morphogenesis, cellular-automata, regeneration, emergence, alife, neural-fields, mordvintsev]
 ---
 

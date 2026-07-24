@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-05-28
 updated: 2026-05-28
-sources: 3
+sources: 5
 tags: [nav2, navigation2, ros2, slam, navigation, behavior-tree, costmap, intel, samsung, open-navigation, mobile-robot]
 ---
 

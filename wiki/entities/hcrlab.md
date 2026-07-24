@@ -4,7 +4,7 @@ type: entity
 subtype: organization
 created: 2026-05-09
 updated: 2026-05-10
-sources: 9
+sources: 10
 tags: [hcrlab, uw, maya-cakmak, assistive-robotics, eup]
 ---
 

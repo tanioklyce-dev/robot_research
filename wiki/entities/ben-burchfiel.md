@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-07-15
 updated: 2026-07-15
-sources: 3
+sources: 1
 tags: [ben-burchfiel, walden-robotics, tri, diffusion-policy, openvla, lbm, robot-learning]
 ---
 

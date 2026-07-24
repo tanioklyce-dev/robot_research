@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-25
 updated: 2026-05-25
-sources: 1
+sources: 3
 tags: [viperx-300, trossen, robot-arm, 6dof, aloha, mobile-aloha, hardware]
 ---
 

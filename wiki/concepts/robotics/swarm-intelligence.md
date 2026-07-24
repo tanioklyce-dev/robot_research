@@ -3,7 +3,7 @@ title: Swarm intelligence
 type: concept
 created: 2026-05-31
 updated: 2026-05-31
-sources: 1
+sources: 3
 tags: [swarm-intelligence, swarm-robotics, swarm, uav, drone, emergence, flocking, boids, pso, aco, agentic-uavs, multi-agent, anti-drone]
 ---
 

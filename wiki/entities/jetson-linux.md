@@ -3,7 +3,7 @@ title: Jetson Linux (L4T)
 type: entity
 created: 2026-05-16
 updated: 2026-05-17
-sources: 8
+sources: 9
 tags: [nvidia, jetson, l4t, jetson-linux, bsp, linux, ubuntu, jetson-thor]
 ---
 

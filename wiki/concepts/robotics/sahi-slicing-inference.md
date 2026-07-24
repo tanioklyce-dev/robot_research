@@ -3,7 +3,7 @@ title: SAHI (Slicing Aided Hyper Inference)
 type: concept
 created: 2026-07-17
 updated: 2026-07-17
-sources: 1
+sources: 2
 tags: [object-detection, small-object-detection, computer-vision, inference, edge-ai, yolo]
 ---
 

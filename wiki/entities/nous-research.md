@@ -4,7 +4,7 @@ type: entity
 subtype: organization
 created: 2026-05-28
 updated: 2026-05-28
-sources: 2
+sources: 3
 tags: [nous-research, agentic-ai, hermes, llm-fine-tuning, decentralized-ai, open-source, mit, ai-org]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-07-09
 updated: 2026-07-09
-sources: 2
+sources: 1
 tags: [kinova, assistive-robotics, robotic-arm, medical-device, canada, research-hardware]
 ---
 

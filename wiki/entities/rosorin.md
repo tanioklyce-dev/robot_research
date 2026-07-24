@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-07
 updated: 2026-05-07
-sources: 2
+sources: 3
 tags: [rosorin, hiwonder, jetson-orin-nano, education, mobile-robot, llm-agent]
 ---
 

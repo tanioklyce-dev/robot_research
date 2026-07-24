@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-08
 updated: 2026-07-15
-sources: 1
+sources: 2
 tags: [digit, agility-robotics, humanoid, bipedal, logistics, gxo, amazon, functional-safety, nvidia-halos]
 ---
 

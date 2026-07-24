@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-08
 updated: 2026-07-05
-sources: 9
+sources: 12
 tags: [person, stanford, meta-learning, robot-learning, droid, metaworld, aloha, mobile-aloha]
 ---
 

@@ -3,7 +3,7 @@ title: Chain of thought
 type: concept
 created: 2026-05-15
 updated: 2026-05-15
-sources: 0
+sources: 3
 tags: [llm, reasoning, prompting, chain-of-thought, reasoning-models]
 ---
 

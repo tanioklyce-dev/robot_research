@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-07
 updated: 2026-05-31
-sources: 1
+sources: 2
 tags: [vla-jepa, vla-models, jepa, world-model, libero, simplerenv]
 ---
 

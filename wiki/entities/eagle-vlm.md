@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-07-04
 updated: 2026-07-04
-sources: 4
+sources: 5
 tags: [eagle, vlm, nvidia, mixture-of-encoders, siglip, long-context, groot-backbone]
 ---
 
