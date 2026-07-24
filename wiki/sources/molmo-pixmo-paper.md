@@ -14,7 +14,7 @@ tags: [molmo, pixmo, vlm, vision-language-model, open-data, open-weights, pointi
 
 ## Summary
 
-Molmo (Ai2) is a family of **[vision-language models](../concepts/learning/vla-models.md)** whose thesis is a rebuke of how "open" VLMs are usually built: the strong open-weight models of 2024 lean heavily on **synthetic data distilled from proprietary VLMs** (GPT-4V etc.), so the community never learned how to build a performant VLM *from scratch*. Molmo's key contribution is therefore **not the model but the data** — **PixMo**, a suite of datasets collected **without any external VLM in the loop** — plus the careful modeling/training recipe that turns it into a state-of-the-art result. The 72B model **tops academic benchmarks** in its openness class and ranks **second only to GPT-4o** by human preference, beating Claude 3.5 Sonnet and Gemini 1.5 Pro/Flash.
+Molmo ([Ai2](../entities/ai2.md)) is a family of **[vision-language models](../concepts/learning/vla-models.md)** whose thesis is a rebuke of how "open" VLMs are usually built: the strong open-weight models of 2024 lean heavily on **synthetic data distilled from proprietary VLMs** (GPT-4V etc.), so the community never learned how to build a performant VLM *from scratch*. Molmo's key contribution is therefore **not the model but the data** — **PixMo**, a suite of datasets collected **without any external VLM in the loop** — plus the careful modeling/training recipe that turns it into a state-of-the-art result. The 72B model **tops academic benchmarks** in its openness class and ranks **second only to GPT-4o** by human preference, beating Claude 3.5 Sonnet and Gemini 1.5 Pro/Flash.
 
 ## Key claims
 

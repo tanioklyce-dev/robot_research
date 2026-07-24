@@ -4,7 +4,7 @@ type: entity
 subtype: vlm
 created: 2026-07-17
 updated: 2026-07-24
-sources: 2
+sources: 3
 tags: [molmo, vlm, allen-institute, ai2, pixmo, open-weights, open-data, pointing, vla-backbone]
 ---
 
@@ -25,7 +25,7 @@ The distillation-free data recipe pays off: the **Molmo-72B** model **tops acade
 
 ## Family
 
-- **MolmoE-1B** — **OLMoE-1B-7B** mixture-of-experts backbone; ~GPT-4V.
+- **MolmoE-1B** — **[OLMoE-1B-7B](olmoe.md)** mixture-of-experts backbone; ~GPT-4V.
 - **Molmo-7B-O** — **[OLMo-7B](olmo.md)** backbone (the fully-open one).
 - **Molmo-7B-D** — **Qwen2-7B** backbone (the "demo" model); 7B-O/7B-D land between GPT-4V and GPT-4o.
 - **Molmo-72B** — **Qwen2-72B** backbone; the flagship / top scorer.
@@ -39,7 +39,7 @@ The distillation-free data recipe pays off: the **Molmo-72B** model **tops acade
 
 ## Open questions
 
-- **[OLMo](olmo.md)** (the fully-open backbone) is now filed; **OLMoE** (the MoE backbone behind MolmoE-1B, arXiv 2409.02060) is still un-ingested.
+- Both open backbones are now filed — dense **[OLMo](olmo.md)** and the MoE **[OLMoE](olmoe.md)** (behind MolmoE-1B); the closed-data [Qwen2](qwen.md) backbones remain the contrast case.
 - Does Molmo's pointing capability feed MolmoAct's action grounding directly (point → act), or only indirectly? Resolvable when the [MolmoAct](molmoact.md) paper (2508.07917) is filed.
 
 ## Mentioned in

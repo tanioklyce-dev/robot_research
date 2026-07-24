@@ -2894,3 +2894,11 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - Wired OLMo into [Molmo](entities/molmo.md) (OLMo-7B backbone) + [molmo source](sources/molmo-pixmo-paper.md); knock-on count bumps from the new source: [vla-models](concepts/learning/vla-models.md) 71→72, [molmoact](entities/molmoact.md) 2→3, [molmo](entities/molmo.md) 1→2; index synced
 - PDF archived (raw/2402.00838.pdf). Verify: 0 broken links, 0 count mismatches
 - Remaining open-model gaps: **OLMoE** (MoE backbone, 2409.02060), **OLMo 2** (2025), and **Dolma** / **Ai2** entities (Ai2 now recurs across OLMo/Molmo/MolmoAct/YOLO)
+## [2026-07-24] ingest | Ai2 open-model batch — OLMoE, OLMo 2, Dolma + Ai2 entity
+- Created sources [OLMoE](sources/olmoe-paper.md) (2409.02060), [OLMo 2 "2 OLMo 2 Furious"](sources/olmo-2-paper.md) (2501.00656), [Dolma](sources/dolma-paper.md) (2402.00159) — all Ai2
+- New entities: [OLMoE](entities/olmoe.md) (7B total / 1B active MoE; MolmoE-1B backbone), [Dolma](entities/dolma.md) (3T-token open corpus + toolkit), [Ai2](entities/ai2.md) (the lab — built from 6 existing sources); new concept [Mixture-of-Experts](concepts/learning/mixture-of-experts.md)
+- Updated [OLMo](entities/olmo.md) to span OLMo 1→2 (RMSNorm/QK-norm/Dolmino/Tülu3/RLVR) + link Dolma/OLMoE/Ai2; [Molmo](entities/molmo.md) OLMoE backbone linked; both open backbones now filed
+- Cross-domain link surfaced: **Ai2 CEO Ali Farhadi co-authored the original [YOLO](sources/yolo-you-only-look-once-2016.md)** — the same lab thread runs from 2016 single-stage detection to today's fully-open LLM/VLM/VLA stack
+- Wired Ai2 into 6 source pages (olmo/olmoe/olmo-2/dolma/molmo/yolo). Knock-on count bumps: vla-models 72→74, olmo 2→5, qwen 6→7, molmo 2→3, dolma/olmoe →3; index synced
+- 3 PDFs archived. Verify: 0 broken links, 0 count mismatches, index/frontmatter aligned
+- Remaining open-model threads (optional): a **Dolmino** / data-curation concept, an **RLVR** concept page (recurs across reasoning + robot-RL)

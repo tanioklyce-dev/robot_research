@@ -14,7 +14,7 @@ tags: [object-detection, yolo, single-stage-detection, computer-vision, real-tim
 
 ## Summary
 
-The paper that founded the [single-stage detection](../concepts/robotics/single-stage-object-detection.md) line. Redmon, Divvala, Girshick and Farhadi (University of Washington / Allen Institute for AI / Facebook AI Research) **reframe object detection as a single regression problem** — straight from image pixels to bounding-box coordinates and class probabilities — instead of the then-dominant "repurpose a classifier and run it at many locations/scales" pipeline (DPM sliding windows, R-CNN region proposals). A single convolutional network predicts all boxes and classes in **one forward pass**, so it can be optimized end-to-end on detection performance and runs in real time.
+The paper that founded the [single-stage detection](../concepts/robotics/single-stage-object-detection.md) line. Redmon, Divvala, Girshick and Farhadi (University of Washington / [Allen Institute for AI](../entities/ai2.md) / Facebook AI Research) **reframe object detection as a single regression problem** — straight from image pixels to bounding-box coordinates and class probabilities — instead of the then-dominant "repurpose a classifier and run it at many locations/scales" pipeline (DPM sliding windows, R-CNN region proposals). A single convolutional network predicts all boxes and classes in **one forward pass**, so it can be optimized end-to-end on detection performance and runs in real time.
 
 ## Key claims
 

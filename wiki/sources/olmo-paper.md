@@ -14,7 +14,7 @@ tags: [olmo, open-source-llm, language-model, ai2, dolma, reproducibility, open-
 
 ## Summary
 
-OLMo (Ai2) is a **"truly open" language model** built to make LMs *scientifically* studiable rather than just usable. Its argument: most "open" releases give you weights + inference code and stop there, so the community never gets to study *how* a performant LM is actually made. OLMo instead releases **the whole pipeline** — weights, the **full pretraining corpus (Dolma)**, training and evaluation code, hundreds of **intermediate checkpoints**, and the **training logs** — all under **Apache 2.0**. It's the foundational "open-everything" LM whose **OLMo-7B** is a [Molmo](../entities/molmo.md) backbone and whose openness thesis Molmo's own PixMo work extends to the vision-language setting.
+OLMo ([Ai2](../entities/ai2.md)) is a **"truly open" language model** built to make LMs *scientifically* studiable rather than just usable. Its argument: most "open" releases give you weights + inference code and stop there, so the community never gets to study *how* a performant LM is actually made. OLMo instead releases **the whole pipeline** — weights, the **full pretraining corpus (Dolma)**, training and evaluation code, hundreds of **intermediate checkpoints**, and the **training logs** — all under **Apache 2.0**. It's the foundational "open-everything" LM whose **OLMo-7B** is a [Molmo](../entities/molmo.md) backbone and whose openness thesis Molmo's own PixMo work extends to the vision-language setting.
 
 ## Key claims
 
@@ -36,5 +36,4 @@ OLMo (Ai2) is a **"truly open" language model** built to make LMs *scientificall
 
 ## Open questions
 
-- **Dolma** (the ~3T-token open corpus, Soldaini et al. 2024) and **Ai2 / Allen Institute for AI** (recurs across [Molmo](../entities/molmo.md), [MolmoAct](../entities/molmoact.md), and even the [YOLO](yolo-you-only-look-once-2016.md) authorship) both lack wiki entities — candidates if the open-model thread deepens.
-- **OLMoE** (the MoE sibling, Muennighoff et al. 2024, arXiv 2409.02060) — the other Molmo backbone — is a separate release still un-ingested. Same for **OLMo 2** (2025), the successor.
+- The MoE sibling [OLMoE](../entities/olmoe.md), the successor [OLMo 2](olmo-2-paper.md), the [Dolma](../entities/dolma.md) corpus, and the [Ai2](../entities/ai2.md) lab are all now filed — the open-model thread is well-covered as of this batch.
