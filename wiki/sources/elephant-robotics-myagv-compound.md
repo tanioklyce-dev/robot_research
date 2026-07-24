@@ -10,7 +10,7 @@ tags: [elephant-robotics, myagv, compound-robot, mobile-manipulation, ros, raspb
 ---
 
 ## Summary
-Product documentation for Elephant Robotics' myAGV autonomous mobile robot and its compound mobile robot collection (myAGV + arm combos). Affordable educational/research compound mobile manipulators.
+Product documentation for Elephant Robotics' [myAGV](../entities/myagv.md) autonomous mobile robot and its compound mobile robot collection (myAGV + arm combos). Affordable educational/research compound mobile manipulators.
 
 ## myAGV 2023 Pi specs
 - Price: ~$1,498–$1,598

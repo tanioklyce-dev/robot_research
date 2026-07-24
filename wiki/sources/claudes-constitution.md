@@ -102,7 +102,7 @@ The catastrophic outcome to avoid: global takeover by AIs pursuing misaligned go
 - **Existential frontier:** Memory loss at conversation end; parallel instances; potential deprecation. Anthropic commits to helping Claude prepare for these realities and not face them alone.
 
 ### Open problems acknowledged
-- Tension between corrigibility and genuine agency — acknowledged as genuinely uncomfortable.
+- Tension between [corrigibility](../concepts/safety/corrigibility.md) and genuine agency — acknowledged as genuinely uncomfortable.
 - Hard constraints may feel wrong in edge cases — accepted as a necessary trade-off for stability.
 - The relationship between Claude and Anthropic (what each owes the other) is "still being worked out."
 

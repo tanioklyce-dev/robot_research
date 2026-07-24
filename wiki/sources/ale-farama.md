@@ -10,7 +10,7 @@ tags: [ale, atari, rl, benchmark, farama, gymnasium]
 ---
 
 ## Summary
-Documentation site for the Arcade Learning Environment (ALE), Farama Foundation's Atari 2600 RL benchmark framework. ALE wraps the Stella emulator and exposes 100+ classic Atari games as Gymnasium-compatible RL environments. Foundational reference: "The Arcade Learning Environment: An Evaluation Platform for General Agents" (JAIR).
+Documentation site for the [Arcade Learning Environment (ALE)](../entities/ale.md), Farama Foundation's Atari 2600 RL benchmark framework. ALE wraps the Stella emulator and exposes 100+ classic Atari games as Gymnasium-compatible RL environments. Foundational reference: "The Arcade Learning Environment: An Evaluation Platform for General Agents" (JAIR).
 
 ## Key claims
 

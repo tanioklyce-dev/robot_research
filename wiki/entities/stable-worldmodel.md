@@ -3,8 +3,8 @@ title: stable-worldmodel
 type: entity
 subtype: software
 created: 2026-05-08
-updated: 2026-05-10
-sources: 1
+updated: 2026-07-24
+sources: 2
 tags: [stable-worldmodel, lewm, world-model, infrastructure, env-zoo, mila, balestriero]
 ---
 
@@ -37,7 +37,8 @@ tags: [stable-worldmodel, lewm, world-model, infrastructure, env-zoo, mila, bale
 - [MuJoCo](mujoco.md) / DM Control — env-zoo dependencies.
 
 ## Mentioned in
-- [LeWorldModel Paper](../sources/leworldmodel-paper.md)
+- [LeWorldModel GitHub README](../sources/lewm-github.md) — names the `stable-worldmodel` package as the env-zoo + training API.
+- [onchain-ai-garage — LeWM reproduction log](../sources/onchain-ai-garage-lewm-reproduction.md) — the `stable-worldmodel` repo install as the field-reported friction point.
 - [LeWorldModel — train and run howto](../syntheses/world-models/leworldmodel-howto.md)
 
 ## Open questions / TBD

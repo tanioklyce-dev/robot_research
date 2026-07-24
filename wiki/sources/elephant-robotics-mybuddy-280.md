@@ -10,7 +10,7 @@ tags: [elephant-robotics, mybuddy, dual-arm, collaborative-robot, ros, raspberry
 ---
 
 ## Summary
-Product page for myBuddy 280, Elephant Robotics' dual-arm collaborative robot with 13 DOF. Positioned for research, education, and dual-arm manipulation tasks at ~$1,619.
+Product page for [myBuddy 280](../entities/mybuddy-280.md), Elephant Robotics' dual-arm collaborative robot with 13 DOF. Positioned for research, education, and dual-arm manipulation tasks at ~$1,619.
 
 ## Key specs
 - DOF: 13 (6 per arm + 1 torso)

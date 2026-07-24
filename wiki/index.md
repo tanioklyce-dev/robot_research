@@ -560,7 +560,7 @@ Curated entry points across the wiki.
 - [Jetson Thor](entities/jetson-thor.md) — NVIDIA's Blackwell-generation on-robot compute; family now spans **T5000/T4000 (128/64 GB) + new T3000 (32 GB) / T2000 (16 GB) / IGX T3000** (safety-certified, GA Q1 2027) — "70 TOPS to 2,000 TFLOPS"; 7.5× / 3.5× vs Orin; **no RT cores → can't host Isaac Sim**; measured GR00T N1.6 inference **10.9 Hz official TRT / 22–24 Hz community**. (31 sources)
 - [NVIDIA DGX Spark](entities/dgx-spark.md) — GB10 Grace Blackwell desktop AI supercomputer; 128 GB unified memory, 4th-gen RT cores, ConnectX-7; train-on-Spark / deploy-on-Thor split; the **local-AI-server** tier for on-robot agents (runs Gemma-4-31B / a 120B Hermes brain); CUDA-13 torch pin for LeRobot/GR00T fine-tuning. (8 sources)
 - [NVIDIA Halos](entities/nvidia-halos.md) — NVIDIA's **full-stack functional-safety system** for physical AI (silicon→OS→middleware→apps) on the **IGX [Thor](entities/jetson-thor.md)** SoM (Functional Safety Island; Halos OS = Linux+QNX); Inside-Out ([Digit](entities/digit.md)) vs Outside-In safety (open-source [blueprint](sources/halos-outside-in-safety-github.md)); first **ANAB-accredited** AI-functional-safety inspection program (TÜV Rheinland). The certified deterministic layer under a learned VLA. (4 sources)
-- [stable-worldmodel](entities/stable-worldmodel.md) — Python infrastructure under LeWorldModel (env zoo + planning API + dataset format). DM Control + Gymnasium-Robotics Fetch + classic + OGBench + more. (1 sources)
+- [stable-worldmodel](entities/stable-worldmodel.md) — Python infrastructure under LeWorldModel (env zoo + planning API + dataset format). DM Control + Gymnasium-Robotics Fetch + classic + OGBench + more. (2 sources)
 - [Pixhawk](entities/pixhawk.md) — open-hardware flight-controller standard (Dronecode); FMUv3–v6X-RT family; 30+ manufacturer-supported boards (Holybro, CUAV, CubePilot, ARK, ModalAI); the dominant hardware target for PX4. (2 sources)
 
 ### Motor SDKs / hardware components
@@ -606,7 +606,7 @@ Curated entry points across the wiki.
 - [Gemma3](entities/gemma3.md) — Google's 2025 VLM family (1B/4B/12B/27B; built-in 400M vision encoder); backbone of [π0.7](entities/pi07.md). (1 source) _stub_
 - [Gemma 4](entities/gemma4.md) — Google's 2026 multimodal family; **first MoE Gemma**; edge variants (E2B/E4B multimodal) → Jetson, 31B → DGX Spark; native function-calling; an on-robot System-2 candidate. (2 sources)
 - [SmolVLM-2](entities/smolvlm.md) — Hugging Face's compact ~0.4 B VLM (SigLIP + SmolLM2; Marafioti et al. 2025); backbone of [SmolVLA](entities/smolvla.md). (0 sources) _stub_
-- [Molmo](entities/molmo.md) — Allen Institute (Ai2) **fully-open** (weights + PixMo data) VLM family (Deitke et al. 2409.17146); signature **pointing** capability; backbone of [MolmoAct](entities/molmoact.md). Primary source not yet ingested. (1 source) _stub_
+- [Molmo](entities/molmo.md) — Allen Institute (Ai2) **fully-open** (weights + PixMo data) VLM family (Deitke et al. 2409.17146); signature **pointing** capability; backbone of [MolmoAct](entities/molmoact.md). Primary source not yet ingested. (0 sources) _stub_
 
 ### Generative models for image / world
 - [BAGEL](entities/bagel.md) — 14B mixture-of-transformers image-gen + editing model (2025); used as the subgoal-image world model substrate in [π0.7](entities/pi07.md). (0 sources) _stub_
@@ -627,7 +627,7 @@ Curated entry points across the wiki.
 - [DINO-world](entities/dino-world.md) — FAIR DINOv2 video world model ("Back to the Features"). (4 sources)
 - [VLA-JEPA](entities/vla-jepa.md) — JEPA-as-auxiliary inside a VLA policy (USTC, Sun et al.). (2 sources)
 - [VL-JEPA](entities/vl-jepa.md) — JEPA reframing of a full vision-language model (Meta/LeCun, Chen et al.); predicts text embeddings, not tokens. **Distinct from VLA-JEPA despite the name.** (2 sources)
-- [HWM (Hierarchical World Models)](entities/hwm.md) — model-agnostic two-level latent-MPC planning wrapper; the realized Hierarchical JEPA (Zhang et al. incl. LeCun). (1 source)
+- [HWM (Hierarchical World Models)](entities/hwm.md) — model-agnostic two-level latent-MPC planning wrapper; the realized Hierarchical JEPA (Zhang et al. incl. LeCun). (2 sources)
 - [Dreamer / DreamerV3](entities/dreamer.md) — Hafner-line MBRL family with generative WM + actor-critic in imagination; LeWM baseline; lineage now fully sourced ([PlaNet](sources/planet-paper.md) → [DayDreamer](sources/daydreamer-paper.md) → V3); 2025–26 downstream: [S5WM](sources/s5wm-paper.md) (RSSM→SSM, 4× faster) + [EAWM](sources/eawm-paper.md) (event objective, ICLR-2026 SOTA). (14 sources)
 - [TD-MPC / TD-MPC2](entities/td-mpc.md) — Hansen-line decoder-free MBRL with MPC + TD-bootstrapped value; LeWM baseline; closest MBRL relative to JEPA; **the only model-based method natively in LeRobot**. Both papers now filed ([TD-MPC](sources/td-mpc-paper.md) 2022 + [TD-MPC2](sources/td-mpc2-paper.md) 2024). (9 sources)
 - [PLDM (Planning with Latent Dynamics Models)](entities/pldm.md) — Sobal-line end-to-end JEPA WM (NYU + FAIR); VICReg + inverse-dynamics + similarity multi-term loss; the canonical "end-to-end JEPA before LeWM" baseline. (2 sources — 2022 precursor + 2025 paper)

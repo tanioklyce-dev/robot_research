@@ -59,7 +59,7 @@ Chapter-by-chapter (timestamps from the official description):
 ## Why this matters for the wiki
 
 - **Net-new entity: [VL-JEPA](../entities/vl-jepa.md) (Meta, Chen et al., Dec 2025).** Distinct from the wiki's existing [VLA-JEPA](../entities/vla-jepa.md) (USTC, Sun et al.) despite the near-identical name — see the disambiguation note on both pages.
-- **Partially answers a logged open question.** The [LeCun page](../entities/yann-lecun.md) asked whether anyone has built a working **Hierarchical JEPA (H-JEPA)**. This video reports a concrete 2-layer hierarchical world model extending push-t planning 5→15 steps — the first such result the wiki tracks, though the underlying paper isn't named.
+- **Partially answers a logged open question.** The [LeCun page](../entities/yann-lecun.md) asked whether anyone has built a working **Hierarchical JEPA (H-JEPA)**. This video reports a concrete 2-layer [hierarchical world model](../entities/hwm.md) extending push-t planning 5→15 steps — the first such result the wiki tracks, though the underlying paper isn't named.
 - **First wiki source to lay out LeCun's VLA critique on camera**, with the wiki's own VLA evidence ([π0.7](../entities/pi07.md), RT-2) as the counterargument — a clean tie-in to [the critiques-of-the-intelligence-north-star synthesis](../syntheses/society/critiques-of-the-intelligence-north-star.md).
 - **Concretizes LeWM planning** (CEM, ~5-loop horizon, embedding-distance cost) beyond the architecture-only treatment on the [LeWorldModel entity](../entities/leworldmodel.md).
 

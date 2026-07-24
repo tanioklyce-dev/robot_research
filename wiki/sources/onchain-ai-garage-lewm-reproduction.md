@@ -28,7 +28,7 @@ tags: [video, reproduction, leworldmodel, lewm, jepa, sigreg, two-room, rtx-3060
 ## The setup
 
 - **Hardware:** RTX 3060, 12 GB VRAM (consumer GPU, 5 years old, "~$300").
-- **OS / environment:** Windows main PC + WSL2 (required because the `stable-worldmodel` repo is Linux-only).
+- **OS / environment:** Windows main PC + WSL2 (required because the [`stable-worldmodel`](../entities/stable-worldmodel.md) repo is Linux-only).
 - **Software:** Python (downgraded from latest after dependency conflict), PyTorch, the official `stable-worldmodel` repo and `lewm` subpackage.
 - **Dataset:** Two Room only (3.43 GB archive, 12.8 GB extracted, ~920K frames). Chosen because it's the smallest environment in the paper and the only one that fits the host's GPU + time budget. Other paper environments (PushT, Reacher, OGBench-Cube) were not attempted.
 - **Helper:** Claude Code (in WSL) drove environment setup, smoke-test debugging, batch-size tuning, and the markdown handoff between the host's Windows planning session and the WSL training session.

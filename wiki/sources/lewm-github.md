@@ -23,7 +23,7 @@ Four components:
 
 ### Training workflow
 - Dependency management via `uv` (not pip/conda).
-- `uv pip install stable-worldmodel[train,env]` — the `stable-worldmodel` package provides env zoo + training API.
+- `uv pip install stable-worldmodel[train,env]` — the [`stable-worldmodel`](../entities/stable-worldmodel.md) package provides env zoo + training API.
 - Datasets in HDF5 from HuggingFace; training config via Hydra under `config/train/`.
 - Launch: `python train.py data=pusht`.
 - Checkpoints to `$STABLEWM_HOME` (default `~/.stable-wm/`).

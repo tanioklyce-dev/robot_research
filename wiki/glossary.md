@@ -1,3 +1,11 @@
+---
+title: Abbreviations & Glossary
+type: reference
+created: 2026-05-10
+updated: 2026-07-18
+tags: [glossary, reference, acronyms, curriculum]
+---
+
 # Abbreviations & Glossary
 
 A flat index of acronyms used across this wiki, with one-line definitions and a pointer to the curriculum module where each is introduced. Designed to be linked into from any wiki page on first mention of an acronym.

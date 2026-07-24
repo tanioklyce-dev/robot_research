@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-05-31
 updated: 2026-05-31
-sources: 1
+sources: 2
 tags: [hwm, hierarchical-jepa, h-jepa, world-model, latent-planning, cem, mpc, lecun, dino-wm, pldm, v-jepa-2]
 ---
 
