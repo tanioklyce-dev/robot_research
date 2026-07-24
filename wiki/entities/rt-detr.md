@@ -32,7 +32,7 @@ it defines the **CNN-vs-transformer frontier** of real-time detection:
   **RT-DETR-R18 = 46.5 AP @ 5.20 ms**, and YOLOv10-S matches that AP while being
   **~1.8× faster with ~40% fewer parameters**
   ([YOLOv10](../sources/yolov10-nms-free-2024.md)). YOLO26 is likewise
-  cross-compared against RT-DETR and **DEIM** (DETR with Improved Matching)
+  cross-compared against RT-DETR and **[DEIM](deim.md)** (DETR with Improved Matching)
   ([Sapkota & Karkee 2025](../sources/sapkota-ultralytics-yolo-evolution-2025.md)).
 - **Surveyed as "YOLO with Transformers."** [Terven & Cordova-Esparza 2023](../sources/terven-yolo-survey-2023.md)
   covers RT-DETR as the transformer entry alongside the CNN YOLO line; hybrid

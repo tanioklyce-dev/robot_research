@@ -109,7 +109,8 @@ Single-stage detection is the default for real-time / edge CV; the frontier as o
 YOLO26 is **anchor-free + NMS-free + small-target-aware**, plus deployment
 concerns (quantization, export). Open challenges named by the surveys: **dense
 scenes**, **hybrid CNN-Transformer** designs ([RT-DETR](../../entities/rt-detr.md),
-DEIM), **open-vocabulary** detection, and **edge-aware training**.
+[DEIM](../../entities/deim.md)), **open-vocabulary** detection, and **edge-aware
+training**.
 
 ## Mentioned in
 
