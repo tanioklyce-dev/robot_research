@@ -2,9 +2,9 @@
 title: VLA models
 type: concept
 created: 2026-05-06
-updated: 2026-07-17
-sources: 74
-tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos, vla-0, action-as-text]
+updated: 2026-07-25
+sources: 75
+tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos, vla-0, action-as-text, molmoact2, per-layer-kv-conditioning, hybrid-action-head]
 ---
 
 **Vision-Language-Action (VLA) models** are robot foundation models that take visual input plus a language instruction and emit low-level actions for a robot to execute. The dominant model class powering "agentic" robotics in 2026.
@@ -38,12 +38,16 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 > [!note] Four families, not three
 > VLAs are usually grouped into three action-head families — **discrete action tokens** (OpenVLA, RT-2), **generative action heads** (π0/SmolVLA flow-matching, Diffusion Policy DDPM), and **custom architectures** ([OpenVLA-OFT](../../entities/openvla-oft.md)'s ACT head, π0-FAST's DCT tokenizer). [VLA-0](../../entities/vla-0.md) argues for a fourth: **action-as-text** — no head, no new tokens, no architecture change; the VLM just prints the action as integers. With the right recipe it is competitive-to-best ([VLA-0 paper](../../sources/vla-0-paper.md)).
 
+> [!note] The families are converging: hybrid discrete+continuous heads
+> The frontier increasingly runs **both** a discrete-token path and a continuous generative path in one model, using discrete tokens as a *training-time representation signal* and the continuous expert for deployment. [Knowledge Insulation](knowledge-insulation.md) (π0.7 / π*0.6) pioneered this; **[MolmoAct2](../../entities/molmoact2.md)** takes it furthest — a FAST-token autoregressive backbone with a flow-matching action expert bolted on via **[per-layer KV conditioning](per-layer-kv-conditioning.md)** (cross-attending each expert layer to the corresponding VLM layer's K/V, not just the final hidden state). At inference the continuous path is 3.94× faster, so it's the deployment default; the discrete path survives as a training signal. This makes "discrete vs. generative" a training-time distinction more than a deployment one.
+
 | VLA | Backbone | Action head | Notes |
 | --- | --- | --- | --- |
 | **[OpenVLA](../../entities/openvla.md)** | Llama-2 (7B) | autoregressive action tokens | Open-weights baseline; cited by π0, SmolVLA, JEPA-WMs, EgoScale. |
 | **[OpenVLA-OFT](../../entities/openvla-oft.md)** | OpenVLA (Llama-2 7B) | **parallel decoding + action chunking + continuous L1 head** (+FiLM = OFT+) | [Source](../../sources/openvla-oft-paper.md). "Optimized Fine-Tuning" recipe; lifts OpenVLA's LIBERO 76.5 → **97.1** at **26× throughput** (top of the wiki's LIBERO table). The custom-architecture-family exemplar. |
 | **[π0-FAST](../../entities/fast-action-tokenization.md)** | [π0](../../entities/pi-zero.md) (PaliGemma) | **[FAST](../../entities/fast-action-tokenization.md)** DCT discrete tokens | Efficient discrete-token tokenization (Pertsch et al.). Also the token scheme [KI](knowledge-insulation.md) uses to supervise the VLM inside π0.7 / π*0.6. LIBERO 86.0. |
-| **[MolmoAct](../../entities/molmoact.md)** | Molmo (Allen Institute) | discrete action tokens + spatial reasoning | Open "action reasoning" VLA (Lee et al.); reasons in space before acting. LIBERO 86.8. |
+| **[MolmoAct](../../entities/molmoact.md)** | Molmo (Allen Institute) | discrete action tokens + spatial reasoning | Open "action reasoning" VLA (Lee et al.); reasons in space (depth tokens) before acting. LIBERO 86.8. |
+| **[MolmoAct2](../../entities/molmoact2.md)** | [Molmo2-ER](../../entities/molmo2-er.md) (Ai2) | **hybrid**: FAST discrete tokens (train) + flow-matching expert via **[per-layer KV conditioning](per-layer-kv-conditioning.md)** | Fully-open, deployable successor to MolmoAct. Adds adaptive-depth reasoning (MolmoAct2-Think). **LIBERO 97.2 / Think 98.1 — top of the wiki's table.** 55.8 Hz. |
 | **[Octo](../../entities/octo.md)** | transformer from scratch | continuous regression on action chunks | 0.09 B; trained on [OXE](../../entities/open-x-embodiment.md); the pre-flow-matching baseline. |
 | **[π0](../../entities/pi-zero.md)** | [PaliGemma](../../entities/paligemma.md) 3B | **[flow matching](flow-matching.md)** + **full bidirectional SA** | [Source](../../sources/pi-zero-paper.md). 3.3 B total. The canonical flow-matching VLA. |
 | **[π0.7](../../entities/pi07.md)** | [Gemma3](../../entities/gemma3.md) 4B + MEM | **[flow matching](flow-matching.md)** + **KI + stop-gradient to VLM** | [Source](../../sources/pi07-paper.md). 5 B total. Diversified prompt (subgoal images via [BAGEL](../../entities/bagel.md) + metadata + control mode). First emergent-capability VLA. |
@@ -75,6 +79,8 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 
 ## Related
 - [Large behavior models](large-behavior-models.md) — the TRI-coined superclass (VLA = uptrained-VLM subtype).
+- [Per-layer KV conditioning](per-layer-kv-conditioning.md) — MolmoAct2's VLM→expert interface.
+- [Adaptive depth reasoning](adaptive-depth-reasoning.md) — MolmoAct2-Think's embodied-CoT latency fix.
 - [Sim-to-real transfer](sim-to-real-transfer.md) — the bridge from simulator-trained policies to real robots.
 - [World-model simulators](../world-models/world-model-simulators.md) — alternate paradigm for VLA training environments.
 
@@ -96,3 +102,4 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) — LeCun's BC-doesn't-scale + no-planning critique of VLAs
 - [Cosmos 3 Technical Report](../../sources/cosmos-3-technical-report.md) — Cosmos3-Nano-Policy-DROID (world-action model) tops RoboArena, beats π0.5 on RoboLab
 - [Cutting the Cord (Shaw et al., 2026)](../../sources/cutting-the-cord-untethered-xlerobot.md) — on-edge ACT/Diffusion/SmolVLA latency on Jetson Orin Nano
+- [MolmoAct2 Paper (Fang, Duan et al. 2026)](../../sources/molmoact2-paper.md) — hybrid discrete+continuous head; per-layer KV conditioning; top LIBERO scores

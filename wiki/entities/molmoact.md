@@ -3,10 +3,9 @@ title: MolmoAct
 type: entity
 subtype: model
 created: 2026-07-17
-updated: 2026-07-17
-sources: 2
-tags: [molmoact, vla, vision-language-action, discrete-tokens, spatial-reasoning, allen-institute, molmo, baseline]
-status: stub
+updated: 2026-07-25
+sources: 3
+tags: [molmoact, vla, vision-language-action, discrete-tokens, spatial-reasoning, depth-tokens, allen-institute, molmo, baseline]
 ---
 
 # MolmoAct
@@ -17,25 +16,35 @@ status: stub
 
 MolmoAct is one of the **large-scale-action-pretrained** baselines in the wiki's most complete cross-method [LIBERO](libero.md) table — a fully-open (Allen Institute) VLA data point alongside the NVIDIA / Physical Intelligence / Hugging Face entries. It scores **86.8** avg on LIBERO ([VLA-0 paper](../sources/vla-0-paper.md), Table I), placing it **below** [VLA-0](vla-0.md) (94.7, no pretraining), [π0](pi-zero.md) (94.2), and [GR00T-N1](nvidia-groot.md) (93.9) but above plain [OpenVLA](openvla.md) (76.5) and [Octo](octo.md) (75.1) — i.e. a mid-pack discrete-token pretrained VLA. Its distinguishing pitch is **explicit spatial/action reasoning** (reasoning in space, not just emitting actions), which is why the [VLA-0](vla-0.md) authors group it with the discrete-token family while noting its reasoning framing.
 
-> [!note] Primary source not yet ingested
-> This page is grounded in the [VLA-0 paper](../sources/vla-0-paper.md)'s LIBERO comparison; the MolmoAct paper (arXiv 2508.07917) and its Molmo backbone are **not yet ingested**. Deepen (architecture, the "reason in space" mechanism, pretraining corpus, real-robot results) when the primary lands. Its **[Molmo](molmo.md)** backbone now has a (stub) entity.
+> [!note] Superseded by MolmoAct2 (2026)
+> **[MolmoAct2](molmoact2.md)** ([Fang, Duan et al. 2026](../sources/molmoact2-paper.md)) is the ingested successor and advances MolmoAct along five axes: a stronger [Molmo2-ER](molmo2-er.md) backbone, three new open datasets, an open-data [FAST](fast-action-tokenization.md) tokenizer, a hybrid **continuous** action head via [per-layer KV conditioning](../concepts/learning/per-layer-kv-conditioning.md), and **adaptive** depth reasoning. MolmoAct2 reports MolmoAct-7B-D at **86.6** on LIBERO (consistent with the 86.8 below) and beats it by **+10.6**. The successor paper is now the wiki's best window into MolmoAct's own design (below).
+
+> [!note] MolmoAct primary (2508.07917) still not directly ingested
+> This page is grounded in the [VLA-0 paper](../sources/vla-0-paper.md)'s LIBERO comparison and the [MolmoAct2 paper](../sources/molmoact2-paper.md)'s description of its predecessor. The MolmoAct paper itself has not been read directly — deepen further if it lands.
+
+## Depth-token reasoning (the "reason in space" mechanism)
+
+Per the [MolmoAct2 paper](../sources/molmoact2-paper.md) §5, MolmoAct's spatial-reasoning step is **depth-token prediction**: before acting, it predicts a compact discrete depth representation (a depth VQ-VAE producing a **10×10 grid** of codes, each one of 128 values) as an intermediate reasoning target that grounds the policy in 3D structure. This is a non-textual **[embodied chain-of-thought](../concepts/learning/chain-of-thought.md)**. Its limitation — re-predicting the **full** depth grid at every control step — is exactly what [MolmoAct2-Think](molmoact2.md)'s [adaptive depth reasoning](../concepts/learning/adaptive-depth-reasoning.md) fixes by only recomputing changed cells.
 
 ## Reported numbers (from ingested sources)
 
-- **LIBERO** ([VLA-0 paper](../sources/vla-0-paper.md), Table I): **86.8** avg (Spatial 87.0 / Object 95.4 / Goal 87.6 / Long 77.2), with large-scale action pretraining; rank 6.5.
+- **LIBERO** ([VLA-0 paper](../sources/vla-0-paper.md), Table I): **86.8** avg (Spatial 87.0 / Object 95.4 / Goal 87.6 / Long 77.2), with large-scale action pretraining; rank 6.5. (The [MolmoAct2 paper](../sources/molmoact2-paper.md) reports the same model, MolmoAct-7B-D, at **86.6** avg.)
 
 ## Related
 
-- [Molmo](molmo.md) — the Allen Institute open VLM backbone MolmoAct is built on.
+- [MolmoAct2](molmoact2.md) — the ingested successor; hybrid continuous action head + adaptive depth reasoning.
+- [Molmo](molmo.md) — the Allen Institute open VLM backbone MolmoAct is built on ([Molmo2-ER](molmo2-er.md) is MolmoAct2's).
 - [VLA-0](vla-0.md) — the action-as-text VLA that surpasses MolmoAct on LIBERO without any action pretraining.
 - [OpenVLA](openvla.md) — the other open-weights discrete-token VLA baseline.
+- [Adaptive depth reasoning](../concepts/learning/adaptive-depth-reasoning.md) — the successor's fix for MolmoAct's full-grid depth step.
 - [VLA models](../concepts/learning/vla-models.md) — action-head taxonomy (discrete-token family).
 
 ## Open questions
 
-- **Primary source (arXiv 2508.07917) + Molmo backbone not ingested** — needed for the "reason in space" mechanism, depth/spatial-token design, and pretraining details.
-- Is MolmoAct's spatial-reasoning framing an [embodied chain-of-thought](../concepts/learning/chain-of-thought.md) instance? Worth checking against the wiki's CoT thread when the paper is filed.
+- **MolmoAct primary (arXiv 2508.07917) still not directly ingested** — the depth VQ-VAE tokenization and pretraining corpus are now described secondhand via [MolmoAct2](molmoact2.md); read the original for exact details if needed.
+- MolmoAct's spatial-reasoning framing **is** confirmed as a non-textual [embodied chain-of-thought](../concepts/learning/chain-of-thought.md) (depth tokens) per the successor paper.
 
 ## Mentioned in
 
 - [VLA-0 paper](../sources/vla-0-paper.md) — MolmoAct as a discrete-token, action-pretrained LIBERO baseline.
+- [MolmoAct2 paper (Fang, Duan et al. 2026)](../sources/molmoact2-paper.md) — describes MolmoAct as its predecessor (depth-token reasoning, LIBERO number).

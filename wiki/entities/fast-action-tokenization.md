@@ -3,9 +3,9 @@ title: FAST (action tokenization) / π0-FAST
 type: entity
 subtype: method
 created: 2026-07-17
-updated: 2026-07-18
-sources: 4
-tags: [fast, action-tokenization, dct, bpe, vla, discrete-tokens, autoregressive, physical-intelligence, pi-zero]
+updated: 2026-07-25
+sources: 5
+tags: [fast, action-tokenization, dct, bpe, vla, discrete-tokens, autoregressive, physical-intelligence, pi-zero, molmoact2, open-data]
 ---
 
 # FAST (action tokenization) / π0-FAST
@@ -27,6 +27,8 @@ Normalize actions (quantile-based, robust to outliers) → **DCT** per action di
 
 **FAST+** = a **universal** tokenizer trained on **~1M cross-embodied action chunks**; works black-box on any robot's 1-second chunks, released as a HuggingFace `AutoProcessor` (`physical-intelligence/fast`).
 
+**MolmoAct2-FAST Tokenizer** ([MolmoAct2 paper](../sources/molmoact2-paper.md), §4.1.1) = [Ai2](ai2.md)'s **open-weight AND open-data** reimplementation of FAST for [MolmoAct2](molmoact2.md). Same principle (frequency transform → quantize → BPE → **2048-token vocab**, 1 s / 32-D padded chunks), but its contribution is **transparency**: FAST+'s released weights are not paired with a fully specified training distribution, so MolmoAct2-FAST releases both the weights **and** the exact mixture — 1M subsampled sequences across **five embodiments** ([YAM](yam.md) 30% / SO-100/101 30% / [DROID](droid.md) Franka 30% + BC-Z, Bridge, RT-1), spanning absolute-joint and delta-end-effector control. Fills the reproducibility gap in the original FAST release.
+
 ## Reported numbers (from ingested sources)
 
 - **Compression** ([FAST paper](../sources/fast-paper.md), Table I; 1 s chunks, naïve→FAST): BridgeV2 (5 Hz) 35→20; DROID (15 Hz) 105→29; Bussing (20 Hz) 140→28; **Shirt-fold (50 Hz) 700→53 (13.2×)** — FAST lands at ~30 tokens/chunk/arm **regardless of frequency**.
@@ -41,6 +43,7 @@ Normalize actions (quantile-based, robust to outliers) → **DCT** per action di
 - [π0](pi-zero.md) — the base VLA; π0-FAST = π0 + FAST tokenization.
 - [OpenVLA-OFT](openvla-oft.md) / [VLA-0](vla-0.md) — the parallel-decoding and action-as-text alternatives to FAST's autoregressive-discrete-token approach.
 - [DROID](droid.md) — the high-frequency dataset FAST first makes trainable.
+- [MolmoAct2](molmoact2.md) — the open-data MolmoAct2-FAST reimplementation; FAST tokens as the discrete pre-training objective before the flow-matching expert.
 - [VLA models](../concepts/learning/vla-models.md) — action-head taxonomy.
 
 ## Mentioned in
@@ -50,3 +53,4 @@ Normalize actions (quantile-based, robust to outliers) → **DCT** per action di
 - [Cosmos 3 technical report](../sources/cosmos-3-technical-report.md) — π0-FAST as a RoboLab-120 baseline.
 - [π0.7 paper](../sources/pi07-paper.md) / [π*0.6 paper](../sources/pistar06-paper.md) — FAST tokens inside the Knowledge Insulation recipe.
 - [Knowledge Insulation paper](../sources/knowledge-insulation-paper.md) — uses FAST as the discrete representation-learning objective; finds it beats naïve tokenization for that role.
+- [MolmoAct2 paper (Fang, Duan et al. 2026)](../sources/molmoact2-paper.md) — the open-weight/open-data MolmoAct2-FAST Tokenizer.

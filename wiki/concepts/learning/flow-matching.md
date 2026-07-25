@@ -2,9 +2,9 @@
 title: Flow matching
 type: concept
 created: 2026-05-25
-updated: 2026-07-04
-sources: 15
-tags: [flow-matching, generative-model, ode, continuous-actions, vla, action-head, pi-zero, smolvla, lipman, esser]
+updated: 2026-07-25
+sources: 16
+tags: [flow-matching, generative-model, ode, continuous-actions, vla, action-head, pi-zero, smolvla, molmoact2, dit, lipman, esser]
 ---
 
 **Flow matching** — a continuous-time generative-modeling technique that learns a **vector field** `v_θ(x_τ, τ)` whose flow transports samples from a noise distribution to a data distribution. Trained by regressing on a closed-form target vector field along straight-line (or other) interpolants between noise and data, without the score-matching detour DDPM-class diffusion models take. **The dominant continuous-action-head technique in 2025+ VLAs** — used by [π0](../../entities/pi-zero.md), [π0.7](../../entities/pi07.md), [π*0.6](../../entities/pistar06.md), [SmolVLA](../../entities/smolvla.md), [GR00T N1](../../sources/groot-n1-paper.md) (DiT action head, Beta(1.5,1) timestep prior following π0, only **K=4 Euler steps** at inference), and [EgoScale](../../sources/egoscale-paper.md). Sibling-not-subclass of [DDPM](../../entities/ddpm.md): both are continuous-action approaches that avoid action-tokenization quantization, but flow matching trains a deterministic vector field rather than a noise-prediction network.
@@ -43,8 +43,9 @@ The flow-matching head is a small transformer ("action expert") that attends to 
 | [π0](../../entities/pi-zero.md) | **Full bidirectional self-attention** — all action tokens attend to each other |
 | [π0.7](../../entities/pi07.md) / [π*0.6](../../entities/pistar06.md) | Full bidirectional SA + **[Knowledge Insulation (KI)](knowledge-insulation.md) training** — VLM trained via next-token prediction with [FAST](../../entities/fast-action-tokenization.md) tokens; action expert gets **stop-gradient** to VLM |
 | [SmolVLA](../../entities/smolvla.md) | **Interleaved cross-attention + causal self-attention** — each block is either CA (action tokens cross-attend to VLM keys/values) or SA (causal masked, action tokens attend only to past tokens) |
+| [MolmoAct2](../../entities/molmoact2.md) | **DiT-style expert (36 layers, matching VLM depth) with [per-layer KV conditioning](per-layer-kv-conditioning.md)** — each expert block does SA → CA to the *corresponding VLM layer's* keys/values → MLP, with DiT shift/scale/gate from the flow-time embedding. KI-style stop-gradient in post-training, dropped in fine-tuning. |
 
-SmolVLA's interleaved CA+SA pattern empirically wins on real-world SO-100 multi-task at smaller scale; whether it scales to π0.7's regime is open.
+SmolVLA's interleaved CA+SA pattern empirically wins on real-world SO-100 multi-task at smaller scale; whether it scales to π0.7's regime is open. MolmoAct2's per-layer-KV design ablates **+1.9 over final-hidden-state conditioning** on LIBERO — evidence that *where* in the backbone the expert reads from matters, not just the attention pattern.
 
 ## Why VLA designers picked flow matching over DDPM
 
@@ -72,6 +73,7 @@ SmolVLA's interleaved CA+SA pattern empirically wins on real-world SO-100 multi-
 - [Diffusion Policy](../../entities/diffusion-policy.md) — DDPM applied to actions; the policy-class contrast for flow matching.
 - [π0](../../entities/pi-zero.md), [π0.7](../../entities/pi07.md), [π*0.6](../../entities/pistar06.md) — π-series flow-matching VLAs.
 - [SmolVLA](../../entities/smolvla.md) — Hugging Face flow-matching VLA with interleaved CA+SA action expert.
+- [MolmoAct2](../../entities/molmoact2.md) — DiT-style flow-matching expert with [per-layer KV conditioning](per-layer-kv-conditioning.md).
 - [EgoScale](../../sources/egoscale-paper.md) — flow-matching DiT action expert.
 - [VLA models](vla-models.md) — broader concept.
 - [The Elements of Differentiable Programming](../../sources/blondel-roulet-differentiable-programming.md) — ch. 12.6 (continuous adjoint for ODEs), ch. 13 (smoothing), ch. 18 (Fenchel-Young losses) all bear on flow matching.
@@ -85,6 +87,7 @@ SmolVLA's interleaved CA+SA pattern empirically wins on real-world SO-100 multi-
 - [π*0.6 paper](../../sources/pistar06-paper.md)
 - [SmolVLA paper](../../sources/smolvla-paper.md)
 - [EgoScale paper](../../sources/egoscale-paper.md)
+- [MolmoAct2 paper](../../sources/molmoact2-paper.md) — DiT expert, per-layer KV conditioning, K=4/8 flow samples.
 - [Robot Learning: A Tutorial (LeRobot)](../../sources/lerobot-robot-learning-tutorial.md) — covers flow matching in the generative-models chapter.
 - [The Elements of Differentiable Programming](../../sources/blondel-roulet-differentiable-programming.md) — rigorous mathematical reference.
 

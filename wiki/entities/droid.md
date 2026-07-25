@@ -3,9 +3,9 @@ title: DROID
 type: entity
 subtype: dataset
 created: 2026-05-07
-updated: 2026-05-16
-sources: 18
-tags: [droid, dataset, teleoperation, franka, robot-data, stanford, berkeley, oxe]
+updated: 2026-07-25
+sources: 19
+tags: [droid, dataset, teleoperation, franka, robot-data, stanford, berkeley, oxe, molmoact2]
 ---
 
 **DROID — Distributed Robot Interaction Dataset.** Large-scale **real-robot teleoperation dataset** of Franka Panda manipulation collected across diverse real-world environments. Designed as a step beyond [RUM](robot-utility-models.md)-class single-platform corpora and the **[Open X-Embodiment (OXE)](open-x-embodiment.md)** aggregated multi-platform corpus, by emphasizing **scene diversity** rather than embodiment diversity. (DROID is **also a constituent of OXE** — DROID = the Franka-Panda-only subset; OXE = the 22-embodiment umbrella.) Released April 2024 by a 13-institution consortium led by Alexander Khazatsky and Karl Pertsch, with Chelsea Finn and Sergey Levine senior. Project page: https://droid-dataset.github.io/. Primary paper: arxiv 2403.12945.
@@ -56,8 +56,12 @@ This makes DROID the single most reused real-robot dataset in the JEPA literatur
 - The Dec 2024 + Apr 2025 update deltas are not documented here; if the dataset has materially grown or changed task mix, this entity should reflect that.
 - The "+22% / +17%" OXE-vs-DROID claim is from the project page; not yet cross-verified against the paper body's numerical tables.
 
+## Derived / filtered subsets
+- **MolmoAct2-DROID Dataset** ([MolmoAct2 paper](../sources/molmoact2-paper.md), §3.3) — [Ai2](ai2.md)'s **quality-filtered** subset for [MolmoAct2](molmoact2.md): **74,604 episodes, 17.76M frames**. Uses the HuggingFace supplementary annotations (`KarlP/droid`) — extended language instructions (3 per episode for 95% of the 75k successful episodes) + the idle-frame filter (keeps only ≥1s contiguous non-idle segments) — then **re-annotates language** with an open VLM. Motivation: raw DROID contains idle segments, failed attempts, and repetitive instructions. MolmoAct2-DROID is fine-tuned into a checkpoint that deploys **zero-shot on Franka**, beating π0.5-DROID (real-world 87.1% vs runner-up 48.4%).
+
 ## Related
 - Franka Panda — single robot platform across the dataset.
+- [MolmoAct2](molmoact2.md) — releases MolmoAct2-DROID, a quality-filtered Franka subset; SOTA zero-shot DROID deployment.
 - [V-JEPA 2](v-jepa-2.md) — primary JEPA consumer.
 - [JEPA-WMs](jepa-wms.md) — secondary JEPA consumer; uses the raw dataset.
 - [Robot Utility Models](robot-utility-models.md) — alternative real-robot data philosophy (mobile-manipulation, single embodiment, Stretch).
@@ -69,3 +73,4 @@ This makes DROID the single most reused real-robot dataset in the JEPA literatur
 - [DROID Paper](../sources/droid-paper.md)
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
+- [MolmoAct2 paper (Fang, Duan et al. 2026)](../sources/molmoact2-paper.md) — the quality-filtered MolmoAct2-DROID subset + zero-shot deployment.

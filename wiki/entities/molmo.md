@@ -3,9 +3,9 @@ title: Molmo
 type: entity
 subtype: vlm
 created: 2026-07-17
-updated: 2026-07-24
-sources: 3
-tags: [molmo, vlm, allen-institute, ai2, pixmo, open-weights, open-data, pointing, vla-backbone]
+updated: 2026-07-25
+sources: 4
+tags: [molmo, molmo2, vlm, allen-institute, ai2, pixmo, open-weights, open-data, pointing, vla-backbone]
 ---
 
 # Molmo
@@ -30,10 +30,12 @@ The distillation-free data recipe pays off: the **Molmo-72B** model **tops acade
 - **Molmo-7B-D** — **Qwen2-7B** backbone (the "demo" model); 7B-O/7B-D land between GPT-4V and GPT-4o.
 - **Molmo-72B** — **Qwen2-72B** backbone; the flagship / top scorer.
 - Common design: **preprocessor (multi-crop) → ViT vision encoder → connector (pool + project) → decoder LLM**. Default encoder is **OpenAI CLIP ViT-L/14@336**; a 100%-open variant swaps in **MetaCLIP + OLMo**. Trained on the **PixMo** data suite.
+- **Molmo2** (Clark et al. 2026) — the next-generation VLM (4B, **SigLIP2 ViT** encoder). Its embodied-reasoning fine-tune **[Molmo2-ER](molmo2-er.md)** is the backbone of **[MolmoAct2](molmoact2.md)**, and (per the [MolmoAct2 paper](../sources/molmoact2-paper.md)) surpasses GPT-5 and Gemini-ER 1.5 on 13 embodied-reasoning benchmarks. The Molmo2 primary is not yet directly ingested.
 
 ## Related
 
-- [MolmoAct](molmoact.md) — the VLA built on Molmo; the reason this entity exists.
+- [MolmoAct](molmoact.md) / [MolmoAct2](molmoact2.md) — the VLAs built on Molmo / Molmo2-ER; the reason this entity exists.
+- [Molmo2-ER](molmo2-er.md) — the embodied-reasoning fine-tune of Molmo2.
 - [VLA models](../concepts/learning/vla-models.md) — Molmo is a VLM backbone in the VLA taxonomy.
 - [PaliGemma](paligemma.md) / [Gemma3](gemma3.md) / [SmolVLM-2](smolvlm.md) / [Eagle](eagle-vlm.md) — the other VLA VLM backbones tracked in the wiki.
 
@@ -46,3 +48,4 @@ The distillation-free data recipe pays off: the **Molmo-72B** model **tops acade
 
 - [Molmo and PixMo paper (Deitke et al. 2024)](../sources/molmo-pixmo-paper.md) — the primary source.
 - [MolmoAct](molmoact.md) — the VLA that uses Molmo as its backbone.
+- [MolmoAct2 paper (Fang, Duan et al. 2026)](../sources/molmoact2-paper.md) — Molmo2 / Molmo2-ER lineage.

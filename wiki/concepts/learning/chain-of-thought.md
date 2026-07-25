@@ -2,9 +2,9 @@
 title: Chain of thought
 type: concept
 created: 2026-05-15
-updated: 2026-05-15
-sources: 3
-tags: [llm, reasoning, prompting, chain-of-thought, reasoning-models]
+updated: 2026-07-25
+sources: 4
+tags: [llm, reasoning, prompting, chain-of-thought, reasoning-models, embodied-cot, depth-tokens]
 ---
 
 **Chain of thought (CoT)** is a prompting and generation technique in which a language model emits intermediate reasoning steps in natural language before producing its final answer. The intermediate tokens serve as a scratchpad that conditions the answer, exploiting the fact that more autoregressive compute per problem yields better answers.
@@ -31,10 +31,12 @@ CoT appears in robotics primarily through the [LLM-agent architecture](../agents
 - **Hierarchical S1/S2 VLAs** (e.g. [Helix](../../sources/helix-blog.md)) split slow CoT-style reasoning (System 2, 7–9 Hz) from fast continuous control (System 1, ~200 Hz). The S2 stream is functionally an embodied CoT producing a latent plan that conditions S1.
 - **Reasoning VLMs as planners** — Google's Gemini Robotics-**ER** ("embodied reasoning") variant is explicitly trained for CoT-style planning over a tool-call vocabulary on the [Spot](../../entities/spot.md) demo ([Boston Dynamics Spot + Gemini Robotics](../../sources/bostondynamics-spot-gemini-robotics.md)).
 - **NVIDIA GR00T N1** uses an explicit System 2 (VLM reasoning) + System 1 (diffusion action head) decomposition that maps onto the same CoT-before-action pattern (see [NVIDIA GR00T](../../entities/nvidia-groot.md)).
+- **Non-textual (spatial) embodied CoT** — [MolmoAct](../../entities/molmoact.md) / [MolmoAct2](../../entities/molmoact2.md) reason in *depth tokens* rather than language: before acting, the model predicts a compact discrete depth map (a 10×10 VQ grid) that grounds the policy in 3D structure. MolmoAct2's argument is that tacit physical knowledge (distance, free space, occlusion) is rarely articulated in text, so a **visual/spatial** reasoning trace beats a textual one for manipulation. [Adaptive depth reasoning](adaptive-depth-reasoning.md) then makes this CoT cheap by only recomputing changed scene regions — a direct answer to embodied CoT's core problem: **the reasoning trace's token cost dominates control latency**.
 
 ## Related
 - [LLM-agent architecture](../agents/llm-agent-architecture.md) — CoT is the typical reasoning style of the LLM planner emitting tool calls.
 - [VLA models](vla-models.md) — embodied CoT bakes reasoning into the action policy.
+- [Adaptive depth reasoning](adaptive-depth-reasoning.md) — depth tokens as a latency-aware non-textual embodied CoT.
 - [AI safety and alignment](../safety/ai-safety-alignment.md) — chain-of-thought monitoring as a (debated) interpretability tool.
 
 ## Key references
@@ -44,8 +46,8 @@ CoT appears in robotics primarily through the [LLM-agent architecture](../agents
 - Yao et al., 2023 — *Tree of Thoughts: Deliberate Problem Solving with Large Language Models*. arXiv:2305.10601.
 - **[Welch Labs Illustrated Guide to AI, Vol I, Ch 8](../../sources/welchlabs-illustrated-guide-to-ai.md)** (Welch, 2026) — pedagogy-grade reference. The attention chapter motivates DeepSeek's Multi-Head Latent Attention partly by *the volume of CoT tokens reasoning models like R1 must generate*; useful angle on why CoT-heavy reasoning models drove a new wave of attention-architecture innovation.
 
-> [!note] No primary sources ingested yet
-> This page is a hub / reference seeded from general knowledge rather than from a wiki source. When a CoT-relevant paper (e.g. the original Wei et al. paper, an embodied-CoT VLA paper, or a reasoning-model technical report) is ingested into `raw/`, expand this page with citations and bump `sources`.
+> [!note] Text-CoT primaries still not ingested
+> The textual-CoT foundations (Wei et al., Kojima et al.) are seeded from general knowledge, not ingested sources. The **embodied-CoT** thread now has a primary — the [MolmoAct2 paper](../../sources/molmoact2-paper.md) (depth-token reasoning). Expand the textual side with citations when a Wei-style or reasoning-model paper lands in `raw/`.
 
 ## Mentioned in
-*(No ingested sources cite this page yet.)*
+- [MolmoAct2 paper (Fang, Duan et al. 2026)](../../sources/molmoact2-paper.md) — depth-token reasoning as a non-textual embodied CoT; the "tacit physical knowledge isn't in text" argument.

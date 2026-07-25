@@ -2,9 +2,9 @@
 title: Knowledge Insulation (KI)
 type: concept
 created: 2026-07-17
-updated: 2026-07-17
-sources: 5
-tags: [knowledge-insulation, vla, flow-matching, fast-tokens, stop-gradient, co-training, physical-intelligence, training-recipe]
+updated: 2026-07-25
+sources: 6
+tags: [knowledge-insulation, vla, flow-matching, fast-tokens, stop-gradient, co-training, physical-intelligence, molmoact2, allen-institute, training-recipe]
 ---
 
 # Knowledge Insulation (KI)
@@ -33,14 +33,16 @@ A further detail: the attention mask keeps **discrete FAST action tokens and con
 ## Key references
 
 - [Knowledge Insulation paper (Driess et al. 2025)](../../sources/knowledge-insulation-paper.md) — **primary source**; introduces and ablates the recipe.
-- [π0.7 paper](../../sources/pi07-paper.md) / [π*0.6 paper](../../sources/pistar06-paper.md) — the wiki's two strongest VLAs, both trained with KI.
+- [π0.7 paper](../../sources/pi07-paper.md) / [π*0.6 paper](../../sources/pistar06-paper.md) — the wiki's two strongest π-series VLAs, both trained with KI.
+- [MolmoAct2 paper (Fang, Duan et al. 2026)](../../sources/molmoact2-paper.md) — [Ai2](../../entities/ai2.md) explicitly adopts KI (cites Driess et al. 2025) in **post-training**: the flow-matching expert conditions on VLM keys/values that are **detached** before entering the expert, so `L_flow` updates only the expert and its adapters while `L_LM` still trains the VLM. Notably, MolmoAct2 **drops KI during embodiment fine-tuning** — it found no consistent gain from detaching at that stage — a useful data point on where KI does and doesn't help.
 - [VLA-0 paper](../../sources/vla-0-paper.md) — reports **π0.5-KI** (π0.5 + KI) as a LIBERO baseline (94.3 avg); its number matches the KI paper's "from generalist" row, confirming the identity.
 
 ## Related concepts
 
 - [FAST (action tokenization)](../../entities/fast-action-tokenization.md) — the discrete-token scheme KI uses to supervise the VLM.
 - [Flow matching](flow-matching.md) — the continuous action-expert technique KI insulates the VLM from.
-- [VLA models](vla-models.md) — KI is a generative-action-head training recipe; [π0.7](../../entities/pi07.md) and [π*0.6](../../entities/pistar06.md) are its instances.
+- [Per-layer KV conditioning](per-layer-kv-conditioning.md) — MolmoAct2 applies the KI detach to *this* conditioning path.
+- [VLA models](vla-models.md) — KI is a generative-action-head training recipe; [π0.7](../../entities/pi07.md), [π*0.6](../../entities/pistar06.md), and [MolmoAct2](../../entities/molmoact2.md) are its instances.
 
 ## Mentioned in
 
@@ -48,3 +50,4 @@ A further detail: the attention mask keeps **discrete FAST action tokens and con
 - [π0.7 paper](../../sources/pi07-paper.md)
 - [π*0.6 paper](../../sources/pistar06-paper.md)
 - [VLA-0 paper](../../sources/vla-0-paper.md)
+- [MolmoAct2 paper](../../sources/molmoact2-paper.md) — KI in post-training, dropped in fine-tuning.
