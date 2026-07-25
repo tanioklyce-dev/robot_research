@@ -2929,3 +2929,10 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - Updated [index.md](index.md)
 - **Headline results:** LIBERO 97.2 / MolmoAct2-Think 98.1 (top of the wiki's table, above π0.5 96.9 and GR00T N1.7 97.0); real-world DROID 87.1% zero-shot (+38.7 over runner-up); real YAM 8-task 50.1% (+15 over OpenVLA-OFT); 55.8 Hz inference
 - **Open questions:** Molmo2 primary (Clark et al. 2026) not ingested; Think's ~4× latency penalty (12.7 vs 55.8 Hz) vs its +0.9 LIBERO gain; adaptive-depth's viewpoint dependence (egocentric/mobile scenes)
+
+## [2026-07-25] synthesis | VLA deployability landscape — the four axes
+- Filed [VLA deployability landscape](syntheses/platforms/vla-deployability-landscape.md) — cross-player comparison of the wiki's VLAs on **openness / hardware cost / latency / fine-tuned success** (the [MolmoAct2](entities/molmoact2.md) deployment framing)
+- Scored table across MolmoAct2, [SmolVLA](entities/smolvla.md), [π0.5/0.6](entities/pi-zero-6.md), [π0.7](entities/pi07.md)/[π*0.6](entities/pistar06.md), [GR00T N1.x](entities/nvidia-groot.md), [OpenVLA-OFT](entities/openvla-oft.md), [VLA-0](entities/vla-0.md), [Cosmos 3](entities/nvidia-cosmos.md), [MolmoAct](entities/molmoact.md)
+- **Thesis:** MolmoAct2 is the first *open* VLA to plausibly occupy all four corners at once; SmolVLA held open+affordable first (but smaller/less performant); π-series = performant-but-closed-and-expensive; GR00T/OpenVLA-OFT/Cosmos = open-weights-not-open-data
+- **Honest caveat flagged:** MolmoAct2's 55.8 Hz is H100, not edge — the wiki's on-Jetson latency thread (Thor/Orin) hasn't been run on it; on-robot edge inference is unverified. Also: real YAM success is 50.1% (best open, but "best" ≠ "dependable")
+- Updated [index.md](index.md); backlinked from [MolmoAct2](entities/molmoact2.md)

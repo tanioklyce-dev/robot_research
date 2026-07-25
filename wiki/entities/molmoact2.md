@@ -62,6 +62,7 @@ The **adaptive-depth reasoning** variant. Before acting, it predicts a compact d
 - [π0.5 / π0.6](pi-zero-6.md), [π0](pi-zero.md) — the main [Physical Intelligence](physical-intelligence.md) baselines it targets and beats.
 - [Knowledge insulation](../concepts/learning/knowledge-insulation.md) / [FAST](fast-action-tokenization.md) — the PI training-recipe ingredients MolmoAct2 adopts and open-sources.
 - [Per-layer KV conditioning](../concepts/learning/per-layer-kv-conditioning.md) / [adaptive depth reasoning](../concepts/learning/adaptive-depth-reasoning.md) — its two architectural contributions.
+- [VLA deployability landscape](../syntheses/platforms/vla-deployability-landscape.md) — the four-axis cross-player comparison this model anchors.
 - [VLA models](../concepts/learning/vla-models.md) — hybrid action-head family.
 
 ## Open questions
