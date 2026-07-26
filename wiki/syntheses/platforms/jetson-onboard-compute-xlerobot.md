@@ -2,7 +2,7 @@
 title: "Onboard compute for XLeRobot — Jetson Orin Nano vs Orin NX vs AGX Orin vs AGX Thor"
 type: synthesis
 created: 2026-06-03
-updated: 2026-06-03
+updated: 2026-07-26
 tags: [xlerobot, jetson, jetson-orin-nano, orin-nx, agx-orin, jetson-thor, onboard-compute, edge-ai, power-budget, vla, buying-decision, platforms]
 ---
 
@@ -73,6 +73,7 @@ The [paper's on-edge benchmark](../../sources/cutting-the-cord-untethered-xlerob
 > A [Raspberry Pi 5](../../entities/raspberry-pi-5.md) + **[AI HAT+ 2 / Hailo-10H](../../sources/raspberry-pi-ai-hat-plus-2.md)** (40 TOPS INT4, 8 GB, $180) is a *non-CUDA* onboard option. It can host a local **LLM/VLM agent layer + vision** but is **not** a substitute for any tier here when it comes to the control policy: a [Hailo](../../entities/hailo.md) NPU runs only models compiled to its HEF format, so it does **not** run LeRobot's PyTorch ACT/Diffusion/SmolVLA/π0.5 as-is. Use it alongside (Pi-as-host + onboard LLM), not instead of, the Jetson for policy inference.
 
 ## Related
+- [Jetson module ladder — performance and power](jetson-module-ladder-power-performance.md) — the hardware-neutral superset of this page's spec table: all 8 shipping SKUs (incl. Orin Nano 4 GB, Orin NX 8 GB, AGX Orin 32 GB, Thor T4000), both nvpmodel chapters merged, and a TOPS/W column. Notably it finds **AGX Orin 32 GB is *less* efficient than Orin NX 16 GB** (3.3 vs 3.9 TOPS/W) — a second axis supporting this page's "Orin NX usually beats AGX Orin here" verdict.
 - [Cutting the Cord (Shaw et al., 2026)](../../sources/cutting-the-cord-untethered-xlerobot.md) — the measured onboard-Orin-Nano XLeRobot build this page is built on.
 - [Raspberry Pi AI HAT+ 2 (Hailo-10H)](../../sources/raspberry-pi-ai-hat-plus-2.md) / [Hailo](../../entities/hailo.md) — the NPU alternative to this CUDA ladder.
 - [XLeRobot + AGX Thor power budget](../projects/xlerobot-thor-power-budget.md) — the battery/runtime/two-rail analysis.

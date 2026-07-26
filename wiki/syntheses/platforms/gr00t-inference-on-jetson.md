@@ -2,7 +2,7 @@
 title: GR00T inference on Jetson — Orin NX 16 GB vs AGX Orin 64 GB vs AGX Thor
 type: synthesis
 created: 2026-07-08
-updated: 2026-07-08
+updated: 2026-07-26
 tags: [gr00t, jetson, jetson-thor, agx-orin, orin-nx, inference, tensorrt, vla, edge-ai, platforms]
 ---
 
@@ -56,6 +56,7 @@ The realistic Orin NX pattern is the one the stack is built for anyway: **run GR
 - [Isaac GR00T docs — TensorRT optimization](../../sources/isaac-gr00t-tensorrt-deployment-docs.md) — the official benchmark table (N1.6).
 - [NVIDIA forums — real-time VLA inference on Thor & RTX](../../sources/nvidia-forum-thor-realtime-vla-inference.md) — the 22–24 Hz community result.
 - [Jetson onboard compute for XLeRobot](jetson-onboard-compute-xlerobot.md) — the same four tiers from the power-budget side.
+- [Jetson module ladder — performance and power](jetson-module-ladder-power-performance.md) — the full-line spec/nvpmodel reference these tiers sit in; relevant to the open question below, since it shows Thor's sub-120 W modes cut the GPU 10 → 6 TPC (~−40 %), so the benchmark's power mode would materially move the 10.9 Hz figure.
 - [GR00T on DGX Spark over ZMQ to XLeRobot](../projects/gr00t-spark-zmq-xlerobot.md) — the off-board serving path for the Orin NX, quantified (~7–10 Hz wired, ~5–8 Hz Wi-Fi).
 - [Jetson Thor vs DGX Spark](jetson-thor-vs-dgx-spark.md) — where fine-tuning happens.
 - [Cutting the Cord](../../sources/cutting-the-cord-untethered-xlerobot.md) — the Orin *Nano* measured baseline for smaller policies (ACT 27.8 Hz, SmolVLA 1.4 Hz).
