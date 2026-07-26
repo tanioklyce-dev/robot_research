@@ -188,10 +188,17 @@ The relationship is the same as VICReg → V-JEPA: a paper introduces an anti-co
 - **Validation breadth (10+ datasets / 60+ architectures)** is what makes LeWM's "single hyperparameter" claim credible at small scale. Without LeJEPA's broad pretraining-side validation, LeWM's four-environment robotics-side results could be hand-tuned. With LeJEPA's results in hand, LeWM is more naturally read as a confirmation that the LeJEPA recipe holds when extended to the action-conditioned setting.
 - **Scaling evidence:** the 1.8B ViT-g stable training run is the strongest published evidence that SIGReg-only training works at scale. Module 11's collapse-prevention zoo can now state this with primary-source backing.
 
+## The follow-up: when does this recipe recover the world?
+
+**[When Does LeJEPA Learn a World Model? (Klindt, LeCun, Balestriero, 2026-05-25)](when-does-lejepa-learn-a-world-model-paper.md)** answers the question this paper leaves open — whether SIGReg's isotropic-Gaussian target buys anything beyond anti-collapse. It proves LeJEPA achieves **[linear identifiability](../concepts/world-models/identifiability.md)** of the true latents (recovery up to an orthogonal rotation), and that **the Gaussian is uniquely the distribution for which this holds** — retroactively justifying SIGReg's specific target rather than any anti-collapse regularizer.
+
+Two caveats the follow-up itself supplies: **VICReg and InfoNCE also achieve identifiability** under the theory's assumptions (SIGReg's edge is robustness when they're violated, an empirical claim), and the theorems cover the **encoder only** — not action-conditioned dynamics.
+
 ## Entities mentioned
 
 - [LeWorldModel](../entities/leworldmodel.md) — the action-conditioned application of this paper's methodology.
 - [Yann LeCun](../entities/yann-lecun.md) — co-author.
+- [Randall Balestriero](../entities/randall-balestriero.md) — co-first author.
 - [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — the architecture family this paper provides theory for.
 
 ## Concepts touched
@@ -203,7 +210,7 @@ The relationship is the same as VICReg → V-JEPA: a paper introduces an anti-co
 
 ## Open questions / TBD
 
-- **Author entity page for Randall Balestriero** — co-author on multiple JEPA-line papers in this wiki ([PLDM 2025](pldm-paper.md), this paper, [LeWM](leworldmodel-paper.md)). Could anchor the SIGReg-line research thread.
+- ~~**Author entity page for Randall Balestriero**~~ — **done (2026-07-26):** [Randall Balestriero](../entities/randall-balestriero.md), anchoring the SIGReg-line thread across [PLDM](pldm-paper.md), this paper, [LeWM](leworldmodel-paper.md), and the two May 2026 papers.
 - **§B.4, §B.7, §B.8, §B.9, §B.11 detailed proofs** — referenced but not unpacked here. Worth re-reading if [Module 12](../syntheses/curriculum/curriculum-12-lewm-deep-dive.md) needs to defend the SIGReg derivation against pushback.
 - **Sobolev smoothness coefficient framework (§4.1, Theorem 5)** — alluded to in Figure 4 caption ("the greater α is, the more global will be the impact of SIGReg for a given M"). Connects SIGReg's effective coverage of the hypersphere to the smoothness of the embedding distribution. Not surfaced in this ingest; would deepen the "SIGReg is immune to the curse of dimensionality" claim.
 - **PyTorch reference implementation (algorithm 1, §5)** — the ~50-line code snippet. Re-read if the curriculum needs a reproducible reference for capstone-style work.

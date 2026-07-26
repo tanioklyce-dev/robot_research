@@ -2,8 +2,8 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-07-04
-sources: 27
+updated: 2026-07-26
+sources: 29
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem]
 ---
 
@@ -73,6 +73,15 @@ The first systematic ablation across architectural / training / planning axes fo
 
 These are the first published systematic ablations of these axes for JEPA-style world models and should anchor any JEPA-WM build that follows.
 
+## Does a JEPA recover the *actual* world? — identifiability
+
+The program's strongest formal result arrived in May 2026: [When Does LeJEPA Learn a World Model?](../../sources/when-does-lejepa-learn-a-world-model-paper.md) proves that [LeJEPA](../../sources/lejepa-paper.md) achieves **[linear identifiability](identifiability.md)** — the learned encoder recovers the true latents up to an orthogonal rotation — and that the **Gaussian latent distribution is uniquely the one for which this holds**. That elevates SIGReg's isotropic-Gaussian target from an anti-collapse trick to the load-bearing choice, and it upgrades the case for latent prediction from "more efficient than pixels" to "under these conditions, the latent space *is* the world's, rotated."
+
+The conditions are strong (stationary additive-noise transitions, Gaussian latents, learned dimension = true dimension), the result is population-level, and it covers the **encoder only** — action-conditioned dynamics `p(z'|z,a)`, which is what a control world model needs, remain unproved.
+
+> [!warning] The theory and the measurements point opposite ways
+> Five days earlier, largely the same group published [stable-worldmodel](../../sources/stable-worldmodel-paper.md), showing [LeWorldModel](../../entities/leworldmodel.md) drops from **50.8 % to 6–26 %** on Push-T under color/size/shape shifts, with quadratic decay under distractors — and that **prediction MSE correlates poorly with planning success**. Neither paper addresses the other. Identifiability-under-assumption has not so far produced out-of-distribution robustness.
+
 ## Hierarchical JEPA (H-JEPA) — long-horizon planning
 The single-level JEPA planning ceiling is short: [LeWorldModel](../../entities/leworldmodel.md) on push-t reliably plans only **~5 prediction loops** ahead before rollouts drift. LeCun's prescribed fix (from the [2022 position paper](../../sources/lecun2022-path-towards-ami.md), restated on camera in the [Welch Labs Part 2 explainer](../../sources/welchlabs-lecun-1b-bet-against-llms-part2.md)): a **hierarchy of predictors** — low levels make detailed short-term predictions; high levels make abstract long-term predictions (fewer details → slower divergence from reality). The **inter-layer interface is an embedding space, "not semantic, certainly not language"** ("your cat can do hierarchical planning"). LeCun's analogy: planning a NYU→Paris trip as sub-goals (airport → taxi → street), not millisecond muscle control.
 
@@ -82,6 +91,7 @@ The single-level JEPA planning ceiling is short: [LeWorldModel](../../entities/l
 The original wiki synthesis observed [V-JEPA 2](../../entities/v-jepa-2.md) and [LeWM](../../entities/leworldmodel.md) both skipping heavy agentic-robotics sim. With five additional ingests in May 2026, the picture is more nuanced: [JEPA-WMs](../../entities/jepa-wms.md) uses [RoboCasa](../../entities/robocasa.md); [VLA-JEPA](../../entities/vla-jepa.md) uses SimplerEnv; [DINO-WM](../../entities/dino-wm.md) uses lightweight MuJoCo benches; [V-JEPA 2.1](../../sources/v-jepa-2-1-paper.md) continues the no-sim line. **The JEPA literature is fragmenting across simulator weight classes**, not avoiding sim wholesale. See [the revised synthesis](../../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md).
 
 ## Related
+- [Identifiability](identifiability.md) — whether a JEPA latent space recovers the world's actual latent variables (proved for LeJEPA under conditions).
 - [Learned latent space](latent-space.md) — the substrate JEPAs predict in; the entire design choice rests on this.
 - [World-model simulators](world-model-simulators.md) — JEPAs are one of two paradigms (the other being generative-video models).
 - [FLARE](flare.md) — a JEPA-adjacent *auxiliary* loss (future-latent alignment with an EMA teacher) added inside a VLA policy; the same joint-embedding-of-the-future commitment applied as a policy co-training signal rather than a standalone WM.

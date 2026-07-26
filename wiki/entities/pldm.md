@@ -61,6 +61,7 @@ The four-row "JEPA-line" comparison (PLDM, LeWM, DINO-WM, V-JEPA 2-AC) is the su
 - [HWM — Hierarchical Planning with Latent World Models](../sources/hwm-paper.md) — PLDM is the **Diverse Maze base** HWM wraps (+39% zero-shot on unseen layouts)
 - [Sobal et al. 2022 — JEPA slow features](../sources/sobal2022-jepa-slow-features-paper.md) (predecessor)
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md) (as a baseline)
+- [stable-worldmodel paper (Maes et al., 2026)](../sources/stable-worldmodel-paper.md) — implemented as a baseline in the `swm` platform; benchmarked under controlled visual/physical perturbation (quadratic decay under distractors).
 
 ## Open questions / TBD
 - **Author entity for Vlad Sobal** — appears as lead author across both papers; could anchor a NYU LeCun-line thread.

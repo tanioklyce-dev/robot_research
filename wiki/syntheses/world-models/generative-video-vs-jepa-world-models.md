@@ -2,8 +2,8 @@
 title: Generative-video vs JEPA world models — what they predict, what it costs, what works
 type: synthesis
 created: 2026-05-07
-updated: 2026-07-13
-tags: [world-models, jepa, generative-video, cosmos, cosmos-3, world-action-model, genie-envisioner, dreamdojo, v-jepa-2, leworldmodel, waymo, genie-3]
+updated: 2026-07-26
+tags: [world-models, jepa, generative-video, cosmos, cosmos-3, world-action-model, genie-envisioner, dreamdojo, v-jepa-2, leworldmodel, waymo, genie-3, stable-worldmodel, identifiability, generalization]
 ---
 
 # Generative-video vs JEPA world models
@@ -74,6 +74,17 @@ The interpretability axis is genuinely a generative-video advantage: a roboticis
 
 JEPAs have spent the last few years adding fixes for collapse: EMA target encoders, stop-gradient, frozen pre-trained encoders, multi-term losses ([Joint-Embedding Predictive Architecture](../../concepts/world-models/jepa.md)). LeWorldModel's contribution is collapsing this whole battery into a single SIGReg regularizer — projecting embeddings onto random directions and enforcing Gaussianity — bringing tunable loss hyperparameters from 6 (PLDM) down to 1 ([LeWorldModel Paper](../../sources/leworldmodel-paper.md)).
 
+### A third JEPA failure mode, measured May 2026: out-of-distribution collapse
+
+The table above lists JEPA failure modes that were *anticipated*. [stable-worldmodel](../../sources/stable-worldmodel-paper.md) (Maes et al., 2026-05-20) measured one that wasn't emphasized: **latent-prediction world models generalize poorly outside their training distribution.** [LeWorldModel](../../entities/leworldmodel.md) drops **50.8 % → 6–26 %** on Push-T under targeted color / size / shape changes; distractor objects cause **quadratic decay** across every baseline ([DINO-WM](../../entities/dino-wm.md), [PLDM](../../entities/pldm.md), [TD-MPC2](../../entities/td-mpc.md) included). In-distribution the same models score 92–94 %.
+
+Two consequences for this comparison:
+
+1. **The evaluation habit is wrong on both sides.** The paper finds **prediction MSE correlates poorly with planning success** — it's being out-of-distribution, not the magnitude of prediction error, that breaks planning. Rollout-fidelity metrics (which both paradigms report) are therefore weak proxies for planning competence.
+2. **It doesn't tell us who wins.** Every `swm` baseline is latent-prediction or goal-conditioned; **no generative-video model was benchmarked**. So this is a measured weakness of the JEPA side with *no* corresponding measurement on the generative-video side — not evidence that generative video is more robust. [DreamDojo](../../sources/dreamdojo-paper.md)'s OOD claims come from its own authors under different conditions.
+
+The theory arrived the same week and points the other way: [When Does LeJEPA Learn a World Model?](../../sources/when-does-lejepa-learn-a-world-model-paper.md) proves LeJEPA achieves [linear identifiability](../../concepts/world-models/identifiability.md) of the world's latents under stationary additive-noise assumptions. The two results are not reconciled by either paper — plausibly they occupy different regimes, since a color-shifted environment likely violates the theory's generative model outright. **Provable recovery under-assumption and robustness-in-practice are separate problems, and the JEPA program currently has the first without the second.**
+
 ## When to use which (current best read)
 
 - **You need to *evaluate* high-level agent behavior with human-inspectable rollouts** → generative-video. GE-Sim2's minute-scale stable rollouts are designed for exactly this.
@@ -97,6 +108,8 @@ The two paradigms are not independent. [GR00T](../../entities/nvidia-groot.md) N
   - Generative-video side: DreamDojo's Table 3 shows monotone OOD improvement with data scale (In-lab → +EgoDex → +DreamDojo-HV → 14B) but does **not** fit a closed-form scaling law like EgoScale's `L = a − b·ln(D)`. A clean WM-side scaling law is still missing.
 - **Action-conditioned generative video at 62-hr scale**: V-JEPA 2-AC's 62-hr post-train number is the JEPA-side existence proof. DreamDojo's post-training data scale is also small but not explicitly framed as "minimal." A controlled 62-hr-equivalent comparison would be the cleanest paradigm test.
 - **Compute parity**: DreamDojo-14B on 256 H100s vs V-JEPA 2's published compute budget — these are comparable in FLOPs. Per-task performance comparison at fixed compute is the open question for fair paradigm comparison.
+- **Run a generative-video model through `swm`'s factors of variation.** This is now the cheapest available head-to-head: the [stable-worldmodel](../../entities/stable-worldmodel.md) harness already applies controlled visual/physical perturbations and reports planning success, and it's CC BY 4.0 with the environments built. Adding a [Cosmos](../../entities/nvidia-cosmos.md)- or Genie-class baseline would turn a JEPA-only brittleness result into the paradigm comparison this page has been missing since it was written.
+- **Does training *with* the factors of variation fix it**, or is the fragility inherent to the objective? `swm` measures zero-shot generalization only.
 
 ## Sources used in this synthesis
 

@@ -3,8 +3,8 @@ title: LeWorldModel
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-05-31
-sources: 23
+updated: 2026-07-26
+sources: 24
 tags: [leworldmodel, lewm, jepa, world-model, mila, end-to-end, sigreg]
 ---
 
@@ -46,6 +46,13 @@ The [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms
 > [!note] The hierarchical push-t result is [HWM](hwm.md), and its base is DINO-WM (not LeWM)
 > The Welch Labs video showed LeWM for the *single-level* push-t demo, then described a hierarchical extension "from 5 to 15 steps." That hierarchical work is **[HWM — "Hierarchical Planning with Latent World Models"](../sources/hwm-paper.md)** (Zhang et al., incl. LeCun, April 2026), which instantiates its **Push-T** experiments on **[DINO-WM](dino-wm.md)**, not LeWorldModel. HWM is a model-agnostic two-level planning wrapper; its real numbers are Push-T **17%→61%** (d=75) and Franka **0%→70%**, not "5→15 steps." LeWM remains the *single-level* baseline the video used to explain CEM planning.
 
+> [!warning] LeWM's own group measured it collapsing out-of-distribution
+> The [stable-worldmodel paper](../sources/stable-worldmodel-paper.md) (2026-05-20 — same lead author, [Lucas Maes](lucas-maes.md)) benchmarks LeWM under controlled perturbation: **50.8 % base Push-T success → 6–26 % under targeted color / size / shape changes**, with **quadratic decay** as distractor objects are added. In-distribution it still looks strong (**94 %** Push-T, vs DINO-WM's 92 %) — which is the finding: in-distribution scores hide the fragility.
+>
+> Baseline caveat: the ingest surfaced both **50.8 %** and **94 %** as the unperturbed number (see the [source page](../sources/stable-worldmodel-paper.md)); the collapse to 6–26 % is consistent either way.
+>
+> This does not retract the headline claims below (they are in-distribution results and remain accurate), but it bounds them hard. Read the "competitive across diverse 2D and 3D control tasks" claim as *within the training distribution*. The companion [identifiability theorem](../concepts/world-models/identifiability.md) is not a defense here — it assumes a generative model a color-shifted environment plausibly violates outright.
+
 ## Why it matters
 - Strips JEPA training down to two losses, making latent-prediction world models more practical for resource-limited research.
 - Provides a single-GPU baseline that's hard to argue against — research labs without massive compute can do JEPA work.
@@ -59,7 +66,7 @@ The [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms
 - [World-model simulators](../concepts/world-models/world-model-simulators.md) — broader paradigm.
 
 ## Code
-- Official repo: https://github.com/lucas-maes/le-wm (built on `stable-worldmodel` + `stable-pretraining`)
+- Official repo: https://github.com/lucas-maes/le-wm (built on [`stable-worldmodel`](stable-worldmodel.md) + `stable-pretraining`)
 - Pretrained HF checkpoints: `quentinll/lewm-{pusht,cube,tworooms,reacher}`
 - See [LeWorldModel — train and run howto](../syntheses/world-models/leworldmodel-howto.md) for the practical recipe.
 
@@ -70,3 +77,4 @@ The [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms
 - [le-wm GitHub](../sources/lewm-github.md)
 - [MLWorks — Navigate the World from Raw Pixels](../sources/medium-lewm-navigate-world.md)
 - [Towards Deep Learning — This World Model Learns Physics by Watching Videos](../sources/towardsdeeplearning-world-model-physics.md)
+- [stable-worldmodel paper (Maes et al., 2026)](../sources/stable-worldmodel-paper.md) — the platform LeWM runs on, and the generalization benchmark that measures its out-of-distribution collapse.

@@ -53,3 +53,4 @@ Plus eval variants: **WallRandom, PushObj, GranularRandom, DM Control Reacher**,
 - [DINO-world Paper](../sources/dino-world-paper.md) — sibling DINOv2-feature world-model line
 - [VLA-JEPA Paper](../sources/vla-jepa-paper.md) — DINO-WM as comparator
 - [HWM — Hierarchical Planning with Latent World Models](../sources/hwm-paper.md) — DINO-WM is the **Push-T base** that HWM's two-level planning wraps (17%→61% at d=75)
+- [stable-worldmodel paper (Maes et al., 2026)](../sources/stable-worldmodel-paper.md) — implemented as a baseline in the `swm` platform; benchmarked under controlled visual/physical perturbation (quadratic decay under distractors).

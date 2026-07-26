@@ -47,21 +47,6 @@ If you need GPU compute for training, fine-tuning, or running policies and world
 - **You want the full catalog:** [index.md](index.md). Every page listed, organized by category.
 - **You want to know what was done when:** [log.md](log.md). Append-only chronological record of ingests, syntheses, lint passes, and curriculum-module drafts. Grep with `grep "^## \[" log.md | tail -20` to see recent activity.
 
-### JEPA / LeWorldModel
-
-The technical centerpiece. Primary sources for the entire SIGReg-LeWM-PLDM lineage are filed:
-
-- [LeWorldModel Paper](sources/leworldmodel-paper.md) (Maes et al. 2026) — the destination paper.
-- [LeJEPA Paper](sources/lejepa-paper.md) (Balestriero & LeCun 2025) — the SIGReg foundational paper.
-- [PLDM Paper](sources/pldm-paper.md) (Sobal et al. 2025) + [Sobal et al. 2022](sources/sobal2022-jepa-slow-features-paper.md) — the end-to-end-JEPA-baseline lineage.
-- [V-JEPA 2 Paper](sources/v-jepa-2-paper.md) and [V-JEPA 2.1 Paper](sources/v-jepa-2-1-paper.md) — Meta FAIR's parallel JEPA-at-scale line.
-- [DINO-WM Paper](sources/dino-wm-paper.md), [JEPA-WMs Paper](sources/jepa-wms-paper.md) — frozen-feature alternatives.
-- [DreamerV3 Paper](sources/dreamer-v3-paper.md), [TD-MPC2 Paper](sources/td-mpc2-paper.md) — the MBRL baselines LeWM benchmarks against.
-
-Concept pages: [Joint-Embedding Predictive Architecture](concepts/world-models/jepa.md), [World model](concepts/world-models/world-model.md), [World-model simulators](concepts/world-models/world-model-simulators.md), [Learned latent space](concepts/world-models/latent-space.md).
-
-Syntheses: [generative-video vs JEPA world models](syntheses/world-models/generative-video-vs-jepa-world-models.md), [LeWM-on-Stretch feasibility](syntheses/projects/lewm-on-stretch-feasibility.md), [LeWM-on-ROSOrin-Pro feasibility](syntheses/projects/lewm-on-rosorin-pro-feasibility.md), [LeWM howto](syntheses/world-models/leworldmodel-howto.md), [LeWM hello-world scope](syntheses/projects/lewm-hello-world-project-scope.md).
-
 ## Robot AI curriculum
 
 The single most ambitious artifact in this wiki is a **14-module bottom-up curriculum** for going from neural-network basics to reading the [LeWorldModel paper](sources/leworldmodel-paper.md) and reasoning about home-robotics policy-learning techniques.
@@ -82,6 +67,27 @@ The curriculum has five tiers:
 | **5** | [13](syntheses/curriculum/curriculum-13-home-robotics-deployment.md), [14](syntheses/curriculum/curriculum-14-capstone.md) | Deployment reality (the 89.4% / 12.4% RLBench-vs-BEHAVIOR-1K gap; Stretch as platform) + capstone (Phase A: reproduce LeWM PushT + experiment-design memo; Phase B: real-Stretch execution if hardware available). |
 
 The **destination** is Module 12 (LeWM deep-dive with full SIGReg math). The reading order is mostly linear, but the [module dependency graph](syntheses/curriculum/robot-learning-curriculum.md) gives readers permission to skip Tier 1 modules they're comfortable with.
+
+### JEPA / LeWorldModel
+
+A long-running thread of this wiki, and the original motivating goal. Primary sources for the entire SIGReg-LeWM-PLDM lineage are filed:
+
+- [LeWorldModel Paper](sources/leworldmodel-paper.md) (Maes et al. 2026) — the destination paper.
+- [LeJEPA Paper](sources/lejepa-paper.md) (Balestriero & LeCun 2025) — the SIGReg foundational paper.
+- [PLDM Paper](sources/pldm-paper.md) (Sobal et al. 2025) + [Sobal et al. 2022](sources/sobal2022-jepa-slow-features-paper.md) — the end-to-end-JEPA-baseline lineage.
+- [V-JEPA 2 Paper](sources/v-jepa-2-paper.md) and [V-JEPA 2.1 Paper](sources/v-jepa-2-1-paper.md) — Meta FAIR's parallel JEPA-at-scale line.
+- [DINO-WM Paper](sources/dino-wm-paper.md), [JEPA-WMs Paper](sources/jepa-wms-paper.md) — frozen-feature alternatives.
+- [DreamerV3 Paper](sources/dreamer-v3-paper.md), [TD-MPC2 Paper](sources/td-mpc2-paper.md) — the MBRL baselines LeWM benchmarks against.
+
+Concept pages: [Joint-Embedding Predictive Architecture](concepts/world-models/jepa.md), [World model](concepts/world-models/world-model.md), [World-model simulators](concepts/world-models/world-model-simulators.md), [Learned latent space](concepts/world-models/latent-space.md).
+
+Syntheses: [generative-video vs JEPA world models](syntheses/world-models/generative-video-vs-jepa-world-models.md), [LeWM-on-Stretch feasibility](syntheses/projects/lewm-on-stretch-feasibility.md), [LeWM-on-ROSOrin-Pro feasibility](syntheses/projects/lewm-on-rosorin-pro-feasibility.md), [LeWM howto](syntheses/world-models/leworldmodel-howto.md), [LeWM hello-world scope](syntheses/projects/lewm-hello-world-project-scope.md).
+
+> [!note] Still a live question, not a settled destination
+> LeWorldModel was the wiki's original organizing target, and the [curriculum](syntheses/curriculum/robot-learning-curriculum.md) above still lands on it. Two things have since complicated the picture. **In its favor:** [When Does LeJEPA Learn a World Model?](sources/when-does-lejepa-learn-a-world-model-paper.md) (May 2026) proves the LeJEPA recipe achieves [linear identifiability](concepts/world-models/identifiability.md) of the world's latents — the strongest formal result the JEPA program has. **Against:** [stable-worldmodel](sources/stable-worldmodel-paper.md) (May 2026, same group) measures LeWM **collapsing to 6–26 % under mild visual perturbation**. Meanwhile the [VLA](concepts/learning/vla-models.md) line the JEPA program dismisses keeps producing real-world results ([π0.7](entities/pi07.md), [MolmoAct2](entities/molmoact2.md)).
+>
+> Read this section as **one serious bet on how world models should work**, worth understanding deeply — not as the wiki's answer. The broader question is [generative-video vs JEPA](syntheses/world-models/generative-video-vs-jepa-world-models.md), and it is open.
+
 
 ## Other major themes
 
