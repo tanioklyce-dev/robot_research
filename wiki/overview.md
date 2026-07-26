@@ -30,11 +30,6 @@ A starter shortlist — eight platforms across the spectrum from "tabletop arm u
 ## Open-source robot AI research projects
 If you want to explore the open-source landscape: [Open-source robot AI research projects](syntheses/platforms/open-source-robot-ai-projects.md) — grouped catalog (LeRobot ecosystem, JEPA code, open VLAs, simulators, RL benchmarks, open robot platforms, and more).
 
-## Agentic UAVs (drones)
-If your interest is in the air rather than the ground: [Agentic UAVs](concepts/robotics/agentic-uavs.md) — four-layer architecture (perception / cognition / control / communication), key enabling technologies, and how learned-controller research connects to the open-source [PX4 Autopilot](entities/px4-autopilot.md) flight stack on [Pixhawk](entities/pixhawk.md) hardware.
-
-**Start here for the open-source UAV stack: [dronecode.org](https://dronecode.org/)** — the Linux Foundation Collaborative Project that stewards PX4, [MAVLink](entities/mavlink.md), Pixhawk, QGroundControl, and MAVSDK under one vendor-neutral umbrella. See the wiki's [Dronecode Foundation entity](entities/dronecode-foundation.md) for governance context.
-
 ## Onboard compute — the Jetson ladder
 If you're picking the computer that rides *on* the robot: [Jetson module ladder — performance and power](syntheses/platforms/jetson-module-ladder-power-performance.md) — every SKU from Orin Nano 4 GB to AGX Thor T5000 in one table (specs, price, TOPS/W, merged `nvpmodel` power modes), the measured on-Jetson VLA rates that exist, and the Orin→Thor platform breaks (no RT cores, no MIPI-CSI). For the buying decision on a battery robot, [Onboard compute for XLeRobot](syntheses/platforms/jetson-onboard-compute-xlerobot.md) narrows it to one pick per tier.
 
@@ -151,6 +146,12 @@ A practical project sequence for learning JEPA on educational hardware.
 - [JEPA project ladder for ROSOrin Pro](syntheses/projects/jepa-project-ladder-rosorin-pro.md) — six-rung ladder.
 - [LeWM on ROSOrin Pro — feasibility](syntheses/projects/lewm-on-rosorin-pro-feasibility.md).
 - Entities: [ROSOrin / ROSOrin Pro](entities/rosorin.md), [Hiwonder](entities/hiwonder.md), [OpenClaw](entities/openclaw.md), [openclaw_controller](entities/openclaw-controller.md).
+
+### Agentic UAVs (drones)
+
+If your interest is in the air rather than the ground: [Agentic UAVs](concepts/robotics/agentic-uavs.md) — four-layer architecture (perception / cognition / control / communication), key enabling technologies, and how learned-controller research connects to the open-source [PX4 Autopilot](entities/px4-autopilot.md) flight stack on [Pixhawk](entities/pixhawk.md) hardware.
+
+**Start here for the open-source UAV stack: [dronecode.org](https://dronecode.org/)** — the Linux Foundation Collaborative Project that stewards PX4, [MAVLink](entities/mavlink.md), Pixhawk, QGroundControl, and MAVSDK under one vendor-neutral umbrella. See the wiki's [Dronecode Foundation entity](entities/dronecode-foundation.md) for governance context.
 
 
 ## Conventions in one paragraph
