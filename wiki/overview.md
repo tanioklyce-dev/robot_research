@@ -35,6 +35,9 @@ If your interest is in the air rather than the ground: [Agentic UAVs](concepts/r
 
 **Start here for the open-source UAV stack: [dronecode.org](https://dronecode.org/)** — the Linux Foundation Collaborative Project that stewards PX4, [MAVLink](entities/mavlink.md), Pixhawk, QGroundControl, and MAVSDK under one vendor-neutral umbrella. See the wiki's [Dronecode Foundation entity](entities/dronecode-foundation.md) for governance context.
 
+## Onboard compute — the Jetson ladder
+If you're picking the computer that rides *on* the robot: [Jetson module ladder — performance and power](syntheses/platforms/jetson-module-ladder-power-performance.md) — every SKU from Orin Nano 4 GB to AGX Thor T5000 in one table (specs, price, TOPS/W, merged `nvpmodel` power modes), the measured on-Jetson VLA rates that exist, and the Orin→Thor platform breaks (no RT cores, no MIPI-CSI). For the buying decision on a battery robot, [Onboard compute for XLeRobot](syntheses/platforms/jetson-onboard-compute-xlerobot.md) narrows it to one pick per tier.
+
 ## NVIDIA GPU rental landscape
 If you need GPU compute for training, fine-tuning, or running policies and world models: [NVIDIA GPU rental landscape](syntheses/platforms/nvidia-gpu-rental-landscape.md) — providers, pricing, and how to choose (Brev / RunPod / Lambda Labs / CoreWeave / Vast.ai / DGX Cloud / DGX Spark rentals at $0.48/hr).
 
