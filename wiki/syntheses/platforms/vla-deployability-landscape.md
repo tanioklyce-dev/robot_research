@@ -2,7 +2,7 @@
 title: VLA deployability landscape — the four axes (openness, hardware, latency, success)
 type: synthesis
 created: 2026-07-25
-updated: 2026-07-25
+updated: 2026-07-26
 tags: [vla, deployability, open-source, open-data, affordable-hardware, inference-latency, landscape-survey, molmoact2, physical-intelligence, smolvla, groot]
 ---
 
@@ -55,6 +55,8 @@ The claim isn't a new capability — it's **occupying all four corners at once**
 
 > [!warning] "Deployable" is validated at H100 latency, not edge latency
 > MolmoAct2's 55.8 Hz is measured on a **single H100**. The wiki's on-edge latency thread — [GR00T/π0.5 at 22–24 Hz on Thor](../../sources/nvidia-forum-thor-realtime-vla-inference.md), [SmolVLA/ACT/Diffusion on Jetson Orin Nano](../../sources/cutting-the-cord-untethered-xlerobot.md) — has **not** been run on MolmoAct2. Its backbone is a 4B VLM + a 36-layer action expert; whether that fits a [Jetson Thor](../../entities/jetson-thor.md)/Orin power-and-memory budget at usable rates is unverified here. The "real-world deployment" claim is about openness + platform cost + H100 throughput, not yet about on-robot edge inference. See the [XLeRobot power budget](../projects/xlerobot-thor-power-budget.md) and [GR00T-on-Jetson](gr00t-inference-on-jetson.md) threads for the edge-latency framing this synthesis can't yet apply.
+>
+> For *which* edge target the question would have to be settled on, see the [Jetson module ladder](jetson-module-ladder-power-performance.md). The short version: memory gates before throughput does. GR00T-3B's stated **16 GB inference floor** already equals an **Orin NX 16 GB**'s entire shared RAM, so a 4B VLM + 36-layer expert realistically implies **AGX Orin 64 GB (5.8 Hz on GR00T-3B) or Thor (10.9 Hz official / 22–24 Hz community)** — and rules out the 8 GB **Orin Nano** that the cheap-hardware axis otherwise points at. Note the tension this creates with axis 2: the **<$6k rig** argument is about the *arm*, while the compute to run the policy on it is a **$2k–$3.5k** module. Whichever tier it lands on, Thor's sub-120 W nvpmodel modes power-gate the GPU 10 → 6 TPC (~−40 %), so a *battery-powered* deployment number would be lower again than any benchmark figure.
 
 - **MolmoAct2-Think's latency tax is still real** — 12.7 Hz vs 55.8 Hz for a +0.9 LIBERO gain. Adaptive depth *reduces* the reasoning cost but doesn't eliminate it; whether the interpretability/robustness gain justifies ~4× the latency is deployment-dependent.
 - **Fine-tuned success is still below "dependable"** on the hardest real tasks — MolmoAct2's own real-world YAM average is **50.1%**. It's the best open number by +15, but "best available" and "dependable" are not the same threshold. The deployability bar, on this axis, is raised but not cleared.
@@ -65,6 +67,7 @@ The claim isn't a new capability — it's **occupying all four corners at once**
 - [VLA models](../../concepts/learning/vla-models.md) — the action-head taxonomy underneath this comparison.
 - [Open-source robot AI projects — landscape](open-source-robot-ai-projects.md) — the broader open-ecosystem catalog this deployability cut sits within.
 - [Robot platforms comparison](robot-platforms-comparison.md) — the hardware-side survey.
+- [Jetson module ladder — performance and power](jetson-module-ladder-power-performance.md) — the edge-compute ladder any of these policies would have to run on: full SKU specs, memory floors, nvpmodel power modes, and the (sparse) measured on-Jetson VLA rates.
 - [Per-layer KV conditioning](../../concepts/learning/per-layer-kv-conditioning.md) / [Adaptive depth reasoning](../../concepts/learning/adaptive-depth-reasoning.md) — the two mechanisms behind MolmoAct2's latency posture.
 - [Knowledge insulation](../../concepts/learning/knowledge-insulation.md) — the training recipe shared across the frontier open + closed VLAs.
 

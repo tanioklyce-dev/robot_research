@@ -193,6 +193,11 @@ The only *measured* per-tier numbers the wiki holds. Note how sparse this is rel
 | Diffusion Policy | 540 ms | 1.8 Hz |
 | SmolVLA (450 M) | 714 ms | 1.4 Hz |
 
+> [!note] Which VLAs have *no* number on this ladder
+> The wiki tracks far more VLAs than have ever been benchmarked on a Jetson. The [VLA deployability landscape](vla-deployability-landscape.md) scores nine of them on a latency axis, but that axis is largely **datacenter** latency — e.g. [MolmoAct2](../../entities/molmoact2.md)'s headline **55.8 Hz is a single H100**, not edge silicon. Only GR00T (AGX Orin + Thor) and the small policies (Orin Nano) appear in the tables above; π0.5 appears only via the unreplicated [community Thor result](../../sources/nvidia-forum-thor-realtime-vla-inference.md). **A VLA's "deployable" score and its on-Jetson rate are separate claims, and for most models the wiki has only the first.**
+>
+> Where a 4 B-class VLA would even fit is a memory question before it's a throughput one: GR00T-3B's stated **16 GB inference floor** already equals an Orin NX 16 GB's *entire shared* RAM, so anything in that class realistically means **AGX Orin 64 GB or Thor** — with Orin Nano (8 GB) excluded outright. *That placement is inference from the memory floors in §1 and §4, not a measurement.*
+
 Reading across the two tables: **the ladder's practical break is memory, not TOPS.** Orin Nano runs ACT-class policies at real-time and 3 B VLAs not at all; AGX Orin 64 GB runs a 3 B VLA at ~6 Hz; Thor runs it at 11–23 Hz with room for concurrent models. Orin NX 16 GB sits exactly on GR00T's stated 16 GB inference floor — the [GR00T-on-Jetson page](gr00t-inference-on-jetson.md) extrapolates ~2–3 Hz there and recommends off-board serving instead. **That extrapolation is the wiki's inference, not a measurement.**
 
 ## 5. Platform breaks between Orin and Thor
