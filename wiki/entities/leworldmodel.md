@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-07
 updated: 2026-07-26
-sources: 24
+sources: 26
 tags: [leworldmodel, lewm, jepa, world-model, mila, end-to-end, sigreg]
 ---
 
@@ -78,3 +78,5 @@ The [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms
 - [MLWorks — Navigate the World from Raw Pixels](../sources/medium-lewm-navigate-world.md)
 - [Towards Deep Learning — This World Model Learns Physics by Watching Videos](../sources/towardsdeeplearning-world-model-physics.md)
 - [stable-worldmodel paper (Maes et al., 2026)](../sources/stable-worldmodel-paper.md) — the platform LeWM runs on, and the generalization benchmark that measures its out-of-distribution collapse.
+- [WorldDP paper (Goswami et al., 2026)](../sources/worlddp-paper.md) — uses LeWM's OGBench env variants and benchmarks against LeWM (which, being single-stage, scores 0 on multi-stage Cube-Triple/Scene-Composite).
+- [Sensorimotor World Models paper (Ivashkov et al., 2026)](../sources/sensorimotor-world-models-paper.md) — adopts LeWM's latent-planning setup; SIGReg (LeWM's regularizer) is its main anti-collapse baseline.

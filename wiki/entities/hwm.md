@@ -3,9 +3,9 @@ title: HWM (Hierarchical World Models)
 type: entity
 subtype: method
 created: 2026-05-31
-updated: 2026-05-31
-sources: 2
-tags: [hwm, hierarchical-jepa, h-jepa, world-model, latent-planning, cem, mpc, lecun, dino-wm, pldm, v-jepa-2]
+updated: 2026-07-26
+sources: 3
+tags: [hwm, hierarchical-jepa, h-jepa, world-model, latent-planning, cem, mpc, lecun, dino-wm, pldm, v-jepa-2, worlddp]
 ---
 
 **HWM (Hierarchical World Models / "Hierarchical Planning with Latent World Models")** — a **model-agnostic hierarchical MPC framework** that plans with latent world models at **two temporal scales** ([Zhang et al., arXiv 2604.03208, April 2026](../sources/hwm-paper.md); senior authors [Yann LeCun](yann-lecun.md) + Nicolas Ballas). The wiki's **first concrete realization of LeCun's long-promised Hierarchical JEPA (H-JEPA)** — it answers the open question that the [JEPA concept](../concepts/world-models/jepa.md) and [LeCun page](yann-lecun.md) had carried since the 2022 position paper.
@@ -31,6 +31,7 @@ tags: [hwm, hierarchical-jepa, h-jepa, world-model, latent-planning, cem, mpc, l
 
 ## Related
 - [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — H-JEPA section; HWM is the realized instance.
+- [WorldDP](worlddp.md) — the other LeCun-coauthored hierarchical latent planner; the architectural contrast is the low level — **HWM optimizes physical actions with a second world model; WorldDP tracks subgoals with a diffusion policy** (faster, more robust to imperfect subgoals, longer multi-stage sequences).
 - [DINO-WM](dino-wm.md) / [PLDM](pldm.md) / [V-JEPA 2](v-jepa-2.md) — the base world models HWM wraps.
 - [LeWorldModel](leworldmodel.md) — sibling JEPA; the single-level push-t model the Welch Labs video demoed (HWM's push-t base is DINO-WM, not LeWM).
 - [Yann LeCun](yann-lecun.md) — senior author; H-JEPA is his 2022-position-paper substrate.
@@ -38,3 +39,4 @@ tags: [hwm, hierarchical-jepa, h-jepa, world-model, latent-planning, cem, mpc, l
 ## Mentioned in
 - [Hierarchical Planning with Latent World Models (paper)](../sources/hwm-paper.md)
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md)
+- [WorldDP paper (Goswami et al., 2026)](../sources/worlddp-paper.md) — contrasts its diffusion-policy low level against HWM's second-world-model low level.

@@ -3,8 +3,8 @@ title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
 updated: 2026-07-26
-sources: 29
-tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem]
+sources: 31
+tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric]
 ---
 
 > [!note] Video overview
@@ -42,8 +42,13 @@ The term **Joint Embedding** names the architecture class defined by this proper
 - **Internet-scale pretraining**: JEPAs can absorb action-free observation data (web video) at scale, then post-train action-conditioned predictors on small interaction datasets. [V-JEPA 2](../../entities/v-jepa-2.md) is the canonical demonstration: 1M+ hours pretraining → 62 hr post-training → zero-shot Franka manipulation.
 
 ## Common training challenges
-- **Representation collapse** — without the right inductive biases, both encoder and predictor learn trivial constants. Existing JEPAs use a battery of fixes: EMA target encoders, stop-gradient, frozen pre-trained encoders, multi-term losses.
-- **[LeWorldModel](../../entities/leworldmodel.md)** simplifies this with a single SIGReg regularizer (Gaussian latent enforcement) and no EMA / stop-grad / frozen encoder.
+- **Representation collapse** — without the right inductive biases, both encoder and predictor learn trivial constants. The wiki now tracks a **design space of anti-collapse mechanisms**, from heaviest to lightest:
+  - **Frozen pre-trained encoder** — [DINO-WM](../../entities/dino-wm.md) sidesteps collapse by not training the encoder at all.
+  - **EMA target encoder + stop-gradient** — [V-JEPA 2](../../entities/v-jepa-2.md).
+  - **Multi-term variance–covariance regularizers** — [PLDM](../../entities/pldm.md).
+  - **Single distributional regularizer (SIGReg)** — [LeWorldModel](../../entities/leworldmodel.md) matches embeddings to an isotropic Gaussian; no EMA / stop-grad / frozen encoder. [Identifiability theory](identifiability.md) later shows the Gaussian is *uniquely* the right target.
+  - **Single inverse-dynamics regularizer** — [SMWM](../../entities/smwm.md) (Ivashkov, Balestriero, Schölkopf 2026) predicts the *action* from an embedding pair; recovering it forces the encoder to stay action-informative. Unlike SIGReg it **doesn't prescribe latent geometry** — it anchors the representation to a task-grounded quantity, biasing toward *controllable* degrees of freedom and filtering uncontrollable distractors (a "perception for action" / causal-representation framing).
+- **State representation & hierarchy (2026 developments).** Beyond collapse, two other axes are moving: **object-centric states** — [WorldDP](../../entities/worlddp.md) replaces raw DINOv2 patches with slot-attention entity embeddings for better dynamics learning — and **hierarchy for multi-stage tasks** — both [HWM](../../entities/hwm.md) (WM-over-WM) and [WorldDP](../../entities/worlddp.md) (WM-over-diffusion-policy) wrap a JEPA planner in a two-tier subgoal structure to escape the single-stage ceiling.
 
 ## Notable instances
 - **[V-JEPA 2 / V-JEPA 2-AC](../../entities/v-jepa-2.md)** ([Meta FAIR](../../entities/meta-fair.md) + [Mila](../../entities/mila.md), June 2025) — large-scale video pretraining + action-conditioned post-training; zero-shot Franka.
@@ -118,3 +123,5 @@ The original wiki synthesis observed [V-JEPA 2](../../entities/v-jepa-2.md) and 
 - [Sobal et al. 2022 — JEPA slow features](../../sources/sobal2022-jepa-slow-features-paper.md)
 - [LeJEPA Paper](../../sources/lejepa-paper.md)
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs (video)](../../sources/welchlabs-lecun-1b-bet-against-llms.md)
+- [WorldDP Paper (Goswami et al., 2026)](../../sources/worlddp-paper.md) — object-centric states + WM-over-diffusion-policy hierarchy for multi-stage manipulation
+- [Sensorimotor World Models Paper (Ivashkov, Balestriero, Schölkopf 2026)](../../sources/sensorimotor-world-models-paper.md) — inverse-dynamics regularization as the sole anti-collapse mechanism

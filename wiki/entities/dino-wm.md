@@ -3,8 +3,8 @@ title: DINO-WM
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-05-25
-sources: 20
+updated: 2026-07-26
+sources: 22
 tags: [dino-wm, dinov2, world-model, jepa-adjacent, lecun, pinto, nyu, meta-fair]
 ---
 
@@ -54,3 +54,5 @@ Plus eval variants: **WallRandom, PushObj, GranularRandom, DM Control Reacher**,
 - [VLA-JEPA Paper](../sources/vla-jepa-paper.md) — DINO-WM as comparator
 - [HWM — Hierarchical Planning with Latent World Models](../sources/hwm-paper.md) — DINO-WM is the **Push-T base** that HWM's two-level planning wraps (17%→61% at d=75)
 - [stable-worldmodel paper (Maes et al., 2026)](../sources/stable-worldmodel-paper.md) — implemented as a baseline in the `swm` platform; benchmarked under controlled visual/physical perturbation (quadratic decay under distractors).
+- [WorldDP paper (Goswami et al., 2026)](../sources/worlddp-paper.md) — DINO-WM as a baseline (its raw-DINOv2-patch state is exactly what WorldDP's object-centric encoding is argued to improve on); single-stage, scores 0 on multi-stage tasks.
+- [Sensorimotor World Models paper (Ivashkov et al., 2026)](../sources/sensorimotor-world-models-paper.md) — DINO-WM cited as the "freeze the encoder" point in the anti-collapse design space.

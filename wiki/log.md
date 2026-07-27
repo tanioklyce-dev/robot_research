@@ -2965,3 +2965,13 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - Major update: [Ai2](entities/ai2.md) — added the three-pillar framing, tagline, Asta/OlmoEarth
 - Updated [index.md](index.md) (Ai2 line, Tools section, source entry)
 - **Open questions:** Asta/AstaBench and OlmoEarth primaries not ingested (architecture, benchmark methodology, earth-obs corpus unknown); is "Olmo" now a cross-modal brand umbrella (text → geospatial)?
+
+## [2026-07-26] ingest | WorldDP + Sensorimotor World Models (two June 2026 LeCun-coauthor papers)
+- Ingested two papers surfaced by the 2026-07-26 LeCun web-search query, curled into raw/
+- **[WorldDP](sources/worlddp-paper.md)** (Goswami, Krishnamurthy, LeCun, Khorrami; arXiv 2606.08775) — object-centric JEPA world model plans subgoals via particle-filter MPC; a [Diffusion Policy](entities/diffusion-policy.md) executes. Beats DINO-WM/LeWM/HECRL* on multi-stage OGBench (Cube-Triple 3-cubes 30% vs 12%; both-task avg 74.5 vs 63)
+- **[Sensorimotor World Models](sources/sensorimotor-world-models-paper.md)** (Ivashkov, Balestriero, Schölkopf; arXiv 2606.20104) — inverse-dynamics regularization as the sole anti-collapse mechanism; recovers controllable DoF, filters distractors; matches SIGReg on 2D, beats it on 3D OGBench-Cube (84 vs 59)
+- New entities: [WorldDP](entities/worlddp.md), [SMWM](entities/smwm.md)
+- **Key finding — AMI Labs byline resolved:** WorldDP lists LeCun's affiliation as "Courant NYU + **AMI Labs**" — the first AMI-Labs-affiliated paper in the wiki, updating the standing "no AMI Labs paper found" note on [Yann LeCun](entities/yann-lecun.md) + [AMI Labs](entities/ami-labs.md). (Caveat: an NYU co-authorship, not lab-authored work.)
+- Updated: [yann-lecun](entities/yann-lecun.md) (9th paper, AMI byline, +2 uningested June papers noted), [ami-labs](entities/ami-labs.md) (attribution correction), [randall-balestriero](entities/randall-balestriero.md) (SMWM + LeNEPA + spectral-graph review), [hwm](entities/hwm.md) (WorldDP contrast), [leworldmodel](entities/leworldmodel.md), [dino-wm](entities/dino-wm.md), [pldm](entities/pldm.md), [diffusion-policy](entities/diffusion-policy.md); [JEPA concept](concepts/world-models/jepa.md) (anti-collapse taxonomy + object-centric/hierarchy axes)
+- Updated [index.md](index.md)
+- **Not ingested** (noted on LeCun page): S-JEPA (speech, arXiv 2606.19398) + "Spectral Graph Theory" review (IEEE SPM 2026); LeNEPA (Balestriero, arXiv 2607.00958)

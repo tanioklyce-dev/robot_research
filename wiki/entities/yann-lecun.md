@@ -4,8 +4,8 @@ type: entity
 subtype: person
 created: 2026-05-07
 updated: 2026-07-26
-sources: 27
-tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs, logical-intelligence, ebm]
+sources: 28
+tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs, logical-intelligence, ebm, diffusion-policy, object-centric]
 ---
 
 > [!note] Reported organizational changes
@@ -15,7 +15,7 @@ tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs, logica
 >
 > These appear to be two separate companies, both downstream of LeCun's EBM-and-world-models agenda. Whether they collaborate, are parallel, or one is a subsidiary of the other is not addressed by any source in this wiki.
 >
-> **He still publishes under NYU.** Checked 2026-07-26: neither May 2026 world-model paper ([stable-worldmodel](../sources/stable-worldmodel-paper.md), [When Does LeJEPA Learn a World Model?](../sources/when-does-lejepa-learn-a-world-model-paper.md)) carries an AMI Labs affiliation — his byline on both is **New York University**. No paper with an AMI Labs affiliation has been found. See the [attribution correction](ami-labs.md#attribution-correction).
+> **He publishes under NYU — but the first AMI Labs byline has now appeared.** Checked 2026-07-26: the two May 2026 world-model papers ([stable-worldmodel](../sources/stable-worldmodel-paper.md), [When Does LeJEPA Learn a World Model?](../sources/when-does-lejepa-learn-a-world-model-paper.md)) carry a **New York University** byline only. **However, [WorldDP](worlddp.md) (arXiv 2606.08775, 7 Jun 2026) lists LeCun's affiliation as "Courant Institute, NYU" *and* "AMI Labs"** — the first AMI-Labs-affiliated paper found in this wiki, updating the earlier "no AMI Labs paper exists" finding. See the [attribution correction](ami-labs.md#attribution-correction).
 
 **Yann LeCun** — Silver Professor at NYU; Turing Award (2018, with Bengio + Hinton). Formerly VP & Chief AI Scientist at [Meta FAIR](meta-fair.md). Per secondary reporting (April 2026), now founder of [AMI Labs](ami-labs.md). As of **2026-01-21**, also Founding Chair of the Technical Research Board at **[Logical Intelligence](logical-intelligence.md)**. In this wiki, **the architect of the [JEPA](../concepts/world-models/jepa.md) research program** and the senior author or co-author across nearly every Meta-affiliated world-model paper ingested.
 
@@ -30,8 +30,12 @@ LeCun introduced the JEPA framing publicly around 2022 and has driven its applic
 - [JEPA-WMs](../sources/jepa-wms-paper.md) (2025-12) — co-senior with Bardes.
 - **[stable-worldmodel](../sources/stable-worldmodel-paper.md) (2026-05-20)** — co-author (12 authors, led by [Lucas Maes](lucas-maes.md)); the reproducibility/evaluation platform.
 - **[When Does LeJEPA Learn a World Model?](../sources/when-does-lejepa-learn-a-world-model-paper.md) (2026-05-25)** — co-author with [Klindt](david-klindt.md) + [Balestriero](randall-balestriero.md); the [identifiability](../concepts/world-models/identifiability.md) theorems.
+- **[WorldDP](../sources/worlddp-paper.md) (2026-06-07)** — co-author (with NYU Tandon's Goswami / Krishnamurthy / Khorrami); an **object-centric world model + [Diffusion Policy](diffusion-policy.md)** hierarchy for multi-stage manipulation. His **first AMI-Labs-affiliated byline** in this wiki, and a rare robotics/manipulation paper (vs. his usual JEPA-world-model line).
 
-Eight papers in this wiki carry his name. The world-model paradigm that distinguishes [FAIR](meta-fair.md) from [NVIDIA](nvidia.md) (generative video) and [AGIBOT](agibot.md) (sim-native) is, for practical purposes, LeCun's research direction.
+> [!note] Newer LeCun work not (yet) ingested here
+> Two further June 2026 LeCun co-authored papers surfaced in a 2026-07-26 web search but are **not ingested**: **S-JEPA** (arXiv 2606.19398, JEPA extended to *speech*, with Ravid Shwartz-Ziv, NYU) and the review **"Spectral Graph Theory: The Mathematics of Self-Supervised Learning"** (with [Balestriero](randall-balestriero.md), IEEE Signal Processing Magazine 43(3):8–20, 2026). Both NYU-bylined.
+
+Nine papers in this wiki now carry his name. The world-model paradigm that distinguishes [FAIR](meta-fair.md) from [NVIDIA](nvidia.md) (generative video) and [AGIBOT](agibot.md) (sim-native) is, for practical purposes, LeCun's research direction.
 
 ## Public stance relevant to this wiki
 - **Latent-prediction over generative-video.** LeCun has argued publicly (talks, blog posts, social media) that pixel-level generative models are the wrong target for video world modeling — that prediction in representation space is more efficient and more aligned with what biological systems do. JEPA is the technical instantiation of that argument. The on-camera framing of this position is the **[Welch Labs explainer "Yann LeCun's $1B Bet Against LLMs" (2026-05-01)](../sources/welchlabs-lecun-1b-bet-against-llms.md)**, which interviews LeCun and traces the blurry-pixels → Siamese → Barlow Twins → DINO → JEPA arc.
@@ -76,6 +80,7 @@ LeCun is one of the small number of researchers whose **simultaneous senior posi
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs (video)](../sources/welchlabs-lecun-1b-bet-against-llms.md)
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) — VLA critique, hierarchical-JEPA push-t result, AMI near-term plan.
 - [Hierarchical Planning with Latent World Models (HWM, paper)](../sources/hwm-paper.md) — senior author; the realized H-JEPA.
+- [WorldDP paper (Goswami et al. 2026)](../sources/worlddp-paper.md) — co-author; object-centric world model + diffusion policy; his first AMI-Labs-affiliated byline here.
 - [Aleph and Energy-Based Models: The AI That Refuses to Bullshit (video)](../sources/2026-05-aleph-ebm-refuses-bullshit-video.md) — names LeCun as Founding Chair of Logical Intelligence's Technical Research Board; verbatim quote on EBMs as "reasoning and inference by minimizing an energy function."
 
 ## Resolved / TBD
