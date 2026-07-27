@@ -4,8 +4,8 @@ type: entity
 subtype: person
 created: 2026-05-07
 updated: 2026-07-26
-sources: 28
-tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs, logical-intelligence, ebm, diffusion-policy, object-centric]
+sources: 29
+tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs, logical-intelligence, ebm, diffusion-policy, object-centric, spectral-graph-theory]
 ---
 
 > [!note] Reported organizational changes
@@ -32,10 +32,12 @@ LeCun introduced the JEPA framing publicly around 2022 and has driven its applic
 - **[When Does LeJEPA Learn a World Model?](../sources/when-does-lejepa-learn-a-world-model-paper.md) (2026-05-25)** — co-author with [Klindt](david-klindt.md) + [Balestriero](randall-balestriero.md); the [identifiability](../concepts/world-models/identifiability.md) theorems.
 - **[WorldDP](../sources/worlddp-paper.md) (2026-06-07)** — co-author (with NYU Tandon's Goswami / Krishnamurthy / Khorrami); an **object-centric world model + [Diffusion Policy](diffusion-policy.md)** hierarchy for multi-stage manipulation. His **first AMI-Labs-affiliated byline** in this wiki, and a rare robotics/manipulation paper (vs. his usual JEPA-world-model line).
 
-> [!note] Newer LeCun work not (yet) ingested here
-> Two further June 2026 LeCun co-authored papers surfaced in a 2026-07-26 web search but are **not ingested**: **S-JEPA** (arXiv 2606.19398, JEPA extended to *speech*, with Ravid Shwartz-Ziv, NYU) and the review **"Spectral Graph Theory: The Mathematics of Self-Supervised Learning"** (with [Balestriero](randall-balestriero.md), IEEE Signal Processing Magazine 43(3):8–20, 2026). Both NYU-bylined.
+- **[Spectral Graph Theory: The Mathematics of Self-Supervised Learning](../sources/spectral-graph-theory-ssl-paper.md)** (2026, with [Balestriero](randall-balestriero.md), IEEE Signal Processing Magazine 43(3):8–20) — a review formalizing **[SSL as spectral graph learning](../concepts/learning/spectral-theory-of-ssl.md)** (VICReg ↔ Laplacian Eigenmaps, SimCLR ↔ MDS, …); the math spine under the JEPA/LeJEPA line. Paywalled; ingested via its open 2022 precursor.
 
-Nine papers in this wiki now carry his name. The world-model paradigm that distinguishes [FAIR](meta-fair.md) from [NVIDIA](nvidia.md) (generative video) and [AGIBOT](agibot.md) (sim-native) is, for practical purposes, LeCun's research direction.
+> [!note] One more LeCun paper not ingested here
+> **S-JEPA** (arXiv 2606.19398, JEPA extended to *speech*, with Ravid Shwartz-Ziv, NYU) surfaced in the 2026-07-26 web search but is **not ingested**. NYU-bylined.
+
+Ten papers in this wiki now carry his name. The world-model paradigm that distinguishes [FAIR](meta-fair.md) from [NVIDIA](nvidia.md) (generative video) and [AGIBOT](agibot.md) (sim-native) is, for practical purposes, LeCun's research direction.
 
 ## Public stance relevant to this wiki
 - **Latent-prediction over generative-video.** LeCun has argued publicly (talks, blog posts, social media) that pixel-level generative models are the wrong target for video world modeling — that prediction in representation space is more efficient and more aligned with what biological systems do. JEPA is the technical instantiation of that argument. The on-camera framing of this position is the **[Welch Labs explainer "Yann LeCun's $1B Bet Against LLMs" (2026-05-01)](../sources/welchlabs-lecun-1b-bet-against-llms.md)**, which interviews LeCun and traces the blurry-pixels → Siamese → Barlow Twins → DINO → JEPA arc.
@@ -81,6 +83,7 @@ LeCun is one of the small number of researchers whose **simultaneous senior posi
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) — VLA critique, hierarchical-JEPA push-t result, AMI near-term plan.
 - [Hierarchical Planning with Latent World Models (HWM, paper)](../sources/hwm-paper.md) — senior author; the realized H-JEPA.
 - [WorldDP paper (Goswami et al. 2026)](../sources/worlddp-paper.md) — co-author; object-centric world model + diffusion policy; his first AMI-Labs-affiliated byline here.
+- [Spectral Graph Theory review (Balestriero & LeCun, IEEE SPM 2026)](../sources/spectral-graph-theory-ssl-paper.md) — co-author; SSL as spectral graph learning, the theory spine under JEPA.
 - [Aleph and Energy-Based Models: The AI That Refuses to Bullshit (video)](../sources/2026-05-aleph-ebm-refuses-bullshit-video.md) — names LeCun as Founding Chair of Logical Intelligence's Technical Research Board; verbatim quote on EBMs as "reasoning and inference by minimizing an energy function."
 
 ## Resolved / TBD

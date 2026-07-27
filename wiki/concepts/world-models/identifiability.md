@@ -3,8 +3,8 @@ title: Identifiability (linear identifiability of latent variables)
 type: concept
 created: 2026-07-26
 updated: 2026-07-26
-sources: 2
-tags: [identifiability, linear-identifiability, latent-space, jepa, lejepa, theory, causal-representation-learning, nonlinear-ica, planning]
+sources: 3
+tags: [identifiability, linear-identifiability, latent-space, jepa, lejepa, theory, causal-representation-learning, nonlinear-ica, planning, generalization-theory]
 ---
 
 # Identifiability
@@ -35,13 +35,16 @@ The guarantee is **conditional**, and the conditions do most of the work:
 ## Related concepts
 - [Learned latent space](latent-space.md) — identifiability is a property of one.
 - [JEPA](jepa.md) — the architecture family the result applies to.
+- [Spectral theory of SSL](../learning/spectral-theory-of-ssl.md) — the shared mathematical frame; identifiability (recoverability) and generalization are the two formal guarantees built on it.
 - [World model](world-model.md).
 
 ## Key references
 - [When Does LeJEPA Learn a World Model? (Klindt, LeCun, Balestriero, 2026)](../../sources/when-does-lejepa-learn-a-world-model-paper.md) — the theorems.
 - [LeJEPA (Balestriero & LeCun, 2025)](../../sources/lejepa-paper.md) — the method analyzed; SIGReg.
 - [stable-worldmodel (Maes et al., 2026)](../../sources/stable-worldmodel-paper.md) — the empirical counterweight.
+- [A Generalization Theory for JEPA-Based World Models (Cui et al., 2026)](../../sources/jepa-generalization-theory-paper.md) — the sibling formal result: where identifiability asks *can the model recover the true latents*, this asks *does low pretraining error provably transfer to downstream planning* (finite-sample bound). Both use spectral-graph language.
 
 ## Mentioned in
 - [When Does LeJEPA Learn a World Model?](../../sources/when-does-lejepa-learn-a-world-model-paper.md)
 - [stable-worldmodel paper](../../sources/stable-worldmodel-paper.md)
+- [A Generalization Theory for JEPA-Based World Models](../../sources/jepa-generalization-theory-paper.md) — complementary generalization guarantee.

@@ -3,8 +3,8 @@ title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
 updated: 2026-07-26
-sources: 31
-tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric]
+sources: 33
+tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
 > [!note] Video overview
@@ -100,6 +100,8 @@ The original wiki synthesis observed [V-JEPA 2](../../entities/v-jepa-2.md) and 
 - [Learned latent space](latent-space.md) — the substrate JEPAs predict in; the entire design choice rests on this.
 - [World-model simulators](world-model-simulators.md) — JEPAs are one of two paradigms (the other being generative-video models).
 - [FLARE](flare.md) — a JEPA-adjacent *auxiliary* loss (future-latent alignment with an EMA teacher) added inside a VLA policy; the same joint-embedding-of-the-future commitment applied as a policy co-training signal rather than a standalone WM.
+- [Spectral theory of SSL](../learning/spectral-theory-of-ssl.md) — the mathematical backbone (SSL = spectral embedding) under the JEPA/LeJEPA anti-collapse machinery.
+- [Instruction leakage](instruction-leakage.md) — an evaluation confound for goal-conditioned JEPA world models.
 - [Meta FAIR](../../entities/meta-fair.md) — center of the JEPA research line.
 - [Mila](../../entities/mila.md) — frequent contributor.
 
@@ -125,3 +127,5 @@ The original wiki synthesis observed [V-JEPA 2](../../entities/v-jepa-2.md) and 
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs (video)](../../sources/welchlabs-lecun-1b-bet-against-llms.md)
 - [WorldDP Paper (Goswami et al., 2026)](../../sources/worlddp-paper.md) — object-centric states + WM-over-diffusion-policy hierarchy for multi-stage manipulation
 - [Sensorimotor World Models Paper (Ivashkov, Balestriero, Schölkopf 2026)](../../sources/sensorimotor-world-models-paper.md) — inverse-dynamics regularization as the sole anti-collapse mechanism
+- [A Generalization Theory for JEPA-Based World Models (Cui et al., 2026)](../../sources/jepa-generalization-theory-paper.md) — first finite-sample generalization bound; JEPA pretraining = action-conditioned co-occurrence-matrix factorization ([spectral view](../learning/spectral-theory-of-ssl.md))
+- [Grounding Spatial Relations in a Compact World Model (Wang et al., 2026)](../../sources/grounding-spatial-relations-compact-wm-paper.md) — the [instruction-leakage](instruction-leakage.md) evaluation confound in goal-conditioned JEPA world models

@@ -2975,3 +2975,14 @@ Large batch; several fill backlog gaps. Removed a byte-identical duplicate `raw/
 - Updated: [yann-lecun](entities/yann-lecun.md) (9th paper, AMI byline, +2 uningested June papers noted), [ami-labs](entities/ami-labs.md) (attribution correction), [randall-balestriero](entities/randall-balestriero.md) (SMWM + LeNEPA + spectral-graph review), [hwm](entities/hwm.md) (WorldDP contrast), [leworldmodel](entities/leworldmodel.md), [dino-wm](entities/dino-wm.md), [pldm](entities/pldm.md), [diffusion-policy](entities/diffusion-policy.md); [JEPA concept](concepts/world-models/jepa.md) (anti-collapse taxonomy + object-centric/hierarchy axes)
 - Updated [index.md](index.md)
 - **Not ingested** (noted on LeCun page): S-JEPA (speech, arXiv 2606.19398) + "Spectral Graph Theory" review (IEEE SPM 2026); LeNEPA (Balestriero, arXiv 2607.00958)
+
+## [2026-07-26] ingest | Four JEPA-adjacent papers (LeNEPA, JEPA generalization theory, instruction leakage, spectral graph theory)
+- Batch ingest of the four papers surfaced (but not previously ingested) in the LeCun web-search query
+- **[LeNEPA](sources/lenepa-paper.md)** (Chemeris, Jin, Balestriero; arXiv 2607.00958) — "Le-" family + SIGReg extended to time-series SSL → new entity [LeNEPA](entities/lenepa.md)
+- **[A Generalization Theory for JEPA-Based World Models](sources/jepa-generalization-theory-paper.md)** (Cui et al., Peking; arXiv 2606.27014) — first finite-sample generalization bound; conditional spectral-graph / co-occurrence-matrix formulation; third-party
+- **[Grounding Spatial Relations in a Compact World Model](sources/grounding-spatial-relations-compact-wm-paper.md)** (Wang, Wei, Ling; arXiv 2607.06925) — names **instruction leakage** → new concept [instruction-leakage](concepts/world-models/instruction-leakage.md); third-party
+- **[Spectral Graph Theory: The Mathematics of SSL](sources/spectral-graph-theory-ssl-paper.md)** (Balestriero & LeCun, IEEE SPM 2026) — **paywalled**; source page grounded in verified metadata + its open 2022 precursor (arXiv 2205.11508). Flagged transparently.
+- New concept: [spectral-theory-of-ssl](concepts/learning/spectral-theory-of-ssl.md) (SSL = spectral embedding; hub for the spectral review + generalization theory + SIGReg/identifiability)
+- Updated: [randall-balestriero](entities/randall-balestriero.md) (LeNEPA + spectral review now ingested; +2 sources), [yann-lecun](entities/yann-lecun.md) (spectral review ingested → 10th paper), [leworldmodel](entities/leworldmodel.md) (instruction-leakage critique), [JEPA](concepts/world-models/jepa.md) + [identifiability](concepts/world-models/identifiability.md) concepts
+- Updated [index.md](index.md)
+- **Note on scope:** two of the four (generalization theory, instruction leakage) are third-party, not LeCun/coauthor — ingested per explicit user request; they strengthen the wiki's JEPA-theory thread. The Spectral Graph Theory review is the only paywalled source; handled without fabrication.

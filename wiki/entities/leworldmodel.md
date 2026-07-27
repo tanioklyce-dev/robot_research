@@ -4,8 +4,8 @@ type: entity
 subtype: model
 created: 2026-05-07
 updated: 2026-07-26
-sources: 26
-tags: [leworldmodel, lewm, jepa, world-model, mila, end-to-end, sigreg]
+sources: 28
+tags: [leworldmodel, lewm, jepa, world-model, mila, end-to-end, sigreg, instruction-leakage]
 ---
 
 LeWorldModel (LeWM) — a JEPA-style world model from [Mila](mila.md), NYU, Samsung SAIL, and Brown, presented as the **first JEPA trainable stably end-to-end from raw pixels** without the typical battery of training heuristics (stop-gradient, EMA, frozen encoder). Senior author: Yann LeCun (March 2026).
@@ -80,3 +80,5 @@ The [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms
 - [stable-worldmodel paper (Maes et al., 2026)](../sources/stable-worldmodel-paper.md) — the platform LeWM runs on, and the generalization benchmark that measures its out-of-distribution collapse.
 - [WorldDP paper (Goswami et al., 2026)](../sources/worlddp-paper.md) — uses LeWM's OGBench env variants and benchmarks against LeWM (which, being single-stage, scores 0 on multi-stage Cube-Triple/Scene-Composite).
 - [Sensorimotor World Models paper (Ivashkov et al., 2026)](../sources/sensorimotor-world-models-paper.md) — adopts LeWM's latent-planning setup; SIGReg (LeWM's regularizer) is its main anti-collapse baseline.
+- [Grounding Spatial Relations in a Compact World Model (Wang et al., 2026)](../sources/grounding-spatial-relations-compact-wm-paper.md) — critiques the compact JEPA-latent + reference-anchor + language-goal recipe (à la LeWM) for [instruction leakage](../concepts/world-models/instruction-leakage.md); prescribes goal-free dynamics.
+- [LeNEPA paper (Chemeris, Jin, Balestriero 2026)](../sources/lenepa-paper.md) — carries LeWM's SIGReg into time-series SSL (the "Le-" family sibling).
