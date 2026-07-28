@@ -52,6 +52,7 @@ The realistic Orin NX pattern is the one the stack is built for anyway: **run GR
 | on **Orin NX 16 GB** | ❌ Not onboard — below the memory floor, ~2–3 Hz extrapolated. Serve the policy over ZMQ from a desktop GPU / [DGX Spark](../../entities/dgx-spark.md) instead. |
 
 ## Related
+- [Control-rate ladder](control-rate-ladder.md) — where GR00T's 5.8 / 10.9 / 22–24 Hz sit relative to every other rate in the wiki, from LLM planners at 0.2–0.4 Hz to servo loops at 1 kHz.
 
 - [Isaac GR00T docs — TensorRT optimization](../../sources/isaac-gr00t-tensorrt-deployment-docs.md) — the official benchmark table (N1.6).
 - [NVIDIA forums — real-time VLA inference on Thor & RTX](../../sources/nvidia-forum-thor-realtime-vla-inference.md) — the 22–24 Hz community result.

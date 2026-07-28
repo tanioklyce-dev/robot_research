@@ -63,6 +63,7 @@ The claim isn't a new capability — it's **occupying all four corners at once**
 - **Adaptive depth's latency win is viewpoint-dependent** — biggest in static third-person setups; egocentric/mobile deployments (where the whole scene moves) offer fewer replayable cells.
 
 ## Related
+- [Control-rate ladder](control-rate-ladder.md) — the latency axis widened past VLAs to include servo-loop *requirements* and LLM-in-the-loop inference. Puts this page's H100-vs-edge caveat in its full context: the gap from MolmoAct2's 55.8 Hz to a Franka's 1 kHz servo loop is larger than the gap this page scores.
 
 - [VLA models](../../concepts/learning/vla-models.md) — the action-head taxonomy underneath this comparison.
 - [Open-source robot AI projects — landscape](open-source-robot-ai-projects.md) — the broader open-ecosystem catalog this deployability cut sits within.

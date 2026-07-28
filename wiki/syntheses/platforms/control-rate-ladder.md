@@ -1,0 +1,110 @@
+---
+title: The control-rate ladder — LLMs, VLAs, and servo loops on one axis
+type: synthesis
+created: 2026-07-27
+updated: 2026-07-27
+tags: [latency, inference, control-frequency, vla, llm-agent, edge-ai, jetson, action-chunking, control-abstraction-levels, platforms]
+---
+
+# The control-rate ladder — LLMs, VLAs, and servo loops on one axis
+
+The wiki carries frequency numbers in three places that never touch: **what robots require** (a Franka servos at 1 kHz), **what learned policies achieve** (SmolVLA runs at 1.4 Hz on an Orin Nano), and **what a language model in the loop achieves** ([0.2–0.4 Hz](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md)). Anthropic's robotics evaluation states its gap as **83 Hz needed vs 0.2–0.4 Hz achieved — ~100×**, and that figure has been sitting next to the wiki's on-Jetson VLA numbers without anyone lining them up.
+
+This page lines them up. The short version: **the full span is about five orders of magnitude, no single system closes it, and none is expected to** — the gap is bridged architecturally, by hierarchy and by action chunking, not by making inference faster.
+
+> [!warning] This is a ladder of magnitudes, not a benchmark
+> These numbers come from wildly different conditions: an H100, an RTX 4090, a 25 W Orin Nano, a **paused simulator**, and vendor self-reports. Rows are not comparable to each other as measurements. What survives the incomparability is the **band structure** — the separations here are 10× to 1000×, far larger than the measurement noise.
+
+## The one axis
+
+**REQ** = a rate something demands. **MEAS** = a rate something achieved. **CAP** = a teleop/dataset *capture* rate (neither a requirement nor an inference speed — included because these set the action-chunk cadence policies are trained to reproduce). Descending.
+
+† MotionBricks' 15,000 FPS is batched throughput, not a single-stream control rate; its 2 ms latency figure (~500 Hz) is the comparable one. Listed at the top because that is how the source headlines it.
+
+| Hz | Kind | What | Where |
+|---:|:---:|---|---|
+| **15,000** † | MEAS | MotionBricks latent motion model — **15,000 FPS throughput**, separately **2 ms latency** (≈500 Hz single-stream) | [MotionBricks](../../sources/motionbricks-paper.md) |
+| **1,000** | REQ | [Franka Panda](../../entities/franka-panda.md) joint servo loop | robot firmware |
+| **500** | REQ | Upper bound of [whole-body control](../../concepts/robotics/whole-body-control.md) torque loops | humanoid WBC |
+| **~200** | MEAS | [ACT](../../entities/act.md), 5.0 ms | RTX 4090 |
+| **200** | REQ | Helix **System 1** fast controller (80 M params) | [Figure](../../entities/figure.md) 02, onboard |
+| **120** | REQ | [GR00T](../../entities/nvidia-groot.md) N1 **System 1** flow-matching DiT | design target |
+| **100** | REQ | [Stretch](../../entities/stretch.md) Body loop, watchdog, self-collision avoidance | robot firmware |
+| **~83** | **REQ** | **Real-time legged control** — the Anthropic figure | [robotics eval](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) |
+| **55–333** | MEAS | [VQ-BeT](../../entities/vq-bet.md), 3–18 ms/step — *closed-loop on a Stretch **CPU*** | Stretch |
+| **55.8** | MEAS | [MolmoAct2](../../entities/molmoact2.md) continuous path (Think: 12.7) | **H100** |
+| **50** | REQ | [GEAR-SONIC](../../entities/gear-sonic.md) WBC policy (1–2 ms/forward on Orin) | Unitree G1 |
+| **50** | CAP | [ALOHA](../../entities/aloha.md) camera rate; shirt-folding teleop capture | real rigs |
+| **32.1** | MEAS | GR00T N1.6-3B TensorRT | RTX 5090 |
+| **30** | REQ | [YAM](../../entities/yam.md) bimanual control, absolute joint (MolmoAct2's real rig) | real rig |
+| **27.8** | MEAS | **[ACT](../../entities/act.md) on-edge, 36 ms** — the only edge policy fast enough for reactive control | [Orin Nano](../../entities/jetson-orin-nano.md) |
+| **25** | MEAS | [OpenVLA-OFT+](../../entities/openvla-oft.md) bimanual, real | ALOHA |
+| **22–24** | MEAS | GR00T N1.6, community CUDA kernels | [Jetson Thor](../../entities/jetson-thor.md) |
+| **20** | CAP | [Fourier GR-1](../../entities/fourier-gr-1.md) teleop capture (VIVE + Metagloves); table-bussing capture | real rigs |
+| **15** | CAP | [DROID](../../entities/droid.md) capture rate | dataset |
+| **10.9** | MEAS | GR00T N1.6, official TensorRT | Jetson Thor |
+| **~10** | REQ | Helix **System 2** / GR00T **System 2** VLM planner tier | design target |
+| **8–11** | MEAS | GR00T-3B *estimated* (bandwidth-derived, unmeasured) | [DGX Spark](../../entities/dgx-spark.md) |
+| **5.8** | MEAS | GR00T N1.6, TensorRT | AGX Orin 64 GB |
+| **5** | CAP | BridgeV2 capture rate | dataset |
+| **4** | MEAS | [VLA-0](../../entities/vla-0.md) — action-as-text is slow | GPU |
+| **1.8** | MEAS | [Diffusion Policy](../../entities/diffusion-policy.md), 540 ms | Orin Nano |
+| **1.4** | MEAS | [SmolVLA](../../entities/smolvla.md)-450M, 714 ms | Orin Nano |
+| **1.3** | MEAS | [FAST](../../entities/fast-action-tokenization.md) autoregressive decode, ~750 ms/1 s chunk | RTX 4090 |
+| **~1** | MEAS | Agent heartbeats — [AgenticROS](../../entities/agenticros.md), [ros2-mcp-server](../../entities/ros2-mcp-server.md) capability beacons | Orin NX |
+| **0.5** | MEAS | SmolVLA on **CPU**, 2,028 ms | CPU |
+| **0.2–0.4** | **MEAS** | **Frontier LLM, non-reasoning** (2–8 s text; 5–15 s with images; **15–180 s with reasoning**) | [robotics eval](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) |
+
+## Four bands, and the gaps between them
+
+**Band A — servo/torque, 100–1,000 Hz (requirement only).** Where physics is. Nothing learned and general runs here; it is occupied by firmware, PD loops, and small purpose-trained controllers (SONIC at 50 Hz on 1–2 ms forwards, Helix S1 at 200 Hz on 80 M params). Anthropic's **83 Hz** sits at the bottom edge of this band.
+
+**Band B — reactive policy, ~10–60 Hz (achievable, barely, at the edge).** [ACT](../../entities/act.md) at 27.8 Hz on an Orin Nano is the wiki's only edge policy comfortably here. Thor gets GR00T to 22–24 Hz with hand-written kernels. MolmoAct2's 55.8 Hz belongs to this band only on an **H100** — a caveat the [deployability landscape](vla-deployability-landscape.md) already flags.
+
+**Band C — deliberative policy, ~1–10 Hz.** Where most VLAs actually live on real edge hardware: SmolVLA 1.4, Diffusion Policy 1.8, GR00T 5.8–10.9. Also where the S1/S2 designs *place* their planner tier by intent (Helix S2 at 7–9 Hz, GR00T System 2 at 10 Hz).
+
+**Band D — language model, 0.2–0.4 Hz, and far below with reasoning.** Three to four orders of magnitude beneath Band A.
+
+The two big separations: **~100× from Band D to Band B**, and **~10–100× from Band B to Band A**. Anthropic's stated 100× gap is the *first* of those. The second one is older, is not about LLMs at all, and nobody has closed it either — which is exactly why the field's architectures look the way they do.
+
+## What actually bridges the gap
+
+Neither separation is closed by faster inference. Three mechanisms do the work, and all three are already documented in the wiki:
+
+**1. Hierarchy (the S1/S2 split).** [Helix](../../sources/helix-blog.md) pairs a 7 B VLM at 7–9 Hz with an 80 M transformer at 200 Hz; [GR00T N1](../../entities/nvidia-groot.md) pairs an Eagle-2 VLM at 10 Hz with a flow-matching DiT at 120 Hz; [SONIC](../../entities/gear-sonic.md) puts a 50 Hz WBC policy under a GR00T VLA. The pattern is the same every time: **let the slow tier be slow, and put something fast underneath it.** This is Band C driving Band A across a ~20× ratio, and it is the field's answer to the question Anthropic's 83 Hz figure poses.
+
+**2. Action chunking.** A policy that infers at 1.8 Hz but emits a 16-step chunk is not controlling the robot at 1.8 Hz. GR00T N1 produces a 16-action chunk in 63.9 ms; [OpenVLA-OFT](../../entities/openvla-oft.md) gets **26×** throughput from 8-step chunks and **43×** from 25-step. **Inference Hz and control Hz are different quantities**, and most of the alarming numbers on this page are inference Hz. (Note the dissent: [VQ-BeT](../../entities/vq-bet.md) argues chunking *hurt* where tried, because at 3–18 ms/step it is fast enough to close the loop honestly — on a **CPU**.)
+
+**3. Async inference.** [SmolVLA](../../entities/smolvla.md)'s RobotClient/PolicyServer pattern overlaps computing the next chunk with executing the current one: 1.8 → 3.8 cubes/60 s on SO-100, same policy.
+
+> [!note] The reframe
+> Anthropic's 83 Hz figure describes **level-1 direct control** in the [control-abstraction taxonomy](../../concepts/robotics/control-abstraction-levels.md) — a level at which *nothing in this wiki deploys, LLM or otherwise*. The honest comparison is not "LLM vs the servo loop." It is **LLM at 0.2–0.4 Hz vs the VLA planner tier at 1.4–27.8 Hz** — the tier an LLM would actually have to occupy. That gap is ~10–100×, not ~100–400×, and it is the one worth tracking.
+
+## Two findings that only appear side-by-side
+
+**The bottlenecks are different, so the fixes are different.** [Cutting the Cord](../../sources/cutting-the-cord-untethered-xlerobot.md) found that on an Orin Nano, SmolVLA-450M (714 ms) adds only *minor* overhead over Diffusion Policy (540 ms) — the wall is the **iterative denoising/flow steps (T=10)**, not the semantic head. So Band C's problem is **sampling steps**, and the fix is distillation or fewer steps. Band D's problem is **autoregressive token generation over a long context with images**, and the fix is something else entirely. Two numbers one order of magnitude apart, commonly discussed as one "latency problem," with no shared cause. Compare [FAST](../../entities/fast-action-tokenization.md)'s 1.3 Hz autoregressive decode on a **4090** — that is the Band-D failure mode appearing inside a VLA, and it is precisely what OpenVLA-OFT's parallel decoding was built to kill.
+
+**Reasoning tokens are a rate decision.** Anthropic measured 2–8 s without reasoning and **15–180 s with** — up to a 20× penalty, on the same model. [MolmoAct2](../../entities/molmoact2.md) shows the same trade inside a VLA: 55.8 Hz continuous vs **12.7 Hz** for MolmoAct2-Think, ~4×, for +0.9 LIBERO points. And Anthropic found that reasoning budget produced **no general robotics gain and sometimes hurt**. Across both, the pattern holds: **on embodied tasks, reasoning tokens cost an order of magnitude of control rate and have not yet bought a commensurate capability gain.** The one exception in either source is Claude Mythos Preview (40.2 → 54.1 across reasoning configs), which is unexplained.
+
+## What this page cannot tell you
+
+- **No row is a controlled comparison.** Hardware, precision, batch size, chunk length, and image count all vary. Treat bands as real and individual gaps as approximate.
+- **The Anthropic 0.2–0.4 Hz figure is API-served frontier-model latency**, not an optimized on-robot deployment. Nobody has measured a small local LLM in a robot control loop in any ingested source — the nearest things are 1 Hz agent *heartbeats* ([AgenticROS](../../entities/agenticros.md), [ros2-mcp-server](../../entities/ros2-mcp-server.md)), which are status beacons, not control.
+- **No VLA in this wiki has an on-Jetson number for the top of the table.** MolmoAct2's 55.8 Hz is H100-only; the [deployability landscape](vla-deployability-landscape.md) flags this and the [Jetson ladder](jetson-module-ladder-power-performance.md) holds the sparse edge numbers. The single most valuable missing measurement in this whole area is **MolmoAct2 (or any 2026-class VLA) on Thor**.
+- **Chunk-adjusted effective control rates are not published** for most policies, so the inference-Hz vs control-Hz distinction stays qualitative here.
+- **Power is a hidden third axis.** 27.8 Hz on a 25 W Orin Nano and 55.8 Hz on a 700 W H100 are not the same achievement; see the [Jetson module ladder](jetson-module-ladder-power-performance.md).
+
+## Related
+- [Control abstraction levels](../../concepts/robotics/control-abstraction-levels.md) — *where* in the stack a controller acts; this page is the frequency each level demands.
+- [VLA deployability landscape](vla-deployability-landscape.md) — the latency axis scored per-model, with the H100-vs-edge caveat.
+- [GR00T inference on Jetson](gr00t-inference-on-jetson.md) — the deepest single-model version of this question.
+- [Jetson module ladder](jetson-module-ladder-power-performance.md) — the hardware underneath the MEAS rows.
+- [Onboard compute for XLeRobot](jetson-onboard-compute-xlerobot.md) — where the 27.8 / 1.8 / 1.4 Hz numbers come from.
+- [Whole-body control](../../concepts/robotics/whole-body-control.md) — Band A's actual occupant.
+- [VLA models](../../concepts/learning/vla-models.md) — the S1/S2 structural pattern.
+
+## Sources
+- [How Claude Performs on Robotics Tasks](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — 83 Hz requirement; 0.2–0.4 Hz inference; reasoning-latency range.
+- [Cutting the Cord (Shaw et al., 2026)](../../sources/cutting-the-cord-untethered-xlerobot.md) — the on-edge ACT / Diffusion Policy / SmolVLA measurements.
+- [Isaac GR00T TensorRT deployment docs](../../sources/isaac-gr00t-tensorrt-deployment-docs.md) + [NVIDIA forum report](../../sources/nvidia-forum-thor-realtime-vla-inference.md) — Thor / AGX Orin / RTX 5090 GR00T numbers.
+- [MolmoAct2 paper](../../sources/molmoact2-paper.md), [OpenVLA-OFT paper](../../sources/openvla-oft-paper.md), [FAST paper](../../sources/fast-paper.md), [Knowledge Insulation paper](../../sources/knowledge-insulation-paper.md), [SmolVLA paper](../../sources/smolvla-paper.md), [LeRobot ICLR 2026 paper](../../sources/lerobot-iclr-2026-paper.md), [GR00T N1 paper](../../sources/groot-n1-paper.md), [Helix blog](../../sources/helix-blog.md), [SONIC paper](../../sources/sonic-paper.md), [MotionBricks paper](../../sources/motionbricks-paper.md).

@@ -41,6 +41,8 @@ Real-time legged control needs roughly **83 Hz**. Non-reasoning inference runs a
 
 This is not a gap that better reasoning closes. The evaluation found extra reasoning budget produced **no** general robotics gain and sometimes *hurt* — improvement across model generations came from better vision, numerical consistency, and 3D understanding instead. Nor is it obviously a gap that smaller models close: the wiki's edge-inference numbers put on-Jetson VLAs at **1.4–27.8 Hz** ([XLeRobot onboard compute](../../syntheses/platforms/jetson-onboard-compute-xlerobot.md)) — better, but those are purpose-built action models, not general LLMs, and still short of 83 Hz for the hardest cases.
 
+Every frequency in this paragraph, plus the wiki's other ~30 rate numbers, is tabulated on one axis in the [Control-rate ladder](../../syntheses/platforms/control-rate-ladder.md) — which shows the 83 Hz figure sits at the bottom of a band **nothing in this wiki deploys into**, and that the comparison worth tracking is the LLM's 0.2–0.4 Hz against the VLA planner tier's 1.4–27.8 Hz.
+
 ## Supervision: knowing when *not* to intervene
 
 Level 3 has its own failure mode, and it is the most transferable finding in this cluster. Given [MolmoAct](../../entities/molmoact.md) as a pretrained manipulation policy on LIBERO-40 with the freedom to override its actions:
@@ -66,6 +68,7 @@ Three practical implications:
 Perceptual access moves capability as much as control access does: a **compass** (heading in degrees) was the most consistent performance lever across every model tested — larger than most reasoning-budget effects — while depth heatmaps and crosshairs were roughly neutral. What the model can *see* is an access-level decision too.
 
 ## Related concepts
+- [Control-rate ladder](../../syntheses/platforms/control-rate-ladder.md) — every rate in the wiki on one axis; the four bands, and the two mechanisms (hierarchy, action chunking) that bridge them.
 - [LLM-agent architecture](../agents/llm-agent-architecture.md) — level 3, as an architecture rather than an evaluation condition.
 - [VLA models](../learning/vla-models.md) — the pretrained-policy layer being supervised; VLAs *are* the level-1/2 solution that works.
 - [AI uplift studies](../safety/ai-uplift.md) — level 2 measured as human assistance rather than autonomy.
