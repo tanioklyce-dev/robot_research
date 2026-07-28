@@ -34,8 +34,9 @@ The G1 is the GR00T line's main **cross-embodiment / whole-body** target beyond 
 The G1 is fast becoming the **de-facto benchmark platform for learned [whole-body control](../concepts/robotics/whole-body-control.md)** — it is the common target across [SONIC](../sources/sonic-paper.md) (NVIDIA GEAR), [MotionBricks](../sources/motionbricks-paper.md) (NVIDIA, SIGGRAPH 2026), and [BumbleBee](../sources/bumblebee-experts-to-generalist-wbc.md) ([BeingBeyond](beingbeyond.md)), which all evaluate WBC methods on it. (Note DoF varies by config — SONIC uses the 29-joint G1; BumbleBee a 23-joint config.)
 
 ## Related
-- Unitree Robotics — manufacturer.
+- Unitree Robotics — manufacturer (no entity page yet).
 - [Unitree H1](unitree-h1.md) — full-size sibling.
+- [Unitree Go2](unitree-go2.md) — the quadruped line from the same vendor.
 - [Whole-body control](../concepts/robotics/whole-body-control.md) — the concept for which G1 is the shared benchmark robot.
 - [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — landscape; G1 is the educational-research bridge.
 

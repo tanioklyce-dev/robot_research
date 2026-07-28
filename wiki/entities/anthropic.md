@@ -3,9 +3,9 @@ title: Anthropic
 type: entity
 subtype: company
 created: 2026-05-09
-updated: 2026-05-15
-sources: 6
-tags: [company, ai-safety, llm, claude, alignment]
+updated: 2026-07-27
+sources: 7
+tags: [company, ai-safety, llm, claude, alignment, frontier-red-team, uplift-study]
 ---
 
 **Anthropic** — AI safety company and developer of the Claude model family. Mission: "to ensure that the world safely makes the transition through transformative AI." Founded by former OpenAI researchers including Dario Amodei and Daniela Amodei. Occupies a self-described "peculiar position": believing AI may be among the most dangerous technologies in human history, yet developing it anyway — a "calculated bet" that safety-focused labs at the frontier are better than ceding that ground to less safety-focused developers.
@@ -31,10 +31,16 @@ Anthropic developed the **Model Context Protocol (MCP)**, a standard interface e
 ## Safety evaluation
 Models are externally evaluated by institutes such as [Apollo Research](../entities/apollo-research.md). Anthropic commits to transparency about gaps between intended behavior (per Claude's Constitution) and actual behavior (per system cards).
 
+### Frontier Red Team
+The internal team that measures *newly emerging* frontier capabilities in risk-relevant domains and feeds them into the **Responsible Scaling Policy**'s capability thresholds — see [Anthropic Frontier Red Team](frontier-red-team.md). Its instrument is the randomized **[uplift study](../concepts/safety/ai-uplift.md)** (AI arm vs no-AI arm, task held fixed), originally applied to biological risk.
+
+**Robotics is one of the domains it tracks** — not for robotics' own sake, but because a model that can competently interface with **previously unknown physical hardware** bears on the *autonomous AI R&D* threshold. [Project Fetch](../sources/anthropic-project-fetch-robot-dog.md) (Nov 2025) is the wiki's ingested instance: eight non-roboticist Anthropic staff, split 4/4, one day, programming a quadruped to fetch a beach ball. The Claude arm finished 7/8 tasks to 6/8 and took roughly half the wall-clock on the tasks both arms completed. Anthropic's stated reading is that **uplift precedes autonomy**, so the result is treated as an early indicator rather than a productivity finding. Models were assessed as **below** the autonomous-AI-R&D threshold as of that post.
+
 ## Mechanistic interpretability program
 Anthropic leads the modern **sparse-autoencoder + feature-steering** approach to [mechanistic interpretability](../concepts/safety/mechanistic-interpretability.md). Chris Olah heads the program. The canonical reference paper is Templeton et al. 2024 — *Scaling Monosemanticity* — which Welch Labs' [Illustrated Guide to AI, Vol I, Ch 7](../sources/welchlabs-illustrated-guide-to-ai.md) walks through in pedagogy detail (the "internal-conflict feature steering" demonstration on Claude is the chapter's archetypal result). Olah's framing that *"~1% of the concepts have been extracted"* is the field's anchor caveat.
 
 ## Mentioned in
+- [Project Fetch: Can Claude train a robot dog?](../sources/anthropic-project-fetch-robot-dog.md) — Frontier Red Team robotics uplift study
 - [Claude's Constitution](../sources/claudes-constitution.md)
 - [Are We Building Skynet? (Medium, 2025)](../sources/medium-are-we-building-skynet.md)
 - [Welch Labs Illustrated Guide to AI, Vol I](../sources/welchlabs-illustrated-guide-to-ai.md)

@@ -2,8 +2,8 @@
 title: LLM-agent architecture
 type: concept
 created: 2026-05-07
-updated: 2026-07-13
-sources: 36
+updated: 2026-07-27
+sources: 37
 tags: [llm-agent, tool-use, agentic-robotics, planning, mcp, a2a]
 ---
 
@@ -83,6 +83,7 @@ Two things follow for robots specifically:
 - [Guardrails for robot agents](../../syntheses/agents/guardrails-for-robot-agents.md) — **the synthesis**: the five-layer safety cake, why the MCP allowlist is already an execution rail, and the unguarded perception channel.
 - [AI guardrails](../safety/ai-guardrails.md) — the enforcement layer that *should* sit between the planner and the skill library, and currently doesn't.
 - [AI red-teaming](../safety/ai-red-teaming.md) — prompt injection through the perception channel is this pattern's distinctive attack surface.
+- [AI uplift studies](../safety/ai-uplift.md) — the **other** way an LLM touches a robot: writing the code offline rather than sitting in the control loop. [Project Fetch](../../sources/anthropic-project-fetch-robot-dog.md) measures that mode, and argues it is the leading indicator for this one — *uplift precedes autonomy*. Notably, the biggest measured gap was in **connecting to unfamiliar hardware and reading its sensors**, i.e. exactly the integration layer this pattern assumes already exists.
 
 ## Mentioned in
 - [Stretch AI LLM Agent Documentation](../../sources/stretch-ai-llm-agent-docs.md)
@@ -94,3 +95,4 @@ Two things follow for robots specifically:
 - [Awesome-Embodied-Robotics-and-Agent](../../sources/awesome-embodied-robotics-agent.md) — community-curated external index of the same LLM/VLM-embodied-agent landscape; useful coverage cross-check.
 - [Safeguard Agentic AI Systems with the NVIDIA Safety Recipe](../../sources/nvidia-safety-recipe-agentic-ai.md) — the guardrail layer this pattern lacks.
 - [NeMo Guardrails — Library Overview](../../sources/nemo-guardrails-library-overview.md) — execution rails, tool-call validation, LangGraph multi-agent safety.
+- [Project Fetch: Can Claude train a robot dog?](../../sources/anthropic-project-fetch-robot-dog.md) — the contrast case: Claude writes the robot code, but never runs in the loop.

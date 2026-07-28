@@ -2,8 +2,8 @@
 title: AI safety and alignment
 type: concept
 created: 2026-05-09
-updated: 2026-07-13
-sources: 9
+updated: 2026-07-27
+sources: 10
 tags: [ai-safety, alignment, corrigibility, values, anthropic]
 ---
 
@@ -69,7 +69,14 @@ AI safety is directly relevant to the [LLM-agent architecture](../agents/llm-age
 - [LLM-agent architecture](../agents/llm-agent-architecture.md) — the architecture whose runtime behavior safety alignment governs.
 - [Agentic UAVs](../robotics/agentic-uavs.md) — multi-agent aerial systems; safety constraints apply to multi-agent coordination.
 
+## Capability thresholds and the Responsible Scaling Policy
+
+The Constitution is the *normative* half of Anthropic's safety story; the **Responsible Scaling Policy (RSP)** is the *empirical* half — a set of capability thresholds that, when crossed, trigger stronger safeguards. [Project Fetch](../../sources/anthropic-project-fetch-robot-dog.md) makes one of those thresholds concrete for this wiki: **autonomous AI R&D**, flagged because a model that can run its own research loop could produce "rapid, unpredictable advances" faster than risk evaluation can track them. Anthropic assessed models as **below** that threshold as of November 2025.
+
+The measurement instrument is the **[uplift study](ai-uplift.md)**, run by the [Frontier Red Team](../../entities/frontier-red-team.md), on the argued premise that *uplift precedes autonomy* — so a model that noticeably speeds up humans on unfamiliar physical hardware is a leading indicator for one that could operate it alone. This is the point where the wiki's safety thread and its robotics thread actually meet: **embodiment is being tracked as a scaling-policy variable**, not just as an engineering frontier.
+
 ## Mentioned in
+- [Project Fetch: Can Claude train a robot dog?](../../sources/anthropic-project-fetch-robot-dog.md) — RSP capability thresholds; autonomous AI R&D; robotics as a monitored domain
 - [Claude's Constitution](../../sources/claudes-constitution.md)
 - [Are We Building Skynet? (Medium, 2025)](../../sources/medium-are-we-building-skynet.md)
 - [Safeguard Agentic AI Systems with the NVIDIA Safety Recipe](../../sources/nvidia-safety-recipe-agentic-ai.md)

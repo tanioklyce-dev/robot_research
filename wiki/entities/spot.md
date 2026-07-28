@@ -34,7 +34,7 @@ tags: [spot, boston-dynamics, quadruped, commercial, sdk, orbit]
 
 ## Position in the landscape
 
-- **The quadruped reference platform** alongside Unitree's Go1 / Go2 (cheaper Chinese alternative; more academic-friendly). ANYbotics ANYmal is the third major commercial quadruped, focused on European industrial inspection.
+- **The quadruped reference platform** alongside Unitree's Go1 / **[Go2](unitree-go2.md)** (cheaper Chinese alternative; more academic-friendly). ANYbotics ANYmal is the third major commercial quadruped, focused on European industrial inspection.
 - **Closed but well-documented SDK.** Unlike Atlas, Spot has a clear third-party integration story — which is why most foundation-model + BD-hardware research uses Spot, not Atlas.
 - **Manipulation-light.** The Spot Arm exists but is a relatively low-DOF parallel-jaw gripper on a 6-DOF arm. For dexterous research, the field has gravitated to humanoids with 5-finger hands or to [Stretch](stretch.md)-style mobile manipulators.
 
@@ -43,6 +43,7 @@ tags: [spot, boston-dynamics, quadruped, commercial, sdk, orbit]
 - [Boston Dynamics](boston-dynamics.md) — manufacturer.
 - [Atlas](atlas.md) — sibling product (humanoid).
 - [Gemini Robotics](gemini-robotics.md) — Google DeepMind model integrated via the SDK.
+- [Unitree Go2](unitree-go2.md) — the cheap-tier quadruped counterpart. Instructive contrast on the *integration* axis: Spot's well-documented SDK is why foundation-model work targets it, while [Project Fetch](../sources/anthropic-project-fetch-robot-dog.md) found that the Go2-class connection layer (inconsistent online docs, several competing connection methods) was itself the hardest part of the task.
 - [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — the integration pattern used in the hackathon demo.
 
 ## Mentioned in

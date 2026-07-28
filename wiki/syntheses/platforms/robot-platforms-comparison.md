@@ -74,7 +74,7 @@ Same pattern — when a paper says "real-robot manipulation" without further qua
 
 Worth flagging robot platforms that show up in adjacent literature but don't have entity pages here yet:
 
-- **Boston Dynamics Spot** — quadruped reference platform (no entity page; [Atlas](../../entities/atlas.md) is filed).
+- ~~**Boston Dynamics Spot** — quadruped reference platform (no entity page).~~ **Filed** as [Spot](../../entities/spot.md) (2026-05-09) alongside [Atlas](../../entities/atlas.md); [Unitree Go2](../../entities/unitree-go2.md) filed 2026-07-27 as the cheap-tier counterpart. Quadrupeds remain the **thinnest-sourced** platform tier here — neither entity is grounded in a primary technical source (Spot comes from a vendor blog, Go2 from an [Anthropic policy article](../../sources/anthropic-project-fetch-robot-dog.md) that never even names the model). No ingested paper uses a quadruped.
 - **Pi (Physical Intelligence) hardware** — already in known gaps as needing a primary source.
 - ~~**ALOHA / ViperX bimanual setup** — Stanford bimanual teleop platform; referenced indirectly via Chelsea Finn but no entity page.~~ **Filed 2026-05-25** as [ALOHA / Mobile ALOHA](../../entities/aloha.md) + [ViperX 300](../../entities/viperx-300.md) entities via the [Mobile ALOHA paper](../../sources/mobile-aloha-paper.md) ingest.
 - **xArm 6** (UFactory's 6-DOF cousin to xArm 7) — sometimes cited as a cheaper alternative.
