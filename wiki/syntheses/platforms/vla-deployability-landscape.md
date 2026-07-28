@@ -24,6 +24,9 @@ MolmoAct2's deployment thesis ([§1](../../sources/molmoact2-paper.md)): a polic
 
 Scores are directional (✅ strong / ◐ partial / ❌ weak) from the sources ingested here; they compare *deployment posture*, not raw benchmark rank.
 
+> [!warning] The LIBERO numbers in the "fine-tune success" column do not rank these models
+> Per the [success-rate audit](vla-success-rate-audit.md), **97.2 / 97.1 / 97.0 / 96.9 / 96.5 / 98.1 are one statistical tie** — separating two policies at ~97% needs >1.8 pp at the standard protocol and the whole cluster spans 1.6 pp. Read that column as **"clears the bar" vs "doesn't,"** never as an ordering. The real-world numbers in the same column are better discriminators precisely because the gaps are larger: MolmoAct2's real YAM **+15 pp** over OpenVLA-OFT survives (p=0.00002 aggregated over 400 rollouts), though its companion claim of *winning 7 of 8 tasks* does not (sign test p=0.070).
+
 | VLA | Openness (weights / data / code) | Hardware tier | Latency posture | Fine-tune success | Deployment corner |
 | --- | --- | --- | --- | --- | --- |
 | **[MolmoAct2](../../entities/molmoact2.md)** (Ai2) | ✅ ✅ ✅ — fully open incl. 3 datasets | ✅ [YAM](../../entities/yam.md) / SO-100 / [DROID](../../entities/droid.md), **<$6k** rig | ✅ 55.8 Hz; [adaptive depth](../../concepts/learning/adaptive-depth-reasoning.md) keeps reasoning cheap | ✅ LIBERO 97.2 / **Think 98.1**; real YAM 50.1% | **All four (the pitch)** |
@@ -63,6 +66,7 @@ The claim isn't a new capability — it's **occupying all four corners at once**
 - **Adaptive depth's latency win is viewpoint-dependent** — biggest in static third-person setups; egocentric/mobile deployments (where the whole scene moves) offer fewer replayable cells.
 
 ## Related
+- [Success-rate audit](vla-success-rate-audit.md) — which comparisons in this table survive their sample sizes. **The openness / hardware / latency axes are unaffected; the success axis is where the ties are.**
 - [Control-rate ladder](control-rate-ladder.md) — the latency axis widened past VLAs to include servo-loop *requirements* and LLM-in-the-loop inference. Puts this page's H100-vs-edge caveat in its full context: the gap from MolmoAct2's 55.8 Hz to a Franka's 1 kHz servo loop is larger than the gap this page scores.
 
 - [VLA models](../../concepts/learning/vla-models.md) — the action-head taxonomy underneath this comparison.

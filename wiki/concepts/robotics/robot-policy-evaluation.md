@@ -28,6 +28,8 @@ Using **Clopper-Pearson** exact binomial confidence intervals, achieving a **±2
 > What survives: **large** gaps (a 30-point spread is robust to this critique), and **LIBERO-style simulation** results where trial counts are high and cheap. What does not: fine-grained rankings among close competitors on real hardware, which is exactly the comparison the [VLA deployability landscape](../../syntheses/platforms/vla-deployability-landscape.md) and the wiki's LIBERO table invite readers to make.
 >
 > This is a limitation of the *published field*, not of the wiki's reading of it — but the wiki has been repeating point estimates without their uncertainty, and should stop treating small gaps as real.
+>
+> **Applied 2026-07-27:** the [success-rate audit](../../syntheses/platforms/vla-success-rate-audit.md) works through every headline comparison in the wiki. Result — the **entire top of the LIBERO table (96.5–98.1) is one statistical tie**, while every conclusion the wiki actually reasons from rests on a gap large enough to survive.
 
 ## Metrics beyond binary success
 
@@ -58,6 +60,7 @@ Using **Clopper-Pearson** exact binomial confidence intervals, achieving a **±2
 - **SPARC's transfer from human-movement analysis to manipulation is unjustified** in the source.
 
 ## Related concepts
+- [Success-rate audit](../../syntheses/platforms/vla-success-rate-audit.md) — **this page's standard, applied to the wiki's own tables**. Also corrects how the bar is usually quoted: 1,030 rollouts is the requirement at a *90%* success rate; at 50% it is ~2,450.
 - [Sim-to-real transfer](../learning/sim-to-real-transfer.md) — RoboLab runs the real-to-sim *evaluation* direction.
 - [VLA models](../learning/vla-models.md) — the policies under test and the tables this page qualifies.
 - [Control abstraction levels](control-abstraction-levels.md) — an evaluation result is under-specified without its abstraction level; this page adds *and without its confidence interval*.

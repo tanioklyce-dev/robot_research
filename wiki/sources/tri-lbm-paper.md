@@ -26,7 +26,7 @@ The primary source for [TRI](../entities/tri.md)'s **[Large Behavior Model](../c
 **Evaluation methodology (the paper's core contribution)**
 - 29 tasks / 4,200+ rollouts headline eval: 16 sim seen + 3 real seen + 5 sim unseen long-horizon + 5 real unseen long-horizon; ≥50 rollouts per real task, ≥200 per sim task.
 - **Blind, randomized A/B testing** in the real world with controlled/synchronized initial conditions across sim and real; sequential hypothesis testing; Clopper-Pearson intervals.
-- Sobering calibration for the whole field: **with 50 rollouts, the CI width is generally 20–30% absolute success rate** — i.e. most robot-learning papers' eval sample sizes cannot statistically distinguish the methods they rank.
+- Sobering calibration for the whole field: **with 50 rollouts, the CI width is generally 20–30% absolute success rate** — i.e. most robot-learning papers' eval sample sizes cannot statistically distinguish the methods they rank. **Independently confirmed and applied 2026-07-27**: the [RoboLab methodology](nvidia-robolab-evaluation-blog.md) reaches the same conclusion via Clopper-Pearson, and the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md) works it through the wiki's own tables — the top of the LIBERO table turns out to be one statistical tie. TRI's own 4,200+ rollouts make it one of the few evaluations here built to that standard, which is presumably why it noticed first.
 
 **Findings**
 - Multitask pretraining → more successful and robust single-task performance, and novel long-horizon tasks learnable with **3–5× less data** than single-task-from-scratch baselines.

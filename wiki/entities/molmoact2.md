@@ -45,7 +45,7 @@ The **adaptive-depth reasoning** variant. Before acting, it predicts a compact d
 - **Real-world DROID** (zero-shot, random cameras, novel objects): **87.1%**, +38.7 over runner-up MolmoBot.
 - **Real-world SO-100** (zero-shot): **56.7%**, +11.4 over in-house π0-SO100/101.
 - **RoboEval** (fine-tuned): **44.3%**, +3.8 over π0.5; also shorter/smoother trajectories.
-- **Real-world YAM, 8 in-the-wild tasks** (50 trials each): **50.1%** avg, +15 over OpenVLA-OFT (wins 7/8).
+- **Real-world YAM, 8 in-the-wild tasks** (50 trials each): **50.1%** avg [45.0–55.0], +15 over OpenVLA-OFT. **The +15 pp survives** aggregated over 400 rollouts (p=0.00002); the companion **"wins 7 of 8 tasks" does not** (sign test p=0.070), nor would +15 pp within any *single* 50-trial task (p=0.13). See the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md).
 - **OOD robustness** (spatial/lighting/language/distractor): **50.69%**, +10.8 over OpenVLA-OFT.
 - **Inference:** **55.79 Hz** (continuous path, CUDA Graphs, 2.42× over baseline); MolmoAct2-Think 12.71 Hz. Continuous flow path is 3.94× faster than the discrete autoregressive action path — hence continuous is the deployment default.
 
@@ -68,7 +68,7 @@ The **adaptive-depth reasoning** variant. Before acting, it predicts a compact d
 ## Open questions
 
 - **Molmo2 / Molmo2-ER primary (Clark et al. 2026) not ingested** — base VLM scale/data only summarized via this paper.
-- Is MolmoAct2-Think's ~4× latency penalty (12.7 vs 55.8 Hz) worth its +0.9 LIBERO gain in deployment, or is it primarily a diagnostic/interpretability mode?
+- ~~Is MolmoAct2-Think's ~4× latency penalty (12.7 vs 55.8 Hz) worth its +0.9 LIBERO gain in deployment?~~ — **sharpened 2026-07-27 by the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md)**: the **+0.9 is not statistically established** (p=0.35 at 500 trials/suite; p=0.06 even at 2,000). So the trade is a *measured* 4× latency cost against an *unmeasured* gain. The question is no longer "is it worth it" but **"is there a gain at all"** — which needs either more rollouts or a task suite where Think's advantage is larger than LIBERO's headroom allows. (Think's +2.2 on the hardest suite, Long, is the most likely place a real effect survives.)
 - How does adaptive-depth's latency advantage hold up on **egocentric / mobile** views where the whole scene moves and few cells stay static?
 
 ## Mentioned in
