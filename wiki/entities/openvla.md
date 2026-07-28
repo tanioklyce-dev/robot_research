@@ -45,7 +45,7 @@ status: stub
 
 - **Primary source not yet ingested.** When the Kim et al. 2024 paper lands in `raw/`, deepen this entity with architecture details (vision encoder, action-bin scheme, training data mixture, exact LIBERO/SimplerEnv numbers).
 - **[OpenVLA-OFT](openvla-oft.md) / OpenVLA v2** — successor work (own entity + [ingested primary](../sources/openvla-oft-paper.md), Kim/Finn/Liang, RSS 2025); the OFT "optimized fine-tuning" recipe (**parallel decoding + action chunking + continuous L1 head**, +FiLM for ALOHA) fine-tunes *this same base model* to lift LIBERO **76.5 → 97.1** avg with **26× faster** action generation. **OpenVLA-OFT is the *only* model above [VLA-0](vla-0.md) on LIBERO** (rank 1.5 vs 2.8; [VLA-0 paper](../sources/vla-0-paper.md)).
-- **Author entity pages** — Moo Jin Kim (first author) doesn't have a page. Karl Pertsch + Levine + Finn do.
+- ~~**Author entity pages** — Moo Jin Kim (first author) doesn't have a page.~~ **Filed 2026-07-27**: [Moo Jin Kim](moo-jin-kim.md). Percy Liang still has none.
 
 ## Mentioned in
 

@@ -22,7 +22,7 @@ Users generate scenes and tasks **from language instructions** (with support for
 
 ## Why it matters
 
-RoboLab was **already a live reference in this wiki** before it had a page: the [NVIDIA Cosmos](nvidia-cosmos.md) entity cites **Cosmos3-Nano-Policy-DROID beating π0.5 on RoboLab-120 (39.7% vs 28.1%)**. It's the sim yardstick NVIDIA uses to score its own DROID-trained policies, and a direct entry against the wiki's flagged **evaluation-methodology gap** (alongside RoboArena, rliable, robomimic). Complements the *real-world* [RoboArena](nvidia-cosmos.md) leaderboard and the household benchmarks [RoboCasa365](../sources/robocasa365-paper.md) / [BEHAVIOR-1K](behavior-benchmark.md).
+RoboLab was **already a live reference in this wiki** before it had a page: the [NVIDIA Cosmos](nvidia-cosmos.md) entity cites **Cosmos3-Nano-Policy-DROID beating π0.5 on RoboLab-120 (39.7% vs 28.1%)**. It's the sim yardstick NVIDIA uses to score its own DROID-trained policies, and a direct entry against the wiki's flagged **evaluation-methodology gap** (alongside [RoboArena](roboarena.md), rliable, robomimic). Complements the *real-world* [RoboArena](roboarena.md) leaderboard and the household benchmarks [RoboCasa365](../sources/robocasa365-paper.md) / [BEHAVIOR-1K](behavior-benchmark.md).
 
 ## The evaluation methodology
 

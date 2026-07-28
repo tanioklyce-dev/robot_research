@@ -4,11 +4,22 @@ type: entity
 subtype: benchmark
 created: 2026-05-08
 updated: 2026-07-25
-sources: 12
+sources: 13
 tags: [libero, manipulation-benchmark, lifelong-learning, robosuite, mujoco]
 ---
 
 **LIBERO — "Lifelong Robot Learning Benchmark."** Procedural manipulation benchmark designed to test **lifelong / continual policy learning** across diverse manipulation tasks. Suite of task families ("Spatial," "Object," "Goal," and "100" — long-tail) commonly used as a [VLA](../concepts/learning/vla-models.md) evaluation harness in 2024–2026. Built on robosuite + MuJoCo.
+
+## Evaluation protocol (confirmed 2026-07-27)
+
+**50 evaluation episodes per task** — stated by [LIBERO-PRO](../sources/libero-pro-paper.md) as *"consistent with the original LIBERO protocol."* Each suite holds **10 tasks**, so:
+
+- **500 episodes per suite**
+- **2,000 for a four-suite average** (Spatial / Object / Goal / Long)
+
+The benchmark totals **130 tasks across 4 suites** (the LIBERO paper's own count — Spatial/Object/Goal/Long at 10 each, plus LIBERO-90). Training data is **50 expert demonstrations per task** — note this is the *same number* as the evaluation episode count, and the two are easy to confuse in secondary write-ups.
+
+This closes a standing gap: the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md) had computed against 500/2,000 as **assumptions**, and they are now **confirmed**.
 
 ## Position in this wiki
 Primary reference is [VLA-JEPA](../sources/vla-jepa-paper.md) (Sun et al., Feb 2026), which evaluates on **LIBERO + LIBERO-Plus + SimplerEnv + real-world manipulation**. LIBERO has effectively become the de-facto VLA-eval bench — alongside [RoboCasa](robocasa.md) for household manipulation and [Metaworld](metaworld.md) for multi-task RL.
@@ -19,6 +30,8 @@ Primary reference is [VLA-JEPA](../sources/vla-jepa-paper.md) (Sun et al., Feb 2
 
 ## Related
 - [Success-rate audit](../syntheses/platforms/vla-success-rate-audit.md) — why the numbers below are a tier and not a ranking.
+- [LIBERO-PRO](../sources/libero-pro-paper.md) — the memorization critique; the more serious of the two problems.
+- [RoboArena](roboarena.md) — the real-world, pairwise-preference alternative that routes around both.
 - [VLA-JEPA](vla-jepa.md) — primary JEPA-line consumer in this wiki.
 - [MuJoCo](mujoco.md) — physics backend.
 - [RoboCasa](robocasa.md) / [Metaworld](metaworld.md) — adjacent manipulation benchmarks.
@@ -27,10 +40,15 @@ Primary reference is [VLA-JEPA](../sources/vla-jepa-paper.md) (Sun et al., Feb 2
 
 ## Reported numbers in this wiki
 
-> [!warning] The top of this table is a statistical tie — read it as a tier, not a ranking
-> Per the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md): at the standard protocol (500 trials/suite, 2,000 for a four-suite average), separating two policies at ~97% requires a gap of **>1.8 pp** (or >1.0 pp on the average). **MolmoAct2 97.2, MolmoAct2-Think 98.1, OpenVLA-OFT 97.1, GR00T N1.7 97.0, and π0.5 96.9 are not distinguishable from one another** (all pairwise p > 0.2 except Think-vs-base at p=0.06). Same for the VLA-0 94.7 / π0.5-KI 94.3 / π0 94.2 cluster.
+> [!warning] Two independent problems with every number below — read them in order
+>
+> **1. The benchmark may be measuring memorization.** [LIBERO-PRO](../sources/libero-pro-paper.md) (Zhou et al.) reports that models scoring **>90% on standard LIBERO collapse to 0.0%** when objects, initial states, instructions, or environments are perturbed — because *"evaluation tasks are identical to the training tasks, differing only by marginal perturbations in initial object states."* Models **keep grasping when the target object is replaced** and produce **unchanged outputs under corrupted instructions**. Tested on OpenVLA, π0, π0.5 (π0.5 most robust at 0.38, still severe). **The 2026-class models at the top of this table were not tested** — that is the open question.
+>
+> **2. The top of the table is a statistical tie.** Per the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md): at the confirmed protocol (**50 episodes/task → 500/suite, 2,000 for a four-suite average**), separating two policies at ~97% requires a gap of **>1.8 pp** (or >1.0 pp on the average). **MolmoAct2 97.2, MolmoAct2-Think 98.1, OpenVLA-OFT 97.1, GR00T N1.7 97.0, and π0.5 96.9 are not distinguishable from one another** (all pairwise p > 0.2 except Think-vs-base at p=0.06). Same for the VLA-0 94.7 / π0.5-KI 94.3 / π0 94.2 cluster.
 >
 > What *does* separate: MolmoAct2 vs VLA-0 (2.5 pp) and anything vs MolmoAct 86.8 (10.4 pp). Phrases below asserting a **rank** inside the 94–98 band are not supported by the sample sizes; the tier membership is.
+>
+> **A tie among numbers that may not measure generalization is the second-order problem.** Problem 1 is the one to act on.
 
 - **[MolmoAct2](molmoact2.md) / MolmoAct2-Think ([MolmoAct2 paper](../sources/molmoact2-paper.md), Table 8)** — MolmoAct2 Spatial **97.8** / Object **100.0** / Goal **97.8** / Long **93.2** / avg **97.2**; **MolmoAct2-Think** Spatial **98.8** / Object **99.8** / Goal **98.5** / Long **95.4** / avg **98.1** — the **numerically highest** LIBERO average in the wiki but **statistically tied with** OpenVLA-OFT (97.1), GR00T N1.7 (97.0), π0.5 (96.9) (see the callout above), and +10.6 over the predecessor MolmoAct-7B-D (86.6). The Think variant's largest gain (+2.2) is on the hardest suite (Long), where the base leaves the most headroom. Baseline table also reports GR00T N1.7 97.0, π0.5 96.9, NORA-1.5 94.5, π0 94.2.
 - **[GR00T](nvidia-groot.md) 1.7 (LeRobot-trained, NVIDIA-reported)** — Spatial **95%**, Object **100%**, Goal **98%**, Long **93%**, avg **96.5%**; vs GR00T 1.5 avg 87% ([NVIDIA HF blog, 2026-07-07](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md)). Per-suite fine-tuned checkpoints released (`nvidia/gr00t17-lerobot-libero_*-640`). Vendor self-comparison — no third-party baselines in the post.
@@ -39,6 +57,7 @@ Primary reference is [VLA-JEPA](../sources/vla-jepa-paper.md) (Sun et al., Feb 2
 - **[VLA-0](vla-0.md) (NVIDIA, no action pretraining)** — Spatial **97.0**, Object **97.8**, Goal **96.2**, Long **87.6**, avg **94.7** — **best rank (1.0) among no-pretraining models** and rank 2.8 overall, above π0 (94.2), [π0.5-KI](../concepts/learning/knowledge-insulation.md) (94.3), GR00T-N1 (93.9), [MolmoAct](molmoact.md) (86.8), [π0-FAST](fast-action-tokenization.md) (86.0), OpenVLA (76.5); only [OpenVLA-OFT](openvla-oft.md)-pretrained (97.1) is higher. A rare **cross-method LIBERO table with consistent baselines** ([VLA-0 paper](../sources/vla-0-paper.md), Table I).
 
 ## Mentioned in
+- [LIBERO-PRO paper](../sources/libero-pro-paper.md) — perturbation-based critique; confirms the 50-episodes-per-task protocol.
 - [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — LIBERO kitchen scenes repurposed as a direct-LLM-control benchmark; 0-5.5% end-to-end.
 - [VLA-JEPA Paper](../sources/vla-jepa-paper.md)
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **natively integrated** as one of two simulation benchmarks (alongside [Metaworld](metaworld.md)). Confirms the four task families: SPATIAL, OBJECT, GOAL, plus continuing-task LIBERO-90 and long-horizon LIBERO-LONG.
@@ -56,5 +75,5 @@ Anthropic's [How Claude Performs on Robotics Tasks](../sources/anthropic-how-cla
 That gap — **~5% for a general LLM vs ~97% for a purpose-trained VLA on the same benchmark** — is the clearest single quantification in this wiki of what action-pretraining buys.
 
 ## Open questions / TBD
-- Original LIBERO paper (Liu et al., NeurIPS 2023) not yet ingested as a source — would let us cite design rationale (why the four task families, what "lifelong" means concretely).
+- Original LIBERO paper (Liu et al., NeurIPS 2023) still not ingested directly — would let us cite design rationale (why the four task families, what "lifelong" means concretely). **The protocol question it was wanted for is now answered** via [LIBERO-PRO](../sources/libero-pro-paper.md); what remains is rationale, not numbers.
 - Authors per the LeRobot ICLR 2026 citation: **Bo Liu, Yifeng Zhu, Chongkai Gao, Yihao Feng, Qiang Liu, Yuke Zhu, Peter Stone** (NeurIPS 2023, 36:44776–44791).

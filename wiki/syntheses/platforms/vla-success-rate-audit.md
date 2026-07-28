@@ -48,7 +48,7 @@ Clopper-Pearson exact binomial intervals, 95%, sample size needed for a **±2 pp
 
 ### A. The LIBERO table — the top is one tie
 
-LIBERO averages span four suites (Spatial / Object / Goal / Long). The standard protocol is not recorded in this wiki, so both plausible sample sizes are computed: **n = 500 per suite** and **n = 2,000 for the four-suite average**. The verdict is the same either way.
+LIBERO averages span four suites (Spatial / Object / Goal / Long) of **10 tasks each**, evaluated at **50 episodes per task** — **confirmed 2026-07-27** via [LIBERO-PRO](../../sources/libero-pro-paper.md) (*"consistent with the original LIBERO protocol, we set the number of evaluation episodes to 50 per task"*). So **n = 500 per suite** and **n = 2,000 for a four-suite average**. These were assumptions when this page was written; they are now the actual protocol, and every verdict below is grounded rather than provisional.
 
 | Comparison | Gap | n=500 | n=2,000 | Verdict |
 |---|---:|---|---|---|
@@ -63,6 +63,11 @@ LIBERO averages span four suites (Spatial / Object / Goal / Long). The standard 
 | MolmoAct2 97.2 vs MolmoAct 86.8 | 10.4 pp | p<0.0001 | p<0.0001 | **survives** |
 
 **Minimum separating gap at ~97%: >1.8 pp (n=500) or >1.0 pp (n=2,000).** The cluster from 96.5 to 98.1 spans 1.6 pp and contains at least six models.
+
+> [!warning] A larger problem than the tie: LIBERO may not measure generalization at all
+> [LIBERO-PRO](../../sources/libero-pro-paper.md) reports models scoring **>90% on standard LIBERO collapsing to 0.0%** under perturbation of objects, initial states, instructions, or environments — because the **evaluation tasks are the training tasks**, differing only by visually imperceptible initial-state changes. Models keep grasping after the target object is swapped, and emit unchanged actions under corrupted instructions.
+>
+> **A statistical tie among numbers that may not measure generalization is a second-order finding.** This audit's section-A verdicts stand, but the more consequential fact is that the whole 94–98 band may be measuring recall. Tested models were OpenVLA, π0, π0.5; **MolmoAct2, OpenVLA-OFT, and GR00T N1.7 — the top of this table — were not tested.**
 
 > [!warning] "Top of the wiki's LIBERO table" is not a supportable phrase
 > MolmoAct2 (97.2), MolmoAct2-Think (98.1), OpenVLA-OFT (97.1), GR00T N1.7 (97.0), and π0.5 (96.9) are **not distinguishable from one another**. The wiki calls MolmoAct2 "top of the wiki's table" in at least three places. What the data support is a **top tier**, not an ordering within it. The same applies to the VLA-0 / π0.5-KI / π0 cluster at 94.2–94.7.
@@ -96,6 +101,21 @@ That is the same finding, from a different source, sitting on a source page whil
 
 **The failure was not analytical, it was organizational**: the caveat lived on one page and the claims lived on others, with no link between them.
 
+## The other way out: stop measuring absolute rates
+
+This page's whole framing — how many rollouts to pin a success rate — has an alternative that [RoboArena](../../sources/roboarena-paper.md) (CoRL 2025) demonstrates works better. Instead of estimating absolute rates, run **double-blind pairwise A/B comparisons** between policies on freely-chosen tasks and fit an extended **Bradley-Terry** model (per-policy ability, per-task difficulty, policy×task offsets).
+
+The result is the empirical case against the protocol this page audits:
+
+| | Conventional centralized success-rate eval | RoboArena pairwise |
+|---|---|---|
+| Pearson r with oracle ranking | **≈ 0.60** | **≈ 0.95** |
+| Comparisons to converge | — | **~100** |
+
+**A pairwise preference carries more information per episode than a binary success flag**, because both policies face the identical scene and scene difficulty cancels — the standard argument for paired designs. That is how ~100 comparisons can outrank an evaluation with far more rollouts, and it is why the ~1,030-rollout bar is not the only available fix.
+
+**The cost is magnitude.** RoboArena yields ordering, not "72% success" — and for deployment decisions magnitude is often the thing you need. The two lines are complements: [RoboLab](../../sources/nvidia-robolab-evaluation-blog.md) says *collect far more rollouts*, RoboArena says *measure something else*.
+
 ## What this changes
 
 **Survives unchanged.** Every conclusion the wiki actually reasons from rests on a large gap: MolmoAct2's real-world DROID lead (+38.7), post-training gains on G1 (44→98.8), the generational MolmoAct → MolmoAct2 jump (+10.4), OpenVLA-OFT's 76.5 → 97.1 recipe effect (+20.6), and the LLM-vs-VLA chasm (5.5% vs ~97%). None of the wiki's structural claims depended on a sub-2 pp difference.
@@ -113,6 +133,8 @@ Clopper-Pearson exact binomial intervals (95%) for single-rate CIs; two-proporti
 
 ## Related
 - [Robot policy evaluation](../../concepts/robotics/robot-policy-evaluation.md) — the concept; where the bar comes from.
+- [RoboArena](../../entities/roboarena.md) / [paper](../../sources/roboarena-paper.md) — the pairwise-preference alternative; r≈0.95 vs 0.60.
+- [LIBERO-PRO](../../sources/libero-pro-paper.md) — the memorization critique that outranks this page's finding in importance.
 - [How to Evaluate General-Purpose Robot Policies](../../sources/nvidia-robolab-evaluation-blog.md) — the source.
 - [VLA deployability landscape](vla-deployability-landscape.md) — the scored table this audit qualifies.
 - [LIBERO](../../entities/libero.md) — where the tied numbers live.

@@ -10,7 +10,7 @@ tags: [openvla-oft, vla, vision-language-action, parallel-decoding, action-chunk
 
 # OpenVLA-OFT
 
-**OpenVLA-OFT** ("**O**ptimized **F**ine-**T**uning"; Moo Jin Kim, [Chelsea Finn](chelsea-finn.md), Percy Liang, Stanford — [paper](../sources/openvla-oft-paper.md), arXiv 2502.19645, RSS 2025) is a **fine-tuning recipe** for VLAs, instantiated on [OpenVLA](openvla.md), that replaces slow autoregressive action-token decoding with **parallel decoding + action chunking + continuous actions + an L1-regression head**. It is the **top-scoring model on [LIBERO](libero.md)** in the wiki and the custom-architecture exemplar of the [VLA action-head taxonomy](../concepts/learning/vla-models.md).
+**OpenVLA-OFT** ("**O**ptimized **F**ine-**T**uning"; Moo Jin Kim, [Chelsea Finn](chelsea-finn.md), Percy Liang, Stanford — [paper](../sources/openvla-oft-paper.md), arXiv 2502.19645, RSS 2025) is a **fine-tuning recipe** for VLAs, instantiated on [OpenVLA](openvla.md), that replaces slow autoregressive action-token decoding with **parallel decoding + action chunking + continuous actions + an L1-regression head**. It is in the **top tier on [LIBERO](libero.md)** in the wiki (97.1 — [statistically tied](../syntheses/platforms/vla-success-rate-audit.md) with MolmoAct2 / GR00T N1.7 / π0.5; the robust result is the **+20.6 pp recipe effect** over base OpenVLA) and the custom-architecture exemplar of the [VLA action-head taxonomy](../concepts/learning/vla-models.md).
 
 ## Why it matters in this wiki
 

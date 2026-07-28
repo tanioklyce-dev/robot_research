@@ -3,7 +3,7 @@ title: Robot policy evaluation
 type: concept
 created: 2026-07-27
 updated: 2026-07-27
-sources: 2
+sources: 4
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility]
 ---
 
@@ -31,6 +31,25 @@ Using **Clopper-Pearson** exact binomial confidence intervals, achieving a **±2
 >
 > **Applied 2026-07-27:** the [success-rate audit](../../syntheses/platforms/vla-success-rate-audit.md) works through every headline comparison in the wiki. Result — the **entire top of the LIBERO table (96.5–98.1) is one statistical tie**, while every conclusion the wiki actually reasons from rests on a gap large enough to survive.
 
+## The second failure mode: memorization
+
+Sample size is not the only way a benchmark can fail to measure what it claims. [LIBERO-PRO](../../sources/libero-pro-paper.md) reports that models scoring **>90% on standard [LIBERO](../../entities/libero.md) collapse to 0.0%** when objects, initial states, instructions, or environments are perturbed — because the **evaluation tasks *are* the training tasks**, differing only by imperceptible initial-state variation. Models keep grasping when the target object is swapped and emit unchanged actions under corrupted instructions: the language and object channels are largely inert.
+
+This sharpens RoboLab's **saturation** critique from *"the benchmark stopped discriminating above 90%"* to *"**above 90% it may be measuring recall.**"* Two independent groups reached the conclusion that the field's most-reported robot-learning benchmark is broken, by different routes and in the same year.
+
+**The two failure modes need different fixes.** Small-N is fixed by more rollouts (or by [pairwise preference](#the-real-world-pole-pairwise-preference), below). Memorization is fixed by **held-out** tasks, objects, phrasings, and scenes — more rollouts on a memorized benchmark just measures the memorization more precisely.
+
+## The real-world pole: pairwise preference
+
+[RoboArena](../../entities/roboarena.md) ([paper](../../sources/roboarena-paper.md), CoRL 2025) takes the opposite route from RoboLab: rather than pinning absolute rates with more rollouts, it **stops estimating absolute rates**. Evaluators at seven institutions freely choose tasks and environments but run **double-blind pairwise A/B comparisons** on a shared [DROID](../../entities/droid.md) platform; an extended **Bradley-Terry** model (per-policy ability θ, per-task difficulty τ, policy×task offset ψ, fit by EM) turns preferences into a ranking.
+
+| | Conventional centralized success-rate eval | RoboArena pairwise |
+|---|---|---|
+| Pearson r with oracle ranking | **≈ 0.60** | **≈ 0.95** |
+| Comparisons to converge | — | **~100** |
+
+**Why it works with so few episodes:** a pairwise preference is a richer unit of evidence than a binary success flag, because both policies face the *identical* scene, so scene difficulty cancels — the standard argument for paired experimental designs. **The cost is magnitude**: you get an ordering, never "72% success," and deployment decisions often need the number. RoboLab and RoboArena are complements, not rivals — *collect far more rollouts* vs *measure something else*.
+
 ## Metrics beyond binary success
 
 | Metric | What it captures |
@@ -56,10 +75,12 @@ Using **Clopper-Pearson** exact binomial confidence intervals, achieving a **±2
 
 - **No real-world validation.** RoboLab is simulation-only, and whether its scores predict deployment success is precisely the question it exists to answer.
 - **The ~1,030-rollout bar is proposed, not met** — including by NVIDIA's own published numbers.
-- **rliable / robomimic remain unfiled**, and **[RoboArena](../../entities/nvidia-cosmos.md)** (the real-world leaderboard) has no page. RoboLab is the sim half of a methodology story whose real half is still uncovered here.
+- **rliable / robomimic remain unfiled.** (~~RoboArena has no page~~ — [filed 2026-07-27](../../entities/roboarena.md).) These are the *statistical-reporting* tools (bootstrap CIs, stratified metrics) that would let the wiki report intervals rather than point estimates.
+- **No 2026-class model has been run through LIBERO-PRO** — MolmoAct2, OpenVLA-OFT, GR00T N1.7 were not tested. Whether newer models are less memorization-bound is the most consequential open question in this area.
 - **SPARC's transfer from human-movement analysis to manipulation is unjustified** in the source.
 
 ## Related concepts
+- [RoboArena](../../entities/roboarena.md) — the real-world pole.
 - [Success-rate audit](../../syntheses/platforms/vla-success-rate-audit.md) — **this page's standard, applied to the wiki's own tables**. Also corrects how the bar is usually quoted: 1,030 rollouts is the requirement at a *90%* success rate; at 50% it is ~2,450.
 - [Sim-to-real transfer](../learning/sim-to-real-transfer.md) — RoboLab runs the real-to-sim *evaluation* direction.
 - [VLA models](../learning/vla-models.md) — the policies under test and the tables this page qualifies.
@@ -67,5 +88,7 @@ Using **Clopper-Pearson** exact binomial confidence intervals, achieving a **±2
 - [Detection evaluation metrics](detection-evaluation-metrics.md) — the perception-side analogue (mAP/IoU) the wiki already covers.
 
 ## Mentioned in
+- [RoboArena paper (CoRL 2025)](../../sources/roboarena-paper.md) — the distributed pairwise-preference protocol
+- [LIBERO-PRO paper](../../sources/libero-pro-paper.md) — the memorization critique
 - [How to Evaluate General-Purpose Robot Policies for Real-World Deployment](../../sources/nvidia-robolab-evaluation-blog.md)
 - [RoboLab project page](../../sources/nvidia-robolab-project.md)

@@ -41,4 +41,4 @@ RoboLab is **already cited in this wiki** before having its own page: the [NVIDI
 
 - What **simulator backend** does RoboLab use (Isaac Sim / MuJoCo / other)? The project page doesn't say.
 - **Real-to-sim validity**: how well do RoboLab sim scores predict real-robot success? The whole premise depends on that correlation — not quantified on the page.
-- Relationship to **RoboArena** (the *real-world* leaderboard the Cosmos entity also cites) and to [RoboCasa365](robocasa365-paper.md) / [BEHAVIOR-1K](behavior-1k-paper.md) — the crowded 2026 eval-benchmark field.
+- ~~Relationship to **RoboArena**~~ — **answered 2026-07-27** by [ingesting it](roboarena-paper.md): they are the **two poles of the same problem**, not competitors. RoboLab is simulation + absolute success rates + more rollouts (≈1,030 for ±2 pp); [RoboArena](../entities/roboarena.md) is real-world + pairwise preference + Bradley-Terry, converging in ~100 comparisons and yielding **ordering without magnitude**. They share an author (**Xuning Yang**). Still open: relationship to [RoboCasa365](robocasa365-paper.md) / [BEHAVIOR-1K](behavior-1k-paper.md) in the crowded 2026 eval-benchmark field.
