@@ -4,7 +4,7 @@ type: entity
 subtype: dataset
 created: 2026-05-07
 updated: 2026-07-25
-sources: 19
+sources: 20
 tags: [droid, dataset, teleoperation, franka, robot-data, stanford, berkeley, oxe, molmoact2]
 ---
 
@@ -69,6 +69,7 @@ This makes DROID the single most reused real-robot dataset in the JEPA literatur
 - [Why JEPA research skips the simulator stack](../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md) — DROID's role in JEPA-for-robotics evaluations is part of why JEPA work has been able to skip / fragment sim use.
 
 ## Mentioned in
+- [Cosmos 3 Edge (HF blog)](../sources/nvidia-cosmos3-edge-hf-blog.md) — **Cosmos3-Edge-Policy-DROID** (4B), a DROID-finetuned manipulation policy shipped for on-robot deployment.
 - [FAST paper](../sources/fast-paper.md) — DROID's higher control frequency is what naïve action binning fails on; **FAST is what first makes efficient VLA training on DROID practical**, and enables the first **zero-shot DROID evaluation** in a completely unseen environment (language-prompted, no fine-tuning).
 - [DROID Paper](../sources/droid-paper.md)
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)

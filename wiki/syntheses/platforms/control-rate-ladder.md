@@ -42,6 +42,7 @@ This page lines them up. The short version: **the full span is about five orders
 | **22–24** | MEAS | GR00T N1.6, community CUDA kernels | [Jetson Thor](../../entities/jetson-thor.md) |
 | **20** | CAP | [Fourier GR-1](../../entities/fourier-gr-1.md) teleop capture (VIVE + Metagloves); table-bussing capture | real rigs |
 | **15** | CAP | [DROID](../../entities/droid.md) capture rate | dataset |
+| **15** | MEAS | **[Cosmos 3 Edge](../../sources/nvidia-cosmos3-edge-hf-blog.md) (4B world model)**, 32 actions/inference @ 640×360 — vendor-reported | [Jetson Thor](../../entities/jetson-thor.md) |
 | **10.9** | MEAS | GR00T N1.6, official TensorRT | Jetson Thor |
 | **~10** | REQ | Helix **System 2** / GR00T **System 2** VLM planner tier | design target |
 | **8–11** | MEAS | GR00T-3B *estimated* (bandwidth-derived, unmeasured) | [DGX Spark](../../entities/dgx-spark.md) |
@@ -59,7 +60,7 @@ This page lines them up. The short version: **the full span is about five orders
 
 **Band A — servo/torque, 100–1,000 Hz (requirement only).** Where physics is. Nothing learned and general runs here; it is occupied by firmware, PD loops, and small purpose-trained controllers (SONIC at 50 Hz on 1–2 ms forwards, Helix S1 at 200 Hz on 80 M params). Anthropic's **83 Hz** sits at the bottom edge of this band.
 
-**Band B — reactive policy, ~10–60 Hz (achievable, barely, at the edge).** [ACT](../../entities/act.md) at 27.8 Hz on an Orin Nano is the wiki's only edge policy comfortably here. Thor gets GR00T to 22–24 Hz with hand-written kernels. MolmoAct2's 55.8 Hz belongs to this band only on an **H100** — a caveat the [deployability landscape](vla-deployability-landscape.md) already flags.
+**Band B — reactive policy, ~10–60 Hz (achievable, barely, at the edge).** [ACT](../../entities/act.md) at 27.8 Hz on an Orin Nano is the wiki's only edge policy comfortably here. Thor gets GR00T to 22–24 Hz with hand-written kernels, and **[Cosmos 3 Edge](../../sources/nvidia-cosmos3-edge-hf-blog.md) reports 15 Hz on Thor for a 4B *world* model** (2026-07-20) — the first 2026-class edge number in this band, and notably above official-TensorRT GR00T on the same board. MolmoAct2's 55.8 Hz belongs to this band only on an **H100** — a caveat the [deployability landscape](vla-deployability-landscape.md) already flags.
 
 **Band C — deliberative policy, ~1–10 Hz.** Where most VLAs actually live on real edge hardware: SmolVLA 1.4, Diffusion Policy 1.8, GR00T 5.8–10.9. Also where the S1/S2 designs *place* their planner tier by intent (Helix S2 at 7–9 Hz, GR00T System 2 at 10 Hz).
 
@@ -90,7 +91,7 @@ Neither separation is closed by faster inference. Three mechanisms do the work, 
 
 - **No row is a controlled comparison.** Hardware, precision, batch size, chunk length, and image count all vary. Treat bands as real and individual gaps as approximate.
 - **The Anthropic 0.2–0.4 Hz figure is API-served frontier-model latency**, not an optimized on-robot deployment. Nobody has measured a small local LLM in a robot control loop in any ingested source — the nearest things are 1 Hz agent *heartbeats* ([AgenticROS](../../entities/agenticros.md), [ros2-mcp-server](../../entities/ros2-mcp-server.md)), which are status beacons, not control.
-- **No VLA in this wiki has an on-Jetson number for the top of the table.** MolmoAct2's 55.8 Hz is H100-only; the [deployability landscape](vla-deployability-landscape.md) flags this and the [Jetson ladder](jetson-module-ladder-power-performance.md) holds the sparse edge numbers. The single most valuable missing measurement in this whole area is **MolmoAct2 (or any 2026-class VLA) on Thor**.
+- **Almost no 2026-class VLA has an on-Jetson number.** [Cosmos 3 Edge](../../sources/nvidia-cosmos3-edge-hf-blog.md)'s 15 Hz on Thor is the first, and it is a vendor self-report at 640×360 whose end-to-end scope is unclear. MolmoAct2's 55.8 Hz is H100-only; the [deployability landscape](vla-deployability-landscape.md) flags this and the [Jetson ladder](jetson-module-ladder-power-performance.md) holds the sparse edge numbers. The single most valuable missing measurement in this whole area is **MolmoAct2 (or any 2026-class VLA) on Thor**.
 - **Chunk-adjusted effective control rates are not published** for most policies, so the inference-Hz vs control-Hz distinction stays qualitative here.
 - **Power is a hidden third axis.** 27.8 Hz on a 25 W Orin Nano and 55.8 Hz on a 700 W H100 are not the same achievement; see the [Jetson module ladder](jetson-module-ladder-power-performance.md).
 

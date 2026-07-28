@@ -125,6 +125,9 @@ First real numbers (previously an open question on this page). End-to-end, batch
 | GR00T N1.6-3B | Official TensorRT (DiT head only, BF16) | 92 ms | **10.9 Hz** | [Isaac GR00T TensorRT docs](../sources/isaac-gr00t-tensorrt-deployment-docs.md) |
 | GR00T N1.6 | Community hand-written CUDA kernels | 41–45 ms | **22–24 Hz** | [NVIDIA forums (May 2026)](../sources/nvidia-forum-thor-realtime-vla-inference.md) |
 | π0.5 | Community hand-written CUDA kernels | 44 ms | 23 Hz | [NVIDIA forums (May 2026)](../sources/nvidia-forum-thor-realtime-vla-inference.md) |
+| **Cosmos 3 Edge (4B)** | NVIDIA-reported, 640×360, 32 actions/inference | — | **15 Hz** | [Cosmos 3 Edge HF blog](../sources/nvidia-cosmos3-edge-hf-blog.md) (2026-07-20) |
+
+**Cosmos 3 Edge lands above official-TensorRT GR00T on the same board** (15 vs 10.9 Hz) from a model that is a *world* model, not only a policy — but it is a vendor self-report at low resolution (640×360), and the 32-actions-per-inference chunking means 15 Hz is an *inference* rate, not necessarily a closed-loop control rate. See the [control-rate ladder](../syntheses/platforms/control-rate-ladder.md).
 
 Thor's official TensorRT speedup (1.27×) is the weakest in NVIDIA's own table (desktop GPUs get 1.73–2.14×) and no NVFP4/FP8 GR00T path exists yet — i.e. the official engine is under-tuned for Blackwell-on-Jetson and the community ~23 Hz is the better estimate of Thor's current ceiling. No N1.7-specific numbers published yet (horizon-40 action head may cost more). Cross-platform comparison: [GR00T inference on Jetson](../syntheses/platforms/gr00t-inference-on-jetson.md) (AGX Orin 64 GB manages 5.8 Hz TensorRT; Orin NX 16 GB unbenchmarked and below the 16 GB+ memory floor).
 

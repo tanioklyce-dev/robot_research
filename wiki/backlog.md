@@ -10,6 +10,18 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-07-27] Five-source batch — follow-ups
+- [ ] **Re-audit the wiki's real-robot success-rate claims against the ~1,030-rollout bar.** The [RoboLab methodology](sources/nvidia-robolab-evaluation-blog.md) shows ±2 pp needs ≈1,030 rollouts vs the ~70 typically published. The wiki repeats point estimates without uncertainty and treats few-point gaps as real ([VLA deployability landscape](syntheses/platforms/vla-deployability-landscape.md), the LIBERO table, MolmoAct2's "+15 over OpenVLA-OFT"). **A sweep should mark which comparisons survive and which are inside the noise.** Flagged in callouts on two pages; not yet applied to the tables themselves. Highest-value item in this batch.
+- [ ] **rliable / robomimic / RoboArena still unfiled** — [robot policy evaluation](concepts/robotics/robot-policy-evaluation.md) now exists but rests on one source and covers only the *simulation* half. RoboArena (real-world leaderboard, already referenced from the Cosmos entity) is the obvious next ingest.
+- [ ] **Cosmos3-Edge-Policy-DROID has no published benchmark score.** The wiki has the 16B Nano at 39.7% vs π0.5's 28.1% on RoboLab-120; the 4B Edge policy's number is unpublished, so the 16B→4B quality drop is unpriced. Watch for it — it decides whether the 15 Hz edge rate is worth having.
+- [ ] **Is Cosmos 3 Edge's 15 Hz end-to-end?** Camera→action (like the [Cutting the Cord](sources/cutting-the-cord-untethered-xlerobot.md) numbers it sits beside on the [control-rate ladder](syntheses/platforms/control-rate-ladder.md)) or model-forward only? Also unstated: power draw at that rate, T2000/T3000 numbers, and the **Edge license** (Nano/Super are OpenMDW-1.1).
+- [ ] **microGPT line count** — 243 per Karpathy's announcement, ~200 per one reading of his blog post. Resolvable in one minute by reading the [gist](https://gist.github.com/karpathy/8627fe009c40f57531cb18360106ce95) directly; not done during ingest.
+- [ ] **Who is Mitchell A. Carroll / what is arcnem.ai?** No affiliation on the [deck](sources/arcnem-strange-loops-ai-agents.md), no other source from either in the wiki. If the strange-loop thread continues, verify before leaning on it.
+- [ ] **Hofstadter primaries un-ingested** — *GEB* and *I Am a Strange Loop*. Both wiki sources invoking him are secondary. Also unsourced here: **Hofstadter's own skepticism about LLMs**, which is directly relevant to sources borrowing his metaphor to argue LLMs are strange loops.
+- [ ] **Model collapse / synthetic-data recursion has no page** — the [strange-loops concept](concepts/agents/strange-loops-and-self-reference.md) names the robotics instance (DreamGen/DreamDojo neural trajectories, MimicGen, 827 h in GR00T N1's data pyramid) and asks whether it is a productive or compounding-error loop. The wiki has no source that answers it.
+- [ ] **GNW / IIT / predictive processing** are named once each (via Masood) and nowhere else. Only worth pages if consciousness/cog-sci sources keep arriving.
+- [ ] **NPE (Neural Posterior Estimation) is a one-mention technique** — first simulation-based-inference sighting in the wiki. If it recurs in evaluation work, it deserves a concept page.
+
 ## [2026-07-27] Anthropic Frontier Red Team robotics arc — follow-ups
 *(Three sources ingested this day: [Project Fetch](sources/anthropic-project-fetch-robot-dog.md), [Phase Two](sources/anthropic-project-fetch-phase-two.md), [How Claude Performs on Robotics Tasks](sources/anthropic-how-claude-performs-on-robotics-tasks.md).)*
 

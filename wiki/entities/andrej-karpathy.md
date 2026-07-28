@@ -4,8 +4,8 @@ type: entity
 subtype: person
 created: 2026-05-14
 updated: 2026-07-09
-sources: 5
-tags: [person, openai, tesla, education, pedagogy, nanogpt, micrograd, nanochat, autoresearch]
+sources: 6
+tags: [person, openai, tesla, education, pedagogy, nanogpt, micrograd, nanochat, autoresearch, microgpt]
 ---
 
 **Andrej Karpathy** — independent AI researcher and educator; formerly Director of AI at Tesla (Autopilot lead, 2017–2022) and founding member / research scientist at OpenAI. Stanford CS PhD (2015) under Fei-Fei Li; author of the canonical CS231n notes on CNNs. **In this wiki, the author of a series of minimal-but-real reference implementations that have become the de-facto pedagogical references for foundational ML concepts** — backprop (`micrograd`), GPT training (`nanoGPT` → `nanochat`), and most recently agent-driven autonomous research (`autoresearch`).
@@ -27,18 +27,21 @@ The repos share a deliberate design philosophy: **a single hackable file** (or t
 2022-12  nanoGPT        — GPT-2 training in two ~300-line files (deprecated Nov 2025)
 2025-10  nanochat       — full ChatGPT pipeline (tokenizer + pretrain + SFT + RL + chat UI)
                           for $48-$100 on 8XH100; "Time-to-GPT-2" speedrun leaderboard
+2026-02  microGPT       — train + inference a GPT in 243 lines of *dependency-free*
+                          Python (os/math/random/argparse only). 4,192 params, vocab 27,
+                          1 layer / 4 heads / 16 dims; 1,000 steps ≈ 1 min on a MacBook
 2026-03  autoresearch   — AI agent edits a simplified nanochat's train.py overnight;
                           5-min training budget per experiment; produces commit-log
                           of ~100 experiments while you sleep
 ```
 
-The progression is structurally coherent: **autograd → architecture → training pipeline → autonomous research on the training pipeline**. The 2026 autoresearch entry is wiki-relevant beyond pedagogy because it is one of the first concrete examples of an AI coding agent driving a real ML research loop with a measurable objective ("lower val_bpb"), as opposed to general-purpose code generation. It also produced commits to nanochat that improved the GPT-2 speedrun by 8% in two rounds (rows 5–6 of the nanochat leaderboard).
+The progression is structurally coherent: **autograd → architecture → training pipeline → autonomous research on the training pipeline** — with **[microGPT](../sources/karpathy-microgpt.md) running it backwards**: it folds autograd, architecture, optimizer, training and inference back into *one dependency-free file*, deleting every efficiency concern to isolate what Karpathy calls *"the full algorithmic content of what is needed."* Where nanochat asks *how cheaply can you build a real ChatGPT*, microGPT asks *how little code contains the entire idea* — and answers 243 lines and 4,192 parameters. The 2026 autoresearch entry is wiki-relevant beyond pedagogy because it is one of the first concrete examples of an AI coding agent driving a real ML research loop with a measurable objective ("lower val_bpb"), as opposed to general-purpose code generation. It also produced commits to nanochat that improved the GPT-2 speedrun by 8% in two rounds (rows 5–6 of the nanochat leaderboard).
 
 ## Pedagogical influence
 
 Karpathy's [Neural Networks: Zero to Hero](../sources/karpathy-nn-zero-to-hero.md) lecture series (10 videos, ~19.5 h, 2022–2024: micrograd → makemore ×5 → GPT → tokenizer → GPT-2 reproduction) + the nano repos are the **most-referenced "how do I actually learn this?" answer** in the curriculum modules. They are not academic papers; they are working code with explanatory framing, which is a much higher pedagogical-value combination than either alone.
 
-The repos are also the most direct demonstration that **modern ML capability can be reproduced on accessible compute**: micrograd on a laptop, nanoGPT on a single GPU, nanochat on an 8-GPU node for under $100. This is the same "consumer-hardware reproducibility" thread that the [Onchain AI Garage LeWM reproduction](../sources/onchain-ai-garage-lewm-reproduction.md) sits inside.
+The repos are also the most direct demonstration that **modern ML capability can be reproduced on accessible compute**: micrograd on a laptop, nanoGPT on a single GPU, nanochat on an 8-GPU node for under $100 — and now **microGPT on a MacBook CPU in about a minute, with no ML framework installed at all.** This is the same "consumer-hardware reproducibility" thread that the [Onchain AI Garage LeWM reproduction](../sources/onchain-ai-garage-lewm-reproduction.md) sits inside.
 
 ## Related
 - [LLM-agent architecture concept](../concepts/agents/llm-agent-architecture.md) — autoresearch is an example.
@@ -49,6 +52,7 @@ The repos are also the most direct demonstration that **modern ML capability can
 - [micrograd repo (Karpathy, 2020)](../sources/karpathy-micrograd.md)
 - [nanoGPT repo (Karpathy, 2022)](../sources/karpathy-nanogpt.md)
 - [nanochat repo (Karpathy, 2025)](../sources/karpathy-nanochat.md)
+- [microGPT (Karpathy, 2026)](../sources/karpathy-microgpt.md)
 - [autoresearch repo (Karpathy, 2026)](../sources/karpathy-autoresearch.md)
 - [Curriculum Module 1 — Neural networks and training](../syntheses/curriculum/curriculum-01-neural-networks.md)
 - [Curriculum Module 2 — CNNs and visual representation learning](../syntheses/curriculum/curriculum-02-cnns.md) — CS231n reference.

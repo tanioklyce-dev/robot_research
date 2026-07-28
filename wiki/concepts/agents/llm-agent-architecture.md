@@ -3,7 +3,7 @@ title: LLM-agent architecture
 type: concept
 created: 2026-05-07
 updated: 2026-07-27
-sources: 38
+sources: 39
 tags: [llm-agent, tool-use, agentic-robotics, planning, mcp, a2a]
 ---
 
@@ -83,10 +83,12 @@ Two things follow for robots specifically:
 - [Guardrails for robot agents](../../syntheses/agents/guardrails-for-robot-agents.md) — **the synthesis**: the five-layer safety cake, why the MCP allowlist is already an execution rail, and the unguarded perception channel.
 - [AI guardrails](../safety/ai-guardrails.md) — the enforcement layer that *should* sit between the planner and the skill library, and currently doesn't.
 - [AI red-teaming](../safety/ai-red-teaming.md) — prompt injection through the perception channel is this pattern's distinctive attack surface.
+- [Strange loops and self-reference](strange-loops-and-self-reference.md) — the *structural* reading of this control pattern: the model's own output re-enters as its input, which is what people are naming when they call an agent "agentic." Includes the deflationary counter (a loop in the transcript is not necessarily a loop in the system).
 - [Control abstraction levels](../robotics/control-abstraction-levels.md) — where this pattern sits on the ladder (level 3, "policy control"), and the measured cost of overriding the layer below.
 - [AI uplift studies](../safety/ai-uplift.md) — the **other** way an LLM touches a robot: writing the code offline rather than sitting in the control loop. [Project Fetch](../../sources/anthropic-project-fetch-robot-dog.md) measures that mode, and argues it is the leading indicator for this one — *uplift precedes autonomy*. Notably, the biggest measured gap was in **connecting to unfamiliar hardware and reading its sensors**, i.e. exactly the integration layer this pattern assumes already exists.
 
 ## Mentioned in
+- [AI is a Strange Loop (Carroll, 2026)](../../sources/arcnem-strange-loops-ai-agents.md) — names this loop Observe→Reason→Act→Evaluate and argues the self-reference *is* the agency.
 - [How Claude Performs on Robotics Tasks](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — this pattern **measured**: an LLM supervising a pretrained [MolmoAct](../../entities/molmoact.md) policy scores *worse* than the policy alone in-distribution, better on novel tasks. Knowing when **not** to override is the skill.
 - [Stretch AI LLM Agent Documentation](../../sources/stretch-ai-llm-agent-docs.md)
 - [Hiwonder ROSOrin Documentation](../../sources/hiwonder-rosorin-docs.md)
