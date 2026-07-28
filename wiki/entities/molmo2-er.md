@@ -3,12 +3,15 @@ title: Molmo2-ER
 type: entity
 subtype: model
 created: 2026-07-25
-updated: 2026-07-25
+updated: 2026-07-28
 sources: 1
 tags: [molmo2-er, molmo2, molmo, vlm, embodied-reasoning, spatial-reasoning, pointing, vla-backbone, allen-institute, open-source, open-data, specialize-then-rehearse]
 ---
 
 # Molmo2-ER
+
+> [!note] Also called **MolmoER**
+> The [MolmoAct2 paper](../sources/molmoact2-paper.md)'s **arXiv abstract** calls this backbone `MolmoER`; the PDF body (31 mentions) and the [Ai2 blog](https://allenai.org/blog/molmoact2) both call it **Molmo2-ER**. The wiki follows the majority. See the [source page](../sources/molmoact2-paper.md) naming table.
 
 **Molmo2-ER** ("Embodied Reasoning") is [Ai2](ai2.md)'s **VLM backbone specialized for spatial and embodied reasoning**, and the foundation model under [MolmoAct2](molmoact2.md) ([Fang, Duan et al. 2026](../sources/molmoact2-paper.md), §2). It is a fine-tune of **Molmo2** (Clark et al. 2026) — a **4B** VLM in the [Molmo](molmo.md) lineage (SigLIP2 ViT → connector → LLM) — onto a **3.3M-sample embodied-reasoning corpus**. The thesis: general-purpose VLMs rarely train on the metric, geometric, and temporally grounded skills a robot policy needs (distance, free space, cross-view tracking, scene geometry), so a VLA is only as good as the backbone that supplies its reasoning.
 

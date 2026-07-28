@@ -5,6 +5,8 @@ url: https://arxiv.org/abs/2605.02881
 author: Haoquan Fang, Jiafei Duan, et al. (Allen Institute for AI)
 published: 2026-05-08
 ingested: 2026-07-25
+version_checked: 2026-07-28 (v2 is still latest; no v3)
+code: https://github.com/allenai/molmoact2
 local_path: raw/2605.02881v2.pdf
 venue: arXiv preprint (cs.RO)
 license: arXiv non-exclusive
@@ -13,6 +15,23 @@ tags: [molmoact2, molmoact, vla, vision-language-action, flow-matching, per-laye
 ---
 
 # MolmoAct2: Action Reasoning Models for Real-World Deployment
+
+> [!warning] The arXiv **abstract** uses three component names that appear nowhere in the paper, the blog, or the released repos
+> Checked 2026-07-28. **v2 (2026-05-08) is still the latest version — there is no v3.** But the arXiv *abstract metadata* has since been updated with a different naming scheme, while the v2 PDF body was not:
+>
+> | arXiv abstract | v2 PDF body (127× MolmoAct2, 39× -Think, 31× Molmo2-ER, 20× -FAST) | [Ai2 blog](https://allenai.org/blog/molmoact2) | Released artifact | **Wiki uses** |
+> |---|---|---|---|---|
+> | `MolmoER` | **Molmo2-ER** | "Molmo 2-ER" | — | **[Molmo2-ER](../entities/molmo2-er.md)** |
+> | `MolmoThink` | **MolmoAct2-Think** | "MolmoAct 2-Think" | — | **MolmoAct2-Think** |
+> | `OpenFAST` | **MolmoAct2-FAST** | "MolmoAct 2-FAST Tokenizer" | `allenai/MolmoAct2-FAST-Tokenizer` | **[MolmoAct2-FAST](../entities/fast-action-tokenization.md)** |
+>
+> **The wiki's names match the paper body, the official blog, and the Hugging Face repo IDs** — three of four sources — so they stay. The abstract is the outlier. (arXiv permits abstract metadata edits without a version bump, which would explain it; the cause is not confirmed.)
+>
+> **`OpenFAST` is a live alias, not just an abstract-only artifact**: the `allenai/MolmoAct2-Pretrain` model card describes actions as represented with *"OpenFAST action tokens."* Treat **OpenFAST ≡ MolmoAct2-FAST**. Anyone searching the wiki for a name they read in the arXiv abstract would otherwise find nothing.
+
+## Released artifacts (added 2026-07-28)
+
+The wiki carried no repo identifiers for this paper. Code: **`github.com/allenai/molmoact2`**. On Hugging Face under `allenai/`: **MolmoAct2**, **MolmoAct2-Pretrain**, **MolmoAct2-LIBERO**, **MolmoAct2-SO100_101**, **MolmoAct2-FAST-Tokenizer**. The FAST tokenizer card describes itself as *"a reimplementation of physical-intelligence/fast using fully open-sourced data"* — which is the precise sense in which it is "open-data [FAST](../entities/fast-action-tokenization.md)."
 
 ## Summary
 

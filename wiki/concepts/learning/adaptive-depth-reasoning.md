@@ -2,12 +2,15 @@
 title: Adaptive depth reasoning
 type: concept
 created: 2026-07-25
-updated: 2026-07-25
+updated: 2026-07-28
 tags: [adaptive-depth-reasoning, embodied-cot, depth-tokens, vq-vae, temporal-redundancy, inference-latency, molmoact2, molmoact-think, chain-of-thought]
 sources: 1
 ---
 
 # Adaptive depth reasoning
+
+> [!note] The variant is also called **MolmoThink**
+> The [MolmoAct2 paper](../../sources/molmoact2-paper.md)'s arXiv abstract names it `MolmoThink`; the PDF body (39 mentions) and the Ai2 blog say **MolmoAct2-Think**. See the [source page](../../sources/molmoact2-paper.md) naming table.
 
 **Adaptive depth reasoning** is the latency-saving mechanism behind **MolmoAct2-Think**, the reasoning variant of [MolmoAct2](../../entities/molmoact2.md) ([Fang, Duan et al. 2026](../../sources/molmoact2-paper.md), §5). It is a way to keep a geometrically-grounded intermediate reasoning step (predicting depth before acting) **inside the control loop** without paying its full cost at every timestep.
 
