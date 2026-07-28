@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-07-17
 updated: 2026-07-25
-sources: 3
+sources: 4
 tags: [molmoact, vla, vision-language-action, discrete-tokens, spatial-reasoning, depth-tokens, allen-institute, molmo, baseline]
 ---
 
@@ -44,7 +44,14 @@ Per the [MolmoAct2 paper](../sources/molmoact2-paper.md) §5, MolmoAct's spatial
 - **MolmoAct primary (arXiv 2508.07917) still not directly ingested** — the depth VQ-VAE tokenization and pretraining corpus are now described secondhand via [MolmoAct2](molmoact2.md); read the original for exact details if needed.
 - MolmoAct's spatial-reasoning framing **is** confirmed as a non-textual [embodied chain-of-thought](../concepts/learning/chain-of-thought.md) (depth tokens) per the successor paper.
 
+## As the supervised policy in Anthropic's robotics evaluation
+
+MolmoAct is the pretrained manipulation policy that frontier LLMs were given to **supervise** (and override) on LIBERO-40 in [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md). The result is a useful external datapoint on MolmoAct itself as much as on the supervisors: **every one of eleven tested models scored *worse* than MolmoAct running alone** on the tasks it already handles. On three novel LIBERO-like tasks MolmoAct **cannot** do alone, the better supervisors (Claude Opus 4.5/4.6, Gemini 3.1) produced net uplift.
+
+The variable is deference calibration — how often the supervisor copies MolmoAct's exact 7-DoF action versus overriding it. See [control abstraction levels](../concepts/robotics/control-abstraction-levels.md).
+
 ## Mentioned in
 
+- [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — MolmoAct as the pretrained policy under LLM supervision; supervision *hurts* in-distribution, helps on novel tasks.
 - [VLA-0 paper](../sources/vla-0-paper.md) — MolmoAct as a discrete-token, action-pretrained LIBERO baseline.
 - [MolmoAct2 paper (Fang, Duan et al. 2026)](../sources/molmoact2-paper.md) — describes MolmoAct as its predecessor (depth-token reasoning, LIBERO number).

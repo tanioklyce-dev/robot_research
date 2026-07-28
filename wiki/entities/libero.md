@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-05-08
 updated: 2026-07-25
-sources: 11
+sources: 12
 tags: [libero, manipulation-benchmark, lifelong-learning, robosuite, mujoco]
 ---
 
@@ -33,6 +33,7 @@ Primary reference is [VLA-JEPA](../sources/vla-jepa-paper.md) (Sun et al., Feb 2
 - **[VLA-0](vla-0.md) (NVIDIA, no action pretraining)** — Spatial **97.0**, Object **97.8**, Goal **96.2**, Long **87.6**, avg **94.7** — **best rank (1.0) among no-pretraining models** and rank 2.8 overall, above π0 (94.2), [π0.5-KI](../concepts/learning/knowledge-insulation.md) (94.3), GR00T-N1 (93.9), [MolmoAct](molmoact.md) (86.8), [π0-FAST](fast-action-tokenization.md) (86.0), OpenVLA (76.5); only [OpenVLA-OFT](openvla-oft.md)-pretrained (97.1) is higher. A rare **cross-method LIBERO table with consistent baselines** ([VLA-0 paper](../sources/vla-0-paper.md), Table I).
 
 ## Mentioned in
+- [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — LIBERO kitchen scenes repurposed as a direct-LLM-control benchmark; 0-5.5% end-to-end.
 - [VLA-JEPA Paper](../sources/vla-jepa-paper.md)
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **natively integrated** as one of two simulation benchmarks (alongside [Metaworld](metaworld.md)). Confirms the four task families: SPATIAL, OBJECT, GOAL, plus continuing-task LIBERO-90 and long-horizon LIBERO-LONG.
 - [NVIDIA Isaac Teleop and GR00T 1.7 in LeRobot (HF blog)](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) — GR00T 1.7 vs 1.5 LIBERO table; describes LIBERO as "130 language-annotated tabletop manipulation tasks."
@@ -41,6 +42,12 @@ Primary reference is [VLA-JEPA](../sources/vla-jepa-paper.md) (Sun et al., Feb 2
 - [Knowledge Insulation paper](../sources/knowledge-insulation-paper.md) — LIBERO-90 + LIBERO-Spatial SOTA claim; π0.5-KI vs π0 / π0-FAST / OpenVLA-OFT (Table 1).
 - [OpenVLA-OFT paper](../sources/openvla-oft-paper.md) — the 97.1% SOTA + 26× throughput result; the primary source for OFT's LIBERO numbers.
 - [FAST paper](../sources/fast-paper.md) — evaluates π0-FAST across the four LIBERO suites.
+
+## As an LLM-control benchmark (not just a VLA benchmark)
+
+Anthropic's [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) adapts LIBERO kitchen scenes to a different question: not *how well does a trained policy do*, but *how well does a general LLM do driving a [Franka Panda](franka-panda.md) directly*. End-to-end pick-and-place success across eleven frontier models spans **0 to 5.5%** — against the 94–98% that trained VLAs post on LIBERO. Decomposed by subgoal, reaching and grasping improve markedly across model generations while **placing** stays the bottleneck. LIBERO-40 (40 tasks x 5 seeds, 200 trials) is also the substrate for the [MolmoAct](molmoact.md)-supervision experiments.
+
+That gap — **~5% for a general LLM vs ~97% for a purpose-trained VLA on the same benchmark** — is the clearest single quantification in this wiki of what action-pretraining buys.
 
 ## Open questions / TBD
 - Original LIBERO paper (Liu et al., NeurIPS 2023) not yet ingested as a source — would let us cite design rationale (why the four task families, what "lifelong" means concretely).

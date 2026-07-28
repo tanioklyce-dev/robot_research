@@ -3,7 +3,7 @@ title: LLM-agent architecture
 type: concept
 created: 2026-05-07
 updated: 2026-07-27
-sources: 37
+sources: 38
 tags: [llm-agent, tool-use, agentic-robotics, planning, mcp, a2a]
 ---
 
@@ -83,9 +83,11 @@ Two things follow for robots specifically:
 - [Guardrails for robot agents](../../syntheses/agents/guardrails-for-robot-agents.md) — **the synthesis**: the five-layer safety cake, why the MCP allowlist is already an execution rail, and the unguarded perception channel.
 - [AI guardrails](../safety/ai-guardrails.md) — the enforcement layer that *should* sit between the planner and the skill library, and currently doesn't.
 - [AI red-teaming](../safety/ai-red-teaming.md) — prompt injection through the perception channel is this pattern's distinctive attack surface.
+- [Control abstraction levels](../robotics/control-abstraction-levels.md) — where this pattern sits on the ladder (level 3, "policy control"), and the measured cost of overriding the layer below.
 - [AI uplift studies](../safety/ai-uplift.md) — the **other** way an LLM touches a robot: writing the code offline rather than sitting in the control loop. [Project Fetch](../../sources/anthropic-project-fetch-robot-dog.md) measures that mode, and argues it is the leading indicator for this one — *uplift precedes autonomy*. Notably, the biggest measured gap was in **connecting to unfamiliar hardware and reading its sensors**, i.e. exactly the integration layer this pattern assumes already exists.
 
 ## Mentioned in
+- [How Claude Performs on Robotics Tasks](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — this pattern **measured**: an LLM supervising a pretrained [MolmoAct](../../entities/molmoact.md) policy scores *worse* than the policy alone in-distribution, better on novel tasks. Knowing when **not** to override is the skill.
 - [Stretch AI LLM Agent Documentation](../../sources/stretch-ai-llm-agent-docs.md)
 - [Hiwonder ROSOrin Documentation](../../sources/hiwonder-rosorin-docs.md)
 - [Hiwonder OpenClaw Practical Tutorial](../../sources/hiwonder-openclaw-tutorial.md)

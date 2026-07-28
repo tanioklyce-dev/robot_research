@@ -37,7 +37,8 @@ Anthropic's Frontier Red Team ran a one-day **randomized uplift study**: eight A
 ### Performance
 
 - **Task count** — Team Claude **7/8**, Team Claude-less **6/8** (Table 1 in the post breaks tasks down by connectivity / control / detection / localization).
-- **Speed** — on the tasks *both* teams completed, Team Claude took **≈50% of the time** (Figure 1).
+- **Speed** — on the tasks *both* teams completed, Team Claude took **≈50% of the time** (Figure 1). **[Phase Two](anthropic-project-fetch-phase-two.md) later published the raw figures**: on the four tasks every participant completed, Team Claude-less took **361 min** and Team Claude **181 min**.
+- **Code volume, exactly** — Phase Two also gives the numbers behind the "~9× more code" claim below: Team Claude **10,309 lines**, Team Claude-less **1,136** (≈9.1×).
 - **Autonomy** — by end of day Team Claude's robot could autonomously **locate the ball, navigate to it, and manipulate it**, but lacked the dexterity to complete the retrieval. Team Claude-less reached no autonomous capability.
 
 ### Where Claude's advantage was largest
@@ -92,20 +93,29 @@ Claude analyzed recorded team dialogue using **dictionary-based text analysis** 
 - **Convenience sample** of Anthropic volunteers, all daily Claude users. The Claude-less arm therefore measures *withdrawal* from a habituated tool, not the baseline of a general population. AI novices in the treatment arm would need acclimation time; AI novices in the control arm would show far less disorientation.
 - **Claude's end-to-end autonomy was not evaluated at all.** This measures uplift only; the post calls itself an "important initial step towards evaluations" of autonomous robotics capability.
 
+## Follow-ups (both ingested 2026-07-27)
+
+This post turned out to be the first of three. The later two resolve much of what it left open:
+
+- **[Project Fetch: Phase Two](anthropic-project-fetch-phase-two.md)** (2026-06-18) — the same task ladder run by **Claude Opus 4.7 alone** in Claude Code. **9 min 35 s**, vs 181 min for Team Claude and 361 min for Team Claude-less: **18.9×** and **37.7×**. It also reveals that Opus 4.7 alone wrote **1,045 lines** — *fewer* than either human team, and a tenth of Team Claude's 10,309. **The "side quest" code bloat was a property of the human+Claude collaboration, not of the model.** The retrieval step still failed.
+- **[How Claude Performs on Robotics Tasks](anthropic-how-claude-performs-on-robotics-tasks.md)** (2026-07-09) — the autonomy-side evaluation across eleven models and four [control abstraction levels](../concepts/robotics/control-abstraction-levels.md). It **names the robot** (see below) and explains *why* retrieval is the wall: low-level closed-loop control is precisely where frontier models are weakest, and **placing** is the bottleneck subgoal in manipulation.
+
+Also clarified: the experiment itself was run in **August 2025** and published that November.
+
 ## Open questions
 
-- **Which robot?** The post says only "quadruped robodog" and never names a manufacturer or model. Secondary coverage of the experiment consistently identifies it as a **[Unitree Go2](../entities/unitree-go2.md)**; the wiki treats that as *reported, not confirmed by the primary source*. The identification matters because "connecting to unknown hardware" is the headline uplift result and the Go2's SDK/DDS/WebRTC surface is exactly the kind of stack the post describes as badly documented.
+- ~~**Which robot?**~~ **Resolved 2026-07-27.** The post says only "quadruped robodog," but the [companion evaluation](anthropic-how-claude-performs-on-robotics-tasks.md) names it directly — *"a real Unitree Go2 (the quadruped robot of Project Fetch)"* — confirming what secondary coverage had reported. See [Unitree Go2](../entities/unitree-go2.md). The identification matters because "connecting to unknown hardware" is the headline uplift result, and the Go2's connection surface is exactly the kind of stack the post describes as badly documented.
 - **Which Claude model?** Never stated. Claude Code is mentioned only for its release timing, not as a confirmed tool in the experiment. Given the November 2025 date, a Claude 4.x-generation model is likely but unverified.
 - **What were the 8 tasks, exactly?** Table 1 is summarized by category (connectivity / control / detection / localization); the post's prose does not enumerate all eight with per-team outcomes.
 - **What software stack?** No SDK, library, middleware, or language is named. For a study whose central finding is *hardware-connection uplift*, the absence of the connection method's name limits reproducibility.
 - **Does the affect result survive a non-habituated sample?** The negative-emotion effect (d = 2.16) is large, but the control arm is composed of people abruptly deprived of a daily tool. How much of the measured frustration is "robotics is hard" vs "my tool was taken away" is not separable in this design.
-- **The companion evaluation.** Anthropic also publishes [*How Claude Performs on Robotics Tasks*](https://www.anthropic.com/research/claude-plays-robotics) — an adjacent Frontier Red Team page not yet ingested; likely the autonomy-side complement to this uplift-side result.
+- ~~**The companion evaluation.**~~ **Ingested 2026-07-27** — see Follow-ups above.
 
 ## Entities mentioned
 
 - [Anthropic](../entities/anthropic.md) — publisher and experimental subject.
 - [Anthropic Frontier Red Team](../entities/frontier-red-team.md) — the authoring team.
-- [Unitree Go2](../entities/unitree-go2.md) — the robot, per secondary coverage (not named in the post).
+- [Unitree Go2](../entities/unitree-go2.md) — the robot; unnamed here, confirmed by the [companion evaluation](anthropic-how-claude-performs-on-robotics-tasks.md).
 
 ## Concepts touched
 

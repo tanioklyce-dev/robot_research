@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-07
 updated: 2026-07-05
-sources: 25
+sources: 26
 tags: [franka, panda, robot-arm, manipulator, 7-dof, manipulation-platform]
 ---
 
@@ -50,6 +50,7 @@ The result: when a JEPA-style or VLA-style paper says "real-robot eval" without 
 - Companion grippers (Franka Hand, Robotiq 2F-85) deserve their own pages when a specific paper hinges on them.
 
 ## Mentioned in
+- [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — the manipulation platform (7-DoF, LIBERO kitchen scenes) for direct-LLM control and VLA supervision.
 - [DROID](droid.md) (entity)
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
 - [V-JEPA 2.1 Paper](../sources/v-jepa-2-1-paper.md)

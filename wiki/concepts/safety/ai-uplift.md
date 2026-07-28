@@ -3,8 +3,8 @@ title: AI uplift studies
 type: concept
 created: 2026-07-27
 updated: 2026-07-27
-sources: 1
-tags: [ai-safety, uplift-study, evaluation, methodology, rct, responsible-scaling, frontier-red-team, robotics]
+sources: 3
+tags: [ai-safety, uplift-study, evaluation, methodology, rct, responsible-scaling, frontier-red-team, robotics, autonomy]
 ---
 
 **An uplift study** measures how much an AI system raises a *human's* performance on a task, by randomizing participants into a treatment arm (AI access) and a control arm (no AI), holding the task fixed, and comparing outcomes. "Uplift" is the differential. It is a straightforward RCT design, imported into AI safety from **biological-risk evaluation**, where the question — *does this model make it meaningfully easier for a non-expert to do something dangerous?* — is more decision-relevant than any benchmark score.
@@ -18,6 +18,21 @@ The load-bearing inference, argued explicitly in [Project Fetch](../../sources/a
 > In AI, the ability to **help a human** do X reliably shows up **before** the ability to do X **unassisted**.
 
 Their cited precedent is code: assistants that could help you *debug* code preceded assistants that could *write* it. If that ordering holds, then measuring uplift on a task the model can't yet do alone is **forecasting**, not productivity measurement — you are reading the leading edge of a capability before it becomes autonomous. That is why [Anthropic's Frontier Red Team](../../entities/frontier-red-team.md) treats a robotics uplift result as a signal about the **autonomous AI R&D** threshold in the Responsible Scaling Policy, rather than as a robotics finding.
+
+### The hypothesis got tested — on the same task ladder, ten months later
+
+Uplift-as-leading-indicator is normally unfalsifiable in practice, because nobody re-runs the study. This one was re-run. [Project Fetch: Phase Two](../../sources/anthropic-project-fetch-phase-two.md) put **Claude Opus 4.7 alone** on the same robot and the same tasks:
+
+| | Time on the shared task subset |
+|---|---|
+| 4 humans, no AI (Aug 2025) | **361 min** |
+| 4 humans + Claude (Aug 2025) | **181 min** — the 2× uplift |
+| **Opus 4.7, alone (Jun 2026)** | **9 min 35 s** — 18.9× / 37.7× |
+
+The ordering held, and the interval was **ten months**. Two qualifications keep this from being a clean confirmation: the model still failed the **closed-loop retrieval** step — the same wall the human+Claude team hit — and Phase Two is **three trials** with humans still approving commands. So what was demonstrated is *supervised* near-autonomy on the parts of the ladder that were already the model's strong suit, not the crossing of a threshold.
+
+> [!note] The most interesting number is the code volume
+> Team Claude wrote **10,309** lines; the unassisted humans **1,136**; **Opus 4.7 alone, 1,045** — *fewer than either human team*, for equal or better results. Phase One read the AI arm's 9× output as "arguably distracting side quests." Removing the humans removed the bloat. **The pathology belonged to the collaboration, not to the model** — which is a finding about human-AI workflow design, not about capability, and it is the one result in this cluster that generalizes straight to everyday practice.
 
 ## What the design measures well, and what it doesn't
 
@@ -41,12 +56,15 @@ Generally: **an uplift study's external validity is capped by how representative
 
 ## Instances in this wiki
 
-- **[Project Fetch](../../sources/anthropic-project-fetch-robot-dog.md)** (Anthropic Frontier Red Team, 2025-11-12) — the only ingested uplift study. Robotics domain: 8 non-roboticists, 2 arms of 4, one day, program a quadruped to fetch a beach ball. Treatment arm: 7/8 tasks vs 6/8, ≈half the wall-clock on shared tasks, only arm to reach partial autonomy, ~9× more code. Biological-risk uplift studies are referenced as the method's origin but are not ingested.
+- **[Project Fetch](../../sources/anthropic-project-fetch-robot-dog.md)** (Anthropic Frontier Red Team, experiment Aug 2025 / pub. 2025-11-12) — the only ingested uplift study proper. Robotics domain: 8 non-roboticists, 2 arms of 4, one day, program a quadruped to fetch a beach ball. Treatment arm: 7/8 tasks vs 6/8, 181 vs 361 min, only arm to reach partial autonomy, ~9× more code. Biological-risk uplift studies are referenced as the method's origin but are not ingested.
+- **[Project Fetch: Phase Two](../../sources/anthropic-project-fetch-phase-two.md)** (2026-06-18) — the autonomy follow-through on the same ladder; see above.
+- **[How Claude Performs on Robotics Tasks](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md)** (2026-07-09) — the other end of the axis: not uplift at all, but a direct capability profile across [control abstraction levels](../robotics/control-abstraction-levels.md). Useful here because it explains *why* the retrieval step survives both Fetch runs — closed-loop low-level control is exactly where frontier models are weakest, and models are far stronger when they **write** the controller than when they **are** the controller.
 
 > [!note] A gap worth naming
 > The wiki is thick with **capability benchmarks** (LIBERO, DROID, Meta-World, RoboCasa, real-robot success rates) and has exactly **one** human-in-the-loop uplift measurement. For robotics specifically — a field where nearly all deployment is currently human-supervised — the "how much faster does a person get" axis is almost entirely unmeasured in the sources here. The closest adjacent artifacts are the **FRC AI-first dev-loop** reports ([Team 254](../../sources/team-254-ai-in-frc-presentation.md), [Team 4414](../../sources/team-4414-hightide-2026-binder.md)), which claim large workflow uplift from agentic coding on real robots but with **no control arm** — testimony, not measurement.
 
 ## Related concepts
+- [Control abstraction levels](../robotics/control-abstraction-levels.md) — *where* the model is allowed to act, and why that changes its measured capability by orders of magnitude. An uplift number without an abstraction level is under-specified.
 - [AI red-teaming](ai-red-teaming.md) — the adversarial sibling: *can I make the model misbehave?* vs uplift's *what can the model make people able to do?* Both published under "red team" labels.
 - [AI safety and alignment](ai-safety-alignment.md) — Responsible Scaling Policy capability thresholds are what uplift results feed into.
 - [AI guardrails](ai-guardrails.md) — the deployment-time pole; uplift studies are an evaluation-time instrument.
@@ -54,3 +72,5 @@ Generally: **an uplift study's external validity is capped by how representative
 
 ## Mentioned in
 - [Project Fetch: Can Claude train a robot dog?](../../sources/anthropic-project-fetch-robot-dog.md)
+- [Project Fetch: Phase Two](../../sources/anthropic-project-fetch-phase-two.md)
+- [How Claude Performs on Robotics Tasks](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md)

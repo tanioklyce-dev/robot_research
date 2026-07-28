@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-08
 updated: 2026-07-15
-sources: 11
+sources: 12
 tags: [unitree-g1, humanoid, bipedal, china, affordable, accessible, groot, whole-body-control]
 ---
 
@@ -41,6 +41,7 @@ The G1 is fast becoming the **de-facto benchmark platform for learned [whole-bod
 - [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — landscape; G1 is the educational-research bridge.
 
 ## Mentioned in
+- [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — G1 as the hardest platform; no model stood it from collapse.
 - [SONIC Paper](../sources/sonic-paper.md) — SONIC is a G1-only whole-body controller (primary robot)
 - [MotionBricks Paper](../sources/motionbricks-paper.md) — NVIDIA real-time motion model deployed on G1 for WBC
 - [BumbleBee Paper](../sources/bumblebee-experts-to-generalist-wbc.md) — expert→generalist WBC, SOTA on G1
@@ -50,6 +51,12 @@ The G1 is fast becoming the **de-facto benchmark platform for learned [whole-bod
 - [GR00T N1.5 research page](../sources/groot-n1_5.md) — cross-embodiment post-training (98.8% seen / 84.2% novel)
 - [GR00T N1.6 research page](../sources/groot-n1_6.md) — whole-body loco-manipulation data
 - [Isaac-GR00T GitHub](../sources/isaac-gr00t-github.md) — `UNITREE_G1` / `UNITREE_G1_SONIC` embodiment tags
+
+## As the hardest platform in Anthropic's robotics evaluation
+
+In [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) the 29-DoF G1 (simulated) is explicitly *"the hardest platform in our study."* Across eleven frontier models and four [control abstraction levels](../concepts/robotics/control-abstraction-levels.md), **no model stood the robot up from a collapsed pose even once**. There is measurable progress between Claude Opus 4 and 4.7 at *balancing a robot that is already standing*, and programmatic control (writing a controller) substantially beat direct torque control.
+
+This is worth holding next to the [SONIC](gear-sonic.md)/[MotionBricks](../sources/motionbricks-paper.md)/[BumbleBee](../sources/bumblebee-experts-to-generalist-wbc.md) results on the same robot: purpose-trained [whole-body control](../concepts/robotics/whole-body-control.md) policies achieve 99.2% sim-to-real motion tracking on the G1, while general frontier LLMs cannot get it off the floor. Same hardware, opposite ends of the [abstraction ladder](../concepts/robotics/control-abstraction-levels.md).
 
 ## Open questions / TBD
 - **No Unitree-authored primary source ingested** — specs still from general knowledge; the G1 product page would anchor current numbers. (Now cited by three GR00T sources.)

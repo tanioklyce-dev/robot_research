@@ -4,7 +4,7 @@ type: entity
 subtype: lab
 created: 2026-07-27
 updated: 2026-07-27
-sources: 1
+sources: 3
 tags: [anthropic, ai-safety, red-teaming, uplift-study, policy, responsible-scaling, frontier-red-team]
 ---
 
@@ -24,9 +24,15 @@ The team distinguishes two horizons explicitly: **controlling existing hardware*
 
 ## Published work in this wiki
 
-- [Project Fetch: Can Claude train a robot dog?](../sources/anthropic-project-fetch-robot-dog.md) (2025-11-12) — the quadruped uplift study. 8 staff, 2 teams, one day; Team Claude 7/8 tasks vs 6/8 and ≈half the wall-clock on shared tasks.
-- *How Claude Performs on Robotics Tasks* (anthropic.com/research/claude-plays-robotics) — **not yet ingested**; the apparent autonomy-side companion to Project Fetch.
-- Earlier quadruped evaluation summarized in the **Claude 4 System Card, p. 114** (Claude training a locomotion policy in simulation; not yet autonomously capable). Not ingested.
+A three-part robotics arc on the same hardware ([Unitree Go2](unitree-go2.md)), all ingested 2026-07-27:
+
+1. **[Project Fetch: Can Claude train a robot dog?](../sources/anthropic-project-fetch-robot-dog.md)** (experiment Aug 2025, pub. 2025-11-12) — the **uplift** study. 8 staff, 2 arms of 4, one day; Claude arm 7/8 tasks vs 6/8, **181 min vs 361 min** on the shared subset.
+2. **[Project Fetch: Phase Two](../sources/anthropic-project-fetch-phase-two.md)** (2026-06-18; Michael Ilie, C. Daniel Freeman, Kevin K. Troy) — the **autonomy** follow-through. Claude Opus 4.7 alone in Claude Code: **9 min 35 s** — 18.9× the assisted humans, 37.7× the unassisted. Closed-loop ball retrieval still fails.
+3. **[How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md)** (2026-07-09; Shmuel Berman, Michael Ilie, Jia Deng, C. Daniel Freeman) — the **capability profile**. Eleven models × four [control abstraction levels](../concepts/robotics/control-abstraction-levels.md) × quadruped/humanoid/manipulation. Harness released as `github.com/safety-research/embody`.
+
+The arc is unusually well-designed as evidence: **the same task ladder, the same robot, ten months apart**, measuring uplift and then autonomy. That is precisely what the *uplift-precedes-autonomy* premise needs and almost never gets.
+
+Also referenced but **not ingested**: an earlier quadruped evaluation in the **Claude 4 System Card, p. 114** (Claude training a locomotion policy in simulation; not yet autonomously capable).
 
 ## Related
 - [Anthropic](anthropic.md) — parent.
@@ -34,5 +40,15 @@ The team distinguishes two horizons explicitly: **controlling existing hardware*
 - [AI red-teaming](../concepts/safety/ai-red-teaming.md) — the adversarial-probing sibling genre. Note the difference in kind: red-teaming asks *can I make the model misbehave?*; the Frontier Red Team's uplift work asks *what can the model now make people able to do?* Both live under the "red team" label; only the first is about attacks.
 - [Apollo Research](apollo-research.md) — the *external* evaluation counterpart Anthropic commissions.
 
+## People (bylined on the robotics line)
+- **Michael Ilie** — on both Phase Two and the robotics evaluation; the connective author across the arc.
+- **C. Daniel Freeman** — likewise on both.
+- **Kevin K. Troy** — Phase Two.
+- **Shmuel Berman**, **Jia Deng** — the robotics evaluation.
+
+No entity pages filed for any of them yet; see the backlog.
+
 ## Mentioned in
 - [Project Fetch: Can Claude train a robot dog?](../sources/anthropic-project-fetch-robot-dog.md)
+- [Project Fetch: Phase Two](../sources/anthropic-project-fetch-phase-two.md)
+- [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md)

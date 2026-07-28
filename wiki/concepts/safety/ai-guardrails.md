@@ -3,7 +3,7 @@ title: AI guardrails
 type: concept
 created: 2026-07-13
 updated: 2026-07-13
-sources: 6
+sources: 7
 tags: [ai-safety, guardrails, agentic-ai, content-safety, topic-control, jailbreak, runtime-safety, nemo-guardrails]
 ---
 
@@ -88,6 +88,7 @@ These are not in conflict — but note that a guardrail layer is an **external**
 - [Robot safety standards (ISO 13482)](../robotics/robot-safety-standards.md) — the *physical* safety layer that guardrails do not touch, and that does not touch guardrails.
 
 ## Mentioned in
+- [How Claude Performs on Robotics Tasks](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — **scoped physical access** named as the deployment direction: a system able to affect certain objects while blocked from others. That is precisely the **execution rail** this page notes ships empty, now argued for by a frontier lab from the capability side.
 - [NeMo Guardrails — Library Overview](../../sources/nemo-guardrails-library-overview.md) — **primary source for the five-rail taxonomy and the guardrails library**.
 - [Safeguard Agentic AI Systems with the NVIDIA Safety Recipe](../../sources/nvidia-safety-recipe-agentic-ai.md)
 - [NVIDIA NemoClaw — Product Page](../../sources/nvidia-nemoclaw-page.md) — NVIDIA OpenShell as the "policy-based guardrails" runtime in the NemoClaw stack; the same idea packaged for a personal-AI-assistant framework.
