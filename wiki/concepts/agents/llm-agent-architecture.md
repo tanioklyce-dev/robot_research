@@ -2,9 +2,9 @@
 title: LLM-agent architecture
 type: concept
 created: 2026-05-07
-updated: 2026-07-27
-sources: 39
-tags: [llm-agent, tool-use, agentic-robotics, planning, mcp, a2a]
+updated: 2026-08-03
+sources: 40
+tags: [llm-agent, tool-use, agentic-robotics, planning, mcp, a2a, code-as-policy]
 ---
 
 **LLM-agent architecture for robots** — a control pattern in which a large language model converts natural-language goals into sequences of tool calls that a deterministic executor runs against perception/manipulation primitives. Distinct from end-to-end [VLA models](../learning/vla-models.md) (which output low-level actions directly) and from [world-model simulators](../world-models/world-model-simulators.md) (which generate the training environment).
@@ -21,6 +21,8 @@ tags: [llm-agent, tool-use, agentic-robotics, planning, mcp, a2a]
 - **[Hiwonder ROSOrin](../../entities/rosorin.md)'s embodied-AI demos** ([Hiwonder](../../entities/hiwonder.md), educational tier, mobile-only) — same JSON tool-call pattern: LLM emits `{action: [...], response: ...}`, executor dispatches each call via `eval(f'self.{a}')`. Both cloud (GPT-4o, [Qwen-plus](../../entities/qwen.md), StepFun VLM) and offline ([Ollama](../../entities/ollama.md) + [qwen3:1.7b](../../entities/qwen.md) + sherpa-onnx) variants ([Hiwonder ROSOrin Documentation](../../sources/hiwonder-rosorin-docs.md)).
 - **[OpenClaw](../../entities/openclaw.md) on [ROSOrin Pro](../../entities/rosorin-pro.md)** (educational tier, mobile + 6-DOF arm; upstream OpenClaw plus [Hiwonder](../../entities/hiwonder.md)'s [`openclaw_controller`](../../entities/openclaw-controller.md) ROS 2 bridge module) — same architecture, manipulation-capable. Skill library expands to include `pick`, `place`, `voice_pick`, `voice_give`, plus AprilTag pickup and depth-based interactive grasping. ROS 2 services like `/start_pick`, `/place`, `/claw_track_and_grab/start` ([Hiwonder OpenClaw Practical Tutorial](../../sources/hiwonder-openclaw-tutorial.md)).
 - **[Gemini Robotics-ER 1.5](../../entities/gemini-robotics.md) on [Spot](../../entities/spot.md)** ([Boston Dynamics](../../entities/boston-dynamics.md), commercial quadruped tier) — same architecture using a *frontier-grade* multimodal model from [Google DeepMind](../../entities/google-deepmind.md). A thin layer over the Spot SDK exposes `GoTo`, `TakePicture`, object identification, `Pickup`, `PutDown`. Demonstrated cleaning a residential living room from handwritten task lists ("make sure all the shoes at the front door are on the shoe rack") ([Spot + Gemini Robotics blog](../../sources/bostondynamics-spot-gemini-robotics.md)). Productized as Boston Dynamics' AIVI-Learning with ER 1.6.
+
+- **[Waddle](../../entities/waddle-labs.md)'s agent** ([Waddle Labs](../../entities/waddle-labs.md), commercial API tier) — the same planner-over-a-skill-library pattern, with two distinctive moves: the action vocabulary is **executable code, not a fixed JSON tool schema** (see [code as policy](code-as-policy.md)), and the skill library is **agent-authored and shared across all agents**, growing from experience. The agent decomposes goals, writes control code, and *calls [VLAs](../learning/vla-models.md) as tools* — so VLAs sit *below* the planner rather than competing with it. Reported as a deployed system (robots via API); no success rates given ([Introducing Waddle](../../sources/waddle-labs-introducing-waddle.md)).
 
 The pattern is **converging across tiers, capabilities, and price points** — research-grade (stretch_ai), educational (ROSOrin / OpenClaw), and commercial-quadruped-grade (Spot + Gemini Robotics) stacks adopt the same architecture; mobile-only and arm-equipped variants adopt the same architecture; open-weights small LLMs ([Qwen](../../entities/qwen.md) 1.7B / 3B local) and frontier closed-weights VLMs (Gemini Robotics-ER, GPT-4o) plug into the same slot. The only differences are the size and contents of the skill library and the planner model.
 
@@ -74,6 +76,7 @@ Two things follow for robots specifically:
 - **Con**: closed-loop replanning depends on how cleanly skill failures surface to the LLM.
 
 ## Related
+- [Code as policy](code-as-policy.md) — the sub-pattern where the action vocabulary is *arbitrary code* rather than a fixed tool schema (Code as Policies → Voyager → CaP-X/ASPIRE → [Waddle](../../entities/waddle-labs.md)).
 - [VLA models](../learning/vla-models.md) — competing paradigm (end-to-end action prediction).
 - [On-device / on-robot / local-server agents](../../syntheses/agents/on-device-and-on-robot-agents.md) — *where* the agent brain runs (edge vs LAN server vs cloud); the deployment-topology companion.
 - [Fleet agentic control framework](../../syntheses/projects/fleet-agentic-framework.md) — a full multi-robot build of this pattern (per-robot MCP servers + a DGX Spark master).
@@ -100,3 +103,4 @@ Two things follow for robots specifically:
 - [Safeguard Agentic AI Systems with the NVIDIA Safety Recipe](../../sources/nvidia-safety-recipe-agentic-ai.md) — the guardrail layer this pattern lacks.
 - [NeMo Guardrails — Library Overview](../../sources/nemo-guardrails-library-overview.md) — execution rails, tool-call validation, LangGraph multi-agent safety.
 - [Project Fetch: Can Claude train a robot dog?](../../sources/anthropic-project-fetch-robot-dog.md) — the contrast case: Claude writes the robot code, but never runs in the loop.
+- [Introducing Waddle — Agents that Control Robots](../../sources/waddle-labs-introducing-waddle.md) — a deployed commercial instance: code-as-actions planner + a shared, agent-authored skill library, calling VLAs as tools.

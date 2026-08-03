@@ -3,8 +3,8 @@ title: ACT (Action Chunking Transformer)
 type: entity
 subtype: method
 created: 2026-05-25
-updated: 2026-06-13
-sources: 15
+updated: 2026-08-03
+sources: 16
 tags: [act, action-chunking, transformer, imitation-learning, behavior-cloning, aloha, mobile-aloha, tony-zhao, stanford, lerobot]
 ---
 
@@ -61,3 +61,4 @@ From [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) Tables 2 +
 - [NVIDIA Jetson AI Lab — HuggingFace LeRobot (archived)](../sources/nvidia-jetson-ai-lab-lerobot.md) — ACT as the default onboard-Jetson training target on Koch v1.1.
 - [VLA-0 paper](../sources/vla-0-paper.md) — borrows ACT's **prediction-ensembling / action-chunking** trick as its single biggest accuracy lever (+2 pts on LIBERO).
 - [OpenVLA-OFT paper](../sources/openvla-oft-paper.md) — adopts ACT's **L1-regression continuous-action head** + action chunking; finds L1 matches diffusion at lower cost.
+- [Introducing Waddle (Waddle Labs, 2026)](../sources/waddle-labs-introducing-waddle.md) — an [LLM agent](../concepts/agents/llm-agent-architecture.md) autonomously collected ~1,000 LEGO pick-and-place trials overnight and **trained an ACT policy from scratch** — ACT as the target of agent-driven data collection + training.
