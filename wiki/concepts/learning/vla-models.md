@@ -2,8 +2,8 @@
 title: VLA models
 type: concept
 created: 2026-05-06
-updated: 2026-07-25
-sources: 75
+updated: 2026-08-03
+sources: 76
 tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos, vla-0, action-as-text, molmoact2, per-layer-kv-conditioning, hybrid-action-head]
 ---
 
@@ -71,6 +71,7 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 ## Adjacent: utility models / non-language-conditioned policies
 - **[Robot Utility Models](../../entities/robot-utility-models.md)** (NYU / Meta) — visuomotor behavior cloning achieving zero-shot ~90% success on novel environments **without language conditioning**. The "utility model" framing is a deliberate distinction from VLAs but solves an overlapping problem ([Robot Utility Models Project Page](../../sources/robot-utility-models-website.md)).
 - **[stretch_ai](../../entities/stretch-ai.md)'s LLM agent** — uses an LLM to emit tool calls, *not* low-level actions. A VLA-substitute architecture for high-level planning, paired with classical perception/manipulation primitives ([Stretch AI LLM Agent Documentation](../../sources/stretch-ai-llm-agent-docs.md), [LLM-agent architecture](../agents/llm-agent-architecture.md)).
+- **[Waddle](../../entities/waddle-labs.md)'s VLA-as-tool framing** — argues *against* the end-to-end VLA recipe (data-hungry, hard to steer, weak cross-embodiment) but keeps the VLA as a **callable tool below an [LLM agent](../agents/llm-agent-architecture.md) that writes [code as policy](../agents/code-as-policy.md)**. So VLAs become one tool the planner can invoke, not the whole controller — a deployment stance rather than a new model class. No measured comparison to end-to-end VLAs is reported ([Introducing Waddle](../../sources/waddle-labs-introducing-waddle.md)).
 
 ## Why simulators matter for VLAs
 - **Pretraining data** — synthetic rollouts at massive scale (e.g. Genie Sim's 10k hours).
@@ -103,3 +104,4 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 - [Cosmos 3 Technical Report](../../sources/cosmos-3-technical-report.md) — Cosmos3-Nano-Policy-DROID (world-action model) tops RoboArena, beats π0.5 on RoboLab
 - [Cutting the Cord (Shaw et al., 2026)](../../sources/cutting-the-cord-untethered-xlerobot.md) — on-edge ACT/Diffusion/SmolVLA latency on Jetson Orin Nano
 - [MolmoAct2 Paper (Fang, Duan et al. 2026)](../../sources/molmoact2-paper.md) — hybrid discrete+continuous head; per-layer KV conditioning; top LIBERO scores
+- [Introducing Waddle (Waddle Labs, 2026)](../../sources/waddle-labs-introducing-waddle.md) — positions against end-to-end VLAs but calls them as tools under a code-writing agent
