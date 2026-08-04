@@ -10,7 +10,9 @@ tags: [action-representation, controlled-natural-language, cross-embodiment, cod
 
 **The question.** Does a language exist for specifying robot actions that is a *subset of natural language* — human-readable, LLM-generatable, and interpretable onto any embodiment?
 
-**The short answer.** Several things fit parts of the description; none has all three properties; and the two most desirable ones — **human-readability** and **embodiment-agnosticism** — are currently being pursued by two research programs that are *diverging*, not converging. There is no ratified standard: no ISO, no ROS specification, no cross-lab vocabulary. Everything below is learned per-paper and non-portable.
+**The short answer.** Several things fit parts of the description; none has all three properties; and the two most desirable ones — **human-readability** and **embodiment-agnosticism** — are currently being pursued by two research programs that are *diverging*, not converging. There is no ratified standard: no ISO, no ROS specification, no cross-lab vocabulary.
+
+**But the readable option is not merely a nicety, and that is the page's most useful finding.** Two independent experiments — [RT-H](../../sources/rt-h-paper.md) at 55B in 2024 and [TurboVLA](../../sources/turbovla-paper.md) at 0.2 B in 2026 — hold the underlying partition fixed, swap English phrases for opaque integer labels, and both lose accuracy. **The words earn their keep.** What has never been demonstrated is the other half: a readable vocabulary that survives a change of morphology.
 
 > [!note] The term for what's being asked for
 > In formal linguistics this is a **controlled natural language** (CNL) — a restricted grammar and closed lexicon that reads as English but parses deterministically. Working examples exist in other domains: Attempto Controlled English, and ASD **Simplified Technical English**, which is mandatory for civil-aviation maintenance documentation. **No robot-action CNL has been standardized.** That gap is the actual answer to the question; the rest of this page is why it persists.
@@ -23,7 +25,7 @@ Every row is a real, used representation. Read the last two columns together —
 |---|---|---|---|---|
 | **Free-form task language** | *"clean the kitchen"* | ✅ | ✅ | Everything below it |
 | **Semantic subtask** ([π0.5](../../entities/pi-zero-5.md)) | *"pick up the cutting board"* | ✅ | ✅ | A learned VLA, per embodiment |
-| **Language motions** ([RT-H](#rt-h-the-closest-existing-thing)) | *"move arm forward," "close gripper"* | ✅ | ◐ arm-shaped | A learned VLA + the dataset's verb inventory |
+| **Language motions** ([RT-H](../../entities/rt-h.md)) | *"move arm forward and close gripper"* | ✅ | ❌ *grammar ports, lexicon doesn't* | A fixed extraction grammar over **this robot's 9 action dims** |
 | **Formal task language** (PDDL, LTL) | `(on block-a block-b)` | ✅ | ✅ symbolically | A planner + hand-written action models; says nothing about motion |
 | **Behavior trees** | `Sequence[Approach, Grasp, Lift]` | ✅ structure | ❌ at the leaves | The human who wrote the leaf nodes |
 | **Code + API** ([code-as-policy](../../concepts/agents/code-as-policy.md)) | `stack_objs_in_order([...])` | ✅ | ❌ | **The API designer** — see [CaP-X](../../sources/cap-x-paper.md) below |
@@ -41,7 +43,7 @@ Reading down the table, a pattern falls out that is stronger than any single row
 
 That reframes the original question. The surface syntax is not the hard part; almost any reasonable subset of English would serve. **The interpreter is the hard part**, and an interpreter is per-embodiment by definition.
 
-## Three measurements in this wiki that bear on it
+## Four measurements in this wiki that bear on it
 
 ### 1. The abstraction does the work, not the model — and not the language
 
@@ -69,6 +71,19 @@ The [TurboVLA](../../sources/turbovla-paper.md) ablation (n = 2,000, so this sep
 
 A task ID is the degenerate CNL — a closed set of opaque symbols. It recovers most of the gap but stays a **statistically real 2.3 pp short** (p = 0.0001). So natural language carries something past task identity even at execution level: compositional structure over objects, attributes, and spatial relations. **Constraining the grammar risks throwing exactly that away** — and this experiment shows the cost is measurable.
 
+### 4. …and the same result holds at 55B, from the opposite direction
+
+[RT-H](../../sources/rt-h-paper.md)'s **OneHot ablation** is the cleanest version of this experiment anywhere, because it isolates the surface form perfectly: take RT-H's 2,500 language motions, **relabel each one as an integer**, change nothing else. The partition is identical; only the words are gone. Performance drops **substantially**. The authors' conclusion:
+
+> *"while action hierarchy itself gets us part of the way, **the structure of language greatly improves language motion and action prediction**."*
+
+A companion ablation sharpens it. RT-H-**Cluster** replaces the labeling procedure with K-means over raw actions — a *different, finer* partition with integer labels. It does slightly worse on average but **better on the hardest precision tasks**, because finer clusters give the action decoder more guidance while being harder for the upstream query to predict. That is the abstraction tradeoff, measured within one paper.
+
+> [!note] Two independent confirmations, two years and 275× of scale apart
+> RT-H-OneHot (2024, [PaLI-X](../../entities/pali-x.md) 55B, real mobile manipulator, in-house data) and TurboVLA's task-ID ablation (2026, 0.2 B, [LLM-free](../../concepts/learning/llm-free-vla.md), LIBERO) are **the same experiment on opposite ends of the scale and architecture spectrum**, and they agree: *a closed set of opaque labels over the same partition underperforms natural language.*
+>
+> **This is the strongest evidence on this page that a readable action vocabulary is not merely a convenience** — it earns its keep in accuracy. It also directly qualifies measurement 1: CaP-X says the *abstraction* carries the performance, but these two say the *words* carry some of it independently, presumably by reaching a pretrained model's compositional priors. Note the untested confound: RT-H's advantage may come from PaLI-X's internet-scale prior, and nobody has run the two designs head to head.
+
 ## Why 2026's cross-embodiment work went the other way
 
 This is the update that should move a prior. The last year's cross-embodiment effort converged on **unified latent tokens**, explicitly trading away readability:
@@ -83,17 +98,31 @@ Every one of these is a **codebook index**. The field's best current answer to *
 
 ## <a id="rt-h-the-closest-existing-thing"></a>RT-H — the closest existing thing
 
-[**RT-H: Action Hierarchies Using Language**](https://arxiv.org/abs/2403.01823) (Belkhale et al., DeepMind + Stanford, 2024; [project page](https://rt-hierarchy.github.io/)) inserts precisely the layer the question describes. Between the high-level task and the motor action sits a vocabulary of short English phrases — *"move arm forward," "close gripper," "rotate arm right."* The policy predicts the **language motion** first, then the action conditioned on it and the task, with visual context at every stage.
+[**RT-H: Action Hierarchies Using Language**](../../sources/rt-h-paper.md) (Belkhale, …, [Sadigh](../../entities/dorsa-sadigh.md); DeepMind + Stanford, 2024) inserts precisely the layer the question describes. Between the high-level task and the motor action sits a vocabulary of short English phrases — *"move arm forward," "close gripper," "rotate arm right."* One [PaLI-X](../../entities/pali-x.md) 55B VLM predicts the **language motion** first, then the action conditioned on it, the task, and the image.
 
-Two properties worth stealing:
+### <a id="what-the-rt-h-ingest-changed"></a>What the RT-H ingest changed
 
-1. **Shared structure across disparate tasks.** "Move arm forward" is the same motion whether wiping a plate or opening a drawer, so data pools across tasks that otherwise share no supervision. This is the strongest argument for a linguistic middle layer that isn't about human convenience at all — it's a **data-efficiency** argument.
-2. **Correction at the layer the policy was trained on.** A human can say "no, move left" mid-episode and the policy consumes it natively — a flexible-policy paradigm that raw action prediction cannot offer. (Read against MolmoAct's finding above: language correction *works*, it just lost to trace editing on reliability.)
+**Correction.** This page first said RT-H's vocabulary is "derived from the dataset, not specified in advance." That is wrong in an interesting way. The vocabulary is extracted **mechanically from proprioception** by a *fixed, hand-designed procedure*: map each of the robot's 9 action dimensions to a spatial word (position z → "up"/"down"), threshold out dimensions below a "small action" cutoff, and compose the survivors in order of magnitude → *"move arm forward and close gripper."* The combinatorics yield **2,500+ phrases with zero human annotation**, and the procedure is fixed across every task and dataset — *"designing this procedure is a one-time fixed cost for the developer."*
 
-The limits: the vocabulary is **derived from the dataset rather than specified**, and it is arm-shaped — *"close gripper"* does not survive transfer to a suction cup or a five-finger hand. It is a learned dialect, not a language.
+So RT-H is **a genuine controlled natural language**: a *specified generative grammar* (axis words × sign × composition order) over an *induced lexicon*. That is a far better fit to the original question than the abstract suggests — and it was reached by rejecting human labeling outright, because annotators produced *"language inconsistency across the dataset and even inaccuracy,"* mislabeling skill transitions and misjudging direction from camera angles.
 
-> [!warning] Not ingested
-> RT-H is cited here from its abstract and project page, not a full read. It is the **top ingest candidate** this page generates — the wiki has no coverage of it, and it is the single most relevant prior work to this question.
+**And it makes the embodiment coupling exact.** The 9 dimensions are *this* robot's: 3 arm-position deltas, 3 rotation deltas, **2 mobile-base**, 1 parallel gripper. A suction cup, a five-finger hand, or a fixed-base arm changes the dimension list, hence the extraction, hence the entire lexicon. **The grammar ports; the vocabulary cannot.** This is the sharpest illustration on the page of why readability and portability keep failing to co-occur — the readable names are *names for this robot's degrees of freedom*.
+
+### What's worth stealing
+
+1. **Data sharing at the motion layer — a data-efficiency argument, not an ergonomics one.** *"Pour a cup"* and *"pick up a coke can"* share no task-level semantics but **entirely overlap at the language motion level** until the object is picked. This is the strongest reason to want a readable middle layer, and it has nothing to do with humans reading it.
+2. **Corrections are cheap to learn from.** A human types a replacement phrase mid-episode; afterward **only the motion query is retrained**, since the action query already executes the corrected phrase. **40% → 63% with 30 correction episodes per task** (p = 0.0036), versus teleop-corrected RT-2-IWR at 13%. Correcting in a compressed, readable space beats correcting in action space by 50 pp.
+3. **The phrases are contextual, not primitives.** *"Move arm left"* means "move the packet above the bowl" in one scene and "latch the lid onto the jar" in another — different speeds, axes, and gripper poses. *"It would be immensely challenging to design a single 'move arm left' primitive to capture this contextuality."* A CNL whose terms are *interpreted by a learned policy* is strictly more expressive than the same terms bound to scripted primitives.
+4. **The bottleneck is naming, not executing.** Offline action MSE using ground-truth motions is **40% lower** than end-to-end — the action query is much better than the system. Which is exactly why intervening at the language layer pays.
+
+### The limits
+
+Absolute success is **63%** after corrections. The hierarchy adds failure modes a flat model lacks (oscillation; getting stuck re-predicting *"close gripper"*). Correction quality is capped by the action query — when a phrase overshoots, the operator's only recourse is more phrases, and *"this can make the process slower than teleoperation."* The claimed object-generalization win (65% vs 55%, n=50) is a **statistical tie** (p = 0.31).
+
+> [!warning] The cross-embodiment version was proposed here in 2024 and never executed
+> RT-H's own Future Work names the exact question this page asks: language motions *"could even be used to help bridge datasets with many different embodiments like [OXE](../../entities/open-x-embodiment.md), or even to learn from human videos with actions described only in language."*
+>
+> The 2026 cross-embodiment literature went to **unified latent tokens** instead. Whether the language route was tried and failed, or simply not attempted, is unrecorded — and that gap is the single most interesting unknown on this page. The most relevant test is cheap and stated above: **re-run RT-H's extraction grammar on a different morphology and see whether the induced lexicons are compatible.**
 
 ## What actually deploys today
 
@@ -106,6 +135,9 @@ It is **not a specified language.** It is free-form English, and it works becaus
 Two layers, and be explicit about which is portable:
 
 - **Semantic layer — specified, portable, version-controllable.** A closed verb set × object reference × constraint clause: `GRASP(obj, approach=top, force=light)`. Readable, LLM-generatable, diffable in git, reviewable by a human before execution. This is the CNL.
+> [!note] The design move RT-H suggests: **specify the grammar, induce the lexicon**
+> RT-H's vocabulary is not written by hand and not learned — it is *generated* by a fixed procedure from the robot's own action dimensions. Port that idea rather than the word list: **the portable artifact is the extraction grammar** (axis → word, threshold, magnitude-ordered composition), and each embodiment induces its own lexicon by running it. You get readability everywhere and consistency within an embodiment, without pretending "close gripper" means anything to a suction cup. Whether two induced lexicons are *mutually* interpretable is the open question above — and the cheapest experiment on this page.
+
 - **Grounding contract — declarative, per-embodiment, not portable.** A map from each verb to that robot's primitive, with its own preconditions and failure modes. [Rosetta](../../sources/rosetta-github.md) already has this shape for ROS 2 — YAML contracts mapping topics to [LeRobot](../../entities/lerobot.md) features declaratively, no Python driver class required. It is aimed at *data* rather than *actions*, but it is the closest existing artifact in this wiki to the interface being described, and the pattern transfers.
 
 The honest accounting: layer one is the part that looks like a language and is nearly free. Layer two is the part that costs, does not transfer, and is where CaP-X says the performance actually comes from. **A new robot means a new grounding contract, always.** What the CNL buys is that the *planner* above it, the *logs*, and the *human review surface* stay unchanged — which is a real and underrated win, just not the win the original question was reaching for.
@@ -128,7 +160,7 @@ A second, harder run settles the portability half: train the grounding contract 
 
 This page is built partly on external references because the wiki lacks coverage of an entire relevant tradition:
 
-- **[RT-H](https://arxiv.org/abs/2403.01823)** — un-ingested; the most directly relevant prior work.
+- ~~RT-H — un-ingested~~ → **[primary-ingested 2026-08-04](../../sources/rt-h-paper.md)**. Closed. It also exposed that **[RT-2](../../entities/rt-2.md) and RT-1 have no pages** despite being the most-referenced un-ingested models in the wiki's VLA thread; RT-2 now has a stub built secondhand from RT-H.
 - **PDDL / LTL / temporal-logic task specification** — no page. The classical AI-planning answer to "human-readable, embodiment-agnostic action specification," 50 years old, and the wiki has nothing on it.
 - **Behavior trees** — no page, despite being the dominant *deployed* action-composition formalism in industrial and game robotics.
 - **UniT / universal action tokenization** — un-ingested; would anchor a `latent-action-tokens` concept page that [UniVLA](../../entities/univla.md) also points at.
