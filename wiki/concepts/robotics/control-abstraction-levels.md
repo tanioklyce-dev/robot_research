@@ -89,6 +89,7 @@ Three practical implications:
 Perceptual access moves capability as much as control access does: a **compass** (heading in degrees) was the most consistent performance lever across every model tested — larger than most reasoning-budget effects — while depth heatmaps and crosshairs were roughly neutral. What the model can *see* is an access-level decision too.
 
 ## Related concepts
+- [Action representation languages](../../syntheses/agents/action-representation-languages.md) — the companion axis: this page is *where* a controller acts, that one is *what it says* at that level, and whether it can be human-readable.
 - [Code as policy](../agents/code-as-policy.md) — level 2 as an architecture rather than an evaluation condition; the source of the eight-rung subdivision above.
 - [Control-rate ladder](../../syntheses/platforms/control-rate-ladder.md) — every rate in the wiki on one axis; the four bands, and the two mechanisms (hierarchy, action chunking) that bridge them.
 - [LLM-agent architecture](../agents/llm-agent-architecture.md) — level 3, as an architecture rather than an evaluation condition.

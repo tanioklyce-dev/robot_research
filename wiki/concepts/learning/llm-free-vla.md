@@ -78,6 +78,7 @@ TurboVLA initializes its fusion layers from **[Grounding DINO](../../entities/gr
 - **It supports the hierarchical stance the wiki keeps meeting.** [Waddle](../../entities/waddle-labs.md)'s "VLA-as-tool," [code-as-policy](../agents/code-as-policy.md) agents, Helix S1/S2, and Anthropic's [access-level thesis](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) all separate deliberation from execution. TurboVLA measures how cheap the execution tier can get.
 
 ## Related
+- [Action representation languages](../../syntheses/agents/action-representation-languages.md) — where TurboVLA's task-ID-vs-semantic-English result (95.4 vs 97.7) becomes a measurement of what a *constrained* action vocabulary would cost.
 - [VLA models](vla-models.md) — the taxonomy this branches
 - [TurboVLA](../../entities/turbovla.md) — the only instance so far
 - [Grounding DINO](../../entities/grounding-dino.md) — where the cross-modal fusion comes from

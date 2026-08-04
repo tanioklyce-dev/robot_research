@@ -143,6 +143,7 @@ Code-as-policy is **level 2 (programmatic control)** in the [control abstraction
 
 ## Related concepts
 - [LLM-agent architecture](llm-agent-architecture.md) — the parent pattern; code-as-policy is the "action vocabulary = code" special case.
+- [Action representation languages](../../syntheses/agents/action-representation-languages.md) — code placed on the full spectrum of action representations, from free-form English to latent codebook tokens. CaP-X's monotonic-abstraction finding is the central evidence there: **the API designer, not the model, supplies much of the performance.**
 - [Control abstraction levels](../robotics/control-abstraction-levels.md) — where this sits, and the level CaP-X subdivides.
 - [Agent skills (portable SKILL.md)](agent-skills.md) — the hand-authored-runbook cousin of the learned skill library.
 - [VLA models](../learning/vla-models.md) — the end-to-end alternative; here a VLA is a *callable tool*, not the whole policy.

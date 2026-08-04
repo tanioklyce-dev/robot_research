@@ -84,6 +84,7 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 
 ## Related
 - [LLM-free VLA (V+L→A)](llm-free-vla.md) — the orthogonal axis: whether an LLM is in the control loop at all.
+- [Action representation languages](../../syntheses/agents/action-representation-languages.md) — the action-head families are the machine-readable end of a spectrum that runs up through code, language motions, and free-form English.
 - [Large behavior models](large-behavior-models.md) — the TRI-coined superclass (VLA = uptrained-VLM subtype).
 - [Per-layer KV conditioning](per-layer-kv-conditioning.md) — MolmoAct2's VLM→expert interface.
 - [Adaptive depth reasoning](adaptive-depth-reasoning.md) — MolmoAct2-Think's embodied-CoT latency fix.
