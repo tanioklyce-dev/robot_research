@@ -2,8 +2,8 @@
 title: Whole-Body Control (WBC)
 type: concept
 created: 2026-07-15
-updated: 2026-07-15
-sources: 8
+updated: 2026-08-03
+sources: 9
 tags: [whole-body-control, wbc, humanoid, motion-tracking, loco-manipulation, unitree-g1, booster-t1, rl, sim-to-real, amass, agile, code]
 ---
 
@@ -49,3 +49,4 @@ The dominant real-world-adaptation trick in this cluster is **delta-action model
 - [GR00T-WholeBodyControl GitHub](../../sources/gr00t-wholebodycontrol-github.md), [WBC-AGILE GitHub](../../sources/wbc-agile-github.md) — the code/tooling.
 - [NVIDIA GEAR publications](../../sources/nvidia-gear-publications.md) — several WBC papers (SONIC, HOVER, ASAP, MotionBricks) in the GEAR line.
 - [Unitree G1](../../entities/unitree-g1.md) — the common target platform; [Booster T1](../../entities/booster-t1.md) — AGILE's second benchmark humanoid.
+- [Gemini Robotics 2 blog](../../sources/gemini-robotics-2-blog.md) — whole-body control as a shipped VLA capability: humanoids that "walk, crouch, stretch, and manipulate" under one model. Pick-up success by height: shelf 76.3%, table 68.4%, **floor 45.7%**.

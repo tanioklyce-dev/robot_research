@@ -3,7 +3,7 @@ title: Control abstraction levels
 type: concept
 created: 2026-07-27
 updated: 2026-08-03
-sources: 3
+sources: 4
 tags: [robotics, control, llm-agent, evaluation, vla, safety, access-control, frontier-red-team, code-as-policy]
 ---
 
@@ -101,3 +101,4 @@ Perceptual access moves capability as much as control access does: a **compass**
 - [How Claude Performs on Robotics Tasks](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — the source of the taxonomy and every number here.
 - [Project Fetch: Phase Two](../../sources/anthropic-project-fetch-phase-two.md) — level-2 control (Claude Code writing controllers) taken to near-autonomy.
 - [CaP-X paper](../../sources/cap-x-paper.md) — the eight-tier subdivision of level 2; abstraction, iteration, and grounding as independently controllable axes.
+- [Gemini Robotics 2: Safety Evaluations](../../sources/gemini-robotics-2-safety-report.md) — the same level-inversion from the safety side: agents score **100%** acting on a safety signal handed to them as structured text, but cannot reliably **produce** that signal from perception (human-proximity FNR >40% at low FPR).

@@ -3,7 +3,7 @@ title: Semantic safety
 type: concept
 created: 2026-08-03
 updated: 2026-08-03
-sources: 5
+sources: 7
 tags: [semantic-safety, robot-safety, constitutional-ai, asimov, red-teaming, google-deepmind, vlm, alignment]
 ---
 
@@ -83,11 +83,31 @@ Both are *predictive* rather than *preventive* — they tell you where a policy 
 - [Robot policy evaluation](../robotics/robot-policy-evaluation.md) — semantic-safety probing is now a fourth evaluation paradigm.
 - [Formal verification](../learning/formal-verification.md) — the counterweight above.
 
+## From judgment to orchestration (2026-07)
+
+[ASIMOV-Agentic](../../sources/gemini-robotics-2-safety-report.md) extends the layer from *"is this instruction undesirable?"* to *"what should the agent do about it?"* — benchmarking the **routing decision** in a System 2/System 1 stack: delegate to the VLA, query the human, or fire a safety tool. Four guardrails: refuse constraint-violating tasks, trigger protective stops, **shield the VLA from out-of-distribution tasks**, and resolve ambiguity by asking.
+
+Two results matter beyond the benchmark:
+
+- **Agents are good at consuming safety signals and bad at producing them.** Safety tool calling — reacting to a structured JSON safety message — is **100%** across ER 2, Claude Opus 4.8, and GPT 5.5. But inferring human proximity from stereo images shows **no model in the acceptable quadrant**: FPR under 5% implies **FNR above 40%**; pushing FNR to 10–15% causes unnecessary stops 15–25% of the time. This is the [control-abstraction](../robotics/control-abstraction-levels.md) inversion appearing in safety: strong at the symbolic layer, weak at the perceptual one.
+- **Knowing a rule ≠ acting on it.** Safety-constraint classification is ≥96.0% in text for all frontier models, but degrades markedly in pointing, bounding-box, and tool-use modalities — "a gap between semantically understanding a constraint and physically acting on it."
+
+Usefully, **VLA feasibility filtering is learnable by prompting**: telling the agent more about the VLA's training distribution lifts refusal accuracy from **62.0% to 95.8%**.
+
 ## Current state
 
-As of mid-2026 the layer has **one benchmark, two probing methods, and no enforcement mechanism** in this wiki. [DeepMind](../../entities/google-deepmind.md) is essentially the only ingested source producing work here, which makes the whole concept page single-lab. The public framing is candid that the framework "remains under research," and assigns responsibility to the user: *"It's your responsibility to use our models (and any equipment) safely and appropriately."*
+As of mid-2026 the layer has **three benchmark generations** (ASIMOV v1 → 2.0 → Agentic), **two probing methods** ([RoboART](../../entities/roboart.md), [Veo](../../entities/veo.md)), and **no enforcement mechanism**. [DeepMind](../../entities/google-deepmind.md) remains essentially the only ingested source producing work here, which makes this page single-lab.
 
-The honest summary: **semantic safety is currently measured, sometimes predicted, and not yet enforced.** That matches what the wiki found in the [guardrails thread](../../syntheses/agents/guardrails-for-robot-agents.md) from the agent side — the execution rail ships empty — and it is the same gap seen from a different direction.
+> [!note] The wiki's conclusion is now the vendor's conclusion
+> This page previously concluded that semantic safety is **measured, sometimes predicted, and not yet enforced** — reached independently, and matching what the [guardrails thread](../../syntheses/agents/guardrails-for-robot-agents.md) found from the runtime side. The [GR 2 safety report](../../sources/gemini-robotics-2-safety-report.md) now says the same thing three times in its own voice:
+>
+> 1. Traditional physical protections "**remain essential**."
+> 2. Frontier models are "best utilize[d] **alongside deterministic, low-level safety guardrails**."
+> 3. The report "**does not evaluate the underlying functional safety architecture** – including certified hardware components, redundancy mechanisms, and real-time system guarantees."
+>
+> That is a vendor publishing a safety report and stating that the enforcement layer is out of scope. The conclusion is no longer an inference — it is documented.
+
+What would change this: a safety architecture where the semantic layer's *output* is bound to a deterministic interlock, rather than being the interlock. Nothing ingested does that yet.
 
 ## Mentioned in
 - [ASIMOV Benchmark paper](../../sources/asimov-benchmark-paper.md) — defines the term; the benchmark and the constitution framework.
@@ -96,3 +116,5 @@ The honest summary: **semantic safety is currently measured, sometimes predicted
 - [Evaluating Gemini Robotics Policies in a Veo World Simulator](../../sources/veo-robotics-policy-evaluation-paper.md) — generative safety probing.
 - [Safely Learning Dynamical Systems](../../sources/safely-learning-dynamical-systems-paper.md) — the formal-guarantees contrast.
 - [Gemini Robotics 1.5 tech report](../../sources/gemini-robotics-1-5-report.md) — ASIMOV-2.0 + Auto-Red-Teaming in deployment.
+- [Gemini Robotics 2: Safety Evaluations](../../sources/gemini-robotics-2-safety-report.md) — extends ASIMOV from judgment to **agentic orchestration**, and confirms this page's conclusion from the vendor side: the report explicitly excludes the functional-safety architecture and recommends frontier models be used "alongside deterministic, low-level safety guardrails."
+- [Gemini Robotics 2 blog](../../sources/gemini-robotics-2-blog.md) — announces ASIMOV-Agentic.

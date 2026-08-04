@@ -2,8 +2,8 @@
 title: AI guardrails
 type: concept
 created: 2026-07-13
-updated: 2026-07-13
-sources: 7
+updated: 2026-08-03
+sources: 8
 tags: [ai-safety, guardrails, agentic-ai, content-safety, topic-control, jailbreak, runtime-safety, nemo-guardrails]
 ---
 
@@ -92,6 +92,7 @@ These are not in conflict — but note that a guardrail layer is an **external**
 - [NeMo Guardrails — Library Overview](../../sources/nemo-guardrails-library-overview.md) — **primary source for the five-rail taxonomy and the guardrails library**.
 - [Safeguard Agentic AI Systems with the NVIDIA Safety Recipe](../../sources/nvidia-safety-recipe-agentic-ai.md)
 - [NVIDIA NemoClaw — Product Page](../../sources/nvidia-nemoclaw-page.md) — NVIDIA OpenShell as the "policy-based guardrails" runtime in the NemoClaw stack; the same idea packaged for a personal-AI-assistant framework.
+- [Gemini Robotics 2: Safety Evaluations](../../sources/gemini-robotics-2-safety-report.md) — a vendor safety report that **explicitly scopes out the enforcement layer** ("does not evaluate the underlying functional safety architecture") and concludes learned models need deterministic low-level guardrails beside them. Direct support for this page's thesis.
 
 ## Applied
 - [Guardrails for robot agents](../../syntheses/agents/guardrails-for-robot-agents.md) — what it takes to put this layer in front of the wiki's actual robots.

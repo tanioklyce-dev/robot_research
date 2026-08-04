@@ -4,28 +4,43 @@ type: entity
 subtype: model
 created: 2026-05-09
 updated: 2026-08-03
-sources: 7
+sources: 9
 tags: [gemini-robotics, google-deepmind, vlm, vla, embodied-reasoning, foundation-model]
 ---
 
 **Gemini Robotics** — [Google DeepMind](google-deepmind.md)'s family of robotics-targeted foundation models, built on the Gemini multimodal model line.
 
-> [!warning] The wiki is a generation behind (noted 2026-08-03)
-> The [DeepMind model page](../sources/deepmind-gemini-robotics-model-page.md) now lists a **"2" generation** — **Gemini Robotics 2**, **Gemini Robotics ER 2**, and a structurally new **Gemini Robotics On-Device 2** — released **2026-07-30** (date from press coverage; the page itself is undated). Everything below is grounded in **1.5** (plus ER 1.6 as a productization variant).
->
-> **Nothing on this page has been re-verified against GR 2**, and the model page carries no numbers, so the 1.5 figures below remain the wiki's only quantitative evidence. A **GR 2 blog post** and a **Gemini Robotics 2: Safety Technical Report** exist and are [backlogged](../backlog.md) — those are the ingests that would actually update this page.
+## Gemini Robotics 2 (current generation, released 2026-07-30)
 
-## The "2" generation (structure only, no numbers)
+Three models ([blog](../sources/gemini-robotics-2-blog.md), [safety report](../sources/gemini-robotics-2-safety-report.md)):
 
 | Model | Role | Access |
 |---|---|---|
-| **Gemini Robotics 2** | VLA — vision + language → motor control | Trusted testers (100+), waitlist |
-| **Gemini Robotics ER 2** | Embodied reasoning — plans, coordinates with humans and other robots | **Public preview in Google AI Studio** |
-| **Gemini Robotics On-Device 2** | Lightweight VLA "optimized to run locally on robotic hardware" | Trusted testers |
+| **Gemini Robotics 2** | VLA — vision + language to motor control; whole-body humanoid coordination | Early-access partners (application) |
+| **Gemini Robotics ER 2** | "The robot's high-level brain" — multi-step planning, self-correction, **inter-robot coordination** | **Google AI Studio**; private preview via Gemini Enterprise Agent Platform |
+| **Gemini Robotics On-Device 2** | Efficient VLA for local execution; adapts to new embodiments in a few hours, **typically <200 examples** | Early-access partners |
 
-Claimed: whole-body humanoid control ("feet to fingertips", per coverage), advanced dexterity (screwing in a light bulb, tying knots), multi-robot collaboration, and compatibility with **"any bi-arm robot in just a few hours"** — reportedly under ~200 examples, i.e. a *fine-tuning* claim, not zero-shot. Named partners: [Agile Robots](agile-robots.md), [Apptronik](apptronik-apollo.md), [Boston Dynamics](boston-dynamics.md).
+**Platforms:** [Apollo 2](apptronik-apollo.md) (with [SharpaWave](sharpa-wave.md) and Inspire hands), **Franka Duo** + Robotiq, **Dexmate**, **[SO101](so-arm101.md)**, **Trossen**.
 
-**On-Device 2 is the notable addition** — a first-party VLA built for local execution, which the [control-rate ladder](../syntheses/platforms/control-rate-ladder.md) has been short of data points for. No rate, hardware target, or footprint published yet.
+### Benchmarks
+
+- **Whole-body manipulation** (Apollo 2, Inspire hands): shelf **76.3%** / table **68.4%** / floor **45.7%**
+- **Multi-finger dexterity** (Apollo, SharpaWave 5-finger, 22-DoF): unscrew bulb **92%** / tie trash bag 44% / ziplock 40% / screw bulb **36%** / dustpan **32%**
+- **Gripper dexterity** (Franka Duo): precise insertion **89.6%** / tool kitting 78.9% / pick-and-place 74.2%
+
+> [!note] The dexterity ceiling lifted for grippers, not for fingers
+> GR 1.5's stated weakness was **"dexterity is approximately prior generation."** GR 2 resolves that unevenly: gripper tasks run 74–90%, but **four of five multi-finger tasks sit at 32–44%**. The cleanest evidence is **unscrew bulb 92% vs screw bulb 36%** — same object, same hand, a **2.5x gap** separating removal from threaded insertion. Alignment-under-constraint remains the wall.
+>
+> **No trial counts are published**, so per the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md) the 44/40/36/32 cluster is not internally separable; the 92-vs-36 gap survives almost any n. No baselines against GR 1.5 or external models either.
+
+### Safety — ASIMOV-Agentic
+The [safety report](../sources/gemini-robotics-2-safety-report.md) introduces **ASIMOV-Agentic** (on Hugging Face, CC-BY-4.0), benchmarking the *routing* decision: delegate to the VLA, query the human, or trigger a safety tool. Safety tool calling scores **100%** across ER 2 / Claude Opus 4.8 / GPT 5.5; VLA feasibility filtering rises **62.0% → 95.8%** as the agent is told more about the VLA's training distribution; real Apollo 2 safe-stopping hits **99%** human detection and **96%** safe-pose transition.
+
+> [!warning] But no model is a usable standalone human-proximity guard
+> FPR under 5% costs **FNR above 40%**; suppressing FNR to 10–15% causes unnecessary stops **15–25%** of the time. **No model reaches the ideal quadrant.** DeepMind's own conclusion is to use them "alongside **deterministic, low-level safety guardrails**," and the report explicitly does **not** evaluate the functional-safety architecture. See [semantic safety](../concepts/safety/semantic-safety.md).
+
+### Still unpublished
+**On-Device 2's deployment envelope** — parameter count, memory footprint, target hardware, control rate. Neither the blog nor the safety report gives it, so it still cannot be placed on the [control-rate ladder](../syntheses/platforms/control-rate-ladder.md).
 
 ---
 
@@ -79,6 +94,8 @@ Boston Dynamics' **AIVI-Learning** product is described as "the next evolution" 
 - [DeepMind Gemini Robotics model page](../sources/deepmind-gemini-robotics-model-page.md) — the **2** generation (GR 2 / ER 2 / On-Device 2), access tiers, and partner list. No numbers.
 - [Responsibly advancing AI and robotics](../sources/deepmind-gemini-robotics-safety-page.md) — the safety framework page. **Note it still describes GR 1.5**, not the 2 generation.
 - [Veo world simulator evaluation](../sources/veo-robotics-policy-evaluation-paper.md) — 8 Gemini Robotics checkpoints evaluated in a generative simulator against 1600+ real evaluations.
+- [Gemini Robotics 2 blog](../sources/gemini-robotics-2-blog.md) — the GR 2 announcement with the whole-body, multi-finger, and gripper benchmark tables.
+- [Gemini Robotics 2: Safety Evaluations](../sources/gemini-robotics-2-safety-report.md) — ASIMOV-Agentic and the ER 2 safety evaluations.
 
 ## Open questions / TBD
 

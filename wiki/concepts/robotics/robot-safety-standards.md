@@ -3,7 +3,7 @@ title: Robot safety standards (ISO 13482 and the machinery-safety framework)
 type: concept
 created: 2026-07-08
 updated: 2026-08-03
-sources: 11
+sources: 12
 tags: [iso-13482, iso-10218, ts-15066, safety-standards, certification, ce-marking, service-robots, personal-care-robots, assistive, regulation, functional-safety, nvidia-halos]
 ---
 
@@ -64,3 +64,4 @@ ISO 13482 remains the only game in town for non-industrial robot safety certific
 - [awesome-physical-ai (GitHub list)](../../sources/awesome-physical-ai-github.md) — the governance/standards gap that prompted this page.
 - [ASIMOV Benchmark paper](../../sources/asimov-benchmark-paper.md) — argues robotics safety was "predominantly about collision avoidance and hazard reduction," and that VLM-driven robots need a **[semantic safety](../safety/semantic-safety.md)** layer the standards tradition does not cover.
 - [Responsibly advancing AI and robotics](../../sources/deepmind-gemini-robotics-safety-page.md) — places the standards tradition as the *physical* layer of three.
+- [Gemini Robotics 2: Safety Evaluations](../../sources/gemini-robotics-2-safety-report.md) — the wiki's best single map of the applicable standards: **ISO 10218:2025** (absorbing ISO/TS 15066's SRMS / hand-guiding / SSM / PFL modes), **ISO 13482** plus the **forthcoming ISO 25785-1** for humanoid and dynamically stable robots, **ISO 13855** (separation distance), **ISO 13849-1** (stop-function integrity), **IEC 60204-1** (stop categories; Category 2 retains power to hold pose).

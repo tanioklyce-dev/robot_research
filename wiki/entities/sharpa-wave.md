@@ -3,8 +3,8 @@ title: Sharpa Wave hand
 type: entity
 subtype: hardware
 created: 2026-05-15
-updated: 2026-05-15
-sources: 1
+updated: 2026-08-03
+sources: 2
 tags: [dexterous-hand, end-effector, sharpa, manipulation, hardware]
 ---
 
@@ -25,6 +25,7 @@ tags: [dexterous-hand, end-effector, sharpa, manipulation, hardware]
 
 ## Mentioned in
 - [EgoScale Paper](../sources/egoscale-paper.md)
+- [Gemini Robotics 2 blog](../sources/gemini-robotics-2-blog.md) — the **five-fingered, 22-DoF SharpaWave hand** on [Apollo 2](apptronik-apollo.md) is what [Gemini Robotics 2](gemini-robotics.md)'s multi-finger dexterity numbers were measured on. Those numbers are candid: unscrew bulb 92% but **screw bulb 36%, dustpan 32%, ziplock 40%** — dexterous hands remain the bottleneck, not the policy.
 
 ## Open questions
 - Manufacturer details (Sharpa company location, product line, price, availability).

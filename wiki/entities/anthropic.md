@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-09
 updated: 2026-08-03
-sources: 11
+sources: 12
 tags: [company, ai-safety, llm, claude, alignment, frontier-red-team, uplift-study]
 ---
 
@@ -54,3 +54,4 @@ Anthropic leads the modern **sparse-autoencoder + feature-steering** approach to
 - [Welch Labs Illustrated Guide to AI, Vol I](../sources/welchlabs-illustrated-guide-to-ai.md)
 - [ASPIRE paper](../sources/aspire-paper.md) — **Claude Code with Claude Opus 4.6 (1M context) is the coding agent behind every ASPIRE simulation result**; the paper notes it has not verified weaker models can sustain the debugging loop.
 - [CaP-X paper](../sources/cap-x-paper.md) — Claude Haiku 4.5 and Opus 4.5 among the 12 benchmarked models; Opus 4.5 is one of three models in CaP-Agent0's parallel-reasoning ensemble.
+- [Gemini Robotics 2: Safety Evaluations](../sources/gemini-robotics-2-safety-report.md) — **Claude Opus 4.8** evaluated on ASIMOV-Agentic; scores 100% on safety tool calling alongside ER 2 and GPT 5.5.
