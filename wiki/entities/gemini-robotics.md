@@ -3,12 +3,33 @@ title: Gemini Robotics
 type: entity
 subtype: model
 created: 2026-05-09
-updated: 2026-07-04
-sources: 4
+updated: 2026-08-03
+sources: 5
 tags: [gemini-robotics, google-deepmind, vlm, vla, embodied-reasoning, foundation-model]
 ---
 
-**Gemini Robotics** — [Google DeepMind](google-deepmind.md)'s family of robotics-targeted foundation models, built on the Gemini multimodal model line. The family contains at least two distinct variants:
+**Gemini Robotics** — [Google DeepMind](google-deepmind.md)'s family of robotics-targeted foundation models, built on the Gemini multimodal model line.
+
+> [!warning] The wiki is a generation behind (noted 2026-08-03)
+> The [DeepMind model page](../sources/deepmind-gemini-robotics-model-page.md) now lists a **"2" generation** — **Gemini Robotics 2**, **Gemini Robotics ER 2**, and a structurally new **Gemini Robotics On-Device 2** — released **2026-07-30** (date from press coverage; the page itself is undated). Everything below is grounded in **1.5** (plus ER 1.6 as a productization variant).
+>
+> **Nothing on this page has been re-verified against GR 2**, and the model page carries no numbers, so the 1.5 figures below remain the wiki's only quantitative evidence. A **GR 2 blog post** and a **Gemini Robotics 2: Safety Technical Report** exist and are [backlogged](../backlog.md) — those are the ingests that would actually update this page.
+
+## The "2" generation (structure only, no numbers)
+
+| Model | Role | Access |
+|---|---|---|
+| **Gemini Robotics 2** | VLA — vision + language → motor control | Trusted testers (100+), waitlist |
+| **Gemini Robotics ER 2** | Embodied reasoning — plans, coordinates with humans and other robots | **Public preview in Google AI Studio** |
+| **Gemini Robotics On-Device 2** | Lightweight VLA "optimized to run locally on robotic hardware" | Trusted testers |
+
+Claimed: whole-body humanoid control ("feet to fingertips", per coverage), advanced dexterity (screwing in a light bulb, tying knots), multi-robot collaboration, and compatibility with **"any bi-arm robot in just a few hours"** — reportedly under ~200 examples, i.e. a *fine-tuning* claim, not zero-shot. Named partners: [Agile Robots](agile-robots.md), [Apptronik](apptronik-apollo.md), [Boston Dynamics](boston-dynamics.md).
+
+**On-Device 2 is the notable addition** — a first-party VLA built for local execution, which the [control-rate ladder](../syntheses/platforms/control-rate-ladder.md) has been short of data points for. No rate, hardware target, or footprint published yet.
+
+---
+
+The 1.5-generation family contains two distinct variants:
 
 - **Gemini Robotics** — full vision-language-**action** model (VLA); emits low-level robot actions directly. Listed alongside [NVIDIA GR00T](nvidia-groot.md) and [Physical Intelligence π0/π0.6](physical-intelligence.md) on the [VLA models concept page](../concepts/learning/vla-models.md).
 - **Gemini Robotics-ER** ("ER" = embodied reasoning) — vision-language model (VLM) that provides high-level reasoning over visual input and emits *tool calls*, not motor actions. Designed to be plugged into a robot's existing API (i.e. acts as the planner in an [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md), not as the policy). Versions 1.5 and 1.6 referenced below.
@@ -55,6 +76,7 @@ Boston Dynamics' **AIVI-Learning** product is described as "the next evolution" 
 
 - [Gemini Robotics 1.5 tech report](../sources/gemini-robotics-1-5-report.md) — **primary technical source** (GR 1.5 VLA + GR-ER 1.5).
 - [Tools for Your To Do List with Spot and Gemini Robotics (Boston Dynamics blog)](../sources/bostondynamics-spot-gemini-robotics.md)
+- [DeepMind Gemini Robotics model page](../sources/deepmind-gemini-robotics-model-page.md) — the **2** generation (GR 2 / ER 2 / On-Device 2), access tiers, and partner list. No numbers.
 
 ## Open questions / TBD
 

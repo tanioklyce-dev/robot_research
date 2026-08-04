@@ -3,8 +3,8 @@ title: Google DeepMind
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-07-13
-sources: 13
+updated: 2026-08-03
+sources: 14
 tags: [google-deepmind, mujoco, newton, mjcphysics, openusd, robotics-research, biomechanics, dmpo, acme, gemini-robotics, genie, world-model]
 ---
 
@@ -37,3 +37,4 @@ Google's AI research lab. Maintains MuJoCo and [MuJoCo Playground](mujoco-playgr
 - [flybody GitHub](../sources/flybody-github.md)
 - [Tools for Your To Do List with Spot and Gemini Robotics (Boston Dynamics blog)](../sources/bostondynamics-spot-gemini-robotics.md)
 - [The Waymo World Model blog](../sources/waymo-world-model.md) — Waymo built its driving world model on DeepMind's Genie 3
+- [DeepMind Gemini Robotics model page](../sources/deepmind-gemini-robotics-model-page.md) — the current Gemini Robotics family page; three models, three access tiers, ER 2 in public preview via AI Studio.

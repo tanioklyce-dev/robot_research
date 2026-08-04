@@ -3,8 +3,8 @@ title: Boston Dynamics
 type: entity
 subtype: company
 created: 2026-05-09
-updated: 2026-05-09
-sources: 6
+updated: 2026-08-03
+sources: 7
 tags: [boston-dynamics, robotics-company, spot, atlas, orbit, hyundai]
 ---
 
@@ -41,6 +41,7 @@ Historically Boston Dynamics built classical model-based control (whole-body MPC
 ## Mentioned in
 
 - [Tools for Your To Do List with Spot and Gemini Robotics (Boston Dynamics blog)](../sources/bostondynamics-spot-gemini-robotics.md)
+- [DeepMind Gemini Robotics model page](../sources/deepmind-gemini-robotics-model-page.md) — named partner for the Gemini Robotics 2 generation, extending the [Spot × ER 1.5/1.6](../sources/bostondynamics-spot-gemini-robotics.md) line.
 
 ## Open questions / TBD
 

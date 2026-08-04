@@ -2,8 +2,8 @@
 title: Agile Robots
 type: entity
 created: 2026-07-16
-updated: 2026-07-16
-sources: 1
+updated: 2026-08-03
+sources: 2
 tags: [company, humanoid, industrial-robotics, physical-ai, europe, germany, dlr, cobots]
 ---
 
@@ -35,6 +35,7 @@ Agile Robots' distinguishing bet is **integration over standalone humanoid**: wh
 ## Mentioned in
 
 - [Agile Robots launches Agile ONE](../sources/agile-robots-agile-one-launch.md) (2025-11-19)
+- [DeepMind Gemini Robotics model page](../sources/deepmind-gemini-robotics-model-page.md) — named as a Gemini Robotics 2 partner alongside [Apptronik](apptronik-apollo.md) and [Boston Dynamics](boston-dynamics.md).
 
 ## Related
 
