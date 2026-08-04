@@ -51,9 +51,12 @@ This page lines them up. The short version: **the full span is about five orders
 | **8.9** | MEAS | [OpenVLA-OFT](../../entities/openvla-oft.md), 112.2 ms — same re-measurement | RTX 4090 |
 | **7.3** | MEAS | [Evo-1](../../entities/evo-1.md) 0.8 B, 137.2 ms — small but **not** fast | RTX 4090 |
 | **5.8** | MEAS | GR00T N1.6, TensorRT | AGX Orin 64 GB |
+| **5** | MEAS | [RT-2](../../entities/rt-2.md) 5B variant | TPU cloud |
 | **5** | CAP | BridgeV2 capture rate | dataset |
 | **4.9** | MEAS | [SmolVLA](../../entities/smolvla.md), 203.1 ms — same re-measurement | RTX 4090 |
 | **4** | MEAS | [VLA-0](../../entities/vla-0.md) — action-as-text is slow | GPU |
+| **3** | MEAS | **[RT-1](../../entities/rt-1.md)** — 35M, FiLM-EfficientNet + TokenLearner; the rate was a *design constraint* | onboard |
+| **1–3** | MEAS | **[RT-2](../../entities/rt-2.md)-PaLI-X 55B** — *"infeasible on standard desktop machines"*; **served from a multi-TPU cloud over the network** | TPU cloud |
 | **1.8** | MEAS | [Diffusion Policy](../../entities/diffusion-policy.md), 540 ms | Orin Nano |
 | **1.4** | MEAS | [SmolVLA](../../entities/smolvla.md)-450M, 714 ms | Orin Nano |
 | **1.3** | MEAS | [FAST](../../entities/fast-action-tokenization.md) autoregressive decode, ~750 ms/1 s chunk | RTX 4090 |

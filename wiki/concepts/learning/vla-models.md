@@ -3,7 +3,7 @@ title: VLA models
 type: concept
 created: 2026-05-06
 updated: 2026-08-04
-sources: 77
+sources: 80
 tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos, vla-0, action-as-text, molmoact2, per-layer-kv-conditioning, hybrid-action-head, llm-free-vla, turbovla]
 ---
 
@@ -46,6 +46,9 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 
 | VLA | Backbone | Action head | Notes |
 | --- | --- | --- | --- |
+| **[RT-1](../../entities/rt-1.md)** | FiLM-EfficientNet-B3 + TokenLearner | discrete action tokens | [Source](../../sources/rt-1-paper.md). **The ancestor.** 35M params at **3 Hz**; 130k demos / 700+ tasks / 13 robots / 17 months. Seen 97, unseen 76. Kuka cross-embodiment data lifts new tasks 22→39. |
+| **[RT-2](../../entities/rt-2.md)** | [PaLI-X](../../entities/pali-x.md) 55B / PaLM-E 12B | **action-as-text** (256 bins → existing text tokens) | [Source](../../sources/rt-2-paper.md). **The paper that coined "VLA."** Co-fine-tuning on web + robot data; seen-task performance flat vs RT-1 but **unseen 62 vs 32 (~2×)**; emergent symbol/reasoning/human-recognition (3×) and embodied CoT. **1–3 Hz served from a TPU cloud.** |
+| **[RT-H](../../entities/rt-h.md)** | PaLI-X 55B | discrete action tokens, **via a language-motion layer** | [Source](../../sources/rt-h-paper.md). Predicts *"move arm forward"* then the action. +15 pp over RT-2 (p=0.043); language corrections 40→63%. Its **OneHot ablation** is key evidence that the *words* matter, not just the partition. |
 | **[OpenVLA](../../entities/openvla.md)** | Llama-2 (7B) | autoregressive action tokens | Open-weights baseline; cited by π0, SmolVLA, JEPA-WMs, EgoScale. |
 | **[OpenVLA-OFT](../../entities/openvla-oft.md)** | OpenVLA (Llama-2 7B) | **parallel decoding + action chunking + continuous L1 head** (+FiLM = OFT+) | [Source](../../sources/openvla-oft-paper.md). "Optimized Fine-Tuning" recipe; lifts OpenVLA's LIBERO 76.5 → **97.1** at **26× throughput** — a **+20.6 pp recipe effect**, which is the robust number here (its rank among the 96.5–98.1 cluster is [not separable](../../syntheses/platforms/vla-success-rate-audit.md)). The custom-architecture-family exemplar. |
 | **[π0-FAST](../../entities/fast-action-tokenization.md)** | [π0](../../entities/pi-zero.md) (PaliGemma) | **[FAST](../../entities/fast-action-tokenization.md)** DCT discrete tokens | Efficient discrete-token tokenization (Pertsch et al.). Also the token scheme [KI](knowledge-insulation.md) uses to supervise the VLM inside π0.7 / π*0.6. LIBERO 86.0. |
@@ -84,6 +87,7 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 
 ## Related
 - [LLM-free VLA (V+L→A)](llm-free-vla.md) — the orthogonal axis: whether an LLM is in the control loop at all.
+- [Latent action tokens](latent-action-tokens.md) — predicting codebook indices instead of raw actions; the cross-embodiment interface.
 - [Action representation languages](../../syntheses/agents/action-representation-languages.md) — the action-head families are the machine-readable end of a spectrum that runs up through code, language motions, and free-form English.
 - [Large behavior models](large-behavior-models.md) — the TRI-coined superclass (VLA = uptrained-VLM subtype).
 - [Per-layer KV conditioning](per-layer-kv-conditioning.md) — MolmoAct2's VLM→expert interface.
@@ -111,4 +115,8 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 - [Cutting the Cord (Shaw et al., 2026)](../../sources/cutting-the-cord-untethered-xlerobot.md) — on-edge ACT/Diffusion/SmolVLA latency on Jetson Orin Nano
 - [MolmoAct2 Paper (Fang, Duan et al. 2026)](../../sources/molmoact2-paper.md) — hybrid discrete+continuous head; per-layer KV conditioning; top LIBERO scores
 - [Introducing Waddle (Waddle Labs, 2026)](../../sources/waddle-labs-introducing-waddle.md) — positions against end-to-end VLAs but calls them as tools under a code-writing agent
+- [RT-1 paper](../../sources/rt-1-paper.md) — the 35M/3 Hz ancestor; scale + an architecture that absorbs it
+- [RT-2 paper](../../sources/rt-2-paper.md) — **the paper that named the category**; co-fine-tuning, emergent semantics, 1–3 Hz over a network
+- [RT-2 DeepMind blog](../../sources/rt-2-deepmind-blog.md) — the announcement; its 3× generalization headline contradicts the paper's ~2×
+- [UniT paper](../../sources/unit-paper.md) — latent action tokens as a cross-embodiment interface; +18.9 pp from the objective alone
 - [TurboVLA paper (Xie, Yao et al., 2026)](../../sources/turbovla-paper.md) — the LLM-free V+L→A paradigm; 97.7 LIBERO at 0.2 B / 0.9 GB / 32 Hz
