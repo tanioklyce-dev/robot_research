@@ -2,7 +2,7 @@
 title: "Onboard compute for XLeRobot — Jetson Orin Nano vs Orin NX vs AGX Orin vs AGX Thor"
 type: synthesis
 created: 2026-06-03
-updated: 2026-07-26
+updated: 2026-08-03
 tags: [xlerobot, jetson, jetson-orin-nano, orin-nx, agx-orin, jetson-thor, onboard-compute, edge-ai, power-budget, vla, buying-decision, platforms]
 ---
 
