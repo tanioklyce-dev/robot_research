@@ -2,11 +2,14 @@
 title: Curriculum Module 9 — Vision-Language-Action models
 type: synthesis
 created: 2026-05-10
-updated: 2026-05-10
+updated: 2026-08-03
 tags: [curriculum, module-9, vla, vision-language-action, vlm, llm, generalist-policy, gr00t, pi-zero, helix, openvla, vla-jepa]
 prereqs: [curriculum-03, curriculum-07]
 status: draft
 ---
+
+> [!warning] Staleness flag (2026-08-03) — read this module's benchmark claims against the audit
+> Drafted May 2026, before the wiki's evaluation-methodology thread. Three things this module could not know: (1) the **top of the LIBERO table is a statistical tie** — rankings inside the 94–98 band are not supported by the sample sizes ([success-rate audit](../platforms/vla-success-rate-audit.md)); (2) **standard LIBERO may measure memorization** — >90% models collapse to 0.0% under perturbation ([LIBERO-PRO](../../sources/libero-pro-paper.md)); (3) the model landscape moved — [MolmoAct2](../../entities/molmoact2.md) (open-everything, LeRobot-native), the [Gemini Robotics 2 generation](../../entities/gemini-robotics.md), and the [π0.5 primary](../../sources/pi-zero-5-paper.md) are all post-draft. The architectural content (VLA = VLM + action head; AR tokens vs flow matching vs DDPM; System 1/System 2) remains sound.
 
 > [!note] Curriculum context
 > This is **Module 9** of the [Robot-learning curriculum](robot-learning-curriculum.md). It builds on **[Module 3](robot-learning-curriculum.md)** (transformers + ViT) and **[Module 7](curriculum-07-bc-lineage-pusht.md)** (BC lineage on PushT — VLAs are BC's scaling-up). It sits alongside **[Module 10](curriculum-10-world-models.md)** as the *other* dominant paradigm for 2024–2026 generalist robot policies.

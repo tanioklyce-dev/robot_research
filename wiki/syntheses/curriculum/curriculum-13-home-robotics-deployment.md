@@ -2,11 +2,14 @@
 title: Curriculum Module 13 — Home robotics deployment reality
 type: synthesis
 created: 2026-05-10
-updated: 2026-05-10
+updated: 2026-08-03
 tags: [curriculum, module-13, home-robotics, deployment, stretch, par, eup, assistive-robotics, behavior-1k, rum, ok-robot, lewm-on-stretch]
 prereqs: [curriculum-06, curriculum-09]
 status: draft
 ---
+
+> [!warning] Staleness flag (2026-08-03) — the deployment picture has moved since May
+> Post-draft developments that belong in this module's story: the [VLA deployability landscape](../platforms/vla-deployability-landscape.md) (the four axes), the [control-rate ladder](../platforms/control-rate-ladder.md) (what actually runs at what Hz on edge hardware), the finding that **5B-class 2026 VLAs do not fit an Orin NX 16 GB** ([XLeRobot compute](../platforms/jetson-onboard-compute-xlerobot.md)), two frontier labs targeting the [SO-100/101 arm class](../../entities/so-arm101.md) ([MolmoAct2 checkpoint](../../sources/molmoact2-so100-101-model-card.md), [GR 2 platform list](../../sources/gemini-robotics-2-blog.md)), and the [semantic-safety](../../concepts/safety/semantic-safety.md) layer — measured, not yet enforced. The Stretch/RUM/OK-Robot core of this module remains the right foundation.
 
 > [!note] Curriculum context
 > This is **Module 13** of the [Robot-learning curriculum](robot-learning-curriculum.md). It can be read after [Module 6](curriculum-06-imitation-learning.md) (BC) and [Module 9](curriculum-09-vla.md) (VLA), but lands harder if you've also done Tier 4 ([Modules 10](curriculum-10-world-models.md) → [11](curriculum-11-jepa-deep.md) → [12](curriculum-12-lewm-deep-dive.md)).

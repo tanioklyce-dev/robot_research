@@ -2,10 +2,13 @@
 title: Robot-learning curriculum — from neurons to LeWorldModel
 type: synthesis
 created: 2026-05-10
-updated: 2026-05-25
+updated: 2026-08-03
 tags: [curriculum, course, learning-path, jepa, diffusion-policy, vla, world-model, lewm, home-robotics, lerobot-tutorial]
-status: "complete — all 14 modules drafted 2026-05-10. Reader-traversable bottom-up. Module bodies may be deepened or revised on signal."
+status: "complete as of 2026-05 — all 14 modules drafted 2026-05-10; as-of note added 2026-08-03. Modules 9 and 13 carry staleness flags."
 ---
+
+> [!warning] As-of note (added 2026-08-03) — this curriculum reflects the May-2026 state of the field
+> The pedagogy (Tiers 1–2, the PushT thread, the JEPA/LeWM arc) ages well. The **survey content does not**: since drafting, the wiki ingested the [success-rate audit](../platforms/vla-success-rate-audit.md) (the top of the LIBERO table is a statistical tie), the [LIBERO-PRO critique](../../sources/libero-pro-paper.md) (>90% scores collapsing to 0.0% under perturbation — the benchmark may measure memorization), [MolmoAct2](../../entities/molmoact2.md), the [Gemini Robotics 2 generation](../../entities/gemini-robotics.md), and the full [code-as-policy lineage](../../concepts/agents/code-as-policy.md). **Modules 9 (VLA) and 13 (deployment) carry specific flags**; read benchmark numbers in any module against the audit before repeating them. Decision logged 2026-08-03: stamp rather than rewrite; a module-9/13 refresh is a separate session if wanted.
 
 A bottom-up curriculum for building the mental model needed to read the [LeWorldModel paper](../../sources/leworldmodel-paper.md) and reason about home-robotics policy-learning techniques (behavior cloning, diffusion policy, JEPA, VLA, world models).
 

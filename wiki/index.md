@@ -6,76 +6,67 @@
 
 ## Highlights
 
-Curated entry points across the wiki.
+Curated entry points across the wiki. Rebuilt **2026-08-03** — previous version reflected the May–June wiki; see [log](log.md).
+
+**Evaluation methodology — how to read every number in this wiki**
+- [Success-rate audit](syntheses/platforms/vla-success-rate-audit.md) — which policy comparisons survive their sample sizes. The top of the LIBERO table is a statistical tie; ±2 pp needs ~1,030–2,450 rollouts; **record N (and now compute) at ingest**.
+- [LIBERO-PRO paper](sources/libero-pro-paper.md) — models scoring >90% on standard LIBERO **collapse to 0.0%** under perturbation; the benchmark may measure memorization. Every LIBERO number here is provisional against this.
+- [Robot policy evaluation](concepts/robotics/robot-policy-evaluation.md) — the four paradigms: rollout counts ([RoboLab](sources/nvidia-robolab-evaluation-blog.md)), pairwise preference ([RoboArena](entities/roboarena.md)), generative simulation ([Veo](entities/veo.md)), predictive red-teaming ([RoboART](entities/roboart.md)).
+- [Control-rate ladder](syntheses/platforms/control-rate-ladder.md) — every Hz in the wiki on one axis, 0.2 Hz LLMs to 1 kHz servo loops; the gaps are bridged architecturally, not by faster inference.
+
+**Code as policy — the wiki's most complete lineage (9 papers, 2022–2026)**
+- [Code as policy](concepts/agents/code-as-policy.md) — the concept: the model *writes the program* that runs the robot. Fully ingested lineage from [SayCan](entities/saycan.md)/[Code as Policies](sources/code-as-policies-paper.md) through [Voyager](entities/voyager.md) to [CaP-X](entities/cap-x.md)/[ASPIRE](entities/aspire.md). Constant finding since 2022: **code agents degrade gracefully where trained policies fall off a cliff — and lose to them in-distribution.**
+- [CaP-X paper](sources/cap-x-paper.md) — the measurement apparatus; prior CaP results were substantially carried by human-designed API macros.
+- [ASPIRE paper](sources/aspire-paper.md) — per-primitive execution traces drive 14%→62%; the first measured evidence that an agent-authored skill library **compounds**.
+- [Introducing Waddle](sources/waddle-labs-introducing-waddle.md) — the deployed commercial bet, checked claim-by-claim against the research on [Waddle Labs](entities/waddle-labs.md).
+
+**Robot safety — semantic, agentic, and formal**
+- [Semantic safety](concepts/safety/semantic-safety.md) — the layer that is about *meaning, not force*; currently **measured, sometimes predicted, not enforced** — a conclusion the [GR 2 safety report](sources/gemini-robotics-2-safety-report.md) now states in the vendor's own words.
+- [ASIMOV Benchmark](entities/asimov-benchmark.md) — v1 (judgment, grounded in [NEISS](entities/neiss.md) hospital injury data) → 2.0 → **ASIMOV-Agentic** (orchestration: delegate, ask, or stop).
+- [Gemini Robotics 2: Safety Evaluations](sources/gemini-robotics-2-safety-report.md) — agents consume safety signals at 100% and produce them badly (human-proximity FNR >40% at low FPR); the wiki's best ISO standards map.
+- [Safely Learning Dynamical Systems](sources/safely-learning-dynamical-systems-paper.md) — the formal counterweight: safe exploration with certificates, including provable impossibility. Does not yet meet the empirical wing.
+- [Guardrails for robot agents](syntheses/agents/guardrails-for-robot-agents.md) — the runtime side of the same gap: the execution rail ships empty.
+
+**VLA landscape — models and deployment**
+- [VLA models](concepts/learning/vla-models.md) — the paradigm page (76 sources).
+- [VLA deployability landscape](syntheses/platforms/vla-deployability-landscape.md) — the four axes that decide whether a VLA runs on your robot.
+- [MolmoAct2](entities/molmoact2.md) — Ai2's open-everything action-reasoning VLA; ships as a [LeRobot](entities/lerobot.md) application with an [SO-100/101 checkpoint](sources/molmoact2-so100-101-model-card.md); no Jetson support.
+- [Gemini Robotics](entities/gemini-robotics.md) — the GR 2 generation: whole-body humanoid control; dexterity lifted **for grippers, not fingers** (unscrew bulb 92% vs screw bulb 36%); [SO101](entities/so-arm101.md) a listed platform.
+- [π0.5](entities/pi-zero-5.md) — the standing 2026 baseline; its co-training recipe bought **scene generalization but not instruction generalization**. Primary [ingested 2026-08-03](sources/pi-zero-5-paper.md).
+- [Physical Intelligence](entities/physical-intelligence.md) — the π series, founded by the [SayCan](entities/saycan.md)/[Code as Policies](sources/code-as-policies-paper.md) cohort — the wiki's two rival architectures share their people.
+
+**Platforms & buying decisions**
+- [Robot platforms comparison](syntheses/platforms/robot-platforms-comparison.md) — the cross-platform decision page.
+- [Onboard compute for XLeRobot](syntheses/platforms/jetson-onboard-compute-xlerobot.md) — Orin Nano vs NX vs AGX vs Thor under a 288 Wh battery; **5B-class 2026 VLAs do not fit an Orin NX 16 GB**.
+- [Jetson module ladder](syntheses/platforms/jetson-module-ladder-power-performance.md) — all 8 shipping SKUs, TOPS/W.
+- [Household robot decision — Stretch vs G1](syntheses/platforms/household-robot-decision-stretch-vs-g1.md) — the standing buy-decision analysis.
 
 **Curriculum / learning path**
-- [Robot-learning curriculum — from neurons to LeWorldModel](syntheses/curriculum/robot-learning-curriculum.md) — 14-module bottom-up syllabus, **all modules drafted**; PushT as the connecting thread; ends with a Stretch-platform capstone.
-- [Curriculum Module 1 — Neural networks and training](syntheses/curriculum/curriculum-01-neural-networks.md) — Tier 1. Neurons, MLP, forward pass + backprop, MSE/CE, SGD/Adam, regularization, BN/LN, residuals, depth. Brisk-but-rigorous refresher.
-- [Curriculum Module 2 — CNNs and visual representation learning](syntheses/curriculum/curriculum-02-cnns.md) — Tier 1. Convolution, pooling, receptive field, ResNet skip connections, ImageNet pretraining + fine-tuning, "visual encoder" abstraction. ResNet-18 as the BC-line default.
-- [Curriculum Module 3 — Sequence models, attention, and transformers](syntheses/curriculum/curriculum-03-attention-and-transformers.md) — Tier 1. Attention, self-attention, multi-head, transformer blocks, positional encoding, causal masking, ViT (patches + [CLS]). Encoder-only / decoder-only / encoder-decoder.
-- [Curriculum Module 4 — Self-supervised learning and embeddings](syntheses/curriculum/curriculum-04-self-supervised-learning.md) — Tier 1. SSL taxonomy (contrastive vs predictive); representation collapse as first-order failure mode; five anti-collapse families (EMA + stop-grad, VICReg, frozen encoder, multi-fix soup, SIGReg). Sets up Module 11.
-- [Curriculum Module 5 — Generative modeling fundamentals (DDPM, full math)](syntheses/curriculum/curriculum-05-generative-models.md) — Tier 2. Full ELBO → `L_simple` derivation; KL bounds; ε-parameterization; noise schedules; DDIM sampling; classifier-free guidance derivation; bridges to Diffusion Policy, π0 flow matching, and generative-video WMs.
-- [Curriculum Module 6 — Imitation learning and behavior cloning](syntheses/curriculum/curriculum-06-imitation-learning.md) — IL/BC frame, multi-modality + distribution-shift failure modes, PushT setup; anchor exercise = train vanilla MSE-MLP BC and watch it fail.
-- [Curriculum Module 7 — BC lineage on PushT (IBC → BeT → DP)](syntheses/curriculum/curriculum-07-bc-lineage-pusht.md) — direct successor to Module 6; the policy-learning side of the LeWM ablation table.
-- [Curriculum Module 8 — Reinforcement learning vocabulary](syntheses/curriculum/curriculum-08-rl-vocabulary.md) — light, vocabulary-only RL coverage (MDP, return, value, policy, REINFORCE → PPO, DQN, MFRL vs MBRL, Dreamer-class latent imagination). Just enough to read the LeWM baseline columns.
-- [Curriculum Module 9 — Vision-Language-Action models](syntheses/curriculum/curriculum-09-vla.md) — VLA = VLM + action head; major instances (GR00T, π0, Helix, Gemini Robotics, OpenVLA); action-head design (AR tokens / flow matching / DDPM); System 1 / System 2 pattern; VLA-JEPA cross-over.
-- [Curriculum Module 10 — World models, broad](syntheses/curriculum/curriculum-10-world-models.md) — four-family WM taxonomy (generative-video / JEPA / frozen-feature / MBRL); MPC + CEM + gradient-based planning; horizon vs compounding error; bridge to LeWM.
-- [Curriculum Module 11 — JEPA in depth](syntheses/curriculum/curriculum-11-jepa-deep.md) — joint-embedding architectural commitment; V-JEPA 1→2→2-AC→2.1 progression; the six-family collapse-prevention zoo (EMA/stop-grad, VICReg, frozen encoder, multi-fix soup, SIGReg); DINO-WM vs end-to-end JEPA; JEPA-WMs real-Franka.
-- [Curriculum Module 12 — LeWorldModel deep-dive (with full SIGReg math)](syntheses/curriculum/curriculum-12-lewm-deep-dive.md) — **the curriculum's destination**. LeWM section by section; full SIGReg derivation (Cramér–Wold + Epps–Pulley + backprop through the test statistic); two-loss architecture; CEM-MPC planning; four-environment results; latent probing + violation-of-expectation; the BN-after-CLS engineering trick.
-- [Curriculum Module 13 — Home robotics deployment reality](syntheses/curriculum/curriculum-13-home-robotics-deployment.md) — the deployment-reality module. 89.4% / 12.4% RLBench-vs-BEHAVIOR-1K gap; Stretch as de-facto platform; RUM + OK-Robot as the strongest current home-robotics results; PAR + EUP + autonomy-preference framing; underserved domains; where LeWM-class fits and doesn't.
-- [Curriculum Module 14 — Capstone (paper-first, hardware-second)](syntheses/curriculum/curriculum-14-capstone.md) — the capstone. Phase A (paper/sim, required): reproduce LeWM PushT + 5–10 page experiment-design memo. Phase B (Stretch hardware, gated): execute the memo with a Diffusion Policy baseline.
-- [Glossary](glossary.md) — flat acronym + term reference (BC, VLM, CNN, SSL, MPC, MSE, LSTM, SIGReg, …); cross-linked from every curriculum module.
+- [Robot-learning curriculum](syntheses/curriculum/robot-learning-curriculum.md) — 14-module bottom-up syllabus, neurons → [LeWorldModel](entities/leworldmodel.md); PushT as the connecting thread; Stretch capstone. **Drafted May 2026 — see the as-of note on the hub**: Modules 9 (VLA) and 13 (deployment) predate the evaluation-methodology thread above and are flagged accordingly.
+- [Module 12 — LeWM deep-dive](syntheses/curriculum/curriculum-12-lewm-deep-dive.md) — the destination: full SIGReg math, CEM-MPC planning.
+- [Glossary](glossary.md) — 128 flat term entries (BC, VLM, SSL, MPC, SIGReg, …), cross-linked from every module.
 
-**AI Safety and Alignment**
-- [Claude's Constitution](sources/claudes-constitution.md) — Anthropic's primary specification for Claude's values, corrigibility model, principal hierarchy, and hard constraints.
-- [AI safety and alignment](concepts/safety/ai-safety-alignment.md) — concept overview; connects to agentic robot deployments.
-- [Corrigibility](concepts/safety/corrigibility.md) — the corrigibility dial, asymmetric cost argument, galaxy-brained reasoning risk.
-- [Apollo Research](entities/apollo-research.md) — independent safety evaluation institute; red-teamed Claude Opus 4.
+**JEPA / world models**
+- [JEPA](concepts/world-models/jepa.md) — the concept page (33 sources); the wiki's deepest theory thread.
+- [LeWorldModel paper](sources/leworldmodel-paper.md) + [train-and-run howto](syntheses/world-models/leworldmodel-howto.md) — the curriculum's destination, runnable.
+- [Generative video vs JEPA world models](syntheses/world-models/generative-video-vs-jepa-world-models.md) — the paradigmatic contrast.
+- [JEPA project ladder for ROSOrin Pro](syntheses/projects/jepa-project-ladder-rosorin-pro.md) — six-rung hands-on path, with [LeWM-on-ROSOrin feasibility](syntheses/projects/lewm-on-rosorin-pro-feasibility.md).
 
-**Assistive Robotics**
-- [Assistive robotics](concepts/robotics/assistive-robotics.md) — concept overview; sim-to-real gap quantified (89.4% RLBench vs 12.4% BEHAVIOR-1K household tasks).
-- [Robot safety standards (ISO 13482)](concepts/robotics/robot-safety-standards.md) — the machinery-safety framework for robots near untrained people: ISO 13482 (2014 personal-care → 2025 "service robots" retitle, FDIS), 10218-1/-2:2025 (+15066 merged), EU Machinery Regulation 2023/1230 (applies 2027-01); certification precedents (CYBERDYNE HAL 2013, Panasonic Resyone/HOSPI, Yujin GoCart); flags the deterministic-safety-functions vs learned-policy collision; gaps documented by the [Fosch-Villaronga critique](sources/fosch-villaronga-iso13482-exoskeletons.md). (12 sources)
-- [Accessible robot communication](concepts/robotics/accessible-robot-communication.md) — output-interface side of HRI for non-visual users; mixed-initiative narration preferred by blind users.
-- [Assistive robotics — R&D landscape](syntheses/assistive/assistive-robotics-research-landscape.md) — seven blocking problems, timeline, active researchers, independent-researcher paths, JEPA fit.
-- [Levels of autonomy in assistive robotics](syntheses/assistive/levels-of-autonomy-in-assistive-robotics.md) — three orthogonal autonomy axes; EUP preserves agency; variable-LoC design pattern.
-- [Long-term in-home robot deployments](syntheses/assistive/long-term-in-home-robot-deployments.md) — what the longitudinal record actually shows (Henry Evans summers + Nanavati 2025 + RUM/OK-Robot breadth).
-- [Stretch as the de-facto assistive-robotics platform](syntheses/assistive/stretch-as-assistive-platform.md) — why every wiki-relevant in-home deployment converged on Stretch.
-- [Underserved PAR domains — dressing, bathing, medication](syntheses/assistive/underserved-par-domains.md) — what blocks each, realistic researcher targets.
-- [OK-Robot](entities/ok-robot.md) — zero-shot pick-and-drop in 10 homes; 58.5% success; state-of-the-art household manipulation.
-- [Robot Utility Models](entities/robot-utility-models.md) — NYU/Meta zero-shot BC; data diversity > data quantity insight.
-- [Stanford HAI — AI Index Report 2026](sources/stanford-hai-ai-index-2026.md) — 89.4% vs 12.4% gap; humanoid landscape; Physical AI assessment.
-- [DRAGON (Liu et al. 2024)](sources/dragon-assistive-nav-2024.md) — TurtleBot guide robot for visually impaired users; CLIP-grounded landmark recognition + dialogue.
-- [Designing Accessible Robot Communication for Blind People (Huh et al. 2026)](sources/huh2026-accessible-robot-comm.md) — 6 DGs; mixed-initiative narration; observational + controlled study (10+20+20).
+**AI safety and alignment (general)**
+- [AI safety and alignment](concepts/safety/ai-safety-alignment.md) — the parent concept; [Claude's Constitution](sources/claudes-constitution.md), [corrigibility](concepts/safety/corrigibility.md), [Apollo Research](entities/apollo-research.md).
+- [Control abstraction levels](concepts/robotics/control-abstraction-levels.md) — **access level is part of the system**; models are good at writing robot software and bad at being robot software.
+
+**Assistive robotics**
+- [Assistive robotics — R&D landscape](syntheses/assistive/assistive-robotics-research-landscape.md) — seven blocking problems, active researchers, independent-researcher paths.
+- [Levels of autonomy](syntheses/assistive/levels-of-autonomy-in-assistive-robotics.md) · [Long-term in-home deployments](syntheses/assistive/long-term-in-home-robot-deployments.md) · [Underserved PAR domains](syntheses/assistive/underserved-par-domains.md)
+- [Stretch as the de-facto assistive platform](syntheses/assistive/stretch-as-assistive-platform.md) — with [OK-Robot](entities/ok-robot.md) and [Robot Utility Models](entities/robot-utility-models.md) as the strongest current home results.
+- [Robot safety standards](concepts/robotics/robot-safety-standards.md) — ISO 13482 / 10218:2025 / forthcoming 25785-1; the deterministic-safety vs learned-policy collision.
 
 **FRC (FIRST Robotics Competition)**
-- [FRC 2026 Game Manual — REBUILT](sources/frc-2026-game-manual.md) — deep ingest of the 166-page 2026 REBUILT game manual.
-- [FIRST Robotics Competition](entities/first-robotics-competition.md) — competition overview, robot constraints, technical infrastructure.
-- [FRC KitBot](entities/frc-kitbot.md) — the beginner-friendly KitBot platform.
-- [FRC simulation & AI landscape](syntheses/simulators/frc-simulation-and-ai-landscape.md) — what simulation & AI tools FRC teams use (trajectory planners, physics sims, ML frontier).
-- [Team 4414 (HighTide)](entities/team-4414-hightide.md) — Ventura CA; **2026 REBUILT World Champions** (70–2–0, robot RIPCURRENT); AI-first dev workflow + precomputed shot calculator; the championship-validated instance of the [Team 254 AI-in-FRC](sources/team-254-ai-in-frc-presentation.md) playbook.
-
-**JEPA / LeWorldModel**
-- [Joint-Embedding Predictive Architecture](concepts/world-models/jepa.md) — JEPA concept page.
-- [Learned latent space](concepts/world-models/latent-space.md) — the substrate JEPAs predict in.
-- [LeWorldModel Paper](sources/leworldmodel-paper.md) — LeWM paper ingest.
-- [LeWorldModel — train and run howto](syntheses/world-models/leworldmodel-howto.md) — how to install, train, and evaluate LeWM on a single GPU.
-- [LeWM hello world — Project 1 detailed scope](syntheses/projects/lewm-hello-world-project-scope.md) — reproduce LeWM PushT from scratch.
-- [JEPA task capabilities](syntheses/world-models/jepa-task-capabilities.md) — what JEPA models can do, mapped per-paper.
-
-**ROSOrin Pro JEPA project ladder**
-- [JEPA project ladder for ROSOrin Pro](syntheses/projects/jepa-project-ladder-rosorin-pro.md) — six-rung educational/research project ladder for learning JEPA on ROSOrin Pro hardware.
-- [LeWM on ROSOrin Pro — feasibility analysis](syntheses/projects/lewm-on-rosorin-pro-feasibility.md) — feasibility analysis for deploying LeWM on ROSOrin Pro.
+- [FRC 2026 Game Manual — REBUILT](sources/frc-2026-game-manual.md) · [FRC simulation & AI landscape](syntheses/simulators/frc-simulation-and-ai-landscape.md) · [Team 4414 HighTide](entities/team-4414-hightide.md) — 2026 World Champions; the championship-validated AI-first workflow.
 
 **Whole-organism agentic AI (fruit fly)**
-- [Whole-organism agentic AI](syntheses/agents/whole-organism-agentic-ai.md) — brain ([FlyWire](entities/flywire.md)) + body ([flybody](entities/flybody.md) / [NeuroMechFly v2](entities/neuromechfly.md)) for *Drosophila*: the first plausible end-to-end animal-scale agent loop.
-- [flybody](entities/flybody.md) — HHMI Janelia + DeepMind whole-body fly physics in MuJoCo (walking + flight).
-- [NeuroMechFly](entities/neuromechfly.md) — NeLy/EPFL parallel platform (walking + vision + olfaction + brain–VNC); active flygym v2.x.x with GPU acceleration.
-- [FlyWire](entities/flywire.md) — complete adult *Drosophila* connectome.
-- [Drosophila brain model](entities/drosophila-brain-model.md) and [flyvis](entities/flyvis.md) — open-source brain-side controllers (LIF + connectome-constrained DMN).
-- [Biomechanical simulation](concepts/bio/biomechanical-simulation.md) and [Connectome](concepts/bio/connectome.md) — concept pages.
-
-**General**
-- [Simulators for agentic robotics — 2026 landscape](syntheses/simulators/simulators-for-agentic-robotics-2026.md) — landscape survey across six categories.
+- [Whole-organism agentic AI](syntheses/agents/whole-organism-agentic-ai.md) — brain ([FlyWire](entities/flywire.md)) + body ([flybody](entities/flybody.md) / [NeuroMechFly](entities/neuromechfly.md)): the first plausible end-to-end animal-scale agent loop.
 
 ## Sources (chronological)
 - [OK-Robot Project Page](sources/ok-robot-project-page.md) — zero-shot pick-and-drop in 10 NYC homes; 58.5% success; 1.8× over OVMM. (2024-01)
@@ -405,6 +396,8 @@ Curated entry points across the wiki.
 - [Gemini Robotics 2 brings whole body intelligence to robots (DeepMind blog)](sources/gemini-robotics-2-blog.md) — the **substantive GR 2 announcement**, with the numbers the [model page](sources/deepmind-gemini-robotics-model-page.md) lacked. Whole-body pick-up by height (shelf **76.3%** / table 68.4% / floor **45.7%**); gripper dexterity on Franka Duo (precise insertion **89.6%**); and **candid multi-finger numbers** on [SharpaWave](entities/sharpa-wave.md) — unscrew bulb **92%** but screw bulb **36%**, dustpan 32%, ziplock 40%. **Answers the wiki's open question: the dexterity ceiling lifted for grippers, not for fingers.** On-Device 2 adapts to new embodiments in a few hours / **<200 examples**. **[SO101](entities/so-arm101.md) is a listed platform.** No trial counts, no baselines. (2026-07-30)
 - [Gemini Robotics 2: Safety Evaluations](sources/gemini-robotics-2-safety-report.md) — introduces **ASIMOV-Agentic** (HF, CC-BY-4.0), benchmarking the *routing* decision: delegate to the VLA, ask the human, or fire a safety tool. Safety tool calling **100%** (ER 2 / Claude Opus 4.8 / GPT 5.5); VLA feasibility filtering **62.0% → 95.8%** with richer training-distribution summaries; real Apollo 2 safe-stopping **99%/96%**. **But no model reaches an acceptable human-proximity operating point** — FPR <5% implies **FNR >40%**. DeepMind's own conclusion: use them "alongside deterministic, low-level safety guardrails," and the report **explicitly excludes the functional-safety architecture**. Also the wiki's best ISO map (10218:2025, 13482, forthcoming **25785-1**, 13855, 13849-1, IEC 60204-1). (2026-07-29)
 
+- [π0.5: a VLA with Open-World Generalization](sources/pi-zero-5-paper.md) — **the wiki's most-cited secondhand model finally has its primary** ([Physical Intelligence](entities/physical-intelligence.md), Apr 2025). Co-training on heterogeneous data — **97.6% of pre-training is not mobile-manipulation data** — yields the first end-to-end system cleaning kitchens/bedrooms in **entirely unseen homes** (10–15 min tasks); at 104 training locations it matches a model trained on the test homes. Hierarchical inference (subtask → actions); the **discrete-FAST-pretrain → flow-matching-post-train recipe** that [KI](sources/knowledge-insulation-paper.md) and [MolmoAct2](entities/molmoact2.md) later adopt. Read against the 2026 record: **co-training bought scene generalization, not instruction generalization.** (2025-04-22, ingested 2026-08-03)
+
 ### Google DeepMind robot-safety cluster (ingested 2026-08-03)
 Four papers plus the public framing page, connected by [Vikas Sindhwani](entities/vikas-sindhwani.md) on all four. Anchors the new [semantic safety](concepts/safety/semantic-safety.md) concept.
 
@@ -500,7 +493,7 @@ The nine-paper arc behind [code as policy](concepts/agents/code-as-policy.md), i
 - [Anthropic](entities/anthropic.md) — developer of Claude; AI safety mission; author of Claude's Constitution; MCP protocol; [Frontier Red Team](entities/frontier-red-team.md) robotics uplift work. (12 sources)
 - [Anthropic Frontier Red Team](entities/frontier-red-team.md) — Anthropic's capability-evaluation team; runs randomized **[uplift studies](concepts/safety/ai-uplift.md)** (biological risk → robotics) feeding the Responsible Scaling Policy's capability thresholds; author of the three-part **Project Fetch → Phase Two → robotics-evaluation** arc, all on one [Unitree Go2](entities/unitree-go2.md). (3 sources)
 - [Apollo Research](entities/apollo-research.md) — independent AI safety evaluation institute; red-teamed Claude Opus 4 (2025). (2 sources)
-- [Physical Intelligence](entities/physical-intelligence.md) — San Francisco; π-series (π0 / π0.5 / π0.6 / π0.6-MEM / π0.7 / π*0.6) cross-platform generalist VLAs. (14 sources)
+- [Physical Intelligence](entities/physical-intelligence.md) — San Francisco; π-series (π0 / π0.5 / π0.6 / π0.6-MEM / π0.7 / π*0.6) cross-platform generalist VLAs. (15 sources)
 - [Hillbot](entities/hillbot.md) — UCSD spinoff that maintains ManiSkill. (1 source) _stub_
 - [Disney Research](entities/disney-research.md) — Newton co-developer with NVIDIA + DeepMind. (2 sources) _stub_
 - [FIRST Robotics Competition](entities/first-robotics-competition.md) — world's leading high-school robotics competition; ~3,700 teams, 30+ countries. (7 sources)
@@ -719,17 +712,18 @@ The nine-paper arc behind [code as policy](concepts/agents/code-as-policy.md), i
 - [PLDM (Planning with Latent Dynamics Models)](entities/pldm.md) — Sobal-line end-to-end JEPA WM (NYU + FAIR); VICReg + inverse-dynamics + similarity multi-term loss; the canonical "end-to-end JEPA before LeWM" baseline. (2 sources — 2022 precursor + 2025 paper)
 
 ### VLA models / generalist policies
+- [π0.5](entities/pi-zero-5.md) — [PI](entities/physical-intelligence.md)'s open-world co-training VLA and **the standing 2026 baseline**: cleans unseen homes ([paper](sources/pi-zero-5-paper.md)), yet ~0.00 under instruction paraphrase ([LIBERO-PRO](sources/libero-pro-paper.md)). Scene generalization without instruction generalization. (8 sources)
 - [NVIDIA GR00T](entities/nvidia-groot.md) — open VLA bundled with Isaac Lab; **full version line now documented** — N1 ([paper](sources/groot-n1-paper.md); dual-system, data pyramid, 76.8% real GR-1) → [N1.5](sources/groot-n1_5.md) (frozen VLM + FLARE) → [N1.6](sources/groot-n1_6.md) (Cosmos-2B) → **N1.7 GA-in-[LeRobot](entities/lerobot.md) 2026-07** (Cosmos-Reason2-2B + [EgoScale](sources/egoscale-paper.md); [LIBERO](entities/libero.md) avg 96.5%; N1.5 dropped); backbone progression Eagle→Cosmos; [Isaac-GR00T repo](sources/isaac-gr00t-github.md) is the codebase; measured edge inference: [Thor](entities/jetson-thor.md) 10.9 Hz TRT / AGX Orin 5.8 Hz. (39 sources)
 - [GEAR-SONIC](entities/gear-sonic.md) — NVIDIA GEAR's humanoid **whole-body controller** (the `UNITREE_G1_SONIC` controller); motion-tracking-as-scaling-task RL on [Unitree G1](entities/unitree-g1.md); FSQ universal-token interface a GR00T N1.5 VLA drives for loco-manipulation; code in [GR00T-WholeBodyControl](sources/gr00t-wholebodycontrol-github.md). (5 sources)
-- [π0](entities/pi-zero.md) — [Physical Intelligence](entities/physical-intelligence.md)'s 3.3 B VLA (Oct 2024); PaliGemma 3 B VLM + flow-matching action expert; cross-embodiment teleop on 7 robots / 68 tasks / 10k hours. The canonical flow-matching VLA; LeRobot-supported (lerobot/pi0). (23 sources)
-- [π0.7](entities/pi07.md) — [Physical Intelligence](entities/physical-intelligence.md)'s 5 B VLA (2025); Gemma3 4B + MEM video encoder + 860 M flow-matching action expert; diversified prompt with subgoal images + episode metadata; first VLA with emergent compositional generalization (espresso machine, sweet-potato-into-air-fryer out-of-the-box). (7 sources)
-- [π*0.6](entities/pistar06.md) — [Physical Intelligence](entities/physical-intelligence.md)'s RL-adapted π0.6 (2025); RECAP recipe = offline-RL pretraining + iterative deployment with advantage-conditioned policy extraction; 2× throughput, ½ failure rate; 13-hr continuous espresso operation. (4 sources)
+- [π0](entities/pi-zero.md) — [Physical Intelligence](entities/physical-intelligence.md)'s 3.3 B VLA (Oct 2024); PaliGemma 3 B VLM + flow-matching action expert; cross-embodiment teleop on 7 robots / 68 tasks / 10k hours. The canonical flow-matching VLA; LeRobot-supported (lerobot/pi0). (15 sources)
+- [π0.7](entities/pi07.md) — [Physical Intelligence](entities/physical-intelligence.md)'s 5 B VLA (2025); Gemma3 4B + MEM video encoder + 860 M flow-matching action expert; diversified prompt with subgoal images + episode metadata; first VLA with emergent compositional generalization (espresso machine, sweet-potato-into-air-fryer out-of-the-box). (15 sources)
+- [π*0.6](entities/pistar06.md) — [Physical Intelligence](entities/physical-intelligence.md)'s RL-adapted π0.6 (2025); RECAP recipe = offline-RL pretraining + iterative deployment with advantage-conditioned policy extraction; 2× throughput, ½ failure rate; 13-hr continuous espresso operation. (15 sources)
 - [π0.6 (and π0.5, π0.6-MEM intermediates)](entities/pi-zero-6.md) — anchor for the intermediate π-series generations between [π0](entities/pi-zero.md) and [π0.7](entities/pi07.md) / [π*0.6](entities/pistar06.md). Plain π0.5/π0.6 have no primary source; **π0.5-KI** is sourced via the [Knowledge Insulation paper](sources/knowledge-insulation-paper.md). (4 sources) _stub_
 - [SmolVLA](entities/smolvla.md) — [Hugging Face](entities/hugging-face.md) LeRobot team's 450 M VLA (June 2025); SmolVLM-2 + flow-matching with interleaved CA + causal SA; 22.9 K community-dataset episodes; **beats π0-3.5 B by +16.6 pts on real-world SO-100 multi-task**; async-inference RobotClient/PolicyServer stack; runs on CPU (only frontier VLA that does). (12 sources)
 - [OpenVLA](entities/openvla.md) — Kim et al. 2024; 7B open-weights baseline (Llama-2 backbone + autoregressive action tokens); the reference comparison VLA across nearly every 2024–2025 VLA paper. (8 sources) _stub_
 - [VLA-0](entities/vla-0.md) — NVIDIA's **action-as-text** VLA (Goyal et al., Oct 2025); unmodified [Qwen2.5-VL-3B](entities/qwen.md) prints actions as integer strings — no head, no new tokens. Beats π0 / GR00T-N1 / OpenVLA-OFT / SmolVLA on LIBERO (avg 94.7) with **no action pretraining**; +12.5 pts over SmolVLA on real SO-100. Defines a "4th family" of VLA design. (1 source)
 - [OpenVLA-OFT](entities/openvla-oft.md) — Kim/Finn/Liang (Stanford, RSS 2025) "Optimized Fine-Tuning" recipe on [OpenVLA](entities/openvla.md): **parallel decoding + action chunking + continuous L1 head** (+FiLM = OFT+). Lifts LIBERO **76.5 → 97.1** at **26× throughput** on the *same base weights* — the top LIBERO score in the wiki and the only pretrained model above [VLA-0](entities/vla-0.md); runs bimanual ALOHA at 25 Hz. (3 sources)
-- [FAST / π0-FAST](entities/fast-action-tokenization.md) — [Physical Intelligence](entities/physical-intelligence.md)'s **Frequency-space Action Sequence Tokenization** ([Pertsch et al., RSS 2025](sources/fast-paper.md)): DCT + BPE compression of action chunks; π0-FAST = [π0](entities/pi-zero.md) + FAST tokens matches π0-diffusion at **5× less training**. Recurs as a discrete-token baseline *and* as the token scheme [Knowledge Insulation](concepts/learning/knowledge-insulation.md) uses inside π0.7 / π*0.6; [MolmoAct2](entities/molmoact2.md) ships an open-data reimplementation. (5 sources)
+- [FAST / π0-FAST](entities/fast-action-tokenization.md) — [Physical Intelligence](entities/physical-intelligence.md)'s **Frequency-space Action Sequence Tokenization** ([Pertsch et al., RSS 2025](sources/fast-paper.md)): DCT + BPE compression of action chunks; π0-FAST = [π0](entities/pi-zero.md) + FAST tokens matches π0-diffusion at **5× less training**. Recurs as a discrete-token baseline *and* as the token scheme [Knowledge Insulation](concepts/learning/knowledge-insulation.md) uses inside π0.7 / π*0.6; [MolmoAct2](entities/molmoact2.md) ships an open-data reimplementation. (15 sources)
 - [MolmoAct](entities/molmoact.md) — Allen Institute open "action reasoning" VLA (Lee et al. 2508.07917); discrete-token, reasons in space (depth tokens); LIBERO 86.8. **Superseded by [MolmoAct2](entities/molmoact2.md).** Also the pretrained policy **supervised by 11 frontier LLMs** in Anthropic's [robotics eval](sources/anthropic-how-claude-performs-on-robotics-tasks.md) — every one scored worse than MolmoAct alone in-distribution. (4 sources)
 - [MolmoAct2](entities/molmoact2.md) — Ai2's **fully-open, deployable** VLA successor to MolmoAct; hybrid discrete+continuous head via [per-layer KV conditioning](concepts/learning/per-layer-kv-conditioning.md), [Molmo2-ER](entities/molmo2-er.md) backbone, [adaptive-depth](concepts/learning/adaptive-depth-reasoning.md) MolmoAct2-Think variant; **LIBERO 97.2 / Think 98.1 — top *tier*, [statistically tied](syntheses/platforms/vla-success-rate-audit.md) with OpenVLA-OFT / GR00T N1.7 / π0.5**; real YAM +15 pp over OpenVLA-OFT *does* survive; 55.8 Hz; <$6,000 setup. (3 sources)
 - [Octo](entities/octo.md) — Octo Model Team 2024; transformer-from-scratch generalist policy trained on [OXE](entities/open-x-embodiment.md); pre-flow-matching-era baseline. (2 sources) _stub_
@@ -783,8 +777,8 @@ The nine-paper arc behind [code as policy](concepts/agents/code-as-policy.md), i
 - [Geoffrey Hinton](entities/geoffrey-hinton.md) — Toronto; Turing Award 2018, Nobel 2024; first author of [wake-sleep](sources/wake-sleep-paper.md) / Helmholtz machine — the recognition-model ancestor of the VAE encoder; RMSprop, DBNs, backprop popularization. (3 sources)
 - [Moo Jin Kim](entities/moo-jin-kim.md) — Stanford; first author of [OpenVLA](entities/openvla.md) and [OpenVLA-OFT](entities/openvla-oft.md), co-author on [RoboArena](entities/roboarena.md). His arc runs building → controlled ablation → evaluation protocol. (3 sources)
 - [Wenlong Huang](entities/wenlong-huang.md) — Stanford/Google; on three of the four foundational code-as-policy papers (first author of [VoxPoser](entities/voxposer.md), co-first of [Inner Monologue](entities/inner-monologue.md)). His VoxPoser critiques the Code as Policies he co-authored. (3 sources)
-- [Brian Ichter](entities/brian-ichter.md) — Google → co-founder, [Physical Intelligence](entities/physical-intelligence.md). On **all four** Google-lineage papers, then helped found the [π0](entities/pi-zero.md) lab — one person on both sides of the wiki's central architectural argument. (4 sources)
-- [Karol Hausman](entities/karol-hausman.md) — SayCan corresponding author → CEO of [Physical Intelligence](entities/physical-intelligence.md). Same crossing as Ichter. (3 sources)
+- [Brian Ichter](entities/brian-ichter.md) — Google → co-founder, [Physical Intelligence](entities/physical-intelligence.md). On **all four** Google-lineage papers, then helped found the [π0](entities/pi-zero.md) lab — one person on both sides of the wiki's central architectural argument. (15 sources)
+- [Karol Hausman](entities/karol-hausman.md) — SayCan corresponding author → CEO of [Physical Intelligence](entities/physical-intelligence.md). Same crossing as Ichter. (15 sources)
 - [Andy Zeng](entities/andy-zeng.md) — senior author of [Code as Policies](sources/code-as-policies-paper.md); also authored Transporter Nets, the architecture under [CLIPort](entities/cliport.md), the baseline his later papers show collapsing. (4 sources)
 - [Fei Xia](entities/fei-xia.md) — Google DeepMind; SayCan corresponding author, Inner Monologue co-first, on all four. (4 sources)
 - [Guanzhi Wang](entities/guanzhi-wang.md) — [GEAR](entities/nvidia-gear.md)/Caltech; **the direct bridge across the thread's two halves** — first author of [Voyager](entities/voyager.md), co-author of [CaP-X](entities/cap-x.md), project co-lead on [ASPIRE](entities/aspire.md). (3 sources)
@@ -871,7 +865,7 @@ The nine-paper arc behind [code as policy](concepts/agents/code-as-policy.md), i
 - [Real-world robotic RL](concepts/learning/real-world-robot-rl.md) — training RL directly on hardware; the [SAC](entities/sac.md)→[RLPD](entities/rlpd.md)→[SERL](entities/serl.md)→[HIL-SERL](sources/hil-serl-paper.md)→[AutoSERL](sources/autoserl-paper.md) lineage (off-policy + demos + human/automated corrections + sparse classifier reward). (7 sources)
 - [Multi-agent reinforcement learning (MARL)](concepts/learning/multi-agent-rl.md) — RL with several simultaneously-learning agents; Markov Games, non-stationarity, independent learning vs. **CTDE** ([MADDPG](glossary.md#maddpg) / MA-POCA), self-play + ELO, cooperative/competitive/mixed. (1 source)
 - [Flow matching](concepts/learning/flow-matching.md) — learn a vector field that transports noise to actions; the dominant continuous-action-head technique in 2025+ VLAs ([π0](entities/pi-zero.md), [π0.7](entities/pi07.md), [π*0.6](entities/pistar06.md), [SmolVLA](entities/smolvla.md), [GR00T N1](sources/groot-n1-paper.md), [MolmoAct2](entities/molmoact2.md), [EgoScale](sources/egoscale-paper.md)). Sibling-not-subclass of [DDPM](entities/ddpm.md). (16 sources)
-- [Knowledge Insulation (KI)](concepts/learning/knowledge-insulation.md) — [Physical Intelligence](entities/physical-intelligence.md) VLA training recipe ([Driess et al. 2505.23705](sources/knowledge-insulation-paper.md), **primary now ingested**): joint discrete/continuous training + VLM co-training + **stop-gradient** the flow-matching action expert, so the action head can't corrupt the backbone. π0 needs ~7.5× more steps without it. The recipe behind [π0.7](entities/pi07.md) / [π*0.6](entities/pistar06.md); also adopted (then dropped in fine-tuning) by [MolmoAct2](entities/molmoact2.md). (6 sources)
+- [Knowledge Insulation (KI)](concepts/learning/knowledge-insulation.md) — [Physical Intelligence](entities/physical-intelligence.md) VLA training recipe ([Driess et al. 2505.23705](sources/knowledge-insulation-paper.md), **primary now ingested**): joint discrete/continuous training + VLM co-training + **stop-gradient** the flow-matching action expert, so the action head can't corrupt the backbone. π0 needs ~7.5× more steps without it. The recipe behind [π0.7](entities/pi07.md) / [π*0.6](entities/pistar06.md); also adopted (then dropped in fine-tuning) by [MolmoAct2](entities/molmoact2.md). (15 sources)
 - [Per-layer KV conditioning](concepts/learning/per-layer-kv-conditioning.md) — [MolmoAct2](entities/molmoact2.md)'s VLM→action-expert interface: each flow-matching expert layer cross-attends to the *corresponding* VLM layer's keys/values, not just the final hidden state. Ablates +1.9 over hidden-state conditioning on LIBERO. (1 source)
 - [Adaptive depth reasoning](concepts/learning/adaptive-depth-reasoning.md) — MolmoAct2-Think's latency fix for embodied CoT: predict a 10×10 VQ depth grid before acting, but **only recompute cells whose RGB patch changed** between timesteps; reasoning cost scales with scene change, not the full grid. (1 source)
 - [Sim-to-real transfer](concepts/learning/sim-to-real-transfer.md) — bridging simulator-trained policies to real robots; "simulation bias" lineage back to [Kober 2013](sources/kober-rl-robotics-survey-2013.md); the 12.4% [BEHAVIOR-1K](entities/behavior-benchmark.md) hard end. (31 sources)

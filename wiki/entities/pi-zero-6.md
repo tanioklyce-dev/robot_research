@@ -3,14 +3,14 @@ title: π0.6 (and intermediates π0.5, π0.6-MEM)
 type: entity
 subtype: model
 created: 2026-05-25
-updated: 2026-07-04
+updated: 2026-08-03
 sources: 4
 tags: [pi-zero-6, pi-zero-5, pi-zero-6-mem, pi-zero, physical-intelligence, vla, flow-matching, intermediate, lineage, knowledge-insulation]
 status: stub
 ---
 
 > [!note] Stub entity — anchors a wiki-known lineage gap
-> Filed 2026-05-25 during lint (π0.6: 47 mentions / 14 files; π0.5: 23 mentions / 12 files; π0.6-MEM: 14 mentions / 6 files). **None of π0.5 / π0.6 / π0.6-MEM has a publicly released primary paper that the wiki has ingested**; all three are documented only via downstream references in [π0.7](pi07.md) and [π*0.6](pistar06.md). This entity exists to anchor those references; deepen if + when primary sources land.
+> Filed 2026-05-25 during lint (π0.6: 47 mentions / 14 files; π0.5: 23 mentions / 12 files; π0.6-MEM: 14 mentions / 6 files). **Update 2026-08-03: π0.5's primary is now ingested** — [paper](../sources/pi-zero-5-paper.md) + [entity](pi-zero-5.md) (arXiv 2504.16054, public since Apr 2025; the stub's original "no publicly released primary" framing was wrong for π0.5). **This stub now anchors only π0.6 and π0.6-MEM**, which remain documented solely via downstream references in [π0.7](pi07.md) and [π*0.6](pistar06.md). Deepen if + when their primaries land.
 
 The wiki's two strongest 2025 VLAs — **[π0.7](pi07.md)** and **[π*0.6](pistar06.md)** — both build on intermediate **π0.6** + **π0.6-MEM** generations of Physical Intelligence's π-series. Those intermediates inherit from **π0.5**, which itself sits between [π0](pi-zero.md) and π0.6. This entity exists to give the lineage a stable anchor.
 
