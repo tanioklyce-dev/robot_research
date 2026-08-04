@@ -60,6 +60,7 @@ This page lines them up. The short version: **the full span is about five orders
 | **1.8** | MEAS | [Diffusion Policy](../../entities/diffusion-policy.md), 540 ms | Orin Nano |
 | **1.4** | MEAS | [SmolVLA](../../entities/smolvla.md)-450M, 714 ms | Orin Nano |
 | **1.3** | MEAS | [FAST](../../entities/fast-action-tokenization.md) autoregressive decode, ~750 ms/1 s chunk | RTX 4090 |
+| **1** | REQ | **[Nav2](../../entities/nav2.md) global replanning** — `RateController hz="1.0"` in the shipped default [behavior tree](../../concepts/robotics/behavior-trees.md) | ROS 2, production |
 | **~1** | MEAS | Agent heartbeats — [AgenticROS](../../entities/agenticros.md), [ros2-mcp-server](../../entities/ros2-mcp-server.md) capability beacons | Orin NX |
 | **0.5** | MEAS | SmolVLA on **CPU**, 2,028 ms | CPU |
 | **0.2–0.4** | **MEAS** | **Frontier LLM, non-reasoning** (2–8 s text; 5–15 s with images; **15–180 s with reasoning**) | [robotics eval](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) |

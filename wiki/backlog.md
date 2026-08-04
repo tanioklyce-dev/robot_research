@@ -2,13 +2,62 @@
 title: Wiki Backlog — deferred lint items & knowledge gaps
 type: meta
 created: 2026-07-04
-updated: 2026-07-18
+updated: 2026-08-04
 tags: [backlog, lint, todo, knowledge-gaps]
 ---
 
 # Wiki Backlog
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
+
+## [2026-08-04] Action-representation session — next steps and gaps
+
+*Four ingests in one day ([TurboVLA](sources/turbovla-paper.md), [RT-H](sources/rt-h-paper.md), and a six-source batch: [behavior trees](sources/behavior-trees-book.md), [RT-1](sources/rt-1-paper.md), [RT-2](sources/rt-2-paper.md) + [blog](sources/rt-2-deepmind-blog.md), [PDDL generalized planning](sources/generalized-planning-pddl-llm-paper.md), [UniT](sources/unit-paper.md)), plus one synthesis: [action representation languages](syntheses/agents/action-representation-languages.md). ~40 pages added. Recommended order below.*
+
+### 1. Lint pass — do this first, it is the cheapest and the debt compounds silently
+
+Three standing claims moved today and pages elsewhere may still quote the old versions:
+
+- [ ] **The [LIBERO](entities/libero.md) top tier went from six models to nine** (TurboVLA 97.7, CogVLA 97.4, VLA-Adapter 97.3 joined; cluster now spans 1.2 pp). Grep for "top of the wiki's LIBERO table," "highest LIBERO," and any phrasing implying a *ranking* inside the tie. The [audit](syntheses/platforms/vla-success-rate-audit.md) already caught that exact phrase in three places once before.
+- [ ] **The [VLA taxonomy](concepts/learning/vla-models.md) gained an orthogonal axis** ([LLM-free / V+L→A](concepts/learning/llm-free-vla.md)). Pages describing "four action-head families" as the complete picture are now incomplete — the families describe how actions *leave* an LLM, not whether one is present.
+- [ ] **The [deployability landscape](syntheses/platforms/vla-deployability-landscape.md) gained a fifth axis** (compute class required to hit a latency figure). Anything citing "the four axes" needs a look.
+- [ ] **Stub markers**: [RT-2](entities/rt-2.md) was promoted stub → primary the same day it was created; check `_stub_` markers in [index.md](index.md) for others now filled ([Evo-1](entities/evo-1.md), [UniVLA](entities/univla.md), [PaLI-X](entities/pali-x.md) remain genuine stubs).
+- [ ] **Source counts** — several concept/entity pages had `sources:` bumped by hand today; verify against actual inbound links.
+
+### 2. Measure an LLM-free VLA on a Jetson — the highest-value missing row in the wiki
+
+- [ ] **Step 0, a real blocker: verify TurboVLA checkpoints actually exist.** The [paper](sources/turbovla-paper.md) announces `github.com/H-EmbodVis/TurboVLA`; repo contents were **not verified at ingest**. If weights are unreleased, the fallback is [Evo-1](entities/evo-1.md) (0.8 B / 1.7 GB) — still informative, since its 137.2 ms on a 4090 is the wiki's case study in **small ≠ fast**.
+- [ ] **The measurement.** [TurboVLA](entities/turbovla.md)'s **0.9 GB inference footprint is the first in this wiki that fits an 8 GB [Orin Nano](entities/jetson-orin-nano.md) with headroom** — [GR00T](entities/nvidia-groot.md)'s 16 GB floor eliminates the board outright. Every edge number on the [control-rate ladder](syntheses/platforms/control-rate-ladder.md) comes from a pre-2026 architecture; **no LLM-free policy has ever been measured at the edge.**
+- [ ] **Protocol** — match [Cutting the Cord](sources/cutting-the-cord-untethered-xlerobot.md) exactly so numbers are comparable: end-to-end camera→action, FP16, batch 1, reported beside its ACT 27.8 Hz / Diffusion 1.8 Hz / SmolVLA 1.4 Hz on the same board class. Record power draw, which that source also lacks for most rows.
+- [ ] **Both outcomes are results.** Band B on an Orin → a new fact about what runs on a battery. Band C → the 4090 figure does not survive edge memory bandwidth, which is the honest prior and directly qualifies the [deployability landscape](syntheses/platforms/vla-deployability-landscape.md)'s fifth axis.
+
+### 3. Build the BT-over-VLA — the architecture nobody has built
+
+- [ ] The [action-representation synthesis](syntheses/agents/action-representation-languages.md) concludes that **[behavior trees](concepts/robotics/behavior-trees.md) make the *composition* readable while staying agnostic about the *action*** — the only place readability and portability co-occur. The implied architecture is a **BT with a latent-token or LLM-free policy at an Action leaf**: portable structure, auditable guards, opaque-but-transferable policy underneath.
+- [ ] **No ingested source does this.** It is also the concrete form of the [guardrails](syntheses/agents/guardrails-for-robot-agents.md) finding that **the execution rail ships empty** — BTs are a 20-year-old, formally-analyzed candidate for exactly that layer (safety-by-construction via sequence guards; stochastic BTs reduce to Markov chains yielding success probability and expected completion time).
+- [x] ~~Prerequisite ingest: **BehaviorTree.CPP and the Nav2 BT navigator**~~ — **done 2026-08-04**: [engine](sources/behaviortree-cpp-docs.md) + [production instance](sources/nav2-behavior-trees-docs.md). The scaffolding is complete — ports give the typed boundary, Nav2 gives cause-selected recovery / bounded retries / preemption / runtime plugin swap, and **no Nav2 leaf is a learned policy**. Only the substitution remains.
+
+### 4. Ingests, in descending value
+
+- [ ] **Task-and-motion planning (TAMP)** — newly exposed and *not* closed. TAMP bridges symbolic specifications to continuous motion, which is exactly [PDDL](concepts/agents/symbolic-task-planning.md)'s "says nothing about motion" limitation and the gap the whole action-representation thread keeps hitting. [Kaelbling](entities/leslie-kaelbling.md) is already an entity and a founder of the line.
+- [ ] **UniVLA primary** (RSS 2025) — the last secondhand model in the action-representation thread; [UniT](sources/unit-paper.md)'s taxonomy files it as the vision-only design that *"entangles low-level appearance confounders."*
+- [ ] **Universal action tokenization / action priors** (arXiv 2606.26095) — secondhand only; would round out [latent action tokens](concepts/learning/latent-action-tokens.md).
+- [ ] **LTL / temporal-logic task specification** — still uncovered; the formal-verification neighbour of PDDL.
+- [ ] **RT-1's baselines**: **Gato** and **BC-Z** have no pages. **QT-Opt** supplied the Kuka data behind the wiki's earliest cross-embodiment result (22 → 39%) and is likewise unfiled.
+
+### Open questions carried forward (unresolved, from the four ingests)
+
+- [ ] **Run [LIBERO-PRO](sources/libero-pro-paper.md) on [TurboVLA](entities/turbovla.md).** Named in three places as the decisive test. TurboVLA is the wiki's **most exposed** model to the memorization critique — 0.2 B, no embodied pretraining, no web-scale language priors, trained on LIBERO alone. Counter-hypothesis is equally live: [Grounding DINO](entities/grounding-dino.md) pretraining may transfer under object swaps *better* than an LLM latent. Ai2's [harness](sources/vla-evaluation-harness-github.md) runs it at ~18 min/H100.
+- [ ] **Does RT-H's extraction grammar port across morphologies?** [RT-H](entities/rt-h.md)'s lexicon is generated mechanically from *one robot's* 9 action dimensions. The design move the synthesis proposes is **specify the grammar, induce the lexicon** — re-run the same extraction on a different embodiment and test whether the induced lexicons are mutually interpretable. **Untested by anyone.**
+- [ ] **Why was the language route to cross-embodiment abandoned?** [RT-H](sources/rt-h-paper.md)'s own Future Work proposes bridging [OXE](entities/open-x-embodiment.md) embodiments and human video *with language motions* (2024). The field went to [latent tokens](concepts/learning/latent-action-tokens.md) instead. **Tried and failed, or never attempted?** Unrecorded, and the most interesting unknown in the thread. [UniT](sources/unit-paper.md) does not cite RT-H — the two traditions answer the same question without talking to each other.
+- [ ] **Nobody has compared a readable and a latent action interface on the same robot and tasks.** The cleanest experiment the synthesis names.
+- [ ] **The names result has an untested confound.** RT-H-OneHot, TurboVLA task-ID, and PDDL No-Names all consume **text-pretrained models**, so the three-way convergence measures what such models need, not what is intrinsically necessary. A policy trained from scratch on robot data alone might not care.
+- [ ] **Add a CNL condition to TurboVLA's instruction-encoding ablation** — the one-training-run experiment (four consumer GPUs). Free-form English 97.7 / **a controlled vocabulary** / task-ID 95.4. Parity → readability is free; near the floor → the grammar discarded the compositional semantics.
+- [ ] **[UniT](entities/unit.md)'s visual anchoring assumes visible consequences** — force-dominant, occluded, and in-hand manipulation untested; transfer evidence is pick-and-place-shaped (EgoDex `basic_pick_place`, `pour`).
+- [ ] **[RoboTwin 2.0](entities/robotwin.md) randomized-scene setting is unrun.** [TurboVLA](sources/turbovla-paper.md) trained on clean demonstrations only, citing compute budget. That setting is a built-in generalization test — the LIBERO-PRO-shaped question on a benchmark that **has headroom** (leaders near 58%, where 3 pp gaps separate).
+- [ ] **RT-2's blog/paper discrepancy is recorded but not generalized.** The [blog](sources/rt-2-deepmind-blog.md) headlines 3× generalization where the paper reports ~2×. The wiki cites vendor blogs often; **a systematic pass checking blog claims against their papers** would be cheap and high-yield — this instance was found only because both were ingested together.
+- [ ] **[RT-1](sources/rt-1-paper.md) / [RT-2](sources/rt-2-paper.md) have no per-cell N.** 3,000 and 6,000 trials across 200+ instructions; aggregate gaps hold, per-task and per-category orderings do not. Do not repeat PaLI-X-vs-PaLM-E-on-math as a ranking.
+- [ ] **The [behavior-trees book](sources/behavior-trees-book.md) was read structurally.** The formal proofs (Ch. 6), planning algorithms (Ch. 7), and stochastic reliability calculus (Ch. 9) were summarized from their framing, not verified line by line. Fine for current use; needs a deeper read before any claim leans on the math.
 
 ## [2026-08-03] DeepMind robot-safety cluster — follow-ups
 - [x] ~~**Ingest SciFi-Benchmark**~~ — **done 2026-08-03**: [paper](sources/scifi-benchmark-paper.md) (arXiv 2503.10706, Sermanet/Majumdar/Sindhwani — confirming shared authorship; [Sindhwani](entities/vikas-sindhwani.md) is now on all five safety-program papers). Confirmed as the provenance of ASIMOV-Dilemmas-Scifi (9,056/53,384 corpus numbers match). Headline: constitutions lift alignment 79.4%→95.8% and resist adversarial prompting 23.3%→92.3%; sci-fi constitutions top-perform on ASIMOV's real-world data. **All three works named on the [safety page](sources/deepmind-gemini-robotics-safety-page.md) are now ingested.**

@@ -86,6 +86,13 @@ Two corollaries that generalize to any world-state-aware guardrail:
 
 And the limit, pinned by a test rather than papered over: **Tier 2 is a blocklist over the *detector's* vocabulary.** An open-vocab model that reports a knife as `"cleaver"` or `"utensil"` walks straight past a list that says `"knife"`. The rail is only ever as sharp as the perception under it.
 
+> [!note] Qualification added 2026-08-04 — one execution rail *does* ship, in a place nobody here looked
+> [Nav2](../../entities/nav2.md)'s default [behavior tree](../../concepts/robotics/behavior-trees.md) ([docs](../../sources/nav2-behavior-trees-docs.md)) contains exactly the structure this page says is missing: **`ValidatePath`, `IsGoalNearby`, `WouldAControllerRecoveryHelp`, and `GoalUpdated` are world-state preconditions gating actions**, with bounded retries (`number_of_retries="6"`), a declared escalation path (clear costmaps → Spin → Wait → BackUp), and preemption when the goal changes — all in **diffable XML** running on a very large number of real robots.
+>
+> Three things keep this page's finding standing: it is **scoped to navigation**, not general manipulation; it is safety-**adjacent** (recover from failure) rather than safety-**enforcing** (refuse an unsafe action); and Nav2's own docs make **no safety argument** — the structure is presented as robustness engineering.
+>
+> But *"nothing ships at this layer"* should be read as *"the mechanism ships, applied to a different problem."* The [behavior-trees](../../concepts/robotics/behavior-trees.md) literature also supplies what the rail would need to be *enforcing*: guard conditions ahead of the actions they protect, and stochastic BTs that reduce to Markov chains yielding success probability and expected completion time. **The formalism, the engine ([BehaviorTree.CPP](../../entities/behaviortree-cpp.md)), and a production reference all exist.** What is missing is anyone applying them to a manipulation policy rather than a navigation stack.
+
 ## Finding 2: the text rails are a base-URL swap away
 
 The NeMo Guardrails server exposes **`/v1/chat/completions` in OpenAI-compatible format** ([library overview](../../sources/nemo-guardrails-library-overview.md)), and the same YAML+Colang config runs in both library and microservice form.

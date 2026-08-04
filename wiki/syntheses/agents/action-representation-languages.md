@@ -29,7 +29,7 @@ Every row is a real, used representation. Read the last two columns together —
 | **Semantic subtask** ([π0.5](../../entities/pi-zero-5.md)) | *"pick up the cutting board"* | ✅ | ✅ | A learned VLA, per embodiment |
 | **Language motions** ([RT-H](../../entities/rt-h.md)) | *"move arm forward and close gripper"* | ✅ | ❌ *grammar ports, lexicon doesn't* | A fixed extraction grammar over **this robot's 9 action dims** |
 | **Formal task language** ([PDDL](../../concepts/agents/symbolic-task-planning.md)) | `(on block-a block-b)` | ✅ | ✅ symbolically | A planner + hand-written operators; **says nothing about motion** |
-| **[Behavior trees](../../concepts/robotics/behavior-trees.md)** | `→[ ?[HasBall, Grasp], Lift ]` | ✅ **composition, not action** | ✅ tree / ❌ leaves | The leaf — which can be *any* policy, readable or not |
+| **[Behavior trees](../../concepts/robotics/behavior-trees.md)** | `<RecoveryNode><FollowPath/><ClearCostmap/></RecoveryNode>` | ✅ **composition, not action** | ✅ tree / ❌ leaves | The leaf — *any* policy, readable or not; typed via **ports** |
 | **Code + API** ([code-as-policy](../../concepts/agents/code-as-policy.md)) | `stack_objs_in_order([...])` | ✅ | ❌ | **The API designer** — see [CaP-X](../../sources/cap-x-paper.md) below |
 | **Visual trace** ([MolmoAct](../../entities/molmoact.md)) | a 2D polyline drawn on the image | ✅ *visually* | ◐ | The policy; **beat language for steering** |
 | **Action-as-text** ([RT-2](../../entities/rt-2.md), [VLA-0](../../entities/vla-0.md)) | `"142 87 201 …"` | ◐ legible, not meaningful | ❌ joint-space | Nothing — it *is* the action |
@@ -124,7 +124,11 @@ That second row is the only place on this page where readability and portability
 > [!note] The architecture that would answer the original question, which nobody has built
 > Put the unreadable representation at the leaves and the readable structure above it. A [UniT](../../entities/unit.md) token predictor or a [TurboVLA](../../entities/turbovla.md) policy sits at an Action node; the tree above stays auditable, guarded, diffable in git, and generatable by an LLM. You get the [latent-action](../../concepts/learning/latent-action-tokens.md) line's cross-embodiment portability *and* a human-legible control surface — without pretending "close gripper" means anything to a suction cup.
 >
-> **No source in this wiki does this.** BTs are twenty years old, formally analyzed (state-space safety proofs; stochastic BTs reduce to Markov chains yielding success probability and expected completion time), and shipped in ROS 2 via BehaviorTree.CPP and Nav2. The [guardrails synthesis](guardrails-for-robot-agents.md) separately found the **execution rail ships empty** in every stack examined. These two facts belong together and currently sit in different literatures.
+> **No source in this wiki puts a learned policy at a BT leaf** — but as of the 2026-08-04 implementation ingest, every other piece is off-the-shelf and specified.
+>
+> **[BehaviorTree.CPP](../../entities/behaviortree-cpp.md) v4 supplies the interface.** Its blackboard/port model is explicitly framed as function-like — *"custom TreeNodes… are not conceptually different from **functions**"* — with **type-safe** input and output ports and an XML syntax separating literals from blackboard references (`message="hello world"` vs `message="{greetings}"`). A VLA node takes its instruction on an input port, literal or `{current_subtask}` from an upstream planner, and writes results back for guard conditions to read. That is a **typed function-call boundary around an opaque policy** — precisely the "argument-level predicates and world-state preconditions" the [guardrails synthesis](guardrails-for-robot-agents.md) says a real execution rail needs.
+>
+> **[Nav2](../../entities/nav2.md) supplies the reference implementation.** Its shipped default tree ([docs](../../sources/nav2-behavior-trees-docs.md)) already demonstrates cause-selected two-tier recovery, bounded retries, escalation via `RoundRobin`, preemption when the goal changes, and runtime plugin swap through the blackboard. **Every leaf is a classical planner, controller, or scripted behavior — not one is learned.** Substituting a policy at a leaf is the whole unbuilt experiment, and the scaffolding is done.
 
 The book is also honest about when BTs are *not* worth it: *"In applications where the robot operates in a very structured environment, predictable in space and time, BTs do not have any advantages over simpler architectures."* Checking all conditions every tick can be expensive; the engine is hard to implement correctly; and the mindset is tick-driven rather than event-driven.
 
@@ -212,12 +216,12 @@ Six sources ingested 2026-08-04 closed every gap this page originally listed. Wh
 
 - ~~RT-H un-ingested~~ → **[ingested](../../sources/rt-h-paper.md)**.
 - ~~PDDL / LTL uncovered~~ → **[symbolic task planning](../../concepts/agents/symbolic-task-planning.md)** founded on [Silver et al.](../../sources/generalized-planning-pddl-llm-paper.md). **LTL and temporal-logic specification remain uncovered.**
-- ~~Behavior trees uncovered~~ → **[behavior trees](../../concepts/robotics/behavior-trees.md)** founded on [Colledanchise & Ögren](../../sources/behavior-trees-book.md). **BehaviorTree.CPP and Nav2's BT navigator — the actual ROS 2 implementations — are not covered.**
+- ~~Behavior trees uncovered~~ → **[behavior trees](../../concepts/robotics/behavior-trees.md)** founded on [Colledanchise & Ögren](../../sources/behavior-trees-book.md). ~~BehaviorTree.CPP and Nav2's BT navigator not covered~~ → **both ingested 2026-08-04** ([engine](../../sources/behaviortree-cpp-docs.md), [production instance](../../sources/nav2-behavior-trees-docs.md)).
 - ~~UniT un-ingested~~ → **[latent action tokens](../../concepts/learning/latent-action-tokens.md)** founded on [UniT](../../sources/unit-paper.md). Universal action tokenization and UniVLA remain secondhand.
 - ~~RT-2/RT-1 secondhand~~ → both **[primary](../../sources/rt-1-paper.md)**-**[ingested](../../sources/rt-2-paper.md)**.
 - **Controlled natural languages** generally — still no page; the transferable prior art is in aerospace documentation (ASD Simplified Technical English), not robotics.
 - **Task-and-motion planning (TAMP)** — newly exposed by the PDDL ingest and *not* closed. TAMP is the tradition that explicitly bridges symbolic action specifications to continuous motion, which is exactly the "says nothing about motion" limitation this page keeps hitting. [Kaelbling](../../entities/leslie-kaelbling.md) is a co-author on the ingested PDDL paper and a founder of that line.
-- **The BT-over-VLA architecture** — no source, and the most valuable thing on this list.
+- **The BT-over-VLA architecture** — still no source, and still the most valuable thing on this list. **Now fully scaffolded**: the engine, the port interface, and a production reference tree all exist; only the substitution of a learned policy at a leaf is missing.
 
 ## Related
 - [Behavior trees](../../concepts/robotics/behavior-trees.md) — the composition layer, and the only readable-*and*-portable row here.
