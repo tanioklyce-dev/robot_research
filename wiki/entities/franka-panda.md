@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-07
 updated: 2026-08-03
-sources: 29
+sources: 30
 tags: [franka, panda, robot-arm, manipulator, 7-dof, manipulation-platform]
 ---
 
@@ -66,3 +66,4 @@ The result: when a JEPA-style or VLA-style paper says "real-robot eval" without 
 - [CaP-X paper](../sources/cap-x-paper.md) — real-robot platform for CaP-RL sim-to-real (84% cube lift / 76% stack after simulation-only RL of a 7B coding model, n=25) and for zero-shot CaP-Agent0 demos.
 - [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — the DROID Franka deployment target; out-of-the-box support claimed.
 - [Gemini Robotics 2 blog](../sources/gemini-robotics-2-blog.md) — **Franka Duo** with a Robotiq gripper is the gripper-dexterity platform: precise insertion **89.6%**, tool kitting 78.9%, pick-and-place 74.2%.
+- [MolmoAct paper](../sources/molmoact-paper.md) — MolmoAct v1's only real-world platform: single-arm (incl. DROID-style mobile mount for home data) and bimanual Franka; the 10,689-trajectory MolmoAct Dataset is all-Franka.

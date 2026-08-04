@@ -68,7 +68,7 @@ Deferred maintenance items and knowledge gaps surfaced during lint passes but no
 
 ## [2026-07-18] VLA-cluster session — wrap-up notes (where things stand)
 Session arc: ingested 3 raw drops (VLA-0, YOLOv11n child-detection, USC table-tennis MARL) → filed the VLA-baseline cluster VLA-0 pointed at (OpenVLA-OFT, FAST/π0-FAST, MolmoAct, Molmo + concepts: Knowledge Insulation, multi-agent-rl, SAHI) → then paid down the "primary un-ingested" debt by ingesting **4 VLA primaries**: VLA-0 (2510.13054), Knowledge Insulation (2505.23705), OpenVLA-OFT (2502.19645), FAST (2501.09747). The VLA action-representation design space is now anchored on those four ingested primaries.
-- [ ] **Remaining un-ingested VLA primaries (secondary-grounded satellites):** **MolmoAct** (2508.07917) + **Molmo** (2409.17146, Ai2) — the Allen-Institute lineage, distinct from the Physical-Intelligence one. Plus **OLMo / OLMoE** (Molmo's LLM backbones) have no entity. Lower priority than the PI cluster; ingest if that lineage recurs.
+- [x] ~~**Remaining un-ingested VLA primaries:** MolmoAct + Molmo~~ — **both done**: Molmo ingested 2026-07-24 ([molmo-pixmo-paper](sources/molmo-pixmo-paper.md)), OLMo/OLMoE entities filed same day; **MolmoAct primary ingested 2026-08-03** ([molmoact-paper](sources/molmoact-paper.md)) — v1 is Franka-only; editable-trace steerability is its distinctive contribution. The Allen-Institute lineage is now fully primary-grounded end to end (OLMo → Molmo → MolmoAct → MolmoAct2).
 - [x] ~~**Author page — Moo Jin Kim**~~ — **filed 2026-07-27**: [Moo Jin Kim](entities/moo-jin-kim.md), now also a [RoboArena](entities/roboarena.md) co-author. **Percy Liang** still has no page.
 
 ## [2026-07-17] VLA-0 ingest — lint follow-ups

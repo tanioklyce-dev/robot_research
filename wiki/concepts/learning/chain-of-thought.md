@@ -2,8 +2,8 @@
 title: Chain of thought
 type: concept
 created: 2026-05-15
-updated: 2026-07-25
-sources: 4
+updated: 2026-08-03
+sources: 5
 tags: [llm, reasoning, prompting, chain-of-thought, reasoning-models, embodied-cot, depth-tokens]
 ---
 
@@ -51,3 +51,4 @@ CoT appears in robotics primarily through the [LLM-agent architecture](../agents
 
 ## Mentioned in
 - [MolmoAct2 paper (Fang, Duan et al. 2026)](../../sources/molmoact2-paper.md) — depth-token reasoning as a non-textual embodied CoT; the "tacit physical knowledge isn't in text" argument.
+- [MolmoAct paper](../../sources/molmoact-paper.md) — embodied CoT with **decodable** intermediate steps: depth tokens → visual trace → actions, each independently renderable; the trace doubles as a steering interface.

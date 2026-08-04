@@ -3,8 +3,8 @@ title: MolmoAct
 type: entity
 subtype: model
 created: 2026-07-17
-updated: 2026-07-25
-sources: 4
+updated: 2026-08-03
+sources: 5
 tags: [molmoact, vla, vision-language-action, discrete-tokens, spatial-reasoning, depth-tokens, allen-institute, molmo, baseline]
 ---
 
@@ -20,7 +20,7 @@ MolmoAct is one of the **large-scale-action-pretrained** baselines in the wiki's
 > **[MolmoAct2](molmoact2.md)** ([Fang, Duan et al. 2026](../sources/molmoact2-paper.md)) is the ingested successor and advances MolmoAct along five axes: a stronger [Molmo2-ER](molmo2-er.md) backbone, three new open datasets, an open-data [FAST](fast-action-tokenization.md) tokenizer, a hybrid **continuous** action head via [per-layer KV conditioning](../concepts/learning/per-layer-kv-conditioning.md), and **adaptive** depth reasoning. MolmoAct2 reports MolmoAct-7B-D at **86.6** on LIBERO (consistent with the 86.8 below) and beats it by **+10.6**. The successor paper is now the wiki's best window into MolmoAct's own design (below).
 
 > [!note] MolmoAct primary (2508.07917) still not directly ingested
-> This page is grounded in the [VLA-0 paper](../sources/vla-0-paper.md)'s LIBERO comparison and the [MolmoAct2 paper](../sources/molmoact2-paper.md)'s description of its predecessor. The MolmoAct paper itself has not been read directly — deepen further if it lands.
+> **Primary ingested 2026-08-03** — [MolmoAct paper](../sources/molmoact-paper.md) (arXiv 2508.07917, Ai2 + UW). This page was previously grounded only in the [VLA-0 table](../sources/vla-0-paper.md) and [MolmoAct2](../sources/molmoact2-paper.md)'s description of its predecessor.
 
 ## Depth-token reasoning (the "reason in space" mechanism)
 
@@ -44,6 +44,14 @@ Per the [MolmoAct2 paper](../sources/molmoact2-paper.md) §5, MolmoAct's spatial
 - **MolmoAct primary (arXiv 2508.07917) still not directly ingested** — the depth VQ-VAE tokenization and pretraining corpus are now described secondhand via [MolmoAct2](molmoact2.md); read the original for exact details if needed.
 - MolmoAct's spatial-reasoning framing **is** confirmed as a non-textual [embodied chain-of-thought](../concepts/learning/chain-of-thought.md) (depth tokens) per the successor paper.
 
+## First-hand from the primary (added 2026-08-03)
+
+- **Action Reasoning Model (ARM) pipeline** — three independently-decodable autoregressive stages: **depth perception tokens** (2.5D scene) → **visual reasoning trace** (2D trajectory plan over the image) → **action tokens**. The distinctive capability is **steering by editing the trace**, which the paper finds more reliable than language corrections.
+- **Robots: Franka only** — single-arm (incl. on a DROID-style mobile platform for home data) and a bimanual Franka rig; sim on [LIBERO](libero.md) and SimplerEnv. The YAM/SO-100 breadth arrived with [MolmoAct2](molmoact2.md).
+- **Released the MolmoAct Dataset** — 10,689 Franka trajectories, 93 tasks, home + tabletop, five operators × two months; +5.5% average from mid-training on it.
+- **Headline results:** SimplerEnv zero-shot **70.5%** (above π0 and GR00T N1.5); real-world **+10% single-arm / +22.7% bimanual** task progression over π0-FAST (25 trials/task); **+23.3%** OOD; top **Elo** in arena-style human preference — an early instance of preference-based policy evaluation predating [RoboArena](roboarena.md)'s formalization.
+- **Stated limitation:** spatial reasoning depends on an unoccluded front camera view.
+
 ## As the supervised policy in Anthropic's robotics evaluation
 
 MolmoAct is the pretrained manipulation policy that frontier LLMs were given to **supervise** (and override) on LIBERO-40 in [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md). The result is a useful external datapoint on MolmoAct itself as much as on the supervisors: **every one of eleven tested models scored *worse* than MolmoAct running alone** on the tasks it already handles. On three novel LIBERO-like tasks MolmoAct **cannot** do alone, the better supervisors (Claude Opus 4.5/4.6, Gemini 3.1) produced net uplift.
@@ -55,3 +63,4 @@ The variable is deference calibration — how often the supervisor copies MolmoA
 - [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — MolmoAct as the pretrained policy under LLM supervision; supervision *hurts* in-distribution, helps on novel tasks.
 - [VLA-0 paper](../sources/vla-0-paper.md) — MolmoAct as a discrete-token, action-pretrained LIBERO baseline.
 - [MolmoAct2 paper (Fang, Duan et al. 2026)](../sources/molmoact2-paper.md) — describes MolmoAct as its predecessor (depth-token reasoning, LIBERO number).
+- [MolmoAct paper](../sources/molmoact-paper.md) — the primary source, ingested 2026-08-03.

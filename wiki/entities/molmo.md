@@ -3,8 +3,8 @@ title: Molmo
 type: entity
 subtype: vlm
 created: 2026-07-17
-updated: 2026-07-25
-sources: 4
+updated: 2026-08-03
+sources: 5
 tags: [molmo, molmo2, vlm, allen-institute, ai2, pixmo, open-weights, open-data, pointing, vla-backbone]
 ---
 
@@ -49,3 +49,4 @@ The distillation-free data recipe pays off: the **Molmo-72B** model **tops acade
 - [Molmo and PixMo paper (Deitke et al. 2024)](../sources/molmo-pixmo-paper.md) — the primary source.
 - [MolmoAct](molmoact.md) — the VLA that uses Molmo as its backbone.
 - [MolmoAct2 paper (Fang, Duan et al. 2026)](../sources/molmoact2-paper.md) — Molmo2 / Molmo2-ER lineage.
+- [MolmoAct paper](../sources/molmoact-paper.md) — Molmo's VLM pointing generates the visual-trace annotations (box-based detectors collapse to box centers); the ARM line is the robotics application of the Molmo recipe.
