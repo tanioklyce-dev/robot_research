@@ -69,6 +69,13 @@ The [paper's on-edge benchmark](../../sources/cutting-the-cord-untethered-xlerob
 
 **Bottom line:** for the XLeRobot as-specced, **Orin Nano is the right default and the only one proven untethered**; **Orin NX 16 GB is the natural drop-in upgrade** when onboard VLAs need more than 8 GB / ~1–2 Hz (and usually the better buy than AGX Orin here); **AGX Orin** is for when you want 64 GB and peak throughput; **Thor is the wrong tool** until the robot (and its battery) grow up.
 
+> [!warning] Added 2026-08-03 — the "3B-class VLAs become workable" verdict does not extend to MolmoAct2
+> [MolmoAct2-SO100_101](../../sources/molmoact2-so100-101-model-card.md) is the first 2026-class open VLA with a checkpoint fine-tuned for this exact arm class — and it is **5B params at ~16 GB bf16** (~24–26 GB float32). Because Jetson memory is **unified and shared with the CPU**, a 16 GB Orin NX has well under 16 GB free once the OS, camera pipeline, and ROS stack are resident. **This checkpoint is not an Orin NX 16 GB target.**
+>
+> That splits the Orin NX recommendation by model generation: it remains the right call for **SmolVLA / diffusion-policy-class** models (the ones this page benchmarked), and it is **not sufficient** for the 5B 2026-class checkpoints. For MolmoAct2 specifically the plausible onboard tiers are **AGX Orin 64 GB** or **Thor** — or the [repo's own architecture](../../sources/molmoact2-github-repo.md), which expects the model to run **off-robot behind a FastAPI server** with the robot as a client. Given the XLeRobot's power budget, off-board serving is likely the realistic path, and it is what Ai2 ships.
+>
+> Caveat: this is **inference from a stated memory footprint, not a measurement**. No one has published MolmoAct2 on any Jetson, and the repo contains no Jetson support.
+
 > [!note] The NPU alternative (not on this Jetson ladder)
 > A [Raspberry Pi 5](../../entities/raspberry-pi-5.md) + **[AI HAT+ 2 / Hailo-10H](../../sources/raspberry-pi-ai-hat-plus-2.md)** (40 TOPS INT4, 8 GB, $180) is a *non-CUDA* onboard option. It can host a local **LLM/VLM agent layer + vision** but is **not** a substitute for any tier here when it comes to the control policy: a [Hailo](../../entities/hailo.md) NPU runs only models compiled to its HEF format, so it does **not** run LeRobot's PyTorch ACT/Diffusion/SmolVLA/π0.5 as-is. Use it alongside (Pi-as-host + onboard LLM), not instead of, the Jetson for policy inference.
 

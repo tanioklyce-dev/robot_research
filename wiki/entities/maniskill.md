@@ -3,8 +3,8 @@ title: ManiSkill
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-05-15
-sources: 3
+updated: 2026-08-03
+sources: 4
 tags: [maniskill, sapien, manipulation, hillbot, benchmark]
 ---
 
@@ -23,3 +23,4 @@ GPU-parallelized robotics simulator and manipulation benchmark led by [Hillbot](
 
 ## Mentioned in
 - [ManiSkill-HAB Paper](../sources/maniskill-hab-paper.md)
+- [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — the repo-level simulation evaluation harness for MolmoAct2-DROID and MolmoAct2-BimanualYAM (the paper's headline sim benchmark is [LIBERO](libero.md) instead).

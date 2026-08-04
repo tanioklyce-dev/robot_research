@@ -3,8 +3,8 @@ title: MolmoAct2
 type: entity
 subtype: model
 created: 2026-07-25
-updated: 2026-07-25
-sources: 1
+updated: 2026-08-03
+sources: 3
 tags: [molmoact2, molmoact, vla, vision-language-action, flow-matching, per-layer-kv-conditioning, adaptive-depth, fast-tokenizer, hybrid-action-head, allen-institute, molmo, real-world-deployment, open-source, open-data]
 ---
 
@@ -49,6 +49,33 @@ The **adaptive-depth reasoning** variant. Before acting, it predicts a compact d
 - **OOD robustness** (spatial/lighting/language/distractor): **50.69%**, +10.8 over OpenVLA-OFT.
 - **Inference:** **55.79 Hz** (continuous path, CUDA Graphs, 2.42× over baseline); MolmoAct2-Think 12.71 Hz. Continuous flow path is 3.94× faster than the discrete autoregressive action path — hence continuous is the deployment default.
 
+## Released checkpoints and deployment envelope (added 2026-08-03)
+
+From the [GitHub repo](../sources/molmoact2-github-repo.md) and the [SO-100/101 model card](../sources/molmoact2-so100-101-model-card.md):
+
+| Kind | Checkpoints |
+|---|---|
+| **Base** | MolmoAct2, MolmoAct2-Think, MolmoAct2-Pretrain, [Molmo2-ER](molmo2-er.md) |
+| **Fine-tuned** | MolmoAct2-DROID ([Franka](franka-panda.md)), MolmoAct2-BimanualYAM ([YAM](yam.md)), **MolmoAct2-SO100_101** ([SO-ARM101](so-arm101.md)), MolmoAct2-LIBERO, MolmoAct2-Think-LIBERO |
+
+**Memory footprint** — note the spread; "MolmoAct2 needs X GB" is not one number:
+
+| Deployment | float32 | bfloat16 |
+|---|---|---|
+| SO-100/101 (**5B params**) | ~24–26 GB | **~16 GB** |
+| YAM (bimanual) | ~26 GB | under 16 GB |
+| DROID (Franka) | **~88 GB** | ~16 GB |
+
+- **Ships as a [LeRobot](lerobot.md) application** — datasets in LeRobot v3.0 format, LeRobot vendored as a git submodule, training through LeRobot workflows. Not a parallel stack to the one this wiki's projects use; the same one.
+- **Deployment is client/server** — two FastAPI inference servers (DROID :8000, YAM :8202), i.e. the model is expected to run off-robot.
+- Sim eval runs on **[ManiSkill](maniskill.md)** at the repo level, though the paper's headline sim benchmark is [LIBERO](libero.md).
+- Tested on **RTX A6000**; Intel XPU supported. **No Jetson build, benchmark, or mention anywhere.**
+- The SO-100/101 checkpoint uses **absolute joint-pose control** with annotated language instructions — joint-space and absolute, so calibration agreement matters more than it would for relative end-effector actions.
+- Ai2's stated porting guidance: start from the **nearest embodiment's fine-tuned checkpoint** (YAM / DROID Franka / SO-100/101), not the generalist base.
+
+> [!warning] ~16 GB bf16 is not an Orin NX 16 GB fit
+> Jetson uses unified memory shared with the CPU, so a 16 GB Orin NX has well under 16 GB free after OS, cameras, and ROS. A 5B checkpoint whose weights alone want ~16 GB in bf16 is **not a realistic Orin NX target** — AGX Orin 64 GB or [Thor](jetson-thor.md) are the plausible edge tiers. Inference from the stated footprint, **not a measurement**; nobody has published MolmoAct2 on Jetson. See the [XLeRobot compute page](../syntheses/platforms/jetson-onboard-compute-xlerobot.md).
+
 ## Datasets released
 
 - **MolmoAct2-BimanualYAM Dataset** — 720 hrs, 34.5k demos, 28+ tasks on bimanual [YAM](yam.md); largest open bimanual dataset to date.
@@ -74,3 +101,5 @@ The **adaptive-depth reasoning** variant. Before acting, it predicts a compact d
 ## Mentioned in
 
 - [MolmoAct2 paper (Fang, Duan et al. 2026)](../sources/molmoact2-paper.md) — the primary source.
+- [MolmoAct2-SO100_101 model card](../sources/molmoact2-so100-101-model-card.md) — the SO-100/101 checkpoint; 5B params, ~16 GB bf16, absolute joint-pose control.
+- [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — full checkpoint family, LeRobot-native training, FastAPI deployment servers, ManiSkill sim eval.

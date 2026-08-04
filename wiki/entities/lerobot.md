@@ -3,8 +3,8 @@ title: LeRobot
 type: entity
 subtype: software-framework
 created: 2026-05-10
-updated: 2026-07-08
-sources: 30
+updated: 2026-08-03
+sources: 31
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026]
 ---
 
@@ -157,6 +157,7 @@ Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distri
 - [Seeed Studio LeRobot LeKiwi Wiki](../sources/seeed-lekiwi-wiki.md)
 - [LeKiwi GitHub](../sources/lekiwi-github.md)
 - [LeRobot Worldwide Hackathon 2025 — All Winners](../sources/lerobot-worldwide-hackathon-2025-winners.md)
+- [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — **MolmoAct2 ships as a LeRobot application**: datasets in LeRobot v3.0 format, LeRobot vendored as a git submodule, training through LeRobot workflows. [Ai2](ai2.md)'s fully-open VLA is not a parallel stack — it is this one.
 
 ## Open questions / TBD
 

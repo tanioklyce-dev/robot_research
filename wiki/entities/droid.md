@@ -3,8 +3,8 @@ title: DROID
 type: entity
 subtype: dataset
 created: 2026-05-07
-updated: 2026-07-25
-sources: 20
+updated: 2026-08-03
+sources: 21
 tags: [droid, dataset, teleoperation, franka, robot-data, stanford, berkeley, oxe, molmoact2]
 ---
 
@@ -75,3 +75,4 @@ This makes DROID the single most reused real-robot dataset in the JEPA literatur
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
 - [MolmoAct2 paper (Fang, Duan et al. 2026)](../sources/molmoact2-paper.md) — the quality-filtered MolmoAct2-DROID subset + zero-shot deployment.
+- [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — MolmoAct2-DROID (Franka) checkpoint; **~88 GB float32**, the largest footprint in the family, 3.4x the YAM config.

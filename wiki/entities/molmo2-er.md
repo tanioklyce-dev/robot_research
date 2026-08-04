@@ -3,8 +3,8 @@ title: Molmo2-ER
 type: entity
 subtype: model
 created: 2026-07-25
-updated: 2026-07-28
-sources: 1
+updated: 2026-08-03
+sources: 4
 tags: [molmo2-er, molmo2, molmo, vlm, embodied-reasoning, spatial-reasoning, pointing, vla-backbone, allen-institute, open-source, open-data, specialize-then-rehearse]
 ---
 
@@ -55,3 +55,6 @@ Rather than re-run Molmo2's full multimodal training, it builds on the released 
 ## Mentioned in
 
 - [MolmoAct2 paper (Fang, Duan et al. 2026)](../sources/molmoact2-paper.md) — the primary source.
+- [CaP-X paper](../sources/cap-x-paper.md) — Molmo 2 is one of CaP-Gym's perception primitives, providing open-vocabulary pointing alongside SAM3.
+- [MolmoAct2-SO100_101 model card](../sources/molmoact2-so100-101-model-card.md) — restates the architecture independently of the paper: a flow-matching continuous action expert "conditions on the VLM key-value cache through a per-layer connection" on top of Molmo2-ER.
+- [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — Molmo2-ER is released as a standalone base checkpoint.

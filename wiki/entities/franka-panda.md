@@ -3,8 +3,8 @@ title: Franka Panda
 type: entity
 subtype: robot
 created: 2026-05-07
-updated: 2026-07-05
-sources: 26
+updated: 2026-08-03
+sources: 28
 tags: [franka, panda, robot-arm, manipulator, 7-dof, manipulation-platform]
 ---
 
@@ -63,3 +63,5 @@ The result: when a JEPA-style or VLA-style paper says "real-robot eval" without 
 - [AutoSERL paper](../sources/autoserl-paper.md) — insertion-task platform (plug + USB insertion) alongside a UR5 for hanging/hinge tasks.
 - [UMI Project Page](../sources/umi-paper.md) — Franka is one of two UMI deployment platforms (alongside UR5e); zero-shot cross-embodiment transfer demonstrated.
 - [Designing Accessible Robot Communication for Blind People — Huh et al. 2026](../sources/huh2026-accessible-robot-comm.md) — Panda used as the tabletop manipulator for set-table / clear-table tasks in the in-person observational study with blind participants.
+- [CaP-X paper](../sources/cap-x-paper.md) — real-robot platform for CaP-RL sim-to-real (84% cube lift / 76% stack after simulation-only RL of a 7B coding model, n=25) and for zero-shot CaP-Agent0 demos.
+- [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — the DROID Franka deployment target; out-of-the-box support claimed.

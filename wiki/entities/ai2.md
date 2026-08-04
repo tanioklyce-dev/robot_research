@@ -3,8 +3,8 @@ title: Ai2 (Allen Institute for AI)
 type: entity
 subtype: research-lab
 created: 2026-07-24
-updated: 2026-07-26
-sources: 8
+updated: 2026-08-03
+sources: 10
 tags: [ai2, allen-institute, research-lab, open-source, open-data, seattle, nonprofit, robotics, vla, ai-for-science, ai-for-the-planet, asta, olmoearth]
 ---
 
@@ -81,3 +81,5 @@ counterweight to the closed frontier labs the wiki otherwise tracks.
 - [MolmoAct2 (Fang, Duan et al. 2026)](../sources/molmoact2-paper.md) — the fully-open deployable VLA + three released robot datasets.
 - [Ai2 homepage (allenai.org)](../sources/ai2-homepage.md) — the three-pillar (Science / Planet / Embodied) framing + Asta + OlmoEarth.
 - [YOLO (Redmon et al. 2016)](../sources/yolo-you-only-look-once-2016.md) — Allen Institute for AI authorship affiliation.
+- [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — the MolmoAct2 codebase; Apache 2.0 under Ai2's Responsible Use Guidelines.
+- [MolmoAct2-SO100_101 model card](../sources/molmoact2-so100-101-model-card.md) — the low-cost-arm checkpoint.

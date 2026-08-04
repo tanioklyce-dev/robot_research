@@ -3,8 +3,8 @@ title: SO-ARM101 (SO-ARM100 lineage)
 type: entity
 subtype: robot
 created: 2026-05-10
-updated: 2026-07-07
-sources: 19
+updated: 2026-08-03
+sources: 21
 tags: [so-arm, so-arm100, so-arm101, the-robot-studio, low-cost-arm, open-source, lerobot, leader-follower, teleoperation]
 ---
 
@@ -61,6 +61,8 @@ The leader-follower convention is the dominant data-collection pattern for imita
 - [Rosetta GitHub](../sources/rosetta-github.md) — ships `so_101.yaml` (standard manipulator contract: 3 cameras + 6-joint follower state + leader-arm actions, MCAP storage) and `so_101_hil.yaml` (adds button-mapped intervention / success / failure / re-record + reward topic for HIL workflows).
 - [lerobot-ros GitHub](../sources/lerobot-ros-github.md) — SO-101 is the simulated quickstart robot (Gazebo + MoveIt) for [lerobot-ros](lerobot-ros.md)'s generic ros2_control / MoveIt-Servo wrapper; ROS 2 Jazzy only.
 - [so101_ros2 readthedocs](../sources/so101-ros2-readthedocs.md) — [so101-ros2](so101-ros2.md) is an SO-101-hardware-specific complete workspace (8 packages: URDF/USD, hardware interface, controllers, bringup, teleop, bridge, ros2_externals); MIT; ROS 2 Humble; ships **Isaac Sim 5.0+ integration** and tested SmolVLA + π0.5 deployment. **SO-101 is now the most-tooled platform in the LeRobot↔ROS 2 ecosystem** — all three bridges use it as their reference.
+- [MolmoAct2-SO100_101 model card](../sources/molmoact2-so100-101-model-card.md) — **a 2026-class open VLA with a checkpoint fine-tuned specifically for this arm class** (5B, ~16 GB bf16, absolute joint-pose control). [MolmoAct2](molmoact2.md) reports 56.7% zero-shot real-world SO-100 (N unstated).
+- [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — claims out-of-the-box deployment for SO-100; LeRobot-native, so it drops into the stack this wiki's SO-101 projects already use.
 
 ## Open questions / TBD
 
