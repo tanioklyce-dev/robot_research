@@ -3,9 +3,9 @@ title: DINOv3
 type: entity
 subtype: model
 created: 2026-05-11
-updated: 2026-05-15
-sources: 6
-tags: [dinov3, vision-foundation-model, self-supervised, vit, meta-fair, dino, frozen-encoder, gram-anchoring]
+updated: 2026-08-04
+sources: 7
+tags: [dinov3, vision-foundation-model, self-supervised, vit, meta-fair, dino, frozen-encoder, gram-anchoring, vla, turbovla]
 ---
 
 **DINOv3** — Meta AI Research's third major DINO release ([DINOv3 paper, August 2025](../sources/dinov3-paper.md)). **7B-parameter ViT** trained with self-supervised learning at scale; positioned as a **frozen-backbone universal vision encoder** matching CLIP-family weakly-supervised models on global tasks and substantially beating them on dense tasks (segmentation, depth, 3D matching).
@@ -56,6 +56,9 @@ DINOv3 is the **architectural and training-recipe successor** to [DINOv2](dinov2
 ## Position in this wiki
 DINOv3 sits one layer below the JEPA / world-model literature. Most JEPA-adjacent papers in this wiki — [DINO-WM](dino-wm.md), [DINO-world](dino-world.md), [JEPA-WMs](jepa-wms.md) — use frozen [DINOv2](dinov2.md) features. **DINOv3 is the natural drop-in upgrade** for that lineage, but no paper in this wiki has yet used it as the encoder (DINOv3 was released August 2025; JEPA-WMs Dec 2025 still used DINOv2-class features at submission time).
 
+> [!note] First downstream use in this wiki — as a VLA's *entire* vision pathway (2026-08-04)
+> **[TurboVLA](turbovla.md)** ([paper](../sources/turbovla-paper.md)) uses DINOv3 ViT-B (LIBERO) / ViT-L (RoboTwin) as its vision encoder — and, having deleted the language-model backbone, DINOv3 *is* the model's visual intelligence rather than a feature source feeding a VLM. It reaches 97.7% LIBERO at 0.2 B total parameters. This answers the "no paper here has used it yet" note above, though from the [VLA](../concepts/learning/vla-models.md) direction rather than the world-model direction the paragraph anticipated. The DINOv3-WM sequel in *Open questions* below is still unclaimed.
+
 [Federico Baldassarre](https://scholar.google.com) is a co-corresponding author on DINOv3 *and* senior author on [DINO-world](../sources/dino-world-paper.md) — the same author bridges the DINO-foundation and DINO-world-model lines.
 
 ## Methodological cousin: LeJEPA / SIGReg
@@ -74,6 +77,7 @@ These are the **two competing 2025 attempts to make large-scale SSL stable**. Th
 
 ## Mentioned in
 - [DINOv3 Paper](../sources/dinov3-paper.md)
+- [TurboVLA paper](../sources/turbovla-paper.md) — DINOv3 ViT-B/ViT-L as the vision encoder of an LLM-free VLA
 
 ## Open questions / TBD
 - Has a DINOv3-WM or DINOv3-based world-model paper appeared yet? Worth checking — would be the natural sequel to DINO-WM.

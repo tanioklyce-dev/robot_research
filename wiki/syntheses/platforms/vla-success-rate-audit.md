@@ -61,8 +61,16 @@ LIBERO averages span four suites (Spatial / Object / Goal / Long) of **10 tasks 
 | VLA-0 94.7 vs π0 94.2 | 0.5 pp | p=0.73 | p=0.49 | **TIE** |
 | MolmoAct2 97.2 vs VLA-0 94.7 | 2.5 pp | p=0.044 | p=0.0001 | **survives** |
 | MolmoAct2 97.2 vs MolmoAct 86.8 | 10.4 pp | p<0.0001 | p<0.0001 | **survives** |
+| **[TurboVLA](../../entities/turbovla.md) 97.7 vs π0.5 96.9** | 0.8 pp | — | p=0.12 | **TIE** |
+| TurboVLA 97.7 vs OpenVLA-OFT 97.1 | 0.6 pp | — | p=0.23 | **TIE** |
+| TurboVLA 97.7 vs VLA-Adapter 97.3 | 0.4 pp | — | p=0.42 | **TIE** |
+| TurboVLA 97.7 vs [Evo-1](../../entities/evo-1.md) 94.8 | 2.9 pp | — | p<0.001 | **survives** |
+| TurboVLA 97.7 vs SmolVLA 88.8 | 8.9 pp | — | p<0.0001 | **survives** |
 
-**Minimum separating gap at ~97%: >1.8 pp (n=500) or >1.0 pp (n=2,000).** The cluster from 96.5 to 98.1 spans 1.6 pp and contains at least six models.
+**Minimum separating gap at ~97%: >1.8 pp (n=500) or >1.0 pp (n=2,000).** The cluster from 96.5 to 98.1 spans 1.6 pp and contains at least six models — **now at least eight**, with TurboVLA 97.7 and VLA-Adapter 97.3 joining it.
+
+> [!note] The tie is doing useful work for once
+> TurboVLA's whole argument is *"matching much larger policies at 6% of the parameters."* A tie at the top is exactly the claim — and its efficiency axis (0.2 B vs 3.4 B, 0.9 GB vs 12.8 GB, 31.2 ms vs 93.6 ms) consists of **engineering measurements, not sampled proportions**, so it doesn't need this audit at all. The paper's abstract says "matching or outperforming"; only the first word survives, and only the first word was needed.
 
 > [!warning] A larger problem than the tie: LIBERO may not measure generalization at all
 > [LIBERO-PRO](../../sources/libero-pro-paper.md) reports models scoring **>90% on standard LIBERO collapsing to 0.0%** under perturbation of objects, initial states, instructions, or environments — because the **evaluation tasks are the training tasks**, differing only by visually imperceptible initial-state changes. Models keep grasping after the target object is swapped, and emit unchanged actions under corrupted instructions.
@@ -87,6 +95,9 @@ LIBERO averages span four suites (Spatial / Object / Goal / Long) of **10 tasks 
 | **Cosmos3-Nano-Policy-DROID 39.7 vs π0.5 28.1 on RoboLab-120** | 120 tasks, rollouts/task unstated | **unknown-N** — at 1 rollout/task it is a TIE (p=0.058) |
 | **Anthropic LLM direct control: 5.5% vs 0%** (LIBERO-40, 40×5) | 200 | **survives** (p=0.0008) |
 | **RUM 90% across 25 novel environments** | 250 | CI [85.6, 93.4] — the headline holds; the per-task ordering (68/76/76/80/84) does **not** separate |
+| **[TurboVLA](../../entities/turbovla.md) [RoboTwin 2.0](../../entities/robotwin.md) 60.2 vs π0.5 57.0** (50 bimanual tasks × 100) | **5,000** | **survives** (p=0.0012) — see note below |
+| — TurboVLA RoboTwin 60.2 vs StarVLA-α 50.3 | 5,000 | **survives** (p<0.0001) |
+| **TurboVLA real [AgileX Piper](../../entities/agilex-piper.md), 4 tasks vs π0.5** | 40/task | **not significant** — at n=40 near 85–90%, nothing under ~17 pp is detectable; 4-of-4 sign test is p=0.125 regardless |
 
 > [!note] The irony worth recording
 > **NVIDIA's own headline RoboLab comparison may not clear NVIDIA's own bar.** Cosmos3-Nano-Policy-DROID at 39.7% vs π0.5 at 28.1% is an 11.6 pp gap on a 120-task suite; if that is one rollout per task, p=0.058 — a tie. The rollouts-per-task figure is not published, so this is *unknown-N*, not *refuted*. But the paper proposing the 1,030-rollout standard is adjacent to a comparison that needs its own medicine.
@@ -125,6 +136,24 @@ That is the same finding, from a different source, sitting on a source page whil
 
 > [!warning] The measurement this thread is missing is cost, not N
 > Every number above has a sample size. **None has a compute cost attached.** CaP-Agent0 issues up to 9 parallel frontier-model queries per turn; ASPIRE reports **81.67M–334.9M tokens for a single real-robot task**. Comparing that to a VLA's single forward pass on success rate alone is an unequal-compute comparison that no paper in this thread acknowledges. The wiki should **record compute at ingest** the way it now records N — this is the same organizational failure as section C, one benchmark cycle later.
+
+### E. TurboVLA (added 2026-08-04) — the paper headlined its tie and buried its win
+
+[TurboVLA](../../sources/turbovla-paper.md) is the clearest case yet of the pathology this page exists to catch, and it runs in an unexpected direction. The paper leads with **LIBERO 97.7%** — a tie with three other models. Its **[RoboTwin 2.0](../../entities/robotwin.md)** result, presented second and in a smaller table, is the one that survives:
+
+| | LIBERO | RoboTwin 2.0 |
+|---|---|---|
+| Gap over π0.5 | 0.8 pp | 3.2 pp |
+| n per arm | 2,000 | **5,000** |
+| Base rate | ~97% | ~58% |
+| Verdict | **TIE** (p=0.12) | **survives** (p=0.0012) |
+
+The smaller gap separates and the larger one doesn't, for three compounding reasons: **2.5× the sample**, a base rate near 50–60% where a proportion's variance is maximal *relative to the ceiling* (at 97% everything is crushed against the top and there is almost nothing left to separate), and a benchmark with genuine headroom. RoboTwin is also the harder setting — 50 bimanual tasks under one joint policy, against a π0.5 that *has* embodied pretraining where TurboVLA has none.
+
+> [!note] The generalizable lesson: prefer benchmarks with headroom
+> A benchmark whose leaders sit at 97% cannot separate them without ~2,000 rollouts per arm, and even then only past ~1.0 pp. A benchmark whose leaders sit at 58% separates 3 pp at the same-ish effort. **LIBERO's saturation is itself a measurement problem**, independent of the [LIBERO-PRO](../../sources/libero-pro-paper.md) memorization critique — and the two compound: a saturated benchmark that may also be measuring recall is the worst of both. The wiki should weight RoboTwin-2.0-class and real-world numbers above LIBERO ones when a source reports both.
+
+**Compute, per this page's own standing request** (section D): TurboVLA trained on **four RTX 4090s**, 80 k steps for the LIBERO result, **no embodied pretraining**. That is the smallest disclosed training footprint attached to any top-tier LIBERO number in this wiki. The efficiency claims (0.2 B params, 0.9 GB VRAM, 31.2 ms) are direct measurements, need no significance test, and — unusually — the authors **re-measured every competitor themselves** on one RTX 4090 at batch size 1 rather than quoting original papers.
 
 ## The other way out: stop measuring absolute rates
 

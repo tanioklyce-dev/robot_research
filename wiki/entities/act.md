@@ -3,8 +3,8 @@ title: ACT (Action Chunking Transformer)
 type: entity
 subtype: method
 created: 2026-05-25
-updated: 2026-08-03
-sources: 16
+updated: 2026-08-04
+sources: 17
 tags: [act, action-chunking, transformer, imitation-learning, behavior-cloning, aloha, mobile-aloha, tony-zhao, stanford, lerobot]
 ---
 
@@ -62,3 +62,4 @@ From [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) Tables 2 +
 - [VLA-0 paper](../sources/vla-0-paper.md) — borrows ACT's **prediction-ensembling / action-chunking** trick as its single biggest accuracy lever (+2 pts on LIBERO).
 - [OpenVLA-OFT paper](../sources/openvla-oft-paper.md) — adopts ACT's **L1-regression continuous-action head** + action chunking; finds L1 matches diffusion at lower cost.
 - [Introducing Waddle (Waddle Labs, 2026)](../sources/waddle-labs-introducing-waddle.md) — an [LLM agent](../concepts/agents/llm-agent-architecture.md) autonomously collected ~1,000 LEGO pick-and-place trials overnight and **trained an ACT policy from scratch** — ACT as the target of agent-driven data collection + training.
+- [TurboVLA paper](../sources/turbovla-paper.md) — an ACT-style parallel-query decoder is the **entire action head of a 97.7-LIBERO VLA**. Notable as the furthest extension of the chunking idea in this wiki: with the LLM removed, ACT's decoder is no longer a head bolted onto a foundation model but the policy's whole output stage. TurboVLA's horizon ablation (H=8 → 96.4, **H=12 → 97.7**, H=15 → 95.6) is also a rare well-powered (n=2,000) measurement of chunk-length sensitivity — an inverted U, where ACT's original 50–100 range would be past the peak for 7-DoF LIBERO.

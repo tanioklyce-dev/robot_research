@@ -2,8 +2,8 @@
 title: VLA deployability landscape — the four axes (openness, hardware, latency, success)
 type: synthesis
 created: 2026-07-25
-updated: 2026-07-26
-tags: [vla, deployability, open-source, open-data, affordable-hardware, inference-latency, landscape-survey, molmoact2, physical-intelligence, smolvla, groot]
+updated: 2026-08-04
+tags: [vla, deployability, open-source, open-data, affordable-hardware, inference-latency, landscape-survey, molmoact2, physical-intelligence, smolvla, groot, turbovla, llm-free-vla]
 ---
 
 A cross-player comparison of the wiki's [VLA models](../../concepts/learning/vla-models.md) along the axes that decide whether a policy can actually be **deployed** — not just whether it tops a benchmark. The framing is borrowed from the [MolmoAct2 paper](../../sources/molmoact2-paper.md) (Fang, Duan et al. 2026), which argues that today's VLAs each fail *at least one* of four deployment criteria, and positions [MolmoAct2](../../entities/molmoact2.md) as the first open model to plausibly satisfy all four at once. This page tests that claim against the other VLAs the wiki tracks.
@@ -38,12 +38,30 @@ Scores are directional (✅ strong / ◐ partial / ❌ weak) from the sources in
 | **[VLA-0](../../entities/vla-0.md)** (NVIDIA) | ✅ recipe (action-as-text) | ◐ SO-100 real eval | ◐ autoregressive text decode | ✅ LIBERO 94.7 *no pretraining* | Open recipe, minimalist |
 | **[Cosmos 3](../../entities/nvidia-cosmos.md)** (NVIDIA) | ✅ weights (OpenMDW) | ◐ DROID-class | ❌ omnimodal world model, heavy | ✅ #1 RoboArena | Open-weights, world-model-heavy |
 | **[MolmoAct](../../entities/molmoact.md)** (Ai2) | ✅ ✅ ✅ | ◐ | ❌ **full** depth grid every step | ◐ LIBERO 86.8 | The predecessor — the latency gap MolmoAct2 closes |
+| **[TurboVLA](../../entities/turbovla.md)** (HUST/Huawei) | ◐ code announced; **no data release**, but LIBERO/RoboTwin data are public | ✅ [AgileX Piper](../../entities/agilex-piper.md); **0.9 GB fits an [Orin Nano](../../entities/jetson-orin-nano.md)** | ✅✅ **31.2 ms / 32 Hz on a consumer RTX 4090** — no LLM in the loop | ✅ LIBERO 97.7 (tied); [RoboTwin](../../entities/robotwin.md) 60.2 **>** π0.5 57.0 | **The compute corner nothing else occupies** |
 
 ## Where the corners cluster
 
 - **Performant-but-closed-and-expensive** — the [π-series](../../entities/physical-intelligence.md). These are the strongest deployed generalist policies (RL-from-deployment, 13-hr espresso runs), but the training data and recipes are proprietary and the out-of-the-box hardware is bimanual/mobile rigs beyond most labs. You can't reproduce them, and you can't cheaply run them. This is exactly the gap the openness argument targets.
 - **Open-and-affordable** — [SmolVLA](../../entities/smolvla.md) got here first: fully open, 450M params, runs on a [$100-class SO-100](../../entities/so-arm101.md), async inference stack designed for deployment. Its limitation is scale/performance — it's a smaller model trained on ~10× less data than π0. MolmoAct2 is the argument that you can hold the open+affordable corner **and** match/beat the frontier on performance.
 - **Open-weights-but-not-open-data** — [GR00T](../../entities/nvidia-groot.md), [OpenVLA-OFT](../../entities/openvla-oft.md), [Cosmos 3](../../entities/nvidia-cosmos.md). Weights and code are out, but the full training corpus/recipe isn't, so re-targeting to a new robot still depends partly on the originating lab. GR00T is additionally humanoid-first (its out-of-the-box embodiment is a [Fourier GR-1](../../entities/fourier-gr-1.md), not a cheap arm), though N1.7's SO-101 walkthrough softens this.
+
+## A fifth axis the four-axis frame was hiding (added 2026-08-04)
+
+[TurboVLA](../../entities/turbovla.md) ([paper](../../sources/turbovla-paper.md)) breaks this page's scoring in a way worth recording, because the break is informative rather than a bookkeeping problem.
+
+MolmoAct2's axis 3 is **latency**, and this page treats it as satisfied at 55.8 Hz — measured on an **H100**, a caveat flagged above as the page's biggest weakness. TurboVLA hits 32 Hz on a **$1,600 consumer RTX 4090** in **0.9 GB**, and was *trained* on four of them. Those are not the same achievement, and the four-axis frame cannot tell them apart:
+
+**Axis 3 conflates "how fast does it run" with "what must you own to run it."** A policy that needs a data-center GPU to reach 55.8 Hz and a policy that reaches 32 Hz in under a gigabyte are in different deployment universes, and only the second one has any path onto a battery-powered robot. Splitting latency into **rate** and **the compute class required to achieve that rate** re-sorts the table: on *rate* MolmoAct2 leads, on *compute class* nothing here is close to TurboVLA.
+
+This also reframes axis 2. "Hardware accessibility" has meant **the arm** throughout this page — the <$6k rig, the $100-class SO-100. But the [Jetson module ladder](jetson-module-ladder-power-performance.md) note already observed the tension: the *compute* to run the policy is a $2k–$3.5k module, often more than the robot. TurboVLA is the first entry where **the policy's memory footprint is not the binding constraint on the platform** — 0.9 GB clears an 8 GB [Orin Nano](../../entities/jetson-orin-nano.md) with room for perception, ROS, and the OS, where GR00T-3B's 16 GB floor eliminates the board outright.
+
+> [!warning] Two things TurboVLA has not earned here
+> **Openness** — code is announced, but there is no data release and, at ingest, no verified checkpoints. It scores ◐, well below the Ai2 line. It is at least *reproducible in principle* on public benchmark data at a compute scale a small lab has, which is a different and cheaper kind of openness than releasing a 720-hour corpus.
+>
+> **Edge validation** — 31.2 ms is a 4090 number, not a Jetson number, so TurboVLA inherits *exactly* the caveat this page raises against MolmoAct2's H100 figure. It is the more plausible edge candidate by an order of magnitude on memory, and it is equally unmeasured. Do not let the smaller number smuggle in an unproven claim.
+>
+> **And the success axis remains contingent on [LIBERO-PRO](../../sources/libero-pro-paper.md)** — with no embodied pretraining and no LLM priors, TurboVLA is the most exposed model on this table to the memorization critique. If deleting the LLM costs *robustness* rather than in-distribution accuracy, this row's axis-4 ✅ is the one that flips. See [LLM-free VLA](../../concepts/learning/llm-free-vla.md).
 
 ## What MolmoAct2 actually changes
 

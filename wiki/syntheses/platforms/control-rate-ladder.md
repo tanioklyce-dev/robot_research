@@ -2,8 +2,8 @@
 title: The control-rate ladder — LLMs, VLAs, and servo loops on one axis
 type: synthesis
 created: 2026-07-27
-updated: 2026-08-03
-tags: [latency, inference, control-frequency, vla, llm-agent, edge-ai, jetson, action-chunking, control-abstraction-levels, platforms]
+updated: 2026-08-04
+tags: [latency, inference, control-frequency, vla, llm-agent, edge-ai, jetson, action-chunking, control-abstraction-levels, platforms, turbovla, llm-free-vla]
 ---
 
 # The control-rate ladder — LLMs, VLAs, and servo loops on one axis
@@ -35,6 +35,7 @@ This page lines them up. The short version: **the full span is about five orders
 | **55.8** | MEAS | [MolmoAct2](../../entities/molmoact2.md) continuous path (Think: 12.7) | **H100** |
 | **50** | REQ | [GEAR-SONIC](../../entities/gear-sonic.md) WBC policy (1–2 ms/forward on Orin) | Unitree G1 |
 | **50** | CAP | [ALOHA](../../entities/aloha.md) camera rate; shirt-folding teleop capture | real rigs |
+| **32.1** | MEAS | [TurboVLA](../../entities/turbovla.md) — **0.2 B, 31.2 ms, 0.9 GB VRAM**, no LLM in the loop | RTX 4090 |
 | **32.1** | MEAS | GR00T N1.6-3B TensorRT | RTX 5090 |
 | **30** | REQ | [YAM](../../entities/yam.md) bimanual control, absolute joint (MolmoAct2's real rig) | real rig |
 | **27.8** | MEAS | **[ACT](../../entities/act.md) on-edge, 36 ms** — the only edge policy fast enough for reactive control | [Orin Nano](../../entities/jetson-orin-nano.md) |
@@ -44,10 +45,14 @@ This page lines them up. The short version: **the full span is about five orders
 | **15** | CAP | [DROID](../../entities/droid.md) capture rate | dataset |
 | **15** | MEAS | **[Cosmos 3 Edge](../../sources/nvidia-cosmos3-edge-hf-blog.md) (4B world model)**, 32 actions/inference @ 640×360 — vendor-reported | [Jetson Thor](../../entities/jetson-thor.md) |
 | **10.9** | MEAS | GR00T N1.6, official TensorRT | Jetson Thor |
+| **10.7** | MEAS | [π0.5](../../entities/pi-zero-5.md), 93.6 ms — *re-measured by the TurboVLA authors on the same 4090* | RTX 4090 |
 | **~10** | REQ | Helix **System 2** / GR00T **System 2** VLM planner tier | design target |
 | **8–11** | MEAS | GR00T-3B *estimated* (bandwidth-derived, unmeasured) | [DGX Spark](../../entities/dgx-spark.md) |
+| **8.9** | MEAS | [OpenVLA-OFT](../../entities/openvla-oft.md), 112.2 ms — same re-measurement | RTX 4090 |
+| **7.3** | MEAS | [Evo-1](../../entities/evo-1.md) 0.8 B, 137.2 ms — small but **not** fast | RTX 4090 |
 | **5.8** | MEAS | GR00T N1.6, TensorRT | AGX Orin 64 GB |
 | **5** | CAP | BridgeV2 capture rate | dataset |
+| **4.9** | MEAS | [SmolVLA](../../entities/smolvla.md), 203.1 ms — same re-measurement | RTX 4090 |
 | **4** | MEAS | [VLA-0](../../entities/vla-0.md) — action-as-text is slow | GPU |
 | **1.8** | MEAS | [Diffusion Policy](../../entities/diffusion-policy.md), 540 ms | Orin Nano |
 | **1.4** | MEAS | [SmolVLA](../../entities/smolvla.md)-450M, 714 ms | Orin Nano |
@@ -60,7 +65,14 @@ This page lines them up. The short version: **the full span is about five orders
 
 **Band A — servo/torque, 100–1,000 Hz (requirement only).** Where physics is. Nothing learned and general runs here; it is occupied by firmware, PD loops, and small purpose-trained controllers (SONIC at 50 Hz on 1–2 ms forwards, Helix S1 at 200 Hz on 80 M params). Anthropic's **83 Hz** sits at the bottom edge of this band.
 
+> [!note] The one controlled slice of this ladder (added 2026-08-04)
+> Every row here comes from a different rig, which is why the page warns it is a ladder of magnitudes rather than a benchmark. The **[TurboVLA](../../entities/turbovla.md)** ingest supplies the exception: seven of the rows above — TurboVLA 32.1, π0.5 10.7, OpenVLA-OFT 8.9, Evo-1 7.3, SmolVLA 4.9, plus DDVLA and OpenVLA — were **measured by one group, on one RTX 4090, at batch size 1, from official checkpoints**, all input→action-chunk. Within that slice the comparisons are real.
+>
+> Two things it shows. **(1) Parameter count is a poor latency predictor**: [Evo-1](../../entities/evo-1.md) at 0.8 B (137.2 ms) is *4.4× slower* than TurboVLA at 0.2 B (31.2 ms), and slower than π0.5 at 3.4 B — because it keeps a pretrained multimodal backbone in the loop. What costs time is **what is in the pathway**, not how many weights are in the file. **(2) The 4090 numbers land a full band below where desktop-GPU intuition puts them** — π0.5 on a 4090 runs at 10.7 Hz, essentially the same as GR00T on a Jetson Thor. The "just use a big GPU" escape from Band C is smaller than it looks; changing the architecture moved a policy three times further than changing the silicon.
+
 **Band B — reactive policy, ~10–60 Hz (achievable, barely, at the edge).** [ACT](../../entities/act.md) at 27.8 Hz on an Orin Nano is the wiki's only edge policy comfortably here. Thor gets GR00T to 22–24 Hz with hand-written kernels, and **[Cosmos 3 Edge](../../sources/nvidia-cosmos3-edge-hf-blog.md) reports 15 Hz on Thor for a 4B *world* model** (2026-07-20) — the first 2026-class edge number in this band, and notably above official-TensorRT GR00T on the same board. MolmoAct2's 55.8 Hz belongs to this band only on an **H100** — a caveat the [deployability landscape](vla-deployability-landscape.md) already flags.
+
+**TurboVLA at 32.1 Hz is the first entry in Band B that is a *general language-conditioned VLA on a single consumer GPU*** — ACT gets there by having no language conditioning, MolmoAct2 by using an H100, GR00T by hand-written Thor kernels. Its 0.9 GB inference footprint also makes it the only VLA in this table that would *fit* an [Orin Nano](../../entities/jetson-orin-nano.md) 8 GB without contortion. **No edge measurement exists**, and a 4090 is not an Orin — the Cutting-the-Cord numbers show edge boards costing roughly an order of magnitude against desktop parts — so the honest expectation is Band C, not Band B, on a Nano. That measurement is the most valuable single experiment this page could acquire. See [LLM-free VLA](../../concepts/learning/llm-free-vla.md).
 
 **Band C — deliberative policy, ~1–10 Hz.** Where most VLAs actually live on real edge hardware: SmolVLA 1.4, Diffusion Policy 1.8, GR00T 5.8–10.9. Also where the S1/S2 designs *place* their planner tier by intent (Helix S2 at 7–9 Hz, GR00T System 2 at 10 Hz).
 

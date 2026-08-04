@@ -2,9 +2,9 @@
 title: VLA models
 type: concept
 created: 2026-05-06
-updated: 2026-08-03
-sources: 76
-tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos, vla-0, action-as-text, molmoact2, per-layer-kv-conditioning, hybrid-action-head]
+updated: 2026-08-04
+sources: 77
+tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos, vla-0, action-as-text, molmoact2, per-layer-kv-conditioning, hybrid-action-head, llm-free-vla, turbovla]
 ---
 
 **Vision-Language-Action (VLA) models** are robot foundation models that take visual input plus a language instruction and emit low-level actions for a robot to execute. The dominant model class powering "agentic" robotics in 2026.
@@ -35,6 +35,9 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 
 ### Action-head design across VLAs
 
+> [!warning] A prior question: does the action head have to hang off an LLM at all?
+> All four families below describe how actions *leave* a language model. [TurboVLA](../../entities/turbovla.md) ([paper](../../sources/turbovla-paper.md), 2026-07) asks whether one has to be in the loop, and reports **97.7 LIBERO at 0.2 B params / 0.9 GB VRAM / 31.2 ms** with **no LLM anywhere in the control path** — [DINOv3](../../entities/dinov3.md) + BERT + 6 layers of [Grounding DINO](../../entities/grounding-dino.md)-style bidirectional cross-attention + an [ACT](../../entities/act.md) decoder. Its ablation separates the two things usually conflated: **language semantics are load-bearing** (removing text costs 26.9 pp; LIBERO-Goal collapses 97.4 → 11.6; a task-ID embedding stays 2.3 pp short) while **language *models* apparently are not** (BERT 216 M ≈ T5-small 142 M). This is an axis orthogonal to the four families — see **[LLM-free VLA (V+L→A)](llm-free-vla.md)**. The decisive test, [LIBERO-PRO](../../sources/libero-pro-paper.md), has not been run.
+
 > [!note] Four families, not three
 > VLAs are usually grouped into three action-head families — **discrete action tokens** (OpenVLA, RT-2), **generative action heads** (π0/SmolVLA flow-matching, Diffusion Policy DDPM), and **custom architectures** ([OpenVLA-OFT](../../entities/openvla-oft.md)'s ACT head, π0-FAST's DCT tokenizer). [VLA-0](../../entities/vla-0.md) argues for a fourth: **action-as-text** — no head, no new tokens, no architecture change; the VLM just prints the action as integers. With the right recipe it is competitive-to-best ([VLA-0 paper](../../sources/vla-0-paper.md)).
 
@@ -59,6 +62,7 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 | **GR00T N1.6/1.7** | Cosmos-Reason2-2B | (mixed; see [GR00T entity](../../entities/nvidia-groot.md)) | 3B params; 20,854 hr egocentric video pretrain — see [EgoScale](../../sources/egoscale-paper.md) for the primary source and scaling law. |
 | **EgoScale** | pretrained VLM (~GR00T N1) | **flow matching** + DiT action expert | [Source](../../sources/egoscale-paper.md). Same corpus as GR00T N1; reports the first published VLA scaling law. 22-DoF [Sharpa Wave](../../entities/sharpa-wave.md) hand target. |
 | **[Cosmos 3](../../sources/cosmos-3-technical-report.md) policy** (WAM, not a plain VLA) | Qwen3-VL (8B Nano) dual-tower MoT | **diffusion over joint video+action tokens** | [Source](../../sources/cosmos-3-technical-report.md). Denoises actions *and* their predicted frames together. #1 RoboArena; beats π0.5 on RoboLab-120. |
+| **[TurboVLA](../../entities/turbovla.md)** | **none — [DINOv3](../../entities/dinov3.md) ViT + BERT, fused by bidirectional cross-attention** | [ACT](../../entities/act.md)-style parallel action queries, ℓ1 BC | [Source](../../sources/turbovla-paper.md). The **[V+L→A](llm-free-vla.md)** design — no LLM in the control loop. **0.2 B / 0.9 GB / 31.2 ms (32 Hz) on an RTX 4090**; LIBERO 97.7 (tied with π0.5 / OpenVLA-OFT, [audit](../../syntheses/platforms/vla-success-rate-audit.md)); [RoboTwin 2.0](../../entities/robotwin.md) bimanual 60.2 vs π0.5 57.0 — that one **separates**. Trained on 4× RTX 4090 with **no embodied pretraining**. |
 
 > [!note] LeCun's critique — "VLA are doomed"
 > [Yann LeCun](../../entities/yann-lecun.md), on camera in the [Welch Labs Part 2 explainer](../../sources/welchlabs-lecun-1b-bet-against-llms-part2.md), attacks the whole VLA paradigm on two grounds: **(1) behavioral cloning doesn't scale** — you can't collect demos for every task variation, and policies are "completely helpless" / brittle in slightly-new situations; **(2) no explicit planning** — VLAs run end-to-end (images + joints → next joints) with "no world model," so they "cannot predict the consequences of their actions." His JEPA + latent-planning program ([LeWorldModel](../../entities/leworldmodel.md) + CEM) is the proposed alternative. **The standing counterargument is in this very page**: RT-2's 2023 Taylor-Swift generalization and [π0.7](../../entities/pi07.md)'s out-of-distribution emergent capabilities (air fryer, microwave) show VLAs *do* generalize beyond their demos — generalization is a sliding scale, and whether it's *enough* is the open empirical question. JEPA control, meanwhile, is still far behind VLAs on the same tasks (push-t plans only ~5 steps ahead). See [critiques of the intelligence north star](../../syntheses/society/critiques-of-the-intelligence-north-star.md).
@@ -79,6 +83,7 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 - **Closed-loop training** — RL fine-tuning of action heads in fast GPU-parallel environments (Isaac Lab, MuJoCo Playground, Genesis).
 
 ## Related
+- [LLM-free VLA (V+L→A)](llm-free-vla.md) — the orthogonal axis: whether an LLM is in the control loop at all.
 - [Large behavior models](large-behavior-models.md) — the TRI-coined superclass (VLA = uptrained-VLM subtype).
 - [Per-layer KV conditioning](per-layer-kv-conditioning.md) — MolmoAct2's VLM→expert interface.
 - [Adaptive depth reasoning](adaptive-depth-reasoning.md) — MolmoAct2-Think's embodied-CoT latency fix.
@@ -105,3 +110,4 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 - [Cutting the Cord (Shaw et al., 2026)](../../sources/cutting-the-cord-untethered-xlerobot.md) — on-edge ACT/Diffusion/SmolVLA latency on Jetson Orin Nano
 - [MolmoAct2 Paper (Fang, Duan et al. 2026)](../../sources/molmoact2-paper.md) — hybrid discrete+continuous head; per-layer KV conditioning; top LIBERO scores
 - [Introducing Waddle (Waddle Labs, 2026)](../../sources/waddle-labs-introducing-waddle.md) — positions against end-to-end VLAs but calls them as tools under a code-writing agent
+- [TurboVLA paper (Xie, Yao et al., 2026)](../../sources/turbovla-paper.md) — the LLM-free V+L→A paradigm; 97.7 LIBERO at 0.2 B / 0.9 GB / 32 Hz

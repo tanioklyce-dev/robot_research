@@ -6,7 +6,7 @@
 
 ## Highlights
 
-Curated entry points across the wiki. Rebuilt **2026-08-03** — previous version reflected the May–June wiki; see [log](log.md).
+Curated entry points across the wiki. Rebuilt **2026-08-03**, updated 2026-08-04 — previous version reflected the May–June wiki; see [log](log.md).
 
 **Evaluation methodology — how to read every number in this wiki**
 - [Success-rate audit](syntheses/platforms/vla-success-rate-audit.md) — which policy comparisons survive their sample sizes. The top of the LIBERO table is a statistical tie; ±2 pp needs ~1,030–2,450 rollouts; **record N (and now compute) at ingest**.
@@ -28,8 +28,9 @@ Curated entry points across the wiki. Rebuilt **2026-08-03** — previous versio
 - [Guardrails for robot agents](syntheses/agents/guardrails-for-robot-agents.md) — the runtime side of the same gap: the execution rail ships empty.
 
 **VLA landscape — models and deployment**
-- [VLA models](concepts/learning/vla-models.md) — the paradigm page (76 sources).
-- [VLA deployability landscape](syntheses/platforms/vla-deployability-landscape.md) — the four axes that decide whether a VLA runs on your robot.
+- [VLA models](concepts/learning/vla-models.md) — the paradigm page (77 sources).
+- [LLM-free VLA (V+L→A)](concepts/learning/llm-free-vla.md) — **new 2026-08-04**: does the language model have to be in the control loop at all? [TurboVLA](entities/turbovla.md) says no — 97.7 LIBERO at **0.2 B / 0.9 GB / 32 Hz on a consumer 4090**. Its ablation splits the question the field conflates: **language semantics are load-bearing, language *models* may not be.**
+- [VLA deployability landscape](syntheses/platforms/vla-deployability-landscape.md) — the four axes that decide whether a VLA runs on your robot; TurboVLA exposes a **fifth** the frame was hiding — *what compute class the latency figure requires*.
 - [MolmoAct2](entities/molmoact2.md) — Ai2's open-everything action-reasoning VLA; ships as a [LeRobot](entities/lerobot.md) application with an [SO-100/101 checkpoint](sources/molmoact2-so100-101-model-card.md); no Jetson support.
 - [Gemini Robotics](entities/gemini-robotics.md) — the GR 2 generation: whole-body humanoid control; dexterity lifted **for grippers, not fingers** (unscrew bulb 92% vs screw bulb 36%); [SO101](entities/so-arm101.md) a listed platform.
 - [π0.5](entities/pi-zero-5.md) — the standing 2026 baseline; its co-training recipe bought **scene generalization but not instruction generalization**. Primary [ingested 2026-08-03](sources/pi-zero-5-paper.md).
@@ -404,6 +405,8 @@ Curated entry points across the wiki. Rebuilt **2026-08-03** — previous versio
 
 - [MolmoAct: Action Reasoning Models that can Reason in Space](sources/molmoact-paper.md) — **the MolmoAct v1 primary**, closing the Ai2 line's last secondhand gap ([Ai2](entities/ai2.md)+UW, Aug 2025). Three independently-decodable reasoning stages: **depth tokens → visual trace → actions**, with **steering by editing the trace**. Robots: **Franka only** (single-arm on a DROID-style mobile mount + bimanual); released the 10,689-trajectory MolmoAct Dataset. SimplerEnv zero-shot **70.5%**; real-world **+10/+22.7%** over π0-FAST; early arena-style **Elo** policy evaluation predating [RoboArena](entities/roboarena.md). (2025-08-11, ingested 2026-08-03)
 
+- [TurboVLA: Real-Time VLA at 32 Hz on an RTX 4090 with <1 GB VRAM](sources/turbovla-paper.md) — [HUST](entities/hust.md) + [Huawei](entities/huawei.md). The wiki's first **[LLM-free VLA](concepts/learning/llm-free-vla.md)**: [DINOv3](entities/dinov3.md) + BERT + 6 layers of [Grounding DINO](entities/grounding-dino.md)-style bidirectional cross-attention + an [ACT](entities/act.md) decoder — **no language model in the control loop**. **0.2 B params / 0.9 GB VRAM / 31.2 ms (32 Hz) on a consumer RTX 4090**, trained on 4× RTX 4090 with **no embodied pretraining**. [LIBERO](entities/libero.md) **97.7** (tied with π0.5 / OpenVLA-OFT, [audit](syntheses/platforms/vla-success-rate-audit.md)); **[RoboTwin 2.0](entities/robotwin.md) bimanual 60.2 vs π0.5 57.0 — that one *survives* (p=0.0012)**, and the paper buries it. Ablation separates what gets conflated: **language semantics are load-bearing** (no-text → 70.8; Goal 97.4 → **11.6**) while **language *models* are not** (BERT ≈ T5-small). **Untested against [LIBERO-PRO](sources/libero-pro-paper.md) — the decisive experiment.** (2026-07-29, ingested 2026-08-04)
+
 ### Google DeepMind robot-safety cluster (ingested 2026-08-03)
 Four papers plus the public framing page, connected by [Vikas Sindhwani](entities/vikas-sindhwani.md) on all four. Anchors the new [semantic safety](concepts/safety/semantic-safety.md) concept.
 
@@ -456,6 +459,8 @@ The nine-paper arc behind [code as policy](concepts/agents/code-as-policy.md), i
 ## Entities
 
 ### Companies
+- [Huawei](entities/huawei.md) — industrial-research co-author on [TurboVLA](entities/turbovla.md) with [HUST](entities/hust.md); no wiki coverage yet of its own robotics hardware or Ascend as a VLA inference target. (1 source) _stub_
+- [HUST](entities/hust.md) — Huazhong University of Science and Technology; [Xiang Bai](entities/xiang-bai.md)'s CV group, publishing embodied AI as **H-EmbodVis**. Reached a top-tier LIBERO result **on four RTX 4090s**. (1 source)
 - [Ai2 (Allen Institute for AI)](entities/ai2.md) — Seattle nonprofit AI lab (Paul Allen, 2014); tagline **"Truly open breakthrough AI"**; three mission pillars — **AI for Science** ([Asta](entities/asta.md)), **AI for the Planet** ([OlmoEarth](entities/olmoearth.md)), **Embodied AI** ([MolmoAct2](entities/molmoact2.md)) — atop the open [OLMo](entities/olmo.md)/[OLMoE](entities/olmoe.md) LLMs, [Dolma](entities/dolma.md) + PixMo data, and [Molmo](entities/molmo.md) VLMs. CEO **Ali Farhadi** co-authored the original [YOLO](sources/yolo-you-only-look-once-2016.md). (11 sources)
 - [Agile Robots](entities/agile-robots.md) — Munich; DLR-spinout industrial-automation + Physical-AI company (€200M rev, ~2,000 staff); maker of the **[Agile ONE](entities/agile-one.md)** industrial humanoid + FR3/Diana arms + AMRs under the AgileCore platform; **integration-not-standalone** humanoid strategy, built in Bavaria. First European industrial humanoid in the wiki. (2 sources)
 - [Techman Robot](entities/techman-robot.md) — Taiwan; Quanta-subsidiary **[cobot](concepts/robotics/collaborative-robots.md)** maker; first cobots with built-in vision; world's #2 cobot brand (~10% vs Universal Robots ~50%); Omron 10% stake. The classical industrial-automation contrast to the wiki's VLA center of gravity. (1 source)
@@ -551,7 +556,8 @@ The nine-paper arc behind [code as policy](concepts/agents/code-as-policy.md), i
 - [PushT](entities/pusht.md) — 2D T-block pushing benchmark; introduced by IBC, popularized by Diffusion Policy; default lightweight bench across LeWM / DINO-WM / JEPA-WMs. (8 sources)
 - [PointMaze](entities/pointmaze.md) — 2D point-mass maze navigation; default lightweight nav bench across LeWM / DINO-WM / JEPA-WMs. (2 sources)
 - [DM Control Suite](entities/dm-control.md) — DeepMind continuous-control RL benchmark on top of MuJoCo; pre-Gymnasium-Robotics legacy substrate. (3 sources)
-- [LIBERO](entities/libero.md) — lifelong-learning manipulation benchmark (Liu et al. NeurIPS 2023); de-facto VLA-eval bench (SPATIAL / OBJECT / GOAL / 90 / LONG task families); natively integrated in LeRobot; **top *tier*: [MolmoAct2](entities/molmoact2.md) 97.2 / Think 98.1, OpenVLA-OFT 97.1, GR00T 1.7 96.5 — all [statistically tied](syntheses/platforms/vla-success-rate-audit.md)**. Protocol confirmed: **50 episodes/task → 500/suite**. ⚠️ [LIBERO-PRO](sources/libero-pro-paper.md): >90% here → **0.0% under perturbation** — the benchmark may be measuring memorization. Also repurposed by Anthropic as a **direct-LLM-control** benchmark: general frontier models score **0–5.5%** end-to-end where trained VLAs score ~97% — the wiki's clearest quantification of what action-pretraining buys. (15 sources)
+- [LIBERO](entities/libero.md) — lifelong-learning manipulation benchmark (Liu et al. NeurIPS 2023); de-facto VLA-eval bench (SPATIAL / OBJECT / GOAL / 90 / LONG task families); natively integrated in LeRobot; **top *tier*: [MolmoAct2](entities/molmoact2.md) 97.2 / Think 98.1, [TurboVLA](entities/turbovla.md) 97.7, OpenVLA-OFT 97.1, GR00T 1.7 96.5 — a nine-model [statistical tie](syntheses/platforms/vla-success-rate-audit.md) spanning 1.2 pp**. Protocol confirmed: **50 episodes/task → 500/suite**. ⚠️ [LIBERO-PRO](sources/libero-pro-paper.md): >90% here → **0.0% under perturbation** — the benchmark may be measuring memorization. Also repurposed by Anthropic as a **direct-LLM-control** benchmark: general frontier models score **0–5.5%** end-to-end where trained VLAs score ~97% — the wiki's clearest quantification of what action-pretraining buys. (16 sources)
+- [RoboTwin 2.0](entities/robotwin.md) — **bimanual** manipulation benchmark + data generator with domain randomization (ICML 2026); 50 dual-arm language-conditioned tasks. The single-arm/LIBERO complement, and **the more useful one statistically**: leaders sit near 58%, so 3 pp gaps separate at n=5,000 where LIBERO's 0.8 pp gaps do not. Randomized-scene mode is an unrun generalization test. (1 source)
 - [SimplerEnv](entities/simplerenv.md) — Sapien-adjacent mid-weight sim positioned as real-world-correlation harness; used by VLA-JEPA. (3 sources)
 - [Habitat](entities/habitat.md) — Meta FAIR embodied-AI sim (navigation + manipulation in photorealistic 3D scenes); legacy substrate. (1 source)
 - [BEHAVIOR / BEHAVIOR-1K](entities/behavior-benchmark.md) — Stanford's 1,000-task household-activity benchmark ([paper](sources/behavior-1k-paper.md); survey-grounded, BDDL, 9,000+ objects); the **hard end of the sim-to-real gap** (12.4% real-household vs 89.4% RLBench); a [GR00T N1.6](sources/groot-n1_6.md) sim substrate. (6 sources)
@@ -564,6 +570,7 @@ The nine-paper arc behind [code as policy](concepts/agents/code-as-policy.md), i
 - [PettingZoo](entities/pettingzoo.md) — multi-agent RL env API. (2 sources)
 
 ### Robot platforms
+- [AgileX Piper](entities/agilex-piper.md) — 6-DoF lightweight research arm; the real-world evaluation platform in [TurboVLA](entities/turbovla.md) (wrist + third-person RealSense D435, 65 demos/task). Price/payload/reach undocumented here. (1 source) _stub_
 - [Franka Panda](entities/franka-panda.md) — 7-DOF research-grade arm; default tabletop manipulator across DROID, V-JEPA 2, JEPA-WMs, RUM, Diffusion Policy, UMI, Huh-et-al-accessibility, Anthropic's robotics eval. (30 sources)
 - [Kinova Jaco](entities/kinova-jaco.md) — commercial wheelchair-mounted assistive arm (2010, ~$35k, medical device, insurance-reimbursed in DE/NL); 90 cm reach, 1.6 kg payload, Cartesian control via wheelchair drive controls; research editions carry the Nanavati feeding work. (2 sources)
 - [xArm 7](entities/xarm-7.md) — UFactory commercial 7-DOF arm; secondary tabletop manipulator; RUM cross-embodiment transfer target (~10pt drop vs Stretch). (2 sources) _stub_
@@ -674,7 +681,8 @@ The nine-paper arc behind [code as policy](concepts/agents/code-as-policy.md), i
 
 ### Vision foundation models
 - [DINOv2](entities/dinov2.md) — Meta FAIR self-supervised ViT (142M images, ViT-S/B/L/g); substrate for DINO-WM, DINO-world, JEPA-WMs. Apache 2.0. (10 sources)
-- [DINOv3](entities/dinov3.md) — Meta AI Research 7B-parameter ViT SSL foundation model (Aug 2025); Gram anchoring fixes dense-feature degradation; new SSL state-of-the-art on dense tasks (COCO mAP 66.1 frozen, ADE20k mIoU 63.0). (6 sources)
+- [DINOv3](entities/dinov3.md) — Meta AI Research 7B-parameter ViT SSL foundation model (Aug 2025); Gram anchoring fixes dense-feature degradation; new SSL state-of-the-art on dense tasks (COCO mAP 66.1 frozen, ADE20k mIoU 63.0). **First downstream use in the wiki: [TurboVLA](entities/turbovla.md)'s entire vision pathway.** (7 sources)
+- [Grounding DINO](entities/grounding-dino.md) — open-set detector whose **bidirectional cross-modal feature enhancer** [TurboVLA](entities/turbovla.md) reuses (and initializes from) as a robot policy's vision-language fusion. Raises the live question: which kind of vision-language pretraining does manipulation actually need — *grounding* or *generative language*? (1 source)
 
 ### Perception / tracking models
 - [TrackNet (model family)](entities/tracknet.md) — heatmap-based tracker for **tiny fast objects** (tennis balls, shuttlecocks) in video. Four versions across **four different groups** (NCTU V1/V2 → ACM MM Asia V3 → ANU V4), not one lab's roadmap. Beats YOLOv7 by ~30 F1 at this object scale; assumes a **static camera**; **degrades on cross-venue transfer** — observed first-party on pinball in 2026-07 (0.914 → 0.555 across two unseen machines), closer to V1's cross-*court* recall drop than its cross-*sport* collapse. Two implementations, split MIT/GPL and PyTorch/Keras. (8 sources)
@@ -718,6 +726,9 @@ The nine-paper arc behind [code as policy](concepts/agents/code-as-policy.md), i
 - [PLDM (Planning with Latent Dynamics Models)](entities/pldm.md) — Sobal-line end-to-end JEPA WM (NYU + FAIR); VICReg + inverse-dynamics + similarity multi-term loss; the canonical "end-to-end JEPA before LeWM" baseline. (2 sources — 2022 precursor + 2025 paper)
 
 ### VLA models / generalist policies
+- [TurboVLA](entities/turbovla.md) — [HUST](entities/hust.md)/[Huawei](entities/huawei.md); the **LLM-free VLA**. 0.2 B params, **0.9 GB inference VRAM, 32 Hz on a consumer RTX 4090**; [LIBERO](entities/libero.md) 97.7 (tied), [RoboTwin 2.0](entities/robotwin.md) 60.2 > π0.5 57.0 (separates). First VLA footprint here that fits an [Orin Nano](entities/jetson-orin-nano.md) 8 GB — though **edge latency is unmeasured**. (1 source)
+- [Evo-1](entities/evo-1.md) — 0.8 B lightweight VLA (CVPR 2026); LIBERO 94.8 at **137.2 ms** — the reference case that **small ≠ fast** when a multimodal backbone stays in the loop. (1 source) _stub_
+- [UniVLA](entities/univla.md) — 7.6 B generalist VLA built on task-centric **latent actions** (RSS 2025); LIBERO 95.2 at 15.0 GB / 173.8 ms. Worth a primary ingest for the cross-embodiment thread. (1 source) _stub_
 - [π0.5](entities/pi-zero-5.md) — [PI](entities/physical-intelligence.md)'s open-world co-training VLA and **the standing 2026 baseline**: cleans unseen homes ([paper](sources/pi-zero-5-paper.md)), yet ~0.00 under instruction paraphrase ([LIBERO-PRO](sources/libero-pro-paper.md)). Scene generalization without instruction generalization. (8 sources)
 - [NVIDIA GR00T](entities/nvidia-groot.md) — open VLA bundled with Isaac Lab; **full version line now documented** — N1 ([paper](sources/groot-n1-paper.md); dual-system, data pyramid, 76.8% real GR-1) → [N1.5](sources/groot-n1_5.md) (frozen VLM + FLARE) → [N1.6](sources/groot-n1_6.md) (Cosmos-2B) → **N1.7 GA-in-[LeRobot](entities/lerobot.md) 2026-07** (Cosmos-Reason2-2B + [EgoScale](sources/egoscale-paper.md); [LIBERO](entities/libero.md) avg 96.5%; N1.5 dropped); backbone progression Eagle→Cosmos; [Isaac-GR00T repo](sources/isaac-gr00t-github.md) is the codebase; measured edge inference: [Thor](entities/jetson-thor.md) 10.9 Hz TRT / AGX Orin 5.8 Hz. (39 sources)
 - [GEAR-SONIC](entities/gear-sonic.md) — NVIDIA GEAR's humanoid **whole-body controller** (the `UNITREE_G1_SONIC` controller); motion-tracking-as-scaling-task RL on [Unitree G1](entities/unitree-g1.md); FSQ universal-token interface a GR00T N1.5 VLA drives for loco-manipulation; code in [GR00T-WholeBodyControl](sources/gr00t-wholebodycontrol-github.md). (5 sources)
@@ -779,6 +790,8 @@ The nine-paper arc behind [code as policy](concepts/agents/code-as-policy.md), i
 - [LeRobot Worldwide Hackathon 2025](entities/lerobot-worldwide-hackathon-2025.md) — Hugging Face hybrid hackathon, June 14–15, 2025; 916 team members, ~400 submissions, 30 ranked winners; prizes: Hope Jr Arm / LeKiwi / SO-101. (1 source)
 
 ### People
+- [Xiang Bai](entities/xiang-bai.md) — [HUST](entities/hust.md) professor; senior author on [TurboVLA](entities/turbovla.md). (1 source) _stub_
+- [Dingkang Liang](entities/dingkang-liang.md) — [HUST](entities/hust.md); project lead on [TurboVLA](entities/turbovla.md), and an author of the LLM-centric DDVLA it supersedes on its own table. (1 source) _stub_
 - [Yann LeCun](entities/yann-lecun.md) — NYU; Turing Award 2018; architect of the JEPA program; founder of [AMI Labs](entities/ami-labs.md) (whose first affiliated byline appears on [WorldDP](entities/worlddp.md), Jun 2026). Nine papers here carry his name. Co-authored the original 1993 Siamese network paper at AT&T Bell Labs. (29 sources)
 - [Geoffrey Hinton](entities/geoffrey-hinton.md) — Toronto; Turing Award 2018, Nobel 2024; first author of [wake-sleep](sources/wake-sleep-paper.md) / Helmholtz machine — the recognition-model ancestor of the VAE encoder; RMSprop, DBNs, backprop popularization. (3 sources)
 - [Moo Jin Kim](entities/moo-jin-kim.md) — Stanford; first author of [OpenVLA](entities/openvla.md) and [OpenVLA-OFT](entities/openvla-oft.md), co-author on [RoboArena](entities/roboarena.md). His arc runs building → controlled ablation → evaluation protocol. (3 sources)
@@ -864,7 +877,8 @@ The nine-paper arc behind [code as policy](concepts/agents/code-as-policy.md), i
 ## Concepts
 
 ### Learning
-- [VLA models](concepts/learning/vla-models.md) — vision-language-action robot foundation models; four action-head families incl. VLA-0's head-free "action-as-text" + MolmoAct2's hybrid discrete+continuous head. (76 sources)
+- [VLA models](concepts/learning/vla-models.md) — vision-language-action robot foundation models; four action-head families incl. VLA-0's head-free "action-as-text" + MolmoAct2's hybrid discrete+continuous head. (77 sources)
+- [LLM-free VLA (V+L→A)](concepts/learning/llm-free-vla.md) — the **orthogonal axis** to the action-head taxonomy: whether a language model is in the control loop at all. [TurboVLA](entities/turbovla.md) says no and holds the LIBERO tier at 0.2 B. **Language semantics are load-bearing; language models may not be.** Decided by [LIBERO-PRO](sources/libero-pro-paper.md), which nobody has run on it. (1 source)
 - [Mixture-of-Experts (MoE)](concepts/learning/mixture-of-experts.md) — many expert FFNs + a router → large *total* params, small *active* per token; the cost-performance lever in big LMs. [OLMoE](entities/olmoe.md) is the open worked example (granular experts, dropless routing, shared-experts-ineffective — contested at frontier scale). (1 source)
 - [Large behavior models (LBMs)](concepts/learning/large-behavior-models.md) — TRI's superclass term: any image-sequences→actions model; VLA = the uptrained-VLM subtype, video/world-model backbone = the alternative; "multitask diffusion policy" lineage; [primary paper](sources/tri-lbm-paper.md) ingested (3–5× fine-tune data efficiency; 20–30-pt CIs at 50 rollouts). (4 sources)
 - [Imitation learning](concepts/learning/imitation-learning.md) — supervised learning from demonstrations. (65 sources)

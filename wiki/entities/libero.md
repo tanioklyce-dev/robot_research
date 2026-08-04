@@ -3,8 +3,8 @@ title: LIBERO
 type: entity
 subtype: benchmark
 created: 2026-05-08
-updated: 2026-08-03
-sources: 15
+updated: 2026-08-04
+sources: 16
 tags: [libero, manipulation-benchmark, lifelong-learning, robosuite, mujoco, code-as-policy]
 ---
 
@@ -44,13 +44,14 @@ Primary reference is [VLA-JEPA](../sources/vla-jepa-paper.md) (Sun et al., Feb 2
 >
 > **1. The benchmark may be measuring memorization.** [LIBERO-PRO](../sources/libero-pro-paper.md) (Zhou et al.) reports that models scoring **>90% on standard LIBERO collapse to 0.0%** when objects, initial states, instructions, or environments are perturbed — because *"evaluation tasks are identical to the training tasks, differing only by marginal perturbations in initial object states."* Models **keep grasping when the target object is replaced** and produce **unchanged outputs under corrupted instructions**. Tested on OpenVLA, π0, π0.5 (π0.5 most robust at 0.38, still severe). **The 2026-class models at the top of this table were not tested** — that is the open question.
 >
-> **2. The top of the table is a statistical tie.** Per the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md): at the confirmed protocol (**50 episodes/task → 500/suite, 2,000 for a four-suite average**), separating two policies at ~97% requires a gap of **>1.8 pp** (or >1.0 pp on the average). **MolmoAct2 97.2, MolmoAct2-Think 98.1, OpenVLA-OFT 97.1, GR00T N1.7 97.0, and π0.5 96.9 are not distinguishable from one another** (all pairwise p > 0.2 except Think-vs-base at p=0.06). Same for the VLA-0 94.7 / π0.5-KI 94.3 / π0 94.2 cluster.
+> **2. The top of the table is a statistical tie.** Per the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md): at the confirmed protocol (**50 episodes/task → 500/suite, 2,000 for a four-suite average**), separating two policies at ~97% requires a gap of **>1.8 pp** (or >1.0 pp on the average). **MolmoAct2 97.2, MolmoAct2-Think 98.1, [TurboVLA](turbovla.md) 97.7, CogVLA 97.4, VLA-Adapter 97.3, [VLA-JEPA](vla-jepa.md) 97.2, OpenVLA-OFT 97.1, GR00T N1.7 97.0, and π0.5 96.9 are not distinguishable from one another** (all pairwise p > 0.1 except Think-vs-base at p=0.06). Same for the VLA-0 94.7 / π0.5-KI 94.3 / π0 94.2 cluster. **The tied cluster is now nine models wide and spans 1.2 pp.**
 >
 > What *does* separate: MolmoAct2 vs VLA-0 (2.5 pp) and anything vs MolmoAct 86.8 (10.4 pp). Phrases below asserting a **rank** inside the 94–98 band are not supported by the sample sizes; the tier membership is.
 >
 > **A tie among numbers that may not measure generalization is the second-order problem.** Problem 1 is the one to act on.
 
 - **[MolmoAct2](molmoact2.md) / MolmoAct2-Think ([MolmoAct2 paper](../sources/molmoact2-paper.md), Table 8)** — MolmoAct2 Spatial **97.8** / Object **100.0** / Goal **97.8** / Long **93.2** / avg **97.2**; **MolmoAct2-Think** Spatial **98.8** / Object **99.8** / Goal **98.5** / Long **95.4** / avg **98.1** — the **numerically highest** LIBERO average in the wiki but **statistically tied with** OpenVLA-OFT (97.1), GR00T N1.7 (97.0), π0.5 (96.9) (see the callout above), and +10.6 over the predecessor MolmoAct-7B-D (86.6). The Think variant's largest gain (+2.2) is on the hardest suite (Long), where the base leaves the most headroom. Baseline table also reports GR00T N1.7 97.0, π0.5 96.9, NORA-1.5 94.5, π0 94.2.
+- **[TurboVLA](turbovla.md) ([TurboVLA paper](../sources/turbovla-paper.md), Table 1)** — Spatial **99.2** / Object **99.8** / Goal **97.4** / Long **94.2** / avg **97.7**, at **0.2 B params, 0.9 GB VRAM, 31.2 ms** on an RTX 4090 and **no embodied pretraining**. Numerically second-highest in the wiki, statistically tied with everything above 96.9. The table is also the wiki's most complete **efficiency-annotated** LIBERO comparison — 16 models with params / VRAM / latency all re-measured by the authors on one 4090. Adds otherwise-unseen entries: CogVLA 97.4, VLA-Adapter 97.3, [VLA-JEPA](vla-jepa.md) 97.2, MM-ACT 96.3, DDVLA 96.4, [UniVLA](univla.md) 95.2, [Evo-1](evo-1.md) 94.8, DreamVLA 92.6, and **[Diffusion Policy](diffusion-policy.md) 72.4 / [SmolVLA](smolvla.md) 88.8** as the low anchors.
 - **[GR00T](nvidia-groot.md) 1.7 (LeRobot-trained, NVIDIA-reported)** — Spatial **95%**, Object **100%**, Goal **98%**, Long **93%**, avg **96.5%**; vs GR00T 1.5 avg 87% ([NVIDIA HF blog, 2026-07-07](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md)). Per-suite fine-tuned checkpoints released (`nvidia/gr00t17-lerobot-libero_*-640`). Vendor self-comparison — no third-party baselines in the post.
 - **[OpenVLA-OFT](openvla-oft.md) ([OFT paper](../sources/openvla-oft-paper.md), Table I)** — Spatial **97.6** / Object **98.4** / Goal **97.9** / Long **94.5** / avg **97.1** — claimed **SOTA**, lifting base OpenVLA from 76.5 *on the same weights* via parallel decoding + action chunking + continuous L1 head, at **26× throughput**. **The 76.5 → 97.1 recipe effect (+20.6 pp) is the robust result here** and easily clears the [audit](../syntheses/platforms/vla-success-rate-audit.md) bar; its *position* relative to MolmoAct2/GR00T/π0.5 does not.
 - **π0.5-KI ([Knowledge Insulation](../concepts/learning/knowledge-insulation.md) paper, "from generalist")** — Spatial **98.0**, Object **97.8**, Goal **95.6**, Long(10) **85.8**, LIBERO-**90 96.0** — claims **SOTA on LIBERO-90 and LIBERO-Spatial** ([KI paper](../sources/knowledge-insulation-paper.md), Table 1); this is the primary source for the "π0.5-KI 94.3" figure the VLA-0 table relays. Also reports OpenVLA-OFT (97.6/98.4/97.9/94.5), π0 (96.8/98.8/95.8/85.2), π0-FAST (96.4/96.8/88.6/60.2).
@@ -69,6 +70,7 @@ Primary reference is [VLA-JEPA](../sources/vla-jepa-paper.md) (Sun et al., Feb 2
 - [FAST paper](../sources/fast-paper.md) — evaluates π0-FAST across the four LIBERO suites.
 - [CaP-X paper](../sources/cap-x-paper.md) — integrates **130 LIBERO-PRO tasks** into CaP-Gym; the first code-as-policy comparison against VLAs on the perturbation suites.
 - [ASPIRE paper](../sources/aspire-paper.md) — LIBERO-Pro and LIBERO-90 → LIBERO-Pro Long zero-shot transfer; independently reproduces the VLA collapse.
+- [TurboVLA paper](../sources/turbovla-paper.md) — 97.7 avg from a **0.2 B LLM-free policy**; the wiki's most complete efficiency-annotated LIBERO table. Its no-language ablation (avg → 70.8, **Goal 97.4 → 11.6**) is the clearest measurement of how much of LIBERO is solvable from visual priors alone: on Object, almost all of it (99.4 without any instruction).
 
 ## LIBERO-PRO with a non-VLA comparison point (added 2026-08-03)
 
