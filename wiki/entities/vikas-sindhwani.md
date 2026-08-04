@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-03
 updated: 2026-08-03
-sources: 5
+sources: 6
 tags: [person, google-deepmind, robotics-safety, optimization, semantic-safety]
 ---
 
@@ -30,3 +30,4 @@ It also sharpens the gap. The same researcher works on **conic-optimization safe
 - [Predictive Red Teaming paper](../sources/predictive-red-teaming-paper.md)
 - [Veo world simulator evaluation](../sources/veo-robotics-policy-evaluation-paper.md)
 - [Safely Learning Dynamical Systems](../sources/safely-learning-dynamical-systems-paper.md)
+- [SciFi-Benchmark paper](../sources/scifi-benchmark-paper.md) — co-author; with this, he is on **all five** ingested papers of the DeepMind robot-safety program.

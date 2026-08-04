@@ -59,3 +59,8 @@ Those are exactly the two sample sizes the [success-rate audit](../syntheses/pla
 - **Do the 2026-class models survive better?** OpenVLA, π0, and π0.5 are the tested set. **MolmoAct2, GR00T N1.7, and OpenVLA-OFT — the models at the top of the wiki's LIBERO table — were not evaluated.** Whether the newest models are less memorization-bound is the single most important open question this paper raises for the wiki.
 - **Has LIBERO-PRO been adopted?** A benchmark critique only bites if people report the harder number. No evidence either way at ingest.
 - **Is 0.0% literal?** The claim is stated as a collapse to zero under "our generalized setting" — whether that means the union of all perturbations or a specific one is not fully pinned down here.
+
+## Adoption watch (updated 2026-08-03)
+- [vla-evaluation-harness](vla-evaluation-harness-github.md) — LIBERO-Pro is a supported benchmark with 2026-class models (MolmoAct2, GR00T N1.7, π0.5) available in the same system; the "run a 2026-class model through LIBERO-PRO" question is no longer blocked on tooling.
+- A June 2026 paper (arXiv 2606.27663, "Direct Action-Head Injection…") appears to report expanded LIBERO-PRO evaluations incl. GR00T-N1.6 — **lead, not yet ingested**; its numbers differ from this paper's protocol, so verify before quoting.
+- Version note: this page reflects **v2 (2026-05-25)**, the current arXiv version; the wiki's recorded numbers were re-checked against it 2026-08-03 and stand.

@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-03
 updated: 2026-08-03
-sources: 3
+sources: 4
 tags: [person, princeton, google-deepmind, robotics-safety, red-teaming, formal-methods]
 ---
 
@@ -26,3 +26,4 @@ He is the bridge between the **statistical-guarantees** tradition (conformal pre
 - [Predictive Red Teaming paper](../sources/predictive-red-teaming-paper.md)
 - [ASIMOV Benchmark paper](../sources/asimov-benchmark-paper.md)
 - [Veo world simulator evaluation](../sources/veo-robotics-policy-evaluation-paper.md)
+- [SciFi-Benchmark paper](../sources/scifi-benchmark-paper.md) — co-author.

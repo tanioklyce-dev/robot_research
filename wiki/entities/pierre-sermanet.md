@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-03
 updated: 2026-08-03
-sources: 4
+sources: 5
 tags: [person, google-deepmind, semantic-safety, robotics, constitutional-ai]
 ---
 
@@ -26,3 +26,4 @@ His arc runs from the [code-as-policy](../concepts/agents/code-as-policy.md) lin
 - [ASIMOV Benchmark paper](../sources/asimov-benchmark-paper.md)
 - [Predictive Red Teaming paper](../sources/predictive-red-teaming-paper.md)
 - [Inner Monologue paper](../sources/inner-monologue-paper.md)
+- [SciFi-Benchmark paper](../sources/scifi-benchmark-paper.md) — **first author**; 824 sci-fi works → the first sci-fi-derived robot constitutions; completes his safety trilogy alongside ASIMOV and Predictive Red Teaming.

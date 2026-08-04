@@ -3,8 +3,8 @@ title: Gemma 4
 type: entity
 subtype: model
 created: 2026-07-04
-updated: 2026-07-04
-sources: 2
+updated: 2026-08-03
+sources: 3
 tags: [gemma4, vlm, google, multimodal, moe, edge-ai, on-device, vla-backbone-candidate]
 ---
 
@@ -33,6 +33,7 @@ tags: [gemma4, vlm, google, multimodal, moe, edge-ai, on-device, vla-backbone-ca
 
 ## Mentioned in
 - [Gemma 4 edge blog (NVIDIA)](../sources/nvidia-gemma-4-edge-blog.md) — primary source (edge/on-device angle).
+- [Gemini Robotics On-Device 2 model card](../sources/gemini-robotics-on-device-2-model-card.md) — GRoD 2 is built on "our on-device Gemma models", putting the Gemma line under DeepMind's edge VLA (size class unstated).
 
 ## Open questions
 - **Primary Google Gemma 4 release/paper not ingested** — sizes confirmed via the NVIDIA blog; deepen with the model card when filed.

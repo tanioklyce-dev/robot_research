@@ -8,8 +8,8 @@ prereqs: [curriculum-06, curriculum-09]
 status: draft
 ---
 
-> [!warning] Staleness flag (2026-08-03) — the deployment picture has moved since May
-> Post-draft developments that belong in this module's story: the [VLA deployability landscape](../platforms/vla-deployability-landscape.md) (the four axes), the [control-rate ladder](../platforms/control-rate-ladder.md) (what actually runs at what Hz on edge hardware), the finding that **5B-class 2026 VLAs do not fit an Orin NX 16 GB** ([XLeRobot compute](../platforms/jetson-onboard-compute-xlerobot.md)), two frontier labs targeting the [SO-100/101 arm class](../../entities/so-arm101.md) ([MolmoAct2 checkpoint](../../sources/molmoact2-so100-101-model-card.md), [GR 2 platform list](../../sources/gemini-robotics-2-blog.md)), and the [semantic-safety](../../concepts/safety/semantic-safety.md) layer — measured, not yet enforced. The Stretch/RUM/OK-Robot core of this module remains the right foundation.
+> [!note] Refreshed 2026-08-03
+> Originally drafted May 2026. This refresh adds the section "**The 2026 deployment stack**" below, folding in the deployability landscape, the control-rate ladder, the edge-compute reality, and the semantic-safety layer — all post-draft threads. The Stretch/RUM/OK-Robot core stands unchanged.
 
 > [!note] Curriculum context
 > This is **Module 13** of the [Robot-learning curriculum](robot-learning-curriculum.md). It can be read after [Module 6](curriculum-06-imitation-learning.md) (BC) and [Module 9](curriculum-09-vla.md) (VLA), but lands harder if you've also done Tier 4 ([Modules 10](curriculum-10-world-models.md) → [11](curriculum-11-jepa-deep.md) → [12](curriculum-12-lewm-deep-dive.md)).
@@ -39,6 +39,7 @@ By the end of the module you should be able to:
 4. Identify the **three underserved PAR domains** (dressing, bathing, medication) and name the most-tractable researcher target among them.
 5. Place LeWM-class techniques inside this deployment reality — name two barriers they plausibly move (data efficiency, planning speed) and three they don't (whole-body manipulation, dressing/bathing, real-world robustness).
 6. Pick **the one experiment most worth running** out of the [LeWM-on-Stretch](../projects/lewm-on-stretch-feasibility.md) and [DINO-WM-on-Stretch](../projects/dino-wm-on-stretch-experiment.md) plans and defend the choice in one paragraph.
+7. Answer the 2026 deployment questions for any candidate policy: **does it fit the compute, does it meet the rate, where does it run, and what enforces safety?**
 
 ## The 89.4% / 12.4% gap
 
@@ -57,6 +58,20 @@ What changes between RLBench and BEHAVIOR-1K:
 - **Object diversity** — household objects vary in mass, friction, deformability, fragility.
 
 Every other section of this module exists to help you understand which barriers from this list your favorite curriculum technique can plausibly move.
+
+## The 2026 deployment stack (added 2026-08-03)
+
+Between May and August 2026 the wiki built the apparatus for a question this module used to wave at: *given a policy that works in a benchmark, what does it take to run it on a robot you own?* Four sub-questions, each with a page:
+
+**1. Does it fit?** ([XLeRobot onboard compute](../platforms/jetson-onboard-compute-xlerobot.md), [Jetson ladder](../platforms/jetson-module-ladder-power-performance.md)) — The validated onboard default is a **Jetson Orin Nano** ([ACT](../../entities/act.md) at 27.8 Hz; diffusion/SmolVLA crawl at 1–2 Hz). The 2026 frontier checkpoints don't fit the next tier up either: **[MolmoAct2](../../entities/molmoact2.md)'s SO-100/101 checkpoint is 5B at ~16 GB bf16 — not an Orin NX 16 GB target** once unified memory is accounted for. Off-board serving is what the vendors actually ship (MolmoAct2's FastAPI client/server; [GRoD 2](../../sources/gemini-robotics-on-device-2-model-card.md) is the only true on-device frontier line, and its envelope is unpublished).
+
+**2. Does it meet the rate?** ([Control-rate ladder](../platforms/control-rate-ladder.md)) — Five orders of magnitude from LLM-in-the-loop (0.2–0.4 Hz) to servo loops (1 kHz), bridged **architecturally** (hierarchy, action chunking), never by faster inference. Locate any candidate policy in its band before planning a deployment.
+
+**3. Is it actually good?** ([VLA deployability landscape](../platforms/vla-deployability-landscape.md), [audit](../platforms/vla-success-rate-audit.md)) — the four deployability axes, plus the Module-9 evaluation-literacy rules: LIBERO's top is a tie, and may be memorization.
+
+**4. What enforces safety?** ([Semantic safety](../../concepts/safety/semantic-safety.md)) — the layer covering "don't hand a boiling drink to a child" is currently **measured, sometimes predicted, and not enforced** — a conclusion DeepMind's own [GR 2 safety report](../../sources/gemini-robotics-2-safety-report.md) states (models belong "alongside deterministic, low-level safety guardrails"; human-proximity FNR >40% at usable FPR). For an in-home robot near a real user, the interlock still has to be classical.
+
+One genuinely new deployment fact for this module's hardware scope: **the low-cost [SO-100/101 arm class](../../entities/so-arm101.md) is now a first-class frontier target** — MolmoAct2 ships a checkpoint for it, [Gemini Robotics 2](../../sources/gemini-robotics-2-blog.md) lists SO101 as a platform, and [GRoD 2 posts 53.3% on it](../../sources/gemini-robotics-on-device-2-model-card.md) (up from 6.7% in v1). The hardware this curriculum's reader can afford is no longer below the frontier's radar.
 
 ## [Stretch](../../entities/stretch.md) as the de-facto research platform
 
@@ -205,4 +220,5 @@ Module 13's anchor exercise (pick the one experiment most worth running) feeds M
 - **A LeWM-on-Stretch (or DINO-WM-on-Stretch) result.** No such result exists in the wiki; both are scoped but unrun. Module 14 phase B is where this becomes a real experiment.
 - **A BEHAVIOR-1K result with WM-class techniques.** Currently no published WM result on this benchmark; would be the cleanest "did WMs move the gap?" datum.
 - **Cross-paradigm comparison on a real Stretch deployment.** Direct head-to-head: RUM (BC) vs DINO-WM-MPC (frozen WM) vs LeWM-MPC (end-to-end WM) on the same task. Doesn't exist; would be informative.
+- **GRoD 2's 53.3% on SO101 has no protocol** — no task list, no N. If a technical report lands, it becomes this module's cleanest "frontier model on curriculum-affordable hardware" datum.
 - **Long-horizon WM evaluation.** Most WM papers evaluate at horizons 5–20. What does WM performance look like at horizons of *minutes* (a household task)? Wiki's [generative-video vs JEPA synthesis](../world-models/generative-video-vs-jepa-world-models.md) flags this gap.

@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-09
 updated: 2026-08-03
-sources: 9
+sources: 10
 tags: [gemini-robotics, google-deepmind, vlm, vla, embodied-reasoning, foundation-model]
 ---
 
@@ -39,8 +39,10 @@ The [safety report](../sources/gemini-robotics-2-safety-report.md) introduces **
 > [!warning] But no model is a usable standalone human-proximity guard
 > FPR under 5% costs **FNR above 40%**; suppressing FNR to 10–15% causes unnecessary stops **15–25%** of the time. **No model reaches the ideal quadrant.** DeepMind's own conclusion is to use them "alongside **deterministic, low-level safety guardrails**," and the report explicitly does **not** evaluate the functional-safety architecture. See [semantic safety](../concepts/safety/semantic-safety.md).
 
-### Still unpublished
-**On-Device 2's deployment envelope** — parameter count, memory footprint, target hardware, control rate. Neither the blog nor the safety report gives it, so it still cannot be placed on the [control-rate ladder](../syntheses/platforms/control-rate-ladder.md).
+### On-Device 2 — what the model card adds (2026-08-03)
+The [official model card](../sources/gemini-robotics-on-device-2-model-card.md) supplies lineage and results: built on **GR 1.5 technology + on-device Gemma models**; **SO101 53.3% (v2) vs 6.7% (v1)**, Dexmate 75.6% vs 33.3%; stated limitation — OOD generalization and **"controlling high-degree-of-freedom robots"** (the on-device tier is explicitly not the whole-body tier). Trusted Testers only.
+
+**Still unpublished:** parameter count, memory footprint, target hardware, control rate — so it remains unplaceable on the [control-rate ladder](../syntheses/platforms/control-rate-ladder.md). A third-party tutorial reports ~0.25 s closed-loop latency (~4 Hz); unofficial, not adopted.
 
 ---
 
@@ -96,6 +98,7 @@ Boston Dynamics' **AIVI-Learning** product is described as "the next evolution" 
 - [Veo world simulator evaluation](../sources/veo-robotics-policy-evaluation-paper.md) — 8 Gemini Robotics checkpoints evaluated in a generative simulator against 1600+ real evaluations.
 - [Gemini Robotics 2 blog](../sources/gemini-robotics-2-blog.md) — the GR 2 announcement with the whole-body, multi-finger, and gripper benchmark tables.
 - [Gemini Robotics 2: Safety Evaluations](../sources/gemini-robotics-2-safety-report.md) — ASIMOV-Agentic and the ER 2 safety evaluations.
+- [Gemini Robotics On-Device 2 model card](../sources/gemini-robotics-on-device-2-model-card.md) — the GRoD v1→v2 numbers and the high-DoF limitation.
 
 ## Open questions / TBD
 

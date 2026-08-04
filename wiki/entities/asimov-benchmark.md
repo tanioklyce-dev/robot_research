@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-08-03
 updated: 2026-08-03
-sources: 5
+sources: 6
 tags: [asimov, semantic-safety, benchmark, google-deepmind, constitutional-ai, neiss, safety]
 ---
 
@@ -51,3 +51,4 @@ The wiki knows **ASIMOV-2.0** from the [Gemini Robotics 1.5 report](../sources/g
 - [Veo world simulator evaluation](../sources/veo-robotics-policy-evaluation-paper.md) — adopts its semantic-safety definition.
 - [Gemini Robotics 2: Safety Evaluations](../sources/gemini-robotics-2-safety-report.md) — introduces **ASIMOV-Agentic**, extending the family from semantic judgment to agentic safety orchestration.
 - [Gemini Robotics 2 blog](../sources/gemini-robotics-2-blog.md) — announces ASIMOV-Agentic alongside the model release.
+- [SciFi-Benchmark paper](../sources/scifi-benchmark-paper.md) — **the provenance of ASIMOV-Dilemmas-Scifi**: its 9,056-question corpus is that subset's train split (numbers match exactly); its constitutions are among ASIMOV's top performers.

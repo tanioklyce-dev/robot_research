@@ -8,8 +8,8 @@ prereqs: [curriculum-03, curriculum-07]
 status: draft
 ---
 
-> [!warning] Staleness flag (2026-08-03) — read this module's benchmark claims against the audit
-> Drafted May 2026, before the wiki's evaluation-methodology thread. Three things this module could not know: (1) the **top of the LIBERO table is a statistical tie** — rankings inside the 94–98 band are not supported by the sample sizes ([success-rate audit](../platforms/vla-success-rate-audit.md)); (2) **standard LIBERO may measure memorization** — >90% models collapse to 0.0% under perturbation ([LIBERO-PRO](../../sources/libero-pro-paper.md)); (3) the model landscape moved — [MolmoAct2](../../entities/molmoact2.md) (open-everything, LeRobot-native), the [Gemini Robotics 2 generation](../../entities/gemini-robotics.md), and the [π0.5 primary](../../sources/pi-zero-5-paper.md) are all post-draft. The architectural content (VLA = VLM + action head; AR tokens vs flow matching vs DDPM; System 1/System 2) remains sound.
+> [!note] Refreshed 2026-08-03
+> Originally drafted May 2026; survey and evaluation content refreshed against the wiki's July–August threads (success-rate audit, LIBERO-PRO, the fully-ingested π-series, MolmoAct2, Gemini Robotics 2). The architectural core is unchanged.
 
 > [!note] Curriculum context
 > This is **Module 9** of the [Robot-learning curriculum](robot-learning-curriculum.md). It builds on **[Module 3](robot-learning-curriculum.md)** (transformers + ViT) and **[Module 7](curriculum-07-bc-lineage-pusht.md)** (BC lineage on PushT — VLAs are BC's scaling-up). It sits alongside **[Module 10](curriculum-10-world-models.md)** as the *other* dominant paradigm for 2024–2026 generalist robot policies.
@@ -32,6 +32,7 @@ By the end of the module you should be able to:
 3. Distinguish the dominant **action-head** choices in 2026 (autoregressive action tokens vs flow matching vs DDPM-over-actions — plus the head-free "action-as-text" alternative) and explain when you'd reach for each.
 4. Read a VLA paper's training section and identify the backbone (which VLM), the action head, the data scale (hours of teleop / hours of human video), and any hierarchical structure (system 1 / system 2).
 5. Place [VLA-JEPA](../../entities/vla-jepa.md) at the cross-over between Modules 9 and 11 and explain why the JEPA-as-auxiliary framing is interesting.
+6. **Read a VLA results table without being fooled by it** — apply the [success-rate audit](../platforms/vla-success-rate-audit.md)'s sample-size bar and the [LIBERO-PRO](../../sources/libero-pro-paper.md) memorization critique before repeating any ranking.
 
 ## What a VLA is — structurally
 
@@ -119,6 +120,15 @@ The biggest 2024–2026 design axis. Four flavors (three classic action heads + 
 - Arbitrary action resolution (unlike discrete-token binning) without touching the vocabulary.
 - Needs a **recipe** to work: [ACT](../../entities/act.md)-style prediction ensembling + masked-action augmentation. With it, VLA-0 tops π0 / GR00T-N1 / SmolVLA / [OpenVLA-OFT](../../entities/openvla-oft.md) on [LIBERO](../../entities/libero.md) with no action pretraining. Cost: slow autoregressive decode (~4 Hz).
 
+### 5. Hybrid discrete + continuous — the 2026 convergence
+
+**Idea.** Use *both*: pre-train the VLM with **discrete action tokens** (inheriting the LLM stack and keeping the backbone's knowledge intact), then attach a **continuous flow-matching expert** in post-training for real-time control.
+
+- Introduced by **[π0.5](../../entities/pi-zero-5.md)** ([paper](../../sources/pi-zero-5-paper.md)): [FAST](../../entities/fast-action-tokenization.md)-token pre-training → 300M flow expert post-training.
+- Refined by **[Knowledge Insulation](../../concepts/learning/knowledge-insulation.md)** (π0.5-KI): stop-gradient so the flow loss doesn't corrupt the VLM.
+- Adopted wholesale by **[MolmoAct2](../../entities/molmoact2.md)**, which adds **[per-layer KV conditioning](../../concepts/learning/per-layer-kv-conditioning.md)** — the expert cross-attends to every VLM layer's KV cache instead of one final hidden state.
+- Why it won: discrete tokens are how you *learn from heterogeneous data*; continuous flow is how you *control a robot at rate* (MolmoAct2's continuous path is 3.94× faster than its own discrete path). By mid-2026 this is the default recipe for new frontier VLAs.
+
 ### Comparison (recapping the table from [`concepts/vla-models.md`](../../concepts/learning/vla-models.md))
 
 | VLA | Backbone | Action head | Notes |
@@ -129,6 +139,8 @@ The biggest 2024–2026 design axis. Four flavors (three classic action heads + 
 | **[Diffusion Policy](../../entities/diffusion-policy.md)** (BC, not strictly a VLA) | ResNet-18 / no language | DDPM | Reference for π0's action-head choice. |
 | **[Helix S1](../../sources/helix-blog.md)** | small transformer | continuous regression @ 200 Hz | Combined with **Helix S2** = 7B VLM @ 7–9 Hz. |
 | **[GR00T N1.6/1.7](../../entities/nvidia-groot.md)** | Cosmos-Reason2-2B | mixed | 3B params; 20,854 hr egocentric video pretrain. |
+| **[π0.5](../../entities/pi-zero-5.md)** | π0 VLM | hybrid: FAST pretrain → flow post-train | Open-world co-training; cleans unseen homes. |
+| **[MolmoAct2](../../entities/molmoact2.md)** | [Molmo2-ER](../../entities/molmo2-er.md) 4B | hybrid + per-layer KV conditioning | Open weights+data; 5B; LeRobot-native; 55.8 Hz on H100. |
 
 ## Major VLAs in 2026
 
@@ -140,7 +152,9 @@ NVIDIA's open VLA, bundled with Isaac Lab. **N1.6 GA / N1.7 EA** (early 2026) �
 
 ### [π0 / Physical Intelligence](../../entities/physical-intelligence.md)
 
-Octobre 2024 ([source](../../sources/pi-zero-paper.md)). 24-author paper led by Sergey Levine, Chelsea Finn, Karol Hausman, Brian Ichter, Karl Pertsch (the DROID / Metaworld lineage). **Flow-matching action head** on a pretrained VLM backbone. Cross-platform: single-arm, dual-arm, and mobile-manipulator data trained jointly. Tasks: **laundry folding, table cleaning, box assembly** — long-horizon, dexterous, household-flavored. Successor π0.6 (2025) extends task coverage.
+Octobre 2024 ([source](../../sources/pi-zero-paper.md)). 24-author paper led by Sergey Levine, Chelsea Finn, Karol Hausman, Brian Ichter, Karl Pertsch (the DROID / Metaworld lineage). **Flow-matching action head** on a pretrained VLM backbone. Cross-platform: single-arm, dual-arm, and mobile-manipulator data trained jointly. Tasks: **laundry folding, table cleaning, box assembly** — long-horizon, dexterous, household-flavored.
+
+The full π series is now primary-ingested except π0.6: **[π0.5](../../entities/pi-zero-5.md)** ([paper](../../sources/pi-zero-5-paper.md)) is the open-world co-training result — cleans kitchens/bedrooms in **entirely unseen homes**, with 97.6% of pre-training *not* being mobile-manipulation data — and the standing baseline the 2026 evaluation record is measured against ("**scene generalization without instruction generalization**"). **[π0.7](../../entities/pi07.md)** claims the first emergent-capability VLA; **[π*0.6](../../entities/pistar06.md)** adds RL-from-deployment (RECAP). A useful fact for reading the field: [Physical Intelligence](../../entities/physical-intelligence.md)'s founders are the [SayCan](../../entities/saycan.md)/[Code as Policies](../../sources/code-as-policies-paper.md) cohort — the two rival paradigms share their people.
 
 The [Stanford HAI AI Index 2026](../../sources/stanford-hai-ai-index-2026.md) cites π0 / π0.6 as the leading Physical-AI VLA demonstration. Notable architecturally for proving that **flow matching as an action head** is competitive (and arguably easier) than DDPM in this regime.
 
@@ -164,6 +178,12 @@ The architectural innovation worth tracking: the **System 1 / System 2 split.** 
 - **Gemini Robotics-ER** ("ER" = embodied reasoning) — a *VLM* that emits **tool calls** rather than low-level actions. Pairs with classical robot SDKs. Architecturally an [LLM-agent system](../../concepts/agents/llm-agent-architecture.md), not strictly a VLA.
 
 Boston Dynamics' [Spot + Gemini Robotics demo](../../sources/bostondynamics-spot-gemini-robotics.md) uses the **-ER** variant — important to notice when reading capability claims, because tool-calling-on-Spot-SDK is a different kind of system than end-to-end-action-emission.
+
+**The current generation is Gemini Robotics 2** (2026-07-30): GR 2 (whole-body humanoid VLA), ER 2 (public preview in AI Studio), and **On-Device 2** (edge VLA on on-device Gemma; **SO101 53.3%** vs 6.7% for v1 — [model card](../../sources/gemini-robotics-on-device-2-model-card.md)). The [GR 2 numbers](../../sources/gemini-robotics-2-blog.md) are unusually candid: dexterity lifted **for grippers (74–90%), not for fingers** (four of five multi-finger tasks at 32–44%; unscrew bulb 92% vs screw bulb 36%).
+
+### [MolmoAct2](../../entities/molmoact2.md)
+
+[Ai2](../../entities/ai2.md)'s **fully open** (weights *and* data) action-reasoning VLA ([paper](../../sources/molmoact2-paper.md)) — the open-everything counterpart to π and GR00T. Hybrid discrete+continuous head with per-layer KV conditioning (flavor 5 above); adaptive-depth reasoning in the -Think variant; **ships as a [LeRobot](../../entities/lerobot.md) application** with an [SO-100/101 checkpoint](../../sources/molmoact2-so100-101-model-card.md). Top LIBERO tier (97.2 / Think 98.1 — statistically tied with OFT/N1.7/π0.5, see below) plus a large released real-world suite. Deployment envelope: 5B, ~16 GB bf16, **no Jetson support** — expect off-board serving.
 
 ### OpenVLA
 
@@ -218,6 +238,16 @@ The auxiliary loss doesn't change inference (you still emit `a_t` at deploy); it
 - **It's a candidate path for closing the data gap.** Action-conditioned BC is data-limited; observation-only video is abundant. A VLA-JEPA can in principle pretrain the JEPA half on action-free video and then train the VLA-action half on a much smaller demo dataset — the same recipe V-JEPA 2-AC uses, applied to a VLA architecture.
 
 [Module 11](curriculum-11-jepa-deep.md) covers the JEPA side in detail. This module is the VLA side. They meet here.
+
+## How to read a VLA results table (added 2026-08-03)
+
+The skill this module originally missed. Three facts change how every benchmark table in this field should be read:
+
+1. **The top of the LIBERO table is a statistical tie.** At the confirmed protocol (50 episodes/task → 500/suite), separating two policies at ~97% needs a **>1.8 pp** gap. MolmoAct2 (97.2), OpenVLA-OFT (97.1), GR00T N1.7 (97.0), and π0.5 (96.9) are **not distinguishable** — a "top tier," never a ranking. ([Success-rate audit](../platforms/vla-success-rate-audit.md).)
+2. **Standard LIBERO may measure memorization.** [LIBERO-PRO](../../sources/libero-pro-paper.md): models above 90% collapse to **0.0%** under object/instruction/position perturbation — they keep grasping when the target object is swapped. The 94–98 band may be recall, not generalization. The 2026-class models at the top have *not yet* been run through it — though the tooling now exists ([vla-evaluation-harness](../../sources/vla-evaluation-harness-github.md): any VLA × 18 benchmarks, LIBERO-Pro included).
+3. **Always ask for N.** Most real-robot evaluations run 10–50 trials; at n=50, nothing under ~27 pp separates. When a paper says "wins 7 of 8 tasks," check the sign test. The wiki records N (and now compute) at ingest for exactly this reason.
+
+The corollary for this module's survey above: every per-model number quoted is a *point estimate from a vendor or paper table*, and the honest comparisons are the large gaps (OpenVLA 76.5 → OFT 97.1; LLM-direct 5.5% vs VLA ~97%), not the decimals.
 
 ## Anchor exercise
 
@@ -283,6 +313,7 @@ In order:
 - Spot the System 1 / System 2 hierarchical pattern when it shows up and reason about whether the rate decoupling is engineering or insight.
 - Place [VLA-JEPA](../../entities/vla-jepa.md) at the cross-over between Modules 9 and 11 and articulate why JEPA-as-auxiliary is a different architectural commitment than JEPA-as-the-whole-model.
 - Predict latency budgets for π0 / Diffusion Policy / LeWM-MPC on the same task and reason about which can run at 30 Hz on consumer hardware.
+- Read a VLA benchmark table and state which comparisons its sample sizes actually support.
 
 ## Closing the policy-side reading chain
 
@@ -316,7 +347,7 @@ These are siblings. They cross over at [VLA-JEPA](../../entities/vla-jepa.md) (a
 
 - **OpenVLA paper** as a source page — the open-weights baseline is referenced repeatedly; primary-source ingest would tighten comparisons.
 - **GR00T N1.6 / N1.7 papers** as source pages — currently the entity page leans on secondary cites (Top 10 Physical AI Models, NVIDIA developer blog). NVIDIA's published papers on N1.x would close this gap.
-- **π0.6 paper** as a separate source — the 2025 successor to π0; not yet ingested.
+- ~~π0.5 paper~~ — **ingested 2026-08-03** ([source](../../sources/pi-zero-5-paper.md)); π0.7 and π*0.6 also primary-ingested. **π0.6 / π0.6-MEM** remain anchored by the [stub](../../entities/pi-zero-6.md) only.
 - **Helix peer-reviewed paper** — at ingest time, no Helix paper exists. Re-check periodically.
-- **Flow matching as a concept page** — would be a useful Module 5 addendum if it shows up in more sources.
+- ~~Flow matching as a concept page~~ — **exists**: [flow matching](../../concepts/learning/flow-matching.md).
 - **VLA-JEPA as the prototype for hybrid VLA + WM systems** — a synthesis page surveying every "JEPA-as-auxiliary" or "BC + WM" hybrid would be load-bearing for [Module 13](robot-learning-curriculum.md).

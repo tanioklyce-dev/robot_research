@@ -3,7 +3,7 @@ title: Semantic safety
 type: concept
 created: 2026-08-03
 updated: 2026-08-03
-sources: 7
+sources: 8
 tags: [semantic-safety, robot-safety, constitutional-ai, asimov, red-teaming, google-deepmind, vlm, alignment]
 ---
 
@@ -118,3 +118,4 @@ What would change this: a safety architecture where the semantic layer's *output
 - [Gemini Robotics 1.5 tech report](../../sources/gemini-robotics-1-5-report.md) — ASIMOV-2.0 + Auto-Red-Teaming in deployment.
 - [Gemini Robotics 2: Safety Evaluations](../../sources/gemini-robotics-2-safety-report.md) — extends ASIMOV from judgment to **agentic orchestration**, and confirms this page's conclusion from the vendor side: the report explicitly excludes the functional-safety architecture and recommends frontier models be used "alongside deterministic, low-level safety guardrails."
 - [Gemini Robotics 2 blog](../../sources/gemini-robotics-2-blog.md) — announces ASIMOV-Agentic.
+- [SciFi-Benchmark](../../sources/scifi-benchmark-paper.md) — the ethics/dilemmas wing: 824 sci-fi works → 9,056 questions; constitutions lift alignment 79.4% → 95.8% and resist adversarial prompting (23.3% → 92.3%); fiction-derived constitutions top-perform on ASIMOV's real-world data.

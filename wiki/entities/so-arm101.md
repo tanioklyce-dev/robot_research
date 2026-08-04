@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-10
 updated: 2026-08-03
-sources: 22
+sources: 23
 tags: [so-arm, so-arm100, so-arm101, the-robot-studio, low-cost-arm, open-source, lerobot, leader-follower, teleoperation]
 ---
 
@@ -64,6 +64,7 @@ The leader-follower convention is the dominant data-collection pattern for imita
 - [MolmoAct2-SO100_101 model card](../sources/molmoact2-so100-101-model-card.md) — **a 2026-class open VLA with a checkpoint fine-tuned specifically for this arm class** (5B, ~16 GB bf16, absolute joint-pose control). [MolmoAct2](molmoact2.md) reports 56.7% zero-shot real-world SO-100 (N unstated).
 - [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — claims out-of-the-box deployment for SO-100; LeRobot-native, so it drops into the stack this wiki's SO-101 projects already use.
 - [Gemini Robotics 2 blog](../sources/gemini-robotics-2-blog.md) — **SO101 is a listed supported platform** for the Gemini Robotics 2 family, alongside Apollo 2, Franka Duo, Dexmate and Trossen. With [MolmoAct2's SO-100/101 checkpoint](../sources/molmoact2-so100-101-model-card.md), two frontier labs now target this arm class.
+- [Gemini Robotics On-Device 2 model card](../sources/gemini-robotics-on-device-2-model-card.md) — **SO101: 53.3% (v2) vs 6.7% (v1)** — the on-device tier went from unusable to plausibly useful on this arm class in one generation. Three frontier-lab lines now publish SO-10x results (MolmoAct2, GR 2 cloud, GRoD v2).
 
 ## Open questions / TBD
 

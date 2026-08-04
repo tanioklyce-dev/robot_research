@@ -13,7 +13,7 @@ tags: [gemini-robotics, safety, semantic-safety, asimov, red-teaming, swiss-chee
 
 ## Summary
 
-DeepMind's public framing of robot safety, and — more usefully for this wiki — **the index to its robotics safety research program**. The page names three works, all of which are now ingested alongside it: [ASIMOV](asimov-benchmark-paper.md), **SciFi-Benchmark**, and [Predictive Red Teaming](predictive-red-teaming-paper.md).
+DeepMind's public framing of robot safety, and — more usefully for this wiki — **the index to its robotics safety research program**. The page names three works, **all now ingested**: [ASIMOV](asimov-benchmark-paper.md), [SciFi-Benchmark](scifi-benchmark-paper.md), and [Predictive Red Teaming](predictive-red-teaming-paper.md).
 
 ## Key claims
 
@@ -33,7 +33,7 @@ The Swiss-cheese framing (independent imperfect layers whose holes shouldn't ali
 
 ### Named research
 - **ASIMOV-Benchmark** — "Generating Robot Constitutions & Benchmarks for Semantic Safety" → [ingested](asimov-benchmark-paper.md)
-- **SciFi-Benchmark** — "How Would AI-Powered Robots Behave in Science Fiction Literature?" → **not ingested**
+- **SciFi-Benchmark** — "Leveraging Science Fiction To Improve Robot Behavior" → [ingested 2026-08-03](scifi-benchmark-paper.md)
 - **Predictive Red Teaming** — "Breaking Policies Without Breaking Robots" → [ingested](predictive-red-teaming-paper.md)
 - The **Gemini Robotics 1.5 Tech Report**, for "scalable adversarial evaluations" → [ingested](gemini-robotics-1-5-report.md)
 
@@ -55,7 +55,6 @@ The framework "remains under research." Waitlist joiners are told: **"It's your 
 
 - **No numbers.** No benchmark results, no evaluation counts, no incident data. The quantitative content is entirely in the three linked papers.
 - **The formal-methods line is absent.** [Safely Learning Dynamical Systems](safely-learning-dynamical-systems-paper.md) shares an author ([Vikas Sindhwani](../entities/vikas-sindhwani.md)) with both named papers but does not appear in the public framing — so the "physical safety" layer is described without reference to the lab's own work on provable safe exploration.
-- **SciFi-Benchmark is the one named work still un-ingested**, and appears related to ASIMOV-Dilemmas-Scifi.
 - **"Continuously search for vulnerabilities" is unelaborated** — whether this is [RoboART](../entities/roboart.md), the [Auto-Red-Teaming](gemini-robotics-1-5-report.md) attacker/target/autorater game, or something else is not stated.
 - **The liability framing is worth recording**: responsibility for safe use is explicitly assigned to the user, while the safety layers are described as research-stage. Compare the [guardrails thread](../syntheses/agents/guardrails-for-robot-agents.md), where the wiki has repeatedly found the enforcement layer to be the thin one.
 
