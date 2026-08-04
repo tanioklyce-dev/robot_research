@@ -2,8 +2,8 @@
 title: AI safety and alignment
 type: concept
 created: 2026-05-09
-updated: 2026-07-27
-sources: 12
+updated: 2026-08-03
+sources: 14
 tags: [ai-safety, alignment, corrigibility, values, anthropic]
 ---
 
@@ -90,3 +90,5 @@ Concretely: the same model that cannot balance a humanoid for a second can navig
 - [Claude's Constitution](../../sources/claudes-constitution.md)
 - [Are We Building Skynet? (Medium, 2025)](../../sources/medium-are-we-building-skynet.md)
 - [Safeguard Agentic AI Systems with the NVIDIA Safety Recipe](../../sources/nvidia-safety-recipe-agentic-ai.md)
+- [ASIMOV Benchmark paper](../../sources/asimov-benchmark-paper.md) — Constitutional AI applied to embodiment: robot constitutions **generated bottom-up from data** (incl. real hospital injury records) rather than hand-written, 84.3% alignment, auto-amending 68.7% → 80.6%. See [semantic safety](semantic-safety.md).
+- [Responsibly advancing AI and robotics](../../sources/deepmind-gemini-robotics-safety-page.md) — DeepMind's three-layer Swiss-cheese model (semantic / physical / operational).

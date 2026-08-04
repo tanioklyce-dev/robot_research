@@ -3,8 +3,8 @@ title: Diffusion Policy
 type: entity
 subtype: method
 created: 2026-05-08
-updated: 2026-07-26
-sources: 29
+updated: 2026-08-03
+sources: 30
 tags: [diffusion-policy, behavior-cloning, diffusion-model, ddpm, action-diffusion, chi-2023, columbia, tri, mit, mobile-aloha]
 ---
 
@@ -115,6 +115,7 @@ From [Mobile ALOHA paper](../sources/mobile-aloha-paper.md) §6.2, evaluated aga
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — supported reference policy; 263 M params, 10 denoising steps, **69.8 ms** RTX 4090 latency, **CPU latency 3454 ms (100% timeout)** — incompatible with onboard deployment without GPU.
 - [WorldDP paper (Goswami et al., 2026)](../sources/worlddp-paper.md) — uses a goal-conditioned Diffusion Policy as the **low-level subgoal tracker** under an object-centric world-model planner; the [LeCun](yann-lecun.md)-coauthored bridge between the JEPA-planning and diffusion-policy lines.
 - [HIL-SERL paper](../sources/hil-serl-paper.md) — baseline; DP trained on 200 demos gets only **27% / 28% / 56%** (RAM insertion / dashboard / object flipping) vs. HIL-SERL's 100%. Argues DP's expressive multi-modal distribution helps "memorize" motions but **not** the continuous closed-loop visual servoing that reactive contact-rich tasks demand. A pointed limit on where imitation-flavored DP tops out relative to [real-world RL](../concepts/learning/real-world-robot-rl.md).
+- [Predictive Red Teaming paper](../sources/predictive-red-teaming-paper.md) — two visuomotor diffusion policies with different architectures are the subjects of [RoboART](roboart.md)'s 500+ hardware trials across twelve environmental factors.
 
 ## Open questions / TBD
 

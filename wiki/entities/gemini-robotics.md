@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-09
 updated: 2026-08-03
-sources: 5
+sources: 7
 tags: [gemini-robotics, google-deepmind, vlm, vla, embodied-reasoning, foundation-model]
 ---
 
@@ -77,6 +77,8 @@ Boston Dynamics' **AIVI-Learning** product is described as "the next evolution" 
 - [Gemini Robotics 1.5 tech report](../sources/gemini-robotics-1-5-report.md) — **primary technical source** (GR 1.5 VLA + GR-ER 1.5).
 - [Tools for Your To Do List with Spot and Gemini Robotics (Boston Dynamics blog)](../sources/bostondynamics-spot-gemini-robotics.md)
 - [DeepMind Gemini Robotics model page](../sources/deepmind-gemini-robotics-model-page.md) — the **2** generation (GR 2 / ER 2 / On-Device 2), access tiers, and partner list. No numbers.
+- [Responsibly advancing AI and robotics](../sources/deepmind-gemini-robotics-safety-page.md) — the safety framework page. **Note it still describes GR 1.5**, not the 2 generation.
+- [Veo world simulator evaluation](../sources/veo-robotics-policy-evaluation-paper.md) — 8 Gemini Robotics checkpoints evaluated in a generative simulator against 1600+ real evaluations.
 
 ## Open questions / TBD
 

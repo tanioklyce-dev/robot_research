@@ -2,9 +2,9 @@
 title: AI red-teaming and LLM vulnerability scanning
 type: concept
 created: 2026-07-13
-updated: 2026-07-27
+updated: 2026-08-03
 tags: [ai-safety, red-teaming, jailbreak, prompt-injection, garak, adversarial, security, uplift-study]
-sources: 3
+sources: 6
 ---
 
 **AI red-teaming** — deliberately attacking a model to find the inputs that make it misbehave, *before* an adversary does. **LLM vulnerability scanning** is the automated, regression-testable form of it: a fixed battery of probes run against a model endpoint, producing a pass/fail report per attack class. It is the *measurement* half of the [guardrail](ai-guardrails.md) story — you cannot filter what you have not first learned to provoke.
@@ -81,3 +81,6 @@ The one quantitative datapoint in the wiki: safety post-training moved a baselin
 - [Claude's Constitution](../../sources/claudes-constitution.md) — Apollo Research red-team findings; the "compelling argument to cross a bright line should *increase* suspicion" heuristic is an in-model defense against persuasion attacks.
 - [NVIDIA NemoClaw — Product Page](../../sources/nvidia-nemoclaw-page.md)
 - [Project Fetch: Can Claude train a robot dog?](../../sources/anthropic-project-fetch-robot-dog.md) — the uplift-evaluation genre; [Anthropic Frontier Red Team](../../entities/frontier-red-team.md) on real quadruped hardware
+- [Predictive Red Teaming](../../sources/predictive-red-teaming-paper.md) — extends red teaming from language models to **visuomotor policies**: predict where a policy breaks via anomaly detection in its own embedding space, without running the hardware experiment. Spearman ρ 0.7–0.8; targeted data collection then yields 2–7× gains.
+- [Evaluating Gemini Robotics Policies in a Veo World Simulator](../../sources/veo-robotics-policy-evaluation-paper.md) — red teaming by **generating** the dangerous scene, for cases where hardware testing is infeasible rather than merely expensive.
+- [ASIMOV Benchmark paper](../../sources/asimov-benchmark-paper.md) — the semantic-safety benchmark the above probe against; notes that standard LLM red-teaming methods "are hard to implement safely in real-world embodied scenarios."

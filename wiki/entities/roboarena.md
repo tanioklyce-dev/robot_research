@@ -3,8 +3,8 @@ title: RoboArena
 type: entity
 subtype: benchmark
 created: 2026-07-27
-updated: 2026-07-27
-sources: 2
+updated: 2026-08-03
+sources: 3
 tags: [roboarena, benchmark, evaluation, real-world, droid, bradley-terry, pairwise-preference, distributed, leaderboard]
 ---
 
@@ -56,3 +56,4 @@ DROID-only (no cross-embodiment); decentralization makes controlled ablation har
 ## Mentioned in
 - [RoboArena paper (CoRL 2025)](../sources/roboarena-paper.md)
 - [Cosmos 3 technical report](../sources/cosmos-3-technical-report.md) — Cosmos3-Nano-Policy-DROID reported #1 (2026-05-30)
+- [Veo world simulator evaluation](../sources/veo-robotics-policy-evaluation-paper.md) — the third evaluation paradigm, and one that makes the **same trade as RoboArena**: reliable ranking, unreliable absolute magnitude.

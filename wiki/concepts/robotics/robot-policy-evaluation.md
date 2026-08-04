@@ -3,7 +3,7 @@ title: Robot policy evaluation
 type: concept
 created: 2026-07-27
 updated: 2026-08-03
-sources: 6
+sources: 8
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility]
 ---
 
@@ -94,3 +94,5 @@ This sharpens RoboLab's **saturation** critique from *"the benchmark stopped dis
 - [RoboLab project page](../../sources/nvidia-robolab-project.md)
 - [CaP-X paper](../../sources/cap-x-paper.md) — 100 trials/task across 8 independently controllable tiers; makes the case that a code-as-policy result is uninterpretable without its abstraction tier.
 - [ASPIRE paper](../../sources/aspire-paper.md) — **disjoint debug/eval seeds** and one-program-per-task evaluation, a protocol that handicaps the paper's own method relative to its baseline.
+- [Evaluating Gemini Robotics Policies in a Veo World Simulator](../../sources/veo-robotics-policy-evaluation-paper.md) — a **third evaluation paradigm**: a video world model as the harness. Pearson 0.88 / MMRV 0.03 against 1600+ real evaluations, but absolute predicted rates run **low**, so it ranks rather than measures — the same trade [RoboArena](../../sources/roboarena-paper.md) makes.
+- [Predictive Red Teaming](../../sources/predictive-red-teaming-paper.md) — a fourth: predict degradation per environmental factor without hardware, then use the prediction to target data collection.

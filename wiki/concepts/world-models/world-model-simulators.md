@@ -2,8 +2,8 @@
 title: World-model simulators
 type: concept
 created: 2026-05-06
-updated: 2026-07-09
-sources: 24
+updated: 2026-08-03
+sources: 25
 tags: [world-model, generative-simulation, video-generation, jepa, latent-prediction, paradigm-shift]
 ---
 
@@ -63,3 +63,4 @@ Notable systems:
 - [V-JEPA 2 Paper](../../sources/v-jepa-2-paper.md)
 - [LeWorldModel Paper](../../sources/leworldmodel-paper.md)
 - [Cosmos 3 Technical Report](../../sources/cosmos-3-technical-report.md)
+- [Evaluating Gemini Robotics Policies in a Veo World Simulator](../../sources/veo-robotics-policy-evaluation-paper.md) — [Veo](../../entities/veo.md) used as an **evaluation harness** rather than a policy or data generator; action-conditioned, multi-view-consistent, with generative image editing for scene variation.

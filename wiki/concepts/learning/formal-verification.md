@@ -2,8 +2,8 @@
 title: Formal verification
 type: concept
 created: 2026-05-17
-updated: 2026-05-17
-sources: 2
+updated: 2026-08-03
+sources: 3
 tags: [formal-verification, lean, theorem-proving, proof-checking, machine-checkable, aleph]
 ---
 
@@ -43,3 +43,4 @@ The split between (2) and (3) is the load-bearing trick: **the LLM doesn't have 
 ## Mentioned in
 
 - [Aleph and Energy-Based Models: The AI That Refuses to Bullshit (video)](../../sources/2026-05-aleph-ebm-refuses-bullshit-video.md)
+- [Safely Learning Dynamical Systems](../../sources/safely-learning-dynamical-systems-paper.md) — safe *exploration* with certificates: the set of safe initial conditions is LP-, SOCP-, or SDP-representable, and at T=1 the algorithm either recovers the dynamics in ≤n trajectories **or certifies that safe learning is impossible**. The wiki's only ingested safety method that can return an impossibility proof rather than a rate.

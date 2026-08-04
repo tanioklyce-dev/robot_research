@@ -2,8 +2,8 @@
 title: Optimal control
 type: concept
 created: 2026-05-14
-updated: 2026-07-04
-sources: 13
+updated: 2026-08-03
+sources: 14
 tags: [optimal-control, mpc, lqr, pontryagin, hamilton-jacobi-bellman, dynamic-programming, brachystochrone, calculus-of-variations, control-theory, rl-bridge]
 ---
 
@@ -177,3 +177,4 @@ Synthesis / curriculum pages that link here:
 - [Curriculum Module 10 — World models, broad](../../syntheses/curriculum/curriculum-10-world-models.md)
 - [Curriculum Module 11 — JEPA in depth](../../syntheses/curriculum/curriculum-11-jepa-deep.md)
 - [Curriculum Module 12 — LeWorldModel deep-dive](../../syntheses/curriculum/curriculum-12-lewm-deep-dive.md)
+- [Safely Learning Dynamical Systems](../../sources/safely-learning-dynamical-systems-paper.md) — conic optimization (LP/SOCP/SDP) applied to safe system identification; safety must hold for **every** system consistent with the uncertainty set and the data so far.
