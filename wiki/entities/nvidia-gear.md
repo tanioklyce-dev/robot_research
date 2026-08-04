@@ -3,8 +3,8 @@ title: NVIDIA GEAR Lab
 type: entity
 subtype: research-lab
 created: 2026-05-15
-updated: 2026-07-15
-sources: 13
+updated: 2026-08-03
+sources: 15
 tags: [nvidia, gear, embodied-ai, humanoids, foundation-models, world-models, whole-body-control]
 ---
 
@@ -52,3 +52,5 @@ GEAR is **the in-house research source** of essentially every NVIDIA-product ent
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md)
 - [EgoScale Paper](../sources/egoscale-paper.md)
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)
+- [CaP-X paper](../sources/cap-x-paper.md) — the CaP-X entry in the publications list, now ingested; co-senior-authored by [Jim Fan](jim-fan.md).
+- [ASPIRE paper](../sources/aspire-paper.md) — GEAR porting its own **Voyager** open-ended skill-library pattern (listed above under the open-ended-agents pillar) from Minecraft to real manipulation, with overlapping authorship.

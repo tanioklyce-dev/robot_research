@@ -3,8 +3,8 @@ title: Jim Fan (Linxi Fan)
 type: entity
 subtype: person
 created: 2026-05-15
-updated: 2026-07-04
-sources: 7
+updated: 2026-08-03
+sources: 9
 tags: [person, nvidia, gear, embodied-ai, agents, robotics]
 ---
 
@@ -30,3 +30,5 @@ Co-leads the lab's foundation-model program. Public spokesperson for [GR00T N1](
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md)
 - [EgoScale Paper](../sources/egoscale-paper.md)
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)
+- [CaP-X paper](../sources/cap-x-paper.md) — co-senior author (equal advising with [Ken Goldberg](ken-goldberg.md)); the code-as-policy benchmark.
+- [ASPIRE paper](../sources/aspire-paper.md) — project co-lead; the continual skill-discovery system built on CaP-X.

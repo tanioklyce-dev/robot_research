@@ -3,8 +3,8 @@ title: Yuke Zhu
 type: entity
 subtype: person
 created: 2026-05-08
-updated: 2026-07-15
-sources: 9
+updated: 2026-08-03
+sources: 11
 tags: [person, ut-austin, nvidia, embodied-ai, robocasa, manipulation, whole-body-control]
 ---
 
@@ -21,7 +21,7 @@ tags: [person, ut-austin, nvidia, embodied-ai, robocasa, manipulation, whole-bod
 - **Bridge between academic and NVIDIA-Research lineages.** Zhu's dual appointment is the connection that puts NVIDIA Research as a co-author on RoboCasa365 — explaining how RoboCasa fits into NVIDIA's broader Physical AI stack (Isaac Lab + GR00T + RoboCasa eval).
 - **Center of gravity for [RoboCasa](robocasa.md) line.** The Nasiriany / Maddukuri / Zhu group has produced both the original RoboCasa (2024) and RoboCasa365 (ICLR 2026); future iterations likely come from the same group.
 
-Adjacent Zhu-affiliated work not ingested: robosuite (the robosuite framework that underlies many manipulation benchmarks including LIBERO), MimicGen (the synthetic-demo expansion tool RoboCasa365 uses), various humanoid-policy work.
+Adjacent Zhu-affiliated work not ingested: [robosuite](robosuite.md) (the framework that underlies many manipulation benchmarks including LIBERO — entity page created 2026-08-03, paper still not ingested), MimicGen (the synthetic-demo expansion tool RoboCasa365 uses), various humanoid-policy work.
 
 ## Related
 - UT Austin CS / [NVIDIA](nvidia.md) Research — dual affiliation.
@@ -38,7 +38,9 @@ Adjacent Zhu-affiliated work not ingested: robosuite (the robosuite framework th
 - [MotionBricks Paper](../sources/motionbricks-paper.md) — senior author (with [Xue Bin Peng](xue-bin-peng.md)); real-time motion model + G1 WBC
 - [EgoScale Paper](../sources/egoscale-paper.md)
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)
+- [CaP-X paper](../sources/cap-x-paper.md) — co-author; the code-as-policy benchmark framework.
+- [ASPIRE paper](../sources/aspire-paper.md) — project co-lead. Note both papers build on [robosuite](robosuite.md), the framework authored under Zhu — now an entity page.
 
 ## Open questions / TBD
 - Full lab affiliation at UT Austin (RPL — Robot Perception and Learning Lab) — implied but not directly cited.
-- robosuite paper — Zhu-affiliated; would be useful infrastructure ingest.
+- robosuite paper — Zhu-affiliated; would be useful infrastructure ingest. **An entity page now exists** ([robosuite](robosuite.md), created 2026-08-03 from the CaP-X/ASPIRE ingests) but the original 2020 paper is still not ingested.

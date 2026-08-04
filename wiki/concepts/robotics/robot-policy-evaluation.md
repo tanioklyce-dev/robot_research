@@ -2,8 +2,8 @@
 title: Robot policy evaluation
 type: concept
 created: 2026-07-27
-updated: 2026-07-27
-sources: 4
+updated: 2026-08-03
+sources: 6
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility]
 ---
 
@@ -92,3 +92,5 @@ This sharpens RoboLab's **saturation** critique from *"the benchmark stopped dis
 - [LIBERO-PRO paper](../../sources/libero-pro-paper.md) — the memorization critique
 - [How to Evaluate General-Purpose Robot Policies for Real-World Deployment](../../sources/nvidia-robolab-evaluation-blog.md)
 - [RoboLab project page](../../sources/nvidia-robolab-project.md)
+- [CaP-X paper](../../sources/cap-x-paper.md) — 100 trials/task across 8 independently controllable tiers; makes the case that a code-as-policy result is uninterpretable without its abstraction tier.
+- [ASPIRE paper](../../sources/aspire-paper.md) — **disjoint debug/eval seeds** and one-program-per-task evaluation, a protocol that handicaps the paper's own method relative to its baseline.

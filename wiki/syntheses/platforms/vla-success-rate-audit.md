@@ -2,8 +2,8 @@
 title: Success-rate audit — which of this wiki's policy comparisons survive their sample sizes
 type: synthesis
 created: 2026-07-27
-updated: 2026-07-27
-tags: [evaluation, statistics, clopper-pearson, vla, libero, benchmark, audit, reproducibility, methodology]
+updated: 2026-08-03
+tags: [evaluation, statistics, clopper-pearson, vla, libero, benchmark, audit, reproducibility, methodology, code-as-policy]
 ---
 
 # Success-rate audit — which of this wiki's policy comparisons survive their sample sizes
@@ -100,6 +100,31 @@ The [TRI LBM paper](../../sources/tri-lbm-paper.md) ingest recorded this two mon
 That is the same finding, from a different source, sitting on a source page while the entity and synthesis pages went on ranking policies by fractions of a point. TRI also ran **4,200+ rollouts** (≥50/real task, ≥200/sim task) — one of the few evaluations in this wiki built to this standard, which is presumably why it noticed.
 
 **The failure was not analytical, it was organizational**: the caveat lived on one page and the claims lived on others, with no link between them.
+
+### D. The code-as-policy results (added 2026-08-03)
+
+[CaP-X](../../sources/cap-x-paper.md) and [ASPIRE](../../sources/aspire-paper.md) are the first sources ingested *after* this audit was written, so they are the first to be checked at ingest rather than retroactively. **Both disclose protocol better than the wiki's median**, which makes the verdicts unusually clean.
+
+| Claim | N | Verdict |
+|---|---|---|
+| **ASPIRE vs. best baseline on LIBERO-Pro: +77 / +41.5 / +42.5 pp** | 500/suite/axis (10 tasks × 50 held-out seeds) | **survives** overwhelmingly — these are the largest gaps in the wiki outside the LLM-vs-VLA chasm |
+| **ASPIRE Robosuite bimanual handover 20% → 92%** | 100/task | **survives** (p < 10⁻¹⁵) |
+| **ASPIRE BEHAVIOR radio task 56% → 88%** | 25 | **survives, barely** (Fisher exact p = 0.025) — at n=25 this 32 pp gap is close to the detection floor |
+| **ASPIRE zero-shot LIBERO-Pro Long 31% vs 4%** | 500/axis | **survives** (p < 10⁻²⁰) |
+| **ASPIRE ablation: 14% → 62% (engine), → 72% (+evo)** | 500/suite/axis | engine step **survives** (p < 10⁻¹⁰); the **+10 pp evo step also survives** (p = 0.0008) |
+| **ASPIRE real-robot drawer 0/20 → 11/20 with skill transfer** | 20 | **survives** (Fisher exact p = 0.00015) — a 0-vs-11 split is detectable even at n=20 |
+| **ASPIRE real-robot soda can 13/20 → 19/20** | 20 | **survives, marginally** (Fisher exact p = 0.044) |
+| **CaP-Agent0 ablation: 24 → 55 → 59 → 66 → 68** | 700 (7 tasks × 100) | 24→55 and 59→66 **survive** (p < 10⁻⁴, p = 0.007); the **+4 pp (55→59, p = 0.13) and +2 pp (66→68, p = 0.43) steps do not separate** — the skill library and the third parallel model are each individually unproven |
+| **CaP-Agent0 vs π0.5 on LIBERO-PRO** (e.g. 0.18 vs 0.01 Task) | **unstated** | **unknown-N** — Table 2 gives no trials/task. The Task-axis gaps (~17 pp against ~0) would survive at almost any n; the Pos-axis gaps (0.22 vs 0.17) would not |
+| **CaP-RL: Qwen 7B 24% → 84% real cube lift** | 25 | **survives** (p < 10⁻⁴) |
+| **CaP-X "no model matches human 88.5%"** | 100/task/tier | directional claim across 12 models; **survives** for the large gaps, not asserted as a ranking |
+
+> [!note] Two things this thread does better than the wiki's VLA sources
+> **1. Disjoint debug/eval seeds.** ASPIRE learns on seeds 51–65 and evaluates on 1–50. Almost nothing else in this wiki states a train/eval split at the *seed* level.
+> **2. One program per task.** ASPIRE generates a single program and runs it across all held-out seeds, while its baseline (CaP-Agent0) regenerates per seed with retries. **The protocol handicaps the paper's own method** — the opposite of the usual direction, and it means these gaps are if anything understated.
+
+> [!warning] The measurement this thread is missing is cost, not N
+> Every number above has a sample size. **None has a compute cost attached.** CaP-Agent0 issues up to 9 parallel frontier-model queries per turn; ASPIRE reports **81.67M–334.9M tokens for a single real-robot task**. Comparing that to a VLA's single forward pass on success rate alone is an unequal-compute comparison that no paper in this thread acknowledges. The wiki should **record compute at ingest** the way it now records N — this is the same organizational failure as section C, one benchmark cycle later.
 
 ## The other way out: stop measuring absolute rates
 

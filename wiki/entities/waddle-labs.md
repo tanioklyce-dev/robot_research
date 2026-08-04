@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-08-03
 updated: 2026-08-03
-sources: 1
+sources: 3
 tags: [company, waddle, code-as-policy, llm-agent, agentic-robotics, skill-library, robot-api, startup]
 ---
 
@@ -45,12 +45,27 @@ Because the controller is an LLM agent, Waddle claims it inherits the underlying
 - **Same architectural family** as the [LLM-agent robot stacks](../concepts/agents/llm-agent-architecture.md) already documented ([stretch_ai](stretch-ai.md), [ROSOrin](rosorin.md)/[OpenClaw](openclaw.md), [Spot + Gemini Robotics-ER](../sources/bostondynamics-spot-gemini-robotics.md)) — but with two distinctive moves: **(1) code as actions** (the agent writes executable programs) rather than selecting from a fixed JSON tool menu, and **(2) a self-growing shared skill library** with cross-agent transfer.
 - **Positioned against** the end-to-end VLA/WAM camp ([π0](pi-zero.md), [GR00T](nvidia-groot.md), [MolmoAct2](molmoact2.md), [Cosmos 3](nvidia-cosmos.md)) — yet *calls VLAs as tools*, so it is complementary rather than strictly rival.
 
+## How the claims look now that the research is ingested
+
+Waddle cited [CaP-X](cap-x.md) and [ASPIRE](aspire.md) as its closest prior work (refs [13][14]); **both are now ingested** ([CaP-X](../sources/cap-x-paper.md), [ASPIRE](../sources/aspire-paper.md)), which lets several vendor claims be checked against a research group with nothing to sell.
+
+| Waddle claim | What the research shows |
+|---|---|
+| Code-as-policy "has become viable as a path towards robot intelligence" | **Supported.** ASPIRE beats post-trained VLAs by 41–77 points under perturbation and human experts on two long-horizon tasks. |
+| A shared skill library lets agents "learn from experience and learn from each other" | **Supported and quantified.** ASPIRE's zero-shot transfer rises with library size (N = 0 → 90); Waddle never quantified this. |
+| "Works with any arms, grippers, and camera setups without new data collection" | **Overstated.** ASPIRE states the predefined API "bounds the behaviors the agent can express" and must be human-extended; CaP-X needed per-embodiment primitive changes for bimanual hardware. Generality is real *within* the primitive set — which is exactly the wiki's standing suspicion, now confirmed. |
+| A deployed always-on revise-against-execution loop | **Not yet demonstrated in research.** ASPIRE's own limitation: real deployment "still requires robust success detection, safe reset, safety monitoring, and calibration maintenance" — it is not yet a real-world lifelong learner. Waddle claims to run this; nobody has verified it. |
+
+The research also surfaces the question Waddle's framing omits entirely: **cost**. ASPIRE reports 81.67M–334.9M tokens for a single real-robot task. "Nothing retrains between tasks" is true and does not mean cheap.
+
 ## Open questions
 
 - Company basics — founding, funding, team, location, hardware partners — **all unstated**.
-- No reported success rates or trial counts anywhere (see [source flags](../sources/waddle-labs-introducing-waddle.md)).
-- Whether "generalist without new data" survives a genuine embodiment shift, or is bounded by the platform's per-robot primitive set.
-- How often the agent truly calls VLAs vs. writes classical perception+control code (the demos read as the latter).
+- No reported success rates or trial counts anywhere (see [source flags](../sources/waddle-labs-introducing-waddle.md)). The bar has risen: two 2026 papers in the same paradigm publish full protocols, so the absence is now conspicuous rather than merely typical.
+- ~~Whether "generalist without new data" survives a genuine embodiment shift~~ — **largely answered**: bounded by the primitive set, per ASPIRE and CaP-X. What remains is how *much* porting Waddle's platform actually requires.
+- How often the agent truly calls VLAs vs. writes classical perception+control code (the demos read as the latter). Note neither research system calls a VLA at all — both write classical perception+control code, which makes Waddle's "calls VLAs as tools" the *unvalidated* part of its architecture diagram.
 
 ## Mentioned in
 - [Introducing Waddle — Agents that Control Robots](../sources/waddle-labs-introducing-waddle.md) — the founding source (company blog, Jul 2026).
+- [CaP-X paper](../sources/cap-x-paper.md) — cited by Waddle as prior work; supplies the benchmark numbers Waddle omits.
+- [ASPIRE paper](../sources/aspire-paper.md) — cited by Waddle as prior work; the research analogue of Waddle's skill-library claim.

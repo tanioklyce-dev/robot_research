@@ -3,8 +3,8 @@ title: π0 (pi-zero)
 type: entity
 subtype: model
 created: 2026-05-25
-updated: 2026-05-28
-sources: 21
+updated: 2026-08-03
+sources: 23
 tags: [pi-zero, pi0, vla, flow-matching, physical-intelligence, paligemma, action-expert, generalist-policy, cross-embodiment, lerobot, hugging-face]
 ---
 
@@ -82,3 +82,5 @@ The two are the canonical contrast points in the [LeRobot tutorial](../sources/l
 - [Stanford HAI — AI Index Report 2026](../sources/stanford-hai-ai-index-2026.md) — cited as leading Physical AI VLA.
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — supported reference policy at **3.5 B params** (largest in LeRobot's lineup); **13.32 GB peak mem on A100**; **fails inference within 5 s on both CPU and MPS** — confirms π0 needs GPU for onboard deployment. Distributed as `lerobot/pi0` checkpoint.
 - [FAST paper](../sources/fast-paper.md) — π0 is the main backbone; **π0-FAST** (autoregressive π0 + FAST tokens) matches the π0-diffusion VLA while training up to 5× faster.
+- [CaP-X paper](../sources/cap-x-paper.md) — π0 and π0.5 as LIBERO-PRO baselines against a training-free coding agent; π0 scores 0.00 everywhere, π0.5 retains position robustness (0.17–0.38) but collapses under instruction paraphrase (0.00–0.01).
+- [ASPIRE paper](../sources/aspire-paper.md) — same comparison; π0.5 "largely collapses under task paraphrases."

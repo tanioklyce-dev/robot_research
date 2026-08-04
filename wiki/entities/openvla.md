@@ -3,8 +3,8 @@ title: OpenVLA
 type: entity
 subtype: model
 created: 2026-05-25
-updated: 2026-07-17
-sources: 8
+updated: 2026-08-03
+sources: 10
 tags: [openvla, vla, vision-language-action, open-weights, llama-2, autoregressive-action-tokens, baseline]
 status: stub
 ---
@@ -52,3 +52,5 @@ status: stub
 - [OpenVLA-OFT paper](../sources/openvla-oft-paper.md) — fine-tunes OpenVLA with the OFT recipe (76.5→97.1 on LIBERO); OpenVLA is its base model.
 - [FAST paper](../sources/fast-paper.md) — OpenVLA's naïve per-dimension binning is the foil FAST improves on (why OpenVLA struggled to fit DROID); OpenVLA is a secondary FAST backbone.
 - [VLA-0 paper](../sources/vla-0-paper.md) — OpenVLA as the discrete-token-family baseline.
+- [CaP-X paper](../sources/cap-x-paper.md) — baseline on LIBERO-PRO, scoring **0.00 across all six suite/perturbation cells**.
+- [ASPIRE paper](../sources/aspire-paper.md) — independently reproduces the same 0-score collapse under perturbation.

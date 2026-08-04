@@ -2,8 +2,8 @@
 title: Agent skills (portable SKILL.md)
 type: concept
 created: 2026-07-16
-updated: 2026-07-16
-sources: 3
+updated: 2026-08-03
+sources: 5
 tags: [agent-skills, claude-code, skill-md, llm-agents, tooling, jetson, halos, frc, deployment]
 ---
 
@@ -39,3 +39,5 @@ The [JetsonHacks demo](../../sources/jetsonhacks-ai-coding-jetson-claude-code.md
 - [Jetson Device Skills GitHub](../../sources/jetson-device-skills-github.md), [JetsonHacks AI-coding-on-Jetson](../../sources/jetsonhacks-ai-coding-jetson-claude-code.md)
 - [NVIDIA Halos blog](../../sources/nvidia-halos-robotics-blog.md), [Halos Outside-In GitHub](../../sources/halos-outside-in-safety-github.md)
 - [Team 4414 HighTide binder](../../sources/team-4414-hightide-2026-binder.md), [Team 254 AI-in-FRC](../../sources/team-254-ai-in-frc-presentation.md)
+- [CaP-X paper](../../sources/cap-x-paper.md) — a skill library **mined automatically** from successful rollouts (9 task-agnostic primitives, pooled across 12 models) rather than hand-authored.
+- [ASPIRE paper](../../sources/aspire-paper.md) — the strongest contrast with SKILL.md bundles: skills are induced from *diagnosed failures* (failure signature + when-to-apply + repair), the taxonomy emerges rather than being designed, and a coordinator audits admissions. Measured to compound: zero-shot success rises with library size.

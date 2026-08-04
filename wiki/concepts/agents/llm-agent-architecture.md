@@ -3,7 +3,7 @@ title: LLM-agent architecture
 type: concept
 created: 2026-05-07
 updated: 2026-08-03
-sources: 40
+sources: 42
 tags: [llm-agent, tool-use, agentic-robotics, planning, mcp, a2a, code-as-policy]
 ---
 
@@ -104,3 +104,5 @@ Two things follow for robots specifically:
 - [NeMo Guardrails — Library Overview](../../sources/nemo-guardrails-library-overview.md) — execution rails, tool-call validation, LangGraph multi-agent safety.
 - [Project Fetch: Can Claude train a robot dog?](../../sources/anthropic-project-fetch-robot-dog.md) — the contrast case: Claude writes the robot code, but never runs in the loop.
 - [Introducing Waddle — Agents that Control Robots](../../sources/waddle-labs-introducing-waddle.md) — a deployed commercial instance: code-as-actions planner + a shared, agent-authored skill library, calling VLAs as tools.
+- [CaP-X paper](../../sources/cap-x-paper.md) — the benchmark that measures this pattern's code-writing variant across 12 models and 8 tiers of tool abstraction.
+- [ASPIRE paper](../../sources/aspire-paper.md) — coordinator/actor multi-agent structure where actors share **distilled skills instead of chat history**, keeping each context focused.

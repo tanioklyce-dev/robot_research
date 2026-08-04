@@ -2,9 +2,9 @@
 title: Control abstraction levels
 type: concept
 created: 2026-07-27
-updated: 2026-07-27
-sources: 2
-tags: [robotics, control, llm-agent, evaluation, vla, safety, access-control, frontier-red-team]
+updated: 2026-08-03
+sources: 3
+tags: [robotics, control, llm-agent, evaluation, vla, safety, access-control, frontier-red-team, code-as-policy]
 ---
 
 **Control abstraction level** — *where* in the stack a controller is allowed to act, from emitting raw joint torques to issuing goals at a pretrained policy. It is usually treated as an implementation detail. [Anthropic's robotics evaluation](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) is the wiki's argument that it should be treated as a **first-class variable of both capability and safety**, because the same model's real-world influence changes by *orders of magnitude* across levels.
@@ -21,6 +21,27 @@ From the [Frontier Red Team](../../entities/frontier-red-team.md)'s taxonomy:
 | **4. RL supervision** | A training setup; an RL policy is learned from scratch | Offline |
 
 Levels 2 and 4 sidestep the frequency problem entirely by making the model **write the controller rather than be the controller**.
+
+## Level 2 is not one level — it is eight
+
+[CaP-X](../../sources/cap-x-paper.md) (ICML 2026) subdivides "programmatic control" into a measured ladder, and the span *within* this single level is larger than some gaps *between* levels:
+
+| Axis | Rungs |
+|---|---|
+| **Primitive abstraction** | **S1** human macros + privileged state → **S2** macros + real perception → **S3** low-level primitives + usage examples → **S4** low-level, signatures only |
+| **Temporal interaction** | single-turn → **M1** `stdout`/`stderr` feedback → multi-turn with grounding |
+| **Perceptual grounding** | none → **M2** raw RGB → **M3** Visual Differencing Module (observations rendered as structured text) → **M4** VDM + low-level primitives |
+
+Three findings that qualify everything this page says about level 2:
+
+- **Success rises monotonically S4 → S1.** The prior literature's strong "code-as-policy works" results were largely measured at **S2**, where human-designed macros like `stack_objs_in_order()` do much of the work. See [code as policy](../agents/code-as-policy.md) for what that does to the lineage.
+- **Raw pixels hurt.** Feeding RGB back each turn (M2) *degrades* performance relative to text-only execution traces (M1) — a cross-modal alignment gap. Converting observations to structured language (M3) beats both. **The grounding modality matters more than grounding quantity.**
+- **Test-time compute substitutes for abstraction.** Multi-turn over low-level primitives (M4) reaches parity with multi-turn over human macros (M3), and beats single-turn over macros (S2).
+
+> [!note] What this does to "an eval result is meaningless without its abstraction level"
+> The claim below survives and gets sharper. It is not enough to say a result is "level 2 / programmatic control" — **which primitives, how many turns, and what feedback format** move the number by tens of points. A code-as-policy success rate without its tier is close to uninterpretable.
+
+The measured example: a Gemini-3-Pro agent goes from **24%** at single-turn low-level (S3) to **68%** with the full [CaP-Agent0](../../entities/cap-x.md) harness — same model, same robot, same tasks, different rung.
 
 ## Capability is not monotonic in the level — it inverts
 
@@ -68,6 +89,7 @@ Three practical implications:
 Perceptual access moves capability as much as control access does: a **compass** (heading in degrees) was the most consistent performance lever across every model tested — larger than most reasoning-budget effects — while depth heatmaps and crosshairs were roughly neutral. What the model can *see* is an access-level decision too.
 
 ## Related concepts
+- [Code as policy](../agents/code-as-policy.md) — level 2 as an architecture rather than an evaluation condition; the source of the eight-rung subdivision above.
 - [Control-rate ladder](../../syntheses/platforms/control-rate-ladder.md) — every rate in the wiki on one axis; the four bands, and the two mechanisms (hierarchy, action chunking) that bridge them.
 - [LLM-agent architecture](../agents/llm-agent-architecture.md) — level 3, as an architecture rather than an evaluation condition.
 - [VLA models](../learning/vla-models.md) — the pretrained-policy layer being supervised; VLAs *are* the level-1/2 solution that works.
@@ -78,3 +100,4 @@ Perceptual access moves capability as much as control access does: a **compass**
 ## Mentioned in
 - [How Claude Performs on Robotics Tasks](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — the source of the taxonomy and every number here.
 - [Project Fetch: Phase Two](../../sources/anthropic-project-fetch-phase-two.md) — level-2 control (Claude Code writing controllers) taken to near-autonomy.
+- [CaP-X paper](../../sources/cap-x-paper.md) — the eight-tier subdivision of level 2; abstraction, iteration, and grounding as independently controllable axes.

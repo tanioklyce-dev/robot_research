@@ -3,8 +3,8 @@ title: BEHAVIOR / BEHAVIOR-1K
 type: entity
 subtype: benchmark
 created: 2026-07-04
-updated: 2026-07-04
-sources: 4
+updated: 2026-08-03
+sources: 6
 tags: [behavior, behavior-1k, benchmark, household, simulation, omnigibson, bddl, stanford, sim-to-real]
 ---
 
@@ -37,6 +37,8 @@ Long-horizon (CollectTrash ≥16 steps) + deformables/fluids + extended states. 
 - [BEHAVIOR-1K Paper](../sources/behavior-1k-paper.md) — **primary source**.
 - [Stanford HAI — AI Index Report 2026](../sources/stanford-hai-ai-index-2026.md) — the 12.4% challenge figure.
 - [GR00T N1.6 research page](../sources/groot-n1_6.md) — simulated Galaxea R1 Pro on BEHAVIOR.
+- [CaP-X paper](../sources/cap-x-paper.md) — 50 BEHAVIOR tasks integrated into CaP-Gym; CaP-Agent0 exceeds the human expert on radio-pickup task success (56% vs 36%, n=25).
+- [ASPIRE paper](../sources/aspire-paper.md) — long-horizon mobile manipulation; ASPIRE beats both human experts and CaP-Agent0 (radio task success 56% → 88%).
 
 ## Open questions
 - **Primary source now ingested** ([paper](../sources/behavior-1k-paper.md)); the earlier stub's "5,000 objects" is corrected to **9,000+**.

@@ -3,8 +3,8 @@ title: Anthropic
 type: entity
 subtype: company
 created: 2026-05-09
-updated: 2026-07-27
-sources: 9
+updated: 2026-08-03
+sources: 11
 tags: [company, ai-safety, llm, claude, alignment, frontier-red-team, uplift-study]
 ---
 
@@ -52,3 +52,5 @@ Anthropic leads the modern **sparse-autoencoder + feature-steering** approach to
 - [Claude's Constitution](../sources/claudes-constitution.md)
 - [Are We Building Skynet? (Medium, 2025)](../sources/medium-are-we-building-skynet.md)
 - [Welch Labs Illustrated Guide to AI, Vol I](../sources/welchlabs-illustrated-guide-to-ai.md)
+- [ASPIRE paper](../sources/aspire-paper.md) — **Claude Code with Claude Opus 4.6 (1M context) is the coding agent behind every ASPIRE simulation result**; the paper notes it has not verified weaker models can sustain the debugging loop.
+- [CaP-X paper](../sources/cap-x-paper.md) — Claude Haiku 4.5 and Opus 4.5 among the 12 benchmarked models; Opus 4.5 is one of three models in CaP-Agent0's parallel-reasoning ensemble.

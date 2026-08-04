@@ -2,8 +2,8 @@
 title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
-updated: 2026-07-04
-sources: 29
+updated: 2026-08-03
+sources: 31
 tags: [sim-to-real, domain-gap, rl, simulation]
 ---
 
@@ -49,3 +49,5 @@ The 89.4% vs. 12.4% contrast is the canonical sim-to-real gap for household mani
 - [V-JEPA 2 Paper](../../sources/v-jepa-2-paper.md)
 - [Stanford HAI — AI Index Report 2026](../../sources/stanford-hai-ai-index-2026.md) — the 12.4% [BEHAVIOR-1K](../../entities/behavior-benchmark.md) challenge figure.
 - [BEHAVIOR-1K Paper](../../sources/behavior-1k-paper.md) — the hard, long-horizon end of the gap; end-to-end RL 0.0, real-robot 0–22% ([OmniGibson](../../entities/omnigibson.md) sim).
+- [CaP-X paper](../../sources/cap-x-paper.md) — a structurally different transfer story: what crosses the gap is the **code-as-action-space** (perception/control tools fixed across sim and real), not a visuomotor mapping. A 7B coding model RL-trained in sim only reaches 84%/76% on a real [Franka](../../entities/franka-panda.md).
+- [ASPIRE paper](../../sources/aspire-paper.md) — transfers **debugging knowledge** across embodiments: sim-discovered skills as in-context guidance cut real-robot token cost ~4× and take drawer opening from 0/20 to 11/20.

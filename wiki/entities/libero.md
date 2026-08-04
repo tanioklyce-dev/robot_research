@@ -3,9 +3,9 @@ title: LIBERO
 type: entity
 subtype: benchmark
 created: 2026-05-08
-updated: 2026-07-25
-sources: 13
-tags: [libero, manipulation-benchmark, lifelong-learning, robosuite, mujoco]
+updated: 2026-08-03
+sources: 15
+tags: [libero, manipulation-benchmark, lifelong-learning, robosuite, mujoco, code-as-policy]
 ---
 
 **LIBERO — "Lifelong Robot Learning Benchmark."** Procedural manipulation benchmark designed to test **lifelong / continual policy learning** across diverse manipulation tasks. Suite of task families ("Spatial," "Object," "Goal," and "100" — long-tail) commonly used as a [VLA](../concepts/learning/vla-models.md) evaluation harness in 2024–2026. Built on robosuite + MuJoCo.
@@ -67,6 +67,30 @@ Primary reference is [VLA-JEPA](../sources/vla-jepa-paper.md) (Sun et al., Feb 2
 - [Knowledge Insulation paper](../sources/knowledge-insulation-paper.md) — LIBERO-90 + LIBERO-Spatial SOTA claim; π0.5-KI vs π0 / π0-FAST / OpenVLA-OFT (Table 1).
 - [OpenVLA-OFT paper](../sources/openvla-oft-paper.md) — the 97.1% SOTA + 26× throughput result; the primary source for OFT's LIBERO numbers.
 - [FAST paper](../sources/fast-paper.md) — evaluates π0-FAST across the four LIBERO suites.
+- [CaP-X paper](../sources/cap-x-paper.md) — integrates **130 LIBERO-PRO tasks** into CaP-Gym; the first code-as-policy comparison against VLAs on the perturbation suites.
+- [ASPIRE paper](../sources/aspire-paper.md) — LIBERO-Pro and LIBERO-90 → LIBERO-Pro Long zero-shot transfer; independently reproduces the VLA collapse.
+
+## LIBERO-PRO with a non-VLA comparison point (added 2026-08-03)
+
+The [LIBERO-PRO](../sources/libero-pro-paper.md) collapse finding was previously a statement about VLAs with nothing to contrast against. Two code-as-policy papers now run the same perturbation suites, and the contrast is the informative part.
+
+**[CaP-X](../sources/cap-x-paper.md)** (30 LIBERO-PRO tasks), success under position (Pos) and instruction (Task) perturbation:
+
+| Method | object Pos/Task | goal Pos/Task | spatial Pos/Task |
+|---|---|---|---|
+| [OpenVLA](openvla.md) | 0.00 / 0.00 | 0.00 / 0.00 | 0.00 / 0.00 |
+| [π0](pi-zero.md) | 0.00 / 0.00 | 0.00 / 0.00 | 0.00 / 0.00 |
+| π0.5 | 0.17 / 0.01 | **0.38** / 0.00 | **0.20** / 0.01 |
+| **CaP-Agent0** (training-free) | **0.22 / 0.18** | 0.26 / **0.17** | 0.12 / **0.14** |
+
+**[ASPIRE](../sources/aspire-paper.md)** (10 tasks × 50 held-out seeds per suite/perturbation) then adds **+77 / +41.5 / +42.5 points** over the strongest baseline on object / goal / spatial.
+
+> [!note] What the contrast isolates
+> **VLAs are asymmetric; the coding agent is not.** π0.5 retains some position robustness but goes to ~0.00 under paraphrase, because it is trained on a fixed instruction distribution. A [code-as-policy](../concepts/agents/code-as-policy.md) agent reads the instruction with a general language model, so paraphrase costs it nothing — its Pos and Task columns are roughly equal.
+>
+> This does **not** mean code-as-policy is better at manipulation. On *position* perturbation π0.5 still beats CaP-Agent0 on two of three suites, and on standard (unperturbed) LIBERO the VLAs post 94–98% while nothing in the code-as-policy line comes close. The claim it supports is narrower and more useful: **the LIBERO-PRO collapse is specifically a language-generalization failure, not a general brittleness of learned policies** — and it is fixable by changing where language is interpreted.
+
+ASPIRE also independently reproduces the LIBERO-PRO result (OpenVLA and π0 at 0), which was previously single-sourced.
 
 ## As an LLM-control benchmark (not just a VLA benchmark)
 

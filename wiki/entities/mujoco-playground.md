@@ -3,8 +3,8 @@ title: MuJoCo Playground
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-05-07
-sources: 4
+updated: 2026-08-03
+sources: 5
 tags: [mujoco, mjx, jax, robot-learning, deepmind, sim-to-real]
 ---
 
@@ -30,3 +30,4 @@ Presented at RSS 2025; widely cited for [Sim-to-real transfer](../concepts/learn
 - [NVIDIA Newton Physics Engine Developer Page](../sources/nvidia-newton-physics-engine-developer-page.md)
 - [Farama Foundation Projects Page](../sources/farama-projects-page.md)
 - [URDF vs MJCF vs USD comparison](../sources/source-robotics-urdf-mjcf-usd-comparison.md)
+- [ASPIRE paper](../sources/aspire-paper.md) — the physics substrate under [CaP-X](cap-x.md), which ASPIRE uses as its code-as-policy environment.
