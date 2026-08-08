@@ -55,3 +55,20 @@ First public demonstration of a **latent-prediction world model** ([JEPA](../con
 - [Towards AI — LeCun / AMI Labs](../sources/towardsai-lecun-ami-labs.md) — secondary journalism
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) — V-JEPA 2 as the vision-encoder layer of the JEPA "alternative stack"
 - [HWM — Hierarchical Planning with Latent World Models](../sources/hwm-paper.md) — V-JEPA2-AC is the **real-Franka base** HWM wraps (pick-&-place 0%→70% from a single goal image)
+
+## Independent probe evidence (2026)
+
+Two studies put V-JEPA on a shared axis with pixel-space models for the first time:
+
+- **Best action-relevant representation measured.** On [LIBERO](libero.md) task-OOD with a frozen-feature inverse-dynamics probe, V-JEPA 2 ViT-L goes **0.40 → 0.85 action R²** under a small inverse-dynamics loss — the largest lift of eight encoder families, clearing VideoMAE by 0.10 and Web-DINO by 0.69. V-JEPA 2.1 ViT-B does it at **87M params** (0.82), beating a 91M pixel-diffusion model by 0.25 ([action-relevant latents](../sources/action-relevant-latents-paper.md)).
+- **The advantage is rotation.** Translation and gripper state are recoverable from weak features; **only V-JEPA sustains end-effector orientation** — the dimension needing physically coherent latent dynamics.
+- **Robustness.** V-JEPA 2.1 leads five of six corruption types, uniquely encodes the **arrow of time** (flipping to antonymous classes under reversal), and detects pretend actions best where the cue is the *absence* of contact. A frozen V-JEPA 2 + light probe beats a fully fine-tuned VideoMAE and a supervised TimeSformer on corruption and occlusion ([latent video prediction](../sources/latent-video-prediction-better-world-models-paper.md)).
+
+> [!warning] Don't read features off the last layer
+> A per-layer probe finds action R² **peaks at layer 14 (0.51)** and decays to **layer 22 (0.39)** — the JEPA objective pushes action-readout quality away from the final layers ("emerge-then-degrade"). Any VLA using final-layer V-JEPA features is sampling near the trunk's worst point for action decoding. Untested on a policy, but a cheap thing to check.
+
+Also worth carrying: frozen V-JEPA is **catastrophically appearance-coupled** (0.40 clean → **−4.66** under blur). The inverse-dynamics loss is what buys robustness (0.85 → 0.56 under the same blur), not the pretraining alone.
+
+## Mentioned in (additional)
+
+- [What Makes Video World Model Latents Action-Relevant](../sources/action-relevant-latents-paper.md) · [Latent Video Prediction Learns Better World Models](../sources/latent-video-prediction-better-world-models-paper.md)

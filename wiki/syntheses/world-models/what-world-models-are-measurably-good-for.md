@@ -68,7 +68,29 @@ One genuine counter-example: in WorldArena 2.0's **visuotactile** extension, the
 - **Real-robot results are almost all zero**, with a few 10–50% outliers on two ALOHA tasks and no confidence intervals.
 - **No cost accounting anywhere.** RL inside a video world model should be expensive; nobody says how expensive. The wiki's [code-as-policy](../../concepts/agents/code-as-policy.md) page notes the same silence across a ten-paper lineage. The one hard comparative number in the wiki still runs the other way: [LeWorldModel](../../entities/leworldmodel.md) reports up to **48× faster planning** in latent space than foundation-model world models.
 - **Nothing bridges roaming and manipulation.** [WorldRoamBench](../../entities/worldroambench.md) and WorldArena share an author and zero models. "Good world to walk through" and "good world to train a robot in" remain unrelated measurements.
-- **The JEPA family is absent.** Every model in both benchmarks is a pixel predictor. The wiki's entire [latent-prediction](../../concepts/world-models/jepa.md) thread — [V-JEPA 2](../../entities/v-jepa-2.md), [LeWorldModel](../../entities/leworldmodel.md), [DINO-WM](../../entities/dino-wm.md) — is unmeasured by these instruments, and WorldArena's metrics (16 of which score *video*) could not evaluate it without modification. That is the single largest hole in the current evaluation record.
+- **The JEPA family is absent from *these* benchmarks** — every model in WorldArena and WorldRoamBench is a pixel predictor, and WorldArena's 16 video metrics could not score a latent predictor without modification.
+
+> [!warning] Correction (2026-08-08): "absent from these benchmarks" ≠ "unmeasured"
+> An earlier version of this page called the JEPA family "entirely unmeasured," which was wrong. It is measured — by **different instruments**, which is the actual problem:
+>
+> | Instrument | What it scores | Family it can run on |
+> |---|---|---|
+> | [WorldArena](../../entities/worldarena.md) / [WorldRoamBench](../../entities/worldroambench.md) | Video quality + functional utility + long-horizon stability | Pixel predictors only |
+> | [stable-worldmodel](../../sources/stable-worldmodel-paper.md) | Planning success under controllable factors of variation | Latent predictors (LeWM, DINO-WM, PLDM, TD-MPC2) |
+> | [JEPA-WMs](../../sources/jepa-wms-paper.md) | Planning success, ablated by design choice | Latent predictors |
+> | [Action-relevant latents](../../sources/action-relevant-latents-paper.md) | Inverse-dynamics probe R² | **Both** |
+> | [Latent video prediction](../../sources/latent-video-prediction-better-world-models-paper.md) | Five robustness axes on frozen features | **Both** (as encoders) |
+>
+> The real condition is **incommensurability**: for most of 2026 the two literatures used instruments that could not be run on each other's models, so neither could rank the other. The bottom two rows are the first shared instruments, and they arrive at the probe/representation level rather than the system level.
+
+**What the shared instruments say.** Both favour latent prediction, and both qualify it:
+
+- **Pixel fidelity and action recoverability are orthogonal.** At ~20 dB PSNR, frozen action R² spans −0.01 to +0.46; the highest-PSNR backbones (SDXL VAE, the Cosmos-1 tokenizer) post the *lowest* action R², at or below zero ([action-relevant latents](../../sources/action-relevant-latents-paper.md)). This is WorldArena's r = 0.360 restated at the representation level — and it now covers both families.
+- **The credit is mostly temporal video pretraining, not JEPA as such.** V-JEPA 2 +ID reaches 0.85 action R² against VideoMAE +ID at 0.75 — so the feature-level predictive objective is worth about **+0.10**, with most of the gap over image-only SSL coming from natural-video temporal context. A real but smaller win than the JEPA literature's framing implies.
+- **But V-JEPA is not "semantic SSL."** Web-DINO and SigLIP 2 sit at 0.16–0.17 after the same tuning, clustered with reconstruction encoders — a caution that lands on [DINO-WM](../../entities/dino-wm.md), which builds on a frozen image-SSL encoder.
+- **Stable ≠ usable.** VideoPrism holds representational similarity above 0.98 under severe patch dropout while collapsing to 2.7% top-1; V-JEPA 2.1 retains 46.1% ([latent video prediction](../../sources/latent-video-prediction-better-world-models-paper.md)). The same category error as judging a world model by how its rollouts look.
+
+**What is still genuinely missing**: nobody has run a JEPA-family model through WorldArena's *functional* roles — data engine, policy evaluator, RL environment, action planner. The probe results predict it would do well; that prediction is untested. And the dissociation itself turns out to be older than either 2026 benchmark — **Tian, Finn & Wu (ICLR 2023)** showed perceptual metrics rank video predictors differently from control success three years earlier.
 
 ## Sources
 

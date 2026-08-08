@@ -2,8 +2,8 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-07-26
-sources: 33
+updated: 2026-08-08
+sources: 35
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -129,3 +129,36 @@ The original wiki synthesis observed [V-JEPA 2](../../entities/v-jepa-2.md) and 
 - [Sensorimotor World Models Paper (Ivashkov, Balestriero, Schölkopf 2026)](../../sources/sensorimotor-world-models-paper.md) — inverse-dynamics regularization as the sole anti-collapse mechanism
 - [A Generalization Theory for JEPA-Based World Models (Cui et al., 2026)](../../sources/jepa-generalization-theory-paper.md) — first finite-sample generalization bound; JEPA pretraining = action-conditioned co-occurrence-matrix factorization ([spectral view](../learning/spectral-theory-of-ssl.md))
 - [Grounding Spatial Relations in a Compact World Model (Wang et al., 2026)](../../sources/grounding-spatial-relations-compact-wm-paper.md) — the [instruction-leakage](instruction-leakage.md) evaluation confound in goal-conditioned JEPA world models
+
+## How much of the advantage is latent prediction, specifically? (2026 probe evidence)
+
+Two 2026 studies put JEPA encoders and pixel-space models on **one shared axis** for the first time — a frozen-feature probe rather than a video-quality leaderboard. Both favour latent prediction; both qualify how much of the credit it deserves.
+
+**The decomposition** ([action-relevant latents](../../sources/action-relevant-latents-paper.md), LIBERO task-OOD, inverse-dynamics probe R²):
+
+| | Frozen | +ID | Δ |
+|---|---:|---:|---:|
+| V-JEPA 2 ViT-L (video + JEPA prediction) | 0.40 | **0.85** | +0.45 |
+| VideoMAE V1 ViT-L (video + pixel MAE) | 0.46 | 0.75 | +0.29 |
+| Web-DINO ViT-L (image SSL) | −0.01 | 0.16 | +0.17 |
+| Cosmos-1 tokenizer (pixel reconstruction) | −0.36 | −0.29 | +0.07 |
+
+Read the gaps: **natural-video temporal context** explains most of the distance from image-only SSL to VideoMAE; **the JEPA feature-level predictive objective is worth about +0.10** on top of pixel-level masked autoencoding. Real, and smaller than the JEPA literature's framing implies.
+
+Three findings that sharpen the picture:
+
+- **Pixel fidelity and action recoverability are orthogonal.** At ~20 dB PSNR, frozen action R² spans −0.01 to +0.46; the highest-PSNR backbones post the lowest action R². Optimizing appearance does not organize a latent space around what actions control.
+- **The advantage is concentrated on rotation.** Translation and gripper state are recoverable from weak features; **rotation** collapses outside the video-predictive family — negative R² for image-SSL and reconstruction encoders even after inverse-dynamics tuning. Only V-JEPA sustains all three axes.
+- **Action signal peaks mid-trunk.** A per-layer probe of V-JEPA 2 ViT-L peaks at **layer 14 (0.51)** and decays to **layer 22 (0.39)** — the JEPA objective pushes action-readout quality *away* from the final layers. Practical consequence for any VLA using a V-JEPA front-end: **final-layer features sample near the trunk's worst point for action decoding.**
+
+> [!warning] JEPA is not "semantic SSL," and this matters for DINO-WM
+> Web-DINO and SigLIP 2 stay at **0.16–0.17** after the same inverse-dynamics tuning — clustered with reconstruction encoders, and a λ sweep across five orders of magnitude can't move them ("the limitation is representational rather than optimization-related"). [DINO-WM](../../entities/dino-wm.md) builds its world model on exactly this class of frozen image-SSL encoder.
+
+**Robustness** ([latent video prediction](../../sources/latent-video-prediction-better-world-models-paper.md), four matched-capacity ViT-Ls on SSv2): V-JEPA 2.1 leads on five of six corruption types; V-JEPA models uniquely encode the **arrow of time** (under reversal they flip to semantically antonymous classes — pushing ↔ pulling); and they detect *pretend* actions best precisely where the cue is **the absence of physical contact** — without ever reconstructing a pixel. A frozen V-JEPA 2 with a light probe beats a fully fine-tuned VideoMAE and a supervised TimeSformer on corruption and occlusion.
+
+And the caution that generalizes beyond JEPA: **stable features are not usable features.** VideoPrism holds representational similarity above 0.98 under severe patch dropout while collapsing to **2.7%** top-1; V-JEPA 2.1 retains **46.1%**.
+
+## Mentioned in (additional)
+
+- [What Makes Video World Model Latents Action-Relevant](../../sources/action-relevant-latents-paper.md) — the shared inverse-dynamics probe; the ~+0.10 attribution; rotation; the per-layer profile.
+- [Latent Video Prediction Learns Better World Models](../../sources/latent-video-prediction-better-world-models-paper.md) — five robustness axes; arrow of time; stable ≠ usable.

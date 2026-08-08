@@ -2,7 +2,7 @@
 title: Generative-video vs JEPA world models — what they predict, what it costs, what works
 type: synthesis
 created: 2026-05-07
-updated: 2026-07-26
+updated: 2026-08-08
 tags: [world-models, jepa, generative-video, cosmos, cosmos-3, world-action-model, genie-envisioner, dreamdojo, v-jepa-2, leworldmodel, waymo, genie-3, stable-worldmodel, identifiability, generalization]
 ---
 
@@ -128,3 +128,25 @@ The two paradigms are not independent. [GR00T](../../entities/nvidia-groot.md) N
 - [Joint-Embedding Predictive Architecture](../../concepts/world-models/jepa.md) — paradigm B's architectural definition.
 - [Simulators for agentic robotics — 2026 landscape](../simulators/simulators-for-agentic-robotics-2026.md) — §3 sketches this comparison at survey level; this page is the deep dive.
 - [VLA models](../../concepts/learning/vla-models.md) — the policies that consume world-model environments or use world-model encoders as backbones.
+
+## The first head-to-head measurements (mid-2026)
+
+For most of 2026 this comparison rested on architectural argument plus each side's own benchmarks, because the two families' instruments don't interoperate — see [world-model evaluation](../../concepts/world-models/world-model-evaluation.md). Two studies changed that by **freezing the representation and probing it**, the one level where both families are directly comparable.
+
+**Verdict: latent prediction wins on representation quality, by less than its advocates claim and for a more specific reason than they give.**
+
+| Question | Answer | Source |
+|---|---|---|
+| Does pixel fidelity predict action utility? | **No — orthogonal.** At ~20 dB PSNR, action R² spans −0.01 to +0.46; highest-PSNR backbones score lowest | [action-relevant latents](../../sources/action-relevant-latents-paper.md) |
+| How much does the JEPA objective add over pixel-MAE? | **~+0.10 R²** (V-JEPA 2 +ID 0.85 vs VideoMAE +ID 0.75). Most of the gap over image-SSL is *temporal video pretraining*, not latent prediction as such | same |
+| Where is the advantage concentrated? | **Rotation.** Translation and gripper survive weak features; rotation goes negative outside the video-predictive family | same |
+| Robustness under corruption/occlusion? | Latent prediction, clearly. V-JEPA 2.1 leads 5 of 6 corruption types; uniquely encodes the arrow of time | [latent video prediction](../../sources/latent-video-prediction-better-world-models-paper.md) |
+| Does a generative model's decoder buy anything measurable here? | **Not for control.** Pixel-reconstruction backbones (SDXL VAE, Cosmos-1 tokenizer) post the lowest action R² and get *more* negative under perturbation | [action-relevant latents](../../sources/action-relevant-latents-paper.md) |
+
+Two qualifications that keep this honest:
+
+- **The robustness study is action classification on SSv2, not control.** It argues from deployment-relevant representation properties, not from planning success.
+- **Public checkpoints only, so pretraining corpus isn't matched.** V-JEPA 2 saw 1M+ hours of internet video. Some of the win may be the corpus rather than the objective — and the companion paper's attribution of most gains to *temporal video pretraining* is consistent with that reading.
+
+> [!note] What generative video still uniquely provides
+> Nothing in these results touches the generative side's actual advantages: inspectable rollouts, human-in-the-loop review, photorealistic sim-to-real, and the ability to serve as an **RL environment** for policies that consume pixels — the one functional role where world models measurably work ([what world models are measurably good for](what-world-models-are-measurably-good-for.md)). The probe evidence says latent prediction organizes control-relevant structure better; it does not say pixels are useless.

@@ -71,3 +71,13 @@ As a **policy evaluator** it correlates only **r = 0.483** with the RoboTwin sim
 ## Mentioned in (additional)
 
 - [WorldArena paper](../sources/worldarena-paper.md) · [WorldArena 2.0 paper](../sources/worldarena-2-paper.md)
+
+## The Cosmos-1 tokenizer as a control representation: lowest measured
+
+Separate from Cosmos-Predict's showing in [WorldArena](worldarena.md), the **Cosmos-1 image tokenizer** was probed as a frozen representation for action recovery and lands near the bottom of eight encoder families: **−0.36 frozen, −0.29 after inverse-dynamics tuning**, and it becomes *more* negative as visual perturbation strengthens — "still prioritizing appearance even after action supervision." It attains among the highest pixel-reconstruction PSNR in the study while posting among the lowest action R² ([action-relevant latents](../sources/action-relevant-latents-paper.md)).
+
+That pairing — top of the pixel-fidelity axis, bottom of the action axis — is the cleanest single illustration in the wiki that **reconstruction quality and control utility are orthogonal**.
+
+## Mentioned in (additional)
+
+- [What Makes Video World Model Latents Action-Relevant](../sources/action-relevant-latents-paper.md)

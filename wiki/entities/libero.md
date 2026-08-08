@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-05-08
 updated: 2026-08-08
-sources: 18
+sources: 19
 tags: [libero, manipulation-benchmark, lifelong-learning, robosuite, mujoco, code-as-policy]
 ---
 
@@ -60,6 +60,7 @@ Primary reference is [VLA-JEPA](../sources/vla-jepa-paper.md) (Sun et al., Feb 2
 ## Mentioned in
 - [LIBERO-PRO paper](../sources/libero-pro-paper.md) — perturbation-based critique; confirms the 50-episodes-per-task protocol.
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../sources/hai-world-model-spatial-intelligence-brief.md) — LIBERO as the robotics entry in a policy-facing survey of world-model benchmarks.
+- [What Makes Video World Model Latents Action-Relevant](../sources/action-relevant-latents-paper.md) — uses a **task-OOD split** (104 train / **26 tasks held out entirely**) for frozen-feature action probing. A stricter protocol than the standard suites, and a template worth reusing: the held-out tasks never touch world-model training.
 - [WorldArena 2.0 paper](../sources/worldarena-2-paper.md) — LIBERO used as one of three platforms (with [RoboTwin 2.0](robotwin.md) and a real ALOHA) for **cross-platform world-model evaluation**; functional rankings correlate between the two simulators and collapse against the real robot.
 - [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — LIBERO kitchen scenes repurposed as a direct-LLM-control benchmark; 0-5.5% end-to-end.
 - [VLA-JEPA Paper](../sources/vla-jepa-paper.md)

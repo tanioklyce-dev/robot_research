@@ -3,7 +3,7 @@ title: World-model evaluation
 type: concept
 created: 2026-08-07
 updated: 2026-08-08
-sources: 4
+sources: 6
 tags: [world-model, evaluation, benchmark, physical-validity, policy, vbench, worldscore]
 ---
 
@@ -100,6 +100,29 @@ WorldRoamBench: **stricter physics adherence may compromise action following.** 
 
 So the two literatures converge and neither cites the other. The policy brief says no benchmark supports safety-critical deployment decisions; the robotics measurement literature says the benchmarks in use don't even support ranking two policies against each other.
 
+## The two literatures cannot score each other
+
+The deepest problem with world-model evaluation as of mid-2026 isn't that instruments are missing. It's that the instruments in use are **incommensurable** — each runs on one family and cannot run on the other.
+
+| Instrument | Scores | Runs on |
+|---|---|---|
+| [WorldArena](../../entities/worldarena.md) / [WorldRoamBench](../../entities/worldroambench.md) | Video quality, functional utility, long-horizon stability | Pixel predictors only |
+| [stable-worldmodel](../../sources/stable-worldmodel-paper.md), [JEPA-WMs](../../sources/jepa-wms-paper.md) | Planning success under controlled variation | Latent predictors only |
+| [Action-relevant latents](../../sources/action-relevant-latents-paper.md) | Inverse-dynamics probe R² | **Both** |
+| [Latent video prediction](../../sources/latent-video-prediction-better-world-models-paper.md) | Five robustness axes on frozen features | **Both** |
+
+Sixteen of WorldArena's metrics score *video*, which a [JEPA](jepa.md) model does not emit; JEPA work reports CEM/MPC planning success on Push-T and maze navigation, which video generators aren't set up to run. Neither literature can rank the other's models, and the leaderboards are therefore not comparable in either direction.
+
+The bottom two rows are the first shared instruments, and both work by **freezing the representation and probing it** rather than by scoring outputs — which is the only level at which the families are directly comparable. What they find:
+
+- **Pixel fidelity and action recoverability are orthogonal.** At ~20 dB PSNR, frozen action R² spans −0.01 to +0.46, and the highest-PSNR backbones (SDXL VAE, the Cosmos-1 tokenizer) score *lowest* on action, at or below zero. This is [WorldArena](../../sources/worldarena-paper.md)'s r = 0.360 restated at the representation level, now covering both families.
+- **Stable ≠ usable.** VideoPrism holds representational cosine similarity above **0.98** under severe patch dropout while collapsing to **2.7%** top-1 accuracy; V-JEPA 2.1 retains **46.1%** on the same clips. The latent-space form of the plausibility trap: a similarity metric can look perfect while the representation carries nothing actionable.
+
+> [!note] The dissociation is older than the 2026 benchmarks
+> **Tian, Finn & Wu (ICLR 2023)**, "A control-centric benchmark for video prediction," already showed that perceptual metrics rank video predictors differently from control success. What 2026 added was scale, a system-level version ([WorldArena](../../entities/worldarena.md)), and cross-family coverage — not the insight.
+
+**Still missing**: nobody has run a JEPA-family model through WorldArena's *functional* roles (data engine, policy evaluator, RL environment, action planner). The probe results predict it would do well. That prediction is untested.
+
 ## Related concepts
 
 - [Robot policy evaluation](../robotics/robot-policy-evaluation.md) — the statistical case, from inside robotics.
@@ -115,3 +138,5 @@ So the two literatures converge and neither cites the other. The policy brief sa
 - [WorldRoamBench paper](../../sources/worldroambench-paper.md) — long-horizon stability; per-frame action, visual drift, interaction physics, action-decoupled memory.
 
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../../sources/hai-world-model-spatial-intelligence-brief.md)
+- [What Makes Video World Model Latents Action-Relevant](../../sources/action-relevant-latents-paper.md) — the shared inverse-dynamics probe across eight encoder families.
+- [Latent Video Prediction Learns Better World Models](../../sources/latent-video-prediction-better-world-models-paper.md) — five robustness axes; "stable features are not usable features."

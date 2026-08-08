@@ -56,3 +56,14 @@ Plus eval variants: **WallRandom, PushObj, GranularRandom, DM Control Reacher**,
 - [stable-worldmodel paper (Maes et al., 2026)](../sources/stable-worldmodel-paper.md) — implemented as a baseline in the `swm` platform; benchmarked under controlled visual/physical perturbation (quadratic decay under distractors).
 - [WorldDP paper (Goswami et al., 2026)](../sources/worlddp-paper.md) — DINO-WM as a baseline (its raw-DINOv2-patch state is exactly what WorldDP's object-centric encoding is argued to improve on); single-stage, scores 0 on multi-stage tasks.
 - [Sensorimotor World Models paper (Ivashkov et al., 2026)](../sources/sensorimotor-world-models-paper.md) — DINO-WM cited as the "freeze the encoder" point in the anti-collapse design space.
+
+## A caution from the 2026 probe studies
+
+DINO-WM builds its world model on a **frozen image-SSL encoder**. Under a shared inverse-dynamics probe, that class of encoder is the weakest measured: Web-DINO reaches only **0.16** action R² and SigLIP 2 **0.17**, clustered with pixel-reconstruction encoders and far below video-pretrained backbones (V-JEPA 2 at 0.85, VideoMAE at 0.75). A λ sweep across five orders of magnitude leaves them in a 0.1-wide band — "the limitation is representational rather than optimization-related," and image-SSL encoders produce **negative rotation R²** even after action supervision ([action-relevant latents](../sources/action-relevant-latents-paper.md)).
+
+> [!note] What this does and doesn't say
+> It does **not** say DINO-WM plans badly — DINO-WM's own results beat DreamerV3 and TD-MPC2 on goal-conditioned planning, and the probe measures representation quality, not closed-loop success. What it says is that the *encoder choice* is a measurable constraint, and that "frozen DINOv2 features" and "V-JEPA latent prediction" are not interchangeable substrates even though the wiki files both under [JEPA](../concepts/world-models/jepa.md)-adjacent. The paper is explicit: "the data does not support grouping V-JEPA with image-only semantic SSL methods."
+
+## Mentioned in (additional)
+
+- [What Makes Video World Model Latents Action-Relevant](../sources/action-relevant-latents-paper.md)
