@@ -3,8 +3,8 @@ title: Veo
 type: entity
 subtype: model
 created: 2026-08-03
-updated: 2026-08-03
-sources: 1
+updated: 2026-08-08
+sources: 2
 tags: [veo, video-model, world-model, generative-simulation, policy-evaluation, google-deepmind]
 ---
 
@@ -37,3 +37,14 @@ Known failure modes: contact-rich interaction with small objects (objects can sp
 
 ## Mentioned in
 - [Evaluating Gemini Robotics Policies in a Veo World Simulator](../sources/veo-robotics-policy-evaluation-paper.md) — primary source.
+
+## Veo 3.1 in third-party benchmarking
+
+[WorldArena](worldarena.md) evaluates **Veo 3.1** among 14 embodied world models: **3rd on EWMScore (58.87)**, with the field's best interaction quality (0.7872), best instruction following (0.9328), and best perspectivity (0.8276) — yet weak trajectory accuracy (0.1231) and "limited improvements in embodied-specific metrics." It is the clearest single instance of the perception–functionality gap: near-perfect at looking and sounding right, mediocre at the dynamics ([WorldArena paper](../sources/worldarena-paper.md)).
+
+> [!note] Two learned evaluators, opposite biases
+> Veo-as-evaluator predicts **low** absolute success rates (ranking r = 0.88 against 1,600+ real evaluations). WorldArena finds its learned evaluators predict **high** — "partial overfitting to successful trajectories." Both preserve ranking better than level; the sign disagreement is unexplained. See [world-model evaluation](../concepts/world-models/world-model-evaluation.md) and [Ctrl-World](ctrl-world.md).
+
+## Mentioned in (additional)
+
+- [WorldArena paper](../sources/worldarena-paper.md)

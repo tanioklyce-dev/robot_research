@@ -2,7 +2,7 @@
 title: World-model policy claims vs. this wiki's technical evidence
 type: synthesis
 created: 2026-08-07
-updated: 2026-08-07
+updated: 2026-08-08
 tags: [policy, governance, world-model, evaluation, synthesis, spatial-intelligence]
 ---
 
@@ -38,7 +38,9 @@ The brief says the benchmarks can't support *deployment* decisions. The wiki's e
 
 ### "Teaching to a flawed test"
 
-**Corroborated as a live and un-measured risk.** Using a learned model to both train and judge a system is not hypothetical in this wiki: [Veo](../../entities/veo.md) is a video foundation model specialized as a **policy-evaluation simulator**, and the Dream* line generates training data for the policies alongside it. The brief identifies the failure mode; nothing in the wiki measures its size. This is the single most actionable gap the brief opens.
+**Corroborated — and now measured, one day after this page was written.** The brief identified the failure mode; [WorldArena](../../sources/worldarena-paper.md) sized it. Running world models as policy evaluators against the RoboTwin simulator's own verdict, **both models "have consistently higher success rates than those measured in the simulator, suggesting partial overfitting to successful trajectories."** The bias is directional: a learned evaluator *flatters* what it evaluates. Ranking survives ([Ctrl-World](../../entities/ctrl-world.md), r = 0.986); levels don't ([Cosmos](../../entities/nvidia-cosmos.md)-Predict 2.5, r = 0.483).
+
+One loose end: [Veo](../../entities/veo.md) reports the **opposite sign** — predicted rates running low against real evaluations. Both agree ranking beats level; the direction of the level error is unexplained.
 
 ---
 
@@ -53,13 +55,15 @@ Read against [robot policy evaluation](../../concepts/robotics/robot-policy-eval
 > [!note] The reframing worth keeping
 > "Planners are immature" and "planner benchmarks are uninformative" are different problems with different fixes. The brief treats the first as the fact and the second as a gap. The wiki's evidence suggests the second is what's actually established, and the first is inferred from it.
 
+**Update (2026-08-08): the brief's claim now has direct evidence, from a direction nobody was looking.** [WorldArena](../../sources/worldarena-paper.md) measures world models *as action planners* and finds them **3–4× worse than a [π0.5](../../entities/pi-zero-5.md) policy** (20%/21% vs 77%/66%). So "planners are least mature" is confirmed — but note what the comparison actually shows: the mature planner in that table is a **VLA**, not a world model. The brief's taxonomy treats planning as a world-model capability tier; the measurement says the best planner available is a system from an entirely different lineage. Meanwhile world models turn out to be genuinely useful as **RL environments** — a role the brief's three-category taxonomy has no slot for at all.
+
 ### "Simulation-to-reality gap" as a policy object
 
 **The brief's framing is one generation behind the wiki's.** [Sim-to-real transfer](../../concepts/learning/sim-to-real-transfer.md) traces the problem to 2013 and earlier under the name *simulation bias*, with the mitigation lineage (domain randomization, artificial noise injection) going back to 1995. The brief presents the gap as a new consequence of world models. What is actually new is the compound failure — a *learned* simulator that is both training environment and judge — which the brief does identify separately and which genuinely has no pre-2020 analogue.
 
 ### "World models could lower the cost of simulation"
 
-**Unverifiable from this wiki, and from the brief.** This is the load-bearing economic claim under the entire "infrastructure and incentives" pillar, and neither the brief nor the technical literature supplies numbers. The wiki's [code-as-policy](../../concepts/agents/code-as-policy.md) page notes the same absence across a ten-paper lineage: **nobody reports cost.** The one hard comparative figure in the wiki runs the other way on inference — [LeWorldModel](../../entities/leworldmodel.md) reports up to **48× faster planning** than foundation-model-based world models, i.e. the cheap approach is the *latent* one, not the generative renderers the brief treats as the mature end of the field.
+**Still unverifiable, now with more sources that don't answer it.** Neither WorldArena paper reports cost or wall-clock, including for the RL-inside-a-video-model experiments that should be the most expensive thing in the cluster. This is the load-bearing economic claim under the entire "infrastructure and incentives" pillar, and neither the brief nor the technical literature supplies numbers. The wiki's [code-as-policy](../../concepts/agents/code-as-policy.md) page notes the same absence across a ten-paper lineage: **nobody reports cost.** The one hard comparative figure in the wiki runs the other way on inference — [LeWorldModel](../../entities/leworldmodel.md) reports up to **48× faster planning** than foundation-model-based world models, i.e. the cheap approach is the *latent* one, not the generative renderers the brief treats as the mature end of the field.
 
 ---
 
@@ -76,11 +80,13 @@ Not everything is a scoring exercise. Four contributions are genuinely new here:
 
 ## Where this leaves the wiki
 
-Three follow-ups, in order of value:
+Three follow-ups were opened on 2026-08-07. Two are closed.
 
-- **Ingest WorldArena.** It is the only benchmark in the brief's list scored on *downstream usefulness for training, testing, and planning robot behavior* rather than on output quality. If it works, it is the missing instrument both literatures are asking for.
-- **Measure the shared-weights evaluation bias.** Where a learned simulator evaluates policies trained on related data ([Veo](../../entities/veo.md), Dream*), how much does the score inflate? Nobody has published this.
-- **Get a primary [World Labs](../../entities/world-labs.md) / Marble source and a primary [Genie 3](../../entities/genie-3.md) source.** Both are cornerstone examples in the brief and both are one-paragraph stubs here.
+- ~~**Ingest WorldArena.**~~ **Done (2026-08-08)** — plus WorldArena 2.0 and [WorldRoamBench](../../entities/worldroambench.md). It is the instrument both literatures were asking for, and it says the gap is real and quantified: EWMScore correlates with human judgment at r = 0.825 and with **action planning at r = 0.360**. See [what world models are measurably good for](../world-models/what-world-models-are-measurably-good-for.md).
+- ~~**Measure the shared-weights evaluation bias.**~~ **Partly closed** — WorldArena measures the sign and the ranking/level split (above). What remains open is *why* Veo's error runs the other way.
+- **A primary [Genie 3](../../entities/genie-3.md) source turns out not to exist.** DeepMind has published no parameter count, architecture, or training corpus; a blog post and a model page are the whole record, and WorldRoamBench's model table independently confirms the gaps. What did arrive is **third-party measurement**: Genie 3 ranks 1st of 10 in first-person view, winning on *memory* while placing 7th on action following. A primary [World Labs](../../entities/world-labs.md) / Marble source is still missing.
+
+New follow-up, and it is now the largest hole: **no benchmark in this cluster evaluates a JEPA-family model.** Every model in WorldArena and WorldRoamBench is a pixel predictor. WorldArena's 16 metrics score *video*, which [V-JEPA 2](../../entities/v-jepa-2.md), [LeWorldModel](../../entities/leworldmodel.md), and [DINO-WM](../../entities/dino-wm.md) do not produce. The wiki's entire latent-prediction thread is unmeasured by the field's best instruments — and its one hard comparative number (LeWM's **48× faster planning**) points the opposite way from the brief's assumption that the mature renderers are the practical option.
 
 ## Sources
 

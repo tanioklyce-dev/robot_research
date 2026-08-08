@@ -2,8 +2,8 @@
 title: World-model simulators
 type: concept
 created: 2026-05-06
-updated: 2026-08-07
-sources: 26
+updated: 2026-08-08
+sources: 29
 tags: [world-model, generative-simulation, video-generation, jepa, latent-prediction, paradigm-shift]
 ---
 
@@ -37,6 +37,21 @@ Notable systems:
 - **[V-JEPA 2 / V-JEPA 2-AC](../../entities/v-jepa-2.md)** ([Meta FAIR](../../entities/meta-fair.md) + [Mila](../../entities/mila.md)) — 1B-param ViT-g pretrained on 1M+ hours of internet video; 300M-param action-conditioned predictor post-trained on 62 hr of Droid robot data; **zero-shot Franka manipulation in new labs** ([V-JEPA 2 Paper](../../sources/v-jepa-2-paper.md)).
 - **[LeWorldModel](../../entities/leworldmodel.md)** ([Mila](../../entities/mila.md) + NYU + Samsung SAIL + Brown) — first stable end-to-end JEPA from raw pixels with just two loss terms; 15M params; single-GPU training; 48× faster planning ([LeWorldModel Paper](../../sources/leworldmodel-paper.md)).
 
+## What they are measurably good for (2026)
+
+The thesis on this page — use a learned model as the environment — now has independent measurement, and it survives **narrowed to one role**:
+
+| Role | Verdict | Evidence |
+|---|---|---|
+| **RL environment** (train a policy inside it) | **Works** — ~⅔ of the gap to simulator-based RL closed; every model beats SFT | [WorldArena 2.0](../../sources/worldarena-2-paper.md) |
+| **Policy evaluator** | Ranking yes (r = 0.986 for [Ctrl-World](../../entities/ctrl-world.md)), absolute rates no | [WorldArena](../../sources/worldarena-paper.md) |
+| **Data engine** (generate training data) | Marginal — only 2 of 6 models beat real data, on the easier task only | [WorldArena](../../sources/worldarena-paper.md) |
+| **Action planner** (be the policy) | **No** — loses 3–4× to [π0.5](../../entities/pi-zero-5.md) | [WorldArena](../../sources/worldarena-paper.md) |
+
+**Learned dynamics are good enough to shape a policy, not to be one.** Full argument and caveats in [what world models are measurably good for](../../syntheses/world-models/what-world-models-are-measurably-good-for.md).
+
+Two things this qualifies on the page below: the [Genie Envisioner](../../entities/genie-envisioner.md) minute-scale-rollout claim is a vendor announcement that independent benchmarking places **last of 14**, and none of these benchmarks evaluates a **Paradigm B / JEPA** model at all — 16 of WorldArena's metrics score *video*, which a latent predictor doesn't produce.
+
 ## Where world-model simulators are most useful (2026)
 - **Pretraining policies on observed-data distributions** before any physics-based fine-tuning.
 - **Generating long-horizon scenarios** for evaluation that would be expensive to author.
@@ -67,3 +82,5 @@ Notable systems:
 - [LeWorldModel Paper](../../sources/leworldmodel-paper.md)
 - [Cosmos 3 Technical Report](../../sources/cosmos-3-technical-report.md)
 - [Evaluating Gemini Robotics Policies in a Veo World Simulator](../../sources/veo-robotics-policy-evaluation-paper.md) — [Veo](../../entities/veo.md) used as an **evaluation harness** rather than a policy or data generator; action-conditioned, multi-view-consistent, with generative image editing for scene variation.
+- [WorldArena paper](../../sources/worldarena-paper.md) · [WorldArena 2.0 paper](../../sources/worldarena-2-paper.md) — the four functional roles, measured.
+- [WorldRoamBench paper](../../sources/worldroambench-paper.md) — long-horizon stability of interactive world models.

@@ -55,3 +55,19 @@ Cosmos is the underlying generative video model that's enabling the rise of [Wor
 - [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)
+
+## Cosmos-Predict 2.5 measured — and the text-vs-action natural experiment
+
+[WorldArena](worldarena.md) evaluates Cosmos-Predict 2.5 in **both** a text-conditioned and an action-conditioned variant, which makes it the wiki's cleanest evidence that action conditioning is load-bearing rather than cosmetic:
+
+| | Text-conditioned | Action-conditioned |
+|---|---:|---:|
+| EWMScore | 50.81 (13th of 14) | **55.90** (6th) |
+| Trajectory accuracy | 0.0816 | **0.2945** |
+| Instruction following | 0.2664 | **0.5840** |
+
+As a **policy evaluator** it correlates only **r = 0.483** with the RoboTwin simulator's policy ranking, against [Ctrl-World](ctrl-world.md)'s 0.986 — so it is not usable as an evaluation harness. As an **RL environment** it does better, at 67.38 / 63.48 ([WorldArena 2.0](../sources/worldarena-2-paper.md)). ([WorldArena paper](../sources/worldarena-paper.md))
+
+## Mentioned in (additional)
+
+- [WorldArena paper](../sources/worldarena-paper.md) · [WorldArena 2.0 paper](../sources/worldarena-2-paper.md)

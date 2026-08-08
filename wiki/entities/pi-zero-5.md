@@ -43,3 +43,13 @@ tags: [pi-zero-5, physical-intelligence, vla, co-training, open-world, mobile-ma
 - [Knowledge Insulation paper](../sources/knowledge-insulation-paper.md) — π0.5-KI.
 - [LIBERO-PRO paper](../sources/libero-pro-paper.md) · [CaP-X paper](../sources/cap-x-paper.md) · [ASPIRE paper](../sources/aspire-paper.md) · [MolmoAct2 paper](../sources/molmoact2-paper.md) — the 2026 comparisons.
 - [π0.7 paper](../sources/pi07-paper.md) · [π*0.6 paper](../sources/pistar06-paper.md) — successor lineage references.
+
+## As the reference policy in world-model benchmarking
+
+[WorldArena](worldarena.md) uses π0.5 as the yardstick every embodied world model is measured against, and the comparison is not close. Trained on real RoboTwin 2.0 data it reaches **77% / 66%** on two bimanual tasks; the best world model **as an action planner** manages 20% / 21%, and the best **as a data engine** (WoW) reaches 45% / 71% — beating real data on only the easier task ([WorldArena paper](../sources/worldarena-paper.md)).
+
+The one role where world models earn their place is as **RL environments**: a π0.5 policy optimized inside one reaches 75.0 / 70.7 against 87.3 / 78.9 for simulator-based RL and 43.8 / 55.1 for SFT ([WorldArena 2.0](../sources/worldarena-2-paper.md)). See [what world models are measurably good for](../syntheses/world-models/what-world-models-are-measurably-good-for.md).
+
+## Mentioned in (additional)
+
+- [WorldArena paper](../sources/worldarena-paper.md) · [WorldArena 2.0 paper](../sources/worldarena-2-paper.md)

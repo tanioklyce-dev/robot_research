@@ -3,7 +3,7 @@ title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
 updated: 2026-08-07
-sources: 32
+sources: 34
 tags: [sim-to-real, domain-gap, rl, simulation]
 ---
 
@@ -39,9 +39,24 @@ Classical sim-to-real assumes the simulator is **hand-authored and therefore ins
 
 > "If the model understates the risk of skidding in rain, a vehicle trained in that model may learn to drive too fast and still score well when the same flawed model is used to test it. The score would reflect an error in the model, not readiness for a real road." ([HAI world-model brief](../../sources/hai-world-model-spatial-intelligence-brief.md), pp. 7–8)
 
-This is not hypothetical in this wiki: [Veo](../../entities/veo.md) is a video foundation model specialized as a **policy-evaluation simulator**, and the Dream* line generates training data for policies alongside it. Nobody has published the size of the resulting score inflation. Filed as an open gap in [world-model evaluation](../world-models/world-model-evaluation.md).
+This is not hypothetical in this wiki: [Veo](../../entities/veo.md) is a video foundation model specialized as a **policy-evaluation simulator**, and the Dream* line generates training data for policies alongside it.
+
+**Now measured.** [WorldArena](../../sources/worldarena-paper.md) ran world models as policy evaluators against the RoboTwin simulator's own verdict: both "have consistently higher success rates than those measured in the simulator, suggesting partial overfitting to successful trajectories." The learned evaluator **flatters** what it evaluates. *Ranking* survives ([Ctrl-World](../../entities/ctrl-world.md) at r = 0.986); *levels* do not. Veo reports the opposite sign, so the effect's direction isn't settled — see [world-model evaluation](../world-models/world-model-evaluation.md).
 
 The policy consequence the brief draws: **define how much real-world validation a system requires before deployment regardless of its simulation performance**, and keep oversight running after deployment via monitoring and incident reporting, because even strong tests miss rare conditions.
+
+## The learned-simulator sim-to-real gap is worse than the policy one
+
+[WorldArena 2.0](../../sources/worldarena-2-paper.md) evaluated world models across [RoboTwin 2.0](../../entities/robotwin.md), [LIBERO](../../entities/libero.md), and a **real AgileX Split-Type [ALOHA](../../entities/aloha.md)**, and separated what transfers from what doesn't:
+
+| Transfers across platforms | Doesn't |
+|---|---|
+| Visual quality, motion quality, physics adherence, 3D accuracy | **Content consistency, controllability** — "greater domain sensitivity in semantic and instruction-level alignment" |
+| Functional rankings *between two simulators* | **Functional rankings against a real robot** — correlation "drops greatly"; most models score 0% |
+
+The paper's conclusion: "simulation performance — whether perceptual or functional — is not a reliable proxy for real-world deployment and physical evaluation remains indispensable." It also self-critiques single-simulator benchmarking as "susceptible to overfitting, leading to artificially inflated rankings."
+
+Note the recursion: this is the sim-to-real gap applied *to the simulator itself*. A learned simulator validated in simulation tells you little about a learned simulator used on hardware.
 
 ## Notable claims
 - [MuJoCo Playground](../../entities/mujoco-playground.md) demonstrates **zero-shot** transfer from both state and pixel inputs across quadrupeds, humanoids, hands, and arms ([MuJoCo Playground Paper](../../sources/mujoco-playground-paper.md)).
@@ -63,3 +78,5 @@ The policy consequence the brief draws: **define how much real-world validation 
 - [BEHAVIOR-1K Paper](../../sources/behavior-1k-paper.md) — the hard, long-horizon end of the gap; end-to-end RL 0.0, real-robot 0–22% ([OmniGibson](../../entities/omnigibson.md) sim).
 - [CaP-X paper](../../sources/cap-x-paper.md) — a structurally different transfer story: what crosses the gap is the **code-as-action-space** (perception/control tools fixed across sim and real), not a visuomotor mapping. A 7B coding model RL-trained in sim only reaches 84%/76% on a real [Franka](../../entities/franka-panda.md).
 - [ASPIRE paper](../../sources/aspire-paper.md) — transfers **debugging knowledge** across embodiments: sim-discovered skills as in-context guidance cut real-robot token cost ~4× and take drawer opening from 0/20 to 11/20.
+- [WorldArena 2.0 paper](../../sources/worldarena-2-paper.md) — cross-platform sim-to-real for world models; perceptual dimensions transfer, functional rankings don't.
+- [WorldArena paper](../../sources/worldarena-paper.md) — learned policy evaluators inflate absolute success rates.

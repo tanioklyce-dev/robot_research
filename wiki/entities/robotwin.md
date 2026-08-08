@@ -3,8 +3,8 @@ title: RoboTwin 2.0
 type: entity
 subtype: benchmark
 created: 2026-08-04
-updated: 2026-08-04
-sources: 1
+updated: 2026-08-08
+sources: 3
 tags: [robotwin, benchmark, bimanual, manipulation, domain-randomization, data-generation, simulation]
 ---
 
@@ -44,3 +44,13 @@ First appears here via the [TurboVLA paper](../sources/turbovla-paper.md), which
 
 ## Mentioned in
 - [TurboVLA paper](../sources/turbovla-paper.md)
+
+## The substrate of WorldArena
+
+RoboTwin 2.0 is the evaluation substrate for [WorldArena](worldarena.md) and WorldArena 2.0: 50 scenarios, 2,500 videos (2,000 to post-train each world model, 500 held out), with two tasks — *adjust bottle* and *click bell* — carrying the functional evaluation at 100 trials each. Its own simulator supplies the ground-truth policy ranking that learned policy evaluators are scored against.
+
+That makes RoboTwin the reference frame for the wiki's central world-model finding: a [π0.5](pi-zero-5.md) policy trained on real RoboTwin data hits **77% / 66%**, and no world model comes close as a data engine or planner ([WorldArena paper](../sources/worldarena-paper.md)).
+
+## Mentioned in (additional)
+
+- [WorldArena paper](../sources/worldarena-paper.md) · [WorldArena 2.0 paper](../sources/worldarena-2-paper.md)
