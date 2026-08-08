@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-08-08
 updated: 2026-08-08
-sources: 2
+sources: 3
 tags: [benchmark, world-model, evaluation, ewmscore, robotwin, visuotactile, tsinghua]
 ---
 
@@ -65,3 +65,11 @@ Built on [RoboTwin 2.0](robotwin.md), which makes it a bimanual counterweight to
 - [WorldArena paper](../sources/worldarena-paper.md)
 - [WorldArena 2.0 paper](../sources/worldarena-2-paper.md)
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../sources/hai-world-model-spatial-intelligence-brief.md)
+
+## Adopted as a metric component
+
+[Reconstruction or Semantics?](../sources/latent-space-robotic-world-models-paper.md) (Mila, May 2026) uses **WorldArena's perceptual and geometric scores** as part of its own visual-fidelity axis, alongside FID / SSIM / LPIPS / FVD / point-track consistency — the first instance in this wiki of WorldArena being reused as infrastructure rather than cited as a result. Three months from publication to dependency.
+
+## Mentioned in (additional)
+
+- [Reconstruction or Semantics?](../sources/latent-space-robotic-world-models-paper.md)

@@ -90,7 +90,13 @@ One genuine counter-example: in WorldArena 2.0's **visuotactile** extension, the
 - **But V-JEPA is not "semantic SSL."** Web-DINO and SigLIP 2 sit at 0.16–0.17 after the same tuning, clustered with reconstruction encoders — a caution that lands on [DINO-WM](../../entities/dino-wm.md), which builds on a frozen image-SSL encoder.
 - **Stable ≠ usable.** VideoPrism holds representational similarity above 0.98 under severe patch dropout while collapsing to 2.7% top-1; V-JEPA 2.1 retains 46.1% ([latent video prediction](../../sources/latent-video-prediction-better-world-models-paper.md)). The same category error as judging a world model by how its rollouts look.
 
-**What is still genuinely missing**: nobody has run a JEPA-family model through WorldArena's *functional* roles — data engine, policy evaluator, RL environment, action planner. The probe results predict it would do well; that prediction is untested. And the dissociation itself turns out to be older than either 2026 benchmark — **Tian, Finn & Wu (ICLR 2023)** showed perceptual metrics rank video predictors differently from control success three years earlier.
+**Partly closed (2026-08-08).** [Reconstruction or Semantics?](../../sources/latent-space-robotic-world-models-paper.md) runs V-JEPA 2.1 latents through the **policy-evaluator** role — OpenVLA-7B rolled out inside each world model — and semantic latents roughly **double** VLA-in-the-loop success against VAE latents (0.362 vs 0.169), with the OOD gap wider still (0.575 vs 0.287 under distractors). The probe results' prediction held where it has been tested.
+
+Two scoping notes: these are **diffusion world models whose latent space comes from V-JEPA**, not JEPA world models, so the encoder is isolated rather than the architecture; and success is VLM-adjudicated over 160 trials per encoder, which is thin by the wiki's [rollout standard](../../concepts/robotics/robot-policy-evaluation.md). Still untested: JEPA representations as **data engine**, **RL environment**, or **action planner**.
+
+One finding from that paper worth carrying on its own: at larger DiT scale, VAE and Cosmos latents close much of the *policy-success* gap — better rendering helps a pixel-consuming VLA — but still lag on **CEM action recovery, IDM r, and classifier accuracy**. **Scale buys the parts of the problem that go through pixels and not the parts that go through dynamics.**
+
+**And the dissociation is three years older than any of this.** [VP²](../../sources/vp2-paper.md) (Tian, Finn & Wu, ICLR 2023) showed perceptual metrics mis-rank video predictors for control — with the sign of the correlation *task-dependent*, so no constant correction recovers it. The best FVD in their study (4.9) scored 10% control success; the worst (51.7) scored 80%. Everything in this cluster is a rediscovery at scale.
 
 ## Sources
 

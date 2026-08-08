@@ -35,3 +35,11 @@ Authored under [Yuke Zhu](yuke-zhu.md) — the same line that produced [RoboCasa
 
 ## Open questions / TBD
 - The original robosuite paper (Zhu et al., 2020) is still not ingested — would let the wiki cite controller design and task-construction rationale rather than inheriting it silently through LIBERO.
+
+## As benchmark infrastructure for world-model evaluation
+
+robosuite is one of the two simulated environments in **[VP²](../sources/vp2-paper.md)** (ICLR 2023), the founding control-centric video-prediction benchmark: a tabletop setting with 4 objects and 4 push task categories × 25 instances, textures randomized from a set of 13, rendered with the iGibson renderer, with a 4-D end-effector action space and 50K scripted-policy training trajectories.
+
+## Mentioned in (additional)
+
+- [VP² — A Control-Centric Benchmark for Video Prediction](../sources/vp2-paper.md)

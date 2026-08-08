@@ -72,3 +72,19 @@ Also worth carrying: frozen V-JEPA is **catastrophically appearance-coupled** (0
 ## Mentioned in (additional)
 
 - [What Makes Video World Model Latents Action-Relevant](../sources/action-relevant-latents-paper.md) · [Latent Video Prediction Learns Better World Models](../sources/latent-video-prediction-better-world-models-paper.md)
+
+## As a latent space for a diffusion world model
+
+Beyond its own architecture, V-JEPA 2.1 is the **best-performing latent space** for an action-conditioned latent diffusion world model. Holding the DiT transition backbone, action conditioning, dataset, and optimizer fixed and varying only the frozen encoder across six candidates on Bridge V2, V-JEPA 2.1 gives:
+
+- **Best policy-in-the-loop success** — 0.362 consensus SR with OpenVLA-7B rolled out inside it, vs **0.169** for a plain VAE latent space (~2×), and the widest OOD margin (0.575 vs 0.287 under distractors).
+- **Best action recoverability** — IDM Pearson r = 0.829 / 0.865 (k=1/4) on encoder latents, degrading least after world-model generation (0.781 / 0.840).
+- **Best CEM planning error** at k=4 (0.424 vs VAE 0.612).
+
+([Reconstruction or Semantics?](../sources/latent-space-robotic-world-models-paper.md))
+
+Note the scope: these are diffusion world models *using* V-JEPA's latent space, not V-JEPA-AC world models — the study isolates the encoder, not the architecture.
+
+## Mentioned in (additional)
+
+- [Reconstruction or Semantics?](../sources/latent-space-robotic-world-models-paper.md)

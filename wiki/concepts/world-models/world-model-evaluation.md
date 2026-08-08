@@ -3,7 +3,7 @@ title: World-model evaluation
 type: concept
 created: 2026-08-07
 updated: 2026-08-08
-sources: 6
+sources: 8
 tags: [world-model, evaluation, benchmark, physical-validity, policy, vbench, worldscore]
 ---
 
@@ -118,8 +118,22 @@ The bottom two rows are the first shared instruments, and both work by **freezin
 - **Pixel fidelity and action recoverability are orthogonal.** At ~20 dB PSNR, frozen action R² spans −0.01 to +0.46, and the highest-PSNR backbones (SDXL VAE, the Cosmos-1 tokenizer) score *lowest* on action, at or below zero. This is [WorldArena](../../sources/worldarena-paper.md)'s r = 0.360 restated at the representation level, now covering both families.
 - **Stable ≠ usable.** VideoPrism holds representational cosine similarity above **0.98** under severe patch dropout while collapsing to **2.7%** top-1 accuracy; V-JEPA 2.1 retains **46.1%** on the same clips. The latent-space form of the plausibility trap: a similarity metric can look perfect while the representation carries nothing actionable.
 
-> [!note] The dissociation is older than the 2026 benchmarks
-> **Tian, Finn & Wu (ICLR 2023)**, "A control-centric benchmark for video prediction," already showed that perceptual metrics rank video predictors differently from control success. What 2026 added was scale, a system-level version ([WorldArena](../../entities/worldarena.md)), and cross-family coverage — not the insight.
+### The dissociation is three years older than the 2026 benchmarks
+
+**[VP²](../../sources/vp2-paper.md)** (Tian, Finn & Wu, ICLR 2023) established it, and with sharper evidence than anything since, because it varies the *loss* while holding architecture fixed:
+
+| Environment | Model | FVD ↓ | Control success |
+|---|---|---:|---:|
+| robosuite push | SVG′ MSE | **51.7** (worst) | **80%** (best) |
+| RoboDesk open slide | SVG′ +LPIPS=1 | **4.9** (best in study) | **10%** |
+| RoboDesk open slide | SVG′ MSE | 22.5 | 58% |
+| RoboDesk red button | FitVid +LPIPS=1 / +LPIPS=10 | 5.9 / 6.8 | **82% / 32%** |
+
+The critical detail is worse than "weak correlation": **the sign is task-dependent.** FVD tracks success on one RoboDesk task and inverts on another, so no constant correction recovers it. And on red button, SSIM varies by 0.2 points (97.3–97.5) while success ranges 32%→82%.
+
+VP² also supplies two design ideas the 2026 benchmarks lack: a **one-function interface** (`context_frames, action_seq → predictions`, no differentiability or architecture assumption), and a **simulator-as-model upper bound** that separates "the model is bad" from "the planner is bad."
+
+Its scaling results have aged well and are still uncontested: **model capacity from 6M→300M produced no control-performance trend** (larger models appear to overfit action sequences), data gains **plateau early**, and the diffusion model tested needed **220 s per 10-frame forward pass** against FitVid-full's 5.63 s — competitive control at ~39× the cost.
 
 **Still missing**: nobody has run a JEPA-family model through WorldArena's *functional* roles (data engine, policy evaluator, RL environment, action planner). The probe results predict it would do well. That prediction is untested.
 
@@ -140,3 +154,5 @@ The bottom two rows are the first shared instruments, and both work by **freezin
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../../sources/hai-world-model-spatial-intelligence-brief.md)
 - [What Makes Video World Model Latents Action-Relevant](../../sources/action-relevant-latents-paper.md) — the shared inverse-dynamics probe across eight encoder families.
 - [Latent Video Prediction Learns Better World Models](../../sources/latent-video-prediction-better-world-models-paper.md) — five robustness axes; "stable features are not usable features."
+- [VP² — A Control-Centric Benchmark for Video Prediction](../../sources/vp2-paper.md) — the founding result; perceptual metrics vs control success, with task-dependent sign.
+- [Reconstruction or Semantics?](../../sources/latent-space-robotic-world-models-paper.md) — the same dissociation at the level of a world model's *latent space*; semantic latents roughly double VLA-in-the-loop success over VAE latents.

@@ -3,7 +3,7 @@ title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
 updated: 2026-08-08
-sources: 35
+sources: 36
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -151,8 +151,14 @@ Three findings that sharpen the picture:
 - **The advantage is concentrated on rotation.** Translation and gripper state are recoverable from weak features; **rotation** collapses outside the video-predictive family — negative R² for image-SSL and reconstruction encoders even after inverse-dynamics tuning. Only V-JEPA sustains all three axes.
 - **Action signal peaks mid-trunk.** A per-layer probe of V-JEPA 2 ViT-L peaks at **layer 14 (0.51)** and decays to **layer 22 (0.39)** — the JEPA objective pushes action-readout quality *away* from the final layers. Practical consequence for any VLA using a V-JEPA front-end: **final-layer features sample near the trunk's worst point for action decoding.**
 
-> [!warning] JEPA is not "semantic SSL," and this matters for DINO-WM
-> Web-DINO and SigLIP 2 stay at **0.16–0.17** after the same inverse-dynamics tuning — clustered with reconstruction encoders, and a λ sweep across five orders of magnitude can't move them ("the limitation is representational rather than optimization-related"). [DINO-WM](../../entities/dino-wm.md) builds its world model on exactly this class of frozen image-SSL encoder.
+> [!warning] Contradiction — is JEPA distinct from image-SSL, or is "semantic" one category?
+> **[Action-relevant latents](../../sources/action-relevant-latents-paper.md) says distinct.** Web-DINO and SigLIP 2 stay at **0.16–0.17** action R² after the same inverse-dynamics tuning — clustered with reconstruction encoders, going *negative on rotation*, and a λ sweep across five orders of magnitude can't move them: "the limitation is representational rather than optimization-related." It states explicitly that the data "does not support grouping V-JEPA with image-only semantic SSL methods."
+>
+> **[Reconstruction or Semantics?](../../sources/latent-space-robotic-world-models-paper.md) says one category.** As latent spaces for a diffusion world model on Bridge V2, Web-DINO reaches IDM Pearson **r = 0.820** against V-JEPA 2.1's 0.829, and SigLIP 2 posts the best generated-latent success-classifier accuracy. All three are grouped as "semantic" and all three beat every reconstruction encoder.
+>
+> Candidate reconciliations: **Pearson r vs R²** (r ignores scale and bias errors that R² punishes); **spatial patch latents vs mean-pooled features**; **real Bridge V2 vs simulated LIBERO task-OOD**; and **aggregate-over-7-DoF masking a rotation-specific collapse**. None verified.
+>
+> Both agree on what matters most — reconstruction-aligned latents are the worst control substrate and V-JEPA is the best. They disagree on where **[DINO-WM](../../entities/dino-wm.md)**'s frozen image-SSL encoder sits, which is not a small disagreement for that design.
 
 **Robustness** ([latent video prediction](../../sources/latent-video-prediction-better-world-models-paper.md), four matched-capacity ViT-Ls on SSv2): V-JEPA 2.1 leads on five of six corruption types; V-JEPA models uniquely encode the **arrow of time** (under reversal they flip to semantically antonymous classes — pushing ↔ pulling); and they detect *pretend* actions best precisely where the cue is **the absence of physical contact** — without ever reconstructing a pixel. A frozen V-JEPA 2 with a light probe beats a fully fine-tuned VideoMAE and a supervised TimeSformer on corruption and occlusion.
 
@@ -162,3 +168,4 @@ And the caution that generalizes beyond JEPA: **stable features are not usable f
 
 - [What Makes Video World Model Latents Action-Relevant](../../sources/action-relevant-latents-paper.md) — the shared inverse-dynamics probe; the ~+0.10 attribution; rotation; the per-layer profile.
 - [Latent Video Prediction Learns Better World Models](../../sources/latent-video-prediction-better-world-models-paper.md) — five robustness axes; arrow of time; stable ≠ usable.
+- [Reconstruction or Semantics?](../../sources/latent-space-robotic-world-models-paper.md) — V-JEPA 2.1 as the strongest latent space for a robotic diffusion world model; ~2× VLA-in-the-loop success over VAE latents.

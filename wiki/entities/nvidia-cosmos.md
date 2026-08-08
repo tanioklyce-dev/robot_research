@@ -81,3 +81,13 @@ That pairing — top of the pixel-fidelity axis, bottom of the action axis — i
 ## Mentioned in (additional)
 
 - [What Makes Video World Model Latents Action-Relevant](../sources/action-relevant-latents-paper.md)
+
+## Cosmos as a latent space (not a world model)
+
+A third measurement of the Cosmos encoder, this time as the latent space of someone else's diffusion world model on Bridge V2. It behaves like the other reconstruction-aligned encoders: **strong pixel-level scores, weak everything else** — 0.244 consensus VLA success (vs V-JEPA 2.1's 0.362), the **worst CEM action-recovery error in the study at k=4 (0.661)**, and IDM Pearson r of 0.626/0.673 against V-JEPA's 0.829/0.865 ([Reconstruction or Semantics?](../sources/latent-space-robotic-world-models-paper.md)).
+
+At larger DiT scale, Cosmos closes much of the *policy-success* gap — better rendering helps a pixel-consuming VLA — but still lags on CEM error, IDM r, and classifier accuracy. The consistent story across three independent studies: **the Cosmos encoder reconstructs well and does not organize its latent space around what actions control.**
+
+## Mentioned in (additional)
+
+- [Reconstruction or Semantics?](../sources/latent-space-robotic-world-models-paper.md)
