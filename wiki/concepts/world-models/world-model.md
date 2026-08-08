@@ -2,12 +2,15 @@
 title: World model
 type: concept
 created: 2026-05-07
-updated: 2026-07-13
-sources: 37
+updated: 2026-08-07
+sources: 38
 tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video, omnimodal, world-action-model]
 ---
 
 **World model** — a **learned predictive model of environment dynamics**: given the current state (or observation) and an action, predict the next state (or observation). The umbrella term covers a wide range of approaches that all share this functional definition. Used for **planning**, **policy improvement** (model-based RL), **imagination**, and **representation learning**.
+
+> [!note] Two taxonomies, cutting across each other
+> This page sorts world models by **architecture** (what they predict, and how). The [functional taxonomy](world-model-functional-taxonomy.md) — **renderer / simulator / planner** — sorts them by **role**, and is the frame policy discussion has adopted ([HAI brief](../../sources/hai-world-model-spatial-intelligence-brief.md)). The capability they compose into is [spatial intelligence](spatial-intelligence.md); whether any of them is *valid for its intended use* is [world-model evaluation](world-model-evaluation.md).
 
 > [!note] Distinct from [World-model simulators](world-model-simulators.md)
 > This page covers the **broad concept** of a learned dynamics model. The companion concept page [world-model-simulators](world-model-simulators.md) is narrower — it specifically addresses world-models-used-as-simulators (i.e. drop-in replacements for traditional rigid-body simulators in agentic-robotics workflows). Many world models in the broader sense (Dreamer-class model-based RL, MuZero) are not "simulators" by that narrower definition.
@@ -60,8 +63,10 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 - [World-action model (WAM)](world-action-model.md) — the FD/ID/policy unification (Cosmos 3, Dream*, GE-Sim2).
 - [Generative-video vs JEPA world models](../../syntheses/world-models/generative-video-vs-jepa-world-models.md) — synthesis comparing two major design points.
 - [Why JEPA research skips the simulator stack](../../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md) — synthesis on a JEPA-specific question.
+- [World-model functional taxonomy](world-model-functional-taxonomy.md) / [spatial intelligence](spatial-intelligence.md) / [world-model evaluation](world-model-evaluation.md) / [world-model governance](../safety/world-model-governance.md) — the role-based, capability, measurement, and policy views of the same object.
 
 ## Mentioned in
+- [HAI Issue Brief — The World Model and Spatial Intelligence Era](../../sources/hai-world-model-spatial-intelligence-brief.md) — the policy-facing definition (action-conditioned prediction; counterfactual reasoning as the central goal) and the renderer/simulator/planner frame
 - [Wake-Sleep Paper (Hinton et al., 1995)](../../sources/wake-sleep-paper.md) — the sleep phase trains on model-generated "fantasies" — the 1995 ancestor of learning-in-imagination, complete with its stated failure mode (fantasy distribution ≠ data distribution)
 - [A Path Towards Autonomous Machine Intelligence (LeCun, 2022)](../../sources/lecun2022-path-towards-ami.md) — canonical LeCun position paper; argues for configurable world model + hierarchical JEPA as the substrate
 - [V-JEPA 2 Paper](../../sources/v-jepa-2-paper.md)

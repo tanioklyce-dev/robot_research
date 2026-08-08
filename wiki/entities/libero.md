@@ -3,8 +3,8 @@ title: LIBERO
 type: entity
 subtype: benchmark
 created: 2026-05-08
-updated: 2026-08-04
-sources: 16
+updated: 2026-08-07
+sources: 17
 tags: [libero, manipulation-benchmark, lifelong-learning, robosuite, mujoco, code-as-policy]
 ---
 
@@ -59,6 +59,7 @@ Primary reference is [VLA-JEPA](../sources/vla-jepa-paper.md) (Sun et al., Feb 2
 
 ## Mentioned in
 - [LIBERO-PRO paper](../sources/libero-pro-paper.md) — perturbation-based critique; confirms the 50-episodes-per-task protocol.
+- [HAI Issue Brief — The World Model and Spatial Intelligence Era](../sources/hai-world-model-spatial-intelligence-brief.md) — LIBERO as the robotics entry in a policy-facing survey of world-model benchmarks.
 - [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — LIBERO kitchen scenes repurposed as a direct-LLM-control benchmark; 0-5.5% end-to-end.
 - [VLA-JEPA Paper](../sources/vla-jepa-paper.md)
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **natively integrated** as one of two simulation benchmarks (alongside [Metaworld](metaworld.md)). Confirms the four task families: SPATIAL, OBJECT, GOAL, plus continuing-task LIBERO-90 and long-horizon LIBERO-LONG.
@@ -99,6 +100,10 @@ ASPIRE also independently reproduces the LIBERO-PRO result (OpenVLA and π0 at 0
 Anthropic's [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) adapts LIBERO kitchen scenes to a different question: not *how well does a trained policy do*, but *how well does a general LLM do driving a [Franka Panda](franka-panda.md) directly*. End-to-end pick-and-place success across eleven frontier models spans **0 to 5.5%** — against the 94–98% that trained VLAs post on LIBERO. Decomposed by subgoal, reaching and grasping improve markedly across model generations while **placing** stays the bottleneck. LIBERO-40 (40 tasks x 5 seeds, 200 trials) is also the substrate for the [MolmoAct](molmoact.md)-supervision experiments.
 
 That gap — **~5% for a general LLM vs ~97% for a purpose-trained VLA on the same benchmark** — is the clearest single quantification in this wiki of what action-pretraining buys.
+
+## Reach beyond robotics
+
+LIBERO is now cited **in policy documents** as the robotics anchor of the world-model evaluation landscape — the [HAI world-model brief](../sources/hai-world-model-spatial-intelligence-brief.md) lists it alongside VBench / VideoPhy / PhyGenBench / WorldScore / WorldModelBench / WorldArena as the benchmark that "tests how well robots complete simulated manipulation tasks," then concludes that none of them gives policymakers an adequate basis for safety-critical deployment. Given [LIBERO-PRO](../sources/libero-pro-paper.md)'s >90% → **0.0%** result, that conclusion is if anything understated. See [world-model evaluation](../concepts/world-models/world-model-evaluation.md).
 
 ## Open questions / TBD
 - Original LIBERO paper (Liu et al., NeurIPS 2023) still not ingested directly — would let us cite design rationale (why the four task families, what "lifelong" means concretely). **The protocol question it was wanted for is now answered** via [LIBERO-PRO](../sources/libero-pro-paper.md); what remains is rationale, not numbers.

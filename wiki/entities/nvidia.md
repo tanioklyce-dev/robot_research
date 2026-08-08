@@ -49,3 +49,4 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - [JetPack docs index](../sources/nvidia-jetpack-docs-index.md)
 - [Jetson Linux R36.5 release](../sources/nvidia-jetson-linux-r36-5-release.md)
 - [Jetson Linux R36.5 update mechanism](../sources/nvidia-jetson-linux-r36-5-update-mechanism.md)
+- [HAI Issue Brief — The World Model and Spatial Intelligence Era](../sources/hai-world-model-spatial-intelligence-brief.md) — Omniverse cited as the reference point for *conventional* simulation ("slow, specialist work" per environment) against which learned world models are pitched; NVIDIA also named among the incumbents leading the world-model push, and among HAI's disclosed funders.

@@ -2,8 +2,8 @@
 title: Robot policy evaluation
 type: concept
 created: 2026-07-27
-updated: 2026-08-03
-sources: 9
+updated: 2026-08-07
+sources: 10
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility]
 ---
 
@@ -96,4 +96,5 @@ This sharpens RoboLab's **saturation** critique from *"the benchmark stopped dis
 - [ASPIRE paper](../../sources/aspire-paper.md) — **disjoint debug/eval seeds** and one-program-per-task evaluation, a protocol that handicaps the paper's own method relative to its baseline.
 - [Evaluating Gemini Robotics Policies in a Veo World Simulator](../../sources/veo-robotics-policy-evaluation-paper.md) — a **third evaluation paradigm**: a video world model as the harness. Pearson 0.88 / MMRV 0.03 against 1600+ real evaluations, but absolute predicted rates run **low**, so it ranks rather than measures — the same trade [RoboArena](../../sources/roboarena-paper.md) makes.
 - [Predictive Red Teaming](../../sources/predictive-red-teaming-paper.md) — a fourth: predict degradation per environmental factor without hardware, then use the prediction to target data collection.
+- [HAI Issue Brief — The World Model and Spatial Intelligence Era](../../sources/hai-world-model-spatial-intelligence-brief.md) — the same verdict reached from the policy side about *world models* rather than policies: evaluation is "a research patchwork rather than a settled standard," and none of it supports safety-critical deployment decisions. See [world-model evaluation](../world-models/world-model-evaluation.md) and the [scoring synthesis](../../syntheses/society/world-model-policy-vs-wiki-evidence.md).
 - [vla-evaluation-harness](../../sources/vla-evaluation-harness-github.md) — Ai2's 18-benchmark, any-VLA evaluation infrastructure (47× throughput; 2,000 LIBERO episodes in ~18 min/H100). Supports LIBERO-Pro with MolmoAct2/GR00T N1.7/π0.5 — the wiki's most consequential open question is no longer blocked on tooling. Its reproduction reports independently verify four LeRobot checkpoints at 96–100% of published LIBERO scores.

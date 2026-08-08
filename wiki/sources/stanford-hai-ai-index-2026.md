@@ -52,6 +52,8 @@ The ninth edition of the Stanford HAI AI Index Report (2026). Comprehensive annu
 - Grok 4 estimated training emissions: **72,816 tons CO₂ equivalent**. Annual GPT-4o inference water use may exceed drinking-water needs of 1.2 million people.
 
 ## Entities mentioned
+
+- [Stanford HAI](../entities/stanford-hai.md) — publisher; also author of the 2026 [world-model policy brief](hai-world-model-spatial-intelligence-brief.md).
 - [Anthropic](../entities/anthropic.md) — Arena 1,503 (top closed model); 7 notable models in 2025.
 - [NVIDIA](../entities/nvidia.md) — >60% of global AI compute; GR00T VLA mentioned.
 - [Google DeepMind](../entities/google-deepmind.md) — 14 notable models; Veo 3 video generation; Gemini Robotics VLA.

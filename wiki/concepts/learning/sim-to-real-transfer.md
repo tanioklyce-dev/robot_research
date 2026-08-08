@@ -2,8 +2,8 @@
 title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
-updated: 2026-08-03
-sources: 31
+updated: 2026-08-07
+sources: 32
 tags: [sim-to-real, domain-gap, rl, simulation]
 ---
 
@@ -33,6 +33,16 @@ The [Stanford HAI AI Index 2026](../../sources/stanford-hai-ai-index-2026.md) pr
 
 The 89.4% vs. 12.4% contrast is the canonical sim-to-real gap for household manipulation as of 2025. RLBench tests 18 short-horizon tasks in a controlled simulator; BEHAVIOR-1K's 1,000 tasks come from surveys of what households actually want robots to do.
 
+## The learned-simulator failure mode: teaching to a flawed test
+
+Classical sim-to-real assumes the simulator is **hand-authored and therefore inspectable** — you can read the friction coefficient that's wrong. Learned simulators break that assumption and add a failure with no pre-2020 analogue: using the same learned model to **train** a system and to **judge** it.
+
+> "If the model understates the risk of skidding in rain, a vehicle trained in that model may learn to drive too fast and still score well when the same flawed model is used to test it. The score would reflect an error in the model, not readiness for a real road." ([HAI world-model brief](../../sources/hai-world-model-spatial-intelligence-brief.md), pp. 7–8)
+
+This is not hypothetical in this wiki: [Veo](../../entities/veo.md) is a video foundation model specialized as a **policy-evaluation simulator**, and the Dream* line generates training data for policies alongside it. Nobody has published the size of the resulting score inflation. Filed as an open gap in [world-model evaluation](../world-models/world-model-evaluation.md).
+
+The policy consequence the brief draws: **define how much real-world validation a system requires before deployment regardless of its simulation performance**, and keep oversight running after deployment via monitoring and incident reporting, because even strong tests miss rare conditions.
+
 ## Notable claims
 - [MuJoCo Playground](../../entities/mujoco-playground.md) demonstrates **zero-shot** transfer from both state and pixel inputs across quadrupeds, humanoids, hands, and arms ([MuJoCo Playground Paper](../../sources/mujoco-playground-paper.md)).
 - Tesla Optimus combines sim-to-real with imitation from human teleoperated/wearable-camera video.
@@ -40,6 +50,7 @@ The 89.4% vs. 12.4% contrast is the canonical sim-to-real gap for household mani
 ## Related
 - [VLA models](vla-models.md) — the typical policy class undergoing sim-to-real.
 - [World-model simulators](../world-models/world-model-simulators.md) — sidesteps sim-to-real partially by training inside a learned model of reality.
+- [World-model evaluation](../world-models/world-model-evaluation.md) — the two failure modes (plausibility trap vs. reality gap) and the compound of both.
 
 ## Mentioned in
 - [Kober, Bagnell & Peters 2013 — RL in Robotics Survey](../../sources/kober-rl-robotics-survey-2013.md) — simulation bias, noise injection, self-stabilizing transfer.
@@ -48,6 +59,7 @@ The 89.4% vs. 12.4% contrast is the canonical sim-to-real gap for household mani
 - [RoboCasa365 Paper](../../sources/robocasa365-paper.md)
 - [V-JEPA 2 Paper](../../sources/v-jepa-2-paper.md)
 - [Stanford HAI — AI Index Report 2026](../../sources/stanford-hai-ai-index-2026.md) — the 12.4% [BEHAVIOR-1K](../../entities/behavior-benchmark.md) challenge figure.
+- [HAI Issue Brief — The World Model and Spatial Intelligence Era](../../sources/hai-world-model-spatial-intelligence-brief.md) — the learned-simulator "teaching to a flawed test" failure mode.
 - [BEHAVIOR-1K Paper](../../sources/behavior-1k-paper.md) — the hard, long-horizon end of the gap; end-to-end RL 0.0, real-robot 0–22% ([OmniGibson](../../entities/omnigibson.md) sim).
 - [CaP-X paper](../../sources/cap-x-paper.md) — a structurally different transfer story: what crosses the gap is the **code-as-action-space** (perception/control tools fixed across sim and real), not a visuomotor mapping. A 7B coding model RL-trained in sim only reaches 84%/76% on a real [Franka](../../entities/franka-panda.md).
 - [ASPIRE paper](../../sources/aspire-paper.md) — transfers **debugging knowledge** across embodiments: sim-discovered skills as in-context guidance cut real-robot token cost ~4× and take drawer opening from 0/20 to 11/20.
