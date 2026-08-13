@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-08-08
 updated: 2026-08-08
-sources: 3
+sources: 4
 tags: [benchmark, world-model, evaluation, ewmscore, robotwin, visuotactile, tsinghua]
 ---
 

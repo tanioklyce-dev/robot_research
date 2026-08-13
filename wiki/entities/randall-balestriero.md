@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-07-26
 updated: 2026-07-26
-sources: 7
+sources: 6
 tags: [person, balestriero, brown, lejepa, sigreg, jepa, ssl, theory, world-model, inverse-dynamics, causality, spectral-graph-theory, time-series]
 ---
 

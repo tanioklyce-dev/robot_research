@@ -3,7 +3,7 @@ title: World-action model (WAM)
 type: concept
 created: 2026-06-02
 updated: 2026-07-08
-sources: 3
+sources: 7
 tags: [world-action-model, wam, world-model, vla, forward-dynamics, inverse-dynamics, policy, cosmos, dreamzero]
 ---
 

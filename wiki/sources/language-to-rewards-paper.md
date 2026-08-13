@@ -40,6 +40,7 @@ Simulated quadruped and dexterous manipulator. Protocol: **10 responses generate
 > [VoxPoser](voxposer-paper.md) (CoRL 2023), Language to Rewards (CoRL 2023), and [CaP-X](cap-x-paper.md) (ICML 2026) all conclude that Code as Policies is **bounded by its primitive set**. The first two routed *around* the ceiling by changing the output representation; CaP-X was the first to *measure* it as a controlled variable. The 2026 "discovery" was established by CaP's immediate successors in 2023 — see [code as policy](../concepts/agents/code-as-policy.md).
 
 ## Entities mentioned
+- **[Language to Rewards](../entities/language-to-rewards.md)** — the subject of this source.
 - [Google DeepMind](../entities/google-deepmind.md) · [MuJoCo](../entities/mujoco.md) (MJPC as the real-time optimizer)
 - [Brian Ichter](../entities/brian-ichter.md) · [Andy Zeng](../entities/andy-zeng.md) · [Fei Xia](../entities/fei-xia.md)
 

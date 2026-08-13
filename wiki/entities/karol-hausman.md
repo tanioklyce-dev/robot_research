@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-03
 updated: 2026-08-03
-sources: 3
+sources: 4
 tags: [person, google, physical-intelligence, code-as-policy, vla]
 ---
 

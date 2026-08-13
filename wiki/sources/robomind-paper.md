@@ -73,7 +73,7 @@ RoboMIND is the only entry in its own comparison table carrying all three of dex
 ## Entities mentioned
 
 - [RoboMIND](../entities/robomind.md) · [Tien Kung](../entities/tien-kung.md) · [Franka Panda](../entities/franka-panda.md) · [AgileX Piper](../entities/agilex-piper.md) (Cobot Magic family) · [Isaac Sim](../entities/nvidia-isaac-sim.md)
-- [ACT](../entities/act.md) · [Diffusion Policy](../entities/diffusion-policy.md) · [OpenVLA](../entities/openvla.md) · RDT-1B, CrossFormer, BAKU (no pages)
+- [ACT](../entities/act.md) · [Diffusion Policy](../entities/diffusion-policy.md) · [OpenVLA](../entities/openvla.md) · [RDT-1B](../entities/rdt.md), CrossFormer, BAKU (no pages)
 - [DROID](../entities/droid.md) · [Open X-Embodiment](../entities/open-x-embodiment.md) — the datasets it positions against
 - [X-VLA](../entities/x-vla.md) — the wiki's principal downstream consumer
 

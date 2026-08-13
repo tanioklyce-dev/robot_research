@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-05-10
 updated: 2026-08-13
-sources: 34
+sources: 40
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026, xvla, sourccey, plugin-system]
 ---
 

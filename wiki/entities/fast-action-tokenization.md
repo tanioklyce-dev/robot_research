@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-07-17
 updated: 2026-07-25
-sources: 5
+sources: 10
 tags: [fast, action-tokenization, dct, bpe, vla, discrete-tokens, autoregressive, physical-intelligence, pi-zero, molmoact2, open-data]
 ---
 

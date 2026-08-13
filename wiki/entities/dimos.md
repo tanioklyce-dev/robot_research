@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-08-13
 updated: 2026-08-13
-sources: 2
+sources: 3
 tags: [dimos, dimensional, agentic-robotics, llm-agent, mcp, langgraph, middleware, ros2-alternative, lcm, zenoh, unitree, teleoperation, lerobot, spatial-memory, apache-2-0, open-source]
 ---
 
@@ -65,7 +65,7 @@ Default LLM: **`gpt-5.6-luna`** (cloud, `OPENAI_API_KEY`). Local path via [Ollam
 | **Navigation** | "Column-carving" voxel map (each LiDAR frame replaces its region of the global map); live mapping vs **premap + GTSAM pose-graph optimization + relocalization**; frontier exploration, A* replanning, visual servoing, patrolling |
 | **Spatial memory** | `dimos/memory2` — SQLite spatio-temporal stream store with embeddings; streams are queryable and composable (`.transform(speed())`, `smooth(50)`, downsample, throttle) and renderable to SVG over a global map. Marketed as "spatio-temporal RAG" |
 | **Perception** | Detectors (Ultralytics), 3D projections, audio; VLM backends **[Florence-2](florence-2.md)**, Moondream (local + hosted), Qwen, OpenAI |
-| **Manipulation** | **Drake** planning; xArm and [AgileX Piper](agilex-piper.md) SDKs; Quest VR teleop; dual-arm coordinator |
+| **Manipulation** | **[Drake](drake.md)** planning; xArm and [AgileX Piper](agilex-piper.md) SDKs; Quest VR teleop; dual-arm coordinator |
 | **Teleoperation** | **dimTELE** — hosted WebRTC teleop from browser or Quest; **robot dials out to a broker**, so no inbound ports (works behind home NAT, Wi-Fi, LAN, cellular) |
 | **Simulation** | [MuJoCo](mujoco.md) (`dimos[sim]`) for Go2 and G1 |
 | **Replay** | `dimos --replay run unitree-go2` runs the full SLAM/costmap/A* stack on recorded sessions with no hardware |

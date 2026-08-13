@@ -3,7 +3,7 @@ title: Code as policy
 type: concept
 created: 2026-08-03
 updated: 2026-08-03
-sources: 10
+sources: 13
 tags: [code-as-policy, llm-agent, agentic-robotics, program-synthesis, skill-library, voyager, saycan, voxposer, inner-monologue, codeact, tool-use, waddle, cap-x, aspire, benchmark]
 ---
 

@@ -3,7 +3,7 @@ title: Per-layer KV conditioning
 type: concept
 created: 2026-07-25
 updated: 2026-07-25
-sources: 1
+sources: 4
 tags: [per-layer-kv-conditioning, vla, action-expert, flow-matching, cross-attention, vlm-interface, molmoact2, architecture]
 ---
 

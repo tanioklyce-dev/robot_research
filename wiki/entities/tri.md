@@ -3,12 +3,16 @@ title: Toyota Research Institute (TRI)
 type: entity
 subtype: company
 created: 2026-05-10
-updated: 2026-07-15
-sources: 5
+updated: 2026-08-13
+sources: 7
 tags: [tri, toyota-research-institute, robotics-research, automated-driving, lbm, drake, organization, walden-robotics, spinout]
 ---
 
 **Toyota Research Institute (TRI)** — research subsidiary of Toyota Motor Corporation. Headquarters: Los Altos, CA. Second site: Cambridge, MA. Mission: *"create new tools and capabilities focused on improving the human condition."* Houses one of the strongest US industrial-academic robotics research hybrids; recurring co-authorship with Stanford / Columbia / MIT across the [Diffusion Policy](diffusion-policy.md) and [UMI](umi.md) papers, and home of the **TRI LBM (Large Behavior Model)** referenced as a baseline in [RoboCasa365](robocasa.md).
+
+## Drake
+
+TRI **leads core development of [Drake](drake.md)** — the BSD-3 C++/Python model-based design and verification toolbox started at MIT CSAIL ([docs](../sources/drake-documentation.md)), still pushed daily after twelve years. That TRI funds Drake *while* shipping [Large Behavior Models](../concepts/learning/large-behavior-models.md) is the clearest institutional evidence in this wiki that the model-based and learned-policy programs are treated as complementary rather than successive.
 
 ## Research areas (homepage)
 

@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-03
 updated: 2026-08-03
-sources: 3
+sources: 2
 tags: [cliport, imitation-learning, manipulation, baseline, transporter-nets, generalization]
 ---
 

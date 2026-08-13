@@ -3,7 +3,7 @@ title: World-model functional taxonomy (renderer / simulator / planner)
 type: concept
 created: 2026-08-07
 updated: 2026-08-07
-sources: 1
+sources: 2
 tags: [world-model, taxonomy, spatial-intelligence, policy, renderer, simulator, planner]
 ---
 

@@ -118,6 +118,7 @@ The conclusion is unusually candid: TurboVLA "is designed primarily for concrete
 
 ## Entities mentioned
 
+- [RDT](../entities/rdt.md)
 - [TurboVLA](../entities/turbovla.md) · [HUST](../entities/hust.md) · [Huawei](../entities/huawei.md) · [Xiang Bai](../entities/xiang-bai.md) · [Dingkang Liang](../entities/dingkang-liang.md)
 - [DINOv3](../entities/dinov3.md) · [Grounding DINO](../entities/grounding-dino.md) · [ACT](../entities/act.md)
 - [LIBERO](../entities/libero.md) · [RoboTwin 2.0](../entities/robotwin.md) · [AgileX Piper](../entities/agilex-piper.md)

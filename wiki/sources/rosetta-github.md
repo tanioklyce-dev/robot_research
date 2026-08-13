@@ -111,6 +111,7 @@ This is the operational complement to the upcoming `rosetta_rl` package and alig
 
 ## Entities mentioned
 
+- **[Rosetta](../entities/rosetta.md)** — the subject of this source.
 - [LeRobot](../entities/lerobot.md) — the upstream framework Rosetta bridges to ROS 2.
 - [SO-ARM101](../entities/so-arm101.md) — reference contract.
 - [Turtlebot](../entities/turtlebot.md) (TurtleBot3 Waffle specifically) — reference contract.

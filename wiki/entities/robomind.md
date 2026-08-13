@@ -48,7 +48,7 @@ RoboMIND and [X-VLA](x-vla.md) attack the same disease from opposite ends: **nor
 
 ## Baselines
 
-Single-task IL trained from scratch and deployed to real hardware: **[ACT](act.md) averages 55.3% on AgileX**, vs UR5e 38.0%, Tien Kung 34.0%, Franka 30.7%. [Diffusion Policy](diffusion-policy.md) beats ACT on several Franka and Tien Kung tasks. BAKU underperforms broadly (hyperparameters tuned for sim). VLA finetuning: **RDT-1B strongest**, especially dual-arm; [OpenVLA](openvla.md) Franka-only.
+Single-task IL trained from scratch and deployed to real hardware: **[ACT](act.md) averages 55.3% on AgileX**, vs UR5e 38.0%, Tien Kung 34.0%, Franka 30.7%. [Diffusion Policy](diffusion-policy.md) beats ACT on several Franka and Tien Kung tasks. BAKU underperforms broadly (hyperparameters tuned for sim). VLA finetuning: **[RDT-1B](rdt.md) strongest**, especially dual-arm; [OpenVLA](openvla.md) Franka-only.
 
 > [!warning] Every number above is n = 10
 > Ten trials per task, for every model, throughout the paper. Against the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md)'s bar (~1,030 rollouts at a 90% base rate, ~2,450 at 50%), **n=10 separates nothing**. These are existence proofs that the data trains policies — which is what a dataset paper needs — not a ranking of ACT vs DP vs BAKU or of one embodiment against another.

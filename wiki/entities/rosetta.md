@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-05-28
 updated: 2026-08-13
-sources: 8
+sources: 9
 tags: [rosetta, lerobot, ros2, bridge, yaml-contract, mcap, async-inference, grpc, iblnkn, apache-2-0, downstream]
 ---
 

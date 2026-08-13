@@ -68,6 +68,7 @@ The two feedback types are **complementary, not redundant**: each alone gets ~40
 The paper reports capabilities it did not train for: continued adaptation to new instructions mid-task (a human changes their mind twice and the robot re-plans and resumes), multilingual instruction, and proposing new goals after human interaction.
 
 ## Entities mentioned
+- **[Inner Monologue](../entities/inner-monologue.md)** — the subject of this source.
 - [Google DeepMind](../entities/google-deepmind.md) (Robotics at Google) · [Everyday Robots](../entities/everyday-robots.md) · [CLIPort](../entities/cliport.md)
 - [Wenlong Huang](../entities/wenlong-huang.md) · [Fei Xia](../entities/fei-xia.md) · [Andy Zeng](../entities/andy-zeng.md) · [Karol Hausman](../entities/karol-hausman.md) · [Brian Ichter](../entities/brian-ichter.md) · [Sergey Levine](../entities/sergey-levine.md)
 

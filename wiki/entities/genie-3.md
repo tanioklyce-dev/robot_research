@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-07-13
 updated: 2026-08-08
-sources: 3
+sources: 5
 tags: [world-model, generative-video, google-deepmind, foundation-model, interactive-environments]
 ---
 

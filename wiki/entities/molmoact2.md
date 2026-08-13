@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-07-25
 updated: 2026-08-03
-sources: 3
+sources: 6
 tags: [molmoact2, molmoact, vla, vision-language-action, flow-matching, per-layer-kv-conditioning, adaptive-depth, fast-tokenizer, hybrid-action-head, allen-institute, molmo, real-world-deployment, open-source, open-data]
 ---
 

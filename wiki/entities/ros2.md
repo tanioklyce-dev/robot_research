@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-05-28
 updated: 2026-08-13
-sources: 12
+sources: 15
 tags: [ros2, ros, middleware, dds, ament, colcon, humble, jazzy, kilted, lyrical, robotics, open-source]
 ---
 
@@ -56,6 +56,13 @@ A reader asking "can I run a LeRobot-trained policy on my Humble robot?" must ch
 - **rosbag2**: data recording (MCAP is the default modern container format).
 - **Ament + colcon**: build tooling.
 - **rmw_dds_common**: DDS abstraction layer.
+
+## Middleware pluralism — the stack has come apart
+
+Two 2026 data points say the picture is no longer "ROS 2 vs an alternative" but a stack separating into interchangeable layers:
+
+- **[Zenoh](zenoh.md)** is simultaneously a **ROS 2 backend** (`ros2/rmw_zenoh`, 495★) *and* **a way to not use ROS 2** ([DimOS](dimos.md) offers it as its reliable transport). Discovery, transport, and API are now separable choices.
+- **[Drake](drake.md)** — the MIT/TRI model-based toolbox — ships **LCM as a first-class integration and marks ROS 2 "unsupported."** Not an oversight: LCM comes from the same MIT DARPA-Robotics-Challenge lineage, and DimOS independently defaults to LCM too.
 
 ## Challengers
 

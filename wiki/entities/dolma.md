@@ -4,7 +4,7 @@ type: entity
 subtype: dataset
 created: 2026-07-24
 updated: 2026-07-24
-sources: 3
+sources: 4
 tags: [dolma, pretraining-corpus, dataset, open-data, ai2, data-curation]
 ---
 

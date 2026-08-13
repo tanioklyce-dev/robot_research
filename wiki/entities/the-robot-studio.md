@@ -4,7 +4,7 @@ type: entity
 subtype: organization
 created: 2026-05-10
 updated: 2026-05-28
-sources: 2
+sources: 3
 tags: [the-robot-studio, so-arm, so-arm100, so-arm101, hope-jr-arm, open-hardware, low-cost-arm, lerobot]
 ---
 

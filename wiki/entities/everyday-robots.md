@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-08-03
 updated: 2026-08-03
-sources: 3
+sources: 5
 tags: [everyday-robots, mobile-manipulator, google, alphabet, hardware]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-04
 updated: 2026-08-04
-sources: 1
+sources: 3
 tags: [ted-xiao, researcher, google-deepmind, vla, robotics]
 ---
 

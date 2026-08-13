@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-08-04
 updated: 2026-08-13
-sources: 3
+sources: 6
 tags: [agilex, piper, robot-arm, manipulator, affordable-hardware, realsense, teleoperation, cloth-folding, xvla]
 ---
 

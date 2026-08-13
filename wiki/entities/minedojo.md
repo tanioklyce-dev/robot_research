@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-08-03
 updated: 2026-08-03
-sources: 2
+sources: 1
 tags: [minedojo, minecraft, open-ended, benchmark, nvidia-gear]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-07-04
 updated: 2026-08-03
-sources: 6
+sources: 7
 tags: [behavior, behavior-1k, benchmark, household, simulation, omnigibson, bddl, stanford, sim-to-real]
 ---
 

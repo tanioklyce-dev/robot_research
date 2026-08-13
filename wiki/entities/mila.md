@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-07
 updated: 2026-07-04
-sources: 4
+sources: 6
 tags: [mila, montreal, ai-research, jepa, lecun]
 ---
 

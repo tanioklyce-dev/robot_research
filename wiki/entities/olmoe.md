@@ -4,7 +4,7 @@ type: entity
 subtype: llm
 created: 2026-07-24
 updated: 2026-07-24
-sources: 3
+sources: 4
 tags: [olmoe, mixture-of-experts, open-source-llm, language-model, ai2, sparse-moe]
 ---
 

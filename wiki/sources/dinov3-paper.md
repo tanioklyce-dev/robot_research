@@ -129,6 +129,7 @@ A separate experiment trains DINOv3 from scratch on **satellite imagery** (the V
 
 ## Entities mentioned
 
+- **[DINOv3](../entities/dinov3.md)** — the subject of this source.
 - **[Meta FAIR](../entities/meta-fair.md)** — primary institutional affiliation; all corresponding authors. (The paper uses "Meta AI Research" rather than "FAIR" — the rebranding is recent but the lab is the same.)
 - **Federico Baldassarre** — co-corresponding author; also senior author on [DINO-world](dino-world-paper.md). Same person bridges the DINO-foundation and DINO-world-model lines.
 - WRI (World Resources Institute) and Inria — affiliations for two co-authors (Tolan / Mairal).

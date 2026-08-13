@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-05-10
 updated: 2026-07-08
-sources: 3
+sources: 4
 tags: [umi, universal-manipulation-interface, hand-held-gripper, in-the-wild-data-collection, diffusion-policy-followon, chi-2024, stanford, columbia, tri]
 ---
 

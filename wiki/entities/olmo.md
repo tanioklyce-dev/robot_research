@@ -4,7 +4,7 @@ type: entity
 subtype: llm
 created: 2026-07-24
 updated: 2026-07-24
-sources: 5
+sources: 6
 tags: [olmo, open-source-llm, language-model, ai2, dolma, reproducibility, open-data, apache-2]
 ---
 

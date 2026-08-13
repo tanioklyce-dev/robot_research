@@ -3,7 +3,7 @@ title: Assistive Robotics
 type: concept
 created: 2026-05-09
 updated: 2026-07-13
-sources: 26
+sources: 27
 tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot, accessibility]
 ---
 

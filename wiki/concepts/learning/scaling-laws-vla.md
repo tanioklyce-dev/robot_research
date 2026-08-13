@@ -3,7 +3,7 @@ title: Scaling laws — VLAs and human data
 type: concept
 created: 2026-05-15
 updated: 2026-08-13
-sources: 11
+sources: 13
 tags: [scaling-laws, vla, human-data, egocentric, gr00t, egoscale, pretraining, xvla, cross-embodiment]
 ---
 

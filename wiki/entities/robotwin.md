@@ -76,7 +76,7 @@ The mechanism, in the authors' words: *"a low-DoF platform like the Piper often 
 
 Protocol: **50 clean expert demos per task for training, 100 rollouts per task per condition, all 50 tasks, Aloha-AgileX**, VLAs finetuned from released weights, single-task setting → **n = 5,000 per model per condition**.
 
-| | RDT | π0 | [ACT](act.md) | [DP](diffusion-policy.md) | DP3 |
+| | [RDT](rdt.md) | π0 | [ACT](act.md) | [DP](diffusion-policy.md) | DP3 |
 |---|---:|---:|---:|---:|---:|
 | Easy | 34.5 | **46.4** | 29.7 | 28.0 | **55.2** |
 | Hard | 13.7 | **16.3** | 1.7 | 0.6 | 5.0 |

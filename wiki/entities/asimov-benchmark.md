@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-08-03
 updated: 2026-08-03
-sources: 6
+sources: 5
 tags: [asimov, semantic-safety, benchmark, google-deepmind, constitutional-ai, neiss, safety]
 ---
 

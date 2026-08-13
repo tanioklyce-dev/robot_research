@@ -59,6 +59,7 @@ Removing affordance grounding costs 17 points of planning. Removing language gro
 The paper's forward-looking claim: "a robot's performance can be improved simply by enhancing the underlying language model." This is the first appearance in the wiki's lineage of the argument that robot capability rides LLM progress for free — the same bet [Waddle](waddle-labs-introducing-waddle.md) makes in 2026.
 
 ## Entities mentioned
+- **[SayCan](../entities/saycan.md)** — the subject of this source.
 - [Everyday Robots](../entities/everyday-robots.md) · [Google DeepMind](../entities/google-deepmind.md) (Robotics at Google)
 - [Chelsea Finn](../entities/chelsea-finn.md) · [Sergey Levine](../entities/sergey-levine.md) · [Brian Ichter](../entities/brian-ichter.md) · [Karol Hausman](../entities/karol-hausman.md) · [Fei Xia](../entities/fei-xia.md) · [Andy Zeng](../entities/andy-zeng.md)
 

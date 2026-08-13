@@ -4,7 +4,7 @@ type: entity
 subtype: organization
 created: 2026-05-09
 updated: 2026-07-26
-sources: 7
+sources: 6
 tags: [ami-labs, lecun, jepa, world-model, startup]
 ---
 

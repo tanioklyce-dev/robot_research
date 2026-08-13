@@ -142,6 +142,7 @@ The transfer experiment (Fig. 9) follows: adapting to WidowX (unseen), a **froze
 
 ## Entities mentioned
 
+- [RDT](../entities/rdt.md)
 - [X-VLA](../entities/x-vla.md) · [Florence-2](../entities/florence-2.md) · [π0](../entities/pi-zero.md) · [GR00T N1](../entities/nvidia-groot.md) · [SmolVLA](../entities/smolvla.md) · [OpenVLA](../entities/openvla.md) / [OpenVLA-OFT](../entities/openvla-oft.md) · [ACT](../entities/act.md)
 - [LIBERO](../entities/libero.md) · [SimplerEnv](../entities/simplerenv.md) · [RoboTwin 2.0](../entities/robotwin.md)
 - [AgiBot](../entities/agibot.md) · [DROID](../entities/droid.md) · [Franka Panda](../entities/franka-panda.md) · [AgileX PiPER](../entities/agilex-piper.md)

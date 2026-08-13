@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-13
 updated: 2026-08-13
-sources: 4
+sources: 5
 tags: [xvla, vla, soft-prompt, cross-embodiment, flow-matching, florence-2, lerobot, air-tsinghua, shanghai-ai-lab, cloth-folding]
 ---
 
@@ -40,7 +40,7 @@ Deliberately *not* used: DiT/AdaLN, cross-attention, mixture-of-experts, autoreg
 | [Simpler](simplerenv.md)-WidowX | **95.8** | 71.9 (MemoryVLA 7B) |
 | Simpler VM / VA (Google Robot) | **80.4 / 75.7** | 78.0 / 72.7 |
 | [LIBERO](libero.md) avg | **98.1** | 97.1 ([OpenVLA-OFT](openvla-oft.md) 7B) |
-| [RoboTwin-2.0](robotwin.md) easy / hard | **70.0 / 39.0** | 46.4 / 16.4 ([π0](pi-zero.md) 3B) |
+| [RoboTwin-2.0](robotwin.md) easy / hard | **70.0 / 39.0** | 46.4 / 16.4 ([π0](pi-zero.md) 3B; [RDT](rdt.md) 34.5/13.7) |
 | VLABench PS | **51.1** | 39.7 ([GR00T-N1](nvidia-groot.md) 3B) |
 | NAVSIM PDMS | **87.3** | 81.7 (UniVLA 9B) |
 | CALVIN ABC→D | 4.43 | **4.53** (FLOWER 1B) |

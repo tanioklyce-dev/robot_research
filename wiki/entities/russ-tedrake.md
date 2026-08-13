@@ -3,14 +3,18 @@ title: Russ Tedrake
 type: entity
 subtype: person
 created: 2026-07-08
-updated: 2026-07-15
-sources: 6
+updated: 2026-08-13
+sources: 7
 tags: [russ-tedrake, mit, csail, tri, lbm, drake, underactuated-robotics, locomotion, manipulation, physical-ai, walden-robotics]
 ---
 
 # Russ Tedrake
 
 MIT roboticist and industry research leader — **Toyota Professor at MIT** (EECS / Mechanical Engineering / Aero-Astro, CSAIL) and the architect of [TRI](tri.md)'s **[Large Behavior Models](../concepts/learning/large-behavior-models.md)** program (title reported as Senior VP of Large Behavior Models, earlier VP of Robotics Research). As of **2026-07-15**, **co-founder & CEO of [Walden Robotics](walden-robotics.md)** — the physical-AI startup previously tracked here as "still-stealth" ([Automated Podcast, 2026-07-01](../sources/automated-podcast-tedrake-rocket-ship.md)), revealed as a manufacturing-robotics company spun out of TRI. One of the field's rare model-based-control ↔ learning bridges: the same person behind the optimization/dynamics stack (Drake, underactuated robotics) and one of the leading generalist-manipulation-policy programs.
+
+## Drake
+
+Named author of **[Drake](drake.md)**'s canonical citation (*"Russ Tedrake and the Drake Development Team, 2019"*) — the concrete artifact on the model-based side of the bridge this page describes. Drake's philosophy (**expose sparsity, analytical gradients, polynomial structure so you can optimize and verify**) is close to the inverse of an end-to-end behavior-cloned policy, and he leads both. See [Drake documentation](../sources/drake-documentation.md).
 
 ## Career
 

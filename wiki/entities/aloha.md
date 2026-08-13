@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-25
 updated: 2026-08-03
-sources: 12
+sources: 14
 tags: [aloha, mobile-aloha, bimanual, mobile-manipulation, teleoperation, viperx-300, stanford, low-cost, open-source, act-plus-plus]
 ---
 

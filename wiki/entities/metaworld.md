@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-05-07
 updated: 2026-05-28
-sources: 7
+sources: 8
 tags: [metaworld, meta-rl, multi-task-rl, benchmark, mujoco, sawyer, stanford, berkeley]
 ---
 

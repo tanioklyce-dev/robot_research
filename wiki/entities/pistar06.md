@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-25
 updated: 2026-05-25
-sources: 4
+sources: 6
 tags: [pi-star-zero-6, pistar06, recap, pi-zero-6, pi-zero, vla, flow-matching, advantage-conditioning, offline-rl, distributional-value-function, classifier-free-guidance, dagger, real-world-rl, physical-intelligence]
 ---
 

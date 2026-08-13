@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-07
 updated: 2026-07-26
-sources: 28
+sources: 32
 tags: [leworldmodel, lewm, jepa, world-model, mila, end-to-end, sigreg, instruction-leakage]
 ---
 

@@ -62,6 +62,7 @@ Inventory cleared, new world, unseen tasks (max 50 iterations, 3 attempts):
 > Handing Voyager's library to **AutoGPT** lifts it from 0/3 on every task to solving three of four at least once. This is the 2023 precursor of the cross-agent and cross-embodiment transfer claims made by [ASPIRE](aspire-paper.md) (sim→real, Claude-authored→GPT-consumed) and asserted without evidence by [Waddle](waddle-labs-introducing-waddle.md). A skill library is portable capability, not just cached work for its author.
 
 ## Entities mentioned
+- **[Voyager](../entities/voyager.md)** — the subject of this source.
 - [NVIDIA GEAR](../entities/nvidia-gear.md) — Voyager is a GEAR paper, listed under its open-ended-agents pillar
 - [Guanzhi Wang](../entities/guanzhi-wang.md) (first author; also on [CaP-X](cap-x-paper.md) **and** [ASPIRE](aspire-paper.md)) · [Jim Fan](../entities/jim-fan.md) · [Yuke Zhu](../entities/yuke-zhu.md) · Ajay Mandlekar (also on ASPIRE)
 - [MineDojo](../entities/minedojo.md) — the environment substrate

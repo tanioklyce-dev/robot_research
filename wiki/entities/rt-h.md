@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-04
 updated: 2026-08-04
-sources: 1
+sources: 2
 tags: [rt-h, action-hierarchy, language-motions, action-representation, corrections, interactive-imitation-learning, rt-2, pali-x, google-deepmind, stanford]
 ---
 

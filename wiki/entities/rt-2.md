@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-04
 updated: 2026-08-04
-sources: 2
+sources: 4
 tags: [rt-2, vla, action-tokens, pali-x, palm-e, co-fine-tuning, emergent-capabilities, chain-of-thought, google-deepmind, web-knowledge-transfer]
 ---
 

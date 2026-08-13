@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-05-08
 updated: 2026-08-13
-sources: 20
+sources: 26
 tags: [libero, manipulation-benchmark, lifelong-learning, robosuite, mujoco, code-as-policy]
 ---
 
@@ -68,7 +68,7 @@ Primary reference is [VLA-JEPA](../sources/vla-jepa-paper.md) (Sun et al., Feb 2
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **natively integrated** as one of two simulation benchmarks (alongside [Metaworld](metaworld.md)). Confirms the four task families: SPATIAL, OBJECT, GOAL, plus continuing-task LIBERO-90 and long-horizon LIBERO-LONG.
 - [NVIDIA Isaac Teleop and GR00T 1.7 in LeRobot (HF blog)](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) — GR00T 1.7 vs 1.5 LIBERO table; describes LIBERO as "130 language-annotated tabletop manipulation tasks."
 - [VLA-0 paper](../sources/vla-0-paper.md) — primary simulation benchmark; the wiki's most complete cross-method LIBERO comparison (11 models, with/without action pretraining).
-- [MolmoAct2 paper (Fang, Duan et al. 2026)](../sources/molmoact2-paper.md) — MolmoAct2 97.2 / MolmoAct2-Think 98.1, the wiki's highest LIBERO averages.
+- [MolmoAct2 paper (Fang, Duan et al. 2026)](../sources/molmoact2-paper.md) — MolmoAct2 97.2 / MolmoAct2-Think 98.1, **tied with [X-VLA](x-vla.md) 98.1 at the numerical top and [statistically inseparable](../syntheses/platforms/vla-success-rate-audit.md) from the other eight models in the cluster.**
 - [Knowledge Insulation paper](../sources/knowledge-insulation-paper.md) — LIBERO-90 + LIBERO-Spatial SOTA claim; π0.5-KI vs π0 / π0-FAST / OpenVLA-OFT (Table 1).
 - [OpenVLA-OFT paper](../sources/openvla-oft-paper.md) — the 97.1% SOTA + 26× throughput result; the primary source for OFT's LIBERO numbers.
 - [X-VLA paper](../sources/xvla-paper.md) — 98.1 avg at 0.9 B; 97.6 on Long, the one suite where the tie breaks.

@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-07
 updated: 2026-07-26
-sources: 29
+sources: 34
 tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs, logical-intelligence, ebm, diffusion-policy, object-centric, spectral-graph-theory]
 ---
 

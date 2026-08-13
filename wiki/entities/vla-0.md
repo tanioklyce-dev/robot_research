@@ -4,7 +4,7 @@ type: entity
 subtype: vla-model
 created: 2026-07-17
 updated: 2026-07-17
-sources: 1
+sources: 2
 tags: [vla, vision-language-action, action-as-text, nvidia, qwen, libero, so-100]
 ---
 

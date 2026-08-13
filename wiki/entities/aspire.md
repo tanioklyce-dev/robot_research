@@ -4,7 +4,7 @@ type: entity
 subtype: system
 created: 2026-08-03
 updated: 2026-08-03
-sources: 1
+sources: 3
 tags: [aspire, code-as-policy, skill-library, continual-learning, nvidia-gear, voyager, evolutionary-search, cross-embodiment, claude-opus]
 ---
 

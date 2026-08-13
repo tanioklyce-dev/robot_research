@@ -5,6 +5,7 @@ url: https://arxiv.org/abs/2506.18123
 author: Pranav Atreya, Karl Pertsch, Tony Lee, Moo Jin Kim, Arhan Jain, Artur Kuramshin, Clemens Eppner, Cyrus Neary, Edward Hu, Fabio Ramos, Jonathan Tremblay, Kanav Arora, Kirsty Ellis, Luca Macesanu, Marcel Torne Villasevil, Matthew Leonard, Meedeum Cho, Ozgur Aslan, Shivin Dass, Jie Wang, William Reger, Xingfang Yuan, Xuning Yang, Abhishek Gupta, Dinesh Jayaraman, Glen Berseth, Kostas Daniilidis, Roberto Martin-Martin, Youngwoon Lee, Percy Liang, Chelsea Finn, Sergey Levine
 affiliations: 7 academic institutions + NVIDIA (32 authors)
 published: 2025-06-22 (v1); 2025-11-29 (v2)
+ingested: 2026-07-27
 venue: CoRL 2025 (PMLR v305)
 license: CC BY 4.0
 project: https://robo-arena.github.io/

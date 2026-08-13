@@ -59,3 +59,8 @@ The pattern: TRI is consistently the *industrial arm* of academic robotics-found
 - [Diffusion Policy Paper](diffusion-policy-paper.md) — TRI co-authors.
 - [UMI Project Page](umi-paper.md) — TRI co-authors.
 - [RoboCasa365 Paper](robocasa365-paper.md) — TRI LBM as baseline.
+
+## Entities mentioned
+
+- **[TRI](../entities/tri.md)** — the subject of this source.
+

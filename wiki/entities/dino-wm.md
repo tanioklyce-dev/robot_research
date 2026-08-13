@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-07
 updated: 2026-07-26
-sources: 22
+sources: 28
 tags: [dino-wm, dinov2, world-model, jepa-adjacent, lecun, pinto, nyu, meta-fair]
 ---
 

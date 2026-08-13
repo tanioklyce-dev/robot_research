@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-06
 updated: 2026-07-04
-sources: 11
+sources: 14
 tags: [robocasa, household-manipulation, benchmark, ut-austin, nvidia, iclr-2026, mimicgen]
 ---
 

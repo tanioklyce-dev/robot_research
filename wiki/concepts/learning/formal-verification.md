@@ -3,7 +3,7 @@ title: Formal verification
 type: concept
 created: 2026-05-17
 updated: 2026-08-03
-sources: 3
+sources: 4
 tags: [formal-verification, lean, theorem-proving, proof-checking, machine-checkable, aleph]
 ---
 

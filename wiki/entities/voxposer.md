@@ -4,7 +4,7 @@ type: entity
 subtype: system
 created: 2026-08-03
 updated: 2026-08-03
-sources: 2
+sources: 1
 tags: [voxposer, code-as-policy, value-maps, motion-planning, stanford, manipulation]
 ---
 

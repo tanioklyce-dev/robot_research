@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-05-10
 updated: 2026-07-26
-sources: 5
+sources: 6
 tags: [pldm, planning-with-latent-dynamics-models, jepa, end-to-end-jepa, sobal, lecun, vicreg, mpc, mppi]
 ---
 

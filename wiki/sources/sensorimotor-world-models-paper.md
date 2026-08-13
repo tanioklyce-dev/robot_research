@@ -34,6 +34,7 @@ tags: [smwm, sensorimotor-world-model, jepa, inverse-dynamics, representation-co
 
 ## Entities mentioned
 
+- **[SMWM](../entities/smwm.md)** — the subject of this source.
 - [Randall Balestriero](../entities/randall-balestriero.md) — co-author (Brown); the LeJEPA/SIGReg counterpart whose regularizer is the main baseline here.
 - [LeWorldModel](../entities/leworldmodel.md) / [DINO-WM](../entities/dino-wm.md) / [PLDM](../entities/pldm.md) / [V-JEPA 2](../entities/v-jepa-2.md) — the anti-collapse approaches SMWM is contrasted against.
 - Authors: Petr Ivashkov (MPI-IS Tübingen), Bernhard Schölkopf (MPI-IS / ELLIS / ETH Zürich) — the causality-side senior author.

@@ -3,7 +3,7 @@ title: Flocking and boids
 type: concept
 created: 2026-05-31
 updated: 2026-05-31
-sources: 6
+sources: 7
 tags: [artificial-life, alife, emergence, flocking, boids, swarm-intelligence, swarm-robotics, ant-colony-optimization, agent-based-model, edge-of-chaos, behavioral-animation, particle-system, actor-model]
 ---
 

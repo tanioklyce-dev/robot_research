@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-08-03
 updated: 2026-08-13
-sources: 4
+sources: 3
 tags: [company, waddle, code-as-policy, llm-agent, agentic-robotics, skill-library, robot-api, startup]
 ---
 

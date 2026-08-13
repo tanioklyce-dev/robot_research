@@ -3,7 +3,7 @@ title: Evolutionary computation
 type: concept
 created: 2026-05-31
 updated: 2026-05-31
-sources: 3
+sources: 4
 tags: [evolutionary-computation, evolutionary-algorithms, genetic-algorithms, artificial-life, optimization, morphology, co-design, soft-robotics]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: organization
 created: 2026-05-09
 updated: 2026-08-03
-sources: 15
+sources: 16
 tags: [physical-intelligence, vla, pi-zero, pi-zero-7, pi-star-zero-6, generalist-policy, robotics, flow-matching, recap]
 ---
 

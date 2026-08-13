@@ -3,7 +3,7 @@ title: LLM-free VLA (the V+L→A paradigm)
 type: concept
 created: 2026-08-04
 updated: 2026-08-04
-sources: 1
+sources: 2
 tags: [vla, llm-free-vla, efficient-inference, cross-attention, grounding, control-abstraction-levels, turbovla, inference-latency]
 ---
 

@@ -3,7 +3,7 @@ title: Real-world robotic reinforcement learning
 type: concept
 created: 2026-07-05
 updated: 2026-07-05
-sources: 7
+sources: 12
 tags: [reinforcement-learning, real-world-rl, manipulation, human-in-the-loop, off-policy-rl, sample-efficiency]
 ---
 

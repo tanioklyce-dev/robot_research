@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-07-16
 updated: 2026-07-27
-sources: 2
+sources: 3
 tags: [nvidia, srl, benchmark, evaluation, simulation, task-generalist, robot-policy, droid, physical-ai]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: hardware-component
 created: 2026-05-28
 updated: 2026-08-13
-sources: 6
+sources: 5
 tags: [feetech, bus-servo, motor-sdk, lerobot-supported-sdk, sts3215, sts3250, so-arm, low-cost, hello-robot, sourccey]
 ---
 

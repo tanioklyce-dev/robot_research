@@ -4,6 +4,7 @@ type: source
 url: https://arxiv.org/abs/2510.03827
 author: Xueyang Zhou, Yangming Xu, Guiyao Tie, Yongchao Chen, Guowen Zhang, Duanfeng Chu, Pan Zhou, Lichao Sun
 published: 2025-10-04 (v1); 2026-05-25 (v2)
+ingested: 2026-07-27
 license: CC BY 4.0
 tags: [libero, libero-pro, evaluation, benchmark, memorization, generalization, vla, openvla, pi-zero, methodology, critique]
 ---

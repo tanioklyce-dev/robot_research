@@ -30,6 +30,7 @@ Three integrated components:
 Systems-level integration emphasis: no novel algorithms, careful composition of existing modules.
 
 ## Entities mentioned
+- **[OK-Robot](../entities/ok-robot.md)** — the subject of this source.
 - [Stretch](../entities/stretch.md) — implied hardware platform (NYU-Stretch line)
 - [Mahi Shafiullah](../entities/mahi-shafiullah.md) — co-author
 - [Lerrel Pinto](../entities/lerrel-pinto.md) — co-author (senior)

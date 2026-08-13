@@ -4,7 +4,7 @@ type: entity
 subtype: system
 created: 2026-08-03
 updated: 2026-08-03
-sources: 3
+sources: 1
 tags: [voyager, skill-library, lifelong-learning, minecraft, gpt-4, nvidia-gear, open-ended]
 ---
 

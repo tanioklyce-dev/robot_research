@@ -102,7 +102,7 @@ Two findings, both worth carrying:
 ## Entities mentioned
 
 - [RoboTwin 2.0](../entities/robotwin.md) · [AgileX Piper](../entities/agilex-piper.md) · [Franka Panda](../entities/franka-panda.md) · [SAPIEN](../entities/sapien.md)
-- [π0](../entities/pi-zero.md) · [ACT](../entities/act.md) · [Diffusion Policy](../entities/diffusion-policy.md) · RDT-1B · DP3 (no pages)
+- [π0](../entities/pi-zero.md) · [ACT](../entities/act.md) · [Diffusion Policy](../entities/diffusion-policy.md) · [RDT](../entities/rdt.md) · DP3 (no pages)
 - [LIBERO](../entities/libero.md), CALVIN, [RoboCasa](../entities/robocasa.md), [Open X-Embodiment](../entities/open-x-embodiment.md), [AgiBot](../entities/agibot.md), [RoboMIND](../entities/robomind.md) — cited as related datasets
 
 ## Concepts touched
