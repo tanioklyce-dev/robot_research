@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-16
 updated: 2026-07-15
-sources: 33
+sources: 34
 tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai, jetpack-7, nvfp4, mig, t3000, t2000, igx]
 ---
 

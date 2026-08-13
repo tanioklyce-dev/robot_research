@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-08-13
 updated: 2026-08-13
-sources: 4
+sources: 5
 tags: [vulcan-robotics, sourccey, startup, open-hardware, household-robot, lerobot, xvla, cern-ohl]
 ---
 

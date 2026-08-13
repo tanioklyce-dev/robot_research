@@ -143,6 +143,7 @@ Dependency tiers are granular: bare `pip install dimos` is core-only (transport,
 - [Drake](../entities/drake.md)
 - [Zenoh](../entities/zenoh.md)
 - [DimOS](../entities/dimos.md), [Dimensional Inc.](../entities/dimensional-inc.md)
+- [Moondream](../entities/moondream.md) — one of its local VLM backends
 - [ROS 2](../entities/ros2.md) · [LeRobot](../entities/lerobot.md) · [Rosetta](../entities/rosetta.md) · [MuJoCo](../entities/mujoco.md) · [Ollama](../entities/ollama.md) · [OpenClaw](../entities/openclaw.md) · [Florence-2](../entities/florence-2.md)
 - [Unitree Go2](../entities/unitree-go2.md) · [Unitree G1](../entities/unitree-g1.md) · [xArm 7](../entities/xarm-7.md) · [AgileX Piper](../entities/agilex-piper.md)
 - [Waddle Labs](../entities/waddle-labs.md) — nearest positional competitor

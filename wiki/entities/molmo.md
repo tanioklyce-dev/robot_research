@@ -3,8 +3,8 @@ title: Molmo
 type: entity
 subtype: vlm
 created: 2026-07-17
-updated: 2026-08-03
-sources: 6
+updated: 2026-08-13
+sources: 7
 tags: [molmo, molmo2, vlm, allen-institute, ai2, pixmo, open-weights, open-data, pointing, vla-backbone]
 ---
 
@@ -31,6 +31,10 @@ The distillation-free data recipe pays off: the **Molmo-72B** model **tops acade
 - **Molmo-72B** — **Qwen2-72B** backbone; the flagship / top scorer.
 - Common design: **preprocessor (multi-crop) → ViT vision encoder → connector (pool + project) → decoder LLM**. Default encoder is **OpenAI CLIP ViT-L/14@336**; a 100%-open variant swaps in **MetaCLIP + OLMo**. Trained on the **PixMo** data suite.
 - **Molmo2** (Clark et al. 2026) — the next-generation VLM (4B, **SigLIP2 ViT** encoder). Its embodied-reasoning fine-tune **[Molmo2-ER](molmo2-er.md)** is the backbone of **[MolmoAct2](molmoact2.md)**, and (per the [MolmoAct2 paper](../sources/molmoact2-paper.md)) surpasses GPT-5 and Gemini-ER 1.5 on 13 embodied-reasoning benchmarks. The Molmo2 primary is not yet directly ingested.
+
+## Pointing, arrived at twice
+
+**[Moondream](moondream.md)** — an unrelated Apache-2.0 small-VLM line from M87 Labs — ships **Point** and **Detect** as first-class operations too. Two independent small-VLM programs converged on **pointing as the primitive that makes a VLM useful to a robot**, and neither is a VLA. Worth noting because it suggests the capability is being selected for by the downstream use case rather than by any one lab's taste.
 
 ## Related
 

@@ -3,7 +3,7 @@ title: Detection evaluation metrics (precision/recall/F1/AP under matching)
 type: concept
 created: 2026-07-23
 updated: 2026-07-23
-sources: 9
+sources: 10
 tags: [object-detection, evaluation-metrics, precision-recall, average-precision, mAP, f1, iou, computer-vision]
 ---
 

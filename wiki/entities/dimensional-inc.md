@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-08-13
 updated: 2026-08-13
-sources: 2
+sources: 3
 tags: [dimensional, dimos, agentic-robotics, startup, open-source, apache-2-0, teleoperation]
 ---
 
