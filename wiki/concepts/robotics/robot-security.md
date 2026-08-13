@@ -3,7 +3,7 @@ title: Robot Security (Robot Cybersecurity)
 type: concept
 created: 2026-07-15
 updated: 2026-07-15
-sources: 2
+sources: 3
 tags: [robot-security, cybersecurity, ros2, security-assessment, alias-robotics, rsf, misra, safety-vs-security]
 ---
 

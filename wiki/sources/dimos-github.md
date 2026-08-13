@@ -138,6 +138,8 @@ Dependency tiers are granular: bare `pip install dimos` is core-only (transport,
 
 ## Entities mentioned
 
+- [GTSAM](../entities/gtsam.md) — pose-graph optimization behind premap relocalization
+- [LangGraph](../entities/langgraph.md) — the agent runtime inside `McpClient`
 - [Drake](../entities/drake.md)
 - [Zenoh](../entities/zenoh.md)
 - [DimOS](../entities/dimos.md), [Dimensional Inc.](../entities/dimensional-inc.md)

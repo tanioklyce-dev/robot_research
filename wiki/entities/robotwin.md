@@ -68,7 +68,9 @@ Three components, in descending order of how much this wiki cares:
 
 The mechanism, in the authors' words: *"a low-DoF platform like the Piper often relies on lateral grasps due to its limited dexterity, whereas a high-DoF arm such as the Franka is capable of top-down precision grasps."* **At 2.4%, RoboTwin 1.0 could not generate usable data for the Piper at all.** See [RoboMIND](robomind.md) for how this composes with the dexterous-hand exclusion at the other end of the range.
 
-**2. MLLM code generation with a VLM observer.** A code agent writes a Python task program; it runs **10× per iteration**; a VLM watches all ten frame-by-frame, localizes *which step* failed and diagnoses *why*; the code agent repairs. Terminates at >0.5 success or after 5 refinements. Average success rate **47.4% → 71.3%**, with multimodal feedback worth +3.5 to +4.6 over execution-log feedback alone, in fewer iterations and with shorter code.
+**2. MLLM code generation with a VLM observer.** Motion planning throughout is **[CuRobo](curobo.md)**-backed, which is also what configuring a new embodiment mostly means.
+
+ A code agent writes a Python task program; it runs **10× per iteration**; a VLM watches all ten frame-by-frame, localizes *which step* failed and diagnoses *why*; the code agent repairs. Terminates at >0.5 success or after 5 refinements. Average success rate **47.4% → 71.3%**, with multimodal feedback worth +3.5 to +4.6 over execution-log feedback alone, in fewer iterations and with shorter code.
 
 **3. Domain randomization on five axes** — clutter (semantically-similar distractors deliberately excluded), background texture (**11,000 filtered from 20,000 Stable Diffusion generations**), lighting, tabletop height, and language instructions (MLLM-generated templates × multi-granularity object descriptions, sampled per trajectory).
 
@@ -76,7 +78,7 @@ The mechanism, in the authors' words: *"a low-DoF platform like the Piper often 
 
 Protocol: **50 clean expert demos per task for training, 100 rollouts per task per condition, all 50 tasks, Aloha-AgileX**, VLAs finetuned from released weights, single-task setting → **n = 5,000 per model per condition**.
 
-| | [RDT](rdt.md) | π0 | [ACT](act.md) | [DP](diffusion-policy.md) | DP3 |
+| | [RDT](rdt.md) | π0 | [ACT](act.md) | [DP](diffusion-policy.md) | [DP3](dp3.md) |
 |---|---:|---:|---:|---:|---:|
 | Easy | 34.5 | **46.4** | 29.7 | 28.0 | **55.2** |
 | Hard | 13.7 | **16.3** | 1.7 | 0.6 | 5.0 |

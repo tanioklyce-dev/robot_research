@@ -142,6 +142,7 @@ The transfer experiment (Fig. 9) follows: adapting to WidowX (unseen), a **froze
 
 ## Entities mentioned
 
+- [LIBERO tie cluster](../entities/libero-tie-models.md) — MemoryVLA and FLOWER, whose records it displaces and loses to respectively
 - [RDT](../entities/rdt.md)
 - [X-VLA](../entities/x-vla.md) · [Florence-2](../entities/florence-2.md) · [π0](../entities/pi-zero.md) · [GR00T N1](../entities/nvidia-groot.md) · [SmolVLA](../entities/smolvla.md) · [OpenVLA](../entities/openvla.md) / [OpenVLA-OFT](../entities/openvla-oft.md) · [ACT](../entities/act.md)
 - [LIBERO](../entities/libero.md) · [SimplerEnv](../entities/simplerenv.md) · [RoboTwin 2.0](../entities/robotwin.md)

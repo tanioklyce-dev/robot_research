@@ -91,7 +91,7 @@ Once one task works, ACT's limits bite — it is single-task and does not genera
 
 ## 3. Leg B — navigation
 
-**Recipe, taken directly from [Cutting the Cord](../../sources/cutting-the-cord-untethered-xlerobot.md):** RGB-D camera → **RTAB-Map in localization-only mode** → **[Nav2](../../entities/nav2.md)**. Validated on a weaker board than yours, in a real XLeRobot build.
+**Recipe, taken directly from [Cutting the Cord](../../sources/cutting-the-cord-untethered-xlerobot.md):** RGB-D camera → **[RTAB-Map](../../entities/rtab-map.md) in localization-only mode** → **[Nav2](../../entities/nav2.md)**. The offline pose-graph optimization step is **[GTSAM](../../entities/gtsam.md)**-class work. Validated on a weaker board than yours, in a real XLeRobot build.
 
 ### Sensor: D435i — owned, and it is the right one
 

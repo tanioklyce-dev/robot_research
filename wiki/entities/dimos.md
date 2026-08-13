@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-08-13
 updated: 2026-08-13
-sources: 3
+sources: 4
 tags: [dimos, dimensional, agentic-robotics, llm-agent, mcp, langgraph, middleware, ros2-alternative, lcm, zenoh, unitree, teleoperation, lerobot, spatial-memory, apache-2-0, open-source]
 ---
 
@@ -48,7 +48,7 @@ Swappable **under an unchanged module API**: LCM (default, UDP multicast, best-e
 
 Agents are ordinary Modules. `McpClient` carries `human_input: In[str]`, `agent: Out[BaseMessage]`, `agent_idle: Out[bool]`, and subscribes to the same camera / LiDAR / odometry / spatial-memory streams as everything else.
 
-**Skills are discovered, not declared.** Decorate any Module method with `@skill`; at startup the agent enumerates them across all deployed modules over RPC and exposes them as LangChain tools, using the docstring as the tool description. `McpServer` republishes them as **MCP** tools for any external client; `McpClient` runs a **LangGraph** agent against them.
+**Skills are discovered, not declared.** Decorate any Module method with `@skill`; at startup the agent enumerates them across all deployed modules over RPC and exposes them as LangChain tools, using the docstring as the tool description. `McpServer` republishes them as **MCP** tools for any external client; `McpClient` runs a **[LangGraph](langgraph.md)** agent against them.
 
 ```bash
 dimos mcp list-tools
@@ -62,7 +62,7 @@ Default LLM: **`gpt-5.6-luna`** (cloud, `OPENAI_API_KEY`). Local path via [Ollam
 
 | Area | What ships |
 |---|---|
-| **Navigation** | "Column-carving" voxel map (each LiDAR frame replaces its region of the global map); live mapping vs **premap + GTSAM pose-graph optimization + relocalization**; frontier exploration, A* replanning, visual servoing, patrolling |
+| **Navigation** | "Column-carving" voxel map (each LiDAR frame replaces its region of the global map); live mapping vs **premap + **[GTSAM](gtsam.md)** pose-graph optimization + relocalization**; frontier exploration, A* replanning, visual servoing, patrolling |
 | **Spatial memory** | `dimos/memory2` — SQLite spatio-temporal stream store with embeddings; streams are queryable and composable (`.transform(speed())`, `smooth(50)`, downsample, throttle) and renderable to SVG over a global map. Marketed as "spatio-temporal RAG" |
 | **Perception** | Detectors (Ultralytics), 3D projections, audio; VLM backends **[Florence-2](florence-2.md)**, Moondream (local + hosted), Qwen, OpenAI |
 | **Manipulation** | **[Drake](drake.md)** planning; xArm and [AgileX Piper](agilex-piper.md) SDKs; Quest VR teleop; dual-arm coordinator |

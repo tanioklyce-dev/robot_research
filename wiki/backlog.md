@@ -31,7 +31,9 @@ Deferred maintenance items and knowledge gaps surfaced during lint passes but no
 
 - [ ] **~306 one-way citations remain.** An entity/concept cites a source; that source's `## Entities mentioned` omits it. **This is a lead list, not a defect list** — the right question per pair is *"does this source actually discuss this entity?"*, and for many the answer is no (the entity cites the source for a passing claim). Auto-adding all 306 would turn source pages into link dumps. Work them opportunistically: when an ingest touches a source page, repair its back-links then.
 - [ ] Seven entity pages now read **`sources: 0`** — including **[Tesla Optimus](entities/tesla-optimus.md)**. Not a counting bug: nothing ingested links to them, so their coverage is entirely secondhand from other entity pages. That is a **provenance finding worth acting on** — either cite a real source or mark them as uncited.
-- [ ] **§6 remainder**: LangGraph (9 mentions), the RoboTwin baseline cluster (DP3, BAKU, MemoryVLA, CogVLA, VLA-Adapter, FLOWER), RTAB-Map, CuRobo, GTSAM, Moondream.
+- [x] ~~**§6 remainder**~~ — **closed 2026-08-13**: [Zenoh](entities/zenoh.md) properly ingested ([source](sources/zenoh-io.md)), plus [RTAB-Map](entities/rtab-map.md), [GTSAM](entities/gtsam.md), [CuRobo](entities/curobo.md), [LangGraph](entities/langgraph.md), [DP3](entities/dp3.md), and the [LIBERO tie cluster](entities/libero-tie-models.md) holding page. **Moondream remains** — the only §6 item left, and the thinnest.
+- [ ] **Moondream** (4 mentions) — [DimOS](entities/dimos.md)'s local VLM option; last of the §6 gaps.
+- [ ] **Primary ingests wanted for the new stubs.** [RTAB-Map](entities/rtab-map.md) and [GTSAM](entities/gtsam.md) are at `sources: 0` — documented only from other pages' methods sections, and both are now load-bearing for the [XLeRobot bring-up plan](syntheses/projects/xlerobot-nav-manip-teleop-bringup.md). Highest value in the [tie cluster](entities/libero-tie-models.md): **MemoryVLA** (held the 7 B Simpler-WidowX SOTA that a 0.9 B model beat by 23.9 pts) and **FLOWER** (holds CALVIN 4.53, the one benchmark X-VLA lost).
 
 ---
 

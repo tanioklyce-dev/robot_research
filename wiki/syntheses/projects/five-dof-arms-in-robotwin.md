@@ -132,7 +132,7 @@ Mirror the paper so numbers are comparable, then add what it doesn't report:
 RoboTwin documents a [7-step new-embodiment procedure](https://robotwin-platform.github.io/doc/usage/new-embodiment.html). Mapped to this project:
 
 1. **Bring up the environment** and reproduce a published baseline first — run the generator on `piper` and confirm you land near **25.1%**. *Do not skip this.* Without it, a low 5-DoF number is indistinguishable from a broken install, and that ambiguity would invalidate the whole result.
-2. **CuRobo config** (`curobo_tmp.yml`) — `base_link`, `ee_link`, `cspace/joint_names` (the five revolute joints + gripper), `retract_config`, and **collision spheres** (`collision.yml`). The spheres are hand-authored; SO-101 is a small, simple arm, so this is easier here than for a Franka.
+2. **[CuRobo](../../entities/curobo.md) config** (`curobo_tmp.yml`) — `base_link`, `ee_link`, `cspace/joint_names` (the five revolute joints + gripper), `retract_config`, and **collision spheres** (`collision.yml`). The spheres are hand-authored; SO-101 is a small, simple arm, so this is easier here than for a Franka.
 3. **RoboTwin `config.yml`** + register the embodiment path under `assets/embodiments/so101-dual/`.
 4. **Dual-arm URDF** — the docs have a dedicated section. Compose two SO-101s at [XLeRobot](../../entities/xlerobot.md)'s shoulder spacing so the rig corresponds to a real buildable robot rather than an invented one.
 5. **Calibrate `delta_matrix` and `global_trans_matrix`** — RoboTwin-specific frame calibration, steps 5 and 6 of the doc. Expect this to be the fiddliest part.
