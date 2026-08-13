@@ -10,6 +10,13 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-08-13f] LangGraph ingested — one gap closed, two opened
+
+- [x] **LangGraph** ingested ([source](sources/langgraph.md)); entity upgraded from secondhand and **a wrong inference of mine corrected**. DimOS uses the **ReAct tool-calling loop only** — no checkpointing, no interrupts, no custom graph, no memory across a crash.
+- [ ] **`interrupt()` as the missing execution rail.** The [guardrails synthesis](syntheses/agents/guardrails-for-robot-agents.md) says the rail ships empty; LangGraph's human-in-the-loop interrupt is a ready-made mechanism, present in DimOS's dependency tree and unused. **This is a design proposal worth writing, not an ingest** — and it is cheap, because the framework is already there.
+- [ ] **Does *any* robot stack use durable execution?** DimOS does not. If none does, the finding strengthens from "DimOS hasn't bothered" to "the category hasn't needed it," which is a claim about maturity rather than about one team.
+- [ ] **LangChain itself is uncovered** — the substrate under LangGraph, and the source of `create_agent`.
+
 ## [2026-08-13e] Lint punch list — WORKED
 
 *All mechanical items closed; the one judgment item resolved by decision. Reproducible from now on: **`python3 scripts/lint_wiki.py`** (add `--fix-source-counts` to re-derive counts).*

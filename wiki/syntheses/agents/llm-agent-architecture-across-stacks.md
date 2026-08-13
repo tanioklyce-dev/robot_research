@@ -130,6 +130,11 @@ The LLM-agent pattern wins on shippability and debuggability today. VLAs win on 
 > [!note] DimOS avoids the `eval` hazard by construction
 > Skills are RPC calls to typed methods whose parameters must be JSON-serializable primitives, dispatched through MCP — there is no string that gets `eval`'d. This is what the educational kits should be copying. It does introduce a different surface: `McpServer` exposes every `@skill` on the robot to any MCP client that can reach it, so the security question moves from *code injection* to *network exposure and authentication of the MCP endpoint*, which the docs do not discuss.
 
+> [!warning] Verified 2026-08-13: DimOS does not close the replanning gap either, and the reason is instructive
+> [DimOS](../../entities/dimos.md) runs a **[LangGraph](../../entities/langgraph.md)** agent, which *does* ship durable execution and human-in-the-loop `interrupt()`. A direct read of `mcp_client.py` ([source](../../sources/langgraph.md)) shows it uses **the prebuilt ReAct tool-calling loop and nothing else** — **zero** `checkpointer`, `MemorySaver`, `interrupt(`, or `thread_id` anywhere in `dimos/agents/`. Conversation history is a plain Python list, so **the agent has no memory across a crash**.
+>
+> So the gap below is now *verified* for the largest stack in this comparison rather than merely undocumented. And the sharp version of the finding: **the machinery is a dependency they already have** — one constructor argument (`create_agent(..., checkpointer=...)`) and one call away. It is installed, imported, and unused. Which is what you would expect in a category where **four stacks publish zero success rates between them**: durable execution pays off when runs are long and failures costly, and demos are neither.
+
 > [!note] Closed-loop replanning is under-documented everywhere
 > All four stacks describe how the LLM emits a plan. None describe in detail how skill failures (grasp failure, person blocking the path, AprilTag occluded) surface back to the LLM for re-planning. This is the most consequential gap between published demo behavior and robust deployment.
 

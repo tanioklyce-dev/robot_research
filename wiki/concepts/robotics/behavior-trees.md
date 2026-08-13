@@ -3,7 +3,7 @@ title: Behavior trees
 type: concept
 created: 2026-08-04
 updated: 2026-08-04
-sources: 4
+sources: 5
 tags: [behavior-trees, task-switching, modularity, reactivity, finite-state-machines, subsumption-architecture, action-representation, safety, ros2, nav2, behaviortree-cpp]
 ---
 
