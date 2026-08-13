@@ -10,6 +10,62 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-08-13d] FULL WIKI LINT — punch list
+
+*Automated pass over **940 pages** (385 sources / 389 entities / 81 concepts / 79 syntheses). Nothing auto-fixed, per the lint workflow. Ordered by value.*
+
+### Clean — no action needed
+
+**Broken internal links: 0** · **Orphan pages: 0** · **Duplicate titles: 0** · **Date sanity: 0** (no `updated` before `created`, no future dates) · **Obsidian wikilinks: 0 real** (3 hits are `overview.md`/`log.md` *documenting* the banned syntax) · **Schema conformance: 2 issues in 940 pages.** The structural discipline is holding.
+
+### 1. The systemic one — citations are one-directional
+
+- [ ] **325 pairs where an entity/concept cites a source page and that source page does not cite it back**, spread over **172 entity/concept pages and 149 source pages**. The schema calls for both directions: source pages carry `## Entities mentioned`, entity pages carry `## Mentioned in`. In practice the entity→source direction is maintained and the source→entity direction rots, because ingests add entity links to new sources but rarely revisit *old* sources when a new entity page is created.
+- Worst source pages (thinnest `Entities mentioned` relative to who cites them): `libero-pro-paper` (13), `computational-life-self-replicating-programs-paper` (10), `cap-x-paper` (8), `waddle-labs-introducing-waddle` (8), `anthropic-how-claude-performs-on-robotics-tasks` (7), `aspire-paper` (7), `leworldmodel-paper` (7).
+- Worst entity/concept pages: `optimal-control` (8), `energy-based-models` (7), `ai-red-teaming` (7), `physical-intelligence` (7), `pi-zero-5` (7).
+- **This subsumes the `sources:` count item below** — see §2.
+
+### 2. `sources:` counts — 322/470 exact, and the errors are a *symptom*
+
+- [ ] **129 understated, 19 overstated**, 322 exact. Understatement is benign drift (a new source cites an old page; the count isn't bumped). Worst: `vla-models` 81→101, `google-deepmind` 16→32, `control-abstraction-levels` 4→19, `imitation-learning` 65→78, `llm-agent-architecture` 43→55.
+- [ ] **The 19 overstatements are the interesting ones, and they are not counting errors.** `voyager` claims 3 with **0** inbound source links — but its body *does* cite 4 source pages; none link back. Same shape for `inner-monologue`, `language-to-rewards`, `saycan`, `smwm`. **The counts are roughly right; the back-links are missing.** Fixing §1 fixes most of this.
+- Decide before fixing: is `sources:` worth maintaining by hand at all, or should it be **derived** from inbound source links at lint time? A derived count cannot drift.
+
+### 3. Stale claims (specific, verified)
+
+- [ ] **`entities/libero.md:71`** — MolmoAct2 called *"the wiki's highest LIBERO averages."* **[X-VLA](entities/x-vla.md) now ties it at 98.1**, and the [audit](syntheses/platforms/vla-success-rate-audit.md) holds that any ranking inside the tie is unsupportable. This is exactly the phrasing the audit corrected once before.
+- [ ] **`syntheses/platforms/vla-deployability-landscape.md`** — the page *title* still says "the four axes" while [index.md](index.md) records that TurboVLA exposed a **fifth**. `entities/turbovla.md` repeats "the four axes" too. Retitle or add the fifth explicitly.
+- [x] ~~"four action-head families" is stale~~ — **not a defect**: [llm-free-vla](concepts/learning/llm-free-vla.md) explicitly positions itself as orthogonal, and the other "four families" hits are the *world-model* taxonomy, a different thing. Closing the 2026-08-04 backlog item.
+
+### 4. Index and schema
+
+- [ ] **1 page missing from `index.md`**: `sources/welchlabs-lecun-1b-bet-against-llms-part2.md`. (939/940 coverage.)
+- [ ] **2 source pages missing `ingested:`** — `libero-pro-paper.md`, `roboarena-paper.md`.
+
+### 5. Stub markers that outlived their pages
+
+- [ ] **10 pages marked `_stub_` in the index but >45 lines**: `genie-3` (70), `pi-zero-6` (70), `rt-2` (63), `agilex-piper` (56), `openvla` (56), `open-x-embodiment` (52), `bagel` (50), `octo` (49), `smolvlm` (47), `gemma3` (46). `rt-2` and `agilex-piper` were both substantially expanded since being marked. (15 stubs are correctly marked at <25 lines.)
+
+### 6. Knowledge gaps — frequently mentioned, no page
+
+Ranked by how many non-index pages mention them:
+
+- [ ] **Drake (16 pages)** — the biggest single gap. It is the simulator/planner under [TRI](entities/tri.md)'s entire [LBM](concepts/learning/large-behavior-models.md) line, appears in [UMI](entities/umi.md), [Russ Tedrake](entities/russ-tedrake.md), [DimOS](entities/dimos.md) manipulation, [xArm 7](entities/xarm-7.md), and the simulator syntheses. The wiki has the people and the products but not the tool.
+- [ ] **RDT / RDT-1B (12)** — a 1 B bimanual diffusion VLA, a baseline in [RoboTwin 2.0](entities/robotwin.md), [RoboMIND](entities/robomind.md), and [X-VLA](entities/x-vla.md). Cited constantly, never described.
+- [ ] **Zenoh (12)** — [DimOS](entities/dimos.md)'s reliable transport and a live [ROS 2](entities/ros2.md) alternative in the ros2-mcp-server work.
+- [ ] **LangGraph (9)** — the agent framework under DimOS's `McpClient`.
+- [ ] **The RoboTwin baseline cluster** — DP3 (4), BAKU (5), MemoryVLA (4), CogVLA (4), VLA-Adapter (5), FLOWER (3). Several sit *inside* the LIBERO tie the wiki reasons about; describing them is cheap and would make that table interpretable.
+- [ ] **Navigation/planning stack**: RTAB-Map (4), CuRobo (3), GTSAM (4) — all three are now load-bearing for the [XLeRobot bring-up plan](syntheses/projects/xlerobot-nav-manip-teleop-bringup.md) and the [5-DoF experiment](syntheses/projects/five-dof-arms-in-robotwin.md).
+- [ ] **Moondream (4)** — DimOS's local VLM option.
+
+### Suggested order
+
+1. **§3 stale claims** — two edits, both are wrong-as-written today.
+2. **§4** — three trivial fixes.
+3. **§6 Drake, RDT, Zenoh** — the three that would most improve reasoning about existing pages.
+4. **§1/§2** — decide *derived vs hand-maintained* counts first; the answer determines whether §1 is a one-off repair or a recurring chore.
+5. **§5** — cosmetic.
+
 ## [2026-08-13c] XLeRobot bring-up — plan filed, decisions pending
 
 *Scoped after the RoboTwin experiment was deferred as off-path. Plan: [XLeRobot — navigate, pick-and-place, teleoperate](syntheses/projects/xlerobot-nav-manip-teleop-bringup.md). It executes [fleet-ladder](syntheses/projects/fleet-agentic-framework.md) steps 0–1 for the single robot.*
