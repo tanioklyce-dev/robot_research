@@ -2,8 +2,8 @@
 title: Robot policy evaluation
 type: concept
 created: 2026-07-27
-updated: 2026-08-08
-sources: 11
+updated: 2026-08-13
+sources: 12
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility]
 ---
 
@@ -70,6 +70,22 @@ This sharpens RoboLab's **saturation** critique from *"the benchmark stopped dis
 ## Sensitivity analysis without ablation
 
 **Neural Posterior Estimation (NPE)** infers a posterior `p(θ|x)` over environment variables conditioned on observed outcomes, surfacing which conditions correlate with success or failure **without running exhaustive one-variable-at-a-time ablations**. It converts intuitions ("camera placement matters") into quantified associations. This is a simulation-based-inference technique arriving in robot evaluation; the wiki has no other source using it.
+
+## Two protocols worth knowing by number
+
+The wiki now has confirmed protocols for its two most-cited manipulation benchmarks, which makes their numbers directly comparable in a way most reporting elides:
+
+| Benchmark | Rollouts per model per condition | Base rate | Separating gap |
+|---|---:|---:|---|
+| [LIBERO](../../entities/libero.md) (4-suite avg) | 2,000 (50/task × 10 tasks × 4) | ~97% | >1.0 pp — and **ten models sit inside 1.2 pp** |
+| [RoboTwin 2.0](../../entities/robotwin.md) | **5,000** (100/task × 50 tasks) | ~40% | ~2 pp |
+
+RoboTwin's protocol is confirmed from its [primary source](../../sources/robotwin2-paper.md): 50 clean expert demonstrations per task for training, **100 rollouts per task across all 50 tasks**, Aloha-AgileX, single-task finetuning from released weights. **RoboTwin is the better instrument** — more rollouts *and* a base rate near 50% where the binomial variance is worst but the field's headroom is largest. LIBERO's tie is now wide enough that it discriminates nothing at the top.
+
+> [!warning] Dataset papers routinely report n = 10, and it is not a ranking
+> [RoboMIND](../../entities/robomind.md) ([paper](../../sources/robomind-paper.md)) evaluates every model on every task at **ten trials** — *"each model was tested ten times."* At n=10 per cell, a 95% CI spans roughly ±30 points; its reported ACT 55.3% (AgileX) vs 30.7% (Franka) cannot support "AgileX is easier," and its ACT-vs-DP-vs-BAKU ordering cannot support anything.
+>
+> This is not a criticism of the paper — a dataset paper needs to show the data trains policies at all, and n=10 across 45 tasks does that. It **is** a criticism of citing those tables as comparisons, which is the error to avoid. Read dataset-paper baselines as smoke tests; read benchmark-paper tables as measurements, after checking their n.
 
 ## What is still missing
 

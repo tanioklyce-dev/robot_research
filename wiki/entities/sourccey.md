@@ -55,6 +55,9 @@ Ships with **"XVLA with 4 micromodels"** — folding T-shirts, shorts, jeans/pan
 > [!warning] Inference does not run on the robot
 > [X-VLA](x-vla.md)-0.9B on a [Florence-2](florence-2.md)-Large backbone cannot run at control rate on a [Raspberry Pi 5](raspberry-pi-5.md). Vulcan's own spec page says so obliquely — *"capabilities scale with the host computer. Rented compute is planned for users who need stronger training or inference."* Sourccey is a **PC-does-inference, Pi-relays** platform, exactly like [XLeRobot](xlerobot.md), and the specs page never states it plainly.
 
+> [!note] The position-only recording is the deeper limit
+> Sourccey's dataset schema is **joint position only** — no current, torque, or force. That caps what any policy trained on Sourccey data can learn to the **kinematically dominated** tasks it advertises (cloth, cutlery, light dishes) and rules out contact-rich work. The cheapest published route out is **[OpenFT](openft-sensor.md)**, a Hall-effect 6-axis F/T sensor with open Gerbers and a JLCPCB-ready BOM — unbenchmarked, unmaintained, and the only thing in this wiki aimed squarely at this gap.
+
 > [!warning] 5 DOF against a 6-DOF-trained prior
 > X-VLA aligns all embodiments to **absolute SE(3) end-effector pose** (xyz + Rot6D + binary gripper), and every one of its pretraining embodiments has ≥6 arm DOF. Sourccey's 5-DOF arms — shoulder yaw, shoulder pitch, elbow pitch, wrist pitch, wrist roll, with **no wrist yaw** — cannot realize arbitrary orientations; their reachable poses are a lower-dimensional manifold in that action space. [Soft prompts](../concepts/learning/soft-prompt-cross-embodiment.md) are precisely the mechanism meant to absorb such a configuration difference, so this is a genuinely interesting first field test rather than an obvious error. Nothing published tests it.
 

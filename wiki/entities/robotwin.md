@@ -4,11 +4,14 @@ type: entity
 subtype: benchmark
 created: 2026-08-04
 updated: 2026-08-13
-sources: 4
-tags: [robotwin, benchmark, bimanual, manipulation, domain-randomization, data-generation, simulation]
+sources: 5
+tags: [robotwin, benchmark, bimanual, manipulation, domain-randomization, data-generation, simulation, robotwin-od, mllm-code-generation, embodiment-aware-grasping, sim-to-real]
 ---
 
-**RoboTwin 2.0** — a scalable **bimanual** manipulation data generator and benchmark with strong domain randomization (Chen, Chen, Chen et al., ICML 2026). **50 language-conditioned dual-arm tasks** requiring coordinated two-arm control; ships both a *clean* setting and a randomized-scene setting.
+**RoboTwin 2.0** — a scalable **bimanual** manipulation *data generator* that also ships a benchmark (Chen, Chen, Chen et al., arXiv 2506.18088, Jun 2025 / v2 Aug 2025). **50 language-conditioned dual-arm tasks across 5 embodiments**, **100,000+ pre-collected trajectories**, and the **RoboTwin-OD** asset library (731 objects / 147 categories). Ships both a *clean* ("Easy") setting and a domain-randomized ("Hard") one. **Primary source now ingested**: [RoboTwin 2.0 paper](../sources/robotwin2-paper.md).
+
+> [!note] Venue correction
+> This page previously recorded "ICML 2026." The arXiv v2 carries **no venue line** and the claim is unverified — treat as arXiv-only until confirmed.
 
 ## Position in this wiki
 
@@ -49,14 +52,66 @@ Cross-validation note: X-VLA's π0 clean figure (46.4) and RDT clean figure (34.
 
 Per-task detail is in the paper's Tab. 16. The spread is enormous — `Shake Horizontally` 99/100 and `Put Object Cabinet` 78/82 barely degrade, while `Put Bottles Dustbin` scores **0.0/1.0** and `Place Object Basket` goes 50.0 → **0.0**. Averages over 50 tasks are hiding total failures.
 
+## The data generator (from the primary source)
+
+Three components, in descending order of how much this wiki cares:
+
+**1. Embodiment-aware grasp adaptation — the finding that matters most here.** Objects carry candidate manipulation poses across multiple grasp axes and approach directions; the generator picks robot-specific ones. Effect on automated data-collection success across 50 tasks:
+
+| Embodiment | DoF | RoboTwin 1.0 | RoboTwin 2.0 | Δ |
+|---|---:|---:|---:|---:|
+| [AgileX Piper](agilex-piper.md) | 6 | **2.4%** | **25.1%** | **+22.7** |
+| Aloha-AgileX | 6 | 65.1% | 78.8% | +13.7 |
+| ARX-X5 | 6 | 68.6% | 74.2% | +5.6 |
+| [Franka](franka-panda.md) | 7 | 67.3% | 67.2% | −0.1 |
+| UR5 | 7 | 57.6% | 57.1% | −0.5 |
+
+The mechanism, in the authors' words: *"a low-DoF platform like the Piper often relies on lateral grasps due to its limited dexterity, whereas a high-DoF arm such as the Franka is capable of top-down precision grasps."* **At 2.4%, RoboTwin 1.0 could not generate usable data for the Piper at all.** See [RoboMIND](robomind.md) for how this composes with the dexterous-hand exclusion at the other end of the range.
+
+**2. MLLM code generation with a VLM observer.** A code agent writes a Python task program; it runs **10× per iteration**; a VLM watches all ten frame-by-frame, localizes *which step* failed and diagnoses *why*; the code agent repairs. Terminates at >0.5 success or after 5 refinements. Average success rate **47.4% → 71.3%**, with multimodal feedback worth +3.5 to +4.6 over execution-log feedback alone, in fewer iterations and with shorter code.
+
+**3. Domain randomization on five axes** — clutter (semantically-similar distractors deliberately excluded), background texture (**11,000 filtered from 20,000 Stable Diffusion generations**), lighting, tabletop height, and language instructions (MLLM-generated templates × multi-granularity object descriptions, sampled per trajectory).
+
+## Baselines from the primary source
+
+Protocol: **50 clean expert demos per task for training, 100 rollouts per task per condition, all 50 tasks, Aloha-AgileX**, VLAs finetuned from released weights, single-task setting → **n = 5,000 per model per condition**.
+
+| | RDT | π0 | [ACT](act.md) | [DP](diffusion-policy.md) | DP3 |
+|---|---:|---:|---:|---:|---:|
+| Easy | 34.5 | **46.4** | 29.7 | 28.0 | **55.2** |
+| Hard | 13.7 | **16.3** | 1.7 | 0.6 | 5.0 |
+
+> [!note] What VLA pretraining buys is robustness, not peak performance
+> Non-pretrained policies do not merely degrade under randomization — **they die**: ACT 29.7 → **1.7**, DP 28.0 → **0.6**. Pretrained VLAs drop hard but survive (RDT 13.7, π0 16.3). And **DP3 beats every VLA on Easy (55.2) then collapses to 5.0** — the paper concedes its Easy win *"partly stems from perfect point clouds and clean background segmentation in simulation."* A 3D policy evaluated on noiseless depth is being flattered. This is the cleanest quantification in the wiki of what action-pretraining actually purchases.
+
+> [!note] Cross-paper consistency
+> π0's 46.4 Easy here matches [X-VLA](x-vla.md)'s cited 46.4 and [TurboVLA](turbovla.md)'s 46.4; RDT 34.5 matches too. Three independent papers, same figures — the benchmark is being run consistently, which is more than can be said for most.
+
+## Does randomized data actually buy robustness?
+
+Pretraining RDT and π0 on 9,600 trajectories under **clean** vs **randomized** settings, then evaluating under randomization:
+
+- **Clean-data finetuning does essentially nothing** — RDT 18.8 → 14.6 (*worse*), π0 22.5 → 24.9.
+- **Randomized pretraining gives +31.9% relative (RDT) and +29.3% (π0)**, and the gain **persists when the downstream task is trained on clean data only**.
+- The authors' inference is the right one: since clean sim data doesn't help, the low baseline is **not a real-to-sim gap, it's a robustness gap**.
+
+Real-world (RDT on a COBOT-Magic dual-arm, 4 tasks): 10 real demos + 1k synthetic beats 10 real alone by **+24.4 points averaged**, with gains *growing* with difficulty (+13.5 easiest configuration → **+33.0** unseen-background cluttered). Zero-shot synthetic-only beats 10 real demos in both unseen-background configurations.
+
+> [!warning] The abstract's "367%" is one configuration, not the average
+> `(42.0 − 9.0)/9.0` on the unseen-background-cluttered row. The average improvement is **+24.4 points**. Both honest; only one representative. See the [source page](../sources/robotwin2-paper.md).
+
 ## Open questions
-- Still **no primary RoboTwin paper ingest**; everything here is secondhand via TurboVLA and X-VLA.
+- ~~No primary RoboTwin paper ingest~~ — **done 2026-08-13**: [RoboTwin 2.0 paper](../sources/robotwin2-paper.md).
+- **No ablation isolates which randomization axis carries the gain.** Five axes, one bundled result. Given the 11,000-texture library's cost, knowing whether texture matters would be worth having.
+- **Does the DoF result extend below 6?** The benefit grows as DoF falls (Franka 7 → −0.1; Piper 6 → +22.7). Nobody has run the generator against a **5-DoF** arm — the tier [SO-ARM101](so-arm101.md), [XLeRobot](xlerobot.md), and [Sourccey](sourccey.md) actually occupy.
 - What distinguishes the tasks that survive randomization (`Shake Horizontally`, `Put Object Cabinet`) from those that collapse to zero (`Put Bottles Dustbin`, `Place Object Basket`)? Container-relative placement under scene randomization looks like the failure cluster, but that is a guess from task names.
 
 ## Related
 - [LIBERO](libero.md) — the single-arm benchmark it complements
 - [ALOHA](aloha.md) / [YAM](yam.md) — real bimanual platforms
 - [X-VLA](x-vla.md) — current best on both settings
+- [RoboMIND](robomind.md) — the real-world counterpart it cites; the two together bracket the cross-embodiment action-space problem
+- [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md)
 - [Success-rate audit](../syntheses/platforms/vla-success-rate-audit.md)
 
 ## Mentioned in

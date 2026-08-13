@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-07
 updated: 2026-08-13
-sources: 31
+sources: 32
 tags: [franka, panda, robot-arm, manipulator, 7-dof, manipulation-platform]
 ---
 
@@ -43,6 +43,12 @@ The result: when a JEPA-style or VLA-style paper says "real-robot eval" without 
 Franka appears in **four of [X-VLA](x-vla.md)'s seven pretraining data sources** — `Droid-Left` (15.8%), `Droid-Right` (15.8%), `RoboMind-Franka` (6.7%), and `RoboMind-Dual-Franka` (0.8%) — for **39.1% of 290 K episodes**, more than any other robot type ([X-VLA paper](../sources/xvla-paper.md), Fig. 3). Franka is effectively the reference embodiment of open cross-embodiment pretraining, which is worth keeping in mind when a "cross-embodiment" model's generalization is assessed: a plurality of what it saw was one 7-DOF arm.
 
 The t-SNE of learned [soft prompts](../concepts/learning/soft-prompt-cross-embodiment.md) shows the Franka setups forming a **single cluster** despite being registered as separate data sources, with the two DROID viewpoint variants fully intermingled.
+
+## What "the default research arm" costs the field
+
+Franka's 7 DoF makes it the easiest platform to generate data for and the easiest to train — and that is a selection effect worth naming. It is **39.1% of [X-VLA](x-vla.md)'s pretraining mixture**, the single largest robot type; it is the only embodiment [OpenVLA](openvla.md) could be evaluated on in [RoboMIND](robomind.md); and in [RoboTwin 2.0](robotwin.md)'s grasp-adaptation study it was the embodiment that gained **nothing** (−0.1) because it never had the problem: *"a high-DoF arm such as the Franka is capable of top-down precision grasps."*
+
+The consequence is that **the field's tooling is tuned on the platform that needs the least help**. Data generators, action-space conventions, and pretraining mixtures all work well on Franka by construction, and the gaps only surface on cheaper arms — where the 6-DoF Piper generated data at 2.4% until someone engineered for it, and where 5-DoF arms remain untested entirely. Useful context whenever a "cross-embodiment" result is quoted.
 
 ## Related
 - [DROID](droid.md) — single-embodiment dataset built on Franka Panda.

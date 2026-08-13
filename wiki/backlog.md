@@ -10,6 +10,32 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-08-13b] RoboTwin 2.0 / RoboMIND / openFT — follow-ups
+
+*Three backlog items closed. What they opened:*
+
+### The action-space question is now the wiki's sharpest open thread
+
+- [ ] **Nobody has run RoboTwin 2.0's data generator against a 5-DoF arm.** The grasp-adaptation benefit *grows as DoF falls* (Franka 7 → −0.1; Piper 6 → **+22.7**), and 5-DoF is the tier [SO-ARM101](entities/so-arm101.md) / [XLeRobot](entities/xlerobot.md) / [Sourccey](entities/sourccey.md) actually occupy. This is a runnable experiment — the generator, the assets, and the protocol are all released — and it would tell you whether the affordable tier is trainable at all by current tooling.
+- [ ] **What action space makes dexterous-hand data usable in a cross-embodiment VLA?** [RoboMIND](entities/robomind.md)'s 15,187 [Tien Kung](entities/tien-kung.md) trajectories are 14% of the dataset and structurally excluded by `xyz + Rot6D + binary gripper`. Candidate answers exist in the wiki ([latent action tokens](concepts/learning/latent-action-tokens.md), [UniT](entities/unit.md)'s shared codebook) and none has been tested on this data.
+
+### Unused resources sitting in ingested sources
+
+- [ ] **RoboMIND's 5k annotated failure trajectories** — the only failure corpus in the wiki, and no downstream use is recorded anywhere. Every other failure-driven result here ([π*0.6](entities/pistar06.md), [ASPIRE](entities/aspire.md), [RoboTwin 2.0](entities/robotwin.md)'s VLM localizer) *generates* failure signal at training time instead.
+- [ ] **RoboMIND's Isaac Sim digital twin** (30,035 trajectories replicating the real tasks and assets) — set up for exactly the controlled real-vs-sim comparison the wiki keeps wanting, and unused. RoboTwin 2.0 built its own twins from scratch rather than reusing these.
+- [ ] **No ablation isolates which of RoboTwin's five randomization axes carries the gain.** The texture library alone cost 20,000 Stable Diffusion generations filtered to 11,000; knowing whether texture matters would be worth having before anyone rebuilds it.
+
+### openFT — a weekend project with an outsized payoff if it works
+
+- [ ] **Does the 4-cluster Hall arrangement reject servo magnetic field?** The first question for any wrist mount, unaddressed in the repo, and the one that decides whether the design is viable at all.
+- [ ] **No specs published** — range, resolution, noise floor, bandwidth, hysteresis, temperature drift, cost. Nothing can be compared to a commercial part without at least range and noise floor.
+- [ ] **What does calibration actually cost?** "A load cell or reference sensor" is the difference between a $60 project and a $2,000 one.
+- [ ] It has **no LICENSE file** despite the README saying open-source. Worth an upstream issue.
+
+### Carried forward from this morning
+
+- [ ] The 5-DoF field trial ([Sourccey](entities/sourccey.md) ships September), prompt retrieval, Soft-Fold release, the Sep–Nov Sourccey re-check, and the standing finding that **four agentic-robotics stacks publish zero success rates between them**.
+
 ## [2026-08-13] Sourccey + X-VLA and DimOS ingests — follow-ups
 
 *Two ingests, 44 pages. Drift they introduced was fixed the same day (LIBERO tie six→ten propagated to the audit page, index, and deployability landscape; RoboTwin randomized-scene item closed; across-stacks stack counts corrected). What remains is below.*
@@ -29,9 +55,9 @@ Deferred maintenance items and knowledge gaps surfaced during lint passes but no
 
 ### Ingests newly exposed
 
-- [ ] **RoboMind** — 19.9% of X-VLA's pretraining mixture (Franka / UR-5 / AgileX / dual-Franka), no page.
-- [ ] **Primary RoboTwin 2.0 paper** (arXiv 2506.18088) — still secondhand via TurboVLA and X-VLA, now the wiki's most-cited bimanual benchmark.
-- [ ] **`openFT-sensor`** (dimensionalOS) — open force-torque sensing, relevant given how often this wiki finds low-cost platforms recording position only ([Sourccey](entities/sourccey.md), [XLeRobot](entities/xlerobot.md)).
+- [x] ~~**RoboMind**~~ — **done 2026-08-13**: [paper](sources/robomind-paper.md) + [entity](entities/robomind.md). Surfaced the dexterous-hand exclusion and the n=10 floor case.
+- [x] ~~**Primary RoboTwin 2.0 paper**~~ — **done 2026-08-13**: [paper](sources/robotwin2-paper.md). Confirmed the 5,000-rollout protocol, corrected the ICML venue claim, and supplied the Piper 2.4%→25.1% DoF result.
+- [x] ~~**`openFT-sensor`**~~ — **done 2026-08-13**: [source](sources/openft-sensor-github.md) + [entity](entities/openft-sensor.md). Complete hardware package, zero specs, no license, unmaintained.
 - [ ] **UniVLA primary**, **TAMP**, **LTL** — carried forward unchanged from 2026-08-04.
 
 ### Re-check dated items (Sep–Nov 2026)

@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-08-13
 updated: 2026-08-13
-sources: 1
+sources: 2
 tags: [dimos, dimensional, agentic-robotics, llm-agent, mcp, langgraph, middleware, ros2-alternative, lcm, zenoh, unitree, teleoperation, lerobot, spatial-memory, apache-2-0, open-source]
 ---
 
@@ -83,7 +83,7 @@ Default LLM: **`gpt-5.6-luna`** (cloud, `OPENAI_API_KEY`). Local path via [Ollam
 | [AgileX Piper](agilex-piper.md) | Arm | 🟨 |
 | MAVLink / DJI Mavic | Drone | 🟧 |
 | Unitree B1 | Quadruped | 🟥 |
-| openFT force-torque sensor | Misc | 🟥 |
+| **[openFT force-torque sensor](openft-sensor.md)** | Misc | 🟥 |
 
 Exactly one platform at "stable," and the humanoid everyone would demo is beta. Unusually honest for a support matrix — see the [source page](../sources/dimos-github.md) for why that improves the credibility of the rest.
 

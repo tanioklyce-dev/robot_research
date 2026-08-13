@@ -4,7 +4,7 @@ type: entity
 subtype: dataset
 created: 2026-05-07
 updated: 2026-08-13
-sources: 22
+sources: 23
 tags: [droid, dataset, teleoperation, franka, robot-data, stanford, berkeley, oxe, molmoact2]
 ---
 
@@ -43,6 +43,12 @@ DROID is the **dominant real-robot dataset cited across the JEPA-for-robotics li
 - **[X-VLA](x-vla.md)** ([paper](../sources/xvla-paper.md)) — **31.6% of X-VLA's 290 K-episode pretraining mixture**, entered *twice* as two separate data sources (15.8% each) that differ only in which of DROID's cameras is designated the main view: `Droid-Left` (left + wrist, 15 Hz) and `Droid-Right` (right + wrist, 15 Hz). This turns out to be the paper's cleanest interpretability result — the two learned [soft prompts](../concepts/learning/soft-prompt-cross-embodiment.md) **intermingle rather than separate** in t-SNE, because the underlying hardware is identical and only the viewpoint convention differs. DROID's multi-camera rig accidentally supplies a controlled experiment on what embodiment conditioning actually encodes.
 
 This makes DROID the single most reused real-robot dataset in the JEPA literature ingested here. It also features in the [sim-heavy vs real-data paths synthesis](../syntheses/simulators/sim-heavy-vs-real-data-paths.md) as the substrate for the "observation-pretraining + small real teleop" path to generalist policies — without DROID, V-JEPA 2's "62 hr → zero-shot Franka" existence proof would not exist.
+
+## Position against RoboMIND
+
+[RoboMIND](robomind.md)'s comparison table (Dec 2024) places DROID at **76k trajectories, 86 skills, single-arm, human teleoperation** — and uses it as the reference point for what RoboMIND adds: **dexterous-hand data, 5k annotated failure trajectories, and an [Isaac Sim](nvidia-isaac-sim.md) digital twin**, none of which DROID has. DROID's advantage remains scene and operator diversity across 13 institutions; RoboMIND's is protocol uniformity plus those three components.
+
+Both end up inside [X-VLA](x-vla.md)'s pretraining mixture — DROID at 31.6%, RoboMIND at 19.9% — where the *heterogeneity* DROID was praised for becomes the thing [soft prompts](../concepts/learning/soft-prompt-cross-embodiment.md) exist to absorb.
 
 ## Distribution
 - **TensorFlow Datasets**: `gs://gresearch/robotics`.

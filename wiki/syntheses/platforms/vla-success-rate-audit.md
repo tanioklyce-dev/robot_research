@@ -2,7 +2,7 @@
 title: Success-rate audit — which of this wiki's policy comparisons survive their sample sizes
 type: synthesis
 created: 2026-07-27
-updated: 2026-08-03
+updated: 2026-08-13
 tags: [evaluation, statistics, clopper-pearson, vla, libero, benchmark, audit, reproducibility, methodology, code-as-policy]
 ---
 
@@ -159,6 +159,12 @@ The smaller gap separates and the larger one doesn't, for three compounding reas
 > A benchmark whose leaders sit at 97% cannot separate them without ~2,000 rollouts per arm, and even then only past ~1.0 pp. A benchmark whose leaders sit at 58% separates 3 pp at the same-ish effort. **LIBERO's saturation is itself a measurement problem**, independent of the [LIBERO-PRO](../../sources/libero-pro-paper.md) memorization critique — and the two compound: a saturated benchmark that may also be measuring recall is the worst of both. The wiki should weight RoboTwin-2.0-class and real-world numbers above LIBERO ones when a source reports both.
 
 **Compute, per this page's own standing request** (section D): TurboVLA trained on **four RTX 4090s**, 80 k steps for the LIBERO result, **no embodied pretraining**. That is the smallest disclosed training footprint attached to any top-tier LIBERO number in this wiki. The efficiency claims (0.2 B params, 0.9 GB VRAM, 31.2 ms) are direct measurements, need no significance test, and — unusually — the authors **re-measured every competitor themselves** on one RTX 4090 at batch size 1 rather than quoting original papers.
+
+## Addendum (2026-08-13): two protocols confirmed, and a floor case
+
+**[RoboTwin 2.0](../../entities/robotwin.md)'s protocol is now confirmed from its [primary source](../../sources/robotwin2-paper.md)**: 50 clean demos for training, **100 rollouts per task × 50 tasks = 5,000 per model per condition**, Aloha-AgileX, single-task finetuning. This audit assumed roughly that and could not verify it. At n=5,000 and a ~40% base rate, **~2 pp separates** — so RoboTwin comparisons carry real information where [LIBERO](../../entities/libero.md)'s top cluster (now ten models inside 1.2 pp) carries none. Cross-paper consistency supports it: π0's 46.4 Easy is identical in the RoboTwin paper, [TurboVLA](../../entities/turbovla.md), and [X-VLA](../../entities/x-vla.md).
+
+**The floor case: [RoboMIND](../../entities/robomind.md) reports every result at n = 10.** *"Each model was tested ten times."* A 95% CI at n=10 spans roughly ±30 points per cell, so none of its ACT-vs-DP-vs-BAKU or per-embodiment orderings is a measurement. Recorded not as a criticism of the paper — dataset papers need existence proofs, not rankings — but because **its tables are exactly the kind that get cited as comparisons**. The rule this audit keeps arriving at, restated: *record N at ingest, and check it before quoting an ordering.*
 
 ## The other way out: stop measuring absolute rates
 

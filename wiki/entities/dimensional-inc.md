@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-08-13
 updated: 2026-08-13
-sources: 1
+sources: 2
 tags: [dimensional, dimos, agentic-robotics, startup, open-source, apache-2-0, teleoperation]
 ---
 
@@ -18,7 +18,7 @@ Everything below is verifiable from the [DimOS repository](../sources/dimos-gith
 - **~12+ contributors**, led by `spomichter` (284 commits), `paul-nechifor` (211), `leshy` (139), with a long tail including `Dreamsorcerer`, `jeff-hykin`, `ruthwikdasyam`, `mustafab0`, `TomCC7`, `aclauer`.
 - **Repository active daily**; 3,874 stars / 788 forks at ingest; created October 2024.
 - **A hosted commercial surface exists**: **dimTELE**, WebRTC teleoperation brokered through Dimensional's servers with per-account API keys. This is the one clearly non-self-hostable component in an otherwise Apache-2.0 stack, and the most legible business model in the project.
-- **`openFT-sensor`** — a separate open force-torque sensor repository in the same org (labelled experimental in DimOS's hardware matrix, un-ingested here).
+- **[`openFT-sensor`](openft-sensor.md)** — a separate open 6-axis force/torque sensor in the same org ([ingested](../sources/openft-sensor-github.md)): Hall-effect magnetic-displacement sensing, Gerbers + JLCPCB-ready BOM + drivers + calibration guide. More completely published than most open hardware in this wiki and **less maintained** — 2 stars, created and last pushed the same day, **no LICENSE file**.
 
 ## What is not established
 

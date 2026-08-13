@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-13
 updated: 2026-08-13
-sources: 3
+sources: 4
 tags: [xvla, vla, soft-prompt, cross-embodiment, flow-matching, florence-2, lerobot, air-tsinghua, shanghai-ai-lab, cloth-folding]
 ---
 
@@ -57,6 +57,13 @@ X-VLA is upstreamed into [LeRobot](lerobot.md) as the `xvla` policy (`src/lerobo
 
 [Vulcan Robotics](vulcan-robotics.md) lists **"XVLA with 4 micromodels: folding T-shirts, shorts, jeans/pants, and long shirts"** as [Sourccey](sourccey.md)'s starting AI ([Vulcan site](../sources/vulcan-robotics-sourccey-site.md)). The choice is legible — X-VLA's flagship real-world demo *is* cloth folding — but the transfer is unproven:
 
+> [!warning] The aligned action space is a parallel-gripper-shaped hole
+> X-VLA standardizes every embodiment to `xyz + Rot6D + binary gripper`. Reading its data sources primarily makes the cost of that choice visible at both ends:
+> - **Top end excluded.** [RoboMIND](robomind.md) contains **15,187 [Tien Kung](tien-kung.md) humanoid trajectories with dual dexterous hands**; X-VLA consumes RoboMIND's Franka / UR-5 / AgileX splits and **drops the humanoid entirely** — necessarily, since a multi-fingered hand has no representation in a binary-gripper action space. The most capable end-effector data in the corpus is structurally unusable.
+> - **Bottom end under-served.** Every pretraining embodiment has ≥6 DoF. [RoboTwin 2.0](robotwin.md) independently shows that a 6-DoF Piper generated usable demonstrations at **2.4%** until embodiment-aware grasping was engineered for it, while 7-DoF arms needed nothing.
+>
+> "Cross-embodiment" in 2026 therefore means **cross-6-to-7-DoF-arm-with-a-parallel-gripper**. That is a real and useful class — it is most of the research fleet — but it is not what the word implies, and both tails are where the interesting hardware lives.
+
 > [!warning] Two open mismatches between X-VLA's pretraining and Sourccey's embodiment
 > **1. Kinematic deficiency.** Every X-VLA pretraining embodiment has ≥6 DOF (Franka 7, UR5 6, AgileX 6, AGIBOT 7) and the aligned action space is full SE(3) EEF pose. Sourccey's arms are **5 DOF + gripper** — they cannot realize arbitrary orientations, so their reachable poses form a lower-dimensional manifold inside the pretrained action space. Soft prompts are exactly the mechanism that *should* absorb this, and no published result tests it.
 > **2. Where inference runs.** 0.9 B params + Florence-2-Large will not run at control rate on Sourccey's [Raspberry Pi 5](raspberry-pi-5.md). Vulcan's own spec page concedes the point obliquely — "capabilities scale with the host computer. Rented compute is planned" — so the deployment model is the same off-board-inference arrangement as [XLeRobot](xlerobot.md), not onboard autonomy. The paper gives no inference latency figures at all.
@@ -66,6 +73,7 @@ X-VLA is upstreamed into [LeRobot](lerobot.md) as the `xvla` policy (`src/lerobo
 - [Soft-prompt cross-embodiment conditioning](../concepts/learning/soft-prompt-cross-embodiment.md) — the mechanism
 - [π0](pi-zero.md) — the model X-VLA benchmarks against most directly
 - [SmolVLA](smolvla.md) — the other "small model beats large model" result in this wiki; SmolVLA wins on *data efficiency*, X-VLA on *heterogeneity handling*
+- [RoboMIND](robomind.md) — 19.9% of pretraining, entered as four separate prompts; the source of the dexterous-hand exclusion above
 - [Florence-2](florence-2.md) — the VLM backbone
 - [Sourccey](sourccey.md), [Vulcan Robotics](vulcan-robotics.md) — first product deployment
 

@@ -2,8 +2,8 @@
 title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
-updated: 2026-08-07
-sources: 34
+updated: 2026-08-13
+sources: 35
 tags: [sim-to-real, domain-gap, rl, simulation]
 ---
 
@@ -57,6 +57,28 @@ The policy consequence the brief draws: **define how much real-world validation 
 The paper's conclusion: "simulation performance — whether perceptual or functional — is not a reliable proxy for real-world deployment and physical evaluation remains indispensable." It also self-critiques single-simulator benchmarking as "susceptible to overfitting, leading to artificially inflated rankings."
 
 Note the recursion: this is the sim-to-real gap applied *to the simulator itself*. A learned simulator validated in simulation tells you little about a learned simulator used on hardware.
+
+## Domain randomization, measured (RoboTwin 2.0, 2025)
+
+The [RoboTwin 2.0 paper](../../sources/robotwin2-paper.md) is the wiki's cleanest controlled study of what randomization actually buys, because it varies *only* randomization while holding the simulator fixed.
+
+**Randomizing five axes** — clutter, background texture (11,000 filtered Stable-Diffusion textures), lighting, tabletop height, and language instructions:
+
+| Pretraining data | RDT | π0 |
+|---|---:|---:|
+| none (released weights) | 18.8% | 22.5% |
+| **clean** sim data | 14.6% (*worse*) | 24.9% |
+| **randomized** sim data | **24.8%** (+31.9% rel.) | **29.1%** (+29.3% rel.) |
+
+Two results worth separating:
+
+1. **Fidelity is not what closed the gap here.** Clean 2.0 data gave no benefit over the released weights. Since higher-fidelity clean simulation *didn't help*, the authors correctly infer the deficit is **not a real-to-sim gap but a robustness gap** — and the whole measured gain came from diversity, not realism. Anyone reading "better simulator closes sim-to-real" into this paper has the wrong lesson.
+2. **Randomized pretraining transfers to clean downstream training.** The gain persists when the target task is subsequently trained on clean data only — so randomization is buying a durable property of the representation, not task-specific augmentation.
+
+Real-world confirmation on a COBOT-Magic dual-arm: **10 real demonstrations + 1,000 randomized synthetic trajectories beat 10 real demonstrations alone by +24.4 points averaged**, and **the gains grow with difficulty** — +13.5 in the easiest configuration, **+33.0** in unseen-background-cluttered. Zero-shot synthetic-only beat 10 real demos in both unseen-background configurations. (The paper's headline "367%" is that hardest configuration; see the [source page](../../sources/robotwin2-paper.md).)
+
+> [!note] Randomization compensates for pretraining diversity, not for the simulator
+> Pair this with the benchmark table on [RoboTwin 2.0](../../entities/robotwin.md): non-pretrained policies collapse under randomization ([ACT](../../entities/act.md) 29.7 → 1.7, [DP](../../entities/diffusion-policy.md) 28.0 → 0.6) while pretrained VLAs survive (RDT 13.7, π0 16.3). Randomized synthetic data and large-scale VLA pretraining appear to buy **the same property** — robustness to appearance shift — by different routes, and the paper's own diagnosis of why the VLAs still drop 20–30 points is *"limited diversity in pretraining data."*
 
 ## Notable claims
 - [MuJoCo Playground](../../entities/mujoco-playground.md) demonstrates **zero-shot** transfer from both state and pixel inputs across quadrupeds, humanoids, hands, and arms ([MuJoCo Playground Paper](../../sources/mujoco-playground-paper.md)).
