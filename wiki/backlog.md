@@ -10,6 +10,27 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-08-13c] XLeRobot bring-up — plan filed, decisions pending
+
+*Scoped after the RoboTwin experiment was deferred as off-path. Plan: [XLeRobot — navigate, pick-and-place, teleoperate](syntheses/projects/xlerobot-nav-manip-teleop-bringup.md). It executes [fleet-ladder](syntheses/projects/fleet-agentic-framework.md) steps 0–1 for the single robot.*
+
+### Blocking decision
+
+- [ ] **Depth camera.** Gates the navigation leg and helps grasping. D435i + the [designed bracket](syntheses/projects/xlerobot-d435i-bracket.md) is the wiki's recommendation over the stock D415 (global shutter, wider FOV, **IMU** — which materially helps RTAB-Map on a base that slips on carpet). Order early.
+
+### Highest-value milestone
+
+- [ ] **~50 demos of one top-down task → ACT on the Spark → runs on-robot.** Ladder step 0. 2–3 h of teleoperation at realistic rates. First point where the robot does something learned, and it validates the whole data flywheel.
+
+### Known blocker with a known fix
+
+- [ ] **One serial port, one owner.** A ROS 2 `JointState` publisher and LeRobot cannot both hold the FeeTech arm bus. Interim: time-slice (nav owns the base, LeRobot takes the arm only during a pick). General fix: **[Rosetta](entities/rosetta.md) owning the bus and serving both** — which makes the Rosetta arm-bus contract load-bearing for this project, not optional.
+
+### Carried into the plan from today's research
+
+- [ ] **Top-down grasps only** (radial for lateral). Derived in the [5-DoF analysis](syntheses/projects/five-dof-arms-in-robotwin.md); the one place today's cross-embodiment thread pays off practically. Teleoperate a candidate grasp by hand *before* recording 50 demos of it.
+- [ ] **ACT onboard, SmolVLA off-board.** Measured on Orin Nano: ACT 36 ms / 27.8 Hz vs SmolVLA 713.8 ms / 1.4 Hz. The bottleneck is the iterative action expert, not the VLM — so it is not fixable by shrinking the language model.
+
 ## [2026-08-13b] RoboTwin 2.0 / RoboMIND / openFT — follow-ups
 
 *Three backlog items closed. What they opened:*
