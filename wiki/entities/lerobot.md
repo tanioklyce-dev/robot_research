@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-05-10
 updated: 2026-08-13
-sources: 33
+sources: 34
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026, xvla, sourccey, plugin-system]
 ---
 
@@ -112,6 +112,9 @@ The [NVIDIA corporate blog (2026-07-06)](../sources/nvidia-hf-lerobot-open-robot
 ## Official pedagogical reference
 
 **["Robot Learning: A Tutorial"](../sources/lerobot-robot-learning-tutorial.md)** (Capuano, Pascal, Zouitine, Wolf, Aractingi — Oct 14, 2025; arXiv 2510.12403 + HF Space at https://huggingface.co/spaces/lerobot/robot-learning-tutorial) is the **team-authored canonical tutorial** for the framework — a chapter arc from Classical Robotics through RL and IL to Generalist (VLA) policies, with runnable `lerobot` code examples (ACT, Diffusion Policy, async inference, [π₀](physical-intelligence.md), SmolVLA). 410 likes on the Space at ingest time. This is the recommended single-source onboarding for the framework, complementary to the wiki's own [bottom-up curriculum](../syntheses/curriculum/robot-learning-curriculum.md).
+
+> [!note] `LeRobotDataset` is becoming the interchange format, independent of middleware
+> Two unrelated projects now export *into* it from outside the LeRobot ecosystem. **[Rosetta](rosetta.md)** maps ROS 2 topics to `observation.*` / `action` through a declarative YAML contract. **[DimOS](dimos.md)** records Quest-teleop episodes to a session DB and converts them with `dimos dataprep` to **LeRobot v3.0** (`data/episodes` parquet + task-indexed `tasks.parquet`) or HDF5 ([repo](../sources/dimos-github.md)). Neither depends on LeRobot for control — both chose it as the destination for demonstration data. That is a stronger signal of format adoption than the checkpoint downloads: **the training framework won the data-format argument even where it lost the middleware argument.**
 
 ## Third-party robot plugins (the `lerobot_robot_*` convention)
 

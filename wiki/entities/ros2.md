@@ -3,8 +3,8 @@ title: ROS 2
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-05-28
-sources: 11
+updated: 2026-08-13
+sources: 12
 tags: [ros2, ros, middleware, dds, ament, colcon, humble, jazzy, kilted, lyrical, robotics, open-source]
 ---
 
@@ -56,6 +56,12 @@ A reader asking "can I run a LeRobot-trained policy on my Humble robot?" must ch
 - **rosbag2**: data recording (MCAP is the default modern container format).
 - **Ament + colcon**: build tooling.
 - **rmw_dds_common**: DDS abstraction layer.
+
+## Challengers
+
+- **[DimOS](dimos.md)** ([Dimensional Inc.](dimensional-inc.md), Apache 2.0, 3,874★) — the first credible ROS 2 *alternative* ingested here, pitched as *"no ROS required, build physical applications entirely in python."* Typed `In[T]`/`Out[T]` module streams, `autoconnect()` blueprint composition, and **five interchangeable transports (LCM, Zenoh, shared memory, DDS, and ROS 2 itself)** under an unchanged module API.
+
+  The framing matters: DimOS is **ROS-optional, not anti-ROS**. Its message names are deliberately ROS-shaped (`dimos.msgs.geometry_msgs.Twist`), ROS 2 is a first-class transport, and navigation is advertised "via both DimOS native and ROS." What it actually attacks is the **install and packaging experience** — `pip install dimos` and a Python-native API against colcon workspaces, `package.xml`, and per-distro binary pinning, which the [distribution-split section](#distribution-split-is-operationally-load-bearing) above shows is a real operational cost. Whether the ecosystem (drivers, [Nav2](nav2.md), MoveIt, tooling) can be replaced as easily as the middleware is the open question, and DimOS's answer so far is to bridge rather than replace ([source](../sources/dimos-github.md)).
 
 ## Related
 

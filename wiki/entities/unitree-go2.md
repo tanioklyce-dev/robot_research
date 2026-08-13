@@ -3,8 +3,8 @@ title: Unitree Go2
 type: entity
 subtype: robot
 created: 2026-07-27
-updated: 2026-07-27
-sources: 3
+updated: 2026-08-13
+sources: 4
 tags: [unitree-go2, quadruped, robot-dog, china, affordable, edu, project-fetch, frontier-red-team]
 ---
 
@@ -38,6 +38,18 @@ The Go2 is the physical substrate for the whole Anthropic Frontier Red Team robo
 - **[Spot](spot.md)** (Boston Dynamics) — the industrial/commercial reference quadruped: mature Python/gRPC **Spot SDK**, Autowalk, optional arm, ~$75k+. Where Spot's SDK is the thing that makes it programmable, the Go2's is the thing Project Fetch suggests you fight.
 - **[Unitree G1](unitree-g1.md) / [H1](unitree-h1.md)** — the same vendor's humanoid line, and the wiki's much better-covered Unitree platforms (G1 is the de-facto benchmark robot for learned [whole-body control](../concepts/robotics/whole-body-control.md)).
 - The wiki has **no ingested primary source on any quadruped platform** — Spot is grounded in a Boston Dynamics blog post and the Go2 only in a policy article that doesn't name it. See the [robot platforms comparison](../syntheses/platforms/robot-platforms-comparison.md), which flags quadrupeds as an underrepresented tier.
+
+## As DimOS's reference platform
+
+The Go2 pro/air is the **only platform [DimOS](dimos.md) labels 🟩 stable** ([repo](../sources/dimos-github.md)) — its reference target for navigation, agentic control, spatial memory, and hosted teleop. Connection is over **WebRTC** (`unitree-webrtc-connect`), with an optional DDS bridge (`unitree-sdk2py`).
+
+Practical consequences worth noting for anyone using a Go2 as a research base:
+
+- **A full replay corpus ships with the framework.** `dimos --replay run unitree-go2` drives the entire SLAM / costmap / A* stack from a recorded session with no hardware attached; a published example session holds 4,164 `color_image`, 2,251 `lidar`, and 5,465 `odom` items over 292.5 s.
+- **Agentic blueprints are turnkey** — `unitree-go2-agentic` (real hardware + LLM + MCP), `-ollama` (local LLM), `unitree-go2-relocalization` (premap + GTSAM pose-graph optimization).
+- **Hosted teleop via dimTELE** — `teleop-hosted-go2-transport` gives browser or Quest driving over WebRTC with the robot dialling out, so no inbound ports on the robot's network.
+
+This makes the Go2 the best-supported robot in the wiki's agentic-robotics coverage — a relevant data point when weighing it against [Spot](spot.md) at ~10× the price.
 
 ## Related
 - Unitree Robotics — manufacturer (**no entity page yet**; the wiki has G1, H1, and Go2 but not the parent company).

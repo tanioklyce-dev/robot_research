@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-08-13
 updated: 2026-08-13
-sources: 2
+sources: 3
 tags: [vulcan-robotics, sourccey, startup, open-hardware, household-robot, lerobot, xvla, cern-ohl]
 ---
 
@@ -34,7 +34,7 @@ Positioning: *"the open-source personal robot for physical AI and robotics devel
 
 Two things stand out. **Hardware is copyleft while software is permissive** — CERN-OHL-S-2.0 obliges anyone distributing a modified Sourccey design to publish their sources, which is the opposite of the [SO-ARM101](so-arm101.md) / [LeKiwi](lekiwi.md) / [XLeRobot](xlerobot.md) Apache-2.0 norm. And the **advertised "Electrical" repository does not exist**; the docs page names four repos and the org publishes three.
 
-`dimos-vulcan` is a fork of `dimensionalOS/dimos`, an agentic robot OS ("vibecode your robots in natural language," ROS-optional, agents subscribe to perception and control streams). Whether it is a planned Sourccey layer or exploration is unclear — DIMOS is otherwise uncovered in this wiki.
+`dimos-vulcan` is a fork of `dimensionalOS/dimos` — **[DimOS](dimos.md)**, now ingested ([source](../sources/dimos-github.md)): an Apache-2.0 agentic robotics middleware from [Dimensional Inc.](dimensional-inc.md) with 3,874 stars, five interchangeable transports, and an MCP-based agent layer. Whether Vulcan intends it as a [Sourccey](sourccey.md) layer is still unclear — the fork has one star and was last pushed 2026-07-03 — but the fit is legible: DimOS's shipped capability set (2D-LiDAR SLAM, spatial memory, Quest teleop → [LeRobot](lerobot.md) dataset export) maps almost exactly onto Sourccey's Oct–Nov 2026 roadmap items, and Sourccey's own stack currently has no navigation layer at all.
 
 ## Approach
 
@@ -56,6 +56,7 @@ Vulcan's engineering choices read as a coherent cost thesis rather than a set of
 - [X-VLA](x-vla.md) — the shipped policy
 - [LeRobot](lerobot.md) — the framework
 - [XLeRobot](xlerobot.md), [LeKiwi](lekiwi.md), [The Robot Studio](the-robot-studio.md) — the ecosystem it enters
+- [DimOS](dimos.md) / [Dimensional Inc.](dimensional-inc.md) — forked as `dimos-vulcan`; a parallel open-source-plus-hosted-service business model
 - [Sensori Robotics](sensori-robotics.md) — the other "open designs, sold as a supported product" position in this wiki
 
 ## Mentioned in

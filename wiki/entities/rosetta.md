@@ -3,8 +3,8 @@ title: Rosetta
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-05-28
-sources: 7
+updated: 2026-08-13
+sources: 8
 tags: [rosetta, lerobot, ros2, bridge, yaml-contract, mcap, async-inference, grpc, iblnkn, apache-2-0, downstream]
 ---
 
@@ -68,6 +68,20 @@ The shipped `turtlebot3.yaml` contract is the closest reference for a wheeled mo
 | Languages | Python 99.4% / CMake 0.6% |
 
 Active, narrowly-scoped, solo. Risk profile for a personal project: **moderate** — write your contract conservatively, don't depend on `rosetta_rl` (coming-soon) until it ships.
+
+## Compare: DimOS
+
+[DimOS](dimos.md) solves the **mirror image** of Rosetta's problem, and the contrast is clarifying:
+
+| | [Rosetta](rosetta.md) | [DimOS](dimos.md) |
+|---|---|---|
+| Direction | ROS 2 robot → [LeRobot](lerobot.md) | DimOS robot → LeRobot dataset export |
+| Mechanism | Declarative **YAML contract** mapping topics to `observation.*` / `action` | `dimos dataprep` over recorded session DBs |
+| Relationship to ROS 2 | Depends on it | Treats it as one of five transports |
+| Scope | A bridge | A whole middleware + agent layer |
+| Scale | 76★, solo maintainer | 3,874★, 12+ contributors |
+
+Both arrive at LeRobot as the destination format, from opposite sides of the ROS boundary — reasonable evidence that `LeRobotDataset` has become the de-facto interchange format for real-robot demonstration data, independent of which middleware collected it.
 
 ## Related
 

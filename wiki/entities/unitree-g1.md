@@ -3,8 +3,8 @@ title: Unitree G1
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-07-15
-sources: 12
+updated: 2026-08-13
+sources: 13
 tags: [unitree-g1, humanoid, bipedal, china, affordable, accessible, groot, whole-body-control]
 ---
 
@@ -32,6 +32,10 @@ The G1 is the GR00T line's main **cross-embodiment / whole-body** target beyond 
 - **Limited dexterous manipulation** — basic grippers; not the multi-finger hands of [Atlas](atlas.md) or [Figure](figure.md).
 
 The G1 is fast becoming the **de-facto benchmark platform for learned [whole-body control](../concepts/robotics/whole-body-control.md)** — it is the common target across [SONIC](../sources/sonic-paper.md) (NVIDIA GEAR), [MotionBricks](../sources/motionbricks-paper.md) (NVIDIA, SIGGRAPH 2026), and [BumbleBee](../sources/bumblebee-experts-to-generalist-wbc.md) ([BeingBeyond](beingbeyond.md)), which all evaluate WBC methods on it. (Note DoF varies by config — SONIC uses the 29-joint G1; BumbleBee a 23-joint config.)
+
+## In DimOS
+
+🟨 **beta** in [DimOS](dimos.md)'s hardware matrix ([repo](../sources/dimos-github.md)) — supported for both real hardware (`dimos run unitree-g1-agentic --robot-ip ...`) and **[MuJoCo](mujoco.md) simulation with the full agent stack** (`dimos --simulation run unitree-g1-agentic-sim`, described as "full agentic sim, no real robot needed"). The sim-with-agent path is the notable part: it lets the LLM-agent layer be developed against a G1 without owning one, which no other stack in the wiki's [agentic-robotics comparison](../syntheses/agents/llm-agent-architecture-across-stacks.md) offers.
 
 ## Related
 - Unitree Robotics — manufacturer (no entity page yet).

@@ -3,8 +3,8 @@ title: Waddle Labs
 type: entity
 subtype: company
 created: 2026-08-03
-updated: 2026-08-03
-sources: 3
+updated: 2026-08-13
+sources: 4
 tags: [company, waddle, code-as-policy, llm-agent, agentic-robotics, skill-library, robot-api, startup]
 ---
 
@@ -43,6 +43,19 @@ Because the controller is an LLM agent, Waddle claims it inherits the underlying
 ## Relation to prior work / the wiki's landscape
 
 - **Same architectural family** as the [LLM-agent robot stacks](../concepts/agents/llm-agent-architecture.md) already documented ([stretch_ai](stretch-ai.md), [ROSOrin](rosorin.md)/[OpenClaw](openclaw.md), [Spot + Gemini Robotics-ER](../sources/bostondynamics-spot-gemini-robotics.md)) — but with two distinctive moves: **(1) code as actions** (the agent writes executable programs) rather than selecting from a fixed JSON tool menu, and **(2) a self-growing shared skill library** with cross-agent transfer.
+- **[DimOS](dimos.md)** ([Dimensional Inc.](dimensional-inc.md), [repo](../sources/dimos-github.md)) is the **nearest positional competitor with a public codebase** — same "agent above the robot, calling skills" thesis, shipped as Apache-2.0 software with **3,874 stars and 12+ contributors**. The comparison is unflattering in one direction and instructive in the other:
+
+  | | Waddle | [DimOS](dimos.md) |
+  |---|---|---|
+  | Evidence | one company blog post | 277 MB public repo, daily commits |
+  | Action vocabulary | agent-**writes** code | agent **calls** `@skill` methods over MCP |
+  | Skill library | agent-authored, self-growing, shared across agents | human-written, **auto-discovered** by RPC introspection |
+  | Calls VLAs as tools? | claimed | **no** — classical skills only |
+  | Hardware | unstated | Go2 🟩, G1 🟨, xArm 🟨, Piper 🟨, drones 🟧 |
+  | Success rates | none | none |
+
+  Both converge on the same shape and neither publishes a success rate, which remains the defining evidentiary problem of this category. Where they differ is the **source of the skill library** — Waddle's self-growing agent-authored library is the more ambitious claim and the one with no public artifact behind it; DimOS's introspected-from-running-code library is the less ambitious claim with a repository anyone can read.
+
 - **Positioned against** the end-to-end VLA/WAM camp ([π0](pi-zero.md), [GR00T](nvidia-groot.md), [MolmoAct2](molmoact2.md), [Cosmos 3](nvidia-cosmos.md)) — yet *calls VLAs as tools*, so it is complementary rather than strictly rival.
 
 ## How the claims look now that the research is ingested
@@ -60,7 +73,7 @@ The research also surfaces the question Waddle's framing omits entirely: **cost*
 
 ## Open questions
 
-- Company basics — founding, funding, team, location, hardware partners — **all unstated**.
+- Company basics — founding, funding, team, location, hardware partners — **all unstated**. (Same posture applies to [Dimensional Inc.](dimensional-inc.md), where at least the artifact is inspectable.)
 - No reported success rates or trial counts anywhere (see [source flags](../sources/waddle-labs-introducing-waddle.md)). The bar has risen: two 2026 papers in the same paradigm publish full protocols, so the absence is now conspicuous rather than merely typical.
 - ~~Whether "generalist without new data" survives a genuine embodiment shift~~ — **largely answered**: bounded by the primitive set, per ASPIRE and CaP-X. What remains is how *much* porting Waddle's platform actually requires.
 - How often the agent truly calls VLAs vs. writes classical perception+control code (the demos read as the latter). Note neither research system calls a VLA at all — both write classical perception+control code, which makes Waddle's "calls VLAs as tools" the *unvalidated* part of its architecture diagram.

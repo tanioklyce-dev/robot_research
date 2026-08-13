@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-13
 updated: 2026-08-13
-sources: 1
+sources: 2
 tags: [florence-2, vlm, vision-language-model, microsoft, backbone, xvla]
 ---
 
@@ -18,11 +18,17 @@ This is a notably smaller and older backbone than the VLA field's defaults — P
 
 A vendored `modeling_florence2.py` ships inside [LeRobot](lerobot.md)'s `xvla` policy directory.
 
+## Second appearance: as a robot-stack VLM
+
+[DimOS](dimos.md) ships Florence-2 as one of four interchangeable VLM backends in `dimos/models/vl/` alongside Moondream (local and hosted), Qwen, and OpenAI ([repo](../sources/dimos-github.md)) — loaded through `transformers` with `trust_remote_code`. Worth noting because the two uses are unrelated in kind: [X-VLA](x-vla.md) uses Florence-2 as a **frozen-ish encoder inside a policy**, DimOS uses it as a **queryable perception service** an LLM agent calls. The same 2024 model serves both the highest-performing cross-embodiment VLA in the wiki and a production robot stack's scene-understanding tier, which says something about how much headroom small VLMs still have in robotics.
+
 ## Related
 
 - [X-VLA](x-vla.md) — the VLA built on it
 - [VLA models](../concepts/learning/vla-models.md) — backbone comparison across the family
+- [DimOS](dimos.md) — uses it as an agent-callable perception service
 
 ## Mentioned in
 
 - [X-VLA paper](../sources/xvla-paper.md)
+- [DimOS GitHub repository](../sources/dimos-github.md)

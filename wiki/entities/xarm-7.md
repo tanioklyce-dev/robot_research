@@ -3,8 +3,8 @@ title: xArm 7
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-05-10
-sources: 2
+updated: 2026-08-13
+sources: 3
 tags: [xarm, ufactory, robot-arm, manipulator, 7-dof, cross-embodiment]
 status: stub
 ---
@@ -22,6 +22,10 @@ status: stub
 ## Why it matters in this wiki
 - **Cross-embodiment evidence.** RUM's Stretch → xArm 7 transfer numbers are the wiki's single empirical data point on how BC policies transfer across embodiments. Useful reference for any future cross-embodiment claim.
 - **Alternative tabletop arm to Franka Panda.** Most JEPA / VLA / world-model work in this wiki defaults to Franka. xArm 7's appearance signals there's a second commercial 7-DOF option that lab teams use; could surface more if VLA work expands.
+
+## In DimOS
+
+🟨 **beta** in [DimOS](dimos.md) ([repo](../sources/dimos-github.md)), and the platform its manipulation and imitation-learning paths are built around: **Drake**-based trajectory planning (`xarm7-planner-coordinator`, `dual-xarm6-planner-coordinator`), Quest VR teleop (`teleop-quest-xarm7`), keyboard teleop against a mock arm, perception-plus-agent blueprints in sim and on real hardware, and **`learning-collect-quest-xarm7`** — the Quest-teleop episode collector whose output `dimos dataprep` converts into a **[LeRobot](lerobot.md) v3.0 dataset**. The xArm is where DimOS's agentic stack and the wiki's imitation-learning coverage actually touch.
 
 ## Related
 - [Robot Utility Models](robot-utility-models.md) — primary cross-embodiment use.
