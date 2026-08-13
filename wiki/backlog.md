@@ -10,6 +10,42 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-08-13] Sourccey + X-VLA and DimOS ingests — follow-ups
+
+*Two ingests, 44 pages. Drift they introduced was fixed the same day (LIBERO tie six→ten propagated to the audit page, index, and deployability landscape; RoboTwin randomized-scene item closed; across-stacks stack counts corrected). What remains is below.*
+
+### Highest value: nobody measures anything in agentic robotics
+
+- [ ] **Four stacks, zero published success rates.** [stretch_ai](entities/stretch-ai.md), [ROSOrin](entities/rosorin.md)/[OpenClaw](entities/openclaw.md), [Waddle](entities/waddle-labs.md), and now [DimOS](entities/dimos.md) at 3,874★ — none reports a rollout count, a latency, or a success rate. The [across-stacks synthesis](syntheses/agents/llm-agent-architecture-across-stacks.md) claims the pattern beats VLAs on shippability; that claim rests on the **absence of measurement on both sides**. A rollout-backed comparison of any two of these is the highest-value experiment currently available, and DimOS makes it cheap: `dimos --replay` and `--simulation` run the full agent stack with no hardware.
+- [ ] Related and concrete: **does `@skill` discovery scale past ~10 skills** before tool selection becomes the bottleneck? DimOS ships ten. Nobody has hit the wall yet.
+
+### X-VLA follow-ups
+
+- [ ] **The 5-DOF question.** X-VLA aligns all embodiments to absolute SE(3) EEF pose and pretrains only on ≥6-DOF arms. [Sourccey](entities/sourccey.md) ships it on **5-DOF + gripper** arms. Soft prompts are the mechanism that *should* absorb this and nothing published tests it — an uncontrolled field trial begins in September. Watch for it.
+- [ ] **Prompt retrieval for zero-shot embodiment transfer** — proposed in the paper's §5.3, never run. Pretrain on enough platforms that a new robot is served by its nearest existing prompt. The cleanest follow-on experiment the paper names.
+- [ ] **No independent replication of soft prompts.** But X-VLA is upstream in [LeRobot](entities/lerobot.md) as the `xvla` policy, which lowers the bar considerably.
+- [ ] **Soft-Fold dataset** (1,200 bimanual cloth-folding episodes) — release promised, not confirmed. Would be the wiki's reference dexterous-manipulation dataset if it lands.
+- [ ] **Is the ℓ1-error proxy transferable?** R² = −0.925 between held-out action error and adaptation success was measured on X-VLA's own targets. If it generalizes it is the cheapest instrument the field has for scaling studies, which are rare precisely because rollouts are expensive.
+
+### Ingests newly exposed
+
+- [ ] **RoboMind** — 19.9% of X-VLA's pretraining mixture (Franka / UR-5 / AgileX / dual-Franka), no page.
+- [ ] **Primary RoboTwin 2.0 paper** (arXiv 2506.18088) — still secondhand via TurboVLA and X-VLA, now the wiki's most-cited bimanual benchmark.
+- [ ] **`openFT-sensor`** (dimensionalOS) — open force-torque sensing, relevant given how often this wiki finds low-cost platforms recording position only ([Sourccey](entities/sourccey.md), [XLeRobot](entities/xlerobot.md)).
+- [ ] **UniVLA primary**, **TAMP**, **LTL** — carried forward unchanged from 2026-08-04.
+
+### Re-check dated items (Sep–Nov 2026)
+
+- [ ] **[Sourccey](entities/sourccey.md) price, runtime, and open-source completeness.** All three unknown; all three resolve on the published roadmap. Specifically: do STLs, a BOM, wiring, and a **URDF** land? Does the advertised "Electrical" repo appear? What is the runtime on 120 Wh?
+- [ ] **Which X-VLA checkpoint ships on Sourccey, and are the weights open?** "4 micromodels" implies four task finetunes from an unnamed base.
+
+### Smaller open questions
+
+- [ ] What action-space convention does `dimos dataprep` write into its LeRobot v3.0 export, and is it compatible with SO-101/DROID-trained policies? This is the whole question for anyone hoping to train on DimOS-collected data.
+- [ ] Why is Jetson Orin Nano **experimental** in DimOS — VRAM, ARM wheels, or thermals? Bears directly on [onboard compute for XLeRobot](syntheses/platforms/jetson-onboard-compute-xlerobot.md).
+- [ ] What is `gpt-5.6-luna`? Named as DimOS's default planner in two places, uncovered here.
+- [ ] Does [Vulcan](entities/vulcan-robotics.md) intend `dimos-vulcan` as a [Sourccey](entities/sourccey.md) navigation layer? The fit is legible; the fork is one star and untouched since July.
+
 ## [2026-08-04] Action-representation session — next steps and gaps
 
 *Four ingests in one day ([TurboVLA](sources/turbovla-paper.md), [RT-H](sources/rt-h-paper.md), and a six-source batch: [behavior trees](sources/behavior-trees-book.md), [RT-1](sources/rt-1-paper.md), [RT-2](sources/rt-2-paper.md) + [blog](sources/rt-2-deepmind-blog.md), [PDDL generalized planning](sources/generalized-planning-pddl-llm-paper.md), [UniT](sources/unit-paper.md)), plus one synthesis: [action representation languages](syntheses/agents/action-representation-languages.md). ~40 pages added. Recommended order below.*
@@ -54,7 +90,7 @@ Three standing claims moved today and pages elsewhere may still quote the old ve
 - [ ] **The names result has an untested confound.** RT-H-OneHot, TurboVLA task-ID, and PDDL No-Names all consume **text-pretrained models**, so the three-way convergence measures what such models need, not what is intrinsically necessary. A policy trained from scratch on robot data alone might not care.
 - [ ] **Add a CNL condition to TurboVLA's instruction-encoding ablation** — the one-training-run experiment (four consumer GPUs). Free-form English 97.7 / **a controlled vocabulary** / task-ID 95.4. Parity → readability is free; near the floor → the grammar discarded the compositional semantics.
 - [ ] **[UniT](entities/unit.md)'s visual anchoring assumes visible consequences** — force-dominant, occluded, and in-hand manipulation untested; transfer evidence is pick-and-place-shaped (EgoDex `basic_pick_place`, `pour`).
-- [ ] **[RoboTwin 2.0](entities/robotwin.md) randomized-scene setting is unrun.** [TurboVLA](sources/turbovla-paper.md) trained on clean demonstrations only, citing compute budget. That setting is a built-in generalization test — the LIBERO-PRO-shaped question on a benchmark that **has headroom** (leaders near 58%, where 3 pp gaps separate).
+- [x] ~~**[RoboTwin 2.0](entities/robotwin.md) randomized-scene setting is unrun.**~~ — **closed 2026-08-13** by the [X-VLA paper](sources/xvla-paper.md), which reports both settings across all 50 tasks: **domain randomization costs every model 20–31 points** (X-VLA 70.0→39.0, π0 46.4→16.4, RDT 34.5→13.7), the ranking survives, and per-task numbers show total collapses hiding in the average (`Place Object Basket` 50.0 → **0.0**). The headroom argument holds — leaders sit at 39% on hard, where 3 pp gaps separate. Still open: the LIBERO-PRO-shaped question of *why* specific tasks collapse.
 - [ ] **RT-2's blog/paper discrepancy is recorded but not generalized.** The [blog](sources/rt-2-deepmind-blog.md) headlines 3× generalization where the paper reports ~2×. The wiki cites vendor blogs often; **a systematic pass checking blog claims against their papers** would be cheap and high-yield — this instance was found only because both were ingested together.
 - [ ] **[RT-1](sources/rt-1-paper.md) / [RT-2](sources/rt-2-paper.md) have no per-cell N.** 3,000 and 6,000 trials across 200+ instructions; aggregate gaps hold, per-task and per-category orderings do not. Do not repeat PaLI-X-vs-PaLM-E-on-math as a ranking.
 - [ ] **The [behavior-trees book](sources/behavior-trees-book.md) was read structurally.** The formal proofs (Ch. 6), planning algorithms (Ch. 7), and stochastic reliability calculus (Ch. 9) were summarized from their framing, not verified line by line. Fine for current use; needs a deeper read before any claim leans on the math.

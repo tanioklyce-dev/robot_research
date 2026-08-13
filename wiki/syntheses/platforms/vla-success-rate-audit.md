@@ -67,7 +67,12 @@ LIBERO averages span four suites (Spatial / Object / Goal / Long) of **10 tasks 
 | TurboVLA 97.7 vs [Evo-1](../../entities/evo-1.md) 94.8 | 2.9 pp | — | p<0.001 | **survives** |
 | TurboVLA 97.7 vs SmolVLA 88.8 | 8.9 pp | — | p<0.0001 | **survives** |
 
-**Minimum separating gap at ~97%: >1.8 pp (n=500) or >1.0 pp (n=2,000).** The cluster from 96.5 to 98.1 spans 1.6 pp and contains at least six models — **now at least eight**, with TurboVLA 97.7 and VLA-Adapter 97.3 joining it.
+**Minimum separating gap at ~97%: >1.8 pp (n=500) or >1.0 pp (n=2,000).** The cluster from 96.5 to 98.1 spans 1.6 pp and contained at least six models when this audit ran.
+
+> [!note] The cluster keeps growing — updated 2026-08-13
+> **Now ten models, spanning 1.2 pp**: MolmoAct2-Think 98.1, [X-VLA](../../entities/x-vla.md) 98.1, [TurboVLA](../../entities/turbovla.md) 97.7, CogVLA 97.4, VLA-Adapter 97.3, MolmoAct2 97.2, [VLA-JEPA](../../entities/vla-jepa.md) 97.2, OpenVLA-OFT 97.1, GR00T N1.7 97.0, π0.5 96.9. Every addition since this audit has landed *inside* the tie, which is itself the finding: **LIBERO stopped discriminating some time before the field stopped reporting it.** The current roster lives on [LIBERO](../../entities/libero.md); this line is the historical record of when it was six.
+>
+> The one place the tie now breaks is **LIBERO-Long**, where headroom survives: X-VLA 97.6 vs MolmoAct2-Think 95.4, OpenVLA-OFT 94.5, π0 85.2. Report Long separately from the four-suite average.
 
 > [!note] The tie is doing useful work for once
 > TurboVLA's whole argument is *"matching much larger policies at 6% of the parameters."* A tie at the top is exactly the claim — and its efficiency axis (0.2 B vs 3.4 B, 0.9 GB vs 12.8 GB, 31.2 ms vs 93.6 ms) consists of **engineering measurements, not sampled proportions**, so it doesn't need this audit at all. The paper's abstract says "matching or outperforming"; only the first word survives, and only the first word was needed.
