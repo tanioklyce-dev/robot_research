@@ -3,8 +3,8 @@ title: DROID
 type: entity
 subtype: dataset
 created: 2026-05-07
-updated: 2026-08-03
-sources: 21
+updated: 2026-08-13
+sources: 22
 tags: [droid, dataset, teleoperation, franka, robot-data, stanford, berkeley, oxe, molmoact2]
 ---
 
@@ -39,6 +39,8 @@ DROID is the **dominant real-robot dataset cited across the JEPA-for-robotics li
 
 - **[V-JEPA 2](v-jepa-2.md)** ([paper](../sources/v-jepa-2-paper.md)) — V-JEPA 2-AC post-trained on **62 hr of unlabeled DROID robot videos** (a subset of the full 350 hr); zero-shot Franka manipulation in two new labs followed.
 - **[JEPA-WMs](jepa-wms.md)** ([paper](../sources/jepa-wms-paper.md)) — uses the **raw DROID dataset in stereo HD (8.7 TB)** or **non-stereo HD-only video (5.6 TB)** as one of the training/eval data sources alongside RoboCasa, Metaworld, and a real Franka.
+
+- **[X-VLA](x-vla.md)** ([paper](../sources/xvla-paper.md)) — **31.6% of X-VLA's 290 K-episode pretraining mixture**, entered *twice* as two separate data sources (15.8% each) that differ only in which of DROID's cameras is designated the main view: `Droid-Left` (left + wrist, 15 Hz) and `Droid-Right` (right + wrist, 15 Hz). This turns out to be the paper's cleanest interpretability result — the two learned [soft prompts](../concepts/learning/soft-prompt-cross-embodiment.md) **intermingle rather than separate** in t-SNE, because the underlying hardware is identical and only the viewpoint convention differs. DROID's multi-camera rig accidentally supplies a controlled experiment on what embodiment conditioning actually encodes.
 
 This makes DROID the single most reused real-robot dataset in the JEPA literature ingested here. It also features in the [sim-heavy vs real-data paths synthesis](../syntheses/simulators/sim-heavy-vs-real-data-paths.md) as the substrate for the "observation-pretraining + small real teleop" path to generalist policies — without DROID, V-JEPA 2's "62 hr → zero-shot Franka" existence proof would not exist.
 

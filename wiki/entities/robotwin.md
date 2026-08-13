@@ -3,8 +3,8 @@ title: RoboTwin 2.0
 type: entity
 subtype: benchmark
 created: 2026-08-04
-updated: 2026-08-08
-sources: 3
+updated: 2026-08-13
+sources: 4
 tags: [robotwin, benchmark, bimanual, manipulation, domain-randomization, data-generation, simulation]
 ---
 
@@ -33,13 +33,30 @@ First appears here via the [TurboVLA paper](../sources/turbovla-paper.md), which
 >
 > The table also distinguishes **per-task** (one policy per task) from **multi-task** (one joint policy over all 50), which LIBERO reporting usually elides.
 
+## The randomized ("hard") setting — closed by X-VLA
+
+The gap flagged below is now partly filled. The [X-VLA paper](../sources/xvla-paper.md) reports **both** settings across all 50 tasks, and the drop is severe:
+
+| Model | Params (B) | Easy | Hard | Drop |
+|---|---:|---:|---:|---:|
+| [X-VLA](x-vla.md) | 0.9 | **70.0** | **39.0** | −31.0 |
+| [π0](pi-zero.md) | 3.0 | 46.4 | 16.4 | −30.0 |
+| RDT | 1.0 | 34.5 | 13.7 | −20.8 |
+
+Two things worth taking from this. **Domain randomization costs every model roughly 20–31 points** — the randomized setting is not a modest perturbation, it is a different benchmark, and the [LIBERO-PRO](../sources/libero-pro-paper.md)-shaped worry is well founded. And **the ranking survives**: X-VLA leads on both, by a *wider* relative margin on hard (2.4×) than on easy (1.5×), so whatever the randomization is testing, cross-embodiment pretraining with [soft prompts](../concepts/learning/soft-prompt-cross-embodiment.md) helps with it more than it helps in the clean case.
+
+Cross-validation note: X-VLA's π0 clean figure (46.4) and RDT clean figure (34.5) match the TurboVLA table above exactly, which is mild evidence that both papers are running the benchmark the same way.
+
+Per-task detail is in the paper's Tab. 16. The spread is enormous — `Shake Horizontally` 99/100 and `Put Object Cabinet` 78/82 barely degrade, while `Put Bottles Dustbin` scores **0.0/1.0** and `Place Object Basket` goes 50.0 → **0.0**. Averages over 50 tasks are hiding total failures.
+
 ## Open questions
-- **The randomized-scene setting has not been ingested here.** TurboVLA trained on clean demonstrations only, citing compute budget, so the wiki has no data on how the 2026-class VLAs behave under RoboTwin's own domain randomization — which is precisely the [LIBERO-PRO](../sources/libero-pro-paper.md)-shaped question.
-- No primary RoboTwin paper ingest yet; everything above is secondhand via TurboVLA.
+- Still **no primary RoboTwin paper ingest**; everything here is secondhand via TurboVLA and X-VLA.
+- What distinguishes the tasks that survive randomization (`Shake Horizontally`, `Put Object Cabinet`) from those that collapse to zero (`Put Bottles Dustbin`, `Place Object Basket`)? Container-relative placement under scene randomization looks like the failure cluster, but that is a guess from task names.
 
 ## Related
 - [LIBERO](libero.md) — the single-arm benchmark it complements
 - [ALOHA](aloha.md) / [YAM](yam.md) — real bimanual platforms
+- [X-VLA](x-vla.md) — current best on both settings
 - [Success-rate audit](../syntheses/platforms/vla-success-rate-audit.md)
 
 ## Mentioned in

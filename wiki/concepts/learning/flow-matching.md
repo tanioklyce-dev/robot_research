@@ -2,9 +2,9 @@
 title: Flow matching
 type: concept
 created: 2026-05-25
-updated: 2026-07-25
-sources: 16
-tags: [flow-matching, generative-model, ode, continuous-actions, vla, action-head, pi-zero, smolvla, molmoact2, dit, lipman, esser]
+updated: 2026-08-13
+sources: 17
+tags: [flow-matching, generative-model, ode, continuous-actions, vla, action-head, pi-zero, smolvla, molmoact2, dit, lipman, esser, xvla]
 ---
 
 **Flow matching** — a continuous-time generative-modeling technique that learns a **vector field** `v_θ(x_τ, τ)` whose flow transports samples from a noise distribution to a data distribution. Trained by regressing on a closed-form target vector field along straight-line (or other) interpolants between noise and data, without the score-matching detour DDPM-class diffusion models take. **The dominant continuous-action-head technique in 2025+ VLAs** — used by [π0](../../entities/pi-zero.md), [π0.7](../../entities/pi07.md), [π*0.6](../../entities/pistar06.md), [SmolVLA](../../entities/smolvla.md), [GR00T N1](../../sources/groot-n1-paper.md) (DiT action head, Beta(1.5,1) timestep prior following π0, only **K=4 Euler steps** at inference), and [EgoScale](../../sources/egoscale-paper.md). Sibling-not-subclass of [DDPM](../../entities/ddpm.md): both are continuous-action approaches that avoid action-tokenization quantization, but flow matching trains a deterministic vector field rather than a noise-prediction network.
@@ -30,7 +30,7 @@ At inference, integrate the learned vector field from noise to data over `τ ∈
 |---|---|---|---|
 | **Autoregressive tokens** | OpenVLA | No (discretized to bins) | LLM-style next-token prediction |
 | **DDPM** | [Diffusion Policy](../../entities/diffusion-policy.md) | Yes | Iterative noise prediction + denoising |
-| **Flow matching** | [π0](../../entities/pi-zero.md), [π0.7](../../entities/pi07.md), [π*0.6](../../entities/pistar06.md), [SmolVLA](../../entities/smolvla.md), [EgoScale](../../sources/egoscale-paper.md) | Yes | Learned vector field + ODE integration |
+| **Flow matching** | [π0](../../entities/pi-zero.md), [π0.7](../../entities/pi07.md), [π*0.6](../../entities/pistar06.md), [SmolVLA](../../entities/smolvla.md), [X-VLA](../../entities/x-vla.md), [EgoScale](../../sources/egoscale-paper.md) | Yes | Learned vector field + ODE integration |
 
 The flow-matching family is winning the 2025 action-head contest — every major late-2025 VLA primary source ingested in this wiki uses flow matching. **All three families are instances of a [Fenchel-Young loss](../../entities/mathieu-blondel.md)** with different convex-conjugate regularizers — [Blondel & Roulet 2025](../../sources/blondel-roulet-differentiable-programming.md) (chs. 13 + 18) gives the unifying math.
 
@@ -43,6 +43,7 @@ The flow-matching head is a small transformer ("action expert") that attends to 
 | [π0](../../entities/pi-zero.md) | **Full bidirectional self-attention** — all action tokens attend to each other |
 | [π0.7](../../entities/pi07.md) / [π*0.6](../../entities/pistar06.md) | Full bidirectional SA + **[Knowledge Insulation (KI)](knowledge-insulation.md) training** — VLM trained via next-token prediction with [FAST](../../entities/fast-action-tokenization.md) tokens; action expert gets **stop-gradient** to VLM |
 | [SmolVLA](../../entities/smolvla.md) | **Interleaved cross-attention + causal self-attention** — each block is either CA (action tokens cross-attend to VLM keys/values) or SA (causal masked, action tokens attend only to past tokens) |
+| [X-VLA](../../entities/x-vla.md) | **No separate action expert at all** — action tokens are ordinary tokens in one 24-layer bidirectional self-attention stack shared with the multimodal tokens and the [soft prompts](soft-prompt-cross-embodiment.md). Proprioception, noisy action chunk, and flow time `t` are concatenated and projected by a single linear layer, fusing *early*. Uses `t ~ U(0,1)` and the OT/rectified-flow path — **not** the Beta prior π0 and SmolVLA adopt. |
 | [MolmoAct2](../../entities/molmoact2.md) | **DiT-style expert (36 layers, matching VLM depth) with [per-layer KV conditioning](per-layer-kv-conditioning.md)** — each expert block does SA → CA to the *corresponding VLM layer's* keys/values → MLP, with DiT shift/scale/gate from the flow-time embedding. KI-style stop-gradient in post-training, dropped in fine-tuning. |
 
 SmolVLA's interleaved CA+SA pattern empirically wins on real-world SO-100 multi-task at smaller scale; whether it scales to π0.7's regime is open. MolmoAct2's per-layer-KV design ablates **+1.9 over final-hidden-state conditioning** on LIBERO — evidence that *where* in the backbone the expert reads from matters, not just the attention pattern.

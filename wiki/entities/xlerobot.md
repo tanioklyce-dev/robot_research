@@ -3,9 +3,9 @@ title: XLeRobot
 type: entity
 subtype: robot
 created: 2026-05-10
-updated: 2026-05-30
-sources: 15
-tags: [xlerobot, mobile-manipulator, dual-arm, lerobot, lekiwi, so-arm101, low-cost, household-robot, embodied-ai]
+updated: 2026-08-13
+sources: 16
+tags: [xlerobot, mobile-manipulator, dual-arm, lerobot, lekiwi, so-arm101, low-cost, household-robot, embodied-ai, sourccey]
 ---
 
 **Open-source hardware:** [github.com/Vector-Wangel/XLeRobot](https://github.com/Vector-Wangel/XLeRobot) (Apache 2.0). Docs: [xlerobot.readthedocs.io](https://xlerobot.readthedocs.io).
@@ -76,7 +76,10 @@ XLeRobot is the **cheapest dual-arm mobile manipulator** documented in this wiki
 - Software = [LeRobot](lerobot.md) (Hugging Face)
 - Sim = [ManiSkill](maniskill.md) (Hillbot lineage)
 
-This composition pattern — **buy-no-new-IP, glue together with 3D-printed brackets and Apache-2.0 software** — is becoming the dominant cost-reduction strategy in the affordable-manipulation space, and XLeRobot is one of its clearest expressions. Useful counterpoint to [Stretch](stretch.md) (~$20k, integrated single-arm with lift), the [Reachy 2](reachy.md) (~$50k, dual-arm with integrated AI compute), and [Fauna Sprout](fauna-robotics.md) (humanoid developer platform).
+This composition pattern — **buy-no-new-IP, glue together with 3D-printed brackets and Apache-2.0 software** — is becoming the dominant cost-reduction strategy in the affordable-manipulation space, and XLeRobot is one of its clearest expressions.
+
+> [!note] The commercial answer to the same problem
+> **[Sourccey](sourccey.md)** ([Vulcan Robotics](vulcan-robotics.md), Aug 2026) converges on nearly the same component list — FeeTech servos, Raspberry Pi 5, ~90% 3D-printed, dual 5-DOF arms, LeRobot — from the product side rather than the community side. It adds a **vertical lift**, **standard LiDAR**, an **onboard touchscreen**, **Oculus Quest IK teleop**, and **[X-VLA](x-vla.md) laundry-folding policies preinstalled**; it gives up **half the battery energy** (~120 Wh vs 288 Wh), **all of the reproducibility** (no BOM, wiring, URDF, or STLs published), a **permissive hardware license** (CERN-OHL-S-2.0 vs Apache 2.0), and any published price. Full comparison: **[Sourccey vs XLeRobot](../syntheses/platforms/sourccey-vs-xlerobot.md)**. Useful counterpoint to [Stretch](stretch.md) (~$20k, integrated single-arm with lift), the [Reachy 2](reachy.md) (~$50k, dual-arm with integrated AI compute), and [Fauna Sprout](fauna-robotics.md) (humanoid developer platform).
 
 ## Related
 
@@ -112,6 +115,7 @@ These are the strongest external signals to date that the $660 BOM holds up when
 - [Jetson onboard compute for XLeRobot](../syntheses/platforms/jetson-onboard-compute-xlerobot.md) — Orin Nano vs AGX Orin vs Thor.
 - [Seeed × NVIDIA × HF Embodied AI Hackathon 2025 Recap](../sources/seeed-embodied-ai-hackathon-2025-recap.md)
 - [Grievous GitHub](../sources/grievous-github.md) — design ancestor.
+- [Sourccey vs XLeRobot](../syntheses/platforms/sourccey-vs-xlerobot.md) — head-to-head with the commercial convergent design.
 
 ## Open questions / TBD
 

@@ -3,8 +3,8 @@ title: π0 (pi-zero)
 type: entity
 subtype: model
 created: 2026-05-25
-updated: 2026-08-03
-sources: 23
+updated: 2026-08-13
+sources: 24
 tags: [pi-zero, pi0, vla, flow-matching, physical-intelligence, paligemma, action-expert, generalist-policy, cross-embodiment, lerobot, hugging-face]
 ---
 
@@ -55,6 +55,22 @@ Laundry folding (long-horizon, dual-arm, deformable), table bussing (combinatori
 | Async inference stack | not native | **yes — server/client with similarity-filtering** |
 
 The two are the canonical contrast points in the [LeRobot tutorial](../sources/lerobot-robot-learning-tutorial.md) and the active reference points for VLA design as of mid-2026.
+
+## As a baseline: what X-VLA reports against π0
+
+[X-VLA](x-vla.md) ([paper](../sources/xvla-paper.md)) uses π0 as its principal comparison and is worth reading as an audit of where π0's 3 B parameters actually earn their keep:
+
+| | π0 (3 B) | X-VLA (0.9 B) |
+|---|---:|---:|
+| LIBERO avg | 94.1 | **98.1** |
+| Simpler-WidowX | 27.8 (55.7 finetuned on it) | **95.8** |
+| [RoboTwin-2.0](robotwin.md) easy / hard | 46.4 / 16.4 | **70.0 / 39.0** |
+| LIBERO under LoRA | 94.2 @ 3 B tuned | 93.0 @ **9 M** tuned |
+| Cloth folding throughput | X-VLA "comparable to closed-source π0-folding" | 33 folds/hr from 1,200 episodes |
+
+Two caveats keep this from being a clean π0 indictment. The **cloth-folding comparison is against the *public* `pi0_base` finetuned on Soft-Fold** — 150 K steps on 4×A100 — not against Physical Intelligence's internal folding model, which X-VLA only claims to be "comparable" to. And π0's own strength has always been argued on **real-world open-world breadth** (10,000 hr of in-house teleop across 7 robot configurations), which no benchmark in X-VLA's suite measures.
+
+Still, the direction is consistent with [SmolVLA](smolvla.md)'s result from the other side: at these task scales, **π0's parameter count is not what is buying its performance**, and both a 0.45 B community-data model and a 0.9 B conditioning-focused model have now passed it on their chosen ground.
 
 ## Related
 

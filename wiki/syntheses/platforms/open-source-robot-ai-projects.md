@@ -2,8 +2,8 @@
 title: Open-source robot AI research projects — landscape
 type: synthesis
 created: 2026-05-17
-updated: 2026-07-13
-tags: [open-source, ecosystem, lerobot, jepa, simulators, fly, karpathy, landscape-survey]
+updated: 2026-08-13
+tags: [open-source, ecosystem, lerobot, jepa, simulators, fly, karpathy, landscape-survey, sourccey, xvla]
 ---
 
 A grouped catalog of the **open-source robot AI projects** tracked in this wiki — frameworks, simulators, datasets, model checkpoints, open hardware, and codebases that anyone can read, run, or fork. Internal-only / closed products (Tesla Optimus, Apptronik Apollo, Boston Dynamics Atlas) are excluded.
@@ -18,6 +18,7 @@ The single most active open-source robotics-AI scene tracked in this wiki.
 - [SO-ARM100 / SO-ARM101](../../entities/so-arm101.md) — [The Robot Studio](../../entities/the-robot-studio.md) open-hardware low-cost arm (Apache 2.0); the dominant low-cost manipulator in this wiki's coverage.
 - [LeKiwi](../../entities/lekiwi.md) — [SIGRobotics-UIUC](../../entities/sigrobotics-uiuc.md) 3-wheel holonomic mobile manipulator; sub-$1k; 1,300+ GitHub stars.
 - [XLeRobot](../../entities/xlerobot.md) — [Vector Wang](../../entities/vector-wang.md)'s $660 dual-arm household robot (two SO-ARM101s + LeKiwi base; 90% 3D-printed). Two-time Embodied AI Hackathon 2025 winner.
+- [Sourccey](../../entities/sourccey.md) — [Vulcan Robotics](../../entities/vulcan-robotics.md)'s commercial open-hardware household manipulator (Aug 2026). **The ecosystem's first product to ship with a working policy preinstalled** ([X-VLA](../../entities/x-vla.md) laundry folding). Caveats matter: hardware is **CERN-OHL-S-2.0** (strongly reciprocal, unlike everything else in this section), and as of 2026-08-13 the "open" hardware is 115 STEP files with no BOM, wiring, URDF, or STLs. See [Sourccey vs XLeRobot](sourccey-vs-xlerobot.md).
 - [LeRobot Worldwide Hackathon 2025](../../entities/lerobot-worldwide-hackathon-2025.md) — the event that sized the ecosystem; ~400 submissions, 30 ranked winners.
 
 ## Open robot platforms (hardware + software stacks)
@@ -60,6 +61,7 @@ The single most active open-source robotics-AI scene tracked in this wiki.
 - [Robot Utility Models](../../entities/robot-utility-models.md) — NYU/Meta zero-shot mobile manipulation; open code + data.
 - [Dobb·E](../../entities/dobb-e.md) — NYU precursor to RUM; HPR encoder + Homes-of-New-York dataset; CC-BY-4.0.
 - [π0](../../sources/pi-zero-paper.md) — [Physical Intelligence](../../entities/physical-intelligence.md)'s VLA flow-matching model.
+- [X-VLA](../../entities/x-vla.md) — 0.9 B cross-embodiment VLA (AIR Tsinghua + Shanghai AI Lab); SOTA on five of six benchmarks, **upstreamed into [LeRobot](../../entities/lerobot.md) as the `xvla` policy**, and the first research VLA to reach a shipping consumer product.
 
 ## Behavior-cloning baselines (open code)
 

@@ -3,9 +3,9 @@ title: LeRobot
 type: entity
 subtype: software-framework
 created: 2026-05-10
-updated: 2026-08-03
-sources: 31
-tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026]
+updated: 2026-08-13
+sources: 33
+tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026, xvla, sourccey, plugin-system]
 ---
 
 **LeRobot** — open-source **end-to-end robot learning library** maintained by [Hugging Face](hugging-face.md). Provides a vertically-integrated stack: unified Python middleware for low-level motor control, the `LeRobotDataset` format for multimodal high-frame-rate data, an optimized async inference stack (physical + logical decoupling), and reference PyTorch implementations of SOTA robot-learning algorithms across RL (HIL-SERL, TD-MPC), single-task BC (ACT, Diffusion Policy, VQ-BET), and multi-task VLAs (π0, SmolVLA). De-facto OSS stack for the affordable mobile-manipulator class (SO-ARM100/101, LeKiwi, XLeRobot, Koch v1.1) bringing "buy → assemble → teleop → train → deploy" within reach of sub-$1k hobbyist hardware.
@@ -27,12 +27,16 @@ LeRobot also distributes **two reference VLA checkpoints** directly:
 
 The canonical 7-step LeRobot workflow (install → motor config → calibration → teleop → data collection → train → evaluate) is repeated across nearly every LeRobot-compatible hardware tutorial. **ACT (Action Chunking with Transformers)** is the default reference policy class, though Diffusion Policy and others are supported.
 
+> [!note] The policy zoo has grown well past the two distributed checkpoints
+> As of 2026-08-13 `src/lerobot/policies/` ships **`act`, `diffusion`, `eo1`, `evo1`, `fastwam`, `gaussian_actor`, `groot`, `lingbot_va`, `molmoact2`, `multi_task_dit`, `pi0`, `pi05`, `pi0_fast`, `pi_gemma`, `rtc`, `smolvla`, `tdmpc`, `vla_jepa`, `vqbet`, `wall_x`, `xvla`** (verified against `huggingface/lerobot` `main`). Notably **[X-VLA](x-vla.md) is upstream** — `modeling_xvla.py`, `soft_transformer.py`, `processor_xvla.py`, and a vendored `modeling_florence2.py` — which is how a 0.9 B cross-embodiment SOTA model reaches consumer hardware like [Sourccey](sourccey.md) without any vendor porting work. LeRobot is now the distribution channel for research VLAs, not just the training harness.
+
 ## Composition stack examples in this wiki
 
 | Platform | Base | Arm | Cost | Source |
 |---|---|---|---|---|
 | [LeKiwi](lekiwi.md) | LeKiwi 3-wheel Kiwi-drive | SO-ARM101 (optional) | sub-$1k | [LeKiwi GitHub](../sources/lekiwi-github.md), [Seeed tutorial](../sources/seeed-lekiwi-wiki.md) |
 | [XLeRobot](xlerobot.md) | LeKiwi-class wheeled base | 2× SO-ARM101 | ~$660 | [XLeRobot docs](../sources/xlerobot-docs.md) |
+| [Sourccey](sourccey.md) | 4× mecanum, custom | 2× custom 5-DOF (FeeTech STS3215/3250) | undisclosed | [Vulcan site](../sources/vulcan-robotics-sourccey-site.md), [hardware repo](../sources/sourccey-hardware-repo.md) |
 
 ## Key facts
 
@@ -109,8 +113,15 @@ The [NVIDIA corporate blog (2026-07-06)](../sources/nvidia-hf-lerobot-open-robot
 
 **["Robot Learning: A Tutorial"](../sources/lerobot-robot-learning-tutorial.md)** (Capuano, Pascal, Zouitine, Wolf, Aractingi — Oct 14, 2025; arXiv 2510.12403 + HF Space at https://huggingface.co/spaces/lerobot/robot-learning-tutorial) is the **team-authored canonical tutorial** for the framework — a chapter arc from Classical Robotics through RL and IL to Generalist (VLA) policies, with runnable `lerobot` code examples (ACT, Diffusion Policy, async inference, [π₀](physical-intelligence.md), SmolVLA). 410 likes on the Space at ingest time. This is the recommended single-source onboarding for the framework, complementary to the wiki's own [bottom-up curriculum](../syntheses/curriculum/robot-learning-curriculum.md).
 
+## Third-party robot plugins (the `lerobot_robot_*` convention)
+
+LeRobot supports out-of-tree hardware without forking: it **scans installed top-level packages prefixed `lerobot_robot_`** and imports them, letting the package's `__init__.py` register its own robot and teleoperator configs into the CLI. [Vulcan Robotics](vulcan-robotics.md)'s `lerobot-robot-sourccey` is the wiki's first documented example — it registers robots `sourccey` / `sourccey_client` / `sourccey_follower` and teleoperators `sourccey_leader` / `bi_sourccey_leader` / `sourccey_teleoperator` against LeRobot 0.6.x, with a Linux-only `hardware` extra for GPIO and an optional `record` extra so arm-only installs need not carry the dataset stack ([sourccey-hardware repo page](../sources/sourccey-hardware-repo.md)).
+
+This is a meaningfully better integration path than the fork-and-patch pattern most community hardware uses, and worth knowing about for anyone adding a platform.
+
 ## Downstream / hardware-ecosystem projects
 
+- **[Sourccey](sourccey.md)** ([Vulcan Robotics](vulcan-robotics.md), Aug 2026) — commercial open-hardware household manipulator built on a LeRobot fork (`lerobot-vulcan`) plus the plugin above; **ships with [X-VLA](x-vla.md) laundry-folding policies preinstalled**, the first product in this wiki to arrive with a working policy rather than a link to one.
 - **[Grievous](grievous.md)** ([source](../sources/grievous-github.md)) — Alex Koven's in-progress "cheap, human-like, fully-autonomous testbed" registered as `lerobot.robots.grievous.grievous_host`. Design ancestors: [Mobile ALOHA](aloha.md) + [XLeRobot](xlerobot.md).
 
 ### Running LeRobot on Jetson (containerized)

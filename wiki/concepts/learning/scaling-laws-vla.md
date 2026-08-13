@@ -2,12 +2,12 @@
 title: Scaling laws — VLAs and human data
 type: concept
 created: 2026-05-15
-updated: 2026-07-04
-sources: 10
-tags: [scaling-laws, vla, human-data, egocentric, gr00t, egoscale, pretraining]
+updated: 2026-08-13
+sources: 11
+tags: [scaling-laws, vla, human-data, egocentric, gr00t, egoscale, pretraining, xvla, cross-embodiment]
 ---
 
-**Scaling laws for Vision–Language–Action (VLA) models** — the empirical relationship between **pretraining data scale** and **downstream real-robot performance**. The robotics analogue of Hoffmann et al.'s Chinchilla scaling laws for LLMs. As of 2026, the field has exactly one published clean scaling law: **EgoScale (NVIDIA GEAR, Feb 2026)** on human-video pretraining for dexterous manipulation.
+**Scaling laws for Vision–Language–Action (VLA) models** — the empirical relationship between **pretraining data scale** and **downstream real-robot performance**. The robotics analogue of Hoffmann et al.'s Chinchilla scaling laws for LLMs. As of 2026, the field has exactly one published clean scaling law with a fitted functional form: **EgoScale (NVIDIA GEAR, Feb 2026)** on human-video pretraining for dexterous manipulation. A second, weaker data point — trends without a fitted law, but across **three axes at once** — comes from [X-VLA](../../entities/x-vla.md) (Oct 2025).
 
 ## Definition
 
@@ -40,6 +40,18 @@ The critical empirical finding is that **(1) tracks (2)** — offline validation
 | **Action representation matters** | Joint-space hand actions beat fingertip-SE(3) and wrist-only ablations. Scaling law applies to the **joint-space** representation. |
 | **Cross-embodiment** | Pretraining transfers to a tri-finger hand on the Unitree G1 (+30% absolute) — the learned motor prior is not specific to the 22-DoF training target. |
 
+## What X-VLA adds — three axes, and a usable proxy metric
+
+[X-VLA](../../entities/x-vla.md) ([paper](../../sources/xvla-paper.md)) sweeps **model capacity, data diversity, and data volume simultaneously** and reports monotone improvement on all three **with no sign of saturation** at its largest configuration (0.9 B params, 290 K episodes, 7 data sources). No functional form is fitted, so this is a trend, not a law.
+
+Two contributions that matter beyond the trend itself:
+
+1. **A cheap proxy for downstream success.** X-VLA measures held-out **ℓ1 error between denoised predicted actions and ground truth** during pretraining, and reports **R² = −0.925** against adaptation success rate. That lets a scaling study skip full policy rollouts — the reason robotics scaling studies are so rare. EgoScale's `L` is a training loss; X-VLA's is a post-denoising action error, which is closer to what the policy actually emits.
+2. **Data diversity as a distinct axis.** EgoScale scales *hours of human video* — one corpus, more of it. X-VLA separates **number of heterogeneous data sources** from **volume**, which is the axis that matters for cross-embodiment pretraining and which nobody else isolates.
+
+> [!warning] More data made it worse before the recipe made it better
+> The sharpest caveat in the wiki's scaling coverage. Adding 290 K episodes of mixed-embodiment data to X-VLA's baseline **dropped** Simpler-WidowX success from 39.6 to 25.0. Only after action-space alignment, intention abstraction, balanced sampling, a disentangled encoding pipeline, and [soft prompts](soft-prompt-cross-embodiment.md) did the same data yield 89.6. **Cross-embodiment data scaling is conditional on the conditioning mechanism** — a scaling curve measured without it would slope the wrong way. Neither EgoScale (single corpus) nor the single-point VLA papers surface this.
+
 ## What's still unknown
 - **Does the law continue beyond 20k hr?** Logarithmic-in-data implies diminishing returns; eventually you'd need a 10× data jump per fixed loss decrement. Whether real-robot performance keeps tracking is empirical.
 - **What's the *compute*-optimal trade-off?** LLM scaling-law work (Chinchilla) is about jointly choosing data scale and model size. EgoScale fixed its model size and only varied data; there's no published VLA Chinchilla yet.
@@ -57,13 +69,14 @@ The critical empirical finding is that **(1) tracks (2)** — offline validation
 - **Hoffmann et al. 2022** (Chinchilla) — not in `raw/`; the LLM-side reference scaling-law paper. Different functional form (power-law) and different problem (compute-optimal model-vs-data trade-off).
 - **[Welch Labs Illustrated Guide to AI, Vol I, Ch 6](../../sources/welchlabs-illustrated-guide-to-ai.md)** (Welch, 2026) — pedagogy-grade companion. Walks through Kaplan et al. 2020 (the OpenAI scaling-law paper) with the fitted slopes (compute ≈ −0.050, params ≈ −0.076, dataset ≈ −0.09). The wiki's accessible-pedagogy entry point for the LLM-side scaling-law literature; useful complement when readers ask "is the EgoScale law really a robotics version of the LLM thing, or is it different?"
 
-## Current state (2026-05)
-- One published scaling-law paper (EgoScale). Everything else in the VLA literature ([GR00T](../../entities/nvidia-groot.md), [π0](../../entities/physical-intelligence.md), [Helix](../../entities/figure.md)) reports *single-point* training runs without a scaling sweep.
+## Current state (2026-08)
+- One published scaling-law paper with a fitted form (EgoScale), plus X-VLA's three-axis trend and its R² = −0.925 error-to-success proxy. Everything else in the VLA literature ([GR00T](../../entities/nvidia-groot.md), [π0](../../entities/physical-intelligence.md), [Helix](../../entities/figure.md)) reports *single-point* training runs without a scaling sweep.
 - GR00T N1.7 ships on the **same 20,854 hr corpus** EgoScale uses — so the largest VLA in production is built on the scaling-law-validated regime.
 - The wiki's [LeWorldModel](../../entities/leworldmodel.md) JEPA line has *no* published scaling law of any kind; this is a major TBD.
 
 ## Mentioned in
 - [EgoScale Paper](../../sources/egoscale-paper.md)
+- [X-VLA paper](../../sources/xvla-paper.md)
 - [Welch Labs Illustrated Guide to AI, Vol I](../../sources/welchlabs-illustrated-guide-to-ai.md)
 
 ## Open follow-ups
@@ -71,3 +84,5 @@ The critical empirical finding is that **(1) tracks (2)** — offline validation
 - **Cross-task scaling** — does the law hold for humanoid whole-body control, or only dexterous tabletop? GEAR's SONIC / HOVER / ASAP lines are the natural test beds.
 - **Real-vs-sim data scaling comparison** — Cosmos generates synthetic data; a controlled comparison of "1k hr sim" vs "1k hr real human video" at matched model size would be a foundational result.
 - **A `concepts/scaling-laws-llm.md` partner page** if/when the wiki needs the LLM scaling-law literature in scope. Currently out of scope; the wiki is robotics-focused.
+- **Does the X-VLA trend continue past 0.9 B?** The authors stop for compute reasons, not because the curve bends. Their own limitation section flags the interaction between embodiment variability and model capacity as unstudied.
+- **Is the ℓ1-error proxy transferable?** R² = −0.925 was measured on X-VLA's own adaptation targets. If it holds across architectures it is the cheapest instrument the field has for scaling studies.

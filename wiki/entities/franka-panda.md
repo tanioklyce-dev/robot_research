@@ -3,8 +3,8 @@ title: Franka Panda
 type: entity
 subtype: robot
 created: 2026-05-07
-updated: 2026-08-03
-sources: 30
+updated: 2026-08-13
+sources: 31
 tags: [franka, panda, robot-arm, manipulator, 7-dof, manipulation-platform]
 ---
 
@@ -37,6 +37,12 @@ The result: when a JEPA-style or VLA-style paper says "real-robot eval" without 
 - **Small tabletop footprint** fits academic-lab benches.
 - **Open-ish ecosystem** — `franka_ros`, `libfranka`, `frankx` Python bindings, plus widespread MuJoCo / Isaac Sim / Pinocchio models.
 - **Existing teleop pipelines** — DROID's Oculus Quest 2 + Franka teleop rig is the most-replicated real-robot data-collection setup of the 2024–2026 cohort.
+
+## In X-VLA's pretraining mixture
+
+Franka appears in **four of [X-VLA](x-vla.md)'s seven pretraining data sources** — `Droid-Left` (15.8%), `Droid-Right` (15.8%), `RoboMind-Franka` (6.7%), and `RoboMind-Dual-Franka` (0.8%) — for **39.1% of 290 K episodes**, more than any other robot type ([X-VLA paper](../sources/xvla-paper.md), Fig. 3). Franka is effectively the reference embodiment of open cross-embodiment pretraining, which is worth keeping in mind when a "cross-embodiment" model's generalization is assessed: a plurality of what it saw was one 7-DOF arm.
+
+The t-SNE of learned [soft prompts](../concepts/learning/soft-prompt-cross-embodiment.md) shows the Franka setups forming a **single cluster** despite being registered as separate data sources, with the two DROID viewpoint variants fully intermingled.
 
 ## Related
 - [DROID](droid.md) — single-embodiment dataset built on Franka Panda.

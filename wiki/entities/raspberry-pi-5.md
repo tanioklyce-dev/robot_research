@@ -3,9 +3,9 @@ title: Raspberry Pi 5
 type: entity
 subtype: product
 created: 2026-06-07
-updated: 2026-06-07
-sources: 2
-tags: [raspberry-pi, single-board-computer, host-compute, edge, xlerobot, lekiwi]
+updated: 2026-08-13
+sources: 3
+tags: [raspberry-pi, single-board-computer, host-compute, edge, xlerobot, lekiwi, sourccey]
 ---
 
 # Raspberry Pi 5
@@ -16,6 +16,7 @@ The 2023-generation Raspberry Pi single-board computer (Broadcom BCM2712 quad-co
 
 - **[XLeRobot](xlerobot.md)** — the optional Raspberry Pi 4/5 (+$79) is the **data relay** in the stock "PC-does-inference, Pi-relays-WiFi" model; heavy policy inference runs off-board ([XLeRobot](xlerobot.md)).
 - **[LeKiwi](lekiwi.md)** / **[Grievous](grievous.md)** — Raspberry-Pi-hosted mobile bases in the LeRobot lineage.
+- **[Sourccey](sourccey.md)** ([Vulcan Robotics](vulcan-robotics.md), 2026) — the Pi 5 is the *only* onboard computer, running at 5.1 V through a Pi 5 power HAT with a **PCIe-to-USB HAT** and a cooling fan. Its USB budget is unusually heavy for a Pi: **4 cameras + 1 speaker + 2 motor drivers + 1 LCD**, which is why the PCIe lane is spent on USB expansion rather than an NVMe drive or a [Hailo](hailo.md) HAT. GPIO carries wheel motors, actuator sensing, and battery detection. Sourccey is the clearest case in this wiki of the Pi 5 as a **full robot controller** rather than a relay — and also of its limits: the [X-VLA](x-vla.md)-0.9B policies Sourccey ships cannot run on it, so inference is off-board ([Vulcan specs](../sources/vulcan-robotics-sourccey-site.md)).
 - A single **PCIe Gen 2/3 ×1 lane** is exposed on the Pi 5, which the Hailo AI HATs and NVMe SSDs share — a real constraint when stacking accelerators + storage.
 
 ## AI acceleration

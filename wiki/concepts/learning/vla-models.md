@@ -2,9 +2,9 @@
 title: VLA models
 type: concept
 created: 2026-05-06
-updated: 2026-08-04
-sources: 80
-tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos, vla-0, action-as-text, molmoact2, per-layer-kv-conditioning, hybrid-action-head, llm-free-vla, turbovla]
+updated: 2026-08-13
+sources: 81
+tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos, vla-0, action-as-text, molmoact2, per-layer-kv-conditioning, hybrid-action-head, llm-free-vla, turbovla, xvla, soft-prompt]
 ---
 
 **Vision-Language-Action (VLA) models** are robot foundation models that take visual input plus a language instruction and emit low-level actions for a robot to execute. The dominant model class powering "agentic" robotics in 2026.
@@ -24,6 +24,7 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 - **[Gemini Robotics](../../entities/gemini-robotics.md)** ([Google DeepMind](../../entities/google-deepmind.md)) — parallel generalist-policy effort alongside GR00T. Note: the Gemini Robotics family ships in two variants — a full VLA (this entry) and **Gemini Robotics-ER**, an embodied-reasoning *VLM* that emits tool calls and is therefore an [LLM-agent architecture](../agents/llm-agent-architecture.md) planner rather than a VLA. Boston Dynamics' [Spot + Gemini Robotics demo](../../sources/bostondynamics-spot-gemini-robotics.md) uses the -ER variant.
 - **GO-2 series** — benchmarked by [Genie Sim](../../entities/agibot-genie-sim.md).
 - **[SmolVLA](../../entities/smolvla.md)** ([Hugging Face](../../entities/hugging-face.md) LeRobot team, June 2025 — [paper](../../sources/smolvla-paper.md)) — **450 M-param** affordable-VLA reference; SmolVLM-2 backbone + flow-matching action expert with **interleaved cross-attention + causal self-attention**. Pretrained on **22.9 K episodes from 481 community HF datasets** (≈10× less data than π0) with VLM-cleaned task annotations + camera-view normalization. **Beats π0-3.5 B by +16.6 pts on real-world SO-100 multi-task** (78.3 vs 61.7 avg across pick-place + stacking + sorting). Introduces a **server/client async inference stack** with a threshold-`g` queue management policy and observation similarity filter — the practical-deployment piece most VLA papers skip. Available as [`lerobot/smolvla_base`](https://huggingface.co/lerobot/smolvla_base); runs on consumer GPUs and CPUs.
+- **[X-VLA](../../entities/x-vla.md)** (AIR Tsinghua + Shanghai AI Lab, Oct 2025 — [paper](../../sources/xvla-paper.md)) — **0.9 B**, [Florence-2](../../entities/florence-2.md)-Large encoder + 24 plain self-attention Transformer blocks + flow matching. No DiT, no cross-attention, no MoE. Its one idea is **[soft prompts](soft-prompt-cross-embodiment.md)**: per-data-source learnable embeddings, **0.04% of parameters**, injected early, absorbing not just action-space heterogeneity but camera rig, control frequency, and task distribution. **SOTA on five of six benchmarks at 3–8× smaller than what it displaces** — Simpler-WidowX **95.8** (prior best 71.9), LIBERO 98.1, [RoboTwin-2.0](../../entities/robotwin.md) 70.0/39.0 (prior best 46.4/16.4), VLABench 51.1, NAVSIM 87.3 (beating purpose-built AV planners); loses only CALVIN (4.43 vs 4.53). Under **LoRA at 9 M tunable params (1%)** it matches fully-finetuned π0 on LIBERO and Simpler-WidowX. Real-world flagship is **bimanual cloth folding at ~100% / 33 folds per hour** from 1,200 DAgger-curated demonstrations. Now upstream in [LeRobot](../../entities/lerobot.md) as the `xvla` policy, and the first named research VLA to **ship preinstalled on a consumer robot** ([Sourccey](../../entities/sourccey.md)).
 - **LingBot-VLA** — Ant Group's foundation model for real-world manipulation.
 - **[Cosmos 3](../../sources/cosmos-3-technical-report.md) policy (Cosmos3-Nano-Policy-DROID)** ([NVIDIA](../../entities/nvidia-cosmos.md), June 2026) — not a conventional VLA but a [world-action model](../world-models/world-action-model.md): its policy mode jointly denoises **actions and their predicted future frames** in one Mixture-of-Transformers network. Post-trained on DROID, it **tops RoboArena** (real-world A/B) and beats **π0.5** on RoboLab-120 (39.7% vs 28.1% under specific instructions; π0 3.5, GR00T N1.6 5.3). The clearest evidence that a pixel-generating world model can also be a SOTA real-robot policy — the generative-video answer to "VLAs don't plan."
 
@@ -32,6 +33,9 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 
 > [!note] Hierarchical System 1 / System 2 VLA pattern
 > Helix's slow-VLM-as-planner + fast-policy-as-controller split (with end-to-end gradients between them) is appearing in multiple 2025+ VLAs. The decoupled rates let each component specialize: scene/language reasoning at ~10 Hz, motor control at ~200 Hz. Worth tracking as a structural pattern alongside the action-head design choice (autoregressive tokens vs DDPM-over-actions vs flow-matching).
+
+> [!note] A second prior question: is the *backbone* where the performance comes from?
+> [X-VLA](../../entities/x-vla.md) ([paper](../../sources/xvla-paper.md), 2025-10) suggests not. It runs a **2024-vintage [Florence-2](../../entities/florence-2.md)** encoder — smaller and older than PaliGemma (π0), Gemma3 (π0.7), Eagle-2/Cosmos (GR00T), or SmolVLM-2 (SmolVLA) — and beats 7–9 B models on five of six benchmarks. Its ablation is explicit about where the points came from: **conditioning and data processing, not architecture**. Swapping DiT for a plain Transformer encoder *cost* 2.1 pts on its own; disentangled encoding (+16.7), soft prompts (+9.2), scaling (+15.8) and two-step adaptation (+6.2) supplied the rest. Most starkly, **naively adding 290 K episodes of cross-embodiment data made the model worse** (39.6 → 25.0) until the recipe was in place — a direct counterweight to "more robot data" as a strategy.
 
 ### Action-head design across VLAs
 
