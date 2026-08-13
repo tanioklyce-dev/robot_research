@@ -93,13 +93,18 @@ Once one task works, ACT's limits bite — it is single-task and does not genera
 
 **Recipe, taken directly from [Cutting the Cord](../../sources/cutting-the-cord-untethered-xlerobot.md):** RGB-D camera → **RTAB-Map in localization-only mode** → **[Nav2](../../entities/nav2.md)**. Validated on a weaker board than yours, in a real XLeRobot build.
 
-### The one prerequisite decision
+### Sensor: D435i — owned, and it is the right one
 
-**Do you have a depth camera on the robot?** XLeRobot ships RGB; the RealSense D415 is a +$220 option. Cutting the Cord used a **D435**. The wiki's [camera options analysis](xlerobot-camera-options-low-light.md) recommends the **D435i** over the stock D415 for low light and clutter — global shutter, wider FOV, onboard IMU — and flags that it needs a **mount tweak** because the housings differ (D435i 90×25×25 mm vs D415 99×20×23 mm), with a [bracket already designed](xlerobot-d435i-bracket.md).
+The **D435i** is in hand, which is the camera the [camera options analysis](xlerobot-camera-options-low-light.md) recommends over the stock D415 anyway: global shutter, wider FOV, and an **onboard IMU**. The IMU matters more than it looks here — RTAB-Map localization is materially more robust with one, and a differential base slipping on carpet is exactly where visual odometry alone drifts. It is also close to Cutting the Cord's D435, so their recipe transfers almost directly.
 
-The IMU matters more than it looks for this leg: RTAB-Map's localization is materially more robust with one, and a differential base pushed by hand or slipping on carpet is exactly the case where visual odometry alone drifts.
+**What remains is a fit task, not a decision.** The stock XLeRobot press-fit shell is keyed to the slimmer D415 (99×20×23 mm) and will not accept the D435i (90×25×25 mm). A parametric L-bracket already exists in the repo at `hardware/xlerobot-d435i-bracket/` (`.stl` slice-ready at 64×42×16 mm, plus `.scad` source) — bolting to the camera's two front-face **M3 holes at 45 mm pitch**. Two parameters were left open because they could not be resolved without the hardware, and now can:
 
-**Alternative worth pricing:** a ~$100 2-D LiDAR (RPLIDAR A1 class) gives a much easier SLAM problem than RGB-D, at the cost of losing the depth stream you'd also want for grasping. Given that the arm work needs depth anyway, **RGB-D is the better single purchase** — but if navigation robustness becomes the sticking point, adding 2-D LiDAR alongside is a cheap fix.
+1. **`cam_m3_z`** — M3 hole height above the camera's bottom edge. **Not published in Intel's D400 datasheet**; the current 17 mm is an estimate. **Caliper the actual unit.**
+2. **Robot-side hole pattern** — currently a **placeholder**. Measure the XLeRobot "last mounting link" bolt pattern and set it.
+
+Edit the `.scad`, re-export, print, test-fit. Half a day including the print.
+
+**Alternative if navigation robustness later becomes the sticking point:** a ~$100 2-D LiDAR (RPLIDAR A1 class) alongside makes SLAM much easier. Not needed to start — the arm work wants depth regardless, so RGB-D was the right single sensor.
 
 ### Odometry — you have it, and Sourccey doesn't
 
@@ -130,7 +135,7 @@ Legs A and B are independent. Run them in parallel; the integration is the join.
 
 | Phase | Work | Stop condition |
 |---|---|---|
-| **0** | **Decide the depth camera** (D435i + [bracket](xlerobot-d435i-bracket.md), or reuse existing). Order early — it gates Leg B and helps Leg A. | Camera mounted, streaming, calibrated. |
+| **0** | **Mount the D435i** (owned). Two caliper measurements → re-export the [bracket](xlerobot-d435i-bracket.md) → print → mount → calibrate. Half a day. | Camera mounted, streaming, extrinsics calibrated. |
 | **A1** | Data-collection discipline: fixed framing, episode boundaries, one strategy per task. Pick a **top-down** task. | 5 clean demos recorded and replayed. |
 | **A2** | ~50 demos (2–3 h). Train ACT on the Spark (`cu130` wheels). Deploy onboard. | **A learned pick works on-robot** — ladder step 0. |
 | **B1** | RTAB-Map mapping run of the operating area; save the map. | A map you can localize against. |

@@ -14,9 +14,13 @@ Deferred maintenance items and knowledge gaps surfaced during lint passes but no
 
 *Scoped after the RoboTwin experiment was deferred as off-path. Plan: [XLeRobot — navigate, pick-and-place, teleoperate](syntheses/projects/xlerobot-nav-manip-teleop-bringup.md). It executes [fleet-ladder](syntheses/projects/fleet-agentic-framework.md) steps 0–1 for the single robot.*
 
-### Blocking decision
+### Phase 0 — unblocked (D435i owned, 2026-08-13)
 
-- [ ] **Depth camera.** Gates the navigation leg and helps grasping. D435i + the [designed bracket](syntheses/projects/xlerobot-d435i-bracket.md) is the wiki's recommendation over the stock D415 (global shutter, wider FOV, **IMU** — which materially helps RTAB-Map on a base that slips on carpet). Order early.
+The camera decision is settled: the **D435i is in hand**, and it is the unit the [camera options analysis](syntheses/projects/xlerobot-camera-options-low-light.md) recommends. What remains is a fit task on the [existing bracket](syntheses/projects/xlerobot-d435i-bracket.md) (`hardware/xlerobot-d435i-bracket/`, `.stl` + parametric `.scad`), whose two open parameters can now be resolved because the hardware exists:
+
+- [ ] **Caliper `cam_m3_z`** — M3 hole height above the camera's bottom edge. Not in Intel's D400 datasheet; the current **17 mm is an estimate**. This is the one that will bite if wrong.
+- [ ] **Measure the robot-side bolt pattern** on the XLeRobot "last mounting link" — currently a **placeholder** in the `.scad`.
+- [ ] Re-export → print (64×42×16 mm, ~14.7 cm³) → test-fit → mount → **calibrate camera extrinsics**. Half a day including the print.
 
 ### Highest-value milestone
 
