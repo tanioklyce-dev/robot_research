@@ -100,7 +100,32 @@ Mirror the paper so numbers are comparable, then add what it doesn't report:
 > [!warning] This cannot run on the local WSL2 machine
 > RoboTwin's own support matrix: **WSL / Anything → CPU sim ✅, GPU sim ❌, Rendering ❌.** Rendering is not optional here — the generated dataset *is* camera observations, and the VLM observer in the code-generation loop watches rendered rollouts. **WSL is a hard blocker, not a slow path.**
 >
-> Options, in order of cost: a **native Linux box with an NVIDIA RTX GPU** (dual-boot counts); a **rented cloud GPU** (see [NVIDIA GPU rental landscape](../platforms/nvidia-gpu-rental-landscape.md)) — this workload is bursty and rental-shaped, since generation runs are long but infrequent; or a [DGX Spark](../../entities/dgx-spark.md)-class local box if one is already on hand. Also noted in the docs: *"data collection may get stuck when using A/H series GPUs"* (RoboTwin issue #83 / SAPIEN #219) — **prefer an RTX-class card over an A100/H100 rental** for this specific workload, which is an unusual inversion worth remembering.
+> Options, in order of confidence: a **native Linux box with an NVIDIA RTX GPU** (dual-boot counts), or a **rented RTX-class cloud GPU** (see [NVIDIA GPU rental landscape](../platforms/nvidia-gpu-rental-landscape.md)) — this workload is bursty and rental-shaped, since generation runs are long but infrequent. Note the inversion documented in RoboTwin's own docs: *"data collection may get stuck when using A/H series GPUs"* (RoboTwin issue #83 / SAPIEN #219), so **prefer RTX-class over a datacenter rental** here.
+
+> [!warning] A [DGX Spark](../../entities/dgx-spark.md) is *not* a clean unblock for this workload
+> Tempting — it's local, it has RT cores, and it runs [Isaac Sim](../../entities/nvidia-isaac-sim.md). But three things are unverified and each is a potential hard stop:
+> - **GB10 is ARM64.** RoboTwin's simulator is **SAPIEN**, whose wheels are primarily x86_64. ARM64 SAPIEN + Vulkan is not something this wiki has confirmed working, and it is not an NVIDIA-shipped multi-arch container that would come for free.
+> - **CUDA generation mismatch.** RoboTwin recommends **CUDA 12.1**; Spark runs the **CUDA 13** stack (the wiki already records the `torch==2.11.0+cu130` pinning gotcha on [DGX Spark](../../entities/dgx-spark.md)). CuRobo and SAPIEN both sit close enough to the driver for this to matter.
+> - **Datacenter-class GPU, and RoboTwin documents stalls on those.** GB10 is not an RTX part; whether it hits the A/H-series failure mode is untested.
+>
+> **Verdict: a Spark makes this experiment *more* expensive to attempt, not less** — it adds an ARM64 porting risk on top of the week of work. If a Spark is the only hardware available, budget a spike day to prove SAPIEN + CuRobo run on ARM64 *before* committing to the rest. The Spark's real strength for this wiki's stack is elsewhere: **training and serving policies**, per [GR00T on DGX Spark → XLeRobot](gr00t-spark-zmq-xlerobot.md).
+
+## 3a. Is this on the critical path to a working XLeRobot?
+
+> [!warning] For a builder whose goal is "XLeRobot navigating, picking and placing, and teleoperable" — **no, and it should be deferred**
+> Scored honestly against the three legs of that goal:
+>
+> | Goal leg | Does this experiment help? |
+> |---|---|
+> | **Navigation** | **No overlap at all.** RoboTwin is a fixed-base tabletop manipulation generator. |
+> | **Teleoperation** | **No overlap.** Leader-follower or Quest IK through [LeRobot](../../entities/lerobot.md) is a solved, days-long job. |
+> | **Pick-and-place** | **Partial — and the direct path is better.** |
+>
+> The decisive point is one this wiki already contains: **the 5-DoF gap is a gap in the *cross-embodiment / synthetic-data* line, not in the *LeRobot single-platform* line.** [SmolVLA](../../entities/smolvla.md) is trained and validated on **SO-100/SO-101 — the same 5-DoF arm XLeRobot uses** — at **78.3% real-world multi-task**, with **+26.6 pts** from community pretraining on an *out-of-distribution* SO-101 pick-and-place task ([paper](../../sources/smolvla-paper.md)). A working 5-DoF pick-and-place path already exists and never touches RoboTwin, because SmolVLA sidesteps the problem by not being cross-embodiment in the first place.
+>
+> **What that means for sequencing.** This experiment is a research contribution about *data generation*, not a step toward a working robot. Defer it until **demonstration collection is demonstrably the bottleneck** — which is a real wall when it arrives (X-VLA's cloth-folding dataset cost ~50–60 operator-hours for 1,200 episodes), just not the first one.
+>
+> **And it is not now-or-never.** The week splits cleanly: **embodiment bring-up ≈ 3–4 days** (steps 1–5, useful to anyone who wants synthetic XLeRobot data for their own purposes) and **the control arm + analysis ≈ 3 days** (the virtual 6-DoF twin, the per-task breakdown, the write-up — pure research contribution). If the bring-up ever happens for practical reasons, the experiment becomes a **cheap add-on**: one URDF variant and one extra generation run.
 
 ### Steps
 
@@ -162,3 +187,5 @@ Every branch is worth reporting. That is the mark of a well-posed experiment, an
 - [X-VLA](../../entities/x-vla.md) · [RoboMIND](../../entities/robomind.md) — the other two faces of the action-space problem
 - [Sim-to-real transfer](../../concepts/learning/sim-to-real-transfer.md) · [Robot policy evaluation](../../concepts/robotics/robot-policy-evaluation.md)
 - [NVIDIA GPU rental landscape](../platforms/nvidia-gpu-rental-landscape.md) — for the compute, given the WSL blocker
+- [SmolVLA](../../entities/smolvla.md) — the reason this is *not* on the critical path to a working XLeRobot; validated on the same 5-DoF arm
+- [GR00T on DGX Spark → XLeRobot](gr00t-spark-zmq-xlerobot.md) — where a Spark actually earns its keep in this stack
