@@ -10,8 +10,8 @@ tags: [robotwin, benchmark, bimanual, manipulation, domain-randomization, data-g
 
 **RoboTwin 2.0** — a scalable **bimanual** manipulation *data generator* that also ships a benchmark (Chen, Chen, Chen et al., arXiv 2506.18088, Jun 2025 / v2 Aug 2025). **50 language-conditioned dual-arm tasks across 5 embodiments**, **100,000+ pre-collected trajectories**, and the **RoboTwin-OD** asset library (731 objects / 147 categories). Ships both a *clean* ("Easy") setting and a domain-randomized ("Hard") one. **Primary source now ingested**: [RoboTwin 2.0 paper](../sources/robotwin2-paper.md).
 
-> [!note] Venue correction
-> This page previously recorded "ICML 2026." The arXiv v2 carries **no venue line** and the claim is unverified — treat as arXiv-only until confirmed.
+> [!note] Venue confirmed
+> The arXiv v2 PDF carries no venue line, but the [official repository README](https://github.com/RoboTwin-Platform/RoboTwin) states **"RoboTwin 2.0 (*ICML 2026*)"** (verified 2026-08-13). The page's original ICML 2026 attribution stands.
 
 ## Position in this wiki
 
