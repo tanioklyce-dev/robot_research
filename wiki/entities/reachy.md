@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-09
 updated: 2026-07-08
-sources: 7
+sources: 8
 tags: [reachy, pollen-robotics, open-source, humanoid, embodied-ai, ros2, lerobot]
 ---
 

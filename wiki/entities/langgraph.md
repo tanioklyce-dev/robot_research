@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-08-13
 updated: 2026-08-13
-sources: 2
+sources: 3
 tags: [langgraph, langchain, agent-framework, state-machine, tool-calling, dimos, llm-agent]
 ---
 
@@ -56,6 +56,7 @@ That makes LangGraph the concrete answer to a question the [across-stacks synthe
 
 ## Related
 
+- [LangChain](langchain.md) — the substrate, and the package DimOS actually calls `create_agent` from
 - [DimOS](dimos.md) — the robot stack that embeds it · [DimOS repo](../sources/dimos-github.md) · [LangGraph source page](../sources/langgraph.md)
 - [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) · [LLM-agent architecture across stacks](../syntheses/agents/llm-agent-architecture-across-stacks.md)
 - [Behavior trees](../concepts/robotics/behavior-trees.md) — the authored-structure alternative

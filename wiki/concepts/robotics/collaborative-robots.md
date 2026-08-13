@@ -3,7 +3,7 @@ title: Collaborative robots (cobots)
 type: concept
 created: 2026-07-16
 updated: 2026-07-16
-sources: 2
+sources: 3
 tags: [cobots, collaborative-robots, industrial-robotics, safety, machine-vision, human-robot-collaboration]
 ---
 

@@ -21,6 +21,11 @@ Checks:
   7. One-way citations (entity cites a source that does not cite it back)
   8. Date sanity (updated >= created; nothing in the future)
   9. `_stub_` markers in index.md on pages that have outgrown them
+ 10. Frequently-mentioned capitalized terms with no entity page (coverage gaps).
+     Added 2026-08-13 after LangChain — mentioned in 12 pages, above any sane
+     threshold — went unflagged because the previous gap check was a HAND-WRITTEN
+     candidate list. It found exactly what it was told to look for. This one is
+     noisy by nature; treat hits as leads to triage, not defects.
 
 Exit code is 0 always — this reports, it does not gate. Fixing is a human decision
 (see CLAUDE.md: "Report findings as a punch list. Don't auto-fix without user direction"),
@@ -204,6 +209,73 @@ def main():
                     oneway.append(f"{rel(f)} -> {rel(t)} (source does not link back)")
     add("`sources:` count drift", drift)
     add("one-way citations", oneway)
+
+    # 10: frequently-mentioned terms with no entity page
+    slugs = {os.path.basename(f)[:-3].lower() for f in files if kind_of(f) == "entities"}
+    all_slugs = {os.path.basename(f)[:-3].lower() for f in files}
+    titles = set()
+    for f in files:
+        if kind_of(f) == "entities":
+            t = frontmatter(text[f]).get("title", "")
+            if t:
+                titles.add(t.strip('"').lower())
+    TERM = re.compile(r"\b([A-Z][A-Za-z0-9]*(?:[ -][A-Z0-9][A-Za-z0-9.]*){0,2})\b")
+    # Section headings, sentence-starters, and acronyms this wiki treats as concepts
+    # rather than entities. Kept explicit because the whole point of this check is
+    # that an implicit list is what let LangChain through.
+    STOP = {
+        "the", "this", "that", "an", "for", "and", "but", "not", "note", "see",
+        "open", "key", "related", "mentioned", "summary", "why", "what", "how",
+        "when", "where", "which", "who", "entities", "concepts", "sources",
+        "analysis", "claims", "questions", "position", "specs", "design",
+        "results", "overview", "background", "current", "definition", "caveats",
+        "two", "three", "four", "five", "one", "both", "each", "every", "all",
+        "tbd", "todo", "vla", "vlm", "llm", "jepa", "rl", "il", "bc", "dof",
+        "gpu", "cpu", "api", "sdk", "ros", "usd", "imu", "slam", "mcp", "rgb",
+        "note that", "in this", "it is", "there is", "they are", "we have",
+    }
+    seen = collections.defaultdict(set)
+    for f in files:
+        if os.path.basename(f) in EXEMPT:
+            continue
+        body = strip_code(text[f])
+        for m in TERM.finditer(body):
+            term = m.group(1).strip()
+            if len(term) < 4 or term.lower() in STOP:
+                continue
+            # HIGH-PRECISION FILTER, and its limits are worth knowing.
+            # Keep only terms that *look* like proper nouns: internal capitals
+            # (LangChain, RoboTwin, MemoryVLA), a hyphen (RTAB-Map), or multi-word.
+            # This would have caught LangChain, the miss that prompted the check.
+            # It will NOT catch ordinary-looking single words — Drake, Zenoh,
+            # Moondream — which remain a human-pass problem. Precision over recall
+            # is deliberate: a noisy check gets ignored, which is how gaps persist.
+            # Licence strings and month-year dates are capitalized but not entities.
+            if re.match(r"^(Apache|MIT|BSD|GPL|CERN|EPL|CC)[- ]", term):
+                continue
+            if re.match(r"^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\w*\s+\d{4}$", term):
+                continue
+            internal_caps = any(c.isupper() for c in term[1:] if c.isalpha())
+            if not (internal_caps or "-" in term or " " in term):
+                continue
+            if term.isupper() and " " not in term and "-" not in term:
+                continue
+            slug = re.sub(r"[^a-z0-9]+", "-", term.lower()).strip("-")
+            # Skip anything that already has a page of ANY type, not just entities.
+            # Substring match too: "Isaac Lab" lives at nvidia-isaac-lab.md and
+            # "LeCun" at yann-lecun.md, so exact-slug matching alone false-positives
+            # on every vendor-prefixed or first-name-prefixed page.
+            if slug in slugs or slug in all_slugs or term.lower() in titles:
+                continue
+            if any(slug in existing for existing in all_slugs):
+                continue
+            seen[term].add(f)
+    gaps = sorted(
+        ((len(v), k) for k, v in seen.items() if len(v) >= 8),
+        key=lambda x: -x[0],
+    )
+    add("frequently mentioned, no entity page (leads, triage by hand)",
+        [f"{n:3d} pages  {term}" for n, term in gaps[:40]])
 
     # 9: stale stub markers
     stale = []

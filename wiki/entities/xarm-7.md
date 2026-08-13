@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-08
 updated: 2026-08-13
-sources: 4
+sources: 5
 tags: [xarm, ufactory, robot-arm, manipulator, 7-dof, cross-embodiment]
 status: stub
 ---

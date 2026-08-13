@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-08-13
 updated: 2026-08-13
-sources: 6
+sources: 7
 tags: [sourccey, vulcan-robotics, mobile-manipulator, dual-arm, mecanum, lerobot, xvla, feetech, raspberry-pi-5, 3d-printed, household-robot, laundry-folding, open-hardware, cern-ohl]
 ---
 

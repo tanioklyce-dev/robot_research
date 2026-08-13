@@ -3,8 +3,8 @@ title: Sensori Robotics
 type: entity
 subtype: company
 created: 2026-07-13
-updated: 2026-07-13
-sources: 1
+updated: 2026-08-13
+sources: 2
 tags: [company, physical-ai, manipulator, bimanual, teleoperation, open-hardware, usa]
 ---
 
@@ -27,6 +27,10 @@ This puts Sensori in the "commercial integrator on top of open hardware" niche �
 ## Business model
 
 - **Quote-only pricing** ("Tell us what you want to build… We'll follow up with details, pricing, and availability"). No public price, team, or funding disclosed.
+
+## OpenArm elsewhere
+
+**[UME](ume.md)**'s evaluation platform uses an **"OpenArm 1.0 bimanual made by WowRobo"** ($5,200, Damiao actuators) — a second, independent research platform sourcing "OpenArm" arms. Whether that is the same design lineage as Sensori's **OpenArm+** is **not established**, but two unrelated groups building on an arm of that name hints at an open-hardware standard consolidating above the [SO-ARM101](so-arm101.md) tier. Worth confirming.
 
 ## Mentioned in
 

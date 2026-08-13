@@ -3,8 +3,8 @@ title: UMI (Universal Manipulation Interface)
 type: entity
 subtype: method
 created: 2026-05-10
-updated: 2026-07-08
-sources: 4
+updated: 2026-08-13
+sources: 5
 tags: [umi, universal-manipulation-interface, hand-held-gripper, in-the-wild-data-collection, diffusion-policy-followon, chi-2024, stanford, columbia, tri]
 ---
 
@@ -51,6 +51,10 @@ From [UMI Project Page](../sources/umi-paper.md):
 - **Cited as inspiration for [RUM](robot-utility-models.md)'s Stick-v2 gripper** ([RUM paper](../sources/robot-utility-models-paper.md) §2.1). RUM's portable in-home data collection rig is a direct UMI descendant.
 - **Validates "diversity of demos > robot teleop volume"** — UMI's pitch is that cheap, diverse, embodiment-agnostic demos generalize better than expensive teleoperation; this is the same thesis [Robot Utility Models](robot-utility-models.md) and [DROID](droid.md) elaborate from different angles.
 - **TRI co-authorship anchors a TRI / Stanford / Columbia robotics-foundation-model triangle** — see [TRI](tri.md).
+
+## The torque counter-argument: UME
+
+**[UME](ume.md)** (Ant Group + Stanford, 2026) is the same idea with a different bet about what the instrument must capture. **UMI bets on visual context and portability; UME bets on real-time torque feedback** — an upper-limb exoskeleton that both *renders* joint torque to the operator and *records* it. It runs head-to-head against UMI on **visually occluded box pushing, space-constrained GPU picking, and whole-body fridge retrieval** — precisely the occluded and force-mediated cases where a gripper-mounted camera with no force channel should struggle. Outcomes are not published on its project page; the ablation is in arXiv 2606.14218.
 
 ## Related
 

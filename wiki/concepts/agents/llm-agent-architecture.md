@@ -3,7 +3,7 @@ title: LLM-agent architecture
 type: concept
 created: 2026-05-07
 updated: 2026-08-13
-sources: 57
+sources: 58
 tags: [llm-agent, tool-use, agentic-robotics, planning, mcp, a2a, code-as-policy]
 ---
 

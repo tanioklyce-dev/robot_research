@@ -5,7 +5,7 @@ subtype: hardware-component
 created: 2026-08-13
 updated: 2026-08-13
 tags: [openft, force-torque, hall-effect, open-hardware, sensing, dimensional, dimos, low-cost, jlcpcb]
-sources: 1
+sources: 2
 ---
 
 **OpenFT** — an open-source **6-axis force/torque sensor** using **Hall-effect magnetic-displacement sensing** instead of strain gauges: **16 Hall sensors in 4 clusters** track a magnet holder's deflection under load, inverted to 6 axes either geometrically or through a learned **6×16 calibration matrix**. From [Dimensional Inc.](dimensional-inc.md); listed 🟥 experimental in [DimOS](dimos.md)'s hardware matrix. Repo: [github.com/dimensionalOS/openFT-sensor](https://github.com/dimensionalOS/openFT-sensor) ([source page](../sources/openft-sensor-github.md)).
@@ -38,6 +38,10 @@ A working sub-$100 wrist F/T sensor would change what the [LeRobot](lerobot.md)-
 
 > [!warning] No specifications at all
 > Range, resolution, noise floor, bandwidth, hysteresis, temperature drift, and cost are **all absent**. Without a range and a noise floor it cannot be compared to any commercial part. And the unaddressed risk specific to this sensing principle: **Hall sensors respond to stray magnetic fields and temperature, and a robot wrist is full of servo motors.** Whether the 4-cluster arrangement rejects motor field is the first thing a builder must determine, and the repo is silent on it.
+
+## The researched alternative
+
+**[UME](ume.md)** solves the same problem from the other end and with a budget: a **$1,900** torque-feedback exoskeleton that records joint torques during teleoperation, evaluated on contact-rich tasks at **26–157 demonstrations each**. OpenFT is the **$60-ish, unmaintained, unbenchmarked, unlicensed** route to a related signal at the *robot wrist* rather than the *operator arm*. Nothing bridges the two price points.
 
 ## Related
 

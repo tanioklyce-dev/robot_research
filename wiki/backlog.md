@@ -10,6 +10,28 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-08-13g] LangChain + UME ingested; the lint's gap check was itself defective
+
+### The lint defect, fixed
+
+- [x] **LangChain appeared in 12 pages and was never flagged** — above any sane threshold. Cause: the §6 "frequently mentioned, no page" check was a **hand-written candidate list**, so it found exactly what it was told to look for and everything off the list was invisible. **Now automated** as check #10 in [`scripts/lint_wiki.py`](../scripts/lint_wiki.py).
+- Check #10 is **deliberately high-precision, low-recall**: it keeps only terms that *look* like proper nouns (internal capitals, a hyphen, or multi-word), skips anything whose slug is a substring of an existing page, and filters licence strings and dates. **It would have caught LangChain.** It will **not** catch ordinary-looking single words — Drake, Zenoh, Moondream — which stay a human-pass problem. Precision over recall on purpose: a noisy check gets ignored, which is how gaps persist in the first place.
+
+### Real leads it surfaced immediately
+
+- [ ] **OpenAI — 48 pages, no entity page.** The most-cited organization in the wiki without one.
+- [ ] **PyTorch — 47 pages, no page.** The substrate under every model here.
+- [ ] **SIGReg — 47 pages**, from the [LeJEPA](sources/lejepa-paper.md) line; a named method with no page.
+- Triaged as noise: `VLAs`/`VLMs` (plurals of concepts), `Joint-Embedding Predictive` (fragment of JEPA's expansion), `SO-100`/`SO-101` (covered by [SO-ARM101](entities/so-arm101.md)), `GR00T N1` (covered by [GR00T](entities/nvidia-groot.md)).
+
+### UME — the position-only gap now has a researched answer
+
+- [x] **[UME](entities/ume.md)** ingested ([project page](sources/ume-project-page.md)) — **$1,900** torque-feedback exoskeleton, records joint torques, contact-rich policies from **26–157 demos each**.
+- [ ] **Ingest the paper (arXiv 2606.14218).** It holds everything that matters and the project page publishes none of it: the **UMI** and **No-torque ablation results**, the cost breakdown, the retargeting algorithm, and the user study. **The No-torque number is the single most valuable figure in this work for this wiki** — it decides whether force feedback buys *data efficiency* or only operator comfort.
+- [ ] **Do UME's learned policies consume torque as an input**, or merely benefit from better demonstrations? Completely different claims; unresolved.
+- [ ] **Nothing bridges $1,900 to the $660 tier.** [OpenFT](entities/openft-sensor.md) is the only cheaper route and is unmaintained, unbenchmarked, and unlicensed.
+- [ ] **Is WowRobo's OpenArm 1.0 the same lineage as [Sensori](entities/sensori-robotics.md)'s OpenArm+?** Two unrelated platforms sourcing "OpenArm" hints at a standard consolidating above the SO-ARM101 tier.
+
 ## [2026-08-13f] LangGraph ingested — one gap closed, two opened
 
 - [x] **LangGraph** ingested ([source](sources/langgraph.md)); entity upgraded from secondhand and **a wrong inference of mine corrected**. DimOS uses the **ReAct tool-calling loop only** — no checkpointing, no interrupts, no custom graph, no memory across a crash.
