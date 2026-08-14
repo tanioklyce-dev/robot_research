@@ -2,8 +2,8 @@
 title: World model
 type: concept
 created: 2026-05-07
-updated: 2026-08-07
-sources: 49
+updated: 2026-08-13
+sources: 51
 tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video, omnimodal, world-action-model]
 ---
 
@@ -56,6 +56,10 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 
 > [!warning] "World model" ≠ "world simulator"
 > [AGIBOT marketing](../../sources/agibot-genie-envisioner-2-announcement.md) sometimes uses "world simulator" to describe Genie Envisioner 2.0. By this concept page's vocabulary, that's a generative-video world model being used in a simulator role — see [world-model-simulators](world-model-simulators.md).
+
+## Not the same as geometric mapping
+
+A separate tradition builds a model of the environment for a different purpose — see **[visual relocalization and mapping](../robotics/visual-relocalization-and-mapping.md)**. World models answer *"what happens if I act"*; SLAM and relocalization answer *"where am I, and what shape is this place."* Different outputs, different failure modes (compounding prediction error and hallucination vs drift and loop-closure failure), different evaluations. Complementary rather than competing — and **this wiki has essentially no source that uses both together.**
 
 ## Related
 - [World-model simulators](world-model-simulators.md) — narrower companion concept (world-model as drop-in simulator replacement).

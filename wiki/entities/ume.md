@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-08-13
 updated: 2026-08-13
-sources: 2
+sources: 3
 tags: [ume, exoskeleton, teleoperation, force-torque, haptic-feedback, compliant-control, data-collection, umi, ant-group, stanford, low-cost]
 ---
 
@@ -75,6 +75,10 @@ All policies trained **solely on UME data**:
 ## Cost tier
 
 **≈$11.4 K** for the exoskeleton plus a bimanual holonomic force-instrumented mobile manipulator — above [XLeRobot](xlerobot.md) ($660) / [Sourccey](sourccey.md), about **half a [Stretch](stretch.md)**, well under [Yuri](yuri.md) or [Reachy 2](reachy.md). The **powered caster** delivering compliance *and* precise odometry *and* holonomy is the line item worth noting: exactly the combination [Sourccey](sourccey.md) surrendered with open-loop mecanum and [XLeRobot](xlerobot.md)'s differential base cannot provide.
+
+## Ant Group context
+
+UME is one of four artifacts in **[Robbyant](robbyant.md)**'s (Ant Group) physical-AI program that this wiki met separately before connecting them: **LingBot-VLA** (policy), **LingBot-World** (world model), **[LingBot-Map](lingbot-map.md)** (geometric reconstruction), and UME (teleoperation + data collection).
 
 ## Related
 

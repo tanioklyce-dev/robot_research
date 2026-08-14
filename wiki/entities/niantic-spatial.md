@@ -1,0 +1,54 @@
+---
+title: Niantic Spatial
+type: entity
+subtype: company
+created: 2026-08-13
+updated: 2026-08-13
+sources: 2
+tags: [niantic-spatial, scaniverse, gaussian-splatting, visual-relocalization, digital-twin, large-geospatial-model, spz, physical-ai]
+---
+
+**Niantic Spatial, Inc.** — the spatial-computing company carved out of Niantic (Pokémon Go), positioning as *"the infrastructure layer for physical AI. Starting with the City of Rancho Cordova."* Four products over a **Large Geospatial Model (LGM)**: **Capture · Reconstruct · Localize · Understand**. **Robotics** is listed first among target industries. Primary source: [research page + products](../sources/niantic-spatial-research.md).
+
+## Products
+
+| | |
+|---|---|
+| **Capture** | Scaniverse + on-demand service + BYOD; *"the foundation of the Large Geospatial Model"* |
+| **Reconstruct** | Geo-referenced digital twins; Scan Processing → Registration (**centimetre-level**) → Geo-Referencing (GIS / simulation / autonomy interop). On-device (iOS/Android, meshes **or Gaussian splats**, real time, fully offline) or cloud |
+| **Localize** | *"Precise, vision-based positioning for machines"* |
+| **Understand** | *"Query the world through semantics at every 3D point"* |
+
+**Scaniverse** — from *"market-leading mobile 3D scanning app"* to *"scalable spatial data ingestion service."* Phones, **360° cameras, drones**; splats and meshes on-device; **SPZ**, their open splat format, claiming **90% file-size reduction**.
+
+## The research program
+
+The publication list is the visual-relocalization subfield's centre of gravity — **Eric Brachmann**, **Victor Adrian Prisacariu**, **Gabriel Brostow**, **Michael Firman**, **Clément Godard**, **Tommaso Cavallari**, **Jamie Watson**, **Mohamed Sayed**, **Sara Vicente**.
+
+**ACE** (CVPR 2023, *relocalize in minutes*) → **Scene Coordinate Reconstruction** (ECCV 2024) → **ACE-G** + **SCR Priors** (ICCV 2025) → **A Scene is Worth a Thousand Features** (ICLR 2026) → **Cross-View Splatter** (CVPR/ECCV 2026). Plus SimpleRecon, DoubleTake, AirPlanes, Map-free Visual Relocalization, Morpheus, PlaceIt3D, and a CHI/UIST accessibility strand (**NaviNote** for blind and low-vision navigation).
+
+> [!note] The arc is optimization → feed-forward, arrived at independently from robotics
+> ACE trains a small per-scene network *in minutes*; by 2026 the same group is publishing **feed-forward** localization and view synthesis with no per-scene optimization. [LingBot-Map](lingbot-map.md) lands at the same place from the robotics side. This wiki has recorded the same amortization pattern elsewhere — per-instance optimization giving way to a trained model once the data exists.
+
+> [!warning] Robotics is listed first, and there is no robotics evidence
+> The copy names *"drones, robots, and handheld systems"* and interoperability with *"simulation, and autonomy platforms."* **No robotics deployment, benchmark, or customer is shown** — the only concrete anchor is a **city government**, which is a GIS use case. File it as **mapping infrastructure courting robotics**, not a robotics company. The capability is what a mobile robot needs; whether any robot runs on it is unestablished.
+
+> [!note] The asset is the capture flywheel
+> Niantic's original business put millions of players outdoors scanning real places, and Scaniverse turns that into an ingestion service. **No one else in this wiki's coverage has a crowd-sourced *geometric* capture channel at city scale** — the nearest analogues ([LeRobot](lerobot.md) community datasets, [SmolVLA](smolvla.md)'s 481 HF datasets) are manipulation data at hobbyist scale. Publishing **SPZ** as an open format only pays off if you expect to move a great deal of splat data.
+
+## Related
+
+- [LingBot-Map](lingbot-map.md) — the independent feed-forward streaming-reconstruction counterpart
+- [RTAB-Map](rtab-map.md) · [GTSAM](gtsam.md) — the classical stack this class of work competes with
+- [Visual relocalization and mapping](../concepts/robotics/visual-relocalization-and-mapping.md)
+
+## Open questions
+
+- **What is the Large Geospatial Model, technically?** Named as the foundation, never described.
+- **Which robot runs on this?** No robotics evidence published.
+- **Is SPZ adopted outside Niantic?** An open format is only infrastructure if others write it.
+- **No numbers on any product page** — no localization accuracy, reconstruction benchmark, or latency.
+
+## Mentioned in
+
+- [Niantic Spatial research page + products](../sources/niantic-spatial-research.md)

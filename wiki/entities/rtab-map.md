@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-08-13
 updated: 2026-08-13
-sources: 0
+sources: 2
 tags: [rtab-map, slam, rgbd, loop-closure, graph-slam, ros2, navigation, xlerobot, introlab]
 ---
 
@@ -18,6 +18,12 @@ It is the **navigation half of the wiki's only measured onboard-Jetson XLeRobot 
 
 > [!note] Why RGB-D SLAM and not LiDAR, on this class of robot
 > The arm work needs depth anyway, so a single RGB-D camera serves both perception and navigation — which is what makes the D435/D435i the right single purchase for an [XLeRobot](xlerobot.md). The cost is that visual odometry drifts where 2-D LiDAR scan-matching would not, especially on a differential base slipping on carpet. Two mitigations the wiki has recorded: **an IMU** (the reason the [camera analysis](../syntheses/projects/xlerobot-camera-options-low-light.md) prefers the D435i over the D415), and **wheel odometry** — which XLeRobot has via its FeeTech absolute encoders and [Sourccey](sourccey.md) gave up with open-loop PWM wheels.
+
+## The feed-forward challengers
+
+[LingBot-Map](lingbot-map.md) ([Robbyant](robbyant.md), 16,471★) and [Niantic Spatial](niantic-spatial.md)'s ACE→feed-forward line are both attacking this problem **without per-scene optimization**: LingBot-Map folds *"long-range drift correction"* into a transformer via trajectory memory, with no loop-closure detector and no map to re-solve, and demonstrates a 25,000-frame walkthrough.
+
+**For the [XLeRobot plan](../syntheses/projects/xlerobot-nav-manip-teleop-bringup.md) RTAB-Map remains the right choice**, for a specific reason: it is the only option here with a **measured deployment on comparable hardware** ([Cutting the Cord](../sources/cutting-the-cord-untethered-xlerobot.md), Orin Nano Super), and LingBot-Map publishes **no edge latency** and does not describe relocalization against a prior map — which is precisely what localization-only mode provides. Revisit if that changes.
 
 ## Related
 

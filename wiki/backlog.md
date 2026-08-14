@@ -10,6 +10,24 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-08-13h] Niantic Spatial + LingBot-Map — a whole tradition was missing
+
+*Two ingests that exposed a structural gap rather than filling a named one.*
+
+### The gap
+
+- [x] **The wiki covered world models extensively and had no page for SLAM, visual relocalization, Gaussian splatting, or NeRF** — despite the [XLeRobot plan](syntheses/projects/xlerobot-nav-manip-teleop-bringup.md)'s entire navigation leg being [RTAB-Map](entities/rtab-map.md) + [Nav2](entities/nav2.md). Opened [visual relocalization and mapping](concepts/robotics/visual-relocalization-and-mapping.md). **World models ask *what happens if I act*; this tradition asks *where am I and what shape is this place*.**
+- [ ] **Still uncovered inside it, named honestly on that page**: **NeRF**, **Gaussian splatting as a method** (not a Niantic product feature), **ORB-SLAM / visual-inertial odometry**, **factor graphs as a formalism**, **Frank Dellaert**'s lineage. And [GTSAM](entities/gtsam.md) + [RTAB-Map](entities/rtab-map.md) remain **stubs with no primary source ingested for either** — a real hole given both are load-bearing for the active project plan.
+
+### Follow-ups
+
+- [ ] **LingBot-Map paper** (arXiv 2604.14141) — every quantitative claim lives there; the README publishes no accuracy table. KITTI and Oxford Spires numbers unread.
+- [ ] **What hardware gives LingBot-Map ~20 FPS?** Unstated, and it decides whether it is deployable on a robot or only in a datacentre. Same omission the [control-rate ladder](syntheses/platforms/control-rate-ladder.md) keeps finding.
+- [ ] **Can LingBot-Map relocalize against a prior map?** Not described — and that is exactly what RTAB-Map's localization-only mode gives the XLeRobot plan. Until answered, **RTAB-Map stays the right choice** because it is the only option with a measured deployment on comparable hardware.
+- [ ] **Primary sources for LingBot-VLA and LingBot-World** — the two [Robbyant](entities/robbyant.md) layers known only secondhand. LingBot-World placed **5th of 10 on WorldRoamBench and collapsed on physics (47.32)**, which makes its primary worth reading.
+- [ ] **What is the Large Geospatial Model, technically?** [Niantic](entities/niantic-spatial.md) names it as the foundation of everything and never describes it.
+- [ ] **Niantic's accessibility strand** (NaviNote, *Don't Look Now*) — CHI/UIST work on spatial annotation for blind and low-vision navigation, adjacent to the wiki's [assistive robotics](concepts/robotics/assistive-robotics.md) coverage and entirely uningested.
+
 ## [2026-08-13g] LangChain + UME ingested; the lint's gap check was itself defective
 
 ### The lint defect, fixed

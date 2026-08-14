@@ -3,7 +3,7 @@ title: World-model simulators
 type: concept
 created: 2026-05-06
 updated: 2026-08-08
-sources: 31
+sources: 32
 tags: [world-model, generative-simulation, video-generation, jepa, latent-prediction, paradigm-shift]
 ---
 

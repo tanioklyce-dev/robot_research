@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-08-13
 updated: 2026-08-13
-sources: 1
+sources: 2
 tags: [gtsam, factor-graphs, slam, pose-graph-optimization, smoothing-and-mapping, borglab, georgia-tech, dimos]
 ---
 

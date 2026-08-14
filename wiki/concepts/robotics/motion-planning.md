@@ -3,7 +3,7 @@ title: Motion planning (classical)
 type: concept
 created: 2026-07-04
 updated: 2026-07-04
-sources: 4
+sources: 5
 tags: [motion-planning, sampling-based, rrt, prm, trajectory-optimization, search, ompl, explicit-model]
 ---
 
