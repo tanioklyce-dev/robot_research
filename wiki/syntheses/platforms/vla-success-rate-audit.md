@@ -166,6 +166,22 @@ The smaller gap separates and the larger one doesn't, for three compounding reas
 
 **The floor case: [RoboMIND](../../entities/robomind.md) reports every result at n = 10.** *"Each model was tested ten times."* A 95% CI at n=10 spans roughly ±30 points per cell, so none of its ACT-vs-DP-vs-BAKU or per-embodiment orderings is a measurement. Recorded not as a criticism of the paper — dataset papers need existence proofs, not rankings — but because **its tables are exactly the kind that get cited as comparisons**. The rule this audit keeps arriving at, restated: *record N at ingest, and check it before quoting an ordering.*
 
+## Addendum (2026-08-13): a fourth independent instance, from outside robotics
+
+**"On the Limits of Pseudo Ground Truth in Visual Camera Re-Localisation"** (Brachmann, Humenberger, Rother, Sattler, ICCV 2021 — surfaced via [Niantic Spatial's publication list](../../sources/niantic-spatial-research.md)) makes the same class of argument in **visual relocalization**: benchmarks score against "ground truth" poses that were themselves produced by an algorithm, so the leaderboard partly measures **agreement with whichever reference method generated the labels**.
+
+That gives four independent instances of *the instrument is not measuring what the field thinks it measures*:
+
+| Instance | Subfield | The defect |
+|---|---|---|
+| [LIBERO-PRO](../../sources/libero-pro-paper.md) | VLA manipulation | evaluation tasks are the training tasks; >90% collapses to 0.0% under perturbation |
+| [VP²](../../sources/vp2-paper.md) | video prediction | perceptual metrics mis-rank predictors for control, **sign-dependent** |
+| **This audit** | VLA benchmarks | the top of the table is one statistical tie |
+| **Pseudo Ground Truth** | visual relocalization | the ground truth is itself an algorithm's output |
+
+> [!note] The four do not cite each other
+> Different subfields, ~5 years apart, same structural finding — and the robotics evaluation literature appears not to know about the localization one. Worth ingesting the ICCV 2021 paper directly; it is the earliest of the four and the only one where the *labels* rather than the *tasks* or the *metrics* are the problem.
+
 ## The other way out: stop measuring absolute rates
 
 This page's whole framing — how many rollouts to pin a success rate — has an alternative that [RoboArena](../../sources/roboarena-paper.md) (CoRL 2025) demonstrates works better. Instead of estimating absolute rates, run **double-blind pairwise A/B comparisons** between policies on freely-chosen tasks and fit an extended **Bradley-Terry** model (per-policy ability, per-task difficulty, policy×task offsets).

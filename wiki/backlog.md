@@ -26,6 +26,8 @@ Deferred maintenance items and knowledge gaps surfaced during lint passes but no
 - [ ] **Can LingBot-Map relocalize against a prior map?** Not described — and that is exactly what RTAB-Map's localization-only mode gives the XLeRobot plan. Until answered, **RTAB-Map stays the right choice** because it is the only option with a measured deployment on comparable hardware.
 - [ ] **Primary sources for LingBot-VLA and LingBot-World** — the two [Robbyant](entities/robbyant.md) layers known only secondhand. LingBot-World placed **5th of 10 on WorldRoamBench and collapsed on physics (47.32)**, which makes its primary worth reading.
 - [ ] **What is the Large Geospatial Model, technically?** [Niantic](entities/niantic-spatial.md) names it as the foundation of everything and never describes it.
+- [ ] **Ingest "On the Limits of Pseudo Ground Truth in Visual Camera Re-Localisation"** (Brachmann et al., ICCV 2021) — **a fourth independent instance of the wiki's measurement thread**, and the earliest: LIBERO-PRO says the *tasks* are wrong, VP² says the *metrics* are wrong, the audit says the *sample sizes* are wrong, this says **the labels are wrong**. Four subfields, ~5 years, no cross-citation.
+- [ ] **monodepth2** (Godard et al., ICCV 2019) — the ancestor of a great deal of cheap-robot depth perception, no page here.
 - [ ] **Niantic's accessibility strand** (NaviNote, *Don't Look Now*) — CHI/UIST work on spatial annotation for blind and low-vision navigation, adjacent to the wiki's [assistive robotics](concepts/robotics/assistive-robotics.md) coverage and entirely uningested.
 
 ## [2026-08-13g] LangChain + UME ingested; the lint's gap check was itself defective

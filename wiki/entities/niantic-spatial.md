@@ -30,6 +30,8 @@ tags: [niantic-spatial, scaniverse, gaussian-splatting, visual-relocalization, d
 
 The publication list is the visual-relocalization subfield's centre of gravity — **Eric Brachmann**, **Victor Adrian Prisacariu**, **Gabriel Brostow**, **Michael Firman**, **Clément Godard**, **Tommaso Cavallari**, **Jamie Watson**, **Mohamed Sayed**, **Sara Vicente**.
 
+**Three eras**, and the first is the one most people know without attributing it here: **self-supervised monocular depth (2017–2021)** — **monodepth** (Godard, Mac Aodha, Brostow, CVPR 2017) and **monodepth2** (ICCV 2019), the field's reference baseline for years — then **visual relocalization (2021–2025)**, then **feed-forward reconstruction (2025–2026)**. Cheap depth from ordinary cameras made map-free relocalization plausible, which made amortized reconstruction the obvious next step.
+
 **ACE** (CVPR 2023, *relocalize in minutes*) → **Scene Coordinate Reconstruction** (ECCV 2024) → **ACE-G** + **SCR Priors** (ICCV 2025) → **A Scene is Worth a Thousand Features** (ICLR 2026) → **Cross-View Splatter** (CVPR/ECCV 2026). Plus SimpleRecon, DoubleTake, AirPlanes, Map-free Visual Relocalization, Morpheus, PlaceIt3D, and a CHI/UIST accessibility strand (**NaviNote** for blind and low-vision navigation).
 
 > [!note] The arc is optimization → feed-forward, arrived at independently from robotics
@@ -40,6 +42,9 @@ The publication list is the visual-relocalization subfield's centre of gravity �
 
 > [!note] The asset is the capture flywheel
 > Niantic's original business put millions of players outdoors scanning real places, and Scaniverse turns that into an ingestion service. **No one else in this wiki's coverage has a crowd-sourced *geometric* capture channel at city scale** — the nearest analogues ([LeRobot](lerobot.md) community datasets, [SmolVLA](smolvla.md)'s 481 HF datasets) are manipulation data at hobbyist scale. Publishing **SPZ** as an open format only pays off if you expect to move a great deal of splat data.
+
+> [!note] One of their papers belongs to this wiki's measurement thread
+> **"On the Limits of Pseudo Ground Truth in Visual Camera Re-Localisation"** (Brachmann, Humenberger, Rother, Sattler, ICCV 2021) argues relocalization benchmarks score against ground truth **produced by an algorithm**, so leaderboards partly measure agreement with the reference method. Structurally the same finding as [LIBERO-PRO](../sources/libero-pro-paper.md), [VP²](../sources/vp2-paper.md), and the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md) — **a fourth independent instance of "the instrument is not measuring what the field thinks it measures,"** from a subfield the robotics evaluation literature does not appear to cite.
 
 ## Related
 

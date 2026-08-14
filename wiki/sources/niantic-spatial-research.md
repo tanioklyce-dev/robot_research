@@ -57,6 +57,22 @@ The relocalization arc, in order:
 | ICLR 2026 | **A Scene is Worth a Thousand Features** | feed-forward camera localization from a collection of image features |
 | CVPR/ECCV 2026 | **Cross-View Splatter** | feed-forward view synthesis with georeferenced images |
 
+### The deeper history — this group invented self-supervised monocular depth
+
+The full list runs back to **2017**, and the first era is not relocalization at all:
+
+| Year | Work | Why it matters |
+|---|---|---|
+| CVPR 2017 | **Unsupervised Monocular Depth Estimation with Left-Right Consistency** — Godard, Mac Aodha, Brostow | **"monodepth"** — the paper that made self-supervised depth from stereo pairs work |
+| ICCV 2019 | **Digging Into Self-Supervised Monocular Depth Estimation** — Godard, Mac Aodha, Firman, Brostow | **"monodepth2"**, the field's reference baseline for years |
+| ICCV 2019 | Self-Supervised Monocular Depth Hints — Watson et al. | |
+| CVPR 2020 | Footprints and Free Space from a Single Color Image | free space from one image — a robotics-shaped output |
+| ECCV 2020 | Learning Stereo from Single Images | |
+| CVPR 2021 | The Temporal Opportunist: Self-Supervised Multi-Frame Monocular Depth | |
+| ICRA 2021 | Learning to Predict Repeatability of Interest Points | the one **robotics-venue** paper in the whole list |
+
+So the group's arc has **three eras**: **self-supervised monocular depth (2017–2021)** → **visual relocalization / scene-coordinate regression (2021–2025)** → **feed-forward reconstruction and splatting (2025–2026)**. Each builds on the last: cheap depth from ordinary cameras made map-free relocalization plausible, which made amortized reconstruction the obvious next step.
+
 Adjacent lines: **SimpleRecon** (*"3D reconstruction without 3D convolutions"*, ECCV 2022), **DoubleTake** (geometry-guided depth, ECCV 2024), **AirPlanes** (plane estimation, CVPR 2024), **Map-free Visual Relocalization** (metric pose relative to a *single* image, ECCV 2022), **Morpheus** (text-driven Gaussian-splat stylization, CVPR 2025), **PlaceIt3D** (language-guided object placement in real 3D scenes, ICCV 2025), and a substantial accessibility/AR-authoring strand at CHI and UIST including **NaviNote** (in-situ spatial annotation for blind and low-vision people).
 
 ## Analysis
@@ -65,6 +81,13 @@ Adjacent lines: **SimpleRecon** (*"3D reconstruction without 3D convolutions"*, 
 > ACE (2023) *trains a small network per scene, in minutes*. By ICLR 2026, *"A Scene is Worth a Thousand Features"* and *"Cross-View Splatter"* are **feed-forward** — no per-scene optimization at all. That is the same arc [LingBot-Map](lingbot-map-github.md) sits at the end of, arriving independently from robotics rather than AR.
 >
 > It also rhymes with a pattern this wiki keeps recording elsewhere: **per-instance optimization gives way to an amortized model once enough data exists.** Compare the [world-model](../concepts/world-models/world-model.md) line's move from planning-in-a-learned-model toward direct policies, and [RoboTwin 2.0](robotwin2-paper.md)'s replacement of hand-written task programs with an MLLM that writes them.
+
+> [!note] One paper here belongs to this wiki's measurement thread, not its mapping one
+> **"On the Limits of Pseudo Ground Truth in Visual Camera Re-Localisation"** (Brachmann, Humenberger, Rother, **Sattler**, ICCV 2021) is a **methodology critique**: relocalization benchmarks score against "ground truth" poses that were themselves produced by an algorithm, so the leaderboard partly measures agreement with whichever reference method generated the labels.
+>
+> That is structurally the same finding this wiki has recorded three times in a different subfield — [LIBERO-PRO](libero-pro-paper.md) (the benchmark may be measuring memorization), [VP²](vp2-paper.md) (perceptual metrics mis-rank video predictors for control, sign-dependent), and the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md) (the top of the table is a statistical tie). **Four independent instances of "the instrument is not measuring what the field thinks it measures."**
+>
+> Worth ingesting on its own merits, and worth noting that the *robotics* evaluation literature appears not to cite the *localization* one.
 
 > [!warning] "Robotics" is listed first, and there is no robotics evidence on the page
 > The industries list leads with Robotics, and Reconstruct's copy names *"drones, robots, and handheld systems"* and interoperability with *"simulation, and autonomy platforms."* **No robotics deployment, benchmark, or customer is shown** — the concrete anchor offered anywhere is a **city government** (Rancho Cordova), which is a GIS/digital-twin use case, not an autonomy one.
@@ -101,4 +124,5 @@ Adjacent lines: **SimpleRecon** (*"3D reconstruction without 3D convolutions"*, 
 - **What is the Large Geospatial Model, technically?** Named as the foundation and never described — parameters, architecture, training data, and whether it is a single model or a brand for the pipeline are all unstated.
 - **Is SPZ adopted outside Niantic?** An open format is only infrastructure if others write it.
 - **No numbers anywhere** — no localization accuracy, no reconstruction benchmark, no latency. The research papers have them; the product pages carry none.
+- **Two specific papers worth ingesting on their own**: **"On the Limits of Pseudo Ground Truth in Visual Camera Re-Localisation"** (ICCV 2021), for the measurement thread above; and **monodepth2** (ICCV 2019), which is the ancestor of a great deal of cheap-robot depth perception and has no page here.
 - The **accessibility strand** (NaviNote, *Don't Look Now*) is a genuine research contribution adjacent to this wiki's [assistive robotics](../concepts/robotics/assistive-robotics.md) coverage and entirely uningested.
