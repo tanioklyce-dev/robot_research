@@ -177,10 +177,14 @@ That gives four independent instances of *the instrument is not measuring what t
 | [LIBERO-PRO](../../sources/libero-pro-paper.md) | VLA manipulation | evaluation tasks are the training tasks; >90% collapses to 0.0% under perturbation |
 | [VP²](../../sources/vp2-paper.md) | video prediction | perceptual metrics mis-rank predictors for control, **sign-dependent** |
 | **This audit** | VLA benchmarks | the top of the table is one statistical tie |
-| **Pseudo Ground Truth** | visual relocalization | the ground truth is itself an algorithm's output |
+| **[Pseudo Ground Truth](../../sources/pseudo-ground-truth-paper.md)** | visual relocalization | the ground truth is itself an algorithm's output — swap the reference and **Active Search goes last → first, +29.8 pts** |
 
 > [!note] The four do not cite each other
-> Different subfields, ~5 years apart, same structural finding — and the robotics evaluation literature appears not to know about the localization one. Worth ingesting the ICCV 2021 paper directly; it is the earliest of the four and the only one where the *labels* rather than the *tasks* or the *metrics* are the problem.
+> Different subfields, ~5 years apart, same structural finding — and the robotics evaluation literature appears not to know about the localization one. **Now ingested** ([source](../../sources/pseudo-ground-truth-paper.md)): it is the earliest of the four and the only one where the **labels** rather than the tasks, metrics, or sample sizes are the problem, and its authors call the issue *"fundamental"* with no solution.
+>
+> **Two things it contributes back to this thread.** Its remedy — *"task-specific evaluation… in the context of AR, robotic navigation"* — is the same move [VP²](../../sources/vp2-paper.md) makes independently two years later. And its recommendation to prefer the method that is *"not best under any pGT but good under all"* is the same robustness-over-peak preference [RoboTwin 2.0](../../entities/robotwin.md) arrives at for VLA pretraining.
+>
+> **The open transposition**: [LIBERO](../../entities/libero.md)'s ground truth is simulator task success, not algorithm-generated — but [RoboTwin 2.0](../../entities/robotwin.md)'s expert demonstrations **are** produced by an MLLM-plus-planner pipeline, and policies are scored on tasks that pipeline could solve. **Nobody has asked whether synthetic-demonstration benchmarks have a pseudo-ground-truth problem.**
 
 ## The other way out: stop measuring absolute rates
 

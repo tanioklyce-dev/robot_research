@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-13
 updated: 2026-08-13
-sources: 2
+sources: 4
 tags: [lingbot-map, robbyant, ant-group, 3d-reconstruction, slam, feed-forward, streaming, transformer, paged-kv-cache, apache-2-0]
 ---
 

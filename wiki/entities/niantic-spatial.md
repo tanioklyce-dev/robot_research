@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-08-13
 updated: 2026-08-13
-sources: 2
+sources: 4
 tags: [niantic-spatial, scaniverse, gaussian-splatting, visual-relocalization, digital-twin, large-geospatial-model, spz, physical-ai]
 ---
 
@@ -37,7 +37,12 @@ The publication list is the visual-relocalization subfield's centre of gravity �
 > [!note] The arc is optimization → feed-forward, arrived at independently from robotics
 > ACE trains a small per-scene network *in minutes*; by 2026 the same group is publishing **feed-forward** localization and view synthesis with no per-scene optimization. [LingBot-Map](lingbot-map.md) lands at the same place from the robotics side. This wiki has recorded the same amortization pattern elsewhere — per-instance optimization giving way to a trained model once the data exists.
 
-> [!warning] Robotics is listed first, and there is no robotics evidence
+> [!note] The robotics evidence arrived — [Niantic + Flexion + NVIDIA, Jul 2026](../sources/niantic-flexion-nvidia-sim2real.md)
+> A **zero-shot sim2real** result: scan an office with an off-the-shelf **360° camera** → Gaussian-splat twin **plus a collision mesh derived from the same reconstruction** → **USDZ / NuRec into [Isaac Lab](nvidia-isaac-lab.md)** → RGB-only navigation policy trained by massively parallel RL on one GPU → **transfers to a real humanoid in the real office**, holding up to rearranged furniture. Benchmark at n=1,024 with matched poses: **RGB-in-3DGS 97.8% vs depth baseline 93.8%** (easy scene) and **75.0% vs 70.9%** (hard) — both separate (p<0.0001, p=0.037), and it is *"the only RGB setup that matches or exceeds the conventional depth baseline."*
+>
+> **This narrows rather than overturns the read below.** Niantic supplies the *world*; **Flexion** supplies the policy and deployment; NVIDIA supplies the simulator. Still mapping infrastructure for robotics — now with a named robotics customer instead of none.
+
+> [!warning] Robotics was listed first with no robotics evidence (original read, 2026-08-13 morning)
 > The copy names *"drones, robots, and handheld systems"* and interoperability with *"simulation, and autonomy platforms."* **No robotics deployment, benchmark, or customer is shown** — the only concrete anchor is a **city government**, which is a GIS use case. File it as **mapping infrastructure courting robotics**, not a robotics company. The capability is what a mobile robot needs; whether any robot runs on it is unestablished.
 
 > [!note] The asset is the capture flywheel
@@ -45,6 +50,10 @@ The publication list is the visual-relocalization subfield's centre of gravity �
 
 > [!note] One of their papers belongs to this wiki's measurement thread
 > **"On the Limits of Pseudo Ground Truth in Visual Camera Re-Localisation"** (Brachmann, Humenberger, Rother, Sattler, ICCV 2021) argues relocalization benchmarks score against ground truth **produced by an algorithm**, so leaderboards partly measure agreement with the reference method. Structurally the same finding as [LIBERO-PRO](../sources/libero-pro-paper.md), [VP²](../sources/vp2-paper.md), and the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md) — **a fourth independent instance of "the instrument is not measuring what the field thinks it measures,"** from a subfield the robotics evaluation literature does not appear to cite.
+
+## The measurement paper worth reading separately
+
+**[On the Limits of Pseudo Ground Truth](../sources/pseudo-ground-truth-paper.md)** (Brachmann, Humenberger, Rother, Sattler, ICCV 2021) — now ingested in full. Changing only the reference algorithm that generated a benchmark's labels moves **Active Search from last to first, +29.8 points**, and inverts the field's belief that scene-coordinate regression beats classical feature matching. Notable that **Brachmann is the scene-coordinate-regression line** and the paper's first casualty is his own camp's claim.
 
 ## Related
 

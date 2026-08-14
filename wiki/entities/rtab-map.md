@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-08-13
 updated: 2026-08-13
-sources: 2
+sources: 4
 tags: [rtab-map, slam, rgbd, loop-closure, graph-slam, ros2, navigation, xlerobot, introlab]
 ---
 
