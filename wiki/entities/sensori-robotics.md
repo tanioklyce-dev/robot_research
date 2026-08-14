@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-07-13
 updated: 2026-08-13
-sources: 2
+sources: 3
 tags: [company, physical-ai, manipulator, bimanual, teleoperation, open-hardware, usa]
 ---
 

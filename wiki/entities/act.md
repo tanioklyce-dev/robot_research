@@ -3,8 +3,8 @@ title: ACT (Action Chunking Transformer)
 type: entity
 subtype: method
 created: 2026-05-25
-updated: 2026-08-04
-sources: 23
+updated: 2026-08-13
+sources: 24
 tags: [act, action-chunking, transformer, imitation-learning, behavior-cloning, aloha, mobile-aloha, tony-zhao, stanford, lerobot]
 ---
 
@@ -34,6 +34,12 @@ tags: [act, action-chunking, transformer, imitation-learning, behavior-cloning, 
 
 - The original 2023 ACT paper is **not yet ingested** in this wiki — the wiki's view of ACT comes via the Mobile ALOHA paper (which uses it as a baseline and describes its mechanics in passing) plus the [LeRobot tutorial](../sources/lerobot-robot-learning-tutorial.md) and references on [chelsea-finn.md](chelsea-finn.md) and [imitation-learning.md](../concepts/learning/imitation-learning.md). A direct ACT paper ingest would refine architectural details (encoder depth, action-chunk length k, training tricks, the [VAE](../concepts/learning/variational-autoencoder.md)-style action distribution model — a conditional VAE, whose substrate paper is now ingested as the [VAE Paper](../sources/vae-paper.md)).
 - **Multi-task / language-conditioned ACT** — the wiki has no coverage of multi-task extensions; the published 2023/2024 work is single-task.
+
+## As UME's policy for contact-rich whole-body tasks
+
+[UME](ume.md) ([paper](../sources/ume-paper.md)) trains **ACT** on torque-augmented teleoperation data and gets **0.85–0.95** on force-mediated, visually occluded, space-constrained, and long-horizon mobile tasks — from **26–157 demonstrations each**, at **40 k gradient steps on one RTX 4090 in 8 hours** (ResNet18 backbone, 4 encoder / 7 decoder layers, hidden 512, batch 200).
+
+Worth recording because it locates the bottleneck: with a **torque channel in the observation**, plain ACT handles contact-rich whole-body behaviour that the wiki's coverage usually attributes to larger policy classes. **The gating resource was the sensor, not the architecture or the compute.**
 
 ## Related
 - [ALOHA / Mobile ALOHA](aloha.md) — the platform ACT was introduced with.

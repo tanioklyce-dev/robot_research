@@ -4,7 +4,7 @@ type: entity
 subtype: hardware-component
 created: 2026-05-28
 updated: 2026-05-28
-sources: 5
+sources: 6
 tags: [dynamixel, robotis, bus-servo, motor-sdk, lerobot-supported-sdk, koch-v1]
 ---
 

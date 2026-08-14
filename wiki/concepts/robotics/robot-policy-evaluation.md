@@ -3,7 +3,7 @@ title: Robot policy evaluation
 type: concept
 created: 2026-07-27
 updated: 2026-08-13
-sources: 16
+sources: 17
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-10
 updated: 2026-08-03
-sources: 29
+sources: 30
 tags: [so-arm, so-arm100, so-arm101, the-robot-studio, low-cost-arm, open-source, lerobot, leader-follower, teleoperation]
 ---
 

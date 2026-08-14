@@ -4,11 +4,11 @@ type: entity
 subtype: product
 created: 2026-08-13
 updated: 2026-08-13
-sources: 1
+sources: 2
 tags: [ume, exoskeleton, teleoperation, force-torque, haptic-feedback, compliant-control, data-collection, umi, ant-group, stanford, low-cost]
 ---
 
-**UME (Universal Manipulation Exoskeleton)** — a **$1,900** upper-limb exoskeleton from **Ant Group + Stanford** (Liang, Xu et al., arXiv 2606.14218) that gives a teleoperator **real-time haptic torque feedback** while **recording whole-arm configuration and joint torques**. Primary source: [project page](../sources/ume-project-page.md).
+**UME (Universal Manipulation Exoskeleton)** — a **$1,900** upper-limb exoskeleton from **Ant Group + Stanford** (Liang, Xu et al., arXiv 2606.14218) that gives a teleoperator **real-time haptic torque feedback** while **recording whole-arm configuration and joint torques**. Primary sources: [paper](../sources/ume-paper.md), [project page](../sources/ume-project-page.md).
 
 Its thesis is the gap this wiki kept hitting: *"the majority of existing data collection pipelines still lack the ability to capture force and torque data for learning active compliant policies."*
 
@@ -48,8 +48,25 @@ All policies trained **solely on UME data**:
 > [!note] Contact-rich tasks at demo counts below tabletop pick-and-place
 > Compare: [X-VLA](x-vla.md)'s cloth folding needed **1,200 episodes ≈ 50–60 operator-hours**; the standard [LeRobot](lerobot.md) recipe is ~50 per task for *tabletop pick-and-place*. UME reports harder tasks at comparable or lower counts. If the **No-torque** ablation supports the causal reading, **force feedback is buying data efficiency, not just operator comfort** — which is the bet the [XLeRobot bring-up plan](../syntheses/projects/xlerobot-nav-manip-teleop-bringup.md)'s "~50 demos, 2–3 hours" budget is silently made against.
 
-> [!warning] No success rates published on the project page
-> Videos are labelled *"Comparison with UMI"* and *"Comparison with No-torque"* — **the outcomes are not shown**. Per the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md), nothing here is a measurement yet. The demo counts and costs are the hard facts; the ablations must be read from arXiv **2606.14218** before any of it is quoted as a result.
+## Ablation results (from the [paper](../sources/ume-paper.md), 20 trials per cell)
+
+| Task | No-torque | UMI | **UME** |
+|---|---:|---:|---:|
+| Box pushing | 0.50 | 0.40 | **0.90** |
+| **Box flipping** | **0.00** | **0.00** | **0.85** |
+| GPU picking | 0.75 | **0.00** | **0.95** |
+| Fridge retrieval | 0.90 | 0.00 | **0.95** |
+
+> [!note] Applying the wiki's own audit: two of four torque comparisons separate, two do not
+> Fisher exact at n=20, UME vs **No-torque**: box flipping **p<0.00001**, box pushing **p=0.014** — both separate. GPU picking **p=0.18** and fridge **p=1.00** — neither does. Versus **UMI**, both tested gaps separate decisively (p=0.002, p<0.00001).
+>
+> Defensible: **torque is load-bearing on force-mediated tasks**; **whole-arm configuration is load-bearing in constrained space**; and **on the long-horizon mobile task torque buys essentially nothing** (0.90 vs 0.95). The paper reports that last one plainly rather than burying it.
+
+> [!note] Box flipping is the cleanest result — both baselines score exactly zero
+> The task requires distinguishing **two visually identical states** demanding opposite actions: insufficient pressing force (keep pushing) vs sufficient force (begin the flip), *"which can only be reliably distinguished through torque sensing."* The strongest demonstration in this wiki that **torque is information vision cannot supply**. Anything trained on pixels-plus-position is blind to it by construction.
+
+> [!note] Torque pays twice, independently
+> Beyond the policy gain, the paper measures **collection throughput**: **3.3× more demonstrations per minute** than torque-disabled UME on box flipping, at **71% of unaided human speed**. Different mechanism, separately measured. For a data-collection budget this may be the bigger number — it compounds over every hour of teleoperation.
 
 ## Position vs UMI
 

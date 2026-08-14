@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-05-10
 updated: 2026-08-13
-sources: 5
+sources: 6
 tags: [umi, universal-manipulation-interface, hand-held-gripper, in-the-wild-data-collection, diffusion-policy-followon, chi-2024, stanford, columbia, tri]
 ---
 
@@ -54,7 +54,14 @@ From [UMI Project Page](../sources/umi-paper.md):
 
 ## The torque counter-argument: UME
 
-**[UME](ume.md)** (Ant Group + Stanford, 2026) is the same idea with a different bet about what the instrument must capture. **UMI bets on visual context and portability; UME bets on real-time torque feedback** — an upper-limb exoskeleton that both *renders* joint torque to the operator and *records* it. It runs head-to-head against UMI on **visually occluded box pushing, space-constrained GPU picking, and whole-body fridge retrieval** — precisely the occluded and force-mediated cases where a gripper-mounted camera with no force channel should struggle. Outcomes are not published on its project page; the ablation is in arXiv 2606.14218.
+**[UME](ume.md)** (Ant Group + Stanford, 2026) is the same idea with a different bet about what the instrument must capture. **UMI bets on visual context and portability; UME bets on real-time torque feedback** — an upper-limb exoskeleton that both *renders* joint torque to the operator and *records* it. It runs head-to-head against UMI on **visually occluded box pushing, space-constrained GPU picking, and whole-body fridge retrieval** — precisely the occluded and force-mediated cases where a gripper-mounted camera with no force channel should struggle.
+
+> [!warning] The outcome, now read from the [paper](../sources/ume-paper.md): a UMI-parameterized policy scores **zero on three of four tasks**
+> **Box pushing 0.40, box flipping 0.00, GPU picking 0.00, fridge retrieval 0.00** against UME's 0.90 / 0.85 / 0.95 / 0.95, at 20 trials per cell. Both tested gaps separate decisively (Fisher p = 0.002 and p < 0.00001).
+>
+> The stage-wise fridge breakdown localizes the failure precisely: UMI opens the fridge at **0.95** and then **collapses to 0.00 at "take out drink"** — collisions from the wrist-mounted camera or the gripper while reaching around the door holder. UME's diagnosis is that end-effector pose plus IK **cannot express the whole-arm posture** needed in clutter, and that a gripper-mounted camera *"may have limited coverage of the global scene geometry."*
+>
+> **Scoping this fairly.** This is a *re-parameterization ablation on UME's own data*, not UMI hardware evaluated on UMI's own task distribution — the comparison isolates the input/output representation, and the tasks were chosen to stress exactly what that representation lacks. It is strong evidence about **representation**, weaker evidence about **the UMI system in the wild**, where portability and scale are its actual argument. Notably, **UME never measures collection throughput against UMI** — the comparison that would settle the paradigm trade, given UME weighs 12 kg.
 
 ## Related
 

@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-10
 updated: 2026-08-13
-sources: 25
+sources: 26
 tags: [xlerobot, mobile-manipulator, dual-arm, lerobot, lekiwi, so-arm101, low-cost, household-robot, embodied-ai, sourccey]
 ---
 
@@ -80,6 +80,12 @@ This composition pattern — **buy-no-new-IP, glue together with 3D-printed brac
 
 > [!note] The commercial answer to the same problem
 > **[Sourccey](sourccey.md)** ([Vulcan Robotics](vulcan-robotics.md), Aug 2026) converges on nearly the same component list — FeeTech servos, Raspberry Pi 5, ~90% 3D-printed, dual 5-DOF arms, LeRobot — from the product side rather than the community side. It adds a **vertical lift**, **standard LiDAR**, an **onboard touchscreen**, **Oculus Quest IK teleop**, and **[X-VLA](x-vla.md) laundry-folding policies preinstalled**; it gives up **half the battery energy** (~120 Wh vs 288 Wh), **all of the reproducibility** (no BOM, wiring, URDF, or STLs published), a **permissive hardware license** (CERN-OHL-S-2.0 vs Apache 2.0), and any published price. Full comparison: **[Sourccey vs XLeRobot](../syntheses/platforms/sourccey-vs-xlerobot.md)**. Useful counterpoint to [Stretch](stretch.md) (~$20k, integrated single-arm with lift), the [Reachy 2](reachy.md) (~$50k, dual-arm with integrated AI compute), and [Fauna Sprout](fauna-robotics.md) (humanoid developer platform).
+
+## The position-only ceiling, measured
+
+[UME](ume.md) ([paper](../sources/ume-paper.md)) puts a number on what XLeRobot's lack of force sensing costs. Ablating torque out of the observation — same data otherwise — drops **box flipping 0.85 → 0.00** and **box pushing 0.90 → 0.50**, and costs **3.3× in collection throughput**. The failure mode is specific: tasks where **two visually identical states require opposite actions** are unlearnable without a torque channel, regardless of policy class.
+
+Practical read for the [bring-up plan](../syntheses/projects/xlerobot-nav-manip-teleop-bringup.md): the plan's top-down-grasp task scoping is well chosen, since kinematically dominated tasks are exactly the ones this ceiling does not bind. Contact-rich work needs a torque channel — [UME](ume.md) at $1,900 or [OpenFT](openft-sensor.md) at ~$60, unmaintained.
 
 ## Related
 

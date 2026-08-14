@@ -5,7 +5,7 @@ subtype: hardware-component
 created: 2026-08-13
 updated: 2026-08-13
 tags: [openft, force-torque, hall-effect, open-hardware, sensing, dimensional, dimos, low-cost, jlcpcb]
-sources: 2
+sources: 3
 ---
 
 **OpenFT** — an open-source **6-axis force/torque sensor** using **Hall-effect magnetic-displacement sensing** instead of strain gauges: **16 Hall sensors in 4 clusters** track a magnet holder's deflection under load, inverted to 6 axes either geometrically or through a learned **6×16 calibration matrix**. From [Dimensional Inc.](dimensional-inc.md); listed 🟥 experimental in [DimOS](dimos.md)'s hardware matrix. Repo: [github.com/dimensionalOS/openFT-sensor](https://github.com/dimensionalOS/openFT-sensor) ([source page](../sources/openft-sensor-github.md)).

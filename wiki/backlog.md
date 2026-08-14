@@ -27,8 +27,12 @@ Deferred maintenance items and knowledge gaps surfaced during lint passes but no
 ### UME — the position-only gap now has a researched answer
 
 - [x] **[UME](entities/ume.md)** ingested ([project page](sources/ume-project-page.md)) — **$1,900** torque-feedback exoskeleton, records joint torques, contact-rich policies from **26–157 demos each**.
-- [ ] **Ingest the paper (arXiv 2606.14218).** It holds everything that matters and the project page publishes none of it: the **UMI** and **No-torque ablation results**, the cost breakdown, the retargeting algorithm, and the user study. **The No-torque number is the single most valuable figure in this work for this wiki** — it decides whether force feedback buys *data efficiency* or only operator comfort.
-- [ ] **Do UME's learned policies consume torque as an input**, or merely benefit from better demonstrations? Completely different claims; unresolved.
+- [x] ~~**Ingest the paper (arXiv 2606.14218)**~~ — **done 2026-08-13**: [UME paper](sources/ume-paper.md). Answers below.
+- [x] ~~**Do UME's learned policies consume torque as an input?**~~ — **yes**, explicitly: the No-torque baseline is *"the same dataset without including the torque modality to compute the proprioception embedding."* Torque is an observation channel, not just better demonstrations.
+- [x] ~~**Does force feedback buy data efficiency or operator comfort?**~~ — **both, measured separately.** Policy side: torque ablation drops box flipping **0.85 → 0.00** and box pushing **0.90 → 0.50**. Operator side: **3.3× demonstrations per minute**, at 71% of unaided human speed.
+- [ ] **The comparison that would settle the paradigm trade is missing: UME vs UMI on *collection throughput*.** UME's 3.3× is measured against torque-disabled UME, not against UMI — and UME weighs **12 kg** against UMI's handheld gripper. Better data versus easier data at scale is unresolved, and it is the question a builder actually faces.
+- [ ] **Does torque help long-horizon mobile tasks at all?** Fridge retrieval 0.95 vs 0.90 at n=20 is indistinguishable (p=1.00). Either the task is not force-mediated enough, or the effect is real and n=20 cannot see it. A larger n settles it.
+- [ ] **No cross-embodiment *policy* transfer tested** — universal *teleoperation* is shown, policy transfer is not. And **real-Franka results are simulation-only** pending hardware delivery.
 - [ ] **Nothing bridges $1,900 to the $660 tier.** [OpenFT](entities/openft-sensor.md) is the only cheaper route and is unmaintained, unbenchmarked, and unlicensed.
 - [ ] **Is WowRobo's OpenArm 1.0 the same lineage as [Sensori](entities/sensori-robotics.md)'s OpenArm+?** Two unrelated platforms sourcing "OpenArm" hints at a standard consolidating above the SO-ARM101 tier.
 

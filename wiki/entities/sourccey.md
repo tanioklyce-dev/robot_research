@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-08-13
 updated: 2026-08-13
-sources: 7
+sources: 8
 tags: [sourccey, vulcan-robotics, mobile-manipulator, dual-arm, mecanum, lerobot, xvla, feetech, raspberry-pi-5, 3d-printed, household-robot, laundry-folding, open-hardware, cern-ohl]
 ---
 
@@ -54,6 +54,11 @@ Ships with **"XVLA with 4 micromodels"** — folding T-shirts, shorts, jeans/pan
 
 > [!warning] Inference does not run on the robot
 > [X-VLA](x-vla.md)-0.9B on a [Florence-2](florence-2.md)-Large backbone cannot run at control rate on a [Raspberry Pi 5](raspberry-pi-5.md). Vulcan's own spec page says so obliquely — *"capabilities scale with the host computer. Rented compute is planned for users who need stronger training or inference."* Sourccey is a **PC-does-inference, Pi-relays** platform, exactly like [XLeRobot](xlerobot.md), and the specs page never states it plainly.
+
+> [!warning] The position-only limit now has a measured cost
+> [UME](ume.md) ([paper](../sources/ume-paper.md)) ablates exactly this. Dropping torque from the observation while keeping everything else identical takes **box flipping from 0.85 to 0.00** — two visually identical states requiring opposite actions, separable only by torque — and **box pushing from 0.90 to 0.50** (Fisher p<0.00001 and p=0.014, n=20). It also costs **3.3× in data-collection throughput**.
+>
+> So "positional only" is not a minor spec omission. It **rules out a class of task** — the force-mediated ones where the decision is invisible to a camera — rather than merely degrading performance on all tasks. Sourccey's advertised laundry folding is kinematically dominated and should be fine; anything involving pressing, sliding, or reaching into clutter is not.
 
 > [!note] The position-only recording is the deeper limit
 > Sourccey's dataset schema is **joint position only** — no current, torque, or force. That caps what any policy trained on Sourccey data can learn to the **kinematically dominated** tasks it advertises (cloth, cutlery, light dishes) and rules out contact-rich work. The cheapest published route out is **[OpenFT](openft-sensor.md)**, a Hall-effect 6-axis F/T sensor with open Gerbers and a JLCPCB-ready BOM — unbenchmarked, unmaintained, and the only thing in this wiki aimed squarely at this gap.

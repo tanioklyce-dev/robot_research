@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-07
 updated: 2026-08-13
-sources: 36
+sources: 37
 tags: [franka, panda, robot-arm, manipulator, 7-dof, manipulation-platform]
 ---
 
