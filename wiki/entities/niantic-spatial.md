@@ -19,7 +19,12 @@ tags: [niantic-spatial, scaniverse, gaussian-splatting, visual-relocalization, d
 | **Localize** | *"Precise, vision-based positioning for machines"* |
 | **Understand** | *"Query the world through semantics at every 3D point"* |
 
-**Scaniverse** — from *"market-leading mobile 3D scanning app"* to *"scalable spatial data ingestion service."* Phones, **360° cameras, drones**; splats and meshes on-device; **SPZ**, their open splat format, claiming **90% file-size reduction**.
+**Scaniverse** — from *"market-leading mobile 3D scanning app"* to *"scalable spatial data ingestion service."* iOS/Android plus **360° cameras and drones**, ***"no expensive equipment or specialized training required"***; **Gaussian splats and meshes processed on-device**; **SPZ**, their open splat format, claiming **90% file-size reduction**; team-based collaboration; enterprise tier on web, iOS and Android. A paid product.
+
+> [!note] Deskilled capture, coupled output — read the two together
+> *"No expensive equipment or specialized training required"* sits alongside *"built for Niantic Spatial pipelines — connect directly with Niantic Spatial's reconstruction and localization workflows."* **Lower the capture barrier as far as it goes, then route the output into your own stack.** SPZ's 90% reduction is what makes phone-captured splats shippable at volume, and volume is the point: it all feeds the **Large Geospatial Model**.
+>
+> The robotics-relevant reading is a real cost argument — **map a facility with phones and drones instead of survey gear or a dedicated mapping robot**. Still not a robotics deployment, and none is shown.
 
 ## The research program
 

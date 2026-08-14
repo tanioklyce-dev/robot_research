@@ -14,8 +14,8 @@ tags: [niantic-spatial, scaniverse, gaussian-splatting, visual-relocalization, s
 
 Ingested alongside [LingBot-Map](lingbot-map-github.md) because the pair exposes a **structural gap in this wiki**: it covers world models extensively — [generative-video](../concepts/world-models/world-model-simulators.md) and [JEPA](../concepts/world-models/jepa.md) — and has **no page for SLAM, Gaussian splatting, NeRF, or visual relocalization**. Those are a different tradition attacking an adjacent problem: *geometric* reconstruction of a real place rather than *learned prediction* of what happens next. See the new [visual relocalization and mapping](../concepts/robotics/visual-relocalization-and-mapping.md) concept page.
 
-> [!note] The Scaniverse URL is a login wall
-> `scaniverse.nianticspatial.com` serves only an authentication form. Product detail below is from `nianticspatial.com`; treat the Scaniverse specifics as vendor marketing copy rather than documentation.
+> [!note] Provenance
+> `scaniverse.nianticspatial.com` serves only an authentication form; the Scaniverse product detail below is from the **Capture** page on `nianticspatial.com` (fetched, and confirmed against the page text supplied by the user 2026-08-13). It is **vendor marketing copy, not documentation** — no specifications, accuracy figures, or benchmarks appear anywhere on it.
 
 ## Key claims — the product stack
 
@@ -30,7 +30,17 @@ Ingested alongside [LingBot-Map](lingbot-map-github.md) because the pair exposes
 
 Two reconstruction modes: **on-device** (iOS/Android, *"textured meshes or Gaussian splats in real time, fully offline"*) and **cloud** (photorealistic meshes and splats *"enhanced by semantic understanding"*).
 
-**Scaniverse** — *"evolved from a market-leading mobile 3D scanning app into a scalable spatial data ingestion service."* Captures from phones, **360° cameras, and drones**; produces Gaussian splats and meshes on-device; exports to standard formats **including their open-source SPZ format, "reducing file size by 90%."**
+**Scaniverse** — *"evolved from a market-leading mobile 3D scanning app into a scalable spatial data ingestion service, enabling everyone from creators to field teams to capture and operationalize real-world environments with precision and at scale."* Five stated capabilities:
+
+| Capability | Claim |
+|---|---|
+| **Export / integrate** | standard 3D formats **including the open-source SPZ format, "reducing file size by 90%"** |
+| **High-fidelity scanning** | iOS and Android *"today"*, plus **360° cameras and drones**; ***"no expensive equipment or specialized training required"*** |
+| **Photorealistic results** | **Gaussian splats and meshes processed efficiently on-device** |
+| **Built for Niantic Spatial pipelines** | *"connect directly with Niantic Spatial's reconstruction and localization workflows"* |
+| **Collaborative tools** | team-based scanning and data management |
+
+Paid product (*"View Plans and Pricing"*); **enterprise features on web, iOS, and Android**. Showcase scan: **Greenwich Power Station**. Capture as a whole is framed as *"turning real-world data into the foundation for spatial intelligence."*
 
 ## Key claims — the research program
 
@@ -65,6 +75,13 @@ Adjacent lines: **SimpleRecon** (*"3D reconstruction without 3D convolutions"*, 
 > Niantic's original business put millions of players outdoors scanning real places. Scaniverse converts that consumer capture surface into *"a scalable spatial data ingestion service."* Nobody else in this wiki's coverage has a comparable **crowd-sourced geometric** capture channel — the closest analogues are [LeRobot](../entities/lerobot.md)'s community datasets and [SmolVLA](../entities/smolvla.md)'s 481 community HF datasets, which are *manipulation* data at hobbyist scale, not city-scale geometry.
 >
 > **SPZ** — an open format claiming 90% size reduction for Gaussian splats — is the kind of move that only pays off if you expect to move a very large amount of splat data.
+
+> [!note] The capture layer is deliberately deskilled *and* deliberately coupled — that pairing is the strategy
+> Two of Scaniverse's five stated capabilities sit next to each other and should be read together: ***"no expensive equipment or specialized training required"*** and ***"built for Niantic Spatial pipelines — connect directly with Niantic Spatial's reconstruction and localization workflows."***
+>
+> **Lower the barrier to capture as far as it will go, then route what comes out into your own stack.** SPZ's 90% reduction is the enabling piece — phone-captured splats are only shippable at volume if they are small. Everything about the Capture product is aimed at maximizing the *volume and diversity* of geometry flowing into the [Large Geospatial Model](../entities/niantic-spatial.md), which is the asset the flywheel note above describes.
+>
+> **The robotics-relevant version of this claim**, and it is a real one: a fleet operator could map a facility with **phones and drones instead of survey equipment or a dedicated mapping robot**. That is a genuine cost argument. It is still not a robotics deployment, and none is shown.
 
 ## Entities mentioned
 
