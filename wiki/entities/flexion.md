@@ -5,7 +5,7 @@ subtype: company
 created: 2026-08-13
 updated: 2026-08-13
 tags: [flexion, humanoid, autonomy-stack, sim2real, reinforcement-learning, isaac-lab, zurich, reflect, niantic-spatial]
-sources: 1
+sources: 3
 ---
 
 **Flexion Robotics** — Zürich-based company building *"the **autonomy stack** for humanoid robots — from command to control, from manipulation to locomotion, **across any hardware and task**. Leveraging the power of simulation and reinforcement learning, our software scales to the real world with **minimal human involvement**."* Tagline: *"Complex intelligence for simple human tasks."* [flexion.ai](https://flexion.ai/).

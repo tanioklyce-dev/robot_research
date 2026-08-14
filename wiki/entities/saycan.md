@@ -4,7 +4,7 @@ type: entity
 subtype: system
 created: 2026-08-03
 updated: 2026-08-03
-sources: 2
+sources: 3
 tags: [saycan, llm-agent, affordances, value-functions, skill-selection, google, palm]
 ---
 

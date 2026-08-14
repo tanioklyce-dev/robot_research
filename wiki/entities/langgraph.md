@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-08-13
 updated: 2026-08-13
-sources: 4
+sources: 5
 tags: [langgraph, langchain, agent-framework, state-machine, tool-calling, dimos, llm-agent]
 ---
 
