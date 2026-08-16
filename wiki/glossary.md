@@ -311,6 +311,9 @@ For a closed convex function `f`, its perspective is `f̃(x, λ) := λ·f(x/λ)`
 ### π0 / π0.6 (pi-zero)
 [Physical Intelligence](entities/physical-intelligence.md)'s flagship cross-platform VLA. π0 ([source page](sources/pi-zero-paper.md)) uses a flow-matching action head on a pre-trained VLM backbone. *(Module 9.)*
 
+### PFL
+**Power and Force Limiting** — the ISO/TS 15066 collaborative mode that *permits* robot–human contact provided the impact energy stays below pain/injury thresholds. Instantiated numerically in [PACS](sources/pacs-paper.md): **0.014 J** for a constrained hand contact, **0.265 J** unconstrained, **0.001 J** for a fork near a head/eye. Contrast [SSM](#ssm). See [robot safety standards](concepts/robotics/robot-safety-standards.md). *(Classical-robotics branch.)*
+
 ### PLDM
 **Planning with Latent Dynamics Models** — Sobal et al. ([2025 source page](sources/pldm-paper.md), [entity](entities/pldm.md); 2022 precursor [arxiv 2211.10831](https://arxiv.org/abs/2211.10831) not yet a wiki source page). End-to-end JEPA-style WM trained with VICReg-inspired anti-collapse + inverse-dynamics + similarity loss; ~6 anti-collapse hyperparameters per [LeWM](sources/leworldmodel-paper.md)'s critique. The most-cited "end-to-end JEPA before LeWM" baseline. *(Module 11.)*
 
@@ -350,6 +353,9 @@ A pretrained visual encoder for manipulation (Nair et al. 2022); appears as a Di
 ### RLT
 **Reformulation-Linearization Technique** — Sherali & Adams; generate valid inequalities for a nonconvex program by multiplying existing valid inequalities together and linearizing the products. The [GCS](#gcs) MICP is first-level RLT specialized to one bilinear structure, generalized from polytopes to arbitrary closed convex sets and made **set-based** (it needs only a separation oracle, not the defining inequalities). Related hierarchies: Lovász–Schrijver, Lasserre/[SOS](#sos). *(Classical-robotics branch.)*
 
+### Reachability analysis
+Computing the set of all states a system can occupy over a time horizon given bounded inputs, disturbances, and measurement error — as opposed to simulating one trajectory. Set-based reachability underpins the **failsafe-trajectory** family of [safety filters](#safety-filter): execute the nominal motion only while a verified stopping motion remains available. Tooling in this wiki's sources: SaRA, CORA (Althoff). *(Classical-robotics branch.)*
+
 ### RNN
 **Recurrent Neural Network** — sequence model that maintains a hidden state across timesteps; superseded by transformers for most tasks. *(Module 3.)*
 
@@ -364,6 +370,9 @@ A pretrained visual encoder for manipulation (Nair et al. 2022); appears as a Di
 
 ### SAHI
 **Slicing Aided Hyper Inference** — Akyon et al. 2022; inference-time small-object trick — slice the image into overlapping patches, detect per patch, merge via [NMS](#nms). See [concept page](concepts/robotics/sahi-slicing-inference.md). *(Perception.)*
+
+### Safety filter
+A runtime mechanism between a policy and the actuators that takes the proposed action and emits the nearest action it can certify safe. Families: optimization-based ([CBF](#cbf), predictive safety filters) versus **reachability-based** (keep a verified failsafe trajectory available); post-hoc versus injected into the denoising process. The axis that predicts whether a filter destroys a learned policy is **path-consistent vs path-deviating**, not guarantee strength — see [safety filters for learned policies](concepts/robotics/safety-filters.md). *(Classical-robotics branch.)*
 
 ### SGD
 **Stochastic Gradient Descent** — gradient descent on minibatches; the canonical NN optimizer. *(Module 1.)*
@@ -388,6 +397,9 @@ NN architecture with two (or more) weight-tied sub-networks applied to two input
 
 ### Spectrahedron
 The feasible set of a **semidefinite program** — the intersection of the cone of positive-semidefinite matrices with an affine subspace. Convex by construction, which is the whole point: relax a nonconvex contact-dynamics [QCQP](#qcqp) into an SDP and its feasible set becomes a legal vertex set for a [graph of convex sets](concepts/robotics/graphs-of-convex-sets.md). One spectrahedron per contact mode ([Tedrake 2024](sources/tedrake-gcs-foundation-models-talk.md)). *(Classical-robotics branch.)*
+
+### SSM
+**Speed and Separation Monitoring** — the ISO/TS 15066 collaborative mode that permits **no** contact: if a collision becomes reachable, the robot must reach a complete stop. The coexistence counterpart to [PFL](#pfl). *(Classical-robotics branch.)*
 
 ### SSL
 **Self-Supervised Learning** — train on unlabeled data by inventing a pretext task whose labels can be derived from the input itself. The umbrella for everything in self-supervised pretraining. *(Module 4.)*

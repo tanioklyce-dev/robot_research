@@ -75,6 +75,7 @@ tags: [smolvla, vla, vision-language-action, flow-matching, hugging-face, lerobo
 ## Mentioned in
 
 - [SmolVLA Paper](../sources/smolvla-paper.md) — primary source.
+- [PACS paper](../sources/pacs-paper.md) — deployed under a path-consistent safety filter on a Franka FR3 handover task (0.77 → 0.80 success, safe success 0.00 → 0.80); shows the filter is policy-agnostic across diffusion and flow-matching action chunks.
 - [Robot Learning: A Tutorial (LeRobot)](../sources/lerobot-robot-learning-tutorial.md) — canonical VLA code example.
 - [π0 Paper](../sources/pi-zero-paper.md) — referenced via SmolVLA-as-contrasting-design ingestion.
 - [π0 entity](pi-zero.md) — direct comparison.

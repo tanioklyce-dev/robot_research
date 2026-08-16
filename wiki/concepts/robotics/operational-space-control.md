@@ -3,7 +3,7 @@ title: Operational space control (and the constrained-QP safety layer under lear
 type: concept
 created: 2026-08-16
 updated: 2026-08-16
-sources: 3
+sources: 4
 tags: [operational-space-control, osc, khatib, control-barrier-functions, cbf, task-consistency, differential-inverse-kinematics, quadratic-program, null-space, joint-impedance, safety, constraint-enforcement, mid-level-controller, franka, tri, drake, diffusion-policy, lbm]
 ---
 
@@ -77,10 +77,16 @@ And one gap is common to both: **obstacles are given, not perceived.** Sphere de
 > [!note] Singularity avoidance is the constraint the deployed envelope does not have
 > OSCBF treats a **kinematic singularity** as a safety constraint — `h = μ(q) − ε` on Yoshikawa's manipulability index — and demonstrates the arm moving in and out of near-singular configurations (`μ = 1e−2`) under teleoperation. Not "safety" in the collision sense, but exactly the failure mode where a diff-IK QP's commanded joint velocities blow up. Worth noting that the deployed stack handles this only implicitly, through joint and velocity limits.
 
+> [!warning] And the guarantee is not the axis that predicts task success
+> [PACS](../../sources/pacs-paper.md) (ICRA 2026) measured what these filters cost a diffusion policy, and the CBF version — the one *with* the invariance proof — scored **0.04 average task success on robomimic**, zero on two of three tasks, because a reactive filter pushes the policy **off the demonstration manifold into states it cannot recover from**. A filter that instead **brakes along the intended path** scored **0.72**, against 0.70 for the same pipeline unfiltered.
+>
+> So the ordering this page implied — hand-written constraints < CBFs — is wrong as a predictor of deployed performance. The ordering that holds is **path-deviating < path-consistent**, and it cuts across the guarantee axis. Note also that the same author ([Pavone](../../entities/marco-pavone.md)) is on both papers; this is a refinement within one research line, not a dispute between camps. Full taxonomy on [safety filters for learned policies](safety-filters.md).
+
 ## Relation to the rest of the stack
 
 - **[Whole-body control](whole-body-control.md)** is the humanoid-scale sibling. Classical WBC is largely OSC plus null-space prioritization across a floating-base robot; the learned WBC policies this wiki tracks ([SONIC](../../sources/sonic-paper.md), BumbleBee) replace the QP with a trained network and, notably, **give up the hard-constraint property in doing so**.
 - **[Control abstraction levels](control-abstraction-levels.md)** — the taxonomy's "level 3: policy control" quietly assumes something like this exists. Handing a model high-level commands is only safe because a constrained controller is between it and the actuators; the taxonomy scores the *model's* reach without crediting the layer that bounds it.
+- **[Safety filters for learned policies](safety-filters.md)** — the hub page comparing all three filters this wiki has ingested, and where the path-consistency finding lives.
 - **[Graphs of convex sets](graphs-of-convex-sets.md)** — the same group's other convex program, at the opposite time scale. GCS solves an SOCP **once per query** to get a globally optimal collision-free plan with a certificate; the OSC/diff-IK QP solves a small program **1,000 times a second** to keep whatever is being executed inside the feasible set. Planner and runtime guard, both convex, both in [Drake](../../entities/drake.md)'s mathematical-program interface.
 - **[Optimal control](optimal-control.md)** — the QP-per-tick pattern is one-step MPC in task space; everything on that page about horizon, model quality, and constraint handling applies.
 - **[Collaborative robots](collaborative-robots.md)** / **[robot safety standards](robot-safety-standards.md)** — the certification framing the constraint envelope does *not* satisfy.
@@ -98,3 +104,4 @@ And one gap is common to both: **obstacles are given, not perceived.** Sphere de
 - [Diffusion Policy paper](../../sources/diffusion-policy-paper.md) — Appendix D.1; §7.5 shirt folding.
 - [TRI LBM paper](../../sources/tri-lbm-paper.md) — hardware controller stack.
 - [OSCBF paper](../../sources/oscbf-paper.md) — the CBF formulation, task consistency, and the scaling numbers.
+- [PACS paper](../../sources/pacs-paper.md) — what a filter costs a learned policy, and why path consistency is the axis that matters.

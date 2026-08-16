@@ -58,6 +58,12 @@ This sharpens RoboLab's **saturation** critique from *"the benchmark stopped dis
 | **SPARC (Spectral Arc-Length)** | Trajectory smoothness from the Fourier spectrum of the velocity profile; imported from human-movement analysis |
 | **End-effector velocity** | Execution speed as a human-aligned *preference* signal, not a correctness measure |
 | **Failure-event logs** | Frame-level automated detection of wrong-object grasps, drops, gripper collisions |
+| **Safe success** | Fraction of rollouts completing the task **while never violating a safety constraint** ([PACS](../../sources/pacs-paper.md)) |
+
+> [!warning] Safe success is the one in that table that can be zero while task success is 0.79
+> [PACS](../../sources/pacs-paper.md) ran diffusion policies and a [SmolVLA](../../entities/smolvla.md) on three human-robot-interaction tasks with **no safety filter**: average task success **0.79**, average **safe** success **0.00**, with constraints violated in **56% of all timesteps** and in *every* rollout. Adding a path-consistent filter moved safe success to **0.80** at unchanged task success.
+>
+> The implication for the rest of this page is uncomfortable and worth stating plainly: **every success rate in this wiki was measured without a safety constraint being checked**, so none of them distinguishes a policy that does the task from one that does the task while repeatedly entering states that would injure a person standing there. Where humans are in the workspace, task success on its own is not a deployment-relevant number.
 
 **Competency tagging** is the structural counterpart: RoboLab splits tasks into **visual** (color, size, semantics), **procedural** (stacking, reorientation, tool affordances), and **relational** (spatial logic, counting, conjunctions) so that a failure localizes to a capability rather than a task.
 

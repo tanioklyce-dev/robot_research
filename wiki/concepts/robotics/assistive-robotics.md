@@ -42,6 +42,14 @@ The [Nanavati, Ranganeni & Cakmak 2024](../../sources/nanavati2024-physically-as
 - **Participant inclusion**: ~half of PAR papers involve no participants with the target disability. All formative studies involved PwD; most summative evaluations did not.
 - **Three research themes**: (1) Interaction interfaces; (2) Levels of autonomy; (3) Adaptation.
 
+## What "safe near a person" costs, numerically
+
+The wiki's assistive coverage argues about autonomy levels and interfaces; [PACS](../../sources/pacs-paper.md) supplies the physical-safety number underneath all of it. Its **FEEDING** task — put a fork of food into a person's mouth — is run under **ISO/TS 15066 power-and-force limiting** with a formally identified impact-energy threshold for the **head/eye** of **0.001 J**, against **0.014 J** for a constrained hand contact and **0.265 J** unconstrained. Two orders of magnitude between "bumping a hand" and "a fork near an eye," and the feeding case is the tightest constraint in the paper.
+
+The result that matters for this page: an unsafeguarded diffusion policy performing that task **violated its safety constraint in 85% of timesteps** while succeeding 63% of the time. With a path-consistent safety filter, success was unchanged (0.63) and violations went to zero. Assistive manipulation near the face is exactly the regime where **task success and safety are separate measurements** — see [safety filters for learned policies](safety-filters.md). (Caveat: the quantitative feeding runs use a printed face with a cut-out mouth; the real human appears only in qualitative tests.)
+
+Compare [Nanavati et al. 2025](../../sources/nanavati2025-feeding-out-of-lab.md), the wiki's out-of-lab feeding study, which reaches the same domain from the user-study side.
+
 ## Real-world household task performance (2025 data)
 
 The [Stanford HAI AI Index 2026](../../sources/stanford-hai-ai-index-2026.md) provides the best independent data point on where robots actually stand on household tasks:

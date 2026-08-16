@@ -27,6 +27,7 @@ This page lines them up. The short version: **the full span is about five orders
 | **1,000** | REQ | [Franka Panda](../../entities/franka-panda.md) joint servo loop | robot firmware |
 | **9,550** | MEAS | [OSCBF](../../sources/oscbf-paper.md) safety filter, **1 CBF** (singularity avoidance), velocity control — JAX/XLA QP | Franka Panda, i7 NUC |
 | **2,940** | MEAS | [OSCBF](../../sources/oscbf-paper.md) **168 concurrent CBF constraints**, torque control, full second-order dynamics | Franka Panda, i7 NUC |
+| **5,000** | MEAS | [PACS](../../sources/pacs-paper.md) reachability safety step, **0.20 ms** (CBF baseline 0.64 ms ≈ 1.6 kHz); deployed at 1 kHz | Franka FR3 |
 | **~1,000** | MEAS | [OSCBF](../../sources/oscbf-paper.md) with **>400 CBF constraints** (cluttered scene, whole-body collision avoidance) | Franka Panda, i7 NUC |
 | **~1,000** | MEAS | **[Diffusion Policy](../../sources/diffusion-policy-paper.md)'s mid-level controller** — constrained diff-IK QP, *"runs around 1kHz"*, interpolating the 10 Hz policy's commands | Franka station (TRI/MIT) |
 | **500** | REQ | Upper bound of [whole-body control](../../concepts/robotics/whole-body-control.md) torque loops | humanoid WBC |

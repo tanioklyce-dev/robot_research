@@ -3,7 +3,7 @@ title: Robot safety standards (ISO 13482 and the machinery-safety framework)
 type: concept
 created: 2026-07-08
 updated: 2026-08-03
-sources: 16
+sources: 17
 tags: [iso-13482, iso-10218, ts-15066, safety-standards, certification, ce-marking, service-robots, personal-care-robots, assistive, regulation, functional-safety, nvidia-halos]
 ---
 
@@ -50,8 +50,13 @@ A concrete instance of that predicted pattern arrived 2026-07-15: **[NVIDIA Halo
 
 **The research answer to the missing guarantee arrived in 2025, from Stanford**: [OSCBF](../../sources/oscbf-paper.md) ([Morton & Pavone](../../entities/marco-pavone.md), IROS 2025) replaces the hand-written inequalities with **control barrier functions**, which make the safe set *forward-invariant* — a property about all future states, not just this tick — and does it at **~3 kHz with 168 concurrent constraints** on the same class of arm. That is the first artifact in this wiki that a physical-safety conformity argument could plausibly be built on. Two things keep it short of one: the authors concede that with many constraints and input limits the QP can go infeasible and the relaxed version *"enforces (but does not guarantee) safety in most cases"*, and **obstacles are supplied, not perceived** — the same blocker as the deployed envelope.
 
+**And in 2026 the standard's own modes finally appear, with numbers, underneath a learned policy.** [PACS](../../sources/pacs-paper.md) (ICRA 2026) deploys a diffusion policy and a [SmolVLA](../../entities/smolvla.md) on a Franka FR3 under **ISO/TS 15066's two collaborative modes**: **SSM** for the coexistence task (no contact permitted; the robot must be at a complete stop if a collision is reachable) and **PFL** for the two collaboration tasks, with formally identified energy thresholds — **0.014 J** hand/constrained, **0.265 J** hand/unconstrained, and **0.001 J** for a fork approaching a **head/eye**. Safety is verified by set-based reachability at 1 kHz, and the unsafeguarded policies violate their constraints in **56% of all timesteps** with a **0% safe-success rate**.
+
+That is the wiki's **first ingested instance of a learned policy held to a machinery-safety standard's actual numbers** — and the gap to conformity is now narrower and more legible: the mechanism exists, the thresholds are sourced from surrogate-injury data, and what is missing is the process (risk assessment over specified behaviors, an accredited body, and a perception system the constraint geometry can trust). See [safety filters for learned policies](safety-filters.md).
+
 ## Related concepts
 
+- [Safety filters for learned policies](safety-filters.md) — the runtime mechanisms that would have to underpin any conformity argument for a learned policy.
 - [Operational space control](operational-space-control.md) — the constraint envelope actually deployed under learned policies today; the uncertified floor beneath everything on this page.
 - [Assistive robotics](assistive-robotics.md) — the deployment domain where this standard bites first (in-home robots near vulnerable users).
 - [Levels of autonomy in assistive robotics](../../syntheses/assistive/levels-of-autonomy-in-assistive-robotics.md) — autonomy level determines which safety functions must be machine-side.
