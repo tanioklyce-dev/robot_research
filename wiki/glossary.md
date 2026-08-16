@@ -65,6 +65,9 @@ Stanford household-task benchmark; 12.4% best result (per [AI Index 2026](source
 ### Computational irreducibility
 **Computational irreducibility** ([Wolfram](entities/stephen-wolfram.md)) — for many systems there is no shortcut to the outcome: the only way to know the state after *n* steps is to run the *n* steps. Underlies why simple [CAs](concepts/alife/cellular-automata.md) are inexhaustibly rich; rhymes with compounding rollout error in [world models](concepts/world-models/world-model.md). *(ALife branch.)*
 
+### Conformal prediction
+**CP** — a distribution-free framework that turns any score into a calibrated threshold with a finite-sample guarantee: given exchangeable calibration data, a new in-distribution sample's score stays inside the band with probability ≥ 1−α. The calibration layer under both of the wiki's [runtime failure detectors](concepts/robotics/runtime-failure-detection.md) — [Sentinel](sources/sentinel-paper.md)'s constant quantile threshold and [FAIL-Detect](sources/fail-detect-paper.md)'s **time-varying band** — and under predictive red-teaming. Note the direction: it bounds **false alarms**, not misses; bounding misses would require failure data. *(Evaluation branch.)*
+
 ### CNN
 **Convolutional Neural Network** — NN whose layers slide a small filter across the input (image), exploiting local spatial structure. *(Module 2.)*
 
@@ -400,6 +403,9 @@ The feasible set of a **semidefinite program** — the intersection of the cone 
 
 ### SSM
 **Speed and Separation Monitoring** — the ISO/TS 15066 collaborative mode that permits **no** contact: if a collision becomes reachable, the robot must reach a complete stop. The coexistence counterpart to [PFL](#pfl). *(Classical-robotics branch.)*
+
+### STAC
+**Statistical measures of Temporal Action Consistency** — [Sentinel](sources/sentinel-paper.md)'s detector for *erratic* generative-policy failures. Successive action chunks overlap in time, so the policy yields two distributions over the same future timesteps; their statistical distance (MMD, KL) measures how much it just changed its mind. Cumulated over the rollout and thresholded by [conformal prediction](#conformal-prediction). Well-posed under action multimodality, where comparing two *sampled* trajectories is not — but it costs a batch of policy samples per timestep, which [FAIL-Detect](sources/fail-detect-paper.md) measures at **36–44× slower** than a learned score. *(Evaluation branch.)*
 
 ### SSL
 **Self-Supervised Learning** — train on unlabeled data by inventing a pretext task whose labels can be derived from the input itself. The umbrella for everything in self-supervised pretraining. *(Module 4.)*

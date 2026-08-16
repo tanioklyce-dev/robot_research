@@ -66,7 +66,14 @@ Path-consistent reachability filtering is the corner PACS occupies, and its enab
 
 **Safe success** — the fraction of rollouts that complete the task *while never violating a safety constraint*. PACS's hardware table is the argument for it: unsafeguarded policies score **0.79 task success and 0.00 safe success**, violating constraints in **56% of all timesteps** and in **every rollout**. Task success and safety are close to independent, so a benchmark that reports only the former describes behavior nobody would deploy. Nothing else in the wiki's [policy-evaluation](robot-policy-evaluation.md) coverage measures this.
 
+> [!note] A filter cannot see the failure mode it was never about
+> Every mechanism on this page answers *"will this action hurt someone or break something?"* None answers *"is this rollout going to succeed?"* — the policy confidently placing the object in the wrong location passes every constraint. That question belongs to [runtime failure detection](runtime-failure-detection.md), which is a separate mechanism with separate signals (temporal action consistency, density in a learned flow, a VLM watching the video) and separate guarantees (conformal bounds on **false alarms**, not on misses).
+>
+> A deployed system needs both, and nothing in this wiki's corpus runs both at once.
+
 ## Related concepts
+
+- [Runtime failure detection](runtime-failure-detection.md) — the detection half of deployment; complementary, not competing.
 
 - [Operational space control](operational-space-control.md) — the control formulation all three filters are built on.
 - [Robot safety standards](robot-safety-standards.md) — SSM/PFL, and the certification gap.

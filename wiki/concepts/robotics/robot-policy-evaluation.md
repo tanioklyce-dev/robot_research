@@ -93,6 +93,15 @@ RoboTwin's protocol is confirmed from its [primary source](../../sources/robotwi
 >
 > This is not a criticism of the paper — a dataset paper needs to show the data trains policies at all, and n=10 across 45 tasks does that. It **is** a criticism of citing those tables as comparisons, which is the error to avoid. Read dataset-paper baselines as smoke tests; read benchmark-paper tables as measurements, after checking their n.
 
+## The runtime pole: detecting failure inside a rollout
+
+Everything above measures a policy **across** rollouts, after the fact. [Runtime failure detection](runtime-failure-detection.md) measures it **during** one, and the wiki's two ingested instances ([Sentinel](../../sources/sentinel-paper.md), [FAIL-Detect](../../sources/fail-detect-paper.md)) both train on **successful data only**, because failure modes are not enumerable — one policy on one pick-and-place task produced six qualitatively different failures.
+
+Two of their findings bear directly on this page:
+
+- **State atypicality is not policy failure.** Embedding-similarity OOD detectors score **TNR = 0.00** on out-of-distribution test cases — they flag every unfamiliar rollout, including the ones where the policy *generalizes and succeeds*. Any evaluation that treats "OOD" as a proxy for "will fail" inherits that error.
+- **Conformal calibration bounds false alarms, not misses.** Both methods guarantee `FPR ≤ δ` from successful rollouts alone; guaranteeing detection would need failure data. The statistical guarantee available at runtime protects throughput, not people.
+
 ## What is still missing
 
 - **No real-world validation.** RoboLab is simulation-only, and whether its scores predict deployment success is precisely the question it exists to answer.
