@@ -2,8 +2,8 @@
 title: Optimal control
 type: concept
 created: 2026-05-14
-updated: 2026-08-03
-sources: 20
+updated: 2026-08-16
+sources: 22
 tags: [optimal-control, mpc, lqr, pontryagin, hamilton-jacobi-bellman, dynamic-programming, brachystochrone, calculus-of-variations, control-theory, rl-bridge]
 ---
 
@@ -80,6 +80,14 @@ The control is chosen *pointwise in time* to minimize the Hamiltonian — and cr
 | **CEM — Cross-Entropy Method** | Derivative-free sampling-based optimizer. Run inside MPC against a learned world model — sample `K` action sequences, score, fit a Gaussian to the top-`k`, repeat. | [LeWM](../../sources/leworldmodel-paper.md) inner loop, [glossary CEM](../../glossary.md#cem) |
 | **HJB / value iteration with NN approximation** | Replace `V(q, t)` with `V_θ(q, t)`. **Approximate dynamic programming.** Stepping-stone to RL. | [DreamerV3](../../sources/dreamer-v3-paper.md), [TD-MPC2](../../sources/td-mpc2-paper.md) |
 | **Adaptive control** | Online estimation of unknown parameters in `f`, combined with optimal control law. | [MIT drone adaptive control](../../sources/mit-drone-adaptive-control.md) |
+| **GCS — convex trajectory design over a decomposed free space** | **Drop the dynamics constraint** and keep collision avoidance, duration, length, energy and velocity limits. The problem becomes a shortest path in a [graph of convex sets](graphs-of-convex-sets.md): one SOCP + rounding, **globally optimal**, with a **per-query certificate**. | [Marcucci, Petersen, von Wrangel & Tedrake 2022](../../sources/gcs-motion-planning-paper.md), implemented in [Drake](../../entities/drake.md) |
+
+> [!note] GCS is the row that shows what the dynamics constraint costs
+> Every other row above solves `q̇ = f(q,u,t)` and pays for it with local optima (iLQR/DDP), receding-horizon approximation (MPC), linearity (LQR), or sampling (CEM/MPPI). **[GCS](graphs-of-convex-sets.md) drops that constraint and gets global optimality plus a proof.** Its own explanation of the boundary is precise: equality constraints coupling `q` to its derivatives are nonconvex under the joint shape/timing parameterization *"even for a linear control system."* So the honest statement of the tradeoff is **kinematic global optimality or dynamic local optimality, pick one** — and the practical stack uses both, GCS for the free-space plan and an LQR/MPC layer to track it. Nothing in this wiki yet documents that composition end-to-end.
+
+**The GCS dual is a value function, which puts it back inside dynamic programming.** In an ordinary shortest-path LP the dual variables *are* the cost-to-go; in a graph of convex sets the dual is a **piecewise-affine lower bound on the value function over every set** — so solving a GCS problem already solves for a lower bound on `J*`. Make the dual quadratic or polynomial and it becomes an SOS program with tighter bounds, and a single offline solve yields a policy covering *all* initial conditions rather than a plan from one ([Tedrake seminar 2024](../../sources/tedrake-gcs-foundation-models-talk.md), 46:22–49:07). Pushed back to the primal, a piecewise-quadratic value function looks like **propagating probability distributions through the graph** — higher-order polynomials ↔ higher moments — which is a route to planning under uncertainty.
+
+This is the same Bellman/HJB machinery the rest of this page tracks, approached from the LP-duality side, and it is what makes Tedrake's "GCS could be robotics' missing MCTS" claim technical rather than rhetorical: weak lower bounds plus a little online search already give strong play.
 
 ## Connection to reinforcement learning
 
@@ -168,6 +176,8 @@ Sources with explicit OC vocabulary and a back-link to this hub:
 - [DreamerV3 Paper](../../sources/dreamer-v3-paper.md) (latent-imagined-rollouts MBRL = approximate OC)
 - [Kober, Bagnell & Peters 2013 — RL in Robotics Survey](../../sources/kober-rl-robotics-survey-2013.md) ("RL = adaptive optimal control"; LQR/DDP over learned models)
 - [The State of Robot Motion Generation (Bekris et al. 2024)](../../sources/state-of-robot-motion-generation-2024.md) (control & feedback-based planning as one of four explicit-model families: LQR, LQR-Trees, MPC/NMPC, operational-space control)
+- [Motion Planning around Obstacles with Convex Optimization (GCS)](../../sources/gcs-motion-planning-paper.md) (trajectory optimization made convex by construction — at the cost of the dynamics constraint)
+- [Planning with Graphs of Convex Sets (in the age of foundation models)](../../sources/tedrake-gcs-foundation-models-talk.md) (the GCS dual as a lower bound on the value function — GCS reaching into dynamic programming)
 
 Aspirationally referenced from this page but not yet linked back from the source (these papers do MPC/planning but don't use the "optimal control" phrase explicitly — back-links pending if/when justified):
 - [V-JEPA 2 Paper](../../sources/v-jepa-2-paper.md), [PLDM Paper](../../sources/pldm-paper.md), [LeJEPA Paper](../../sources/lejepa-paper.md), [Learning control-oriented dynamical structure (Murray 2023)](../../sources/learning-control-oriented-dynamical-structure.md), [MIT drone adaptive control](../../sources/mit-drone-adaptive-control.md), [Onchain AI Garage — LeWM reproduction](../../sources/onchain-ai-garage-lewm-reproduction.md).

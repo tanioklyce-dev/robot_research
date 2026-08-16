@@ -3,8 +3,8 @@ title: Drake
 type: entity
 subtype: software-framework
 created: 2026-08-13
-updated: 2026-08-13
-sources: 3
+updated: 2026-08-16
+sources: 5
 tags: [drake, tri, mit-csail, russ-tedrake, simulation, model-based-design, optimization, multibody-dynamics, contact-simulation, lcm, bsd-3-clause, cpp]
 ---
 
@@ -29,6 +29,14 @@ A learned policy treats a simulator as a **data source**. Drake treats it as a *
 Contact is treated as an open research problem, not a solved detail (see the project's own *"Rethinking Contact Simulation for Robot Manipulation"*).
 
 **Integrations:** Python, **LCM**, ROS 2 *(unsupported)*, Julia *(unsupported)*.
+
+## The design thesis, cashed out: GCS
+
+The "Solving Mathematical Programs" pillar above reads like plumbing until you see what was built on it. Drake ships the **shortest-path-in-[Graphs of Convex Sets](../concepts/robotics/graphs-of-convex-sets.md) solver** and `IrisInConfigurationSpace` (convex safe-region inflation), and those two components are the entire substrate of [Marcucci, Petersen, von Wrangel & Tedrake's GCS planner](../sources/gcs-motion-planning-paper.md) — a collision-free motion planner that returns **globally optimal** trajectories from a single SOCP and **certifies its own optimality gap per query**, beating PRM on a 7-DoF arm on both quality and runtime and scaling to 14 DoF.
+
+**And that path runs all the way to a customer.** By April 2024 Tedrake describes the Drake GCS implementation as *"pretty mature — if you bang on it, you might break it, we'll fix it"* and names [Dexai Robotics](dexai-robotics.md) as having **replaced a tuned PRM with GCS in production** ([seminar](../sources/tedrake-gcs-foundation-models-talk.md)). That is the strongest deployment evidence in this wiki for any Drake component: not "Drake is used for research," but a specific solver in Drake displacing an incumbent planner in a shipping product.
+
+This is the concrete payoff of "expose the structure so you can optimize and verify," and it is worth naming because the phrase otherwise reads as philosophy. A unified LP/QP/**SOCP**/SDP/SOS/MIP interface is what makes it possible to write a planning problem as a conic program and hand it to MOSEK — and the paper's central tradeoff (Bézier control points instead of **SOS** polynomials, so the program is an SOCP rather than a mixed-integer SDP) is a decision made *inside* Drake's solver taxonomy.
 
 ## Why it matters in this wiki
 
@@ -62,8 +70,13 @@ The substrate under two MIT courses that function as the field's standard texts:
 - [DimOS](dimos.md) — downstream user for motion planning
 - [MuJoCo](mujoco.md) · [Newton](newton-physics-engine.md) · [NVIDIA Isaac Sim](nvidia-isaac-sim.md) — usually listed beside it, solving a different problem
 - [Optimal control](../concepts/robotics/optimal-control.md) · [Motion planning](../concepts/robotics/motion-planning.md) · [Formal verification](../concepts/learning/formal-verification.md)
+- [Graphs of convex sets (GCS)](../concepts/robotics/graphs-of-convex-sets.md) — the flagship thing built on Drake's mathematical-program interface
+- [Tobia Marcucci](tobia-marcucci.md) — originator of the GCS framework Drake implements
+- [Dexai Robotics](dexai-robotics.md) — production user of the Drake GCS planner
 - [Large behavior models](../concepts/learning/large-behavior-models.md) — the other half of Tedrake's bridge
 
 ## Mentioned in
 
 - [Drake documentation](../sources/drake-documentation.md)
+- [Motion Planning around Obstacles with Convex Optimization (GCS)](../sources/gcs-motion-planning-paper.md) — Drake as the implementation substrate (SPP-in-GCS solver + `IrisInConfigurationSpace`).
+- [Planning with Graphs of Convex Sets (in the age of foundation models)](../sources/tedrake-gcs-foundation-models-talk.md) — the Drake GCS implementation called "pretty mature" and traced to a production user.

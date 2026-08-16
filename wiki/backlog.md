@@ -2,13 +2,22 @@
 title: Wiki Backlog — deferred lint items & knowledge gaps
 type: meta
 created: 2026-07-04
-updated: 2026-08-04
+updated: 2026-08-16
 tags: [backlog, lint, todo, knowledge-gaps]
 ---
 
 # Wiki Backlog
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
+
+## [2026-08-16] GCS — what the deployment answer left open
+
+*The "did GCS reach deployment?" question is closed ([Dexai Robotics](entities/dexai-robotics.md), production, PRM displaced). These are the threads it opened.*
+
+- [ ] **The deployment evidence is two years stale.** Both sources are from early 2024 ([seminar](sources/tedrake-gcs-foundation-models-talk.md) 2024-04-07, [ARM](sources/arm-institute-gcs-dexai-project.md) 2024-02-26). Unknown: whether Dexai still runs GCS, whether any second adopter exists, what became of the five ARM modules (`IrisBuilder`, `WarmGcsPlanner` are the interesting two). **Highest-value single check** — one datapoint decides whether GCS is a niche win or a spreading one.
+- [ ] **Every extension in the seminar is described from slides, and none is ingested.** Named work, presumably published by now: geodesic-convexity GCS (planning on manifolds), analytical-IK regions for task-space constraints, visibility-graph **minimum clique cover** region generation, and the **SDP/spectrahedron** contact formulation. Also still uningested from the earlier session: **Marcucci's shortest-paths-in-GCS framework paper**, which both the planner paper and this wiki treat as a black box.
+- [ ] **The composition nobody has documented**: a learned generalist policy pruning a planner's graph (Tedrake's own answer to "the graph gets too big for dexterous hands"). If a real instance exists anywhere, it belongs in this wiki — it is the concrete form of the planning-and-learning argument the whole seminar makes.
+- [ ] **Auto-caption attribution debt.** The seminar page deliberately declines to assert surnames for the students whose results it describes. If the follow-on papers get ingested, the credit lines can be repaired from the author lists.
 
 ## [2026-08-13h] Niantic Spatial + LingBot-Map — a whole tradition was missing
 

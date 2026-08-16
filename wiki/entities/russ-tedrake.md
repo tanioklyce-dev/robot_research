@@ -3,9 +3,9 @@ title: Russ Tedrake
 type: entity
 subtype: person
 created: 2026-07-08
-updated: 2026-08-13
-sources: 7
-tags: [russ-tedrake, mit, csail, tri, lbm, drake, underactuated-robotics, locomotion, manipulation, physical-ai, walden-robotics]
+updated: 2026-08-16
+sources: 9
+tags: [russ-tedrake, mit, csail, tri, lbm, drake, underactuated-robotics, locomotion, manipulation, physical-ai, walden-robotics, gcs, motion-planning]
 ---
 
 # Russ Tedrake
@@ -33,11 +33,21 @@ Named author of **[Drake](drake.md)**'s canonical citation (*"Russ Tedrake and t
 - **Robot data scarcity is misframed**: you start from a pretrained base model's common sense and "build a bridge" to one new output (actions); data strategy = bridge-building across modalities, not corpus-size races ([podcast](../sources/automated-podcast-tedrake-rocket-ship.md)).
 - **ML has outrun theory**: roboticists are becoming "behavioral scientists" probing systems they built; scaling has headroom; theory still matters for data curricula/robustness.
 - **Deployment is the next milestone** — the virtuous cycle (robots fielded → data → capability) has to be earned.
+- **Robotics is missing its MCTS** ([GCS seminar](../sources/tedrake-gcs-foundation-models-talk.md)): AlphaGo went behavior-cloning → search; robotics has step one (Diffusion Policy/LBMs) and *"our planners, especially when you're planning through contact, are still very weak — I've been working on this for 20 years, so I'm just blaming myself."* GCS is his candidate for step two. Corollary he states directly: *"just by virtue of looking ahead a few steps before you make your decision, you're immediately stronger"* — planning strengthens a learned policy with **no additional learning**.
+- **Against RL on optimizer-strength grounds, not tribal ones**: RL *"is still a weak optimizer"* and needs cost-function tuning, where GCS writes down the objective you actually want — *"minimum distance… plus maybe minimum energy. **No tuning.**"*
+- **Sim-to-real: co-train, don't transfer** — *"the simulation just doesn't have to be perfect… the new thing is to co-train in sim and real, and admit that there's a gap."*
 - **Escape velocity**: this robotics moment differs from prior hype cycles via talent influx + investment + manufacturing (China) + demographic demand — "I would rather be on the rocket ship."
 
-## Drake
+## Drake and the model-based planning line
 
-Open-source **model-based design and simulation/dynamics library** from his MIT group + TRI ([drake.mit.edu](https://drake.mit.edu/)) — multibody dynamics, optimization-based planning/control (the GCS motion-planning line is his group's — [State of Robot Motion Generation](../sources/state-of-robot-motion-generation-2024.md)). Tedrake calls it "my horcrux... I still contribute production code" ([podcast](../sources/automated-podcast-tedrake-rocket-ship.md)). The wiki's model-based counterweight to its mostly-learning stack; no dedicated entity page yet (this section is the anchor).
+Open-source **model-based design and simulation/dynamics library** from his MIT group + TRI ([drake.mit.edu](https://drake.mit.edu/)) — multibody dynamics, optimization-based planning/control. Tedrake calls it "my horcrux... I still contribute production code" ([podcast](../sources/automated-podcast-tedrake-rocket-ship.md)). The wiki's model-based counterweight to its mostly-learning stack; now has its own page at [Drake](drake.md).
+
+**The GCS motion planner is the sharpest artifact on this side of the bridge.** Senior author (equal contribution, with [Tobia Marcucci](tobia-marcucci.md), Mark Petersen and David von Wrangel) on [Motion Planning around Obstacles with Convex Optimization](../sources/gcs-motion-planning-paper.md) (arXiv 2022; Science Robotics 2023) — collision-free planning reduced to a **single convex program plus cheap rounding**, returning *globally optimal* trajectories with a **per-query optimality certificate**, beating PRM on a 7-DoF KUKA iiwa on both trajectory quality and runtime and scaling to a 14-DoF dual-arm problem.
+
+**And it shipped.** In his [2024 MIT Robotics Seminar](../sources/tedrake-gcs-foundation-models-talk.md) he reports that **[Dexai Robotics](dexai-robotics.md) replaced a tuned PRM with GCS in production** food-assembly robots — the one confirmed industrial deployment of the method in this wiki — while being precise about the regime that makes it work (*"making plans all day long… willing to precompute once"*) and equally precise about where it stops (*"I don't think we can solve dexterous hands with GCS as it is. The graph gets too big. I need help"*).
+
+> [!note] Hold this against the LBM positions below
+> The same senior author argues that *"ML has outrun theory"* and that roboticists are becoming behavioral scientists probing systems they built — and, in the same decade, published a planner that **proves** its answer optimal before the robot moves. Neither is posturing: [Drake](drake.md) is still developed daily at TRI while TRI ships LBMs. The most defensible reading of Tedrake's position is not "learning replaced model-based control" but **"use the guarantee wherever the problem admits one, and learn the rest"** — and the GCS paper is unusually explicit about where the guarantee stops (no dynamics, no task-space constraints, no contact).
 
 ## Related
 
@@ -47,9 +57,14 @@ Open-source **model-based design and simulation/dynamics library** from his MIT 
 - [Diffusion Policy](diffusion-policy.md) — the single-task ancestor of LBMs ("LBM = multitask diffusion policy, in my vernacular").
 - [UMI](umi.md) — co-author; the TRI/Stanford data-collection line.
 - [VLA models](../concepts/learning/vla-models.md) — the adjacent (subtype) model class.
+- [Graphs of convex sets (GCS)](../concepts/robotics/graphs-of-convex-sets.md) · [Motion planning](../concepts/robotics/motion-planning.md) — the model-based half, with numbers.
+- [Tobia Marcucci](tobia-marcucci.md) — GCS co-author; the framework under the planner.
+- [Dexai Robotics](dexai-robotics.md) — the production GCS user from the collaboration he describes.
 
 ## Mentioned in
 
+- [Motion Planning around Obstacles with Convex Optimization (GCS)](../sources/gcs-motion-planning-paper.md) — senior author (equal contribution); the model-based-planning primary source.
+- [Planning with Graphs of Convex Sets (in the age of foundation models)](../sources/tedrake-gcs-foundation-models-talk.md) — **speaker**; MIT Robotics Seminar 2024-04-07. The GCS deployment claim, the planning-and-learning argument, and the clearest statement of both halves of his bridge in one hour.
 - [Walden Robotics — Launch from Stealth](../sources/walden-robotics-launch.md) — co-founder & CEO; the startup reveal.
 - [Automated Podcast — Robotics Is Finally on a Rocket Ship](../sources/automated-podcast-tedrake-rocket-ship.md) — **primary ingest**; career + LBM taxonomy + startup.
 - [TRI LBM paper](../sources/tri-lbm-paper.md) — senior author; the LBM program's primary source (Drake as simulator).

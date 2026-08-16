@@ -2,8 +2,8 @@
 title: Task and motion planning (TAMP)
 type: concept
 created: 2026-07-04
-updated: 2026-07-04
-sources: 2
+updated: 2026-08-16
+sources: 3
 tags: [tamp, task-planning, long-horizon, plan-skeletons, explicit-model, hybrid-planning]
 ---
 
@@ -38,6 +38,15 @@ Classical TAMP is mature but engineering-heavy and brittle under partial observa
 - [LLM-agent architecture](../agents/llm-agent-architecture.md) — LLM-planner stacks as neo-TAMP.
 - [Optimal control](optimal-control.md) — the control-theoretic substrate of the motion layer.
 
+## TAMP inside a graph of convex sets
+
+[GCS](graphs-of-convex-sets.md) is normally filed as a motion planner, but its combinatorial half is a task-planning surface. [Tedrake's 2024 seminar](../../sources/tedrake-gcs-foundation-models-talk.md) reports a box-shuffling instance where the right combinatorial object was **not a shortest path but a walk on the permutohedron** — because the order the boxes move in does not matter, so the network-flow problem underneath is a different one.
+
+The generalizable move, stated twice in that talk: **shrink your sets to points and ask which classical network-flow problem you are left with.** If that flow has a strong convex formulation, its GCS extension — same combinatorics, now with continuous variables in each vertex — is likely to inherit the tightness. If it is NP-hard with only approximations (TSP), GCS will not rescue it.
+
+That is a different integration story than the classical TAMP stack's: instead of a symbolic layer *calling* a motion planner, the discrete and continuous problems are **one optimization**, and the plan skeleton falls out of the same relaxation that produces the trajectory. It also inherits GCS's per-query optimality certificate, which is a rare thing for a task planner to be able to report.
+
 ## Mentioned in
 
 - [The State of Robot Motion Generation (Bekris et al. 2024)](../../sources/state-of-robot-motion-generation-2024.md)
+- [Planning with Graphs of Convex Sets (in the age of foundation models)](../../sources/tedrake-gcs-foundation-models-talk.md) — the permutohedron instance and the network-flow heuristic.

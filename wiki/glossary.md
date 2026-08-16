@@ -2,7 +2,7 @@
 title: Abbreviations & Glossary
 type: reference
 created: 2026-05-10
-updated: 2026-07-18
+updated: 2026-08-16
 tags: [glossary, reference, acronyms, curriculum]
 ---
 
@@ -143,6 +143,9 @@ NN that maps a raw input (image, video clip, action sequence, etc.) into an embe
 ### GAN
 **Generative Adversarial Network** — generator + discriminator trained adversarially. Largely superseded by diffusion in 2022+. *(Module 5.)*
 
+### GCS
+**Graphs of Convex Sets** — an optimization framework where each graph vertex carries a convex set and each edge a convex length function; the shortest-path problem over it jointly selects a discrete path *and* continuous values along it. Its MICP formulation relaxes so tightly that one LP/[SOCP](#socp) plus randomized rounding usually recovers the global optimum — with a free per-query optimality certificate. Also the name of the collision-free motion planner built on it ([source page](sources/gcs-motion-planning-paper.md), [concept page](concepts/robotics/graphs-of-convex-sets.md)). *(Classical-robotics branch.)*
+
 ### Game of Life
 Conway's 1970 2D [cellular automaton](concepts/alife/cellular-automata.md); one neighbor-count rule yields gliders, glider guns, and Turing-completeness. The archetypal Class-4 CA and the subject of [Wolfram's construction-vs-search innovation study](sources/wolfram-2025-game-of-life-engineering.md). See [Game of Life](entities/game-of-life.md). *(ALife branch.)*
 
@@ -176,6 +179,9 @@ Conway's 1970 2D [cellular automaton](concepts/alife/cellular-automata.md); one 
 ### IoU
 **Intersection over Union** — overlap metric for bounding boxes / masks. *(Module 2.)*
 
+### IRIS
+**Iterative Regional Inflation by Semidefinite programming** — algorithm that grows a large collision-free convex polytope around a seed configuration; supplies the safe regions that [GCS](#gcs) planning consumes. `IrisInConfigurationSpace` ships in [Drake](entities/drake.md). *(Classical-robotics branch.)*
+
 ### Jacobian
 The `m×n` matrix of partial derivatives of a vector function `f: Rⁿ→Rᵐ`, `(∂f/∂x)ᵢⱼ = ∂fᵢ/∂xⱼ`. Vectorized backprop = multiplying Jacobians via the chain rule; SGD then uses the "gradient shape = parameter shape" convention. See [Clark's CS224n gradient notes](sources/clark-computing-nn-gradients.md). *(Module 1.)*
 
@@ -208,6 +214,9 @@ Terver et al., FAIR, Dec 2025 ([source page](sources/jepa-wms-paper.md)); first 
 
 ### LSTM
 **Long Short-Term Memory** — RNN variant with gating mechanisms that let it learn long-range dependencies; standard pre-2018 sequence model. *(Module 3.)*
+
+### MICP
+**Mixed-Integer Convex Program** — an optimization with both continuous and binary variables whose continuous relaxation is convex. Exact solution is branch-and-bound (worst case exponential in the binary count), which is why [GCS](#gcs)'s tight relaxation matters: it lets you skip branch-and-bound entirely. *(Classical-robotics branch.)*
 
 ### MADDPG
 **Multi-Agent Deep Deterministic Policy Gradient** — Lowe et al. 2017; the canonical [CTDE](#ctde) actor-critic — each agent keeps a critic over the *joint* action to update a decentralized policy. See [multi-agent RL](concepts/learning/multi-agent-rl.md). *(RL branch.)*
@@ -293,11 +302,17 @@ Open-weights VLA used as a baseline in many 2024–2026 papers. *(Module 9.)*
 ### Policy
 **Policy** — a function `π(a | o)` (or `π(a | s)`) mapping observation/state to an action (or action distribution). The thing IL and RL train: IL fits π to demonstrations, RL fits π to maximize expected reward. Action heads can be deterministic, Gaussian, categorical, k-means-discretized ([BeT](#bet) / [VQ-BeT](#vq-bet)), or diffusion-based ([Diffusion Policy](sources/diffusion-policy-paper.md)). *(Modules 6 & 8.)*
 
+### PRM
+**Probabilistic RoadMap** — Kavraki et al. 1996; the canonical *multi-query* sampling-based planner: sample collision-free configurations offline, connect neighbors into a roadmap graph, then answer queries by graph search. Base version is provably suboptimal (PRM\* is asymptotically optimal); in practice plans are post-processed by short-cutting. The comparison baseline [GCS](#gcs) beats — and, per the GCS authors, generalizes. See [motion planning](concepts/robotics/motion-planning.md). *(Classical-robotics branch.)*
+
 ### Predictor
 The module in [JEPA](concepts/world-models/jepa.md)-line world models that maps a context embedding `z_t` (often plus an action `a_t`) to a predicted future embedding `ẑ_{t+1}`. Loss is computed in latent space against `z_{t+1} = encoder(x_{t+1})` — *not* against pixels. Typically a small MLP ([DINO-WM](entities/dino-wm.md)) or an [AR](#ar) transformer ([V-JEPA 2-AC](entities/v-jepa-2.md), [LeWM](entities/leworldmodel.md)). The predictor's existence — and the fact that it operates between embeddings rather than over pixels — is what makes "JEPA" predictive (the J for Joint and the P for Predictive). Optionally takes a latent variable `z` to capture irreducible uncertainty about the future ([LeCun 2022, §4.4](sources/lecun2022-path-towards-ami.md)). *(Modules 10–12.)*
 
 ### PPO
 **Proximal Policy Optimization** — Schulman et al. 2017; the dominant on-policy actor-critic algorithm. *(Module 8.)*
+
+### QCQP
+**Quadratically Constrained Quadratic Program** — a quadratic objective under quadratic constraints; nonconvex in general. The natural form of quasi-static contact dynamics, where SO(2) rotation constraints and **force × distance** terms are bilinear. Its standard **semidefinite relaxation** turns each contact mode's feasible set into a [spectrahedron](#spectrahedron), which is convex and can therefore be a [GCS](#gcs) vertex — the route by which GCS reaches planning through contact ([Tedrake 2024](sources/tedrake-gcs-foundation-models-talk.md)). *(Classical-robotics branch.)*
 
 ### R3M
 A pretrained visual encoder for manipulation (Nair et al. 2022); appears as a Diffusion Policy ablation. *(Module 7.)*
@@ -332,6 +347,9 @@ A pretrained visual encoder for manipulation (Nair et al. 2022); appears as a Di
 ### SGD
 **Stochastic Gradient Descent** — gradient descent on minibatches; the canonical NN optimizer. *(Module 1.)*
 
+### SOCP
+**Second-Order Cone Program** — convex optimization over constraints of the form `‖Ax + b‖₂ ≤ cᵀx + d`. Sits between LP and SDP in expressiveness and cost; efficiently solved by MOSEK/Gurobi. The class [GCS](#gcs) motion planning reduces to — the entire point of choosing Bézier control points over [SOS](#sos) polynomials, which would have forced a mixed-integer *semidefinite* program instead. Exposed through [Drake](entities/drake.md)'s unified mathematical-program interface. *(Classical-robotics branch.)*
+
 ### Siamese network
 NN architecture with two (or more) weight-tied sub-networks applied to two inputs, with a downstream head over the two embeddings. Introduced by [Bromley, Guyon, LeCun, Säckinger, Shah 1993](sources/bromley1993-siamese-signature-verification.md) for signature verification — two TDNNs + cosine + `±1` targets. Architectural ancestor of [Barlow Twins](sources/barlow-twins-paper.md), [VICReg](sources/vicreg-paper.md), [DINOv2](entities/dinov2.md)/[v3](entities/dinov3.md), and the J/A in [JEPA](concepts/world-models/jepa.md). See [concept page](concepts/world-models/siamese-network.md). *(Module 4.)*
 
@@ -343,6 +361,12 @@ NN architecture with two (or more) weight-tied sub-networks applied to two input
 
 ### SLAM
 **Simultaneous Localization And Mapping** — classical robotics technique; out-of-scope for this curriculum but you'll see it. *(Out of scope.)*
+
+### SOS
+**Sums Of Squares** — a polynomial is SOS if it can be written as a sum of squared polynomials, which certifies nonnegativity and is checkable by semidefinite programming. The standard tool for verified region-of-attraction and containment proofs in model-based control (LQR-Trees; the SOS-based mixed-integer planners [GCS](#gcs) defines itself against). Exposed as its own solver class in [Drake](entities/drake.md). *(Classical-robotics branch.)*
+
+### Spectrahedron
+The feasible set of a **semidefinite program** — the intersection of the cone of positive-semidefinite matrices with an affine subspace. Convex by construction, which is the whole point: relax a nonconvex contact-dynamics [QCQP](#qcqp) into an SDP and its feasible set becomes a legal vertex set for a [graph of convex sets](concepts/robotics/graphs-of-convex-sets.md). One spectrahedron per contact mode ([Tedrake 2024](sources/tedrake-gcs-foundation-models-talk.md)). *(Classical-robotics branch.)*
 
 ### SSL
 **Self-Supervised Learning** — train on unlabeled data by inventing a pretext task whose labels can be derived from the input itself. The umbrella for everything in self-supervised pretraining. *(Module 4.)*
@@ -373,6 +397,9 @@ Robot description formats — XML-based ([URDF](concepts/world-models/world-mode
 
 ### VICReg
 **Variance-Invariance-Covariance Regularization** — Bardes, Ponce, LeCun 2022; non-contrastive SSL that prevents collapse via variance and covariance penalties. Same author family as JEPA / SIGReg. *(Module 4.)*
+
+### Visibility graph
+Graph over sampled configurations with an edge between any two connected by a straight collision-free line, **regardless of distance** (unlike a [PRM](#prm)'s k-nearest wiring). A **clique** in it — mutually visible samples — approximately corresponds to a convex region of the underlying space, so an approximate **minimum clique cover** of the visibility graph decides where to place [IRIS](#iris) regions. This is what replaced the hand-placed seeds in the original [GCS](#gcs) planner ([Tedrake 2024](sources/tedrake-gcs-foundation-models-talk.md)). *(Classical-robotics branch.)*
 
 ### ViT
 **Vision Transformer** — [Dosovitskiy et al. 2020 (*An Image Is Worth 16x16 Words*)](sources/vit-paper.md). An image is split into a grid of non-overlapping patches (typically 14×14 or 16×16 pixels); each patch is flattened + linearly projected into a token; a learnable `[CLS]` token is prepended; positional embeddings are added; the resulting sequence is fed through a standard [transformer](#transformer) encoder. Output: a patch-token sequence plus the `[CLS]` token, which serves as the global image embedding. Sized by depth + width: ViT-S/14, ViT-B/14, ViT-L/14, ViT-g/14 (~1.1B params, [DINOv2](entities/dinov2.md)), ViT-7B/16 ([DINOv3](entities/dinov3.md)). The default visual [encoder](#encoder) in JEPA-line models including [LeWM](entities/leworldmodel.md), [V-JEPA 2](entities/v-jepa-2.md), and every DINO-line world model. *(Module 3.)*

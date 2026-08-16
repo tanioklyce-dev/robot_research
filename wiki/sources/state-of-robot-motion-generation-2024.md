@@ -52,7 +52,13 @@ A 50-year cross-community review of robot motion generation that deliberately cr
 - **[Motion planning](../concepts/robotics/motion-planning.md)** — new concept page from this ingest.
 - **[Task and motion planning](../concepts/robotics/task-and-motion-planning.md)** — new concept page from this ingest.
 - [Optimal control](../concepts/robotics/optimal-control.md) — §2.4 is the OC-as-motion-generation family.
+- [Graphs of convex sets (GCS)](../concepts/robotics/graphs-of-convex-sets.md) — named here in one clause of §2.1; see the caveat below.
 - [Imitation learning](../concepts/learning/imitation-learning.md), [VLA models](../concepts/learning/vla-models.md), [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md), [World model](../concepts/world-models/world-model.md) ("cognitive physical engine" recommendation).
+
+> [!warning] Its one-clause summary of optimization-based planning is wrong about one of the methods it names (added 2026-08-16)
+> §2.1 characterizes the optimization-based family as *"fast, high-quality when they work; local minima on non-convex problems"* and lists **Graph of Convex Sets** alongside CHOMP, TrajOpt and KOMO. Fair for the other three; **not** for GCS, whose whole point is that the relaxation is tight enough to recover the *global* optimum from a single convex program — with a per-query certificate of the gap ([Marcucci, Petersen, von Wrangel & Tedrake 2022 / Science Robotics 2023](gcs-motion-planning-paper.md), ingested here 2026-08-16, and published a year before this survey).
+>
+> Not a serious flaw in a 16-page 50-year review, but it is the kind of compression that a wiki built on the survey would otherwise inherit permanently. The correct qualifier on GCS is **restricted problem class** (kinematic, convex-decomposable free space) rather than **local minima**.
 
 ## Open questions
 
