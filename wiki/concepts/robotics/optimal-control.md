@@ -3,7 +3,7 @@ title: Optimal control
 type: concept
 created: 2026-05-14
 updated: 2026-08-16
-sources: 22
+sources: 23
 tags: [optimal-control, mpc, lqr, pontryagin, hamilton-jacobi-bellman, dynamic-programming, brachystochrone, calculus-of-variations, control-theory, rl-bridge]
 ---
 
@@ -87,7 +87,21 @@ The control is chosen *pointwise in time* to minimize the Hamiltonian — and cr
 
 **The GCS dual is a value function, which puts it back inside dynamic programming.** In an ordinary shortest-path LP the dual variables *are* the cost-to-go; in a graph of convex sets the dual is a **piecewise-affine lower bound on the value function over every set** — so solving a GCS problem already solves for a lower bound on `J*`. Make the dual quadratic or polynomial and it becomes an SOS program with tighter bounds, and a single offline solve yields a policy covering *all* initial conditions rather than a plan from one ([Tedrake seminar 2024](../../sources/tedrake-gcs-foundation-models-talk.md), 46:22–49:07). Pushed back to the primal, a piecewise-quadratic value function looks like **propagating probability distributions through the graph** — higher-order polynomials ↔ higher moments — which is a route to planning under uncertainty.
 
-This is the same Bellman/HJB machinery the rest of this page tracks, approached from the LP-duality side, and it is what makes Tedrake's "GCS could be robotics' missing MCTS" claim technical rather than rhetorical: weak lower bounds plus a little online search already give strong play.
+This is the same Bellman/HJB machinery the rest of this page tracks, approached from the LP-duality side, and it is what makes Tedrake's "GCS could be robotics' missing MCTS" claim technical rather than rhetorical: weak lower bounds plus a little online search already give strong play. It is also not new to the 2024 talk: the potentials-per-set dual is **Appendix B of the 2021 framework paper** ([Marcucci, Umenberger, Parrilo & Tedrake](../../sources/shortest-paths-in-graphs-of-convex-sets-paper.md)), where each vertex gets an affine potential `r_v^⊤ x_v + p_v` and the objective maximizes the source-to-target potential jump.
+
+### Hybrid / piecewise-affine optimal control is what GCS was actually built for
+
+The row above files GCS under "collision-free trajectory design," which is how robotics met it. The [framework paper](../../sources/shortest-paths-in-graphs-of-convex-sets-paper.md)'s own target is **optimal control of discrete-time hybrid systems** — the case where the nonconvexity is *mode switching*, not obstacles:
+
+- **Minimum-time control**: a chain of vertices, one per time step, each with a shortcut edge to the target; edge length **1 if `s_v = A s_u + B a_u`, ∞ otherwise**. The path's length *is* the horizon, so the horizon becomes a decision variable rather than a fixed parameter.
+- **PWA systems**: `T` layers × `|N|` modes, consecutive layers fully connected; `X_v` is the mode's state/control region; edge length is the stage cost when that mode's affine dynamics hold and ∞ when they do not.
+
+**Dynamics enter as infinite edge lengths.** That is the trick the motion-planning framing hides: GCS does not *lack* the ability to express dynamics — the [planner](../../sources/gcs-motion-planning-paper.md) drops them because coupling `q` to its derivatives is nonconvex *under its Bézier shape/timing parameterization*. In state-space form with one convex region per mode, discrete-time linear dynamics are a perfectly good convex edge constraint. The two GCS papers therefore sit on opposite sides of this page's central tradeoff, and it is worth being precise about which one you mean.
+
+> [!note] The measured payoff, and the parameterization behind it
+> *"We do not use binary variables to encode the discrete mode in which the system is at each time step but, instead, we use them to select the **transitions** between modes."* On a PWA double integrator across 7 regions with mode-dependent controllability (`T = 30`, `|V| = 212`, `|E| = 1435`, sets in `ℝ⁶`): the prior state-of-the-art perspective formulation (Moehle & Boyd; Marcucci & Tedrake 2019) needs **17 minutes** at a **93%** relaxation gap; the GCS formulation needs **7.1 s** at **20%**.
+>
+> At 7.1 s for a 30-step horizon this is a *planning* result, not yet an MPC one — the receding-horizon version needs warm starts or heuristic search over the graph. But mixed-integer MPC's binding constraint has always been solve time, and this is the largest single reduction in this wiki's optimal-control coverage.
 
 ## Connection to reinforcement learning
 
@@ -178,6 +192,7 @@ Sources with explicit OC vocabulary and a back-link to this hub:
 - [The State of Robot Motion Generation (Bekris et al. 2024)](../../sources/state-of-robot-motion-generation-2024.md) (control & feedback-based planning as one of four explicit-model families: LQR, LQR-Trees, MPC/NMPC, operational-space control)
 - [Motion Planning around Obstacles with Convex Optimization (GCS)](../../sources/gcs-motion-planning-paper.md) (trajectory optimization made convex by construction — at the cost of the dynamics constraint)
 - [Planning with Graphs of Convex Sets (in the age of foundation models)](../../sources/tedrake-gcs-foundation-models-talk.md) (the GCS dual as a lower bound on the value function — GCS reaching into dynamic programming)
+- [Shortest Paths in Graphs of Convex Sets](../../sources/shortest-paths-in-graphs-of-convex-sets-paper.md) (hybrid/PWA optimal control as the GCS framework's target application: 17 min → 7.1 s against the prior perspective formulation; the potentials dual in Appendix B)
 
 Aspirationally referenced from this page but not yet linked back from the source (these papers do MPC/planning but don't use the "optimal control" phrase explicitly — back-links pending if/when justified):
 - [V-JEPA 2 Paper](../../sources/v-jepa-2-paper.md), [PLDM Paper](../../sources/pldm-paper.md), [LeJEPA Paper](../../sources/lejepa-paper.md), [Learning control-oriented dynamical structure (Murray 2023)](../../sources/learning-control-oriented-dynamical-structure.md), [MIT drone adaptive control](../../sources/mit-drone-adaptive-control.md), [Onchain AI Garage — LeWM reproduction](../../sources/onchain-ai-garage-lewm-reproduction.md).

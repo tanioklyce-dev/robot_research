@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-07-08
 updated: 2026-08-16
-sources: 9
+sources: 10
 tags: [russ-tedrake, mit, csail, tri, lbm, drake, underactuated-robotics, locomotion, manipulation, physical-ai, walden-robotics, gcs, motion-planning]
 ---
 
@@ -64,6 +64,7 @@ Open-source **model-based design and simulation/dynamics library** from his MIT 
 ## Mentioned in
 
 - [Motion Planning around Obstacles with Convex Optimization (GCS)](../sources/gcs-motion-planning-paper.md) — senior author (equal contribution); the model-based-planning primary source.
+- [Shortest Paths in Graphs of Convex Sets](../sources/shortest-paths-in-graphs-of-convex-sets-paper.md) — fourth author with [Marcucci](tobia-marcucci.md), Umenberger and Parrilo; the optimization framework under the planner, targeting **hybrid-system optimal control**.
 - [Planning with Graphs of Convex Sets (in the age of foundation models)](../sources/tedrake-gcs-foundation-models-talk.md) — **speaker**; MIT Robotics Seminar 2024-04-07. The GCS deployment claim, the planning-and-learning argument, and the clearest statement of both halves of his bridge in one hour.
 - [Walden Robotics — Launch from Stealth](../sources/walden-robotics-launch.md) — co-founder & CEO; the startup reveal.
 - [Automated Podcast — Robotics Is Finally on a Rocket Ship](../sources/automated-podcast-tedrake-rocket-ship.md) — **primary ingest**; career + LBM taxonomy + startup.

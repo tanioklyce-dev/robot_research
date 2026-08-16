@@ -3,7 +3,7 @@ title: Control abstraction levels
 type: concept
 created: 2026-07-27
 updated: 2026-08-03
-sources: 21
+sources: 22
 tags: [robotics, control, llm-agent, evaluation, vla, safety, access-control, frontier-red-team, code-as-policy]
 ---
 
@@ -21,6 +21,9 @@ From the [Frontier Red Team](../../entities/frontier-red-team.md)'s taxonomy:
 | **4. RL supervision** | A training setup; an RL policy is learned from scratch | Offline |
 
 Levels 2 and 4 sidestep the frequency problem entirely by making the model **write the controller rather than be the controller**.
+
+> [!note] Level 3 has an unnamed dependency
+> *"High-level commands to a pretrained policy"* is only safe because a **constrained controller** stands between the policy and the actuators. In the MIT/TRI stack that is a diff-IK QP at ~1 kHz enforcing arm–arm collision, table clearance, an end-effector keep-out region, and joint limits — *"particularly valuable for safeguarding the learned policy during hardware deployment"* ([Diffusion Policy](../../sources/diffusion-policy-paper.md) App. D.1). The taxonomy scores **how far up the model sits**; it does not score **how tightly the bottom is bounded**, and those are independent axes of real-world influence. A level-1 model with a hard constraint envelope may be far less dangerous than a level-3 model without one. See [operational space control](operational-space-control.md).
 
 ## Level 2 is not one level — it is eight
 

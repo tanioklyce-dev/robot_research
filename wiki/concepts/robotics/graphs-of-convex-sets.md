@@ -3,8 +3,8 @@ title: Graphs of Convex Sets (GCS)
 type: concept
 created: 2026-08-16
 updated: 2026-08-16
-sources: 3
-tags: [graphs-of-convex-sets, gcs, convex-optimization, mixed-integer, socp, shortest-path, bezier-curves, motion-planning, global-optimality, certificates, drake, deployment, planning-through-contact, semidefinite-relaxation]
+sources: 4
+tags: [graphs-of-convex-sets, gcs, convex-optimization, mixed-integer, socp, shortest-path, bezier-curves, motion-planning, global-optimality, certificates, drake, deployment, planning-through-contact, semidefinite-relaxation, perspective-function, hybrid-systems, piecewise-affine, network-flow]
 ---
 
 **Graphs of Convex Sets (GCS)** — an optimization framework in which each **vertex of a graph carries a convex set** (and a continuous decision variable constrained to lie in it), and each **edge carries a convex, nonnegative length function** of the variables at its two endpoints, plus convex constraints coupling them. The **shortest-path problem in a GCS** then asks for *both* a discrete path σ→τ *and* the continuous values along it, jointly.
@@ -16,7 +16,31 @@ s.t.      x_v ∈ X_v      for v on p               (convex)
           (x_u, x_v) ∈ X_e  for e on p            (convex)
 ```
 
-The definitional subtlety, and the source of its power: **the convex constraints apply only to the vertices the path actually visits.** That is what makes it a genuinely mixed discrete-continuous object rather than a graph search with a convex program bolted on. It is NP-hard in general.
+The definitional subtlety, and the source of its power: **the convex constraints apply only to the vertices the path actually visits.** That is what makes it a genuinely mixed discrete-continuous object rather than a graph search with a convex program bolted on.
+
+**It is NP-hard, and the proof is two paragraphs** ([Marcucci et al. 2021](../../sources/shortest-paths-in-graphs-of-convex-sets-paper.md) Thm 3.1). Reduce Hamiltonian Path: put `X_s = {0}`, `X_t = {1}`, `X_v = [0,1]`, and use *squared* Euclidean distance. A `K`-edge path spaces its points uniformly for a cost of `K·(1/K)² = 1/K`, so **minimizing cost means maximizing the number of vertices visited** — a Hamiltonian path iff one exists. One-dimensional intervals suffice. And it stays NP-hard under every obvious escape hatch: acyclic graph *and* disjoint sets *and* positively homogeneous edge lengths (Thm 3.2).
+
+## How the MICP is built ([Marcucci, Umenberger, Parrilo & Tedrake](../../sources/shortest-paths-in-graphs-of-convex-sets-paper.md))
+
+The formulation is an **extension of the classical network-flow LP for shortest paths**, not a new encoding — which is why it inherits that LP's structure and why so much of it comes out clean.
+
+1. **Flows.** Keep the LP's edge variables `y_e`: one unit injected at the source, ejected at the target, conservation and a degree constraint elsewhere.
+2. **Positions make it bilinear.** The cost addend wants to be `ℓ_e(x_u, x_v)·y_e`, which is **undefined when `ℓ_e = ∞` and `y_e = 0`** — precisely the case that matters, since an infinite edge length is how the framework encodes a violated edge constraint.
+3. **Perspective operators switch edges on and off.** With `z_e := y_e x_u`, `z'_e := y_e x_v`, the perspective `ℓ̃_e(z_e, z'_e, y_e)` equals the product when `y_e > 0` and evaluates to **zero when `y_e = 0`, even if `ℓ_e = ∞`**. The remaining nonconvexity is only the bilinear equalities.
+4. **Relax them by multiplying valid inequalities.** Any valid linear inequality on the flows at `v`, multiplied by `x_v ∈ X_v` and linearized, becomes a **perspective-cone constraint** `(·, ·) ∈ X̃_v`. That is the MICP.
+
+Size: `O(|E|)` binaries, `O(n|E|)` continuous variables, `O(n(|V|+|E|))` constraints.
+
+Three properties are worth carrying beyond GCS:
+
+- **The relaxation is *set-based*.** It never touches the inequalities defining `X_v`, only the set's abstract representation — so the sets may be **black boxes reachable only through a separation oracle**. Perspective is free in conic form: polyhedral/ellipsoidal/spectrahedral sets keep their LP/SOCP/SDP representation.
+- **It is exact at extreme points of the flow polytope** — and a genuine path *is* an extreme point. That single lemma is the correctness proof, and it generalizes an RLT result from polytopes to arbitrary closed convex sets.
+- **It is first-level RLT specialized to this bilinear structure**: it collapses to a McCormick envelope on real intervals, and is *"as tight as the first level of the Lovász–Schrijver hierarchy… without semidefinite constraints."* It **cannot** be the convex hull in general — that would solve an NP-hard bilinear program in polynomial time.
+
+> [!note] A redundant constraint that stops being redundant
+> The **degree constraint** (at most one unit of flow through a vertex) is provably redundant in the classical shortest-path LP. In the MICP it is load-bearing: without it, a five-vertex example admits an optimal solution containing a **disjoint cycle** at a cost *below* the true optimum. Redundancy in a relaxation's ancestor is not redundancy in the relaxation — a good general reflex when transporting formulations.
+
+Against the naive alternative (relax each bilinear with a McCormick envelope), this formulation's median relaxation gap on random instances is near zero versus **29–34%**, and it solves **10–13× faster**.
 
 ## Why it is not just "another mixed-integer program"
 
@@ -62,6 +86,24 @@ Two choices carry the construction:
 - **Bézier curves turn infinite constraint families into finitely many.** `rᵢ(s) ∈ Qᵢ ∀s ∈ [0,1]` becomes `d+1` constraints on control points. The alternative — sums-of-squares polynomials — parameterizes a richer trajectory class but demands **semidefinite** programming; Bézier gives a more stringent condition at SOCP cost. That tradeoff is what lets the planner reach `C⁴` trajectories (needed for quadrotor differential flatness) where SOS-based mixed-integer planners cannot.
 - **Decoupling shape from timing** via a path coordinate `s` with `t = h(s)` makes trajectory *duration* a decision variable without introducing nonconvexity. The price is that costs and constraints on `q̈` and higher become nonconvex in `(r,h)` — hence the framework's central limitation: **no dynamics, no task-space constraints, no contact.**
 
+## Instance: optimal control of hybrid systems
+
+The framework paper's own target application is **not** motion planning — it is **piecewise-affine (hybrid) optimal control**, and the mapping is worth knowing because it is the template for casting any mode-switching problem into GCS:
+
+| GCS element | Hybrid-control meaning |
+|---|---|
+| Vertex | One `(time step, discrete mode)` pair; `T` layers of `\|N\|` modes, consecutive layers fully connected |
+| `X_v` | That mode's compact convex state-and-control region `D_ν` |
+| `ℓ_e` | Stage cost `γ(s_u, a_u)` **if** `s_v = A_ν s_u + B_ν a_u + c_ν`, **∞ otherwise** — the dynamics enter as an infinite-length edge |
+| Path | The mode sequence *and* the trajectory, chosen jointly |
+
+> [!note] The modeling decision that produces the speedup, in the authors' words
+> *"We do not use binary variables to encode the discrete mode in which the system is at each time step but, instead, we use them to select the **transitions** between modes. This different parameterization yields slightly larger but much stronger MICPs."*
+>
+> The graph is **quadratic** in the mode count rather than linear. On a PWA double integrator across 7 regions with mode-dependent controllability (`T = 30`, `|V| = 212`, `|E| = 1435`, sets in `ℝ⁶`): the prior state-of-the-art perspective formulation gives a **93% relaxation gap in 17 minutes**; this one gives **20% in 7.1 s** — ~142×. And the relaxed solution is *legible*: it avoids the low-controllability regions and clusters along the true optimum, where the baseline's relaxation heads straight at the goal with uninformative mode indicators.
+
+This matters for how the wiki files GCS. The motion planner is the famous instance; the framework is a **general mixed-integer modeling technique** whose most-improved application is [hybrid MPC](optimal-control.md), and whose reach — per the framework paper's appendix — extends to TSP- and MST-with-neighborhoods and other graph problems with continuous vertex positions.
+
 ## Where it sits in the planning taxonomy
 
 GCS is filed under **optimization-based** planning ([motion planning](motion-planning.md)), but the authors argue it **generalizes PRM**: *"each collision-free sample is expanded to a collision-free convex region, that is inflated as much as the obstacles allow; reducing in this way a dense roadmap to a compact GCS."* Empirically, **8 IRIS regions replaced a 15,000-sample roadmap** on a 7-DoF arm, and beat it on trajectory length and runtime on all five benchmark tasks.
@@ -103,7 +145,9 @@ The [2022 paper](../../sources/gcs-motion-planning-paper.md) lists its limits pl
 
 ## Where the relaxation is loose
 
-Symmetry, and it is observable: a UAV planner took a long route around instead of flying through **one of two near-identical windows**, because the relaxation split probability mass evenly between them ([seminar](../../sources/tedrake-gcs-foundation-models-talk.md) 57:35). That is footnote 3 of the paper happening in the field. There is also a genuine dial: **smaller regions make convex approximations of nonlinear dynamics tighter but enlarge the discrete problem** — *"you can move the work from the convex optimization into the discrete problem and vice versa."*
+**Symmetry is the characteristic failure, and it now has three independent sightings.** The relaxation splits flow evenly between equal-cost routes and places the surrogate points where neither alone would be legal: it is why the planner's rounding [must be randomized](../../sources/gcs-motion-planning-paper.md) (footnote 3), it is the [framework paper](../../sources/shortest-paths-in-graphs-of-convex-sets-paper.md)'s own §9.4 counterexample (5% gap in the illustration, **100%** in a variant — *"our relaxation can, in principle, be arbitrarily loose"*), and it is what [Tedrake reports](../../sources/tedrake-gcs-foundation-models-talk.md) seeing on a UAV that routed the long way around rather than through **one of two near-identical windows** (57:35).
+
+**And the loosening is measurable, with a counterintuitive shape.** On 500 random instances (squared-Euclidean lengths), worst-case relaxation gap by batch: nominal **2.1%**, large sets **9.1%**, dimension 4→20 **28.9%**, edges 100→500 **32.9%** — then vertices 50→250 at the *same* 500 edges drops it back to **5.3%**. It is **graph density, not graph size**, that hurts (cycles are the mechanism), which is the opposite of the intuition most people bring from search. With plain Euclidean lengths the relaxation is tight almost everywhere regardless. There is also a genuine dial: **smaller regions make convex approximations of nonlinear dynamics tighter but enlarge the discrete problem** — *"you can move the work from the convex optimization into the discrete problem and vice versa."*
 
 The scaling limit is stated by its own author: *"I don't think we can solve dexterous hands with GCS as it is. The graph gets too big. I need help"* (61:19). His proposed fix is to have a learned generalist policy propose which nodes to expand — the MCTS move — which as of that talk is a plan, not a result.
 
@@ -133,7 +177,7 @@ Described as *"almost turnkey convex decomposition algorithms."* The clique↔co
 ## Key references
 
 - [Motion Planning around Obstacles with Convex Optimization](../../sources/gcs-motion-planning-paper.md) — Marcucci, Petersen, von Wrangel & Tedrake; arXiv 2205.04422, Science Robotics 8(84) 2023. **The primary source for this page** and the motion-planning instantiation.
-- Marcucci et al., *Shortest Paths in Graphs of Convex Sets* — the underlying framework paper, treated by the planning paper as *"a modeling language."* **Not yet in `raw/`; the most obvious follow-up ingest.**
+- [Shortest Paths in Graphs of Convex Sets](../../sources/shortest-paths-in-graphs-of-convex-sets-paper.md) — Marcucci, Umenberger, Parrilo & Tedrake; arXiv 2101.11565, **SIAM J. Optimization 34(1) 2024**. **The framework paper**: the perspective-based MICP, the set-based bilinear relaxation, the NP-hardness proofs, and hybrid-system optimal control as the target application. The planning paper treats this as *"a modeling language."*
 - Marcucci et al., *Temporal Logic Motion Planning with Convex Optimization via Graphs of Convex Sets* (T-RO 2023) — GCS + LTL specifications. Not ingested.
 - [Planning with Graphs of Convex Sets (in the age of foundation models)](../../sources/tedrake-gcs-foundation-models-talk.md) — MIT Robotics Seminar, 2024-04-07. **The status-report source**: deployment, automatic seeding, contact, policies, and the honest scaling limit.
 - [Drake](../../entities/drake.md) — ships the SPP-in-GCS implementation and `IrisInConfigurationSpace`.
@@ -141,7 +185,8 @@ Described as *"almost turnkey convex decomposition algorithms."* The clique↔co
 
 ## Mentioned in
 
-- [Motion Planning around Obstacles with Convex Optimization (GCS)](../../sources/gcs-motion-planning-paper.md) — primary ingest.
+- [Motion Planning around Obstacles with Convex Optimization (GCS)](../../sources/gcs-motion-planning-paper.md) — the motion-planning instantiation.
+- [Shortest Paths in Graphs of Convex Sets](../../sources/shortest-paths-in-graphs-of-convex-sets-paper.md) — **the framework itself**; MICP construction, relaxation analysis, hybrid control.
 - [Planning with Graphs of Convex Sets (in the age of foundation models)](../../sources/tedrake-gcs-foundation-models-talk.md) — the 2024 seminar; deployment and extensions.
 - [Time-Optimal Motion Planning Using Convex Sets (ARM Institute)](../../sources/arm-institute-gcs-dexai-project.md) — the corroborating deployment record.
 - [The State of Robot Motion Generation (Bekris et al. 2024)](../../sources/state-of-robot-motion-generation-2024.md) — names GCS among optimization-based planners, in one clause.

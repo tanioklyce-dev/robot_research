@@ -7,7 +7,7 @@ author: Cheng Chi, Siyuan Feng, Yilun Du, Zhenjia Xu, Eric Cousineau, Benjamin B
 published: 2023-03 (arxiv); RSS 2023
 ingested: 2026-05-09
 local_path: raw/Diffusion_Policy_2303.04137v5.pdf
-tags: [diffusion-policy, behavior-cloning, ddpm, action-diffusion, push-t, robomimic, franka, ur5, columbia, tri, mit]
+tags: [diffusion-policy, behavior-cloning, ddpm, action-diffusion, push-t, robomimic, franka, ur5, columbia, tri, mit, operational-space-control, safety, constrained-qp]
 ---
 
 ## Summary
@@ -54,6 +54,17 @@ Introduces **Diffusion Policy** — a behavior-cloning method that represents a 
 - Switching from velocity control to position control **hurts BC-RNN and BET** but **helps Diffusion Policy** — the action-sequence + denoising structure means accumulated position-control errors are corrected during denoising rather than compounding.
 - Diffusion Policy is also **more robust to control latency** than velocity-control baselines; maintains peak performance with up to ~4 steps simulated latency.
 
+### The mid-level controller — the hardware stack's safety layer (Appendix D.1)
+
+Buried in the Franka-station appendix, and more consequential than its placement suggests: **the learned policy never commands the robot directly.** Two custom mid-level controllers sit underneath it.
+
+- **Non-haptic (used for policy inference)** — *"we solve a differential kinematics problem (formulated as a Quadratic Program) to compute the desired joint velocity to track the desired end effector velocity. The resulting joint velocity is Euler integrated into joint position, which is tracked by a joint-level controller… **This formulation allows us to impose constraints such as collision avoidance for the two arms and the table, safety region for end effector and joint limits.** It also enables regulating redundant DoF in the null space of the end effector commands. **This mid-level controller is particularly valuable for safeguarding the learned policy during hardware deployment.**"*
+- **Haptic teleoperation** — a pure torque controller *"formulated using **Operational Space Control** (Khatib 1987) as a Quadratic Program operating at **200 Hz**, where position, velocity, and torque limits are added as constraints, and the primary spatial objective and secondary null-space posture objectives are posed as costs,"* with a Franka model including **reflected rotor inertias**. **Collision avoidance is not enabled in this mode**; inference uses the non-haptic controller.
+- **Rates**: *"Tele-op and learned policies run at 10Hz, and the mid-level controller runs around 1kHz,"* with end-effector pose commands interpolated between policy ticks — the constraint set is re-solved ~100× per policy decision.
+- It pays off in the results, not just the methods: on bimanual shirt folding the grippers must come *"very close towards each other,"* and *"having our mid-level controller explicitly handling collision avoidance was especially important for both teleoperation and policy rollout"* (§7.5).
+
+See [operational space control](../concepts/robotics/operational-space-control.md) for what this architecture does and does not guarantee.
+
 ### Limitations (§VIII)
 - Inherits behavior-cloning limitations (sub-optimal demos → sub-optimal policy; no negative-data leverage). RL extensions referenced (Hansen-Estruch IDQL, Wang DiffPo).
 - Higher computation / inference latency than simpler methods (LSTM-GMM). Mitigated by action-sequence prediction and DDIM but not eliminated; high-rate control still constrains use.
@@ -77,6 +88,7 @@ Introduces **Diffusion Policy** — a behavior-cloning method that represents a 
 
 ## Concepts touched
 
+- [Operational space control](../concepts/robotics/operational-space-control.md) — **new concept page from Appendix D.1**; the constrained-QP mid-level controller that bounds what the policy can command.
 - [Imitation learning](../concepts/learning/imitation-learning.md) — the paper's training paradigm; key example of "diffusion policies" as a BC variant.
 - Multi-modal action distributions — the paper's core thesis: diffusion captures multimodality without per-mode hyperparameters (k-means count, GMM components).
 - Receding-horizon / model-predictive control — borrowed from classical control, fused with action-sequence prediction.

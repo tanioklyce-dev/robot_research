@@ -24,6 +24,9 @@ Training **one** policy on the full, diverse motion corpus is hard because diffe
 
 The dominant real-world-adaptation trick in this cluster is **delta-action modeling** (from **ASAP**): fit a residual `π_Δ(s,a)` from real rollouts, reshape the simulator `s' = f_sim(s, a+π_Δ)`, and fine-tune the tracking policy in the corrected sim — iterated. [BumbleBee](../../sources/bumblebee-experts-to-generalist-wbc.md) shows per-cluster delta-models beat one global delta-model (cluster-consistent dynamics fit better) and that iterating lifts real-robot success and foot stability. Foot placement is repeatedly the hardest residual gap ([SONIC](../../sources/sonic-paper.md): 53.7 vs 29.0 mm sim).
 
+> [!note] The classical ancestor, and what the learned version gives up
+> Model-based WBC is largely [operational space control](operational-space-control.md) (Khatib 1987) plus null-space prioritization on a floating base: a QP per tick with task objectives as **costs** and joint/torque/contact limits as **hard constraints**. The learned WBC policies on this page replace that QP with a network — buying robustness and contact-richness, and **giving up the hard-constraint property**, which is why the manipulation stacks in this wiki still keep a constrained QP between policy and hardware.
+
 ## Key references
 
 - **[SONIC](../../sources/sonic-paper.md)** (NVIDIA [GEAR](../../entities/nvidia-gear.md), 2025-11) — motion tracking as *the* scalable foundational task; FSQ universal token space as the VLA↔controller interface; direct sim-to-real on [Unitree G1](../../entities/unitree-g1.md).

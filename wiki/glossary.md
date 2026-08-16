@@ -80,6 +80,9 @@ Vision benchmark datasets used for pretraining / evaluating CNNs and ViTs. *(Mod
 ### DDPM
 **Denoising Diffusion Probabilistic Models** — Ho, Jain, Abbeel 2020 ([source page](sources/ddpm-paper.md)); foundational diffusion-model class. Forward process adds Gaussian noise; reverse process learns to denoise. The action-distribution model used by [Diffusion Policy](entities/diffusion-policy.md). *(Module 5.)*
 
+### Differential IK
+**Differential inverse kinematics** — solve for joint velocities `v` that realize a desired end-effector spatial velocity, `min ‖J(q)v − V_desired‖²`, instead of solving full IK for a pose. Posed as a **QP** it accepts joint-position, velocity, and acceleration limits and collision-avoidance constraints as linear inequalities — which is what turns it into a safety layer under a learned policy ([operational space control](concepts/robotics/operational-space-control.md)). Preferred over pseudo-inverse-then-clamp: solving inside the feasible set beats trimming an infeasible answer. `DifferentialInverseKinematicsIntegrator` ships in [Drake](entities/drake.md). *(Classical-robotics branch.)*
+
 ### DINO
 **self-DIstillation with NO labels** — Caron et al. 2021; SSL with EMA teacher + cross-entropy on student predictions; produces strong semantic features. *(Module 2 / 4.)*
 
@@ -215,6 +218,9 @@ Terver et al., FAIR, Dec 2025 ([source page](sources/jepa-wms-paper.md)); first 
 ### LSTM
 **Long Short-Term Memory** — RNN variant with gating mechanisms that let it learn long-range dependencies; standard pre-2018 sequence model. *(Module 3.)*
 
+### McCormick envelope
+The standard convex relaxation of a bilinear term `z = xy` over boxes: four linear inequalities from the products of the variable bounds. Cheap, general, and usually loose — on random [GCS](#gcs) instances the McCormick-based [MICP](#micp) has a **median relaxation gap of 29–34%** and solves 10–13× slower than the perspective formulation ([Marcucci et al. 2021](sources/shortest-paths-in-graphs-of-convex-sets-paper.md) §9). The GCS relaxation *collapses to* the McCormick envelope in the special case of real intervals. *(Classical-robotics branch.)*
+
 ### MICP
 **Mixed-Integer Convex Program** — an optimization with both continuous and binary variables whose continuous relaxation is convex. Exact solution is branch-and-bound (worst case exponential in the binary count), which is why [GCS](#gcs)'s tight relaxation matters: it lets you skip branch-and-bound entirely. *(Classical-robotics branch.)*
 
@@ -287,11 +293,17 @@ NYU 2024 ([entity](entities/ok-robot.md)); zero-shot pick-and-drop in 10 NYC hom
 ### OpenVLA
 Open-weights VLA used as a baseline in many 2024–2026 papers. *(Module 9.)*
 
+### OSC
+**Operational Space Control** — Khatib 1987; control the robot in task space (end-effector pose/force) rather than joint space, mapping the task objective through the Jacobian and inertia to joint torques, with a **null space** left over for secondary objectives on a redundant arm. Modern form: a **QP per control tick** with task objectives as costs and position/velocity/torque limits as hard constraints — 200 Hz in the [Diffusion Policy](sources/diffusion-policy-paper.md) haptic-teleop stack. See [concept page](concepts/robotics/operational-space-control.md). *(Classical-robotics branch.)*
+
 ### OVMM
 **Open Vocabulary Mobile Manipulation** — HomeRobot benchmark for Stretch. *(Module 13.)*
 
 ### PAR
 **Physically Assistive Robotics** — robots that physically assist disabled users (feeding, dressing, transfer). See [Nanavati 2024 systematic review](sources/nanavati2024-physically-assistive-robots-review.md). *(Module 13.)*
+
+### Perspective function / perspective operator
+For a closed convex function `f`, its perspective is `f̃(x, λ) := λ·f(x/λ)` for `λ > 0`, extended so that `f̃(0,0) = 0`; for a set, the perspective is the cone over it. Convexity is preserved and conic representations carry over, so a solver that handles `X` handles `X̃`. The workhorse of [GCS](#gcs): multiplying a cost or constraint by a `0/1` flow variable is ill-defined when the cost is `∞` and the flow is `0`, and the perspective **switches the edge cleanly off instead** ([Marcucci et al. 2021](sources/shortest-paths-in-graphs-of-convex-sets-paper.md)). *(Classical-robotics branch.)*
 
 ### π0 / π0.6 (pi-zero)
 [Physical Intelligence](entities/physical-intelligence.md)'s flagship cross-platform VLA. π0 ([source page](sources/pi-zero-paper.md)) uses a flow-matching action head on a pre-trained VLM backbone. *(Module 9.)*
@@ -311,6 +323,9 @@ The module in [JEPA](concepts/world-models/jepa.md)-line world models that maps 
 ### PPO
 **Proximal Policy Optimization** — Schulman et al. 2017; the dominant on-policy actor-critic algorithm. *(Module 8.)*
 
+### PWA
+**PieceWise-Affine** system — dynamics `s⁺ = A_ν s + B_ν a + c_ν` that switch between a finite set of affine modes according to which convex region `(s,a)` lies in. The standard model for hybrid dynamics: *"almost any dynamical system whose nonlinearity is exclusively due to discrete logics"* can be written this way. Optimal control of PWA systems is the target application of the [GCS](#gcs) framework paper — one graph vertex per (time step, mode), dynamics as edge constraints. *(Classical-robotics branch.)*
+
 ### QCQP
 **Quadratically Constrained Quadratic Program** — a quadratic objective under quadratic constraints; nonconvex in general. The natural form of quasi-static contact dynamics, where SO(2) rotation constraints and **force × distance** terms are bilinear. Its standard **semidefinite relaxation** turns each contact mode's feasible set into a [spectrahedron](#spectrahedron), which is convex and can therefore be a [GCS](#gcs) vertex — the route by which GCS reaches planning through contact ([Tedrake 2024](sources/tedrake-gcs-foundation-models-talk.md)). *(Classical-robotics branch.)*
 
@@ -328,6 +343,9 @@ A pretrained visual encoder for manipulation (Nair et al. 2022); appears as a Di
 
 ### RL
 **Reinforcement Learning** — learn a policy that maximizes expected reward through environment interaction. Canonical textbook: [Sutton & Barto](sources/sutton-barto-rl-textbook.md). *(Module 8.)*
+
+### RLT
+**Reformulation-Linearization Technique** — Sherali & Adams; generate valid inequalities for a nonconvex program by multiplying existing valid inequalities together and linearizing the products. The [GCS](#gcs) MICP is first-level RLT specialized to one bilinear structure, generalized from polytopes to arbitrary closed convex sets and made **set-based** (it needs only a separation oracle, not the defining inequalities). Related hierarchies: Lovász–Schrijver, Lasserre/[SOS](#sos). *(Classical-robotics branch.)*
 
 ### RNN
 **Recurrent Neural Network** — sequence model that maintains a hidden state across timesteps; superseded by transformers for most tasks. *(Module 3.)*

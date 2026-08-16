@@ -35,6 +35,12 @@ The primary source for [TRI](../entities/tri.md)'s **[Large Behavior Model](../c
 - "Subtle design choices like data normalization can have large effects on performance, often dominating architectural or algorithmic changes."
 - Demo tasks include apple coring/cutting, bike-rotor installation, breakfast-table setup.
 
+### The hardware control stack (added 2026-08-16 from the arXiv HTML)
+
+- *"We run the Franka robots using our custom joint impedance controller, with a **differential inverse kinematics controller on top** to translate end-effector relative SE(3) commands from the human teleoperator or the LBM policy… **The differential inverse kinematics controller also handles collision avoidance.**"*
+- *"All policies are run at **10 Hz**"*; 16 action steps are supervised in training, **8 executed** before recomputing; images resized to 256×342 then center-cropped to 224×224 at deployment (randomly cropped in training).
+- Same architecture as the [Diffusion Policy](diffusion-policy-paper.md) station two years earlier: the policy emits end-effector commands into a **constrained mid-level controller**, which is the only thing that talks to the joints. See [operational space control](../concepts/robotics/operational-space-control.md).
+
 ## Entities mentioned
 
 - [TRI](../entities/tri.md) — sole affiliation (82 authors). [Russ Tedrake](../entities/russ-tedrake.md) — senior author; also [Diffusion Policy](../entities/diffusion-policy.md)-cohort names (Cousineau, Burchfiel, Feng).
@@ -46,10 +52,11 @@ The primary source for [TRI](../entities/tri.md)'s **[Large Behavior Model](../c
 - [Large behavior models](../concepts/learning/large-behavior-models.md) — **primary source**.
 - [VLA models](../concepts/learning/vla-models.md) — contrast case: an LBM that is not a VLA.
 - [Imitation learning](../concepts/learning/imitation-learning.md), [Scaling laws — VLAs](../concepts/learning/scaling-laws-vla.md) — smooth-scaling evidence from a non-VLA generalist policy.
+- [Operational space control](../concepts/robotics/operational-space-control.md) — the joint-impedance + constrained-diff-IK layer under the policy.
 
 ## Open questions
 
-- Full PDF not ingested (project page + abstract only) — per-task success tables, ablations, and the sequential-testing math would reward a deep read.
+- Full PDF still not ingested (project page + abstract, plus a 2026-08-16 targeted read of the arXiv HTML for the control stack) — per-task success tables, ablations, and the sequential-testing math would reward a deep read.
 - How LBM 1.0's non-VLA architecture relates to whatever [Tedrake's stealth startup](../entities/russ-tedrake.md) builds (he now argues video backbones win for long context — a shift from this paper's ViT-encoder design?).
 - Whether the 20–30%-CI-at-50-rollouts point has changed evaluation practice elsewhere (cf. [RoboCasa365](robocasa365-paper.md)'s large-N sim eval, which cites TRI LBM as a baseline).
 - "LBM 1" naming implies an LBM 2 — unannounced as of ingest.

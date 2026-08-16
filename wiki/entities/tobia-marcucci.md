@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-16
 updated: 2026-08-16
-sources: 2
+sources: 3
 tags: [tobia-marcucci, mit, graphs-of-convex-sets, gcs, convex-optimization, mixed-integer, motion-planning, optimization-theory]
 ---
 
@@ -20,12 +20,14 @@ The two contributions are separable and travel differently: [GCS](../concepts/ro
 
 ## Contributions tracked here
 
-- **Shortest paths in graphs of convex sets** — the compact MICP formulation with an empirically very tight convex relaxation, built on perspective functions to switch costs and constraints on and off per edge. Framework paper **not yet in `raw/`**; it is the natural next ingest behind the planning paper.
+- **[Shortest paths in graphs of convex sets](../sources/shortest-paths-in-graphs-of-convex-sets-paper.md)** (with **Jack Umenberger** and **Pablo Parrilo**; arXiv 2021, **SIAM J. Optimization 34(1) 2024**) — **ingested**. The compact MICP built by extending the network-flow LP and using **perspective operators** to switch edge costs and constraints on and off; a **set-based** relaxation of the resulting bilinear constraints that works through a separation oracle alone; NP-hardness by reduction from Hamiltonian Path; and **hybrid/PWA optimal control** as the stated target application, where it beats the prior perspective formulation **93% → 20% relaxation gap, 17 min → 7.1 s**.
 - **GCS-based motion planning** ([Marcucci, Petersen, von Wrangel & Tedrake 2022 / Science Robotics 2023](../sources/gcs-motion-planning-paper.md)) — equal-contribution first author. Global optimality on 95% of quadrotor instances within 1%; beats PRM on a 7-DoF arm on both quality and time; scales to a 14-DoF dual-arm problem.
 - **Randomized rounding of relaxed edge indicators**, with the symmetry argument for *why it must be randomized* (§4.2 footnote 3) — a general lesson about reading relaxed binaries as confidences.
 
+**The co-author list is itself evidence for the credit split.** The framework paper is Marcucci with **Parrilo** — the semidefinite-relaxation/SOS authority — and **Umenberger**, published in **SIAM Journal on Optimization**. Tedrake is the fourth author on an optimization paper; he is the senior author on the robotics one. The wiki inferred this division from the planning paper's framing before the framework paper was ingested, and it holds.
+
 > [!note] Live-web facts not verified from an ingested source
-> His publication list and current position (he has moved on from MIT since the 2022 preprint) were not confirmed against an ingested source and are deliberately omitted rather than guessed. The paper's stated affiliation is MIT; that is what this page asserts.
+> His publication list and current position (he has moved on from MIT since the 2022 preprint) were not confirmed against an ingested source and are deliberately omitted rather than guessed. Both ingested papers state MIT; that is what this page asserts.
 
 ## Related
 
@@ -36,5 +38,6 @@ The two contributions are separable and travel differently: [GCS](../concepts/ro
 
 ## Mentioned in
 
-- [Motion Planning around Obstacles with Convex Optimization (GCS)](../sources/gcs-motion-planning-paper.md) — primary ingest; first author.
+- [Shortest Paths in Graphs of Convex Sets](../sources/shortest-paths-in-graphs-of-convex-sets-paper.md) — **first author; the framework paper.**
+- [Motion Planning around Obstacles with Convex Optimization (GCS)](../sources/gcs-motion-planning-paper.md) — first author (equal contribution); the robotics instantiation.
 - [Planning with Graphs of Convex Sets (in the age of foundation models)](../sources/tedrake-gcs-foundation-models-talk.md) — named by [Tedrake](russ-tedrake.md) as the through-line on every GCS slide ("Tobias" in the auto-captions); the framework's reach beyond collision avoidance — contact via spectrahedra, value-function duals, permutohedron walks — is the case for the credit split this page makes.

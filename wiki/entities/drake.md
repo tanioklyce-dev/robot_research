@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-08-13
 updated: 2026-08-16
-sources: 5
+sources: 6
 tags: [drake, tri, mit-csail, russ-tedrake, simulation, model-based-design, optimization, multibody-dynamics, contact-simulation, lcm, bsd-3-clause, cpp]
 ---
 
@@ -80,3 +80,4 @@ The substrate under two MIT courses that function as the field's standard texts:
 - [Drake documentation](../sources/drake-documentation.md)
 - [Motion Planning around Obstacles with Convex Optimization (GCS)](../sources/gcs-motion-planning-paper.md) — Drake as the implementation substrate (SPP-in-GCS solver + `IrisInConfigurationSpace`).
 - [Planning with Graphs of Convex Sets (in the age of foundation models)](../sources/tedrake-gcs-foundation-models-talk.md) — the Drake GCS implementation called "pretty mature" and traced to a production user.
+- [Shortest Paths in Graphs of Convex Sets](../sources/shortest-paths-in-graphs-of-convex-sets-paper.md) — the framework paper points readers at Drake for the production implementation: *"a mature implementation of the techniques presented in this paper is also provided by the open-source software Drake."*
