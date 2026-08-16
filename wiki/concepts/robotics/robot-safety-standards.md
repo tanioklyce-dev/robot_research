@@ -3,7 +3,7 @@ title: Robot safety standards (ISO 13482 and the machinery-safety framework)
 type: concept
 created: 2026-07-08
 updated: 2026-08-03
-sources: 15
+sources: 16
 tags: [iso-13482, iso-10218, ts-15066, safety-standards, certification, ce-marking, service-robots, personal-care-robots, assistive, regulation, functional-safety, nvidia-halos]
 ---
 
@@ -47,6 +47,8 @@ The [primary academic critique](../../sources/fosch-villaronga-iso13482-exoskele
 A concrete instance of that predicted pattern arrived 2026-07-15: **[NVIDIA Halos](../../entities/nvidia-halos.md)** ([Halos for Robotics](../../sources/nvidia-halos-robotics.md)) — a **full-stack functional-safety system** (silicon → OS → middleware → apps) running on the **IGX [Thor](../../entities/jetson-thor.md)** SoM with a hardware **Functional Safety Island**, i.e. a deterministic safety layer *underneath* the learned VLA the same module runs. It splits safety into **Inside-Out** (onboard sensors, immediate envelope — [Agility Digit](../../entities/digit.md) is the flagship) and **Outside-In** (external cameras / virtual zones). Crucially it brings a **certification pathway**: the *"first ANAB-accredited inspection program for AI functional safety in physical AI,"* the Halos AI Systems Inspection Lab, and third-party notified bodies (TÜV Rheinland) — porting **autonomous-vehicle-grade** safety heritage. Two caveats remain: (1) Halos certifies the **deterministic envelope**, not obviously the stochastic policy itself, so ISO 13482 / EU-MR conformity *of the learned policy* is still unresolved; (2) Halos is **physical** safety only — it is disjoint from the *semantic*-harm layer below.
 
 **And the un-certified version of that pattern is already standard practice in research labs — it just isn't called safety.** In the MIT/TRI manipulation stack the learned policy emits end-effector poses into a **constrained-QP mid-level controller** at ~1 kHz whose hard constraints are arm–arm collision, the table, an end-effector keep-out region, and joint limits; its authors describe it as *"particularly valuable for safeguarding the learned policy during hardware deployment"* ([Diffusion Policy](../../sources/diffusion-policy-paper.md) App. D.1). That is the "certified classical safety layer wrapping an uncertified learned policy" prediction above, minus the certification — model-based and geometric, with **no perception-driven avoidance and no formal guarantee**. See [operational space control](operational-space-control.md). The gap between that and what [Halos](../../entities/nvidia-halos.md) offers is exactly the gap between *engineering practice* and *conformity evidence*.
+
+**The research answer to the missing guarantee arrived in 2025, from Stanford**: [OSCBF](../../sources/oscbf-paper.md) ([Morton & Pavone](../../entities/marco-pavone.md), IROS 2025) replaces the hand-written inequalities with **control barrier functions**, which make the safe set *forward-invariant* — a property about all future states, not just this tick — and does it at **~3 kHz with 168 concurrent constraints** on the same class of arm. That is the first artifact in this wiki that a physical-safety conformity argument could plausibly be built on. Two things keep it short of one: the authors concede that with many constraints and input limits the QP can go infeasible and the relaxed version *"enforces (but does not guarantee) safety in most cases"*, and **obstacles are supplied, not perceived** — the same blocker as the deployed envelope.
 
 ## Related concepts
 

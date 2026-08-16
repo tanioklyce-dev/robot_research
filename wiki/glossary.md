@@ -50,6 +50,9 @@ Stanford household-task benchmark; 12.4% best result (per [AI Index 2026](source
 ### CE
 **Cross-Entropy** — the standard classification loss; for predicted distribution `p̂` and target `p`, `−Σ p log p̂`. *(Module 1.)*
 
+### CBF
+**Control Barrier Function** — a function `h(z)` whose zero-superlevel set is the safe set; any controller satisfying `ḣ(z,u) ≥ −α(h(z))` renders that set **forward-invariant** (once safe, always safe). Dropped into a QP with a min-norm objective it becomes a **safety filter** wrapping an arbitrary — including learned — nominal controller. Mechanical systems usually give **relative degree 2** constraints under torque control, requiring High-Order CBFs. See [operational space control](concepts/robotics/operational-space-control.md) and the [OSCBF paper](sources/oscbf-paper.md). *(Classical-robotics branch.)*
+
 ### CEM
 **Cross-Entropy Method** — derivative-free sampling-based optimizer; used inside MPC against learned world models. *(Module 10.)*
 
@@ -388,6 +391,9 @@ The feasible set of a **semidefinite program** — the intersection of the cone 
 
 ### SSL
 **Self-Supervised Learning** — train on unlabeled data by inventing a pretext task whose labels can be derived from the input itself. The umbrella for everything in self-supervised pretraining. *(Module 4.)*
+
+### Task consistency
+[OSCBF](sources/oscbf-paper.md)'s term for the right objective in a safety filter: rather than minimizing deviation in the **raw control input** (`‖u − u_nom‖²`, the standard [CBF](#cbf) filter), minimize deviation in an **output that reflects the task hierarchy** — operational-space and null-space joint accelerations. Filtering the wrong quantity keeps the robot safe but adds excess motion at the boundary of safety. Generalizes: any minimally-invasive filter must answer *"minimal in what?"*, and the actuator command is rarely the right answer. *(Classical-robotics branch.)*
 
 ### TD
 **Temporal Difference** — bootstrap-style update using `r + γ V(s') − V(s)`; backbone of value-based RL. *(Module 8.)*

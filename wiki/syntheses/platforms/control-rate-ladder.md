@@ -25,6 +25,9 @@ This page lines them up. The short version: **the full span is about five orders
 |---:|:---:|---|---|
 | **15,000** † | MEAS | MotionBricks latent motion model — **15,000 FPS throughput**, separately **2 ms latency** (≈500 Hz single-stream) | [MotionBricks](../../sources/motionbricks-paper.md) |
 | **1,000** | REQ | [Franka Panda](../../entities/franka-panda.md) joint servo loop | robot firmware |
+| **9,550** | MEAS | [OSCBF](../../sources/oscbf-paper.md) safety filter, **1 CBF** (singularity avoidance), velocity control — JAX/XLA QP | Franka Panda, i7 NUC |
+| **2,940** | MEAS | [OSCBF](../../sources/oscbf-paper.md) **168 concurrent CBF constraints**, torque control, full second-order dynamics | Franka Panda, i7 NUC |
+| **~1,000** | MEAS | [OSCBF](../../sources/oscbf-paper.md) with **>400 CBF constraints** (cluttered scene, whole-body collision avoidance) | Franka Panda, i7 NUC |
 | **~1,000** | MEAS | **[Diffusion Policy](../../sources/diffusion-policy-paper.md)'s mid-level controller** — constrained diff-IK QP, *"runs around 1kHz"*, interpolating the 10 Hz policy's commands | Franka station (TRI/MIT) |
 | **500** | REQ | Upper bound of [whole-body control](../../concepts/robotics/whole-body-control.md) torque loops | humanoid WBC |
 | **~200** | MEAS | [ACT](../../entities/act.md), 5.0 ms | RTX 4090 |
@@ -92,6 +95,8 @@ Neither separation is closed by faster inference. Three mechanisms do the work, 
 
 > [!note] Band A is not only about tracking — in a manipulation stack it is where **safety** is enforced
 > The 1 kHz entry above is not a servo loop the vendor supplied; it is a **constrained QP the lab wrote**, and its constraints are arm–arm collision, the table, an end-effector keep-out region, and joint limits. The learned policy at 10 Hz emits *requests*; this layer decides what actually reaches the joints, ~100 times per request. Its authors call it *"particularly valuable for safeguarding the learned policy during hardware deployment"* ([Diffusion Policy](../../sources/diffusion-policy-paper.md) App. D.1; the same architecture reappears in the [TRI LBM](../../sources/tri-lbm-paper.md) stack).
+>
+> **And the safety layer has far more headroom than the policy does.** [OSCBF](../../sources/oscbf-paper.md) holds ~3 kHz with **168 simultaneous constraints** and ~1 kHz with **over 400** — on a **laptop-class CPU**, in **Python** (JAX/XLA). The constraint layer is not what limits this stack; a policy three orders of magnitude slower is.
 >
 > This reframes the ladder's central gap. The 10 Hz-policy-over-1 kHz-controller ratio is usually read as *the policy is too slow*. Read the other way, **the ratio is what makes a slow stochastic policy deployable at all**: something fast, model-based, and unable to be talked out of its constraints sits between it and the hardware. See [operational space control](../../concepts/robotics/operational-space-control.md).
 
