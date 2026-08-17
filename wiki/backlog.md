@@ -10,6 +10,19 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-08-17] Home-AI-platform gap — the wiki has no smart-home coverage at all
+
+Surfaced by the [home AI platform](syntheses/agents/home-ai-platform-trust-and-authority.md) and [consumer value chain](syntheses/society/consumer-robotics-value-chain.md) syntheses. Half of each rests on uncited framing because the wiki covers agentic robotics deeply and home automation not at all.
+
+- [ ] **Ingest the Matter specification** — highest value single source. Needed: what the **multi-admin** model actually guarantees, and whether any of it survives non-idempotent state. The whole "can a robot live in two ecosystems" argument currently rests on my own reading of a spec nobody here has read.
+- [ ] **Ingest Apple Private Cloud Compute / Home privacy documentation** — the strongest published local-first architecture claim, and the falsifiable trust predictor the syntheses lean on.
+- [ ] **Ingest a smart-home incumbent's data-access policy** (Ring or Nest) — grounds the trust-history argument in something citable rather than reputation.
+- [ ] **Is there a commercial capability manifest anywhere?** Both wiki instances ([AgenticROS](entities/agenticros.md), [ros2-mcp-server](entities/ros2-mcp-server.md)) are hobbyist-scale and nav-first. A vendor manifest with a certification boundary attached would confirm or break the integration-surface prediction.
+- [ ] **Cross-ecosystem arbitration has no protocol.** `blocks_base` is a flag. Nothing in the wiki addresses what happens when two ecosystems issue conflicting goals to one robot.
+- [ ] **Household multi-tenancy is a literature gap, not just a wiki gap** — no ingested source covers per-person, per-space authority in a shared home, and the people a home model observes most (children, elders, visitors) consented least.
+- [ ] **Can incident reconstruction work for an end-to-end policy at all?** [World-model governance](concepts/safety/world-model-governance.md) asks for a log of the inferred state; the wiki's own callout says that state is a latent vector with no committed semantics. If it can't, liability pressure forces the whole category to Level 3 permanently — an architectural consequence, not a paperwork one.
+- [ ] **No consumer-robot teardown or BOM anywhere in the wiki.** Open platforms have BOMs ([XLeRobot](entities/xlerobot.md) $660, [UME](entities/ume.md) $1,900); no commercial consumer product does. One teardown would move most of the value-chain page from inference to evidence.
+
 ## [2026-08-16c] Vendor-version staleness — JetPack 7.2 caught the Jetson cluster out
 
 - [x] ~~**Ingest a JetPack 7.2 / Jetson Linux r39.2 primary source.**~~ — **done 2026-08-16**: [JetPack 7.2 release page](sources/nvidia-jetpack-7-2-release.md). It confirmed the correction, **fixed CUDA 13.0 → 13.2.1**, and surfaced three things secondary reporting missed: **Isaac ROS "Coming soon"**, the **`overlay_pcie.tbz2`** boot fix for Orin Nano/NX, and **AGX Orin 32 GB Super Mode 200 → 241 TOPS**.
