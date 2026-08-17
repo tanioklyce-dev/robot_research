@@ -2,8 +2,8 @@
 title: Assistive Robotics
 type: concept
 created: 2026-05-09
-updated: 2026-07-13
-sources: 28
+updated: 2026-08-17
+sources: 29
 tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot, accessibility]
 ---
 
@@ -21,6 +21,7 @@ tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot
 
 ### Social and educational assistive robots
 - **Furhat**, **Social Robot Haru**, **QT Robot**, **Buddy** — robots supporting older adults' social connection, children's educational tasks, and emotional wellbeing ([ITU AI for Good, 2023](../../sources/itu-aiforgood-assistive-robots.md)).
+- **[Zeroth M1](../../entities/zeroth-m1.md)** (2026, **$2,499**) — a consumer entrant advertising "gentle fall detection," safety checks, child learning and pet monitoring in a 494 mm, 2.8 kg biped/wheeled body ([product page](../../sources/zeroth-m1-product-page.md)). It belongs in **this** category rather than the mobile-manipulation one above: no payload, reach or manipulation capability is published, and its advertised value is sensing, conversation and alerting. Notable mainly for **testing a price floor an order of magnitude below [Stretch](../../entities/stretch.md)** — with correspondingly little evidence: no compute spec, no privacy statement, no accuracy figure for the safety features, and no independent review.
 
 ## The demand-side: aging in place
 
@@ -120,3 +121,4 @@ The navigation-domain counterpart is [DRAGON (Liu et al. 2024)](../../sources/dr
 - [Designing Accessible Robot Communication for Blind People (Huh et al. 2026)](../../sources/huh2026-accessible-robot-comm.md)
 - [Domestic Robots and the Dream of Automation (Schneiders et al. 2021)](../../sources/schneiders2021-domestic-robots-automation.md)
 - [Aging in Place: Growing Older at Home (NIA)](../../sources/nia-aging-in-place.md)
+- [Zeroth M1 — product page](../../sources/zeroth-m1-product-page.md)

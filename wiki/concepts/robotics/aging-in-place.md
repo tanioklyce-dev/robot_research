@@ -2,8 +2,8 @@
 title: Aging in place
 type: concept
 created: 2026-07-13
-updated: 2026-07-13
-sources: 1
+updated: 2026-08-17
+sources: 2
 tags: [aging-in-place, elder-care, assistive-robotics, adl, iadl, home-modification, caregiving, demand-side]
 ---
 
@@ -33,6 +33,9 @@ Plus **safety** — home safety features and response to falls or emergencies.
 
 Notably, the 2023 NIA guide's *only* named technology is **emergency medical alert systems** (wearable fall/lost-detection monitors). It mentions **no assistive robots, no smart-home automation, no AI** — a gap between mainstream elder-care guidance and the research frontier this wiki covers. (An [NIH in-home-technology initiative](https://www.nia.nih.gov/news/nih-initiative-tests-home-technology-help-older-adults-age-place) exists but is not ingested.) This grounds a recurring wiki theme: the reliability bar for a robot to enter this setting is set by *safety and independence*, not task throughput ([assistive robotics](assistive-robotics.md)).
 
+> [!note] The consumer market has started selling directly into this gap — evidence unchanged
+> The [Zeroth M1](../../entities/zeroth-m1.md) (2026, $2,499) advertises "gentle fall detection, mobile safety checks, daily assistance, alerts" — i.e. it markets straight at the NIA's *safety* category, and at the same wearable-alert niche that guide names. It publishes **no accuracy figure, no trial, and no deployment evidence** for any of it ([product page](../../sources/zeroth-m1-product-page.md)). So the gap this section describes is now being addressed by **marketing rather than by evidence**, which is a different situation from the 2023 baseline and arguably a worse one: mainstream guidance omitting robots is a knowledge gap, whereas an unevaluated fall-detector sold for home elder-safety is a claim a family may act on.
+
 ## Related concepts
 
 - [Assistive robotics](assistive-robotics.md) — the field building robots for these tasks.
@@ -47,3 +50,4 @@ Notably, the 2023 NIA guide's *only* named technology is **emergency medical ale
 ## Mentioned in
 
 - [Aging in Place: Growing Older at Home (NIA)](../../sources/nia-aging-in-place.md)
+- [Zeroth M1 — product page](../../sources/zeroth-m1-product-page.md)
