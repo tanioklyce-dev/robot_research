@@ -27,12 +27,12 @@ This page is the **superset table** underneath both: all SKUs, both `nvpmodel` c
 | **Orin Nano 8 GB** | Ampere | 1024-core / 32 TC | 6× A78AE | 8 GB 128-bit LPDDR5 | 102 GB/s | 67 TOPS | 7 / 15 / 25 W | **~$249** dev kit | JetPack 7.2+ ¹ |
 | **Orin NX 8 GB** | Ampere | 1024-core / 32 TC **+ 2 DLA** | 6× A78AE | 8 GB 128-bit LPDDR5 | 102.4 GB/s | 117 TOPS | 10–25 W (40 W Super) | — | JetPack 7.2+ ¹ |
 | **Orin NX 16 GB** | Ampere | 1024-core / 32 TC **+ 2 DLA** | 8× A78AE | 16 GB 128-bit LPDDR5 | 102.4 GB/s | 157 TOPS | 10–40 W | **~$600** module | JetPack 7.2+ ¹ |
-| **AGX Orin 32 GB** | Ampere | 1792-core / 56 TC | 8× A78AE | 32 GB 256-bit LPDDR5 | 204.8 GB/s | 200 TOPS | 15–60 W | — | JetPack 7.2+ ¹ |
+| **AGX Orin 32 GB** | Ampere | 1792-core / 56 TC | 8× A78AE | 32 GB 256-bit LPDDR5 | 204.8 GB/s | 200 → **241 TOPS** (MAXN_SUPER, JP7.2) | 15–60 W | — | JetPack 7.2+ ¹ |
 | **AGX Orin 64 GB** | Ampere | 2048-core / 64 TC | 12× A78AE | 64 GB 256-bit LPDDR5 | 204.8 GB/s | 275 TOPS | 15–60 W (≤75 W MAXN per some listings) | **~$1,999** dev kit | JetPack 7.2+ ¹ |
 | **AGX Thor T4000** | **Blackwell** | 1536-core / 5th-gen TC | 12× Neoverse-V3AE | 64 GB 256-bit LPDDR5X | 273 GB/s | **1200 FP4 TFLOPS** | 40–70 W (**90 W TDP**) | — | **JetPack 7** |
 | **AGX Thor T5000** | **Blackwell** | 2560-core / 5th-gen TC | 14× Neoverse-V3AE | 128 GB 256-bit LPDDR5X | 273 GB/s | **2070 FP4 TFLOPS** | 40–130 W (**130 W TDP**) | **$3,499** dev kit | **JetPack 7** |
 
-¹ **Corrected 2026-08-16.** These rows read *"JetPack 6"* until today. **JetPack 7.2 (Jetson Linux r39.2, 2026-06-01) extends JetPack 7 to the entire Orin family** (Ubuntu 24.04 / kernel 6.8 / CUDA 13.0), unifying the toolchain with Thor; **7.2.1** followed 2026-08-12. Consequence for anyone flashing: the Orin Nano dev kit **no longer has an SD-card image** — a unified ISO from USB installs to microSD or NVMe. Live-web facts verified 2026-08-16; no JetPack 7.2 release note is ingested.
+¹ **Corrected 2026-08-16.** These rows read *"JetPack 6"* until today. **JetPack 7.2 (Jetson Linux r39.2, **2026-06-02**) extends JetPack 7 to the entire Orin family** (Ubuntu 24.04 / kernel 6.8 / **CUDA 13.2.1** / TensorRT 10.16.2), unifying the toolchain with Thor; **7.2.1** followed 2026-08-12. Consequences: the Orin Nano dev kit **no longer has an SD-card image** (unified ISO from USB installs to microSD or NVMe); **Isaac ROS is listed "Coming soon"** on 7.2, which gates ROS robots on JetPack 6; and **AGX Orin 32 GB gains Super Mode (MAXN_SUPER), 200 → 241 TOPS**. Primary source: [JetPack 7.2 / Jetson Linux 39.2](../../sources/nvidia-jetpack-7-2-release.md).
 
 Sources: module ladder from the [Seeed selection guide](../../sources/seeed-jetson-selection-guide.md) (cross-checked against NVIDIA-official); Thor SKU specs from the [Thor product page](../../sources/nvidia-jetson-thor-product-page.md); TDPs from the [Thor power-modes chapter](../../sources/nvidia-jetson-thor-platform-power-performance.md); prices from [Cutting the Cord](../../sources/cutting-the-cord-untethered-xlerobot.md) / [XLeRobot onboard-compute](jetson-onboard-compute-xlerobot.md) / the [Thor launch newsroom](../../sources/nvidia-jetson-thor-launch-newsroom.md).
 
@@ -61,7 +61,7 @@ Within the Orin family the units are consistent, so the ratio is meaningful:
 | Orin Nano 8 GB | 67 TOPS | 25 W | **2.7** |
 | Orin NX 8 GB | 117 TOPS | 40 W | **2.9** |
 | Orin NX 16 GB | 157 TOPS | 40 W | **3.9** |
-| AGX Orin 32 GB | 200 TOPS | 60 W | **3.3** |
+| AGX Orin 32 GB | 200 → **241** TOPS ² | 60 W | 3.3 → **4.0** ² |
 | AGX Orin 64 GB | 275 TOPS | 60 W | **4.6** |
 | AGX Thor T4000 | 1200 FP4 TFLOPS | 70 W | *different unit* |
 | AGX Thor T5000 | 2070 FP4 TFLOPS | 130 W | *different unit* |
@@ -69,7 +69,12 @@ Within the Orin family the units are consistent, so the ratio is meaningful:
 Two things fall out:
 
 - **Efficiency rises monotonically up the Orin ladder except at AGX Orin 32 GB**, which is *less* efficient than the Orin NX 16 GB (3.3 vs 3.9 TOPS/W) because it pays the AGX-class 60 W envelope for only 1.27× the TOPS. The 32 GB AGX buys you **memory and IO**, not efficiency.
-- **Orin NX 16 GB is the efficiency sweet spot of the Ampere ladder** at module level (3.9 TOPS/W), and AGX Orin 64 GB the peak (4.6) — consistent with the XLeRobot page landing on Orin NX 16 GB as the battery-robot upgrade.
+
+> [!warning] ² JetPack 7.2 inverts this finding, narrowly
+> [JetPack 7.2](../../sources/nvidia-jetpack-7-2-release.md) *"adds support for Jetson AGX Orin 32GB Super Mode (MAXN_SUPER) increasing performance from 200 TOPS to 241 TOPS."* At the same 60 W that is **4.0 TOPS/W**, which edges past the Orin NX 16 GB's 3.9 and **removes the dip in the ladder** this bullet was built on.
+>
+> How much to read into it: **not much, and it does not move the buying advice.** The margin (4.0 vs 3.9) is inside the noise of a metric built from vendor headline TOPS over max-mode wattage, and the *reason* to prefer Orin NX 16 GB for a battery robot was never efficiency alone — it is the **10–40 W envelope, the drop-in carrier compatibility, and the price**, none of which changed. What the bullet can no longer say is that the 32 GB AGX buys memory and IO *at an efficiency penalty*; on 7.2 it does not.
+- **Orin NX 16 GB is the efficiency sweet spot of the Ampere ladder** at module level (3.9 TOPS/W) — narrowly, since JP7.2's Super Mode puts AGX Orin 32 GB at ~4.0 (above) — with AGX Orin 64 GB the peak (4.6). Still consistent with the XLeRobot page landing on Orin NX 16 GB as the battery-robot upgrade, which rests on the **power envelope and carrier compatibility**, not on the TOPS/W dip.
 
 > [!warning] These are peak-marketing TOPS over a nominal power budget
 > Not measured throughput per measured wall-watt. The [Orin](../../sources/nvidia-jetson-platform-power-performance-orin.md) and [Thor](../../sources/nvidia-jetson-thor-platform-power-performance.md) power chapters both quote **frequencies and core counts, never TOPS per mode** — so per-mode efficiency cannot be derived from wiki sources without assumptions. Both source pages flag this as an open question.

@@ -3,7 +3,7 @@ title: JetPack SDK
 type: entity
 created: 2026-05-16
 updated: 2026-08-16
-sources: 12
+sources: 13
 tags: [nvidia, jetson, jetpack, sdk, cuda, tensorrt, jetpack-7, jetson-thor, mig, sbsa]
 ---
 
@@ -67,8 +67,27 @@ Jetson Xavier-class hardware is on the older JetPack 5.x / L4T 35.x track and no
 
 The Blackwell-generation [Jetson Thor](jetson-thor.md) (T5000, T4000) is on a **separate JetPack 7.0 line**, not JetPack 6. Orin-class modules remain on the JetPack 6.x track for compatibility — JetPack 6 and JetPack 7 are parallel, not sequential.
 
+## JetPack 7.2 — the Orin merge (primary source ingested)
+
+**[JetPack 7.2 with Jetson Linux 39.2](../sources/nvidia-jetpack-7-2-release.md), 2026-06-02**: *"Adds support for the Jetson Orin product family within JetPack 7 releases."* The 6/7 split ends here — AGX Orin, Orin NX and Orin Nano join Thor on **Ubuntu 24.04 / kernel 6.8 / CUDA 13.2.1 / TensorRT 10.16.2**, with a **unified ISO installer** for both Orin and Thor developer kits. **7.2.1** followed 2026-08-12 (live-web).
+
+| | JetPack 6.2.2 | **JetPack 7.2** |
+|---|---|---|
+| Jetson Linux | 36.5 | **39.2** |
+| Ubuntu / kernel | 22.04 / 5.15 | **24.04 / 6.8** |
+| CUDA | 12.6 | **13.2.1** |
+| TensorRT | 10.3 | **10.16.2** |
+| VPI | 3.2 | **4.1.3** |
+| DeepStream | 7.1 | **9.1** |
+| **Isaac ROS** | supported | **"Coming soon"** |
+
+> [!warning] The robotics catch: Isaac ROS is not on JetPack 7.2 yet
+> NVIDIA's own SDK table lists **Isaac ROS as "Coming soon"** and **Jetson Platform Services as N/A**. For a ROS robot that makes JetPack 6 / L4T 36.x the branch you stay on, regardless of the toolchain unification.
+
+Other 7.2 items worth knowing: **AGX Orin 32 GB Super Mode (MAXN_SUPER) rises 200 → 241 TOPS**; **MIG on Thor T5000** as technology preview; **no SD-card image** for the Orin Nano dev kit; native single-command **[NemoClaw](nemoclaw.md)** install; SIPL API v2.0.0 unifying GMSL and CoE camera paths; and an **`overlay_pcie.tbz2`** fix for *"an intermittent boot issue… on some Jetson Orin Nano and Orin NX modules during power cycles or reboots."*
+
 > [!warning] Correction 2026-08-16 — JetPack 6 and 7 are no longer parallel tracks
-> **JetPack 7.2 (Jetson Linux r39.2), released 2026-06-01, brought the whole Orin family onto JetPack 7** — AGX Orin, Orin NX and Orin Nano — on Ubuntu 24.04 / kernel 6.8 / CUDA 13.0, unifying the toolchain with Thor. **JetPack 7.2.1** followed on **2026-08-12**. The "parallel, not sequential" framing above was accurate when written (2026-05-17) and describes the JetPack 7.0/7.1 period only. Live-web facts verified 2026-08-16 (NVIDIA JetPack page, Connect Tech, JetsonHacks); **no JetPack 7.2 release note is ingested** — that is the fix this page needs.
+> **JetPack 7.2 (Jetson Linux r39.2), released 2026-06-01, brought the whole Orin family onto JetPack 7** — AGX Orin, Orin NX and Orin Nano — on Ubuntu 24.04 / kernel 6.8 / CUDA 13.0, unifying the toolchain with Thor. The "parallel, not sequential" framing below was accurate when written (2026-05-17) and describes the JetPack 7.0/7.1 period only. **Primary source now ingested** — see the section above. *(This callout originally recorded CUDA 13.0, taken from NVIDIA's landing page; the primary source shows **13.2.1**, with 13.0 referring to Thor's unified Arm-target CUDA install.)*
 
 
 JetPack 7.0 launched alongside Thor on **2025-08-25** ([JetPack 7.0 for Jetson Thor software-stack reference](../sources/nvidia-jetpack-7-thor-whitepaper.md)) with the following bundle:
@@ -102,3 +121,4 @@ See [Jetson Thor](jetson-thor.md) for module-side software details.
 - [Jetson Linux R36.5 update mechanism](../sources/nvidia-jetson-linux-r36-5-update-mechanism.md)
 - [NVIDIA Jetson Orin Nano Dev Kit software setup](../sources/nvidia-jetson-orin-nano-devkit-software-setup.md)
 - [JetPack 7.0 for Jetson Thor software-stack reference](../sources/nvidia-jetpack-7-thor-whitepaper.md) — primary source for JetPack 7 / Jetson Linux 38.2 contents.
+- [JetPack 7.2 with Jetson Linux 39.2](../sources/nvidia-jetpack-7-2-release.md) — primary source for the Orin merge, component versions, and the Isaac ROS gap.

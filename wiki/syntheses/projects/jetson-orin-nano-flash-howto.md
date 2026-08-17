@@ -17,7 +17,7 @@ This page also covers **SD-primary with NVMe fallback** (UEFI auto-fallback) —
 >
 > So: the SDK-Manager and `l4t_initrd_flash.sh` paths below remain valid for the JetPack 6 / L4T 36.x line, and the **microSD-image path in the "avoid host-side flashing" section no longer exists on JetPack 7.2**. Anything on this page that assumes an SD image is JetPack-6-only. Also note the major-release rule at the bottom applies again: **JetPack 6 → 7 is not an apt upgrade; it is a full reflash.**
 >
-> Live-web facts verified 2026-08-16; **no JetPack 7.2 source is ingested**, and this page should be re-derived against one before it is used for a real flash.
+> Primary source now ingested: **[JetPack 7.2 / Jetson Linux 39.2](../../sources/nvidia-jetpack-7-2-release.md)** (2026-06-02; CUDA 13.2.1, TensorRT 10.16.2). Two things from it to carry into any 7.x flash: **manual flashing steps changed for SBSA reasons**, and NVIDIA ships **`overlay_pcie.tbz2`**, which *"fixes an intermittent boot issue caused by initialization failures on some Jetson Orin Nano and Orin NX modules during power cycles or reboots."* **This page still documents the JetPack 6 procedure and has not been re-derived against 7.2.**
 
 > [!note]
 > Steps below assume the NVIDIA Dev Kit. A custom carrier board (e.g., Hiwonder [ROSOrin Pro](../../entities/rosorin-pro.md), Seeed reComputer) ships its own BSP overlay and may have different recovery-pin locations and flash configs — check the carrier vendor's docs.

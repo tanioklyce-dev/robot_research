@@ -28,12 +28,16 @@ Which NVIDIA Jetson should ride on an untethered [XLeRobot](../../entities/xlero
 | SDK | **JetPack 7.2+** (since 2026-06-01) | **JetPack 7.2+** | **JetPack 7.2+** | **JetPack 7 / Isaac ROS 4 / GR00T target** |
 
 > [!warning] Correction 2026-08-16 — the Orin tiers are no longer JetPack 6
-> This row read **"JetPack 6"** for all three Orin modules until today, which was already two months stale when the page was last touched. **JetPack 7.2 (Jetson Linux r39.2), released 2026-06-01, extends JetPack 7 to the whole Orin family** — AGX Orin, Orin NX and Orin Nano — on **Ubuntu 24.04 / kernel 6.8 / CUDA 13.0**, unifying the toolchain with Thor. **JetPack 7.2.1** followed on **2026-08-12**. (Live-web facts, verified 2026-08-16 against NVIDIA's JetPack page, Connect Tech and JetsonHacks; no primary release-note page is ingested.)
+> This row read **"JetPack 6"** for all three Orin modules until today, which was already two months stale when the page was last touched. **JetPack 7.2 (Jetson Linux r39.2), released 2026-06-01, extends JetPack 7 to the whole Orin family** — AGX Orin, Orin NX and Orin Nano — on **Ubuntu 24.04 / kernel 6.8 / CUDA 13.2.1 / TensorRT 10.16.2**, unifying the toolchain with Thor. **JetPack 7.2.1** followed on **2026-08-12** (live-web). **Primary source now ingested: [JetPack 7.2 with Jetson Linux 39.2](../../sources/nvidia-jetpack-7-2-release.md).**
 >
 > Two consequences that bite a build rather than a spec sheet:
 >
 > - **The Orin Nano dev kit no longer ships an SD-card image.** From JetPack 7.2 the flow is a **unified ISO written to a USB stick**, which then installs Jetson Linux to microSD or NVMe — *"do not flash the Jetson ISO to a microSD card."* The ISO defaults to **Super Mode** flashing config. Any bring-up notes written against the JetPack 6 SD-card flow are wrong.
 > - **Third-party carriers lag NVIDIA by weeks, and one change is a camera trap.** Seeed shipped **JetPack 7.2.0 / R39.2.0 for the reComputer J401 and J501 on 2026-06-30** (this page recommends the J401/J4012 for the Orin NX tier). **R39.2.0 moves to a 22-pin Jetson CSI connector spec where R36.4.3 used 24-pin, so camera device trees need updating** — the most likely thing to break silently on an upgrade. AGX Orin 32 GB carrier support was still being asked about in that thread.
+>
+> - **Isaac ROS is listed "Coming soon" on JetPack 7.2, and Jetson Platform Services as N/A** ([primary](../../sources/nvidia-jetpack-7-2-release.md)). For a ROS robot that is the decisive line: **upgrading an Orin to 7.2 today means giving up Isaac ROS.** The Thor column below reads "JetPack 7 / Isaac ROS 4" — treat that as a roadmap pairing, not a shipping one.
+> - **There is a PCIe boot bug on Orin Nano and Orin NX** with an overlay fix (`overlay_pcie.tbz2`): *"an intermittent boot issue caused by initialization failures… during power cycles or reboots."* On a battery robot that power-cycles daily, apply it.
+> - **AGX Orin 32 GB gains Super Mode (MAXN_SUPER): 200 → 241 TOPS** in 7.2 — see the [module ladder](jetson-module-ladder-power-performance.md).
 >
 > **This does not change any recommendation on this page** — the tiering, power budget and model-rate arguments are unaffected. It changes the software baseline you start from, and it means the Orin/Thor split is now a *hardware-generation* split rather than a toolchain split.
 
@@ -100,5 +104,6 @@ The [paper's on-edge benchmark](../../sources/cutting-the-cord-untethered-xlerob
 - [Jetson Thor vs DGX Spark](jetson-thor-vs-dgx-spark.md) — the train-vs-deploy split for the Thor tier.
 - [GR00T inference on Jetson](gr00t-inference-on-jetson.md) — measured GR00T-3B rates across these same tiers (Thor 10.9–24 Hz, AGX Orin 5.8 Hz, Orin NX unbenchmarked and below the 16 GB memory floor) — the model-side check on this page's "3 B-class VLAs become workable" claims.
 - [VLA models](../../concepts/learning/vla-models.md) — the policies whose edge latency drives this decision.
+- [JetPack 7.2 / Jetson Linux 39.2 release page](../../sources/nvidia-jetpack-7-2-release.md) — the primary source behind the SDK row, the Isaac ROS gap, and the Orin Nano flashing change.
 - [Seeed Jetson selection guide](../../sources/seeed-jetson-selection-guide.md) — corroborates the four-tier spec ladder; maps modules to buyable reComputer carriers (J30xx → Orin Nano, J40xx → Orin NX, J4012 → Orin NX 16 GB).
 - [Seeed — choosing a Jetson carrier board](../../sources/seeed-jetson-carrier-board-selection.md) — the carrier-board-level decision (module tier → form → priorities); the **Robotics J401** carrier is the robot-oriented match for the Orin NX pick here.
