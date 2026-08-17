@@ -118,6 +118,21 @@ Triggered when the user adds a file to `raw/` and asks to process it.
 
 A single ingest typically touches 5–15 wiki pages. That's normal — that's the point.
 
+#### Primary sources for decision-grade claims
+
+**When a vendor or spec claim will be quoted in a buying, flashing, or build decision, ingest the primary as its own source page — release notes, spec tables, datasheets, the paper itself. Do not cite secondary coverage for it.**
+
+Agreement among secondary sources is not corroboration when they are all paraphrasing the same page: three blog posts, forum threads, or vendor landing pages carrying the same number are **one** source. Count distinct *origins*, not distinct URLs.
+
+Two failure modes, both observed on the JetPack 7.2 correction (see `log.md`, 2026-08-16):
+
+- **Scope loss.** Paraphrase preserves the noun phrase and drops what it was bound to. "CUDA 13.0" appeared verbatim on the vendor landing page — attached to a claim about Arm/SBSA target unification, not the bundle version (which was 13.2.1). So the check is not only *is this number right* but *what was this number about in the original*.
+- **Omission, which costs more.** Secondaries compress toward the headline, and the decision-relevant content of a release is precisely the un-headline-able part — a "coming soon" on a component you depend on, a boot-failure fix you have to know to apply, a revised figure that inverts a prior finding.
+
+The trigger is not doubt about the claim. It's the document type: if you are summarizing a document's *contents* rather than quoting one fact from it, go to the primary.
+
+Extraction note: primaries are often docs sites where WebFetch silently returns nav menus — curl and strip the `<article>`/`<main>` tag instead (see [NVIDIA JetPack docs index](wiki/sources/nvidia-jetpack-docs-index.md)).
+
 ### Query
 
 Triggered when the user asks a question against the wiki.
