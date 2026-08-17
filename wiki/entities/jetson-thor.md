@@ -3,8 +3,8 @@ title: Jetson Thor
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-07-15
-sources: 36
+updated: 2026-08-17
+sources: 37
 tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai, jetpack-7, nvfp4, mig, t3000, t2000, igx]
 ---
 
@@ -84,7 +84,7 @@ NVIDIA reference carrier + T5000 module. **$3,499 starting** ([NVIDIA Newsroom](
 - **OS / BSP**: **[Jetson Linux 38.2](jetson-linux.md)** — Linux kernel **6.8**, **Ubuntu 24.04 LTS** rootfs, SBSA-aligned ([JetPack 7 software-stack reference](../sources/nvidia-jetpack-7-thor-whitepaper.md)).
 - **SDK**: **[JetPack 7.0](jetpack.md)** — Thor's launch SDK. **CUDA 13 / cuDNN 9.12 / TensorRT 10.13**, with **MIG**, an **NVIDIA-optimized preemptible real-time kernel**, and **CSI-over-Ethernet (CoE)** via Holoscan Sensor Bridge.
 - **Quantization formats**: **NVFP4** (Blackwell 4-bit float), **FP8**, **W4A16**.
-- **Robotics stack**: NVIDIA Isaac platform — **Isaac ROS 4.0** (Thor-compatible release), [Isaac GR00T](nvidia-groot.md) deploy target, NVIDIA Holoscan, NVIDIA Metropolis.
+- **Robotics stack**: NVIDIA Isaac platform — **[Isaac ROS](isaac-ros.md) 4.x**, [Isaac GR00T](nvidia-groot.md) deploy target, NVIDIA Holoscan, NVIDIA Metropolis. Thor is the **only Jetson** on the Isaac ROS 4.x supported-platform list ([release notes and platforms](../sources/isaac-ros-release-notes-and-platforms.md)): **4.5.0** is current (2026-07-06), and the tested pairing is **JetPack 7.1 (Jetson Linux R38.4)** with **ROS 2 Jazzy** — *not* JetPack 7.2 / r39.2. Isaac ROS 4.0 added Thor + JetPack 7.0 on 2025-10-24; **4.2** (2026-02-19) added JetPack 7.1 and the **T4000 SKU**.
 - **Containers**: NIM microservices for VLM / VLA / perception models packaged for the JetPack 7 runtime.
 - **AI-serving frameworks** documented in the JetPack 7 release: **vLLM**, **SGLang**, **MLC**, **llama.cpp**, **Ollama**, **Hugging Face Transformers**.
 - **Edge foundation models / agents** ([T3000/T2000 blog](../sources/nvidia-jetson-thor-t3000-t2000-blog.md), 2026-07): **[Cosmos 3](nvidia-cosmos.md) Edge** (4B embodied FM, "post-train for a specific embodiment in ~a day") delivered to the Thor lineup; **Nemotron** open models; **NemoClaw** agentic-orchestration blueprints; and **Jetson Agent Skills** — on-device agents that automate memory optimization / config / deployment (case studies report **up to 15 GB** memory reduction). Now shipping as the open **[Jetson Device Skills](jetson-device-skills.md)** catalog (JetPack 7.2; [agent-skill](../concepts/agents/agent-skills.md) `SKILL.md` bundles for Claude Code / Cursor / Codex).
@@ -107,7 +107,7 @@ Numbers from the [JetPack 7 software-stack reference](../sources/nvidia-jetpack-
 | Workload | On Thor? | Notes |
 |---|---|---|
 | VLA / VLM **inference** (GR00T N1.5/N1.6/N1.7, π0, OpenVLA-class) | ✅ Yes | The headline use case. 128 GB + 2,070 FP4 TFLOPS lets multiple models run concurrently. Measured: GR00T N1.6 **10.9 Hz** official TensorRT, **22–24 Hz** community-optimized — see below. |
-| ROS 2 perception, sensor fusion, control loops | ✅ Yes | Isaac ROS 4.0 ships GEMs tuned for Thor. |
+| ROS 2 perception, sensor fusion, control loops | ✅ Yes | Isaac ROS 4.x ships GEMs tuned for Thor — the only Jetson on its supported list. Pin **JetPack 7.1**, not 7.2. |
 | **On-device fine-tuning** of small / quantized VLAs | ✅ Possible | 128 GB memory enables it; not the primary design target. |
 | **Isaac Sim** (full or headless) | ❌ No | RT cores required even headless. Train on [DGX Spark](dgx-spark.md) or RTX workstation, deploy here. |
 | **Isaac Lab** RL training | ❌ No | Inherits Isaac Sim's RT-core dependency. |

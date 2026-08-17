@@ -2,7 +2,7 @@
 title: "Jetson module ladder — performance and power, Orin Nano 4 GB → AGX Thor T5000"
 type: synthesis
 created: 2026-07-26
-updated: 2026-08-16
+updated: 2026-08-17
 tags: [jetson, jetson-orin-nano, orin-nx, agx-orin, jetson-thor, nvpmodel, power-modes, perf-per-watt, edge-ai, hardware, reference, platforms]
 ---
 
@@ -38,6 +38,12 @@ Sources: module ladder from the [Seeed selection guide](../../sources/seeed-jets
 
 > [!note] Orin AI-perf figures are the **Super** numbers
 > 34 / 67 / 117 / 157 TOPS require a module flashed with a `-super` config and JetPack 6.2+. Standard-flash values are materially lower — the wiki records **Orin NX 16 GB at 100 TOPS standard vs 157 Super** ([XLeRobot onboard-compute](jetson-onboard-compute-xlerobot.md)). Standard-flash figures for the other Orin SKUs are not recorded in the wiki. See §3 on the flash-time lock-in.
+
+> [!warning] Added 2026-08-17 — Super Mode is also a *carrier* decision, not only a flash-time one
+> Seeed's own flash guide for the **J401** carrier (the board under the reComputer J4012, this wiki's Orin NX recommendation) says: **"if you are using an Orin NX 16GB/8GB module, do not enable MAXN SUPER mode. The cooling capacity of the reComputer J401 carrier board is insufficient to support it"** ([Seeed flash guide](../../sources/seeed-j401-flash-jetpack.md)). Seeed separately markets the **reComputer Super J4012 at 157 TOPS in Super MAXN**. Same silicon, two sanctioned ceilings — the variable is the carrier's cooling. **So the 157 TOPS row above is only reachable on a carrier that can dissipate it**, and every TOPS/W figure below inherits that condition. Which Seeed SKUs qualify is not documented in one place; the Robotics J30/40 (quoted elsewhere at 157 TOPS / 40 W / 60 °C) has no primary in the wiki yet.
+
+> [!warning] Added 2026-08-17 — the 7 W and 10 W modes have an open crash bug on JetPack 7.2
+> [Jetson Linux r39.2 release notes](../../sources/nvidia-jetson-linux-r39-2-release-notes.md), known issue **6236259**: on Orin platforms, reducing EMC below Fmax (~3200 MHz) via `nvpmodel.service` during systemd initialization "can cause system crashes upon reboot," and this is "especially noticeable when a display is connected, regardless of its resolution." The affected modes are exactly the low-power ones this ladder exists to compare — **Orin Nano 8 GB @ 7 W, Orin NX 8/16 GB @ 10 W, AGX Orin 32/64 GB/Industrial @ 15 W** (all dropping EMC 3200 → 2133 MHz). NVIDIA's workaround is to switch to MAXN before rebooting and reapply the desired mode afterwards — awkward to automate on a headless robot, and the notes do not say whether headless operation avoids the bug.
 
 ### Announced but not shipping — the lower Thor tiers
 

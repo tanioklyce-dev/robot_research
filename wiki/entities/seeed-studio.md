@@ -3,7 +3,7 @@ title: Seeed Studio
 type: entity
 subtype: organization
 created: 2026-05-10
-updated: 2026-06-13
+updated: 2026-08-17
 sources: 8
 tags: [seeed-studio, distributor, open-hardware, shenzhen, lekiwi, raspberry-pi, hackathon, jetson, recomputer]
 ---
@@ -16,6 +16,11 @@ Seeed plays a **distribution + documentation + event-organizer role** distinct f
 
 ## reComputer — Jetson carrier products
 Seeed is also a major **NVIDIA Jetson** carrier-board vendor: its **reComputer** line wraps bare Jetson modules into robot-ready boxes ([Seeed Jetson selection guide](../sources/seeed-jetson-selection-guide.md)). The mapping: **Mini J3011 → [Orin Nano](jetson-orin-nano.md) 8 GB**; the **J4012 family → Orin NX 16 GB** (J4012B compact, reServer Industrial fanless, Super J4012 +CSI, **Robotics J4012** +GMSL2); **J501 / Robotics J50 → AGX Orin 32/64 GB**; **Thor J601 board → [AGX Thor](jetson-thor.md) 128 GB** (EtherCAT / 4× CAN / 8× GMSL2 / 4× 10 GbE; "brain + cerebellum" humanoid tier). A dedicated **Robotics** line targets robots: **Robotics J30/40** is the *battery-powered* mobile-robot carrier (19–54 V input, CAN + 4× GMSL + I2C-for-IMU, 157 TOPS at 60 °C/40 W) — the off-the-shelf onboard carrier for the [XLeRobot](xlerobot.md) Orin NX pick — while J50 / J601 add AGX-Orin / Thor power for AMRs and humanoids. This makes Seeed the practical "buy-it-as-a-carrier" path for the [Jetson onboard-compute comparison](../syntheses/platforms/jetson-onboard-compute-xlerobot.md) — e.g. the XLeRobot Orin NX 16 GB upgrade is concretely the reComputer J4012.
+
+> [!warning] Not every Seeed Orin NX carrier can cool Super Mode
+> Seeed's J401 flash guide states: **"if you are using an Orin NX 16GB/8GB module, do not enable MAXN SUPER mode. The cooling capacity of the reComputer J401 carrier board is insufficient to support it"** ([Seeed flash guide](../sources/seeed-j401-flash-jetpack.md)) — while the **Super J4012** is marketed at **157 TOPS in Super MAXN**. The 157 TOPS quoted for the Robotics J30/40 above is likewise a Super-Mode figure and comes from the [selection guide](../sources/seeed-jetson-selection-guide.md), not from a thermal spec. **Confirm Super-Mode support per carrier SKU before quoting Orin NX peak TOPS in a build.**
+
+**BSP status (2026-08-17):** Seeed ships a **JetPack 7.2.0 / Jetson Linux 39.2.0** prebuilt image for **Orin NX 16 GB on J401**, dated **2026-06-18** — about two and a half weeks behind NVIDIA's 2026-06-01 release. It installs via `l4t_initrd_flash.sh` from an `mfi_*` tarball to NVMe, not via NVIDIA's unified ISO. Seeed's device selector still presents **R36.4.3 (JetPack 6.2)** as the default for the Super J4012.
 
 Seeed also publishes **[`jetson-examples`](jetson-examples.md)** (Seeed-Projects/jetson-examples), a `reComputer`-based one-command example runner for the Jetson (MIT; ~37 recipes spanning LLM/VLM serving, detection/depth/pose, image+audio generation, and robotics — built on top of [jetson-containers](jetson-containers.md)). See the [repo source page](../sources/seeed-jetson-examples.md) for the full catalog; the wiki also deep-dives its **[nvblox recipe](../sources/seeed-jetson-examples-nvblox.md)** — a `reComputer run nvblox` path to a working [Isaac ROS NVBlox](nvblox.md) 3D-mapping demo (Orin + JetPack 6.x + Docker + [Orbbec Gemini2](orbbec.md)).
 
@@ -35,3 +40,4 @@ Seeed also publishes **[`jetson-examples`](jetson-examples.md)** (Seeed-Projects
 - [How to Choose the Right NVIDIA Jetson Carrier Board (Liyan Gong)](../sources/seeed-jetson-carrier-board-selection.md) — carrier-board selection methodology (J401 / A603 / A608 / Mini J501).
 - [Seeed jetson-examples (repo + reComputer runner)](../sources/seeed-jetson-examples.md) — one-command Jetson AI recipe catalog (MIT).
 - [Seeed jetson-examples — nvblox recipe (README)](../sources/seeed-jetson-examples-nvblox.md) — `reComputer run nvblox` Isaac ROS 3D-mapping demo.
+- [Seeed — flash JetPack OS to J401 carrier board](../sources/seeed-j401-flash-jetpack.md) — the JetPack 7.2 image for Orin NX (`mfi_recomputer-orin-nx-16g-j401-7.2.0-39.2.0-2026-06-18`), host-OS matrix, and the **"do not enable MAXN SUPER on J401"** cooling warning.

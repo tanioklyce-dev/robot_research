@@ -2,8 +2,8 @@
 title: Jetson Linux (L4T)
 type: entity
 created: 2026-05-16
-updated: 2026-05-17
-sources: 9
+updated: 2026-08-17
+sources: 10
 tags: [nvidia, jetson, l4t, jetson-linux, bsp, linux, ubuntu, jetson-thor]
 ---
 
@@ -11,9 +11,36 @@ tags: [nvidia, jetson, l4t, jetson-linux, bsp, linux, ubuntu, jetson-thor]
 
 NVIDIA's **Board Support Package** (BSP) for Jetson modules — the OS layer underneath [JetPack](jetpack.md). Historically branded "Linux for Tegra" (L4T). Provides the rootfs, kernel, bootloader, drivers, and firmware; everything sits on top via JetPack components.
 
-## Current release — R36.5
+> [!warning] Correction 2026-08-17 — this page described R36.5 as "current" and the R36/R38 lines as parallel; both stopped being true on 2026-06-01
+> **[Jetson Linux 39.2.0](../sources/nvidia-jetson-linux-r39-2-release-notes.md) (June 2026) is the current line and it serves both generations** — "This release supports the NVIDIA Jetson Thor™ and Jetson Orin platforms™." The R36 (Orin) / R38 (Thor) split ended; see [R39.2](#current-release--r392) below. The R36.5 and R38.2 sections that follow are retained as **the JetPack 6.x and JetPack 7.0 records**, which remain the shipping configuration for anyone who has not migrated — and, per [Isaac ROS](isaac-ros.md), the only configuration in which an Orin runs a supported Isaac ROS.
+>
+> This is the same stale claim corrected on the [JetPack entity](jetpack.md) on 2026-08-16; this page inherited it and was missed in that pass.
 
-**R36.5** is the supported line for Orin-class Jetsons ([Jetson Linux R36.5 release](../sources/nvidia-jetson-linux-r36-5-release.md), [R36.5 release notes PDF](../sources/nvidia-jetson-linux-r36-5-release-notes.md)). R36.5 is positioned as a **security-focused minor release** that pairs with [JetPack 6.2.2](../sources/nvidia-jetpack-6-2-2-release.md):
+## Current release — R39.2
+
+**Jetson Linux 39.2.0 GA** (release tag `jetson_39.2_GA`, doc revision RN_10698-r39.2.0, June 2026) is the BSP under **[JetPack 7.2](jetpack.md)** and the release that **brought the Orin family onto the JetPack 7 line** ([release notes](../sources/nvidia-jetson-linux-r39-2-release-notes.md)).
+
+| Axis | R36.5 (JetPack 6.2.2) | **R39.2 (JetPack 7.2)** |
+|---|---|---|
+| Kernel | 5.15 LTS | **6.8** |
+| Rootfs | Ubuntu 22.04 | **Ubuntu 24.04** |
+| Host OS for flashing | Ubuntu 20.04 / 22.04 | **Ubuntu 24.04 and 22.04** |
+| Toolchain | Bootlin GCC 11.3 | **GCC 13.2** |
+| Modules | Orin only | **Orin *and* Thor** |
+| Architectural framing | embedded BSP | **SBSA-aligned** |
+
+- One image serves both generations via an updated **`nv-load-display-modules`** service that manages Orin/Thor driver differences at run time.
+- Adds **AGX Orin 32 GB Super Mode (MAXN_SUPER)**, a **unified ISO installer** for both Orin and Thor dev kits, official **Yocto recipes** through [OE4T](https://github.com/OE4T), **MIG on Thor T5000** (tech preview, explicitly *not* supported on Orin or T4000), and **SIPL API v2.0.0**.
+- **SIPL v2.0.0 is an ABI break**: JetPack 7.1 UDDF camera drivers must be rebuilt against 7.2 headers, with namespace/type renames and changed install paths.
+
+> [!warning] Three known issues that change a flashing or deployment procedure
+> - **Capsule update is mandatory, not optional** (issue 6266271). Installing the ISO on an Orin with an older QSPI image prompts for a capsule update; **press `y`** — skipping it causes install failure from ISO/QSPI incompatibility.
+> - **ISO install does not switch a unit to Super Mode** (issue 6279443). Orin Nano units updated via ISO "continue to use the same profile that was set before update… To use 'Super' mode, you must flash the target using a Linux host or SDKM."
+> - **Low-wattage power modes can crash on reboot** (issue 6236259). Dropping EMC below Fmax via `nvpmodel.service` during systemd init can crash the system on reboot — affecting **Orin NX 16/8 GB at 10 W**, **Orin Nano 8 GB at 7 W**, and AGX Orin at 15 W, "especially noticeable when a display is connected." Workaround: return to MAXN before rebooting, then reapply the mode.
+
+## Prior release — R36.5 (JetPack 6.x line)
+
+**R36.5** was the supported line for Orin-class Jetsons through the JetPack 6 era ([Jetson Linux R36.5 release](../sources/nvidia-jetson-linux-r36-5-release.md), [R36.5 release notes PDF](../sources/nvidia-jetson-linux-r36-5-release-notes.md)). R36.5 is positioned as a **security-focused minor release** that pairs with [JetPack 6.2.2](../sources/nvidia-jetpack-6-2-2-release.md):
 
 - **Ubuntu 22.04** rootfs.
 - **Linux kernel 5.15 LTS** (modules under `/lib/modules/5.15.116-release-tegra/`).
@@ -92,7 +119,7 @@ See [Jetson Orin Nano flash howto](../syntheses/projects/jetson-orin-nano-flash-
 
 ## Relationship to JetPack
 
-[JetPack](jetpack.md) **bundles Jetson Linux**. JetPack 6.x maps to L4T R36.x; JetPack 5.x mapped to R35.x. The OS layer can be upgraded by itself via apt; the wider JetPack stack (CUDA, TensorRT, etc.) follows the same release cadence and is installed alongside via `nvidia-jetpack`.
+[JetPack](jetpack.md) **bundles Jetson Linux**. JetPack 5.x mapped to R35.x; JetPack 6.x maps to L4T R36.x; **JetPack 7.0/7.1 map to R38.x and JetPack 7.2 to R39.2**. The OS layer can be upgraded by itself via apt; the wider JetPack stack (CUDA, TensorRT, etc.) follows the same release cadence and is installed alongside via `nvidia-jetpack`.
 
 ## R38 line — Jetson Thor track
 
@@ -107,7 +134,8 @@ The Blackwell-generation [Jetson Thor](jetson-thor.md) ships on a separate L4T l
 | GPU partitioning | n/a | **Multi-Instance GPU (MIG)** |
 | Sensor bridge | CSI / GMSL via Argus | adds **CSI-over-Ethernet** via Holoscan Sensor Bridge |
 
-R36.x continues as the Orin line; R38.2 is Thor-only. The two lines are parallel, not sequential.
+> [!warning] Superseded 2026-06-01
+> The original text here read *"R36.x continues as the Orin line; R38.2 is Thor-only. The two lines are parallel, not sequential."* That was accurate for the JetPack 7.0/7.1 period and **false from R39.2 onward**, which merges both onto one line. The R38 line's remaining significance is that **[Isaac ROS](isaac-ros.md) 4.x targets JetPack 7.1 = R38.4**, not r39.2 — so Thor's supported robotics stack is still on the R38 branch even though R39.2 exists.
 
 ## Mentioned in
 - [Jetson Orin Nano](jetson-orin-nano.md)
@@ -122,3 +150,5 @@ R36.x continues as the Orin line; R38.2 is Thor-only. The two lines are parallel
 - [JetPack docs index](../sources/nvidia-jetpack-docs-index.md)
 - [NVIDIA Jetson Orin Nano Dev Kit software setup](../sources/nvidia-jetson-orin-nano-devkit-software-setup.md)
 - [JetPack 7.0 for Jetson Thor software-stack reference](../sources/nvidia-jetpack-7-thor-whitepaper.md) — primary source for the R38.2 / kernel 6.8 / Ubuntu 24.04 line.
+- [NVIDIA Jetson Linux 39.2.0 GA release notes](../sources/nvidia-jetson-linux-r39-2-release-notes.md) — primary source for the current R39.2 line, the Orin/Thor merge, and the flashing known-issues above.
+- [Seeed — flash JetPack OS to J401](../sources/seeed-j401-flash-jetpack.md) — the vendor prebuilt-image path onto R39.2 for Orin NX.

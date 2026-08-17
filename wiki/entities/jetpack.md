@@ -2,7 +2,7 @@
 title: JetPack SDK
 type: entity
 created: 2026-05-16
-updated: 2026-08-16
+updated: 2026-08-17
 sources: 13
 tags: [nvidia, jetson, jetpack, sdk, cuda, tensorrt, jetpack-7, jetson-thor, mig, sbsa]
 ---
@@ -81,10 +81,20 @@ The Blackwell-generation [Jetson Thor](jetson-thor.md) (T5000, T4000) is on a **
 | DeepStream | 7.1 | **9.1** |
 | **Isaac ROS** | supported | **"Coming soon"** |
 
-> [!warning] The robotics catch: Isaac ROS is not on JetPack 7.2 yet
+> [!warning] The robotics catch: Isaac ROS is not on JetPack 7.2 — and for Orin it is worse than "yet"
 > NVIDIA's own SDK table lists **Isaac ROS as "Coming soon"** and **Jetson Platform Services as N/A**. For a ROS robot that makes JetPack 6 / L4T 36.x the branch you stay on, regardless of the toolchain unification.
+>
+> **Sharpened 2026-08-17 against the Isaac ROS primary.** "Coming soon" reads as a schedule; the [Isaac ROS supported-platform table](../sources/isaac-ros-release-notes-and-platforms.md) shows a generational break. Isaac ROS **4.x** (current **4.5.0**, 2026-07-06) officially supports only **Jetson Thor T5000/T4000 on JetPack 7.1**, x86_64 on Ubuntu 24.04, and DGX Spark — **no Orin on any JetPack**. The last Orin-supporting line is **3.2** (JetPack 6.1/6.2, Ubuntu 22.04, CUDA 12.6, ROS 2 Humble), frozen since early 2025. So staying on JetPack 6 does not keep an Orin current; it keeps it on a line NVIDIA stopped developing. See [Isaac ROS](isaac-ros.md).
 
 Other 7.2 items worth knowing: **AGX Orin 32 GB Super Mode (MAXN_SUPER) rises 200 → 241 TOPS**; **MIG on Thor T5000** as technology preview; **no SD-card image** for the Orin Nano dev kit; native single-command **[NemoClaw](nemoclaw.md)** install; SIPL API v2.0.0 unifying GMSL and CoE camera paths; and an **`overlay_pcie.tbz2`** fix for *"an intermittent boot issue… on some Jetson Orin Nano and Orin NX modules during power cycles or reboots."*
+
+The BSP under 7.2 is **[Jetson Linux 39.2.0](../sources/nvidia-jetson-linux-r39-2-release-notes.md)** (kernel 6.8, Ubuntu 24.04 rootfs, GCC 13.2, tag `jetson_39.2_GA`), whose release notes add three operational facts the 7.2 landing page does not carry:
+
+- **The ISO install preserves the existing power profile — it does not switch a unit to Super Mode** (issue 6279443). Super requires a host flash or SDK Manager. *(This corrects the "ISO defaults to Super Mode" claim recorded here on 2026-08-16 from secondary coverage.)*
+- **The QSPI capsule-update prompt during ISO install must be accepted** (`y`), or the install fails on ISO/QSPI incompatibility (issue 6266271).
+- **Low-wattage `nvpmodel` profiles can crash on reboot** — Orin NX @ 10 W, Orin Nano @ 7 W, AGX Orin @ 15 W (issue 6236259).
+
+**SIPL v2.0.0 is an ABI break**: JetPack 7.1 UDDF camera drivers must be rebuilt against 7.2 headers. **MIG is Thor T5000 only** — explicitly unsupported on Orin and on Thor T4000.
 
 > [!warning] Correction 2026-08-16 — JetPack 6 and 7 are no longer parallel tracks
 > **JetPack 7.2 (Jetson Linux r39.2), released 2026-06-01, brought the whole Orin family onto JetPack 7** — AGX Orin, Orin NX and Orin Nano — on Ubuntu 24.04 / kernel 6.8 / CUDA 13.0, unifying the toolchain with Thor. The "parallel, not sequential" framing below was accurate when written (2026-05-17) and describes the JetPack 7.0/7.1 period only. **Primary source now ingested** — see the section above. *(This callout originally recorded CUDA 13.0, taken from NVIDIA's landing page; the primary source shows **13.2.1**, with 13.0 referring to Thor's unified Arm-target CUDA install.)*

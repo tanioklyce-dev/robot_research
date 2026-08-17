@@ -2,7 +2,7 @@
 title: Jetson Orin Nano — flash Jetson OS to NVMe SSD howto
 type: synthesis
 created: 2026-05-16
-updated: 2026-08-16
+updated: 2026-08-17
 tags: [jetson, hardware, setup, howto, uefi, efibootmgr, boot-order]
 ---
 
@@ -13,7 +13,16 @@ Operational howto for writing a [Jetson Linux](../../entities/jetson-linux.md) (
 This page also covers **SD-primary with NVMe fallback** (UEFI auto-fallback) — see the section below.
 
 > [!warning] Correction 2026-08-16 — this howto describes the **JetPack 6** flow, and JetPack 7.2 changed it
-> **From JetPack 7.2 (2026-06-01) the Orin Nano Developer Kit has no downloadable SD-card image.** The flow is now a **unified ISO written to a USB stick**, which then installs Jetson Linux onto microSD *or* NVMe — NVIDIA's own guidance is *"do not flash the Jetson ISO to a microSD card."* The ISO defaults to **Super Mode** flashing configuration. **JetPack 7.2.1** shipped 2026-08-12.
+> **From JetPack 7.2 (2026-06-01) the Orin Nano Developer Kit has no downloadable SD-card image.** The flow is now a **unified ISO written to a USB stick**, which then installs Jetson Linux onto microSD *or* NVMe — NVIDIA's own guidance is *"do not flash the Jetson ISO to a microSD card."* ~~The ISO defaults to **Super Mode** flashing configuration.~~ **JetPack 7.2.1** shipped 2026-08-12.
+
+> [!warning] Correction 2026-08-17 — the ISO does the *opposite* of defaulting to Super Mode
+> From the primary ([Jetson Linux r39.2 release notes](../../sources/nvidia-jetson-linux-r39-2-release-notes.md), issue **6279443**): *"Jetson Orin Nano units that are updated to JetPack 7.2 using ISO install continue to use the same profile that was set before update. **Units will not default to 'Super' mode after the update.** To use 'Super' mode, you must flash the target using a Linux host or SDKM."* The earlier claim came from secondary coverage of the release. **If you want Super Mode, the ISO path will not give it to you** — use Path A (SDK Manager) or Path B (host `l4t_initrd_flash.sh`) with a `-super` config, exactly as this page already describes for JetPack 6.
+>
+> Two more from the same release notes, both of which will stop a flash cold:
+> - **Issue 6266271 — answer `y` to the capsule prompt.** "When installing ISO on Orin devices with older QSPI images, it is important to allow Capsule update of the QSPI image. To trigger this, press 'y' when prompted… Skipping this step causes installation issues due to incompatibility of new ISO images with older QSPI images." A matching *"Capsule staged 5 times but version not bumped, aborting"* failure is reported on Seeed J4012/J401 hardware.
+> - **Issue 6236259 — don't leave the box in a low-power mode across a reboot.** Setting EMC below Fmax through `nvpmodel.service` during systemd init can crash on reboot; **Orin Nano 8 GB @ 7 W** and **Orin NX @ 10 W** are affected, "especially noticeable when a display is connected." Return to MAXN before rebooting, then reapply the mode.
+>
+> **Host OS for a 7.2 flash:** NVIDIA lists **Ubuntu 24.04 and 22.04**; Seeed is stricter, allowing 20.04/22.04/24.04 but noting **24.04 is flashing-and-target-components only — use 20.04 or 22.04 if you need host development components** ([Seeed flash guide](../../sources/seeed-j401-flash-jetpack.md)). Seeed also recommends a physical host over a VM.
 >
 > So: the SDK-Manager and `l4t_initrd_flash.sh` paths below remain valid for the JetPack 6 / L4T 36.x line, and the **microSD-image path in the "avoid host-side flashing" section no longer exists on JetPack 7.2**. Anything on this page that assumes an SD image is JetPack-6-only. Also note the major-release rule at the bottom applies again: **JetPack 6 → 7 is not an apt upgrade; it is a full reflash.**
 >
