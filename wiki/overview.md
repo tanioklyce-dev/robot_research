@@ -160,20 +160,56 @@ If your interest is in the air rather than the ground: [Agentic UAVs](concepts/r
 **Start here for the open-source UAV stack: [dronecode.org](https://dronecode.org/)** — the Linux Foundation Collaborative Project that stewards PX4, [MAVLink](entities/mavlink.md), Pixhawk, QGroundControl, and MAVSDK under one vendor-neutral umbrella. See the wiki's [Dronecode Foundation entity](entities/dronecode-foundation.md) for governance context.
 
 
+## How this wiki discriminates — its ten strongest axes
+
+The sections above describe *what* is here. This one describes *how it judges* — the recurring analytical axes that do the work of separating things vendor language conflates. If you read only one section before using the wiki to make a decision, read this one.
+
+An axis earns a place by four tests: it **recurs across many pages**, it **discriminates between things that otherwise look alike**, it is **anchored in numbers rather than opinion**, and it has **changed at least one conclusion here**.
+
+| # | Axis | Home page | What anchors it |
+| --- | --- | --- | --- |
+| 1 | **Control abstraction level** | [control abstraction levels](concepts/robotics/control-abstraction-levels.md) | Four levels (torques → controller → policy commands → RL setup), Level 2 subdividing into eight ([CaP-X](sources/cap-x-paper.md)); 11 models × 4 levels × 3 robots ([Anthropic](sources/anthropic-how-claude-performs-on-robotics-tasks.md)) |
+| 2 | **Statistical power / N** | [success-rate audit](syntheses/platforms/vla-success-rate-audit.md) | ±2 pp needs ~1,030–2,450 rollouts; the top of the LIBERO table is a **statistical tie** |
+| 3 | **Control rate (Hz)** | [control-rate ladder](syntheses/platforms/control-rate-ladder.md) | ~30 rows, 0.2 Hz LLMs → 1 kHz servo loops, REQ/MEAS/CAP tagged; the **83 Hz vs 0.2–0.4 Hz** gap |
+| 4 | **Benchmark vs deployment** | [AI Index 2026](sources/stanford-hai-ai-index-2026.md), [LIBERO-PRO](sources/libero-pro-paper.md) | RLBench **89.4%** vs BEHAVIOR-1K **12.4%**; >90% models collapse to **0.0%** under perturbation |
+| 5 | **Power envelope (W, Wh)** | [module ladder](syntheses/platforms/jetson-module-ladder-power-performance.md), [onboard compute](syntheses/platforms/jetson-onboard-compute-xlerobot.md) | 7–25 W Orin Nano → 40–130 W Thor against a 288 Wh pack; TOPS/W |
+| 6 | **Cost ladder** | [platform comparison](syntheses/platforms/robot-platforms-comparison.md), [value chain](syntheses/society/consumer-robotics-value-chain.md) | $660 → $2,499 → $29,950 → $89,999; **86% of [UME](entities/ume.md)'s BOM is actuators** |
+| 7 | **Code-as-policy vs end-to-end policy** | [code as policy](concepts/agents/code-as-policy.md) | *Code agents degrade gracefully where trained policies fall off a cliff — and lose to them in-distribution.* Constant since 2022 |
+| 8 | **Compute placement** | [where the compute lives](syntheses/agents/on-device-and-on-robot-agents.md) | On-robot / local server / cloud; "the split-brain pattern is the norm" |
+| 9 | **Prevention / detection / intervention** | [prevention-detection-intervention](syntheses/platforms/prevention-detection-intervention.md) | [PACS](sources/pacs-paper.md): a CBF filter drops success to **0.04**, path-consistent braking holds **0.72** |
+| 10 | **Readability vs embodiment-agnosticism** | [action representation languages](syntheses/agents/action-representation-languages.md) | [RT-H](sources/rt-h-paper.md): relabel the same phrases as integers and performance drops — *the grammar ports, the lexicon cannot* |
+
+Three of these are worth understanding before the others, because they change how you read everything else:
+
+- **Axis 1 is non-monotonic.** Capability *inverts* across abstraction levels, so "model X can/can't control a robot" is not a claim — "model X at level 1 can't and at level 3 can" is. Its corollary, **access level is part of the system**, is also the wiki's core safety thesis.
+- **Axis 2 is retroactive.** It re-scores every policy comparison already in the wiki. Applying it demoted one product announcement to anecdote-grade and found that a buried [TurboVLA](sources/turbovla-paper.md) bimanual result survives (p=0.0012) while its headline number does not.
+- **Axis 3 explains structure, not just speed.** The ~100× gap between what real-time control demands and what inference delivers is not closed by faster models; it is bridged **architecturally**, by making the model *write* the controller rather than *be* it.
+
+> [!warning] The axes that are weak here — where this wiki will mislead you
+> - **Anything economic.** No revenue, unit-volume, market-sizing or supply-chain data. The two pages that reason about markets ([value chain](syntheses/society/consumer-robotics-value-chain.md), [home AI platform](syntheses/agents/home-ai-platform-trust-and-authority.md)) carry that warning at the top and infer from the technology stack instead.
+> - **Human factors and multi-tenancy.** Per-person authority in a shared home — guests, children, elderly relatives — has **no ingested source at all**. That is a literature gap, not merely a wiki gap.
+> - **Long-horizon reliability.** Almost everything here is measured in single sessions. The [long-term in-home deployments](syntheses/assistive/long-term-in-home-robot-deployments.md) thread is the only counterweight.
+> - **Safety certification.** [ISO 13482](concepts/robotics/robot-safety-standards.md) is documented as a pathway with essentially nothing measured against it.
+> - **Home automation.** One ingested source ([Matter 1.4](sources/matter-1-4-core-specification.md)) and nothing on Thread, HomeKit, SmartThings, Alexa, Nest or Ring.
+
 ## Conventions in one paragraph
 
 Pages use YAML frontmatter (`title`, `type`, `created`, `updated`, `sources`, `tags`). Every factual claim links to a source page (not a raw file). Filenames are kebab-case slugs. Links are standard markdown relative paths (no Obsidian `[[wikilinks]]`). Source-page conventions: `## Summary`, `## Key claims`, `## Entities mentioned`, `## Concepts touched`, `## Open questions`. Entity/concept pages end with a `## Mentioned in` section listing inbound sources. Contradictions across sources are flagged with `> [!warning] Contradiction` callouts. Full conventions are in [`CLAUDE.md`](../CLAUDE.md).
 
-## Quick stats (as of 2026-05-17)
+## Quick stats (as of 2026-08-17)
 
-| Layer | Count |
-| --- | --- |
-| Source pages (`wiki/sources/`) | **145** |
-| Entity pages (`wiki/entities/`) | **164** |
-| Concept pages (`wiki/concepts/`) | **26** |
-| Synthesis pages (`wiki/syntheses/`) | **44** (incl. 14 curriculum modules) |
-| Top-level (`index.md`, `log.md`, `glossary.md`, `overview.md`) | **4** |
-| **Total wiki pages** | **383** |
+| Layer | Count | Was 2026-05-17 |
+| --- | --- | --- |
+| Source pages (`wiki/sources/`) | **414** | 145 |
+| Entity pages (`wiki/entities/`) | **412** | 164 |
+| Concept pages (`wiki/concepts/`) | **86** | 26 |
+| Synthesis pages (`wiki/syntheses/`) | **83** (incl. the 14 curriculum modules + hub) | 44 |
+| Top-level (`index.md`, `log.md`, `glossary.md`, `overview.md`, `backlog.md`) | **5** | 4 |
+| **Total wiki pages** | **1,000** | 383 |
+
+Plus `wiki/notes/` — the user's own notes directory, not maintained by Claude and excluded from the count above.
+
+**Roughly 2.6× in three months**, with entity and source pages growing in step — the ingest pattern is holding (a single ingest touches 5–15 pages, so sources and entities compound together rather than one outrunning the other).
 
 ## What's not here
 
