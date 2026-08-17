@@ -10,6 +10,13 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-08-16c] Vendor-version staleness — JetPack 7.2 caught the Jetson cluster out
+
+- [ ] **Ingest a JetPack 7.2 / Jetson Linux r39.2 primary source.** The correction of 2026-08-16 rests entirely on live-web facts (NVIDIA JetPack page, Connect Tech, JetsonHacks, forums). The [JetPack entity](entities/jetpack.md) should have a primary release note behind the 7.2 claim, and the [flash howto](syntheses/projects/jetson-orin-nano-flash-howto.md) needs re-deriving against the **unified-ISO-from-USB** flow before it is used for a real flash.
+- [ ] **Sweep the Jetson/JetPack cluster for other version drift** — Isaac ROS version, TensorRT/CUDA numbers, Thor pricing, Seeed carrier BSP status. The JetPack row was two months stale on a page updated 12 days ago, so the rest of the cluster deserves the same suspicion.
+- [ ] **Check whether the 22-pin vs 24-pin CSI change affects the recommended camera stack** for an Orin NX build on a Seeed J401/J4012 — the most likely thing to break silently on a 7.x upgrade.
+- [ ] **Standing process gap**: nothing in this wiki's workflow re-checks vendor facts on a schedule. Two corrections in one day (literature gaps, JetPack version) suggest **dated claims about fast-moving vendors should carry a "verified on" stamp**, and the pages that carry buying or flashing advice should be re-verified before use rather than trusted at rest.
+
 ## [2026-08-16b] Literature-search correction — three "nobody has done it" claims were wrong
 
 *Prompted by a direct challenge to the claim that the runtime thread's remaining gaps were "buildable, not readable." A targeted search falsified three of four in one pass. **Lesson: in a fast-moving area, "no ingested source does X" and "nobody does X" are different claims, and the wiki must write the first.***

@@ -2,7 +2,7 @@
 title: Jetson Orin Nano
 type: entity
 created: 2026-05-16
-updated: 2026-06-13
+updated: 2026-08-16
 sources: 27
 tags: [jetson, nvidia, edge-ai, hardware, robotics-compute]
 ---
@@ -61,11 +61,12 @@ Mode persists across reboots and SC7. **Mode IDs are not portable across module 
 
 - **OS / BSP**: [Jetson Linux](jetson-linux.md) — currently the R36.5 line (Ubuntu 22.04 + kernel 5.15 + UEFI + OP-TEE) for Orin-class modules ([Jetson Linux R36.5](../sources/nvidia-jetson-linux-r36-5-release.md)).
 - **SDK**: [JetPack](jetpack.md) — bundles Jetson Linux + CUDA + cuDNN + TensorRT + DeepStream + VPI on top. Current production release **JetPack 6.2.2** as of mid-2025 ([JetPack 6.2.2 release page](../sources/nvidia-jetpack-6-2-2-release.md)).
+  - **Corrected 2026-08-16**: superseded. **JetPack 7.2** (Jetson Linux r39.2, 2026-06-01) brought the Orin family onto JetPack 7 — Ubuntu 24.04 / kernel 6.8 / CUDA 13.0 — with **7.2.1** on 2026-08-12. Live-web facts; no JetPack 7.2 source ingested.
 - **No eMMC**: the Orin Nano module has no onboard mass storage. Booting requires microSD or NVMe; on the Dev Kit the M.2 slot is the recommended path. NVMe boot requires a sufficiently new QSPI bootloader — pre-mid-2023 Dev Kits need a bootloader update before NVMe is bootable ([Jetson Orin Nano flash howto](../syntheses/projects/jetson-orin-nano-flash-howto.md)).
 
 ## Setup paths
 
-- **microSD image**: NVIDIA publishes an SD card image (JetPack 6.2.1 / Jetson Linux 36.4.4 base, apt-upgradable to 6.2.2). Flash with Etcher or `dd`, insert, boot.
+- **microSD image**: NVIDIA published an SD card image on the JetPack 6 line (6.2.1 / Jetson Linux 36.4.4 base, apt-upgradable to 6.2.2) — flash with Etcher or `dd`, insert, boot. **From JetPack 7.2 this no longer exists**: a unified **ISO written to a USB stick** installs Jetson Linux onto microSD or NVMe, and NVIDIA explicitly warns not to write the ISO to a microSD card. See [flash howto](../syntheses/projects/jetson-orin-nano-flash-howto.md).
 - **SDK Manager** flashing from a Linux x86_64 host with the kit in force-recovery mode (short FC REC + GND on the 12-pin header, plug in DC power, connect USB-C) — NVIDIA's official host OS is **Ubuntu 20.04** for this workflow ([NVIDIA Software Setup](../sources/nvidia-jetson-orin-nano-devkit-software-setup.md)).
 - **Command-line flash** with `l4t_initrd_flash.sh` from the BSP — supports NVMe target directly. See [Jetson Orin Nano flash howto](../syntheses/projects/jetson-orin-nano-flash-howto.md) for the full command.
 

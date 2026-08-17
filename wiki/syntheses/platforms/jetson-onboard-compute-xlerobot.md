@@ -2,7 +2,7 @@
 title: "Onboard compute for XLeRobot — Jetson Orin Nano vs Orin NX vs AGX Orin vs AGX Thor"
 type: synthesis
 created: 2026-06-03
-updated: 2026-08-03
+updated: 2026-08-16
 tags: [xlerobot, jetson, jetson-orin-nano, orin-nx, agx-orin, jetson-thor, onboard-compute, edge-ai, power-budget, vla, buying-decision, platforms]
 ---
 
@@ -25,7 +25,17 @@ Which NVIDIA Jetson should ride on an untethered [XLeRobot](../../entities/xlero
 | **Power** | **7–25 W** | **10–40 W** | **15–60 W** | **40–130 W** (nvpmodel 70/90/120 W) |
 | Price | **~$249** (dev kit) | **~$600** (module) | ~$1,999 (dev kit) | **$3,499** (dev kit) |
 | Weight / cooling | tiny, passive duct OK ([paper](../../sources/cutting-the-cord-untethered-xlerobot.md)) | tiny — **drop-in on the Nano dev-kit carrier** | larger, active heatsink-fan | largest; no RT cores |
-| SDK | JetPack 6 | JetPack 6 | JetPack 6 | **JetPack 7 / Isaac ROS 4 / GR00T target** |
+| SDK | **JetPack 7.2+** (since 2026-06-01) | **JetPack 7.2+** | **JetPack 7.2+** | **JetPack 7 / Isaac ROS 4 / GR00T target** |
+
+> [!warning] Correction 2026-08-16 — the Orin tiers are no longer JetPack 6
+> This row read **"JetPack 6"** for all three Orin modules until today, which was already two months stale when the page was last touched. **JetPack 7.2 (Jetson Linux r39.2), released 2026-06-01, extends JetPack 7 to the whole Orin family** — AGX Orin, Orin NX and Orin Nano — on **Ubuntu 24.04 / kernel 6.8 / CUDA 13.0**, unifying the toolchain with Thor. **JetPack 7.2.1** followed on **2026-08-12**. (Live-web facts, verified 2026-08-16 against NVIDIA's JetPack page, Connect Tech and JetsonHacks; no primary release-note page is ingested.)
+>
+> Two consequences that bite a build rather than a spec sheet:
+>
+> - **The Orin Nano dev kit no longer ships an SD-card image.** From JetPack 7.2 the flow is a **unified ISO written to a USB stick**, which then installs Jetson Linux to microSD or NVMe — *"do not flash the Jetson ISO to a microSD card."* The ISO defaults to **Super Mode** flashing config. Any bring-up notes written against the JetPack 6 SD-card flow are wrong.
+> - **Third-party carriers lag NVIDIA by weeks, and one change is a camera trap.** Seeed shipped **JetPack 7.2.0 / R39.2.0 for the reComputer J401 and J501 on 2026-06-30** (this page recommends the J401/J4012 for the Orin NX tier). **R39.2.0 moves to a 22-pin Jetson CSI connector spec where R36.4.3 used 24-pin, so camera device trees need updating** — the most likely thing to break silently on an upgrade. AGX Orin 32 GB carrier support was still being asked about in that thread.
+>
+> **This does not change any recommendation on this page** — the tiering, power budget and model-rate arguments are unaffected. It changes the software baseline you start from, and it means the Orin/Thor split is now a *hardware-generation* split rather than a toolchain split.
 
 *(TOPS across the Orin trio are INT8; Thor's headline is FP4/FP8 — not directly comparable, so the "≈7.5× AGX Orin" relative figure is the honest anchor. Cross-reference [Jetson Thor](../../entities/jetson-thor.md), [Jetson Orin Nano](../../entities/jetson-orin-nano.md), [Orin power modes](../../sources/nvidia-jetson-platform-power-performance-orin.md), [Thor power modes](../../sources/nvidia-jetson-thor-platform-power-performance.md).)*
 

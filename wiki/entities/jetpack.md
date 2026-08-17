@@ -2,7 +2,7 @@
 title: JetPack SDK
 type: entity
 created: 2026-05-16
-updated: 2026-05-17
+updated: 2026-08-16
 sources: 12
 tags: [nvidia, jetson, jetpack, sdk, cuda, tensorrt, jetpack-7, jetson-thor, mig, sbsa]
 ---
@@ -66,6 +66,10 @@ Jetson Xavier-class hardware is on the older JetPack 5.x / L4T 35.x track and no
 ## JetPack 7 — Thor track
 
 The Blackwell-generation [Jetson Thor](jetson-thor.md) (T5000, T4000) is on a **separate JetPack 7.0 line**, not JetPack 6. Orin-class modules remain on the JetPack 6.x track for compatibility — JetPack 6 and JetPack 7 are parallel, not sequential.
+
+> [!warning] Correction 2026-08-16 — JetPack 6 and 7 are no longer parallel tracks
+> **JetPack 7.2 (Jetson Linux r39.2), released 2026-06-01, brought the whole Orin family onto JetPack 7** — AGX Orin, Orin NX and Orin Nano — on Ubuntu 24.04 / kernel 6.8 / CUDA 13.0, unifying the toolchain with Thor. **JetPack 7.2.1** followed on **2026-08-12**. The "parallel, not sequential" framing above was accurate when written (2026-05-17) and describes the JetPack 7.0/7.1 period only. Live-web facts verified 2026-08-16 (NVIDIA JetPack page, Connect Tech, JetsonHacks); **no JetPack 7.2 release note is ingested** — that is the fix this page needs.
+
 
 JetPack 7.0 launched alongside Thor on **2025-08-25** ([JetPack 7.0 for Jetson Thor software-stack reference](../sources/nvidia-jetpack-7-thor-whitepaper.md)) with the following bundle:
 

@@ -2,7 +2,7 @@
 title: "Jetson module ladder — performance and power, Orin Nano 4 GB → AGX Thor T5000"
 type: synthesis
 created: 2026-07-26
-updated: 2026-07-26
+updated: 2026-08-16
 tags: [jetson, jetson-orin-nano, orin-nx, agx-orin, jetson-thor, nvpmodel, power-modes, perf-per-watt, edge-ai, hardware, reference, platforms]
 ---
 
@@ -23,14 +23,16 @@ This page is the **superset table** underneath both: all SKUs, both `nvpmodel` c
 
 | Module | Arch | GPU | CPU | Memory | Bandwidth | AI perf | Power | Price (wiki-recorded) | SDK |
 |---|---|---|---|---|---|---|---|---|---|
-| **Orin Nano 4 GB** | Ampere | 512-core / 16 TC | 6× A78AE | 4 GB 64-bit LPDDR5 | 51 GB/s | 34 TOPS | 7 / 10 / 25 W | — | JetPack 6 |
-| **Orin Nano 8 GB** | Ampere | 1024-core / 32 TC | 6× A78AE | 8 GB 128-bit LPDDR5 | 102 GB/s | 67 TOPS | 7 / 15 / 25 W | **~$249** dev kit | JetPack 6 |
-| **Orin NX 8 GB** | Ampere | 1024-core / 32 TC **+ 2 DLA** | 6× A78AE | 8 GB 128-bit LPDDR5 | 102.4 GB/s | 117 TOPS | 10–25 W (40 W Super) | — | JetPack 6 |
-| **Orin NX 16 GB** | Ampere | 1024-core / 32 TC **+ 2 DLA** | 8× A78AE | 16 GB 128-bit LPDDR5 | 102.4 GB/s | 157 TOPS | 10–40 W | **~$600** module | JetPack 6 |
-| **AGX Orin 32 GB** | Ampere | 1792-core / 56 TC | 8× A78AE | 32 GB 256-bit LPDDR5 | 204.8 GB/s | 200 TOPS | 15–60 W | — | JetPack 6 |
-| **AGX Orin 64 GB** | Ampere | 2048-core / 64 TC | 12× A78AE | 64 GB 256-bit LPDDR5 | 204.8 GB/s | 275 TOPS | 15–60 W (≤75 W MAXN per some listings) | **~$1,999** dev kit | JetPack 6 |
+| **Orin Nano 4 GB** | Ampere | 512-core / 16 TC | 6× A78AE | 4 GB 64-bit LPDDR5 | 51 GB/s | 34 TOPS | 7 / 10 / 25 W | — | JetPack 7.2+ ¹ |
+| **Orin Nano 8 GB** | Ampere | 1024-core / 32 TC | 6× A78AE | 8 GB 128-bit LPDDR5 | 102 GB/s | 67 TOPS | 7 / 15 / 25 W | **~$249** dev kit | JetPack 7.2+ ¹ |
+| **Orin NX 8 GB** | Ampere | 1024-core / 32 TC **+ 2 DLA** | 6× A78AE | 8 GB 128-bit LPDDR5 | 102.4 GB/s | 117 TOPS | 10–25 W (40 W Super) | — | JetPack 7.2+ ¹ |
+| **Orin NX 16 GB** | Ampere | 1024-core / 32 TC **+ 2 DLA** | 8× A78AE | 16 GB 128-bit LPDDR5 | 102.4 GB/s | 157 TOPS | 10–40 W | **~$600** module | JetPack 7.2+ ¹ |
+| **AGX Orin 32 GB** | Ampere | 1792-core / 56 TC | 8× A78AE | 32 GB 256-bit LPDDR5 | 204.8 GB/s | 200 TOPS | 15–60 W | — | JetPack 7.2+ ¹ |
+| **AGX Orin 64 GB** | Ampere | 2048-core / 64 TC | 12× A78AE | 64 GB 256-bit LPDDR5 | 204.8 GB/s | 275 TOPS | 15–60 W (≤75 W MAXN per some listings) | **~$1,999** dev kit | JetPack 7.2+ ¹ |
 | **AGX Thor T4000** | **Blackwell** | 1536-core / 5th-gen TC | 12× Neoverse-V3AE | 64 GB 256-bit LPDDR5X | 273 GB/s | **1200 FP4 TFLOPS** | 40–70 W (**90 W TDP**) | — | **JetPack 7** |
 | **AGX Thor T5000** | **Blackwell** | 2560-core / 5th-gen TC | 14× Neoverse-V3AE | 128 GB 256-bit LPDDR5X | 273 GB/s | **2070 FP4 TFLOPS** | 40–130 W (**130 W TDP**) | **$3,499** dev kit | **JetPack 7** |
+
+¹ **Corrected 2026-08-16.** These rows read *"JetPack 6"* until today. **JetPack 7.2 (Jetson Linux r39.2, 2026-06-01) extends JetPack 7 to the entire Orin family** (Ubuntu 24.04 / kernel 6.8 / CUDA 13.0), unifying the toolchain with Thor; **7.2.1** followed 2026-08-12. Consequence for anyone flashing: the Orin Nano dev kit **no longer has an SD-card image** — a unified ISO from USB installs to microSD or NVMe. Live-web facts verified 2026-08-16; no JetPack 7.2 release note is ingested.
 
 Sources: module ladder from the [Seeed selection guide](../../sources/seeed-jetson-selection-guide.md) (cross-checked against NVIDIA-official); Thor SKU specs from the [Thor product page](../../sources/nvidia-jetson-thor-product-page.md); TDPs from the [Thor power-modes chapter](../../sources/nvidia-jetson-thor-platform-power-performance.md); prices from [Cutting the Cord](../../sources/cutting-the-cord-untethered-xlerobot.md) / [XLeRobot onboard-compute](jetson-onboard-compute-xlerobot.md) / the [Thor launch newsroom](../../sources/nvidia-jetson-thor-launch-newsroom.md).
 

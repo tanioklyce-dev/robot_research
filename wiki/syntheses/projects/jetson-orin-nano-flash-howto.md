@@ -2,7 +2,7 @@
 title: Jetson Orin Nano — flash Jetson OS to NVMe SSD howto
 type: synthesis
 created: 2026-05-16
-updated: 2026-05-17
+updated: 2026-08-16
 tags: [jetson, hardware, setup, howto, uefi, efibootmgr, boot-order]
 ---
 
@@ -11,6 +11,13 @@ tags: [jetson, hardware, setup, howto, uefi, efibootmgr, boot-order]
 Operational howto for writing a [Jetson Linux](../../entities/jetson-linux.md) (L4T) image to an NVMe SSD on a **[Jetson Orin Nano](../../entities/jetson-orin-nano.md) Developer Kit** so the device boots from the SSD instead of microSD. Path-A recovery procedure and host requirements follow NVIDIA's official guide ([Jetson Orin Nano Dev Kit software setup](../../sources/nvidia-jetson-orin-nano-devkit-software-setup.md)); the apt-update vs reflash distinction follows the L4T BSP update mechanism ([Jetson Linux R36.5 update mechanism](../../sources/nvidia-jetson-linux-r36-5-update-mechanism.md)). Current production target is **[JetPack 6.2.2](../../sources/nvidia-jetpack-6-2-2-release.md)** (Jetson Linux 36.5).
 
 This page also covers **SD-primary with NVMe fallback** (UEFI auto-fallback) — see the section below.
+
+> [!warning] Correction 2026-08-16 — this howto describes the **JetPack 6** flow, and JetPack 7.2 changed it
+> **From JetPack 7.2 (2026-06-01) the Orin Nano Developer Kit has no downloadable SD-card image.** The flow is now a **unified ISO written to a USB stick**, which then installs Jetson Linux onto microSD *or* NVMe — NVIDIA's own guidance is *"do not flash the Jetson ISO to a microSD card."* The ISO defaults to **Super Mode** flashing configuration. **JetPack 7.2.1** shipped 2026-08-12.
+>
+> So: the SDK-Manager and `l4t_initrd_flash.sh` paths below remain valid for the JetPack 6 / L4T 36.x line, and the **microSD-image path in the "avoid host-side flashing" section no longer exists on JetPack 7.2**. Anything on this page that assumes an SD image is JetPack-6-only. Also note the major-release rule at the bottom applies again: **JetPack 6 → 7 is not an apt upgrade; it is a full reflash.**
+>
+> Live-web facts verified 2026-08-16; **no JetPack 7.2 source is ingested**, and this page should be re-derived against one before it is used for a real flash.
 
 > [!note]
 > Steps below assume the NVIDIA Dev Kit. A custom carrier board (e.g., Hiwonder [ROSOrin Pro](../../entities/rosorin-pro.md), Seeed reComputer) ships its own BSP overlay and may have different recovery-pin locations and flash configs — check the carrier vendor's docs.
