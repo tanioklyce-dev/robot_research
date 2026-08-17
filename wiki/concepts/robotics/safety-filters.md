@@ -40,6 +40,8 @@ Same robot, same tasks, same constraints, same class of formal guarantee. The di
 > - **[Path consistency](../../sources/pacs-paper.md)** (PACS): filter the robot's *speed along its intended trajectory*, never its direction. Prevents leaving the training distribution over a trajectory.
 >
 > They are not alternatives, and a task-consistent CBF is still path-deviating.
+>
+> **And a third line reaches the same constraint from outside safety.** [FOREWARN](../../sources/forewarn-paper.md) steers a policy by **selecting among the samples it already drew** rather than editing its output — in-distribution by construction, no manifold to fall off. Generalized: *a runtime intervention that stays inside the policy's own output distribution costs nothing; one that leaves it costs almost everything.*
 
 ## The taxonomy, as the literature has it
 
@@ -73,6 +75,7 @@ Path-consistent reachability filtering is the corner PACS occupies, and its enab
 
 ## Related concepts
 
+- [Prevention, detection, intervention](../../syntheses/platforms/prevention-detection-intervention.md) — the synthesis this page is layer 1 of.
 - [Runtime failure detection](runtime-failure-detection.md) — the detection half of deployment; complementary, not competing.
 
 - [Operational space control](operational-space-control.md) — the control formulation all three filters are built on.

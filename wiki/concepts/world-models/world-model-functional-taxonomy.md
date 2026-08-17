@@ -17,6 +17,15 @@ This is a **capability stack**, not a partition — rendering what a world looks
 | **Simulator** | Model underlying state, geometry, and dynamics; show the effect of changes | Digital environments that behave according to physics and biological properties | Crash-test simulation; digital twins; surgical practice; military training across domains | Conventional simulation mature ([Omniverse](../../entities/nvidia-isaac-sim.md)-class), *learned* simulation early and data-limited |
 | **Planner** | Determine what action an agent should take given a state or goal | Actions, trajectories, policies, intervention choices | Robotics, AVs, warehouse systems, healthcare logistics, disaster response, defense | **Least mature** — reliable only in bounded domains; most demos are "short, narrow tasks in controlled labs" |
 
+## World model as runtime verifier
+
+A function this taxonomy did not have: [FOREWARN](../../sources/forewarn-paper.md) uses a frozen **[DreamerV3](../../entities/dreamer.md)** RSSM not to plan and not to generate training data, but to **predict the outcomes of a separate policy's candidate action plans so a VLM can judge them**. The world model is the *foresight* half of a verifier; the VLM is the *forethought* half, reading the predicted latents through a linear adapter into its token space.
+
+Two consequences worth recording here:
+
+- **The latents are more useful to the VLM than decoded images.** Narration accuracy 0.82 from predicted latents versus **0.52 for GPT-4o shown ground-truth future frames** — so a world model's compressed state can be a *better* interface to a language model than pixels are, at least for fine-grained contact detail.
+- **The world model is deliberately trained on the base policy's failures as well as its successes**, because a verifier must predict the outcomes of bad plans, not just good ones. That is a different data requirement from world models trained for planning or for video prediction.
+
 ## Why the ordering is the interesting part
 
 The maturity gradient runs exactly opposite to the value gradient. Renderers are commercially mature and optimized for **plausibility rather than underlying truth** — a renderer can produce a photorealistic hospital wing without capturing how people, materials, or infrastructure would behave inside it. Planners are the ones that touch the physical world, and they are the least mature. Everything in between — the [sim-to-real](../learning/sim-to-real-transfer.md) problem, the [visual plausibility trap](world-model-evaluation.md), the whole robot-policy-evaluation literature — lives in the gap between "looks right" and "acts right."
