@@ -3,6 +3,7 @@ title: "Prevention, detection, intervention: the runtime stack a deployed policy
 type: synthesis
 created: 2026-08-16
 updated: 2026-08-16
+corrected: 2026-08-16
 tags: [safety-filter, runtime-monitoring, failure-prediction, policy-steering, deployment, conformal-prediction, out-of-distribution, diffusion-policy, synthesis]
 ---
 
@@ -53,6 +54,11 @@ Keep-out boxes and arm/table geometry are authored from a URDF ([the deployed en
 
 In a lab that is a modelling choice. In a home, **the hazards are precisely the things nobody modelled** — the cat, the child leaning in, the glass that was not there yesterday. Real-time perception → constraint geometry is named as future work by two of the six papers and simply absent from the rest. It is the single shared blocker.
 
+> [!warning] Correction, 2026-08-16 — "the single shared blocker" overstates it; the research answer exists
+> **Latent Safety Filters** (Nakamura, Bajcsy et al., arXiv 2502.00935) generalize **Hamilton–Jacobi reachability into the latent space of a generative world model**, so safety analysis runs on raw RGB observations and *"nuanced constraint specification"* becomes **a classification problem in latent space**. Its explicit target is failures *"hard — if not impossible — to write down by hand, but… intuitively identified from high-dimensional observations"*: on a Franka Research 3 it prevents **spilling the contents of a bag** and **toppling cluttered objects**, safeguarding generative policies and direct teleoperation. Follow-ups: **Uncertainty-aware Latent Safety Filters for Avoiding Out-of-Distribution Failures** (2505.00779) and **What You Don't Know Can Hurt You: How Well do Latent Safety Filters Understand Partially Observable Safety Constraints?** (2510.06492). **None ingested.**
+>
+> The honest form of this section is narrower: **the six sources synthesized here all consume hand-authored hazard geometry, and a separate line of work — from the same lab as [FOREWARN](../../sources/forewarn-paper.md) — is removing that assumption.** Whether latent reachability holds up beyond its demonstrated hazards is the open question; whether anyone is trying is not.
+
 ### 2. Every guarantee runs in the direction that protects throughput
 
 [OSCBF](../../sources/oscbf-paper.md) proves forward invariance — and concedes that with many constraints and input limits the QP goes infeasible and the relaxed version *"enforces (but does not guarantee) safety in most cases."* All three detectors calibrate with conformal prediction, which bounds the **false-alarm** rate; bounding the **miss** rate would require failure data, the very thing they are built to avoid.
@@ -80,10 +86,15 @@ Every one of the six papers names the missing piece, from its own side:
 
 The obvious system is a loop: **monitor predicts trouble → steering picks a better mode → if no mode is acceptable, escalate → filter guarantees nothing catastrophic happens meanwhile.**
 
+> [!warning] Correction, 2026-08-16 — one arc of that loop is already built
+> **Rewind-IL** (Zheng, Seenivasan, Johnson-Roberson & Zhi, arXiv 2604.16683, April 2026) closes detection→recovery: **TIDE**, a temporal inter-chunk discrepancy score (the same action-chunk-overlap signal as STAC) calibrated by **split conformal prediction**, plus an offline **VLM-built database of recovery checkpoints** from the demonstrations — so on detection the robot **rewinds to the latest verified safe state** and restarts inference from a clean policy state. Real and simulated long-horizon manipulation, with transfer to flow-matching policies. **Not ingested.**
+>
+> It also answers the "nobody has crossed the two monitor designs" item elsewhere in this wiki: TIDE + conformal calibration *is* Sentinel's signal with better thresholding.
+
 > [!warning] The layers can fight each other, and it looks like this
 > **A path-consistent safety filter brakes to a stop when a human comes near. A task-progression monitor is built to detect a policy that has stalled and is making no progress.** These are the same observable behavior.
 >
-> [PACS](../../sources/pacs-paper.md)'s correct, safety-preserving action — slow to zero along the path — is indistinguishable from the exact failure mode [Sentinel](../../sources/sentinel-paper.md)'s VLM monitor is designed to catch (*"the robot is failing to make progress on the task"*), and from the *"prolonged high action uncertainty"* a policy exhibits when it is stuck. Nobody has hit this, because nobody has run a filter and a monitor together.
+> [PACS](../../sources/pacs-paper.md)'s correct, safety-preserving action — slow to zero along the path — is indistinguishable from the exact failure mode [Sentinel](../../sources/sentinel-paper.md)'s VLM monitor is designed to catch (*"the robot is failing to make progress on the task"*), and from the *"prolonged high action uncertainty"* a policy exhibits when it is stuck. **Confidence: this is the one claim on this page that a targeted literature search did not falsify** — and that is weak evidence, since three neighbouring claims *were* falsified the first time they were checked. Published work recognizes the ingredients separately (safety filters are widely noted to be **overly conservative**, especially under partial observability — 2510.06492, 2606.02562; monitors are noted to fire on benign situations). What no source found names is the **composition**: that a filter's correct intervention is a monitor's positive class.
 >
 > The general form: **a monitor watching a filtered policy is not watching the policy.** It sees the composition, and the composition's healthy behavior includes states that look pathological in isolation. Any real stack needs the filter to *tell* the monitor when it is intervening — which is an interface neither literature has, and which is cheap to add only if someone notices before building it.
 
@@ -96,6 +107,15 @@ A second, subtler collision: [FIPER](../../sources/fiper-paper.md)'s ACE score f
 3. **Instrument the interfaces before you need them.** A filter that intervenes silently will be diagnosed as a failing policy.
 4. **Report [safe success](../../concepts/robotics/safety-filters.md), not success.** Unguarded policies in [PACS](../../sources/pacs-paper.md) scored 0.79 task success and **0.00** success-while-safe. Every success rate in this wiki was collected with nothing being enforced.
 5. **Do not read a conformal guarantee as a safety guarantee.** It bounds false alarms.
+
+## Adjacent work this page does not draw on
+
+Identified 2026-08-16 by targeted search, not ingested:
+
+- **Deployment-Time Reliability of Learned Robot Policies** — **Christopher Agia's Stanford PhD dissertation** (2026-03, 182 pp), by [Sentinel](../../sources/sentinel-paper.md)'s first author. It cuts the problem differently: **runtime monitoring**, **policy interpretability** (tracing a runtime failure back to the influential *training data* via influence functions), and **long-horizon coordination**. The middle class is a mechanism this wiki has no coverage of at all.
+- **Safe Embodied AI for Long-horizon Tasks: A Cross-layer Analysis of Robotic Manipulation** (2606.05660) — a survey organizing safety by **temporal locus** (planning-time / policy-time / execution-time) and arguing that *"semantic misgrounding, subtask-level error propagation, execution drift, and contact-rich physical risk **accumulate within the same closed-loop system**."* Same cross-layer instinct as this page, cut by *when* a mechanism acts rather than by *what question it answers* — **so this page is not the first to argue the layers interact.**
+- **Formal Methods in Robot Policy Learning and Verification: A Survey** (2602.06971).
+- The VLA-monitoring line — **SAFE** (NeurIPS 2025), **VLA-FAIL**, **Hide-and-Seek in Trajectories**, **VLAConf**, **ActProbe** — see [runtime failure detection](../../concepts/robotics/runtime-failure-detection.md).
 
 ## Sources synthesized
 

@@ -56,7 +56,12 @@ Fit a continuous normalizing flow to successful-rollout observations. Rather tha
 - **Detection is not recovery.** Both raise a flag and stop. What happens next — human handoff, retry, replan, safe park — is unaddressed, and it is the same [empty execution rail](../../syntheses/agents/guardrails-for-robot-agents.md) this wiki keeps finding on the agent side.
 - **Neither *monitor* predicts.** Sentinel says so explicitly: *"not targeted at predicting failures before they occur, but instead… detecting failures as they occur."* Contrast [predictive red-teaming](robot-policy-evaluation.md), which estimates degradation *before deployment*, and [FIPER](../../sources/fiper-paper.md) below, which predicts *within a rollout*.
 - **No detection guarantee, only a false-alarm guarantee.** Both bound the FPR by conformal prediction. Bounding the *miss* rate would require failure data — the assumption both are built to avoid. The guarantee runs in the direction that protects throughput, not the direction that protects people.
-- **Neither runs on a generalist policy.** All experiments are single-task diffusion or flow-matching policies. [LBMs](../learning/large-behavior-models.md) and [VLAs](../learning/vla-models.md) are the obvious targets and are untested — and STAC in particular needs cheap batch sampling, which a large autoregressive VLA does not offer.
+- **None of the four ingested methods runs on a generalist policy** — all are single-task diffusion or flow-matching policies, and each names VLAs as future work. **This is a property of what this wiki has ingested, not of the field** (see below): the VLA version exists and was published in 2025.
+
+> [!warning] Correction, 2026-08-16 — this page previously claimed the generalist-policy case was untested
+> A targeted literature search found it is not. **SAFE** (Gu, Ju, Sun, Gilitschenski, **Nishimura**, **Itkina**, Shkurti; **NeurIPS 2025**, arXiv 2506.09937) does multitask failure detection for **OpenVLA, π₀ and π₀-FAST**, using the VLA's **internal features**, calibrated with conformal prediction, and **generalizing to unseen tasks** — its stated motivation is precisely that *"existing failure detectors are trained and tested only on one or a few specific tasks."* Note the authors: Nishimura and Itkina also wrote [FAIL-Detect](../../sources/fail-detect-paper.md), so the group this page describes as monitoring single-task policies had already published the generalist version.
+>
+> Also identified and **not ingested**: **VLA-FAIL** (2606.21386, last-layer Mahalanobis distance for OOD in finetuned VLAs), **Hide-and-Seek in Trajectories** (2605.30834, which critiques SAFE's uniform trajectory-level labelling as label noise), **VLAConf** (2605.29605, calibrated task-success confidence), **ActProbe** (2606.08508, a pure action-space detector combining temporal consistency error with action-chunk magnitude in a single forward pass — i.e. STAC's signal without the sampling cost), and **Rewind-IL** (2604.16683). Treat the comparisons on this page as covering four representative methods, not the frontier.
 
 ## Prediction, not detection: [FIPER](../../sources/fiper-paper.md)
 
@@ -94,7 +99,12 @@ FOREWARN's own three-way taxonomy locates everything on this page, and its criti
 
 > *"[Monitoring strategies] fundamentally require the robot to start failing for the runtime monitor to activate."*
 
-**And the two halves do not yet compose.** FOREWARN assumes a good plan is among the K samples and names detecting *"if none of the policy's generated action plans are suitable"* as future work — which is exactly what a monitor does. Monitors assume something has already gone wrong. Nobody has built the system where the monitor escalates because steering has run out of options.
+**The two ingested halves do not compose — but the detection→recovery loop has been closed elsewhere.** FOREWARN assumes a good plan is among the K samples and names detecting *"if none of the policy's generated action plans are suitable"* as future work; monitors assume something has already gone wrong.
+
+> [!warning] Correction, 2026-08-16 — "detection is not recovery" was true of the ingested sources and false of the field
+> **Rewind-IL** (Zheng, Seenivasan, Johnson-Roberson & Zhi, arXiv 2604.16683, April 2026) is a training-free safeguard that detects *and* recovers: **TIDE** (temporal inter-chunk discrepancy — the same action-chunk-overlap signal as STAC) calibrated by **split conformal prediction**, plus an offline **VLM-built database of recovery checkpoints** from demonstration trajectories, so that on detection the robot **rewinds to the latest verified safe state** and restarts inference from a clean policy state. Real-world and simulated long-horizon manipulation, with transfer to flow-matching policies. **Not ingested.**
+>
+> It also partly answers the "nobody has crossed the designs" item: TIDE + conformal calibration is exactly the Sentinel-signal-with-better-thresholding cross this page called an unrun experiment.
 
 ## Where it sits
 
