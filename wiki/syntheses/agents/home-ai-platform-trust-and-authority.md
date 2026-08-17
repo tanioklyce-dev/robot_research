@@ -160,6 +160,8 @@ Everything above assumes boundaries can be *enforced*. The wiki's finding is tha
 
 ## Related
 
+- [DimOS as a home-AI substrate](dimos-as-home-ai-substrate.md) — this framework applied to a named stack; the first test of whether it does any work
+
 - [Consumer robotics value chain](../society/consumer-robotics-value-chain.md) — the market-structure companion to this page
 - [Control abstraction levels](../../concepts/robotics/control-abstraction-levels.md) · [World-model governance](../../concepts/safety/world-model-governance.md)
 - [Guardrails for robot agents](guardrails-for-robot-agents.md) · [Where the compute lives](on-device-and-on-robot-agents.md) · [LLM-agent architecture across stacks](llm-agent-architecture-across-stacks.md)

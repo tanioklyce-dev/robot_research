@@ -3,7 +3,7 @@ title: DimOS
 type: entity
 subtype: software-framework
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-08-17
 sources: 11
 tags: [dimos, dimensional, agentic-robotics, llm-agent, mcp, langgraph, middleware, ros2-alternative, lcm, zenoh, unitree, teleoperation, lerobot, spatial-memory, apache-2-0, open-source]
 ---
@@ -119,3 +119,4 @@ RTX 3000+ / 8 GB VRAM minimum, RTX 4070+ recommended; GPU optional for control, 
 
 - [DimOS GitHub repository](../sources/dimos-github.md)
 - [LLM-agent architecture across stacks](../syntheses/agents/llm-agent-architecture-across-stacks.md)
+- [DimOS as a home-AI substrate](../syntheses/agents/dimos-as-home-ai-substrate.md) — read against the [home AI platform](../syntheses/agents/home-ai-platform-trust-and-authority.md) framework: **owns the household world model, lacks the authority model.** `memory2` is the asset, locally owned; replay + inspectable state make it the wiki's most auditable stack; but `@skill` is **allow-by-decoration** where [Matter](matter.md)'s ARL is deny-by-default per ecosystem.
