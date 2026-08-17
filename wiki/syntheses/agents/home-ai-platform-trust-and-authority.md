@@ -11,7 +11,9 @@ tags: [agents, home-ai, smart-home, mcp, capability-manifest, trust-boundary, au
 The commercial category forming in 2026–2027 is **agentic robot AI fused with home-automation AI**, sold as an extension of the Nest / Ring / Google Home / Apple Home relationship. This page works out what that fusion actually requires: how a robot supports several competing ecosystems, whether it can live in more than one at once, and where the boundaries of authority and liability fall.
 
 > [!warning] Half of this page rests on wiki evidence and half does not
-> The **agentic-robotics half is well grounded** — abstraction levels, both MCP bridges, capability manifests, the guardrails gap, the governance argument. The **home-automation half is not covered by this wiki at all**: there is no page on Matter, Thread, HomeKit, SmartThings, Alexa, or any smart-home platform, and no source has been ingested on any of them. Claims about smart-home architecture below are **marked and uncited**, and should be treated as framing to test rather than findings. See the [consumer-robotics value chain](../society/consumer-robotics-value-chain.md) for the same caveat applied to the market side.
+> The **agentic-robotics half is well grounded** — abstraction levels, both MCP bridges, capability manifests, the guardrails gap, the governance argument.
+>
+> **Updated 2026-08-17.** The home-automation half is now **partly** grounded: the [Matter 1.4 Core Specification](../../sources/matter-1-4-core-specification.md) is ingested, which covers the multi-admin trust model, access control and the ARL. It **falsified one mechanism this page asserted** and **corroborated another** — both marked inline below, and both worth reading as a demonstration of why the [primary-source convention](../../../CLAUDE.md) exists. Still uncited: **Thread, HomeKit, SmartThings, Alexa, Nest, Ring** — no page, no ingested source. Remaining smart-home claims are marked and should be treated as framing to test. See the [consumer-robotics value chain](../society/consumer-robotics-value-chain.md) for the same caveat on the market side.
 
 ## Naming
 
@@ -40,11 +42,20 @@ Home automation is declarative and event-driven — sub-Hz, comfortably above al
 
 ### Idempotency: unsolved, and it breaks the obvious analogy
 
-*(Smart-home side uncited.)* Matter's multi-admin model works because device state is effectively **a lattice with a well-defined join**: two controllers both asking a bulb to be on yields *on*. Conflicts resolve by construction.
+> [!warning] Corrected 2026-08-17 — the [Matter specification](../../sources/matter-1-4-core-specification.md) is now ingested, and it falsifies the mechanism this section originally asserted
+> The original text read: *"Matter's multi-admin model works because device state is effectively **a lattice with a well-defined join**: two controllers both asking a bulb to be on yields *on*. Conflicts resolve by construction."* That was written from my own reading of a specification nobody here had read, and **the mechanism is wrong**.
+>
+> **What the primary actually says.** Matter isolates per-fabric *configuration*, not state. §7.5.3: *"**Most cluster data instances are accessible regardless of the accessing fabric.**"* Fabric-scoping is explicitly limited to *"list of fabric-scoped structs"* and *"fabric-sensitive event"* — ACLs, bindings, group keys. A light's `OnOff` is **one shared value** every commissioned fabric can read and write.
+>
+> **And there is no conflict resolution at all: "arbitrat" appears zero times in 1,173 pages.** All eight occurrences of "conflict" concern DNS-SD name collisions and ephemeral node IDs. Two ecosystems writing the same attribute is not an error, not a conflict, and not arbitrated by any rule.
+>
+> **The conclusion survives, in a stronger form.** Matter's multi-admin model does not extend to robots — but not because robot state lacks a join. It is because **Matter never solved arbitration; it externalized the problem to the triviality of the state.** A bulb toggling between two admins is an annoyance, cheaply re-set, physically inconsequential. That property is exactly what a mobile actuated robot does not have. The analogy fails at a deeper level than originally claimed: there is no mechanism to borrow, only an assumption that stops holding.
 
-**Robot state has no such join.** Two ecosystems asking the robot to be in different rooms is undefined — and "undefined" here denotes a physical object in motion. Every multi-homing question below inherits this.
+**Robot state is not trivially re-settable and not physically inconsequential.** Two ecosystems asking the robot to be in different rooms is undefined — and "undefined" here denotes a physical object in motion. Every multi-homing question below inherits this, and inherits it *without* a standards precedent to lean on.
 
-The wiki already shows the primitive that acknowledges it: [AgenticROS](../../entities/agenticros.md) capability manifests carry a **`blocks_base`** flag, so a mission occupying the base cannot be interleaved with another. That flag exists because the arbitration problem is real at hobbyist scale, long before any commercial platform meets it.
+The wiki already shows the primitive that acknowledges the problem: [AgenticROS](../../entities/agenticros.md) capability manifests carry a **`blocks_base`** flag, so a mission occupying the base cannot be interleaved. **That flag has no counterpart in [Matter](../../entities/matter.md)** — which is the compact statement of what the robot case adds.
+
+That flag exists because the arbitration problem is real at *hobbyist* scale, long before any commercial platform meets it — and the standards body serving hundreds of millions of home devices has not addressed it at all.
 
 ## How players will support multiple ecosystems
 
@@ -60,6 +71,17 @@ Expect the commercial version to take the same shape, for an unglamorous reason:
 
 > [!note] Two independent implementations is a weak convergence, not a standard
 > Both are small projects; AgenticROS has anonymous maintainers and no releases, and is **nav-first with no manipulation path**. What they demonstrate is that the *shape* is discoverable by anyone who tries, not that the industry will adopt it. A vendor consortium could just as easily produce something worse and mandatory.
+
+> [!warning] Strengthened 2026-08-17 — the pattern is already standardized and shipping, in [Matter](../../entities/matter.md)
+> This section originally predicted that vendors would need to invent a manifest bounding what each ecosystem may touch. **They already did, and it is called the Access Restriction List.** From the [Matter 1.4 Core Specification](../../sources/matter-1-4-core-specification.md) §6.6:
+>
+> > "In addition to the ACL, a **per-fabric Access Restriction List (ARL), which is set by the device**, MAY exist. The ARL contains Access Restriction Entries, which identify the attributes, commands and events on specific endpoint clusters **which are not accessible on a given fabric**."
+>
+> And it **overrides the ecosystem's own administrator**: "even though the ACL entry grants Operate privilege to all data model elements, attempts to read or write attribute 0x0000… would result in an error of **`ACCESS_RESTRICTED`**, since the Access Restriction List is a **subsequent overriding of an initial privilege granted**." It is discoverable before commissioning (`CommissioningARL`) and negotiable (`ReviewFabricRestrictions`).
+>
+> So the prediction is upgraded from inference to precedent: **a vendor-authored, per-ecosystem, machine-readable bound on authority, enforced below the administrator, is how the smart-home world already does this at consumer scale.** Matter expresses it as *data*; the robot bridges express it as an API convention. The data form is the one with a certification story attached, and is the likelier commercial shape.
+
+Matter also supplies the **deny-by-default posture** a robot manifest should inherit: "The Access Control system is rule-based with **no implicit access permitted by default**," over five strictly nested privileges — `View` → `ProxyView` / `Operate` → `Manage` → `Administer` — matched **per fabric**, so an administrator in one ecosystem cannot grant privileges that apply in another.
 
 ## Can a robot live in several ecosystems at once?
 
@@ -133,7 +155,7 @@ Everything above assumes boundaries can be *enforced*. The wiki's finding is tha
 - **Does anyone ship a capability manifest commercially?** Both wiki instances are hobbyist-scale and nav-first. A vendor manifest with a certification boundary attached would be the strongest signal this analysis is right.
 - **What is the arbitration protocol** when two ecosystems issue conflicting goals? `blocks_base` is a flag, not a protocol, and nothing in the wiki addresses cross-ecosystem preemption.
 - **Can incident reconstruction be made to work** for an end-to-end policy at all, or does liability force the whole category up to Level 3 permanently? This decides the architecture, not just the paperwork.
-- **What does Matter's multi-admin model actually guarantee**, and is any of it salvageable for non-idempotent state? Needs the specification ingested — the strongest single source that would ground the smart-home half of this page.
+- ~~**What does Matter's multi-admin model actually guarantee?**~~ **Answered 2026-08-17** by ingesting the [spec](../../sources/matter-1-4-core-specification.md): it guarantees isolation of per-fabric *configuration* and **nothing about operational state**, with no arbitration anywhere. Salvageable for robots: the **ARL** (vendor-authored authority bound) and the deny-by-default privilege ladder. Not salvageable: anything about conflicting commands, because it does not exist. **New question: what changed in 1.5**, which adds cameras — the first Matter device class whose data sensitivity approaches a home robot's — and closures, the first that physically moves.
 - **Household multi-tenancy**: no ingested source covers per-person authority in a shared space. This is a genuine literature gap, not just a wiki gap.
 
 ## Related
@@ -142,4 +164,5 @@ Everything above assumes boundaries can be *enforced*. The wiki's finding is tha
 - [Control abstraction levels](../../concepts/robotics/control-abstraction-levels.md) · [World-model governance](../../concepts/safety/world-model-governance.md)
 - [Guardrails for robot agents](guardrails-for-robot-agents.md) · [Where the compute lives](on-device-and-on-robot-agents.md) · [LLM-agent architecture across stacks](llm-agent-architecture-across-stacks.md)
 - [Fleet agentic framework](../projects/fleet-agentic-framework.md) — the wiki's own manifest-and-bridge design
+- [Matter](../../entities/matter.md) · [Connectivity Standards Alliance](../../entities/connectivity-standards-alliance.md) — the smart-home trust model, now ingested
 - [Robot safety standards](../../concepts/robotics/robot-safety-standards.md) — ISO 13482, the certification path a home platform must eventually meet
