@@ -3,7 +3,7 @@ title: Aging in place
 type: concept
 created: 2026-07-13
 updated: 2026-08-17
-sources: 2
+sources: 3
 tags: [aging-in-place, elder-care, assistive-robotics, adl, iadl, home-modification, caregiving, demand-side]
 ---
 
@@ -35,6 +35,8 @@ Notably, the 2023 NIA guide's *only* named technology is **emergency medical ale
 
 > [!note] The consumer market has started selling directly into this gap — evidence unchanged
 > The [Zeroth M1](../../entities/zeroth-m1.md) (2026, $2,499) advertises "gentle fall detection, mobile safety checks, daily assistance, alerts" — i.e. it markets straight at the NIA's *safety* category, and at the same wearable-alert niche that guide names. It publishes **no accuracy figure, no trial, and no deployment evidence** for any of it ([product page](../../sources/zeroth-m1-product-page.md)). So the gap this section describes is now being addressed by **marketing rather than by evidence**, which is a different situation from the 2023 baseline and arguably a worse one: mainstream guidance omitting robots is a knowledge gap, whereas an unevaluated fall-detector sold for home elder-safety is a claim a family may act on.
+>
+> **Extended 2026-08-17**: [Matter 1.6](../../sources/matter-1-6-standard-namespaces.md) makes **`0x01 Fall`** a standard semantic tag in its Identified Human Activity namespace — a cross-vendor, interoperable signal any device can emit and any ecosystem can consume. **Nothing in that document sets a conformance bar for detection accuracy.** The industry now has a standardised way to *report* a fall and still no standardised way to know whether the report is any good, which widens rather than closes the gap this callout describes.
 
 ## Related concepts
 
@@ -51,3 +53,4 @@ Notably, the 2023 NIA guide's *only* named technology is **emergency medical ale
 
 - [Aging in Place: Growing Older at Home (NIA)](../../sources/nia-aging-in-place.md)
 - [Zeroth M1 — product page](../../sources/zeroth-m1-product-page.md)
+- [Matter 1.6 Standard Namespaces](../../sources/matter-1-6-standard-namespaces.md)

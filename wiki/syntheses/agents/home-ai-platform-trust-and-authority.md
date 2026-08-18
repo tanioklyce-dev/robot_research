@@ -57,6 +57,23 @@ The wiki already shows the primitive that acknowledges the problem: [AgenticROS]
 
 That flag exists because the arbitration problem is real at *hobbyist* scale, long before any commercial platform meets it — and the standards body serving hundreds of millions of home devices has not addressed it at all.
 
+> [!note] Extended 2026-08-17 — what Matter *does* instead, and it is not nothing
+> The 1.6 [Application Cluster spec](../../sources/matter-1-6-application-cluster-specification.md) shows Matter's actual safety model: **device-side refusal, not controller arbitration.** The device unilaterally ignores or rejects commands on its own local sensors and state, and reports why — Window Covering's **`SafetyStatusBitmap`** (`RemoteLockout` *"not granted authorization"*, `StopInput` *"local safety sensor… (e.g. Safety EU Standard EN60335)"*, `ManualOperation`, `MotorJammed`), **maintenance mode** (*"all commands… must be ignored"*, answer `BUSY`), **`CommandInvalidInState`** for regulatory preconditions, and an **EVSE lockout** until latching conditions are met.
+>
+> **This is the same answer [DimOS](../../entities/dimos.md) reached independently** — its `CapabilityRegistry` refuses with *"Cannot start X: capability Y is held by Z."* Two systems, no shared lineage, both concluding that the thing holding the actuator should be the thing that says no.
+>
+> **But refusal is only a safe default when the null action is safe.** A window covering that refuses to move is safe. A robot that refuses to move may be **blocking a doorway**. That is a property of the device class, not of the protocol — and it is now the sharpest reason Matter's model does not simply extend to a home robot.
+
+> [!warning] Added 2026-08-17 — CSA has published the household world model's *schema*
+> This page argued the platform asset is a persistent world model of a household, and that world-model lock-in is the moat. [Matter 1.6 Standard Namespaces](../../sources/matter-1-6-standard-namespaces.md) publishes **28 semantic-tag namespaces**, including a standardised vocabulary of home **areas** (Bedroom, Ensuite, GuestBathroom, Attic, Hallway…), **landmarks** (Bed, Crib, Cradle, HighChair, Toilet, Shower, PetBed, LitterBox…), and **Identified Human Activity** — Sleeping, Sitting, Walking, Workout, and **`0x01 Fall`**.
+>
+> Two consequences, pulling in opposite directions:
+>
+> - **It weakens the moat.** A shared ontology is what makes a household model *portable* between ecosystems. The data, map and embeddings stay vendor-private, but the schema no longer differentiates anyone.
+> - **It sharpens the privacy argument from hypothetical to itemised.** [World-model governance](../../concepts/safety/world-model-governance.md) warns a spatial model "may infer home routines… health-related behavior, social relationships." Crossing three namespaces, the standard vocabulary already distinguishes **who lives there** (Crib, HighChair → an infant; LitterBox, ScratchingPost → a cat; GuestBedroom → visitors), **where the private spaces are** (Bedroom, Ensuite, Shower, Toilet), and **what people are doing in them** (Sleeping, Walking, **Fall**) — with no camera and no name required.
+>
+> And a note for the [aging-in-place](../../concepts/robotics/aging-in-place.md) thread: **`Fall` is now a cross-vendor interoperable signal**, while the [Zeroth M1](../../entities/zeroth-m1.md) still markets fall detection with no accuracy figure. **Standardising how a claim is reported does nothing to standardise whether it is true**, and nothing in the namespace document sets a conformance bar for detection quality.
+
 ## How players will support multiple ecosystems
 
 **The open layer has already converged on the answer, twice, independently.**
@@ -156,6 +173,8 @@ Everything above assumes boundaries can be *enforced*. The wiki's finding is tha
 - **What is the arbitration protocol** when two ecosystems issue conflicting goals? `blocks_base` is a flag, not a protocol, and nothing in the wiki addresses cross-ecosystem preemption.
 - **Can incident reconstruction be made to work** for an end-to-end policy at all, or does liability force the whole category up to Level 3 permanently? This decides the architecture, not just the paperwork.
 - ~~**What does Matter's multi-admin model actually guarantee?**~~ **Answered 2026-08-17** by ingesting the [spec](../../sources/matter-1-4-core-specification.md): it guarantees isolation of per-fabric *configuration* and **nothing about operational state**, with no arbitration anywhere. Salvageable for robots: the **ARL** (vendor-authored authority bound) and the deny-by-default privilege ladder. Not salvageable: anything about conflicting commands, because it does not exist. **New question: what changed in 1.5**, which adds cameras — the first Matter device class whose data sensitivity approaches a home robot's — and closures, the first that physically moves.
+
+- ~~**What changed in 1.5 / 1.6?**~~ **Answered 2026-08-17 — nothing that closes the gap, and that is the finding.** The full [1.6 document set](../../sources/matter-1-6-core-specification.md) (2026-06-16; Core 1,335 pp + [Application Cluster](../../sources/matter-1-6-application-cluster-specification.md) 982 pp + [Device Library](../../sources/matter-1-6-device-library.md) 229 pp + [Standard Namespaces](../../sources/matter-1-6-standard-namespaces.md) 71 pp) contains **zero occurrences of `arbitrat` and zero of `interlock`** — two major versions on, and *after* adding **Closures** and a **Robotic Vacuum Cleaner**. §7.5.3 is verbatim unchanged. **The gap is structural, not incidental.**
 - **Household multi-tenancy**: no ingested source covers per-person authority in a shared space. This is a genuine literature gap, not just a wiki gap.
 
 ## Related

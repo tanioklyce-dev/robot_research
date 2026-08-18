@@ -4,7 +4,7 @@ type: entity
 subtype: standard
 created: 2026-08-17
 updated: 2026-08-17
-sources: 1
+sources: 5
 tags: [matter, smart-home, home-automation, interoperability, multi-admin, fabric, access-control, csa, standard]
 ---
 
@@ -19,7 +19,8 @@ The wiki's first home-automation source. It exists here because a **[home AI pla
 - **Access Control List (ACL)** — deny-by-default, matched **per fabric**, with five nested privileges: `View` → `ProxyView` / `Operate` → `Manage` → `Administer`.
 - **Access Restriction List (ARL)** — per-fabric, **set by the device**, naming attributes/commands/events an ecosystem may *not* reach. It **overrides** privileges the ecosystem's own administrator grants, returning `ACCESS_RESTRICTED`.
 - **Fabric-scoped data** — per-fabric configuration lists (ACLs, bindings, group keys), isolated so fabrics don't clobber each other's settings.
-- **Fabric Synchronization / Joint Fabric** (1.4) — mechanisms for ecosystems to share devices, with per-ecosystem user consent and an Anchor CA trusted across fabrics.
+- **Fabric Synchronization / Joint Fabric** (1.4) — mechanisms for ecosystems to share devices, with per-ecosystem user consent and an Anchor CA trusted across fabrics. **Joint Fabric Administrator** is a device type as of 1.6.
+- **Semantic tag namespaces** — 28 of them ([Standard Namespaces](../sources/matter-1-6-standard-namespaces.md)), including a standardised vocabulary of home **areas** (Bedroom, Ensuite, GuestBathroom, Attic…), **landmarks** (Bed, Crib, Toilet, LitterBox, PetBowl…), and **Identified Human Activity** — which includes **`0x01 Fall`**.
 
 ## The two findings that matter for robotics
 
@@ -36,6 +37,25 @@ Fabric-scoping is explicitly limited to **lists of fabric-scoped structs and fab
 > [!warning] Matter did not solve multi-controller arbitration — it externalized the problem
 > Two ecosystems writing the same attribute is not an error, not a conflict, and not resolved by any rule in the specification. It works in practice because **the state is trivial**: a bulb toggling between two admins is an annoyance, cheaply re-set, with no physical consequence. **That property is exactly what a mobile actuated robot does not have**, which is why Matter's multi-admin model does not extend to one by analogy. See [the home AI platform synthesis](../syntheses/agents/home-ai-platform-trust-and-authority.md).
 
+> [!note] Confirmed structural, 2026-08-17, across the full 1.6 document set
+> `arbitrat` and `interlock` both appear **zero times** in all four 1.6 documents (Core 1,335 pp, Application Cluster 982 pp, Device Library 229 pp, Standard Namespaces 71 pp) — **two major versions after 1.4, and after adding Closures and a Robotic Vacuum Cleaner**, device classes that physically move. The gap is a design decision, not a backlog item.
+>
+> CSA is not unaware of mutual exclusion. It ships **`BusyWithOtherAdmin`** for two commissioners colliding, and an **Ecosystem Information Cluster** for "conflict resolution between multiple sources of the name and location data." It solved the problem exactly where it chose to and declined to for device commands.
+
+## The safety model: device-side refusal, not controller arbitration
+
+Matter never negotiates between competing controllers. **The device refuses**, on its own local sensors and state, and reports why ([Application Cluster spec](../sources/matter-1-6-application-cluster-specification.md)):
+
+- **`SafetyStatusBitmap`** (Window Covering) — `RemoteLockout` (*"Movement commands are ignored… e.g. not granted authorization"*), `StopInput` (*"Local safety sensor… preventing movements (e.g. Safety EU Standard EN60335)"*), `ManualOperation`, `MotorJammed`, `TamperDetection`, `ThermalProtection`.
+- **Maintenance mode** — *"all commands… or local inputs that can result in movement, must be ignored"*, answering `BUSY`.
+- **`CommandInvalidInState`** — for *"regulatory or manufacturer-imposed safety and security requirements that first necessitate some specific action at the device before a Start command can be honored."*
+- **EVSE** — *"a safety mechanism that may lockout remote operation until the initial latching conditions have been met."*
+
+This is the same shape the ARL takes for authority: **the device is the arbiter of last resort, and it refuses rather than negotiates.** [DimOS](dimos.md)'s `CapabilityRegistry` arrived at the same answer independently — *"Cannot start X: capability Y is held by Z."*
+
+> [!note] Refusal is only a safe default when the null action is safe
+> A window covering that refuses to move is safe. A robot that refuses to move may be **blocking a doorway**. That is a property of the device class, not of the protocol — and it is the strongest argument that Matter's model does not simply extend to home robots.
+
 ## Why the ARL is the interesting part
 
 The **Access Restriction List is a standardized, shipping, vendor-authored bound on what an ecosystem may touch** — discoverable before commissioning (via `CommissioningARL`), negotiable (`ReviewFabricRestrictions`), and enforced *below* the administrator's own grants.
@@ -44,9 +64,12 @@ That is the same shape as the **typed capability manifest** the wiki's robot-age
 
 ## Limits relevant to this wiki
 
-- **No robot device type**, and nothing in 1.4 contemplates a mobile actuated node.
-- Nothing in the standard addresses **household multi-tenancy** in the human sense — per-person authority, guests, children. Its subjects are nodes and certificates, not people.
-- **Version caveat**: 1.4 (2024-11-04) is what is ingested; CSA has since published 1.4.1, 1.4.2, 1.5 and 1.5.1. **1.5 adds cameras** — the first Matter device class whose data sensitivity approaches a home robot's.
+> [!warning] Corrected 2026-08-17 — "no robot device type" was wrong
+> This page previously claimed Matter has no robot device type and that nothing contemplates a mobile actuated node. **False.** The [Device Library](../sources/matter-1-6-device-library.md) defines **§12 Robotic Device Types**, whose first entry is the **Robotic Vacuum Cleaner (`0x0074`)** — mandatory RVC Run Mode and RVC Operational State clusters, optional **Service Area**. The claim was drawn from the *Core Specification*, which is not the document that defines device types. Same error shape as the JetPack correction earlier the same day: **asserting an absence from a document that would not have contained it.**
+
+- **Still nothing on household multi-tenancy** in the human sense — per-person authority, guests, children. Matter's subjects are nodes and certificates, not people.
+- **No general home-robot device type.** The RVC is floor-cleaning-specific; nothing in 1.6 contemplates an arm or non-floor locomotion.
+- **Device-side refusal is the only safety model.** There is no controller-to-controller negotiation anywhere — see below.
 
 ## Related
 
@@ -57,4 +80,8 @@ That is the same shape as the **typed capability manifest** the wiki's robot-age
 
 ## Mentioned in
 
-- [Matter 1.4 Core Specification](../sources/matter-1-4-core-specification.md)
+- [Matter 1.6 Core Specification](../sources/matter-1-6-core-specification.md) — current revision
+- [Matter 1.6 Device Library](../sources/matter-1-6-device-library.md) — the 89 device types, incl. Robotic Vacuum Cleaner
+- [Matter 1.6 Application Cluster Specification](../sources/matter-1-6-application-cluster-specification.md) — the device-refusal safety model
+- [Matter 1.6 Standard Namespaces](../sources/matter-1-6-standard-namespaces.md) — the household ontology, incl. `Fall`
+- [Matter 1.4 Core Specification](../sources/matter-1-4-core-specification.md) — superseded; retained for the 1.4↔1.6 diff
