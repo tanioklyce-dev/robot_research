@@ -20,6 +20,7 @@ The wiki's first home-automation source. It exists here because a **[home AI pla
 - **Access Restriction List (ARL)** — per-fabric, **set by the device**, naming attributes/commands/events an ecosystem may *not* reach. It **overrides** privileges the ecosystem's own administrator grants, returning `ACCESS_RESTRICTED`.
 - **Fabric-scoped data** — per-fabric configuration lists (ACLs, bindings, group keys), isolated so fabrics don't clobber each other's settings.
 - **Fabric Synchronization / Joint Fabric** (1.4) — mechanisms for ecosystems to share devices, with per-ecosystem user consent and an Anchor CA trusted across fabrics. **Joint Fabric Administrator** is a device type as of 1.6.
+- **Camera privacy controls** — `HardPrivacyModeOn` (a **physical button or switch** pausing *all* streams across every fabric), plus soft per-usage recording and livestream modes that terminate active WebRTC sessions with reason `PrivacyMode`. **An e-stop for data, on a standard with no e-stop for motion.** No retention or deletion requirements anywhere — privacy here is capture-time control, not lifecycle governance.
 - **Semantic tag namespaces** — 28 of them ([Standard Namespaces](../sources/matter-1-6-standard-namespaces.md)), including a standardised vocabulary of home **areas** (Bedroom, Ensuite, GuestBathroom, Attic…), **landmarks** (Bed, Crib, Toilet, LitterBox, PetBowl…), and **Identified Human Activity** — which includes **`0x01 Fall`**.
 
 ## The two findings that matter for robotics
@@ -41,6 +42,11 @@ Fabric-scoping is explicitly limited to **lists of fabric-scoped structs and fab
 > `arbitrat` and `interlock` both appear **zero times** in all four 1.6 documents (Core 1,335 pp, Application Cluster 982 pp, Device Library 229 pp, Standard Namespaces 71 pp) — **two major versions after 1.4, and after adding Closures and a Robotic Vacuum Cleaner**, device classes that physically move. The gap is a design decision, not a backlog item.
 >
 > CSA is not unaware of mutual exclusion. It ships **`BusyWithOtherAdmin`** for two commissioners colliding, and an **Ecosystem Information Cluster** for "conflict resolution between multiple sources of the name and location data." It solved the problem exactly where it chose to and declined to for device commands.
+
+> [!warning] Qualified 2026-08-17 — the keyword search missed a real mechanism
+> The zero-hit result above was a search for **`arbitrat`**. **CSA's term is "conflict resolution."** The [Application Cluster spec](../sources/matter-1-6-application-cluster-specification.md) §11.2.1.2.2 is titled **"Multiple Stream Resource Conflict Resolution"**, and it defines exactly what the paragraphs above say does not exist — for **camera streams shared "among clients (potentially in different fabrics)"**: an administrator-configurable **`SetStreamPriorities`** ranking, a **mandatory reuse rule** (matching parameters ⇒ "the camera SHALL reuse the existing one"), and an **incumbent-protected, newcomer-rejected** policy (a new request that would violate an existing stream's minimum configuration "SHALL be rejected with a FAILED notification").
+>
+> **The claim that survives is narrower and sharper: Matter has join semantics for sensing and none for actuation.** Two fabrics requesting the same stream get *literally the same stream*; two fabrics writing the same attribute get last-write-wins. **Sensing composes; actuation does not.** That is a coherent design — and it is exactly why the model does not extend to a home robot, which is mostly actuation.
 
 ## The safety model: device-side refusal, not controller arbitration
 
