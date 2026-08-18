@@ -11,7 +11,7 @@ tags: [dimos, dimensional, home-ai, agents, mcp, capability-manifest, authority,
 Applying the [home AI platform](home-ai-platform-trust-and-authority.md) framework to a specific stack: **[DimOS](../../entities/dimos.md)** (DimensionalOS), the largest agentic-robotics codebase in this wiki. The lens produces a clean split — DimOS already implements the asset the platform fight is over, and has essentially none of the authority model that would let an ecosystem be trusted with it.
 
 > [!warning] Evidence base: one source, no measurements
-> Everything here derives from the [DimOS repository](../../sources/dimos-github.md) as ingested 2026-08-13. **The repo publishes no success rates, latencies, or benchmarks of any kind.** This is an architecture read, not a performance one. Also, the source page is a summary of a **277 MB repository** — where this page says "no ingested evidence of X," that is a statement about the wiki, not a proof about the code. The claims most worth verifying in the tree before relying on them are flagged inline.
+> Everything here derives from the [DimOS repository](../../sources/dimos-github.md) as ingested 2026-08-13. **The repo publishes no success rates, latencies, or benchmarks of any kind.** This is an architecture read, not a performance one. Also, the source page is a summary of a **277 MB repository** — where this page says "no ingested evidence of X," that is a statement about the wiki, not a proof about the code. **Updated 2026-08-17**: the two claims flagged for verification were checked directly against the repository tree and raw files. One held, one did not — both marked inline in §3.
 
 ## 1. It already implements the household world model
 
@@ -43,7 +43,7 @@ Compare the two manifest philosophies directly.
 | Authored by | **the device vendor** | whoever wrote the method |
 | Default posture | *"no implicit access permitted by default"* | **exposed on decoration** |
 | Granularity | **per-fabric** (per ecosystem) | global — one surface for all clients |
-| Expresses | what a given ecosystem may **not** touch | what exists |
+| Expresses | what a given ecosystem may **not** touch | what exists, plus what it **occupies** (`uses=`) |
 | Discoverable in advance | yes (`CommissioningARL`) | at runtime, by attaching |
 | Negotiable | yes (`ReviewFabricRestrictions`) | n/a |
 | Overrides the caller's own admin | **yes** (`ACCESS_RESTRICTED`) | n/a |
@@ -51,6 +51,9 @@ Compare the two manifest philosophies directly.
 DimOS's mechanism: *"on startup it discovers all `@skill`-annotated methods across deployed modules via RPC and exposes them as LangChain tools,"* with docstrings as tool descriptions. `McpServer` republishes them and **any external MCP client can attach**.
 
 The [DimOS entity page](../../entities/dimos.md) praises this, correctly, because **"the manifest cannot drift from the code."** Through this lens the same property is a liability: **exposure is a property of the code, not of the relationship.** There is no way to say *this client may not do that*, because there is no per-client anything. Decorating a method grants it to every attached agent.
+
+> [!note] Qualified 2026-08-17 — part of the manifest *is* declared
+> `@skill` is not purely discovery. Its **`uses=[...]`** argument is a declared field naming the capabilities the skill occupies (see the tree check below). So DimOS declares **occupancy** and discovers **existence**. That is a meaningful distinction: it means the decorator already has a place to carry per-skill metadata, and an authority field could live beside `uses=` without redesigning the mechanism. The gap is not that DimOS lacks a manifest format — it is that the manifest has no notion of *who is asking*.
 
 **Matter is deny-by-default; DimOS is allow-by-decoration.** That is the single largest architectural difference between the wiki's best agentic stack and the standard that already governs hundreds of millions of home devices.
 
@@ -60,9 +63,18 @@ The shipped skills include **`relative_move(forward, left, degrees)`** — direc
 
 The [home AI platform](home-ai-platform-trust-and-authority.md) page predicted the commercially plausible split as *ecosystem gets Level 3, vendor keeps Levels 1–2*. **That split does not hold here.** Per [control abstraction levels](../../concepts/robotics/control-abstraction-levels.md), the de-facto safety boundary is the pretrained-policy layer — "models cannot reliably drive joints, but can competently supervise controllers." DimOS has no policy in the loop, so that boundary is absent; whatever bounds exist live inside individual skill implementations and are undocumented here.
 
-> [!warning] Two asymmetries worth verifying in the tree
-> - **No ingested evidence of an auth, permission, or allowlist model.** A keyword search of the source page for auth / security / permission / credential / e-stop returns nothing. Given the repo's size that is a statement about the wiki's summary, not a proof — but it is the first thing to check.
-> - **[AgenticROS](../../entities/agenticros.md) ships `blocks_base`, `interruptible`, and an `/estop` that bypasses the AI.** DimOS's ingested evidence shows **none of the three**, on a codebase an order of magnitude larger. See [guardrails for robot agents](guardrails-for-robot-agents.md), where the finding is that the execution rail ships empty.
+> [!warning] Checked against the tree 2026-08-17 — **one half of this was wrong**
+> This page originally listed arbitration as absent and flagged it as the highest-value thing to verify. Verified via the GitHub tree API and raw file reads. **The arbitration claim was wrong; the authority claim was right.**
+>
+> **Arbitration exists, and is better than AgenticROS's flag.** `dimos/agents/capabilities.py` implements a **`CapabilityRegistry`** — *"capability registry for skill-level mutual exclusion."* A skill **declares** what it occupies via **`@skill(uses=[...])`**; the MCP server consults a process-wide registry before dispatching every `tools/call`. Holds are **per-invocation tokens**, not tool names, so a stale invocation's teardown cannot release a live hold; same-tool re-acquire is a **takeover**, different-tool is a **conflict**. Acquire is **atomic all-or-nothing** across the requested capabilities, with a try-lock default and an optional timeout that blocks only on `instant` holders (`background` holders "run until explicitly stopped, so refuse instead"). On conflict the server **refuses** — *"Cannot start X: capability Y is held by Z"* — and hands the decision back to the LLM, with advice to call the holder's stop tool and retry.
+>
+> **But the vocabulary is one word long.** *"Today the only declared capability is `CAP_MOVEMENT`."* So the base is arbitrated and **nothing else is** — not arms, not cameras, not the speaker. The mechanism is sound and essentially unpopulated.
+>
+> **Authentication and authorization are genuinely absent.** `mcp_server.py`'s only middleware is CORS, configured **`allow_origins=["*"]`, `allow_methods=["POST","GET"]`, `allow_headers=["*"]`**. No `Depends`, no `HTTPBearer`, no `APIKey`, no `Security` — `POST /mcp` and `GET /mcp` are unauthenticated.
+>
+> **No e-stop.** The tree contains no `estop`, `emergency`, `interlock`, or `deadman` path; the nearest thing is one `dimos/core/coordination/watchdog_main.py`. [AgenticROS](../../entities/agenticros.md)'s `/estop` that bypasses the AI still has no counterpart here.
+>
+> *(Incidental but worth knowing: **"security" in the DimOS tree means the surveillance application**, not access control — `dimos/experimental/security_demo/`, `unitree_go2_security.py`. Searching for the word finds the opposite of what a reader expects.)*
 
 ## 4. Multi-homing: architecturally yes, which is exactly the problem
 
@@ -96,8 +108,9 @@ DimOS is the **developer/integrator layer beneath** a home AI platform, not the 
 | Household world model | **Built** — `memory2`, premap, relocalization, locally owned |
 | Auditability / incident reconstruction | **Best in the wiki** — inspectable state + full replay |
 | Multi-homing surface | **Yes** — MCP, any client |
-| Authority model | **Absent** — allow-by-decoration, no per-client scoping |
-| Arbitration | **Absent** — no `blocks_base` equivalent in evidence |
+| Authority model | **Absent** — allow-by-decoration; CORS `*`, no auth middleware, no per-client scoping |
+| Arbitration (concurrency) | **Present, and good** — `CapabilityRegistry`, `@skill(uses=[...])`, token-scoped holds, atomic acquire — but **`CAP_MOVEMENT` is the only capability declared** |
+| E-stop | **Absent** — no estop/emergency/interlock path in the tree |
 | Trust defaults | **Cloud on both** model and transport |
 | Multi-tenancy | **Absent** |
 | Consumer-tier compute | **No** — AGX Orin class |
@@ -106,8 +119,8 @@ DimOS is the **developer/integrator layer beneath** a home AI platform, not the 
 
 ## Open questions
 
-- **Does an auth/permission layer exist in the repo?** The highest-value check on this page, and it is a `grep` away for anyone with the tree.
-- **Is there any preemption primitive** — a `blocks_base` analogue, a mutex on the base, an interruptible flag? Its absence is inferred from a summary.
+- ~~**Does an auth/permission layer exist in the repo?**~~ **Answered 2026-08-17: no.** CORS `allow_origins=["*"]`, no auth middleware on either `/mcp` endpoint.
+- ~~**Is there any preemption primitive?**~~ **Answered 2026-08-17: yes** — `CapabilityRegistry` with `@skill(uses=[...])`. The live question is now **why the capability vocabulary has exactly one entry**, and what breaks when two agents contend for an arm or a camera, neither of which is arbitrated.
 - **What happens when two MCP clients issue conflicting skill calls?** Unmeasured and unspecified.
 - **Would adding a VLA to the control loop destroy the auditability advantage?** Almost certainly yes, and DimOS's roadmap already feeds [LeRobot](../../entities/lerobot.md) v3.0 datasets. **The auditability property is an accident of not having done the thing the project is building toward.**
 - **What is `gpt-5.6-luna`?** Named as the default in the agent docs; uncovered anywhere in this wiki.

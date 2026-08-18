@@ -96,6 +96,16 @@ RTX 3000+ / 8 GB VRAM minimum, RTX 4070+ recommended; GPU optional for control, 
 > [!warning] It breaks two of four convergences
 > The [across-stacks synthesis](../syntheses/agents/llm-agent-architecture-across-stacks.md) found that every stack (a) defaults to a small open-weights Qwen for on-device agency and (b) hand-rolls a JSON tool schema rather than depending on a provider's function-calling API. DimOS does **neither** — cloud `gpt-5.6-luna` by default, and **MCP + LangGraph** as the tool surface. The portability bet moved from *avoid protocols* to *standardize on an open one*.
 
+> [!note] Capability registry — skill-level mutual exclusion (verified in-tree 2026-08-17)
+> `dimos/agents/capabilities.py` implements a **`CapabilityRegistry`**: a skill declares what it occupies via **`@skill(uses=[...])`**, and the MCP server consults a process-wide registry before dispatching every `tools/call`. Holds are keyed by **per-invocation token** rather than tool name, so a stale invocation cannot release a live hold and a same-tool re-acquire is a **takeover**; different tools sharing a capability **conflict**. Acquire is **atomic all-or-nothing**, try-lock by default, with an optional timeout that waits only on `instant` holders — `background` holders "run until explicitly stopped, so refuse instead." On conflict the server refuses with *"Cannot start X: capability Y is held by Z"* and lets the agent decide (typically: call the stop tool, retry).
+>
+> This is a **more developed preemption primitive than [AgenticROS](agenticros.md)'s `blocks_base` boolean** — but *"today the only declared capability is `CAP_MOVEMENT`."* The base is arbitrated; arms, cameras and the speaker are not.
+
+> [!warning] No authentication on the MCP surface (verified in-tree 2026-08-17)
+> `mcp_server.py`'s only middleware is CORS — **`allow_origins=["*"]`, `allow_methods=["POST","GET"]`, `allow_headers=["*"]`** — with no `Depends`, `HTTPBearer`, `APIKey` or `Security` on either `POST /mcp` or `GET /mcp`. There is **no per-client scoping of the skill surface**: any attaching MCP client gets every `@skill`. The tree also contains **no estop / emergency / interlock / deadman path** (nearest: `dimos/core/coordination/watchdog_main.py`). Analysis: [DimOS as a home-AI substrate](../syntheses/agents/dimos-as-home-ai-substrate.md).
+>
+> Note for anyone grepping: **"security" in this repo means the surveillance application** — `dimos/experimental/security_demo/`, `unitree_go2_security.py` — not access control.
+
 > [!note] Skill discovery is a real improvement on the pattern
 > The other three stacks maintain a prompt template listing the skill vocabulary plus a hand-written dispatcher. DimOS derives the tool surface from the running system by RPC introspection of `@skill` methods. Adding a capability is adding a decorated method — the manifest cannot drift from the code.
 

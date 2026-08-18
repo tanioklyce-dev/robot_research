@@ -154,6 +154,16 @@ Dependency tiers are granular: bare `pip install dimos` is core-only (transport,
 - [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) · [Agent skills](../concepts/agents/agent-skills.md) · [Code as policy](../concepts/agents/code-as-policy.md)
 - [Imitation learning](../concepts/learning/imitation-learning.md) · [Motion planning](../concepts/robotics/motion-planning.md) · [End-user robot programming](../concepts/robotics/end-user-robot-programming.md)
 
+## Addendum — direct tree read, 2026-08-17
+
+The 2026-08-13 ingest worked from the README and docs. Re-checked against the repository itself (GitHub tree API, 2,775 paths, plus raw file reads) to settle questions the summary had left open:
+
+- **`dimos/agents/capabilities.py` — `CapabilityRegistry`**, *"capability registry for skill-level mutual exclusion."* Skills declare occupancy via **`@skill(uses=[...])`**; the MCP server acquires before every `tools/call`. Per-invocation token holds, same-tool takeover, different-tool conflict, atomic all-or-nothing acquire, try-lock default with an optional timeout that waits only on `instant` (not `background`) holders. Conflict returns *"Cannot start X: capability Y is held by Z"* to the agent. **`CAP_MOVEMENT` is the only capability declared.**
+- **No authentication on the MCP server.** Only middleware is CORS with `allow_origins=["*"]`, `allow_methods=["POST","GET"]`, `allow_headers=["*"]`; no `Depends` / `HTTPBearer` / `APIKey` / `Security` on `POST /mcp` or `GET /mcp`.
+- **No e-stop.** No `estop`, `emergency`, `interlock` or `deadman` path in the tree; nearest is `dimos/core/coordination/watchdog_main.py`.
+- **`SkillResult`** (`dimos/agents/skill_result.py`) — typed `error_code` return replacing free-form strings, so callers branch on codes rather than parsing prose. Domain-specific `Literal` aliases enforce which codes a skill may emit.
+- **"security" in this tree is the surveillance demo**, not access control: `dimos/experimental/security_demo/`, `unitree_go2_security.py`.
+
 ## Open questions
 
 - **No success rates, latencies, or benchmark numbers anywhere.** Same evidentiary problem as [Waddle](waddle-labs-introducing-waddle.md), on a far larger codebase: capability breadth is verifiable from the source tree, capability *quality* is not. What is `navigate_with_text` success rate in an unseen building? What is agent-loop latency at the `gpt-5.6-luna` tier? Unmeasured here and unmeasurable from a repo.
