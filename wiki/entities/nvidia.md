@@ -3,8 +3,8 @@ title: NVIDIA
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-06-02
-sources: 52
+updated: 2026-08-23
+sources: 53
 tags: [nvidia, gpu, simulation, physical-ai]
 ---
 
@@ -21,6 +21,10 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - **Edge AI compute**: the Jetson product line — [Jetson Orin Nano](jetson-orin-nano.md), Orin NX, AGX Orin, and the new **Blackwell-generation [Jetson Thor](jetson-thor.md)** (T5000 + T4000 modules, AGX Thor Dev Kit, launched 2025-08-25) — paired with [JetPack](jetpack.md) SDK (CUDA + TensorRT + DeepStream + VPI) on [Jetson Linux](jetson-linux.md) BSP. The substrate for most wiki-tracked educational and research robots that aren't running on an x86 workstation.
 - **Agentic-AI safety stack**: NVIDIA also owns the *guardrail* layer — [NeMo Guardrails](nemo-guardrails.md) (programmable runtime rails + the NemoGuard content-safety / topic-control / jailbreak-detect NIMs) and [garak](garak.md) (open-source LLM vulnerability scanner), packaged as a build→deploy→run "safety recipe" ([NVIDIA safety recipe](../sources/nvidia-safety-recipe-agentic-ai.md), July 2025; blueprint deprecated 2026-04-22 in favor of NeMo Microservices). The same pattern reappears as NVIDIA OpenShell inside [NemoClaw](../sources/nvidia-nemoclaw-page.md). Notable as the one part of NVIDIA's agentic stack with **no robotics story yet** — every guard model classifies text, not tool calls.
 - **Personal AI supercomputer**: [DGX Spark](dgx-spark.md) — desktop-form-factor GB10 Grace Blackwell box with 128 GB unified memory and RT cores; NVIDIA's prescribed workstation for the train-on-Spark, deploy-on-Thor split ([Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.md)).
+
+## Grasping
+
+- **[GraspGen / GraspGen-X](graspgen.md)** — NVIDIA's 6-DOF grasp-generation line (SE(3) diffusion generator + discriminator). [GraspGen-X](../sources/graspgenx-paper.md) (CVPR 2026, with Princeton) makes it **cross-embodiment across gripper morphology**, trained on 350 M ACRONYM-labelled grasps in [Isaac Sim](nvidia-isaac-sim.md) using **procedurally generated grippers**. Model, code and dataset promised on NVlabs. It is the grasp module of the modular NVIDIA manipulation stack whose other pieces — [cuRobo](curobo.md), nvblox, FoundationStereo, FoundationPose — this wiki already tracks separately.
 
 ## Related
 - [NVIDIA Isaac Sim](nvidia-isaac-sim.md), [NVIDIA Isaac Lab](nvidia-isaac-lab.md), [Newton physics engine](newton-physics-engine.md), [NVIDIA Cosmos](nvidia-cosmos.md), [NVIDIA Brev](nvidia-brev.md) — products.
@@ -50,3 +54,4 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - [Jetson Linux R36.5 release](../sources/nvidia-jetson-linux-r36-5-release.md)
 - [Jetson Linux R36.5 update mechanism](../sources/nvidia-jetson-linux-r36-5-update-mechanism.md)
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../sources/hai-world-model-spatial-intelligence-brief.md) — Omniverse cited as the reference point for *conventional* simulation ("slow, specialist work" per environment) against which learned world models are pitched; NVIDIA also named among the incumbents leading the world-model push, and among HAI's disclosed funders.
+- [GraspGen-X: Cross-Embodiment 6-DOF Diffusion-based Grasping](../sources/graspgenx-paper.md)

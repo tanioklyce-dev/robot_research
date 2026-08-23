@@ -3,7 +3,7 @@ title: Sourccey
 type: entity
 subtype: robot
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-08-23
 sources: 9
 tags: [sourccey, vulcan-robotics, mobile-manipulator, dual-arm, mecanum, lerobot, xvla, feetech, raspberry-pi-5, 3d-printed, household-robot, laundry-folding, open-hardware, cern-ohl]
 ---
@@ -14,7 +14,7 @@ Hardware: [github.com/vulcan-forge/sourccey-hardware](https://github.com/vulcan-
 
 ## Why it matters in this wiki
 
-Sourccey is the **first consumer robot product in this wiki's coverage to ship with a named research VLA preinstalled**. [XLeRobot](xlerobot.md) and [LeKiwi](lekiwi.md) hand you a platform and point at [LeRobot](lerobot.md); Sourccey hands you four working laundry-folding policies and a store page. Whether the policies survive contact with a 5-DOF PLA arm is the open question — but the *packaging* is a step nobody else in the sub-$2k tier has taken.
+Sourccey is the **first consumer robot product in this wiki's coverage to ship with a named research VLA preinstalled**. Its closest tier peer is now the **[NORI A3](nori-a3.md)** ($1,688, also [Pi 5](raspberry-pi-5.md)-hosted, also shipping Fall 2026), which takes the mirror-image bet: no preinstalled policy at all, and a **Skills Marketplace** where owners train and trade their own. [XLeRobot](xlerobot.md) and [LeKiwi](lekiwi.md) hand you a platform and point at [LeRobot](lerobot.md); Sourccey hands you four working laundry-folding policies and a store page. Whether the policies survive contact with a 5-DOF PLA arm is the open question — but the *packaging* is a step nobody else in the sub-$2k tier has taken.
 
 It also lands squarely in the wiki's [assistive robotics](../concepts/robotics/assistive-robotics.md) and household-manipulation themes with a task list — laundry, table setting, cleaning — that matches [π0](pi-zero.md)'s and [X-VLA](x-vla.md)'s flagship demos rather than a demo reel of pick-and-place.
 

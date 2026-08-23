@@ -3,7 +3,7 @@ title: Zeroth M1
 type: entity
 subtype: robot
 created: 2026-08-17
-updated: 2026-08-17
+updated: 2026-08-23
 sources: 1
 tags: [zeroth, m1, home-robot, companion-robot, assistive-robotics, fall-detection, biped, wheeled, consumer-robotics]
 ---
@@ -58,3 +58,8 @@ At **2.8 kg and 494 mm with no published payload or reach**, the M1 is not a phy
 ## Mentioned in
 
 - [Zeroth M1 — product page](../sources/zeroth-m1-product-page.md)
+
+## Tier peers
+
+- **[NORI A3](nori-a3.md)** — $1,688, bimanual manipulator rather than companion; the first product in this tier with a published price, a shipped unit and self-reported revenue. A useful control on the M1's storefront: same tier, same fall window, materially more disclosure.
+- [Sourccey](sourccey.md) · [XLeRobot](xlerobot.md)

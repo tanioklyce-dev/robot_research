@@ -2,7 +2,7 @@
 title: Who benefits from consumer robotics in 2026–2027 (other than NVIDIA)
 type: synthesis
 created: 2026-08-17
-updated: 2026-08-17
+updated: 2026-08-23
 tags: [economics-of-ml, consumer-robotics, value-chain, actuators, edge-compute, business-models, market-analysis, synthesis]
 ---
 
@@ -19,11 +19,17 @@ A value-chain reading of the consumer-robot wave, built from the component costs
 
 | Product | Status in this wiki |
 |---|---|
+| **[NORI A3](../../entities/nori-a3.md) ($1,688)** | **The first exception.** Complete published price, no deposit, US assembly, **first unit shipped and >$300 K in sales within 6 weeks** ([YC profile](../../sources/nori-robotics-yc-profile.md)). Onboard compute is a **[Pi 5](../../entities/raspberry-pi-5.md) 4 GB** — disclosed on the YC page, never on the storefront ([product site](../../sources/nori-robotics-site.md)) |
 | [Zeroth M1](../../entities/zeroth-m1.md) ($2,499) | Pre-order on a visibly unfinished storefront — placeholder meta description, `InStock` under a "Reserve Now" button, 404s on every company page ([product page](../../sources/zeroth-m1-product-page.md)) |
 | [Sourccey](../../entities/sourccey.md) | **No published price**, store not live ([Vulcan Robotics](../../entities/vulcan-robotics.md)) |
 | [Fauna Sprout](../../entities/fauna-robotics.md) | Creator Edition, developer-tier |
 | [Reachy 2](../../entities/reachy.md) | ~$50k — research tier, not consumer |
 | [K-Scale Labs](../../entities/k-scale-labs.md) | **Shut down late 2025** |
+
+> [!note] Nori partially falsifies the premise above (added 2026-08-23)
+> This page was written when nothing in the tier had a price *and* a shipment. Nori has both, at the **lowest price of any of them**, which moves the "installed base" clock off zero. It does not move it far — ~178 units at list, self-reported — but the argument should no longer be stated as "announcement, not shipment" without qualification.
+>
+> It also sharpens **Tier 2** (whoever serves the model). Nori's own thesis is that the robot is a **data-collection instrument** for training generalist policies, and its 4 GB Pi 5 means inference cannot run onboard. So the unit economics of every A3 sold include *someone* serving a model, on the owner's laptop today and plausibly in a datacentre later. That is Tier 2 exposure created by a Tier 1 sale — and it is retention-dependent, which is the split this page ends on.
 
 That changes the answer materially. Value accruing at the **order and build** stage is happening now and is well-evidenced. Value accruing to an **installed base** — services, subscriptions, data — is a forecast resting on shipments that have not yet been demonstrated. Anyone reasoning about this should keep the two clocks separate.
 

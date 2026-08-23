@@ -10,6 +10,26 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-08-23] GraspGen-X + Nori — follow-ups
+
+**Grasping**
+
+- [ ] **Ingest GraspGen (Murali et al., 2025).** [GraspGen-X](sources/graspgenx-paper.md) is entirely an extension of it, and the wiki now cites the base architecture — SE(3) diffusion generator + on-generator discriminator flywheel — from a source that only summarises it. Also the origin of the "week of an 8-GPU node per embodiment" figure the whole cross-embodiment argument rests on.
+- [ ] **Ingest ACRONYM (Eppner et al., 2020).** The simulation grasp-labelling pipeline behind every number on the [6-DOF grasp generation](concepts/robotics/six-dof-grasp-generation.md) page, cited third-hand.
+- [ ] **Does swept-volume conditioning work for a [SO-101](entities/so-arm101.md)-class printed jaw?** The representation assumes fingers that close through a volume, and the released model is Franka/Robotiq/G1-shaped. The SO-101 gripper is a single-actuator printed jaw. Generating its swept-volume cube is a ~1-hour job against the released checkpoint and would tell us whether the affordable tier is inside or outside the procedural distribution. **The cheapest high-information experiment surfaced this session.**
+- [ ] **Nobody has measured 6-DOF grasp generation on a 5-DoF arm.** GraspGen-X conditions on the *gripper* and is entirely agnostic to the *arm* — feasibility is delegated to the planner's IK rejection. The paper's own clutter analysis says coverage of the candidate set, not per-grasp precision, is what binds when rejection is high; on a 5-DoF arm rejection is high **everywhere**. Directly extends the [5-DoF RoboTwin plan](syntheses/projects/five-dof-arms-in-robotwin.md) and shares its blocker (needs a real GPU, not WSL).
+- [ ] **The 2 B-grasp checkpoint has no published numbers**, only a dataset size. If NVlabs releases it, the delta over the 350 M CVPR model is the field's cleanest available scaling datapoint for grasp data specifically.
+- [ ] **OnRobot RG2 regression is unexplained** (retargeting 0.241 vs GraspGen-X 0.136). The authors offer a hypothesis about morphology coverage and nothing more. Is there a diagnosable class where the cube abstraction is actively misleading rather than merely lossy?
+- [ ] **What is a swept volume for a suction cup or an underactuated soft gripper?** Two end-effector classes the representation cannot express, both common in the domestic setting this wiki cares about.
+
+**Consumer robotics**
+
+- [ ] **The [NORI A3](entities/nori-a3.md) is the teardown candidate.** The backlog has carried "no consumer-robot teardown or BOM anywhere in the wiki" since 2026-08-17. Nori is now the cheapest shipping unit in the tier with the most disclosed spec sheet and the most conspicuous gap (two 7-DOF arms, 55 kg lift, LiDAR, four cameras and a 6–8 h battery **at $1,688** — that BOM does not obviously close). A teardown or a credible BOM reconstruction would test the price directly.
+- [ ] **What is a Skills Marketplace "skill"?** Trajectory, checkpoint, or script. Unanswerable from either primary, and it decides whether Nori's data-flywheel thesis is a real mechanism or a slogan. Check again once units are in owners' hands and the app is documented.
+- [ ] **Confirm the thin-client architecture.** The inference-runs-on-your-laptop reading is inference from the Pi 5 4 GB spec, not a stated fact. One owner report, one app teardown, or one vendor sentence settles it — and it is the single most decision-relevant thing about the product.
+- [ ] **No depth sensor at manipulation range** (4× RGB + planar LiDAR). Worth watching whether the shipped unit adds stereo or the policies are genuinely monocular. If monocular, the A3 is structurally locked out of the [6-DOF grasp generation](concepts/robotics/six-dof-grasp-generation.md) path just ingested.
+- [ ] **Ingest the Forbes launch coverage** *only* if it carries hands-on observation. WebFetch 403s on forbes.com; it is also the likely origin of the "lifts 55 kg" scope error, so treat as a secondary throughout.
+
 ## [2026-08-17] Home-AI-platform gap — the wiki has no smart-home coverage at all
 
 Surfaced by the [home AI platform](syntheses/agents/home-ai-platform-trust-and-authority.md) and [consumer value chain](syntheses/society/consumer-robotics-value-chain.md) syntheses. Half of each rests on uncited framing because the wiki covers agentic robotics deeply and home automation not at all.

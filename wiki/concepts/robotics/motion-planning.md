@@ -2,7 +2,7 @@
 title: Motion planning (classical)
 type: concept
 created: 2026-07-04
-updated: 2026-08-16
+updated: 2026-08-23
 sources: 7
 tags: [motion-planning, sampling-based, rrt, prm, trajectory-optimization, search, ompl, explicit-model, graphs-of-convex-sets, convex-optimization]
 ---
@@ -54,6 +54,7 @@ Two structural differences behind that, both worth keeping:
 
 ## Related concepts
 
+- [6-DOF grasp generation](six-dof-grasp-generation.md) — what supplies a manipulation planner its goal poses. [GraspGen-X](../../sources/graspgenx-paper.md) hands the planner **100 ranked candidates** and lets collision/IK rejection choose, which turns "how good is the best grasp" into "how well are the grasps spread over the object" — a planner-side framing of grasp quality this wiki had not carried before.
 - [Graphs of convex sets (GCS)](graphs-of-convex-sets.md) — the optimization framework under the family-3 result above; also the wiki's clearest instance of a planner that certifies its own suboptimality.
 - [Task and motion planning](task-and-motion-planning.md) — the long-horizon layer above single-query motion planning.
 - [Optimal control](optimal-control.md) — trajectory optimization is the shared machinery; MPC is the feedback form.

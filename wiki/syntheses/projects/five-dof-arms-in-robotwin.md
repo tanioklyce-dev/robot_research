@@ -2,7 +2,7 @@
 title: Can RoboTwin 2.0 generate data for a 5-DoF arm? — experiment plan
 type: synthesis
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-08-23
 tags: [robotwin, so-arm101, xlerobot, sourccey, 5-dof, kinematic-deficiency, curobo, sapien, data-generation, experiment-plan, projects]
 ---
 
@@ -39,6 +39,11 @@ So orientation has **two free parameters (φ, ψ)** with the third — the tool'
 > **A 5-DoF SO-101-class arm has the opposite preference.** It is fully dexterous top-down and severely constrained laterally — because its missing DoF is wrist *yaw*, and roll substitutes for yaw only when the tool points down. Applied unchanged, RoboTwin's candidate generation would bias toward precisely the directions this arm cannot use.
 >
 > **Falsifiable consequence:** failures should concentrate in tasks needing non-radial lateral approach — `handover_block`, `handover_mic`, `open_laptop`, `open_microwave`, `turn_switch`, `hanging_mug` — and top-down placement tasks (`place_object_basket`, `stack_bowls_two`, `place_a2b_*`) should hold up far better than the headline DoF story implies. If instead failures are uniform across task types, the deficiency is being masked by something else (most likely reach — see the confound below) and the kinematic story is wrong.
+
+> [!note] Independent convergence — NVIDIA shipped the top-down fix, for a different reason (added 2026-08-23)
+> [GraspGen-X](../../sources/graspgenx-paper.md)'s post-CVPR release adds a **Grasp Mixture-of-Experts**: alongside its diffusion sampler it runs a **PCA oriented-bounding-box sampler** that emits top-down and side grasps explicitly, and lets the discriminator rank the pooled set. It is on by default. The stated motivation is nothing to do with arm kinematics — *"user feedback highlights a need for top-down grasps, particularly for benchmarks like [LIBERO](../../entities/libero.md) where objects rest in upright stable poses. Although our diffusion model generates top-down grasps, it does not strictly enforce them."*
+>
+> Two things follow. First, **the general failure mode is real and independently observed**: a learned grasp sampler that *can* produce top-down grasps but cannot be *made* to is a practical problem people hit, and the accepted fix is a classical sampler bolted alongside the learned one — exactly the shape of the bias proposed here. Second, it **weakens the novelty of the "bias toward top-down" half of this plan** while leaving the sharper half untouched: nobody has biased toward **radial lateral**, and nobody has relaxed the target from a rigid SE(3) pose to a 5-DoF constraint manifold. Retarget the contribution accordingly.
 
 **Why this matters beyond the experiment:** if it holds, the fix is small and specific — bias candidate generation toward top-down and *radial* lateral, and relax the grasp target from a rigid SE(3) pose to the 5-D constraint manifold the arm can actually realize. That is a contribution to RoboTwin, not just a measurement of it.
 

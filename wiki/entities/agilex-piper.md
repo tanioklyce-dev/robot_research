@@ -3,9 +3,9 @@ title: AgileX Piper
 type: entity
 subtype: robot
 created: 2026-08-04
-updated: 2026-08-13
-sources: 6
-tags: [agilex, piper, robot-arm, manipulator, affordable-hardware, realsense, teleoperation, cloth-folding, xvla]
+updated: 2026-08-23
+sources: 7
+tags: [agilex, piper, grasping, robot-arm, manipulator, affordable-hardware, realsense, teleoperation, cloth-folding, xvla]
 ---
 
 **AgileX Piper** — a **6-DoF lightweight robotic arm** from AgileX Robotics, used as the real-world evaluation platform in the [TurboVLA paper](../sources/turbovla-paper.md). Sits in the affordable-research-arm tier alongside the [SO-101](so-arm101.md) and [Koch](lerobot.md)-class arms, above them in payload/reach and below [Franka](franka-panda.md)-class research arms in price.
@@ -19,6 +19,15 @@ tags: [agilex, piper, robot-arm, manipulator, affordable-hardware, realsense, te
 
 > [!note] Only the RGB streams are known to be used
 > The cameras are D435 **RGB-D** units, but TurboVLA's architecture ingests images through a [DINOv3](dinov3.md) ViT with no depth pathway described. Whether depth is used at all is unstated.
+
+## As the low-cost testbed in GraspGen-X
+
+The Piper is the "low-cost robot" arm in [GraspGen-X](../sources/graspgenx-paper.md)'s real-robot section — chosen explicitly because low-cost arms *"come with an additional set of challenges regarding control error, actuator noise and calibration errors."* Setup: ZED2 camera on the end-effector, FoundationPose for 6D object pose, complete point cloud fed to the model, IK in PyBullet, linearly interpolated trajectory. **100% success over 10 trials** on a YCB mustard bottle and an ArUco cube.
+
+> [!note] Read that 100% narrowly
+> Two objects, **known meshes**, complete (not partial) point clouds, no clutter, no motion planner. It demonstrates that a gripper-conditioned grasp model transfers *to the Piper's stock parallel gripper* — not that grasping on a Piper is solved. The paper's own hard number is **79.0%** on a UR10 with unknown objects and partial clouds.
+
+Together with [RoboTwin 2.0](../sources/robotwin2-paper.md)'s grasp-adaptation result on this same arm (**2.4% → 25.1%** data-generation success), the Piper is now the wiki's most-measured affordable arm for grasping specifically — from two directions that never meet. RoboTwin's problem is **arm** DoF (6 vs 7, and candidate augmentation to give the IK optimizer reachable targets); GraspGen-X's problem is **gripper** morphology, and it is entirely arm-agnostic. Neither addresses the other's failure mode.
 
 ## As used in X-VLA — the cloth-folding platform
 

@@ -2,7 +2,7 @@
 title: Soft-prompt cross-embodiment conditioning
 type: concept
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-08-23
 sources: 3
 tags: [soft-prompt, cross-embodiment, prompt-learning, vla, heterogeneity, conditioning, peft, xvla]
 ---
@@ -72,6 +72,8 @@ One paper, one model, strong results — treat accordingly. Notable open edges:
 - [X-VLA paper](../../sources/xvla-paper.md) — Zheng, Li et al., arXiv 2510.10274 (origin)
 
 ## Related concepts
+
+- [6-DOF grasp generation](../robotics/six-dof-grasp-generation.md) — the **other** cross-embodiment axis. Soft prompts handle heterogeneity in action space, camera rig and control frequency for a *policy*; [GraspGen-X](../../sources/graspgenx-paper.md) handles heterogeneity in **gripper morphology and closing kinematics** for a *grasp model*, using an explicit 12-dim swept-volume vector rather than a learned per-source embedding. Two independent arrivals at the same conclusion — condition early and explicitly, don't retrofit a per-embodiment head or a post-hoc pose correction. Notably, GraspGen-X finds that adding a **gripper-type one-hot** on top of its continuous vector *hurts*, which is the same "don't partition the conditioning space" argument X-VLA makes against per-domain heads.
 
 - [VLA models](vla-models.md) · [Flow matching](flow-matching.md) · [Scaling laws — VLAs](scaling-laws-vla.md)
 - [Knowledge insulation](knowledge-insulation.md) · [Latent action tokens](latent-action-tokens.md) · [Sim-to-real transfer](sim-to-real-transfer.md)
