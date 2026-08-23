@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-06
 updated: 2026-08-23
-sources: 53
+sources: 54
 tags: [nvidia, gpu, simulation, physical-ai]
 ---
 
@@ -25,6 +25,10 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 ## Grasping
 
 - **[GraspGen / GraspGen-X](graspgen.md)** — NVIDIA's 6-DOF grasp-generation line (SE(3) diffusion generator + discriminator). [GraspGen-X](../sources/graspgenx-paper.md) (CVPR 2026, with Princeton) makes it **cross-embodiment across gripper morphology**, trained on 350 M ACRONYM-labelled grasps in [Isaac Sim](nvidia-isaac-sim.md) using **procedurally generated grippers**. Model, code and dataset promised on NVlabs. It is the grasp module of the modular NVIDIA manipulation stack whose other pieces — [cuRobo](curobo.md), nvblox, FoundationStereo, FoundationPose — this wiki already tracks separately.
+
+## Agentic security
+
+- **[OpenShell](nvidia-openshell.md)** — the secure-runtime layer: isolation, identity, policy, credentials, audit, with the harness started *inside* it. The [architecture post](../sources/nvidia-where-security-fits-agent-stack.md) (2026-08-21) is NVIDIA's clearest statement of where agent security belongs, and its criterion — *"a control that the agent can decline to invoke is not an effective security control"* — reclassifies rail-based guardrails, including NVIDIA's own [NeMo Guardrails](nemo-guardrails.md), as non-authoritative. **Three publications on this subject in ~13 months, no GA artifact yet**: the [safety recipe](../sources/nvidia-safety-recipe-agentic-ai.md) was deprecated 2026-04-22 and [NemoClaw](nemoclaw.md) is early preview.
 
 ## Related
 - [NVIDIA Isaac Sim](nvidia-isaac-sim.md), [NVIDIA Isaac Lab](nvidia-isaac-lab.md), [Newton physics engine](newton-physics-engine.md), [NVIDIA Cosmos](nvidia-cosmos.md), [NVIDIA Brev](nvidia-brev.md) — products.
@@ -55,3 +59,4 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - [Jetson Linux R36.5 update mechanism](../sources/nvidia-jetson-linux-r36-5-update-mechanism.md)
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../sources/hai-world-model-spatial-intelligence-brief.md) — Omniverse cited as the reference point for *conventional* simulation ("slow, specialist work" per environment) against which learned world models are pitched; NVIDIA also named among the incumbents leading the world-model push, and among HAI's disclosed funders.
 - [GraspGen-X: Cross-Embodiment 6-DOF Diffusion-based Grasping](../sources/graspgenx-paper.md)
+- [Where Security Fits in an AI Agent Stack](../sources/nvidia-where-security-fits-agent-stack.md)

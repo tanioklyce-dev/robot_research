@@ -2,7 +2,7 @@
 title: Guardrails for robot agents — where the safety layer actually goes
 type: synthesis
 created: 2026-07-13
-updated: 2026-07-13
+updated: 2026-08-23
 tags: [ai-safety, guardrails, agentic-robotics, prompt-injection, mcp, execution-rail, iso-13482, fleet, nemo-guardrails, llm-agent]
 ---
 
@@ -127,7 +127,35 @@ I want to be careful about the epistemic status here. The wiki cannot say these 
 >
 > **Still true of every other stack in the wiki** (stretch_ai, ROSOrin, OpenClaw, Spot+Gemini), and still true that **no source red-teams an embodied agent.**
 
+## Correction to this page's own frame (added 2026-08-23): four of these five layers are advisory
+
+Everything above treats the layer cake as five *kinds* of control differing in what they guard. [NVIDIA's agent-stack security post](../../sources/nvidia-where-security-fits-agent-stack.md) cuts it a different way, and the cut is more load-bearing:
+
+> **A control that the agent can decline to invoke is not an effective security control.**
+
+By that test, **layers 2–5 of the cake are all behavioral.** Model alignment, text rails, the execution rail, and skill preconditions all live in code the agent's own stack executes and an operator edits at runtime. Only **layer 1 — the physical interlock — is enforced somewhere the agent cannot reach.** That is not a coincidence: it is the machinery-safety tradition having independently arrived at "put the control below the boundary" fifty years earlier, and it explains why layer 1 is the only rung on this ladder anyone certifies.
+
+This sharpens rather than contradicts the page's central finding. "The execution rail ships empty" is true and the emptiness matters; but **filling it does not make it a boundary.** The MCP allowlist that this page identifies as *"the only thing playing that role in any ingested robot stack"* is, on NVIDIA's criterion, a behavioral control — valuable for catching errors and shaping behavior, worthless against an agent or an injection that wants around it.
+
+What the post says the missing layer looks like, all of which is absent from every robot stack in this wiki:
+
+| Rule | Robot instance | Present anywhere here? |
+|---|---|---|
+| Above proposes; below decides | the planner cannot widen its own tool set mid-session | ✗ |
+| Authoritative policy location | one place holds the policy, below the agent | ✗ — split across prompt, skill code, MCP config |
+| Check every effect (incl. **"device action"**) | every motion command crosses an enforcement point | ✗ above the firmware layer |
+| Just-in-time access | short-lived capability to actuate a specific joint group for a specific task | ✗ |
+| Isolation and recovery | revoke, quarantine, snapshot, immutable log | partial — [AgenticROS](../../entities/agenticros.md)'s out-of-band `/estop` is revocation, and nothing else |
+
+The nearest shipped artifact is [OpenShell](../../entities/nvidia-openshell.md) — and it draws its boundary around processes, files, networks and credentials, which is the right shape for a robot's **planning** layer and the wrong shape for its **control** layer.
+
+> [!note] The post concedes the physical carve-out this page has been making
+> *"A missing or stale control selects a preapproved safer state. For physical and availability-critical systems, that state may require **controlled operation rather than an abrupt stop**."* One sentence, but it is the correct one, and it is the first time an enterprise-guardrail source in this wiki has acknowledged that fail-closed is not automatically fail-safe when the thing has mass and momentum.
+
 ## The latency budget nobody has costed
+
+> [!note] Still uncosted, and now by a second party (2026-08-23)
+> NVIDIA's post says *"reevaluate policy closer to each action"* as risk rises — free at API rates, impossible at [control rates](../platforms/control-rate-ladder.md). It never mentions latency once. The strongest architectural statement in the wiki on where enforcement belongs is silent on the one number that decides whether it can belong there on a robot.
 
 NVIDIA's docs contain **zero performance benchmarks** — a footnote for a chat app, a design constraint for a robot. Stacking three 8B guard models in front of a planner that already runs at seconds-per-decision is not obviously affordable.
 

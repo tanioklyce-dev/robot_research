@@ -2,8 +2,8 @@
 title: AI guardrails
 type: concept
 created: 2026-07-13
-updated: 2026-08-03
-sources: 12
+updated: 2026-08-23
+sources: 13
 tags: [ai-safety, guardrails, agentic-ai, content-safety, topic-control, jailbreak, runtime-safety, nemo-guardrails]
 ---
 
@@ -58,6 +58,34 @@ That is not an oversight — "is this tool call safe" is irreducibly domain-spec
 > [!note] Embodiment widens the attack surface, it doesn't just relocate it
 > A chat LLM's untrusted input arrives through one channel (the user's message). A robot's LLM planner ingests text from **its environment** — labels, signage, screens, whiteboards, overheard speech — so [prompt injection](ai-red-teaming.md) becomes an attack you can mount by *leaving a note where the robot will look*. The guardrail literature has not caught up with this.
 
+## The reframe: rails are not security controls at all
+
+[NVIDIA's 2026-08 architecture post](../../sources/nvidia-where-security-fits-agent-stack.md) makes a claim that reclassifies most of this page. Rails — every one of them, including the execution rail above — live **inside the harness**, and:
+
+> **A control that the agent can decline to invoke is not an effective security control.**
+
+The argument is not that rails are badly built. It is structural: *"a layer designed to be modified cannot reliably enforce controls against its own modification,"* and rail logic *"encodes assumptions about model behavior, and those assumptions go stale as models improve."* So the post splits controls in two:
+
+| | **Behavioral** — this page | **Infrastructure** — [OpenShell](../../entities/nvidia-openshell.md)-class |
+|---|---|---|
+| Who | model, agent, harness, **rails** | runtime, identity, policy, credentials, audit |
+| Effect | steers what the agent *tries* | determines what the agent *can do* |
+| Guarantee | depends on model behavior | same decision every time, given approved policy and verified state |
+| Authoritative | **no** | yes |
+
+> *"Both are necessary; only one is authoritative."*
+
+Three consequences for how this wiki should read its own guardrail material:
+
+- **The execution-rail gap above is understated, not overstated.** The problem is not only that the rail ships without a policy — it is that a rail sitting in harness code is *the wrong place for a security guarantee even once you write the policy*. It remains valuable as a behavioral control and as an error-catcher; it is not a boundary.
+- **The MCP allowlist is not a security control.** The wiki has repeatedly named the MCP tool allowlist as "the only thing playing the execution-rail role in any ingested robot stack" ([guardrails for robot agents](../../syntheses/agents/guardrails-for-robot-agents.md)). By this criterion it is a *behavioral* control: it lives above the boundary, in a config the agent's own layer can read and its operator can edit at runtime.
+- **Credentials, not just calls.** *"A narrowly scoped credential limits potential harm, but keeping the raw credential out of the agent's reach creates a stronger boundary enforced by the environment."* No rail does this; only a runtime can.
+
+The post's own five rules for where authority lives — above proposes / below decides, authoritative policy location, check every effect, just-in-time access, isolation and recovery — are on the [source page](../../sources/nvidia-where-security-fits-agent-stack.md).
+
+> [!warning] The enforcement layer is still a design, not a product
+> This is NVIDIA's **third** agentic-safety publication in this wiki. The [safety recipe](../../sources/nvidia-safety-recipe-agentic-ai.md)'s artifact was **deprecated 2026-04-22**; [NemoClaw](../../entities/nemoclaw.md) is **early preview** with no GA date; the architecture post links to a blog tag. The reasoning is the best in the wiki on this subject. Nothing here establishes that you can install it.
+
 ## Guardrail models in the wild
 
 - **NemoGuard family** ([NVIDIA](../../entities/nvidia.md)) — Llama 3.1 NemoGuard 8B Content Safety, Llama 3.1 NemoGuard 8B Topic Control, NemoGuard Jailbreak Detect; served as NIM microservices, orchestrated by [NeMo Guardrails](../../entities/nemo-guardrails.md). Trained on the open **Nemotron Content Safety Dataset v2**.
@@ -88,6 +116,7 @@ These are not in conflict — but note that a guardrail layer is an **external**
 - [Robot safety standards (ISO 13482)](../robotics/robot-safety-standards.md) — the *physical* safety layer that guardrails do not touch, and that does not touch guardrails.
 
 ## Mentioned in
+- [Where Security Fits in an AI Agent Stack](../../sources/nvidia-where-security-fits-agent-stack.md) — the behavioral/infrastructure split; rails reclassified as non-authoritative.
 - [How Claude Performs on Robotics Tasks](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — **scoped physical access** named as the deployment direction: a system able to affect certain objects while blocked from others. That is precisely the **execution rail** this page notes ships empty, now argued for by a frontier lab from the capability side.
 - [NeMo Guardrails — Library Overview](../../sources/nemo-guardrails-library-overview.md) — **primary source for the five-rail taxonomy and the guardrails library**.
 - [Safeguard Agentic AI Systems with the NVIDIA Safety Recipe](../../sources/nvidia-safety-recipe-agentic-ai.md)

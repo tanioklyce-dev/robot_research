@@ -3,8 +3,8 @@ title: Hermes Agent
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-07-05
-sources: 8
+updated: 2026-08-23
+sources: 9
 tags: [hermes-agent, nous-research, agentic-framework, self-improvement, mcp, sub-agents, skills, openrouter, multi-platform, qwen-3-6, dgx-spark, claw-ecosystem]
 ---
 
@@ -98,3 +98,7 @@ NVIDIA ships Hermes as a **selectable agent variant in [NemoClaw](nemoclaw.md)**
 - **"Most used agent in the world" claim** — what's the OpenRouter measurement methodology?
 - **Hermes 4 LLM vs Hermes Agent** — Nous Research's flagship LLM and flagship agent share the "Hermes" brand; relationship not yet captured in this wiki.
 - **`hermes claw migrate` lineage** — OpenClaw → Hermes migration path is built-in. Is there a competitive/cooperative relationship between the two projects?
+
+## Placed in NVIDIA's agent-stack taxonomy
+
+Hermes is named as an **agent harness** in [NVIDIA's 2026-08 security architecture post](../sources/nvidia-where-security-fits-agent-stack.md), alongside Claude Code, Codex, Pi and DeepSeek Harness. The post's argument bears directly on it: harnesses are where behavior is steered and the **wrong place for a security guarantee**, because *"a layer designed to be modified cannot reliably enforce controls against its own modification"* — and Hermes is a self-improving framework, i.e. maximally modifiable. The deployment recipe already reflects this: `nemohermes onboard` **creates an [OpenShell](nvidia-openshell.md) sandbox and starts Hermes inside it** ([quickstart](../sources/nvidia-nemoclaw-hermes-quickstart.md)), which is exactly the launch-order the post argues for.

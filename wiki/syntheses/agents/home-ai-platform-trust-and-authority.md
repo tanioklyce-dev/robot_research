@@ -2,7 +2,7 @@
 title: The home AI platform — agentic robot AI meets home automation, and where trust and authority separate
 type: synthesis
 created: 2026-08-17
-updated: 2026-08-17
+updated: 2026-08-23
 tags: [agents, home-ai, smart-home, mcp, capability-manifest, trust-boundary, authority, multi-homing, liability, world-model, platforms, synthesis]
 ---
 
@@ -167,11 +167,14 @@ Everything above assumes boundaries can be *enforced*. The wiki's finding is tha
 - [NemoClaw](../../entities/nemoclaw.md) ([product page](../../sources/nvidia-nemoclaw-page.md)) is the one shipped commercial attempt at the wrapper — OpenShell policy guardrails, local Nemotron, network-policy tiers — and it is an **early preview** targeting RTX PCs and DGX Station, i.e. the local-first bet.
 - [NVIDIA's agentic safety recipe](../../sources/nvidia-safety-recipe-agentic-ai.md) has the right build→deploy→run architecture and its artifact was **deprecated 2026-04-22**.
 
+- **[NVIDIA OpenShell](../../entities/nvidia-openshell.md)** ([architecture post](../../sources/nvidia-where-security-fits-agent-stack.md), 2026-08-21) is the clearest *design* for the missing layer that this wiki has: boundary established at launch by an orchestrator, harness started inside it, credentials held out of the agent's reach, subagents given child runtimes with ceilings, immutable audit below the line. It supplies the vocabulary this page's three boundaries were reaching for — **"above proposes; below decides."** It does not supply an obtainable product: this is NVIDIA's third agentic-safety publication here, and the first two produced a deprecated artifact and an early preview.
+
 **Local-first vs cloud is the falsifiable predictor of trust** — architectural, visible in a teardown, hard to fake. The wiki's own consumer evidence says the cheap tier structurally cannot do it: the [Zeroth M1](../../entities/zeroth-m1.md) publishes **no compute spec at all** and reportedly runs Gemini, and [Vulcan](../../entities/vulcan-robotics.md) sells hardware **plus rented compute**, conceding the advertised AI does not run on the robot.
 
 ## Open questions
 
 - **Does anyone ship a capability manifest commercially?** Both wiki instances are hobbyist-scale and nav-first. A vendor manifest with a certification boundary attached would be the strongest signal this analysis is right.
+- **Does "above proposes; below decides" survive multi-ecosystem authority?** [OpenShell](../../entities/nvidia-openshell.md)'s model assumes **one** policy authority beneath the agent. A robot in three ecosystems has three, and the post's child-runtime ceiling model assumes separable resources — but two subagents cannot each be granted half an arm. The [Matter arbitration gap](../../sources/matter-1-6-core-specification.md) and this design are the same missing piece seen from two directions: Matter has multiple admins and no arbitration; OpenShell has arbitration and assumes one admin.
 - **What is the arbitration protocol** when two ecosystems issue conflicting goals? `blocks_base` is a flag, not a protocol, and nothing in the wiki addresses cross-ecosystem preemption.
 - **Can incident reconstruction be made to work** for an end-to-end policy at all, or does liability force the whole category up to Level 3 permanently? This decides the architecture, not just the paperwork.
 - ~~**What does Matter's multi-admin model actually guarantee?**~~ **Answered 2026-08-17** by ingesting the [spec](../../sources/matter-1-4-core-specification.md): it guarantees isolation of per-fabric *configuration* and **nothing about operational state**, with no arbitration anywhere. Salvageable for robots: the **ARL** (vendor-authored authority bound) and the deny-by-default privilege ladder. Not salvageable: anything about conflicting commands, because it does not exist. **New question: what changed in 1.5**, which adds cameras — the first Matter device class whose data sensitivity approaches a home robot's — and closures, the first that physically moves.

@@ -3,13 +3,13 @@ title: NVIDIA NemoClaw
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-07-05
-sources: 4
+updated: 2026-08-23
+sources: 5
 status: early preview
 tags: [nemoclaw, nvidia, openclaw, nemotron, nvidia-agent-toolkit, nvidia-openshell, guardrails, privacy, dgx-spark, rtx-pro, claw-ecosystem]
 ---
 
-**NVIDIA NemoClaw** — NVIDIA's **open-source stack that wraps [OpenClaw](openclaw.md) with privacy and security controls + NVIDIA-native local-LLM inference**. *"Adds privacy and security controls to OpenClaw."* Early-preview status; no GA pricing / release date stated on the [product page](../sources/nvidia-nemoclaw-page.md).
+**NVIDIA NemoClaw** — NVIDIA's **open-source stack that wraps [OpenClaw](openclaw.md) with privacy and security controls + NVIDIA-native local-LLM inference**. In NVIDIA's own [agent-stack taxonomy](../sources/nvidia-where-security-fits-agent-stack.md) (2026-08) it is named as the **distribution/product layer** — packaging, defaults and the supported experience — sitting *above* the [OpenShell](nvidia-openshell.md) secure runtime that does the enforcing. *"Adds privacy and security controls to OpenClaw."* Early-preview status; no GA pricing / release date stated on the [product page](../sources/nvidia-nemoclaw-page.md).
 
 > [!note] NemoClaw is a distribution of OpenClaw; the ROSOrin Pro stack uses a different mechanism
 > NemoClaw is a desktop/workstation distribution of OpenClaw — it adds NVIDIA security + Nemotron local LLM. The ROSOrin Pro, by contrast, isn't a separate OpenClaw distribution at all — it runs stock upstream OpenClaw plus Hiwonder's [`openclaw_controller`](openclaw-controller.md) ROS 2 bridge module. So NemoClaw and `openclaw_controller` aren't peers: NemoClaw replaces the OpenClaw distribution; `openclaw_controller` is an extension that sits below any OpenClaw distribution.

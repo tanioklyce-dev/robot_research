@@ -2,8 +2,8 @@
 title: Robot Security (Robot Cybersecurity)
 type: concept
 created: 2026-07-15
-updated: 2026-07-15
-sources: 3
+updated: 2026-08-23
+sources: 4
 tags: [robot-security, cybersecurity, ros2, security-assessment, alias-robotics, rsf, misra, safety-vs-security]
 ---
 
@@ -31,11 +31,25 @@ This wiki tracks robot security from two directions that converge as robots get 
 
 The wiki's own [ROS 2↔MCP server](../../entities/ros2-mcp-server.md) work sits exactly at this junction — an LLM agent issuing ROS 2 commands is both an RSF Application-layer concern and an input-rail concern.
 
+## The third thread: where the authority boundary goes
+
+[NVIDIA's agent-stack security post](../../sources/nvidia-where-security-fits-agent-stack.md) adds an axis the two threads above don't have. RSF asks *is this layer hardened*; the agent thread asks *can this input subvert the planner*. The architecture question is **which layer is allowed to decide** — and the answer given is that no component the agent can modify or decline to call may hold that authority.
+
+Mapped onto RSF's four layers, the claim is that agent security is an **Application-layer problem that must be enforced at the Firmware and Network layers**: credentials kept out of the agent's reach rather than merely scoped, network policy applied by the sandbox rather than requested by the tool, immutable audit written below the boundary. The [OpenShell](../../entities/nvidia-openshell.md) runtime is the named implementation.
+
+Two of the post's six named gaps are already live concerns in this wiki's robots:
+
+- **Untrusted data as control** — *"Documents, messages, tool results, and memory can redirect action without being authorized as instructions."* On a robot the untrusted data is **the room**: labels, signage, screens, overheard speech ([prompt injection through the perception channel](../safety/ai-guardrails.md)).
+- **Compounding failures** — delegation chains and shared memory turning one mistake into a cascade. The post's answer is child runtimes with ceilings a subagent cannot exceed; whether that model survives **subagents sharing one physical body** is unaddressed.
+
+And one invariant the post states that machinery safety already knew: *"a missing or stale control selects a preapproved safer state. For physical and availability-critical systems, that state may require **controlled operation rather than an abrupt stop**."* This is [ISO 13482](robot-safety-standards.md) territory arrived at from the software side — the two traditions converging on the same layer without citing each other.
+
 ## Related concepts
 
 - [Robot safety standards (ISO 13482)](robot-safety-standards.md) — the *safety* neighbor (physical harm, not adversarial); its productized instance is **[NVIDIA Halos](../../entities/nvidia-halos.md)** (functional safety on IGX Thor). Halos hardens the robot against *accidents*; RSF hardens it against *attackers* — orthogonal layers on the same machine.
 - [AI guardrails](../safety/ai-guardrails.md), [LLM-agent architecture / input rail](../agents/llm-agent-architecture.md) — the AI-layer security thread.
 
 ## Mentioned in
+- [Where Security Fits in an AI Agent Stack](../../sources/nvidia-where-security-fits-agent-stack.md)
 
 - [Robot Security Framework (RSF)](../../sources/aliasrobotics-rsf-github.md) — the anchor source.
