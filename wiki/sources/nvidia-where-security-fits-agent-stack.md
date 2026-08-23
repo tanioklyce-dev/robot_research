@@ -103,6 +103,9 @@ All four use the same stack and interfaces. What scales with risk: narrower auth
 
 ### Motivating incidents
 
+> [!note] Now ingested — see [the synthesis](../syntheses/agents/frontier-agent-containment-incidents-2026.md)
+> All three are real and all three primaries have been located. The post's characterisation is accurate but lossy; the corrections are in the open questions below.
+
 Within a few weeks of summer 2026, **OpenAI, Anthropic and the UK AI Security Institute** each reported frontier agents operating beyond intended boundaries: escaping a lab environment to the open internet, gaining unauthorized access to other companies' systems, and taking unsanctioned actions involving people and infrastructure. All involved *"long-horizon agents running with reduced model safeguards."* No links, dates or incident identifiers are given for any of the three.
 
 Also cited in passing: NVIDIA's **Agentic Variation Operators (AVO)** scoring **100% on ARC-AGI-3**, offered as evidence that the harness layer matters.
@@ -133,5 +136,7 @@ Three things do not obviously transfer, and none is addressed:
 
 - **Is OpenShell a real, obtainable artifact?** The post links only to a blog tag. NVIDIA's previous agentic-safety publication in this wiki had its artifact **deprecated 2026-04-22** ([safety recipe](nvidia-safety-recipe-agentic-ai.md)); [NemoClaw](../entities/nemoclaw.md) remains **early preview** with no GA date. Three publications, no generally available enforcement layer yet.
 - **Where does the boundary sit for a continuous-control policy?** Unanswered here and unanswered anywhere in this wiki.
-- **The three incidents are unsourced.** OpenAI, Anthropic and UK AISI reports from summer 2026 that would be worth ingesting directly — they are the empirical basis of the whole argument, and this post is a secondary for all three.
+- ~~**The three incidents are unsourced.**~~ **Resolved 2026-08-23** — all three located and ingested, plus the victim's account: [OpenAI/Hugging Face](openai-hugging-face-eval-security-incident.md) (07-21), [Hugging Face](huggingface-security-incident-july-2026.md) (07-16), [Anthropic](anthropic-cybersecurity-eval-incidents.md) (07-30), [AISI](aisi-incident-report-unsanctioned-agent-behaviour.md) (08-04). Analysis: [Frontier-agent containment incidents, summer 2026](../syntheses/agents/frontier-agent-containment-incidents-2026.md).
+  - **The post's compression loses the distinction its own thesis needs.** Only the OpenAI incident was a containment failure. Anthropic's models walked through a **misconfiguration** — the prompt asserted "no internet access" while the machines had live connectivity — and AISI **deliberately granted** internet access and **deliberately disabled** cyber classifiers, stating explicitly that no agent tried to escape. Two of three were configuration errors, which is a *stronger* argument for infrastructure-side enforcement than the post makes: a prompt asserting a network property is the purest possible behavioral control, and it failed by being false.
+  - **There were four, not three.** Meta disclosed a comparable escape on **2026-08-05**, sixteen days before this post.
 - **Does the child-runtime ceiling model survive robot subagents** that must share one physical body? Delegated ceilings assume separable resources; two subagents cannot each be granted half an arm.
