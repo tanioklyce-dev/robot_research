@@ -37,7 +37,7 @@ Han, Chao, Coumans, Eppner, Sundaralingam, Deng, Birchfield, [Murali](adithyavai
 | Checkpoint | Procedural grippers | Objects | Grasps |
 |---|---|---|---|
 | CVPR (all published results) | 25 | 3.5 K | **350 M** |
-| Latest release | 32 | 8.5 K | **2 B** |
+| Latest release | 32, in **6 kinematic families** (README) | 8 K+ | **2 B** |
 
 Generated with the ACRONYM antipodal-sampling pipeline, labelled by physics rollout in [Isaac Sim](nvidia-isaac-sim.md). ~14 K GPU-hours of data generation for the CVPR model alone.
 
@@ -47,6 +47,25 @@ Generated with the ACRONYM antipodal-sampling pipeline, labelled by physics roll
 ## Grasp Mixture-of-Experts (post-CVPR, default in the repo)
 
 Diffusion samplers generate top-down grasps but cannot be *forced* to. The shipped fix unions the diffusion sampler with a **PCA oriented-bounding-box sampler** (top-down and side grasps, +z assumed gravity-aligned) and lets the discriminator rank the pooled set. Motivated by users wanting enforced top-down grasps for [LIBERO](libero.md) — the same constraint this wiki derived kinematically for 5-DoF arms in the [RoboTwin 5-DoF analysis](../syntheses/projects/five-dof-arms-in-robotwin.md).
+
+## Onboarding a new gripper — what it actually takes
+
+The repo is live ([NVlabs/GraspGenX](https://github.com/NVlabs/GraspGenX), Apache-2.0 code, ~190 stars, last push 2026-07-14), checkpoints are on [HuggingFace](https://huggingface.co/adithyamurali/GraspGenXModel), and curated configs for ~10 popular grippers ship as a separate dataset (`adithyamurali/gripper_descriptions`: `franka_panda`, `franka_umi`, `robotiq_2f_85`, `robotiq_2f_140`, `unitree_g1`, `inspire_hand`, `surge_hand`, `barrett_hand`, `galaxea_g1`, `ezgripper`). **The swept volume is not computed from the URDF — it is auto-guessed and then hand-annotated in a GUI.**
+
+`scripts/gripper_config_wizard.py` is a first-party Viser web wizard, six steps: align the base frame → confirm the open pose → drag a box around the inner volume at open → set the closed pose and drag a second box at half-open → review the animation → pick type and symmetry, save. Output is `assets/x_grippers/<name>/config.json`:
+
+```json
+"sweep_volume": { "extents": [x,y,z], "offset": [x,y,z],      // fully open
+                  "extents2": [x,y,z], "offset2": [x,y,z] }   // half open
+```
+plus `open`/`close` joint states, `fingertip`, `standoff` (derived as `extents[2]/2`), `bbox`, `base_rotation` (4×4), `links`, `type` ∈ {`parallel_2f`, `revolute_2f`, `revolute_3f`}, and `symmetric`.
+
+Two conventions and two defaults worth knowing before you start:
+
+- **Frame convention is fixed and explicit** (Step 1): **+Z is the approach direction, +X is the closing direction.** Stored as `base_rotation` and applied to everything downstream.
+- **The auto-guess is the *inner gap*, not the finger sweep.** `estimate_inner_sweep_volume()` picks the axis of maximum spread between *moving* finger centroids as the closing axis, sets the extent along it to the gap between the innermost finger surfaces, and takes the union of finger bboxes on the other two axes. For a parallel gripper this is exactly the graspable pocket — visible in the shipped configs, where `extents2[0]` is precisely half of `extents[0]` and the other two are unchanged.
+- **`type` is inferred from actuated-joint count, not kinematics** — ≤2 → `parallel_2f`, ≤4 → `revolute_2f`, else `revolute_3f`. Wrong for any single-actuator revolute jaw; override in Step 6.
+- **`symmetric` is hardcoded `True` in the save step** (checkbox in Step 6). It is consumed in `metrics.py` and the dataset loader, **not** in the inference path — so it changes evaluation and training, not what grasps come out of a zero-shot run.
 
 ## Why it matters here
 
