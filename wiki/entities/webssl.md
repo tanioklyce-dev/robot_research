@@ -1,52 +1,62 @@
 ---
-title: WebSSL
+title: WebSSL / Web-DINO
 type: entity
 subtype: model
 created: 2026-08-26
 updated: 2026-08-26
-sources: 1
-tags: [webssl, vision-encoder, self-supervised, frozen-encoder, dense-features, robot-learning, patch-policy]
+sources: 4
+tags: [webssl, web-dino, vision-encoder, self-supervised, language-free, metaclip, scaling, frozen-encoder, robot-learning, lecun, meta-fair]
 ---
 
-**WebSSL** — a family of **web-scale self-supervised vision encoders** trained without language supervision. In this wiki it exists for one reason and it is a good one: **it is the best-performing frozen backbone for robot policy learning in the only head-to-head comparison the wiki holds**, and it has no page anywhere else in the literature the wiki has ingested.
+**Web-SSL** — a family of **language-free** visual SSL encoders from FAIR Meta + NYU, **1B to 7B parameters**, trained on **2 billion MetaCLIP web images** (MC-2B) ([paper](../sources/webssl-paper.md), Fan, Tong, …, [LeCun](yann-lecun.md), Bar, Xie; April 2025). Its DINOv2-style member is **Web-DINO**. The thesis: visual SSL only looked worse than CLIP because the two were trained on different data — control for that, and SSL scales *better* and **does not saturate at 7B**.
 
-> [!warning] Thin by necessity — one source, no primary
-> Everything here comes from [Patch Policy](../sources/patch-policy-paper.md)'s backbone sweep. The WebSSL paper is **not ingested**, so architecture, training data, scale, and the SSL objective are all undocumented here. This page exists so the recommendation is findable, not because the wiki understands the model.
+> [!warning] Web-SSL and Web-DINO are the same family, and the wiki was carrying opposite verdicts on them
+> Under the name **WebSSL**, [Patch Policy](patch-policy.md) makes it a **co-winner** of a five-encoder sweep and recommends it for robot learning.
+>
+> Under the name **Web-DINO**, [action-relevant latents](../sources/action-relevant-latents-paper.md) measures it at **0.16 action R²** after inverse-dynamics tuning — clustered with pixel-reconstruction encoders, **negative on rotation**, and immovable under a λ sweep across five orders of magnitude ("the limitation is representational rather than optimization-related").
+>
+> **Both are true, and the reconciliation is what the two are measuring.** Patch Policy asks *do frozen patch tokens make a good input to a behavior-cloned policy* — a **feature-quality** question, answered on tasks where the demonstrations supply the dynamics. Action-relevant latents asks *can action be linearly decoded from the representation itself* — a **world-model** question, where the encoder must carry the dynamics. **Web-SSL is a strong perception front-end and a weak dynamics substrate**, and it is trained on still images, so there is no mechanism by which it would be otherwise.
+>
+> Practical consequence, and the reason this identity matters: **the encoder Patch Policy recommends for policies is one of the worst measured choices for a latent world model.** Anyone carrying the recommendation from one context to the other inherits a rotation collapse.
 
-## The result
+## What the primary establishes
 
-[Patch Policy](patch-policy.md) freezes five pretrained encoders and uses each as a dense patch-feature source for behavior-cloned policies across four simulated suites, three seeds, encoder frozen so the comparison isolates out-of-the-box representation quality:
+- **The controlled question**: *"Do visual self-supervised approaches lag behind CLIP due to the lack of language supervision, or differences in the training data?"* Both arms trained on MC-2B; VQA inside an MLLM (Llama-3 8B Instruct held fixed) as the testbed.
+- **Visual SSL matches or surpasses CLIP on VQA — including OCR & Chart**, the category assumed to need language.
+- **No saturation at 7B parameters**; scales well in both capacity and data.
+- **Classic vision stays competitive while VQA improves** — no trade-off.
+- **Web-DINO matches SigLIP and [SigLIP 2](siglip-2.md) on VQA at 5× less data**, and beats off-the-shelf MetaCLIP on both VQA and classic vision.
+- **Data composition matters**: a higher ratio of text-containing images is especially effective for OCR & Chart.
+- **The real cost of dropping language**: no zero-shot classification out of the box. Recovered via instruction tuning inside an MLLM; LiT-style adaptation named and declared out of scope.
 
-**DINOv2, DINOv3, WebSSL, [V-JEPA 2](v-jepa-2.md), SigLIP 2** → **WebSSL and [DINOv2](dinov2.md) win**; [SigLIP 2](siglip.md) falls short; V-JEPA 2 loses.
+## As a robot-learning backbone
 
-The paper's explicit recommendation: *"use **WebSSL** or **DINOv2** as the vision backbones for robot learning tasks."*
+[Patch Policy](patch-policy.md) freezes five encoders as dense patch-feature sources across four simulated suites, 3 seeds — **DINOv2, DINOv3, WebSSL, [V-JEPA 2](v-jepa-2.md), [SigLIP 2](siglip-2.md)** — and finds **WebSSL and [DINOv2](dinov2.md) win**, recommending them explicitly. WebSSL carries that paper's headline table, reaching **1.68 / 1.68** on BlockPush and Cube where the same policy on globally-pooled features scores 0.23–0.25.
 
-WebSSL carries the headline table in that paper — the reported Push-T / LIBERO-Goal / BlockPush / Cube numbers are the WebSSL-patch configuration, reaching **1.68** and **1.68** on BlockPush and Cube where the same policy on globally-pooled features scores 0.23–0.25.
+Two claims from that sweep make backbone choice consequential: the **ranking is stable across policy architectures** ("visual representation quality is still a primary bottleneck for policy learning, independent of the downstream action head"), and the **language-supervised encoder is the weakest of the five** — WebSSL winning is the positive half of the same finding.
 
-## Why it is worth a page
-
-Two claims from the same sweep make the choice of backbone consequential rather than incidental:
-
-- **The ranking of representations is stable across policy architectures.** The same encoders come out in the same order whether the action head is VQ-BeT or Diffusion Policy — from which the paper concludes that *"the quality of the visual representation is still a primary bottleneck for policy learning, **independent of the downstream action head**."*
-- **Language supervision appears to hurt.** WebSSL is trained **without** language; [SigLIP 2](siglip.md), trained with image–text alignment, is the weakest of the five, and the offered reason is that semantic alignment "sacrifices the dense geometric features necessary for manipulation." WebSSL winning is the positive half of that same finding.
-
-> [!note] Scope, before this becomes a recommendation the wiki repeats
-> One paper, four simulated suites plus three real Franka tasks, **visual input only — no language axis anywhere**, and no confidence intervals. "Best frozen backbone for robot learning" is what one comparison found, not an established result. In particular it does not conflict with [V-JEPA 2](v-jepa-2.md)'s own zero-shot planning claims, which test a different capability in a different regime.
+> [!note] Scope on the recommendation
+> One paper, visual input only, no language axis, no confidence intervals, in-domain tasks. And **the paper itself contains no control evaluation at all** — every WebSSL claim in the primary is VQA or classic vision. "Best frozen backbone for robot learning" is one comparison's finding.
 
 ## Open questions
 
-- **Everything architectural.** Parameter count, training corpus, SSL objective, available checkpoints, licence — none of it is in the wiki.
-- **The WebSSL primary is unfiled** and is the obvious next ingest for anyone acting on the recommendation.
-- **Not tested as a world-model encoder.** [Action-relevant latents](../sources/action-relevant-latents-paper.md) probed eight encoder families for action information and WebSSL was not among them — so whether it shares [SigLIP 2](siglip.md)'s and Web-DINO's collapse on **rotation** is unknown. Given it is an image-SSL model, that is the question to ask before using it in a latent world model rather than a policy.
+- **Which variant?** The family spans 1B–7B and more than one objective; neither [Patch Policy](patch-policy.md) nor the wiki records which checkpoint was used.
+- **Is Web-DINO's rotation collapse a property of the family or of the DINO objective?** Only the DINO member was probed for action-relevance.
+- **In-domain vs frozen web-scale is untested at low demo counts** — see [DynaMo](dynamo.md), which argues for training your own encoder on 6 demonstrations.
+- Licence and checkpoint availability are not recorded here.
 
 ## Related
 
-- [Patch Policy](patch-policy.md) — the sweep, and the only source here.
-- [DINOv2](dinov2.md) / [DINOv3](dinov3.md) — the co-recommended and sibling encoders.
-- [SigLIP](siglip.md) — the language-supervised encoder it beats.
-- [V-JEPA 2](v-jepa-2.md) — the latent-prediction encoder it beats *as a frozen policy backbone*.
-- [VLA models](../concepts/learning/vla-models.md) — the alternative to a lightweight policy on strong frozen features.
+- [Patch Policy](patch-policy.md) — the robot-learning sweep and recommendation.
+- [DINOv2](dinov2.md) / [DINOv3](dinov3.md) — co-recommended and sibling encoders.
+- [SigLIP](siglip.md) / [SigLIP 2](siglip-2.md) — the language-supervised comparison it matches at 5× less data.
+- [V-JEPA 2](v-jepa-2.md) — the video-pretrained encoder that dominates on action R² and loses as a frozen policy backbone.
+- [DynaMo](dynamo.md) — the in-domain alternative to using a frozen web encoder at all.
+- [DINO-WM](dino-wm.md) — builds a world model on frozen image-SSL features, the design the Web-DINO result bears on.
 
 ## Mentioned in
 
-- [Patch Policy paper](../sources/patch-policy-paper.md) — the backbone sweep and the recommendation.
+- [Scaling Language-Free Visual Representation Learning](../sources/webssl-paper.md) — **the primary.**
+- [Patch Policy paper](../sources/patch-policy-paper.md) — best frozen backbone for robot learning.
+- [Are Video World Model Latents Action-Relevant?](../sources/action-relevant-latents-paper.md) — Web-DINO at 0.16 action R², negative on rotation.
+- [Reconstruction or Semantics?](../sources/latent-space-robotic-world-models-paper.md) — Web-DINO **strong** as a diffusion-world-model latent space (IDM Pearson r = 0.820 vs V-JEPA 2.1's 0.829); the counterweight to the result above.

@@ -93,10 +93,12 @@ Five frozen pretrained encoders swept across all tasks, three seeds, encoder fro
 - [V-JEPA 2](../entities/v-jepa-2.md), [DINOv2](../entities/dinov2.md) — backbones compared.
 - [Diffusion Policy](../entities/diffusion-policy.md), [ACT](../entities/act.md), [LIBERO](../entities/libero.md).
 - [DINOv3](../entities/dinov3.md), [VQ-BeT](../entities/vq-bet.md) — existing pages.
-- **WebSSL, SigLIP 2, DynaMo** — no pages.
+- [WebSSL](../entities/webssl.md), [SigLIP 2](../entities/siglip-2.md), [DynaMo](../entities/dynamo.md) — **all filed 2026-08-26**, WebSSL and DynaMo with their primaries.
 - **Patch Policy** — [entity page](../entities/patch-policy.md).
 - [SigLIP / SigLIP 2](../entities/siglip.md) — falls short as a frozen policy backbone — semantic alignment over dense geometry.
 - [WebSSL](../entities/webssl.md) — the best-performing frozen backbone in the sweep, and the paper’s recommendation.
+- [DynaMo](../entities/dynamo.md) — the in-domain-pretraining baseline it beats on spatial tasks.
+- [SigLIP 2](../entities/siglip-2.md) — weakest of the five frozen backbones.
 
 ## Concepts touched
 
@@ -109,4 +111,4 @@ Five frozen pretrained encoders swept across all tasks, three seeds, encoder fro
 - **In-domain only.** The paper's own framing of the OpenVLA-OFT result is *"for **in-domain** tasks with sufficient demonstrations, a lightweight policy on strong features can match or exceed a heavy pretrained VLA fine-tuned on the same data."* Nothing here tests language generalization, novel objects, or instruction following — the things a 7.6B VLA is *for*. A 51M model beating a 7.6B model on the 7.6B model's fine-tuning distribution is a real result about parameter efficiency, not evidence that VLA pretraining is unnecessary.
 - **No language axis at all** — "all policies receive only visual inputs," and proprioception was removed from ACT's encoder for consistency. LIBERO Goal is the only multi-task suite.
 - **No confidence intervals anywhere**, and n = 20 on the real robot.
-- **WebSSL has no wiki page**, and it is the recommended backbone — the largest gap this source opens. **SigLIP 2** and **DynaMo** likewise unfiled.
+- ~~WebSSL / SigLIP 2 / DynaMo unfiled~~ — **all filed 2026-08-26**. The [WebSSL primary](webssl-paper.md) also resolved an identity the wiki had missed: **WebSSL's DINO member is Web-DINO**, which [action-relevant latents](action-relevant-latents-paper.md) measures at 0.16 action R² with negative rotation. **The encoder this paper recommends for policies is one of the worst measured choices for a latent world model.**

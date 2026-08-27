@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-26
 updated: 2026-08-26
-sources: 3
+sources: 4
 tags: [siglip, vision-encoder, vlm-backbone, sigmoid-loss, clip, paligemma, smolvlm, eagle, groot, frozen-encoder]
 ---
 
@@ -48,12 +48,15 @@ Two independent 2026 measurements, from different directions, reach the same ver
 ## Open questions
 
 - **No primary ingested.** Everything here is second-hand from pages about other models. The SigLIP and SigLIP 2 papers are unfiled, so the sigmoid-loss mechanism, training scale, and the SigLIP→SigLIP 2 delta are undocumented.
+- **The control verdict is not unanimous.** [Reconstruction or Semantics?](../sources/latent-space-robotic-world-models-paper.md) finds **SigLIP 2 posts the best generated-latent success-classifier accuracy** as a diffusion-world-model latent space, and groups it with the encoders that beat every reconstruction model. See [SigLIP 2](siglip-2.md) for the full disagreement and the candidate reconciliations.
 - **SigLIP vs SigLIP 2 is not disambiguated in the wiki's own claims.** The negative control results are specifically **SigLIP 2 ViT-L**; the backbone roles above are mostly **SigLIP** / **SigLIP-so400M**. Whether the control finding transfers backwards is untested.
 - **The pairing hypothesis is inferred, not sourced.** No ingested source says "we pair SigLIP with DINOv2 because SigLIP lacks geometry" — the wiki is reading that off the architectures plus the probe results.
 
 ## Related
 
 - [PaliGemma](paligemma.md) / [SmolVLM](smolvlm.md) / [Eagle VLM](eagle-vlm.md) — the backbones it sits inside.
+- [SigLIP 2](siglip-2.md) — the generation the wiki's control evidence actually names.
+- [WebSSL / Web-DINO](webssl.md) — the language-free encoder that matches it on VQA at 5× less data.
 - [DINOv2](dinov2.md) / [DINOv3](dinov3.md) — the geometry-oriented encoders it is paired with, and beaten by, for control.
 - [V-JEPA 2](v-jepa-2.md) — the latent-prediction alternative that dominates on action R².
 - [Patch Policy](patch-policy.md) — the frozen-backbone comparison.
@@ -68,3 +71,4 @@ Two independent 2026 measurements, from different directions, reach the same ver
 - [Patch Policy paper](../sources/patch-policy-paper.md) — frozen-backbone sweep.
 - [Eagle 2.5 paper](../sources/eagle-2-5-paper.md) — single SigLIP-so400M backbone.
 - [FLARE paper](../sources/flare-paper.md), [TurboVLA paper](../sources/turbovla-paper.md), [DreamGen paper](../sources/dreamgen-paper.md), [Latent-space robotic world models](../sources/latent-space-robotic-world-models-paper.md) — component mentions.
+- [Scaling Language-Free Visual Representation Learning](../sources/webssl-paper.md) — Web-DINO matches SigLIP and SigLIP 2 on VQA at 5× less data.

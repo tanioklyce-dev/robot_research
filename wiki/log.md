@@ -4184,3 +4184,47 @@ The four **Matter 1.6** source pages are now catalogued next to the [1.4 core sp
 
 ### Verified
 **0 broken file links, 0 broken anchors, 0 orphans, 0 pages missing from `index.md`, 0 entity/concept pages missing `Mentioned in`.**
+
+## [2026-08-26] ingest | Filling the three backbone gaps — and one of them resolved an identity the wiki had missed
+Closes the "still unfiled" line from the punch-list entry above: **SigLIP 2 as distinct from SigLIP, DynaMo, and the WebSSL primary.** Two turned out to warrant full ingests rather than pages-from-mentions.
+
+- Created [Scaling Language-Free Visual Representation Learning (Web-SSL)](sources/webssl-paper.md), [DynaMo paper](sources/dynamo-paper.md) — both PDFs into `raw/`, read via pypdf
+- New entities: [SigLIP 2](entities/siglip-2.md), [DynaMo](entities/dynamo.md); **rewrote** [WebSSL / Web-DINO](entities/webssl.md) around its primary
+- Updated [JEPA](concepts/world-models/jepa.md), [DINO-WM](entities/dino-wm.md), [SigLIP](entities/siglip.md), [Patch Policy source](sources/patch-policy-paper.md), [index](index.md)
+
+### The finding: **Web-DINO is WebSSL**, and the wiki was carrying opposite verdicts on it under two names
+The [Web-SSL paper](sources/webssl-paper.md) names its DINOv2-style member **Web-DINO**. The wiki has been discussing both names on separate pages for months without connecting them:
+
+- As **WebSSL**, it is [Patch Policy](entities/patch-policy.md)'s **co-winning** frozen backbone, explicitly recommended for robot learning.
+- As **Web-DINO**, [action-relevant latents](sources/action-relevant-latents-paper.md) measures it at **0.16 action R²** after inverse-dynamics tuning — clustered with pixel-reconstruction encoders, **negative on rotation**, immovable under a λ sweep across five orders of magnitude.
+
+**Both are true, and the reconciliation is what each is measuring.** Patch Policy asks *do frozen patch tokens make a good input to a behavior-cloned policy* — a feature-quality question on tasks where the demonstrations supply the dynamics. Action-relevant latents asks *can action be linearly decoded from the representation* — a world-model question where the encoder must carry the dynamics. **Web-SSL is a strong perception front-end and a weak dynamics substrate, and it is trained on still images, so there is no mechanism by which it would be otherwise.**
+
+The consequence is practical and is now on three pages: **the encoder recommended for policies is one of the worst measured choices for a latent world model.** Carrying the recommendation across that boundary inherits a rotation collapse.
+
+It also **partly resolves the standing contradiction** on [JEPA](concepts/world-models/jepa.md) about whether JEPA is distinct from image-SSL. The disagreement is not two encoders but **one encoder measured for three different jobs** — policy feature extractor (strong), action-decoding substrate (weak), rollout-success judge (decent). That does not settle the Pearson-r-vs-R² question, but it removes the possibility that different models were being compared.
+
+### DynaMo is a JEPA published before the wiki's JEPA thread starts
+[DynaMo](entities/dynamo.md) (Cui, …, [Pinto](entities/lerrel-pinto.md), NeurIPS 2024) does joint **latent inverse + forward** dynamics over image embeddings with no augmentations, no contrastive sampling, no action labels and **no out-of-domain data** — the JEPA recipe, framed as representation learning for imitation, which is why the wiki filed the entire later literature without it.
+
+Two things it changes:
+- **It belongs on the [anti-collapse ladder](concepts/world-models/jepa.md), at the heavy end.** Its defence is **SimSiam stop-gradient + VICReg-style covariance regularization** (λ=0.04, and the paper says covariance is the *smaller* effect). The ladder has been getting lighter over time; DynaMo is a datapoint near its start.
+- **It predates [SMWM](entities/smwm.md)'s inverse-dynamics claim.** The wiki credits SMWM (2026) with inverse-dynamics regularization as an anti-collapse mechanism. DynaMo had inverse dynamics as *half the objective* two years earlier — not as the *sole* defence, which is still SMWM's contribution, but the priority note now exists.
+
+**The in-domain vs frozen-web axis, which the wiki did not have.** [Pinto](entities/lerrel-pinto.md)'s lab published DynaMo (2024 — train your own encoder on your own demos) and then [Patch Policy](entities/patch-policy.md) (2026 — freeze someone else's web-scale encoder), where **DynaMo is the baseline Patch Policy beats** (0.65/0.28 vs 1.68/1.68 on BlockPush/Cube). That is a change of subject, not a refutation: **nobody has tested DynaMo's actual regime — six demonstrations, no suitable web encoder — against a frozen web backbone.** Reading Patch Policy's win as "in-domain pretraining is obsolete" outruns the evidence, and both pages now say so.
+
+### SigLIP 2 filed separately on purpose
+Every control measurement the wiki holds names **SigLIP 2** specifically, while most *backbone-role* claims name SigLIP or SigLIP-so400M. Merging them would silently back-propagate a control verdict across a generation gap that no ingested source documents.
+
+And the verdict is **not unanimous**, which the previous day's [SigLIP page](entities/siglip.md) had rendered one-sidedly and is now corrected: SigLIP 2 is weak as an action-decoding substrate (0.17 R², negative rotation) and weakest of five frozen policy backbones — but [Reconstruction or Semantics?](sources/latent-space-robotic-world-models-paper.md) finds it posts the **best generated-latent success-classifier accuracy** as a diffusion-world-model latent space. **Poor at decoding actions, decent at judging whether a rollout succeeded** — different jobs, and only the first is what a planner needs.
+
+### On the Web-SSL primary itself
+Its contribution is a control, not a model: train visual SSL and CLIP **on the same 2B MetaCLIP images** and ask whether SSL lagged because of missing language or different data. **The data.** SSL scales better in capacity and data, **does not saturate at 7B**, and matches CLIP across VQA **including OCR & Chart** — the category assumed to require language supervision. Web-DINO matches SigLIP and SigLIP 2 on VQA at **5× less data**. Honest about the structural cost: **no zero-shot classification** without language, which matters for open-vocabulary perception and which the robot-learning framing tends to skip.
+
+Worth recording that **the paper contains no control or robotics evaluation whatsoever.** Every robotics claim the wiki makes about WebSSL comes from other people's papers, in both directions.
+
+### Backlog after this
+- **Which Web-SSL variant** do downstream users take? The family spans 1B–7B and more than one objective; neither Patch Policy nor the wiki records the checkpoint.
+- **Is the rotation collapse a family property or a DINO-objective property?** Only the DINO member was probed.
+- **DynaMo × frozen backbone** — in-domain dynamics pretraining *on top of* DINOv2/WebSSL features is the obvious experiment neither paper runs.
+- **Neither SigLIP primary is ingested**, so the SigLIP → SigLIP 2 delta remains undocumented.

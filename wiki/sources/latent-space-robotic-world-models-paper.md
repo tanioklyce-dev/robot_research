@@ -91,6 +91,8 @@ That split is the sharpest thing in the paper: **scale buys you the parts of the
 
 - [V-JEPA 2](../entities/v-jepa-2.md) (V-JEPA 2.1) · [NVIDIA Cosmos](../entities/nvidia-cosmos.md) (as an encoder) · [OpenVLA](../entities/openvla.md) · [DINO-WM](../entities/dino-wm.md) · [DINOv2](../entities/dinov2.md) (Web-DINO lineage) · [WorldArena](../entities/worldarena.md) (metrics reused) · [Mila](../entities/mila.md)
 - Bridge V2, SOAR, SD3 VAE, VA-VAE, SigLIP 2, InternVL 3.5, Qwen 3.6 — no wiki pages
+- [Web-DINO / WebSSL](../entities/webssl.md) — strong as a diffusion-world-model latent space — IDM Pearson r = 0.820.
+- [SigLIP 2](../entities/siglip-2.md) — best generated-latent success-classifier accuracy.
 
 ## Concepts touched
 

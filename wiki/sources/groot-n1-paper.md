@@ -51,6 +51,7 @@ The primary paper behind [NVIDIA GR00T](../entities/nvidia-groot.md) N1 — an o
 - [RoboCasa](../entities/robocasa.md), [MimicGen](../entities/mimicgen.md) (DexMimicGen), [Open X-Embodiment](../entities/open-x-embodiment.md), [DROID](../entities/droid.md), [AgiBot](../entities/agibot.md) (AgiBot-Alpha dataset), [LeRobot](../entities/lerobot.md) (dataset format), [Hugging Face](../entities/hugging-face.md).
 - [π0](../entities/pi-zero.md) — architectural contrast; [Diffusion Policy](../entities/diffusion-policy.md) + BC-Transformer (RoboMimic) — baselines; [NVIDIA Cosmos](../entities/nvidia-cosmos.md) — cited alongside WAN2.1 for neural-trajectory generation; [Octo](../entities/octo.md), [OpenVLA](../entities/openvla.md)-line VLAs — related work.
 - 1X (acknowledged for humanoid hardware support).
+- [SigLIP 2](../entities/siglip-2.md) — the vision half of the Eagle-2 VLM (SmolLM2 + SigLIP-2).
 
 ## Concepts touched
 

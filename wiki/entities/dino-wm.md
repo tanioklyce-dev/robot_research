@@ -92,3 +92,4 @@ DINO-WM builds its world model on a **frozen image-SSL encoder**. Under a shared
 - [Reconstruction or Semantics?](../sources/latent-space-robotic-world-models-paper.md) — the counter-evidence: Web-DINO latents nearly match V-JEPA as a world-model substrate.
 - [Closing the Train-Test Gap in World Models for Gradient-Based Planning](../sources/train-test-gap-world-models-paper.md) — base model and baseline; the GD-vs-CEM gap quantified.
 - [Temporal Straightening for Latent Planning](../sources/temporal-straightening-paper.md) — base model and baseline; its latent trajectories are the "highly curved" case.
+- [Scaling Language-Free Visual Representation Learning](../sources/webssl-paper.md) — **the Web-DINO primary.** Web-DINO is the DINO member of [Web-SSL](webssl.md), the family [Patch Policy](patch-policy.md) recommends as the best frozen *policy* backbone — so the contradiction above is one encoder measured for three different jobs.
