@@ -3,8 +3,8 @@ title: V-JEPA 2
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-05-25
-sources: 28
+updated: 2026-08-26
+sources: 29
 tags: [v-jepa-2, jepa, world-model, meta-fair, video, action-conditioned, franka]
 ---
 
@@ -88,3 +88,4 @@ Note the scope: these are diffusion world models *using* V-JEPA's latent space, 
 ## Mentioned in (additional)
 
 - [Reconstruction or Semantics?](../sources/latent-space-robotic-world-models-paper.md)
+- [Patch Policy paper (Zhou, Cui, ..., LeCun, Pinto 2026)](../sources/patch-policy-paper.md) — **V-JEPA 2 evaluated as a frozen dense-feature backbone for behavior-cloned policies, and beaten by DINOv2 and WebSSL.** A narrow test (frozen encoder, no action-conditioned predictor, imitation learning only) that does not touch V-JEPA 2's own zero-shot planning claims — but the first datapoint here that video-pretrained JEPA features are not the best available *as patch features for control*.

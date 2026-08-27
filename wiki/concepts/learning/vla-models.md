@@ -2,8 +2,8 @@
 title: VLA models
 type: concept
 created: 2026-05-06
-updated: 2026-08-13
-sources: 103
+updated: 2026-08-26
+sources: 104
 tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos, vla-0, action-as-text, molmoact2, per-layer-kv-conditioning, hybrid-action-head, llm-free-vla, turbovla, xvla, soft-prompt]
 ---
 
@@ -124,3 +124,14 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 - [RT-2 DeepMind blog](../../sources/rt-2-deepmind-blog.md) — the announcement; its 3× generalization headline contradicts the paper's ~2×
 - [UniT paper](../../sources/unit-paper.md) — latent action tokens as a cross-embodiment interface; +18.9 pp from the objective alone
 - [TurboVLA paper (Xie, Yao et al., 2026)](../../sources/turbovla-paper.md) — the LLM-free V+L→A paradigm; 97.7 LIBERO at 0.2 B / 0.9 GB / 32 Hz
+
+## The parameter-efficiency challenge
+
+> [!warning] A 51M-parameter policy beats a fine-tuned 7.6B VLA in-domain
+> [Patch Policy](../../entities/patch-policy.md) ([paper](../../sources/patch-policy-paper.md), LeCun & [Pinto](../../entities/lerrel-pinto.md), Jul 2026) feeds **frozen** pretrained ViT patch tokens to a small transformer policy via a block-causal attention mask, and beats fine-tuned **[OpenVLA-OFT](../../entities/openvla.md)** on four simulated suites and three real Franka tasks — at **51.55M vs 7.61B total parameters** (~0.7%), **10.99 ms vs 61.71 ms** inference, and **6.5 vs 16 GPU-hours** of training.
+>
+> **What this does and does not show.** The paper's own framing is scoped: *"for **in-domain** tasks with sufficient demonstrations, a lightweight policy on strong features can match or exceed a heavy pretrained VLA fine-tuned on the same data."* Every policy in that comparison receives **visual input only** — there is no language axis anywhere in the evaluation. So this is a result about **parameter efficiency on a fixed task distribution**, not evidence that VLA pretraining is unnecessary. The capabilities a 7.6B VLA exists for — language generalization, novel objects, instruction following — are untested.
+>
+> It is still the sharpest cost argument in this wiki against reaching for a VLA by default: if the deployment is a known task set with demonstrations, the 150× parameter premium buys nothing measured here. And two caveats keep it honest — real-robot **n = 20** per cell (±20 pp), and the fast 10.99 ms number belongs to the VQ-BeT head while the best simulated numbers come from a Diffusion Policy head running at **445.85 ms**.
+
+**The backbone finding is the more portable result.** Sweeping five frozen encoders (DINOv2, DINOv3, WebSSL, [V-JEPA 2](../../entities/v-jepa-2.md), SigLIP 2) across all tasks: **WebSSL and DINOv2 win**, **SigLIP 2 falls short** (language-image alignment "sacrifices the dense geometric features necessary for manipulation"), and the representation ranking is **stable across policy architectures** — from which the paper concludes that *"the quality of the visual representation is still a primary bottleneck for policy learning, independent of the downstream action head."*

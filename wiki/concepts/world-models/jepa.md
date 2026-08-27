@@ -2,8 +2,8 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-08-08
-sources: 40
+updated: 2026-08-26
+sources: 44
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -47,6 +47,7 @@ The term **Joint Embedding** names the architecture class defined by this proper
   - **EMA target encoder + stop-gradient** — [V-JEPA 2](../../entities/v-jepa-2.md).
   - **Multi-term variance–covariance regularizers** — [PLDM](../../entities/pldm.md).
   - **Single distributional regularizer (SIGReg)** — [LeWorldModel](../../entities/leworldmodel.md) matches embeddings to an isotropic Gaussian; no EMA / stop-grad / frozen encoder. [Identifiability theory](identifiability.md) later shows the Gaussian is *uniquely* the right target.
+  - **Sparse (non-Gaussian) distribution matching — RDMReg** — [LpWM](../../entities/lpwm.md) matches features to a *Rectified Generalized Gaussian*, giving non-negative exactly-sparse codes. This is the axis-shift worth noting: every mechanism above answers *how do you avoid collapse*; RDMReg is chosen to answer *what latent geometry makes the dynamics cheap to predict*. See [below](#a-second-axis-what-geometry-not-just-how-to-avoid-collapse).
   - **Single inverse-dynamics regularizer** — [SMWM](../../entities/smwm.md) (Ivashkov, Balestriero, Schölkopf 2026) predicts the *action* from an embedding pair; recovering it forces the encoder to stay action-informative. Unlike SIGReg it **doesn't prescribe latent geometry** — it anchors the representation to a task-grounded quantity, biasing toward *controllable* degrees of freedom and filtering uncontrollable distractors (a "perception for action" / causal-representation framing).
 - **State representation & hierarchy (2026 developments).** Beyond collapse, two other axes are moving: **object-centric states** — [WorldDP](../../entities/worlddp.md) replaces raw DINOv2 patches with slot-attention entity embeddings for better dynamics learning — and **hierarchy for multi-stage tasks** — both [HWM](../../entities/hwm.md) (WM-over-WM) and [WorldDP](../../entities/worlddp.md) (WM-over-diffusion-policy) wrap a JEPA planner in a two-tier subgoal structure to escape the single-stage ceiling.
 
@@ -86,6 +87,29 @@ The conditions are strong (stationary additive-noise transitions, Gaussian laten
 
 > [!warning] The theory and the measurements point opposite ways
 > Five days earlier, largely the same group published [stable-worldmodel](../../sources/stable-worldmodel-paper.md), showing [LeWorldModel](../../entities/leworldmodel.md) drops from **50.8 % to 6–26 %** on Push-T under color/size/shape shifts, with quadratic decay under distractors — and that **prediction MSE correlates poorly with planning success**. Neither paper addresses the other. Identifiability-under-assumption has not so far produced out-of-distribution robustness.
+
+## A second axis: *what* geometry, not just *how* to avoid collapse
+
+Anti-collapse mechanisms have been getting lighter (EMA + stop-grad + frozen encoder → VICReg → SIGReg → inverse dynamics). [LpWM](../../entities/lpwm.md) changes the question instead of the weight: given that you must shape the latent distribution somehow, **which shape makes the action-conditioned dynamics easiest to model?**
+
+Its answer is **sparse**, and the claim is specifically about **predictor capacity**, not raw success:
+
+| Predictor capacity | Sparse vs dense on PushT |
+|---|---|
+| Lowest (linear LTI(1)) | Both fail |
+| **Intermediate** | **LpWM +24–57%** — "a shallow predictor plans over sparse codes where it fails over dense ones" |
+| Highest (Deep-AdaLN) | Similar — complexity saturates |
+
+Sparse codes also come out **mode-factored**: support encodes the discrete dynamics regime (94–99% decodable on a piecewise-affine navigation task, *even when the zones have no visual cues*), magnitudes encode continuous within-regime state. And the advantage widens with planning horizon.
+
+> [!warning] Sparsity alone does not buy semantics
+> On contact-rich OGBench-Cube the support is essentially a **motion detector** (r ≈ 0.87 with effector motion, r ≈ 0.05 with contact), because RDMReg constrains only the per-frame marginal. An added temporal-Jaccard prior makes the support track contact instead (0.05 → 0.61) **at unchanged planning success** — so the interpretable structure and the planning benefit are separable properties.
+
+This sits in tension with the identifiability result below: see [identifiability](identifiability.md) for why the two are not formally contradictory and why the tension is nonetheless real.
+
+## Adapting a JEPA after deployment
+
+[AdaJEPA](../../entities/adajepa.md) makes the JEPA's own pretraining loss do double duty as a **[test-time adaptation](../learning/test-time-adaptation.md)** signal: inside an MPC loop, the observed next state is a free label for the prediction just made, so **one gradient step per replanning step** recovers much of the out-of-distribution collapse the wiki records for [LeWM](../../entities/leworldmodel.md). It is the first *online* answer here to a fragility every other source addresses offline.
 
 ## Hierarchical JEPA (H-JEPA) — long-horizon planning
 The single-level JEPA planning ceiling is short: [LeWorldModel](../../entities/leworldmodel.md) on push-t reliably plans only **~5 prediction loops** ahead before rollouts drift. LeCun's prescribed fix (from the [2022 position paper](../../sources/lecun2022-path-towards-ami.md), restated on camera in the [Welch Labs Part 2 explainer](../../sources/welchlabs-lecun-1b-bet-against-llms-part2.md)): a **hierarchy of predictors** — low levels make detailed short-term predictions; high levels make abstract long-term predictions (fewer details → slower divergence from reality). The **inter-layer interface is an embedding space, "not semantic, certainly not language"** ("your cat can do hierarchical planning"). LeCun's analogy: planning a NYU→Paris trip as sub-goals (airport → taxi → street), not millisecond muscle control.
@@ -169,3 +193,8 @@ And the caution that generalizes beyond JEPA: **stable features are not usable f
 - [What Makes Video World Model Latents Action-Relevant](../../sources/action-relevant-latents-paper.md) — the shared inverse-dynamics probe; the ~+0.10 attribution; rotation; the per-layer profile.
 - [Latent Video Prediction Learns Better World Models](../../sources/latent-video-prediction-better-world-models-paper.md) — five robustness axes; arrow of time; stable ≠ usable.
 - [Reconstruction or Semantics?](../../sources/latent-space-robotic-world-models-paper.md) — V-JEPA 2.1 as the strongest latent space for a robotic diffusion world model; ~2× VLA-in-the-loop success over VAE latents.
+- [LpWM paper (Kuang et al., 2026)](../../sources/lpwm-paper.md) — sparse latent geometry lowers predictor capacity needed to plan; mode-factored codes.
+- [AdaJEPA paper (Wang, Bounou, LeCun, Ren 2026)](../../sources/adajepa-paper.md) — test-time adaptation of a latent world model inside MPC.
+- [HP-JEPA paper (Xu et al., 2026)](../../sources/hp-jepa-paper.md) — JEPA on graphs with a bank of coarse-to-fine partition resolutions. A reminder that **"hierarchical JEPA" names two distinct programs**: temporal abstraction for planning ([HWM](../../entities/hwm.md)) and structural resolution for representation (this). Do not conflate them.
+- [Music-JEPA paper (Wang, Fang, LeCun 2026)](../../sources/music-jepa-paper.md) — the action-conditioned formulation outside vision (audio = state, pianoroll = action); action conditioning is what makes the latent dynamics temporally discriminative (target-state win rate **0.991 vs 0.576** for a passive audio-only JEPA).
+- [TDV paper (Daithankar, Gladstone, LeCun, Ji 2026)](../../sources/tdv-paper.md) — architectural cousin (`z_t + Δz_t = z_{t+1}`) with the scaling argument for *why* anti-collapse machinery should keep getting lighter: **optimal inductive-bias strength decreases as data grows.**

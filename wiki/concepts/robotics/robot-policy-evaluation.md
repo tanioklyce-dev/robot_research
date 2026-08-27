@@ -3,7 +3,7 @@ title: Robot policy evaluation
 type: concept
 created: 2026-07-27
 updated: 2026-08-26
-sources: 21
+sources: 22
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility, real-to-sim, r2s2r]
 ---
 
@@ -156,3 +156,4 @@ Two of their findings bear directly on this page:
 - [Building Worlds That Train Robots (R2S2R)](../../sources/world-labs-r2s2r.md) — a **sixth** paradigm: a per-task reconstructed simulator as a high-throughput checkpoint-screening layer. Reports its protocol (2,000 sim / 100 real trials per checkpoint) but **no success rates and no correlation coefficient**, so it cannot be placed next to WorldArena's 0.986 or Veo's 0.88.
 - [A Functional Taxonomy of World Models](../../sources/world-labs-functional-taxonomy.md) — the same verdict from a vendor selling into the category: robot demos are "confined to heavily constrained laboratory setups, with narrow object sets and short task horizons" and **"none have been validated at the complexity, variability, or duration that real-world deployment demands."**
 - [Fei-Fei Li is Solving the Hardest Problem in Robotics (a16z × World Labs)](../../sources/a16z-worldlabs-scenix-conversation.md) — evaluation as a wall-clock discrimination problem (90% vs 92%), and the reliability asymmetry against LLMs: an LLM's output has a human reading it, *"but for robotic models, out of the box, the robot has to work reliably in the real environment."*
+- [Patch Policy paper](../../sources/patch-policy-paper.md) — two textbook instances of this page's failure modes in one paper: **LIBERO Goal sits at 0.93–0.98 for every method** (saturation, discriminating nothing), and the real-robot comparison runs **n = 20 per cell** (~±20 pp), where the headline 0.70-vs-0.30 gap survives and the 0.90-vs-0.70 ones do not. No confidence intervals reported. Its simulated protocol is better than most: **100 trajectories per seed × 3 seeds**.

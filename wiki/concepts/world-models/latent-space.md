@@ -2,8 +2,8 @@
 title: Learned latent space
 type: concept
 created: 2026-05-08
-updated: 2026-07-06
-sources: 31
+updated: 2026-08-26
+sources: 33
 tags: [representation-learning, embeddings, world-model, jepa, self-supervised]
 ---
 
@@ -50,6 +50,14 @@ A **learned latent space** is the network's own internal coordinate system for "
 - **Out-of-distribution drift** — a frozen encoder pretrained on internet images may not encode useful structure for unusual robot viewpoints (fisheye, top-down, low-light). [DINO-WM](../../entities/dino-wm.md) inherits DINOv2's biases.
 - **Information bottleneck vs sufficiency** — too small a `d` and the latent throws away task-relevant detail; too large and it's wasteful and hard to predict. Most modern encoders use 256–1024 dims.
 
+## Dense or sparse?
+
+The wiki's latent-space material has assumed a **dense** geometry throughout — [SIGReg](../../entities/leworldmodel.md)'s isotropic Gaussian, VICReg's decorrelated features. [LpWM](../../entities/lpwm.md) ([paper](../../sources/lpwm-paper.md)) is the first source here to treat that as a *choice* rather than a default, and to argue it is the wrong one for dynamics.
+
+Its structural finding is the part worth keeping regardless of how the performance claim ages: sparse codes come out **mode-factored**. The **support** — which features are non-zero — encodes the *discrete dynamical regime* (94–99% linearly decodable on a piecewise-affine navigation task, and it tracks the regime **even when the zones carry no visual cues**), while the **magnitudes** encode continuous within-regime state. That is a latent space with an explicit type distinction inside it, which a dense Gaussian code cannot express.
+
+The caveat is equally structural: the sparsity regularizer constrains only the **per-frame marginal**, so on contact-rich tasks the support latches onto whatever varies fastest — a motion detector (r ≈ 0.87 with effector motion, 0.05 with contact) rather than a regime detector, until a temporal prior is added.
+
 ## Related
 
 - [Joint-Embedding Predictive Architecture](jepa.md) — the architecture pattern built around predicting in a learned latent space.
@@ -69,3 +77,5 @@ A **learned latent space** is the network's own internal coordinate system for "
 - [DINO-WM Paper](../../sources/dino-wm-paper.md)
 - [DINO-world Paper](../../sources/dino-world-paper.md)
 - [VLA-JEPA Paper](../../sources/vla-jepa-paper.md)
+- [LpWM paper](../../sources/lpwm-paper.md) — sparse vs dense latent geometry; mode-factored codes.
+- [TDV paper](../../sources/tdv-paper.md) — additive latent transitions (`z_t + Δz_t = z_{t+1}`) learned from video without augmentation/masking biases.

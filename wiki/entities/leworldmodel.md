@@ -3,8 +3,8 @@ title: LeWorldModel
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-07-26
-sources: 32
+updated: 2026-08-26
+sources: 34
 tags: [leworldmodel, lewm, jepa, world-model, mila, end-to-end, sigreg, instruction-leakage]
 ---
 
@@ -53,6 +53,11 @@ The [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms
 >
 > This does not retract the headline claims below (they are in-distribution results and remain accurate), but it bounds them hard. Read the "competitive across diverse 2D and 3D control tasks" claim as *within the training distribution*. The companion [identifiability theorem](../concepts/world-models/identifiability.md) is not a defense here — it assumes a generative model a color-shifted environment plausibly violates outright.
 
+> [!note] Two 2026 successors take opposite routes to LeWM's weaknesses
+> **[LpWM](lpwm.md)** ([paper](../sources/lpwm-paper.md), Aug 2026) keeps LeWM's encoder and CEM planner but swaps SIGReg's dense isotropic Gaussian for **RDMReg**'s sparse non-negative codes, and reports **+24–57% on PushT at intermediate predictor capacity** (no advantage at high capacity, none on the already-linear Wall env) plus **84.7% vs 65.3%** on piecewise-affine navigation. The claim is that sparsity makes the *dynamics cheaper to model*, not that it plans better outright.
+>
+> **[AdaJEPA](adajepa.md)** ([paper](../sources/adajepa-paper.md), Jun 2026) leaves the geometry alone and attacks the **out-of-distribution collapse** measured above, by adapting the world model online inside the MPC loop — one gradient step per replan, using the observed transition as a free self-supervised label. On the same shift families ([shape, visual](../sources/stable-worldmodel-paper.md)) it reports *"nearly doubles the planning success rate"* on unseen shapes. Neither paper measures against the other, and **neither reports what fraction of the 50.8% → 6–26% collapse is recovered.**
+
 ## Why it matters
 - Strips JEPA training down to two losses, making latent-prediction world models more practical for resource-limited research.
 - Provides a single-GPU baseline that's hard to argue against — research labs without massive compute can do JEPA work.
@@ -82,3 +87,5 @@ The [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms
 - [Sensorimotor World Models paper (Ivashkov et al., 2026)](../sources/sensorimotor-world-models-paper.md) — adopts LeWM's latent-planning setup; SIGReg (LeWM's regularizer) is its main anti-collapse baseline.
 - [Grounding Spatial Relations in a Compact World Model (Wang et al., 2026)](../sources/grounding-spatial-relations-compact-wm-paper.md) — critiques the compact JEPA-latent + reference-anchor + language-goal recipe (à la LeWM) for [instruction leakage](../concepts/world-models/instruction-leakage.md); prescribes goal-free dynamics.
 - [LeNEPA paper (Chemeris, Jin, Balestriero 2026)](../sources/lenepa-paper.md) — carries LeWM's SIGReg into time-series SSL (the "Le-" family sibling).
+- [LpWM paper (Kuang et al., 2026)](../sources/lpwm-paper.md) — sparse-latent successor sharing LeWM's encoder and planner; the dense baseline it is measured against.
+- [AdaJEPA paper (Wang et al., 2026)](../sources/adajepa-paper.md) — test-time adaptation as the online answer to LeWM's OOD fragility.

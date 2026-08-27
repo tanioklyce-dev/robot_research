@@ -3,8 +3,8 @@ title: Lerrel Pinto
 type: entity
 subtype: person
 created: 2026-05-08
-updated: 2026-05-16
-sources: 7
+updated: 2026-08-26
+sources: 8
 tags: [person, nyu, robot-learning, manipulation, foundation-models, dino-wm, rum]
 ---
 
@@ -40,3 +40,4 @@ If a future ingest brings in a Pinto-led paper that bridges those two — e.g. a
 ## Open questions / TBD
 - Full publication trajectory (manipulation + foundation-model line) — not directly cited.
 - Lab name / group at NYU — not surfaced.
+- [Patch Policy paper](../sources/patch-policy-paper.md) — senior author with [Yann LeCun](yann-lecun.md); dense patch tokens via a block-causal mask, beating a fine-tuned 7.6B [OpenVLA-OFT](openvla.md) in-domain with 51M parameters at 10.99 ms.

@@ -2,8 +2,8 @@
 title: Identifiability (linear identifiability of latent variables)
 type: concept
 created: 2026-07-26
-updated: 2026-07-26
-sources: 5
+updated: 2026-08-26
+sources: 6
 tags: [identifiability, linear-identifiability, latent-space, jepa, lejepa, theory, causal-representation-learning, nonlinear-ica, planning, generalization-theory]
 ---
 
@@ -32,11 +32,20 @@ The guarantee is **conditional**, and the conditions do most of the work:
 > [!warning] Proved identifiability has not produced robust models
 > Five days before the identifiability paper, largely the same group published [stable-worldmodel](../../sources/stable-worldmodel-paper.md), showing that [LeWorldModel](../../entities/leworldmodel.md) — which scales the LeJEPA recipe — drops from **50.8 % to 6–26 %** on Push-T under color/size/shape shifts, with quadratic decay under distractors. The two results are not reconciled by either paper. The honest reading is that they occupy different regimes: a color-shifted environment plausibly violates the theory's generative assumptions outright, so the theorem is not contradicted — but neither does it yet buy robustness in practice. **Identifiability under-assumption and generalization-in-practice are separate problems.**
 
+> [!warning] The geometry that makes an encoder identifiable may not be the geometry that makes dynamics predictable
+> [LpWM](../../sources/lpwm-paper.md) (Aug 2026, overlapping author cluster) deliberately targets a **non-Gaussian** latent distribution — a Rectified Generalized Gaussian, yielding sparse non-negative codes — and reports that it **lowers the predictor capacity required to plan**: +24–57% over dense [LeWM](../../entities/leworldmodel.md) on PushT at intermediate predictor capacity, and 84.7% vs 65.3% on a piecewise-affine navigation task.
+>
+> **This is not a formal contradiction**, and the reason is exactly the scope limit recorded above: the uniqueness theorem is about the **encoder**, at population level, under stationary additive-noise transitions with m = n. LpWM is about the **predictor's** job — modeling `p(z′|z,a)` — which this page already notes is *"not proved"* and "would require interventional causal representation learning."
+>
+> But the practical tension is real, and it sharpens what the scope limit costs. The Gaussian is uniquely optimal for **recovering the latents**. Sparse codes appear better for **modeling how the latents move**. LpWM's structural result says why they might diverge: sparse codes come out **mode-factored**, with the *support* encoding the discrete dynamics regime (94–99% decodable) and the *magnitudes* the continuous within-regime state. A representation organized around dynamical regimes is not the same object as one organized to be linearly decodable, and there is no reason a single distribution should be optimal for both. **Neither paper cites the other on this point.**
+
 ## Related concepts
 - [Learned latent space](latent-space.md) — identifiability is a property of one.
 - [JEPA](jepa.md) — the architecture family the result applies to.
 - [Spectral theory of SSL](../learning/spectral-theory-of-ssl.md) — the shared mathematical frame; identifiability (recoverability) and generalization are the two formal guarantees built on it.
 - [World model](world-model.md).
+- [LpWM](../../entities/lpwm.md) — sparse latent geometry for dynamics; the counterweight above.
+- [Test-time adaptation](../learning/test-time-adaptation.md) — the empirical attack on the robustness gap this page flags.
 
 ## Key references
 - [When Does LeJEPA Learn a World Model? (Klindt, LeCun, Balestriero, 2026)](../../sources/when-does-lejepa-learn-a-world-model-paper.md) — the theorems.
@@ -48,3 +57,5 @@ The guarantee is **conditional**, and the conditions do most of the work:
 - [When Does LeJEPA Learn a World Model?](../../sources/when-does-lejepa-learn-a-world-model-paper.md)
 - [stable-worldmodel paper](../../sources/stable-worldmodel-paper.md)
 - [A Generalization Theory for JEPA-Based World Models](../../sources/jepa-generalization-theory-paper.md) — complementary generalization guarantee.
+- [LpWM paper](../../sources/lpwm-paper.md) — non-Gaussian latents, better dynamics.
+- [AdaJEPA paper](../../sources/adajepa-paper.md) — recovers a large part of the OOD collapse by adapting online, without touching the geometry question.

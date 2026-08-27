@@ -3,8 +3,8 @@ title: Yann LeCun
 type: entity
 subtype: person
 created: 2026-05-07
-updated: 2026-07-26
-sources: 34
+updated: 2026-08-26
+sources: 40
 tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs, logical-intelligence, ebm, diffusion-policy, object-centric, spectral-graph-theory]
 ---
 
@@ -89,3 +89,26 @@ LeCun is one of the small number of researchers whose **simultaneous senior posi
 ## Resolved / TBD
 - ~~Has anyone built a working **Hierarchical JEPA (H-JEPA)** at the multi-time-scale envisioned in the [2022 position paper](../sources/lecun2022-path-towards-ami.md)?~~ **Resolved (2026-05-31):** **[HWM — "Hierarchical Planning with Latent World Models"](../sources/hwm-paper.md)** (Zhang, Terver, …, LeCun, Ballas — arXiv 2604.03208, April 2026) is the concrete realization: a two-temporal-scale latent MPC wrapper (high-level macro-actions → subgoals → low-level primitive actions), model-agnostic across [DINO-WM](dino-wm.md), [PLDM](pldm.md), and [V-JEPA 2](v-jepa-2.md)-AC. Real-Franka pick-&-place **0%→70%** from a single goal image; Push-T **17%→61%** at the hardest horizon. (This is the paper the [Welch Labs Part 2 video](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) referenced but couldn't name — and its "5→15 steps" was a simplification of the paper's d=25→75 task-horizon framing.) Note it's **two** levels and goal-image-conditioned; the N-level *emergent* hierarchy and language conditioning remain open.
 - Has the **configurator** module (Section 6 of the 2022 paper) ever been concretely instantiated? LeCun left it as a sketch; worth checking AMI Labs / later FAIR output.
+
+## Summer 2026 batch (ingested 2026-08-26)
+
+Six papers, June–August 2026, spanning the program's breadth. Ordered by relevance to this wiki:
+
+- **[LpWM](../sources/lpwm-paper.md)** (Aug 24) — sparse latent geometry lowers the predictor capacity needed to plan; mode-factored codes. **Sits in tension with his own group's [identifiability result](../concepts/world-models/identifiability.md)** that the Gaussian is uniquely optimal.
+- **[Patch Policy](../sources/patch-policy-paper.md)** (Jul 20, with [Lerrel Pinto](lerrel-pinto.md)) — a 51M-parameter policy on frozen patch features beats a fine-tuned 7.6B [OpenVLA-OFT](openvla.md) in-domain at 10.99 ms latency.
+- **[AdaJEPA](../sources/adajepa-paper.md)** (Jun 30) — [test-time adaptation](../concepts/learning/test-time-adaptation.md) of a latent world model inside the MPC loop; one gradient step per replan.
+- **[TDV](../sources/tdv-paper.md)** (Jun 14) — SSL from temporal differences; the argument that **optimal inductive-bias strength decreases as data grows.**
+- **[Music-JEPA](../sources/music-jepa-paper.md)** (Jul 24) — the action-conditioned world-model recipe outside vision (audio = state, pianoroll = action).
+- **[HP-JEPA](../sources/hp-jepa-paper.md)** (Aug 1) — multi-resolution graph JEPA. Peripheral to this wiki.
+
+> [!note] The batch is mostly other people's first-author work
+> He is a middle or late author on all six, across five different institutional clusters (NYU, Mila/Brown, UIUC, Stony Brook, Columbia-adjacent). Read as a research *program* propagating rather than a lab shipping — which is consistent with the wiki's earlier observation that his AMI Labs affiliation appears on almost none of the papers carrying his name.
+
+**Two further world-model papers surfaced in Music-JEPA's references and are not ingested**: *"Closing the train-test gap in world models for gradient-based planning"* (arXiv 2512.09929) and *"Temporal straightening for latent planning"* (arXiv 2603.12231). Both look directly relevant to the latent-planning thread.
+
+- [LpWM paper](../sources/lpwm-paper.md)
+- [Patch Policy paper](../sources/patch-policy-paper.md)
+- [AdaJEPA paper](../sources/adajepa-paper.md)
+- [TDV paper](../sources/tdv-paper.md)
+- [Music-JEPA paper](../sources/music-jepa-paper.md)
+- [HP-JEPA paper](../sources/hp-jepa-paper.md)
