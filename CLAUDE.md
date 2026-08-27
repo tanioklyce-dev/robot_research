@@ -87,6 +87,13 @@ People, companies, robots, products, labs. Body:
 - Each claim links to a source page.
 - **Mentioned in** section at the bottom: bulleted list of source pages referencing this entity.
 
+> [!note] Hub pages: **Mentioned in** is curated, not exhaustive
+> Once a page passes roughly **30 inbound source pages**, a hand-maintained inbound list stops being useful and starts being a chore nobody wins at — `vla-models.md` is cited by 110 sources. For those pages, **Mentioned in** lists the sources that *substantively shaped* the page, and carries a marker line giving the true inbound count so the reader knows the list is a selection:
+>
+> `> [!note] Curated list — N source pages link here; the ones below are those that shaped this page.`
+>
+> This codifies what was already happening in practice. Do not try to complete these lists; do add a source to one when it genuinely changes what the page says.
+
 ### Concept pages (`concepts/`)
 
 Technical ideas (VLA models, sim-to-real, RLHF, whole-body control, etc.). Body:

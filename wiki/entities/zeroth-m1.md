@@ -3,8 +3,8 @@ title: Zeroth M1
 type: entity
 subtype: robot
 created: 2026-08-17
-updated: 2026-08-23
-sources: 1
+updated: 2026-08-26
+sources: 4
 tags: [zeroth, m1, home-robot, companion-robot, assistive-robotics, fall-detection, biped, wheeled, consumer-robotics]
 ---
 

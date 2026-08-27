@@ -80,6 +80,9 @@ The [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms
 - See [LeWorldModel — train and run howto](../syntheses/world-models/leworldmodel-howto.md) for the practical recipe.
 
 ## Mentioned in
+
+> [!note] Curated list — **36** source pages link here; the ones below are those that shaped this page.
+
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md)
 - [LeWorldModel — train and run howto](../syntheses/world-models/leworldmodel-howto.md)
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) — CEM planning + hierarchical push-t walkthrough.

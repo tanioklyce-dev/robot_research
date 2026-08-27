@@ -91,6 +91,9 @@ Still, the direction is consistent with [SmolVLA](smolvla.md)'s result from the 
 
 ## Mentioned in
 
+> [!note] Curated list — **36** source pages link here; the ones below are those that shaped this page.
+
+
 - [π0 Paper](../sources/pi-zero-paper.md) — primary source (full HTML ingest).
 - [Physical Intelligence entity](physical-intelligence.md)
 - [SmolVLA Paper](../sources/smolvla-paper.md) — uses π0 as primary baseline; beaten on real-world SO-100 multi-task.

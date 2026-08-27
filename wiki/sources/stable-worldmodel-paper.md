@@ -73,6 +73,7 @@ Native **MP4, HDF5, and [LeRobot](../entities/lerobot.md)** support with one-cli
 - [JEPA](../concepts/world-models/jepa.md) — the family under test
 - [Identifiability](../concepts/world-models/identifiability.md) — the property the companion theory paper proves, and which these results suggest is not being achieved in practice
 - [World-model simulators](../concepts/world-models/world-model-simulators.md)
+- [SIGReg](../concepts/world-models/sigreg.md) — the out-of-distribution collapse SIGReg does not prevent.
 
 ## Open questions
 

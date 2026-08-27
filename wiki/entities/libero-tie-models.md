@@ -43,3 +43,8 @@ Per the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md), 
 
 - **All five need primary ingests.** MemoryVLA and FLOWER are the highest value: MemoryVLA held a 7 B SOTA that a 0.9 B model beat by 23.9 pts, and FLOWER holds the only benchmark X-VLA lost.
 - Is **VLA-Adapter** actually an adapter method? The wiki is inferring from the name, which is exactly the kind of guess that should not survive into a claim.
+
+## Mentioned in
+
+- [TurboVLA: Real-Time Vision-Language-Action Model at 32 Hz on an RTX 4090 with <1 GB VRAM](../sources/turbovla-paper.md)
+- [X-VLA: Soft-Prompted Transformer as Scalable Cross-Embodiment Vision-Language-Action Model (Zheng, Li et al., Oct 2025)](../sources/xvla-paper.md)

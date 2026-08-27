@@ -30,6 +30,9 @@ Google's AI research lab. Maintains MuJoCo and [MuJoCo Playground](mujoco-playgr
 - **DMPO + Acme + Reverb** — DeepMind's standard distributed-RL stack, used by both virtual rodent and flybody.
 
 ## Mentioned in
+
+> [!note] Curated list — **33** source pages link here; the ones below are those that shaped this page.
+
 - [MuJoCo Playground Paper](../sources/mujoco-playground-paper.md)
 - [NVIDIA Newton Physics Engine Developer Page](../sources/nvidia-newton-physics-engine-developer-page.md)
 - [Using OpenUSD for Modular and Scalable Robotic Simulation](../sources/nvidia-openusd-for-robotic-simulation.md)

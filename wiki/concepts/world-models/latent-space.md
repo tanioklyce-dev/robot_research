@@ -77,6 +77,9 @@ The caveat is equally structural: the sparsity regularizer constrains only the *
 
 ## Mentioned in
 
+> [!note] Curated list — **35** source pages link here; the ones below are those that shaped this page.
+
+
 - [VAE Paper](../../sources/vae-paper.md)
 - [Stochastic Backpropagation Paper](../../sources/stochastic-backpropagation-paper.md)
 - [β-VAE Paper](../../sources/beta-vae-paper.md)

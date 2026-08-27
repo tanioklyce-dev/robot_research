@@ -46,6 +46,7 @@ An **open-source agentic framework for natural-language control of a PX4 drone**
 - [Jetson Orin Nano](../entities/jetson-orin-nano.md) — onboard companion computer
 - [NVIDIA Isaac Sim](../entities/nvidia-isaac-sim.md) — SITL rendering + physics
 - Pixhawk 6c Mini (flight controller); ZED Mini (VIO camera) — not yet entity pages
+- [Gemma 3](../entities/gemma3.md) — named model option.
 
 ## Concepts touched
 

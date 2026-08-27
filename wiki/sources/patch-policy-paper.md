@@ -95,6 +95,8 @@ Five frozen pretrained encoders swept across all tasks, three seeds, encoder fro
 - [DINOv3](../entities/dinov3.md), [VQ-BeT](../entities/vq-bet.md) — existing pages.
 - **WebSSL, SigLIP 2, DynaMo** — no pages.
 - **Patch Policy** — [entity page](../entities/patch-policy.md).
+- [SigLIP / SigLIP 2](../entities/siglip.md) — falls short as a frozen policy backbone — semantic alignment over dense geometry.
+- [WebSSL](../entities/webssl.md) — the best-performing frozen backbone in the sweep, and the paper’s recommendation.
 
 ## Concepts touched
 

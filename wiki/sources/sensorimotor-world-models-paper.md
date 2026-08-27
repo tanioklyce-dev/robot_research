@@ -44,6 +44,7 @@ tags: [smwm, sensorimotor-world-model, jepa, inverse-dynamics, representation-co
 - [JEPA](../concepts/world-models/jepa.md) — SMWM is a JEPA-family end-to-end-from-pixels world model; adds inverse dynamics to the anti-collapse design space.
 - [World model](../concepts/world-models/world-model.md) — a latent, offline, reward-free world model.
 - [Identifiability](../concepts/world-models/identifiability.md) — related theme (recovering controllable latent structure); complements the [Klindt/LeCun/Balestriero identifiability theorems](when-does-lejepa-learn-a-world-model-paper.md).
+- [SIGReg](../concepts/world-models/sigreg.md) — inverse-dynamics regularization as the alternative; beats SIGReg 84 vs 59 on OGBench-Cube.
 
 ## Open questions
 

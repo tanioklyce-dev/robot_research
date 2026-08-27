@@ -123,6 +123,8 @@ The conclusion is unusually candid: TurboVLA "is designed primarily for concrete
 - [DINOv3](../entities/dinov3.md) · [Grounding DINO](../entities/grounding-dino.md) · [ACT](../entities/act.md)
 - [LIBERO](../entities/libero.md) · [RoboTwin 2.0](../entities/robotwin.md) · [AgileX Piper](../entities/agilex-piper.md)
 - Compared against: [π0](../entities/pi-zero.md) · [π0.5](../entities/pi-zero-5.md) · [OpenVLA](../entities/openvla.md) · [OpenVLA-OFT](../entities/openvla-oft.md) · [SmolVLA](../entities/smolvla.md) · [VLA-JEPA](../entities/vla-jepa.md) · [Evo-1](../entities/evo-1.md) · [Diffusion Policy](../entities/diffusion-policy.md) · [UniVLA](../entities/univla.md)
+- [LIBERO tie models](../entities/libero-tie-models.md) — the cluster of models inside the LIBERO statistical tie.
+- [DP3](../entities/dp3.md) — 3D diffusion-policy comparison point.
 
 ## Concepts touched
 

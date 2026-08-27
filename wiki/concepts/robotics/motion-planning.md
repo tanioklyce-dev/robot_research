@@ -2,8 +2,8 @@
 title: Motion planning (classical)
 type: concept
 created: 2026-07-04
-updated: 2026-08-23
-sources: 7
+updated: 2026-08-26
+sources: 10
 tags: [motion-planning, sampling-based, rrt, prm, trajectory-optimization, search, ompl, explicit-model, graphs-of-convex-sets, convex-optimization]
 ---
 

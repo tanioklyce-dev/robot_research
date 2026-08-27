@@ -137,6 +137,9 @@ The original wiki synthesis observed [V-JEPA 2](../../entities/v-jepa-2.md) and 
 - [Mila](../../entities/mila.md) — frequent contributor.
 
 ## Mentioned in
+
+> [!note] Curated list — **47** source pages link here; the ones below are those that shaped this page.
+
 - [Bromley et al. 1993 — Signature Verification using a Siamese TDNN](../../sources/bromley1993-siamese-signature-verification.md) — eponymous Siamese-network paper; the J/A in JEPA descend from this architecture
 - [A Path Towards Autonomous Machine Intelligence (LeCun, 2022)](../../sources/lecun2022-path-towards-ami.md) — canonical position paper / definition
 - [Barlow Twins Paper (Zbontar et al., ICML 2021)](../../sources/barlow-twins-paper.md) — Joint-Embedding anti-collapse precursor (cross-correlation → I)

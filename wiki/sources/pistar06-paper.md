@@ -67,6 +67,7 @@ Iterated mixture:
 - [π0.7](../entities/pi07.md) — sibling release; uses the **same KI + flow-matching + stop-gradient + Gemma3-class VLM architecture**.
 - [Physical Intelligence](../entities/physical-intelligence.md) — lab.
 - [Chelsea Finn](../entities/chelsea-finn.md), [Sergey Levine](../entities/sergey-levine.md), [Karl Pertsch](../entities/karl-pertsch.md) — recurring senior authors.
+- [Gemma 3](../entities/gemma3.md) — named in the model stack.
 
 ## Concepts touched
 

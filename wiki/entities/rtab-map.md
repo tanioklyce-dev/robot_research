@@ -37,3 +37,11 @@ It is the **navigation half of the wiki's only measured onboard-Jetson XLeRobot 
 
 - **No specs read here** — no first-hand source is ingested; everything comes from Cutting the Cord's methods section and the repo description. Loop-closure recall, CPU/GPU cost on Orin-class hardware, and map size limits are all unestablished.
 - License reads `NOASSERTION` on the GitHub API (the project is generally BSD) — unconfirmed.
+
+## Mentioned in
+
+- [Cutting the Cord: System Architecture for Low-Cost, GPU-Accelerated Bimanual Mobile Manipulation](../sources/cutting-the-cord-untethered-xlerobot.md)
+- [LingBot-Map — Geometric Context Transformer for Streaming 3D Reconstruction (Robbyant, 2026)](../sources/lingbot-map-github.md)
+- [Niantic Spatial — research page, product line, and Scaniverse](../sources/niantic-spatial-research.md)
+- [Niantic Spatial, Flexion, and NVIDIA: Closing the Sim2Real Gap for Humanoids (Jul 2026)](../sources/niantic-flexion-nvidia-sim2real.md)
+- [On the Limits of Pseudo Ground Truth in Visual Camera Re-localisation (Brachmann, Humenberger, Rother, Sattler — ICCV 2021)](../sources/pseudo-ground-truth-paper.md)

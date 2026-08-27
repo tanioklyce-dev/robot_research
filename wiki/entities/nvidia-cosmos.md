@@ -42,6 +42,9 @@ Cosmos is the underlying generative video model that's enabling the rise of [Wor
 - [NVIDIA Isaac Sim](nvidia-isaac-sim.md) / [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — adjacent stack components for synthetic data.
 
 ## Mentioned in
+
+> [!note] Curated list — **35** source pages link here; the ones below are those that shaped this page.
+
 - [Cosmos 3 Technical Report](../sources/cosmos-3-technical-report.md)
 - [GR00T N1.6 research page](../sources/groot-n1_6.md) — Cosmos-2B VLM backbone
 - [Isaac-GR00T GitHub](../sources/isaac-gr00t-github.md) — Cosmos-Reason2-2B (N1.7 backbone)

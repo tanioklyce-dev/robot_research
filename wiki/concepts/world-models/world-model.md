@@ -70,6 +70,9 @@ A separate tradition builds a model of the environment for a different purpose �
 - [World-model functional taxonomy](world-model-functional-taxonomy.md) / [spatial intelligence](spatial-intelligence.md) / [world-model evaluation](world-model-evaluation.md) / [world-model governance](../safety/world-model-governance.md) — the role-based, capability, measurement, and policy views of the same object.
 
 ## Mentioned in
+
+> [!note] Curated list — **53** source pages link here; the ones below are those that shaped this page.
+
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../../sources/hai-world-model-spatial-intelligence-brief.md) — the policy-facing definition (action-conditioned prediction; counterfactual reasoning as the central goal) and the renderer/simulator/planner frame
 - [Wake-Sleep Paper (Hinton et al., 1995)](../../sources/wake-sleep-paper.md) — the sleep phase trains on model-generated "fantasies" — the 1995 ancestor of learning-in-imagination, complete with its stated failure mode (fantasy distribution ≠ data distribution)
 - [A Path Towards Autonomous Machine Intelligence (LeCun, 2022)](../../sources/lecun2022-path-towards-ami.md) — canonical LeCun position paper; argues for configurable world model + hierarchical JEPA as the substrate

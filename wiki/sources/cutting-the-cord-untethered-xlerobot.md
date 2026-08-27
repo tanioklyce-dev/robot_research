@@ -51,6 +51,7 @@ An **untethered evolution of the [XLeRobot](../entities/xlerobot.md)** from [Nik
 
 ## Entities mentioned
 - [XLeRobot](../entities/xlerobot.md), [Jetson Orin Nano](../entities/jetson-orin-nano.md), [Jetson Thor](../entities/jetson-thor.md) (as over-budget), [Nikolaus Correll](../entities/nikolaus-correll.md), [SO-ARM101](../entities/so-arm101.md) (SO-101 arms), [LeRobot](../entities/lerobot.md)/[LeKiwi](../entities/lekiwi.md), [SmolVLA](../entities/smolvla.md), [ACT](../entities/act.md), [Diffusion Policy](../entities/diffusion-policy.md), [Mobile ALOHA](../entities/aloha.md).
+- [RTAB-Map](../entities/rtab-map.md) — the SLAM stack referenced.
 
 ## Concepts touched
 - [VLA models](../concepts/learning/vla-models.md) — concrete on-edge VLA/BC latency numbers + the "action-expert-is-the-bottleneck" insight.

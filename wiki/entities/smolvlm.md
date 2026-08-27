@@ -45,3 +45,7 @@ status: stub
 - **Primary source not yet ingested.** When the Marafioti et al. paper lands, deepen with exact param breakdown, training-data mixture, and vision-feature-quality vs SigLIP-default comparisons.
 - **SmolLM2 entity** — the language-decoder backbone; mentioned only inline. Not a near-term priority.
 - **SmolVLM-3** — referenced in HF blog as a roadmap item; not yet ingested.
+
+## Mentioned in
+
+- [SmolVLA: A vision-language-action model for affordable and efficient robotics (Shukor et al., June 2025)](../sources/smolvla-paper.md)

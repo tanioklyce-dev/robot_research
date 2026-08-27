@@ -3,8 +3,8 @@ title: Gemma3
 type: entity
 subtype: model
 created: 2026-05-25
-updated: 2026-05-25
-sources: 1
+updated: 2026-08-26
+sources: 4
 tags: [gemma3, vlm, google, vision-language-model, vla-backbone]
 status: stub
 ---
@@ -44,3 +44,10 @@ status: stub
 - **Primary source not yet ingested.** When it lands, deepen with architecture diagram, vision-encoder specifics, multi-modal training-data mixture, and benchmark numbers.
 - **Gemma3 vs PaliGemma 2/3** — relationship and naming clarity needed.
 - **Multimodal capabilities specifics** — input modalities, video, audio: not in this wiki yet.
+
+## Mentioned in
+
+- [Bringing AI Closer to the Edge and On-Device with Gemma 4 (NVIDIA blog)](../sources/nvidia-gemma-4-edge-blog.md)
+- [Taking Flight with Dialogue: Natural Language Control for PX4-based Drone Agent (Lim et al. 2025)](../sources/taking-flight-with-dialogue-px4-drone-agent.md)
+- [π*0.6: a VLA That Learns From Experience (Physical Intelligence, 2025)](../sources/pistar06-paper.md)
+- [π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities (Physical Intelligence, 2025)](../sources/pi07-paper.md)

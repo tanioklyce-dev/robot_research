@@ -36,3 +36,8 @@ This inverts the usual reading of the [5-DoF warning](../syntheses/projects/five
 
 - **No primary source ingested** — everything here is via RoboTwin's configuration docs. Planning rates, success rates versus sampling planners (OMPL/RRT-family), and GPU memory cost are unestablished.
 - How does it behave on **redundant** arms (7-DoF) versus **deficient** ones (5-DoF)? The RoboTwin result implies the answer indirectly and nobody has measured it directly.
+
+## Mentioned in
+
+- [GraspGen-X: Cross-Embodiment 6-DOF Diffusion-based Grasping](../sources/graspgenx-paper.md)
+- [RoboTwin 2.0: A Scalable Data Generator and Benchmark with Strong Domain Randomization for Robust Bimanual Robotic Manipulation (Chen et al., Jun 2025)](../sources/robotwin2-paper.md)

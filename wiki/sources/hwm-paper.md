@@ -51,6 +51,7 @@ tags: [hierarchical-jepa, h-jepa, world-model, jepa, latent-planning, cem, mpc, 
 - [V-JEPA 2](../entities/v-jepa-2.md) (V-JEPA2-AC) — Franka base model
 - [PLDM](../entities/pldm.md) — Diverse Maze base model
 - [Basile Terver](../entities/basile-terver.md), [Adrien Bardes](../entities/adrien-bardes.md) — co-authors (FAIR JEPA line)
+- [Octo](../entities/octo.md) — generalist-policy comparison point.
 
 ## Concepts touched
 - [Hierarchical JEPA / H-JEPA](../concepts/world-models/jepa.md) — the realized instance

@@ -60,6 +60,9 @@ Two 2026 papers use DINO-WM as their starting point and their baseline, which ma
 - [MuJoCo](mujoco.md) — likely physics backend.
 
 ## Mentioned in
+
+> [!note] Curated list — **32** source pages link here; the ones below are those that shaped this page.
+
 - [DINO-WM Paper](../sources/dino-wm-paper.md)
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md) — cites DINO-WM as baseline
 - [LeWorldModel GitHub](../sources/lewm-github.md) — DINO-WM listed as baseline

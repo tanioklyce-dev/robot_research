@@ -108,6 +108,7 @@ The PLDM paper itself doesn't dispute LeWM (it predates LeWM); the comparison ru
 - [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — PLDM is an end-to-end JEPA exemplar.
 - [World model](../concepts/world-models/world-model.md) — Family 2 (latent-prediction); end-to-end variant.
 - [Imitation learning](../concepts/learning/imitation-learning.md) — the GCBC baseline shows the BC-vs-WM comparison directly.
+- [SIGReg](../concepts/world-models/sigreg.md) — the 4–6-hyperparameter baseline SIGReg replaces.
 
 ## Open questions / TBD
 

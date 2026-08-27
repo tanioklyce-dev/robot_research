@@ -35,3 +35,8 @@ tags: [dp3, diffusion-policy, point-cloud, 3d, robotwin, baseline, sim-artifact]
 
 - **Primary paper un-ingested**; architecture, point-cloud encoder, and parameter count are all unestablished here.
 - **Has DP3 ever been evaluated on real sensor depth?** That is the experiment its RoboTwin result demands and no ingested source runs.
+
+## Mentioned in
+
+- [RoboTwin 2.0: A Scalable Data Generator and Benchmark with Strong Domain Randomization for Robust Bimanual Robotic Manipulation (Chen et al., Jun 2025)](../sources/robotwin2-paper.md)
+- [TurboVLA: Real-Time Vision-Language-Action Model at 32 Hz on an RTX 4090 with <1 GB VRAM](../sources/turbovla-paper.md)

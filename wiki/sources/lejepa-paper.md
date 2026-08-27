@@ -207,6 +207,7 @@ Two caveats the follow-up itself supplies: **VICReg and InfoNCE also achieve ide
 - [Self-Supervised Learning](../glossary.md#ssl) — LeJEPA is positioned as a heuristics-free SSL method.
 - [Learned latent space](../concepts/world-models/latent-space.md) — the isotropic-Gaussian-target framing.
 - [VICReg](../glossary.md#vicreg) — implicit comparison: VICReg targets variance + covariance + invariance separately; LeJEPA targets the *full distribution* (isotropic Gaussian) via SIGReg.
+- [SIGReg](../concepts/world-models/sigreg.md) — the primary — Theorem 1, the Cramér–Wold sketch, Epps–Pulley.
 
 ## Open questions / TBD
 

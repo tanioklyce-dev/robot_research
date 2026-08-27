@@ -3,8 +3,8 @@ title: XLeRobot
 type: entity
 subtype: robot
 created: 2026-05-10
-updated: 2026-08-13
-sources: 28
+updated: 2026-08-26
+sources: 31
 tags: [xlerobot, mobile-manipulator, dual-arm, lerobot, lekiwi, so-arm101, low-cost, household-robot, embodied-ai, sourccey]
 ---
 
@@ -115,6 +115,9 @@ These are the strongest external signals to date that the $660 BOM holds up when
 - **[Grievous](grievous.md)** ([source](../sources/grievous-github.md)) — Alex Koven's in-progress "cheap, human-like, fully-autonomous testbed" explicitly building on Mobile ALOHA + XLeRobot + [LeRobot](lerobot.md). First wiki-tracked attempt to combine XLeRobot's cost-reduction strategy with [Mobile ALOHA](aloha.md)'s bimanual-mobile design.
 
 ## Mentioned in
+
+> [!note] Curated list — **31** source pages link here; the ones below are those that shaped this page.
+
 
 - [XLeRobot Documentation](../sources/xlerobot-docs.md)
 - [Cutting the Cord (Shaw et al., 2026)](../sources/cutting-the-cord-untethered-xlerobot.md) — untethered onboard-Jetson evolution.

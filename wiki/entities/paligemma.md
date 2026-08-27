@@ -42,3 +42,11 @@ status: stub
 
 - **PaliGemma 2** (2024 update) and **PaliGemma 3** (2025) — successor versions; relationship to Gemma3 unclear without primary source.
 - **PaliGemma vs Gemma3 architecture differences** — Gemma3 includes a 400M vision encoder built in; PaliGemma uses SigLIP-So400m as a separate component. Whether this is functionally equivalent or a meaningful design difference deserves checking.
+
+## Mentioned in
+
+- [FAST — Efficient Action Tokenization for Vision-Language-Action Models (Pertsch et al. 2025)](../sources/fast-paper.md)
+- [Knowledge Insulating Vision-Language-Action Models (Driess et al. 2025)](../sources/knowledge-insulation-paper.md)
+- [RoboArena: Distributed Real-World Evaluation of Generalist Robot Policies](../sources/roboarena-paper.md)
+- [SmolVLA: A vision-language-action model for affordable and efficient robotics (Shukor et al., June 2025)](../sources/smolvla-paper.md)
+- [π0 Paper — A Vision-Language-Action Flow Model for General Robot Control (Black et al., Physical Intelligence, 2024)](../sources/pi-zero-paper.md)

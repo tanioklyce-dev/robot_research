@@ -98,6 +98,9 @@ Two things follow for robots specifically:
 - [AI uplift studies](../safety/ai-uplift.md) — the **other** way an LLM touches a robot: writing the code offline rather than sitting in the control loop. [Project Fetch](../../sources/anthropic-project-fetch-robot-dog.md) measures that mode, and argues it is the leading indicator for this one — *uplift precedes autonomy*. Notably, the biggest measured gap was in **connecting to unfamiliar hardware and reading its sensors**, i.e. exactly the integration layer this pattern assumes already exists.
 
 ## Mentioned in
+
+> [!note] Curated list — **61** source pages link here; the ones below are those that shaped this page.
+
 - [AI is a Strange Loop (Carroll, 2026)](../../sources/arcnem-strange-loops-ai-agents.md) — names this loop Observe→Reason→Act→Evaluate and argues the self-reference *is* the agency.
 - [How Claude Performs on Robotics Tasks](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — this pattern **measured**: an LLM supervising a pretrained [MolmoAct](../../entities/molmoact.md) policy scores *worse* than the policy alone in-distribution, better on novel tasks. Knowing when **not** to override is the skill.
 - [Stretch AI LLM Agent Documentation](../../sources/stretch-ai-llm-agent-docs.md)

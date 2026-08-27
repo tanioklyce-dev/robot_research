@@ -141,6 +141,9 @@ Analytical result: queue stays non-empty iff `g ≥ E[ℓ_S] / (∆t · n)` wher
 - [DROID](../entities/droid.md) — implicitly compared via π0's training data.
 - [Franka Panda](../entities/franka-panda.md) — LIBERO sim platform.
 - LIBERO, Meta-World — simulation benchmarks (entities exist as [metaworld.md](../entities/metaworld.md); LIBERO is a known gap — see `libero.md` if present).
+- [SmolVLM](../entities/smolvlm.md) — the VLM backbone SmolVLA is built on.
+- [PaliGemma](../entities/paligemma.md) — named as the comparison VLM backbone.
+- [Octo](../entities/octo.md) — generalist-policy baseline.
 
 ## Concepts touched
 

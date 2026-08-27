@@ -71,6 +71,7 @@ The Lean 4 theorem proofs are **axiomatized in Appendix G** — verified *modulo
 - [JEPA](../concepts/world-models/jepa.md) — the architecture family being analyzed
 - [Learned latent space](../concepts/world-models/latent-space.md) — what identifiability is a property *of*
 - [World model](../concepts/world-models/world-model.md)
+- [SIGReg](../concepts/world-models/sigreg.md) — the uniqueness converse that makes the Gaussian target load-bearing.
 
 ## Open questions
 

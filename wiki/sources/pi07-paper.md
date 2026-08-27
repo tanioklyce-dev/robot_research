@@ -75,6 +75,9 @@ Paper claims π0.7's compositional generalization is the **VLA equivalent of the
 - [Chelsea Finn](../entities/chelsea-finn.md), [Sergey Levine](../entities/sergey-levine.md), [Karl Pertsch](../entities/karl-pertsch.md) — recurring senior authors.
 - [SmolVLA](../entities/smolvla.md) — contemporary VLA contrast.
 - [DROID](../entities/droid.md), [Open X-Embodiment](../entities/droid.md) — implicit in the "open-source robot datasets" mixture.
+- [BAGEL](../entities/bagel.md) — initialized from it as the subgoal-image world model (§V-B).
+- [Gemma 3](../entities/gemma3.md) — named in the model stack.
+- [Open X-Embodiment](../entities/open-x-embodiment.md) — part of the training mix.
 
 ## Concepts touched
 

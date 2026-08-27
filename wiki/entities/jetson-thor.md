@@ -3,8 +3,8 @@ title: Jetson Thor
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-08-17
-sources: 37
+updated: 2026-08-26
+sources: 40
 tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai, jetpack-7, nvfp4, mig, t3000, t2000, igx]
 ---
 
@@ -164,6 +164,9 @@ See [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.m
 - Whether subsequent Jetson generations will add RT cores or whether NVIDIA's strategy is permanent: simulate-off-Jetson, deploy-on-Jetson.
 
 ## Mentioned in
+
+> [!note] Curated list — **40** source pages link here; the ones below are those that shaped this page.
+
 - [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.md)
 - [NVIDIA Jetson Thor product page](../sources/nvidia-jetson-thor-product-page.md)
 - [NVIDIA Blackwell-Powered Jetson Thor Now Available — Newsroom](../sources/nvidia-jetson-thor-launch-newsroom.md)

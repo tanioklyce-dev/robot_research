@@ -29,6 +29,7 @@ ICLR 2026 conference paper introducing RoboCasa365 — a large-scale simulation 
 - [RoboCasa](../entities/robocasa.md)
 - [MimicGen](../entities/mimicgen.md)
 - [NVIDIA](../entities/nvidia.md)
+- [Octo](../entities/octo.md) — generalist-policy baseline.
 
 ## Concepts touched
 - [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md)

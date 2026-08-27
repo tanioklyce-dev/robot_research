@@ -3,7 +3,7 @@ title: VLA models
 type: concept
 created: 2026-05-06
 updated: 2026-08-26
-sources: 104
+sources: 110
 tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos, vla-0, action-as-text, molmoact2, per-layer-kv-conditioning, hybrid-action-head, llm-free-vla, turbovla, xvla, soft-prompt]
 ---
 
@@ -100,6 +100,9 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 - [World-model simulators](../world-models/world-model-simulators.md) — alternate paradigm for VLA training environments.
 
 ## Mentioned in
+
+> [!note] Curated list — **110** source pages link here; the ones below are those that shaped this page.
+
 - [π0 Paper](../../sources/pi-zero-paper.md)
 - [π0.7 Paper](../../sources/pi07-paper.md)
 - [π*0.6 Paper](../../sources/pistar06-paper.md)

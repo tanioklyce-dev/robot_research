@@ -83,6 +83,7 @@ Without temporal regularization the support is essentially a **motion detector**
 - [Identifiability](../concepts/world-models/identifiability.md) — the tension above.
 - [Learned latent space](../concepts/world-models/latent-space.md) — sparse vs dense geometry.
 - [World-model simulators](../concepts/world-models/world-model-simulators.md) — JEPA/latent-prediction paradigm.
+- [SIGReg](../concepts/world-models/sigreg.md) — a non-Gaussian sparse target for dynamics.
 
 ## Open questions
 

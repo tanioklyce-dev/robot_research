@@ -33,3 +33,8 @@ It is the **optimization back-end under the wiki's navigation coverage**, and it
 - **No primary source ingested.** Everything is via DimOS's dependency documentation and the repo description.
 - DimOS depends on **`gtsam-extended`** (a fork by contributor `jeff-hykin`) rather than upstream — what it adds is unrecorded.
 - The wiki has **no page for Frank Dellaert** or the factor-graph SLAM lineage generally, which is a larger uncovered area than this one library.
+
+## Mentioned in
+
+- [DimOS GitHub repository (dimensionalOS/dimos)](../sources/dimos-github.md)
+- [LingBot-Map — Geometric Context Transformer for Streaming 3D Reconstruction (Robbyant, 2026)](../sources/lingbot-map-github.md)

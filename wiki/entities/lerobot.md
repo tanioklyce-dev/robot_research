@@ -153,6 +153,9 @@ Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distri
 
 ## Mentioned in
 
+> [!note] Curated list — **43** source pages link here; the ones below are those that shaped this page.
+
+
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **canonical academic reference**; Cadene, Aliberts, Capuano, …, Wolf; 17 HF authors.
 - [GR00T N1 Paper](../sources/groot-n1-paper.md) — NVIDIA **extends the `LeRobotDataset` format** (`modality.json`, fine-grained state/action semantics, explicit rotation representations) for GR00T's cross-embodiment training corpus.
 - [Isaac-GR00T GitHub](../sources/isaac-gr00t-github.md) — the GR00T codebase consumes "a flavor of the **LeRobot v2** dataset format" + `meta/modality.json`; the concrete fine-tuning data path for all GR00T versions.

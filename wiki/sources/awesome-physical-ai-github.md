@@ -35,6 +35,7 @@ A solo-curated (111★ / 11 forks, MIT) "awesome list" spanning the whole Physic
 ## Entities mentioned
 
 Directory-style — hundreds; only wiki-linked ones enumerated above. Companies section aligns with the wiki's humanoid coverage ([Figure](../entities/figure.md), [Boston Dynamics](../entities/boston-dynamics.md), [Physical Intelligence](../entities/physical-intelligence.md), [Pollen Robotics](../entities/pollen-robotics.md), [Apptronik](../entities/apptronik-apollo.md), 1X, Agility).
+- [Octo](../entities/octo.md) — listed generalist policy.
 
 ## Concepts touched
 

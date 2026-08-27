@@ -39,6 +39,9 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - [AGIBOT](agibot.md) — major downstream user.
 
 ## Mentioned in
+
+> [!note] Curated list — **56** source pages link here; the ones below are those that shaped this page.
+
 - [Cosmos 3 Technical Report](../sources/cosmos-3-technical-report.md)
 - [Develop Physical AI with NVIDIA Cosmos 3 (HF blog)](../sources/nvidia-cosmos-3-hf-blog.md)
 - [NVIDIA Newton Physics Engine Developer Page](../sources/nvidia-newton-physics-engine-developer-page.md)

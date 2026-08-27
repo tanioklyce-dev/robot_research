@@ -3,8 +3,8 @@ title: Franka Panda
 type: entity
 subtype: robot
 created: 2026-05-07
-updated: 2026-08-13
-sources: 37
+updated: 2026-08-26
+sources: 43
 tags: [franka, panda, robot-arm, manipulator, 7-dof, manipulation-platform]
 ---
 
@@ -62,6 +62,9 @@ The consequence is that **the field's tooling is tuned on the platform that need
 - Companion grippers (Franka Hand, Robotiq 2F-85) deserve their own pages when a specific paper hinges on them.
 
 ## Mentioned in
+
+> [!note] Curated list — **43** source pages link here; the ones below are those that shaped this page.
+
 - [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — the manipulation platform (7-DoF, LIBERO kitchen scenes) for direct-LLM control and VLA supervision.
 - [DROID](droid.md) (entity)
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)

@@ -70,6 +70,9 @@ The model **follows commands from a high-level VLM policy** as well as from a hu
 - [Sergey Levine](../entities/sergey-levine.md), [Chelsea Finn](../entities/chelsea-finn.md), [Karl Pertsch](../entities/karl-pertsch.md) — author overlaps with DROID / Metaworld lineage.
 - [Franka Panda](../entities/franka-panda.md), UR5e — referenced platforms.
 - [DROID](../entities/droid.md) — training-data component.
+- [PaliGemma](../entities/paligemma.md) — the VLM backbone π0 is initialized from.
+- [Octo](../entities/octo.md) — generalist-policy baseline.
+- [Open X-Embodiment](../entities/open-x-embodiment.md) — part of the training mix.
 
 ## Concepts touched
 

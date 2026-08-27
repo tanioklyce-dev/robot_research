@@ -2,8 +2,8 @@
 title: Formal verification
 type: concept
 created: 2026-05-17
-updated: 2026-08-03
-sources: 4
+updated: 2026-08-26
+sources: 7
 tags: [formal-verification, lean, theorem-proving, proof-checking, machine-checkable, aleph]
 ---
 

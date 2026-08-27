@@ -48,3 +48,7 @@ status: stub
 - **Primary source not yet ingested.** When the BAGEL paper lands, deepen with: architecture diagram, pretraining-data mix, image-edit + image-gen capabilities, and the mixture-of-transformers specifics.
 - **Authorship** — not extracted; commonly ByteDance / Stepfun-AI per public references.
 - **BAGEL alternatives** for the same role (image-gen + edit) — SD3, FLUX, etc. — could plausibly substitute as world-model generators in π0.7-style stacks.
+
+## Mentioned in
+
+- [π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities (Physical Intelligence, 2025)](../sources/pi07-paper.md)

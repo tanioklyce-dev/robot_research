@@ -3,8 +3,8 @@ title: Octo
 type: entity
 subtype: model
 created: 2026-05-25
-updated: 2026-05-25
-sources: 3
+updated: 2026-08-26
+sources: 8
 tags: [octo, vla, generalist-policy, transformer, open-weights, baseline]
 status: stub
 ---
@@ -47,3 +47,14 @@ status: stub
 
 - **Primary source not yet ingested.** When it lands, deepen with exact training-data mixture, architecture details, and per-embodiment evaluation numbers.
 - **Octo v1.5 / v2** — successor versions referenced in 2025 papers; not ingested.
+
+## Mentioned in
+
+- [awesome-physical-ai (GitHub curated list)](../sources/awesome-physical-ai-github.md)
+- [GR00T N1 — An Open Foundation Model for Generalist Humanoid Robots (paper)](../sources/groot-n1-paper.md)
+- [Hierarchical Planning with Latent World Models (HWM)](../sources/hwm-paper.md)
+- [MolmoAct: Action Reasoning Models that can Reason in Space](../sources/molmoact-paper.md)
+- [RoboCasa365 Paper](../sources/robocasa365-paper.md)
+- [SmolVLA: A vision-language-action model for affordable and efficient robotics (Shukor et al., June 2025)](../sources/smolvla-paper.md)
+- [VLA-0 — Building State-of-the-Art VLAs with Zero Modification](../sources/vla-0-paper.md)
+- [π0 Paper — A Vision-Language-Action Flow Model for General Robot Control (Black et al., Physical Intelligence, 2024)](../sources/pi-zero-paper.md)

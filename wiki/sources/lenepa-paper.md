@@ -38,6 +38,7 @@ tags: [lenepa, time-series, self-supervised, jepa, sigreg, no-augmentation, next
 
 - [JEPA](../concepts/world-models/jepa.md) — next-latent prediction; SIGReg anti-collapse.
 - [Spectral theory of SSL](../concepts/learning/spectral-theory-of-ssl.md) — the Balestriero SSL-theory line LeNEPA's design descends from.
+- [SIGReg](../concepts/world-models/sigreg.md) — SIGReg carried into time-series SSL.
 
 ## Open questions
 

@@ -2,8 +2,8 @@
 title: Assistive Robotics
 type: concept
 created: 2026-05-09
-updated: 2026-08-17
-sources: 29
+updated: 2026-08-26
+sources: 32
 tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot, accessibility]
 ---
 
@@ -103,6 +103,9 @@ The navigation-domain counterpart is [DRAGON (Liu et al. 2024)](../../sources/dr
 - [Virginia Tech Assistive Robotics Lab](../../sources/virginia-tech-assistive-robotics-lab.md)
 
 ## Mentioned in
+
+> [!note] Curated list — **32** source pages link here; the ones below are those that shaped this page.
+
 - [IEEE Spectrum — Stretch assistive robot](../../sources/ieee-spectrum-stretch-assistive.md)
 - [ITU AI for Good — assistive robots](../../sources/itu-aiforgood-assistive-robots.md)
 - [RELab tenoexo](../../sources/relab-ethz-tenoexo.md)

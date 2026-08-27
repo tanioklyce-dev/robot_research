@@ -3,8 +3,8 @@ title: Anthropic
 type: entity
 subtype: company
 created: 2026-05-09
-updated: 2026-08-23
-sources: 14
+updated: 2026-08-26
+sources: 18
 tags: [company, ai-safety, llm, claude, alignment, frontier-red-team, uplift-study]
 ---
 

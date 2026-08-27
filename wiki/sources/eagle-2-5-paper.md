@@ -23,6 +23,7 @@ tags: [eagle, eagle-2-5, vlm, long-context, long-video, siglip, nvidia, groot-ba
 ## Entities mentioned
 - [Eagle (NVIDIA VLM family)](../entities/eagle-vlm.md) — this is the Eagle 2.5 primary source. NVIDIA + Nanjing U + HKPU + Rutgers.
 - SigLIP-so400M (sole vision encoder), Qwen2.5 (LLM backbone).
+- [SigLIP](../entities/siglip.md) — the single SigLIP-so400M encoder Eagle 2.5 drops the mixture-of-encoders design for.
 
 ## Concepts touched
 - [VLA models](../concepts/learning/vla-models.md) — the System-2 VLM of GR00T N1.5.

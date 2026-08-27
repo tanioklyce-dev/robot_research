@@ -3,7 +3,7 @@ title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
 updated: 2026-08-26
-sources: 47
+sources: 50
 tags: [sim-to-real, domain-gap, rl, simulation, real-to-sim, r2s2r]
 ---
 
@@ -107,6 +107,9 @@ Real-world confirmation on a COBOT-Magic dual-arm: **10 real demonstrations + 1,
 - [World-model evaluation](../world-models/world-model-evaluation.md) — the two failure modes (plausibility trap vs. reality gap) and the compound of both.
 
 ## Mentioned in
+
+> [!note] Curated list — **50** source pages link here; the ones below are those that shaped this page.
+
 - [Kober, Bagnell & Peters 2013 — RL in Robotics Survey](../../sources/kober-rl-robotics-survey-2013.md) — simulation bias, noise injection, self-stabilizing transfer.
 - [MuJoCo Playground Paper](../../sources/mujoco-playground-paper.md)
 - [NVIDIA Newton Contact-Rich Manipulation Blog](../../sources/nvidia-newton-contact-rich-manipulation-blog.md)

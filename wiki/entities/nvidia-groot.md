@@ -59,6 +59,9 @@ First measured latency numbers, from the [official TensorRT deployment docs](../
 - [AGIBOT Genie Sim 3.0](agibot-genie-sim.md) — third-party benchmark that tests GR00T.
 
 ## Mentioned in
+
+> [!note] Curated list — **47** source pages link here; the ones below are those that shaped this page.
+
 - [GR00T N1 Paper](../sources/groot-n1-paper.md) — **primary source (N1)**
 - [GR00T N1.5 research page](../sources/groot-n1_5.md) — frozen VLM + FLARE
 - [GR00T N1.6 research page](../sources/groot-n1_6.md) — Cosmos-2B backbone + state-relative actions

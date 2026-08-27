@@ -37,6 +37,7 @@ The primary [DROID](../entities/droid.md) paper — a **76k-trajectory / 350-hou
 - [Franka Panda](../entities/franka-panda.md)
 - [Chelsea Finn](../entities/chelsea-finn.md), [Sergey Levine](../entities/sergey-levine.md), [Karl Pertsch](../entities/karl-pertsch.md) — senior / lead authors.
 - [V-JEPA 2](../entities/v-jepa-2.md), [JEPA-WMs](../entities/jepa-wms.md) — downstream consumers of DROID footage in JEPA-line work.
+- [Open X-Embodiment](../entities/open-x-embodiment.md) — co-cited dataset.
 
 ## Concepts touched
 - [Imitation learning](../concepts/learning/imitation-learning.md) — DROID is the largest single-platform teleop corpus the wiki tracks for IL training.

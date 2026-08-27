@@ -3,7 +3,7 @@ title: World-model simulators
 type: concept
 created: 2026-05-06
 updated: 2026-08-26
-sources: 34
+sources: 37
 tags: [world-model, generative-simulation, video-generation, jepa, latent-prediction, paradigm-shift]
 ---
 
@@ -83,6 +83,9 @@ Two things this qualifies on the page below: the [Genie Envisioner](../../entiti
 - [World-model governance](../safety/world-model-governance.md) — the procurement and certification consequences of a simulator you cannot inspect.
 
 ## Mentioned in
+
+> [!note] Curated list — **37** source pages link here; the ones below are those that shaped this page.
+
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../../sources/hai-world-model-spatial-intelligence-brief.md) — the "simulator" row of the [functional taxonomy](world-model-functional-taxonomy.md); learned simulation as the cheaper-to-update alternative to hand-built Omniverse-class environments, "still early, limited by scarce physical data."
 - [DreamGen Paper](../../sources/dreamgen-paper.md) — video WM used as a **synthetic data generator** ("neural trajectories") rather than a real-time planner; the data-generation face of this concept.
 - [History-Guided Video Diffusion (DFoT)](../../sources/history-guided-video-diffusion-paper.md) — the rollout-stability datapoint: history-guided sampling stabilizes autoregressive extension to **862 frames from one image** (~54× training clip length), and existing VDMs can be fine-tuned into it at ~12.5% cost — long-horizon stability being the gating requirement for video-as-simulator.

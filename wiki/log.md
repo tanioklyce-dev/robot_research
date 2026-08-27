@@ -4132,3 +4132,55 @@ Wired into [glossary](glossary.md#sigreg), [JEPA](concepts/world-models/jepa.md)
 - **Four pages absent from [index.md](index.md)**: the Matter 1.6 cluster (core spec, application cluster spec, device library, standard namespaces). Reachable elsewhere, so not orphans — just uncatalogued.
 - **Missing pages by mention count**: **xArm** (35 pages), **SigLIP** (28), **YOLO26** (15), plus **WebSSL** (the backbone [Patch Policy](sources/patch-policy-paper.md) recommends), SigLIP 2, DynaMo.
 - **210 of 438 source pages have a non-ISO `published:`** (`Unknown`, `2026`, `~2026-05-15 (search snippet…)`). Clearly established practice and the annotations carry real information — but it means chronological ordering and automated staleness checks cannot be run. Recorded, not churned.
+
+## [2026-08-26] maintenance | Punch list worked through — and two of my own lint findings were wrong
+Follow-up to the lint entry above. All items actioned or closed. **Two findings from that lint turned out to be wrong**, both by the same mechanism I had just warned about — asserting absence without checking.
+
+### Correction 1 — xArm was never missing
+The lint reported **"xArm (35 pages), no page"** as the top missing-entity gap. **[xarm-7.md](entities/xarm-7.md) has existed since 2026-08-13.** My slug check looked for `xarm.md` and did not consider `xarm-7.md`. No new page was needed.
+
+### Correction 2 — YOLO26 does not need a page either
+Listed as a gap at 15 mentions. It is a *release within a family the wiki already covers*: [ultralytics-yolo](entities/ultralytics-yolo.md) documents YOLO26 as the current flagship, there is a dedicated [YOLO version lineage](syntheses/vision/yolo-version-lineage.md) synthesis, and [Sapkota & Karkee 2025](sources/sapkota-ultralytics-yolo-evolution-2025.md) is the ingested reference. Adding a page would have fragmented existing coverage. **Mention count is a signal, not a verdict** — a term can be frequent because it is well covered.
+
+### Correction 3 — the date finding was overstated
+The lint said "**210 of 438** source pages have a non-ISO `published:`, so chronological ordering and automated staleness checks cannot be run." True against a strict regex, **misleading as a finding.** Actual breakdown:
+
+| | count | share |
+|---|---:|---:|
+| Clean ISO full date | 191 | 43.6% |
+| ISO date + trailing annotation | 64 | 14.6% |
+| Clean ISO year-month | 37 | 8.4% |
+| ISO year-month + annotation | 28 | 6.4% |
+| **Parseable by leading token** | **320** | **73.1%** |
+| Bare year | 27 | 6.2% |
+| Year buried in prose | 70 | 16.0% |
+| Genuinely undated | 21 | 4.8% |
+
+**73% parse fine with a leading-token parser**, and the 21 genuinely-undated are *correct* — `Unknown` on a rolling docs page or a product page with no publication date is accurate, not sloppy. **The defect was in the lint check, not the wiki.** No files changed; item closed.
+
+### Fixed — the one-way-graph defect, which was the real problem behind two punch-list items
+The **11 entity pages with no `## Mentioned in`** turned out to share a cause with the `sources:` count drift: several were created *from mentions in other pages*, and **the source pages that discussed them never linked back**. An empty section would have papered over that.
+
+So the repair was bidirectional: **18 missing source→entity back-links added** (π0.7 → [BAGEL](entities/bagel.md), SmolVLA → [SmolVLM](entities/smolvlm.md)/[PaliGemma](entities/paligemma.md)/[Octo](entities/octo.md), π0 → PaliGemma/Octo/[OXE](entities/open-x-embodiment.md), TurboVLA → [LIBERO tie models](entities/libero-tie-models.md)/[DP3](entities/dp3.md), and others), then all **11 `## Mentioned in` sections written with real content**. Two pages ([SmolVLM](entities/smolvlm.md), [BAGEL](entities/bagel.md)) legitimately have almost no inbound sources and now say so explicitly rather than showing an empty list.
+
+**The same defect had hit the [SIGReg](concepts/world-models/sigreg.md) page written hours earlier** — it declared `sources: 9` while *zero* source pages linked to it, because it was new and nothing pointed at it yet. Nine back-links added; the count is now real. **A page created from mentions needs its back-links written in the same pass, or its inbound count is fiction.**
+
+### Fixed — `sources:` count drift
+Recomputed across all 517 entity/concept pages. **112 had some drift**, but the distribution matters: 87 were off by 1–2 (ordinary churn, left alone) and **25 were off by ≥3** and were corrected — [diffusion-policy](entities/diffusion-policy.md) 35→44, [robot-policy-evaluation](concepts/robotics/robot-policy-evaluation.md) 22→31, [franka-panda](entities/franka-panda.md) 37→43, [vla-models](concepts/learning/vla-models.md) 104→110, [imitation-learning](concepts/learning/imitation-learning.md) 80→86, and 20 more. All were **under**-counts, which is the expected direction: pages accrete citations faster than anyone updates a number in frontmatter.
+
+### Decided — hub pages get an explicit exemption, recorded in CLAUDE.md
+The `Mentioned in` gap on hub pages was a **design question, not a backlog**, and the data settled it: **25 pages have ≥30 inbound source pages, and every single one already lists a subset.** Nobody has been maintaining exhaustive lists; they list what mattered. Chasing completeness would mean adding 81 entries to [vla-models](concepts/learning/vla-models.md) alone, producing a list nobody reads.
+
+So the practice is now the rule. [CLAUDE.md](../CLAUDE.md) records it: past ~30 inbound sources, **`Mentioned in` is a curated list of the sources that shaped the page**, carrying a marker line with the true inbound count. Marker added to all 25. *"Do not try to complete these lists; do add a source to one when it genuinely changes what the page says."*
+
+### Fixed — index coverage
+The four **Matter 1.6** source pages are now catalogued next to the [1.4 core spec](sources/matter-1-4-core-specification.md) they supersede. **`index.md` now covers every page in the wiki** (0 absent).
+
+### New — the two genuine missing pages
+- **[SigLIP](entities/siglip.md)** (28 mentions, no page). The **default semantic vision encoder of the 2025–26 VLA generation** — [PaliGemma](entities/paligemma.md)→[π0](entities/pi-zero.md), [SmolVLM](entities/smolvlm.md)→[SmolVLA](entities/smolvla.md), single SigLIP-so400M in [Eagle 2.5](entities/eagle-vlm.md)→[GR00T N1.5](entities/nvidia-groot.md), DINOv2+SigLIP in [OpenVLA-OFT](entities/openvla.md). The page's value is collecting **two independent 2026 results that were sitting in separate source pages**: [action-relevant latents](sources/action-relevant-latents-paper.md) measures SigLIP 2 at **0.17 action R²** after inverse-dynamics tuning against V-JEPA 2's **0.85**, **negative on rotation**, with a λ sweep across five orders of magnitude confirming *"the limitation is representational rather than optimization-related"*; and [Patch Policy](entities/patch-policy.md) finds it the weakest of five frozen policy backbones because semantic alignment "sacrifices the dense geometric features necessary for manipulation." **Synthesis: an excellent semantic encoder and a poor geometric one** — which explains the architectural pattern of pairing it with DINOv2 rather than using it alone. (That pairing rationale is the wiki's inference, and the page says so.)
+- **[WebSSL](entities/webssl.md)** (the backbone [Patch Policy](sources/patch-policy-paper.md) recommends). Thin by necessity — one source, no primary — and the page says so at the top. Filed so the recommendation is findable. Its sharpest open question: it was **never tested as a world-model encoder**, so whether it shares image-SSL's rotation collapse is unknown, which is exactly what to ask before putting it in a latent world model rather than a policy.
+
+**Still unfiled and now the honest remainder:** SigLIP 2 as distinct from SigLIP, DynaMo, and the WebSSL primary.
+
+### Verified
+**0 broken file links, 0 broken anchors, 0 orphans, 0 pages missing from `index.md`, 0 entity/concept pages missing `Mentioned in`.**

@@ -90,6 +90,7 @@ The framing is on-point but pop-rendered; **for the wiki this video is the popul
 - **[World model](../concepts/world-models/world-model.md)** — the "world model level" of prediction the host distinguishes from "latent level" and "token level."
 - **SIGReg** — named ("Sig Reg") and shown as a loss curve; explained as the no-collapse signal.
 - **CEM-MPC** — the host names "CEM (Cross Entropy Method)" as the search algorithm used in evaluation. Light treatment, but correct.
+- [SIGReg](../concepts/world-models/sigreg.md) — independent loss-curve confirmation; the no-collapse diagnostic.
 
 ## Curriculum hookup
 

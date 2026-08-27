@@ -52,6 +52,9 @@ The leader-follower convention is the dominant data-collection pattern for imita
 
 ## Mentioned in
 
+> [!note] Curated list — **31** source pages link here; the ones below are those that shaped this page.
+
+
 - [NVIDIA Isaac Teleop and GR00T 1.7 in LeRobot (HF blog)](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) — the reference platform for NVIDIA's first-party [GR00T](nvidia-groot.md) 1.7 fine-tune walkthrough (50-episode teleop → 20k-step fine-tune → rollout), incl. XR-headset teleop via [Isaac Teleop](nvidia-isaac-teleop.md).
 - [XLeRobot Documentation](../sources/xlerobot-docs.md)
 - [Seeed Studio LeRobot LeKiwi Wiki](../sources/seeed-lekiwi-wiki.md)

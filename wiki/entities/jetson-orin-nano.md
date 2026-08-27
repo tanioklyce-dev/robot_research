@@ -2,8 +2,8 @@
 title: Jetson Orin Nano
 type: entity
 created: 2026-05-16
-updated: 2026-08-16
-sources: 27
+updated: 2026-08-26
+sources: 31
 tags: [jetson, nvidia, edge-ai, hardware, robotics-compute]
 ---
 
@@ -86,6 +86,9 @@ In-place updates use apt against NVIDIA's L4T Debian repository: `apt update && 
 - VPI 3.2 in JetPack 6.2.2 ships a native [AprilTags](../concepts/robotics/apriltags.md) detector/pose-estimator — Orin Nano performance vs CPU `apriltag` library and Coral TPU would be a useful comparison.
 
 ## Mentioned in
+
+> [!note] Curated list — **31** source pages link here; the ones below are those that shaped this page.
+
 - [Cutting the Cord (Shaw et al., 2026)](../sources/cutting-the-cord-untethered-xlerobot.md) — measured onboard-XLeRobot build + 67-TOPS / on-edge-VLA-latency numbers.
 - [alfredang/lerobot — ChatGPT LeKiwi](../sources/alfredang-lerobot-lekiwi-chatgpt.md) — an Orin Nano 8 GB mounted onboard a LeKiwi, replacing the RPi; runs LeRobot + ROS 2 SLAM + a GPT-4o loop.
 - [NVIDIA Jetson AI Lab — HuggingFace LeRobot (archived)](../sources/nvidia-jetson-ai-lab-lerobot.md) — Orin Nano 8 GB as a containerized LeRobot target.

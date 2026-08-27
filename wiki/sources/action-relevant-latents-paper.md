@@ -98,6 +98,7 @@ A benchmark-design warning in the same family as [LIBERO-PRO](libero-pro-paper.m
 ## Entities mentioned
 
 - [V-JEPA 2](../entities/v-jepa-2.md) · [DINO-WM](../entities/dino-wm.md) · [NVIDIA Cosmos](../entities/nvidia-cosmos.md) (Cosmos-1 tokenizer) · [Dreamer](../entities/dreamer.md) (Dreamer 4 reproduction) · [LIBERO](../entities/libero.md) · [Metaworld](../entities/metaworld.md) · [DINOv2](../entities/dinov2.md)-lineage image SSL (Web-DINO)
+- [SigLIP 2](../entities/siglip.md) — image-SSL encoder; 0.17 action R² after ID tuning and **negative** on rotation.
 
 ## Concepts touched
 
