@@ -53,6 +53,9 @@ Stanford household-task benchmark; 12.4% best result (per [AI Index 2026](source
 ### CBF
 **Control Barrier Function** — a function `h(z)` whose zero-superlevel set is the safe set; any controller satisfying `ḣ(z,u) ≥ −α(h(z))` renders that set **forward-invariant** (once safe, always safe). Dropped into a QP with a min-norm objective it becomes a **safety filter** wrapping an arbitrary — including learned — nominal controller. Mechanical systems usually give **relative degree 2** constraints under torque control, requiring High-Order CBFs. See [operational space control](concepts/robotics/operational-space-control.md) and the [OSCBF paper](sources/oscbf-paper.md). *(Classical-robotics branch.)*
 
+### Contrastive learning
+**Contrastive learning** — self-supervised learning that pulls together representations of matched pairs (two views of the same item) and pushes apart mismatched ones, typically via an [InfoNCE](#infonce) objective over in-batch negatives. [SimCLR](#simclr) is the canonical image instance. Contrast with [JEPA](concepts/world-models/jepa.md), which avoids explicit negative pairs by predicting in latent space and preventing collapse with a regularizer instead. *(Module 4.)*
+
 ### CEM
 **Cross-Entropy Method** — derivative-free sampling-based optimizer; used inside MPC against learned world models. *(Module 10.)*
 
@@ -172,6 +175,9 @@ Conway's 1970 2D [cellular automaton](concepts/alife/cellular-automata.md); one 
 
 ### Helix
 [Figure](entities/figure.md) AI's VLA ([source page](sources/helix-blog.md)), deployed on Figure 02/03 humanoids. Hierarchical System 1 / System 2 design: 7B VLM @ 7–9 Hz + 80M transformer @ 200 Hz, end-to-end trained. *(Module 9.)*
+
+### Imagination
+**Imagination** — rolling a learned world model forward on *hypothetical* actions to evaluate them before acting, without touching the environment. The mechanism behind model-based planning ([CEM](#cem), [MPC](#mpc)) and behind Dreamer-family training, where the policy is optimized entirely inside model rollouts. Its value is that it supplies **counterfactual** experience — outcomes for actions never executed — which real-world data structurally cannot provide. See [gradient-based planning](concepts/world-models/gradient-based-planning.md), [world model](concepts/world-models/world-model.md). *(Module 10.)*
 
 ### IBC
 **Implicit Behavior Cloning** — Florence et al., CoRL 2021 ([source page](sources/ibc-paper.md)); BC where the policy is an EBM over actions trained with InfoNCE. Introduced [PushT](entities/pusht.md). *(Module 7.)*
@@ -329,6 +335,9 @@ For a closed convex function `f`, its perspective is `f̃(x, λ) := λ·f(x/λ)`
 ### Predictor
 The module in [JEPA](concepts/world-models/jepa.md)-line world models that maps a context embedding `z_t` (often plus an action `a_t`) to a predicted future embedding `ẑ_{t+1}`. Loss is computed in latent space against `z_{t+1} = encoder(x_{t+1})` — *not* against pixels. Typically a small MLP ([DINO-WM](entities/dino-wm.md)) or an [AR](#ar) transformer ([V-JEPA 2-AC](entities/v-jepa-2.md), [LeWM](entities/leworldmodel.md)). The predictor's existence — and the fact that it operates between embeddings rather than over pixels — is what makes "JEPA" predictive (the J for Joint and the P for Predictive). Optionally takes a latent variable `z` to capture irreducible uncertainty about the future ([LeCun 2022, §4.4](sources/lecun2022-path-towards-ami.md)). *(Modules 10–12.)*
 
+### Positional encoding
+**Positional encoding** — the signal that tells a [Transformer](#transformer) where each token sits in the sequence, since [self-attention](#sa) is permutation-invariant on its own. [Vaswani et al. 2017](sources/attention-is-all-you-need.md) used fixed sinusoids of varying frequency, added to the input embeddings; learned positional embeddings (as in [ViT](sources/vit-paper.md), over image patches) are the common modern alternative. *(Module 3.)*
+
 ### PPO
 **Proximal Policy Optimization** — Schulman et al. 2017; the dominant on-policy actor-critic algorithm. *(Module 8.)*
 
@@ -368,6 +377,9 @@ Computing the set of all states a system can occupy over a time horizon given bo
 ### RUM
 **Robot Utility Models** — Etukuru et al., NYU/Meta 2024 ([entity](entities/robot-utility-models.md)); zero-shot mobile-manipulation BC on [Stretch](entities/stretch.md). *(Module 13.)*
 
+### SA
+**Self-Attention** — the operation at the core of the [Transformer](#transformer): every token computes queries, keys and values, attends to all other tokens by scaled dot-product similarity, and aggregates their values. Gives a constant path length between any two positions, which is what replaced recurrence. Run in parallel across heads as [MHA](#mha). Introduced by [Vaswani et al. 2017](sources/attention-is-all-you-need.md); carried unchanged into [ViT](sources/vit-paper.md). *(Module 3.)*
+
 ### SAC
 **Soft Actor-Critic** — Haarnoja et al. 2018; max-entropy off-policy actor-critic for continuous control. See [SAC](entities/sac.md) / [original paper](sources/sac-paper.md) / [Algorithms and Applications](sources/sac-applications-paper.md) (practical SAC = automatic temperature α); the algorithmic root of the [real-world robotic RL](concepts/learning/real-world-robot-rl.md) lineage. *(Module 8.)*
 
@@ -387,7 +399,7 @@ A runtime mechanism between a policy and the actuators that takes the proposed a
 NN architecture with two (or more) weight-tied sub-networks applied to two inputs, with a downstream head over the two embeddings. Introduced by [Bromley, Guyon, LeCun, Säckinger, Shah 1993](sources/bromley1993-siamese-signature-verification.md) for signature verification — two TDNNs + cosine + `±1` targets. Architectural ancestor of [Barlow Twins](sources/barlow-twins-paper.md), [VICReg](sources/vicreg-paper.md), [DINOv2](entities/dinov2.md)/[v3](entities/dinov3.md), and the J/A in [JEPA](concepts/world-models/jepa.md). See [concept page](concepts/world-models/siamese-network.md). *(Module 4.)*
 
 ### SIGReg
-**Sketched Isotropic Gaussian Regularizer** — introduced by **[LeJEPA](sources/lejepa-paper.md)** (Balestriero & LeCun 2025; cited from [LeWM](entities/leworldmodel.md) as [25]). The single anti-collapse regularizer in LeWM: project latent embeddings onto `M` random unit-norm directions; run the **Epps–Pulley** univariate normality test on each 1-D projection; average the test statistics; backprop the result as a loss term. Justified by the **Cramér–Wold theorem** — matching all 1-D marginals of a `d`-D distribution is equivalent to matching the full joint distribution. Encourages an isotropic Gaussian latent and gives a provable anti-collapse guarantee with a single hyperparameter (`λ`, the SIGReg loss weight; default 0.1) vs. 4–6 for prior end-to-end JEPAs ([PLDM](#pldm)). *(Module 4 introduction; [Module 12 derivation](syntheses/curriculum/curriculum-12-lewm-deep-dive.md).)*
+**Sketched Isotropic Gaussian Regularizer** — introduced by **[LeJEPA](sources/lejepa-paper.md)** (Balestriero & LeCun 2025; cited from [LeWM](entities/leworldmodel.md) as [25]). The single anti-collapse regularizer in LeWM: project latent embeddings onto `M` random unit-norm directions; run the **Epps–Pulley** univariate normality test on each 1-D projection; average the test statistics; backprop the result as a loss term. Justified by the **Cramér–Wold theorem** — matching all 1-D marginals of a `d`-D distribution is equivalent to matching the full joint distribution. Encourages an isotropic Gaussian latent and gives a provable anti-collapse guarantee with a single hyperparameter (`λ`, the SIGReg loss weight; default 0.1) vs. 4–6 for prior end-to-end JEPAs ([PLDM](#pldm)). See the [concept page](concepts/world-models/sigreg.md). *(Module 4 introduction; [Module 12 derivation](syntheses/curriculum/curriculum-12-lewm-deep-dive.md).)*
 
 ### SimCLR
 **Simple framework for Contrastive Learning of Representations** — Chen et al. 2020; contrastive SSL with augmentation and a projection head. *(Module 4.)*

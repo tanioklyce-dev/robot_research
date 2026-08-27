@@ -67,6 +67,8 @@ Its structural finding is the part worth keeping regardless of how the performan
 
 The caveat is equally structural: the sparsity regularizer constrains only the **per-frame marginal**, so on contact-rich tasks the support latches onto whatever varies fastest — a motion detector (r ≈ 0.87 with effector motion, 0.05 with contact) rather than a regime detector, until a temporal prior is added.
 
+- [SIGReg](sigreg.md) — the regularizer that shapes this space toward an isotropic Gaussian, and the alternatives that don't.
+
 ## Related
 
 - [Joint-Embedding Predictive Architecture](jepa.md) — the architecture pattern built around predicting in a learned latent space.

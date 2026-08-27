@@ -146,9 +146,9 @@ The one detail that makes or breaks the shared checkpoint: every robot's LeRobot
 | XLeRobot | 2 wrist + 1 front | `observation.images.{left_wrist, right_wrist, front}` |
 
 **Lock fleet-wide:**
-1. **Same camera hardware** — one wrist-cam model (per arm) + one front-cam model (per robot). Same model ⇒ same intrinsics/color, closing a big domain gap. Reference: [ALOHA uses a Logitech C920-class](lerobot-on-rosorin-pro.md#gap-2-cameras-and-sampling-rate) workspace cam.
+1. **Same camera hardware** — one wrist-cam model (per arm) + one front-cam model (per robot). Same model ⇒ same intrinsics/color, closing a big domain gap. Reference: [ALOHA uses a Logitech C920-class](lerobot-on-rosorin-pro.md#gap-2--cameras-and-sampling-rate) workspace cam.
 2. **Same resolution + FPS into the dataset** — pick one (e.g. **640×480 @ 30 fps**) and downsample at record time regardless of native capability.
-3. **Retire the Aurora930 from the policy** — it's [12 fps, breaking 30 Hz parity](lerobot-on-rosorin-pro.md#gap-2-cameras-and-sampling-rate). Give the ROSOrin the same 30-fps USB front cam as the others; keep the Aurora930 **depth for Nav2 only**, out of the observation.
+3. **Retire the Aurora930 from the policy** — it's [12 fps, breaking 30 Hz parity](lerobot-on-rosorin-pro.md#gap-2--cameras-and-sampling-rate). Give the ROSOrin the same 30-fps USB front cam as the others; keep the Aurora930 **depth for Nav2 only**, out of the observation.
 4. **Identical wrist mount** — same bracket + position/angle on every SO-101 gripper (free — same arm hardware). The wrist cam's extrinsics are then automatically shared, so the wrist view looks the same on all three robots.
 5. **Standardized front-cam placement** — matched height + downward pitch so the workspace fills a similar frame region (the fiddly one; the chassis differ in height — aim for visual similarity).
 6. **RGB-only, fixed exposure/WB** — SO-101 policies are RGB; depth sensors (Aurora930, XLeRobot's [D435i](xlerobot-camera-options-low-light.md)) stay on the navigation side.

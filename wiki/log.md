@@ -4090,3 +4090,45 @@ They are not obviously compatible: an isotropic Gaussian code is not obviously s
 - **Stack the two fixes.** Training distribution and representation geometry are orthogonal; nobody has combined them.
 - **Where does [LpWM](entities/lpwm.md)'s sparse geometry sit on the curvature axis?** Sparse mode-factored codes are not obviously straight, and both claim to help planning.
 - **WebSSL still has no page**, from the earlier batch.
+
+## [2026-08-26] lint + fix | Wiki health check, then three repairs
+Lint run across all **1,044** pages. Structure was sound — **0 broken file links, 0 orphans, 0 pages missing frontmatter**, and only one cluster missing from `index.md`. Findings concentrated in link *anchors*, one schema convention that has outgrown itself, and a few stale self-references. Fixed items 1–3 on the user's direction; the rest is recorded below as an open punch list.
+
+### Fixed 1 — errors introduced by the same day's Patch Policy ingest
+[patch-policy-paper.md](sources/patch-policy-paper.md) asserted **"WebSSL, DINOv3, SigLIP 2, VQ-BeT, DynaMo — no pages"** and **"WebSSL and DINOv3 have no wiki pages."** Both wrong: [DINOv3](entities/dinov3.md) (8 sources) and [VQ-BeT](entities/vq-bet.md) both exist, and neither was linked, so real cross-references were lost. Corrected on the source and [entity](entities/patch-policy.md) pages and the links added. WebSSL, SigLIP 2 and DynaMo genuinely have no pages and remain flagged.
+
+**The lesson worth keeping:** the "no page" claim is the one kind of open-question that goes stale by being *written*, because the wiki changes underneath it. Check before asserting absence.
+
+### Fixed 2 — 26 broken anchors, one dominant root cause
+**16 of 26 were the same mechanical bug**: a heading containing an **em-dash** produces a *double* hyphen in the GitHub slug, and every inbound link wrote a single one. `### MCP — Model Context Protocol` → the real anchor is `#mcp--model-context-protocol`. Auto-fixed across `llm-agent-architecture.md`, `hailo.md`, `lerobot-on-rosorin-pro.md`, `fleet-framework-implementation-notes.md`, `ros2-mcp-server-github.md`. Underscores strip too (`joint_states` → `jointstates`).
+
+**Four target headings did not exist at all**, all in the [glossary](glossary.md) — so the fix was to write the missing entries rather than unlink: **SA** (self-attention), **Positional encoding**, **Imagination**, **Contrastive learning**.
+
+> [!warning] `#sa` was one automated "near-match" away from being wrong
+> A similarity-based auto-fix proposed repointing `glossary.md#sa` to **`#sac`** — Soft Actor-Critic. The links meant **self-attention**. A high-confidence string match between two unrelated technical terms is exactly the failure a mechanical link-fixer produces, and it is silent. Anchors that resolve to *something* are worse than anchors that 404.
+
+**Two were stale content, not slugs** — the most useful findings of the lint, because a moved heading is a signal that a claim moved:
+- [agenticros-vs-fleet-framework](syntheses/projects/agenticros-vs-fleet-framework.md) claimed AgenticROS "arrived at four of the **five** ros2-mcp-server design decisions." The design doc now has **seven** — decisions 6 (argument-level execution rail) and 7 (world-derived text is data, never instructions) were added 2026-07-13/14, *after* the comparison. Repointed, rewritten as "four of the **original five**," and a callout added: the two teams converged on the original five-decision shape, **not on the safety rails added afterwards** — and AgenticROS's raw command surface is precisely what decision 6 exists to constrain.
+- [fleet-agentic-framework](syntheses/projects/fleet-agentic-framework.md) pointed at "what's notably absent across **all three** stacks"; that heading now reads "the **original three**" because a fourth (DimOS) was added. The bifurcation finding still holds across four, so the anchor was the only repair needed.
+
+**Re-verified: 0 broken files, 0 broken anchors wiki-wide.**
+
+### Fixed 3 — SIGReg finally has a page
+New concept page: [SIGReg](concepts/world-models/sigreg.md). **Mentioned on 58 pages and filed nowhere** — the largest missing-page gap in the wiki by a wide margin, and the load-bearing component of the entire "Le-" line ([LeJEPA](sources/lejepa-paper.md) → [LeWM](entities/leworldmodel.md) → [LeNEPA](sources/lenepa-paper.md)) plus the baseline every later anti-collapse proposal is measured against. It existed only as a glossary stub and bullets inside [jepa.md](concepts/world-models/jepa.md) and [leworldmodel.md](entities/leworldmodel.md).
+
+Synthesized rather than duplicated — the page carries what no single existing page had in one place:
+- **Why isotropic Gaussian**: LeJEPA Theorem 1 — unique minimizer of worst-case Integrated Square Bias under k-NN/kernel regression. It is a **minimax choice under task uncertainty**, not an aesthetic preference.
+- **Why *sketched***: direct multivariate normality testing is at least quadratic; a **hyperspherical Cramér–Wold** theorem makes matching all 1-D marginals equivalent to matching the joint, so random directional tests are not an approximation of the right thing — asymptotically they *are* it.
+- **Why Epps–Pulley**: the choice is driven by **optimization, not statistics**. Moment tests are unstable; CDF tests (KS, Anderson–Darling) need **sorting**, and `O(N log N)` sorting is synchronization-heavy across GPUs, breaking SGD parallelism. Characteristic-function tests backprop cleanly. Also records the **average-not-max** departure from Theorem 2.
+- **The practical diagnostic**: SIGReg loss descending *alongside* prediction loss is the no-collapse signal — an [independent RTX 3060 reproduction](sources/onchain-ai-garage-lewm-reproduction.md) arrived at it unprompted (28 → 1.4 vs the paper's 40 → ~0).
+- **The three 2026 results that bound it**, collected in one place for the first time: [SMWM](entities/smwm.md)'s inverse-dynamics regularizer wins **84 vs 59** on 3D OGBench-Cube while tying on 2D and **prescribing no latent geometry at all**; [LpWM](entities/lpwm.md)'s non-Gaussian sparse target models dynamics better at intermediate predictor capacity; and [stable-worldmodel](sources/stable-worldmodel-paper.md) shows proved anti-collapse plus proved identifiability still yields **50.8% → 6–26%** under distribution shift.
+- **The Two-Room caveat**, stated with its qualifier: it is where the isotropic-Gaussian assumption is most strained and LeWM loses to PLDM — but the "failure-mode" number is still **92%** on consumer hardware. Weakest is not broken.
+
+Wired into [glossary](glossary.md#sigreg), [JEPA](concepts/world-models/jepa.md), [LeWM](entities/leworldmodel.md), [identifiability](concepts/world-models/identifiability.md), [latent space](concepts/world-models/latent-space.md), [LpWM](entities/lpwm.md), [SMWM](entities/smwm.md), [index](index.md).
+
+### Still open — punch list, not yet actioned
+- **`## Mentioned in` has outgrown the hubs.** **11 entity pages have no such section at all** (`smolvlm`, `rtab-map`, `paligemma`, `open-x-embodiment`, `octo`, `libero-tie-models`, `gtsam`, `gemma3`, `dp3`, `curobo`, `bagel`) — a straight schema violation. Separately, [vla-models](concepts/learning/vla-models.md) is cited by **110** source pages and lists 24; [imitation-learning](concepts/learning/imitation-learning.md) has 73 unlisted. That second half is **a design question, not a backlog**: a hand-maintained inbound list does not scale past ~30 sources, and hubs may need an explicit exemption.
+- **`sources:` count drift ≥5** on five high-traffic pages, all under-counting: [diffusion-policy](entities/diffusion-policy.md) 35→44, [robot-policy-evaluation](concepts/robotics/robot-policy-evaluation.md) 22→31, [franka-panda](entities/franka-panda.md) 37→43, [vla-models](concepts/learning/vla-models.md) 104→110, [imitation-learning](concepts/learning/imitation-learning.md) 80→86.
+- **Four pages absent from [index.md](index.md)**: the Matter 1.6 cluster (core spec, application cluster spec, device library, standard namespaces). Reachable elsewhere, so not orphans — just uncatalogued.
+- **Missing pages by mention count**: **xArm** (35 pages), **SigLIP** (28), **YOLO26** (15), plus **WebSSL** (the backbone [Patch Policy](sources/patch-policy-paper.md) recommends), SigLIP 2, DynaMo.
+- **210 of 438 source pages have a non-ISO `published:`** (`Unknown`, `2026`, `~2026-05-15 (search snippet…)`). Clearly established practice and the annotations carry real information — but it means chronological ordering and automated staleness checks cannot be run. Recorded, not churned.

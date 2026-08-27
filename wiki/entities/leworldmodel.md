@@ -22,7 +22,7 @@ Four modules ([le-wm GitHub](../sources/lewm-github.md)):
 1. **ViT encoder** — raw pixel frames → latent `z`
 2. **AR Predictor** — autoregressively predicts next-step latent
 3. **Action encoder + projector MLPs** — encode actions into predictor input space
-4. **Gaussian regularizer (SIGReg)** — enforces isotropic Gaussian latents; the single hyperparameter
+4. **Gaussian regularizer ([SIGReg](../concepts/world-models/sigreg.md))** — enforces isotropic Gaussian latents; the single hyperparameter
 
 ## Baselines compared against
 PLDM, LeJEPA, IVL, IQL, GCBC, [DINO-WM](dino-wm.md) — checkpoints on Google Drive.
@@ -69,6 +69,7 @@ The [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms
 ## Related
 - [Mila](mila.md) — primary affiliation.
 - [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — architecture family.
+- [SIGReg](../concepts/world-models/sigreg.md) — the regularizer LeWM is built on; why the isotropic-Gaussian target, and where it is challenged.
 - [Learned latent space](../concepts/world-models/latent-space.md) — LeWM is the first JEPA to learn its latent space *end-to-end from raw pixels* (no frozen DINOv2); SIGReg is the anti-collapse mechanism.
 - [V-JEPA 2](v-jepa-2.md) — sibling JEPA model from a different group.
 - [World-model simulators](../concepts/world-models/world-model-simulators.md) — broader paradigm.

@@ -26,7 +26,7 @@ A community Apache-2.0 TypeScript layer that exposes a ROS 2 robot's **capabilit
 
 ## 2. Independent design validation (convergent evolution)
 
-AgenticROS independently arrived at four of the [five ros2-mcp-server design decisions](ros2-mcp-server-design.md#five-design-decisions):
+AgenticROS independently arrived at four of the **original five** [ros2-mcp-server design decisions](ros2-mcp-server-design.md#seven-design-decisions):
 
 | ros2-mcp-server decision | AgenticROS equivalent |
 |---|---|
@@ -34,6 +34,9 @@ AgenticROS independently arrived at four of the [five ros2-mcp-server design dec
 | Config-driven tool filtering per robot | Per-robot capability manifest generates the tool surface |
 | Deterministic dispatch, never `eval` | Deterministic rule-based mission compiler + typed verb registry |
 | Out-of-band `stop` | `/estop` "bypasses the AI entirely" |
+
+> [!note] The design doc has since grown to **seven** decisions
+> Decisions **6** (an argument-level [execution rail](../../concepts/safety/ai-guardrails.md) — the allowlist guards the *verb*, a geofence and keep-out zones guard the *noun*) and **7** (world-derived text treated as **data, never instructions**) were added 2026-07-13 and 2026-07-14, after this comparison was written. **Neither is compared against AgenticROS here.** That matters for the convergent-evolution claim below: the two teams converged on the original five-decision *shape*, not on the safety rails added afterwards — and AgenticROS's raw command surface is precisely what decision 6 exists to constrain.
 
 The one divergence: AgenticROS **also** exposes a raw command surface (`ros2_publish`, `ros2_service_call`, `ros2_action_goal`) gated by `before_tool_call` validator hooks — wider than the design doc's semantic-only stance. Two unrelated teams converging on the same shape is meaningful evidence the design doc's decisions are right.
 

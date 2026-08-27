@@ -51,6 +51,7 @@ It opens a **new axis in the [JEPA anti-collapse design space](../concepts/world
 ## Related
 
 - [LeWorldModel](leworldmodel.md) — the dense baseline it modifies.
+- [SIGReg](../concepts/world-models/sigreg.md) — the dense-Gaussian regularizer RDMReg replaces.
 - [JEPA](../concepts/world-models/jepa.md) / [identifiability](../concepts/world-models/identifiability.md) / [latent space](../concepts/world-models/latent-space.md).
 - [SMWM](smwm.md) — the other 2026 attempt to change what the regularizer is *for*.
 

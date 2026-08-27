@@ -32,6 +32,7 @@ Recovering the action forces the encoder to preserve action-relevant information
 
 ## Related
 
+- [SIGReg](../concepts/world-models/sigreg.md) — the distributional regularizer this replaces; SMWM beats it 84 vs 59 on OGBench-Cube and ties on the 2D tasks.
 - [Randall Balestriero](randall-balestriero.md) — co-author; SIGReg (its main baseline) is his [LeWorldModel](leworldmodel.md) regularizer.
 - [LeWorldModel](leworldmodel.md) / [DINO-WM](dino-wm.md) / [PLDM](pldm.md) / [V-JEPA 2](v-jepa-2.md) — the other anti-collapse approaches in the taxonomy.
 - [JEPA](../concepts/world-models/jepa.md) — the family; SMWM's inverse-dynamics regularizer is a new anti-collapse option.

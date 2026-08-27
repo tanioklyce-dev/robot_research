@@ -71,7 +71,7 @@ Push-T (target coverage), LIBERO Goal (success rate), BlockPush / Cube (avg obje
 
 ### The backbone comparison — the most reusable result here
 
-Five frozen pretrained encoders swept across all tasks, three seeds, encoder frozen so this isolates out-of-the-box representation quality: **DINOv2, DINOv3, WebSSL, [V-JEPA 2](../entities/v-jepa-2.md), SigLIP 2.**
+Five frozen pretrained encoders swept across all tasks, three seeds, encoder frozen so this isolates out-of-the-box representation quality: **[DINOv2](../entities/dinov2.md), [DINOv3](../entities/dinov3.md), WebSSL, [V-JEPA 2](../entities/v-jepa-2.md), SigLIP 2.**
 
 - **WebSSL and DINOv2 are the best** across the majority of tasks; the paper's explicit recommendation is *"use WebSSL or DINOv2 as the vision backbones for robot learning tasks."*
 - **SigLIP 2 falls short across the environments.** The offered explanation: its "emphasis on semantic language–image alignment sacrifices the dense geometric features necessary for manipulation." For tasks prioritizing spatial reasoning over linguistic understanding, vision-language grounding is *"a less effective signal for policy learning."*
@@ -92,7 +92,8 @@ Five frozen pretrained encoders swept across all tasks, three seeds, encoder fro
 - [OpenVLA](../entities/openvla.md) / OpenVLA-OFT — the baseline beaten.
 - [V-JEPA 2](../entities/v-jepa-2.md), [DINOv2](../entities/dinov2.md) — backbones compared.
 - [Diffusion Policy](../entities/diffusion-policy.md), [ACT](../entities/act.md), [LIBERO](../entities/libero.md).
-- **WebSSL, DINOv3, SigLIP 2, VQ-BeT, DynaMo** — no pages.
+- [DINOv3](../entities/dinov3.md), [VQ-BeT](../entities/vq-bet.md) — existing pages.
+- **WebSSL, SigLIP 2, DynaMo** — no pages.
 - **Patch Policy** — [entity page](../entities/patch-policy.md).
 
 ## Concepts touched
@@ -106,4 +107,4 @@ Five frozen pretrained encoders swept across all tasks, three seeds, encoder fro
 - **In-domain only.** The paper's own framing of the OpenVLA-OFT result is *"for **in-domain** tasks with sufficient demonstrations, a lightweight policy on strong features can match or exceed a heavy pretrained VLA fine-tuned on the same data."* Nothing here tests language generalization, novel objects, or instruction following — the things a 7.6B VLA is *for*. A 51M model beating a 7.6B model on the 7.6B model's fine-tuning distribution is a real result about parameter efficiency, not evidence that VLA pretraining is unnecessary.
 - **No language axis at all** — "all policies receive only visual inputs," and proprioception was removed from ACT's encoder for consistency. LIBERO Goal is the only multi-task suite.
 - **No confidence intervals anywhere**, and n = 20 on the real robot.
-- **WebSSL and DINOv3 have no wiki pages**, and WebSSL is the recommended backbone.
+- **WebSSL has no wiki page**, and it is the recommended backbone — the largest gap this source opens. **SigLIP 2** and **DynaMo** likewise unfiled.

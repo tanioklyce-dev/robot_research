@@ -14,7 +14,7 @@ tags: [visuomotor-policy, dense-features, patch-tokens, dinov2, webssl, vq-bet, 
 
 | | Total params | Trainable | Latency |
 |---|---:|---:|---:|
-| **Patch Policy — VQ-BeT (DINOv2)** | **51.55M** | 29.49M | **10.99 ms** |
+| **Patch Policy — [VQ-BeT](vq-bet.md) (DINOv2)** | **51.55M** | 29.49M | **10.99 ms** |
 | Patch Policy — Diffusion Policy (DINOv2) | 40.43M | 9.19M | 445.85 ms |
 | ACT (ResNet-18) | — | — | 8.63 ms |
 | [OpenVLA-OFT](openvla.md) | 7.61B | 177.90M | 61.71 ms |
@@ -32,7 +32,7 @@ Real robot (7-DoF Franka, **20 trials**, cumulative through stages): beats fine-
 
 ## The backbone finding, which is the reusable part
 
-Five frozen encoders swept across all tasks, 3 seeds: **DINOv2, DINOv3, WebSSL, [V-JEPA 2](v-jepa-2.md), SigLIP 2.**
+Five frozen encoders swept across all tasks, 3 seeds: **[DINOv2](dinov2.md), [DINOv3](dinov3.md), WebSSL, [V-JEPA 2](v-jepa-2.md), SigLIP 2.**
 
 - **WebSSL and DINOv2 win**; the paper recommends them for robot learning.
 - **SigLIP 2 falls short** — "emphasis on semantic language-image alignment sacrifices the dense geometric features necessary for manipulation."

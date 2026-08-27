@@ -25,7 +25,7 @@ This is the strongest formal argument the JEPA program has made for latent predi
 The guarantee is **conditional**, and the conditions do most of the work:
 
 - Latents evolve under **stationary, additive-noise transitions** with an independence structure.
-- Latents are **Gaussian** — and the converse theorem shows the Gaussian is *uniquely* the distribution for which every optimum is linear. This is why [SIGReg](jepa.md)'s isotropic-Gaussian target is more than an anti-collapse trick.
+- Latents are **Gaussian** — and the converse theorem shows the Gaussian is *uniquely* the distribution for which every optimum is linear. This is why [SIGReg](sigreg.md)'s isotropic-Gaussian target is more than an anti-collapse trick.
 - The learned dimension equals the true latent dimension (**m = n**). Behavior otherwise is explicitly "an important open problem" — and every real system is in that regime.
 - Results are **population-level** (infinite data), covering the **encoder only**. Action-conditioned dynamics `p(z'|z,a)` — the part a control world model needs — would require interventional causal representation learning, and are not proved.
 

@@ -8,7 +8,7 @@ sources: 2
 tags: [agenticros, ros2, mcp, openclaw, hermes-agent, nemoclaw, fleet, skills-marketplace, zenoh, typescript, agent-robot-bridge]
 ---
 
-**AgenticROS** — Apache-2.0, TypeScript-monorepo integration layer that exposes a [ROS 2](ros2.md) robot (or fleet) to **six agent platforms at once**: [OpenClaw](openclaw.md) (native plugin, flagship), [NemoClaw](nemoclaw.md), Claude Code/Desktop/Dispatch + OpenAI Codex + [Hermes Agent](hermes-agent.md) (one shared [MCP](../concepts/agents/llm-agent-architecture.md#mcp-model-context-protocol) server), and Gemini CLI. The first **community** ROS 2↔agent bridge in the wiki — the thing multiple wiki pages had flagged as the [standing Claw-ecosystem gap](hermes-agent.md#robot-platform-fit). Repo: [github.com/agenticros/agenticros](https://github.com/agenticros/agenticros) ([source page](../sources/agenticros-github.md)).
+**AgenticROS** — Apache-2.0, TypeScript-monorepo integration layer that exposes a [ROS 2](ros2.md) robot (or fleet) to **six agent platforms at once**: [OpenClaw](openclaw.md) (native plugin, flagship), [NemoClaw](nemoclaw.md), Claude Code/Desktop/Dispatch + OpenAI Codex + [Hermes Agent](hermes-agent.md) (one shared [MCP](../concepts/agents/llm-agent-architecture.md#mcp--model-context-protocol) server), and Gemini CLI. The first **community** ROS 2↔agent bridge in the wiki — the thing multiple wiki pages had flagged as the [standing Claw-ecosystem gap](hermes-agent.md#robot-platform-fit). Repo: [github.com/agenticros/agenticros](https://github.com/agenticros/agenticros) ([source page](../sources/agenticros-github.md)).
 
 ## Capabilities
 
