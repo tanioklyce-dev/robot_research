@@ -3,8 +3,8 @@ title: LeRobot
 type: entity
 subtype: software-framework
 created: 2026-05-10
-updated: 2026-08-13
-sources: 42
+updated: 2026-08-27
+sources: 43
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026, xvla, sourccey, plugin-system]
 ---
 
@@ -122,6 +122,11 @@ LeRobot supports out-of-tree hardware without forking: it **scans installed top-
 
 This is a meaningfully better integration path than the fork-and-patch pattern most community hardware uses, and worth knowing about for anyone adding a platform.
 
+**And here is the counter-example.** [Seeed](seeed-studio.md)'s [reBot Arm B601](rebot-arm-b601.md) integration does *not* use it: the [DLI course](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) installs **three Seeed forks side by side** — `Seeed-Projects/lerobot` (a fork of LeRobot itself), `lerobot-teleoperator-rebot-arm-102`, and `lerobot-robot-seeed-b601` — all editable, plus `motorbridge`. The two plugin packages follow the naming spirit of the convention but sit on top of a **forked core**, so a reBot user is not running upstream LeRobot. For a vendor pitching "truly open-source" this is the weaker of the two available paths, and it is a maintenance liability for anyone building on it: upstream fixes do not arrive automatically.
+
+> [!warning] LeRobot Dataset v3 and GR00T disagree
+> The reBot pipeline records **LeRobotDataset v3**, then immediately runs `convert_v3_to_v2.py` because the [Isaac-GR00T](nvidia-groot.md) repo path consumes **v2.1**. Meanwhile NVIDIA's LeRobot-native GR00T 1.7 path *requires* v3.0. Two official GR00T entry points, two dataset versions, one conversion script between them — worth knowing before scripting a pipeline around either.
+
 ## Downstream / hardware-ecosystem projects
 
 - **[Sourccey](sourccey.md)** ([Vulcan Robotics](vulcan-robotics.md), Aug 2026) — commercial open-hardware household manipulator built on a LeRobot fork (`lerobot-vulcan`) plus the plugin above; **ships with [X-VLA](x-vla.md) laundry-folding policies preinstalled**, the first product in this wiki to arrive with a working policy rather than a link to one.
@@ -142,6 +147,8 @@ NVIDIA's **[Jetson AI Lab LeRobot tutorial](../sources/nvidia-jetson-ai-lab-lero
 Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distribution — Humble vs Jazzy is operationally load-bearing. All three address LeRobot's [ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) Limitation #2 (algorithm coverage non-exhaustive) by adding integrations the upstream lacks.
 
 ## Related
+
+- [reBot Arm B601](rebot-arm-b601.md) / [Star Arm 102](star-arm-102.md) — Seeed hardware integrated via forks (see above).
 
 - [Hugging Face](hugging-face.md) — maintainer
 - [SO-ARM101](so-arm101.md) — arm platform

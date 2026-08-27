@@ -4228,3 +4228,42 @@ Worth recording that **the paper contains no control or robotics evaluation what
 - **Is the rotation collapse a family property or a DINO-objective property?** Only the DINO member was probed.
 - **DynaMo × frozen backbone** — in-domain dynamics pretraining *on top of* DINOv2/WebSSL features is the obvious experiment neither paper runs.
 - **Neither SigLIP primary is ingested**, so the SigLIP → SigLIP 2 delta remains undocumented.
+
+## [2026-08-27] ingest | Seeed reBot Arm B601-DM + the NVIDIA DLI sim-to-real course
+
+Triggered by a request to rename the overview's platform section and add two platforms, plus ingest the reBot Arm B601-DM from two Seeed URLs.
+
+**Overview edits**
+- Renamed **"Robots you can actually buy and learn with"** → **"Robots for Education and Research"** (eight platforms → ten).
+- Added [reBot Arm B601-DM](entities/rebot-arm-b601.md) and [Unitree G1 EDU Plus](entities/unitree-g1.md) rows.
+
+**New sources**
+- Created [reBot Arm B601-DM Bundle with Jetson Thor](sources/seeed-rebot-arm-b601-dm-thor-bundle.md)
+- Created [A Sim-to-Real VLA Pipeline with Seeed reBot Arm and NVIDIA Isaac](sources/seeed-nvidia-dli-rebot-sim-to-real-course.md)
+
+**New entities:** [reBot Arm B601](entities/rebot-arm-b601.md), [Star Arm 102](entities/star-arm-102.md), [Damiao](entities/damiao.md), [Robstride](entities/robstride.md)
+**New concept:** [Generative data augmentation for robot learning](concepts/learning/generative-data-augmentation.md)
+**Updated:** [Seeed Studio](entities/seeed-studio.md), [NVIDIA Cosmos](entities/nvidia-cosmos.md), [NVIDIA GR00T](entities/nvidia-groot.md), [Jetson Thor](entities/jetson-thor.md), [LeRobot](entities/lerobot.md), [NVIDIA Isaac Sim](entities/nvidia-isaac-sim.md), [FeeTech](entities/feetech.md), [Unitree G1](entities/unitree-g1.md), [Sim-to-real transfer](concepts/learning/sim-to-real-transfer.md), [GR00T inference on Jetson](syntheses/platforms/gr00t-inference-on-jetson.md), [overview](overview.md), [index](index.md)
+
+### Extraction note (adds to the docs-site gotcha list)
+Both Seeed URLs defeated `WebFetch`. The **product page** is a Magento SPA whose spec table lives in a **JSON-escaped `PRODUCT_DETAIL_*` attribute** in the raw HTML — `curl` + unescape recovers it. The **course page** is worse: a Magento shell wrapping an **iframe** to `279070161-sketch.github.io/dli-course`, which is itself client-rendered from **`js/course-data.js`** (`window.COURSE_DATA`, 19 module bodies, 169 KB). Two hops before any content. Pattern to remember: **when a stripped page yields only nav chrome, grep the raw HTML for `<iframe`** before concluding the page is empty.
+
+### What this ingest actually adds
+1. **A price tier the wiki had no entry in.** Between the FeeTech-servo hobby arms ($100–$700, position-only, poor backdrivability) and $20k research manipulators sat nothing. The B601 is $1,499 with real CAN quasi-direct-drive actuators. This also adds a **third motor lineage** ([Damiao](entities/damiao.md) / [Robstride](entities/robstride.md), MIT-mode CAN) alongside the FeeTech/Dynamixel serial-servo pair the wiki has tracked as "the two SDKs LeRobot integrates."
+2. **The first command-level end-to-end Cosmos→GR00T→Jetson pipeline.** Every prior source covered one link. This one publishes the Cosmos3-Nano **~24 GB VRAM** figure, the working transfer weights (**edge 0.9 / seg 0.1**), a **Jetson cuBLASLt patch**, and a **seven-engine full-graph TensorRT** build — versus the official recipe's DiT-head-only compile.
+3. **A concept the wiki had been carrying implicitly.** [Generative data augmentation](concepts/learning/generative-data-augmentation.md) now separates the three families by *where the action labels come from*. The insight worth keeping: Cosmos Transfer's action labels are **reused verbatim** (no IDM, no pseudo-label noise) precisely *because* it is forbidden from changing behavior — the same constraint that makes it cheap makes it unable to add behavioral diversity.
+
+### Contradictions and cautions filed
+- **The course teaches the RS arm; its motor-setup section links DM hardware.** Timestamps (DM logs 2026-05-28, RS logs 2026-07-28) suggest a course re-shot on newer hardware with §2.1 left un-migrated. A DM owner following it verbatim will hit commands that do not match their arm.
+- **DM and RS specs diverge substantially** (1.5 kg / 0.2 mm / 24 V vs 2.5 kg / <0.1 mm / 48 V) and are addressed differently in LeRobot (`damiao` on `/dev/ttyACM0` vs `socketcan` on `can0`, different joint-limit signs, different MIT modes).
+- **The course's own augmentation result is self-assessed as poor** and its proposed validation (policy-transfer test) is never run. Recipe documented, benefit unproven.
+- **Two GR00T entry points disagree on dataset version** — LeRobot-native N1.7 wants v3.0, the Isaac-GR00T repo path wants v2.1, with a conversion script between them.
+- **JetPack 7.2 ships no working USB-CAN kernel modules**, and the AGX Thor devkit has only two USB-A ports. Both are build-blocking for a CAN arm + two cameras.
+
+### Backlog after this
+- **Does Cosmos Transfer augmentation improve real success rate?** The single most valuable unmeasured number here. A clean experiment: N real episodes vs N + k×N restyled, same policy, same eval.
+- **What does the seven-engine full-graph TensorRT pipeline achieve on Thor?** The numbers were measured and only screenshotted. If it beats 10.9 Hz, [GR00T inference on Jetson](syntheses/platforms/gr00t-inference-on-jetson.md) needs a new row.
+- **Backdrivability of Damiao/Robstride vs FeeTech.** The measurement that would settle what the 10× price-per-joint actually buys. Nobody has published it.
+- **Primary Damiao and Robstride datasheets are not ingested** — torque, gear ratio, encoder resolution, thermal limits all unknown here.
+- **Lightbox vs generative augmentation.** The course constrains reality *and* diversifies training. Does the second recover what the first gave up?
+- **Canonical Hub id for GR00T 1.7** — `nvidia/GR00T-1.7-3B` (course) vs `nvidia/GR00T-N1.7-3B` (wiki).

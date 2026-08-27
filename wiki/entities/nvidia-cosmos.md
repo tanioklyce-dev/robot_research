@@ -3,8 +3,8 @@ title: NVIDIA Cosmos
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-07-27
-sources: 35
+updated: 2026-08-27
+sources: 36
 tags: [cosmos, world-model, omnimodal, mixture-of-transformers, world-action-model, video-generation, nvidia, foundation-model, edge]
 ---
 
@@ -20,6 +20,19 @@ The major release that subsumes the earlier separate Cosmos-Predict / Cosmos-Rea
 - **Headline results**: **#1 open-weight Text-to-Image and Image-to-Video** (Artificial Analysis, 2026-05-28); **#1 policy model on [RoboArena](roboarena.md)** real-world leaderboard (2026-05-30) — the *pairwise-preference* leaderboard, so this is an **ordering** claim, not a success rate; how many comparisons back it is unpublished; Cosmos3-Nano-Policy-DROID beats π0.5 on [RoboLab-120](nvidia-robolab.md) (39.7% vs 28.1% under specific instructions) — **rollouts-per-task unpublished; at one rollout per task the 11.6 pp gap would not be statistically separable (p=0.058)**, see the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md). SOTA reasoning in robotics/smart-infra/driving among open + most closed baselines (trails Gemini 3.1 Pro on general + robotics).
 - **Central method claim**: **unified action mid-training** across camera / autonomous-vehicle / robot / egocentric embodiments yields a reusable action prior that accelerates adaptation (LIBERO-10 new-embodiment: 24.6% vs 0.0% at 500 post-train iters for mid- vs pre-trained init).
 - **Coming to [LeRobot](lerobot.md) "soon"** ([NVIDIA + HF partnership blog, 2026-07-06](../sources/nvidia-hf-lerobot-open-robotics-blog.md)) — pitched for data generation/augmentation, scenario simulation, and policy development "when real-world data is limited or too expensive"; no date, variant, or integration surface announced.
+
+## Cosmos 3 Transfer in practice — the first hands-on recipe
+
+The [Cosmos 3 technical report](../sources/cosmos-3-technical-report.md) says Cosmos 3 *subsumes* the old separate Cosmos-Transfer model. The [Seeed × NVIDIA DLI course](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) shows what that looks like at the command line, and it is the wiki's first source with concrete operating parameters:
+
+- **Transfer is a mode, not a model**: `"model_mode": "video2video"` in the inference spec, taking a source video + control signals + a structured JSON prompt.
+- **Control signals**: **Edge** (Canny, auto-computable), **Segmentation** (requires SAM2), **Blur** (auto-computable), **Depth** (requires DepthAnything). Working recipe for robot footage: **edge 0.9 / seg 0.1**, `guidance 3.0`, `control_guidance 1.5`. Only the *ratio* of control weights matters; they should sum to ~1.0. High edge weight is what keeps the robot's geometry from warping — and therefore what makes the original action labels still valid for the restyled video (see [generative data augmentation](../concepts/learning/generative-data-augmentation.md)).
+- **VRAM footprint, first published per-variant figures**: **Cosmos3-Nano ≈ 24 GB** (single RTX 4090 / A5000 / **[Jetson AGX Thor](jetson-thor.md)**); **Cosmos3-Super ≈ 80 GB × 4** (4× A100/H100). Nano being single-4090-runnable is the number that decides whether a small lab can use this at all.
+- **Recommended frame range is [24, 200]**; longer clips fall back to **chunked autoregressive generation** (`num_video_frames_per_chunk` 57, or 33 under memory pressure, 1 conditional overlap frame), with degraded inter-chunk consistency.
+- **Running Nano on Jetson requires a patch.** On L4T R39 + CUDA 13.2 + PyTorch 2.10, `torch.addmm` raises `CUBLAS_STATUS_NOT_INITIALIZED` from `cublasLtMatmulAlgoGetHeuristic`; the workaround monkey-patches `F.linear`/`nn.Linear.forward` into separate `matmul + add`. `--no-use-torch-compile` and `--no-use-cuda-graphs` are **required**, not optional, on ARM.
+
+> [!note] The recipe is documented; the benefit is not
+> That course's own augmented output is self-assessed as *"not the best"* (480p, prompt-quality issues), and it never runs the policy-transfer test that would show whether the augmentation improves real success rate. Treat these parameters as a starting point, not a validated configuration.
 
 ## Capabilities (pre-Cosmos-3 line)
 - Generates physically-plausible video rollouts of dynamic scenes.
@@ -52,6 +65,7 @@ Cosmos is the underlying generative video model that's enabling the rise of [Wor
 - [NVIDIA + HF LeRobot partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md) — Cosmos 3 coming to LeRobot "soon" (data gen/augmentation for policy training).
 - [Jetson Thor T3000/T2000 blog](../sources/nvidia-jetson-thor-t3000-t2000-blog.md) — Cosmos 3 Edge (4B) delivered to the Thor edge lineup.
 - [Cosmos 3 Edge (HF blog, 2026-07-20)](../sources/nvidia-cosmos3-edge-hf-blog.md) — the Edge launch: 4B, 15 Hz on Thor, Policy-DROID variant, step-distilled Super models.
+- [A Sim-to-Real VLA Pipeline with Seeed reBot Arm and NVIDIA Isaac](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) — Cosmos3-Nano Transfer as a data-augmentation step: control weights, VRAM, chunking, and the Jetson cuBLASLt patch.
 - [AGIBOT Genie Envisioner 2.0 Announcement](../sources/agibot-genie-envisioner-2-announcement.md)
 - [Top 10 Physical AI Models 2026](../sources/top-10-physical-ai-models-2026.md)
 - [Using OpenUSD for Modular and Scalable Robotic Simulation](../sources/nvidia-openusd-for-robotic-simulation.md)

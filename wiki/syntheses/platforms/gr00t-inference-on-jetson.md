@@ -2,7 +2,7 @@
 title: GR00T inference on Jetson — Orin NX 16 GB vs AGX Orin 64 GB vs AGX Thor
 type: synthesis
 created: 2026-07-08
-updated: 2026-07-26
+updated: 2026-08-27
 tags: [gr00t, jetson, jetson-thor, agx-orin, orin-nx, inference, tensorrt, vla, edge-ai, platforms]
 ---
 
@@ -43,6 +43,14 @@ End-to-end camera→action-chunk latency, `nvidia/GR00T-N1.6-3B`, batch 1 ([Isaa
 
 The realistic Orin NX pattern is the one the stack is built for anyway: **run GR00T off-board and serve actions over the repo's ZMQ REQ/REP service (port 5555)** ([Isaac-GR00T repo](../../sources/isaac-gr00t-github.md), [ZeroMQ](../../entities/zeromq.md)), or run a smaller policy (ACT / SmolVLA-class) onboard — the same conclusion the [XLeRobot onboard-compute analysis](jetson-onboard-compute-xlerobot.md) reached from the power-budget side.
 
+## A full-graph TensorRT path exists, unbenchmarked
+
+Everything above measures the **official** recipe, which compiles only the DiT action head and leaves the VLM in PyTorch eager. The [Seeed × NVIDIA DLI course](../../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) (2026-08) documents a **seven-engine full-graph** alternative for GR00T 1.7 — `vit`, `llm_bf16`, `vl_self_attention`, `state_encoder`, `action_encoder`, `dit_bf16`, `action_decoder` — built at bf16/batch-1 on **both AGX Thor and AGX Orin under JetPack 7.2**, via a third-party fork pinned to a commit (`jjjadand/Isaac-GR00T-Orin-JP72` @ `dcf5f6b`).
+
+**It publishes no latency number.** The `benchmark` step runs and the results appear only inside screenshots in the course text, so this changes nothing in the table above yet. What it does establish: compiling the VLM is not blocked, and the recipe is reproducible on both Orin and Thor. If someone runs it and it beats 10.9 Hz, that is a new row here — and it would partly explain the 1.27× Thor speedup anomaly, since a DiT-only compile leaves most of a 3B model uncompiled.
+
+Two operational constraints from that source, both hard: **engines are strictly target-specific** (never copy Orin↔Thor; rebuild on any change to checkpoint, backbone, TensorRT version, precision, batch size, action horizon, or graph shapes), and **JetPack 7.2 ships no working USB-CAN kernel modules** — a CAN-bus robot arm will not enumerate on a stock Thor without out-of-tree `gs_usb.ko` / `peak_usb.ko`.
+
 ## Bottom line
 
 | Want to run GR00T… | Verdict |
@@ -56,6 +64,7 @@ The realistic Orin NX pattern is the one the stack is built for anyway: **run GR
 
 - [Isaac GR00T docs — TensorRT optimization](../../sources/isaac-gr00t-tensorrt-deployment-docs.md) — the official benchmark table (N1.6).
 - [NVIDIA forums — real-time VLA inference on Thor & RTX](../../sources/nvidia-forum-thor-realtime-vla-inference.md) — the 22–24 Hz community result.
+- [A Sim-to-Real VLA Pipeline with Seeed reBot Arm and NVIDIA Isaac](../../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) — the seven-engine full-graph build on Thor + AGX Orin, JetPack 7.2.
 - [Jetson onboard compute for XLeRobot](jetson-onboard-compute-xlerobot.md) — the same four tiers from the power-budget side.
 - [Jetson module ladder — performance and power](jetson-module-ladder-power-performance.md) — the full-line spec/nvpmodel reference these tiers sit in; relevant to the open question below, since it shows Thor's sub-120 W modes cut the GPU 10 → 6 TPC (~−40 %), so the benchmark's power mode would materially move the 10.9 Hz figure.
 - [GR00T on DGX Spark over ZMQ to XLeRobot](../projects/gr00t-spark-zmq-xlerobot.md) — the off-board serving path for the Orin NX, quantified (~7–10 Hz wired, ~5–8 Hz Wi-Fi).
@@ -65,6 +74,7 @@ The realistic Orin NX pattern is the one the stack is built for anyway: **run GR
 ## Open questions
 
 - N1.7-specific latency (horizon-40 action head) on any hardware.
+- **What the seven-engine full-graph pipeline actually achieves on Thor.** The likeliest single source of a step change in this table, and the numbers exist — they were just never typed out.
 - An NVFP4/FP8 GR00T engine for Thor — would likely close the 1.27×-speedup anomaly.
 - Whether the community CUDA kernels get released or upstreamed.
 - Power mode used in the official Jetson benchmarks (MAXN vs capped — matters for battery robots).

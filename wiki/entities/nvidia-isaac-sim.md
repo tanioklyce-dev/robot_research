@@ -3,8 +3,8 @@ title: NVIDIA Isaac Sim
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-06-14
-sources: 20
+updated: 2026-08-27
+sources: 21
 tags: [simulator, nvidia, omniverse, openusd]
 ---
 
@@ -26,6 +26,14 @@ Isaac Sim 6.0 ships in the same release wave as [Isaac Lab 3.0](nvidia-isaac-lab
 > [!warning] RT cores required — even headless
 > Isaac Sim's renderer is built on the RTX pipeline and requires **dedicated ray-tracing (RT) cores**, even when running headless. This rules out **every Jetson** as a host, including [Jetson Thor](jetson-thor.md), whose Blackwell GPU is otherwise capable but omits RT cores by design ([Isaac Sim and Isaac Lab on NVIDIA Jetson AGX Thor](../sources/rs-designspark-isaac-sim-on-thor.md)). Train on an RTX workstation or [DGX Spark](dgx-spark.md); deploy the trained policy to Jetson.
 
+## Teleoperating a simulated robot with the real leader arm
+
+A pattern worth naming, from the [Seeed DLI course](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md): the **same physical leader arm** ([Star Arm 102](star-arm-102.md)) that teleoperates the real follower also drives its simulated twin inside Isaac Sim 4.5, over a **LeRobot Python bridge on UDP `127.0.0.1:5005`**. Both paths emit **LeRobot Dataset v3** with identical modality keys (`action`, `observation.state`, `observation.images.front`, `observation.images.side`) at 30 FPS / 640×480, so sim and real episodes are interchangeable in the training mixture without a conversion step.
+
+Domain randomization is applied per episode reset (object poses, lighting, and the wrist camera) from a JSON config, and task success is scripted from the scene's physics. The human is the entire policy during collection — the simulated arm executes no autonomous trajectory.
+
+The catch, and it is a real one: **the course marks the simulation dataset "optional"** and never includes it in the fine-tuning command. The taught pipeline trains on real data plus [Cosmos](nvidia-cosmos.md)-restyled real data. Isaac Sim's role in this particular "sim-to-real" course is a demonstration path, not a data source.
+
 ## Related
 - [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — learning framework that runs on Isaac Sim.
 - [Newton physics engine](newton-physics-engine.md) — pluggable physics backend.
@@ -35,6 +43,7 @@ Isaac Sim 6.0 ships in the same release wave as [Isaac Lab 3.0](nvidia-isaac-lab
 - [NVIDIA](nvidia.md) — vendor.
 
 ## Mentioned in
+- [A Sim-to-Real VLA Pipeline with Seeed reBot Arm and NVIDIA Isaac](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) — leader-arm-over-UDP teleop into Isaac Sim 4.5; per-reset domain randomization; LeRobot v3 output.
 - [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)
 - [AGIBOT Genie Sim 3.0 Announcement](../sources/agibot-genie-sim-3-announcement.md)
 - [Using OpenUSD for Modular and Scalable Robotic Simulation](../sources/nvidia-openusd-for-robotic-simulation.md)

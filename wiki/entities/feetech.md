@@ -28,6 +28,10 @@ tags: [feetech, bus-servo, motor-sdk, lerobot-supported-sdk, sts3215, sts3250, s
 
 See the comparison table in [Dynamixel](dynamixel.md).
 
+## The tier above
+
+FeeTech and [Dynamixel](dynamixel.md) are both **smart serial-bus servos** — a daisy-chained UART protocol, position commands, gearboxes. The [reBot Arm B601](rebot-arm-b601.md) ingest (2026-08) adds a third lineage to this wiki: **[Damiao](damiao.md) and [Robstride](robstride.md) quasi-direct-drive CAN actuators**, running 1 Mbit/s CAN with an MIT-style impedance interface (position + velocity + `kp`/`kd` + feedforward torque per command). That is a categorical difference, not a spec bump — torque-level control and, in principle, real backdrivability, versus position-only commands into a gearbox. It is also roughly 10× the price per joint. Nobody has published a backdrivability measurement on either side, which is the comparison that would actually settle what the money buys.
+
 ## Related
 
 - [LeRobot](lerobot.md) — natively integrates the FeeTech SDK.

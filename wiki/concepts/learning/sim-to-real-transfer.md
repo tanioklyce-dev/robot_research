@@ -2,8 +2,8 @@
 title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
-updated: 2026-08-26
-sources: 50
+updated: 2026-08-27
+sources: 51
 tags: [sim-to-real, domain-gap, rl, simulation, real-to-sim, r2s2r]
 ---
 
@@ -21,6 +21,11 @@ The problem predates the deep-learning era under the name **simulation bias**: [
 - **High-fidelity rendering** — use photorealistic renderers (Omniverse RTX, Madrona) so vision-based policies see realistic input.
 - **High-frequency physics** — match real-robot control rates (e.g. [AGIBOT Genie Sim 3.0](../../entities/agibot-genie-sim.md)'s 1,000 Hz physics).
 - **Vision pretraining on real images** — augment sim data with real video to anchor representations.
+- **[Generative appearance transfer](generative-data-augmentation.md)** — restyle *real* episodes into new scenes with a video-to-video model, keeping the trajectory (and therefore the action labels) intact. Attacks background overfitting without touching the simulator at all.
+- **Constraining reality instead** — build a light-controlled enclosure so the physical workspace matches the simulated one. Cheap, effective, and it narrows generalization by exactly as much as it narrows the input distribution (see below).
+
+> [!note] The two directions are opposites, and people use both
+> The [Seeed DLI course](../../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) requires a **"Lightbox"** — a light-controlled workspace with fixed cameras, built so the real scene matches the [Isaac Sim](../../entities/nvidia-isaac-sim.md) assets — *and* generatively diversifies its training backgrounds with [Cosmos](../../entities/nvidia-cosmos.md) Transfer. One move narrows the real distribution to meet the simulator; the other widens the training distribution to cover reality. Constraining what you *record* while diversifying what you *train on* is defensible, but no source in the wiki has tested whether the augmentation recovers the generalization the enclosure gave up. Good open experiment.
 
 ## Quantified gap (2025)
 

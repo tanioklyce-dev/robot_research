@@ -3,8 +3,8 @@ title: Jetson Thor
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-08-26
-sources: 40
+updated: 2026-08-27
+sources: 41
 tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai, jetpack-7, nvfp4, mig, t3000, t2000, igx]
 ---
 
@@ -110,6 +110,14 @@ Numbers from the [JetPack 7 software-stack reference](../sources/nvidia-jetpack-
 | ROS 2 perception, sensor fusion, control loops | ✅ Yes | Isaac ROS 4.x ships GEMs tuned for Thor — the only Jetson on its supported list. Pin **JetPack 7.1**, not 7.2. |
 | **On-device fine-tuning** of small / quantized VLAs | ✅ Possible | 128 GB memory enables it; not the primary design target. |
 | **Isaac Sim** (full or headless) | ❌ No | RT cores required even headless. Train on [DGX Spark](dgx-spark.md) or RTX workstation, deploy here. |
+| **[Cosmos3-Nano](nvidia-cosmos.md) video-to-video generation** | ⚠️ With a patch | ~24 GB VRAM fits comfortably in 128 GB, but PyTorch 2.10 on L4T R39 / CUDA 13.2 hits a **cuBLASLt bug** — `torch.addmm` raises `CUBLAS_STATUS_NOT_INITIALIZED`. Workaround: patch `F.linear`/`nn.Linear.forward` to `matmul + add`; `--no-use-torch-compile` and `--no-use-cuda-graphs` are **required** ([Seeed DLI course](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md)). |
+
+### Two practical gotchas from a real robot build
+
+Both from the [Seeed DLI course](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md), and both the kind of thing no spec sheet tells you:
+
+- **The AGX Thor Developer Kit has only two USB Type-A ports.** A two-camera VLA rig plus a USB-CAN adapter is three devices. Budget a **powered USB 3.0 hub** into any Thor-based robot build.
+- **JetPack 7.2 ships no working USB-CAN kernel modules.** `gs_usb.ko` and `peak_usb.ko` must be sourced out-of-tree (Seeed distributes prebuilt ones), `modinfo`-checked against `uname -r`, and installed to `/lib/modules/$(uname -r)/extra/` before any CAN-bus robot arm will enumerate. If your robot talks CAN — and quasi-direct-drive actuators generally do — **Thor does not work out of the box.**
 | **Isaac Lab** RL training | ❌ No | Inherits Isaac Sim's RT-core dependency. |
 | Omniverse RTX viewports / NuRec | ❌ No | RT-core gated. |
 | LLM **pretraining** of large models | ❌ No | Not the form factor or thermal envelope. |
@@ -164,6 +172,7 @@ See [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.m
 - Whether subsequent Jetson generations will add RT cores or whether NVIDIA's strategy is permanent: simulate-off-Jetson, deploy-on-Jetson.
 
 ## Mentioned in
+- [A Sim-to-Real VLA Pipeline with Seeed reBot Arm and NVIDIA Isaac](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) — Thor + AGX Orin on JetPack 7.2 as GR00T TensorRT targets; USB-port and USB-CAN gotchas; Cosmos3-Nano cuBLASLt patch.
 
 > [!note] Curated list — **40** source pages link here; the ones below are those that shaped this page.
 

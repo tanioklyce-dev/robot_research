@@ -3,16 +3,23 @@ title: Unitree G1
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-08-23
+updated: 2026-08-27
 sources: 14
 tags: [unitree-g1, humanoid, bipedal, china, affordable, accessible, groot, whole-body-control]
 ---
 
 **Unitree G1** — smaller, cheaper bipedal humanoid from Unitree Robotics. Released May 2024. **Starter price ~$16,000** — the cheapest credible serious humanoid platform. Targeted at developers and researchers.
 
+## Configurations — EDU vs EDU Plus
+
+The G1 is sold in tiers, and **the headline price applies only to the lowest one.** The wiki's [Stretch-vs-G1 comparison](../syntheses/platforms/household-robot-decision-stretch-vs-g1.md) puts **G1 EDU base at ~$16,000** with limited DOF and basic hands, and a research-ready **G1 EDU Plus** — extra DOF plus dexterous hands — at **~$30–45k**, with the caveat that *pricing is opaque* and configuration-dependent. EDU Plus is the configuration research papers generally mean, and the one listed in the [overview's platform table](../overview.md).
+
+> [!warning] Match capability before comparing cost
+> The apparent price advantage over a research mobile manipulator largely disappears once you spec a G1 up to comparable manipulation capability. Do not quote $16k for a robot you intend to do manipulation research with.
+
 ## Specs
 - ~1.32 m tall, ~35 kg (G1 EDU base configuration).
-- 23 DOF (some configurations, including EDU+).
+- 23 DOF (some configurations, including EDU+); SONIC targets a 29-joint config.
 - Walking + simple manipulation demos at launch; capability evolving rapidly.
 
 ## Why it matters
