@@ -3,8 +3,8 @@ title: DINO-WM
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-07-26
-sources: 28
+updated: 2026-08-26
+sources: 30
 tags: [dino-wm, dinov2, world-model, jepa-adjacent, lecun, pinto, nyu, meta-fair]
 ---
 
@@ -30,6 +30,20 @@ Plus eval variants: **WallRandom, PushObj, GranularRandom, DM Control Reacher**,
 
 > [!note] Physics engine
 > Secondary research identifies underlying physics as **[MuJoCo](mujoco.md) 2.1**. Project page does not state this; treat as wiki-internal claim until confirmed against paper body.
+
+## The base model for the gradient-based-planning line
+
+Two 2026 papers use DINO-WM as their starting point and their baseline, which makes its planning numbers the wiki's reference point for [gradient-based planning vs CEM](../concepts/world-models/gradient-based-planning.md).
+
+**[Closing the Train-Test Gap](../sources/train-test-gap-world-models-paper.md)** picks it "for its strong performance with CEM," and reports the gap that motivates everything: on PushT / PointMaze / Wall, DINO-WM scores **38 / 12 / 2** with plain gradient descent and **78 / 90 / 74** with CEM. Gradient-based planning through DINO-WM barely works. Their finetuning (Adversarial World Modeling + MPC + Adam) takes it to **92 / 94 / 94**, matching DINO-WM's CEM at ~10% of the compute.
+
+**[Temporal Straightening](../sources/temporal-straightening-paper.md)** reports DINO-WM's spatial-feature configuration (DINOv2 patch, 14×14×384) at **52.67 / 35.33 / 40.83 / 56.00** open-loop across Wall / UMaze / PM-Medium / PushT, and takes it to **90.67 / 94.00 / 82.67 / 77.33** with a trained 14×14×8 projector plus a curvature regularizer.
+
+> [!warning] A failed reproduction of one DINO-WM number, reported
+> *"We could not reproduce the Wall environment open-loop CEM success rate reported in DINO-WM (74%)"* ([train-test-gap paper](../sources/train-test-gap-world-models-paper.md)). Recorded here rather than buried — the wiki's [robot policy evaluation](../concepts/robotics/robot-policy-evaluation.md) page collects exactly this, and papers rarely flag a failed reproduction of the baseline they build on.
+
+> [!note] What both papers imply about frozen DINOv2 features
+> Neither treats DINO-WM's representation as adequate. One says its **training distribution** doesn't cover where a planner goes; the other says its **geometry is too curved** for Euclidean goal distance to mean anything. Temporal Straightening puts it bluntly: pretrained visual encoders "are not tailored to planning and contain information irrelevant — or even detrimental — to planning." Set against [Patch Policy](patch-policy.md)'s finding that DINOv2 is among the *best* frozen backbones for behavior cloning, the resolution is that **good features for imitation and good features for planning are different objects.**
 
 ## Why it matters
 - **Lightweight-sim JEPA-adjacent baseline.** Cited as a baseline in both [LeWM](../sources/leworldmodel-paper.md) and [JEPA-WMs (Terver et al.)](../sources/jepa-wms-paper.md) — meaning DINO-WM is the comparison every later JEPA-style robotics paper has to beat.
@@ -73,3 +87,5 @@ DINO-WM builds its world model on a **frozen image-SSL encoder**. Under a shared
 
 - [What Makes Video World Model Latents Action-Relevant](../sources/action-relevant-latents-paper.md)
 - [Reconstruction or Semantics?](../sources/latent-space-robotic-world-models-paper.md) — the counter-evidence: Web-DINO latents nearly match V-JEPA as a world-model substrate.
+- [Closing the Train-Test Gap in World Models for Gradient-Based Planning](../sources/train-test-gap-world-models-paper.md) — base model and baseline; the GD-vs-CEM gap quantified.
+- [Temporal Straightening for Latent Planning](../sources/temporal-straightening-paper.md) — base model and baseline; its latent trajectories are the "highly curved" case.

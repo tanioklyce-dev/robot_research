@@ -3,7 +3,7 @@ title: Learned latent space
 type: concept
 created: 2026-05-08
 updated: 2026-08-26
-sources: 33
+sources: 35
 tags: [representation-learning, embeddings, world-model, jepa, self-supervised]
 ---
 
@@ -50,6 +50,15 @@ A **learned latent space** is the network's own internal coordinate system for "
 - **Out-of-distribution drift** — a frozen encoder pretrained on internet images may not encode useful structure for unusual robot viewpoints (fisheye, top-down, low-light). [DINO-WM](../../entities/dino-wm.md) inherits DINOv2's biases.
 - **Information bottleneck vs sufficiency** — too small a `d` and the latent throws away task-relevant detail; too large and it's wasteful and hard to predict. Most modern encoders use 256–1024 dims.
 
+## Straight or curved?
+
+A third geometric property, and the one with a proof attached. [Temporal Straightening](../../sources/temporal-straightening-paper.md) (ICML 2026) observes that latent trajectories from pretrained visual encoders are *"usually highly curved,"* and that this matters for two concrete reasons:
+
+- **Euclidean distance is only a proxy for geodesic distance when trajectories are straight.** This is the assumption underneath every goal-conditioned latent planner that scores candidates by embedding distance — including [LeWM](../../entities/leworldmodel.md)'s CEM recipe, which the wiki documents without ever questioning the metric.
+- **Curvature controls the conditioning of the planning objective.** For affine dynamics, ε-straightness (`ε = ‖A − I‖₂`) bounds the planning Hessian's effective condition number by `κ(B)² e^{6εK}`, and gradient descent converges at a rate set by that number.
+
+The finding that reframes it: **the JEPA prediction objective already induces straightening implicitly**; the explicit regularizer strengthens and stabilizes an effect that was there. Straightening may be part of why latent prediction works at all.
+
 ## Dense or sparse?
 
 The wiki's latent-space material has assumed a **dense** geometry throughout — [SIGReg](../../entities/leworldmodel.md)'s isotropic Gaussian, VICReg's decorrelated features. [LpWM](../../entities/lpwm.md) ([paper](../../sources/lpwm-paper.md)) is the first source here to treat that as a *choice* rather than a default, and to argue it is the wrong one for dynamics.
@@ -79,3 +88,5 @@ The caveat is equally structural: the sparsity regularizer constrains only the *
 - [VLA-JEPA Paper](../../sources/vla-jepa-paper.md)
 - [LpWM paper](../../sources/lpwm-paper.md) — sparse vs dense latent geometry; mode-factored codes.
 - [TDV paper](../../sources/tdv-paper.md) — additive latent transitions (`z_t + Δz_t = z_{t+1}`) learned from video without augmentation/masking biases.
+- [Temporal Straightening paper](../../sources/temporal-straightening-paper.md) — curvature as a trainable property; Euclidean-vs-geodesic; implicit straightening.
+- [Closing the Train-Test Gap paper](../../sources/train-test-gap-world-models-paper.md) — the latent regions a gradient planner visits are the ones the model was never trained on.

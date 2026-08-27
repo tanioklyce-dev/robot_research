@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-07
 updated: 2026-08-26
-sources: 40
+sources: 42
 tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs, logical-intelligence, ebm, diffusion-policy, object-centric, spectral-graph-theory]
 ---
 
@@ -104,7 +104,12 @@ Six papers, June–August 2026, spanning the program's breadth. Ordered by relev
 > [!note] The batch is mostly other people's first-author work
 > He is a middle or late author on all six, across five different institutional clusters (NYU, Mila/Brown, UIUC, Stony Brook, Columbia-adjacent). Read as a research *program* propagating rather than a lab shipping — which is consistent with the wiki's earlier observation that his AMI Labs affiliation appears on almost none of the papers carrying his name.
 
-**Two further world-model papers surfaced in Music-JEPA's references and are not ingested**: *"Closing the train-test gap in world models for gradient-based planning"* (arXiv 2512.09929) and *"Temporal straightening for latent planning"* (arXiv 2603.12231). Both look directly relevant to the latent-planning thread.
+**The gradient-based-planning pair (ingested 2026-08-26, backlog closed):**
+
+- **[Closing the Train-Test Gap in World Models for Gradient-Based Planning](../sources/train-test-gap-world-models-paper.md)** (Dec 2025, with Izmailov and Goldblum) — a world model is trained on next-state prediction but used to estimate actions, so **a gradient planner is an adversarial attack on it**. Fixed by train-time data synthesis.
+- **[Temporal Straightening for Latent Planning](../sources/temporal-straightening-paper.md)** (ICML 2026, with Balestriero, Rudner, Mengye Ren, and [Gaoyue Zhou](../sources/patch-policy-paper.md)) — a **curvature regularizer** so Euclidean distance proxies geodesic distance and the planning objective is well conditioned.
+
+Together they establish [gradient-based planning](../concepts/world-models/gradient-based-planning.md) as a viable ~10×-cheaper alternative to CEM — and, read alongside [LpWM](lpwm.md) and the [identifiability](../concepts/world-models/identifiability.md) theorem, they show his orbit produced **three different criteria for a good planning latent space in one year** (identifiable, straight, sparse), none citing the others.
 
 - [LpWM paper](../sources/lpwm-paper.md)
 - [Patch Policy paper](../sources/patch-policy-paper.md)
@@ -112,3 +117,5 @@ Six papers, June–August 2026, spanning the program's breadth. Ordered by relev
 - [TDV paper](../sources/tdv-paper.md)
 - [Music-JEPA paper](../sources/music-jepa-paper.md)
 - [HP-JEPA paper](../sources/hp-jepa-paper.md)
+- [Closing the Train-Test Gap paper](../sources/train-test-gap-world-models-paper.md)
+- [Temporal Straightening paper](../sources/temporal-straightening-paper.md)

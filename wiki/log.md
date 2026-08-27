@@ -4049,3 +4049,44 @@ No formal contradiction, and the reason is the scope limit that page already car
 - **Music-JEPA's downstream MIR and transcription tables were not cleanly extracted** — that source page covers the dynamics result only and says so.
 - **Neither LpWM nor AdaJEPA reports what fraction of [stable-worldmodel](sources/stable-worldmodel-paper.md)'s 50.8% → 6–26% collapse is recovered**, despite both bearing on it; LpWM does no OOD testing at all.
 - **No planning-speed accounting in either** — [LeWM's 48× advantage](entities/leworldmodel.md) is untested under sparsity and unmeasured against a per-replan gradient step.
+
+## [2026-08-26] ingest | Gradient-based planning vs CEM — the two backlog papers from the LeCun batch
+Closes the top backlog item logged three entries above. Both PDFs pulled into `raw/` and read via pypdf; neither was previously in the wiki.
+
+- Created [Closing the Train-Test Gap in World Models for Gradient-Based Planning](sources/train-test-gap-world-models-paper.md) (2025-12-10), [Temporal Straightening for Latent Planning](sources/temporal-straightening-paper.md) (ICML 2026)
+- New concept: [Gradient-based planning (vs CEM)](concepts/world-models/gradient-based-planning.md)
+- Updated [DINO-WM](entities/dino-wm.md), [LeWorldModel](entities/leworldmodel.md), [AdaJEPA](entities/adajepa.md), [Yann LeCun](entities/yann-lecun.md), [JEPA](concepts/world-models/jepa.md), [identifiability](concepts/world-models/identifiability.md), [latent space](concepts/world-models/latent-space.md)
+
+**They are one thread, not two papers.** Same problem (gradient-based planning through a latent world model loses to CEM), same base model ([DINO-WM](entities/dino-wm.md)), same three environments, a shared co-author — and **opposite fixes**: one repairs the *training distribution*, the other the *representation geometry*. Neither combines with the other, which is the obvious untried experiment and is now recorded as such on both pages.
+
+**The diagnosis is the durable part.** From the train-test-gap paper: a world model is trained on **next-state prediction** but used at test time to **estimate actions**, and a gradient planner "selects actions solely to improve the planning objective, without regard to whether those actions resemble expert behavior" — so it proposes out-of-distribution action sequences, and *"optimizing through learned models under such conditions is known to induce adversarial inputs."*
+
+**Gradient-based planning is an adversarial attack on your own world model.** That reframes something the wiki had recorded without explaining: CEM keeps winning in latent world models. CEM's supposed weakness — it only samples, it cannot exploit gradient structure — is exactly what keeps it near the training distribution. **Any planner that gets cleverer about exploiting a learned model buys more exposure to that model's errors.** That generalizes well past this pair.
+
+**The second paper supplies a justification for a step the wiki documents everywhere and never questioned.** Every goal-conditioned latent planner here scores candidates by **Euclidean distance in embedding space** — [LeWM](entities/leworldmodel.md)'s CEM recipe is written up in detail on that basis. Temporal Straightening states the condition under which that is valid: **Euclidean distance proxies geodesic distance only when latent trajectories are straight**, and pretrained-encoder latents are *"usually highly curved."* A mechanical detail turns out to rest on a geometric property that generally does not hold and has to be trained for. Now flagged on the [LeWM page](entities/leworldmodel.md) and the [latent space](concepts/world-models/latent-space.md) concept.
+
+**Findings that outlive the papers:**
+- **The JEPA prediction objective already induces implicit straightening.** The explicit curvature regularizer "further strengthens and stabilizes this effect" rather than creating it — trained projectors improve planning even with the regularizer off. That is a claim about *why latent prediction works at all*, not just about a new loss term, and it is now on the [JEPA page](concepts/world-models/jepa.md).
+- **CEM still wins on absolute success rate, and both papers say so.** Temporal Straightening: *"CEM often obtains higher absolute success rates than GD, but at substantially higher computational cost… straightening largely reduces the performance gap."* And in the train-test-gap table the improved model planned with CEM beats the same model planned with Adam (98 vs 94 on PointMaze) — the paper's claim is against *DINO-WM's* CEM, not its own. The defensible summary, now on the concept page: **GBP reaches the old CEM bar at ~10% of the compute; it does not replace CEM.** For a real-time robot that distinction may not matter; for a benchmark table it does.
+- **Teleported-PointMaze is a probe worth stealing.** Touching the right wall teleports the agent to the left, creating states "far in the pixel space but with small temporal distance" — a cheap test of whether a latent space encodes *dynamics* or *appearance*, which is the confound behind every latent-planning claim.
+- **Good features for imitation ≠ good features for planning.** Both papers treat frozen DINOv2 as inadequate (wrong training coverage; too curved), while [Patch Policy](sources/patch-policy-paper.md) — ingested hours earlier, overlapping authors — finds DINOv2 among the *best* frozen backbones for behavior cloning. Not a contradiction; a distinction, now written onto the [DINO-WM page](entities/dino-wm.md).
+
+**The state of the field, recorded rather than resolved.** The wiki now holds **three competing criteria for what makes a latent space good for planning**, all from overlapping LeCun-affiliated groups inside twelve months, **none citing the others on this point**:
+- **Identifiable** — Gaussian latents, recovery up to rotation ([identifiability](concepts/world-models/identifiability.md)).
+- **Straight** — low curvature, so Euclidean ≈ geodesic and the planning Hessian is well conditioned ([Temporal Straightening](sources/temporal-straightening-paper.md)).
+- **Sparse and mode-factored** — support encodes the discrete regime, magnitudes the continuous state ([LpWM](entities/lpwm.md)).
+
+They are not obviously compatible: an isotropic Gaussian code is not obviously straight, and a sparse mode-factored code is not obviously either. Set side by side on the [gradient-based planning](concepts/world-models/gradient-based-planning.md) page with that stated plainly. **The wiki should not treat any one as settled.**
+
+**Caveats carried onto the pages, not smoothed over:**
+- Temporal Straightening's **theorem covers affine dynamics**; the empirical system is nonlinear, and the authors say the nonlinear case "can be an exciting future work direction." Same scope pattern as the identifiability theorem.
+- Its **no-straightening baseline uses a different learning rate** (1e−6 vs 1e−5), tuned in the baseline's favour but not an identical-except-the-loss comparison.
+- Gains are **not universal** — no improvement on PushT with global features (2.00 → 2.00 open-loop).
+- **Online World Modeling needs a ground-truth simulator** to produce corrected trajectories, so it does not transfer to a real robot. Adversarial World Modeling has no such requirement and is the stronger method anyway.
+- The train-test-gap paper reports **no trial counts or confidence intervals**, and its Wall column is erratic (Adversarial WM scores 30 with CEM against DINO-WM's 74).
+- It also reports a **failed reproduction of DINO-WM's Wall open-loop CEM number (74%)** — rare and worth having; filed on [DINO-WM](entities/dino-wm.md) and [robot policy evaluation](concepts/robotics/robot-policy-evaluation.md).
+
+**Backlog after this ingest:**
+- **Stack the two fixes.** Training distribution and representation geometry are orthogonal; nobody has combined them.
+- **Where does [LpWM](entities/lpwm.md)'s sparse geometry sit on the curvature axis?** Sparse mode-factored codes are not obviously straight, and both claim to help planning.
+- **WebSSL still has no page**, from the earlier batch.

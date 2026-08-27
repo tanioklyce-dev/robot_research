@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-07
 updated: 2026-08-26
-sources: 34
+sources: 35
 tags: [leworldmodel, lewm, jepa, world-model, mila, end-to-end, sigreg, instruction-leakage]
 ---
 
@@ -41,6 +41,9 @@ MIT.
 The [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) concretizes how LeWM plans, beyond the architecture:
 - **Cross-entropy method (CEM)**: sample ~**500 random action trajectories**, roll each out through the world model (actions batched in **groups of 5**), score by **Euclidean distance in embedding space** between the final predicted embedding and the **goal-image embedding**, keep an **elite set of ~30**, refit a Gaussian and resample, repeat. **All planning happens in latent space** — no decoding required to score.
 - A separately-trained **decoder** maps predicted embeddings back to images purely for *visualization* (a "learned cartoon sketch" of push-t physics) — it is not in the planning loop.
+> [!note] The Euclidean scoring step rests on an assumption nobody stated
+> Scoring candidates by **Euclidean distance in embedding space** is valid as a measure of progress only if latent trajectories are approximately **straight** — otherwise Euclidean distance is a poor proxy for geodesic distance along the reachable manifold. [Temporal Straightening](../sources/temporal-straightening-paper.md) shows that pretrained-encoder latents are "usually highly curved" and that training for low curvature raises goal-reaching success by 20–60% open-loop. LeWM trains its encoder end-to-end rather than freezing DINOv2, so it is not the paper's target — but the metric assumption is the same one, and it has never been checked here. See [gradient-based planning](../concepts/world-models/gradient-based-planning.md).
+
 - **Horizon limit**: reliably plans only **~5 prediction loops** ahead before the rollout drifts "off the rails" — the practical ceiling that motivates hierarchy.
 
 > [!note] The hierarchical push-t result is [HWM](hwm.md), and its base is DINO-WM (not LeWM)
@@ -89,3 +92,4 @@ The [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms
 - [LeNEPA paper (Chemeris, Jin, Balestriero 2026)](../sources/lenepa-paper.md) — carries LeWM's SIGReg into time-series SSL (the "Le-" family sibling).
 - [LpWM paper (Kuang et al., 2026)](../sources/lpwm-paper.md) — sparse-latent successor sharing LeWM's encoder and planner; the dense baseline it is measured against.
 - [AdaJEPA paper (Wang et al., 2026)](../sources/adajepa-paper.md) — test-time adaptation as the online answer to LeWM's OOD fragility.
+- [Temporal Straightening paper](../sources/temporal-straightening-paper.md) — the geometric condition under which LeWM's embedding-distance planning cost is meaningful.

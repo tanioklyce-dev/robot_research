@@ -3,7 +3,7 @@ title: Identifiability (linear identifiability of latent variables)
 type: concept
 created: 2026-07-26
 updated: 2026-08-26
-sources: 6
+sources: 7
 tags: [identifiability, linear-identifiability, latent-space, jepa, lejepa, theory, causal-representation-learning, nonlinear-ica, planning, generalization-theory]
 ---
 
@@ -39,6 +39,9 @@ The guarantee is **conditional**, and the conditions do most of the work:
 >
 > But the practical tension is real, and it sharpens what the scope limit costs. The Gaussian is uniquely optimal for **recovering the latents**. Sparse codes appear better for **modeling how the latents move**. LpWM's structural result says why they might diverge: sparse codes come out **mode-factored**, with the *support* encoding the discrete dynamics regime (94–99% decodable) and the *magnitudes* the continuous within-regime state. A representation organized around dynamical regimes is not the same object as one organized to be linearly decodable, and there is no reason a single distribution should be optimal for both. **Neither paper cites the other on this point.**
 
+> [!note] Three criteria for a good planning latent space, from one orbit, in one year
+> This page argues a latent space should be **identifiable** (Gaussian latents, recovery up to rotation). [Temporal Straightening](../../sources/temporal-straightening-paper.md) argues it should be **straight** (low curvature, so Euclidean distance proxies geodesic distance and the planning Hessian is well conditioned). [LpWM](../../entities/lpwm.md) argues it should be **sparse and mode-factored**. All three come from overlapping LeCun-affiliated groups within twelve months; none cites the others on this point; and they are not obviously compatible — an isotropic Gaussian code is not obviously straight, and a sparse mode-factored code is not obviously either. See [gradient-based planning](gradient-based-planning.md) for the comparison.
+
 ## Related concepts
 - [Learned latent space](latent-space.md) — identifiability is a property of one.
 - [JEPA](jepa.md) — the architecture family the result applies to.
@@ -46,6 +49,7 @@ The guarantee is **conditional**, and the conditions do most of the work:
 - [World model](world-model.md).
 - [LpWM](../../entities/lpwm.md) — sparse latent geometry for dynamics; the counterweight above.
 - [Test-time adaptation](../learning/test-time-adaptation.md) — the empirical attack on the robustness gap this page flags.
+- [Gradient-based planning](gradient-based-planning.md) — where the three competing latent-space criteria are set side by side.
 
 ## Key references
 - [When Does LeJEPA Learn a World Model? (Klindt, LeCun, Balestriero, 2026)](../../sources/when-does-lejepa-learn-a-world-model-paper.md) — the theorems.

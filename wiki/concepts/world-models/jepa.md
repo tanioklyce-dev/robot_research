@@ -3,7 +3,7 @@ title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
 updated: 2026-08-26
-sources: 44
+sources: 46
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -107,6 +107,12 @@ Sparse codes also come out **mode-factored**: support encodes the discrete dynam
 
 This sits in tension with the identifiability result below: see [identifiability](identifiability.md) for why the two are not formally contradictory and why the tension is nonetheless real.
 
+## The prediction objective straightens latents on its own
+
+[Temporal Straightening](../../sources/temporal-straightening-paper.md) (ICML 2026) reports that **the JEPA prediction objective alone induces *implicit straightening*** of latent trajectories — an explicit curvature regularizer "further strengthens and stabilizes this effect" rather than creating it. Trained projectors improve planning *even with the regularizer off*, and the authors attribute that to implicit straightening.
+
+That is a claim about why latent prediction works, not just about a new loss term. Straight latent trajectories make **Euclidean distance a usable proxy for geodesic distance** and bound the conditioning of the planning objective — so an architecture trained only to predict next embeddings may be producing planning-friendly geometry as a side effect. See [gradient-based planning](gradient-based-planning.md).
+
 ## Adapting a JEPA after deployment
 
 [AdaJEPA](../../entities/adajepa.md) makes the JEPA's own pretraining loss do double duty as a **[test-time adaptation](../learning/test-time-adaptation.md)** signal: inside an MPC loop, the observed next state is a free label for the prediction just made, so **one gradient step per replanning step** recovers much of the out-of-distribution collapse the wiki records for [LeWM](../../entities/leworldmodel.md). It is the first *online* answer here to a fragility every other source addresses offline.
@@ -197,4 +203,5 @@ And the caution that generalizes beyond JEPA: **stable features are not usable f
 - [AdaJEPA paper (Wang, Bounou, LeCun, Ren 2026)](../../sources/adajepa-paper.md) — test-time adaptation of a latent world model inside MPC.
 - [HP-JEPA paper (Xu et al., 2026)](../../sources/hp-jepa-paper.md) — JEPA on graphs with a bank of coarse-to-fine partition resolutions. A reminder that **"hierarchical JEPA" names two distinct programs**: temporal abstraction for planning ([HWM](../../entities/hwm.md)) and structural resolution for representation (this). Do not conflate them.
 - [Music-JEPA paper (Wang, Fang, LeCun 2026)](../../sources/music-jepa-paper.md) — the action-conditioned formulation outside vision (audio = state, pianoroll = action); action conditioning is what makes the latent dynamics temporally discriminative (target-state win rate **0.991 vs 0.576** for a passive audio-only JEPA).
-- [TDV paper (Daithankar, Gladstone, LeCun, Ji 2026)](../../sources/tdv-paper.md) — architectural cousin (`z_t + Δz_t = z_{t+1}`) with the scaling argument for *why* anti-collapse machinery should keep getting lighter: **optimal inductive-bias strength decreases as data grows.**
+- [TDV paper (Daithankar, Gladstone, LeCun, Ji 2026)](../../sources/tdv-paper.md) — architectural cousin (`z_t + Δz_t = z_{t+1}`) with the scaling argument for *why* anti-collapse machinery should keep getting lighter: **optimal inductive-bias strength decreases as data grows.**- [Temporal Straightening paper (Wang, Bounou, Zhou, Balestriero, Rudner, LeCun, Ren — ICML 2026)](../../sources/temporal-straightening-paper.md) — curvature regularization; **the JEPA objective induces implicit straightening**; open-loop planning +20–60%.
+- [Closing the Train-Test Gap paper (Parthasarathy et al., 2025)](../../sources/train-test-gap-world-models-paper.md) — why gradient-based planning through a JEPA-style world model behaves like an adversarial attack on it, and two train-time fixes.

@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-26
 updated: 2026-08-26
-sources: 1
+sources: 2
 tags: [adajepa, jepa, world-model, test-time-adaptation, mpc, distribution-shift, planning, lecun]
 ---
 
@@ -46,6 +46,8 @@ Replay buffer with recency-focused sampling and hard-N retention; **stop-gradien
 - [LeWorldModel](leworldmodel.md) / [DINO-WM](dino-wm.md) — the frozen tradition it departs from.
 - [Identifiability](../concepts/world-models/identifiability.md) — the robustness gap.
 - [Runtime failure detection](../concepts/robotics/runtime-failure-detection.md) — same signal, opposite use.
+- [Temporal Straightening](../sources/temporal-straightening-paper.md) — sibling from the same NYU group (Wang, Bounou, LeCun, Ren); fixes the latent *geometry* where AdaJEPA fixes the model *online*.
+- [Gradient-based planning](../concepts/world-models/gradient-based-planning.md) — AdaJEPA tests both GD and CEM planners.
 
 ## Mentioned in
 
