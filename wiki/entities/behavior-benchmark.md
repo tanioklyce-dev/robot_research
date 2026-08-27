@@ -3,7 +3,7 @@ title: BEHAVIOR / BEHAVIOR-1K
 type: entity
 subtype: benchmark
 created: 2026-07-04
-updated: 2026-08-03
+updated: 2026-08-26
 sources: 7
 tags: [behavior, behavior-1k, benchmark, household, simulation, omnigibson, bddl, stanford, sim-to-real]
 ---
@@ -12,6 +12,7 @@ tags: [behavior, behavior-1k, benchmark, household, simulation, omnigibson, bddl
 
 ## The benchmark
 - **1,000 activities** (909 top survey-ranked + 91 from BEHAVIOR-100), **50 scenes** (houses/stores/restaurants/offices), **9,000+ object instances / 1,900+ categories** (2,964 leaf synsets).
+  - **One-third of the surveyed tasks are cleaning.** [Yunzhu Li](yunzhu-li.md), who worked on the survey during his Stanford postdoc: *"Among the thousand tasks we collected, one-third of the tasks are about cleaning. People just don't like to do those dull and dirty tasks"* ([a16z conversation](../sources/a16z-worldlabs-scenix-conversation.md)). Worth holding next to the benchmark's **12.4%** full-task success rate — the single largest category of what people actually want is also squarely in the unstructured-environment regime both speakers call the grand challenge.
 - **BDDL (BEHAVIOR Domain Definition Language)** — predicate-logic task defs (initial + goal conditions, semantic not geometric), e.g. `food is cooked and onTop of a plate`.
 - **Survey-grounded**: 1,461 respondents ranked 2,090 activities; tedious tasks (scrub the bathroom floor) rank highest — the "human-centered" claim.
 

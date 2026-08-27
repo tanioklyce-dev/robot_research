@@ -3,8 +3,8 @@ title: YAM (i2RT)
 type: entity
 subtype: robot
 created: 2026-07-04
-updated: 2026-08-03
-sources: 5
+updated: 2026-08-26
+sources: 6
 tags: [yam, i2rt, robot-arm, teleoperation, data-collection, affordable, groot, bimanual, molmoact2]
 ---
 
@@ -34,6 +34,8 @@ tags: [yam, i2rt, robot-arm, teleoperation, data-collection, affordable, groot, 
 - [MolmoAct2 paper (Fang, Duan et al. 2026)](../sources/molmoact2-paper.md) — the BimanualYAM dataset + deployment platform.
 - [ASPIRE paper](../sources/aspire-paper.md) — the bimanual YAM station is the real-robot testbed for cross-embodiment skill transfer; sim-discovered skills take drawer opening from 0/20 to 11/20 and cut token cost ~4×.
 - [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — a dedicated MolmoAct2-BimanualYAM checkpoint plus a FastAPI serving path (port 8202); ~26 GB float32 / under 16 GB bf16.
+
+- [Building Worlds That Train Robots (R2S2R)](../sources/world-labs-r2s2r.md) — World Labs' cable-manipulation demo platform (sliding, routing, plugging, unplugging through sustained contact); a policy trained with **zero real-world data** in a reconstructed world is claimed to have operated autonomously for one hour without intervention. No success rate reported.
 
 ## Open questions
 - Bimanual-rig details for the GR00T use (which variant, integration code, leader/follower setup).

@@ -2,9 +2,9 @@
 title: Robot policy evaluation
 type: concept
 created: 2026-07-27
-updated: 2026-08-13
-sources: 18
-tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility]
+updated: 2026-08-26
+sources: 21
+tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility, real-to-sim, r2s2r]
 ---
 
 **Robot policy evaluation** — how you establish that one policy is better than another, and how much of the published record actually supports the rankings it reports. The wiki has flagged this as a gap for months (rliable, robomimic, RoboArena all named and unfiled). [NVIDIA SRL's RoboLab work](../../sources/nvidia-robolab-evaluation-blog.md) is the first ingested source that treats it as the subject rather than the plumbing.
@@ -93,6 +93,28 @@ RoboTwin's protocol is confirmed from its [primary source](../../sources/robotwi
 >
 > This is not a criticism of the paper — a dataset paper needs to show the data trains policies at all, and n=10 across 45 tasks does that. It **is** a criticism of citing those tables as comparisons, which is the error to avoid. Read dataset-paper baselines as smoke tests; read benchmark-paper tables as measurements, after checking their n.
 
+## The sixth paradigm: a task-reconstructed simulator as the screening layer
+
+[R2S2R](real-to-sim-to-real.md) ([World Labs / SceniX](../../sources/world-labs-r2s2r.md)) proposes reconstructing each real task as an aligned interactive world and using it to **screen checkpoints before hardware evaluation** — "screen out a significant portion of checkpoints before real-world testing, and reserve costly hardware evaluation for the most promising policies."
+
+Its stated standard is the one this page has been converging on from every other direction:
+
+> "A useful simulation need not match real-world success rates exactly. It must support the same decisions as reality: identify where policies succeed and fail, **rank** which policies are better, and predict whether improvements during training will carry over to hardware."
+
+> [!note] Five paradigms, one conclusion
+> [RoboArena](../../sources/roboarena-paper.md) (pairwise preference, r ≈ 0.95 vs ≈ 0.60), the [Veo world simulator](../../sources/veo-robotics-policy-evaluation-paper.md) (r = 0.88, absolute rates low), [WorldArena](../../sources/worldarena-paper.md) (r = 0.986 for [Ctrl-World](../../entities/ctrl-world.md), absolute rates *inflated*), and now R2S2R all land on the same trade: **ranking transfers, magnitude does not.** Three of the four report the correlation; R2S2R does not. The convergence is the finding — asking a surrogate evaluator for a deployment success rate is asking it for the one thing none of them delivers.
+
+**The bar, restated by a practitioner as a wall-clock question.** In the [companion interview](../../sources/a16z-worldlabs-scenix-conversation.md), Yunzhu Li defines evaluation not as a rate but as a discrimination time: *"the key criterion people use in industry is **how long in wall-clock time does it take for you to distinguish between a checkpoint that is 90% from a checkpoint that is 92%.**"* That 2-point discrimination is precisely the **±2 pp band** this page prices at ≈1,030 rollouts. The statistics and the industry requirement were derived independently and landed on the same number — which is the strongest evidence available that the Clopper-Pearson bar is not an academic nicety but the actual thing that gates robot iteration speed.
+
+**The protocol number, and where it sits against this page's bar.** Each checkpoint is evaluated on **2,000 simulated trials** (1,000 ID + 1,000 OOD) versus **100 real trials** (50 ID + 50 OOD), on an ALOHA bimanual cube-handover task.
+
+- The **simulated** side clears the [~1,030-rollout Clopper-Pearson bar](#the-sample-size-problem) comfortably — which is the entire point of moving evaluation into simulation.
+- The **real** side does not: at n=50 per cell the 95% band is roughly ±10 pp, so every sim-vs-real comparison in that post is bounded by the precision of its real half.
+
+That asymmetry is structural, not a flaw in this particular study. **Making simulated evaluation cheap does not make the ground truth it is validated against any cheaper** — so surrogate evaluators will keep being validated at small real-world N, and will therefore keep being defensible as rankers and indefensible as measurers. It also explains why R2S2R's ordinal framing is not merely principled: at n=50 per cell it is forced.
+
+R2S2R also attacks **failure mode #1** on this page at its root. Visual domain overlap's standard fix is real2sim via Gaussian splatting at **>1 hour per scene**, which [RoboLab](../../sources/nvidia-robolab-evaluation-blog.md) says prices out large-scale testing; industrializing that pipeline is exactly what R2S2R claims to do. Whether it does is unverifiable from a blog post with no numbers.
+
 ## The runtime pole: detecting failure inside a rollout
 
 Everything above measures a policy **across** rollouts, after the fact. [Runtime failure detection](runtime-failure-detection.md) measures it **during** one, and the wiki's two ingested instances ([Sentinel](../../sources/sentinel-paper.md), [FAIL-Detect](../../sources/fail-detect-paper.md)) both train on **successful data only**, because failure modes are not enumerable — one policy on one pick-and-place task produced six qualitatively different failures.
@@ -114,6 +136,7 @@ Two of their findings bear directly on this page:
 - [RoboArena](../../entities/roboarena.md) — the real-world pole.
 - [Success-rate audit](../../syntheses/platforms/vla-success-rate-audit.md) — **this page's standard, applied to the wiki's own tables**. Also corrects how the bar is usually quoted: 1,030 rollouts is the requirement at a *90%* success rate; at 50% it is ~2,450.
 - [Sim-to-real transfer](../learning/sim-to-real-transfer.md) — RoboLab runs the real-to-sim *evaluation* direction.
+- [Real-to-sim-to-real](real-to-sim-to-real.md) — the reconstruct-the-task-then-screen-in-it paradigm, and the sample-size asymmetry it makes structural.
 - [VLA models](../learning/vla-models.md) — the policies under test and the tables this page qualifies.
 - [Control abstraction levels](control-abstraction-levels.md) — an evaluation result is under-specified without its abstraction level; this page adds *and without its confidence interval*.
 - [Detection evaluation metrics](detection-evaluation-metrics.md) — the perception-side analogue (mAP/IoU) the wiki already covers.
@@ -130,3 +153,6 @@ Two of their findings bear directly on this page:
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../../sources/hai-world-model-spatial-intelligence-brief.md) — the same verdict reached from the policy side about *world models* rather than policies: evaluation is "a research patchwork rather than a settled standard," and none of it supports safety-critical deployment decisions. See [world-model evaluation](../world-models/world-model-evaluation.md) and the [scoring synthesis](../../syntheses/society/world-model-policy-vs-wiki-evidence.md).
 - [vla-evaluation-harness](../../sources/vla-evaluation-harness-github.md) — Ai2's 18-benchmark, any-VLA evaluation infrastructure (47× throughput; 2,000 LIBERO episodes in ~18 min/H100). Supports LIBERO-Pro with MolmoAct2/GR00T N1.7/π0.5 — the wiki's most consequential open question is no longer blocked on tooling. Its reproduction reports independently verify four LeRobot checkpoints at 96–100% of published LIBERO scores.
 - [WorldArena paper](../../sources/worldarena-paper.md) — the **fifth** evaluation paradigm question, turned on the harness itself: when a *world model* is the evaluator, ranking correlates at r = 0.986 (Ctrl-World) or r = 0.483 (Cosmos), and **both inflate absolute success rates** — "partial overfitting to successful trajectories."
+- [Building Worlds That Train Robots (R2S2R)](../../sources/world-labs-r2s2r.md) — a **sixth** paradigm: a per-task reconstructed simulator as a high-throughput checkpoint-screening layer. Reports its protocol (2,000 sim / 100 real trials per checkpoint) but **no success rates and no correlation coefficient**, so it cannot be placed next to WorldArena's 0.986 or Veo's 0.88.
+- [A Functional Taxonomy of World Models](../../sources/world-labs-functional-taxonomy.md) — the same verdict from a vendor selling into the category: robot demos are "confined to heavily constrained laboratory setups, with narrow object sets and short task horizons" and **"none have been validated at the complexity, variability, or duration that real-world deployment demands."**
+- [Fei-Fei Li is Solving the Hardest Problem in Robotics (a16z × World Labs)](../../sources/a16z-worldlabs-scenix-conversation.md) — evaluation as a wall-clock discrimination problem (90% vs 92%), and the reliability asymmetry against LLMs: an LLM's output has a human reading it, *"but for robotic models, out of the box, the robot has to work reliably in the real environment."*

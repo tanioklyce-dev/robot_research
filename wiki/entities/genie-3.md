@@ -3,8 +3,8 @@ title: Genie 3
 type: entity
 subtype: model
 created: 2026-07-13
-updated: 2026-08-08
-sources: 5
+updated: 2026-08-26
+sources: 6
 tags: [world-model, generative-video, google-deepmind, foundation-model, interactive-environments]
 ---
 
@@ -68,3 +68,4 @@ Not to be confused with the several similarly-named "Genie" systems this wiki tr
 - [WorldRoamBench paper](../sources/worldroambench-paper.md) — the only quantitative record of Genie 3 in this wiki; FPV rank 1.
 - [The Waymo World Model blog](../sources/waymo-world-model.md)
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../sources/hai-world-model-spatial-intelligence-brief.md)
+- [A Functional Taxonomy of World Models](../sources/world-labs-functional-taxonomy.md) — named as a canonical **renderer**: a system where "the model generates frames in real time conditioned on user input" but "carries no explicit understanding of three-dimensional structure." World Labs' **RTFM** is positioned as its direct counterpart.

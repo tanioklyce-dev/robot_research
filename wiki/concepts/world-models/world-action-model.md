@@ -2,12 +2,15 @@
 title: World-action model (WAM)
 type: concept
 created: 2026-06-02
-updated: 2026-07-08
-sources: 7
+updated: 2026-08-26
+sources: 8
 tags: [world-action-model, wam, world-model, vla, forward-dynamics, inverse-dynamics, policy, cosmos, dreamzero]
 ---
 
 **World-action model (WAM)** — a model that jointly couples a **world model** (it predicts how observations evolve) with an **action model** (it predicts or consumes actions), so that the *same* network can do forward dynamics, inverse dynamics, **and** act as a policy. The distinguishing move versus a plain [VLA](../learning/vla-models.md) is that a WAM explicitly models the **visual consequence** of an action, not just the action itself.
+
+> [!note] The same three modes, stated by a vendor as the shape of a robotics foundation model
+> Asked whether [World Labs](../../entities/world-labs.md) will build a foundation model for robotics, [Fei-Fei Li](../../entities/fei-fei-li.md) answers with omni-models — *"it's very likely going to involve the output of actions **in addition to the state of the world**, and we're definitely not ruling this out"* — and [Yunzhu Li](../../entities/yunzhu-li.md) gives the FD/policy split verbatim: *"if you think about **actions as inputs**, that is essentially a **forward simulator**… when the **action is output**, this is essentially a **policy**"*, with the omni-model serving as "a backbone for you to fine-tune into specific robotic applications" ([a16z conversation](../../sources/a16z-worldlabs-scenix-conversation.md)). The taxonomy below was crystallized in research papers; this is the same decomposition arriving as a commercial roadmap.
 
 ## Definition
 

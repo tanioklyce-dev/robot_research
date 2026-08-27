@@ -2,9 +2,9 @@
 title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
-updated: 2026-08-13
-sources: 44
-tags: [sim-to-real, domain-gap, rl, simulation]
+updated: 2026-08-26
+sources: 47
+tags: [sim-to-real, domain-gap, rl, simulation, real-to-sim, r2s2r]
 ---
 
 **Sim-to-real transfer** is the practice of training a robot policy in simulation and deploying it on a physical robot with little or no fine-tuning. The "reality gap" — differences between sim physics, sensor noise, lighting, dynamics — is the central obstacle.
@@ -33,6 +33,20 @@ The [Stanford HAI AI Index 2026](../../sources/stanford-hai-ai-index-2026.md) pr
 
 The 89.4% vs. 12.4% contrast is the canonical sim-to-real gap for household manipulation as of 2025. RLBench tests 18 short-horizon tasks in a controlled simulator; BEHAVIOR-1K's 1,000 tasks come from surveys of what households actually want robots to do.
 
+## The inverted approach: build the simulator from the task
+
+[Real-to-sim-to-real (R2S2R)](../robotics/real-to-sim-to-real.md) reverses the starting point of everything above. Classical sim-to-real begins with a general-purpose authored simulator and asks how to close the gap; R2S2R begins with a **specific real task**, reconstructs it as an interactive world aligned in appearance *and* dynamics, trains and screens policies there, and returns to hardware.
+
+[World Labs / SceniX](../../sources/world-labs-r2s2r.md) claim policies trained with **zero real-world training data** transferring directly to ALOHA, YAM, RB-Y1, Flexiv and xArm across contact-rich tasks including deformable cables — the interaction class where the classical techniques on this page perform worst. Two things the reconstructed world supplies that hardware cannot: training **without resetting the environment after every trial**, and supervision on **"outcomes under alternative actions"**, which is counterfactual and unobtainable on real hardware by construction.
+
+> [!note] Its own authors say it is a mixture, not a replacement
+> Asked about [Sergey Levine](../../entities/sergey-levine.md)'s position that simulation always deviates and real collection is essential, [Yunzhu Li](../../entities/yunzhu-li.md) answers **"they don't contradict with each other"**: a simulator "doesn't necessarily have to be pure physics — it can be a combination between both physics and also learning," physics-weighted early for consistency and structure, shifting "towards more learning-based modeling of the environments" as deployment data accumulates ([a16z conversation](../../sources/a16z-worldlabs-scenix-conversation.md)). R2S2R is a **data flywheel with a physics prior**. The blog post's "zero real-world training data" headline oversells what its authors claim in conversation.
+
+> [!note] It relocates the real-data cost rather than removing it
+> "Zero real-world training data" is true of the *policy*. The world is built from real captures of the robot, sensors, environment, objects and demonstrations — the real data moved from policy training into world construction, and the post never quantifies how much capture a task needs. That number is the method's actual cost, and it is the one thing not reported.
+
+Validation is by **matched open-loop execution**: run the same action sequence in sim and reality and compare observations, object responses and outcomes. Open-loop is the right choice — a closed-loop policy corrects for dynamics error as it runs, masking the discrepancy under test.
+
 ## The learned-simulator failure mode: teaching to a flawed test
 
 Classical sim-to-real assumes the simulator is **hand-authored and therefore inspectable** — you can read the friction coefficient that's wrong. Learned simulators break that assumption and add a failure with no pre-2020 analogue: using the same learned model to **train** a system and to **judge** it.
@@ -40,6 +54,9 @@ Classical sim-to-real assumes the simulator is **hand-authored and therefore ins
 > "If the model understates the risk of skidding in rain, a vehicle trained in that model may learn to drive too fast and still score well when the same flawed model is used to test it. The score would reflect an error in the model, not readiness for a real road." ([HAI world-model brief](../../sources/hai-world-model-spatial-intelligence-brief.md), pp. 7–8)
 
 This is not hypothetical in this wiki: [Veo](../../entities/veo.md) is a video foundation model specialized as a **policy-evaluation simulator**, and the Dream* line generates training data for policies alongside it.
+
+> [!warning] R2S2R runs directly into this
+> The same reconstructed world trains the policy **and** evaluates it — precisely the structure this section warns about. The defenses [World Labs offers](../../sources/world-labs-r2s2r.md) are the right ones in kind (matched open-loop validation; checking that sim ranking matches real ranking on hardware), but are asserted without numbers by the party selling the world. The durable point: a reconstructed world is only as trustworthy as the *independent* real check on it, and that check is the expensive thing the method exists to avoid. The economics push toward validating less as confidence grows.
 
 **Now measured.** [WorldArena](../../sources/worldarena-paper.md) ran world models as policy evaluators against the RoboTwin simulator's own verdict: both "have consistently higher success rates than those measured in the simulator, suggesting partial overfitting to successful trajectories." The learned evaluator **flatters** what it evaluates. *Ranking* survives ([Ctrl-World](../../entities/ctrl-world.md) at r = 0.986); *levels* do not. Veo reports the opposite sign, so the effect's direction isn't settled — see [world-model evaluation](../world-models/world-model-evaluation.md).
 

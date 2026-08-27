@@ -2,8 +2,8 @@
 title: Spatial intelligence
 type: concept
 created: 2026-08-07
-updated: 2026-08-07
-sources: 2
+updated: 2026-08-26
+sources: 5
 tags: [spatial-intelligence, world-model, embodied-ai, policy, stanford-hai]
 ---
 
@@ -23,6 +23,9 @@ The brief offers a concrete probe that is worth remembering because it is cheap 
 
 What makes this a test of spatial intelligence rather than of video quality is that in a world model the persistence is *learned from observation*, while in a game engine or authored simulator every object is placed in advance and persistence is free. The same probe is the failure mode behind the brief's [Genie 3](../../entities/genie-3.md) datapoint — coherent for only a few minutes at its 2025 release before objects "shift or vanish."
 
+> [!note] Independently arrived at, at manipulation timescale
+> [Yunzhu Li](../../entities/yunzhu-li.md) gives the same probe when asked why R2S2R differs from the video-model approach: consistency must hold "over space, over time, over different viewpoints, and over different types of interactions," and the failure is concrete — *"imagine if a robot pushes an object forwards. **The object just magically disappears**, which has been a problem of many of the existing video prediction models. This won't provide good enough signal for the robot to know what is the right thing to do"* ([a16z conversation](../../sources/a16z-worldlabs-scenix-conversation.md)). The brief's version is a person leaving a room; this one is an object under contact, seconds apart. Same test, and the shorter horizon is the harder one to excuse.
+
 > [!note] This is the same claim the wiki's JEPA thread makes from the other direction
 > The [instruction-leakage](instruction-leakage.md) concept and the [identifiability](identifiability.md) work are both about whether a learned latent actually tracks the world's state or merely reproduces something that scores well. "Leave and return" is the behavioral version of the same question.
 
@@ -31,6 +34,16 @@ What makes this a test of spatial intelligence rather than of video quality is t
 Older than the term. Kenneth Craik proposed in **1943** that humans carry a "small-scale model" of reality to test actions internally before acting — reasoning through a bridge design in the mind before building it. Early AI researchers took the idea up in the 1960s with explicit structured internal models, which stayed confined to narrow rule-governed environments for decades.
 
 Two recent developments unlocked it, per the brief: reinforcement learning showing that agents can learn to act through **internal simulation** (reducing reliance on costly real-world trial and error), and multimodal AI making it possible to ground systems in how the physical world **actually looks, moves, and sounds**.
+
+## The substrate argument
+
+The [taxonomy essay](../../sources/world-labs-functional-taxonomy.md) states the language/space contrast more sharply than the brief does, and grounds it in what is being *modeled* rather than what is being *predicted*:
+
+> "Where language models learn the statistical structure of text, world models learn the statistical structure of space and time: how light falls on a surface, how a garden looks from an angle no camera has captured, how objects respond to force and follow the laws of physics."
+
+And its ordering claim — **"If language is an abstraction of the world and pixels are a projection of it, then geometry, physics, and dynamics are the world itself."** That is the essay's basis for calling the simulator the linchpin, and it is a claim about which representation the others can be *derived from*, not about which is more mature.
+
+The essay also names the term's own problem: "world" has always been "a stand-in for whatever totality a given thinker needed to reason about," which is why computer vision, robotics, RL and generative AI can each claim to build world models and each mean something different. Spatial intelligence is the attempt to name the capability instead — the same move this page opens with.
 
 ## Related concepts
 
@@ -47,3 +60,6 @@ A marketing term and a research program at the same time, which is a reason to h
 ## Mentioned in
 
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../../sources/hai-world-model-spatial-intelligence-brief.md)
+- [A Functional Taxonomy of World Models](../../sources/world-labs-functional-taxonomy.md) — the primary for the renderer/simulator/planner stack and the substrate argument above.
+- [Building Worlds That Train Robots (R2S2R)](../../sources/world-labs-r2s2r.md) — "robotics is where spatial intelligence becomes physical."
+- [Fei-Fei Li is Solving the Hardest Problem in Robotics (a16z × World Labs)](../../sources/a16z-worldlabs-scenix-conversation.md) — object permanence under contact; "robotics is where spatial intelligence becomes physical."

@@ -2,8 +2,8 @@
 title: World-model simulators
 type: concept
 created: 2026-05-06
-updated: 2026-08-08
-sources: 32
+updated: 2026-08-26
+sources: 34
 tags: [world-model, generative-simulation, video-generation, jepa, latent-prediction, paradigm-shift]
 ---
 
@@ -36,6 +36,17 @@ Predict the next-state *representation* in a learned latent space — no pixels 
 Notable systems:
 - **[V-JEPA 2 / V-JEPA 2-AC](../../entities/v-jepa-2.md)** ([Meta FAIR](../../entities/meta-fair.md) + [Mila](../../entities/mila.md)) — 1B-param ViT-g pretrained on 1M+ hours of internet video; 300M-param action-conditioned predictor post-trained on 62 hr of Droid robot data; **zero-shot Franka manipulation in new labs** ([V-JEPA 2 Paper](../../sources/v-jepa-2-paper.md)).
 - **[LeWorldModel](../../entities/leworldmodel.md)** ([Mila](../../entities/mila.md) + NYU + Samsung SAIL + Brown) — first stable end-to-end JEPA from raw pixels with just two loss terms; 15M params; single-GPU training; 48× faster planning ([LeWorldModel Paper](../../sources/leworldmodel-paper.md)).
+
+## Paradigm C: task-reconstructed generative simulators
+
+A third shape, distinct from both above: instead of a *general* learned environment, reconstruct **one specific real task** into an interactive world that carries appearance, geometry **and** physics, then reuse that world across policies and embodiments. This is [real-to-sim-to-real](../robotics/real-to-sim-to-real.md), shipped by [World Labs / SceniX](../../sources/world-labs-r2s2r.md).
+
+What separates it from Paradigm A is the **output type**, which is exactly the [renderer/simulator line](world-model-functional-taxonomy.md): a generative-video model emits pixels; [Marble](../../entities/marble.md)-class systems emit Gaussian splats **and collision meshes a physics engine can operate on**. A policy trained in the first is learning from a video; in the second it is acting on geometry.
+
+That distinction is doing real work in this wiki, because it is the only available reconciliation of a contradiction:
+
+> [!warning] Marginal data engine vs. sole source of training experience
+> [WorldArena](../../sources/worldarena-paper.md) measured generative-video world models as **data engines** and found them marginal — only 2 of 6 beat real data, on the easier task only. R2S2R claims policies trained on **zero real data** transferring directly across ALOHA, YAM, RB-Y1, Flexiv and xArm on contact-rich deformable tasks. If the geometry-vs-pixels distinction is what separates these outcomes, it is direct evidence for the taxonomy's simulator-is-the-linchpin claim. If it is not, one of the two results is overstated — and R2S2R is the one with no numbers, no paper, and a commercial interest.
 
 ## What they are measurably good for (2026)
 

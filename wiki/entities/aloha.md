@@ -3,8 +3,8 @@ title: ALOHA / Mobile ALOHA
 type: entity
 subtype: product
 created: 2026-05-25
-updated: 2026-08-03
-sources: 14
+updated: 2026-08-26
+sources: 15
 tags: [aloha, mobile-aloha, bimanual, mobile-manipulation, teleoperation, viperx-300, stanford, low-cost, open-source, act-plus-plus]
 ---
 
@@ -76,3 +76,4 @@ tags: [aloha, mobile-aloha, bimanual, mobile-manipulation, teleoperation, viperx
 - [Grievous GitHub](../sources/grievous-github.md) — design ancestor.
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **ALOHA-2** (Aldaco et al. 2024) is one of 8 natively-supported [LeRobot](lerobot.md) platforms, listed at **~€21k** (Table 1a) — the premium bimanual tier, ~40× the cost of SO-100 bimanual (€550). ALOHA-2 paper: arxiv 2405.02292.
 - [Gemini Robotics 2: Safety Evaluations](../sources/gemini-robotics-2-safety-report.md) — ALOHA tabletop scenes are the visual substrate for ASIMOV-Agentic's safety-constraint-following component.
+- [Building Worlds That Train Robots (R2S2R)](../sources/world-labs-r2s2r.md) — World Labs' most-used demo platform: bimanual box packing and elastic cable insertion for [real-to-sim](../concepts/robotics/real-to-sim-to-real.md) reconstruction, and the **bimanual cube-handover task** used for the sim-vs-real policy-ranking result (2,000 simulated / 100 real trials per checkpoint).
