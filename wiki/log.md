@@ -4359,4 +4359,4 @@ The closing frame, stated cheerfully and without comment: *"Today, you have peop
 ## [2026-08-27] maintenance | Glossary — ONNX
 - Added **ONNX** to [glossary.md](glossary.md), between OK-Robot and OpenVLA. Surfaced by a query while reading the [Microduck runtime](sources/microduck-runtime-repo.md): the format was load-bearing across that whole ingest (`obs[1,61] → actions[1,14]` validated at load, the normalizer baked into the exported graph) and had no glossary entry.
 - Entry covers the graph-plus-weights structure, opset versioning, ONNX Runtime and its execution providers, the inference-only boundary, and the ahead-of-time conversion vendor NPU toolchains do instead (`rknn-toolkit2` → `.rknn`).
-- **Still missing and noticed in passing:** no **NPU** entry. Not added — out of scope for the request.
+- Added **NPU** in the same pass (between NN and OFT): INT8/TOPS vs GPU FLOPS, quantization as a lossy step needing its own validation, the offline ONNX→proprietary-format conversion, and out-of-tree drivers — anchored on the RK3566's 0.8 TOPS core and Armbian's disabled device-tree node.
