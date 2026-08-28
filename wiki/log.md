@@ -4432,3 +4432,31 @@ Wired into 13 existing pages so none is an orphan (inbound: rhoban 9, mujoco-war
 
 ### Correction to the lint report
 I attributed an existing index.md note — *"deserves its own entity page distinct from MuJoCo Playground"* — to MuJoCo Warp. It is about **Gazebo**, which remains an open gap. MuJoCo Warp's page is justified on its own terms (7 pages referenced it, and it is the substrate under mjlab and Microduck), but that note was not evidence for it.
+
+## [2026-08-28] ingest | DiffusionOPSD — an image paper about the object our action heads are made of
+- New source: [On-Policy Self-Distillation in Diffusion Models](sources/diffusionopsd-paper.md) (arXiv 2608.24646, 2026-08-25; PDF into `raw/diffusionopsd_2608.24646.pdf`, 64 pp., extracted with pypdf)
+- New entity: [DiffusionOPSD](entities/diffusionopsd.md) · New concept: [Reward post-training of diffusion and flow models](concepts/learning/reward-post-training-diffusion.md)
+- Updated: [Flow matching](concepts/learning/flow-matching.md), [Diffusion Policy](entities/diffusion-policy.md), [index](index.md)
+
+### Why an image-generation paper is in a robotics wiki
+It has **no robot, no action data, no robotics experiment**. It is here because it operates on a **rectified-flow velocity field** — literally the same parameterization the [flow-matching](concepts/learning/flow-matching.md) page documents for [π0](entities/pi-zero.md)/[SmolVLA](entities/smolvla.md)/[GR00T N1](sources/groot-n1-paper.md) action heads, with the time convention flipped — and because its problem statement is the one blocking RL post-training of those heads: *"endpoint rewards do not specify how an intermediate denoising prediction should change."* Filed with that framing made explicit on every page, so nobody later quotes its numbers as robot evidence.
+
+### The parts worth keeping
+- **The four reward-to-target paradigms**, separated by *where the desired intermediate change becomes explicit*: trajectory credit (FlowGRPO) leaves it in advantage weights, direct backprop (ReFL) in parameter gradients, endpoint supervision (DiffusionNFT) in an endpoint, and self-distillation makes it an inspectable object.
+- **`G_realized = G_construct − G_fit`**, and the finding that the two stages **do not track each other**: target ordering reverses after one update on **62.3%** of prompts for HPSv2.1 (95% CI 58.2–66.6) and **29.5%** for CLIPScore, with cross-query interference excluded. Reward-dependent, and unexplained.
+- **ReFL wins the isolated single-update probe and loses the training run.** A method can be ranked backwards by a one-step ablation — worth remembering generally.
+- **Endpoint supervision collapses under step distillation.** On 9-step Z-Image-Turbo, DiffusionNFT lands *below the unadapted base model on 8 of 10 objectives* (HPSv3 1.58 vs 6.19), because distilled transitions need not match teacher trajectories. **This is the finding most likely to matter here** — [GR00T N1](sources/groot-n1-paper.md) runs K=4 Euler steps, and the whole flow-matching case for VLAs rests on few-step inference. Untested on any robot.
+- **The clean-output identity ports exactly**: `A₀ = A_τ − τ·v_θ` recovers the clean action chunk the policy currently intends from a noised chunk plus the action expert's velocity output. Not an isometry — `‖δv‖ = ‖δA₀‖/τ`.
+
+### Where I pushed back on the headline
+- **19/20 wins and +44.0% come from reward-specific checkpoints scored on their own training reward.** Held-out *prompts* (DrawBench), but not a held-out *evaluator*. The tell is in the paper's own table: the Aesthetic-specialist scores **12.08** where SDXL, SD3.5-L and FLUX.1-dev sit at **5.60/5.50/5.71** — and the *same method's* generalist checkpoint scores **6.03**. **That 6.03 → 12.08 gap is a direct readout of the Goodharting.** The paper reports both numbers and comments on neither.
+- **The GPU-hour claim is against DiffusionNFT only.** On Z-Image-Turbo, ReFL uses **102.1** GPU-h against DiffusionOPSD's **149.8** — ~47% *more* expensive than ReFL there, winning on quality rather than cost.
+- **In the single-checkpoint block it does not sweep**: FlowGRPO at >5k updates beats it on VLM-PointWise (0.181 vs 0.170) and VLM-Pairwise (0.388 vs 0.345).
+- **Human study is thin**: n=100 prompts, one setting, no CIs, and 61% over the strongest baseline is barely above chance.
+- Technical report, "DiffusionOPSD Team" authorship, no peer review, no replication.
+
+### The blocker on porting any of it, stated plainly
+Ablations show the **reward-gradient direction *is* the method** — replacing it costs 0.08–0.17 CLIPScore while every implementation knob moves things by <0.008. That step needs `∇_y R(D(y), c)`: a **differentiable reward on the decoded output**. Image preference models are differentiable by construction; robot task rewards are usually sparse, environment-evaluated and not. So this is a research question (learned differentiable critic? VLM preference model over rendered rollouts?), not a port.
+
+### Open question the wiki should now track
+**Has anyone RL-post-trained a flow-matching VLA action head against a task reward at all?** Nothing ingested so far does — the [real-world robot RL](concepts/learning/real-world-robot-rl.md) lineage is RLPD/HIL-SERL, not diffusion-native.

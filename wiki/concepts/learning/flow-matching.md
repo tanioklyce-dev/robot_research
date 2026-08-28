@@ -2,8 +2,8 @@
 title: Flow matching
 type: concept
 created: 2026-05-25
-updated: 2026-08-13
-sources: 21
+updated: 2026-08-28
+sources: 22
 tags: [flow-matching, generative-model, ode, continuous-actions, vla, action-head, pi-zero, smolvla, molmoact2, dit, lipman, esser, xvla]
 ---
 
@@ -56,6 +56,22 @@ SmolVLA's interleaved CA+SA pattern empirically wins on real-world SO-100 multi-
 - Empirically competitive or better on action-prediction benchmarks ([Lipman et al. 2022](https://arxiv.org/abs/2210.02747); [Esser et al. SD3 2024](https://arxiv.org/abs/2403.03206)).
 - Lets the same `v_θ` be **conditioned on VLM features** straightforwardly — the action expert is just a transformer that consumes both `A^τ_t` and the VLM-feature `o_t`.
 
+## Post-training a learned velocity field against a reward
+
+Everything above trains `v_θ` by **regression onto a closed-form target** from demonstration data. A separate question — untouched by any robot source in this wiki — is how to improve an already-trained velocity field against an **outcome reward**, which is what RL post-training of a VLA action head would mean.
+
+The image-generation literature has been working on exactly this object, because [rectified flow](../../sources/diffusionopsd-paper.md) image models use the identical parameterization (their `z_σ = (1−σ)y + σε`, `v = ε − y` is this page's interpolant with the time convention flipped). Its central difficulty is stated cleanly by [DiffusionOPSD](../../entities/diffusionopsd.md): *"endpoint rewards do not specify how an intermediate denoising prediction should change."*
+
+One identity ports directly and is worth having. At a fixed query, the velocity prediction and the **clean-output prediction** are algebraically interchangeable:
+
+```
+A₀ = A_τ − τ · v_θ(A_τ, τ)
+```
+
+So given a partially-noised action chunk and the action expert's velocity output, you can recover **the clean action chunk the policy currently intends** — which is the quantity a reward would have to be evaluated on, and the quantity a target would be built around. Note the map is not an isometry: `‖δv‖ = ‖δA₀‖ / τ`, so equal action-space displacements mean much larger velocity displacements at low noise.
+
+See [reward post-training of diffusion and flow models](reward-post-training-diffusion.md) for the paradigm space, and the caveat that **no wiki source has RL-post-trained a flow-matching action head against a task reward** — the blocker being that robot rewards are typically non-differentiable where image preference models are not.
+
 ## Related lineage (not yet ingested as primary sources)
 
 - **Lipman et al. 2022** — "Flow Matching for Generative Modeling" (arXiv 2210.02747). The foundational flow-matching paper. Referenced as `[102]` in π0.7.
@@ -81,6 +97,8 @@ SmolVLA's interleaved CA+SA pattern empirically wins on real-world SO-100 multi-
 - [Mathieu Blondel](../../entities/mathieu-blondel.md) — Fenchel-Young framework unifying action-head families.
 
 ## Mentioned in
+
+- [On-Policy Self-Distillation in Diffusion Models](../../sources/diffusionopsd-paper.md) — rectified-flow reward post-training in image generation; the clean-output identity and the step-distillation warning.
 
 - [GR00T N1 paper](../../sources/groot-n1-paper.md) — flow-matching DiT System 1; K=4 Euler steps.
 - [π0 paper](../../sources/pi-zero-paper.md)

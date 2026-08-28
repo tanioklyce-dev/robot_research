@@ -90,6 +90,12 @@ From [Mobile ALOHA paper](../sources/mobile-aloha-paper.md) §6.2, evaluated aga
 - Inherits behavior-cloning limitations: sub-optimal demos → sub-optimal policy; no negative-data leverage. RL extensions (Hansen-Estruch IDQL, Wang DiffPo) referenced as future direction.
 - Higher computation / inference latency than simpler methods (LSTM-GMM); mitigated by action-sequence prediction and DDIM but not eliminated. High-rate control still constrained.
 
+## Reward post-training, and why it hasn't happened here
+
+Diffusion Policy is trained by behavior cloning. Improving one against a **task reward** rather than more demonstrations is the obvious next move, and the wiki has no robot source that does it for a diffusion or flow policy — the [real-world robot RL](../concepts/learning/real-world-robot-rl.md) lineage is RLPD/HIL-SERL, not diffusion-native.
+
+The image-generation side has an active literature on exactly this structure ([reward post-training of diffusion and flow models](../concepts/learning/reward-post-training-diffusion.md)), including a result worth watching: endpoint-reward supervision **degraded a step-distilled model below its own starting point on 8 of 10 metrics** ([DiffusionOPSD](diffusionopsd.md)), which is the regime few-step robot action heads live in. The blocker for porting any of it is that those methods need a differentiable reward on the decoded output, and robot task rewards usually are not.
+
 ## Related
 
 - [DDPM](ddpm.md) — substrate generative-model class; Diffusion Policy is DDPM-applied-to-actions.
