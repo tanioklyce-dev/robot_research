@@ -3,7 +3,7 @@ title: Generative data augmentation for robot learning
 type: concept
 created: 2026-08-27
 updated: 2026-08-27
-sources: 6
+sources: 1
 tags: [data-augmentation, synthetic-data, cosmos, cosmos-transfer, dreamgen, mimicgen, imitation-learning, domain-randomization, sim-to-real, vla]
 ---
 

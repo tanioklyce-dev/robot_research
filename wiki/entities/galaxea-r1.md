@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-07-04
 updated: 2026-07-04
-sources: 3
+sources: 4
 tags: [galaxea, galaxea-r1, wheeled-humanoid, bimanual, mobile-manipulator, groot]
 ---
 

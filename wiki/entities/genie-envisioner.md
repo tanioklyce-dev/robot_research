@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-06
 updated: 2026-08-08
-sources: 10
+sources: 11
 tags: [genie-envisioner, world-model, agibot, cosmos, manipulation]
 ---
 

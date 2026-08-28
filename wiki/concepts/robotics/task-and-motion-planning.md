@@ -3,7 +3,7 @@ title: Task and motion planning (TAMP)
 type: concept
 created: 2026-07-04
 updated: 2026-08-16
-sources: 3
+sources: 4
 tags: [tamp, task-planning, long-horizon, plan-skeletons, explicit-model, hybrid-planning]
 ---
 

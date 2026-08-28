@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-10
 updated: 2026-08-26
-sources: 10
+sources: 11
 tags: [tri, toyota-research-institute, robotics-research, automated-driving, lbm, drake, organization, walden-robotics, spinout]
 ---
 

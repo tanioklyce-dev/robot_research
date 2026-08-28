@@ -3,7 +3,7 @@ title: Onboard robot service architecture
 type: concept
 created: 2026-08-27
 updated: 2026-08-27
-sources: 1
+sources: 2
 tags: [embedded-systems, systems-architecture, ota-updates, ipc, recovery-path, consumer-robotics, rust, systemd, robot-software, reliability]
 ---
 

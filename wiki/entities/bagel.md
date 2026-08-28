@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-25
 updated: 2026-05-25
-sources: 0
+sources: 1
 tags: [bagel, image-generation, image-editing, mixture-of-transformers, world-model, web-pretrained]
 status: stub
 ---

@@ -3,7 +3,7 @@ title: Soft-prompt cross-embodiment conditioning
 type: concept
 created: 2026-08-13
 updated: 2026-08-23
-sources: 3
+sources: 4
 tags: [soft-prompt, cross-embodiment, prompt-learning, vla, heterogeneity, conditioning, peft, xvla]
 ---
 

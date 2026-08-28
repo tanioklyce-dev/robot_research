@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-13
 updated: 2026-08-13
-sources: 1
+sources: 2
 tags: [libero, benchmark, cogvla, vla-adapter, memoryvla, flower, baku, statistical-tie, baseline]
 ---
 

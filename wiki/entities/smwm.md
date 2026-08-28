@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-07-26
 updated: 2026-07-26
-sources: 1
+sources: 3
 tags: [smwm, sensorimotor-world-model, jepa, inverse-dynamics, representation-collapse, world-model, causality, controllable-degrees-of-freedom, balestriero, scholkopf]
 ---
 

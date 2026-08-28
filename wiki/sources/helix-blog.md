@@ -53,7 +53,8 @@ tags: [helix, figure, vla, humanoid, system-1-system-2, hierarchical-policy, onb
 
 ## Entities mentioned
 
-- [Figure](../entities/figure.md) — the humanoid platform; Helix is its VLA.
+- [Helix](../entities/helix.md) — **the model this source announces**; the entity page carries both generations, including Helix 02's System 0.
+- [Figure](../entities/figure.md) — the company; [Figure 03](../entities/figure-03.md) is the current hardware (Helix 1 ran on Figure 02).
 - [NVIDIA GR00T](../entities/nvidia-groot.md) — sibling/competing humanoid VLA.
 
 ## Concepts touched

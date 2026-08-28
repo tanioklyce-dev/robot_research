@@ -3,7 +3,7 @@ title: Agentic UAVs
 type: concept
 created: 2026-05-09
 updated: 2026-07-09
-sources: 8
+sources: 9
 tags: [uav, drone, agentic-ai, edge-ai, swarm, swarm-intelligence, autonomous, multi-domain, px4, pixhawk, mavlink]
 ---
 

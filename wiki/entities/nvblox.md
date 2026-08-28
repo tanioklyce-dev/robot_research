@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-06-13
 updated: 2026-08-17
-sources: 2
+sources: 3
 tags: [nvblox, isaac-ros, nvidia, 3d-mapping, perception, gpu, robotics, navigation]
 ---
 

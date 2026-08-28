@@ -4,7 +4,7 @@ type: entity
 subtype: lab
 created: 2026-08-23
 updated: 2026-08-23
-sources: 2
+sources: 1
 tags: [aisi, uk-government, evaluation, cyber-evaluation, incident-report, red-teaming, inspect, frontier-ai, governance]
 ---
 

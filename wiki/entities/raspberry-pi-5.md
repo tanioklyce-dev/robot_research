@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-06-07
 updated: 2026-08-23
-sources: 5
+sources: 4
 tags: [raspberry-pi, single-board-computer, host-compute, edge, xlerobot, lekiwi, sourccey, nori]
 ---
 

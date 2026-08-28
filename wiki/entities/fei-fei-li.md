@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-03
 updated: 2026-08-26
-sources: 7
+sources: 6
 tags: [person, stanford, computer-vision, embodied-ai, behavior, code-as-policy, world-model, spatial-intelligence, policy]
 ---
 

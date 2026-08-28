@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-26
 updated: 2026-08-26
-sources: 4
+sources: 3
 tags: [person, robotics, world-model, manipulation, simulation, real-to-sim, code-as-policy, scenix, columbia]
 ---
 

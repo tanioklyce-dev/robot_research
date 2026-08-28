@@ -4,7 +4,7 @@ type: entity
 subtype: lab
 created: 2026-08-27
 updated: 2026-08-27
-sources: 2
+sources: 0
 tags: [rhoban, labri, bordeaux, robocup, humanoid, open-source, bam, onshape-to-robot, actuator-modeling]
 ---
 

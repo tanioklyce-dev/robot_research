@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-08-27
 updated: 2026-08-27
-sources: 2
+sources: 1
 tags: [reachy-mini, pollen-robotics, hugging-face, desktop-robot, hri, conversational-ai, open-source]
 ---
 

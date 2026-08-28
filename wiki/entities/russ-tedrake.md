@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-07-08
 updated: 2026-08-16
-sources: 10
+sources: 12
 tags: [russ-tedrake, mit, csail, tri, lbm, drake, underactuated-robotics, locomotion, manipulation, physical-ai, walden-robotics, gcs, motion-planning]
 ---
 

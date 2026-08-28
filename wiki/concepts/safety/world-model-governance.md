@@ -3,7 +3,7 @@ title: World-model governance
 type: concept
 created: 2026-08-07
 updated: 2026-08-07
-sources: 1
+sources: 2
 tags: [policy, governance, world-model, spatial-privacy, liability, national-security, procurement]
 ---
 

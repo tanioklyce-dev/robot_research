@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-05-08
 updated: 2026-08-27
-sources: 45
+sources: 47
 tags: [diffusion-policy, behavior-cloning, diffusion-model, ddpm, action-diffusion, chi-2023, columbia, tri, mit, mobile-aloha]
 ---
 

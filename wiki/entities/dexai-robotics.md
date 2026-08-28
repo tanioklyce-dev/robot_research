@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-08-16
 updated: 2026-08-16
-sources: 2
+sources: 3
 tags: [dexai-robotics, food-robotics, gcs, graphs-of-convex-sets, motion-planning, deployment, boston, collaborative-robots, raas, arm-institute]
 ---
 

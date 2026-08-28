@@ -3,7 +3,7 @@ title: Gradient-based planning (vs CEM) in latent world models
 type: concept
 created: 2026-08-26
 updated: 2026-08-26
-sources: 4
+sources: 2
 tags: [gradient-based-planning, cem, mpc, world-model, jepa, planning, latent-space, curvature, adversarial, conditioning]
 ---
 

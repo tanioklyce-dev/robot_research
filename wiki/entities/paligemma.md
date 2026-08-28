@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-25
 updated: 2026-05-25
-sources: 3
+sources: 5
 tags: [paligemma, vlm, google, gemma, siglip, vision-language-model, vla-backbone]
 status: stub
 ---

@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-06-07
 updated: 2026-06-07
-sources: 2
+sources: 3
 tags: [hailo, npu, edge-ai, accelerator, raspberry-pi, llm, vlm, computer-vision]
 ---
 

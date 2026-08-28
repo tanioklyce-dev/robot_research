@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-13
 updated: 2026-08-13
-sources: 1
+sources: 2
 tags: [dp3, diffusion-policy, point-cloud, 3d, robotwin, baseline, sim-artifact]
 ---
 

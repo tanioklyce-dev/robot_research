@@ -3,7 +3,7 @@ title: Safety filters for learned policies
 type: concept
 created: 2026-08-16
 updated: 2026-08-27
-sources: 5
+sources: 7
 tags: [safety-filter, control-barrier-functions, reachability-analysis, path-consistency, out-of-distribution, diffusion-policy, constraint-enforcement, iso-ts-15066, runtime-safety, human-robot-interaction]
 ---
 

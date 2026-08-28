@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-07-09
 updated: 2026-07-09
-sources: 2
+sources: 3
 tags: [jaco, kinova, assistive-robotics, wheelchair, robotic-arm, medical-device]
 ---
 

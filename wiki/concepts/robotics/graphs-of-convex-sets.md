@@ -3,7 +3,7 @@ title: Graphs of Convex Sets (GCS)
 type: concept
 created: 2026-08-16
 updated: 2026-08-16
-sources: 4
+sources: 5
 tags: [graphs-of-convex-sets, gcs, convex-optimization, mixed-integer, socp, shortest-path, bezier-curves, motion-planning, global-optimality, certificates, drake, deployment, planning-through-contact, semidefinite-relaxation, perspective-function, hybrid-systems, piecewise-affine, network-flow]
 ---
 

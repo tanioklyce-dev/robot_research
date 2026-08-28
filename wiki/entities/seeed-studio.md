@@ -4,7 +4,7 @@ type: entity
 subtype: organization
 created: 2026-05-10
 updated: 2026-08-27
-sources: 10
+sources: 11
 tags: [seeed-studio, distributor, open-hardware, shenzhen, lekiwi, raspberry-pi, hackathon, jetson, recomputer, rebot-arm, nvidia-dli]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: organization
 created: 2026-08-27
 updated: 2026-08-27
-sources: 1
+sources: 2
 tags: [robstride, actuators, quasi-direct-drive, can-bus, socketcan, mit-mode, rebot-arm, motors]
 ---
 

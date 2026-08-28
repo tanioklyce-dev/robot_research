@@ -3,7 +3,7 @@ title: Visual relocalization and mapping
 type: concept
 created: 2026-08-13
 updated: 2026-08-13
-sources: 4
+sources: 5
 tags: [slam, visual-relocalization, scene-coordinate-regression, gaussian-splatting, 3d-reconstruction, feed-forward, drift, loop-closure, rtab-map, gtsam]
 ---
 

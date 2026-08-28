@@ -4,7 +4,7 @@ type: entity
 subtype: dataset
 created: 2026-05-15
 updated: 2026-08-27
-sources: 3
+sources: 4
 tags: [dataset, egocentric, apple-vision-pro, hand-tracking, manipulation, pretraining]
 ---
 

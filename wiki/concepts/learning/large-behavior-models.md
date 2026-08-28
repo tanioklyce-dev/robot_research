@@ -3,7 +3,7 @@ title: Large Behavior Models (LBMs)
 type: concept
 created: 2026-07-08
 updated: 2026-07-15
-sources: 5
+sources: 8
 tags: [lbm, large-behavior-model, tri, vla, diffusion-policy, multitask, foundation-model, manipulation, walden-robotics]
 ---
 

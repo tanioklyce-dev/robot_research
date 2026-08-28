@@ -56,7 +56,7 @@ Figure is **co-authoring the safety standard for its own product category**. UL 
 
 ## Entities mentioned
 
-- [Figure 03](../entities/figure-03.md) · [Figure](../entities/figure.md) · [BotQ](../entities/botq.md)
+- [Figure 03](../entities/figure-03.md) · [Figure](../entities/figure.md) · [BotQ](../entities/botq.md) · [Helix](../entities/helix.md) — the onboard consumer of this power budget
 
 ## Concepts touched
 

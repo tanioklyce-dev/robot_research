@@ -4,7 +4,7 @@ type: entity
 subtype: facility
 created: 2026-08-28
 updated: 2026-08-28
-sources: 3
+sources: 4
 tags: [figure, botq, manufacturing, humanoid, production, yield, vertical-integration]
 ---
 

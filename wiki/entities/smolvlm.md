@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-25
 updated: 2026-05-25
-sources: 0
+sources: 1
 tags: [smolvlm, smolvlm-2, hugging-face, vlm, siglip, smollm2, vision-language-model, vla-backbone, efficient]
 status: stub
 ---

@@ -3,7 +3,7 @@ title: Identifiability (linear identifiability of latent variables)
 type: concept
 created: 2026-07-26
 updated: 2026-08-26
-sources: 7
+sources: 8
 tags: [identifiability, linear-identifiability, latent-space, jepa, lejepa, theory, causal-representation-learning, nonlinear-ica, planning, generalization-theory]
 ---
 

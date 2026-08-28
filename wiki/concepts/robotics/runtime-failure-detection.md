@@ -3,7 +3,7 @@ title: Runtime failure detection for generative policies
 type: concept
 created: 2026-08-16
 updated: 2026-08-16
-sources: 4
+sources: 6
 tags: [runtime-monitoring, failure-detection, out-of-distribution, conformal-prediction, diffusion-policy, generative-policies, temporal-consistency, vlm, epistemic-uncertainty, tri, stanford]
 ---
 

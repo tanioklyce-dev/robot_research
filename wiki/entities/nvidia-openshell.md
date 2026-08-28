@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-08-23
 updated: 2026-08-23
-sources: 3
+sources: 1
 tags: [nvidia, openshell, secure-runtime, sandbox, policy-enforcement, guardrails, agentic-ai, nemoclaw, hermes-agent, least-privilege, audit]
 ---
 

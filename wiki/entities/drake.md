@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-08-13
 updated: 2026-08-16
-sources: 6
+sources: 7
 tags: [drake, tri, mit-csail, russ-tedrake, simulation, model-based-design, optimization, multibody-dynamics, contact-simulation, lcm, bsd-3-clause, cpp]
 ---
 

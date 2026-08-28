@@ -2,13 +2,23 @@
 title: Wiki Backlog — deferred lint items & knowledge gaps
 type: meta
 created: 2026-07-04
-updated: 2026-08-16
+updated: 2026-08-28
 tags: [backlog, lint, todo, knowledge-gaps]
 ---
 
 # Wiki Backlog
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
+
+## [2026-08-28] Lint pass after the Figure / Go-Big / Walden ingests
+
+Structural checks all **clean** — no broken links, no `[[wikilinks]]`, no orphans, no frontmatter or date violations, full index coverage across 1,098 pages. Fixed in the same commit: `sources:` drift on **126 pages** (mechanical, via `--fix-source-counts`) and two genuine back-link gaps this session created ([helix-blog](sources/helix-blog.md) now points at the new [Helix](entities/helix.md) entity; [F.03 battery](sources/figure-f03-battery.md) now links [Helix](entities/helix.md) as the consumer of its power budget). What is left needs judgment:
+
+- [ ] **~400 one-way citations — triage, don't bulk-fix.** Most are legitimate: [Helix](entities/helix.md) cites [SONIC](sources/sonic-paper.md), [MotionBricks](sources/motionbricks-paper.md) and [BumbleBee](sources/bumblebee-experts-to-generalist-wbc.md) as *comparisons*, and those papers have nothing to say about Helix. Adding reciprocal links there would fabricate a relationship the sources do not have. **The check cannot distinguish "cited as evidence" from "cited as contrast," and the wiki's analytical pages are mostly the second kind.** Worth a pass only to find the subset where a source genuinely discusses an entity and simply forgot to link it. Candidate heuristic: flag one-way edges only where the entity's *name* appears in the source page's body text.
+- [ ] **Stale `_stub_` markers in index.md** — [reachy-mini](entities/reachy-mini.md) (47 lines), [rtab-map](entities/rtab-map.md) (47), [paligemma](entities/paligemma.md) (52). All three have outgrown the marker. One-line fix each; deferred only because it wants a skim of each page to confirm it is genuinely substantive rather than padded.
+- [ ] **Coverage gaps — 40 frequently-mentioned terms with no entity page.** The top hits are mostly *categories*, not entities, and should stay that way: "VLAs" (141 pages) is [vla-models](concepts/learning/vla-models.md), "VLMs" (43) and "APIs" (37) are generic, "Joint-Embedding Predictive" (48) is JEPA. The real leads are **hardware**: **SO-101** (47) and **SO-100** (39) resolve to [so-arm101](entities/so-arm101.md) under different names — an alias note, not a new page; **GR00T N1** (42) is a *version* of an existing entity. **PyTorch** (48) and **LiDAR** (43) genuinely have no page, though both are "infrastructure everyone assumes."
+  - **The one real gap: [Jetson] Orin NX — 37 pages, no entity page.** Only [jetson-orin-nano](entities/jetson-orin-nano.md) exists. This matters more than the raw count suggests: the Orin NX is the module this wiki actually *recommends* and reasons about (see the [Seeed J401 flash](sources/seeed-j401-flash-jetpack.md) source, the [Jetson module ladder](syntheses/platforms/jetson-module-ladder-power-performance.md), and the XLeRobot fleet's own hardware), and its specs are currently scattered across syntheses with no canonical page. **Write `entities/jetson-orin-nx.md`.** Caught only because a mis-typed link in this very backlog entry tripped the broken-link check — the coverage check had flagged "Orin NX" and it was wrongly triaged as already-covered.
+- [ ] **`sources:` semantics are a lower bound, by design.** The 126 drifts were nearly all *understatement* — new source pages linking to existing concept pages. Worth remembering when reading any `sources:` number: it counts **distinct source pages that markdown-link here**, not provenance. A page can be well-sourced in prose and read low.
 
 ## [2026-08-23b] Agent-stack security — follow-ups
 

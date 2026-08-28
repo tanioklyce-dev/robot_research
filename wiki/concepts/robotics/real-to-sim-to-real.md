@@ -3,7 +3,7 @@ title: Real-to-sim-to-real (R2S2R)
 type: concept
 created: 2026-08-26
 updated: 2026-08-26
-sources: 5
+sources: 4
 tags: [real-to-sim, sim-to-real, r2s2r, simulation, robot-policy-evaluation, world-model, gaussian-splatting, deformable]
 ---
 
