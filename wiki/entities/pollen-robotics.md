@@ -54,7 +54,7 @@ Against that: the docs cite a load-bearing "parity audit" as a private `claude.a
 
 ## People
 
-Microduck core team, per the launch post: **Matthieu Lapeyre**, **Antoine Pirrone**, **Augustin Crampette**, **Coralie Deplane**, **Anne Charlotte Passanisi** — with **Thomas Wolf** (HF co-founder / CSO) as a co-author, another marker of how integrated the two organisations are. Pirrone is also the author of the community **Open Duck Mini** project from which Microduck descends.
+Microduck core team, per the launch post: **Matthieu Lapeyre**, **Antoine Pirrone**, **Augustin Crampette**, **Coralie Deplane**, **Anne Charlotte Passanisi** — with **Thomas Wolf** (HF co-founder / CSO) as a co-author, another marker of how integrated the two organisations are. Pirrone is also the author of the community **[Open Duck Mini](open-duck-mini.md)** project from which Microduck descends — a link now established from primaries, including Pollen's own policy-provenance note.
 
 ## Related
 

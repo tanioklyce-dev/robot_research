@@ -2,7 +2,7 @@
 title: Where the compute lives — agents on the robot vs on a local AI server
 type: synthesis
 created: 2026-07-04
-updated: 2026-07-04
+updated: 2026-08-27
 tags: [edge-ai, on-device, on-robot, local-server, agents, jetson, dgx-spark, ollama, hermes, nemoclaw, gemma4, vla, deployment-topology]
 ---
 
@@ -32,6 +32,18 @@ What you can run on-robot vs on-server is set by memory, and 2026's small-model 
 
 - **[Gemma 4](../../entities/gemma4.md)** ([edge blog](../../sources/nvidia-gemma-4-edge-blog.md)) is the clearest example: the multimodal **E2B (2.3B effective) / E4B (4.5B effective)** variants target [Jetson Orin Nano](../../entities/jetson-orin-nano.md) *on the robot*, while the **31B** (NVFP4 4-bit) wants a **[DGX Spark](../../entities/dgx-spark.md)** (128 GB unified) as the *local server*. Same family, two tiers.
 - **[Hermes Agent](../../entities/hermes-agent.md)** spans the same range from the agent side — 8B–35B via [Ollama](../../entities/ollama.md)/llama.cpp locally, up to a 120B-MoE on a DGX Spark serving as the brain.
+> [!note] The rung is the backend, not the board — with numbers
+> [Google's own LiteRT benchmarks](../../sources/gemma-4-e2b-model-card.md) for **Gemma 4 E2B** put hard figures on this ladder for the first time in the wiki:
+>
+> | Device | Backend | Prefill (tok/s) | Decode (tok/s) | TTFT (s) |
+> |---|---|---|---|---|
+> | Raspberry Pi 5 | CPU | 133 | **7.6** | 7.8 |
+> | [Jetson Orin Nano](../../entities/jetson-orin-nano.md) | CPU | 109 | 12.2 | 9.4 |
+> | [Jetson Orin Nano](../../entities/jetson-orin-nano.md) | **GPU** | 1,142 | **24.2** | **0.9** |
+> | Qualcomm Dragonwing IQ8 | **NPU** | 3,747 | 31.7 | 0.3 |
+>
+> Two lessons the "targets Orin Nano" framing hides. **The same board spans a 10× range** depending on whether you reach the GPU. And **decode rate, not TTFT, is what a conversational robot lives on** — it is independent of prompt length, so a 45-token spoken answer costs ~6 s on a Pi 5 and under 2 s on an Orin GPU. The [Open Duck Mini](../../entities/open-duck-mini.md) demo at Google I/O 2026 ran one duck on each, and the [secondary coverage](../../sources/explainx-gemma-4-open-duck-mini.md) called both "very snappy."
+
 - **Runtimes** are the enabling layer: [Ollama](../../entities/ollama.md) / llama.cpp for the edge + workstation, vLLM / NIM for the server, all of which [Gemma 4](../../entities/gemma4.md) and Nemotron support.
 
 ## Why a robot wants a local server at all

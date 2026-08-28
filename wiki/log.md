@@ -4360,3 +4360,41 @@ The closing frame, stated cheerfully and without comment: *"Today, you have peop
 - Added **ONNX** to [glossary.md](glossary.md), between OK-Robot and OpenVLA. Surfaced by a query while reading the [Microduck runtime](sources/microduck-runtime-repo.md): the format was load-bearing across that whole ingest (`obs[1,61] → actions[1,14]` validated at load, the normalizer baked into the exported graph) and had no glossary entry.
 - Entry covers the graph-plus-weights structure, opset versioning, ONNX Runtime and its execution providers, the inference-only boundary, and the ahead-of-time conversion vendor NPU toolchains do instead (`rknn-toolkit2` → `.rknn`).
 - Added **NPU** in the same pass (between NN and OFT): INT8/TOPS vs GPU FLOPS, quantization as a lossy step needing its own validation, the offline ONNX→proprietary-format conversion, and out-of-tree drivers — anchored on the RK3566's 0.8 TOPS core and Armbian's disabled device-tree node.
+
+## [2026-08-27] ingest | Gemma 4 on Open Duck Mini — a real demo, a bad write-up, and the primaries that settle it
+- New sources: [Gemma 4 E2B model card + LiteRT-LM benchmarks](sources/gemma-4-e2b-model-card.md) (**the primary**), [Gemma 4 Powers Open Duck Mini (explainx.ai)](sources/explainx-gemma-4-open-duck-mini.md) (the requested secondary)
+- New entity: [Open Duck Mini](entities/open-duck-mini.md)
+- Updated: [Gemma 4](entities/gemma4.md), [on-device and on-robot agents](syntheses/agents/on-device-and-on-robot-agents.md), [Microduck](entities/microduck.md), [Pollen Robotics](entities/pollen-robotics.md), [overview](overview.md), [index](index.md)
+- Also added **Open Duck Mini** to the education/research shortlist in [overview.md](overview.md) at the user's request — now twelve platforms.
+
+### The event is real; the article is not reliable
+Google's own [X post](https://x.com/googlegemma/status/2057142732494352689) and the *"Gemma Playground: Robot Duck"* video on the Google for Developers channel confirm it: two Open Duck Mini v2 units ran **Gemma 4 E2B fully on-device** at I/O 2026, one on a Raspberry Pi 5 and one on a Jetson Orin Nano. Demo by Xavier Plantaz. A duck named itself "Autumn" — ODM, phonetically.
+
+The write-up's errors, all checked against the HF primaries:
+
+| Article | Primary |
+|---|---|
+| "Antoine **Piron**" (3×) | **Pirrone** — and the article's own August update spells it correctly, so it is internally inconsistent |
+| "E2B — **2B parameters**" | **2.3B effective / 5.1B with embeddings**; the "E" means *effective* (Per-Layer Embeddings) |
+| "Context **256K**" | **128K** for E2B; 256K is the 12B/26B/31B tier — and **32K** on-device under LiteRT-LM |
+| "**607 MB** on XNNPACK (**Apple CPUs**)" | **1546 MB** measured on a Pi 5; XNNPACK is Google's ARM/x86 **CPU** backend |
+| Four variants | **Five** — the 12B Unified is omitted |
+| "brought two ducks **to the stage**" | Google: *"stop by the **Gemma Playground**"* — a booth |
+| Microduck "**LiDAR**" | Pollen's own press kit: an **8×8 ToF matrix** |
+| "Model size ~2.58 GB" | 2583 MB — **correct** |
+
+**The costly one is the omission, as usual.** The article calls both ducks *"very snappy."* Google's benchmarks for those exact boards: Pi 5 CPU **7.6 tok/s decode / 7.8 s TTFT**; Orin Nano CPU 12.2; Orin Nano **GPU 24.2 tok/s / 0.9 s**. TTFT is measured at 1024 prefill tokens so a short spoken question would be far quicker — but **decode rate is prompt-length-independent**, and the duck's own quoted 45-token answer takes **~6 seconds** on a Pi 5 versus under 2 on the Orin GPU. There is no Pi 5 GPU row at all. Someone building from this article picks the $80 board and gets the slow duck.
+
+This maps exactly onto the two failure modes in CLAUDE.md: **scope loss** ("256K" is a real Gemma 4 number bound to the wrong variants, just as "CUDA 13.0" was on the JetPack correction) and **omission** (the CPU/GPU gap, the video modality, the 12B). Plus a third worth naming for AI-assisted secondaries: **internal inconsistency** — two spellings of the creator's name in one document. Noted too that this article, cryptobriefing, circuitdigest and franksworld all cover the same demo: **that is one source, not four.**
+
+### What the primaries bought beyond the correction
+- **Closed two standing open questions** on [Gemma 4](entities/gemma4.md): the primary model card was never ingested (sizes had come via NVIDIA's blog), and there were no tokens/sec figures per tier. Both now filled — and the card added the **12B Unified** variant the entity page was missing, plus that audio is E2B/E4B/**12B**.
+- **The [on-device agents](syntheses/agents/on-device-and-on-robot-agents.md) ladder has real rungs** for the first time. The lesson that matters: the rung is the **backend, not the board** — the same Orin Nano spans ~10× prefill and ~9× TTFT between CPU and GPU — and **decode rate is what a conversational robot lives on**.
+- **Open Duck Mini lineage upgraded from inference to documented.** Pollen's own `policies/README.md` says the shipped ONNX files were *"copied from `apirrone/microduck_runtime`"*, and Pirrone's GitHub holds five personal `microduck_*` repos beside `Open_Duck_Mini_Runtime`. Still true that no Pollen *marketing* material names the project.
+- **Rhoban closes a loop.** Pirrone is a team-Rhoban member; ODM used Rhoban's **BAM** for actuator identification from the start — so the actuator-fidelity approach that makes Microduck's sim-to-real work arrived through the same person as the robot's shape.
+- **A defect became a model.** ODM's README lists *"too much play at some joints"* as a mechanical problem; Microduck's RL stack simulates ±1° of backlash as a real hinge. The successor trains against what the predecessor apologised for.
+
+### Worth flagging
+- **The ducks did not walk.** Walking is listed as a next step — so the highest-profile Open Duck Mini appearance to date used a legged-RL robot as a conversational head. Locomotion and language have not yet met on the same machine.
+- **ODM's control computer is a Raspberry Pi Zero 2W**, not the Pi 5 in the demo. The Pi 5 / Orin carried the LLM, not the control loop; the article collapses the two.
+- **Parakeet (ASR) and Kokoro (TTS) appear in no Google primary** — the pipeline around Gemma is unverified.
