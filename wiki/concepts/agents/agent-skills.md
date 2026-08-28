@@ -2,8 +2,8 @@
 title: Agent skills (portable SKILL.md)
 type: concept
 created: 2026-07-16
-updated: 2026-08-13
-sources: 13
+updated: 2026-08-28
+sources: 14
 tags: [agent-skills, claude-code, skill-md, llm-agents, tooling, jetson, halos, frc, deployment]
 ---
 
@@ -33,6 +33,14 @@ The common thread: as robots and their toolchains become agent-operated, **the v
 ## Practitioner caution
 
 The [JetsonHacks demo](../../sources/jetsonhacks-ai-coding-jetson-claude-code.md) frames the governing rule: *"The agent works for you. You do not work for it."* Skills accelerate an agent that's already well-directed — but an undirected agent "can build slop an order of magnitude faster than you can throw it out." Skills raise the ceiling, not the floor; upfront specification still dominates outcomes.
+
+## Skills as a context budget, not just an abstraction
+
+The [Perplexity local harness](../../sources/perplexity-local-first-agent-research.md) uses skills for a reason that is quantitative rather than architectural: on a small local model, **context is the binding constraint**, so capability has to be paged in.
+
+Their finding is that Qwen 3.8 27B advertises a **260K** context window but *"begins to struggle beyond **100K** tokens"* — roughly 40% usable. The response is a minimal core (small system prompt, small core toolset) with everything else as **skills that load and unload through the trajectory**, plus compaction of stale context.
+
+The same reasoning drove them to convert connectors from **MCP servers into compact CLI tools**, *"whose large tool definitions consume a substantial share of the context."* Read alongside [harness design for capacity-limited models](local-model-harness-design.md): skills are demand paging, and MCP's discoverability is a cost you pay in the working set.
 
 ## Related concepts
 

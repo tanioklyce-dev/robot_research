@@ -3,8 +3,8 @@ title: NVIDIA DGX Spark
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-07-08
-sources: 8
+updated: 2026-08-28
+sources: 9
 tags: [dgx-spark, gb10, grace-blackwell, workstation, unified-memory, physical-ai]
 ---
 
@@ -79,6 +79,12 @@ DGX Spark runs **DGX OS** (Ubuntu-derived) with the full NVIDIA AI stack: CUDA, 
 | Price | ~mid-four-figures (varies by storage) | $3,499 dev kit |
 
 Note: Thor's FP4-sparse headline is **about 2× higher** than DGX Spark's — the Jetson GPU is denser per CUDA-core for tensor math, while Spark has more cores plus RT hardware and the wider 20-core CPU. They are **complementary**, not redundant.
+
+## As a local-agent host (Aug 2026)
+
+NVIDIA's [Local AI series](../sources/nvidia-local-ai-blog-series-2026-08.md) positions Spark as the always-on personal agent box, and the model roster it claims is the useful part: [Nemotron 3.5 Lightning](nemotron.md) (30B MoE), Meta Muse Glimmer (30B dense), [Qwen](qwen.md) 3.8-27B, Poolside Laguna S 2.1 (118B via NVFP4), and Thinking Machines Inkling-Small (276B MoE / 12B active) on **two Sparks**. **NVIDIA Sync Cluster Assistant** configures multiple Sparks as a cluster over **ConnectX-7** with Tailscale remote access.
+
+It is also the **only launch platform** for [Perplexity Portable Computer](perplexity-portable-computer.md) — the first shipped local-first agent product in this wiki — which Perplexity describes as *"a 20-core Arm CPU and NVIDIA GPU with 128 GB of unified memory"* and pitches for *"24×7 always-on operation, perfect for long-running autonomous agents."*
 
 ## Related
 - [Jetson Thor](jetson-thor.md) — paired on-robot deploy target.

@@ -2,7 +2,7 @@
 title: Where the compute lives — agents on the robot vs on a local AI server
 type: synthesis
 created: 2026-07-04
-updated: 2026-08-27
+updated: 2026-08-28
 tags: [edge-ai, on-device, on-robot, local-server, agents, jetson, dgx-spark, ollama, hermes, nemoclaw, gemma4, vla, deployment-topology]
 ---
 
@@ -45,6 +45,17 @@ What you can run on-robot vs on-server is set by memory, and 2026's small-model 
 > Two lessons the "targets Orin Nano" framing hides. **The same board spans a 10× range** depending on whether you reach the GPU. And **decode rate, not TTFT, is what a conversational robot lives on** — it is independent of prompt length, so a 45-token spoken answer costs ~6 s on a Pi 5 and under 2 s on an Orin GPU. The [Open Duck Mini](../../entities/open-duck-mini.md) demo at Google I/O 2026 ran one duck on each, and the [secondary coverage](../../sources/explainx-gemma-4-open-duck-mini.md) called both "very snappy."
 
 - **Runtimes** are the enabling layer: **[LiteRT](../../entities/litert.md)** / LiteRT-LM for mobile + embedded (the source of every measured figure above), [Ollama](../../entities/ollama.md) / llama.cpp for the edge + workstation, vLLM / NIM for the server, all of which [Gemma 4](../../entities/gemma4.md) and Nemotron support.
+
+## The harness matters as much as the model
+
+The ladder above is about *fitting* a model. A second finding says fitting it is not enough: on identical hardware and the identical model (Qwen 3.8 27B on a [DGX Spark](../../entities/dgx-spark.md)), three agent harnesses scored **65.1% / 34.6% / 13.9%** on multimodal document tasks, and the worst spent **41× more tokens** than the best ([Perplexity Research](../../sources/perplexity-local-first-agent-research.md)).
+
+The harness was the entire difference. The design moves that produced it — budget context at the *usable* window rather than the advertised one, page capability in as [skills](../../concepts/agents/agent-skills.md), compress the tool surface, keep the **orchestrator deterministic** so the model only proposes, and sandbox fail-closed — are written up as [harness design for capacity-limited models](../../concepts/agents/local-model-harness-design.md).
+
+Two things carry straight over to a robot. The **authority split** is the same one [Microduck's runtime](../../sources/microduck-runtime-repo.md) arrives at independently at 50 Hz over motors: deterministic code holds authority, the model proposes intents. And **escalation can be an architecture rather than a fallback** — [Portable Computer](../../entities/perplexity-portable-computer.md)'s remote advisor *returns text guidance only*, with no access to files or tools, which is exactly the property a cloud model touching a robot would need. Priced on 89 coding tasks: local 59.6% → 73.0% with an advisor at $0.415/rollout, against 82.4% frontier-only at $0.65.
+
+> [!note] Vendor-run, document-domain
+> All of it is Perplexity benchmarking its own product on knowledge work. No robot appears. The engineering principles are the transferable part; the win rates are not independent evidence.
 
 ## Why a robot wants a local server at all
 

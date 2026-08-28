@@ -4460,3 +4460,38 @@ Ablations show the **reward-gradient direction *is* the method** — replacing i
 
 ### Open question the wiki should now track
 **Has anyone RL-post-trained a flow-matching VLA action head against a task reward at all?** Nothing ingested so far does — the [real-world robot RL](concepts/learning/real-world-robot-rl.md) lineage is RLPD/HIL-SERL, not diffusion-native.
+
+## [2026-08-28] ingest | Local-first agents — NVIDIA's roundup, and the Perplexity primaries behind one line of it
+- New sources: [NVIDIA Local AI blog series, Aug 2026](sources/nvidia-local-ai-blog-series-2026-08.md), [Introducing Portable Computer](sources/perplexity-portable-computer.md), [A Local-First Agent for Private and Cost-Effective Knowledge Work](sources/perplexity-local-first-agent-research.md)
+- New entities: [Perplexity Portable Computer](entities/perplexity-portable-computer.md), [Nemotron](entities/nemotron.md), [NeMo Switchyard](entities/nemo-switchyard.md)
+- New concept: [Harness design for capacity-limited models](concepts/agents/local-model-harness-design.md)
+- Updated: [Hermes Agent](entities/hermes-agent.md), [Agent skills](concepts/agents/agent-skills.md), [DGX Spark](entities/dgx-spark.md), [Qwen](entities/qwen.md), [on-device and on-robot agents](syntheses/agents/on-device-and-on-robot-agents.md), [index](index.md)
+
+### Provenance, which took three attempts
+The requested URL was NVIDIA's rolling marketing roundup. Its Perplexity item is a paraphrase; the user then asked for the Perplexity announcement, which **403s to curl (four user agents), WebFetch, and r.jina.ai** — Cloudflare. **Recovered from the Wayback Machine** (snapshot 2026-08-26). The research post behind the benchmarks was **supplied by the user as text**, since the same block applies. Every page records how it was obtained.
+
+### What the secondary dropped
+NVIDIA's account of Portable Computer omits: **Pro/Max subscribers only**, **Linux-first**, **per-transfer user consent** before anything leaves the device, **fail-closed sandboxing**, the **PII classifier** on escalation, the **Nemotron 3.5 ASR** dictation model, escalation reaching **15+ frontier models**, and the entire local architecture — *"the orchestrator, planner, tool router, scheduler, **durable task queue**, and local search index all run on device."* It also says *"a specially post-trained Qwen 3.8 27B"* where the primary offers **stock Qwen 3.8 27B *or* PPLX 27B**, and *"token limits"* where the primary says **credits**. Same pattern as the Gemma/Open Duck Mini ingest yesterday: the headline survives paraphrase, the qualifiers that decide whether it applies to you do not.
+
+### The finding worth keeping
+**The harness is worth more than the model on small hardware.** Same model (Qwen 3.8 27B), same box (DGX Spark), same tasks — three harnesses scored **65.1% / 34.6% / 13.9%** on multimodal documents, and the worst spent **41× more tokens** than the best. That is the clearest same-everything comparison in the wiki for an agent scaffold, and it is why the concept page exists.
+
+Six design moves, all of which apply to an on-robot agent:
+- **Budget context at the usable window, not the advertised one** — Qwen 3.8 27B advertises **260K** and *"begins to struggle beyond 100K."* ~40%. If that ratio generalises it changes how every edge agent should be sized, and nothing else here measures it.
+- **Page capability in as [skills](concepts/agents/agent-skills.md)** that load and unload; compact stale context.
+- **CLI tools over MCP servers**, because MCP tool definitions *"consume a substantial share of the context"* — discoverability is a cost you pay in the working set.
+- **The orchestrator is deterministic code, not an LLM.** The model proposes; code disposes. [Microduck's runtime](sources/microduck-runtime-repo.md) reaches the identical split independently at 50 Hz over motors — two very different systems, same argument: a component you cannot bound should not hold authority.
+- **Self-verification** triggered by the model *or* by trajectory-health hooks.
+- **Fail closed** — *"if the sandbox is unavailable, the harness disables itself before any tool calls rather than degrading to unsandboxed execution."* Named as the difference from [Hermes](entities/hermes-agent.md) and Pi, which run with the user's permissions by default.
+
+**Escalation as an architecture, not a fallback.** The advisor **returns text guidance only**, with no access to files, tools or the conversation; the orchestrator decides what context leaves, screened by a PII classifier and shown to the user first. That is the property a cloud model touching a robot would need. Priced on 89 coding tasks: local **59.6%** → **73.0%** with an advisor at $0.415/rollout, vs **82.4%** frontier-only at $0.65 — three-fifths of the gap for two-thirds of the cost, sub-linear and still 9.4 points short.
+
+### Where I discounted the evidence
+- **All benchmarks are vendor-run**, by the party that built the winning harness and configured the baselines.
+- **BrowseComp is confounded**: Computer used **Perplexity's own search engine**, Hermes and Pi used Brave. On a *web research* benchmark, from a company whose core product is search, a 16.5-point lead cannot be attributed to the harness. The post is transparent about the setup and draws the harness conclusion anyway. ParseBench and LKWB involve no search and are the defensible rows.
+- **The held-out benchmark shares a generator with the training set** — LKWB tasks come from the same synthesis pipeline that produced PPLX 27B's training data. Held out, but not independent. They promise to open-source it, which would fix this.
+- **NeMo Switchyard's "one-third of Opus 4.8"** has an unnamed benchmark, unnamed model pool, "internal," and a named competitor in the denominator. Filed as a pattern to watch, explicitly not as evidence.
+- **Nemotron 3.5 Lightning's "4× faster / 30% faster"** names no comparator and no benchmark. No model card ingested.
+
+### Standing caveat on the whole cluster
+**Jetson is named on nearly every NVIDIA item, and not one named application is robotic** — it is all documents, email, Slack and code. Jetson support is not robot validation, and none of these throughput numbers were measured under contention with perception and control, which is the only condition that matters on a robot.

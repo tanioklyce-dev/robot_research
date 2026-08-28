@@ -3,8 +3,8 @@ title: Hermes Agent
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-08-23
-sources: 9
+updated: 2026-08-28
+sources: 10
 tags: [hermes-agent, nous-research, agentic-framework, self-improvement, mcp, sub-agents, skills, openrouter, multi-platform, qwen-3-6, dgx-spark, claw-ecosystem]
 ---
 
@@ -72,6 +72,21 @@ Sized for the [DGX Spark](dgx-spark.md) tier per NVIDIA's positioning — 128 GB
 ## Running Hermes inside NemoClaw
 
 NVIDIA ships Hermes as a **selectable agent variant in [NemoClaw](nemoclaw.md)** ([quickstart](../sources/nvidia-nemoclaw-hermes-quickstart.md)): `export NEMOCLAW_AGENT=hermes` (the `nemohermes` alias) creates an **OpenShell sandbox** running Hermes instead of the default OpenClaw agent — dashboard on port 18789, OpenAI-compatible API on port 8642, default model `nvidia/nemotron-3-super-120b-a12b` via NVIDIA inference endpoints, with OpenShell network-policy tiers gating egress. Hermes and OpenClaw sandboxes can run side by side. This is the concrete NVIDIA-blessed local-deployment path (contrast the raw [GitHub](../sources/hermes-agent-github.md) install).
+
+## Benchmarked as a baseline (2026-08)
+
+Hermes is one of two general-purpose harnesses [Perplexity benchmarked](../sources/perplexity-local-first-agent-research.md) against its purpose-built local harness, all running **Qwen 3.8 27B on a [DGX Spark](dgx-spark.md)**:
+
+| Benchmark | Computer | **Hermes** | Pi |
+|---|---|---|---|
+| Local Knowledge Work Bench (53 tasks) | 82.6% | **74.0%** | 77.6% |
+| ParseBench-100 (multimodal docs) | 65.1% | **34.6%** | 13.9% |
+| BrowseComp (1,266 tasks) | 66.7% | **43.9%** | 50.2% |
+
+> [!note] Vendor-run, and one comparison is confounded
+> Perplexity built the winning harness and configured the baselines; BrowseComp additionally gave Computer **Perplexity's own search engine** while Hermes and Pi used Brave, so that row conflates harness with search backend. The ParseBench and LKWB rows involve no search.
+
+The diagnosis is worth more than the ranking: Perplexity's argument is that Hermes is **general** — *"they work well with a wide variety of models across sizes and classes"* — and that generality costs context when the model is small. Two specific differences named: Hermes exposes connectors as **MCP servers**, whose tool definitions consume context, and it **runs commands directly with the user's permissions by default**, where Computer sandboxes unconditionally and disables itself if the sandbox is unavailable. See [harness design for capacity-limited models](../concepts/agents/local-model-harness-design.md).
 
 ## Related
 
