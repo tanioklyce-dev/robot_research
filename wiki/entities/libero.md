@@ -3,8 +3,8 @@ title: LIBERO
 type: entity
 subtype: benchmark
 created: 2026-05-08
-updated: 2026-08-13
-sources: 27
+updated: 2026-08-27
+sources: 30
 tags: [libero, manipulation-benchmark, lifelong-learning, robosuite, mujoco, code-as-policy]
 ---
 
@@ -61,6 +61,8 @@ Primary reference is [VLA-JEPA](../sources/vla-jepa-paper.md) (Sun et al., Feb 2
 - **[VLA-0](vla-0.md) (NVIDIA, no action pretraining)** — Spatial **97.0**, Object **97.8**, Goal **96.2**, Long **87.6**, avg **94.7** — **best rank (1.0) among no-pretraining models** and rank 2.8 overall, above π0 (94.2), [π0.5-KI](../concepts/learning/knowledge-insulation.md) (94.3), GR00T-N1 (93.9), [MolmoAct](molmoact.md) (86.8), [π0-FAST](fast-action-tokenization.md) (86.0), OpenVLA (76.5); only [OpenVLA-OFT](openvla-oft.md)-pretrained (97.1) is higher. A rare **cross-method LIBERO table with consistent baselines** ([VLA-0 paper](../sources/vla-0-paper.md), Table I).
 
 ## Mentioned in
+
+> [!note] Curated list — **30** source pages link here; the ones below are those that shaped this page.
 - [LIBERO-PRO paper](../sources/libero-pro-paper.md) — perturbation-based critique; confirms the 50-episodes-per-task protocol.
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../sources/hai-world-model-spatial-intelligence-brief.md) — LIBERO as the robotics entry in a policy-facing survey of world-model benchmarks.
 - [What Makes Video World Model Latents Action-Relevant](../sources/action-relevant-latents-paper.md) — uses a **task-OOD split** (104 train / **26 tasks held out entirely**) for frozen-feature action probing. A stricter protocol than the standard suites, and a template worth reusing: the held-out tasks never touch world-model training.

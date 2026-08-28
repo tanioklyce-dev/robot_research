@@ -3,7 +3,7 @@ title: ROS 2
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-08-13
+updated: 2026-08-27
 sources: 16
 tags: [ros2, ros, middleware, dds, ament, colcon, humble, jazzy, kilted, lyrical, robotics, open-source]
 ---
@@ -80,6 +80,7 @@ Two 2026 data points say the picture is no longer "ROS 2 vs an alternative" but 
 
 - [ROS 2 Humble docs](../sources/ros2-humble-docs.md) — official documentation reference; primary source.
 - [alfredang/lerobot — ChatGPT LeKiwi](../sources/alfredang-lerobot-lekiwi-chatgpt.md) — ROS 2 Humble (SLAM Toolbox + rplidar_ros) running in parallel with LeRobot on a LeKiwi, bridged to the control loop over HTTP rather than native topics.
+- [reBot Arm B601-DM Bundle with Jetson Thor](../sources/seeed-rebot-arm-b601-dm-thor-bundle.md) — Listed among the [reBot Arm B601](rebot-arm-b601.md)'s supported stacks (ROS 1/2 + MoveIt) alongside LeRobot, Isaac Sim and Pinocchio.
 
 ## Open questions
 

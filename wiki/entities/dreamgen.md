@@ -3,7 +3,7 @@ title: DreamGen
 type: entity
 subtype: method
 created: 2026-07-04
-updated: 2026-07-04
+updated: 2026-08-27
 sources: 2
 tags: [dreamgen, neural-trajectories, video-world-model, synthetic-data, nvidia, gear, vla, dream-star]
 ---
@@ -32,6 +32,7 @@ tags: [dreamgen, neural-trajectories, video-world-model, synthetic-data, nvidia,
 - [DreamGen Paper](../sources/dreamgen-paper.md) — **primary source**
 - [GR00T N1.5 research page](../sources/groot-n1_5.md) — DreamGen neural trajectories in the N1.5 training mix
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md) — lists DreamGen in the Dream\* pillar
+- [Introducing Index (Figure AI)](../sources/figure-index-announcement.md) — Cited as one of the wiki's published answers to the human→robot label problem ([IDM pseudo-labelling](../concepts/learning/crowdsourced-robot-training-data.md)) that the Index announcement never addresses.
 
 ## Open questions
 - **DreamZero** — the middle Dream\* entry (between DreamGen and [DreamDojo](../sources/dreamdojo-paper.md)) has no source page yet.

@@ -3,7 +3,7 @@ title: FeeTech
 type: entity
 subtype: hardware-component
 created: 2026-05-28
-updated: 2026-08-13
+updated: 2026-08-27
 sources: 5
 tags: [feetech, bus-servo, motor-sdk, lerobot-supported-sdk, sts3215, sts3250, so-arm, low-cost, hello-robot, sourccey]
 ---
@@ -47,6 +47,7 @@ FeeTech and [Dynamixel](dynamixel.md) are both **smart serial-bus servos** — a
 - [Stretch 4 Datasheet (Rev 5)](../sources/hello-robot-stretch-4-datasheet.md) — 24V Feetech RS485 tool bus.
 - [SIGRobotics-UIUC projects page](../sources/sigrobotics-uiuc-projects-page.md) — Feetech motor selection in LeKiwi.
 - [Rosetta GitHub](../sources/rosetta-github.md) — referenced as part of the SDK lineage Rosetta bypasses.
+- [reBot Arm B601-DM Bundle with Jetson Thor](../sources/seeed-rebot-arm-b601-dm-thor-bundle.md) — Contrast tier: the B601 is positioned explicitly above FeeTech-servo hobby arms, on CAN-bus quasi-direct-drive actuators.
 
 ## Open questions / TBD
 

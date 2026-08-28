@@ -3,8 +3,8 @@ title: NVIDIA GR00T
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-07-08
-sources: 46
+updated: 2026-08-27
+sources: 49
 tags: [groot, vla, nvidia, foundation-model, humanoid]
 ---
 
@@ -66,7 +66,7 @@ First measured latency numbers, from the [official TensorRT deployment docs](../
 
 ## Mentioned in
 
-> [!note] Curated list — **47** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **49** source pages link here; the ones below are those that shaped this page.
 
 - [GR00T N1 Paper](../sources/groot-n1-paper.md) — **primary source (N1)**
 - [GR00T N1.5 research page](../sources/groot-n1_5.md) — frozen VLM + FLARE

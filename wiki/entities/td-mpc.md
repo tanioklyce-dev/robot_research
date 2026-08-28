@@ -3,7 +3,7 @@ title: TD-MPC / TD-MPC2
 type: entity
 subtype: method
 created: 2026-05-10
-updated: 2026-07-04
+updated: 2026-08-27
 sources: 10
 tags: [td-mpc, td-mpc2, world-model, model-based-rl, mbrl, mpc, hansen, decoder-free, latent-prediction]
 ---
@@ -56,6 +56,7 @@ tags: [td-mpc, td-mpc2, world-model, model-based-rl, mbrl, mpc, hansen, decoder-
 - [TD-MPC2 Paper](../sources/td-mpc2-paper.md)
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md) (as a baseline)
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **the only model-based / world-model method natively integrated in LeRobot** (alongside HIL-SERL on the RL side). Notable for being the closest thing in LeRobot's current algorithm coverage to the wiki's broader world-model focus (Dreamer, V-JEPA-2, DINO-WM are not yet integrated).
+- [Microduck — Pollen Robotics launch](../sources/pollen-robotics-microduck.md) — Referenced as one of [LeRobot](lerobot.md)'s existing RL implementations, raising the open question of why [Microduck](microduck.md) ships an independent mjlab/PPO stack instead.
 
 ## Open questions / TBD
 

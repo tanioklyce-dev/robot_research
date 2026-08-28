@@ -3,7 +3,7 @@ title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
 updated: 2026-08-27
-sources: 52
+sources: 54
 tags: [sim-to-real, domain-gap, rl, simulation, real-to-sim, r2s2r]
 ---
 
@@ -130,7 +130,7 @@ Two things make it worth a section here rather than a bullet in "common techniqu
 
 ## Mentioned in
 
-> [!note] Curated list — **51** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **54** source pages link here; the ones below are those that shaped this page.
 
 - [Kober, Bagnell & Peters 2013 — RL in Robotics Survey](../../sources/kober-rl-robotics-survey-2013.md) — simulation bias, noise injection, self-stabilizing transfer.
 - [MuJoCo Playground Paper](../../sources/mujoco-playground-paper.md)

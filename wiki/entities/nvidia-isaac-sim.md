@@ -52,3 +52,4 @@ The catch, and it is a real one: **the course marks the simulation dataset "opti
 - [Isaac Sim and Isaac Lab on NVIDIA Jetson AGX Thor](../sources/rs-designspark-isaac-sim-on-thor.md)
 - [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.md)
 - [Taking Flight with Dialogue (Lim et al. 2025)](../sources/taking-flight-with-dialogue-px4-drone-agent.md) — used as the rendering + physics engine for PX4 SITL drone simulation (in lieu of PX4's default Gazebo).
+- [reBot Arm B601-DM Bundle with Jetson Thor](../sources/seeed-rebot-arm-b601-dm-thor-bundle.md) — Listed among the B601's supported simulation stacks; the [DLI course](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) uses it for parallel data collection.

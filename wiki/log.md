@@ -4398,3 +4398,24 @@ This maps exactly onto the two failure modes in CLAUDE.md: **scope loss** ("256K
 - **The ducks did not walk.** Walking is listed as a next step — so the highest-profile Open Duck Mini appearance to date used a legged-RL robot as a conversational head. Locomotion and language have not yet met on the same machine.
 - **ODM's control computer is a Raspberry Pi Zero 2W**, not the Pi 5 in the demo. The Pi 5 / Orin carried the LLM, not the control loop; the article collapses the two.
 - **Parakeet (ASR) and Kokoro (TTS) appear in no Google primary** — the pipeline around Gemma is unverified.
+
+## [2026-08-27] maintenance | Lint punch-list items 1 and 2 — hub counts and citation reciprocity
+Ran a full structural lint first: **0 broken links, 0 broken anchors, 0 orphans, 0 pages missing from index.md, 0 frontmatter violations** across 1,071 pages. (Three apparent broken anchors were the linter not modelling GitHub's duplicate-heading `-1`/`-2` suffix rule; all three resolve correctly.) Also confirmed **no contradiction between the two Gemma 4 primaries** — NVIDIA's edge blog and Google's model card independently agree on 5.1B-with-embeddings / 2.3B effective / 128K, which is real corroboration from distinct origins.
+
+### Item 1 — hub-page inbound counts
+The `Curated list — **N** source pages link here` marker is the reader's signal that a **Mentioned in** list is a deliberate selection, so a wrong N quietly misrepresents how much was left out.
+
+- **14 stale counts corrected**: [vla-models](concepts/learning/vla-models.md) 110→115, [imitation-learning](concepts/learning/imitation-learning.md) 86→90, [sim-to-real-transfer](concepts/learning/sim-to-real-transfer.md) 51→54, [nvidia-groot](entities/nvidia-groot.md) 47→49, [jepa](concepts/world-models/jepa.md) 47→49, [lerobot](entities/lerobot.md) 43→46, [jetson-thor](entities/jetson-thor.md) 40→42, [jetson-orin-nano](entities/jetson-orin-nano.md) 31→33, [so-arm101](entities/so-arm101.md) 31→33, plus diffusion-policy, yann-lecun, pi-zero, nvidia-cosmos, robot-policy-evaluation.
+- **2 markers added**: [droid](entities/droid.md) and [libero](entities/libero.md) both crossed 30 inbound sources with curated lists (7 of 30 and 19 of 30) and no marker at all.
+- **21 frontmatter `sources:` fields synced** to match, because fixing only the marker would have left the same page disagreeing with itself. This caught seven pages the marker audit missed — llm-agent-architecture, world-model, dino-wm, google-deepmind, leworldmodel, nvidia, and libero.
+
+### Item 2 — citation reciprocity
+23 back-links added across 22 pages, closing every non-hub source→page link from the 2026-08-27 ingests that had no return path. Hub pages are exempt by convention and were left alone.
+
+Each entry says what the source contributed rather than just naming it. The one that was a genuine content gap rather than bookkeeping: **[Jetson Orin Nano](entities/jetson-orin-nano.md) had no throughput numbers of its own** despite today's ingest measuring them — it now carries the LiteRT figures (CPU 12.2 vs **GPU 24.2 tok/s decode**, 9.4 s vs **0.9 s** TTFT) that had been sitting only on the Gemma 4 entity and the on-device synthesis.
+
+### Left open, deliberately
+- **Item 3's real half**: [generative-data-augmentation](concepts/learning/generative-data-augmentation.md) claims `sources: 6` with **1** inbound source page — it is counting sources the page *cites*, not sources that cite it. CLAUDE.md defines the field as inbound. Needs a convention decision, not a number change.
+- **Item 4**: `backlog.md:498` ("Gemma 4 primary source") is completed by today's ingest and still open. The successor gap — **arXiv 2607.02770**, the tech report — is real.
+- **Item 5**: [nvidia-gemma-4-edge-blog](sources/nvidia-gemma-4-edge-blog.md) enumerates four Gemma 4 variants; the model card says five (12B Unified omitted). Faithful to what NVIDIA wrote, so not an error to fix — but a pointer would stop the wrong count propagating.
+- **Item 6**: no entity pages for **Koch-v1.1** (17 pages, and dynamixel.md says it deserves one), **Rhoban** (8), **LiteRT** (7), **MuJoCo Warp** (7).

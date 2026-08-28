@@ -44,6 +44,7 @@ The cost gap (~3×) at otherwise-comparable specs is the main reason SO-10X has 
 - [SIGRobotics-UIUC projects page](../sources/sigrobotics-uiuc-projects-page.md) — Dynamixel referenced in lab project history.
 - [Microduck — Pollen Robotics launch](../sources/pollen-robotics-microduck.md) — XL330 modeled at the voltage-control-law level (BAM M6) for sim-to-real.
 - [Rosetta GitHub](../sources/rosetta-github.md) — referenced as part of the SDK lineage Rosetta bypasses (since Rosetta drives robots via ROS 2 topics, not motor SDK direct).
+- [`pollen-robotics/microduck` — the onboard runtime](../sources/microduck-runtime-repo.md) — Confirms the [Microduck](microduck.md) servo layout from the runtime side: **15 motor slots, 14 policy-driven** (index 9, the beak, held at zero), IDs `20–24 / 30–34 / 10–14` on a single shared serial bus read by one `sync_read` per 50 Hz tick.
 
 ## Open questions / TBD
 

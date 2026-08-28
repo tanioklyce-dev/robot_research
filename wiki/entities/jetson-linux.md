@@ -2,7 +2,7 @@
 title: Jetson Linux (L4T)
 type: entity
 created: 2026-05-16
-updated: 2026-08-17
+updated: 2026-08-27
 sources: 10
 tags: [nvidia, jetson, l4t, jetson-linux, bsp, linux, ubuntu, jetson-thor]
 ---
@@ -152,3 +152,4 @@ The Blackwell-generation [Jetson Thor](jetson-thor.md) ships on a separate L4T l
 - [JetPack 7.0 for Jetson Thor software-stack reference](../sources/nvidia-jetpack-7-thor-whitepaper.md) — primary source for the R38.2 / kernel 6.8 / Ubuntu 24.04 line.
 - [NVIDIA Jetson Linux 39.2.0 GA release notes](../sources/nvidia-jetson-linux-r39-2-release-notes.md) — primary source for the current R39.2 line, the Orin/Thor merge, and the flashing known-issues above.
 - [Seeed — flash JetPack OS to J401](../sources/seeed-j401-flash-jetpack.md) — the vendor prebuilt-image path onto R39.2 for Orin NX.
+- [A Sim-to-Real VLA Pipeline with Seeed reBot Arm and NVIDIA Isaac](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) — JetPack 7.2 flashing walked through end to end (Ch. 4), including that it **ships no working USB-CAN modules** — a blocker the course documents and patches.

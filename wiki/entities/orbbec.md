@@ -3,7 +3,7 @@ title: Orbbec (Gemini2)
 type: entity
 subtype: hardware-vendor
 created: 2026-06-13
-updated: 2026-06-13
+updated: 2026-08-27
 sources: 2
 tags: [orbbec, rgb-d, depth-camera, perception, sensor, realsense-alternative]
 ---
@@ -22,3 +22,4 @@ Orbbec is a practical **alternative to the Intel RealSense** line for RGB-D / de
 ## Mentioned in
 
 - [Seeed jetson-examples — nvblox recipe (README)](../sources/seeed-jetson-examples-nvblox.md)
+- [reBot Arm B601-DM Bundle with Jetson Thor](../sources/seeed-rebot-arm-b601-dm-thor-bundle.md) — Depth-camera option in the reBot Arm bundle configuration.

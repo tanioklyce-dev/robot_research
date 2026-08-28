@@ -2,8 +2,8 @@
 title: Jetson Orin Nano
 type: entity
 created: 2026-05-16
-updated: 2026-08-26
-sources: 31
+updated: 2026-08-27
+sources: 33
 tags: [jetson, nvidia, edge-ai, hardware, robotics-compute]
 ---
 
@@ -87,7 +87,7 @@ In-place updates use apt against NVIDIA's L4T Debian repository: `apt update && 
 
 ## Mentioned in
 
-> [!note] Curated list — **31** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **33** source pages link here; the ones below are those that shaped this page.
 
 - [Cutting the Cord (Shaw et al., 2026)](../sources/cutting-the-cord-untethered-xlerobot.md) — measured onboard-XLeRobot build + 67-TOPS / on-edge-VLA-latency numbers.
 - [alfredang/lerobot — ChatGPT LeKiwi](../sources/alfredang-lerobot-lekiwi-chatgpt.md) — an Orin Nano 8 GB mounted onboard a LeKiwi, replacing the RPi; runs LeRobot + ROS 2 SLAM + a GPT-4o loop.
@@ -107,3 +107,5 @@ In-place updates use apt against NVIDIA's L4T Debian repository: `apt update && 
 - [Jetson Linux R36.5 release notes (PDF)](../sources/nvidia-jetson-linux-r36-5-release-notes.md)
 - [Jetson Linux R36.5 update mechanism](../sources/nvidia-jetson-linux-r36-5-update-mechanism.md)
 - [Platform Power and Performance — Orin series](../sources/nvidia-jetson-platform-power-performance-orin.md)
+- [Gemma 4 E2B model card + LiteRT benchmarks](../sources/gemma-4-e2b-model-card.md) — **First measured LLM throughput for this board in the wiki**: [Gemma 4](gemma4.md) E2B under LiteRT-LM — CPU 109 prefill / **12.2 decode** tok/s, 9.4 s TTFT, 3681 MB; **GPU 1,142 prefill / 24.2 decode**, **0.9 s TTFT**, 2739 MB. The ~10× prefill and ~9× TTFT gap between backends on the same board is the sizing lesson.
+- [Gemma 4 Powers Open Duck Mini (explainx.ai)](../sources/explainx-gemma-4-open-duck-mini.md) — One of the two boards in Google's I/O 2026 [Open Duck Mini](open-duck-mini.md) demo, running Gemma 4 E2B on-device alongside a Raspberry Pi 5.

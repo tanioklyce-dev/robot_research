@@ -47,6 +47,8 @@ tags: [hugging-face, foundation-models, open-source, lerobot, robotics, ml-platf
 - [NVIDIA + HF LeRobot partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md) — "16 million AI builders"; five-part NVIDIA integration into LeRobot.
 - [Microduck — Pollen Robotics launch](../sources/pollen-robotics-microduck.md) — the Pollen acquisition (April 2025), HF as robot manufacturer, HF Jobs as RL training compute.
 - (Plus indirect references across many model-checkpoint-bearing sources)
+- [`pollen-robotics/microduck` — the onboard runtime](../sources/microduck-runtime-repo.md) — The onboard runtime of an HF-built robot, published Apache-2.0 — concrete evidence of the manufacturer role corrected above.
+- [A Sim-to-Real VLA Pipeline with Seeed reBot Arm and NVIDIA Isaac](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) — the Hub as the asset channel for a full third-party course: [LeRobot](lerobot.md) forks, LeRobotDataset v3 recordings, and [GR00T 1.7](nvidia-groot.md) checkpoints all pulled from it.
 
 ## The July 2026 agent intrusion
 

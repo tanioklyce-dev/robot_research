@@ -51,3 +51,4 @@ tags: [mujoco, physics-engine, deepmind, simulation, biomechanics]
 - [flybody GitHub](../sources/flybody-github.md)
 - [flygym GitHub (NeLy-EPFL/flygym)](../sources/flygym-github.md) — NeuroMechFly v2 on MuJoCo + optional Warp/MJWarp.
 - [neuromechfly.org website](../sources/neuromechfly-website.md)
+- [Microduck — Pollen Robotics launch](../sources/pollen-robotics-microduck.md) — The physics engine under [Microduck](microduck.md)'s shipped policies, via [mjlab](mjlab.md) (MuJoCo Warp) — the first consumer robot in this wiki whose MuJoCo training environments ship with the product.

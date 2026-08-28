@@ -45,3 +45,4 @@ Notably the RS arm's [LeRobot](lerobot.md) config exposes a full **MIT impedance
 ## Mentioned in
 
 - [A Sim-to-Real VLA Pipeline with Seeed reBot Arm and NVIDIA Isaac](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) — the RS spec table, MIT gain set, SocketCAN path
+- [reBot Arm B601-DM Bundle with Jetson Thor](../sources/seeed-rebot-arm-b601-dm-thor-bundle.md) — The actuator line in the **B601-RS** variant (754 mm / 2.5 kg / <0.1 mm at 48 V), against [Damiao](damiao.md) in the DM.

@@ -43,7 +43,7 @@ The apparent split is **imitation-learning manipulation (LeRobot)** vs **RL loco
 
 ## Engineering practice, as far as it is visible
 
-The [Microduck runtime repo](../sources/microduck-runtime-repo.md) is unusually legible for a consumer-robot vendor: **Apache-2.0, 19 Rust crates, and ~10,700 lines of design prose** that record rejected alternatives with measured numbers rather than describing the code that exists. The team publishes its roadmap, its "not doing, on purpose" list, and its own unresolved questions.
+The [`pollen-robotics/microduck` — the onboard runtime](../sources/microduck-runtime-repo.md) is unusually legible for a consumer-robot vendor: **Apache-2.0, 19 Rust crates, and ~10,700 lines of design prose** that record rejected alternatives with measured numbers rather than describing the code that exists. The team publishes its roadmap, its "not doing, on purpose" list, and its own unresolved questions.
 
 Two habits worth naming because most vendors have neither:
 
@@ -67,3 +67,4 @@ Microduck core team, per the launch post: **Matthieu Lapeyre**, **Antoine Pirron
 
 - [Reachy 2 product page](../sources/pollen-robotics-reachy.md)
 - [Microduck — Pollen Robotics launch](../sources/pollen-robotics-microduck.md) — the HF acquisition, Bordeaux/Inria origins, the consumer-robot line, the openness caveat.
+- [Gemma 4 Powers Open Duck Mini (explainx.ai)](../sources/explainx-gemma-4-open-duck-mini.md) — Context on Antoine Pirrone's [Open Duck Mini](open-duck-mini.md) before it became a Pollen product; corrections tabulated on the source page.

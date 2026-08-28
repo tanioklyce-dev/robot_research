@@ -2,8 +2,8 @@
 title: Imitation learning
 type: concept
 created: 2026-05-07
-updated: 2026-08-26
-sources: 86
+updated: 2026-08-27
+sources: 90
 tags: [imitation-learning, behavior-cloning, demonstrations, lerobot, act, co-training, mobile-aloha]
 ---
 
@@ -39,7 +39,7 @@ The IL training stacks documented in this wiki cluster by hardware tier:
 
 ## Mentioned in
 
-> [!note] Curated list — **86** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **90** source pages link here; the ones below are those that shaped this page.
 
 - [Kober, Bagnell & Peters 2013 — RL in Robotics Survey](../../sources/kober-rl-robotics-survey-2013.md) — §5.1 demonstrations-remove-global-exploration; kinesthetic teach-in; apprenticeship learning.
 - [HIL-SERL paper](../../sources/hil-serl-paper.md) — RL-with-human-corrections beats HG-DAgger / BC / Diffusion Policy on the same data; the IL-ceiling counterpoint.

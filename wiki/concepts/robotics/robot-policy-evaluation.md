@@ -2,8 +2,8 @@
 title: Robot policy evaluation
 type: concept
 created: 2026-07-27
-updated: 2026-08-26
-sources: 31
+updated: 2026-08-27
+sources: 32
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility, real-to-sim, r2s2r]
 ---
 
@@ -143,7 +143,7 @@ Two of their findings bear directly on this page:
 
 ## Mentioned in
 
-> [!note] Curated list — **31** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **32** source pages link here; the ones below are those that shaped this page.
 
 - [RoboArena paper (CoRL 2025)](../../sources/roboarena-paper.md) — the distributed pairwise-preference protocol
 - [LIBERO-PRO paper](../../sources/libero-pro-paper.md) — the memorization critique

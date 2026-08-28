@@ -3,7 +3,7 @@ title: OpenVLA
 type: entity
 subtype: model
 created: 2026-05-25
-updated: 2026-08-26
+updated: 2026-08-27
 sources: 19
 tags: [openvla, vla, vision-language-action, open-weights, llama-2, autoregressive-action-tokens, baseline]
 status: stub
@@ -55,3 +55,4 @@ status: stub
 - [CaP-X paper](../sources/cap-x-paper.md) — baseline on LIBERO-PRO, scoring **0.00 across all six suite/perturbation cells**.
 - [ASPIRE paper](../sources/aspire-paper.md) — independently reproduces the same 0-score collapse under perturbation.
 - [Patch Policy paper](../sources/patch-policy-paper.md) — **OpenVLA-OFT beaten in-domain by a 51M-parameter policy** on four simulated suites and three real Franka tasks (Cable Insertion final-stage **0.30 vs 0.70**), at ~0.7% of the parameters and 61.71 ms vs 10.99 ms latency. Scope: visual input only, no language axis, in-distribution tasks with sufficient demonstrations — a parameter-efficiency result, not a verdict on VLA pretraining. Its LIBERO Goal number was taken from the OpenVLA-OFT manuscript rather than re-run.
+- [reBot Arm B601-DM Bundle with Jetson Thor](../sources/seeed-rebot-arm-b601-dm-thor-bundle.md) — Referenced in the arm's supported-policy framing; no success rates published for this platform.

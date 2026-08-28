@@ -86,3 +86,4 @@ Real-world RL for manipulation went from "considered infeasible" to **100% succe
 - [SERL paper](../../sources/serl-paper.md) — reference implementation.
 - [HIL-SERL paper](../../sources/hil-serl-paper.md) — the mature recipe.
 - [AutoSERL paper](../../sources/autoserl-paper.md) — one-demo automation.
+- [`pollen-robotics/microduck` — the onboard runtime](../../sources/microduck-runtime-repo.md) — The mechanism behind the reset-automation claim: `VelStand` trains walking and fall recovery in one policy, and a separate rate-based detector (`ġ = −ω × g`) goes limp ~0.3 s ahead of the fall so the stand-up starts from a still robot.

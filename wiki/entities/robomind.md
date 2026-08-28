@@ -3,7 +3,7 @@ title: RoboMIND
 type: entity
 subtype: dataset
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-08-27
 sources: 2
 tags: [robomind, dataset, teleoperation, multi-embodiment, franka, ur5e, agilex, tien-kung, dexterous-hand, failure-data, digital-twin, isaac-sim, x-humanoid]
 ---
@@ -65,3 +65,4 @@ Single-task IL trained from scratch and deployed to real hardware: **[ACT](act.m
 
 - [RoboMIND paper](../sources/robomind-paper.md)
 - [X-VLA paper](../sources/xvla-paper.md)
+- [Introducing Index (Figure AI)](../sources/figure-index-announcement.md) — Scale anchor (305.5 h) for [Index](figure-index.md)'s claimed ingest rate; also one of the supervised-collection corpora whose provenance model crowdsourcing abandons.

@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-05-10
 updated: 2026-08-27
-sources: 43
+sources: 46
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026, xvla, sourccey, plugin-system]
 ---
 
@@ -160,7 +160,7 @@ Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distri
 
 ## Mentioned in
 
-> [!note] Curated list — **43** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **46** source pages link here; the ones below are those that shaped this page.
 
 
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **canonical academic reference**; Cadene, Aliberts, Capuano, …, Wolf; 17 HF authors.

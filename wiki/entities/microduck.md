@@ -101,3 +101,4 @@ That drives a **BAM M6** model of the XL330 (voltage control law, back-EMF, Coul
 
 - [Microduck — Pollen Robotics launch](../sources/pollen-robotics-microduck.md)
 - [`pollen-robotics/microduck` — the onboard runtime](../sources/microduck-runtime-repo.md) — the seven-daemon architecture, the 50 Hz tick, the safety boundary, predictive fall mitigation, and the measured NPU.
+- [Gemma 4 Powers Open Duck Mini (explainx.ai)](../sources/explainx-gemma-4-open-duck-mini.md) — Secondary coverage of the [Open Duck Mini](open-duck-mini.md) ancestor; propagates the "LiDAR" marketing term this page corrects to an 8×8 ToF matrix.

@@ -3,8 +3,8 @@ title: NVIDIA
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-08-23
-sources: 54
+updated: 2026-08-27
+sources: 56
 tags: [nvidia, gpu, simulation, physical-ai]
 ---
 

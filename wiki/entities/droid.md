@@ -3,8 +3,8 @@ title: DROID
 type: entity
 subtype: dataset
 created: 2026-05-07
-updated: 2026-08-13
-sources: 28
+updated: 2026-08-27
+sources: 30
 tags: [droid, dataset, teleoperation, franka, robot-data, stanford, berkeley, oxe, molmoact2]
 ---
 
@@ -77,6 +77,8 @@ Both end up inside [X-VLA](x-vla.md)'s pretraining mixture — DROID at 31.6%, R
 - [Why JEPA research skips the simulator stack](../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md) — DROID's role in JEPA-for-robotics evaluations is part of why JEPA work has been able to skip / fragment sim use.
 
 ## Mentioned in
+
+> [!note] Curated list — **30** source pages link here; the ones below are those that shaped this page.
 - [Cosmos 3 Edge (HF blog)](../sources/nvidia-cosmos3-edge-hf-blog.md) — **Cosmos3-Edge-Policy-DROID** (4B), a DROID-finetuned manipulation policy shipped for on-robot deployment.
 - [FAST paper](../sources/fast-paper.md) — DROID's higher control frequency is what naïve action binning fails on; **FAST is what first makes efficient VLA training on DROID practical**, and enables the first **zero-shot DROID evaluation** in a completely unseen environment (language-prompted, no fine-tuning).
 - [DROID Paper](../sources/droid-paper.md)
@@ -84,3 +86,4 @@ Both end up inside [X-VLA](x-vla.md)'s pretraining mixture — DROID at 31.6%, R
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
 - [MolmoAct2 paper (Fang, Duan et al. 2026)](../sources/molmoact2-paper.md) — the quality-filtered MolmoAct2-DROID subset + zero-shot deployment.
 - [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — MolmoAct2-DROID (Franka) checkpoint; **~88 GB float32**, the largest footprint in the family, 3.4x the YAM config.
+- [Introducing Index (Figure AI)](../sources/figure-index-announcement.md) — Scale anchor: DROID's 350 h against [Index](figure-index.md)'s claimed 43,200 h/day ingest — **~12 minutes**. DROID is supervised and released; Index is neither.
