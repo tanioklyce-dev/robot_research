@@ -2,7 +2,7 @@
 title: Abbreviations & Glossary
 type: reference
 created: 2026-05-10
-updated: 2026-08-16
+updated: 2026-08-27
 tags: [glossary, reference, acronyms, curriculum]
 ---
 
@@ -301,6 +301,9 @@ The standard convex relaxation of a bilinear term `z = xy` over boxes: four line
 
 ### OK-Robot
 NYU 2024 ([entity](entities/ok-robot.md)); zero-shot pick-and-drop in 10 NYC homes; 58.5% success. *(Module 13.)*
+
+### ONNX
+**Open Neural Network Exchange** — an interchange format for trained networks: a serialized **computation graph** (protobuf) over a versioned standard operator set, plus the weight tensors. Decouples training framework from deployment runtime — export from PyTorch/JAX, execute anywhere the opset is implemented, with no framework dependency at inference. Because the graph is statically typed and inspectable, input/output shapes can be validated at **load** rather than discovered mid-run: [Microduck](entities/microduck.md)'s `robotd` refuses any policy that is not `obs[1,61] → actions[1,14]` before it goes live. And because it is a *graph* rather than just weights, preprocessing can be folded in — `microduck_rl` bakes the observation normalizer into the exported graph so training-time and inference-time preprocessing cannot silently drift apart ([runtime repo](sources/microduck-runtime-repo.md)). Inference-only: no optimizer, loss, or training loop. **ONNX Runtime (ORT)** is the usual execution engine, with pluggable execution providers (CPU, CUDA, TensorRT, CoreML, vendor NPUs). Vendor NPU toolchains often convert ONNX ahead of time to their own format instead — Rockchip's `rknn-toolkit2` emits `.rknn` with INT8 quantization. *(Module 9 — deployment.)*
 
 ### OpenVLA
 Open-weights VLA used as a baseline in many 2024–2026 papers. *(Module 9.)*

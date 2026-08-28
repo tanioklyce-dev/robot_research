@@ -4355,3 +4355,8 @@ The row that reframes Figure's own history: **Helix's stated ~500 training hours
 Figure will *"send a Creator"* to do chores at your home or business, framed as the human-staffed rehearsal for *"ordering robots as a service."* The customer-facing service and the data-collection instrument are the same object, and it **separates demand risk from capability risk** — the service works on day one because humans do it, so Figure learns whether people will pay for in-home task completion without the robot working yet. Added as a tier the [consumer-robotics value chain](syntheses/society/consumer-robotics-value-chain.md) analysis had no slot for: its tiers assumed the contested prize is the robot, and Index's premise is that the prize is the service, with a gig worker as the incumbent to displace.
 
 The closing frame, stated cheerfully and without comment: *"Today, you have people coming to help clean your house; eventually, a robot will do everything for you."* Paying people to generate the data that removes the need to pay them.
+
+## [2026-08-27] maintenance | Glossary — ONNX
+- Added **ONNX** to [glossary.md](glossary.md), between OK-Robot and OpenVLA. Surfaced by a query while reading the [Microduck runtime](sources/microduck-runtime-repo.md): the format was load-bearing across that whole ingest (`obs[1,61] → actions[1,14]` validated at load, the normalizer baked into the exported graph) and had no glossary entry.
+- Entry covers the graph-plus-weights structure, opset versioning, ONNX Runtime and its execution providers, the inference-only boundary, and the ahead-of-time conversion vendor NPU toolchains do instead (`rknn-toolkit2` → `.rknn`).
+- **Still missing and noticed in passing:** no **NPU** entry. Not added — out of scope for the request.
