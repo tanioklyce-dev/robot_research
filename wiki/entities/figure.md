@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-08
 updated: 2026-08-28
-sources: 9
+sources: 11
 tags: [figure, humanoid, bipedal, helix, openai, bmw, vla, system-1-system-2, botq, figure-03]
 status: partial
 ---
@@ -56,7 +56,7 @@ On **2026-08-25** Figure announced **[Index](figure-index.md)**, a crowdsourced 
 
 Two things about Index bear on how to read Figure generally:
 
-- **It contains no robot data.** Phone video of humans, with no action labels, no proprioception, no force, and a different embodiment from Figure 03. The announcement never says how the human→robot gap is crossed — a conspicuous omission given [EgoScale](../concepts/learning/scaling-laws-vla.md) published a recipe and a fitted scaling law for exactly this.
+- **It contains no robot data.** Phone video of humans, with no action labels, no proprioception, no force, and a different embodiment from Figure 03. The Index announcement never says how the human→robot gap is crossed — though [Project Go-Big](../sources/figure-project-go-big.md) (Sep 2025) is Figure's one published answer, and it covers **navigation only**. For manipulation, which is what Index is mostly for, Figure has published nothing — against [EgoScale](../concepts/learning/scaling-laws-vla.md)'s fitted scaling law on exactly that case.
 - **Figure now runs a labour marketplace.** Customers can *"book a Creator"* to do chores at home or at a business, framed as the human-staffed rehearsal for *"ordering robots as a service."* The chore service and the data-collection instrument are the same product.
 
 ## Figure 03 and Helix 02, 2025–2026
@@ -66,6 +66,8 @@ Full detail on [Figure 03](figure-03.md), [Helix](helix.md) and [BotQ](botq.md).
 | Date | Event | The number that matters |
 |---|---|---|
 | 2025-07-17 | [F.03 battery](../sources/figure-f03-battery.md) | 2.3 kWh / 5 h; **78% cost cut** vs F.02; UN38.3 |
+| 2025-09-17 | [Brookfield partnership](../sources/figure-brookfield-partnership.md) | **100,000+ residential units** as a data source; Brookfield also invests in the Series C |
+| 2025-09-18 | [Project Go-Big](../sources/figure-project-go-big.md) | Navigation from **100% human video, no robot demos** — but **SE(2) only** |
 | 2025-10-09 | [Figure 03 announced](../sources/figure-03-announcement.md) | Palm cameras + **3 g** fingertip tactile; −9% mass; designed for die-casting |
 | 2026-01-27 | [Helix 02](../sources/figure-helix-02.md) | **System 0**: 10M params @ **1 kHz**, replacing **109,504 lines of C++** |
 | 2026-04-29 | [Production ramp](../sources/figure-ramping-03-production.md) | **350+ units**; **1/day → 1/hour**; 80% first-pass yield |
@@ -91,6 +93,7 @@ Two observations the individual posts don't make on their own:
 - [Figure 03](figure-03.md) — the current-generation robot.
 - [Helix](helix.md) — the VLA, both generations.
 - [BotQ](botq.md) — the manufacturing facility.
+- [Brookfield](brookfield.md) — the property portfolio behind Project Go-Big's human video.
 - [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — landscape.
 
 ## Deployment data (from AI Index 2026)
@@ -111,6 +114,7 @@ Figure 02 at BMW plant (South Carolina), 2025:
 - [Introducing Helix 02](../sources/figure-helix-02.md) — System 0 and full-body autonomy.
 - [Ramping Figure 03 Production](../sources/figure-ramping-03-production.md) — 350+ units at 1/hour.
 - [F.03 Arrives at BMW](../sources/figure-03-at-bmw.md) — Figure 03's first commercial deployment.
+- [Project Go-Big](../sources/figure-project-go-big.md) · [Brookfield partnership](../sources/figure-brookfield-partnership.md) — the human-video pretraining programme and the properties it runs in.
 
 ## Open questions / TBD
 - **No Helix paper.** Figure has not (as of ingest date) released a Helix paper; the blog is the only primary source. Architectural details may be incomplete or marketing-shaped.

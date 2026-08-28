@@ -4527,3 +4527,32 @@ Six [Figure AI](entities/figure.md) primaries, researched from figure.ai directl
 - No DOF, no unit cost, no success rate for any Helix result across three announcements and 18 months.
 - UL 2271 certification status unreported since "in process" (July 2025).
 - Not ingested: Figure's original [BotQ announcement](https://www.figure.ai/news/botq) (2025-03-15), Project Go-Big (2025-09-18), the Series C / Brookfield / Catalyst Brands business posts.
+
+## [2026-08-28] ingest | Project Go-Big — Figure's answer to the human→robot gap
+Follow-up to the Figure 03 ingest, chasing the question [Index](entities/figure-index.md) leaves open. Figure does have a published answer, 11 months earlier — and it covers the easy half.
+
+**New source pages**
+- [Project Go-Big](sources/figure-project-go-big.md) (2025-09-18) — [Helix](entities/helix.md) trained on **100% egocentric human video** in [Brookfield](entities/brookfield.md) homes, doing closed-loop navigation from speech with **"no robot demonstrations whatsoever."** Scoped to **SE(2) velocity commands**. Predates [EgoScale](sources/egoscale-paper.md) by five months; publishes no dataset size, success rate, baseline or curve.
+- [Figure–Brookfield partnership](sources/figure-brookfield-partnership.md) (2025-09-17) — 100k residential units / 500M sq ft office / 160M sq ft logistics as a training corpus; Brookfield also a Series C investor.
+
+**New entity page**
+- [Brookfield](entities/brookfield.md)
+
+**Updated**
+- [Helix](entities/helix.md) — new Go-Big section; the SE(2) scope analysis; the two-claims-one-title problem.
+- [Figure](entities/figure.md) — two timeline rows; Index criticism amended.
+- [Index](entities/figure-index.md) — amended the "never addressed" warning; Go-Big is the answer for navigation, nothing for manipulation.
+- [Scaling laws — VLAs and human data](concepts/learning/scaling-laws-vla.md) — Go-Big as chronology, not evidence.
+- [Crowdsourced robot training data](concepts/learning/crowdsourced-robot-training-data.md) — **landlord vs marketplace** comparison table; the embodiment-invariance boundary case.
+- [index.md](index.md)
+
+**The analytical finding**
+- > [!note] **Navigation is the one case where human→robot transfer is nearly free**, and Figure's claim is scoped precisely to it. SE(2) is planar position and heading: a person and a humanoid walking to the same fridge trace nearly the same 2D path, so there is no morphology gap — no fingers, no gripper kinematics, no contact forces. And egocentric video contains the camera's own motion, so the action labels are plausibly recoverable by visual odometry with no annotation. Figure never states the mechanism, so that second half is the wiki's inference. Predicts a difficulty ordering — navigation ≪ whole-body pose ≪ dexterous manipulation — nobody has measured on one axis.
+- New sourcing model filed: **real estate as a robotics data asset**. Every other strategy here buys labour; Brookfield sells access to space.
+
+**Open questions raised**
+- How are SE(2) labels obtained from human video? The most useful thing the post could have said.
+- Is there a manipulation transfer result? No, as of 2026-08-28 — the gap that matters most given Index.
+- Consent and occupancy in Brookfield residential units, unaddressed in both posts. The landlord's consent is not the tenant's.
+- Did Go-Big's navigation policy survive into [Helix 02](sources/figure-helix-02.md)? Never addressed.
+- Not ingested: BotQ announcement (2025-03-15), Series C (2025-09-16), Catalyst Brands (2026-05-26), the Helix demo posts.

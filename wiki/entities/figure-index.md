@@ -3,8 +3,8 @@ title: Index (Figure AI)
 type: entity
 subtype: dataset
 created: 2026-08-27
-updated: 2026-08-27
-sources: 1
+updated: 2026-08-28
+sources: 2
 tags: [figure, index, dataset, human-data, egocentric, crowdsourcing, gig-economy, helix, unverified]
 ---
 
@@ -14,6 +14,8 @@ tags: [figure, index, dataset, human-data, egocentric, crowdsourcing, gig-econom
 
 > [!warning] It contains no robot data
 > Index is phone video of **humans** doing tasks. There are no action labels, no proprioception, no force readings, and the embodiment is a person rather than [Figure 03](figure.md). The name *"robot training dataset"* describes the intended use, not the contents. How the human→robot gap is crossed is not addressed anywhere in the announcement.
+>
+> **Amended 2026-08-28.** Figure *has* published a transfer result — [Project Go-Big](../sources/figure-project-go-big.md), 11 months earlier: Helix learned closed-loop **navigation** from 100% human video with no robot demonstrations. But that result is scoped to **SE(2) velocity commands**, the one case where the morphology gap essentially vanishes and the action labels are recoverable from the video itself. Index is overwhelmingly a **manipulation** corpus, and for manipulation Figure has published nothing. So the criticism stands and sharpens: the announcement is silent on the gap, and Figure's only public answer covers the easy half.
 
 ## Claimed scale ([announcement](../sources/figure-index-announcement.md))
 
@@ -61,6 +63,7 @@ The chore service and the data-collection instrument are the same object. This i
 
 - **No results.** *"The generalization results we're seeing internally are already validating this thesis, and we will be sharing more in detail on this soon."*
 - **No scaling law**, against [EgoScale](../concepts/learning/scaling-laws-vla.md)'s published fitted curve on the same kind of data.
+- **No connection drawn to [Go-Big](../sources/figure-project-go-big.md)**, Figure's own prior human-video programme in [Brookfield](brookfield.md) properties — the announcement does not say whether Index extends it, replaces it, or runs alongside it.
 - **No total size, no acceptance rate, no diversity trend.**
 - **No mention of consent, privacy, retention, or data rights** — for a corpus filmed inside homes and workplaces by 44,000 people.
 - **Not released.** Index is Figure-exclusive; there is no access path for anyone else.
@@ -70,9 +73,11 @@ The chore service and the data-collection instrument are the same object. This i
 - [Figure](figure.md) — owner; Helix is the consumer of this data
 - [EgoDex](egodex.md) — the high-precision, small, *published* egocentric counterpart
 - [DROID](droid.md) · [RoboMIND](robomind.md) · [Open X-Embodiment](open-x-embodiment.md) — the supervised-collection datasets it dwarfs in rate
+- [Project Go-Big](../sources/figure-project-go-big.md) / [Brookfield](brookfield.md) — Figure's earlier, landlord-mediated version of the same thesis
 - [Crowdsourced robot training data](../concepts/learning/crowdsourced-robot-training-data.md) — the method
 - [Scaling laws — VLAs and human data](../concepts/learning/scaling-laws-vla.md) — the thesis it asserts without evidence
 
 ## Mentioned in
 
 - [Introducing Index (Figure AI)](../sources/figure-index-announcement.md)
+- [Project Go-Big](../sources/figure-project-go-big.md) — the precursor programme.

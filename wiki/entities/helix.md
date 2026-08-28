@@ -4,8 +4,8 @@ type: entity
 subtype: model
 created: 2026-08-28
 updated: 2026-08-28
-sources: 4
-tags: [helix, figure, vla, humanoid, system-0, whole-body-control, loco-manipulation, hierarchical-policy, vendor-source]
+sources: 6
+tags: [helix, figure, vla, humanoid, system-0, whole-body-control, loco-manipulation, hierarchical-policy, go-big, human-data, zero-shot, navigation, vendor-source]
 ---
 
 **Helix** — [Figure AI](figure.md)'s proprietary vision-language-action model for humanoid control. Two generations: **Helix** (2025-02-20), a two-tier System 2 / System 1 architecture controlling the **upper body**; **Helix 02** (2026-01-27), which adds a third tier, **System 0**, and extends control to the **entire robot** — walking, manipulating and balancing under one network, from pixels to actuator commands.
@@ -33,6 +33,23 @@ From the [Helix blog](../sources/helix-blog.md):
 
 > [!warning] Figure has since abandoned the small-data framing
 > [Index](figure-index.md) (Aug 2026) claims ingest of ~43,200 h of human video per day — Helix's entire training set every ~17 minutes — and argues the opposite thesis. Figure has never retracted the earlier framing; it stopped using it. See [Figure](figure.md).
+
+## Project Go-Big (Sep 2025) — navigation learned from human video alone
+
+From [Project Go-Big](../sources/figure-project-go-big.md), five months before Helix 02 and the wiki's **only** published account of how Figure crosses the human→robot gap:
+
+- Helix was trained on **100% egocentric human video** captured in [Brookfield](brookfield.md) homes, *"collected passively as people do behaviors."* **"No robot demonstrations whatsoever."**
+- **Speech-to-nav**: closed-loop navigation of cluttered real homes from commands like *"Walk to the kitchen table"* / *"Go water the plants."*
+- **One unified network** now emits both manipulation and navigation commands, "eliminating the need for separate, task-specific or data source-specific systems."
+- Priority claim: *"the first time a humanoid robot has learned end-to-end — from images and language to **low-level SE(2) velocity commands** — using only human video."*
+
+> [!note] The scope of that claim is the whole story
+> **SE(2)** is planar position and heading, and navigation is the one case where human→robot transfer is nearly free: a person and a humanoid walking to the same fridge trace nearly the same 2D path, so there is **no morphology gap** — no fingers, no gripper kinematics, no contact forces. And egocentric video contains the camera's own motion, so the action labels are plausibly recoverable from the video itself by visual odometry, with no annotation. (Figure never says which mechanism it used; that inference is the wiki's, not Figure's.) A company that had solved transfer for **manipulation** would not have announced the navigation case.
+
+> [!warning] Two claims, different scopes, one title
+> "One network does manipulation and navigation" is architectural. "Trained on human video with no robot demos" applies to the **navigation half only** — Helix's manipulation came from ~500 h of teleoperation. The title *"Direct Human-to-Robot Transfer"* invites conflating them.
+
+**No manipulation equivalent has ever been published.** [Index](figure-index.md) (Aug 2026) is overwhelmingly a manipulation corpus and still ships with no transfer story.
 
 ## Helix 02 (Jan 2026) — System 0 and full-body control
 
@@ -82,6 +99,7 @@ From [Ramping Figure 03 Production](../sources/figure-ramping-03-production.md):
 - [Figure 03](figure-03.md) — the hardware Helix 02 requires.
 - [Figure](figure.md) — the company.
 - [Index](figure-index.md) — the human-video corpus intended as Helix pretraining data.
+- [Brookfield](brookfield.md) — the property portfolio Go-Big's video is captured in.
 - [VLA models](../concepts/learning/vla-models.md) — the paradigm.
 - [Whole-body control](../concepts/robotics/whole-body-control.md) — what S0 is.
 - [NVIDIA GR00T](nvidia-groot.md) — the open counterpart with published benchmarks.
@@ -89,6 +107,8 @@ From [Ramping Figure 03 Production](../sources/figure-ramping-03-production.md):
 ## Mentioned in
 
 - [Helix (Figure AI blog)](../sources/helix-blog.md) — Helix 1.
+- [Project Go-Big](../sources/figure-project-go-big.md) — navigation from human video alone; the only published human→robot transfer result.
+- [Figure–Brookfield partnership](../sources/figure-brookfield-partnership.md) — where the human video comes from.
 - [Introducing Helix 02](../sources/figure-helix-02.md) — S0, full-body control.
 - [Ramping Figure 03 Production](../sources/figure-ramping-03-production.md) — perception-conditioned S0.
 - [F.03 Arrives at BMW](../sources/figure-03-at-bmw.md) — Helix 02 in a factory.
@@ -96,6 +116,8 @@ From [Ramping Figure 03 Production](../sources/figure-ramping-03-production.md):
 ## Open questions
 
 - **Success rates. Any success rate at all.**
-- **Where did the 1,000 hours of human motion come from?** AMASS? Internal capture? Retargeting method unstated. [Index](figure-index.md) had not launched.
+- **Where did the 1,000 hours of human motion come from?** AMASS? Internal capture? [Go-Big](../sources/figure-project-go-big.md) collection in Brookfield properties was underway by then, but Figure never connects the two. Retargeting method unstated.
+- **Did Go-Big's navigation policy survive into Helix 02?** Helix 02's loco-manipulation trains differently (S0 on retargeted motion capture); the relationship is never addressed.
+- **Is there a manipulation transfer result?** Not as of 2026-08-28 — the gap that matters most, given Index.
 - **What is S2 in Helix 02?** The 7B VLM figure is from Helix 1.
 - **Onboard or off, and on what?** A 1 kHz S0 + 200 Hz S1 + a 7B S2 against Figure 03's [~460 W whole-robot budget](../sources/figure-f03-battery.md) is a real constraint Figure never addresses.

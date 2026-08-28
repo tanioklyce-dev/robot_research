@@ -2,12 +2,17 @@
 title: Scaling laws — VLAs and human data
 type: concept
 created: 2026-05-15
-updated: 2026-08-27
-sources: 14
+updated: 2026-08-28
+sources: 16
 tags: [scaling-laws, vla, human-data, egocentric, gr00t, egoscale, pretraining, xvla, cross-embodiment]
 ---
 
 **Scaling laws for Vision–Language–Action (VLA) models** — the empirical relationship between **pretraining data scale** and **downstream real-robot performance**. The robotics analogue of Hoffmann et al.'s Chinchilla scaling laws for LLMs. As of 2026, the field has exactly one published clean scaling law with a fitted functional form: **EgoScale (NVIDIA GEAR, Feb 2026)** on human-video pretraining for dexterous manipulation. A second, weaker data point — trends without a fitted law, but across **three axes at once** — comes from [X-VLA](../../entities/x-vla.md) (Oct 2025).
+
+> [!note] Added 2026-08-28 — the result that came first and measured nothing
+> [Figure](../../entities/figure.md)'s [Project Go-Big](../../sources/figure-project-go-big.md) (2025-09-18) **predates EgoScale by five months** and reports human-video-only transfer to a real humanoid: [Helix](../../entities/helix.md) navigating cluttered homes from language after training on **100% egocentric human video, no robot demonstrations**. It belongs on this page as chronology, not as evidence — Figure publishes **no dataset size, no success rate, no baseline, and no curve**, so it constrains nothing about how performance scales with data.
+>
+> It is also scoped to the easy case. Go-Big's own wording is *"low-level **SE(2)** velocity commands"* — planar position and heading, where a human's and a humanoid's trajectories nearly coincide and the action labels are plausibly recoverable from the video's own camera motion. **EgoScale fits its law on dexterous manipulation**, where the morphology gap is real and the labels are not free. The two results are not the same problem, and only one of them is measured.
 
 ## Definition
 
@@ -95,6 +100,7 @@ The contrast is the useful part, and it cuts both ways:
 ## Mentioned in
 
 - [Introducing Index (Figure AI)](../../sources/figure-index-announcement.md) — the thesis asserted at ~1000× EgoScale's ingest rate with no curve.
+- [Project Go-Big](../../sources/figure-project-go-big.md) — human-video-only transfer five months before EgoScale, on navigation, with no numbers.
 - [EgoScale Paper](../../sources/egoscale-paper.md)
 - [X-VLA paper](../../sources/xvla-paper.md)
 - [Welch Labs Illustrated Guide to AI, Vol I](../../sources/welchlabs-illustrated-guide-to-ai.md)
@@ -105,4 +111,5 @@ The contrast is the useful part, and it cuts both ways:
 - **Real-vs-sim data scaling comparison** — Cosmos generates synthetic data; a controlled comparison of "1k hr sim" vs "1k hr real human video" at matched model size would be a foundational result.
 - **A `concepts/scaling-laws-llm.md` partner page** if/when the wiki needs the LLM scaling-law literature in scope. Currently out of scope; the wiki is robotics-focused.
 - **Does the X-VLA trend continue past 0.9 B?** The authors stop for compute reasons, not because the curve bends. Their own limitation section flags the interaction between embodiment variability and model capacity as unstudied.
+- **Does the SE(2)/manipulation split hold generally?** Go-Big suggests human→robot transfer is nearly free where the action space is embodiment-invariant and the labels are self-supervised from camera motion. That predicts a **difficulty ordering** — navigation ≪ whole-body pose ≪ dexterous manipulation — that nobody has measured on one axis.
 - **Is the ℓ1-error proxy transferable?** R² = −0.925 was measured on X-VLA's own adaptation targets. If it holds across architectures it is the cheapest instrument the field has for scaling studies.
