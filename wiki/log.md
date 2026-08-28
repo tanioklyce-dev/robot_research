@@ -4495,3 +4495,35 @@ Six design moves, all of which apply to an on-robot agent:
 
 ### Standing caveat on the whole cluster
 **Jetson is named on nearly every NVIDIA item, and not one named application is robotic** — it is all documents, email, Slack and code. Jetson support is not robot validation, and none of these throughput numbers were measured under contention with perception and control, which is the only condition that matters on a robot.
+
+## [2026-08-28] ingest | Figure 03 — the platform, the model, and the factory
+Six [Figure AI](entities/figure.md) primaries, researched from figure.ai directly after secondary coverage was found to disagree with itself on runtime (4 h vs 5 h) and mass (60 vs 61 kg).
+
+**New source pages**
+- [Introducing Figure 03](sources/figure-03-announcement.md) (2025-10-09) — palm cameras, 3 g fingertip tactile, 2× frame rate / ¼ latency / 60% wider FOV, 10 Gbps mmWave, 2 kW foot-coil charging, −9% mass, CNC → die-casting. Contains **no** height/weight/DOF/payload/runtime/price.
+- [Figure 03 product page](sources/figure-03-product-page.md) (retrieved 2026-08-28) — filed separately because it is the *only* place Figure publishes absolute specs: 5'8" / 61 kg / 20 kg / 5 h / 1.2 m/s.
+- [F.03 Battery Development](sources/figure-f03-battery.md) (2025-07-17) — 2.3 kWh, structural pack, four-layer safety, UN38.3, UL 2271 co-authored with an OSHA NRTL, −78% cost.
+- [Introducing Helix 02](sources/figure-helix-02.md) (2026-01-27) — System 0: 10M params @ 1 kHz, 1,000+ h retargeted human motion, "replaces 109,504 lines of C++"; 4-min / 61-action dishwasher demo.
+- [Ramping Figure 03 Production](sources/figure-ramping-03-production.md) (2026-04-29) — 350+ units, 1/day → 1/hour, 80%+ first-pass yield, perception-conditioned S0 zero-shot to real stairs.
+- [F.03 Arrives at BMW](sources/figure-03-at-bmw.md) (2026-06-30) — sequencing use case; loco-manipulation on a factory floor.
+
+**New entity pages**
+- [Figure 03](entities/figure-03.md), [Helix](entities/helix.md), [BotQ](entities/botq.md)
+
+**Updated**
+- [Figure](entities/figure.md) — now the line-and-company page; per-generation detail split out; added the 2025–2026 arc table; resolved the standing "Figure 03 detailed specs" open question.
+- [Humanoid platforms survey](syntheses/platforms/humanoid-platforms-survey.md) — **the requested deliverable.** Figure 03 deep-dive section, corrected at-a-glance row, a fourth strategic axis (design-for-manufacture), and a note that the internal-only price tier no longer implies "prototype."
+- [Whole-body control](concepts/robotics/whole-body-control.md) — System 0 as the first commercial-stack instance of learned WBC; perception-conditioned S0.
+- [VLA models](concepts/learning/vla-models.md) — Helix 02 as the wiki's only three-tier VLA; action-head table row.
+- [The control-rate ladder](syntheses/platforms/control-rate-ladder.md) — S0 at 1 kHz; first **learned** policy in Band A on a shipping robot.
+- [index.md](index.md)
+
+**Corrections and contradictions**
+- > [!warning] **Figure 02's mass was wrong in this wiki.** Carried as "~60 kg"; Figure 03 is 61 kg and stated to be 9% lighter, implying **~67 kg**. Secondaries say 70 kg. Figure never published an official Figure 02 spec table. Corrected on [Figure](entities/figure.md).
+- Three Figure 03 numbers repeated across the web have **no Figure primary**: **168 cm** (that is Figure 02's number, apparently carried forward), **40 DOF**, and **4-hour runtime** (both Figure primaries say 5 h). Documented on [Figure 03](entities/figure-03.md) and in the survey as a worked example of the primary-source rule.
+
+**Open questions raised**
+- Figure has never disclosed **onboard compute** for any generation, while claiming onboard inference for a 1 kHz + 200 Hz + 7B stack inside a ~460 W whole-robot power budget.
+- No DOF, no unit cost, no success rate for any Helix result across three announcements and 18 months.
+- UL 2271 certification status unreported since "in process" (July 2025).
+- Not ingested: Figure's original [BotQ announcement](https://www.figure.ai/news/botq) (2025-03-15), Project Go-Big (2025-09-18), the Series C / Brookfield / Catalyst Brands business posts.

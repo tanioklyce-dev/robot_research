@@ -2,8 +2,8 @@
 title: VLA models
 type: concept
 created: 2026-05-06
-updated: 2026-08-27
-sources: 115
+updated: 2026-08-28
+sources: 116
 tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos, vla-0, action-as-text, molmoact2, per-layer-kv-conditioning, hybrid-action-head, llm-free-vla, turbovla, xvla, soft-prompt]
 ---
 
@@ -21,6 +21,7 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 - **[π0.7](../../entities/pi07.md)** (Physical Intelligence, 2025 — [paper](../../sources/pi07-paper.md)) — **5 B-param** VLA = Gemma3 4B VLM + 860 M flow-matching action expert + MEM video history encoder. Architectural recipe: **[Knowledge Insulation (KI)](knowledge-insulation.md) training** with [FAST](../../entities/fast-action-tokenization.md) tokens + **stop-gradient** to VLM. Key contribution = **diversified prompt** with subtask instructions, **subgoal images** (from a BAGEL 14B world model), episode metadata (speed / quality / mistake), and control mode — each component dropped randomly during training. **First credible "emergent capabilities" in a VLA**: out-of-the-box espresso machine, laundry, vegetable peeling; zero-shot cross-embodiment; compositional task generalization (e.g., loading a sweet potato into an air fryer when neither appeared in training).
 - **[π*0.6](../../entities/pistar06.md)** (Physical Intelligence, 2025 — [paper](../../sources/pistar06-paper.md)) — π0.6 + **RECAP** ("RL with Experience and Corrections via Advantage-conditioned Policies"). Pre-trains the VLA with offline RL on diverse demonstrations, then iteratively improves with autonomous deployment data + human interventions (human-gated DAgger) + sparse outcome rewards. Trains a **multi-task distributional value function** (201 bins, MC return target) and uses it to extract an **advantage-conditioned** policy via CFGRL-style classifier-free guidance — sidesteps the policy-gradient problem on flow-matching VLAs. **2× throughput, ½ failure rate** on hardest tasks; 13-hr continuous espresso operation; 2+ hr novel-laundry in a new home. The wiki's first VLA-scale RL-from-deployment recipe.
 - **[Helix](../../sources/helix-blog.md)** ([Figure AI](../../entities/figure.md), Feb 2025) — full upper-body humanoid VLA on [Figure 02](../../entities/figure.md). Hierarchical **System 1 / System 2** split: 7B-param VLM at 7–9 Hz for slow reasoning + 80M-param transformer at 200 Hz for fast control, end-to-end-trained. Trained on ~500 hours of teleop ("<5%" of typical VLA datasets per Figure). Runs onboard embedded GPUs.
+- **[Helix 02](../../sources/figure-helix-02.md)** ([Figure AI](../../entities/figure.md), Jan 2026) — the same stack extended to the **whole body** on [Figure 03](../../entities/figure-03.md), and the wiki's only **three-tier** VLA: a new **System 0** (10M params @ **1 kHz**, trained on 1,000+ h of retargeted human motion in 200k parallel sim envs) sits *below* S1, which is rewired from "images + joint state → upper body" to **"all sensors in, all actuators out"** — head cameras, palm cameras, fingertip tactile, full-body proprioception → legs, torso, arms, fingers. Demonstration: a **4-minute, 61-action** autonomous dishwasher task. **No success rate, no baseline, no benchmark** — see [Helix](../../entities/helix.md).
 - **[Gemini Robotics](../../entities/gemini-robotics.md)** ([Google DeepMind](../../entities/google-deepmind.md)) — parallel generalist-policy effort alongside GR00T. Note: the Gemini Robotics family ships in two variants — a full VLA (this entry) and **Gemini Robotics-ER**, an embodied-reasoning *VLM* that emits tool calls and is therefore an [LLM-agent architecture](../agents/llm-agent-architecture.md) planner rather than a VLA. Boston Dynamics' [Spot + Gemini Robotics demo](../../sources/bostondynamics-spot-gemini-robotics.md) uses the -ER variant.
 - **GO-2 series** — benchmarked by [Genie Sim](../../entities/agibot-genie-sim.md).
 - **[SmolVLA](../../entities/smolvla.md)** ([Hugging Face](../../entities/hugging-face.md) LeRobot team, June 2025 — [paper](../../sources/smolvla-paper.md)) — **450 M-param** affordable-VLA reference; SmolVLM-2 backbone + flow-matching action expert with **interleaved cross-attention + causal self-attention**. Pretrained on **22.9 K episodes from 481 community HF datasets** (≈10× less data than π0) with VLM-cleaned task annotations + camera-view normalization. **Beats π0-3.5 B by +16.6 pts on real-world SO-100 multi-task** (78.3 vs 61.7 avg across pick-place + stacking + sorting). Introduces a **server/client async inference stack** with a threshold-`g` queue management policy and observation similarity filter — the practical-deployment piece most VLA papers skip. Available as [`lerobot/smolvla_base`](https://huggingface.co/lerobot/smolvla_base); runs on consumer GPUs and CPUs.
@@ -33,6 +34,8 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 
 > [!note] Hierarchical System 1 / System 2 VLA pattern
 > Helix's slow-VLM-as-planner + fast-policy-as-controller split (with end-to-end gradients between them) is appearing in multiple 2025+ VLAs. The decoupled rates let each component specialize: scene/language reasoning at ~10 Hz, motor control at ~200 Hz. Worth tracking as a structural pattern alongside the action-head design choice (autoregressive tokens vs DDPM-over-actions vs flow-matching).
+>
+> **Update 2026-08-28 — the split went to three tiers.** [Helix 02](../../sources/figure-helix-02.md) adds **System 0** at **1 kHz** beneath S1, so the rate ladder is now 7–9 Hz (semantics) → 200 Hz (visuomotor) → 1 kHz (balance/contact). The interesting move is *where the boundary sits*: S1 emits full-body joint targets and S0 tracks them, which folds [whole-body control](../robotics/whole-body-control.md) into the VLA stack as a learned layer rather than leaving it as a hand-written controller underneath. Compare the wiki's [control-rate ladder](../../syntheses/platforms/control-rate-ladder.md).
 
 > [!note] A second prior question: is the *backbone* where the performance comes from?
 > [X-VLA](../../entities/x-vla.md) ([paper](../../sources/xvla-paper.md), 2025-10) suggests not. It runs a **2024-vintage [Florence-2](../../entities/florence-2.md)** encoder — smaller and older than PaliGemma (π0), Gemma3 (π0.7), Eagle-2/Cosmos (GR00T), or SmolVLM-2 (SmolVLA) — and beats 7–9 B models on five of six benchmarks. Its ablation is explicit about where the points came from: **conditioning and data processing, not architecture**. Swapping DiT for a plain Transformer encoder *cost* 2.1 pts on its own; disentangled encoding (+16.7), soft prompts (+9.2), scaling (+15.8) and two-step adaptation (+6.2) supplied the rest. Most starkly, **naively adding 290 K episodes of cross-embodiment data made the model worse** (39.6 → 25.0) until the recipe was in place — a direct counterweight to "more robot data" as a strategy.
@@ -66,6 +69,7 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 | **[VLA-0](../../entities/vla-0.md)** | [Qwen2.5-VL](../../entities/qwen.md) 3B | **action-as-text** (integers; *no head, no new tokens, no arch change*) | [Source](../../sources/vla-0-paper.md). The **"zero-modification" 4th family** — VLM predicts the action as a string of integers. Recipe = [ACT](../../entities/act.md)-style prediction ensembling (+2 pts) + masked-action augmentation (+1.2). Matches or beats π0 / GR00T-N1 / SmolVLA on LIBERO (avg 94.7 — **tied** with π0.5-KI 94.3 and π0 94.2, [audit](../../syntheses/platforms/vla-success-rate-audit.md)) **without** action pretraining; +12.5 pts over SmolVLA on real SO-100. Slow (~4 Hz). |
 | [Diffusion Policy](../../entities/diffusion-policy.md) (BC, not strictly a VLA) | ResNet-18 / no language | **DDPM** | The action-head reference for π0's flow-matching design choice. |
 | **Helix S1** | small transformer | continuous regression @ 200 Hz | Combined with **Helix S2** = 7B VLM @ 7–9 Hz. |
+| **Helix 02 S1** | transformer | full-body joint targets @ 200 Hz | Tracked by **S0** (10M @ 1 kHz). All sensors in, all actuators out. |
 | **GR00T N1.6/1.7** | Cosmos-Reason2-2B | (mixed; see [GR00T entity](../../entities/nvidia-groot.md)) | 3B params; 20,854 hr egocentric video pretrain — see [EgoScale](../../sources/egoscale-paper.md) for the primary source and scaling law. |
 | **EgoScale** | pretrained VLM (~GR00T N1) | **flow matching** + DiT action expert | [Source](../../sources/egoscale-paper.md). Same corpus as GR00T N1; reports the first published VLA scaling law. 22-DoF [Sharpa Wave](../../entities/sharpa-wave.md) hand target. |
 | **[Cosmos 3](../../sources/cosmos-3-technical-report.md) policy** (WAM, not a plain VLA) | Qwen3-VL (8B Nano) dual-tower MoT | **diffusion over joint video+action tokens** | [Source](../../sources/cosmos-3-technical-report.md). Denoises actions *and* their predicted frames together. #1 RoboArena; beats π0.5 on RoboLab-120. |
@@ -101,7 +105,7 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 
 ## Mentioned in
 
-> [!note] Curated list — **115** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **116** source pages link here; the ones below are those that shaped this page.
 
 - [π0 Paper](../../sources/pi-zero-paper.md)
 - [π0.7 Paper](../../sources/pi07-paper.md)
@@ -116,6 +120,7 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 - [Stretch AI LLM Agent Documentation](../../sources/stretch-ai-llm-agent-docs.md)
 - [Stanford HAI — AI Index Report 2026](../../sources/stanford-hai-ai-index-2026.md)
 - [Helix (Figure AI blog)](../../sources/helix-blog.md)
+- [Introducing Helix 02](../../sources/figure-helix-02.md) — the three-tier S0/S1/S2 stack; whole-body VLA control.
 - [EgoScale Paper](../../sources/egoscale-paper.md)
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) — LeCun's BC-doesn't-scale + no-planning critique of VLAs
 - [Cosmos 3 Technical Report](../../sources/cosmos-3-technical-report.md) — Cosmos3-Nano-Policy-DROID (world-action model) tops RoboArena, beats π0.5 on RoboLab

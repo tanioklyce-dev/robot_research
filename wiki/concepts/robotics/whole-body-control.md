@@ -2,9 +2,9 @@
 title: Whole-Body Control (WBC)
 type: concept
 created: 2026-07-15
-updated: 2026-08-03
-sources: 15
-tags: [whole-body-control, wbc, humanoid, motion-tracking, loco-manipulation, unitree-g1, booster-t1, rl, sim-to-real, amass, agile, code]
+updated: 2026-08-28
+sources: 17
+tags: [whole-body-control, wbc, humanoid, motion-tracking, loco-manipulation, unitree-g1, booster-t1, rl, sim-to-real, amass, agile, code, system-0, helix, figure-03]
 ---
 
 # Whole-Body Control (WBC)
@@ -39,6 +39,23 @@ The dominant real-world-adaptation trick in this cluster is **delta-action model
 - **[GR00T-WholeBodyControl](../../sources/gr00t-wholebodycontrol-github.md)** (NVlabs) — the unified NVIDIA WBC toolchain: [GEAR-SONIC](../../entities/gear-sonic.md) training (`gear_sonic`, PPO) + C++/TensorRT deploy (`gear_sonic_deploy`) + [MotionBricks](../../sources/motionbricks-paper.md) + **Decoupled WBC** (the [GR00T](../../entities/nvidia-groot.md) N1.5/N1.6 controllers). Apache-2.0 code + NVIDIA Open Model License weights.
 - **[WBC-AGILE](../../sources/wbc-agile-github.md)** ("A Generic Isaac-Lab based Engine for humanoid loco-manipulation," NVIDIA + ETH) — a reusable Isaac-Lab RL **engine** (teacher-student distillation, privileged critic) rather than a single controller; validated sim-to-real on **[Unitree G1](../../entities/unitree-g1.md) + [Booster T1](../../entities/booster-t1.md)** (a second benchmark humanoid). It's the "AGILE" underneath [Isaac Teleop](../../entities/nvidia-isaac-teleop.md) in NVIDIA's [GR00T end-to-end workflow](../../sources/nvidia-gr00t-e2e-workflow-docs.md).
 
+## WBC in a shipped commercial stack: Figure's System 0
+
+Added 2026-08-28. Everything above is academic or open-source. [Helix 02](../../sources/figure-helix-02.md) (Figure AI, Jan 2026) is the wiki's first look at the same recipe inside a **closed, commercially deployed** humanoid stack — [Helix](../../entities/helix.md)'s **System 0**, running on [Figure 03](../../entities/figure-03.md):
+
+- **10M parameters**, in: full-body joint state + base motion; out: joint-level actuator commands at **1 kHz** — a third tier *below* the S1 (200 Hz visuomotor) / S2 (7–9 Hz VLM) split, so the VLA emits joint targets and S0 tracks them.
+- Trained on **1,000+ hours of joint-level retargeted human motion**, entirely in sim across **200,000+ parallel environments** with domain randomisation, transferring directly to hardware and "across the fleet."
+- No per-behaviour reward engineering: walking, turning, crouching and reaching all fall out of motion tracking — the same bet as [SONIC](../../sources/sonic-paper.md) and against the per-cluster-expert decomposition of [BumbleBee](../../sources/bumblebee-experts-to-generalist-wbc.md).
+- Figure's headline framing: S0 **"replaces 109,504 lines of hand-engineered C++ with a single neural prior."** Taken at face value, that is the clearest statement anyone has made that learned WBC has displaced model-based WBC in a production humanoid.
+
+**Perception-conditioned S0** followed in April 2026 ([production ramp](../../sources/figure-ramping-03-production.md)). Before: S0 "walked confidently across flat ground but was blind to the world in front of it. Stairs, ramps, and uneven terrain required hand-tuned mode switches and operator intervention." After: head-camera RGB is lifted to 3D through Figure's stereo model and fed to the policy alongside proprioception, trained end-to-end with RL across thousands of randomised terrains, transferring **zero-shot** to real stairs — "no real-world fine-tuning, no domain-specific calibration, no operator-in-the-loop adjustments."
+
+> [!note] Architecturally unremarkable, which is the point
+> 10M params, 1 kHz, mocap retargeting, massive-parallel sim, domain randomisation — this is the recipe the rest of this page already documents. That a company betting $39B on humanoids converged on it independently is corroboration for the approach. What Figure adds is **deployment**: OTA delivery to a 350+ unit fleet built at one robot per hour.
+
+> [!warning] No numbers, at all
+> Figure publishes **no tracking error, no success rate, no baseline, no ablation** for S0 — nothing comparable to SONIC's 53.7 vs 29.0 mm foot placement. The architecture is described; the performance is asserted. Cite S0 for *what was built*, never for *how well it works*.
+
 ## Related concepts
 
 - [VLA models](../learning/vla-models.md) — the high-level System-2 layer WBC sits under.
@@ -52,4 +69,5 @@ The dominant real-world-adaptation trick in this cluster is **delta-action model
 - [GR00T-WholeBodyControl GitHub](../../sources/gr00t-wholebodycontrol-github.md), [WBC-AGILE GitHub](../../sources/wbc-agile-github.md) — the code/tooling.
 - [NVIDIA GEAR publications](../../sources/nvidia-gear-publications.md) — several WBC papers (SONIC, HOVER, ASAP, MotionBricks) in the GEAR line.
 - [Unitree G1](../../entities/unitree-g1.md) — the common target platform; [Booster T1](../../entities/booster-t1.md) — AGILE's second benchmark humanoid.
+- [Introducing Helix 02](../../sources/figure-helix-02.md) — Figure's System 0; the commercial-stack instance. [Ramping Figure 03 Production](../../sources/figure-ramping-03-production.md) — perception-conditioned S0, zero-shot stairs.
 - [Gemini Robotics 2 blog](../../sources/gemini-robotics-2-blog.md) — whole-body control as a shipped VLA capability: humanoids that "walk, crouch, stretch, and manipulate" under one model. Pick-up success by height: shelf 76.3%, table 68.4%, **floor 45.7%**.

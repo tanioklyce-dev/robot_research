@@ -2,7 +2,7 @@
 title: The control-rate ladder — LLMs, VLAs, and servo loops on one axis
 type: synthesis
 created: 2026-07-27
-updated: 2026-08-04
+updated: 2026-08-28
 tags: [latency, inference, control-frequency, vla, llm-agent, edge-ai, jetson, action-chunking, control-abstraction-levels, platforms, turbovla, llm-free-vla]
 ---
 
@@ -30,9 +30,10 @@ This page lines them up. The short version: **the full span is about five orders
 | **5,000** | MEAS | [PACS](../../sources/pacs-paper.md) reachability safety step, **0.20 ms** (CBF baseline 0.64 ms ≈ 1.6 kHz); deployed at 1 kHz | Franka FR3 |
 | **~1,000** | MEAS | [OSCBF](../../sources/oscbf-paper.md) with **>400 CBF constraints** (cluttered scene, whole-body collision avoidance) | Franka Panda, i7 NUC |
 | **~1,000** | MEAS | **[Diffusion Policy](../../sources/diffusion-policy-paper.md)'s mid-level controller** — constrained diff-IK QP, *"runs around 1kHz"*, interpolating the 10 Hz policy's commands | Franka station (TRI/MIT) |
+| **1,000** | REQ | **Helix 02 System 0** — 10 M-param learned whole-body controller; balance, contact, coordination | [Figure 03](../../entities/figure-03.md), onboard |
 | **500** | REQ | Upper bound of [whole-body control](../../concepts/robotics/whole-body-control.md) torque loops | humanoid WBC |
 | **~200** | MEAS | [ACT](../../entities/act.md), 5.0 ms | RTX 4090 |
-| **200** | REQ | Helix **System 1** fast controller (80 M params) | [Figure](../../entities/figure.md) 02, onboard |
+| **200** | REQ | Helix **System 1** fast controller (80 M params); in [Helix 02](../../sources/figure-helix-02.md) it emits **full-body** joint targets for S0 to track | [Figure](../../entities/figure.md) 02 → [03](../../entities/figure-03.md), onboard |
 | **200** | MEAS | [Operational-space-control](../../concepts/robotics/operational-space-control.md) torque QP (position/velocity/torque limits as constraints) — haptic teleop mode | Franka station (TRI/MIT) |
 | **120** | REQ | [GR00T](../../entities/nvidia-groot.md) N1 **System 1** flow-matching DiT | design target |
 | **100** | REQ | [Stretch](../../entities/stretch.md) Body loop, watchdog, self-collision avoidance | robot firmware |
@@ -102,6 +103,9 @@ Neither separation is closed by faster inference. Three mechanisms do the work, 
 > This reframes the ladder's central gap. The 10 Hz-policy-over-1 kHz-controller ratio is usually read as *the policy is too slow*. Read the other way, **the ratio is what makes a slow stochastic policy deployable at all**: something fast, model-based, and unable to be talked out of its constraints sits between it and the hardware. See [operational space control](../../concepts/robotics/operational-space-control.md).
 
 **1. Hierarchy (the S1/S2 split).** [Helix](../../sources/helix-blog.md) pairs a 7 B VLM at 7–9 Hz with an 80 M transformer at 200 Hz; [GR00T N1](../../entities/nvidia-groot.md) pairs an Eagle-2 VLM at 10 Hz with a flow-matching DiT at 120 Hz; [SONIC](../../entities/gear-sonic.md) puts a 50 Hz WBC policy under a GR00T VLA. The pattern is the same every time: **let the slow tier be slow, and put something fast underneath it.** This is Band C driving Band A across a ~20× ratio, and it is the field's answer to the question Anthropic's 83 Hz figure poses.
+
+> [!note] Added 2026-08-28 — the split went to **three** tiers, and it reached Band A
+> [Helix 02](../../sources/figure-helix-02.md) inserts **System 0** at **1 kHz** beneath S1: 7–9 Hz (semantics) → 200 Hz (visuomotor) → **1 kHz** (balance and contact). This is the first entry in this wiki where a **learned** policy occupies Band A on a shipping robot — the band this page describes as "occupied by firmware, PD loops, and small purpose-trained controllers." S0 is a small purpose-trained controller (10 M params), so the band's character is unchanged; what changed is that **the whole ladder is now learned end-to-end**, with S1 emitting full-body joint targets rather than a hand-written WBC layer receiving them. Figure's framing: S0 "replaces 109,504 lines of hand-engineered C++." No latency or tracking-error numbers are published, so this row is **REQ, not MEAS**.
 
 **2. Action chunking.** A policy that infers at 1.8 Hz but emits a 16-step chunk is not controlling the robot at 1.8 Hz. GR00T N1 produces a 16-action chunk in 63.9 ms; [OpenVLA-OFT](../../entities/openvla-oft.md) gets **26×** throughput from 8-step chunks and **43×** from 25-step. **Inference Hz and control Hz are different quantities**, and most of the alarming numbers on this page are inference Hz. (Note the dissent: [VQ-BeT](../../entities/vq-bet.md) argues chunking *hurt* where tried, because at 3–18 ms/step it is fast enough to close the loop honestly — on a **CPU**.)
 
