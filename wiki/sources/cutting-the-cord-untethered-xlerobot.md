@@ -50,6 +50,7 @@ An **untethered evolution of the [XLeRobot](../entities/xlerobot.md)** from [Nik
 - **VR teleop** (Open-TeleVision-based): Meta Quest 3 / Vision Pro / Pico 4; controllers beat hand-tracking on a peg-in-hole task (48.2 s vs 68.3 s vs 248.7 s joypad baseline); doubles as an imitation-learning data-collection pipeline.
 
 ## Entities mentioned
+- [Jetson Orin NX](../entities/jetson-orin-nx.md) — the drop-in upgrade from the Orin Nano this paper benchmarks.
 - [XLeRobot](../entities/xlerobot.md), [Jetson Orin Nano](../entities/jetson-orin-nano.md), [Jetson Thor](../entities/jetson-thor.md) (as over-budget), [Nikolaus Correll](../entities/nikolaus-correll.md), [SO-ARM101](../entities/so-arm101.md) (SO-101 arms), [LeRobot](../entities/lerobot.md)/[LeKiwi](../entities/lekiwi.md), [SmolVLA](../entities/smolvla.md), [ACT](../entities/act.md), [Diffusion Policy](../entities/diffusion-policy.md), [Mobile ALOHA](../entities/aloha.md).
 - [RTAB-Map](../entities/rtab-map.md) — the SLAM stack referenced.
 

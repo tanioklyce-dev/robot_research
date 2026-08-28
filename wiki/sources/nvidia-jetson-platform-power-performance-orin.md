@@ -117,10 +117,11 @@ sudo /usr/sbin/nvpmodel -q             # query current
 - `jetson-orin-nano-devkit-super-maxn.conf` — Super profiles + conservative thermal config for sustained MAXN_SUPER workloads.
 
 ## Entities mentioned
+- [Jetson Orin NX](../entities/jetson-orin-nx.md) — the module whose Super-Mode and nvpmodel tables this chapter defines.
 - [Jetson Orin Nano](../entities/jetson-orin-nano.md)
 - [Jetson Linux](../entities/jetson-linux.md)
 - [NVIDIA](../entities/nvidia.md)
-- AGX Orin, Orin NX — referenced but not yet entity pages.
+- **AGX Orin** — referenced but not yet an entity page. (Orin NX filed 2026-08-28, linked above.)
 
 ## Concepts touched
 - None directly. Could seed a future `concepts/robotics/edge-ai-power-budgets.md` if power-mode trade-offs become a recurring theme.

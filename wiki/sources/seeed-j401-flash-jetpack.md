@@ -55,6 +55,7 @@ Seeed's product line distinguishes the **reComputer Super J4012** (marketed at *
 
 ## Entities mentioned
 
+- [Jetson Orin NX](../entities/jetson-orin-nx.md) — the module this carrier hosts, and the one the Super-Mode cooling warning applies to.
 - [Seeed Studio](../entities/seeed-studio.md)
 - [Jetson Orin Nano](../entities/jetson-orin-nano.md) (J3010/J3011 siblings)
 - [JetPack](../entities/jetpack.md)

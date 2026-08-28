@@ -4580,3 +4580,22 @@ Researched [Walden Robotics](entities/walden-robotics.md)'s robot for the humano
 
 **Open questions raised**
 - Every actual number; is the base holonomic; does the torso have a lift axis (the [Stretch](entities/stretch.md) axis); how much remote human assist is in the loop; robot count and tasks at Toyota (confidential).
+
+## [2026-08-28] entity | Jetson Orin NX — closing the gap lint found
+Wrote [Jetson Orin NX](entities/jetson-orin-nx.md), the coverage gap surfaced by the lint pass earlier today: "Orin NX" appeared on **37 pages** with its specs scattered across syntheses and no canonical page, despite being the module this wiki actually recommends for a battery robot running a VLA onboard.
+
+**New entity page**
+- [Jetson Orin NX](entities/jetson-orin-nx.md) — consolidates the wiki's existing sourced material and adds NVIDIA's per-SKU spec table (retrieved 2026-08-28) for the specs nobody had recorded: **69.6 × 45 mm, 260-pin SO-DIMM**, per-SKU CPU/clock/DLA splits, PCIe, camera, video.
+
+**Two corrections it turned up**
+- > [!warning] **The module ladder said "+2 DLA" for both Orin NX SKUs.** NVIDIA's per-SKU DLA INT8 row is **80 TOPS (16 GB) vs 40 TOPS (8 GB)** — a 2:1 split that cannot come from equal DLA counts. (NVIDIA's own *series*-level row muddies this by saying "1× NVDLA v2" for the whole line; the TOPS are unambiguous, the unit count is not.) Corrected on [the ladder](syntheses/platforms/jetson-module-ladder-power-performance.md).
+- > [!warning] **157 TOPS is 77 GPU + 80 DLA, both SPARSE INT8.** More than half the headline comes from fixed-function DLAs that no VLA stack in this wiki touches, and without 2:4 structured sparsity the GPU tensor cores give **38 dense INT8 TOPS — about 24% of the number on the box**. The ladder's TOPS/W column is GPU+DLA+sparse throughout: fine for ranking modules against each other, wrong as an estimate of what one workload sees. Flagged on both pages.
+
+**Three deployment traps consolidated, all with primaries**
+- **J401 carrier cannot cool Super Mode** — Seeed's own flash guide says so, while Seeed markets the Super J4012 at 157 TOPS. Same silicon, two sanctioned ceilings.
+- **10 W mode has an open reboot-crash bug** (r39.2 issue 6236259) — and 10 W is the bottom of the envelope this module is chosen for.
+- **Isaac ROS 4.x dropped Orin entirely** — stay on JetPack 6.2 with a frozen 3.2, or move to 7.2 with none.
+
+**Open question worth acting on**
+- **Does DLA offload help a VLA?** If half the headline TOPS is DLA and no VLA stack uses it, can a vision encoder be compiled to DLA to free the GPU for the action head? Untested anywhere in this wiki, and cheap on hardware this fleet already owns.
+- Orin NX VLA latency is **unmeasured** — every figure in this wiki for it is extrapolation.

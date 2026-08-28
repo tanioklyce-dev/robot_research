@@ -55,8 +55,9 @@ Project: Orin NX/Nano · 2–4 cameras · Ethernet primary + optional wireless/c
 Validate on a **mature general-purpose carrier**, then refine for volume by **trimming interfaces + optimizing layout**; for tighter integration, Seeed offers **carrier-board + system ODM** services. General-purpose boards accelerate validation but aren't always optimal as final products.
 
 ## Entities mentioned
+- [Jetson Orin NX](../entities/jetson-orin-nx.md) — the module these carriers host.
 - [Seeed Studio](../entities/seeed-studio.md) — publisher (author Liyan Gong).
-- [Jetson Orin Nano](../entities/jetson-orin-nano.md), [Jetson Thor](../entities/jetson-thor.md) — module entities; Orin NX / AGX Orin not yet separate.
+- [Jetson Orin Nano](../entities/jetson-orin-nano.md), [Jetson Thor](../entities/jetson-thor.md) — module entities. **AGX Orin still has no entity page** (Orin NX filed 2026-08-28, linked above).
 
 ## Concepts touched
 - [Jetson onboard compute for XLeRobot](../syntheses/platforms/jetson-onboard-compute-xlerobot.md) — the module-tier choice; this adds the *carrier-board* layer of the same decision.

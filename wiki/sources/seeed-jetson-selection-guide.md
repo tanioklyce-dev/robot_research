@@ -87,8 +87,9 @@ Cross-precision caveat: the Orin ladder is INT8 TOPS; Thor's headline is FP4/FP8
 - **J601 (Thor)** is explicitly the **humanoid / embodied-intelligence tier** ("brain + cerebellum," EtherCAT for real-time actuation buses) — consistent with the wiki's verdict that Thor is over-budget for a small mobile manipulator and aimed at heavier robots.
 
 ## Entities mentioned
+- [Jetson Orin NX](../entities/jetson-orin-nx.md) — the module behind the J4012 / Super J4012 / Robotics J40 carriers.
 - [Seeed Studio](../entities/seeed-studio.md) — author/distributor.
-- [Jetson Orin Nano](../entities/jetson-orin-nano.md), [Jetson Thor](../entities/jetson-thor.md) — module entities; Orin NX / AGX Orin not yet separate entities.
+- [Jetson Orin Nano](../entities/jetson-orin-nano.md), [Jetson Orin NX](../entities/jetson-orin-nx.md), [Jetson Thor](../entities/jetson-thor.md) — module entities. **AGX Orin still has no entity page.**
 
 ## Concepts touched
 - [Jetson onboard compute for XLeRobot](../syntheses/platforms/jetson-onboard-compute-xlerobot.md) — corroborates the four-tier ladder; supplies the buyable-carrier mapping + the battery-powered Robotics line.
@@ -97,4 +98,4 @@ Cross-precision caveat: the Orin ladder is INT8 TOPS; Thor's headline is FP4/FP8
 ## Open questions / notes
 - **Prices not in the article** — series positioning + the decision tree are captured, but reComputer pricing is not.
 - **Rugged J4012** is "coming soon" (not launched); IP66 vehicle-grade Orin NX carrier.
-- **AGX Orin / Orin NX entity gap** — full specs are here and in the [comparison](../syntheses/platforms/jetson-onboard-compute-xlerobot.md); dedicated entities could be added if these tiers recur.
+- ~~**AGX Orin / Orin NX entity gap**~~ — **Orin NX filed 2026-08-28** ([entity](../entities/jetson-orin-nx.md)). **AGX Orin still has none**; full specs are here and in the [comparison](../syntheses/platforms/jetson-onboard-compute-xlerobot.md).

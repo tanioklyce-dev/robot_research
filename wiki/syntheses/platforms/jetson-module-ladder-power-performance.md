@@ -25,8 +25,8 @@ This page is the **superset table** underneath both: all SKUs, both `nvpmodel` c
 |---|---|---|---|---|---|---|---|---|---|
 | **Orin Nano 4 GB** | Ampere | 512-core / 16 TC | 6× A78AE | 4 GB 64-bit LPDDR5 | 51 GB/s | 34 TOPS | 7 / 10 / 25 W | — | JetPack 7.2+ ¹ |
 | **Orin Nano 8 GB** | Ampere | 1024-core / 32 TC | 6× A78AE | 8 GB 128-bit LPDDR5 | 102 GB/s | 67 TOPS | 7 / 15 / 25 W | **~$249** dev kit | JetPack 7.2+ ¹ |
-| **Orin NX 8 GB** | Ampere | 1024-core / 32 TC **+ 2 DLA** | 6× A78AE | 8 GB 128-bit LPDDR5 | 102.4 GB/s | 117 TOPS | 10–25 W (40 W Super) | — | JetPack 7.2+ ¹ |
-| **Orin NX 16 GB** | Ampere | 1024-core / 32 TC **+ 2 DLA** | 8× A78AE | 16 GB 128-bit LPDDR5 | 102.4 GB/s | 157 TOPS | 10–40 W | **~$600** module | JetPack 7.2+ ¹ |
+| **Orin NX 8 GB** | Ampere | 1024-core / 32 TC **+ DLA** ⁴ | 6× A78AE | 8 GB 128-bit LPDDR5 | 102.4 GB/s | 117 TOPS | 10–25 W (40 W Super) | — | JetPack 7.2+ ¹ |
+| **Orin NX 16 GB** | Ampere | 1024-core / 32 TC **+ 2 DLA** ⁴ | 8× A78AE | 16 GB 128-bit LPDDR5 | 102.4 GB/s | 157 TOPS | 10–40 W | **~$600** module | JetPack 7.2+ ¹ |
 | **AGX Orin 32 GB** | Ampere | 1792-core / 56 TC | 8× A78AE | 32 GB 256-bit LPDDR5 | 204.8 GB/s | 200 → **241 TOPS** (MAXN_SUPER, JP7.2) | 15–60 W | — | JetPack 7.2+ ¹ |
 | **AGX Orin 64 GB** | Ampere | 2048-core / 64 TC | 12× A78AE | 64 GB 256-bit LPDDR5 | 204.8 GB/s | 275 TOPS | 15–60 W (≤75 W MAXN per some listings) | **~$1,999** dev kit | JetPack 7.2+ ¹ |
 | **AGX Thor T4000** | **Blackwell** | 1536-core / 5th-gen TC | 12× Neoverse-V3AE | 64 GB 256-bit LPDDR5X | 273 GB/s | **1200 FP4 TFLOPS** | 40–70 W (**90 W TDP**) | — | **JetPack 7** |
@@ -37,6 +37,11 @@ This page is the **superset table** underneath both: all SKUs, both `nvpmodel` c
 Sources: module ladder from the [Seeed selection guide](../../sources/seeed-jetson-selection-guide.md) (cross-checked against NVIDIA-official); Thor SKU specs from the [Thor product page](../../sources/nvidia-jetson-thor-product-page.md); TDPs from the [Thor power-modes chapter](../../sources/nvidia-jetson-thor-platform-power-performance.md); prices from [Cutting the Cord](../../sources/cutting-the-cord-untethered-xlerobot.md) / [XLeRobot onboard-compute](jetson-onboard-compute-xlerobot.md) / the [Thor launch newsroom](../../sources/nvidia-jetson-thor-launch-newsroom.md).
 
 > [!note] Orin AI-perf figures are the **Super** numbers
+> [!warning] ⁴ **Corrected 2026-08-28 — the 8 GB does not have 2 DLAs, and the headline TOPS is mostly DLA anyway.**
+> This table read "+2 DLA" for **both** Orin NX SKUs. NVIDIA's own per-SKU table gives **DLA INT8 at 80 TOPS (16 GB) vs 40 TOPS (8 GB)** — an exact 2:1 split that cannot come from the same DLA count. (NVIDIA's *series*-level row confusingly says "1× NVDLA v2" for the whole Orin NX line; the TOPS are the unambiguous figures.) See [Jetson Orin NX](../../entities/jetson-orin-nx.md).
+>
+> More consequential for every number below: **157 = 77 (GPU tensor cores) + 80 (DLA)**, both **SPARSE INT8**. A stock PyTorch/TensorRT-on-GPU pipeline — every VLA in this wiki — does not touch the DLAs, and without 2:4 structured sparsity the GPU delivers **38 dense INT8 TOPS**, about **24% of the headline**. The TOPS/W column below is therefore **GPU+DLA+sparse throughout**; it is fine for ranking modules against each other (they are all quoted the same way) and **wrong as an estimate of what one workload will see**.
+
 > 34 / 67 / 117 / 157 TOPS require a module flashed with a `-super` config and JetPack 6.2+. Standard-flash values are materially lower — the wiki records **Orin NX 16 GB at 100 TOPS standard vs 157 Super** ([XLeRobot onboard-compute](jetson-onboard-compute-xlerobot.md)). Standard-flash figures for the other Orin SKUs are not recorded in the wiki. See §3 on the flash-time lock-in.
 
 > [!warning] Added 2026-08-17 — Super Mode is also a *carrier* decision, not only a flash-time one
@@ -240,6 +245,7 @@ Stated plainly so this page isn't mistaken for complete:
 - **Thor T4000 measured anything.** All Thor numbers in §4 are T5000. Also unresolved: T4000's **90 W TDP exceeds its 70 W top nvpmodel budget** — whether a higher budget exists on non-dev-kit carriers is an open question on the [source page](../../sources/nvidia-jetson-thor-platform-power-performance.md).
 - **T3000 / T2000 power and price.** Not published; GA Q1 2027.
 - **Prices for Orin Nano 4 GB, Orin NX 8 GB, AGX Orin 32 GB.** Not recorded anywhere in the wiki.
+- **Does DLA offload help a VLA?** If half the Orin NX headline is DLA and no VLA stack uses it, can a vision encoder be compiled to DLA to free the GPU for the action head? Untested here, and cheap on hardware this fleet owns. See [Jetson Orin NX](../../entities/jetson-orin-nx.md).
 - **Standard-flash TOPS** for Orin SKUs other than the NX 16 GB (100 standard / 157 Super).
 - **Thor's default nvpmodel mode.** The source ingest was ambiguous between MAXN and the 120 W budget; the wiki treats "120 W (Mode 1)" as provisional.
 
