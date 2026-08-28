@@ -3,8 +3,8 @@ title: Hugging Face
 type: entity
 subtype: organization
 created: 2026-05-10
-updated: 2026-08-23
-sources: 16
+updated: 2026-08-27
+sources: 17
 tags: [hugging-face, foundation-models, open-source, lerobot, robotics, ml-platform]
 ---
 
@@ -16,13 +16,19 @@ tags: [hugging-face, foundation-models, open-source, lerobot, robotics, ml-platf
 ## Why it matters in this wiki
 
 - **LeRobot** is the dominant open-source IL framework in the wiki's "affordable mobile manipulator" cluster.
+- **First-party robots.** Through [Pollen Robotics](pollen-robotics.md), HF ships [Reachy 2](reachy.md), [Reachy Mini](reachy-mini.md) and [Microduck](microduck.md) — documented on the Hub (`huggingface.co/docs/reachy_mini`) rather than on a vendor docs site.
+- **Hugging Face Jobs as robot-training compute.** [Microduck](microduck.md)'s RL stack ships a `--hf-jobs` flag that submits a GPU training run to HF Jobs, making a laptop with no GPU a viable development machine for a consumer robot's policies ([source](../sources/pollen-robotics-microduck.md)). First sighting in this wiki of HF Jobs in that role.
 - The **HF Hub** is the de-facto distribution channel for model checkpoints across the wiki's JEPA, VLA, and IL coverage (e.g., V-JEPA 2 checkpoints, LeWM checkpoints, DINOv2 backbones).
-- Hugging Face's role in the LeRobot ecosystem is purely software / framework maintenance; design and distribution of compatible hardware happens via independent partners ([SIGRobotics-UIUC](sigrobotics-uiuc.md) for LeKiwi, [The Robot Studio](the-robot-studio.md) for SO-ARM, [Seeed Studio](seeed-studio.md) as a distributor).
+- Hugging Face's role in the **LeRobot** ecosystem is software / framework maintenance; design and distribution of LeRobot-compatible hardware happens via independent partners ([SIGRobotics-UIUC](sigrobotics-uiuc.md) for LeKiwi, [The Robot Studio](the-robot-studio.md) for SO-ARM, [Seeed Studio](seeed-studio.md) as a distributor).
+
+> [!warning] Correction — Hugging Face is also a robot manufacturer
+> This page previously said HF's robotics role was "purely software / framework maintenance." That was wrong from **April 2025**, when HF acquired **[Pollen Robotics](pollen-robotics.md)** (Bordeaux; founded 2016 by former Inria researchers) as its in-house robotics team ([Microduck press kit](../sources/pollen-robotics-microduck.md)). HF designs, manufactures and sells robots directly: **[Reachy 2](reachy.md)** (research manipulator), **[Reachy Mini](reachy-mini.md)** (10,000+ units shipped), and **[Microduck](microduck.md)** ($399 RL biped, pre-orders 2026-08-27). The partner model describes the LeRobot *reference-hardware* ecosystem only, not HF's own product line.
 
 ## Robotics-adjacent people
 
 - [Remi Cadene](remi-cadene.md) — LeRobot lead.
-- Thomas Wolf — co-founder & chief science officer; co-organizer of the [LeRobot Worldwide Hackathon 2025](lerobot-worldwide-hackathon-2025.md); voice of the open-source framing in the [NVIDIA partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md).
+- **Matthieu Lapeyre, Antoine Pirrone, Augustin Crampette, Coralie Deplane, Anne Charlotte Passanisi** — [Pollen Robotics](pollen-robotics.md) / Microduck core team.
+- Thomas Wolf — co-founder & chief science officer; co-author of the [Microduck launch post](../sources/pollen-robotics-microduck.md); co-organizer of the [LeRobot Worldwide Hackathon 2025](lerobot-worldwide-hackathon-2025.md); voice of the open-source framing in the [NVIDIA partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md).
 - Marine Caous (`maringetxway`) — hackathon curator; maintains the `all-winners` dataset.
 
 ## Related
@@ -39,6 +45,7 @@ tags: [hugging-face, foundation-models, open-source, lerobot, robotics, ml-platf
 - [XLeRobot Documentation](../sources/xlerobot-docs.md)
 - [LeRobot Worldwide Hackathon 2025 — All Winners](../sources/lerobot-worldwide-hackathon-2025-winners.md)
 - [NVIDIA + HF LeRobot partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md) — "16 million AI builders"; five-part NVIDIA integration into LeRobot.
+- [Microduck — Pollen Robotics launch](../sources/pollen-robotics-microduck.md) — the Pollen acquisition (April 2025), HF as robot manufacturer, HF Jobs as RL training compute.
 - (Plus indirect references across many model-checkpoint-bearing sources)
 
 ## The July 2026 agent intrusion

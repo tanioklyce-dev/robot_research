@@ -2,8 +2,8 @@
 title: Real-world robotic reinforcement learning
 type: concept
 created: 2026-07-05
-updated: 2026-07-05
-sources: 14
+updated: 2026-08-27
+sources: 15
 tags: [reinforcement-learning, real-world-rl, manipulation, human-in-the-loop, off-policy-rl, sample-efficiency]
 ---
 
@@ -53,6 +53,18 @@ The [HIL-SERL analysis](../../sources/hil-serl-paper.md) (§5) argues RL's relia
 - **[Kober, Bagnell & Peters 2013 — RL in Robotics survey](../../sources/kober-rl-robotics-survey-2013.md)** — classical framing; demonstrations-remove-global-exploration.
 - **[π*0.6 / RECAP](../../sources/pistar06-paper.md)** — the VLA-scale successor: RL-from-deployment with human-gated (DAgger-style) corrections and a distributional value function on top of a large pretrained VLA. Shares HIL-SERL's human-in-the-loop-correction lineage at foundation-model scale.
 
+## The reset problem, solved by policy rather than by hardware
+
+Every recipe on this page pays a reset cost: after each trial something must return the robot and the scene to a startable state, and on real hardware that is usually a human or a purpose-built reset jig.
+
+[Microduck](../../entities/microduck.md) takes a different route — it ships **fall recovery as one of its learned policies**, and its makers name reset automation as an explicit design goal rather than a demo:
+
+> "A failed behavior usually ends with a little robot on the floor, not a major incident. … **Self-recovery also means you do not have to pick it up after every failed attempt.**" ([Microduck launch](../../sources/pollen-robotics-microduck.md))
+
+The `VelStand` task trains **walking and fall recovery in a single policy**, so the robot never needs an operator to hand control between "trying" and "recovering." Combined with 800 g of mass — failure is cheap because the robot is light, not because the environment is protected — this is a **hardware-scale answer to the reset problem**: make the robot small enough that falling is free, then learn getting up.
+
+Note the limit: this is reset for *locomotion*, where the failure mode is the robot's own pose. It says nothing about resetting a *scene* — the objects a manipulation policy displaced — which is the harder half and remains unsolved across everything ingested here.
+
 ## Related concepts
 
 - [Imitation learning](imitation-learning.md) — the baseline family; BC / DAgger / HG-DAgger. Real-world RL uses IL data to *seed* but surpasses it.
@@ -65,6 +77,8 @@ The [HIL-SERL analysis](../../sources/hil-serl-paper.md) (§5) argues RL's relia
 Real-world RL for manipulation went from "considered infeasible" to **100% success in a couple of hours** over the SAC(2018)→RLPD(2023)→SERL→HIL-SERL(2024) arc, provided a human is in the loop to gate corrections. Two frontiers are now open. (1) **Amortize the human**: [AutoSERL](../../sources/autoserl-paper.md) (2026) replaces continuous supervision with automated interventions derived from a single demonstration, directly attacking the skilled-operator cost that the "1–2.5 hr" figure hides. (2) **Scale via foundation models**: compose the correction loop with large pretrained [VLA models](vla-models.md) so effort amortizes across tasks — [π*0.6 / RECAP](../../sources/pistar06-paper.md) is the wiki's first instance. Remaining open problems: cross-instance/scene generalization (these policies are task-specific), reward-classifier reliability, and whether one-demo automation (AutoSERL) holds up on the multi-modal, long-horizon, dual-arm tasks that so far still need a human (HIL-SERL).
 
 ## Mentioned in
+
+- [Microduck — Pollen Robotics launch](../../sources/pollen-robotics-microduck.md) — self-recovery as reset automation; walk + fall-recovery trained as one policy.
 
 - [SAC paper](../../sources/sac-paper.md) — algorithmic root.
 - [SAC Applications paper](../../sources/sac-applications-paper.md) — practical SAC + first real-robot demos.

@@ -2,7 +2,7 @@
 title: Open-source robot AI research projects — landscape
 type: synthesis
 created: 2026-05-17
-updated: 2026-08-13
+updated: 2026-08-27
 tags: [open-source, ecosystem, lerobot, jepa, simulators, fly, karpathy, landscape-survey, sourccey, xvla]
 ---
 
@@ -36,6 +36,7 @@ The single most active open-source robotics-AI scene tracked in this wiki.
 - [myBuddy 280](../../entities/mybuddy-280.md) — [Elephant Robotics](../../entities/elephant-robotics.md); open URDF + ROS 1 stack + myBlockly/myStudio tooling.
 - [myAGV](../../entities/myagv.md) — Elephant mobile base with ROS / open Raspberry Pi pipeline.
 - [TonyPi](../../entities/tonypi.md) — Hiwonder hobby-tier biped kit; open assembly + control reference.
+- [Microduck](../../entities/microduck.md) — [Pollen Robotics](../../entities/pollen-robotics.md) / [Hugging Face](../../entities/hugging-face.md); $399 25 cm RL biped. **Software fully open (Apache-2.0) — runtime, [mjlab](../../entities/mjlab.md) training envs, and all seven shipped policies; hardware design files CC BY-SA-NC, so not open-source *hardware*.** The unusual part for this list: the complete sim-to-real recipe ships with the product, not just the SDK ([launch](../../sources/pollen-robotics-microduck.md)).
 
 ## Open organizations maintaining the above
 
@@ -97,6 +98,7 @@ Open-source biological-agent loops — different from robotics but the closest a
 - [Isaac Lab](../../entities/nvidia-isaac-lab.md) — NVIDIA's open learning framework on Isaac Sim. (Isaac Sim itself is free-to-use, not formally open-source.)
 - [AGIBOT Genie Sim 3.0](../../entities/agibot-genie-sim.md) — open embodied-AI sim on Isaac Sim.
 - [ManiSkill](../../entities/maniskill.md) / [SAPIEN](../../entities/sapien.md) — UCSD-line GPU-parallel manipulation benchmark + sim framework.
+- [mjlab](../../entities/mjlab.md) — MuJoCo Warp + `rsl_rl` RL training framework (Isaac-Lab-style ergonomics on the MuJoCo side); the stack behind [Microduck](../../entities/microduck.md)'s shipped policies.
 
 ## Open RL APIs + benchmarks
 

@@ -4267,3 +4267,28 @@ Both Seeed URLs defeated `WebFetch`. The **product page** is a Magento SPA whose
 - **Primary Damiao and Robstride datasheets are not ingested** — torque, gear ratio, encoder resolution, thermal limits all unknown here.
 - **Lightbox vs generative augmentation.** The course constrains reality *and* diversifies training. Does the second recover what the first gave up?
 - **Canonical Hub id for GR00T 1.7** — `nvidia/GR00T-1.7-3B` (course) vs `nvidia/GR00T-N1.7-3B` (wiki).
+
+## [2026-08-27] ingest | Pollen Robotics Microduck — a $399 RL biped, and the wiki finds out Hugging Face makes robots
+- New source: [Microduck — Pollen Robotics launch](sources/pollen-robotics-microduck.md). Requested URL was the marketing landing page; per the primary-source rule the numbers came from Pollen's **press kit** and **launch blog**, plus `pollen-robotics/microduck` (Rust runtime) and `pollen-robotics/microduck_rl` (mjlab/PPO training). The landing page alone would have produced two wrong claims.
+- New entities: [Microduck](entities/microduck.md), [Reachy Mini](entities/reachy-mini.md), [mjlab](entities/mjlab.md)
+- New concept: [Actuator fidelity in sim-to-real](concepts/learning/actuator-fidelity-sim2real.md)
+- Updated: [Pollen Robotics](entities/pollen-robotics.md) (rewritten), [Hugging Face](entities/hugging-face.md) (correction), [Reachy 2](entities/reachy.md), [Dynamixel](entities/dynamixel.md), [MuJoCo](entities/mujoco.md), [MuJoCo Playground](entities/mujoco-playground.md), [Sim-to-real transfer](concepts/learning/sim-to-real-transfer.md), [Real-world robot RL](concepts/learning/real-world-robot-rl.md), [Multi-agent RL](concepts/learning/multi-agent-rl.md), [Open-source robot AI projects](syntheses/platforms/open-source-robot-ai-projects.md), [index](index.md)
+
+### Corrections this ingest forced
+- **[Hugging Face](entities/hugging-face.md) said its robotics role was "purely software / framework maintenance."** Wrong since **April 2025**, when HF acquired Pollen Robotics as its in-house robotics team. HF designs and sells robots: Reachy 2, Reachy Mini (10,000+ shipped), Microduck. The partner model (SIGRobotics/The Robot Studio/Seeed) describes the LeRobot *reference-hardware* ecosystem only.
+- **[Pollen Robotics](entities/pollen-robotics.md) had no acquisition, no founding date, no location beyond "French," and one product.** Now: Bordeaux, 2016, ex-Inria, three products, and an openness story that varies per product and per layer.
+
+### Two vendor contradictions caught, both from the same company the same week
+- **"LiDAR" is an 8×8 time-of-flight matrix.** Landing page and fast-facts say LiDAR; the press-kit spec table says *"compact LiDAR, an 8×8 time-of-flight matrix"*; the launch blog says *"a small depth sensor."* 64 depth zones, not a point cloud. Anyone sizing this for mapping work off the landing page would be wrong by two orders of magnitude.
+- **Open-source hardware, or not.** The press kit instructs press: *"the mechanical and electronic design files are **not** [open], so please do not describe the robot as open-source hardware."* The `microduck_rl` README says *"Hardware design files are licensed under Creative Commons BY-SA-NC."* Probable reconciliation: files are published, but the non-commercial clause disqualifies them from OSHWA-open. Filed unresolved.
+- Also noted, not a contradiction: marketing says **15 motors**, the RL stack enumerates **14 servos**. The fifteenth is the beak, which no locomotion policy actuates.
+
+### What made this worth a concept page
+`microduck_rl`'s thesis — *"at this scale, actuator fidelity is most of the sim2real gap, which is why the actuator is modeled down to its voltage control law instead of an ideal PD"* — is a claim about **where the sim-to-real budget goes**, and it cuts against the wiki's scene-side-randomization default. The implementation backs it: BAM M6 model of the Dynamixel XL330 (voltage law, back-EMF, Coulomb/Stribeck/load-dependent friction), randomization over battery voltage / voltage sag under load / command delay / friction, and ±1° backlash as an unactuated hinge in series with each servo — read **through** by the observations, because the real encoder sits on the output side of the play. Filed as [Actuator fidelity in sim-to-real](concepts/learning/actuator-fidelity-sim2real.md).
+
+### Open questions carried forward
+- **Why isn't Microduck a LeRobot platform?** Same parent, and Reachy 2 already is one. `microduck_rl` predates the product repo by eight months, which suggests "shipped what we had" over "deliberate architecture" — but the IL-manipulation / RL-locomotion split is real either way.
+- **What drives the camera, the ToF and the NFC?** Every shipped policy is proprioceptive (61-dim obs, no vision). The advertised laser-following and environment-reactive behaviours run through an undocumented path.
+- **RK3566 + 1 GB RAM cannot host a VLA.** A consumer robot that structurally excludes the wiki's dominant policy class is a useful counterexample to the assumption that consumer robots converge on VLA-capable compute.
+- **Open Duck Mini lineage** (Antoine Pirrone's BDX-droid clone → Microduck) is well attested in press coverage and the `apirrone/Open_Duck_Mini` repo, but **no Pollen primary mentions it**. Recorded as likely-but-secondary.
+- Press kit marks camera resolution/FoV, ToF range, radio versions and SDK languages **provisional**. Re-check at ship. No units delivered, no independent review — every number here is vendor-stated.

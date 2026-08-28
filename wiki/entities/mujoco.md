@@ -3,7 +3,7 @@ title: MuJoCo
 type: entity
 subtype: physics-engine
 created: 2026-05-07
-updated: 2026-05-08
+updated: 2026-08-27
 sources: 23
 tags: [mujoco, physics-engine, deepmind, simulation, biomechanics]
 ---
@@ -36,6 +36,7 @@ tags: [mujoco, physics-engine, deepmind, simulation, biomechanics]
 - [Gymnasium-Robotics](gymnasium-robotics.md) — env library on top.
 - [Newton physics engine](newton-physics-engine.md) — DeepMind co-developed; Newton targets compatibility with MJX-style workflows.
 
+- [mjlab](mjlab.md) — MuJoCo Warp + `rsl_rl` RL framework; trains [Microduck](microduck.md)'s shipped policies.
 ## Mentioned in
 - [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — physics for the entire Anthropic Frontier Red Team robotics evaluation (classic control, Go2, G1, Franka).
 - [MuJoCo Playground Paper](../sources/mujoco-playground-paper.md)

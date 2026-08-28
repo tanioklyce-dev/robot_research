@@ -3,7 +3,7 @@ title: MuJoCo Playground
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-08-03
+updated: 2026-08-27
 sources: 6
 tags: [mujoco, mjx, jax, robot-learning, deepmind, sim-to-real]
 ---
@@ -24,6 +24,7 @@ Presented at RSS 2025; widely cited for [Sim-to-real transfer](../concepts/learn
 - [Google DeepMind](google-deepmind.md) — maintainer.
 - [Newton physics engine](newton-physics-engine.md) — alternative backend.
 - [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — competing/parallel learning framework.
+- [mjlab](mjlab.md) — the other MuJoCo-side RL framework: MuJoCo **Warp** + `rsl_rl` rather than MJX + Brax, and structurally closer to Isaac Lab's ergonomics.
 
 ## Mentioned in
 - [MuJoCo Playground Paper](../sources/mujoco-playground-paper.md)

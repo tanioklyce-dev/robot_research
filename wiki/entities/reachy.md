@@ -3,8 +3,8 @@ title: Reachy 2
 type: entity
 subtype: robot
 created: 2026-05-09
-updated: 2026-07-08
-sources: 8
+updated: 2026-08-27
+sources: 9
 tags: [reachy, pollen-robotics, open-source, humanoid, embodied-ai, ros2, lerobot]
 ---
 
@@ -36,7 +36,8 @@ Not listed. Contact required.
 - **Open-source research humanoid** — rare class. Alternatives are mostly closed (Atlas, Figure, 1X NEO) or lower-DOF (Stretch, ROSOrin Pro).
 - **Torso-on-wheels**, not full bipedal — different trade-off from Fauna Robotics Sprout (bipedal) and typical consumer humanoids.
 - Positioned for embodied AI research — the same target as [V-JEPA 2-AC](v-jepa-2.md) and [LeWorldModel](leworldmodel.md) deployment experiments.
-- Reachy Mini: smaller companion product with HuggingFace presence (content not retrieved in this ingest).
+- **Siblings.** [Reachy Mini](reachy-mini.md) (desktop HRI, 10,000+ shipped) and [Microduck](microduck.md) ($399 RL biped) are [Pollen](pollen-robotics.md)'s two *consumer* robots; Reachy 2 is the research tier above them. The line splits by problem class — Reachy 2/Mini for manipulation and interaction, Microduck for locomotion RL ([Microduck launch](../sources/pollen-robotics-microduck.md)).
+- **Stack split.** Reachy 2 is a native [LeRobot](lerobot.md) platform; Microduck is not — it runs an [mjlab](mjlab.md)/PPO stack instead. Same parent company, two tool lineages.
 
 ## Related
 - [Pollen Robotics](pollen-robotics.md) — manufacturer
@@ -53,3 +54,4 @@ As of the July 2026 NVIDIA↔HF partnership, NVIDIA announced **[Jetson Thor](je
 - [Reachy 2 product page](../sources/pollen-robotics-reachy.md)
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — Reachy-2 listed among 8 natively-supported platforms.
 - [NVIDIA + HF LeRobot partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md) — Jetson Thor integration for VLA deployment.
+- [Microduck — Pollen Robotics launch](../sources/pollen-robotics-microduck.md) — places Reachy 2 in Pollen's three-product line; the Hugging Face acquisition context.

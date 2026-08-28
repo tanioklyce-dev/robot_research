@@ -3,7 +3,7 @@ title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
 updated: 2026-08-27
-sources: 51
+sources: 52
 tags: [sim-to-real, domain-gap, rl, simulation, real-to-sim, r2s2r]
 ---
 
@@ -102,6 +102,22 @@ Real-world confirmation on a COBOT-Magic dual-arm: **10 real demonstrations + 1,
 > [!note] Randomization compensates for pretraining diversity, not for the simulator
 > Pair this with the benchmark table on [RoboTwin 2.0](../../entities/robotwin.md): non-pretrained policies collapse under randomization ([ACT](../../entities/act.md) 29.7 → 1.7, [DP](../../entities/diffusion-policy.md) 28.0 → 0.6) while pretrained VLAs survive (RDT 13.7, π0 16.3). Randomized synthetic data and large-scale VLA pretraining appear to buy **the same property** — robustness to appearance shift — by different routes, and the paper's own diagnosis of why the VLAs still drop 20–30 points is *"limited diversity in pretraining data."*
 
+## The actuator-side gap: fidelity beats randomization at small scale
+
+Everything above attacks the gap in the **scene** — textures, lighting, backgrounds, contact parameters. [Microduck](../../entities/microduck.md) makes the opposite case for cheap legged hardware: the gap is in the **motor**.
+
+> "At this scale — tiny servos driving a ~800 g biped — **actuator fidelity is most of the sim2real gap**, which is why the actuator is modeled down to its voltage control law instead of an ideal PD." ([Microduck RL](../../sources/pollen-robotics-microduck.md))
+
+The concrete recipe — **BAM M6** voltage/back-EMF/Stribeck-friction model of the [Dynamixel](../../entities/dynamixel.md) XL330, randomization over **battery voltage, voltage sag under load, command delay and friction**, and **±1° backlash simulated as an unactuated hinge read through by the observations** — is broken out in [Actuator fidelity in sim-to-real](actuator-fidelity-sim2real.md).
+
+Two things make it worth a section here rather than a bullet in "common techniques":
+
+- **It is a claim about where the budget goes, not just another technique.** If actuator fidelity dominates below some mass/cost threshold, then randomizing an *idealised* PD model harder is spending effort in the wrong place — you widen the distribution without moving it onto reality.
+- **It is the wiki's first end-to-end published recipe attached to a purchasable robot.** Apache-2.0 training code, a $399 platform, and the seven policies it produced, all released together. Every other sim-to-real source here is a paper, a benchmark, or a vendor claim.
+
+> [!note] Untested outside one robot
+> One worked example, vendor-published, no independent replication, and no delivered units as of 2026-08-27. The generalisation — *cheaper robot ⇒ more of the sim-to-real budget belongs in the actuator model* — is a hypothesis this wiki finds plausible, not an established result. The wiki's own low-cost cluster ([SO-ARM101](../../entities/so-arm101.md), [LeKiwi](../../entities/lekiwi.md), [XLeRobot](../../entities/xlerobot.md)) would be the place to test it.
+
 ## Notable claims
 - [MuJoCo Playground](../../entities/mujoco-playground.md) demonstrates **zero-shot** transfer from both state and pixel inputs across quadrupeds, humanoids, hands, and arms ([MuJoCo Playground Paper](../../sources/mujoco-playground-paper.md)).
 - Tesla Optimus combines sim-to-real with imitation from human teleoperated/wearable-camera video.
@@ -109,11 +125,12 @@ Real-world confirmation on a COBOT-Magic dual-arm: **10 real demonstrations + 1,
 ## Related
 - [VLA models](vla-models.md) — the typical policy class undergoing sim-to-real.
 - [World-model simulators](../world-models/world-model-simulators.md) — sidesteps sim-to-real partially by training inside a learned model of reality.
+- [Actuator fidelity in sim-to-real](actuator-fidelity-sim2real.md) — the actuator-side branch of this page.
 - [World-model evaluation](../world-models/world-model-evaluation.md) — the two failure modes (plausibility trap vs. reality gap) and the compound of both.
 
 ## Mentioned in
 
-> [!note] Curated list — **50** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **51** source pages link here; the ones below are those that shaped this page.
 
 - [Kober, Bagnell & Peters 2013 — RL in Robotics Survey](../../sources/kober-rl-robotics-survey-2013.md) — simulation bias, noise injection, self-stabilizing transfer.
 - [MuJoCo Playground Paper](../../sources/mujoco-playground-paper.md)
@@ -127,3 +144,4 @@ Real-world confirmation on a COBOT-Magic dual-arm: **10 real demonstrations + 1,
 - [ASPIRE paper](../../sources/aspire-paper.md) — transfers **debugging knowledge** across embodiments: sim-discovered skills as in-context guidance cut real-robot token cost ~4× and take drawer opening from 0/20 to 11/20.
 - [WorldArena 2.0 paper](../../sources/worldarena-2-paper.md) — cross-platform sim-to-real for world models; perceptual dimensions transfer, functional rankings don't.
 - [WorldArena paper](../../sources/worldarena-paper.md) — learned policy evaluators inflate absolute success rates.
+- [Microduck — Pollen Robotics launch](../../sources/pollen-robotics-microduck.md) — the actuator-side gap; a full sim2real recipe shipped with a $399 robot.
