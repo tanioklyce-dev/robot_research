@@ -44,7 +44,7 @@ What you can run on-robot vs on-server is set by memory, and 2026's small-model 
 >
 > Two lessons the "targets Orin Nano" framing hides. **The same board spans a 10× range** depending on whether you reach the GPU. And **decode rate, not TTFT, is what a conversational robot lives on** — it is independent of prompt length, so a 45-token spoken answer costs ~6 s on a Pi 5 and under 2 s on an Orin GPU. The [Open Duck Mini](../../entities/open-duck-mini.md) demo at Google I/O 2026 ran one duck on each, and the [secondary coverage](../../sources/explainx-gemma-4-open-duck-mini.md) called both "very snappy."
 
-- **Runtimes** are the enabling layer: [Ollama](../../entities/ollama.md) / llama.cpp for the edge + workstation, vLLM / NIM for the server, all of which [Gemma 4](../../entities/gemma4.md) and Nemotron support.
+- **Runtimes** are the enabling layer: **[LiteRT](../../entities/litert.md)** / LiteRT-LM for mobile + embedded (the source of every measured figure above), [Ollama](../../entities/ollama.md) / llama.cpp for the edge + workstation, vLLM / NIM for the server, all of which [Gemma 4](../../entities/gemma4.md) and Nemotron support.
 
 ## Why a robot wants a local server at all
 

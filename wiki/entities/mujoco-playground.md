@@ -24,6 +24,7 @@ Presented at RSS 2025; widely cited for [Sim-to-real transfer](../concepts/learn
 - [Google DeepMind](google-deepmind.md) — maintainer.
 - [Newton physics engine](newton-physics-engine.md) — alternative backend.
 - [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — competing/parallel learning framework.
+- [MuJoCo Warp](mujoco-warp.md) — the Warp-based GPU backend mjlab and Newton use, as opposed to this page's MJX
 - [mjlab](mjlab.md) — the other MuJoCo-side RL framework: MuJoCo **Warp** + `rsl_rl` rather than MJX + Brax, and structurally closer to Isaac Lab's ergonomics.
 
 ## Mentioned in

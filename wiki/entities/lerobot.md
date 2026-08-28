@@ -51,7 +51,7 @@ The canonical 7-step LeRobot workflow (install → motor config → calibration 
 | Robot | Type | Cost (single / bimanual) |
 |---|---|---|
 | [SO-100/101](so-arm101.md) | Manipulator | ~€225 / €550 |
-| Koch-v1.1 | Manipulator | ~€670 / €1346 |
+| [Koch-v1.1](koch-v1-1.md) | Manipulator | ~€670 / €1346 |
 | [ALOHA-2](aloha.md) | Bimanual manipulator | ~€21k |
 | [HopeJR-Arm](hope-jr-arm.md) | Humanoid arm + hand | ~€500 |
 | [LeKiwi](lekiwi.md) | Mobile manipulator | ~€230 |

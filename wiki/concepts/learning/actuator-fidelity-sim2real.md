@@ -25,7 +25,7 @@ Corollary worth stating plainly: **the cheaper the robot, the more of the sim-to
 
 Taken from the [Microduck](../../entities/microduck.md) implementation, which is the wiki's first fully-published example:
 
-1. **A physical control law instead of a torque source.** The **BAM M6** model ([Rhoban](https://github.com/Rhoban/bam)) of the [Dynamixel](../../entities/dynamixel.md) XL330 simulates the **voltage** control law and **back-EMF**, so the achievable torque falls off with speed the way a real DC motor's does, and with **Coulomb / Stribeck / load-dependent friction** so stiction near zero velocity is present rather than smoothed away.
+1. **A physical control law instead of a torque source.** The **BAM M6** model ([Rhoban](../../entities/rhoban.md)) of the [Dynamixel](../../entities/dynamixel.md) XL330 simulates the **voltage** control law and **back-EMF**, so the achievable torque falls off with speed the way a real DC motor's does, and with **Coulomb / Stribeck / load-dependent friction** so stiction near zero velocity is present rather than smoothed away.
 2. **Randomization over the actuator's own failure axes**, not the scene's: **battery voltage**, **voltage sag under load**, **command delay**, and **friction magnitude**. Note that two of these are *power-system* properties — the policy is being trained to survive a draining battery, which is a real deployment condition no scene randomization reaches.
 3. **Backlash as geometry, not noise.** Microduck models **±1° of gear play (2° total)** as an **unactuated hinge in series with each servo joint** — real kinematic freedom in the physics model, not additive noise on the command. The consequence is that the leg can move while the servo does not, and the policy has to learn to cope.
 4. **Sensing the model correctly.** The subtle part, and the part that is easy to get wrong: **the real encoder sits on the output side of the play**, so the simulated observations and the firmware's PD emulation must read *through* the backlash hinge (`qpos[servo] + qpos[backlash]`), not at the servo. A backlash model observed at the wrong side of the joint teaches the policy a proprioceptive signal the real robot never produces — worse than no backlash model at all.
@@ -36,7 +36,7 @@ Microduck's implementation keeps observation and action dimensions unchanged acr
 
 Fidelity-first modelling is system identification with the target moved. Classical sysID fits parameters of an assumed model to real trajectories; the actuator-fidelity move is to first choose a model *structure* rich enough to contain the real behaviour (voltage law + friction + play), and only then randomize over its parameters. Getting the structure wrong is not recoverable by better fitting or wider randomization.
 
-This is also why the approach travels well: the BAM model is a model of *a class of hobby servo*, published independently of any one robot, and reusable by anyone driving XL330s.
+This is also why the approach travels well: the [BAM](../../entities/rhoban.md) model is a model of *a class of hobby servo*, published independently of any one robot, and reusable by anyone driving XL330s.
 
 ## Related concepts
 

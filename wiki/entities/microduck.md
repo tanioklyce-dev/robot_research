@@ -95,6 +95,8 @@ That drives a **BAM M6** model of the XL330 (voltage control law, back-EMF, Coul
 - [Reachy 2](reachy.md) — the flagship manipulator
 - [mjlab](mjlab.md) — the training framework
 - [Dynamixel](dynamixel.md) — the servo lineage modeled by BAM
+- [Rhoban](rhoban.md) — LaBRI/Bordeaux lab behind BAM and `onshape-to-robot`
+- [MuJoCo Warp](mujoco-warp.md) — the GPU physics under [mjlab](mjlab.md)
 - [Onboard robot service architecture](../concepts/robotics/onboard-robot-service-architecture.md) — the patterns its runtime demonstrates
 
 ## Mentioned in

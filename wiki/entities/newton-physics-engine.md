@@ -3,7 +3,7 @@ title: Newton physics engine
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-05-10
+updated: 2026-08-27
 sources: 7
 tags: [physics-engine, gpu, openusd, usdphysics, warp, linux-foundation]
 ---
@@ -32,6 +32,7 @@ Newton's vendor-neutral governance plus its presence in both DeepMind's and NVID
 Newton is built on **NVIDIA Warp**. Warp is also what [NeuroMechFly v2](neuromechfly.md) uses (via MJWarp) to deliver its ~300× GPU speedup over the v1 codebase ([flygym GitHub](../sources/flygym-github.md)). NeuroMechFly does not depend on Newton itself, but the same GPU compute layer is being commoditized for industrial-robotics simulation *and* for biological whole-body simulation. This is a meaningful real-world data point for the [Newton + OpenUSD substrate convergence](../syntheses/simulators/newton-openusd-substrate-convergence.md) thesis: physics-layer commoditization has cross-domain pull, not just intra-robotics pull.
 
 ## Related
+- [MuJoCo Warp](mujoco-warp.md) — a component of Newton, jointly maintained by [Google DeepMind](google-deepmind.md) and NVIDIA.
 - [OpenUSD](openusd.md) — the scene/physics substrate Newton consumes and extends.
 - [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — primary integration.
 - [MuJoCo Playground](mujoco-playground.md) — secondary integration; competes with MJX as the underlying physics.

@@ -24,7 +24,7 @@ tags: [gemma4, vlm, google, multimodal, moe, edge-ai, on-device, vla-backbone-ca
 - **[Jetson Orin Nano](jetson-orin-nano.md)**: E2B + E4B; **[Jetson Thor](jetson-thor.md)** scales up; **[DGX Spark](dgx-spark.md)** runs the 31B in BF16; RTX/RTX PRO for desktop.
 - Runtimes: [Ollama](ollama.md), vLLM, llama.cpp, NVIDIA NIM. **NVFP4** 4-bit quantization for the 31B via NVIDIA Model Optimizer.
 
-## Measured on-device throughput ([LiteRT-LM card](../sources/gemma-4-e2b-model-card.md))
+## Measured on-device throughput ([LiteRT](litert.md)-LM card)
 
 E2B under LiteRT-LM, 1024 prefill / 256 decode:
 
@@ -47,6 +47,7 @@ The gap between the CPU and GPU rows on the *same* Orin Nano — ~10× prefill, 
 - [Gemma3](gemma3.md) — predecessor; [PaliGemma](paligemma.md) — earlier Gemma-based VLM.
 - [VLA models](../concepts/learning/vla-models.md) — VLM-as-System-2 pattern.
 - [DGX Spark](dgx-spark.md), [Jetson Orin Nano](jetson-orin-nano.md), [Ollama](ollama.md) — deployment substrate.
+- [LiteRT](litert.md) — the runtime behind every on-device figure above.
 
 ## Mentioned in
 - [Gemma 4 edge blog (NVIDIA)](../sources/nvidia-gemma-4-edge-blog.md) — primary source (edge/on-device angle).

@@ -36,13 +36,13 @@ Pirrone maintains a small ecosystem beyond the main repo:
 - **[Open_Duck_reference_motion_generator](https://github.com/apirrone/Open_Duck_reference_motion_generator)** (113 stars)
 - **[Open_Duck_Mini_Runtime](https://github.com/apirrone/Open_Duck_Mini_Runtime)** (154 stars)
 
-The training substrate migrated across three generations: **Isaac Gym + [AWD](https://github.com/rimim/AWD)** (v1, with sim2sim Isaac to MuJoCo) then **[MuJoCo Playground](mujoco-playground.md)** (Open_Duck_Playground) then **[mjlab](mjlab.md)** (Microduck). Actuator identification used **Rhoban's [BAM](https://github.com/Rhoban/bam)** from the start.
+The training substrate migrated across three generations: **Isaac Gym + [AWD](https://github.com/rimim/AWD)** (v1, with sim2sim Isaac to MuJoCo) then **[MuJoCo Playground](mujoco-playground.md)** (Open_Duck_Playground) then **[mjlab](mjlab.md)** (Microduck). Actuator identification used **[Rhoban](rhoban.md)'s [BAM](https://github.com/Rhoban/bam)** from the start.
 
 ## The Microduck lineage, now primary-confirmed
 
 The [Microduck launch ingest](../sources/pollen-robotics-microduck.md) recorded the Open Duck Mini connection as *likely-but-secondary*, because no Pollen primary mentions it. Two primaries now close most of that gap:
 
-- **GitHub** lists `apirrone` as **Antoine Pirrone**, company **Pollen Robotics**, *"R&D Engineer at @pollen-robotics"*, and a member of **team Rhoban**.
+- **GitHub** lists `apirrone` as **Antoine Pirrone**, company **Pollen Robotics**, *"R&D Engineer at @pollen-robotics"*, and a member of **[team Rhoban](rhoban.md)**.
 - Pirrone is a **credited author of the [Microduck launch post](../sources/pollen-robotics-microduck.md)**.
 
 A third piece closes it further. **Pollen's own repo names Pirrone's personal repo as the provenance of the shipped policies**: `policies/README.md` in [`pollen-robotics/microduck`](../sources/microduck-runtime-repo.md) states the ONNX files were *"copied from `apirrone/microduck_runtime` at commit `5f3b314`."* And Pirrone's GitHub account currently holds `microduck_app`, `microduck_sounds`, `microduck_kinematics_rs`, `microduck_pet_detect` and `microduck_maploc_rs`, pushed July–August 2026, sitting directly alongside `Open_Duck_Mini_Runtime`.

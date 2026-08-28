@@ -62,6 +62,7 @@ Microduck core team, per the launch post: **Matthieu Lapeyre**, **Antoine Pirron
 - [Reachy 2](reachy.md) · [Reachy Mini](reachy-mini.md) · [Microduck](microduck.md) — the product line
 - [LeRobot](lerobot.md) — sibling stack under the same parent
 - [mjlab](mjlab.md) — the training framework behind Microduck
+- [Rhoban](rhoban.md) — Bordeaux neighbour; shares a person, and supplied the actuator model
 
 ## Mentioned in
 

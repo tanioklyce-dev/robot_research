@@ -35,6 +35,7 @@ The naming convention in `microduck_rl` (`Mjlab-Velocity-Flat-MicroDuck`, env-cf
 
 ## Related
 
+- [MuJoCo Warp](mujoco-warp.md) — the GPU physics backend it runs on
 - [MuJoCo](mujoco.md) — the physics engine
 - [MuJoCo Playground](mujoco-playground.md) — the DeepMind equivalent
 - [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — the structural template
