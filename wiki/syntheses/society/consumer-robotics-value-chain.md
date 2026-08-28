@@ -2,7 +2,7 @@
 title: Who benefits from consumer robotics in 2026–2027 (other than NVIDIA)
 type: synthesis
 created: 2026-08-17
-updated: 2026-08-23
+updated: 2026-08-27
 tags: [economics-of-ml, consumer-robotics, value-chain, actuators, edge-compute, business-models, market-analysis, synthesis]
 ---
 
@@ -124,6 +124,21 @@ Consumer launches are therefore running **well ahead of demonstrated capability*
 Nothing in this wiki gives grounds to rule out a return wave. The [M1](../../entities/zeroth-m1.md) markets fall detection for elder safety with **no accuracy figure, no trial, and no deployment evidence**, into a demand context ([aging in place](../../concepts/robotics/aging-in-place.md)) where the reliability bar is set by safety rather than throughput.
 
 **Net:** the safest position in a consumer robotics wave is **selling parts to everyone building them**. The most valuable position — if the shipments materialize — is **serving the model the robot cannot run**. Those are not the same companies, and only the first is presently supported by evidence in this wiki.
+
+## A tier this analysis did not anticipate: the labour marketplace
+
+[Figure's Index](../../entities/figure-index.md) (Aug 2026) occupies a position none of the tiers above describe. Alongside a consumer app paying the public per uploaded video of household tasks, Figure sells the **chore service itself**: customers *"book a Creator through the app who comes to you to help with daily tasks and chores. We'll even send one to your business."* Framed explicitly as a rehearsal:
+
+> "Index is laying the groundwork for ordering robots as a service. Today, you have people coming to help clean your house; eventually, a robot will do everything for you."
+
+Three things follow that the tier analysis above should absorb:
+
+- **The data-collection instrument and the customer-facing product are the same object.** Figure is not buying data as an input to a robot business; it is *operating the service in its human form* and harvesting the observation stream. Revenue and training data come from the same transaction.
+- **It de-risks the demand question before the capability question.** The split above turns on consumer launches running ahead of demonstrated capability. A human-staffed service inverts that exposure: the service works on day one because humans do it, so Figure learns whether people will pay for in-home task completion **without needing the robot to work yet**. Nothing else in this wiki's consumer-robotics coverage separates those two risks.
+- **It is a claim on a labour market, not a component market.** The safest position identified above — selling parts to everyone — assumes the contested prize is the robot. Index's premise is that the prize is *the service the robot performs*, and that the incumbent to displace is a gig worker rather than another robot vendor.
+
+> [!note] What is unevidenced
+> Figure has published no results, no corpus size, no acceptance rate, and no unit economics for the Creator service ([announcement](../../sources/figure-index-announcement.md)). Whether the marketplace is a real business or a data-acquisition cost centre wearing one is undeterminable from what exists. It is added here because the **position** is novel and the tier framework above had no slot for it, not because it is working.
 
 ---
 

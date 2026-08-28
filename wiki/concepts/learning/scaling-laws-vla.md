@@ -2,8 +2,8 @@
 title: Scaling laws — VLAs and human data
 type: concept
 created: 2026-05-15
-updated: 2026-08-13
-sources: 13
+updated: 2026-08-27
+sources: 14
 tags: [scaling-laws, vla, human-data, egocentric, gr00t, egoscale, pretraining, xvla, cross-embodiment]
 ---
 
@@ -58,6 +58,24 @@ Two contributions that matter beyond the trend itself:
 - **What's the cross-task transfer story?** EgoScale evaluates on dexterous tabletop tasks. Does the same scaling law apply to long-horizon locomotion, navigation, or whole-body humanoid control?
 - **Does sim-data scaling follow the same law?** Cosmos / world-foundation-model lines are betting on synthetic data; if synthetic scales differently, the "where to invest next dollar" answer flips.
 
+## The thesis asserted at scale, without a curve
+
+[Figure's Index](../../entities/figure-index.md) (Aug 2026) is the largest bet yet placed on this page's thesis and contributes **nothing to it**. Figure claims an ingest rate of 43,200 hours of human video per day — enough to exceed [EgoScale](../../sources/egoscale-paper.md)'s entire 20,854 h corpus in under twelve hours — and >$1B committed over twelve months, on the stated reasoning that *"Helix gets more capable the same way every learned system does: with data."*
+
+What accompanies it: no fitted curve, no axis, no downstream number, no total corpus size, and no acceptance rate. The post's only statement about outcomes is *"the generalization results we're seeing internally are already validating this thesis, and we will be sharing more in detail on this soon."*
+
+The contrast is the useful part, and it cuts both ways:
+
+| | [EgoScale](../../sources/egoscale-paper.md) | [Index](../../entities/figure-index.md) |
+|---|---|---|
+| Human video | 20,854 h, fixed | 43,200 h/day claimed ingest |
+| Scaling law | `L = 0.024 − 0.003·ln(D)`, R² = 0.9983 | none |
+| Downstream metric | task completion 0.30 → 0.71 over 1k→20k h | none |
+| Human→robot recipe | three-stage: pretrain → aligned mid-train → post-train | unstated |
+| Released | paper + project page | Figure-exclusive |
+
+**EgoScale has the curve and the smaller corpus; Figure has the throughput and no curve.** The open question this creates is the one that matters for the whole page: EgoScale's law was fitted on a *curated research corpus* over 1k–20k hours and showed no saturation there. Whether it extends two or three orders of magnitude further, on **crowdsourced data of uncontrolled quality**, is precisely what a $1B programme is implicitly assuming and has not tested in public. A log-linear law is also a warning: `−0.003·ln(D)` means each further halving of loss costs an exponential increase in data.
+
 ## Related concepts
 - [VLA models](vla-models.md) — the model class the scaling law characterizes.
 - [Imitation learning](imitation-learning.md) — pretraining objective is human-video imitation.
@@ -75,6 +93,8 @@ Two contributions that matter beyond the trend itself:
 - The wiki's [LeWorldModel](../../entities/leworldmodel.md) JEPA line has *no* published scaling law of any kind; this is a major TBD.
 
 ## Mentioned in
+
+- [Introducing Index (Figure AI)](../../sources/figure-index-announcement.md) — the thesis asserted at ~1000× EgoScale's ingest rate with no curve.
 - [EgoScale Paper](../../sources/egoscale-paper.md)
 - [X-VLA paper](../../sources/xvla-paper.md)
 - [Welch Labs Illustrated Guide to AI, Vol I](../../sources/welchlabs-illustrated-guide-to-ai.md)

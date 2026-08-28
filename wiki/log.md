@@ -4321,3 +4321,37 @@ Both Seeed URLs defeated `WebFetch`. The **product page** is a Magento SPA whose
 - **No published tick-rate distribution.** Health reports achieved rate as a percentage of target every five minutes, and the doc concedes *"a loop running at 60% of target is alive and passing its health check."* For policies **trained at 50 Hz**, that is the number that decides whether sim-to-real holds in the field — and it is nowhere in the repo.
 - **`Skip` is right for occasional lateness, unclear for chronic.** Dropping ticks preserves the schedule but silently lowers the effective control rate the policy was trained against, with no stated threshold at which that becomes unhealthy. §3.4's rule that only *"what a release can be blamed for"* may reach the verdict cuts against adding one.
 - **Provenance gap in a public repo.** `autonomous_behavior.md` cites its governing "parity audit" as a private `claude.ai/code/artifact/…` URL — load-bearing for the port it describes, unopenable by anyone outside Pollen, and a broken reference by construction. The sibling training repo keeps its reward-design playbook in a `CLAUDE.md` *"aimed at AI coding agents working in this repo."* The output is unusually good; the record of how it was reached is partly unreadable.
+
+## [2026-08-27] ingest | Figure's Index — the biggest bet on the data thesis, announced without evidence for it
+- New source: [Introducing Index (Figure AI)](sources/figure-index-announcement.md) (published 2026-08-25)
+- New entity: [Index (Figure AI)](entities/figure-index.md)
+- New concept: [Crowdsourced robot training data](concepts/learning/crowdsourced-robot-training-data.md)
+- Updated: [Figure](entities/figure.md), [Scaling laws — VLAs and human data](concepts/learning/scaling-laws-vla.md), [Consumer-robotics value chain](syntheses/society/consumer-robotics-value-chain.md), [index](index.md)
+
+### The arithmetic that makes the announcement legible
+30 min of video per second = **1,800 h/hour = 43,200 h/day**. Against corpora already in the wiki, Index ingests [DROID](entities/droid.md) (350 h) in ~12 min, [EgoDex](entities/egodex.md) (829 h) in ~28 min, and [EgoScale](sources/egoscale-paper.md)'s entire 20,854 h human-video corpus in **~11.6 hours**.
+
+The row that reframes Figure's own history: **Helix's stated ~500 training hours, every 17 minutes.** Helix (Feb 2025) was marketed on small-data efficiency — *"<5% of typical VLA datasets."* Index is Figure quietly arguing the opposite side of the same question 18 months later.
+
+### Two numbers that do not survive checking
+- **"4.9 years of human work every day"** is 43,200 h ÷ 8,766 h/yr = 4.93 **calendar**-years of footage. Read as *work*-years at ~2,000 h it is **21.6**. The phrase is only correct under the first reading, and Figure quoted the smaller of the two.
+- **16M videos and 30 min/s do not reconcile over a 4-month stealth period.** At ~2 min/clip, 16M videos ≈ 533,000 h — which the stated rate produces in ~12 days. Sustaining the rate for 120 days would instead imply ~19 min per video. The rate is almost certainly a recent peak, and **must not be multiplied by the stealth period to estimate corpus size**. Total hours are never stated; diversity is quoted *per 1,000 hours*, which is size-invariant — so the total is absent twice over.
+
+### What is genuinely good in it
+- **Fraud is a named pipeline stage**, with *"human analysts auditing at the user level."* Every other dataset in this wiki was collected under direct supervision; paying strangers per clip makes the corpus adversarial by construction, and **the user level is the correct audit unit** because fraud is a property of behaviour over time. First appearance of this problem in the wiki, and the reason the new concept page exists.
+- The **long-tail diversity argument** is real: *"every new Creator brings an unseen environment… the kind of long-tail variation that's nearly impossible to define upfront."* A lab cannot enumerate the tail; a hundred thousand kitchens contain it.
+- Reporting diversity as a **rate per 1,000 hours** is the right instrument — it measures marginal novelty rather than total.
+
+### What is missing, and it is most of it
+- **It contains no robot data.** Phone video of humans: no action labels, no proprioception, no force, different embodiment from Figure 03. The post never addresses the human→robot gap — despite [EgoScale](sources/egoscale-paper.md) having published both a recipe and a fitted law (`L = 0.024 − 0.003·ln(D)`, R²=0.9983) for exactly this data type. A post titled *"the world's largest robot training dataset"* about a corpus with no robot in it owes the reader that paragraph.
+- **No results.** *"The generalization results we're seeing internally are already validating this thesis, and we will be sharing more in detail on this soon."* Figure has now made two major technical announcements — Helix and Index — with zero externally checkable numbers between them. No independent coverage existed two days after publication.
+- **No acceptance rate** behind five filtering stages, so the ingest rate never converts into a dataset.
+- **No diversity trend.** 373 tasks / 1,146 objects / 116 environments per 1,000 h — measured on the first thousand hours or the most recent? Constant vs decaying implies opposite conclusions about the $1B, and the figure distinguishes them not at all.
+- **$1B is "data *and compute*"**, undifferentiated. Not a $1B data commitment; should not be quoted as one.
+- **Consent, privacy, retention and data rights are not mentioned once** — for 44,000 people filming inside homes and workplaces, with bystanders, children, customers and proprietary environments in frame.
+- Also noted: embedding-threshold dedup makes a model the arbiter of novelty, and a visual embedding is least likely to encode contact dynamics, grip force and hand pose — so aggressive dedup can remove exactly the physical diversity the corpus was collected for. Neither model nor threshold is named.
+
+### The part with the widest implications is not about data
+Figure will *"send a Creator"* to do chores at your home or business, framed as the human-staffed rehearsal for *"ordering robots as a service."* The customer-facing service and the data-collection instrument are the same object, and it **separates demand risk from capability risk** — the service works on day one because humans do it, so Figure learns whether people will pay for in-home task completion without the robot working yet. Added as a tier the [consumer-robotics value chain](syntheses/society/consumer-robotics-value-chain.md) analysis had no slot for: its tiers assumed the contested prize is the robot, and Index's premise is that the prize is the service, with a gig worker as the incumbent to displace.
+
+The closing frame, stated cheerfully and without comment: *"Today, you have people coming to help clean your house; eventually, a robot will do everything for you."* Paying people to generate the data that removes the need to pay them.
