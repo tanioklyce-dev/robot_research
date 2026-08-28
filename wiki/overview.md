@@ -14,10 +14,11 @@ The wiki is a **compounding artifact**. Each new source ingest enriches the cros
 
 ## Robots for Education and Research
 
-A starter shortlist — ten platforms across the spectrum from "tabletop arm under $500" to "research-grade mobile manipulator" and "bipedal humanoid." Each entity page links to a vendor or GitHub product page near the top so you can dig into specs and pricing.
+A starter shortlist — eleven platforms across the spectrum from "$399 RL biped" and "tabletop arm under $500" to "research-grade mobile manipulator" and "bipedal humanoid." Each entity page links to a vendor or GitHub product page near the top so you can dig into specs and pricing.
 
 | Platform | Form | Price tier | Why it's on this list |
 | --- | --- | --- | --- |
+| [Microduck](entities/microduck.md) | bipedal walker (no arm) | **$399** | [Pollen](entities/pollen-robotics.md)/[Hugging Face](entities/hugging-face.md)'s 25 cm, sub-800 g RL biped (pre-orders 2026-08-27). The **only platform on this list aimed at reinforcement learning rather than imitation learning**, and the cheapest legged robot in the wiki. Ships seven trained policies plus the whole recipe that made them — [mjlab](entities/mjlab.md)/PPO training envs, a voltage-level [actuator model](concepts/learning/actuator-fidelity-sim2real.md), and an [Apache-2.0 onboard runtime](sources/microduck-runtime-repo.md) whose design docs are worth reading on their own. Learned fall-recovery makes unattended desk iteration practical. Limits: **RK3566 / 1 GB RAM** (no [VLA](concepts/learning/vla-models.md) will ever run on it), an 8×8 ToF rather than the advertised "LiDAR", no [LeRobot](entities/lerobot.md) integration, and **not** open-source *hardware*. |
 | [SO-ARM101](entities/so-arm101.md) | tabletop arm | sub-$500 | Open-source low-cost arm; default manipulator across the [LeRobot](entities/lerobot.md) ecosystem. Cheapest entry to imitation-learning data collection. |
 | [LeKiwi](entities/lekiwi.md) | mobile manipulator | sub-$1k | Open-source 3-wheel holonomic mobile manipulator from SIGRobotics-UIUC; commercial kits via [Seeed Studio](entities/seeed-studio.md). Pairs with SO-ARM101. |
 | [XLeRobot](entities/xlerobot.md) | dual-arm mobile manipulator | $660 | $660 dual-arm household robot built from two SO-ARM101s on a [LeKiwi](entities/lekiwi.md)-style base; 90% 3D-printed. Won two Embodied AI Hackathon 2025 prizes. |

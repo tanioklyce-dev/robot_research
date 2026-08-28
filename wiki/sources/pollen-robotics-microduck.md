@@ -54,7 +54,7 @@ Pricing ladder: robot **$399**; Charger pack **$39** (dual charger, 2× batterie
 > The press kit carries an explicit press instruction: *"The open-source statement covers the **software stack**. The mechanical and electronic design files are **not**, so please do not describe the robot as open-source hardware."* But the `microduck_rl` README's license section says: *"**Hardware design files are licensed under Creative Commons BY-SA-NC**."* These are two Pollen primaries published the same week. The most likely reconciliation: design files *are* published under **CC BY-SA-NC**, whose **non-commercial** clause disqualifies them from "open-source hardware" as OSHWA defines it, and the press kit is guarding against press shorthand rather than denying publication. Unresolved as stated; treat "open-source hardware" as **not claimable** and "design files available, non-commercial" as **probable**.
 
 > [!note] 15 motors or 14?
-> Every marketing surface says **15 motors**. The RL repo's joint layout enumerates **14 servos** (0–4 left leg: hip_yaw / hip_roll / hip_pitch / knee / ankle; 5–8 neck+head: neck_pitch / head_pitch / head_yaw / head_roll; 9–13 right leg) and the backlash model adds play "in series with each of the **14** servo joints." The fifteenth is almost certainly the **beak**, which the locomotion tasks don't actuate and so never enters the shared observation contract. Not a contradiction so much as marketing counting the gripper and the RL stack not needing to.
+> Every marketing surface says **15 motors**. The RL repo's joint layout enumerates **14 servos** (0–4 left leg: hip_yaw / hip_roll / hip_pitch / knee / ankle; 5–8 neck+head: neck_pitch / head_pitch / head_yaw / head_roll; 9–13 right leg) and the backlash model adds play "in series with each of the **14** servo joints." The fifteenth is the **beak** — confirmed by the [runtime docs](microduck-runtime-repo.md): *"joints exclude the mouth throughout; actions map back into 15 motor slots with index 9 left at zero."* No locomotion task actuates it, so it never enters the shared observation contract. Not a contradiction so much as marketing counting the gripper and the RL stack not needing to.
 
 ### The seven shipped behaviours (landing page)
 
@@ -108,6 +108,10 @@ And from the launch blog: **"more than 10,000"** Reachy Minis shipped since its 
 - [Dynamixel](../entities/dynamixel.md) — XL330 servos
 - [LeRobot](../entities/lerobot.md) — sibling HF robotics stack (notably *not* used here)
 
+## Companion source
+
+- [`pollen-robotics/microduck` — the onboard runtime](microduck-runtime-repo.md) — the code and design docs behind every runtime claim above.
+
 ## Concepts touched
 
 - [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md)
@@ -117,8 +121,11 @@ And from the launch blog: **"more than 10,000"** Reachy Minis shipped since its 
 
 ## Open questions
 
+> [!note] Several of these were answered the same day
+> The [onboard runtime repo](microduck-runtime-repo.md) was ingested immediately after this page and settles the motor count, the perception path and the compute ceiling. It also shows that **policies on the Hub is a roadmap item (M8), not a shipped feature** — today every policy ships inside the daemon artifact, and `robotd` has no way to swap an ONNX session under a running 50 Hz loop.
+
 - **Why is Microduck not a [LeRobot](../entities/lerobot.md) platform?** Both Pollen and LeRobot are Hugging Face. LeRobot natively supports [Reachy 2](../entities/reachy.md) and has RL implementations (HIL-SERL, [TD-MPC](../entities/td-mpc.md)). Microduck instead ships its own Rust runtime + mjlab stack with no LeRobot dependency visible. Deliberate separation of the IL-manipulation stack from the RL-locomotion stack, or just a team that shipped what it already had? The `microduck_rl` repo predates the product repo by eight months (created 2025-12-06 vs 2026-07-29), which favours the second reading.
-- **What runs the camera and the ToF?** Every shipped behaviour in the RL repo is proprioceptive — the 61-dim observation is proprioception plus commands, with no visual input. So the camera, the 8×8 ToF and the NFC antennas are used by *something else* (the "follow a laser dot" and "react to its surroundings" behaviours), through a path the RL repo doesn't document. The vision stack is undescribed at launch.
-- **Can an RK3566 with 1 GB RAM run anything larger than an MLP?** A 50 Hz ONNX policy loop is comfortable. A [VLA](../concepts/learning/vla-models.md) is not remotely possible on this compute. Microduck is therefore a locomotion-RL platform that structurally cannot host the wiki's dominant policy class — an interesting counterexample to the assumption that consumer robots converge on VLA-capable compute.
+- ~~**What runs the camera and the ToF?**~~ **Answered** by the [runtime repo](microduck-runtime-repo.md), ingested the same day: depth is its own daemon (`tofd`) publishing the 8×8 matrix on its own socket; the camera lives in `mediad` with perception beside it; a `yolo11n` duck detector runs on the RK3566's **0.8 TOPS NPU** at p50 25.7 ms. But the autonomous brain that would consume any of it is **unported and has no design doc**, and no IPC yet exposes a camera frame at all.
+- **Can an RK3566 with 1 GB RAM run anything larger than an MLP?** Partly answered: **yes, small vision** — a quantised `yolo11n` at 320×320 costs 3.9 MB and ~26 ms on the 0.8 TOPS NPU ([runtime repo](microduck-runtime-repo.md)). A [VLA](../concepts/learning/vla-models.md) remains impossible. Microduck is a locomotion-RL platform that structurally cannot host the wiki's dominant policy class — an interesting counterexample to the assumption that consumer robots converge on VLA-capable compute.
 - **Spec sheet is explicitly provisional.** Press kit: *"Camera resolution and field of view, LiDAR range, radio versions and SDK languages are still being finalised — and so is any age recommendation."* Re-check at ship.
 - Pre-orders opened the day of this ingest; **no independent reviews, no delivered units, no third-party verification of any number here**. Everything above is vendor-stated or vendor-published code.

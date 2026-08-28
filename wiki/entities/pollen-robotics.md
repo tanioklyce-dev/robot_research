@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-09
 updated: 2026-08-27
-sources: 5
+sources: 6
 tags: [pollen-robotics, france, bordeaux, hugging-face, open-source, humanoid, reachy, microduck, embodied-ai]
 ---
 
@@ -40,6 +40,17 @@ Notably, Pollen's robots do **not** all run [LeRobot](lerobot.md), despite shari
 - **Microduck** ships its own Rust runtime plus an [mjlab](mjlab.md)/PPO training stack with no LeRobot dependency. Its RL repo predates the product repo by eight months.
 
 The apparent split is **imitation-learning manipulation (LeRobot)** vs **RL locomotion (mjlab)** — two different problem classes with two different tool lineages, kept separate rather than forced together. Flagged as an open question on the [Microduck source page](../sources/pollen-robotics-microduck.md).
+
+## Engineering practice, as far as it is visible
+
+The [Microduck runtime repo](../sources/microduck-runtime-repo.md) is unusually legible for a consumer-robot vendor: **Apache-2.0, 19 Rust crates, and ~10,700 lines of design prose** that record rejected alternatives with measured numbers rather than describing the code that exists. The team publishes its roadmap, its "not doing, on purpose" list, and its own unresolved questions.
+
+Two habits worth naming because most vendors have neither:
+
+- **Benchmarks argue against themselves.** The NPU write-up flags that its own CPU-per-frame figure *"is not the NPU's cost, and the way it is reported invites reading it as one."*
+- **Detector bias is stated with its direction.** The predictive fall detector is tuned late on purpose, because *"a false positive is a fall the robot **caused**."*
+
+Against that: the docs cite a load-bearing "parity audit" as a private `claude.ai/code/artifact/…` URL nobody outside Pollen can open, and the sibling training repo keeps its reward-design playbook in a `CLAUDE.md` *"aimed at AI coding agents working in this repo."* The output is good; the provenance of a public repo is partly unreadable.
 
 ## People
 

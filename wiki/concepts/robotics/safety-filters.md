@@ -2,8 +2,8 @@
 title: Safety filters for learned policies
 type: concept
 created: 2026-08-16
-updated: 2026-08-16
-sources: 4
+updated: 2026-08-27
+sources: 5
 tags: [safety-filter, control-barrier-functions, reachability-analysis, path-consistency, out-of-distribution, diffusion-policy, constraint-enforcement, iso-ts-15066, runtime-safety, human-robot-interaction]
 ---
 
@@ -74,6 +74,24 @@ Path-consistent reachability filtering is the corner PACS occupies, and its enab
 >
 > A deployed system needs both, and nothing in this wiki's corpus runs both at once.
 
+## A shipped counterpoint: the filter as a floor, not an arbiter
+
+Every instance above is a research filter that *decides* — it takes the policy's action and emits the nearest certifiably-safe one. [Microduck](../../entities/microduck.md)'s shipped safety layer ([runtime repo](../../sources/microduck-runtime-repo.md)) is built on the opposite premise, and the contrast is instructive because this one is in production on a consumer robot.
+
+**What it enforces is deliberately tiny**: refuse non-finite targets (a `NaN` is refused, not clamped), clamp to *actuator* range — explicitly not per-joint anatomical limits — and a deadman that zeroes velocity when intents stop arriving. Note the deadman's semantics: *"stop is not limp… losing comms makes the robot **stand still**, because standing is the safe state for a biped."*
+
+**What it refuses to enforce is the interesting part.** Fall detection runs every tick and is *published, not enforced*: a fallen robot is enabled, driven and sent skills exactly as an upright one is. Earlier revisions had a fall-limp gate and an auto-stand-up **inside** the safety layer, and both were deleted:
+
+> "A safety rule that recovery has to bypass in order to work is not one."
+
+Two structural properties make that safe rather than reckless:
+
+- **The layer is unbypassable by construction.** It owns the only motor-bus write handle, so *"the borrow checker is the enforcement"* — nothing above it *can* command a motor, including the fall-recovery sequence, which reaches the actuators through the same clamp as everything else. There is no exemption and no back door.
+- **The judgment moved up, not away.** Predictive fall mitigation (a second detector on gravity's *rate*, `ġ = −ω × g`, extrapolated ~0.3 s) runs above the filter and takes the robot away from the policy during a fall — but it proposes targets like any other client.
+
+> [!note] This bears on the page's own finding
+> The finding above is that **path consistency** predicts whether a filter destroys the policy. Microduck's design suggests a prior question: *how much should the filter be deciding at all?* A minimal floor cannot be path-inconsistent because it almost never intervenes — and everything the robot needs in order to recover is free to live above it. Whether that scales to a filter with a real guarantee (CBF, reachability) is untested; those exist precisely to intervene. But it is a reminder that the deployed answer to "learned policies have no safety property" is currently **clamp, refuse NaN, deadman, and put the cleverness elsewhere**.
+
 ## Related concepts
 
 - [Prevention, detection, intervention](../../syntheses/platforms/prevention-detection-intervention.md) — the synthesis this page is layer 1 of.
@@ -94,6 +112,8 @@ Path-consistent reachability filtering is the corner PACS occupies, and its enab
 - [Safely learning dynamical systems](../../sources/safely-learning-dynamical-systems-paper.md) — the adjacent formal line: certificates for safe *exploration*, linear/polynomial systems only.
 
 ## Mentioned in
+
+- [`pollen-robotics/microduck` — the onboard runtime](../../sources/microduck-runtime-repo.md) — the shipped minimal-floor counterpoint; the safety layer that gates nothing it does not have to.
 
 - [PACS paper](../../sources/pacs-paper.md)
 - [OSCBF paper](../../sources/oscbf-paper.md)
