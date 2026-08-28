@@ -3,7 +3,7 @@ title: Humanoid platforms survey
 type: synthesis
 created: 2026-05-08
 updated: 2026-08-28
-tags: [humanoids, hardware, comparison, list, bipedal, education, research, figure-03, manufacturing]
+tags: [humanoids, hardware, comparison, list, bipedal, education, research, figure-03, manufacturing, wheeled-base, walden-robotics, form-factor]
 ---
 
 # Humanoid platforms survey
@@ -11,7 +11,7 @@ tags: [humanoids, hardware, comparison, list, bipedal, education, research, figu
 Companion to [Robot platforms — comparison](robot-platforms-comparison.md) focused specifically on **humanoids**. Drives 2026 industry attention disproportionate to academic ingest in this wiki — most humanoid work is closed-development (Tesla, Atlas) or vendor-published (Figure, 1X), so the academic + open-source bias of the rest of the wiki under-represents this category. This page is a **list-with-comparison** to anchor future ingests.
 
 > [!note] Coverage caveat
-> Most entity pages referenced here are stubs filed from general knowledge. Exceptions with primary sources: [Agile ONE](../../entities/agile-one.md) and [EngineAI T800](../../entities/engineai-t800.md) (added 2026-07-16), and **[Figure 03](../../entities/figure-03.md)**, which as of 2026-08-28 is backed by six Figure primaries (announcement, product page, battery, Helix 02, production ramp, BMW). Treat the remaining specs as orientation, not citation.
+> Most entity pages referenced here are stubs filed from general knowledge. Exceptions with primary sources: [Agile ONE](../../entities/agile-one.md) and [EngineAI T800](../../entities/engineai-t800.md) (added 2026-07-16), and **[Figure 03](../../entities/figure-03.md)**, which as of 2026-08-28 is backed by six Figure primaries (announcement, product page, battery, Helix 02, production ramp, BMW). Treat the remaining specs as orientation, not citation. **[Walden](../../entities/walden-robotics.md)** is the opposite case — well-sourced reasoning, *zero* published specifications.
 
 ## At a glance
 
@@ -25,6 +25,7 @@ Companion to [Robot platforms — comparison](robot-platforms-comparison.md) foc
 | [1X NEO](../../entities/1x-neo.md) | Research / household (closed) | 1X Technologies | ~1.65 m | Pre-orders ~$20k+ | OpenAI-aligned FM |
 | [Apptronik Apollo](../../entities/apptronik-apollo.md) | Research / industrial | Apptronik | ~1.73 m | Industrial pilots | NVIDIA-aligned ([GR00T](../../entities/nvidia-groot.md)) |
 | [Digit](../../entities/digit.md) | Industrial (deployed) | Agility Robotics | ~1.75 m | Pilot pricing | Narrow-task BC |
+| **[Walden](../../entities/walden-robotics.md)** (unnamed) | Industrial (deployed) | Walden Robotics (Cambridge MA) | **wheeled — no legs** | Selling; undisclosed | [LBMs](../../concepts/learning/large-behavior-models.md) + [Diffusion Policy](../../entities/diffusion-policy.md) |
 | [Unitree H1](../../entities/unitree-h1.md) | Affordable research | Unitree Robotics | ~1.8 m | ~$90k starter | Open SDK, user-supplied AI |
 | [Unitree G1](../../entities/unitree-g1.md) | Affordable research / educational | Unitree Robotics | ~1.32 m | ~$16k starter | Open SDK, user-supplied AI |
 | [NAO V6](../../entities/nao.md) | Educational | SoftBank / Aldebaran | ~58 cm | ~$8–15k | Choregraphe + Python/C++ |
@@ -46,6 +47,40 @@ The **flagship-capability tier** — Atlas (parkour, dexterous manipulation), Te
 
 ### Affordable research humanoids (Unitree H1, G1)
 The **price-floor tier**. [H1](../../entities/unitree-h1.md) at ~$90k and [G1](../../entities/unitree-g1.md) at ~$16k are the only humanoids cheap enough for individual research labs to acquire without specialized funding. Open SDKs, user-supplied AI. Rapid 2024–2026 academic adoption for locomotion / RL papers.
+
+### Wheeled "humanoids" — the counterargument tier (Walden)
+
+*Added 2026-08-28 from [IEEE Spectrum](../../sources/ieee-spectrum-walden-practical-humanoids.md).*
+
+**[Walden Robotics](../../entities/walden-robotics.md)** — the [TRI](../../entities/tri.md) spinout led by **[Russ Tedrake](../../entities/russ-tedrake.md)**, launched July 2026 with $300M at a $1.1B valuation — builds a **humanoid torso with two arms and simple two-finger grippers on a large wheeled base**. It belongs in a humanoid survey precisely because it is the sharpest argument in this wiki that **the legs are the optional part**.
+
+Tedrake's framing, and the reason it carries weight:
+
+> *"It's ironic. **I thought about legs for 20 years; that's the class I teach at MIT.** There are many reasons to build a robot with legs. But the question is, **what's the addressable market? And what percentage of it is covered by a wheeled base?**"*
+
+He taught legged locomotion at MIT, led Team MIT's biped in the DARPA Robotics Challenge, and wrote the canonical course. The argument **costs him something**, which is more than can be said for most form-factor advocacy.
+
+**Three advantages, and the first is not mechanical:**
+
+1. **Inherit the safety case.** *"Factories already have autonomous mobile [wheeled] robots. They already have safety cases built around AMRs. **You can piggyback on that.**"* This is regulatory arbitrage. A statically stable wheeled machine slots into paperwork factories already have; a legged humanoid needs a case nobody has written. That is **years of calendar time** no locomotion research buys.
+2. **It cannot fall over.** Static stability bypasses "the safety challenges that are currently keeping legged humanoids physically separated from real humans."
+3. **The base is a battery compartment.** Mass low in the base aids stability *and* "solves the problem of running out of power during the middle of the workday" — the constraint that gives [Figure 03](../../entities/figure-03.md) a 5-hour day on 2.3 kWh.
+
+**And simple grippers over five-fingered hands**, on durability rather than capability: *"at the end of the week, the hands take a beating, so we built hands that can take that. **I have not seen a more dexterous hand that could have done the work our hand has done.**"*
+
+> [!note] Figure vs Walden is a natural experiment, running with no readout
+> Both are deployed in **automotive plants doing parts handling**. [Figure 03](../../entities/figure-03.md) argues at BMW that its sequencing task is *"structurally infeasible to solve with traditional, fixed automation or six-axis robotic arm"* ([F.03 at BMW](../../sources/figure-03-at-bmw.md)). Walden argues a wheeled base covers the addressable market and is deployed at a Toyota plant. **Neither publishes throughput, cycle time, or success rate**, so nothing adjudicates between them. Treat *"do factory tasks need legs?"* as genuinely open, with a well-argued case on each side and no data on either.
+>
+> The honest read of Figure's own BMW description: the **cart-pulling** is the one part of that workload that clearly wants a torso and body weight. The precise picking of thin-walled parts does not obviously want legs.
+
+> [!note] Two opposite answers to the same regulatory problem
+> [Figure](../../entities/figure.md) went to an OSHA NRTL to **create** a UL 2271 humanoid-battery standard because none existed ([F.03 battery](../../sources/figure-f03-battery.md)). Walden **inherits** the AMR safety case factories already run. Both are coherent strategies. Walden's is faster to deploy; Figure's is a moat if the standard it helped write becomes the standard everyone must meet. See [robot safety standards](../../concepts/robotics/robot-safety-standards.md).
+
+> [!warning] Walden publishes no specifications whatsoever
+> No height, weight, payload, reach, DOF, sensors, battery, runtime, compute, price — or even a robot name. Payload appears only as *"chonky design… meets the high-payload requirements."* Robot count and tasks are confidential. This page's table row is mostly blanks for that reason. **The thesis is the best-documented in the tier; the machine is the worst.**
+
+> [!note] Category note — is this a humanoid?
+> Under a strict bipedal definition, no. Under the definition the market actually uses — *human-height, two-armed, human-workspace-shaped, sold as general-purpose* — yes, and IEEE Spectrum files it under Humanoid Robots. It sits alongside [Stretch](../../entities/stretch.md) and the wheeled mobile-manipulator lineage in [Robot platforms — comparison](robot-platforms-comparison.md). Keeping it here is deliberate: a humanoid survey that excludes the strongest argument against humanoid legs is not a survey, it is a catalogue.
 
 ### Educational humanoids (NAO, TonyPi, Pepper, Robotis OP3)
 The **pedagogy tier**. [NAO](../../entities/nao.md) is the canonical platform since 2008. [TonyPi](../../entities/tonypi.md) occupies a much-cheaper-still hobbyist / classroom kit niche from [Hiwonder](../../entities/hiwonder.md) (same vendor as [ROSOrin Pro](../../entities/rosorin-pro.md)). Robotis OP3 / DARwIn-MINI (no entity pages here) and Pepper (no entity page) round out the niche.
@@ -115,14 +150,23 @@ Not as a purchase — it isn't one. As the tier's clearest worked example of thr
 ### A fourth axis, visible only since 2026: design-for-manufacture
 Added 2026-08-28. The archetypes above sort platforms by *AI strategy*; [Figure 03](../../entities/figure-03.md) makes clear there is an orthogonal axis that sorts them by **whether the robot was designed around a production process at all**. Figure 02 → 03 is an explicit move from CNC machining to die-casting/stamping/injection moulding, and [BotQ](../../entities/botq.md) is the first humanoid facility in this survey to publish yields, cycle time and unit counts. Unitree has volume and price but publishes no process detail; everyone else in the closed tier builds prototypes. **On current public evidence this is the widest moat in the humanoid tier, and it is not an AI moat.**
 
+### A fifth axis: how the safety case gets solved
+Added 2026-08-28. Every humanoid aimed at shared human space eventually hits the same wall — **there is no established safety regime for a 60+ kg machine that can fall on someone**. The wiki now has both available answers, taken by serious companies:
+
+- **Inherit one** — [Walden](../../entities/walden-robotics.md) drops the legs, becomes statically stable, and piggybacks on the AMR safety cases factories already run. Fast, and it forecloses stairs.
+- **Write one** — [Figure](../../entities/figure.md) worked with an OSHA NRTL to create a UL 2271 humanoid-battery standard because none existed. Slow, and it becomes a moat if it sticks.
+
+Nobody in the affordable or educational tiers is doing either, which is worth noticing: **the safety-case problem is currently being solved only by companies selling into industry**, and it is the same problem that gates in-home deployment. See [robot safety standards](../../concepts/robotics/robot-safety-standards.md) and [assistive robotics](../../concepts/robotics/assistive-robotics.md).
+
 ### Geographic clustering
-- **US / North America**: Atlas (US, Hyundai-owned), Tesla, Figure, Apptronik, Agility, 1X (Norway-US dual).
+- **US / North America**: Atlas (US, Hyundai-owned), Tesla, Figure, Apptronik, Agility, **Walden (Cambridge MA, Toyota-backed)**, 1X (Norway-US dual).
 - **China**: Unitree (H1, G1), [AGIBOT](../../entities/agibot.md) (humanoid line not separately filed), Fourier (GR-1, GR-2), LimX (CL-2), Booster Robotics (T1) — collectively a **rapidly growing affordable-humanoid cluster**.
 - **Europe**: Aldebaran/SoftBank NAO (France), PAL Robotics (Spain), Engineered Arts (UK), **[Agile Robots](../../entities/agile-robots.md) (Germany)** — the DLR-spinout [Agile ONE](../../entities/agile-one.md) is the first serious *European industrial* humanoid entrant, betting on integration-into-a-stack rather than a standalone unit.
 - **Japan**: AIST HRP series, Toyota T-HR3, Kawasaki Kaleido — historically strong but lower visibility in 2024–2026 vs the US-China dynamic.
 
 ### Price stratification (2026)
 - **Internal-only tier**: Atlas, Optimus, **Figure 03** (vendor doesn't sell — Figure has built 350+ and priced none).
+- **Selling, price undisclosed**: **Walden** — has customers and a Toyota deployment, publishes no price.
 - **$50k–$100k tier**: H1, Apollo (limited availability).
 - **$15k–$25k tier**: G1, NEO Beta.
 - **$8k–$15k tier**: NAO V6.
@@ -153,8 +197,9 @@ The ingested literature skews toward **academic JEPA / VLA / world-model work** 
 
 ## Sources used in this synthesis
 
-- Per-platform entity pages: [Atlas](../../entities/atlas.md), [Tesla Optimus](../../entities/tesla-optimus.md), [Figure](../../entities/figure.md) / [Figure 03](../../entities/figure-03.md) / [Helix](../../entities/helix.md) / [BotQ](../../entities/botq.md), [1X NEO](../../entities/1x-neo.md), [Apptronik Apollo](../../entities/apptronik-apollo.md), [Digit](../../entities/digit.md), [Unitree H1](../../entities/unitree-h1.md), [Unitree G1](../../entities/unitree-g1.md), [NAO](../../entities/nao.md), [TonyPi](../../entities/tonypi.md).
+- Per-platform entity pages: [Walden Robotics](../../entities/walden-robotics.md), [Atlas](../../entities/atlas.md), [Tesla Optimus](../../entities/tesla-optimus.md), [Figure](../../entities/figure.md) / [Figure 03](../../entities/figure-03.md) / [Helix](../../entities/helix.md) / [BotQ](../../entities/botq.md), [1X NEO](../../entities/1x-neo.md), [Apptronik Apollo](../../entities/apptronik-apollo.md), [Digit](../../entities/digit.md), [Unitree H1](../../entities/unitree-h1.md), [Unitree G1](../../entities/unitree-g1.md), [NAO](../../entities/nao.md), [TonyPi](../../entities/tonypi.md).
 - Adjacent ingested context: [GR00T](../../entities/nvidia-groot.md) (NVIDIA's VLA targeting humanoids), [AGIBOT](../../entities/agibot.md) (Chinese embodied-AI company with humanoid line), [substrate-convergence synthesis](../simulators/newton-openusd-substrate-convergence.md) (notes on closed industrial stacks).
+- **Walden (added 2026-08-28):** [Walden Robotics Partners With Toyota on Practical Humanoids (IEEE Spectrum)](../../sources/ieee-spectrum-walden-practical-humanoids.md) · [Walden Robotics — Launch from Stealth](../../sources/walden-robotics-launch.md).
 - **Figure primaries (added 2026-08-28):** [Introducing Figure 03](../../sources/figure-03-announcement.md) · [Figure 03 product page](../../sources/figure-03-product-page.md) · [F.03 Battery Development](../../sources/figure-f03-battery.md) · [Introducing Helix 02](../../sources/figure-helix-02.md) · [Ramping Figure 03 Production](../../sources/figure-ramping-03-production.md) · [F.03 Arrives at BMW](../../sources/figure-03-at-bmw.md).
 
 ## Related

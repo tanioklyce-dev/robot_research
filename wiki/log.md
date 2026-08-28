@@ -4556,3 +4556,27 @@ Follow-up to the Figure 03 ingest, chasing the question [Index](entities/figure-
 - Consent and occupancy in Brookfield residential units, unaddressed in both posts. The landlord's consent is not the tenant's.
 - Did Go-Big's navigation policy survive into [Helix 02](sources/figure-helix-02.md)? Never addressed.
 - Not ingested: BotQ announcement (2025-03-15), Series C (2025-09-16), Catalyst Brands (2026-05-26), the Helix demo posts.
+
+## [2026-08-28] ingest | Walden Robotics — the humanoid tier's counterargument
+Researched [Walden Robotics](entities/walden-robotics.md)'s robot for the humanoid survey. The company was already filed from its July launch, but hardware was an explicit open question there — IEEE Spectrum has since resolved it.
+
+**New source page**
+- [Walden Robotics Partners With Toyota on Practical Humanoids (IEEE Spectrum)](sources/ieee-spectrum-walden-practical-humanoids.md) (2026-08-03, Evan Ackerman) — independent reporting, not a vendor post.
+
+**Updated**
+- [Walden Robotics](entities/walden-robotics.md) — "The robot" section; **resolves the standing hardware open question**.
+- [Humanoid platforms survey](syntheses/platforms/humanoid-platforms-survey.md) — **the requested deliverable.** New "wheeled humanoids — the counterargument tier," at-a-glance row, geographic and price-tier entries, and a **fifth strategic axis: how the safety case gets solved**.
+- [index.md](index.md)
+
+**The finding**
+- Walden builds a **humanoid torso with two arms and two-finger grippers on a large wheeled base — no legs.** [Tedrake](entities/russ-tedrake.md): *"It's ironic. I thought about legs for 20 years; that's the class I teach at MIT… what's the addressable market? And what percentage of it is covered by a wheeled base?"*
+- > [!note] **The sharpest of the three wheel arguments is regulatory, not mechanical.** *"Factories already have safety cases built around AMRs. You can piggyback on that."* A statically stable machine slots into paperwork that already exists; a legged humanoid needs a case nobody has written. That is years of calendar time no locomotion research buys.
+- **Two opposite answers to the same problem, both now filed**: Walden **inherits** the AMR safety regime; [Figure](entities/figure.md) **wrote** a UL 2271 humanoid-battery standard with an OSHA NRTL because none existed. Faster vs. moat.
+- **A natural experiment with no readout**: both companies do parts handling in car plants (Toyota vs BMW), argue opposite form factors, and **neither publishes throughput, cycle time or success rate**. "Do factory tasks need legs?" stays open.
+- Grippers chosen on durability over dexterity: *"at the end of the week, the hands take a beating… I have not seen a more dexterous hand that could have done the work our hand has done."*
+
+**Caveat recorded**
+- > [!warning] Walden publishes **no specifications of any kind** — no height, weight, payload, reach, DOF, sensors, battery, compute, price, or robot name. Payload is only *"chonky design… high-payload requirements."* The thesis is the best-documented in the tier; the machine is the worst. Mirror image of Figure, which publishes manufacturing numbers and no AI numbers.
+
+**Open questions raised**
+- Every actual number; is the base holonomic; does the torso have a lift axis (the [Stretch](entities/stretch.md) axis); how much remote human assist is in the loop; robot count and tasks at Toyota (confidential).
