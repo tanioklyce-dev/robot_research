@@ -1,7 +1,10 @@
 ---
 title: "Hello Robot Stretch 4 Datasheet (Rev 5, As Launched)"
 type: source
-url: https://hello-robot.com/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf
+url: https://hello-robot.com/stretch-4/
+fetch_url: https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf
+url_superseded: https://hello-robot.com/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf
+url_rechecked: 2026-08-29
 local_path: raw/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf
 sha256: fb3c5d9150b54d7240aaa46639d1ff7782f41edeb36daa879057af2a47261e81
 author: Hello Robot, Inc.
@@ -9,6 +12,11 @@ published: 2026-05-12
 ingested: 2026-05-25
 tags: [stretch, stretch-4, hello-robot, datasheet, primary-source, mobile-manipulator, hesai-lidar, luxonis, jetson-orin-nx, feetech]
 ---
+
+> [!note] The datasheet moved (2026-08-29) — same file, new URL
+> The original root-level URL now returns **404**. Hello Robot relocated the PDF under `/wp-content/uploads/2026/05/`; `fetch_url` points there, and `url` now points at the Stretch 4 product page as the stabler landing target.
+>
+> **Nothing on this page changes.** The relocated file's SHA-256 is **identical** to the sealed hash of the archived copy in `raw/`, so this is confirmed link rot rather than a revision — every spec below stands on exactly the same bytes. Caught by `scripts/check_source_drift.py --check`, which reports link rot separately from drift because a moved file and a changed file need different responses.
 
 > [!note] Provenance
 > The [Stretch 4 launch source](hello-robot-stretch-4-launch.md) ingested 2026-05-17 explicitly flagged this PDF as **404 at the time** and asked the user to "drop it in `raw/` if it surfaces." It has now surfaced — Rev 5, "As Launched" — and is the canonical Stretch 4 spec sheet. This source page is the **datasheet-confirmed** layer; the launch page remains the canonical narrative + pricing reference.

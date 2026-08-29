@@ -39,8 +39,13 @@ wiki/Untitled.canvas
 # excluded to keep the repo (and the slow pushes) smaller. Each one has its
 # dedup rationale recorded in wiki/log.md.
 #
-# arXiv v4 of the Cosmos 3 technical report (2026-06-24, 28 MB). Full-text
-# diffed against the archived raw/technical-report.pdf (2026-06-01): identical
-# structure, byte-identical headline figures, delta is one figure + one citation
-# + a one-page reflow. See sources/cosmos-3-technical-report.md.
+# arXiv v4 of the Cosmos 3 technical report (2026-06-24, 28 MB).
+#
+# NOTE (2026-08-29): the rationale that first put this line here was WRONG. The
+# 2026-07-21 hand diff concluded v4 was "no substantive change" against the
+# 2026-06-01 lab PDF. It is not — v4 adds MolmoSpaces as a third policy benchmark
+# and strengthens a generality claim. The equivalent content is now committed as
+# raw/cosmos3-technical-report-2026-06-22.pdf (the lab edition, same content), so
+# this arXiv-hosted duplicate stays excluded on genuine dedup grounds rather than
+# on the false premise. See the Edition history on sources/cosmos-3-technical-report.md.
 raw/2606.02800v4.pdf

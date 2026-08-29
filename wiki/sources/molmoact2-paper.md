@@ -69,6 +69,9 @@ The wiki carried no repo identifiers for this paper. Code: **`github.com/allenai
 **Headline results (§6)**
 - **[LIBERO](../entities/libero.md):** MolmoAct2 **97.2%** avg, MolmoAct2-Think **98.1%** — the top scores, above [π0.5](../entities/pi-zero-6.md) (96.9), [GR00T N1.7](../entities/nvidia-groot.md) (97.0), and **+10.6 over the predecessor MolmoAct-7B-D** (86.6). 100% on LIBERO-Object.
 - **Zero-shot / out-of-the-box (DROID embodiment):** SOTA on the MolmoSpaces & MolmoBot sim benchmarks; **real-world DROID 87.1%**, beating runner-up MolmoBot by **+38.7 points**, all under random camera init and novel objects/scenes.
+
+> [!warning] This MolmoSpaces claim is now contested
+> [Cosmos 3](cosmos-3-technical-report.md)'s **June 2026 revision** reports Cosmos3-Nano-Policy-DROID **#1 on the MolmoSpaces leaderboard as of 2026-06-20** (39.0% oracle success, *All Combined*), with no benchmark-specific tuning. Different date and different setting from the zero-shot DROID claim above, so not a direct contradiction — but both cannot be the standing top result without specifying which setting. Note also that **MolmoSpaces is authored by this paper's own group**, so the SOTA claim above is a benchmark's authors reporting on their own benchmark.
 - **SO-100 real-world zero-shot:** **56.7%**, +11.4 over an in-house π0-SO100/101 — affordable deployment on low-cost robots.
 - **RoboEval** (fine-tuned): **44.3%**, +3.8 over π0.5; also produces **shorter, smoother, more stable trajectories** (e.g. ~2× shorter joint path length on Stack Two Blocks).
 - **Real-world YAM (8 in-the-wild tasks, 50 trials each):** **50.1%** avg, **+15 over OpenVLA-OFT** — wins 7 of 8 tasks spanning kitchen, study room, pantry, wet labs, and mobile manipulation.

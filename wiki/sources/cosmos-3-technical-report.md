@@ -4,13 +4,17 @@ type: source
 url: https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf
 arxiv: https://arxiv.org/abs/2606.02800
 author: NVIDIA (lead supervision Ming-Yu Liu; 55+ contributors, Appendix G)
-published: 2026-06-01 (lab PDF; arXiv v4 dated 2026-06-24)
-ingested: 2026-06-02 (arXiv v4 diffed 2026-07-21 — no substantive change)
-local_path: raw/technical-report.pdf
-sha256: 8002cc0ada931a3cb20e58a7db3c27b851b87bf6301c1541280424e189a70549
+published: 2026-06-01 (lab PDF, first edition)
+revised: 2026-06-22 (current lab PDF; matches arXiv v4, 2026-06-24)
+ingested: 2026-06-02
+rechecked: 2026-08-29
+local_path: raw/cosmos3-technical-report-2026-06-22.pdf
+sha256: d8f554d76b37d8c2ba504c628d7814176d7b0383c6c3bfa9f8389decda228d6e
+local_path_superseded: raw/technical-report.pdf
+sha256_superseded: 8002cc0ada931a3cb20e58a7db3c27b851b87bf6301c1541280424e189a70549
 venue: NVIDIA Cosmos Lab technical report / arXiv:2606.02800 [cs.CV]
 license: OpenMDW-1.1 (Linux Foundation) for code/weights/datasets/benchmark
-format: PDF (138 pp.)
+format: PDF (139 pp.; superseded first edition 138 pp.)
 tags: [cosmos, world-model, omnimodal, mixture-of-transformers, world-action-model, vla, video-generation, physical-ai, nvidia, diffusion, forward-dynamics, inverse-dynamics, droid]
 ---
 
@@ -22,10 +26,37 @@ Cosmos 3 is NVIDIA's family of **omnimodal world models** that jointly process a
 
 This is a generational leap from the prior Cosmos-Predict / Cosmos-Reason / Cosmos-Transfer / Cosmos-Policy line (see [NVIDIA Cosmos](../entities/nvidia-cosmos.md)): those were separate models; Cosmos 3 subsumes them into one omni-model.
 
-> [!note] Version check — arXiv v4 vs. the ingested lab PDF (2026-07-21)
-> This page was written from the **lab-hosted PDF dated 2026-06-01** (138 pp.). The paper also exists as **arXiv:2606.02800**, whose **v4 is dated 2026-06-24** (139 pp.). The two were diffed at full text: **no substantive change.** Section structure is identical; every headline figure this page cites is byte-identical (Text2Video 80.0, Image2Video 82.8, Veo-3.1 79.1/82.6, RoboLab-120 39.7 vs 28.1, LIBERO-10 24.6 vs 0.0, the 4B/16B/64B variants, OpenMDW-1.1). The delta is **one added figure** (renumbering Figs. 28+ onward), **one added bibliography entry**, and a one-page reflow. **Nothing on this page needs revision** — recorded so the version gap isn't re-investigated later.
+> [!warning] Edition history — the 2026-07-21 "no substantive change" finding was wrong
+> **This page was originally written from the lab PDF dated 2026-06-01 (138 pp.).** The lab URL now serves a **2026-06-22 edition (139 pp.)**, which is the same content as **arXiv v4 (2026-06-24)**. Both editions are retained in `raw/`; `local_path` points at the current one.
 >
-> The v4 PDF was **deliberately not committed** to `raw/` (28 MB, ~99% identical to the archived lab PDF). Re-fetch from arXiv if ever needed; the diff conclusion above is the durable artifact.
+> On **2026-07-21** a hand diff of v4 against the first edition concluded *"no substantive change… delta = one added figure, one added bibliography entry, one-page reflow."* **That conclusion was wrong.** A re-diff on **2026-08-29** using [`scripts/check_source_drift.py`](../../scripts/check_source_drift.py) found the revision adds an **entire third policy-evaluation benchmark**:
+>
+> | | First edition (2026-06-01) | Current (2026-06-22) |
+> |---|---|---|
+> | Policy benchmarks | RoboLab + RoboArena | **RoboLab + RoboArena + [MolmoSpaces](#molmospaces--the-third-benchmark-added-in-the-june-revision)** |
+> | §4 summary claim | ranked first on RoboLab and RoboArena | ranked first on **all three** |
+> | §6.2.5 summary claim | SOTA "on both" | SOTA **"across all three benchmarks"** |
+> | Occurrences of "MolmoSpaces" | **0** | **9** (plus 2 of "MolmoBot") |
+> | Figures | — | **+Fig. 27** (MolmoSpaces leaderboard), renumbering onward |
+>
+> **Why the hand diff missed it.** Inserting a section mid-document reflows every later page, so a page-against-page comparison marks the whole remainder as changed — 81 pages, in this case. Faced with that much apparent noise the reviewer checked that the *headline figures already on this page* were unchanged (they were, and still are) and concluded nothing had moved. The failure mode is the one [`CLAUDE.md`](../../CLAUDE.md) names for secondary sources, reproduced here against a primary: **compression toward the headline drops precisely the un-headline-able part** — in this case a new benchmark and a strengthened generality claim. The current script diffs the whole token stream instead, which is why the second pass found it.
+>
+> **What did not change:** every figure this page already cited is byte-identical — Text2Video 80.0, Image2Video 82.8, Veo-3.1 79.1/82.6, RoboLab-120 39.7 vs 28.1, LIBERO-10 24.6 vs 0.0, the 4B/16B/64B variants, OpenMDW-1.1.
+
+### MolmoSpaces — the third benchmark, added in the June revision
+
+**[MolmoSpaces](https://arxiv.org/abs/2602.11337)** (Kim et al., 2026) is a simulation benchmark for generalist policies focused on **generalization under systematic, controlled variation**. Cosmos 3 evaluates on its two manipulation task sets: *MolmoSpaces Combined* (4 tasks — Pick-v1, Pick&Place-v1, Open-v1, Close-v1) and *MolmoBot Combined* (7 tasks — Pick-v1.5, Pick-v2-classic, Pick-v2-filament, Pick-v2-RandCam, Pick&Place-v2, Pick&Place-NextTo-v2, Pick&Place-Color-v2).
+
+- **As of 2026-06-20, Cosmos3-Nano-Policy-DROID ranked #1 under the *All Combined* setting at 39.0% oracle success rate** (Fig. 27), above WALL-OSS-0.5 (Zhai et al., 2025) and TiPToP (Shen et al., 2026b).
+- **The generalization claim worth noting:** NVIDIA states it submitted *"the exact same model and hyperparameters"* used for RoboLab and RoboArena, **with no benchmark-specific tuning for MolmoSpaces**. That is a stronger claim than the ranking itself — it is the cross-benchmark-without-retuning property the whole world-action-model thesis depends on.
+
+> [!note] Note the qualifier: **39.0% *oracle* success rate**
+> Not a plain success rate. Read alongside the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md) — a ±2 pp band needs ≈1,030 rollouts, and leaderboard positions at a *date* are not stable quantities.
+
+> [!warning] Competing SOTA claims on MolmoSpaces, from two directions
+> **[MolmoAct2](molmoact2-paper.md)** (Ai2 + UW, 2026-05-08) claims **zero-shot SOTA on the MolmoSpaces & MolmoBot sim benchmarks**. Cosmos 3 claims **#1 on the MolmoSpaces leaderboard as of 2026-06-20**. These are not necessarily contradictory — different dates, and MolmoAct2's claim is specifically *zero-shot / out-of-the-box on the DROID embodiment* while Cosmos 3's is the *All Combined* leaderboard setting — but they cannot both be the current top without knowing the setting.
+>
+> Also worth stating plainly: **MolmoSpaces is built by the MolmoAct2 group** (Kim et al. shares authors with the Ai2/UW line, including [Mahi Shafiullah](../entities/mahi-shafiullah.md), Farhadi, Fox, Krishna). A benchmark's authors reporting SOTA on it, and an outside lab then reporting #1 on its leaderboard, is a normal sequence — but the benchmark is not a neutral party to the first claim.
 
 ## Model architecture
 
