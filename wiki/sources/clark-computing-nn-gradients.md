@@ -6,6 +6,7 @@ author: Kevin Clark
 published: 2019-01 (Stanford CS224n 2019 reading)
 ingested: 2026-06-03
 local_path: raw/gradient-notes.pdf
+sha256: a2823e49e1a2849b1adb887c3091fe537a273aa5bbc190de117965afaac072b2
 venue: Stanford CS224n course notes
 format: PDF (7 pp.)
 tags: [backpropagation, gradients, jacobian, vectorization, chain-rule, cross-entropy, softmax, mlp, pedagogy, curriculum, module-1]

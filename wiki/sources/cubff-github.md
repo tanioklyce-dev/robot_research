@@ -3,6 +3,7 @@ title: "cubff (paradigms-of-intelligence/cubff) — GitHub"
 type: source
 url: https://github.com/paradigms-of-intelligence/cubff
 local_path: raw/cubff-github-readme.md
+sha256: 667a59ce1eaf93f413d6237db183ddc1bd072c35ec3d7a41df56957255d69cbe
 author: Google Paradigms of Intelligence Team
 published: 2024
 ingested: 2026-05-31

@@ -9,6 +9,7 @@ ingested: 2026-08-03
 venue: Waddle Labs Blog
 format: company blog post / position piece (product announcement)
 local_path: raw/2026-07-waddle-labs-introducing-waddle.md
+sha256: 10c4b15a57146ab04af60b3fb8947e0b3ac90c523b9277cc3f3002a6c4f2b1d4
 tags: [waddle, waddle-labs, code-as-policy, llm-agent, agentic-robotics, skill-library, vla, world-action-model, multi-agent, act, foundation-models, position-piece, primary-source]
 ---
 

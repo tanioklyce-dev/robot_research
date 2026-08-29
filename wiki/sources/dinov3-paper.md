@@ -3,6 +3,7 @@ title: "DINOv3 (Siméoni et al., Meta AI Research, 2025)"
 type: source
 url: https://arxiv.org/abs/2508.10104
 local_path: raw/2508.10104v1.pdf
+sha256: c68dc50b1f73e1641a592f777984fc360759e84b7fe65ac4f6e1377927f20b2e
 author: Oriane Siméoni, Huy V. Vo, Maximilian Seitzer, Federico Baldassarre, Maxime Oquab, et al.
 affiliation: Meta AI Research (+ WRI, Inria for two co-authors)
 published: 2025-08-13 (v1)

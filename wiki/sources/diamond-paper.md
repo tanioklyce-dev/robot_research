@@ -7,6 +7,7 @@ published: 2024-05 (arXiv); NeurIPS 2024 (spotlight)
 ingested: 2026-07-09
 venue: NeurIPS 2024
 local_path: raw/2405.12399v2.pdf
+sha256: 842ff972404c74ca4bac9d2f37a6d309506c19eb3f2efa3e0daf75d6abc19707
 format: paper PDF (28 pp)
 tags: [diamond, diffusion, world-model, mbrl, atari-100k, neural-game-engine, csgo, generative]
 ---

@@ -3,6 +3,7 @@ title: "HP-JEPA: Hierarchical Partitioning for Multi-Resolution Graph Joint-Embe
 type: source
 url: https://arxiv.org/abs/2608.00491
 local_path: raw/hp-jepa_2608.00491.pdf
+sha256: b1a56e94fa050fa6be75d3efca8db8eaf54793574d26c8c312642b542e8ea3fb
 author: Ruichen Xu, Jingxiang Qu, Wenhan Gao, Jiaxing Zhang, Linsey Pang, Ravid Shwartz-Ziv, Yann LeCun, Yuefan Deng
 published: 2026-08-01
 ingested: 2026-08-26

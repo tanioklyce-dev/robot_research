@@ -3,6 +3,7 @@ title: LeJEPA Paper — Provable and Scalable Self-Supervised Learning Without t
 type: source
 url: https://arxiv.org/abs/2511.08544
 local_path: raw/2511.08544v3.pdf
+sha256: fe06b5488907f56aa9682e2e2febc552d85fe761fda43f2727e65d60fbeb6485
 author: Randall Balestriero, Yann LeCun
 affiliation: Brown University + Meta-FAIR (Balestriero, equal contribution); New York University + Meta-FAIR (LeCun, equal contribution)
 published: 2025-11-11 (v1); 2025-11-14 (v3)

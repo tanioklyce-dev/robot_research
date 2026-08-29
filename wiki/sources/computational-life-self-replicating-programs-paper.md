@@ -3,6 +3,7 @@ title: "Computational Life: How Well-formed, Self-replicating Programs Emerge fr
 type: source
 url: https://arxiv.org/abs/2406.19108
 local_path: raw/2406.19108v2.pdf
+sha256: 13a775cefdadd883618a8433b60fb99a195257736769d243bb978aec3eca55b8
 code: https://github.com/paradigms-of-intelligence/cubff
 author: Blaise Agüera y Arcas, Jyrki Alakuijala, James Evans, Ben Laurie, Alexander Mordvintsev, Eyvind Niklasson, Ettore Randazzo, Luca Versari
 affiliations: Google (Paradigms of Intelligence Team); University of Chicago (Evans)

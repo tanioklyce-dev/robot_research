@@ -3,6 +3,7 @@ title: "Music-JEPA: Learning a World Model of Sound from Action"
 type: source
 url: https://arxiv.org/abs/2607.22000
 local_path: raw/music-jepa_2607.22000.pdf
+sha256: 86f5ef0dd201d34a1e216ad447846a0dbb68418c64f7f10a3abb08f1eec798ce
 author: Ziyu Wang, Kun Fang, Yann LeCun
 published: 2026-07-24
 ingested: 2026-08-26

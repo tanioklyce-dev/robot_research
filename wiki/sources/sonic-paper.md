@@ -7,6 +7,7 @@ author: Zhengyi Luo, Ye Yuan, Tingwu Wang, Chenran Li, Fernando Castañeda (co-f
 published: 2025-11 (arXiv 2511.07820; local PDF is a later 2026-05 revision)
 ingested: 2026-07-04
 local_path: raw/sonic_paper.pdf
+sha256: 333b0600f2a10e9d57e7ff88f1c91d79e28677813a52231f666833c603d5dbfc
 format: pdf (20 pp.)
 tags: [sonic, gear-sonic, whole-body-control, humanoid, loco-manipulation, motion-tracking, rl, ppo, fsq, unitree-g1, nvidia, gear, groot, sim-to-real]
 ---

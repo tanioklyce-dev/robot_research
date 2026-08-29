@@ -9,6 +9,7 @@ ingested: 2026-08-03
 venue: arXiv preprint (v2, 2026-01-06)
 format: technical report (19 pp)
 local_path: raw/2512.10675.pdf
+sha256: e8c5b3ae6584cc8efa9907eeffcd4f73dcdb10576b789f28fb588b46e46ff930
 tags: [veo, world-model, policy-evaluation, generative-simulation, gemini-robotics, red-teaming, semantic-safety, ood, google-deepmind, primary-source]
 ---
 

@@ -6,6 +6,7 @@ author: Ankit Goyal, Hugo Hadfield, Xuning Yang, Valts Blukis, Fabio Ramos (NVID
 published: 2025-10-15
 ingested: 2026-07-17
 local_path: raw/2510.13054v1.pdf
+sha256: 13517e323b3c661c7d89de05375ac04d0f904c9eda05f6fea4b2b845a55c7fa3
 venue: arXiv preprint (cs.RO), 2510.13054v1
 license: null
 format: PDF (6 pages)

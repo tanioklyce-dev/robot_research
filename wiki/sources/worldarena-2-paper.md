@@ -3,6 +3,7 @@ title: "WorldArena 2.0: Extending Embodied World Model Benchmarking on Modality,
 type: source
 url: https://arxiv.org/abs/2605.17912
 local_path: raw/2605.17912.pdf
+sha256: c712ff5fc8366d6278477a71d3f7219f07c61ccef66dcb1aa0da27f5177b5f0e
 author: Yu Shang, Yinzhou Tang, Yiding Ma, Zhuohang Li, Lei Jin, Weikang Su, Xin Jin, Zhaolu Wang, Ziyou Wang, Xin Zhang, Haisheng Su, Weizhen He, Wei Wu, Haoyi Duan, Gordon Wetzstein, Xihui Liu, Dhruv Shah, Zhaoxiang Zhang, Zhibo Chen, Jun Zhu, Yonghong Tian, Tat-Seng Chua, Wenwu Zhu, Chen Gao, Yong Li
 venue: Preprint (arXiv 2605.17912v1)
 published: 2026-05-18

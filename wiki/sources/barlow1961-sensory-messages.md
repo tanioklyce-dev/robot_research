@@ -3,6 +3,7 @@ title: "Possible Principles Underlying the Transformations of Sensory Messages (
 type: source
 url: https://www.researchgate.net/publication/259201023_Possible_Principles_Underlying_the_Transformation_of_Sensory_Messages
 local_path: raw/Barlow-SensoryCommunication-1961.pdf
+sha256: c0383794180e158d9b00d79c4fc67839a4f27aef3848b18140242f43c91e8922
 author: Horace B. Barlow
 affiliation: Physiological Laboratory, Cambridge University
 published: 1961 (chapter 13 in *Sensory Communication*, ed. W. A. Rosenblith, MIT Press)

@@ -6,6 +6,7 @@ author: Jianlan Luo, Zheyuan Hu, Charles Xu, You Liang Tan, Jacob Berg, Archit S
 published: 2024-01
 ingested: 2026-07-05
 local_path: raw/SERL_2401.16013v4.pdf
+sha256: 4a45bc106add1571a0f5e02f295522ce8ae75186943f66c9339a5954a81bac16
 venue: arXiv 2401.16013 (v4, 2025-03)
 format: pdf
 tags: [reinforcement-learning, real-world-rl, manipulation, open-source, reward-classifier, forward-backward, impedance-control, uc-berkeley, sample-efficiency]

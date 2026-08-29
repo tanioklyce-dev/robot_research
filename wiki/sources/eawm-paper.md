@@ -7,6 +7,7 @@ published: 2026-01 (arXiv v1); ICLR 2026
 ingested: 2026-07-09
 venue: ICLR 2026
 local_path: raw/RLWM_2601.19336v1.pdf
+sha256: 9477fc86afc6b4318918f99c6594dd36c9762c22667e78bb215dda5a5c0e6395
 format: paper PDF (43 pp)
 tags: [mbrl, world-model, event-segmentation, representation-learning, dreamer, atari-100k, dmc, craftax, generalization]
 ---

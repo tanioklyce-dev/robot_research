@@ -6,6 +6,7 @@ author: Guo Chen, Zhiqi Li, Shihao Wang, Jindong Jiang, … Bryan Catanzaro, Jan
 published: 2025-04-21 (arXiv 2504.15271v1)
 ingested: 2026-07-04
 local_path: raw/EAGLE_2.5_2504.15271v1.pdf
+sha256: 281119e779a37087fec3ab830d19876d9c9a20b03d6ad9169ee396d7cc6e6401
 format: pdf
 tags: [eagle, eagle-2-5, vlm, long-context, long-video, siglip, nvidia, groot-backbone]
 ---

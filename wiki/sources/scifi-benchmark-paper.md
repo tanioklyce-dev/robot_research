@@ -9,6 +9,7 @@ ingested: 2026-08-03
 venue: arXiv preprint (2503.10706)
 format: research paper (101 pp with appendices)
 local_path: raw/2503.10706.pdf
+sha256: 57b04c31aa9c78e366b253516932ea523eff3736ec53530f53c0b621c33ec377
 tags: [scifi-benchmark, semantic-safety, robot-constitutions, constitutional-ai, ethics, benchmark, google-deepmind, asimov, primary-source]
 ---
 

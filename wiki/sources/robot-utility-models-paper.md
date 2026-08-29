@@ -3,6 +3,7 @@ title: Robot Utility Models Paper
 type: source
 url: https://arxiv.org/abs/2409.05865
 local_path: raw/robot_utility_models_2409.05865v1.pdf
+sha256: bc17f26506877a74b9b9885d13391e5d5523141f9bbfac4f456aa8c624ca5a01
 author: Haritheja Etukuru, Norihito Naka, Zijin Hu, Seungjae Lee, Julian Mehu, Aaron Edsinger, Chris Paxton, Soumith Chintala, Lerrel Pinto, Nur Muhammad "Mahi" Shafiullah
 affiliations: NYU, Hello Robot Inc., Meta Inc.
 published: 2024-09-09

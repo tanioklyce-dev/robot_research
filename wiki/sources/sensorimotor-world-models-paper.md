@@ -6,6 +6,7 @@ author: Petr Ivashkov, Randall Balestriero, Bernhard Schölkopf (MPI-IS Tübinge
 published: 2026-06-18
 ingested: 2026-07-26
 local_path: raw/2606.20104.pdf
+sha256: 1a366a3764e80702ab9f652d6e1670a662c806f0936377861838301168380862
 venue: arXiv preprint (cs.LG)
 license: arXiv
 format: pdf

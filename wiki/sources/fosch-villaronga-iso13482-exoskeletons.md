@@ -8,6 +8,7 @@ ingested: 2026-07-08
 venue: Technology in Society (Elsevier)
 license: CC BY 4.0 (open access)
 local_path: raw/ISO13482_personalcarerobots_S0160791X23001926-main.pdf
+sha256: 2b87307c47354b17598f5658ee35c71fe104b47bf6459ee0ee7da5c87805941f
 format: paper PDF (21 pp)
 tags: [iso-13482, exoskeletons, personal-care-robots, regulation, safety-standards, robot-law, policy, systematic-review, leiden]
 ---

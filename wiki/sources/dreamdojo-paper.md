@@ -4,6 +4,7 @@ type: source
 url: https://arxiv.org/abs/2602.06949
 arxiv_id: 2602.06949v1
 local_path: raw/2602.06949v1.pdf
+sha256: c8f02e22c8fbe98e0b50215e10e1f6baf2f589b1987e5c6dc07175bfe6fe8587
 project_page: https://dreamdojo-world.github.io/
 doi: https://doi.org/10.48550/arXiv.2602.06949
 license: CC BY 4.0

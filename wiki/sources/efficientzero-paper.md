@@ -7,6 +7,7 @@ published: 2021-11 (arXiv); NeurIPS 2021
 ingested: 2026-07-09
 venue: NeurIPS 2021
 local_path: raw/2111.00210v2.pdf
+sha256: 057c3466e3aabec6d9a7dc6ac597b43caf546d73ea50241263f7113fdc416a69
 format: paper PDF (22 pp)
 tags: [efficientzero, muzero, mbrl, sample-efficiency, atari-100k, self-supervised, tsinghua, berkeley]
 ---

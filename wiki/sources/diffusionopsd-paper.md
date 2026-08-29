@@ -4,6 +4,7 @@ type: source
 url: https://arxiv.org/abs/2608.24646
 arxiv_id: 2608.24646v1
 local_path: raw/diffusionopsd_2608.24646.pdf
+sha256: 88cb08cfdd818ed2708a5040b7fb4d76489da7d9327ddf3b15d450c303bb9857
 project_page: https://diffusionopsd.github.io
 code: https://github.com/worldbench/DiffusionOPSD
 author: "DiffusionOPSD Team — Wei Zhou, Xiongwei Zhu, Lingdong Kong, Bo Chen, Lei Zhang, Yongyuan Liang, Xiaoxia Hou, Ye Tian, Xian Sun, Yingshuo Wang, Linfeng Li, Shengqiong Wu, Leigang Qu, Feng Li, Wei Liu (corr.), Julian McAuley, Tat-Seng Chua"

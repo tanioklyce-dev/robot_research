@@ -3,6 +3,7 @@ title: "Reconstruction or Semantics? What Makes a Latent Space Useful for Roboti
 type: source
 url: https://arxiv.org/abs/2605.06388
 local_path: raw/2605.06388.pdf
+sha256: ae409282f58b6d5c6f01b9f317abde8e040ad318d5bbd30bb41951da372ffa3b
 code: https://hskalin.github.io/semantic-wm/
 author: Nilaksh, Saurav Jha, Artem Zholus (equal contribution), Sarath Chandar
 affiliations: Chandar Research Lab; Mila – Quebec AI Institute; Polytechnique Montréal; Canada CIFAR AI Chair

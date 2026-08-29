@@ -3,6 +3,7 @@ title: "WorldArena: A Unified Benchmark for Evaluating Perception and Functional
 type: source
 url: https://arxiv.org/abs/2602.08971
 local_path: raw/2602.08971.pdf
+sha256: e41ab0f9ce75adad027e4e77402e1bbd77a50ab12340a6517a300d2edc94a6e6
 author: Yu Shang, Zhuohang Li, Yiding Ma, Weikang Su, Xin Jin, Ziyou Wang, Lei Jin, Xin Zhang, Yinzhou Tang, Haisheng Su, Chen Gao, Wei Wu, Xihui Liu, Dhruv Shah, Zhaoxiang Zhang, Zhibo Chen, Jun Zhu, Yonghong Tian, Tat-Seng Chua, Wenwu Zhu, Yong Li
 venue: Preprint (arXiv 2602.08971v2)
 published: 2026-02-11

@@ -3,6 +3,7 @@ title: "DynaMo: In-Domain Dynamics Pretraining for Visuo-Motor Control"
 type: source
 url: https://arxiv.org/abs/2409.12192
 local_path: raw/dynamo_2409.12192.pdf
+sha256: c85bd96f89aec8ffad1b4d09d1ee788bc5f2ed1c26574e10eede3c869377205c
 author: Zichen Jeff Cui, Hengkai Pan, Aadhithya Iyer, Siddhant Haldar, Lerrel Pinto
 published: 2024-09-18
 ingested: 2026-08-26

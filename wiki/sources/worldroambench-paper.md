@@ -3,6 +3,7 @@ title: "WorldRoamBench: An Open-World Benchmark for Long-Horizon Stability of In
 type: source
 url: https://arxiv.org/abs/2606.31672
 local_path: raw/2606.31672.pdf
+sha256: ed184e7662911fee1505ced355e196967920adac102658efc05508778c5c7d9a
 author: Ting-Bing Xu, Jiacheng Sui, Zhe Gao, Kewei Shi, Wenjin Yang, Zhicheng Liu, Zhaoxu Sun, Mingchao Sun, Hongyu Pan, Fan Jiang, Mu Xu, Qi Fan, Yang Gao, Yong Li, Baoquan Chen
 venue: Preprint (arXiv 2606.31672v3)
 published: 2026-07-06

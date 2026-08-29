@@ -70,13 +70,26 @@ tags: [robotics, manipulation]
 
 ### Source pages (`sources/`)
 
-One page per ingested source. Filename is a slug of the title (kebab-case). Frontmatter uses `url`, `author`, `published`, `ingested` (plus `title`, `type`, `tags`, and optionally `local_path`, `venue`, `license`, `format`) — **source pages do not carry `created`/`updated`/`sources`**; `published` is the source's own date and `ingested` is when it entered the wiki. Body sections:
+One page per ingested source. Filename is a slug of the title (kebab-case). Frontmatter uses `url`, `author`, `published`, `ingested` (plus `title`, `type`, `tags`, and optionally `local_path`, `sha256`, `fetch_url`, `venue`, `license`, `format`) — **source pages do not carry `created`/`updated`/`sources`**; `published` is the source's own date and `ingested` is when it entered the wiki. Body sections:
 
 - **Summary** — One paragraph capturing the thesis/main contribution.
 - **Key claims** — Bulleted, with timestamp/page/section references where possible.
 - **Entities mentioned** — Links to entity pages.
 - **Concepts touched** — Links to concept pages.
 - **Open questions** — Things this source raises that aren't answered yet.
+
+#### Fingerprints: `sha256`, `fetch_url`, and superseded editions
+
+**Every source page with a real local file carries `sha256`** — the SHA-256 of that file's content, written directly under `local_path`. An `ingested:` date records *when we looked*; only a hash records *what we saw*. Without one, an upstream document can be revised under a stable URL and nothing in the wiki can tell.
+
+This is not hypothetical: the [AI Index 2026](wiki/sources/stanford-hai-ai-index-2026.md) was re-exported by HAI on 2026-06-29 and swapped in at the same URL — no version in the filename, no changelog, no notice in the document — silently correcting a §2.7 vendor-table row, a figure's stated provenance, and several numbers. It was caught only by re-fetching and diffing by hand two months later.
+
+- **`sha256`** — content hash of `local_path`. Backfilled and checked by `scripts/check_source_drift.py`; never hand-written.
+- **`fetch_url`** — the **direct file URL**, when `url` is a landing page (as it usually is). Only pages with a `fetch_url` (or a `url` ending in `.pdf`) are re-checkable. Add one for any source whose publisher may revise in place — annual reports, datasheets, spec sheets, standards, vendor white papers.
+- **`local_path_superseded` / `sha256_superseded`** — when a revision is accepted, `local_path` and `sha256` point at the **current canonical** file and the prior edition is retained under these keys. Both files stay in `raw/`; **the superseded one is never overwritten or deleted**. Record the delta in an **Edition history** section on the page.
+
+> [!note] Git LFS and fingerprints
+> `raw/*.pdf` is LFS-tracked and this working tree usually has many objects un-pulled — those files are ~130-byte text pointers, not PDFs. **Never hash a file without checking for a pointer first**; you would record a confident, well-formed, completely wrong fingerprint. No pull is needed: a pointer's `oid sha256:` *is* the content hash. The script handles this; a hand-rolled `sha256sum` does not.
 
 ### Entity pages (`entities/`)
 
@@ -122,6 +135,9 @@ Triggered when the user adds a file to `raw/` and asks to process it.
 6. Update `wiki/index.md` with new pages and bumped source counts.
 7. Append an entry to `wiki/log.md`.
 8. Flag contradictions with prior knowledge. Surface open questions.
+9. **Seal the source**: run `python3 scripts/check_source_drift.py --backfill` to write the `sha256` fingerprint, and set `fetch_url` if the publisher might revise the file in place (see [Drift check](#drift-check)).
+
+**Before ingesting, check whether it is already ingested** — by slug, by `local_path`, and for a file already in `raw/`, by `sha256`. If a source page exists but the remote file's hash no longer matches, this is a **revision, not a new ingest**: follow [Drift check](#drift-check) instead of writing a second page.
 
 A single ingest typically touches 5–15 wiki pages. That's normal — that's the point.
 
@@ -161,6 +177,49 @@ Triggered when the user asks for a health check.
 - Knowledge gaps that could be filled with a new source or targeted web search.
 
 Report findings as a punch list. Don't auto-fix without user direction.
+
+### Drift check
+
+Triggered when the user asks whether a source has changed upstream, before quoting an
+institutional source in a decision, or on a periodic sweep.
+
+```bash
+python3 scripts/check_source_drift.py --backfill     # seal new sources (run after every ingest)
+python3 scripts/check_source_drift.py --check        # re-fetch and compare
+python3 scripts/check_source_drift.py --diff A.pdf B.pdf   # compare two files directly
+```
+
+`--check` re-fetches every source declaring a `fetch_url`, compares the hash against the
+sealed `sha256`, and on a mismatch prints a page-by-page word diff and keeps the download
+under `.drift/`. Exit code is 1 when drift is found — unlike lint, this one is a gate,
+because drift is a fact about the world rather than a style opinion.
+
+**Version-pinned artifacts are skipped by default.** arXiv and similar pin the revision in
+the filename (`2010.11929v2.pdf`), so a new version is a new URL and a new file — drift there
+is visible by construction. The silent-drift class is the institutional PDF: stable URL, no
+version string, re-exported in place. That is the population worth sweeping. (`--include-pinned`
+overrides.)
+
+Comparing two PDF exports naively is unreadable, for two separate reasons, and the script
+handles them differently:
+
+- **Reflow and kerning.** Re-export emits different line breaks and kerning-split tokens
+  (`United S tates, 26 .30%`) on pages that are substantively identical. Fixed by comparing
+  with **all whitespace removed** — pure whitespace perturbation vanishes, any changed word,
+  number, or table cell survives. On the AI Index this took a 153-line hand diff down to the
+  6 real changes, and found 2 the hand diff had missed (corrected deltas on chart data labels).
+- **Repagination.** Inserting a subsection mid-document pushes body text onto every later page,
+  so a page-against-page comparison calls the whole remainder changed. Fixed by diffing the
+  **whole token stream** and mapping each change back to a page. On the Cosmos 3 report this
+  turned 81 "changed pages" into one inserted section. Table-of-contents and cross-reference
+  renumbering is then *counted and reported separately*, never hidden — the filter is
+  deliberately narrow (a lone bare integer moving by ≤3), so decimals and larger jumps like
+  54 → 64 always surface.
+
+When drift is found: **review the diff, don't auto-apply it.** Retain the superseded file, add
+an **Edition history** section to the source page, correct any claim the revision touches, re-seal
+with `--backfill --reseal`, and log it. Check whether the changed claims propagated into entity,
+concept, or synthesis pages.
 
 ### Git
 

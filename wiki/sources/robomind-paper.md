@@ -3,6 +3,7 @@ title: "RoboMIND: Benchmark on Multi-embodiment Intelligence Normative Data for 
 type: source
 url: https://arxiv.org/abs/2412.13877
 local_path: raw/2412.13877-robomind.pdf
+sha256: e089d777d5e75ca28c0d9b4b4c6634858dca26c5bada507abfcb7a8f09cf5f26
 author: "Kun Wu*, Chengkai Hou*, Jiaming Liu*, Zhengping Che*†, Xiaozhu Ju*†, Zhuqin Yang, Meng Li, Yinuo Zhao, Zhiyuan Xu, … Shanghang Zhang‡, Jian Tang‡"
 affiliations: Beijing Innovation Center of Humanoid Robotics (X-Humanoid); Peking University
 published: 2024-12-18

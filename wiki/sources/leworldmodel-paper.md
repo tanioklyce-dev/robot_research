@@ -3,6 +3,7 @@ title: LeWorldModel Paper
 type: source
 url: https://arxiv.org/abs/2603.19312
 local_path: raw/LeWorldMode_2603.19312v2.pdf
+sha256: 58dd56c906a98b9871dbbf6c7f7aa6954da1ee923fe5f17f584c6e22d953433a
 author: Lucas Maes, Quentin Le Lidec, Damien Scieur, Yann LeCun, Randall Balestriero
 affiliations: Mila / Université de Montréal, NYU, Samsung SAIL, Brown
 published: 2026-03-24

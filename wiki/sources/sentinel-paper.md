@@ -3,6 +3,7 @@ title: "Sentinel — Unpacking Failure Modes of Generative Policies: Runtime Mon
 type: source
 url: https://arxiv.org/abs/2410.04640
 local_path: raw/Sentinel_UnpackingFailureModes_2410.04640.pdf
+sha256: 92a6cf1cfdcf05323a0dd929a06ccba62ae70176e24512eda8e4972e608a041c
 project_page: https://sites.google.com/stanford.edu/sentinel
 author: "Christopher Agia, Rohan Sinha, Jingyun Yang, Zi-ang Cao, Rika Antonova, Marco Pavone, Jeannette Bohg (Stanford; Pavone also NVIDIA Research)"
 published: 2024-10-06

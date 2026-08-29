@@ -3,6 +3,7 @@ title: "Attention Is All You Need (Vaswani, Shazeer, Parmar, Uszkoreit, Jones, G
 type: source
 url: https://arxiv.org/abs/1706.03762
 local_path: raw/1706.03762v7.pdf
+sha256: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697
 author: Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, Illia Polosukhin
 affiliation: Google Brain, Google Research (Gomez at U Toronto)
 published: 2017-06-12 (v1, arxiv); NeurIPS 2017 (Long Beach); v7 2023-08-02

@@ -6,6 +6,7 @@ author: Danny Driess, Jost Tobias Springenberg, Brian Ichter, Lili Yu, Adrian Li
 published: 2025-05-29
 ingested: 2026-07-17
 local_path: raw/2505.23705v1.pdf
+sha256: 105da140f08f71c2e896bfabe7a016e485e519c4f7ebdbfb29199831b37ea071
 venue: arXiv preprint (cs.LG), 2505.23705v1 ("Preprint. Under review.")
 license: null
 format: PDF (18 pages)

@@ -3,6 +3,7 @@ title: "UniT: Toward a Unified Physical Language for Human-to-Humanoid Policy Le
 type: source
 url: https://arxiv.org/abs/2604.19734
 local_path: raw/2604.19734.pdf
+sha256: 266c48aeee1b4bb7b3cf750d7c214291b215c111d3cc5976ed6e682bc59d2962
 author: Boyu Chen, Yi Chen, Lu Qiu, Jerry Bai, Yuying Ge, Yixiao Ge
 venue: arXiv 2604.19734v1 (cs.RO), 21 pp.; XPENG Robotics + Tsinghua + HKU
 published: 2026-04-21

@@ -3,6 +3,7 @@ title: "Kinematic self-replication in reconfigurable organisms (Kriegman et al. 
 type: source
 url: https://www.pnas.org/doi/10.1073/pnas.2112672118
 local_path: raw/kriegman-et-al-2021-kinematic-self-replication-in-reconfigurable-organisms.pdf
+sha256: f0dda5783023b197e34f57a0862653405afc35a649e3667f04f0cf59959527c6
 author: Sam Kriegman, Douglas Blackiston, Michael Levin, Josh Bongard
 affiliations: Tufts University (Allen Discovery Center); Wyss Institute, Harvard; University of Vermont (CS)
 venue: PNAS 118(49):e2112672118

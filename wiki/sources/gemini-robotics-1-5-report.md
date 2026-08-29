@@ -6,6 +6,7 @@ author: Gemini Robotics Team, Google DeepMind
 published: 2025 (Google DeepMind technical report; no arXiv id on file)
 ingested: 2026-07-04
 local_path: raw/Gemini-Robotics-1-5-Tech-Report.pdf
+sha256: b41a2f732f4755c7564b973bcc6ff8aebf3bb9a9f163328437e89533d372b2f4
 format: pdf (26 pp.)
 tags: [gemini-robotics, google-deepmind, vla, embodied-reasoning, thinking, motion-transfer, cross-embodiment, agentic, safety, aloha, franka, apollo]
 ---

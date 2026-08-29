@@ -8,6 +8,7 @@ venue: ICLR 2017
 published: 2017 (ICLR 2017; OpenReview Nov 2016)
 ingested: 2026-07-06
 local_path: raw/291_beta_vae_learning_basic_visual.pdf
+sha256: 037ad2ae314124bccea0835df46809e38278558a314cf4930057968f6f066096
 tags: [beta-vae, vae, disentanglement, representation-learning, unsupervised, deepmind, higgins, kl-weighting]
 ---
 

@@ -6,6 +6,7 @@ author: Karl Pertsch, Kyle Stachowicz, Brian Ichter, Danny Driess, Suraj Nair, Q
 published: 2025-01-16
 ingested: 2026-07-18
 local_path: raw/2501.09747v1.pdf
+sha256: 3739b31f5fecdde371509ff5bb13619979734e894a255a9b264253f4cc53934a
 venue: arXiv preprint (cs.RO), 2501.09747v1 (RSS 2025)
 license: null
 format: PDF (19 pages)

@@ -3,6 +3,7 @@ title: "300 Years of Optimal Control: From the Brachystochrone to the Maximum Pr
 type: source
 url: https://doi.org/10.1109/37.588098
 local_path: raw/300Years_Of_Optimal_Control.pdf
+sha256: 34e795ebf334ea0aebab3a29c15f85ff7d1617b457bf14509dbf0605a9c0f728
 author: Hector J. Sussmann (Rutgers), Jan C. Willems (Groningen)
 affiliation: Department of Mathematics, Rutgers University (Sussmann; partly supported by NSF Grant DMS95-00798 and AFOSR Grant 0923); Department of Mathematics, University of Groningen (Willems)
 published: 1997-06 — IEEE Control Systems Magazine, Vol. 17, No. 3, pp. 32–44 ("Historical Perspectives")

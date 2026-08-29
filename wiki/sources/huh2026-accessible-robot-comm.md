@@ -4,6 +4,7 @@ type: source
 url: https://doi.org/10.1145/nnnnnnn.nnnnnnn
 venue: 3rd InterAI Workshop at ACM CHI 2026, Barcelona, April 13–17, 2026
 local_path: raw/6_Designing_Accessible_Robot_C.pdf
+sha256: 86980ffd48e4cce3980a4e5a7f7ccd947014c276ace35174a678d006bf9fc17b
 author: Mina Huh, Huihan Liu, Albert Yu, Roberto Martin-Martin, Yuke Zhu, Maya Cakmak, Amy Pavel
 published: 2026-04
 ingested: 2026-05-10

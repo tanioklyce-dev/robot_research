@@ -7,6 +7,7 @@ author: Ruijie Zheng, Jing Wang, Scott Reed (co-first), … Jan Kautz, Furong Hu
 published: 2025-05-21 (arXiv 2505.15659v1)
 ingested: 2026-07-04
 local_path: raw/FLARE_2505.15659v1.pdf
+sha256: 37245f9a586229ed477b1c5194b051973ba5b3f050d25cc76e8aefe6a2845aeb
 format: pdf (14 pp.)
 tags: [flare, implicit-world-model, latent-alignment, jepa-adjacent, nvidia, gear, vla, flow-matching, auxiliary-loss, human-video]
 ---

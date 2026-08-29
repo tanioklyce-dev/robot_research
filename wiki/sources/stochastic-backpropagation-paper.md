@@ -8,6 +8,7 @@ venue: ICML 2014
 published: 2014-01-16 (arxiv v1); v3 2014-05-30
 ingested: 2026-07-06
 local_path: raw/stochasticBackpropagation_1401.4082v3.pdf
+sha256: 3d88eb87269ec43576ce172cdbaccdbdb5573f590d7bf2604b83012383d34bc7
 tags: [dlgm, stochastic-backpropagation, variational-inference, recognition-model, amortized-inference, reparameterization, deepmind, rezende, foundational]
 ---
 

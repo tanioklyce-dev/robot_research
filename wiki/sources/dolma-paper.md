@@ -3,6 +3,7 @@ title: "Dolma: an Open Corpus of Three Trillion Tokens for Language Model Pretra
 type: source
 url: https://arxiv.org/abs/2402.00159
 local_path: raw/2402.00159.pdf
+sha256: 8c8ca17ecf6a7a7cde309daba7badbca32012c9f67decc87d3f54d28aaa43429
 author: Luca Soldaini, Rodney Kinney, Akshita Bhagia, Dustin Schwenk, … (Allen Institute for AI / Ai2)
 published: 2024-01-31
 ingested: 2026-07-24

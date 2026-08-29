@@ -6,6 +6,7 @@ author: Philip J. Ball, Laura Smith, Ilya Kostrikov, Sergey Levine
 published: 2023-02
 ingested: 2026-07-05
 local_path: raw/RL_2302.02948v4.pdf
+sha256: a87cb856a5294e71c21474006106fd7cadcff0e986da494535f44b13117c10d0
 venue: ICML 2023 (PMLR 202)
 format: pdf
 tags: [reinforcement-learning, off-policy-rl, offline-data, sample-efficiency, sac, layernorm, real-world-rl, algorithm]

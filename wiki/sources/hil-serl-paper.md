@@ -6,6 +6,7 @@ author: Jianlan Luo, Charles Xu, Jeffrey Wu, Sergey Levine
 published: 2024-10
 ingested: 2026-07-05
 local_path: raw/RL_with_HumanInTheLoop_2410.21845v3.pdf
+sha256: 547a4d5d9440a3f70a773798813db1c8a612f006a6994398bbee2a566daab526
 venue: arXiv 2410.21845 (v3)
 format: pdf
 tags: [reinforcement-learning, real-world-rl, manipulation, human-in-the-loop, dexterous-manipulation, imitation-learning, uc-berkeley, dual-arm, contact-rich]

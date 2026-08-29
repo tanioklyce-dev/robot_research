@@ -3,6 +3,7 @@ title: "Neural Cellular Automata: From Cells to Pixels (Pajouheshgar et al., 202
 type: source
 url: https://arxiv.org/abs/2506.22899
 local_path: raw/2506.22899v3.pdf
+sha256: 527b4409b61bb264b84a69140b9b3998ffcaa7a0f87692ebdf2c31527b5e3224
 author: Ehsan Pajouheshgar, Yitao Xu, Ali Abbasi, Alexander Mordvintsev, Wenzel Jakob, Sabine Süsstrunk
 affiliations: EPFL; Google Research (Mordvintsev)
 venue: "arXiv 2506.22899 (cs.CV); v3 2026-05-01"

@@ -3,6 +3,7 @@ title: "Scaling Language-Free Visual Representation Learning (Web-SSL)"
 type: source
 url: https://arxiv.org/abs/2504.01017
 local_path: raw/webssl_2504.01017.pdf
+sha256: bca24285ea5432d63db6112512f906d2a3ba68bd7f0e95b0d149633a7ac0fc6d
 author: David Fan, Shengbang Tong, Jiachen Zhu, Koustuv Sinha, Zhuang Liu, Xinlei Chen, Michael Rabbat, Nicolas Ballas, Yann LeCun, Amir Bar, Saining Xie
 published: 2025-04-01
 ingested: 2026-08-26

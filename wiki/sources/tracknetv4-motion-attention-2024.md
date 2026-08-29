@@ -6,6 +6,7 @@ author: Arjun Raj, Lei Wang (ANU), Tom Gedeon (Curtin University)
 published: 2024-09-22
 ingested: 2026-07-21
 local_path: raw/2409.14543v1.pdf
+sha256: 1c98f6840d8be224a223617cba9b8ec7123975a0deebe8023f17f2e2cc82f44d
 venue: arXiv preprint (cs.CV), 2409.14543v1
 license: null
 format: PDF (17 pages, incl. appendix with full architecture diagrams)

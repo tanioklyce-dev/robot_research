@@ -7,6 +7,7 @@ published: 2018-11 (arXiv); ICML 2019
 ingested: 2026-07-09
 venue: ICML 2019
 local_path: raw/1811.04551v5.pdf
+sha256: abac727526e6a45669d3ab9957126587e22aacf4dc9bcd60ffe5c853108e5bcc
 format: paper PDF (20 pp)
 tags: [planet, rssm, mbrl, latent-dynamics, planning, cem, dmc, hafner]
 ---

@@ -3,6 +3,7 @@ title: "From Demonstrations to Safe Deployment: Path-Consistent Safety Filtering
 type: source
 url: https://arxiv.org/abs/2511.06385
 local_path: raw/PACS_PathConsistentSafetyFiltering_2511.06385.pdf
+sha256: 21868d56374237ec4e3d911852e28cabad8f7f03e42a2cf7474ff4195a32d532
 project_page: https://tum-lsy.github.io/pacs
 author: "Ralf Römer*, Julian Balletshofer*, Jakob Thumm, Marco Pavone, Angela P. Schoellig, Matthias Althoff (TUM MIRMI + Stanford)"
 published: 2025-11-09

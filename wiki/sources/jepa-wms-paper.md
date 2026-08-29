@@ -6,6 +6,7 @@ arxiv: https://arxiv.org/abs/2512.24497
 code: https://github.com/facebookresearch/jepa-wms
 dataset: https://huggingface.co/datasets/facebook/jepa-wms
 local_path: raw/7271_What_Drives_Success_in_Ph.pdf
+sha256: ea9e100174702a25ab6512021c7e9d314a79df19f75f1c6ee9312e1cb9a48e4b
 author: Basile Terver, Tsung-Yen Yang, Jean Ponce, Adrien Bardes, Yann LeCun
 affiliations: Meta FAIR (Terver, Yang, Bardes) + Inria Paris (Terver) + ENS/PSL & NYU (Ponce) + NYU (LeCun)
 published: 2025-12-30 (arxiv preprint)

@@ -3,6 +3,7 @@ title: "Hello Robot Stretch 4 Datasheet (Rev 5, As Launched)"
 type: source
 url: https://hello-robot.com/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf
 local_path: raw/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf
+sha256: fb3c5d9150b54d7240aaa46639d1ff7782f41edeb36daa879057af2a47261e81
 author: Hello Robot, Inc.
 published: 2026-05-12
 ingested: 2026-05-25

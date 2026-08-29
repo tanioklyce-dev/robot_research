@@ -3,6 +3,7 @@ title: "Behavior Trees in Robotics and AI: An Introduction"
 type: source
 url: https://arxiv.org/abs/1709.00084
 local_path: raw/1709.00084.pdf
+sha256: d578394e25b4341cd8fb8f25aca7e08c5193574d2bc9d0953e682bb0bfe7706c
 author: Michele Colledanchise, Petter Ögren
 venue: Chapman & Hall/CRC Artificial Intelligence and Robotics Series (2018); arXiv 1709.00084v6, 198 pp.
 published: 2022-10-25

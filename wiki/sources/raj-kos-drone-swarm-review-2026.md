@@ -3,6 +3,7 @@ title: "Recent Developments and Applications of Drone Swarm (Raj & Kos, 2026)"
 type: source
 url: https://doi.org/10.3390/s26102943
 local_path: raw/sensors-26-02943.pdf
+sha256: 3b7d2664080a6dae9ef95666d192fe5151039e306eabaabec850f2b9055a06f0
 author: Ravi Raj, Andrzej Kos
 affiliations: Universitat Politècnica de Catalunya (UPC, BarcelonaTech); AGH University of Kraków
 published: 2026-05-08

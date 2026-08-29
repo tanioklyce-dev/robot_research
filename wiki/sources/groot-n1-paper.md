@@ -6,6 +6,7 @@ author: NVIDIA (corporate); research leads Jim Fan & Yuke Zhu; ~50 contributors 
 published: 2025-03 (arXiv 2503.14734v2, 2025-03-27; no peer-review venue)
 ingested: 2026-07-04
 local_path: raw/GR00T_N1_2503.14734v2.pdf
+sha256: 76e38cf679637b816b16edf7170340883dd09175bf334aeeaed49392777731b9
 format: pdf (36 pp.)
 tags: [groot, vla, nvidia, gear, humanoid, flow-matching, data-pyramid, neural-trajectories, fourier-gr1, foundation-model]
 ---

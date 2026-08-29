@@ -2,6 +2,7 @@
 title: "Darwin, a Game of Survival of the Fittest among Programs (Bell Labs, 1961; McIlroy transcript)"
 type: source
 local_path: raw/darwin.pdf
+sha256: b93c72e7f0f006b06fee978ca6648648352480e84cf54f98354546086eb60002
 author: M. D. McIlroy, R. Morris, V. A. Vyssotsky (1971 letter); flyer by V. A. Vyssotsky et al. (1961)
 affiliations: Bell Telephone Laboratories, Murray Hill, NJ
 published: 1961-08

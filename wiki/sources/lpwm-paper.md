@@ -3,6 +3,7 @@ title: "LpWM: A Case for Sparse Representations in World Models"
 type: source
 url: https://arxiv.org/abs/2608.22764
 local_path: raw/lpwm_2608.22764.pdf
+sha256: 76ab29b8610553410ac6b3c0683ccc6d71baabedf49ee6a4463a652a82c3d5ae
 author: Yilun Kuang, Yash Dagade, Quentin Le Lidec, Lucas Maes, Randall Balestriero, Yann LeCun
 published: 2026-08-24
 ingested: 2026-08-26

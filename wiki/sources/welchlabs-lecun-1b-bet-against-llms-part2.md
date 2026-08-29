@@ -8,6 +8,7 @@ published: 2026-05-30
 ingested: 2026-05-31
 duration: "40:57 (2,457 s)"
 local_path: raw/2026-05-30-welchlabs-lecun-1b-bet-against-llms-part2.txt
+sha256: 660b284962ff3d8306a68cbf9f9cb7804b9b9e5538b6c0b7b3b18f84c1a1ef4f
 format: video
 tags: [video, jepa, world-model, v-jepa-2, vl-jepa, leworldmodel, hierarchical-jepa, vla-models, cem, lecun, ami-labs, welch-labs, popular-explainer]
 ---

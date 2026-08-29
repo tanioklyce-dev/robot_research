@@ -3,6 +3,7 @@ title: "2 OLMo 2 Furious (OLMo 2 — Team OLMo 2024)"
 type: source
 url: https://arxiv.org/abs/2501.00656
 local_path: raw/2501.00656.pdf
+sha256: 8614beaaf35ce5d20fde755d350bd02637bdbe5a390de237ce942c8ac4ee2dd8
 author: Team OLMo (Pete Walsh, Luca Soldaini, Dirk Groeneveld, Kyle Lo, …) — Allen Institute for AI / Ai2
 published: 2024-12-31
 ingested: 2026-07-24

@@ -3,6 +3,7 @@ title: "Sutton & Barto — Reinforcement Learning: An Introduction (2nd ed., MIT
 type: source
 url: http://incompleteideas.net/book/the-book.html
 local_path: raw/RLbook2020.pdf
+sha256: 2dd0d71d9ee883fbeb99f9b888c65ac3255fae2512203d11b18e838befffe9a6
 draft_path: raw/SuttonBartoIPRLBook2ndEd.pdf
 isbn: 9780262039246
 license: CC BY-NC-ND 2.0 (electronic) / hardcover via MIT Press

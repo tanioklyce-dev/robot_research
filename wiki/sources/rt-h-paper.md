@@ -3,6 +3,7 @@ title: "RT-H: Action Hierarchies Using Language"
 type: source
 url: https://arxiv.org/abs/2403.01823
 local_path: raw/2403.01823.pdf
+sha256: e38aaea90d294c347b89ba093b4561e00e8d8fd5875e57b086ed84402605d544
 author: Suneel Belkhale, Tianli Ding, Ted Xiao, Pierre Sermanet, Quan Vuong, Jonathan Tompson, Yevgen Chebotar, Debidatta Dwibedi, Dorsa Sadigh
 venue: arXiv 2403.01823v2 (cs.RO), 23 pp.; Google DeepMind + Stanford
 published: 2024-06-01

@@ -2,10 +2,12 @@
 title: Stanford HAI — AI Index Report 2026
 type: source
 url: https://aiindex.stanford.edu/report/
-pdf_url: https://hai.stanford.edu/assets/files/ai_index_report_2026.pdf
+fetch_url: https://hai.stanford.edu/assets/files/ai_index_report_2026.pdf
 doi: https://doi.org/10.48550/arXiv.2606.15708
-local_path: raw/ai_index_report_2026.pdf
-local_path_revised: raw/ai_index_report_2026_rev_2026-06-29.pdf
+local_path: raw/ai_index_report_2026_rev_2026-06-29.pdf
+sha256: fff5ac1df971cee7daf847fa5ed00dd7444db693092821c3e691debc1eaada09
+local_path_superseded: raw/ai_index_report_2026.pdf
+sha256_superseded: f2f3b6ae863957db86de108d1cec8684a3ffdcc217798ccfbfe9bd5061ab4d3c
 author: Stanford Institute for Human-Centered AI (HAI); Co-chairs Yolanda Gil, Raymond Perrault
 published: 2026-04
 revised: 2026-06-29
@@ -83,7 +85,7 @@ The ninth edition of the Stanford HAI AI Index Report (2026). Comprehensive annu
 
 The URL `hai.stanford.edu/assets/files/ai_index_report_2026.pdf` serves a **revised** PDF as of **2026-06-29** (InDesign 21.4 export; 37.9 MB) replacing the **2026-04-28** export (21.3; 24.9 MB) that was ingested on 2026-05-09. Both are kept in `raw/`; the original is not overwritten. Page count is identical (425) and the size jump is image re-export, not content.
 
-A full page-by-page text diff of the two exports found **four** substantive changes — everything else is kerning/typesetting noise:
+A full page-by-page text diff of the two exports found **six** substantive changes — everything else is kerning/typesetting noise. (The first four came from a hand diff on 2026-08-29; the last two were caught the same day by [`scripts/check_source_drift.py`](../../scripts/check_source_drift.py), written off the back of this finding, which reads chart data labels the eye skims past.)
 
 | # | Location | April edition | June revision |
 |---|---|---|---|
@@ -91,11 +93,15 @@ A full page-by-page text diff of the two exports found **four** substantive chan
 | 2 | Exec. summary + §4.3 prose | UAE gen-AI adoption **54%** | **64%** (the April *chart* already read 64.00% — prose and figure disagreed) |
 | 3 | §4.3, Figure 4.3.10 | "survey-based estimates of AI usage across countries" | "**Microsoft's telemetry data** of AI usage across countries" |
 | 4 | How to Cite (p. 5) | no DOI | adds `https://doi.org/10.48550/arXiv.2606.15708` |
+| 5 | Figure 4.3.10 data label | Sweden second-half delta **+2.20** | **+2.10** |
+| 6 | Figure 4.3.10 data label | Austria second-half delta **+2.20** | **+2.30** |
 
 > [!note] What this changes for the wiki
 > Nothing in the robotics numbers this wiki leans on. **RLBench 89.4%, [BEHAVIOR-1K](../entities/behavior-benchmark.md) 12.4%, ResponsibleRobotBench 0.64, the Figure 02 BMW hours, Unitree/AgiBot/1X figures, Waymo and Apollo Go ride counts are byte-identical across the two exports** — the canonical 89.4/12.4 gap figure cited in the [syntheses](../index.md) is unaffected. The corrections land on (1) a vendor table row and (2) the diffusion statistics.
 
 > [!warning] Methodology correction worth carrying
+> Changes #5 and #6 move the *deltas* while leaving the second-half levels (33.30%, 31.40%) untouched, which means the revised first-half baseline moved — consistent with #3's provenance restatement rather than independent of it.
+>
 > Change #3 is the one with teeth. Country-level "AI adoption" in Figure 4.3.10 is **Microsoft product telemetry**, not a population survey. Telemetry measures accounts touching Microsoft AI surfaces, so it is sensitive to Microsoft's market share per country and is not interchangeable with survey-based adoption rates. Cite these numbers as *Microsoft-telemetry diffusion*, not *population adoption*.
 
 > [!note] Confirmation, not correction, for [TRI](../entities/tri.md)

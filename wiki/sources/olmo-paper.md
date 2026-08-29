@@ -3,6 +3,7 @@ title: "OLMo: Accelerating the Science of Language Models (Groeneveld et al. 202
 type: source
 url: https://arxiv.org/abs/2402.00838
 local_path: raw/2402.00838.pdf
+sha256: 121e82248da601e8e4d4da5fa9b4486660ecf0f5a0fae5292b7af3c656c2385d
 author: Dirk Groeneveld, Iz Beltagy, Pete Walsh, … (Allen Institute for AI / Ai2, ~40 authors)
 published: 2024-02-01
 ingested: 2026-07-24

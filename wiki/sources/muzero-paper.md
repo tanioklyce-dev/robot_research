@@ -7,6 +7,7 @@ published: 2019-11 (arXiv); Nature 588, 2020
 ingested: 2026-07-09
 venue: Nature (2020)
 local_path: raw/1911.08265v2.pdf
+sha256: 25588ee1d48690b33359a08a42fadfe86335aefefeee241d465b8bbd5eaa445c
 format: paper PDF (21 pp)
 tags: [muzero, mbrl, mcts, planning, alphazero, atari, go, value-equivalence, deepmind]
 ---

@@ -9,6 +9,7 @@ ingested: 2026-08-03
 venue: CoRL 2025
 format: conference paper (47 pp) + project page + released datasets
 local_path: raw/2503.08663.pdf
+sha256: d59c138dd785e9acb7ce6c9f99fce30048215b826718bf1a6084e3093c56fe69
 tags: [asimov, semantic-safety, robot-constitutions, constitutional-ai, benchmark, google-deepmind, neiss, safety, vlm, primary-source]
 ---
 

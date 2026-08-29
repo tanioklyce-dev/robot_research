@@ -6,6 +6,7 @@ author: Khanh Linh Tran, Minh Nguyen Dang, Thien Nguyen Trong, Hung Nguyen Quoc,
 published: 2026-02-11
 ingested: 2026-07-17
 local_path: raw/2602.10592v1.pdf
+sha256: 98936e77d38f937c5187b7053ade967b0a5b4821eaa8d8730d325c030118adf9
 venue: arXiv preprint (cs.CV), 2602.10592v1
 license: null
 format: PDF (11 pages)

@@ -3,6 +3,7 @@ title: "You Don't Need Strong Assumptions: Visual Representation Learning via Te
 type: source
 url: https://arxiv.org/abs/2606.15956
 local_path: raw/tdv_2606.15956.pdf
+sha256: 2becb6e3a77c05861ed1b1179c8443fc717dc166cbc0b90f54256a07a2117dba
 author: Ninad Daithankar, Alexi Gladstone, Yann LeCun, Heng Ji
 published: 2026-06-14
 ingested: 2026-08-26

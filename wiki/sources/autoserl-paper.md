@@ -6,6 +6,7 @@ author: Yuwan Liu, Hongze Yu, Song Liu, Yuhan Wang, Junge Zhang, Yaodong Yang, Y
 published: 2026-07
 ingested: 2026-07-05
 local_path: raw/RL_2607.01651v1.pdf
+sha256: 6afc168948995adfba1f53c3ddc94d38ae41407df7d0bd8e7d35d98a1e5f31f1
 venue: arXiv 2607.01651 (v1)
 format: pdf
 tags: [reinforcement-learning, real-world-rl, one-shot, manipulation, automated-intervention, sample-efficiency, china]

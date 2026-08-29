@@ -9,6 +9,7 @@ ingested: 2026-08-03
 venue: "ICML 2024 (PMLR 235)"
 format: conference paper (25 pp with appendices)
 local_path: raw/2402.01030.pdf
+sha256: 749a45e36cf89fc7e1b701a2a72f6609ce8d3697577ceb0fff5ce9339ce8539e
 license: arXiv preprint (v4, 2024-06-07)
 tags: [codeact, llm-agent, tool-use, action-space, benchmark, instruction-tuning, code-as-policy, primary-source]
 ---

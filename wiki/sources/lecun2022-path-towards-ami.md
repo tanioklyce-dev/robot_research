@@ -3,6 +3,7 @@ title: "A Path Towards Autonomous Machine Intelligence (LeCun, 2022)"
 type: source
 url: https://openreview.net/forum?id=BZ5a1r-kVsf
 local_path: raw/10356_a_path_towards_autonomous_mach.pdf
+sha256: 5dda279009beae358f08b18b2a4374bfbe65f8c9ed773ea0b9b49f9068566022
 author: Yann LeCun
 affiliation: Courant Institute (NYU) + Meta-FAIR
 published: 2022-06-27 (Version 0.9.2)

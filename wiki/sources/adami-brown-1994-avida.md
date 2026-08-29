@@ -3,6 +3,7 @@ title: "Evolutionary Learning in the 2D Artificial Life System 'Avida' (Adami & 
 type: source
 url: https://arxiv.org/abs/adap-org/9405003
 local_path: raw/9405003v1.pdf
+sha256: e90d3216ff6d18346731675d4176da70f460c15eaad7c6a2e10d5ac00db15343
 author: Chris Adami, C. Titus Brown
 affiliations: W. K. Kellogg Radiation Lab, Caltech
 venue: "Artificial Life IV (MIT Press); arXiv adap-org/9405003"

@@ -7,6 +7,7 @@ published: 2025-02-10 (arXiv v1); v2 2025-07-24; ICML 2025 (PMLR 267)
 ingested: 2026-07-08
 venue: ICML 2025
 local_path: raw/Tedrake_GuidedDiffusion_2502.06764v2.pdf
+sha256: 98ac8326e07f08ec716904a8f1d887b51aba14ecfd39bbc6c7983850d2f7003a
 format: paper PDF (39 pp)
 tags: [video-diffusion, diffusion-forcing, dfot, history-guidance, cfg, world-model, long-video, imitation-learning, mit, tedrake, sitzmann]
 ---

@@ -3,6 +3,7 @@ title: "Ultralytics YOLO Evolution: An Overview of YOLO26, YOLO11, YOLOv8 and YO
 type: source
 url: https://arxiv.org/abs/2510.09653
 local_path: raw/2510.09653.pdf
+sha256: 9e4f6831b21af0c2f3df027f3c6510cb31f76070110fa7984a12ff81e9c5ab7c
 author: Ranjan Sapkota, Manoj Karkee
 published: 2026-03-16
 ingested: 2026-07-23

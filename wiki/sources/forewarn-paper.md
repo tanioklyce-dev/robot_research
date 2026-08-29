@@ -3,6 +3,7 @@ title: "FOREWARN — From Foresight to Forethought: VLM-In-the-Loop Policy Steer
 type: source
 url: https://arxiv.org/abs/2502.01828
 local_path: raw/FOREWARN_ForesightToForethought_2502.01828.pdf
+sha256: 2a2c3386e99f98c42a0254fd8f16f86aebd1e2221186f3efd6a6937e1283f96f
 project_page: https://yilin-wu98.github.io/forewarn/
 author: "Yilin Wu, Ran Tian, Gokul Swamy, Andrea Bajcsy (Carnegie Mellon University; Tian at UC Berkeley)"
 published: 2025-02-03

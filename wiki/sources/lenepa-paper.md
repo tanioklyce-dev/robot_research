@@ -6,6 +6,7 @@ author: Alexander Chemeris, Ming Jin, Randall Balestriero (Langotime / Griffith 
 published: 2026-07-01
 ingested: 2026-07-26
 local_path: raw/2607.00958.pdf
+sha256: 05181347e1808350c2e1b1042adf7672ce1a874f72701eeea636af9aafe5ef84
 venue: arXiv preprint (MILETS 2026 workshop)
 license: arXiv
 format: pdf

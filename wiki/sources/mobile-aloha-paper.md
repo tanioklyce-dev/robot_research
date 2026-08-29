@@ -4,6 +4,7 @@ type: source
 url: https://mobile-aloha.github.io
 arxiv: https://arxiv.org/abs/2401.02117
 local_path: raw/mobile-aloha.pdf
+sha256: 698c3b093b388575ea32e214b074e21b2539f6dae04e1f3bc614c7e461f05286
 author: Zipeng Fu*, Tony Z. Zhao*, Chelsea Finn
 affiliations: Stanford University
 published: 2024-01

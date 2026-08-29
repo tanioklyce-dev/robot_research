@@ -7,6 +7,7 @@ author: Tingwu Wang, Olivier Dionne (joint first), Michael De Ruyter, David Mino
 published: 2026-04-27
 ingested: 2026-07-15
 local_path: raw/2604.24833v1.pdf
+sha256: 44c4baabb047642d8968f53205a0d585bb169f5bbb2de6e6539ea0f0f85a40fc
 venue: ACM Transactions on Graphics 45(4), SIGGRAPH 2026 (arXiv 2604.24833 v1)
 license: CC-BY 4.0
 format: pdf (22 pp.)

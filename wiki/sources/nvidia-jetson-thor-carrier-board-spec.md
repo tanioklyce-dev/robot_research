@@ -3,6 +3,7 @@ title: "NVIDIA Jetson Thor Module Carrier Board — Product Specification (SP-12
 type: source
 url: https://developer.nvidia.com/embedded/downloads
 local_path: raw/Jetson_Thor_Module_Carrier_Board_Spec_SP-12533-001_v1.2.pdf
+sha256: 707e06290af1cb3be046957437d9c0af2f85e95304ee5ad1cfdead9d803762ca
 author: NVIDIA (official product specification)
 affiliations: NVIDIA
 published: 2025-11-26

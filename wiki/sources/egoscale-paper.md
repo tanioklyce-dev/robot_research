@@ -4,6 +4,7 @@ type: source
 url: https://arxiv.org/abs/2602.16710
 arxiv_id: 2602.16710v1
 local_path: raw/2602.16710v1.pdf
+sha256: 39c691baf374a154e26ffc0098b97037875909495013d4017d97761716ff2735
 project_page: https://research.nvidia.com/labs/gear/egoscale/
 doi: https://doi.org/10.48550/arXiv.2602.16710
 license: CC BY 4.0

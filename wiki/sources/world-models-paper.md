@@ -7,6 +7,7 @@ published: 2018-03-27 (arXiv; interactive version at worldmodels.github.io)
 ingested: 2026-07-09
 venue: NeurIPS 2018
 local_path: raw/worldmodels_1803.10122v4.pdf
+sha256: b0c1e30aab53efd28ddf61d661f680150918d4d03b77bae62bc52d62dbd76cce
 format: paper PDF (21 pp)
 tags: [world-model, mbrl, vae, mdn-rnn, learning-in-dream, evolution-strategies, foundational]
 ---

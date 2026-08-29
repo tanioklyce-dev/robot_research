@@ -5,6 +5,15 @@
 # wiki/notes/ that isn't appropriate for the canonical wiki). Per-machine, not tracked.
 /notes/
 
+# Drift-check working directory. `scripts/check_source_drift.py --check` saves a
+# drifted download here as evidence rather than discarding it (re-fetching a 38 MB
+# annual report to look at the diff twice is wasteful). Per-machine, not tracked.
+.drift/
+
+# Python bytecode from scripts/
+__pycache__/
+*.pyc
+
 # OS noise
 .DS_Store
 Thumbs.db

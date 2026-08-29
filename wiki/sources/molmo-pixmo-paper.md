@@ -3,6 +3,7 @@ title: "Molmo and PixMo: Open Weights and Open Data for State-of-the-Art Vision-
 type: source
 url: https://arxiv.org/abs/2409.17146
 local_path: raw/2409.17146.pdf
+sha256: 54c5e78b4066eef960af1c108d758311b479879b6ba4215570e1c23f5f55510d
 author: Matt Deitke, Christopher Clark, Sangho Lee, Rohun Tripathi, … (Allen Institute for AI / Ai2, ~50 authors)
 published: 2024-09-25
 ingested: 2026-07-24

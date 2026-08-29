@@ -3,6 +3,7 @@ title: "Barlow Twins — Self-Supervised Learning via Redundancy Reduction (Zbon
 type: source
 url: https://arxiv.org/abs/2103.03230
 local_path: raw/2103.03230v3.pdf
+sha256: 3c39d728c72cc8a19a49b2a76b37efdabc4bd42bfb63eec1f9427962a20624eb
 author: Jure Zbontar, Li Jing, Ishan Misra, Yann LeCun, Stéphane Deny
 affiliation: Facebook AI Research (+ NYU for LeCun)
 published: 2021-03-04 (v1); 2021-06-14 (v3); ICML 2021 (PMLR 139)

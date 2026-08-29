@@ -3,6 +3,7 @@ title: Fast Explicit-Input Assistance for Teleoperation in Clutter (Walker et al
 type: source
 url: https://github.com/NVlabs/fast-explicit-teleop
 local_path: raw/walker2024explicit.pdf
+sha256: fdeeae086dcbad1eee2a8f3db46e5abac7946604fa57f608f6384565c3d9dba5
 author: Nick Walker, Xuning Yang, Animesh Garg, Maya Cakmak, Dieter Fox, Claudia Pérez-D'Arpino
 published: 2024 (IROS 2024, Abu Dhabi, UAE, October 2024)
 ingested: 2026-05-09

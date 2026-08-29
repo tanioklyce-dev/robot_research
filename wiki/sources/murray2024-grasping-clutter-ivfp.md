@@ -3,6 +3,7 @@ title: Learning to Grasp in Clutter with Interactive Visual Failure Prediction (
 type: source
 url: https://robo-ivfp.github.io
 local_path: raw/murray2024learning.pdf
+sha256: ef0d4bcf5775b83044859f8490f8586f35e46819c6ee57b509a72c1fa406957f
 author: Michael Murray, Abhishek Gupta, Maya Cakmak
 published: 2024 (venue unknown — UW Allen School; Amazon Science Fellowship)
 ingested: 2026-05-09

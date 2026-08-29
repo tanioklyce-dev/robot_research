@@ -9,6 +9,7 @@ ingested: 2026-08-03
 venue: CoRL 2023
 format: conference paper (31 pp with appendices)
 local_path: raw/2306.08647.pdf
+sha256: 30584e7dfc10e654719cccb942686ef54654977e96c30d868ca0518f7f110b39
 tags: [language-to-rewards, code-as-policy, reward-design, mujoco-mpc, quadruped, dexterous-manipulation, mpc, primary-source]
 ---
 

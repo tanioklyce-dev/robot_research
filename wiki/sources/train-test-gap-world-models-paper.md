@@ -3,6 +3,7 @@ title: "Closing the Train-Test Gap in World Models for Gradient-Based Planning"
 type: source
 url: https://arxiv.org/abs/2512.09929
 local_path: raw/train-test-gap-world-models_2512.09929.pdf
+sha256: f09aa7c2cd408d3fd5abbb964652cc14261d53aa2e00abc582eba3ed4dbbffad
 author: Arjun Parthasarathy, Nimit Kalra, Rohun Agrawal, Yann LeCun, Oumayma Bounou, Pavel Izmailov, Micah Goldblum
 published: 2025-12-10
 ingested: 2026-08-26

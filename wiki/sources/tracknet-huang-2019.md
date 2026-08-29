@@ -6,6 +6,7 @@ author: Yu-Chuan Huang, I-No Liao, Ching-Hsuan Chen, Tsì-Uí İk, Wen-Chih Peng
 published: 2019-07-08
 ingested: 2026-07-21
 local_path: raw/1907.03698v1.pdf
+sha256: 8be381fc6250eb12b5d7ee013821786cdb3613de54bbabc1bcdd8dce8aaf96fd
 venue: arXiv preprint (cs.CV), 1907.03698v1 — presented at IEEE AVSS 2019
 license: null
 format: PDF (12 pages)

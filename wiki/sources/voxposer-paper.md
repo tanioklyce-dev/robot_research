@@ -9,6 +9,7 @@ ingested: 2026-08-03
 venue: CoRL 2023
 format: conference paper (23 pp with appendices)
 local_path: raw/2307.05973.pdf
+sha256: cf1cadcf7a1ee44979908c07698f87755c9b5340a79420db509a92d6d2533d42
 license: arXiv preprint (v2, 2023-11-02)
 tags: [voxposer, code-as-policy, value-maps, motion-planning, model-based-planning, zero-shot, manipulation, primary-source]
 ---

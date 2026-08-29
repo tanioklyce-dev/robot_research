@@ -3,6 +3,7 @@ title: "TurboVLA: Real-Time Vision-Language-Action Model at 32 Hz on an RTX 4090
 type: source
 url: https://arxiv.org/abs/2607.27205
 local_path: raw/2607.27205.pdf
+sha256: 7221e0da1d8b4c120545f621b65ae2d97b3209f51ad3d3a53636d47e466f24df
 author: Hengyi Xie, Chenfei Yao, Xianjin Wu, Xuanyang Xi, Yiping Tang, Di Xu, Yingying Zhu, Dingkang Liang, Xiang Bai, Han Ding
 venue: arXiv preprint (cs.CV, cs.RO), 16 pp.
 published: 2026-07-29

@@ -9,6 +9,7 @@ ingested: 2026-08-03
 venue: arXiv preprint (2502.06575)
 format: research paper (26 pp) + project page
 local_path: raw/2502.06575.pdf
+sha256: 5540d859be4a7a575ee8935bc261dd9471c7805db29d08019a0eca478bac5291
 tags: [predictive-red-teaming, roboart, red-teaming, robot-policy-evaluation, anomaly-detection, conformal-prediction, diffusion-policy, google-deepmind, safety, primary-source]
 ---
 

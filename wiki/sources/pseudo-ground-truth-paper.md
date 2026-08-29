@@ -3,6 +3,7 @@ title: "On the Limits of Pseudo Ground Truth in Visual Camera Re-localisation (B
 type: source
 url: https://arxiv.org/abs/2109.00524
 local_path: raw/2109.00524-pseudo-ground-truth.pdf
+sha256: e4209059f715778aa4e091b2d6b7aa0c5406ebafcf38e7eca2e40a3e05602ee9
 author: "Eric Brachmann, Martin Humenberger, Carsten Rother, Torsten Sattler"
 published: 2021-09-01
 ingested: 2026-08-13

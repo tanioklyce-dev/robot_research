@@ -2,6 +2,7 @@
 title: "The evolutionary origin of complex features (Lenski, Ofria, Pennock & Adami, 2003)"
 type: source
 local_path: raw/Lenskietal2003.pdf
+sha256: 93a056753fa64e958e15aca4d1f53cdac12c95b80076fdca56a3c0f6399b2b61
 author: Richard E. Lenski, Charles Ofria, Robert T. Pennock, Christoph Adami
 affiliations: Michigan State University; Digital Life Laboratory, Caltech
 venue: "Nature 423:139–144"

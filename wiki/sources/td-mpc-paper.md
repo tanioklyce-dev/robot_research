@@ -7,6 +7,7 @@ author: Nicklas Hansen, Xiaolong Wang*, Hao Su* (*equal contribution; UC San Die
 published: 2022-03 (arXiv 2203.04955v2, 2022-07-19; ICML 2022, PMLR 162)
 ingested: 2026-07-04
 local_path: raw/TemporalDifferneceLearning_for_ModelPredictiveControl_2203.04955v2.pdf
+sha256: b80e9fc9eaebfa43ad30641ebb0327346998e604cd7421ae44701ef373b501aa
 format: pdf (19 pp. incl. appendices A–L)
 tags: [td-mpc, told, model-based-rl, mpc, mppi, latent-world-model, decoder-free, dmcontrol, meta-world, ucsd]
 ---

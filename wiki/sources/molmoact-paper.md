@@ -9,6 +9,7 @@ ingested: 2026-08-03
 venue: arXiv preprint (2508.07917, v4 2025-09-18)
 format: research paper (61 pp)
 local_path: raw/2508.07917.pdf
+sha256: 5cbeae70c9ee4efcd34897fa2e8d516641583c5f3e749217dba3310a9a66e23e
 tags: [molmoact, action-reasoning-model, vla, depth-tokens, visual-trace, steerability, franka, libero, simplerenv, ai2, open-source, open-data, primary-source]
 ---
 

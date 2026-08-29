@@ -6,6 +6,7 @@ author: Seungjae Lee, Yibin Wang, Haritheja Etukuru, H. Jin Kim, Nur Muhammad Ma
 published: 2024-03 (ICML 2024, PMLR 235:26991-27008; arXiv 2403.03181v2)
 ingested: 2026-05-16 (abstract-level); deepened 2026-07-04 from full PDF
 local_path: raw/VQ-BeT_2403.03181v2.pdf
+sha256: d76a9bdb1d296f99bae804b8b6b15255b36b59a0624471efda68f527c7aeea3e
 format: 'pdf (18 pp.: main 1–9, appendices A–C)'
 tags: [vq-bet, behavior-cloning, vector-quantization, residual-vq, transformer, mingpt, nyu, icml-2024, stretch]
 ---

@@ -9,6 +9,7 @@ ingested: 2026-08-03
 venue: TMLR 2024
 format: research paper (42 pp with appendices)
 local_path: raw/2305.16291.pdf
+sha256: 769a4e33ddeeb73870849232eece49afe882c2d146362e33917ccb432ba0efb8
 license: arXiv preprint (v2, 2023-10-19)
 tags: [voyager, skill-library, lifelong-learning, open-ended, minecraft, gpt-4, self-verification, curriculum, nvidia-gear, primary-source]
 ---

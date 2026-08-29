@@ -3,6 +3,7 @@ title: "YOLOv10: Real-Time End-to-End Object Detection (Wang et al. 2024)"
 type: source
 url: https://arxiv.org/abs/2405.14458
 local_path: raw/2405.14458.pdf
+sha256: db381148c9c2f5d8c45617e1ab05d581280963f44f84b358da2462fa84c2f36d
 author: Ao Wang, Hui Chen, Lihao Liu, Kai Chen, Zijia Lin, Jungong Han, Guiguang Ding (Tsinghua University)
 published: 2024-10-30
 ingested: 2026-07-23

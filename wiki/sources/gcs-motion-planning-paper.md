@@ -3,6 +3,7 @@ title: Motion Planning around Obstacles with Convex Optimization (GCS)
 type: source
 url: https://arxiv.org/abs/2205.04422
 local_path: raw/Tedrake_GCS_MotionPlanning_2205.04422v1.pdf
+sha256: 1b76b910b39fca1460f2d8e5f1445bfa7df1c19a33d11492714e281e5aac40fe
 author: Tobia Marcucci, Mark Petersen, David von Wrangel, Russ Tedrake
 published: 2022-05-09
 ingested: 2026-08-16

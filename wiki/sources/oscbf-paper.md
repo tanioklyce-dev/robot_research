@@ -3,6 +3,7 @@ title: "Safe, Task-Consistent Manipulation with Operational Space Control Barrie
 type: source
 url: https://arxiv.org/abs/2503.06736
 local_path: raw/OSCBF_SafeTaskConsistentManipulation_2503.06736.pdf
+sha256: 8ee3d23f0c4635fb0c33eed1727ea4b209ce99676b15b6f6790217216dcbb572
 project_page: https://stanfordasl.github.io/oscbf/
 author: Daniel Morton, Marco Pavone (Stanford)
 published: 2025-03-09

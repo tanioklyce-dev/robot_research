@@ -4,6 +4,7 @@ type: source
 url: https://doi.org/10.1145/3411764.3445629
 venue: CHI '21, May 2021, Yokohama, Japan
 local_path: raw/Domestic_Robots_and_the_Dream_of_Automation_Schneiders.pdf
+sha256: 0df10d728e56ec904cb35135ea86f8c32b7e684603c0e15ba49e16756a4b6806
 author: Eike Schneiders, Anne Marie Kanstrup, Jesper Kjeldskov, Mikael B. Skov
 published: 2021-05
 ingested: 2026-05-10

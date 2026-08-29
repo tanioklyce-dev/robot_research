@@ -3,6 +3,7 @@ title: "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Co
 type: source
 url: https://arxiv.org/abs/2307.15818
 local_path: raw/2307.15818.pdf
+sha256: 0a62dc36bbbfdea232ad45a0ab75c82e9cf535b55333ff22c02d5da1897ccac3
 author: Brohan, Brown, Carbajal, Chebotar, Chen, Choromanski, Ding, Driess, Dubey, Finn, Florence, Fu, Gonzalez Arenas, Gopalakrishnan, Han, Hausman, Herzog, Hsu, Ichter, Irpan, Joshi, Julian, Kalashnikov, Kuang, Leal, Lee, Lee, Levine, Lu, Michalewski, Mordatch, Pertsch, Rao, Reymann, Ryoo, Salazar, Sanketi, Sermanet, Singh, Singh, Soricut, Tran, Vanhoucke, Vuong, Wahid, Welker, Wohlhart, Wu, Xia, Xiao, Xu, Xu, Yu, Zitkovich
 venue: arXiv 2307.15818 (CoRL 2023), 26 pp.; Google DeepMind
 published: 2023-08-01

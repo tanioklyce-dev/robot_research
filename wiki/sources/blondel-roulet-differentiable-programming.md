@@ -2,6 +2,7 @@
 title: "The Elements of Differentiable Programming (Blondel & Roulet, Google DeepMind, draft v3, June 2025)"
 type: source
 local_path: raw/2403.14606v3.pdf
+sha256: 372894505dd4a25e84abe066c9ea9f2b14d52f6e52c799fcd38f186eeda43ca2
 arxiv: https://arxiv.org/abs/2403.14606
 url: https://arxiv.org/abs/2403.14606
 author: Mathieu Blondel, Vincent Roulet

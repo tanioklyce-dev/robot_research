@@ -3,6 +3,7 @@ title: "Boids (Craig Reynolds) — red3d.com"
 type: source
 url: https://www.red3d.com/cwr/boids/
 local_path: raw/reynolds-boids-red3d.md
+sha256: d0af97e0574a32dd9b8947ddcdaef984d07a8592eb72495a8944352a25cc5d7a
 author: Craig Reynolds
 published: 1995 (page); model 1986; paper SIGGRAPH '87
 ingested: 2026-05-31

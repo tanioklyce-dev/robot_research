@@ -9,6 +9,7 @@ ingested: 2026-08-03
 venue: ICRA 2023
 format: conference paper (16 pp with appendices)
 local_path: raw/2209.07753.pdf
+sha256: e36857fa13746da031444ec59549e61204ca92d599b1d048ac1c55aaf1f6d0a3
 license: arXiv preprint (v4, 2023-05-25)
 tags: [code-as-policy, llm-agent, program-synthesis, robot-manipulation, generalization, humaneval, robocodegen, seminal, primary-source]
 ---

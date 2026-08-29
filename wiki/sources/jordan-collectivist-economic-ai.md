@@ -4,6 +4,7 @@ type: source
 url: https://arxiv.org/abs/2507.06268
 doi: https://doi.org/10.48550/arXiv.2507.06268
 local_path: raw/2507.06268v3.pdf
+sha256: 3cc9333ff4f317ae41bcae2d7bcf622c04faf515bb5dd4b85309b982732ab33a
 author: Michael I. Jordan
 affiliation: Inria Paris + University of California, Berkeley
 published: 2025-07-08 (v1); 2025-12-15 (v3)

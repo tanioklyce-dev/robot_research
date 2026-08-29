@@ -5,6 +5,7 @@ url: https://doi.org/10.1109/LRA.2024.3362591
 project_page: https://sites.google.com/view/dragon-wayfinding/home
 arxiv: 2307.06924
 local_path: raw/2307.06924v3.pdf
+sha256: cd0993c25e591512e06e94d9eb9601dfd8fa4259a085b2d11fa4a6d462ada341
 author: Shuijing Liu, Aamir Hasan, Kaiwen Hong, Runxuan Wang, Peixin Chang, Zachary Mizrachi, Justin Lin, D. Livingston McPherson, Wendy A. Rogers, Katherine Driggs-Campbell
 published: 2024-02 (IEEE RA-L; accepted Jan 2024)
 ingested: 2026-05-10

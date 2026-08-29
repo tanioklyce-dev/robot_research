@@ -7,6 +7,7 @@ author: Joel Jang, Seonghyeon Ye, Zongyu Lin, Jiannan Xiang, … Ming-Yu Liu, Ja
 published: 2025-06-17 (arXiv 2505.12705v2)
 ingested: 2026-07-04
 local_path: raw/dreamgen_2505.12705v2.pdf
+sha256: e4e2c5c9e664d9331adb49c230053a76cf5bb4c3501341f4d9b372ecc585684c
 format: pdf (18 pp.)
 tags: [dreamgen, neural-trajectories, video-world-model, synthetic-data, nvidia, gear, vla, latent-actions, idm, generalization]
 ---

@@ -6,6 +6,7 @@ author: Tuomas Haarnoja, Aurick Zhou, Kristian Hartikainen, George Tucker, Sehoo
 published: 2018-12
 ingested: 2026-07-05
 local_path: raw/RL_SAC_AlgorithmsApplications_1812.05905v2.pdf
+sha256: 30df4c4ff7c878aa2938ecaf651eb5cc05dc224eb0e3b5bcc8981dbf30d7a9bd
 venue: arXiv 1812.05905 (v2)
 format: pdf
 tags: [reinforcement-learning, off-policy-rl, maximum-entropy-rl, actor-critic, automatic-temperature, real-world-rl, quadruped, dexterous-manipulation, algorithm]

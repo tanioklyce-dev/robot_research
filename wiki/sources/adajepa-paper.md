@@ -3,6 +3,7 @@ title: "AdaJEPA: An Adaptive Latent World Model"
 type: source
 url: https://arxiv.org/abs/2606.32026
 local_path: raw/adajepa_2606.32026.pdf
+sha256: 8e4dfbf66b1f4b0ef46122dab4a291a470ff55cd736a384de298516df3c4b2f1
 author: Ying Wang, Oumayma Bounou, Yann LeCun, Mengye Ren
 published: 2026-06-30
 ingested: 2026-08-26

@@ -9,6 +9,7 @@ ingested: 2026-08-03
 venue: CoRL 2022
 format: conference paper (25 pp with appendices)
 local_path: raw/2207.05608.pdf
+sha256: ecf30268add2af672291ad65b53c9fd87801f6490b0af195b12db1dedee0f2b9
 tags: [inner-monologue, llm-agent, closed-loop, feedback, replanning, success-detection, saycan, primary-source]
 ---
 

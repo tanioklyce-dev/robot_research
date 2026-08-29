@@ -7,6 +7,7 @@ published: 2024-12-16 (arXiv 2410.12172v2; v1 2024-10)
 venue: arXiv review paper (Springer-style formatting; likely an ISRR 2024 invited review — not confirmed in the PDF)
 ingested: 2026-07-04
 local_path: raw/TheStateOfMotionGEneration_2410.12172v2.pdf
+sha256: 91ae12515a51d8f863feca35759f54b4c35b5dd50d06cc97e3f0cb83d81a7cc3
 format: pdf (16 pp., 100 refs)
 tags: [motion-generation, motion-planning, tamp, trajectory-optimization, sampling-based-planning, mpc, imitation-learning, rl, survey, rutgers]
 ---

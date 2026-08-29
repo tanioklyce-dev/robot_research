@@ -3,6 +3,7 @@ title: Physically Assistive Robots — A Systematic Review (Nanavati, Ranganeni,
 type: source
 url: https://doi.org/10.1146/annurev-control-062823-024352
 local_path: raw/nanavati2024physically.pdf (preprint); raw/annurev-control-062823-024352.pdf (published Annual Review version)
+sha256: 02b9cbcf0c40f80f179c45c032031d4a0db631277aed37dbc226a94e08de4e72
 author: Amal Nanavati, Vinitha Ranganeni, Maya Cakmak
 published: 2024 (Advance online November 21, 2023)
 ingested: 2026-05-09

@@ -3,6 +3,7 @@ title: "RoboTwin 2.0: A Scalable Data Generator and Benchmark with Strong Domain
 type: source
 url: https://arxiv.org/abs/2506.18088
 local_path: raw/2506.18088-robotwin2.pdf
+sha256: 316ae82a97968e1a2d88540665401645a190d2699d7d8652e8fc0053ba609bda
 author: "Tianxing Chen*, Zanxin Chen*, Baijun Chen*, Zijian Cai*, Yibin Liu*, Zixuan Li*, … Zhixuan Liang, Yusen Qin, Xiaokang Yang, Ping Luo†, Yao Mu†"
 affiliations: SJTU AI Institute; HKU MMLab; Shanghai AI Lab; D-Robotics; SZU; THU; TeleAI; and 9 others
 published: 2025-06-23 (v2 2025-08-27)

@@ -9,6 +9,7 @@ ingested: 2026-08-03
 venue: Google DeepMind technical report
 format: technical report (18 pp)
 local_path: raw/gemini-robotics-2-safety.pdf
+sha256: 0ce23ac5909394696970fcc9fc7777cb20033b5234b7777d3d5b1d38919baf7d
 tags: [gemini-robotics-2, asimov-agentic, semantic-safety, agentic-safety, uncertainty-quantification, iso-25785, safe-stopping, red-teaming, google-deepmind, primary-source]
 ---
 

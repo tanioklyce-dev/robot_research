@@ -9,6 +9,7 @@ ingested: 2026-08-03
 venue: CoRL 2022
 format: conference paper (34 pp with appendices)
 local_path: raw/2204.01691.pdf
+sha256: 48c22d36a044bbbd34e640beb1db4fb4ba57e74d97fefa0fb121d55c31282312
 license: arXiv preprint (v2, 2022-08-16)
 tags: [saycan, llm-agent, affordances, value-functions, skill-selection, mobile-manipulation, palm, grounding, primary-source]
 ---

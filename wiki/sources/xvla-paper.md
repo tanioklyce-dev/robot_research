@@ -3,6 +3,7 @@ title: "X-VLA: Soft-Prompted Transformer as Scalable Cross-Embodiment Vision-Lan
 type: source
 url: https://arxiv.org/abs/2510.10274
 local_path: raw/2510.10274v1-xvla.pdf
+sha256: 483c47a651b44456f7f5a71b8d0e586df2e32c034f188dfb0653f3f6cc2d8aa7
 author: "Jinliang Zheng*, Jianxiong Li*, Zhihao Wang, Dongxiu Liu, Xirui Kang, Yuchun Feng, Yinan Zheng, Jiayin Zou, Yilun Chen, Jia Zeng, Ya-Qin Zhang, Jiangmiao Pang, Jingjing Liu, Tai Wang†, Xianyuan Zhan†"
 affiliations: Institute for AI Industry Research (AIR) Tsinghua University; Shanghai AI Lab; Peking University
 published: 2025-10-11

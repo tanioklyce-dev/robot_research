@@ -7,6 +7,7 @@ author: Cheng Chi, Siyuan Feng, Yilun Du, Zhenjia Xu, Eric Cousineau, Benjamin B
 published: 2023-03 (arxiv); RSS 2023
 ingested: 2026-05-09
 local_path: raw/Diffusion_Policy_2303.04137v5.pdf
+sha256: b65c474b696a4802d8f1457d86b637ce2c5521412570d3aa928cd54563babc8f
 tags: [diffusion-policy, behavior-cloning, ddpm, action-diffusion, push-t, robomimic, franka, ur5, columbia, tri, mit, operational-space-control, safety, constrained-qp]
 ---
 

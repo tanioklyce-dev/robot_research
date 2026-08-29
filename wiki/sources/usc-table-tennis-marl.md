@@ -6,6 +6,7 @@ author: Basu, Coimbatore Selvakumar, Fu, Chunduru Balaji, Ramesh, Voona, Wu (USC
 published: null
 ingested: 2026-07-17
 local_path: raw/RL_TableTennis.pdf
+sha256: 5efcbdf8d9972adf2b7ba0c2307fb396641daf14db87601aa39f24853b8be555
 venue: University of Southern California — semester course project report
 license: null
 format: PDF (9 pages, IEEE-conference template)

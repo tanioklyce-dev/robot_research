@@ -9,6 +9,7 @@ ingested: 2026-08-03
 venue: "ICML 2026 (Proceedings of the 43rd ICML, Seoul; PMLR 306)"
 format: conference paper (58 pp with appendices)
 local_path: raw/2603.22435v2.pdf
+sha256: fe177f46cdbfd7fdd605aacfaea8399269cd7a9075b6425e9d0257620ee2baa6
 license: arXiv preprint (v1 2026-03-23, v2 2026-07-02)
 tags: [code-as-policy, llm-agent, benchmark, robot-manipulation, libero-pro, behavior, robosuite, evaluation, rlvr, grpo, skill-library, test-time-compute, sim-to-real, nvidia-gear, primary-source]
 ---

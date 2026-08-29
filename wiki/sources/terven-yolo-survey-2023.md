@@ -3,6 +3,7 @@ title: "A Comprehensive Review of YOLO Architectures: From YOLOv1 to YOLOv8 and 
 type: source
 url: https://arxiv.org/abs/2304.00501
 local_path: raw/2304.00501.pdf
+sha256: a025fd91743f9312db63e34f26784ffb902d06facbe7a873d22b1feccfef5a3c
 author: Juan Terven, Diana Cordova-Esparza
 published: 2024-02-04
 ingested: 2026-07-23

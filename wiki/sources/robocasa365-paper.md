@@ -3,6 +3,7 @@ title: RoboCasa365 Paper
 type: source
 url: https://openreview.net/forum?id=tQJYKwc3n4
 local_path: raw/22486_RoboCasa365_A_Large_Scal.pdf
+sha256: 224e5411bcb5b2cb5f2307ac88531868ed8569817a2617af7d420a394adbd58d
 author: Soroush Nasiriany, Sepehr Nasiriany, Abhiram Maddukuri, Yuke Zhu
 affiliations: UT Austin, NVIDIA Research
 published: 2026 (ICLR 2026 conference paper)

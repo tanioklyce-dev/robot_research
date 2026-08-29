@@ -3,6 +3,7 @@ title: Preserving Sense of Agency — User Preferences for Robot Autonomy and Us
 type: source
 url: Unknown (RO-MAN 2025)
 local_path: raw/yang2025senseofagency.pdf
+sha256: 41910579dc363fa51102d554146841f0efa87a1dbd52437cdeafa94d86241f78
 author: Claire Yang, Heer Patel, Max Kleiman-Weiner, Maya Cakmak
 published: 2025
 ingested: 2026-05-09

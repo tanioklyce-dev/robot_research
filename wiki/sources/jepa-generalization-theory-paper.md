@@ -6,6 +6,7 @@ author: Jingyi Cui, Qi Zhang, Hongwei Wen, Yisen Wang (Peking University / Univ.
 published: 2026-06-25
 ingested: 2026-07-26
 local_path: raw/2606.27014.pdf
+sha256: 8e80f0f0df6a70ae4805537a51ebcadca19b75821864cdd57d2e3fbb59b1a114
 venue: arXiv preprint (cs.LG)
 license: arXiv
 format: pdf

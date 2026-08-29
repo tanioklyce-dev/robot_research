@@ -7,6 +7,7 @@ author: Yuxuan Wang, Ming Yang, Ziluo Ding, Yu Zhang, Weishuai Zeng, Xinrun Xu, 
 published: 2025-09-01
 ingested: 2026-07-15
 local_path: raw/2506.12779v3.pdf
+sha256: e8174008815d00c53c87e25c06e538d581738bae527404352cfc7b22d3efdea1
 venue: arXiv 2506.12779 (v3)
 format: pdf (17 pp.)
 tags: [bumblebee, beingbeyond, peking-university, zongqing-lu, whole-body-control, humanoid, unitree-g1, motion-tracking, sim-to-real, distillation, rl, amass]

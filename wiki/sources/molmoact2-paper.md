@@ -8,6 +8,7 @@ ingested: 2026-07-25
 version_checked: 2026-07-28 (v2 is still latest; no v3)
 code: https://github.com/allenai/molmoact2
 local_path: raw/2605.02881v2.pdf
+sha256: 3029bc601e4d71ebc2e45ce996cbe35649b24eeb26b5925a73c83cb83e7fadad
 venue: arXiv preprint (cs.RO)
 license: arXiv non-exclusive
 format: pdf

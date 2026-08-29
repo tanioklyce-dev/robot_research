@@ -2,6 +2,7 @@
 title: "An Approach to the Synthesis of Life (Ray, 1991) — Tierra"
 type: source
 local_path: raw/Ray1991AnApproachToTheSynthesisOfLife.pdf
+sha256: 56de240c926591f23aa18d06474d474d86143b5d5a6ac305165db1ad8e1c72f8
 author: Thomas S. Ray
 affiliations: School of Life & Health Sciences, University of Delaware
 venue: "Artificial Life II (SFI Studies in the Sciences of Complexity, vol. X; eds. Langton, Taylor, Farmer, Rasmussen), Addison-Wesley, p. 371"

@@ -7,6 +7,7 @@ affiliation: Machine Learning Group, Universiteit van Amsterdam
 published: 2013-12-20 (arxiv v1); ICLR 2014; v11 2022-12-10
 ingested: 2026-07-06
 local_path: raw/VariationalAutoEncoder_1312.6114v11.pdf
+sha256: bdcb63b79ed88f64f8ee2d43a721930d01dde5441a4dba20ecaa2342b34e017c
 tags: [vae, variational-inference, generative-model, reparameterization-trick, elbo, sgvb, aevb, kingma, welling, foundational]
 ---
 

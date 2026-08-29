@@ -3,6 +3,7 @@ title: Multiple Ways of Working with Users to Develop Physically Assistive Robot
 type: source
 url: Unknown (A3DE Workshop @ HRI 2024)
 local_path: raw/nanavati2024multiple.pdf
+sha256: f2bd9e9ba359679c25eaee1568d55cf8256443303bf2e3f558048b5fc6399c0c
 author: Amal Nanavati, Max Pascher, Vinitha Ranganeni, Ethan K. Gordon, Taylor Kessler Faulkner, Siddhartha S. Srinivasa, Maya Cakmak, Patrícia Alves-Oliveira, Jens Gerken
 published: 2024 (A3DE @ HRI 2024, March 15, 2024, Boulder, CO)
 ingested: 2026-05-09

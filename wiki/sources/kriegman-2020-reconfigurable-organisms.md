@@ -3,6 +3,7 @@ title: "A scalable pipeline for designing reconfigurable organisms (Kriegman et 
 type: source
 url: https://www.pnas.org/doi/10.1073/pnas.1910837117
 local_path: raw/kriegman-et-al-2020-a-scalable-pipeline-for-designing-reconfigurable-organisms.pdf
+sha256: a8f69d619780b94e18117f47ea5c7df6a04aea1ed23404a4d017c49343d271e9
 code: https://github.com/skriegman/reconfigurable_organisms
 author: Sam Kriegman, Douglas Blackiston, Michael Levin, Josh Bongard
 affiliations: University of Vermont (CS); Tufts University (Biology / Allen Discovery Center); Wyss Institute, Harvard

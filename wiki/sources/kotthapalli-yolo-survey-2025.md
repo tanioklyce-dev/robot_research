@@ -3,6 +3,7 @@ title: "YOLOv1 to YOLOv11: A Comprehensive Survey of Real-Time Object Detection 
 type: source
 url: https://arxiv.org/abs/2508.02067
 local_path: raw/2508.02067.pdf
+sha256: 92774e732281160ccebd833bc5fc729be146299d05a4e2d5069c6aebb0f4be59
 author: Manikanta Kotthapalli, Deepika Ravipati, Reshma Bhatia
 published: 2025-08-04
 ingested: 2026-07-23

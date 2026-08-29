@@ -9,6 +9,7 @@ ingested: 2026-08-03
 venue: "Foundations of Computational Mathematics (FoCM)"
 format: journal article (65 pp)
 local_path: raw/2305.12284.pdf
+sha256: ff456689d8f7f604f20600af984ea91669415ded98f1943d70d29d5a936f2c7a
 license: "arXiv preprint 2305.12284 (v2, 2024-06-08) used as the readable copy; version of record is the FoCM article"
 tags: [safe-learning, formal-methods, semidefinite-programming, conic-optimization, dynamical-systems, control-theory, robust-optimization, safety, primary-source]
 ---

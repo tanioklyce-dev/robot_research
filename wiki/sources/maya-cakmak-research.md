@@ -3,6 +3,7 @@ title: Maya Cakmak — Research Overview
 type: source
 url: https://www.mayacakmak.io/research
 local_path: raw/maya-cakmak-research-page.md
+sha256: 9aad03411a908f83f50ea0a1ac30a99497f0768a377ef0a8342581569757ad5d
 author: Maya Cakmak
 published: Unknown (continuously updated)
 ingested: 2026-05-09

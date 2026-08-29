@@ -3,6 +3,7 @@ title: V-JEPA 2 Paper
 type: source
 url: https://arxiv.org/abs/2506.09985
 local_path: raw/JEPA_2506.09985v1.pdf
+sha256: 9cfcfde5fb0d9730637da5b9e7317825c3f3d09e91f3553e22eeba42c74d2226
 author: Mahmoud Assran, Adrien Bardes, David Fan, Quentin Garrido, ..., Yann LeCun, Michael Rabbat, Nicolas Ballas
 affiliations: FAIR at Meta, Mila — Quebec AI Institute / Polytechnique Montréal
 published: 2025-06-13

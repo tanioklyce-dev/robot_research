@@ -3,6 +3,7 @@ title: "OLMoE: Open Mixture-of-Experts Language Models (Muennighoff et al. 2024)
 type: source
 url: https://arxiv.org/abs/2409.02060
 local_path: raw/2409.02060.pdf
+sha256: 44511ee5d5a919140acae60509a3aec1cf4ba7d1a47913c488f945d635981658
 author: Niklas Muennighoff, Luca Soldaini, Dirk Groeneveld, Kyle Lo, … (Allen Institute for AI / Ai2, ~23 authors)
 published: 2024-09-03
 ingested: 2026-07-24

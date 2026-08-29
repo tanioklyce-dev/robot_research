@@ -3,6 +3,7 @@ title: Sobal et al. 2022 — Joint Embedding Predictive Architectures Focus on S
 type: source
 url: https://arxiv.org/abs/2211.10831
 local_path: raw/2211.10831v1.pdf
+sha256: 2c0ba6d60fbcd9651c73114a6f62c6204db5116ca68e83af5160ff73d8dcadfe
 author: Vlad Sobal, Jyothir S V, Siddhartha Jalagam, Nicolas Carion, Kyunghyun Cho, Yann LeCun
 affiliation: NYU (Sobal, Jyothir S V, Jalagam); Meta AI (Carion, LeCun); Prescient Design / Genentech (Cho); CIFAR Fellow (Cho); NYU (LeCun)
 published: 2022-11-20 (NeurIPS 2022 SSL Theory and Practice Workshop, short paper)

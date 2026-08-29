@@ -3,6 +3,7 @@ title: "Patch Policy: Efficient Embodied Control via Dense Visual Representation
 type: source
 url: https://arxiv.org/abs/2607.18236
 local_path: raw/patch-policy_2607.18236.pdf
+sha256: 9c4c9a5416831e337a9b76ac5edd6f0c2cc8746ec7b76f582565b53b2d37b919
 author: Gaoyue Zhou, Zichen Jeff Cui, Ada Langford, Bowen Tan, Yann LeCun, Lerrel Pinto
 published: 2026-07-20
 ingested: 2026-08-26

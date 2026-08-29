@@ -4,6 +4,7 @@ type: source
 url: https://arxiv.org/abs/2602.22818
 arxiv: https://arxiv.org/abs/2602.22818
 local_path: raw/2602.22818v1.pdf
+sha256: 0f59ee1894d9f78534aa89c54610c022417d1963f0e315bd0c10d0325aca3a99
 venue: ICLR 2026 (conference paper)
 author: Remi Cadene, Simon Aliberts, Francesco Capuano, Michel Aractingi, Adil Zouitine, Pepijn Kooijmans, Jade Choghari, Martino Russi, Caroline Pascal, Steven Palma, Mustafa Shukor, Jess Moss, Alexander Soare, Dana Aubakirova, Quentin Lhoest, Quentin Gallouédec, Thomas Wolf
 affiliations: Hugging Face (17 authors; Capuano now at University of Oxford, work done while at HF)

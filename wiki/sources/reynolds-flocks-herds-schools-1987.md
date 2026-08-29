@@ -3,6 +3,7 @@ title: "Flocks, Herds, and Schools: A Distributed Behavioral Model (Reynolds, 19
 type: source
 url: https://www.red3d.com/cwr/papers/1987/boids.html
 local_path: raw/SIGGRAPH87.pdf
+sha256: 51d39235fc07ddeeb4dea0c7ad780a8c5785a7961982e52447da72a28fd103b0
 author: Craig W. Reynolds
 affiliation: Symbolics Graphics Division
 published: 1987-07

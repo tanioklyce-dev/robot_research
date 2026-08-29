@@ -3,6 +3,7 @@ title: "Hierarchical Planning with Latent World Models (HWM)"
 type: source
 url: https://arxiv.org/abs/2604.03208
 local_path: raw/2026-04-hierarchical-planning-latent-world-models-2604.03208.pdf
+sha256: 0f60bed10fff3d873f246b0655f4f4b176d3f59063e5c643e148453cc79b7f40
 project_page: https://kevinghst.github.io/HWM/
 author: Wancong Zhang, Basile Terver, Artem Zholus, Soham Chitnis, Harsh Sutaria, Mido Assran, Amir Bar, Randall Balestriero, Adrien Bardes, Yann LeCun, Nicolas Ballas
 affiliations: NYU, Meta (FAIR), Mila, Brown University

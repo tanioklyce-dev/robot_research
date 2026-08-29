@@ -3,6 +3,7 @@ title: HCR Lab Publications Page
 type: source
 url: https://hcrlab.cs.washington.edu/publications/
 local_path: raw/hcrlab-uw-publications.md
+sha256: d98a5070371866cb6746359a20ea82fea921254196e42ba9c73a42932c81e6a5
 author: Human-Centered Robotics Lab, University of Washington; PI Maya Cakmak
 published: Unknown (continuously updated through 2025)
 ingested: 2026-05-09

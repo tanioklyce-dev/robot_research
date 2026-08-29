@@ -7,6 +7,7 @@ published: 2022-06 (arXiv); CoRL 2022
 ingested: 2026-07-09
 venue: CoRL 2022
 local_path: raw/DayDreamer_2206.14176v1.pdf
+sha256: 2ee10ae0961bef97ca522bb7ee5b7514e7a918a637dedad569b572b18bccb35e
 format: paper PDF (15 pp)
 tags: [daydreamer, dreamer, mbrl, real-robot, no-simulator, quadruped, manipulation, online-learning, berkeley, hafner]
 ---

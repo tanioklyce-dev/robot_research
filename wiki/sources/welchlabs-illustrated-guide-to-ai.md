@@ -2,6 +2,7 @@
 title: The Welch Labs Illustrated Guide to AI, Volume I
 type: source
 local_path: raw/WelchLabs_IllustratedGuideToAI_rev_15_feb_4_1.pdf
+sha256: ad49a7c3499d8012ecf6cd49c5a53436fdc0faef048b4763e70e899a8780dc41
 url: https://www.welchlabs.com/
 companion_code: https://github.com/stephencwelch/ai_book
 companion_videos: https://www.youtube.com/@WelchLabsVideo

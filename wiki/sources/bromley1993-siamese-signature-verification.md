@@ -3,6 +3,7 @@ title: "Signature Verification using a 'Siamese' Time Delay Neural Network (Brom
 type: source
 url: https://proceedings.neurips.cc/paper/1993/hash/288cc0ff022877bd3df94bc9360b9c5d-Abstract.html
 local_path: raw/NIPS-1993-signature-verification-using-a-siamese-time-delay-neural-network-Paper.pdf
+sha256: 37b9cdcba90fdc8dd754cf0ed5a4275600d1e141fbd99bfaba6f70951a1b1602
 author: Jane Bromley, Isabelle Guyon, Yann LeCun, Eduard Säckinger, Roopak Shah
 affiliation: AT&T Bell Laboratories, Holmdel NJ
 published: 1993 (NIPS 6 proceedings; AT&T Bell Labs copyright 1994)

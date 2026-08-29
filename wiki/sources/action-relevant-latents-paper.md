@@ -3,6 +3,7 @@ title: "What Makes Video World Model Latents Action-Relevant: Prediction over Re
 type: source
 url: https://arxiv.org/abs/2606.07687
 local_path: raw/2606.07687.pdf
+sha256: 350c69b2503e526a4e3bee4556003994a18464ab2b1a5b3bfb07f2cc2c487f81
 author: Jewon Yeom, Hanseul Kim, Jeongjae Park, Sungmok Jung, Jaejin Lee, Taesup Kim
 affiliations: Graduate School of Data Science, Seoul National University
 venue: Preprint (arXiv 2606.07687v1)

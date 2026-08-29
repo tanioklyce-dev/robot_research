@@ -6,6 +6,7 @@ author: Yufeng Wang, Lu Wei, Haibin Ling (Stony Brook University / Westlake Univ
 published: 2026-07-08
 ingested: 2026-07-26
 local_path: raw/2607.06925.pdf
+sha256: c0a9daf7fd93bcc465c2b6b13b63b34f2de9dc5299fdab1eb7d58bb04fdaccea
 venue: arXiv preprint (cs.AI)
 license: arXiv
 format: pdf

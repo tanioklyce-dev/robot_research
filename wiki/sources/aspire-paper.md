@@ -9,6 +9,7 @@ ingested: 2026-08-03
 venue: arXiv preprint (v1)
 format: research paper (43 pp with appendices)
 local_path: raw/2607.00272.pdf
+sha256: 9df00979a6d52c7fcfbcc9d17275fc5196e6431d872a0624fea642a63f9beefc
 tags: [code-as-policy, skill-library, continual-learning, llm-agent, evolutionary-search, libero-pro, behavior, robosuite, sim-to-real, cross-embodiment, nvidia-gear, claude-opus, primary-source]
 ---
 

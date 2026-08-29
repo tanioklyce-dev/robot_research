@@ -3,6 +3,7 @@ title: "RT-1: Robotics Transformer for Real-World Control at Scale"
 type: source
 url: https://arxiv.org/abs/2212.06817
 local_path: raw/2212.06817.pdf
+sha256: 81efe669c8fa50ffc7097886dc78a442fa7a8f7f2451684b93069cb9fbeda767
 author: Brohan, Brown, Carbajal, Chebotar, Dabis, Finn, Gopalakrishnan, Hausman, Herzog, Hsu, Ibarz, Ichter, Irpan, Jackson, Jesmonth, Joshi, Julian, Kalashnikov, Kuang, Leal, Lee, Levine, Lu, Malla, Manjunath, Mordatch, Nachum, Parada, Peralta, Perez, Pertsch, Quiambao, Rao, Ryoo, Salazar, Sanketi, Sayed, Singh, Sontakke, Stone, Tan, Tran, Vanhoucke, Vega, Vuong, Xia, Xiao, Xu, Xu, Yu, Zitkovich
 venue: arXiv 2212.06817v2 (cs.RO), 31 pp.; Robotics at Google + Everyday Robots + Google Brain
 published: 2023-08-11

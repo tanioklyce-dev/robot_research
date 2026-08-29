@@ -3,6 +3,7 @@ title: Shortest Paths in Graphs of Convex Sets (Marcucci, Umenberger, Parrilo & 
 type: source
 url: https://arxiv.org/abs/2101.11565
 local_path: raw/Marcucci_ShortestPathsInGCS_2101.11565.pdf
+sha256: 493b909e322781621c385b9d1a98c4eb4f882e46cfb253ce07246206b4239361
 author: Tobia Marcucci, Jack Umenberger, Pablo A. Parrilo, Russ Tedrake
 published: 2021-01-27
 ingested: 2026-08-16

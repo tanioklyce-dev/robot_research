@@ -6,6 +6,7 @@ author: "Artemis Shaw, Chen Liu, Justin Costa, Rane Gray, Alina Skowronek, Kevin
 published: 2026-03
 ingested: 2026-06-03
 local_path: raw/2603.09051v1.pdf
+sha256: db2bb3eab4fc81952820019998012a2cbb2c70b92e05d217ee655392e71b28b0
 venue: arXiv 2603.09051v1
 license: CC-BY-NC-ND 4.0
 format: PDF (8 pp.)

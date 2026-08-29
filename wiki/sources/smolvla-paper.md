@@ -3,6 +3,7 @@ title: "SmolVLA: A vision-language-action model for affordable and efficient rob
 type: source
 url: https://arxiv.org/abs/2506.01844
 local_path: raw/2506.01844v1.pdf
+sha256: cb1bb9a8f824187fcdc32af8c290214487c524f139a3c2def1c6d97adb1fa40c
 author: "Mustafa Shukor*, Dana Aubakirova*, Francesco Capuano*, Pepijn Kooijmans, Steven Palma, Adil Zouitine, Michel Aractingi, Caroline Pascal, Martino Russi, Andres Marafioti, Simon Alibert, Matthieu Cord, Thomas Wolf, Remi Cadene*"
 affiliations: Hugging Face, Sorbonne University, valeo.ai, École Normale Supérieure Paris-Saclay
 published: 2025-06-02

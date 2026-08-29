@@ -3,6 +3,7 @@ title: "A Control-Centric Benchmark for Video Prediction (VP²) — Tian, Finn &
 type: source
 url: https://arxiv.org/abs/2304.13723
 local_path: raw/2304.13723.pdf
+sha256: 0c1c71836e8c7f0fb4470da440dc321b692d1db0ff16df2572610d19a55eec87
 code: https://github.com/s-tian/vp2
 author: Stephen Tian, Chelsea Finn, Jiajun Wu
 affiliations: Stanford University

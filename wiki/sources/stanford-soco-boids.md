@@ -3,6 +3,7 @@ title: "Boids — Stanford SoCo student project (Wong, 2008)"
 type: source
 url: https://cs.stanford.edu/people/eroberts/courses/soco/projects/2008-09/modeling-natural-systems/boids.html
 local_path: raw/stanford-soco-boids-2008.md
+sha256: 64a2d530a44de333c3a1d18d2413d84cecfcd0f15833662891e22ffc45c8e864
 author: Timmie Wong
 published: 2008-09
 ingested: 2026-05-31

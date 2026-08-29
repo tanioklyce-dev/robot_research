@@ -3,6 +3,7 @@ title: "Latent Video Prediction Learns Better World Models (Alrasheed et al., 20
 type: source
 url: https://arxiv.org/abs/2605.15618
 local_path: raw/2605.15618.pdf
+sha256: 2a1c60ffa31afed52797922de3a31f8432916e29b32c88ae800ec17d166ee306
 author: Ali J Alrasheed, Aryan Yazdan Parast, Basim Azam, James Bailey, Naveed Akhtar
 affiliations: The University of Melbourne; Monash University
 venue: Preprint (arXiv 2605.15618v1)

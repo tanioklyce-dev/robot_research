@@ -3,6 +3,7 @@ title: "YOLO: You Only Look Once — Unified, Real-Time Object Detection (Redmon
 type: source
 url: https://arxiv.org/abs/1506.02640
 local_path: raw/1506.02640.pdf
+sha256: 54bcd2dd05dc618849e8a94d8b88fe3eeb37f80e96e200600d38f1f733931678
 author: Joseph Redmon, Santosh Divvala, Ross Girshick, Ali Farhadi
 published: 2016-05-09
 ingested: 2026-07-23

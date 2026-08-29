@@ -7,6 +7,7 @@ published: 2014 (covers Year 8 of the award, ending 2014-05-31)
 ingested: 2026-07-09
 format: NSF ERC annual report PDF (166 pp, Volume 1 of 2)
 local_path: raw/qolt-2014-annual-report-vol1.pdf
+sha256: f1d1d40f2408dcc3efb0912d3a57afb8e1e9b5015ccaa3c0404faf5b81457b81
 tags: [qolt, cmu, pitt, nsf-erc, assistive-robotics, annual-report, permma, herb, siewiorek, cooper]
 ---
 

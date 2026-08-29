@@ -9,6 +9,7 @@ ingested: 2026-08-03
 venue: arXiv preprint (2504.16054, v1)
 format: research paper (19 pp)
 local_path: raw/2504.16054.pdf
+sha256: 6a1029fd8ab6944b74cf22f5e5d30e60bc15699d964b2900af799b807a34b64c
 tags: [pi-zero-5, physical-intelligence, vla, co-training, open-world, mobile-manipulation, hierarchical-inference, fast-tokenizer, flow-matching, knowledge-insulation, primary-source]
 ---
 

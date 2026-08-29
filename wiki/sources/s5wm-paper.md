@@ -7,6 +7,7 @@ published: 2025-02-27 (arXiv v1, cs.RO)
 ingested: 2026-07-09
 venue: arXiv (UZH RPG)
 local_path: raw/RLMB_2502.20168v1.pdf
+sha256: 4fa4b7816efcef433e86bd98b98225c48868164973b0e4681788e27c275ea64b
 format: paper PDF (16 pp)
 tags: [mbrl, world-model, state-space-models, s5, dreamer, drone-racing, quadrotor, sim-to-real, uav, sample-efficiency]
 ---

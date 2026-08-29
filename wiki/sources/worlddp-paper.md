@@ -6,6 +6,7 @@ author: Raktim Gautam Goswami, Prashanth Krishnamurthy, Yann LeCun, Farshad Khor
 published: 2026-06-07
 ingested: 2026-07-26
 local_path: raw/2606.08775.pdf
+sha256: f0ea19498d3df994d42b4229e76ad5c84df85cb2c98a25d565542740da6520e9
 venue: arXiv preprint (cs.RO)
 license: arXiv
 format: pdf

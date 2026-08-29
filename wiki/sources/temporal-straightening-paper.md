@@ -3,6 +3,7 @@ title: "Temporal Straightening for Latent Planning"
 type: source
 url: https://arxiv.org/abs/2603.12231
 local_path: raw/temporal-straightening_2603.12231.pdf
+sha256: 832ded537e06439556493d215e22568fc6d530d252b13b0d5895417ff25e4a3b
 author: Ying Wang, Oumayma Bounou, Gaoyue Zhou, Randall Balestriero, Tim G. J. Rudner, Yann LeCun, Mengye Ren
 published: 2026-03-12
 ingested: 2026-08-26

@@ -6,6 +6,7 @@ author: Jens Kober (Bielefeld / Honda Research Institute Europe), J. Andrew Bagn
 published: 2013 (IJRR 32(11):1238–1274)
 ingested: 2026-07-04
 local_path: raw/RL_Survey_Kober_IJRR_2013.pdf
+sha256: afe949ac5ee4c624537bf97cef312353cc12460436affc7b2cb5fa9878739bd4
 format: pdf (author-typeset, 73 pp.)
 tags: [reinforcement-learning, robotics, survey, policy-search, imitation-learning, model-based-rl, reward-shaping, historical]
 ---

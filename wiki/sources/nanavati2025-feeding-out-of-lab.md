@@ -3,6 +3,7 @@ title: Lessons Learned from Designing and Evaluating a Robot-assisted Feeding Sy
 type: source
 url: https://robotfeeding.io/publications/hri25a/
 local_path: raw/nanavati2025lessons.pdf
+sha256: 5a5ae3705ceb3d93d6b13766c9168eb4268f494a8bf3cfd28592832582b675b4
 author: Amal Nanavati, Ethan K. Gordon, Taylor A. Kessler Faulkner, Yuxin (Ray) Song, Jonathan Ko, Tyler Schrenk, Vy Nguyen, et al.; Maya Cakmak, Siddhartha S. Srinivasa
 published: 2025 (HRI 2025 — Best Systems Paper Finalist)
 ingested: 2026-05-09

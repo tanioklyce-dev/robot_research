@@ -8,6 +8,7 @@ venue: Science 268(5214):1158–1161
 published: 1995-04-03 (preprint; Science 1995-05-26)
 ingested: 2026-07-06
 local_path: raw/wakesleep.pdf
+sha256: a63370a3bd28499aa9002df1b2f9b732d1cbc8e04d55a27ccfc2909150b486ff
 tags: [wake-sleep, helmholtz-machine, recognition-model, generative-model, minimum-description-length, unsupervised-learning, hinton, foundational, historical]
 ---
 

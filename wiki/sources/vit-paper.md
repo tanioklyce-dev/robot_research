@@ -3,6 +3,7 @@ title: "An Image Is Worth 16x16 Words: Transformers for Image Recognition at Sca
 type: source
 url: https://arxiv.org/abs/2010.11929
 local_path: raw/2010.11929v2.pdf
+sha256: 8ce7b83971a14508ca711a27c875c9b6914c4f6767cf3150fb1ca6c07aa056d6
 author: Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn, Xiaohua Zhai, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, Neil Houlsby
 affiliation: Google Research, Brain Team
 published: 2020-10-22 (v1 arxiv); ICLR 2021; v2 2021-06-03

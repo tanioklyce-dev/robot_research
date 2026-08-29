@@ -3,6 +3,7 @@ title: "Universal Manipulation Exoskeleton: Learning Compliant Whole-body Polici
 type: source
 url: https://arxiv.org/abs/2606.14218
 local_path: raw/2606.14218-ume.pdf
+sha256: 5cdda8f1a947380b1b96eef28e85c02786be30d857df40ef60f9b8560ecd94af
 author: "Litian Liang*, Jingxi Xu*, Xinda Qi, Yujun Cai, Houzhu Ding, Luqi Wang, Zhixin Sun, Jyh-Herng Chow, Ming Yang, Mark Cutkosky"
 affiliations: Ant Group; Stanford University
 published: 2026-06-12

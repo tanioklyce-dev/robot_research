@@ -6,6 +6,7 @@ author: Min Shi, Fuxiao Liu, Shihao Wang, … Bryan Catanzaro, Andrew Tao, Jan K
 published: 2024-08 (arXiv 2408.15998v2, 2025-03-02; ICLR 2025)
 ingested: 2026-07-04
 local_path: raw/EAGLE_2408.15998v2.pdf
+sha256: 2be3a9854be24f656a38c35b3f70eb51bd59c9cd3784645b5dc7af693d68290d
 format: pdf
 tags: [eagle, vlm, mllm, mixture-of-encoders, channel-concatenation, nvidia, iclr-2025, ocr]
 ---

@@ -3,6 +3,7 @@ title: "VICReg — Variance-Invariance-Covariance Regularization for Self-Superv
 type: source
 url: https://arxiv.org/abs/2105.04906
 local_path: raw/2105.04906v3.pdf
+sha256: c227c290d5eb2ba459fd502de3b4e1da36a0ea4c88989b7d8153e211751e9e77
 author: Adrien Bardes, Jean Ponce, Yann LeCun
 affiliation: Facebook AI Research (Bardes, LeCun); Inria / École normale supérieure / NYU
 published: 2021-05-11 (v1); 2022-01-28 (v3); ICLR 2022

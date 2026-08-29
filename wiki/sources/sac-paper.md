@@ -6,6 +6,7 @@ author: Tuomas Haarnoja, Aurick Zhou, Pieter Abbeel, Sergey Levine
 published: 2018-01
 ingested: 2026-07-05
 local_path: raw/RL_SoftActorCritic_1801.01290v2.pdf
+sha256: 5c33fae017d02f7025730f05198d4a6b103402822c8bbf48cbc5d8a0474c336a
 venue: ICML 2018 (PMLR 80)
 format: pdf
 tags: [reinforcement-learning, off-policy-rl, maximum-entropy-rl, actor-critic, continuous-control, sample-efficiency, uc-berkeley, algorithm]

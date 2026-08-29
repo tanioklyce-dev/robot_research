@@ -3,6 +3,7 @@ title: "FIPER — Failure Prediction at Runtime for Generative Robot Policies"
 type: source
 url: https://arxiv.org/abs/2510.09459
 local_path: raw/FIPER_FailurePredictionAtRuntime_2510.09459.pdf
+sha256: df815e61dc535ff248b020b151c7b94d7921fa8cca21e5041899a7a165e8a597
 project_page: https://tum-lsy.github.io/fiper_website/
 author: "Ralf Römer*, Adrian Kobras*, Luca Worbis, Angela P. Schoellig (TU Munich, Learning Systems and Robotics Lab / MIRMI)"
 published: 2025-10-10

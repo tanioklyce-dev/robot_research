@@ -3,6 +3,7 @@ title: "Generalized Planning in PDDL Domains with Pretrained Large Language Mode
 type: source
 url: https://arxiv.org/abs/2305.11014
 local_path: raw/2305.11014.pdf
+sha256: 4c969df5dc4025611ff41c0a1089333c956b26184c139fca12a5ee7e6d5b1be2
 author: Tom Silver, Soham Dan, Kavitha Srinivas, Joshua B. Tenenbaum, Leslie Pack Kaelbling, Michael Katz
 venue: AAAI 2024 (arXiv 2305.11014v2), 17 pp.
 published: 2023-12-18

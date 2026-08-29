@@ -7,6 +7,7 @@ author: NVIDIA (lead supervision Ming-Yu Liu; 55+ contributors, Appendix G)
 published: 2026-06-01 (lab PDF; arXiv v4 dated 2026-06-24)
 ingested: 2026-06-02 (arXiv v4 diffed 2026-07-21 — no substantive change)
 local_path: raw/technical-report.pdf
+sha256: 8002cc0ada931a3cb20e58a7db3c27b851b87bf6301c1541280424e189a70549
 venue: NVIDIA Cosmos Lab technical report / arXiv:2606.02800 [cs.CV]
 license: OpenMDW-1.1 (Linux Foundation) for code/weights/datasets/benchmark
 format: PDF (138 pp.)

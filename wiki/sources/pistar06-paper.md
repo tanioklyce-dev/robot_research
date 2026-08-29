@@ -3,6 +3,7 @@ title: "π*0.6: a VLA That Learns From Experience (Physical Intelligence, 2025)"
 type: source
 url: https://pi.website/blog/pistar06
 local_path: raw/pistar06.pdf
+sha256: 6b37590a1f17e415df93b456a65ad399788126c5a610e85122e69e471a509223
 author: "Physical Intelligence (53 authors: Ali Amin, Raichelle Aniceto, …, Kevin Black, …, Chelsea Finn, Karol Hausman, Sergey Levine, Karl Pertsch, …, Zhiyuan Zhou)"
 affiliations: Physical Intelligence
 published: 2025

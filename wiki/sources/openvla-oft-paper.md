@@ -6,6 +6,7 @@ author: Moo Jin Kim, Chelsea Finn, Percy Liang (Stanford)
 published: 2025-02-26
 ingested: 2026-07-17
 local_path: raw/2502.19645v2.pdf
+sha256: b860aa1206b6cfb0ce8be177f961379dd6a133d52cc74ac346636e0f4952a596
 venue: arXiv preprint (cs.RO), 2502.19645v2 (RSS 2025)
 license: null
 format: PDF (24 pages)

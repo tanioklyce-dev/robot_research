@@ -3,6 +3,7 @@ title: "FAIL-Detect — Can We Detect Failures Without Failure Data? Uncertainty
 type: source
 url: https://arxiv.org/abs/2503.08558
 local_path: raw/FAILDetect_UncertaintyAwareRuntimeFailureDetection_2503.08558.pdf
+sha256: d8dfcca672a8d343fc52fbaa6b29d0f5b102697081b3640643b9e61a7b80d332
 project_page: https://cxu-tri.github.io/FAIL-Detect-Website/
 author: "Chen Xu, Tony Khuong Nguyen, Emma Dixon, Christopher Rodriguez, Patrick Miller, Robert Lee, Paarth Shah, Rares Ambrus, Haruki Nishimura, Masha Itkina (Toyota Research Institute; Robert Lee at Woven by Toyota)"
 published: 2025-03-11

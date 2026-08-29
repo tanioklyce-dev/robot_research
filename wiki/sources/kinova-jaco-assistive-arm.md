@@ -7,6 +7,7 @@ published: ~2021 (user guide R05; product line launched 2010)
 ingested: 2026-07-09
 format: product page + official user-guide PDF (53 pp)
 local_path: raw/kinova-jaco-user-guide-r05.pdf
+sha256: f6fd605ce7d82f0f32a150b94d03ad39a19b3c16eaa6294a938957b95bde1c67
 tags: [kinova, jaco, assistive-robotics, wheelchair, robotic-arm, medical-device, commercial-product]
 ---
 
