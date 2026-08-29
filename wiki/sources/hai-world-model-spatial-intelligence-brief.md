@@ -2,6 +2,7 @@
 title: "HAI Issue Brief — The World Model and Spatial Intelligence Era: Governing AI Beyond Language"
 type: source
 url: https://hai.stanford.edu/policy
+fetch_url: https://hai.stanford.edu/assets/files/hai-issue-brief-the-world-model-and-spatial-intelligence-era.pdf
 local_path: raw/hai-issue-brief-the-world-model-and-spatial-intelligence-era.pdf
 sha256: a292fb2a86b53b11952f080a677636f847210beb6de176fdbca05df34151b90a
 author: Daniel Zhang, Russell Wald (equal contribution), Ehsan Adeli, Elena Cryst, Daniel E. Ho, Caroline Meinhardt, Jiajun Wu, Amy Zegart, Li Fei-Fei

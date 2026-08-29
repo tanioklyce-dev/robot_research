@@ -2,6 +2,8 @@
 title: Matter 1.6 Standard Namespaces
 type: source
 url: https://csa-iot.org/developer-resource/specifications-download-request/
+local_path: raw/23-31936-008_Matter-1.6-Standard-Namespaces.pdf
+sha256: 59f3c693d17bc056bd73d2f78366d5d061d1e454b23ab64df2fccdd18c052748
 local: ../../raw/23-31936-008_Matter-1.6-Standard-Namespaces.pdf
 author: Connectivity Standards Alliance
 published: 2026-06-16 (Document 23-31936, revision 8)

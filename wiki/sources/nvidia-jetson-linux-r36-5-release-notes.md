@@ -2,6 +2,8 @@
 title: NVIDIA Jetson Linux 36.5 Release Notes (PDF)
 type: source
 url: https://docs.nvidia.com/jetson/archives/r36.5/ReleaseNotes/Jetson_Linux_Release_Notes_r36.5.pdf
+local_path: raw/jetson-linux-r36.5-release-notes.pdf
+sha256: fa13ad1034165e06e70003b62eb6dcce2dfc85d95c7ad9a7b77f8fe75a8e981b
 local: ../../raw/jetson-linux-r36.5-release-notes.pdf
 author: NVIDIA Corporation
 published: 2026-02 (document revision RN_10698-r36.5.0)

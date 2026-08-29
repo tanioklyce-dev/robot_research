@@ -2,6 +2,7 @@
 title: "π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities (Physical Intelligence, 2025)"
 type: source
 url: https://pi.website/pi07
+fetch_url: https://pi.website/download/pi07.pdf
 local_path: raw/pi07.pdf
 sha256: d718dbcfcf294f87a2179052dcd2e783ea1f542f484d05dfa2ce139bc00d7d5b
 author: "Physical Intelligence (86 authors: Bo Ai, Ali Amin, …, Kevin Black, …, Danny Driess, Chelsea Finn, Karol Hausman, Brian Ichter, Sergey Levine, Karl Pertsch, …, Ury Zhilinsky)"

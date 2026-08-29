@@ -2,6 +2,8 @@
 title: Matter 1.6 Application Cluster Specification
 type: source
 url: https://csa-iot.org/developer-resource/specifications-download-request/
+local_path: raw/23-27350-010_Matter-1.6-Application-Cluster-Specification.pdf
+sha256: 36ca8140f5f0ad5f57b5ec3230df9d31147f2a270df2a8686400b04146bf0a2b
 local: ../../raw/23-27350-010_Matter-1.6-Application-Cluster-Specification.pdf
 author: Connectivity Standards Alliance
 published: 2026-06-16 (Document 23-27350, revision 10)

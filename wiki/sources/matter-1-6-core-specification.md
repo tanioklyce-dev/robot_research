@@ -2,6 +2,8 @@
 title: Matter 1.6 Core Specification
 type: source
 url: https://csa-iot.org/developer-resource/specifications-download-request/
+local_path: raw/23-27349-011_Matter-1.6-Core-Specification.pdf
+sha256: 48b3b117569f72558ba71813360d77abdfa11fcf28747bd269148104936b52b7
 local: ../../raw/23-27349-011_Matter-1.6-Core-Specification.pdf
 author: Connectivity Standards Alliance
 published: 2026-06-16 (Document 23-27349, revision 11, Matter Specification R1.6)

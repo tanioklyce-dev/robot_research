@@ -2,6 +2,8 @@
 title: Matter 1.4 Core Specification
 type: source
 url: https://csa-iot.org/wp-content/uploads/2024/11/24-27349-006_Matter-1.4-Core-Specification.pdf
+local_path: raw/matter-1.4-core-specification.pdf
+sha256: 87dd5b9312ac69cbb1b636caefda744072df0593cecc4b56957922de2b0be5dd
 local: ../../raw/matter-1.4-core-specification.pdf
 author: Connectivity Standards Alliance
 published: 2024-11-04 (Document 23-27349, Matter Specification R1.4)

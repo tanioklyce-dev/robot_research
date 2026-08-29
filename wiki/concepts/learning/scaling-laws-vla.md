@@ -82,6 +82,7 @@ The contrast is the useful part, and it cuts both ways:
 **EgoScale has the curve and the smaller corpus; Figure has the throughput and no curve.** The open question this creates is the one that matters for the whole page: EgoScale's law was fitted on a *curated research corpus* over 1k–20k hours and showed no saturation there. Whether it extends two or three orders of magnitude further, on **crowdsourced data of uncontrolled quality**, is precisely what a $1B programme is implicitly assuming and has not tested in public. A log-linear law is also a warning: `−0.003·ln(D)` means each further halving of loss costs an exponential increase in data.
 
 ## Related concepts
+- [In-context robot learning](in-context-robot-learning.md) — [S1](../../sources/skild-s1-blog.md)'s central claim is a **scaling** claim, not a benchmark one: in-context learning *loses* to language conditioning at 1k h (43% vs 53%) and leads 66% vs 9% on unseen tasks at 100k h, with the gap said to widen exponentially. A crossover, if real, is a stronger statement than any single success rate.
 - [VLA models](vla-models.md) — the model class the scaling law characterizes.
 - [Imitation learning](imitation-learning.md) — pretraining objective is human-video imitation.
 - [Sim-to-real transfer](sim-to-real-transfer.md) — the alternative-paradigm pretraining-data source (sim rollouts instead of human video).

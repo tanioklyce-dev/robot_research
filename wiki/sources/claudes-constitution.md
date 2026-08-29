@@ -2,6 +2,8 @@
 title: "Claude's Constitution"
 type: source
 url: https://www.anthropic.com/research/claudes-constitution
+local_path: raw/claudes-constitution_webPDF_26-02.02a.pdf
+sha256: 1094cc400ffb69becc6d765692e4b8d8efc2808ddc5aff8a0f0967837d0b70d7
 author: Amanda Askell, Joe Carlsmith, Chris Olah, Jared Kaplan, Holden Karnofsky, several Claude models, and many contributors
 affiliations: Anthropic
 published: 2026-01-21

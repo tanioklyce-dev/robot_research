@@ -2,6 +2,7 @@
 title: "Generating Robot Constitutions & Benchmarks for Semantic Safety (ASIMOV Benchmark v1)"
 type: source
 url: https://asimov-benchmark.github.io/v1/
+fetch_url: https://arxiv.org/pdf/2503.08663
 author: "Pierre Sermanet, Anirudha Majumdar, Alex Irpan, Dmitry Kalashnikov, Vikas Sindhwani"
 affiliation: Google DeepMind (Majumdar also Princeton University)
 published: 2025-03-11

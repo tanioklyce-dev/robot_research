@@ -2,6 +2,8 @@
 title: NVIDIA Jetson Linux 39.2.0 GA Release Notes (PDF)
 type: source
 url: https://docs.nvidia.com/jetson/archives/r39.2/ReleaseNotes/Jetson_Linux_Release_Notes_r39.2.pdf
+local_path: raw/jetson-linux-r39.2-release-notes.pdf
+sha256: 4b5fdef15f5636847a6bbd4ed06187c177cbdbb8780ab69833ad15bc3b747a1b
 local: ../../raw/jetson-linux-r39.2-release-notes.pdf
 author: NVIDIA Corporation
 published: 2026-06 (document revision RN_10698-r39.2.0)

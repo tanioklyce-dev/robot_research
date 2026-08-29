@@ -2,6 +2,7 @@
 title: "Gemini Robotics 1.5 — Pushing the Frontier of Generalist Robots with Embodied Reasoning, Thinking, and Motion Transfer (tech report)"
 type: source
 url: https://deepmind.google/discover/blog/gemini-robotics/
+fetch_url: https://storage.googleapis.com/deepmind-media/gemini-robotics/Gemini-Robotics-1-5-Tech-Report.pdf
 author: Gemini Robotics Team, Google DeepMind
 published: 2025 (Google DeepMind technical report; no arXiv id on file)
 ingested: 2026-07-04

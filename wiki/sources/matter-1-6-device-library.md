@@ -2,6 +2,8 @@
 title: Matter 1.6 Device Library Specification
 type: source
 url: https://csa-iot.org/developer-resource/specifications-download-request/
+local_path: raw/23-27351-010_Matter-1.6-Device-Library-Specification.pdf
+sha256: 4cb2cb5620eca853a00a2e7718bcc195c2228116de7d04efe7b00cdc34a17b0b
 local: ../../raw/23-27351-010_Matter-1.6-Device-Library-Specification.pdf
 author: Connectivity Standards Alliance
 published: 2026-06-16 (Document 23-27351, revision 10)

@@ -74,6 +74,8 @@ From [UMI Project Page](../sources/umi-paper.md):
 
 ## Mentioned in
 
+- [Introducing S1 (Skild AI)](../sources/skild-s1-blog.md) — UMI appears in Skild's four-way data-source trade-off table as the **moderate-on-every-axis** option (hardware proximity, diversity, scalability) sitting between robot teleoperation and egocentric human video. A rare instance of a commercial foundation-model programme naming UMI in its data strategy.
+
 - [UMI Project Page](../sources/umi-paper.md) — primary source.
 - [Diffusion Policy](diffusion-policy.md) — predecessor; UMI follows on the same author's earlier work.
 - [Robot Utility Models Paper](../sources/robot-utility-models-paper.md) — Stick-v2 design inspiration.
