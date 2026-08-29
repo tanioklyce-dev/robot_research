@@ -35,6 +35,7 @@ The official deployment-docs page for TensorRT-accelerating [GR00T](../entities/
 
 ## Entities mentioned
 
+- [Jetson AGX Orin](../entities/jetson-agx-orin.md) — the platform behind the 173 ms / 5.8 Hz GR00T measurement.
 - [NVIDIA GR00T](../entities/nvidia-groot.md) — the model being deployed (N1.6-3B benchmarked).
 - [Jetson Thor](../entities/jetson-thor.md), Jetson AGX Orin — the edge deploy targets with first official numbers.
 - [NVIDIA Cosmos](../entities/nvidia-cosmos.md) — the VLM backbone left in eager mode.

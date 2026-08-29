@@ -70,6 +70,7 @@ The [2026-08-16 correction](../entities/jetpack.md) recorded **CUDA 13.0** for J
 
 ## Entities mentioned
 
+- [Jetson AGX Orin](../entities/jetson-agx-orin.md) — JetPack 7.2 adds Super Mode to its 32 GB SKU (200 → 241 TOPS).
 - [Jetson Orin NX](../entities/jetson-orin-nx.md) — one of the Orin modules JetPack 7.2 extends support to.
 - [JetPack](../entities/jetpack.md) — **the page this most directly updates**; its "JetPack 6 and 7 are parallel, not sequential" framing ended here.
 - [Jetson Linux](../entities/jetson-linux.md) — r39.2 is the BSP under this release.

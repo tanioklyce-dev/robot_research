@@ -40,6 +40,7 @@ It answers a narrow, practical question — *"how do I get the full LeRobot tele
 
 ## Entities mentioned
 
+- [Jetson AGX Orin](../entities/jetson-agx-orin.md) — one of the containerized LeRobot targets.
 - [LeRobot](../entities/lerobot.md) — the framework being containerized.
 - [jetson-containers](../entities/jetson-containers.md) — the deployment framework + `dustynv/*` image registry (new entity).
 - [ACT](../entities/act.md) — the default policy trained in the tutorial.

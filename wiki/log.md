@@ -4599,3 +4599,23 @@ Wrote [Jetson Orin NX](entities/jetson-orin-nx.md), the coverage gap surfaced by
 **Open question worth acting on**
 - **Does DLA offload help a VLA?** If half the headline TOPS is DLA and no VLA stack uses it, can a vision encoder be compiled to DLA to free the GPU for the action head? Untested anywhere in this wiki, and cheap on hardware this fleet already owns.
 - Orin NX VLA latency is **unmeasured** — every figure in this wiki for it is extrapolation.
+
+## [2026-08-29] entity | Jetson AGX Orin — and a correction to the Orin NX page
+Filed [Jetson AGX Orin](entities/jetson-agx-orin.md), the second half of the Jetson entity gap (Orin NX was closed 2026-08-28). All three module SKUs — 64 GB / 32 GB / Industrial — from NVIDIA's comparison table plus the wiki's existing sourced material.
+
+**New entity page**
+- [Jetson AGX Orin](entities/jetson-agx-orin.md) — 100 × 87 mm **699-pin Molex Mirror Mezz**; 256-bit LPDDR5 at **204.8 GB/s**; 16 CSI lanes, 10 GbE, **2× CAN**, on-module 64 GB eMMC; 15–60 W (Industrial 15–75 W); ~$1,999 for the 64 GB dev kit. Carries the wiki's **only measured VLA latency on any Orin**: GR00T N1.6-3B at **173 ms / 5.8 Hz** on TensorRT.
+
+**Correction to [Jetson Orin NX](entities/jetson-orin-nx.md), filed yesterday**
+- > [!warning] **The DLA "contradiction" was mine, not NVIDIA's.** Yesterday's page flagged the Orin NX DLA count as unresolved because NVIDIA appeared to say "1× NVDLA v2" for the whole series while the TOPS implied 2:1. A colspan-aware re-parse settles it: the "2× NVDLA v2" cell **spans five columns, through the Orin NX 16 GB**, and the "1×" applies to the 8 GB alone — exactly matching the 80 vs 40 TOPS split. **Orin NX 16 GB has 2 DLAs, 8 GB has 1.** The hedge is replaced with the answer on both the entity and [the ladder](syntheses/platforms/jetson-module-ladder-power-performance.md).
+- Same re-parse fixed a spec error: **Orin NX 8 GB CPU max is 2.0 GHz, not 1.7** — corroborated by the Developer Guide's own nvpmodel table (MAXN = 1984 MHz).
+- Also added: **all Orin NX and AGX Orin modules carry 1× PVA v2**, which the Orin Nano line lacks entirely.
+
+**The DLA-share finding extended up the tier**
+- AGX Orin 64 GB = **170 GPU + 105 DLA = 275**; Industrial = 156 + 92 = 248; **32 GB = 108 + 92 = 200 — 46% DLA**. So the 32 GB's dense-GPU figure (54 TOPS) is **27% of the number on the box**. Recorded on the ladder alongside the Orin NX version.
+- NVIDIA's own two tables disagree on the 32 GB: the summary says **241 TOPS**, the breakdown still says **200**. Reconciliation is JetPack 7.2 Super Mode; noted so the figure is always quoted with its mode.
+
+**Open questions**
+- No VLA benchmark for the AGX Orin **32 GB** — it has a smaller GPU (1792 vs 2048 cores) as well as less RAM, so it cannot be interpolated from the 64 GB row.
+- Prices for the 32 GB and Industrial modules; the 64 GB's true MAXN ceiling (60 W official vs "≤75 W per some listings").
+- **Does DLA offload help a VLA?** Now sharper: on the AGX Orin 32 GB, 46% of the headline sits in accelerators no VLA stack here touches. Still untested.

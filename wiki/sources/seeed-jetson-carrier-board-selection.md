@@ -57,7 +57,7 @@ Validate on a **mature general-purpose carrier**, then refine for volume by **tr
 ## Entities mentioned
 - [Jetson Orin NX](../entities/jetson-orin-nx.md) — the module these carriers host.
 - [Seeed Studio](../entities/seeed-studio.md) — publisher (author Liyan Gong).
-- [Jetson Orin Nano](../entities/jetson-orin-nano.md), [Jetson Thor](../entities/jetson-thor.md) — module entities. **AGX Orin still has no entity page** (Orin NX filed 2026-08-28, linked above).
+- [Jetson Orin Nano](../entities/jetson-orin-nano.md), [Jetson AGX Orin](../entities/jetson-agx-orin.md), [Jetson Thor](../entities/jetson-thor.md) — module entities. (Orin NX filed 2026-08-28, linked above.)
 
 ## Concepts touched
 - [Jetson onboard compute for XLeRobot](../syntheses/platforms/jetson-onboard-compute-xlerobot.md) — the module-tier choice; this adds the *carrier-board* layer of the same decision.

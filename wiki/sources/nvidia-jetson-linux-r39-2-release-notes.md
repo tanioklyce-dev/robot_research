@@ -77,6 +77,7 @@ Kernel 6.8, UEFI bootloader, Ubuntu 24.04 rootfs, aarch64, SBSA-aligned. Release
 
 ## Entities mentioned
 
+- [Jetson AGX Orin](../entities/jetson-agx-orin.md) — issue 6236259 hits its 15 W mode.
 - [Jetson Orin NX](../entities/jetson-orin-nx.md) — issue 6236259 hits its 10 W mode.
 - [Jetson Linux (L4T)](../entities/jetson-linux.md)
 - [JetPack](../entities/jetpack.md)

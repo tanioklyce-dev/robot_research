@@ -58,6 +58,7 @@ Prefaced with: "The platforms defined in this table are **the only hardware and 
 
 ## Entities mentioned
 
+- [Jetson AGX Orin](../entities/jetson-agx-orin.md) — an Orin module, absent from the 4.x supported-platform table.
 - [Jetson Orin NX](../entities/jetson-orin-nx.md) — an Orin module, and Orin is absent from the 4.x supported-platform table.
 - [Isaac ROS](../entities/isaac-ros.md)
 - [Isaac ROS NVBlox](../entities/nvblox.md)

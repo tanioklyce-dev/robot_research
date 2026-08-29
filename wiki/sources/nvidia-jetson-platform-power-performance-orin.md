@@ -121,7 +121,7 @@ sudo /usr/sbin/nvpmodel -q             # query current
 - [Jetson Orin Nano](../entities/jetson-orin-nano.md)
 - [Jetson Linux](../entities/jetson-linux.md)
 - [NVIDIA](../entities/nvidia.md)
-- **AGX Orin** — referenced but not yet an entity page. (Orin NX filed 2026-08-28, linked above.)
+- [Jetson AGX Orin](../entities/jetson-agx-orin.md) — the tier whose MAXN/15W/30W/40W tables this chapter defines.
 
 ## Concepts touched
 - None directly. Could seed a future `concepts/robotics/edge-ai-power-budgets.md` if power-mode trade-offs become a recurring theme.

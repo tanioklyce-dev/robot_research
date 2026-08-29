@@ -3,7 +3,7 @@ title: NVIDIA Jetson Orin NX
 type: entity
 subtype: hardware
 created: 2026-08-28
-updated: 2026-08-28
+updated: 2026-08-29
 sources: 8
 tags: [jetson, jetson-orin-nx, nvidia, edge-ai, onboard-compute, ampere, dla, super-mode, nvpmodel, robotics, xlerobot]
 ---
@@ -16,7 +16,7 @@ This page exists because "Orin NX" appeared on 37 wiki pages with its specs scat
 
 ## Specifications
 
-From NVIDIA's own module comparison table (retrieved 2026-08-28), Super-Mode figures:
+From NVIDIA's own module comparison table (retrieved 2026-08-28; re-parsed 2026-08-29), Super-Mode figures:
 
 | | **Orin NX 16 GB** | **Orin NX 8 GB** |
 |---|---|---|
@@ -24,7 +24,7 @@ From NVIDIA's own module comparison table (retrieved 2026-08-28), Super-Mode fig
 | GPU | 1024-core Ampere, 32 tensor cores | *same* |
 | GPU max clock | 1173 MHz | 1173 MHz |
 | CPU | **8-core** Arm Cortex-A78AE v8.2, 2 MB L2 + 4 MB L3 | **6-core** A78AE, 1.5 MB L2 + 4 MB L3 |
-| CPU max clock | 2.0 GHz | 1.7 GHz |
+| CPU max clock | 2.0 GHz | 2.0 GHz |
 | DLA (INT8) | **80 sparse / 40 dense TOPS** | **40 sparse / 20 dense TOPS** |
 | GPU tensor core (INT8) | 77 sparse / **38 dense** TOPS | 77 sparse / **38 dense** TOPS |
 | GPU tensor core (FP16) | 38 sparse / 19 dense TFLOPS | 38 sparse / 19 dense TFLOPS |
@@ -46,8 +46,10 @@ From NVIDIA's own module comparison table (retrieved 2026-08-28), Super-Mode fig
 >
 > So the honest range for "what will my VLA actually see" is **38–77 TOPS**, not 157. The same arithmetic applies to the 8 GB part (77 GPU + 40 DLA = 117). This does not change the module's ranking against its neighbours — they are quoted the same way — but it does mean the [TOPS/W figures in the module ladder](../syntheses/platforms/jetson-module-ladder-power-performance.md) are **GPU+DLA+sparse throughout**, and should not be read as achievable on one workload.
 
-> [!warning] Contradiction — DLA count
-> NVIDIA's comparison table lists the DL accelerator at *series* level as **"1× NVDLA v2"** for the whole Orin NX series, but the per-SKU DLA INT8 row reads **80 TOPS (16 GB) vs 40 TOPS (8 GB)** — an exact 2:1 split that only makes sense as **2 DLAs on the 16 GB and 1 on the 8 GB**. The wiki's [module ladder](../syntheses/platforms/jetson-module-ladder-power-performance.md) currently says "+2 DLA" for **both** SKUs, which cannot be right for the 8 GB part. The unambiguous, load-bearing numbers are the TOPS (80 vs 40); treat the unit count as unresolved.
+> [!note] DLA count — resolved 2026-08-29
+> **Orin NX 16 GB has 2× NVDLA v2; Orin NX 8 GB has 1×.** This was flagged as unresolved on 2026-08-28 because NVIDIA's table appeared to give "1× NVDLA v2" for the whole Orin NX series. That was a **parsing error on my side, not NVIDIA's**: the DL-accelerator row uses `colspan`, and the "2× NVDLA v2" cell spans five columns — through the Orin NX 16 GB — with the "1×" cell applying to the 8 GB alone. It matches the DLA INT8 split exactly (80 vs 40 TOPS). The wiki's [module ladder](../syntheses/platforms/jetson-module-ladder-power-performance.md) previously said "+2 DLA" for *both* SKUs, which was wrong for the 8 GB; corrected there.
+
+Both SKUs also carry **1× PVA v2** (programmable vision accelerator) — absent entirely from the Orin Nano line.
 
 ## Super Mode is locked at flash time
 
@@ -90,7 +92,7 @@ Also worth knowing: there is a **PCIe boot bug on Orin Nano and Orin NX** with a
 ## Where it sits in the ladder
 
 - **vs [Orin Nano](jetson-orin-nano.md)**: **identical GPU** (1024 CUDA / 32 tensor). The 2.3× headline TOPS (157 vs 67) comes from higher clocks, a bigger power envelope, **the DLAs**, and 8 vs 6 CPU cores. Crucially **pin-compatible with the Orin Nano Super Dev Kit carrier (P3768)** — a literal drop-in: same enclosure, same wiring, +8 GB RAM ([XLeRobot compute](../syntheses/platforms/jetson-onboard-compute-xlerobot.md)).
-- **vs AGX Orin 32/64 GB**: the AGX buys **memory and IO** (256-bit LPDDR5 at 204.8 GB/s, 2× the bus width) at a 15–60 W envelope and ~$2k. For a battery robot that is usually more than needed.
+- **vs [AGX Orin](jetson-agx-orin.md) 32/64 GB**: the AGX buys **memory and IO** (256-bit LPDDR5 at 204.8 GB/s, 2× the bus width) at a 15–60 W envelope and ~$2k. For a battery robot that is usually more than needed.
 - **vs [Thor](jetson-thor.md)**: a different power and price class entirely, and NVIDIA's [GR00T](nvidia-groot.md) deploy target.
 - **Efficiency**: ~3.9 TOPS/W at 40 W, the sweet spot of the Ampere ladder at module level — though JetPack 7.2's AGX Orin 32 GB Super Mode (241 TOPS at 60 W ≈ 4.0) now edges past it ([module ladder](../syntheses/platforms/jetson-module-ladder-power-performance.md)). The reason to pick Orin NX for a battery robot was never efficiency alone; it is **envelope, carrier compatibility and price**.
 
@@ -112,6 +114,7 @@ Carrier details from the [Seeed Jetson selection guide](../sources/seeed-jetson-
 ## Related
 
 - [Jetson Orin Nano](jetson-orin-nano.md) — the tier below; same GPU, pin-compatible carrier.
+- [Jetson AGX Orin](jetson-agx-orin.md) — the tier above; buys memory and IO, not efficiency.
 - [Jetson Thor](jetson-thor.md) — the Blackwell generation above.
 - [Jetson module ladder — power and performance](../syntheses/platforms/jetson-module-ladder-power-performance.md) — the full cross-module comparison.
 - [Onboard compute for XLeRobot](../syntheses/platforms/jetson-onboard-compute-xlerobot.md) — where the buying recommendation is argued.
@@ -131,7 +134,6 @@ Carrier details from the [Seeed Jetson selection guide](../sources/seeed-jetson-
 ## Open questions
 
 - **Price of the Orin NX 8 GB** — not recorded anywhere in this wiki.
-- **DLA unit count on the 8 GB part** — see the contradiction above.
 - **No like-for-like VLA benchmark across the Orin SKUs.** NVIDIA's GR00T table tests only AGX Orin and Thor; the Orin Nano figures come from a third-party paper on small policies. **Orin NX VLA latency is unmeasured** — every figure in this wiki for it is extrapolation.
 - **Does DLA offload actually help a VLA?** If half the headline TOPS is DLA and no VLA stack uses it, the obvious question is whether a vision encoder could be compiled to DLA to free GPU for the action head. Nothing in this wiki tests it, and it is a cheap experiment on hardware this fleet owns.
 - **Robotics J30/40 needs a primary** before its 157 TOPS / 40 W / 60 °C figure is relied on.
