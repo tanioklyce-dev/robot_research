@@ -4,7 +4,11 @@ A reader's introduction to this wiki — what it is, what's in it, where to star
 
 ## What this is
 
-A **persistent, LLM-maintained knowledge base** built incrementally from raw sources. The pattern is described in `raw/llm-wiki.md` and the operating conventions are in [`CLAUDE.md`](../CLAUDE.md). Three layers:
+A **persistent, LLM-maintained knowledge base mapping Robot AI** — the field also called Physical AI, Embodied AI, or robot learning. It covers three things: the **research**, the **history** that produced it, and the **state of the industry** building on it. Who is doing what, which results hold up, and what the numbers say once you check them.
+
+It is written to be **read by people other than the person maintaining it**, which sets the standard for everything in here. Every factual claim links to the source page it came from, so any statement can be audited back to its origin instead of taken on trust. Where sources disagree the disagreement is shown rather than smoothed away. Where the evidence is thin it says so. Several pages exist mainly to record that a number this wiki repeats is [weaker than it looks](syntheses/platforms/vla-success-rate-audit.md).
+
+Mechanically it is built incrementally from raw sources; the pattern is described in `raw/llm-wiki.md` and the operating conventions are in [`CLAUDE.md`](../CLAUDE.md). Three layers:
 
 1. **`raw/`** — source documents (papers, articles, transcripts, datasets). Immutable.
 2. **`wiki/`** — Claude-maintained markdown that sits between you and the raw sources. Summaries, entity pages, concept pages, and synthesis pages. Cross-linked.
@@ -43,15 +47,32 @@ If you're picking the computer that rides *on* the robot: [Jetson module ladder 
 If you need GPU compute for training, fine-tuning, or running policies and world models: [NVIDIA GPU rental landscape](syntheses/platforms/nvidia-gpu-rental-landscape.md) — providers, pricing, and how to choose (Brev / RunPod / Lambda Labs / CoreWeave / Vast.ai / DGX Cloud / DGX Spark rentals at $0.48/hr).
 
 ## Where else to start (by intent)
-- **You're new to this repo entirely:** start with the [repo README](../README.md) for the directory layout, then come back here.
-- **You want the broader landscape** (humanoids you can't easily buy, simulators, FRC platforms, etc.): see [index.md](index.md) under **Entities → Robot platforms** and **Humanoids**.
-- **You want to set up a home-robot research project:** start with [Assistive robotics R&D landscape](syntheses/assistive/assistive-robotics-research-landscape.md) and [Module 13](syntheses/curriculum/curriculum-13-home-robotics-deployment.md). Then [LeWM-on-Stretch feasibility](syntheses/projects/lewm-on-stretch-feasibility.md) or [DINO-WM-on-Stretch experiment](syntheses/projects/dino-wm-on-stretch-experiment.md) depending on which WM you'd prefer to try.
-- **You want to learn the robotics-policy landscape end to end:** start with [the curriculum hub](syntheses/curriculum/robot-learning-curriculum.md). The prereq diagnostic at the top of [Module 1](syntheses/curriculum/curriculum-01-neural-networks.md) tells you whether you can skim Tier 1.
-- **You want to understand LeWorldModel specifically:** start with [the curriculum hub](syntheses/curriculum/robot-learning-curriculum.md), then jump to [Module 10](syntheses/curriculum/curriculum-10-world-models.md) → [Module 11](syntheses/curriculum/curriculum-11-jepa-deep.md) → [Module 12](syntheses/curriculum/curriculum-12-lewm-deep-dive.md) (assumes ML basics).
-- **You want to actually reproduce LeWorldModel:** [LeWM howto](syntheses/world-models/leworldmodel-howto.md) + [hello-world scope](syntheses/projects/lewm-hello-world-project-scope.md) + [Module 14 capstone](syntheses/curriculum/curriculum-14-capstone.md).
+
+**Learning the field**
+
+- **You want the field end to end, in order:** [the curriculum hub](syntheses/curriculum/robot-learning-curriculum.md). The prereq diagnostic at the top of [Module 1](syntheses/curriculum/curriculum-01-neural-networks.md) tells you whether you can skim Tier 1.
+- **You want the literature map rather than a course:** [keon/awesome-physical-ai](https://github.com/keon/awesome-physical-ai) for the paper taxonomy, [Tedrake's Robotic Manipulation](https://manipulation.csail.mit.edu/index.html) for the model-based half the curriculum doesn't cover. Both in [Robot AI Resources](#robot-ai-resources).
 - **You're looking up an acronym:** [glossary.md](glossary.md). Ctrl-F.
-- **You want the full catalog:** [index.md](index.md). Every page listed, organized by category.
-- **You want to know what was done when:** [log.md](log.md). Append-only chronological record of ingests, syntheses, lint passes, and curriculum-module drafts. Grep with `grep "^## \[" log.md | tail -20` to see recent activity.
+
+**The industry**
+
+- **You want to know who makes money and how:** [Who benefits from consumer robotics in 2026–2027 (other than NVIDIA)](syntheses/society/consumer-robotics-value-chain.md) — a value-chain reading built from documented component costs, BOMs, and business models.
+- **You want the hardware landscape:** [Robot platforms comparison](syntheses/platforms/robot-platforms-comparison.md) and the [humanoid platforms survey](syntheses/platforms/humanoid-platforms-survey.md), which is explicit that humanoids draw industry attention out of proportion to what is publicly verifiable about them. For the money and adoption aggregates, [AI Index 2026](sources/stanford-hai-ai-index-2026.md) — read its [Edition history](sources/stanford-hai-ai-index-2026.md#edition-history) first, since it revises silently.
+- **You want to know which published numbers survive scrutiny:** [Success-rate audit](syntheses/platforms/vla-success-rate-audit.md). A ±2 pp confidence band needs ≈1,030 rollouts; most published evals, including ones repeated here, are far below that. Start here before quoting any success rate.
+- **You want to ship something and need parts to exist:** [VLA deployability landscape](syntheses/platforms/vla-deployability-landscape.md), the [Jetson module ladder](syntheses/platforms/jetson-module-ladder-power-performance.md), and [open-source robot AI projects](syntheses/platforms/open-source-robot-ai-projects.md).
+
+**The history**
+
+- **You want how the research got here:** the [Atari RL lineage](syntheses/rl/atari-rl-lineage.md) (ALE → Agent57 → MuZero) for the RL side, and the **Behavior cloning lineage** below for the policy side (IBC → BeT → Diffusion Policy → VLAs). [Kober's 2013 RL-in-robotics survey](sources/kober-rl-robotics-survey-2013.md) is the pre-deep-learning baseline against which all of it should be read.
+- **You want the deep prehistory:** the [artificial-life thread](syntheses/alife/local-rules-global-complexity.md) reaches back to [Darwin (Bell Labs, 1961)](sources/darwin-1961-bell-labs-game.md), [Tierra (1991)](sources/ray-1991-tierra-synthesis-of-life.md), and [Avida (1994)](sources/adami-brown-1994-avida.md) — emergence and self-replication as studied decades before anyone called it Physical AI.
+
+**Doing something with it**
+
+- **You're new to this repo entirely:** the [repo README](../README.md) for directory layout, then come back here.
+- **You want to set up a home-robot research project:** [Assistive robotics R&D landscape](syntheses/assistive/assistive-robotics-research-landscape.md) and [Module 13](syntheses/curriculum/curriculum-13-home-robotics-deployment.md), then [LeWM-on-Stretch feasibility](syntheses/projects/lewm-on-stretch-feasibility.md) or the [DINO-WM-on-Stretch experiment](syntheses/projects/dino-wm-on-stretch-experiment.md).
+- **You want the JEPA / LeWorldModel thread specifically:** [the curriculum hub](syntheses/curriculum/robot-learning-curriculum.md) → [Module 10](syntheses/curriculum/curriculum-10-world-models.md) → [11](syntheses/curriculum/curriculum-11-jepa-deep.md) → [12](syntheses/curriculum/curriculum-12-lewm-deep-dive.md) to understand it (assumes ML basics); [LeWM howto](syntheses/world-models/leworldmodel-howto.md) + [hello-world scope](syntheses/projects/lewm-hello-world-project-scope.md) + [Module 14 capstone](syntheses/curriculum/curriculum-14-capstone.md) to reproduce it. Read the caveat under [JEPA / LeWorldModel](#jepa--leworldmodel) first.
+- **You want the full catalog:** [index.md](index.md). Every page, by category.
+- **You want to know what was done when:** [log.md](log.md). Append-only; `grep "^## \[" log.md | tail -20` shows recent activity.
 
 ## Robot AI Resources
 
@@ -70,7 +91,7 @@ Where to go to learn and map this field — the good external resources first, t
 
 ### Robot AI curriculum
 
-The single most ambitious artifact in this wiki is a **14-module bottom-up curriculum** for going from neural-network basics to reading the [LeWorldModel paper](sources/leworldmodel-paper.md) and reasoning about home-robotics policy-learning techniques.
+The single most ambitious artifact in this wiki is a **14-module bottom-up curriculum** through the robot-learning stack — neural-network basics, generative modeling, imitation learning, RL vocabulary, VLAs, world models, and what happens to all of it on real hardware. It was built to land on one specific paper, and still does; see the note below on which modules are field-general and which are that specialization.
 
 **Status: all 14 modules drafted.** Reader-traversable from absolute beginning through the destination and capstone.
 
@@ -87,7 +108,16 @@ The curriculum has five tiers:
 | **4** | [10](syntheses/curriculum/curriculum-10-world-models.md), [11](syntheses/curriculum/curriculum-11-jepa-deep.md), [12](syntheses/curriculum/curriculum-12-lewm-deep-dive.md) | World models: four-family taxonomy, JEPA in depth (with the collapse-prevention zoo), the LeWM deep-dive with the full SIGReg derivation. |
 | **5** | [13](syntheses/curriculum/curriculum-13-home-robotics-deployment.md), [14](syntheses/curriculum/curriculum-14-capstone.md) | Deployment reality (the 89.4% / 12.4% RLBench-vs-BEHAVIOR-1K gap; Stretch as platform) + capstone (Phase A: reproduce LeWM PushT + experiment-design memo; Phase B: real-Stretch execution if hardware available). |
 
-The **destination** is Module 12 (LeWM deep-dive with full SIGReg math). The reading order is mostly linear, but the [module dependency graph](syntheses/curriculum/robot-learning-curriculum.md) gives readers permission to skip Tier 1 modules they're comfortable with.
+Reading order is mostly linear, and the [module dependency graph](syntheses/curriculum/robot-learning-curriculum.md) gives readers permission to skip Tier 1 modules they're comfortable with.
+
+> [!note] Which modules are the field, and which are one bet in it
+> The curriculum was written when [LeWorldModel](sources/leworldmodel-paper.md) was this wiki's organizing target, and its stated destination is still **Module 12** (the LeWM deep-dive, with the full SIGReg derivation). That is worth knowing before you start, because the wiki's scope is now broader than its curriculum's endpoint.
+>
+> **Modules 1–10 and 13 are field-general** — the ML foundations, the robot-learning paradigms, the four-family world-model taxonomy, and the deployment-reality module. A reader who wants the field rather than that paper can run 1–10, jump to 13, and lose nothing.
+>
+> **Modules 11, 12, and the 14 capstone are the JEPA/LeWM specialization.** Read them as a deep case study in how one research program argues for itself — which is genuinely instructive, and is also why the [caveat](#jepa--leworldmodel) on that thread matters.
+>
+> The gap this leaves is real and not yet filled: there is no module on the **industry**, and none on the **history** of the field. The entry points above under *The industry* and *The history* are the current substitute.
 
 
 ## Other major themes
