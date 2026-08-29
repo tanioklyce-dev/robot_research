@@ -4641,3 +4641,16 @@ Prompted by a question about what an NVIDIA RT core is. Checking whether Orin ha
 **Open questions**
 - Is Orin's RT hardware reachable on Tegra at all? OptiX is widely reported unsupported on Jetson, leaving Vulkan RT — **no primary found either way**.
 - Thor's RT configuration not checked.
+
+## [2026-08-29] recheck | Stanford HAI AI Index 2026 — revised edition (2026-06-29) diffed against the ingested April export
+- Re-fetch of `hai.stanford.edu/assets/files/ai_index_report_2026.pdf` returned a **different file** than the one ingested 2026-05-09: 37.9 MB vs 24.9 MB, InDesign 21.4 vs 21.3, exported 2026-06-29 vs 2026-04-28. Same 425 pages; size delta is image re-export.
+- Added the revision to `raw/` as `ai_index_report_2026_rev_2026-06-29.pdf`; the April export is **kept unmodified**.
+- Full page-by-page text diff → **four** substantive changes, everything else typesetting noise:
+  1. **§2.7 humanoid vendor table**: Toyota Research Institute row corrected from *Japan / teleoperated systems / retail, logistics* to ***United States / various / research / diffusion policy and large behavior models***.
+  2. **UAE gen-AI adoption 54% → 64%** in exec summary and §4.3 prose (the April *chart* already read 64.00% — prose and figure disagreed).
+  3. **Figure 4.3.10 provenance**: "survey-based estimates" → "**Microsoft's telemetry data**".
+  4. **How to Cite** now carries a DOI: `10.48550/arXiv.2606.15708`.
+- Updated [AI Index 2026](sources/stanford-hai-ai-index-2026.md): new **Edition history** section with the diff table, corrected the UAE/telemetry line, added the TRI row correction to §2.7 key claims, frontmatter now records `revised`, `doi`, `pdf_url`, and both local paths.
+- Updated [TRI](entities/tri.md) (sources 11→12): the wiki's primary-built page was right and the aggregator was wrong for two months — the correction now agrees with it.
+- **Robotics numbers unaffected**: RLBench 89.4%, [BEHAVIOR-1K](entities/behavior-benchmark.md) 12.4%, ResponsibleRobotBench 0.64, Figure 02 BMW hours, Unitree/AgiBot/1X, Waymo and Apollo Go are byte-identical across editions. The canonical 89.4/12.4 gap figure stands.
+- Carry-forward: cite Figure 4.3.10 country numbers as **Microsoft-telemetry diffusion**, not population adoption — telemetry tracks Microsoft AI-surface accounts and is sensitive to per-country market share.

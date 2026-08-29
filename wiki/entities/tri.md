@@ -3,8 +3,8 @@ title: Toyota Research Institute (TRI)
 type: entity
 subtype: company
 created: 2026-05-10
-updated: 2026-08-26
-sources: 11
+updated: 2026-08-29
+sources: 12
 tags: [tri, toyota-research-institute, robotics-research, automated-driving, lbm, drake, organization, walden-robotics, spinout]
 ---
 
@@ -63,6 +63,7 @@ The pattern: TRI is the *industrial resourcing partner* in academic robotics-fou
 - [Automated Podcast — Tedrake (2026-07)](../sources/automated-podcast-tedrake-rocket-ship.md) — LBM program framing, "amplify not replace" as TRI-rooted philosophy, Tedrake's departure-to-startup signal.
 - [TRI LBM paper](../sources/tri-lbm-paper.md) — the program's primary source; 82 TRI authors.
 - [Walden Robotics — Launch from Stealth](../sources/walden-robotics-launch.md) — the TRI-LBM-leadership spin-out; Toyota as co-lead investor.
+- [Stanford HAI — AI Index Report 2026](../sources/stanford-hai-ai-index-2026.md) — §2.7 humanoid vendor table. Its **April edition listed TRI as Japan / teleoperated retail-logistics systems**; the **2026-06-29 revision corrected the row to US / research / "diffusion policy and large behavior models,"** which matches what this page had already established from primaries. A useful calibration on aggregator reliability for individual vendors.
 
 ## Open questions / TBD
 
