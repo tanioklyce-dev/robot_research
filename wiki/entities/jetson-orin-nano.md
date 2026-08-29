@@ -3,7 +3,7 @@ title: Jetson Orin Nano
 type: entity
 created: 2026-05-16
 updated: 2026-08-27
-sources: 33
+sources: 34
 tags: [jetson, nvidia, edge-ai, hardware, robotics-compute]
 ---
 

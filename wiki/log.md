@@ -4619,3 +4619,25 @@ Filed [Jetson AGX Orin](entities/jetson-agx-orin.md), the second half of the Jet
 - No VLA benchmark for the AGX Orin **32 GB** — it has a smaller GPU (1792 vs 2048 cores) as well as less RAM, so it cannot be interpolated from the 64 GB row.
 - Prices for the 32 GB and Industrial modules; the 64 GB's true MAXN ceiling (60 W official vs "≤75 W per some listings").
 - **Does DLA offload help a VLA?** Now sharper: on the AGX Orin 32 GB, 46% of the headline sits in accelerators no VLA stack here touches. Still untested.
+
+## [2026-08-29] ingest | Jetson Orin module datasheets — the RT cores no spec table lists
+Prompted by a question about what an NVIDIA RT core is. Checking whether Orin has any turned into a primary-source finding worth filing.
+
+**New source page**
+- [NVIDIA Jetson Orin module datasheets (DS-10662 / DS-10712)](sources/nvidia-jetson-orin-module-datasheets.md) — two documents, one page; identical GPU-architecture language.
+
+**Updated**
+- [Jetson AGX Orin](entities/jetson-agx-orin.md), [Jetson Orin NX](entities/jetson-orin-nx.md) — new "RT cores" section on each.
+
+**The finding**
+- > [!note] **The inverted primary-source lesson.** NVIDIA's Jetson product-comparison page — the table every Jetson spec in this wiki was built from — **never mentions RT cores**. The datasheets document them plainly: *"Each TPC includes two SMs, a Polymorph Engine, two Texture Units, and a Ray Tracing core (RTcore)."* Usually the secondary omits what the primary has; here the vendor's **own summary omits what the vendor's own datasheet states**, because the summary is pitched at AI/robotics buyers and RT cores read as a graphics feature. **Absence from a spec table is not absence from the silicon** — and those tables are this wiki's main source for the whole Jetson tier.
+- **AGX Orin 64 GB has 8 RT cores** (2 GPC | 8 TPC), 32 GB has 7 — at **half desktop Ampere's density** (1 per TPC = per 2 SMs, vs 1 per SM). An RTX 4090 has 128.
+- **The Orin NX RT-core count is not published by any primary.** Arithmetic suggests 4; recorded as inference, not fact, and the datasheet's own SM description is internally inconsistent so the divisor is unsafe.
+- Practical verdict recorded on both pages: ray casting is a **geometric query** (simulated lidar/radar, visibility), so RT cores matter on the **simulation** side of sim-to-real, not on the robot — Isaac Sim does not run on Jetson. **Not a reason to choose a Jetson.** Filed for the epistemics, not the capability.
+
+**Independent corroboration of the DLA-share arithmetic**
+- DS-10712 states module totals: *"157 (Sparse) INT8 TOPs and **78 (Dense)** … on Jetson Orin NX 16GB, and up to 117 (S) and **58 (D)** on … 8GB"* — reconciling exactly with the per-unit breakdown (38 GPU + 40 DLA = 78; 38 + 20 = 58). Confirms the arithmetic, gives a primary-sourced whole-module dense figure of **78 on a part sold as 157**, and re-confirms the 8 GB's single DLA.
+
+**Open questions**
+- Is Orin's RT hardware reachable on Tegra at all? OptiX is widely reported unsupported on Jetson, leaving Vulkan RT — **no primary found either way**.
+- Thor's RT configuration not checked.

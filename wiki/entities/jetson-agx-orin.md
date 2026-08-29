@@ -4,7 +4,7 @@ type: entity
 subtype: hardware
 created: 2026-08-29
 updated: 2026-08-29
-sources: 8
+sources: 9
 tags: [jetson, jetson-agx-orin, nvidia, edge-ai, onboard-compute, ampere, dla, pva, nvpmodel, super-mode, robotics, vla]
 ---
 
@@ -56,6 +56,22 @@ All INT8. Also: GPU CUDA-core FP32 is **5.3 TFLOPS** (64 GB), 4.8 (Industrial), 
 
 > [!warning] A stock VLA sees the dense GPU column, not the headline
 > Between a third and nearly half of every AGX Orin headline figure is **DLA** — fixed-function accelerators a PyTorch/TensorRT-on-GPU pipeline does not touch unless you explicitly compile for them. And the headline is **sparse** (2:4 structured); without it the GPU tensor cores give **85 dense INT8 TOPS** on the 64 GB and **54** on the 32 GB. The 32 GB is the worst offender: **46% of its 200 TOPS is DLA**, so its dense-GPU figure (54) is **27% of the number on the box**.
+
+
+## RT cores — present, and absent from every spec table
+
+*Added 2026-08-29 ([Orin module datasheets](../sources/nvidia-jetson-orin-module-datasheets.md)).*
+
+**NVIDIA's Jetson product-comparison page — the table the specs above come from — never mentions RT cores.** The datasheet does, in language identical across the AGX Orin and Orin NX documents:
+
+> "**The RTcore unit assists Ray Tracing by accelerating Bounding Volume Hierarchy (BVH) traversal and intersection of scene geometry** during Ray Tracing… **Each TPC includes two SMs, a Polymorph Engine, two Texture Units, and a Ray Tracing core (RTcore).**"
+
+An **RT core** is fixed-function silicon for the two operations that dominate ray tracing: walking the BVH acceleration tree (pointer-chasing with divergent branches — the worst case for a SIMT machine) and ray–triangle intersection. It is a third core type alongside CUDA and tensor cores, reached through DXR / Vulkan Ray Tracing / OptiX rather than programmed directly.
+
+**On this module: 1 RT core per TPC** — so **8 on the 64 GB** (2 GPC | 8 TPC) and **7 on the 32 GB** (2 GPC | 7 TPC), per the datasheet's own config line. Note the density: Orin is **one RT core per TPC, i.e. per two SMs**, where desktop Ampere is one per SM — half the ratio, on a far smaller GPU. An RTX 4090 has 128.
+
+> [!note] Why this matters, and why it mostly doesn't
+> Ray casting is a **geometric query**, not inherently graphics: it is also how simulated lidar and radar work ([Isaac Sim](nvidia-isaac-sim.md)'s RTX lidar is ray-traced), and how visibility and some collision queries are posed. So RT cores matter on the **simulation** side of sim-to-real — the workstation — far more than on the robot. With 7–8 units and an unclear API path on Tegra, they are **not a reason to choose a Jetson**. The reason to record them is epistemic: **absence from a spec table is not absence from the silicon**, and these tables are the wiki's main source for this whole tier.
 
 ## nvpmodel power modes
 
@@ -114,6 +130,7 @@ JetPack 7.2 (Jetson Linux r39.2, 2026-06-02) extended JetPack 7 to the whole Ori
 
 ## Mentioned in
 
+- [NVIDIA Jetson Orin module datasheets (DS-10662 / DS-10712)](../sources/nvidia-jetson-orin-module-datasheets.md) — the RT-core / TPC architecture, and the dense-INT8 totals.
 - [Jetson Linux Developer Guide — Platform Power and Performance (Orin)](../sources/nvidia-jetson-platform-power-performance-orin.md) — nvpmodel tables.
 - [JetPack 7.2 with Jetson Linux 39.2](../sources/nvidia-jetpack-7-2-release.md) — Super Mode for the 32 GB; JetPack 7 across the Orin family.
 - [Jetson Linux r39.2 release notes](../sources/nvidia-jetson-linux-r39-2-release-notes.md) — the 15 W crash bug.

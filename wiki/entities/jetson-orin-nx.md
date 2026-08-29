@@ -4,7 +4,7 @@ type: entity
 subtype: hardware
 created: 2026-08-28
 updated: 2026-08-29
-sources: 8
+sources: 9
 tags: [jetson, jetson-orin-nx, nvidia, edge-ai, onboard-compute, ampere, dla, super-mode, nvpmodel, robotics, xlerobot]
 ---
 
@@ -44,12 +44,31 @@ From NVIDIA's own module comparison table (retrieved 2026-08-28; re-parsed 2026-
 > - **More than half the headline comes from the two DLAs**, which are fixed-function inference accelerators. A stock PyTorch/TensorRT-on-GPU pipeline — which is what every VLA in this wiki actually runs — does not touch them unless the model is explicitly compiled for DLA, and DLA supports a restricted layer set. **The GPU-only figure is 77 sparse TOPS.**
 > - **Sparse assumes 2:4 structured sparsity.** Without it the GPU tensor cores deliver **38 dense INT8 TOPS** — about **24% of the 157** on the box.
 >
-> So the honest range for "what will my VLA actually see" is **38–77 TOPS**, not 157. The same arithmetic applies to the 8 GB part (77 GPU + 40 DLA = 117). This does not change the module's ranking against its neighbours — they are quoted the same way — but it does mean the [TOPS/W figures in the module ladder](../syntheses/platforms/jetson-module-ladder-power-performance.md) are **GPU+DLA+sparse throughout**, and should not be read as achievable on one workload.
+> So the honest range for "what will my VLA actually see" is **38–77 TOPS**, not 157.
+>
+> **Confirmed by the datasheet, 2026-08-29.** DS-10712 states module totals of *"157 (Sparse) INT8 TOPs and **78 (Dense) INT8 TOPs** on Jetson Orin NX 16GB, and up to 117 (S) and **58 (D)** on Jetson Orin NX 8GB"* ([datasheets](../sources/nvidia-jetson-orin-module-datasheets.md)). Those reconcile exactly with the per-unit breakdown (38 GPU + 40 DLA = 78; 38 + 20 = 58) — independent confirmation of the arithmetic, a primary-sourced whole-module dense figure of **78 on a part sold as 157**, and further confirmation that the 8 GB has a single DLA. The same arithmetic applies to the 8 GB part (77 GPU + 40 DLA = 117). This does not change the module's ranking against its neighbours — they are quoted the same way — but it does mean the [TOPS/W figures in the module ladder](../syntheses/platforms/jetson-module-ladder-power-performance.md) are **GPU+DLA+sparse throughout**, and should not be read as achievable on one workload.
 
 > [!note] DLA count — resolved 2026-08-29
 > **Orin NX 16 GB has 2× NVDLA v2; Orin NX 8 GB has 1×.** This was flagged as unresolved on 2026-08-28 because NVIDIA's table appeared to give "1× NVDLA v2" for the whole Orin NX series. That was a **parsing error on my side, not NVIDIA's**: the DL-accelerator row uses `colspan`, and the "2× NVDLA v2" cell spans five columns — through the Orin NX 16 GB — with the "1×" cell applying to the 8 GB alone. It matches the DLA INT8 split exactly (80 vs 40 TOPS). The wiki's [module ladder](../syntheses/platforms/jetson-module-ladder-power-performance.md) previously said "+2 DLA" for *both* SKUs, which was wrong for the 8 GB; corrected there.
 
 Both SKUs also carry **1× PVA v2** (programmable vision accelerator) — absent entirely from the Orin Nano line.
+
+
+## RT cores — present, and absent from every spec table
+
+*Added 2026-08-29 ([Orin module datasheets](../sources/nvidia-jetson-orin-module-datasheets.md)).*
+
+**NVIDIA's Jetson product-comparison page — the table the specs above come from — never mentions RT cores.** The datasheet does, in language identical across the AGX Orin and Orin NX documents:
+
+> "**The RTcore unit assists Ray Tracing by accelerating Bounding Volume Hierarchy (BVH) traversal and intersection of scene geometry** during Ray Tracing… **Each TPC includes two SMs, a Polymorph Engine, two Texture Units, and a Ray Tracing core (RTcore).**"
+
+An **RT core** is fixed-function silicon for the two operations that dominate ray tracing: walking the BVH acceleration tree (pointer-chasing with divergent branches — the worst case for a SIMT machine) and ray–triangle intersection. It is a third core type alongside CUDA and tensor cores, reached through DXR / Vulkan Ray Tracing / OptiX rather than programmed directly.
+
+> [!warning] The Orin NX RT-core count is not published
+> The Orin NX datasheet carries the architecture text but **no per-SKU GPC/TPC figure**, so no primary states how many RT cores this module has. Arithmetic suggests **4** (1024 CUDA cores ÷ 128/SM = 8 SMs ÷ 2 SMs/TPC), but that is **inference** — and the same datasheet's SM description is internally inconsistent, so the divisor is not safe to lean on. The [AGX Orin](jetson-agx-orin.md) datasheet *does* publish its config (8 and 7 RT cores).
+
+> [!note] Why this matters, and why it mostly doesn't
+> Ray casting is a **geometric query**, not inherently graphics: it is also how simulated lidar and radar work ([Isaac Sim](nvidia-isaac-sim.md)'s RTX lidar is ray-traced). So RT cores matter on the **simulation** side of sim-to-real — the workstation — far more than on the robot, and Isaac Sim does not run on Jetson. They are **not a reason to choose this module**. The reason to record them is epistemic: **absence from a spec table is not absence from the silicon**, and these tables are the wiki's main source for this tier.
 
 ## Super Mode is locked at flash time
 
@@ -123,6 +142,7 @@ Carrier details from the [Seeed Jetson selection guide](../sources/seeed-jetson-
 
 ## Mentioned in
 
+- [NVIDIA Jetson Orin module datasheets (DS-10662 / DS-10712)](../sources/nvidia-jetson-orin-module-datasheets.md) — the RT-core / TPC architecture, and the dense-INT8 totals.
 - [Jetson Linux Developer Guide — Platform Power and Performance (Orin)](../sources/nvidia-jetson-platform-power-performance-orin.md) — Super Mode, nvpmodel tables.
 - [Seeed — flash JetPack OS to J401 carrier board](../sources/seeed-j401-flash-jetpack.md) — the Super-Mode cooling caveat.
 - [Jetson Linux r39.2 release notes](../sources/nvidia-jetson-linux-r39-2-release-notes.md) — the 10 W crash bug.
