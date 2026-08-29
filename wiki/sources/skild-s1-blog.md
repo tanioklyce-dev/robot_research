@@ -84,7 +84,7 @@ Four tasks, none seen in pre-training, up to **10 minutes**: plant potting (digg
 ## Contradictions and tensions
 
 > [!warning] Contradiction — "omni-bodied" positioning vs. what S1 actually claims
-> [Skild AI](../entities/skild-ai.md)'s own site describes the Skild Brain as *"a unified, omni-bodied brain to control any robot for any task"* and asserts *"Physical AI should be omni-bodied."* **The S1 post makes no cross-embodiment claim for manipulation at all** — it never names a robot platform, and the only embodiment-transfer claim is for the **predecessor locomotion model, LocoFormer** (Liu et al., 2025), described as never being told which body it is driving.
+> [Skild AI](../entities/skild-ai.md)'s own site describes the Skild Brain as *"a unified, omni-bodied brain to control any robot for any task"* and asserts *"Physical AI should be omni-bodied."* **The S1 post makes no cross-embodiment claim for manipulation at all** — it never names a robot platform, and the only embodiment-transfer claim is for the **predecessor locomotion model, [LocoFormer](locoformer-paper.md)** (Liu, Pathak & Agarwal, CoRL 2025 — ingested 2026-08-29), which demonstrates it properly: zero-shot to ten unseen commercial robots at 0.96 against 0.99 for per-robot experts.
 >
 > So the company's flagship manipulation model is announced without the property the company's positioning is built on. That may simply be an unstated capability — but as published, "omni-bodied" is a claim about LocoFormer and about the roadmap, not about S1.
 
@@ -111,5 +111,5 @@ Four tasks, none seen in pre-training, up to **10 minutes**: plant potting (digg
 - **Rollout counts.** Absent for every figure.
 - **Is the 380× equivalence a measured curve or a point estimate?** The post gives one number; the methodology behind it is not described.
 - **Does the crossover survive at a fixed compute budget?** ICL pays for its inner loop at inference time in context length; the post compares data scales, not inference cost.
-- **LocoFormer is uningested.** The cited locomotion predecessor (Liu et al., 2025) has no page here and carries the actual cross-embodiment claim.
+- ~~LocoFormer is uningested~~ — **ingested 2026-08-29** ([LocoFormer](locoformer-paper.md)). It carries the cross-embodiment claim, and conditions on the robot's **own experience** rather than a demonstration — a different mechanism under the same name.
 - **Independent replication.** None exists. Weights are not released.

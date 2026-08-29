@@ -4,16 +4,16 @@ type: entity
 subtype: company
 created: 2026-08-29
 updated: 2026-08-29
-sources: 1
+sources: 2
 tags: [skild-ai, s1, robot-foundation-model, in-context-learning, cmu, pittsburgh, physical-ai, omni-bodied, vendor-source]
 ---
 
-**Skild AI** — Pittsburgh robot-foundation-model company, founded **2023** by former Carnegie Mellon faculty **Deepak Pathak** and **Abhinav Gupta**. Builds the **Skild Brain**, positioned as *"a unified, omni-bodied brain to control any robot for any task."* Its flagship model is **[S1](../sources/skild-s1-blog.md)** (August 2026), an **in-context learner** for manipulation: shown one demonstration video at inference, it executes the task with no fine-tuning and no weight update.
+**Skild AI** — Pittsburgh robot-foundation-model company, founded **2023** by Carnegie Mellon roboticists **[Deepak Pathak](deepak-pathak.md)** (CEO) and **[Abhinav Gupta](abhinav-gupta.md)** (president) — **both of whom retain their CMU appointments**. Builds the **Skild Brain**, positioned as *"a unified, omni-bodied brain to control any robot for any task."* Its flagship model is **[S1](../sources/skild-s1-blog.md)** (August 2026), an **in-context learner** for manipulation: shown one demonstration video at inference, it executes the task with no fine-tuning and no weight update.
 
 Skild is one of the four or five companies making the **model-layer bet** described in [the industry map](../syntheses/society/robot-ai-industry-map.md) — sell the policy, let others build the bodies — alongside [Physical Intelligence](physical-intelligence.md), [NVIDIA GR00T](nvidia-groot.md), [Gemini Robotics](gemini-robotics.md), and [TRI](tri.md)/[Walden](walden-robotics.md).
 
 > [!warning] Everything below the founding facts is vendor-stated or trade press
-> This page has **one ingested source**: the [S1 blog post](../sources/skild-s1-blog.md), which is a vendor announcement with no third-party evaluation. Funding and valuation figures are marked `[live-web]` and are **not ingested** — see the epistemic note in [the industry map](../syntheses/society/robot-ai-industry-map.md). No Skild model has been independently evaluated in any source this wiki holds, and no weights are released.
+> This page has **two ingested sources**, of very different grade: the [S1 blog post](../sources/skild-s1-blog.md), a vendor announcement with no third-party evaluation, and [LocoFormer](../sources/locoformer-paper.md), a peer-reviewed CoRL 2025 paper with baselines and stated limitations. **Weight the two accordingly** — the locomotion claims are evidenced, the manipulation claims are not. Funding and valuation figures are marked `[live-web]` and are **not ingested** — see the epistemic note in [the industry map](../syntheses/society/robot-ai-industry-map.md). No Skild model has been independently evaluated in any source this wiki holds, and no weights are released.
 
 ## The thesis: in-context learning instead of language prompting
 
@@ -34,8 +34,10 @@ See [in-context robot learning](../concepts/learning/in-context-robot-learning.m
 
 ## What is not claimed, despite the positioning
 
-> [!warning] "Omni-bodied" is a claim about the roadmap and the locomotion predecessor, not about S1
-> The company's site says *"An AI that truly understands the physical world should not be limited by robot or task type."* The [S1 announcement](../sources/skild-s1-blog.md) **names no robot platform anywhere**, and makes **no cross-embodiment claim for manipulation**. The only embodiment-transfer claim is for the predecessor locomotion model **LocoFormer** (Liu et al., 2025) — *"the policy is never told which body it is driving"* — which this wiki has not ingested.
+> [!warning] "Omni-bodied" is demonstrated for locomotion, not for manipulation
+> The company's site says *"An AI that truly understands the physical world should not be limited by robot or task type."* The [S1 announcement](../sources/skild-s1-blog.md) **names no robot platform anywhere**, and makes **no cross-embodiment claim for manipulation**.
+>
+> The claim is substantiated — but by the *locomotion* model. **[LocoFormer](../sources/locoformer-paper.md)** (CoRL 2025, ingested 2026-08-29) trains only on procedurally generated robots and transfers zero-shot to ten commercial platforms at **0.96** against **0.99** for per-robot experts. That is a real, peer-reviewed omni-bodied result. It says nothing about manipulation, which is the harder half and the one S1 addresses.
 >
 > This matters because omni-bodiedness is exactly the property that would make the model layer capture value from hardware. It is the company's central strategic claim and its flagship model's announcement does not contain it.
 
@@ -64,7 +66,7 @@ Low-level skills — grasping, handover, navigation — are *"abstracted away us
 
 - **The clearest published alternative to language-conditioned VLAs.** Most of this wiki's policy coverage — [π-series](physical-intelligence.md), [GR00T](nvidia-groot.md), [Gemini Robotics](gemini-robotics.md), [MolmoAct2](molmoact2.md) — conditions on language. S1 conditions on a demonstration. That is a different answer to the same specification problem, and worth tracking as such.
 - **A rare public data-QC ratio.** *"For every dollar we spend on collecting data, we spend three on quality control"* ([S1](../sources/skild-s1-blog.md)) is the kind of operational number almost nobody publishes.
-- **A test case for the model-layer bet.** At >$14B with no released weights, no paper, and no third-party evaluation, Skild is the sharpest instance of the gap this wiki keeps returning to: capital committed far ahead of demonstrated, verifiable capability.
+- **A test case for the model-layer bet.** At >$14B, the *manipulation* line — which is what the valuation narrative rests on — has no released weights, no paper, and no third-party evaluation. The *locomotion* line has a solid CoRL paper. Skild is therefore the sharpest instance of the gap this wiki keeps returning to, and also a caution against stating it too flatly: the evidence is real, it is just not for the part being sold.
 
 ## Related
 
@@ -75,12 +77,13 @@ Low-level skills — grasping, handover, navigation — are *"abstracted away us
 
 ## Mentioned in
 
-- [Introducing S1: In-Context Learning for Robotics](../sources/skild-s1-blog.md) — the flagship-model announcement; the only ingested Skild source.
+- [Introducing S1: In-Context Learning for Robotics](../sources/skild-s1-blog.md) — the flagship manipulation model.
+- [LocoFormer: Generalist Locomotion via Long-context Adaptation](../sources/locoformer-paper.md) — CoRL 2025; the company's locomotion line and its strongest published evidence.
 
 ## Open questions / TBD
 
 - **Which robots?** No embodiment is named in any Skild material read here.
-- **LocoFormer** (Liu et al., 2025) — the locomotion predecessor carrying the actual cross-embodiment claim. **Uningested; the highest-value next Skild source.**
-- **Founders have no entity pages.** Deepak Pathak and Abhinav Gupta are both significant CMU robot-learning researchers and appear nowhere else in this wiki.
+- ~~LocoFormer uningested~~ — **ingested 2026-08-29** ([LocoFormer](../sources/locoformer-paper.md)). It carries the cross-embodiment evidence, for locomotion. **RMA** (Kumar, Fu, Pathak, Malik 2021), the predecessor LocoFormer argues against, is now the highest-value uningested source in this line.
+- ~~Founders have no entity pages~~ — filed 2026-08-29: [Deepak Pathak](deepak-pathak.md), [Abhinav Gupta](abhinav-gupta.md).
 - **Is there a paper?** S1 is a blog post. Whether a technical report follows determines whether any of this becomes citable.
 - **Revenue composition.** ~$30M from what, sold to whom, on what contract terms — unknown.

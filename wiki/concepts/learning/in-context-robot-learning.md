@@ -3,13 +3,13 @@ title: In-context robot learning
 type: concept
 created: 2026-08-29
 updated: 2026-08-29
-sources: 1
+sources: 2
 tags: [in-context-learning, robot-foundation-model, demonstration-conditioning, test-time-adaptation, vla, skild-ai, s1]
 ---
 
 # In-context robot learning
 
-**Specifying a robot task with a demonstration supplied at inference time, rather than with a language instruction or with post-training on task data.** The model's weights do not change; the demonstration enters as context and the policy conditions on it, exactly as an LLM conditions on few-shot examples in its prompt.
+**Adapting a robot policy from information supplied at inference time — a demonstration of the task, or the policy's own recent experience of the body — rather than from a language instruction or from post-training.** The weights do not change; the information enters as context and the policy conditions on it, exactly as an LLM conditions on few-shot examples in its prompt. See [Two modes](#two-modes-often-conflated) — the term is routinely used for both, and they are not the same mechanism.
 
 The framing that makes it precise is a two-loop one, from [S1](../../sources/skild-s1-blog.md): *"Pre-training is the outer loop that teaches the policy how to learn from context; at inference time, the demonstration drives the inner loop without changing any weights."* Pre-training must therefore use episodic data in which **the task is identified only by an in-context demonstration** — otherwise the model has no pressure to learn the inner loop at all, and will simply learn the tasks.
 
@@ -25,9 +25,24 @@ Every generalist policy has to be told what to do. The field's three answers:
 
 Language conditioning assumes the instruction is enough to identify the behavior. In-context learning assumes a demonstration is a **richer specification** — it carries the intent, the functional correspondences, and the task progress that language leaves implicit. The cost is that someone must perform the task once, on the spot.
 
+## Two modes, often conflated
+
+The term covers two mechanisms that share an implementation (no weight update, information enters through context) and differ in **what the context contains**:
+
+| | **Demonstration-conditioned** | **Experience-conditioned** |
+|---|---|---|
+| Context holds | a human demonstration of the *task* | the policy's own trials with this *body* |
+| Answers | "what should I do?" | "what am I?" |
+| Closest classical analogue | few-shot imitation | online system identification |
+| Wiki instance | [S1](../../sources/skild-s1-blog.md) (manipulation) | [LocoFormer](../../sources/locoformer-paper.md) (locomotion) |
+
+Both are [Skild AI](../../entities/skild-ai.md) systems and both are marketed under the same "in-context" banner, but the second does something the first does not: **it improves from its own failures within a deployment.** LocoFormer, given a body so unstable it falls on trial 1, keeps that failure in its Transformer-XL cache and walks by trial 3 — frozen weights throughout. That is in-context *reinforcement* learning; S1 is in-context *imitation*.
+
+Keeping them apart matters when reading claims. "Omni-bodied in-context learning" is evidenced for the experience-conditioned locomotion case and not for the demonstration-conditioned manipulation case.
+
 ## Current state
 
-Thinly evidenced, from essentially one vendor source, but the shape of the claim is notable.
+Two sources, of very different evidence grade. The **experience-conditioned** case is peer-reviewed and well-controlled ([LocoFormer](../../sources/locoformer-paper.md), CoRL 2025: 0.96 zero-shot across ten unseen robots against 0.99 per-robot experts, with a GRU ablation collapsing to 0.37). The **demonstration-conditioned** case below is a single vendor blog with no third-party evaluation.
 
 [Skild AI](../../entities/skild-ai.md)'s [S1](../../sources/skild-s1-blog.md) (August 2026) reports a **scaling crossover** rather than a flat advantage:
 
@@ -50,6 +65,7 @@ Reported corollaries, all self-reported and none independently evaluated:
 ## Relationship to neighboring ideas
 
 - **[Test-time adaptation](test-time-adaptation.md)** — in-context learning is its limiting case: adaptation with *zero* gradient steps.
+- **[Sim-to-real transfer](sim-to-real-transfer.md)** — [LocoFormer](../../sources/locoformer-paper.md) is an unusually strong instance: trained only on *procedurally generated robots that do not exist*, transferring zero-shot to ten commercial platforms with no system identification.
 - **[VLA models](vla-models.md)** — the language-conditioned alternative, and the baseline S1 measures against.
 - **[Scaling laws for VLAs](scaling-laws-vla.md)** — the crossover claim is a scaling-law claim, and belongs to that literature rather than to a leaderboard.
 - **[Soft-prompt cross-embodiment](soft-prompt-cross-embodiment.md)** — a different route to conditioning a shared policy without retraining per body.
@@ -59,9 +75,11 @@ Reported corollaries, all self-reported and none independently evaluated:
 ## Key references
 
 - [Introducing S1: In-Context Learning for Robotics](../../sources/skild-s1-blog.md) — [Skild AI](../../entities/skild-ai.md), August 2026. The wiki's anchor source; vendor blog.
-- **LocoFormer** (Liu et al., 2025) — Skild's locomotion predecessor, cited as learning embodiment transfer in-context (*"never told which body it is driving"*). **Not yet ingested**, and the more interesting claim of the two.
+- [**LocoFormer: Generalist Locomotion via Long-context Adaptation**](../../sources/locoformer-paper.md) — Liu, [Pathak](../../entities/deepak-pathak.md) & Agarwal, CoRL 2025. The experience-conditioned instance, and the better-evidenced of the two: peer-reviewed, with baselines (GRU 0.37 vs 0.96) and per-robot expert upper bounds (0.99).
 
 ## Mentioned in
 
-- [Introducing S1](../../sources/skild-s1-blog.md) — the concept's anchor.
-- [Skild AI](../../entities/skild-ai.md) — the company built on it.
+- [Introducing S1](../../sources/skild-s1-blog.md) — the demonstration-conditioned mode.
+- [LocoFormer](../../sources/locoformer-paper.md) — the experience-conditioned mode.
+- [Skild AI](../../entities/skild-ai.md) — the company behind both.
+- [Deepak Pathak](../../entities/deepak-pathak.md) — LocoFormer co-author.
