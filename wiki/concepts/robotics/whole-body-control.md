@@ -2,8 +2,8 @@
 title: Whole-Body Control (WBC)
 type: concept
 created: 2026-07-15
-updated: 2026-08-28
-sources: 21
+updated: 2026-08-29
+sources: 26
 tags: [whole-body-control, wbc, humanoid, motion-tracking, loco-manipulation, unitree-g1, booster-t1, rl, sim-to-real, amass, agile, code, system-0, helix, figure-03]
 ---
 
@@ -22,7 +22,7 @@ Training **one** policy on the full, diverse motion corpus is hard because diffe
 
 ## Sim-to-real
 
-The dominant real-world-adaptation trick in this cluster is **delta-action modeling** (from **ASAP**): fit a residual `π_Δ(s,a)` from real rollouts, reshape the simulator `s' = f_sim(s, a+π_Δ)`, and fine-tune the tracking policy in the corrected sim — iterated. [BumbleBee](../../sources/bumblebee-experts-to-generalist-wbc.md) shows per-cluster delta-models beat one global delta-model (cluster-consistent dynamics fit better) and that iterating lifts real-robot success and foot stability. Foot placement is repeatedly the hardest residual gap ([SONIC](../../sources/sonic-paper.md): 53.7 vs 29.0 mm sim).
+The dominant real-world-adaptation trick in this cluster is **delta-action modeling** (from **[ASAP](../../sources/asap-paper.md)**, now ingested): fit a residual `π_Δ(s,a)` from real rollouts, reshape the simulator `s' = f_sim(s, a+π_Δ)`, and fine-tune the tracking policy in the corrected sim — iterated. [BumbleBee](../../sources/bumblebee-experts-to-generalist-wbc.md) shows per-cluster delta-models beat one global delta-model (cluster-consistent dynamics fit better) — which is a direct, if polite, correction to ASAP's claim that its single global model is "not overfitted" and that iterating lifts real-robot success and foot stability. Foot placement is repeatedly the hardest residual gap ([SONIC](../../sources/sonic-paper.md): 53.7 vs 29.0 mm sim).
 
 > [!note] The classical ancestor, and what the learned version gives up
 > Model-based WBC is largely [operational space control](operational-space-control.md) (Khatib 1987) plus null-space prioritization on a floating base: a QP per tick with task objectives as **costs** and joint/torque/contact limits as **hard constraints**. The learned WBC policies on this page replace that QP with a network — buying robustness and contact-richness, and **giving up the hard-constraint property**, which is why the manipulation stacks in this wiki still keep a constrained QP between policy and hardware.
@@ -32,7 +32,14 @@ The dominant real-world-adaptation trick in this cluster is **delta-action model
 - **[SONIC](../../sources/sonic-paper.md)** (NVIDIA [GEAR](../../entities/nvidia-gear.md), 2025-11) — motion tracking as *the* scalable foundational task; FSQ universal token space as the VLA↔controller interface; direct sim-to-real on [Unitree G1](../../entities/unitree-g1.md).
 - **[MotionBricks](../../sources/motionbricks-paper.md)** (NVIDIA, SIGGRAPH 2026) — real-time (15k FPS/2ms) modular latent motion model spanning animation + robotics; smart-primitive interface adds object interaction SONIC lacks.
 - **[BumbleBee](../../sources/bumblebee-experts-to-generalist-wbc.md)** ([BeingBeyond](../../entities/beingbeyond.md) + Peking Univ, 2025-09) — clustered expert→generalist distillation; SOTA general WBC on G1, with the largest margin in realistic MuJoCo dynamics.
-- Prior art referenced across the above: **ASAP, HOVER, OmniH2O/H2O, HumanPlus, Exbody2** (see the [GEAR publications page](../../sources/nvidia-gear-publications.md) for HOVER/ASAP arXiv links).
+- **The 2024–25 foundation of this cluster, ingested 2026-08-29** — previously carried here only as secondhand names:
+  - **[H2O](../../sources/h2o-paper.md)** (CMU, IROS 2024) — first learning-based real-time whole-body teleoperation from an RGB camera; introduces **"sim-to-data"**, using a privileged imitator to *delete* retargeted motions the robot cannot physically perform.
+  - **[OmniH2O](../../sources/omnih2o-paper.md)** (CMU, CoRL 2024) — **kinematic pose as a universal control interface** (VR / voice / RGB / GPT-4o / learned policy), teacher–student distillation to sparse sensors, and the finding that **input history can replace the global linear velocity** that previously required MoCap.
+  - **[HumanPlus](../../sources/humanplus-paper.md)** (Stanford, CoRL 2024) — shadowing from 40 h of human motion, then behavior cloning from egocentric vision; **60–100% on six autonomous tasks with ≤40 demonstrations**.
+  - **[ASAP](../../sources/asap-paper.md)** (CMU + NVIDIA, 2025) — the delta-action-model primary, described in [Sim-to-real](#sim-to-real) above.
+  - **[HOVER](../../sources/hover-paper.md)** (NVIDIA [GEAR](../../entities/nvidia-gear.md) + CMU, 2024) — multi-mode distillation with mode and sparsity masks; the generalist **beats specialists in their own modes**, which is the strongest form of the decomposition-vs-scale argument this page opens with.
+  - **Exbody2** remains uningested.
+  (The [GEAR publications page](../../sources/nvidia-gear-publications.md) is where HOVER/ASAP were previously reachable from.)
 
 ## Code / tooling
 
@@ -55,6 +62,9 @@ Added 2026-08-28. Everything above is academic or open-source. [Helix 02](../../
 
 > [!warning] No numbers, at all
 > Figure publishes **no tracking error, no success rate, no baseline, no ablation** for S0 — nothing comparable to SONIC's 53.7 vs 29.0 mm foot placement. The architecture is described; the performance is asserted. Cite S0 for *what was built*, never for *how well it works*.
+
+> [!note] This branch went the opposite way from quadruped locomotion
+> Every paper in this humanoid cluster except [ASAP](../../sources/asap-paper.md) is built on **privileged oracle-to-student distillation** — [H2O](../../sources/h2o-paper.md) uses it to filter data, [OmniH2O](../../sources/omnih2o-paper.md) to reach sparse sensors, [HOVER](../../sources/hover-paper.md) to unify modes, [BumbleBee](../../sources/bumblebee-experts-to-generalist-wbc.md) to merge experts. Over the same period the quadruped line **abandoned** privileged teachers entirely for long context and scale ([locomotion adaptation lineage](../../syntheses/rl/locomotion-adaptation-lineage.md)). Two branches of learned legged control, moving in opposite architectural directions at the same time — see [humanoid whole-body control lineage](../../syntheses/rl/humanoid-wbc-lineage.md) for why.
 
 ## Related concepts
 

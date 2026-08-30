@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-08
 updated: 2026-05-08
-sources: 0
+sources: 3
 tags: [unitree-h1, humanoid, bipedal, china, affordable, research]
 status: stub
 ---

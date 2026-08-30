@@ -72,11 +72,12 @@ Two corollaries worth carrying:
 - **[Sim-to-real transfer](../../concepts/learning/sim-to-real-transfer.md)** — holds the two-phase privileged-distillation pattern this lineage established.
 - **[Skild AI](../../entities/skild-ai.md)** — LocoFormer is the evidence behind the company's "omni-bodied" claim, which its manipulation model [S1](../../sources/skild-s1-blog.md) does **not** substantiate. The locomotion line is peer-reviewed; the manipulation line is a blog post.
 - **[The Robot AI industry](../society/robot-ai-industry-map.md)** — the same trade (structure vs scale) is what the model-layer bet rests on commercially.
+- **[Humanoid whole-body control lineage](humanoid-wbc-lineage.md)** — the sibling branch, which over the same years went the **opposite** way: it kept and deepened privileged distillation while this line discarded it. The contrast is the most useful thing either page says.
 - **[Atari RL lineage](atari-rl-lineage.md)** — the wiki's other lineage page; the same arc from engineered value-function tricks to scale is visible there.
 
 ## Open follow-ups
 
-- **The humanoid half** — H2O / HumanPlus / ASAP / HOVER — is the largest remaining locomotion gap, and would test whether this arc holds for bipeds.
+- ~~The humanoid half is the largest remaining gap~~ — **ingested 2026-08-29** ([humanoid WBC lineage](humanoid-wbc-lineage.md)). It does **not** follow this arc: that branch kept its privileged teachers. Why the two diverged is argued there.
 - **Extreme Parkour** ([Agarwal](../../entities/ananye-agarwal.md) & Pathak) is the missing middle between Act 2 and Act 3.
 - **Rudin et al.** (the [legged_gym](../../entities/legged-gym.md) primary) would ground the parallel ETH line properly instead of by reference.
 - ~~Ashish Kumar has no entity page~~ — filed 2026-08-29 ([Ashish Kumar](../../entities/ashish-kumar.md)). **Jitendra Malik**, co-author on both of Acts 1 and 2 and in three ingested sources, still has none.
