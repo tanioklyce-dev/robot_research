@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-29
 updated: 2026-08-29
-sources: 0
+sources: 1
 tags: [abhinav-gupta, skild-ai, cmu, robotics-institute, self-supervised-learning, meta-fair, founder]
 ---
 
@@ -17,10 +17,12 @@ His research centers on **scaling learning by building self-supervised, lifelong
 
 ## In this wiki
 
-> [!note] No ingested source yet cites him — `sources: 0` is accurate, not a defect
-> He is **not** an author on [LocoFormer](../sources/locoformer-paper.md) (that is Liu, Pathak and Agarwal), and no other ingested source names him. This page exists because he is half the founding team of a **>$14B** company whose model-layer bet this wiki tracks closely — filed as a **known-thin** page, to be filled when a source of his is ingested.
+> [!note] `sources: 1` overstates this page — the one inbound link is a disambiguation
+> **No ingested source discusses his work.** He is not an author on [LocoFormer](../sources/locoformer-paper.md) (that is Liu, Pathak and Agarwal), and no ingested source names him as an author or subject.
 >
-> Per the [lint convention](../../CLAUDE.md), `sources: 0` means "no ingested source page links here," not "undocumented."
+> The single inbound link is from [SERL](../sources/serl-paper.md), and it exists *only* to say he is **not** the Abhishek Gupta on that paper. Lint counts `sources:` as "distinct source pages that link here," which is the right mechanical definition and the wrong semantic one in this case — the honest reading of this page is **zero sources**. Recorded here rather than fought with, since the alternative is dropping a genuinely useful disambiguation link.
+>
+> The page exists because he is half the founding team of a **>$14B** company whose model-layer bet this wiki tracks closely. Filed as **known-thin**, to be filled when a source of his is ingested.
 
 ## Background (live-web; not ingested)
 
@@ -41,7 +43,7 @@ His research centers on **scaling learning by building self-supervised, lifelong
 
 ## Mentioned in
 
-*No ingested source cites him yet — see the note above.*
+- [SERL](../sources/serl-paper.md) — **disambiguation only**; the paper's Gupta is Abhishek (UW), not him. No ingested source discusses his work.
 
 ## Open questions / TBD
 

@@ -3,7 +3,7 @@ title: Test-time adaptation
 type: concept
 created: 2026-08-26
 updated: 2026-08-26
-sources: 1
+sources: 5
 tags: [test-time-adaptation, test-time-training, distribution-shift, world-model, mpc, planning, robustness, self-supervised]
 ---
 

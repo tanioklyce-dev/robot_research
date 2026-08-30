@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-28
 updated: 2026-08-28
-sources: 9
+sources: 10
 tags: [helix, figure, vla, humanoid, system-0, whole-body-control, loco-manipulation, hierarchical-policy, go-big, human-data, zero-shot, navigation, vendor-source]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-08-29
 updated: 2026-08-29
-sources: 3
+sources: 4
 tags: [unitree-a1, quadruped, legged-robot, locomotion, rma, locoformer, research-platform]
 ---
 

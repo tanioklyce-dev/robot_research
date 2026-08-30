@@ -4,7 +4,7 @@ type: entity
 subtype: hardware
 created: 2026-08-29
 updated: 2026-08-29
-sources: 1
+sources: 2
 tags: [jetson, jetson-xavier-nx, nvidia, volta, edge-ai, onboard-compute, robotics, legacy]
 ---
 

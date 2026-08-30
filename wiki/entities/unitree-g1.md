@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-08
 updated: 2026-08-27
-sources: 14
+sources: 15
 tags: [unitree-g1, humanoid, bipedal, china, affordable, accessible, groot, whole-body-control]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-05-08
 updated: 2026-08-27
-sources: 30
+sources: 31
 tags: [libero, manipulation-benchmark, lifelong-learning, robosuite, mujoco, code-as-policy]
 ---
 
