@@ -20,7 +20,7 @@ That result is characteristic of his line of work rather than a departure from i
 
 ## The RMA → LocoFormer arc
 
-Two of his papers, four years apart, bracket a shift in how the field thinks about adaptation — and this wiki now holds both.
+Three of his papers, four years apart, bracket a shift in how the field thinks about adaptation — the wiki holds all three, and the full argument is filed as [the locomotion adaptation lineage](../syntheses/rl/locomotion-adaptation-lineage.md).
 
 **[RMA](../sources/rma-paper.md)** (RSS 2021, with Kumar, [Fu](zipeng-fu.md) and Malik) gets a blind [A1](unitree-a1.md) adapting to terrain, payload and friction in **under a second**, using a hand-designed two-module architecture: a privileged teacher supplies a latent "extrinsics" vector, and a small CNN learns to estimate it from **0.5 s** of proprioception. It carries 100% of body weight and crosses an oily sheet at 90% success.
 
@@ -49,6 +49,7 @@ LocoFormer explicitly calls the RMA class **"myopic."** It is his own prior work
 
 - [Skild AI](skild-ai.md) — co-founder and CEO.
 - [Abhinav Gupta](abhinav-gupta.md) — co-founder and president; CMU colleague.
+- [Ashish Kumar](ashish-kumar.md) — first author of RMA, co-first author of the vision paper.
 - [Ananye Agarwal](ananye-agarwal.md) — his PhD student, co-author on both the egocentric-vision paper and LocoFormer, now a Skild founding researcher.
 - [LocoFormer](../sources/locoformer-paper.md), [RMA](../sources/rma-paper.md) and [egocentric-vision locomotion](../sources/egocentric-vision-locomotion-paper.md) — his co-authored papers here.
 - [Unitree A1](unitree-a1.md) — RMA's platform; also in LocoFormer's zero-shot set.

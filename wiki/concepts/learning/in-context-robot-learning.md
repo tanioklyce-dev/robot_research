@@ -92,4 +92,5 @@ What separates them is horizon and structure, not aim. RMA adapts to **terrain, 
 - [LocoFormer](../../sources/locoformer-paper.md) — the experience-conditioned mode.
 - [Skild AI](../../entities/skild-ai.md) — the company behind both.
 - [RMA](../../sources/rma-paper.md) — the pre-long-context ancestor.
+- [Locomotion adaptation lineage](../../syntheses/rl/locomotion-adaptation-lineage.md) — the full 2021→2025 arc these two sit at either end of.
 - [Deepak Pathak](../../entities/deepak-pathak.md) — co-author of both LocoFormer and RMA.

@@ -97,6 +97,7 @@ Ten unseen robots, **1,000 randomized environments each**, rough terrain, intens
 - [Soft-prompt cross-embodiment](../concepts/learning/soft-prompt-cross-embodiment.md) — an alternative route to one policy across bodies.
 - [Test-time adaptation](../concepts/learning/test-time-adaptation.md) — LocoFormer's whole mechanism, with zero gradient steps.
 
+- [Locomotion adaptation lineage](../syntheses/rl/locomotion-adaptation-lineage.md) — where this paper sits in the 2021→2025 arc from engineered structure to scale.
 ## Open questions
 
 - **No real-robot success-rate table.** Table 1 is simulation. The hardware results are the qualitative Fig. 5 demonstrations — compelling, but not quantified, and with no rollout counts ([success-rate audit](../syntheses/platforms/vla-success-rate-audit.md) applies).

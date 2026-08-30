@@ -92,6 +92,7 @@ The robot is **blind** — proprioception only. *"Larger perturbations such as s
 
 ## Entities mentioned
 
+- [Ashish Kumar](../entities/ashish-kumar.md) — first author.
 - [Deepak Pathak](../entities/deepak-pathak.md) — co-author; later co-author of [LocoFormer](locoformer-paper.md) and CEO of [Skild AI](../entities/skild-ai.md).
 - [Zipeng Fu](../entities/zipeng-fu.md) — co-author, then at CMU. The wiki knows him for [Mobile ALOHA](mobile-aloha-paper.md) (Stanford, manipulation); RMA is his earlier locomotion work.
 - [Unitree A1](../entities/unitree-a1.md) — the deployment platform; also used with a depth camera in the [vision follow-up](egocentric-vision-locomotion-paper.md), and controlled zero-shot by [LocoFormer](locoformer-paper.md).
@@ -103,6 +104,7 @@ The robot is **blind** — proprioception only. *"Larger perturbations such as s
 - [Test-time adaptation](../concepts/learning/test-time-adaptation.md) — adaptation with no gradient steps at deployment.
 - [Real-world robot RL](../concepts/learning/real-world-robot-rl.md) — the AWR baseline (40k real samples, 41.7%) is the case against learning in the real world here.
 
+- [Locomotion adaptation lineage](../syntheses/rl/locomotion-adaptation-lineage.md) — where this paper sits in the 2021→2025 arc from engineered structure to scale.
 ## Open questions
 
 - **No [Unitree A1](../entities/unitree-a1.md) entity page** — the platform appears in both locomotion primaries and has no page.

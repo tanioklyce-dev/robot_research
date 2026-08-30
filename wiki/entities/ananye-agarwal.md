@@ -44,4 +44,4 @@ That thesis is worth putting beside [S1](../sources/skild-s1-blog.md), which ans
 
 - **Extreme Parkour is uningested** — the missing middle of the CMU locomotion line, between egocentric vision and LocoFormer.
 - **Dexterous Functional Grasping is uningested**, and would be the wiki's first source connecting the Skild locomotion people to manipulation.
-- **Ashish Kumar** — his co-first author on the 2022 paper and a co-author of [RMA](../sources/rma-paper.md), appearing in two ingested sources with no page.
+- ~~Ashish Kumar has no page~~ — filed 2026-08-29 ([Ashish Kumar](ashish-kumar.md)).

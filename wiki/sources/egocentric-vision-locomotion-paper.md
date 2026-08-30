@@ -113,6 +113,7 @@ That latency handling is the detail that makes the system real: the policy is tr
 ## Entities mentioned
 
 - [Ananye Agarwal](../entities/ananye-agarwal.md) — co-first author; later a [LocoFormer](locoformer-paper.md) co-author.
+- [Ashish Kumar](../entities/ashish-kumar.md) — co-first author; also first author of [RMA](rma-paper.md).
 - [Deepak Pathak](../entities/deepak-pathak.md) — co-advisor; the third of his papers in this wiki.
 - [Unitree A1](../entities/unitree-a1.md) — platform, here with a depth camera added.
 - [Jetson Xavier NX](../entities/jetson-xavier-nx.md) — the onboard compute running the policy at 50 Hz.
@@ -125,8 +126,9 @@ That latency handling is the detail that makes the system real: the policy is tr
 - [Test-time adaptation](../concepts/learning/test-time-adaptation.md) — the recurrent terrain memory, in contrast to RMA's fixed window.
 - [In-context robot learning](../concepts/learning/in-context-robot-learning.md) — a waypoint between RMA's fixed 0.5 s window and LocoFormer's long context.
 
+- [Locomotion adaptation lineage](../syntheses/rl/locomotion-adaptation-lineage.md) — where this paper sits in the 2021→2025 arc from engineered structure to scale.
 ## Open questions
 
 - **Which architecture wins is unresolved** — monolithic leads on stairs (42.4 vs 31.2), the RMA variant on discrete obstacles (40.1 vs 28.6), and totals are within 1%. The paper does not adjudicate.
 - **Real-world trial counts are small** and the stepping-stone 94% is over a limited course; see the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md).
-- ~~Ananye Agarwal has no entity page~~ — **filed 2026-08-29** ([Ananye Agarwal](../entities/ananye-agarwal.md)). **Ashish Kumar**, his co-first author here and a co-author of [RMA](rma-paper.md), still has none despite appearing in two ingested sources.
+- ~~Ananye Agarwal has no entity page~~ — **filed 2026-08-29** ([Ananye Agarwal](../entities/ananye-agarwal.md)). **[Ashish Kumar](../entities/ashish-kumar.md)** now has one too. **Jitendra Malik** — co-author here, on [RMA](rma-paper.md), and in [DreamDojo](dreamdojo-paper.md) — does not.
