@@ -2,7 +2,7 @@
 title: Success-rate audit — which of this wiki's policy comparisons survive their sample sizes
 type: synthesis
 created: 2026-07-27
-updated: 2026-08-13
+updated: 2026-08-30
 tags: [evaluation, statistics, clopper-pearson, vla, libero, benchmark, audit, reproducibility, methodology, code-as-policy]
 ---
 
@@ -11,6 +11,14 @@ tags: [evaluation, statistics, clopper-pearson, vla, libero, benchmark, audit, r
 [NVIDIA SRL's RoboLab methodology](../../sources/nvidia-robolab-evaluation-blog.md) makes a claim that indicts most published robot-policy numbers, including the ones this wiki repeats: a **±2 pp** confidence band needs ≈**1,030 rollouts**, and typical evaluations run ~**70**. This page applies that standard to the wiki's own tables and marks each headline comparison **survives / tie / unknown-N**.
 
 The short version: **the entire top of the wiki's LIBERO table is a single statistical tie**, and the wiki has been presenting it as a ranking. Large gaps — the ones that motivated the wiki's actual conclusions — hold up fine.
+
+
+> [!warning] A 1.2-point tier with no reported seed variance is a known failure pattern
+> [Locatello et al. 2019](../../sources/locatello2019-challenging-common-assumptions-disentanglement.md) trained **>12,000 models** across the disentanglement literature and found that **random seeds and hyperparameters mattered more than the model choice** — *"a good run with a bad hyperparameter can beat a bad run with a good hyperparameter"* — and that good runs **could not be identified without ground-truth labels**. The field had accumulated years of published improvements that were substantially seed variance plus model selection quietly consuming the test signal.
+>
+> This audit's tier has the same shape: **ten models inside 1.2 percentage points**, and **nothing in that literature reports seed spread**. The directly reproducible check is to train one architecture at `N` seeds on [LIBERO](../../entities/libero.md) and compare the within-architecture spread against the between-architecture gap. If they overlap, the ranking is noise.
+>
+> A second, cheaper probe from the language side: [Verbalized Eval Awareness](../../sources/goodfire-verbalized-eval-awareness.md) found that **paraphrasing benchmark prompts cut measured safety scores**, because part of the score was an artifact of phrasing. The robot analogue — re-render the same tasks with different textures, lighting, distractor placement and instruction wording — is far cheaper than building [LIBERO-PRO](../../sources/libero-pro-paper.md), and **a tier that reorders under paraphrase was never a tier.**
 
 ## Reproducing the bar (and a correction to how it's usually quoted)
 

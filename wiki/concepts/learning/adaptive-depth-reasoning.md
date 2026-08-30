@@ -4,7 +4,7 @@ type: concept
 created: 2026-07-25
 updated: 2026-07-28
 tags: [adaptive-depth-reasoning, embodied-cot, depth-tokens, vq-vae, temporal-redundancy, inference-latency, molmoact2, molmoact-think, chain-of-thought]
-sources: 4
+sources: 5
 ---
 
 # Adaptive depth reasoning

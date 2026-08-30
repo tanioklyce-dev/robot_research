@@ -3,7 +3,7 @@ title: AI guardrails
 type: concept
 created: 2026-07-13
 updated: 2026-08-23
-sources: 17
+sources: 18
 tags: [ai-safety, guardrails, agentic-ai, content-safety, topic-control, jailbreak, runtime-safety, nemo-guardrails]
 ---
 

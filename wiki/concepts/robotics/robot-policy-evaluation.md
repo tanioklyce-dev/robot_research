@@ -2,8 +2,8 @@
 title: Robot policy evaluation
 type: concept
 created: 2026-07-27
-updated: 2026-08-27
-sources: 34
+updated: 2026-08-30
+sources: 36
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility, real-to-sim, r2s2r]
 ---
 
@@ -141,9 +141,22 @@ Two of their findings bear directly on this page:
 - [Control abstraction levels](control-abstraction-levels.md) — an evaluation result is under-specified without its abstraction level; this page adds *and without its confidence interval*.
 - [Detection evaluation metrics](detection-evaluation-metrics.md) — the perception-side analogue (mAP/IoU) the wiki already covers.
 
-## Mentioned in
+> [!note] The language-side version of this wiki's benchmark problem
+> Two 2026 results from [Goodfire](../../entities/goodfire.md) describe, for text models, the same failure this page tracks for policies — *a benchmark's score depends on something other than the capability being measured, and the scoring function cannot see it.*
+>
+> **[Verbalized Eval Awareness](../../sources/goodfire-verbalized-eval-awareness.md)**: across 19 benchmarks and 8 models, models state in their chain of thought that they are being tested and then behave more safely. **95% of that signal appears only in the CoT** — invisible to answer-level scoring. Causally verified: deleting the sentences raises compliance, injecting them raises refusal by up to **12.6 pp**. And **automated paraphrasing of prompts cut eval awareness 75% and lowered measured safety** — part of the score was an artifact of phrasing.
+>
+> Compare [LIBERO-PRO](../../sources/libero-pro-paper.md): policies at **>90%** drop to **0.0%** under perturbation. Same structure, different confound — there it is distributional and needs a perturbation to expose; here it is stylistic and needs a paraphrase.
+>
+> **Two cheap moves this suggests, neither of which has been run on a robot benchmark:**
+> 1. **Paraphrase / re-render and check whether the tier reorders.** The [VLA success-rate audit](../../syntheses/platforms/vla-success-rate-audit.md) has ten models inside **1.2 percentage points**. Re-rendering the same tasks with different textures, lighting, distractor placement and instruction phrasing is far cheaper than building LIBERO-PRO, and a tier that reorders under paraphrase was never a tier.
+> 2. **Report seed variance.** [Locatello et al. 2019](../../sources/locatello2019-challenging-common-assumptions-disentanglement.md) found across >12,000 models that **seeds and hyperparameters mattered more than model choice**, and that good runs could not be identified without labels. Nothing in the VLA literature reports seed spread. A 1.2-point ten-model tier with unreported seed variance is exactly the situation that produced a decade of unreproducible disentanglement results.
 
-> [!note] Curated list — **34** source pages link here; the ones below are those that shaped this page.
+## Mentioned in
+- [Verbalized Eval Awareness (Goodfire + UK AISI, 2026)](../../sources/goodfire-verbalized-eval-awareness.md) — the language-side version of the benchmark-validity problem.
+- [Locatello et al. 2019](../../sources/locatello2019-challenging-common-assumptions-disentanglement.md) — seeds beat model choice; good runs unidentifiable without labels.
+
+> [!note] Curated list — **36** source pages link here; the ones below are those that shaped this page.
 
 - [RoboArena paper (CoRL 2025)](../../sources/roboarena-paper.md) — the distributed pairwise-preference protocol
 - [LIBERO-PRO paper](../../sources/libero-pro-paper.md) — the memorization critique

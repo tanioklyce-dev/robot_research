@@ -4,7 +4,7 @@ type: concept
 created: 2026-07-13
 updated: 2026-08-23
 tags: [ai-safety, red-teaming, jailbreak, prompt-injection, garak, adversarial, security, uplift-study]
-sources: 13
+sources: 14
 ---
 
 **AI red-teaming** — deliberately attacking a model to find the inputs that make it misbehave, *before* an adversary does. **LLM vulnerability scanning** is the automated, regression-testable form of it: a fixed battery of probes run against a model endpoint, producing a pass/fail report per attack class. It is the *measurement* half of the [guardrail](ai-guardrails.md) story — you cannot filter what you have not first learned to provoke.

@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-08-30
 updated: 2026-08-30
-sources: 5
+sources: 7
 tags: [company, interpretability, mechanistic-interpretability, sparse-autoencoders, silico, neural-geometry, safety, san-francisco, public-benefit-corporation]
 ---
 
@@ -70,6 +70,8 @@ What the company page *does* state, and what is therefore first-party: the team 
 
 - [Silico for Robotics & Vision](../sources/goodfire-silico-robotics-vision.md)
 - [Goodfire research index (2024–2026)](../sources/goodfire-research-index.md)
+- [Verbalized Eval Awareness Inflates Measured Safety](../sources/goodfire-verbalized-eval-awareness.md) — with [UK AISI](uk-aisi.md).
+- [Reasoning Theater: Disentangling Model Beliefs from Chain-of-Thought](../sources/goodfire-reasoning-theater.md) — with Harvard; arXiv primary.
 - [Goodfire Series B announcement](../sources/goodfire-series-b.md)
 - [Mechanistic interpretability](../concepts/safety/mechanistic-interpretability.md) and [neural geometry](../concepts/safety/neural-geometry.md) (concepts, not sources)
 - [Proposed experiment: latent inspection vs policy collapse](../syntheses/projects/latent-inspection-policy-collapse.md) — the testable version of its robotics claim.
@@ -77,6 +79,6 @@ What the company page *does* state, and what is therefore first-party: the team 
 ## Open questions / TBD
 
 - **No robotics result is quantified anywhere public.** The robotics case study describes a method and an outcome ("traced unstable behaviors to brittle internal features") with **no model named, no benchmark, no numbers**. It is a marketing case study, not a result, and the wiki should not cite it as evidence that the technique works — only that the technique is being attempted.
-- **Silico is closed and macOS-first**, so none of it is independently reproducible. Contrast [Anthropic](anthropic.md)'s interpretability work, which publishes methods openly.
+- **Silico is closed and macOS-first**, so none of it is independently reproducible. Its *research*, by contrast, is not — [Reasoning Theater](../sources/goodfire-reasoning-theater.md) is on arXiv with released code, and the [eval-awareness work](../sources/goodfire-verbalized-eval-awareness.md) is co-authored with [UK AISI](uk-aisi.md). **The research programme and the product have different openness postures**, and the research is the stronger evidence that the methods work.
 - **The safety-vs-capability tension is unexamined.** "Steer what models learn" and "make them safer" are the same toolset; a company selling model-editing to enterprises is also selling the ability to remove behaviours a lab installed deliberately. No source here addresses that.
 - **Whether the robotics vertical has a real customer.** Prime Intellect is the closest thing to one in the named list, and it is a distributed-training company rather than a robotics company.

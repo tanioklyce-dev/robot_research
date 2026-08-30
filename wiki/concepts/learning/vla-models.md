@@ -3,7 +3,7 @@ title: VLA models
 type: concept
 created: 2026-05-06
 updated: 2026-08-30
-sources: 129
+sources: 130
 tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos, vla-0, action-as-text, molmoact2, per-layer-kv-conditioning, hybrid-action-head, llm-free-vla, turbovla, xvla, soft-prompt]
 ---
 
@@ -11,6 +11,16 @@ tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero
 
 ## Definition
 A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbone), and an action head. Trained on large mixed datasets — robot teleoperation, human videos, simulation rollouts. Inference loop: image + text instruction → action token sequence → robot motors.
+
+> [!note] Where each of the three letters comes from
+> The VLA is a recombination, and each part has a datable origin ingested in this wiki:
+> - **V + L** — **[CLIP](../../entities/clip.md)** ([2021](../../sources/clip-paper.md)) made natural language a supervision signal for vision, so a class or an object could be *named* rather than indexed into a fixed label set. Every VLM backbone in the list below descends from it.
+> - **A** — **[Gato](../../entities/gato.md)** ([2022](../../sources/gato-paper.md)) tokenized joint torques into the same stream as text and pixels — mu-law companded, binned to 1024 levels — which is where **discrete action tokens** come from ([FAST](../../entities/fast-action-tokenization.md), [VQ-BeT](../../entities/vq-bet.md), [latent action tokens](latent-action-tokens.md) are later answers to the same resolution-allocation problem).
+> - **The sequence format** — **[Decision Transformer](../../entities/decision-transformer.md)** ([2021](../../sources/decision-transformer-paper.md)) established interleaving observations and actions as one causally-masked token stream.
+>
+> RT-1/RT-2 combined the three and the class existed. See [From n-grams to attention](../../syntheses/sequence-models/language-model-to-transformer-lineage.md) for the full arc.
+>
+> Two inherited properties worth stating plainly. **VLAs are trained by behaviour cloning**, and Decision Transformer's own Percentile-BC ablation showed that return-conditioned sequence modelling is largely *conditional imitation* — so "conditional imitation" is the honest description of this family, not "RL." And **[CLIP reports](../../sources/clip-paper.md) that its distribution-shift robustness is "almost entirely gone" after supervised fine-tuning** — which is exactly what every model below does to its backbone, and what nobody has measured.
 
 > [!note] VLA as a subtype of LBM
 > On [Russ Tedrake](../../entities/russ-tedrake.md)'s taxonomy, a VLA is one architectural choice within the broader class of **[large behavior models](large-behavior-models.md)** (any image-sequences→actions model): the choice of uptraining a VLM. The alternative — a video/world-model backbone (better for long context, per Tedrake) — is realized in [world-action models](../world-models/world-action-model.md) like Cosmos 3's policy mode ([Automated Podcast, 2026-07](../../sources/automated-podcast-tedrake-rocket-ship.md)).
@@ -106,7 +116,7 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 
 ## Mentioned in
 
-> [!note] Curated list — **129** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **130** source pages link here; the ones below are those that shaped this page.
 
 - [π0 Paper](../../sources/pi-zero-paper.md)
 - [π0.7 Paper](../../sources/pi07-paper.md)

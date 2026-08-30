@@ -3,7 +3,7 @@ title: Inductive bias
 type: concept
 created: 2026-08-30
 updated: 2026-08-30
-sources: 11
+sources: 12
 tags: [inductive-bias, generalization, scaling, architecture, priors, ssl, vit, cnn, robot-data-scale]
 ---
 
@@ -61,7 +61,15 @@ Two failure modes worth separating, because they look different in the loss curv
 
 This generalizes: **[representation collapse](../world-models/jepa.md) is what an under-constrained inductive bias looks like from the inside.** The whole anti-collapse design space the wiki tracks — [VICReg](../../sources/vicreg-paper.md), [Barlow Twins](../../sources/barlow-twins-paper.md), [SIGReg](../../sources/lejepa-paper.md), EMA teachers, DINO self-distillation — exists to add *just enough* additional bias to exclude the degenerate solutions without excluding the good ones.
 
-There is also an impossibility result worth knowing: **Locatello et al. 2019** (ICML best paper, un-ingested) shows unsupervised **disentanglement is impossible without inductive biases** — flagged on the [β-VAE page](../../sources/beta-vae-paper.md) so the wiki does not over-credit β-VAE's claims. Not "hard": impossible, on the theory. The bias is not an aid to the objective; in that case it *is* the objective.
+### The strongest form: without bias, the problem is ill-posed
+
+**[Locatello et al. 2019](../../sources/locatello2019-challenging-common-assumptions-disentanglement.md)** (ICML best paper) proves that unsupervised learning of **disentangled representations is impossible without inductive biases on *both* the model and the data**. Their Theorem 1: for any factorized prior, there is an **infinite family of bijections** producing completely entangled latent spaces with **the same marginal distribution**. An unsupervised learner sees only the distribution, so it has no information that could separate the one good representation from infinitely many bad ones.
+
+**No amount of data fixes this.** [ViT](../../sources/vit-paper.md) and [TDV](../../sources/tdv-paper.md) show the optimal *strength* of a bias falling as data grows; this is a case where the curve never bends, because the ambiguity is an identifiability problem rather than a sampling one. More data gives a better estimate of the same distribution, and the distribution does not determine the answer.
+
+Here the bias is not an aid to the objective — **it is the only thing that makes the objective well-posed.**
+
+Their empirical half matters too, and generalizes past disentanglement: across **>12,000 models**, the methods enforced what their losses encouraged, **good runs could not be identified without ground-truth labels**, and **seeds and hyperparameters mattered more than model choice** — *"a good run with a bad hyperparameter can beat a bad run with a good hyperparameter."* That is a description of how a subfield accumulates published improvements that are seed variance, and the wiki has a live candidate in the [VLA success-rate audit](../../syntheses/platforms/vla-success-rate-audit.md)'s ten-model, 1.2-point tier with **no reported seed variance anywhere**.
 
 ## The instructive example: manufacturing a space where bias is available
 
@@ -101,6 +109,7 @@ Practical consequences at that scale:
 - **[Sobal et al. 2022 — JEPA and slow features](../../sources/sobal2022-jepa-slow-features-paper.md)** — a bias with a specific, silent failure mode.
 - **[Bengio et al. 2003](../../sources/bengio2003-neural-probabilistic-language-model.md)** — the discrete/continuous asymmetry, and manufacturing a space where smoothness is usable.
 - **[Karpathy lecture](../../sources/karpathy-software-3-and-transformer-history-lecture.md)** — the data-scale heuristic, and attention as freeing computation from Euclidean structure.
+- **[Locatello et al. 2019](../../sources/locatello2019-challenging-common-assumptions-disentanglement.md)** — the impossibility theorem, and the >12,000-model reproduction study behind it.
 - **[Cho et al. 2014b](../../sources/cho2014b-properties-of-neural-machine-translation.md)** — an early paper framing itself explicitly as measuring an architecture's inductive bias, by swapping encoders and holding the decoder fixed.
 - **[β-VAE](../../sources/beta-vae-paper.md)** — via the Locatello et al. 2019 impossibility result flagged there.
 - **[Curriculum Module 2](../../syntheses/curriculum/curriculum-02-cnns.md)** — the CNN's three biases (locality, translation equivariance, weight sharing) and the CNN-vs-ViT decision heuristic.
@@ -118,6 +127,7 @@ For this wiki's subject matter the operative question is not the language-and-vi
 - [Sobal et al. 2022 — JEPA and slow features](../../sources/sobal2022-jepa-slow-features-paper.md)
 - [Bengio et al. 2003 — A Neural Probabilistic Language Model](../../sources/bengio2003-neural-probabilistic-language-model.md)
 - [β-VAE Paper](../../sources/beta-vae-paper.md)
+- [Locatello et al. 2019 — Challenging Common Assumptions](../../sources/locatello2019-challenging-common-assumptions-disentanglement.md)
 - [Cho et al. 2014b — On the Properties of Neural Machine Translation](../../sources/cho2014b-properties-of-neural-machine-translation.md) — uses the term as its stated research aim.
 - [Karpathy — Software 3.0 and the history of the Transformer](../../sources/karpathy-software-3-and-transformer-history-lecture.md)
 - [Sensorimotor world models paper](../../sources/sensorimotor-world-models-paper.md) — the single-step inverse objective used as an inductive bias without its theoretical guarantees.
@@ -127,6 +137,7 @@ For this wiki's subject matter the operative question is not the language-and-vi
 ## Open questions / TBD
 
 - **Nobody has swept assumption strength on robot data.** The [TDV](../../sources/tdv-paper.md) experiment — vary one bias, sweep dataset size, plot the crossover — is directly runnable on [DROID](../../entities/droid.md) or [LIBERO](../../entities/libero.md) and would settle the argument in this page's last section instead of leaving it as a reasoned assertion. **The most valuable un-run experiment this page implies.**
-- **Locatello et al. 2019** is un-ingested and is the field's main impossibility result on this topic.
+- ~~Locatello et al. 2019 is un-ingested.~~ **Resolved 2026-08-30** — [ingested](../../sources/locatello2019-challenging-common-assumptions-disentanglement.md).
+- **Nobody has run the seed-variance study for VLAs**, which is the directly reproducible half of Locatello et al.: train one architecture at `N` seeds on [LIBERO](../../entities/libero.md), report the spread, compare against the 1.2-point cross-model tier.
 - **"Strength of inductive bias" has no measure.** Masking ratio is a proxy for one bias in one method. There is no way to compare "how much bias" a CNN carries against a ViT-plus-augmentations, which makes cross-architecture versions of the scaling claim informal.
 - **The implicit bias of the optimizer** — SGD's preference for flat / min-norm solutions — is a real and well-studied locus that this wiki has no source for, and it is the one practitioners choose least deliberately.
