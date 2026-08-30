@@ -3,7 +3,7 @@ title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
 updated: 2026-08-27
-sources: 56
+sources: 57
 tags: [sim-to-real, domain-gap, rl, simulation, real-to-sim, r2s2r]
 ---
 
@@ -26,6 +26,20 @@ The problem predates the deep-learning era under the name **simulation bias**: [
 
 > [!note] The two directions are opposites, and people use both
 > The [Seeed DLI course](../../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) requires a **"Lightbox"** — a light-controlled workspace with fixed cameras, built so the real scene matches the [Isaac Sim](../../entities/nvidia-isaac-sim.md) assets — *and* generatively diversifies its training backgrounds with [Cosmos](../../entities/nvidia-cosmos.md) Transfer. One move narrows the real distribution to meet the simulator; the other widens the training distribution to cover reality. Constraining what you *record* while diversifying what you *train on* is defensible, but no source in the wiki has tested whether the augmentation recovers the generalization the enclosure gave up. Good open experiment.
+
+## Two-phase privileged distillation (the locomotion recipe)
+
+A pattern this wiki now holds three instances of, and the workhorse of learned locomotion sim-to-real:
+
+1. **Phase 1** — train with RL in simulation using a **privileged signal that exists only in the simulator**: true physics parameters ([RMA](../../sources/rma-paper.md): mass, friction, motor strength) or true terrain geometry ([egocentric vision](../../sources/egocentric-vision-locomotion-paper.md): "scandots," height queried at points under the robot).
+2. **Phase 2** — **distil** into a policy restricted to onboard sensing, by supervised regression (DAgger) onto the phase-1 policy's actions or latents.
+
+Why it works: the privileged signal makes phase 1 an easy RL problem, and supervised learning is orders of magnitude more sample-efficient than RL, so phase 2 is cheap — the vision system trains **on a single GPU in a few days** where end-to-end RL on rendered depth would need billions of samples.
+
+The vision paper also supplies a **bound** (its Thm 2.1): if phase 2 is η-close to phase 1 in action space and the dynamics and reward are Lipschitz, phase-2 return is near-optimal. The usable form is a design rule — *choose the privileged signal and the sensor's field of view so that phase-2 loss can be driven low* — since a privileged signal carrying information the real sensor cannot recover makes the distillation unachievable in principle.
+
+> [!note] The recipe's own successor abandons it
+> [LocoFormer](../../sources/locoformer-paper.md) (2025) uses **no privileged teacher at all**, buying the same adaptivity with long context and scale. Worth watching as a signal about where this technique sits: it is a way to make RL tractable under a compute constraint, and it becomes less necessary as the constraint relaxes.
 
 ## Quantified gap (2025)
 

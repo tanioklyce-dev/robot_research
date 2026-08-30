@@ -66,6 +66,9 @@ In the oily-patch trial, components z₁ and z₅ **shift at the moment of slip*
 
 The robot is **blind** — proprioception only. *"Larger perturbations such as sudden falls while going downstairs, or due to multiple leg obstructions from rocks, sometimes lead to failures."* They name exteroception/vision as the necessary next step.
 
+> [!note] This limitation was answered, by the same group, one year later
+> **[Legged Locomotion in Challenging Terrains using Egocentric Vision](egocentric-vision-locomotion-paper.md)** (Agarwal, Kumar, Malik & Pathak, CoRL 2022 — ingested 2026-08-29) adds a single front-facing depth camera and takes upstairs from RMA's blind failure to **100%**. It reuses RMA's two-phase privileged-distillation recipe with *geometry* (scandots) as the privileged signal instead of physics, and even offers an explicit "RMA architecture" variant that freezes the phase-1 base policy.
+
 ## Why this matters in this wiki
 
 > [!note] RMA and [LocoFormer](locoformer-paper.md) are the same author, four years apart, arguing opposite ways
@@ -91,7 +94,7 @@ The robot is **blind** — proprioception only. *"Larger perturbations such as s
 
 - [Deepak Pathak](../entities/deepak-pathak.md) — co-author; later co-author of [LocoFormer](locoformer-paper.md) and CEO of [Skild AI](../entities/skild-ai.md).
 - [Zipeng Fu](../entities/zipeng-fu.md) — co-author, then at CMU. The wiki knows him for [Mobile ALOHA](mobile-aloha-paper.md) (Stanford, manipulation); RMA is his earlier locomotion work.
-- [Unitree A1](../entities/unitree-a1.md) — the deployment platform, and one of the robots [LocoFormer](locoformer-paper.md) later controls zero-shot.
+- [Unitree A1](../entities/unitree-a1.md) — the deployment platform; also used with a depth camera in the [vision follow-up](egocentric-vision-locomotion-paper.md), and controlled zero-shot by [LocoFormer](locoformer-paper.md).
 
 ## Concepts touched
 
@@ -105,5 +108,5 @@ The robot is **blind** — proprioception only. *"Larger perturbations such as s
 - **No [Unitree A1](../entities/unitree-a1.md) entity page** — the platform appears in both locomotion primaries and has no page.
 - **Jitendra Malik has no entity page**, despite appearing here and in [DreamDojo](dreamdojo-paper.md).
 - **Was the extrinsics dimension (8) tuned?** No ablation on |z| is reported, though it is the whole information bottleneck.
-- **The vision follow-up** the authors name is presumably *Legged locomotion in challenging terrains using egocentric vision* (Agarwal, Kumar, Malik, Pathak, CoRL 2022) — uningested, and it completes this arc.
+- ~~The vision follow-up is uningested~~ — **[ingested 2026-08-29](egocentric-vision-locomotion-paper.md)**; it completes the arc.
 - **Success is defined per-setup** and real-world trials run **5 per condition** (2 when failure was obvious, to protect the hardware). Honest and clearly stated, but far below what the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md) would want.
