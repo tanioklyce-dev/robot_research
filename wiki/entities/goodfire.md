@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-08-30
 updated: 2026-08-30
-sources: 3
+sources: 5
 tags: [company, interpretability, mechanistic-interpretability, sparse-autoencoders, silico, neural-geometry, safety, san-francisco, public-benefit-corporation]
 ---
 
@@ -71,7 +71,8 @@ What the company page *does* state, and what is therefore first-party: the team 
 - [Silico for Robotics & Vision](../sources/goodfire-silico-robotics-vision.md)
 - [Goodfire research index (2024–2026)](../sources/goodfire-research-index.md)
 - [Goodfire Series B announcement](../sources/goodfire-series-b.md)
-- [Mechanistic interpretability](../concepts/safety/mechanistic-interpretability.md) (concept, not source)
+- [Mechanistic interpretability](../concepts/safety/mechanistic-interpretability.md) and [neural geometry](../concepts/safety/neural-geometry.md) (concepts, not sources)
+- [Proposed experiment: latent inspection vs policy collapse](../syntheses/projects/latent-inspection-policy-collapse.md) — the testable version of its robotics claim.
 
 ## Open questions / TBD
 

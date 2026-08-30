@@ -3,7 +3,7 @@ title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
 updated: 2026-08-30
-sources: 52
+sources: 53
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -137,9 +137,15 @@ The original wiki synthesis observed [V-JEPA 2](../../entities/v-jepa-2.md) and 
 - [Meta FAIR](../../entities/meta-fair.md) — center of the JEPA research line.
 - [Mila](../../entities/mila.md) — frequent contributor.
 
-## Mentioned in
+> [!note] A clinical branch of the family
+> **[EchoJEPA](../../entities/echojepa.md)** ([paper](../../sources/echojepa-paper.md), Feb 2026) adapts [V-JEPA 2](../../entities/v-jepa-2.md) to **echocardiography** at **18M videos / 300K patients** — the largest JEPA-family model in this wiki outside natural video. It is the cleanest test of the JEPA thesis available, because ultrasound is dominated by **stochastic speckle** that is *physically* unpredictable rather than arguably so: "reconstruction models must faithfully reproduce speckle to minimize their loss," while latent prediction against an EMA teacher does not.
+>
+> Results: **1% of labels beating the best baseline at 100%** (78.6% vs 42.1%), and **2.3% degradation** under physics-informed acoustic perturbation where the next best degrades **16.8%**. **EchoJEPA-L is open-sourced.**
 
-> [!note] Curated list — **52** source pages link here; the ones below are those that shaped this page.
+## Mentioned in
+- [EchoJEPA paper](../../sources/echojepa-paper.md) — the clinical branch; V-JEPA 2 adapted to echocardiography at 18M videos.
+
+> [!note] Curated list — **53** source pages link here; the ones below are those that shaped this page.
 
 - [Bromley et al. 1993 — Signature Verification using a Siamese TDNN](../../sources/bromley1993-siamese-signature-verification.md) — eponymous Siamese-network paper; the J/A in JEPA descend from this architecture
 - [A Path Towards Autonomous Machine Intelligence (LeCun, 2022)](../../sources/lecun2022-path-towards-ami.md) — canonical position paper / definition

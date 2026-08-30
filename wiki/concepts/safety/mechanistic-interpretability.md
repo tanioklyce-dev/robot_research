@@ -3,7 +3,7 @@ title: Mechanistic interpretability
 type: concept
 created: 2026-05-15
 updated: 2026-08-30
-sources: 5
+sources: 6
 tags: [mechanistic-interpretability, anthropic, goodfire, neural-geometry, robotics, chris-olah, sparse-autoencoders, feature-extraction, ai-safety]
 ---
 
@@ -33,7 +33,9 @@ Given a trained model `f_θ`, mechanistic interpretability asks:
 >
 > If that holds, SAE features are a **linear approximation to a curved object**, which is one candidate account of Olah's "dark matter": not concepts we failed to find, but concepts that are not shaped like directions.
 >
-> **Flagged, not adopted.** It is one lab's line, largely self-published, and Goodfire sells "neural geometry" as a named product capability — a reason for care rather than dismissal. The wiki should read the independent SAE-manifold work (*Understanding Sparse Autoencoder Scaling in the Presence of Feature Manifolds*, Michaud et al. 2025; *Can SAEs Capture Neural Geometry?*, Bhalla et al. 2026) before revising the section above.
+> **Independently corroborated.** [Engels, Michaud, Liao, Gurnee & Tegmark](../../sources/engels2024-not-all-features-one-dimensionally-linear.md) (MIT, **ICLR 2025**, arXiv May 2024 — 18 months before Goodfire's post, and product-free) define **irreducible multi-dimensional features**, find **circular** representations of days of the week and months of the year in GPT-2 and Mistral 7B by clustering SAE dictionary elements, and show causally that patching **only the 2-D circular subspace** has "almost the same intervention effect as patching the entire layer."
+>
+> **What is established**: some concepts are irreducibly multi-dimensional, and where they are the geometry is causally load-bearing. **What is not**: how common that is — Engels et al. explicitly cannot say. So the section above is **not universally true, and may still be usually true.** See [neural geometry](neural-geometry.md).
 
 ## The field now has a commercial pole
 
@@ -53,7 +55,7 @@ Reading the policy's **internals** is one of the few proposals anywhere for doin
 > [!warning] Framing only — nothing here is evidence
 > The robotics case study **names no model, reports no benchmark, and gives no numbers**, and Goodfire's 40-item [research corpus](../../sources/goodfire-research-index.md) contains **no robotics research at all**. The closest published thing is an image-action model on the toy mountain-car environment. Cite this as an approach being attempted, never as one shown to work.
 
-The nearest testable version: **does latent-space inspection predict which policies collapse under [LIBERO-PRO](../../sources/libero-pro-paper.md)-style perturbation, before running the perturbed benchmark?** Nobody has published it, and it would be a major result.
+The nearest testable version: **does latent-space inspection predict which policies collapse under [LIBERO-PRO](../../sources/libero-pro-paper.md)-style perturbation, before running the perturbed benchmark?** Nobody has published it. A runnable design — open checkpoints, one GPU, no robot — is now filed at [latent-inspection-policy-collapse](../../syntheses/projects/latent-inspection-policy-collapse.md).
 
 ## Why this matters in this wiki
 
@@ -66,11 +68,13 @@ The nearest testable version: **does latent-space inspection predict which polic
 - **Scaling**: SAEs themselves now have to be trained at scale — extracting features from a frontier-scale LLM means training an SAE that's a substantial model in its own right.
 - **Olah's pessimism on coverage**: ~1% of concepts extracted as of mid-2024. Welch quotes this as the chapter's anchor caveat — the field is real, the techniques work, the coverage problem is brutal.
 - **No dedicated pedagogy primary-source in the wiki besides Welch Ch 7.** Templeton et al. 2024 (Scaling Monosemanticity) is the canonical Anthropic paper but is not yet in `raw/`.
-- **The linear hypothesis is under active challenge** (see the warning above), and the alternative — concepts on curved manifolds — has a named commercial sponsor, which is both why it is well-resourced and why it needs independent checking.
+- **The linear hypothesis is under active, peer-reviewed challenge** ([Engels et al., ICLR 2025](../../sources/engels2024-not-all-features-one-dimensionally-linear.md)) — not universally true, prevalence unknown. See [neural geometry](neural-geometry.md).
 - **Commercialized as of 2026.** Interpretability is now sold as tooling, with life sciences the proven vertical and **robotics an announced but unevidenced one**.
 
 ## Related
+- [Neural geometry](neural-geometry.md) — the challenge to the linear framing above.
 - [Goodfire](../../entities/goodfire.md) — the field's commercial pole; [Silico](../../sources/goodfire-silico-robotics-vision.md).
+- [Proposed experiment: latent inspection vs policy collapse](../../syntheses/projects/latent-inspection-policy-collapse.md).
 - [LIBERO-PRO](../../sources/libero-pro-paper.md) — the robot-evaluation problem interpretability is being proposed against.
 - [Inductive bias](../learning/inductive-bias.md) — Goodfire's *Priors in Time* frames interpretability's own missing inductive biases.
 - [AI safety and alignment](ai-safety-alignment.md) — mech-interp's primary motivating sponsor.
@@ -82,6 +86,7 @@ The nearest testable version: **does latent-space inspection predict which polic
 - [Silico for Robotics & Vision (Goodfire)](../../sources/goodfire-silico-robotics-vision.md)
 - [Goodfire research index (2024–2026)](../../sources/goodfire-research-index.md)
 - [Goodfire Series B announcement](../../sources/goodfire-series-b.md)
+- [Engels et al. — Not All Language Model Features Are One-Dimensionally Linear](../../sources/engels2024-not-all-features-one-dimensionally-linear.md)
 
 ## Open follow-ups
 - **Templeton et al. 2024 — *Scaling Monosemanticity*** (Anthropic). Primary-source candidate. Would let this concept page cite specific feature-extraction numbers, model scales, and demonstrations.
@@ -89,5 +94,5 @@ The nearest testable version: **does latent-space inspection predict which polic
 - **Chris Olah** entity stub — would tie together the SAE / circuits lineage at Anthropic + earlier Distill / OpenAI work.
 - **Sparse autoencoder** concept page — the technique deserves its own page if the field gets deeper coverage. Currently rolled into this concept, and now also needs to carry the manifold critique.
 - **Ingest *The World Inside Neural Networks*** (Geiger et al. 2026) and *Can SAEs Capture Neural Geometry?* (Bhalla et al. 2026) as full sources. Together they decide whether the linear framing above needs rewriting rather than caveating.
-- **EchoJEPA** — a [JEPA](../world-models/jepa.md)-family model on echocardiography video, surfaced only via Goodfire's case study. The JEPA page does not know a clinical branch of the family exists.
+- ~~EchoJEPA — surfaced only via Goodfire's case study.~~ **Resolved 2026-08-30** — [ingested](../../sources/echojepa-paper.md); the claimed ECG-leakage finding is **not in the paper**, so it remains unverified.
 - **Goodfire's evaluation-awareness thread** (*Verbalized Eval Awareness Inflates Measured Safety*; *Reasoning Theater*) is the closest thing in that corpus to this wiki's robot-evaluation problem, approached from language.

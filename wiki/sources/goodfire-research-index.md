@@ -46,7 +46,9 @@ The reported result on mountain car: steering along a fitted **one-dimensional m
 >
 > This work says that assumption is often wrong, and produces a concrete failure signature when it is: **linear steering along a curved concept teleports rather than moves.** If it holds, SAE-extracted features are a linear approximation to a curved object, which would be one plausible account of Olah's "dark matter" — not features we failed to find, but features that are not shaped like directions.
 >
-> Flagged rather than adopted: this is **one lab's line of work, self-published, and Goodfire has a commercial interest** in "neural geometry" being a distinct capability, since it is a named Silico feature. It should be checked against the SAE literature before the wiki treats the linear hypothesis as superseded. See also the corpus's own **"Can SAEs Capture Neural Geometry?"** (Bhalla et al., May 2026) and **"Understanding Sparse Autoencoder Scaling in the Presence of Feature Manifolds"** (Michaud et al., Sept 2025).
+> **Correction (2026-08-30).** An earlier version of this page called the manifold critique "one lab's line of work, self-published," with a commercial interest to discount. **That was too strong.** The core claim is independently established: [Engels, Michaud, Liao, Gurnee & Tegmark](engels2024-not-all-features-one-dimensionally-linear.md) (MIT, **ICLR 2025**, arXiv May 2024) define irreducible multi-dimensional features, find **circular** representations of days and months in GPT-2 and Mistral 7B, and show by intervention that patching only the 2-D circular subspace has "almost the same effect as patching the entire layer." Peer-reviewed, 18 months earlier, product-free.
+>
+> The two lines are **connected rather than independent** — Eric Michaud co-authored the MIT paper and his later feature-manifold work appears in this very corpus as a link post. Accurate reading: a real academic finding that Goodfire has generalized and built a product category around, which is normal. Goodfire's *additional* claims — that curved geometry is common, and holds across vision, genomics and image-action models — remain theirs alone. See [neural geometry](../concepts/safety/neural-geometry.md).
 
 The **mountain-car image-action model** is the direct robotics hook: a policy mapping observations to actions, with a scalar physical concept (position) shown to live on a manifold. That is the smallest possible version of the question the wiki cares about — *what do robot policies actually represent* — and it is answered here on a toy environment.
 
@@ -80,11 +82,12 @@ Grouped for orientation; **all un-ingested**.
 - **[Mechanistic interpretability](../concepts/safety/mechanistic-interpretability.md)** — the whole corpus.
 - **[Inductive bias](../concepts/learning/inductive-bias.md)** — *Priors in Time* is explicitly about missing inductive biases for interpretability.
 - **[Chain-of-thought](../concepts/learning/chain-of-thought.md)** — *Reasoning Theater* probes CoT faithfulness.
+- **[Neural geometry](../concepts/safety/neural-geometry.md)** — the house line, now with an independent foundation.
 - **[World models](../concepts/world-models/world-model.md)** — *The World Inside Neural Networks* uses "world model" narrowly, as next-frame prediction given state and action.
 
 ## Open questions / TBD
 
 - **Priority ingest: *The World Inside Neural Networks*** as a full source page, and *Can SAEs Capture Neural Geometry?* alongside it. Together they would settle whether the wiki's mech-interp page needs its linear-features framing revised.
 - **Second priority: the evaluation-awareness pair** — the closest thing in this corpus to the wiki's robot-evaluation problem, from a completely different direction.
-- **Is "neural geometry" a real finding or a product category?** Goodfire sells it as a named Silico capability, which is a reason for care, not dismissal — but the wiki should read the independent SAE-manifold literature (Michaud et al. is a "Link post," so likely published elsewhere) rather than only Goodfire's account of it.
+- ~~Is "neural geometry" a real finding or a product category?~~ **Resolved 2026-08-30**: a real finding ([Engels et al.](engels2024-not-all-features-one-dimensionally-linear.md), ICLR 2025) that Goodfire has extended and productized. Its **prevalence** remains open — Engels et al. explicitly cannot say what fraction of features are multi-dimensional.
 - **No robotics research in the corpus.** Robotics is a named Silico *vertical* with a marketing [case study](goodfire-silico-robotics-vision.md), and there is **no published robotics research** in 40 items. The mountain-car image-action model in *The World Inside Neural Networks* is the closest thing, and it is a toy.

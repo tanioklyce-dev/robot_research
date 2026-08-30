@@ -70,7 +70,7 @@ Downloadable for **macOS**, or deployed to a team's infrastructure on request. C
 ## Entities mentioned
 
 - **[Goodfire](../entities/goodfire.md)** — vendor.
-- **EchoJEPA** — echocardiography [JEPA](../concepts/world-models/jepa.md) model; no wiki page, not obviously Goodfire's own.
+- **[EchoJEPA](../entities/echojepa.md)** — echocardiography [JEPA](../concepts/world-models/jepa.md) model from Bo Wang's lab, **not Goodfire's own**.
 
 ## Concepts touched
 
@@ -82,5 +82,5 @@ Downloadable for **macOS**, or deployed to a team's infrastructure on request. C
 ## Open questions / TBD
 
 - **Name the robotics model.** Without it the case study is uncheckable and the page is unciteable for anything except intent.
-- **EchoJEPA** — who built it, is it public, and is the wiki's [JEPA](../concepts/world-models/jepa.md) page missing a whole clinical branch of the family?
-- **Does latent-space inspection actually predict deployment failure?** The "Validate" claim is testable against [LIBERO-PRO](libero-pro-paper.md): if reading the latent space identifies the policies that collapse under perturbation *before* running the perturbed benchmark, that is a major result. Nobody has published it.
+- ~~EchoJEPA — who built it, is it public?~~ **Resolved 2026-08-30** — [ingested](echojepa-paper.md). Bo Wang's lab (UHN/Vector/Toronto), 18M videos, EchoJEPA-L open-sourced. ⚠️ **The ECG-leakage claim does not appear in the paper**, so it is unverified and cannot be attributed to it.
+- **Does latent-space inspection actually predict deployment failure?** The "Validate" claim is testable against [LIBERO-PRO](libero-pro-paper.md). A full design — open checkpoints, one GPU, no robot, plus a cheaper [EchoJEPA](echojepa-paper.md)-based pilot — is filed at [latent-inspection-policy-collapse](../syntheses/projects/latent-inspection-policy-collapse.md).
