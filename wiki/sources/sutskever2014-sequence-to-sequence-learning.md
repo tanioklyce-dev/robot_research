@@ -43,6 +43,7 @@ where `v` is the encoder LSTM's final hidden state. Each `p(y_t | ·)` is a soft
 Three departures from the naive version, all reported as necessary:
 
 1. **Two separate LSTMs**, encoder and decoder, rather than one shared. More parameters at negligible compute cost, and it makes multi-language training natural.
+   - Note a quieter divergence from [Cho et al. 2014a](cho2014-rnn-encoder-decoder-phrase-representations.md), published three months earlier with the same decomposition: **there, `c` is supplied at every decoder step**; here it is only the decoder's initial hidden state, after which the source summary must survive inside the recurrence. That makes this the *more* bottlenecked of the two designs, and it is the one [attention](bahdanau2014-neural-machine-translation-align-translate.md) is usually said to fix.
 2. **Depth.** Four layers; "each additional layer reduced perplexity by nearly 10%." Shallow LSTMs were significantly worse.
 3. **Reverse the source sentence** (not the target). `a,b,c → α,β,γ` becomes `c,b,a → α,β,γ`.
 
@@ -145,7 +146,8 @@ The transferable warning is the bottleneck. Whenever a policy compresses its obs
 - **Oriol Vinyals** — co-author; later on AlphaStar / Gemini at DeepMind. No wiki page.
 - **Quoc V. Le** — co-author, Google Brain. No wiki page.
 - **[Yoshua Bengio](../entities/yoshua-bengio.md)** — via the Bahdanau et al. row in Table 1, and the NNLM reference.
-- Kalchbrenner & Blunsom (first to map a whole sentence to a vector), Cho et al., Graves (differentiable attention) — cited precursors, none ingested.
+- **[Kyunghyun Cho](../entities/kyunghyun-cho.md)** — cited throughout as the concurrent [RNN Encoder–Decoder](cho2014-rnn-encoder-decoder-phrase-representations.md) work (June 2014, three months earlier), which used the same decomposition as a *feature inside* an SMT system rather than end to end. Table 2 reports it at 34.54 against this paper's 34.81.
+- Kalchbrenner & Blunsom (first to map a whole sentence to a vector), Graves (differentiable attention) — cited precursors, not ingested.
 
 ## Concepts touched
 
@@ -157,4 +159,4 @@ The transferable warning is the bottleneck. Whenever a policy compresses its obs
 ## Open questions / TBD
 
 - **Where the wiki's policies sit on the bottleneck question** — which action-chunking architectures condition on a pooled latent versus cross-attending to observation tokens — is a synthesis worth writing and is not written.
-- **Kalchbrenner & Blunsom 2013** and **Cho et al. 2014** (the GRU / RNN encoder-decoder paper) are both un-ingested precursors; Cho et al. is the paper that introduced the GRU the wiki's glossary already defines.
+- ~~Cho et al. 2014 (the GRU / RNN encoder-decoder paper) is an un-ingested precursor.~~ **Resolved 2026-08-30** — [ingested](cho2014-rnn-encoder-decoder-phrase-representations.md). **Kalchbrenner & Blunsom 2013** (first to map a whole sentence to a vector) remains un-ingested.

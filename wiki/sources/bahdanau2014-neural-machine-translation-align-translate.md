@@ -19,7 +19,10 @@ tags: [attention, alignment, soft-alignment, encoder-decoder, bidirectional-rnn,
 
 **"Neural Machine Translation by Jointly Learning to Align and Translate"** — Bahdanau, Cho & Bengio (Jacobs University Bremen + Université de Montréal; ICLR 2015, arXiv Sept 2014). **The attention paper.** It identifies the flaw in the [seq2seq](sutskever2014-sequence-to-sequence-learning.md) encoder–decoder and removes it.
 
-The diagnosis, stated as a conjecture in the abstract: *"the use of a fixed-length vector is a bottleneck in improving the performance of this basic encoder–decoder architecture."* Everything about the source sentence must be squeezed into one vector before any target word is generated, and Cho et al. had already shown basic encoder–decoder quality collapsing as input length grows.
+The diagnosis, stated as a conjecture in the abstract: *"the use of a fixed-length vector is a bottleneck in improving the performance of this basic encoder–decoder architecture."* Everything about the source sentence must be squeezed into one vector before any target word is generated.
+
+> [!warning] The empirical basis for the conjecture is a source this wiki does not hold
+> The paper attributes the length-degradation finding to **Cho et al. 2014b** (*On the Properties of Neural Machine Translation*, arXiv 1409.1259) — **not** to [Cho et al. 2014a](cho2014-rnn-encoder-decoder-phrase-representations.md), which is ingested and does not measure it. 2014b is un-ingested, so any statement here that basic encoder–decoder quality "collapses with input length" rests on this paper's summary of another paper. Figure 2 of *this* paper is first-hand evidence for the same claim and should be cited instead.
 
 The fix: **let the decoder read the encoder's whole output, and learn where to look.** Encode the source with a **bidirectional RNN** into one annotation per source position. Then, for each target word `i`, compute a **different context vector**:
 
@@ -44,6 +47,9 @@ This is where the word enters the field: *"Intuitively, this implements a mechan
 ### What it replaces
 
 In [seq2seq](sutskever2014-sequence-to-sequence-learning.md), `c = q({h_1 … h_Tx}) = h_T` — the last hidden state, one vector, shared by every decoding step. Here the decoder state is `s_i = f(s_{i−1}, y_{i−1}, c_i)`, **with a distinct `c_i` per target word.**
+
+> [!note] The step is smaller than it looks — from *this group's own* prior paper
+> [Cho et al. 2014a](cho2014-rnn-encoder-decoder-phrase-representations.md) — first author Cho, **fourth author Bahdanau** — already fed the summary vector `c` into **every** decoder step, in both the state update and the output function: `h⟨t⟩ = f(h⟨t−1⟩, y_{t−1}, c)`. [seq2seq](sutskever2014-sequence-to-sequence-learning.md) instead uses `c` only as the decoder's *initial* state. So the delta here is not "start conditioning the decoder on the source at each step" — that plumbing existed — it is **replacing one fixed `c` with a per-word `c_i` computed by soft alignment.** The same two people wrote both papers three months apart.
 
 Footnote 2 makes the generalization explicit and is the sentence the whole subsequent field rests on: encoding into a fixed-length vector *"is not necessary, and even it may be beneficial to have a variable-length vector."*
 
@@ -138,7 +144,7 @@ See [From n-grams to attention](../syntheses/sequence-models/language-model-to-t
 ## Entities mentioned
 
 - **[Dzmitry Bahdanau](../entities/dzmitry-bahdanau.md)** — first author; then a visiting student from Jacobs University Bremen.
-- **[Kyunghyun Cho](../entities/kyunghyun-cho.md)** — second author; the RNNencdec baseline and the GRU are his.
+- **[Kyunghyun Cho](../entities/kyunghyun-cho.md)** — second author; the [RNNencdec baseline and the GRU](cho2014-rnn-encoder-decoder-phrase-representations.md) are his, from three months earlier — he is a co-author of the paper that beats his own architecture by 7.6 BLEU.
 - **[Yoshua Bengio](../entities/yoshua-bengio.md)** — senior author. This closes the wiki's largest Bengio gap: he is the senior author of *both* [the paper that created the embedding table](bengio2003-neural-probabilistic-language-model.md) and the paper that created attention, eleven years apart.
 - **[Ilya Sutskever](../entities/ilya-sutskever.md)** — via the [seq2seq](sutskever2014-sequence-to-sequence-learning.md) baseline this paper is positioned against.
 - Schuster & Paliwal (bidirectional RNN), Zeiler (Adadelta), Goodfellow et al. (maxout), Kalchbrenner & Blunsom, Graves — cited, none ingested.
@@ -152,6 +158,7 @@ See [From n-grams to attention](../syntheses/sequence-models/language-model-to-t
 
 ## Open questions / TBD
 
+- **Cho et al. 2014b** — the length-degradation result this paper's conjecture cites, flagged above. The most load-bearing remaining gap in this lineage.
 - **Luong et al. 2015** (dot-product and general attention scoring, the bridge from this paper's additive scorer to Vaswani's) is un-ingested and is the missing intermediate step.
 - **Sennrich et al. 2016 (BPE)** — the fix for the `[UNK]` problem that dominates Table 1's `All` column, and the reason modern models have no vocabulary shortlist. Not in the wiki.
 - **Whether attention weights are explanations.** §5.2.1 reads the `α_ij` matrices as alignments and they are persuasive. A later literature ("Attention is not Explanation" / "Attention is not not Explanation," 2019) disputes how much interpretive weight they carry. The wiki cites attention maps nowhere as evidence yet, but should know the argument exists before it does.

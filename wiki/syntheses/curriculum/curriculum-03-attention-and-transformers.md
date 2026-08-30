@@ -85,11 +85,15 @@ y_t = W_y h_t
 
 ### §1.2 — seq2seq and the bottleneck that produced attention
 
-The step §2 skips if you go straight to Vaswani. **[Sutskever, Vinyals & Le 2014](../../sources/sutskever2014-sequence-to-sequence-learning.md)** made variable-length-in / variable-length-out work with two LSTMs: an **encoder** consumes the source and its final hidden state — **8,000 numbers** — is the whole representation; a **decoder** LSTM initialized from that vector generates output tokens until `<EOS>`. First pure neural system to beat phrase-based statistical MT (BLEU 34.81 vs 33.30).
+The step §2 skips if you go straight to Vaswani. Two papers three months apart put the same decomposition on the table.
+
+**[Cho et al., June 2014](../../sources/cho2014-rnn-encoder-decoder-phrase-representations.md)** named it the **RNN Encoder–Decoder** and introduced the recurrent cell you know as the **[GRU](../../glossary.md#gru)** — a reset gate, an update gate, and no separate memory cell, against the LSTM's four gates plus a cell. Their summary vector `c` is fed into **every** decoder step. They used the whole thing as one feature inside a conventional SMT system rather than as a translator.
+
+**[Sutskever, Vinyals & Le, September 2014](../../sources/sutskever2014-sequence-to-sequence-learning.md)** made variable-length-in / variable-length-out work end to end with two LSTMs: an **encoder** consumes the source and its final hidden state — **8,000 numbers** — is the whole representation; a **decoder** LSTM initialized from that vector generates output tokens until `<EOS>`. First pure neural system to beat phrase-based statistical MT (BLEU 34.81 vs 33.30).
 
 The flaw is in the description. *Everything* about the input passes through one fixed-width vector, however long the input. Their workaround was to **reverse the source sentence**, worth ~4.7 BLEU (25.9 → 30.6) — more than a 5× ensemble — by shortening the distance between the first source words and the first target words so gradients could "establish communication" early.
 
-**[Bahdanau, Cho & Bengio 2014](../../sources/bahdanau2014-neural-machine-translation-align-translate.md)** removed the bottleneck instead of working around it. Encode with a *bidirectional* RNN into one annotation per source position, then compute a **different context vector for every output word**:
+**[Bahdanau, Cho & Bengio, September 2014](../../sources/bahdanau2014-neural-machine-translation-align-translate.md)** removed the bottleneck instead of working around it. Encode with a *bidirectional* RNN into one annotation per source position, then compute a **different context vector for every output word**:
 
 ```
 c_i   = Σ_j α_ij h_j            # weighted read over ALL source annotations
@@ -103,6 +107,7 @@ That is attention, three years before the transformer, and it is where the word 
 
 1. **Query / key / value already exist here.** `s_{i−1}` is the query; each `h_j` is *both* key and value. §2's version separates them, swaps the feedforward scorer for a **scaled dot product** (a matmul, hence GPU-parallel — the change that mattered for scale), and adds heads.
 2. **The `O(n²)` cost starts here too.** Computing every `e_ij` is `T_x × T_y` scorer evaluations. In 2014 that was too cheap to mention.
+3. **The step from Cho to Bahdanau is smaller than it looks.** Cho et al. already fed `c` into every decoder step; Bahdanau replaces one fixed `c` with a per-target-word `c_i`. Same two authors, three months apart — the group published its own architecture and its own refutation in one quarter.
 
 ### Why RNNs / LSTMs are superseded
 
@@ -344,6 +349,7 @@ Deeper variant: try patch sizes of 4×4, 8×8, 16×16. Smaller patches = more to
 In order:
 
 0. **[Bengio et al. 2003 — "A Neural Probabilistic Language Model"](../../sources/bengio2003-neural-probabilistic-language-model.md)** (JMLR 3:1137–1155) — optional but short and unusually clear. §1.1 (the idea in three bullets), §2 (the model — one equation), and §5.2 (the future-work list). Read it if "why is there an embedding table" or "why is the softmax the expensive part" is unresolved for you.
+0a. **[Cho et al. 2014 — "Learning Phrase Representations using RNN Encoder–Decoder"](../../sources/cho2014-rnn-encoder-decoder-phrase-representations.md)** — optional; read §2.3 only (one page) if you want the GRU's actual equations. Note the published update gate has the **opposite polarity** to PyTorch's.
 0b. **[Bahdanau, Cho & Bengio 2014 — "Neural Machine Translation by Jointly Learning to Align and Translate"](../../sources/bahdanau2014-neural-machine-translation-align-translate.md)** — read the abstract and §3.1 (four short paragraphs). This is attention, before the transformer, and it is much easier to understand here than in Vaswani's notation because there is only one of it.
 1. **[Vaswani et al. 2017 — "Attention Is All You Need"](../../sources/attention-is-all-you-need.md)** (arxiv 1706.03762) — the original transformer paper. Read the abstract + §3 (model architecture). The math is in §3.2.
 2. **Karpathy's [nanoGPT](../../sources/karpathy-nanogpt.md)** — a clean 300-line GPT implementation. Read the `model.py`; it's the cleanest transformer implementation I know. *Deprecated November 2025 in favour of [nanochat](../../sources/karpathy-nanochat.md)* — but for the *architecture-reading* purpose of this module, `nanoGPT/model.py` is still the simpler and more pedagogical read. Use [nanochat](../../sources/karpathy-nanochat.md) when you want to actually train an end-to-end ChatGPT-capability LLM (tokenizer + pretrain + SFT + RL + chat UI for ~$48 on an 8XH100 node).

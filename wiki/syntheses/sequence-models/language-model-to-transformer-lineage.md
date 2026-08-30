@@ -7,7 +7,7 @@ tags: [lineage, history, language-models, embeddings, attention, transformer, se
 ---
 
 > [!note] What this page is
-> A five-paper arc, all now ingested as primaries, running 2003 → 2017. It exists because the wiki had the **destination** ([Attention Is All You Need](../../sources/attention-is-all-you-need.md), [ViT](../../sources/vit-paper.md), and every transformer-trunked [VLA](../../concepts/learning/vla-models.md)) in high resolution and the **road** not at all. Written after ingesting the five, and cross-checked against [Karpathy's own telling](../../sources/karpathy-software-3-and-transformer-history-lecture.md) of the same lineage.
+> A six-paper arc, all now ingested as primaries, running 2003 → 2017. It exists because the wiki had the **destination** ([Attention Is All You Need](../../sources/attention-is-all-you-need.md), [ViT](../../sources/vit-paper.md), and every transformer-trunked [VLA](../../concepts/learning/vla-models.md)) in high resolution and the **road** not at all. Written after ingesting the five, and cross-checked against [Karpathy's own telling](../../sources/karpathy-software-3-and-transformer-history-lecture.md) of the same lineage.
 
 ## The arc in one table
 
@@ -16,8 +16,9 @@ tags: [lineage, history, language-models, embeddings, attention, transformer, se
 | 2003 | [Bengio, Ducharme, Vincent & Jauvin](../../sources/bengio2003-neural-probabilistic-language-model.md) | The **learned embedding table** `C`; a smooth function over word vectors, beating `n`-grams by 24% perplexity | Fixed 2–5 word context; softmax over `\|V\|` = **99.7% of compute**; embeddings internal to one model |
 | 2013a | [Mikolov, Chen, Corrado & Dean](../../sources/mikolov2013-efficient-estimation-word-representations.md) | **Delete the hidden layer** (CBOW / Skip-gram); the **analogy benchmark**; embeddings as a downloadable artifact | Still no order, no context-dependence; softmax still the bottleneck |
 | 2013b | [Mikolov, Sutskever, Chen, Corrado & Dean](../../sources/mikolov2013-distributed-representations-words-phrases.md) | **Negative sampling** kills the softmax; subsampling; phrases | One vector per word — polysemy unaddressed |
-| 2014a | [Sutskever, Vinyals & Le](../../sources/sutskever2014-sequence-to-sequence-learning.md) | **Encoder → fixed vector → autoregressive decoder**; variable-length in and out via `<EOS>` | **The fixed vector is a bottleneck**; patched with a source-reversal trick |
-| 2014b | [Bahdanau, Cho & Bengio](../../sources/bahdanau2014-neural-machine-translation-align-translate.md) | **Attention** — a learned, normalized, differentiable read over *all* encoder states | Still recurrent, therefore still sequential and slow |
+| 2014a | [Cho, van Merriënboer, Gulcehre, **Bahdanau**, Bougares, Schwenk & Bengio](../../sources/cho2014-rnn-encoder-decoder-phrase-representations.md) | The **RNN Encoder–Decoder**; the gated unit later named the **GRU**. `c` fed at *every* decoder step | Used only as a **feature inside Moses**, not as a translation system; one fixed `c` |
+| 2014b | [Sutskever, Vinyals & Le](../../sources/sutskever2014-sequence-to-sequence-learning.md) | Same decomposition **end to end**; beats phrase-based SMT outright | `c` demoted to the decoder's *initial state only* — **more** bottlenecked; patched with a source-reversal trick |
+| 2014c | [Bahdanau, Cho & Bengio](../../sources/bahdanau2014-neural-machine-translation-align-translate.md) | **Attention** — a learned, normalized, differentiable read over *all* encoder states | Still recurrent, therefore still sequential and slow |
 | 2017 | [Vaswani et al.](../../sources/attention-is-all-you-need.md) | **Delete the recurrence**; dot-product scoring, K/V separation, multi-head, self-attention | `O(n²)`; the bill everything since has been paying |
 
 ## The single sentence
@@ -26,10 +27,16 @@ tags: [lineage, history, language-models, embeddings, attention, transformer, se
 
 - word2vec removes the NNLM's **hidden layer**.
 - Negative sampling removes the **softmax**.
+- The GRU removes the LSTM's **memory cell and two of its four gates**.
 - Attention removes the **fixed-length bottleneck**.
 - The Transformer removes the **recurrence**.
 
 Nobody in this chain adds a big new mechanism except Bahdanau. The rest is subtraction, and each subtraction buys scale.
+
+> [!note] The 2014 papers are three months apart, from two overlapping author lists
+> June: [Cho et al.](../../sources/cho2014-rnn-encoder-decoder-phrase-representations.md) propose the encoder–decoder and use it as **one feature inside Moses**, reaching BLEU 34.64 against a 33.30 baseline. September: [Sutskever et al.](../../sources/sutskever2014-sequence-to-sequence-learning.md) use the same decomposition **end to end** and reach 34.81 against the same baseline — the architecture was never the constraint, the ambition was. Also September: [Bahdanau, Cho & Bengio](../../sources/bahdanau2014-neural-machine-translation-align-translate.md) diagnose the fixed vector and remove it.
+>
+> **Cho is first author on the first and second author on the third; Bahdanau is fourth author on the first and first author on the third.** One group published its own architecture and its own refutation inside a single quarter. Neither paper's headline mechanism was named in it: the GRU is "a hidden unit that adaptively remembers and forgets," and attention was *RNNsearch* until Bengio renamed it.
 
 > [!note] The one thing that never got removed
 > `C`, the embedding table, is unchanged from 2003. Same object: a `|V| × m` matrix of free parameters, trained jointly with whatever consumes it. Modern models tie it to the output layer and use subword units, and that is the whole delta in twenty-three years. See [distributed representations](../../concepts/learning/distributed-representations.md).
@@ -75,7 +82,7 @@ Two footnotes worth keeping:
 Five papers is not the whole road. Un-ingested, in rough order of how much they would change the picture:
 
 - **Mikolov, Yih & Zweig (NAACL 2013)** — the actual origin of the vector-offset analogy method, which both word2vec papers cite and popularize.
-- **Cho et al. 2014a** — the GRU and the RNN Encoder–Decoder framing; the wiki's [glossary defines the GRU](../../glossary.md#gru) with no primary behind it.
+- **Cho et al. 2014b** — *On the Properties of Neural Machine Translation*, the paper that actually **measured** encoder–decoder quality degrading with input length. [Bahdanau et al.](../../sources/bahdanau2014-neural-machine-translation-align-translate.md)'s whole conjecture cites it, and the wiki asserts the finding without holding the source. The most load-bearing gap in this arc.
 - **Luong et al. 2015** — dot-product attention scoring, the missing step between Bahdanau's feedforward scorer and Vaswani's matmul.
 - **Sennrich et al. 2016 (BPE)** — what actually fixed the `[UNK]` problem distorting every table above.
 - **Levy & Goldberg 2014** — Skip-gram-with-negative-sampling as implicit PMI matrix factorization; would connect this arc to [spectral theory of SSL](../../concepts/learning/spectral-theory-of-ssl.md), which has no pre-2020 ancestry.
@@ -96,4 +103,5 @@ Three claims, each with a live consequence in this wiki's actual subject matter.
 - [Curriculum Module 3 — Sequence models, attention, and transformers](../curriculum/curriculum-03-attention-and-transformers.md)
 - [Distributed representations](../../concepts/learning/distributed-representations.md)
 - [Attention Is All You Need](../../sources/attention-is-all-you-need.md) · [ViT](../../sources/vit-paper.md)
+- [Cho et al. 2014 — RNN Encoder–Decoder](../../sources/cho2014-rnn-encoder-decoder-phrase-representations.md)
 - [Yoshua Bengio](../../entities/yoshua-bengio.md) · [Tomas Mikolov](../../entities/tomas-mikolov.md) · [Ilya Sutskever](../../entities/ilya-sutskever.md) · [Dzmitry Bahdanau](../../entities/dzmitry-bahdanau.md) · [Kyunghyun Cho](../../entities/kyunghyun-cho.md) · [Jeff Dean](../../entities/jeff-dean.md)

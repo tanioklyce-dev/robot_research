@@ -180,7 +180,7 @@ Conway's 1970 2D [cellular automaton](concepts/alife/cellular-automata.md); one 
 **Generalist Robot 00 Technology** *(NVIDIA's expansion)* — NVIDIA's open VLA bundled with Isaac Lab. See [entity page](entities/nvidia-groot.md). *(Module 9.)*
 
 ### GRU
-**Gated Recurrent Unit** — simpler LSTM variant with fewer gates; same role. Introduced by Cho et al. 2014 (un-ingested); it is the recurrent cell in both models of [Bahdanau, Cho & Bengio 2014](sources/bahdanau2014-neural-machine-translation-align-translate.md), where "hidden unit" always means the gated hidden unit. *(Module 3.)*
+**Gated Recurrent Unit** — simpler LSTM variant: a **reset gate** `r` (near 0 → ignore the previous state and reset from the current input) and an **update gate** `z` (how much of the previous state carries over), with **no separate memory cell** — two gates against the LSTM's four plus a cell. Introduced by [Cho et al. 2014](sources/cho2014-rnn-encoder-decoder-phrase-representations.md), which does **not** use the name "GRU" (its section is titled *"Hidden Unit that Adaptively Remembers and Forgets"*). Per-unit gates mean each dimension learns its own timescale. ⚠️ The published equation (7) has `z` multiplying the **previous** state; modern implementations including PyTorch use the **opposite polarity** — identical unit, inverted gate. The recurrent cell in both models of [Bahdanau, Cho & Bengio 2014](sources/bahdanau2014-neural-machine-translation-align-translate.md), where "hidden unit" always means this unit. *(Module 3.)*
 
 ### HAB
 **Home Assistant Benchmark** — long-horizon household manipulation tasks (referenced by [ManiSkill-HAB](sources/maniskill-hab-paper.md)). *(Module 13.)*

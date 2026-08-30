@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-30
 updated: 2026-08-30
-sources: 1
+sources: 3
 tags: [person, gru, attention, encoder-decoder, montreal, nyu, machine-translation, genentech]
 ---
 
@@ -13,17 +13,25 @@ tags: [person, gru, attention, encoder-decoder, montreal, nyu, machine-translati
 ## Role in the wiki's lineage
 
 - **[Neural Machine Translation by Jointly Learning to Align and Translate](../sources/bahdanau2014-neural-machine-translation-align-translate.md)** (ICLR 2015) — second author. His own **RNNencdec** is the baseline the paper beats, and his **gated hidden unit** is the recurrent cell both models use: the paper states that "by a 'hidden unit' we always mean the gated hidden unit."
-- **Cited-through, un-ingested**: Cho et al. 2014a (*Learning Phrase Representations using RNN Encoder–Decoder*) introduced the GRU — which this wiki's [glossary](../glossary.md#gru) already defines — and Cho et al. 2014b supplied the empirical result the attention paper's whole conjecture rests on: that basic encoder–decoder quality **deteriorates rapidly as input length increases**.
+- **[Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation](../sources/cho2014-rnn-encoder-decoder-phrase-representations.md)** (EMNLP 2014) — **first author**. Both of his contributions in one paper: the **RNN Encoder–Decoder**, and the gated unit later called the **GRU** (reset gate + update gate, "motivated by the LSTM unit but much simpler"). Applied not as a translation system but as one feature scoring phrase pairs inside Moses — reaching BLEU 34.64 against the same 33.30 baseline [seq2seq](../sources/sutskever2014-sequence-to-sequence-learning.md) would beat outright three months later with the same decomposition used end to end.
+- **Cited-through, un-ingested**: Cho et al. 2014b (*On the Properties of Neural Machine Translation*) supplied the empirical result the attention paper's whole conjecture rests on — that basic encoder–decoder quality **deteriorates rapidly as input length increases**.
 
 > [!note] The baseline author is a co-author of the paper that beats it
-> RNNencdec is Cho's architecture; RNNsearch beats it by 7.6 BLEU at matched data, and he is the second author of the paper reporting that. Worth noting alongside [Mikolov](tomas-mikolov.md), who published the result that his own RNNLM line was solving the wrong problem. The pattern is healthy and not especially common.
+> RNNencdec is Cho's architecture, published in June 2014; RNNsearch beats it by 7.6 BLEU at matched data in September, and he is the second author of the paper reporting that. [Bahdanau](dzmitry-bahdanau.md) runs the same loop in reverse — fourth author on the June paper, first author on the September one. **One group, one quarter, propose-then-refute.** Worth noting alongside [Mikolov](tomas-mikolov.md), who published the result that his own RNNLM line was solving the wrong problem. The pattern is healthy and not especially common.
+
+> [!note] He named neither of his own contributions
+> "GRU" does not appear in [the paper that introduces it](../sources/cho2014-rnn-encoder-decoder-phrase-representations.md) — the section is titled *"Hidden Unit that Adaptively Remembers and Forgets."* Nor does "attention" appear in the drafts of [the paper that introduces it](../sources/bahdanau2014-neural-machine-translation-align-translate.md); the working name was *RNNsearch*, and Bengio supplied the word on a final pass. Both mechanisms shipped before the names that made them citable.
 
 ## Mentioned in
 
+- [Cho et al. 2014 — Learning Phrase Representations using RNN Encoder–Decoder](../sources/cho2014-rnn-encoder-decoder-phrase-representations.md) — first author; the GRU and the encoder–decoder.
 - [Bahdanau, Cho & Bengio 2014 — Neural Machine Translation by Jointly Learning to Align and Translate](../sources/bahdanau2014-neural-machine-translation-align-translate.md) — second author.
+- [From n-grams to attention](../syntheses/sequence-models/language-model-to-transformer-lineage.md) (synthesis).
 - [From n-grams to attention](../syntheses/sequence-models/language-model-to-transformer-lineage.md) (synthesis).
 
 ## Open questions / TBD
 
-- **Cho et al. 2014a** (the GRU / RNN Encoder–Decoder paper) is the most-cited un-ingested source in this wiki's sequence-model lineage — the glossary defines the GRU without a primary source behind it.
+- ~~Cho et al. 2014a (the GRU / RNN Encoder–Decoder paper) is the most-cited un-ingested source in this wiki's sequence-model lineage.~~ **Resolved 2026-08-30** — [ingested](../sources/cho2014-rnn-encoder-decoder-phrase-representations.md).
+- **Cho et al. 2014b** (*On the Properties of Neural Machine Translation*) is now the load-bearing gap: the wiki asserts its length-degradation finding on the [attention page](../sources/bahdanau2014-neural-machine-translation-align-translate.md) while citing a source it does not hold.
+- **Chung et al. 2014** — the empirical GRU-vs-LSTM comparison from the same group; the standard citation for "GRU ≈ LSTM at lower cost."
 - His Genentech-era work on ML for biology is out of scope.
