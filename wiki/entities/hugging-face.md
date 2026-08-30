@@ -3,8 +3,8 @@ title: Hugging Face
 type: entity
 subtype: organization
 created: 2026-05-10
-updated: 2026-08-27
-sources: 21
+updated: 2026-08-30
+sources: 22
 tags: [hugging-face, foundation-models, open-source, lerobot, robotics, ml-platform]
 ---
 
@@ -18,6 +18,7 @@ tags: [hugging-face, foundation-models, open-source, lerobot, robotics, ml-platf
 - **LeRobot** is the dominant open-source IL framework in the wiki's "affordable mobile manipulator" cluster.
 - **First-party robots.** Through [Pollen Robotics](pollen-robotics.md), HF ships [Reachy 2](reachy.md), [Reachy Mini](reachy-mini.md) and [Microduck](microduck.md) — documented on the Hub (`huggingface.co/docs/reachy_mini`) rather than on a vendor docs site.
 - **Hugging Face Jobs as robot-training compute.** [Microduck](microduck.md)'s RL stack ships a `--hf-jobs` flag that submits a GPU training run to HF Jobs, making a laptop with no GPU a viable development machine for a consumer robot's policies ([source](../sources/pollen-robotics-microduck.md)). First sighting in this wiki of HF Jobs in that role.
+- **MHS in LeRobot.** HF is named an early adopter adding [Model Hardware Standard](model-hardware-standard.md) support to LeRobot in [Anthropic](anthropic.md)'s [MHS preview](../sources/anthropic-model-hardware-standard-preview.md) — putting LeRobot hardware on the same agent-facing device bus as Tecan liquid handlers and Universal Robots arms. No timeline given.
 - The **HF Hub** is the de-facto distribution channel for model checkpoints across the wiki's JEPA, VLA, and IL coverage (e.g., V-JEPA 2 checkpoints, LeWM checkpoints, DINOv2 backbones).
 - Hugging Face's role in the **LeRobot** ecosystem is software / framework maintenance; design and distribution of LeRobot-compatible hardware happens via independent partners ([SIGRobotics-UIUC](sigrobotics-uiuc.md) for LeKiwi, [The Robot Studio](the-robot-studio.md) for SO-ARM, [Seeed Studio](seeed-studio.md) as a distributor).
 

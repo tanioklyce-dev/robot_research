@@ -3,8 +3,8 @@ title: LeRobot
 type: entity
 subtype: software-framework
 created: 2026-05-10
-updated: 2026-08-27
-sources: 46
+updated: 2026-08-30
+sources: 47
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026, xvla, sourccey, plugin-system]
 ---
 
@@ -109,6 +109,12 @@ The [LeRobot Worldwide Hackathon 2025](lerobot-worldwide-hackathon-2025.md) (Jun
 
 The [NVIDIA corporate blog (2026-07-06)](../sources/nvidia-hf-lerobot-open-robotics-blog.md) frames a five-part NVIDIA↔HF integration ("3M robotics developers × 16M AI builders"): (1) **[GR00T](nvidia-groot.md) 1.7 as a native policy** (detailed in the [HF blog](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md)); (2) **[Isaac Teleop](nvidia-isaac-teleop.md)** for demonstration collection; (3) **[Cosmos 3](nvidia-cosmos.md) coming "soon"** for data generation/augmentation; (4) **Isaac Lab-Arena environments registrable in the LeRobot Environment Hub (EnvHub)** to train/evaluate GR00T, π, and [SmolVLA](smolvla.md) — first named sighting of EnvHub as a LeRobot component; (5) **[Jetson Thor](jetson-thor.md) + [Reachy 2](reachy.md)** for VLA deployment on open-source humanoids. NVIDIA also claims the "largest open source physical AI dataset" (15M+ downloads, 350k+ trajectories, 57M grasps — unnamed in the post).
 
+## MHS support (announced August 2026)
+
+[Hugging Face](hugging-face.md) is listed as an early adopter adding **[Model Hardware Standard](model-hardware-standard.md)** support **in LeRobot**, in [Anthropic](anthropic.md)'s MHS research-preview announcement ([source](../sources/anthropic-model-hardware-standard-preview.md)). No timeline, API or branch is named.
+
+The preview also contains the first sighting in this wiki of a LeRobot arm **inside a scientific workcell**: at the UW Baker/Pinglay labs, an open-source LeRobot-based arm instrumented with MHS performed plate handoffs with a commercial liquid handler, with Claude Code sequencing both so they never collided (arm triggered ~10 s after the dispense-complete signal). If MHS support lands, it makes LeRobot hardware addressable by any MHS agent alongside Tecan and Universal Robots equipment — a second interoperability surface next to the `LeRobotDataset` format argument noted above, this one about *control* rather than *data*. See [agent–hardware abstraction](../concepts/agents/agent-hardware-abstraction.md).
+
 ## Official pedagogical reference
 
 **["Robot Learning: A Tutorial"](../sources/lerobot-robot-learning-tutorial.md)** (Capuano, Pascal, Zouitine, Wolf, Aractingi — Oct 14, 2025; arXiv 2510.12403 + HF Space at https://huggingface.co/spaces/lerobot/robot-learning-tutorial) is the **team-authored canonical tutorial** for the framework — a chapter arc from Classical Robotics through RL and IL to Generalist (VLA) policies, with runnable `lerobot` code examples (ACT, Diffusion Policy, async inference, [π₀](physical-intelligence.md), SmolVLA). 410 likes on the Space at ingest time. This is the recommended single-source onboarding for the framework, complementary to the wiki's own [bottom-up curriculum](../syntheses/curriculum/robot-learning-curriculum.md).
@@ -182,6 +188,7 @@ Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distri
 - [LeKiwi GitHub](../sources/lekiwi-github.md)
 - [LeRobot Worldwide Hackathon 2025 — All Winners](../sources/lerobot-worldwide-hackathon-2025-winners.md)
 - [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — **MolmoAct2 ships as a LeRobot application**: datasets in LeRobot v3.0 format, LeRobot vendored as a git submodule, training through LeRobot workflows. [Ai2](ai2.md)'s fully-open VLA is not a parallel stack — it is this one.
+- [Previewing the Model Hardware Standard](../sources/anthropic-model-hardware-standard-preview.md) — HF adding MHS support in LeRobot; a LeRobot arm in a UW lab workcell
 
 ## Open questions / TBD
 

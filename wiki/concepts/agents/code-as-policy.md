@@ -2,8 +2,8 @@
 title: Code as policy
 type: concept
 created: 2026-08-03
-updated: 2026-08-03
-sources: 13
+updated: 2026-08-30
+sources: 14
 tags: [code-as-policy, llm-agent, agentic-robotics, program-synthesis, skill-library, voyager, saycan, voxposer, inner-monologue, codeact, tool-use, waddle, cap-x, aspire, benchmark]
 ---
 
@@ -119,6 +119,19 @@ ASPIRE's is the notable variant: it stores **what went wrong and how it was fixe
 
 This is the **motor-skill analogue** of [agent skills (portable SKILL.md)](agent-skills.md): both are shared, discoverable capability packages, but SKILL.md bundles are hand-authored runbooks whereas these are **agent-authored and grow from experience**.
 
+## Explore online, then compile the agent out of the loop
+
+The [MHS preview](../../sources/anthropic-model-hardware-standard-preview.md) supplies three independent instances of a move this lineage has always implied but never named cleanly: **the agent's deliverable is a deterministic script, and the agent then leaves.**
+
+- **Laser alignment** ([Anthropic](../../entities/anthropic.md)'s own description): Claude adjusts a laser, watches the beam move on a camera, repeats to understand the mapping — then *"packaged what it learned into code files, writing a deterministic script that let it align the laser without having to reason at each step, so the whole process could run as a single command."*
+- **[QuEra](../../entities/quera-computing.md)'s relock controller**, the strongest version: a four-role overnight agent loop (hypothesize → edit → run on the live laser → read the logbook) whose output is *"a deterministic, fully inspectable script capable of running in production without an AI agent controlling it."* **58% / 150 s** (four engineers, several months) → **99.3% over 700 blind trials / ~6 s**. What Claude changed was structural: it replaced the human's linear procedure with a **decision tree** keyed on instrument readings, which is precisely the thing a step-for-step automation of expert behaviour cannot be.
+- **[Genentech](../../entities/genentech.md)'s liquid-handling skills**, the [ASPIRE](../../entities/aspire.md)-shaped variant: a diagnosed failure (bubbles are physical, not a software error) codified into reusable skills that set sensible defaults per liquid type.
+
+Two things this adds to the page. First, **it is the honest answer to the cost question above** — the token spend is amortized over an artifact that then runs free, and the QuEra artifact is *auditable*, which a policy's weights are not. Second, it is how code-as-policy resolves the [control-rate ladder](../../syntheses/platforms/control-rate-ladder.md): MHS's own framing is that when the agent "needs to… operate devices faster than its online reasoning would allow, it can chain together driver commands… in code files." The agent never gets faster; it writes something that is.
+
+> [!note] The counterfactual is missing
+> QuEra's loop is a general recipe (cf. [ASPIRE](../../sources/aspire-paper.md), [Karpathy's autoresearch](../../sources/karpathy-autoresearch.md)); MHS only supplied instrument access. Nobody ran the same loop over a bespoke API, so the split between "the interface" and "the loop" is unmeasured.
+
 ## Where this sits on the abstraction ladder
 
 Code-as-policy is **level 2 (programmatic control)** in the [control abstraction levels](../robotics/control-abstraction-levels.md) taxonomy — the level [Anthropic found](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) "substantially outperforms direct control" for essentially every model. CaP-X's contribution to that taxonomy is to show **level 2 is not one level**: its eight tiers subdivide "the model writes a controller" into rungs that span tens of points of success rate. *"Programmatic control works"* is underspecified until you say which primitives were on offer and how many turns the agent got.
@@ -178,3 +191,4 @@ What remains unmeasured is what it costs.
 - [CaP-X](../../sources/cap-x-paper.md) (ICML 2026) — the measurement apparatus; abstraction as a controlled axis.
 - [ASPIRE](../../sources/aspire-paper.md) (Jun 2026) — continual skill discovery; the compounding evidence.
 - [Introducing Waddle](../../sources/waddle-labs-introducing-waddle.md) — deployed commercial system + the lineage survey this page was first built from.
+- [Previewing the Model Hardware Standard](../../sources/anthropic-model-hardware-standard-preview.md) — three instances of *explore online, compile to a deterministic script*, one of them in production on a quantum computer's laser system.

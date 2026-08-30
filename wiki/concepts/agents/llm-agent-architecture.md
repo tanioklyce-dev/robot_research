@@ -2,9 +2,9 @@
 title: LLM-agent architecture
 type: concept
 created: 2026-05-07
-updated: 2026-08-27
-sources: 65
-tags: [llm-agent, tool-use, agentic-robotics, planning, mcp, a2a, code-as-policy]
+updated: 2026-08-30
+sources: 66
+tags: [llm-agent, tool-use, agentic-robotics, planning, mcp, a2a, mhs, code-as-policy]
 ---
 
 **LLM-agent architecture for robots** — a control pattern in which a large language model converts natural-language goals into sequences of tool calls that a deterministic executor runs against perception/manipulation primitives. Distinct from end-to-end [VLA models](../learning/vla-models.md) (which output low-level actions directly) and from [world-model simulators](../world-models/world-model-simulators.md) (which generate the training environment).
@@ -43,9 +43,9 @@ The robotics variant of the pattern uses `find / pickup / place` tool primitives
 
 The [Onchain AI Garage LeWM reproduction](../../sources/onchain-ai-garage-lewm-reproduction.md) is an independent occurrence of the same pattern applied to a different ML target (reproducing a JEPA world model), supporting the same generality claim.
 
-## Inter-agent communication protocols
+## Interface and inter-agent protocols
 
-As LLM agents proliferate, two complementary protocols have emerged to connect them to external resources and to each other:
+As LLM agents proliferate, three complementary standards have emerged to connect them to software services, to physical devices, and to each other:
 
 ### MCP — Model Context Protocol
 - Developed by **Anthropic**.
@@ -53,6 +53,13 @@ As LLM agents proliferate, two complementary protocols have emerged to connect t
 - **>1,000 community-built connectors** available (as of 2025).
 - In a robotics context, MCP is the natural connector layer for an LLM-agent robot to call external APIs (maps, object databases, smart-home systems) without custom integration per tool.
 - The direction also runs inward: **ROS 2↔MCP bridges expose the robot itself as MCP tools** — first-party [ros2-mcp-server](../../entities/ros2-mcp-server.md) (manipulation-first) and community [AgenticROS](../../entities/agenticros.md) (nav-first, six agent platforms; [source](../../sources/agenticros-github.md)).
+
+### MHS — Model Hardware Standard
+- Also Anthropic; research preview **2026-08-27**, waitlisted, not open source ([announcement](../../sources/anthropic-model-hardware-standard-preview.md)).
+- **MCP's device-side counterpart.** Where MCP standardizes access to software services, [MHS](../../entities/model-hardware-standard.md) standardizes access to *physical instruments*: `read`/`write` primitives, network discovery, a states-and-procedures manifest auto-generated from the driver, and natural-language tags for what code cannot express (the weight of an arm). MCP is one of its three control surfaces, alongside a CLI and code files.
+- **It attacks the step this whole page assumes away.** Every implementation above begins with "a skill library exists." Building that library against unfamiliar hardware is what [Project Fetch](../../sources/anthropic-project-fetch-robot-dog.md) measured as the largest uplift gap, and what MHS partners report as weeks-to-months of glue code — reduced to 8 hours (CMU, four instruments, three incompatible computers) and "under a week" (UW, six instruments including driver-writing).
+- **The first ingested execution rail that checks world state.** CMU induced six fault conditions — missing plate, rotated plate, reader busy, disconnected camera, unreachable device, active e-stop — and all six were blocked before any device moved. Every other rail in this wiki is name-level. It still says nothing about semantic intent.
+- Full treatment: [agent–hardware abstraction](agent-hardware-abstraction.md).
 
 ### A2A — Agent-to-Agent Protocol
 - Backed by **Google**; **50+ corporate supporters** including Microsoft, Salesforce, and SAP.
@@ -83,6 +90,7 @@ Two things follow for robots specifically:
 - **Con**: closed-loop replanning depends on how cleanly skill failures surface to the LLM.
 
 ## Related
+- [Agent–hardware abstraction](agent-hardware-abstraction.md) — the layer *below* this one: how the skill library comes to exist at all, and why MHS/MCP/ROS-bridges/`@skill` manifests are all the same move.
 - [Code as policy](code-as-policy.md) — the sub-pattern where the action vocabulary is *arbitrary code* rather than a fixed tool schema (Code as Policies → Voyager → CaP-X/ASPIRE → [Waddle](../../entities/waddle-labs.md)).
 - [VLA models](../learning/vla-models.md) — competing paradigm (end-to-end action prediction).
 - [On-device / on-robot / local-server agents](../../syntheses/agents/on-device-and-on-robot-agents.md) — *where* the agent brain runs (edge vs LAN server vs cloud); the deployment-topology companion.
@@ -115,4 +123,5 @@ Two things follow for robots specifically:
 - [Project Fetch: Can Claude train a robot dog?](../../sources/anthropic-project-fetch-robot-dog.md) — the contrast case: Claude writes the robot code, but never runs in the loop.
 - [Introducing Waddle — Agents that Control Robots](../../sources/waddle-labs-introducing-waddle.md) — a deployed commercial instance: code-as-actions planner + a shared, agent-authored skill library, calling VLAs as tools.
 - [CaP-X paper](../../sources/cap-x-paper.md) — the benchmark that measures this pattern's code-writing variant across 12 models and 8 tiers of tool abstraction.
+- [Previewing the Model Hardware Standard](../../sources/anthropic-model-hardware-standard-preview.md) — the device-discovery layer beneath the skill library, and six pilots that ran agents on real instruments overnight.
 - [ASPIRE paper](../../sources/aspire-paper.md) — coordinator/actor multi-agent structure where actors share **distilled skills instead of chat history**, keeping each context focused.

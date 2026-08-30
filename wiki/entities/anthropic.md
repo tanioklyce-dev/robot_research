@@ -3,9 +3,9 @@ title: Anthropic
 type: entity
 subtype: company
 created: 2026-05-09
-updated: 2026-08-26
-sources: 20
-tags: [company, ai-safety, llm, claude, alignment, frontier-red-team, uplift-study]
+updated: 2026-08-30
+sources: 21
+tags: [company, ai-safety, llm, claude, alignment, frontier-red-team, uplift-study, mcp, mhs]
 ---
 
 **Anthropic** — AI safety company and developer of the Claude model family. Mission: "to ensure that the world safely makes the transition through transformative AI." Founded by former OpenAI researchers including Dario Amodei and Daniela Amodei. Occupies a self-described "peculiar position": believing AI may be among the most dangerous technologies in human history, yet developing it anyway — a "calculated bet" that safety-focused labs at the frontier are better than ceding that ground to less safety-focused developers.
@@ -27,6 +27,14 @@ In Claude's model of principals, Anthropic occupies the **top tier** of the trus
 
 ## MCP (Model Context Protocol)
 Anthropic developed the **Model Context Protocol (MCP)**, a standard interface enabling LLMs to access external tools, cloud storage, financial data, IoT, and enterprise systems. Over 1,000 community-built connectors as of 2025. See [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md).
+
+## MHS (Model Hardware Standard)
+
+Anthropic's second interface standard, announced as a **waitlisted research preview on 2026-08-27** ([Previewing the Model Hardware Standard](../sources/anthropic-model-hardware-standard-preview.md)). Where MCP standardizes a model's access to **software services**, [MHS](model-hardware-standard.md) standardizes access to **physical devices** — one driver interface with `read`/`write` primitives, network discovery, natural-language tags for what code cannot express, and an auto-generated device reference file that includes the safety limits to be enforced. It is model-agnostic and reachable over MCP, and it comes out of the **Beneficial Deployments** team (Alek Kemeny) with [HHMI Janelia](hhmi-janelia.md) (Arco Bast), not the Frontier Red Team.
+
+The two programmes read as one argument. The Frontier Red Team **measured** that the largest human-vs-Claude gap on a real robot was *connecting to unfamiliar hardware and reading its sensors*; Beneficial Deployments is **building the layer that removes it**. Partners report weeks-to-months of integration collapsing to hours (CMU: 8 hours for a four-instrument workcell across three mutually incompatible computers), and the strongest single result — [QuEra](quera-computing.md)'s laser relock controller at **99.3% over 700 blind trials** against a four-engineer bespoke script's **58%** — was produced by an overnight four-role agent loop whose deliverable was an agent-free script.
+
+Also the clearest published statement of the remaining deficit, in Anthropic's own words: *"Claude learns about the physical world through text and images, meaning its spatial and physical reasoning have limitations that still require expert oversight."*
 
 ## Safety evaluation
 Models are externally evaluated by institutes such as [Apollo Research](../entities/apollo-research.md). Anthropic commits to transparency about gaps between intended behavior (per Claude's Constitution) and actual behavior (per system cards).
@@ -54,6 +62,7 @@ Anthropic leads the modern **sparse-autoencoder + feature-steering** approach to
 - [Welch Labs Illustrated Guide to AI, Vol I](../sources/welchlabs-illustrated-guide-to-ai.md)
 - [ASPIRE paper](../sources/aspire-paper.md) — **Claude Code with Claude Opus 4.6 (1M context) is the coding agent behind every ASPIRE simulation result**; the paper notes it has not verified weaker models can sustain the debugging loop.
 - [CaP-X paper](../sources/cap-x-paper.md) — Claude Haiku 4.5 and Opus 4.5 among the 12 benchmarked models; Opus 4.5 is one of three models in CaP-Agent0's parallel-reasoning ensemble.
+- [Previewing the Model Hardware Standard](../sources/anthropic-model-hardware-standard-preview.md) — the device-side interface standard, and the six partner pilots run on it
 - [Gemini Robotics 2: Safety Evaluations](../sources/gemini-robotics-2-safety-report.md) — **Claude Opus 4.8** evaluated on ASIMOV-Agentic; scores 100% on safety tool calling alongside ER 2 and GPT 5.5.
 
 ## Cybersecurity-evaluation incidents (July 2026)

@@ -3,8 +3,8 @@ title: Raspberry Pi 5
 type: entity
 subtype: product
 created: 2026-06-07
-updated: 2026-08-23
-sources: 4
+updated: 2026-08-30
+sources: 5
 tags: [raspberry-pi, single-board-computer, host-compute, edge, xlerobot, lekiwi, sourccey, nori]
 ---
 
@@ -28,6 +28,10 @@ The Pi 5 is the host for Raspberry Pi's [Hailo](hailo.md)-based AI HATs:
 
 These make a Pi 5 a viable **onboard host + NPU** for a robot — distinct from the CUDA path of a [Jetson](jetson-orin-nano.md); see [Jetson onboard compute for XLeRobot](../syntheses/platforms/jetson-onboard-compute-xlerobot.md) and [Hailo](hailo.md) for where each fits.
 
+## Agent-facing device support
+
+Raspberry Pi (the company) is named an early adopter of [MHS](model-hardware-standard.md), "enabling MHS integration across a number of their products following successful tests using their **Camera MHS Driver**" ([Anthropic MHS preview](../sources/anthropic-model-hardware-standard-preview.md)). Notable because it is the only *consumer/maker-tier* hardware vendor on the list, next to Tecan, QIAGEN and Universal Robots — so the cheapest camera in this wiki's robot builds may become directly discoverable by an agent. Nothing is published yet. See [agent–hardware abstraction](../concepts/agents/agent-hardware-abstraction.md).
+
 ## Related
 - [Hailo](hailo.md) — AI HAT accelerator silicon.
 - [XLeRobot](xlerobot.md), [LeKiwi](lekiwi.md), [Grievous](grievous.md) — Pi-hosted robot builds.
@@ -36,3 +40,4 @@ These make a Pi 5 a viable **onboard host + NPU** for a robot — distinct from 
 ## Mentioned in
 - [Raspberry Pi AI HAT+ 2 (Hailo-10H)](../sources/raspberry-pi-ai-hat-plus-2.md)
 - [Nori Robotics — Y Combinator company profile (S26)](../sources/nori-robotics-yc-profile.md)
+- [Previewing the Model Hardware Standard](../sources/anthropic-model-hardware-standard-preview.md) — Raspberry Pi's Camera MHS Driver

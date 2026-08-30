@@ -2,8 +2,8 @@
 title: Guardrails for robot agents — where the safety layer actually goes
 type: synthesis
 created: 2026-07-13
-updated: 2026-08-23
-tags: [ai-safety, guardrails, agentic-robotics, prompt-injection, mcp, execution-rail, iso-13482, fleet, nemo-guardrails, llm-agent]
+updated: 2026-08-30
+tags: [ai-safety, guardrails, agentic-robotics, prompt-injection, mcp, mhs, execution-rail, iso-13482, fleet, nemo-guardrails, llm-agent]
 ---
 
 # Guardrails for robot agents — where the safety layer actually goes
@@ -25,7 +25,7 @@ Safety in an embodied agent is not one layer, it is five, and they were built by
 | **5** | **Model alignment** (training-time) | The model *wanting* the wrong thing | Frontier labs ([Constitution](../../sources/claudes-constitution.md)) | Well covered |
 | **4** | **Text rails** (input/output/dialog) | Harmful, off-topic, jailbroken *text* | Enterprise AI ([NeMo Guardrails](../../entities/nemo-guardrails.md)) | **Available, unused** |
 | **3** | **Execution rail** (tool-call validation) | The agent calling a *dangerous action* | Enterprise AI (the hook) + robotics (the policy) | **Half-built, see below** |
-| **2** | **Skill preconditions** | A well-formed call that's wrong *right now* | Robotics, ad hoc | Undocumented everywhere |
+| **2** | **Skill preconditions** | A well-formed call that's wrong *right now* | Robotics, ad hoc | Undocumented everywhere — **except [MHS](../../entities/model-hardware-standard.md)**, see below |
 | **1** | **Physical interlocks** (e-stop, speed/force limits) | The robot *injuring* someone | Machinery safety ([ISO 13482](../../concepts/robotics/robot-safety-standards.md)) | Certified, deterministic, isolated |
 
 The load-bearing observation: **layers 1 and 5 are mature and mutually ignorant, and everything interesting is in 2–4.** A robot that satisfies ISO 13482 will not crush you — and nothing in that standard stops a well-aligned planner from calmly putting your medication in the trash. Layer 1 governs *force*; layer 5 governs *intent*; the gap between them is where an LLM-driven robot actually fails.
@@ -92,6 +92,17 @@ And the limit, pinned by a test rather than papered over: **Tier 2 is a blocklis
 > Three things keep this page's finding standing: it is **scoped to navigation**, not general manipulation; it is safety-**adjacent** (recover from failure) rather than safety-**enforcing** (refuse an unsafe action); and Nav2's own docs make **no safety argument** — the structure is presented as robustness engineering.
 >
 > But *"nothing ships at this layer"* should be read as *"the mechanism ships, applied to a different problem."* The [behavior-trees](../../concepts/robotics/behavior-trees.md) literature also supplies what the rail would need to be *enforcing*: guard conditions ahead of the actions they protect, and stochastic BTs that reduce to Markov chains yielding success probability and expected completion time. **The formalism, the engine ([BehaviorTree.CPP](../../entities/behaviortree-cpp.md)), and a production reference all exist.** What is missing is anyone applying them to a manipulation policy rather than a navigation stack.
+
+### Outside data point: a vendor shipping layer-2 preconditions (2026-08-27)
+
+[MHS](../../entities/model-hardware-standard.md) is the first ingested system where the **device interface itself carries the rail**, rather than the integrator writing one. Two properties matter here ([announcement](../../sources/anthropic-model-hardware-standard-preview.md)):
+
+- **The safety limits are generated into the device reference file** from the driver's tags, so what the agent is allowed to do is a property of the device description, not of the prompt. Janelia hands laser power to an agent on exactly this basis — an over-power command would bleach the sample, and the limit sits below the model.
+- **Somebody finally tested it.** CMU induced six conditions — missing plate, rotated plate, reader busy, disconnected camera, unreachable device, active e-stop — and **all six were blocked before any device moved**. That is **layer 2** in the cake above, the row this page called "undocumented everywhere," with a published test.
+
+What it does *not* do is the part that motivated this page. Every one of those six is a **device-state** precondition: is the equipment in a fit condition to move. None of them is a judgment about whether the requested action should happen — `pick(knife)`, `place(pills, trash)` and the irreversibility problem are untouched, and the lab setting mostly makes them not arise. So the correct reading is **layer 2 is shippable and now has an existence proof from a vendor; layer 3's semantic half is still ours.**
+
+One new surface, unexamined by the source: MHS's **natural-language tags** are user-written (or agent-elicited) prose compiled into the file the agent trusts to operate hardware. That is Finding 3's perception channel relocated to device metadata — and arguably worse, since metadata is read once and believed thereafter while perception is re-read.
 
 ## Finding 2: the text rails are a base-URL swap away
 
@@ -196,10 +207,12 @@ The through-line: **three of the four cheap wins are things you write, not thing
 - [Safeguard Agentic AI Systems with the NVIDIA Safety Recipe](../../sources/nvidia-safety-recipe-agentic-ai.md) — build→deploy→run; the 56→63% security number.
 - [Claude's Constitution](../../sources/claudes-constitution.md) — layer 5; the irreversibility vocabulary.
 - [Fosch-Villaronga et al. — ISO 13482](../../sources/fosch-villaronga-iso13482-exoskeletons.md) — layer 1.
+- [Previewing the Model Hardware Standard](../../sources/anthropic-model-hardware-standard-preview.md) — layer 2 shipped in a device interface, with six induced fault conditions blocked.
 
 ## Related
 - [AI guardrails](../../concepts/safety/ai-guardrails.md) · [AI red-teaming](../../concepts/safety/ai-red-teaming.md) · [AI safety and alignment](../../concepts/safety/ai-safety-alignment.md) — the concepts.
 - [LLM-agent architecture](../../concepts/agents/llm-agent-architecture.md) — the pattern being guarded.
+- [Agent–hardware abstraction](../../concepts/agents/agent-hardware-abstraction.md) — where the rail naturally lives once devices are self-describing.
 - [Robot safety standards (ISO 13482)](../../concepts/robotics/robot-safety-standards.md) — layer 1, and why it doesn't help here.
 - [Fleet agentic control framework](../projects/fleet-agentic-framework.md) · [ROS 2 ↔ MCP server design](../projects/ros2-mcp-server-design.md) — the stack these recommendations target.
 - [LLM-agent architecture across stacks](llm-agent-architecture-across-stacks.md) — where the `eval()` RCE hazard is documented.
