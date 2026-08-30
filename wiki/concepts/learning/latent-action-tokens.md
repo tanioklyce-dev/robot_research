@@ -2,8 +2,8 @@
 title: Latent action tokens
 type: concept
 created: 2026-08-04
-updated: 2026-08-27
-sources: 3
+updated: 2026-08-30
+sources: 4
 tags: [latent-action-tokens, cross-embodiment, rq-vae, codebook, unit, univla, visual-anchoring, action-representation, humanoid]
 ---
 
@@ -71,4 +71,5 @@ A codebook index is not inspectable, not loggable in human terms, and **not corr
 
 ## Mentioned in
 - [UniT paper](../../sources/unit-paper.md)
+- [Bengio et al. 2003 — A Neural Probabilistic Language Model](../../sources/bengio2003-neural-probabilistic-language-model.md) — the ancestor: a learned lookup table over a discrete alphabet, trained jointly with the task. The readability complaint here is a restatement of its central property — the geometry is learned, so nobody specified what the axes mean. See [distributed representations](distributed-representations.md).
 - [Introducing Index (Figure AI)](../../sources/figure-index-announcement.md) — Named as one of the published approaches to the human→robot action-label gap that [Figure's Index](../../entities/figure-index.md) leaves entirely unaddressed while claiming *"the world's largest robot training dataset."*

@@ -144,7 +144,7 @@ Two things make it worth a section here rather than a bullet in "common techniqu
 
 ## Mentioned in
 
-> [!note] Curated list — **54** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **63** source pages link here; the ones below are those that shaped this page.
 
 - [Kober, Bagnell & Peters 2013 — RL in Robotics Survey](../../sources/kober-rl-robotics-survey-2013.md) — simulation bias, noise injection, self-stabilizing transfer.
 - [MuJoCo Playground Paper](../../sources/mujoco-playground-paper.md)

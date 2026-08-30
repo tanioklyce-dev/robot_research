@@ -3,9 +3,9 @@ title: Andrej Karpathy
 type: entity
 subtype: person
 created: 2026-05-14
-updated: 2026-07-09
-sources: 6
-tags: [person, openai, tesla, education, pedagogy, nanogpt, micrograd, nanochat, autoresearch, microgpt]
+updated: 2026-08-30
+sources: 7
+tags: [person, openai, tesla, software-2.0, data-engine, transformer-history, education, pedagogy, nanogpt, micrograd, nanochat, autoresearch, microgpt]
 ---
 
 **Andrej Karpathy** — independent AI researcher and educator; formerly Director of AI at Tesla (Autopilot lead, 2017–2022) and founding member / research scientist at OpenAI. Stanford CS PhD (2015) under Fei-Fei Li; author of the canonical CS231n notes on CNNs. **In this wiki, the author of a series of minimal-but-real reference implementations that have become the de-facto pedagogical references for foundational ML concepts** — backprop (`micrograd`), GPT training (`nanoGPT` → `nanochat`), and most recently agent-driven autonomous research (`autoresearch`).
@@ -17,6 +17,12 @@ Karpathy's repos are referenced as the **"read this code to understand the conce
 - **[Module 1 — Neural networks and training](../syntheses/curriculum/curriculum-01-neural-networks.md)** — [micrograd](../sources/karpathy-micrograd.md) for backprop.
 - **[Module 3 — Sequence models, attention, transformers](../syntheses/curriculum/curriculum-03-attention-and-transformers.md)** — [nanoGPT](../sources/karpathy-nanogpt.md) (deprecated as of Nov 2025) → [nanochat](../sources/karpathy-nanochat.md) for transformer training end to end.
 - **[LLM-agent architecture concept](../concepts/agents/llm-agent-architecture.md)** — [autoresearch](../sources/karpathy-autoresearch.md) (Mar 2026) as a worked example of an agent autonomously iterating on a real LLM training loop.
+
+As of the [Software 3.0 / transformer-history lecture](../sources/karpathy-software-3-and-transformer-history-lecture.md) ingest he is also here **as a source in his own right**, for three things the wiki has nowhere else:
+
+- **The Software 1.0 / 2.0 / 3.0 taxonomy and the "data engine" loop** — his five years on Tesla Autopilot compressed into one diagram, and the sharpest available statement of what a robot data-collection programme has to do beyond accumulating hours. See [crowdsourced robot training data](../concepts/learning/crowdsourced-robot-training-data.md).
+- **The Bahdanau email** — [Dzmitry Bahdanau](dzmitry-bahdanau.md)'s own account of where soft attention came from, read on stage. Oral history that exists in no paper.
+- **Attention as data-dependent message passing on a directed graph** — a presentation of Q/K/V that is genuinely different from the matrix-algebra one in [Module 3](../syntheses/curriculum/curriculum-03-attention-and-transformers.md).
 
 The repos share a deliberate design philosophy: **a single hackable file** (or two), **no framework abstractions**, **runs on a single GPU**, **pedagogically transparent over production-ready**. This makes them ideal anchor implementations for understanding modern ML — and explicitly the pattern this wiki's curriculum is structured to teach against.
 
@@ -53,6 +59,7 @@ The repos are also the most direct demonstration that **modern ML capability can
 - [nanoGPT repo (Karpathy, 2022)](../sources/karpathy-nanogpt.md)
 - [nanochat repo (Karpathy, 2025)](../sources/karpathy-nanochat.md)
 - [microGPT (Karpathy, 2026)](../sources/karpathy-microgpt.md)
+- [Software 3.0 and the history of the Transformer (2023 talks, re-uploaded compilation)](../sources/karpathy-software-3-and-transformer-history-lecture.md) — speaker; Software 1.0/2.0/3.0, the data engine, the transformer lineage, the Bahdanau email.
 - [autoresearch repo (Karpathy, 2026)](../sources/karpathy-autoresearch.md)
 - [Curriculum Module 1 — Neural networks and training](../syntheses/curriculum/curriculum-01-neural-networks.md)
 - [Curriculum Module 2 — CNNs and visual representation learning](../syntheses/curriculum/curriculum-02-cnns.md) — CS231n reference.

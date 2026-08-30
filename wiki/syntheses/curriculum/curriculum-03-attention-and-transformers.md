@@ -2,8 +2,8 @@
 title: Curriculum Module 3 — Sequence models, attention, and transformers
 type: synthesis
 created: 2026-05-10
-updated: 2026-07-09
-tags: [curriculum, module-3, transformer, attention, self-attention, multi-head-attention, vit, positional-encoding, causal-masking, rnn, lstm]
+updated: 2026-08-30
+tags: [curriculum, module-3, embeddings, distributed-representations, n-gram, word2vec, seq2seq, attention-history, transformer, attention, self-attention, multi-head-attention, vit, positional-encoding, causal-masking, rnn, lstm]
 prereqs: [curriculum-01, curriculum-02]
 status: draft
 ---
@@ -42,7 +42,27 @@ The transformer family — from attention as an alternative to recurrence to ViT
 
 ## §1 — Sequence models before attention (briefly)
 
-For context only. **You can largely skip this section if your goal is forward-looking.**
+For context only — **except the first subsection, which is not skippable.** The rest you can skim if your goal is forward-looking.
+
+### Where the embedding table came from (do not skip)
+
+Everything from §2 onward assumes the model's input is already a sequence of **vectors**. Nothing in the transformer explains where those vectors come from for discrete inputs, and the answer predates attention by fourteen years.
+
+[**Bengio, Ducharme, Vincent & Jauvin 2003, *A Neural Probabilistic Language Model***](../../sources/bengio2003-neural-probabilistic-language-model.md) is the paper. Its argument, compressed:
+
+- A language model over a 100,000-word vocabulary and 10 words of context has `100000^10 − 1 ≈ 10^50` free parameters. `n`-gram models sidestep that by gluing together short fragments they have actually seen — which generalizes to new *arrangements* of seen fragments and to nothing else. With one-hot inputs, `cat` and `dog` are exactly as dissimilar as `cat` and `the`.
+- So: give each word a learned vector `C(i) ∈ R^m` with `m ≪ |V|` (here 30–100 against a 17,000-word vocabulary), express the next-word distribution as a smooth function of the context words' vectors, and **train both at once**. Then seeing *"The cat is walking in the bedroom"* raises the probability of *"A dog was running in a room"*, because the function is smooth and the words landed near each other.
+
+The whole model is `y = b + Wx + U tanh(d + Hx)` followed by a softmax, where `x` is the concatenated context embeddings. That is: **a lookup table, an MLP, and a softmax.** Read the [source page](../../sources/bengio2003-neural-probabilistic-language-model.md) once — it is the most legible complete worked example of a Module 1 network in the wiki, and it is the origin of `nn.Embedding`.
+
+Three things to carry into the rest of this module:
+
+1. **The transformer replaced the `g` half of this design and left the `C` half untouched.** GPT's token embedding table is this matrix. So is a [VLA](curriculum-09-vla.md)'s action-token table and [VQ-BeT](../../entities/vq-bet.md)'s codebook. See [distributed representations](../../concepts/learning/distributed-representations.md).
+2. **Softmax over a large vocabulary was the bottleneck from day one.** Bengio et al. measured **99.7% of per-example compute in the output layer** and spent §3 of the paper on a 40-CPU cluster to survive it. Hierarchical softmax, sampled softmax, and negative sampling all exist because of this number.
+3. **Fixed context is the limitation attention removes.** This model sees 2–5 words, full stop. Its own §5.2 proposes *recurrence* as the fix for longer context — the answer the next two subsections show running out of road, and the one [Vaswani et al. 2017](../../sources/attention-is-all-you-need.md) discards outright.
+
+> [!note] Worth reading §5.2 of that paper for its own sake
+> The future-work list names hierarchical softmax (`|V|/log|V|` speed-up), sampling-based training, embedding interpretability, and per-sense (contextual) representations — in 2003. It is the closest thing the field has to a correctly-predicted roadmap, and the one item conspicuously absent from it is attention.
 
 ### RNNs
 
@@ -63,9 +83,33 @@ y_t = W_y h_t
 
 [GRU (Gated Recurrent Unit)](../../glossary.md#gru) is a simpler LSTM variant with fewer gates. Same role.
 
+### §1.2 — seq2seq and the bottleneck that produced attention
+
+The step §2 skips if you go straight to Vaswani. **[Sutskever, Vinyals & Le 2014](../../sources/sutskever2014-sequence-to-sequence-learning.md)** made variable-length-in / variable-length-out work with two LSTMs: an **encoder** consumes the source and its final hidden state — **8,000 numbers** — is the whole representation; a **decoder** LSTM initialized from that vector generates output tokens until `<EOS>`. First pure neural system to beat phrase-based statistical MT (BLEU 34.81 vs 33.30).
+
+The flaw is in the description. *Everything* about the input passes through one fixed-width vector, however long the input. Their workaround was to **reverse the source sentence**, worth ~4.7 BLEU (25.9 → 30.6) — more than a 5× ensemble — by shortening the distance between the first source words and the first target words so gradients could "establish communication" early.
+
+**[Bahdanau, Cho & Bengio 2014](../../sources/bahdanau2014-neural-machine-translation-align-translate.md)** removed the bottleneck instead of working around it. Encode with a *bidirectional* RNN into one annotation per source position, then compute a **different context vector for every output word**:
+
+```
+c_i   = Σ_j α_ij h_j            # weighted read over ALL source annotations
+α_ij  = softmax_j( e_ij )
+e_ij  = a(s_{i−1}, h_j)         # alignment model: a small feedforward net, trained jointly
+```
+
+That is attention, three years before the transformer, and it is where the word comes from. Their evidence is a length curve: the plain encoder–decoder's BLEU falls off as sentences get longer, and theirs does not.
+
+**Carry two things into §2:**
+
+1. **Query / key / value already exist here.** `s_{i−1}` is the query; each `h_j` is *both* key and value. §2's version separates them, swaps the feedforward scorer for a **scaled dot product** (a matmul, hence GPU-parallel — the change that mattered for scale), and adds heads.
+2. **The `O(n²)` cost starts here too.** Computing every `e_ij` is `T_x × T_y` scorer evaluations. In 2014 that was too cheap to mention.
+
 ### Why RNNs / LSTMs are superseded
 
-[Vaswani et al. 2017 ("Attention Is All You Need")](https://arxiv.org/abs/1706.03762) showed that **attention alone** (no recurrence) outperforms LSTMs on machine translation and parallelizes much better. By 2018 transformers had eaten BERT-class language tasks; by 2020 they had eaten everything else.
+[Vaswani et al. 2017 ("Attention Is All You Need")](../../sources/attention-is-all-you-need.md) showed that **attention alone** (no recurrence) outperforms LSTMs on machine translation and parallelizes much better. Note precisely what it deleted: not the embedding table (§1.0), not attention (§1.2) — **the recurrence**. By 2018 transformers had eaten BERT-class language tasks; by 2020 they had eaten everything else.
+
+> [!note] The whole of §1 in one line
+> Each paper removes one component of its predecessor: word2vec removes the NNLM's **hidden layer**, negative sampling removes the **softmax**, attention removes the **fixed-length bottleneck**, the transformer removes the **recurrence**. The embedding table is never removed. Full arc: [From n-grams to attention](../sequence-models/language-model-to-transformer-lineage.md).
 
 In 2024–2026 robotics: LSTMs appear occasionally (e.g., `LSTM-GMM` baseline in Diffusion Policy), but the curriculum's interesting architectures are all transformer-based.
 
@@ -299,6 +343,8 @@ Deeper variant: try patch sizes of 4×4, 8×8, 16×16. Smaller patches = more to
 
 In order:
 
+0. **[Bengio et al. 2003 — "A Neural Probabilistic Language Model"](../../sources/bengio2003-neural-probabilistic-language-model.md)** (JMLR 3:1137–1155) — optional but short and unusually clear. §1.1 (the idea in three bullets), §2 (the model — one equation), and §5.2 (the future-work list). Read it if "why is there an embedding table" or "why is the softmax the expensive part" is unresolved for you.
+0b. **[Bahdanau, Cho & Bengio 2014 — "Neural Machine Translation by Jointly Learning to Align and Translate"](../../sources/bahdanau2014-neural-machine-translation-align-translate.md)** — read the abstract and §3.1 (four short paragraphs). This is attention, before the transformer, and it is much easier to understand here than in Vaswani's notation because there is only one of it.
 1. **[Vaswani et al. 2017 — "Attention Is All You Need"](../../sources/attention-is-all-you-need.md)** (arxiv 1706.03762) — the original transformer paper. Read the abstract + §3 (model architecture). The math is in §3.2.
 2. **Karpathy's [nanoGPT](../../sources/karpathy-nanogpt.md)** — a clean 300-line GPT implementation. Read the `model.py`; it's the cleanest transformer implementation I know. *Deprecated November 2025 in favour of [nanochat](../../sources/karpathy-nanochat.md)* — but for the *architecture-reading* purpose of this module, `nanoGPT/model.py` is still the simpler and more pedagogical read. Use [nanochat](../../sources/karpathy-nanochat.md) when you want to actually train an end-to-end ChatGPT-capability LLM (tokenizer + pretrain + SFT + RL + chat UI for ~$48 on an 8XH100 node).
 3. **Karpathy's [microGPT](../../sources/karpathy-microgpt.md)** (Feb 2026) — the *whole* algorithm in **243 lines of dependency-free Python**: dataset, char tokenizer, a hand-rolled scalar autograd engine, a 1-layer/4-head GPT, Adam, training loop, sampling. 4,192 parameters, 1,000 steps, ~1 minute on a MacBook CPU, loss 3.3 → 2.37, and it generates plausible fake names. **Read this when the PyTorch-shaped hole in your mental model bothers you** — nanoGPT is cleaner to read as *architecture*, but it delegates the backward pass to a framework and microGPT delegates nothing. Karpathy: *"This is the full algorithmic content of what is needed. Everything else is just for efficiency."*
@@ -306,9 +352,12 @@ In order:
 4. **[Dosovitskiy et al. 2020 — ViT paper](../../sources/vit-paper.md)** (arxiv 2010.11929) — the original ViT. Read the abstract + §3 (method). Compare against §4 (their CNN-vs-ViT data-scaling experiments).
 5. **The Annotated Transformer** ([rush-nlp.com](http://nlp.seas.harvard.edu/annotated-transformer/)) — Vaswani et al. 2017 rewritten as runnable PyTorch with annotations. Excellent for "I understand it; now show me code."
 6. **Lilian Weng — [The Transformer Family](https://lilianweng.github.io/posts/2020-04-07-the-transformer-family/)** — survey of transformer variants. Useful for vocabulary.
+7. **[Karpathy — Software 3.0 and the history of the Transformer](../../sources/karpathy-software-3-and-transformer-history-lecture.md)** (video, ~44 min in for the relevant part) — watch **after** the equations. Two things it does better than any text here: the historical walk 2003 → 2014 → 2017 (including [Bahdanau](../../entities/dzmitry-bahdanau.md)'s own account of inventing attention, and the fact that Bengio named it), and **attention as data-dependent message passing on a directed graph** — Q/K/V as "what I'm looking for / what I have / what I'll communicate." If you have met graph neural networks, this is the fastest route to intuition. Note the provenance warning on that page.
 
 ## What you should now be able to do
 
+- Explain what an embedding table is, why discrete inputs need one, and why it is trained jointly with the task rather than fitted separately.
+- Say what the encoder bottleneck was, why attention removes it, and which parts of modern attention were already present in Bahdanau et al. 2014.
 - Write scaled dot-product attention and multi-head attention from memory.
 - Read a paper's transformer architecture diagram (LN → attn → residual → LN → MLP → residual) and predict parameter counts and FLOPs.
 - Recognize when a model is encoder-only / decoder-only / encoder-decoder from its attention pattern.
@@ -336,6 +385,7 @@ Module 3 is foundational for:
 ## Mentioned in
 
 - [Robot-learning curriculum](robot-learning-curriculum.md)
+- [From n-grams to attention](../sequence-models/language-model-to-transformer-lineage.md)
 - [Index](../../index.md)
 
 ## Open questions / TBD

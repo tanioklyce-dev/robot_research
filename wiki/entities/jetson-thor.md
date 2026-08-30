@@ -174,7 +174,7 @@ See [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.m
 ## Mentioned in
 - [A Sim-to-Real VLA Pipeline with Seeed reBot Arm and NVIDIA Isaac](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) — Thor + AGX Orin on JetPack 7.2 as GR00T TensorRT targets; USB-port and USB-CAN gotchas; Cosmos3-Nano cuBLASLt patch.
 
-> [!note] Curated list — **42** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **43** source pages link here; the ones below are those that shaped this page.
 
 - [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.md)
 - [NVIDIA Jetson Thor product page](../sources/nvidia-jetson-thor-product-page.md)

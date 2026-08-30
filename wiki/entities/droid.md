@@ -4,7 +4,7 @@ type: entity
 subtype: dataset
 created: 2026-05-07
 updated: 2026-08-27
-sources: 30
+sources: 31
 tags: [droid, dataset, teleoperation, franka, robot-data, stanford, berkeley, oxe, molmoact2]
 ---
 
@@ -78,7 +78,7 @@ Both end up inside [X-VLA](x-vla.md)'s pretraining mixture — DROID at 31.6%, R
 
 ## Mentioned in
 
-> [!note] Curated list — **30** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **31** source pages link here; the ones below are those that shaped this page.
 - [Cosmos 3 Edge (HF blog)](../sources/nvidia-cosmos3-edge-hf-blog.md) — **Cosmos3-Edge-Policy-DROID** (4B), a DROID-finetuned manipulation policy shipped for on-robot deployment.
 - [FAST paper](../sources/fast-paper.md) — DROID's higher control frequency is what naïve action binning fails on; **FAST is what first makes efficient VLA training on DROID practical**, and enables the first **zero-shot DROID evaluation** in a completely unseen environment (language-prompted, no fine-tuning).
 - [DROID Paper](../sources/droid-paper.md)

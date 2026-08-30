@@ -2,7 +2,7 @@
 title: Abbreviations & Glossary
 type: reference
 created: 2026-05-10
-updated: 2026-08-27
+updated: 2026-08-30
 tags: [glossary, reference, acronyms, curriculum]
 ---
 
@@ -29,11 +29,17 @@ A flat index of acronyms used across this wiki, with one-line definitions and a 
 ### AR
 **Autoregressive** — predict token *t+1* conditioned on tokens *1..t*. LeWM's predictor is an AR transformer over `(z_t, a_t) → z_{t+1}`. *(Module 3.)*
 
+### Attention
+A learned, normalized, differentiable **weighted read over a set of vectors**: score a query against every key, softmax the scores, return the weighted sum of values. Originates in [Bahdanau, Cho & Bengio 2014](sources/bahdanau2014-neural-machine-translation-align-translate.md), which introduced it to escape [seq2seq](sources/sutskever2014-sequence-to-sequence-learning.md)'s fixed-length encoder bottleneck — there with an additive (feedforward) scorer, a decoder state as query, and encoder annotations serving as both keys and values. [Vaswani et al. 2017](sources/attention-is-all-you-need.md) swapped in **scaled dot-product** scoring (a matmul, hence GPU-parallel), separated keys from values, added heads, and applied it to a sequence attending to itself ([SA](#sa)). The deep move is replacing a discrete latent structure needing its own inference algorithm with a soft weighting trained end-to-end. Named by Bengio on a final editing pass; the working name was *RNNsearch*. *(Module 3.)*
+
 ### Barlow Twins
 SSL whose loss makes the cross-correlation of two augmented-view embeddings the identity (no collapse, no redundancy). *(Module 4.)*
 
 ### BC
 **Behavior Cloning** — the simplest IL: supervised regression / classification from observation to action. *(Module 6.)*
+
+### Beam search
+Decoding heuristic for autoregressive models: keep the `B` highest-log-probability partial sequences at each step, extend each, prune back to `B`, and retire a hypothesis when it emits the terminal token. Approximate — it can miss the true argmax — but simple. [Sutskever et al. 2014](sources/sutskever2014-sequence-to-sequence-learning.md) found **beam 1 (greedy) already gets most of the way** and beam 2 nearly all of it; an ensemble of 5 at beam 2 beat a single model at beam 12 and cost less. *(Module 3.)*
 
 ### BEHAVIOR-1K
 Stanford household-task benchmark; 12.4% best result (per [AI Index 2026](sources/stanford-hai-ai-index-2026.md)) — the gap that motivates module 13. *(Module 13.)*
@@ -46,6 +52,9 @@ Stanford household-task benchmark; 12.4% best result (per [AI Index 2026](source
 
 ### BYOL
 **Bootstrap Your Own Latent** — Grill et al. 2020; SSL using a target network updated by EMA; predict target features without negatives. Direct ancestor of JEPA. *(Module 4.)*
+
+### CBOW
+**Continuous Bag-of-Words** — one of the two [word2vec](#word2vec) architectures ([Mikolov et al. 2013a](sources/mikolov2013-efficient-estimation-word-representations.md)). Averages the embedding vectors of a symmetric context window (4 history + 4 future) and predicts the centre word; log-linear, no hidden layer. "Bag of words" because averaging discards order. Beats [Skip-gram](#skip-gram) on syntactic analogies (64% vs 59%) and loses badly on semantic ones (24% vs 55%). *(Module 3.)*
 
 ### CE
 **Cross-Entropy** — the standard classification loss; for predicted distribution `p̂` and target `p`, `−Σ p log p̂`. *(Module 1.)*
@@ -100,6 +109,9 @@ The 2023 successor; the encoder used by [DINO-WM](entities/dino-wm.md), [DINO-wo
 
 ### DINO-WM
 **DINO World Model** — Zhou et al., NYU + FAIR ([source page](sources/dino-wm-paper.md)); JEPA-adjacent (frozen DINOv2 encoder + learned predictor). *(Module 11.)*
+
+### Distributed representation
+An item encoded as a **pattern across many units** rather than one dedicated unit — in practice a learned `|V| × m` lookup table trained jointly with the task that consumes it. Introduced in its modern form by [Bengio et al. 2003](sources/bengio2003-neural-probabilistic-language-model.md) to beat the curse of dimensionality over discrete alphabets: with one-hot codes `cat` and `dog` are as far apart as `cat` and `the`, so nothing transfers between them. See [concept page](concepts/learning/distributed-representations.md). Every token embedding, action codebook and [latent action token](concepts/learning/latent-action-tokens.md) in this wiki is an instance. *(Modules 1 / 3.)*
 
 ### DNN
 **Deep Neural Network** — an NN with many layers (2010s convention: anything more than ~3 hidden layers). *(Module 1.)*
@@ -168,10 +180,13 @@ Conway's 1970 2D [cellular automaton](concepts/alife/cellular-automata.md); one 
 **Generalist Robot 00 Technology** *(NVIDIA's expansion)* — NVIDIA's open VLA bundled with Isaac Lab. See [entity page](entities/nvidia-groot.md). *(Module 9.)*
 
 ### GRU
-**Gated Recurrent Unit** — simpler LSTM variant; same role. *(Module 3.)*
+**Gated Recurrent Unit** — simpler LSTM variant with fewer gates; same role. Introduced by Cho et al. 2014 (un-ingested); it is the recurrent cell in both models of [Bahdanau, Cho & Bengio 2014](sources/bahdanau2014-neural-machine-translation-align-translate.md), where "hidden unit" always means the gated hidden unit. *(Module 3.)*
 
 ### HAB
 **Home Assistant Benchmark** — long-horizon household manipulation tasks (referenced by [ManiSkill-HAB](sources/maniskill-hab-paper.md)). *(Module 13.)*
+
+### Hierarchical softmax
+Replaces a flat softmax over `|V|` outputs with a **binary tree** whose leaves are the vocabulary: the probability of a word is a product of sigmoid decisions along its root-to-leaf path, costing `O(log |V|)` instead of `O(|V|)`. Introduced by Morin & Bengio; tree construction studied by Mnih & Hinton. [word2vec](#word2vec) uses a **Huffman tree**, giving frequent words short codes — expected cost `log₂(unigram-perplexity(|V|))`, roughly 2× better than a balanced tree at `|V|` = 1M. Proposed as future work in [Bengio et al. 2003](sources/bengio2003-neural-probabilistic-language-model.md) §5.2, which estimated the speed-up at `|V|/log|V|`. Largely superseded by [negative sampling](#negative-sampling) for representation learning — though it wins on the phrase task in [Mikolov et al. 2013b](sources/mikolov2013-distributed-representations-words-phrases.md). *(Module 3.)*
 
 ### Helix
 [Figure](entities/figure.md) AI's VLA ([source page](sources/helix-blog.md)), deployed on Figure 02/03 humanoids. Hierarchical System 1 / System 2 design: 7B VLM @ 7–9 Hz + 80M transformer @ 200 Hz, end-to-end trained. *(Module 9.)*
@@ -288,13 +303,22 @@ The standard convex relaxation of a bilinear term `z = xy` over boxes: four line
 **Mean Squared Error** — `mean((y - ŷ)²)`; the standard regression loss; the loss term in JEPA next-embedding prediction. *(Module 1.)*
 
 ### NCE
-**Noise-Contrastive Estimation** — Gutmann & Hyvärinen 2010; train by classifying real vs noise. Generalizes to InfoNCE in SSL. *(Modules 4 / 5.)*
+**Noise-Contrastive Estimation** — Gutmann & Hyvärinen 2010; train by classifying real vs noise. Needs both noise samples *and* their numerical probabilities, and provably approximately maximizes the softmax log-likelihood. [word2vec](#word2vec) drops the probabilities and the guarantee to get [negative sampling](#negative-sampling) ([Mikolov et al. 2013b](sources/mikolov2013-distributed-representations-words-phrases.md)); generalizes to InfoNCE in SSL. *(Modules 3 / 4 / 5.)*
+
+### n-gram
+A count-based language model that conditions on the previous `n−1` words only, estimating `P(w_t | w_{t-n+1}^{t-1})` from training-corpus relative frequencies, with **back-off** (Katz 1987) or **interpolation** (Jelinek & Mercer 1980) to shorter contexts for unseen combinations. The state of the art this wiki's language-model lineage starts by beating ([Bengio et al. 2003](sources/bengio2003-neural-probabilistic-language-model.md)). Its two structural limits: parameters exponential in `n`, and no notion of word similarity. *(Module 3.)*
 
 ### NMS
 **Non-Maximum Suppression** — post-processing that removes overlapping duplicate detections by keeping the highest-confidence box and dropping others above an [IoU](#iou) threshold; the merge step in [SAHI](concepts/robotics/sahi-slicing-inference.md). *(Perception.)*
 
+### Negative sampling
+**NEG** — [word2vec](#word2vec)'s replacement for the softmax ([Mikolov et al. 2013b](sources/mikolov2013-distributed-representations-words-phrases.md)): push the observed context word's vector toward the centre word's and `k` randomly drawn words' vectors away, with no normalization over the vocabulary. `k` = 5–20 (small corpora) or 2–5 (large). A deliberate simplification of [NCE](#nce) that **drops NCE's guarantee** of approximately maximizing the softmax log-probability, on the stated grounds that only representation quality matters. Noise distribution is the unigram raised to the **3/4 power** — tuned, unexplained, and one of ML's most-copied magic numbers. The ancestor of InfoNCE. *(Modules 3 / 4.)*
+
 ### NN
 **Neural Network** — a function built by stacking layers of weighted sums and nonlinearities; trained by gradient descent on a loss. Umbrella term. *(Module 1.)*
+
+### NPLM
+**Neural Probabilistic Language Model** — [Bengio et al. 2003](sources/bengio2003-neural-probabilistic-language-model.md); the origin of the learned embedding table. Referred to as "the NNLM" in the [word2vec](#word2vec) papers, which delete its hidden layer. *(Module 3.)*
 
 ### NPU
 **Neural Processing Unit** — a fixed-function accelerator for NN inference, distinct from a [GPU](#gpu) in that it is built for **low-precision integer** matrix work rather than general parallel compute. Typically integrated into a mobile/embedded SoC, quoted in **TOPS** (tera-operations per second, almost always INT8 — not comparable to a GPU's FP16/FP32 FLOPS), and reached through a **vendor-specific runtime and driver** rather than a portable API. Three consequences that recur across this wiki's edge-deployment coverage: models must be **quantized** to INT8 ahead of time, which is a lossy conversion needing its own validation (a quantized model's confidence scores sit on their own scale — the float model's 0.5 is not its 0.5); the toolchain converts [ONNX](#onnx) to a **proprietary format** offline rather than executing it directly; and the driver is often **out-of-tree**, so mainline kernels have none. [Microduck](entities/microduck.md)'s Rockchip RK3566 carries a **0.8 TOPS single-core INT8** NPU reached via `librknnrt.so` (`rknn-toolkit2` → `.rknn`), which Armbian ships as a **disabled device-tree node** — hardware, kernel and driver all present, and still no NPU until an overlay enables it ([runtime repo](sources/microduck-runtime-repo.md)). Contrast [Jetson](entities/jetson-thor.md), where the accelerator is a CUDA GPU and the portability story is entirely different. *(Module 9 — deployment.)*
@@ -319,6 +343,9 @@ Open-weights VLA used as a baseline in many 2024–2026 papers. *(Module 9.)*
 
 ### PAR
 **Physically Assistive Robotics** — robots that physically assist disabled users (feeding, dressing, transfer). See [Nanavati 2024 systematic review](sources/nanavati2024-physically-assistive-robots-review.md). *(Module 13.)*
+
+### Perplexity
+The standard language-model metric: the **geometric mean of `1/P̂(w_t | context)`** over a held-out corpus, equivalently `exp` of the average negative log-likelihood. Read it as "how many equally-likely words is the model effectively choosing between at each step" — lower is better. Comparable only across models scored on the same tokenization and the same treatment of sentence boundaries, which is why [Bengio et al. 2003](sources/bengio2003-neural-probabilistic-language-model.md) states its convention explicitly. *(Module 3.)*
 
 ### Perspective function / perspective operator
 For a closed convex function `f`, its perspective is `f̃(x, λ) := λ·f(x/λ)` for `λ > 0`, extended so that `f̃(0,0) = 0`; for a set, the perspective is the cone over it. Convexity is preserved and conic representations carry over, so a solver that handles `X` handles `X̃`. The workhorse of [GCS](#gcs): multiplying a cost or constraint by a `0/1` flow variable is ill-defined when the cost is `∞` and the flow is `0`, and the perspective **switches the edge cleanly off instead** ([Marcucci et al. 2021](sources/shortest-paths-in-graphs-of-convex-sets-paper.md)). *(Classical-robotics branch.)*
@@ -419,6 +446,12 @@ NN architecture with two (or more) weight-tied sub-networks applied to two input
 ### Spectrahedron
 The feasible set of a **semidefinite program** — the intersection of the cone of positive-semidefinite matrices with an affine subspace. Convex by construction, which is the whole point: relax a nonconvex contact-dynamics [QCQP](#qcqp) into an SDP and its feasible set becomes a legal vertex set for a [graph of convex sets](concepts/robotics/graphs-of-convex-sets.md). One spectrahedron per contact mode ([Tedrake 2024](sources/tedrake-gcs-foundation-models-talk.md)). *(Classical-robotics branch.)*
 
+### Skip-gram
+One of the two [word2vec](#word2vec) architectures ([Mikolov et al. 2013a](sources/mikolov2013-efficient-estimation-word-representations.md)). The inverse of [CBOW](#cbow): predict the surrounding words *from* the centre word, sampling `R ∈ [1, C]` words each side so distant words contribute less. Log-linear, no hidden layer. Much stronger on semantic analogies (55% vs CBOW's 24%), slightly weaker on syntactic. Trained with [hierarchical softmax](#hierarchical-softmax) or [negative sampling](#negative-sampling). *(Module 3.)*
+
+### Soft alignment
+Alignment represented as a **normalized weight distribution** over source positions rather than a discrete correspondence. Classical SMT treated alignment as a latent variable inferred by EM in a separate stage; [Bahdanau et al. 2014](sources/bahdanau2014-neural-machine-translation-align-translate.md) made it a soft weighting computed inside the network and trained by the same backprop pass. Handles cases hard alignment cannot — choosing `le/la/les/l'` for English `the` requires seeing the *next* word — and needs no `[NULL]` token for length mismatches. *(Module 3.)*
+
 ### SSM
 **Speed and Separation Monitoring** — the ISO/TS 15066 collaborative mode that permits **no** contact: if a collision becomes reachable, the robot must reach a complete stop. The coexistence counterpart to [PFL](#pfl). *(Classical-robotics branch.)*
 
@@ -487,6 +520,9 @@ Graph over sampled configurations with an edge between any two connected by a st
 
 ### WM
 **World Model** — learned predictive model of environment dynamics: `s_{t+1} = f(s_t, a_t)`. See [concept page](concepts/world-models/world-model.md). *(Module 10.)*
+
+### word2vec
+The two [Mikolov et al. 2013](sources/mikolov2013-efficient-estimation-word-representations.md) papers ([and](sources/mikolov2013-distributed-representations-words-phrases.md)) plus the C implementation released with them — [CBOW](#cbow) and [Skip-gram](#skip-gram) trained with [hierarchical softmax](#hierarchical-softmax) or [negative sampling](#negative-sampling). The step where learned embeddings stopped being a byproduct of a language model and became a **downloadable artifact**: pretrained vectors over 100B+ words, 1.4M named entities. Source of the `king − man + woman ≈ queen` analogy result — which is real, and whose nearest-neighbour search **excludes the input words**. *(Module 3.)*
 
 ### YOLO
 **You Only Look Once** — Redmon et al. 2016; the single-stage real-time object-detector family. The modern lineage (…v8 / v10 / v11 / v26) is maintained as [Ultralytics YOLO](entities/ultralytics-yolo.md); YOLOv11n is the edge-sized variant used in [child detection](sources/ptit-yolov11n-child-detection.md). *(Perception.)*

@@ -56,7 +56,7 @@ Cosmos is the underlying generative video model that's enabling the rise of [Wor
 
 ## Mentioned in
 
-> [!note] Curated list — **36** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **37** source pages link here; the ones below are those that shaped this page.
 
 - [Cosmos 3 Technical Report](../sources/cosmos-3-technical-report.md)
 - [GR00T N1.6 research page](../sources/groot-n1_6.md) — Cosmos-2B VLM backbone

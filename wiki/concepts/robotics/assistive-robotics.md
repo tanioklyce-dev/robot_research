@@ -104,7 +104,7 @@ The navigation-domain counterpart is [DRAGON (Liu et al. 2024)](../../sources/dr
 
 ## Mentioned in
 
-> [!note] Curated list — **32** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **34** source pages link here; the ones below are those that shaped this page.
 
 - [IEEE Spectrum — Stretch assistive robot](../../sources/ieee-spectrum-stretch-assistive.md)
 - [ITU AI for Good — assistive robots](../../sources/itu-aiforgood-assistive-robots.md)

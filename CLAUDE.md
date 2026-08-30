@@ -39,6 +39,7 @@ wiki/
     ├── assistive/        # in-home / PAR / autonomy levels
     ├── agents/           # agentic-AI architecture
     ├── rl/               # RL history & lineage
+    ├── sequence-models/  # language-model → attention → transformer lineage
     └── society/          # AI-and-society / economics-of-ML cross-cutting analyses
 ```
 

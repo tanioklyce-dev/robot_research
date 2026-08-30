@@ -3,7 +3,7 @@ title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
 updated: 2026-08-27
-sources: 49
+sources: 50
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -139,7 +139,7 @@ The original wiki synthesis observed [V-JEPA 2](../../entities/v-jepa-2.md) and 
 
 ## Mentioned in
 
-> [!note] Curated list — **49** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **50** source pages link here; the ones below are those that shaped this page.
 
 - [Bromley et al. 1993 — Signature Verification using a Siamese TDNN](../../sources/bromley1993-siamese-signature-verification.md) — eponymous Siamese-network paper; the J/A in JEPA descend from this architecture
 - [A Path Towards Autonomous Machine Intelligence (LeCun, 2022)](../../sources/lecun2022-path-towards-ami.md) — canonical position paper / definition

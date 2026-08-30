@@ -99,7 +99,7 @@ Two things follow for robots specifically:
 
 ## Mentioned in
 
-> [!note] Curated list — **61** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **65** source pages link here; the ones below are those that shaped this page.
 
 - [AI is a Strange Loop (Carroll, 2026)](../../sources/arcnem-strange-loops-ai-agents.md) — names this loop Observe→Reason→Act→Evaluate and argues the self-reference *is* the agency.
 - [How Claude Performs on Robotics Tasks](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — this pattern **measured**: an LLM supervising a pretrained [MolmoAct](../../entities/molmoact.md) policy scores *worse* than the policy alone in-distribution, better on novel tasks. Knowing when **not** to override is the skill.

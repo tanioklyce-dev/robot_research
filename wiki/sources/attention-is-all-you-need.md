@@ -28,6 +28,11 @@ tags: [transformer, attention, self-attention, multi-head, positional-encoding, 
 - **JEPA predictors** — AR transformers operating on latent tokens (e.g. [LeWM](../entities/leworldmodel.md), [V-JEPA 2-AC](../entities/v-jepa-2.md)).
 - **[Behavior Transformer / VQ-BeT](bet-paper.md)** — decoder-only transformer policies.
 
+> [!note] What this paper did *not* invent
+> **Attention.** The mechanism — a learned, normalized, differentiable weighted read over a set of encoder states — is [Bahdanau, Cho & Bengio 2014](bahdanau2014-neural-machine-translation-align-translate.md), which introduced it to escape the fixed-vector bottleneck of [seq2seq](sutskever2014-sequence-to-sequence-learning.md) and gave it the name (Bengio's, on a final editing pass; the working name was *RNNsearch*). This paper's contributions are the **deletions and the packaging**: no recurrence, dot-product scoring instead of a feedforward scorer, K/V separation, multi-head, self- rather than only cross-attention, plus positional encoding to replace the order information recurrence had supplied. **Nor the embedding table**, which is [Bengio et al. 2003](bengio2003-neural-probabilistic-language-model.md) and arrives here unchanged. See [From n-grams to attention](../syntheses/sequence-models/language-model-to-transformer-lineage.md).
+>
+> The scoring-function change is the one that mattered for scale: a dot product is a matmul, so attention became GPU-parallel. [Karpathy's reading](karpathy-software-3-and-transformer-history-lecture.md) is that the architecture was "designed very deliberately to run efficiently on GPUs," reasoning "backwards from the constraints of the hardware."
+
 The paper is the **canonical reference for the [Transformer glossary entry](../glossary.md#transformer)** and for any time the wiki says "self-attention," "multi-head attention," "positional encoding," or "encoder-decoder."
 
 ## Abstract (verbatim)
@@ -160,6 +165,7 @@ The Transformer trained only on 40K WSJ sentences hit 91.3 F1, beating Vinyals/K
 
 ## Concepts touched
 
+- **[Attention](../glossary.md#attention)** — **not** defined here. Originates in [Bahdanau, Cho & Bengio 2014](bahdanau2014-neural-machine-translation-align-translate.md); this paper changes the scoring function to a scaled dot product, separates keys from values, adds heads, and turns it on the sequence itself.
 - **[Transformer](../glossary.md#transformer)** — defined here; glossary entry already exists.
 - **[Self-attention](../glossary.md#sa)** — the central operation; defined here.
 - **[Multi-head attention](../glossary.md#mha)** — defined here.
@@ -171,7 +177,13 @@ The Transformer trained only on 40K WSJ sentences hit 91.3 F1, beating Vinyals/K
 ## Position in the lineage
 
 ```
-Bahdanau et al. 2014 (attention for NMT, attached to RNN)
+Bengio et al. 2003 (the learned embedding table; fixed context window)
+   ↓
+Mikolov et al. 2013 (word2vec — embeddings as a reusable artifact, at scale)
+   ↓
+Sutskever, Vinyals & Le 2014 (seq2seq — encoder → ONE fixed vector → AR decoder)
+   ↓
+Bahdanau, Cho & Bengio 2014 (attention for NMT, attached to an RNN)
    ↓
 "Attention Is All You Need" 2017 (this paper — attention WITHOUT RNN)
    ↓
@@ -199,3 +211,4 @@ This is the primary reference for **[Curriculum Module 3 — Sequence models, at
 - The **ablation table (Table 3)** is the empirical evidence behind many widely-repeated "transformer folklore" claims (e.g., "8 heads is enough"). Worth checking how well those still hold at scales 1000× larger.
 - The paper's **constituency-parsing experiment** is rarely cited but historically important — first task generalization signal. Could anchor a synthesis on "when did people realize transformers were a general architecture, not a translation trick?"
 - Modern descendants of the **positional-encoding** choice (RoPE, ALiBi, axial RoPE) are not yet ingested as separate sources, despite being foundational for the [DINOv3](../entities/dinov3.md) and modern-LLM stacks.
+- ~~The Bahdanau 2014 attention ancestor has no source page.~~ **Resolved 2026-08-30** — [ingested](bahdanau2014-neural-machine-translation-align-translate.md), along with [seq2seq](sutskever2014-sequence-to-sequence-learning.md), [word2vec](mikolov2013-efficient-estimation-word-representations.md) and the [NPLM](bengio2003-neural-probabilistic-language-model.md). **Luong et al. 2015** (dot-product attention scoring) remains the one missing step between Bahdanau's additive scorer and this paper's.

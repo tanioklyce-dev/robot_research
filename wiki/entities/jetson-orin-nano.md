@@ -87,7 +87,7 @@ In-place updates use apt against NVIDIA's L4T Debian repository: `apt update && 
 
 ## Mentioned in
 
-> [!note] Curated list — **33** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **34** source pages link here; the ones below are those that shaped this page.
 
 - [Cutting the Cord (Shaw et al., 2026)](../sources/cutting-the-cord-untethered-xlerobot.md) — measured onboard-XLeRobot build + 67-TOPS / on-edge-VLA-latency numbers.
 - [alfredang/lerobot — ChatGPT LeKiwi](../sources/alfredang-lerobot-lekiwi-chatgpt.md) — an Orin Nano 8 GB mounted onboard a LeKiwi, replacing the RPi; runs LeRobot + ROS 2 SLAM + a GPT-4o loop.

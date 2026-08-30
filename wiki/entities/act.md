@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-05-25
 updated: 2026-08-26
-sources: 28
+sources: 29
 tags: [act, action-chunking, transformer, imitation-learning, behavior-cloning, aloha, mobile-aloha, tony-zhao, stanford, lerobot]
 ---
 

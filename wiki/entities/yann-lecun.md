@@ -3,8 +3,8 @@ title: Yann LeCun
 type: entity
 subtype: person
 created: 2026-05-07
-updated: 2026-08-27
-sources: 43
+updated: 2026-08-30
+sources: 44
 tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs, logical-intelligence, ebm, diffusion-policy, object-centric, spectral-graph-theory]
 ---
 
@@ -67,7 +67,7 @@ LeCun is one of the small number of researchers whose **simultaneous senior posi
 
 ## Mentioned in
 
-> [!note] Curated list — **43** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **44** source pages link here; the ones below are those that shaped this page.
 
 - [VAE Paper (Kingma & Welling, 2013)](../sources/vae-paper.md) — his predictive sparse decomposition (Kavukcuoglu, Ranzato, LeCun 2008) is cited as an encoder–decoder architecture the VAE authors "drew some inspiration" from.
 - [Bromley et al. 1993 — Signature Verification using a Siamese TDNN](../sources/bromley1993-siamese-signature-verification.md) — co-author; original Siamese network paper.

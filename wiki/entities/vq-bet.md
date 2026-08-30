@@ -3,8 +3,8 @@ title: VQ-BeT
 type: entity
 subtype: method
 created: 2026-05-08
-updated: 2026-07-04
-sources: 14
+updated: 2026-08-30
+sources: 16
 tags: [vq-bet, behavior-cloning, transformer, vector-quantization, latent-action, lee-2024, icml-2024]
 ---
 
@@ -40,6 +40,7 @@ From [RUM paper](../sources/robot-utility-models-paper.md) §3.2:
 
 ## Mentioned in
 - [VQ-BeT Paper](../sources/vq-bet-paper.md)
+- [Bengio et al. 2003 — A Neural Probabilistic Language Model](../sources/bengio2003-neural-probabilistic-language-model.md) — cited in the lineage as the origin of the object VQ-BeT's codebook is an instance of: a learned `|V| × m` embedding table over a discrete vocabulary, here actions rather than words. See [distributed representations](../concepts/learning/distributed-representations.md).
 - [Robot Utility Models Paper](../sources/robot-utility-models-paper.md) — best-performing policy class.
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — supported single-task BC policy alongside [ACT](act.md) and [Diffusion Policy](diffusion-policy.md); note that the paper omits VQ-BET from Figures 7a/7b upload/download tracking because users typically don't upload VQ-BET checkpoints.
 

@@ -4,7 +4,7 @@ type: entity
 subtype: dataset
 created: 2026-08-27
 updated: 2026-08-28
-sources: 5
+sources: 6
 tags: [figure, index, dataset, human-data, egocentric, crowdsourcing, gig-economy, helix, unverified]
 ---
 

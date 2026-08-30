@@ -2,8 +2,8 @@
 title: Crowdsourced robot training data
 type: concept
 created: 2026-08-27
-updated: 2026-08-28
-sources: 5
+updated: 2026-08-30
+sources: 6
 tags: [crowdsourcing, human-data, egocentric, data-pipeline, data-quality, fraud, deduplication, data-labor, gig-economy, scaling-laws, go-big, brookfield, consent]
 ---
 
@@ -101,7 +101,13 @@ The wiki has several published approaches to that gap — [EgoScale](../../sourc
 
 What would settle it is unglamorous: **an acceptance rate, a total, a diversity trend, and one downstream number.** Until then, crowdsourcing is a plausible answer to a real constraint, demonstrated only as a logistics achievement — plus [Go-Big](../../sources/figure-project-go-big.md)'s navigation result, which is genuine but sits at the easiest end of the transfer problem.
 
+> [!note] A dataset is not a data engine
+> [Karpathy's data-engine loop](../../sources/karpathy-software-3-and-transformer-history-lecture.md) — five years of Tesla Autopilot, as he describes it — is `dataset → train → deploy → telemetry and monitoring → collect the data the network finds troubling → label → back into train/test → repeat`. The load-bearing step is the one that is hardest to copy: **deployment telemetry that identifies failures and routes them back**.
+>
+> That step is exactly what a crowdsourced or human-video corpus lacks. Harvesting more hours is the *volume* half of the loop with the *targeting* half missing, and targeting is what made the loop work. It sharpens the marginal-novelty complaint already on this page: an embedding model arbitrating novelty is a proxy for "what the network finds troubling," and a poor one — visual dedup discards contact-dynamics variation, which is where the failures actually are. Worth applying to any claim in this wiki that a large robot dataset constitutes a data engine.
+
 ## Mentioned in
+- [Karpathy — Software 3.0 and the history of the Transformer](../../sources/karpathy-software-3-and-transformer-history-lecture.md) — the data-engine loop, and why targeting rather than volume is the hard part.
 
 - [Introducing Index (Figure AI)](../../sources/figure-index-announcement.md) — the five-stage pipeline, fraud as a named stage, and the diversity-per-1,000-hours framing.
 - [Project Go-Big](../../sources/figure-project-go-big.md) — the landlord-mediated variant, and the wiki's only human-video-only transfer result.
