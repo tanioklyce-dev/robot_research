@@ -3,11 +3,11 @@ title: "From n-grams to attention — the lineage that produced the Transformer"
 type: synthesis
 created: 2026-08-30
 updated: 2026-08-30
-tags: [lineage, history, language-models, embeddings, attention, transformer, seq2seq, word2vec, sequence-models]
+tags: [lineage, history, clip, gato, decision-transformer, robotics-bridge, language-models, embeddings, attention, transformer, seq2seq, word2vec, sequence-models]
 ---
 
 > [!note] What this page is
-> A seven-paper arc, all now ingested as primaries, running 2003 → 2017. It exists because the wiki had the **destination** ([Attention Is All You Need](../../sources/attention-is-all-you-need.md), [ViT](../../sources/vit-paper.md), and every transformer-trunked [VLA](../../concepts/learning/vla-models.md)) in high resolution and the **road** not at all. Written after ingesting the five, and cross-checked against [Karpathy's own telling](../../sources/karpathy-software-3-and-transformer-history-lecture.md) of the same lineage.
+> A ten-paper arc, all now ingested as primaries, running 2003 → 2022 — from the embedding table to the first generalist robot policies. It exists because the wiki had the **destination** ([Attention Is All You Need](../../sources/attention-is-all-you-need.md), [ViT](../../sources/vit-paper.md), and every transformer-trunked [VLA](../../concepts/learning/vla-models.md)) in high resolution and the **road** not at all. Written after ingesting the five, and cross-checked against [Karpathy's own telling](../../sources/karpathy-software-3-and-transformer-history-lecture.md) of the same lineage.
 
 ## The arc in one table
 
@@ -108,8 +108,33 @@ Three claims, each with a live consequence in this wiki's actual subject matter.
 
 **Scale changes what is worth building in** ([inductive bias](../../concepts/learning/inductive-bias.md)). The chain's consistent finding — restated by [Karpathy](../../sources/karpathy-software-3-and-transformer-history-lecture.md) as "if you have infinite data you want to encode less and less" and by the [ViT paper](../../sources/vit-paper.md) as data trumping inductive bias — cuts the other way at robot-data scale. Language went from 14M words (2003) to 100B (2013) to internet-scale. Robot manipulation corpora are at [350 hours](../../entities/droid.md) to [20,854](../../sources/egoscale-paper.md). **This lineage is the argument for inductive bias in robot learning, not against it** — the architectures that discarded priors did so after their data grew four orders of magnitude, and robot data has not.
 
+## The bridge: how the transformer got into robotics (2021–2022)
+
+The arc above ends in 2017 with an architecture and no reason to think it had anything to do with robots. Three papers carried it across, and **they are all the same move**: fix the transformer, define a tokenization, call the task next-token prediction. Karpathy's version — *"you can just copy-paste this architecture and use it everywhere; what's changing is the details of the data and the chunking of the data"* ([lecture](../../sources/karpathy-software-3-and-transformer-history-lecture.md)) — is exactly what these three did.
+
+| Year | Paper | What it tokenized | What it unlocked |
+|---|---|---|---|
+| 2021 | [CLIP](../../sources/clip-paper.md) | (image, text) into a **shared** embedding space, by contrast | Language as a way to *name* visual concepts — the "vision-language" half of a [VLA](../../concepts/learning/vla-models.md) |
+| 2021 | [Decision Transformer](../../sources/decision-transformer-paper.md) | `(return-to-go, state, action)` triples | RL as sequence modelling; the **interleaved observation-action format** most robot policies still use |
+| 2022 | [Gato](../../sources/gato-paper.md) | *everything* — text, image patches, button presses, **joint torques** | One set of weights across 604 tasks and multiple embodiments; the **discrete action bin** |
+
+Then RT-1 (2022) and RT-2 (2023) combine them — a CLIP-lineage vision-language backbone emitting Gato-style discretized action tokens in a DT-style interleaved sequence — and the [VLA](../../concepts/learning/vla-models.md) exists.
+
+### Three things the bridge papers say that their citations usually drop
+
+**Gato chose 1.2B parameters because of the control rate, not the capability curve.** *"We focus our training at the operating point of model scale that allows real-time control of real-world robots."* Every "why is this VLA only 3B" question in this wiki traces to a constraint that was stated as a deliberate design choice in 2022, and the [control-rate ladder](../platforms/control-rate-ladder.md) is the same argument arrived at later from hardware.
+
+**Decision Transformer is largely conditional imitation, and its own §5.1 shows it.** Percentile-BC — plain behaviour cloning on the top `X%` of trajectories by return — matches DT across most of D4RL. DT's advantage is that it finds the right percentile automatically; it does **not** learn a policy better than its data. Since every VLA in this wiki inherits DT's format and trains by behaviour cloning, *conditional imitation* is the honest description of the whole family, and the paper that started it said so.
+
+**CLIP's robustness gain does not survive fine-tuning.** Zero-shot CLIP closes the natural-distribution-shift gap by up to 75%; the paper reports the benefit is "almost entirely gone" after full supervised fine-tuning. Every robot policy here fine-tunes a pretrained backbone on a few hundred demonstrations, and **nobody has measured what that costs** — which connects directly to [LIBERO-PRO](../../sources/libero-pro-paper.md)'s collapse finding and [the proposed experiment](../projects/latent-inspection-policy-collapse.md).
+
+### What did *not* transfer
+
+The subtraction pattern that governs 2003–2017 stops here. These three papers **add**: a second modality, a reward channel, a universal tokenizer. Nothing is removed. The one genuine removal since is architectural — [EchoWorld](../../sources/echoworld-paper.md) drops DT's interleaved token format for pairwise 6-DOF pose differences injected into the attention itself, and beats Decision Transformer on probe guidance. Whether that removal generalizes to standard robot benchmarks is untested, and both codebases are open.
+
 ## Related
 
+- [CLIP](../../sources/clip-paper.md) · [Gato](../../sources/gato-paper.md) · [Decision Transformer](../../sources/decision-transformer-paper.md) — the robotics bridge
 - [Curriculum Module 3 — Sequence models, attention, and transformers](../curriculum/curriculum-03-attention-and-transformers.md)
 - [Distributed representations](../../concepts/learning/distributed-representations.md) · [Inductive bias](../../concepts/learning/inductive-bias.md)
 - [Attention Is All You Need](../../sources/attention-is-all-you-need.md) · [ViT](../../sources/vit-paper.md)

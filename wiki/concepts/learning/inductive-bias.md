@@ -3,7 +3,7 @@ title: Inductive bias
 type: concept
 created: 2026-08-30
 updated: 2026-08-30
-sources: 10
+sources: 11
 tags: [inductive-bias, generalization, scaling, architecture, priors, ssl, vit, cnn, robot-data-scale]
 ---
 

@@ -80,6 +80,9 @@ Stanford household-task benchmark; 12.4% best result (per [AI Index 2026](source
 ### Conformal prediction
 **CP** — a distribution-free framework that turns any score into a calibrated threshold with a finite-sample guarantee: given exchangeable calibration data, a new in-distribution sample's score stays inside the band with probability ≥ 1−α. The calibration layer under both of the wiki's [runtime failure detectors](concepts/robotics/runtime-failure-detection.md) — [Sentinel](sources/sentinel-paper.md)'s constant quantile threshold and [FAIL-Detect](sources/fail-detect-paper.md)'s **time-varying band** — and under predictive red-teaming. Note the direction: it bounds **false alarms**, not misses; bounding misses would require failure data. *(Evaluation branch.)*
 
+### CLIP
+**Contrastive Language–Image Pre-training** — OpenAI 2021 ([paper](sources/clip-paper.md), [entity](entities/clip.md)). Image and text encoders trained on **400M internet pairs** to place matching pairs together in a shared embedding space; at inference the text encoder **synthesizes a classifier** from class names, giving zero-shot transfer. 76.2% ImageNet zero-shot, matching ResNet-50 with none of its training data. The vision-language half of every [VLA](concepts/learning/vla-models.md). ⚠️ Near-random on counting and spatial relations; its robustness gain largely vanishes under fine-tuning. *(Modules 2 / 9.)*
+
 ### CNN
 **Convolutional Neural Network** — NN whose layers slide a small filter across the input (image), exploiting local spatial structure. *(Module 2.)*
 
@@ -91,6 +94,9 @@ Vision benchmark datasets used for pretraining / evaluating CNNs and ViTs. *(Mod
 
 ### DAgger
 **Dataset Aggregation** — Ross et al. 2011; iteratively roll out a learned policy, query expert for corrections, retrain — fixes BC's distribution-shift problem. *(Module 6.)*
+
+### DT
+**Decision Transformer** — Chen, Lu et al. 2021 ([paper](sources/decision-transformer-paper.md), [entity](entities/decision-transformer.md)). RL as next-token prediction: condition on a **return-to-go** and emit actions autoregressively; `K` timesteps → `3K` tokens `(R̂, s, a)` with a per-*timestep* embedding. No value function, no TD. The source of the interleaved observation-action format most robot policies use. Its own Percentile-BC ablation shows it is largely **conditional imitation**. *(Modules 8 / 9.)*
 
 ### DDIM
 **Denoising Diffusion Implicit Models** — Song, Meng, Ermon 2020; deterministic non-Markovian sampler that produces samples in far fewer steps. *(Module 5.)*
@@ -166,6 +172,9 @@ NN that maps a raw input (image, video clip, action sequence, etc.) into an embe
 
 ### GAN
 **Generative Adversarial Network** — generator + discriminator trained adversarially. Largely superseded by diffusion in 2022+. *(Module 5.)*
+
+### Gato
+DeepMind 2022 ([paper](sources/gato-paper.md), [entity](entities/gato.md)). A **1.2B** decoder-only transformer over **604 tasks** with one set of weights, tokenizing text, image patches, button presses and **joint torques** into a single stream. Continuous values are **mu-law encoded and binned into 1024 levels** — the ancestor of discrete action tokens ([FAST](entities/fast-action-tokenization.md), [VQ-BeT](entities/vq-bet.md)). Model size was chosen for **real-time robot control**, not capability. *(Module 9.)*
 
 ### GCS
 **Graphs of Convex Sets** — an optimization framework where each graph vertex carries a convex set and each edge a convex length function; the shortest-path problem over it jointly selects a discrete path *and* continuous values along it. Its MICP formulation relaxes so tightly that one LP/[SOCP](#socp) plus randomized rounding usually recovers the global optimum — with a free per-query optimality certificate. Also the name of the collision-free motion planner built on it ([source page](sources/gcs-motion-planning-paper.md), [concept page](concepts/robotics/graphs-of-convex-sets.md)). *(Classical-robotics branch.)*
@@ -513,7 +522,7 @@ Graph over sampled configurations with an edge between any two connected by a st
 **Vision-Language-Action** — VLM adapted to emit *actions* rather than text; the dominant 2024–2026 generalist-policy paradigm. See [VLA concept](concepts/learning/vla-models.md). *(Module 9.)*
 
 ### VLM
-**Vision-Language Model** — multimodal model accepting image + text, emitting text (e.g. GPT-4V, Gemini, Claude with vision). *(Module 9.)*
+**Vision-Language Model** — multimodal model accepting image + text, emitting text (e.g. GPT-4V, Gemini, Claude with vision). Descends from [CLIP](entities/clip.md)'s demonstration that natural language can supervise vision at scale. *(Module 9.)*
 
 ### VQ-BeT
 **Vector-Quantized Behavior Transformer** — Lee et al. 2024; replaces BeT's k-means with a learned VQ codebook; top performer in [RUM](entities/robot-utility-models.md) ablations. *(Module 7.)*

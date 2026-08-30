@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-05-08
 updated: 2026-08-30
-sources: 16
+sources: 17
 tags: [vq-bet, behavior-cloning, transformer, vector-quantization, latent-action, lee-2024, icml-2024]
 ---
 

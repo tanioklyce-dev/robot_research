@@ -3,7 +3,7 @@ title: Latent action tokens
 type: concept
 created: 2026-08-04
 updated: 2026-08-30
-sources: 4
+sources: 5
 tags: [latent-action-tokens, cross-embodiment, rq-vae, codebook, unit, univla, visual-anchoring, action-representation, humanoid]
 ---
 

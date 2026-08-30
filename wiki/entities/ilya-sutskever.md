@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-30
 updated: 2026-08-30
-sources: 5
+sources: 6
 tags: [person, google, openai, ssi, seq2seq, encoder-decoder, lstm, alexnet, word2vec]
 ---
 

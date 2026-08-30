@@ -3,12 +3,12 @@ title: CLIPort
 type: entity
 subtype: model
 created: 2026-08-03
-updated: 2026-08-03
-sources: 2
+updated: 2026-08-30
+sources: 3
 tags: [cliport, imitation-learning, manipulation, baseline, transporter-nets, generalization]
 ---
 
-**CLIPort** — a language-conditioned imitation-learning policy for tabletop manipulation (CLIP semantics + Transporter Nets spatial reasoning), widely used as the pre-VLA supervised baseline.
+**CLIPort** — a language-conditioned imitation-learning policy for tabletop manipulation ([CLIP](clip.md) semantics + Transporter Nets spatial reasoning), widely used as the pre-VLA supervised baseline.
 
 ## Why it matters in this wiki — the collapse baseline
 CLIPort is the policy that **goes to zero** in the early [code-as-policy](../concepts/agents/code-as-policy.md) papers, and it is the clearest precedent for the 2026 [LIBERO-PRO](../sources/libero-pro-paper.md) result:

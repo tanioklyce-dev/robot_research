@@ -3,7 +3,7 @@ title: Distributed representations (learned embeddings)
 type: concept
 created: 2026-08-30
 updated: 2026-08-30
-sources: 7
+sources: 8
 tags: [distributed-representations, word2vec, cbow, skip-gram, negative-sampling, embeddings, word-embeddings, lookup-table, curse-of-dimensionality, tokenization, bengio, foundational]
 ---
 
