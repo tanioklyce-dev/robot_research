@@ -2,7 +2,7 @@
 title: Curriculum Module 2 — CNNs and visual representation learning
 type: synthesis
 created: 2026-05-10
-updated: 2026-05-10
+updated: 2026-08-30
 tags: [curriculum, module-2, cnn, convolution, pooling, resnet, imagenet, fine-tuning, visual-encoder]
 prereqs: [curriculum-01]
 status: draft
@@ -39,7 +39,7 @@ The CNN family — from the convolution operation to ResNet-18 as the BC-line de
 
 ## §1 — The convolution operation
 
-The key inductive bias of CNNs: **spatial locality + weight sharing.**
+The key [inductive bias](../../concepts/learning/inductive-bias.md) of CNNs: **spatial locality + weight sharing.**
 
 ### 2D convolution (the mathematical definition)
 
@@ -51,7 +51,7 @@ Y[i, j, c'] = Σ_{u=0..k-1} Σ_{v=0..k-1} Σ_{c=0..C_in-1}  K[u, v, c, c'] · X[
 
 The kernel is a small (typically 3×3 or 5×5) tensor that **slides** across the input, computing dot products with the local patch at each position. The output channel dimension `C_out` represents *different feature detectors* — each output channel has its own kernel, and they all see the same input patch.
 
-### Why this is a good inductive bias
+### Why this is a good [inductive bias](../../concepts/learning/inductive-bias.md)
 
 Three properties:
 
@@ -210,8 +210,11 @@ The unifying frame: a visual encoder maps `image → feature_vector`. Whether th
 
 [Module 3](curriculum-03-attention-and-transformers.md) covers ViT in detail. For now, the practical heuristic:
 
-- **CNN wins when:** small datasets (CNN's inductive bias regularizes); modest compute budget; "classical" image classification or detection tasks; legacy pipelines.
-- **ViT wins when:** large datasets (so the lack of CNN inductive bias doesn't hurt); features need to interact globally (attention sees everything); pretraining is available at scale (DINOv2, CLIP).
+- **CNN wins when:** small datasets (CNN's [inductive bias](../../concepts/learning/inductive-bias.md) regularizes); modest compute budget; "classical" image classification or detection tasks; legacy pipelines.
+- **ViT wins when:** large datasets (so the lack of CNN [inductive bias](../../concepts/learning/inductive-bias.md) doesn't hurt); features need to interact globally (attention sees everything); pretraining is available at scale (DINOv2, CLIP).
+
+> [!note] Which side of the curve robotics is on
+> This heuristic is the [inductive-bias](../../concepts/learning/inductive-bias.md) scaling trade-off in miniature. Worth reading alongside the caution on that page: the bias-discarding results were earned at [JFT-300M](../../sources/vit-paper.md) scale and *lost* at 1.3M images, while robot corpora sit three to five orders of magnitude below that. The reason "both work" here is that the ViT side is almost always a **pretrained** backbone — you are renting someone else's data scale, not reaching it.
 
 For 2024–2026 robotics: **both work**. ResNet-18 is the BC default; ViT (DINOv2 or custom) is the JEPA-line default. The two are interchangeable for many tasks.
 

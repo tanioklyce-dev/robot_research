@@ -50,7 +50,7 @@ The paper's diagnosis of that family, in §1, is two-pronged and worth keeping s
 
 Their framing of generalization is the useful one: think of probability mass initially concentrated on training points and then spread into a surrounding volume. *"In high dimensions, it is crucial to distribute probability mass where it matters rather than uniformly in all directions around each training point."* The contribution is a different — and learned — choice of where "it matters."
 
-> [!note] The continuous/discrete asymmetry
+> [!note] The continuous/discrete asymmetry — an [inductive-bias](../concepts/learning/inductive-bias.md) argument
 > §1's opening argument is the one to carry forward: for **continuous** variables, generalization comes cheaply because smooth function classes (MLPs, Gaussian mixtures) have local smoothness we can exploit. For **discrete** spaces there is no such structure — any change to a discrete variable can change the target arbitrarily, and with large alphabets every observation is nearly maximally far from every other. The whole paper is a device for *manufacturing* a continuous space in which smoothness is available. That reframing recurs whenever this wiki discretizes something (action bins, VQ codebooks) and then has to reintroduce a metric.
 
 ## The model (§2)
@@ -221,6 +221,7 @@ Items 2, 3, 5 and 6 name, in 2003, four of the largest subsequent results in the
 - **[Embedding / Latent](../glossary.md#embedding--latent)** — the glossary's substrate notion; `C` is its origin.
 - **[Perplexity](../glossary.md#perplexity)** — defined operationally here (geometric mean of `1/P̂`), added to the glossary by this ingest.
 - **[VLA models](../concepts/learning/vla-models.md)** / **[latent action tokens](../concepts/learning/latent-action-tokens.md)** — descendants: a discrete action vocabulary with a learned lookup table is exactly `C` with actions substituted for words.
+- **[Inductive bias](../concepts/learning/inductive-bias.md)** — the whole paper is one, and an unusually instructive one because the bias is *not* architectural: they manufacture a continuous space in which smoothness becomes a usable assumption, rather than constraining the model.
 - **Curse of dimensionality** — the paper's organizing frame; used loosely elsewhere in the wiki, defined precisely here.
 
 ## Position in the lineage

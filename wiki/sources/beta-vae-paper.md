@@ -48,4 +48,4 @@ tags: [beta-vae, vae, disentanglement, representation-learning, unsupervised, de
 
 - **dSprites** — the 2D-shapes dataset here was later released as dSprites, the standard disentanglement benchmark; not separately tracked.
 - **Understanding disentangling in β-VAE** (Burgess et al. 2018) — the follow-up with the capacity-annealing story; not ingested.
-- **Locatello et al. 2019** ("Challenging Common Assumptions…") — the ICML best-paper showing unsupervised disentanglement is impossible without inductive biases and questioning metric robustness; the field's major counterpoint to this paper. Not ingested — flagging so the wiki doesn't over-credit β-VAE's claims.
+- **Locatello et al. 2019** ("Challenging Common Assumptions…") — the ICML best-paper showing unsupervised disentanglement is impossible without [inductive biases](../concepts/learning/inductive-bias.md) and questioning metric robustness; the field's major counterpoint to this paper. Not ingested — flagging so the wiki doesn't over-credit β-VAE's claims.

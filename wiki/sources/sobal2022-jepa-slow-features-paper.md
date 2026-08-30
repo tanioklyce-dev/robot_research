@@ -69,7 +69,7 @@ L_covariance = (1/(T+1)(N-1)) Σ_t Σ_i Σ_{j>i} (S_t S_t^T)_{i,j} = 0     (eq. 
 
 For SimCLR-JEPA: by [Wang & Isola 2020] theorem 1, InfoNCE is minimized in the infinite-negatives limit when (a) positive pairs are perfectly aligned and (b) the encoder output is uniformly distributed on the unit sphere. **Both conditions are satisfied** by the trivial solution above, so SimCLR-JEPA suffers the same failure.
 
-This is one of the cleanest demonstrations in the SSL literature that **the slow-features inductive bias has a specific failure mode**: the *slowest* feature wins, even if it's not the *useful* feature.
+This is one of the cleanest demonstrations in the SSL literature that **the slow-features [inductive bias](../concepts/learning/inductive-bias.md) has a specific failure mode**: the *slowest* feature wins, even if it's not the *useful* feature.
 
 ## Empirical results (§3)
 

@@ -50,5 +50,5 @@ tags: [smwm, sensorimotor-world-model, jepa, inverse-dynamics, representation-co
 ## Open questions
 
 - Evaluated on **simple 2D/3D control** (dot world, TwoRoom, Reacher, Push-T, OGBench-Cube) — no high-DoF or real-robot results. Does inverse-dynamics regularization scale to complex manipulation the way SIGReg/EMA approaches are being pushed?
-- The single-step inverse objective's theoretical guarantees (from finite rich-observation settings) **do not transfer** to the continuous setting — the authors use it as inductive bias, not proof. What's the continuous-state identifiability story?
+- The single-step inverse objective's theoretical guarantees (from finite rich-observation settings) **do not transfer** to the continuous setting — the authors use it as [inductive bias](../concepts/learning/inductive-bias.md), not proof. What's the continuous-state identifiability story?
 - How does inverse-dynamics regularization compose with the other anti-collapse mechanisms (SIGReg, EMA) — complementary or redundant?

@@ -2,7 +2,7 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-08-27
+updated: 2026-08-30
 sources: 51
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
@@ -42,7 +42,7 @@ The term **Joint Embedding** names the architecture class defined by this proper
 - **Internet-scale pretraining**: JEPAs can absorb action-free observation data (web video) at scale, then post-train action-conditioned predictors on small interaction datasets. [V-JEPA 2](../../entities/v-jepa-2.md) is the canonical demonstration: 1M+ hours pretraining → 62 hr post-training → zero-shot Franka manipulation.
 
 ## Common training challenges
-- **Representation collapse** — without the right inductive biases, both encoder and predictor learn trivial constants. The wiki now tracks a **design space of anti-collapse mechanisms**, from heaviest to lightest:
+- **Representation collapse** — without the right [inductive biases](../learning/inductive-bias.md), both encoder and predictor learn trivial constants. The wiki now tracks a **design space of anti-collapse mechanisms**, from heaviest to lightest:
   - **Frozen pre-trained encoder** — [DINO-WM](../../entities/dino-wm.md) sidesteps collapse by not training the encoder at all.
   - **EMA target encoder + stop-gradient** — [V-JEPA 2](../../entities/v-jepa-2.md).
   - **Multi-term variance–covariance regularizers** — [PLDM](../../entities/pldm.md).

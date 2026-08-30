@@ -184,7 +184,7 @@ Three soft intuitions:
 
 1. **Different heads attend to different things.** Syntactic head, content head, positional head, etc.
 2. **Softmax bottlenecks** — softmax in (2.1) can attend strongly to only one position at a time. MHA gives you `h` parallel attendings.
-3. **Inductive bias** — splitting the attention space into `h` smaller spaces regularizes the model.
+3. **[Inductive bias](../../concepts/learning/inductive-bias.md)** — splitting the attention space into `h` smaller spaces regularizes the model.
 
 ## §4 — The transformer block
 
@@ -276,7 +276,7 @@ The general rule: if the model is predicting timestep `t+1` from timesteps `1..t
 ### Why this works
 
 - **Patches are tokens.** Each patch's flattened vector is processed as a sequence element. The transformer's self-attention mixes information across all patches in one block — much faster receptive-field growth than CNN.
-- **No image-specific inductive bias.** ViT doesn't know about translation equivariance, locality, etc. It learns them from data. Needs **more data** than CNN to do well (ImageNet-1k is borderline; ImageNet-21k or larger works much better).
+- **No image-specific [inductive bias](../../concepts/learning/inductive-bias.md).** ViT doesn't know about translation equivariance, locality, etc. It learns them from data. Needs **more data** than CNN to do well (ImageNet-1k is borderline; ImageNet-21k or larger works much better).
 - **Scales better.** Empirically, ViT scales to billions of parameters more gracefully than CNN. The biggest CNNs are ~600M params; ViT-g is 1B+; V-JEPA 2 trains at 2B parameters.
 
 ### The `[CLS]` token

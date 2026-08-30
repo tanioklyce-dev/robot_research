@@ -68,7 +68,7 @@ The interpretability axis is genuinely a generative-video advantage: a roboticis
 
 | Generative-video | JEPA |
 |---|---|
-| **Hallucination** — generated frames depict events that violate physics | **Representation collapse** — encoder + predictor settle on trivial constants without the right inductive biases |
+| **Hallucination** — generated frames depict events that violate physics | **Representation collapse** — encoder + predictor settle on trivial constants without the right [inductive bias](../../concepts/learning/inductive-bias.md)es |
 | **Drift over long rollouts** — error accumulates frame-by-frame | **Predictor overfitting** on small interaction sets |
 | **Compute wall** — long rollouts get expensive fast | **Latent-only debugging** — failures are harder to inspect than a bad video frame |
 

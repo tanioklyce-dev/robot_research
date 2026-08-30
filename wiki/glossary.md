@@ -203,6 +203,9 @@ Replaces a flat softmax over `|V|` outputs with a **binary tree** whose leaves a
 ### IL
 **Imitation Learning** — learn a policy from demonstrations. See [imitation learning concept](concepts/learning/imitation-learning.md). *(Module 6.)*
 
+### Inductive bias
+The assumptions a learner uses to **generalize beyond its training data** — the things that, combined with the data, determine its predictions on inputs it never saw. Infinitely many functions fit any finite dataset, so a learner with *no* inductive bias cannot generalize, only memorize; the question is never whether but **which and how much**. Lives in the architecture (CNN locality / translation equivariance), the objective, the regularizer, the optimizer, and the data representation — augmentation choices are invariance claims. Bias substitutes for data, so its optimal strength **falls as data grows** ([ViT](sources/vit-paper.md), [TDV](sources/tdv-paper.md)) — which cuts the other way at robot-data scale. See [concept page](concepts/learning/inductive-bias.md). *(Modules 2 / 3.)*
+
 ### InfoNCE
 **Information Noise-Contrastive Estimation** — the contrastive loss family used by SimCLR, MoCo, and (in policy form) [IBC](entities/ibc.md). *(Module 4 / 7.)*
 

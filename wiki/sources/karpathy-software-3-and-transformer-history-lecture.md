@@ -136,7 +136,7 @@ The **Tesla sensor-fusion argument** is the most directly transferable part:
 
 Each modality gets a **learned modality-embedding token** — "these radar tokens are reflected different in the representation, and it's learnable by gradient descent" — which is [distributed representations](../concepts/learning/distributed-representations.md) again, with sensors as the alphabet, and is structurally the same trick as [soft-prompt cross-embodiment conditioning](../concepts/learning/soft-prompt-cross-embodiment.md). His summary: attention "frees neural nets from this version of Euclidean space… in attention, everything is just sets."
 
-### Inductive bias versus data scale (~29:19)
+### [Inductive bias](../concepts/learning/inductive-bias.md) versus data scale (~29:19)
 
 Asked about positional encodings: "if you have enough data, usually trying to mess with it is a bad thing… trying to enter knowledge when you have enough knowledge in the data set itself is not usually productive. If you have infinite data then you actually want to encode less and less. If you have very little data then actually you do want to encode some biases, and maybe convolutions are a good idea because you have this bias coming from the filters."
 
@@ -172,7 +172,8 @@ On GPT-3: "I would have said something like *Transformers are capable of in-cont
 - **[Distributed representations](../concepts/learning/distributed-representations.md)** — learned modality tokens for sensor fusion.
 - **[Soft-prompt cross-embodiment conditioning](../concepts/learning/soft-prompt-cross-embodiment.md)** — same trick, robot embodiments as the alphabet.
 - **[VLA models](../concepts/learning/vla-models.md)** — "chop everything up and throw it in the set" is the design argument underneath multimodal robot trunks.
-- **In-context learning**, **attention as message passing**, **inductive bias vs data scale**.
+- **[Inductive bias](../concepts/learning/inductive-bias.md)** — the data-scale heuristic, and "in attention, everything is just sets."
+- **In-context learning**, **attention as message passing**.
 
 ## Curriculum hookup
 

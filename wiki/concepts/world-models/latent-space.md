@@ -2,7 +2,7 @@
 title: Learned latent space
 type: concept
 created: 2026-05-08
-updated: 2026-08-26
+updated: 2026-08-30
 sources: 35
 tags: [representation-learning, embeddings, world-model, jepa, self-supervised]
 ---
@@ -46,7 +46,7 @@ A **learned latent space** is the network's own internal coordinate system for "
 
 ## Common pitfalls when learning a latent space
 
-- **Representation collapse** — without the right inductive biases, the encoder learns a trivial constant function (every input maps to the same point) — loss looks great, latent is useless. Mitigations include EMA target encoders, stop-gradient, frozen pretrained encoders, contrastive negatives, or explicit regularizers (e.g., LeWM's SIGReg). See [JEPA](jepa.md) for the JEPA-specific take.
+- **Representation collapse** — without the right [inductive biases](../learning/inductive-bias.md), the encoder learns a trivial constant function (every input maps to the same point) — loss looks great, latent is useless. Mitigations include EMA target encoders, stop-gradient, frozen pretrained encoders, contrastive negatives, or explicit regularizers (e.g., LeWM's SIGReg). See [JEPA](jepa.md) for the JEPA-specific take.
 - **Out-of-distribution drift** — a frozen encoder pretrained on internet images may not encode useful structure for unusual robot viewpoints (fisheye, top-down, low-light). [DINO-WM](../../entities/dino-wm.md) inherits DINOv2's biases.
 - **Information bottleneck vs sufficiency** — too small a `d` and the latent throws away task-relevant detail; too large and it's wasteful and hard to predict. Most modern encoders use 256–1024 dims.
 

@@ -3,7 +3,7 @@ title: SMWM (Sensorimotor World Model)
 type: entity
 subtype: model
 created: 2026-07-26
-updated: 2026-07-26
+updated: 2026-08-30
 sources: 3
 tags: [smwm, sensorimotor-world-model, jepa, inverse-dynamics, representation-collapse, world-model, causality, controllable-degrees-of-freedom, balestriero, scholkopf]
 ---
@@ -40,7 +40,7 @@ Recovering the action forces the encoder to preserve action-relevant information
 
 ## Open questions
 
-- Only simple 2D/3D control shown — no high-DoF or real-robot results. The single-step inverse objective's guarantees don't transfer to the continuous setting (used as inductive bias, not proof). Is inverse dynamics complementary to, or redundant with, SIGReg/EMA?
+- Only simple 2D/3D control shown — no high-DoF or real-robot results. The single-step inverse objective's guarantees don't transfer to the continuous setting (used as [inductive bias](../concepts/learning/inductive-bias.md), not proof). Is inverse dynamics complementary to, or redundant with, SIGReg/EMA?
 
 ## Mentioned in
 

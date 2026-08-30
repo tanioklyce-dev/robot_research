@@ -16,7 +16,7 @@ tags: [self-supervised-learning, inductive-bias, video, representation-learning,
 
 ## Summary
 
-Two contributions, and the first is more portable than the second. **(1) An empirical scaling claim**: the *optimal strength of inductive bias decreases as data grows*, tested by sweeping masking ratio across subsets of ImageNet-1k. **(2) TDV (Temporal Difference in Vision)**, an SSL method that drops the augmentation/masking/cropping biases modern SSL still relies on, keeping only a **causal** assumption — the past causes the future. A frame encoder and a **motion encoder** are jointly trained so that *current frame representation + encoded motion = next frame representation*.
+Two contributions, and the first is more portable than the second. **(1) An empirical scaling claim**: the *optimal strength of [inductive bias](../concepts/learning/inductive-bias.md) decreases as data grows*, tested by sweeping masking ratio across subsets of ImageNet-1k. **(2) TDV (Temporal Difference in Vision)**, an SSL method that drops the augmentation/masking/cropping biases modern SSL still relies on, keeping only a **causal** assumption — the past causes the future. A frame encoder and a **motion encoder** are jointly trained so that *current frame representation + encoded motion = next frame representation*.
 
 ## Key claims
 
@@ -75,7 +75,8 @@ Adjacent rather than central. TDV is not a world model — there is no action co
 
 - [JEPA](../concepts/world-models/jepa.md) — architectural cousin; the anti-collapse machinery it reuses.
 - [Learned latent space](../concepts/world-models/latent-space.md) — additive latent transitions.
-- **Self-supervised learning / inductive bias** — the scaling claim.
+- **[Inductive bias](../concepts/learning/inductive-bias.md)** — this paper is the wiki's most direct measurement of the bias-vs-data-scale trade-off, and the source of the mechanism it offers (strong assumptions encode only-approximately-correct beliefs, and at scale the approximation error dominates the guidance benefit).
+- **Self-supervised learning** — the scaling claim.
 
 ## Open questions
 

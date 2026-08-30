@@ -20,7 +20,7 @@ tags: [vit, vision-transformer, transformer, attention, patches, classification,
 
 **Headline result.** Pre-trained on JFT-300M (303M images, 18K classes), ViT-H/14 reaches **88.55% ImageNet top-1**, 90.72% on ImageNet-ReaL, 94.55% CIFAR-100, and **77.63% on the 19-task VTAB suite** — matching or beating contemporary ResNet-based state of the art (BiT-L, Noisy Student) at **2–4× less pre-training compute**. The smaller ViT-L/16 pre-trained on the *public* ImageNet-21k (14M images, 21K classes) is "trainable in ~30 days on a cloud TPUv3 with 8 cores" — making the architecture accessible outside Google.
 
-**The central empirical claim.** *Large-scale training trumps inductive bias.* CNNs bake in locality, two-dimensional neighborhood structure, and translation equivariance at every layer; ViT has none of that — its self-attention layers are global, only the MLPs are local. On mid-sized datasets (ImageNet alone, ~1.3M images), ViT underperforms ResNets of comparable size, exactly because of the missing inductive bias. But at ImageNet-21k scale (14M images) the gap closes, and at JFT-300M scale (303M images) ViT overtakes — and ResNets *plateau* while ViT *keeps improving*. This is the data-scaling argument that drove the entire 2021–2026 transition of vision foundation models from CNN backbones to ViT backbones.
+**The central empirical claim.** *Large-scale training trumps [inductive bias](../concepts/learning/inductive-bias.md).* CNNs bake in locality, two-dimensional neighborhood structure, and translation equivariance at every layer; ViT has none of that — its self-attention layers are global, only the MLPs are local. On mid-sized datasets (ImageNet alone, ~1.3M images), ViT underperforms ResNets of comparable size, exactly because of the missing inductive bias. But at ImageNet-21k scale (14M images) the gap closes, and at JFT-300M scale (303M images) ViT overtakes — and ResNets *plateau* while ViT *keeps improving*. This is the data-scaling argument that drove the entire 2021–2026 transition of vision foundation models from CNN backbones to ViT backbones.
 
 **Why it matters to this wiki.** Every visual [encoder](../glossary.md#encoder) downstream of Module 2 in the [robot-learning curriculum](../syntheses/curriculum/robot-learning-curriculum.md) — [DINOv2](../entities/dinov2.md), [DINOv3](../entities/dinov3.md), [V-JEPA 2](../entities/v-jepa-2.md), [LeWM](../entities/leworldmodel.md), [DINO-WM](../entities/dino-wm.md), [DINO-world](../entities/dino-world.md), [JEPA-WMs](../entities/jepa-wms.md), [PLDM](../sources/pldm-paper.md), [LeJEPA](../sources/lejepa-paper.md) — is a ViT, and most of them are descended specifically from the patch tokenization + learned positional embedding + `[CLS]` recipe in this paper. The wiki was tracking ViT via the [glossary entry](../glossary.md#vit) and many downstream sources; this ingest fills in the primary reference.
 
@@ -123,7 +123,7 @@ This is the data-scaling argument that drove the field's transition to ViTs as t
 7 ResNets × 6 ViTs × 5 hybrids, all pre-trained on JFT-300M for 7 or 14 epochs, evaluated by transfer accuracy on 5 downstream tasks:
 
 - **ViT dominates ResNet on the compute/accuracy frontier.** At fixed transfer accuracy, ViT uses ~2–4× less pre-training compute.
-- **Hybrids beat pure ViT at small budgets**, but the gap vanishes at large budgets. The CNN inductive bias helps in the small-compute regime, not the large-compute regime.
+- **Hybrids beat pure ViT at small budgets**, but the gap vanishes at large budgets. The CNN [inductive bias](../concepts/learning/inductive-bias.md) helps in the small-compute regime, not the large-compute regime.
 - **ViTs do not saturate within the tried range** — motivates further scaling. This is the empirical seed of the "scale is all you need" / scaling-laws era for vision.
 
 ## Inspecting the Vision Transformer (§4.5, Figures 6 & 7)
@@ -152,7 +152,7 @@ The authors run a small **masked patch prediction** experiment — analogous to 
 | ViT-∗ | ImageNet | 300 | 3·10⁻³ | cosine | 0.3 | 0.1 |
 
 - **Optimizer:** Adam (β₁=0.9, β₂=0.999), batch 4096, weight decay 0.1 (high!), LR warmup 10k steps.
-- **From-scratch on ImageNet:** strong regularization (weight decay 0.3, dropout 0.1, label smoothing, gradient clipping at global norm 1) is *essential* — the architecture has no built-in regularization from inductive bias.
+- **From-scratch on ImageNet:** strong regularization (weight decay 0.3, dropout 0.1, label smoothing, gradient clipping at global norm 1) is *essential* — the architecture has no built-in regularization from [inductive bias](../concepts/learning/inductive-bias.md). **The bias does not disappear — it moves from the architecture to the regularizer.**
 - **Fine-tuning:** SGD with momentum 0.9, batch 512, resolution 384–518, Polyak averaging.
 
 ## What the paper did not include
