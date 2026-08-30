@@ -49,6 +49,7 @@ LocoFormer explicitly calls the RMA class **"myopic."** It is his own prior work
 
 - [Skild AI](skild-ai.md) — co-founder and CEO.
 - [Abhinav Gupta](abhinav-gupta.md) — co-founder and president; CMU colleague.
+- [Ananye Agarwal](ananye-agarwal.md) — his PhD student, co-author on both the egocentric-vision paper and LocoFormer, now a Skild founding researcher.
 - [LocoFormer](../sources/locoformer-paper.md), [RMA](../sources/rma-paper.md) and [egocentric-vision locomotion](../sources/egocentric-vision-locomotion-paper.md) — his co-authored papers here.
 - [Unitree A1](unitree-a1.md) — RMA's platform; also in LocoFormer's zero-shot set.
 - [In-context robot learning](../concepts/learning/in-context-robot-learning.md) — the mechanism LocoFormer demonstrates.

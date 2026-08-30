@@ -83,6 +83,7 @@ Ten unseen robots, **1,000 randomized environments each**, rough terrain, intens
 ## Entities mentioned
 
 - [Skild AI](../entities/skild-ai.md) — all three authors; LocoFormer is the company's locomotion line.
+- [Ananye Agarwal](../entities/ananye-agarwal.md) — co-author; also co-first author of the [egocentric-vision paper](egocentric-vision-locomotion-paper.md).
 - [Deepak Pathak](../entities/deepak-pathak.md) — co-author; Skild co-founder and CEO.
 - [Unitree G1](../entities/unitree-g1.md) — evaluated zero-shot (0.98); H1, A1 and Go2-W also in the test set.
 - [Boston Dynamics Spot](../entities/spot.md) — evaluated zero-shot (1.00).
@@ -101,5 +102,5 @@ Ten unseen robots, **1,000 randomized environments each**, rough terrain, intens
 - **No real-robot success-rate table.** Table 1 is simulation. The hardware results are the qualitative Fig. 5 demonstrations — compelling, but not quantified, and with no rollout counts ([success-rate audit](../syntheses/platforms/vla-success-rate-audit.md) applies).
 - **How much of the gain is context length vs. procedural diversity?** The GRU ablation confounds architecture with memory horizon; a long-context GRU or a short-context transformer would separate them.
 - **Does the recipe transfer to manipulation?** The authors say they *"believe that this simple, yet general recipe can be used to train foundation models for other robotic skills."* [S1](skild-s1-blog.md) is presumably that attempt — but S1 conditions on demonstrations, not on its own experience, so the recipe appears to have changed in the move.
-- ~~RMA and the vision follow-up are uningested~~ — **both ingested 2026-08-29** ([RMA](rma-paper.md), [egocentric vision](egocentric-vision-locomotion-paper.md)). The lineage LocoFormer argues against is now fully held here; co-author **Ananye Agarwal** is first author of the vision paper and still has no entity page.
+- ~~RMA and the vision follow-up are uningested~~ — **both ingested 2026-08-29** ([RMA](rma-paper.md), [egocentric vision](egocentric-vision-locomotion-paper.md)). The lineage LocoFormer argues against is now fully held here; co-author **[Ananye Agarwal](../entities/ananye-agarwal.md)** — first author of the vision paper — now has a page too.
 - **Inference cost on-robot.** The paper notes quadratic segment cost and mentions inference acceleration; the deployed compute budget is not given.

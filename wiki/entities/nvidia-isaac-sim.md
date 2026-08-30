@@ -35,6 +35,8 @@ Domain randomization is applied per episode reset (object poses, lighting, and t
 The catch, and it is a real one: **the course marks the simulation dataset "optional"** and never includes it in the fine-tuning command. The taught pipeline trains on real data plus [Cosmos](nvidia-cosmos.md)-restyled real data. Isaac Sim's role in this particular "sim-to-real" course is a demonstration path, not a data source.
 
 ## Related
+- [Isaac Gym](isaac-gym.md) — the deprecated GPU-physics predecessor this lineage replaces (Preview 4 is final; it also superseded IsaacGymEnvs, OmniIsaacGymEnvs and Orbit).
+- [legged_gym](legged-gym.md) — the ETH locomotion library built on Isaac Gym, still the reference point for the corpus.
 - [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — learning framework that runs on Isaac Sim.
 - [Newton physics engine](newton-physics-engine.md) — pluggable physics backend.
 - [NVIDIA Cosmos](nvidia-cosmos.md) — world model used for synthetic data and rare-event scenes.

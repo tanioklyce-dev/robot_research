@@ -132,6 +132,8 @@ Carrier details from the [Seeed Jetson selection guide](../sources/seeed-jetson-
 
 ## Related
 
+- [Jetson Xavier NX](jetson-xavier-nx.md) — the Volta-generation predecessor in the same 69.6 × 45 mm / 260-pin SO-DIMM slot. NVIDIA positions Orin NX as its successor there; **pin compatibility is asserted by the vendor and unverified in this wiki**.
+
 - [Jetson Orin Nano](jetson-orin-nano.md) — the tier below; same GPU, pin-compatible carrier.
 - [Jetson AGX Orin](jetson-agx-orin.md) — the tier above; buys memory and IO, not efficiency.
 - [Jetson Thor](jetson-thor.md) — the Blackwell generation above.

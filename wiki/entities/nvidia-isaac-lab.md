@@ -24,6 +24,8 @@ Isaac Lab 3.0 with the GA release of the [Newton physics engine](newton-physics-
 Isaac Lab inherits Isaac Sim's RT-core requirement: it cannot run on [Jetson Thor](jetson-thor.md) or any prior Jetson (no RT cores, even in headless mode). NVIDIA's prescribed workflow is to **train on RTX workstation / [DGX Spark](dgx-spark.md) / data-centre GPU**, then deploy the trained policy to Jetson for inference ([Isaac Sim and Isaac Lab on NVIDIA Jetson AGX Thor](../sources/rs-designspark-isaac-sim-on-thor.md)).
 
 ## Related
+- [Isaac Gym](isaac-gym.md) — the deprecated GPU-physics predecessor this lineage replaces (Preview 4 is final; it also superseded IsaacGymEnvs, OmniIsaacGymEnvs and Orbit).
+- [legged_gym](legged-gym.md) — the ETH locomotion library built on Isaac Gym, still the reference point for the corpus.
 - [NVIDIA Isaac Sim](nvidia-isaac-sim.md) — the simulator.
 - [Newton physics engine](newton-physics-engine.md) — primary physics backend in 2026.
 - [NVIDIA Cosmos](nvidia-cosmos.md) — world model for rare scenarios and synthetic data.

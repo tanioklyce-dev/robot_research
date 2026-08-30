@@ -112,9 +112,12 @@ That latency handling is the detail that makes the system real: the policy is tr
 
 ## Entities mentioned
 
+- [Ananye Agarwal](../entities/ananye-agarwal.md) — co-first author; later a [LocoFormer](locoformer-paper.md) co-author.
 - [Deepak Pathak](../entities/deepak-pathak.md) — co-advisor; the third of his papers in this wiki.
-- [Unitree A1](../entities/unitree-a1.md) — platform, here with a depth camera and Jetson NX added.
-- [NVIDIA Isaac Sim](../entities/nvidia-isaac-sim.md) — IsaacGym, its predecessor, is the training simulator.
+- [Unitree A1](../entities/unitree-a1.md) — platform, here with a depth camera added.
+- [Jetson Xavier NX](../entities/jetson-xavier-nx.md) — the onboard compute running the policy at 50 Hz.
+- [Isaac Gym](../entities/isaac-gym.md) — training simulator (now deprecated); its cheap-physics/expensive-rendering asymmetry is what forces the two-phase recipe.
+- [legged_gym](../entities/legged-gym.md) — the training library, and the source of the terrain curriculum this paper adopts.
 
 ## Concepts touched
 
@@ -124,8 +127,6 @@ That latency handling is the detail that makes the system real: the policy is tr
 
 ## Open questions
 
-- **No Jetson NX (Xavier-era) entity page** — the wiki's Jetson coverage starts at Orin. This is the compute that ran the policy.
-- **IsaacGym and legged_gym have no pages**, though `legged_gym` was named in the [awesome-physical-ai gap analysis](awesome-physical-ai-github.md) and appears in both this paper and much of the locomotion corpus.
 - **Which architecture wins is unresolved** — monolithic leads on stairs (42.4 vs 31.2), the RMA variant on discrete obstacles (40.1 vs 28.6), and totals are within 1%. The paper does not adjudicate.
 - **Real-world trial counts are small** and the stepping-stone 94% is over a limited course; see the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md).
-- **Ananye Agarwal** is co-first author here and a [LocoFormer](locoformer-paper.md) co-author — the strongest through-line author besides Pathak, and has no entity page.
+- ~~Ananye Agarwal has no entity page~~ — **filed 2026-08-29** ([Ananye Agarwal](../entities/ananye-agarwal.md)). **Ashish Kumar**, his co-first author here and a co-author of [RMA](rma-paper.md), still has none despite appearing in two ingested sources.
