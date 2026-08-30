@@ -3,7 +3,7 @@ title: Inductive bias
 type: concept
 created: 2026-08-30
 updated: 2026-08-30
-sources: 7
+sources: 8
 tags: [inductive-bias, generalization, scaling, architecture, priors, ssl, vit, cnn, robot-data-scale]
 ---
 
@@ -39,6 +39,8 @@ Three measurements in this wiki, at different levels of directness:
 **[ViT (Dosovitskiy et al. 2020)](../../sources/vit-paper.md) — the architectural version.** On ImageNet alone (~1.3M images) ViT *underperforms* comparable ResNets, precisely because it lacks the CNN's locality and translation-equivariance priors. At ImageNet-21k (14M) the gap closes. At JFT-300M (303M) ViT overtakes — **and the ResNets plateau while ViT keeps improving**. Their hybrid experiment is the same finding in miniature: CNN-stem hybrids beat pure ViT at small compute budgets and the advantage vanishes at large ones. Also note §B: training ViT from scratch on ImageNet needs unusually strong explicit regularization (weight decay 0.3, dropout, label smoothing, gradient clipping) — *because the architecture has no built-in regularization from inductive bias*. **The bias does not disappear; it moves from the architecture to the regularizer.**
 
 **[TDV (You Don't Need Strong Assumptions)](../../sources/tdv-paper.md) — the closest thing to a direct measurement.** Sweeping masking ratio as a proxy for assumption strength across ImageNet-1k subsets: at **0.1% of ImageNet the best masking ratio is 50%**, with 30% and 10% behind "by a significant margin"; as data grows, **30% overtakes 50% and 10% approaches it**. The offered mechanism is the useful part — strong assumptions "encode beliefs that are only approximately correct," and **at scale the approximation error dominates the guidance benefit.** That is a testable statement of *why* the curve bends, not just that it does.
+
+**[Cho et al. 2014b](../../sources/cho2014b-properties-of-neural-machine-translation.md) — the term used as a research programme.** Worth noting that this vocabulary is not new: an analysis paper in 2014 states its aim as *"to understand the **inductive bias** of the encoder–decoder approach on the translation performance measured by BLEU,"* and proceeds by swapping one component (the encoder) between two structurally unrelated designs while holding everything else fixed. **That is the general method for isolating a bias empirically** — vary the suspected locus, keep the rest, see whether the failure moves. Their answer was that it did *not* move, which is why they concluded the bias they were hunting was in the decoder rather than the encoder.
 
 **[Karpathy](../../sources/karpathy-software-3-and-transformer-history-lecture.md) — the practitioner's summary.** *"If you have infinite data you actually want to encode less and less… if you have very little data then you do want to encode some biases, and maybe convolutions are a good idea because you have this bias coming from the filters."*
 
@@ -99,6 +101,7 @@ Practical consequences at that scale:
 - **[Sobal et al. 2022 — JEPA and slow features](../../sources/sobal2022-jepa-slow-features-paper.md)** — a bias with a specific, silent failure mode.
 - **[Bengio et al. 2003](../../sources/bengio2003-neural-probabilistic-language-model.md)** — the discrete/continuous asymmetry, and manufacturing a space where smoothness is usable.
 - **[Karpathy lecture](../../sources/karpathy-software-3-and-transformer-history-lecture.md)** — the data-scale heuristic, and attention as freeing computation from Euclidean structure.
+- **[Cho et al. 2014b](../../sources/cho2014b-properties-of-neural-machine-translation.md)** — an early paper framing itself explicitly as measuring an architecture's inductive bias, by swapping encoders and holding the decoder fixed.
 - **[β-VAE](../../sources/beta-vae-paper.md)** — via the Locatello et al. 2019 impossibility result flagged there.
 - **[Curriculum Module 2](../../syntheses/curriculum/curriculum-02-cnns.md)** — the CNN's three biases (locality, translation equivariance, weight sharing) and the CNN-vs-ViT decision heuristic.
 
@@ -115,6 +118,7 @@ For this wiki's subject matter the operative question is not the language-and-vi
 - [Sobal et al. 2022 — JEPA and slow features](../../sources/sobal2022-jepa-slow-features-paper.md)
 - [Bengio et al. 2003 — A Neural Probabilistic Language Model](../../sources/bengio2003-neural-probabilistic-language-model.md)
 - [β-VAE Paper](../../sources/beta-vae-paper.md)
+- [Cho et al. 2014b — On the Properties of Neural Machine Translation](../../sources/cho2014b-properties-of-neural-machine-translation.md) — uses the term as its stated research aim.
 - [Karpathy — Software 3.0 and the history of the Transformer](../../sources/karpathy-software-3-and-transformer-history-lecture.md)
 - [Sensorimotor world models paper](../../sources/sensorimotor-world-models-paper.md) — the single-step inverse objective used as an inductive bias without its theoretical guarantees.
 - [Curriculum Module 2 — CNNs](../../syntheses/curriculum/curriculum-02-cnns.md) and [Module 3](../../syntheses/curriculum/curriculum-03-attention-and-transformers.md) (syntheses, not sources)

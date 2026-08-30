@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-30
 updated: 2026-08-30
-sources: 3
+sources: 4
 tags: [person, attention, alignment, mila, jacobs-university, machine-translation]
 ---
 
@@ -17,6 +17,8 @@ tags: [person, attention, alignment, mila, jacobs-university, machine-translatio
 
 Everything [Vaswani et al. 2017](../sources/attention-is-all-you-need.md) kept came from here. Everything it changed — dot-product scoring instead of a feedforward scorer, keys separated from values, multiple heads, self- rather than cross-attention — is engineering on this mechanism. The wiki's [attention source page](../sources/attention-is-all-you-need.md) opened its lineage block with his name for months before the paper itself was ingested.
 
+- **[On the Properties of Neural Machine Translation](../sources/cho2014b-properties-of-neural-machine-translation.md)** (SSST-8, Sept 2014) — third author, "research done while visiting Université de Montréal." The companion analysis paper, posted **two days after** his own attention paper.
+
 > [!note] Where the idea came from, in his own words
 > Per the email [Karpathy reads on stage](../sources/karpathy-software-3-and-transformer-history-lecture.md): he tried and abandoned ideas about "cursors that traverse the sequences," then thought of letting the decoder **learn where to put the cursor**, "certainly inspired by translation exercises that learning English in my middle school involved — your gaze shifts back and forth between source and target sequence as you translate." Expressed as a softmax and a weighted average, it **"worked from the very first try."** The name *attention* was [Bengio](yoshua-bengio.md)'s, added on a final pass.
 
@@ -24,6 +26,7 @@ Everything [Vaswani et al. 2017](../sources/attention-is-all-you-need.md) kept c
 
 - [Cho et al. 2014 — Learning Phrase Representations using RNN Encoder–Decoder](../sources/cho2014-rnn-encoder-decoder-phrase-representations.md) — fourth author.
 - [Bahdanau, Cho & Bengio 2014 — Neural Machine Translation by Jointly Learning to Align and Translate](../sources/bahdanau2014-neural-machine-translation-align-translate.md) — first author.
+- [Cho et al. 2014b — On the Properties of Neural Machine Translation](../sources/cho2014b-properties-of-neural-machine-translation.md) — third author.
 - [Karpathy — Software 3.0 and the history of the Transformer](../sources/karpathy-software-3-and-transformer-history-lecture.md) — his email on the origin of attention.
 - [From n-grams to attention](../syntheses/sequence-models/language-model-to-transformer-lineage.md) (synthesis).
 

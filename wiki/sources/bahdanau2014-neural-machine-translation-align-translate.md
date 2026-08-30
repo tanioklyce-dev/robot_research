@@ -21,8 +21,14 @@ tags: [attention, alignment, soft-alignment, encoder-decoder, bidirectional-rnn,
 
 The diagnosis, stated as a conjecture in the abstract: *"the use of a fixed-length vector is a bottleneck in improving the performance of this basic encoder–decoder architecture."* Everything about the source sentence must be squeezed into one vector before any target word is generated.
 
-> [!warning] The empirical basis for the conjecture is a source this wiki does not hold
-> The paper attributes the length-degradation finding to **Cho et al. 2014b** (*On the Properties of Neural Machine Translation*, arXiv 1409.1259) — **not** to [Cho et al. 2014a](cho2014-rnn-encoder-decoder-phrase-representations.md), which is ingested and does not measure it. 2014b is un-ingested, so any statement here that basic encoder–decoder quality "collapses with input length" rests on this paper's summary of another paper. Figure 2 of *this* paper is first-hand evidence for the same claim and should be cited instead.
+The paper attributes the length-degradation finding to **[Cho et al. 2014b](cho2014b-properties-of-neural-machine-translation.md)** — *not* to [Cho et al. 2014a](cho2014-rnn-encoder-decoder-phrase-representations.md), which does not measure it. Both are now ingested, and reading 2014b adds two things this paper's one-line citation does not:
+
+> [!warning] Two refinements from the source of the conjecture
+> **1. Its authors' own conclusion blames the decoder, not the fixed-length vector.** [Cho et al. 2014b](cho2014b-properties-of-neural-machine-translation.md) tested *two structurally unrelated encoders* — a recurrent one and a gated recursive convolutional one — and found both degrading identically with length. Their §6: *"both models suffer from the curse of sentence length. This suggests that it may be due to the lack of representational power in the **decoder**."* The fixed-vector-capacity story appears there only as "the most obvious explanatory hypothesis." So the standard narrative — *the fixed vector was the bottleneck, so attention removed it* — is this paper's framing, not a settled finding from the measurement it cites. What attention actually changes is the **interface**: the decoder gets per-step access to everything the encoder produced, which addresses either diagnosis.
+>
+> **2. The two papers are concurrent, not sequential.** arXiv: this paper **1 Sep 2014**, [Cho et al. 2014b](cho2014b-properties-of-neural-machine-translation.md) **3 Sep 2014**. The "prior finding" was posted two days *after* the fix, by an overlapping author list (Cho and Bengio on both, Bahdanau on both). Diagnosis and repair were developed together; the discover-then-solve ordering is an artifact of citation.
+
+Figure 2 of *this* paper — flat BLEU-vs-length where the baseline collapses — is first-hand evidence for the same claim and is the cleaner thing to cite.
 
 The fix: **let the decoder read the encoder's whole output, and learn where to look.** Encode the source with a **bidirectional RNN** into one annotation per source position. Then, for each target word `i`, compute a **different context vector**:
 
@@ -144,7 +150,7 @@ See [From n-grams to attention](../syntheses/sequence-models/language-model-to-t
 ## Entities mentioned
 
 - **[Dzmitry Bahdanau](../entities/dzmitry-bahdanau.md)** — first author; then a visiting student from Jacobs University Bremen.
-- **[Kyunghyun Cho](../entities/kyunghyun-cho.md)** — second author; the [RNNencdec baseline and the GRU](cho2014-rnn-encoder-decoder-phrase-representations.md) are his, from three months earlier — he is a co-author of the paper that beats his own architecture by 7.6 BLEU.
+- **[Kyunghyun Cho](../entities/kyunghyun-cho.md)** — second author; the [RNNencdec baseline and the GRU](cho2014-rnn-encoder-decoder-phrase-representations.md) are his, from three months earlier, and the [measurement motivating this paper](cho2014b-properties-of-neural-machine-translation.md) is his too, from two days later — he is a co-author of the paper that beats his own architecture by 7.6 BLEU.
 - **[Yoshua Bengio](../entities/yoshua-bengio.md)** — senior author. This closes the wiki's largest Bengio gap: he is the senior author of *both* [the paper that created the embedding table](bengio2003-neural-probabilistic-language-model.md) and the paper that created attention, eleven years apart.
 - **[Ilya Sutskever](../entities/ilya-sutskever.md)** — via the [seq2seq](sutskever2014-sequence-to-sequence-learning.md) baseline this paper is positioned against.
 - Schuster & Paliwal (bidirectional RNN), Zeiler (Adadelta), Goodfellow et al. (maxout), Kalchbrenner & Blunsom, Graves — cited, none ingested.
@@ -158,7 +164,8 @@ See [From n-grams to attention](../syntheses/sequence-models/language-model-to-t
 
 ## Open questions / TBD
 
-- **Cho et al. 2014b** — the length-degradation result this paper's conjecture cites, flagged above. The most load-bearing remaining gap in this lineage.
+- ~~Cho et al. 2014b — the length-degradation result this paper's conjecture cites.~~ **Resolved 2026-08-30** — [ingested](cho2014b-properties-of-neural-machine-translation.md); it changed the reading, see above.
+- **Whether the decoder was ever the real bottleneck.** [Cho et al. 2014b](cho2014b-properties-of-neural-machine-translation.md) §6 argues it was, and attention changed the interface instead. The question appears to have been dropped rather than settled.
 - **Luong et al. 2015** (dot-product and general attention scoring, the bridge from this paper's additive scorer to Vaswani's) is un-ingested and is the missing intermediate step.
 - **Sennrich et al. 2016 (BPE)** — the fix for the `[UNK]` problem that dominates Table 1's `All` column, and the reason modern models have no vocabulary shortlist. Not in the wiki.
 - **Whether attention weights are explanations.** §5.2.1 reads the `α_ij` matrices as alignments and they are persuasive. A later literature ("Attention is not Explanation" / "Attention is not not Explanation," 2019) disputes how much interpretive weight they carry. The wiki cites attention maps nowhere as evidence yet, but should know the argument exists before it does.

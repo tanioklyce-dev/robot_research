@@ -103,6 +103,9 @@ e_ij  = a(s_{i−1}, h_j)         # alignment model: a small feedforward net, tr
 
 That is attention, three years before the transformer, and it is where the word comes from. Their evidence is a length curve: the plain encoder–decoder's BLEU falls off as sentences get longer, and theirs does not.
 
+> [!note] Two footnotes to the standard story
+> The [companion analysis paper](../../sources/cho2014b-properties-of-neural-machine-translation.md) that measured the length failure was posted **two days after** the attention paper, not before — and having tested two unrelated encoders and found both failing, it concludes the culprit is likely the **decoder**, not the fixed-length vector. Attention worked; *why* was never settled by the experiment usually cited as settling it.
+
 **Carry two things into §2:**
 
 1. **Query / key / value already exist here.** `s_{i−1}` is the query; each `h_j` is *both* key and value. §2's version separates them, swaps the feedforward scorer for a **scaled dot product** (a matmul, hence GPU-parallel — the change that mattered for scale), and adds heads.
