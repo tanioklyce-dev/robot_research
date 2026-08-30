@@ -78,7 +78,7 @@ Ten unseen robots, **1,000 randomized environments each**, rough terrain, intens
 - **It supplies the cross-embodiment evidence [S1](skild-s1-blog.md) lacks.** [Skild AI](../entities/skild-ai.md) markets an "omni-bodied brain for any robot"; S1 names no embodiment at all. LocoFormer is where that claim actually lives — for **locomotion**, not manipulation. The distinction should survive any summary of Skild.
 - **Two different things are being called in-context learning.** S1 conditions on a **demonstration of the task**; LocoFormer conditions on **its own accumulated experience of the body**. One is few-shot imitation at inference, the other is online system identification. Both avoid weight updates; they are not the same mechanism. See [in-context robot learning](../concepts/learning/in-context-robot-learning.md).
 - **Evidence grade is much higher than the rest of the Skild material** — peer-reviewed CoRL 2025, with baselines, an ablation that fails informatively (GRU 0.37), per-robot expert upper bounds, and limitations the authors state themselves. The [S1 blog](skild-s1-blog.md) has none of that.
-- **It partly closes a known gap.** The [awesome-physical-ai gap analysis](awesome-physical-ai-github.md) flagged the locomotion corpus (RMA / legged_gym / H2O line) as missing from this wiki. This is the first serious locomotion primary here — though **RMA** (Kumar, Fu, Pathak & Malik 2021), which LocoFormer positions against and shares an author with, is still uningested.
+- **It partly closes a known gap.** The [awesome-physical-ai gap analysis](awesome-physical-ai-github.md) flagged the locomotion corpus (RMA / legged_gym / H2O line) as missing from this wiki. With **[RMA](rma-paper.md)** (Kumar, Fu, Pathak & Malik, RSS 2021 — ingested 2026-08-29), the wiki now holds both ends of that arc: the paper that established fast proprioceptive adaptation and the paper that calls it *myopic*. See the comparison table on [RMA](rma-paper.md#why-this-matters-in-this-wiki).
 
 ## Entities mentioned
 
@@ -86,6 +86,7 @@ Ten unseen robots, **1,000 randomized environments each**, rough terrain, intens
 - [Deepak Pathak](../entities/deepak-pathak.md) — co-author; Skild co-founder and CEO.
 - [Unitree G1](../entities/unitree-g1.md) — evaluated zero-shot (0.98); H1, A1 and Go2-W also in the test set.
 - [Boston Dynamics Spot](../entities/spot.md) — evaluated zero-shot (1.00).
+- [Unitree A1](../entities/unitree-a1.md) — evaluated zero-shot (0.92); the platform [RMA](rma-paper.md) was built on.
 
 ## Concepts touched
 
@@ -100,5 +101,5 @@ Ten unseen robots, **1,000 randomized environments each**, rough terrain, intens
 - **No real-robot success-rate table.** Table 1 is simulation. The hardware results are the qualitative Fig. 5 demonstrations — compelling, but not quantified, and with no rollout counts ([success-rate audit](../syntheses/platforms/vla-success-rate-audit.md) applies).
 - **How much of the gain is context length vs. procedural diversity?** The GRU ablation confounds architecture with memory horizon; a long-context GRU or a short-context transformer would separate them.
 - **Does the recipe transfer to manipulation?** The authors say they *"believe that this simple, yet general recipe can be used to train foundation models for other robotic skills."* [S1](skild-s1-blog.md) is presumably that attempt — but S1 conditions on demonstrations, not on its own experience, so the recipe appears to have changed in the move.
-- **RMA is uningested** — the direct predecessor in this line, sharing an author.
+- ~~RMA is uningested~~ — **ingested 2026-08-29** ([RMA](rma-paper.md)). The remaining gap in the arc is the **vision** follow-up (Agarwal, Kumar, Malik & Pathak, CoRL 2022), cited in LocoFormer's related work.
 - **Inference cost on-robot.** The paper notes quadratic segment cost and mentions inference acceleration; the deployed compute budget is not given.

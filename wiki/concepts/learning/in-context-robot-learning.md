@@ -3,7 +3,7 @@ title: In-context robot learning
 type: concept
 created: 2026-08-29
 updated: 2026-08-29
-sources: 2
+sources: 3
 tags: [in-context-learning, robot-foundation-model, demonstration-conditioning, test-time-adaptation, vla, skild-ai, s1]
 ---
 
@@ -72,9 +72,18 @@ Reported corollaries, all self-reported and none independently evaluated:
 - **[Imitation learning](imitation-learning.md)** — the parent tradition; ICL is imitation where the demonstration arrives at inference rather than at training.
 - **[Crowdsourced robot training data](crowdsourced-robot-training-data.md)** — S1's data table rates egocentric human video highest on diversity and scalability, which is what makes the outer loop trainable at all.
 
+## Prehistory: adaptation before long context
+
+The experience-conditioned mode did not begin with long context. **[RMA](../../sources/rma-paper.md)** (Kumar, Fu, [Pathak](../../entities/deepak-pathak.md) & Malik, RSS 2021) solved the same problem — a robot inferring its own situation online, with no weight update — using **0.5 s of proprioception** and an explicitly engineered two-module design: a privileged teacher produces a latent "extrinsics" vector in simulation, and a small CNN learns to regress it from state–action history at deployment.
+
+Crucially, RMA also **declines to identify the system**: it predicts *how behavior should change*, not the physical parameters, and its ablation shows that predicting the physics directly is **worse** (56.5% vs 73.5%). That is the same instinct long-context in-context learning acts on — the useful latent is behavioral, not physical — reached four years earlier with a hand-built bottleneck instead of attention.
+
+What separates them is horizon and structure, not aim. RMA adapts to **terrain, payload and friction within a trial**; [LocoFormer](../../sources/locoformer-paper.md) adapts to **morphology across trials**, which requires remembering a failure. LocoFormer calls the RMA class *"myopic"* — accurate, and a deliberate choice on RMA's part, made to fit a cheap robot's onboard compute.
+
 ## Key references
 
 - [Introducing S1: In-Context Learning for Robotics](../../sources/skild-s1-blog.md) — [Skild AI](../../entities/skild-ai.md), August 2026. The wiki's anchor source; vendor blog.
+- [**RMA: Rapid Motor Adaptation for Legged Robots**](../../sources/rma-paper.md) — Kumar, Fu, Pathak & Malik, RSS 2021. The prehistory: fixed 0.5 s window, explicit adaptation module, privileged teacher.
 - [**LocoFormer: Generalist Locomotion via Long-context Adaptation**](../../sources/locoformer-paper.md) — Liu, [Pathak](../../entities/deepak-pathak.md) & Agarwal, CoRL 2025. The experience-conditioned instance, and the better-evidenced of the two: peer-reviewed, with baselines (GRU 0.37 vs 0.96) and per-robot expert upper bounds (0.99).
 
 ## Mentioned in
@@ -82,4 +91,5 @@ Reported corollaries, all self-reported and none independently evaluated:
 - [Introducing S1](../../sources/skild-s1-blog.md) — the demonstration-conditioned mode.
 - [LocoFormer](../../sources/locoformer-paper.md) — the experience-conditioned mode.
 - [Skild AI](../../entities/skild-ai.md) — the company behind both.
-- [Deepak Pathak](../../entities/deepak-pathak.md) — LocoFormer co-author.
+- [RMA](../../sources/rma-paper.md) — the pre-long-context ancestor.
+- [Deepak Pathak](../../entities/deepak-pathak.md) — co-author of both LocoFormer and RMA.
