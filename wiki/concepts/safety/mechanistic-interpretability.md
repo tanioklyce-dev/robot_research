@@ -2,9 +2,9 @@
 title: Mechanistic interpretability
 type: concept
 created: 2026-05-15
-updated: 2026-05-15
-sources: 2
-tags: [mechanistic-interpretability, anthropic, chris-olah, sparse-autoencoders, feature-extraction, ai-safety]
+updated: 2026-08-30
+sources: 5
+tags: [mechanistic-interpretability, anthropic, goodfire, neural-geometry, robotics, chris-olah, sparse-autoencoders, feature-extraction, ai-safety]
 ---
 
 **Mechanistic interpretability** — the research program of *reading and intervening on the internal computations of trained neural networks*, in the hope of understanding what concepts a model represents and how it uses them to produce behavior. The intellectual descendant of neural-network "circuits" work pioneered by **Chris Olah** and collaborators. Distinct from input-output interpretability (e.g., LIME, attention heatmaps) in that it targets the model's *intermediate representations* directly.
@@ -26,28 +26,68 @@ Given a trained model `f_θ`, mechanistic interpretability asks:
 - **Features can be steered.** Boosting a feature's value in the live model produces qualitatively predictable behavioral changes. This is the most direct evidence that the extracted features are causally part of how the model produces behavior, not just descriptive correlates.
 - **We're still in the early innings.** Olah's "dark matter" framing (quoted in Welch Ch 7): *"the features we haven't been able to extract may be a kind of dark matter of interpretability"* — i.e., **we've extracted <1% of the concepts** large language models must know about. The known features are like the brightest stars; everything dimmer is invisible.
 
+> [!warning] The linear-representation assumption is now contested
+> The account above — features as *directions* in activation space, extracted by SAEs, validated by turning them up and down — is the **linear representation hypothesis**, and as of 2026 it is disputed rather than settled.
+>
+> [Goodfire](../../entities/goodfire.md)'s *The World Inside Neural Networks* (Geiger et al., May 2026, [catalog record](../../sources/goodfire-research-index.md)): *"Neural networks often do not represent the world as a set of clean, linear directions. Even when a model has learned a scalar concept like position, that concept may live on a **curved manifold** rather than along a straight line in activation space."* They report a concrete failure signature — steering **linearly** along a curved concept produces garbled outputs and teleportation artifacts, while steering **along the fitted manifold** moves smoothly.
+>
+> If that holds, SAE features are a **linear approximation to a curved object**, which is one candidate account of Olah's "dark matter": not concepts we failed to find, but concepts that are not shaped like directions.
+>
+> **Flagged, not adopted.** It is one lab's line, largely self-published, and Goodfire sells "neural geometry" as a named product capability — a reason for care rather than dismissal. The wiki should read the independent SAE-manifold work (*Understanding Sparse Autoencoder Scaling in the Presence of Feature Manifolds*, Michaud et al. 2025; *Can SAEs Capture Neural Geometry?*, Bhalla et al. 2026) before revising the section above.
+
+## The field now has a commercial pole
+
+Until 2026 this page described mech-interp as a frontier-lab safety programme. [Goodfire](../../entities/goodfire.md) — a **$150M Series B at a $1.25B valuation** ([announcement](../../sources/goodfire-series-b.md)), founded by DeepMind and OpenAI interpretability alumni — sells it as **tooling**, through an agent product ([Silico](../../sources/goodfire-silico-robotics-vision.md)) that runs interpretability experiments autonomously.
+
+Two things follow that matter beyond the funding:
+
+- **The pitch is not primarily defensive.** Alongside safety, Goodfire argues interpretability is a **model-design** instrument and a **scientific-discovery** one — extracting from a genomics or echocardiography model what it knows and nobody has written down. That is a different justification from "know when the model is lying," and it is the one attracting customers (Arc Institute, Mayo Clinic, Rakuten, Microsoft).
+- **Robotics is a named vertical.** See below.
+
+## Interpretability applied to robot policies
+
+The wiki's robotics material has a standing problem with no method attached: [LIBERO-PRO](../../sources/libero-pro-paper.md) showed policies scoring **>90%** collapsing to **0.0%** under perturbation, which establishes that benchmark success does not distinguish generalization from memorization — and offers no way to tell them apart short of building a perturbed benchmark for every task.
+
+Reading the policy's **internals** is one of the few proposals anywhere for doing that directly. [Goodfire's robotics & vision page](../../sources/goodfire-silico-robotics-vision.md) frames it as: *"Vision and robotics models often fail in the real world because they learned brittle shortcuts instead of generalizable concepts"* — and claims to catch generalization failure pre-deployment by evaluating the latent space, to attribute a failure back to the training episodes that caused it, and to steer between latent modes without retraining.
+
+> [!warning] Framing only — nothing here is evidence
+> The robotics case study **names no model, reports no benchmark, and gives no numbers**, and Goodfire's 40-item [research corpus](../../sources/goodfire-research-index.md) contains **no robotics research at all**. The closest published thing is an image-action model on the toy mountain-car environment. Cite this as an approach being attempted, never as one shown to work.
+
+The nearest testable version: **does latent-space inspection predict which policies collapse under [LIBERO-PRO](../../sources/libero-pro-paper.md)-style perturbation, before running the perturbed benchmark?** Nobody has published it, and it would be a major result.
+
 ## Why this matters in this wiki
 
 - **Adjacent to [AI safety and alignment](ai-safety-alignment.md)**. The standard safety pitch for mech-interp is "if we understood the model, we could trust it (or distrust it for the right reasons)." Welch frames this as "how would you know if a language model is lying to you?" Anthropic's [Claude](../../entities/anthropic.md) is both the safety-research target and the operational system being interpreted.
 - **Adjacent to [Chain of thought](../learning/chain-of-thought.md)**. CoT faithfulness depends on whether the model's verbalized reasoning matches its actual internal computation — a question mech-interp is in principle positioned to answer. As of 2026 it can't yet.
 - **Adjacent to [Corrigibility](corrigibility.md)**. The "feature for being corrigible" is the kind of internal concept mech-interp would need to identify and reason about. Currently aspirational.
 
-## Current state (2026-05)
+## Current state (2026-08)
 - **Sparse autoencoders are state-of-the-art** as of Templeton et al. 2024. Multiple labs (Anthropic, Google DeepMind, OpenAI internal) have replicated.
 - **Scaling**: SAEs themselves now have to be trained at scale — extracting features from a frontier-scale LLM means training an SAE that's a substantial model in its own right.
 - **Olah's pessimism on coverage**: ~1% of concepts extracted as of mid-2024. Welch quotes this as the chapter's anchor caveat — the field is real, the techniques work, the coverage problem is brutal.
 - **No dedicated pedagogy primary-source in the wiki besides Welch Ch 7.** Templeton et al. 2024 (Scaling Monosemanticity) is the canonical Anthropic paper but is not yet in `raw/`.
+- **The linear hypothesis is under active challenge** (see the warning above), and the alternative — concepts on curved manifolds — has a named commercial sponsor, which is both why it is well-resourced and why it needs independent checking.
+- **Commercialized as of 2026.** Interpretability is now sold as tooling, with life sciences the proven vertical and **robotics an announced but unevidenced one**.
 
 ## Related
+- [Goodfire](../../entities/goodfire.md) — the field's commercial pole; [Silico](../../sources/goodfire-silico-robotics-vision.md).
+- [LIBERO-PRO](../../sources/libero-pro-paper.md) — the robot-evaluation problem interpretability is being proposed against.
+- [Inductive bias](../learning/inductive-bias.md) — Goodfire's *Priors in Time* frames interpretability's own missing inductive biases.
 - [AI safety and alignment](ai-safety-alignment.md) — mech-interp's primary motivating sponsor.
 - [Anthropic](../../entities/anthropic.md) — the lab that drives the modern SAE-based program.
 - [Chain of thought](../learning/chain-of-thought.md) — adjacent: CoT faithfulness is a mech-interp-shaped question.
 
 ## Mentioned in
 - [Welch Labs Illustrated Guide to AI, Vol I](../../sources/welchlabs-illustrated-guide-to-ai.md)
+- [Silico for Robotics & Vision (Goodfire)](../../sources/goodfire-silico-robotics-vision.md)
+- [Goodfire research index (2024–2026)](../../sources/goodfire-research-index.md)
+- [Goodfire Series B announcement](../../sources/goodfire-series-b.md)
 
 ## Open follow-ups
 - **Templeton et al. 2024 — *Scaling Monosemanticity*** (Anthropic). Primary-source candidate. Would let this concept page cite specific feature-extraction numbers, model scales, and demonstrations.
 - **Olah's "dark matter of interpretability"** essay/talk (July 2024). Primary-source candidate; would let the page cite the framing directly.
 - **Chris Olah** entity stub — would tie together the SAE / circuits lineage at Anthropic + earlier Distill / OpenAI work.
-- **Sparse autoencoder** concept page — the technique deserves its own page if the field gets deeper coverage. Currently rolled into this concept.
+- **Sparse autoencoder** concept page — the technique deserves its own page if the field gets deeper coverage. Currently rolled into this concept, and now also needs to carry the manifold critique.
+- **Ingest *The World Inside Neural Networks*** (Geiger et al. 2026) and *Can SAEs Capture Neural Geometry?* (Bhalla et al. 2026) as full sources. Together they decide whether the linear framing above needs rewriting rather than caveating.
+- **EchoJEPA** — a [JEPA](../world-models/jepa.md)-family model on echocardiography video, surfaced only via Goodfire's case study. The JEPA page does not know a clinical branch of the family exists.
+- **Goodfire's evaluation-awareness thread** (*Verbalized Eval Awareness Inflates Measured Safety*; *Reasoning Theater*) is the closest thing in that corpus to this wiki's robot-evaluation problem, approached from language.

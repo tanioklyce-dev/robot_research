@@ -3,7 +3,7 @@ title: World model
 type: concept
 created: 2026-05-07
 updated: 2026-08-27
-sources: 53
+sources: 54
 tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video, omnimodal, world-action-model]
 ---
 
@@ -71,7 +71,7 @@ A separate tradition builds a model of the environment for a different purpose �
 
 ## Mentioned in
 
-> [!note] Curated list — **53** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **54** source pages link here; the ones below are those that shaped this page.
 
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../../sources/hai-world-model-spatial-intelligence-brief.md) — the policy-facing definition (action-conditioned prediction; counterfactual reasoning as the central goal) and the renderer/simulator/planner frame
 - [Wake-Sleep Paper (Hinton et al., 1995)](../../sources/wake-sleep-paper.md) — the sleep phase trains on model-generated "fantasies" — the 1995 ancestor of learning-in-imagination, complete with its stated failure mode (fantasy distribution ≠ data distribution)

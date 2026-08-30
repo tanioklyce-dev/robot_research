@@ -314,6 +314,9 @@ A count-based language model that conditions on the previous `n−1` words only,
 ### NMS
 **Non-Maximum Suppression** — post-processing that removes overlapping duplicate detections by keeping the highest-confidence box and dropping others above an [IoU](#iou) threshold; the merge step in [SAHI](concepts/robotics/sahi-slicing-inference.md). *(Perception.)*
 
+### Neural geometry
+The study of the **shape** of a concept's representation in activation space — as against the assumption that concepts are directions. [Goodfire](entities/goodfire.md)'s house research line: even a scalar concept like position "may live on a curved manifold rather than along a straight line," with the diagnostic that **linear** steering along such a concept produces garbled output and teleportation artifacts while steering **along the fitted manifold** moves smoothly ([research index](sources/goodfire-research-index.md)). Also a named [Silico](sources/goodfire-silico-robotics-vision.md) capability, which is a reason for independent checking rather than dismissal. *(Safety branch.)*
+
 ### Negative sampling
 **NEG** — [word2vec](#word2vec)'s replacement for the softmax ([Mikolov et al. 2013b](sources/mikolov2013-distributed-representations-words-phrases.md)): push the observed context word's vector toward the centre word's and `k` randomly drawn words' vectors away, with no normalization over the vocabulary. `k` = 5–20 (small corpora) or 2–5 (large). A deliberate simplification of [NCE](#nce) that **drops NCE's guarantee** of approximately maximizing the softmax log-probability, on the stated grounds that only representation quality matters. Noise distribution is the unigram raised to the **3/4 power** — tuned, unexplained, and one of ML's most-copied magic numbers. The ancestor of InfoNCE. *(Modules 3 / 4.)*
 
@@ -418,6 +421,9 @@ Computing the set of all states a system can occupy over a time horizon given bo
 
 ### SAC
 **Soft Actor-Critic** — Haarnoja et al. 2018; max-entropy off-policy actor-critic for continuous control. See [SAC](entities/sac.md) / [original paper](sources/sac-paper.md) / [Algorithms and Applications](sources/sac-applications-paper.md) (practical SAC = automatic temperature α); the algorithmic root of the [real-world robotic RL](concepts/learning/real-world-robot-rl.md) lineage. *(Module 8.)*
+
+### SAE
+**Sparse Autoencoder** — the workhorse of modern [mechanistic interpretability](concepts/safety/mechanistic-interpretability.md): a separately-trained wider, sparser recoding `z = SAE(activation)` whose individual units often correspond to human-readable concepts. Extraction is validated causally by **steering** — raise or lower a unit and see whether behaviour changes predictably. Introduced at scale by Anthropic (Templeton et al. 2024, un-ingested). ⚠️ Presupposes the **linear representation hypothesis**; [Goodfire](entities/goodfire.md)'s neural-geometry line argues many concepts live on **curved manifolds**, which would make SAE features a linear approximation to a curved object. *(Safety branch.)*
 
 ### SAHI
 **Slicing Aided Hyper Inference** — Akyon et al. 2022; inference-time small-object trick — slice the image into overlapping patches, detect per patch, merge via [NMS](#nms). See [concept page](concepts/robotics/sahi-slicing-inference.md). *(Perception.)*

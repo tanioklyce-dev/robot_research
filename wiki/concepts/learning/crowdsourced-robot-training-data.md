@@ -3,7 +3,7 @@ title: Crowdsourced robot training data
 type: concept
 created: 2026-08-27
 updated: 2026-08-30
-sources: 6
+sources: 7
 tags: [crowdsourcing, human-data, egocentric, data-pipeline, data-quality, fraud, deduplication, data-labor, gig-economy, scaling-laws, go-big, brookfield, consent]
 ---
 
