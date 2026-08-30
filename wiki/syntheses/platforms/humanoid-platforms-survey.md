@@ -26,10 +26,14 @@ Companion to [Robot platforms — comparison](robot-platforms-comparison.md) foc
 | [Apptronik Apollo](../../entities/apptronik-apollo.md) | Research / industrial | Apptronik | ~1.73 m | Industrial pilots | NVIDIA-aligned ([GR00T](../../entities/nvidia-groot.md)) |
 | [Digit](../../entities/digit.md) | Industrial (deployed) | Agility Robotics | ~1.75 m | Pilot pricing | Narrow-task BC |
 | **[Walden](../../entities/walden-robotics.md)** (unnamed) | Industrial (deployed) | Walden Robotics (Cambridge MA) | **wheeled — no legs** | Selling; undisclosed | [LBMs](../../concepts/learning/large-behavior-models.md) + [Diffusion Policy](../../entities/diffusion-policy.md) |
+| **[Phantom](../../entities/foundation-robotics.md)** | **Military / industrial** | Foundation Future Industries | 1.8 m / 80 kg / 29 DoF | Claimed production; ~$100k target | Hybrid IL + physics models; RL locomotion (vendor claim, no evaluation) |
 | [Unitree H1](../../entities/unitree-h1.md) | Affordable research | Unitree Robotics | ~1.8 m | ~$90k starter | Open SDK, user-supplied AI |
 | [Unitree G1](../../entities/unitree-g1.md) | Affordable research / educational | Unitree Robotics | ~1.32 m | ~$16k starter | Open SDK, user-supplied AI |
 | [NAO V6](../../entities/nao.md) | Educational | SoftBank / Aldebaran | ~58 cm | ~$8–15k | Choregraphe + Python/C++ |
 | [TonyPi / TonyPi Pro](../../entities/tonypi.md) | Educational (hobby) | Hiwonder | small | $300–700 | Pre-loaded demos |
+
+> [!warning] One row in that table does not belong in it on the same terms
+> **[Phantom](../../entities/foundation-robotics.md)** is included because it is a real, actively-marketed humanoid with government contracts — but its published specifications **contradict themselves** (payload stated as both 40 kg and 20 kg on the same page), its actuator technology is described two incompatible ways by its own company, and its most-repeated corporate claim was denied outright by the company named in it. Treat its row as a record of what is *claimed*, not of what is *known*. Details on the [entity page](../../entities/foundation-robotics.md).
 
 ## By tier
 

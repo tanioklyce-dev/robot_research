@@ -131,6 +131,9 @@ That pattern is the most reliable signal on this page. **The capital is coming d
 
 ---
 
+> [!warning] The extreme case
+> **[Foundation Future Industries](../../entities/foundation-robotics.md)** reports ~$24M in government research contracts, **$100M in contracted ARR**, and a 50,000-unit-by-2027 target — against **zero published performance data**, a product page whose payload figure contradicts itself by 2×, an actuator its own company describes two incompatible ways, and a GM partnership claim that GM denied in the plainest available language (*"never had an agreement of any kind"*). It is the sharpest instance in this wiki of the gap this page is built around, and a reminder that the checks below are not academic.
+
 ## 6. How to read industry claims in this field
 
 Five checks, each earned from a specific failure documented in this wiki.
