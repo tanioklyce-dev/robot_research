@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-30
 updated: 2026-08-30
-sources: 2
+sources: 3
 tags: [jepa, v-jepa-2, echocardiography, medical-imaging, foundation-model, vector-institute, open-weights, robustness]
 ---
 
@@ -35,4 +35,4 @@ tags: [jepa, v-jepa-2, echocardiography, medical-imaging, foundation-model, vect
 
 - **The ECG-leakage claim** is unverified and unattributable to the paper.
 - **EchoJEPA-L is a rare open JEPA checkpoint with a published perturbation benchmark**, which makes it a candidate testbed for [latent-inspection-predicts-collapse](../syntheses/projects/latent-inspection-policy-collapse.md) without robot hardware.
-- **EchoWorld** (cited in its related work) applies world modelling to **robotic ultrasound probe guidance** with 6-DOF pose conditioning — squarely in this wiki's subject matter, un-ingested.
+- **[EchoWorld](echoworld.md)** — the probe-guidance counterpart, now [ingested](../sources/echoworld-paper.md). No cross-comparison between the two exists.

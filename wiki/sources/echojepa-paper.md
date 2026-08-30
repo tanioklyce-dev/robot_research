@@ -97,7 +97,7 @@ Both applied **consistently across all frames**, to simulate a real acquisition 
 - **Bo Wang** (senior author, UHN/Vector/Toronto), Alif Munim, Adibvafa Fallahpour, Teodora Szasz (co-first). No wiki pages.
 - **[V-JEPA 2](../entities/v-jepa-2.md)** — the architecture adapted.
 - **Arc Institute** — a Fallahpour affiliation, and separately a named [Goodfire](../entities/goodfire.md) customer.
-- **EchoWorld** (Yue et al. 2025) — cited in related work: world modelling for **robotic ultrasound probe guidance**, conditioned on **6-DOF probe pose**. Not ingested; the most robotics-relevant citation in the paper.
+- **[EchoWorld](../entities/echoworld.md)** (Yue et al., CVPR 2025) — cited in related work: an action-conditioned JEPA for **robotic ultrasound probe guidance** with **6-DOF pose** as the latent. **Ingested 2026-08-30** ([source page](echoworld-paper.md)).
 - Baselines: PanEcho, EchoPrime, EchoCLIP, EchoFM, VideoMAE.
 
 ## Concepts touched
@@ -109,6 +109,6 @@ Both applied **consistently across all frames**, to simulate a real acquisition 
 
 ## Open questions / TBD
 
-- **EchoWorld** — robotic probe guidance via world modelling with 6-DOF pose conditioning. Directly in this wiki's subject matter and un-ingested.
+- ~~EchoWorld — robotic probe guidance with 6-DOF pose conditioning, un-ingested.~~ **Resolved 2026-08-30** — [ingested](echoworld-paper.md). Two echocardiography JEPAs now exist with no cross-comparison.
 - **Does the robustness advantage survive a leak-style perturbation?** The protocol covers sensor physics and population shift, not spurious correlation with a co-recorded signal. Goodfire's claim suggests it does not.
 - **EchoJEPA-L is open** (MIMIC-IV-Echo). That makes it a rare **publicly available JEPA checkpoint with a published perturbation benchmark attached** — a plausible testbed for [the latent-inspection experiment](../syntheses/projects/latent-inspection-policy-collapse.md) without needing robot hardware.
