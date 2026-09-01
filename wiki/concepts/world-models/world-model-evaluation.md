@@ -3,7 +3,7 @@ title: World-model evaluation
 type: concept
 created: 2026-08-07
 updated: 2026-08-31
-sources: 11
+sources: 12
 tags: [world-model, evaluation, benchmark, physical-validity, policy, vbench, worldscore, physion-eval, mllm-critic]
 ---
 
@@ -70,6 +70,12 @@ The progression VBench → VideoPhy/PhyGenBench → WorldScore/WorldModelBench �
 > Two consequences. First, **the automated benchmark layer is itself unvalidated** — this is the same failure the wiki recorded on the model side (WorldArena's EWMScore correlates r = 0.360 with action planning), now found one level up. Second, the generators are worse than headline numbers suggest: **83.3% of exocentric and 93.5% of egocentric** generated clips carry at least one human-identified physical violation.
 
 Note a small closed loop in the policy record: **WorldScore was co-authored by two of the HAI brief's own authors** (Fei-Fei Li, Jiajun Wu), and its first author Haoyi Duan appears on WorldArena 2.0. The brief presents the benchmark landscape as external evidence without noting the overlap.
+
+### A fourth axis: sample-efficiency against a human baseline
+
+Everything in the table above scores an **artifact** — a video, a rollout, a sequence model. The cognitive-science tradition instead scores an **agent solving a problem**, and does it against a measured human baseline on identical stimuli. See [physical reasoning benchmarks](physical-reasoning-benchmarks.md): **PHYRE** and **Virtual Tools**, scored by **AUCCESS**, which weights success toward *fewer attempts*.
+
+Two imports worth making. First, that family separates **performance** from **human alignment** and reports both — [Causal-PIK](../../sources/causal-pik-paper.md) is simultaneously higher-scoring than humans and *less* correlated with them per-puzzle on Virtual Tools, because it solves puzzles people find hard. Robot-policy evaluation here routinely treats "matches human success rate" as if it implied similar competence structure; it does not. Second, **a score without its action space or attempt budget is uninterpretable** — humans beat Causal-PIK 36.6 to 24.8 on PHYRE once both get 10 attempts.
 
 ### The coherence axis, and the pattern all three axes converge on
 

@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-31
 updated: 2026-08-31
-sources: 3
+sources: 4
 tags: [jeannette-bohg, stanford, researcher, manipulation, dexterous-manipulation, failure-detection, sim-to-real]
 ---
 
@@ -17,6 +17,7 @@ tags: [jeannette-bohg, stanford, researcher, manipulation, dexterous-manipulatio
 | **[SimToolReal](../sources/simtoolreal-paper.md)** (Kedia, Lum, Bohg†, Liu†; RSS 2026) | equal advising | One RL policy on procedurally generated tool primitives, zero-shot to real tools. Reduces tool use to **goal-pose sequences**, removing per-task reward design. |
 | **[Sentinel](../sources/sentinel-paper.md)** (Agia, Sinha, Yang, Cao, Antonova, Pavone, Bohg) | co-author | [Runtime failure detection](../concepts/robotics/runtime-failure-detection.md) for manipulation policies. |
 | **[Robot-Powered Data Flywheels](../sources/robot-powered-data-flywheels-paper.md)** (Grannen, Pan, Llontop, Ho, Zolotas, Bohg, [Sadigh](dorsa-sadigh.md); 2025) | co-author | **Scanford** in the East Asia Library for two weeks: the robot self-labels against the library catalog, lifting a VLM 32.4→71.8% on book ID and 24.8→46.6% on *general* English OCR. |
+| **[Causal-PIK](../sources/causal-pik-paper.md)** (Parés-Morlans, Yi, Chen, Wu, Antonova, Gerstenberg, Bohg; ICML 2025) | senior author | Physics intuition inside a **GP kernel**: rank actions by *causal-effect similarity*, not geometric proximity. Beats SOTA and (at generous budgets) humans on PHYRE / Virtual Tools. |
 
 ## Two prescriptions, unreconciled
 
@@ -39,3 +40,4 @@ That pairing — **design for the observable, then detect when you are outside i
 - [SimToolReal paper](../sources/simtoolreal-paper.md)
 - [Sentinel paper](../sources/sentinel-paper.md)
 - [Robot-Powered Data Flywheels paper](../sources/robot-powered-data-flywheels-paper.md)
+- [Causal-PIK paper](../sources/causal-pik-paper.md)
