@@ -3,7 +3,7 @@ title: World-model evaluation
 type: concept
 created: 2026-08-07
 updated: 2026-08-31
-sources: 9
+sources: 11
 tags: [world-model, evaluation, benchmark, physical-validity, policy, vbench, worldscore, physion-eval, mllm-critic]
 ---
 
@@ -61,6 +61,7 @@ The principle: *the closer a system comes to real-world actions, the more its ev
 | **[WorldArena](../../entities/worldarena.md)** | Perceptual quality **plus functional utility** as data engine / policy evaluator / action planner — extended in 2.0 to visuotactile, RL environments, and real robots | **[ingested](../../sources/worldarena-paper.md)** · **[2.0](../../sources/worldarena-2-paper.md)** |
 | **[WorldRoamBench](../../entities/worldroambench.md)** | **Long-horizon stability** of interactive world models: per-frame action, visual drift, interaction physics, memory | **[ingested](../../sources/worldroambench-paper.md)** |
 | **[LIBERO](../../entities/libero.md)** | Simulated manipulation task completion — the robotics anchor of the list | [ingested](../../sources/libero-pro-paper.md) |
+| **Myhill-Nerode compression / distinction** ([Vafa et al.](../../sources/vafa-world-model-implicit.md)) | **Internal coherence** of the world model implicit in a sequence model, against a DFA ground truth. Not perceptual, not utility — the third axis | **[ingested](../../sources/vafa-world-model-implicit.md)** |
 
 The progression VBench → VideoPhy/PhyGenBench → WorldScore/WorldModelBench → WorldArena runs from *how it looks* toward *what it is good for*. WorldArena and WorldRoamBench sit at that far end and now have primary sources here.
 
@@ -69,6 +70,22 @@ The progression VBench → VideoPhy/PhyGenBench → WorldScore/WorldModelBench �
 > Two consequences. First, **the automated benchmark layer is itself unvalidated** — this is the same failure the wiki recorded on the model side (WorldArena's EWMScore correlates r = 0.360 with action planning), now found one level up. Second, the generators are worse than headline numbers suggest: **83.3% of exocentric and 93.5% of egocentric** generated clips carry at least one human-identified physical violation.
 
 Note a small closed loop in the policy record: **WorldScore was co-authored by two of the HAI brief's own authors** (Fei-Fei Li, Jiajun Wu), and its first author Haoyi Duan appears on WorldArena 2.0. The brief presents the benchmark landscape as external evidence without noting the overlap.
+
+### The coherence axis, and the pattern all three axes converge on
+
+[Vafa et al. (2024)](../../sources/vafa-world-model-implicit.md) supply what the rest of this table lacks: a **formal** ground truth. Where the world is a DFA, the Myhill-Nerode theorem makes "has a world model" decompose into two checkable halves — prefixes reaching the same state must admit the same continuations (**compression**), prefixes reaching different states must be separable by some suffix (**distinction**). See [belief states and mixed states](belief-states-and-mixed-states.md) for why these are the discrete cousin of a POMDP belief.
+
+The numbers are stark. A transformer trained on NYC taxi rides scores **1.00** on next-token legality and **0.91** on a current-state probe — the field's two standard diagnostics — while scoring **0.10** on compression precision, and its reconstructed Manhattan contains streets with impossible orientations and flyovers. GPT-4 solves seating-arrangement logic puzzles at task accuracy **1.00** with compression precision **0.21**.
+
+> [!note] One finding, three formalisms
+> The wiki now has the same result from three unrelated directions, and it is worth stating once:
+> - [stable-worldmodel](../../sources/stable-worldmodel-paper.md): **prediction MSE correlates poorly with planning success** — being out of distribution, not error magnitude, breaks planning.
+> - [WorldArena](../../sources/worldarena-paper.md): perceptual score correlates **r = 0.360** with action planning.
+> - [Vafa et al.](../../sources/vafa-world-model-implicit.md): near-perfect task performance alongside compression precision 0.10–0.21.
+>
+> **Whatever a model's headline competence measures, it is not the coherence of its world model.** Every axis of this table that scores outputs rather than structure inherits the problem — which is also why [Physion-Eval](../../sources/physion-eval-paper.md)'s finding that the automated *judges* are weaker than untrained humans compounds rather than duplicates it.
+
+Vafa et al. add a second finding with direct bearing on robot data collection: across both navigation and Othello, **models trained on random or synthetic data recovered more structure than models trained on real expert data** — real traversals never cover the state space widely enough. The wiki's data-collection sources ([Mobile ALOHA](../../sources/mobile-aloha-paper.md), [DROID](../../entities/droid.md), [Figure's Index](../../entities/figure-index.md)) all collect expert demonstrations, which is structurally the regime that scored worst here.
 
 ### What the measurements actually say
 

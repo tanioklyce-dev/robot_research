@@ -2,8 +2,8 @@
 title: Learned latent space
 type: concept
 created: 2026-05-08
-updated: 2026-08-30
-sources: 38
+updated: 2026-08-31
+sources: 39
 tags: [representation-learning, embeddings, world-model, jepa, self-supervised]
 ---
 
@@ -71,6 +71,7 @@ The caveat is equally structural: the sparsity regularizer constrains only the *
 
 ## Related
 
+- [Belief states and mixed states](belief-states-and-mixed-states.md) — what a latent *is* when the world is partially observed. [Blackwell (1957)](../../sources/jurgens-crutchfield-hmp-entropy-rate.md) gives the exact object (a distribution over hidden states) and the uncomfortable theorem: for a nonunifilar process the sufficient statistic is generically **infinite-dimensional**, so a fixed-width latent is provably lossy by construction, not by undertraining.
 - [Joint-Embedding Predictive Architecture](jepa.md) — the architecture pattern built around predicting in a learned latent space.
 - [World model](world-model.md) — the broader umbrella; latent-prediction world models are one of the main paradigms (the other being generative-video).
 - [Generative-video vs JEPA world models](../../syntheses/world-models/generative-video-vs-jepa-world-models.md) — synthesis comparing pixel-space vs latent-space prediction targets.

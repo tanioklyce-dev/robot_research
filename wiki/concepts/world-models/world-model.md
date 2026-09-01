@@ -2,8 +2,8 @@
 title: World model
 type: concept
 created: 2026-05-07
-updated: 2026-08-27
-sources: 55
+updated: 2026-08-31
+sources: 56
 tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video, omnimodal, world-action-model]
 ---
 
@@ -62,6 +62,7 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 A separate tradition builds a model of the environment for a different purpose — see **[visual relocalization and mapping](../robotics/visual-relocalization-and-mapping.md)**. World models answer *"what happens if I act"*; SLAM and relocalization answer *"where am I, and what shape is this place."* Different outputs, different failure modes (compounding prediction error and hallucination vs drift and loop-closure failure), different evaluations. Complementary rather than competing — and **this wiki has essentially no source that uses both together.**
 
 ## Related
+- [Belief states and mixed states](belief-states-and-mixed-states.md) — the POMDP belief: the only sense of "the state of a world model" that admits a theorem. Carries [Blackwell's 1957](../../sources/jurgens-crutchfield-hmp-entropy-rate.md) result and [Vafa et al.](../../sources/vafa-world-model-implicit.md)'s Myhill-Nerode coherence metrics, which show near-perfect task performance coexisting with an incoherent world model.
 - [World-model simulators](world-model-simulators.md) — narrower companion concept (world-model as drop-in simulator replacement).
 - [Joint-Embedding Predictive Architecture](jepa.md) — one design point under this umbrella.
 - [World-action model (WAM)](world-action-model.md) — the FD/ID/policy unification (Cosmos 3, Dream*, GE-Sim2).
