@@ -2,8 +2,8 @@
 title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
-updated: 2026-08-27
-sources: 63
+updated: 2026-08-31
+sources: 64
 tags: [sim-to-real, domain-gap, rl, simulation, real-to-sim, r2s2r]
 ---
 
@@ -137,6 +137,8 @@ Two things make it worth a section here rather than a bullet in "common techniqu
 - Tesla Optimus combines sim-to-real with imitation from human teleoperated/wearable-camera video.
 
 ## Related
+- [Dexterous tool manipulation](../robotics/dexterous-tool-manipulation.md) — the **manipulation-side** counterpart to this page's locomotion-heavy coverage. [SimToolReal](../../sources/simtoolreal-paper.md) shows a single RL policy trained on procedurally generated tool primitives transferring zero-shot to real tools, by reducing tool use to **goal-pose sequences** and so removing per-task reward design — the cost that has kept sim-to-real RL out of manipulation.
+
 - [VLA models](vla-models.md) — the typical policy class undergoing sim-to-real.
 - [World-model simulators](../world-models/world-model-simulators.md) — sidesteps sim-to-real partially by training inside a learned model of reality.
 - [Actuator fidelity in sim-to-real](actuator-fidelity-sim2real.md) — the actuator-side branch of this page.

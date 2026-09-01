@@ -3,8 +3,8 @@ title: Sharpa Wave hand
 type: entity
 subtype: hardware
 created: 2026-05-15
-updated: 2026-08-03
-sources: 2
+updated: 2026-08-31
+sources: 3
 tags: [dexterous-hand, end-effector, sharpa, manipulation, hardware]
 ---
 
@@ -16,6 +16,7 @@ tags: [dexterous-hand, end-effector, sharpa, manipulation, hardware]
 - Manufacturer: **Sharpa** (referenced as `[29]` in EgoScale's bibliography; full manufacturer details not transcribed in the source page).
 
 ## Why it matters in this wiki
+- **The hand behind [SimToolReal](../sources/simtoolreal-paper.md)** (RSS 2026) — a 22-DoF Sharpa five-fingered hand on a 7-DoF KUKA iiwa 14, 29 DoF total at 60 Hz, donated by Sharpa with technical support from their team. This is the wiki's first *measured* dexterity result on the hand: **120 zero-shot real-world rollouts** across 24 tool-use tasks, beating retargeting and fixed-grasp baselines by 37% and matching per-task specialist RL policies. The [fixed-grasp comparison](../concepts/robotics/dexterous-tool-manipulation.md) is the clearest argument in the wiki for why a high-DoF hand earns its cost: with the grasp frozen, arm motion alone cannot rotate a brush 90° without hitting the table (10.8% vs 82.7%).
 - **Primary dexterous-manipulation target in [EgoScale](../sources/egoscale-paper.md)** — the 22-DoF action space is what makes the human-data scaling law a *dexterous* manipulation result rather than a gripper-only one. EgoScale's ablation explicitly compares 22-DoF joint-space against fingertip-SE(3) and wrist-only representations; joint-space wins.
 - **Action-space link to [VLA models](../concepts/learning/vla-models.md).** Joint-angle action outputs are the natural pairing for a high-DoF hand; pairing with a coarser representation (wrist only or SE(3)) loses contact-rich performance.
 

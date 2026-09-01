@@ -49,7 +49,7 @@ Defining one category as the complement of the other is what makes the combinati
 ## Entities mentioned
 
 - [Marco Pavone](../entities/marco-pavone.md) — co-author (Stanford + NVIDIA Research); his fifth ingested source, and the third distinct approach to the same deployment problem.
-- **Jeannette Bohg** — senior author, Stanford; no page yet despite being a major manipulation-research figure.
+- **[Jeannette Bohg](../entities/jeannette-bohg.md)** — senior author, Stanford; now has a page (added with [SimToolReal](simtoolreal-paper.md)), a major manipulation-research figure.
 - [Diffusion Policy](../entities/diffusion-policy.md) — the policy class monitored throughout.
 - [PushT](../entities/pusht.md) — the multimodality stress case.
 - Funding: **[TRI](../entities/tri.md)**, Toshiba, Stanford HAI, Blue Origin, NASA ULI — worth noting given that [FAIL-Detect](fail-detect-paper.md), its main rival, is TRI's own.
