@@ -2,8 +2,8 @@
 title: Soft-prompt cross-embodiment conditioning
 type: concept
 created: 2026-08-13
-updated: 2026-08-23
-sources: 6
+updated: 2026-08-31
+sources: 7
 tags: [soft-prompt, cross-embodiment, prompt-learning, vla, heterogeneity, conditioning, peft, xvla]
 ---
 
@@ -54,7 +54,7 @@ That points at a mechanism nobody has built yet: **prompt retrieval** — pretra
 ## Relation to other conditioning and adaptation ideas
 
 - **[Knowledge insulation](knowledge-insulation.md)** (π-line) protects pretrained VLM representations from action-gradient drift via stop-gradient. X-VLA reaches for the same goal with a blunter tool — a **reduced learning rate** on the soft prompts and vision-language modules — and cites the same underlying worry ("catastrophic drift from pretrained representations").
-- **LoRA / PEFT** adapts a frozen backbone with low-rank deltas. Soft prompts are complementary and are combined with LoRA in X-VLA's PEFT experiments.
+- **[LoRA / PEFT](low-rank-adaptation.md)** adapts a frozen backbone with low-rank deltas ([Hu, Shen et al. 2021](../../sources/lora-paper.md)). Soft prompts are complementary and are combined with LoRA in X-VLA's PEFT experiments.
 - **[Latent action tokens](latent-action-tokens.md)** attack heterogeneity from the other end: learn an embodiment-agnostic *action* vocabulary. Soft prompts instead keep a shared action space (absolute SE(3) EEF pose) and make the *model* embodiment-aware.
 - **Language prompts as embodiment description** is the option this work rejects — worth noting because it is the intuitive first idea and it loses cleanly.
 

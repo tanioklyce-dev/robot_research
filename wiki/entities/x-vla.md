@@ -3,7 +3,7 @@ title: X-VLA
 type: entity
 subtype: model
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-08-31
 sources: 10
 tags: [xvla, vla, soft-prompt, cross-embodiment, flow-matching, florence-2, lerobot, air-tsinghua, shanghai-ai-lab, cloth-folding]
 ---
@@ -30,7 +30,7 @@ Deliberately *not* used: DiT/AdaLN, cross-attention, mixture-of-experts, autoreg
 ## Training
 
 - **Pretraining** — 290 K episodes / 7 hardware setups / 5 robot types from [AgiBot](agibot.md)-Beta (48.8%), [DROID](droid.md) (31.6% across two camera views), RoboMind (19.9% across Franka / UR-5 / [AgileX](agilex-piper.md) / dual-Franka). 64 × A100, ~4 days, 200 K iters, batch 1024, 224×224 images.
-- **Adaptation** — two-step: prompt warm-up with backbone frozen, then joint finetune. Or LoRA at **9 M tunable params (1%)**.
+- **Adaptation** — two-step: prompt warm-up with backbone frozen, then joint finetune. Or [LoRA](../concepts/learning/low-rank-adaptation.md) at **9 M tunable params (1%)**.
 - **Intention abstraction** — predicts **30 anchor points over 4 s** rather than dense timesteps.
 
 ## Results

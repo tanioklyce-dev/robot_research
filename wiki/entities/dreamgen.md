@@ -3,7 +3,7 @@ title: DreamGen
 type: entity
 subtype: method
 created: 2026-07-04
-updated: 2026-08-27
+updated: 2026-08-31
 sources: 3
 tags: [dreamgen, neural-trajectories, video-world-model, synthetic-data, nvidia, gear, vla, dream-star]
 ---
@@ -11,7 +11,7 @@ tags: [dreamgen, neural-trajectories, video-world-model, synthetic-data, nvidia,
 **DreamGen** — NVIDIA GEAR's method for turning image-to-video generative models into **synthetic data generators for robot policy training**, producing "neural trajectories" (synthetic video + pseudo-action pairs). The **root of the [GEAR](nvidia-gear.md) Dream\* world-model line** (DreamGen → DreamZero → [DreamDojo](../sources/dreamdojo-paper.md)) and the source of the neural-trajectory data layer in the [GR00T](nvidia-groot.md) data pyramid. Primary source: [DreamGen Paper](../sources/dreamgen-paper.md) (arXiv 2505.12705, June 2025); co-led by [Joel Jang](joel-jang.md), advised by [Yuke Zhu](yuke-zhu.md) + [Jim Fan](jim-fan.md).
 
 ## The 4-stage pipeline
-1. Fine-tune a video world model (primarily **WAN 2.1**; also tests [Cosmos](nvidia-cosmos.md)) on a small amount of teleop from a *single* behavior in a *single* environment (LoRA).
+1. Fine-tune a video world model (primarily **WAN 2.1**; also tests [Cosmos](nvidia-cosmos.md)) on a small amount of teleop from a *single* behavior in a *single* environment ([LoRA](../concepts/learning/low-rank-adaptation.md)).
 2. Roll it out with new initial frames + language instructions to generate photorealistic robot videos (only *initial frames* needed for new environments — no physical data collection).
 3. Recover pseudo-action labels via an **IDM** (flow-matching inverse dynamics) or a **LAPA latent-action model**.
 4. Train visuomotor policies ([Diffusion Policy](diffusion-policy.md), [π0](pi-zero.md), [GR00T N1](nvidia-groot.md)) on the resulting **neural trajectories**.

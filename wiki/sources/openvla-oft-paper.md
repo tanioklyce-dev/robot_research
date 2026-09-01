@@ -21,7 +21,7 @@ The Stanford paper introducing **[OpenVLA-OFT](../entities/openvla-oft.md)**. It
 
 ## Key claims
 
-- **The gap it fills.** VLAs need fine-tuning to work on a new robot, but the best fine-tuning strategy was unclear. Autoregressive fine-tuning (even LoRA) is too slow (**3–5 Hz**) for high-frequency control (25–50+ Hz) and unreliable on bimanual arms; better tokenizers (VQ, [FAST](../entities/fast-action-tokenization.md)'s DCT) give 2–13× but still carry ~750 ms inter-chunk latency. (§I–II)
+- **The gap it fills.** VLAs need fine-tuning to work on a new robot, but the best fine-tuning strategy was unclear. Autoregressive fine-tuning (even [LoRA](../concepts/learning/low-rank-adaptation.md)) is too slow (**3–5 Hz**) for high-frequency control (25–50+ Hz) and unreliable on bimanual arms; better tokenizers (VQ, [FAST](../entities/fast-action-tokenization.md)'s DCT) give 2–13× but still carry ~750 ms inter-chunk latency. (§I–II)
 - **Three design axes studied** (Fig. 2), on OpenVLA (7B, Prismatic VLM, 1M OXE episodes), via LoRA on ~500 demos:
   1. **Action decoding — autoregressive vs. parallel.** Parallel decoding feeds **empty action embeddings** and swaps the causal mask for **bidirectional attention**, so all actions emit in **one forward pass** (D passes → 1). It extends naturally to **action chunking** (insert more empty embeddings → predict K·D actions at once).
   2. **Action representation — discrete vs. continuous.** Discrete = 256-bin per-dimension + softmax; continuous = an **MLP action head** mapping decoder hidden states directly to real-valued actions.

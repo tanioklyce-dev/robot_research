@@ -19,7 +19,7 @@ The primary paper for **[DreamGen](../entities/dreamgen.md)** — NVIDIA GEAR's 
 ## Key claims
 
 ### The 4-stage pipeline (§2)
-1. **Video world model fine-tuning (§2.1)** — fine-tune an image-to-video model (primarily **WAN 2.1**; also tests [Cosmos](../entities/nvidia-cosmos.md)) on human teleop to adapt it to the target embodiment. **LoRA** (rank 4, α 4, lr 1e-4). Multiview datasets tiled into a 2×2 grid before fine-tuning.
+1. **Video world model fine-tuning (§2.1)** — fine-tune an image-to-video model (primarily **WAN 2.1**; also tests [Cosmos](../entities/nvidia-cosmos.md)) on human teleop ([LoRA](../concepts/learning/low-rank-adaptation.md)) to adapt it to the target embodiment. **LoRA** (rank 4, α 4, lr 1e-4). Multiview datasets tiled into a 2×2 grid before fine-tuning.
 2. **Rollout (§2.2)** — prompt with new initial frames + language instructions; randomize object/environment positions. For environment generalization, only *initial frames* of new environments are captured — **no physical data collection** (zero-shot transfer).
 3. **Pseudo-action labeling (§2.3)** — generated videos lack actions, recovered two ways: an **IDM** (diffusion transformer + SigLIP-2, flow-matching, conditioned on two frames, sliding window) or a **LAPA latent-action model** (VQ-VAE visual-delta over current + 1s-ahead frames; pre-quantized continuous embedding following GR00T N1; LAPA training mix = 438.1M frames across 10 datasets).
 4. **Policy training (§2.4)** — train visuomotor policies (state zeroed) on neural trajectories, either co-trained with real trajectories (1:1) or *solely* on neural trajectories. Validated on **[Diffusion Policy](../entities/diffusion-policy.md), [π0](../entities/pi-zero.md), and [GR00T N1](../entities/nvidia-groot.md)**.

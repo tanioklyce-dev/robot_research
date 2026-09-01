@@ -132,7 +132,7 @@ The transfer experiment (Fig. 9) follows: adapting to WidowX (unseen), a **froze
 - Naive heterogeneous pretraining *degrades* downstream success; the data-processing recipe is load-bearing (Tab. 1).
 - Scaling holds along **three axes simultaneously** — model size, data diversity, data volume — with **no sign of saturation at 0.9 B / 290 K episodes / 7 sources**; validation ℓ1 error correlates R² = −0.925 with adaptation success (Fig. 5).
 - Validation prediction error is a usable **proxy for downstream adaptation success**, which lets the scaling study avoid running full rollouts (Tab. 1).
-- 1% LoRA adaptation ≈ full π0 finetuning on LIBERO (95.4/96.6/96.0/84.2 vs 96.8/98.8/95.8/85.2) and Simpler-WidowX (54.2 vs 55.7) (Tab. 3).
+- 1% [LoRA](../concepts/learning/low-rank-adaptation.md) adaptation ≈ full π0 finetuning on LIBERO (95.4/96.6/96.0/84.2 vs 96.8/98.8/95.8/85.2) and Simpler-WidowX (54.2 vs 55.7) (Tab. 3).
 - 1,200 well-curated cloth-folding demonstrations suffice to match a closed-source model presumed to be trained on far more (§5.2, App. F).
 
 ## Limitations (Appendix N, the authors' own)

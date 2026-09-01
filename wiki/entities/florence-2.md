@@ -3,12 +3,12 @@ title: Florence-2
 type: entity
 subtype: model
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-08-31
 sources: 3
 tags: [florence-2, vlm, vision-language-model, microsoft, backbone, xvla]
 ---
 
-**Florence-2** — Microsoft's unified vision-language model (Xiao et al., 2024), trained on the FLD-5B corpus with a single prompt-conditioned sequence-to-sequence interface spanning captioning, grounding, detection, and segmentation. Small by VLM standards (Base ≈ 0.23 B, Large ≈ 0.77 B).
+**Florence-2** — [Microsoft](microsoft.md)'s unified vision-language model (Xiao et al., 2024), trained on the FLD-5B corpus with a single prompt-conditioned sequence-to-sequence interface spanning captioning, grounding, detection, and segmentation. Small by VLM standards (Base ≈ 0.23 B, Large ≈ 0.77 B).
 
 ## Why it appears in this wiki
 

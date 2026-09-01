@@ -102,7 +102,7 @@ The paper also frames itself as **learning to search** — local search against 
 
 - [DreamerV3](../entities/dreamer.md) — the RSSM world model, pretrained then frozen; used here as a **runtime verifier substrate** rather than for policy learning.
 - [Diffusion Policy](../entities/diffusion-policy.md) — the base policy being steered (100 demos/task, T = 64 action plans).
-- **Llama-3.2-11B-Vision-Instruct** — VLM backbone, LoRA-tuned with a linear latent adapter; **GPT-4o** as the zero-shot image baseline and as an evaluation judge.
+- **Llama-3.2-11B-Vision-Instruct** — VLM backbone, [LoRA](../concepts/learning/low-rank-adaptation.md)-tuned with a linear latent adapter; **GPT-4o** as the zero-shot image baseline and as an evaluation judge.
 - [Franka Panda](../entities/franka-panda.md) — hardware, 15 Hz end-effector control.
 - Without pages: Yilin Wu, Ran Tian, **Gokul Swamy**, **Andrea Bajcsy** (CMU).
 
