@@ -3,8 +3,8 @@ title: Randall Balestriero
 type: entity
 subtype: person
 created: 2026-07-26
-updated: 2026-07-26
-sources: 8
+updated: 2026-08-31
+sources: 9
 tags: [person, balestriero, brown, lejepa, sigreg, jepa, ssl, theory, world-model, inverse-dynamics, causality, spectral-graph-theory, time-series]
 ---
 
@@ -38,6 +38,7 @@ Balestriero's collaborations now branch past the LeCun/LeJEPA axis:
 - [Identifiability](../concepts/world-models/identifiability.md) / [JEPA](../concepts/world-models/jepa.md).
 
 ## Mentioned in
+- [Third World Modeling Workshop, Chicago Booth 2026](../sources/chicago-booth-world-modeling-workshop-2026.md) — **organizer and panel moderator**; the third edition after the Flatiron Institute and Montréal, pointed this time at non-stationary signals, time series and finance.
 - [LeJEPA Paper](../sources/lejepa-paper.md) — co-first author.
 - [When Does LeJEPA Learn a World Model?](../sources/when-does-lejepa-learn-a-world-model-paper.md) — co-author.
 - [stable-worldmodel paper](../sources/stable-worldmodel-paper.md) — co-author.

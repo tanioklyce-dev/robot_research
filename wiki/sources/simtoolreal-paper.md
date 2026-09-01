@@ -15,6 +15,9 @@ ingested: 2026-08-31
 
 ## Summary
 
+> [!note] Presented at the [third World Modeling Workshop](chicago-booth-world-modeling-workshop-2026.md) (Chicago Booth, 2026-08-31, ~03:00) in [Bohg](../entities/jeannette-bohg.md)'s invited talk on world models from a robotics perspective.
+
+
 **SimToolReal** trains **one** goal-conditioned RL policy in simulation on **procedurally generated tool-like primitives**, then deploys it zero-shot on real tools it has never seen. The reduction that makes this work is stated plainly: **a tool-use task is a sequence of object goal poses.** That replaces per-task reward engineering — the thing that makes sim-to-real RL expensive — with a single universal objective: move any object to any goal pose.
 
 The training objective never mentions hammering, sweeping, or unscrewing. Yet reaching random goal poses on random primitives *induces* the skills tool use needs — grasping thin objects off a flat table, in-hand reorientation into a functional configuration, and holding the grasp through contact. At test time the policy takes a goal sequence extracted from a human RGB-D video and tracks it.

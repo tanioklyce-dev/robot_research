@@ -3,8 +3,8 @@ title: Danijar Hafner
 type: entity
 subtype: person
 created: 2026-07-09
-updated: 2026-07-09
-sources: 2
+updated: 2026-08-31
+sources: 3
 tags: [hafner, dreamer, planet, daydreamer, mbrl, world-model, rssm, deepmind]
 ---
 
@@ -29,6 +29,7 @@ The consistent bet: a learned generative dynamics model + policy learning inside
 - Downstream of his RSSM: [S5WM](../sources/s5wm-paper.md) (replaces it), [EAWM](../sources/eawm-paper.md) (re-targets its objective).
 
 ## Mentioned in
+- [Third World Modeling Workshop, Chicago Booth 2026](../sources/chicago-booth-world-modeling-workshop-2026.md) — *"Predict Everything"* keynote on Dreamer 4, plus the panel where he reports that explicitly representing the full belief state lost to sampling from a probabilistic model.
 
 - [PlaNet paper](../sources/planet-paper.md) — first author.
 - [DayDreamer paper](../sources/daydreamer-paper.md) — co-first author.

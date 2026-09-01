@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-31
 updated: 2026-08-31
-sources: 4
+sources: 5
 tags: [jeannette-bohg, stanford, researcher, manipulation, dexterous-manipulation, failure-detection, sim-to-real]
 ---
 
@@ -36,6 +36,7 @@ That pairing — **design for the observable, then detect when you are outside i
 - **C. Karen Liu** — Stanford co-advisor on SimToolReal; no page yet.
 
 ## Mentioned in
+- [Third World Modeling Workshop, Chicago Booth 2026](../sources/chicago-booth-world-modeling-workshop-2026.md) — invited talk (SimToolReal, Causal-PIK) and panel, incl. the counterfactual argument for training world models on **failures** rather than curated successes.
 
 - [SimToolReal paper](../sources/simtoolreal-paper.md)
 - [Sentinel paper](../sources/sentinel-paper.md)

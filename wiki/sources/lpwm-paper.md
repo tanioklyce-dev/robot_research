@@ -16,6 +16,9 @@ tags: [jepa, world-model, sparse-representation, rdmreg, sigreg, lewm, planning,
 
 ## Summary
 
+> [!note] Presented as a lightning talk at the [third World Modeling Workshop](chicago-booth-world-modeling-workshop-2026.md) (Chicago Booth, 2026-08-31, ~06:52), by the first author — an NYU PhD student in [LeCun](../entities/yann-lecun.md)'s group — framed there as "incorporating sparse representation in a JEPA-style world model," against [LeWorldModel](../entities/leworldmodel.md)'s dense isotropic-Gaussian matching.
+
+
 Asks whether the **dense** latent geometry that [JEPA](../concepts/world-models/jepa.md) anti-collapse regularizers produce — [SIGReg](../entities/leworldmodel.md)'s isotropic Gaussian, VICReg's decorrelated features — is actually the right geometry for modeling *action-conditioned dynamics*. Argues no. Motivated by a linearization result (nonlinear Lipschitz dynamics can be approximated arbitrarily well by action-conditioned **linear** dynamics in a sufficiently high-dimensional **one-hot** latent space, with rollout error vanishing as dimension grows), the paper introduces **LpWorldModel (LpWM)**: a JEPA regularized with **RDMReg** (Rectified Distribution Matching Regularization) to match encoder features to a **Rectified Generalized Gaussian**, yielding non-negative, exactly sparse codes. The empirical claim is not "sparse is better" but something more precise and more useful: **sparsity lowers the predictor capacity required to plan successfully.**
 
 ## Key claims

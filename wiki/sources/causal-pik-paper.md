@@ -15,6 +15,9 @@ ingested: 2026-08-31
 
 ## Summary
 
+> [!note] Presented at the [third World Modeling Workshop](chicago-booth-world-modeling-workshop-2026.md) (Chicago Booth, 2026-08-31, ~03:16) in [Bohg](../entities/jeannette-bohg.md)'s invited talk on world models from a robotics perspective.
+
+
 **Causal-PIK** solves single-intervention physical-reasoning puzzles — place one object, let gravity run, see what happens — by putting **physics intuition inside the kernel of a Gaussian process** and running Bayesian optimization over actions. The premise is that these tasks cannot be planned in advance because the dynamics are unknown; they must be *actively explored*, and the only thing that matters is **learning as much as possible from each failed attempt**.
 
 The insight is where the physics goes. A standard RBF kernel assumes actions that are *geometrically* close have similar outcomes — which is exactly wrong here, since a centimetre's difference in where you drop a block can send a ball to the goal or nowhere near it. The **Physics-Informed Kernel** instead measures whether two actions produce **similar causal effects**, using a learned dynamics model to predict the immediate consequence of each action and comparing those predictions.

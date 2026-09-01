@@ -27,6 +27,9 @@ Reconstructing the map implied by the model's own generations gives a Manhattan 
 > [!note] Why this belongs near the top of the wiki's evaluation thread
 > The wiki's [world-model evaluation](../concepts/world-models/world-model-evaluation.md) landscape is mostly **perceptual or utility** scoring. Vafa et al. add the third thing: **internal coherence, measured against a formal ground truth.** It is also the cleanest published demonstration of a claim this wiki keeps meeting informally — that **task success and world-model quality are different variables** — and it is the paper [Physion-Eval](physion-eval-paper.md) and [WorldArena](worldarena-paper.md) are groping toward without the benefit of a DFA.
 
+> [!note] The subject of a keynote's second half
+> **Dave Donoho** walked through this paper's Manhattan taxi experiment at the [third World Modeling Workshop](chicago-booth-world-modeling-workshop-2026.md) (Chicago Booth, 2026-08-31, ~01:15), in a keynote whose first half was on **David Blackwell**. The pairing is apt and, in the transcript, unremarked: Blackwell formalized the belief state; this paper measures how badly a sequence model recovers one.
+
 ## The metrics
 
 Given a DFA `W` and two states `q₁, q₂`:

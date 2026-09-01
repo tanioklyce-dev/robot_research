@@ -3,7 +3,7 @@ title: Belief states and mixed states
 type: concept
 created: 2026-08-31
 updated: 2026-08-31
-sources: 4
+sources: 5
 tags: [belief-state, mixed-state, hidden-markov, pomdp, blackwell-measure, entropy-rate, sufficient-statistic, latent-space, world-model, unifilar, myhill-nerode]
 ---
 
@@ -48,6 +48,14 @@ Vafa et al.'s structural result, replicated across navigation and Othello: **mod
 
 This is a live challenge to the teleoperation orthodoxy. [Mobile ALOHA](../../sources/mobile-aloha-paper.md), [DROID](../../entities/droid.md), and [Figure's Index](../../entities/figure-index.md) all collect *expert demonstrations* — structurally the shortest-paths regime that scored 0.10 here. No VLA in this wiki has been given a compression-style test.
 
+## The field is arguing about this without invoking the theorem
+
+At the **third World Modeling Workshop** ([Chicago Booth, Aug 2026](../../sources/chicago-booth-world-modeling-workshop-2026.md)) the opening keynote was on *Blackwell's world-models theorem* and the closing panel argued over exactly the object Blackwell formalized — without the two being connected.
+
+[Danijar Hafner](../../entities/danijar-hafner.md) reported a negative empirical result: *"I tried this maybe five years ago, really hard, to have a representation that contains the entire belief of states you could be in. It just worked so much better empirically to have a probabilistic model you can sample from."* [Yann LeCun](../../entities/yann-lecun.md) disagreed on the remedy but not the diagnosis: *"the best way to handle uncertainty is to just eliminate the information you can't predict — that's the main argument of JEPA."*
+
+**Blackwell's result is the theory under both positions.** If the sufficient statistic is generically infinite-dimensional, then explicitly representing the belief should fail at scale (Hafner's finding), and deliberately discarding unpredictable information is a principled response rather than a heuristic (LeCun's argument). Sampling and JEPA-style discarding are two different ways of not paying for an object that provably will not fit.
+
 ## Related concepts
 
 - [Latent space](latent-space.md) — the learned, non-Bayesian answer to the same question Blackwell answers exactly.
@@ -69,3 +77,4 @@ This is a live challenge to the teleoperation orthodoxy. [Mobile ALOHA](../../so
 - [Vafa et al. — Evaluating the world model implicit in a generative model](../../sources/vafa-world-model-implicit.md)
 - [World Labs functional taxonomy](../../sources/world-labs-functional-taxonomy.md)
 - [stable-worldmodel paper](../../sources/stable-worldmodel-paper.md)
+- [Chicago Booth World Modeling Workshop 2026](../../sources/chicago-booth-world-modeling-workshop-2026.md)
