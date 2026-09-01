@@ -2,8 +2,8 @@
 title: Flocking and boids
 type: concept
 created: 2026-05-31
-updated: 2026-05-31
-sources: 7
+updated: 2026-08-31
+sources: 8
 tags: [artificial-life, alife, emergence, flocking, boids, swarm-intelligence, swarm-robotics, ant-colony-optimization, agent-based-model, edge-of-chaos, behavioral-animation, particle-system, actor-model]
 ---
 
@@ -44,6 +44,7 @@ Naively **O(n²)** — every boid queries every other for neighbors — but **sp
 ## Related concepts
 - [Artificial life and the emergence of self-replication](artificial-life-and-self-replication.md) — parent branch; boids = emergence in continuous steering, Computational Life = emergence in self-modifying code.
 - [Swarm intelligence](../robotics/swarm-intelligence.md) — the generalization of boids into decentralized control + optimization.
+- [Stigmergy](stigmergy.md) — the **other** coordination primitive: boids coordinate by perceiving neighbors and leave nothing behind, stigmergic agents coordinate by leaving traces and need not perceive each other at all.
 - [Agentic UAVs](../robotics/agentic-uavs.md) — swarm/multi-agent robotics as the engineering descendant.
 - Cellular automata, open-endedness, self-organization — adjacent ALife topics flagged but **not yet covered**.
 

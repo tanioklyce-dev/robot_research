@@ -2,8 +2,8 @@
 title: Swarm intelligence
 type: concept
 created: 2026-05-31
-updated: 2026-05-31
-sources: 3
+updated: 2026-08-31
+sources: 4
 tags: [swarm-intelligence, swarm-robotics, swarm, uav, drone, emergence, flocking, boids, pso, aco, agentic-uavs, multi-agent, anti-drone]
 ---
 
@@ -24,10 +24,10 @@ Engineered swarms span a centralization spectrum ([Raj & Kos 2026](../../sources
 |---|---|
 | **Coordination by consensus** | Members agree via voting / auction (e.g. CBAA) |
 | **Centralized control** | One controller assigns each member's task |
-| **Emergent coordination** | Arises from local interaction — the [boids](../alife/flocking-and-boids.md) regime, "as in animal swarms" |
+| **Emergent coordination** | Arises from local interaction — the [boids](../alife/flocking-and-boids.md) regime, "as in animal swarms"; its comms-free limit is [stigmergy](../alife/stigmergy.md) |
 | **Hierarchical control** | Squad-agents under superior controllers |
 
-Tradeoff: decentralized swarms find good solutions but converge slowly (ant-colony-like); centralized/hierarchical are faster but bandwidth-hungry. Under poor comms, swarms fall back on consensus voting or **stigmergy** (indirect coordination by modifying the shared environment).
+Tradeoff: decentralized swarms find good solutions but converge slowly (ant-colony-like); centralized/hierarchical are faster but bandwidth-hungry. Under poor comms, swarms fall back on consensus voting or **[stigmergy](../alife/stigmergy.md)** (indirect coordination by modifying the shared environment) — now tested directly, as the manipulated variable rather than a fallback, in [SwarmWorld](../../sources/swarmworld-paper.md).
 
 ## Swarm-intelligence optimization (metaheuristics)
 

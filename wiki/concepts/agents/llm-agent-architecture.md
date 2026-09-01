@@ -2,8 +2,8 @@
 title: LLM-agent architecture
 type: concept
 created: 2026-05-07
-updated: 2026-08-30
-sources: 66
+updated: 2026-08-31
+sources: 67
 tags: [llm-agent, tool-use, agentic-robotics, planning, mcp, a2a, mhs, code-as-policy]
 ---
 
@@ -92,6 +92,7 @@ Two things follow for robots specifically:
 ## Related
 - [Agent–hardware abstraction](agent-hardware-abstraction.md) — the layer *below* this one: how the skill library comes to exist at all, and why MHS/MCP/ROS-bridges/`@skill` manifests are all the same move.
 - [Code as policy](code-as-policy.md) — the sub-pattern where the action vocabulary is *arbitrary code* rather than a fixed tool schema (Code as Policies → Voyager → CaP-X/ASPIRE → [Waddle](../../entities/waddle-labs.md)).
+- [Stigmergy](../alife/stigmergy.md) — the counter-proposal to this whole page's investment in the **channel**. [SwarmWorld](../../sources/swarmworld-paper.md) gives initially identical LLM agents a persistent consequential world and finds that ~95% of technology adoption happens through **physical observation of artifacts**, with direct inventor-to-adopter contact not enriched over a shuffled null — i.e. when the environment can hold state, the environment outcompetes the message bus as a coordination medium.
 - [VLA models](../learning/vla-models.md) — competing paradigm (end-to-end action prediction).
 - [On-device / on-robot / local-server agents](../../syntheses/agents/on-device-and-on-robot-agents.md) — *where* the agent brain runs (edge vs LAN server vs cloud); the deployment-topology companion.
 - [Fleet agentic control framework](../../syntheses/projects/fleet-agentic-framework.md) — a full multi-robot build of this pattern (per-robot MCP servers + a DGX Spark master).

@@ -2,8 +2,8 @@
 title: Artificial life and the emergence of self-replication
 type: concept
 created: 2026-05-31
-updated: 2026-06-02
-sources: 20
+updated: 2026-08-31
+sources: 21
 tags: [artificial-life, alife, self-replication, origins-of-life, emergence, complexity, open-endedness, kolmogorov-complexity, cellular-automata, game-of-life, flocking, boids]
 ---
 
@@ -38,6 +38,7 @@ The wiki's code-substrate results have a striking **biological counterpart**. [X
 - [Neural Cellular Automata](neural-cellular-automata.md) — the learnable self-organization wing.
 - [Evolutionary computation](evolutionary-computation.md) — gradient-free population search; the design engine behind Xenobots; a classic ALife tool.
 - [Flocking and boids](flocking-and-boids.md) — sibling emergence model (continuous steering substrate).
+- [Stigmergy](stigmergy.md) — coordination through a **persistent modifiable environment**; the mechanism behind emergent organization when agents never message each other. Tested as the manipulated variable in [SwarmWorld](../../sources/swarmworld-paper.md), where LLM agents build a technological ecology and ~95% of technology adoption travels through objects rather than messages.
 - [JEPA](../world-models/jepa.md) — objective-light learning (different domain, same anti-hand-design spirit).
 - [Cellular automata](cellular-automata.md) — the foundational substrate of this whole branch (now covered): grid + local rule → emergent global structure. [Conway's Game of Life](../../entities/game-of-life.md) is the canonical 2D CA; [NCA](neural-cellular-automata.md) is the learned-rule descendant.
 - [Neural Cellular Automata](neural-cellular-automata.md) — the **learnable** self-organization sibling (learned local rule → morphogenesis); now covered.
