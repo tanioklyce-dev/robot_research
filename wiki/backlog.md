@@ -10,6 +10,17 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-08-31] Bohg-lab "Messy*" line — two papers announced but unpublished
+
+Both surfaced while ingesting [SimToolReal](sources/simtoolreal-paper.md) and [Robot-Powered Data Flywheels](sources/robot-powered-data-flywheels-paper.md). Confirmed on co-author **Cherie Ho**'s own publications page (`cherieho.com`), both listed under 2026 as **"Coming soon"**. **Neither has an arXiv entry, PDF, code, or project page** — `messynav.github.io` 404s as of 2026-08-31. Filed with the metadata I could verify so they are tracked rather than re-discovered.
+
+- [ ] **Ingest MessyNav: Zero-Shot Navigation via Manipulation in Messy Environments.** Kenneth Llontop, [Cherie Ho](sources/robot-powered-data-flywheels-paper.md), Dylan Zhou, Anuva Banwasi, Carlota Pares-Morlans, Priya Sundaresan, [Jeannette Bohg](entities/jeannette-bohg.md). The title is the interesting part: **navigation *via* manipulation** — moving obstacles rather than planning around them. The wiki's [motion planning](concepts/robotics/motion-planning.md) and [task-and-motion planning](concepts/robotics/task-and-motion-planning.md) coverage treats clutter as a constraint to avoid; this treats it as something to act on. Nothing in the wiki covers interactive//NAMO-style navigation.
+- [ ] **Ingest MessyMem: Learning-from-Doing Memory for Mobile Manipulation.** Anuva Banwasi, William Muckelroy III, Priya Sundaresan, Linfeng Zhao, [Jeannette Bohg](entities/jeannette-bohg.md), Cherie Ho. Sibling paper. "Learning-from-doing memory" suggests persistent state accumulated through action — relevant to [belief states and mixed states](concepts/world-models/belief-states-and-mixed-states.md), where the open question is exactly what a finite memory can retain about a partially observed world.
+- [ ] **Watch the lab, not the papers.** Three Bohg-advised works reached this wiki in one session ([SimToolReal](sources/simtoolreal-paper.md), [Data Flywheels](sources/robot-powered-data-flywheels-paper.md), [Sentinel](sources/sentinel-paper.md)) plus these two pending. A periodic check of `cherieho.com` and Bohg's Stanford page is cheaper than rediscovering them one at a time.
+
+> [!note] Why these are filed rather than ingested
+> Standing rule, reinforced twice this session: **do not write a source page for a document that has not been read.** These have confirmed titles and author lists and nothing else. Recording the metadata is useful; summarizing a paper from its title is not.
+
 ## [2026-08-31] World-model benchmark primaries — a backlog that was logged but never filed
 
 Surfaced by two queries in a row ("does the wiki cover VideoPhy-2 / Physion-Eval?"). On 2026-08-07 the [HAI brief](sources/hai-world-model-spatial-intelligence-brief.md) ingest logged a new backlog of benchmark primaries, and 2026-08-08 restated it — but **no entry was ever written into this file.** Three items from that list got done (WorldArena, WorldArena 2.0, WorldRoamBench); the other five silently fell off the tracked list and stayed uncovered for three weeks. Filing them now.
