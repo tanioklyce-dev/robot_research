@@ -2,9 +2,9 @@
 title: World-model evaluation
 type: concept
 created: 2026-08-07
-updated: 2026-08-08
-sources: 8
-tags: [world-model, evaluation, benchmark, physical-validity, policy, vbench, worldscore]
+updated: 2026-08-31
+sources: 9
+tags: [world-model, evaluation, benchmark, physical-validity, policy, vbench, worldscore, physion-eval, mllm-critic]
 ---
 
 **World-model evaluation** — establishing whether a learned environment is **valid for the use it is being put to**. Distinct from measuring how good its outputs look, and distinct from measuring whether a policy trained inside it scores well.
@@ -54,7 +54,8 @@ The principle: *the closer a system comes to real-world actions, the more its ev
 | Benchmark | What it measures | Primary source |
 |---|---|---|
 | **VBench** | Visual quality, prompt alignment, temporal smoothness — explicitly **not** whether scenes obey physical law | not ingested |
-| **VideoPhy** / **PhyGenBench** | Physical commonsense in generated video | not ingested |
+| **VideoPhy** / **PhyGenBench** / **Cosmos-Eval** / **PhyWorldBench** | Physical commonsense in generated video, via automated metrics or model-based critics | not ingested |
+| **[Physion-Eval](../../entities/physion-eval.md)** | Physical realism in generated video, judged by **expert human reasoning** — 10,990 traces, 0.1 s glitch localization, failure taxonomy. Also measures the *critics*: MLLMs are 2–6× less sensitive than untrained humans | **[ingested](../../sources/physion-eval-paper.md)** |
 | **WorldScore** | Controllability, quality, and dynamics in world *generation* (Duan, Yu, Chen, [Fei-Fei Li](../../entities/fei-fei-li.md), Wu — arXiv 2504.00983) | not ingested |
 | **WorldModelBench** | Judges video models specifically **as world models** | not ingested |
 | **[WorldArena](../../entities/worldarena.md)** | Perceptual quality **plus functional utility** as data engine / policy evaluator / action planner — extended in 2.0 to visuotactile, RL environments, and real robots | **[ingested](../../sources/worldarena-paper.md)** · **[2.0](../../sources/worldarena-2-paper.md)** |
@@ -62,6 +63,10 @@ The principle: *the closer a system comes to real-world actions, the more its ev
 | **[LIBERO](../../entities/libero.md)** | Simulated manipulation task completion — the robotics anchor of the list | [ingested](../../sources/libero-pro-paper.md) |
 
 The progression VBench → VideoPhy/PhyGenBench → WorldScore/WorldModelBench → WorldArena runs from *how it looks* toward *what it is good for*. WorldArena and WorldRoamBench sit at that far end and now have primary sources here.
+
+> [!warning] A third axis, and it undercuts most of the column above
+> Nearly every row in this table is scored **automatically or by a model judge**. [Physion-Eval](../../sources/physion-eval-paper.md) (Mar 2026) measures those judges against people and finds them badly outmatched: on Youden's J, untrained viewers score **24.9–37.1%** (exocentric) and **48.4–61.8%** (egocentric) while the best of ten MLLM critics reaches **19.1%** and **9.8%** — Gemini 3.0 Pro misses over **74.4%/90.1%** of videos containing glitches ordinary people spot at once. Neither denser temporal sampling nor enabling "thinking" helps (Δ*J* < 2.0 points), which the authors attribute to the **visual encoder**, not the reasoner: language-space reasoning cannot recover transient cues the encoder never captured.
+> Two consequences. First, **the automated benchmark layer is itself unvalidated** — this is the same failure the wiki recorded on the model side (WorldArena's EWMScore correlates r = 0.360 with action planning), now found one level up. Second, the generators are worse than headline numbers suggest: **83.3% of exocentric and 93.5% of egocentric** generated clips carry at least one human-identified physical violation.
 
 Note a small closed loop in the policy record: **WorldScore was co-authored by two of the HAI brief's own authors** (Fei-Fei Li, Jiajun Wu), and its first author Haoyi Duan appears on WorldArena 2.0. The brief presents the benchmark landscape as external evidence without noting the overlap.
 

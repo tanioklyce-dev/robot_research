@@ -3,7 +3,7 @@ title: Chelsea Finn
 type: entity
 subtype: person
 created: 2026-05-08
-updated: 2026-07-05
+updated: 2026-08-31
 sources: 19
 tags: [person, stanford, meta-learning, robot-learning, droid, metaworld, aloha, mobile-aloha]
 ---
@@ -44,7 +44,7 @@ Finn is the throughline of the wiki's world-model *evaluation* record, three yea
 - **[VP²](../sources/vp2-paper.md)** (Tian, Finn & Wu, ICLR 2023) — the founding result that perceptual metrics mis-rank video predictors for control, with the correlation's sign task-dependent. Everything in the 2026 [WorldArena](worldarena.md) cluster rediscovers this at scale.
 - **[Ctrl-World](ctrl-world.md)** (Guo, Shi, Chen & Finn, 2025) — her group's action-conditioned world model, later measured as the **best policy evaluator** in WorldArena (r = 0.986 against simulator ranking).
 
-Co-author Jiajun Wu went on to co-author WorldScore and the [HAI policy brief](../sources/hai-world-model-spatial-intelligence-brief.md) that told policymakers no adequate world-model benchmark exists.
+Co-author [Jiajun Wu](jiajun-wu.md) went on to co-author WorldScore and the [HAI policy brief](../sources/hai-world-model-spatial-intelligence-brief.md) that told policymakers no adequate world-model benchmark exists.
 
 ## Mentioned in (additional)
 

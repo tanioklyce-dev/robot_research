@@ -2,13 +2,28 @@
 title: Wiki Backlog — deferred lint items & knowledge gaps
 type: meta
 created: 2026-07-04
-updated: 2026-08-28
+updated: 2026-08-31
 tags: [backlog, lint, todo, knowledge-gaps]
 ---
 
 # Wiki Backlog
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
+
+## [2026-08-31] World-model benchmark primaries — a backlog that was logged but never filed
+
+Surfaced by two queries in a row ("does the wiki cover VideoPhy-2 / Physion-Eval?"). On 2026-08-07 the [HAI brief](sources/hai-world-model-spatial-intelligence-brief.md) ingest logged a new backlog of benchmark primaries, and 2026-08-08 restated it — but **no entry was ever written into this file.** Three items from that list got done (WorldArena, WorldArena 2.0, WorldRoamBench); the other five silently fell off the tracked list and stayed uncovered for three weeks. Filing them now.
+
+**The general defect:** `log.md` says "backlog opened" in prose, `backlog.md` is the tracked artifact, and nothing enforces that the first produces the second. Worth a check in the next lint pass — grep `log.md` for backlog-opening language and confirm a matching `backlog.md` entry exists.
+
+- [x] ~~**Ingest a physical-realism benchmark primary.**~~ **Done 2026-08-31** — [Physion-Eval](sources/physion-eval-paper.md) (arXiv 2603.19607). Not one of the five listed, but it covers the same slot and does more: it measures the *critics* as well as the generators, and finds the automated layer 2–6× less sensitive than untrained humans. Recorded as a `> [!warning]` on [world-model evaluation](concepts/world-models/world-model-evaluation.md).
+- [ ] **Ingest the VideoPhy primaries — and note there are two.** [VideoPhy](https://arxiv.org/abs/2406.11888) (2024) and **VideoPhy-2** (2025, action-centric, human-annotated rule violations) are materially different, and the wiki currently carries only the undifferentiated name "VideoPhy," paraphrased from a policy brief. This is the exact scope-loss failure `CLAUDE.md` warns about: the noun survives, what it was bound to does not. **Highest-value item in this section** — it is the most-cited physical-commonsense video benchmark and the wiki has never seen its task design.
+- [ ] **Ingest PhyGenBench.** Named alongside VideoPhy in every list here, never read. Same status: a name in a table.
+- [ ] **Ingest WorldScore** (Duan, Yu, Chen, [Fei-Fei Li](entities/fei-fei-li.md), [Jiajun Wu](entities/jiajun-wu.md) — arXiv 2504.00983). Extra reason beyond coverage: it is the load-bearing citation in the **closed loop** flagged on [world-model evaluation](concepts/world-models/world-model-evaluation.md) and on [Jiajun Wu](entities/jiajun-wu.md), where the HAI brief's "the field lacks benchmarks" claim is sourced to a benchmark two of its own authors wrote. The wiki asserts that loop from author lists alone; reading the primary would let it say whether WorldScore's own framing supports or undercuts the brief.
+- [ ] **Ingest WorldModelBench.** The one that explicitly judges video models *as world models*, which is the wiki's own framing question.
+- [ ] **Ingest VBench.** Lowest priority — the wiki's characterisation ("visual quality, prompt alignment, temporal smoothness, explicitly not physical law") is probably right, but it is unverified and it anchors the left end of the progression the concept page argues.
+- [ ] **Ingest Physion (2021) and/or Physion++ (2023).** A genuinely different axis the wiki has nothing on: **human-vs-model physical prediction on identical stimuli**, from the cognitive-science tradition rather than the generative-video one. [Josh Tenenbaum](entities/josh-tenenbaum.md) is a `_stub_` here with 1 source and his intuitive-physics line named as uncovered; CLEVRER appears only incidentally as a [DINO-WM](entities/dino-wm.md) eval environment. Also worth resolving whether **Cosmos-Eval** and **PhyWorldBench** (both named by Physion-Eval as prior art) deserve rows.
+- [ ] **Ingest the Ctrl-World paper** (arXiv 2510.10125). Carried on the open list since 2026-08-08 and still open; [Ctrl-World](entities/ctrl-world.md) has an entity page built from secondary description.
 
 ## [2026-08-28] Lint pass after the Figure / Go-Big / Walden ingests
 

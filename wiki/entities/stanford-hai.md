@@ -3,7 +3,7 @@ title: Stanford HAI
 type: entity
 subtype: institute
 created: 2026-08-07
-updated: 2026-08-07
+updated: 2026-08-31
 sources: 2
 tags: [institute, stanford, policy, governance, ai-and-society, ai-index]
 ---
@@ -31,7 +31,7 @@ The brief's byline is a deliberate cross-disciplinary mix, which is itself infor
 | **Elena Cryst** | Director of policy and society, HAI |
 | **Daniel E. Ho** | Professor of Law; director, Regulation, Evaluation, and Governance Lab (RegLab) |
 | **Caroline Meinhardt** | Policy research manager, HAI |
-| **Jiajun Wu** | Assistant professor of CS and (by courtesy) psychology |
+| **[Jiajun Wu](jiajun-wu.md)** | Assistant professor of CS and (by courtesy) psychology |
 | **Amy Zegart** | Senior fellow, Hoover Institution; founding director, Hoover Tech Policy Accelerator |
 | **[Fei-Fei Li](fei-fei-li.md)** | Sequoia Professor of CS; founding director and senior fellow, HAI |
 

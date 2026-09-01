@@ -3,12 +3,14 @@ title: Veo
 type: entity
 subtype: model
 created: 2026-08-03
-updated: 2026-08-08
-sources: 2
+updated: 2026-08-31
+sources: 3
 tags: [veo, video-model, world-model, generative-simulation, policy-evaluation, google-deepmind]
 ---
 
 **Veo** — [Google DeepMind](google-deepmind.md)'s frontier **video foundation model**. In this wiki it appears in its robotics specialization, **Veo (Robotics)**, used as a **generative world simulator for evaluating robot policies** ([paper](../sources/veo-robotics-policy-evaluation-paper.md)).
+
+It is also **measured** here: [Physion-Eval](physion-eval.md) scores **Veo 3.1 Fast** at a **79.4% exocentric / 97.5% egocentric** physical-glitch rate — the worst egocentric failure rate of the five generators tested, and behind the open-source Wan 2.2 ([paper](../sources/physion-eval-paper.md)).
 
 ## The robotics adaptation
 Beyond base Veo, the system adds **robot action conditioning**, **multi-view consistency**, and integrated **generative image editing + multi-view completion** to synthesize realistic variations of real scenes. Multi-view consistency is exactly the limitation [RoboART](roboart.md) flagged ten months earlier.
