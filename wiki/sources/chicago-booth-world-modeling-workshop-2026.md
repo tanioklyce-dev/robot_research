@@ -10,6 +10,7 @@ venue: "Chicago Booth School of Business — livestream recording, 9h37m"
 format: video (livestream) — machine transcript
 tags: [world-models, workshop, jepa, lecun, balestriero, bohg, hafner, donoho, blackwell, belief-state, panel, transcript, secondary-source]
 ingested: 2026-08-31
+updated: 2026-09-01
 ---
 
 ## Summary
@@ -98,5 +99,6 @@ LeCun disagrees directly: *"the best way to handle uncertainty is to just elimin
 
 - **Is "train on failures" actually being done anywhere?** Bohg's counterfactual argument is the strongest case in this wiki for collecting unsuccessful robot data, and it converges with [SimToolReal](simtoolreal-paper.md)'s and [Vafa et al.'s](vafa-world-model-implicit.md) coverage-beats-realism findings from two other directions. No ingested source builds a dataset this way.
 - **Hafner's negative result deserves a citation.** "I tried representing the full belief and sampling worked better" is, as far as this wiki knows, unpublished. If it is in a Dreamer paper, the wiki should find it; if not, it is folklore doing load-bearing work.
-- **Day 2 exists and is not ingested.** The recording ends with "we will see you tomorrow for the second day."
+- **Day 2 exists and is not ingested.** The recording ends with "we will see you tomorrow for the second day." Located 2026-09-01: **`j_AujLxYUJc`** — *"Workshop on World Models - Day 2 (WM@Booth 2026)"*, same channel. Checked while it was **still live** (started 08:56 CDT, 13h+ elapsed), so no VOD and **no captions of any kind** yet. Deferred pending the VOD — see [backlog](../backlog.md).
+- **Day 1 now has YouTube auto-captions**, which did not exist when this page was made (hence the local Whisper pass). Worth a comparison if the proper-noun garbling this page warns about ever becomes load-bearing — though machine ASR garbles names either way, so this is a cheap re-check, not a fix.
 - Aditya Grover's **complementary unmasking** (02:14) and caching scheme (02:22) are named but not traced to a paper here.

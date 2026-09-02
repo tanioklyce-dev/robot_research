@@ -10,6 +10,23 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-09-01] Chicago Booth World Modeling Workshop — Day 2 awaiting its VOD
+
+**Video: `j_AujLxYUJc`** — "Workshop on World Models - Day 2 (WM@Booth 2026)", Center for Applied AI (CAAI) channel. The sequel to [Day 1](sources/chicago-booth-world-modeling-workshop-2026.md).
+
+Checked 2026-09-01 22:17 CDT: **still live** (`live_status=is_live`, started 08:56 CDT, 13h20m elapsed, duration NA) with **no subtitles at all** — neither manual nor auto. Nothing to ingest yet.
+
+**Decision: wait for the VOD rather than capture and Whisper.** The reasoning is that Day 1 *now* carries YouTube auto-captions that did not exist at ingest time, so this channel does get them eventually — roughly a day later. Waiting skips the ~9h of local GPU transcription Day 1 cost, and machine ASR garbles proper nouns either way, so Whisper buys no accuracy here.
+
+**To pick this up:**
+```bash
+yt-dlp --list-subs "https://www.youtube.com/watch?v=j_AujLxYUJc"     # auto-captions appeared?
+```
+If captions exist, ingest normally. If the stream has ended and captions still have not appeared after a few days, fall back to the Day 1 method (Whisper `distil-large-v3`, 30-min chunks with a resume file, transcript saved into `raw/` before anything else).
+
+**Risk to watch:** a livestream can be trimmed, made private, or lose its DVR window. If the VOD disappears, the capture opportunity is gone and this becomes unrecoverable — the one argument for having captured it live.
+
+
 ## [2026-08-31] Bohg-lab "Messy*" line — two papers announced but unpublished
 
 Both surfaced while ingesting [SimToolReal](sources/simtoolreal-paper.md) and [Robot-Powered Data Flywheels](sources/robot-powered-data-flywheels-paper.md). Confirmed on co-author **Cherie Ho**'s own publications page (`cherieho.com`), both listed under 2026 as **"Coming soon"**. **Neither has an arXiv entry, PDF, code, or project page** — `messynav.github.io` 404s as of 2026-08-31. Filed with the metadata I could verify so they are tracked rather than re-discovered.
