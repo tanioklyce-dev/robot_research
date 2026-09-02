@@ -2,8 +2,8 @@
 title: World-model evaluation
 type: concept
 created: 2026-08-07
-updated: 2026-08-31
-sources: 12
+updated: 2026-09-01
+sources: 13
 tags: [world-model, evaluation, benchmark, physical-validity, policy, vbench, worldscore, physion-eval, mllm-critic]
 ---
 
@@ -34,7 +34,7 @@ The brief's sharpest technical observation, and it maps cleanly onto this wiki's
 |---|---|---|
 | Video generators **without a persistent scene representation** | Lose consistency over time; objects drift, flicker, vanish | [generative-video vs JEPA](../../syntheses/world-models/generative-video-vs-jepa-world-models.md) |
 | **3D-native** systems (explicit geometry) | Spatially consistent, but "still fail to capture how a world *changes*" | [world-model simulators](world-model-simulators.md) |
-| **Latent state-space** models (compressed internal representation) | Prioritize predicting change over visual detail — so visual metrics score them wrongly in both directions | [JEPA](jepa.md), [latent space](latent-space.md) |
+| **Latent state-space** models (compressed internal representation) | Prioritize predicting change over visual detail — so visual metrics score them wrongly in both directions (mechanism: [perception-distortion](perception-distortion-tradeoff.md)) | [JEPA](jepa.md), [latent space](latent-space.md) |
 
 The consequence: **each demands a different evaluation.** A single leaderboard across these families is measuring three different things.
 
@@ -70,6 +70,26 @@ The progression VBench → VideoPhy/PhyGenBench → WorldScore/WorldModelBench �
 > Two consequences. First, **the automated benchmark layer is itself unvalidated** — this is the same failure the wiki recorded on the model side (WorldArena's EWMScore correlates r = 0.360 with action planning), now found one level up. Second, the generators are worse than headline numbers suggest: **83.3% of exocentric and 93.5% of egocentric** generated clips carry at least one human-identified physical violation.
 
 Note a small closed loop in the policy record: **WorldScore was co-authored by two of the HAI brief's own authors** (Fei-Fei Li, Jiajun Wu), and its first author Haoyi Duan appears on WorldArena 2.0. The brief presents the benchmark landscape as external evidence without noting the overlap.
+
+### Distortion vs distribution: the metric pair that inverts the ranking
+
+Everything in the table above assumes the *choice* of metric is a question of coverage — measure more things and you measure better. One metric pair does something worse than under-measure: it **reverses the ordering of two models**, and the losing model is the useful one.
+
+[Sharifullin et al.](../../sources/dit-world-action-model-av-paper.md) demonstrate this on one pair, same data, same architecture, differing only in whether the head is a deterministic regressor or a diffusion sampler:
+
+| | KID ↓ | FID ↓ | CosSim ↑ | steer → scene shift (Spearman ρ) |
+|---|---:|---:|---:|---:|
+| Direct regression | 0.375 | 370.8 | **0.471** | **−0.18** |
+| Diffusion (train-calibrated) | **0.078** | **162.5** | 0.260 | **+0.81** |
+
+The regressor wins every **distortion** metric (cosine similarity, SSIM, L2) and loses every **distribution** metric by 4.8×. It wins them by predicting the conditional mean — a blur, which is what a point loss asks for under an ambiguous future and which no real driving scene resembles. This is the [perception-distortion tradeoff](perception-distortion-tradeoff.md) (Blau & Michaeli 2018): the two objectives are provably in tension, so a model climbs one axis by descending the other.
+
+**Why this belongs on an evaluation page rather than a metrics footnote.** The rightmost column is the tell. The distortion-winning model is *uncorrelated with its own action input* — ρ = −0.18, and an inverse-control probe finds it recovers held-out steering **worse than random**. It renders a plausible average scene that ignores what the vehicle did. A world model that does not respond to actions is not a world model, and **no distortion metric can see that failure**; it is precisely the failure distortion metrics reward.
+
+So the page's existing claim that visual metrics score latent models "wrongly in both directions" understates it. Distortion metrics do not mis-rank generative world models by accident or by noise. **They rank them last by construction**, and the field's default reporting is drawn almost entirely from that column.
+
+> [!note] But distribution metrics are not the fix either
+> FID/KID say the output *looks like* real data. They still do not say the model is useful. [WorldArena](../../entities/worldarena.md) finds perceptual quality correlates only **r = 0.360** with action planning, and [VP²](../../sources/vp2-paper.md) found the perceptual-vs-control relationship changes sign by task. Perception-distortion is a **better axis than distortion alone, not a sufficient one** — which is why the controllability probe above does more evaluative work than the whole FID table.
 
 ### A fourth axis: sample-efficiency against a human baseline
 
@@ -184,3 +204,4 @@ Its scaling results have aged well and are still uncontested: **model capacity f
 - [Latent Video Prediction Learns Better World Models](../../sources/latent-video-prediction-better-world-models-paper.md) — five robustness axes; "stable features are not usable features."
 - [VP² — A Control-Centric Benchmark for Video Prediction](../../sources/vp2-paper.md) — the founding result; perceptual metrics vs control success, with task-dependent sign.
 - [Reconstruction or Semantics?](../../sources/latent-space-robotic-world-models-paper.md) — the same dissociation at the level of a world model's *latent space*; semantic latents roughly double VLA-in-the-loop success over VAE latents.
+- [DiT World-Action Model for AV Scene Prediction](../../sources/dit-world-action-model-av-paper.md) — distortion and distribution metrics ranking the same two models in opposite orders, with an action-controllability probe showing which ranking tracks utility.

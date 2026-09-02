@@ -99,7 +99,13 @@ That split is the sharpest thing in the paper: **scale buys you the parts of the
 
 - [World-model evaluation](../concepts/world-models/world-model-evaluation.md) · [JEPA](../concepts/world-models/jepa.md) · [latent space](../concepts/world-models/latent-space.md) · [world-model simulators](../concepts/world-models/world-model-simulators.md) · [flow matching](../concepts/learning/flow-matching.md)
 
+> [!note] Independently reproduced in a second domain (added 2026-09-01)
+> [Sharifullin, Jiang & Chew](dit-world-action-model-av-paper.md) ran a structurally identical experiment — six frozen encoders, one shared probe, everything else fixed — on **nuScenes driving** with ego-action regression instead of Bridge V2 manipulation, and recovered the same ordering: V-JEPA2 first, self-supervised image SSL next, supervised and language-aligned below, **reconstruction-optimized last**. Two teams, two domains, two probe designs, one ranking.
+>
+> It also adds the ablation this paper could not run: **rep64 vs rep1**, the same V-JEPA2 checkpoint family with 16 frames vs 1, which isolates *temporal context at inference* from *video pretraining* and attributes **40% of steering RMSE** to it alone. Weight it as corroboration, not independent evidence — it is a compact, likely course-project study with a 2-layer MLP probe, not a world model.
+
 ## Open questions
+
 
 - **VLM-judged success, on 20 episodes × 8 trials.** Success is adjudicated by two VLMs in consensus rather than a simulator or human. The paper checks rating fairness in an appendix, but by the wiki's [rollout standard](../concepts/robotics/robot-policy-evaluation.md) 160 trials per encoder gives wide intervals — and the reported ±0.03–0.04 standard deviations are consistent with that.
 - **No JEPA *world model* in the comparison.** Every variant is a DiT latent diffusion model. What a V-JEPA-AC-style predictor would score on these same axes is untested, and it's the natural next experiment.

@@ -2,8 +2,8 @@
 title: Learned latent space
 type: concept
 created: 2026-05-08
-updated: 2026-08-31
-sources: 39
+updated: 2026-09-01
+sources: 40
 tags: [representation-learning, embeddings, world-model, jepa, self-supervised]
 ---
 
@@ -33,6 +33,18 @@ A **learned latent space** is the network's own internal coordinate system for "
   - **Planning speed**: latent-space MPC is faster than video-rollout MPC. [LeWorldModel](../../entities/leworldmodel.md) reports **48× faster planning** than foundation-model-based world models.
   - **Internet-scale pretraining**: the encoder can be pretrained on action-free observation data (web video) and the predictor post-trained on small action-conditioned datasets. [V-JEPA 2](../../entities/v-jepa-2.md) is the canonical example: 1M+ hours pretraining → 62 hr post-training → zero-shot Franka.
 - **[LeWorldModel](../../entities/leworldmodel.md)** — first stable JEPA that learns its latent space *end-to-end from raw pixels* (no frozen encoder), via a single SIGReg regularizer that enforces a Gaussian latent.
+
+### "Where to predict" as an experimental question
+
+Two 2026 studies stopped treating the choice of latent space as a design preference and **benchmarked it**, holding everything else fixed:
+
+- [Reconstruction or Semantics?](../../sources/latent-space-robotic-world-models-paper.md) (Mila) — fix the DiT transition model, vary only the frozen encoder, six encoders on Bridge V2 manipulation. Verdict: *"the best robotic world model latent space is the one that preserves action-relevant structure, not merely the one that reconstructs images the best."* [V-JEPA 2.1](../../entities/v-jepa-2.md) strongest overall.
+- [DiT AV world model](../../sources/dit-world-action-model-av-paper.md) (Stanford) — six frozen encoders, shared MLP probe, ego-action regression on [nuScenes](../../entities/nuscenes.md). Same ordering in a driving domain: V-JEPA2 first, self-supervised image SSL next, supervised and language-aligned below that, **reconstruction-optimized (VQ-VAE) last**.
+
+The convergence is the point: two teams, two domains, two probe designs, one ranking. And its sharpest sub-result is a controlled ablation of **temporal context alone** — V-JEPA2 rep64 (16-frame) vs rep1 (single-frame), same checkpoint family, same probe, **40% lower steering RMSE**. The latent space that helps is not merely "learned" or "big"; it is one whose geometry is organized by *what actions do over time*.
+
+> [!warning] The decoder constraint still overrides the finding in practice
+> The AV paper establishes V-JEPA2 as the best space to predict in and then **builds its world model in SD-VAE latent space anyway** — the family its own benchmark ranks last — because the VAE ships a decoder and V-JEPA2 does not. Anything that must *render* frames pays this tax. It is the practical reason reconstruction latents persist despite losing every functional comparison, and the Mila study's decoder path is the current best answer to it.
 
 ### As a probabilistic generative latent (the VAE lineage)
 - **[Variational autoencoder](../learning/variational-autoencoder.md)** ([VAE Paper](../../sources/vae-paper.md), Kingma & Welling 2013; concurrently [Rezende et al. 2014](../../sources/stochastic-backpropagation-paper.md)) — the canonical *probabilistic* learned latent space: an explicit prior `p(z) = N(0, I)` plus a KL term shape the geometry, and sampling from the prior generates data. This is the historical root of "learned latent space with a sampling story"; latent-diffusion stacks (Stable Diffusion) still run their diffusion inside a VAE-defined latent.
@@ -78,7 +90,7 @@ The caveat is equally structural: the sparsity regularizer constrains only the *
 
 ## Mentioned in
 
-> [!note] Curated list — **38** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **39** source pages link here; the ones below are those that shaped this page.
 
 
 - [VAE Paper](../../sources/vae-paper.md)
@@ -93,6 +105,7 @@ The caveat is equally structural: the sparsity regularizer constrains only the *
 - [DINO-world Paper](../../sources/dino-world-paper.md)
 - [VLA-JEPA Paper](../../sources/vla-jepa-paper.md)
 - [LpWM paper](../../sources/lpwm-paper.md) — sparse vs dense latent geometry; mode-factored codes.
+- [DiT World-Action Model for AV Scene Prediction](../../sources/dit-world-action-model-av-paper.md) — six-encoder benchmark on nuScenes; temporal context isolated at 40% steering RMSE; the decoder constraint that overrides the finding.
 - [TDV paper](../../sources/tdv-paper.md) — additive latent transitions (`z_t + Δz_t = z_{t+1}`) learned from video without augmentation/masking biases.
 - [Temporal Straightening paper](../../sources/temporal-straightening-paper.md) — curvature as a trainable property; Euclidean-vs-geodesic; implicit straightening.
 - [Closing the Train-Test Gap paper](../../sources/train-test-gap-world-models-paper.md) — the latent regions a gradient planner visits are the ones the model was never trained on.

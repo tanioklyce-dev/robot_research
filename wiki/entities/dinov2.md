@@ -3,8 +3,8 @@ title: DINOv2
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-08-26
-sources: 20
+updated: 2026-09-01
+sources: 21
 tags: [dinov2, vision-foundation-model, self-supervised, vit, meta-fair, dino, frozen-encoder]
 ---
 
@@ -57,6 +57,7 @@ This makes DINOv2 the most consequential **non-JEPA** building block in the JEPA
 - [DINO-world Paper](../sources/dino-world-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
 - [DINOv3 Paper](../sources/dinov3-paper.md) — establishes DINOv3 as DINOv2's successor and the new SSL state-of-the-art
+- [DiT World-Action Model for AV Scene Prediction](../sources/dit-world-action-model-av-paper.md) — **best single-frame encoder** on a six-encoder nuScenes ego-action probe (steer RMSE 0.104), ahead of CLIP and supervised ViT-S/16, behind only V-JEPA2. Another datapoint that self-supervised features carry more geometric structure than language-aligned or label-supervised ones.
 
 ## Open questions / TBD
 - The [DINOv2 Paper](../sources/dinov2-paper.md) (arxiv 2304.07193) is now filed (2026-05-16). LVD-142M curation pipeline details and self-distillation specifics remain open from the abstract-level ingest — methods section would close them.

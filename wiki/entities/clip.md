@@ -3,7 +3,7 @@ title: CLIP
 type: entity
 subtype: model
 created: 2026-08-30
-updated: 2026-08-30
+updated: 2026-09-01
 sources: 0
 tags: [clip, openai, vision-language, contrastive, zero-shot, backbone, robustness]
 ---
@@ -29,6 +29,7 @@ Near-random on **counting**, satellite imagery (EuroSAT, RESISC45), tumour detec
 
 - [CLIP paper](../sources/clip-paper.md)
 - [Gato paper](../sources/gato-paper.md) — the multimodal-tokenization contemporary.
+- [DiT World-Action Model for AV Scene Prediction](../sources/dit-world-action-model-av-paper.md) — fourth of six on a nuScenes ego-action probe (steer RMSE 0.117), **behind DINOv2 and both V-JEPA2 variants**. Consistent with the wiki's running pattern: language alignment does not buy geometric or dynamical structure.
 
 ## Open questions / TBD
 

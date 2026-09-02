@@ -2,8 +2,8 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-08-30
-sources: 55
+updated: 2026-09-01
+sources: 56
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -176,7 +176,7 @@ The original wiki synthesis observed [V-JEPA 2](../../entities/v-jepa-2.md) and 
 
 ## How much of the advantage is latent prediction, specifically? (2026 probe evidence)
 
-Two 2026 studies put JEPA encoders and pixel-space models on **one shared axis** for the first time — a frozen-feature probe rather than a video-quality leaderboard. Both favour latent prediction; both qualify how much of the credit it deserves.
+Three 2026 studies put JEPA encoders and pixel-space models on **one shared axis** for the first time — a frozen-feature probe rather than a video-quality leaderboard. Both favour latent prediction; both qualify how much of the credit it deserves.
 
 **The decomposition** ([action-relevant latents](../../sources/action-relevant-latents-paper.md), LIBERO task-OOD, inverse-dynamics probe R²):
 
@@ -208,6 +208,24 @@ Three findings that sharpen the picture:
 
 **Robustness** ([latent video prediction](../../sources/latent-video-prediction-better-world-models-paper.md), four matched-capacity ViT-Ls on SSv2): V-JEPA 2.1 leads on five of six corruption types; V-JEPA models uniquely encode the **arrow of time** (under reversal they flip to semantically antonymous classes — pushing ↔ pulling); and they detect *pretend* actions best precisely where the cue is **the absence of physical contact** — without ever reconstructing a pixel. A frozen V-JEPA 2 with a light probe beats a fully fine-tuned VideoMAE and a supervised TimeSformer on corruption and occlusion.
 
+**A third probe, and the cleanest isolation of *temporal context* itself** ([DiT AV world model](../../sources/dit-world-action-model-av-paper.md), nuScenes ego-action regression, six frozen encoders, shared MLP probe, 3 seeds):
+
+| Encoder | Steer RMSE ↓ | Accel RMSE ↓ |
+|---|---:|---:|
+| **V-JEPA2 rep64** (16-frame clip) | **0.058** | **0.055** |
+| V-JEPA2 rep1 (single frame) | 0.097 | 0.059 |
+| DINOv2-S/14 | 0.104 | 0.072 |
+| CLIP ViT-B/32 | 0.117 | 0.067 |
+| ViT-S/16 (supervised) | 0.121 | 0.071 |
+| VQ-VAE Tracker (reconstruction) | 0.126 | 0.063 |
+
+What makes this one worth having alongside the other two: **rep64 vs rep1 is the same checkpoint family and the same probe, differing only in whether the video encoder ingests 16 frames or 1.** The other probes compare a video-predictive encoder against *different* architectures, so "video pretraining" and "temporal context at inference" stay entangled. Here they are separated, and temporal context alone is worth **40% of steering RMSE** (0.058 vs 0.097).
+
+Two secondary readings. **Acceleration barely moves** (0.055 vs 0.059) — it is legible from a single frame; steering is not, because it is about where the road is *going*. And the ordering below the top two reproduces the pattern the other probes found in manipulation, now in driving: self-supervised image SSL above supervised and language-aligned, **reconstruction-optimized dead last**. Three teams, three domains, three probe designs, one ordering.
+
+> [!note] Weight it accordingly
+> This is a compact, likely course-project study (see the [source page](../../sources/dit-world-action-model-av-paper.md)) and the probe is a 2-layer MLP on pooled 384-d features, not a world model. It corroborates an ordering the other two established on stronger evidence; it does not independently establish one.
+
 And the caution that generalizes beyond JEPA: **stable features are not usable features.** VideoPrism holds representational similarity above 0.98 under severe patch dropout while collapsing to **2.7%** top-1; V-JEPA 2.1 retains **46.1%**.
 
 ## Mentioned in (additional)
@@ -216,6 +234,7 @@ And the caution that generalizes beyond JEPA: **stable features are not usable f
 - [Latent Video Prediction Learns Better World Models](../../sources/latent-video-prediction-better-world-models-paper.md) — five robustness axes; arrow of time; stable ≠ usable.
 - [Reconstruction or Semantics?](../../sources/latent-space-robotic-world-models-paper.md) — V-JEPA 2.1 as the strongest latent space for a robotic diffusion world model; ~2× VLA-in-the-loop success over VAE latents.
 - [LpWM paper (Kuang et al., 2026)](../../sources/lpwm-paper.md) — sparse latent geometry lowers predictor capacity needed to plan; mode-factored codes.
+- [DiT World-Action Model for AV Scene Prediction](../../sources/dit-world-action-model-av-paper.md) — the rep64/rep1 ablation isolating temporal context (40% steering RMSE) on nuScenes; the same encoder ordering in a driving domain.
 - [AdaJEPA paper (Wang, Bounou, LeCun, Ren 2026)](../../sources/adajepa-paper.md) — test-time adaptation of a latent world model inside MPC.
 - [HP-JEPA paper (Xu et al., 2026)](../../sources/hp-jepa-paper.md) — JEPA on graphs with a bank of coarse-to-fine partition resolutions. A reminder that **"hierarchical JEPA" names two distinct programs**: temporal abstraction for planning ([HWM](../../entities/hwm.md)) and structural resolution for representation (this). Do not conflate them.
 - [Music-JEPA paper (Wang, Fang, LeCun 2026)](../../sources/music-jepa-paper.md) — the action-conditioned formulation outside vision (audio = state, pianoroll = action); action conditioning is what makes the latent dynamics temporally discriminative (target-state win rate **0.991 vs 0.576** for a passive audio-only JEPA).

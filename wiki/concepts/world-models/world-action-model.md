@@ -2,8 +2,8 @@
 title: World-action model (WAM)
 type: concept
 created: 2026-06-02
-updated: 2026-08-26
-sources: 11
+updated: 2026-09-01
+sources: 12
 tags: [world-action-model, wam, world-model, vla, forward-dynamics, inverse-dynamics, policy, cosmos, dreamzero]
 ---
 
@@ -30,6 +30,19 @@ A WAM is therefore a superset of both the "video generator as simulator" ([world
 - **DreamZero / [DreamDojo](../../sources/dreamdojo-paper.md)** ([NVIDIA GEAR](../../entities/nvidia-gear.md)) — the Dream* line, cited by Cosmos 3 as a WAM baseline; DreamDojo uses continuous latent actions as a self-supervised proxy.
 - **[Genie Envisioner](../../entities/genie-envisioner.md) / GE-Sim2** ([AGIBOT](../../entities/agibot.md)) — introduced a "World Action Model" framework where action is a first-class variable ([announcement](../../sources/agibot-genie-envisioner-2-announcement.md)).
 
+## The compact end of the scale
+
+Every WAM named above is a frontier-scale system — Cosmos 3, the Dream* line, GE-Sim2, and the 5B DriveWAM the AV paper cites as concurrent work. [Sharifullin et al.](../../sources/dit-world-action-model-av-paper.md) occupy the opposite end deliberately: **~5.4M parameters**, a single front camera, 2 Hz, 8-second horizon on [nuScenes](../../entities/nuscenes.md). Their argument for the regime is methodological — *"controlled ablations that isolate individual design factors are tractable at this scale but prohibitively expensive at 5B."*
+
+What that buys, and it is worth having:
+
+- **A necessary-ingredients list for a latent DiT**, arrived at by rejecting hypotheses rather than by ablation sweep: spatial tokens, the *x*₀ objective (ε-prediction *collapses* in compact latents; switching recovers 88.5% of the gap), residual anchoring, and sampling matched to target uncertainty.
+- **Controllability measured rather than asserted.** Sweeping steering with fixed noise gives Spearman ρ = **+0.81** for the diffusion model against **−0.18** for a matched regressor, plus a non-circular inverse-control probe. This is the property that separates a *world-action* model from a video model with an action input port, and most WAM papers show it qualitatively at best.
+- **A structural diagnosis with a counter-intuitive fix.** Predicting every future token as a residual from the *same* present latent biases the model toward re-rendering the current scene; the model produces texture (0.98× GT) but almost no coherent motion (0.44× GT). Re-parameterizing as a Δt=4 jump with per-step re-anchoring recovers **full motion magnitude (1.02× GT) in a 3× smaller model** — the fix was architectural, not capacity.
+
+> [!note] Read it for the diagnoses, not the artifact
+> At FID 162.5 this is nowhere near a usable driving world model, and the provenance is a likely course project. The four ingredients are claimed to transfer upward on the strength of a **2-point, 1-seed** capacity probe. Treat the recipe as a hypothesis about larger systems, not a validated one.
+
 ## Related concepts
 
 - [World model](world-model.md) — the FD direction is exactly an action-conditioned world model.
@@ -46,3 +59,4 @@ As of mid-2026 the strongest published WAMs are generative-video / diffusion mod
 - [Cosmos 3 Technical Report](../../sources/cosmos-3-technical-report.md)
 - [Develop Physical AI with NVIDIA Cosmos 3 (HF blog)](../../sources/nvidia-cosmos-3-hf-blog.md)
 - [AGIBOT Genie Envisioner 2.0 Announcement](../../sources/agibot-genie-envisioner-2-announcement.md)
+- [Sharifullin, Jiang & Chew 2026 — Diffusion Transformer World-Action Model for AV Scene Prediction](../../sources/dit-world-action-model-av-paper.md) — the compact-scale end; controllability measured (ρ = 0.81 vs −0.18); the shared-anchor motion diagnosis.
