@@ -2,8 +2,8 @@
 title: Belief states and mixed states
 type: concept
 created: 2026-08-31
-updated: 2026-08-31
-sources: 5
+updated: 2026-09-02
+sources: 6
 tags: [belief-state, mixed-state, hidden-markov, pomdp, blackwell-measure, entropy-rate, sufficient-statistic, latent-space, world-model, unifilar, myhill-nerode]
 ---
 
@@ -71,6 +71,17 @@ At the **third World Modeling Workshop** ([Chicago Booth, Aug 2026](../../source
 - [Vafa, Chen, Rambachan, Kleinberg & Mullainathan 2024](../../sources/vafa-world-model-implicit.md) — the Myhill-Nerode metrics.
 - Birch, J. J. (1962), "Approximations for the entropy for functions of Markov chains," *Ann. Math. Statist.* 33(2):930–938. Not ingested.
 
+## The empirical version of the panel's argument
+
+[Day 1](../../sources/chicago-booth-world-modeling-workshop-2026.md)'s panel split on whether to **represent the whole belief** ([Hafner](../../entities/danijar-hafner.md): tried it, sampling worked better) or **discard what you cannot predict** ([LeCun](../../entities/yann-lecun.md): the JEPA argument) — the argument this page reads as Blackwell's mixed state under another name.
+
+[MetaOthello](../../entities/metaothello.md), presented the following afternoon, asks what a trained transformer *actually does* when a sequence is genuinely ambiguous between two worlds. The answer is neither position: a **shared base representation with world-specific perturbations on top**, plus a **single steerable latent direction** — appearing abruptly at layer 5 — carrying the posterior over which dynamics generated the sequence. Both candidate board states are linearly decodable, and interventions on either behave identically, which is the evidence for one substrate rather than two.
+
+> [!note] What this does and does not settle
+> The toy world has **two** hypotheses and a known ground truth. Blackwell's result is about a belief that is **generically infinite-dimensional**; a two-way posterior is comfortably finite, so nothing here contradicts him. What it does show is that when the belief *is* small, a transformer represents it compactly and separably rather than either enumerating it or discarding it — and the representation is localized enough to intervene on. Whether that shape survives as the hypothesis space grows is exactly the untested question.
+
+A second Day 2 result touches the same limit from the engineering side. **[WorldTrace](../../entities/worldtrace.md)** finds that much of what looks like forgetting in long video-world-model rollouts is not compression loss but an **addressing failure** — frames remain in the KV cache while rotary position offsets drift out of distribution, so the model can no longer reach them. Fixed by assigning summary slots *virtual* positions relative to the current query. That is a repairable bug sitting on top of Blackwell's unrepairable limit, and the two had not previously been distinguished in this wiki.
+
 ## Mentioned in
 
 - [Jurgens & Crutchfield — HMP entropy rate](../../sources/jurgens-crutchfield-hmp-entropy-rate.md)
@@ -78,3 +89,4 @@ At the **third World Modeling Workshop** ([Chicago Booth, Aug 2026](../../source
 - [World Labs functional taxonomy](../../sources/world-labs-functional-taxonomy.md)
 - [stable-worldmodel paper](../../sources/stable-worldmodel-paper.md)
 - [Chicago Booth World Modeling Workshop 2026](../../sources/chicago-booth-world-modeling-workshop-2026.md)
+- [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — MetaOthello and WorldTrace.

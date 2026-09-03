@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-10
 updated: 2026-08-27
-sources: 17
+sources: 18
 tags: [lekiwi, mobile-manipulator, kiwi-drive, holonomic, sigrobotics-uiuc, lerobot, low-cost, raspberry-pi, open-source]
 ---
 

@@ -2,8 +2,8 @@
 title: World-model evaluation
 type: concept
 created: 2026-08-07
-updated: 2026-09-01
-sources: 13
+updated: 2026-09-02
+sources: 14
 tags: [world-model, evaluation, benchmark, physical-validity, policy, vbench, worldscore, physion-eval, mllm-critic]
 ---
 
@@ -185,9 +185,30 @@ Its scaling results have aged well and are still uncontested: **model capacity f
 
 **Still missing**: nobody has run a JEPA-family model through WorldArena's *functional* roles (data engine, policy evaluator, RL environment, action planner). The probe results predict it would do well. That prediction is untested.
 
+## The circularity, stated by someone who has to live with it
+
+Consumer finance has the same problem with none of robotics' escape hatches, and [Bayan Bruss](../../entities/bayan-bruss.md) states it more cleanly than any source here ([Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md)). Across the whole literature, he argues, there are only **two** evaluation families — **reconstruction** (generate more data, ask whether it resembles the real data) and **task-based** (train a policy inside the model, then test the policy). His domain can't use the first usefully, and the second needs a simulator he doesn't have. So the field falls back on **back-testing**: replay a historical trajectory, swap the old policy for the new one, aggregate the realized outcomes.
+
+That harness assumes exactly what is in question:
+
+> *"[Back-testing] scores the policy using historical outcomes which assume that the state didn't change under the new policy. But that's exactly what we're trying to ask... If I had a good world model, I could simulate the economy and I could test any policy — but how do I know if my world model is good if I don't have a simulator? And there's no way out of it."*
+
+> [!note] Robotics has one escape from this regress, and should notice that it does
+> **You can put the policy on a real robot.** Expensive, slow, unscalable — and it terminates the loop, because the real world is not a model whose errors you inherited. Finance has no equivalent: deploying the policy *is* the experiment, and it perturbs the thing being measured. Every argument in this wiki for cheaper evaluation via learned simulators is an argument for moving closer to the position Bruss is stuck in.
+
+Two riders worth carrying into robotics evaluation:
+
+- **The time-travel problem.** *"Very very subtle choices that you make in how you do the evaluation end up vastly inflating what you think the quality of your decisions are"* — knowledge unavailable at decision time leaking into the model, the harness, or the metric.
+- **What back-testing can and cannot certify.** Results are trustworthy only *locally*: the new policy can only be so far from the one that collected the data, so large counterfactual regions stay unexplorable. The partial fix is **deliberate off-policy data collection**, which had to have been started years earlier — *"you can't just do it today, because a lot of this data takes a long time to mature."* An evaluation's counterfactual reach is fixed by exploration decisions made before anyone knew they were needed.
+
+> [!note] An external instrument, unused
+> On the same panel, [Kalshi](../../entities/kalshi.md) offered **2.2 million resolved prediction-market forecasts** with realized outcomes, external adjudication, and a calibration baseline (Brier **0.08 → 0.02** from a 3-month horizon to resolution, against 0.25 for an uninformative forecaster). Any world model that emits probabilities over near-term real-world events can be scored against that without a simulator, because the world already ran the experiment. As far as this wiki knows nobody has tried it. See [prediction markets](../economics/prediction-markets.md).
+
 ## Related concepts
 
 - [Robot policy evaluation](../robotics/robot-policy-evaluation.md) — the statistical case, from inside robotics.
+- [Prediction markets](../economics/prediction-markets.md) — an externally adjudicated evaluation surface that needs no simulator.
+- [World models for financial markets](../../syntheses/society/world-models-for-financial-markets.md) — the circularity in full, with the other four speakers.
 - [Instruction leakage](instruction-leakage.md) — a concrete, diagnosed world-model evaluation confound.
 - [Sim-to-real transfer](../learning/sim-to-real-transfer.md) — the older name for half of this problem.
 - [World-model governance](../safety/world-model-governance.md) — what to do about it.
@@ -195,6 +216,7 @@ Its scaling results have aged well and are still uncontested: **model capacity f
 
 ## Mentioned in
 
+- [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — the evaluation circularity, and an unused external benchmark.
 - [WorldArena paper](../../sources/worldarena-paper.md) — the perception–functionality gap, measured.
 - [WorldArena 2.0 paper](../../sources/worldarena-2-paper.md) — visuotactile, world-model-as-RL-environment, and the sim-to-real usability gap.
 - [WorldRoamBench paper](../../sources/worldroambench-paper.md) — long-horizon stability; per-frame action, visual drift, interaction physics, action-decoupled memory.

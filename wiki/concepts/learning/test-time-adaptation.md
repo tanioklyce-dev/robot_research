@@ -2,8 +2,8 @@
 title: Test-time adaptation
 type: concept
 created: 2026-08-26
-updated: 2026-08-26
-sources: 5
+updated: 2026-09-02
+sources: 6
 tags: [test-time-adaptation, test-time-training, distribution-shift, world-model, mpc, planning, robustness, self-supervised]
 ---
 
@@ -47,7 +47,7 @@ That matters, because the wiki already records the failure mode this creates in 
 
 ## Open questions
 
-- **Cost.** No source here reports the latency or compute of a gradient step inside a replanning step. Latent world models' appeal is partly [48× faster planning](../../entities/leworldmodel.md); whether adaptation spends that is unmeasured.
+- ~~**Cost.** No source here reports the latency or compute of a gradient step inside a replanning step.~~ **Answered 2026-09-02** — presenting AdaJEPA at the [Chicago Booth workshop](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md), Ying Wang gives **~0.3 s added per replanning step**, *"very small compared to the planning time."* Latent world models' appeal is partly [48× faster planning](../../entities/leworldmodel.md), and 0.3 s does not obviously spend that — but the figure comes from a talk, covers only the 2D simulation settings, and has no real-robot counterpart.
 - **Stability.** [AdaJEPA](../../entities/adajepa.md) uses stop-gradient as an anti-collapse stabilizer during online updates and reports no case where adaptation hurts — but a single-sample online objective on a JEPA is exactly the regime where collapse is plausible, and no adversarial case is shown.
 - **No real-robot instance in this wiki.** Both environments are 2D simulation.
 
@@ -63,3 +63,4 @@ That matters, because the wiki already records the failure mode this creates in 
 
 - [AdaJEPA paper](../../sources/adajepa-paper.md)
 - [stable-worldmodel paper](../../sources/stable-worldmodel-paper.md) — the collapse TTA is responding to.
+- [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — AdaJEPA presented; the ~0.3 s/step latency figure.

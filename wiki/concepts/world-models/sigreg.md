@@ -2,8 +2,8 @@
 title: SIGReg (Sketched Isotropic Gaussian Regularization)
 type: concept
 created: 2026-08-26
-updated: 2026-08-26
-sources: 10
+updated: 2026-09-02
+sources: 14
 tags: [sigreg, jepa, lejepa, anti-collapse, isotropic-gaussian, cramer-wold, epps-pulley, balestriero, lecun, latent-space, regularization]
 ---
 
@@ -78,6 +78,63 @@ The conceptual difference matters more than the numbers: SIGReg **prescribes a l
 > [!warning] The Two-Room case is where the isotropic-Gaussian assumption is most strained
 > LeWM's Two-Room result is its **weakest** across the four environments and is **worse than PLDM**'s — the environment [Curriculum Module 12](../../syntheses/curriculum/curriculum-12-lewm-deep-dive.md) singles out as exposing a SIGReg limitation. Worth stating with the qualifier the [reproduction](../../sources/onchain-ai-garage-lewm-reproduction.md) adds, though: the "failure-mode" result is still **92%** on consumer hardware. **Weakest is not broken.**
 
+## VISReg — decomposing the regularizer (2026-09-01)
+
+**VISReg** (Haiyu Wu, [Balestriero](../../entities/randall-balestriero.md), Morgan Levine; Altos Labs) keeps SIGReg's theorem and **splits the regularization into three separately re-weightable components — scale, shape and centre** ([Day 2 lightning talk](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md)). More hyperparameters, in exchange for three claimed properties:
+
+- **A stronger anti-collapse gradient** — the signal grows sharply as the embedding starts to collapse, rather than degrading gracefully.
+- **Robustness to skewed data**, via re-weighting the three terms: reported as a modest improvement when pretraining on long-tailed ImageNet.
+- **Out-of-domain performance**: DINOv2-comparable results scaling to ImageNet-22k on **~10% of the data**.
+
+Swapped into a LeWM-style world model on the same benchmarks, it beats end-to-end methods on four datasets except against VICReg, which the presenter attributes to VICReg's own instability rather than a clean win.
+
+> [!warning] The batch-size dependence is a real constraint, and it is disclosed
+> VISReg only outperforms the SIGReg-based world model at **large batch size** — because the shape term is built on a **sliced-Wasserstein distance**, which is sensitive to batch size (a larger batch gives a better distributional target). At matched small batch, the SIGReg baseline is the more stable of the two. That inverts SIGReg's own selling point: LeJEPA's pitch is that it trains stably without tuning, and a variant that needs a large batch to win has spent part of that.
+
+Two honest negatives from the same talk: it remains **sensitive to noise**, and **open-loop long-horizon planning still degrades badly** from 25 → 75 steps — *"this is a fundamental problem of the world model, not just the regularization. We need to design probably new prediction losses or the model design."* The wiki's [gradient-based planning](gradient-based-planning.md) and [stable-worldmodel](../../sources/stable-worldmodel-paper.md) pages record the same ceiling.
+
+## What the shipped code says that the paper does not
+
+Ingesting the [`lejepa` package](../../sources/lejepa-github.md) and the [lab's tutorial repo](../../sources/wm-booth-lejepa-lewm-tutorial-repo.md) changes three things on this page.
+
+### 1. SIGReg is one configuration of a normality-test library
+
+The package does not export "SIGReg". It exports a **family of distributional tests** you compose:
+
+| `lejepa.univariate` | `lejepa.multivariate` |
+|---|---|
+| `EppsPulley` (SIGReg's choice), `AndersonDarling`, `CramerVonMises`, `ShapiroWilk`, `Watson`, `Entropy`, `NLL`, `Moments`, `ExtendedJarqueBera`, **`VCReg`** | `SlicingUnivariateTest`, `BHEP`, `HZ` (Henze–Zirkler), `HV` |
+
+SIGReg = `SlicingUnivariateTest(EppsPulley(num_points=17), num_slices=1024)`. Each alternative has its own unit-test file, so these are maintained, not sketched. **Nine drop-in alternatives; one is used, and no ablation is published** (though `scripts/launch_epps_ablation.md` exists, so one was run).
+
+### 2. VICReg is a *low-order-moment* member of the same family
+
+> [!note] This reframes the "Where it is challenged" section above
+> `VCReg` ships inside `univariate/jarque_bera.py`, re-exported alongside `ExtendedJarqueBera`. Jarque–Bera is built from **skewness and kurtosis** — third and fourth moments — and VICReg's variance-covariance term is the second-moment fragment of the same construction.
+>
+> So SIGReg and VICReg are not competing heuristics. They are **points on one axis: how many moments of the Gaussian you insist on.** VICReg constrains second moments and is blind above them; Epps–Pulley matches the entire characteristic function. That is a much better account of *why* VICReg collapses where it does — and it is asserted here by a module layout rather than by any paper the wiki has ingested.
+
+### 3. A quadrature trick that is not in the paper
+
+`MINIMAL.md` flags the deviation explicitly: exploit the symmetry of the empirical characteristic function to **integrate over `[0, t_max]` and double, instead of `[-t_max, t_max]`** — *"improved quadrature for free."* The shipped module uses **17 knots over `t ∈ [0,3]`**, trapezoidal weights doubled except at the endpoints, a Gaussian window `exp(-t²/2)`, and **256 unit slice directions resampled every call**. Anyone reimplementing from the paper integrates twice the domain for the same answer.
+
+### And an unverified claim worth chasing
+
+The repo asserts **"94%+ Spearman correlation between training loss and downstream performance"**, i.e. *"you can finally do model selection without labeled validation data."* No plot, dataset list or protocol accompanies it. If true it matters far more in robotics than in vision, because there the labeled validation set is a [real-robot rollout](../robotics/robot-policy-evaluation.md).
+
+## Where to put SIGReg in a *temporal* model — an open question with four candidate answers
+
+The paper and this page both treat the embedding distribution as one static thing. In an action-conditioned world model there are several distributions to choose from, and the lab's own [tutorial code](../../sources/wm-booth-lejepa-lewm-tutorial-repo.md) exposes the choice as a flag with **no published comparison**:
+
+| `sigreg_mode` | Constrains | Note |
+|---|---|---|
+| **`pooled`** (default) | all `(N×T)` latents as one distribution | permits the time-marginal to be isotropic Gaussian while individual timesteps are not |
+| `per_time` | one SIGReg per timestep, averaged | stricter; the per-step distribution must itself be Gaussian |
+| `both` | mean of the two | |
+| `pooled_pred` | pooled over encoded latents **and** the predicted rollout | the only mode constraining the **predictor's own output** — where rollout collapse would surface |
+
+Given that open-loop degradation from 25 → 75 steps is the standing failure ([VISReg](#visreg--decomposing-the-regularizer-2026-09-01) above; [stable-worldmodel](../../sources/stable-worldmodel-paper.md)), the fact that the default mode is the one *not* constraining the predictor's outputs is at least worth an experiment.
+
 ## Implementation notes
 
 - **`λ` is the single hyperparameter** — the SIGReg loss weight, default **0.1**.
@@ -103,3 +160,6 @@ The conceptual difference matters more than the numbers: SIGReg **prescribes a l
 - [LeNEPA paper](../../sources/lenepa-paper.md) — SIGReg carried into time-series SSL.
 - [PLDM paper](../../sources/pldm-paper.md) — the 4–6-hyperparameter baseline it replaces.
 - [LeWM reproduction on an RTX 3060](../../sources/onchain-ai-garage-lewm-reproduction.md) — independent loss-curve confirmation and the no-collapse diagnostic.
+- [galilai-group/lejepa](../../sources/lejepa-github.md) — **the reference implementation**; the test family, the VICReg relationship, the quadrature trick.
+- [galilai-group/tutorial](../../sources/wm-booth-lejepa-lewm-tutorial-repo.md) — a 60-line LeWM and the four temporal SIGReg modes.
+- [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — VISReg, the scale/shape/centre decomposition.

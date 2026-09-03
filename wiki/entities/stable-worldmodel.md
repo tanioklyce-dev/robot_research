@@ -3,12 +3,15 @@ title: stable-worldmodel
 type: entity
 subtype: software
 created: 2026-05-08
-updated: 2026-07-26
-sources: 3
+updated: 2026-09-02
+sources: 6
 tags: [stable-worldmodel, swm, lewm, world-model, infrastructure, env-zoo, benchmark, generalization, lance, mila, balestriero]
 ---
 
-**stable-worldmodel** (`swm`) — Python package for **training and evaluating world models** end-to-end on a small-to-medium scale. The infrastructure layer underneath [LeWorldModel](leworldmodel.md): provides the env zoo, the planning / cost-model API, the dataset format, and the evaluation harness. Maintained at `rbalestr-lab/stable-worldmodel` on GitHub (Randall Balestriero's lab; also mirrored at `galilai-group/stable-worldmodel`).
+**stable-worldmodel** (`swm`) — Python package for **training and evaluating world models** end-to-end on a small-to-medium scale. The infrastructure layer underneath [LeWorldModel](leworldmodel.md): provides the env zoo, the planning / cost-model API, the dataset format, and the evaluation harness. Maintained at **`galilai-group/stable-worldmodel`** on GitHub — the **GalilAI group**, Randall Balestriero's lab org (*"Foundation Models, Theory, World Models, Everything AI"*). **Corrected 2026-09-02**: an earlier version of this page called galilai-group a mirror of `rbalestr-lab`. It is the other way round — the `rbalestr-lab` URL now **301-redirects** here, and every canonical link (docs site, PyPI, Colab, HuggingFace datasets) is under `galilai-group`. See [the repository source page](../sources/stable-worldmodel-github.md).
+
+> [!note] The repository has outgrown the paper — see [the 2026-09 repo snapshot](../sources/stable-worldmodel-github.md)
+> Added since the May paper: **seven planning solvers** (CEM, iCEM, MPPI, Predictive Sampling, SGD/Adam, PGD, Augmented Lagrangian), **six baselines across three method families** (DINO-WM / PLDM / LeWM, GCBC, GCIVL / GCIQL), a **five-backend dataset-format registry** including a read-only **`lerobot://` adapter**, per-environment **factor-of-variation counts** as a first-class API, a `swm` CLI, and an extras split that keeps `stable_worldmodel.planning` installable into a robotics image without ~410 MB of Lance wheels.
 
 ## Components
 - **Env zoo** — much broader than the four benches the LeWM howto initially exposed. Per the canonical README:

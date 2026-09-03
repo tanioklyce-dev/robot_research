@@ -3,8 +3,8 @@ title: NVIDIA
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-08-27
-sources: 59
+updated: 2026-09-02
+sources: 60
 tags: [nvidia, gpu, simulation, physical-ai]
 ---
 
@@ -62,4 +62,5 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - [Jetson Linux R36.5 update mechanism](../sources/nvidia-jetson-linux-r36-5-update-mechanism.md)
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../sources/hai-world-model-spatial-intelligence-brief.md) — Omniverse cited as the reference point for *conventional* simulation ("slow, specialist work" per environment) against which learned world models are pitched; NVIDIA also named among the incumbents leading the world-model push, and among HAI's disclosed funders.
 - [GraspGen-X: Cross-Embodiment 6-DOF Diffusion-based Grasping](../sources/graspgenx-paper.md)
+- [Third World Modeling Workshop — Day 2](../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — [WorldTrace](worldtrace.md), NVIDIA's training-free addressable-memory framework for interactive video world models.
 - [Where Security Fits in an AI Agent Stack](../sources/nvidia-where-security-fits-agent-stack.md)

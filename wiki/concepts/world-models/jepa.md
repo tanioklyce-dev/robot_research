@@ -2,8 +2,8 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-09-01
-sources: 56
+updated: 2026-09-02
+sources: 60
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -123,6 +123,24 @@ The single-level JEPA planning ceiling is short: [LeWorldModel](../../entities/l
 
 **Realized as [HWM](../../entities/hwm.md) ("Hierarchical Planning with Latent World Models", [Zhang et al., arXiv 2604.03208, April 2026](../../sources/hwm-paper.md); senior authors LeCun + Ballas).** A **model-agnostic** two-temporal-scale latent MPC wrapper: a high-level planner optimizes latent **macro-actions** to the goal, its first predicted latent becomes a **subgoal**, and a low-level planner optimizes primitive actions toward it (CEM at both scales). Demonstrated on top of [DINO-WM](../../entities/dino-wm.md) (Push-T: **17% → 61%** at the hardest horizon d=75), [PLDM](../../entities/pldm.md) (Diverse Maze: **+39%**), and [V-JEPA 2](../../entities/v-jepa-2.md)-AC (real-Franka pick-&-place: **0% → 70%** from a single goal image). Fig. 6 gives the empirical case: low-level model wins at short horizons (≤1 s), high-level at long horizons (≥1.5 s). **Caveats:** only **two** levels (not the N-level *emergent* hierarchy of the vision) and **goal-image-conditioned** (not language). The Welch Labs video's "push-t 5 → 15 steps" was a simplification of the paper's d=25→75 task-horizon framing.
 
+## What to predict, and in what order (DSeq-JEPA, 2026-09-01)
+
+I-JEPA selects target blocks **at random** and predicts them **independently**. **DSeq-JEPA** (Xiangteng He et al., University of British Columbia; [Day 2 lightning talk](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md)) changes both, on an explicitly perceptual motivation — a person looks at the most salient region first, then the next, and attention is *selective and sequential*.
+
+Two coupled changes, with the rest of the JEPA framework untouched:
+
+1. **Region prioritization** — use the target encoder to generate a saliency map, extract informative non-overlapping regions, and order them primary → secondary.
+2. **Sequential prediction** — predict each region's embedding conditioned on the regions before it, plus its position.
+
+So target prediction goes from an **unordered set** to a **discriminatively ordered sequence**.
+
+> [!note] The ablation is the result
+> **Neither component works alone** — enabling only region selection, or only sequential prediction, *decreases* performance. And **order matters in the right direction**: random or inverse ordering actively hurts, a simple spatial order gives a small gain, and the gain grows as the sequence becomes more semantically meaningful. The claim is therefore not "curriculum helps" but that **the trajectory has to be semantically grounded** — which is a sharper and more falsifiable statement than most self-supervised-learning ablations make.
+
+Reported to hold across ViT-B / -L / -H and to carry beyond ImageNet classification into fine-grained recognition, detection, segmentation and low-level tasks. Prediction remains entirely in latent space and the encoder is used normally downstream, so this is a drop-in change to the target-construction stage rather than a new architecture.
+
+It rhymes with [Aleksandra Faust](../../entities/aleksandra-faust.md)'s independent claim on the same day that *"curriculum is a permutation on the training data — so order matters"* ([synthetic data flywheel](../learning/synthetic-data-flywheel.md)). Two unrelated talks, one about SSL targets and one about RL environments, landing on ordering as a free axis.
+
 ## Simulator stance — fragmenting, not avoiding
 The original wiki synthesis observed [V-JEPA 2](../../entities/v-jepa-2.md) and [LeWM](../../entities/leworldmodel.md) both skipping heavy agentic-robotics sim. With five additional ingests in May 2026, the picture is more nuanced: [JEPA-WMs](../../entities/jepa-wms.md) uses [RoboCasa](../../entities/robocasa.md); [VLA-JEPA](../../entities/vla-jepa.md) uses SimplerEnv; [DINO-WM](../../entities/dino-wm.md) uses lightweight MuJoCo benches; [V-JEPA 2.1](../../sources/v-jepa-2-1-paper.md) continues the no-sim line. **The JEPA literature is fragmenting across simulator weight classes**, not avoiding sim wholesale. See [the revised synthesis](../../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md).
 
@@ -227,6 +245,10 @@ Two secondary readings. **Acceleration barely moves** (0.055 vs 0.059) — it is
 > This is a compact, likely course-project study (see the [source page](../../sources/dit-world-action-model-av-paper.md)) and the probe is a 2-layer MLP on pooled 384-d features, not a world model. It corroborates an ordering the other two established on stronger evidence; it does not independently establish one.
 
 And the caution that generalizes beyond JEPA: **stable features are not usable features.** VideoPrism holds representational similarity above 0.98 under severe patch dropout while collapsing to **2.7%** top-1; V-JEPA 2.1 retains **46.1%**.
+
+### From the Chicago Booth workshop, Day 2 (2026-09-01)
+
+- [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — DSeq-JEPA; VISReg (see [SIGReg](sigreg.md)); AdaJEPA's ~0.3 s/step adaptation cost; [Klindt](../../entities/david-klindt.md)'s latent-learning argument that goal-biased data yields a worse map; and [MarketOne](../../entities/marketone.md), where a LeJEPA setup wins the *economic-interpretability* half of an 18-method bake-off while losing the pure-forecasting half.
 
 ## Mentioned in (additional)
 

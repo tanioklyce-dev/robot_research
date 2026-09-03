@@ -10,7 +10,6 @@ venue: "Chicago Booth School of Business — livestream recording, 9h37m"
 format: video (livestream) — machine transcript
 tags: [world-models, workshop, jepa, lecun, balestriero, bohg, hafner, donoho, blackwell, belief-state, panel, transcript, secondary-source]
 ingested: 2026-08-31
-updated: 2026-09-01
 ---
 
 ## Summary
@@ -83,6 +82,20 @@ LeCun disagrees directly: *"the best way to handle uncertainty is to just elimin
 > [!note] The workshop argues about Blackwell's object without invoking Blackwell's result
 > The opening keynote is about **Blackwell's world-models theorem**. The closing panel argues over whether to represent the full belief state or discard unpredictable information — and the belief state **is** Blackwell's mixed state. [Blackwell 1957](jurgens-crutchfield-hmp-entropy-rate.md) says the sufficient statistic for a nonunifilar hidden Markov process is **generically infinite-dimensional**, which is a theoretical explanation for exactly the failure Hafner reports empirically, and a principled argument for LeCun's discard-what-you-can't-predict position. Nobody in the transcript connects the two. See [belief states and mixed states](../concepts/world-models/belief-states-and-mixed-states.md).
 
+## Programme correction (added 2026-09-02)
+
+While ingesting [Day 2](chicago-booth-world-modeling-workshop-2026-day2.md), the workshop's own schedule page was captured to `raw/2026-09-02-wm-booth-org-programme.html` (from `wm-booth.org`, while the site was still live). It is the **primary for the programme**, and it fixes several things this page inferred from a machine transcript:
+
+- **Opening remarks** were by **Mike Minnis**, Deputy Dean for Faculty at Booth (this page had "Booth deputy dean for faculty"), with Balestriero.
+- **Donoho's keynote** is titled *"Blackwell's World Models"*, and **XY Han (Booth) and Vardan Papyan (U Toronto) are co-authors with Andrew Donoho**, not merely thanked. The abstract also credits **James Crutchfield's "computational mechanics"** and the **Astera Institute** belief-state-hunting program (Shai, Marzen, Riechers) as the bridge from Blackwell to transformers — the connection this page's closing callout says nobody made *is* made, in the keynote abstract, just not on the panel.
+- **The lightning talks** were: *LpWM* (Yilun Kuang, NYU), *Selection-Induced Optimism in LLM Social World Models* (Ryan Wu, Duke), *CLAW: Learning Continuous Latent Action World Models via Adversarial Latent Regularization* (Tewodros W. Ayalew, University of Chicago), and *Latent Flow Waypoints for Latent Planning* (Ryan Teehan, NYU). This page had recorded only two of the four.
+- **The panel** was Bohg, Du, Hafner and LeCun — four, not "LeCun, Bohg, Hafner and others."
+- **Grover's keynote** names the work this page could not trace: **LaViDa**, a line on diffusion language models extended across modalities.
+- **Bohg's abstract** names her three works explicitly — SimToolReal, **Play2Perfect**, and **MessyNav** ("decides which obstacles in a cluttered scene can be moved and where they will end up"), plus Causal-PIK. MessyNav is on the wiki's [backlog](../backlog.md) as announced-but-unpublished; this is independent confirmation of its content.
+
+> [!warning] Blackwell 1956 or 1957?
+> The keynote abstract says *"Blackwell's little-known **1956** result about hidden Markov models."* This wiki cites **Blackwell 1957** (*Transactions of the First Prague Conference*), including on [belief states and mixed states](../concepts/world-models/belief-states-and-mixed-states.md). Almost certainly the same paper under conference year vs. proceedings year — the Prague conference was held in 1956 and the proceedings published in 1957 — but the wiki asserts a date it has never been able to verify against the document itself, which is not digitized.
+
 ## Entities mentioned
 
 - [Randall Balestriero](../entities/randall-balestriero.md) — organizer and moderator. [Yann LeCun](../entities/yann-lecun.md), [Jeannette Bohg](../entities/jeannette-bohg.md), [Danijar Hafner](../entities/danijar-hafner.md) ([Dreamer](../entities/dreamer.md)).
@@ -99,6 +112,6 @@ LeCun disagrees directly: *"the best way to handle uncertainty is to just elimin
 
 - **Is "train on failures" actually being done anywhere?** Bohg's counterfactual argument is the strongest case in this wiki for collecting unsuccessful robot data, and it converges with [SimToolReal](simtoolreal-paper.md)'s and [Vafa et al.'s](vafa-world-model-implicit.md) coverage-beats-realism findings from two other directions. No ingested source builds a dataset this way.
 - **Hafner's negative result deserves a citation.** "I tried representing the full belief and sampling worked better" is, as far as this wiki knows, unpublished. If it is in a Dreamer paper, the wiki should find it; if not, it is folklore doing load-bearing work.
-- **Day 2 exists and is not ingested.** The recording ends with "we will see you tomorrow for the second day." Located 2026-09-01: **`j_AujLxYUJc`** — *"Workshop on World Models - Day 2 (WM@Booth 2026)"*, same channel. Checked while it was **still live** (started 08:56 CDT, 13h+ elapsed), so no VOD and **no captions of any kind** yet. Deferred pending the VOD — see [backlog](../backlog.md).
-- **Day 1 now has YouTube auto-captions**, which did not exist when this page was made (hence the local Whisper pass). Worth a comparison if the proper-noun garbling this page warns about ever becomes load-bearing — though machine ASR garbles names either way, so this is a cheap re-check, not a fix.
+- ~~**Day 2 exists and is not ingested.**~~ **Resolved 2026-09-02** — auto-captions appeared on the VOD as predicted, and Day 2 is [ingested](chicago-booth-world-modeling-workshop-2026-day2.md) (8h05m; the finance/economics day). **Day 3** (`PkaYC3fwEsc`, hands-on coding workshop) is not — see [backlog](../backlog.md).
+- **Day 1 now has YouTube auto-captions**, which did not exist when this page was made (hence the local Whisper pass). Worth a comparison if the proper-noun garbling this page warns about ever becomes load-bearing — though machine ASR garbles names either way, so this is a cheap re-check, not a fix. **The cheaper fix has now been applied to Day 2 instead**: reconcile the speaker list against the event's own programme rather than against a better transcript. See the Programme correction below.
 - Aditya Grover's **complementary unmasking** (02:14) and caching scheme (02:22) are named but not traced to a paper here.

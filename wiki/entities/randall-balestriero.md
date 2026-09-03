@@ -3,12 +3,12 @@ title: Randall Balestriero
 type: entity
 subtype: person
 created: 2026-07-26
-updated: 2026-08-31
-sources: 9
+updated: 2026-09-02
+sources: 13
 tags: [person, balestriero, brown, lejepa, sigreg, jepa, ssl, theory, world-model, inverse-dynamics, causality, spectral-graph-theory, time-series]
 ---
 
-**Randall Balestriero** — Assistant Professor at **Brown University**; formerly Meta-FAIR. In this wiki, the **theory-side counterpart to [Yann LeCun](yann-lecun.md) in the JEPA program**: co-first author of [LeJEPA](../sources/lejepa-paper.md), co-author of both May 2026 world-model papers, and the lab behind [stable-worldmodel](stable-worldmodel.md).
+**Randall Balestriero** — Assistant Professor at **Brown University**; formerly Meta-FAIR. His lab publishes under the GitHub org **GalilAI-group** (*"Foundation Models, Theory, World Models, Everything AI"*, created 2024-05-25) — the former `rbalestr-lab`, which now redirects there. In this wiki, the **theory-side counterpart to [Yann LeCun](yann-lecun.md) in the JEPA program**: co-first author of [LeJEPA](../sources/lejepa-paper.md), co-author of both May 2026 world-model papers, and the lab behind [stable-worldmodel](stable-worldmodel.md).
 
 ## Role in the JEPA program
 
@@ -38,6 +38,10 @@ Balestriero's collaborations now branch past the LeCun/LeJEPA axis:
 - [Identifiability](../concepts/world-models/identifiability.md) / [JEPA](../concepts/world-models/jepa.md).
 
 ## Mentioned in
+- [galilai-group/tutorial](../sources/wm-booth-lejepa-lewm-tutorial-repo.md) — sole committer; a 897-line LeJEPA + LeWM tutorial pushed hours before the workshop's Day 3 coding session.
+- [galilai-group/lejepa](../sources/lejepa-github.md) — the reference implementation, and the normality-test library SIGReg is one configuration of.
+- [galilai-group/stable-worldmodel](../sources/stable-worldmodel-github.md) — the platform repo as of 2026-09.
+- [Third World Modeling Workshop — Day 2](../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — organizer; co-author on two lightning talks presented (VISReg, [MarketOne](marketone.md)); asks the panel what the "ImageNet of finance" would have to be.
 - [Third World Modeling Workshop, Chicago Booth 2026](../sources/chicago-booth-world-modeling-workshop-2026.md) — **organizer and panel moderator**; the third edition after the Flatiron Institute and Montréal, pointed this time at non-stationary signals, time series and finance.
 - [LeJEPA Paper](../sources/lejepa-paper.md) — co-first author.
 - [When Does LeJEPA Learn a World Model?](../sources/when-does-lejepa-learn-a-world-model-paper.md) — co-author.

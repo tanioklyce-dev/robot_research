@@ -3,8 +3,8 @@ title: AdaJEPA
 type: entity
 subtype: model
 created: 2026-08-26
-updated: 2026-08-26
-sources: 1
+updated: 2026-09-02
+sources: 2
 tags: [adajepa, jepa, world-model, test-time-adaptation, mpc, distribution-shift, planning, lecun]
 ---
 
@@ -51,4 +51,5 @@ Replay buffer with recency-focused sampling and hard-N retention; **stop-gradien
 
 ## Mentioned in
 
+- [Third World Modeling Workshop — Day 2](../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — presented as a lightning talk; adds the **~0.3 s per replanning step** adaptation cost the paper does not report.
 - [AdaJEPA paper](../sources/adajepa-paper.md)

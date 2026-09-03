@@ -2,8 +2,8 @@
 title: Mechanistic interpretability
 type: concept
 created: 2026-05-15
-updated: 2026-08-30
-sources: 8
+updated: 2026-09-02
+sources: 9
 tags: [mechanistic-interpretability, anthropic, goodfire, neural-geometry, robotics, chris-olah, sparse-autoencoders, feature-extraction, ai-safety]
 ---
 
@@ -87,6 +87,19 @@ The nearest testable version: **does latent-space inspection predict which polic
 - [Goodfire research index (2024–2026)](../../sources/goodfire-research-index.md)
 - [Goodfire Series B announcement](../../sources/goodfire-series-b.md)
 - [Engels et al. — Not All Language Model Features Are One-Dimensionally Linear](../../sources/engels2024-not-all-features-one-dimensionally-linear.md)
+
+## Two non-LLM applications, from one afternoon
+
+Both from [Day 2 of the 2026 Chicago Booth workshop](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md), and both use the same toolkit — linear probes, hidden-state geometry, causal steering — outside language modelling.
+
+**[MetaOthello](../../entities/metaothello.md): where a model decides which world it is in.** Train 8-layer transformers on ~40M move sequences mixed from two Othello rule variants whose legal sequences partly overlap. A linear probe recovers **both** candidate board states from an ambiguous prefix — but interventions on either are **causally equivalent**, evidence of one shared board representation with per-world perturbations on top rather than two parallel models. The optimal posterior over *which* dynamics generated the sequence appears **abruptly at layer 5**, and the same direction **steers** which rule set the model applies. A single low-dimensional world-selector, localized to one layer.
+
+**[Time-series hallucination](../learning/time-series-foundation-models.md): representation collapse as a runtime alarm.** [Diego Klabjan](../../entities/diego-klabjan.md)'s group projects last-layer hidden states of zero-shot forecasters and finds that **hallucinated samples cluster tightly while correct ones disperse**, with the effect strengthening in later layers. Mitigation follows from the diagnosis: decompose each layer into *signal* (per-neuron variance under real data) and *noise* (the same statistic under pure Gaussian input), then amplify the signal component. Effect is real and small — *"it doesn't shake the boat."*
+
+> [!note] Both are the optimistic reading, and this page's own caveat applies
+> Each rests on **linear probes plus steering**, the technique the [neural geometry](neural-geometry.md) critique targets. The same workshop's poster session carried *"Is a Linear Probe Evidence of a Linear Representation?"* ([Klindt](../../entities/david-klindt.md) et al.) — the objection, presented in the same room, on the same day, as two results that assume the answer is yes.
+
+**Also worth recording, from industry.** [Bayan Bruss](../../entities/bayan-bruss.md) describes using sparse autoencoders *and* a much cheaper alternative for the same job — **swap analysis**: run two policies, find where they disagree, characterize the disagreement set. Interpretability as a production tool for answering *why did this policy take this action*, where the SAE is one option among several rather than the method.
 
 ## Open follow-ups
 - **Templeton et al. 2024 — *Scaling Monosemanticity*** (Anthropic). Primary-source candidate. Would let this concept page cite specific feature-extraction numbers, model scales, and demonstrations.

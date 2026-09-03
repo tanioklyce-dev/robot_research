@@ -11,6 +11,11 @@ Practical recipe for training and running [LeWorldModel](../../entities/leworldm
 > [!note] Independent reproduction available
 > A community reproduction lands paper-ballpark numbers (**92% success on Two Room** vs the paper's 97%) on a 5-year-old **RTX 3060 with 12 GB VRAM** in WSL2, in 4 epochs / ~8 hours, **using Claude Code as the implementation assistant**: [Onchain AI Garage — "I Reproduced LeCun's JEPA World Model That Doesn't Predict Tokens" (2026-04-24, 27 min)](../../sources/onchain-ai-garage-lewm-reproduction.md). The four gotchas below are all corroborated by their experience (Python version downgrade, batch-128 OOM → batch 64 + 2× grad accum, WSL2 CUDA-unknown errors, and the torch.compile / fewer-epochs throughput tweaks).
 
+> [!note] There is now a twelve-minute on-ramp — start there instead
+> The lab's own [tutorial repo](../../sources/wm-booth-lejepa-lewm-tutorial-repo.md) (2026-09-02, the WM@Booth Day 3 material) trains an action-conditioned LeWM on **Moving MNIST in 12m28s** and a LeJEPA encoder on ImageNette in **8m29s**, in 897 lines with one dependency — plus `app.py`, an interactive viewer where **every keypress after reset advances an imagined latent**, so open-loop drift is visible in real time.
+>
+> It will not reproduce any paper number and it does not plan. But if the goal is to understand the objective before committing the hours below, it is strictly the cheaper first move. This page remains the recipe for the real thing.
+
 ## Repo layout
 - Official code: https://github.com/lucas-maes/le-wm
 - Project page: https://le-wm.github.io/

@@ -2,8 +2,8 @@
 title: World-model functional taxonomy (renderer / simulator / planner)
 type: concept
 created: 2026-08-07
-updated: 2026-08-26
-sources: 5
+updated: 2026-09-02
+sources: 7
 tags: [world-model, taxonomy, spatial-intelligence, policy, renderer, simulator, planner, pomdp]
 ---
 
@@ -108,6 +108,27 @@ A function this taxonomy does not have. [FOREWARN](../../sources/forewarn-paper.
 
 A fourth output — *a judgment about a proposed action* — is not one of the loop's three quantities, which is a real limit on the POMDP derivation's completeness.
 
+## A fourth cut: what people *mean* by the phrase
+
+[Edoardo Airoldi](../../entities/edoardo-airoldi.md) opened his [Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) talk with a different and cruder taxonomy — not of what a world model *outputs*, but of **what the phrase is being used to denote in the literature**. His advice: *"when you read papers about world models, try to figure out which bin you fall in."*
+
+He names Dreamer-style **latent dynamics trained with a policy in the loop** as one bin, systems where **the world is the output** (i.e. renderers) as another, and reserves the term for a third:
+
+> *"A **mechanistic model** — like what you would think of as a mental model — that's good enough to explore what-if scenarios conditional on actions, and capable of producing **counterfactuals**."*
+
+This is stricter than anything in the renderer/simulator/planner scheme, and it is *orthogonal* to it: a simulator in the World Labs sense can be photorealistic, geometrically correct, and still not support counterfactual reasoning, because matching observables does not identify a mechanism. His formulation of that:
+
+> *"Realism does not imply validity... there's so many mechanistic models that are compatible with us being able to match the observables. It's kind of hard to assume that you understand anything if you can just have a realistic simulator."*
+
+And the corollary aimed at the whole predictive-modelling program:
+
+> *"Prediction implies structure? Somewhat... the symmetry is always broken, there's so many idiosyncrasies in the data that you cannot really assume that you learn the structure because you're good at predicting certain observables."*
+
+Which is [Vafa et al.](../../sources/vafa-world-model-implicit.md)'s measured result — task accuracy 1.00, world-model compression 0.10 — arrived at as a prior rather than an experiment.
+
+> [!note] Counterfactual capacity is a fifth axis the taxonomy does not have
+> Renderer / simulator / planner sorts by *which quantity in the loop* a model emits. It says nothing about whether the model supports **intervention** — asking what would have happened under an action nobody took. Airoldi's bin, [Koijen's elasticity question](../economics/asset-embeddings.md), and [Bruss's back-testing trap](world-model-evaluation.md) are all the same missing axis, reached from three directions on one afternoon.
+
 ## Related concepts
 
 - [World model](world-model.md) — the architecture-first taxonomy (generative-video / JEPA / frozen-feature / MBRL / omnimodal) that this one cuts across.
@@ -116,6 +137,7 @@ A fourth output — *a judgment about a proposed action* — is not one of the l
 - [World-action model](world-action-model.md) — the unified endpoint.
 - [Spatial intelligence](spatial-intelligence.md) — the capability the stack composes into.
 - [World-model governance](../safety/world-model-governance.md) — why safeguards attach to deployment context instead.
+- [World models for financial markets](../../syntheses/society/world-models-for-financial-markets.md) — the counterfactual axis, developed.
 
 ## Mentioned in
 
@@ -123,3 +145,4 @@ A fourth output — *a judgment about a proposed action* — is not one of the l
 - [Building Worlds That Train Robots (R2S2R)](../../sources/world-labs-r2s2r.md) — the same authors testing their own linchpin claim.
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../../sources/hai-world-model-spatial-intelligence-brief.md) — the policy adoption, with additions.
 - [FOREWARN paper](../../sources/forewarn-paper.md) — the verifier role the taxonomy lacks.
+- [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — Airoldi's "which bin are you in" cut.

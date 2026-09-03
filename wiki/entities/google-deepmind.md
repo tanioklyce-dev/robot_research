@@ -3,8 +3,8 @@ title: Google DeepMind
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-08-27
-sources: 34
+updated: 2026-09-02
+sources: 35
 tags: [google-deepmind, mujoco, newton, mjcphysics, openusd, robotics-research, biomechanics, dmpo, acme, gemini-robotics, genie, world-model]
 ---
 
@@ -43,4 +43,5 @@ Google's AI research lab. Maintains MuJoCo and [MuJoCo Playground](mujoco-playgr
 - [DeepMind Gemini Robotics model page](../sources/deepmind-gemini-robotics-model-page.md) — the current Gemini Robotics family page; three models, three access tiers, ER 2 in public preview via AI Studio.
 - [ASIMOV Benchmark paper](../sources/asimov-benchmark-paper.md) · [Predictive Red Teaming](../sources/predictive-red-teaming-paper.md) · [Veo world simulator evaluation](../sources/veo-robotics-policy-evaluation-paper.md) · [Safely Learning Dynamical Systems](../sources/safely-learning-dynamical-systems-paper.md) — the four-paper robot-safety program, connected by [Vikas Sindhwani](vikas-sindhwani.md).
 - [Responsibly advancing AI and robotics](../sources/deepmind-gemini-robotics-safety-page.md) — the public safety framing that indexes it.
+- [Third World Modeling Workshop — Day 2](../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — [Aleksandra Faust](aleksandra-faust.md) (Director of Research, Frontier AI Health) on the synthetic flywheel: AutoRL, learned curricula, Waymax, sub-angstrom structure prediction, many-shot ICL, self-correction RL, and a clinical triage agent in trials with 5,000 patients.
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../sources/hai-world-model-spatial-intelligence-brief.md) — named first among the tech incumbents leading the world-model push; [Genie 3](genie-3.md) is the brief's frontier example, with a few-minutes-of-coherence limit at its 2025 release.

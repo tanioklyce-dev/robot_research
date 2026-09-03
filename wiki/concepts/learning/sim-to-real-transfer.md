@@ -2,8 +2,8 @@
 title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
-updated: 2026-08-31
-sources: 64
+updated: 2026-09-02
+sources: 66
 tags: [sim-to-real, domain-gap, rl, simulation, real-to-sim, r2s2r]
 ---
 
@@ -149,6 +149,7 @@ Two things make it worth a section here rather than a bullet in "common techniqu
 > [!note] Curated list — **63** source pages link here; the ones below are those that shaped this page.
 
 - [Kober, Bagnell & Peters 2013 — RL in Robotics Survey](../../sources/kober-rl-robotics-survey-2013.md) — simulation bias, noise injection, self-stabilizing transfer.
+- [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — the "superset, not replica" argument, supported across four domains; see [synthetic data flywheel](synthetic-data-flywheel.md).
 - [MuJoCo Playground Paper](../../sources/mujoco-playground-paper.md)
 - [NVIDIA Newton Contact-Rich Manipulation Blog](../../sources/nvidia-newton-contact-rich-manipulation-blog.md)
 - [RoboCasa365 Paper](../../sources/robocasa365-paper.md)

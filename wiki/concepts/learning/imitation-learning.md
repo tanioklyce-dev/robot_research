@@ -2,8 +2,8 @@
 title: Imitation learning
 type: concept
 created: 2026-05-07
-updated: 2026-08-27
-sources: 95
+updated: 2026-09-02
+sources: 98
 tags: [imitation-learning, behavior-cloning, demonstrations, lerobot, act, co-training, mobile-aloha]
 ---
 
@@ -37,11 +37,29 @@ The IL training stacks documented in this wiki cluster by hardware tier:
 - [Robot Utility Models](../../entities/robot-utility-models.md) — zero-shot BC.
 - [MimicGen](../../entities/mimicgen.md) — synthetic demo expansion.
 
+## The hybrid that answers both purists
+
+The wiki carries two absolute claims from the same speaker on [Day 1 of the 2026 Chicago Booth workshop](../../sources/chicago-booth-world-modeling-workshop-2026.md): imitation learning *"has been a failure for autonomous driving,"* and *"reinforcement learning is a complete no-no in the real world."* Taken together they leave nothing.
+
+[Aleksandra Faust](../../entities/aleksandra-faust.md)'s AV work, presented the next day, uses **both, weighted**, and measures the result ([Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md)):
+
+- **An RL loss carries the safety reward** — stay on the road, don't hit anything — for the long tail where no demonstration data exists and cannot ethically be collected. *"You can't set up the sets where you're throwing the kids in front of the car."*
+- **Behavior cloning carries everything that cannot be written as a reward.** Her framing is the useful part: the *hows*. *"How you break, how you turn, how you have the conversation — all these hows do matter and they're very very difficult to encode into the reward."* Shortest-path is never the answer for a social agent: *"if it was, I would be moving like this — and none of us are doing that."*
+- The weighting **shifts toward RL as the state goes out of distribution**, and toward BC otherwise.
+
+The measured result is the argument, not the architecture. On critical scenarios the combined agent fails less than behavior cloning. On the human-likeness axis, **RL alone "slams the brakes or accelerates as fast as it can, because that's what it does"**, while the combined agent's deceleration distribution matches the human one.
+
+> [!note] The division of labour is the transferable claim
+> Not "RL is better" or "IL is better" but: **imitation supplies the objective you cannot specify, RL supplies the coverage you cannot collect.** Each is being used precisely where the other has nothing. This is the same shape as [HIL-SERL](../../sources/hil-serl-paper.md)'s result from the other direction, and it makes the wiki's [IL-vs-RL framing](../../syntheses/rl/online-mbrl-vs-imitation-robot-learning.md) a question about *which part of the problem*, not which method.
+
+A prerequisite the talk is clear about: none of this works on logs. Replaying driving logs is not closed-loop — stop the ego vehicle and the logged traffic drives through it — so a **behavior model that reacts** is needed before either loss is meaningful. And for a clinical agent trained the same way: *"if you have logs this is the static data. This is the offline, and we know that that collapses."*
+
 ## Mentioned in
 
 > [!note] Curated list — **95** source pages link here; the ones below are those that shaped this page.
 
 - [Kober, Bagnell & Peters 2013 — RL in Robotics Survey](../../sources/kober-rl-robotics-survey-2013.md) — §5.1 demonstrations-remove-global-exploration; kinesthetic teach-in; apprenticeship learning.
+- [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — the weighted RL+IL hybrid, with measured deceleration distributions.
 - [HIL-SERL paper](../../sources/hil-serl-paper.md) — RL-with-human-corrections beats HG-DAgger / BC / Diffusion Policy on the same data; the IL-ceiling counterpoint.
 - [The State of Robot Motion Generation (Bekris et al. 2024)](../../sources/state-of-robot-motion-generation-2024.md) — LfD as one of four implicit-model families; compounding-distributional-shift framing.
 - [GR00T N1 Paper](../../sources/groot-n1-paper.md) — foundation-scale BC over the data pyramid.

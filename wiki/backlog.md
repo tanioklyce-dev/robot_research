@@ -2,7 +2,7 @@
 title: Wiki Backlog — deferred lint items & knowledge gaps
 type: meta
 created: 2026-07-04
-updated: 2026-08-31
+updated: 2026-09-02
 tags: [backlog, lint, todo, knowledge-gaps]
 ---
 
@@ -10,26 +10,26 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
-## [2026-09-01] Chicago Booth World Modeling Workshop — Day 2 awaiting its VOD
+## [2026-09-02] Chicago Booth World Modeling Workshop — Day 3 not ingested
 
-**Video: `j_AujLxYUJc`** — "Workshop on World Models - Day 2 (WM@Booth 2026)", Center for Applied AI (CAAI) channel. The sequel to [Day 1](sources/chicago-booth-world-modeling-workshop-2026.md).
+**Video: `PkaYC3fwEsc`** — "Workshop on World Models - Day 3 (WM@Booth 2026)", same channel. Per the workshop programme (archived at `raw/2026-09-02-wm-booth-org-programme.html`), Day 3 is a **hands-on coding workshop with tutorials and a modeling challenge** — a different kind of source from Days 1–2, and likely more useful as a *procedure* than as claims. It was still live as of 2026-09-02.
 
-Checked 2026-09-01 22:17 CDT: **still live** (`live_status=is_live`, started 08:56 CDT, 13h20m elapsed, duration NA) with **no subtitles at all** — neither manual nor auto. Nothing to ingest yet.
-
-**Decision: wait for the VOD rather than capture and Whisper.** The reasoning is that Day 1 *now* carries YouTube auto-captions that did not exist at ingest time, so this channel does get them eventually — roughly a day later. Waiting skips the ~9h of local GPU transcription Day 1 cost, and machine ASR garbles proper nouns either way, so Whisper buys no accuracy here.
-
-**To pick this up:**
 ```bash
-yt-dlp --list-subs "https://www.youtube.com/watch?v=j_AujLxYUJc"     # auto-captions appeared?
+yt-dlp --list-subs "https://www.youtube.com/watch?v=PkaYC3fwEsc"
 ```
-If captions exist, ingest normally. If the stream has ended and captions still have not appeared after a few days, fall back to the Day 1 method (Whisper `distil-large-v3`, 30-min chunks with a resume file, transcript saved into `raw/` before anything else).
 
-**Risk to watch:** a livestream can be trimmed, made private, or lose its DVR window. If the VOD disappears, the capture opportunity is gone and this becomes unrecoverable — the one argument for having captured it live.
+Day 2's captions appeared roughly a day after the stream ended, so the same wait-for-the-VOD approach should work. **Same risk as before**: a livestream can be trimmed, made private, or lose its DVR window.
 
+**The code half is already captured.** [`galilai-group/tutorial`](sources/wm-booth-lejepa-lewm-tutorial-repo.md) — pushed by Balestriero at 13:18 UTC on 2026-09-02, hours before the stream — is almost certainly the tutorial material, and is ingested. What the VOD would add is the *narration and the modeling challenge*, not the code.
+
+~~**[2026-09-01] Day 2 awaiting its VOD.**~~ **Done 2026-09-02** — the bet paid off exactly as reasoned: auto-captions appeared on the VOD, no Whisper pass was needed, and the ~9h of local GPU transcription Day 1 cost was skipped. Ingested as [Day 2](sources/chicago-booth-world-modeling-workshop-2026-day2.md).
+
+> [!note] The transcript fix that actually worked
+> Day 1's page warns that machine ASR garbles proper nouns and that this had already propagated one wrong title into the wiki. Waiting for better captions would **not** have fixed that — auto-captions garble names just as badly ("Ego Clavian" for Diego Klabjan). What fixed it was **reconciling the speaker list against the event's own programme page** before filing anything, and archiving that page into `raw/`. Worth making the default for any talk-derived source.
 
 ## [2026-08-31] Bohg-lab "Messy*" line — two papers announced but unpublished
 
-Both surfaced while ingesting [SimToolReal](sources/simtoolreal-paper.md) and [Robot-Powered Data Flywheels](sources/robot-powered-data-flywheels-paper.md). Confirmed on co-author **Cherie Ho**'s own publications page (`cherieho.com`), both listed under 2026 as **"Coming soon"**. **Neither has an arXiv entry, PDF, code, or project page** — `messynav.github.io` 404s as of 2026-08-31. Filed with the metadata I could verify so they are tracked rather than re-discovered.
+Both surfaced while ingesting [SimToolReal](sources/simtoolreal-paper.md) and [Robot-Powered Data Flywheels](sources/robot-powered-data-flywheels-paper.md). Confirmed on co-author **Cherie Ho**'s own publications page (`cherieho.com`), both listed under 2026 as **"Coming soon"**. **Neither has an arXiv entry, PDF, code, or project page** — `messynav.github.io` 404s as of 2026-08-31. Filed with the metadata I could verify so they are tracked rather than re-discovered. **Update 2026-09-02:** the workshop programme's abstract for Bohg's Day 1 keynote independently confirms MessyNav's content — it *"decides which obstacles in a cluttered scene can be moved and where they will end up"* — and names a third work, **Play2Perfect**, alongside SimToolReal. Still no paper.
 
 - [ ] **Ingest MessyNav: Zero-Shot Navigation via Manipulation in Messy Environments.** Kenneth Llontop, [Cherie Ho](sources/robot-powered-data-flywheels-paper.md), Dylan Zhou, Anuva Banwasi, Carlota Pares-Morlans, Priya Sundaresan, [Jeannette Bohg](entities/jeannette-bohg.md). The title is the interesting part: **navigation *via* manipulation** — moving obstacles rather than planning around them. The wiki's [motion planning](concepts/robotics/motion-planning.md) and [task-and-motion planning](concepts/robotics/task-and-motion-planning.md) coverage treats clutter as a constraint to avoid; this treats it as something to act on. Nothing in the wiki covers interactive//NAMO-style navigation.
 - [ ] **Ingest MessyMem: Learning-from-Doing Memory for Mobile Manipulation.** Anuva Banwasi, William Muckelroy III, Priya Sundaresan, Linfeng Zhao, [Jeannette Bohg](entities/jeannette-bohg.md), Cherie Ho. Sibling paper. "Learning-from-doing memory" suggests persistent state accumulated through action — relevant to [belief states and mixed states](concepts/world-models/belief-states-and-mixed-states.md), where the open question is exactly what a finite memory can retain about a partially observed world.

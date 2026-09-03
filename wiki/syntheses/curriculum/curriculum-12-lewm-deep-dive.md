@@ -8,6 +8,9 @@ prereqs: [curriculum-04, curriculum-10, curriculum-11]
 status: draft
 ---
 
+> [!note] Runnable companion added 2026-09-02
+> [`galilai-group/tutorial`](../../sources/wm-booth-lejepa-lewm-tutorial-repo.md) is a 60-line LeWM (ResNet9 encoder + 3-layer MLP predictor on `latent ⊕ action`) that trains on Moving MNIST in **12m28s** and ships an interactive open-loop viewer. Its probe table is the module's central lesson in two numbers: **position R² 0.9195 linear / 0.9830 MLP** against **digit accuracy 66.4% / 76.9%** — an action-conditioned latent keeps *state* almost perfectly and discards *identity*, which is LeCun's "eliminate what you can't predict" argument made measurable in twelve minutes.
+
 > [!note] Curriculum context
 > This is **Module 12** of the [Robot-learning curriculum](robot-learning-curriculum.md) — the **destination**. It assumes [Module 4](robot-learning-curriculum.md) (SSL + collapse), [Module 10](curriculum-10-world-models.md) (the four-family WM taxonomy + planning vocabulary), and [Module 11](curriculum-11-jepa-deep.md) (JEPA depth + the collapse-prevention zoo).
 >

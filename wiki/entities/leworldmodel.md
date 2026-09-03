@@ -3,12 +3,15 @@ title: LeWorldModel
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-08-27
-sources: 36
+updated: 2026-09-02
+sources: 39
 tags: [leworldmodel, lewm, jepa, world-model, mila, end-to-end, sigreg, instruction-leakage]
 ---
 
 LeWorldModel (LeWM) — a JEPA-style world model from [Mila](mila.md), NYU, Samsung SAIL, and Brown, presented as the **first JEPA trainable stably end-to-end from raw pixels** without the typical battery of training heuristics (stop-gradient, EMA, frozen encoder). Senior author: Yann LeCun (March 2026).
+
+> [!note] A 60-line LeWM you can train in twelve minutes
+> The lab's own [tutorial repo](../sources/wm-booth-lejepa-lewm-tutorial-repo.md) (2026-09-02) ships the objective stripped to nothing: ResNet9 encoder, a **3-layer MLP predictor** on `(latent ⊕ action)`, and a loss that is **one-step teacher-forced MSE + a recursive open-loop rollout MSE + λ·SIGReg**. Two things it makes visible that this page did not record: the prediction term is *two* terms (open-loop stability is trained for directly, at weight 1.0), and SIGReg's placement in a temporal model is an **open design choice** exposed as a four-way flag — `pooled` / `per_time` / `both` / `pooled_pred` — with no published ablation.
 
 ## Approach
 - **Two loss terms only**:

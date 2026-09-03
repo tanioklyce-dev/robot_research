@@ -3,8 +3,8 @@ title: LeRobot
 type: entity
 subtype: software-framework
 created: 2026-05-10
-updated: 2026-08-30
-sources: 47
+updated: 2026-09-02
+sources: 48
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026, xvla, sourccey, plugin-system]
 ---
 
@@ -163,6 +163,10 @@ Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distri
 - [Imitation learning](../concepts/learning/imitation-learning.md)
 - [Diffusion Policy](diffusion-policy.md) — alternative IL approach
 - [Stretch AI](stretch-ai.md) — counterpart IL/agent stack on Stretch
+
+## Read directly by stable-worldmodel (2026-09)
+
+[stable-worldmodel](stable-worldmodel.md) ships a read-only **`lerobot://<repo_id>` dataset adapter** ([repo snapshot](../sources/stable-worldmodel-github.md)), so a JEPA world model can train and be evaluated with MPC **directly on LeRobot Hub datasets** with no conversion step. Requires Python 3.12+ and is a separate install extra. This is the first connection in the wiki between the [LeWM](leworldmodel.md) line and the hardware stack the rest of these pages actually use.
 
 ## Mentioned in
 

@@ -2,8 +2,8 @@
 title: Gradient-based planning (vs CEM) in latent world models
 type: concept
 created: 2026-08-26
-updated: 2026-08-26
-sources: 2
+updated: 2026-09-02
+sources: 5
 tags: [gradient-based-planning, cem, mpc, world-model, jepa, planning, latent-space, curvature, adversarial, conditioning]
 ---
 
@@ -63,6 +63,10 @@ These are not obviously compatible. A sparse, mode-factored code is not obviousl
 - [Test-time adaptation](../learning/test-time-adaptation.md) — a fourth response to the same underlying problem (the model is wrong where you are planning), applied online instead of at training time.
 - [Optimal control](../robotics/optimal-control.md) — the classical MPC tradition these planners sit inside.
 - [World-model simulators](world-model-simulators.md).
+
+## Seven solvers under one API
+
+[stable-worldmodel](../../sources/stable-worldmodel-github.md) now ships the whole comparison surface rather than the two planners this page argues about: **CEM, iCEM, MPPI, Predictive Sampling** (sampling), **SGD/Adam, PGD** (gradient), and an **Augmented Lagrangian** solver (constrained). Same environments, same datasets, same world models — so gradient-vs-sampling becomes a config change rather than a paper-to-paper comparison. Nothing in this wiki has run it.
 
 ## Mentioned in
 
