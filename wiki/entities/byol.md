@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-09-03
 updated: 2026-09-03
-sources: 1
+sources: 2
 tags: [byol, self-supervised, ema, momentum-encoder, predictor, anti-collapse, no-negatives, deepmind, marketone]
 ---
 
@@ -37,6 +37,11 @@ The paper is candid, and this matters more than the accuracy:
 - Under an **optimal predictor**, updates follow the gradient of the expected **conditional variance**; since `Var(X|Y,Z) ≤ Var(X|Y)`, discarding information cannot lower it, so collapsed solutions are argued to be **unstable equilibria**.
 - *"We did not observe convergence to such equilibria in our experiments."*
 
+> [!note] The SimSiam question is resolved, and the answer is a learning rate
+> The wiki flagged Table 5b row 7 (predictor, no EMA, no negatives → **0.2%**) against SimSiam's claim that the same configuration works. [The Cookbook](../sources/ssl-cookbook.md) §3.4.1 settles it: EMA *"is not necessary … **as long as the predictor is updated more often or has larger learning rate compared to the backbone**,"* while BYOL's own τ=0 row does genuinely collapse. **Both results stand.** What is load-bearing is *asymmetry between the branches* — the EMA is one way to get it, a faster predictor is another, and stronger augmentation on the student is a third.
+>
+> Two mechanisms for what the predictor does, from the same source: it **acts as a whitening operator** (Tian et al. 2021), and with it the dynamics are **proved** to have nontrivial stable fixed points, so the trivial optimum is not reached despite existing. Removing it costs BYOL **68% → 21%**; a *linear* predictor suffices and recovers from bad init in 10–20 epochs.
+
 > [!note] This is the disclosure the SIGReg line is answering
 > [Balestriero](randall-balestriero.md)'s objection that an EMA *"makes the loss uninterpretable — you can see the loss actually increase but the quality of your model become better"* has its explanation here: **there is no loss being descended.** A quantity nobody is minimizing has no obligation to fall. [LeJEPA](../sources/lejepa-paper.md) replaces the whole apparatus with one term that does have a theorem.
 
@@ -65,4 +70,5 @@ That is why BYOL is still a live baseline here six years on. In the [MarketOne](
 ## Mentioned in
 
 - [BYOL paper (Grill et al., 2020)](../sources/byol-paper.md) — the primary.
+- [A Cookbook of Self-Supervised Learning](../sources/ssl-cookbook.md) — resolves the SimSiam contradiction; the predictor-as-whitening-operator mechanism.
 - [Third World Modeling Workshop — Day 2](../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — a live baseline in the [MarketOne](marketone.md) bake-off, ranking ~4th on every task.

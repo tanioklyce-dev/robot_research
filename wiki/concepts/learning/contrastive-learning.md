@@ -3,7 +3,7 @@ title: Contrastive learning and InfoNCE
 type: concept
 created: 2026-09-03
 updated: 2026-09-03
-sources: 4
+sources: 5
 tags: [contrastive-learning, infonce, cpc, simclr, moco, negatives, mutual-information, self-supervised, anti-collapse, batch-size]
 ---
 
@@ -11,7 +11,22 @@ tags: [contrastive-learning, infonce, cpc, simclr, moco, negatives, mutual-infor
 
 ## InfoNCE, and where it comes from
 
-The loss is **InfoNCE**, introduced by **[Contrastive Predictive Coding](../../sources/cpc-paper.md)** (van den Oord, Li & Vinyals, DeepMind, 2018). Given `N` samples containing one positive and `N−1` negatives, with a score `f`:
+The loss is **InfoNCE**, and its lineage is longer than the name suggests. [A Cookbook of Self-Supervised Learning](../../sources/ssl-cookbook.md) (Fig. 2) traces it:
+
+| Year | Work | What it added |
+|---|---|---|
+| 1993 | [Bromley et al.](../../sources/bromley1993-siamese-signature-verification.md) | the contrastive loss |
+| 2004 | Goldberger et al. | Neighbourhood Component Analysis — softmax over distances |
+| 2005–06 | Chopra et al.; Hadsell et al. | the margin |
+| 2009–10 | Weinberger & Saul; Chechik et al. | triplet loss |
+| 2016 | Sohn | **(N+1)-tuple loss** — inner products; negatives taken from other samples in the batch |
+| 2018 | **Wu et al.** | the **"non-parametric softmax"**: explicit normalization, **the temperature τ**, and **the momentum-encoder idea** (via proximal optimization) |
+| 2018 | **[CPC](../../sources/cpc-paper.md)** | *"coins the name infoNCE"* — plus the mutual-information framing and its bound |
+
+> [!note] Two things this corrects
+> **The temperature and the momentum encoder predate both CPC and MoCo.** They come from Wu et al. 2018. An earlier version of this page credited CPC as "the origin of InfoNCE"; it is the origin of the name, the MI framing, and the bound.
+
+Given `N` samples containing one positive and `N−1` negatives, with a score `f`:
 
 `L_N = −E[ log ( f(x⁺, c) / Σ_j f(x_j, c) ) ]`
 
@@ -20,8 +35,10 @@ which is categorical cross-entropy for "which of these `N` is the real one." Two
 - **The optimum is a density ratio** `p(x|c)/p(x)`, independent of `N`.
 - **`I(x; c) ≥ log N − L_N`.** Minimizing InfoNCE maximizes a **lower bound on mutual information**, and the bound **tightens as `N` grows**.
 
-> [!note] That inequality is the origin of every batch-size complaint in this literature
-> More negatives ⇒ tighter bound ⇒ better representation, so contrastive methods want large batches (SimCLR), memory banks (MoCo), or mining strategies. [BYOL](../../entities/byol.md)'s opening paragraph is a list of exactly these workarounds, and its selling point is escaping them. When [BYOL's ablation](../../sources/byol-paper.md) shows SimCLR degrading with batch size while BYOL stays flat, that is this bound showing up as an engineering constraint.
+> [!warning] The bound is real; the "you need huge batches" conclusion is not
+> More negatives ⇒ tighter bound, so contrastive methods were built with large batches (SimCLR), memory banks (MoCo) and mining strategies, and [BYOL](../../entities/byol.md)'s opening paragraph is a list of those workarounds. **But the [Cookbook](../../sources/ssl-cookbook.md) §3.5.1 calls the requirement "misleading":** with **square-root learning-rate scaling** (SimCLR's own appendix, worth up to 5 points at 100 epochs) SimCLR trains on ImageNet **on a single GPU**; **DCL reaches top performance at batch 256** for SimCLR and queue 256 for MoCo, simply by removing the positive pair from the softmax denominator.
+>
+> So [BYOL's ablation](../../sources/byol-paper.md) showing SimCLR degrading with batch size is a fact about *SimCLR as configured in 2020*, not a necessity of contrastive learning. An earlier version of this page presented it as the latter. The durable cost of negatives is **augmentation sensitivity and false negatives**, below — not batch size.
 
 CPC's own formulation is **temporal and patch-autoregressive**, not two-augmented-views: encode observations to `z_t`, summarize with an autoregressive model into a context `c_t`, predict `z_{t+k}` several steps ahead. On images that becomes predicting lower rows of a 7×7 grid of crops from upper rows. **The familiar SimCLR-style two-view setup is a simplification of CPC, not its original form** — and CPC's temporal version is structurally [LeWM](../../entities/leworldmodel.md) minus the action conditioning.
 
@@ -35,17 +52,29 @@ Three prices, all documented in the primaries this wiki now holds:
 
 ## Where it sits among the alternatives
 
+> [!note] Two ways to cut the field, and they cross-cut
+> The [Cookbook](../../sources/ssl-cookbook.md) sorts SSL by **mechanism of the training signal** into four families — **Deep Metric Learning** (SimCLR, NNCLR), **Self-Distillation** (BYOL, SimSiam, DINO **and MoCo**), **Canonical Correlation Analysis** (VICReg, Barlow Twins, **SwAV**, W-MSE), and **Masked Image Modeling** (BEiT, MAE, SimMIM).
+>
+> That puts **MoCo with the self-distillation family even though its loss is InfoNCE**, because its defining contribution is the momentum encoder. An earlier version of this page listed MoCo here without qualification. Both cuts are defensible — the table below sorts by **anti-collapse device** instead — but a reader should know they disagree about MoCo and SwAV.
+
 Contrastive learning is one of four mechanisms this wiki now has primaries for. The comparison is on [SSL anti-collapse lineage](../../syntheses/world-models/ssl-anti-collapse-lineage.md); in one line each:
 
 | Mechanism | Anti-collapse device | Primary |
 |---|---|---|
-| **Contrastive** | negative pairs | [CPC](../../sources/cpc-paper.md) → SimCLR, MoCo |
+| **Contrastive** | negative pairs | [CPC](../../sources/cpc-paper.md) → SimCLR (MoCo's loss too, though the Cookbook files it elsewhere) |
 | **Momentum + predictor** | asymmetric predictor **and** EMA target, together | [BYOL](../../sources/byol-paper.md) |
 | **Self-distillation** | centering **and** sharpening of an EMA teacher | [DINO](../../sources/dino-paper.md) |
 | **Reconstruction** | *none needed* — the target is the input | [MAE](../../sources/mae-paper.md) |
 | **Distributional** | one provable term matched to an isotropic Gaussian | [LeJEPA / SIGReg](../world-models/sigreg.md) |
 
 Under the [spectral theory of SSL](spectral-theory-of-ssl.md), contrastive methods recover **global** spectral embeddings (kernel MDS / kernel CCA) while non-contrastive ones recover **local** embeddings (Laplacian eigenmaps) — the first theoretical bridge between the two families, and the frame in which "choose negatives" becomes "choose a graph over samples."
+
+## The unified view, and the doubts about the MI story
+
+Two threads from the [Cookbook](../../sources/ssl-cookbook.md) §2.6.1 worth carrying:
+
+- **One loss family.** Tian (2022) unifies contrastive losses as `L_{φ,ψ}` for monotone φ, ψ — InfoNCE, MINE, Triplet, Soft Triplet, N+1-Tuplet and Lifted Structured are all instances. And contrastive learning with a **deep linear network is equivalent to PCA**.
+- **The mutual-information account is contested.** Tschannen et al. (2020) show *"the performance of InfoNCE cannot be explained only in terms of mutual information"* — the feature extractor and the estimator's form matter more. Competing accounts: **alignment + uniformity** (Wang & Isola), an **HSIC** bound, and **nonlinear ICA**-style latent identification under strong assumptions. Also relevant: the `ψ = e^{x/τ}` form **already up-weights hard negatives at the batch level**, which is why explicit hard-negative mining adds less than it looks like it should — and why large batches help by making hard negatives *appear* at all.
 
 ## Current state
 
@@ -64,3 +93,4 @@ Pure contrastive pretraining has largely lost the vision frontier to distillatio
 - [BYOL paper (Grill et al., 2020)](../../sources/byol-paper.md) — the ablation showing what negatives were doing and what replaces them.
 - [DINO paper (Caron et al., 2021)](../../sources/dino-paper.md) — MoCo v2's InfoNCE as a baseline row.
 - [MAE paper (He et al., 2021)](../../sources/mae-paper.md) — the augmentation-dependence contrast.
+- [A Cookbook of Self-Supervised Learning](../../sources/ssl-cookbook.md) — **corrects this page twice**: the InfoNCE lineage, and the batch-size requirement.

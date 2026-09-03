@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-09-03
 updated: 2026-09-03
-sources: 1
+sources: 2
 tags: [mae, masked-autoencoder, reconstruction, self-supervised, vit, scaling, linear-probing, evaluation, meta-fair, kaiming-he]
 ---
 
@@ -29,6 +29,8 @@ In this wiki MAE is the **named opponent** of the [JEPA](../concepts/world-model
 > [!warning] Neither side has run the other's experiment
 > Balestriero's construction is a deliberately built autoencoder pair at small scale; MAE's is a pretraining-method comparison at ViT-L under a fine-tuning protocol. His claim explicitly covers nonlinear probes, which would defeat MAE's rebuttal *if it transfers* — and nothing establishes that it does. **What both agree on is the shape of the curve**: MAE's linear probing is still climbing at 1600 epochs while contrastive methods saturate at 300. Slow convergence of *linearly accessible* quality is not in dispute; whether that is a defect or an artifact of the probe is.
 >
+> **And a fact that arrived with [the Cookbook](../sources/ssl-cookbook.md):** its §3.7 reports that the field **went MAE's way** — *"the majority of works that followed focused on [fine-tuning] evaluation (and sometimes do not report linear/MLP results),"* with contrastive methods judged *"less optimization friendly."* The awkward part is the author list: **[Balestriero](randall-balestriero.md) is that survey's first author**, three years before the Day 3 tutorial that argues from probes. Nothing in this wiki explains what changed.
+>
 > One suggestive detail nobody has connected: MAE finds **PCA coefficients degrade** as a reconstruction target while **per-patch normalization** (which boosts local contrast, i.e. high frequency) **improves** results — *"the high-frequency components are useful in our method."* That is at least consistent with the spectral story being told against it.
 
 ## Ablations worth knowing
@@ -51,3 +53,4 @@ In this wiki MAE is the **named opponent** of the [JEPA](../concepts/world-model
 ## Mentioned in
 
 - [MAE paper (He et al., 2021)](../sources/mae-paper.md) — the primary.
+- [A Cookbook of Self-Supervised Learning](../sources/ssl-cookbook.md) — records the field adopting MAE's evaluation position, and names MAE as one of two escapes from hand-designed augmentation.

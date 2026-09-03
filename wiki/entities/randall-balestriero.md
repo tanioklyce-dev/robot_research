@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-07-26
 updated: 2026-09-03
-sources: 14
+sources: 15
 tags: [person, balestriero, brown, lejepa, sigreg, jepa, ssl, theory, world-model, inverse-dynamics, causality, spectral-graph-theory, time-series, levjepa, tutorial]
 ---
 
@@ -28,6 +28,15 @@ Balestriero's collaborations now branch past the LeCun/LeJEPA axis:
 - **[LeNEPA](lenepa.md)** ([paper](../sources/lenepa-paper.md), 2026-07-01, with Chemeris + Jin) — extends the "Le-" no-augmentation next-latent-prediction family, with **SIGReg**, to **time-series** representation learning.
 - **[Spectral Graph Theory: The Mathematics of Self-Supervised Learning](../sources/spectral-graph-theory-ssl-paper.md)** (with [LeCun](yann-lecun.md), IEEE Signal Processing Magazine 43(3):8–20, 2026) — the review formalizing **[SSL as spectral graph learning](../concepts/learning/spectral-theory-of-ssl.md)**; the math spine under the LeJEPA line (paywalled; grounded via its 2022 precursor).
 - **[LeVJEPA](levjepa.md)** (arXiv 2608.27395, 2026-08-27; with Kuhn, [Maes](lucas-maes.md), Serra, Le Lidec, [LeCun](yann-lecun.md), Buettner) — SIGReg carried to **video pretraining**, claiming V-JEPA-2-comparable results at **5.6–20.8× less compute**. The first result where the stability pitch pays a *compute* dividend rather than a convenience one.
+
+## The field map he wrote first (2023)
+
+Before LeJEPA there was **[A Cookbook of Self-Supervised Learning](../sources/ssl-cookbook.md)** (arXiv 2304.12210, April 2023) — 71 pages, **Balestriero as first author**, [LeCun](yann-lecun.md) second-to-last, 19 authors including Vlad Sobal ([PLDM](pldm.md)) and Adrien Bardes (VICReg). It is the closest thing this wiki has to a statement of what he thought the field was *before* he proposed replacing its heuristics.
+
+Two things in it sit awkwardly beside the later work, and are recorded rather than reconciled:
+
+- **It reports the field accepting [MAE](mae.md)'s evaluation argument** — *"linear-probing is uncorrelated with fine-tuning and transfer learning performances,"* with the majority of subsequent work moving to fine-tuning. His [Day 3 case against reconstruction](../sources/chicago-booth-world-modeling-workshop-2026-day3.md) is made on probe accuracy. Nothing here bridges 2023 and 2026.
+- **It already contains a label-free answer to the question he calls open on Day 3.** *"How can you assess if you learned a good Z without having to reconstruct?"* — the Cookbook recommends **RankMe**, the effective rank of the embedding spectrum, which recovers essentially all of a labelled oracle's hyperparameter-selection quality. See [representation evaluation](../concepts/learning/representation-evaluation.md).
 
 ## Teaching it — the Day 3 tutorial (2026-09-02)
 
@@ -61,5 +70,6 @@ He is also unusually direct about the state of the art he is selling: *"we are n
 - [Sensorimotor World Models paper (Ivashkov, Balestriero, Schölkopf 2026)](../sources/sensorimotor-world-models-paper.md) — co-author; inverse-dynamics anti-collapse.
 - [LeNEPA paper (Chemeris, Jin, Balestriero 2026)](../sources/lenepa-paper.md) — co-author; SIGReg for time-series SSL.
 - [Spectral Graph Theory review (Balestriero & LeCun, IEEE SPM 2026)](../sources/spectral-graph-theory-ssl-paper.md) — co-author; SSL as spectral graph learning.
+- [A Cookbook of Self-Supervised Learning](../sources/ssl-cookbook.md) — **first author**; the field's taxonomy, the projector, dimensional collapse, RankMe.
 - [LeWorldModel](leworldmodel.md) — SIGReg, his regularizer, is LeWM's single loss term beyond prediction.
 - [Third World Modeling Workshop — Day 3](../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — **organizer, and the 90-minute tutorial teaching the whole line from his own code**; announces [LeVJEPA](levjepa.md), names the multimodal/noise/stochasticity limitations, and hands out the two exercises the hackathon ran on.

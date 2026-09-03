@@ -3,7 +3,7 @@ title: SIGReg (Sketched Isotropic Gaussian Regularization)
 type: concept
 created: 2026-08-26
 updated: 2026-09-03
-sources: 18
+sources: 19
 tags: [sigreg, jepa, lejepa, anti-collapse, isotropic-gaussian, cramer-wold, epps-pulley, balestriero, lecun, latent-space, regularization]
 ---
 
@@ -120,7 +120,10 @@ SIGReg = `SlicingUnivariateTest(EppsPulley(num_points=17), num_slices=1024)`. Ea
 
 ### And an unverified claim worth chasing
 
-The repo asserts **"94%+ Spearman correlation between training loss and downstream performance"**, i.e. *"you can finally do model selection without labeled validation data."* No plot, dataset list or protocol accompanies it. If true it matters far more in robotics than in vision, because there the labeled validation set is a [real-robot rollout](../robotics/robot-policy-evaluation.md).
+The repo asserts **"94%+ Spearman correlation between training loss and downstream performance"**, i.e. *"you can finally do model selection without labeled validation data."* No plot, dataset list or protocol accompanies it.
+
+> [!note] There is an independent method making the same offer, and it has a table
+> **RankMe** — the effective rank of the embeddings — does label-free model selection and recovers essentially all of a labelled ImageNet oracle's hyperparameter-selection quality across VICReg, SimCLR and DINO ([Cookbook](../../sources/ssl-cookbook.md) Table 3; see [representation evaluation](../learning/representation-evaluation.md)). It predates the repo claim by three years and is recommended in a survey Balestriero first-authored. **Whether SIGReg loss and RankMe agree on the same checkpoints is an unrun, cheap experiment** — and it is the natural way to verify the 94% claim without labels. If true it matters far more in robotics than in vision, because there the labeled validation set is a [real-robot rollout](../robotics/robot-policy-evaluation.md).
 
 ## What its author says when teaching it (2026-09-02)
 

@@ -10,6 +10,13 @@ Synthesized on ingesting the four most-referenced SSL primaries this wiki had ne
 
 **The wiki's [anti-collapse ladder](../../concepts/world-models/jepa.md#common-training-challenges) starts in 2024 and treats everything before it as one rung labelled "EMA target encoder + stop-gradient."** Reading the primaries shows that rung is three different mechanisms that happen to share an EMA, and that the field's own history contains a control condition the current argument keeps forgetting.
 
+> [!warning] Revised 2026-09-03 after ingesting [A Cookbook of Self-Supervised Learning](../../sources/ssl-cookbook.md)
+> The Cookbook is the field map written by **[Balestriero](../../entities/randall-balestriero.md) (first author) and [LeCun](../../entities/yann-lecun.md)**, three years before LeJEPA. It was read as a check on this page, and it changed two things here.
+>
+> **1. It sorts the field on a different axis, and the two cuts disagree.** Its four families — Deep Metric Learning, **Self-Distillation**, Canonical Correlation Analysis, Masked Image Modeling — sort by *mechanism of the training signal*; this page sorts by *anti-collapse device*. The visible disagreements: **MoCo is self-distillation there** (its contribution is the momentum encoder, even though its loss is InfoNCE) and **SwAV is CCA**, not clustering. Neither cut is wrong; a reader should know they cross-cut.
+>
+> **2. It resolves the SimSiam question this page raised — and the answer strengthens the point rather than undoing it.** §3.4.1: EMA *"is not necessary … as long as the predictor is updated more often or has larger learning rate compared to the backbone,"* while BYOL's own τ=0 row genuinely collapses. **Both results stand. What is load-bearing is asymmetry between the branches, not the moving average specifically** — and the field kept the EMA for five years after establishing it was one of several ways to get that asymmetry. See "the field already ran the experiment" below, which this sharpens.
+
 ## The question, and the five answers
 
 If you train an encoder to make two views agree, the trivial optimum is a constant. Everything below is a device for making that optimum unreachable.
@@ -69,12 +76,24 @@ So the honest summary of the 2018→2026 arc is not *heuristics were replaced by
 - **Provability improved decisively.** BYOL's non-collapse is a hypothesis its authors label as such; DINO's is a stability argument; SIGReg's is a theorem with a uniqueness converse.
 - **Robustness improved much less than the rhetoric implies**, and the one thing nobody's anti-collapse term delivers is **out-of-distribution robustness** — [stable-worldmodel](../../sources/stable-worldmodel-paper.md) measures SIGReg-trained LeWM falling 50.8% → 6–26% under mild visual shift.
 
+## What the Cookbook adds that this page had no room for
+
+Three things that belong to the same argument and now live on their own pages:
+
+- **[Dimensional collapse](../../concepts/learning/representation-evaluation.md)** — the failure mode *between* "collapsed" and "fine": rank-deficient embeddings, information duplicated across dimensions. It happens **after the projector and not before it**, at different severities for DINO, SimCLR and VICReg. Every method on the ladder above can pass its own anti-collapse check and still be quietly using a fraction of its dimensions.
+- **[RankMe](../../concepts/learning/representation-evaluation.md)** — effective rank (entropy of the singular-value spectrum) as **label-free model selection**, recovering essentially all of a labelled ImageNet oracle's hyperparameter-selection quality. This is the standing "how do you know Z is good" question, answered in 2022.
+- **The projector is worth ~20 points of ImageNet top-1** and is *not* an anti-collapse device. It absorbs augmentation noise (an oracle filtering bad views is worth **+6.3** points without it and **+0.6** with it) and is best understood as transfer-learning layer-cutting — *Guillotine Regularization*.
+
+And one limitation that should temper the whole ladder for robotics: SSL methods carry a **hidden uniform prior**. They learn whatever is most discriminative *within a mini-batch*, which is class identity only when the data is balanced. **On imbalanced data it becomes low-level information instead** — and robot demonstration data is severely imbalanced.
+
 ## Experiments this makes cheap and obvious
 
 1. **The stale-teacher ablation on a modern JEPA.** DINO says previous-epoch teacher = 66.6 vs momentum 72.8. Does the gap hold at LeWM scale, and does the memory saving matter on a single GPU?
 2. **Partial fine-tuning of a JEPA encoder.** MAE's strongest defence uses a protocol the JEPA literature does not report. Tune `k` blocks of [LeJEPA](../../sources/lejepa-paper.md) and [V-JEPA 2](../../entities/v-jepa-2.md) features and see whether the ordering survives.
 3. **Reproduce Balestriero's two-autoencoder construction at MAE scale.** The claim that the ~20-point gap holds under nonlinear probes is the crux, and it has been demonstrated only where it was constructed.
 4. **Run the MAE augmentation ablation on a JEPA.** MAE gets 84.0 with no augmentation. A joint-embedding method gets a constant. That asymmetry is the strongest practical argument for reconstruction and the wiki has never quantified it on the other side.
+5. **Compute RankMe on a world-model latent.** If effective rank tracks planning success the way it tracks ImageNet accuracy, it is a label-free, decoder-free, planner-free model-selection signal for exactly the setting where labelled evaluation is a [real-robot rollout](../../concepts/robotics/robot-policy-evaluation.md). It would also test the [LeJEPA repo's unverified "94% Spearman" claim](../../sources/lejepa-github.md) against an independent metric.
+6. **Check the uniform prior on robot data.** SSL degrades on imbalanced datasets because the most discriminative in-batch feature stops being the semantic one. Demonstration data is mostly approach and idle. Nobody in this wiki has looked.
 
 ## Related
 
@@ -82,10 +101,12 @@ So the honest summary of the 2018→2026 arc is not *heuristics were replaced by
 - [SIGReg](../../concepts/world-models/sigreg.md) · [identifiability](../../concepts/world-models/identifiability.md) — the provability end.
 - [Contrastive learning and InfoNCE](../../concepts/learning/contrastive-learning.md) — the mechanism this lineage starts from.
 - [Spectral theory of SSL](../../concepts/learning/spectral-theory-of-ssl.md) — the frame in which all of these are one objective over different graphs.
+- [Representation evaluation](../../concepts/learning/representation-evaluation.md) — k-NN / linear / MLP / fine-tuning, RankMe, dimensional collapse.
 - [Generative-video vs JEPA world models](generative-video-vs-jepa-world-models.md) — the same reconstruct-or-not question, one level up.
 
 ## Sources
 
 - [CPC](../../sources/cpc-paper.md) · [BYOL](../../sources/byol-paper.md) · [DINO](../../sources/dino-paper.md) · [MAE](../../sources/mae-paper.md) — the four primaries.
+- [A Cookbook of Self-Supervised Learning](../../sources/ssl-cookbook.md) — the field's own taxonomy, by this line's own authors; the check that revised this page.
 - [LeJEPA](../../sources/lejepa-paper.md) · [stable-worldmodel](../../sources/stable-worldmodel-paper.md) · [SMWM](../../sources/sensorimotor-world-models-paper.md) — the modern end.
 - [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — Balestriero's case against reconstruction, stated by its author.
