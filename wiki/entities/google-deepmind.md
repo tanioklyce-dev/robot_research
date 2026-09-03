@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-06
 updated: 2026-09-02
-sources: 35
+sources: 37
 tags: [google-deepmind, mujoco, newton, mjcphysics, openusd, robotics-research, biomechanics, dmpo, acme, gemini-robotics, genie, world-model]
 ---
 

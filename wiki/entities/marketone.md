@@ -4,7 +4,7 @@ type: entity
 subtype: dataset
 created: 2026-09-02
 updated: 2026-09-03
-sources: 3
+sources: 4
 tags: [marketone, dataset, finance, self-supervised, lejepa, byol, scaling, chicago-booth, balestriero, benchmark, massive, market-jepa]
 ---
 
@@ -14,15 +14,15 @@ Motivation is a data-infrastructure complaint: financial ML datasets are *"extre
 
 ## The bake-off result
 
-18 combinations of self-supervised objective ([LeJEPA](../sources/lejepa-paper.md), DINO, BYOL) and augmentation (time warping, same-stock crops, cross-stock same-time pairs) plus supervised baselines, ranked on three prediction tasks (change in return, volatility, spread — spread as a proxy for trading cost) and several **latent-organization** tasks (does it cluster by firm? by time? does it recover the statistical factor structure?).
+18 combinations of self-supervised objective ([LeJEPA](../sources/lejepa-paper.md), [DINO](dino.md), [BYOL](byol.md)) and augmentation (time warping, same-stock crops, cross-stock same-time pairs) plus supervised baselines, ranked on three prediction tasks (change in return, volatility, spread — spread as a proxy for trading cost) and several **latent-organization** tasks (does it cluster by firm? by time? does it recover the statistical factor structure?).
 
 > [!note] The finding is a trade-off, not a winner
 > The three prediction tasks are **highly correlated with each other and negatively correlated with the economic-organization tasks** (one pair at ≈ −0.35). Some encoders learn representations useful for forecasting; others learn representations that are *economically meaningful*; these are largely different objectives.
 >
 > - **Pure forecasting** → multi-head supervised training on all three tasks with gradient normalization.
 > - **Economically meaningful latent structure** → the **LeJEPA** setup, best in class.
-> - **Efficient frontier between them** → LeJEPA and BYOL, both with time-warping augmentation.
-> - **Generalist vs. specialist**: BYOL ranks ~4th on every task; same-stock crops is best at one task and worst at all others.
+> - **Efficient frontier between them** → LeJEPA and [BYOL](byol.md), both with time-warping augmentation — and see [the anti-collapse lineage](../syntheses/world-models/ssl-anti-collapse-lineage.md) on why a 2020 method whose selling point was *insensitivity* should be expected to sit exactly there.
+> - **Generalist vs. specialist**: [BYOL](byol.md) ranks ~4th on every task; same-stock crops is best at one task and worst at all others.
 
 ## Methodological point worth copying
 

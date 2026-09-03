@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-09-03
 updated: 2026-09-03
-sources: 1
+sources: 2
 tags: [levjepa, jepa, lejepa, sigreg, video, self-supervised, pretraining, balestriero, lecun, lucas-maes, encoder, flop-efficiency]
 ---
 
@@ -31,7 +31,7 @@ Comparable or better than **V-JEPA 2** at **5.6–20.8× less pretraining comput
 
 The reason to care beyond the number: SIGReg's entire pitch is that stability removes the tuning tax. **A FLOP-efficiency win on video is the first result where that pitch pays a compute dividend rather than a convenience one.** Balestriero's framing at the workshop: *"this is really the very beginning of us starting to have reliable pre-training solutions where we can finally become more sample efficient, more FLOP efficient."*
 
-Emergent-property demo shown live: PCA over patch embeddings, top three components as RGB, gives **zero-shot segmentation** of a video (dog cleanly separated from background) with no segmentation training — the standard [DINO](dinov2.md)-style visualization, applied to a model whose pretraining objective is *"seemingly simple."*
+Emergent-property demo shown live: PCA over patch embeddings, top three components as RGB, gives **zero-shot segmentation** of a video (dog cleanly separated from background) with no segmentation training — the standard [DINO](dino.md)-style visualization, applied to a model whose pretraining objective is *"seemingly simple."*
 
 ## Independently exercised at the workshop, within hours
 

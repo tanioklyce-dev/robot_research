@@ -3,7 +3,7 @@ title: FLARE (Future Latent Representation Alignment)
 type: concept
 created: 2026-07-04
 updated: 2026-07-04
-sources: 4
+sources: 5
 tags: [flare, implicit-world-model, latent-alignment, jepa-adjacent, auxiliary-loss, vla, repa]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-07
 updated: 2026-09-01
-sources: 33
+sources: 34
 tags: [v-jepa-2, jepa, world-model, meta-fair, video, action-conditioned, franka]
 ---
 

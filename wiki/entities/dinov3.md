@@ -3,8 +3,8 @@ title: DINOv3
 type: entity
 subtype: model
 created: 2026-05-11
-updated: 2026-08-04
-sources: 9
+updated: 2026-09-03
+sources: 10
 tags: [dinov3, vision-foundation-model, self-supervised, vit, meta-fair, dino, frozen-encoder, gram-anchoring, vla, turbovla]
 ---
 
@@ -76,6 +76,7 @@ These are the **two competing 2025 attempts to make large-scale SSL stable**. Th
 - [DINO-WM](dino-wm.md) / [DINO-world](dino-world.md) / [JEPA-WMs](jepa-wms.md) — DINOv2 users; candidates for DINOv3 upgrade.
 
 ## Mentioned in
+- [DINO paper (Caron et al., 2021)](../sources/dino-paper.md) — the original self-distillation objective this line scales; centering + sharpening, and the emergent k-NN / segmentation properties.
 - [DINOv3 Paper](../sources/dinov3-paper.md)
 - [TurboVLA paper](../sources/turbovla-paper.md) — DINOv3 ViT-B/ViT-L as the vision encoder of an LLM-free VLA
 

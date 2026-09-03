@@ -3,7 +3,7 @@ title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
 updated: 2026-09-03
-sources: 61
+sources: 65
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -55,7 +55,15 @@ The escape hatch is closed by scope rather than by proof: SSIM is image-specific
 - **Internet-scale pretraining**: JEPAs can absorb action-free observation data (web video) at scale, then post-train action-conditioned predictors on small interaction datasets. [V-JEPA 2](../../entities/v-jepa-2.md) is the canonical demonstration: 1M+ hours pretraining → 62 hr post-training → zero-shot Franka manipulation.
 
 ## Common training challenges
-- **Representation collapse** — without the right [inductive biases](../learning/inductive-bias.md), both encoder and predictor learn trivial constants. The wiki now tracks a **design space of anti-collapse mechanisms**, from heaviest to lightest:
+- **Representation collapse** — without the right [inductive biases](../learning/inductive-bias.md), both encoder and predictor learn trivial constants. The wiki now tracks a **design space of anti-collapse mechanisms**, from heaviest to lightest.
+
+  *The pre-2024 foundations, now sourced from their primaries — see [the lineage synthesis](../../syntheses/world-models/ssl-anti-collapse-lineage.md):*
+  - **Negative pairs** — [CPC](../../sources/cpc-paper.md) (2018) and its descendants (SimCLR, MoCo). The [InfoNCE](../learning/contrastive-learning.md) bound `I ≥ log N − L_N` tightens with the number of negatives, which is why these methods want large batches or memory banks.
+  - **Asymmetric predictor + EMA target, *together*** — [BYOL](../../entities/byol.md) (2020). Its ablation is the one to know: **without negatives, the predictor alone scores 0.2% and the EMA alone 0.3%**; jointly, 72.5%.
+  - **Centering + sharpening of an EMA teacher** — [DINO](../../entities/dino.md) (2021). Two operations cancelling each other's collapse mode (uniform vs one-dimension-dominant); removing the momentum encoder gives **0.1%**. Notably, **adding BYOL's predictor here does nothing** — these mechanisms are not modular across methods.
+  - **No mechanism at all — reconstruct the input** — [MAE](../../entities/mae.md) (2021). A constant cannot reconstruct, so collapse is unreachable by construction. This is the control condition the rest of the ladder is paying to avoid, and it also buys freedom from designing the invariance: **MAE reaches 84.0 fine-tuned with no augmentation whatsoever**, where every joint-embedding method gets a constant.
+
+  *The 2024–2026 rungs:*
   - **Frozen pre-trained encoder** — [DINO-WM](../../entities/dino-wm.md) sidesteps collapse by not training the encoder at all.
   - **EMA target encoder + stop-gradient** — [V-JEPA 2](../../entities/v-jepa-2.md).
   - **Multi-term variance–covariance regularizers** — [PLDM](../../entities/pldm.md).
@@ -264,6 +272,11 @@ And the caution that generalizes beyond JEPA: **stable features are not usable f
 - [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — DSeq-JEPA; VISReg (see [SIGReg](sigreg.md)); AdaJEPA's ~0.3 s/step adaptation cost; [Klindt](../../entities/david-klindt.md)'s latent-learning argument that goal-biased data yields a worse map; and [MarketOne](../../entities/marketone.md), where a LeJEPA setup wins the *economic-interpretability* half of an 18-method bake-off while losing the pure-forecasting half.
 
 ## Mentioned in (additional)
+
+- [CPC paper (van den Oord et al., 2018)](../../sources/cpc-paper.md) — latent prediction with a contrastive loss, eight years early; the origin of InfoNCE.
+- [BYOL paper (Grill et al., 2020)](../../sources/byol-paper.md) — the EMA+predictor rung, and the admission that its non-collapse is empirical.
+- [DINO paper (Caron et al., 2021)](../../sources/dino-paper.md) — centering+sharpening, and the emergent-segmentation/k-NN properties the frozen-encoder pattern rests on.
+- [MAE paper (He et al., 2021)](../../sources/mae-paper.md) — the reconstruction control condition, and the partial-fine-tuning rebuttal to linear probing.
 
 - [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — the spectral reconstruction critique above, taught by Balestriero; also prediction-loss-as-graph-specification and the SIGReg+inverse-dynamics argument.
 

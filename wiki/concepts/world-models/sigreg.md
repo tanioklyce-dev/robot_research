@@ -3,7 +3,7 @@ title: SIGReg (Sketched Isotropic Gaussian Regularization)
 type: concept
 created: 2026-08-26
 updated: 2026-09-03
-sources: 15
+sources: 18
 tags: [sigreg, jepa, lejepa, anti-collapse, isotropic-gaussian, cramer-wold, epps-pulley, balestriero, lecun, latent-space, regularization]
 ---
 
@@ -143,6 +143,11 @@ Trained **post-hoc and gradient-detached**, so it never touches training dynamic
 > [!note] A free ablation of the Gaussian target, from the hackathon
 > A team with two hours swapped SIGReg's isotropic Gaussian for **multivariate Laplace** and **Student-t** on MNIST (and tried it on UrbanSound audio): **Gaussian beat both, by a clear margin.** No tuning, small scale, one dataset — it settles nothing against [LpWM](../../entities/lpwm.md)'s +24–57% with a sparse Rectified Generalized Gaussian on Push-T. But it is the first attempt in this wiki at the ablation the tutorial explicitly invited, and it went the theory's way. Balestriero's own live position is that the target matters less than the mechanism: *"in terms of performance it does not seem to matter so much as long as you feed the distribution in a nice way."*
 
+> [!note] What the heuristic stack actually was — now sourced
+> SIGReg is pitched against "the stop-gradient / EMA / frozen-encoder heuristic stack." Ingesting the primaries ([BYOL](../../sources/byol-paper.md), [DINO](../../sources/dino-paper.md), [CPC](../../sources/cpc-paper.md), [MAE](../../sources/mae-paper.md)) shows that stack is **not one thing**: BYOL needs an asymmetric predictor *and* an EMA (either alone scores 0.2–0.3%); DINO needs an EMA *and* centering/sharpening, and BYOL's predictor does nothing for it. See [the anti-collapse lineage](../../syntheses/world-models/ssl-anti-collapse-lineage.md).
+>
+> Two things that reading them adds to the case here, one in each direction. **For SIGReg:** BYOL's authors state plainly that *"there is no loss such that BYOL's dynamics is a gradient descent on L jointly over θ, ξ"* — which is precisely why the loss is uninterpretable, and exactly the defect a single provable term removes. **Against the pitch, not the theorems:** BYOL's own headline claim was already **robustness to augmentation choice and batch size** (−9.1 points under colour-removal against SimCLR's −22.2; flat from batch 4096 to 256). Insensitivity-without-tuning is a 2020 claim as well as a 2025 one, and the [MarketOne](../../entities/marketone.md) bake-off puts BYOL and LeJEPA **together** on the efficient frontier.
+
 ## Carried to video: [LeVJEPA](../../entities/levjepa.md) (2026-08-27)
 
 SIGReg's first result at video scale, and the first where its stability pitch buys **compute** rather than convenience: [LeVJEPA](../../entities/levjepa.md) (arXiv 2608.27395) trains a video encoder with an invariance loss over temporal views plus SIGReg — no EMA, no stop-gradient — and reports V-JEPA-2-comparable or better results at **5.6–20.8× less pretraining compute**, largely from random token dropping. Zero-shot segmentation emerges from PCA over patch embeddings, with no segmentation supervision.
@@ -188,4 +193,6 @@ Given that open-loop degradation from 25 → 75 steps is the standing failure ([
 - [galilai-group/lejepa](../../sources/lejepa-github.md) — **the reference implementation**; the test family, the VICReg relationship, the quadrature trick.
 - [galilai-group/tutorial](../../sources/wm-booth-lejepa-lewm-tutorial-repo.md) — a 60-line LeWM and the four temporal SIGReg modes.
 - [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — VISReg, the scale/shape/centre decomposition.
+- [BYOL paper (Grill et al., 2020)](../../sources/byol-paper.md) · [DINO paper (Caron et al., 2021)](../../sources/dino-paper.md) — the two heuristic stacks SIGReg replaces, read from their primaries.
+- [MAE paper (He et al., 2021)](../../sources/mae-paper.md) — the reconstruction alternative that needs no anti-collapse term, and rejects linear probing as the metric.
 - [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — **its author teaching it**: the DINO instability case, the cross-GPU seeding gotcha, 50 architectures out of the box, the detached-decoder rule, the SIGReg+IDM argument, and a hackathon ablation where Gaussian beat Laplace and Student-t.

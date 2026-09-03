@@ -3,10 +3,13 @@ title: DINOv2
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-09-01
-sources: 22
+updated: 2026-09-03
+sources: 23
 tags: [dinov2, vision-foundation-model, self-supervised, vit, meta-fair, dino, frozen-encoder]
 ---
+
+> [!note] The original [DINO](dino.md) is now on the wiki
+> This page and [DINOv3](dinov3.md) are the *scaling* papers; **[DINO (Caron et al., ICCV 2021)](dino.md) is the one with the finding** — emergent object segmentation in `[CLS]` attention (Jaccard 45.9 vs supervised 27.3) and **k-NN classification at 78.3% with no head at all**. That second result is the original evidence for the frozen-encoder pattern this page's downstream users ([DINO-WM](dino-wm.md), [DINO-world](dino-world.md)) all depend on, and it emerges only with a ViT. Also worth carrying: how much of DINOv2's advantage is **LVD-142M** rather than the objective has never been separated in this wiki — the original reaches 80.1% ImageNet linear on IN1k alone with two 8-GPU servers.
 
 **DINOv2 — "Learning Robust Visual Features without Supervision."** Self-supervised vision foundation model from [Meta FAIR](meta-fair.md), released 2023. Vision Transformer trained on 142M images with no labels via the DINO self-distillation objective; produces patch-level and image-level embeddings that transfer to downstream tasks **without fine-tuning** at near-supervised quality. arxiv 2304.07193. Code: https://github.com/facebookresearch/dinov2. Apache 2.0 for standard weights.
 
@@ -53,6 +56,7 @@ This makes DINOv2 the most consequential **non-JEPA** building block in the JEPA
 
 ## Mentioned in
 - [DINOv2 Paper](../sources/dinov2-paper.md)
+- [DINO paper (Caron et al., 2021)](../sources/dino-paper.md) — the original objective and the emergent properties DINOv2 scales
 - [DINO-WM Paper](../sources/dino-wm-paper.md)
 - [DINO-world Paper](../sources/dino-world-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)

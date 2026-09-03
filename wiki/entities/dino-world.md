@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-07
 updated: 2026-05-15
-sources: 4
+sources: 5
 tags: [dino-world, dinov2, video-world-model, jepa-adjacent, fair, meta-fair, terver, baldassarre]
 ---
 

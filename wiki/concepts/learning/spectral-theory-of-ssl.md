@@ -3,7 +3,7 @@ title: Spectral theory of self-supervised learning
 type: concept
 created: 2026-07-26
 updated: 2026-09-03
-sources: 6
+sources: 8
 tags: [spectral-graph-theory, self-supervised-learning, ssl-theory, laplacian-eigenmaps, mds, vicreg, simclr, barlow-twins, sigreg, jepa, balestriero, lecun, theory]
 ---
 
@@ -20,6 +20,8 @@ Self-supervised learning uses inputs `X` plus **pairwise positive relations `G`*
 - **Barlow Twins ↔ Canonical Correlation Analysis**-family.
 
 So **contrastive methods recover global spectral embeddings and non-contrastive methods recover local ones** — the first theoretical bridge between the two families. The framework yields closed-form optimal representations (and, in the linear regime, optimal parameters) per method, plus principled design guidance (e.g. how the choice of `G` interacts with the downstream task).
+
+The wiki now holds the primaries this framework classifies: [CPC](../../sources/cpc-paper.md) (the origin of the [InfoNCE](contrastive-learning.md) loss the "contrastive" column refers to), [BYOL](../../sources/byol-paper.md) and [DINO](../../sources/dino-paper.md) (non-contrastive), and [MAE](../../sources/mae-paper.md) (reconstruction, which the framework does not cover — it has no affinity graph).
 
 ## The derivation, in the form its author teaches it
 
@@ -62,6 +64,8 @@ This is the **load-bearing theory under the wiki's JEPA thread**. It explains *w
 - [JEPA](../world-models/jepa.md) — the architecture the spectral theory analyzes.
 - [Identifiability](../world-models/identifiability.md) — recoverability of latents; complements the spectral/generalization results.
 - [Energy-based models](energy-based-models.md) — the broader LeCun-line SSL commitment.
+- [Contrastive learning and InfoNCE](contrastive-learning.md) — the mechanism the "global spectral embedding" column describes.
+- [SSL anti-collapse lineage](../../syntheses/world-models/ssl-anti-collapse-lineage.md) — the same five methods sorted by anti-collapse device rather than by spectral role.
 
 ## Current state
 
@@ -71,3 +75,4 @@ The spectral framework is well-established for *static* SSL (the 2022 result) an
 
 - [Spectral Graph Theory review](../../sources/spectral-graph-theory-ssl-paper.md), [JEPA generalization theory](../../sources/jepa-generalization-theory-paper.md), [LeNEPA](../../sources/lenepa-paper.md).
 - [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — the closed-form derivation taught live, plus X-CLR and the graph-noise asymmetry.
+- [CPC](../../sources/cpc-paper.md) · [BYOL](../../sources/byol-paper.md) · [DINO](../../sources/dino-paper.md) — the contrastive and non-contrastive primaries this framework unifies.
