@@ -73,10 +73,26 @@ The wiki's [JEPA anti-collapse ladder](../concepts/world-models/jepa.md#common-t
 > [!note] What BYOL got right that the wiki's SIGReg pages under-weight
 > **BYOL's headline practical claim is robustness to augmentation choice and batch size** — the thing that makes a method portable to a new domain without a hyperparameter search. That is *exactly* [LeJEPA](lejepa-paper.md)'s pitch, made five years earlier and by a different route. It also explains the [MarketOne](../entities/marketone.md) bake-off result the wiki already carries, where **BYOL ranks ~4th on every task** — a generalist, never the specialist — and sits with LeJEPA on the efficient frontier under time-warping augmentation. A method whose selling point is insensitivity should be expected to look exactly like that.
 
+## Correction — the appendix answers the SimSiam question, and this page originally missed it
+
+> [!warning] Written from pages 1–9; the resolution is in Tables 21–22
+> This page originally presented Table 5b row 7 (**predictor, no EMA target, no negatives → 0.2%**) against SimSiam's claim that the configuration works, and filed it as needing an outside source. **It does not — BYOL's own v3 appendix contains the sweep.**
+>
+> **Table 21** — hard-copy the online weights into the target (no moving average at all), varying a multiplier `λ` on the predictor's learning rate:
+>
+> | λ | 0 | 1 | 2 | 10 | 20 | EMA baseline |
+> |---|---:|---:|---:|---:|---:|---:|
+> | Top-1 | 0.01 | 5.5 | 62.8 | **66.6** | 66.3 | **72.5** |
+>
+> **Table 22** sweeps the projector multiplier jointly and tops out at **66.9**. So the main-text collapse row is the **λ = 1**, un-tuned case, and [SimSiam](simsiam-paper.md)'s footnote 2 points straight at this.
+>
+> **What survives is the more interesting claim.** The EMA is *not* the collapse-prevention mechanism — a predictor learning-rate asymmetry substitutes for it. But removing it still costs **~6 points** (72.5 → 66.6) after tuning for its absence. It buys accuracy, not safety.
+
 ## Entities mentioned
 
 - [DeepMind](../entities/google-deepmind.md) — 13 of 15 authors; Imperial College for the remainder.
 - [BYOL](../entities/byol.md) — the method's entity page.
+- [SimSiam](../entities/simsiam.md) · [SimCLR](../entities/simclr.md) · [MoCo](../entities/moco.md).
 - [MarketOne](../entities/marketone.md) — where BYOL appears in this wiki as a live baseline, six years on.
 
 ## Concepts touched
@@ -90,4 +106,4 @@ The wiki's [JEPA anti-collapse ladder](../concepts/world-models/jepa.md#common-t
 
 - **The batch-norm controversy is not in this wiki.** Shortly after publication, two blog-level results argued BYOL's non-collapse depended on **batch normalization** acting as an implicit contrastive term, and a follow-up showed BYOL works without BN given careful initialization. The paper here has no BN in the target projector output and reports batch-size robustness *"only drops for smaller values due to batch normalization layers in the encoder"* — so BN is in the loop and its role is unresolved on this page.
 - **Is the conditional-variance argument ever made rigorous?** It assumes an optimal predictor. Nothing in this wiki establishes when that assumption holds during training.
-- **[SimSiam](../concepts/learning/contrastive-learning.md) is the missing control.** It reportedly drops the EMA entirely and keeps only stop-gradient + predictor — which Table 5b row 7 says gives **0.2%**. Either SimSiam's setup differs materially or one of the two results needs qualifying; the wiki cites SimSiam on 10 pages and has never read it.
+- ~~**SimSiam is the missing control.**~~ **Resolved 2026-09-03** — [SimSiam](simsiam-paper.md) is ingested and BYOL's own Tables 21–22 settle it (above). What is still open is *why* a faster predictor substitutes for a moving average; SimSiam's EM reading gives an account of the predictor's role (approximating an expectation over augmentations) but explicitly declines to explain non-collapse.

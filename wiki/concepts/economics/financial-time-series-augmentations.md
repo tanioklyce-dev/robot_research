@@ -3,7 +3,7 @@ title: Financial time-series augmentations
 type: concept
 created: 2026-09-03
 updated: 2026-09-03
-sources: 4
+sources: 5
 tags: [augmentation, self-supervised, jepa, lejepa, finance, market-microstructure, factor-model, invariance, time-warping, marketone, market-jepa]
 ---
 

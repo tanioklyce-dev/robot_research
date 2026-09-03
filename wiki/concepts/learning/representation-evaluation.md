@@ -3,7 +3,7 @@ title: Representation evaluation (k-NN, linear, MLP, fine-tuning, RankMe)
 type: concept
 created: 2026-09-03
 updated: 2026-09-03
-sources: 1
+sources: 4
 tags: [evaluation, linear-probing, knn, fine-tuning, rankme, dimensional-collapse, effective-rank, ssl, model-selection, label-free]
 ---
 
@@ -37,6 +37,15 @@ Two practical findings worth knowing before running any of them:
 > **What the [Cookbook](../../sources/ssl-cookbook.md) records (2023), with Balestriero as first author:** the field went MAE's way. *"The majority of works that followed focused on this type of evaluation (and sometimes do not report linear/MLP results). It has been shown that contrastive methods show inferior performance than masked image modeling with regards to fine-tuning, because they are **less 'optimization friendly'**."*
 >
 > Nothing in this wiki bridges the 2023 survey and the 2026 tutorial. Treat "which probe" as **an open methodological question with a stated field consensus that one of its participants later argued against**, not as settled either way.
+
+## Monitors that run *during* training
+
+Distinct from post-hoc protocols, and the wiki needed these because a standing complaint on [world-model evaluation](../world-models/world-model-evaluation.md) is that the good signals are too slow.
+
+- **The k-NN curve as an instability detector.** [MoCo v3](../../sources/moco-v3-paper.md)'s central finding is that **ViT SSL training degrades 1–3% from instability without ever diverging**, that seed variance (0.1–0.3%) does not reveal it, and that **the loss curve looks fine** — *"the small degradation can be fully hidden."* What exposes it is a k-NN probe run during training, whose curve shows dips where the gradient ℓ∞-norm spikes. Implication for this wiki: **an ablation table comparing two methods without stability monitoring may be comparing a stable run against a partially failed one.**
+- **The 1/√d standard-deviation check.** [SimSiam](../../sources/simsiam-paper.md) tracks the per-channel std of the ℓ2-normalized output: collapse drives it to 0, and a zero-mean **isotropic Gaussian** sits at **1/√d**, which is where a healthy run sits. One line, no labels — and note that its reference distribution is the one [SIGReg](../world-models/sigreg.md) later proves uniquely optimal and turns into a training objective.
+- **The detached online decoder.** [Balestriero's Day 3 rule](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md): train a gradient-detached decoder purely to look at what the latent kept. Qualitative, but two-sided — crisp reconstruction is a warning too.
+- **The online linear probe**, which as noted tracks the offline one and never overfits.
 
 ## Evaluation without labels
 
@@ -83,4 +92,7 @@ In robotics the argument for label-free evaluation is stronger than in vision, b
 - [A Cookbook of Self-Supervised Learning](../../sources/ssl-cookbook.md) — **the primary**; §3.7, plus §2.6.2 on dimensional collapse.
 - [MAE paper (He et al., 2021)](../../sources/mae-paper.md) — the partial-fine-tuning argument.
 - [DINO paper (Caron et al., 2021)](../../sources/dino-paper.md) — the k-NN protocol and the result that made it credible.
+- [MoCo v3 paper (Chen, Xie & He, 2021)](../../sources/moco-v3-paper.md) — hidden instability, and the k-NN training monitor that reveals it.
+- [SimSiam paper (Chen & He, 2020)](../../sources/simsiam-paper.md) — the 1/√d collapse check.
+- [SimCLR paper (Chen et al., 2020)](../../sources/simclr-paper.md) — the augmentation-prediction probe: what an invariance destroyed, in one number.
 - [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — the question restated as open, and the decoder-based practical answer.

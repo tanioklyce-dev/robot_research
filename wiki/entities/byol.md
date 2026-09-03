@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-09-03
 updated: 2026-09-03
-sources: 2
+sources: 4
 tags: [byol, self-supervised, ema, momentum-encoder, predictor, anti-collapse, no-negatives, deepmind, marketone]
 ---
 
@@ -37,8 +37,8 @@ The paper is candid, and this matters more than the accuracy:
 - Under an **optimal predictor**, updates follow the gradient of the expected **conditional variance**; since `Var(X|Y,Z) ≤ Var(X|Y)`, discarding information cannot lower it, so collapsed solutions are argued to be **unstable equilibria**.
 - *"We did not observe convergence to such equilibria in our experiments."*
 
-> [!note] The SimSiam question is resolved, and the answer is a learning rate
-> The wiki flagged Table 5b row 7 (predictor, no EMA, no negatives → **0.2%**) against SimSiam's claim that the same configuration works. [The Cookbook](../sources/ssl-cookbook.md) §3.4.1 settles it: EMA *"is not necessary … **as long as the predictor is updated more often or has larger learning rate compared to the backbone**,"* while BYOL's own τ=0 row does genuinely collapse. **Both results stand.** What is load-bearing is *asymmetry between the branches* — the EMA is one way to get it, a faster predictor is another, and stronger augmentation on the student is a third.
+> [!note] The SimSiam question is resolved — by BYOL's own appendix
+> The wiki flagged Table 5b row 7 (predictor, no EMA, no negatives → **0.2%**) against [SimSiam](simsiam.md)'s claim that the configuration works. **Tables 21–22 of this same paper** settle it: hard-copying the online weights into the target with a **10× predictor learning rate** gives **66.6–66.9** against the 72.5 EMA baseline, where λ=1 gives 5.5 and λ=0 gives 0.01. The main-text row is the un-tuned case. [The Cookbook](../sources/ssl-cookbook.md) §3.4.1 states the same rule: EMA *"is not necessary … as long as the predictor is updated more often or has larger learning rate compared to the backbone."* **Both results stand, and removing the EMA still costs ~6 points after tuning for it** — it buys accuracy, not safety. What is load-bearing is *asymmetry between the branches* — the EMA is one way to get it, a faster predictor is another, and stronger augmentation on the student is a third.
 >
 > Two mechanisms for what the predictor does, from the same source: it **acts as a whitening operator** (Tian et al. 2021), and with it the dynamics are **proved** to have nontrivial stable fixed points, so the trivial optimum is not reached despite existing. Removing it costs BYOL **68% → 21%**; a *linear* predictor suffices and recovers from bad init in 10–20 epochs.
 
@@ -61,6 +61,7 @@ That is why BYOL is still a live baseline here six years on. In the [MarketOne](
 
 ## Related
 
+- [SimSiam](simsiam.md) — BYOL minus the momentum encoder; the paper that isolated stop-gradient.
 - [DINO](dino.md) — takes its inspiration from BYOL; different loss, no predictor, and BYOL's predictor does nothing there.
 - [MAE](mae.md) — the reconstruction alternative; needs no anti-collapse term and no augmentation.
 - [SIGReg](../concepts/world-models/sigreg.md) — the provable replacement for this stack.
@@ -70,5 +71,6 @@ That is why BYOL is still a live baseline here six years on. In the [MarketOne](
 ## Mentioned in
 
 - [BYOL paper (Grill et al., 2020)](../sources/byol-paper.md) — the primary.
-- [A Cookbook of Self-Supervised Learning](../sources/ssl-cookbook.md) — resolves the SimSiam contradiction; the predictor-as-whitening-operator mechanism.
+- [A Cookbook of Self-Supervised Learning](../sources/ssl-cookbook.md) — the predictor-as-whitening-operator mechanism.
+- [SimSiam paper (Chen & He, 2020)](../sources/simsiam-paper.md) — the control that prompted re-reading BYOL's appendix.
 - [Third World Modeling Workshop — Day 2](../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — a live baseline in the [MarketOne](marketone.md) bake-off, ranking ~4th on every task.

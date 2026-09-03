@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-09-03
 updated: 2026-09-03
-sources: 3
+sources: 4
 tags: [dino, self-distillation, vit, self-supervised, ema, centering-sharpening, anti-collapse, segmentation, knn, meta-fair, caron]
 ---
 

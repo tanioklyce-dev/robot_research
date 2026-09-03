@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-07
 updated: 2026-05-15
-sources: 21
+sources: 23
 tags: [meta, fair, lecun, world-model, jepa]
 ---
 

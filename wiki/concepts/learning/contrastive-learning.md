@@ -3,7 +3,7 @@ title: Contrastive learning and InfoNCE
 type: concept
 created: 2026-09-03
 updated: 2026-09-03
-sources: 5
+sources: 8
 tags: [contrastive-learning, infonce, cpc, simclr, moco, negatives, mutual-information, self-supervised, anti-collapse, batch-size]
 ---
 
@@ -47,7 +47,7 @@ CPC's own formulation is **temporal and patch-autoregressive**, not two-augmente
 Three prices, all documented in the primaries this wiki now holds:
 
 1. **Batch size / memory.** Directly from the MI bound above.
-2. **Augmentation sensitivity, and the reason is specific.** Crops of one image mostly share a colour histogram, and colour histograms differ across images — so **a contrastive task on crops alone can be solved by colour histogram and nothing else**, and the representation is never pushed further ([BYOL](../../sources/byol-paper.md) §5). Hence SimCLR's mandatory colour distortion, and its **−27.6 point** collapse under crop-only augmentation where BYOL loses 13.1 and [MAE](../../sources/mae-paper.md) works with **no augmentation at all**.
+2. **Augmentation sensitivity, and the reason is specific.** Crops of one image mostly share a colour histogram, and colour histograms **alone suffice to distinguish images** — so a contrastive task on crops alone is solvable by colour and the representation is never pushed further. Measured in [SimCLR](../../sources/simclr-paper.md) §3.1 (the primary; the wiki previously carried this from BYOL's reproduction), which also finds **no single augmentation suffices** and that contrastive learning wants *stronger* colour augmentation than supervised learning does — the same strength that takes SimCLR 59.6 → 64.5 takes the supervised baseline 77.0 → 75.4. Downstream: SimCLR's **−27.6 point** collapse under crop-only augmentation where BYOL loses 13.1 and [MAE](../../sources/mae-paper.md) works with **no augmentation at all**.
 3. **Semantic false negatives.** Two images of the same class are pushed apart because they are different images. [X-CLR](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) attacks exactly this by replacing binary positive/negative with a **continuous similarity graph** built from captions — which, under the [spectral view](spectral-theory-of-ssl.md), is the same objective with a better-specified affinity graph.
 
 ## Where it sits among the alternatives
@@ -61,13 +61,16 @@ Contrastive learning is one of four mechanisms this wiki now has primaries for. 
 
 | Mechanism | Anti-collapse device | Primary |
 |---|---|---|
-| **Contrastive** | negative pairs | [CPC](../../sources/cpc-paper.md) → SimCLR (MoCo's loss too, though the Cookbook files it elsewhere) |
-| **Momentum + predictor** | asymmetric predictor **and** EMA target, together | [BYOL](../../sources/byol-paper.md) |
+| **Contrastive** | negative pairs | [CPC](../../sources/cpc-paper.md) → [SimCLR](../../sources/simclr-paper.md) ([MoCo](../../entities/moco.md)'s loss too, though the Cookbook files it elsewhere) |
+| **Momentum + predictor** | asymmetric predictor **and** EMA target — or a **faster predictor** instead of the EMA | [BYOL](../../sources/byol-paper.md), [SimSiam](../../sources/simsiam-paper.md) |
 | **Self-distillation** | centering **and** sharpening of an EMA teacher | [DINO](../../sources/dino-paper.md) |
 | **Reconstruction** | *none needed* — the target is the input | [MAE](../../sources/mae-paper.md) |
 | **Distributional** | one provable term matched to an isotropic Gaussian | [LeJEPA / SIGReg](../world-models/sigreg.md) |
 
 Under the [spectral theory of SSL](spectral-theory-of-ssl.md), contrastive methods recover **global** spectral embeddings (kernel MDS / kernel CCA) while non-contrastive ones recover **local** embeddings (Laplacian eigenmaps) — the first theoretical bridge between the two families, and the frame in which "choose negatives" becomes "choose a graph over samples."
+
+> [!note] The projector is where the information goes, and it is measurable
+> [SimCLR](../../sources/simclr-paper.md) Table 3 trains a probe to predict *which augmentation was applied*, from the backbone output `h` and from the projector output `g(h)`. Rotation: **67.6% from `h`, 25.6% from `g(h)` — chance is 25%.** Original-vs-corrupted: 99.5 vs 59.6. **The projector output is trained to be invariant, so it discards exactly what the invariance targets**, which is why every method keeps the backbone and throws the head away. It is also a general-purpose diagnostic for *what an invariance destroyed*, and it is barely used.
 
 ## The unified view, and the doubts about the MI story
 
@@ -94,3 +97,6 @@ Pure contrastive pretraining has largely lost the vision frontier to distillatio
 - [DINO paper (Caron et al., 2021)](../../sources/dino-paper.md) — MoCo v2's InfoNCE as a baseline row.
 - [MAE paper (He et al., 2021)](../../sources/mae-paper.md) — the augmentation-dependence contrast.
 - [A Cookbook of Self-Supervised Learning](../../sources/ssl-cookbook.md) — **corrects this page twice**: the InfoNCE lineage, and the batch-size requirement.
+- [SimCLR paper (Chen et al., 2020)](../../sources/simclr-paper.md) — **the canonical instantiation**; the colour-histogram shortcut and the projector measurement, from the primary.
+- [MoCo v3 paper (Chen, Xie & He, 2021)](../../sources/moco-v3-paper.md) — hidden instability, and batch size *hurting* past ~2k on ViT.
+- [SimSiam paper (Chen & He, 2020)](../../sources/simsiam-paper.md) — "SimCLR without negative pairs" still works.

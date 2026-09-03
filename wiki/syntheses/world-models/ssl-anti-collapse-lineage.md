@@ -25,12 +25,31 @@ If you train an encoder to make two views agree, the trivial optimum is a consta
 |---|---|---|---|
 | 2018 | [CPC](../../sources/cpc-paper.md) → SimCLR, MoCo | **Negative pairs** | Batch size / memory bank; augmentation sensitivity; semantic false negatives |
 | 2020 | [BYOL](../../sources/byol-paper.md) | **Asymmetric predictor + EMA target, jointly** | No loss is being descended; guarantee is empirical |
+| 2020 | [SimSiam](../../sources/simsiam-paper.md) | **Stop-gradient** — and nothing else | Explicitly declines to explain why it works |
+| 2020 | [SimCLR](../../sources/simclr-paper.md) | negative pairs, made simple | augmentation design; a colour-histogram shortcut if you get it wrong |
 | 2021 | [DINO](../../sources/dino-paper.md) | **Centering + sharpening of an EMA teacher** | Two temperatures; total failure without momentum |
 | 2021 | [MAE](../../sources/mae-paper.md) | **None — the target is the input** | Slow convergence of linearly accessible quality |
 | 2025 | [SIGReg](../../concepts/world-models/sigreg.md) | **One distributional term, with a theorem** | Does not deliver OOD robustness |
 | 2026 | [SMWM](../../entities/smwm.md) | **Inverse dynamics** | Bounded by the richness of the action space |
 
 ## Three things the primaries settle that the wiki had wrong or vague
+
+### 0. The mechanism is *asymmetry*, and stop-gradient is the irreducible part
+
+Ingesting [SimSiam](../../sources/simsiam-paper.md) collapses several rungs into one statement. Take a plain weight-sharing Siamese network with a predictor on one branch:
+
+| | Linear top-1 |
+|---|---:|
+| with stop-gradient | **67.7** |
+| without stop-gradient | **0.1** |
+
+And **nothing else** in the setup is doing collapse prevention: batch size is flat from 128 to 2048; removing all BN gives a poor-but-uncollapsed 34.6; cross-entropy instead of cosine works; removing symmetrization works. *"It is mainly the stop-gradient operation that plays an essential role."*
+
+The EMA is then a *substitutable* source of asymmetry, and the wiki now has this from three directions: [BYOL's own Tables 21–22](../../sources/byol-paper.md) (hard-copy target + **10× predictor learning rate → 66.6–66.9** vs 72.5 with EMA), [the Cookbook](../../sources/ssl-cookbook.md) §3.4.1 (the same rule stated generally, plus stronger student-side augmentation as a third option), and SimSiam itself (constant predictor learning rate, batch 256, plain SGD).
+
+**So the honest ladder has one fewer rung than it looked.** Negatives, EMA-plus-predictor, centering-plus-sharpening and stop-gradient-with-a-fast-predictor are four ways to break symmetry between the branches. Reconstruction avoids needing to.
+
+SimSiam also supplies the best account of *what the predictor is for*: under an EM reading where the network alternates between parameters `θ` and per-image representations `η_x`, the **stop-gradient is a derivation** (η is constant while solving for θ) and the **predictor approximates an expectation over augmentations** that single-sample training drops. Tested: replacing the predictor with a moving-average `η` gets **55.0% with no predictor at all**, where removing it otherwise gives 0.1.
 
 ### 1. "EMA + stop-gradient" is not one mechanism
 
@@ -90,10 +109,11 @@ And one limitation that should temper the whole ladder for robotics: SSL methods
 
 1. **The stale-teacher ablation on a modern JEPA.** DINO says previous-epoch teacher = 66.6 vs momentum 72.8. Does the gap hold at LeWM scale, and does the memory saving matter on a single GPU?
 2. **Partial fine-tuning of a JEPA encoder.** MAE's strongest defence uses a protocol the JEPA literature does not report. Tune `k` blocks of [LeJEPA](../../sources/lejepa-paper.md) and [V-JEPA 2](../../entities/v-jepa-2.md) features and see whether the ordering survives.
-3. **Reproduce Balestriero's two-autoencoder construction at MAE scale.** The claim that the ~20-point gap holds under nonlinear probes is the crux, and it has been demonstrated only where it was constructed.
-4. **Run the MAE augmentation ablation on a JEPA.** MAE gets 84.0 with no augmentation. A joint-embedding method gets a constant. That asymmetry is the strongest practical argument for reconstruction and the wiki has never quantified it on the other side.
-5. **Compute RankMe on a world-model latent.** If effective rank tracks planning success the way it tracks ImageNet accuracy, it is a label-free, decoder-free, planner-free model-selection signal for exactly the setting where labelled evaluation is a [real-robot rollout](../../concepts/robotics/robot-policy-evaluation.md). It would also test the [LeJEPA repo's unverified "94% Spearman" claim](../../sources/lejepa-github.md) against an independent metric.
-6. **Check the uniform prior on robot data.** SSL degrades on imbalanced datasets because the most discriminative in-batch feature stops being the semantic one. Demonstration data is mostly approach and idle. Nobody in this wiki has looked.
+3. **Monitor a JEPA run for hidden instability.** [MoCo v3](../../sources/moco-v3-paper.md) shows ViT SSL loses **1–3% to instability without diverging**, that the loss curve hides it, and that **seed variance (0.1–0.3%) does not reveal it**. [LeJEPA](../../sources/lejepa-paper.md)'s central claim is *stability*, evidenced by loss curves and 50+ architectures landing within a small delta — which is exactly the evidence MoCo v3 says is insufficient. A k-NN or [RankMe](../../concepts/learning/representation-evaluation.md) monitor over a LeJEPA run tests the claim on its own axis. **And the free win: freezing the patch-projection layer at random init gave +0.8 to SimCLR, +1.3 to BYOL and +1.7 to MoCo v3, costs nothing, and is not mentioned anywhere in this wiki's JEPA material.**
+4. **Reproduce Balestriero's two-autoencoder construction at MAE scale.** The claim that the ~20-point gap holds under nonlinear probes is the crux, and it has been demonstrated only where it was constructed.
+5. **Run the MAE augmentation ablation on a JEPA.** MAE gets 84.0 with no augmentation. A joint-embedding method gets a constant. That asymmetry is the strongest practical argument for reconstruction and the wiki has never quantified it on the other side.
+6. **Compute RankMe on a world-model latent.** If effective rank tracks planning success the way it tracks ImageNet accuracy, it is a label-free, decoder-free, planner-free model-selection signal for exactly the setting where labelled evaluation is a [real-robot rollout](../../concepts/robotics/robot-policy-evaluation.md). It would also test the [LeJEPA repo's unverified "94% Spearman" claim](../../sources/lejepa-github.md) against an independent metric.
+7. **Check the uniform prior on robot data.** SSL degrades on imbalanced datasets because the most discriminative in-batch feature stops being the semantic one. Demonstration data is mostly approach and idle. Nobody in this wiki has looked.
 
 ## Related
 
@@ -106,7 +126,8 @@ And one limitation that should temper the whole ladder for robotics: SSL methods
 
 ## Sources
 
-- [CPC](../../sources/cpc-paper.md) · [BYOL](../../sources/byol-paper.md) · [DINO](../../sources/dino-paper.md) · [MAE](../../sources/mae-paper.md) — the four primaries.
+- [CPC](../../sources/cpc-paper.md) · [BYOL](../../sources/byol-paper.md) · [DINO](../../sources/dino-paper.md) · [MAE](../../sources/mae-paper.md) — the first four primaries.
+- [SimCLR](../../sources/simclr-paper.md) · [SimSiam](../../sources/simsiam-paper.md) · [MoCo v3](../../sources/moco-v3-paper.md) — the second tier, ingested 2026-09-03; SimSiam isolates stop-gradient, SimCLR supplies the colour-histogram shortcut and the projector measurement, MoCo v3 supplies hidden instability.
 - [A Cookbook of Self-Supervised Learning](../../sources/ssl-cookbook.md) — the field's own taxonomy, by this line's own authors; the check that revised this page.
 - [LeJEPA](../../sources/lejepa-paper.md) · [stable-worldmodel](../../sources/stable-worldmodel-paper.md) · [SMWM](../../sources/sensorimotor-world-models-paper.md) — the modern end.
 - [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — Balestriero's case against reconstruction, stated by its author.
