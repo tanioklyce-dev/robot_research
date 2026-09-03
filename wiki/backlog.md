@@ -2,7 +2,7 @@
 title: Wiki Backlog — deferred lint items & knowledge gaps
 type: meta
 created: 2026-07-04
-updated: 2026-09-02
+updated: 2026-09-03
 tags: [backlog, lint, todo, knowledge-gaps]
 ---
 
@@ -10,7 +10,9 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
-## [2026-09-02] Chicago Booth World Modeling Workshop — Day 3 not ingested
+## [2026-09-02] Chicago Booth World Modeling Workshop — Day 3 transcript captured, not yet ingested
+
+**Update 2026-09-03:** auto-captions are up. Downloaded via `yt-dlp` and cleaned (rolling-caption dedup + timestamp bucketing, same recipe as Day 1/2) to `raw/2026-09-02-chicago-booth-world-modeling-workshop-day3-transcript.txt` (7h48m, 401 timestamped paragraphs). **Not yet ingested** — no `wiki/sources/` page, no entity/concept updates — left for a future session. As with Day 1/2, expect proper-noun garbling (already seen: "Rando Bolstrio" / "Leeppa" for Randall Balestriero / LeJEPA); reconcile speaker names against the archived programme (`raw/2026-09-02-wm-booth-org-programme.html`) before filing.
 
 **Video: `PkaYC3fwEsc`** — "Workshop on World Models - Day 3 (WM@Booth 2026)", same channel. Per the workshop programme (archived at `raw/2026-09-02-wm-booth-org-programme.html`), Day 3 is a **hands-on coding workshop with tutorials and a modeling challenge** — a different kind of source from Days 1–2, and likely more useful as a *procedure* than as claims. It was still live as of 2026-09-02.
 

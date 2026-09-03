@@ -5152,3 +5152,7 @@ Three GitHub repos ingested as a cluster, all from **`galilai-group`** — which
 
 ## [2026-09-02] deferred | Workshop Day 3 video
 - `PkaYC3fwEsc` checked 2026-09-02 21:30 CDT: **still live**, duration NA, **no subtitles of any kind**. Not ingestable yet; on the [backlog](backlog.md). The [tutorial repo](sources/wm-booth-lejepa-lewm-tutorial-repo.md) ingested above is very likely its accompanying material, so the code half of Day 3 is already captured.
+
+## [2026-09-03] download | Workshop Day 3 transcript
+- Auto-captions now available. Downloaded and cleaned via `yt-dlp` (same recipe as Day 1/2), saved to `raw/2026-09-02-chicago-booth-world-modeling-workshop-day3-transcript.txt` (7h48m, 401 timestamped paragraphs).
+- Not ingested — no source/entity/concept pages written this session. Left on the [backlog](backlog.md) for a future ingest pass.
