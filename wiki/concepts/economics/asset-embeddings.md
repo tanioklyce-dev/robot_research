@@ -3,7 +3,7 @@ title: Asset & investor embeddings (portfolios as sentences)
 type: concept
 created: 2026-09-02
 updated: 2026-09-02
-sources: 1
+sources: 2
 tags: [asset-embeddings, investor-embeddings, holdings-data, demand-system, representation-learning, word2vec, transformers, masked-modeling, finance]
 ---
 

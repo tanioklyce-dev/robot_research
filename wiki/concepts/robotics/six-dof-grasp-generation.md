@@ -3,7 +3,7 @@ title: 6-DOF grasp generation
 type: concept
 created: 2026-08-23
 updated: 2026-08-23
-sources: 2
+sources: 3
 tags: [grasping, 6-dof-grasping, manipulation, diffusion, discriminator, cross-embodiment, gripper-morphology, acronym, modular-manipulation]
 ---
 

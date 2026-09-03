@@ -3,7 +3,7 @@ title: Multi-agent reinforcement learning (MARL)
 type: concept
 created: 2026-07-17
 updated: 2026-08-27
-sources: 2
+sources: 3
 tags: [reinforcement-learning, multi-agent-rl, self-play, markov-game, ctde, maddpg, ma-poca]
 ---
 

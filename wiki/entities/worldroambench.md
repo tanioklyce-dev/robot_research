@@ -5,7 +5,7 @@ subtype: benchmark
 created: 2026-08-08
 updated: 2026-08-08
 tags: [benchmark, world-model, evaluation, long-horizon, memory, interaction-physics, genie-3, alibaba]
-sources: 1
+sources: 2
 ---
 
 **WorldRoamBench** — an open-world benchmark for the **long-horizon stability** of *interactive* world models: systems you drive with WASD/IJKL keystrokes that generate frames autoregressively in real time. From AMAP CV Lab (Alibaba Group) with Nanjing University, Tsinghua, and Peking University. 600+ test cases across Nature, Urban, and Indoor scenes, first- and third-person, **10–60 s of continuous interaction** — against the ~5–10 s clips prior benchmarks used.

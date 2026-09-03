@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-26
 updated: 2026-08-26
-sources: 1
+sources: 2
 tags: [lpwm, jepa, world-model, sparse-representation, rdmreg, lewm, planning, lecun]
 ---
 

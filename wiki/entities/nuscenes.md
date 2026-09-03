@@ -4,7 +4,7 @@ type: entity
 subtype: dataset
 created: 2026-09-01
 updated: 2026-09-01
-sources: 2
+sources: 1
 tags: [nuscenes, dataset, autonomous-driving, benchmark, motional, can-bus, multimodal]
 ---
 

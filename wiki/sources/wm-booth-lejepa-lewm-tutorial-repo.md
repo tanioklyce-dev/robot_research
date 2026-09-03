@@ -14,13 +14,20 @@ tags: [lejepa, lewm, sigreg, tutorial, world-model, moving-mnist, imagenette, st
 
 ## Summary
 
-Four Python files — **897 lines total** — that train a [LeJEPA](lejepa-paper.md) encoder and an action-conditioned [LeWM](../entities/leworldmodel.md) world model from scratch, each in **under thirteen minutes on one GPU**, and then let you *drive the world model interactively in a browser*. The hands-on material for **Day 3** of the [Chicago Booth world-modeling workshop](chicago-booth-world-modeling-workshop-2026-day2.md). The repository contains **exactly two commits — `first` and `cleanup` — both by RandallBalestriero, both on 2026-09-02**, the later at 13:18 UTC; it was created the morning of the session.
+Four Python files — **897 lines total** — that train a [LeJEPA](lejepa-paper.md) encoder and an action-conditioned [LeWM](../entities/leworldmodel.md) world model from scratch, each in **under thirteen minutes on one GPU**, and then let you *drive the world model interactively in a browser*. The hands-on material for **[Day 3](chicago-booth-world-modeling-workshop-2026-day3.md)** of the Chicago Booth world-modeling workshop. The repository contains **exactly two commits — `first` and `cleanup` — both by RandallBalestriero, both on 2026-09-02**, the later at 13:18 UTC; it was created the morning of the session.
 
 > [!note] Confirmed against the programme, 2026-09-02
 > This page originally hedged ("almost certainly"). The archived workshop programme settles it: **Day 3, 9:00–10:30am, Tutorial Session 1 — *"How to Train JEPA World Models Without Headache," Randall Balestriero, Brown University.*** That is this repository. The rest of Day 3: *Institutional-Grade Market Data* (Steve Bravo, **Massive** — the [MarketOne](../entities/marketone.md) data partner), Tutorial Session 2 *"Financial Data: Challenges, Evaluation, and Training"* (Bradford Levy, Chicago Booth), *Scaling GPU Infrastructure* (Amir Zadeh, **Lambda**, via Zoom), then a two-hour **open working session on a modeling challenge** and challenge presentations.
 
 > [!note] Why this is the most useful LeJEPA source in the wiki
 > Everything else here on this line is a paper, a full research platform, or an 8-hour reproduction. This is the **smallest complete artifact that exhibits both halves of the program** — the SSL objective and the action-conditioned world model — with published wall-clock times, published numbers, and a working demo. The existing [LeWM howto](../syntheses/world-models/leworldmodel-howto.md) documents a multi-hour install-and-train against a research repo; this trains in twelve minutes on a laptop-scale problem and is the better on-ramp.
+
+> [!note] The narration now exists — ingested 2026-09-03
+> The [Day 3 transcript](chicago-booth-world-modeling-workshop-2026-day3.md) is the 90-minute talk this code was written for, and it adds what a repository cannot: **why** reconstruction is rejected (identical MSE, ~20 points of downstream accuracy apart; MSE gradients follow the pixel covariance's top eigenvectors, so the low-frequency half is learned first), **how to debug a world model** (*"always plug a detached online decoder and see what it reconstructs"*), and **which research signal to avoid** (planning success — *"it's not a nice signal to do research"*).
+>
+> His live figures for these exact files were *"8 minutes, 80% accuracy"* for `inet10.py` and *"10 minutes"* for `mmnist.py`. This page's measured numbers — **76.7 / 78.1% in 8m29s**, and **digit accuracy 66.4 / 76.9% against position R² 0.9195 / 0.9830** — tell the same story; the position-versus-identity split is the one he draws attention to on stage (*"sometimes a seven turns into an eight"* while the location stays exact).
+>
+> The variations he suggested, in his order: **swap the target distribution** (rederive its characteristic function and substitute into Epps–Pulley), vary the number of views, vary the SIGReg/prediction weighting, change the encoder. A hackathon team did the first one — **Gaussian beat Laplace and Student-t** on MNIST.
 
 ## The three programs
 

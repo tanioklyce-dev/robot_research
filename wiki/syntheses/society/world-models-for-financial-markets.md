@@ -2,7 +2,7 @@
 title: World models for financial markets — why the hard part is evaluation
 type: synthesis
 created: 2026-09-02
-updated: 2026-09-02
+updated: 2026-09-03
 tags: [finance, economics, world-model, evaluation, reflexivity, lucas-critique, counterfactuals, benchmarks, prediction-markets, non-stationarity]
 ---
 
@@ -54,6 +54,20 @@ Every world model in this wiki — [JEPA](../../concepts/world-models/jepa.md), 
 > [!note] It shows up in robotics too, and the wiki has not named it
 > [User models](../../concepts/agents/user-models.md) is exactly this case: a household robot's environment is a person who learns the robot's habits and changes their own behavior in response. The finance people have twenty years of vocabulary for it. Robotics does not, and will need it.
 
+### Day 3 adds the theorem, the number, and the generalization
+
+Three things arrived the following day that this section was missing.
+
+**The theorem.** [Bradford Levy](../../entities/bradford-levy.md) supplies the formal statement reflexivity is a folk version of: **Grossman–Stiglitz (1980)**. Information is costly, so agents *endogenously* choose whether to become informed; only a fraction do; **price therefore cannot be a sufficient statistic for private information**. The market is *"efficiently inefficient."* This bounds alpha decay from below — it says the signal never reaches zero, because the cost of extracting it never reaches zero. Levy applies it to his own release, asked whether a public checkpoint destroys its own edge: *"markets will become more efficient, the actual trading profits will decline… but you've got to run this on a GPU, you've got to purchase the data."*
+
+**The number.** *How much* harder is finance? Push consecutive periods through a [time-series foundation model](../../concepts/learning/time-series-foundation-models.md), extract representations, estimate **mutual information** between them (SMILE estimator), and compare across domains. Electricity, weather, traffic and dynamical systems come out high; **finance comes out markedly lower than all of them, and non-zero** — exactly the shape Grossman–Stiglitz predicts. It is the first quantitative version of "financial data are noisy" in this wiki, and the method — *mutual information between representations at different times* — is a **domain-difficulty measure that needs no task, no labels and no forecast**, so it transfers to robot sensor streams unchanged.
+
+**The generalization, and it is the one that matters here.** [Kawin Ethayarajh](../../entities/kawin-ethayarajh.md) closes the workshop by naming **adaptation** as one of three open problems in world modeling, and his reason is not about markets: *"the world is constantly changing, and moreover, as we release more and more AI into the wild, the world is going to adapt in response to the rise of AI"* — especially as AI drives more commercial activity. **That is reflexivity, restated as a general ML problem.** If it is right, the boundary this synthesis draws between "the finance people's problem" and "ours" is temporary, and this page is an early case study rather than a report from an adjacent field.
+
+And Levy supplies the analogy that makes the difference concrete for a robotics reader:
+
+> *"Imagine if the friction coefficient in [Push-T] was adversarially changing to try to mess with the robot. That's more of the type of environment that we're dealing with in financial markets."*
+
 ## 3. Where the two fields have the same problem under different names
 
 | Finance framing | This wiki's framing |
@@ -100,7 +114,8 @@ Concrete, in rough order of cost:
 2. **Take Kagan and Bruss up on their offers.** She will list contracts, including conditional ones, on request; he will specify what a consumer-finance benchmark needs. Both offers were made to a room and unclaimed.
 3. **Build the ABIDES-style benchmark Airoldi described** — agent intentions known by construction, withheld from the model — so "did it recover the latent" is answerable rather than argued.
 4. **Name reflexivity as a category on the wiki's world-model pages**, and check which existing claims quietly assume it away.
-5. **Find out whether anyone has an equilibrium-aware world model at all.** Koijen's elasticity question — how far must prices move for someone to absorb a forced sale — has no answer in this wiki, and it is the difference between predicting the market and reasoning about it.
+5. **Use the mutual-information measure as a difficulty triage before committing to a domain.** Levy's SMILE-estimator protocol is cheap, needs no labels, and would answer "is this domain forecastable enough to be worth a world model" for any sensor stream. Nothing in this wiki does this.
+6. **Find out whether anyone has an equilibrium-aware world model at all.** Koijen's elasticity question — how far must prices move for someone to absorb a forced sale — has no answer in this wiki, and it is the difference between predicting the market and reasoning about it.
 
 ## Related
 - [World-model evaluation](../../concepts/world-models/world-model-evaluation.md) · [world-model functional taxonomy](../../concepts/world-models/world-model-functional-taxonomy.md)
@@ -112,3 +127,4 @@ Concrete, in rough order of cost:
 ## Sources
 - [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — all five speakers.
 - [Third World Modeling Workshop — Day 1](../../sources/chicago-booth-world-modeling-workshop-2026.md) — the JEPA/robotics half the finance speakers were reacting to.
+- [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — Levy's tutorial (Grossman–Stiglitz, the mutual-information measurement, [Market-JEPA](../../entities/market-jepa.md), [financial time-series augmentations](../../concepts/economics/financial-time-series-augmentations.md)) and Ethayarajh's closing remarks (reflexivity generalized).

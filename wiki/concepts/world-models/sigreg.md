@@ -2,8 +2,8 @@
 title: SIGReg (Sketched Isotropic Gaussian Regularization)
 type: concept
 created: 2026-08-26
-updated: 2026-09-02
-sources: 14
+updated: 2026-09-03
+sources: 15
 tags: [sigreg, jepa, lejepa, anti-collapse, isotropic-gaussian, cramer-wold, epps-pulley, balestriero, lecun, latent-space, regularization]
 ---
 
@@ -122,6 +122,31 @@ SIGReg = `SlicingUnivariateTest(EppsPulley(num_points=17), num_slices=1024)`. Ea
 
 The repo asserts **"94%+ Spearman correlation between training loss and downstream performance"**, i.e. *"you can finally do model selection without labeled validation data."* No plot, dataset list or protocol accompanies it. If true it matters far more in robotics than in vision, because there the labeled validation set is a [real-robot rollout](../robotics/robot-policy-evaluation.md).
 
+## What its author says when teaching it (2026-09-02)
+
+Balestriero's [Day 3 tutorial](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) is the only source here where he explains SIGReg live rather than in a paper. Five additions:
+
+**1. The DINO critique is sharper than the papers make it.** EMA doubles model memory, adds a hyperparameter, and **makes the loss uninterpretable** — *"you can see the loss actually increase but the quality of your model become better and better."* Hyperparameter changes move ImageNet-1k accuracy *"from almost state-of-the-art to completely random."* That instability, he argues, is why people refuse to train JEPAs at all — which is the market SIGReg is for.
+
+**2. Epps–Pulley's one implementation gotcha, stated aloud:** the random projection directions must be **identical across GPUs**. Seed carefully; everything else *"falls back in very easily."*
+
+**3. Architecture-agnosticism is the pitch to non-vision domains.** **50 architectures** thrown at ImageNet-10 out of the box, all training to within a small delta of each other, with no per-architecture tuning. *"When you want to do JEPA on new domains with new architecture, you need this stability."* Aimed at the finance half of the room, and the reason [Market-JEPA](../../entities/market-jepa.md) and [LeNEPA](../../sources/lenepa-paper.md) exist.
+
+**4. The detached-decoder diagnostic — stated as a rule, not a tip.**
+
+> *"This is something that you should always do when you train a world model. Always plug a detached online decoder and see what it reconstructs, because this is quite informative to see if you have a collapsed Z, or if you have a Z that actually did not collapse enough and the reconstruction is very crisp."*
+
+Trained **post-hoc and gradient-detached**, so it never touches training dynamics. On his cube example, arm motion and joint configuration decode correctly from actions alone while **cube rotation and gripper rotation do not** — a visible, cheap map of what the latent kept. Note the *two-sided* reading: crisp reconstruction is a warning too, meaning the latent retained detail it should have discarded.
+
+**5. SIGReg + IDM is the direction, and the ablation explains why.** [SMWM](../../entities/smwm.md)'s inverse-dynamics regularizer is the rival on this page; the tutorial makes both bounds concrete. In IDM's favour: if the inverse model is weak (linear), then a linear combination of `z_t` and `z_{t+1}` must recover `a_t` — *"a very very strong geometric constraint on how you put your Z embedding, which you don't have with SIGReg"* — and the resulting space is *"much easier to optimize for at planning time."* Against it: its anti-collapse power is **bounded by the richness of the action space**, shown by ablation — no actions loses position and shape; XY-only control preserves position but goes **shape-invariant**; only XY *plus* rotation retains enough to reconstruct the object. Since *"in practice we never observe all the actions,"* **combining the two is the promising path**, and he says the latest work does.
+
+> [!note] A free ablation of the Gaussian target, from the hackathon
+> A team with two hours swapped SIGReg's isotropic Gaussian for **multivariate Laplace** and **Student-t** on MNIST (and tried it on UrbanSound audio): **Gaussian beat both, by a clear margin.** No tuning, small scale, one dataset — it settles nothing against [LpWM](../../entities/lpwm.md)'s +24–57% with a sparse Rectified Generalized Gaussian on Push-T. But it is the first attempt in this wiki at the ablation the tutorial explicitly invited, and it went the theory's way. Balestriero's own live position is that the target matters less than the mechanism: *"in terms of performance it does not seem to matter so much as long as you feed the distribution in a nice way."*
+
+## Carried to video: [LeVJEPA](../../entities/levjepa.md) (2026-08-27)
+
+SIGReg's first result at video scale, and the first where its stability pitch buys **compute** rather than convenience: [LeVJEPA](../../entities/levjepa.md) (arXiv 2608.27395) trains a video encoder with an invariance loss over temporal views plus SIGReg — no EMA, no stop-gradient — and reports V-JEPA-2-comparable or better results at **5.6–20.8× less pretraining compute**, largely from random token dropping. Zero-shot segmentation emerges from PCA over patch embeddings, with no segmentation supervision.
+
 ## Where to put SIGReg in a *temporal* model — an open question with four candidate answers
 
 The paper and this page both treat the embedding distribution as one static thing. In an action-conditioned world model there are several distributions to choose from, and the lab's own [tutorial code](../../sources/wm-booth-lejepa-lewm-tutorial-repo.md) exposes the choice as a flag with **no published comparison**:
@@ -163,3 +188,4 @@ Given that open-loop degradation from 25 → 75 steps is the standing failure ([
 - [galilai-group/lejepa](../../sources/lejepa-github.md) — **the reference implementation**; the test family, the VICReg relationship, the quadrature trick.
 - [galilai-group/tutorial](../../sources/wm-booth-lejepa-lewm-tutorial-repo.md) — a 60-line LeWM and the four temporal SIGReg modes.
 - [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — VISReg, the scale/shape/centre decomposition.
+- [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — **its author teaching it**: the DINO instability case, the cross-GPU seeding gotcha, 50 architectures out of the box, the detached-decoder rule, the SIGReg+IDM argument, and a hackathon ablation where Gaussian beat Laplace and Student-t.

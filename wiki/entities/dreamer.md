@@ -3,8 +3,8 @@ title: Dreamer / DreamerV3
 type: entity
 subtype: method
 created: 2026-05-10
-updated: 2026-07-09
-sources: 18
+updated: 2026-09-03
+sources: 19
 tags: [dreamer, dreamer-v3, world-model, model-based-rl, mbrl, hafner, generative-wm]
 ---
 
@@ -17,6 +17,20 @@ tags: [dreamer, dreamer-v3, world-model, model-based-rl, mbrl, hafner, generativ
 - **DreamerV2** (Hafner et al. 2021) — Atari-class scaling; discrete latent.
 - **DreamerV3** (Hafner et al. 2023) — single-config generality across 150+ tasks; first algorithm to mine Minecraft diamonds without human data or curricula. See [DreamerV3 Paper](../sources/dreamer-v3-paper.md).
 - **[DayDreamer](../sources/daydreamer-paper.md)** (Wu, Escontrela, Hafner et al. 2022) — Dreamer on **4 physical robots, online, no simulator**: A1 quadruped walks in 1 hour from scratch; UR5/XArm visual pick-place. The real-robot existence proof for the family.
+
+## The critique from the JEPA side, named and specific
+
+[Balestriero](randall-balestriero.md) uses **Dreamer v4** as the worked counter-example in his [Day 3 tutorial](../sources/chicago-booth-world-modeling-workshop-2026-day3.md), and the target is precise: the **causal tokenizer**. Dreamer learns its latent `Z` by **reconstruction** — an encoder producing a compressed latent that can reconstruct the pixel inputs, causal in time, with masking and augmentation on top.
+
+He concedes the practical virtue first, and it is the same reason the family has survived a decade: *"this is actually less painful to train, in a sense it's quite stable… it will produce good reconstructed pixels, training probably will not diverge so much, it will be robust to the detail of the architecture."* Reconstruction also **cannot collapse**, which is why Dreamer needs no anti-collapse machinery at all — *"Dreamer does not collapse because `Z` must reconstruct the input."*
+
+The objection is that stability is bought at the cost of representation quality, and he argues it in two steps ([full account on the source page](../sources/chicago-booth-world-modeling-workshop-2026-day3.md)):
+
+1. **Reconstruction loss carries no information about representation quality** — two autoencoders with identical train *and* test MSE whose embeddings differ by ~20 points of ImageNet accuracy.
+2. **MSE gradients follow the top eigenvectors of the pixel covariance**, so training learns the **low-frequency** content first (colour, coarse contour) and the classification-relevant high-frequency structure last. Which is exactly the slow convergence MAE-style models show at equal FLOPs.
+
+> [!note] This is a disagreement about the encoder, not about imagination
+> Nothing in the critique touches learning-in-imagination, the actor–critic, or the RSSM's recurrence — the parts Dreamer is famous for. It targets **how the latent is learned**, and the constructive reading is that the two lines are separable: an action-conditioned predictor and an imagination-trained policy do not care whether the encoder was trained by reconstruction or by [SIGReg](../concepts/world-models/sigreg.md). No source in this wiki has tried the combination.
 
 ## Key capabilities (DreamerV3)
 
@@ -60,6 +74,7 @@ tags: [dreamer, dreamer-v3, world-model, model-based-rl, mbrl, hafner, generativ
 - [EAWM paper](../sources/eawm-paper.md) — event-aware objective on Dreamer backbones
 - [PlaNet paper](../sources/planet-paper.md) — lineage origin
 - [DayDreamer paper](../sources/daydreamer-paper.md) — real-robot deployment
+- [Third World Modeling Workshop — Day 3](../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — Balestriero's reconstruction critique, aimed at Dreamer v4's causal tokenizer by name
 
 ## Open questions / TBD
 

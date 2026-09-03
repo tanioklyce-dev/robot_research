@@ -2,9 +2,9 @@
 title: World model
 type: concept
 created: 2026-05-07
-updated: 2026-08-31
-sources: 60
-tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video, omnimodal, world-action-model]
+updated: 2026-09-03
+sources: 61
+tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video, omnimodal, world-action-model, history]
 ---
 
 **World model** — a **learned predictive model of environment dynamics**: given the current state (or observation) and an action, predict the next state (or observation). The umbrella term covers a wide range of approaches that all share this functional definition. Used for **planning**, **policy improvement** (model-based RL), **imagination**, and **representation learning**.
@@ -14,6 +14,36 @@ tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generat
 
 > [!note] Distinct from [World-model simulators](world-model-simulators.md)
 > This page covers the **broad concept** of a learned dynamics model. The companion concept page [world-model-simulators](world-model-simulators.md) is narrower — it specifically addresses world-models-used-as-simulators (i.e. drop-in replacements for traditional rigid-body simulators in agentic-robotics workflows). Many world models in the broader sense (Dreamer-class model-based RL, MuZero) are not "simulators" by that narrower definition.
+
+## Three eras of the term — and why the field cannot agree on a definition
+
+Three days of the [2026 World Modeling Workshop](../../sources/chicago-booth-world-modeling-workshop-2026.md) failed to produce one definition, and [Kawin Ethayarajh](../../entities/kawin-ethayarajh.md)'s [closing remarks](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) explain why: **the phrase has meant three different things across eighty years, and all three usages are still live.**
+
+| Period | "World model" meant | Representative work |
+|---|---|---|
+| **1940s–1980s** | A **symbolic description** of the world, typically **specified by hand** | Winograd's SHRDLU (1970); **Cyc** — *"scale ontologies the hard way, one relation at a time"* |
+| **1980s–2010s** | A **probabilistic model** of how the world changes | Judea Pearl on probabilistic reasoning; **Sutton's Dyna**; HMM part-of-speech tagging on the language side |
+| **2012–** | A **deep network** predicting observations, consequences, and/or affinities between states | everything on the rest of this page |
+
+[LeCun](../../entities/yann-lecun.md) holds a **narrower fourth position**: a neural world model that is also **separate from any actor in that world** — which is why "is a policy with an internal state a world model?" gets different answers from different people in the same room.
+
+**The prehistory reaches further back than the ML literature admits.**
+
+- **Epictetus, c. 125 CE** — *premeditatio malorum*. Anticipate the rowdy bathhouse, imagine yourself experiencing it, and you can *"enjoy bathing unperturbed."* Planning against an internal model of a situation, as a Stoic exercise.
+- **Tolman's rats.** Trained to a reward down a fixed path; then placed in a maze where that path is sealed and many alternatives open. **38% — a large plurality — take the most direct route to the reward**, which they have never traversed. They built a **cognitive map**, not a policy. (See [David Klindt](../../entities/david-klindt.md) for the Tolman–Honzik latent-learning argument in its modern JEPA form.)
+- **SHRDLU (1970)** — a near-perfect model of a tiny world, manipulable in natural language, including a mechanism for admitting ignorance and being taught (*"a steeple is a pyramid on top of a block"* → *"okay, I get what a steeple is"*). Ethayarajh's verdict is aimed at the present: *"much in the way of LLM psychosis nowadays, people were really amazed by this program"* and concluded scale would finish the job. *"Turns out this was kind of a dead end — but it was still a very important milestone."*
+
+**Post-2012 the field forks**, on a premise he attributes to Sutskever — *make the whole world in distribution*:
+
+- **Scaling language** — humans have a world model, it is crystallized in language, so predict the next token. word2vec → LLMs.
+- **Scaling experience** — you must go into the world, or a simulation of it. MuZero, Tesla Autopilot, XLand.
+
+Today's practice occupies all four cells (real/synthetic × language/experience), with **humanoid robots in homes** named as the real-experience collection strategy — *"as slightly terrifying as that might be"* — under Amodei's **"big blob of compute"** framing, in which the provenance of the data is secondary to growing the compute.
+
+> [!warning] One claim from the remarks that this wiki cannot source
+> That **DeepMind's bet on scaling experience is part of why Google fell behind on language models.** Stated as fact in a closing summary; plausible and widely repeated, but unsupported by anything here.
+
+**Three questions he leaves open**, which are a fair map of what this wiki's world-model pages actually argue about: (1) **explicit vs implicit** — is a language-learned implicit world model sufficient, and can theory settle it; (2) **latent vs observation space**; (3) **adaptation** — *"as we release more and more AI into the wild, the world is going to adapt in response to the rise of AI."* The third generalizes [Day 2's reflexivity problem](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) out of finance: every domain acquires the property that made markets hard, so [world models for financial markets](../../syntheses/society/world-models-for-financial-markets.md) reads as an early case study rather than a special case.
 
 ## Functional definition
 A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, a_t)` — possibly with stochasticity, possibly partial observability, possibly in a latent representation. The state space, action conditioning, and prediction target vary widely:
@@ -102,6 +132,7 @@ A separate tradition builds a model of the environment for a different purpose �
 - [EfficientZero paper](../../sources/efficientzero-paper.md) — Atari-100K sample-efficiency milestone
 - [DayDreamer paper](../../sources/daydreamer-paper.md) — imagination-MBRL on 4 real robots, no simulator
 - [DIAMOND paper](../../sources/diamond-paper.md) — diffusion world model; CS:GO neural game engine
+- [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — **the three-era periodization and the prehistory above**, from Ethayarajh's closing remarks; also the scaling-language vs scaling-experience fork and the three open questions
 
 ## Open questions / TBD
 - ~~PlaNet / DreamerV1 / V2 / TD-MPC1 — earlier MBRL milestones~~ — PlaNet, [World Models](../../sources/world-models-paper.md), [MuZero](../../sources/muzero-paper.md), [EfficientZero](../../sources/efficientzero-paper.md), [DayDreamer](../../sources/daydreamer-paper.md), [DIAMOND](../../sources/diamond-paper.md) all ingested 2026-07-09; V1/V2 remain covered via the [Dreamer entity](../../entities/dreamer.md) lineage table.

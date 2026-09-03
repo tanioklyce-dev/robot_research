@@ -3,7 +3,7 @@ title: Dexterous tool manipulation
 type: concept
 created: 2026-08-31
 updated: 2026-08-31
-sources: 3
+sources: 2
 tags: [dexterous-manipulation, tool-use, in-hand-manipulation, multi-fingered-hand, sim-to-real, rl, grasping, object-centric]
 ---
 

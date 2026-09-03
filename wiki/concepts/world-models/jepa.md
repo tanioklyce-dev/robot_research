@@ -2,8 +2,8 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-09-02
-sources: 60
+updated: 2026-09-03
+sources: 61
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -30,6 +30,19 @@ Both sides of the prediction live in the *jointly shared* embedding space. This 
 | JEPA | An embedding — same space as the input |
 
 The term **Joint Embedding** names the architecture class defined by this property: all learning — both encoding and prediction — happens inside a single shared representation space. It is also why representation collapse is the central failure mode: if the encoder collapses to a constant, the loss is trivially zero, with no pixel-level signal to expose the problem.
+
+## Why not reconstruction — the spectral argument
+
+The usual case against pixel prediction is that it spends capacity on detail that is unpredictable and irrelevant. [Balestriero](../../entities/randall-balestriero.md)'s [Day 3 tutorial](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) makes a stronger and more specific one, in three steps:
+
+1. **The reconstruction loss does not determine the representation.** Two autoencoders, same architecture and initialization and data order, whose reconstructions look identical and whose **train *and* test MSE curves overlap** — and whose embeddings differ by **~20 points of ImageNet accuracy**, under linear *and* nonlinear probes. Constructed deliberately (a tiny extra gradient signal), so it is an existence proof rather than a measurement; the point is that MSE gives you **no way to tell the good encoder from the bad one**.
+2. **The default lands in the bad case, for a reason you can compute.** Pixel covariance has 1/f eigenvalue decay; MSE gradients follow its **top eigenvectors**; so training fills in the spectrum from the largest eigenvalue down. *"If you give me a dataset I can tell you what you will learn first"* — provable in the linear regime and at initialization, observed across MLP, ResNet and transformer.
+3. **That ordering is backwards.** The low-frequency content learned first is colour and coarse contour — *"there is no way you know what it is."* The high-frequency structure classification, segmentation and counting need is learned last. Which is precisely MAE's slow convergence relative to a JEPA at equal FLOPs.
+
+The escape hatch is closed by scope rather than by proof: SSIM is image-specific, LPIPS presupposes a pretrained encoder, and outside vision (EEG, prices) MSE is worse. *"If you are able to find a meaningful reconstruction loss, it means you already learned everything, because you are able to construct a loss with all the invariances that you need."* Applied by name to [Dreamer v4](../../entities/dreamer.md)'s causal tokenizer.
+
+> [!note] The tradeoff is stated, not hidden
+> Reconstruction **cannot collapse** — that is why Dreamer needs no anti-collapse term at all, and why reconstruction training is robust to architecture choices. JEPA buys representation quality by giving that up, which is exactly why this concept's [anti-collapse design space](#common-training-challenges) exists. And the invariance JEPA specifies is itself a cost: *"as soon as you say you want to be invariant to something, someone can come and say, well, I can design a downstream task that lives exactly in this invariant subspace and for which you will have random performance."*
 
 ## Core idea
 - Encoder maps inputs to a latent embedding `z`.
@@ -251,6 +264,8 @@ And the caution that generalizes beyond JEPA: **stable features are not usable f
 - [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — DSeq-JEPA; VISReg (see [SIGReg](sigreg.md)); AdaJEPA's ~0.3 s/step adaptation cost; [Klindt](../../entities/david-klindt.md)'s latent-learning argument that goal-biased data yields a worse map; and [MarketOne](../../entities/marketone.md), where a LeJEPA setup wins the *economic-interpretability* half of an 18-method bake-off while losing the pure-forecasting half.
 
 ## Mentioned in (additional)
+
+- [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — the spectral reconstruction critique above, taught by Balestriero; also prediction-loss-as-graph-specification and the SIGReg+inverse-dynamics argument.
 
 - [What Makes Video World Model Latents Action-Relevant](../../sources/action-relevant-latents-paper.md) — the shared inverse-dynamics probe; the ~+0.10 attribution; rotation; the per-layer profile.
 - [Latent Video Prediction Learns Better World Models](../../sources/latent-video-prediction-better-world-models-paper.md) — five robustness axes; arrow of time; stable ≠ usable.

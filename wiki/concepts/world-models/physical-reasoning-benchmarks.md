@@ -3,7 +3,7 @@ title: Physical reasoning benchmarks and the human baseline
 type: concept
 created: 2026-08-31
 updated: 2026-08-31
-sources: 3
+sources: 1
 tags: [physical-reasoning, intuitive-physics, phyre, virtual-tools, physion, auccess, human-baseline, cognitive-science, benchmark, active-exploration]
 ---
 

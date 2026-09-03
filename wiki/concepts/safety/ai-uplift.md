@@ -3,7 +3,7 @@ title: AI uplift studies
 type: concept
 created: 2026-07-27
 updated: 2026-07-27
-sources: 3
+sources: 4
 tags: [ai-safety, uplift-study, evaluation, methodology, rct, responsible-scaling, frontier-red-team, robotics, autonomy]
 ---
 

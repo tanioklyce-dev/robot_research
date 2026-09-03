@@ -3,7 +3,7 @@ title: Stigmergy
 type: concept
 created: 2026-08-31
 updated: 2026-08-31
-sources: 3
+sources: 1
 tags: [stigmergy, self-organization, swarm-intelligence, alife, emergence, multi-agent, collective-intelligence, indirect-coordination, llm-agents]
 ---
 

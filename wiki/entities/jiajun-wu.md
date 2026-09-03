@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-31
 updated: 2026-08-31
-sources: 5
+sources: 1
 tags: [jiajun-wu, stanford, stanford-hai, researcher, world-models, evaluation, benchmark, video-prediction]
 ---
 

@@ -2,8 +2,8 @@
 title: Spectral theory of self-supervised learning
 type: concept
 created: 2026-07-26
-updated: 2026-07-26
-sources: 5
+updated: 2026-09-03
+sources: 6
 tags: [spectral-graph-theory, self-supervised-learning, ssl-theory, laplacian-eigenmaps, mds, vicreg, simclr, barlow-twins, sigreg, jepa, balestriero, lecun, theory]
 ---
 
@@ -20,6 +20,28 @@ Self-supervised learning uses inputs `X` plus **pairwise positive relations `G`*
 - **Barlow Twins ↔ Canonical Correlation Analysis**-family.
 
 So **contrastive methods recover global spectral embeddings and non-contrastive methods recover local ones** — the first theoretical bridge between the two families. The framework yields closed-form optimal representations (and, in the linear regime, optimal parameters) per method, plus principled design guidance (e.g. how the choice of `G` interacts with the downstream task).
+
+## The derivation, in the form its author teaches it
+
+The [Day 3 tutorial](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) gives the plain-language version of how a supervised objective becomes a graph objective, and it is short enough to reproduce:
+
+1. Start with ordinary least squares on top of an embedding — `f(x)` through a linear probe `W, b`, regressing on labels `Y`, plus a Frobenius penalty on `W` (which handles low-rank embeddings).
+2. **Minimize explicitly for `W` and `b`.** Closed form; substitute back.
+3. What remains is a trace involving **`YᵀY`** — an `N×N` matrix of **pairwise label relationships** — projected through `V`, the left singular vectors of the embeddings (i.e. whitened embeddings).
+
+The labels have vanished. What is left are **coordinate-free labels**: you no longer need to know *what* a sample is, only **which samples relate to which**. So:
+
+> **Designing a prediction loss is the same as designing a graph over samples.**
+
+Supervised learning with augmentation connects every view of every sample of a class — as many complete subgraphs as there are classes. Standard [SSL](../world-models/jepa.md) connects only the views of one sample — as many disjoint complete subgraphs as there are samples. Both are one objective over different affinity graphs. Balestriero reports that supplying the *true* labels' graph recovers **the supervised solution to machine precision**.
+
+Two consequences he draws:
+
+- **Relational labels are cheaper to collect than categorical ones.** *"If I show you two pictures of a very specific dog and ask what's the dog breed, you will not know. But if I ask, is it the same dog breed, everyone will know."* Hence cheap active learning by filling in graph entries rather than labels.
+- **Metadata becomes supervision.** Building a denser graph from **captions** — so that a dog and a cat sharing a background are not fully disconnected — outperforms CLIP *"by a high margin."* That is **X-CLR** ([X-Sample Contrastive Loss](https://arxiv.org/abs/2407.18134), arXiv 2407.18134), and a companion line studies **graph misspecification**: false positives and false negatives do **not** cost the same, so characterizing the asymmetry is what tells you which estimation errors to tolerate.
+
+> [!note] Four named papers, none of them ingested
+> The tutorial names *"The Birth of Self-Supervised Learning: A Supervised Theory"* (the closed-form derivation above), a relational-representation-learning paper on graph-estimation noise, the caption-graph paper (X-CLR), and a recent summary. This wiki holds only the [IEEE SPM review](../../sources/spectral-graph-theory-ssl-paper.md) of the same line. The graph-specification framing is the most portable idea in the tutorial and it rests here on a talk.
 
 ## Why it matters
 
@@ -48,3 +70,4 @@ The spectral framework is well-established for *static* SSL (the 2022 result) an
 ## Mentioned in
 
 - [Spectral Graph Theory review](../../sources/spectral-graph-theory-ssl-paper.md), [JEPA generalization theory](../../sources/jepa-generalization-theory-paper.md), [LeNEPA](../../sources/lenepa-paper.md).
+- [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — the closed-form derivation taught live, plus X-CLR and the graph-noise asymmetry.

@@ -3,7 +3,7 @@ title: Cellular automata
 type: concept
 created: 2026-06-02
 updated: 2026-06-02
-sources: 1
+sources: 2
 tags: [cellular-automata, game-of-life, conway, wolfram, rule-30, computational-irreducibility, computational-equivalence, universality, emergence, alife, search-vs-construction]
 ---
 

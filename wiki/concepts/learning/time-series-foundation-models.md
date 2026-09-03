@@ -2,14 +2,31 @@
 title: Time-series foundation models (and whether they hallucinate)
 type: concept
 created: 2026-09-02
-updated: 2026-09-02
-sources: 1
-tags: [time-series, foundation-models, chronos, hallucination, zero-shot-forecasting, hidden-states, signal-noise, interpretability, non-stationarity]
+updated: 2026-09-03
+sources: 2
+tags: [time-series, foundation-models, chronos, timesfm, sundial, hallucination, zero-shot-forecasting, hidden-states, signal-noise, interpretability, non-stationarity, mutual-information]
 ---
 
 **Time-series foundation models** are pretrained transformers for **zero-shot forecasting**: given a context window of a series it has never seen, emit the next *q* values without fitting anything. Some are adapted from text foundation models, some are transformers with time-series-specific modifications; all are trained on very large heterogeneous collections of series. **Chronos** (Amazon) is the best-known.
 
 The wiki's entry point is [Diego Klabjan](../../entities/diego-klabjan.md)'s deep-dive at [Day 2 of the Chicago Booth workshop](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md), which asks whether they **hallucinate**, and answers yes.
+
+## The landscape, as of September 2026
+
+Named by [Bradford Levy](../../entities/bradford-levy.md) at [Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md): **TimesFM** (Google — *"the first one to pop out"*, now on its **fourth** version), **Chronos** (Amazon, now v2), **Sundial** (a Chinese lab, likely Alibaba). The recipe is *"kind of like language, but you just go out and you get all the different time series you could possibly get"* — electricity-grid demand, traffic, weather, and **dynamical systems** (spring–mass–damper, RLC circuits, up to F1 telemetry), plus synthetic data.
+
+The premise underneath is worth stating because it is testable: **there are commonalities across these domains that a large model will learn.** For dynamical systems specifically, the closed-form ODE solutions often turn on one or two parameters, so *"you could imagine learning how to solve a class of ODEs, and so long as you can infer that parameter, you can solve a bunch of different dynamics."*
+
+## Does the past predict the future? A domain-by-domain measurement
+
+Levy's contribution is to stop asserting that some domains are harder and **measure it**. Push consecutive periods of a series through a time-series foundation model, extract the representations, and estimate the **mutual information** between them using the **SMILE** estimator. Repeat across domains and models.
+
+**Electricity demand, weather, traffic, dynamical systems: high. Finance: markedly lower than every other domain — and not zero.**
+
+> [!note] Why "not zero" is the interesting half
+> Zero would mean markets are unforecastable and the exercise is over. Non-zero, in the finance case, is exactly what **Grossman–Stiglitz (1980)** predicts: information is costly, so only a fraction of agents become informed, so price *cannot* fully reveal private information, and the market is **"efficiently inefficient."** The measurement and the 45-year-old theorem agree. See [world models for financial markets](../../syntheses/society/world-models-for-financial-markets.md) and [financial time-series augmentations](../economics/financial-time-series-augmentations.md).
+>
+> The method generalizes past finance. **"Mutual information between representations at different times, estimated through a pretrained encoder"** is a domain-difficulty measure that needs no task, no labels and no forecast — usable on robot sensor streams as readily as on electricity demand. Nothing else in this wiki offers one.
 
 ## Hallucination without language
 
@@ -79,3 +96,4 @@ An audience member reports unpublished work comparing foundation-model forecaste
 
 ## Mentioned in
 - [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — Diego Klabjan deep-dive.
+- [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — Bradford Levy's tutorial: the model landscape, and the cross-domain mutual-information measurement.

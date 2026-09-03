@@ -3,7 +3,7 @@ title: Low-rank adaptation (LoRA) and parameter-efficient fine-tuning
 type: concept
 created: 2026-08-31
 updated: 2026-08-31
-sources: 9
+sources: 7
 tags: [lora, peft, parameter-efficient-fine-tuning, low-rank, adapters, prefix-tuning, fine-tuning, transformer, vla, adaptation]
 ---
 

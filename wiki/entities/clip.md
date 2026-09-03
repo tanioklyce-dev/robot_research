@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-30
 updated: 2026-09-01
-sources: 0
+sources: 1
 tags: [clip, openai, vision-language, contrastive, zero-shot, backbone, robustness]
 ---
 

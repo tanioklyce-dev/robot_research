@@ -10,39 +10,18 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
-## [2026-09-02] Chicago Booth World Modeling Workshop — Day 3 transcript captured, not yet ingested
+## [2026-09-03] Chicago Booth workshop — all three days ingested; four leads left over
 
-**Update 2026-09-03:** auto-captions are up. Downloaded via `yt-dlp` and cleaned (rolling-caption dedup + timestamp bucketing, same recipe as Day 1/2) to `raw/2026-09-02-chicago-booth-world-modeling-workshop-day3-transcript.txt` (7h48m, 401 timestamped paragraphs). **Not yet ingested** — no `wiki/sources/` page, no entity/concept updates — left for a future session. As with Day 1/2, expect proper-noun garbling (already seen: "Rando Bolstrio" / "Leeppa" for Randall Balestriero / LeJEPA); reconcile speaker names against the archived programme (`raw/2026-09-02-wm-booth-org-programme.html`) before filing.
+~~**[2026-09-02] Day 3 transcript captured, not yet ingested.**~~ **Done 2026-09-03** — ingested as [Day 3](sources/chicago-booth-world-modeling-workshop-2026-day3.md). The wait-for-the-VOD bet paid off a second time: auto-captions appeared, no Whisper pass, no `--live-from-start` audio capture needed. **Names reconciled against the archived programme first**, as the Day 2 rule requires; the ASR was worse than Day 2's ("Rando Bolstrio", "Leeppa", "Louis Vij Japa", "craral the theorem"), so the rule earned its keep.
 
-**Video: `PkaYC3fwEsc`** — "Workshop on World Models - Day 3 (WM@Booth 2026)", same channel. Per the workshop programme (archived at `raw/2026-09-02-wm-booth-org-programme.html`), Day 3 is a **hands-on coding workshop with tutorials and a modeling challenge** — a different kind of source from Days 1–2, and likely more useful as a *procedure* than as claims. It was still live as of 2026-09-02.
+What Day 3 leaves open:
 
-```bash
-yt-dlp --list-subs "https://www.youtube.com/watch?v=PkaYC3fwEsc"
-```
-
-Day 2's captions appeared roughly a day after the stream ended, so the same wait-for-the-VOD approach should work. **Same risk as before**: a livestream can be trimmed, made private, or lose its DVR window.
-
-**Programme (from the archived primary), so a future ingest knows what to expect:**
-
-| Time | Session |
-|---|---|
-| 9:00–10:30 | **Tutorial 1 — *How to Train JEPA World Models Without Headache*** · Randall Balestriero, Brown |
-| 11:00–11:20 | **Institutional-Grade Market Data** · Steve Bravo, Massive |
-| 11:20–12:30 | **Tutorial 2 — *Financial Data: Challenges, Evaluation, and Training*** · Bradford Levy, Chicago Booth |
-| 1:30–2:00 | **Scaling GPU Infrastructure** · Amir Zadeh, Lambda (via Zoom) |
-| 2:00–4:00 | **Open Working Session — Modeling Challenge** |
-| 4:00–5:00 | **Challenge Presentations & Closing Remarks** |
-
-**The code half of Tutorial 1 is already captured.** [`galilai-group/tutorial`](sources/wm-booth-lejepa-lewm-tutorial-repo.md) — created by Balestriero the morning of the session — **is** that tutorial, now confirmed against the programme title rather than inferred. What the VOD would add: the narration, both finance sessions, the Lambda infrastructure talk, and the **modeling challenge**, which has no artifact anywhere.
-
-**Status checks.** 2026-09-02 21:56 CDT: `live_status=is_live`, **13.0 h elapsed** (started 08:56 CDT), duration NA, 547 views, and `has no automatic captions` with an empty manual-subtitle list. The schedule ended at 5:00pm, so the event is over and the stream simply has not been cut — identical to Day 2's state at 13h20m the previous evening, whose captions then appeared about a day later.
-
-**Capture is available if the wait becomes unattractive.** `yt-dlp --live-from-start` resolves audio-only formats (139 @ 64k, 140 @ 144k) — roughly **375 MB for 13 h at 64k**. That hedges the "VOD disappears" risk directly, at the cost of the ~9h local Whisper pass Day 1 needed, and with the same proper-noun garbling. Not started; the wait has now worked once.
-
-~~**[2026-09-01] Day 2 awaiting its VOD.**~~ **Done 2026-09-02** — the bet paid off exactly as reasoned: auto-captions appeared on the VOD, no Whisper pass was needed, and the ~9h of local GPU transcription Day 1 cost was skipped. Ingested as [Day 2](sources/chicago-booth-world-modeling-workshop-2026-day2.md).
-
-> [!note] The transcript fix that actually worked
-> Day 1's page warns that machine ASR garbles proper nouns and that this had already propagated one wrong title into the wiki. Waiting for better captions would **not** have fixed that — auto-captions garble names just as badly ("Ego Clavian" for Diego Klabjan). What fixed it was **reconciling the speaker list against the event's own programme page** before filing anything, and archiving that page into `raw/`. Worth making the default for any talk-derived source.
+- [ ] **Find the Philadelphia multimodal driving paper.** [Balestriero](entities/randall-balestriero.md) describes a lab-built sensor rig on a car driven around Philly; video-only world models degrade sharply at night; and an **MAE-based multimodal model beats the vision-only V-JEPA state of the art**. Searched arXiv and the adjacent JEPA/lidar driving literature without a match. **Highest-value item here**: it is a *reconstruction* method beating a *JEPA*, reported by the JEPA line's own author, which is an awkward result for [the morning's whole argument](concepts/world-models/jepa.md) and for the wiki's [reconstruction-encoders-are-worst ordering](concepts/world-models/jepa.md).
+- [ ] **Ingest the four SSL-theory papers the tutorial names.** *"The Birth of Self-Supervised Learning: A Supervised Theory"* (the closed-form supervised→graph derivation), a relational-representation-learning paper on graph-estimation noise (false positives and false negatives cost differently), **X-CLR** ([X-Sample Contrastive Loss](https://arxiv.org/abs/2407.18134), arXiv 2407.18134 — captions as a denser affinity graph, beating CLIP), and a recent summary. The graph-specification framing is the most portable idea in the tutorial and [the wiki holds it on a talk](concepts/learning/spectral-theory-of-ssl.md), with only the [IEEE SPM review](sources/spectral-graph-theory-ssl-paper.md) of the same line ingested.
+- [ ] **Ingest [LeVJEPA](entities/levjepa.md)** (arXiv 2608.27395). Entity page built from the abstract plus tutorial narration; the **5.6–20.8× compute claim**, the token-dropping ablation and the block-causal-attention result all need the primary before they feed anything load-bearing.
+- [ ] **Check whether "representation half-life" already exists under another name.** A hackathon participant's measure — how far into the future latent neighbours stay predictive, against random controls with the same intraday anchor — needs **no decoder, no planner and no labels**, which is exactly the evaluation gap Balestriero named that morning. Worth checking the SSL-evaluation literature before treating it as novel; if it is novel it is cheap to run on any [world-model latent space](concepts/world-models/latent-space.md).
+- [ ] **Locate the noise-curriculum paper.** A curriculum over synthetic noise levels restoring the noiseless convergence rate of a JEPA under noisy inputs — directly applicable to cheap robot sensors, mentioned once, not named.
+- [ ] **Source or drop the "DeepMind fell behind on language because it bet on scaling experience" claim**, stated as fact in [Ethayarajh](entities/kawin-ethayarajh.md)'s closing remarks and flagged as unsupported on [world model](concepts/world-models/world-model.md).
 
 ## [2026-08-31] Bohg-lab "Messy*" line — two papers announced but unpublished
 

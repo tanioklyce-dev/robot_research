@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-07
 updated: 2026-08-28
-sources: 11
+sources: 12
 tags: [qwen, llm, alibaba, open-weights]
 status: stub
 ---
