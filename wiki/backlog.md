@@ -20,7 +20,22 @@ yt-dlp --list-subs "https://www.youtube.com/watch?v=PkaYC3fwEsc"
 
 Day 2's captions appeared roughly a day after the stream ended, so the same wait-for-the-VOD approach should work. **Same risk as before**: a livestream can be trimmed, made private, or lose its DVR window.
 
-**The code half is already captured.** [`galilai-group/tutorial`](sources/wm-booth-lejepa-lewm-tutorial-repo.md) — pushed by Balestriero at 13:18 UTC on 2026-09-02, hours before the stream — is almost certainly the tutorial material, and is ingested. What the VOD would add is the *narration and the modeling challenge*, not the code.
+**Programme (from the archived primary), so a future ingest knows what to expect:**
+
+| Time | Session |
+|---|---|
+| 9:00–10:30 | **Tutorial 1 — *How to Train JEPA World Models Without Headache*** · Randall Balestriero, Brown |
+| 11:00–11:20 | **Institutional-Grade Market Data** · Steve Bravo, Massive |
+| 11:20–12:30 | **Tutorial 2 — *Financial Data: Challenges, Evaluation, and Training*** · Bradford Levy, Chicago Booth |
+| 1:30–2:00 | **Scaling GPU Infrastructure** · Amir Zadeh, Lambda (via Zoom) |
+| 2:00–4:00 | **Open Working Session — Modeling Challenge** |
+| 4:00–5:00 | **Challenge Presentations & Closing Remarks** |
+
+**The code half of Tutorial 1 is already captured.** [`galilai-group/tutorial`](sources/wm-booth-lejepa-lewm-tutorial-repo.md) — created by Balestriero the morning of the session — **is** that tutorial, now confirmed against the programme title rather than inferred. What the VOD would add: the narration, both finance sessions, the Lambda infrastructure talk, and the **modeling challenge**, which has no artifact anywhere.
+
+**Status checks.** 2026-09-02 21:56 CDT: `live_status=is_live`, **13.0 h elapsed** (started 08:56 CDT), duration NA, 547 views, and `has no automatic captions` with an empty manual-subtitle list. The schedule ended at 5:00pm, so the event is over and the stream simply has not been cut — identical to Day 2's state at 13h20m the previous evening, whose captions then appeared about a day later.
+
+**Capture is available if the wait becomes unattractive.** `yt-dlp --live-from-start` resolves audio-only formats (139 @ 64k, 140 @ 144k) — roughly **375 MB for 13 h at 64k**. That hedges the "VOD disappears" risk directly, at the cost of the ~9h local Whisper pass Day 1 needed, and with the same proper-noun garbling. Not started; the wait has now worked once.
 
 ~~**[2026-09-01] Day 2 awaiting its VOD.**~~ **Done 2026-09-02** — the bet paid off exactly as reasoned: auto-captions appeared on the VOD, no Whisper pass was needed, and the ~9h of local GPU transcription Day 1 cost was skipped. Ingested as [Day 2](sources/chicago-booth-world-modeling-workshop-2026-day2.md).
 

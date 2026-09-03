@@ -4,7 +4,7 @@ type: entity
 subtype: dataset
 created: 2026-09-02
 updated: 2026-09-02
-sources: 1
+sources: 2
 tags: [marketone, dataset, finance, self-supervised, lejepa, byol, scaling, chicago-booth, balestriero, benchmark]
 ---
 
@@ -27,6 +27,9 @@ Motivation is a data-infrastructure complaint: financial ML datasets are *"extre
 ## Methodological point worth copying
 
 **Regime shifts across the sample are large enough to invalidate single-period evaluation.** A single encoder trained across all months shows visible regime structure over time, and *"if you were to naively choose to only evaluate say on the last year of data 2023–2024 you get a very biased estimate of how this encoder performs."* Their protocol samples **32 random months** across the sample to span market regimes. Compare the wiki's [world-model evaluation](../concepts/world-models/world-model-evaluation.md) concerns about benchmark period selection.
+
+> [!note] Massive presented separately on Day 3
+> The data partner has its own slot in the workshop programme — **Day 3, 11:00–11:20am, *"Institutional-Grade Market Data,"* Steve Bravo, Massive.** Not ingested; the Day 3 stream had no captions as of 2026-09-02. If the dataset's provenance and licensing terms ever become load-bearing, that is the talk to find.
 
 ## Related
 - [Asset embeddings](../concepts/economics/asset-embeddings.md) — the neighbouring representation-learning attempt, from holdings rather than prices.

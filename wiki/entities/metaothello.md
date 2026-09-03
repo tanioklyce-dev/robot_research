@@ -8,7 +8,7 @@ sources: 1
 tags: [metaothello, othello-gpt, world-model, interpretability, linear-probe, steering, belief-state, ambiguity, toy-model]
 ---
 
-**MetaOthello** — *"A Controlled Study of Multiple World Models in Transformers."* Aviral Chawla (University of Vermont) and collaborators; presented at [Day 2 of the Chicago Booth world-modeling workshop](../sources/chicago-booth-world-modeling-workshop-2026-day2.md) (2026-09-01) by a University of Michigan collaborator.
+**MetaOthello** — *"A Controlled Study of Multiple World Models in Transformers."* **Aviral Chawla, Galen Hall and Juniper L. Lovato** (University of Vermont); presented at [Day 2 of the Chicago Booth world-modeling workshop](../sources/chicago-booth-world-modeling-workshop-2026-day2.md) (2026-09-01) by a collaborator who introduced himself as presenting *"from the University of Michigan,"* on behalf of *"my co-author Avi back there and his adviser Juniper"* — i.e. Chawla and Lovato. On the poster author list the presenter is **Galen Hall**.
 
 ## The question
 
@@ -40,4 +40,4 @@ Also relevant to the wiki's [linear-probe caution](../concepts/safety/mechanisti
 - [Third World Modeling Workshop — Day 2](../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — lightning talk, session 3.
 
 > [!note] Thin entity
-> Five-minute talk, no paper ingested. The presenter was a Michigan collaborator rather than the first author, and their name is not legible in the auto-captions.
+> Five-minute talk, no paper ingested. Author names were recovered from the workshop's archived poster list, not from the auto-captions, which rendered "Juniper" as a first name with no surname.
