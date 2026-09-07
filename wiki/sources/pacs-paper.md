@@ -124,6 +124,7 @@ The two safety modes come straight from **ISO/TS 15066** — the collaborative-r
 - [Assistive robotics](../concepts/robotics/assistive-robotics.md) — the FEEDING task is robot-assisted feeding with a **0.001 J** head/eye energy limit.
 - [Imitation learning](../concepts/learning/imitation-learning.md) — the OOD-recovery failure is the mechanism behind every number here.
 - [Robot policy evaluation](../concepts/robotics/robot-policy-evaluation.md) — "safe success" is a metric the wiki's evaluation coverage does not otherwise contain.
+- [Safety certificates](../concepts/robotics/safety-certificates.md) — the certificate families PACS and its CBF baseline instantiate, and the page carrying this paper's finding that **certificate strength does not predict effect on a learned policy**.
 
 ## Open questions
 

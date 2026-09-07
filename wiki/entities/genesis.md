@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-06
 updated: 2026-05-07
-sources: 3
+sources: 4
 tags: [physics-engine, generative-simulation, vlm, embodied-ai]
 ---
 

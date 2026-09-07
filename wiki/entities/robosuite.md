@@ -4,7 +4,7 @@ type: entity
 subtype: simulator
 created: 2026-08-03
 updated: 2026-08-03
-sources: 3
+sources: 4
 tags: [robosuite, simulator, mujoco, manipulation, benchmark, infrastructure]
 ---
 

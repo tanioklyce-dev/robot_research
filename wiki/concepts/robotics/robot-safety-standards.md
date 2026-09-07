@@ -2,8 +2,8 @@
 title: Robot safety standards (ISO 13482 and the machinery-safety framework)
 type: concept
 created: 2026-07-08
-updated: 2026-08-03
-sources: 20
+updated: 2026-09-07
+sources: 21
 tags: [iso-13482, iso-10218, ts-15066, safety-standards, certification, ce-marking, service-robots, personal-care-robots, assistive, regulation, functional-safety, nvidia-halos]
 ---
 
@@ -54,9 +54,12 @@ A concrete instance of that predicted pattern arrived 2026-07-15: **[NVIDIA Halo
 
 That is the wiki's **first ingested instance of a learned policy held to a machinery-safety standard's actual numbers** — and the gap to conformity is now narrower and more legible: the mechanism exists, the thresholds are sourced from surrogate-injury data, and what is missing is the process (risk assessment over specified behaviors, an accredited body, and a perception system the constraint geometry can trust). See [safety filters for learned policies](safety-filters.md).
 
+**Where the research literature puts the standards.** The [contact-rich safe-learning survey](../../sources/safe-learning-contact-rich-survey.md) treats standards as one of **six axes** along which safety gets defined — physical interaction (force envelopes, energy, passivity), stability and invariance, constraint satisfaction and reachability, risk/data-driven bounds, **human-centered and standard-driven** (ISO 10218, ISO/TS 15066, contact pressure, speed-and-separation, ergonomics, *and perceived safety*), and semantic. That framing is worth keeping: **the standards are the only one of the six that is exogenous** — the other five are choices a designer makes, and ISO/TS 15066 is a number somebody else set. It is also the only axis that includes **perceived** safety, which the survey reports being measured in the wild (a dressing-assistance study scores it on a 7-point Likert scale) and which no filter, certificate, or benchmark in this wiki touches.
+
 ## Related concepts
 
 - [Safety filters for learned policies](safety-filters.md) — the runtime mechanisms that would have to underpin any conformity argument for a learned policy.
+- [Contact-rich manipulation](contact-rich-manipulation.md) — the task class where these limits bind hardest, and where physical-HRI standards apply directly.
 - [Operational space control](operational-space-control.md) — the constraint envelope actually deployed under learned policies today; the uncertified floor beneath everything on this page.
 - [Assistive robotics](assistive-robotics.md) — the deployment domain where this standard bites first (in-home robots near vulnerable users).
 - [Levels of autonomy in assistive robotics](../../syntheses/assistive/levels-of-autonomy-in-assistive-robotics.md) — autonomy level determines which safety functions must be machine-side.
@@ -74,4 +77,5 @@ ISO 13482 remains the only game in town for non-industrial robot safety certific
 - [awesome-physical-ai (GitHub list)](../../sources/awesome-physical-ai-github.md) — the governance/standards gap that prompted this page.
 - [ASIMOV Benchmark paper](../../sources/asimov-benchmark-paper.md) — argues robotics safety was "predominantly about collision avoidance and hazard reduction," and that VLM-driven robots need a **[semantic safety](../safety/semantic-safety.md)** layer the standards tradition does not cover.
 - [Responsibly advancing AI and robotics](../../sources/deepmind-gemini-robotics-safety-page.md) — places the standards tradition as the *physical* layer of three.
+- [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — standards as one of six safety-definition axes; the only exogenous one, and the only one that includes perceived safety.
 - [Gemini Robotics 2: Safety Evaluations](../../sources/gemini-robotics-2-safety-report.md) — the wiki's best single map of the applicable standards: **ISO 10218:2025** (absorbing ISO/TS 15066's SRMS / hand-guiding / SSM / PFL modes), **ISO 13482** plus the **forthcoming ISO 25785-1** for humanoid and dynamically stable robots, **ISO 13855** (separation distance), **ISO 13849-1** (stop-function integrity), **IEC 60204-1** (stop categories; Category 2 retains power to hold pose).

@@ -3,7 +3,7 @@ title: The synthetic flywheel (supersets, curricula, self-improvement)
 type: concept
 created: 2026-09-02
 updated: 2026-09-03
-sources: 2
+sources: 3
 tags: [synthetic-data, curriculum-learning, autorl, self-improvement, domain-randomization, in-context-learning, self-correction, sim-to-real, waymax, faust, cost, simulation-economics]
 ---
 

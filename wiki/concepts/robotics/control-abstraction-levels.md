@@ -2,8 +2,8 @@
 title: Control abstraction levels
 type: concept
 created: 2026-07-27
-updated: 2026-08-03
-sources: 25
+updated: 2026-09-07
+sources: 26
 tags: [robotics, control, llm-agent, evaluation, vla, safety, access-control, frontier-red-team, code-as-policy]
 ---
 
@@ -45,6 +45,15 @@ Three findings that qualify everything this page says about level 2:
 > The claim below survives and gets sharper. It is not enough to say a result is "level 2 / programmatic control" — **which primitives, how many turns, and what feedback format** move the number by tens of points. A code-as-policy success rate without its tier is close to uninterpretable.
 
 The measured example: a Gemini-3-Pro agent goes from **24%** at single-turn low-level (S3) to **68%** with the full [CaP-Agent0](../../entities/cap-x.md) harness — same model, same robot, same tasks, different rung.
+
+> [!note] The same layering, argued from physics instead of from model capability
+> The [contact-rich safe-learning survey](../../sources/safe-learning-contact-rich-survey.md) reaches this page's recommendation by a route that has nothing to do with what a model is good at. Its single most-repeated practical advice, across five sections and ~400 reviewed works, is that a learned policy should emit **pose targets, force targets, and impedance gains — never raw torques** — because:
+>
+> 1. a compliant reference interface **preserves passivity and stability margins by construction**, so the inner controller's guarantee survives;
+> 2. it gives a runtime safety layer an **interpretable hook** ("cap the force target," "reduce the commanded stiffness") that a torque vector does not offer; and
+> 3. it **transfers sim-to-real better**, absorbing the dynamics mismatch raw torques expose.
+>
+> So the abstraction level is not only a capability and access variable — it is an **intrinsic safety property**. Level-1 raw-torque output is not merely the level frontier models are worst at; it is the level that removes the hooks any physical-safety argument needs. Two literatures, opposite starting points, same architecture. See [impedance control](impedance-control.md).
 
 ## Capability is not monotonic in the level — it inverts
 
@@ -105,4 +114,5 @@ Perceptual access moves capability as much as control access does: a **compass**
 - [How Claude Performs on Robotics Tasks](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — the source of the taxonomy and every number here.
 - [Project Fetch: Phase Two](../../sources/anthropic-project-fetch-phase-two.md) — level-2 control (Claude Code writing controllers) taken to near-autonomy.
 - [CaP-X paper](../../sources/cap-x-paper.md) — the eight-tier subdivision of level 2; abstraction, iteration, and grounding as independently controllable axes.
+- [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — action abstraction as a *safety* mechanism: emit pose/force/impedance references, never torques.
 - [Gemini Robotics 2: Safety Evaluations](../../sources/gemini-robotics-2-safety-report.md) — the same level-inversion from the safety side: agents score **100%** acting on a safety signal handed to them as structured text, but cannot reliably **produce** that signal from perception (human-proximity FNR >40% at low FPR).

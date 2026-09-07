@@ -2,9 +2,9 @@
 title: Safety filters for learned policies
 type: concept
 created: 2026-08-16
-updated: 2026-08-27
-sources: 7
-tags: [safety-filter, control-barrier-functions, reachability-analysis, path-consistency, out-of-distribution, diffusion-policy, constraint-enforcement, iso-ts-15066, runtime-safety, human-robot-interaction]
+updated: 2026-09-07
+sources: 8
+tags: [safety-filter, control-barrier-functions, reachability-analysis, path-consistency, out-of-distribution, diffusion-policy, constraint-enforcement, iso-ts-15066, runtime-safety, human-robot-interaction, contact-rich]
 ---
 
 **A safety filter** is a mechanism that sits between a policy and the actuators, takes the policy's proposed action, and emits the nearest action it can certify as safe. It is the standard answer to a problem this wiki has been circling for a year: **learned policies are black boxes with no safety property**, and the deployment environments people want them in are ones where a physical guarantee is required.
@@ -56,6 +56,16 @@ PACS's related-work section is the cleanest map available, and it splits along t
 - **Reachability-based** — keep a provably correct **failsafe trajectory** available at all times; execute the nominal motion only while the failsafe is still verified. Can be **path-consistent** (brake along the path) or not.
 
 Path-consistent reachability filtering is the corner PACS occupies, and its enabling contribution is making it work for **action chunks** — earlier path-consistent filters accepted a single goal with zero terminal velocity, so a chunked policy either stops at every waypoint or has waypoints skipped (worth **+28%** task success to fix).
+
+## How the classical literature compares these, and the axis it is missing
+
+The [contact-rich safe-learning survey](../../sources/safe-learning-contact-rich-survey.md) (Zhang, Ajoudani et al., ~400 works) reviews the same mechanism families from inside the control tradition, and two things are worth importing.
+
+**First, its selector is not guarantee strength — it is compute placement.** Reachability safeguards push everything into an offline construction of trajectory-parameterized reachable sets, then project at runtime: lightweight online, hard safety, and *"less adaptive under model mismatch or rapidly changing contact dynamics."* CBF-in-QP and model-predictive shields keep the computation online: adaptive to changing constraints and intent, but paying repeated optimization, with **feasibility** the bottleneck in high dimensions. Its recommendation is blunt — *reachability filters suit fixed platforms with stable dynamics and tight real-time budgets, MPC/CBF variants suit environments where constraints and intent change quickly and online compute is available.* That is an orthogonal reason to prefer the reachability corner from the one this page arrived at.
+
+**Second, and more usefully, the survey shows what a safety-first framework built without learned policies in mind cannot see.** Its six comparison axes are guarantee strength, model independence, online efficiency, conservatism/tunability, scalability, and data efficiency. **There is no axis for what the filter costs the policy it wraps.** Scored on those six, a CBF-QP and a path-consistent reachability filter come out near-equivalent — and the measurement above says one leaves a diffusion policy at **0.04** task success and the other at **0.72**. The survey is not careless; PACS postdates its v2. The point is structural: **the classical framework evaluates a filter as a controller, and the quantity that decides deployment is its effect on a learned distribution.**
+
+The survey also supplies the vocabulary this page has been missing for the layer *below* filtering. Compliance is not a filter — an impedance-controlled arm bounds contact force **by construction**, before any intervention fires ([impedance control](impedance-control.md)) — and the certificate families the filters instantiate have their own failure modes, notably that **force and contact constraints are high relative degree**, the case CBF design handles worst ([safety certificates](safety-certificates.md)).
 
 ## What none of them does
 
@@ -110,6 +120,7 @@ Two structural properties make that safe rather than reckless:
 - [OSCBF](../../sources/oscbf-paper.md) (IROS 2025) — CBFs inside an operational space controller; task consistency; 168 constraints at ~3 kHz.
 - [Diffusion Policy](../../sources/diffusion-policy-paper.md) App. D.1 / [TRI LBM](../../sources/tri-lbm-paper.md) — the un-formal envelope that is actually deployed under real policies.
 - [Safely learning dynamical systems](../../sources/safely-learning-dynamical-systems-paper.md) — the adjacent formal line: certificates for safe *exploration*, linear/polynomial systems only.
+- [Safe Learning for Contact-Rich Robot Tasks](../../sources/safe-learning-contact-rich-survey.md) (survey, 2026) — the classical tradition's own map of these mechanisms, its compute-placement selector, and the missing cost axis.
 
 ## Mentioned in
 
@@ -118,3 +129,4 @@ Two structural properties make that safe rather than reckless:
 - [PACS paper](../../sources/pacs-paper.md)
 - [OSCBF paper](../../sources/oscbf-paper.md)
 - [Diffusion Policy paper](../../sources/diffusion-policy-paper.md) — Appendix D.1.
+- [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — the six comparison axes, and the one they don't have.
