@@ -2,7 +2,7 @@
 title: "The anti-collapse lineage — five answers to one question, 2018–2026"
 type: synthesis
 created: 2026-09-03
-updated: 2026-09-03
+updated: 2026-09-07
 tags: [anti-collapse, self-supervised, contrastive-learning, byol, dino, mae, sigreg, jepa, lineage, evaluation]
 ---
 
@@ -114,6 +114,17 @@ And one limitation that should temper the whole ladder for robotics: SSL methods
 5. **Run the MAE augmentation ablation on a JEPA.** MAE gets 84.0 with no augmentation. A joint-embedding method gets a constant. That asymmetry is the strongest practical argument for reconstruction and the wiki has never quantified it on the other side.
 6. **Compute RankMe on a world-model latent.** If effective rank tracks planning success the way it tracks ImageNet accuracy, it is a label-free, decoder-free, planner-free model-selection signal for exactly the setting where labelled evaluation is a [real-robot rollout](../../concepts/robotics/robot-policy-evaluation.md). It would also test the [LeJEPA repo's unverified "94% Spearman" claim](../../sources/lejepa-github.md) against an independent metric.
 7. **Check the uniform prior on robot data.** SSL degrades on imbalanced datasets because the most discriminative in-batch feature stops being the semantic one. Demonstration data is mostly approach and idle. Nobody in this wiki has looked.
+
+## The axis the family tree does not have
+
+This page sorts SSL by **anti-collapse device**; the [Cookbook](../../sources/ssl-cookbook.md) sorts by **mechanism of the training signal**. Neither says *when to reconstruct and when to predict in latent space* — the split that sits above both taxonomies.
+
+[Van Assel et al. (NeurIPS 2025)](../../sources/joint-embedding-vs-reconstruction-paper.md) supply it: **the magnitude of the irrelevant features in the input**. Low → reconstruction (it needs less tailored augmentation, because the important components already carry the variance). High → joint-embedding (a *strictly weaker* alignment requirement, because it never has to reproduce the noise as an output). Closed-form for linear models; validated on ImageNet-C, where **MAE loses 25.1% across corruption severities against DINO's 10.5%.**
+
+Two things it adds to this page directly:
+
+- **The four anti-collapse devices are all inside the joint-embedding branch.** Negatives, EMA+predictor, centering+sharpening, stop-gradient+fast-predictor are ways to make latent prediction not collapse — a problem reconstruction does not have, because the decoder anchors the representation. This page's whole subject is the price of the branch the theory says you should take **when the noise is large**.
+- **Augmentation alignment is a formal requirement, and scale does not fix it.** Which is the theoretical form of the augmentation-sensitivity cost this page records empirically.
 
 ## Related
 

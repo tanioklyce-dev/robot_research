@@ -3,7 +3,7 @@ title: Generative-video vs JEPA world models — what they predict, what it cost
 type: synthesis
 created: 2026-05-07
 updated: 2026-09-07
-tags: [world-models, jepa, generative-video, flux-3, self-flow, representation-quality, cosmos, cosmos-3, world-action-model, genie-envisioner, dreamdojo, v-jepa-2, leworldmodel, waymo, genie-3, stable-worldmodel, identifiability, generalization]
+tags: [world-models, jepa, generative-video, flux-3, self-flow, representation-quality, crossover, augmentation-alignment, cosmos, cosmos-3, world-action-model, genie-envisioner, dreamdojo, v-jepa-2, leworldmodel, waymo, genie-3, stable-worldmodel, identifiability, generalization]
 ---
 
 # Generative-video vs JEPA world models
@@ -99,6 +99,29 @@ The two paradigms are not independent. [GR00T](../../entities/nvidia-groot.md) N
 
 **Implication:** the long-run picture may not be "one paradigm wins"; it may be that generative-video models become training-data engines and authoring tools, while JEPA encoders become perception backbones for VLAs and on-robot world models for fast planning. Different jobs, complementary substrates.
 
+## The axis this page was missing, with a theorem attached
+
+This page has compared the paradigms on **cost, speed, data and demonstrated transfer**, and treated *which learns better representations* as a live dispute. [Van Assel et al. (NeurIPS 2025)](../../sources/joint-embedding-vs-reconstruction-paper.md) name the variable that decides it, in closed form for linear models: **the magnitude of the irrelevant features in the input signal.**
+
+| Regime | Preferred | Why |
+|---|---|---|
+| **Low-magnitude irrelevant features** | **Reconstruction** | the important components already carry the most variance, so a reconstruction objective prioritizes them automatically — and therefore **needs less tailored augmentation** |
+| **High-magnitude irrelevant features** | **Joint-embedding** | it predicts in latent space and thereby *"bypass[es] the need to reconstruct irrelevant noise components as model outputs"* — a **strictly weaker alignment condition** |
+
+So the dispute is not about which paradigm is better; **it is a crossover, and both sides have been right about their own data.** Their explanation of why the field split along modality lines: language tokens are *"compact, semantically meaningful units that already abstract away most low-level variability,"* while **visual data are *"essentially sensorial recordings of the physical world, capturing raw information without inherent semantic compression."***
+
+Measured, ImageNet-100 linear probing under ImageNet-C severity 1→5: **MAE drops 25.1%, DINO 10.5%, BYOL 12.4%** — crank up the irrelevant-feature magnitude and the reconstruction method falls off roughly 2.4× faster.
+
+> [!warning] Two caveats that keep this from closing the page's question
+> The closed-form results hold for **linear** encoders and decoders; the deep-network table is validation that the ordering survives, not a proof. And the table is **linear probing** — [the metric MAE's authors reject](../../sources/mae-paper.md) — so it does not engage MAE's counterargument on MAE's ground. The **fine-tuning** version of that experiment is not run by anyone.
+
+> [!note] What it means for robots, and it is not what it first looks like
+> By this criterion, robot camera and proprioceptive streams sit **squarely in the joint-embedding regime** — "sensorial recordings of the physical world" is a literal description of a robot's input. Yet the two strongest robot results in this wiki run on **generative video backbones** ([FLUX-mimic](../../sources/flux-3-launch.md), [mimic-video](../../sources/mimic-video-paper.md)).
+>
+> No contradiction, because **both modify the pure-reconstruction recipe in exactly the direction the theory implies**: mimic-video **never reconstructs** (best control at τ_v = 1, pure noise, reading intermediate features — and *more* reconstruction makes control worse), and Self-Flow puts representation learning *inside* the generative objective precisely because generative models *"produce less disentangled representations."*
+>
+> The sharper framing this gives the whole page: **the axis is not *does the model have a decoder*. It is *is the training signal dominated by variance that does not matter*.** A generative model that routes around irrelevant features is not in the regime the corollary penalizes — which is why the two rows of the table at the top of this page have been converging in practice.
+
 ## A third architecture: run the generator at maximum noise and never decode pixels
 
 The table above rests on one asymmetry — *"a video generator has to commit to a specific RGB rendering of every imagined future; a JEPA only has to commit to an embedding,"* and most of the cost difference follows from that.
@@ -155,6 +178,8 @@ The downstream evidence is the part that bears on this page: an action decoder o
 - [The Waymo World Model blog](../../sources/waymo-world-model.md) (the generative-video paradigm ported to autonomous driving — camera+lidar, Genie-3-derived)
 
 > **Does Self-Flow's reciprocal-improvement result replicate outside BFL?** Generation quality and representation quality improving *together* is a claim with reach well past robotics. Dual-Timestep Scheduling is a small enough mechanism to test on an existing video model, and [RankMe](../../concepts/learning/representation-evaluation.md) would measure the representation half without labels.
+
+> **Can the crossover be estimated without knowing the noise?** The corollary compares the noise spectrum against a quantity defined from the important components — i.e. against the thing you are trying to remove. A data-only diagnostic saying *"you are in the JE regime"* would turn this from an explanation into a tool.
 
 ## Related
 

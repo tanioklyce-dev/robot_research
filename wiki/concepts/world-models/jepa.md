@@ -2,8 +2,8 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-09-03
-sources: 70
+updated: 2026-09-07
+sources: 71
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -183,7 +183,22 @@ The original wiki synthesis observed [V-JEPA 2](../../entities/v-jepa-2.md) and 
 >
 > And a second, independent one: **[EchoWorld](../../entities/echoworld.md)** ([paper](../../sources/echoworld-paper.md), CVPR 2025, Tsinghua) is an **action-conditioned** JEPA for **robotic probe guidance** — the action (a 6-DOF probe movement) *is* the JEPA latent `z`, predicting the target frame's features from a context frame plus the movement between them. Contemporaneous with and independent of [V-JEPA 2-AC](../../entities/v-jepa-2.md), in a real robotic domain, with released code. Two echocardiography JEPAs now exist, from different groups, with **no cross-comparison**.
 
+## When the bet pays, stated as a condition
+
+JEPA's founding argument is that predicting in latent space beats predicting in input space. [Van Assel, Ibrahim, Biancalani, Regev & Balestriero](../../sources/joint-embedding-vs-reconstruction-paper.md) (NeurIPS 2025) give the condition, in closed form for linear models:
+
+**Joint-embedding is preferable when the irrelevant features in the input have high magnitude; reconstruction is preferable when they have low magnitude.** The reason is an *alignment requirement*: both paradigms need the augmentation distribution to be aligned with whatever is irrelevant, and joint-embedding's requirement is **strictly weaker** in the high-noise regime because it *"bypass[es] the need to reconstruct irrelevant noise components as model outputs."*
+
+Two consequences worth carrying:
+
+- **The paradigm war is a crossover, not a verdict.** Reconstruction is the right choice on data that is already semantically compressed — which is their explanation for why it works in language (*"textual tokens… already abstract away most low-level variability"*) and struggles on images (*"sensorial recordings of the physical world, capturing raw information without inherent semantic compression"*).
+- **Scale does not substitute for augmentation design.** Supervised learning recovers the optimum with enough samples *for any* augmentation; **SSL does not** — the alignment requirement *"persists even as the sample size n becomes arbitrarily large."* Labels carry an independent statement of what is irrelevant; without them the augmentation is the only one.
+
+Measured: MAE drops **25.1%** under ImageNet-C severity 1→5 against DINO's **10.5%**. Caveats on [the source page](../../sources/joint-embedding-vs-reconstruction-paper.md) — linear theory, and linear probing as the deep-network metric.
+
 ## Mentioned in
+
+- [Joint-Embedding vs Reconstruction](../../sources/joint-embedding-vs-reconstruction-paper.md) — the condition under which the JEPA bet provably pays, and the regime where it does not.
 - [EchoJEPA paper](../../sources/echojepa-paper.md) — the clinical branch; V-JEPA 2 adapted to echocardiography at 18M videos.
 - [EchoWorld paper](../../sources/echoworld-paper.md) — an action-conditioned JEPA where the latent is a 6-DOF probe movement; robotic probe guidance.
 

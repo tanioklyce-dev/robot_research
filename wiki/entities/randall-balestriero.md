@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-07-26
 updated: 2026-09-07
-sources: 16
+sources: 17
 tags: [person, balestriero, brown, citadel, wavelets, spline-theory, signal-processing, nasa-mars-seis, lejepa, sigreg, jepa, ssl, theory, world-model, inverse-dynamics, causality, spectral-graph-theory, time-series, levjepa, tutorial]
 ---
 
@@ -17,7 +17,7 @@ tags: [person, balestriero, brown, citadel, wavelets, spline-theory, signal-proc
 >
 > The second missing area is the **spline / continuous-piecewise-affine** view from the Rice PhD with **Richard Baraniuk** — the machinery behind *Deep Networks Always Grok*, and the reason his interpretability instincts run through **linear regions** rather than features or circuits. This wiki cites results downstream of that frame without naming it.
 >
-> Also uningested and listed there: **Joint-Embedding vs Reconstruction** (NeurIPS 2025), **Semantic Tube Prediction** (JEPA for language), **Curvature Tuning**, **MaGNET**, *Learning in High Dimension Always Amounts to Extrapolation*, and the *Build Specialist LLMs Like It's 2019* claim that 7B models trained from scratch on small task-specific corpora match pretrained baselines.
+> Also uningested and listed there: **Semantic Tube Prediction** (JEPA for language), **Curvature Tuning**, **MaGNET**, *Learning in High Dimension Always Amounts to Extrapolation*, and the *Build Specialist LLMs Like It's 2019* claim that 7B models trained from scratch on small task-specific corpora match pretrained baselines.
 
 ## Role in the JEPA program
 
@@ -45,7 +45,7 @@ Before LeJEPA there was **[A Cookbook of Self-Supervised Learning](../sources/ss
 Two things in it sit awkwardly beside the later work, and are recorded rather than reconciled:
 
 - **It reports the field accepting [MAE](mae.md)'s evaluation argument** — *"linear-probing is uncorrelated with fine-tuning and transfer learning performances,"* with the majority of subsequent work moving to fine-tuning. His [Day 3 case against reconstruction](../sources/chicago-booth-world-modeling-workshop-2026-day3.md) is made on probe accuracy. Nothing here bridges 2023 and 2026.
-- **And the theoretical basis for the Day 3 argument exists, in a paper this wiki has never mentioned.** *"Joint-Embedding vs Reconstruction: Provable Benefits of Latent Space Prediction for SSL"* (NeurIPS 2025) is described on his site as a *"closed-form analysis of when JEPA wins over reconstruction: **latent prediction is strictly preferred when irrelevant features dominate the input signal**."* The wiki recorded the Day 3 case as argued on probe accuracy with no stated theory behind it. There is one. Uningested; top of the backlog.
+- **The theoretical basis for the Day 3 argument exists, and is now ingested.** [Joint-Embedding vs Reconstruction](../sources/joint-embedding-vs-reconstruction-paper.md) (NeurIPS 2025, senior author, with Van Assel, Ibrahim, Biancalani and Regev of Genentech) derives **closed-form solutions for both paradigms under linear models** and names the deciding variable: **the magnitude of the irrelevant features**. High → joint-embedding, because it imposes a *strictly weaker* augmentation-alignment condition; **low → reconstruction**, because the important components already carry the variance. So his Day 3 case against reconstruction is the **high-noise half of a crossover**, not a general verdict — and the wiki now has the condition rather than the conclusion.
 - **It already contains a label-free answer to the question he calls open on Day 3.** *"How can you assess if you learned a good Z without having to reconstruct?"* — the Cookbook recommends **RankMe**, the effective rank of the embedding spectrum, which recovers essentially all of a labelled oracle's hyperparameter-selection quality. See [representation evaluation](../concepts/learning/representation-evaluation.md).
 
 ## Teaching it — the Day 3 tutorial (2026-09-02)
@@ -69,6 +69,7 @@ He is also unusually direct about the state of the art he is selling: *"we are n
 - [Identifiability](../concepts/world-models/identifiability.md) / [JEPA](../concepts/world-models/jepa.md).
 
 ## Mentioned in
+- [Joint-Embedding vs Reconstruction](../sources/joint-embedding-vs-reconstruction-paper.md) — senior author; the closed-form condition under the whole JEPA-vs-reconstruction argument, and the regime where reconstruction wins.
 - [Personal site (randallbalestriero.github.io)](../sources/randall-balestriero-personal-site.md) — his own six-area map of the work; the Citadel role; NASA Mars SEIS and the wavelet line; and the uningested papers above. **Note it mentions no academic position at all** — a self-presentation artifact, not a factual record, and never the source for what he does.
 - [galilai-group/tutorial](../sources/wm-booth-lejepa-lewm-tutorial-repo.md) — sole committer; a 897-line LeJEPA + LeWM tutorial pushed hours before the workshop's Day 3 coding session.
 - [galilai-group/lejepa](../sources/lejepa-github.md) — the reference implementation, and the normality-test library SIGReg is one configuration of.

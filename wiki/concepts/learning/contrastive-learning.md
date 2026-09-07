@@ -2,8 +2,8 @@
 title: Contrastive learning and InfoNCE
 type: concept
 created: 2026-09-03
-updated: 2026-09-03
-sources: 9
+updated: 2026-09-07
+sources: 10
 tags: [contrastive-learning, infonce, cpc, simclr, moco, negatives, mutual-information, self-supervised, anti-collapse, batch-size]
 ---
 
@@ -90,7 +90,17 @@ Pure contrastive pretraining has largely lost the vision frontier to distillatio
 - [SIGReg](../world-models/sigreg.md) — the argument that the whole heuristic stack is replaceable by one term.
 - [Latent space](../world-models/latent-space.md) — what all of these are shaping.
 
+## Augmentation design is load-bearing, and now there is a theorem
+
+This page and the [Cookbook](../../sources/ssl-cookbook.md) both report augmentation choice as the dominant practical variable — colour distortion is mandatory because crops of one image share a colour histogram, and *"the augmentation set is domain structure, not a library import."* [Van Assel et al. 2025](../../sources/joint-embedding-vs-reconstruction-paper.md) make it a formal requirement:
+
+**SSL recovers the optimal representation only if the augmentation distribution is sufficiently aligned with the irrelevant features** — and, unlike supervised learning, **that requirement does not go away with more data.** Supervised models fix misalignment with sample size (*"observing different noise realizations across identically labeled data"*); SSL cannot, because the augmentation is its only statement of what to ignore.
+
+The paper notes this is *"consistent with an empirical study which concluded that improving augmentations is more impactful than altering architectural designs."* Which is the same conclusion the [anti-collapse lineage](../../syntheses/world-models/ssl-anti-collapse-lineage.md) reaches from four primaries, arrived at from theory.
+
 ## Mentioned in
+
+- [Joint-Embedding vs Reconstruction](../../sources/joint-embedding-vs-reconstruction-paper.md) — augmentation-noise alignment as a formal requirement that sample size cannot substitute for.
 
 - [CPC paper (van den Oord, Li & Vinyals, 2018)](../../sources/cpc-paper.md) — **the origin of InfoNCE**.
 - [BYOL paper (Grill et al., 2020)](../../sources/byol-paper.md) — the ablation showing what negatives were doing and what replaces them.

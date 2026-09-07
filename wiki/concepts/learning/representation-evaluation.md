@@ -2,8 +2,8 @@
 title: Representation evaluation (k-NN, linear, MLP, fine-tuning, RankMe)
 type: concept
 created: 2026-09-03
-updated: 2026-09-03
-sources: 6
+updated: 2026-09-07
+sources: 7
 tags: [evaluation, linear-probing, knn, fine-tuning, rankme, dimensional-collapse, effective-rank, ssl, model-selection, label-free]
 ---
 
@@ -87,7 +87,22 @@ In robotics the argument for label-free evaluation is stronger than in vision, b
 - [SIGReg](../world-models/sigreg.md) — whose diagnostic (SIGReg loss falling alongside prediction loss) is a hand-rolled version of the same idea.
 - [Contrastive learning and InfoNCE](contrastive-learning.md) · [spectral theory of SSL](spectral-theory-of-ssl.md) — the spectrum these metrics read is the same one the spectral framework predicts.
 
+## The dispute now has a theory attached — and it is measured with the contested metric
+
+[Van Assel et al. 2025](../../sources/joint-embedding-vs-reconstruction-paper.md) derive when joint-embedding beats reconstruction (answer: when irrelevant features have high magnitude) and validate it on ImageNet-C: **MAE drops 25.1% from severity 1 to 5, DINO 10.5%.**
+
+Those are **linear probing** numbers, and [MAE's whole defence](../../sources/mae-paper.md) is that linear probing and fine-tuning are *"largely uncorrelated"* — one tuned block takes ViT-L 73.5 → 81.0 and reorders methods. **The paper does not run the fine-tuning comparison.**
+
+It does have a reply, and it is a reasonable one: the conclusion treats *"reconstruction methods typically necessitate fine-tuning to address the inherent misalignment between the features they learn and those that are perceptually useful"* as **evidence for** the thesis — needing fine-tuning is itself the cost being measured.
+
+> [!note] Where this leaves the page's central dispute
+> The **theoretical** half is untouched by the objection: it concerns recovery of the optimal *linear* representation, so a linear probe is the natural instrument rather than a contested one. The **empirical** half inherits the disagreement intact.
+>
+> So the state is: *there is now a theory saying joint-embedding wins in the high-noise regime, validated on the metric one side rejects, with the experiment that would settle it — corruption robustness under **fine-tuning** — still unrun by anybody.* That is progress and it is not closure.
+
 ## Mentioned in
+
+- [Joint-Embedding vs Reconstruction](../../sources/joint-embedding-vs-reconstruction-paper.md) — theory for when each paradigm wins; validated with linear probing, which is the disputed metric.
 
 - [A Cookbook of Self-Supervised Learning](../../sources/ssl-cookbook.md) — **the primary**; §3.7, plus §2.6.2 on dimensional collapse.
 - [MAE paper (He et al., 2021)](../../sources/mae-paper.md) — the partial-fine-tuning argument.
