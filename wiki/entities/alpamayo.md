@@ -4,7 +4,7 @@ type: entity
 subtype: model-family
 created: 2026-09-07
 updated: 2026-09-07
-sources: 1
+sources: 2
 tags: [alpamayo, nvidia, vla, autonomous-vehicles, reasoning, chain-of-thought, explainability, open-models, safety, level-4]
 ---
 

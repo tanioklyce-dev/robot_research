@@ -3,10 +3,18 @@ title: LeRobot
 type: entity
 subtype: software-framework
 created: 2026-05-10
-updated: 2026-09-02
-sources: 48
+updated: 2026-09-07
+sources: 49
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026, xvla, sourccey, plugin-system]
 ---
+
+> [!warning] Its maintainer is being acquired by NVIDIA
+> [Hugging Face](hugging-face.md) — LeRobot's maintainer — signed a definitive agreement to be acquired by **NVIDIA for $12.93 B** on 2026-09-02, expected to close **H1 2027** pending regulatory approval ([source](../sources/nvidia-hugging-face-acquisition.md)).
+>
+> NVIDIA commits publicly and in its 8-K that the platform stays open, that **"NVIDIA compute will not be required,"** and that **multi-cloud and multi-accelerator** support continues. **The announcement does not mention LeRobot, or robotics, at all.**
+>
+> Two things to watch rather than assume. **Governance**: LeRobot is an open project with an outside contributor community, now heading inside a hardware vendor that ships a competing robot foundation model ([GR00T](nvidia-groot.md)). **Neutrality**: the checkable version of the multi-accelerator promise, for this wiki, is [Hailo NPU vs Jetson on XLeRobot](../syntheses/platforms/hailo-npu-vs-jetson-xlerobot.md) — re-run it after close.
+
 
 **LeRobot** — open-source **end-to-end robot learning library** maintained by [Hugging Face](hugging-face.md). Provides a vertically-integrated stack: unified Python middleware for low-level motor control, the `LeRobotDataset` format for multimodal high-frame-rate data, an optimized async inference stack (physical + logical decoupling), and reference PyTorch implementations of SOTA robot-learning algorithms across RL (HIL-SERL, TD-MPC), single-task BC (ACT, Diffusion Policy, VQ-BET), and multi-task VLAs (π0, SmolVLA). De-facto OSS stack for the affordable mobile-manipulator class (SO-ARM100/101, LeKiwi, XLeRobot, Koch v1.1) bringing "buy → assemble → teleop → train → deploy" within reach of sub-$1k hobbyist hardware.
 
@@ -169,6 +177,8 @@ Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distri
 [stable-worldmodel](stable-worldmodel.md) ships a read-only **`lerobot://<repo_id>` dataset adapter** ([repo snapshot](../sources/stable-worldmodel-github.md)), so a JEPA world model can train and be evaluated with MPC **directly on LeRobot Hub datasets** with no conversion step. Requires Python 3.12+ and is a separate install extra. This is the first connection in the wiki between the [LeWM](leworldmodel.md) line and the hardware stack the rest of these pages actually use.
 
 ## Mentioned in
+
+- [NVIDIA to acquire Hugging Face](../sources/nvidia-hugging-face-acquisition.md) — the maintainer changes hands.
 
 > [!note] Curated list — **46** source pages link here; the ones below are those that shaped this page.
 

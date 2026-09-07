@@ -3,10 +3,19 @@ title: Hugging Face
 type: entity
 subtype: organization
 created: 2026-05-10
-updated: 2026-08-30
-sources: 23
-tags: [hugging-face, foundation-models, open-source, lerobot, robotics, ml-platform]
+updated: 2026-09-07
+sources: 24
+tags: [hugging-face, foundation-models, open-source, lerobot, robotics, ml-platform, nvidia, acquisition, open-weights]
 ---
+
+> [!warning] Being acquired by NVIDIA — $12.93 B, announced 2026-09-03
+> Definitive agreement **2026-09-02**; ~**$11.9 B** to stockholders plus up to **~$1.0 B** equity retention; close expected **H1 2027** subject to **regulatory approvals** ([source](../sources/nvidia-hugging-face-acquisition.md)). Brand retained. Per NVIDIA, Hugging Face approached them.
+>
+> Commitments made in the blog **and in the 8-K**: the platform *"will remain an open platform for the entire AI ecosystem,"* **"NVIDIA compute will not be required to build on or deploy through Hugging Face,"** and continued **multi-cloud and multi-accelerator** support. Those appear under Item 8.01 — a *voluntary* disclosure, not a public contractual term — so they are specific and public without being demonstrably binding.
+>
+> **This is not a distant corporate event for this wiki.** Hugging Face maintains [LeRobot](lerobot.md) and [SmolVLA](smolvla.md), and the Hub distributes nearly every open VLA weight cited here. The acquirer already sells the [Jetson](jetson-thor.md) those robots run on, the [Halos](nvidia-halos.md) safety stack above them, the [simulators](nvidia-isaac-sim.md) they train in, the [world model](nvidia-cosmos.md) that is [mimic-video](../sources/mimic-video-paper.md)'s backbone, and a competing robot foundation model ([GR00T](nvidia-groot.md)). **Model distribution was the one layer of that stack NVIDIA did not hold.**
+>
+> Notably, the announcement **says nothing about robotics** — not one word about LeRobot.
 
 **Hugging Face** — Brooklyn / Paris-based open-source AI company. Foundational ML platform (Transformers library, Datasets, Hub) for the modern open-weights ecosystem. In this wiki, Hugging Face is most directly relevant as the **maintainer of [LeRobot](lerobot.md)**, the open-source imitation-learning framework that has become the de-facto software stack for low-cost mobile manipulators (SO-ARM100/101, LeKiwi, XLeRobot, Bambot, Koch v1.1).
 
@@ -39,6 +48,8 @@ tags: [hugging-face, foundation-models, open-source, lerobot, robotics, ml-platf
 - [LeRobot Worldwide Hackathon 2025](lerobot-worldwide-hackathon-2025.md) — HF-organized community event
 
 ## Mentioned in
+
+- [NVIDIA to acquire Hugging Face](../sources/nvidia-hugging-face-acquisition.md) — $12.93 B; the terms, the neutrality commitments, and where they sit in the filing.
 
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **17 HF authors** (Cadene, Aliberts, Capuano, Aractingi, Zouitine, Kooijmans, Choghari, Russi, Pascal, Palma, Shukor, Moss, Soare, Aubakirova, Lhoest, Gallouédec, Wolf); ICLR 2026 conference paper; canonical academic reference for the [LeRobot](lerobot.md) framework.
 - [Seeed Studio LeRobot LeKiwi Wiki](../sources/seeed-lekiwi-wiki.md)

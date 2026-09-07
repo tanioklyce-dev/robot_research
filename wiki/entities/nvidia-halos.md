@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-07-15
 updated: 2026-09-07
-sources: 5
+sources: 6
 tags: [nvidia-halos, functional-safety, riccardo-mariani, iso-iec-ts-22440, iso-iec-tr-5469, robot-safety, igx, jetson-thor, physical-ai, qnx, holoscan, certification, anab, tuv, outside-in, metropolis]
 ---
 

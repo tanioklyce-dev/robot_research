@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-10
 updated: 2026-08-26
-sources: 31
+sources: 32
 tags: [xlerobot, mobile-manipulator, dual-arm, lerobot, lekiwi, so-arm101, low-cost, household-robot, embodied-ai, sourccey]
 ---
 

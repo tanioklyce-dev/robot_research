@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-25
 updated: 2026-08-26
-sources: 22
+sources: 23
 tags: [smolvla, vla, vision-language-action, flow-matching, hugging-face, lerobot, smolvlm-2, async-inference, community-datasets, so-arm101, affordable-vla]
 ---
 

@@ -3,10 +3,18 @@ title: NVIDIA
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-09-02
-sources: 60
+updated: 2026-09-07
+sources: 61
 tags: [nvidia, gpu, simulation, physical-ai]
 ---
+
+> [!note] Acquiring Hugging Face — and with it, the last layer of the stack
+> Definitive agreement **2026-09-02**, **$12.93 B**, close expected **H1 2027** pending regulatory approval ([source](../sources/nvidia-hugging-face-acquisition.md)).
+>
+> Read against this wiki's own entity pages, NVIDIA now holds a position at **every layer** of the robot-AI stack: silicon ([Jetson Thor / IGX](jetson-thor.md)) → certified safety ([Halos](nvidia-halos.md) + an ANAB-accredited inspection lab) → simulation ([Isaac Sim](nvidia-isaac-sim.md)/[Lab](nvidia-isaac-lab.md), Omniverse, Newton) → world models ([Cosmos](nvidia-cosmos.md), whose Predict2 is [mimic-video](../sources/mimic-video-paper.md)'s backbone) → robot foundation models ([GR00T](nvidia-groot.md)) → AV reasoning models ([Alpamayo](alpamayo.md)) → **and now model distribution** ([Hugging Face](hugging-face.md), [LeRobot](lerobot.md), [SmolVLA](smolvla.md)).
+>
+> Distribution was the one layer it did not hold. NVIDIA commits publicly and in the 8-K that the platform stays open, **"NVIDIA compute will not be required,"** and multi-accelerator support continues — under Item 8.01, a voluntary disclosure rather than a public contractual term. Specific, and not demonstrably binding.
+
 
 GPU vendor and the dominant force in the agentic-robotics simulation stack as of 2026. Owns or co-owns most of the major substrate components: simulator ([NVIDIA Isaac Sim](nvidia-isaac-sim.md)), learning framework ([NVIDIA Isaac Lab](nvidia-isaac-lab.md)), physics engine ([Newton physics engine](newton-physics-engine.md), co-developed), world model ([NVIDIA Cosmos](nvidia-cosmos.md)), and a flagship open VLA ([NVIDIA GR00T](nvidia-groot.md)).
 
@@ -39,6 +47,8 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - [AGIBOT](agibot.md) — major downstream user.
 
 ## Mentioned in
+
+- [NVIDIA to acquire Hugging Face](../sources/nvidia-hugging-face-acquisition.md) — $12.93 B; the terms and the neutrality commitments.
 
 > [!note] Curated list — **59** source pages link here; the ones below are those that shaped this page.
 

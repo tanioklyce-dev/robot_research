@@ -2,7 +2,7 @@
 title: "Hailo NPU (AI HAT+ 2) vs Jetson (CUDA) for an onboard XLeRobot brain"
 type: synthesis
 created: 2026-06-07
-updated: 2026-06-07
+updated: 2026-09-07
 tags: [xlerobot, hailo, jetson, npu, cuda, raspberry-pi, onboard-compute, edge-ai, vla, llm, buying-decision, platforms]
 ---
 
@@ -72,6 +72,14 @@ So the architecture that actually maximizes capability per dollar/watt is often 
 | Maximize capability, untethered | **Pi 5 + AI HAT+ 2 (perception/agent) + Jetson (policy)** |
 
 **Bottom line:** the AI HAT+ 2 is the cheapest way to give an XLeRobot a *local brain for perception and language*, and the wiki's first non-CUDA onboard option — but it is **not a Jetson substitute for the control policy**. Choose by *layer*, not by TOPS: NPU for compiled vision/LLM, CUDA for the PyTorch policy.
+
+## This comparison is now also a neutrality test
+
+[NVIDIA is acquiring Hugging Face](../../sources/nvidia-hugging-face-acquisition.md) ($12.93 B, agreement 2026-09-02, close expected H1 2027), and Hugging Face maintains **[LeRobot](../../entities/lerobot.md)** — the software stack the XLeRobot side of this page runs on.
+
+NVIDIA commits, in its announcement **and in its 8-K**, that the platform stays open, that *"NVIDIA compute will not be required to build on or deploy through Hugging Face,"* and that **multi-accelerator** support continues. Those are voluntary Item 8.01 statements, not public contractual terms.
+
+**This page is the cheapest available check on that commitment**: a head-to-head between an NVIDIA accelerator and a competitor's, for exactly the robots whose framework NVIDIA is buying. Re-run it after close. If the Hailo path stays as viable as it is here, the promise held; if it quietly degrades — worse kernel coverage, slower export paths, LeRobot features that assume CUDA — that is what the erosion would look like, and it would look like ordinary neglect rather than a decision.
 
 ## Related
 - [Jetson onboard compute for XLeRobot](jetson-onboard-compute-xlerobot.md) — the CUDA-side deep dive (Orin Nano → NX → AGX → Thor) this page complements.
