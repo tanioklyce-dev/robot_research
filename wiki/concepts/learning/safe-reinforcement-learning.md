@@ -3,8 +3,8 @@ title: Safe reinforcement learning
 type: concept
 created: 2026-09-07
 updated: 2026-09-07
-sources: 2
-tags: [safe-rl, cmdp, lagrangian, safety-critic, shielding, recovery-rl, safe-exploration, constrained-optimization, risk-sensitive, contact-rich, vla, safety-alignment]
+sources: 3
+tags: [safe-rl, cmdp, lagrangian, safety-gymnasium, projection-methods, pid-lagrangian, safety-critic, shielding, recovery-rl, safe-exploration, constrained-optimization, risk-sensitive, contact-rich, vla, safety-alignment]
 ---
 
 # Safe reinforcement learning
@@ -52,6 +52,21 @@ The shaped variant loses on **both** axes, and on the hardest task it roughly ha
 > [!note] But the ablation says the optimizer is not the load-bearing part
 > Run the *identical* constrained recipe in simplified scenes without deliberately-placed hazards and cost goes **1.854 → 5.01** — worse than the reward-shaping baseline it just beat — with success falling to 0.645. **A constrained optimizer can only constrain behaviors it observes.** "We used safe RL" says close to nothing without "on data that contained the failures," which is the same dependency [safe exploration](#the-formalisms) has and the same reason the [contact-data problem](../robotics/contact-rich-manipulation.md#the-data-problem-which-is-structural) bounds this whole area.
 
+## Which family of constrained optimizer, and what each costs
+
+[Safety-Gymnasium](../../entities/safety-gymnasium.md)'s comparison of 16 algorithms across 54 environments gives the shape of the space, and it is not "Lagrangian vs the rest":
+
+| Family | Members | Behavior |
+|---|---|---|
+| **Lagrangian** | PPO-Lag, TRPO-Lag, RCPO, MAPPO-Lag | tracks the constraint but **oscillates** around it — more time both *Strongly Unsafe* and *Strongly Safe* |
+| **Projection** | CPO, PCPO, MACPO | stays **centered** on the constraint; PCPO gets lower cost *and* lower reward — *"an excessively cautious policy has the potential to undermine performance"* |
+| **PID-Lagrangian** | CPPO-PID | a PID controller on the multiplier: **PPO-Lag's rewards with markedly fewer excursions into Strongly Unsafe** |
+
+The scale of what constraining buys: unconstrained PPO runs **20–40× over the cost limit** (`HumanoidVel` 38.4, `DoggoCircle1` 33.1 normalized), and PPO-Lag cuts cost **98% for a 45% reward loss** on velocity tasks. That ratio is the strongest single argument in this wiki for putting safety in the constraint rather than the objective — the other being [SafeVLA](../../sources/safevla-paper.md)'s head-to-head against reward shaping.
+
+> [!note] The oscillation result has a downstream consequence nobody acted on
+> Safety-Gymnasium (2023) finds **PID-Lagrangian specifically fixes the oscillation that plain Lagrangian has**, at no reward cost. [SafeVLA](../../sources/safevla-paper.md) (2025, same group) runs on plain Lagrangian and relegates PID-Lagrangian to an appendix — where it posts **lower cost at equal success** (1.64 vs 1.854 on Safety-ObjectNav). Given the 2023 finding, that belonged in the main table.
+
 ## Measurement
 
 Safe RL adds metrics that ordinary RL does not report, and the survey's §3.6 argues the important ones are **joint**:
@@ -71,6 +86,11 @@ Safe RL adds metrics that ordinary RL does not report, and the survey's §3.6 ar
 The unconstrained policy is **32×** worse than the constrained one and **~6× worse than its own imitation-learned starting point** — RL fine-tuning for task performance made the *failure* behavior more dangerous. It thrashes: repeated collisions while making no progress. And in normal evaluation the baseline's cost is significantly negatively correlated with success (p < 0.01), so its unsafe behavior hides inside its failures; for the constrained policy that correlation is rejected — **it fails safely**.
 
 The general point: **a success rate describes only the fraction of trials the policy won.** A policy reported at 60% is being characterized on 60% of its behavior, and the remaining 40% is where the damage is. Pairs with [PACS](../../sources/pacs-paper.md)'s **safe success** from the other end.
+
+> [!warning] Half the standard benchmark reports a tie
+> On Safety-Gymnasium's **velocity** tasks *every* safe-RL algorithm meets the cost limit, reward differences are *"negligible"* and optimal policies are *"tightly clustered."* Only the noisier **navigation** tasks separate methods. So a safe-RL result quoted from velocity tasks is quoted from the half of the benchmark that measures nothing — the [saturation](../robotics/robot-policy-evaluation.md) failure mode, arriving in this literature and stated by its own benchmark authors without being named.
+>
+> Note also that implementations of the *same* published algorithm disagree materially: CPO on `CarButton1` scores 1.75 normalized cost in SafePO and **3.65** in OpenAI's Safety-Starter-Agents. **A safe-RL number without its implementation is under-specified.**
 
 > [!warning] Safety objectives cost data
 > "Having both task and safety objectives increases the optimization complexity, and consequently the amount of data to learn effective policies." Reported sample-efficiency numbers for unconstrained RL do not transfer to the constrained version of the same task. This compounds with the [real-world RL](real-world-robot-rl.md) cost structure, where the data is collected on hardware that the safety constraint exists to protect.
@@ -95,9 +115,10 @@ The practical consequence is that safe RL and generalist manipulation policies a
 
 ## Current state
 
-Well-supplied with formalisms and poorly supplied with benchmarks. The dedicated safe-RL evaluation infrastructure the survey can name amounts to **Safety Gymnasium**, **Robust Gymnasium**, and **safe-control-gym** — none of which is contact-force-aware — against a general-manipulation benchmark landscape (RoboVerse, RoboCasa, robosuite, ManiSkill, Meta-World, RLBench) that has no safety instrumentation at all. [Safety-CHORES](../../entities/safety-chores.md) is the newest addition and the first that scores an *embodied generalist policy* on safety and task success together; it is also collision-based, so the **no standardized contact-force evaluation protocol** gap is still open. That gap, not the algorithms, is what the survey's perspectives section leads with.
+Well-supplied with formalisms and poorly supplied with benchmarks. The dedicated safe-RL evaluation infrastructure the survey can name amounts to **[Safety-Gymnasium](../../entities/safety-gymnasium.md)**, **Robust Gymnasium**, and **safe-control-gym** — none of which is contact-force-aware; Safety-Gymnasium's costs are **speed thresholds, region entry, contact events and joint limits**, with no wrench anywhere in a MuJoCo suite that computes them — against a general-manipulation benchmark landscape (RoboVerse, RoboCasa, robosuite, ManiSkill, Meta-World, RLBench) that has no safety instrumentation at all. [Safety-CHORES](../../entities/safety-chores.md) is the newest addition and the first that scores an *embodied generalist policy* on safety and task success together; it is also collision-based, so the **no standardized contact-force evaluation protocol** gap is still open. That gap, not the algorithms, is what the survey's perspectives section leads with.
 
 ## Mentioned in
 
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — the exploration/execution split and every method family above.
+- [Safety-Gymnasium](../../sources/safety-gymnasium-paper.md) — the benchmark: the algorithm-family comparison, the 98%-cost-for-45%-reward trade, the oscillation finding, and the velocity-suite tie.
 - [SafeVLA](../../sources/safevla-paper.md) — the flagship application to a VLA: CMDP + adaptive Lagrangian, the reward-shaping comparison, the elicitation ablation, and the extreme-failure protocol.

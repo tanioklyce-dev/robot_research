@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-09-07
 updated: 2026-09-07
-sources: 1
+sources: 2
 tags: [safety-chores, benchmark, safe-rl, vla, ai2thor, procthor, objaverse, mobile-manipulation, safety-evaluation]
 ---
 
@@ -58,7 +58,8 @@ Data, models and the environment at `pku-safevla.github.io` (per the paper; not 
 ## Related
 
 - [SafeVLA](../sources/safevla-paper.md) — the paper that introduces it.
-- [PKU-Alignment](pku-alignment.md) — the group; also authors of **Safety Gymnasium**, the closest prior benchmark and one of only three safety-specific RL environments the contact-rich survey can name.
+- [Safety-Gymnasium](safety-gymnasium.md) — **the direct predecessor**, from the same group: same CMDP framing, same co-reported reward/cost metric, and the same constraint vocabulary moved one step toward embodiment — **speed thresholds and regions there, collisions and fragile-object displacement here, forces in neither**. Its stated future work, *"transferring policy refined within the Safety-Gymnasium to physical robotic platforms,"* is what Safety-CHORES attempts; both are simulation-only.
+- [PKU-Alignment](pku-alignment.md) — the group; also authors of Safety-Gymnasium and Safe-RLHF.
 - [Allen Institute for AI](ai2.md) — AI2-THOR, ProcTHOR, Objaverse, and the SPOC/FLaRe/PoliFormer models it benchmarks against.
 - [Robot policy evaluation](../concepts/robotics/robot-policy-evaluation.md) — where cumulative cost and the extreme-failure protocol belong.
 - [Safe reinforcement learning](../concepts/learning/safe-reinforcement-learning.md) — the paradigm it exists to measure.

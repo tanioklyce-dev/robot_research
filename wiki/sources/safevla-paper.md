@@ -59,7 +59,7 @@ This is worth keeping independent of the rest of the paper. It is a **compact, c
 
 - **Reward shaping loses on both axes.** FLaRe-RS is the standard heuristic — add the safety cost as a reward penalty — and on ObjNav it lands at CC 4.755 / SR 0.75 against ISA's 1.854 / 0.865, and on Fetch it *halves* success (0.45 vs 0.637). Fig. 6 completes the argument: dynamic Lagrangian multipliers beat **every** fixed penalty coefficient that meets the same cost constraint. This is the measurement the wiki's [safe RL](../concepts/learning/safe-reinforcement-learning.md) page asserted and did not have.
 - **The long tail is what moves.** ISA eliminates trajectories with cumulative cost > 10; the **upper bound of violation severity falls to 1/35** of FLaRe's. Mean cost is the headline, but the distribution is the result.
-- **Safety generalizes across base models and benchmarks** (Fig. 4–5), across two alternative Lagrangian variants (PID-Lagrangian, Augmented-Lagrangian; App. B.7), and **per-constraint** rather than by getting easy constraints cheaply — App. B.5 shows reductions in all five categories, with corners falling 7.451 → 0.535 and blind spots 5.050 → 1.090.
+- **Safety generalizes across base models and benchmarks** (Fig. 4–5), across two alternative Lagrangian variants (PID-Lagrangian, Augmented-Lagrangian; App. B.7 — and **PID-Lagrangian posts lower cost at equal success**, 0.859 SR / **1.64** cost on Safety-ObjectNav against the headline 0.865 / 1.854, which matters because [Safety-Gymnasium](safety-gymnasium-paper.md) found PID specifically fixes plain-Lagrangian oscillation; it belonged in the main table), and **per-constraint** rather than by getting easy constraints cheaply — App. B.5 shows reductions in all five categories, with corners falling 7.451 → 0.535 and blind spots 5.050 → 1.090.
 - **Zero-shot to unseen environments**: on DivScene (81 scene types, unseen), ISA averages **0.39 SR / 1.0 CC** against FLaRe's 0.37 / 10.5 — success held, cost down 10×.
 - **Training cost**: 8× H100, 15M steps for ObjNav/PickUp, 25M for Fetch. Cost drops below the limit within ~1M steps; the multiplier converges slowly, as expected.
 
@@ -112,11 +112,18 @@ This is a mechanism worth naming: for an unconstrained policy, *confusion resolv
 Further caveats, most of which the authors state:
 
 - **Simulation only.** Training and all quantitative evaluation are in AI2-THOR. The §5.3 sim-to-real study — dual Realman RM75-6F arms, PsiBot G0-R hands, RealSense D455 — reports a successful Safety-PickUp deployment with *"effective obstacle avoidance consistent with its behavior in simulation"* and links demonstration videos. **There are no real-world numbers**, and App. G names simulation reliance as the primary limitation. Its four transfer strategies are nonetheless a usable checklist: convert noisy images to structured state (FoundationPose 6D poses) rather than fine-tuning on real images; **decouple dynamics** via a shared semantic/Cartesian action space; align digital-twin physics parameters (PID, action cycles); keep an identical data pipeline across sim and deployment. The second is the same **action-abstraction-as-safety** recommendation the [contact-rich survey](safe-learning-contact-rich-survey.md) makes on passivity grounds, arrived at here for sim-to-real reasons.
-- **Costs are binary and uniform.** No severity weighting — breaking a beaker and nudging a mug cost the same. Conceded and framed as extensible.
+- **Costs are binary and uniform.** No severity weighting — breaking a beaker and nudging a mug cost the same. Conceded and framed as extensible. **But see the tension below.**
 - **The cost limit is relative to the baseline**, so "safe" here means "20% of however unsafe FLaRe converged to," not a threshold anyone could certify against. Compare [ISO/TS 15066](../concepts/robotics/robot-safety-standards.md)'s energy thresholds, which are absolute and injury-derived.
 - **Trajectory-level cost credit goes entirely to the final step** of a violating segment; the authors call credit assignment unresolved.
 - **Success-rate arithmetic.** "+3.85%" is a **relative** change in mean success rate — 0.780 → 0.810, i.e. **+3 percentage points**. And "83.58%" is computed on **summed** cost across the three tasks (62.80 → 10.31), so it is dominated by Safety-Fetch, whose cost is 5–6× the other two. Per-task reductions are 85.0% / 94.7% / 81.4%. Nothing is misstated; the aggregation is just not the one a reader assumes.
 - **One internal inconsistency**: Safety-Fetch ISA cumulative cost is **8.084** in Table 1 and **8.984** in Table 2's un-perturbed ISA row.
+
+> [!warning] The binary-cost defence contradicts the same group's own 2023 critique
+> SafeVLA: *"we chose a binary scheme in this work to establish a clear and generalizable baseline, as the notion of severity is often highly context-dependent."*
+>
+> [Safety-Gymnasium](safety-gymnasium-paper.md) App. B.6 (Ji is an author of both), criticizing OpenAI's Safety Gym for exactly this: *"there are only two possible outputs for the cost: 0 and 1… **this representation method loses some information.** For example, when the robot collides with a vase and causes the vase to move at different velocities, **there should be different cost values** associated with it… the learning potential for multiple constraints is lost when multiple costs are triggered simultaneously."*
+>
+> That 2023 example — *how fast the vase moved* — is unmistakably about **how hard the contact was**. Both positions are defensible and nobody has measured which matters, which makes it a concrete experiment rather than a gotcha: rerun this alignment with graded costs and see whether the avoidance behavior changes in *shape* or only in units.
 
 > [!note] Edition history — the claim was downgraded between v1 and v4
 > **v1 (2025-03-05)**: *"we propose **SafeVLA, a novel algorithm** designed to integrate safety into VLAs."*
@@ -127,7 +134,8 @@ Further caveats, most of which the authors state:
 ## Entities mentioned
 
 - [Safety-CHORES](../entities/safety-chores.md) — **the benchmark**, and the part of this paper most likely to outlast it.
-- [PKU-Alignment](../entities/pku-alignment.md) — the group; also the authors of **Safety Gymnasium** and **Safe-RLHF**, which makes this the same safe-RL infrastructure line extended into embodied AI.
+- [PKU-Alignment](../entities/pku-alignment.md) — the group; also the authors of **[Safety-Gymnasium](../entities/safety-gymnasium.md)** and **Safe-RLHF**, which makes this the same safe-RL infrastructure line extended into embodied AI.
+- [Safety-Gymnasium](../entities/safety-gymnasium.md) — the direct predecessor: same CMDP framing, same co-reported reward/cost metric, same simulation-only limitation.
 - [Allen Institute for AI](../entities/ai2.md) — the entire substrate is AI2's: AI2-THOR, ProcTHOR, Objaverse, and both the IL base model (**SPOC**) and two baselines (**FLaRe**, **PoliFormer**). PKU alignment methods on an AI2 stack.
 - Uningested but named: **SPOC** (Ehsani et al.), **FLaRe** (Hu et al.), **PoliFormer** (Zeng et al.), **GRAPE**, **DivScene**, **FoundationPose**.
 
