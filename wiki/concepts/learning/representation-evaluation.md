@@ -3,7 +3,7 @@ title: Representation evaluation (k-NN, linear, MLP, fine-tuning, RankMe)
 type: concept
 created: 2026-09-03
 updated: 2026-09-03
-sources: 4
+sources: 5
 tags: [evaluation, linear-probing, knn, fine-tuning, rankme, dimensional-collapse, effective-rank, ssl, model-selection, label-free]
 ---
 

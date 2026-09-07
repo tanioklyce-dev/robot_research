@@ -51,6 +51,8 @@ This page lines them up. The short version: **the full span is about five orders
 | **20** | CAP | [Fourier GR-1](../../entities/fourier-gr-1.md) teleop capture (VIVE + Metagloves); table-bussing capture | real rigs |
 | **15** | CAP | [DROID](../../entities/droid.md) capture rate | dataset |
 | **15** | MEAS | **[Cosmos 3 Edge](../../sources/nvidia-cosmos3-edge-hf-blog.md) (4B world model)**, 32 actions/inference @ 640×360 — vendor-reported | [Jetson Thor](../../entities/jetson-thor.md) |
+| **~12.5** | MEAS | **[FLUX-mimic](../../sources/flux-3-launch.md) backbone** — input → world representation in **<80 ms**; *"backbone depth is the dominant driver of deployment latency"* | single **RTX 5090** |
+| **~9.9** | MEAS | **[FLUX-mimic](../../sources/flux-3-launch.md) full system, 101 ms reaction time** — backbone + action decoder + sensor/actuator IPC + **real-time chunking** (prediction overlaps execution). **Deployed at Audi on insertion and cable handling** | mimic robot, self-contained |
 | **10.9** | MEAS | GR00T N1.6, official TensorRT | Jetson Thor |
 | **10.7** | MEAS | [π0.5](../../entities/pi-zero-5.md), 93.6 ms — *re-measured by the TurboVLA authors on the same 4090* | RTX 4090 |
 | **~10** | REQ | Helix **System 2** / GR00T **System 2** VLM planner tier | design target |

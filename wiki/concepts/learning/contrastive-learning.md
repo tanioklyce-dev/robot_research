@@ -3,7 +3,7 @@ title: Contrastive learning and InfoNCE
 type: concept
 created: 2026-09-03
 updated: 2026-09-03
-sources: 8
+sources: 9
 tags: [contrastive-learning, infonce, cpc, simclr, moco, negatives, mutual-information, self-supervised, anti-collapse, batch-size]
 ---
 

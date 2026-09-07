@@ -2,9 +2,9 @@
 title: World-action model (WAM)
 type: concept
 created: 2026-06-02
-updated: 2026-09-01
-sources: 15
-tags: [world-action-model, wam, world-model, vla, forward-dynamics, inverse-dynamics, policy, cosmos, dreamzero]
+updated: 2026-09-07
+sources: 16
+tags: [world-action-model, wam, flux-3, video-action-model, frozen-backbone, world-model, vla, forward-dynamics, inverse-dynamics, policy, cosmos, dreamzero]
 ---
 
 **World-action model (WAM)** — a model that jointly couples a **world model** (it predicts how observations evolve) with an **action model** (it predicts or consumes actions), so that the *same* network can do forward dynamics, inverse dynamics, **and** act as a policy. The distinguishing move versus a plain [VLA](../learning/vla-models.md) is that a WAM explicitly models the **visual consequence** of an action, not just the action itself.
@@ -24,8 +24,16 @@ The vocabulary crystallized in 2026 around three conditional modes over a video�
 
 A WAM is therefore a superset of both the "video generator as simulator" ([world-model simulators](world-model-simulators.md)) and the "VLA emits actions" framings — it is one model that can be queried in any of the three directions.
 
+> [!note] A fourth shape: decode actions from a *frozen, general-purpose* generative backbone
+> Every WAM above is a model built for robotics. **[FLUX-mimic](../../sources/flux-3-launch.md)** is not: the backbone is [FLUX 3](../../entities/flux-3.md), a commercial **content-creation** model, and actions come from *"a lightweight action decoder on top of intermediate features extracted from the video prediction path."* The three-mode table still applies, but the training story inverts — the world model is trained for video generation and the action capability is **read out** of it.
+>
+> Two claims from that setup matter here. **Adding actions to the curriculum cost the video model nothing permanent** — human t2v/i2v ratings fell up to 10% and recovered fully after 3,500 steps, which is the cleanest evidence the wiki has that FD and policy *"don't need separate foundations. The same backbone carries both."* And the decoder reportedly beats VLAs **with the backbone completely frozen**, *"a setting where previous VLAs fail to succeed"* — a representation-quality claim, at n = 20 trials.
+>
+> The enabling mechanism is **Self-Flow** ([arXiv 2603.06507](https://arxiv.org/abs/2603.06507)), which puts representation learning inside the generative objective via **heterogeneous per-token noise levels**. Its stated motivation is the standard objection to generative world models — that they learn *"less disentangled representations, which puts a ceiling on their usefulness"* — treated as a fixable property of the loss rather than a reason to abandon the decoder.
+
 ## Key references
 
+- **[FLUX-mimic / FLUX 3](../../sources/flux-3-launch.md)** ([Black Forest Labs](../../entities/black-forest-labs.md) × [mimic robotics](../../entities/mimic-robotics.md), 2026) — the frozen-backbone variant above, and **the only WAM in this wiki running in production**: ECU insertion and seal/cable handling at Audi, 101 ms system reaction time, <80 ms backbone on one RTX 5090.
 - **[Cosmos 3](../../sources/cosmos-3-technical-report.md)** (NVIDIA, 2026) — the canonical worked example: a single [MoT](../../sources/cosmos-3-technical-report.md) model does FD / ID / policy across camera, autonomous-vehicle, robot, and egocentric embodiments. Its policy variant (Cosmos3-Nano-Policy-DROID) tops RoboArena, beats π0.5 on RoboLab, and — per the report's **June 2026 revision** — also ranked #1 on **MolmoSpaces** (39.0% oracle success, *All Combined*, 2026-06-20) **submitting the same model and hyperparameters with no benchmark-specific tuning**. Its central empirical claim is that **unified action mid-training** across embodiments and modes produces a *reusable action prior* that accelerates downstream adaptation (LIBERO-10: 24.6% vs 0.0% at 500 iters for mid-trained vs pre-trained init).
 - **DreamZero / [DreamDojo](../../sources/dreamdojo-paper.md)** ([NVIDIA GEAR](../../entities/nvidia-gear.md)) — the Dream* line, cited by Cosmos 3 as a WAM baseline; DreamDojo uses continuous latent actions as a self-supervised proxy.
 - **[Genie Envisioner](../../entities/genie-envisioner.md) / GE-Sim2** ([AGIBOT](../../entities/agibot.md)) — introduced a "World Action Model" framework where action is a first-class variable ([announcement](../../sources/agibot-genie-envisioner-2-announcement.md)).

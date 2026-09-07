@@ -3,7 +3,7 @@ title: VLA models
 type: concept
 created: 2026-05-06
 updated: 2026-09-07
-sources: 135
+sources: 136
 tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos, vla-0, action-as-text, molmoact2, per-layer-kv-conditioning, hybrid-action-head, llm-free-vla, turbovla, xvla, soft-prompt]
 ---
 
@@ -93,6 +93,20 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 > [!note] On-edge inference latency — the action head, not the VLM, is the bottleneck
 > First measured on-robot numbers ([Cutting the Cord, 2026](../../sources/cutting-the-cord-untethered-xlerobot.md), Jetson [Orin Nano](../../entities/jetson-orin-nano.md) Super, FP16, end-to-end camera→action): **[ACT](../../entities/act.md) 36 ms → 27.8 Hz** (reactive control); **[Diffusion Policy](../../entities/diffusion-policy.md) 540 ms → 1.8 Hz**; **[SmolVLA](../../entities/smolvla.md)-450M 714 ms → 1.4 Hz**. The striking finding: SmolVLA adds only *minor* overhead over Diffusion Policy — the latency wall is the **iterative action expert + denoising/flow steps (T=10)**, not the high-parameter semantic head. Implication for edge deployment: cutting sampling steps (or distillation) buys more than shrinking the VLM, and **diffusion/flow-matching VLAs run at ~1–2 Hz on 67-TOPS-class compute** — fine for slow/scripted tasks, too slow for reactive closed-loop. Motivates the async-inference server/client pattern (SmolVLA) and bigger onboard compute — see [Jetson onboard compute for XLeRobot](../../syntheses/platforms/jetson-onboard-compute-xlerobot.md) and the [Control-rate ladder](../../syntheses/platforms/control-rate-ladder.md), which places these numbers against control-rate requirements (83–1,000 Hz) and LLM-in-the-loop inference (0.2–0.4 Hz).
 
+## The rival class: video-action models
+
+A **video-action model (VAM)** replaces the VLM backbone with a **pretrained video model** and decodes actions from its intermediate features. The argument against VLAs is structural: static image-text pretraining *"lacks inherent physical dynamics, forcing the policy to learn complex temporal and causal relationships from scarce robot demonstrations"* — where a video backbone has already learned dynamics before the robot moves.
+
+The wiki's instance is **[FLUX-mimic](../../sources/flux-3-launch.md)** ([Black Forest Labs](../../entities/black-forest-labs.md) × [mimic robotics](../../entities/mimic-robotics.md)), built on [FLUX 3](../../entities/flux-3.md) and **deployed at Audi** on ECU insertion and seal/cable handling. Claims, all vendor-reported:
+
+- **Beats VLAs with the backbone completely frozen** — *"a setting where previous vision-language-action models fail to succeed."* Fine-tuning both reaches SOTA. Chart median over **20 trials**, so read it as *works frozen at all*, not as a margin.
+- **Up to 10× sample efficiency over VLAs** (from mimic-video, [arXiv 2512.15692](https://arxiv.org/abs/2512.15692)), compounded with Self-Flow halving steps to a given success rate.
+- **Recovery that was never demonstrated** — a missed grasp corrected and retried, attributed to world knowledge rather than the demonstration set. One episode, no rate.
+- **101 ms** system reaction time; **<80 ms** backbone on a single RTX 5090.
+
+> [!note] Note which modality each class is missing
+> A VLA has language and lacks physics; a VAM has physics and lacks language. BFL's stated next goal is *"to unify perceptual, action and language prediction in the same unified model"* — arriving at the same destination from the opposite side. See [world-action model](../world-models/world-action-model.md) for the taxonomy, which a VAM joins with a twist: the backbone is a **general-purpose content model**, not a robotics model.
+
 ## Adjacent: utility models / non-language-conditioned policies
 - **[Robot Utility Models](../../entities/robot-utility-models.md)** (NYU / Meta) — visuomotor behavior cloning achieving zero-shot ~90% success on novel environments **without language conditioning**. The "utility model" framing is a deliberate distinction from VLAs but solves an overlapping problem ([Robot Utility Models Project Page](../../sources/robot-utility-models-website.md)).
 - **[stretch_ai](../../entities/stretch-ai.md)'s LLM agent** — uses an LLM to emit tool calls, *not* low-level actions. A VLA-substitute architecture for high-level planning, paired with classical perception/manipulation primitives ([Stretch AI LLM Agent Documentation](../../sources/stretch-ai-llm-agent-docs.md), [LLM-agent architecture](../agents/llm-agent-architecture.md)).
@@ -124,11 +138,12 @@ Scope limit worth carrying: the costs there are **discrete collision events with
 - [Adaptive depth reasoning](adaptive-depth-reasoning.md) — MolmoAct2-Think's embodied-CoT latency fix.
 - [Sim-to-real transfer](sim-to-real-transfer.md) — the bridge from simulator-trained policies to real robots.
 - [Safe reinforcement learning](safe-reinforcement-learning.md) — the machinery behind VLA safety alignment.
+- [World-action model](../world-models/world-action-model.md) — the superset the video-action class sits in.
 - [World-model simulators](../world-models/world-model-simulators.md) — alternate paradigm for VLA training environments.
 
 ## Mentioned in
 
-> [!note] Curated list — **131** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **132** source pages link here; the ones below are those that shaped this page.
 
 - [π0 Paper](../../sources/pi-zero-paper.md)
 - [π0.7 Paper](../../sources/pi07-paper.md)

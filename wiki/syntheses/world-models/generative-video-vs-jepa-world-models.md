@@ -2,8 +2,8 @@
 title: Generative-video vs JEPA world models — what they predict, what it costs, what works
 type: synthesis
 created: 2026-05-07
-updated: 2026-08-08
-tags: [world-models, jepa, generative-video, cosmos, cosmos-3, world-action-model, genie-envisioner, dreamdojo, v-jepa-2, leworldmodel, waymo, genie-3, stable-worldmodel, identifiability, generalization]
+updated: 2026-09-07
+tags: [world-models, jepa, generative-video, flux-3, self-flow, representation-quality, cosmos, cosmos-3, world-action-model, genie-envisioner, dreamdojo, v-jepa-2, leworldmodel, waymo, genie-3, stable-worldmodel, identifiability, generalization]
 ---
 
 # Generative-video vs JEPA world models
@@ -99,6 +99,21 @@ The two paradigms are not independent. [GR00T](../../entities/nvidia-groot.md) N
 
 **Implication:** the long-run picture may not be "one paradigm wins"; it may be that generative-video models become training-data engines and authoring tools, while JEPA encoders become perception backbones for VLAs and on-robot world models for fast planning. Different jobs, complementary substrates.
 
+## A third position: fix the representation *inside* the generative objective
+
+The comparison above treats "generative pixels" and "latent prediction" as the two options. [Black Forest Labs](../../entities/black-forest-labs.md) takes a third, and it is the first commercial one ([FLUX 3 / FLUX-mimic](../../sources/flux-3-launch.md), 2026-07-23).
+
+**They concede the JEPA side's central criticism.** Generative approaches *"result in high-quality world models that enable simulations and they exhibit scaling laws for predictable returns on compute investments. However, compared to more specialized approaches for representation learning they produce **less disentangled representations, which puts a ceiling on their usefulness** for tasks that require world understanding."* That is close to what [LeCun's line](../../concepts/world-models/jepa.md) argues, stated by a company whose entire product is generative.
+
+**Then they treat it as a property of the loss, not of the paradigm.** **Self-Flow** ([arXiv 2603.06507](https://arxiv.org/abs/2603.06507), ICML 2026 — abstract read, paper not ingested) puts representation learning *inside* the flow-matching objective through **Dual-Timestep Scheduling**: heterogeneous noise levels across tokens, *"creating an information asymmetry that forces the model to infer missing information from corrupted inputs."* Masked modeling with a continuous knob, in the generative loss. The reported result is **reciprocal improvement — generation quality up (Fréchet distance per modality) and representation quality up (robot manipulation success rate)** — measured on both axes at once, which almost nothing in this literature does.
+
+The downstream evidence is the part that bears on this page: an action decoder on **frozen** FLUX 3 features reportedly beats fine-tuned VLAs, *"a setting where previous VLAs fail to succeed."* A frozen backbone read by a light decoder is a **probe**, and a probe beating fine-tuned rivals is the strongest available statement about representation quality — the exact currency this comparison trades in. Caveat: the chart's median is over **20 autonomous trials**, so it supports "works frozen at all," not a margin.
+
+> [!note] What this does to the page's framing
+> The dichotomy was **"predict pixels (rich, expensive, entangled)" vs "predict embeddings (cheap, clean, no decoder)."** Self-Flow's claim is that *entangled* was never intrinsic to predicting pixels — it followed from a denoising objective with *"little incentive to learn semantic representations."* If that replicates, the JEPA line's representation argument survives as a diagnosis and weakens as a reason to drop the decoder, and the remaining honest differences between the paradigms are **compute and latency**, not representation quality.
+>
+> Two reasons to hold it loosely: it is one lab's result on its own model, and the wiki has read only the abstract. But it is testable, and the mechanism is small.
+
 ## Open questions
 
 - **No published head-to-head**: no source ingested compares Cosmos / GE-Sim2 / **DreamDojo** against V-JEPA 2 on the same robot task. The cleanest comparison the wiki has is *between V-JEPA 2 and LeWorldModel* — both JEPAs at very different scales — not across paradigms. DreamDojo would be the natural generative-video side of such a comparison given its scale and OOD-robustness publication.
@@ -121,6 +136,8 @@ The two paradigms are not independent. [GR00T](../../entities/nvidia-groot.md) N
 - [DreamDojo Paper](../../sources/dreamdojo-paper.md) (the 2026 generative-video high-water mark)
 - [Cosmos 3 Technical Report](../../sources/cosmos-3-technical-report.md) (the omnimodal world-action-model — generative-video side's strongest real-robot policy)
 - [The Waymo World Model blog](../../sources/waymo-world-model.md) (the generative-video paradigm ported to autonomous driving — camera+lidar, Genie-3-derived)
+
+> **Does Self-Flow's reciprocal-improvement result replicate outside BFL?** Generation quality and representation quality improving *together* is a claim with reach well past robotics. Dual-Timestep Scheduling is a small enough mechanism to test on an existing video model, and [RankMe](../../concepts/learning/representation-evaluation.md) would measure the representation half without labels.
 
 ## Related
 

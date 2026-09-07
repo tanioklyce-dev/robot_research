@@ -3,7 +3,7 @@ title: Contact-rich manipulation
 type: concept
 created: 2026-09-07
 updated: 2026-09-07
-sources: 4
+sources: 5
 tags: [contact-rich, manipulation, force-control, assembly, insertion, surface-interaction, physical-hri, deformable-objects, task-taxonomy]
 ---
 
@@ -81,6 +81,23 @@ Public datasets are reported to rarely contain high-frequency wrench traces alig
 >
 > By the definition at the top of this page, none of those tasks is contact-rich. So the survey's own headline chapter rests on work from a different regime with a different hazard model — and, taken together, the two papers make the gap concrete rather than rhetorical: **the safe-VLA literature measures collisions because collisions have a simulator oracle and forces do not.**
 
+## The first deployment, and it does not look like the literature
+
+Everything above is drawn from a survey of research. [FLUX-mimic](../../sources/flux-3-launch.md) is a **production deployment**, at **Audi**, on this task class:
+
+> kitting parts into structured trays, **inserting electronic control units into tight-fitting fixtures**, assembling components together, and **handling soft, flexible materials like seals and cables that conventional automation has never been able to touch.**
+
+Tight-tolerance insertion is family 1 above — the most-studied class. Seals and cables are the **deformable** corner of family 3, which the survey calls under-explored. So the industrial frontier landed on the hardest two categories at once.
+
+**And the architecture is not what the literature predicts.** No impedance control, no force envelope, no compliant action space is described: camera → **video-prediction backbone** → intermediate features → lightweight action decoder → robot, at a **101 ms** system reaction time. Neither source post mentions force/torque sensing, tactile sensing or compliance anywhere.
+
+> [!warning] This is in tension with the data argument below, and the wiki should not resolve it prematurely
+> If tight-fit insertion and cable handling are achievable from **visual dynamics alone**, then "force is not recoverable from pixels" bounds less than it appears to — the bound would be on *measuring* force, not on *acting* competently in contact. The alternatives are that mimic's robots carry force or tactile sensing the blog posts omit (they build dexterous hands, so this is plausible), or that the deployment is narrower than the prose implies.
+>
+> **Nothing available settles it.** The [mimic-video paper](https://arxiv.org/abs/2512.15692) is the cheapest place to look and is not ingested. Until then this page carries both claims and the tension between them, which is the honest state.
+
+The Audi framing also names the economics, and it is not about capability: these tasks *"have stayed manual, largely for economic reasons: the **variant diversity** of premium production makes conventionally programmed robot cells too costly to re-engineer for each case."* The competitor to a learned policy here is not a better robot cell — it is a human who needs no re-engineering.
+
 ## Related concepts
 
 - [Impedance and admittance control](impedance-control.md) — the controller family this task class is built on.
@@ -100,3 +117,4 @@ Well-developed as a *control* problem and thin as a *learning* problem. Force/to
 
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — the definition, the exclusions, the four families, and the data argument.
 - [SafeVLA](../../sources/safevla-paper.md) — the counter-instance: the flagship safe-VLA result, working outside this task class on a collision-based cost.
+- [FLUX 3 and FLUX-mimic](../../sources/flux-3-launch.md) — **the first deployment in this regime**: ECU insertion and seal/cable handling at Audi, from a video backbone with no force sensing described.
