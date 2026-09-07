@@ -3,12 +3,21 @@ title: Randall Balestriero
 type: entity
 subtype: person
 created: 2026-07-26
-updated: 2026-09-03
-sources: 15
-tags: [person, balestriero, brown, lejepa, sigreg, jepa, ssl, theory, world-model, inverse-dynamics, causality, spectral-graph-theory, time-series, levjepa, tutorial]
+updated: 2026-09-07
+sources: 16
+tags: [person, balestriero, brown, citadel, wavelets, spline-theory, signal-processing, nasa-mars-seis, lejepa, sigreg, jepa, ssl, theory, world-model, inverse-dynamics, causality, spectral-graph-theory, time-series, levjepa, tutorial]
 ---
 
-**Randall Balestriero** — Assistant Professor at **Brown University**; formerly Meta-FAIR. His lab publishes under the GitHub org **GalilAI-group** (*"Foundation Models, Theory, World Models, Everything AI"*, created 2024-05-25) — the former `rbalestr-lab`, which now redirects there. In this wiki, the **theory-side counterpart to [Yann LeCun](yann-lecun.md) in the JEPA program**: co-first author of [LeJEPA](../sources/lejepa-paper.md), co-author of both May 2026 world-model papers, and the lab behind [stable-worldmodel](stable-worldmodel.md).
+**Randall Balestriero** — Assistant Professor at **Brown University** (joined Brown CS August 2024; courses listed for Fall 2026 and Spring 2027, verified 2026-09-07), Visiting Researcher at **Meta FAIR**, and — per [his own site](../sources/randall-balestriero-personal-site.md) — **Quantitative Researcher at GQS, Citadel** since 2023. His lab publishes under the GitHub org **GalilAI-group** (*"Foundation Models, Theory, World Models, Everything AI"*, created 2024-05-25) — the former `rbalestr-lab`, which now redirects there. In this wiki, the **theory-side counterpart to [Yann LeCun](yann-lecun.md) in the JEPA program**: co-first author of [LeJEPA](../sources/lejepa-paper.md), co-author of both May 2026 world-model papers, and the lab behind [stable-worldmodel](stable-worldmodel.md).
+
+> [!warning] This wiki had two of his six research areas
+> [His personal site](../sources/randall-balestriero-personal-site.md) organizes the work into six: world models, SSL, **time-series & learnable signal processing**, **spline geometry of deep nets**, **safe/fair/regulator-ready AI**, and real-world deployment. Everything below — fifteen sources deep — is the first two.
+>
+> **The one that reframes the rest is the oldest.** His timeline dates *learnable parametrized wavelets → deep wavelet transforms* to **2013–2016**, *before* the PhD, and the deployment is **NASA's Mars SEIS mission for marsquake detection** (*Nature Communications* 2020). So **non-stationary time-series is the trunk and the world-model work is a branch** — which makes the [Chicago Booth workshop](../sources/chicago-booth-world-modeling-workshop-2026.md)'s turn toward finance and time-series look like a return rather than a pivot, and makes his *"hardest real-world time-series domain"* framing of finance a claim from inside the specialty.
+>
+> The second missing area is the **spline / continuous-piecewise-affine** view from the Rice PhD with **Richard Baraniuk** — the machinery behind *Deep Networks Always Grok*, and the reason his interpretability instincts run through **linear regions** rather than features or circuits. This wiki cites results downstream of that frame without naming it.
+>
+> Also uningested and listed there: **Joint-Embedding vs Reconstruction** (NeurIPS 2025), **Semantic Tube Prediction** (JEPA for language), **Curvature Tuning**, **MaGNET**, *Learning in High Dimension Always Amounts to Extrapolation*, and the *Build Specialist LLMs Like It's 2019* claim that 7B models trained from scratch on small task-specific corpora match pretrained baselines.
 
 ## Role in the JEPA program
 
@@ -36,6 +45,7 @@ Before LeJEPA there was **[A Cookbook of Self-Supervised Learning](../sources/ss
 Two things in it sit awkwardly beside the later work, and are recorded rather than reconciled:
 
 - **It reports the field accepting [MAE](mae.md)'s evaluation argument** — *"linear-probing is uncorrelated with fine-tuning and transfer learning performances,"* with the majority of subsequent work moving to fine-tuning. His [Day 3 case against reconstruction](../sources/chicago-booth-world-modeling-workshop-2026-day3.md) is made on probe accuracy. Nothing here bridges 2023 and 2026.
+- **And the theoretical basis for the Day 3 argument exists, in a paper this wiki has never mentioned.** *"Joint-Embedding vs Reconstruction: Provable Benefits of Latent Space Prediction for SSL"* (NeurIPS 2025) is described on his site as a *"closed-form analysis of when JEPA wins over reconstruction: **latent prediction is strictly preferred when irrelevant features dominate the input signal**."* The wiki recorded the Day 3 case as argued on probe accuracy with no stated theory behind it. There is one. Uningested; top of the backlog.
 - **It already contains a label-free answer to the question he calls open on Day 3.** *"How can you assess if you learned a good Z without having to reconstruct?"* — the Cookbook recommends **RankMe**, the effective rank of the embedding spectrum, which recovers essentially all of a labelled oracle's hyperparameter-selection quality. See [representation evaluation](../concepts/learning/representation-evaluation.md).
 
 ## Teaching it — the Day 3 tutorial (2026-09-02)
@@ -59,6 +69,7 @@ He is also unusually direct about the state of the art he is selling: *"we are n
 - [Identifiability](../concepts/world-models/identifiability.md) / [JEPA](../concepts/world-models/jepa.md).
 
 ## Mentioned in
+- [Personal site (randallbalestriero.github.io)](../sources/randall-balestriero-personal-site.md) — his own six-area map of the work; the Citadel role; NASA Mars SEIS and the wavelet line; and the uningested papers above. **Note it mentions no academic position at all** — a self-presentation artifact, not a factual record, and never the source for what he does.
 - [galilai-group/tutorial](../sources/wm-booth-lejepa-lewm-tutorial-repo.md) — sole committer; a 897-line LeJEPA + LeWM tutorial pushed hours before the workshop's Day 3 coding session.
 - [galilai-group/lejepa](../sources/lejepa-github.md) — the reference implementation, and the normality-test library SIGReg is one configuration of.
 - [galilai-group/stable-worldmodel](../sources/stable-worldmodel-github.md) — the platform repo as of 2026-09.

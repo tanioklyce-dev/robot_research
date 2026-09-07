@@ -5466,3 +5466,31 @@ New file in `raw/`, and a useful corrective to a week spent entirely on billion-
 > It reports **t and p for every comparison, including the four that fail**. [GEN-1.5](sources/generalist-gen-1-5-blog.md) and [S1](sources/skild-s1-blog.md) report success rates with **no trial counts at all**. The pseudoreplication is a real flaw and publishing your null results is a real virtue, and a 262 g Arduino robot managed the second where two robot-foundation-model companies did not.
 
 **Method note, and a memory correction.** `pdftotext -layout` extracted this two-column Elsevier PDF cleanly (9,727 words, correct word spacing). A standing note in my memory said pdftotext was broken in this environment and to use pypdf — on this file the reverse was true: pypdf dropped inter-word spaces entirely and its layout mode interleaved the columns. Both tools are worth trying; neither is reliably better.
+
+## [2026-09-07] ingest | Randall Balestriero's personal site — and what fifteen sources had missed
+
+- Created [the source page](sources/randall-balestriero-personal-site.md); site text captured to `raw/`, sealed.
+- Updated: [Randall Balestriero](entities/randall-balestriero.md)
+- Backlog: seven items, one of them arguably the most valuable single read in the wiki
+
+**The wiki had two of his six research areas.** His site organizes the work into world models, SSL, **time-series & learnable signal processing**, **spline geometry of deep nets**, **safe/fair/regulator-ready AI**, and real-world deployment. Fifteen ingested sources — LeJEPA, SIGReg, the Cookbook, the Day 3 tutorial, stable-worldmodel, SMWM, LeNEPA, LeVJEPA — sit almost entirely in the first two.
+
+**And the missing one that reframes the rest is the oldest.** His own timeline dates *learnable parametrized wavelets → deep wavelet transforms* to **2013–2016, before the PhD**, with the deployment being **NASA's Mars SEIS mission for marsquake detection** (*Nature Communications* 2020, 266 citations). So **non-stationary time-series is the trunk and the world-model work is a branch.** That inverts how this wiki has been reading him: the [Chicago Booth workshop](sources/chicago-booth-world-modeling-workshop-2026.md)'s turn toward finance and time-series is a **return**, not a pivot, and his framing of finance as *"the hardest real-world time-series domain"* is a claim from inside the specialty rather than an outsider's analogy. The second gap is the **spline / continuous-piecewise-affine** frame from the Rice PhD with Baraniuk — the machinery behind *Deep Networks Always Grok*, and the reason his interpretability instincts run through **linear regions** rather than features or circuits, which this wiki cites downstream of without ever naming.
+
+> [!warning] One line on the page is worth more than the rest of the ingest
+> **"Joint-Embedding vs Reconstruction: Provable Benefits of Latent Space Prediction for SSL"** (NeurIPS 2025), described as a *"closed-form analysis of when JEPA wins over reconstruction: **latent prediction is strictly preferred when irrelevant features dominate the input signal**."*
+>
+> The wiki has **zero prior mentions of it**, while spending months — and this week especially — on exactly that question: the [generative-video vs JEPA](syntheses/world-models/generative-video-vs-jepa-world-models.md) comparison, the [anti-collapse lineage](syntheses/world-models/ssl-anti-collapse-lineage.md), [MAE's linear-probe rejection](sources/mae-paper.md), his own [Day 3 case against reconstruction](sources/chicago-booth-world-modeling-workshop-2026-day3.md) — which this wiki recorded as **argued on probe accuracy with the theoretical basis unstated** — and, hours ago, [Self-Flow's third position](sources/flux-3-launch.md) that generation and representation quality improve *together*.
+>
+> **The theoretical basis exists and has a NeurIPS acceptance.** A condition also has a converse, which is the part worth reading it for: where does latent prediction *stop* winning? Top of the backlog.
+
+Five more uningested and listed there: **Semantic Tube Prediction** (JEPA carried into *language*, with Huang and LeCun), **Curvature Tuning** (one scalar shifts a trained net's decision boundary, no retraining, no backprop), **MaGNET** (removing dataset bias from *trained* generative nets without retraining), *Learning in High Dimension Always Amounts to Extrapolation*, and the MLST claim that **7B LLMs trained from scratch on small task-specific corpora match pretrained baselines** — which, if it survives contact, contradicts the assumption behind every foundation-model page here.
+
+> [!note] Biography, handled carefully
+> The site's timeline runs Rice → Meta FAIR → **Quantitative Researcher, GQS Citadel (2023–present)**, and mentions **no academic position anywhere**. This wiki's entity page says *Assistant Professor at Brown University* — **verified 2026-09-07** against Brown CS's faculty listing and its August 2024 announcement, with courses listed for Fall 2026 and Spring 2027. Both are true at once; academic and industry roles routinely coexist, and he is separately described as a Visiting Researcher at Meta FAIR.
+>
+> Recorded for provenance discipline rather than as a correction: **a personal site is a self-presentation artifact, not a factual record, and its omissions license no inference.** The Brown claim now has a primary behind it. No narrative drawn from the page's "Download CV" or its closing *"or hiring? I'd love to hear from you."*
+
+**Method note, filed to the backlog.** Fifteen sources into one researcher before reading his own site, which took one fetch and surfaced two-thirds of the work missing plus the paper that may settle the wiki's longest-running dispute. **For any figure this wiki cites repeatedly, read the personal site early.** Cheapest high-yield source there is — provided the omissions are read as self-presentation.
+
+One thing it confirms, and it is a useful check: his own list of application domains is *"vision, NLP, geophysics, bioacoustics, medical signals, and quantitative finance."* **Robotics is not on it.** This wiki reads the JEPA line largely through robot control; its principal theorist does not.

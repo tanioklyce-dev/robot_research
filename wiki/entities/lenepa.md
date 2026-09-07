@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-07-26
 updated: 2026-07-26
-sources: 1
+sources: 2
 tags: [lenepa, time-series, self-supervised, jepa, sigreg, no-augmentation, next-latent-prediction, balestriero, lejepa]
 ---
 
