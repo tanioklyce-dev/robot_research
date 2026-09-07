@@ -2,14 +2,26 @@
 title: Test-time adaptation
 type: concept
 created: 2026-08-26
-updated: 2026-09-02
-sources: 6
+updated: 2026-09-07
+sources: 7
 tags: [test-time-adaptation, test-time-training, distribution-shift, world-model, mpc, planning, robustness, self-supervised]
 ---
 
 **Test-time adaptation (TTA)** — updating a pretrained model *during deployment*, using a self-supervised signal available from the deployment stream itself, with no labels and no expert demonstrations. Distinct from fine-tuning (offline, labeled, before deployment) and from in-context adaptation (no weight change).
 
 The wiki's entry point is [AdaJEPA](../../entities/adajepa.md), which applies it to a **latent world model inside the MPC loop** — and that closed-loop framing is what makes TTA interesting for robotics rather than a generic robustness trick.
+
+
+## The extreme-low-data end: 1–10 gradient steps
+
+[GEN-1.5](../../sources/generalist-gen-1-5-blog.md) ([Generalist AI](../../entities/generalist-ai.md), 2026) invokes test-time training explicitly for a regime below the one this page usually covers: *"Test-time training commonly uses tens of gradient steps; GEN-1.5 learns a new physical task in **1–10 steps on 5 minutes of data**."* One step on one minute of data reportedly gives **66.5%** on a held-out task; ten steps on five minutes gives **83% ± 9%**.
+
+The number worth keeping is the one about *where the change lands*: **ten steps move the weights on held-out tasks by less than 0.15%**, which they read as *"fine-tuning slightly reconfigures knowledge already present rather than building new representations."* Adaptation as **retrieval rather than learning** — *"closer to reminding the model of something it nearly knows."*
+
+> [!note] And a trade-off this page has no other instance of
+> Generalist report that **improvisation strengthens as the number of adaptation steps decreases** — *"lightly adapted models stay closer to their pretrained priors and can draw on a broader repertoire of behaviors when the situation departs from the demonstrations."* If that holds, adaptation is not free even at 10 steps: it buys task competence by narrowing the behavioral repertoire, and the right amount of test-time training is **as little as the task tolerates**, not as much as fits.
+>
+> Vendor blog, no ablation, no counts. Recorded as a hypothesis with a mechanism.
 
 ## Why control is the natural home for it
 
@@ -60,6 +72,8 @@ That matters, because the wiki already records the failure mode this creates in 
 - [Robot policy evaluation](../robotics/robot-policy-evaluation.md) — what adaptation breaks if the model is also the judge.
 
 ## Mentioned in
+
+- [GEN-1.5](../../sources/generalist-gen-1-5-blog.md) — test-time training at 1–10 steps; the <0.15% weight-change number; adaptation-vs-improvisation trade-off.
 
 - [AdaJEPA paper](../../sources/adajepa-paper.md)
 - [stable-worldmodel paper](../../sources/stable-worldmodel-paper.md) — the collapse TTA is responding to.

@@ -2,8 +2,8 @@
 title: Scaling laws — VLAs and human data
 type: concept
 created: 2026-05-15
-updated: 2026-08-28
-sources: 17
+updated: 2026-09-07
+sources: 18
 tags: [scaling-laws, vla, human-data, egocentric, gr00t, egoscale, pretraining, xvla, cross-embodiment]
 ---
 
@@ -98,7 +98,18 @@ The contrast is the useful part, and it cuts both ways:
 - GR00T N1.7 ships on the **same 20,854 hr corpus** EgoScale uses — so the largest VLA in production is built on the scaling-law-validated regime.
 - The wiki's [LeWorldModel](../../entities/leworldmodel.md) JEPA line has *no* published scaling law of any kind; this is a major TBD.
 
+## The emergence claim, from two vendors, unevidenced by either
+
+Both [Skild's S1](../../sources/skild-s1-blog.md) and [Generalist's GEN-1.5](../../sources/generalist-gen-1-5-blog.md) make a **scaling-law claim about a capability rather than a loss**: that [in-context learning](in-context-robot-learning.md) of physical skills appears past a pretraining threshold. Generalist put it as *"past a certain threshold of pretraining, the cost of adaptation becomes negligible… we do not yet see where that curve asymptotes,"* and their GEN-0 post is where they report seeing *"predictable scaling laws"* at all.
+
+> [!warning] Neither publishes the curve the claim requires
+> Generalist shows **next-action prediction error on a held-out set improving over eight months of pretraining** — a loss curve, which is the easy half. What an emergence claim needs is **in-context ability against pretraining scale**, and neither company shows it. Skild comes closer, with two conditions at two data scales (43/53 at 1k h; 66/9 at 100k h), which is two points and a story.
+>
+> This is the standard failure mode of emergence claims and it is fixable: both companies have the checkpoints.
+
 ## Mentioned in
+
+- [GEN-1.5](../../sources/generalist-gen-1-5-blog.md) — *"more pretraining makes adaptation faster, cheaper, and more general"*; loss curve over 8 months, no capability-vs-scale curve.
 
 - [Introducing Index (Figure AI)](../../sources/figure-index-announcement.md) — the thesis asserted at ~1000× EgoScale's ingest rate with no curve.
 - [Project Go-Big](../../sources/figure-project-go-big.md) — human-video-only transfer five months before EgoScale, on navigation, with no numbers.

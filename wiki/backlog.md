@@ -10,6 +10,15 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-09-07] Generalist AI — the rest of the GEN lineage
+
+[GEN-1.5](sources/generalist-gen-1-5-blog.md) cites three of its own prior posts and the wiki has read none of them. All are blog posts, not papers, so the evidence grade will not improve — but the *claims* are load-bearing for [scaling laws](concepts/learning/scaling-laws-vla.md) and [in-context robot learning](concepts/learning/in-context-robot-learning.md).
+
+- [ ] **Ingest GEN-0** (*"Embodied Foundation Models That Scale with Physical Interaction"*, ~Nov 2025). This is where Generalist say they first saw **predictable scaling laws** for embodied pretraining. If it contains an actual scaling plot, it is the closest thing anyone has published to the curve the emergence claim needs — and [scaling-laws-vla](concepts/learning/scaling-laws-vla.md) currently records that **neither Generalist nor Skild has published capability-vs-scale**.
+- [ ] **Ingest GEN-1** (*"Scaling Embodied Foundation Models to Mastery"*, ~Apr 2026). The **99%+ post-trained success** claim, and the first report of *"improvisational intelligence"* — which GEN-1.5 says strengthens as fine-tuning decreases. Two data points on the same trade-off would make it a finding rather than an observation.
+- [ ] **Ingest "The Dark Matter of Robotics: Physical Commonsense"** (Generalist, 2026). Cited twice in GEN-1.5, including for the spontaneous block-sorting behavior. The wiki has no page on physical commonsense as a distinct capability, and [ASIMOV](sources/asimov-benchmark-paper.md)'s [semantic safety](concepts/safety/semantic-safety.md) material is the nearest neighbour — worth knowing whether these are the same idea from two directions.
+- [ ] **Watch for the capability-vs-scale figure from anyone.** The open question shared by S1 and GEN-1.5: *does in-context ability emerge at a pretraining threshold, or was it always there?* Both companies hold the checkpoints. Neither has published the plot. Whoever does resolves the field's most-repeated 2026 claim.
+
 ## [2026-09-07] Verified news leads from Industrial AI Podcast #352
 
 Four items surfaced in the [episode's](sources/industrial-ai-podcast-nvidia-safety-strategy.md) news segment. **All four were checked against primaries before filing** — the podcast is a secondary and must not be cited for any of them. Two are significant enough that the wiki looks out of date without them.

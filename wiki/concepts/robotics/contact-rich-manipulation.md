@@ -3,7 +3,7 @@ title: Contact-rich manipulation
 type: concept
 created: 2026-09-07
 updated: 2026-09-07
-sources: 6
+sources: 7
 tags: [contact-rich, manipulation, force-control, assembly, insertion, surface-interaction, physical-hri, deformable-objects, task-taxonomy]
 ---
 
@@ -99,6 +99,11 @@ Tight-tolerance insertion is family 1 above — the most-studied class. Seals an
 > The honest state: *"force is not recoverable from pixels"* still stands as written, and whether it **bounds acting or only measuring** is untested either way.
 >
 > **And there is a cheap experiment that would settle it.** mimic-video's oracle study finds that conditioning the action decoder on *ground-truth future video latents* yields **near-perfect success** — *"control effectively reduces to visual prediction."* On pick-and-place. Run that same oracle study on a **tight-clearance insertion** task: if oracle video still gives near-perfect control, the decisive information really is visible and the force-first consensus is over-stated; if it does not, the gap is exactly the part of contact that pixels never had.
+
+> [!note] A second vendor in this regime, with the sensing left ambiguous
+> [GEN-1.5](../../sources/generalist-gen-1-5-blog.md)'s task list includes **twisting a lid off a glass jar** and **unzipping a pencil pouch** — sustained contact with coupled force and motion, and in the zipper's case a deformable constrained mechanism. Contact-rich by the definition above, unlike most of what [mimic-video](../../sources/mimic-video-paper.md) publishes.
+>
+> But **absence of force sensing cannot be inferred here.** The model is described as processing video *"alongside **other sensor**, language, and proprioceptive inputs"* — and "other sensor" is never expanded. Where mimic-video states its observation formally and leaves no room, this leaves room. Recorded as unknown rather than as a second data point.
 
 The Audi framing also names the economics, and it is not about capability: these tasks *"have stayed manual, largely for economic reasons: the **variant diversity** of premium production makes conventionally programmed robot cells too costly to re-engineer for each case."* The competitor to a learned policy here is not a better robot cell — it is a human who needs no re-engineering.
 

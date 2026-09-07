@@ -2,8 +2,8 @@
 title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
-updated: 2026-09-02
-sources: 69
+updated: 2026-09-07
+sources: 70
 tags: [sim-to-real, domain-gap, rl, simulation, real-to-sim, r2s2r]
 ---
 
@@ -144,7 +144,24 @@ Two things make it worth a section here rather than a bullet in "common techniqu
 - [Actuator fidelity in sim-to-real](actuator-fidelity-sim2real.md) — the actuator-side branch of this page.
 - [World-model evaluation](../world-models/world-model-evaluation.md) — the two failure modes (plausibility trap vs. reality gap) and the compound of both.
 
+## A variant that inverts the usual direction: prompt from sim, no sim in training
+
+Every instance on this page trains in simulation and deploys in reality. [GEN-1.5](../../sources/generalist-gen-1-5-blog.md) reports the reverse arrangement, and is careful to distinguish it:
+
+> "Zero-shot sim2real transfer" typically refers to training a policy in a simulator on a particular task, then running that policy in the real world without real-world data. In the case we show here, however, **the model was not trained on the task in either the simulator or the real world.**
+
+Pretraining contains **no simulation data at all** — *"neither rendered video nor simulated dynamics"* — and a demonstration recorded **in simulation** (scripted policy, RL agent, or human teleoperating a simulated robot) is inserted as an [in-context](in-context-robot-learning.md) prompt for the real robot. The prompted behavior then generalizes *"to different hands, and to new object positions and sizes."*
+
+So the sim-to-real gap is not crossed by the *policy*; it is crossed by the **task specification**. The consequence they draw: *"for a subset of tasks, demonstrations no longer need to be collected physically."*
+
+> [!note] What this does and does not do to the data problem
+> It does **not** contradict the [contact-data argument](../robotics/contact-rich-manipulation.md) — GEN-1.5's pretraining is entirely real physical experience, 1.89M scenes. It relocates which layer has to be real: **pretraining, yes; task specification, apparently not.** That is a meaningful economic claim (the expensive per-task collection moves into a simulator) and a much narrower one than "simulation solves the data problem."
+>
+> Vendor blog, one demonstrated task family, no rate reported.
+
 ## Mentioned in
+
+- [GEN-1.5](../../sources/generalist-gen-1-5-blog.md) — prompt recorded in simulation, robot acts in reality, **no simulation data in pretraining**.
 
 > [!note] Curated list — **63** source pages link here; the ones below are those that shaped this page.
 

@@ -3,7 +3,7 @@ title: Imitation learning
 type: concept
 created: 2026-05-07
 updated: 2026-09-02
-sources: 100
+sources: 101
 tags: [imitation-learning, behavior-cloning, demonstrations, lerobot, act, co-training, mobile-aloha]
 ---
 

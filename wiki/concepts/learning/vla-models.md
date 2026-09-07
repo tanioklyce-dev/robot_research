@@ -3,7 +3,7 @@ title: VLA models
 type: concept
 created: 2026-05-06
 updated: 2026-09-07
-sources: 137
+sources: 138
 tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos, vla-0, action-as-text, molmoact2, per-layer-kv-conditioning, hybrid-action-head, llm-free-vla, turbovla, xvla, soft-prompt]
 ---
 
@@ -113,6 +113,7 @@ The productized instance is **[FLUX-mimic](../../sources/flux-3-launch.md)** ([B
 - **[Robot Utility Models](../../entities/robot-utility-models.md)** (NYU / Meta) — visuomotor behavior cloning achieving zero-shot ~90% success on novel environments **without language conditioning**. The "utility model" framing is a deliberate distinction from VLAs but solves an overlapping problem ([Robot Utility Models Project Page](../../sources/robot-utility-models-website.md)).
 - **[stretch_ai](../../entities/stretch-ai.md)'s LLM agent** — uses an LLM to emit tool calls, *not* low-level actions. A VLA-substitute architecture for high-level planning, paired with classical perception/manipulation primitives ([Stretch AI LLM Agent Documentation](../../sources/stretch-ai-llm-agent-docs.md), [LLM-agent architecture](../agents/llm-agent-architecture.md)).
 - **[Waddle](../../entities/waddle-labs.md)'s VLA-as-tool framing** — argues *against* the end-to-end VLA recipe (data-hungry, hard to steer, weak cross-embodiment) but keeps the VLA as a **callable tool below an [LLM agent](../agents/llm-agent-architecture.md) that writes [code as policy](../agents/code-as-policy.md)**. So VLAs become one tool the planner can invoke, not the whole controller — a deployment stance rather than a new model class. No measured comparison to end-to-end VLAs is reported ([Introducing Waddle](../../sources/waddle-labs-introducing-waddle.md)).
+- **[Generalist AI](../../entities/generalist-ai.md)'s [GEN-1.5](../../sources/generalist-gen-1-5-blog.md) — the same move, from a model pretrained only on physical experience.** A 3–12 s demonstration in a 30-second context window (*"physical prompting"*) gives **59% ± 10%** one-shot with no gradient updates; 10 steps on 5 minutes gives **83% ± 9%**. Their argument against language is specificity: *"many physical actions are difficult to precisely describe in language (e.g. it is far easier to show exactly how to seat two Lego bricks than to say it)."* Self-reported, no counts, no named robot — and it **contradicts S1 on whether the inner loop must be trained**; see [in-context robot learning](in-context-robot-learning.md).
 - **[Skild AI](../../entities/skild-ai.md)'s [S1](../../sources/skild-s1-blog.md) — demonstration conditioning instead of language.** The task is specified by a **video shown at inference**, adapting inside the forward pass with no weight update ([in-context robot learning](in-context-robot-learning.md)). Skild reports a **scaling crossover**: language conditioning wins at 1k h of pre-training (**53% vs 43%**), in-context learning wins heavily on **unseen** tasks at 100k h (**66% vs 9%**). Self-reported, no third-party evaluation, no named embodiment — but it is the clearest published argument that language is the wrong specification channel for out-of-distribution tasks.
 
 ## Safety alignment as a post-training stage
@@ -145,7 +146,7 @@ Scope limit worth carrying: the costs there are **discrete collision events with
 
 ## Mentioned in
 
-> [!note] Curated list — **133** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **134** source pages link here; the ones below are those that shaped this page.
 
 - [π0 Paper](../../sources/pi-zero-paper.md)
 - [π0.7 Paper](../../sources/pi07-paper.md)
