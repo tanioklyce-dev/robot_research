@@ -3,7 +3,7 @@ title: Semantic safety
 type: concept
 created: 2026-08-03
 updated: 2026-09-07
-sources: 11
+sources: 12
 tags: [semantic-safety, robot-safety, constitutional-ai, asimov, red-teaming, google-deepmind, vlm, alignment, terminology, contact-rich]
 ---
 

@@ -99,6 +99,23 @@ The two paradigms are not independent. [GR00T](../../entities/nvidia-groot.md) N
 
 **Implication:** the long-run picture may not be "one paradigm wins"; it may be that generative-video models become training-data engines and authoring tools, while JEPA encoders become perception backbones for VLAs and on-robot world models for fast planning. Different jobs, complementary substrates.
 
+## A third architecture: run the generator at maximum noise and never decode pixels
+
+The table above rests on one asymmetry — *"a video generator has to commit to a specific RGB rendering of every imagined future; a JEPA only has to commit to an embedding,"* and most of the cost difference follows from that.
+
+**[mimic-video](../../sources/mimic-video-paper.md) does not commit to a rendering.** It integrates the video flow only to an intermediate flow time τ_v, takes the hidden states after layer *k*, and cross-attends an action decoder to them. **No pixels are produced at inference.** And the sweep is the surprising part:
+
+- Best **autonomous policy** success comes at **τ_v = 1 — pure noise**: a single backbone forward pass with no denoising whatsoever. *"High-fidelity video reconstruction is not required for performant robot policies."*
+- Conditioning on **ground-truth** latents, action-reconstruction error is lowest at **τ_v ≈ 0.4** and rises sharply toward **τ_v = 0** (full reconstruction).
+- Their account: fully denoised *predicted* latents carry generation artifacts and land **outside the decoder's training distribution**, while the intermediate representations behave non-monotonically in their own right.
+
+> [!note] What this does to the cost column
+> The deployed object is **a generative model used as a representation learner**: it pays the *training* cost of pixel supervision and **not** the *inference* cost of pixel generation. That removes most of the row this page uses to separate the paradigms — and it does so from the generative side, without adopting latent prediction as a training objective.
+>
+> The remaining honest difference is where the supervision lives: a JEPA never renders, in training or inference; a VAM renders in training only. Whether that training-time cost buys anything a JEPA's does not is now the real question, and [the oracle study](../../sources/mimic-video-paper.md) is the closest thing to an answer — ground-truth future video latents give **near-perfect** control, so *"control effectively reduces to visual prediction."*
+>
+> Note also the failure mode: **more reconstruction → worse control, via distribution shift.** That is structurally the same mechanism as [PACS](../../sources/pacs-paper.md)'s path-consistency result — condition a learned policy on something outside its training distribution and it collapses — arriving in an unrelated part of the field.
+
 ## A third position: fix the representation *inside* the generative objective
 
 The comparison above treats "generative pixels" and "latent prediction" as the two options. [Black Forest Labs](../../entities/black-forest-labs.md) takes a third, and it is the first commercial one ([FLUX 3 / FLUX-mimic](../../sources/flux-3-launch.md), 2026-07-23).

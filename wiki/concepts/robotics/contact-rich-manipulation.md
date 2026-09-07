@@ -3,7 +3,7 @@ title: Contact-rich manipulation
 type: concept
 created: 2026-09-07
 updated: 2026-09-07
-sources: 5
+sources: 6
 tags: [contact-rich, manipulation, force-control, assembly, insertion, surface-interaction, physical-hri, deformable-objects, task-taxonomy]
 ---
 
@@ -91,10 +91,14 @@ Tight-tolerance insertion is family 1 above — the most-studied class. Seals an
 
 **And the architecture is not what the literature predicts.** No impedance control, no force envelope, no compliant action space is described: camera → **video-prediction backbone** → intermediate features → lightweight action decoder → robot, at a **101 ms** system reaction time. Neither source post mentions force/torque sensing, tactile sensing or compliance anywhere.
 
-> [!warning] This is in tension with the data argument below, and the wiki should not resolve it prematurely
-> If tight-fit insertion and cable handling are achievable from **visual dynamics alone**, then "force is not recoverable from pixels" bounds less than it appears to — the bound would be on *measuring* force, not on *acting* competently in contact. The alternatives are that mimic's robots carry force or tactile sensing the blog posts omit (they build dexterous hands, so this is plausible), or that the deployment is narrower than the prose implies.
+> [!warning] Narrowed, not closed — and the missing document is now specific
+> **The sensing question is answered for the published system.** [mimic-video](../../sources/mimic-video-paper.md) states the observation as `oₜ = [images, language, proprioceptive state]`, with a real rig of *"a global workspace view, four wrist cameras, and full proprioception."* **No force, no tactile, no impedance, no compliance** — on a platform with 16-DoF dexterous hands.
 >
-> **Nothing available settles it.** The [mimic-video paper](https://arxiv.org/abs/2512.15692) is the cheapest place to look and is not ingested. Until then this page carries both claims and the tension between them, which is the honest state.
+> **But that paper never does a contact-rich task.** Its real-world evaluations are pick-handover-place and pick-stow; the Audi insertion and seal/cable work appears only in a vendor blog, on a **different backbone**, with **no publication**. So the published record contains a vision-and-proprioception system that has not been shown doing this task class, plus a marketing claim that it does.
+>
+> The honest state: *"force is not recoverable from pixels"* still stands as written, and whether it **bounds acting or only measuring** is untested either way.
+>
+> **And there is a cheap experiment that would settle it.** mimic-video's oracle study finds that conditioning the action decoder on *ground-truth future video latents* yields **near-perfect success** — *"control effectively reduces to visual prediction."* On pick-and-place. Run that same oracle study on a **tight-clearance insertion** task: if oracle video still gives near-perfect control, the decisive information really is visible and the force-first consensus is over-stated; if it does not, the gap is exactly the part of contact that pixels never had.
 
 The Audi framing also names the economics, and it is not about capability: these tasks *"have stayed manual, largely for economic reasons: the **variant diversity** of premium production makes conventionally programmed robot cells too costly to re-engineer for each case."* The competitor to a learned policy here is not a better robot cell — it is a human who needs no re-engineering.
 
@@ -117,4 +121,5 @@ Well-developed as a *control* problem and thin as a *learning* problem. Force/to
 
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — the definition, the exclusions, the four families, and the data argument.
 - [SafeVLA](../../sources/safevla-paper.md) — the counter-instance: the flagship safe-VLA result, working outside this task class on a collision-based cost.
-- [FLUX 3 and FLUX-mimic](../../sources/flux-3-launch.md) — **the first deployment in this regime**: ECU insertion and seal/cable handling at Audi, from a video backbone with no force sensing described.
+- [FLUX 3 and FLUX-mimic](../../sources/flux-3-launch.md) — **the first claimed deployment in this regime**: ECU insertion and seal/cable handling at Audi, from a video backbone with no force sensing described.
+- [mimic-video](../../sources/mimic-video-paper.md) — the architecture's paper: vision + proprioception only, and **no contact-rich task in its own evaluations**. Also the source of the *oracle* experiment that would settle the question.

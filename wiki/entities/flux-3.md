@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-09-07
 updated: 2026-09-07
-sources: 1
+sources: 2
 tags: [flux-3, black-forest-labs, multimodal, flow-matching, self-flow, video-generation, audio, action-prediction, world-model, video-action-model, open-weights]
 ---
 

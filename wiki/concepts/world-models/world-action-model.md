@@ -3,7 +3,7 @@ title: World-action model (WAM)
 type: concept
 created: 2026-06-02
 updated: 2026-09-07
-sources: 16
+sources: 17
 tags: [world-action-model, wam, flux-3, video-action-model, frozen-backbone, world-model, vla, forward-dynamics, inverse-dynamics, policy, cosmos, dreamzero]
 ---
 
@@ -29,10 +29,15 @@ A WAM is therefore a superset of both the "video generator as simulator" ([world
 >
 > Two claims from that setup matter here. **Adding actions to the curriculum cost the video model nothing permanent** — human t2v/i2v ratings fell up to 10% and recovered fully after 3,500 steps, which is the cleanest evidence the wiki has that FD and policy *"don't need separate foundations. The same backbone carries both."* And the decoder reportedly beats VLAs **with the backbone completely frozen**, *"a setting where previous VLAs fail to succeed"* — a representation-quality claim, at n = 20 trials.
 >
+> The class has a name and a paper: **Video-Action Model (VAM)**, from [mimic-video](../../sources/mimic-video-paper.md), which is FLUX-mimic's predecessor and runs on **[Cosmos-Predict2](../../entities/nvidia-cosmos.md)** instead of FLUX 3. Its formulation is two coupled flow-matching models on **independent flow schedules** — a frozen video backbone and a decoder that cross-attends to the backbone's hidden states after layer *k* and functions as an **inverse dynamics model**. The stated division of labour: the backbone absorbs *"the inherent multi-modality of long-horizon planning,"* freeing the decoder for *"the far simpler, unimodal and non-causal problem of inverse dynamics."*
+>
+> **And a VAM generates no video at inference.** Best autonomous performance comes at **τ_v = 1 — pure noise**, one forward pass, no denoising: *"high-fidelity video reconstruction is not required for performant robot policies."* On ground-truth latents the action-reconstruction optimum sits at τ_v ≈ 0.4 and gets **worse** toward full reconstruction. So the FD mode in the table above is, in this architecture, **never actually run to pixels** — the world model is used as a feature extractor, not as a simulator.
+>
 > The enabling mechanism is **Self-Flow** ([arXiv 2603.06507](https://arxiv.org/abs/2603.06507)), which puts representation learning inside the generative objective via **heterogeneous per-token noise levels**. Its stated motivation is the standard objection to generative world models — that they learn *"less disentangled representations, which puts a ceiling on their usefulness"* — treated as a fixable property of the loss rather than a reason to abandon the decoder.
 
 ## Key references
 
+- **[mimic-video](../../sources/mimic-video-paper.md)** (mimic robotics / ETH / Berkeley, 2025) — **names the VAM class**; frozen Cosmos-Predict2 + flow-matching IDM decoder via partial denoising. 10× sample efficiency and 2× convergence over an architecturally matched π₀.₅-style VLA, on equivalent data.
 - **[FLUX-mimic / FLUX 3](../../sources/flux-3-launch.md)** ([Black Forest Labs](../../entities/black-forest-labs.md) × [mimic robotics](../../entities/mimic-robotics.md), 2026) — the frozen-backbone variant above, and **the only WAM in this wiki running in production**: ECU insertion and seal/cable handling at Audi, 101 ms system reaction time, <80 ms backbone on one RTX 5090.
 - **[Cosmos 3](../../sources/cosmos-3-technical-report.md)** (NVIDIA, 2026) — the canonical worked example: a single [MoT](../../sources/cosmos-3-technical-report.md) model does FD / ID / policy across camera, autonomous-vehicle, robot, and egocentric embodiments. Its policy variant (Cosmos3-Nano-Policy-DROID) tops RoboArena, beats π0.5 on RoboLab, and — per the report's **June 2026 revision** — also ranked #1 on **MolmoSpaces** (39.0% oracle success, *All Combined*, 2026-06-20) **submitting the same model and hyperparameters with no benchmark-specific tuning**. Its central empirical claim is that **unified action mid-training** across embodiments and modes produces a *reusable action prior* that accelerates downstream adaptation (LIBERO-10: 24.6% vs 0.0% at 500 iters for mid-trained vs pre-trained init).
 - **DreamZero / [DreamDojo](../../sources/dreamdojo-paper.md)** ([NVIDIA GEAR](../../entities/nvidia-gear.md)) — the Dream* line, cited by Cosmos 3 as a WAM baseline; DreamDojo uses continuous latent actions as a self-supervised proxy.

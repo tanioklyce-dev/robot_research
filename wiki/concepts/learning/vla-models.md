@@ -3,7 +3,7 @@ title: VLA models
 type: concept
 created: 2026-05-06
 updated: 2026-09-07
-sources: 136
+sources: 137
 tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos, vla-0, action-as-text, molmoact2, per-layer-kv-conditioning, hybrid-action-head, llm-free-vla, turbovla, xvla, soft-prompt]
 ---
 
@@ -97,10 +97,12 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 
 A **video-action model (VAM)** replaces the VLM backbone with a **pretrained video model** and decodes actions from its intermediate features. The argument against VLAs is structural: static image-text pretraining *"lacks inherent physical dynamics, forcing the policy to learn complex temporal and causal relationships from scarce robot demonstrations"* — where a video backbone has already learned dynamics before the robot moves.
 
-The wiki's instance is **[FLUX-mimic](../../sources/flux-3-launch.md)** ([Black Forest Labs](../../entities/black-forest-labs.md) × [mimic robotics](../../entities/mimic-robotics.md)), built on [FLUX 3](../../entities/flux-3.md) and **deployed at Audi** on ECU insertion and seal/cable handling. Claims, all vendor-reported:
+The class is named and measured in **[mimic-video](../../sources/mimic-video-paper.md)** (mimic robotics / Microsoft Zurich / ETH / Berkeley, Dec 2025), which runs on frozen **Cosmos-Predict2** and carries **the cleanest video-vs-VLM backbone ablation available**: a π₀.₅-style baseline on PaliGemma-3B with **an action decoder identical to mimic-video's**, knowledge-insulation protocol, and *"training on perfectly equivalent datasets… ensur[ing] that performance differences stem strictly from the quality of the conditioning representations."* Result — SIMPLER-Bridge **46.9 vs 35.4**, LIBERO **93.9 vs 85.9**, and the decoder reaching the VLM-conditioned decoder's *maximum* success on **10% of the data** (still **77%** at one episode per task, a 98% cut). Most VLA comparisons in this wiki change backbone, decoder, data and recipe at once; this one changes the backbone.
+
+The productized instance is **[FLUX-mimic](../../sources/flux-3-launch.md)** ([Black Forest Labs](../../entities/black-forest-labs.md) × [mimic robotics](../../entities/mimic-robotics.md)), built on [FLUX 3](../../entities/flux-3.md) and **deployed at Audi** on ECU insertion and seal/cable handling. Claims, all vendor-reported:
 
 - **Beats VLAs with the backbone completely frozen** — *"a setting where previous vision-language-action models fail to succeed."* Fine-tuning both reaches SOTA. Chart median over **20 trials**, so read it as *works frozen at all*, not as a margin.
-- **Up to 10× sample efficiency over VLAs** (from mimic-video, [arXiv 2512.15692](https://arxiv.org/abs/2512.15692)), compounded with Self-Flow halving steps to a given success rate.
+- **10× sample efficiency and 2× convergence speed over VLAs** ([mimic-video](../../sources/mimic-video-paper.md), measured against the matched baseline), compounded with Self-Flow halving steps to a given success rate.
 - **Recovery that was never demonstrated** — a missed grasp corrected and retried, attributed to world knowledge rather than the demonstration set. One episode, no rate.
 - **101 ms** system reaction time; **<80 ms** backbone on a single RTX 5090.
 
@@ -143,7 +145,7 @@ Scope limit worth carrying: the costs there are **discrete collision events with
 
 ## Mentioned in
 
-> [!note] Curated list — **132** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **133** source pages link here; the ones below are those that shaped this page.
 
 - [π0 Paper](../../sources/pi-zero-paper.md)
 - [π0.7 Paper](../../sources/pi07-paper.md)

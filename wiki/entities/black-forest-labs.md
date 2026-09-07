@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-09-07
 updated: 2026-09-07
-sources: 1
+sources: 2
 tags: [black-forest-labs, flux, robin-rombach, patrick-esser, germany, freiburg, generative-models, flow-matching, physical-ai, video-generation, self-flow]
 ---
 
