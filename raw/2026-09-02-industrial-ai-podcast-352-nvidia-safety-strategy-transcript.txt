@@ -1,0 +1,1213 @@
+# Industrial AI Podcast, Episode 352 — "NVIDIA's safety strategy"
+# (podigee slug: 352-when-safety-meets-ai-making-friends-not-foes)
+# Hosts: Robert Weber, Peter Seeberg. Guest: Riccardo Mariani (NVIDIA).
+# Published 2026-09-02. Duration 52:10.
+# Source: YouTube auto-captions (en-orig), video id 4wZ0HTF1lFc, fetched 2026-09-07 with yt-dlp.
+# NOTE: auto-generated captions. Names are garbled throughout ('Rod Vieber' = Robert Weber,
+# 'Peter Seabourg' = Peter Seeberg, 'Ricardo Marani' = Riccardo Mariani, 'alpayo' = Alpamayo,
+# 'Sheffller' = Schaeffler, 'Noa/Neerra' = Neura, 'Unree' = Unitree, 'Kon' = KION,
+# 'ISIC 5469' = ISO/IEC TR 5469, 'TS22440/TS2440' = ISO/IEC TS 22440, 'IC658' = IEC 61508,
+# 'ISO139' = ISO 13849, 'IC62998' = IEC 62998, 'Vland' = TUV Rheinland.
+# Verify every proper noun before quoting.
+
+
+[00:00:00] This podcast is presented by NXAI, your
+[00:00:03] partner for time series foundation
+[00:00:05] models and physical AI.
+[00:00:16] [music]
+[00:00:18] Hello everybody and welcome to a new
+[00:00:20] episode of our industrial AI podcast. My
+[00:00:23] name is Rod Vieber and it's a pleasure
+[00:00:24] to talk to
+[00:00:25] >> Peter Seabourg. Good morning, good
+[00:00:28] afternoon, good evening to all of you.
+[00:00:31] Robert, back from holiday.
+[00:00:32] >> Welcome back from the summer break.
+[00:00:34] Yeah, Peter, what do you have the news
+[00:00:36] part?
+[00:00:36] >> It was so good. Uh being out, being out
+[00:00:40] in the sun, it was hot.
+[00:00:41] >> It was very hot.
+[00:00:42] >> Didn't really matter where we were, I
+[00:00:44] guess.
+[00:00:44] >> I guess at least all Europe was very,
+[00:00:47] very hot. As hot as it has ever been, I
+[00:00:50] guess.
+[00:00:50] >> Exactly. Exactly. I was in the north of
+[00:00:52] France and it was very hot there. Yeah.
+[00:00:55] >> Hot everywhere. Yeah,
+[00:00:57] >> good. I uh I didn't completely I never
+[00:01:00] stop never stop working. I never I mean
+[00:01:02] I never stop just reading seeing things
+[00:01:07] and what I did in the last three four
+[00:01:09] weeks I gathered they were actually up
+[00:01:11] to 20 uh pieces. I'm not going to share
+[00:01:15] all
+[00:01:16] >> 20 pieces.
+[00:01:17] >> I brought them down to 14 and they are
+[00:01:19] oneliners. Sometimes the lines are very
+[00:01:22] long
+[00:01:24] [clears throat] but but they are really
+[00:01:26] sometimes short pieces. So that is what
+[00:01:28] I'm going to be doing today and but up
+[00:01:31] to you. Maybe you want to start or
+[00:01:33] >> Yeah, I can start. I've got something
+[00:01:34] from Antropic and you as an OPC hero,
+[00:01:38] you should definitely check it out
+[00:01:40] because it's called model hardware
+[00:01:43] standard. And now I have a quote. Uh we
+[00:01:47] are opening research preview of the
+[00:01:49] model hardware standard a shared
+[00:01:51] specification for AI agents to safely
+[00:01:55] operate physical devices to first group
+[00:01:58] of scientific researchers labs and
+[00:02:00] advanced manufacturers. Model hardware
+[00:02:02] standard addresses these challenges by
+[00:02:05] introducing a standardized driver
+[00:02:07] software that translates between a
+[00:02:09] computer's operating system and a
+[00:02:11] hardware device. The standard driver
+[00:02:14] uses a simple set of primitives commands
+[00:02:18] like read for example get temperature or
+[00:02:21] write for example set temperature and
+[00:02:24] that any hardware device can understand
+[00:02:26] and act on.
+[00:02:28] >> Yeah, sounds very much like there is at
+[00:02:31] least some overlap. Let's start it like
+[00:02:33] that. Uh second thought was Antropic is
+[00:02:37] uh the originator of MCP as well.
+[00:02:40] >> Exactly.
+[00:02:41] >> Yeah, that's what they started. what a
+[00:02:42] year ago I guess a year and a half maybe
+[00:02:44] because times are running so awfully
+[00:02:46] fast. Is this maybe an extension or is
+[00:02:49] it maybe on top of it or under it?
+[00:02:52] >> Maybe the next step. Yeah. And what you
+[00:02:54] see also is that entropic is going into
+[00:02:58] the whole stuff when it comes to
+[00:03:00] physical devices with their stuff and
+[00:03:02] they maybe they they recognized oh MCP
+[00:03:05] won't help us here. So let's work on
+[00:03:08] model hardware standard stuff. I will
+[00:03:10] share the whole paper in the show note
+[00:03:13] because it's very interesting. They also
+[00:03:14] introduced a video and they explained
+[00:03:17] the architecture. So it's I think it's
+[00:03:19] very interesting for every user in the
+[00:03:22] field of industrial AI.
+[00:03:24] >> Now of course Stefan Stefan Ho the
+[00:03:28] president of OBC Foundation and you and
+[00:03:30] I we produce the OBC Foundation podcast
+[00:03:33] as well in parallel. uh he's always been
+[00:03:35] saying and that's you know for 10 20
+[00:03:38] years I guess and it's just important to
+[00:03:41] realize that an organization like the
+[00:03:44] OPC Foundation has been around for 25 30
+[00:03:47] years I guess right so it takes such an
+[00:03:49] awful long time to produce these
+[00:03:51] standards is that still the case we're
+[00:03:53] going to see but he's always been saying
+[00:03:55] you know OPC Foundation as the um what
+[00:03:59] is it the the Bluetooth right what is it
+[00:04:01] the um
+[00:04:02] >> USB
+[00:04:02] >> yeah right the USB
+[00:04:04] uh and this sounds like something
+[00:04:06] similar and but we need to look into the
+[00:04:08] details of course I think the most
+[00:04:10] important thing uh for OPC has always
+[00:04:13] been uh not just the the connecting to
+[00:04:16] the hardware but knowing what is behind
+[00:04:18] so if if behind the example you just
+[00:04:21] gave there is let's say robot then I
+[00:04:24] would know exactly what the 150 values
+[00:04:28] behind the robot including a humanoid
+[00:04:30] you know maybe they need to make that
+[00:04:31] extension but then it know what the X35
+[00:04:36] behind this you know read the value what
+[00:04:38] it means that is has always been the
+[00:04:41] most important piece so uh we need to do
+[00:04:44] I strongly agree we need to do you can
+[00:04:46] do it I can do it we need to find
+[00:04:48] somebody who's who's knowledgeable maybe
+[00:04:50] from entropic
+[00:04:52] >> and we need to do an interview with them
+[00:04:54] >> absolutely absolutely what do you have
+[00:04:55] Peter
+[00:04:56] >> 14
+[00:04:57] >> I why don't I start with uh exactly
+[00:05:01] entropic as well They did. Oh yeah, I
+[00:05:05] see it here. Did you see they introduce
+[00:05:07] watermarking as well, which because they
+[00:05:10] say the watermark is part of the text
+[00:05:12] will travel with the text when it's
+[00:05:14] copied, paste it elsewhere, may persist
+[00:05:16] through some editing, the introduction,
+[00:05:19] which they say is a result from the
+[00:05:21] commitments from having signed the EU AI
+[00:05:24] act article something something
+[00:05:28] uh they need to do. And then uh what I
+[00:05:32] then react to and say you know I was
+[00:05:35] there several times 2018
+[00:05:38] uh yeah I was just very I'm very excited
+[00:05:41] about the very effect but having said so
+[00:05:44] at the time we had no clue that's eight
+[00:05:48] years back about how powerful AI would
+[00:05:51] turn out to become right so quickly and
+[00:05:54] in my humble opinion in the near future
+[00:05:57] I I feel that close to zero content that
+[00:06:01] we are producing in the future will not
+[00:06:04] have been touched by AI including all
+[00:06:06] the things that we're doing in an
+[00:06:08] industrial environment.
+[00:06:10] >> Absolutely.
+[00:06:11] >> That was the first one. Second one I'll
+[00:06:13] do two two or three we can we can
+[00:06:16] discussing in between Yansen that is the
+[00:06:19] Yansen from Nvidia. He signed or did he
+[00:06:22] actually initiate I'm not sure maybe you
+[00:06:24] know a letter
+[00:06:25] >> ah yeah
+[00:06:25] >> on why open models matter including
+[00:06:29] statements like open models strengthen
+[00:06:32] safety cyber security they accelerate
+[00:06:35] innovation and diffusion nothing new to
+[00:06:38] many many of you and enable sovereignty
+[00:06:41] as well as the world needs both
+[00:06:44] frontiers closed models and frontier
+[00:06:47] open models
+[00:06:48] >> maybe I can comment on on your news
+[00:06:51] about the letter and stuff like this
+[00:06:52] because it's very interesting because I
+[00:06:54] think one week ago Nvidia finally
+[00:06:58] announced to buy hugging face so the
+[00:07:00] biggest AI model provider platform maybe
+[00:07:04] the most important thing when it comes
+[00:07:06] to AI infrastructure in the whole
+[00:07:09] universe or on because everybody's
+[00:07:11] working with hugging face stuff so it's
+[00:07:14] quite interesting how they built their
+[00:07:16] ecosystem when it comes to models to
+[00:07:18] hardware etc and in the main part
+[00:07:20] Ricardo is waiting. Uh he's working for
+[00:07:23] Nvidia and he's responsible for the
+[00:07:25] whole safety topic at Nvidia. So very
+[00:07:29] interesting strategy, great financial
+[00:07:31] reports last week. So very impressive
+[00:07:34] what Nvidia is delivering.
+[00:07:36] >> I missed that one. I missed that one as
+[00:07:38] part of my 20s. Uh as I So what was
+[00:07:44] there first? Was it I mean was it Yansen
+[00:07:47] signing or even initiating the the
+[00:07:50] letter about open first and then buying
+[00:07:53] hugging face?
+[00:07:54] >> No, there was a discussion before uh
+[00:07:56] with that with hugging face I think. So
+[00:07:58] yeah
+[00:07:58] >> I guess so
+[00:08:00] that is amazing really. I'm going to
+[00:08:02] have a piece on infrastructure a bit
+[00:08:04] later on here. So what are the what are
+[00:08:06] the thoughts coming to my brain? number.
+[00:08:08] The first one is how
+[00:08:11] how strong will the world allow uh
+[00:08:16] Nvidia to become? I mean is there an FTC
+[00:08:19] kind of organization that at some point
+[00:08:21] in time is going to say well you know
+[00:08:23] you you can't be you can't be everything
+[00:08:25] right?
+[00:08:26] >> Yeah. He's Yansen is buying left and
+[00:08:28] right and he should you know uh
+[00:08:32] great perfect but it's it's a thought I
+[00:08:35] have like is is there is there going to
+[00:08:37] be a point where somebody's going to say
+[00:08:39] you know other companies need to do of
+[00:08:42] course
+[00:08:42] >> yeah we had we had the same discussion
+[00:08:44] with Microsoft right with Apple with
+[00:08:46] Google with Facebook with Ma yeah yeah
+[00:08:51] he is is he still the the world's most
+[00:08:54] profitable Um, I think so. Yeah, he's
+[00:08:57] still number one. Yeah. So, he can he
+[00:08:59] can buy whoever whatever he wants.
+[00:09:02] >> I guess I'm not sure that that is always
+[00:09:04] good, but there you go. I mean,
+[00:09:06] [laughter]
+[00:09:07] >> yeah. Amazing. I I need to I need to
+[00:09:10] look into that what that what that
+[00:09:11] means. Yeah. Uh, so who were who were
+[00:09:14] the guys? You know, a little bit. I
+[00:09:15] mean, who guys, girls, who were they who
+[00:09:19] is the hugging face, which is probably
+[00:09:21] still going to be continuing, I assume,
+[00:09:24] as hugging face. Yeah, it was originally
+[00:09:26] it was built in in France, I think, but
+[00:09:29] then they raised a lot of money from the
+[00:09:30] US and I think they moved then to the US
+[00:09:34] more and but I think it was originally
+[00:09:37] from from France the whole hugging face
+[00:09:39] stuff. Yeah.
+[00:09:40] >> So it's a platform infrastructure thing,
+[00:09:42] right? Where we're going to
+[00:09:44] >> Yeah. And the model it's a model
+[00:09:45] platform, right? Everybody who has a
+[00:09:47] model will publish it on on hugging
+[00:09:50] face. Yeah.
+[00:09:51] >> Let's see. Uh I have an example here.
+[00:09:54] Black Forest uh from the the forest
+[00:09:57] where where we had one of our
+[00:09:58] >> you can find them. Yeah.
+[00:10:00] >> Gatherings. They released Flux 3. That's
+[00:10:02] a frontier multimodel model for
+[00:10:04] robotics, physical world, learning from
+[00:10:07] text, images, video, audio at scale. and
+[00:10:10] it's currently running robots that have
+[00:10:13] been tested and deployed at Audi
+[00:10:15] uh quote unquote from Audi solving
+[00:10:18] complex soft body manipulation work that
+[00:10:22] would not have been possible with
+[00:10:23] conventional robotics. So if I
+[00:10:26] understand you you know that would be
+[00:10:28] maybe a model that we could find on
+[00:10:30] hugging face as well too.
+[00:10:32] >> Exactly. Yeah. Yeah. Exactly.
+[00:10:33] >> There you go. Have another one. Optimus
+[00:10:36] moving into robotics. I mean robotics in
+[00:10:38] the four weeks has been and
+[00:10:40] robotics/humanoids
+[00:10:43] maybe to be honest the last couple of
+[00:10:45] days it has been a little bit more quiet
+[00:10:47] but there there were a couple of weeks
+[00:10:49] where I would have like a 100 messages
+[00:10:52] on humanoids it's almost like you
+[00:10:54] couldn't see it anymore anyway Optimus
+[00:10:57] uh I understand is going to be deployed
+[00:10:59] in Tesla's own factories
+[00:11:02] internally before selling the robot for
+[00:11:05] homes externally
+[00:11:07] So I think the discussion is a little
+[00:11:10] bit about you know let's be careful with
+[00:11:13] not well I think that there is this huge
+[00:11:16] discussion with people that I follow and
+[00:11:21] of course in my bubble uh who more
+[00:11:24] strongly like myself question you know
+[00:11:29] why there's so much money put in by VCs
+[00:11:32] into the humanoids
+[00:11:35] uh and It's it's probably all about, you
+[00:11:37] know, looking whatever 10 20 years into
+[00:11:39] the future. And that's moving a little
+[00:11:42] bit maybe towards uh you know, we need
+[00:11:45] we everybody needs to make sure that
+[00:11:48] whatever robot or humanoid we put into
+[00:11:50] the market is going to be doing
+[00:11:52] something useful from from day one, I
+[00:11:56] guess. You know, and I I'm going to come
+[00:11:58] to to that with another quote as well. I
+[00:11:59] think the typical, you know, put
+[00:12:01] something in put a piece of software in
+[00:12:03] the market. It's not perfect, but I'm
+[00:12:04] going to have my market share and I'm
+[00:12:06] and updating it every minute of the day
+[00:12:08] kind of thing. And you can't necessarily
+[00:12:10] do that.
+[00:12:11] >> But there there's a lot going on in the
+[00:12:13] market right now, right? And especially
+[00:12:15] when it comes to humanoid or when it
+[00:12:16] comes to AMRs. So, um maybe AGVs, so
+[00:12:21] AMRs with arms, etc. And maybe I can
+[00:12:24] comment on that because I have two two
+[00:12:27] event recommendations exactly on this
+[00:12:29] topic. One is at Bosch, greetings to Jük
+[00:12:32] and his team. And the other one is at
+[00:12:34] Agilocks in Austria. It's a I would say
+[00:12:37] a little bit a hidden champion in the
+[00:12:39] whole world of AMRs. I will also be
+[00:12:41] talking there about new robotics AI
+[00:12:43] architectures there. But what I really
+[00:12:45] find interesting is that when you talk
+[00:12:47] to industrial companies, they always are
+[00:12:51] fascinated by humanoid. But then it's
+[00:12:54] always the discussion, do we really need
+[00:12:56] uh the legs, right? And I think the
+[00:12:58] whole AMR AGV business, there's a lot
+[00:13:01] going on in the market right now. And I
+[00:13:04] highly recommend to visit one of the
+[00:13:06] events. Uh we put them also in the show
+[00:13:08] notes because um I think that's that's
+[00:13:11] the way to go in the moment to to work
+[00:13:14] with wheels uh instead of legs or
+[00:13:16] something like this. Yeah.
+[00:13:17] >> Yeah. Or or even also still with you
+[00:13:20] know just fixed robots, two arm
+[00:13:23] >> Exactly. Yeah. Exactly.
+[00:13:24] >> Robots. I mean it's it's like Yeah. I
+[00:13:27] mean and and always always you know
+[00:13:29] being being clear that we are the
+[00:13:31] industrial AI podcast here. So we're not
+[00:13:34] necessarily maybe every now and then we
+[00:13:36] do we look further but we're not talking
+[00:13:39] explicitly about any uh robots that are
+[00:13:43] going to be working in the home although
+[00:13:44] the same thing may actually apply but
+[00:13:46] most certainly for the uh for the shop
+[00:13:49] floor. Yeah.
+[00:13:50] >> Absolutely. What else Peter?
+[00:13:51] >> So you will you will
+[00:13:53] >> 12 to go. You're going to go you will
+[00:13:55] share what what you will learn there to
+[00:13:57] you.
+[00:13:58] >> Exactly. I will share it with I think
+[00:14:00] I'm there next week and I will share it
+[00:14:02] uh in the next news part. Yeah.
+[00:14:04] >> Very good. Yeah. So another one
+[00:14:05] humanoids United States blocks the
+[00:14:07] import of new form produced humanoids
+[00:14:09] citing national security data privacy
+[00:14:13] critical infrastructure cyber security.
+[00:14:16] Now while the same holds true for
+[00:14:18] European of course robot manufacturers
+[00:14:21] especially targeting Chinese firms like
+[00:14:23] Unree which the Chinese firms today hold
+[00:14:26] roughly 85 to 90%. Not sure what that
+[00:14:29] means. We're going to come to one of the
+[00:14:31] providers of the the pieces the
+[00:14:35] actuators for the humanoids in just a
+[00:14:37] moment. I skipped this one. I'm not
+[00:14:39] going to do all four. Yeah, there
+[00:14:40] [laughter] he is already. Yeah, because
+[00:14:42] according to Scander Garum, very nice
+[00:14:46] quote, the picks and shovels of the
+[00:14:48] humanoid gold rush are made in Germany.
+[00:14:52] what he is suggesting by saying he
+[00:14:54] refers to Sheffller and Sheffller uh
+[00:14:57] many of you may know as the German
+[00:15:00] bearing company
+[00:15:03] >> uh from parts you know and by the way
+[00:15:05] the CEO I saw an interesting interview
+[00:15:08] he did with the Neuro
+[00:15:11] >> sorry the Neerra
+[00:15:13] >> Noa with David
+[00:15:14] >> Noa Nura
+[00:15:16] >> do we say Noa robotics which which by
+[00:15:19] the way invested in right as well as
+[00:15:21] they invested in humanoid as well. Um
+[00:15:24] their CEO as you suggest David Riger uh
+[00:15:28] and he is suggesting uh that Sheffller
+[00:15:32] their forming technology apparently cuts
+[00:15:35] the actuator production time from
+[00:15:37] minutes to seconds. So that's
+[00:15:39] interesting. And he says they're
+[00:15:40] actually actively working with around 45
+[00:15:44] humanoid OEMs globally. So that's an
+[00:15:47] interesting piece again on
+[00:15:48] infrastructure you know being capable of
+[00:15:52] not just coming up with a demo of a of a
+[00:15:54] humanoid of a robot but but looking at a
+[00:15:57] global level which I believe um Nura
+[00:16:00] Neura as an example is doing uh and then
+[00:16:03] you need partners you need partners like
+[00:16:04] sheffler for the most important
+[00:16:06] >> and you need partners to produce the
+[00:16:07] robots right so there was a news that
+[00:16:09] Bosch is produ was working together with
+[00:16:11] humanoid yeah
+[00:16:13] >> also yeah right also yeah so these
+[00:16:15] companies these companies that uh well
+[00:16:18] in this this case there are two examples
+[00:16:20] of you know providers of automotive
+[00:16:23] components
+[00:16:25] and automotive is not um fairing that
+[00:16:28] well at least not in Germany not in
+[00:16:30] Europe and they're moving
+[00:16:31] >> but but they are very capable to produce
+[00:16:33] really industrial grade products right
+[00:16:36] on scale and that's the most important
+[00:16:38] thing to scale the whole thing you need
+[00:16:40] a you need a plant you need teams that
+[00:16:43] really know what they are doing right
+[00:16:45] and how to scale a production. Yeah.
+[00:16:48] >> Yeah. I would say that's exactly
+[00:16:51] maybe Yeah. I'm going to take this one
+[00:16:53] here. That's exactly along the lines of
+[00:16:55] what you were saying talking about uh
+[00:16:58] Nvidia buying hugging face as the
+[00:17:01] infrastructure. So Alexander Pavlenko he
+[00:17:03] says most interesting takeaway from
+[00:17:06] Gemini robotics too. That's another
+[00:17:07] infrastructure thing for robotics,
+[00:17:09] right? Robots becoming more capable. He
+[00:17:12] says, "We're not going to say how do we
+[00:17:14] build a better robot, how do we more
+[00:17:17] safely deploy, etc., etc." He suggests
+[00:17:20] that um those companies
+[00:17:24] um that build the best infrastructure to
+[00:17:27] operate them will be the ones that are
+[00:17:30] going to be, you know, the ones coming
+[00:17:32] out very big. And that's exactly that
+[00:17:34] example. So, so maybe Nvidia buying
+[00:17:38] software as one, but the other one is
+[00:17:41] the infrastruct the hardware
+[00:17:42] infrastructure and and as we just said,
+[00:17:44] I think just Bosch and Sheffller are two
+[00:17:48] great examples for that.
+[00:17:50] >> Exactly. Exactly. What else Peter 10 to
+[00:17:52] go?
+[00:17:52] >> No. Yeah, we don't have to all of them.
+[00:17:54] I skip two or three. As we talk about
+[00:17:57] NoRa in Munich, there is yet another new
+[00:18:00] AI job. We talk all the time about
+[00:18:04] specific jobs going away. I've I have
+[00:18:06] one part, if only it's the last one,
+[00:18:08] I'll do that one. That is not about jobs
+[00:18:11] going away. It's typically tasks from
+[00:18:13] all of our jobs going away. Very very
+[00:18:15] important difference. Nevertheless,
+[00:18:17] we've been saying there will be new
+[00:18:19] jobs. And yes, there is one the job of
+[00:18:21] the robot operator. You know, I consider
+[00:18:24] applying for it. It's here in Munich. uh
+[00:18:26] it's with noera and it will deal amongst
+[00:18:29] others with remote controlling uh noas
+[00:18:33] robots through teleoperation to perform
+[00:18:36] real world tasks wearing motion capture
+[00:18:39] equipment. So you you have this suit on
+[00:18:42] right while performing designated
+[00:18:44] movements actions based on etc etc. So
+[00:18:48] for those of you looking uh at you know
+[00:18:52] becoming part of one of potentially most
+[00:18:56] successful robotic companies in the
+[00:18:59] Munich area or if you want to move here
+[00:19:01] uh there is a job that hasn't existed
+[00:19:03] before.
+[00:19:04] >> I think they are working in two shifts.
+[00:19:06] I'm I'm not sure but they they hire a
+[00:19:09] lot of people. It's also maybe the
+[00:19:12] colleagues from agile are also hiring
+[00:19:14] people in this whole field. So a lot is
+[00:19:16] going on in when it comes to robotics
+[00:19:18] and um to train the the robots at the
+[00:19:22] end. Yeah.
+[00:19:22] >> And they bought two companies. So one is
+[00:19:25] the one is the rob is not a robot. If
+[00:19:27] you say AGR a
+[00:19:31] it's the ones that do clean the clean
+[00:19:33] the floors, right? That's
+[00:19:35] >> cleaning robots. Yeah.
+[00:19:36] >> And it wasn't what was the second
+[00:19:38] >> and the second part they the second
+[00:19:39] company or not product they um they
+[00:19:42] bought the active shuttle from Bosch.
+[00:19:44] >> Oh yeah. Yeah, there you go. Yeah, yeah,
+[00:19:46] yeah, yeah. Right. So, so it's it's
+[00:19:49] obvious that they are they are thinking
+[00:19:51] really big on a on an infrastructure
+[00:19:53] level, I guess, looking at making all
+[00:19:56] those components work.
+[00:19:58] >> Yeah,
+[00:19:59] >> I'm going to combine [clears throat] two
+[00:20:00] pieces from Fabian Fabian Cidm.
+[00:20:04] uh he refers to Ian Vanaga's post hawk
+[00:20:08] and in the end he is saying you know if
+[00:20:11] agents are going to be taking over all
+[00:20:13] these things basically he's saying what
+[00:20:16] does that mean to the user interface I'm
+[00:20:19] going to just be be representing it from
+[00:20:21] my brain here I think he says you know
+[00:20:24] typically we let's think I we are an
+[00:20:27] operator um doesn't you know chemical
+[00:20:31] environment whatever um uh a car
+[00:20:34] manufacturing, we have all these
+[00:20:36] screens. We sit behind and we see all
+[00:20:38] the green lights and sully there's an
+[00:20:40] orange whatever we have all this
+[00:20:42] information on these screens as the
+[00:20:44] responsible person for the production.
+[00:20:47] Now if below at what it is that we are
+[00:20:51] responsible for and I believe it's going
+[00:20:53] to be always at a higher level we're not
+[00:20:55] we're not going to go downwards that is
+[00:20:57] going to be taken over by the agents
+[00:21:00] that means that the agent needs the
+[00:21:03] information that we today the operator
+[00:21:06] today is looking at all the time
+[00:21:08] changing screens and all this stuff. Now
+[00:21:12] does the agent need the information the
+[00:21:14] way that we need it? No, it doesn't. You
+[00:21:17] know, it needs it needs the access to
+[00:21:19] the data, to the numbers. The fact that
+[00:21:22] we see it in charts and and green and
+[00:21:24] grat and it's growing and coming down
+[00:21:26] and colors and all the wonderful things
+[00:21:29] they have been produced for us, right?
+[00:21:30] If agents are taking it over, long story
+[00:21:34] short, the user interface changes from
+[00:21:38] the ground up. And interestingly uh I
+[00:21:41] made um a reply and both Fabian and
+[00:21:44] myself copied Tom Cadiraa who for us is
+[00:21:47] the number one Y user interface guy in
+[00:21:51] the uh industrial world and I'm very
+[00:21:53] much looking forward to hearing maybe
+[00:21:56] speaking to Tom about his very fact and
+[00:21:59] uh what you know how he thinks he's
+[00:22:02] going to help um companies uh come up
+[00:22:06] with a new solution new user interface
+[00:22:08] if at all if if that's what he would
+[00:22:10] agree to.
+[00:22:11] >> Perfect. Peter, what else? Or can we
+[00:22:14] switch to the main part?
+[00:22:15] >> Final quote.
+[00:22:16] >> Final. Okay.
+[00:22:17] >> Is from Edward Shandovich. He says,
+[00:22:21] "Steel in the ground requires a
+[00:22:23] completely different type of discipline.
+[00:22:26] Uh virtually unknown in the valley."
+[00:22:28] Very important. And then comes the very
+[00:22:30] important quote. You can't ship a
+[00:22:33] factory and then fix the bucks later.
+[00:22:35] And I was just referring it to already
+[00:22:37] now. and and always at a and and and I
+[00:22:41] say, you know, maybe the old world and I
+[00:22:44] mean ourselves with that and you can put
+[00:22:47] it in a positive negative way that has
+[00:22:49] never caught up shipping software and
+[00:22:52] then fix bucks later can play a role
+[00:22:54] again in physical AI and we talked about
+[00:22:56] it today you know Bosch it's all these
+[00:23:00] these very painstakingly
+[00:23:02] correct high quality which is as part of
+[00:23:06] Europe Germany has has been about um we
+[00:23:09] I think we've always looked for 10 20
+[00:23:12] years now to the valley uh and say oh
+[00:23:16] but they're shipping this piece of
+[00:23:17] software it's full of bugs you
+[00:23:19] [laughter] know and and we here in again
+[00:23:22] I say the old world maybe we we couldn't
+[00:23:25] understand how can you do that but then
+[00:23:27] the next day the bugs were gone there
+[00:23:29] was something else and I think we've
+[00:23:31] we've needed 10 20 years to to maybe I'm
+[00:23:35] not sure that even we learned to do that
+[00:23:37] as well because it was never in our uh
+[00:23:40] in our way of doing things. maybe the
+[00:23:41] young the young folks will you know will
+[00:23:44] change those things but if again
+[00:23:46] hardware becomes more important and
+[00:23:49] quality becomes more important I think
+[00:23:51] there is um there is typically an
+[00:23:52] opportunity
+[00:23:54] >> but there is a little bit of mind shift
+[00:23:55] in the whole industry I think
+[00:23:57] >> uh in in both directions or
+[00:23:59] >> in both directions yeah um for example a
+[00:24:02] lot of people are are happy with a
+[00:24:04] currency of models with 80% or something
+[00:24:08] that was unbelievable I think 10 years
+[00:24:10] ago because everybody wanted 1999%
+[00:24:14] right and there is a mind shift in the
+[00:24:18] whole industry I think
+[00:24:19] >> but is that is that only capable if then
+[00:24:22] again the quote is not mine so I'm
+[00:24:24] always very happy to share the names of
+[00:24:26] the people in this case is Edward I
+[00:24:28] think he's correct you know that you can
+[00:24:31] do that with software but you cannot do
+[00:24:33] it with hardware steel in the ground
+[00:24:35] requires requires you know and I come
+[00:24:38] from as an architect computer at
+[00:24:40] architectural design. It needs to, you
+[00:24:43] know, the building needs to stand. The
+[00:24:45] robot needs to stand. Of course, it's
+[00:24:47] we, it's very painful if we see a robot
+[00:24:51] on stage falling together. Uh, and as
+[00:24:55] long as that's a demo, that's fine. But
+[00:24:57] you can't deliver it. You know, it needs
+[00:24:58] to be ca capable to do something useful
+[00:25:02] and to and do it for at least a day or a
+[00:25:05] week or a month. And and and I would
+[00:25:07] think that there is still this
+[00:25:08] difference or not. Yeah. Yeah.
+[00:25:10] Absolutely. And stop needs needs to be
+[00:25:12] stop right with this. We are in the main
+[00:25:15] part because I talked with Ricardo from
+[00:25:17] Nvidia about their safety and AI
+[00:25:20] approach and that's the perfect
+[00:25:22] combination of the whole topics, right?
+[00:25:24] >> I guess. So yeah, I mean the same thing
+[00:25:26] where software should should be safe as
+[00:25:29] well actually. But again, you can't you
+[00:25:31] can't deliver a robot and it's going to
+[00:25:33] just wildly doing strange things and you
+[00:25:37] know doing bad things to people. So, I'm
+[00:25:38] looking forward to listening to the main
+[00:25:41] part.
+[00:25:42] >> Perfect. Peter, it was a pleasure.
+[00:25:44] Welcome back from the summer break.
+[00:25:45] Let's switch to the main part. Thanks a
+[00:25:47] lot and bye-bye and greetings to Munich.
+[00:25:49] >> Greetings to you, Robert. Greetings to
+[00:25:51] you, dear listeners. Uh, enjoy our first
+[00:25:54] podcast after the summer break. Bye-bye.
+[00:25:56] >> Bye-bye. My guest today is Ricardo
+[00:25:59] Marani from Nvidia. Ricardo, welcome to
+[00:26:02] the podcast.
+[00:26:03] >> Yeah. And so, thanks. Very happy of
+[00:26:05] being here. Very glad. Yeah, greetings
+[00:26:08] to Alba, a beautiful Alba island in
+[00:26:12] front of the Tuscans coast. But we don't
+[00:26:15] want to talk about vacation on holidays.
+[00:26:17] We want to talk a little bit about
+[00:26:18] safety. But before we talk about safety,
+[00:26:21] please Ricardo, introduce yourself
+[00:26:23] briefly to the audience.
+[00:26:25] >> Sure. Yes. Uh my role at NVIDIA is VP of
+[00:26:28] industry safety and I'm leading the
+[00:26:31] NVIDIA salos initiative that is
+[00:26:33] basically the safety initiative across
+[00:26:35] automotive robotics. My team is also
+[00:26:38] responsible for the compliance and
+[00:26:40] certification across industrial robotics
+[00:26:43] and AV and also we work a lot in
+[00:26:46] international standard and regulation.
+[00:26:49] >> What is driving Nvidia's involvement in
+[00:26:51] the field of safety? Ricardo.
+[00:26:52] >> Yeah, it's a great question. I think in
+[00:26:55] many meetings and conference uh I always
+[00:26:58] been asked about that especially people
+[00:27:01] that they still think invidia okay it's
+[00:27:04] video games or graphics so what's safety
+[00:27:06] so why safety
+[00:27:07] >> no video games
+[00:27:09] >> yeah but I it's a totally new Nvidia in
+[00:27:12] the sense why safety is so important for
+[00:27:15] Nvidia and why in general safety is
+[00:27:18] important for physical AI so at Nvidia
+[00:27:21] indeed we believe that everything that
+[00:27:23] move will eventually become autonomous
+[00:27:26] and AIdriven and so also the basically
+[00:27:29] the interdependence and the
+[00:27:31] collaboration between humans and machine
+[00:27:34] will be really a must-h have things of
+[00:27:36] the physical AI system. So of course uh
+[00:27:40] in a traditional safety AI has been seen
+[00:27:44] as a bad guy for safety due to the
+[00:27:47] nondeterministic and on transparent
+[00:27:49] nature but at Nvidia we understand those
+[00:27:53] challengings and also on the other end
+[00:27:55] of course we recognize the great
+[00:27:57] opportunities that AI is bringing and so
+[00:28:00] at the end the main reason is that we
+[00:28:02] want to get safety and AI good friends
+[00:28:06] >> but do you also see a business model in
+[00:28:08] safety.
+[00:28:09] >> Yes, absolutely. So, in general, safety
+[00:28:12] has been seen as an kind of a something
+[00:28:15] that you must have but not bringing
+[00:28:18] value to product. Exactly. In the word
+[00:28:20] that I just mentioned having safety and
+[00:28:24] AI all together is really enabling some
+[00:28:27] new use cases and new markets. So that
+[00:28:30] is a business behind that. For example,
+[00:28:34] I mean autonomous system, autonomous
+[00:28:36] system in order to be really valuable
+[00:28:38] for human, they need to use AI and of
+[00:28:41] course they also need to be safety. So
+[00:28:43] safety is really now an enabler and so
+[00:28:46] being an enabler open businesses and
+[00:28:49] maybe we can also talk later it's not
+[00:28:52] just the safety and AI on a machine or
+[00:28:57] in a robot but for example imagine the
+[00:29:00] tools and the AI system that you can use
+[00:29:03] when you simulate things. So having a
+[00:29:07] safety simulation environment that can
+[00:29:09] represent your let's say the context in
+[00:29:12] which an industrial setting operate and
+[00:29:16] give you the possibility to accelerate
+[00:29:18] the time to certification is definitely
+[00:29:21] a value. This is one of the many
+[00:29:24] different example that we can give and
+[00:29:26] how safety and AI brings new businesses.
+[00:29:29] >> Let's dig a little bit deeper. You
+[00:29:30] showcased Halos in Chicago and you
+[00:29:33] described your approach as an outside in
+[00:29:38] safety blueprint. What does that mean?
+[00:29:40] So now halos is a bigger thing that
+[00:29:43] somehow include many different layers
+[00:29:46] and in general what we say is that alos
+[00:29:50] is uh integrated vertically in the sense
+[00:29:53] that those layer they interact one with
+[00:29:56] the other but also on the other end they
+[00:29:58] can be used independently. So one of the
+[00:30:01] layers just to go directly to your point
+[00:30:03] is we say halos application. So there
+[00:30:06] are different application in safety. In
+[00:30:09] an industrial system you typically have
+[00:30:12] two things. One is we call egocentric
+[00:30:15] safety that is the safety into a
+[00:30:17] machine. So basically a robot or um
+[00:30:20] robotic arms whatever that have sensor
+[00:30:24] and understand the words and for example
+[00:30:27] if a person is approaching is doing
+[00:30:29] something. On the other end there is
+[00:30:31] also an outside in view. So somehow
+[00:30:34] using sensor in the infrastructure to
+[00:30:37] increase the contextual awareness and of
+[00:30:41] course especially if you can imagine so
+[00:30:44] let's take the example of a forklift and
+[00:30:46] this is one of our partners Kon for
+[00:30:49] example an autonomous forklift that is
+[00:30:52] going into a trailer of course when this
+[00:30:56] is entering into uh when the forklift
+[00:30:58] enter into the trailer you may want to
+[00:31:00] mute the safety function such such that
+[00:31:03] the forklift can operate let's say
+[00:31:05] easily and with more let's say
+[00:31:08] efficiency and speed but then when
+[00:31:10] people are start to be around maybe
+[00:31:13] around the corner then you need to
+[00:31:16] reenable the safety function this is
+[00:31:18] outside in safety now I think one of the
+[00:31:22] lessons that we always see and learn in
+[00:31:25] safety is that safety is a system level
+[00:31:27] thing so at the end there will be camera
+[00:31:30] there will be the outside
+[00:31:33] framework running for example on our
+[00:31:36] NVIDIA IGX hardware and then there will
+[00:31:40] be the interconnection in between those
+[00:31:43] two things and then the wireless signal
+[00:31:45] going from IGX to the the robot when
+[00:31:49] something happen so then it's an end to
+[00:31:52] end story so Halos outside in safety is
+[00:31:55] a blueprint in the sense is a is a piece
+[00:31:58] of the story that we offer to to
+[00:32:00] customer that then they integ integrate
+[00:32:02] with the rest or camera the wireless end
+[00:32:05] to end and we have partner for example
+[00:32:08] for the end to end signal or for camera
+[00:32:12] there are multiple of those that are
+[00:32:14] within the Halos uh Halos ecosystem and
+[00:32:18] so then they can use they so the end
+[00:32:21] user integrate all of that including our
+[00:32:24] framework and then they they have the
+[00:32:26] complete system
+[00:32:27] >> maybe I'm wrong but I saw a graphic
+[00:32:31] right and But from my perspective,
+[00:32:33] there's one word. It's called PSF
+[00:32:35] containers. You described that at the
+[00:32:37] show. And from my point of view, these
+[00:32:40] PSF containers are crucial. Or am I
+[00:32:43] wrong? Could you elaborate on that a bit
+[00:32:45] more? So I think you are referring to
+[00:32:48] this fact that one thing uh and if we
+[00:32:51] take this outside in safety example then
+[00:32:54] it means that you have a camera and a
+[00:32:57] pipeline using AI with maybe visual
+[00:33:00] agents that they identify a person or an
+[00:33:04] object then of course you need to make
+[00:33:06] that safe. So what is the the concept
+[00:33:10] here? Uh and it's also align with the
+[00:33:14] with the architecture that you can find
+[00:33:16] in emerging standard for functional
+[00:33:18] safety and AI like the ISO ICTS22440
+[00:33:22] of which I am the convenor. So basically
+[00:33:24] in that architecture you need to have a
+[00:33:27] combination of monitors let's say
+[00:33:29] scaffolding around that model or around
+[00:33:32] that uh source of pipeline in a way that
+[00:33:35] at the end you can trust that what
+[00:33:38] happened what has been identified and
+[00:33:41] detected is exactly what happened or if
+[00:33:44] you have missed anything. So that thing
+[00:33:47] the supervisor let's call it is a
+[00:33:50] runtime software that we provide and we
+[00:33:53] design it according standard like IC658
+[00:33:56] and ISO139
+[00:33:58] that in a few words for example check
+[00:34:01] input and output of the pipeline or
+[00:34:03] check evaluate the uncertainty that the
+[00:34:07] model may have and then I would say
+[00:34:09] validate if the outcome of the
+[00:34:12] perception model is accurate enough and
+[00:34:15] then gives is a green light then then
+[00:34:18] you can do an action
+[00:34:20] >> is it the the most important part in
+[00:34:22] this whole concept
+[00:34:23] >> so I would say at the end is the end to
+[00:34:26] end framework uh that is important and
+[00:34:29] this is why halos again for example all
+[00:34:32] of that needs to run on a software infra
+[00:34:36] so maybe let's first need to run on an
+[00:34:38] hardware that is safe and this is
+[00:34:40] exactly IGX that is the an hardware that
+[00:34:44] has many thousand and of hardware safety
+[00:34:47] mechanism so that it can be used in a C2
+[00:34:50] or C3 let's say safety architecture
+[00:34:52] according IC time for then there is the
+[00:34:54] operating system and this is what we
+[00:34:56] call halos in which then the runtime
+[00:35:00] that you mentioned is executed now what
+[00:35:03] is the most important thing at the end
+[00:35:05] of course is the end to end story so
+[00:35:08] that you need to say my whole chain from
+[00:35:12] camera to pipeline to the evaluation
+[00:35:16] going back to the signal is safe. So at
+[00:35:19] the end I would say everything is
+[00:35:21] important and this is why we believe we
+[00:35:23] needed to offer a layered approach and
+[00:35:26] of course which also partner may fit in.
+[00:35:29] >> Yeah. Why do we need a new safety
+[00:35:31] approach?
+[00:35:32] >> Okay. So it's a great question and so
+[00:35:35] first the interaction in between humans
+[00:35:38] and machines and machines and machines
+[00:35:42] is is in of course is changing. Imagine
+[00:35:45] so far even some of the most advanced
+[00:35:50] robotic system like humanoids they today
+[00:35:54] let's say they work in a cage. So and or
+[00:35:57] so robotic arm they work in a cage but
+[00:35:59] what we want to unlock uh is to enable
+[00:36:03] so people interacting openly having
+[00:36:05] those machine being in corridor with
+[00:36:07] humans. So that is exactly where you
+[00:36:11] need a new approach.
+[00:36:12] >> But what about our traditional safety
+[00:36:15] providers? We have a lot of sensors,
+[00:36:17] cameras. So we have a lot of
+[00:36:20] opportunities there.
+[00:36:21] >> Yeah. No, that's true. And in fact this
+[00:36:23] is is is very important. everything also
+[00:36:26] in let's say in a is still valuable of
+[00:36:29] course having a safety certified uh uh
+[00:36:33] sensor it's crucial because you need to
+[00:36:35] have it or a safety certified actuator
+[00:36:38] or a PLC these are still somehow very
+[00:36:42] important in the overall architecture
+[00:36:44] and anyway this is also a message I want
+[00:36:47] to give the use of AI and safety is new
+[00:36:51] but the principle of safety that is the
+[00:36:55] redundancy and diversity, the monitoring
+[00:36:58] and the validation are still the key
+[00:37:00] pillar on which we build all the story.
+[00:37:03] >> But what is now the benefit from the new
+[00:37:06] approach?
+[00:37:07] >> So the benefits we may uh let's say
+[00:37:11] identify the following uh approach.
+[00:37:13] First of course unlocking the
+[00:37:15] possibility of AI uh gives the in safety
+[00:37:19] gives the possibility to do most
+[00:37:21] advanced function. For example, if you
+[00:37:25] think on a robot that moves and you want
+[00:37:28] to move it with an optimized planning
+[00:37:30] and you want to move as as also
+[00:37:33] seamlessly you then you need to have AI.
+[00:37:36] So that new approach unlock the
+[00:37:38] combination of the new let's say
+[00:37:41] functionality that AI gives with safety.
+[00:37:43] This is one. Second still is very is
+[00:37:46] very important that this is a we provide
+[00:37:49] a framework that accelerate the time to
+[00:37:52] certification because on one end we have
+[00:37:54] the agility and the let's say the how
+[00:37:57] quick you want to develop an AI system
+[00:38:00] but at the end you also want to be safe.
+[00:38:02] So having a framework that allow to keep
+[00:38:05] that level of let's say speed in with
+[00:38:09] which you develop AI but on the same
+[00:38:12] time you have a let's say a framework
+[00:38:14] that accelerate the time to
+[00:38:16] certification that is is certainly
+[00:38:18] important then one other thing is that
+[00:38:21] of course the system also allow to
+[00:38:24] consolidate workloads because for
+[00:38:27] example let's take the example of the
+[00:38:29] outside safety you may want to also do
+[00:38:32] other things in the same system. For
+[00:38:34] example, if I go back to the example of
+[00:38:37] the forklift, you may have a look to how
+[00:38:40] the forklift is loading a pallet or you
+[00:38:43] may have other information. So, this
+[00:38:45] system allow combination of functional
+[00:38:48] workload and safety workload.
+[00:38:50] >> Mhm. Let's talk a little bit about about
+[00:38:53] traditional safety providers. Do we will
+[00:38:56] see more safety hardware, more sensors
+[00:38:59] or less sensors? Okay, that's I think
+[00:39:02] it's uh it's a good question and I give
+[00:39:04] you my my view. I think they will
+[00:39:06] everything. So I let's take one example
+[00:39:10] of the safety MCU. Of course, they are
+[00:39:13] still very important for different uh
+[00:39:16] let's say functionalities.
+[00:39:18] For example, close control to motors or
+[00:39:21] even in our architecture, we use an
+[00:39:24] safety MCU as a companion and also uh
+[00:39:28] safety sensor will be still there
+[00:39:31] because at the end uh you need to
+[00:39:33] capture information from the environment
+[00:39:36] in a safe way. So they will remain
+[00:39:39] certainly or end to end safety protocol.
+[00:39:42] I mean we have a a plethora of safety
+[00:39:45] protocol I mean from SIP safety profe
+[00:39:50] and they will remain because we need
+[00:39:52] that thing. So those things will remain
+[00:39:55] what AI so AI additional
+[00:39:59] functionalities to the existing I would
+[00:40:02] say element of safety.
+[00:40:04] >> Mhm. What do the certifiers say? How do
+[00:40:06] you involve them in your process?
+[00:40:09] >> Okay. So maybe let's let's start from
+[00:40:12] from one point AI and functional safety
+[00:40:14] is of course need to be taken very
+[00:40:17] seriously for that reason I think it's
+[00:40:20] about four year that the industry is
+[00:40:23] working on standard for functional
+[00:40:26] safety and AI mainly we have in fact the
+[00:40:30] first report that was created
+[00:40:32] internationally about AI functional
+[00:40:34] safety was the ISIC
+[00:40:37] 5469 that is multical report from ISOIC
+[00:40:41] JTC1 SC42. I was the editor of it and in
+[00:40:44] that thing we somehow listed all the
+[00:40:47] challenges all the possibilities to
+[00:40:50] overcome and identify those challenges.
+[00:40:52] So at that level of course and again we
+[00:40:55] as mentioned earlier on we have the the
+[00:40:57] the ISICTS2440
+[00:41:00] that is the follow
+[00:41:02] activity. So the certifier are involved
+[00:41:04] in that because they now have a
+[00:41:08] framework with which you can certify AI
+[00:41:12] and uh and functional safe for
+[00:41:14] functional safety. So having that
+[00:41:17] framework let's say in progress and uh
+[00:41:20] the TS2440 will be published uh so next
+[00:41:23] year. So and there is also similar thing
+[00:41:26] on automotive like the ISO 8800 gives
+[00:41:29] the certifier that possibility. Now our
+[00:41:31] vision and this is what we call Halos AI
+[00:41:34] system inspection lab is that who
+[00:41:37] provide a platform like Nvidia has to
+[00:41:41] take also a role in that in the sense
+[00:41:43] that for example let's imagine a partner
+[00:41:46] like agility as humanoid that is using
+[00:41:50] halos and what we do is to do an
+[00:41:54] inspection using an independent
+[00:41:58] organization within Nvidia that inspect
+[00:42:01] if that integration has been completed
+[00:42:04] successfully. In this way, we provide
+[00:42:07] this input to the final certification
+[00:42:09] agency and we have partnership with all
+[00:42:12] of them. So both starting from Vland and
+[00:42:15] QBud and Exeda, SGS, Certex, UL of them.
+[00:42:22] So basically they take the certificate
+[00:42:24] we provide as of inspection is a
+[00:42:27] certificate of inspection and they do
+[00:42:29] the final certification and that's very
+[00:42:31] important because this system are so
+[00:42:34] complex that it cannot uh a very high
+[00:42:37] level analysis uh will never reveal the
+[00:42:40] issue. So in this way we help both
+[00:42:43] integrators and customer and certifier
+[00:42:46] in doing this. And if I can add because
+[00:42:49] this is also one of the things uh we we
+[00:42:52] believe is very important. There is
+[00:42:54] another emerging thing that I I
+[00:42:57] mentioned earlier on using simulation
+[00:43:00] and AI when you do verification and
+[00:43:03] validation of those system including uh
+[00:43:06] uh architecture like digital twin.
+[00:43:10] We truly believe and we call Halo's
+[00:43:13] workflow and we published a CVPR attack
+[00:43:17] brief on the Halo safety evaluation
+[00:43:19] framework that agency like the one I I
+[00:43:22] mentioned eventually they will have
+[00:43:25] those so instead I mean well let's say
+[00:43:28] on top of the lab that they already have
+[00:43:30] they need to have kind of a of an
+[00:43:33] assessment lab that is more so digital
+[00:43:36] with the synthetic data generation with
+[00:43:38] simulation because this will allow them
+[00:43:41] to test end to end those model generate
+[00:43:45] data and stress this system with data.
+[00:43:48] So the role of simulation framework for
+[00:43:51] safety in collaboration with
+[00:43:53] certification agency is crucial
+[00:43:55] >> but there's still always a gap right a
+[00:43:57] simulation gap.
+[00:43:58] >> Oh true of course I mean in everything
+[00:44:00] there is always something that you need
+[00:44:02] to analyze. So in case of simulation of
+[00:44:05] course there is the scene to real gap or
+[00:44:07] the real to sim gap that is very
+[00:44:09] important but I mean everything has a
+[00:44:12] gap. So what is important is to apply
+[00:44:15] processes to be sure that this gap are
+[00:44:18] evaluated and reduced and controlled.
+[00:44:21] For example in the TS22440 we this
+[00:44:24] standard we we have an annex on use on
+[00:44:27] AI AI AI tools uh including of course
+[00:44:31] tools that you can uh use for simulation
+[00:44:34] and then showing the process with which
+[00:44:37] you develop those tools the type of
+[00:44:39] accuracy that you need to measure. So
+[00:44:41] definitely yes. Now if the question was
+[00:44:45] can we get rid of tests in the real
+[00:44:48] world I would say no that's I think
+[00:44:51] everyone is clear but I mean especially
+[00:44:54] if you want to reach failure rate that
+[00:44:56] are very low like the one that is maybe
+[00:44:59] required by the IC62998 and other I mean
+[00:45:03] if you want to do it by collecting real
+[00:45:07] data
+[00:45:08] it may just data in the real world it
+[00:45:12] may take a while. So those are really
+[00:45:14] accelerating because for example you
+[00:45:16] record and you determine data and then
+[00:45:19] you augment we have an instrument uh a
+[00:45:23] technology new that allow uh scenario
+[00:45:27] augmentation in this way you can really
+[00:45:30] augment for example you have a certain
+[00:45:32] setting and then you reproduce in many
+[00:45:35] different condition different light
+[00:45:37] condition different uh setting of the
+[00:45:40] room and then you can really accelerate.
+[00:45:42] So yes there are gaps but also there are
+[00:45:46] the technologies to allow to overcome
+[00:45:48] that gaps. You already mentioned
+[00:45:51] forklifts you mentioned robots right but
+[00:45:54] these robots work together with
+[00:45:57] machinery. So from my point of view this
+[00:46:00] approach can do more than just robots or
+[00:46:03] am I wrong? So talking about safety and
+[00:46:05] machinery at the end.
+[00:46:07] >> Absolutely. No, you are absolutely right
+[00:46:10] and even I mean if we go to the basic of
+[00:46:12] the PLC that is one of the critical
+[00:46:15] element in machinery already those uh
+[00:46:18] infrastructure allow the possibility to
+[00:46:21] have a soft version of the PLC running
+[00:46:24] all together with AI pipeline h and then
+[00:46:27] of course also the allowing a seamless
+[00:46:30] interaction with those. So yes of course
+[00:46:32] also that's very important in metric. So
+[00:46:34] is that on your agenda going next step
+[00:46:37] going to the machinery or are you
+[00:46:39] focusing on robotics? So what is your on
+[00:46:42] your agenda?
+[00:46:43] >> Okay, it's an important point. So the
+[00:46:45] platform we provide and the IGX, Nvidia
+[00:46:48] IGX and ALOS they are already also
+[00:46:51] addressing machinery uh as I mentioned
+[00:46:54] they are ISO 13849
+[00:46:58] uh so we design according to the ISO
+[00:47:01] 13849. So definitely and we have already
+[00:47:04] partners in the PLC world that are are
+[00:47:08] working with us to integrate the PLC
+[00:47:11] function that is required in machinery
+[00:47:14] into our uh architecture.
+[00:47:16] >> So you're talking to so the traditional
+[00:47:19] PLC safety providers or is it a totally
+[00:47:22] new business? Okay. To the traditional
+[00:47:24] guys.
+[00:47:25] >> Okay. The yellow guys from Stoodgard and
+[00:47:27] stuff like that.
+[00:47:27] >> I cannot mention in that case names but
+[00:47:30] yeah. So absolutely. many of them. Yeah.
+[00:47:32] >> Okay. Ricardo at the end, how is the
+[00:47:36] whole safety business changing from your
+[00:47:39] point of view?
+[00:47:40] >> So I think I think I I mentioned it. So
+[00:47:43] first uh the market is moving in a full
+[00:47:47] stack softwaredefined
+[00:47:49] approach. uh at Nvidia we typically say
+[00:47:52] it's not anymore a problem one computer
+[00:47:55] like the computer that is in the in a
+[00:47:58] machine but is the computer with which
+[00:48:00] you use for training and you need
+[00:48:03] simulation. So this is basically how the
+[00:48:05] market is growing. uh and also the other
+[00:48:08] aspect that there has to be that I
+[00:48:10] mentioned earlier on is the change from
+[00:48:14] a pure egocentric safety to a contextual
+[00:48:18] award safety that open a lot of
+[00:48:20] different opportunities and then how
+[00:48:22] safety enter in such a digital world. So
+[00:48:27] all the simulation aspects. So those are
+[00:48:30] some example on how the market is
+[00:48:32] changing and also how a AI is can bring
+[00:48:37] value. And I just want to also add maybe
+[00:48:40] a couple of other things that often are
+[00:48:42] not discussed.
+[00:48:44] AI some of the new evolution on AI like
+[00:48:47] visual also language action model. So
+[00:48:51] VA, VLM uh can be used as a safety
+[00:48:54] reasoners and and so what do they
+[00:48:57] provide? They provide
+[00:48:58] >> but we both know that they are not so
+[00:49:00] good as as we hope.
+[00:49:02] >> Yes. But let's say if if you use so this
+[00:49:06] is exactly why that invidia we are
+[00:49:08] designing model like alpayo and others
+[00:49:11] that are designed for safety in that
+[00:49:14] sense that they provide explanability
+[00:49:17] and transparency or then can can be used
+[00:49:20] as a safety judge or the other example
+[00:49:23] that is very I mean as a safety engineer
+[00:49:26] uh one of the pillar of the my work is
+[00:49:28] still doing other risk analysis and
+[00:49:30] doing FMA also use of AI based tools
+[00:49:34] they can accelerate, augment and
+[00:49:36] automate steps but definitely as you
+[00:49:38] mentioned it they need to work well and
+[00:49:41] this is why we have also this standard
+[00:49:43] that are helping to implement AI based
+[00:49:47] tools that are reliable and affordable.
+[00:49:50] So in summary, I think what the what is
+[00:49:53] the impact on the market is that AI and
+[00:49:56] safety can be really good friends and I
+[00:49:59] think the community is getting uh so
+[00:50:02] this and this is why also we we brought
+[00:50:05] alos we want to help the community and a
+[00:50:08] lot of the things I mentioned are open
+[00:50:10] sourced in order that we can make that
+[00:50:13] really friends.
+[00:50:15] >> What is on your personal agenda in the
+[00:50:17] coming months Ricardo? what are you and
+[00:50:19] what are you working on? So let's say
+[00:50:21] from the Halos viewpoint as I mentioned
+[00:50:24] this safety evaluation as a framework so
+[00:50:27] that how we use billionaire and cosmos
+[00:50:31] and omniverse to deliver uh a credible
+[00:50:35] safety simulation environment that can
+[00:50:37] be used by agency and then the other
+[00:50:39] aspect is of course how we make the all
+[00:50:43] the layers halos and other easily
+[00:50:47] available to to our customer and create
+[00:50:49] an ecosystem. them and maybe the other
+[00:50:51] aspect is that we will have uh uh in uh
+[00:50:55] in October uh our GTC event in Berlin.
+[00:50:58] >> In Berlin. Yes. We will see each other
+[00:51:00] there. Yeah.
+[00:51:01] >> Absolutely. Also because safety will be
+[00:51:03] a key topic. So very if you want to and
+[00:51:07] of course Europe and uh and Germany and
+[00:51:10] and safety is kind of a of a marriage.
+[00:51:13] So that is why we are having halos and
+[00:51:16] safety as a
+[00:51:17] >> is that a problem for for Europe or for
+[00:51:19] Germany because you said it's a marriage
+[00:51:21] and we are looking so much on on safety.
+[00:51:24] Is it a problem from your point of view
+[00:51:26] or is it a
+[00:51:27] >> no no it's a value.
+[00:51:28] >> It's a value.
+[00:51:29] >> I think it's a value. We believe safety
+[00:51:32] is a value. And so again the reason that
+[00:51:35] we created ALOS is to make sure that
+[00:51:37] safety and AI are friends.
+[00:51:39] >> Okay. So, I think that's the title of
+[00:51:41] the episode, Making Friends. Ricardo, it
+[00:51:44] was a pleasure to talk to you. Uh, thank
+[00:51:46] you very much for your time. Best
+[00:51:48] regards and greetings to Elba and enjoy
+[00:51:51] the weather in Italy. Thanks a lot.
+[00:51:53] >> Bye. Thank you. [music]

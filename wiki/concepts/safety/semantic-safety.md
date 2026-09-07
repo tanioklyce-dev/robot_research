@@ -3,7 +3,7 @@ title: Semantic safety
 type: concept
 created: 2026-08-03
 updated: 2026-09-07
-sources: 10
+sources: 11
 tags: [semantic-safety, robot-safety, constitutional-ai, asimov, red-teaming, google-deepmind, vlm, alignment, terminology, contact-rich]
 ---
 
@@ -114,6 +114,19 @@ Usefully, **VLA feasibility filtering is learnable by prompting**: telling the a
 >
 > When this wiki writes *semantic safety* unqualified, it means the ASIMOV sense. The other is **semantic-to-physical constraint grounding**.
 
+## The vendor version of the claim: "VLM as safety judge"
+
+The measurements above are all from research. The [NVIDIA Halos](../../entities/nvidia-halos.md) programme now advances the same idea as **product direction** — [Riccardo Mariani](../../entities/riccardo-mariani.md), unprompted, on the [Industrial AI Podcast](../../sources/industrial-ai-podcast-nvidia-safety-strategy.md):
+
+> Some of the new evolution on AI, like visual — also language action model, so VLA, VLM, can be used as **safety reasoners**… models designed for safety in that sense that they provide explainability and transparency, and then can be used as a **safety judge**.
+
+His instance is [Alpamayo](../../entities/alpamayo.md), NVIDIA's open reasoning-VLA family for autonomous vehicles, whose design bet is that **verbalized reasoning is auditable reasoning**. A second, less contested use: AI tools to *"accelerate, augment and automate steps"* of hazard analysis and FMEA — assisting the safety engineer rather than replacing the safety function.
+
+> [!warning] The interviewer's one-line objection is better supported than the answer
+> Host, immediately: *"but we both know that they are not so good as as we hope."* This page is the evidence for that. Frontier models score **100%** acting on a safety signal handed to them as structured text and **cannot reliably produce one from perception** (>40% FNR at low FPR, [GR 2](../../sources/gemini-robotics-2-safety-report.md)); safety-constraint classification is ≥96% in text and **degrades markedly** in pointing, bounding-box and tool-use modalities.
+>
+> What Mariani is actually proposing is narrower and more defensible than the phrase suggests: a model *trained for auditability* feeding a **deterministic runtime supervisor that can veto it**, inside a layered stack. That is architecture, not an appeal to model judgment — and it is consistent with this page's conclusion that the semantic layer needs an interlock it does not have. But the interview does not draw the distinction, and **"VLM as safety judge" imported without the deterministic layer beneath is the failure mode**, not the design.
+
 ## Current state
 
 As of mid-2026 the layer has **three benchmark generations** (ASIMOV v1 → 2.0 → Agentic), **two probing methods** ([RoboART](../../entities/roboart.md), [Veo](../../entities/veo.md)), and **no enforcement mechanism**. [DeepMind](../../entities/google-deepmind.md) remains essentially the only ingested source producing work here, which makes this page single-lab.
@@ -144,4 +157,5 @@ What would change this: a safety architecture where the semantic layer's *output
 - [Gemini Robotics 2: Safety Evaluations](../../sources/gemini-robotics-2-safety-report.md) — extends ASIMOV from judgment to **agentic orchestration**, and confirms this page's conclusion from the vendor side: the report explicitly excludes the functional-safety architecture and recommends frontier models be used "alongside deterministic, low-level safety guardrails."
 - [Gemini Robotics 2 blog](../../sources/gemini-robotics-2-blog.md) — announces ASIMOV-Agentic.
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — the **other** use of the term, from the interaction-control tradition: semantic-to-physical constraint grounding with an enforcement layer downstream.
+- [Industrial AI Podcast #352 — NVIDIA's safety strategy](../../sources/industrial-ai-podcast-nvidia-safety-strategy.md) — the vendor's "VLM as safety judge" direction, and the host's objection.
 - [SciFi-Benchmark](../../sources/scifi-benchmark-paper.md) — the ethics/dilemmas wing: 824 sci-fi works → 9,056 questions; constitutions lift alignment 79.4% → 95.8% and resist adversarial prompting (23.3% → 92.3%); fiction-derived constitutions top-perform on ASIMOV's real-world data.

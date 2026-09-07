@@ -3,8 +3,8 @@ title: Robot safety standards (ISO 13482 and the machinery-safety framework)
 type: concept
 created: 2026-07-08
 updated: 2026-09-07
-sources: 22
-tags: [iso-13482, iso-10218, ts-15066, safety-standards, certification, ce-marking, service-robots, personal-care-robots, assistive, regulation, functional-safety, nvidia-halos]
+sources: 23
+tags: [iso-13482, iso-10218, ts-15066, iso-iec-tr-5469, iso-iec-ts-22440, iso-pas-8800, iec-62998, safety-standards, certification, ce-marking, service-robots, personal-care-robots, assistive, regulation, functional-safety, nvidia-halos]
 ---
 
 # Robot safety standards (ISO 13482 and the machinery-safety framework)
@@ -38,6 +38,29 @@ CE marking is the commercial lever: **EN ISO 13482 is harmonized** under the EU 
 ## The documented gaps (Fosch-Villaronga et al., 2023)
 
 The [primary academic critique](../../sources/fosch-villaronga-iso13482-exoskeletons.md) (Leiden eLaw, *Technology in Society* 2023; systematic review of 71 works, exoskeleton-focused) classifies the 2014 standard's deficiencies into **six areas** — missing hazards (cognitive/psychological, overtrust, third parties, travel instability), insufficient requirements, **scarce V&V methods** (no test measures or usable HRI models — no defined way to *demonstrate* conformity), incomplete information-for-use, missing normative references, and confusing language — plus structural problems: "personal care" never defined, the **medical-device boundary** unclear, function-based categories too heterogeneous (they argue for per-category standards), and a **narrow physical-safety focus** that drops privacy, cognitive accessibility, and gender considerations that materially affect safety. The 2025 revision's restructuring-by-robot-type responds directly to the per-category argument; how much else it closes is an open question on the [source page](../../sources/fosch-villaronga-iso13482-exoskeletons.md).
+
+## The AI functional-safety line — the standards written *for* this problem
+
+The framework above governs machines. A second, much newer line governs **AI inside a safety function**, and it is the direct answer to the collision documented below. Sourced from [its convenor](../../entities/riccardo-mariani.md) on the [Industrial AI Podcast](../../sources/industrial-ai-podcast-nvidia-safety-strategy.md); **no standard document here has been ingested.**
+
+| Standard | What it does | Status |
+|---|---|---|
+| **ISO/IEC TR 5469** | *"the first report created internationally about AI functional safety"* — enumerates the challenges of putting AI in a safety function and the candidate ways to overcome them. A **technical report**: it describes, it does not require. | **Published** (2024) |
+| **ISO/IEC TS 22440** | the follow-on, and the one that matters: **requirements**, i.e. the certifiable framework built on TR 5469. Carries an **annex on AI tools** — including simulation tooling — specifying the development process and the accuracy you must demonstrate for them. | in progress; *"will be published next year"* (~2027) per its convenor |
+| **ISO/PAS 8800** | the automotive-domain equivalent — *"gives the certifier that possibility"* for road vehicles | published |
+| **IEC 62998** | safety-related sensors; cited for the **failure rates** that make pure real-world validation impractical to demonstrate | published |
+| **IEC 61508** · **ISO 13849** | the classical bases the AI-adjacent runtime monitors are still designed against | published |
+
+Owned by **ISO/IEC JTC 1/SC 42/JWG 4**, a joint AI/functional-safety working group launched by IEC and ISO; the industry has been at it *"about four years."*
+
+> [!note] Why this changes the shape of the page's central question
+> This page has held open the question of how a stochastic learned policy demonstrates conformity, and answered it provisionally with *"a certified classical safety layer wrapping an uncertified learned policy."* That answer is right about the architecture and **incomplete about the process**, because a standard is being written whose whole subject is the wrapping.
+>
+> What the wiki can say now: **the certification story for AI in safety functions is a real standards programme with a published TR, a requirements TS due around 2027, and a named owner** — not a vacuum. What it still cannot say is **what TS 22440 will actually require of a learned policy**, because it is unpublished and nobody here has read TR 5469 either. That is now the single most consequential unread document in this thread.
+>
+> Note also who is writing it. The convenor of JWG 4 and project leader of both documents is **NVIDIA's head of industry safety**, who also runs [Halos](../../entities/nvidia-halos.md) — the commercial product that implements the architecture. Normal for functional safety, where standards have always been written by the people who ship the systems, and worth recording anyway.
+
+**Two mechanisms from the same source that a conformity argument would rest on.** A **runtime supervisor** that checks a perception pipeline's I/O and **evaluates the model's reported uncertainty** before releasing an action — which quietly makes uncertainty estimation a certified-path dependency, against the [contact-rich survey](../../sources/safe-learning-contact-rich-survey.md)'s finding that foundation models estimate it poorly. And a prediction that notified bodies will need a **digital assessment lab** (synthetic data, simulation, scenario augmentation) alongside their physical ones, because IEC 62998-class failure rates cannot be demonstrated from real data in reasonable time — coupled with an explicit refusal to let simulation replace real testing: *"can we get rid of tests in the real world — I would say no."*
 
 ## The looming collision with learned policies
 
@@ -77,5 +100,6 @@ ISO 13482 remains the only game in town for non-industrial robot safety certific
 - [awesome-physical-ai (GitHub list)](../../sources/awesome-physical-ai-github.md) — the governance/standards gap that prompted this page.
 - [ASIMOV Benchmark paper](../../sources/asimov-benchmark-paper.md) — argues robotics safety was "predominantly about collision avoidance and hazard reduction," and that VLM-driven robots need a **[semantic safety](../safety/semantic-safety.md)** layer the standards tradition does not cover.
 - [Responsibly advancing AI and robotics](../../sources/deepmind-gemini-robotics-safety-page.md) — places the standards tradition as the *physical* layer of three.
+- [Industrial AI Podcast #352 — NVIDIA's safety strategy](../../sources/industrial-ai-podcast-nvidia-safety-strategy.md) — **the source of the AI functional-safety line above**, from the convenor of ISO/IEC JTC 1/SC 42/JWG 4; also the inspection-lab mechanics and the limits of simulation as conformity evidence.
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — standards as one of six safety-definition axes; the only exogenous one, and the only one that includes perceived safety.
 - [Gemini Robotics 2: Safety Evaluations](../../sources/gemini-robotics-2-safety-report.md) — the wiki's best single map of the applicable standards: **ISO 10218:2025** (absorbing ISO/TS 15066's SRMS / hand-guiding / SSM / PFL modes), **ISO 13482** plus the **forthcoming ISO 25785-1** for humanoid and dynamically stable robots, **ISO 13855** (separation distance), **ISO 13849-1** (stop-function integrity), **IEC 60204-1** (stop categories; Category 2 retains power to hold pose).
