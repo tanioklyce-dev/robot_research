@@ -2,13 +2,26 @@
 title: Wiki Backlog — deferred lint items & knowledge gaps
 type: meta
 created: 2026-07-04
-updated: 2026-09-03
+updated: 2026-09-07
 tags: [backlog, lint, todo, knowledge-gaps]
 ---
 
 # Wiki Backlog
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
+
+## [2026-09-07] Safe learning — the physical-safety cluster's open reads
+
+Opened by [the contact-rich survey](sources/safe-learning-contact-rich-survey.md) and [SafeVLA](sources/safevla-paper.md). The cluster is now well-covered on *concepts* and thin on *primaries*: five new concept pages rest on one survey, and the survey's own most-cited anchors are mostly unread here.
+
+- [ ] **Ingest Safety Gymnasium** (Ji, Zhang, … Yaodong Yang; NeurIPS 2023, [arXiv 2310.12567](https://arxiv.org/abs/2310.12567)). **Top of this section.** It is (a) one of only **three** safety-specific RL benchmarks the contact-rich survey can name in its whole benchmark table, (b) the standard suite the safe-RL literature reports against, and (c) the direct predecessor of [Safety-CHORES](entities/safety-chores.md) from [the same group](entities/pku-alignment.md) — so it should show what the embodied version inherited and what it changed. The wiki asserts things about safe-RL benchmarking on [safe reinforcement learning](concepts/learning/safe-reinforcement-learning.md) that currently rest on a survey's one-line table entry. Specific questions to answer from the primary: what its **cost functions** actually measure (velocity/contact/region?), whether anything in it is **force**-based, and whether its task suite has the saturation problem [robot policy evaluation](concepts/robotics/robot-policy-evaluation.md) documents elsewhere.
+- [ ] **Ingest "Towards safe robot foundation models"** (Tölle, Gruner, Palenicek, Günster, P. Liu, Watson, Tateo, **Peters**; arXiv 2503.07404). The survey's *other* ~10-section anchor, and the only one of the two that might actually be about the contact-rich regime — SafeVLA turned out not to be. Until this is read, the survey's foundation-model chapter rests on **zero** ingested primaries that match its own task definition.
+- [ ] **Ingest the "VLM sets the stiffness" pair**: **OmniVIC** (arXiv 2510.17150) and **CompliantVLA-adaptor** (arXiv 2601.15541), both [Ajoudani](entities/arash-ajoudani.md)'s group. These are the concrete instances of the survey's central architectural bet — a semantic layer parameterizing a compliant controller rather than emitting actions. [Impedance control](concepts/robotics/impedance-control.md) names the bet and cites no instance of it.
+- [ ] **Is there a contact-force benchmark anywhere?** The survey's first-listed future direction is that **no standardized contact-force evaluation protocol exists**, and SafeVLA — the field's flagship VLA-safety result — does not supply one. If that is still true in late 2026 it is a concrete, unclaimed piece of work, and it is the kind this wiki is well placed to scope. Check at minimum: recent NIST/robotic-assembly benchmarking, the IROS/ICRA 2026 assembly-challenge material, and whether any of the Table 3 suites has added force instrumentation since.
+- [ ] **Nobody has run constrained training *and* a runtime filter on the same policy.** [SafeVLA](sources/safevla-paper.md) constrains training and deploys no filter; every policy on [safety filters](concepts/robotics/safety-filters.md) was trained without a constraint. The two failure modes are complementary in theory — constrained training is safe in expectation *on-distribution*, filtering is hard *per-timestep* and survives off-distribution — and the composition is unmeasured. Cheap to state as an experiment, expensive to run; worth writing up as a synthesis even without running it.
+- [ ] **What does a safety filter cost a policy in *sustained contact*?** The [path-consistency result](concepts/robotics/safety-filters.md) (0.72 vs 0.04) was measured on free-space and quasi-static tasks. In contact, "brake along the intended path" is not obviously the safe edit — braking mid-insertion can itself jam the part. Nothing measures this and the survey does not raise it.
+- [ ] **SPOC, FLaRe, PoliFormer are all uningested**, and all three are [Ai2](entities/ai2.md) work that the SafeVLA numbers are stated relative to. FLaRe in particular is the baseline whose failure behavior turned out to be **~6× more dangerous than its own IL starting point** — a claim about a specific published system that this wiki currently carries from its critic.
+- [ ] **Does a binary-cost CMDP transfer to force envelopes?** The boundary question between the two pages. Every cost in SafeVLA is a discrete event with simulator ground truth; a force limit is continuous, violated by degree, and unobservable without a sensor. No source ingested here attempts it.
 
 ## [2026-09-03] SSL foundations — top four ingested, next tier open
 
