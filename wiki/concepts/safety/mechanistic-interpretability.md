@@ -2,8 +2,8 @@
 title: Mechanistic interpretability
 type: concept
 created: 2026-05-15
-updated: 2026-09-02
-sources: 9
+updated: 2026-09-07
+sources: 10
 tags: [mechanistic-interpretability, anthropic, goodfire, neural-geometry, robotics, chris-olah, sparse-autoencoders, feature-extraction, ai-safety]
 ---
 
@@ -81,7 +81,19 @@ The nearest testable version: **does latent-space inspection predict which polic
 - [Anthropic](../../entities/anthropic.md) — the lab that drives the modern SAE-based program.
 - [Chain of thought](../learning/chain-of-thought.md) — adjacent: CoT faithfulness is a mech-interp-shaped question.
 
+## The other route: make the model small enough to read
+
+Everything on this page extracts structure *from* a large model. [Oriyama et al. 2025](../../sources/hitl-transfer-learning-collision-avoidance.md) take the opposite route and state it as a design argument:
+
+> Models learned through deep reinforcement learning and path planning are typically treated as **black boxes**, making it challenging to interpret the internal mechanisms and logic behind their decision-making. The proposed approach suggests that using a **simpler neural network could facilitate the interpretation of the model's internal mechanisms and logic**, aligning with the HITL objective of ensuring accountability in AI decision-making.
+
+Their network is **4 → 30 → 4**, and the payoff is a worked example: with one ultrasonic sensor made faulty, *"the weights from the hidden layer to the output layer for actions leading towards the faulty sensor **approached zero**… the network learned to ignore it."*
+
+**A behavioral adaptation read directly off the weights, with no interpretability method in between.** It is the wiki's only such instance. It obviously does not scale — that is the whole reason this field exists — but it marks the endpoint of the trade the field is making: **interpretability bought with capability, rather than recovered from a model that already has it.** Worth holding next to the argument that a certified [safety layer](../robotics/safety-filters.md) must be *judgmentally minimal*: both are cases where smallness is the property doing the work.
+
 ## Mentioned in
+
+- [Human-in-the-loop transfer learning in collision avoidance](../../sources/hitl-transfer-learning-collision-avoidance.md) — interpretability by smallness; weights to a faulty sensor's action decaying to zero.
 - [Welch Labs Illustrated Guide to AI, Vol I](../../sources/welchlabs-illustrated-guide-to-ai.md)
 - [Silico for Robotics & Vision (Goodfire)](../../sources/goodfire-silico-robotics-vision.md)
 - [Goodfire research index (2024–2026)](../../sources/goodfire-research-index.md)

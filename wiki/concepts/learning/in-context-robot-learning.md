@@ -3,7 +3,7 @@ title: In-context robot learning
 type: concept
 created: 2026-08-29
 updated: 2026-09-07
-sources: 6
+sources: 7
 tags: [in-context-learning, robot-foundation-model, demonstration-conditioning, test-time-adaptation, vla, skild-ai, s1, generalist-ai, gen-1-5, physical-prompting, emergence]
 ---
 
@@ -100,6 +100,16 @@ Four capabilities beyond one-shot imitation, none of them in S1:
 
 > [!warning] What neither source shows
 > **That in-context ability emerged at scale.** S1 reports a crossover between two conditions at two data scales; GEN-1.5 reports a validation-loss curve improving over eight months and a model that has ICL at the end of it. Neither publishes **in-context ability against pretraining scale**, which is the actual claim both are making. Until one does, "ICL emerges in robot foundation models past a data threshold" is a hypothesis held by two companies with a commercial interest in it being true.
+
+> [!note] Two places to put a prior, thirty years apart in style
+> Both this page's sources and [Oriyama et al. 2025](../../sources/hitl-transfer-learning-collision-avoidance.md) are answers to *how do you make adaptation cheap?* — and they differ in **where the prior is stored**.
+>
+> | | Prior lives in | Where it came from | New behavior costs |
+> |---|---|---|---|
+> | **Oriyama et al.** | the **initialization** (transferred weights) | a human writing a **four-branch rule** | ~50 online steps |
+> | **[S1](../../sources/skild-s1-blog.md) / [GEN-1.5](../../sources/generalist-gen-1-5-blog.md)** | the **context window** | 100k h / 1.89M scenes of pretraining | one demonstration |
+>
+> The adaptation budgets land in the same neighbourhood from opposite directions. And the small system measures something the large ones do not: **when the prior stops paying.** Its hand-written prior is significant in the matched environment and **not significant** in a dynamic one (p = 0.441) — *"leaving the robot in a state similar to starting from random actions."* Whether the pretrained equivalent degrades the same way off-distribution is untested by either vendor, and it is the same question in a different coat.
 
 ## Relationship to neighboring ideas
 

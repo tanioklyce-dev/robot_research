@@ -2,8 +2,8 @@
 title: Real-world robotic reinforcement learning
 type: concept
 created: 2026-07-05
-updated: 2026-08-27
-sources: 19
+updated: 2026-09-07
+sources: 20
 tags: [reinforcement-learning, real-world-rl, manipulation, human-in-the-loop, off-policy-rl, sample-efficiency]
 ---
 
@@ -65,6 +65,17 @@ The `VelStand` task trains **walking and fall recovery in a single policy**, so 
 
 Note the limit: this is reset for *locomotion*, where the failure mode is the robot's own pose. It says nothing about resetting a *scene* — the objects a manipulation policy displaced — which is the harder half and remains unsolved across everything ingested here.
 
+## The low-budget end of the same problem
+
+Everything above attacks real-world sample efficiency with machinery: off-policy replay, learned reward classifiers, pretrained backbones, human corrections in the loop. [Oriyama et al. 2025](../../sources/hitl-transfer-learning-collision-avoidance.md) attacks it with a **prior written by hand**, on a **262 g Arduino robot with four ultrasonic sensors** — pre-train a 4→30→4 network on sensor data labelled by a four-branch rule (*move away from whichever sensor reads closest*), transfer those weights into a 12→4 online learner, and a working collision-avoidance behavior appears in **50 steps** where the un-seeded control collides.
+
+It is worth having next to [HIL-SERL](../../sources/hil-serl-paper.md) because it isolates the variable that recipe bundles. HIL-SERL's human supplies **corrections during learning**; here the human supplies **the initialization and nothing else**, and the online phase is a one-step reactive rule with no value function. The comparison is not fair on capability — HIL-SERL does RAM insertion and timing-belt assembly — but it is informative on *where the human's contribution enters*.
+
+> [!note] And it measures the limit that the rest of this page assumes away
+> The prior is statistically significant in the **matched** environment and under motor faults, and **not significant** in a **dynamic** environment (p = 0.441) or in three of four **sensor-fault** conditions. The authors' own reading: the prior *"was not designed for a dynamic environment… leaving the robot in a state similar to starting from random actions."*
+>
+> **A prior is worth what its distribution match is worth** — the same mechanism as [SafeVLA](../../sources/safevla-paper.md)'s elicitation ablation and [PACS](../../sources/pacs-paper.md)'s path-consistency result, at 1/10⁶ the scale. Caveat: the t-tests are computed over timesteps within a **single trajectory per condition**, so the p-values are pseudoreplicated and far stronger than the design supports.
+
 ## Related concepts
 
 - [Imitation learning](imitation-learning.md) — the baseline family; BC / DAgger / HG-DAgger. Real-world RL uses IL data to *seed* but surpasses it.
@@ -77,6 +88,8 @@ Note the limit: this is reset for *locomotion*, where the failure mode is the ro
 Real-world RL for manipulation went from "considered infeasible" to **100% success in a couple of hours** over the SAC(2018)→RLPD(2023)→SERL→HIL-SERL(2024) arc, provided a human is in the loop to gate corrections. Two frontiers are now open. (1) **Amortize the human**: [AutoSERL](../../sources/autoserl-paper.md) (2026) replaces continuous supervision with automated interventions derived from a single demonstration, directly attacking the skilled-operator cost that the "1–2.5 hr" figure hides. (2) **Scale via foundation models**: compose the correction loop with large pretrained [VLA models](vla-models.md) so effort amortizes across tasks — [π*0.6 / RECAP](../../sources/pistar06-paper.md) is the wiki's first instance. Remaining open problems: cross-instance/scene generalization (these policies are task-specific), reward-classifier reliability, and whether one-demo automation (AutoSERL) holds up on the multi-modal, long-horizon, dual-arm tasks that so far still need a human (HIL-SERL).
 
 ## Mentioned in
+
+- [Human-in-the-loop transfer learning in collision avoidance](../../sources/hitl-transfer-learning-collision-avoidance.md) — the hand-written-prior counterpart, and the measurement of when a prior stops paying.
 
 - [Microduck — Pollen Robotics launch](../../sources/pollen-robotics-microduck.md) — self-recovery as reset automation; walk + fall-recovery trained as one policy.
 

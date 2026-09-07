@@ -2,8 +2,8 @@
 title: End-User Robot Programming
 type: concept
 created: 2026-05-09
-updated: 2026-05-10
-sources: 12
+updated: 2026-09-07
+sources: 13
 tags: [eup, robot-programming, hri, accessibility, customization]
 ---
 
@@ -43,7 +43,15 @@ EUP is particularly relevant to [assistive robotics](assistive-robotics.md) beca
 - [LLM-agent architecture](../agents/llm-agent-architecture.md) — natural-language task specification is a soft form of EUP
 - [HCR Lab](../../entities/hcrlab.md) — primary research group
 
+## A third channel: the non-expert writes the *prior*, not the behavior
+
+The approaches on this page have a person specify **what the robot should do**. [Oriyama et al. 2025](../../sources/hitl-transfer-learning-collision-avoidance.md) have a person specify **what the robot should start out believing**, and then let it learn the rest: a four-branch rule (*move away from whichever sensor reads closest*) labels 100 random-walk observations, that dataset trains a small network, and those weights initialize an online learner.
+
+The authoring cost is trivially low — it is an `if/else` — and the measured result is that it matters **exactly where the environment matches what the author had in mind**, and not otherwise (p = 0.441 in a dynamic environment the rule was not written for). That is a usable design constraint for any end-user programming system whose output feeds a learner rather than an executor: **the user is not specifying behavior, they are specifying a distribution assumption**, and it fails silently when the deployment leaves it.
+
 ## Mentioned in
+
+- [Human-in-the-loop transfer learning in collision avoidance](../../sources/hitl-transfer-learning-collision-avoidance.md) — a hand-written rule as the prior, and where it stops paying.
 - [HCR Lab Publications](../../sources/hcrlab-publications.md)
 - [Maya Cakmak — Research Overview](../../sources/maya-cakmak-research.md)
 - [Sense of Agency — Yang et al. 2025](../../sources/yang2025-sense-of-agency.md)
