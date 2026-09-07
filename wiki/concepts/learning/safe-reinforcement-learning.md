@@ -3,8 +3,8 @@ title: Safe reinforcement learning
 type: concept
 created: 2026-09-07
 updated: 2026-09-07
-sources: 1
-tags: [safe-rl, cmdp, lagrangian, safety-critic, shielding, recovery-rl, safe-exploration, constrained-optimization, risk-sensitive, contact-rich]
+sources: 2
+tags: [safe-rl, cmdp, lagrangian, safety-critic, shielding, recovery-rl, safe-exploration, constrained-optimization, risk-sensitive, contact-rich, vla, safety-alignment]
 ---
 
 # Safe reinforcement learning
@@ -37,6 +37,21 @@ The tools differ by phase, and conflating them is the standard source of confusi
 > [!note] The trade the whole field is making
 > **Expectation/probability bounds are cheap and leak; hard bounds are expensive and conservative.** Constrained and risk-sensitive RL give bounds that "exhibit weakness under distribution shift"; shielding and projection layers "offer hard online guarantees, but typically depend on conservative uncertainty sets, limiting data efficiency" ([survey](../../sources/safe-learning-contact-rich-survey.md) §4.4). Nothing in the reviewed literature escapes this; methods choose a point on it.
 
+## Constrained optimization beats reward shaping — the measurement
+
+The claim that "safety is a constraint, not a term in the objective" is stated everywhere in this literature and rarely tested against the obvious alternative. [SafeVLA](../../sources/safevla-paper.md) tests it, on a [VLA](vla-models.md), against the same RL fine-tuning pipeline in two configurations:
+
+| Safety-ObjNav | success ↑ | cumulative cost ↓ |
+|---|---|---|
+| Task-only RL fine-tune (FLaRe) | 0.822 | 12.356 |
+| **Reward shaping** — cost added as a reward penalty (FLaRe-RS) | 0.75 | 4.755 |
+| **CMDP + adaptive Lagrangian** (ISA) | **0.865** | **1.854** |
+
+The shaped variant loses on **both** axes, and on the hardest task it roughly halves success (0.45 vs 0.637). The paper closes the argument with the sweep that matters: **dynamic Lagrangian multipliers beat every fixed penalty coefficient that meets the same cost constraint.** A fixed coefficient sets an exchange rate between harm and reward in advance; an adapted multiplier finds the price of the constraint that is actually binding.
+
+> [!note] But the ablation says the optimizer is not the load-bearing part
+> Run the *identical* constrained recipe in simplified scenes without deliberately-placed hazards and cost goes **1.854 → 5.01** — worse than the reward-shaping baseline it just beat — with success falling to 0.645. **A constrained optimizer can only constrain behaviors it observes.** "We used safe RL" says close to nothing without "on data that contained the failures," which is the same dependency [safe exploration](#the-formalisms) has and the same reason the [contact-data problem](../robotics/contact-rich-manipulation.md#the-data-problem-which-is-structural) bounds this whole area.
+
 ## Measurement
 
 Safe RL adds metrics that ordinary RL does not report, and the survey's §3.6 argues the important ones are **joint**:
@@ -44,6 +59,18 @@ Safe RL adds metrics that ordinary RL does not report, and the survey's §3.6 ar
 - **Violation statistics or cost value** — the base safety metric, physically instantiated in contact tasks as force, acceleration, or velocity bounds.
 - **The trade-off explicitly.** A ratio of safe-and-successful runs to violating ones; or successes and violations printed side-by-side; or — the strongest display — **learning curves of success, violation, and their ratio through training**, which shows how the two objectives move against each other rather than reporting their endpoint.
 - **Robustness probes** — noise injected in observation space or action space, external disturbance, cluttered/changing backgrounds, non-stationary environments.
+
+**Measure the policy on the trials it fails.** [SafeVLA](../../sources/safevla-paper.md) adds a protocol worth adopting generally: construct environments where the task is *impossible*, so success rate is ≈ 0 for every method and cannot confound the safety measurement. What it finds there is the most transferable result in that paper:
+
+| Cumulative cost when success is impossible | |
+|---|---|
+| Task-only RL fine-tune (FLaRe) | **71.68** |
+| IL base model (SPOC) | 14.63 |
+| Constrained (ISA) | **2.20** |
+
+The unconstrained policy is **32×** worse than the constrained one and **~6× worse than its own imitation-learned starting point** — RL fine-tuning for task performance made the *failure* behavior more dangerous. It thrashes: repeated collisions while making no progress. And in normal evaluation the baseline's cost is significantly negatively correlated with success (p < 0.01), so its unsafe behavior hides inside its failures; for the constrained policy that correlation is rejected — **it fails safely**.
+
+The general point: **a success rate describes only the fraction of trials the policy won.** A policy reported at 60% is being characterized on 60% of its behavior, and the remaining 40% is where the damage is. Pairs with [PACS](../../sources/pacs-paper.md)'s **safe success** from the other end.
 
 > [!warning] Safety objectives cost data
 > "Having both task and safety objectives increases the optimization complexity, and consequently the amount of data to learn effective policies." Reported sample-efficiency numbers for unconstrained RL do not transfer to the constrained version of the same task. This compounds with the [real-world RL](real-world-robot-rl.md) cost structure, where the data is collected on hardware that the safety constraint exists to protect.
@@ -53,6 +80,8 @@ Safe RL adds metrics that ordinary RL does not report, and the survey's §3.6 ar
 Most of the robot learning this wiki tracks is **imitation**, not RL — and the contact-rich survey excludes imitation learning by design, on the argument that IL "replicates demonstrated behaviors rather than actively managing safety." That argument is worth holding at arm's length: a demonstration set contains only safe episodes *by construction*, which is a distributional safety property rather than an absent one, and it is exactly the property the [runtime failure detection](../robotics/runtime-failure-detection.md) line exploits (train on successes only, flag departure).
 
 The practical consequence is that safe RL and generalist manipulation policies are, at present, **two literatures that barely touch**. The bridge the survey proposes is architectural rather than algorithmic: let the large model plan and parameterize, keep a certified low-level layer, and use safe RL where online adaptation happens.
+
+[SafeVLA](../../sources/safevla-paper.md) is the wiki's one ingested instance of the *other* bridge — apply the CMDP machinery directly to the VLA's fine-tuning, no architectural split. It works, generalizes across base models and to unseen environments, and comes with the caveat that defines its scope: **its costs are discrete collision events with simulator ground truth, not forces.** A force limit is continuous, violated by degree, and unobservable without a sensor. Whether binary-cost CMDP transfers to force envelopes is untested and is the concrete open question at the boundary between these two pages.
 
 ## Related concepts
 
@@ -66,8 +95,9 @@ The practical consequence is that safe RL and generalist manipulation policies a
 
 ## Current state
 
-Well-supplied with formalisms and poorly supplied with benchmarks. The dedicated safe-RL evaluation infrastructure the survey can name amounts to **Safety Gymnasium**, **Robust Gymnasium**, and **safe-control-gym** — none of which is contact-force-aware — against a general-manipulation benchmark landscape (RoboVerse, RoboCasa, robosuite, ManiSkill, Meta-World, RLBench) that has no safety instrumentation at all. There is **no standardized contact-force evaluation protocol**, which means violation rates, recovery latency, and generalization are not comparable across papers. That gap, not the algorithms, is what the survey's perspectives section leads with.
+Well-supplied with formalisms and poorly supplied with benchmarks. The dedicated safe-RL evaluation infrastructure the survey can name amounts to **Safety Gymnasium**, **Robust Gymnasium**, and **safe-control-gym** — none of which is contact-force-aware — against a general-manipulation benchmark landscape (RoboVerse, RoboCasa, robosuite, ManiSkill, Meta-World, RLBench) that has no safety instrumentation at all. [Safety-CHORES](../../entities/safety-chores.md) is the newest addition and the first that scores an *embodied generalist policy* on safety and task success together; it is also collision-based, so the **no standardized contact-force evaluation protocol** gap is still open. That gap, not the algorithms, is what the survey's perspectives section leads with.
 
 ## Mentioned in
 
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — the exploration/execution split and every method family above.
+- [SafeVLA](../../sources/safevla-paper.md) — the flagship application to a VLA: CMDP + adaptive Lagrangian, the reward-shaping comparison, the elicitation ablation, and the extreme-failure protocol.

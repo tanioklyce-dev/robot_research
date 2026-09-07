@@ -3,7 +3,7 @@ title: Semantic safety
 type: concept
 created: 2026-08-03
 updated: 2026-09-07
-sources: 9
+sources: 10
 tags: [semantic-safety, robot-safety, constitutional-ai, asimov, red-teaming, google-deepmind, vlm, alignment, terminology, contact-rich]
 ---
 
@@ -128,6 +128,11 @@ As of mid-2026 the layer has **three benchmark generations** (ASIMOV v1 → 2.0 
 > That is a vendor publishing a safety report and stating that the enforcement layer is out of scope. The conclusion is no longer an inference — it is documented.
 
 What would change this: a safety architecture where the semantic layer's *output* is bound to a deterministic interlock, rather than being the interlock. Nothing ingested does that yet.
+
+> [!note] The physical-harm counterpart, where enforcement *does* exist
+> [SafeVLA](../../sources/safevla-paper.md) is the wiki's first ingested work that **enforces** a robot-safety property rather than measuring one — a constrained-MDP fine-tune that binds the policy to a cumulative-cost limit. It is worth holding next to this page precisely because of what it shows the difference to be. Its constraints are **five hand-written predicates over simulator ground truth** (corners, blind spots, fragile collections, critical points, dangerous equipment); the enumerability that defeats semantic safety is not a problem there, because collisions *are* enumerable and a simulator reports them exactly.
+>
+> **Semantic safety has no such oracle.** "Don't put the soft toy on the hot stove" is not a predicate over observable state that any simulator scores; that is the whole content of the enumerability problem. So SafeVLA does not show that the enforcement gap is closing — it shows that enforcement is available exactly where a ground-truth cost signal is, and the semantic layer is defined by not having one.
 
 ## Mentioned in
 - [ASIMOV Benchmark paper](../../sources/asimov-benchmark-paper.md) — defines the term; the benchmark and the constitution framework.

@@ -2,8 +2,8 @@
 title: Robot policy evaluation
 type: concept
 created: 2026-07-27
-updated: 2026-08-30
-sources: 40
+updated: 2026-09-07
+sources: 41
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility, real-to-sim, r2s2r]
 ---
 
@@ -59,11 +59,19 @@ This sharpens RoboLab's **saturation** critique from *"the benchmark stopped dis
 | **End-effector velocity** | Execution speed as a human-aligned *preference* signal, not a correctness measure |
 | **Failure-event logs** | Frame-level automated detection of wrong-object grasps, drops, gripper collisions |
 | **Safe success** | Fraction of rollouts completing the task **while never violating a safety constraint** ([PACS](../../sources/pacs-paper.md)) |
+| **Cumulative cost (CC)** | Summed safety violations per episode, across all constraint types, reported alongside SR ([Safety-CHORES](../../entities/safety-chores.md)) — and the *distribution* matters more than the mean: alignment there cut the severity **upper bound to 1/35** while the mean moved 12.4 → 1.9 |
 
 > [!warning] Safe success is the one in that table that can be zero while task success is 0.79
 > [PACS](../../sources/pacs-paper.md) ran diffusion policies and a [SmolVLA](../../entities/smolvla.md) on three human-robot-interaction tasks with **no safety filter**: average task success **0.79**, average **safe** success **0.00**, with constraints violated in **56% of all timesteps** and in *every* rollout. Adding a path-consistent filter moved safe success to **0.80** at unchanged task success.
 >
 > The implication for the rest of this page is uncomfortable and worth stating plainly: **every success rate in this wiki was measured without a safety constraint being checked**, so none of them distinguishes a policy that does the task from one that does the task while repeatedly entering states that would injure a person standing there. Where humans are in the workspace, task success on its own is not a deployment-relevant number.
+
+> [!note] The protocol that follows from this: **evaluate on trials the policy cannot win**
+> A success rate characterizes only the fraction of rollouts that succeeded. [SafeVLA](../../sources/safevla-paper.md) makes the omission measurable by constructing environments where the task is *impossible* — novel goals, unfamiliar instructions, success ≈ 0 for everything — so task performance cannot confound the safety measurement. Cumulative cost there: task-only RL fine-tuning **71.68**, its own IL starting point 14.63, the safety-constrained version **2.20**.
+>
+> Two things fall out. **RL fine-tuning for task performance made the failure behavior ~6× more dangerous than the model it started from** — a cost invisible to every number that pipeline reports. And in ordinary evaluation the unconstrained policy's cost is significantly *negatively correlated* with success (p < 0.01), so its unsafe behavior hides inside its failures; for the constrained policy that correlation is rejected, and it fails safely.
+>
+> **A policy reported at 60% success is characterized on 60% of its behavior.** The other 40% is where the damage is, and no benchmark on this page looks at it. Cheap to fix: report the failure-trial cost distribution, or at minimum evaluate on a deliberately-impossible set.
 
 **Competency tagging** is the structural counterpart: RoboLab splits tasks into **visual** (color, size, semantics), **procedural** (stacking, reorientation, tool affordances), and **relational** (spatial logic, counting, conjunctions) so that a failure localizes to a capability rather than a task.
 
@@ -156,7 +164,7 @@ Two of their findings bear directly on this page:
 - [Verbalized Eval Awareness (Goodfire + UK AISI, 2026)](../../sources/goodfire-verbalized-eval-awareness.md) — the language-side version of the benchmark-validity problem.
 - [Locatello et al. 2019](../../sources/locatello2019-challenging-common-assumptions-disentanglement.md) — seeds beat model choice; good runs unidentifiable without labels.
 
-> [!note] Curated list — **36** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **37** source pages link here; the ones below are those that shaped this page.
 
 - [RoboArena paper (CoRL 2025)](../../sources/roboarena-paper.md) — the distributed pairwise-preference protocol
 - [LIBERO-PRO paper](../../sources/libero-pro-paper.md) — the memorization critique
@@ -173,3 +181,4 @@ Two of their findings bear directly on this page:
 - [A Functional Taxonomy of World Models](../../sources/world-labs-functional-taxonomy.md) — the same verdict from a vendor selling into the category: robot demos are "confined to heavily constrained laboratory setups, with narrow object sets and short task horizons" and **"none have been validated at the complexity, variability, or duration that real-world deployment demands."**
 - [Fei-Fei Li is Solving the Hardest Problem in Robotics (a16z × World Labs)](../../sources/a16z-worldlabs-scenix-conversation.md) — evaluation as a wall-clock discrimination problem (90% vs 92%), and the reliability asymmetry against LLMs: an LLM's output has a human reading it, *"but for robotic models, out of the box, the robot has to work reliably in the real environment."*
 - [Patch Policy paper](../../sources/patch-policy-paper.md) — two textbook instances of this page's failure modes in one paper: **LIBERO Goal sits at 0.93–0.98 for every method** (saturation, discriminating nothing), and the real-robot comparison runs **n = 20 per cell** (~±20 pp), where the headline 0.70-vs-0.30 gap survives and the 0.90-vs-0.70 ones do not. No confidence intervals reported. Its simulated protocol is better than most: **100 trajectories per seed × 3 seeds**.
+- [SafeVLA](../../sources/safevla-paper.md) — **cumulative cost** as a co-reported metric, and the **extreme-failure protocol**: evaluate where success is impossible by construction, and the task-only RL baseline's cost is 32× the constrained one and ~6× its own IL starting point.

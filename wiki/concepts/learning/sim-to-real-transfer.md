@@ -3,7 +3,7 @@ title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
 updated: 2026-09-02
-sources: 68
+sources: 69
 tags: [sim-to-real, domain-gap, rl, simulation, real-to-sim, r2s2r]
 ---
 

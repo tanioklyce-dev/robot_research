@@ -3,7 +3,7 @@ title: Contact-rich manipulation
 type: concept
 created: 2026-09-07
 updated: 2026-09-07
-sources: 1
+sources: 2
 tags: [contact-rich, manipulation, force-control, assembly, insertion, surface-interaction, physical-hri, deformable-objects, task-taxonomy]
 ---
 
@@ -76,6 +76,11 @@ Public datasets are reported to rarely contain high-frequency wrench traces alig
 > [!note] The strongest available bound on video pretraining
 > This wiki's [world-model evaluation](../world-models/world-model-evaluation.md) and [synthetic data flywheel](../learning/synthetic-data-flywheel.md) threads keep asking what video-scale pretraining cannot reach. **Force is a concrete answer.** A wrench is not recoverable from pixels, so no quantity of internet video and no generative video model trained on it supplies the signal this task class is defined by. Whether a *learned observer* estimating wrench from proprioception closes enough of that gap — and whether a predicted wrench is admissible in a safety argument — is open.
 
+> [!warning] The field's flagship VLA-safety result is not in this regime either
+> [SafeVLA](../../sources/safevla-paper.md) (NeurIPS 2025 Spotlight) is the most-cited external anchor of the [contact-rich survey](../../sources/safe-learning-contact-rich-survey.md)'s foundation-model chapter. Its tasks are **object navigation, pick-up, and fetch** in AI2-THOR, and its five safety predicates are all **discrete collision or interaction events** — corners, blind spots, fragile collections, critical points, dangerous equipment. There is no force, no wrench, no compliance anywhere in it.
+>
+> By the definition at the top of this page, none of those tasks is contact-rich. So the survey's own headline chapter rests on work from a different regime with a different hazard model — and, taken together, the two papers make the gap concrete rather than rhetorical: **the safe-VLA literature measures collisions because collisions have a simulator oracle and forces do not.**
+
 ## Related concepts
 
 - [Impedance and admittance control](impedance-control.md) — the controller family this task class is built on.
@@ -94,3 +99,4 @@ Well-developed as a *control* problem and thin as a *learning* problem. Force/to
 ## Mentioned in
 
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — the definition, the exclusions, the four families, and the data argument.
+- [SafeVLA](../../sources/safevla-paper.md) — the counter-instance: the flagship safe-VLA result, working outside this task class on a collision-based cost.

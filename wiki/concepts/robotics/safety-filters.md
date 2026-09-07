@@ -3,7 +3,7 @@ title: Safety filters for learned policies
 type: concept
 created: 2026-08-16
 updated: 2026-09-07
-sources: 8
+sources: 9
 tags: [safety-filter, control-barrier-functions, reachability-analysis, path-consistency, out-of-distribution, diffusion-policy, constraint-enforcement, iso-ts-15066, runtime-safety, human-robot-interaction, contact-rich]
 ---
 
@@ -66,6 +66,13 @@ The [contact-rich safe-learning survey](../../sources/safe-learning-contact-rich
 **Second, and more usefully, the survey shows what a safety-first framework built without learned policies in mind cannot see.** Its six comparison axes are guarantee strength, model independence, online efficiency, conservatism/tunability, scalability, and data efficiency. **There is no axis for what the filter costs the policy it wraps.** Scored on those six, a CBF-QP and a path-consistent reachability filter come out near-equivalent — and the measurement above says one leaves a diffusion policy at **0.04** task success and the other at **0.72**. The survey is not careless; PACS postdates its v2. The point is structural: **the classical framework evaluates a filter as a controller, and the quantity that decides deployment is its effect on a learned distribution.**
 
 The survey also supplies the vocabulary this page has been missing for the layer *below* filtering. Compliance is not a filter — an impedance-controlled arm bounds contact force **by construction**, before any intervention fires ([impedance control](impedance-control.md)) — and the certificate families the filters instantiate have their own failure modes, notably that **force and contact constraints are high relative degree**, the case CBF design handles worst ([safety certificates](safety-certificates.md)).
+
+> [!note] The other answer entirely: constrain the training, don't filter the output
+> Every mechanism on this page is a **runtime** intervention on a policy that was trained without safety in its objective. [SafeVLA](../../sources/safevla-paper.md) takes the opposite route — formulate fine-tuning as a **constrained MDP** and make the policy itself satisfy a cost bound, with no filter at deployment at all. On its benchmark that cuts cumulative cost **83.58%** against a task-only RL baseline while *raising* success, and the failure behavior improves most: where success is impossible by construction, cost is **2.20** against the unconstrained policy's **71.68**.
+>
+> The trade against filtering is clean and worth stating. **Constrained training** gives a policy that is safe *in expectation on its training distribution*, with no runtime cost and — crucially — **no path-consistency problem, because nothing is intervening on it.** **Runtime filtering** gives a hard per-timestep guarantee that holds off-distribution, and pays for it with the intervention cost this page is about. They are complementary and nobody has run both: SafeVLA has no filter, and none of the filtered policies above was trained under a constraint.
+>
+> Its scope limit is the mirror of this page's: SafeVLA's costs are **discrete collision events with simulator ground truth**, and every filter here enforces geometric or energy constraints on real hardware.
 
 ## What none of them does
 
@@ -130,3 +137,4 @@ Two structural properties make that safe rather than reckless:
 - [OSCBF paper](../../sources/oscbf-paper.md)
 - [Diffusion Policy paper](../../sources/diffusion-policy-paper.md) — Appendix D.1.
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — the six comparison axes, and the one they don't have.
+- [SafeVLA](../../sources/safevla-paper.md) — the alternative to filtering: constrained training, no runtime intervention, and therefore no path-consistency problem.
