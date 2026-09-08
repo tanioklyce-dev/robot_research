@@ -3,7 +3,7 @@ title: World-action model (WAM)
 type: concept
 created: 2026-06-02
 updated: 2026-09-07
-sources: 22
+sources: 23
 tags: [world-action-model, wam, flux-3, video-action-model, frozen-backbone, world-model, vla, forward-dynamics, inverse-dynamics, policy, cosmos, dreamzero]
 ---
 
@@ -56,6 +56,11 @@ What that buys, and it is worth having:
 
 > [!note] Read it for the diagnoses, not the artifact
 > At FID 162.5 this is nowhere near a usable driving world model, and the provenance is a likely course project. The four ingredients are claimed to transfer upward on the strength of a **2-point, 1-seed** capacity probe. Treat the recipe as a hypothesis about larger systems, not a validated one.
+
+> [!note] Actions may be standing in for the latent variable JEPA never got
+> The [original JEPA design](../../sources/dawid-lecun-lvebm-lecture-notes.md) carries a **latent variable `z`** whose job is to represent the residual uncertainty — the many futures compatible with one past — and **no JEPA in this wiki implements it** ([see the JEPA page](jepa.md)). Action conditioning is the obvious candidate for what replaced it: [Balestriero](../../sources/information-bottleneck-ep11-jepa-balestriero.md) puts the two in direct trade — *"if you already have very rich actions, you don't have a lot of uncertainty, then probably you are good enough to not use a latent variable"*, and without them *"you'll just learn to predict the average of all those possible scenarios."*
+>
+> If that reading is right, it sets the boundary of this architecture rather than praising it: a world-action model is well-posed exactly to the extent that **the action explains the change**. Where actions are coarse, delayed, or partially observed — contact events, other agents, deformable objects — the averaging failure the latent was meant to prevent should return, and there is nothing in the architecture to catch it.
 
 ## Related concepts
 

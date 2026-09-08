@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-07
 updated: 2026-09-02
-sources: 54
+sources: 56
 tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs, logical-intelligence, ebm, diffusion-policy, object-centric, spectral-graph-theory]
 ---
 
@@ -75,6 +75,8 @@ LeCun is one of the small number of researchers whose **simultaneous senior posi
 - [Barlow Twins Paper (Zbontar et al., ICML 2021)](../sources/barlow-twins-paper.md) — senior author; first non-asymmetric anti-collapse SSL method.
 - [VICReg Paper (Bardes, Ponce, LeCun, ICLR 2022)](../sources/vicreg-paper.md) — senior author; the regularizer LeCun later endorses in his AMI paper as JEPA's anti-collapse method.
 - [A Path Towards Autonomous Machine Intelligence (LeCun, 2022)](../sources/lecun2022-path-towards-ami.md)
+- [Dawid & LeCun 2023 — Introduction to Latent Variable Energy-Based Models](../sources/dawid-lecun-lvebm-lecture-notes.md) — Anna Dawid's write-up of three lectures he gave at the **Les Houches Summer School on Statistical Physics and Machine Learning**, July 2022. The derivation the position paper skips: probabilistic→energy-based→collapse→regularized→JEPA→H-JEPA, argued step by step for physicists. Contains the wiki's sharpest statements that *the energy is not the loss*, that *maximum likelihood is a contrastive method*, and that *collapse is the price of multimodality* — plus the four-term JEPA objective whose **latent variable no JEPA has ever implemented**.
+- [JEPA Through the Eyes of a Physicist (Fajmanova, 2026)](../sources/jepa-vs-physics-moudrkat.md) — independent explainer of the energy/statistical-physics framing; good on coarse-graining, wrong on how JEPA prevents collapse.
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
 - [V-JEPA 2.1 Paper](../sources/v-jepa-2-1-paper.md)
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md)

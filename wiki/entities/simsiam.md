@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-09-03
 updated: 2026-09-03
-sources: 2
+sources: 3
 tags: [simsiam, stop-gradient, siamese, self-supervised, anti-collapse, meta-fair, kaiming-he, em-algorithm]
 ---
 

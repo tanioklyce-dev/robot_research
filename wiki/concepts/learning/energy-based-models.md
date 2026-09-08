@@ -2,8 +2,8 @@
 title: Energy-based models (EBMs)
 type: concept
 created: 2026-05-17
-updated: 2026-08-30
-sources: 7
+updated: 2026-09-07
+sources: 9
 tags: [ebm, energy-based-model, bengio, infonce, jepa, ibc, lecun, kona, latent-variable, constraint-satisfaction]
 ---
 
@@ -36,6 +36,48 @@ The wiki has three quite-different modern EBM applications, all downstream of [Y
 >
 > The wiki's EBM thread has until now read as a LeCun research program. It is older and wider than that, and this is the counterexample. See also [distributed representations](distributed-representations.md).
 
+## The five distinctions the lecture notes draw that this page did not
+
+Added on ingesting **[Dawid & LeCun's Les Houches lecture notes](../../sources/dawid-lecun-lvebm-lecture-notes.md)** (2023), which are the derivation behind the [2022 position paper](../../sources/lecun2022-path-towards-ami.md) and the most careful EBM exposition in this wiki.
+
+**1. The energy is for inference. The loss is for training. They are different functions.**
+
+> The energy function is **not** the objective function to minimize within the learning! The energy is used only for inference.
+
+Training sculpts an energy landscape; the thing you descend is a loss whose job is to make observed configurations lower than unobserved ones. The degenerate case where they coincide is the **Hopfield network** (`L(y_train, w) = F_w(y_train)`, Hebbian update) — and its known pathology, **spurious minima**, is what having no contrastive term costs you. That is representation collapse's 1982 ancestor.
+
+**2. Maximum likelihood is a contrastive method.** Substituting Gibbs–Boltzmann into the negative log-likelihood gives `L_NLL = F_w(x,y) + (1/β) log ∫ dy′ exp[−β F_w(x,y′)]` — push the data's energy down, push everything's energy up, gradient of the second term approximable by Monte Carlo. Its failure mode is named: it wants *"an infinitely deep and infinitely narrow canyon"* at the data manifold, hence the need for a prior or weight limits.
+
+This matters for how the wiki frames the autoregressive-vs-JEPA argument. Likelihood training is not a *different paradigm* from contrastive learning; in energy terms it is **a contrastive method with a particularly expensive negative-sampling scheme**.
+
+**3. Collapse is the price of multimodality, not a defect of joint embedding.**
+
+| Architecture | Can collapse? | Can be multimodal? |
+|---|---|---|
+| Deterministic regression, `F = ‖y − Net(x)‖` | **no** | **no** |
+| Joint embedding, `F = D(s_x, s_y)` | **yes** | yes |
+| Latent-variable generative | yes | yes |
+| Autoencoder | yes (identity function) | yes |
+
+> **Every model that can be multimodal, i.e., have multiple predictions for a single input, is susceptible to collapse.**
+
+**4. Regularized training = bounding the *volume* of the low-energy region**, and that single idea unifies a shelf of classical methods as `L = D(y, Dec(Enc(y))) + R(Enc(y))`: PCA (low rank), autoencoder (bottleneck), k-means (discreteness), Gaussian mixtures, sparse coding (explicit `λ‖z‖₁`). Score matching is the third route — flatten the gradient and sharpen the curvature at data points.
+
+**5. The stated reason the field abandoned contrastive methods** is scaling, and it is asserted rather than proved: generating contrastive points has *"bad (even exponential!) scaling with the data dimension"*, making them *"unlikely to lead to autonomous intelligence of the future."* This claim is the hinge of the whole JEPA design argument and deserves to be held as a hypothesis — [SimCLR](../../sources/simclr-paper.md) and [MoCo](../../sources/moco-v3-paper.md) did scale.
+
+> [!note] What is lost by giving up probability, stated by its advocates
+> Two costs the notes are explicit about: uncertainty becomes hard to reason about, and **energies are uncalibrated** — measured in arbitrary units, so *"combining two separately trained EBMs is not straightforward."* The design consequence is that the architecture must avoid passing outputs between separately trained components. There is also a technical objection to normalizing even when you can: per-state normalization introduces the **label bias problem**, so *"it is hurtful to normalize those scores."*
+
+## Prehistory: the anti-collapse ladder is forty years older than the wiki records
+
+| Year | Model | Energy | Anti-collapse device |
+|---|---|---|---|
+| 1982 | **Hopfield network** | `F(y) = −Σ y_i w_ij y_j` | **none** — loss *is* the energy; spurious minima follow |
+| 1983 | **Boltzmann machine** | adds hidden units `z` | **contrastive term**, MCMC-sampled: positive and negative phases |
+| 1983 | Restricted BM | `w^yy = w^zz = 0` | same, cheaper sampling |
+
+Both are explicitly spin-glass/Ising constructions, and the Boltzmann machine is *"the first introduction of hidden units"* — i.e. the first latent variables. [The anti-collapse lineage](../../syntheses/world-models/ssl-anti-collapse-lineage.md) begins its table in 2018; the shape of the problem and the shape of the fix are both much older.
+
 ## Key references in this wiki
 
 - **[LeCun 2022 — A Path Towards Autonomous Machine Intelligence](../../sources/lecun2022-path-towards-ami.md)** — the conceptual anchor. Frames JEPA, the configurable world model, and intrinsic-cost training all as EBM-flavored constructions.
@@ -66,6 +108,8 @@ This is the long thread connecting the [1993 Siamese signature-verification pape
 - [Welch Labs — LeCun's $1B Bet Against LLMs](../../sources/welchlabs-lecun-1b-bet-against-llms.md)
 - [Kona: Energy-Based Models (EBMs) for AI Reasoning — Logical Intelligence page](../../sources/2026-05-14-logical-intelligence-kona-ebms-page.md)
 - [Bengio et al. 2003 — A Neural Probabilistic Language Model](../../sources/bengio2003-neural-probabilistic-language-model.md) — §5.1 energy-minimization variant; the earliest EBM construction in the wiki.
+- [Dawid & LeCun 2023 — Introduction to Latent Variable Energy-Based Models](../../sources/dawid-lecun-lvebm-lecture-notes.md) — the Les Houches lectures; the source for the five distinctions and the prehistory above.
+- [JEPA Through the Eyes of a Physicist (Fajmanova, 2026)](../../sources/jepa-vs-physics-moudrkat.md) — an outside reading of the same material; useful for the coarse-graining framing, wrong on the collapse mechanism.
 
 ## Open questions / TBD
 

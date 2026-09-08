@@ -71,6 +71,34 @@ Nobody took it. The field scaled the EMA instead, and five years later [SIGReg](
 - **Architecture robustness**, for the same reason [Balestriero concedes about Dreamer](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md): reconstruction *"will produce good reconstructed pixels, training probably will not diverge."*
 - **Transfer wins at scale**: COCO 53.3 AP<sup>box</sup> and ADE20K 53.6 mIoU with a ViT-L, beating supervised pretraining and every SSL contemporary at matched size.
 
+## The prehistory, and one cross-cut on how MAE is filed
+
+Added 2026-09-07 on ingesting **[Dawid & LeCun's Les Houches lecture notes](../../sources/dawid-lecun-lvebm-lecture-notes.md)**, which is the design document behind the JEPA line and puts this page's table in a longer frame.
+
+**The table above starts in 2018. The problem and the fix are from 1982–83.**
+
+| Year | Model | Anti-collapse device | What it cost |
+|---|---|---|---|
+| 1982 | **Hopfield network** | **none** — the loss *is* the energy, updated Hebbially | **spurious minima**: energy wells the data never dug |
+| 1983 | **Boltzmann machine** | **contrastive term**, MCMC-sampled (positive/negative phases) | sampling cost, which is what killed it |
+
+Both are explicitly spin-glass constructions, and the Boltzmann machine introduces hidden units — the first latent variables in the lineage. **Hopfield's spurious minima are the same class of failure this page tracks**: a landscape that acquires structure the data did not put there, or loses the structure the data did. Forty years later the devices are cheaper and the framing is unchanged.
+
+**And the framing generalizes point 3 of this page.** Reconstruction does not need an anti-collapse device — but the notes state *why* in a form that covers every row at once:
+
+> **Every model that can be multimodal, i.e., have multiple predictions for a single input, is susceptible to collapse.**
+
+Deterministic regression is immune to collapse *and* incapable of multimodal prediction; those are the same fact. So the ladder is not a list of engineering fixes for an awkward objective — **it is the bill for wanting a model that can hold more than one answer.**
+
+> [!warning] The notes file denoising and masked autoencoders as **contrastive** EBMs
+> §5.3, flatly: *"Denoising autoencoder is a type of a contrastive EBM"* — the corruption **is** the negative-sample generator, and masked AEs are named as a special case. This page files [MAE](../../sources/mae-paper.md) under *"none — the target is the input."*
+>
+> Both are right about different things and the distinction is worth keeping. **This page means: no explicit anti-collapse term appears in the loss.** **The notes mean: in energy terms the loss still has the push-down-here / pull-up-there form**, with corrupted inputs playing the role negatives play elsewhere. The second reading also predicts MAE's known weakness — the notes give the geometric failure case, a point equidistant between two branches of a spiral that cannot be denoised because the target is genuinely bimodal, *"due to the folded structure of the data."*
+>
+> The practical upshot for the ladder: reconstruction is a control condition for **collapse**, not for **multimodality**. It buys freedom from designing the invariance and pays in a failure mode of its own.
+
+**One more reclassification, upward.** The notes derive that **maximum likelihood is a contrastive method** — the negative log-likelihood splits into "push the data's energy down" plus "pull everything's energy up", the second term's gradient approximated by Monte Carlo samples. So autoregressive training belongs on this page's axis too, as the row with the most expensive negatives. See [energy-based models](../../concepts/learning/energy-based-models.md).
+
 ## The live disagreement, and why it is not resolvable from what the wiki holds
 
 [Balestriero's Day 3 argument](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) against reconstruction has two parts: reconstruction loss carries **no information about representation quality** (identical train and test MSE, ~20 points of downstream accuracy apart, under linear *and nonlinear* probes), and MSE gradients follow the pixel covariance's **top eigenvectors**, so the low-frequency half is learned first.

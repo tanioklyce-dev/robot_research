@@ -14,6 +14,9 @@ tags: [lecun, jepa, h-jepa, world-model, ami, energy-based-model, self-supervise
 > [!note] Ingest depth
 > Read from the **full PDF** (`raw/10356_a_path_towards_autonomous_mach.pdf`, 62 pages, Version 0.9.2 dated 2022-06-27). Sections 2 (introduction), 3 (architecture), 4 (world model / SSL / EBM / JEPA / H-JEPA), 5 (actor), 6 (configurator), 7 (intrinsic cost), and 8 (discussion) read in full; appendices on amortized inference and notation skimmed. This source page is **long because the paper is foundational** — multiple existing wiki pages (JEPA, World model, Yann LeCun) carry "open question" annotations that flag this paper as a gap. The page is structured to be the canonical reference for what's actually in the document.
 
+> [!note] The derivation is in a different document
+> This paper *asserts* most of its technical chain. **[Dawid & LeCun's Les Houches lecture notes](dawid-lecun-lvebm-lecture-notes.md)** (2023) are Anna Dawid's write-up of three lectures LeCun gave on this material at the Summer School on Statistical Physics and Machine Learning, and they argue each step: why probabilistic models fail in high dimensions, why any multimodal model can collapse, why contrastive fixes were abandoned, and what the JEPA loss actually contains. Read alongside; several claims below are easier to evaluate there.
+
 ## Summary
 
 **"A Path Towards Autonomous Machine Intelligence"** — LeCun's 2022 position paper, the **architectural blueprint for the entire [JEPA](../concepts/world-models/jepa.md) research program** that has since produced [V-JEPA 2](v-jepa-2-paper.md), [V-JEPA 2.1](v-jepa-2-1-paper.md), [LeWorldModel](leworldmodel-paper.md), [DINO-WM](dino-wm-paper.md), [DINO-world](dino-world-paper.md), [JEPA-WMs](jepa-wms-paper.md), [PLDM](pldm-paper.md), [LeJEPA](lejepa-paper.md), and [VLA-JEPA](vla-jepa-paper.md).

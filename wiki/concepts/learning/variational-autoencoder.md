@@ -3,7 +3,7 @@ title: Variational autoencoder (VAE)
 type: concept
 created: 2026-07-06
 updated: 2026-07-09
-sources: 5
+sources: 6
 tags: [vae, generative-model, variational-inference, elbo, reparameterization-trick, latent-variable, kingma, foundational]
 ---
 

@@ -3,7 +3,7 @@ title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
 updated: 2026-09-07
-sources: 76
+sources: 78
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -72,6 +72,26 @@ The escape hatch is closed by scope rather than by proof: SSIM is image-specific
   - **Stop-gradient + covariance regularization** — [DynaMo](../../entities/dynamo.md) (Cui, …, [Pinto](../../entities/lerrel-pinto.md), NeurIPS 2024) pairs SimSiam-style stop-grad with a VICReg-style covariance term (λ=0.04) over a joint **inverse + forward** latent-dynamics objective. Predates the rest of this ladder and sits at its heavy end; notable because it had inverse dynamics as *half the objective* two years before SMWM proposed it as the *sole* defence.
   - **Single inverse-dynamics regularizer** — [SMWM](../../entities/smwm.md) (Ivashkov, Balestriero, Schölkopf 2026) predicts the *action* from an embedding pair; recovering it forces the encoder to stay action-informative. Unlike SIGReg it **doesn't prescribe latent geometry** — it anchors the representation to a task-grounded quantity, biasing toward *controllable* degrees of freedom and filtering uncontrollable distractors (a "perception for action" / causal-representation framing).
 - **State representation & hierarchy (2026 developments).** Beyond collapse, two other axes are moving: **object-centric states** — [WorldDP](../../entities/worlddp.md) replaces raw DINOv2 patches with slot-attention entity embeddings for better dynamics learning — and **hierarchy for multi-stage tasks** — both [HWM](../../entities/hwm.md) (WM-over-WM) and [WorldDP](../../entities/worlddp.md) (WM-over-diffusion-policy) wrap a JEPA planner in a two-tier subgoal structure to escape the single-stage ceiling.
+
+## The blueprint had four loss terms and a latent variable. Neither survived.
+
+From **[Dawid & LeCun's Les Houches notes](../../sources/dawid-lecun-lvebm-lecture-notes.md)** (2023), Fig. 10 — the original JEPA training objective as designed:
+
+| Term | Purpose | Status in practice |
+|---|---|---|
+| `D(s̄_x, s_y)` | minimize prediction error in representation space | **universal** |
+| `−I(s_x)`, `−I(s_y)` | maximize information content of each representation about its input | survives *in spirit* — [VICReg](../../sources/vicreg-paper.md) is the worked example, but [DINO](../../entities/dino.md)/[V-JEPA](../../entities/v-jepa-2.md)-style EMA+centering is not an information-maximization term at all, and [SIGReg](sigreg.md) is derived from [identifiability](identifiability.md) rather than information |
+| `R(z)` | minimize the information capacity of the latent variable | **absent** |
+| the latent variable `z` itself | represent the multiple futures compatible with one past | **absent** |
+
+> [!warning] The mechanism the architecture was designed around has not been built
+> `z` is not an optional extra in the blueprint — it is the *reason* for choosing an energy-based formulation at all. The argument: video is multimodal, a single-prediction model learns the average and outputs blur, high-dimensional probability distributions are intractable, therefore EBM plus a latent variable that carries the residual uncertainty (Table 1's examples: pose, lighting, segmentation, the intentions of other drivers).
+>
+> **No JEPA in this wiki has one.** I-JEPA, [V-JEPA 2](../../sources/v-jepa-2-paper.md) and [2.1](../../sources/v-jepa-2-1-paper.md), [LeJEPA](../../sources/lejepa-paper.md), [LeVJEPA](../../sources/levjepa-paper.md), [PLDM](../../sources/pldm-paper.md), [DINO-WM](../../sources/dino-wm-paper.md), [LeWorldModel](../../sources/leworldmodel-paper.md) — all deterministic predictors. Multimodality is handled by **encoding the unpredictable part away** rather than by representing it. That is a real solution to a narrower problem, and it is worth naming the substitution rather than letting it pass as the same thing.
+>
+> The likely reason it works anyway is [action conditioning](world-action-model.md): [Balestriero](../../sources/information-bottleneck-ep11-jepa-balestriero.md), 2025 — *"if you already have very rich actions, you don't have a lot of uncertainty, then probably you are good enough to not use a latent variable… if you have very weak actions or no actions… you'll just learn to predict the average of all those possible scenarios."* **Actions are doing `z`'s job**, which predicts that the missing latent should start to bite in exactly the settings where actions are weak or unobserved.
+>
+> And the blocker has not moved. The notes, 2023: *"the information capacity of the latent variable must be minimized, otherwise the training may put all the information needed for the prediction into them."* Balestriero, 2025: *"how to control this capacity is also a big research question."*
 
 ## Notable instances
 - **[V-JEPA 2 / V-JEPA 2-AC](../../entities/v-jepa-2.md)** ([Meta FAIR](../../entities/meta-fair.md) + [Mila](../../entities/mila.md), June 2025) — large-scale video pretraining + action-conditioned post-training; zero-shot Franka.
@@ -208,7 +228,10 @@ Measured: MAE drops **25.1%** under ImageNet-C severity 1→5 against DINO's **1
 - [EchoJEPA paper](../../sources/echojepa-paper.md) — the clinical branch; V-JEPA 2 adapted to echocardiography at 18M videos.
 - [EchoWorld paper](../../sources/echoworld-paper.md) — an action-conditioned JEPA where the latent is a 6-DOF probe movement; robotic probe guidance.
 
-> [!note] Curated list — **55** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **57** source pages link here; the ones below are those that shaped this page.
+
+- [Dawid & LeCun 2023 — Introduction to Latent Variable Energy-Based Models](../../sources/dawid-lecun-lvebm-lecture-notes.md) — the design document: the four-term objective, and the latent variable no JEPA implements.
+- [JEPA Through the Eyes of a Physicist (Fajmanova, 2026)](../../sources/jepa-vs-physics-moudrkat.md) — JEPA as learned coarse-graining; and an outside account of collapse prevention that the primaries here contradict.
 
 - [Bromley et al. 1993 — Signature Verification using a Siamese TDNN](../../sources/bromley1993-siamese-signature-verification.md) — eponymous Siamese-network paper; the J/A in JEPA descend from this architecture
 - [A Path Towards Autonomous Machine Intelligence (LeCun, 2022)](../../sources/lecun2022-path-towards-ami.md) — canonical position paper / definition
