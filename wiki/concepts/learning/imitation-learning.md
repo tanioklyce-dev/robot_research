@@ -3,7 +3,7 @@ title: Imitation learning
 type: concept
 created: 2026-05-07
 updated: 2026-09-07
-sources: 104
+sources: 105
 tags: [imitation-learning, behavior-cloning, demonstrations, lerobot, act, co-training, mobile-aloha]
 ---
 
@@ -56,7 +56,7 @@ A prerequisite the talk is clear about: none of this works on logs. Replaying dr
 
 ## Mentioned in
 
-> [!note] Curated list — **96** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **97** source pages link here; the ones below are those that shaped this page.
 
 - [Kober, Bagnell & Peters 2013 — RL in Robotics Survey](../../sources/kober-rl-robotics-survey-2013.md) — §5.1 demonstrations-remove-global-exploration; kinesthetic teach-in; apprenticeship learning.
 - [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — the weighted RL+IL hybrid, with measured deceleration distributions.
@@ -73,4 +73,5 @@ A prerequisite the talk is clear about: none of this works on logs. Replaying dr
 - [Seeed Studio LeRobot LeKiwi Wiki](../../sources/seeed-lekiwi-wiki.md)
 - [LeKiwi GitHub](../../sources/lekiwi-github.md)
 - [Larchenko — LeHome deep dive, Part 1](../../sources/larchenko-lehome-part1-rl-for-vlas.md) — BC as the base that AWR/RECAP reweight; DAgger as an optional third process on the same data bus, unimportant in sim and decisive on the real robot.
+- [Learning to Fold — tech report](../../sources/larchenko-learning-to-fold-tech-report.md) — DAgger corrections weighted by proximity to the intervention (the pre-takeover window ramped to zero) as a substitute for an advantage; teleop-in-sim judged not worth it once the policy folded better than the operator.
 

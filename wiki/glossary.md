@@ -521,6 +521,9 @@ Alignment represented as a **normalized weight distribution** over source positi
 ### TD-MPC
 **Temporal Difference Model Predictive Control** — Hansen et al. 2022 / 2024 ([TD-MPC2 source page](sources/td-mpc2-paper.md), [entity](entities/td-mpc.md)); model-based control combining a learned latent dynamics model with MPC and TD-bootstrapping. Decoder-free (no pixel reconstruction). Baseline in [LeWM](sources/leworldmodel-paper.md). *(Module 10.)*
 
+### Thompson sampling
+Bayesian bandit rule: keep a posterior per arm (e.g. Beta for a binary reward), sample one value from each, play the largest. In this wiki: the **online tuner of inference-time hyperparameters** (execution length, guidance scale, candidate count, noise temperature …) during RL rollout collection in [Larchenko's LeHome solution](sources/larchenko-learning-to-fold-tech-report.md) — a factorised bandit with decaying posteriors, frozen for submission. *(Module 8.)*
+
 ### TPU
 **Tensor Processing Unit** — Google's NN-specialized accelerator. *(Throughout.)*
 

@@ -12,7 +12,11 @@ Deferred maintenance items and knowledge gaps surfaced during lint passes but no
 
 ## [2026-09-07c] From the LeHome Part 1 ingest
 
-- [ ] **Larchenko tech report, *Learning to Fold*** — arXiv 2606.27163 (v2 2026-07-18). The primary for every number now quoted from the blog; also carries Part 2/3 material (reward & advantage computation, Thompson-sampled inference hyperparameters, sim-to-real recipe with camera-alignment tooling). Ingest before anything from this cluster feeds a build decision.
+- [x] ~~**Larchenko tech report, *Learning to Fold*** — arXiv 2606.27163.~~ **Done 2026-09-07** → [source page](sources/larchenko-learning-to-fold-tech-report.md). Every blog number confirmed; Part 2/3 material captured; sim-to-real filed as a section on the concept page.
+- [ ] **LeHome benchmark paper** — Li et al., arXiv 2604.22363, *Simulation Environment for Deformable Object Manipulation in Household Scenarios*. The organisers' primary for the success checker, the keypoint conditions, and the unseen-garment protocol; the challenge entity currently cites it through the winner.
+- [ ] **Exclusive Self-Attention** — Zhai, arXiv 2603.09078. Adopted in the winning policy on *"recent fashion"*, un-ablated; worth knowing what it actually claims.
+- [ ] **Experiment: the "one pipeline".** Train a real-side success/completion head on the released 792 own-robot episodes + 500 organiser episodes, then run advantage conditioning, best-of-N and value-weighted DAgger on hardware. The author's guess is 90 %+ on this task; the released checkpoints and data make it a bounded project on an SO-ARM101 pair.
+- [ ] **Diagnostic to adopt: the resize-path test.** For any sim-trained policy with auxiliary heads, check whether the heads can classify 640→224 vs 640→320→224 frames. If yes, the policy is fitting the renderer.
 - [ ] **LeHome Parts 2 and 3** when released (reward engineering / inference optimisation; sim-to-real, DAgger, ICRA final). Part 3 is the one the wiki most needs — a documented SO-ARM101 sim-to-real transfer onto hardware the author never touched.
 - [ ] **BEHAVIOR-1K Challenge 2025 solution** — arXiv 2512.06951, video `J4wpO0EdCZs`. Would confirm the 12.4 % figure's provenance and the architecture LeHome inherited.
 - [ ] **AWR** (Peng et al. 2019, 1910.00177) and **AWAC** (Nair et al. 2020) — the off-policy primaries behind the [new concept page](concepts/learning/rl-for-flow-matching-vlas.md); currently cited from a video.

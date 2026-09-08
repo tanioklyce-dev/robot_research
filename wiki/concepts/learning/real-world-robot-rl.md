@@ -3,7 +3,7 @@ title: Real-world robotic reinforcement learning
 type: concept
 created: 2026-07-05
 updated: 2026-09-07
-sources: 21
+sources: 22
 tags: [reinforcement-learning, real-world-rl, manipulation, human-in-the-loop, off-policy-rl, sample-efficiency]
 ---
 
@@ -78,7 +78,7 @@ It is worth having next to [HIL-SERL](../../sources/hil-serl-paper.md) because i
 
 ## The sim-first, human-optional cousin (2026-09-07)
 
-[Larchenko's LeHome loop](../../sources/larchenko-lehome-part1-rl-for-vlas.md) is this page's recipe with the human made optional and the hardware replaced by Isaac Lab: a trainer and any number of rollout workers that **never communicate except through Hugging Face Hub repositories** — checkpoints one way, rollout datasets the other, advantages computed from stored returns. Teleop / DAgger is a third client of the same bus that pulls tagged hard states; he reports it *"wasn't so important for simulation"* and *"very, very important"* in the real final. The RL method is [AWR + RECAP](rl-for-flow-matching-vlas.md) on a π0.5 flow head, and the reported ceiling is HIL-SERL's inverse: **zero exploration**, so the human is the only source of new behaviour when one is present. One H200 for training, one RTX PRO 6000 for rollouts, 10–20 s episodes.
+[Larchenko's LeHome loop](../../sources/larchenko-lehome-part1-rl-for-vlas.md) is this page's recipe with the human made optional and the hardware replaced by Isaac Lab: a trainer and any number of rollout workers that **never communicate except through Hugging Face Hub repositories** — checkpoints one way, rollout datasets the other, advantages computed from stored returns. Teleop / DAgger is a third client of the same bus that pulls tagged hard states; he reports it *"wasn't so important for simulation"* and *"very, very important"* in the real final. The RL method is [AWR + RECAP](rl-for-flow-matching-vlas.md) on a π0.5 flow head, and the reported ceiling is HIL-SERL's inverse: **zero exploration**, so the human is the only source of new behaviour when one is present. One H200 for training, one RTX PRO 6000 for rollouts, 10–20 s episodes. On the real robot ([report](../../sources/larchenko-learning-to-fold-tech-report.md) §9.10) there was no value model at all, so the DAgger **intervention signal became the advantage**: human-correction frames weighted highest, the five seconds before a takeover ramped to zero — *"a deliberately crude replacement for a real advantage function."* Rig: two leaders, two followers, three-pedal foot switch, leaders tracking followers during autonomy so a human can grab control mid-motion.
 
 ## Related concepts
 
@@ -105,4 +105,5 @@ Real-world RL for manipulation went from "considered infeasible" to **100% succe
 - [AutoSERL paper](../../sources/autoserl-paper.md) — one-demo automation.
 - [`pollen-robotics/microduck` — the onboard runtime](../../sources/microduck-runtime-repo.md) — The mechanism behind the reset-automation claim: `VelStand` trains walking and fall recovery in one policy, and a separate rate-based detector (`ġ = −ω × g`) goes limp ~0.3 s ahead of the fall so the stand-up starts from a still robot.
 - [Larchenko — LeHome deep dive, Part 1](../../sources/larchenko-lehome-part1-rl-for-vlas.md) — the asynchronous Hub-mediated train/rollout/teleop loop; curriculum on success rate; success and semi-success replay.
+- [Learning to Fold — tech report](../../sources/larchenko-learning-to-fold-tech-report.md) — DAgger proximity weighting as a stand-in advantage; the three-pedal leader/follower rig; recovery came only from human interventions, and only on the real robot.
 

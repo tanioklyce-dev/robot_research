@@ -15,7 +15,7 @@ tags: [lehome, icra-2026, so-arm101, bimanual, garment-folding, deformable, rl, 
 
 # Learning to Fold, Part 1 — RL for a flow-matching VLA
 
-**[Ilia Larchenko](../entities/ilia-larchenko.md)** explains, from the inside, the solution that took **1st of 62 teams** in the simulation round of the **[LeHome Challenge 2026](../entities/lehome-challenge-2026.md)** (ICRA 2026, Vienna) and **2nd in the real-world final**: a **π0.5**-based VLA improved by a reinforcement-learning loop on a **bimanual [SO-ARM101](../entities/so-arm101.md)** folding four garment types in **Isaac Lab**. The video is Part 1 of 3 and covers the RL method, the policy architecture, and rollout collection. Parts 2 (reward, advantage, inference-time optimisation) and 3 (sim-to-real, DAgger, the ICRA final) were not yet released at ingest. **Everything here is first-person practitioner testimony**; the [tech report](https://arxiv.org/abs/2606.27163) is the primary for numbers and is un-ingested.
+**[Ilia Larchenko](../entities/ilia-larchenko.md)** explains, from the inside, the solution that took **1st of 62 teams** in the simulation round of the **[LeHome Challenge 2026](../entities/lehome-challenge-2026.md)** (ICRA 2026, Vienna) and **2nd in the real-world final**: a **π0.5**-based VLA improved by a reinforcement-learning loop on a **bimanual [SO-ARM101](../entities/so-arm101.md)** folding four garment types in **Isaac Lab**. The video is Part 1 of 3 and covers the RL method, the policy architecture, and rollout collection. Parts 2 (reward, advantage, inference-time optimisation) and 3 (sim-to-real, DAgger, the ICRA final) were not yet released at ingest. **Everything here is first-person practitioner testimony**; the [tech report](larchenko-learning-to-fold-tech-report.md) is the primary for numbers — now ingested.
 
 ## Summary
 
@@ -59,7 +59,7 @@ Two design decisions carry the whole solution. First, **the RL method is chosen 
 - **Hard mining** of difficult states: tried, mostly dropped — too few successes per unit time [73:16–74:16].
 - Thousands of rollouts; **old rollouts down-weighted** because they carry stale value predictions (Part 2).
 
-### Numbers (from the companion blog post, not the video)
+### Numbers (from the companion blog post; all confirmed by the [tech report](larchenko-learning-to-fold-tech-report.md))
 
 | | |
 |---|---|
@@ -75,7 +75,7 @@ Two design decisions carry the whole solution. First, **the RL method is chosen 
 - **Keypoint distances as a world model** is the [Jupiter-in-six-numbers](lecun-xing-jepa-glp-debate-2026.md) argument applied to laundry: the task's success criterion *defines* the sufficient statistic, so predict that after the action chunk and skip pixels and latents. It only works because the criterion is known and low-dimensional — which is the case in a competition and rarely in a home.
 - **The zero-exploration confession matters more than the leaderboard.** AWR and RECAP sharpen a distribution; they cannot widen it. Everything the winning policy does was in the organiser demonstrations. That is the same ceiling the [RECAP page](../entities/pistar06.md) notes, stated by someone who hit it.
 - **The Hub as an RL message bus** is the practical idea most likely to travel: two processes, two repositories, no coordination, and the human teleop process is a third client of the same bus. It is the low-budget form of the [HIL-SERL](hil-serl-paper.md) loop and drops straight onto the SO-ARM101 stack this wiki already tracks.
-- **Evidentiary weight.** First-person, un-ablated by the author's own repeated admission, single competitor, one task family. The blog numbers are the author's; the tech report is the primary and should be ingested before any of this is quoted in a build decision. The BEHAVIOR-1K link — the wiki's [12.4 %](../entities/behavior-benchmark.md) figure is the 2025 challenge winner's score, and Larchenko says his team won — rests on his statement; the solution paper (arXiv 2512.06951) is un-ingested.
+- **Evidentiary weight.** First-person, un-ablated by the author's own repeated admission, single competitor, one task family. The blog numbers are confirmed by the [tech report](larchenko-learning-to-fold-tech-report.md), which also supplies the Part 2/3 material and two candid corrections (a CUPED coefficient error, a units bug). The BEHAVIOR-1K link — the wiki's [12.4 %](../entities/behavior-benchmark.md) figure is the 2025 challenge winner's score, and Larchenko says his team won — is confirmed by the tech report's citation [8] (Larchenko, Zarin & Karnatak, *1st Place Solution for the 2025 BEHAVIOR Challenge*, arXiv 2512.06951); that paper itself is un-ingested.
 
 ## Entities mentioned
 

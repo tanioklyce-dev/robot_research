@@ -3,7 +3,7 @@ title: Flow matching
 type: concept
 created: 2026-05-25
 updated: 2026-09-07
-sources: 25
+sources: 26
 tags: [flow-matching, generative-model, ode, continuous-actions, vla, action-head, pi-zero, smolvla, molmoact2, dit, lipman, esser, xvla]
 ---
 
@@ -114,6 +114,7 @@ See [reward post-training of diffusion and flow models](reward-post-training-dif
 - [The Elements of Differentiable Programming](../../sources/blondel-roulet-differentiable-programming.md) — rigorous mathematical reference.
 - [PAN technical report](../../sources/pan-world-model-paper.md) — the generative supervision of the whole GLP system is a rectified-flow / flow-matching loss on the Wan2.1-VAE latent of the next chunk (1000 steps, shifted schedule).
 - [Larchenko — LeHome deep dive, Part 1](../../sources/larchenko-lehome-part1-rl-for-vlas.md) — a flow-matching VLA improved by RL in practice: no likelihoods, no gradient estimator; AWR + RECAP reweight the target distribution and BC does the rest. The *"cannot evaluate probability density"* limitation stated by a practitioner who hit it [24:49].
+- [Learning to Fold — tech report](../../sources/larchenko-learning-to-fold-tech-report.md) — the inference contract of a flow-matching VLA as run in a competition: 10 Euler steps, correlated initial noise from the empirical action covariance, **noise temperature 0.7–0.9**, soft inpainting at chunk boundaries active only in the high-noise part of the flow, **CFG on an advantage token at scale 7–9**, best-of-N from a shared prefix — all seven knobs bandit-tuned per task variant.
 
 ## Open questions
 

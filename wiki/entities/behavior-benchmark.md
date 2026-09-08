@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-07-04
 updated: 2026-09-07
-sources: 9
+sources: 10
 tags: [behavior, behavior-1k, benchmark, household, simulation, omnigibson, bddl, stanford, sim-to-real]
 ---
 
@@ -40,7 +40,8 @@ Long-horizon (CollectTrash ≥16 steps) + deformables/fluids + extended states. 
 - [GR00T N1.6 research page](../sources/groot-n1_6.md) — simulated Galaxea R1 Pro on BEHAVIOR.
 - [CaP-X paper](../sources/cap-x-paper.md) — 50 BEHAVIOR tasks integrated into CaP-Gym; CaP-Agent0 exceeds the human expert on radio-pickup task success (56% vs 36%, n=25).
 - [ASPIRE paper](../sources/aspire-paper.md) — long-horizon mobile manipulation; ASPIRE beats both human experts and CaP-Agent0 (radio task success 56% → 88%).
-- [Larchenko — LeHome deep dive, Part 1](../sources/larchenko-lehome-part1-rl-for-vlas.md) — [Larchenko](ilia-larchenko.md) states his team won the 2025 BEHAVIOR-1K Challenge and that the LeHome policy reuses that architecture; if so, the **12.4 %** figure above is his team's score. Solution paper (arXiv 2512.06951) un-ingested.
+- [Larchenko — LeHome deep dive, Part 1](../sources/larchenko-lehome-part1-rl-for-vlas.md) — [Larchenko](ilia-larchenko.md) states his team won the 2025 BEHAVIOR-1K Challenge and that the LeHome policy reuses that architecture; **confirmed** by his [tech report](../sources/larchenko-learning-to-fold-tech-report.md)'s citation [8] — Larchenko, Zarin & Karnatak, *Task Adaptation of Vision-Language-Action Model: 1st Place Solution for the 2025 BEHAVIOR Challenge* (arXiv 2512.06951, un-ingested). So the **12.4 %** figure above is that team's score.
+- [Learning to Fold — tech report](../sources/larchenko-learning-to-fold-tech-report.md) — cites the 2025 challenge-winning solution [8] as the architecture LeHome inherits (no language input, correlated flow noise, soft inpainting, cross-layer KV mixing).
 
 ## Open questions
 - **Primary source now ingested** ([paper](../sources/behavior-1k-paper.md)); the earlier stub's "5,000 objects" is corrected to **9,000+**.

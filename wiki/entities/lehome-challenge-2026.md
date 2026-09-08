@@ -4,7 +4,7 @@ type: entity
 subtype: event
 created: 2026-09-07
 updated: 2026-09-07
-sources: 1
+sources: 2
 tags: [event, competition, icra-2026, garment-folding, deformable, bimanual, so-arm101, lerobot, isaac-lab, benchmark]
 ---
 
@@ -14,14 +14,24 @@ tags: [event, competition, icra-2026, garment-folding, deformable, bimanual, so-
 
 Four garment types — long-sleeve tops, short-sleeve tops, long pants, shorts — each with a prescribed folding strategy. **Only full success counts**, scored automatically from **garment keypoint distances**: some pairs must fall under a threshold (sleeves meet, halves meet), others must stay apart (the garment is spread, not balled). Garment category is **not** given to the policy at evaluation; competitors must infer it. Hardware, placement, and gripper are fixed by the organisers; the final ran on the organisers' robot, which competitors had never touched ([Larchenko](../sources/larchenko-lehome-part1-rl-for-vlas.md) [08:16–09:18]).
 
-## Results in this wiki
+## Protocol (from the [tech report](../sources/larchenko-learning-to-fold-tech-report.md))
 
-| Place | Team | Simulation round | Real final |
-|---|---|---|---|
-| 1st sim / 2nd real | [Ilia Larchenko](ilia-larchenko.md) | **79.63 %** full-fold (74.5 / 70.0 / 80.5 / 93.5 by garment), +6.1 pts over 2nd | **865 / 1080** |
-| 1st real | *(not identified in ingested sources)* | — | 895 / 1080 |
+- **Sim round**: 20 garments per type — 10 seen (organiser BC data released), 2 unseen-public, 8 unseen-private — each × 10 episodes; binary full-fold success; 30 Hz; three RGB cameras (overhead + two wrists; overhead depth available). 62 teams.
+- **Real final**: top 8 sim teams; 5 garments per type (3 seen, 2 unseen); **partial credit** and per-step quality scored by an organisers' jury; **unseen garments carry a 50 % bonus**; maximum **1080**; 20 Hz. Competitors never touch the evaluation robot beforehand.
+- Organisers' benchmark paper: Li et al., arXiv 2604.22363 (un-ingested).
 
-Numbers from the winner's blog post; the official leaderboard is dynamic and not captured.
+## Leaderboards
+
+| Rank | Simulation round — overall (long top / short top / long pants / shorts) | Real final (of 1080) |
+|---|---|---|
+| 1 | **ilya ([Larchenko](ilia-larchenko.md)) 79.63 %** (74.5 / 70.0 / 80.5 / 93.5) | sZs **895** |
+| 2 | Shubham @ Vorwerk 73.50 % | ilya **865** |
+| 3 | Dum-E 73.38 % | Dum-E 762.5 |
+| 4 | SCUT-Unlimited 73.13 % | SCUT-Unlimited 635 |
+| 5 | GraspYesAI 70.63 % | sisigakgak 570 |
+| 6 | sZs 69.63 % | Shubham @ Vorwerk 470 |
+
+Short tops were the hardest type for nearly every team and shorts the easiest. The sim winner's unseen-garment scores were *"only slightly below"* seen ones. Note the reordering between rounds: sZs, 6th in sim, won the real final.
 
 ## Why it matters in this wiki
 
@@ -38,3 +48,4 @@ Numbers from the winner's blog post; the official leaderboard is dynamic and not
 ## Mentioned in
 
 - [Larchenko — LeHome deep dive, Part 1](../sources/larchenko-lehome-part1-rl-for-vlas.md)
+- [Learning to Fold — tech report](../sources/larchenko-learning-to-fold-tech-report.md) — protocol, both leaderboards, data scale.

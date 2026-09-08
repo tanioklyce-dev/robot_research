@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-10
 updated: 2026-09-07
-sources: 35
+sources: 36
 tags: [so-arm, so-arm100, so-arm101, the-robot-studio, low-cost-arm, open-source, lerobot, leader-follower, teleoperation]
 ---
 
@@ -52,7 +52,7 @@ The leader-follower convention is the dominant data-collection pattern for imita
 
 ## Mentioned in
 
-> [!note] Curated list — **34** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **35** source pages link here; the ones below are those that shaped this page.
 
 
 - [NVIDIA Isaac Teleop and GR00T 1.7 in LeRobot (HF blog)](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) — the reference platform for NVIDIA's first-party [GR00T](nvidia-groot.md) 1.7 fine-tune walkthrough (50-episode teleop → 20k-step fine-tune → rollout), incl. XR-headset teleop via [Isaac Teleop](nvidia-isaac-teleop.md).
@@ -69,6 +69,7 @@ The leader-follower convention is the dominant data-collection pattern for imita
 - [Gemini Robotics 2 blog](../sources/gemini-robotics-2-blog.md) — **SO101 is a listed supported platform** for the Gemini Robotics 2 family, alongside Apollo 2, Franka Duo, Dexmate and Trossen. With [MolmoAct2's SO-100/101 checkpoint](../sources/molmoact2-so100-101-model-card.md), two frontier labs now target this arm class.
 - [Gemini Robotics On-Device 2 model card](../sources/gemini-robotics-on-device-2-model-card.md) — **SO101: 53.3% (v2) vs 6.7% (v1)** — the on-device tier went from unusable to plausibly useful on this arm class in one generation. Three frontier-lab lines now publish SO-10x results (MolmoAct2, GR 2 cloud, GRoD v2).
 - [Larchenko — LeHome deep dive, Part 1](../sources/larchenko-lehome-part1-rl-for-vlas.md) — **the designated arm of the [LeHome Challenge 2026](lehome-challenge-2026.md)**, bimanual, folding four garment types; the winner's account of its limits (*backlash; a gripper that sometimes cannot hold fabric; every assembly and calibration behaves slightly differently*) and of a policy that transferred to an organiser-owned unit he had never touched.
+- [Learning to Fold — tech report](../sources/larchenko-learning-to-fold-tech-report.md) — **a units gotcha for this arm**: between two LeRobot 0.4.x releases the follower's default state switched from a normalised −100…100 range to **degrees**, visually near-identical and ~10 % off per joint. Also: 30 Hz in sim vs 20 Hz real in the challenge; a competition policy that survived rig drift once cameras, calibration and lighting were deliberately varied during data collection.
 
 ## Open questions / TBD
 

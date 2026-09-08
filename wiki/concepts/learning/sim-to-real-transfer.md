@@ -3,7 +3,7 @@ title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
 updated: 2026-09-07
-sources: 71
+sources: 72
 tags: [sim-to-real, domain-gap, rl, simulation, real-to-sim, r2s2r]
 ---
 
@@ -132,6 +132,19 @@ Two things make it worth a section here rather than a bullet in "common techniqu
 > [!note] Untested outside one robot
 > One worked example, vendor-published, no independent replication, and no delivered units as of 2026-08-27. The generalisation — *cheaper robot ⇒ more of the sim-to-real budget belongs in the actuator model* — is a hypothesis this wiki finds plausible, not an established result. The wiki's own low-cost cluster ([SO-ARM101](../../entities/so-arm101.md), [LeKiwi](../../entities/lekiwi.md), [XLeRobot](../../entities/xlerobot.md)) would be the place to test it.
 
+## A one-week SO-ARM101 sim-to-real sprint, documented end to end (2026-09-07)
+
+[Larchenko's tech report](../../sources/larchenko-learning-to-fold-tech-report.md) §9 is the wiki's most complete practitioner account of moving a policy from Isaac Lab to real hardware on this wiki's own arm class — with the extra twist that the evaluation robot was never available: *"sim → my robot → their robot."* The record is a case study, not an experiment, but every step is stated.
+
+- **Diagnosis before the attempt.** Resizing 640×480 → 224 directly versus 640 → 320 → 224 — invisible to a person — significantly dropped *sim* success, and the auxiliary heads could perfectly classify which path a frame took. The policy was fitting the renderer. This is a zero-cost test any sim-trained policy can run, and it predicted the zero-shot failure.
+- **Two levers, both pulled**: make the environments similar (a **camera-overlay tool** that drives the arm to a dataset frame's joint state and overlays live cameras — or sim renders — on it; shared with the organisers) and make the training distribution wider (deliberately re-randomising his own rig over the week; heavy per-camera colour/gain/gamma/blur/noise/crop/rotate/cutout, camera dropout, and **state noise and dropout so the policy trusts pixels over miscalibrated proprioception**).
+- **Strip what cannot exist on hardware**: keypoint and future heads, advantage conditioning, CFG, best-of-N. Start from a *late but not latest* sim checkpoint — the latest was the most renderer-specialised.
+- **Mix by batch share, not by size**: 60 % organiser BC (500 episodes), 30 % own teleop + DAgger (792), 10 % augmented sim success-replays (1,723) — per-frame sampling rates ×1.0 / ×0.21 / ×0.05.
+- **Align motion intensity**: per-source time-resampling so a "step" means the same delta everywhere (organiser ×1.0, home teleop ×1.5, sim ×0.65, DAgger corrections ×2.0).
+- **DAgger as the only source of recovery**, weighted by intervention proximity: corrections highest, the 5 s before a takeover ramped to zero. Real teleop corrections were *"one of the most useful tools of the project"*; sim teleop was not.
+- **What bit**: a LeRobot 0.4.x change of the SO-101 state convention (normalised range → degrees, ~10 % skew per joint) found two days before the deadline; and folding styles that differed between organiser real data and sim (other sleeve first, pants from the other end), adding multimodality.
+- **Result**: 2nd of 8, 865 / 1080; unexpected robustness to day-to-day rig drift, credited to rig randomisation. The regret is architectural — no real-side value model, so none of the sim round's advantage machinery ran on hardware.
+
 ## Notable claims
 - [MuJoCo Playground](../../entities/mujoco-playground.md) demonstrates **zero-shot** transfer from both state and pixel inputs across quadrupeds, humanoids, hands, and arms ([MuJoCo Playground Paper](../../sources/mujoco-playground-paper.md)).
 - Tesla Optimus combines sim-to-real with imitation from human teleoperated/wearable-camera video.
@@ -163,7 +176,7 @@ So the sim-to-real gap is not crossed by the *policy*; it is crossed by the **ta
 
 - [GEN-1.5](../../sources/generalist-gen-1-5-blog.md) — prompt recorded in simulation, robot acts in reality, **no simulation data in pretraining**.
 
-> [!note] Curated list — **64** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **65** source pages link here; the ones below are those that shaped this page.
 
 - [Kober, Bagnell & Peters 2013 — RL in Robotics Survey](../../sources/kober-rl-robotics-survey-2013.md) — simulation bias, noise injection, self-stabilizing transfer.
 - [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — the "superset, not replica" argument, supported across four domains; see [synthetic data flywheel](synthetic-data-flywheel.md).
@@ -180,4 +193,5 @@ So the sim-to-real gap is not crossed by the *policy*; it is crossed by the **ta
 - [WorldArena paper](../../sources/worldarena-paper.md) — learned policy evaluators inflate absolute success rates.
 - [Microduck — Pollen Robotics launch](../../sources/pollen-robotics-microduck.md) — the actuator-side gap; a full sim2real recipe shipped with a $399 robot.
 - [Larchenko — LeHome deep dive, Part 1](../../sources/larchenko-lehome-part1-rl-for-vlas.md) — practitioner domain randomisation (per-frame colour, lighting, camera pose, arm placement, cloth physics — *"never break the actual physics"*), and **success replay**: re-run a successful episode's actions under heavy visual randomisation to manufacture aligned data for a camera setup you cannot reproduce. Part 3 (the real final) pending.
+- [Learning to Fold — tech report](../../sources/larchenko-learning-to-fold-tech-report.md) — the one-week SO-ARM101 sprint above: resize-path overfit diagnostic, camera-overlay alignment, three-bucket mix, speed factors, DAgger weighting, the units bug.
 
