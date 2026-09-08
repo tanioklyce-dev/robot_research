@@ -3,10 +3,20 @@ title: LeVJEPA
 type: entity
 subtype: model
 created: 2026-09-03
-updated: 2026-09-03
-sources: 2
+updated: 2026-09-07
+sources: 3
 tags: [levjepa, jepa, lejepa, sigreg, video, self-supervised, pretraining, balestriero, lecun, lucas-maes, encoder, flop-efficiency]
 ---
+
+> [!note] Primary now ingested (2026-09-07) — all three flagged claims hold
+> This page was built from the abstract plus tutorial narration, with the compute claim, the token-dropping ablation and the causal-attention result marked as needing the paper. [The paper](../sources/levjepa-paper.md) confirms all three, and the causal result is larger than it looked.
+>
+> - **Compute**: matches or surpasses V-JEPA 2 at **5.6× (ViT-L) to 20.8× (ViT-S)** less pretraining compute; ViT-B is within 1 point at **4.8 vs 36.4 ExaFLOPs**; **its ViT-L uses less than half the compute of V-JEPA 2's ViT-S**. FLOP-matched, it beats the strongest baseline on ImageNet by **+7.6** — and **loses SSv2 by 3.2**, which it names as its weakest axis.
+> - **Token dropping**: accuracy rises **monotonically** with the drop ratio — 33.9% at ρ=0 to **47.6% at ρ=0.95**. Cheaper *and* better, because uniform random dropping *"yields a spatio-temporally distributed sample from which the content of the clip remains identifiable."*
+> - **Block-causal attention**: **51.2 vs 50.7** bidirectional — free, and adopted as default. Their framing is the part that matters here: causality established *during* pretraining gives *"per-frame state that respects temporal ordering and **extends to incoming frames without re-encoding**,"* positioning one encoder as a foundation for **streaming perception**. **No robot or control task is run**, so that is a positioning claim, not a demonstration.
+>
+> Also new: **ViT-Tiny pretrained in 12 hours on a single RTX 5080**, ImageNet 8.9% → 25.2%; batch 128 in under 8 GB where V-JEPA saturates the same card at batch 28. And **emergent semantic patch tokens** despite the objective supervising only a clip-level token — organization *"that V-JEPA 2 does not exhibit and that V-JEPA 2.1 obtains through an explicitly introduced auxiliary patch-level objective."*
+
 
 **LeVJEPA** — the video member of the "Le-" family: a **video encoder** trained with an invariance loss over temporal views plus [SIGReg](../concepts/world-models/sigreg.md), with **no EMA teacher and no stop-gradient**. arXiv **2608.27395**, *"LeVJEPA: Efficient & Scalable Video Pretraining without the Heuristics"*, submitted **2026-08-27** — Lukas Kuhn, [Lucas Maes](lucas-maes.md), Giuseppe Serra, Quentin Le Lidec, [Yann LeCun](yann-lecun.md), [Randall Balestriero](randall-balestriero.md), Florian Buettner. Code at `MLO-lab/LeVJEPA`.
 
@@ -46,6 +56,8 @@ At the Day 3 hackathon a participant (one of the paper's own promoters) trained 
 - [JEPA](../concepts/world-models/jepa.md) · [Randall Balestriero](randall-balestriero.md) · [Lucas Maes](lucas-maes.md) · [Yann LeCun](yann-lecun.md).
 
 ## Mentioned in
+
+- [LeVJEPA paper](../sources/levjepa-paper.md) — the primary; ablations, FLOP-matched tables, and the streaming-perception argument.
 
 - [Third World Modeling Workshop — Day 3](../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — announced in the tutorial; demoed on frozen features at the hackathon the same afternoon.
 

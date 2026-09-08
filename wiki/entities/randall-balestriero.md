@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-07-26
 updated: 2026-09-07
-sources: 17
+sources: 18
 tags: [person, balestriero, brown, citadel, wavelets, spline-theory, signal-processing, nasa-mars-seis, lejepa, sigreg, jepa, ssl, theory, world-model, inverse-dynamics, causality, spectral-graph-theory, time-series, levjepa, tutorial]
 ---
 

@@ -1,0 +1,327 @@
+<!-- awesome-jepa README.md, captured 2026-09-07 from
+     https://github.com/AI-in-Transportation-Lab/awesome-jepa (default branch: main)
+     140 stars, last pushed 2026-09-07. 248 linked paper entries.
+     NOTE: the "Library" and "Tutorial" sections are present but EMPTY. -->
+
+# Awesome JEPA - Joint Embedding Predictive Architecture
+
+![Awesome](https://awesome.re/badge.svg)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![GitHub Contributors](https://img.shields.io/github/contributors/gauravfs-14/awesome-jepa.svg)
+![GitHub Last Commit](https://img.shields.io/github/last-commit/gauravfs-14/awesome-jepa.svg)
+[![GitHub Stars](https://img.shields.io/github/stars/gauravfs-14/awesome-jepa.svg?style=social)](https://github.com/gauravfs-14/awesome-jepa)
+![GitHub Forks](https://img.shields.io/github/forks/gauravfs-14/awesome-jepa.svg)
+
+A carefully curated collection of high-quality tools, libraries, research papers, projects, and tutorials centered around Joint Embedding Predictive Architecture (JEPA) — a self-supervised learning paradigm introduced by Yann LeCun and Meta AI that learns representations by predicting representations of the future from representations of the present, without reconstructing pixels or tokens. This repository serves as a comprehensive, well-organized knowledge hub for researchers and developers exploring the next frontier of self-supervised learning and representation learning.
+
+JEPA represents a fundamental shift in how AI systems learn representations. Unlike traditional generative models that reconstruct inputs, JEPA learns to predict abstract representations of the future state of the world from abstract representations of the present. This approach enables more efficient learning, better generalization, and the ability to handle complex, high-dimensional data without the computational overhead of pixel-level reconstruction.
+
+To keep the community up-to-date with the latest developments, this repository is continuously enriched with newly published JEPA-related papers, real-world use cases, and open-source implementations. From foundational architectures to advanced variants like Hierarchical JEPA (H-JEPA) and applications in vision, language, and multimodal learning, the collection aims to highlight both foundational ideas and emerging best practices.
+
+> [!NOTE]
+> 📢 **Announcement:** Our paper is now available on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5772122)!  
+> **Title:** *A Survey on Joint Embedding Predictive Architectures and World Models*  
+> If you find this paper interesting, please consider citing our work. Thank you for your support!
+
+```bibtex
+@article{brotee2025survey,
+  title={A Survey on Joint Embedding Predictive Architectures and World Models},
+  author={Brotee, Shamyo and Chhetri, Gaurab and Polock, Sazzad Bin Bashar and Bellamkonda, Venkata Surya and Rafe, Amir and Das, Subasish},
+  journal={Available at SSRN 5772122},
+  year={2025}
+}
+```
+
+Whether you are building self-supervised learning systems, researching representation learning, or experimenting with predictive architectures for vision, language, or multimodal tasks, this resource offers a centralized, evolving platform to explore the powerful and expanding universe of JEPA-based systems.
+
+## Last Updated
+September 7, 2026 at 03:44:44 AM UTC
+
+
+## Theorem
+
+## Papers (248)
+- [PhysVideoGenerator: Towards Physically Aware Video Generation via Latent Physics Guidance](https://arxiv.org/abs/2601.03665)
+- [HanoiWorld : A Joint Embedding Predictive Architecture BasedWorld Model for Autonomous Vehicle Controller](https://arxiv.org/abs/2601.01577)
+- [BERT-JEPA: Reorganizing CLS Embeddings for Language-Invariant Semantics](https://arxiv.org/abs/2601.00366)
+- [Value-guided action planning with JEPA world models](https://arxiv.org/abs/2601.00844)
+- [JEPA-Reasoner: Decoupling Latent Reasoning from Token Generation](https://arxiv.org/abs/2512.19171)
+- [KerJEPA: Kernel Discrepancies for Euclidean Self-Supervised Learning](https://arxiv.org/abs/2512.19605)
+- [VL-JEPA: Joint Embedding Predictive Architecture for Vision-language](https://arxiv.org/abs/2512.10942)
+- [JEPA as a Neural Tokenizer: Learning Robust Speech Representations with Density Adaptive Attention](https://arxiv.org/abs/2512.07168)
+- [Opinion: Learning Intuitive Physics May Require More than Visual Data](https://arxiv.org/abs/2512.06232)
+- [Tokenizing Buildings: A Transformer for Layout Synthesis](https://arxiv.org/abs/2512.04832)
+- [EnzyCLIP: A Cross-Attention Dual Encoder Framework with Contrastive Learning for Predicting Enzyme Kinetic Constants](https://arxiv.org/abs/2512.00379)
+- [Health system learning achieves generalist neuroimaging models](https://arxiv.org/abs/2511.18640)
+- [CrossJEPA: Cross-Modal Joint-Embedding Predictive Architecture for Efficient 3D Representation Learning from 2D Images](https://arxiv.org/abs/2511.18424)
+- [DSeq-JEPA: Discriminative Sequential Joint-Embedding Predictive Architecture](https://arxiv.org/abs/2511.17354)
+- [POMA-3D: The Point Map Way to 3D Scene Understanding](https://arxiv.org/abs/2511.16567)
+- [Beyond Generative AI: World Models for Clinical Prediction, Counterfactuals, and Planning](https://arxiv.org/abs/2511.16333)
+- [PI-NAIM: Path-Integrated Neural Adaptive Imputation Model](https://arxiv.org/abs/2511.11908)
+- [LeJEPA: Provable and Scalable Self-Supervised Learning Without the Heuristics](https://arxiv.org/abs/2511.08544)
+- [Multi-Joint Physics-Informed Deep Learning Framework for Time-Efficient Inverse Dynamics](https://arxiv.org/abs/2511.10878)
+- [Koopman Invariants as Drivers of Emergent Time-Series Clustering in Joint-Embedding Predictive Architectures](https://arxiv.org/abs/2511.09783)
+- [TransactionGPT](https://arxiv.org/abs/2511.08939)
+- [WavJEPA: Semantic learning unlocks robust audio foundation models for raw waveforms](https://arxiv.org/abs/2509.23238)
+- [Learning from Reward-Free Offline Data: A Case for Planning with Latent Dynamics Models](https://arxiv.org/abs/2502.14819)
+- [CSU-PCAST: A Dual-Branch Transformer Framework for medium-range ensemble Precipitation Forecasting](https://arxiv.org/abs/2510.20769)
+- [Improving the Physics of Video Generation with VJEPA-2 Reward Signal](https://arxiv.org/abs/2510.21840)
+- [DINO-CVA: A Multimodal Goal-Conditioned Vision-to-Action Model for Autonomous Catheter Navigation](https://arxiv.org/abs/2510.17038)
+- [Why and How Auxiliary Tasks Improve JEPA Representations](https://arxiv.org/abs/2509.12249)
+- [Valeo Near-Field: a novel dataset for pedestrian intent detection](https://arxiv.org/abs/2510.15673)
+- [LLM-JEPA: Large Language Models Meet Joint Embedding Predictive Architectures](https://arxiv.org/abs/2509.14252)
+- [Gaussian Embeddings: How JEPAs Secretly Learn Your Data Density](https://arxiv.org/abs/2510.05949)
+- [Self-Supervised Representation Learning with Joint Embedding Predictive Architecture for Automotive LiDAR Object Detection](https://arxiv.org/abs/2501.04969)
+- [JEPA-T: Joint-Embedding Predictive Architecture with Text Fusion for Image Generation](https://arxiv.org/abs/2510.00974)
+- [Joint Embeddings Go Temporal](https://arxiv.org/abs/2509.25449)
+- [Rethinking JEPA: Compute-Efficient Video SSL with Frozen Teachers](https://arxiv.org/abs/2509.24317)
+- [MANZANO: A Simple and Scalable Unified Multimodal Model with a Hybrid Vision Tokenizer](https://arxiv.org/abs/2509.16197)
+- [Self-supervised learning of imaging and clinical signatures using a multimodal joint-embedding predictive architecture](https://arxiv.org/abs/2509.15470)
+- [EgoAgent: A Joint Predictive Agent Model in Egocentric Worlds](https://arxiv.org/abs/2502.05857)
+- [MuMTAffect: A Multimodal Multitask Affective Framework for Personality and Emotion Recognition from Physiological Signals](https://arxiv.org/abs/2509.04254)
+- [Predict, Cluster, Refine: A Joint Embedding Predictive Self-Supervised Framework for Graph Representation Learning](https://arxiv.org/abs/2502.01684)
+- [Learning State-Space Models of Dynamic Systems from Arbitrary Data using Joint Embedding Predictive Architectures](https://arxiv.org/abs/2508.10489)
+- [JEPA4Rec: Learning Effective Language Representations for Sequential Recommendation via Joint Embedding Predictive Architecture](https://arxiv.org/abs/2504.10512)
+- [Elucidating the Role of Feature Normalization in IJEPA](https://arxiv.org/abs/2508.02829)
+- [TrajFlow: A Generative Framework for Occupancy Density Estimation Using Normalizing Flows](https://arxiv.org/abs/2501.14266)
+- [CLIPTime: Time-Aware Multimodal Representation Learning from Images and Text](https://arxiv.org/abs/2508.00447)
+- [PatchTraj: Unified Time-Frequency Representation Learning via Dynamic Patches for Trajectory Prediction](https://arxiv.org/abs/2507.19119)
+- [Speaking in Words, Thinking in Logic: A Dual-Process Framework in QA Systems](https://arxiv.org/abs/2507.20491)
+- [BadHMP: Backdoor Attack against Human Motion Prediction](https://arxiv.org/abs/2409.19638)
+- [Improving Joint Embedding Predictive Architecture with Diffusion Noise](https://arxiv.org/abs/2507.15216)
+- [From Video to EEG: Adapting Joint Embedding Predictive Architecture to Uncover Visual Concepts in Brain Signal Analysis](https://arxiv.org/abs/2507.03633)
+- [MCST-Mamba: Multivariate Mamba-Based Model for Traffic Prediction](https://arxiv.org/abs/2507.03927)
+- [seq-JEPA: Autoregressive Predictive Learning of Invariant-Equivariant World Models](https://arxiv.org/abs/2505.03176)
+- [Conditional Normalizing Flows for Forward and Backward Joint State and Parameter Estimation](https://arxiv.org/abs/2601.07013)
+- [Akasha 2: Hamiltonian State Space Duality and Visual-Language Joint Embedding Predictive Architectur](https://arxiv.org/abs/2601.06212)
+- [Video Joint-Embedding Predictive Architectures for Facial Expression Recognition](https://arxiv.org/abs/2601.09524)
+- [VJEPA: Variational Joint Embedding Predictive Architectures as Probabilistic World Models](https://arxiv.org/abs/2601.14354)
+- [RadJEPA: Radiology Encoder for Chest X-Rays via Joint Embedding Predictive Architecture](https://arxiv.org/abs/2601.15891)
+- [Spatiotemporal Semantic V2X Framework for Cooperative Collision Prediction](https://arxiv.org/abs/2601.17216)
+- [WirelessJEPA: A Multi-Antenna Foundation Model using Spatio-temporal Wireless Latent Predictions](https://arxiv.org/abs/2601.20190)
+- [A Latent Space Framework for Modeling Transient Engine Emissions Using Joint Embedding Predictive Architectures](https://arxiv.org/abs/2601.19822)
+- [The Patient is not a Moving Document: A World Model Training Paradigm for Longitudinal EHR](https://arxiv.org/abs/2601.22128)
+- [Drive-JEPA: Video JEPA Meets Multimodal Trajectory Distillation for End-to-End Driving](https://arxiv.org/abs/2601.22032)
+- [JTok: On Token Embedding as another Axis of Scaling Law via Joint Token Self-modulation](https://arxiv.org/abs/2602.00800)
+- [Cell-JEPA: Latent Representation Learning for Single-Cell Transcriptomics](https://arxiv.org/abs/2602.02093)
+- [CryoLVM: Self-supervised Learning from Cryo-EM Density Maps with Large Vision Models](https://arxiv.org/abs/2602.02620)
+- [Bayesian Integration of Nonlinear Incomplete Clinical Data](https://arxiv.org/abs/2602.01924)
+- [Rectified LpJEPA: Joint-Embedding Predictive Architectures with Sparse and Maximum-Entropy Representations](https://arxiv.org/abs/2602.01456)
+- [MTS-JEPA: Multi-Resolution Joint-Embedding Predictive Architecture for Time-Series Anomaly Prediction](https://arxiv.org/abs/2602.04643)
+- [A Lightweight Library for Energy-Based Joint-Embedding Predictive Architectures](https://arxiv.org/abs/2602.03604)
+- [UniSurg: A Video-Native Foundation Model for Universal Understanding of Surgical Videos](https://arxiv.org/abs/2602.05638)
+- [Gaussian-Constrained LeJEPA Representations for Unsupervised Scene Discovery and Pose Consistency](https://arxiv.org/abs/2602.07016)
+- [Hierarchical JEPA Meets Predictive Remote Control in Beyond 5G Networks](https://arxiv.org/abs/2602.07000)
+- [Is the Reversal Curse a Binding Problem? Uncovering Limitations of Transformers from a Basic Generalization Failure](https://arxiv.org/abs/2504.01928)
+- [Soft Clustering Anchors for Self-Supervised Speech Representation Learning in Joint Embedding Prediction Architectures](https://arxiv.org/abs/2602.09040)
+- [Causal-JEPA: Learning World Models through Object-Level Latent Interventions](https://arxiv.org/abs/2602.11389)
+- [Intrinsic-Energy Joint Embedding Predictive Architectures Induce Quasimetric Spaces](https://arxiv.org/abs/2602.12245)
+- [Self-Supervised JEPA-based World Models for LiDAR Occupancy Completion and Forecasting](https://arxiv.org/abs/2602.12540)
+- [GOT-JEPA: Generic Object Tracking with Model Adaptation and Occlusion Handling using Joint-Embedding Predictive Architecture](https://arxiv.org/abs/2602.14771)
+- [MeFEm: Medical Face Embedding model](https://arxiv.org/abs/2602.14672)
+- [GenPANIS: A Latent-Variable Generative Framework for Forward and Inverse PDE Problems in Multiphase Media](https://arxiv.org/abs/2602.14642)
+- [JEPA-DNA: Grounding Genomic Foundation Models through Joint-Embedding Predictive Architectures](https://arxiv.org/abs/2602.17162)
+- [US-JEPA: A Joint Embedding Predictive Architecture for Medical Ultrasound](https://arxiv.org/abs/2602.19322)
+- [PRECTR-V2:Unified Relevance-CTR Framework with Cross-User Preference Mining, Exposure Bias Correction, and LLM-Distilled Encoder Optimization](https://arxiv.org/abs/2602.20676)
+- [Relatron: Automating Relational Machine Learning over Relational Databases](https://arxiv.org/abs/2602.22552)
+- [BiJEPA: Bi-directional Joint Embedding Predictive Architecture for Symmetric Representation Learning](https://arxiv.org/abs/2603.00049)
+- [Improving Diffusion Planners by Self-Supervised Action Gating with Energies](https://arxiv.org/abs/2603.02650)
+- [Escaping The Big Data Paradigm in Self-Supervised Representation Learning](https://arxiv.org/abs/2502.18056)
+- [Hebbian-Oscillatory Co-Learning](https://arxiv.org/abs/2603.08731)
+- [FutureVLA: Joint Visuomotor Prediction for Vision-Language-Action Model](https://arxiv.org/abs/2603.10712)
+- [Representation Learning for Spatiotemporal Physical Systems](https://arxiv.org/abs/2603.13227)
+- [From Video to EEG: Adapting Joint Embedding Predictive Architecture to Uncover Saptiotemporal Dynamics in Brain Signal Analysis](https://arxiv.org/abs/2507.03633)
+- [PASTE: Physics-Aware Scattering Topology Embedding Framework for SAR Object Detection](https://arxiv.org/abs/2603.14886)
+- [Knowledge, Rules and Their Embeddings: Two Paths towards Neuro-Symbolic JEPA](https://arxiv.org/abs/2603.13265)
+- [Laya: A LeJEPA Approach to EEG via Latent Prediction over Reconstruction](https://arxiv.org/abs/2603.16281)
+- [ACT-JEPA: Novel Joint-Embedding Predictive Architecture for Efficient Policy Representation Learning](https://arxiv.org/abs/2501.14622)
+- [LuMamba: Latent Unified Mamba for Electrode Topology-Invariant and Efficient EEG Modeling](https://arxiv.org/abs/2603.19100)
+- [Var-JEPA: A Variational Formulation of the Joint-Embedding Predictive Architecture -- Bridging Predictive and Generative Self-Supervised Learning](https://arxiv.org/abs/2603.20111)
+- [Structured Latent Dynamics in Wireless CSI via Homomorphic World Models](https://arxiv.org/abs/2603.20048)
+- [LeWorldModel: Stable End-to-End Joint-Embedding Predictive Architecture from Pixels](https://arxiv.org/abs/2603.19312)
+- [Interpreting the Synchronization Gap: The Hidden Mechanism Inside Diffusion Transformers](https://arxiv.org/abs/2603.20987)
+- [Probing the Latent World: Emergent Discrete Symbols and Physical Structure in Latent Representations](https://arxiv.org/abs/2603.20327)
+- [SurgMotion: A Video-Native Foundation Model for Universal Understanding of Surgical Videos](https://arxiv.org/abs/2602.05638)
+- [Pretext Matters: An Empirical Study of SSL Methods in Medical Imaging](https://arxiv.org/abs/2603.22649)
+- [A Wireless World Model for AI-Native 6G Networks](https://arxiv.org/abs/2603.25216)
+- [Gaussian Joint Embeddings For Self-Supervised Representation Learning](https://arxiv.org/abs/2603.26799)
+- [JEPA-MSAC: A Joint-Embedding Predictive Architecture for Multimodal Sensing-Assisted Communications](https://arxiv.org/abs/2603.29796)
+- [PI-JEPA: Label-Free Surrogate Pretraining for Coupled Multiphysics Simulation via Operator-Split Latent Prediction](https://arxiv.org/abs/2604.01349)
+- [Phantom: Physics-Infused Video Generation via Joint Modeling of Visual and Latent Physical Dynamics](https://arxiv.org/abs/2604.08503)
+- [Learning General Representation of 12-Lead Electrocardiogram with a Joint-Embedding Predictive Architecture](https://arxiv.org/abs/2410.08559)
+- [From Alignment to Prediction: A Study of Self-Supervised Learning and Predictive Representation Learning](https://arxiv.org/abs/2604.13518)
+- [The Global Neural World Model: Spatially Grounded Discrete Topologies for Action-Conditioned Planning](https://arxiv.org/abs/2604.16585)
+- [A Discordance-Aware Multimodal Framework with Multi-Agent Clinical Reasoning](https://arxiv.org/abs/2604.16333)
+- [JEPAMatch: Geometric Representation Shaping for Semi-Supervised Learning](https://arxiv.org/abs/2604.21046)
+- [Efficient Rationale-based Retrieval: On-policy Distillation from Generative Rerankers based on JEPA](https://arxiv.org/abs/2604.23336)
+- [CasLayout: Cascaded 3D Layout Diffusion for Indoor Scene Synthesis with Implicit Relation Modeling](https://arxiv.org/abs/2604.27361)
+- [Why Self-Supervised Encoders Want to Be Normal](https://arxiv.org/abs/2604.27743)
+- [Text-Conditional JEPA for Learning Semantically Rich Visual Representations](https://arxiv.org/abs/2605.03245)
+- [DART: A Vision-Language Foundation Model for Comprehensive Rope Condition Monitoring](https://arxiv.org/abs/2605.04943)
+- [AeroJEPA: Learning Semantic Latent Representations for Scalable 3D Aerodynamic Field Modeling](https://arxiv.org/abs/2605.05586)
+- [Clin-JEPA: A Multi-Phase Co-Training Framework for Joint-Embedding Predictive Pretraining on EHR Patient Trajectories](https://arxiv.org/abs/2605.10840)
+- [MulTaBench: Benchmarking Multimodal Tabular Learning with Text and Image](https://arxiv.org/abs/2605.10616)
+- [Sub-JEPA: Subspace Gaussian Regularization for Stable End-to-End World Models](https://arxiv.org/abs/2605.09241)
+- [HEPA: A Self-Supervised Horizon-Conditioned Event Predictive Architecture for Time Series](https://arxiv.org/abs/2605.11130)
+- [Multitask Multimodal Fusion with Tabular Foundation Models for Peak and Durability Prediction of Pertussis Booster Response](https://arxiv.org/abs/2605.12852)
+- [Crys-JEPA: Accelerating Crystal Discovery via Embedding Screening and Generative Refinement](https://arxiv.org/abs/2605.14759)
+- [GeoViSTA: Geospatial Vision-Tabular Transformer for Multimodal Environment Representation](https://arxiv.org/abs/2605.14406)
+- [Mini-JEPA Foundation Model Fleet Enables Agentic Hydrologic Intelligence](https://arxiv.org/abs/2605.14120)
+- [Entity-Centric World Models: Interaction-Aware Masking for Causal Video Prediction](https://arxiv.org/abs/2605.15466)
+- [Representation Without Reward: A JEPA Audit for LLM Fine-Tuning](https://arxiv.org/abs/2605.15394)
+- [Geometry-Aware Uncertainty Coresets for Robust Visual In-Context Learning in Histopathology](https://arxiv.org/abs/2605.18419)
+- [PEIRA: Learning Predictive Encoders through Inter-View Regressor Alignment](https://arxiv.org/abs/2605.17671)
+- [Factorized Latent Dynamics for Video JEPA: An Empirical Study of Auxiliary Objectives](https://arxiv.org/abs/2605.17165)
+- [SpectralEarth-FM: Bringing Hyperspectral Imagery into Multimodal Earth Observation Pretraining](https://arxiv.org/abs/2605.21075)
+- [Demo-JEPA: Joint-Embedding Predictive Architecture for One-shot Cross-Embodiment Imitation](https://arxiv.org/abs/2605.20811)
+- [ChronoMedicalWorld: A Medical World Model for Learning Patient Trajectories from Longitudinal Care Data](https://arxiv.org/abs/2605.21963)
+- [UWM-JEPA: Predictive World Models That Imagine in Belief Space](https://arxiv.org/abs/2605.25313)
+- [Beyond Generative Priors: Minority Sampling with JEPA-Guided Diffusion](https://arxiv.org/abs/2605.24631)
+- [Causal-JEPA: Learning World Models through Object-Level Latent Masking](https://arxiv.org/abs/2602.11389)
+- [Giving Sensors a Voice: Multimodal JEPA for Semantic Time-Series Embeddings](https://arxiv.org/abs/2605.31580)
+- [Subspace-Decomposed JEPAs: Disentangling Progression and Content in Latent World Models](https://arxiv.org/abs/2605.31111)
+- [HQ-JEPA: Hybrid Quantum Joint-Embedding Predictive Architecture for Cross-Modal Remote Sensing Representation Learning](https://arxiv.org/abs/2605.31068)
+- [Echo: A Joint-Embedding Predictive Architecture for Speaker Diarization and Speech Recognition in a Shared Latent Space](https://arxiv.org/abs/2606.01909)
+- [TERRA: Task-Embedded Reasoning and Representation Architecture for Cross-Domain Applications](https://arxiv.org/abs/2606.01520)
+- [UR-JEPA: Uniform Rectifiability as a Regularizer for Joint-Embedding Predictive Architectures](https://arxiv.org/abs/2606.01443)
+- [HyperVQ: Enabling Hyperprior Entropy Modeling for VQ-Based Generative Image Compression](https://arxiv.org/abs/2512.07192)
+- [CR-JEPA: Cross-Modal Joint-Embedding Predictive Learning for Remote Sensing Image Retrieval](https://arxiv.org/abs/2606.00706)
+- [DLLM-JEPA: Joint Embedding Predictive Architectures for Masked Diffusion Language Models](https://arxiv.org/abs/2606.00091)
+- [LatentWave: JEPA Pretraining for Wireless Foundation Models](https://arxiv.org/abs/2606.06373)
+- [Predict and Reconstruct: Joint Objectives for Self-Supervised Language Representation Learning](https://arxiv.org/abs/2606.05173)
+- [CF-JEPA: Mask-free forward prediction with asymmetric encoder utilization for time-series representation learning](https://arxiv.org/abs/2606.07031)
+- [iMaC: Translating Actions into Motion and Contact Images for Embodied World Models](https://arxiv.org/abs/2606.09813)
+- [FF-JEPA: Long-Horizon Planning in World Models with Latent Planners](https://arxiv.org/abs/2606.09311)
+- [DALE-CT: Depth-Aware Foundation Models for Computed Tomography](https://arxiv.org/abs/2606.07775)
+- [One Lens, Many Worlds : A Capability-Typed Interface for World-Model Interpretability](https://arxiv.org/abs/2606.09936)
+- [RePAIR: Predictive Self-Supervised Representation Learning in Chess](https://arxiv.org/abs/2606.11860)
+- [Masked and Predictive Self-Supervised Foundation Models for 3D Brain MRI](https://arxiv.org/abs/2606.13315)
+- [Identifiability Without Gaussianity: Symbolic World Models and Near-Infinite Temporal Consistency](https://arxiv.org/abs/2606.12471)
+- [FLaRA: Predicting Future Latent Representations for Accident Anticipation](https://arxiv.org/abs/2606.14380)
+- [Temporal Straightening for Latent Planning](https://arxiv.org/abs/2603.12231)
+- [ArtNet: A JEPA-Like Articulatory Predictive Framework for Robust Zero-Shot Phoneme Recognition](https://arxiv.org/abs/2606.16595)
+- [MUNI: Multimodal Unified Latent Diffusion for Coherent Any-to-Any Generation](https://arxiv.org/abs/2606.16408)
+- [Phys-JEPA: Physics-Informed Latent World Models for Multivariate Time-Series Forecasting](https://arxiv.org/abs/2606.16076)
+- [JetParticle-JEPA: An Efficient Self-Supervised Representation Learning method for Jet Tagging in High-Energy Physics](https://arxiv.org/abs/2606.14813)
+- [Dual-Channel Grounded World Modeling (DCGWM): Structural Prevention of Objective Interference Collapse via Heterogeneous External Grounding with Inward-Only Gradient Flow](https://arxiv.org/abs/2606.18688)
+- [SkyJEPA: Learning Long-Horizon World Models for Zero-Shot Sim-to-Real Control of Quadrotors](https://arxiv.org/abs/2606.23444)
+- [P-JEPA: Procedural Video Representation Learning via Joint Embedding Predictive Architecture](https://arxiv.org/abs/2606.23256)
+- [Frequency-Aware Self-Supervised Music Representation Learning](https://arxiv.org/abs/2606.25713)
+- [HiT-JEPA: A Hierarchical Self-supervised Trajectory Embedding Framework for Similarity Computation](https://arxiv.org/abs/2507.00028)
+- [MJEPA: A Simple and Scalable Joint-Embedding Predictive Architecture for Audio-Visual Learning](https://arxiv.org/abs/2606.25225)
+- [A Generalization Theory for JEPA-Based World Models](https://arxiv.org/abs/2606.27014)
+- [Neural Voxel Dynamics: Learning Implicit 3D Physics via Volumetric Feature Advection](https://arxiv.org/abs/2606.26410)
+- [Fast LeWorldModel](https://arxiv.org/abs/2606.26217)
+- [Domain-Informed Multi-View Self-Distillation for Astronomical Light-Curve Representation Learning with JEPA](https://arxiv.org/abs/2606.28446)
+- [Zero-Label Driving Scenario Complexity Detection via Joint Embedding Predictive Architecture](https://arxiv.org/abs/2606.28383)
+- [A Lightweight Self-Supervised Learning Framework for Multivariate Time Series using Hierarchical-JEPA on ECG Data](https://arxiv.org/abs/2607.01145)
+- [Communication-Aware and Safety-Aware UAV Control via Predictive Latent Models](https://arxiv.org/abs/2607.00288)
+- [AEGIS: A Multi-Task Joint-Embedding Predictive Architecture for Mammography](https://arxiv.org/abs/2607.00277)
+- [Qantara: Bridge-Flow Training for Multi-Paradigm JEPA Control](https://arxiv.org/abs/2607.04978)
+- [Masked Generative-Contrastive Representation Learning for Cross-Dataset EEG-Based Emotion Recognition](https://arxiv.org/abs/2607.04139)
+- [SiamJEPA: On the Role of Siamese Student Encoders in JEPA](https://arxiv.org/abs/2607.04044)
+- [Weight-Space Physics: Interpretable Hypernetworks for Lattice Quantum Field Theories](https://arxiv.org/abs/2607.07127)
+- [STST-JEPA: Shallow-Target Spatio-Temporal Joint Embedding Prediction Architecture For EEG Self-Supervised Learning](https://arxiv.org/abs/2607.06629)
+- [Joint-Embedding Predictive Architecture for Solar PV Panel Fault Classification](https://arxiv.org/abs/2607.09205)
+- [Toward Active Object Detection for UAVs in the Wild: A Large-Scale Dataset, Benchmark and Method](https://arxiv.org/abs/2607.09078)
+- [Synchronized Three-Dimensional Vocal-Tract Motion for Speech Synchronization via Joint-Embedding Predictive Architecture Alignment](https://arxiv.org/abs/2607.11772)
+- [Learning Subgroup Relations Using Siamese Graph Neural Networks](https://arxiv.org/abs/2607.11140)
+- [JEPA for AI-Native 6G: Predictive Representations and Open Challenges](https://arxiv.org/abs/2607.09798)
+- [MorphologyFM: A Foundation Model for Morphology-Aware Representation Learning from ECG and Pulse Oximetry Waveforms](https://arxiv.org/abs/2607.09749)
+- [Contrastive Joint-Embedding Prediction for Representation Learning in Structural MRI](https://arxiv.org/abs/2607.11962)
+- [Hierarchical Self-Supervised Representation Learning Framework for Multivariate Time Series Grounded in ECG Analysis](https://arxiv.org/abs/2607.01145)
+- [From Surface Forecasting to Observability Forecasting: A Latent World Model for Cloud-Aware EO Monitoring](https://arxiv.org/abs/2607.13651)
+- [The SIGReg Objective as Variational Free Energy: A Theoretical Active-Inference Account of JEPA World Models](https://arxiv.org/abs/2607.13612)
+- [Differentiable Cardiac Electrophysiology Simulations for Dynamical State and Parameter Estimation](https://arxiv.org/abs/2607.15492)
+- [A Framework for Early Sepsis Prediction via Self-Supervised (JEPA) and Federated Representation Learning](https://arxiv.org/abs/2607.16681)
+- [Joint-Embedding Predictive Architecture for Sensor-based Activity Recognition](https://arxiv.org/abs/2607.16350)
+- [The JEPA Predictor: A Transferable Operator for Occluded Feature Completion](https://arxiv.org/abs/2607.16274)
+- [Scalable and Efficient Joint Spiking Embedding Predictive Architecture for Large-Scale Dynamic Graphs](https://arxiv.org/abs/2607.18412)
+- [Physics-Guided Masked Multi-Task Network for Edge-Friendly Battery Health Diagnostics from Sto-chastically Fragmented Charging Profiles](https://arxiv.org/abs/2607.18330)
+- [Dynamic Loss Balancing for Joint SOH and RUL Prediction of Lithium-Ion Batteries via a Rotary SOH-Injected Prior Battery Transformer](https://arxiv.org/abs/2607.18329)
+- [JEPA-CFM: A Joint Embedding Predictive Architecture-based Channel Foundation Model for Robust Fluid Antenna Systems](https://arxiv.org/abs/2607.20202)
+- [Direct Bethe Free Energy Minimization for Bayesian Neural Networks](https://arxiv.org/abs/2605.08446)
+- [On the Identifiability of Controlled World Models](https://arxiv.org/abs/2607.22430)
+- [IQ-JEPA: A Joint-Embedding Predictive Architecture with a Hermitian Vision Transformer for Sound Speed and Attenuation Estimation from Ultrasound IQ Data](https://arxiv.org/abs/2607.22351)
+- [Unbiased Open World Regularization for Fair Self-Supervised Learning](https://arxiv.org/abs/2607.22149)
+- [Music-JEPA: Learning a World Model of Sound from Action](https://arxiv.org/abs/2607.22000)
+- [Toward Goal-Agnostic Joint-Embedding Predictive Control of Partial Differential Equations](https://arxiv.org/abs/2607.21644)
+- [τ: Learning Touch-Augmented Vision-Language-Action Models from Future Visual Supervision](https://arxiv.org/abs/2607.24485)
+- [LeapBot-WA: World-Anchor Action Models via Predictive Latent Alignments](https://arxiv.org/abs/2607.23969)
+- [The JEPA Paradox in Language: The Geometry of Linguistic Alternatives](https://arxiv.org/abs/2607.23531)
+- [Temporal-Distance JEPA: Plan-Aware Representation Learning for Latent World Model Predictive Control](https://arxiv.org/abs/2607.25337)
+- [JEPADepth: Masked Predictive Representation Learning for Self-Supervised Monocular Depth Estimation](https://arxiv.org/abs/2607.26600)
+- [One Future, Every Robot: Label-Efficient Collective-State Prediction with Decentralized JEPA](https://arxiv.org/abs/2607.28443)
+- [When Does Explicit View Routing Work? A Controlled Study of Multi-View Graph-Text Alignment](https://arxiv.org/abs/2607.27530)
+- [Self-supervised DXA representations encode multi-system disease risk, biological aging and heritability](https://arxiv.org/abs/2608.02208)
+- [Branch-JEPA: Finite-Support Predictive Distributions for JEPA World Models](https://arxiv.org/abs/2607.05238)
+- [Asleep at the Wheel: JEPA's Limitations in Evaluating Novel Driving Data](https://arxiv.org/abs/2608.01336)
+- [FactorJEPA: Factorizing Monolithic Futures into Layout-Agent-Interaction Channels for Crowded and Chaotic Global South Urban Worlds](https://arxiv.org/abs/2608.01049)
+- [HP-JEPA: Hierarchical Partitioning for Multi-Resolution Graph Joint-Embedding Predictive Learning](https://arxiv.org/abs/2608.00491)
+- [NodeJEPA: Structure-Conditioned Latent Prediction for Node-Level Graph Self-Supervised Learning](https://arxiv.org/abs/2608.04381)
+- [SJEPA: Learning Elegant Latent Dynamics with Hybrid Symbolic-Neural Predictors](https://arxiv.org/abs/2608.04060)
+- [Bar-JEPA: Extracting Values from Bar Chart with Joint-Embedding Predictive Architecture](https://arxiv.org/abs/2608.06062)
+- [BioM-JEPA: joint-embedding prediction of graph-connected gene blocks in single cells](https://arxiv.org/abs/2608.05928)
+- [SR-JEPA: Learning Predictive Latent State in 3D Scenes](https://arxiv.org/abs/2608.05774)
+- [Discrete energy as an exact label-free training objective for finite-element surrogates](https://arxiv.org/abs/2608.05437)
+- [UniJEPA: A Unified Joint-Embedding Predictive Architecture for Task-Agnostic Visual World Modeling](https://arxiv.org/abs/2608.07409)
+- [The Maunder Model and Catalog: Stellar Rotation, Bimodal Activity, and Magnetic Braking in Kepler Main-Sequence Stars](https://arxiv.org/abs/2608.06604)
+- [JEPA-WAM: Stage-Level Joint-Embedding Prediction for World-Action Models in Robot Manipulation](https://arxiv.org/abs/2608.10780)
+- [CardioState-JEPA: Delay-Aware Cross-Modal Learning of a Shared Cardiac Representation](https://arxiv.org/abs/2608.12944)
+- [Diagnosing JEPA World Models with Action-Conditioned Predictive Consistency](https://arxiv.org/abs/2608.12939)
+- [StageWAM: Joint-Embedding Stage Prediction for World-Action Models in Robot Manipulation](https://arxiv.org/abs/2608.10780)
+- [No Gaussian Required: Contrastive Inverse Dynamics for JEPA World Models](https://arxiv.org/abs/2608.17542)
+- [Calibrated Predictive Safety for Heterogeneous Robots: An Action-Conditioned JEPA Framework with Model-Based Safety Shields](https://arxiv.org/abs/2608.17496)
+- [WONDER: A Radio World Model-based Negotiation Framework for Multi-Agent UAV Coverage Optimization](https://arxiv.org/abs/2608.16955)
+- [Cross-Modal Ultrasound-MRI Learning for Fetal Brain Ventricular Volumetry and Abnormality Screening](https://arxiv.org/abs/2608.14763)
+- [MIFR: A Modality-Invariant and Fair Representation Framework for Skin Disease Classification](https://arxiv.org/abs/2608.18774)
+- [Orthogonal JEPA: Factorized Predictive States for Latent World Models](https://arxiv.org/abs/2608.20065)
+- [WA-JEPA: Rethinking the Video JEPA Paradigm for World-Action Modeling in Autonomous Driving](https://arxiv.org/abs/2608.20974)
+- [When Graph-JEPA Learns the Wrong Thing: Diagnosing and Repairing Category-Conditional Collapse](https://arxiv.org/abs/2608.20516)
+- [Tracing the Unlabeled Storm: Cross-Variable Transfer in a Lagrangian Atmospheric JEPA Framework](https://arxiv.org/abs/2608.22358)
+- [LpWM: A Case for Sparse Representations in World Models](https://arxiv.org/abs/2608.22764)
+- [Mol-JEPA: A multimodal Joint Embedding Predictive Architecture for Molecules](https://arxiv.org/abs/2608.22642)
+- [Successive Capacity Growth: Task-Complexity-Driven Width and Depth Expansion for Vision Transformer Encoders in JEPA World Models](https://arxiv.org/abs/2608.27367)
+- [Cross-simulator transfer with foundation model summaries: Towards robust SKA-era reionization inference](https://arxiv.org/abs/2608.26354)
+- [Var-JEPA: A Variational Formulation of the Joint-Embedding Predictive Architecture - Bridging Predictive and Generative Self-Supervised Learning](https://arxiv.org/abs/2603.20111)
+- [CoJEPA: Combining Contrastive Learning and JEPA for Global-Local Music Representations](https://arxiv.org/abs/2608.30974)
+- [Flow-JEPA: Flow Matching for Robust Latent Dynamics in JEPA World Models](https://arxiv.org/abs/2608.29029)
+- [Beyond Representation Learning: A Systematic Study of Joint-Embedding Predictive Generation for 3D Brain MRI](https://arxiv.org/abs/2608.28787)
+- [Coupled Control and Wireless World Models for Resilient Remote Robotic Control](https://arxiv.org/abs/2609.04851)
+- [Self-Supervised Pretraining of Molecular Graph Encoders with LeJEPA](https://arxiv.org/abs/2609.04261)
+
+
+## Library
+
+## Tutorial
+
+### Written Tutorials
+
+### Video Tutorials
+
+## Contributing
+
+We welcome contributions to this repository! If you have a resource that you believe should be included, please submit a pull request or open an issue. Contributions can include:
+
+- New libraries or tools related to JEPA.
+- Tutorials or guides that help users understand and implement JEPA.
+- Research papers that advance the field of JEPA and self-supervised learning.
+- Any other resources that you find valuable for the community
+
+## How to Contribute
+
+1. Fork the repository.
+2. Create a new branch for your changes.
+3. Make your changes and commit them with a clear message.
+4. Push your changes to your forked repository.
+5. Submit a pull request to the main repository.
+
+Before contributing, take a look at the existing resources to avoid duplicates.
+
+## License
+
+This repository is licensed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](LICENSE). You are free to share and adapt the material, provided you give appropriate credit, link to the license, and indicate if changes were made.
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=gauravfs-14/awesome-jepa)](https://star-history.com/#gauravfs-14/awesome-jepa&Date)
