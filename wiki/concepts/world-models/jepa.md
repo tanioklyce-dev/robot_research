@@ -186,6 +186,7 @@ It rhymes with [Aleksandra Faust](../../entities/aleksandra-faust.md)'s independ
 The original wiki synthesis observed [V-JEPA 2](../../entities/v-jepa-2.md) and [LeWM](../../entities/leworldmodel.md) both skipping heavy agentic-robotics sim. With five additional ingests in May 2026, the picture is more nuanced: [JEPA-WMs](../../entities/jepa-wms.md) uses [RoboCasa](../../entities/robocasa.md); [VLA-JEPA](../../entities/vla-jepa.md) uses SimplerEnv; [DINO-WM](../../entities/dino-wm.md) uses lightweight MuJoCo benches; [V-JEPA 2.1](../../sources/v-jepa-2-1-paper.md) continues the no-sim line. **The JEPA literature is fragmenting across simulator weight classes**, not avoiding sim wholesale. See [the revised synthesis](../../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md).
 
 ## Related
+- [The abstraction tax](../../syntheses/world-models/abstraction-tax.md) — JEPA loses in-distribution and wins under shift **only along the axis its training declared irrelevant**; the SIGReg/color-shift case is where that stops.
 - [Identifiability](identifiability.md) — whether a JEPA latent space recovers the world's actual latent variables (proved for LeJEPA under conditions).
 - [Learned latent space](latent-space.md) — the substrate JEPAs predict in; the entire design choice rests on this.
 - [World-model simulators](world-model-simulators.md) — JEPAs are one of two paradigms (the other being generative-video models).

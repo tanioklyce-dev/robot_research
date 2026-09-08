@@ -182,6 +182,8 @@ The downstream evidence is the part that bears on this page: an action decoder o
 > **Can the crossover be estimated without knowing the noise?** The corollary compares the noise spectrum against a quantity defined from the important components — i.e. against the thing you are trying to remove. A data-only diagnostic saying *"you are in the JE regime"* would turn this from an explanation into a tool.
 
 ## Related
+- [The abstraction tax — and the one direction of shift it buys](abstraction-tax.md) — the same crossover generalized past this comparison: three unconnected mechanisms produce it, one counterexample bounds it, and the operative variable turns out to be **which axis the training declared irrelevant**, not how abstract the representation is.
+
 
 - [World-model simulators](../../concepts/world-models/world-model-simulators.md) — the umbrella concept page.
 - [Joint-Embedding Predictive Architecture](../../concepts/world-models/jepa.md) — paradigm B's architectural definition.

@@ -10,6 +10,14 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-09-07] From the abstraction-tax synthesis
+
+Filed on writing [The abstraction tax](syntheses/world-models/abstraction-tax.md). The first item is the one that decides whether that page is a finding or a pattern-match.
+
+- [ ] **The declared-axis experiment.** Train one JEPA twice on identical data — **once with colour jitter in the augmentation set, once without** — and measure Push-T success under the colour shift [stable-worldmodel](sources/stable-worldmodel-paper.md) uses. Prediction: identical in-distribution, and the declared-colour model holds where the other collapses to **6–26%**. If the colour-jitter model also collapses, the "robust only along the declared axis" mechanism is wrong and the synthesis is a coincidence. Runnable on the `swm` harness plus [LeWorldModel](syntheses/world-models/leworldmodel-howto.md).
+- [ ] **Check which augmentations LeWorldModel actually used.** The synthesis leans on SIGReg declaring a latent *shape* rather than a relevance — but [LeJEPA](sources/lejepa-paper.md)/[LeVJEPA](sources/levjepa-paper.md) also carry a multi-view invariance loss, which *is* an augmentation-based declaration. **This is the first thing that would complicate that page** and it is a five-minute read of one config.
+- [ ] **Go looking for the falsifying shape.** The wiki has not searched for methods that abstract, cost nothing in-domain, and generalize anyway. Three instances arrived in one week partly because they were interesting; that is selection, and it is named as a weakness on the page.
+
 ## [2026-09-07] From the Dawid–LeCun lecture notes and the physics essay
 
 Three LeCun-co-authored **statistical-physics** papers surfaced by [JEPA Through the Eyes of a Physicist](sources/jepa-vs-physics-moudrkat.md), plus two experiments the [lecture notes](sources/dawid-lecun-lvebm-lecture-notes.md) make well-posed.

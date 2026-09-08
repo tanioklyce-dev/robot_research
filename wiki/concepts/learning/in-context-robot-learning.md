@@ -160,3 +160,8 @@ What separates them is horizon and structure, not aim. RMA adapts to **terrain, 
 - [RMA](../../sources/rma-paper.md) — the pre-long-context ancestor.
 - [Locomotion adaptation lineage](../../syntheses/rl/locomotion-adaptation-lineage.md) — the full 2021→2025 arc these two sit at either end of.
 - [Deepak Pathak](../../entities/deepak-pathak.md) — co-author of both LocoFormer and RMA.
+
+> [!note] How to read S1's in-domain loss (2026-09-07)
+> [The abstraction tax](../../syntheses/world-models/abstraction-tax.md) collects three unconnected instances of *loses in-distribution, wins under shift* and argues the in-domain deficit is **corroborating evidence for the mechanism, not a defect** — a method that claims to abstract and costs nothing in-distribution is probably not abstracting. On that reading S1's **43% vs 53%** at 1k h is the expected shape rather than the weak spot.
+>
+> The page also narrows what ICL should be expected to generalize *over*: pre-training episodes specify the task **only** by an in-context demonstration, so the declared axis is *which task this is* — and nothing in that procedure declares a new kitchen, a new object, or a new robot irrelevant.

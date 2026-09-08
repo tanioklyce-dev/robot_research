@@ -163,6 +163,8 @@ Two things it adds to this page directly:
 - **Augmentation alignment is a formal requirement, and scale does not fix it.** Which is the theoretical form of the augmentation-sensitivity cost this page records empirically.
 
 ## Related
+- [The abstraction tax](abstraction-tax.md) — what the devices on this page are *for*, and the price they charge in-distribution.
+
 
 - [JEPA](../../concepts/world-models/jepa.md) — the ladder this extends downward in time.
 - [SIGReg](../../concepts/world-models/sigreg.md) · [identifiability](../../concepts/world-models/identifiability.md) — the provability end.
