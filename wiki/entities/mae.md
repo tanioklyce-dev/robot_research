@@ -3,8 +3,8 @@ title: MAE (Masked Autoencoder)
 type: entity
 subtype: model
 created: 2026-09-03
-updated: 2026-09-03
-sources: 5
+updated: 2026-09-07
+sources: 6
 tags: [mae, masked-autoencoder, reconstruction, self-supervised, vit, scaling, linear-probing, evaluation, meta-fair, kaiming-he]
 ---
 
@@ -54,3 +54,4 @@ In this wiki MAE is the **named opponent** of the [JEPA](../concepts/world-model
 
 - [MAE paper (He et al., 2021)](../sources/mae-paper.md) — the primary.
 - [A Cookbook of Self-Supervised Learning](../sources/ssl-cookbook.md) — records the field adopting MAE's evaluation position, and names MAE as one of two escapes from hand-designed augmentation.
+- [Embodied AI — AI House Davos 2026 (LeCun)](../sources/ai-house-davos-2026-lecun-embodied-ai.md) — *"very expensive to train and the representation you get out of it sucks"* — a linear-probe verdict; see [the lineage](../syntheses/world-models/ssl-anti-collapse-lineage.md) for the fine-tuned number that complicates it.

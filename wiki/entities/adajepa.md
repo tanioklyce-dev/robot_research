@@ -3,12 +3,15 @@ title: AdaJEPA
 type: entity
 subtype: model
 created: 2026-08-26
-updated: 2026-09-02
-sources: 2
+updated: 2026-09-07
+sources: 3
 tags: [adajepa, jepa, world-model, test-time-adaptation, mpc, distribution-shift, planning, lecun]
 ---
 
 **AdaJEPA** — a latent [world model](../concepts/world-models/world-model.md) that **adapts at test time inside the MPC loop**. Plan; execute the first action chunk; use the observed next-state transition as a self-supervised signal; take **one gradient step**; replan. The adaptation loss is the *same next-embedding prediction loss used in pretraining* — no demonstrations, no reward, no new objective. Wang, Bounou, [LeCun](yann-lecun.md), Mengye Ren (NYU), June 2026 ([paper](../sources/adajepa-paper.md)).
+
+> [!note] Pre-announced as "not conceptually challenging," five months earlier
+> At [AI House Davos, January 2026](../sources/ai-house-davos-2026-lecun-embodied-ai.md), LeCun was asked whether learning-in-the-loop is coming for embodied systems: *"clearly yes, and I actually don't think it's a particularly challenging conceptual problem. I don't think we need to invent anything new."* His mechanism was this paper's: *"my prediction was wrong, I observe what occurred, I adjust my predictor… no task, no reinforcement, no value function, just prediction error"* — and, against his host, *"absolutely not"* RL. AdaJEPA (June 2026) is that statement instantiated, with the caveat he did not give: it repairs miscalibration, not destroyed information.
 
 ## Why it matters here
 
@@ -53,3 +56,4 @@ Replay buffer with recency-focused sampling and hard-N retention; **stop-gradien
 
 - [Third World Modeling Workshop — Day 2](../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — presented as a lightning talk; adds the **~0.3 s per replanning step** adaptation cost the paper does not report.
 - [AdaJEPA paper](../sources/adajepa-paper.md)
+- [Embodied AI — AI House Davos 2026](../sources/ai-house-davos-2026-lecun-embodied-ai.md) — the pre-announcement: online adaptation *"clearly yes… we don't need to invent anything new"*; *"absolutely not"* RL.

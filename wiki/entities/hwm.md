@@ -3,8 +3,8 @@ title: HWM (Hierarchical World Models)
 type: entity
 subtype: method
 created: 2026-05-31
-updated: 2026-07-26
-sources: 5
+updated: 2026-09-07
+sources: 6
 tags: [hwm, hierarchical-jepa, h-jepa, world-model, latent-planning, cem, mpc, lecun, dino-wm, pldm, v-jepa-2, worlddp]
 ---
 
@@ -25,6 +25,9 @@ tags: [hwm, hierarchical-jepa, h-jepa, world-model, latent-planning, cem, mpc, l
 > [!note] The video's "5 → 15 steps" is a simplification
 > The [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) described this as extending Push-T planning "from 5 to 15 steps." The paper frames it as **task horizons d=25 → d=75** with success **17% → 61%** — use the paper's numbers.
 
+> [!note] The problem statement, three months before the paper
+> [AI House Davos, January 2026](../sources/ai-house-davos-2026-lecun-embodied-ai.md): *"This is called hierarchical planning. It's a completely unsolved problem in AI. People have mostly given up."* Pollefeys observes that a JEPA learns *"a fixed level"* of abstraction; LeCun: *"we're working on multi-level hierarchies,"* with the abstraction level set by the prediction horizon each level is trained at. HWM is the April result. Note what it delivers against that description: **two** levels, not N, and goal-image conditioning — the *"high level partly describable in language"* he sketched is not in it.
+
 ## Why it matters
 - **Composes with, doesn't compete with, the JEPA zoo.** Because HWM is model-agnostic, it strengthens [DINO-WM](dino-wm.md), [PLDM](pldm.md), and [V-JEPA 2](v-jepa-2.md) rather than replacing them — a different axis (planning structure) than the usual JEPA-vs-JEPA architecture comparisons.
 - **Directly targets LeCun's anti-VLA argument** (explicit planning, predict-the-consequences) — the 0%→70% single-goal-image Franka result is the cleanest evidence that latent hierarchical planning enables long-horizon, non-greedy control where flat MPC fails.
@@ -40,3 +43,4 @@ tags: [hwm, hierarchical-jepa, h-jepa, world-model, latent-planning, cem, mpc, l
 - [Hierarchical Planning with Latent World Models (paper)](../sources/hwm-paper.md)
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md)
 - [WorldDP paper (Goswami et al., 2026)](../sources/worlddp-paper.md) — contrasts its diffusion-policy low level against HWM's second-world-model low level.
+- [Embodied AI — AI House Davos 2026](../sources/ai-house-davos-2026-lecun-embodied-ai.md) — *"hierarchical planning… completely unsolved… people have mostly given up… we're working on multi-level hierarchies."*

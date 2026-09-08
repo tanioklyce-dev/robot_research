@@ -3,8 +3,8 @@ title: V-JEPA 2
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-09-01
-sources: 38
+updated: 2026-09-07
+sources: 40
 tags: [v-jepa-2, jepa, world-model, meta-fair, video, action-conditioned, franka]
 ---
 
@@ -55,6 +55,8 @@ First public demonstration of a **latent-prediction world model** ([JEPA](../con
 - [Towards AI — LeCun / AMI Labs](../sources/towardsai-lecun-ami-labs.md) — secondary journalism
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) — V-JEPA 2 as the vision-encoder layer of the JEPA "alternative stack"
 - [HWM — Hierarchical Planning with Latent World Models](../sources/hwm-paper.md) — V-JEPA2-AC is the **real-Franka base** HWM wraps (pick-&-place 0%→70% from a single goal image)
+- [Embodied AI — AI House Davos 2026 (LeCun)](../sources/ai-house-davos-2026-lecun-embodied-ai.md) — the recipe in his words: 64-frame windows, mask-and-predict in representation space; *"100 years of video… about a day of YouTube uploads… 10¹⁵–10¹⁶ bytes, 100× the biggest LLMs"*; violation-of-expectation as the common-sense test; the action-conditioned phase needs *"not that much data"* and only a simulation of dynamics, not of tasks. V-JEPA 2.1 pre-announced.
+
 
 ## Independent probe evidence (2026)
 

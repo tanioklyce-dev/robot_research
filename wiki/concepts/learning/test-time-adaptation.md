@@ -3,7 +3,7 @@ title: Test-time adaptation
 type: concept
 created: 2026-08-26
 updated: 2026-09-07
-sources: 7
+sources: 8
 tags: [test-time-adaptation, test-time-training, distribution-shift, world-model, mpc, planning, robustness, self-supervised]
 ---
 
@@ -78,3 +78,4 @@ That matters, because the wiki already records the failure mode this creates in 
 - [AdaJEPA paper](../../sources/adajepa-paper.md)
 - [stable-worldmodel paper](../../sources/stable-worldmodel-paper.md) — the collapse TTA is responding to.
 - [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — AdaJEPA presented; the ~0.3 s/step latency figure.
+- [Embodied AI — AI House Davos 2026 (LeCun)](../../sources/ai-house-davos-2026-lecun-embodied-ai.md) — the cerebellum argument: adaptation in milliseconds from prediction error alone, *"not reinforcement learning, absolutely not."*

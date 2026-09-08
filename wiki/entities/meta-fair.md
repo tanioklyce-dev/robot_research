@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-07
 updated: 2026-09-07
-sources: 25
+sources: 26
 tags: [meta, fair, lecun, world-model, jepa]
 ---
 
@@ -43,3 +43,4 @@ With NVIDIA pushing generative video as the world-model paradigm and AGIBOT push
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
 - [DINOv3 Paper](../sources/dinov3-paper.md) — Meta AI Research; SSL foundation model with Gram anchoring; the methodological precursor to whatever future DINO-WM-v3 / DINO-world-v3 papers emerge.
 - [Tools for Your To Do List with Spot and Gemini Robotics (Boston Dynamics blog)](../sources/bostondynamics-spot-gemini-robotics.md) — references Meta using Spot for object-retrieval AI testing.
+- [Embodied AI — AI House Davos 2026](../sources/ai-house-davos-2026-lecun-embodied-ai.md) — *"Meta also became LLM-pilled… one big reason I left."*

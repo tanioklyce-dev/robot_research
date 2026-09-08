@@ -77,7 +77,7 @@ Ingested here for two passages that neither the [Fortune coverage](https://fortu
 
 ## Open questions
 
-- **LeCun's AI House Davos 2026 talk is the actual January-2026 LeCun primary** — *"completely LLM-pilled,"* *"the reason we don't have domestic robots,"* Meta's data-center bet as a reason for leaving. An unofficial upload exists (~35 min), and AI House's own channel has a 54-minute *"Embodied AI"* session from the same week. Neither is ingested.
+- ~~**LeCun's AI House Davos 2026 talk is the actual January-2026 LeCun primary**~~ — **ingested 2026-09-07** as [Embodied AI — AI House Davos 2026](ai-house-davos-2026-lecun-embodied-ai.md). The 54-minute official upload and the 35-minute attendee upload turned out to be the *same* conversation (with Marc Pollefeys); the official one is filed.
 - **Amodei's risks essay** — announced here as forthcoming; whether it was published, and what it says about embodiment, is unchecked.
 - **The one-to-two-year clock.** *"Better than humans at everything in maybe one to two years"* was said January 2026; the wiki should check it against its own evidence in January 2027 and January 2028, alongside LeCun's January-2030 clock from [Davos 2025](wef-davos-2025-debating-technology.md).
 - **"Code red"** — the captions garble which competitor declared it; not resolved from the transcript alone.

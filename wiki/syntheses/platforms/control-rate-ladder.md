@@ -2,7 +2,7 @@
 title: The control-rate ladder — LLMs, VLAs, and servo loops on one axis
 type: synthesis
 created: 2026-07-27
-updated: 2026-08-28
+updated: 2026-09-07
 tags: [latency, inference, control-frequency, vla, llm-agent, edge-ai, jetson, action-chunking, control-abstraction-levels, platforms, turbovla, llm-free-vla]
 ---
 
@@ -149,3 +149,6 @@ Neither separation is closed by faster inference. Three mechanisms do the work, 
 - [Cutting the Cord (Shaw et al., 2026)](../../sources/cutting-the-cord-untethered-xlerobot.md) — the on-edge ACT / Diffusion Policy / SmolVLA measurements.
 - [Isaac GR00T TensorRT deployment docs](../../sources/isaac-gr00t-tensorrt-deployment-docs.md) + [NVIDIA forum report](../../sources/nvidia-forum-thor-realtime-vla-inference.md) — Thor / AGX Orin / RTX 5090 GR00T numbers.
 - [MolmoAct2 paper](../../sources/molmoact2-paper.md), [OpenVLA-OFT paper](../../sources/openvla-oft-paper.md), [FAST paper](../../sources/fast-paper.md), [Knowledge Insulation paper](../../sources/knowledge-insulation-paper.md), [SmolVLA paper](../../sources/smolvla-paper.md), [LeRobot ICLR 2026 paper](../../sources/lerobot-iclr-2026-paper.md), [GR00T N1 paper](../../sources/groot-n1-paper.md), [Helix blog](../../sources/helix-blog.md), [SONIC paper](../../sources/sonic-paper.md), [MotionBricks paper](../../sources/motionbricks-paper.md).
+
+## Mentioned in
+- [Embodied AI — AI House Davos 2026 (LeCun)](../../sources/ai-house-davos-2026-lecun-embodied-ai.md) — the human numbers he gives for the ladder: retina ~15 Hz, brain ~10 Hz, ~300 ms see-to-brake; *"cats are faster"*; and *"every single real-time vision system uses convolutional nets"* — the AEB in every car sold in Europe.

@@ -3,7 +3,7 @@ title: VLA models
 type: concept
 created: 2026-05-06
 updated: 2026-09-07
-sources: 142
+sources: 143
 tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos, vla-0, action-as-text, molmoact2, per-layer-kv-conditioning, hybrid-action-head, llm-free-vla, turbovla, xvla, soft-prompt]
 ---
 
@@ -89,6 +89,8 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 > [Yann LeCun](../../entities/yann-lecun.md), on camera in the [Welch Labs Part 2 explainer](../../sources/welchlabs-lecun-1b-bet-against-llms-part2.md), attacks the whole VLA paradigm on two grounds: **(1) behavioral cloning doesn't scale** — you can't collect demos for every task variation, and policies are "completely helpless" / brittle in slightly-new situations; **(2) no explicit planning** — VLAs run end-to-end (images + joints → next joints) with "no world model," so they "cannot predict the consequences of their actions." His JEPA + latent-planning program ([LeWorldModel](../../entities/leworldmodel.md) + CEM) is the proposed alternative. **The standing counterargument is in this very page**: RT-2's 2023 Taylor-Swift generalization and [π0.7](../../entities/pi07.md)'s out-of-distribution emergent capabilities (air fryer, microwave) show VLAs *do* generalize beyond their demos — generalization is a sliding scale, and whether it's *enough* is the open empirical question. JEPA control, meanwhile, is still far behind VLAs on the same tasks (push-t plans only ~5 steps ahead). See [critiques of the intelligence north star](../../syntheses/society/critiques-of-the-intelligence-north-star.md).
 >
 > The same critique, in print, eight months earlier — [MIT Technology Review, 2026-01-22](../../sources/mit-tech-review-lecun-ami-labs-interview.md): *"You need an enormous amount of tele-operation training data for every single task, and when the environment changes a little bit, it doesn't generalize very well. What this tells us is we are missing something very big."* And its consequence for the humanoid wave: *"nobody — absolutely nobody — knows how to make those robots smart enough to be useful."*
+>
+> **The historical analogy, from the same week** ([AI House Davos, 2026-01-22](../../sources/ai-house-davos-2026-lecun-embodied-ai.md)): VLAs are *"a new way of automating a task, which is data-driven instead of programmatic"*, and their fate will be that of **1980s expert systems** — brittle, costly to transfer knowledge into, viable for *"a relatively small number of applications where you have scripted scenarios."* His host's reply is the industry's: scripted tasks are where the value is, and this *"is probably a simpler way to program than what we used to do before."* Both can be true; the [code-as-policy](../agents/code-as-policy.md) lineage measured the trade — graceful degradation out of distribution, and a loss in it.
 
 > [!note] State of the field (2026): The Stanford HAI AI Index 2026 describes VLA technology as still "at the research stage," noting "the gap between what these models can do in a controlled setting and what they can handle in the real world is still wide." The data constraint is cited as the key bottleneck: every robot training example requires a physical robot or high-fidelity sim. World Foundation Models ([NVIDIA Cosmos](../../entities/nvidia-cosmos.md)) are one response, generating synthetic physics data at scale. A parallel response, validated empirically by [EgoScale](../../sources/egoscale-paper.md), is pretraining on large-scale **egocentric human video** — 20,854 hr of which now yields a measured log-linear scaling law `L = 0.024 − 0.003·ln(D)` (R² = 0.9983) that predicts real-robot performance. See [Scaling laws — VLAs and human data](scaling-laws-vla.md).
 
@@ -182,6 +184,8 @@ Scope limit worth carrying: the costs there are **discrete collision events with
 - [RT-2 DeepMind blog](../../sources/rt-2-deepmind-blog.md) — the announcement; its 3× generalization headline contradicts the paper's ~2×
 - [UniT paper](../../sources/unit-paper.md) — latent action tokens as a cross-embodiment interface; +18.9 pp from the objective alone
 - [TurboVLA paper (Xie, Yao et al., 2026)](../../sources/turbovla-paper.md) — the LLM-free V+L→A paradigm; 97.7 LIBERO at 0.2 B / 0.9 GB / 32 Hz
+- [Embodied AI — AI House Davos 2026 (LeCun)](../../sources/ai-house-davos-2026-lecun-embodied-ai.md) — VLAs as the expert systems of the 2020s; the host's industrial counter.
+
 
 ## The parameter-efficiency challenge
 

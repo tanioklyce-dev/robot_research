@@ -3,8 +3,8 @@ title: DINO (self-distillation with no labels)
 type: entity
 subtype: model
 created: 2026-09-03
-updated: 2026-09-03
-sources: 6
+updated: 2026-09-07
+sources: 7
 tags: [dino, self-distillation, vit, self-supervised, ema, centering-sharpening, anti-collapse, segmentation, knn, meta-fair, caron]
 ---
 
@@ -50,3 +50,4 @@ Two more ablation results worth carrying: **cross-entropy over softmaxed distrib
 ## Mentioned in
 
 - [DINO paper (Caron et al., 2021)](../sources/dino-paper.md) — the primary.
+- [Embodied AI — AI House Davos 2026 (LeCun)](../sources/ai-house-davos-2026-lecun-embodied-ai.md) — named as *"probably the best method for self-supervised learning of image representation,"* the comparison against MAE on which he rests the anti-reconstruction case.

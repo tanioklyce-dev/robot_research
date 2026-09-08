@@ -4,7 +4,7 @@ type: entity
 subtype: organization
 created: 2026-05-09
 updated: 2026-09-07
-sources: 7
+sources: 10
 tags: [ami-labs, lecun, jepa, world-model, startup]
 ---
 
@@ -56,6 +56,8 @@ From the [exclusive launch interview](../sources/mit-tech-review-lecun-ami-labs-
 - **Stated applications:** industrial processes with thousands of sensors (jet engine, steel mill, chemical factory); **smart glasses** that predict the wearer's next action; reliable agentic systems. Domestic robots and Level 5 driving are named as what world models *eventually unlock*, not as targets — consistent with the plan below.
 - **Meta:** *"Meta might be our first client!"* Non-competing by his account: AMI on physical-world world models, Meta on generative AI and LLMs.
 
+**The founder's own framing of the mission, the same week** ([AI House Davos](../sources/ai-house-davos-2026-lecun-embodied-ai.md), billed as *"Founder and Executive Chairman, Advanced Machine Intelligence"*): *"a new, very ambitious company with the idea that we're going to be able to solve that problem within a few years — systems that understand the physical world or any modality you throw at them, can build world models, use them to plan, build hierarchical world models."* And the scope note that makes the industrial-first plan above coherent: *"it's not just embodied AI… it's also disembodied physical AI — a manufacturing process, a turbojet engine — anything for which the data comes to you as a sequence of high-dimensional, continuous, noisy signals."*
+
 ## Related
 - [Yann LeCun](yann-lecun.md) — reported founder.
 - [WorldDP](worlddp.md) — the first paper carrying an AMI Labs affiliation on LeCun's byline.
@@ -69,3 +71,4 @@ From the [exclusive launch interview](../sources/mit-tech-review-lecun-ami-labs-
 - [When Does LeJEPA Learn a World Model?](../sources/when-does-lejepa-learn-a-world-model-paper.md) / [stable-worldmodel](../sources/stable-worldmodel-paper.md) — the May 2026 LeCun world-model papers, both **NYU**-affiliated, checked against this page's attribution claim.
 - [WorldDP paper (Goswami et al. 2026)](../sources/worlddp-paper.md) — the first AMI-Labs-affiliated LeCun byline found.
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../sources/hai-world-model-spatial-intelligence-brief.md) — AMI Labs named alongside [World Labs](world-labs.md) and Odyssey as the world-model startups facing the incumbents; the wiki's two founder-led world-model companies sit at opposite architectural poles (JEPA latent prediction vs. pixel rendering).
+- [Embodied AI — AI House Davos 2026](../sources/ai-house-davos-2026-lecun-embodied-ai.md) — the founder's own mission statement, and the *"disembodied physical AI"* scope note.
