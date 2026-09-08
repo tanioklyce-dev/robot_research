@@ -2,8 +2,8 @@
 title: Identifiability (linear identifiability of latent variables)
 type: concept
 created: 2026-07-26
-updated: 2026-08-26
-sources: 12
+updated: 2026-09-07
+sources: 13
 tags: [identifiability, linear-identifiability, latent-space, jepa, lejepa, theory, causal-representation-learning, nonlinear-ica, planning, generalization-theory]
 ---
 
@@ -63,3 +63,5 @@ The guarantee is **conditional**, and the conditions do most of the work:
 - [A Generalization Theory for JEPA-Based World Models](../../sources/jepa-generalization-theory-paper.md) — complementary generalization guarantee.
 - [LpWM paper](../../sources/lpwm-paper.md) — non-Gaussian latents, better dynamics.
 - [AdaJEPA paper](../../sources/adajepa-paper.md) — recovers a large part of the OOD collapse by adapting online, without touching the geometry question.
+- [Critique of World Model](../../sources/critique-of-world-model-paper.md) — asserts that *"any latent representation of real-world signal intrinsically suffers from issues of identifiability and stability"* and uses it to argue for observation-grounded supervision; no proof offered for that sentence, and [LeJEPA](../../sources/lejepa-paper.md)'s linear-identifiability result is the standing counter.
+

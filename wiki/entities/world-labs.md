@@ -3,8 +3,8 @@ title: World Labs
 type: entity
 subtype: company
 created: 2026-08-07
-updated: 2026-08-26
-sources: 5
+updated: 2026-09-07
+sources: 6
 tags: [company, world-model, spatial-intelligence, renderer, simulator, marble, scenix, r2s2r, fei-fei-li]
 ---
 
@@ -76,3 +76,5 @@ Against [NVIDIA](nvidia.md) the position is more directly competitive than the b
 - [Building Worlds That Train Robots (R2S2R)](../sources/world-labs-r2s2r.md)
 - [Fei-Fei Li is Solving the Hardest Problem in Robotics (a16z × World Labs)](../sources/a16z-worldlabs-scenix-conversation.md)
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../sources/hai-world-model-spatial-intelligence-brief.md)
+- [Critique of World Model](../sources/critique-of-world-model-paper.md) — files Marble/WorldGen as *"program-as-simulator … closer to a digital twin than a learned world model"* because the dynamics live in an exported physics engine, not the model.
+

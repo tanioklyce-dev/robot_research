@@ -2,8 +2,8 @@
 title: World model
 type: concept
 created: 2026-05-07
-updated: 2026-09-03
-sources: 63
+updated: 2026-09-07
+sources: 65
 tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video, omnimodal, world-action-model, history]
 ---
 
@@ -91,6 +91,14 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
 
 A separate tradition builds a model of the environment for a different purpose — see **[visual relocalization and mapping](../robotics/visual-relocalization-and-mapping.md)**. World models answer *"what happens if I act"*; SLAM and relocalization answer *"where am I, and what shape is this place."* Different outputs, different failure modes (compounding prediction error and hallucination vs drift and loop-closure failure), different evaluations. Complementary rather than competing — and **this wiki has essentially no source that uses both together.**
 
+## A fifth position: simulator, generative, stateful — the GLP critique (2026-09-07)
+
+[Critique of World Model](../../sources/critique-of-world-model-paper.md) ([Xing](../../entities/eric-xing.md), Deng & Hou, [MBZUAI](../../entities/mbzuai.md)/CMU) adds a position the table above did not have. Its definition — *"a generative model that simulates the possibilities in diverse scenarios … for purposeful reasoning and acting"* — agrees with the [functional taxonomy](world-model-functional-taxonomy.md) that a WM is a **simulator, not a renderer**, then breaks with the JEPA line on how to build one. It reads [LeCun 2022](../../sources/lecun2022-path-towards-ami.md) as five "common wisdoms" (sensory-first data, continuous states, encoder–encoder, latent loss, MPC) and argues the opposite of each: all modalities with language as the densest; a **stateful**, mixed discrete/continuous state; an encoder–**decoder** bottleneck around a hierarchical LLM-plus-diffusion backbone ([GLP](generative-latent-prediction.md)); a generative loss; and **RL on simulated experience** rather than per-step MPC. The named instantiation is [PAN](../../entities/pan-world-model.md), previewed only.
+
+Two of its arguments the wiki should keep regardless of the architecture verdict: JEPA's recursive latent prediction is **functionally autoregressive and deterministic** (a Dirac-delta transition), so it inherits error accumulation without a decoder's diagnostic; and a **semantic encoder discards what was rare in training**, which is exactly the high-stakes case. Its weakest: Proposition 1 (bare latent loss collapses) attacks a target the [anti-collapse lineage](../../syntheses/world-models/ssl-anti-collapse-lineage.md) settled years ago. The essay has no experiments.
+
+On the other side of the same table, [Group-Structured Latent Space](../../sources/group-structured-latent-space-paper.md) (Delliaux, Vu, François-Lavet, [van der Pol](../../entities/elise-van-der-pol.md), Rachelson) extends the **abstract-MDP** branch (C-SWM, PRAE, DeepMDP): decoder-free, InfoNCE-trained, and with the environment's symmetry built into the **topology** of the latent — a circle for orientation, R² for position — so the transition is an additive group action. See [geometric priors](../learning/geometric-priors-and-equivariance.md).
+
 ## Related
 - [Belief states and mixed states](belief-states-and-mixed-states.md) — the POMDP belief: the only sense of "the state of a world model" that admits a theorem. Carries [Blackwell's 1957](../../sources/jurgens-crutchfield-hmp-entropy-rate.md) result and [Vafa et al.](../../sources/vafa-world-model-implicit.md)'s Myhill-Nerode coherence metrics, which show near-perfect task performance coexisting with an incoherent world model.
 - [World-model simulators](world-model-simulators.md) — narrower companion concept (world-model as drop-in simulator replacement).
@@ -133,6 +141,8 @@ A separate tradition builds a model of the environment for a different purpose �
 - [DayDreamer paper](../../sources/daydreamer-paper.md) — imagination-MBRL on 4 real robots, no simulator
 - [DIAMOND paper](../../sources/diamond-paper.md) — diffusion world model; CS:GO neural game engine
 - [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — **the three-era periodization and the prehistory above**, from Ethayarajh's closing remarks; also the scaling-language vs scaling-experience fork and the three open questions
+- [Critique of World Model](../../sources/critique-of-world-model-paper.md) — the GLP/PAN position: simulator not renderer, stateful mixed state, decoder as diagnostic, RL over MPC.
+- [Group-Structured Latent Space](../../sources/group-structured-latent-space-paper.md) — abstract-MDP world model with the symmetry group in the latent topology; InfoNCE, no decoder.
 
 ## Open questions / TBD
 - ~~PlaNet / DreamerV1 / V2 / TD-MPC1 — earlier MBRL milestones~~ — PlaNet, [World Models](../../sources/world-models-paper.md), [MuZero](../../sources/muzero-paper.md), [EfficientZero](../../sources/efficientzero-paper.md), [DayDreamer](../../sources/daydreamer-paper.md), [DIAMOND](../../sources/diamond-paper.md) all ingested 2026-07-09; V1/V2 remain covered via the [Dreamer entity](../../entities/dreamer.md) lineage table.

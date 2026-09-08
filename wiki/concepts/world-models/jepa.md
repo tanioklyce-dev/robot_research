@@ -3,7 +3,7 @@ title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
 updated: 2026-09-07
-sources: 85
+sources: 86
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -76,6 +76,12 @@ The escape hatch is closed by scope rather than by proof: SSIM is image-specific
   - **Stop-gradient + covariance regularization** — [DynaMo](../../entities/dynamo.md) (Cui, …, [Pinto](../../entities/lerrel-pinto.md), NeurIPS 2024) pairs SimSiam-style stop-grad with a VICReg-style covariance term (λ=0.04) over a joint **inverse + forward** latent-dynamics objective. Predates the rest of this ladder and sits at its heavy end; notable because it had inverse dynamics as *half the objective* two years before SMWM proposed it as the *sole* defence.
   - **Single inverse-dynamics regularizer** — [SMWM](../../entities/smwm.md) (Ivashkov, Balestriero, Schölkopf 2026) predicts the *action* from an embedding pair; recovering it forces the encoder to stay action-informative. Unlike SIGReg it **doesn't prescribe latent geometry** — it anchors the representation to a task-grounded quantity, biasing toward *controllable* degrees of freedom and filtering uncontrollable distractors (a "perception for action" / causal-representation framing).
 - **State representation & hierarchy (2026 developments).** Beyond collapse, two other axes are moving: **object-centric states** — [WorldDP](../../entities/worlddp.md) replaces raw DINOv2 patches with slot-attention entity embeddings for better dynamics learning — and **hierarchy for multi-stage tasks** — both [HWM](../../entities/hwm.md) (WM-over-WM) and [WorldDP](../../entities/worlddp.md) (WM-over-diffusion-policy) wrap a JEPA planner in a two-tier subgoal structure to escape the single-stage ceiling.
+
+### The critique from outside: collapse as a theorem, and the theorem that answers it (2026-09-07)
+
+[Critique of World Model](../../sources/critique-of-world-model-paper.md) (Xing, Deng & Hou) turns the collapse problem into two propositions and a bound: the bare latent loss has a trivial constant-encoder optimum (**Prop. 1**); the generative loss with a fixed expressive decoder does not (**Prop. 2**); and under isotropic-Gaussian assumptions **`L_latent ≤ L_gen + ε`** (**Thm. 2**), so the latent loss is an *upper-bounded surrogate* that *"can miss semantically important mistakes"* the generative loss penalises. Its proposed fix is [Generative Latent Prediction](generative-latent-prediction.md): keep latent prediction, add the decoder back as a diagnostic.
+
+Read against this section: Prop. 1 is the founding fact every device above exists to fix, so it lands only if the regularisers are heuristic — which [SIGReg](sigreg.md) contests and the essay does not engage. Prop. 2 does not cover posterior collapse (a decoder that ignores the latent), the standard [VAE](../learning/variational-autoencoder.md) failure. And Thm. 2 has a counterpart pointing the other way: [Van Assel et al.](../../sources/joint-embedding-vs-reconstruction-paper.md) prove latent prediction is *better* for the target when nuisance noise is high-dimensional. The two theorems disagree about which residual is a mistake. The essay's strongest point is not a theorem: a semantic encoder abstracts away what was rare in training, and rare is where the stakes are — which is the [OOD-collapse measurement](../../syntheses/world-models/generative-video-vs-jepa-world-models.md#a-third-jepa-failure-mode-measured-may-2026-out-of-distribution-collapse) stated as a mechanism.
 
 ## The blueprint had four loss terms and a latent variable. Neither survived.
 
@@ -347,3 +353,5 @@ And the caution that generalizes beyond JEPA: **stable features are not usable f
 - [Closing the Train-Test Gap paper (Parthasarathy et al., 2025)](../../sources/train-test-gap-world-models-paper.md) — why gradient-based planning through a JEPA-style world model behaves like an adversarial attack on it, and two train-time fixes.
 - [DynaMo paper (Cui et al., NeurIPS 2024)](../../sources/dynamo-paper.md) — in-domain latent inverse+forward dynamics pretraining; a JEPA in everything but the label.
 - [Scaling Language-Free Visual Representation Learning](../../sources/webssl-paper.md) — the Web-SSL / Web-DINO primary, resolving the identity above; language-free SSL matching CLIP at scale.
+- [Critique of World Model](../../sources/critique-of-world-model-paper.md) — the explicit counter-position: three propositions against latent-only supervision, and the GLP alternative. Filed 2026-09-07 with the wiki's rebuttal.
+

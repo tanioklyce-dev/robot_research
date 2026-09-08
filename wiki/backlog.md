@@ -10,6 +10,18 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-09-07b] From the GLP critique and the group-structured latent paper
+
+Filed on ingesting [Critique of World Model](sources/critique-of-world-model-paper.md) and [Group-Structured Latent Space](sources/group-structured-latent-space-paper.md). The first two items are the ones that would turn a position into evidence.
+
+- [ ] **PAN results paper** — arXiv 2511.09057 (Xiang et al., Nov 2025). The critique defers *all* results to it. The question to read it for: any case where a latent-trained WM misses a decision-relevant error that the generative one catches (the practical content of Thm. 2).
+- [ ] **LeCun–Xing debate** — "How should AI learn to understand the world? JEPA and GLP", Spring School AI for Impact, Ben Guerir, Morocco, 2026-03-25, YouTube. Both positions stated live by their authors; cited as a primary by the critique. Use the [YouTube ingest workflow](sources/welchlabs-lecun-1b-bet-against-llms.md).
+- [ ] **MDP Homomorphic Networks** (van der Pol, Worrall, van Hoof, Oliehoek, Welling, NeurIPS 2020) — the architecture-side primary the [geometric-priors page](concepts/learning/geometric-priors-and-equivariance.md) cites without holding. Also Ravindran & Barto 2004 for the definition.
+- [ ] **Quessard, Barrett & Clements 2020** (rotation-matrix latents) and **Kipf, van der Pol & Welling 2019** (C-SWM) — the two baselines in Table 1 of the group-structured paper; C-SWM is also the InfoNCE-world-model origin the [contrastive page](concepts/learning/contrastive-learning.md) should cite.
+- [ ] **Experiment: a circle-topology orientation coordinate in LeWM.** One-coordinate variant of the [declared-axis experiment](syntheses/world-models/declared-axis-experiment.md): make the latent R/2πZ × R^{d−1}, transition additive on the first coordinate, and measure Push-T / a rotating-base task under held-out headings. Laptop-scale per the group-structured paper's own compute.
+- [ ] **Soft symmetry.** The group-structured paper assumes exact δ per step. Jitter δ, add an obstacle, and see where Table 1 goes — the answer decides whether the method survives a real base.
+- [x] ~~Point-JEPA (2404.16432)~~ — **declined 2026-09-07**: point-cloud classification SSL with a serialization trick for masking; no world model, no equivariance, no planning. Revisit only if a depth-sensor perception thread opens.
+
 ## [2026-09-07] Start here next session — ranked
 
 Three items, in the order they are worth doing. Everything below this block is the unranked pool.

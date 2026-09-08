@@ -161,6 +161,9 @@ A vector representation of an input; the output of an encoder. The substrate JEP
 ### Encoder
 NN that maps a raw input (image, video clip, action sequence, etc.) into an embedding / latent vector. Concretely: a [CNN](#cnn) (ResNet for 2D images), a [ViT](#vit) (patches → tokens → transformer), or a 1D-CNN / transformer for sequences. In SSL the encoder is *what you train* — the downstream task uses its frozen output. In a [Joint-Embedding Predictive Architecture (JEPA)](concepts/world-models/jepa.md), one encoder embeds the context `x` and (often the same) encoder embeds the target `y`; the [predictor](#predictor) then operates between those embeddings. Distinguished from a *decoder* (which reverses the mapping to reconstruct pixels) — JEPA / [DINOv2](entities/dinov2.md)-line models deliberately have no decoder. *(Modules 2–4.)*
 
+### Equivariance
+`f(g·x) = g·f(x)` — the output transforms *with* the input (contrast **invariance**, `f(g·x) = f(x)`, where it ignores the transformation). A CNN is translation-equivariant by weight sharing. In RL, an equivariant policy maps a rotated observation to the correspondingly rotated action. See [geometric priors](concepts/learning/geometric-priors-and-equivariance.md). *(Module 2.)*
+
 ### EUP
 **End-User Programming** — letting non-experts customize robot behavior. See [concept page](concepts/robotics/end-user-robot-programming.md). *(Module 13.)*
 
@@ -184,6 +187,12 @@ DeepMind 2022 ([paper](sources/gato-paper.md), [entity](entities/gato.md)). A **
 
 ### Game of Life
 Conway's 1970 2D [cellular automaton](concepts/alife/cellular-automata.md); one neighbor-count rule yields gliders, glider guns, and Turing-completeness. The archetypal Class-4 CA and the subject of [Wolfram's construction-vs-search innovation study](sources/wolfram-2025-game-of-life-engineering.md). See [Game of Life](entities/game-of-life.md). *(ALife branch.)*
+
+### Geometric prior
+An [inductive bias](concepts/learning/inductive-bias.md) that encodes a known symmetry of the world into the learner — in the architecture (equivariant nets), the loss, or the **topology of the latent space** (a circle for orientation, per [Group-Structured Latent Space](sources/group-structured-latent-space-paper.md)). Term from geometric deep learning (Bronstein et al. 2021). Concept page: [geometric priors](concepts/learning/geometric-priors-and-equivariance.md). *(Module 10.)*
+
+### GLP
+**Generative Latent Prediction** — [Xing, Deng & Hou](sources/critique-of-world-model-paper.md)'s counter-architecture to [JEPA](#jepa): keep next-latent prediction as the reasoning substrate, but close the loop with a **decoder** that reconstructs the next observation, on the argument that a lossy encoder cannot be diagnosed from inside latent space. Named instantiation: [PAN](entities/pan-world-model.md). Concept page: [GLP](concepts/world-models/generative-latent-prediction.md). *(Module 11.)*
 
 ### GPU
 **Graphics Processing Unit** — parallel compute substrate for NN training. *(Throughout.)*
@@ -290,6 +299,9 @@ The standard convex relaxation of a bilinear term `z = xy` over boxes: four line
 ### MDP
 **Markov Decision Process** — `(S, A, P, R, γ)`: states, actions, transition probabilities, reward function, discount factor. The formalism behind RL. *(Module 8.)*
 
+### MDP homomorphism
+Ravindran & Barto — a map from states and actions to abstract states and actions that preserves reward and block-transition probabilities; optimal policies lift through it. A bijective one is a **symmetry** of the MDP. The action map is state-dependent. Basis of *MDP Homomorphic Networks* (van der Pol et al. 2020, un-ingested) and of the latent-transition target `τ(φ(s),a) = φ(s′)` in [Group-Structured Latent Space](sources/group-structured-latent-space-paper.md). See [geometric priors](concepts/learning/geometric-priors-and-equivariance.md). *(Module 10.)*
+
 ### MFRL
 **Model-Free Reinforcement Learning** — RL without an explicit dynamics model; learn value or policy directly. *(Module 8.)*
 
@@ -361,6 +373,9 @@ Open-weights VLA used as a baseline in many 2024–2026 papers. *(Module 9.)*
 
 ### Particle filter
 Two unrelated senses in this wiki. (1) **Sequential Monte Carlo state estimation** — a weighted sample set over hidden state, propagated through dynamics, reweighted by observation likelihood, resampled; the classical tool for robot localization ([SLAM](#slam)). (2) **In [WorldDP](entities/worlddp.md)**, a planning-time optimizer over latent action sequences: sample around several elite means, roll out through the world model, keep the top-M, iterate. Sense (2) has no weights or likelihood — it is a multi-modal [CEM](#cem) with fixed σ, named for keeping several hypotheses alive where CEM's single Gaussian collapses to one. *(Module 10.)*
+
+### PAN
+**Physical, Agentic, Nested** world model — [MBZUAI](entities/mbzuai.md)/CMU's instantiation of [GLP](#glp): tokenizer + embedder encoder, enhanced-LLM + diffusion-predictor backbone with a learned switch, multimodal decoder. **Previewed only** in this wiki ([entity](entities/pan-world-model.md)); results paper un-ingested. *(Module 11.)*
 
 ### PAR
 **Physically Assistive Robotics** — robots that physically assist disabled users (feeding, dressing, transfer). See [Nanavati 2024 systematic review](sources/nanavati2024-physically-assistive-robots-review.md). *(Module 13.)*

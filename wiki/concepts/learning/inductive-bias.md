@@ -2,8 +2,8 @@
 title: Inductive bias
 type: concept
 created: 2026-08-30
-updated: 2026-08-30
-sources: 14
+updated: 2026-09-07
+sources: 15
 tags: [inductive-bias, generalization, scaling, architecture, priors, ssl, vit, cnn, robot-data-scale]
 ---
 
@@ -133,6 +133,7 @@ For this wiki's subject matter the operative question is not the language-and-vi
 - [Sensorimotor world models paper](../../sources/sensorimotor-world-models-paper.md) — the single-step inverse objective used as an inductive bias without its theoretical guarantees.
 - [Curriculum Module 2 — CNNs](../../syntheses/curriculum/curriculum-02-cnns.md) and [Module 3](../../syntheses/curriculum/curriculum-03-attention-and-transformers.md) (syntheses, not sources)
 - [From n-grams to attention](../../syntheses/sequence-models/language-model-to-transformer-lineage.md) (synthesis)
+- [Group-Structured Latent Space](../../sources/group-structured-latent-space-paper.md) — the cleanest instance in the wiki of a bias placed in the **latent manifold** (a circle for orientation) rather than the architecture; see [geometric priors](geometric-priors-and-equivariance.md).
 
 ## Open questions / TBD
 

@@ -211,3 +211,23 @@ Two qualifications that keep this honest:
 
 > [!note] What generative video still uniquely provides
 > Nothing in these results touches the generative side's actual advantages: inspectable rollouts, human-in-the-loop review, photorealistic sim-to-real, and the ability to serve as an **RL environment** for policies that consume pixels — the one functional role where world models measurably work ([what world models are measurably good for](what-world-models-are-measurably-good-for.md)). The probe evidence says latent prediction organizes control-relevant structure better; it does not say pixels are useless.
+
+## The stated counter-position, with theorems attached — and the theorem that points the other way (2026-09-07)
+
+Until now this page compared the two paradigms on measurements and on the JEPA side's own arguments. The generative side's argument is now in the wiki as a primary: [Critique of World Model](../../sources/critique-of-world-model-paper.md) (Xing, Deng & Hou, MBZUAI/CMU), the origin of **[Generative Latent Prediction](../../concepts/world-models/generative-latent-prediction.md)**. Its claim is not "generate video" — it agrees video generators *"fall outside the definition of world models"* — but **keep latent prediction and add the decoder back**, because (i) a lossy encoder cannot be diagnosed from inside its own latent space, (ii) a semantic encoder abstracts away what was rare in training, and (iii) under isotropic-Gaussian assumptions the latent loss is bounded above by the generative loss plus a round-trip error, so minimising it does not bound observation error (its Theorem 2).
+
+> [!warning] Contradiction — dueling theorems
+> [Van Assel et al.](../../sources/joint-embedding-vs-reconstruction-paper.md) (filed above under *the axis this page was missing*) prove the opposite ordering on the quantity that matters: with high-dimensional nuisance noise, reconstruction is forced to model it and latent prediction is provably better for the target. Both proofs hold in their own model. Theorem 2 weights every pixel equally and is silent about which residuals are task-relevant; Van Assel's result is *about* which residuals are task-relevant. They disagree on the definition of a mistake, not on the mathematics. The [abstraction tax](abstraction-tax.md) is the wiki's working reconciliation: it depends on whether the axis of shift was declared at training time.
+
+What the critique adds to this page's ledger:
+
+| Argument | Where it lands |
+|---|---|
+| Rare events are abstracted away by a semantic encoder | Confirms the [OOD-collapse row](#a-third-jepa-failure-mode-measured-may-2026-out-of-distribution-collapse) and names the mechanism |
+| JEPA is functionally autoregressive and deterministic | True; the [WorldDP close read](../../sources/worlddp-paper.md#reading-notes) found the same in one model. Weakens the "no compounding error" line in the table above |
+| Decoder as diagnostic | New to this page. Cost is real but shrinking (FastVideo: 30 s of 1080p in ~3 s) |
+| Latent loss collapses without regularisers (Prop. 1) | Known since 2020; the [lineage](ssl-anti-collapse-lineage.md) is the reply |
+| Generative loss cannot collapse (Prop. 2) | Only for the constant encoder; posterior collapse is untouched |
+| RL on imagined experience over MPC | The Dreamer line; consistent with the MPC horizons this page records (LeWM 1–20, WorldDP 2–3) |
+
+**Evidentiary weight:** zero experiments; results deferred to PAN (arXiv 2511.09057, un-ingested). The [mid-2026 head-to-head](#the-first-head-to-head-measurements-mid-2026) remains the only measured comparison, and its verdict — latent prediction wins on representation quality *by less than its advocates claim* — leaves the critique's argument open without confirming it.

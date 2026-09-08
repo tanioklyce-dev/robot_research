@@ -3,7 +3,7 @@ title: Contrastive learning and InfoNCE
 type: concept
 created: 2026-09-03
 updated: 2026-09-07
-sources: 12
+sources: 13
 tags: [contrastive-learning, infonce, cpc, simclr, moco, negatives, mutual-information, self-supervised, anti-collapse, batch-size]
 ---
 
@@ -110,3 +110,5 @@ The paper notes this is *"consistent with an empirical study which concluded tha
 - [SimCLR paper (Chen et al., 2020)](../../sources/simclr-paper.md) — **the canonical instantiation**; the colour-histogram shortcut and the projector measurement, from the primary.
 - [MoCo v3 paper (Chen, Xie & He, 2021)](../../sources/moco-v3-paper.md) — hidden instability, and batch size *hurting* past ~2k on ViT.
 - [SimSiam paper (Chen & He, 2020)](../../sources/simsiam-paper.md) — "SimCLR without negative pairs" still works.
+- [Group-Structured Latent Space](../../sources/group-structured-latent-space-paper.md) — InfoNCE as the sole anti-collapse device of a decoder-free world model, with negatives drawn **from same-action transitions** so the contrast is *where you were*, not *what you did*.
+

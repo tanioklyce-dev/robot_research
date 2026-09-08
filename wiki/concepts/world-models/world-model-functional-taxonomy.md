@@ -2,8 +2,8 @@
 title: World-model functional taxonomy (renderer / simulator / planner)
 type: concept
 created: 2026-08-07
-updated: 2026-09-02
-sources: 7
+updated: 2026-09-07
+sources: 8
 tags: [world-model, taxonomy, spatial-intelligence, policy, renderer, simulator, planner, pomdp]
 ---
 
@@ -146,3 +146,5 @@ Which is [Vafa et al.](../../sources/vafa-world-model-implicit.md)'s measured re
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../../sources/hai-world-model-spatial-intelligence-brief.md) — the policy adoption, with additions.
 - [FOREWARN paper](../../sources/forewarn-paper.md) — the verifier role the taxonomy lacks.
 - [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — Airoldi's "which bin are you in" cut.
+- [Critique of World Model](../../sources/critique-of-world-model-paper.md) — cites the taxonomy X post and lands on the same cut (*simulator, not renderer*) from the generative side; files [World Labs](../../entities/world-labs.md) Marble as *"closer to a digital twin than a learned world model."*
+
