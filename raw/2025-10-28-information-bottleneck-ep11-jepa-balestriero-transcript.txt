@@ -1,0 +1,2017 @@
+# The Information Bottleneck, EP11 — "JEPA with Randall Balestriero"
+# https://www.youtube.com/watch?v=4at0EpnYiWY — published 2025-10-28, 78:04, channel "The Information Bottleneck"
+# Hosts: "Ravid" and "Alan" (surnames not stated on air). Guest: Randall Balestriero.
+# Source: YouTube auto-captions (en-orig), fetched 2026-09-07 with yt-dlp.
+# NOTE: auto-generated captions. Known garbles: "Japa"/"JPA"/"Jeppa"/"JPEG a"/"Jetpak" = JEPA;
+# "V Craig" = VICReg; "Dynino"/"Dino v3" = DINOv3; "Yan"/"Yan Lun" = Yann LeCun;
+# "stable pre training" / "stable world models" = stable-pretraining / stable-worldmodel;
+# "lat variable"/"latan" = latent variable; "coariance" = covariance; "Amnes" = MNIST.
+# Verify every proper noun before quoting.
+
+[00:00:01] [music]
+[00:00:13] Hi everyone and welcome back to the
+[00:00:15] information bottleneck and today we have
+[00:00:17] a very special guest Randel a good
+[00:00:21] friend. Hi.
+[00:00:23] Um
+[00:00:25] Randell is assistant professor at Brown
+[00:00:28] University and as always we have Alan.
+[00:00:31] Hey Alen.
+[00:00:32] &gt;&gt; Hi everyone. Nice to meet you Randall.
+[00:00:34] &gt;&gt; Thanks likewise and yeah thanks for
+[00:00:36] inviting me Ravid for the very special I
+[00:00:39] don't know you will tell me at the end
+[00:00:40] you know if you still hold on that
+[00:00:42] prediction or not. Let's see.
+[00:00:44] &gt;&gt; Yeah Rel is a an expert like maybe their
+[00:00:47] expert in joint embedding prediction
+[00:00:51] model. So we will talk
+[00:00:53] &gt;&gt; certainly not zero you know I think Yan
+[00:00:56] is the and then I am one of the expert.
+[00:01:00] &gt;&gt; Yeah that's it's true. Okay so yeah
+[00:01:04] let's start to talk about recent
+[00:01:07] works and recent and use uh from the
+[00:01:10] from the last week. Maybe we'll start
+[00:01:13] with um the recursive language models
+[00:01:16] and I think so it was very popular on on
+[00:01:20] Twitter and social media. So recursive
+[00:01:23] language model it's very simple it's in
+[00:01:27] Europe if you want from people at MIT
+[00:01:31] and the idea is very simple how to
+[00:01:33] handle like a very large very long uh
+[00:01:38] context the idea is let's give the model
+[00:01:41] to interact with the with the context
+[00:01:44] let's put it in a
+[00:01:47] Python notebook that this is an
+[00:01:49] environment that you can read right you
+[00:01:52] can do whatever you want in this
+[00:01:54] environment. So let's put the context as
+[00:01:57] um as a variable as a text variable in
+[00:02:00] this environment and let's make the
+[00:02:03] let's give the model the ability to to
+[00:02:06] to understand how it wants to interact
+[00:02:10] with this variable. It can find like the
+[00:02:12] right positions and to read in these
+[00:02:15] positions. It can make some sub calls to
+[00:02:18] to other models with sub subtext or
+[00:02:22] things like that. And it has a very good
+[00:02:25] performance on different long context
+[00:02:29] benchmarks. And I think this is if you
+[00:02:32] ask me I think this is very cool work.
+[00:02:35] It looks that one of the the solutions
+[00:02:38] to to handle long context will be like
+[00:02:41] that. In principle, you can do like you
+[00:02:44] can have enormous context and you can
+[00:02:47] just decide or like let the model decide
+[00:02:50] where you want and how you want to
+[00:02:52] handle with this context when we build
+[00:02:55] the agents, right? Like we need to
+[00:02:57] predefine the agents. Okay, now you are
+[00:03:00] engine agent that make this or this and
+[00:03:03] now like you you can you can read the
+[00:03:06] whole uh the whole prompt. But in
+[00:03:08] principle, we want to let the agents or
+[00:03:11] the models to decide by themsel like we
+[00:03:14] want to let them the ability to say I
+[00:03:17] just need to scheme over the the text or
+[00:03:20] do whatever thing in order to solve it
+[00:03:23] and to do it in a dynamic way. So if you
+[00:03:25] ask me it's a great way you can do it in
+[00:03:28] in many you can take it to many
+[00:03:31] directions. You can do it for memory for
+[00:03:33] example um or like even I don't know
+[00:03:37] kind of like in like inference time
+[00:03:40] learning or things like that. I like the
+[00:03:42] idea. I just want to quickly observe
+[00:03:44] that the the um development of rag has
+[00:03:47] gone on a similar path right so we start
+[00:03:49] with you know the the earliest models
+[00:03:52] aren't retrieving at all and then
+[00:03:53] building in any retrieval into them
+[00:03:55] where they just basically give their own
+[00:03:57] query as a search query into the
+[00:04:00] retrieval system became popular that's
+[00:04:02] what made lang chain popular in 2023 and
+[00:04:05] now it's become standardized to
+[00:04:07] basically do what I would call agentic
+[00:04:08] rag where even regular chat GPT decides
+[00:04:12] on its phone, especially in pro mode, to
+[00:04:15] go search the internet several times
+[00:04:17] before it gets back to you. And then
+[00:04:19] deep research is even doing something a
+[00:04:21] little bit analogous in pro or might be
+[00:04:24] to handle the the massive amount of
+[00:04:26] context tokens, right? Because this
+[00:04:28] whole thing is about uh you know
+[00:04:29] mitigating or eliminating what the
+[00:04:31] authors call context rot, which is this
+[00:04:34] fundamental problem that most
+[00:04:36] researchers at least know about and
+[00:04:38] causes us to always, you know, create
+[00:04:40] new chats all the time. So that way
+[00:04:41] we're getting a fresh context and and
+[00:04:43] our model's full intelligence. And a lot
+[00:04:46] of general public people do not even
+[00:04:48] understand these problems. And I talk to
+[00:04:50] people all day long who have never
+[00:04:53] created a new chat in there like chat
+[00:04:55] GPT or very rarely do it and are dealing
+[00:04:58] with context rot everywhere. So we
+[00:05:00] absolutely have to figure this out. And
+[00:05:03] so I'm I'm a really big fan of all
+[00:05:05] approaches to this. So so big fan of of
+[00:05:07] recursive language models. also really
+[00:05:10] annoying that we now have recurrent
+[00:05:11] neural networks. What was it? Several
+[00:05:13] types of RNNs, right? Recursive neural
+[00:05:16] networks, recurrent neural nets, and
+[00:05:17] then this. Yeah.
+[00:05:19] &gt;&gt; Yes. And you have also like I think a
+[00:05:21] recurrent layers models, right? That
+[00:05:24] like we can make dynamical layers all
+[00:05:27] the time. So this is another
+[00:05:31] &gt;&gt; questions I think. So uh and vid right I
+[00:05:34] know you do research a lot in LLM and
+[00:05:37] all those problems but do you think this
+[00:05:39] is just some uh like engineering tricks
+[00:05:42] to push the problem away so that you can
+[00:05:45] you know ship products faster cuz
+[00:05:47] fundamentally it seems still the big
+[00:05:49] question around transformers and under
+[00:05:52] long context and all is not moving
+[00:05:54] forward much right every time it's just
+[00:05:56] moving the problem away you store things
+[00:05:58] in a database you can retrieve blah blah
+[00:06:00] blah uh but research wise is I don't
+[00:06:02] know fundamentally it seems we did not
+[00:06:04] make much progress on none of those
+[00:06:06] question for a few years now
+[00:06:08] &gt;&gt; it's a good question I think like at the
+[00:06:10] end it depends what you want to do right
+[00:06:12] like I don't think if you want to to
+[00:06:15] solve it in like the product right if
+[00:06:18] you want to get better solutions I don't
+[00:06:21] think you need to solve most of the time
+[00:06:23] you don't need to solve fundamental
+[00:06:24] questions and I think if now I want to
+[00:06:27] make a robot in the wall that interact
+[00:06:29] and learn without any supervision So
+[00:06:32] yeah, probably we want to to do it. But
+[00:06:34] for 99% of the questions and the
+[00:06:37] problems, I think you need to make these
+[00:06:41] tiny improvement in the in the product
+[00:06:44] and to isolate the problem. But this so
+[00:06:47] do you think it's viable in the long
+[00:06:50] term for LLM or AGI research or you
+[00:06:53] think it's just a quick patch for you
+[00:06:54] know squeeze something out in the next
+[00:06:56] one or two years but we are just moving
+[00:06:58] the problem away anyway and eventually
+[00:07:00] someone will have to you know ask the
+[00:07:02] odd questions basically. So yeah maybe
+[00:07:04] we can it's related of course to all the
+[00:07:07] AGI debate or discussion that we that we
+[00:07:10] see right in the recent uh months or or
+[00:07:14] years already right there is a there was
+[00:07:16] a the Karpati's a interview Andre
+[00:07:19] Karpati's interview in some podcast that
+[00:07:23] claimed that we will have 10 years to
+[00:07:28] get to an AGI right and of course no one
+[00:07:31] knows even what does it mean AGI and
+[00:07:34] it's just like you say right like 10
+[00:07:37] years from now. So it basically like we
+[00:07:40] don't know how much or when we will get
+[00:07:43] to ATI or how we are going to do it but
+[00:07:45] we see some improvements or let's say 10
+[00:07:48] years and and people will forget it in
+[00:07:51] in two years that we don't have an idea
+[00:07:54] right and I think that's true no one has
+[00:07:56] real idea like when and even what does
+[00:07:59] it mean AGM right like you can have you
+[00:08:02] can have better performance in some
+[00:08:04] aspects and worse in other aspects and
+[00:08:07] Do we want to get better h in all the
+[00:08:11] sub problems? Maybe but maybe not and
+[00:08:14] maybe we don't need to.
+[00:08:17] &gt;&gt; Yeah, actually it's a good point right
+[00:08:19] because in AGI like they show those
+[00:08:21] benchmark but actually they use a huge
+[00:08:24] amount of very specific expert systems
+[00:08:26] almost for you know each of the subtask
+[00:08:28] and subbenchmark. So there is no general
+[00:08:30] intelligence it's like the opposite
+[00:08:32] right. So I think everything that is
+[00:08:34] benchmark based uh it does not inform
+[00:08:36] anyone about uh like AGI AI whatever you
+[00:08:40] want to call it uh progress at all you
+[00:08:42] know it's just maybe more data more
+[00:08:44] expert systems and more do rules that
+[00:08:47] you engineer in the background I know I
+[00:08:49] think it will be good to have a
+[00:08:50] definition that is a bit more like
+[00:08:52] behavioral or something like do you have
+[00:08:54] a zero shot you know self-improvement
+[00:08:57] type of things but yeah we need a better
+[00:09:00] definition for sure
+[00:09:01] &gt;&gt; you think do you think we will have uh I
+[00:09:04] don't know what is the solution how to
+[00:09:05] measure if benchmark is not a good
+[00:09:08] solution. How do you see the solution to
+[00:09:11] to this definition?
+[00:09:12] &gt;&gt; Yeah, I think that's a a good question.
+[00:09:14] I think for sure I mean for sure it
+[00:09:16] really depends on who you ask and what
+[00:09:18] they are interested in, right? uh but I
+[00:09:20] think for us anything that goes with uh
+[00:09:23] real world deployment uh in a case where
+[00:09:26] you could not just you know engineer
+[00:09:29] this at train time so that you collect
+[00:09:31] more data and you fake you know the
+[00:09:33] actual uh test time performance. This is
+[00:09:36] really what we need because right right
+[00:09:38] now right all those companies they pay a
+[00:09:40] lot of people to generate new expert
+[00:09:42] data a lot of you know very strong
+[00:09:43] mathematicians blah blah blah and then
+[00:09:46] they use this to fake the generalization
+[00:09:49] capability and they say okay look we are
+[00:09:51] so much better now we can solve this
+[00:09:53] problem but it's just adding more
+[00:09:54] training data right and it's just like
+[00:09:56] if you do good retrieval on this huge uh
+[00:09:59] training data I'm not saying that's the
+[00:10:00] only thing they do but you know even a
+[00:10:02] bit smart retrieval you can already
+[00:10:04] boast crazy performance performances to
+[00:10:06] me it should be a bit higher level can
+[00:10:09] you adapt quickly to a new situation you
+[00:10:12] know self-improve
+[00:10:14] uh and this I think if you don't deploy
+[00:10:16] something in the real world you know
+[00:10:18] sort of you know really test of time
+[00:10:20] type of thing we cannot never be sure
+[00:10:23] you know and it has really to be
+[00:10:25] something that cannot be reversed
+[00:10:26] engineered so that those companies just
+[00:10:29] use it at train time otherwise we we can
+[00:10:31] never know you know
+[00:10:32] &gt;&gt; a lot of this goes back to incremental
+[00:10:34] learning still not working at all and
+[00:10:36] and catastrophic forgetting still being
+[00:10:39] a problem apparently even with things
+[00:10:41] like Laura. And so I I I think of
+[00:10:44] several things. One, you know, this
+[00:10:45] discussion about AGI, I'm a big fan. I I
+[00:10:48] think the definition proposed in this
+[00:10:50] paper with Yosua on it and and also Gary
+[00:10:53] Marcus apparently is better than in that
+[00:10:56] it says, okay, take a in in their words
+[00:10:59] well-educated baseline presumably
+[00:11:01] western human. They didn't say that too
+[00:11:04] much, but it's very obviously very
+[00:11:06] western biased and in some way kind of
+[00:11:09] or at least I would call it
+[00:11:10] enlightenment biased maybe. But I really
+[00:11:13] think you know the the idea of most of
+[00:11:15] capabilities that we want in what we
+[00:11:18] currently call AGI being artificial
+[00:11:20] super intelligence. I'm a very strong
+[00:11:22] supporter of that idea. And even the
+[00:11:24] idea that there's a huge amount of
+[00:11:26] variance between humans and
+[00:11:28] capabilities. So, I expect some AI to be
+[00:11:30] very good at certain things and bad at
+[00:11:32] others. And it just happens to not be
+[00:11:34] intuitive as to what they're good at and
+[00:11:36] bad at to us humans due to the jag and
+[00:11:39] that's called the jagged frontier. Also,
+[00:11:41] it's unintuitive because they they don't
+[00:11:43] have the same sense perception as us.
+[00:11:45] So, like I don't consider like it's not
+[00:11:48] fair to be like LLMs aren't AGI because
+[00:11:51] they can't do any kind of continuous
+[00:11:53] control stuff. Okay. Well, maybe when we
+[00:11:56] program in good touch sensors, right,
+[00:11:59] and give them an interface, you know,
+[00:12:01] maybe things will improve, right? So, I
+[00:12:03] I think that's one aspect. I also think
+[00:12:06] the 10-year discussion is interesting,
+[00:12:08] right? Because I think it might have
+[00:12:10] been actually Bill Gates who said this.
+[00:12:11] I don't know if it's just falsely
+[00:12:13] attributed to him, but I've heard a
+[00:12:14] quote that says we tend to overestimate
+[00:12:17] what can be done in two to five years
+[00:12:18] and underestimate what can be done over
+[00:12:20] 10 years, right? is like a a guiding
+[00:12:23] principle for the long-term, you know,
+[00:12:25] projection of things. And so I I think
+[00:12:27] that um it's also partly like that
+[00:12:31] choice because these hintly got called
+[00:12:34] out with uh uh what do you call it the
+[00:12:37] claim of radiologists being obsolete in
+[00:12:40] five years and then you know radiologist
+[00:12:41] demand going up. So I think there's all
+[00:12:44] of these things together that kind of
+[00:12:46] are leading us to be like wow we had
+[00:12:48] this crazy rapid advancement in 23 and
+[00:12:50] 24 and now you know there's a lot of
+[00:12:52] stuff that hasn't panned out. I'll
+[00:12:54] finalize by mentioning Carpathy when he
+[00:12:57] was still very bullish in 2024 said we
+[00:12:59] have a path to super intelligence and he
+[00:13:02] thought that it would come mostly
+[00:13:03] through synthetic data generation
+[00:13:05] getting good and AI agents being used
+[00:13:07] for bringing new information back to the
+[00:13:10] systems for them to retrain on in the
+[00:13:12] next training iteration loop like data
+[00:13:15] that hasn't been seen before. So he he
+[00:13:17] like me believed entropy needs to be
+[00:13:20] added as much as possible. And I claim
+[00:13:22] right now that among other things fact
+[00:13:25] that LLM sampling algorithms appear to
+[00:13:27] have not advanced at least for the big
+[00:13:30] four labs means that at least externally
+[00:13:33] speaking there's no evidence that
+[00:13:35] they're doing a lot of best practices
+[00:13:37] for synthetic data generation to to give
+[00:13:39] it proper lots of entropy. So I'll just
+[00:13:43] stop here. We have much more to talk
+[00:13:44] about but there's so much to say about
+[00:13:45] all these topics.
+[00:13:47] &gt;&gt; I just want to add something quickly. So
+[00:13:49] I think one thing that people don't uh
+[00:13:51] really look at also is u where the
+[00:13:54] intelligence lies is it in the system or
+[00:13:56] the designer and what we see now is that
+[00:13:59] people see mistakes reverse engineer
+[00:14:02] improve the system but it only shows
+[00:14:04] intelligence in the designer right and I
+[00:14:07] think we don't have anything for
+[00:14:08] measuring that obviously but if we had
+[00:14:11] sort of a graph showing you know how
+[00:14:13] much design effort you add to to reach a
+[00:14:16] particular benchmark number then once
+[00:14:19] you start looking at the paral front of
+[00:14:21] this guy then you can start speaking
+[00:14:22] about uh AGI and that's why I think uh
+[00:14:26] some people you know really like to
+[00:14:28] spend time on engineering data
+[00:14:30] architecture function but in the end of
+[00:14:32] the day we need something where uh you
+[00:14:36] have very very minimal you know
+[00:14:38] requirement on the designer and things
+[00:14:40] that emerge uh on their own and then you
+[00:14:43] can claim that okay we're making
+[00:14:46] progress because right now it's to me
+[00:14:48] intelligence of the of the researchers
+[00:14:50] and and designer more than anything else
+[00:14:52] you know.
+[00:14:52] &gt;&gt; Yeah, I agree.
+[00:14:54] &gt;&gt; I totally agree. We actually did like
+[00:14:56] seven years ago a paper about table of
+[00:14:58] data and basically the only thing that
+[00:15:00] we have done in this paper is we took
+[00:15:02] like different algorithms with different
+[00:15:04] data sets and try to optimize them and
+[00:15:07] show like the performance as function of
+[00:15:10] like you know the hyperparameter tuning
+[00:15:12] the tweaking and things like that. We
+[00:15:14] did some basian learning on the top of
+[00:15:16] it and no one did it and like it was
+[00:15:19] crazy because like um at least I know
+[00:15:22] three four years ago we found out that
+[00:15:24] all these deep learning models were just
+[00:15:28] overfeed to to specific data sets and
+[00:15:31] actually when you change the par change
+[00:15:33] the parameters and when you change the
+[00:15:35] data sets actually it's much harder to
+[00:15:38] to to make good performance with with
+[00:15:42] these models and I Think at the end this
+[00:15:44] is what we really care about, right? We
+[00:15:46] really care that now you have a new
+[00:15:49] problem. How difficult is it is it to
+[00:15:53] make it work, right? How generalized is
+[00:15:56] it and and what we can do in order to
+[00:15:58] make it better? This is at the end the
+[00:16:01] most important part of the solution.
+[00:16:05] &gt;&gt; Yeah. And I think it's also echoes one
+[00:16:07] question you had before. Maybe we need
+[00:16:09] to find a domain where no one has an
+[00:16:12] answer yet. So we cannot, you know,
+[00:16:14] reverse engineer and cheat our cheat our
+[00:16:16] way there. And then once you have a
+[00:16:18] system that's able to give an answer
+[00:16:21] that we can verify, then you can, you
+[00:16:23] know, claim something about the GI. And
+[00:16:25] that's why there is something I like a
+[00:16:26] lot. I know Julia says also the same
+[00:16:29] thing but when you speak about financial
+[00:16:31] markets it's not the maybe most you know
+[00:16:33] popular or exciting research field for
+[00:16:36] AI folks but actually it's a domain
+[00:16:38] where you don't really have you know
+[00:16:40] figured out answer yet and if you have a
+[00:16:43] system that's able to sort of crack the
+[00:16:45] market quote unquote uh this could be
+[00:16:48] something one of the big milestone of
+[00:16:50] course you have this on for various
+[00:16:51] fields right but I think this is where
+[00:16:53] we should measure progress a bit more
+[00:16:56] and things that we can just pay experts
+[00:16:58] and and solve with enough time.
+[00:17:00] &gt;&gt; So I I'm interesting um in understanding
+[00:17:03] what do you think about math? You know
+[00:17:06] there there was a on Twitter again there
+[00:17:08] was some open AAI researchers or like I
+[00:17:12] don't know maybe the leadership said
+[00:17:14] that GPT5 finds a solution to 10 airdos
+[00:17:19] problems and they were really excited
+[00:17:22] about it and at the end apparently what
+[00:17:25] happened is that like there was a
+[00:17:27] website right that like with open
+[00:17:30] problem like all the open air doge
+[00:17:33] problems and the the man that maintains
+[00:17:37] the website just forgot like he or he
+[00:17:39] didn't know that the these 10 problems
+[00:17:42] were already solved. GPD5 just found
+[00:17:45] this solution in all papers. So it could
+[00:17:48] it was really good in retrieve solution
+[00:17:51] like to find these solution but it
+[00:17:54] didn't actually solve them anyway. So
+[00:17:57] they apologize of course but I think
+[00:18:01] &gt;&gt; we had to sign the paper.
+[00:18:02] &gt;&gt; Exactly. But I think like we all know
+[00:18:05] that GPD5 and like all the the suta
+[00:18:08] models are not there yet right in like
+[00:18:11] solve real hard problems math problems
+[00:18:14] but I'm wondering do you think we will
+[00:18:16] get there in the near future? Yeah, I
+[00:18:18] think it's uh so to me and it's like
+[00:18:21] again very you know naive viewpoint uh
+[00:18:24] because I wish I was but I'm not a math
+[00:18:26] expert but anything around math and and
+[00:18:29] coding and those things are extremely
+[00:18:31] well constrained and you can verify your
+[00:18:34] answer which means pretty much if you
+[00:18:36] have enough time and compute there you
+[00:18:38] can solve everything or it was something
+[00:18:41] that you know you could not solve given
+[00:18:43] your constraint and so the entire point
+[00:18:44] of research in those area to me is just
+[00:18:47] how to speed up the search to be more
+[00:18:49] efficient energy saving and so on but
+[00:18:53] you don't it's not as exploratory or you
+[00:18:55] know zero shot as as other problem and
+[00:18:58] so it's just about you know more
+[00:18:59] efficient search within your constraint
+[00:19:01] space and so I'm pretty sure we will get
+[00:19:05] there it's just a matter of how fast we
+[00:19:08] can improve this uh this search
+[00:19:10] basically and today of course the
+[00:19:12] question is do you really need to solve
+[00:19:14] this exactly maybe to get you know all
+[00:19:17] the users
+[00:19:18] using your product, you just need to
+[00:19:19] give approximate answers or you know if
+[00:19:21] no one cares about having the right
+[00:19:23] answer, maybe you don't even need to to
+[00:19:25] verify it. But yeah, I think those are
+[00:19:27] so constrainted and well posed that it's
+[00:19:30] much easier to do progress there. So I'm
+[00:19:32] yeah much more confident for those type
+[00:19:34] of question. Okay, maybe we'll talk
+[00:19:36] shortly about the new DA GX and Nvidia
+[00:19:40] station and all the B that it done in
+[00:19:45] recently. So Nvidia just started to ship
+[00:19:49] in your in your station that you have
+[00:19:52] small. It's quite small, right? You can
+[00:19:54] put it on your desktop and there are a
+[00:19:58] lot of
+[00:19:59] &gt;&gt; But can I put it in my pocket though?
+[00:20:01] &gt;&gt; By the way, we're talking about the DGX
+[00:20:03] Spark, right? It's just to see the model
+[00:20:06] name.
+[00:20:06] &gt;&gt; Yeah. Yeah. DJ,
+[00:20:08] by the way, I just checked and confirmed
+[00:20:10] that. 4,000 USD. Very cheap for for what
+[00:20:14] we're talking about.
+[00:20:15] &gt;&gt; So yeah. So I see so we have you have
+[00:20:18] 128 um GPU memory and it's very um very
+[00:20:24] fast and supposed to be really good you
+[00:20:27] know to start training right it's still
+[00:20:30] not that you can you can use it to full
+[00:20:34] pre-training of of state
+[00:20:36] state-of-the-art model but it's really
+[00:20:39] like now to if you want to try to make
+[00:20:42] the initial experiment to see how does
+[00:20:45] look like maybe to do a bit SFT um on on
+[00:20:50] smaller models it's possible and at
+[00:20:53] least the reviews that I saw like the
+[00:20:56] comment that I saw were quite positive
+[00:20:58] and it looks that it works really good
+[00:21:01] and I must say that I have mixed
+[00:21:05] feelings uh here first they didn't send
+[00:21:08] me a they didn't send me one to to try
+[00:21:12] so if you hear me if someone at Nvidia
+[00:21:14] Yeah, hear me. Please send me one. Um, I
+[00:21:17] will find things to do with that. Okay.
+[00:21:20] Uh, but but more importantly, so of
+[00:21:22] course it's good, right? Like it's good
+[00:21:24] that you will have something that you
+[00:21:26] can really easy to to try things and to
+[00:21:29] to try your ideas and to iterate over
+[00:21:32] your ideas. But people I think the big
+[00:21:35] companies and also like the the cloud
+[00:21:37] providers put a lot of time and efforts
+[00:21:40] in order to make this transition between
+[00:21:43] let's say small scale experiments and
+[00:21:46] large scale experiments and we all know
+[00:21:49] it's really hard right we all all of us
+[00:21:52] were really frustrated at some point
+[00:21:55] that like you have idea and you try to
+[00:21:58] you try it on on four or eight GPUs and
+[00:22:02] now you want to scale it up and it
+[00:22:04] doesn't work and you need to understand
+[00:22:06] why and to transfer the environment and
+[00:22:08] all the things right and the cloud
+[00:22:11] companies at least they are trying they
+[00:22:13] are trying to make it smooth as possible
+[00:22:16] and I afraid that now when if you have
+[00:22:19] something like that it will be much
+[00:22:21] harder to make this transition and to
+[00:22:24] scale it up and it will be just more
+[00:22:28] time and effort to understand exactly
+[00:22:30] how to rep Well, well, and and and I do
+[00:22:33] need to weigh in related to all of in
+[00:22:35] including what you just said, Ravid. So,
+[00:22:37] there's several things that are
+[00:22:39] important to mention about this one. It
+[00:22:42] basically this is the cheapest, you
+[00:22:44] know, VRAMm for your dollar solution
+[00:22:47] that hasn't been Apple related. It's
+[00:22:49] because Apple had quietly monopolized
+[00:22:51] that market and people were actually
+[00:22:53] building um their their MacBook Pros to
+[00:22:57] to be speced out very similarly with a
+[00:22:59] huge amount of unified VRAM. But Apple's
+[00:23:02] CPUs are in general a lot better than
+[00:23:05] what Nvidia has at ARMbased CPU
+[00:23:08] computations. And that's actually kind
+[00:23:09] of a weakness of Grace Hopper, you know,
+[00:23:11] is that yeah, you put all this GPUs and
+[00:23:14] what Nvidia is not telling you is, hey,
+[00:23:16] those Intel Xeon and AMD Epic CPUs that
+[00:23:19] those cloud service providers give you,
+[00:23:21] those are overprovisioning for your
+[00:23:23] workload, which is really just Nvidia
+[00:23:26] trying to get away with being really not
+[00:23:28] great at being a CPU manufacturer. So
+[00:23:31] for that reason, uh the second reason
+[00:23:33] being that unified VRAMm is something a
+[00:23:36] lot of including AI researchers aren't
+[00:23:38] used to dealing with which means that if
+[00:23:40] you're doing a real training run or even
+[00:23:42] an inference run and using most of that
+[00:23:44] and then you think you're going to
+[00:23:45] browse the internet with the remaining
+[00:23:47] and it's like well you have 2 gigabytes
+[00:23:49] of free VRAM and RAM and then you open a
+[00:23:52] new browser window and you crash your
+[00:23:54] whole computer. That happens a lot
+[00:23:57] actually on Windows when I'm using my 24
+[00:24:00] gig. Well, it doesn't happen as much,
+[00:24:02] but but the point I'm trying to get is
+[00:24:03] RAM and VRAMm being unified has slightly
+[00:24:06] unpredictable effects on usage in the
+[00:24:09] real world for people who try to like
+[00:24:10] dual use their computers. But finally,
+[00:24:13] there's been reviews of the performance
+[00:24:15] and theoretical calculations and
+[00:24:18] compared for inference performance at
+[00:24:20] certain it depends on your um precision
+[00:24:23] that you're doing inference at. And this
+[00:24:25] thing is really good at very low
+[00:24:27] precision, right? Like FP4. But when
+[00:24:29] you're doing standard like BF16 or
+[00:24:32] anything above that, this thing is very
+[00:24:33] slow at inference compared to even like
+[00:24:35] a 3090, which is the traditional, you
+[00:24:38] know, in the price range bargain value
+[00:24:41] GPU option, which is also a high-end
+[00:24:43] gaming GPU. So, this is clearly made for
+[00:24:46] people who want to do who who basically
+[00:24:49] have the following use pattern. Um, I
+[00:24:51] want to load a new big model. I'm okay
+[00:24:54] with it being slow for inference. I'm
+[00:24:56] okay with it being really slow for
+[00:24:58] fine-tuning because the only fine-tuning
+[00:25:00] I care about is like Laura or something
+[00:25:02] like that. And if that's you, this is
+[00:25:04] great. The problem is you can rent H100s
+[00:25:08] B200s, all these things for $2 an hour.
+[00:25:11] And if this bubble pops, you'll probably
+[00:25:13] be able to rent them for less than that.
+[00:25:16] And those are, you know, with a way more
+[00:25:18] powerful x86,
+[00:25:20] you know, CPU available with like, you
+[00:25:23] know, 256 gigs of RAM or something on
+[00:25:26] average in addition to your So, so
+[00:25:28] there's all sorts of reasons honestly
+[00:25:30] why the DGX Spark is kind of niche and
+[00:25:34] why this thing, I think, is getting a
+[00:25:35] little too much attention for what it
+[00:25:37] is. But, you know, hey, Yan Lun liked
+[00:25:39] it, right? So, and honestly, people like
+[00:25:42] him and like us are the exact market for
+[00:25:44] a DGX Spark, but they're just not
+[00:25:46] competing well against cheap H100s in my
+[00:25:49] opinion.
+[00:25:49] &gt;&gt; But I think it's the first generation of
+[00:25:51] this type of product, right? So,
+[00:25:53] probably
+[00:25:54] &gt;&gt; from Nvidia, but yes, that is
+[00:25:55] &gt;&gt; Yeah. Yeah. Exactly. So, maybe it's
+[00:25:56] going to improve uh a bit, but I think
+[00:25:59] it's also speaking to different maybe
+[00:26:01] communities, you know, people who want
+[00:26:02] to maybe use some pre-trained model, but
+[00:26:05] they're not maybe in AI research per se.
+[00:26:08] This is just much simpler to have
+[00:26:10] something you know in your uh in your
+[00:26:12] office and do things locally. you can
+[00:26:14] you know see it do neon lights so you
+[00:26:17] are happy cloud you don't see it right
+[00:26:18] where is the you know green and and red
+[00:26:21] light and the fine you know eating your
+[00:26:23] room so but you know more seriously I
+[00:26:24] think one point I wanted to say related
+[00:26:26] to what Ravit said I think it's actually
+[00:26:28] not too bad for researcher to be on a
+[00:26:32] GPU constraint here and there because it
+[00:26:34] forces you to think a bit more about
+[00:26:36] fundamental research I think if you have
+[00:26:38] access to a limited GPU it's just too
+[00:26:40] easy to not try to explain anything you
+[00:26:42] just run huge experiments and find some
+[00:26:45] scaling laws or whatever and claim you
+[00:26:47] understood something while in reality
+[00:26:49] you don't know the underlying you know
+[00:26:51] mathematics or laws governing all those
+[00:26:54] observations. I would say uh yeah
+[00:26:56] overall it's still not ideal to have
+[00:26:59] unlimited GPU for AI research per se but
+[00:27:02] yeah for sure if you just you know give
+[00:27:04] me one DGX machine I don't think I can
+[00:27:07] revolutionize a lot of thing
+[00:27:09] &gt;&gt; well and and you bring up one one final
+[00:27:11] good point inadvertently I think here
+[00:27:14] too which is when it's sitting on your
+[00:27:16] desk you you control the hardware and we
+[00:27:19] have been in this unprecedented era
+[00:27:21] where cloud service providers probably
+[00:27:23] aren't auditing and probably aren't
+[00:27:25] doing a huge amount of surve maybe I'm
+[00:27:27] wrong, right? Maybe maybe all the H100s
+[00:27:30] get watched heavily and I wouldn't be
+[00:27:32] surprised if that was the case, but in
+[00:27:34] an era where increasingly juicy AI
+[00:27:37] workloads are happening in the I mean
+[00:27:39] this whole sovereign AI push is because
+[00:27:42] of the a US cloud act making it where if
+[00:27:44] you're a foreign company, you know, with
+[00:27:47] data on US servers, the US can subpoena
+[00:27:49] and that's freaking a lot of people out.
+[00:27:51] So I think that you know the the desire
+[00:27:54] for locally sovereign compute your own
+[00:27:57] compute that isn't being presumably
+[00:27:59] controlled or administered or yonked or
+[00:28:01] or audited for using software it
+[00:28:04] shouldn't be using because for example
+[00:28:06] Java that whole world where I work at
+[00:28:08] Oracle they would do Java audits where
+[00:28:10] they would go and like if they detected
+[00:28:12] you didn't pay them like on some cloud
+[00:28:15] service provider that Oracle had an
+[00:28:16] agreement with they would go after you
+[00:28:18] like the Java like yeah So the fact that
+[00:28:21] this has basically not happened in a
+[00:28:23] long time and certainly not in our neck
+[00:28:25] of the woods is quite remarkable and I
+[00:28:28] don't know if that's sustainable. So I
+[00:28:30] think that the whole premise of of this
+[00:28:32] stuff is very good. Like yes, put it on
+[00:28:34] your desk even if it doesn't make
+[00:28:36] economic sense because you know slight
+[00:28:38] tinfoil hat energy. Yes. And again if
+[00:28:41] you have free GPUs give it to us. Uh
+[00:28:44] this is the the bottom line. Okay. I
+[00:28:47] think we are ready to start talking
+[00:28:49] about Japa, right? Great.
+[00:28:52] &gt;&gt; So, what what do you call Japa first of
+[00:28:54] all?
+[00:28:55] &gt;&gt; Okay. So, Rand this is why you are here.
+[00:28:58] Please explain us why. Okay. Okay. I see
+[00:29:02] and and when to use.
+[00:29:05] &gt;&gt; So, yeah, I think probably so Japan I to
+[00:29:07] give a bit of background. It's the
+[00:29:09] acronym for joint embedding predictive
+[00:29:11] architectures. So the name itself was
+[00:29:13] coined in this position paper by Yan
+[00:29:16] from a couple years ago but underpinning
+[00:29:19] its name there are a lot of you know
+[00:29:21] very wellestablished techniques Axiamese
+[00:29:23] networks predictive coding blah blah
+[00:29:25] blah so I would say the history of JPA
+[00:29:28] you know goes at least a few decades in
+[00:29:30] AI research and I think if you go even
+[00:29:32] to you know motivations from
+[00:29:33] neuroscience psychology probably it's
+[00:29:36] more than 100 year old as well so it's
+[00:29:38] not it's something that is quite
+[00:29:40] established and understood but until now
+[00:29:42] there was not a clear let's say
+[00:29:44] blueprint to figure out okay how to uh I
+[00:29:47] will not say implement because the
+[00:29:48] position paper is still a little bit uh
+[00:29:51] high level but oh it will look like at
+[00:29:53] least as a computational diagram you
+[00:29:56] know for AI and since then uh yeah a lot
+[00:29:59] of people have been working on them and
+[00:30:01] they rely on a very simple fundamental
+[00:30:03] principle which is to say you want to
+[00:30:05] learn good representation of your data
+[00:30:07] so we'll define good later but you want
+[00:30:10] to do
+[00:30:11] without having to do reconstruction
+[00:30:13] based learning. So you want to learn an
+[00:30:15] abstract representation in embedding
+[00:30:17] space you know at the output of your
+[00:30:19] deep network transformer reset whatever
+[00:30:21] does not matter and you want to figure
+[00:30:23] out how to produce that representation
+[00:30:26] without doing autoenccoding or
+[00:30:28] generative modeling and so if you have
+[00:30:31] for example images you know the simplest
+[00:30:33] case possible uh the main pre-training
+[00:30:36] recipe is to say okay take your image
+[00:30:38] maybe generate different views so for
+[00:30:40] example rotation or you apply some color
+[00:30:42] jittering you know color changes to your
+[00:30:44] image. You will embed those two images
+[00:30:47] through your deep net and then in
+[00:30:49] embedding space you want the
+[00:30:50] representation to be the same because
+[00:30:52] the semantics of those two images was
+[00:30:55] the same to to start with and so then
+[00:30:56] you have some you know research problem
+[00:30:58] we can speak about it later on why will
+[00:31:00] this work or not and that's a big
+[00:31:03] research area right now but that's
+[00:31:05] roughly you know the core the core
+[00:31:06] principle and the hope is that you don't
+[00:31:08] use labels you have very very little you
+[00:31:11] know prior information and so once
+[00:31:13] training succeeds, you should be able to
+[00:31:15] use your pre-trained model to solve zero
+[00:31:18] shot task across a wide variety of task
+[00:31:21] basically. And of course like the
+[00:31:23] canonical example is that you have a
+[00:31:26] right autonomous car or like you have a
+[00:31:29] car and and you want to to understand
+[00:31:33] you want to understand the the next uh
+[00:31:35] the next frame when you you have a movie
+[00:31:38] and you don't want right there are
+[00:31:40] leaves outside that are moving in the
+[00:31:43] wind. So you don't want to predict
+[00:31:46] exactly each each leave. You want to
+[00:31:49] make something that will ignore this and
+[00:31:52] you don't want to predict them. You
+[00:31:54] don't want to reconstruct exactly the
+[00:31:56] image. You want to understand the um
+[00:31:59] underlying factors that actually evolve
+[00:32:03] or change or the important factors in
+[00:32:05] the frame.
+[00:32:07] &gt;&gt; And basically I think one thing to point
+[00:32:09] out so as soon so of course if you care
+[00:32:11] about keeping all the possible
+[00:32:13] information about the input then you
+[00:32:15] should be able to reconstruct it
+[00:32:16] perfectly. Right? So as soon as you
+[00:32:18] disregard something it means you leave
+[00:32:20] behind some downstream task that you
+[00:32:22] will not be able to solve anymore. But
+[00:32:24] the question is if I you know get a
+[00:32:26] picture and I am able to count the
+[00:32:29] number of leaves in the tree how many
+[00:32:31] downstream task does this you know
+[00:32:33] probably just one or two very very uh
+[00:32:36] niche one but 99.999%
+[00:32:39] of the downstream task don't need that
+[00:32:41] level of details and so what you really
+[00:32:44] want to do is find the right setup so
+[00:32:45] that you can disregard a couple
+[00:32:48] downstream task but suddenly you become
+[00:32:51] much much much better at all the other
+[00:32:53] uh remaining task. But yeah, that's
+[00:32:55] something to keep in mind that you know
+[00:32:56] if you want to count the number of fibs
+[00:32:58] in a tree then yeah maybe you have to
+[00:33:00] spend a bit more time on figure out how
+[00:33:02] to do pre-training for this. So you want
+[00:33:04] to compress the irrelevant details right
+[00:33:06] and now of course the most interesting
+[00:33:10] question the most important question is
+[00:33:12] what are these details and how you know
+[00:33:15] it and how you're going to compress
+[00:33:18] them.
+[00:33:18] &gt;&gt; Yeah. So this is a big uh design
+[00:33:21] question. So basically as you said you
+[00:33:23] have this prediction task. So given
+[00:33:26] current and past frame be able to
+[00:33:27] predict the the embedding of the the
+[00:33:29] next frame and this prediction task is
+[00:33:32] what will guide which features you want
+[00:33:34] to capture or not. And this is a not a
+[00:33:38] solved question because depending on how
+[00:33:40] you describe this task you will
+[00:33:42] disregard different features. So the
+[00:33:44] main so right now there is not an
+[00:33:45] automated way to discover that
+[00:33:47] automatically but the hope is that if we
+[00:33:50] use video data and the same type of data
+[00:33:53] as humans absorggressive
+[00:33:56] prediction task which is basically or we
+[00:33:58] also learn at least at some levels some
+[00:34:01] representation of the data then the same
+[00:34:04] qualitative representation should emerge
+[00:34:06] than the one that we have access to
+[00:34:08] which we know are sufficient to solve a
+[00:34:10] lot of a lot of task. So the idea is to
+[00:34:12] combine a little bit of uh a prior
+[00:34:15] knowledge on oh human learn what we
+[00:34:17] think is a meaningful prediction task uh
+[00:34:20] and then put this in the in the jar
+[00:34:23] pre-training recipe and let it train uh
+[00:34:25] from the data. So of course there are a
+[00:34:27] lot of you know question it's not uh
+[00:34:29] solved 100% yet uh but this is very
+[00:34:32] general then if you have very specific
+[00:34:34] you know medical applications financial
+[00:34:36] applications then you will have more
+[00:34:38] expertise and you will be able to design
+[00:34:39] those prediction task that make uh a bit
+[00:34:42] more sense for your special use case.
+[00:34:44] But the prediction task itself is quite
+[00:34:46] natural to design right it's about
+[00:34:48] figuring out what do you want to predict
+[00:34:50] that should have the same or roughly the
+[00:34:52] same semantic within them. It's
+[00:34:54] something that even if you're not an
+[00:34:56] expert, you should be able to to say
+[00:34:58] roughly like if you have know a video,
+[00:35:00] you can say okay what you have at one
+[00:35:02] frame and the nearby frame should be
+[00:35:05] roughly related unless some exception
+[00:35:07] where you have a scene change thing like
+[00:35:09] this. So in general you need a lot of
+[00:35:11] expertise to design the prediction task
+[00:35:14] itself.
+[00:35:15] &gt;&gt; So how you are going to do it? How how
+[00:35:18] ja is doing it? So one way to implement
+[00:35:22] JPEG a video will be to say given uh
+[00:35:25] you're at frame t. So given the past
+[00:35:27] frame whether it's from the beginning or
+[00:35:29] the last k frames I will feed that to an
+[00:35:31] encoder can be frame based encoder video
+[00:35:34] based encoder just think of it as a
+[00:35:36] blackbox deep net. So you have this
+[00:35:37] representation of uh t minus k to t and
+[00:35:41] then in parallel you will produce
+[00:35:43] representation of frame uh t + one for
+[00:35:46] example. So let's say it's just the next
+[00:35:47] frame, you could include the past frame
+[00:35:48] as well or not, whatever. And you obtain
+[00:35:50] its embedding as well. And so now you
+[00:35:52] want to be able to predict the next
+[00:35:55] frame embedding from the past frames uh
+[00:35:58] embedding. So this will be your
+[00:35:59] prediction task. If you have access to
+[00:36:01] side information like maybe you know it
+[00:36:03] was a video of a robot and you have
+[00:36:05] actions of what the robot is doing, you
+[00:36:08] can include that as part of the
+[00:36:09] prediction task to help basically the
+[00:36:12] system navigate the uncertainty of the
+[00:36:14] future prediction task. Or you can have
+[00:36:16] other mechanism with certain variables
+[00:36:18] blah blah blah. But the main point is
+[00:36:20] that you will have this sort of auto
+[00:36:21] reggressive prediction. Now one thing to
+[00:36:23] keep in mind that if you just use this
+[00:36:25] term alone obviously you will collapse
+[00:36:27] right because networks deep networks are
+[00:36:30] uh very much like you know me very lazy.
+[00:36:33] So they're like okay if I just need to
+[00:36:35] predict my future embedding we'll just
+[00:36:38] embed everything to a constant and
+[00:36:40] that's it. I can just predict everything
+[00:36:42] no matter what. So you need to prevent
+[00:36:44] this collapse and this is where you have
+[00:36:46] a lot of you know knobs to turn. So some
+[00:36:48] people use teacher student networks some
+[00:36:52] people use some regularizer like you
+[00:36:54] want coariance of your embeddings to be
+[00:36:56] identity. Some people use some estimate
+[00:36:58] of you know entropy information content.
+[00:37:01] So this is where it's a bit more diverse
+[00:37:03] and there is not yet agreed upon method.
+[00:37:06] Maybe there will be soon once we release
+[00:37:08] our version but it's still very
+[00:37:10] exploratory uh at this stage. But this
+[00:37:12] is the main research question you know
+[00:37:14] how to prevent collapse while minimizing
+[00:37:17] your your prediction task basically. So
+[00:37:19] right the idea is that like I can
+[00:37:21] control both the the features that I
+[00:37:24] suggest and but also the the the one
+[00:37:26] that I want to to predict right so I in
+[00:37:29] some sense I control two hands of the of
+[00:37:31] the equation and if I can control it can
+[00:37:34] collapse I will just me the network will
+[00:37:37] decide okay just make it very very
+[00:37:39] simple features or constant features and
+[00:37:42] then it's the easiest way to to to
+[00:37:45] predict each other right and now because
+[00:37:48] we don't want to do it. We want
+[00:37:50] something that will regularize it and
+[00:37:52] something that prevent this h collapse.
+[00:37:56] &gt;&gt; This is something that we don't have in
+[00:37:58] the regular reconstruction loss function
+[00:38:01] because we don't control one hand of the
+[00:38:04] of this equation. We don't control on
+[00:38:07] the image itself the pixel of the of the
+[00:38:09] predicted.
+[00:38:14] &gt;&gt; Yeah, exactly. When you reconstruct, you
+[00:38:15] cannot collapse because you need to keep
+[00:38:17] all the information to reconstruct all
+[00:38:19] the pixels. Similarly, when you do
+[00:38:21] supervised learning, you cannot collapse
+[00:38:23] because you need to at least
+[00:38:24] discriminate the classes. But there is
+[00:38:25] an interesting parallel in supervised
+[00:38:27] learning, right? There are all those
+[00:38:29] papers that show you can have different
+[00:38:32] amount of collapse depending on the
+[00:38:33] number of classes and some other
+[00:38:35] properties of your data distribution.
+[00:38:37] And so in a sense in supervised learning
+[00:38:39] the number of classes is sort of a way
+[00:38:43] to control the collapse of the of the
+[00:38:45] embedding. And so that's why if you do
+[00:38:46] supervised learning on imaget 10 versus
+[00:38:49] imaget 1k the imageet 1k1 will
+[00:38:52] generalize much more zero shot on
+[00:38:54] different task because you have much
+[00:38:55] finer grain classes and so less
+[00:38:58] collapsed features and representations.
+[00:39:00] So you have something you know that all
+[00:39:03] true regardless of the pre training
+[00:39:05] strategy. But the goal of JPA and SSL is
+[00:39:07] to go way beyond this and say forget
+[00:39:10] classes forget labels. Let's just learn
+[00:39:12] the the dynamics of the world you know
+[00:39:14] the representation of the data and be
+[00:39:16] able to solve most of the downstream
+[00:39:18] task zero shot basically. But yeah this
+[00:39:21] designing the anti-olapse term is the
+[00:39:24] most important thing that we're working
+[00:39:26] on today basically. So does can Jeppa
+[00:39:30] work supervis like like is does it work
+[00:39:32] for any of the traditional styles or is
+[00:39:35] it mostly like an unsupervised technique
+[00:39:37] or
+[00:39:38] &gt;&gt; Yeah. So Japan in itself you don't
+[00:39:39] require labels right but if you have
+[00:39:41] labels you can artificially use a JPA by
+[00:39:44] saying okay the pairs you know or the
+[00:39:46] images that I want to have the same
+[00:39:48] representation are the ones with the
+[00:39:50] same labels. So that's something that
+[00:39:52] for example Philip is already did in a
+[00:39:54] supervised contrastive paper. So you can
+[00:39:57] use a J objective if you have labels,
+[00:40:00] but this is not really something that
+[00:40:02] you want to do. You want to move away
+[00:40:04] from labels so that you can solve more
+[00:40:06] tasks than what is described.
+[00:40:07] &gt;&gt; And then and then how did and and mind
+[00:40:09] you, I'm a huge fan of dimensionality
+[00:40:11] reduction and representation learning
+[00:40:13] for exactly the same reasons that you
+[00:40:15] say, right? Because I I think I I also
+[00:40:17] think some of the like Yan Lun critique
+[00:40:19] of like, oh well, you know, like like
+[00:40:22] the whole children don't see much data.
+[00:40:24] I'm like actually babies do a lot of
+[00:40:27] unsupervised learning but but how does
+[00:40:29] this compare to like UMAP or TSN or and
+[00:40:32] I know you mentioned I I think Siamese
+[00:40:34] networks like triplet networks
+[00:40:37] &gt;&gt; this is what I' I've known about you
+[00:40:38] know for for these tasks.
+[00:40:40] &gt;&gt; Okay. Yeah. So very good point. So one
+[00:40:43] paper we did recently relates some of
+[00:40:46] the uh JPA or SSL patterning objectives
+[00:40:49] to the one of spectral embedding
+[00:40:52] dimensionality reduction but now you do
+[00:40:54] it after uh embedding of the data. So
+[00:40:57] you don't you know in typical TSNA you
+[00:41:00] will use the input data to derive you
+[00:41:02] know some metric and then find
+[00:41:04] dimensionality reduction strategy. or
+[00:41:06] low dimensional points that respect sort
+[00:41:09] of the geometry of the data but this
+[00:41:10] geometry is defined in input space and
+[00:41:12] maybe you use carails if you say it's
+[00:41:14] nonlinear blah blah blah but it's still
+[00:41:16] in input space. So those methods go to
+[00:41:18] embedding space and then in embedding
+[00:41:20] space you can reframe those objective as
+[00:41:23] spectraling and deotronity reduction. So
+[00:41:26] there is some parallel there and then
+[00:41:28] the comment with triplet loss is a bit
+[00:41:30] different. So triplet loss right is just
+[00:41:31] one way to prevent collapse where you
+[00:41:33] have your positive and your negative and
+[00:41:36] that's what is used in in contrastive
+[00:41:37] learning basically it's just a
+[00:41:39] generalization of that where you have
+[00:41:40] all the negative pairs in your mini
+[00:41:42] batch and the lox doing sort of a soft
+[00:41:46] maximum but this is just one way to to
+[00:41:48] prevent collapse. So you have
+[00:41:50] contrastive methods to prevent collapse
+[00:41:52] where you compare one point with respect
+[00:41:54] to the other ones the negative ones and
+[00:41:56] then you have non-contrastive method
+[00:41:58] that are more based on regularizer like
+[00:42:00] full coance metrics or you know
+[00:42:02] information based uh criterion that are
+[00:42:05] maximized. There are some parallel and
+[00:42:07] there are some very specific settings
+[00:42:09] between those different families of
+[00:42:11] method. uh but in practice they work
+[00:42:13] quite quite differently but they seem
+[00:42:15] clear you know all those pretty known
+[00:42:18] method are all contrastive learning and
+[00:42:21] then uh V Craig and those ones are are
+[00:42:24] non contrastive and then you have the
+[00:42:25] teacher student those guys they say we
+[00:42:28] need none of this you just have two
+[00:42:30] networks following each other and you
+[00:42:32] want to predict the embedding of one
+[00:42:34] from the other this is not really
+[00:42:36] understood mathematically there are a
+[00:42:37] couple of papers mostly in the linear or
+[00:42:40] canel regime
+[00:42:42] uh but those are dino you know dino v3
+[00:42:45] recently was released so those perform
+[00:42:47] very very good even vja use teacher
+[00:42:51] student as well those perform very very
+[00:42:53] good very well but they don't it's very
+[00:42:56] finicky to train them if you don't have
+[00:42:58] the right you know teacher student
+[00:42:59] schedule it will collapse the way the
+[00:43:01] losses evolve during training is pretty
+[00:43:04] hard to interpret you have some things
+[00:43:05] that go ups and downs and ups you know
+[00:43:08] so it can give you state-of-the-art but
+[00:43:09] yeah hopefully we can search for a more
+[00:43:12] principled training objective and by
+[00:43:14] this we started putting the finger on on
+[00:43:17] there is there is a
+[00:43:18] &gt;&gt; but okay so at least for now when when
+[00:43:21] does it work and in which cases it
+[00:43:24] doesn't
+[00:43:25] &gt;&gt; I think for now so you have to remember
+[00:43:28] a lot of those methods have been
+[00:43:29] designed in a clean data set balanced
+[00:43:32] data setup so if you start having noise
+[00:43:35] in your data or maybe you have rare
+[00:43:37] events you know distribution of the
+[00:43:38] underlying cluster that is very very
+[00:43:41] heavy tail. This is something where
+[00:43:44] those methods out of the box will
+[00:43:46] disregard some of the useful features
+[00:43:48] just to capture noise features
+[00:43:50] basically. So this is something where we
+[00:43:53] need to do more research. So if you have
+[00:43:55] low data quality, it's going to be
+[00:43:56] harder to to make it work out of the
+[00:43:58] box. Also a lot of those methods are
+[00:44:00] designed for architecture specifically
+[00:44:03] like transformers for example. uh if you
+[00:44:06] want to use now a resnet or RNN or you
+[00:44:08] know whatever else you will need to
+[00:44:10] spend a lot of time to to tweak their
+[00:44:12] losses and sometimes you cannot even
+[00:44:14] tweak it like uh they assume you will
+[00:44:16] have tokens or you like you know patch
+[00:44:19] embeddings blah blah blah and then based
+[00:44:20] on this they have their whole pipeline
+[00:44:23] set up so it's not like you know cross
+[00:44:25] entropy where no matter what is your
+[00:44:27] encoder you can just plug it there and
+[00:44:29] get gradient so I think when you go you
+[00:44:32] know to domains where you have very
+[00:44:34] specific architect textures, lots of
+[00:44:36] noise, maybe a rare event that you are
+[00:44:38] trying to capture, this is where it's
+[00:44:40] going to be pretty hard to to make it
+[00:44:42] work. It's possible, but it's very hard.
+[00:44:44] And also, because you don't have
+[00:44:45] reconstruction, it's very hard to debug,
+[00:44:47] right? So, even if you're in a clean
+[00:44:48] data setup and you play a bit with
+[00:44:51] hyperparameters, how do you say if you
+[00:44:53] learn something meaningful or not
+[00:44:55] without labels? And that's something
+[00:44:57] that people don't really know to do
+[00:44:59] today. You have a lot of adult
+[00:45:01] statistics, but it's still very, very
+[00:45:03] weak in my opinion. And so the main
+[00:45:05] bottleneck is yeah how to better do
+[00:45:07] cross validation with JPA and figure out
+[00:45:10] yeah when will it work or not.
+[00:45:12] &gt;&gt; Yeah. So I want just to give my
+[00:45:14] perspective on on Japa. So we work
+[00:45:18] together like we we we worked also
+[00:45:20] together on Japa and and also like we
+[00:45:22] did a video on Japa. I'm a big fan in in
+[00:45:26] general
+[00:45:27] for this kind of learning and to go and
+[00:45:30] to understand what are the relevant
+[00:45:32] details and to try to compress the
+[00:45:35] irrelevant details. I'm a big fan of
+[00:45:37] compression and I think you should
+[00:45:39] compress as much as possible and I think
+[00:45:43] it's very like it's very important to
+[00:45:45] understand what uh what are the the
+[00:45:48] relevant details and what which
+[00:45:50] resolution you want to look on your um
+[00:45:54] on your data but at the end so two
+[00:45:57] things right one do you think it it will
+[00:46:01] be at the end we can make better results
+[00:46:06] um in in in Japo style models one
+[00:46:09] question and the second thing that I
+[00:46:11] think this is probably when you actually
+[00:46:14] do it in practice when you train it in
+[00:46:16] practice it's not that like right like
+[00:46:18] you have the cross entropy loss that you
+[00:46:20] can see that it goes down smoothly and
+[00:46:23] everything you you know when your model
+[00:46:25] is actually then something useful and
+[00:46:27] becoming better right if your loss in in
+[00:46:30] I don't know auto reggressive training
+[00:46:32] if your loss goes down you can say okay
+[00:46:34] my model is becoming better okay on this
+[00:46:37] stack fine but in Japo style models it's
+[00:46:41] much more complicated right because you
+[00:46:43] have the what we call like the environ
+[00:46:46] stem something that you want that it
+[00:46:48] will be close to each other like that
+[00:46:50] the samples will be close to each other
+[00:46:52] that are similar but you have also the
+[00:46:55] regularizer to prevent the collapse and
+[00:46:57] you have some balance right between them
+[00:47:00] and you don't want to break this balance
+[00:47:03] so you can't push one of them too to too
+[00:47:05] hard and I I find it quite difficult to
+[00:47:09] to to manage it or like to try to
+[00:47:11] optimize it. So what is
+[00:47:14] &gt;&gt; you packed a lot of questions into this.
+[00:47:17] So yeah, let me try to answer
+[00:47:18] &gt;&gt; you guys do whatever you want.
+[00:47:19] &gt;&gt; Uh so I think starting maybe with a very
+[00:47:22] generous statement. So on my side I am
+[00:47:24] 100%
+[00:47:26] uh believing that JPA not only is all we
+[00:47:32] need but also will outperform current
+[00:47:34] systems. So we already have a lot of
+[00:47:36] result theoretical result showing that
+[00:47:38] if you have a JA pretraining setup you
+[00:47:41] can reach any embedding or any
+[00:47:43] representation. So it's just a matter of
+[00:47:45] finding the right setup to reach it. But
+[00:47:47] you don't have a fundamental you know
+[00:47:49] limitation that will say okay we will
+[00:47:52] plateau eventually because we restrict
+[00:47:53] the space.
+[00:47:54] &gt;&gt; This is like a theoretical work.
+[00:47:56] &gt;&gt; Sorry
+[00:47:56] &gt;&gt; theoretical work.
+[00:47:58] &gt;&gt; Yes. Yes. Yes. Yes. Yes. Yeah. So this
+[00:48:00] just is a proof of existence does not
+[00:48:02] tell you oh you reach there but it's
+[00:48:04] just to say by choosing the Japa way of
+[00:48:07] pre training you don't shoot yourself in
+[00:48:08] the foot aoretically you still can reach
+[00:48:11] anything that that you want. The second
+[00:48:14] thing that we showed is that
+[00:48:15] reconstruction methods yes they give you
+[00:48:17] a nice I mean squared error for images
+[00:48:20] or you know cross entropy for next
+[00:48:22] prediction but actually this is very
+[00:48:24] very not informative of how well you
+[00:48:26] will perform across different task. So
+[00:48:28] if you think about you know image
+[00:48:30] construction I can find you two networks
+[00:48:32] with exactly the same mean square error
+[00:48:34] but with a downstream performance that
+[00:48:37] goes from near random to state. So it's
+[00:48:40] very you know ill post problem because
+[00:48:42] they don't care about you know
+[00:48:43] disentangling your features having a
+[00:48:45] nice organization of the lat space
+[00:48:47] because the decoder is here to do the
+[00:48:49] hard work for you. So you you know you
+[00:48:51] say you see your cross entropy yes it
+[00:48:53] tells you you are training but you're
+[00:48:54] training for what it's not clear right
+[00:48:56] so this is something we proved both
+[00:48:58] theoretically and and empirically and
+[00:49:01] therefore it means it gives you a signal
+[00:49:03] but not not the full picture another
+[00:49:05] thing I want to mention is that as you
+[00:49:07] said until now a lot of the jalosis were
+[00:49:10] hard to interpret because you could have
+[00:49:12] the prediction that goes to zero but
+[00:49:14] it's because you collapse right so like
+[00:49:16] okay great you know I can predict
+[00:49:17] everything but everything is just a
+[00:49:19] constant So who cares? And a lot of the
+[00:49:21] anti-olapse terms still add shortcut
+[00:49:23] solutions. So you could have collapsed
+[00:49:25] anti-olapse terms that also go to zero
+[00:49:28] but still you have a degenerate
+[00:49:29] embedding. And so now we start having uh
+[00:49:33] those novel solutions where if you see
+[00:49:36] it's basic basically behaving like you
+[00:49:38] your dream for supervised crossontropy.
+[00:49:40] Uh it gives you a number and you can
+[00:49:42] rely on this number. There is no
+[00:49:43] shortcut solutions. If the number is
+[00:49:45] zero, you know, you are, you know, this
+[00:49:47] specific distribution that you that you
+[00:49:49] specified. Uh, and there is no, you
+[00:49:51] know, weird case of collapse that can
+[00:49:54] happen. And so if it was a few years
+[00:49:56] ago, I would have told you, yeah, it's
+[00:49:57] not clear if we will be able to find a
+[00:49:59] training objective that you can rely.
+[00:50:01] But now with this one, whenever I launch
+[00:50:03] things, I launch it, I go to to sleep
+[00:50:06] and I don't wake up thinking, okay, did
+[00:50:08] I collapse or not?
+[00:50:09] &gt;&gt; Wait, what is this objective? You need
+[00:50:11] to explain.
+[00:50:12] &gt;&gt; Yeah. Yeah. So this is very interesting.
+[00:50:14] So it's a objective deeply rooted in
+[00:50:16] statistical testing. So basically we do
+[00:50:19] two things. We first identify a specific
+[00:50:21] distribution that Japan bidded should
+[00:50:23] follow and TLDDR is a isotropic gan for
+[00:50:26] a lot of reason we can actually prove in
+[00:50:29] term of downstream prediction risk. So
+[00:50:31] not just you know the usual entropy
+[00:50:34] maximization argument. So very useful
+[00:50:36] for downstream task performance. And
+[00:50:38] then based on this we derive a new
+[00:50:40] statistical test that will measure how
+[00:50:42] close to theotropic goan you are. And so
+[00:50:44] we rely on a lot of existing literature
+[00:50:47] and understanding of statistics. And we
+[00:50:50] are able to say okay given the empirical
+[00:50:53] evidence that you give me we can or
+[00:50:55] cannot reject the the new hypothesis.
+[00:50:58] And the way we do this testing is
+[00:51:00] basically extremely slow. It's based on
+[00:51:01] comparing the characteristic function of
+[00:51:04] your embeddings against the one of the
+[00:51:06] isotropic gosh. And uh you cannot cheat
+[00:51:08] it, right? If you have the same
+[00:51:10] characteristic function, then you will
+[00:51:12] have the the same distribution. And so
+[00:51:14] that's something that is very
+[00:51:15] interpretable. The loss is literally the
+[00:51:17] mean squared error, right? In a
+[00:51:19] distribution space. So when you get to
+[00:51:22] zero, you know, you have the same
+[00:51:23] characteristic function. If you tell me
+[00:51:25] okay me I have a value of one and I have
+[00:51:27] a value of two you know I can compare
+[00:51:29] them meaningfully and also when we start
+[00:51:31] looking at figures for example this
+[00:51:33] anti-olapse term versus the prediction
+[00:51:36] term we see a very nice ordering that
+[00:51:38] first of all they don't compete with
+[00:51:40] each other and also the downstream task
+[00:51:42] performance is very aligned with those
+[00:51:44] with those two terms and so that's why I
+[00:51:46] think uh I am even more confident now
+[00:51:50] that JPA will uh make a big splash
+[00:51:54] pretty soon because all those you know
+[00:51:56] brittleleness that you mentioned before
+[00:51:58] is slowly going away and this is
+[00:52:00] something we can understand both
+[00:52:01] theoretically and empirically and the
+[00:52:03] implementation of the loss which is I
+[00:52:05] mean to be honest it's one of the first
+[00:52:07] time I think in the JPA and SSL world
+[00:52:09] the implementation of the loss is
+[00:52:11] exactly the equation there is no okay
+[00:52:14] here is you know implementation details
+[00:52:17] we need to add an epsilon here we need
+[00:52:19] to do some tailor expansion here like
+[00:52:21] the equation of the statistical test and
+[00:52:24] everything is exactly what's implemented
+[00:52:27] in in PyTorch. You have very nice
+[00:52:29] property, you know, bonded loss, bonded
+[00:52:31] gradients. You don't need to worry about
+[00:52:33] clipping outliers. So, I'm not saying
+[00:52:35] it's a final answer. It's like the very
+[00:52:37] very first baby step. But this is
+[00:52:39] something we can understand and we can
+[00:52:41] explain and we can rely on and now like
+[00:52:43] we tried this across you know
+[00:52:45] transformer resonate conext blah blah
+[00:52:47] whatever it's still image setting so we
+[00:52:50] still need to scale to other modalities
+[00:52:52] but yeah so this is uh yeah making me
+[00:52:54] even even more confident I think the
+[00:52:56] main limitation I would believe you know
+[00:52:59] in the next few years is going to be
+[00:53:00] when we go to text modality how do you
+[00:53:03] evaluate those uh JPA models because as
+[00:53:06] you said right by construction they are
+[00:53:07] not generative you don't reconstruct but
+[00:53:09] all the evolution pipelines for LLM
+[00:53:11] mostly assume you have a generative
+[00:53:13] model right so I think what we really
+[00:53:15] need to think about now is how to do
+[00:53:18] better evaluation of of JPA when it's
+[00:53:21] not just on image or or natural videos
+[00:53:24] which is also a big research question on
+[00:53:26] its own but yeah so I would say you know
+[00:53:29] honestly JPA are are here to stay and
+[00:53:31] even more as we build up our you know
+[00:53:34] theoretical and and practical
+[00:53:35] understanding
+[00:53:36] &gt;&gt; and how you think like we actually
+[00:53:38] should evaluate it you know there is
+[00:53:40] like the MTB right data set the
+[00:53:43] benchmark like collection of like
+[00:53:45] representation learning task do you
+[00:53:48] think we should go farther what types of
+[00:53:51] questions and benchmarks we actually
+[00:53:54] &gt;&gt; yeah that's a good question so I think
+[00:53:56] now people at least for uh frame and
+[00:53:59] video based uh model start to evolution
+[00:54:02] in term of world modeling and planning
+[00:54:04] so if you have a good abstract
+[00:54:05] representation of the world uh that you
+[00:54:08] see you know in a current frame or in a
+[00:54:10] few past frames and you have actions so
+[00:54:12] you understand how the world evolves
+[00:54:14] when you apply some actions to it then
+[00:54:16] from this you basically have a model of
+[00:54:18] the world and so you can do uh planning
+[00:54:20] and you can try to see if you can solve
+[00:54:22] task from your pre-train and you know
+[00:54:25] frozen representation and I think it
+[00:54:28] should be a direct extension to do the
+[00:54:30] same type of things for for language as
+[00:54:32] well but this is at least for image and
+[00:54:34] video based model this is becoming the
+[00:54:37] new standard let's say to evaluate JPA
+[00:54:40] beyond of all the typical you know image
+[00:54:42] classification video classification task
+[00:54:45] so for example you have some the
+[00:54:47] beginning of the video of someone doing
+[00:54:49] a task in a kitchen and you have to say
+[00:54:51] okay what what they will do over the
+[00:54:53] next few seconds so you have a lot of
+[00:54:55] benchmark like this but I think the
+[00:54:57] world model and planning one is the most
+[00:54:58] interesting because it's really you know
+[00:55:00] unbonded space you can think of so many
+[00:55:03] new environments so many new variations
+[00:55:06] uh And you can really measure how useful
+[00:55:07] is your representation depending on how
+[00:55:10] complicated was the the planning uh
+[00:55:12] search basically because capturing all
+[00:55:14] the features of the input uh even in a
+[00:55:17] compressed way is nice but ideally you
+[00:55:19] want it to be easy to navigate with
+[00:55:21] gradient based planning and you know
+[00:55:22] this type of question and so this is
+[00:55:24] going to be the big next stage for
+[00:55:27] evolution for Japa. I think figuring out
+[00:55:30] for text only or does this work is still
+[00:55:32] a bit up in the air but I think it's
+[00:55:34] going to come there pretty quickly.
+[00:55:36] &gt;&gt; You mentioned the world models. What do
+[00:55:38] you think about? So one option to to
+[00:55:41] implement world model is using Japa but
+[00:55:44] do you think there are like other ways
+[00:55:46] to do it that are that that we actually
+[00:55:49] can up with wall models that are not
+[00:55:51] Japa or like
+[00:55:52] &gt;&gt; Yeah. So a lot of people work still in
+[00:55:55] this reconstruction space right. So they
+[00:55:57] say given the current frame and the
+[00:55:58] action let me reconstruct what the next
+[00:56:00] frame looks like. So exactly the example
+[00:56:02] you were giving before right with the
+[00:56:04] self-driving car where you will say okay
+[00:56:06] uh given you know my current speed blah
+[00:56:08] blah blah and I apply my uh foot on the
+[00:56:11] brake or whatever what the next frame
+[00:56:13] should look like and you do this in
+[00:56:15] input space instead of doing it in in
+[00:56:18] space. Uh so that's how a lot of people
+[00:56:20] actually do world model pre training. So
+[00:56:23] this can work very nicely on you know
+[00:56:26] control setup video games mostly but
+[00:56:29] yeah this is what people do a lot
+[00:56:31] nowadays
+[00:56:32] &gt;&gt; and and what do you think so Yan always
+[00:56:34] claimed that should be like a hidden
+[00:56:36] variable there right Z that like capture
+[00:56:38] all the information that you can't get
+[00:56:41] from the from the input basically it can
+[00:56:43] capture the uncertainty and it can
+[00:56:46] capture like thing that you you you
+[00:56:48] can't see and you can get um do you
+[00:56:50] think the solution will include this or
+[00:56:52] you think like It's a nice to have
+[00:56:54] component but it's not necessary one for
+[00:56:57] a full uh jetpa model.
+[00:57:00] &gt;&gt; Yeah, I think it really depends on the
+[00:57:02] type of data you have access to. If you
+[00:57:05] already have very rich actions, you
+[00:57:08] don't have a lot of uncertainty, then
+[00:57:10] probably you are good enough to not use
+[00:57:12] a lat variable and just just train with
+[00:57:14] that. I think once you start introing
+[00:57:16] lat variable, you have extra research
+[00:57:17] question that that come in. First of
+[00:57:19] all, one thing we want to show is uh
+[00:57:22] what type of representation you learn if
+[00:57:24] you don't have this lat variable. Do you
+[00:57:26] learn something that is still useful and
+[00:57:29] for what is it useful and also is it
+[00:57:31] something that you can recover from uh
+[00:57:33] just at inference time at test time uh
+[00:57:36] because that's also a big question you
+[00:57:37] know this is something that's useful to
+[00:57:39] model but do you need to model it from
+[00:57:41] you know random initialization when you
+[00:57:43] start pre-training or not so this is
+[00:57:45] also a big a big question I think
+[00:57:46] fundamentally this goes back to the
+[00:57:48] question of what are good actions right
+[00:57:50] if action is everything that you need to
+[00:57:53] describe the next frame from the past It
+[00:57:56] means you need to almost have knowledge
+[00:57:58] of the world you know maybe not universe
+[00:58:00] but everything right uh and this is
+[00:58:02] probably so much it's not something that
+[00:58:04] I don't think we do even us as humans
+[00:58:07] right so you want to have a very very
+[00:58:09] constrained latan variable probably that
+[00:58:11] live in a very small space you know of
+[00:58:13] your embedding space uh and how to
+[00:58:15] control this capacity is also a big uh a
+[00:58:18] big research question for sure if you
+[00:58:20] have very weak actions or no actions and
+[00:58:23] you have many possible futures from the
+[00:58:25] same fast. You need something to account
+[00:58:27] for those, you know, possible scenarios.
+[00:58:29] And it can be a lat variable that you
+[00:58:32] infer with, you know, many different
+[00:58:33] ways, award dynamics, blah blah,
+[00:58:35] whatever. Uh, but you need something to
+[00:58:37] account for it because otherwise if you
+[00:58:39] if you just do mean square error
+[00:58:40] prediction, we'll just learn to predict
+[00:58:42] the average of all those possible
+[00:58:43] scenarios, which again depending on what
+[00:58:46] you want to do post training may be
+[00:58:47] enough or may not be enough. Right? So
+[00:58:49] this is I think the first component we
+[00:58:51] have to figure out when learning the
+[00:58:53] average over the the possible stoastic
+[00:58:55] futures um is enough for different
+[00:58:58] stream task and when it's not or to
+[00:59:00] correct this by basically figuring out
+[00:59:02] the minimal lat variable to do this but
+[00:59:06] yeah I don't think it's needed for
+[00:59:08] everything all the time probably but
+[00:59:11] yeah that's something we have to to
+[00:59:12] figure out next. Yeah, at least from my
+[00:59:15] experience, the main problem is that
+[00:59:17] it's really it's really easy to
+[00:59:19] overfeit, right? Like again, you have
+[00:59:21] something that it's very it can give you
+[00:59:24] all the information, right? Like you can
+[00:59:26] use to pass all the information and to
+[00:59:29] solve a problem and again now we are
+[00:59:31] coming back to the question how we
+[00:59:33] regularize it and how we prevent it from
+[00:59:36] making like the easy solution, right?
+[00:59:38] &gt;&gt; Oh yeah, this is one of the thing we
+[00:59:40] have to think about. So for sure you
+[00:59:41] want this to be only explaining what you
+[00:59:44] cannot explain from the data itself.
+[00:59:46] Right? But even this is this a good
+[00:59:48] definition or not. So if you have access
+[00:59:50] to all the past data then maybe you can
+[00:59:52] already explain a lot of things and so
+[00:59:55] this becomes almost trivial and so this
+[00:59:58] may be a function of you know the
+[00:59:59] richness of the data the history you use
+[01:00:02] in your Japa and that's why I don't
+[01:00:03] think it's really something where we
+[01:00:05] will say okay it's always good or always
+[01:00:07] bad to have it. is going to be something
+[01:00:09] that depends a lot on the design of your
+[01:00:11] specific JPA and that's why we need a
+[01:00:14] bit more understanding and and math so
+[01:00:16] that we can have something that
+[01:00:17] automatically adapt to those to those
+[01:00:19] variations and so it's not just an extra
+[01:00:21] hyper parameter that people have to to
+[01:00:24] cross validate.
+[01:00:25] &gt;&gt; Are there easy libraries right now for
+[01:00:29] creating your own JPA models?
+[01:00:31] &gt;&gt; Yeah, good question. So there were a
+[01:00:33] couple which unfortunately
+[01:00:35] you know either died because they were
+[01:00:37] not maintained or people transferred to
+[01:00:39] you know other orgs or other companies.
+[01:00:41] So in our lab we started one called
+[01:00:45] stable pre training which is all the
+[01:00:47] possible utilities to very quickly do
+[01:00:50] Jai and SSL research. We also have one
+[01:00:53] called stable world models to do
+[01:00:54] evaluation for world modeling
+[01:00:56] specifically. and very soon maybe it's
+[01:00:58] not going to be out by the time this is
+[01:01:00] released but yeah hopefully very soon we
+[01:01:01] will have a very simpler simple one that
+[01:01:05] we will release in the lab with with so
+[01:01:08] it's coming along but it's not so easy
+[01:01:09] because until now we do not have those
+[01:01:11] you know very out ofthebox objectives
+[01:01:13] but now that we start having those we
+[01:01:15] can finally have those you know toy
+[01:01:17] examples and people can play with very
+[01:01:19] simple things and understand how they
+[01:01:21] behave but yeah that's another barrier
+[01:01:23] of uh to entry looking at the number of
+[01:01:25] lines and I'm just going to use Dynino
+[01:01:27] as an example because I computed it
+[01:01:29] there. But I think the latest version is
+[01:01:31] like 20,000 uh lines in the GitHub repo
+[01:01:34] which means if you want to get into, you
+[01:01:36] know, Japa research, you need to manage
+[01:01:38] this gigantic codebase. And this is
+[01:01:40] something that has been evolving more
+[01:01:42] and more crazily recently. If you think
+[01:01:45] about Sim Clear, you know, a few years
+[01:01:46] ago, the wall main file was just 300
+[01:01:49] lines or something. It's also something
+[01:01:51] I think as a community we have to be
+[01:01:53] careful about not overengineer things
+[01:01:56] too early because then it means everyone
+[01:01:58] else is left behind. So gives you a
+[01:02:01] competitive advantage but is it your
+[01:02:03] goal you know?
+[01:02:03] &gt;&gt; Okay cool. Yeah it's too bad that the
+[01:02:06] markets kind of like that. I think it's
+[01:02:08] just you know so many good ideas and so
+[01:02:11] many good libraries that they get
+[01:02:13] affected by this and and kind of the
+[01:02:16] money you know. I mean there's a lot of
+[01:02:18] good but also a lot of people that would
+[01:02:20] be working on interesting things but get
+[01:02:22] paid more to work on ads or something.
+[01:02:25] &gt;&gt; Oh yeah that's uh I think that's the
+[01:02:27] main bottleneck. uh whether you are a
+[01:02:29] student or not, you have to think about
+[01:02:31] you know being on the job market later
+[01:02:33] and you have to figure out okay where
+[01:02:35] can I apply if I work on LLM and where
+[01:02:38] can I apply if I work on Japa and uh
+[01:02:40] this is a big uh issue we have to fight
+[01:02:43] this you know constantly with with
+[01:02:45] everyone
+[01:02:46] &gt;&gt; but remember nobody cared about LLMs
+[01:02:48] before chat GPT came out not really the
+[01:02:51] big labs right
+[01:02:52] &gt;&gt; yeah no exactly that's why I think it's
+[01:02:54] just uh that's what I say to everyone I
+[01:02:57] think If you can be one of the first
+[01:02:59] pioneer on JPA and when this will come
+[01:03:02] in the in the flashlight pretty soon you
+[01:03:05] want to be one of the first to to be
+[01:03:06] working on this you know so it's
+[01:03:08] actually it's a perfect opportunity for
+[01:03:10] for everyone and also it's not
+[01:03:12] overcrowded so you don't compete with
+[01:03:14] you know entire industries and uh and
+[01:03:16] armies of people I think if you start
+[01:03:18] your PhD and you have you know a few
+[01:03:20] years Japai is a perfect setup and also
+[01:03:23] you can do theory practice any modality
+[01:03:26] that you like and you can be one of the
+[01:03:28] one of the first to work on it. So, you
+[01:03:30] know, it's perfect timing
+[01:03:32] &gt;&gt; and also go to work with Randel.
+[01:03:34] &gt;&gt; Exactly. Exactly.
+[01:03:36] &gt;&gt; Like he's a great researcher and and and
+[01:03:40] really kind and so yeah, if you are a
+[01:03:42] PhD student or like want to do a PhD, go
+[01:03:44] to work with one and I highly recommend
+[01:03:48] &gt;&gt; but if you have GPUs, it's too ravid and
+[01:03:51] me. But so what do you think like the
+[01:03:53] let's say the time the time scales do
+[01:03:56] you think in one year two years five
+[01:03:59] years from now we will see more and more
+[01:04:03] um Japa models that we will achieve a
+[01:04:05] state of the art or do you think you
+[01:04:08] like it depends how many people will
+[01:04:10] work on on it what the compute how much
+[01:04:13] compute will be available
+[01:04:14] &gt;&gt; yeah so I will say more people the
+[01:04:18] better of course more compute the better
+[01:04:21] but I I don't think that's the deal
+[01:04:22] maker or deal breaker for Japa. It's
+[01:04:25] more about you know having a nice
+[01:04:27] mathematical understanding of those
+[01:04:29] things and be able to remove a lot of
+[01:04:31] those hyperparameters and and
+[01:04:33] instabilities and this is not something
+[01:04:34] you can do by just cross regation. So I
+[01:04:37] think it's having super motivated
+[01:04:40] experienced people who are also willing
+[01:04:42] to you know go a bit deeper into
+[01:04:44] understanding things and this can mean
+[01:04:46] equation or this can be training things
+[01:04:49] and looking at different properties of
+[01:04:50] the embedded training dynamics gradients
+[01:04:53] blah blah blah but doing a bit more you
+[01:04:55] know fundal or fundamental research and
+[01:04:59] I think the timeline with the recent
+[01:05:01] progress we have I think and because we
+[01:05:03] have a lot of momentum building those
+[01:05:05] code is blah blah blah. I think within a
+[01:05:09] couple of years we probably can have
+[01:05:11] something that is out of the box almost,
+[01:05:12] you know, no matter the modality. So
+[01:05:14] multimodal, no matter the architecture,
+[01:05:17] no matter the scale, you're going to
+[01:05:19] have your stuff that trains uh reliably,
+[01:05:22] you know, with a loss function that you
+[01:05:24] can uh interpret and and trust. and then
+[01:05:27] probably an extra couple of years to
+[01:05:29] really bridge the gap with the
+[01:05:31] state-of-the-art cuz even if you have
+[01:05:33] something reliable, we will know that
+[01:05:34] you know the benchmarks come after
+[01:05:36] 50,000 tricks have been added to them.
+[01:05:39] And so the question is which of those we
+[01:05:41] actually still need to add to to compete
+[01:05:44] with the benchmark and this will be
+[01:05:45] probably an extra couple of years. But I
+[01:05:47] think if you want to have a Japa out of
+[01:05:50] the box working you know within uh 6
+[01:05:53] months to a year we can already have
+[01:05:54] something that's pretty decent and then
+[01:05:56] give us an extra year to make it uh very
+[01:05:59] very nice.
+[01:06:00] &gt;&gt; The question if it will be before AGI or
+[01:06:02] after it.
+[01:06:03] &gt;&gt; Well this will be a component of AGI. So
+[01:06:06] it has to be before and I think I am not
+[01:06:08] not bad with the prediction you know two
+[01:06:10] to four years within the 10 year.
+[01:06:14] I hope but you will not postpone you
+[01:06:16] know as everyone now like yeah 10 years
+[01:06:18] but it's still it keep like
+[01:06:20] &gt;&gt; no no no this if you asked me two years
+[01:06:23] ago honestly I would have been like you
+[01:06:25] know it's pretty unknown we have a lot
+[01:06:27] of things to figure out but recently you
+[01:06:30] know we had a lot of very nice uh
+[01:06:32] breakthrough both theoretically and and
+[01:06:34] empirically so I am much much more
+[01:06:37] confident now yeah
+[01:06:39] &gt;&gt; and do you think so I don't know do you
+[01:06:42] think theory is important for for making
+[01:06:46] progress in the
+[01:06:48] &gt;&gt; yeah I think I think it is becoming more
+[01:06:51] and more important because you cannot
+[01:06:53] cross validate everything and you need
+[01:06:56] something you can trust and rely on and
+[01:06:58] if you don't have any theory to back
+[01:07:01] this up it's never something you can
+[01:07:02] rely 100 is always this question oh what
+[01:07:05] if there is this edge case did I have
+[01:07:07] enough test data was it just because I
+[01:07:10] had the right you know architecture
+[01:07:12] implicit bias. So you need to move
+[01:07:15] beyond this and I think only and when I
+[01:07:18] say theory you know it's like within AI
+[01:07:20] right so don't think you know abstract
+[01:07:23] algebra
+[01:07:24] measure theory like just very very basic
+[01:07:26] simple linear algebra statistics
+[01:07:29] probability this is already plenty
+[01:07:31] enough right but having a little bit of
+[01:07:33] those so you can understand what are you
+[01:07:35] computing why does it make sense what is
+[01:07:37] this statistic telling you about if you
+[01:07:39] have two samples in 10 dimension what
+[01:07:42] does that mean for your coariance matrix
+[01:07:43] you know and I think it's very important
+[01:07:45] to have those not just to prove things
+[01:07:48] but at least to get intuition you know a
+[01:07:50] lot of times this is just good to
+[01:07:53] understand why something fails or not
+[01:07:55] and then based on this you can come up
+[01:07:56] with a with a next method but it's not
+[01:07:58] always just to prove and you know throw
+[01:08:00] theorems and I will say even more what I
+[01:08:02] say is don't do theory for theory you
+[01:08:06] should solve a practical problem so that
+[01:08:09] is relevant for AI I think there were a
+[01:08:11] lot of you know big theory I don't know
+[01:08:13] waves in AI that did not lead to
+[01:08:16] something really changing the way we do
+[01:08:18] things in practice. And so now a lot of
+[01:08:20] people are a bit like oh yeah you do
+[01:08:22] theories you are disconnected from
+[01:08:23] reality. So we need to do more you know
+[01:08:25] practical theory where we remove
+[01:08:28] hyperparameter we explain a phenomenon
+[01:08:30] and we improve uh on the resulting you
+[01:08:33] know pipeline that we apply. But this is
+[01:08:35] very important uh as well you know be
+[01:08:38] very practical and useful for
+[01:08:40] practitioner. uh in an ideal world I
+[01:08:42] want someone to come to me and say can
+[01:08:44] we remove this hyperparameter or I have
+[01:08:46] this weird thing you know and we can not
+[01:08:49] only explain it but also remove this
+[01:08:51] problem or remove this hyperparameter
+[01:08:53] and then they don't lose or maybe they
+[01:08:55] even improve performance and they
+[01:08:57] understand why this is what we are
+[01:08:59] trying to push
+[01:09:00] &gt;&gt; yeah but it's much harder right it's
+[01:09:02] much harder to make a theory that
+[01:09:03] actually related to real world and
+[01:09:06] actually make like valid prediction if
+[01:09:09] this parameter is important
+[01:09:11] this parameter.
+[01:09:12] &gt;&gt; Yeah. But that's when you know you you
+[01:09:14] know were useful in doing theory, right?
+[01:09:17] That's the most rewarding thing when you
+[01:09:19] can explain something or justify some
+[01:09:22] behavior from the theory then implement
+[01:09:25] the solution that comes from those
+[01:09:27] equations and then see that it works.
+[01:09:29] It's harder for sure but it gives you a
+[01:09:32] much higher reward as well. So if you're
+[01:09:34] doing some RL fine tuning it improves
+[01:09:37] quickly
+[01:09:37] &gt;&gt; but but you don't need to you don't need
+[01:09:39] to have theory right in principle it may
+[01:09:42] be that like the solution to AGI will
+[01:09:45] not involve any theory.
+[01:09:48] &gt;&gt; Oh yeah so this is a big debate right so
+[01:09:50] my viewpoint is that it's a little like
+[01:09:53] saying you know if you have infinite
+[01:09:54] compute and time uh and data then of
+[01:09:57] course you can do everything retrieve
+[01:09:59] you know and that's it. I think if you
+[01:10:02] have theory you can speed up your search
+[01:10:04] toward AGI or whatever you want to call
+[01:10:07] it by huge factors you know and so the
+[01:10:09] question is which road do you want to
+[01:10:11] take maybe you want to be a bit slower
+[01:10:13] in the first one or two years because
+[01:10:15] maybe you have to learn a bit more about
+[01:10:16] theory and you know when you do theory
+[01:10:18] it's not like you know in one week you
+[01:10:20] have the solution maybe you spend like I
+[01:10:22] spend six months on one thing without
+[01:10:24] being able to to find a solution and
+[01:10:26] then you start having a solution so it's
+[01:10:28] less short-term gains But if you able to
+[01:10:31] get something maybe in those two years
+[01:10:33] boom you you solve this issue that other
+[01:10:35] people will need 10 years to gather
+[01:10:37] enough data enough compute enough GPU.
+[01:10:40] So I think it's just how you want to
+[01:10:42] approach it and I think in the long term
+[01:10:44] doing some theory is going to pay off
+[01:10:46] you know exponentially more
+[01:10:48] &gt;&gt; well and and I claim there's still lots
+[01:10:50] of techniques probably out there that
+[01:10:52] were pioneered even today that are
+[01:10:55] possibly better than transformers right
+[01:10:57] state space models mamba where we can't
+[01:11:00] give them their proper try because very
+[01:11:03] few of the people inventing these
+[01:11:05] theoretical models even if they're at
+[01:11:06] Google or meta often times they haven't
+[01:11:09] convinced somebody in the company to
+[01:11:11] give them 10,000 GPUs for a month and on
+[01:11:15] a data set anywhere comparable to even a
+[01:11:18] llama model to test these theories or or
+[01:11:21] theoretical you know like model
+[01:11:23] architectures or even more you know
+[01:11:24] theoretical results that that they
+[01:11:27] devise or derive and and try to you know
+[01:11:30] so so I claim that I always consider
+[01:11:32] theory to be better than than empirical
+[01:11:35] stuff because you know it takes very
+[01:11:37] skilled people to do theory like real
+[01:11:40] theory but empirical you know running
+[01:11:44] experiments is significant easy
+[01:11:46] significantly easier right and there's a
+[01:11:48] reason that I don't do any theoretical
+[01:11:51] work at all because it's too hard for me
+[01:11:54] &gt;&gt; yeah I don't think I will say easy I
+[01:11:56] think it's just different type of skills
+[01:11:57] right
+[01:11:58] &gt;&gt; yes exactly
+[01:11:59] &gt;&gt; and I think depending on what you like
+[01:12:02] you will favor one or the other
+[01:12:06] team
+[01:12:06] &gt;&gt; sorry
+[01:12:07] &gt;&gt; it may be I will like it but I will not
+[01:12:09] be good in programming.
+[01:12:11] &gt;&gt; Yeah. Yeah. But I think this is just
+[01:12:12] practice, right? So, uh if you have
+[01:12:15] enough practice, you can, you know, be
+[01:12:18] good at a lot of things. But I think
+[01:12:19] that's why in a team you want people
+[01:12:21] from all those backgrounds, someone that
+[01:12:24] can come and help you remove, you know,
+[01:12:26] this difficulty and someone that will
+[01:12:28] help you scale and that's where you get
+[01:12:30] the best team ever. If it's only people
+[01:12:32] doing theory, then they be like, okay,
+[01:12:33] do I download Amnes to prove my theory,
+[01:12:36] you know, which is useless. uh and if
+[01:12:38] you have only empirical people they be
+[01:12:39] like okay whatever problem I can just
+[01:12:41] throw more data more cross cross
+[01:12:43] validation and and solve the problems
+[01:12:45] that that's why you know I like a lot
+[01:12:47] like I love programming just you know
+[01:12:49] python C++ whatever and I also love very
+[01:12:52] simple uh math which you know sometimes
+[01:12:55] we call theory in AI but you know not
+[01:12:58] too complicated math and you really need
+[01:13:00] to have people who know both sides of
+[01:13:02] the of the coin because otherwise if you
+[01:13:04] miss any you start being too
+[01:13:06] disconnected and either your theory will
+[01:13:08] not transfer or you will work on theory
+[01:13:10] that is not so relevant because it was
+[01:13:12] not an actual problem to to people and
+[01:13:15] same on the on the other side. So really
+[01:13:16] you really need to stay connected on
+[01:13:18] both side of the of the spectrum and
+[01:13:21] then collaborate with people to help you
+[01:13:22] on on either side as well. But you need
+[01:13:26] both end in end otherwise it goes to
+[01:13:28] useless basically.
+[01:13:29] &gt;&gt; Um okay we almost finished. Um we um we
+[01:13:35] ask people uh on LinkedIn what they want
+[01:13:38] to ask and say asked models already
+[01:13:43] been trained on multiple modalities at
+[01:13:45] once or is that something still being
+[01:13:47] developed and when we talk about
+[01:13:49] modality does it only mean audio, video,
+[01:13:52] images and text or could or could it
+[01:13:55] include other data types as well?
+[01:13:58] &gt;&gt; Yeah, good question. So right now most
+[01:14:00] of the jpads are single modality. You
+[01:14:02] have some that are multimodal like video
+[01:14:05] and and audio but it's not yet at the
+[01:14:07] stage of having you know 10 modalities
+[01:14:09] that you you pipe into a single model.
+[01:14:12] So this there is still a little bit of
+[01:14:13] question but I think this will be more
+[01:14:15] about you know just scaling up and
+[01:14:17] having more people working on those once
+[01:14:19] we figure out the training recipe for
+[01:14:21] single modality is probably going to be
+[01:14:23] the same thing everywhere. So this
+[01:14:26] expected very soon less than two years
+[01:14:30] but then modalities I think we will have
+[01:14:32] more and more things like LA or other
+[01:14:35] type of things once we get data from
+[01:14:37] robotics self-driving cars you can think
+[01:14:40] of things like satellite images lots of
+[01:14:43] application for weather as well so yeah
+[01:14:46] modality can be pretty diverse if you go
+[01:14:48] into like financial markets you also
+[01:14:50] have like 10 different modalities as
+[01:14:52] well right so I I don't I think yeah I
+[01:14:56] don't think there is any barrier to
+[01:14:57] those modalities then the question will
+[01:14:59] be less on the JPA side specifically but
+[01:15:02] more about you know to do fusion with
+[01:15:04] multimodal data and this is a big
+[01:15:06] research question even in just
+[01:15:08] supervised learning you do early versus
+[01:15:10] late fusion blah blah blah and so this
+[01:15:12] is where we will be able to think about
+[01:15:14] this research problem uh that are a bit
+[01:15:17] outside of objective I think will be
+[01:15:20] pretty modality agnostic
+[01:15:22] &gt;&gt; great okay so Rand do you have something
+[01:15:25] that you want to add, something that you
+[01:15:27] want to sell to advertise something,
+[01:15:30] whatever. This is your time.
+[01:15:32] &gt;&gt; Okay. So, here is my brand of tops, you
+[01:15:35] know, with JPA, you can write. No, just
+[01:15:38] kidding. Yeah. Know, I think I think one
+[01:15:39] thing that would be interesting is if
+[01:15:42] you are interested in Japa and don't
+[01:15:45] know where to start, I think honestly
+[01:15:46] just email people. A lot of the Japa
+[01:15:49] people are actually happy, you know, to
+[01:15:51] spend time to spread the word. So email
+[01:15:54] people, Google around, try some code
+[01:15:57] bases and I would say you know persevere
+[01:15:59] even if it does not work on the first
+[01:16:01] try, reach out to people and think of
+[01:16:04] this as a research opportunity and not
+[01:16:06] necessarily as a as a bug. You know this
+[01:16:08] is the biggest thing we need now is more
+[01:16:11] people trying things working on
+[01:16:13] simplifying training making them
+[01:16:15] stable reliable and same on the other
+[01:16:17] end if you think you have data set data
+[01:16:20] modalities that are useful please shoot
+[01:16:22] us emails always better to have more
+[01:16:24] applications to showcase the strength of
+[01:16:26] Japan and then overall we just need you
+[01:16:28] know more of you so no matter the
+[01:16:31] background even if you just have one
+[01:16:33] hour free and really no matter the
+[01:16:35] background whether you want to do C
+[01:16:37] programming CUDA programming, abstract
+[01:16:39] theory, uh I know your medical image
+[01:16:42] expert, weather expert, no matter we
+[01:16:45] need your help on all the front, you
+[01:16:47] know, software, data implementation,
+[01:16:50] optimization. So yeah, don't don't
+[01:16:52] hesitate. You want to be part of the of
+[01:16:55] the pioneers of the fields. Yeah, join
+[01:16:58] us.
+[01:16:59] &gt;&gt; I agree. Totally agree. Yeah. Okay,
+[01:17:01] Alan, do you want to add or finish in
+[01:17:04] these strong words? It's been a real
+[01:17:07] pleasure chatting with you and you know
+[01:17:09] representation engineering techniques
+[01:17:11] like this are a unique place and one
+[01:17:14] where you know it seems like the sky's
+[01:17:15] is the limit right I mean the generality
+[01:17:17] of where they can be applied to is very
+[01:17:20] attractive about them and so so it's
+[01:17:22] always nice to talk to an expert in in a
+[01:17:24] technique I hadn't even heard about
+[01:17:26] before I came on this call today. Glad,
+[01:17:28] glad. Yeah. And if you have any follow
+[01:17:29] questions, you know, shoot me an email.
+[01:17:31] But yeah, we need more advertisement
+[01:17:33] like this. So, thanks for uh for
+[01:17:35] inviting me as well. We are going to get
+[01:17:38] there together. Exactly. Exactly.
+[01:17:40] &gt;&gt; Okay. So, thank you everyone. Thank you
+[01:17:43] Randall. Thank you Alan. And thank you
+[01:17:45] for all the people that listen to us.
+[01:17:48] Yeah.
+[01:17:49] &gt;&gt; Thanks everyone. Have a good day. Bye.
+[01:17:56] &gt;&gt; [music]

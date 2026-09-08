@@ -115,6 +115,14 @@ And one limitation that should temper the whole ladder for robotics: SSL methods
 6. **Compute RankMe on a world-model latent.** If effective rank tracks planning success the way it tracks ImageNet accuracy, it is a label-free, decoder-free, planner-free model-selection signal for exactly the setting where labelled evaluation is a [real-robot rollout](../../concepts/robotics/robot-policy-evaluation.md). It would also test the [LeJEPA repo's unverified "94% Spearman" claim](../../sources/lejepa-github.md) against an independent metric.
 7. **Check the uniform prior on robot data.** SSL degrades on imbalanced datasets because the most discriminative in-batch feature stops being the semantic one. Demonstration data is mostly approach and idle. Nobody in this wiki has looked.
 
+## What replaces the class count?
+
+A reframing worth having before the family tree, from [Balestriero on a podcast](../../sources/information-bottleneck-ep11-jepa-balestriero.md) a month before LeJEPA. Collapse is not an SSL-specific pathology — it is a **continuum that supervised learning sits on too**:
+
+> When you reconstruct, **you cannot collapse because you need to keep all the information to reconstruct all the pixels.** Similarly, when you do supervised learning, you cannot collapse because you need to **at least discriminate the classes**… In supervised learning **the number of classes is sort of a way to control the collapse** of the embedding. That's why if you do supervised learning on ImageNet-10 versus ImageNet-1k, the ImageNet-1k one will generalize much more zero-shot — **finer-grain classes, less collapsed features.**
+
+So a decoder anchors the representation by forcing it to retain everything, and labels anchor it by forcing it to separate *k* things. **Joint-embedding removes both anchors, and every device on this page is a substitute for a knob that used to come free with the dataset.** That is a tidier statement of what the four families are *for* than "they prevent collapse," and it predicts the thing the page already observes — that the devices differ mainly in *how much* structure they impose, not in whether they work.
+
 ## The axis the family tree does not have
 
 This page sorts SSL by **anti-collapse device**; the [Cookbook](../../sources/ssl-cookbook.md) sorts by **mechanism of the training signal**. Neither says *when to reconstruct and when to predict in latent space* — the split that sits above both taxonomies.

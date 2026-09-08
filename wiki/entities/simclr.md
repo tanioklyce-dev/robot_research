@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-09-03
 updated: 2026-09-03
-sources: 4
+sources: 5
 tags: [simclr, contrastive-learning, nt-xent, projector, augmentation, google-brain, hinton, self-supervised]
 ---
 

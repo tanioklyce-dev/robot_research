@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-07-26
 updated: 2026-09-07
-sources: 18
+sources: 19
 tags: [person, balestriero, brown, citadel, wavelets, spline-theory, signal-processing, nasa-mars-seis, lejepa, sigreg, jepa, ssl, theory, world-model, inverse-dynamics, causality, spectral-graph-theory, time-series, levjepa, tutorial]
 ---
 
@@ -48,6 +48,15 @@ Two things in it sit awkwardly beside the later work, and are recorded rather th
 - **The theoretical basis for the Day 3 argument exists, and is now ingested.** [Joint-Embedding vs Reconstruction](../sources/joint-embedding-vs-reconstruction-paper.md) (NeurIPS 2025, senior author, with Van Assel, Ibrahim, Biancalani and Regev of Genentech) derives **closed-form solutions for both paradigms under linear models** and names the deciding variable: **the magnitude of the irrelevant features**. High → joint-embedding, because it imposes a *strictly weaker* augmentation-alignment condition; **low → reconstruction**, because the important components already carry the variance. So his Day 3 case against reconstruction is the **high-noise half of a crossover**, not a general verdict — and the wiki now has the condition rather than the conclusion.
 - **It already contains a label-free answer to the question he calls open on Day 3.** *"How can you assess if you learned a good Z without having to reconstruct?"* — the Cookbook recommends **RankMe**, the effective rank of the embedding spectrum, which recovers essentially all of a labelled oracle's hyperparameter-selection quality. See [representation evaluation](../concepts/learning/representation-evaluation.md).
 
+## The month before LeJEPA (2025-10-28)
+
+[An 78-minute podcast](../sources/information-bottleneck-ep11-jepa-balestriero.md) recorded weeks before [LeJEPA](../sources/lejepa-paper.md) shipped, and he pre-announces it without naming it: on how the field prevents collapse, *"there is not yet agreed upon method. **Maybe there will be soon once we release our version.**"* Four things it adds that the papers do not:
+
+- **The expertise goes into the prediction task, not the anti-collapse term** — *"in general you need a lot of expertise to design the prediction task itself."* And the [WAM](../concepts/world-models/world-action-model.md) justification in one sentence: if the video is of a robot, *"you have actions of what the robot is doing, you can include that as part of the prediction task to **help the system navigate the uncertainty of the future prediction task**"* — actions as uncertainty reducers in the loss, not as an output.
+- **Collapse is a continuum that supervised learning has too.** Reconstruction cannot collapse *"because you need to keep all the information to reconstruct all the pixels"*; supervised cannot *"because you need to at least discriminate the classes"* — and **the class count is itself the collapse control**: ImageNet-1k features generalize better zero-shot than ImageNet-10's *"because you have much finer-grain classes and so less collapsed features."* Which reframes [the anti-collapse lineage](../sources/../syntheses/world-models/ssl-anti-collapse-lineage.md) as *what replaces the class count when there are no classes?*
+- **Where SSL breaks**, said plainly: methods are designed for *"clean, balanced"* data, and under noise or *"rare events, distribution of the underlying cluster that is very heavy-tail"* they *"disregard some of the useful features just to capture noise features."* The conversational form of his own [JE-vs-Reconstruction](../sources/joint-embedding-vs-reconstruction-paper.md) result — and a description of **robot demonstration data**, which nobody has tested.
+- **Codebase size as a moat.** DINOv3 at *"like 20,000 lines"* against SimCLR's *"300 lines"*: *"we have to be careful about not over-engineering things too early, because then it means everyone else is left behind. **So it gives you a competitive advantage — but is it your goal?**"* This wiki had read LeJEPA's simplicity as a stability claim; here it is an accessibility argument.
+
 ## Teaching it — the Day 3 tutorial (2026-09-02)
 
 His 90-minute [*How to Train JEPA World Models Without Headache*](../sources/chicago-booth-world-modeling-workshop-2026-day3.md) is the wiki's only source where he explains the line in his own words rather than in a paper's. Four things it adds:
@@ -70,6 +79,7 @@ He is also unusually direct about the state of the art he is selling: *"we are n
 
 ## Mentioned in
 - [Joint-Embedding vs Reconstruction](../sources/joint-embedding-vs-reconstruction-paper.md) — senior author; the closed-form condition under the whole JEPA-vs-reconstruction argument, and the regime where reconstruction wins.
+- [The Information Bottleneck EP11 — JEPA](../sources/information-bottleneck-ep11-jepa-balestriero.md) — the position one month before LeJEPA, including the pre-announcement, the class-count-controls-collapse framing, and the codebase-as-moat argument.
 - [Personal site (randallbalestriero.github.io)](../sources/randall-balestriero-personal-site.md) — his own six-area map of the work; the Citadel role; NASA Mars SEIS and the wavelet line; and the uningested papers above. **Note it mentions no academic position at all** — a self-presentation artifact, not a factual record, and never the source for what he does.
 - [galilai-group/tutorial](../sources/wm-booth-lejepa-lewm-tutorial-repo.md) — sole committer; a 897-line LeJEPA + LeWM tutorial pushed hours before the workshop's Day 3 coding session.
 - [galilai-group/lejepa](../sources/lejepa-github.md) — the reference implementation, and the normality-test library SIGReg is one configuration of.
