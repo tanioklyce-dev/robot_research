@@ -3,8 +3,8 @@ title: Meta FAIR
 type: entity
 subtype: company
 created: 2026-05-07
-updated: 2026-05-15
-sources: 23
+updated: 2026-09-07
+sources: 24
 tags: [meta, fair, lecun, world-model, jepa]
 ---
 
@@ -14,6 +14,7 @@ Meta's Fundamental AI Research lab ("FAIR at Meta"). Center of gravity for the [
 - **JEPA program**: V-JEPA → [V-JEPA 2](v-jepa-2.md) → V-JEPA 2-AC → [V-JEPA 2.1](../sources/v-jepa-2-1-paper.md) (March 2026, "dense features"). And in parallel, [DINO-WM](dino-wm.md) (Nov 2024, with NYU) → [DINO-world](dino-world.md) (July 2025, video) → [JEPA-WMs](jepa-wms.md) (Dec 2025, robot-specific). Two parallel lines: *encoder-co-trained* (V-JEPA family) and *frozen DINOv2 features* (DINO-WM / DINO-world / JEPA-WMs).
 - **Key people**: Yann LeCun (chief AI scientist), Mahmoud Assran, Adrien Bardes, Nicolas Ballas, Michael Rabbat, Franziska Meier (V-JEPA 2 core team). Adrien Bardes is also senior on [JEPA-WMs](../sources/jepa-wms-paper.md). Basile Terver is the bread-crumb across [DINO-world](../sources/dino-world-paper.md) and [JEPA-WMs](../sources/jepa-wms-paper.md). Federico Baldassarre + Piotr Bojanowski + Maximilian Seitzer carry the DINO-world line.
 - **Simulator stance — observed pattern, not stated.** Early FAIR JEPA work (V-JEPA 2, June 2025) skipped sim entirely. The Dec 2025 JEPA-WMs paper moved into [RoboCasa](robocasa.md) + Metaworld + DROID + real Franka. V-JEPA 2.1 (March 2026) sustains the no-sim line with internet-video benchmarks + real-robot eval. FAIR is hedging across both. See [the revised synthesis](../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md).
+- **Robotics group shut down (per LeCun, January 2026).** In the [MIT Technology Review launch interview for AMI Labs](../sources/mit-tech-review-lecun-ami-labs-interview.md), LeCun says *"the robotics group at FAIR was let go, which I think was a strategic mistake,"* and that FAIR *"was extremely successful in the research part"* while Meta *"was less successful… pushing it into practical technology and products."* **Single-voice claim** — no Meta statement or independent reporting is ingested; date of the shutdown unstated. Worth holding against the JEPA-robotics line above: JEPA-WMs (Dec 2025) and V-JEPA 2.1 (Mar 2026) still carry FAIR affiliations, so whatever was dissolved was not the world-model team.
 - **Open source**: facebookresearch/vjepa2, facebookresearch/jepa-wms.
 - **Adjacent**: [Robot Utility Models](robot-utility-models.md) (Meta-affiliated co-authors). [Habitat](habitat.md) — embodied-AI sim suite (note: notably absent from FAIR's own JEPA work despite shared institutional context).
 - **Cross-vendor robot research**: Meta has separately used Boston Dynamics' [Spot](spot.md) to test AI systems for locating and retrieving previously unseen objects ([referenced](../sources/bostondynamics-spot-gemini-robotics.md)). Indication that Meta uses external commercial robot platforms for embodied-AI research, not just its own (Habitat-Sim, simulated humanoids).
@@ -22,6 +23,8 @@ Meta's Fundamental AI Research lab ("FAIR at Meta"). Center of gravity for the [
 With NVIDIA pushing generative video as the world-model paradigm and AGIBOT pushing simulator-native scene generation, **FAIR's bet is latent-prediction JEPA** — predict next-state representation, not pixels. The contrast between paradigms is one of the most consequential open questions in agentic robotics 2026.
 
 ## Related
+- [AMI Labs](ami-labs.md) — LeCun's post-FAIR company; *"Meta might be our first client."*
+- [MIT Technology Review — LeCun launch interview](../sources/mit-tech-review-lecun-ami-labs-interview.md) — source for the robotics-group shutdown claim.
 - [V-JEPA 2](v-jepa-2.md) — flagship product.
 - [DINO-WM](dino-wm.md) — JEPA-adjacent (FAIR + NYU).
 - [DINO-world](dino-world.md) — DINOv2 video world model.

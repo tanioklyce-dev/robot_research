@@ -3,8 +3,8 @@ title: AMI Labs
 type: entity
 subtype: organization
 created: 2026-05-09
-updated: 2026-07-26
-sources: 6
+updated: 2026-09-07
+sources: 7
 tags: [ami-labs, lecun, jepa, world-model, startup]
 ---
 
@@ -44,6 +44,18 @@ Two caveats keep this modest: (1) it is a **co-authorship** with an NYU Tandon r
 - **1–2 years**: apply world-model planning to **complex industrial systems "that cannot be reduced to a small number of equations"** — jet engines, airplanes, chemical/power plants; a diabetes patient's blood-sugar control; coaxing a stem cell into an insulin-producing beta cell; materials / catalyst / battery design. Framed as gaining experience pushing the methodology into practice, **not** initially a revenue model. Explicitly *not* simple robot arms / humanoids / rockets (those have writable dynamical equations).
 - **3–5 years**: stated ambition to become **"the main supplier of intelligent systems, whatever the application is."**
 
+## Leadership, structure, and targets (LeCun, per MIT Technology Review, 2026-01-22)
+
+From the [exclusive launch interview](../sources/mit-tech-review-lecun-ami-labs-interview.md), one day after the announcement:
+
+- **Roles.** LeCun is **executive chairman** — *"I can do management, but I don't like doing it"* — and keeps his NYU post. **Alex LeBrun** is CEO: three prior AI companies (sold to Microsoft; sold to Facebook, then ran FAIR Paris engineering; founded Nabla). *"It's going to be LeCun and LeBrun."*
+- **Saining Xie as chief scientist** — asked directly, not confirmed: *"Let's just say I have a lot of respect for him."*
+- **Footprint.** HQ Paris; a North American office (New York implied — *"Silicon Valley is a bit of a monoculture"*); probably Asia. Positioned as *"a credible frontier AI company that is neither Chinese nor American,"* with open-source-as-platform and AI sovereignty as the pitch to investors and governments.
+- **Recruiting** from OpenAI, Google DeepMind, and xAI, framed as belief-driven rather than pay-driven.
+- **Data:** video, audio, *"sensor data of all kinds… from the position of a robot arm to lidar data to audio,"* plus a JEPA project on *"complex physical and clinical phenomena."*
+- **Stated applications:** industrial processes with thousands of sensors (jet engine, steel mill, chemical factory); **smart glasses** that predict the wearer's next action; reliable agentic systems. Domestic robots and Level 5 driving are named as what world models *eventually unlock*, not as targets — consistent with the plan below.
+- **Meta:** *"Meta might be our first client!"* Non-competing by his account: AMI on physical-world world models, Meta on generative AI and LLMs.
+
 ## Related
 - [Yann LeCun](yann-lecun.md) — reported founder.
 - [WorldDP](worlddp.md) — the first paper carrying an AMI Labs affiliation on LeCun's byline.
@@ -51,6 +63,7 @@ Two caveats keep this modest: (1) it is a **co-authorship** with an NYU Tandon r
 - [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — research direction.
 
 ## Mentioned in
+- [MIT Technology Review — LeCun launch interview (2026-01-22)](../sources/mit-tech-review-lecun-ami-labs-interview.md) — **the primary for leadership, structure, data modalities, and target applications**; predates and is consistent with the Welch Labs plan.
 - [Towards AI — LeCun / AMI Labs article](../sources/towardsai-lecun-ami-labs.md)
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) — landing-page tagline + near-term industrial plan
 - [When Does LeJEPA Learn a World Model?](../sources/when-does-lejepa-learn-a-world-model-paper.md) / [stable-worldmodel](../sources/stable-worldmodel-paper.md) — the May 2026 LeCun world-model papers, both **NYU**-affiliated, checked against this page's attribution claim.

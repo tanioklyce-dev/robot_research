@@ -70,6 +70,9 @@ Conditionally — and most likely **not in the form "JEPA as controller."** Each
 2. **Hierarchy grows past two levels and accepts language.** HWM and WorldDP are the first realizations of the 2022 vision, arriving four years later. The N-level emergent hierarchy is still a position paper.
 3. **A force or tactile channel enters the latent.** [VTAM](../../entities/vtam.md) shows a video-action model ingesting tactile images and predicting them *"as faithfully as future video."* Nothing in the JEPA line has done the equivalent.
 
+> [!note] LeCun's own answer to "eventually" is the same shape — a precondition, not a date
+> Asked about humanoids in the [MIT Technology Review launch interview](../../sources/mit-tech-review-lecun-ami-labs-interview.md) (2026-01-22): *"nobody — absolutely nobody — knows how to make those robots smart enough to be useful,"* and *"if we want a generally useful domestic robot… that's not going to happen until we have good world models and planning."* He names the bar — *"a domestic robot that is as agile as a house cat"* — and gives **no year**. The dates he does give elsewhere are for the architecture (3–5 years) and for an industrial-first company plan that excludes robots. So the architect of the program and this page agree on the form of the answer, and neither supplies the number.
+
 **The likelier landing is already visible.** A JEPA-style objective as an auxiliary loss or encoder inside a VLA — [FLARE](../../concepts/world-models/flare.md) in [GR00T N1.5](../../sources/groot-n1_5.md), [VLA-JEPA](../../entities/vla-jepa.md) — and a latent world model as **subgoal generator, policy evaluator, or RL environment above a learned skill**. [WorldDP](../../entities/worlddp.md) is LeCun's own group making a [Diffusion Policy](../../entities/diffusion-policy.md) the executor. That is the shape to build toward, not away from.
 
 ## 3. The good approach: an architecture, not a model

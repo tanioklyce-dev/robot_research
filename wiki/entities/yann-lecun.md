@@ -3,8 +3,8 @@ title: Yann LeCun
 type: entity
 subtype: person
 created: 2026-05-07
-updated: 2026-09-02
-sources: 56
+updated: 2026-09-07
+sources: 57
 tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs, logical-intelligence, ebm, diffusion-policy, object-centric, spectral-graph-theory]
 ---
 
@@ -44,6 +44,8 @@ Ten papers in this wiki now carry his name. The world-model paradigm that distin
 - **Canonical position paper.** **["A Path Towards Autonomous Machine Intelligence" (2022-06-27, v0.9.2)](../sources/lecun2022-path-towards-ami.md)** is LeCun's full architectural vision document: a six-module differentiable agent (perception, world model, actor, cost, short-term memory, configurator), JEPA / H-JEPA as the world-model substrate, intrinsic-cost + learned-critic as the reward replacement, and the long-form argument against contrastive SSL and generative video. **Every JEPA paper in this wiki instantiates a piece of this blueprint.** It is also the source of LeCun's repeated public claim that "LLMs are insufficient for common sense."
 - **Self-supervised learning at internet-scale.** The V-JEPA 2 framing — internet-scale video pretraining + small action-conditioning — is consistent with LeCun's broader "energy-based models / observation-only learning" agenda predating JEPA. The same Welch Labs video opens with his "intelligence is a cake" metaphor (SSL = cake, supervised = icing, RL = cherry).
 - **"VLA are doomed."** In the on-camera [Welch Labs Part 2 explainer (2026-05-30)](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md), LeCun makes his sharpest recorded attack on the dominant [VLA](../concepts/learning/vla-models.md) paradigm, on two grounds: **(1)** behavioral cloning doesn't scale and is brittle ("completely helpless" in slightly-new situations), and **(2)** VLAs lack explicit planning / a world model — *"I do not understand how you can even think of building an agentic system without … the ability of predicting the consequences of its actions."* The JEPA + planning alternative is his answer. (The wiki's own VLA evidence — [π0.7](../entities/pi07.md) emergent capabilities, RT-2 generalization — is the standing counterargument; see [critiques of the intelligence north star](../syntheses/society/critiques-of-the-intelligence-north-star.md).)
+- **Domestic robots: a precondition, never a date.** His only ingested statement on household robots in his own words is the [MIT Technology Review interview (2026-01-22)](../sources/mit-tech-review-lecun-ami-labs-interview.md): *"nobody — absolutely nobody — knows how to make those robots smart enough to be useful. Take my word for it,"* because they need *"an enormous amount of tele-operation training data for every single task"* and do not generalize when the environment changes. The bar he sets is *"a domestic robot that is as agile as a house cat,"* and the condition is *"that's not going to happen until we have good world models and planning."* **He gives no year for household deployment anywhere the wiki can find** — the timelines he does commit to are for the *architecture* (3–5 years for a new paradigm; *"maybe the coming decade will be the decade of robotics,"* Davos 2025, un-ingested) and for AMI Labs' industrial plan below, which excludes robots. See [JEPA for a household mobile manipulator](../syntheses/world-models/jepa-for-household-mobile-manipulator.md) for how this sits against the wiki's own estimates.
+- **FAIR's robotics group was shut down** — and he calls it *"a strategic mistake"* (same interview). The only source for this; see [Meta FAIR](meta-fair.md).
 - **Near-term AMI Labs plan (per Part 2).** Within 1–2 years, apply world-model planning to **complex industrial systems "that cannot be reduced to a small number of equations"** (jet engines, chemical/power plants, a diabetes patient's blood-sugar control, stem-cell→beta-cell differentiation, materials/catalyst/battery design) — explicitly *not* robot arms / humanoids / rockets, whose dynamics can be written down. Within 3–5 years, the stated ambition is to be "the main supplier of intelligent systems." See [AMI Labs](../entities/ami-labs.md).
 
 ## Position in the broader field
@@ -68,7 +70,7 @@ LeCun is one of the small number of researchers whose **simultaneous senior posi
 ## Mentioned in
 - [Third World Modeling Workshop, Chicago Booth 2026](../sources/chicago-booth-world-modeling-workshop-2026.md) — keynote and panel. Contains his bluntest recorded statement on imitation learning: *"we still don't have level-five self-driving cars… imitation learning has been a failure for driving. And believe me — I believed in this 15 years ago, not anymore."*
 
-> [!note] Curated list — **46** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **57** source pages link here; the ones below are those that shaped this page.
 
 - [VAE Paper (Kingma & Welling, 2013)](../sources/vae-paper.md) — his predictive sparse decomposition (Kavukcuoglu, Ranzato, LeCun 2008) is cited as an encoder–decoder architecture the VAE authors "drew some inspiration" from.
 - [Bromley et al. 1993 — Signature Verification using a Siamese TDNN](../sources/bromley1993-siamese-signature-verification.md) — co-author; original Siamese network paper.
@@ -85,6 +87,7 @@ LeCun is one of the small number of researchers whose **simultaneous senior posi
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
 - [LeJEPA Paper](../sources/lejepa-paper.md)
 - [Towards AI — LeCun / AMI Labs article](../sources/towardsai-lecun-ami-labs.md)
+- [MIT Technology Review — Yann LeCun's new venture is a contrarian bet against LLMs (interview, 2026-01-22)](../sources/mit-tech-review-lecun-ami-labs-interview.md) — **primary source for his domestic-robot stance** ("nobody knows how to make those robots smart enough to be useful"; precondition, not date); AMI Labs leadership (executive chairman; LeBrun CEO); FAIR robotics group let go.
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs (video)](../sources/welchlabs-lecun-1b-bet-against-llms.md)
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) — VLA critique, hierarchical-JEPA push-t result, AMI near-term plan.
 - [Hierarchical Planning with Latent World Models (HWM, paper)](../sources/hwm-paper.md) — senior author; the realized H-JEPA.
