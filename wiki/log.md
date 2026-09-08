@@ -5739,3 +5739,22 @@ The theorem supplies the mechanism, so the in-domain loss stops being a wart: an
 The practical output is a rule that is narrower and more usable than "use a JEPA": **name the deployment shift before choosing the method, then check the training procedure says something about that axis.** A regularizer that shapes the latent distribution is not such a statement, however principled. For in-home work the axes are *this house* and *this mug*, and nothing in the standard JEPA recipe declares either irrelevant.
 
 Weaknesses stated on the page rather than buried: one instance is a vendor blog with no rollout counts, one is a v1 with 20–30 rollouts per cell, the theorem is for **linear** models, and three instances arriving in one ingest week is selection. **Filed the experiment that would falsify it** — train one JEPA with colour jitter and one without, measure Push-T under colour shift; identical in-distribution, divergent under shift, or the mechanism is wrong. Also filed the cheapest thing that would complicate it: check which augmentations LeWorldModel actually used, since LeJEPA's multi-view invariance loss *is* an augmentation-based declaration and the clean SIGReg story depends on it not being one.
+
+## [2026-09-07] check | Which augmentations does LeWorldModel use? — none, and that sharpens the claim
+
+Filed yesterday as the cheapest thing that could complicate [the abstraction tax](syntheses/world-models/abstraction-tax.md). Checked against the paper, its Appendix D, and the [`le-wm`](https://github.com/lucas-maes/le-wm) configs and source.
+
+- Updated: [the abstraction tax](syntheses/world-models/abstraction-tax.md), [LeWorldModel paper](sources/leworldmodel-paper.md), [backlog](backlog.md) (struck)
+
+**The answer is none.** *Augment*, *crop*, *jitter*, *flip* and *blur* appear **zero times** in the paper; all 16 occurrences of *color* are the violation-of-expectation perturbation being tested, not a training transform. The whole image pipeline is `get_img_preprocessor` → **`ToImage(imagenet_stats)` + `Resize(224)`**, plus z-score normalization of action/proprio/state. Deterministic throughout.
+
+The reason there is nothing to find: **LeWM is not LeJEPA.** It borrows [SIGReg](concepts/world-models/sigreg.md) and *not* LeJEPA's multi-view invariance loss. Its two terms are `L_pred = ‖ẑ_{t+1} − z_{t+1}‖²` — action-conditioned next-frame latent prediction via AdaLN, teacher-forced, causally masked — and `λ·SIGReg(Z)`. **The positive pair is (frame t, frame t+1), not two augmented views of one frame.** Temporal adjacency does the job augmentation does elsewhere.
+
+> [!note] The check was supposed to weaken the synthesis and instead upgraded it from an absence to a mechanism
+> The page said LeWM's training *declares nothing irrelevant along the colour axis*, which explained why it is not robust to colour. True, but weak — an argument from omission.
+>
+> The stronger version: **a next-frame prediction objective is *paid* to encode static nuisance attributes.** Temporal prediction declares the *unpredictable* irrelevant, and the agent's colour, size and shape are the **most predictable features in the scene** — constant across every frame of every trajectory. Encoding them is free accuracy on `L_pred`; discarding them costs. [stable-worldmodel](sources/stable-worldmodel-paper.md) then perturbs exactly the attributes the objective was rewarded for keeping. The **50.8% → 6–26%** collapse is the objective working as specified, not a surprise about abstraction.
+>
+> And it generalizes past one model: any latent world model whose sole invariance signal is temporal prediction — [DINO-WM](entities/dino-wm.md), [PLDM](entities/pldm.md), LeWM — should preserve static scene attributes and be brittle to shift in them. Which is what stable-worldmodel reports, with distractor collapse *"quadratic across all baselines."* **The [world-action model](concepts/world-models/world-action-model.md) family has no mechanism for declaring a static attribute irrelevant, and none of these papers claims one.**
+
+Residual imprecision moved rather than removed, and filed: [LeVJEPA](sources/levjepa-paper.md)'s invariance loss runs over *global and local views of a clip*, and **whether those views carry photometric augmentation is unverified**. The LeWM finding should not be extended to the rest of the Le- line until that recipe is read. The [declared-axis experiment](backlog.md) is unaffected and still the thing that decides the page.

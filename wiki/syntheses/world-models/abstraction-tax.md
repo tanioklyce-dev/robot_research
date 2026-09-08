@@ -72,10 +72,27 @@ Every row lines up once you ask *what was declared*:
 | **S1** | *which task this is* — pre-training episodes specify the task **only** by an in-context demonstration | unseen tasks | pays, hugely |
 | **DINO vs MAE** | whatever the augmentation set covers | ImageNet-C corruptions | pays, ~2.4× |
 | **Demo-JEPA** | *which robot this is* — the Dreamer Predictor is trained on cross-embodiment demo pairs | new embodiment | pays |
-| **LeWorldModel** | an **isotropic Gaussian latent distribution** — a statement about the *shape of the representation*, not about which input variations to discard | agent color, size, shape | **does not pay** |
+| **LeWorldModel** | **nothing** — verified 2026-09-07: no augmentation of any kind, and SIGReg constrains the *shape of the representation*, not which input variations to discard | agent color, size, shape | **does not pay** |
 | **LeVJEPA** | 95% of tokens, uniformly at random — including temporal correlation | motion (SSv2) | **does not pay** — loses 3.2, and the authors suspect the dropping |
 
 SIGReg is the clean case because it is the honest one. It is derived from [identifiability](../../concepts/world-models/identifiability.md) — *the isotropic Gaussian is minimax-optimal under task uncertainty* — and that is a claim about latent geometry. **It never says color does not matter.** Nothing in the objective could make it robust to a color shift, and the measurement agrees.
+
+### Checked, 2026-09-07: LeWorldModel declares nothing, and its objective actively preserves the thing that breaks it
+
+This page originally hedged here — LeJEPA carries a multi-view invariance loss on top of SIGReg, so perhaps LeWM inherited an augmentation-based declaration after all. **It did not.** Verified against the [paper](../../sources/leworldmodel-paper.md), its Appendix D implementation details, and the [`le-wm` source and configs](https://github.com/lucas-maes/le-wm):
+
+- The word **"augment" appears zero times** in the paper. So do *crop*, *jitter*, *flip*, and *blur*. Every occurrence of *color* is the violation-of-expectation **perturbation** they test, never a transform they train with.
+- The entire image pipeline is `get_img_preprocessor` → **`ToImage(imagenet_stats)` + `Resize(224)`**, plus z-score normalization of the action/proprio/state columns. **Deterministic. No stochastic augmentation anywhere.**
+- **LeWM is not LeJEPA.** It borrows SIGReg and *not* the multi-view invariance loss. Its two terms are `L_pred = ‖ẑ_{t+1} − z_{t+1}‖²` — action-conditioned next-frame latent prediction, teacher-forced, causally masked — and `λ·SIGReg(Z)`. **The positive pair is (frame *t*, frame *t+1*), not (aug₁(x), aug₂(x)).** Temporal adjacency is the invariance signal.
+
+So the narrowed claim survives the check. But the finding is better than "no declaration was made", because it supplies a **mechanism** rather than an absence:
+
+> [!warning] A next-frame prediction objective does not merely ignore static nuisance attributes — it is paid to keep them
+> Temporal prediction declares the **unpredictable** irrelevant. The agent's colour, size and shape are the **most predictable features in the scene**: constant across every frame of every trajectory. Encoding them is free accuracy on `L_pred`, and discarding them costs.
+>
+> So LeWM does not have "no incentive to discard colour." **It has a positive incentive to encode it** — and stable-worldmodel then perturbs exactly the attributes the objective was rewarded for preserving. The 50.8% → 6–26% collapse is not a surprise about abstraction; it is the objective working as specified.
+>
+> **This generalizes past LeWM.** Any latent world model whose only invariance signal is temporal prediction — [DINO-WM](../../entities/dino-wm.md), [PLDM](../../entities/pldm.md), LeWM — should preserve static scene attributes and be brittle to shift in exactly those. Which is what [stable-worldmodel](../../sources/stable-worldmodel-paper.md) reports: the distractor collapse is *"quadratic across all baselines."* **The [world-action model](../../concepts/world-models/world-action-model.md) family has no mechanism for declaring a static attribute irrelevant, and none of these papers claims one.**
 
 > [!warning] Demo-JEPA ran the controlled version of this by accident
 > The best evidence for the narrowed claim is a single ablation inside one paper, because it holds the abstraction fixed and varies only whether the axis was declared.
@@ -99,7 +116,7 @@ For [in-home deployment](../assistive/long-term-in-home-robot-deployments.md) sp
 ## Where this could be wrong
 
 - **One of the three instances is a vendor blog with no rollout counts**, one is a v1 preprint with 20–30 rollouts per cell, and one is a theorem about **linear** models validated on ImageNet-C. Any single instance is weak. The argument rests on their independence, which is a weaker form of evidence than it feels like.
-- **"Declared irrelevant" is doing a lot of work and is not always crisp.** For [LeJEPA](../../sources/lejepa-paper.md) and [LeVJEPA](../../sources/levjepa-paper.md) the multi-view invariance loss *is* an augmentation-based declaration, on top of SIGReg — so the clean SIGReg-says-nothing-about-color story needs checking against **which augmentation set LeWorldModel actually used**. The wiki has not checked, and it is the first thing that would complicate this page.
+- **"Declared irrelevant" is doing a lot of work and is not always crisp.** ~~The clean SIGReg story needs checking against which augmentation set LeWorldModel actually used.~~ **Checked 2026-09-07 and it held — LeWM uses no augmentation at all** (above). The residual imprecision is elsewhere: [LeVJEPA](../../sources/levjepa-paper.md)'s invariance loss runs over *global and local views of a clip*, and **whether those views carry photometric augmentation is unverified here** — so the sharp LeWM finding should not be extended to the rest of the Le- line without reading its recipe too.
 - **The counterexample may just be a weak model.** [stable-worldmodel](../../sources/stable-worldmodel-paper.md) reports a quadratic distractor collapse *across all baselines*, which is consistent with "current world models are brittle" rather than with anything specific about declared axes.
 - **Selection.** Three instances arrived in one week of ingesting, chosen partly because they were interesting. The wiki has not gone looking for methods that abstract, cost nothing in-domain, and generalize anyway — which is the shape that would falsify the first claim.
 

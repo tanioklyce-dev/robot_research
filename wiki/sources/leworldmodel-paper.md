@@ -13,6 +13,13 @@ project_page: https://le-wm.github.io/
 tags: [leworldmodel, lewm, jepa, world-model, end-to-end, sigreg, mila]
 ---
 
+> [!note] Verified 2026-09-07: LeWM trains with **no data augmentation at all**
+> Checked against the paper, Appendix D, and the [`le-wm`](https://github.com/lucas-maes/le-wm) configs and source, because [the abstraction-tax synthesis](../syntheses/world-models/abstraction-tax.md) depends on it. **"augment", "crop", "jitter", "flip" and "blur" appear zero times in the paper**; every occurrence of *color* is the violation-of-expectation perturbation being tested, not a training transform. The whole image pipeline is `ToImage(imagenet_stats) + Resize(224)` plus z-score normalization of action/proprio/state — deterministic, no stochastic augmentation.
+>
+> **LeWM takes SIGReg from [LeJEPA](lejepa-paper.md) but not its multi-view invariance loss.** The positive pair is **(frame *t*, frame *t+1*)** — temporal adjacency is the invariance signal, not two augmented views of one frame.
+>
+> Why it matters: an objective built on next-frame prediction is **rewarded for encoding static scene attributes**, since the agent's colour, size and shape are the most predictable features in any trajectory. That is a mechanism for [stable-worldmodel](stable-worldmodel-paper.md)'s **50.8% → 6–26%** collapse under colour/size/shape shift, and it should apply equally to [DINO-WM](dino-wm-paper.md) and [PLDM](pldm-paper.md).
+
 ## Summary
 Preprint introducing **LeWorldModel (LeWM)** — claimed as the **first JEPA trainable stably end-to-end from raw pixels with only two loss terms**. From researchers at [Mila](../entities/mila.md) / Université de Montréal, NYU, Samsung SAIL, and Brown. Senior author Yann LeCun. Emphasis on simplicity, hyperparameter parsimony, and planning speed.
 
