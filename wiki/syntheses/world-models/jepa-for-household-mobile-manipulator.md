@@ -38,7 +38,9 @@ This is the limit that decides the question, and it is measured by the JEPA line
 [The abstraction tax](abstraction-tax.md) supplies the mechanism, and it generalizes past LeWM: a next-frame prediction objective is **paid to encode static scene attributes**, because they are the most predictable thing in the scene. Nothing in the recipe declares *this mug, not that mug* or *this lighting* irrelevant. The axes a household changes — object identity, layout, lighting, clutter, **this house not that house** — are exactly the undeclared ones.
 
 > [!warning] The decisive point
-> The relevant question for a home robot is not "JEPA or diffusion policy." It is **"what in this recipe tells the model that the kitchen is different from the one in the data?"** For every JEPA world model in this wiki the answer is *nothing*. [Demo-JEPA](../../sources/demo-jepa-paper.md)'s naive-reference ablation shows the same latent space failing across all tasks until a module explicitly declares embodiment a nuisance variable — one latent, two outcomes, and the difference is the declaration.
+> The relevant question for a home robot is not "JEPA or diffusion policy." It is **"what in this recipe tells the model that the kitchen is different from the one in the data?"** For every JEPA world model in this wiki the answer is *nothing about static appearance* — and, with one exception, nothing at all. [Demo-JEPA](../../sources/demo-jepa-paper.md)'s naive-reference ablation shows the same latent space failing across all tasks until a module explicitly declares embodiment a nuisance variable — one latent, two outcomes, and the difference is the declaration.
+>
+> **The exception, added 2026-09-07:** [SMWM](../../entities/smwm.md)'s inverse-dynamics term is a declaration by [the abstraction tax](abstraction-tax.md)'s own rule — it declares **uncontrollable variation** irrelevant, and it measurably ignores a randomly moving distractor object ([paper](../../sources/sensorimotor-world-models-paper.md)). That is a home-relevant axis: people and pets moving through the scene. What it does *not* declare is the static-attribute axis — the forward loss is still paid to encode a constant mug colour — so it does not touch the [stable-worldmodel](../../sources/stable-worldmodel-paper.md) collapse under colour, size, and shape. SMWM postdates that benchmark and **has not been run on its distractor or shift suite.** The prediction this page makes: SMWM should hold up where the distractors *move* and collapse where they are static. Untested.
 
 ### Contact and force
 
@@ -49,6 +51,12 @@ On a low-cost dual-arm platform this is a cliff, not a slope. [UME](../../source
 ### Language
 
 Current JEPA models are vision-only or vision+state. [VLA-JEPA](../../entities/vla-jepa.md) and [VL-JEPA](../../entities/vl-jepa.md) exist and are immature. *"The blue mug, not the one with the chip"* is a VLA-shaped problem.
+
+### Navigation — the half of the query this page had skipped
+
+The query asked about navigation *and* manipulation, and the four limits above are all about manipulation. The navigation half is shorter. JEPA navigation evidence in this wiki is **2D toy mazes** — Two-Room, PointMaze, Wall, Diverse Maze ([JEPA task capabilities](jepa-task-capabilities.md) §2) — plus an unnamed real-robot result in [V-JEPA 2.1](../../sources/v-jepa-2-1-paper.md) and HWM's +39 on unseen maze layouts. Nothing at room scale, nothing with a lidar or depth map, nothing in a building.
+
+Meanwhile household navigation is the **better-solved half already**, by classical means: a voxel map and an A\* path, which is exactly what makes [DimOS](../../syntheses/agents/dimos-as-home-ai-substrate.md) the most auditable stack in the wiki — its inferred state is readable because there is no learned world model in the loop. A JEPA has nothing to add to that layer today, and replacing it would trade an inspectable state for a latent vector on the one subsystem where the classical answer works. **Whatever role a JEPA earns on a home robot, it is in manipulation, not navigation.**
 
 ### And a sizing note
 
