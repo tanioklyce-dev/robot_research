@@ -2,8 +2,8 @@
 title: Flow matching
 type: concept
 created: 2026-05-25
-updated: 2026-08-28
-sources: 23
+updated: 2026-09-07
+sources: 24
 tags: [flow-matching, generative-model, ode, continuous-actions, vla, action-head, pi-zero, smolvla, molmoact2, dit, lipman, esser, xvla]
 ---
 
@@ -109,6 +109,7 @@ See [reward post-training of diffusion and flow models](reward-post-training-dif
 - [MolmoAct2 paper](../../sources/molmoact2-paper.md) — DiT expert, per-layer KV conditioning, K=4/8 flow samples.
 - [Robot Learning: A Tutorial (LeRobot)](../../sources/lerobot-robot-learning-tutorial.md) — covers flow matching in the generative-models chapter.
 - [The Elements of Differentiable Programming](../../sources/blondel-roulet-differentiable-programming.md) — rigorous mathematical reference.
+- [PAN technical report](../../sources/pan-world-model-paper.md) — the generative supervision of the whole GLP system is a rectified-flow / flow-matching loss on the Wan2.1-VAE latent of the next chunk (1000 steps, shifted schedule).
 
 ## Open questions
 

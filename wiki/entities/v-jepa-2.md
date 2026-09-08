@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-07
 updated: 2026-09-07
-sources: 40
+sources: 41
 tags: [v-jepa-2, jepa, world-model, meta-fair, video, action-conditioned, franka]
 ---
 
@@ -92,3 +92,5 @@ Note the scope: these are diffusion world models *using* V-JEPA's latent space, 
 - [Reconstruction or Semantics?](../sources/latent-space-robotic-world-models-paper.md)
 - [DiT World-Action Model for AV Scene Prediction](../sources/dit-world-action-model-av-paper.md) — **first AV evaluation of V-JEPA2 in this wiki.** Wins a six-encoder ego-action probe on nuScenes, and the rep64/rep1 pair isolates *temporal context* as the source: same checkpoint family, 16 frames vs 1, **40% lower steering RMSE** (0.058 vs 0.097). Acceleration barely moves (0.055 vs 0.059) — steering is the part a single frame cannot see.
 - [Patch Policy paper (Zhou, Cui, ..., LeCun, Pinto 2026)](../sources/patch-policy-paper.md) — **V-JEPA 2 evaluated as a frozen dense-feature backbone for behavior-cloned policies, and beaten by DINOv2 and WebSSL.** A narrow test (frozen encoder, no action-conditioned predictor, imitation learning only) that does not touch V-JEPA 2's own zero-shot planning claims — but the first datapoint here that video-pretrained JEPA features are not the best available *as patch features for control*.
+- [PAN technical report](../sources/pan-world-model-paper.md) — the only JEPA baseline: extended with the umT5 text encoder so it can take language actions, fine-tuned on AgiBot, and scored by **latent similarity** while the generators are scored by human judgement — so the step-wise comparison (PAN 56.1 %) is not like-for-like.
+

@@ -3,7 +3,7 @@ title: SIGReg (Sketched Isotropic Gaussian Regularization)
 type: concept
 created: 2026-08-26
 updated: 2026-09-07
-sources: 24
+sources: 25
 tags: [sigreg, jepa, lejepa, anti-collapse, isotropic-gaussian, cramer-wold, epps-pulley, balestriero, lecun, latent-space, regularization]
 ---
 
@@ -200,3 +200,5 @@ Given that open-loop degradation from 25 → 75 steps is the standing failure ([
 - [MAE paper (He et al., 2021)](../../sources/mae-paper.md) — the reconstruction alternative that needs no anti-collapse term, and rejects linear probing as the metric.
 - [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — **its author teaching it**: the DINO instability case, the cross-GPU seeding gotcha, 50 architectures out of the box, the detached-decoder rule, the SIGReg+IDM argument, and a hackathon ablation where Gaussian beat Laplace and Student-t.
 - [Entropy-SGD (2017)](../../sources/chaudhari2017-entropy-sgd.md) — in landscape terms, SIGReg changes *which minima exist* (removes the collapsed basin) where Entropy-SGD changes *which the optimizer finds* (the widest); see [loss-landscape geometry](../learning/loss-landscape-geometry.md).
+- [LeCun & Xing debate (2026)](../../sources/lecun-xing-jepa-glp-debate-2026.md) — LeCun names SIGReg as the regulariser (*"the distribution of points that comes out of the encoder is basically isotropic Gaussian"*) and LeWorldModel as the world model built on it, *"still at relatively small scale, but it works"* [82:54].
+

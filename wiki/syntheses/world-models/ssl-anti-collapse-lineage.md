@@ -184,3 +184,7 @@ Two things it adds to this page directly:
 - [A Cookbook of Self-Supervised Learning](../../sources/ssl-cookbook.md) — the field's own taxonomy, by this line's own authors; the check that revised this page.
 - [LeJEPA](../../sources/lejepa-paper.md) · [stable-worldmodel](../../sources/stable-worldmodel-paper.md) · [SMWM](../../sources/sensorimotor-world-models-paper.md) — the modern end.
 - [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — Balestriero's case against reconstruction, stated by its author.
+
+## LeCun's live version of the reconstruction claim (2026-09-07)
+
+In the [debate with Xing](../../sources/lecun-xing-jepa-glp-debate-2026.md) [137:44–139:45] LeCun states the strongest form: MAE at Meta *"basically failed"*; *"none of those techniques ever produced competitive representations for images. Like, none. Absolutely none … It's not Yann's intuition. It's hard data."* Read against §3 above: this is true of **linear-probe** quality and not of **fine-tuned** quality, which is why this page files reconstruction as the control condition rather than the failure. Xing's reply is the biologist's — *"all data are good data"* — plus a bet that reconstruction hardware is improving faster than the argument against it. The [Van Assel theorem](../../sources/joint-embedding-vs-reconstruction-paper.md) remains the precise statement of what LeCun is right about.

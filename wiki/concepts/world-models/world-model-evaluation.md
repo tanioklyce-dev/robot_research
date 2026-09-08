@@ -2,8 +2,8 @@
 title: World-model evaluation
 type: concept
 created: 2026-08-07
-updated: 2026-09-02
-sources: 16
+updated: 2026-09-07
+sources: 18
 tags: [world-model, evaluation, benchmark, physical-validity, policy, vbench, worldscore, physion-eval, mllm-critic]
 ---
 
@@ -227,3 +227,6 @@ Two riders worth carrying into robotics evaluation:
 - [VP² — A Control-Centric Benchmark for Video Prediction](../../sources/vp2-paper.md) — the founding result; perceptual metrics vs control success, with task-dependent sign.
 - [Reconstruction or Semantics?](../../sources/latent-space-robotic-world-models-paper.md) — the same dissociation at the level of a world model's *latent space*; semantic latents roughly double VLA-in-the-loop success over VAE latents.
 - [DiT World-Action Model for AV Scene Prediction](../../sources/dit-world-action-model-av-paper.md) — distortion and distribution metrics ranking the same two models in opposite orders, with an action-controllability probe showing which ranking tracks utility.
+- [PAN technical report](../../sources/pan-world-model-paper.md) — a fourth home-grown protocol: Action Simulation Fidelity (VLM-judged), Long-horizon Forecast (optical-flow smoothness + WorldScore consistency), Simulative Planning (o3 agent-in-the-loop, blinded human scoring). Borrows from WorldModelBench, WorldScore and WM-ABench; scores a JEPA by latent similarity and generators by human judgement in the same table.
+- [LeCun & Xing debate (2026)](../../sources/lecun-xing-jepa-glp-debate-2026.md) — both speakers agree benchmarks must be **planning tasks**, out of distribution; LeCun adds that the eventual metric is *adaptation speed* on an unseen task, not a fixed suite [147:48].
+

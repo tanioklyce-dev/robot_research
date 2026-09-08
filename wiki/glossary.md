@@ -375,7 +375,7 @@ Open-weights VLA used as a baseline in many 2024–2026 papers. *(Module 9.)*
 Two unrelated senses in this wiki. (1) **Sequential Monte Carlo state estimation** — a weighted sample set over hidden state, propagated through dynamics, reweighted by observation likelihood, resampled; the classical tool for robot localization ([SLAM](#slam)). (2) **In [WorldDP](entities/worlddp.md)**, a planning-time optimizer over latent action sequences: sample around several elite means, roll out through the world model, keep the top-M, iterate. Sense (2) has no weights or likelihood — it is a multi-modal [CEM](#cem) with fixed σ, named for keeping several hypotheses alive where CEM's single Gaussian collapses to one. *(Module 10.)*
 
 ### PAN
-**Physical, Agentic, Nested** world model — [MBZUAI](entities/mbzuai.md)/CMU's instantiation of [GLP](#glp): tokenizer + embedder encoder, enhanced-LLM + diffusion-predictor backbone with a learned switch, multimodal decoder. **Previewed only** in this wiki ([entity](entities/pan-world-model.md)); results paper un-ingested. *(Module 11.)*
+**Physical, Agentic, Nested** world model — [MBZUAI](entities/mbzuai.md)/CMU's instantiation of [GLP](#glp): tokenizer + embedder encoder, enhanced-LLM + diffusion-predictor backbone with a learned switch, multimodal decoder — as proposed. As built ([report](sources/pan-world-model-paper.md)): frozen Qwen2.5-VL-7B continuous latent + Wan2.1-14B video decoder with Causal Swin-DPM. [Entity](entities/pan-world-model.md). *(Module 11.)*
 
 ### PAR
 **Physically Assistive Robotics** — robots that physically assist disabled users (feeding, dressing, transfer). See [Nanavati 2024 systematic review](sources/nanavati2024-physically-assistive-robots-review.md). *(Module 13.)*

@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-07
 updated: 2026-09-07
-sources: 63
+sources: 64
 tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs, logical-intelligence, ebm, diffusion-policy, object-centric, spectral-graph-theory]
 ---
 
@@ -112,6 +112,7 @@ The wiki's own reading, recorded on [loss-landscape geometry](../concepts/learni
 - [The Loss Surfaces of Multilayer Networks (Choromanska et al., AISTATS 2015)](../sources/choromanska2015-loss-surfaces-multilayer-networks.md) — senior author; the spin-glass landscape theory.
 - [Entropy-SGD (Chaudhari et al., ICLR 2017)](../sources/chaudhari2017-entropy-sgd.md) — coauthor; the flat-minima measurement and the local-entropy objective.
 - [Critique of World Model](../sources/critique-of-world-model-paper.md) — the explicit rebuttal of the [2022 blueprint](../sources/lecun2022-path-towards-ami.md), point by point; cites a **LeCun–Xing debate** (Spring School AI for Impact, Ben Guerir, 2026-03-25) as a primary — un-ingested.
+- [LeCun & Xing debate (2026)](../sources/lecun-xing-jepa-glp-debate-2026.md) — the wiki's only primary of LeCun arguing JEPA *against a named opponent*. Opens with *"world models must not be generative"*; the entropy / `PV = nRT` argument; *"whatever information you cannot predict is not going to be useful. I guarantee that"*; MAE *"basically failed"*; Jupiter in six numbers. Concedes text (*"no objection to using text in a JEPA"*). Names SIGReg and LeWorldModel as the current instruments.
 
 ## Resolved / TBD
 - ~~Has anyone built a working **Hierarchical JEPA (H-JEPA)** at the multi-time-scale envisioned in the [2022 position paper](../sources/lecun2022-path-towards-ami.md)?~~ **Resolved (2026-05-31):** **[HWM — "Hierarchical Planning with Latent World Models"](../sources/hwm-paper.md)** (Zhang, Terver, …, LeCun, Ballas — arXiv 2604.03208, April 2026) is the concrete realization: a two-temporal-scale latent MPC wrapper (high-level macro-actions → subgoals → low-level primitive actions), model-agnostic across [DINO-WM](dino-wm.md), [PLDM](pldm.md), and [V-JEPA 2](v-jepa-2.md)-AC. Real-Franka pick-&-place **0%→70%** from a single goal image; Push-T **17%→61%** at the hardest horizon. (This is the paper the [Welch Labs Part 2 video](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) referenced but couldn't name — and its "5→15 steps" was a simplification of the paper's d=25→75 task-horizon framing.) Note it's **two** levels and goal-image-conditioned; the N-level *emergent* hierarchy and language conditioning remain open.

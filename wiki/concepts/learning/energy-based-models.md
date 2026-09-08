@@ -3,7 +3,7 @@ title: Energy-based models (EBMs)
 type: concept
 created: 2026-05-17
 updated: 2026-09-07
-sources: 11
+sources: 12
 tags: [ebm, energy-based-model, bengio, infonce, jepa, ibc, lecun, kona, latent-variable, constraint-satisfaction]
 ---
 
@@ -123,7 +123,7 @@ This is the long thread connecting the [1993 Siamese signature-verification pape
 - [JEPA Through the Eyes of a Physicist (Fajmanova, 2026)](../../sources/jepa-vs-physics-moudrkat.md) — an outside reading of the same material; useful for the coarse-graining framing, wrong on the collapse mechanism.
 - [The Loss Surfaces of Multilayer Networks (2015)](../../sources/choromanska2015-loss-surfaces-multilayer-networks.md) — the spin glass as a model of the *training loss*; the bridge from the Hopfield/Boltzmann prehistory to modern training.
 - [Entropy-SGD (2017)](../../sources/chaudhari2017-entropy-sgd.md) — free energy over weights as a training objective; the optimizer-side twin of the volume-bounding principle.
-
+- [LeCun & Xing debate (2026)](../../sources/lecun-xing-jepa-glp-debate-2026.md) — LeCun's live account of why he stopped predicting pixels [135:42–137:44]: distributions over video clips cannot be normalised, EBMs are the weaker substitute, and diffusion models carry *"zero guarantee"* against mode collapse.
 
 ## Open questions / TBD
 

@@ -3,8 +3,8 @@ title: NVIDIA Cosmos
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-08-27
-sources: 41
+updated: 2026-09-07
+sources: 42
 tags: [cosmos, world-model, omnimodal, mixture-of-transformers, world-action-model, video-generation, nvidia, foundation-model, edge]
 ---
 
@@ -108,3 +108,5 @@ At larger DiT scale, Cosmos closes much of the *policy-success* gap — better r
 ## Mentioned in (additional)
 
 - [Reconstruction or Semantics?](../sources/latent-space-robotic-world-models-paper.md)
+- [PAN technical report](../sources/pan-world-model-paper.md) — Cosmos 1 and Cosmos 2 (14 B) are baselines; PAN reports beating them on its own action-fidelity and long-horizon metrics (numbers only in a figure).
+

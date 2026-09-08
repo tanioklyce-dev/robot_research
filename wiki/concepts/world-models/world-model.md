@@ -3,7 +3,7 @@ title: World model
 type: concept
 created: 2026-05-07
 updated: 2026-09-07
-sources: 65
+sources: 67
 tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video, omnimodal, world-action-model, history]
 ---
 
@@ -143,6 +143,8 @@ On the other side of the same table, [Group-Structured Latent Space](../../sourc
 - [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — **the three-era periodization and the prehistory above**, from Ethayarajh's closing remarks; also the scaling-language vs scaling-experience fork and the three open questions
 - [Critique of World Model](../../sources/critique-of-world-model-paper.md) — the GLP/PAN position: simulator not renderer, stateful mixed state, decoder as diagnostic, RL over MPC.
 - [Group-Structured Latent Space](../../sources/group-structured-latent-space-paper.md) — abstract-MDP world model with the symmetry group in the latent topology; InfoNCE, no decoder.
+- [PAN technical report](../../sources/pan-world-model-paper.md) — the built GLP instance: frozen VLM latent, video-diffusion decoder, language-caption actions; a generative-video world model with a language-model state.
+- [LeCun & Xing debate (2026)](../../sources/lecun-xing-jepa-glp-debate-2026.md) — the definition fight settled live: both say *simulator for planning, not renderer*; the residue is where prediction is checked.
 
 ## Open questions / TBD
 - ~~PlaNet / DreamerV1 / V2 / TD-MPC1 — earlier MBRL milestones~~ — PlaNet, [World Models](../../sources/world-models-paper.md), [MuZero](../../sources/muzero-paper.md), [EfficientZero](../../sources/efficientzero-paper.md), [DayDreamer](../../sources/daydreamer-paper.md), [DIAMOND](../../sources/diamond-paper.md) all ingested 2026-07-09; V1/V2 remain covered via the [Dreamer entity](../../entities/dreamer.md) lineage table.

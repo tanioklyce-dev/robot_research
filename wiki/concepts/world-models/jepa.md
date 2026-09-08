@@ -3,7 +3,7 @@ title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
 updated: 2026-09-07
-sources: 86
+sources: 87
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -354,4 +354,5 @@ And the caution that generalizes beyond JEPA: **stable features are not usable f
 - [DynaMo paper (Cui et al., NeurIPS 2024)](../../sources/dynamo-paper.md) — in-domain latent inverse+forward dynamics pretraining; a JEPA in everything but the label.
 - [Scaling Language-Free Visual Representation Learning](../../sources/webssl-paper.md) — the Web-SSL / Web-DINO primary, resolving the identity above; language-free SSL matching CLIP at scale.
 - [Critique of World Model](../../sources/critique-of-world-model-paper.md) — the explicit counter-position: three propositions against latent-only supervision, and the GLP alternative. Filed 2026-09-07 with the wiki's rebuttal.
+- [LeCun & Xing debate (2026)](../../sources/lecun-xing-jepa-glp-debate-2026.md) — LeCun's own live defence, and its sharpest live challenge. The crux is *where the prediction is checked*; the wiki's reading is that the two sides argue past each other on **rare** (Xing's crash) versus **unpredictable** (LeCun's leaves), which is the declared-axis distinction.
 

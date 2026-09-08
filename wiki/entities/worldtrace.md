@@ -3,8 +3,8 @@ title: WorldTrace
 type: entity
 subtype: method
 created: 2026-09-02
-updated: 2026-09-02
-sources: 2
+updated: 2026-09-07
+sources: 3
 tags: [worldtrace, video-world-model, memory, kv-cache, rope, attention, drift, nvidia, training-free, long-horizon]
 ---
 
@@ -44,3 +44,5 @@ Reported qualitatively: recovers garage geometry a sliding-window baseline loses
 
 > [!note] Thin entity
 > Five-minute talk, no paper ingested. The poster is linked from the workshop programme.
+- [PAN technical report](../sources/pan-world-model-paper.md) — a different attack on the same long-rollout drift: **Causal Swin-DPM** (two-chunk sliding denoising window at staggered noise levels, chunk-causal mask, noised conditioning frame) rather than addressable memory.
+

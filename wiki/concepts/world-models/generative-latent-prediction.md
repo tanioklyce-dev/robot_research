@@ -3,7 +3,7 @@ title: Generative Latent Prediction (GLP)
 type: concept
 created: 2026-09-07
 updated: 2026-09-07
-sources: 1
+sources: 3
 tags: [world-model, glp, generative-latent-prediction, jepa, decoder, generative-loss, latent-loss, stateful, discrete-tokens, position]
 ---
 
@@ -27,7 +27,7 @@ Plus a usage claim: use the world model to **train a policy by RL on simulated e
 
 ## Instances
 
-- [PAN](../../entities/pan-world-model.md) — the named instantiation; previewed only, results in an un-ingested paper.
+- [PAN](../../entities/pan-world-model.md) — the named instantiation, now read from its [technical report](../../sources/pan-world-model-paper.md). **It implements the encoder–backbone–decoder shape and the generative loss, and none of the three claims above**: the state is 256 *continuous* VLM tokens, the encoder is *frozen* (so the decoder diagnoses nothing), and usage is per-step planning with an external VLM rather than RL on simulated experience. Best open-source on its own benchmark; +23–27 pts for an o3 planner.
 - In spirit, the generative-video side of the wiki's [paradigm comparison](../../syntheses/world-models/generative-video-vs-jepa-world-models.md): [Cosmos 3](../../sources/cosmos-3-technical-report.md), [Genie 3](../../entities/genie-3.md) — GLP claims to inherit their *validation* while adding JEPA's *abstraction*.
 - The hybrid the wiki already tracks under [a third position](../../syntheses/world-models/generative-video-vs-jepa-world-models.md#a-third-position-fix-the-representation-inside-the-generative-objective) — fixing the representation *inside* a generative objective — is the same bet made from the generative side.
 
@@ -41,14 +41,16 @@ Plus a usage claim: use the world model to **train a policy by RL on simulated e
 
 ## Key references
 
-- [Critique of World Model](../../sources/critique-of-world-model-paper.md) — the only primary.
-- PAN, arXiv 2511.09057 — un-ingested.
-- LeCun–Xing debate, 2026-03-25 — un-ingested.
+- [Critique of World Model](../../sources/critique-of-world-model-paper.md) — the position.
+- [PAN technical report](../../sources/pan-world-model-paper.md) — the built instance.
+- [LeCun & Xing debate](../../sources/lecun-xing-jepa-glp-debate-2026.md) — the position argued live; the crux narrows to *where prediction is checked*, and Xing concedes GLP with reconstruction weight zero *is* JEPA.
 
 ## Current state
 
-One position paper, one deferred results paper, one debate. The wiki's head-to-head evidence ([mid-2026](../../syntheses/world-models/generative-video-vs-jepa-world-models.md#the-first-head-to-head-measurements-mid-2026)) says latent prediction wins on representation quality *by less than its advocates claim*, which leaves room for GLP's argument without confirming it.
+One position paper, one results paper that builds less than the position asked for, one debate in which the position softens. The wiki's head-to-head evidence ([mid-2026](../../syntheses/world-models/generative-video-vs-jepa-world-models.md#the-first-head-to-head-measurements-mid-2026)) says latent prediction wins on representation quality *by less than its advocates claim*, which leaves room for GLP's argument without confirming it.
 
 ## Mentioned in
 
 - [Critique of World Model](../../sources/critique-of-world-model-paper.md)
+- [PAN technical report](../../sources/pan-world-model-paper.md) — the architecture as actually built.
+- [LeCun & Xing debate (2026)](../../sources/lecun-xing-jepa-glp-debate-2026.md) — the position argued live against LeCun.

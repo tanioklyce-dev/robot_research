@@ -4,7 +4,7 @@ type: entity
 subtype: lab
 created: 2026-09-07
 updated: 2026-09-07
-sources: 1
+sources: 3
 tags: [lab, university, abu-dhabi, world-model, glp, pan, foundation-models]
 ---
 
@@ -13,8 +13,11 @@ tags: [lab, university, abu-dhabi, world-model, glp, pan, foundation-models]
 ## In this wiki
 
 - [Critique of World Model](../sources/critique-of-world-model-paper.md) (2025–26) — the position paper; three propositions, a blueprint, no experiments.
-- PAN (arXiv 2511.09057) — the results paper, **not ingested**.
+- [PAN technical report](../sources/pan-world-model-paper.md) (Nov 2025) — the built instance: frozen Qwen2.5-VL-7B latent backbone + Wan2.1-14B video decoder with Causal Swin-DPM; 960 H200s.
+- [LeCun & Xing debate](../sources/lecun-xing-jepa-glp-debate-2026.md) (Mar 2026) — the president arguing the position live.
 
 ## Mentioned in
 
 - [Critique of World Model](../sources/critique-of-world-model-paper.md)
+- [PAN technical report](../sources/pan-world-model-paper.md)
+- [LeCun & Xing debate](../sources/lecun-xing-jepa-glp-debate-2026.md)

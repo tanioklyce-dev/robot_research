@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-09-07
 updated: 2026-09-07
-sources: 1
+sources: 3
 tags: [person, mbzuai, cmu, world-model, glp, pan, critique]
 ---
 
@@ -16,10 +16,12 @@ A world model is *"a generative model that simulates the possibilities in divers
 
 ## Debates and lineage
 
-- **LeCun–Xing debate**, Spring School AI for Impact, Ben Guerir, Morocco, 2026-03-25 — cited by the essay as a primary for both positions stated live. Un-ingested.
+- **[LeCun–Xing debate](../sources/lecun-xing-jepa-glp-debate-2026.md)**, Spring School AI for Impact, UM6P Benguerir, March 2026 — ingested. His rebuttal opens with *"I fundamentally agree with Yann that the prediction needs to happen in abstract space"* and narrows the disagreement to where prediction is *checked*; concedes GLP *"can strictly subsume JEPA if you turn off the generative function."* Also presents a "system three" agent model (a configurator choosing between reactive policy and world-model planning).
 - Earlier programme: *Toward a standard model of machine learning* (Hu & Xing 2021), SimuRA (LLM-based world model for goal-oriented agents, 2025), Pandora (natural-language actions + video states, 2024), all cited as antecedents of PAN.
 - A companion essay, *Critiques of Agents*, is listed as in preparation.
 
 ## Mentioned in
 
 - [Critique of World Model](../sources/critique-of-world-model-paper.md) — first author.
+- [PAN technical report](../sources/pan-world-model-paper.md) — conception, design and leadership.
+- [LeCun & Xing debate](../sources/lecun-xing-jepa-glp-debate-2026.md) — speaker.
