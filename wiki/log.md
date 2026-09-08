@@ -5805,3 +5805,25 @@ The controlled test of [the abstraction tax](syntheses/world-models/abstraction-
 Also committed in advance, because a design that cannot lose is not a design: an **off-axis control** (shift in agent *shape*, which no arm declares — without it the experiment cannot separate "declaring colour buys colour-robustness" from "augmentation makes models generically more robust"), a **table of what each outcome would mean** including the two results that would require rewriting rather than annotating the abstraction-tax page, and the honest power position — the collapse effect is detectable at n=100, the in-distribution *equivalence* claim is not at any sane budget, so it gets a bound rather than a null.
 
 Stage 0.5 doubles as overdue housekeeping: reproduce the baseline and **settle the 50.8%-vs-94% ambiguity** the wiki flagged on [stable-worldmodel](sources/stable-worldmodel-paper.md) months ago and never resolved. Every number downstream is measured against it.
+
+## [2026-09-07] session close | 22 commits, and one thread that actually closed
+
+Bookkeeping first: **16 ingests**, **2 syntheses** ([the NVIDIA robot-AI stack](syntheses/platforms/nvidia-robot-ai-stack.md), [the abstraction tax](syntheses/world-models/abstraction-tax.md)), **1 experiment design** ([declared-axis](syntheses/world-models/declared-axis-experiment.md)), **2 verification passes**, 0 broken links, all direct to `main`.
+
+Three clusters: **contact-rich safety** ([survey](sources/safe-learning-contact-rich-survey.md), [SafeVLA](sources/safevla-paper.md), [Safety-Gymnasium](sources/safety-gymnasium-paper.md), [Industrial AI #352](sources/industrial-ai-podcast-nvidia-safety-strategy.md)); **force vs vision** ([FLUX 3](sources/flux-3-launch.md), [mimic-video](sources/mimic-video-paper.md), [τ](sources/tau-touch-augmented-vla-paper.md)); and **JEPA/SSL**, which took over ([Balestriero's site](sources/randall-balestriero-personal-site.md), [JE vs Reconstruction](sources/joint-embedding-vs-reconstruction-paper.md), [LeVJEPA](sources/levjepa-paper.md), [awesome-jepa triage](sources/awesome-jepa-github.md), [IB EP11](sources/information-bottleneck-ep11-jepa-balestriero.md), [Demo-JEPA](sources/demo-jepa-paper.md), [the Les Houches notes](sources/dawid-lecun-lvebm-lecture-notes.md), [the physics essay](sources/jepa-vs-physics-moudrkat.md)).
+
+> [!note] The part worth remembering is the shape, not the count
+> The last third of the session stopped being ingestion and became **a research thread that closed**:
+>
+> 1. Three unconnected papers produced the same curve, noted three times and never stated.
+> 2. Written down as a claim — *the abstraction costs you in-distribution and pays out of it.*
+> 3. **The wiki's own data killed the general form** — [stable-worldmodel](sources/stable-worldmodel-paper.md) has the most abstract world model here collapsing 50.8% → 6–26%.
+> 4. Narrowed to survive it: **robust only along the axis the training declared irrelevant.**
+> 5. Two recipe checks tested the narrowed version — [LeWM uses no augmentation at all](sources/leworldmodel-paper.md) (upgrading the argument from an absence to a mechanism), [LeVJEPA is its exact complement](sources/levjepa-paper.md) (and forced a correction: an undeclared axis is **taxed**, not lost).
+> 6. Designed as [a falsifiable four-arm experiment](syntheses/world-models/declared-axis-experiment.md) whose **stage 0 needs no GPU**.
+>
+> The design then **broke its own backlog version twice** — colour is task-relevant in PushT, and data diversity is not a declaration. That is the best evidence the write-up was worth doing rather than just filing the one-liner.
+
+**Two things flagged rather than buried.** [The declared-axis mechanism](syntheses/world-models/abstraction-tax.md) and *"actions are doing the latent variable's job"* ([JEPA](concepts/world-models/jepa.md), [world-action model](concepts/world-models/world-action-model.md)) are **this wiki's own synthesis, stated by no source**. Both are labelled as readings where they appear. If a third arrives, [the backlog](backlog.md) now carries the note that an index of unsourced claims would beat scattered labels — a public wiki should make the seam between *reported* and *inferred* easy to find.
+
+**Ranked next steps are at the top of [the backlog](backlog.md)**, with the one blocked thread named so it does not get re-chased.

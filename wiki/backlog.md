@@ -10,6 +10,18 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-09-07] Start here next session — ranked
+
+Three items, in the order they are worth doing. Everything below this block is the unranked pool.
+
+1. **[Stage 0 of the declared-axis experiment](syntheses/world-models/declared-axis-experiment.md).** Pull [`quentinll/lewm-pusht`](https://huggingface.co/quentinll/lewm-pusht) and linear-probe the frozen latent for agent colour. **Hours, no training, no GPU budget** — and it can falsify the premise of [the abstraction tax](syntheses/world-models/abstraction-tax.md) before anything is spent. Highest value per hour in the wiki right now.
+2. **[On the Identifiability of Controlled World Models](https://arxiv.org/abs/2607.22430)** ([2607.22430](https://arxiv.org/abs/2607.22430)) — still the top unstarted Tier-1 pick from the awesome-jepa triage, and now **doubly motivated**: if actions are substituting for the latent variable the [JEPA blueprint](sources/dawid-lecun-lvebm-lecture-notes.md) prescribed, the identifiability theory for *controlled* world models is exactly what says when that substitution is legitimate.
+3. **The remaining six awesome-jepa Tier-1/2 picks**, unchanged in priority.
+
+**Blocked, do not chase:** the τ → [FLUX-mimic](sources/flux-3-launch.md) force-vs-vision thread. [τ](sources/tau-touch-augmented-vla-paper.md) moved the burden onto Black Forest Labs and mimic, and the wiki cannot advance it without new evidence from them. Re-reading what is already here would only re-derive it.
+
+- [ ] **Consider a page for claims the wiki originates.** [The abstraction tax](syntheses/world-models/abstraction-tax.md)'s declared-axis mechanism, and *"actions are doing the latent variable's job"* on [JEPA](concepts/world-models/jepa.md) / [world-action model](concepts/world-models/world-action-model.md), are **the wiki's own synthesis, stated by no source**. Both are labelled as readings where they appear, which is enough for two. If a third arrives, a single index of unsourced claims would be worth more than scattered labels — a public wiki should make the seam between *reported* and *inferred* easy to find.
+
 ## [2026-09-07] From the abstraction-tax synthesis
 
 Filed on writing [The abstraction tax](syntheses/world-models/abstraction-tax.md). The first item is the one that decides whether that page is a finding or a pattern-match.
