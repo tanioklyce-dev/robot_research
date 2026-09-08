@@ -3,7 +3,7 @@ title: VLA models
 type: concept
 created: 2026-05-06
 updated: 2026-09-07
-sources: 143
+sources: 144
 tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos, vla-0, action-as-text, molmoact2, per-layer-kv-conditioning, hybrid-action-head, llm-free-vla, turbovla, xvla, soft-prompt]
 ---
 
@@ -156,7 +156,7 @@ Scope limit worth carrying: the costs there are **discrete collision events with
 
 ## Mentioned in
 
-> [!note] Curated list — **135** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **136** source pages link here; the ones below are those that shaped this page.
 
 - [π0 Paper](../../sources/pi-zero-paper.md)
 - [π0.7 Paper](../../sources/pi07-paper.md)
@@ -185,7 +185,7 @@ Scope limit worth carrying: the costs there are **discrete collision events with
 - [UniT paper](../../sources/unit-paper.md) — latent action tokens as a cross-embodiment interface; +18.9 pp from the objective alone
 - [TurboVLA paper (Xie, Yao et al., 2026)](../../sources/turbovla-paper.md) — the LLM-free V+L→A paradigm; 97.7 LIBERO at 0.2 B / 0.9 GB / 32 Hz
 - [Embodied AI — AI House Davos 2026 (LeCun)](../../sources/ai-house-davos-2026-lecun-embodied-ai.md) — VLAs as the expert systems of the 2020s; the host's industrial counter.
-
+- [Larchenko — LeHome deep dive, Part 1](../../sources/larchenko-lehome-part1-rl-for-vlas.md) — a π0.5 VLA with **auxiliary heads** (success, completion, garment type, keypoint distances now and after the chunk) so the policy is its own value function; advantage-indicator and task tokens injected via AdaRMS into the action expert.
 
 ## The parameter-efficiency challenge
 

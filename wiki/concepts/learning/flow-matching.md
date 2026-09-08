@@ -3,7 +3,7 @@ title: Flow matching
 type: concept
 created: 2026-05-25
 updated: 2026-09-07
-sources: 24
+sources: 25
 tags: [flow-matching, generative-model, ode, continuous-actions, vla, action-head, pi-zero, smolvla, molmoact2, dit, lipman, esser, xvla]
 ---
 
@@ -72,6 +72,9 @@ So given a partially-noised action chunk and the action expert's velocity output
 
 See [reward post-training of diffusion and flow models](reward-post-training-diffusion.md) for the paradigm space, and the caveat that **no wiki source has RL-post-trained a flow-matching action head against a task reward** — the blocker being that robot rewards are typically non-differentiable where image preference models are not.
 
+> [!note] The caveat above now has a counterexample (2026-09-07)
+> [Larchenko's LeHome solution](../../sources/larchenko-lehome-part1-rl-for-vlas.md) RL-post-trains a π0.5 flow-matching head against a task reward (full-fold success) in simulation, on one H200 — and does it **without a gradient estimator at all**. Because the head is a sampler, he changes *what it samples from*: AWR reweights the training distribution by `exp(A)`, RECAP conditions on an advantage indicator, and the flow loss is otherwise untouched. The identity above is not needed. See [RL for flow-matching VLAs](rl-for-flow-matching-vlas.md). The non-differentiable-reward blocker stands; it is routed around, not solved.
+
 ## Related lineage (not yet ingested as primary sources)
 
 - **Lipman et al. 2022** — "Flow Matching for Generative Modeling" (arXiv 2210.02747). The foundational flow-matching paper. Referenced as `[102]` in π0.7.
@@ -110,6 +113,7 @@ See [reward post-training of diffusion and flow models](reward-post-training-dif
 - [Robot Learning: A Tutorial (LeRobot)](../../sources/lerobot-robot-learning-tutorial.md) — covers flow matching in the generative-models chapter.
 - [The Elements of Differentiable Programming](../../sources/blondel-roulet-differentiable-programming.md) — rigorous mathematical reference.
 - [PAN technical report](../../sources/pan-world-model-paper.md) — the generative supervision of the whole GLP system is a rectified-flow / flow-matching loss on the Wan2.1-VAE latent of the next chunk (1000 steps, shifted schedule).
+- [Larchenko — LeHome deep dive, Part 1](../../sources/larchenko-lehome-part1-rl-for-vlas.md) — a flow-matching VLA improved by RL in practice: no likelihoods, no gradient estimator; AWR + RECAP reweight the target distribution and BC does the rest. The *"cannot evaluate probability density"* limitation stated by a practitioner who hit it [24:49].
 
 ## Open questions
 

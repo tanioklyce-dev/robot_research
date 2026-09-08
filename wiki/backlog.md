@@ -10,6 +10,15 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-09-07c] From the LeHome Part 1 ingest
+
+- [ ] **Larchenko tech report, *Learning to Fold*** — arXiv 2606.27163 (v2 2026-07-18). The primary for every number now quoted from the blog; also carries Part 2/3 material (reward & advantage computation, Thompson-sampled inference hyperparameters, sim-to-real recipe with camera-alignment tooling). Ingest before anything from this cluster feeds a build decision.
+- [ ] **LeHome Parts 2 and 3** when released (reward engineering / inference optimisation; sim-to-real, DAgger, ICRA final). Part 3 is the one the wiki most needs — a documented SO-ARM101 sim-to-real transfer onto hardware the author never touched.
+- [ ] **BEHAVIOR-1K Challenge 2025 solution** — arXiv 2512.06951, video `J4wpO0EdCZs`. Would confirm the 12.4 % figure's provenance and the architecture LeHome inherited.
+- [ ] **AWR** (Peng et al. 2019, 1910.00177) and **AWAC** (Nair et al. 2020) — the off-policy primaries behind the [new concept page](concepts/learning/rl-for-flow-matching-vlas.md); currently cited from a video.
+- [ ] **Experiment: combined vs separate value estimation.** Same rollouts, same π0.5: advantage from the policy's own heads (Larchenko) vs a separate distributional value model (π*0.6). Nobody has compared them; the LeHome repo makes it cheap.
+- [ ] **Difficulty-targeted data selection** (arXiv 2506.05316) — the curriculum idea's primary.
+
 ## [2026-09-07b] From the GLP critique and the group-structured latent paper
 
 Filed on ingesting [Critique of World Model](sources/critique-of-world-model-paper.md) and [Group-Structured Latent Space](sources/group-structured-latent-space-paper.md). The first two items are the ones that would turn a position into evidence.

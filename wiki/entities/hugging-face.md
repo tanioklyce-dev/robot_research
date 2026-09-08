@@ -4,7 +4,7 @@ type: entity
 subtype: organization
 created: 2026-05-10
 updated: 2026-09-07
-sources: 24
+sources: 25
 tags: [hugging-face, foundation-models, open-source, lerobot, robotics, ml-platform, nvidia, acquisition, open-weights]
 ---
 
@@ -61,6 +61,7 @@ tags: [hugging-face, foundation-models, open-source, lerobot, robotics, ml-platf
 - (Plus indirect references across many model-checkpoint-bearing sources)
 - [`pollen-robotics/microduck` — the onboard runtime](../sources/microduck-runtime-repo.md) — The onboard runtime of an HF-built robot, published Apache-2.0 — concrete evidence of the manufacturer role corrected above.
 - [A Sim-to-Real VLA Pipeline with Seeed reBot Arm and NVIDIA Isaac](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) — the Hub as the asset channel for a full third-party course: [LeRobot](lerobot.md) forks, LeRobotDataset v3 recordings, and [GR00T 1.7](nvidia-groot.md) checkpoints all pulled from it.
+- [Larchenko — LeHome deep dive, Part 1](../sources/larchenko-lehome-part1-rl-for-vlas.md) — the Hub as infrastructure rather than distribution: two repositories decouple a trainer from any number of rollout workers and a human teleop client, with no other coordination.
 
 ## The July 2026 agent intrusion
 

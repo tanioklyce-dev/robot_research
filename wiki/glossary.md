@@ -32,6 +32,9 @@ A flat index of acronyms used across this wiki, with one-line definitions and a 
 ### Attention
 A learned, normalized, differentiable **weighted read over a set of vectors**: score a query against every key, softmax the scores, return the weighted sum of values. Originates in [Bahdanau, Cho & Bengio 2014](sources/bahdanau2014-neural-machine-translation-align-translate.md), which introduced it to escape [seq2seq](sources/sutskever2014-sequence-to-sequence-learning.md)'s fixed-length encoder bottleneck — there with an additive (feedforward) scorer, a decoder state as query, and encoder annotations serving as both keys and values. [Vaswani et al. 2017](sources/attention-is-all-you-need.md) swapped in **scaled dot-product** scoring (a matmul, hence GPU-parallel), separated keys from values, added heads, and applied it to a sequence attending to itself ([SA](#sa)). The deep move is replacing a discrete latent structure needing its own inference algorithm with a soft weighting trained end-to-end. Named by Bengio on a final editing pass; the working name was *RNNsearch*. *(Module 3.)*
 
+### AWR
+**Advantage-Weighted Regression** — Peng, Kumar, Zhang & Levine 2019 (un-ingested). Off-policy / offline RL as **weighted behaviour cloning**: the closed-form solution of *maximise expected advantage subject to KL(π‖μ) ≤ ε* is μ reweighted by `exp(A/β)`, so a policy that can only *sample* (a [flow-matching](concepts/learning/flow-matching.md) head) can still be improved. Used with [RECAP](#recap) in [Larchenko's LeHome solution](sources/larchenko-lehome-part1-rl-for-vlas.md), where the weight is applied in the data loader. See [RL for flow-matching VLAs](concepts/learning/rl-for-flow-matching-vlas.md). *(Module 8.)*
+
 ### Barlow Twins
 SSL whose loss makes the cross-correlation of two augmented-view embeddings the identity (no collapse, no redundancy). *(Module 4.)*
 
@@ -436,6 +439,9 @@ A pretrained visual encoder for manipulation (Nair et al. 2022); appears as a Di
 
 ### Reachability analysis
 Computing the set of all states a system can occupy over a time horizon given bounded inputs, disturbances, and measurement error — as opposed to simulating one trajectory. Set-based reachability underpins the **failsafe-trajectory** family of [safety filters](#safety-filter): execute the nominal motion only while a verified stopping motion remains available. Tooling in this wiki's sources: SaRA, CORA (Althoff). *(Classical-robotics branch.)*
+
+### RECAP
+**RL with Experience and Corrections via Advantage-conditioned Policies** — [Physical Intelligence](entities/physical-intelligence.md)'s recipe behind [π*0.6](entities/pistar06.md): train one VLA both unconditionally and conditioned on a binary *advantage indicator*, then roll out with the indicator on; equivalent to reweighting the data policy by `P(A > ε)`. Needs no action likelihoods, so it fits flow-matching heads; unlocks [CFG](#cfg) at inference. Independently rebuilt on π0.5 by [Larchenko](sources/larchenko-lehome-part1-rl-for-vlas.md). Limit: no exploration. *(Module 9.)*
 
 ### RNN
 **Recurrent Neural Network** — sequence model that maintains a hidden state across timesteps; superseded by transformers for most tasks. *(Module 3.)*

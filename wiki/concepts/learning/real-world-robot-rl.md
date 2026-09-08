@@ -3,7 +3,7 @@ title: Real-world robotic reinforcement learning
 type: concept
 created: 2026-07-05
 updated: 2026-09-07
-sources: 20
+sources: 21
 tags: [reinforcement-learning, real-world-rl, manipulation, human-in-the-loop, off-policy-rl, sample-efficiency]
 ---
 
@@ -76,6 +76,10 @@ It is worth having next to [HIL-SERL](../../sources/hil-serl-paper.md) because i
 >
 > **A prior is worth what its distribution match is worth** — the same mechanism as [SafeVLA](../../sources/safevla-paper.md)'s elicitation ablation and [PACS](../../sources/pacs-paper.md)'s path-consistency result, at 1/10⁶ the scale. Caveat: the t-tests are computed over timesteps within a **single trajectory per condition**, so the p-values are pseudoreplicated and far stronger than the design supports.
 
+## The sim-first, human-optional cousin (2026-09-07)
+
+[Larchenko's LeHome loop](../../sources/larchenko-lehome-part1-rl-for-vlas.md) is this page's recipe with the human made optional and the hardware replaced by Isaac Lab: a trainer and any number of rollout workers that **never communicate except through Hugging Face Hub repositories** — checkpoints one way, rollout datasets the other, advantages computed from stored returns. Teleop / DAgger is a third client of the same bus that pulls tagged hard states; he reports it *"wasn't so important for simulation"* and *"very, very important"* in the real final. The RL method is [AWR + RECAP](rl-for-flow-matching-vlas.md) on a π0.5 flow head, and the reported ceiling is HIL-SERL's inverse: **zero exploration**, so the human is the only source of new behaviour when one is present. One H200 for training, one RTX PRO 6000 for rollouts, 10–20 s episodes.
+
 ## Related concepts
 
 - [Imitation learning](imitation-learning.md) — the baseline family; BC / DAgger / HG-DAgger. Real-world RL uses IL data to *seed* but surpasses it.
@@ -100,3 +104,5 @@ Real-world RL for manipulation went from "considered infeasible" to **100% succe
 - [HIL-SERL paper](../../sources/hil-serl-paper.md) — the mature recipe.
 - [AutoSERL paper](../../sources/autoserl-paper.md) — one-demo automation.
 - [`pollen-robotics/microduck` — the onboard runtime](../../sources/microduck-runtime-repo.md) — The mechanism behind the reset-automation claim: `VelStand` trains walking and fall recovery in one policy, and a separate rate-based detector (`ġ = −ω × g`) goes limp ~0.3 s ahead of the fall so the stand-up starts from a still robot.
+- [Larchenko — LeHome deep dive, Part 1](../../sources/larchenko-lehome-part1-rl-for-vlas.md) — the asynchronous Hub-mediated train/rollout/teleop loop; curriculum on success rate; success and semi-success replay.
+

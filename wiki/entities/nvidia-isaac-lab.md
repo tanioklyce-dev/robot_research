@@ -3,8 +3,8 @@ title: NVIDIA Isaac Lab
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-07-08
-sources: 22
+updated: 2026-09-07
+sources: 23
 tags: [framework, robot-learning, nvidia, isaac-lab, rl]
 ---
 
@@ -43,3 +43,5 @@ Isaac Lab inherits Isaac Sim's RT-core requirement: it cannot run on [Jetson Tho
 - [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.md)
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md) — Isaac Lab paper (arXiv 2511.04831, Nov 2025) is GEAR-authored.
 - [NVIDIA + HF LeRobot partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md) — Lab-Arena ↔ LeRobot EnvHub registration.
+- [Larchenko — LeHome deep dive, Part 1](../sources/larchenko-lehome-part1-rl-for-vlas.md) — the [LeHome Challenge 2026](lehome-challenge-2026.md) environment (Isaac Lab 2.3.1 / Isaac Sim 5.1, cloth simulation, keypoint-scored success); ~30 s per rollout episode on an RTX PRO 6000 after the winner's optimisations; per-frame colour/lighting/camera randomisation.
+

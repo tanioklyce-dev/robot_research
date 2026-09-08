@@ -3,8 +3,8 @@ title: π*0.6 + RECAP
 type: entity
 subtype: model
 created: 2026-05-25
-updated: 2026-05-25
-sources: 6
+updated: 2026-09-07
+sources: 7
 tags: [pi-star-zero-6, pistar06, recap, pi-zero-6, pi-zero, vla, flow-matching, advantage-conditioning, offline-rl, distributional-value-function, classifier-free-guidance, dagger, real-world-rl, physical-intelligence]
 ---
 
@@ -80,3 +80,5 @@ Iterated mixture across pre-training and post-training phases:
 - [π0.7 paper](../sources/pi07-paper.md) — sibling release.
 - [π0 entity](pi-zero.md) — listed as successor.
 - [Physical Intelligence entity](physical-intelligence.md) — entry in the model line.
+- [Larchenko — LeHome deep dive, Part 1](../sources/larchenko-lehome-part1-rl-for-vlas.md) — an **independent reimplementation of RECAP** on π0.5, combined with AWR, with the advantage-indicator also injected through AdaRMS; a simplified intuition for the derivation (*"split μ by total probability into high- and low-advantage parts and condition on the first"*); and the same limit reported from the other side — no exploration.
+

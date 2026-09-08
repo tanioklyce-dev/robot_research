@@ -3,7 +3,7 @@ title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
 updated: 2026-09-07
-sources: 70
+sources: 71
 tags: [sim-to-real, domain-gap, rl, simulation, real-to-sim, r2s2r]
 ---
 
@@ -163,7 +163,7 @@ So the sim-to-real gap is not crossed by the *policy*; it is crossed by the **ta
 
 - [GEN-1.5](../../sources/generalist-gen-1-5-blog.md) — prompt recorded in simulation, robot acts in reality, **no simulation data in pretraining**.
 
-> [!note] Curated list — **63** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **64** source pages link here; the ones below are those that shaped this page.
 
 - [Kober, Bagnell & Peters 2013 — RL in Robotics Survey](../../sources/kober-rl-robotics-survey-2013.md) — simulation bias, noise injection, self-stabilizing transfer.
 - [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — the "superset, not replica" argument, supported across four domains; see [synthetic data flywheel](synthetic-data-flywheel.md).
@@ -179,3 +179,5 @@ So the sim-to-real gap is not crossed by the *policy*; it is crossed by the **ta
 - [WorldArena 2.0 paper](../../sources/worldarena-2-paper.md) — cross-platform sim-to-real for world models; perceptual dimensions transfer, functional rankings don't.
 - [WorldArena paper](../../sources/worldarena-paper.md) — learned policy evaluators inflate absolute success rates.
 - [Microduck — Pollen Robotics launch](../../sources/pollen-robotics-microduck.md) — the actuator-side gap; a full sim2real recipe shipped with a $399 robot.
+- [Larchenko — LeHome deep dive, Part 1](../../sources/larchenko-lehome-part1-rl-for-vlas.md) — practitioner domain randomisation (per-frame colour, lighting, camera pose, arm placement, cloth physics — *"never break the actual physics"*), and **success replay**: re-run a successful episode's actions under heavy visual randomisation to manufacture aligned data for a camera setup you cannot reproduce. Part 3 (the real final) pending.
+

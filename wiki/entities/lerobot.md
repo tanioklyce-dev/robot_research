@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-05-10
 updated: 2026-09-07
-sources: 49
+sources: 50
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026, xvla, sourccey, plugin-system]
 ---
 
@@ -180,7 +180,7 @@ Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distri
 
 - [NVIDIA to acquire Hugging Face](../sources/nvidia-hugging-face-acquisition.md) — the maintainer changes hands.
 
-> [!note] Curated list — **46** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **47** source pages link here; the ones below are those that shaped this page.
 
 
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **canonical academic reference**; Cadene, Aliberts, Capuano, …, Wolf; 17 HF authors.
@@ -203,6 +203,7 @@ Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distri
 - [LeRobot Worldwide Hackathon 2025 — All Winners](../sources/lerobot-worldwide-hackathon-2025-winners.md)
 - [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — **MolmoAct2 ships as a LeRobot application**: datasets in LeRobot v3.0 format, LeRobot vendored as a git submodule, training through LeRobot workflows. [Ai2](ai2.md)'s fully-open VLA is not a parallel stack — it is this one.
 - [Previewing the Model Hardware Standard](../sources/anthropic-model-hardware-standard-preview.md) — HF adding MHS support in LeRobot; a LeRobot arm in a UW lab workcell
+- [Larchenko — LeHome deep dive, Part 1](../sources/larchenko-lehome-part1-rl-for-vlas.md) — LeRobot 0.4.2 is the challenge's control and data stack inside Isaac Lab; the winner used the **Hub as an asynchronous RL message bus** (model repo one way, rollout-dataset repo the other) and organiser demonstrations shipped as LeRobot datasets.
 
 ## Open questions / TBD
 
