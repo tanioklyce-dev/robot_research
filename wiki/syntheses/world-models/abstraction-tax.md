@@ -73,7 +73,7 @@ Every row lines up once you ask *what was declared*:
 | **DINO vs MAE** | whatever the augmentation set covers | ImageNet-C corruptions | pays, ~2.4× |
 | **Demo-JEPA** | *which robot this is* — the Dreamer Predictor is trained on cross-embodiment demo pairs | new embodiment | pays |
 | **LeWorldModel** | **nothing** — verified 2026-09-07: no augmentation of any kind, and SIGReg constrains the *shape of the representation*, not which input variations to discard | agent color, size, shape | **does not pay** |
-| **LeVJEPA** | 95% of tokens, uniformly at random — including temporal correlation | motion (SSv2) | **does not pay** — loses 3.2, and the authors suspect the dropping |
+| **LeVJEPA** | **where you crop spatially, photometric appearance, and which tokens you see** — verified 2026-09-07. All views *“share the identical temporal window and differ only spatially and photometrically.”* **Nothing is declared about time.** | appearance (IN1K) vs motion (SSv2) | **pays +7.6 on the declared axis, loses 3.2 on the undeclared one** |
 
 SIGReg is the clean case because it is the honest one. It is derived from [identifiability](../../concepts/world-models/identifiability.md) — *the isotropic Gaussian is minimax-optimal under task uncertainty* — and that is a claim about latent geometry. **It never says color does not matter.** Nothing in the objective could make it robust to a color shift, and the measurement agrees.
 
@@ -102,6 +102,35 @@ So the narrowed claim survives the check. But the finding is better than "no dec
 >
 > **One latent space, two outcomes, and the difference is whether anything declared the axis.** That is as close to a controlled experiment on this page's claim as the wiki holds, and its authors were testing something else.
 
+### Checked, 2026-09-07: LeVJEPA is LeWM's exact complement
+
+The follow-up question — does [LeVJEPA](../../sources/levjepa-paper.md)'s global/local view construction carry photometric augmentation — has a clean answer: **yes, explicitly.**
+
+> …V local views obtained by **aggressive spatial cropping and photometric augmentation**. All views **share the identical temporal window and differ only spatially and photometrically.**
+
+So the two models built on the same regularizer declare **disjoint** axes, and each is brittle exactly where it declared nothing:
+
+| | Invariance signal | Declares irrelevant | Wins | Loses |
+|---|---|---|---|---|
+| **[LeWorldModel](../../sources/leworldmodel-paper.md)** | temporal adjacency: predict frame *t+1* from *t* | the **unpredictable** | — | **static appearance**: 50.8% → 6–26% under colour/size/shape |
+| **[LeVJEPA](../../sources/levjepa-paper.md)** | spatial + photometric views, **identical temporal window** | **spatial position, appearance, which tokens you see** | **appearance: +7.6 IN1K** over the strongest baseline | **motion: −3.2 SSv2** |
+
+Same family, same [SIGReg](../../concepts/world-models/sigreg.md), opposite declarations, opposite failure modes. Neither paper frames it this way and neither cites the other's weakness.
+
+**And the split is visible inside a single ablation.** Sweeping the token-drop ratio ρ, ImageNet accuracy *"increases monotonically"* — 33.9 → 47.6 from ρ=0 to 0.95 — while on Something-Something-v2, *"which primarily probes motion understanding, **accuracy declines for dropping ratios beyond 0.3**, in contrast to the monotonic improvement observed on ImageNet."* Their own reading of why is this page's mechanism in the authors' words: sparse random observations render *"motion cues, which depend on correspondences across frames, less frequently recoverable within a single view."* One knob, two directions, split by whether the axis was declared.
+
+> [!warning] The honest complication, and it changes how strongly this page can be stated
+> LeVJEPA reports the motion loss is **partly recoverable with compute**: *"with longer training, higher dropping ratios **recover** the accuracy of lower ones on Something-Something-v2 while retaining their lower per-iteration cost."*
+>
+> That weakens the claim from *the abstraction destroys the undeclared axis* to **the abstraction taxes it** — a per-sample-signal effect that more iterations partly buy back, not a hard representational limit. Their framing: *"additional iterations compensate for the reduced per-sample signal."*
+>
+> It does not dissolve the finding — the FLOP-matched headline still **loses SSv2 by 3.2 on a 1,085-epoch schedule**, which is not a short one, and they name *"dropping schemes that preserve motion information at high sparsity"* as unsolved future work. But wherever this page says an undeclared axis is *lost*, the defensible word is **taxed**, at an exchange rate nobody has measured.
+
+> [!note] A second thing worth taking from the recipe: the asymmetry comes from the views
+> *"As the global view is the only view that remains **photometrically unaltered** and covers the largest spatial extent, it constitutes the prediction target **by construction of the views alone**."*
+>
+> [The anti-collapse lineage](ssl-anti-collapse-lineage.md) established that branch **asymmetry** is the load-bearing ingredient and that the EMA is one substitutable source of it. LeVJEPA supplies another: **augmentation asymmetry**. The teacher is not a slower copy of the student — it is the same encoder shown the least-corrupted view.
+
 ## What this is worth in practice
 
 A decision rule that is actually usable, and narrower than "use a JEPA":
@@ -116,7 +145,7 @@ For [in-home deployment](../assistive/long-term-in-home-robot-deployments.md) sp
 ## Where this could be wrong
 
 - **One of the three instances is a vendor blog with no rollout counts**, one is a v1 preprint with 20–30 rollouts per cell, and one is a theorem about **linear** models validated on ImageNet-C. Any single instance is weak. The argument rests on their independence, which is a weaker form of evidence than it feels like.
-- **"Declared irrelevant" is doing a lot of work and is not always crisp.** ~~The clean SIGReg story needs checking against which augmentation set LeWorldModel actually used.~~ **Checked 2026-09-07 and it held — LeWM uses no augmentation at all** (above). The residual imprecision is elsewhere: [LeVJEPA](../../sources/levjepa-paper.md)'s invariance loss runs over *global and local views of a clip*, and **whether those views carry photometric augmentation is unverified here** — so the sharp LeWM finding should not be extended to the rest of the Le- line without reading its recipe too.
+- **"Declared irrelevant" is doing a lot of work and is not always crisp.** ~~The clean SIGReg story needs checking against which augmentation set LeWorldModel actually used.~~ **Checked 2026-09-07 and it held — LeWM uses no augmentation at all** (above). ~~The residual imprecision is elsewhere: whether LeVJEPA's views carry photometric augmentation is unverified.~~ **Also checked 2026-09-07 — they do, and the two models turn out to be exact complements** (above). What remains imprecise is the *strength* of the effect: LeVJEPA shows the undeclared axis is partly recoverable with a longer schedule, so **"taxed" is defensible and "lost" is not.**
 - **The counterexample may just be a weak model.** [stable-worldmodel](../../sources/stable-worldmodel-paper.md) reports a quadratic distractor collapse *across all baselines*, which is consistent with "current world models are brittle" rather than with anything specific about declared axes.
 - **Selection.** Three instances arrived in one week of ingesting, chosen partly because they were interesting. The wiki has not gone looking for methods that abstract, cost nothing in-domain, and generalize anyway — which is the shape that would falsify the first claim.
 

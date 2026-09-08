@@ -5758,3 +5758,31 @@ The reason there is nothing to find: **LeWM is not LeJEPA.** It borrows [SIGReg]
 > And it generalizes past one model: any latent world model whose sole invariance signal is temporal prediction — [DINO-WM](entities/dino-wm.md), [PLDM](entities/pldm.md), LeWM — should preserve static scene attributes and be brittle to shift in them. Which is what stable-worldmodel reports, with distractor collapse *"quadratic across all baselines."* **The [world-action model](concepts/world-models/world-action-model.md) family has no mechanism for declaring a static attribute irrelevant, and none of these papers claims one.**
 
 Residual imprecision moved rather than removed, and filed: [LeVJEPA](sources/levjepa-paper.md)'s invariance loss runs over *global and local views of a clip*, and **whether those views carry photometric augmentation is unverified**. The LeWM finding should not be extended to the rest of the Le- line until that recipe is read. The [declared-axis experiment](backlog.md) is unaffected and still the thing that decides the page.
+
+## [2026-09-07] check | LeVJEPA's view recipe — it is LeWorldModel's exact complement
+
+The other half of yesterday's question, and the answer makes the pair more interesting than either model.
+
+- Updated: [the abstraction tax](syntheses/world-models/abstraction-tax.md), [LeVJEPA paper](sources/levjepa-paper.md), [SSL anti-collapse lineage](syntheses/world-models/ssl-anti-collapse-lineage.md), [backlog](backlog.md) (struck)
+
+**LeVJEPA does carry photometric augmentation, explicitly** — one global view plus V=4 local views *"obtained by aggressive spatial cropping and photometric augmentation."* And the constraint that decides everything:
+
+> All views **share the identical temporal window and differ only spatially and photometrically.**
+
+So the two models built on the same regularizer declare **disjoint** axes, and each is brittle exactly where it declared nothing:
+
+| | Declares irrelevant | Wins | Loses |
+|---|---|---|---|
+| [LeWorldModel](sources/leworldmodel-paper.md) | the **unpredictable** (temporal prediction, no augmentation at all) | — | **static appearance**: 50.8% → 6–26% under colour/size/shape |
+| [LeVJEPA](sources/levjepa-paper.md) | **space, appearance, which tokens you see**; nothing about time | **appearance: +7.6 IN1K** | **motion: −3.2 SSv2** |
+
+Neither paper frames it this way and neither cites the other's weakness. **And the split is visible inside a single ablation** — sweeping the drop ratio ρ, ImageNet rises monotonically (33.9 → 47.6) while on SSv2, *"which primarily probes motion understanding, **accuracy declines for dropping ratios beyond 0.3**."* The authors' own explanation is the mechanism in their words: sparse random observations render *"motion cues, which depend on correspondences across frames, less frequently recoverable within a single view."* One knob, two directions, split by whether the axis was declared.
+
+> [!warning] The correction this forces on the synthesis: *taxed*, not *lost*
+> LeVJEPA reports the motion loss is **partly bought back by compute** — *"with longer training, higher dropping ratios recover the accuracy of lower ones on Something-Something-v2 while retaining their lower per-iteration cost,"* because *"additional iterations compensate for the reduced per-sample signal."*
+>
+> So an undeclared axis is **taxed in sample efficiency**, not destroyed. The page has been reworded accordingly. It survives — the FLOP-matched headline still loses SSv2 by 3.2 on a **1,085-epoch** schedule, and *"dropping schemes that preserve motion information at high sparsity"* is named as unsolved — but the strong form was overstated and is now marked as such.
+
+Two things picked up in passing. **A fifth source of branch asymmetry**, added to [the lineage](syntheses/world-models/ssl-anti-collapse-lineage.md): LeVJEPA has no EMA, no stop-gradient and no predictor, yet has a target, because *"the global view is the only view that remains photometrically unaltered… it constitutes the prediction target **by construction of the views alone**."* **Asymmetry can live in the data pipeline** rather than the architecture or optimizer — cheaper than any rung above it. And the paper **never itemizes its photometric transforms**: *"jitter", "flip", "blur", "grayscale", "solarize"* all appear zero times.
+
+Filed the experiment the pairing suggests and nobody has run: **train one world model with both declarations** — LeWM's temporal prediction *and* LeVJEPA's spatial/photometric views. It should be robust on both axes. If it is not, the declared-axis mechanism is not additive, which this wiki has been assuming without evidence.

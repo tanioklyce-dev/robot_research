@@ -49,6 +49,8 @@ The EMA is then a *substitutable* source of asymmetry, and the wiki now has this
 
 **So the honest ladder has one fewer rung than it looked.** Negatives, EMA-plus-predictor, centering-plus-sharpening and stop-gradient-with-a-fast-predictor are four ways to break symmetry between the branches. Reconstruction avoids needing to.
 
+**A fifth source, added 2026-09-07: augmentation asymmetry.** [LeVJEPA](../../sources/levjepa-paper.md) has no EMA, no stop-gradient and no predictor, and still has a target — *"as the global view is the only view that remains **photometrically unaltered** and covers the largest spatial extent, it constitutes the prediction target **by construction of the views alone**."* The teacher is not a slower copy of the student; it is the same encoder shown the least-corrupted view. Asymmetry can live in the **data pipeline** rather than in the architecture or the optimizer, which is a cheaper place to put it than any rung above.
+
 SimSiam also supplies the best account of *what the predictor is for*: under an EM reading where the network alternates between parameters `θ` and per-image representations `η_x`, the **stop-gradient is a derivation** (η is constant while solving for θ) and the **predictor approximates an expectation over augmentations** that single-sample training drops. Tested: replacing the predictor with a moving-average `η` gets **55.0% with no predictor at all**, where removing it otherwise gives 0.1.
 
 ### 1. "EMA + stop-gradient" is not one mechanism

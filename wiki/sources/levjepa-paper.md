@@ -82,6 +82,36 @@ And the line that lands hardest: **LeVJEPA's ViT-L consumes less than half the c
 >
 > "Extends to incoming frames without re-encoding" is the property a robot needs and that a bidirectional video encoder cannot have. Note what it would change for [mimic-video](mimic-video-paper.md), which reads intermediate features out of a **bidirectional** diffusion backbone and pays a full forward pass per action chunk: a block-causal encoder amortizes across the stream instead.
 
+## The view recipe, read in full (2026-09-07)
+
+Checked because [the abstraction tax](../syntheses/world-models/abstraction-tax.md) turns on which axes a training procedure declares irrelevant.
+
+**One global view + V local views**, `V = 4` for every headline result. Local views are *"obtained by **aggressive spatial cropping and photometric augmentation**"*, and the constraint that matters:
+
+> All views **share the identical temporal window and differ only spatially and photometrically.**
+
+The augmentation vocabulary is named but never itemized — *photometric* appears without a list, and **"jitter", "flip", "blur", "grayscale" and "solarize" appear zero times in the paper**. The construction is DINO's multi-crop, stated as such: *"LeVJEPA adopts the global–local view construction of this line, but none of its collapse-prevention machinery."*
+
+Token dropping is a third declaration, and they say so: at ρ = 0.95 it *"simultaneously acts as a **stochastic augmentation** that requires the clip-level embedding to be inferable from sparse, randomly located observations of the clip."*
+
+> [!note] The asymmetry comes from the views, not from a teacher
+> > As the global view is the only view that remains **photometrically unaltered** and covers the largest spatial extent, it constitutes the prediction target **by construction of the views alone**.
+>
+> [The anti-collapse lineage](../syntheses/world-models/ssl-anti-collapse-lineage.md) shows branch asymmetry is the load-bearing ingredient and the EMA is one substitutable source of it. This is another: **augmentation asymmetry**. The teacher is the same encoder shown the least-corrupted view. `L = L_inv + λ·L_SIGReg` with λ = 0.02, untuned.
+
+**So the declared axes are spatial position, photometric appearance, and which tokens you see — and nothing about time.** That is the wiki's explanation for why the results split the way they do: **+7.6 IN1K, −3.2 SSv2**. And the split appears inside the dropping sweep too, which this page had not recorded:
+
+> On Something-Something-v2, **which primarily probes motion understanding, accuracy declines for dropping ratios beyond 0.3**, in contrast to the monotonic improvement observed on ImageNet.
+
+Their interpretation is the same mechanism in their own words — sparse random observations render *"motion cues, which depend on correspondences across frames, less frequently recoverable within a single view."*
+
+> [!warning] But the motion loss is partly bought back by compute
+> *"With longer training, higher dropping ratios **recover** the accuracy of lower ones on Something-Something-v2 while retaining their lower per-iteration cost"* — *"additional iterations compensate for the reduced per-sample signal."*
+>
+> So this is a **sample-efficiency tax on the undeclared axis, not a hard representational limit** — an important qualification anywhere the wiki says an undeclared axis is *lost*. The FLOP-matched headline still loses SSv2 by 3.2 on a 1,085-epoch schedule, and *"dropping schemes that preserve motion information at high sparsity"* is named as unsolved.
+
+**Tube dropping is the control**: retaining identical spatial locations in every frame drops ImageNet from **50.7% to 39.6%**, same ordering on SSv2 — the shortcut argument for why *uniform random* is the right sparsity pattern.
+
 ## Two more things worth keeping
 
 **Consumer-hardware pretraining, with a number.** ViT-Tiny, **12 hours on a single RTX 5080 (16 GB)**, on **eight videos** of Walking Tours (~620k frames, ~5M clips) — *"unlabeled, uncurated egocentric footage."* ImageNet top-1 of the frozen encoder goes **8.9% → 25.2%**. The memory comparison is the sharper half: **LeVJEPA trains at batch 128 in under 8 GB; a V-JEPA configuration with an identically sized encoder saturates the same card at batch 28.**
