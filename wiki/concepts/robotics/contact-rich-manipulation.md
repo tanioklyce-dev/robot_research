@@ -3,7 +3,7 @@ title: Contact-rich manipulation
 type: concept
 created: 2026-09-07
 updated: 2026-09-07
-sources: 9
+sources: 10
 tags: [contact-rich, manipulation, force-control, assembly, insertion, surface-interaction, physical-hri, deformable-objects, task-taxonomy]
 ---
 
@@ -98,6 +98,12 @@ Tight-tolerance insertion is family 1 above — the most-studied class. Seals an
 >
 > The honest state: *"force is not recoverable from pixels"* still stands as written, and whether it **bounds acting or only measuring** is untested either way.
 >
+> **Update, same day — the first controlled measurement, and it runs the other way.** [τ](../../sources/tau-touch-augmented-vla-paper.md) adds vision-based tactile to a pretrained π0.5 and runs exactly this task class: **plug insertion 20% → 60%, USB insertion 20% → 40%, stamp press 35% → 90%, whiteboard erasing 40% → 95%** — average **28.75% → 71.25%**, with the ablation returning it to 28.75% when tactile is removed. Every model reaches **100% on grasping**; the spread is entirely at completion, and one baseline aligns the plug 85% of the time and inserts it **0%**.
+>
+> Their conclusion: *"coarse object interaction can still be achieved without touch, whereas **precise contact reasoning and execution cannot**."*
+>
+> That does not disprove the Audi deployment — different backbone, data scale and robot, and 20 trials per cell. **But the wiki now has one controlled measurement on this question and zero on the other side, and the burden has moved: FLUX-mimic's claim is the one that needs numbers.**
+>
 > **And there is a cheap experiment that would settle it.** mimic-video's oracle study finds that conditioning the action decoder on *ground-truth future video latents* yields **near-perfect success** — *"control effectively reduces to visual prediction."* On pick-and-place. Run that same oracle study on a **tight-clearance insertion** task: if oracle video still gives near-perfect control, the decisive information really is visible and the force-first consensus is over-stated; if it does not, the gap is exactly the part of contact that pixels never had.
 
 > [!note] A second vendor in this regime, with the sensing left ambiguous
@@ -127,4 +133,5 @@ Well-developed as a *control* problem and thin as a *learning* problem. Force/to
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — the definition, the exclusions, the four families, and the data argument.
 - [SafeVLA](../../sources/safevla-paper.md) — the counter-instance: the flagship safe-VLA result, working outside this task class on a collision-based cost.
 - [FLUX 3 and FLUX-mimic](../../sources/flux-3-launch.md) — **the first claimed deployment in this regime**: ECU insertion and seal/cable handling at Audi, from a video backbone with no force sensing described.
+- [τ: Touch-Augmented VLA](../../sources/tau-touch-augmented-vla-paper.md) — **the first controlled measurement**: same backbone, tactile added, 28.75% → 71.25% on this exact task class.
 - [mimic-video](../../sources/mimic-video-paper.md) — the architecture's paper: vision + proprioception only, and **no contact-rich task in its own evaluations**. Also the source of the *oracle* experiment that would settle the question.

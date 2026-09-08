@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-03
 updated: 2026-08-03
-sources: 6
+sources: 7
 tags: [pi-zero-5, physical-intelligence, vla, co-training, open-world, mobile-manipulation, hierarchical-inference, baseline]
 ---
 

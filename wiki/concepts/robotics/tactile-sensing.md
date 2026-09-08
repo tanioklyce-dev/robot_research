@@ -3,7 +3,7 @@ title: Tactile sensing
 type: concept
 created: 2026-09-07
 updated: 2026-09-07
-sources: 1
+sources: 2
 tags: [tactile-sensing, gelsight, vision-based-tactile, slip-detection, force-torque, visuo-tactile, contact-rich, multimodal-fusion]
 ---
 
@@ -43,6 +43,28 @@ For calibration: that is roughly the scale of a *single* mid-sized vision datase
 > [!note] Five papers
 > In the survey's modality table, **tactile appears in five reviewed works**, against ~60 for force/torque and ~30 for vision. Every claim on this page rests on a small literature. The direction is clearly up — portable collection rigs, pretrained visuo-tactile encoders, multi-DoF grippers enabling cable disentangling and thin-card flipping — but the wiki should treat "tactile sensing improves safety" as a well-motivated hypothesis with a handful of demonstrations, not an established result.
 
+## The strongest measured case for touch in this wiki
+
+[τ](../../sources/tau-touch-augmented-vla-paper.md) (Cheng et al., 2026) bolts vision-based tactile onto a pretrained **[π0.5](../../entities/pi-zero-5.md)** and runs the controlled version of the experiment this page has been missing. Same backbone, same data, tactile added:
+
+| | Plug insert | USB insert | Stamp press | Whiteboard erase | Avg |
+|---|---|---|---|---|---|
+| **π0.5** (vision only) | 20% | 20% | 35% | 40% | **28.75%** |
+| **τ** (+ tactile) | **60%** | **40%** | **90%** | **95%** | **71.25%** |
+
+And the ablation closes it: **removing the tactile module returns the system to 28.75%** — exactly the vision-only score.
+
+> [!note] The stage breakdown is the part worth carrying
+> **Every model in their table reaches 100% on grasping.** The spread is entirely at completion — ForceVLA aligns the plug **85%** of the time and inserts it **0%**; ForceFlow makes whiteboard contact **95%** of the time and finishes the wipe **50%**.
+>
+> The authors' conclusion: *"coarse object interaction can still be achieved without touch, whereas **precise contact reasoning and execution cannot**."* Touch is not needed to reach, grasp, or even make contact. It is needed for what happens *inside* the contact — which is [where vision is most occluded](contact-rich-manipulation.md).
+>
+> If that 100%-grasp / low-completion signature is general, **stage-wise reporting is a cheap detector for "this policy lacks contact sensing,"** and almost no VLA benchmark reports stages.
+
+**And a training trick worth stealing.** τ's tactile encoder is trained by an auxiliary JEPA-style branch that predicts **future visual feature *changes*** from the action-conditioned tactile representation, weighted by the magnitude of tactile variation. It is **training-only** — no deployment cost — and needs no tactile labels. The framing is not *vision replaces touch* but ***future vision teaches touch***, and the same trick should work for a wrist wrench, which is far cheaper than a GelSight-class sensor.
+
+Caveats: **20 trials per cell**, one robot, one sensor model, 100 demos per task, rigid objects only, and baselines adapted by the authors.
+
 ## Related concepts
 
 - [Contact-rich manipulation](contact-rich-manipulation.md) — the task class, and why vision degrades exactly at contact.
@@ -59,3 +81,4 @@ Vision-based tactile is the research default and GelSight the reference design; 
 ## Mentioned in
 
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — §3.3.5, the source for this page.
+- [τ: Touch-Augmented VLA](../../sources/tau-touch-augmented-vla-paper.md) — the measured ablation: 28.75% → 71.25% on contact-rich tasks from adding tactile to the same backbone.

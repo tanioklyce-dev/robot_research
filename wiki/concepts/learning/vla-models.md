@@ -3,7 +3,7 @@ title: VLA models
 type: concept
 created: 2026-05-06
 updated: 2026-09-07
-sources: 139
+sources: 140
 tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos, vla-0, action-as-text, molmoact2, per-layer-kv-conditioning, hybrid-action-head, llm-free-vla, turbovla, xvla, soft-prompt]
 ---
 
@@ -93,6 +93,12 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 > [!note] On-edge inference latency — the action head, not the VLM, is the bottleneck
 > First measured on-robot numbers ([Cutting the Cord, 2026](../../sources/cutting-the-cord-untethered-xlerobot.md), Jetson [Orin Nano](../../entities/jetson-orin-nano.md) Super, FP16, end-to-end camera→action): **[ACT](../../entities/act.md) 36 ms → 27.8 Hz** (reactive control); **[Diffusion Policy](../../entities/diffusion-policy.md) 540 ms → 1.8 Hz**; **[SmolVLA](../../entities/smolvla.md)-450M 714 ms → 1.4 Hz**. The striking finding: SmolVLA adds only *minor* overhead over Diffusion Policy — the latency wall is the **iterative action expert + denoising/flow steps (T=10)**, not the high-parameter semantic head. Implication for edge deployment: cutting sampling steps (or distillation) buys more than shrinking the VLM, and **diffusion/flow-matching VLAs run at ~1–2 Hz on 67-TOPS-class compute** — fine for slow/scripted tasks, too slow for reactive closed-loop. Motivates the async-inference server/client pattern (SmolVLA) and bigger onboard compute — see [Jetson onboard compute for XLeRobot](../../syntheses/platforms/jetson-onboard-compute-xlerobot.md) and the [Control-rate ladder](../../syntheses/platforms/control-rate-ladder.md), which places these numbers against control-rate requirements (83–1,000 Hz) and LLM-in-the-loop inference (0.2–0.4 Hz).
 
+## Adding a modality: tactile
+
+[τ](../../sources/tau-touch-augmented-vla-paper.md) adds a **fourth token stream** to a pretrained [π0.5](../../entities/pi-zero-5.md) — vision-based tactile, encoded by a touch encoder *initialized from π0.5's own vision encoder*, projected by a learnable linear adapter, concatenated as `[Z_vision ; Z_language ; Z_touch]`. On four contact-rich real-robot tasks the same backbone goes **28.75% → 71.25%**, and ablating the tactile module returns it exactly to 28.75%.
+
+The training trick is the transferable part: an auxiliary **JEPA-style branch predicts future *visual feature changes*** from the action-conditioned tactile representation, weighted by tactile-variation magnitude — **training-only, no inference cost, no tactile labels.** Not *vision replaces touch* but *future vision teaches touch*. See [tactile sensing](../robotics/tactile-sensing.md).
+
 ## The rival class: video-action models
 
 A **video-action model (VAM)** replaces the VLM backbone with a **pretrained video model** and decodes actions from its intermediate features. The argument against VLAs is structural: static image-text pretraining *"lacks inherent physical dynamics, forcing the policy to learn complex temporal and causal relationships from scarce robot demonstrations"* — where a video backbone has already learned dynamics before the robot moves.
@@ -146,7 +152,7 @@ Scope limit worth carrying: the costs there are **discrete collision events with
 
 ## Mentioned in
 
-> [!note] Curated list — **134** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **135** source pages link here; the ones below are those that shaped this page.
 
 - [π0 Paper](../../sources/pi-zero-paper.md)
 - [π0.7 Paper](../../sources/pi07-paper.md)

@@ -5605,3 +5605,34 @@ Requested review of a JEPA link list for what is worth ingesting.
 > **Two unrelated sources, same signal: robotics is not the JEPA programme's centre of gravity**, and this wiki reads the line almost entirely through robot control. Worth holding when weighing how much of the JEPA literature to chase.
 >
 > Also worth noting about the resource: the `Library` and `Tutorial` sections are **empty** despite the repo description promising them, and the curating org is a **transportation** lab — driving, UAV and wireless work is over-represented relative to this wiki's scope.
+
+## [2026-09-07] ingest | τ — the first controlled measurement on force-vs-vision
+
+Top pick from [the awesome-jepa triage](sources/awesome-jepa-github.md), filed one turn earlier as landing on this week's central seam. It lands.
+
+- Created [τ paper](sources/tau-touch-augmented-vla-paper.md); `raw/2607.24485v3.pdf`, sealed.
+- Updated: [tactile sensing](concepts/robotics/tactile-sensing.md), [contact-rich manipulation](concepts/robotics/contact-rich-manipulation.md), [VLA models](concepts/learning/vla-models.md), [FLUX 3](sources/flux-3-launch.md), [mimic-video](sources/mimic-video-paper.md)
+
+**The measurement.** Vision-based tactile added to a pretrained **π0.5**, on four real-robot contact-rich tasks:
+
+| | Plug insert | USB insert | Stamp press | Whiteboard erase | Avg |
+|---|---|---|---|---|---|
+| π0.5 (vision only) | 20% | 20% | 35% | 40% | **28.75%** |
+| τ (+ tactile) | **60%** | **40%** | **90%** | **95%** | **71.25%** |
+
+And the ablation closes it: **remove the tactile module and it returns to 28.75%** — exactly the vision-only score.
+
+> [!warning] The stage breakdown is the finding, not the average
+> **Every model in the table reaches 100% on grasping.** The spread is entirely at completion, and two baselines make the point better than any average: **ForceVLA aligns the plug 85% of the time and inserts it 0%**; **ForceFlow makes whiteboard contact 95% of the time and completes the wipe 50%.**
+>
+> The authors' conclusion is the sentence this wiki has been looking for since the [survey](sources/safe-learning-contact-rich-survey.md) was ingested: *"coarse object interaction can still be achieved without touch, whereas **precise contact reasoning and execution cannot**."* Touch is not needed to reach, grasp, or even make contact — it is needed for what happens **inside** the contact, which is exactly where vision is most occluded.
+>
+> If that signature generalizes, **stage-wise reporting is a cheap detector for "this policy lacks contact sensing."** Almost no VLA benchmark reports stages. Filed.
+
+**Where this leaves the week's open question.** [FLUX-mimic](sources/flux-3-launch.md) claims ECU insertion into tight-fitting fixtures at Audi from a video backbone with no tactile mentioned, and **publishes no success rate**; [mimic-video](sources/mimic-video-paper.md) confirmed that architecture is vision + proprioception but **never runs a contact-rich task**. τ runs the capability experiment on almost exactly FLUX-mimic's task list and finds the terminal contact stage is where the vision-only policy fails.
+
+Not strictly comparable — different backbone, data scale and robot, and **20 trials per cell** (≈±20 pp, though a 42.5-point ablation survives that comfortably). But **the wiki now holds one controlled measurement on this question and none on the other side.** *"Force is not recoverable from pixels"* looks stronger than it did this morning, and **the burden has moved: FLUX-mimic's claim is the one that needs numbers.** Recorded on both pages.
+
+**The mechanism is a genuine third position, and it is not the obvious one.** τ is not *vision replaces touch*. An auxiliary branch predicts **future visual feature *changes*** from the action-conditioned tactile representation — target is a **detached** difference of the VLA's own vision-encoder features, loss is cosine alignment **weighted by the magnitude of tactile variation** *"to emphasize future task processes with significant contact transitions."* It is **training-only**, needs **no tactile labels**, and adds **no inference cost**. So: ***future vision teaches touch***. The same trick should work on a **wrist wrench**, which is far cheaper than a GelSight-class sensor and is what most of the classical literature already has — filed as a follow-up.
+
+Also recorded: **TacAura** (Franka Research 3, DM-Tac WS vision-based tactile replacing the gripper fingers at 320×240/40 FPS, three RealSense cameras, 10 Hz, 100 demos × 4 tasks), collected by **exoskeleton teleoperation with tactile feedback visualized to the operator** — a data-collection version of the paper's own argument, and something the wiki's [crowdsourced data](concepts/learning/crowdsourced-robot-training-data.md) coverage has nothing on. Generalization is task-dependent in an informative way: whiteboard erasing is **unaffected by visual clutter** (95% → 95%) while USB insertion drops **17.5 pp**, which is a second independent signal that the survey's two contact-rich families fail differently. Stated limits: no tactile-world-model baseline (compute), and cross-task/embodiment/sensor transfer unexplored.
