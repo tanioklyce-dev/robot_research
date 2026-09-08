@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-07
 updated: 2026-09-07
-sources: 24
+sources: 25
 tags: [meta, fair, lecun, world-model, jepa]
 ---
 
@@ -34,6 +34,7 @@ With NVIDIA pushing generative video as the world-model paradigm and AGIBOT push
 - [Robot Utility Models](robot-utility-models.md) — Meta-affiliated adjacent project.
 
 ## Mentioned in
+- [Debating Technology — WEF Davos 2025](../sources/wef-davos-2025-debating-technology.md) — LeCun, still at Meta: *"new techniques… which is what we're working on at Meta, but it may take a few years before that pans out"*; plus the content-moderation history (hate-speech auto-takedown 20–25% late 2017 → 96% late 2022) and Meta's open-weights fine-tune-and-red-team practice.
 - [A Path Towards Autonomous Machine Intelligence (LeCun, 2022)](../sources/lecun2022-path-towards-ami.md) — the canonical FAIR/NYU position paper that defines the JEPA program.
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
 - [V-JEPA 2.1 Paper](../sources/v-jepa-2-1-paper.md)

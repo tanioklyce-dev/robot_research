@@ -34,7 +34,7 @@ The interview also settles two things the wiki had held only from secondaries: A
 - **World models are framed as the unlock for both robots and cars.** *"An agentic system that is supposed to take actions in the world cannot work reliably unless it has a world model to predict the consequences of its actions… This is the key to unlocking everything from truly useful domestic robots to Level 5 autonomous driving."*
 
 > [!warning] He does not give a date for household deployment — anywhere
-> Read carefully, LeCun commits to a timeline for the *architecture* and refuses one for the *robot*. Here the only timing statement is *"not next year or two years from now… It's going to take a while."* Elsewhere the wiki records **3–5 years** for a new paradigm and *"maybe the coming decade will be the decade of robotics"* (Davos, January 2025 — not ingested; see Open questions), and a **1–2 year** AMI Labs plan that explicitly *excludes* robots ([Welch Labs Part 2](welchlabs-lecun-1b-bet-against-llms-part2.md)). Anyone quoting LeCun as predicting home robots by a given year is inferring, not citing.
+> Read carefully, LeCun commits to a timeline for the *architecture* and refuses one for the *robot*. Here the only timing statement is *"not next year or two years from now… It's going to take a while."* Elsewhere the wiki records **3–5 years** for a new paradigm and *"maybe the coming decade will be the decade of robotics, because maybe we'll have AI systems that are sufficiently smart"* ([Davos, January 2025](wef-davos-2025-debating-technology.md)), and a **1–2 year** AMI Labs plan that explicitly *excludes* robots ([Welch Labs Part 2](welchlabs-lecun-1b-bet-against-llms-part2.md)). Anyone quoting LeCun as predicting home robots by a given year is inferring, not citing.
 
 ### On AMI Labs — new facts
 
@@ -77,7 +77,7 @@ The interview also settles two things the wiki had held only from secondaries: A
 
 ## Open questions
 
-- **The Davos statement is not ingested.** *"Maybe the coming decade will be the decade of robotics"* (World Economic Forum, 2025-01-23) and the 3–5-year paradigm claim are cited from secondary coverage on the [LeCun](../entities/yann-lecun.md) page; the primary is a WEF session recording. Worth ingesting if his robotics timeline is ever quoted in a decision.
+- ~~**The Davos statement is not ingested.**~~ **Ingested 2026-09-07:** [Debating Technology — WEF Davos 2025](wef-davos-2025-debating-technology.md). The primary turns out to be *more* hedged than the coverage — *"maybe… because maybe"* — and puts the robotics line under an audience slide headed *"consumer robotics."* The condition stated there is the one stated here a year later; the date is absent in both.
 - **The October 2025 MIT keynote** where he called it *"the big secret of the industry"* that humanoid companies cannot make their robots generally useful — same claim as here, five months earlier, also un-ingested.
 - **Was FAIR's robotics group actually dissolved, and when?** LeCun's is the only voice for this; no Meta statement or reporting is filed.
 - **Did Saining Xie join?** Unconfirmed here.

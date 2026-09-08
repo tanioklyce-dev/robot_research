@@ -2,8 +2,8 @@
 title: AI guardrails
 type: concept
 created: 2026-07-13
-updated: 2026-08-23
-sources: 19
+updated: 2026-09-07
+sources: 20
 tags: [ai-safety, guardrails, agentic-ai, content-safety, topic-control, jailbreak, runtime-safety, nemo-guardrails]
 ---
 
@@ -93,6 +93,9 @@ Four disclosures in five weeks ([synthesis](../../syntheses/agents/frontier-agen
 
 > [!warning] The counter-case: guardrails bound the defender, not the attacker
 > [Hugging Face](../../sources/huggingface-security-incident-july-2026.md) could not run forensics on the attack using commercial frontier APIs — submitting real attack commands and C2 artefacts *"were blocked by the providers' safety guardrails, which cannot distinguish an incident responder from an attacker."* They used an open-weight model on their own hardware instead. The attacker was an agent running **with classifiers disabled**; the defender was rate-limited by classifiers that were on. Whatever else this page concludes about rails, that asymmetry is real and operational.
+
+> [!note] LeCun's version of the same reframe, from the model side (Davos, January 2025)
+> *"LLMs are intrinsically unsafe, because they're not controllable. The only way you can do this is by training them to do it, but that training can be undone by going outside the domain where they've been trained"* ([Debating Technology](../../sources/wef-davos-2025-debating-technology.md)). That is this page's finding — trained-in rails are behavioral — stated a year earlier about the model rather than the stack. His proposed exit is architectural: objective-driven systems whose guardrails are *"hardwired"* into the reasoning so a prompt cannot jailbreak them. Nothing in this wiki instantiates that, and his own deflation applies meanwhile — *"not particularly dangerous because they're not particularly smart either"* — which is precisely the assumption embodiment removes.
 
 > [!warning] The enforcement layer is still a design, not a product
 > This is NVIDIA's **third** agentic-safety publication in this wiki. The [safety recipe](../../sources/nvidia-safety-recipe-agentic-ai.md)'s artifact was **deprecated 2026-04-22**; [NemoClaw](../../entities/nemoclaw.md) is **early preview** with no GA date; the architecture post links to a blog tag. The reasoning is the best in the wiki on this subject. Nothing here establishes that you can install it.
