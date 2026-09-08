@@ -3,7 +3,7 @@ title: Energy-based models (EBMs)
 type: concept
 created: 2026-05-17
 updated: 2026-09-07
-sources: 9
+sources: 11
 tags: [ebm, energy-based-model, bengio, infonce, jepa, ibc, lecun, kona, latent-variable, constraint-satisfaction]
 ---
 
@@ -78,6 +78,17 @@ This matters for how the wiki frames the autoregressive-vs-JEPA argument. Likeli
 
 Both are explicitly spin-glass/Ising constructions, and the Boltzmann machine is *"the first introduction of hidden units"* — i.e. the first latent variables. [The anti-collapse lineage](../../syntheses/world-models/ssl-anti-collapse-lineage.md) begins its table in 2018; the shape of the problem and the shape of the fix are both much older.
 
+### The spin glass returns — as a model of the loss, not the network (2015), and as an objective (2017)
+
+Thirty years after Hopfield, the same mathematics comes back in LeCun's orbit twice, with the object changed each time — now filed from the primaries:
+
+| Year | Paper | What the spin glass / Gibbs machinery models | What it buys |
+|---|---|---|---|
+| 2015 | [The Loss Surfaces of Multilayer Networks](../../sources/choromanska2015-loss-surfaces-multilayer-networks.md) | **the training loss** of a ReLU network, as an *H*-spin spherical spin-glass Hamiltonian (under decoupling assumptions the authors call "possibly unrealistic") | low-index critical points sit in a **band just above the global minimum**; bad minima vanish exponentially with size; the global minimum is unreachable and overfits |
+| 2017 | [Entropy-SGD](../../sources/chaudhari2017-entropy-sgd.md) | **a Gibbs distribution over weights** focused near the current iterate; its log-partition function — the **local free entropy** — becomes the objective | optimization biased toward **wide valleys**, which is where SGD's minima already sit (~94% near-zero Hessian eigenvalues) |
+
+The 2017 move is the one that belongs on this page: **free energy used as a training objective**. The Les Houches principle above — regularized EBM training *bounds the volume of the low-energy region* — is stated about the energy over *inputs*; Entropy-SGD applies the same idea to the energy over *weights*, measuring that volume locally and climbing it. And it raises the question [loss-landscape geometry](loss-landscape-geometry.md) files: on a joint-embedding loss the widest low-energy valley is the collapsed one, so the anti-collapse devices in this page's prehistory table are changing *which minima exist*, not which the optimizer finds.
+
 ## Key references in this wiki
 
 - **[LeCun 2022 — A Path Towards Autonomous Machine Intelligence](../../sources/lecun2022-path-towards-ami.md)** — the conceptual anchor. Frames JEPA, the configurable world model, and intrinsic-cost training all as EBM-flavored constructions.
@@ -110,6 +121,9 @@ This is the long thread connecting the [1993 Siamese signature-verification pape
 - [Bengio et al. 2003 — A Neural Probabilistic Language Model](../../sources/bengio2003-neural-probabilistic-language-model.md) — §5.1 energy-minimization variant; the earliest EBM construction in the wiki.
 - [Dawid & LeCun 2023 — Introduction to Latent Variable Energy-Based Models](../../sources/dawid-lecun-lvebm-lecture-notes.md) — the Les Houches lectures; the source for the five distinctions and the prehistory above.
 - [JEPA Through the Eyes of a Physicist (Fajmanova, 2026)](../../sources/jepa-vs-physics-moudrkat.md) — an outside reading of the same material; useful for the coarse-graining framing, wrong on the collapse mechanism.
+- [The Loss Surfaces of Multilayer Networks (2015)](../../sources/choromanska2015-loss-surfaces-multilayer-networks.md) — the spin glass as a model of the *training loss*; the bridge from the Hopfield/Boltzmann prehistory to modern training.
+- [Entropy-SGD (2017)](../../sources/chaudhari2017-entropy-sgd.md) — free energy over weights as a training objective; the optimizer-side twin of the volume-bounding principle.
+
 
 ## Open questions / TBD
 

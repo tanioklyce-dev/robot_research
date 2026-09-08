@@ -3,7 +3,7 @@ title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
 updated: 2026-09-07
-sources: 78
+sources: 85
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -55,6 +55,10 @@ The escape hatch is closed by scope rather than by proof: SSIM is image-specific
 - **Internet-scale pretraining**: JEPAs can absorb action-free observation data (web video) at scale, then post-train action-conditioned predictors on small interaction datasets. [V-JEPA 2](../../entities/v-jepa-2.md) is the canonical demonstration: 1M+ hours pretraining → 62 hr post-training → zero-shot Franka manipulation.
 
 ## Common training challenges
+
+> [!note] Collapse in landscape terms — the widest valley (added 2026-09-07)
+> The [loss-landscape literature](../learning/loss-landscape-geometry.md) LeCun coauthored a decade earlier says SGD lands in wide, flat basins and that width is what generalizes ([Entropy-SGD](../../sources/chaudhari2017-entropy-sgd.md)). On a JEPA prediction loss, **the widest flat basin is the constant encoder** — so the flat-minima intuition points *at* collapse, and every device below is best read as removing or narrowing that basin rather than steering the optimizer away from it. The wiki has no Hessian spectrum at a converged JEPA solution; it would be the cheapest test of whether the supervised landscape picture applies here at all.
+
 - **Representation collapse** — without the right [inductive biases](../learning/inductive-bias.md), both encoder and predictor learn trivial constants. The wiki now tracks a **design space of anti-collapse mechanisms**, from heaviest to lightest.
 
   *The pre-2024 foundations, now sourced from their primaries — see [the lineage synthesis](../../syntheses/world-models/ssl-anti-collapse-lineage.md):*
@@ -257,6 +261,8 @@ Measured: MAE drops **25.1%** under ImageNet-C severity 1→5 against DINO's **1
 - [Sensorimotor World Models Paper (Ivashkov, Balestriero, Schölkopf 2026)](../../sources/sensorimotor-world-models-paper.md) — inverse-dynamics regularization as the sole anti-collapse mechanism
 - [A Generalization Theory for JEPA-Based World Models (Cui et al., 2026)](../../sources/jepa-generalization-theory-paper.md) — first finite-sample generalization bound; JEPA pretraining = action-conditioned co-occurrence-matrix factorization ([spectral view](../learning/spectral-theory-of-ssl.md))
 - [Grounding Spatial Relations in a Compact World Model (Wang et al., 2026)](../../sources/grounding-spatial-relations-compact-wm-paper.md) — the [instruction-leakage](instruction-leakage.md) evaluation confound in goal-conditioned JEPA world models
+- [The Loss Surfaces of Multilayer Networks (2015)](../../sources/choromanska2015-loss-surfaces-multilayer-networks.md) · [Entropy-SGD (2017)](../../sources/chaudhari2017-entropy-sgd.md) — LeCun's pre-JEPA landscape theory; both presuppose a global minimum worth reaching, which on a joint-embedding loss is collapse. See the note under *Common training challenges*.
+
 
 ## How much of the advantage is latent prediction, specifically? (2026 probe evidence)
 

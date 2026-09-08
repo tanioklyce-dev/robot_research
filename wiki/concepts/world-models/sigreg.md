@@ -2,8 +2,8 @@
 title: SIGReg (Sketched Isotropic Gaussian Regularization)
 type: concept
 created: 2026-08-26
-updated: 2026-09-03
-sources: 23
+updated: 2026-09-07
+sources: 24
 tags: [sigreg, jepa, lejepa, anti-collapse, isotropic-gaussian, cramer-wold, epps-pulley, balestriero, lecun, latent-space, regularization]
 ---
 
@@ -199,3 +199,4 @@ Given that open-loop degradation from 25 → 75 steps is the standing failure ([
 - [BYOL paper (Grill et al., 2020)](../../sources/byol-paper.md) · [DINO paper (Caron et al., 2021)](../../sources/dino-paper.md) — the two heuristic stacks SIGReg replaces, read from their primaries.
 - [MAE paper (He et al., 2021)](../../sources/mae-paper.md) — the reconstruction alternative that needs no anti-collapse term, and rejects linear probing as the metric.
 - [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — **its author teaching it**: the DINO instability case, the cross-GPU seeding gotcha, 50 architectures out of the box, the detached-decoder rule, the SIGReg+IDM argument, and a hackathon ablation where Gaussian beat Laplace and Student-t.
+- [Entropy-SGD (2017)](../../sources/chaudhari2017-entropy-sgd.md) — in landscape terms, SIGReg changes *which minima exist* (removes the collapsed basin) where Entropy-SGD changes *which the optimizer finds* (the widest); see [loss-landscape geometry](../learning/loss-landscape-geometry.md).

@@ -2,8 +2,8 @@
 title: Spectral theory of self-supervised learning
 type: concept
 created: 2026-07-26
-updated: 2026-09-03
-sources: 12
+updated: 2026-09-07
+sources: 13
 tags: [spectral-graph-theory, self-supervised-learning, ssl-theory, laplacian-eigenmaps, mds, vicreg, simclr, barlow-twins, sigreg, jepa, balestriero, lecun, theory]
 ---
 
@@ -76,3 +76,4 @@ The spectral framework is well-established for *static* SSL (the 2022 result) an
 - [Spectral Graph Theory review](../../sources/spectral-graph-theory-ssl-paper.md), [JEPA generalization theory](../../sources/jepa-generalization-theory-paper.md), [LeNEPA](../../sources/lenepa-paper.md).
 - [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — the closed-form derivation taught live, plus X-CLR and the graph-noise asymmetry.
 - [CPC](../../sources/cpc-paper.md) · [BYOL](../../sources/byol-paper.md) · [DINO](../../sources/dino-paper.md) — the contrastive and non-contrastive primaries this framework unifies.
+- [The Loss Surfaces of Multilayer Networks (2015)](../../sources/choromanska2015-loss-surfaces-multilayer-networks.md) — the same random-matrix tradition (Wigner, Auffinger–Ben Arous) applied to the *loss landscape* rather than the embedding; the other spectral thread in LeCun's orbit.

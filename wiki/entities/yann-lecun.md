@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-07
 updated: 2026-09-07
-sources: 60
+sources: 62
 tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs, logical-intelligence, ebm, diffusion-policy, object-centric, spectral-graph-theory]
 ---
 
@@ -37,7 +37,7 @@ LeCun introduced the JEPA framing publicly around 2022 and has driven its applic
 > [!note] One more LeCun paper not ingested here
 > **S-JEPA** (arXiv 2606.19398, JEPA extended to *speech*, with Ravid Shwartz-Ziv, NYU) surfaced in the 2026-07-26 web search but is **not ingested**. NYU-bylined.
 
-Ten papers in this wiki now carry his name. The world-model paradigm that distinguishes [FAIR](meta-fair.md) from [NVIDIA](nvidia.md) (generative video) and [AGIBOT](agibot.md) (sim-native) is, for practical purposes, LeCun's research direction.
+Twelve papers in this wiki now carry his name (the two [statistical-physics papers](#the-statistical-physics-thread-nyu-20152017) below included). The world-model paradigm that distinguishes [FAIR](meta-fair.md) from [NVIDIA](nvidia.md) (generative video) and [AGIBOT](agibot.md) (sim-native) is, for practical purposes, LeCun's research direction.
 
 ## Public stance relevant to this wiki
 - **Latent-prediction over generative-video.** LeCun has argued publicly (talks, blog posts, social media) that pixel-level generative models are the wrong target for video world modeling — that prediction in representation space is more efficient and more aligned with what biological systems do. JEPA is the technical instantiation of that argument. The on-camera framing of this position is the **[Welch Labs explainer "Yann LeCun's $1B Bet Against LLMs" (2026-05-01)](../sources/welchlabs-lecun-1b-bet-against-llms.md)**, which interviews LeCun and traces the blurry-pixels → Siamese → Barlow Twins → DINO → JEPA arc.
@@ -66,13 +66,23 @@ LeCun is one of the small number of researchers whose **simultaneous senior posi
 - [Adrien Bardes](adrien-bardes.md) — frequent JEPA co-senior.
 - [Basile Terver](basile-terver.md) — JEPA-WMs lead author working under LeCun.
 
+## The statistical-physics thread (NYU, 2015–2017)
+
+Two of the three LeCun-coauthored statistical-physics papers surfaced by the [physics essay](../sources/jepa-vs-physics-moudrkat.md), now filed from the primaries. Together they are the theory of *why deep nets train* that predates his world-model program, and they share its mathematics — Gibbs distributions, partition functions, spin glasses — five years before the [Les Houches lectures](../sources/dawid-lecun-lvebm-lecture-notes.md).
+
+- **[The Loss Surfaces of Multilayer Networks](../sources/choromanska2015-loss-surfaces-multilayer-networks.md)** (Choromanska, Henaff, Mathieu, Ben Arous, LeCun; AISTATS 2015) — senior author. Maps a ReLU network's loss to a spherical spin-glass Hamiltonian; for large networks the reachable critical points form a band just above the global minimum, bad minima vanish exponentially, and the global minimum is unreachable and overfits. Under assumptions the paper calls *"possibly unrealistic."*
+- **[Entropy-SGD](../sources/chaudhari2017-entropy-sgd.md)** (Chaudhari, Choromanska, Soatto, LeCun, Baldassi, Borgs, Chayes, Sagun, Zecchina; ICLR 2017) — fourth author, NYU + Facebook AI Research. SGD's minima are almost flat (~94% near-zero Hessian eigenvalues); local free entropy as an objective biases descent into wide valleys; parity on CNNs, 2× fewer epochs on RNNs.
+- **Not yet filed:** the COLT 2015 open-problem note on the same landscape; Sagun, Bottou & LeCun 2016 on Hessian singularity; Mehta & Schwab's RG mapping (not his).
+
+The wiki's own reading, recorded on [loss-landscape geometry](../concepts/learning/loss-landscape-geometry.md): on the joint-embedding losses of his later program, **the widest valley is collapse**, so the flat-minima intuition of 2017 and the anti-collapse machinery of 2020–26 pull in opposite directions — and no one has measured a Hessian at a JEPA solution to see which landscape it actually has.
+
 ## Earlier work (AT&T Bell Labs era)
 - **[Bromley, Guyon, LeCun, Säckinger, Shah 1993 — "Signature Verification using a 'Siamese' Time Delay Neural Network"](../sources/bromley1993-siamese-signature-verification.md)** — co-author (third position). The **original [Siamese network](../concepts/world-models/siamese-network.md) paper**, written during LeCun's AT&T Bell Labs Holmdel period. Architecturally continuous with the 2020s JEPA program: two weight-tied encoders + a similarity head is the J/A in JEPA, 30 years before LeCun named the framework. The Welch Labs explainer's framing of JEPA as "the natural continuation of the Siamese-network research LeCun started in the 1990s" is literally correct — same author, same architectural family, different loss.
 
 ## Mentioned in
 - [Third World Modeling Workshop, Chicago Booth 2026](../sources/chicago-booth-world-modeling-workshop-2026.md) — keynote and panel. Contains his bluntest recorded statement on imitation learning: *"we still don't have level-five self-driving cars… imitation learning has been a failure for driving. And believe me — I believed in this 15 years ago, not anymore."*
 
-> [!note] Curated list — **60** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **62** source pages link here; the ones below are those that shaped this page.
 
 - [VAE Paper (Kingma & Welling, 2013)](../sources/vae-paper.md) — his predictive sparse decomposition (Kavukcuoglu, Ranzato, LeCun 2008) is cited as an encoder–decoder architecture the VAE authors "drew some inspiration" from.
 - [Bromley et al. 1993 — Signature Verification using a Siamese TDNN](../sources/bromley1993-siamese-signature-verification.md) — co-author; original Siamese network paper.
@@ -99,6 +109,8 @@ LeCun is one of the small number of researchers whose **simultaneous senior posi
 - [Aleph and Energy-Based Models: The AI That Refuses to Bullshit (video)](../sources/2026-05-aleph-ebm-refuses-bullshit-video.md) — names LeCun as Founding Chair of Logical Intelligence's Technical Research Board; verbatim quote on EBMs as "reasoning and inference by minimizing an energy function."
 - [The Day After AGI — WEF Davos 2026](../sources/wef-davos-2026-the-day-after-agi.md) — **he was not on this panel** (corrects an earlier note here); filed because Hassabis independently names world models + continual learning as what robotics waits on. His own January-2026 remarks were at **AI House Davos** — now ingested, below.
 - [Embodied AI — LeCun with Marc Pollefeys, AI House Davos 2026 (video, 2026-01-22)](../sources/ai-house-davos-2026-lecun-embodied-ai.md) — **the fullest statement of his robotics position here**: the three components of a robot's world model, VLAs as the expert systems of the 2020s, hierarchical planning *"completely unsolved… people have mostly given up,"* V-JEPA 2's action-conditioned transfer with *"not that much data,"* online adaptation as *"not a particularly challenging conceptual problem,"* and *"every single real-time vision system uses convolutional nets."* Plus "LLM-pilled," "digging the same trench," and Meta.
+- [The Loss Surfaces of Multilayer Networks (Choromanska et al., AISTATS 2015)](../sources/choromanska2015-loss-surfaces-multilayer-networks.md) — senior author; the spin-glass landscape theory.
+- [Entropy-SGD (Chaudhari et al., ICLR 2017)](../sources/chaudhari2017-entropy-sgd.md) — coauthor; the flat-minima measurement and the local-entropy objective.
 
 
 ## Resolved / TBD

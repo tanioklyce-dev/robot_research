@@ -86,6 +86,8 @@ Added 2026-09-07 on ingesting **[Dawid & LeCun's Les Houches lecture notes](../.
 
 Both are explicitly spin-glass constructions, and the Boltzmann machine introduces hidden units — the first latent variables in the lineage. **Hopfield's spurious minima are the same class of failure this page tracks**: a landscape that acquires structure the data did not put there, or loses the structure the data did. Forty years later the devices are cheaper and the framing is unchanged.
 
+**The spin glass reappears in 2015 as a model of the training loss itself** — [Choromanska et al.](../../sources/choromanska2015-loss-surfaces-multilayer-networks.md) map a ReLU network's loss to a spherical spin-glass Hamiltonian and show that, for large networks, almost every reachable critical point is a good one. That result presupposes a global minimum worth reaching. Here the global minimum is collapse, which is why this page's ladder exists and why the 2015 picture cannot be imported unmodified; see [loss-landscape geometry](../../concepts/learning/loss-landscape-geometry.md) for the argument and the one cheap measurement that would settle it.
+
 **And the framing generalizes point 3 of this page.** Reconstruction does not need an anti-collapse device — but the notes state *why* in a form that covers every row at once:
 
 > **Every model that can be multimodal, i.e., have multiple predictions for a single input, is susceptible to collapse.**

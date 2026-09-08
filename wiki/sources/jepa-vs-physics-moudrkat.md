@@ -38,9 +38,9 @@ Its companion argument about **why latent prediction is not just cheaper but bet
 
 Closing with a comparison this wiki should steal: choosing the right latent is *"the same principle that makes generalized coordinates more powerful than Cartesian coordinates for constrained systems. By choosing the right variables, the constraints become invisible."* In physics finding those variables is the creative act; the claim is that JEPA automates it.
 
-## The three papers it surfaces, none of which this wiki holds
+## The three papers it surfaces — two now ingested (2026-09-07)
 
-The essay's real service is citation. All three are LeCun-co-authored statistical physics, and all three are gaps here:
+The essay's real service is citation. All three are LeCun-co-authored statistical physics; two were gaps here and are now filed as [Loss Surfaces](choromanska2015-loss-surfaces-multilayer-networks.md) and [Entropy-SGD](chaudhari2017-entropy-sgd.md), with the concept they anchor at [loss-landscape geometry](../concepts/learning/loss-landscape-geometry.md):
 
 - **Choromanska, Henaff, Mathieu, Ben Arous & LeCun, "The Loss Surfaces of Multilayer Networks" (AISTATS 2015, [arXiv:1412.0233](https://arxiv.org/abs/1412.0233))** — maps a network's loss to the Hamiltonian of a **spherical spin glass**, and argues that for large networks local minima concentrate near the global minimum. This is the missing link between the wiki's [Hopfield/Boltzmann prehistory](dawid-lecun-lvebm-lecture-notes.md) — also spin glasses — and modern training.
 - **Chaudhari, Choromanska, Soatto, LeCun et al., "Entropy-SGD" (ICLR 2017, [arXiv:1611.01838](https://arxiv.org/abs/1611.01838))** — Langevin dynamics biasing optimization toward wide valleys by computing a **local entropy**.
@@ -96,5 +96,5 @@ To the author's credit the limits are stated in the text: *"These are observatio
 ## Open questions
 
 - **Is the RG mapping real, or a resemblance?** [Mehta & Schwab](https://arxiv.org/abs/1410.3831) is the only formal claim and it never left arXiv. Reading it is a small job with a clear payoff either way, because the wiki repeatedly reaches for "abstraction" language it cannot currently ground.
-- **Does the spin-glass loss-surface result say anything about JEPA specifically?** [Choromanska et al. 2015](https://arxiv.org/abs/1412.0233) concerns supervised networks. Whether joint-embedding objectives — which have a *trivial* global minimum the training must be prevented from reaching — inherit the "local minima concentrate near the global one" picture is not obvious, and would be worth knowing.
+- **Does the spin-glass loss-surface result say anything about JEPA specifically?** — *Sharpened, not answered, by ingesting it (2026-09-07): the paper presupposes a global minimum worth reaching, and on a joint-embedding loss that minimum is collapse — the widest valley in the landscape. The cheap test is a Hessian spectrum at a converged JEPA solution; see [loss-landscape geometry](../concepts/learning/loss-landscape-geometry.md).* [Choromanska et al. 2015](choromanska2015-loss-surfaces-multilayer-networks.md) concerns supervised networks. Whether joint-embedding objectives — which have a *trivial* global minimum the training must be prevented from reaching — inherit the "local minima concentrate near the global one" picture is not obvious, and would be worth knowing.
 - **Would a measured version of the trajectory claim hold?** Cluster purity against action labels, on the pretrained model, over hundreds of clips rather than five, without t-SNE in the loop. The demos are already written; only the scale and the metric are missing.

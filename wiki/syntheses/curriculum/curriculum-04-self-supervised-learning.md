@@ -2,7 +2,7 @@
 title: Curriculum Module 4 — Self-supervised learning and embeddings
 type: synthesis
 created: 2026-05-10
-updated: 2026-05-10
+updated: 2026-09-07
 tags: [curriculum, module-4, ssl, self-supervised-learning, embeddings, representation-collapse, vicreg, byol, dino, mae, simclr, moco, contrastive-learning, sigreg]
 prereqs: [curriculum-01, curriculum-02, curriculum-03]
 status: draft
@@ -141,7 +141,7 @@ The encoder degenerates to a near-constant function: `g_φ(x) ≈ c` for all `x`
 
 ### Why collapse is an attractor
 
-For predictive SSL with a flexible enough encoder, *the constant solution is reachable*. The loss landscape has trivial-collapse as a low-loss region; gradient descent finds it unless something stops you.
+For predictive SSL with a flexible enough encoder, *the constant solution is reachable*. The loss landscape has trivial-collapse as a low-loss region; gradient descent finds it unless something stops you. In the language of the [flat-minima literature](../../concepts/learning/loss-landscape-geometry.md), it is not merely low-loss but the *widest* low-loss basin available — the one an optimizer biased toward flat regions would seek out — which is why the fixes in §5 all work by changing the landscape rather than the optimizer.
 
 **This is the entire engineering problem in non-contrastive SSL.** Every method in §5 below is a different answer to "how do you prevent collapse?"
 
