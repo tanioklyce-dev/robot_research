@@ -2,7 +2,7 @@
 title: Abbreviations & Glossary
 type: reference
 created: 2026-05-10
-updated: 2026-08-30
+updated: 2026-09-07
 tags: [glossary, reference, acronyms, curriculum]
 ---
 
@@ -58,6 +58,9 @@ Stanford household-task benchmark; 12.4% best result (per [AI Index 2026](source
 
 ### CE
 **Cross-Entropy** — the standard classification loss; for predicted distribution `p̂` and target `p`, `−Σ p log p̂`. *(Module 1.)*
+
+### CDiT
+**Conditional Diffusion Transformer** — a Diffusion-Transformer (DiT)-style block whose conditioning (past frames, actions) enters through adaptive layer-norm scale/shift rather than as tokens. Introduced for denoising in Navigation World Models (Bar et al. 2025); reused as the latent dynamics model in [WorldDP](entities/worlddp.md), where — despite the name — it is trained by plain MSE and never denoises. Check the loss before assuming a "diffusion" world model is stochastic. *(Module 11.)*
 
 ### CBF
 **Control Barrier Function** — a function `h(z)` whose zero-superlevel set is the safe set; any controller satisfying `ḣ(z,u) ≥ −α(h(z))` renders that set **forward-invariant** (once safe, always safe). Dropped into a QP with a min-norm objective it becomes a **safety filter** wrapping an arbitrary — including learned — nominal controller. Mechanical systems usually give **relative degree 2** constraints under torque control, requiring High-Order CBFs. See [operational space control](concepts/robotics/operational-space-control.md) and the [OSCBF paper](sources/oscbf-paper.md). *(Classical-robotics branch.)*
@@ -356,6 +359,9 @@ Open-weights VLA used as a baseline in many 2024–2026 papers. *(Module 9.)*
 ### OVMM
 **Open Vocabulary Mobile Manipulation** — HomeRobot benchmark for Stretch. *(Module 13.)*
 
+### Particle filter
+Two unrelated senses in this wiki. (1) **Sequential Monte Carlo state estimation** — a weighted sample set over hidden state, propagated through dynamics, reweighted by observation likelihood, resampled; the classical tool for robot localization ([SLAM](#slam)). (2) **In [WorldDP](entities/worlddp.md)**, a planning-time optimizer over latent action sequences: sample around several elite means, roll out through the world model, keep the top-M, iterate. Sense (2) has no weights or likelihood — it is a multi-modal [CEM](#cem) with fixed σ, named for keeping several hypotheses alive where CEM's single Gaussian collapses to one. *(Module 10.)*
+
 ### PAR
 **Physically Assistive Robotics** — robots that physically assist disabled users (feeding, dressing, transfer). See [Nanavati 2024 systematic review](sources/nanavati2024-physically-assistive-robots-review.md). *(Module 13.)*
 
@@ -440,6 +446,9 @@ Computing the set of all states a system can occupy over a time horizon given bo
 ### Safety filter
 A runtime mechanism between a policy and the actuators that takes the proposed action and emits the nearest action it can certify safe. Families: optimization-based ([CBF](#cbf), predictive safety filters) versus **reachability-based** (keep a verified failsafe trajectory available); post-hoc versus injected into the denoising process. The axis that predicts whether a filter destroys a learned policy is **path-consistent vs path-deviating**, not guarantee strength — see [safety filters for learned policies](concepts/robotics/safety-filters.md). *(Classical-robotics branch.)*
 
+### SAM2
+**Segment Anything Model 2** — Meta's promptable, class-agnostic segmentation model (Aug 2024, Apache-2.0; successor to SAM 2023). Given an image or video plus a point/box/mask prompt, returns pixel masks; v2 adds a streaming memory for **video object tracking** with occlusion handling, which is what makes it practical for labeling robot trajectory datasets. In this wiki it appears as an **offline labeler**: training-time mask targets for [WorldDP](entities/worlddp.md)'s object-centric encoder, and a structural control signal in [generative data augmentation](concepts/learning/generative-data-augmentation.md). It does not know what a cube is; someone has to prompt it. No entity page yet. *(Module 4.)*
+
 ### SGD
 **Stochastic Gradient Descent** — gradient descent on minibatches; the canonical NN optimizer. *(Module 1.)*
 
@@ -457,6 +466,9 @@ NN architecture with two (or more) weight-tied sub-networks applied to two input
 
 ### SLAM
 **Simultaneous Localization And Mapping** — classical robotics technique; out-of-scope for this curriculum but you'll see it. *(Out of scope.)*
+
+### Slot attention
+Locatello et al. 2020. A fixed number N of learned "slot" vectors iteratively cross-attend over a set of input features, with attention normalized **across slots per input** so slots compete for features and end up partitioning the input into entities; a [GRU](#gru) updates each slot per iteration. Unsupervised in the original; slot identity is then permutation-ambiguous across frames. [WorldDP](entities/worlddp.md) runs it over frozen [DINOv2](#dinov2) patch features and pins slot identity with [SAM2](#sam2) mask supervision. *(Module 11.)*
 
 ### SOS
 **Sums Of Squares** — a polynomial is SOS if it can be written as a sum of squared polynomials, which certifies nonnegativity and is checkable by semidefinite programming. The standard tool for verified region-of-attraction and containment proofs in model-based control (LQR-Trees; the SOS-based mixed-integer planners [GCS](#gcs) defines itself against). Exposed as its own solver class in [Drake](entities/drake.md). *(Classical-robotics branch.)*

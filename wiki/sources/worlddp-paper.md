@@ -31,7 +31,13 @@ tags: [worlddp, world-model, jepa, object-centric, diffusion-policy, hierarchica
   - **Scene-Single-Composite full task: 20%** vs HECRL* 18, DP100 14, others 0.
   - **Cube-Single + Scene-Single-Direct "both-task average": 74.5%** vs HECRL* 63, DP100 63, DP40 32.
   - Ablations: hierarchy beats "w/o DP" (raw-action optimization) and "DP-only"; **object-centric encoding** beats raw-DINOv2-patch states; **40-step DP** beats 100-step (world model gives closely-spaced precise subgoals); **particle filter** beats CEM.
+- **Planner hyperparameters (Appendix C):** horizon T = 2–3 world-model steps, Q = 600 particles, σ = 1.0 / 0.5 / 0.1 (cube-single / cube-triple / scene), M = 10 elites, L = 20 / 10 iterations, λ_plan = 0.05–0.1. Particles are seeded from straight-line end-effector trajectories to workspace keypoints (§3.3). OCE: 3 / 5 / 7 slots, slot dim 64 / 128 / 1024 (Appendix A.1). Tversky loss α = 0.99, β = 0.01 with inverse-size object weighting (Appendix B).
 - **Contrast with [HWM](../entities/hwm.md) (Zhang et al. 2026):** both are hierarchical latent-world-model planners, but HWM uses **another world model** at the low level (optimizing physical actions against a patch-level cost), whereas WorldDP uses a **diffusion policy** — faster, more robust to imperfect subgoals, and able to sustain longer multi-stage sequences.
+
+## Reading notes
+
+> [!note] Terminology vs. mechanism
+> A close read (2026-09-07) found that two of the paper's headline terms describe architecture lineage rather than what the components do. **The CDiT dynamics model is trained by teacher-forced MSE and rolled out in one deterministic pass per step** — no noise schedule or denoising appears in §3.2 or Appendix A.2; "diffusion" is inherited from the CDiT block's origin in Navigation World Models (Bar et al. 2025). **The "particle filter" has no weights, likelihood, or resampling** — Algorithm 1 is an elite-selection sampler (600 samples around 10 elite means, keep top 10, iterate), i.e. a multi-modal CEM with fixed σ. Both are fine engineering; neither is what the name implies. A third point: the SAM2 mask supervision also **fixes slot ordering across frames**, which is what makes an MSE dynamics loss between slot matrices well-posed — an unstated dependency of the dynamics model on the privileged guidance. Details on the [entity page](../entities/worlddp.md#reading-notes--what-the-names-hide-close-read-2026-09-07).
 
 ## Entities mentioned
 
@@ -52,4 +58,7 @@ tags: [worlddp, world-model, jepa, object-centric, diffusion-policy, hierarchica
 
 - Object-Centric Encoder, dynamics model, DP, and contact predictor are all **trained per-environment** — no cross-task/cross-embodiment transfer is demonstrated. How much of the multi-stage win survives a shared model?
 - Results are **simulation-only (OGBench)** — no real-robot deployment, unlike the LeCun-program's V-JEPA 2 / HWM real-Franka results.
-- SAM2 mask guidance is **privileged supervision** at training time; how does OCE degrade without it on cluttered real scenes?
+- SAM2 mask guidance is **privileged supervision** at training time; how does OCE degrade without it on cluttered real scenes? (And without it, slot order is no longer pinned — the dynamics MSE would need a matching step.)
+- The dynamics model is deterministic (MSE) while the paper's argument rests on multi-modal futures. Would a stochastic slot-space predictor help the planner or break the subgoal cost?
+- Was the "w/o PF" CEM ablation given the same keypoint-trajectory seeds as the particle filter? The text does not say.
+- §3.3 says the contact predictor reads the object-centric state; Appendix A.4 says it reads the mean DINOv2 patch feature. Which is it?
