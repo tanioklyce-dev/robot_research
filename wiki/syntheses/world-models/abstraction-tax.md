@@ -167,6 +167,7 @@ Two more, in rough order of cost:
 
 ## Related
 
+- [JEPA for a household mobile manipulator](jepa-for-household-mobile-manipulator.md) — where this page's "what declares the kitchen different" question becomes the deciding limit in a platform decision.
 - [SSL anti-collapse lineage](ssl-anti-collapse-lineage.md) — the devices that make abstraction possible at all, and the reason it costs something.
 - [Generative video vs JEPA world models](generative-video-vs-jepa-world-models.md) — the same crossover, scoped to that one comparison.
 - [What world models are measurably good for](what-world-models-are-measurably-good-for.md) — the measurement side, including where the claims outrun the evidence.

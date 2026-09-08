@@ -2,7 +2,7 @@
 title: Assistive robotics — R&D landscape and JEPA applicability
 type: synthesis
 created: 2026-05-09
-updated: 2026-07-09
+updated: 2026-09-07
 tags: [assistive-robotics, jepa, research-landscape, independent-researcher]
 ---
 
@@ -123,6 +123,7 @@ JEPA is a plausible accelerant for two of the seven blocking problems: **data ef
 ---
 
 ## Related pages
+- [JEPA for a household mobile manipulator](../world-models/jepa-for-household-mobile-manipulator.md) — **2026-09-07 update to the "Would JEPA help?" section above**: the robustness and horizon arguments there are superseded by measured limits (stable-worldmodel collapse, ~5-step planning ceiling); the data-efficiency and personalization arguments stand.
 - [Assistive robotics](../../concepts/robotics/assistive-robotics.md)
 - [OK-Robot](../../entities/ok-robot.md)
 - [Robot Utility Models](../../entities/robot-utility-models.md)
