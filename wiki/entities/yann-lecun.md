@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-07
 updated: 2026-09-07
-sources: 58
+sources: 59
 tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs, logical-intelligence, ebm, diffusion-policy, object-centric, spectral-graph-theory]
 ---
 
@@ -72,7 +72,7 @@ LeCun is one of the small number of researchers whose **simultaneous senior posi
 ## Mentioned in
 - [Third World Modeling Workshop, Chicago Booth 2026](../sources/chicago-booth-world-modeling-workshop-2026.md) — keynote and panel. Contains his bluntest recorded statement on imitation learning: *"we still don't have level-five self-driving cars… imitation learning has been a failure for driving. And believe me — I believed in this 15 years ago, not anymore."*
 
-> [!note] Curated list — **58** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **59** source pages link here; the ones below are those that shaped this page.
 
 - [VAE Paper (Kingma & Welling, 2013)](../sources/vae-paper.md) — his predictive sparse decomposition (Kavukcuoglu, Ranzato, LeCun 2008) is cited as an encoder–decoder architecture the VAE authors "drew some inspiration" from.
 - [Bromley et al. 1993 — Signature Verification using a Siamese TDNN](../sources/bromley1993-siamese-signature-verification.md) — co-author; original Siamese network paper.
@@ -97,6 +97,8 @@ LeCun is one of the small number of researchers whose **simultaneous senior posi
 - [WorldDP paper (Goswami et al. 2026)](../sources/worlddp-paper.md) — co-author; object-centric world model + diffusion policy; his first AMI-Labs-affiliated byline here.
 - [Spectral Graph Theory review (Balestriero & LeCun, IEEE SPM 2026)](../sources/spectral-graph-theory-ssl-paper.md) — co-author; SSL as spectral graph learning, the theory spine under JEPA.
 - [Aleph and Energy-Based Models: The AI That Refuses to Bullshit (video)](../sources/2026-05-aleph-ebm-refuses-bullshit-video.md) — names LeCun as Founding Chair of Logical Intelligence's Technical Research Board; verbatim quote on EBMs as "reasoning and inference by minimizing an energy function."
+- [The Day After AGI — WEF Davos 2026](../sources/wef-davos-2026-the-day-after-agi.md) — **he was not on this panel** (corrects an earlier note here); filed because Hassabis independently names world models + continual learning as what robotics waits on. His own January-2026 remarks were at **AI House Davos** — un-ingested.
+
 
 ## Resolved / TBD
 - ~~Has anyone built a working **Hierarchical JEPA (H-JEPA)** at the multi-time-scale envisioned in the [2022 position paper](../sources/lecun2022-path-towards-ami.md)?~~ **Resolved (2026-05-31):** **[HWM — "Hierarchical Planning with Latent World Models"](../sources/hwm-paper.md)** (Zhang, Terver, …, LeCun, Ballas — arXiv 2604.03208, April 2026) is the concrete realization: a two-temporal-scale latent MPC wrapper (high-level macro-actions → subgoals → low-level primitive actions), model-agnostic across [DINO-WM](dino-wm.md), [PLDM](pldm.md), and [V-JEPA 2](v-jepa-2.md)-AC. Real-Franka pick-&-place **0%→70%** from a single goal image; Push-T **17%→61%** at the hardest horizon. (This is the paper the [Welch Labs Part 2 video](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) referenced but couldn't name — and its "5→15 steps" was a simplification of the paper's d=25→75 task-horizon framing.) Note it's **two** levels and goal-image-conditioned; the N-level *emergent* hierarchy and language conditioning remain open.

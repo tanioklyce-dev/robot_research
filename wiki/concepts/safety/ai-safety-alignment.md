@@ -3,7 +3,7 @@ title: AI safety and alignment
 type: concept
 created: 2026-05-09
 updated: 2026-09-07
-sources: 23
+sources: 24
 tags: [ai-safety, alignment, corrigibility, values, anthropic]
 ---
 
@@ -93,3 +93,4 @@ Concretely: the same model that cannot balance a humanoid for a second can navig
 - [ASIMOV Benchmark paper](../../sources/asimov-benchmark-paper.md) — Constitutional AI applied to embodiment: robot constitutions **generated bottom-up from data** (incl. real hospital injury records) rather than hand-written, 84.3% alignment, auto-amending 68.7% → 80.6%. See [semantic safety](semantic-safety.md).
 - [Responsibly advancing AI and robotics](../../sources/deepmind-gemini-robotics-safety-page.md) — DeepMind's three-layer Swiss-cheese model (semantic / physical / operational).
 - [Debating Technology — WEF Davos 2025 (LeCun)](../../sources/wef-davos-2025-debating-technology.md) — asked about **alignment faking**: *"they don't have any intentions… they don't have any values"*; LLMs *"intrinsically unsafe because not controllable"* yet *"not particularly dangerous because not particularly smart"*; existential-risk regulation called *"way more dangerous"* than the risks it targets. The deflationary pole of this page's debate, from the field's most prominent skeptic, on the record with a date.
+- [The Day After AGI — WEF Davos 2026 (Hassabis, Amodei)](../../sources/wef-davos-2026-the-day-after-agi.md) — the two CEOs on pace: Hassabis wants *"a slightly slower pace… even my timelines"* and *"international minimum safety standards for deployment"*; Amodei *"prefer[s] Demis' timeline"* but says the race cannot slow because of *"geopolitical adversaries."* Technical safety *"very tractable if we have the time. Maybe we don't have that."* Both skeptical of doomerism; both name observed model deception as the reason interpretability moved from theory to practice.

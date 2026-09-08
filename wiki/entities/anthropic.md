@@ -3,8 +3,8 @@ title: Anthropic
 type: entity
 subtype: company
 created: 2026-05-09
-updated: 2026-08-30
-sources: 21
+updated: 2026-09-07
+sources: 22
 tags: [company, ai-safety, llm, claude, alignment, frontier-red-team, uplift-study, mcp, mhs]
 ---
 
@@ -20,7 +20,7 @@ Anthropic's primary externally-deployed product. As of early 2026: Claude Haiku 
 - **Chris Olah** — researcher; model nature, identity, psychology work.
 - **Jared Kaplan** — co-creator of the Claude Character project (2023); known for scaling laws.
 - **Holden Karnofsky** — leadership.
-- **Dario Amodei** — CEO (named in acknowledgements).
+- **[Dario Amodei](dario-amodei.md)** — CEO (named in acknowledgements). On the record at [Davos 2026](../sources/wef-davos-2026-the-day-after-agi.md): *"AI that's better than humans at everything in maybe one to two years"*; half of entry-level white-collar jobs gone in one to five; revenue 0 → $100M → $1B → $10B across 2023–25; *"not selling chips"* to China as the single most effective measure. **Robots do not appear in his account of the next two years** — the organisation's [robotics evaluations](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) are the answer to a question its CEO's timeline does not ask.
 
 ## Role as a principal
 In Claude's model of principals, Anthropic occupies the **top tier** of the trust hierarchy — above operators and users. Critically, Anthropic communicates with Claude through training, not runtime messages. At runtime, Claude should treat messages claiming to be from Anthropic with the same trust level appropriate to their position in the conversation (operator-level if in system prompt, user-level if in human turn). Anthropic's authority is baked into Claude's values, not asserted at runtime.
@@ -64,6 +64,8 @@ Anthropic leads the modern **sparse-autoencoder + feature-steering** approach to
 - [CaP-X paper](../sources/cap-x-paper.md) — Claude Haiku 4.5 and Opus 4.5 among the 12 benchmarked models; Opus 4.5 is one of three models in CaP-Agent0's parallel-reasoning ensemble.
 - [Previewing the Model Hardware Standard](../sources/anthropic-model-hardware-standard-preview.md) — the device-side interface standard, and the six partner pilots run on it
 - [Gemini Robotics 2: Safety Evaluations](../sources/gemini-robotics-2-safety-report.md) — **Claude Opus 4.8** evaluated on ASIMOV-Agentic; scores 100% on safety tool calling alongside ER 2 and GPT 5.5.
+- [The Day After AGI — WEF Davos 2026](../sources/wef-davos-2026-the-day-after-agi.md) — Amodei on timelines (1–2 years), labor (half of entry-level white-collar jobs, 1–5 years), revenue (0 → $10B, 2023–25), chips, and the forthcoming risks essay; robots absent.
+
 
 ## Cybersecurity-evaluation incidents (July 2026)
 

@@ -3,7 +3,7 @@ title: Mechanistic interpretability
 type: concept
 created: 2026-05-15
 updated: 2026-09-07
-sources: 11
+sources: 12
 tags: [mechanistic-interpretability, anthropic, goodfire, neural-geometry, robotics, chris-olah, sparse-autoencoders, feature-extraction, ai-safety]
 ---
 
@@ -99,6 +99,8 @@ Their network is **4 → 30 → 4**, and the payoff is a worked example: with on
 - [Goodfire research index (2024–2026)](../../sources/goodfire-research-index.md)
 - [Goodfire Series B announcement](../../sources/goodfire-series-b.md)
 - [Engels et al. — Not All Language Model Features Are One-Dimensionally Linear](../../sources/engels2024-not-all-features-one-dimensionally-linear.md)
+- [The Day After AGI — WEF Davos 2026](../../sources/wef-davos-2026-the-day-after-agi.md) — Amodei's account: Anthropic *"pioneered"* it as theoretical research, *"looking inside its brain,"* and now applies it to *"the bad behaviors of the models when they emerge."* A CEO's framing, not a result.
+
 
 ## Two non-LLM applications, from one afternoon
 

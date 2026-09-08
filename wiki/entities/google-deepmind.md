@@ -3,8 +3,8 @@ title: Google DeepMind
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-09-02
-sources: 37
+updated: 2026-09-07
+sources: 38
 tags: [google-deepmind, mujoco, newton, mjcphysics, openusd, robotics-research, biomechanics, dmpo, acme, gemini-robotics, genie, world-model]
 ---
 
@@ -21,6 +21,9 @@ Google's AI research lab. Maintains MuJoCo and [MuJoCo Playground](mujoco-playgr
 - **[Gemini Robotics](gemini-robotics.md)** — robot foundation model family built on the Gemini multimodal line. Two variants: a full **vision-language-action** model (emits low-level actions, listed on the [VLA models](../concepts/learning/vla-models.md) concept page) and **Gemini Robotics-ER** (embodied-reasoning VLM that emits tool calls against a robot's API; fits the [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) pattern).
 - **Formal partnership with [Boston Dynamics](boston-dynamics.md)** — announced separately; characterized as early-stage in the [BD Spot + Gemini Robotics blog](../sources/bostondynamics-spot-gemini-robotics.md). Productized via Boston Dynamics' AIVI-Learning offering powered by Gemini Robotics-ER 1.6.
 
+## Leadership stance on AGI and robotics (Davos, January 2026)
+[Demis Hassabis](demis-hassabis.md), at [The Day After AGI](../sources/wef-davos-2026-the-day-after-agi.md): a **50% chance of AGI by the end of the decade**, *"5 to 10 years,"* with *"one or two missing ingredients."* **Physical AI is inside his definition of AGI**, and it is the slow part — *"hardware in the loop may limit how fast the self-improvement systems can work."* His forecast for what must be cracked if self-improvement stalls: *"world models, continual learning… and then I think things like robotics may have its breakout moment."* Read against the lab's own [Gemini Robotics](gemini-robotics.md) line and the [GR 2 safety report](../sources/gemini-robotics-2-safety-report.md)'s conclusion that frontier models belong *alongside* deterministic guardrails: the CEO's ordering and the safety team's ordering agree — the model is not yet the thing the robot runs on.
+
 ## Generative world models
 - **[Genie 3](genie-3.md)** — DeepMind's general-purpose generative world model that produces "photorealistic and interactive 3D environments" (generative-video family; see [world model](../concepts/world-models/world-model.md)). Designed to be **post-trained into domain instruments**: [Waymo](waymo.md) built its [Waymo World Model](../sources/waymo-world-model.md) (AV simulation, camera+lidar) on top of it ([Waymo World Model blog](../sources/waymo-world-model.md)). Genie 3's own architecture/scale is not yet in the wiki (thin entry pending a primary DeepMind source). Distinct from [AGIBOT](agibot.md)'s similarly-named Genie Envisioner / Genie Sim.
 
@@ -31,7 +34,7 @@ Google's AI research lab. Maintains MuJoCo and [MuJoCo Playground](mujoco-playgr
 
 ## Mentioned in
 
-> [!note] Curated list — **34** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **38** source pages link here; the ones below are those that shaped this page.
 
 - [MuJoCo Playground Paper](../sources/mujoco-playground-paper.md)
 - [NVIDIA Newton Physics Engine Developer Page](../sources/nvidia-newton-physics-engine-developer-page.md)
@@ -45,3 +48,4 @@ Google's AI research lab. Maintains MuJoCo and [MuJoCo Playground](mujoco-playgr
 - [Responsibly advancing AI and robotics](../sources/deepmind-gemini-robotics-safety-page.md) — the public safety framing that indexes it.
 - [Third World Modeling Workshop — Day 2](../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — [Aleksandra Faust](aleksandra-faust.md) (Director of Research, Frontier AI Health) on the synthetic flywheel: AutoRL, learned curricula, Waymax, sub-angstrom structure prediction, many-shot ICL, self-correction RL, and a clinical triage agent in trials with 5,000 patients.
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../sources/hai-world-model-spatial-intelligence-brief.md) — named first among the tech incumbents leading the world-model push; [Genie 3](genie-3.md) is the brief's frontier example, with a few-minutes-of-coherence limit at its 2025 release.
+- [The Day After AGI — WEF Davos 2026](../sources/wef-davos-2026-the-day-after-agi.md) — Hassabis: 50% AGI by 2030; physical AI inside the definition; world models + continual learning as the fallback; robotics' "breakout moment" downstream.
