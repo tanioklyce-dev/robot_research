@@ -3,7 +3,7 @@ title: World-action model (WAM)
 type: concept
 created: 2026-06-02
 updated: 2026-09-07
-sources: 21
+sources: 22
 tags: [world-action-model, wam, flux-3, video-action-model, frozen-backbone, world-model, vla, forward-dynamics, inverse-dynamics, policy, cosmos, dreamzero]
 ---
 
@@ -37,6 +37,7 @@ A WAM is therefore a superset of both the "video generator as simulator" ([world
 
 ## Key references
 
+- **[Demo-JEPA](../../sources/demo-jepa-paper.md)** (He et al., 2026) — the **policy** row of the table above reached by *planning* rather than by emitting actions: a V-JEPA 2.1 action-conditioned world model, CEM in latent space, and goals supplied by **a different robot's demonstration** via a cross-attention "Dreamer Predictor." Its negative result is the useful part — planning toward the *source's* own future latent fails everywhere, so **a JEPA world model's latent is not embodiment-invariant without an explicit translator**.
 - **[mimic-video](../../sources/mimic-video-paper.md)** (mimic robotics / ETH / Berkeley, 2025) — **names the VAM class**; frozen Cosmos-Predict2 + flow-matching IDM decoder via partial denoising. 10× sample efficiency and 2× convergence over an architecturally matched π₀.₅-style VLA, on equivalent data.
 - **[FLUX-mimic / FLUX 3](../../sources/flux-3-launch.md)** ([Black Forest Labs](../../entities/black-forest-labs.md) × [mimic robotics](../../entities/mimic-robotics.md), 2026) — the frozen-backbone variant above, and **the only WAM in this wiki running in production**: ECU insertion and seal/cable handling at Audi, 101 ms system reaction time, <80 ms backbone on one RTX 5090.
 - **[Cosmos 3](../../sources/cosmos-3-technical-report.md)** (NVIDIA, 2026) — the canonical worked example: a single [MoT](../../sources/cosmos-3-technical-report.md) model does FD / ID / policy across camera, autonomous-vehicle, robot, and egocentric embodiments. Its policy variant (Cosmos3-Nano-Policy-DROID) tops RoboArena, beats π0.5 on RoboLab, and — per the report's **June 2026 revision** — also ranked #1 on **MolmoSpaces** (39.0% oracle success, *All Combined*, 2026-06-20) **submitting the same model and hyperparameters with no benchmark-specific tuning**. Its central empirical claim is that **unified action mid-training** across embodiments and modes produces a *reusable action prior* that accelerates downstream adaptation (LIBERO-10: 24.6% vs 0.0% at 500 iters for mid-trained vs pre-trained init).

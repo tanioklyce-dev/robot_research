@@ -3,7 +3,7 @@ title: In-context robot learning
 type: concept
 created: 2026-08-29
 updated: 2026-09-07
-sources: 7
+sources: 8
 tags: [in-context-learning, robot-foundation-model, demonstration-conditioning, test-time-adaptation, vla, skild-ai, s1, generalist-ai, gen-1-5, physical-prompting, emergence]
 ---
 
@@ -35,6 +35,14 @@ Every generalist policy has to be told what to do. The field's three answers:
 | **Post-training / fine-tuning** | task-specific data | hundreds to thousands of demonstrations |
 | **Language conditioning** ([VLA](vla-models.md)) | a natural-language instruction | zero, *if* the task is in-distribution; post-training if not |
 | **In-context learning** | one demonstration at inference | one demonstration |
+| **Latent-goal planning** ([Demo-JEPA](../../sources/demo-jepa-paper.md)) | one demonstration, read as a **goal** | one demonstration **+ the target's own interaction experience** |
+
+> [!note] The fourth row is not in-context learning, and the distinction is the point
+> [Demo-JEPA](../../sources/demo-jepa-paper.md) shares this page's headline property — **one demonstration, no weight update at deployment** — and gets there by an entirely different route. There is **no context window and no prompt**. A visual demonstration from another robot is translated into **target-compatible future latent states**, which a planner then reaches under the target's own learned forward dynamics (CEM over a V-JEPA 2.1 world model).
+>
+> So: *"the target agent should infer **what state** the demonstrator is trying to realize, rather than **how** the demonstrator executes it."* Where in-context learning asks a policy to **generalize from an example**, this asks a planner to **reach a goal inferred from one**. Both cost one demonstration; only one of them is learning-from-context.
+>
+> **It therefore does not settle the built-vs-grown dispute below** — a correction to how the wiki filed it. What it does supply is the first **non-vendor, published** system in this general family, with ablations.
 
 Language conditioning assumes the instruction is enough to identify the behavior. In-context learning assumes a demonstration is a **richer specification** — it carries the intent, the functional correspondences, and the task progress that language leaves implicit. The cost is that someone must perform the task once, on the spot.
 
@@ -98,6 +106,11 @@ Four capabilities beyond one-shot imitation, none of them in S1:
 >
 > It also cuts against the emergence framing slightly: if 10 steps and 0.15% get you from 59% to 83%, the in-context route is buying *convenience*, not capability the weights lacked.
 
+> [!note] And a third instance of the same curve
+> Demo-JEPA reproduces the shape S1 reports, from a different mechanism: it **loses in-domain** (VPP wins behavior grounding; their own Demo-DP variant beats it 0.65 vs 0.43 real-world) and **wins as distribution shift grows** — zero-shot generalization **0.36 vs VPP's 0.04** in simulation. Together with [the JE-vs-reconstruction crossover](../../sources/joint-embedding-vs-reconstruction-paper.md), that is three unconnected results saying *the abstraction costs you in-distribution and pays out of it.*
+>
+> Which is a reason to read S1's in-domain loss (43% vs 53%) as evidence **for** the mechanism rather than against it.
+
 > [!warning] What neither source shows
 > **That in-context ability emerged at scale.** S1 reports a crossover between two conditions at two data scales; GEN-1.5 reports a validation-loss curve improving over eight months and a model that has ICL at the end of it. Neither publishes **in-context ability against pretraining scale**, which is the actual claim both are making. Until one does, "ICL emerges in robot foundation models past a data threshold" is a hypothesis held by two companies with a commercial interest in it being true.
 
@@ -132,6 +145,7 @@ What separates them is horizon and structure, not aim. RMA adapts to **terrain, 
 ## Key references
 
 - [Introducing S1: In-Context Learning for Robotics](../../sources/skild-s1-blog.md) — [Skild AI](../../entities/skild-ai.md), August 2026. Vendor blog; the *designed* outer loop.
+- [**Demo-JEPA**](../../sources/demo-jepa-paper.md) — He et al., 2026. The published, non-vendor neighbour: demonstration-as-latent-goal plus planning, with the finding that **V-JEPA 2.1 latents are not embodiment-invariant on their own**.
 - [**GEN-1.5: Embodied Foundation Models are One-Shot Learners**](../../sources/generalist-gen-1-5-blog.md) — [Generalist AI](../../entities/generalist-ai.md), August 2026. Vendor blog; the *emergent* outer loop, plus composition, sim-prompting and the 0.15% weight-change number.
 - [**RMA: Rapid Motor Adaptation for Legged Robots**](../../sources/rma-paper.md) — Kumar, Fu, Pathak & Malik, RSS 2021. The prehistory: fixed 0.5 s window, explicit adaptation module, privileged teacher.
 - [**LocoFormer: Generalist Locomotion via Long-context Adaptation**](../../sources/locoformer-paper.md) — Liu, [Pathak](../../entities/deepak-pathak.md) & Agarwal, CoRL 2025. The experience-conditioned instance, and the better-evidenced of the two: peer-reviewed, with baselines (GRU 0.37 vs 0.96) and per-robot expert upper bounds (0.99).
@@ -140,6 +154,7 @@ What separates them is horizon and structure, not aim. RMA adapts to **terrain, 
 
 - [Introducing S1](../../sources/skild-s1-blog.md) — the demonstration-conditioned mode.
 - [GEN-1.5](../../sources/generalist-gen-1-5-blog.md) — the second demonstration-conditioned instance, and the contradiction about mechanism.
+- [Demo-JEPA](../../sources/demo-jepa-paper.md) — the fourth specification route: one demonstration read as a latent goal for a planner.
 - [LocoFormer](../../sources/locoformer-paper.md) — the experience-conditioned mode.
 - [Skild AI](../../entities/skild-ai.md) — the company behind both.
 - [RMA](../../sources/rma-paper.md) — the pre-long-context ancestor.

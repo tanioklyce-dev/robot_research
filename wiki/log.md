@@ -5659,3 +5659,30 @@ Requested mid-turn. 78 minutes, **recorded 2025-10-28 — one month before [LeJE
 Also recorded: **latent variables are conditional on action quality** — rich actions mean you may not need one; weak or absent actions mean you do, *"because otherwise if you just do MSE prediction, you'll just learn to predict the average of all those possible scenarios"* — with the underlying question left open (*"what are good actions?"*, and how to constrain the latent's capacity). **The evaluation criterion he names is navigability, not accuracy**: *"capturing all the features of the input even in a compressed way is nice, but ideally you want it to be **easy to navigate with gradient-based planning**."* And teacher-student methods (DINO, V-JEPA) *"perform very very well"* but are *"not really understood mathematically"* and *"very finicky — if you don't have the right teacher-student schedule it will collapse."*
 
 Method note: auto-captions garble heavily (JEPA → "Japa"/"JPEG a"/"Jetpak", VICReg → "V Craig", DINOv3 → "Dynino"); correction key in the `raw/` header. **The hosts give only first names on air.** The channel name invites an obvious inference about the first host's identity and **the page does not make it** — no surname appears in the source.
+
+## [2026-09-07] ingest | Demo-JEPA — and a correction to why it was filed
+
+Tier-1 pick from [the awesome-jepa triage](sources/awesome-jepa-github.md), filed as *"the first non-vendor evidence in the S1-vs-GEN-1.5 dispute."* **That was wrong**, and the correction is the first thing worth recording.
+
+- Created [Demo-JEPA](sources/demo-jepa-paper.md); `raw/2605.20811v1.pdf`, sealed.
+- Updated: [in-context robot learning](concepts/learning/in-context-robot-learning.md), [JEPA](concepts/world-models/jepa.md), [world-action model](concepts/world-models/world-action-model.md)
+
+> [!warning] It is not in-context learning
+> Demo-JEPA has **no context window and no prompt**. A visual demonstration from another robot is translated into **target-compatible future latent states**, and a planner reaches them by **CEM under the target's own learned forward dynamics**. It shares ICL's headline property — one demonstration, no weight update — and gets there by a completely different mechanism.
+>
+> So it **does not settle the built-vs-grown argument**; it adds a **fourth row** to the specification table on that page: post-training / language / in-context / **latent-goal planning**. The honest cost column matters too — it needs no cross-embodiment *action* data, but it does need *"the target agent's own interaction experience."*
+
+**The method**, briefly: source provides **observations only**. A "Dreamer Predictor" takes the current target observation plus a source frame pair and splits the problem across two cross-attention modules — one for **cross-embodiment correspondence** (what does the source's state mean for my body), one for **temporal evolution** (where is the demo going) — fuses them with a 3D conv and decodes a latent goal. Backbone is **V-JEPA 2.1**; planning is CEM. Nice regularizer: **temporal perturbation** during predictor training, to expose it to the off-distribution states imperfect planning will actually produce.
+
+> [!warning] The valuable result is negative: a JEPA latent is not embodiment-invariant
+> They test the obvious shortcut — plan directly toward the **source demonstration's own future latent**, skipping the translator. It *"**fails across all tasks**, indicating that V-JEPA 2.1 alone does not provide cross-embodiment goal compatibility."* Demo-JEPA meanwhile approaches an oracle that uses privileged target-ground-truth futures.
+>
+> This wiki's [JEPA](concepts/world-models/jepa.md) material tends to read "latent" as implying "abstract." **The latent still encodes which robot you are.** Worth holding beside [LeVJEPA](sources/levjepa-paper.md)'s emergent semantic patch tokens: **semantic organization and embodiment-invariance are different properties**, and the first does not deliver the second.
+
+**And the week's third instance of one curve.** Demo-JEPA **loses in-domain and wins as shift grows** — VPP takes behavior grounding; Demo-JEPA takes cross-embodiment bridging (0.45 vs 0.28) and **zero-shot generalization 0.36 vs 0.04**. Their own **Demo-DP** ablation is more damaging and they publish it anyway: the same demonstration-as-goal idea on a Diffusion Policy beats Demo-JEPA in-domain (**0.65 vs 0.43** real-world) and loses only zero-shot (0.15 vs 0.25).
+
+That matches [S1](sources/skild-s1-blog.md) (in-context loses at 1k h, wins on unseen at 100k h) and [the JE-vs-reconstruction crossover](sources/joint-embedding-vs-reconstruction-paper.md) (joint-embedding wins exactly when nuisance variation is large). **Three unconnected mechanisms, one shape: the abstraction costs you in-distribution and pays out of it.** Which is a reason to read S1's in-domain loss as evidence *for* its mechanism rather than against it — recorded on that page.
+
+Held at arm's length: v1 only, **20–30 rollouts per scenario** (so the 0.36-vs-0.04 gap survives and the 0.55-vs-0.43 comparisons do not), absolute success **0.25–0.55** outside the in-domain suite, and *"radically different embodiment configurations"* means **Sawyer → Franka and UR5e → Franka** — three 6–7 DoF arms with parallel grippers, **no human demonstrator, no hand, no mobile base**. The tasks are also lift/remove/press, i.e. **not [contact-rich](concepts/robotics/contact-rich-manipulation.md)**, so the force-vs-vision question is untouched.
+
+Two follow-ups filed: **probe those latents for embodiment identity** — the naive-reference failure proves something survives encoding and nobody has said what, and it bears on every cross-embodiment claim here; and **separate the goal-centric framing from the JEPA latent**, since Demo-DP suggests the framing is what generalizes while the latent is what costs in-domain accuracy.

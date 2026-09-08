@@ -3,7 +3,7 @@ title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
 updated: 2026-09-07
-sources: 75
+sources: 76
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -196,8 +196,14 @@ Two consequences worth carrying:
 
 Measured: MAE drops **25.1%** under ImageNet-C severity 1→5 against DINO's **10.5%**. Caveats on [the source page](../../sources/joint-embedding-vs-reconstruction-paper.md) — linear theory, and linear probing as the deep-network metric.
 
+> [!warning] A latent is not automatically an *abstraction over embodiment*
+> The appeal of latent prediction is that it discards what does not matter. [Demo-JEPA](../../sources/demo-jepa-paper.md) measures one thing it does **not** discard: planning directly toward a **source robot's own future latent** — skipping their translation module — *"**fails across all tasks**, indicating that V-JEPA 2.1 alone does not provide cross-embodiment goal compatibility."*
+>
+> So the latent still encodes **which robot you are**, and an explicit cross-attention translator is needed to convert a Sawyer's future into a Franka's. Worth holding next to [LeVJEPA](../../sources/levjepa-paper.md)'s emergent semantic patch structure: **semantic organization and embodiment-invariance are different properties**, and getting the first does not give you the second.
+
 ## Mentioned in
 
+- [Demo-JEPA](../../sources/demo-jepa-paper.md) — the measured limit on what a JEPA latent abstracts away.
 - [Joint-Embedding vs Reconstruction](../../sources/joint-embedding-vs-reconstruction-paper.md) — the condition under which the JEPA bet provably pays, and the regime where it does not.
 - [EchoJEPA paper](../../sources/echojepa-paper.md) — the clinical branch; V-JEPA 2 adapted to echocardiography at 18M videos.
 - [EchoWorld paper](../../sources/echoworld-paper.md) — an action-conditioned JEPA where the latent is a 6-DOF probe movement; robotic probe guidance.
