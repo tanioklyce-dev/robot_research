@@ -5786,3 +5786,22 @@ Neither paper frames it this way and neither cites the other's weakness. **And t
 Two things picked up in passing. **A fifth source of branch asymmetry**, added to [the lineage](syntheses/world-models/ssl-anti-collapse-lineage.md): LeVJEPA has no EMA, no stop-gradient and no predictor, yet has a target, because *"the global view is the only view that remains photometrically unaltered… it constitutes the prediction target **by construction of the views alone**."* **Asymmetry can live in the data pipeline** rather than the architecture or optimizer — cheaper than any rung above it. And the paper **never itemizes its photometric transforms**: *"jitter", "flip", "blur", "grayscale", "solarize"* all appear zero times.
 
 Filed the experiment the pairing suggests and nobody has run: **train one world model with both declarations** — LeWM's temporal prediction *and* LeVJEPA's spatial/photometric views. It should be robust on both axes. If it is not, the declared-axis mechanism is not additive, which this wiki has been assuming without evidence.
+
+## [2026-09-07] design | The declared-axis experiment
+
+- Created [The declared-axis experiment — a design](syntheses/world-models/declared-axis-experiment.md)
+- Updated: [the abstraction tax](syntheses/world-models/abstraction-tax.md), [index](index.md), [backlog](backlog.md)
+
+The controlled test of [the abstraction tax](syntheses/world-models/abstraction-tax.md), which currently rests on three papers agreeing by coincidence plus one accidental ablation. Four arms on [LeWorldModel](sources/leworldmodel-paper.md), **~1–2 GPU-days** (15M params, single L40S in the paper), and a **stage 0 that needs no training at all** — the checkpoint is released (`quentinll/lewm-pusht`), so a linear probe for agent colour on the published latent tests the *"the objective encodes it"* half of the mechanism **on the exact model stable-worldmodel measured**, and can falsify the premise before anything is trained.
+
+**Writing the design broke the version that was in the backlog**, in two ways that are findings rather than details:
+
+- **Colour is task-relevant in [PushT](entities/pusht.md)** — blue agent, gray block, green goal outline. Global colour jitter destroys the task rather than declaring a nuisance irrelevant. The declaration has to target **agent colour specifically**, which means re-rendering through swm's factor machinery, not an image-space filter.
+- **Data diversity is not a declaration.** Sample agent colour per trajectory, hold it constant within, and colour is **still perfectly predictable from frame *t* to *t+1*** — `L_pred` is unchanged and the objective is still paid to encode it. The standard augmentation playbook assumes a positive pair of **two views of one frame**; [LeWM's positive pair is (frame *t*, frame *t+1*)](sources/leworldmodel-paper.md), so the playbook does not transfer.
+
+> [!note] Which is itself a prediction about the whole family
+> If that is right, the only ways to declare a **static** attribute irrelevant in a [world-action model](concepts/world-models/world-action-model.md) are an **explicit invariance term** or **physically implausible per-frame randomization**. No amount of across-trajectory diversity will do it. That is a general claim about the architecture, and arm **A1** exists precisely to isolate it — it is the arm the naive design would have silently conflated with the real declarations.
+
+Also committed in advance, because a design that cannot lose is not a design: an **off-axis control** (shift in agent *shape*, which no arm declares — without it the experiment cannot separate "declaring colour buys colour-robustness" from "augmentation makes models generically more robust"), a **table of what each outcome would mean** including the two results that would require rewriting rather than annotating the abstraction-tax page, and the honest power position — the collapse effect is detectable at n=100, the in-distribution *equivalence* claim is not at any sane budget, so it gets a bound rather than a null.
+
+Stage 0.5 doubles as overdue housekeeping: reproduce the baseline and **settle the 50.8%-vs-94% ambiguity** the wiki flagged on [stable-worldmodel](sources/stable-worldmodel-paper.md) months ago and never resolved. Every number downstream is measured against it.

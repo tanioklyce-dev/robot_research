@@ -151,7 +151,14 @@ For [in-home deployment](../assistive/long-term-in-home-robot-deployments.md) sp
 
 ## The experiment that would settle it
 
-Cheap, and nobody has run it: **train one JEPA twice on identical data — once with color jitter in the augmentation set, once without — and measure Push-T success under color shift.** The narrowed claim predicts the declared-color model holds and the other collapses to stable-worldmodel's 6–26%, while both score the same in-distribution. If the color-jitter model *also* collapses, the "declared axis" mechanism is wrong and this page is a pattern-match.
+**Designed in full: [The declared-axis experiment](declared-axis-experiment.md)** — four arms on [LeWorldModel](../../sources/leworldmodel-paper.md), ~1–2 GPU-days, with a **stage-0 probe on the released checkpoint** that tests half the mechanism before anything is trained.
+
+Writing the design surfaced two things the one-line version got wrong, and both are findings rather than details:
+
+- **Color is task-relevant in [PushT](../../entities/pusht.md)** — blue agent, gray block, green goal outline. Global jitter destroys the task instead of declaring a nuisance irrelevant, so the declaration has to target *agent* color and be re-rendered through the simulator.
+- **Data diversity is not a declaration.** Sampling agent color per trajectory leaves it **perfectly predictable frame-to-frame**, so `L_pred` is unchanged and the objective is *still paid to encode it*. In a temporal-prediction world model the standard augmentation playbook does not apply, because that playbook assumes a positive pair of two views of **one frame**. Isolating this is what the design's A1 arm is for.
+
+The naive version, kept for the record: **train one JEPA twice on identical data — once with color jitter, once without — and measure Push-T success under color shift.** The narrowed claim predicts the declared-color model holds and the other collapses to stable-worldmodel's 6–26%, while both score the same in-distribution. If the color-jitter model *also* collapses, the "declared axis" mechanism is wrong and this page is a pattern-match.
 
 Two more, in rough order of cost:
 
