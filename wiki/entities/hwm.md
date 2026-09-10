@@ -3,8 +3,8 @@ title: HWM (Hierarchical World Models)
 type: entity
 subtype: method
 created: 2026-05-31
-updated: 2026-09-07
-sources: 6
+updated: 2026-09-10
+sources: 7
 tags: [hwm, hierarchical-jepa, h-jepa, world-model, latent-planning, cem, mpc, lecun, dino-wm, pldm, v-jepa-2, worlddp]
 ---
 
@@ -44,3 +44,4 @@ tags: [hwm, hierarchical-jepa, h-jepa, world-model, latent-planning, cem, mpc, l
 - [Welch Labs — Yann LeCun's $1B Bet Against LLMs Part 2 (video)](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md)
 - [WorldDP paper (Goswami et al., 2026)](../sources/worlddp-paper.md) — contrasts its diffusion-policy low level against HWM's second-world-model low level.
 - [Embodied AI — AI House Davos 2026](../sources/ai-house-davos-2026-lecun-embodied-ai.md) — *"hierarchical planning… completely unsolved… people have mostly given up… we're working on multi-level hierarchies."*
+- [Robot Research Direction (first-party notes)](../sources/robot-research-direction-notes.md) — the 0→70% real-Franka result as the state of open question #2, hierarchical planning; the ingest noted the gain is subgoal *discovery* (with oracle subgoals flat and hierarchical tie at 80%).

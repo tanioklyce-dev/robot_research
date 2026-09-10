@@ -2,8 +2,8 @@
 title: Tactile sensing
 type: concept
 created: 2026-09-07
-updated: 2026-09-07
-sources: 2
+updated: 2026-09-10
+sources: 3
 tags: [tactile-sensing, gelsight, vision-based-tactile, slip-detection, force-torque, visuo-tactile, contact-rich, multimodal-fusion]
 ---
 
@@ -82,3 +82,4 @@ Vision-based tactile is the research default and GelSight the reference design; 
 
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — §3.3.5, the source for this page.
 - [τ: Touch-Augmented VLA](../../sources/tau-touch-augmented-vla-paper.md) — the measured ablation: 28.75% → 71.25% on contact-rich tasks from adding tactile to the same backbone.
+- [Robot Research Direction (first-party notes)](../../sources/robot-research-direction-notes.md) — τ's 20%→60% and 28.75%→71.25% as open question #6 (the sensing mixture); the cheap wrist-F/T substitute remains the filed experiment.

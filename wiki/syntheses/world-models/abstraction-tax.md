@@ -2,7 +2,7 @@
 title: "The abstraction tax — and the one direction of shift it buys"
 type: synthesis
 created: 2026-09-07
-updated: 2026-09-07
+updated: 2026-09-10
 tags: [abstraction, generalization, out-of-distribution, joint-embedding, in-context-learning, jepa, scaling, crossover, augmentations, synthesis]
 ---
 
@@ -175,6 +175,7 @@ Two more, in rough order of cost:
 - [In-context robot learning](../../concepts/learning/in-context-robot-learning.md) — where the S1 row is argued in full.
 - [Identifiability](../../concepts/world-models/identifiability.md) — why SIGReg's target is a claim about latent geometry and not about relevance.
 - [Robot policy evaluation](../../concepts/robotics/robot-policy-evaluation.md) — the rollout counts that decide which gaps above survive.
+- [Ten open questions, and the one the wiki is pointed at](open-questions-and-research-direction.md) — this page's narrowed claim is open question #1, and the reason the focused research question is about what a latent *preserves*.
 
 ## Sources used in this synthesis
 

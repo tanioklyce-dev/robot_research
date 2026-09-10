@@ -2,8 +2,8 @@
 title: Crowdsourced robot training data
 type: concept
 created: 2026-08-27
-updated: 2026-08-30
-sources: 11
+updated: 2026-09-10
+sources: 12
 tags: [crowdsourcing, human-data, egocentric, data-pipeline, data-quality, fraud, deduplication, data-labor, gig-economy, scaling-laws, go-big, brookfield, consent]
 ---
 
@@ -112,3 +112,4 @@ What would settle it is unglamorous: **an acceptance rate, a total, a diversity 
 - [Introducing Index (Figure AI)](../../sources/figure-index-announcement.md) — the five-stage pipeline, fraud as a named stage, and the diversity-per-1,000-hours framing.
 - [Project Go-Big](../../sources/figure-project-go-big.md) — the landlord-mediated variant, and the wiki's only human-video-only transfer result.
 - [Figure–Brookfield partnership](../../sources/figure-brookfield-partnership.md) — property portfolios priced as a robotics data asset.
+- [Robot Research Direction (first-party notes)](../../sources/robot-research-direction-notes.md) — this page's *hundreds to low thousands of hours* set against EgoScale's 1k–20k hours of human video, as open question #8.

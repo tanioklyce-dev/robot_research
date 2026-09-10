@@ -2,8 +2,8 @@
 title: World-model evaluation
 type: concept
 created: 2026-08-07
-updated: 2026-09-07
-sources: 18
+updated: 2026-09-10
+sources: 19
 tags: [world-model, evaluation, benchmark, physical-validity, policy, vbench, worldscore, physion-eval, mllm-critic]
 ---
 
@@ -229,4 +229,5 @@ Two riders worth carrying into robotics evaluation:
 - [DiT World-Action Model for AV Scene Prediction](../../sources/dit-world-action-model-av-paper.md) — distortion and distribution metrics ranking the same two models in opposite orders, with an action-controllability probe showing which ranking tracks utility.
 - [PAN technical report](../../sources/pan-world-model-paper.md) — a fourth home-grown protocol: Action Simulation Fidelity (VLM-judged), Long-horizon Forecast (optical-flow smoothness + WorldScore consistency), Simulative Planning (o3 agent-in-the-loop, blinded human scoring). Borrows from WorldModelBench, WorldScore and WM-ABench; scores a JEPA by latent similarity and generators by human judgement in the same table.
 - [LeCun & Xing debate (2026)](../../sources/lecun-xing-jepa-glp-debate-2026.md) — both speakers agree benchmarks must be **planning tasks**, out of distribution; LeCun adds that the eventual metric is *adaptation speed* on an unseen task, not a fixed suite [147:48].
+- [Robot Research Direction (first-party notes)](../../sources/robot-research-direction-notes.md) — open question #7: a learned evaluator sharing the policy's simulator can flatter it; the WorldArena measurement on this page is the evidence.
 

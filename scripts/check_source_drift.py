@@ -133,6 +133,11 @@ def resolve_local(value):
     whitespace-delimited token that resolves to a real file under the repo."""
     if not value or value.lower() in ("null", "none", "-"):
         return None
+    # A filename containing spaces ('raw/Robot Research Direction.pdf') is one
+    # path, not several tokens: try the whole value first, then fall back.
+    whole = os.path.normpath(os.path.join(ROOT, value.strip().strip("`'\"")))
+    if os.path.isfile(whole):
+        return whole
     for tok in re.split(r"[\s;,]+", value):
         tok = tok.strip("`'\"()")
         if not tok or tok.startswith("http"):

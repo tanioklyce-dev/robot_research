@@ -2,13 +2,22 @@
 title: Wiki Backlog — deferred lint items & knowledge gaps
 type: meta
 created: 2026-07-04
-updated: 2026-09-07
+updated: 2026-09-10
 tags: [backlog, lint, todo, knowledge-gaps]
 ---
 
 # Wiki Backlog
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
+
+## [2026-09-10] From the research-direction notes
+
+Filed on ingesting [Robot Research Direction](sources/robot-research-direction-notes.md) and writing [Ten open questions](syntheses/world-models/open-questions-and-research-direction.md). The first two are the concept pages the ten questions depend on and the wiki does not have.
+
+- [ ] **Continual learning / catastrophic forgetting — concept page.** Open question #3 and the *learn* stage of the loop. Mentioned on eight pages ([ASPIRE](sources/aspire-paper.md), [π0.5](sources/pi-zero-5-paper.md), [RoboTwin 2.0](sources/robotwin2-paper.md), [Hassabis at Davos](sources/wef-davos-2026-the-day-after-agi.md) …), organized on none. The page should separate *skill-library growth* (ASPIRE), *test-time adaptation* ([page](concepts/learning/test-time-adaptation.md)), and *weight-update continual learning* proper, which the wiki has no primary for. Candidate primaries to ingest first: Kirkpatrick et al. 2017 (EWC), and whatever the current continual-robot-learning survey is.
+- [ ] **Cross-embodiment — concept page.** Open question #10. The term is on 100+ pages; the only titled page is the narrow [soft-prompt method](concepts/learning/soft-prompt-cross-embodiment.md). Should hold the [Demo-JEPA](sources/demo-jepa-paper.md) finding that "cross-embodiment" in practice means three 6–7 DoF parallel-gripper arms, the [X-VLA](sources/xvla-paper.md) / [π0.5](sources/pi-zero-5-paper.md) mixtures, and the embodiment-identity probe below.
+- [ ] **Run the embodiment probe in the same session as Stage 0.** The declared-axis Stage 0 (agent colour from the LeWM latent) and the Demo-JEPA *"which robot is this?"* probe (embodiment from V-JEPA 2.1 latents) are the same linear-probe measurement on two checkpoints; the second is nearly free once the first is set up. Both read out through the [representation-evaluation](concepts/learning/representation-evaluation.md) protocols.
+- [ ] **Define "right representation" for a robot world model.** The focused question's second half has protocols ([representation evaluation](concepts/learning/representation-evaluation.md), [identifiability](concepts/world-models/identifiability.md), the declared-axis readouts) but no page states the criterion beyond *planning success under a declared shift*. One paragraph on the [world model](concepts/world-models/world-model.md) page, or its own concept, once Stage 0 has a result to anchor it.
 
 ## [2026-09-07c] From the LeHome Part 1 ingest
 

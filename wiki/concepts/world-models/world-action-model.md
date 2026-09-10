@@ -2,8 +2,8 @@
 title: World-action model (WAM)
 type: concept
 created: 2026-06-02
-updated: 2026-09-07
-sources: 23
+updated: 2026-09-10
+sources: 24
 tags: [world-action-model, wam, flux-3, video-action-model, frozen-backbone, world-model, vla, forward-dynamics, inverse-dynamics, policy, cosmos, dreamzero]
 ---
 
@@ -79,3 +79,4 @@ As of mid-2026 the strongest published WAMs are generative-video / diffusion mod
 - [Develop Physical AI with NVIDIA Cosmos 3 (HF blog)](../../sources/nvidia-cosmos-3-hf-blog.md)
 - [AGIBOT Genie Envisioner 2.0 Announcement](../../sources/agibot-genie-envisioner-2-announcement.md)
 - [Sharifullin, Jiang & Chew 2026 — Diffusion Transformer World-Action Model for AV Scene Prediction](../../sources/dit-world-action-model-av-paper.md) — the compact-scale end; controllability measured (ρ = 0.81 vs −0.18); the shared-anchor motion diagnosis.
+- [Robot Research Direction (first-party notes)](../../sources/robot-research-direction-notes.md) — restates this page's *actions are doing `z`'s job* reading as open question #5, and picks it as one of three experimentally reachable directions.

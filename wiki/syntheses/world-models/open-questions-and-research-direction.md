@@ -1,0 +1,86 @@
+---
+title: "Ten open questions, and the one the wiki is pointed at"
+type: synthesis
+created: 2026-09-10
+updated: 2026-09-10
+tags: [research-direction, open-questions, world-model, representation, latent-variable, cross-embodiment, continual-learning, evaluation, semantic-safety, synthesis, meta]
+---
+
+# Ten open questions, and the one the wiki is pointed at
+
+This page is the wiki's own version of a document its author produced with ChatGPT, [Robot Research Direction](../../sources/robot-research-direction-notes.md), which ranked the wiki's open problems and proposed a single focused question. The document paraphrased the wiki accurately; what it could not do, being a paraphrase, is **cite the primaries or say which experiments are already designed**. This page does both, and then argues with the ranking.
+
+## The question
+
+> **What information does a robot world model need to preserve, and how can we tell whether it learned the right representation before putting it on a robot?**
+
+Two halves. The first is a *design* question about what a latent should keep — the subject of [the abstraction tax](abstraction-tax.md) and the [GLP-vs-JEPA dispute](../../sources/critique-of-world-model-paper.md). The second is a *measurement* question, and it is the one the wiki is better equipped for than it was a month ago: [representation evaluation](../../concepts/learning/representation-evaluation.md) supplies the label-free and probing protocols, [identifiability](../../concepts/world-models/identifiability.md) supplies the theory of when a latent recovers the true factors, and the [declared-axis experiment](declared-axis-experiment.md) supplies four readouts ranked by signal quality.
+
+The document's argument for why this question and not another: it is narrow enough to run experiments against, deep enough that an answer changes how every downstream component is built, and — unlike "solve general-purpose robotics" — reachable with an independent researcher's hardware and compute.
+
+## The ten, routed to their evidence
+
+| # | Question | Strongest evidence in the wiki | Experiment on file | Reachable here? |
+|---|---|---|---|---|
+| 1 | **What should the representation preserve?** | [Joint-Embedding vs Reconstruction](../../sources/joint-embedding-vs-reconstruction-paper.md): reconstruction degrades 2.4× as much under high-magnitude nuisance; [stable-worldmodel](../../sources/stable-worldmodel-paper.md): LeWM 50.8% → 6–26% under colour shift; [LeVJEPA](../../sources/levjepa-paper.md): the complementary axis | [Declared-axis experiment](declared-axis-experiment.md), Stage 0 = linear-probe a released checkpoint for agent colour, **hours, no GPU**; the λ-sweep GLP-vs-JEPA experiment in the [backlog](../../backlog.md) | **Yes** |
+| 2 | **Long-horizon hierarchical planning** | [HWM](../../sources/hwm-paper.md): real Franka pick-and-place **0% → 70%** from a single goal image, no oracle subgoals; [LeCun](../../sources/ai-house-davos-2026-lecun-embodied-ai.md): "completely unsolved… people have mostly given up" | None filed. HWM's own gap: language-conditioned rather than goal-image-conditioned subgoals | Partly — HWM's Push-T and maze variants run on one GPU |
+| 3 | **Continual learning without forgetting** | [ASPIRE](../../sources/aspire-paper.md): a skill library that compounds, 14% → 62%; [Hassabis](../../sources/wef-davos-2026-the-day-after-agi.md): world models and continual learning as what "will need to be" solved | None. **No concept page exists** — see gaps below | Unclear until the wiki organizes what it has |
+| 4 | **Generalize rather than memorize** | [LIBERO-PRO](../../sources/libero-pro-paper.md): >90% → **0.0%** under perturbation; [π0.5](../../entities/pi-zero-5.md): scene generalization bought, instruction generalization not; [S1](../../sources/skild-s1-blog.md): 43 vs 53% in-distribution inverts to 66 vs 9% on unseen tasks | The declared-axis experiment is the controlled form of this question | **Yes** (same experiment as #1) |
+| 5 | **Uncertainty and multiple futures** | The [Dawid & LeCun blueprint](../../sources/dawid-lecun-lvebm-lecture-notes.md) prescribes a latent `z` for exactly this; **no JEPA in the wiki implements it** ([JEPA](../../concepts/world-models/jepa.md)); [Balestriero](../../sources/information-bottleneck-ep11-jepa-balestriero.md) on why rich actions make it unnecessary — the wiki's reading that actions are doing `z`'s job ([world-action model](../../concepts/world-models/world-action-model.md)) | [Backlog](../../backlog.md): build a JEPA that has `z`, compare on weak-action settings; read [identifiability of controlled world models](https://arxiv.org/abs/2607.22430) first | **Yes** — any existing latent world model is the testbed |
+| 6 | **The sensing mixture** | [τ](../../sources/tau-touch-augmented-vla-paper.md): same π0.5 backbone, tactile added, plug insertion **20% → 60%**, four-task average **28.75% → 71.25%**, ablation returns to baseline | [Backlog](../../backlog.md): τ's future-visual-supervision trick on a **6-axis wrist F/T sensor** instead of a GelSight-class sensor | Needs a tactile or F/T sensor and a π0.5 fine-tuning budget; the *force-vs-vision* debate with [FLUX-mimic](../../sources/flux-3-launch.md) is blocked on evidence only the vendors hold |
+| 7 | **Evaluation without millions of trials** | [RoboLab](../../sources/nvidia-robolab-evaluation-blog.md): ±2 pp needs ~1,030 rollouts, typical papers run ~70 ([audit](../platforms/vla-success-rate-audit.md)); [WorldArena](../../sources/worldarena-paper.md): both learned evaluators score policies **higher than the simulator's own verdict** | The wiki's standing discipline — record N and compute at ingest — is a policy, not an experiment | Yes as method; no as a research result |
+| 8 | **Physical commonsense from non-robot data** | Robot corpora **hundreds to low thousands of hours** ([crowdsourced data](../../concepts/learning/crowdsourced-robot-training-data.md)); [EgoScale](../../sources/egoscale-paper.md): 1k–20k hours of human video, **no saturation**, authors decline to extrapolate; [Go-Big](../../sources/figure-project-go-big.md): the wiki's only human-video-only transfer | None filed | No — the interesting regime starts at thousands of hours |
+| 9 | **Semantic safety** | [GR 2 safety report](../../sources/gemini-robotics-2-safety-report.md): the vendor states the enforcement layer is out of scope; the layer is **measured, sometimes predicted, not enforced** ([semantic safety](../../concepts/safety/semantic-safety.md)); the physical half *is* enforced ([safety filters](../../concepts/robotics/safety-filters.md)) | None filed; the [guardrails thread](../agents/guardrails-for-robot-agents.md) sketches the interlock | Architecture work is reachable; benchmarks are single-lab |
+| 10 | **Transfer across radically different bodies** | [Demo-JEPA](../../sources/demo-jepa-paper.md): V-JEPA 2.1 latents stay embodiment-specific — an explicit transform is needed even between 6–7 DoF parallel-gripper arms | The **"which robot is this?" linear probe** on V-JEPA 2.1 latents (Demo-JEPA's own open question) | **Yes** — a probe on released latents, no training |
+
+## The three the document picks, and why they are the same experiment twice
+
+The document selects #1, #5 and #10 as reachable. Read against the table, #1 and #10 are **the same measurement on different checkpoints**: a linear probe asking whether a nuisance factor (agent colour; robot identity) is decodable from a latent that was supposed to abstract it away. Stage 0 of the declared-axis experiment and the Demo-JEPA probe share code, share the [representation-evaluation](../../concepts/learning/representation-evaluation.md) protocol, and share a failure mode — a probe that finds the factor says the latent *kept* it, not that the planner *uses* it. The [backlog](../../backlog.md) already ranks Stage 0 as the highest-value-per-hour item in the wiki; the embodiment probe should be run in the same session, because the second checkpoint costs almost nothing once the first is set up.
+
+#5 is different in kind. It is not a probe but a **build**: give a JEPA the latent `z` its blueprint prescribes, and find the boundary of the action-conditioned architecture by removing or weakening actions. It is the only one of the three that could produce a result no paper has, and it depends on #1 — a `z` that captures "the many futures compatible with one past" only helps if the representation it sits on kept the information that distinguishes those futures.
+
+## Arguing with the ranking
+
+The document orders by how "fundamental" each question seems, without saying what that means. A usable criterion is **dependency**: which question, answered, changes the answer to the most others.
+
+- **#7 (evaluation) belongs at the top, not seventh.** Every number in the other nine rows was produced under the rollout regime the audit indicts, and the WorldArena result says the cheap alternative is biased in a known direction. Until evaluation is trustworthy, "answered" is not a state any of the others can reach. The wiki's own rule — treat every LIBERO number as provisional — is this ranking already applied.
+- **#1 stays at the top** for the reason the document gives: representation is upstream of prediction, planning, uncertainty and transfer.
+- **#6 (sensing mixture) is a partial answer, not an open question.** τ measured it. What remains open is the *cheap substitute* question, which is narrower and engineering-shaped.
+- **#3 (continual learning) is the least-explored in the wiki and possibly the most important for the household setting** the wiki is oriented to — the *deploy → experience → learn → retain* loop is the difference between a robot that works in a demo and one that still works in a home after a month. Its low rank in the wiki's material reflects the wiki's reading history, not the problem's weight.
+
+## The loop as a map of the wiki
+
+The document's reduction — *perceive → represent → predict → plan → act → observe consequences → learn → stay safe* — doubles as a coverage map. The [source page](../../sources/robot-research-direction-notes.md) tabulates which pages carry each stage. Two stages are thin: **learn** (no continual-learning page; the wiki's learning material is almost entirely *pre-deployment*) and **stay safe** (enforcement exists for the physical half, and the semantic half has an interlock only in sketch). Those are the two stages that make a robot *durable*, which is consistent with the document's closing worry: the field has gotten good at individual pieces while the closed loop remains open.
+
+> [!note] A framing disagreement worth keeping
+> The loop lists "stay safe" as a *stage*. The [safety-filter](../../concepts/robotics/safety-filters.md) literature — and the [GR 2 report](../../sources/gemini-robotics-2-safety-report.md)'s own language — treats safety as a **wrapper with veto authority** around the loop, not a step inside it. The architectures differ: a stage can be learned end-to-end; a wrapper is deliberately kept deterministic and outside the learned system. The wiki's material supports the wrapper reading.
+
+## Gaps this page exposes
+
+Two concepts the ten questions depend on have no page:
+
+- **Continual learning / catastrophic forgetting** — mentioned on eight pages, organized nowhere. Needed for #3.
+- **Cross-embodiment** — the phrase appears on over a hundred pages; the only titled page is the narrow [soft-prompt method](../../concepts/learning/soft-prompt-cross-embodiment.md). Needed for #10, and the [Demo-JEPA](../../sources/demo-jepa-paper.md) finding that "cross-embodiment" in practice means three similar arms is exactly the kind of claim a concept page should hold.
+
+Both are filed in the [backlog](../../backlog.md).
+
+## Related
+
+- [The abstraction tax](abstraction-tax.md) — the narrowed claim behind #1 and #4
+- [The declared-axis experiment](declared-axis-experiment.md) — the experiment behind #1, #4 and #10
+- [JEPA for a household mobile manipulator](jepa-for-household-mobile-manipulator.md) — the decision page this direction serves
+- [What world models are measurably good for](what-world-models-are-measurably-good-for.md) — the four-role verdict that #7 rests on
+- [Success-rate audit](../platforms/vla-success-rate-audit.md) — the rollout arithmetic
+- [Representation evaluation](../../concepts/learning/representation-evaluation.md) — the protocols for the measurement half of the question
+- [Identifiability](../../concepts/world-models/identifiability.md) — the theory for the measurement half
+
+## Sources used in this synthesis
+
+- [Robot Research Direction (first-party notes)](../../sources/robot-research-direction-notes.md) — the ranking and the focused question
+- [HWM paper](../../sources/hwm-paper.md) · [AI House Davos 2026](../../sources/ai-house-davos-2026-lecun-embodied-ai.md) · [Davos 2026 — the day after AGI](../../sources/wef-davos-2026-the-day-after-agi.md)
+- [ASPIRE](../../sources/aspire-paper.md) · [LIBERO-PRO](../../sources/libero-pro-paper.md) · [Skild S1](../../sources/skild-s1-blog.md) · [Joint-Embedding vs Reconstruction](../../sources/joint-embedding-vs-reconstruction-paper.md) · [stable-worldmodel](../../sources/stable-worldmodel-paper.md) · [LeVJEPA](../../sources/levjepa-paper.md)
+- [Dawid & LeCun lecture notes](../../sources/dawid-lecun-lvebm-lecture-notes.md) · [Balestriero, Information Bottleneck EP11](../../sources/information-bottleneck-ep11-jepa-balestriero.md) · [Critique of World Model](../../sources/critique-of-world-model-paper.md)
+- [τ](../../sources/tau-touch-augmented-vla-paper.md) · [FLUX 3 / FLUX-mimic](../../sources/flux-3-launch.md)
+- [RoboLab methodology](../../sources/nvidia-robolab-evaluation-blog.md) · [WorldArena](../../sources/worldarena-paper.md)
+- [EgoScale](../../sources/egoscale-paper.md) · [Project Go-Big](../../sources/figure-project-go-big.md)
+- [Gemini Robotics 2 safety report](../../sources/gemini-robotics-2-safety-report.md) · [Demo-JEPA](../../sources/demo-jepa-paper.md)

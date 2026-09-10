@@ -2,8 +2,8 @@
 title: Semantic safety
 type: concept
 created: 2026-08-03
-updated: 2026-09-07
-sources: 12
+updated: 2026-09-10
+sources: 13
 tags: [semantic-safety, robot-safety, constitutional-ai, asimov, red-teaming, google-deepmind, vlm, alignment, terminology, contact-rich]
 ---
 
@@ -159,3 +159,4 @@ What would change this: a safety architecture where the semantic layer's *output
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — the **other** use of the term, from the interaction-control tradition: semantic-to-physical constraint grounding with an enforcement layer downstream.
 - [Industrial AI Podcast #352 — NVIDIA's safety strategy](../../sources/industrial-ai-podcast-nvidia-safety-strategy.md) — the vendor's "VLM as safety judge" direction, and the host's objection.
 - [SciFi-Benchmark](../../sources/scifi-benchmark-paper.md) — the ethics/dilemmas wing: 824 sci-fi works → 9,056 questions; constitutions lift alignment 79.4% → 95.8% and resist adversarial prompting (23.3% → 92.3%); fiction-derived constitutions top-perform on ASIMOV's real-world data.
+- [Robot Research Direction (first-party notes)](../../sources/robot-research-direction-notes.md) — quotes this page's *measured, sometimes predicted, not enforced* as open question #9; the ingest noted the conclusion is now vendor-documented, which is stronger than the notes say.

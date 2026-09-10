@@ -2,8 +2,8 @@
 title: Robot policy evaluation
 type: concept
 created: 2026-07-27
-updated: 2026-09-07
-sources: 49
+updated: 2026-09-10
+sources: 50
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility, real-to-sim, r2s2r]
 ---
 
@@ -182,3 +182,4 @@ Two of their findings bear directly on this page:
 - [Fei-Fei Li is Solving the Hardest Problem in Robotics (a16z × World Labs)](../../sources/a16z-worldlabs-scenix-conversation.md) — evaluation as a wall-clock discrimination problem (90% vs 92%), and the reliability asymmetry against LLMs: an LLM's output has a human reading it, *"but for robotic models, out of the box, the robot has to work reliably in the real environment."*
 - [Patch Policy paper](../../sources/patch-policy-paper.md) — two textbook instances of this page's failure modes in one paper: **LIBERO Goal sits at 0.93–0.98 for every method** (saturation, discriminating nothing), and the real-robot comparison runs **n = 20 per cell** (~±20 pp), where the headline 0.70-vs-0.30 gap survives and the 0.90-vs-0.70 ones do not. No confidence intervals reported. Its simulated protocol is better than most: **100 trajectories per seed × 3 seeds**.
 - [SafeVLA](../../sources/safevla-paper.md) — **cumulative cost** as a co-reported metric, and the **extreme-failure protocol**: evaluate where success is impossible by construction, and the task-only RL baseline's cost is 32× the constrained one and ~6× its own IL starting point.
+- [Robot Research Direction (first-party notes)](../../sources/robot-research-direction-notes.md) — carries the ~1,030–2,450 vs ~70 rollout arithmetic as open question #7; the [synthesis](../../syntheses/world-models/open-questions-and-research-direction.md) argues evaluation belongs at the top of the ranking, not seventh.

@@ -2,7 +2,7 @@
 title: "The declared-axis experiment — a design"
 type: synthesis
 created: 2026-09-07
-updated: 2026-09-07
+updated: 2026-09-10
 tags: [experiment-design, declared-axis, abstraction, generalization, leworldmodel, stable-worldmodel, pusht, jepa, falsification]
 ---
 
@@ -93,3 +93,4 @@ Identical data volume, architecture, schedule and seed set throughout. Only the 
 - [stable-worldmodel](../../sources/stable-worldmodel-paper.md) — the harness, the perturbation factors, and the collapse being explained.
 - [Robot policy evaluation](../../concepts/robotics/robot-policy-evaluation.md) — the rollout-count discipline this design is bound by.
 - [World-action model](../../concepts/world-models/world-action-model.md) — the family the "diversity is not a declaration" argument would generalize to.
+- [Ten open questions, and the one the wiki is pointed at](open-questions-and-research-direction.md) — Stage 0 and the Demo-JEPA embodiment probe are the same measurement on two checkpoints; run them in one session.
