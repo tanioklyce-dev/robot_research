@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-09-11
 updated: 2026-09-11
-sources: 4
+sources: 5
 tags: [frodobots, earth-rovers, sidewalk-robot, navigation, teleoperation, crowdsourcing, gamification, depin, dataset-publisher, bitrobot, real-world-evaluation]
 ---
 
@@ -36,3 +36,4 @@ tags: [frodobots, earth-rovers, sidewalk-robot, navigation, teleoperation, crowd
 - [BitRobot Network whitepaper](../sources/bitrobot-network-whitepaper.md) — the origin story and the network it became.
 - [SIGRobotics-UIUC projects page](../sources/sigrobotics-uiuc-projects-page.md) — as a sponsor and SDK target.
 - [MBRA paper](../sources/mbra-paper.md) — the paper that made FrodoBots-2K usable; Earth Rover Zero as data and evaluation platform.
+- [OmniVLA paper](../sources/omnivla-paper.md) — FrodoBots-2K (MBRA-relabeled) as 700 of 9,500 training hours; Earth Rover Zero as the evaluation platform.

@@ -3,7 +3,7 @@ title: Crowdsourced robot training data
 type: concept
 created: 2026-08-27
 updated: 2026-09-11
-sources: 16
+sources: 17
 tags: [crowdsourcing, human-data, egocentric, data-pipeline, data-quality, fraud, deduplication, data-labor, gig-economy, scaling-laws, go-big, brookfield, consent]
 ---
 
@@ -123,3 +123,4 @@ What would settle it is unglamorous: **an acceptance rate, a total, a diversity 
 - [BitRobot Network whitepaper](../../sources/bitrobot-network-whitepaper.md) — the incentive mechanism behind the network model: VRW, validators, collateral, emissions.
 - [Earth Rover Challenge site + FrodoBots-2K card](../../sources/earth-rover-challenge-frodobots-2k.md) — gamified sidewalk-robot teleop; latency-degraded actions relabeled by MBRA.
 - [MBRA paper](../../sources/mbra-paper.md) — the quantitative case that crowdsourced robot *actions* can be worth zero while the observations carry the value.
+- [OmniVLA paper](../../sources/omnivla-paper.md) — 9,500 h of which 8,680 are car dashcam video with synthesized actions: the 'observations from anywhere, actions from a model' thesis at scale.

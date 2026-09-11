@@ -3,7 +3,7 @@ title: Diffusion Policy
 type: entity
 subtype: method
 created: 2026-05-08
-updated: 2026-08-27
+updated: 2026-09-11
 sources: 48
 tags: [diffusion-policy, behavior-cloning, diffusion-model, ddpm, action-diffusion, chi-2023, columbia, tri, mit, mobile-aloha]
 ---
@@ -125,6 +125,7 @@ The image-generation side has an active literature on exactly this structure ([r
 - [WorldDP paper (Goswami et al., 2026)](../sources/worlddp-paper.md) — uses a goal-conditioned Diffusion Policy as the **low-level subgoal tracker** under an object-centric world-model planner; the [LeCun](yann-lecun.md)-coauthored bridge between the JEPA-planning and diffusion-policy lines.
 - [HIL-SERL paper](../sources/hil-serl-paper.md) — baseline; DP trained on 200 demos gets only **27% / 28% / 56%** (RAM insertion / dashboard / object flipping) vs. HIL-SERL's 100%. Argues DP's expressive multi-modal distribution helps "memorize" motions but **not** the continuous closed-loop visual servoing that reactive contact-rich tasks demand. A pointed limit on where imitation-flavored DP tops out relative to [real-world RL](../concepts/learning/real-world-robot-rl.md).
 - [Predictive Red Teaming paper](../sources/predictive-red-teaming-paper.md) — two visuomotor diffusion policies with different architectures are the subjects of [RoboART](roboart.md)'s 500+ hardware trials across twelve environmental factors.
+- [NoMaD paper](../sources/nomad-paper.md) — **first goal-conditioned action-diffusion policy on a physical robot** (2023): 19M params, 10 denoising steps, exploration 98% vs 77% for a 335M image-diffusion system; the autoregressive baseline in the same table 'learn[s] the average action distribution.'
 
 ## Open questions / TBD
 

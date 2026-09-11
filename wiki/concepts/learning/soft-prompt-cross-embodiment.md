@@ -2,7 +2,7 @@
 title: Soft-prompt cross-embodiment conditioning
 type: concept
 created: 2026-08-13
-updated: 2026-08-31
+updated: 2026-09-11
 sources: 7
 tags: [soft-prompt, cross-embodiment, prompt-learning, vla, heterogeneity, conditioning, peft, xvla]
 ---
@@ -78,7 +78,11 @@ One paper, one model, strong results — treat accordingly. Notable open edges:
 - [VLA models](vla-models.md) · [Flow matching](flow-matching.md) · [Scaling laws — VLAs](scaling-laws-vla.md)
 - [Knowledge insulation](knowledge-insulation.md) · [Latent action tokens](latent-action-tokens.md) · [Sim-to-real transfer](sim-to-real-transfer.md)
 
+> [!note] Prior art in navigation (added 2026-09-11)
+> [ViNT](../../sources/vint-paper.md) (CoRL 2023) adapted a frozen navigation transformer to new *goal modalities* — GPS waypoints, turn-by-turn routing — by training a small network that maps the new modality into the goal-token space, citing Lester et al.'s prompt tuning and calling it a "soft prompt." Same mechanism, applied to task specification rather than embodiment, two years earlier; <1 h of data took it from 40% to 80% success in CARLA.
+
 ## Mentioned in
 
 - [X-VLA paper](../../sources/xvla-paper.md)
 - [X-VLA](../../entities/x-vla.md), [Sourccey](../../entities/sourccey.md)
+- [ViNT paper](../../sources/vint-paper.md) — soft-prompt adaptation of the goal token to GPS and routing modalities (2023).

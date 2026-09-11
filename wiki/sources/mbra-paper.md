@@ -72,11 +72,11 @@ The forward model can produce "unreasonable actions because of inaccuracies in t
 
 - [FrodoBots](../entities/frodobots.md) — FrodoBots-2K and the Earth Rover Zero (data collection and main evaluation platform).
 - [Dhruv Shah](../entities/dhruv-shah.md), [Noriaki Hirose](../entities/noriaki-hirose.md), [Sergey Levine](../entities/sergey-levine.md); Kyle Stachowicz, Catherine Glossop, Lydia Ignatova (Berkeley RAIL).
-- Unitree Go1 (no page; see [Unitree](../entities/unitree.md)); VizBot; [Open X-Embodiment](../entities/open-x-embodiment.md) and [DROID](../entities/droid.md) cited as the manipulation-side "internet data doesn't transfer" precedents.
+- [Unitree Go1](../entities/unitree-go1.md); VizBot; [Open X-Embodiment](../entities/open-x-embodiment.md) and [DROID](../entities/droid.md) cited as the manipulation-side "internet data doesn't transfer" precedents.
 
 ## Concepts touched
 
-- [Visual navigation policies](../concepts/robotics/visual-navigation-policies.md) — new concept page; GNM → ViNT → NoMaD → LogoNav lineage.
+- [Visual navigation policies](../concepts/robotics/visual-navigation-policies.md) — the lineage, now fully ingested: [GNM](gnm-paper.md), [ViNT](vint-paper.md), [NoMaD](nomad-paper.md) (the GCP and NoMaD baselines here), [OmniVLA](omnivla-paper.md) (the successor that uses MBRA-relabeled data).
 - [Crowdsourced robot training data](../concepts/learning/crowdsourced-robot-training-data.md), [imitation learning](../concepts/learning/imitation-learning.md), [latent action tokens](../concepts/learning/latent-action-tokens.md) (the IDM-labeling alternative), [robot policy evaluation](../concepts/robotics/robot-policy-evaluation.md).
 
 ## Open questions

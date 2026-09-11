@@ -3,7 +3,7 @@ title: World-action model (WAM)
 type: concept
 created: 2026-06-02
 updated: 2026-09-11
-sources: 26
+sources: 27
 tags: [world-action-model, wam, flux-3, video-action-model, frozen-backbone, world-model, vla, forward-dynamics, inverse-dynamics, policy, cosmos, dreamzero]
 ---
 
@@ -88,3 +88,4 @@ As of mid-2026 the strongest published WAMs are generative-video / diffusion mod
 - [Robot Research Direction (first-party notes)](../../sources/robot-research-direction-notes.md) — restates this page's *actions are doing `z`'s job* reading as open question #5, and picks it as one of three experimentally reachable directions.
 - [UnifoLM-WLA-1.0 project page](../../sources/unifolm-wla-1-project-page.md) — the mask-token world target; WMA-0 → WLA-1.0 as a two-generation retreat from pixel generation.
 - [UnifoLM-WMA-0 project page](../../sources/unifolm-wma-0-project-page.md) — a 2025 DynamiCrafter-based VAM with decision-making and simulation modes; the generation Unitree then abandoned.
+- [ViNT paper](../../sources/vint-paper.md) / [NoMaD paper](../../sources/nomad-paper.md) — the navigation-scale instance of pixels-vs-actions: a 318M subgoal-image diffusion model replaced by a 19M action-diffusion policy, +21 points on exploration.

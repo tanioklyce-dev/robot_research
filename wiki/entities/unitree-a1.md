@@ -3,7 +3,7 @@ title: Unitree A1
 type: entity
 subtype: robot
 created: 2026-08-29
-updated: 2026-08-29
+updated: 2026-09-11
 sources: 4
 tags: [unitree-a1, quadruped, legged-robot, locomotion, rma, locoformer, research-platform]
 ---
@@ -42,4 +42,4 @@ It is also a useful **compute-budget marker**. RMA's asynchronous two-rate desig
 ## Open questions / TBD
 
 - **No vendor datasheet ingested.** Everything above comes from three research papers that happened to use the robot; DoF, actuator specs, battery, and pricing are not established here from a primary.
-- **Discontinued?** The A1 predates the Go1/Go2 line and its current commercial status is not recorded in any source here.
+- **Discontinued?** The A1 predates the [Go1](unitree-go1.md)/[Go2](unitree-go2.md) line and its current commercial status is not recorded in any source here.

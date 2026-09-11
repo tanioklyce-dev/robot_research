@@ -3,7 +3,7 @@ title: Spot
 type: entity
 subtype: robot
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-09-11
 sources: 3
 tags: [spot, boston-dynamics, quadruped, commercial, sdk, orbit]
 ---
@@ -34,7 +34,7 @@ tags: [spot, boston-dynamics, quadruped, commercial, sdk, orbit]
 
 ## Position in the landscape
 
-- **The quadruped reference platform** alongside Unitree's Go1 / **[Go2](unitree-go2.md)** (cheaper Chinese alternative; more academic-friendly). ANYbotics ANYmal is the third major commercial quadruped, focused on European industrial inspection.
+- **The quadruped reference platform** alongside Unitree's [Go1](unitree-go1.md) / **[Go2](unitree-go2.md)** (cheaper Chinese alternative; more academic-friendly). ANYbotics ANYmal is the third major commercial quadruped, focused on European industrial inspection.
 - **Closed but well-documented SDK.** Unlike Atlas, Spot has a clear third-party integration story — which is why most foundation-model + BD-hardware research uses Spot, not Atlas.
 - **Manipulation-light.** The Spot Arm exists but is a relatively low-DOF parallel-jaw gripper on a 6-DOF arm. For dexterous research, the field has gravitated to humanoids with 5-finger hands or to [Stretch](stretch.md)-style mobile manipulators.
 

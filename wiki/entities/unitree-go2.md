@@ -3,7 +3,7 @@ title: Unitree Go2
 type: entity
 subtype: robot
 created: 2026-07-27
-updated: 2026-08-13
+updated: 2026-09-11
 sources: 4
 tags: [unitree-go2, quadruped, robot-dog, china, affordable, edu, project-fetch, frontier-red-team]
 ---
@@ -34,6 +34,8 @@ The Go2 is the physical substrate for the whole Anthropic Frontier Red Team robo
 - **[How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md)** (Jul 2026) — Go2 in MuJoCo *and* real, across four [control abstraction levels](../concepts/robotics/control-abstraction-levels.md). Frontier models emitting raw torques manage roughly **2 seconds** of balance; with the start pose randomized (e.g. on its back) the best model could not stand it up **even once**. No model ever completed the real-world office loop.
 
 ## Position vs other quadrupeds in this wiki
+
+- Predecessor: [Go1](unitree-go1.md) (2021) — the quadruped in the Berkeley navigation papers (ViNT, MBRA, OmniVLA); the wiki has no source deploying a navigation policy on the Go2 itself.
 
 - **[Spot](spot.md)** (Boston Dynamics) — the industrial/commercial reference quadruped: mature Python/gRPC **Spot SDK**, Autowalk, optional arm, ~$75k+. Where Spot's SDK is the thing that makes it programmable, the Go2's is the thing Project Fetch suggests you fight.
 - **[Unitree G1](unitree-g1.md) / [H1](unitree-h1.md)** — the same vendor's humanoid line, and the wiki's much better-covered Unitree platforms (G1 is the de-facto benchmark robot for learned [whole-body control](../concepts/robotics/whole-body-control.md)).

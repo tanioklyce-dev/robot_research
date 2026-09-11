@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-08
 updated: 2026-09-11
-sources: 20
+sources: 24
 tags: [person, uc-berkeley, robot-learning, rl, real-world-rl, droid, metaworld]
 ---
 
@@ -19,7 +19,7 @@ tags: [person, uc-berkeley, robot-learning, rl, real-world-rl, droid, metaworld]
 - **[DROID](droid.md)** (Khazatsky, Pertsch, …, Finn, Levine — Apr 2024) — senior author on the 13-institution real-robot teleoperation dataset.
 - **[Metaworld](metaworld.md)** (Yu, Quillen, Levine, Finn — CoRL 2019) — co-senior on the 50-task meta-RL benchmark.
 
-- [MBRA / LogoNav](../sources/mbra-paper.md) (Hirose … Levine, Shah; RA-L 2025) — the navigation line: relabel 700 h of crowdsourced sidewalk-robot data with a model-based expert; six-country evaluation.
+- **The RAIL navigation line, fully ingested:** [GNM](../sources/gnm-paper.md) (ICRA 2023), [ViNT](../sources/vint-paper.md) (CoRL 2023), [NoMaD](../sources/nomad-paper.md) (ICRA 2024), [MBRA / LogoNav](../sources/mbra-paper.md) (RA-L 2025), [OmniVLA](../sources/omnivla-paper.md) (2025) — one policy for any ground robot, then exploration, then crowdsourced data, then a VLA; summarized on [visual navigation policies](../concepts/robotics/visual-navigation-policies.md).
 
 ## Why it matters in this wiki
 Levine's appearances split two ways. **Infrastructure papers** — DROID (the canonical real-robot dataset) and Metaworld (the canonical meta-RL benchmark) — underpin the JEPA-for-robotics literature (V-JEPA 2, JEPA-WMs) and the broader RL/world-model literature. **Method papers** — the [SAC](../sources/sac-paper.md) (+ its [practical follow-up](../sources/sac-applications-paper.md)) → [RLPD](../sources/rlpd-paper.md) → [SERL](../sources/serl-paper.md) → [HIL-SERL](../sources/hil-serl-paper.md) lineage — are the wiki's anchor for [real-world robotic RL](../concepts/learning/real-world-robot-rl.md): RL trained directly on hardware to superhuman reliability, the counterpoint to the imitation-learning mainstream. Levine is senior author on all five, from the 2018 algorithmic root to the 2024 dexterous-manipulation system.
@@ -43,6 +43,10 @@ Adjacent papers from Levine's group not yet ingested but commonly referenced: SA
 - DROID project page (linked via [DROID](droid.md) entity)
 - Metaworld project page (linked via [Metaworld](metaworld.md) entity)
 - [MBRA paper](../sources/mbra-paper.md) — co-author; RAIL's navigation thread enters the wiki.
+- [GNM paper](../sources/gnm-paper.md)
+- [ViNT paper](../sources/vint-paper.md)
+- [NoMaD paper](../sources/nomad-paper.md)
+- [OmniVLA paper](../sources/omnivla-paper.md)
 
 ## Open questions / TBD
 - DROID paper (arxiv 2403.12945) and Metaworld paper (arxiv 1910.10897) still worth filing to anchor those citations directly.

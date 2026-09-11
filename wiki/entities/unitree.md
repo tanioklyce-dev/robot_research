@@ -13,6 +13,7 @@ tags: [unitree, china, humanoid, quadruped, hardware, foundation-model, unifolm]
 ## Hardware (the platforms the wiki tracks)
 
 - [Unitree A1](unitree-a1.md) — 12 kg quadruped; the workhorse of learned-locomotion research (RMA and its lineage).
+- [Unitree Go1](unitree-go1.md) — 2021 quadruped ($2.7k Air / $3.5k Pro / Edu); the cross-embodiment test body of the Berkeley navigation line (ViNT, MBRA, OmniVLA).
 - [Unitree Go2](unitree-go2.md) — current quadruped tier (~$1.6k Air to ~$17k EDU); the robot in Anthropic's Project Fetch.
 - [Unitree H1](unitree-h1.md) — full-size research humanoid (~$90k).
 - [Unitree Z1](unitree-z1.md) — 6-DoF force-controlled arm (2022); the single/dual-arm platform in [WMA-0](../sources/unifolm-wma-0-project-page.md)'s demos and datasets.

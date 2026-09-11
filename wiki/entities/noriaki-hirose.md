@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-09-11
 updated: 2026-09-11
-sources: 1
+sources: 4
 tags: [person, navigation, berkeley, rail, toyota, model-based-learning, mbra, omnivla]
 ---
 
@@ -13,3 +13,6 @@ tags: [person, navigation, berkeley, rail, toyota, model-based-learning, mbra, o
 ## Mentioned in
 
 - [MBRA paper](../sources/mbra-paper.md)
+- [GNM paper](../sources/gnm-paper.md) — co-author (Toyota affiliation).
+- [ViNT paper](../sources/vint-paper.md) — Vizbot experiments.
+- [OmniVLA paper](../sources/omnivla-paper.md) — first author; the 7B OpenVLA-based navigation VLA.

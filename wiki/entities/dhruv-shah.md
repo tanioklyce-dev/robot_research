@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-09-11
 updated: 2026-09-11
-sources: 2
+sources: 6
 tags: [person, navigation, berkeley, rail, princeton, gnm, vint, nomad, earth-rover-challenge]
 ---
 
@@ -14,9 +14,13 @@ tags: [person, navigation, berkeley, rail, princeton, gnm, vint, nomad, earth-ro
 
 - [MBRA / LogoNav](../sources/mbra-paper.md) — senior author; relabeling 700 h of crowdsourced sidewalk data with a model-based expert.
 - [Earth Rover Challenge](../sources/earth-rover-challenge-frodobots-2k.md) — co-organizer, alongside DeepMind's Wenhao Yu and Tingnan Zhang.
-- The lineage is summarized on [visual navigation policies](../concepts/robotics/visual-navigation-policies.md); GNM / ViNT / NoMaD themselves are not ingested.
+- [GNM](../sources/gnm-paper.md) (co-lead), [ViNT](../sources/vint-paper.md) (lead), [NoMaD](../sources/nomad-paper.md) (second author), [OmniVLA](../sources/omnivla-paper.md) — the full line is ingested; see [visual navigation policies](../concepts/robotics/visual-navigation-policies.md).
 
 ## Mentioned in
 
 - [MBRA paper](../sources/mbra-paper.md)
 - [Earth Rover Challenge site + FrodoBots-2K card](../sources/earth-rover-challenge-frodobots-2k.md)
+- [GNM paper](../sources/gnm-paper.md)
+- [ViNT paper](../sources/vint-paper.md)
+- [NoMaD paper](../sources/nomad-paper.md)
+- [OmniVLA paper](../sources/omnivla-paper.md)
