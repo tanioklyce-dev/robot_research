@@ -55,7 +55,7 @@ The design document for the [BitRobot](../entities/bitrobot.md) Network, written
 
 ## Entities mentioned
 
-- [BitRobot](../entities/bitrobot.md) — the subject; FrodoBots (no page; Earth Rovers via [SIGRobotics-UIUC](../entities/sigrobotics-uiuc.md)); Protocol Labs (no page).
+- [BitRobot](../entities/bitrobot.md) — the subject; [FrodoBots](../entities/frodobots.md) — the origin (Earth Rovers, FrodoBots-2K); Protocol Labs (no page).
 - [HIW-500](../entities/hiw-500.md) — a produced output; [Figure](../entities/figure.md) (Index) as the centralized comparison.
 - Cited work the wiki holds: [Open X-Embodiment](../entities/open-x-embodiment.md), [π0](../entities/pi-zero.md), [Genesis](../entities/genesis.md), [NVIDIA Cosmos](../entities/nvidia-cosmos.md), [World Labs](../entities/world-labs.md), GAIA-1.
 

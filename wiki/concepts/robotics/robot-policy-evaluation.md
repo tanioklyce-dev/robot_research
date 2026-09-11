@@ -2,8 +2,8 @@
 title: Robot policy evaluation
 type: concept
 created: 2026-07-27
-updated: 2026-09-10
-sources: 50
+updated: 2026-09-11
+sources: 51
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility, real-to-sim, r2s2r]
 ---
 
@@ -132,6 +132,10 @@ Two of their findings bear directly on this page:
 - **State atypicality is not policy failure.** Embedding-similarity OOD detectors score **TNR = 0.00** on out-of-distribution test cases — they flag every unfamiliar rollout, including the ones where the policy *generalizes and succeeds*. Any evaluation that treats "OOD" as a proxy for "will fail" inherits that error.
 - **Conformal calibration bounds false alarms, not misses.** Both methods guarantee `FPR ≤ δ` from successful rollouts alone; guaranteeing detection would need failure data. The statistical guarantee available at runtime protects throughput, not people.
 
+## A standing real-world fleet that scores AI against humans (added 2026-09-11)
+
+The [Earth Rover Challenge](../../sources/earth-rover-challenge-frodobots-2k.md) ([FrodoBots](../../entities/frodobots.md); IROS 2024, ICRA 2025, IROS 2026) is the wiki's one example of a **calibrated multi-city robot fleet used as a shared evaluation instrument**: same rovers and missions at 14 sites, off-board compute through an SDK, 20 h/week of pre-event real-world testing for every team, and a score reported as **a fraction of the best human teleoperator's run** — 37% in 2024, 57% in 2025. Three things it gets right that lab evals do not: the environment is uncontrolled and the same for everyone; the human baseline is *measured in the same conditions* rather than assumed; and the per-edition ceiling number is size-invariant. Two limits: it is sidewalk navigation with four discrete actions at ~500 ms latency, so the ceiling says nothing about manipulation; and missions and human fields change per edition, so cross-edition trends are direction only. It is also the only running instance of the evaluation-fleet idea in the [BitRobot whitepaper](../../sources/bitrobot-network-whitepaper.md).
+
 ## What is still missing
 
 - **No real-world validation.** RoboLab is simulation-only, and whether its scores predict deployment success is precisely the question it exists to answer.
@@ -183,3 +187,4 @@ Two of their findings bear directly on this page:
 - [Patch Policy paper](../../sources/patch-policy-paper.md) — two textbook instances of this page's failure modes in one paper: **LIBERO Goal sits at 0.93–0.98 for every method** (saturation, discriminating nothing), and the real-robot comparison runs **n = 20 per cell** (~±20 pp), where the headline 0.70-vs-0.30 gap survives and the 0.90-vs-0.70 ones do not. No confidence intervals reported. Its simulated protocol is better than most: **100 trajectories per seed × 3 seeds**.
 - [SafeVLA](../../sources/safevla-paper.md) — **cumulative cost** as a co-reported metric, and the **extreme-failure protocol**: evaluate where success is impossible by construction, and the task-only RL baseline's cost is 32× the constrained one and ~6× its own IL starting point.
 - [Robot Research Direction (first-party notes)](../../sources/robot-research-direction-notes.md) — carries the ~1,030–2,450 vs ~70 rollout arithmetic as open question #7; the [synthesis](../../syntheses/world-models/open-questions-and-research-direction.md) argues evaluation belongs at the top of the ranking, not seventh.
+- [Earth Rover Challenge site + FrodoBots-2K card](../../sources/earth-rover-challenge-frodobots-2k.md) — AI-vs-human scoring on a shared multi-city fleet.

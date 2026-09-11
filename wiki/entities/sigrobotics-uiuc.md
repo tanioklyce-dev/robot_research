@@ -24,13 +24,13 @@ tags: [sigrobotics, uiuc, student-organization, lekiwi, open-hardware, lerobot, 
 - **Matcha-bot / `seeed-hack-interface`** (Oct 2025) — U.S.-site champion at the Embodied AI Hackathon. Built on [XLeRobot](xlerobot.md); fine-tuned **[NVIDIA GR00T N1.5](nvidia-groot.md)** via NVIDIA Brev; deployed on Jetson Thor. Companion repo: [`Isaac-GR00T-UIUC`](https://github.com/SIGRobotics-UIUC/Isaac-GR00T-UIUC).
 - **F1Tenth** — autonomous racing stack; sub-team within SIG.
 - **Climbing Robot** — defies gravity (per repo description).
-- **Earth Rover Mini SDK** — public Python SDK on PyPI for [FrodoBots](https://www.frodobots.ai/)' Earth Rover Mini+ platform. (FrodoBots is a top-tier sponsor.)
+- **Earth Rover Mini SDK** — public Python SDK on PyPI for [FrodoBots](frodobots.md)' Earth Rover Mini+ platform. (FrodoBots is a top-tier sponsor.)
 - **Bimanual SO-101 setup** — [`lerobot_robot_bi_so101_follower`](https://github.com/SIGRobotics-UIUC/lerobot_robot_bi_so101_follower) + [`lerobot_teleoperator_bi_so101_leader`](https://github.com/SIGRobotics-UIUC/lerobot_teleoperator_bi_so101_leader). Direct lineage to the matcha-bot.
 - **`silent_speech`** — code for the EMG-decoding-of-silent-speech papers (EMNLP 2020 / ACL 2021). Suggests an HCI / accessibility predecessor thread.
 
 ## Sponsors
 
-Top tier: **[FrodoBots](https://www.frodobots.ai/)**, **[BitRobot Foundation](bitrobot.md)** (now filed — publisher of the [HIW-500](hiw-500.md) humanoid dataset; FrodoBots' Earth Rovers are its first subnet), **Saronic** (autonomous maritime).
+Top tier: **[FrodoBots](frodobots.md)** (now filed — crowdsourced sidewalk-robot data via a game; the Earth Rover Challenge), **[BitRobot Foundation](bitrobot.md)** (now filed — publisher of the [HIW-500](hiw-500.md) humanoid dataset; FrodoBots' Earth Rovers are its first subnet), **Saronic** (autonomous maritime).
 Normal tier: **[Hugging Face](hugging-face.md) LeRobot**, **Neuralink**, **ROBOTIS** (Dynamixel-servo manufacturer), **UIUC CS / Siebel School**.
 
 The **K-Scale Labs sponsorship of Mini Humanoid** is project-tier, not org-tier — i.e., it's named on the Mini Humanoid project card, not in the general sponsor list.

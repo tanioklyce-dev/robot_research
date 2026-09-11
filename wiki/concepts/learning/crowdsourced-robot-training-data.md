@@ -3,7 +3,7 @@ title: Crowdsourced robot training data
 type: concept
 created: 2026-08-27
 updated: 2026-09-11
-sources: 14
+sources: 15
 tags: [crowdsourcing, human-data, egocentric, data-pipeline, data-quality, fraud, deduplication, data-labor, gig-economy, scaling-laws, go-big, brookfield, consent]
 ---
 
@@ -78,6 +78,9 @@ Added 2026-08-28. [Figure](../../entities/figure.md) has now run **both** varian
 > [!warning] Neither model has addressed consent
 > Index publishes nothing on consent, retention or data rights for a corpus filmed inside homes. Go-Big describes video *"collected passively as people do behaviors in real Brookfield homes"* and never says whether the units are occupied, who is filmed, or on what terms. **The landlord's consent is not the tenant's** — and the landlord-mediated variant is the one where the person filmed may have the least practical ability to decline.
 
+> [!note] The oldest instance, and a failure mode the list above lacks (added 2026-09-11)
+> [FrodoBots](../../entities/frodobots.md) has been crowdsourcing sidewalk-robot driving **through a game** since 2023 — players earn points steering $199–299 rovers in a scavenger hunt; ~2,000 open hours by May 2024, ~7,000 by late 2024 ([site + card](../../sources/earth-rover-challenge-frodobots-2k.md)). Two years of use exposed a problem that is neither fraud nor dedup: **the action labels are bad by construction.** Commands were issued at 10 Hz over a ~500 ms link toward a *game* objective, not a driving one. The most-cited paper built on the data, Berkeley's MBRA, exists to **relabel the human actions with a model-based expert** and keep only the observations. For robot-teleop crowdsourcing, then, add a fourth question to the reporting discipline in §3: *how much of the action stream survived relabeling?* FrodoBots' answer was, in effect, none of it.
+
 > [!note] A third model: the network (added 2026-09-11)
 > [BitRobot](../../entities/bitrobot.md) — "the world's open robotics lab," a foundation coordinating subnets of operators, hardware and compute around missions and challenges — published [HIW-500](../../entities/hiw-500.md): 500+ h of [G1](../../entities/unitree-g1.md) whole-body teleop in **12 real homes**, CC BY 4.0, with a commercial arm selling more ([page](../../sources/bitrobot-hiw-500-dataset-page.md)). It is neither the landlord nor the marketplace: the *environment* diversity comes from sending operators into homes, and the *labour* from a coordinated network rather than an app-recruited public. Its [whitepaper](../../sources/bitrobot-network-whitepaper.md) supplies the mechanism the dataset page omits: contributions are scored by subnet **validators** against a defined measurement ("Verifiable Robotic Work"), robots post **collateral** as NFTs, penalties and fee sinks deter abuse, and token emissions are steered per epoch by a Senate plus an AI agent. That is failure mode 1 above written into a protocol — the measurement is what gets optimized, and the whitepaper defers cryptographic verification to future work while leaving validator incentives and measurement Goodharting unaddressed. Compensation amounts and consent remain unstated. It is also **robot** teleop, not human video — the same "real homes, real clutter" argument, but the data lands directly in the robot's action space (a WBC command, see [whole-body control](../robotics/whole-body-control.md)) with no human-to-robot gap to cross.
 
@@ -118,3 +121,4 @@ What would settle it is unglamorous: **an acceptance rate, a total, a diversity 
 - [Robot Research Direction (first-party notes)](../../sources/robot-research-direction-notes.md) — this page's *hundreds to low thousands of hours* set against EgoScale's 1k–20k hours of human video, as open question #8.
 - [HIW-500 dataset page](../../sources/bitrobot-hiw-500-dataset-page.md) — BitRobot's network-sourced humanoid teleop corpus.
 - [BitRobot Network whitepaper](../../sources/bitrobot-network-whitepaper.md) — the incentive mechanism behind the network model: VRW, validators, collateral, emissions.
+- [Earth Rover Challenge site + FrodoBots-2K card](../../sources/earth-rover-challenge-frodobots-2k.md) — gamified sidewalk-robot teleop; latency-degraded actions relabeled by MBRA.
