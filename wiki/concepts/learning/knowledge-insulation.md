@@ -42,6 +42,7 @@ A further detail: the attention mask keeps **discrete FAST action tokens and con
 
 ## Related concepts
 
+- [continual learning](continual-learning.md) — KI as forgetting-avoidance by architecture.
 - [FAST (action tokenization)](../../entities/fast-action-tokenization.md) — the discrete-token scheme KI uses to supervise the VLM.
 - [Flow matching](flow-matching.md) — the continuous action-expert technique KI insulates the VLM from.
 - [Per-layer KV conditioning](per-layer-kv-conditioning.md) — MolmoAct2 applies the KI detach to *this* conditioning path.

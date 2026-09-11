@@ -2,7 +2,7 @@
 title: In-context robot learning
 type: concept
 created: 2026-08-29
-updated: 2026-09-07
+updated: 2026-09-11
 sources: 8
 tags: [in-context-learning, robot-foundation-model, demonstration-conditioning, test-time-adaptation, vla, skild-ai, s1, generalist-ai, gen-1-5, physical-prompting, emergence]
 ---
@@ -126,6 +126,7 @@ Four capabilities beyond one-shot imitation, none of them in S1:
 
 ## Relationship to neighboring ideas
 
+- [continual learning](continual-learning.md) — in-context learning is the *adaptation without permanent change* branch of the three things the wiki calls continual learning.
 - **[Test-time adaptation](test-time-adaptation.md)** — in-context learning is its limiting case: adaptation with *zero* gradient steps.
 - **[Sim-to-real transfer](sim-to-real-transfer.md)** — [LocoFormer](../../sources/locoformer-paper.md) is an unusually strong instance: trained only on *procedurally generated robots that do not exist*, transferring zero-shot to ten commercial platforms with no system identification.
 - **[VLA models](vla-models.md)** — the language-conditioned alternative, and the baseline S1 measures against.

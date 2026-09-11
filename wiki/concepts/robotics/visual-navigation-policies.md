@@ -47,6 +47,7 @@ Adjacent RAIL work the papers cite: RECON and ViKiNG (latent-goal exploration; k
 
 ## Related concepts
 
+- [Cross-embodiment transfer](../learning/cross-embodiment.md) — why navigation is the solved scope.
 - [Robot policy evaluation](robot-policy-evaluation.md), [visual relocalization and mapping](visual-relocalization-and-mapping.md), [motion planning](motion-planning.md), [control abstraction levels](control-abstraction-levels.md), [imitation learning](../learning/imitation-learning.md), [crowdsourced robot training data](../learning/crowdsourced-robot-training-data.md), [soft prompts](../learning/soft-prompt-cross-embodiment.md), [latent action tokens](../learning/latent-action-tokens.md).
 
 ## Mentioned in

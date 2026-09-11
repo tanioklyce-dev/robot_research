@@ -2,7 +2,7 @@
 title: Real-world robotic reinforcement learning
 type: concept
 created: 2026-07-05
-updated: 2026-09-07
+updated: 2026-09-11
 sources: 22
 tags: [reinforcement-learning, real-world-rl, manipulation, human-in-the-loop, off-policy-rl, sample-efficiency]
 ---
@@ -82,6 +82,7 @@ It is worth having next to [HIL-SERL](../../sources/hil-serl-paper.md) because i
 
 ## Related concepts
 
+- [continual learning](continual-learning.md) — the weight-update branch, and where forgetting lives.
 - [Imitation learning](imitation-learning.md) — the baseline family; BC / DAgger / HG-DAgger. Real-world RL uses IL data to *seed* but surpasses it.
 - [VLA models](vla-models.md) — where RL-from-deployment (π*0.6) is now being applied at scale.
 - [Diffusion Policy](../../entities/diffusion-policy.md) — strong IL policy class that HIL-SERL shows underperforms on reactive contact-rich tasks.
