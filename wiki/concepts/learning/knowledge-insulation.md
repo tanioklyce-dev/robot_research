@@ -2,8 +2,8 @@
 title: Knowledge Insulation (KI)
 type: concept
 created: 2026-07-17
-updated: 2026-07-25
-sources: 10
+updated: 2026-09-11
+sources: 11
 tags: [knowledge-insulation, vla, flow-matching, fast-tokens, stop-gradient, co-training, physical-intelligence, molmoact2, allen-institute, training-recipe]
 ---
 
@@ -30,6 +30,9 @@ A further detail: the attention mask keeps **discrete FAST action tokens and con
 - **Generalize better:** best language-following and OOD object generalization among the paper's baselines; SOTA on **LIBERO-90 (96.0)** and **LIBERO-Spatial (98.0)**; DROID 0.55 vs π0 0.49.
 - **Cost:** ~20% more compute per step, offset by faster convergence.
 
+> [!note] Replicated, uncredited, at Unitree (2026-09)
+> [UnifoLM-WLA-1.0](../../entities/unifolm.md)'s diagram is the three measures above with different tokens: residual-VQ action tokens (per body-part group) train the Qwen3-VL backbone, an MMDiT flow-matching expert acts on the backbone's hidden states, a **stop-gradient** sits between them, and general VLM data is co-trained ([project page](../../sources/unifolm-wla-1-project-page.md)). The addition is a second discrete auxiliary — future optical-flow mask tokens — in the same stream. The page cites no prior work; the recipe is now the default shape of a 2026 humanoid VLA.
+
 ## Key references
 
 - [Knowledge Insulation paper (Driess et al. 2025)](../../sources/knowledge-insulation-paper.md) — **primary source**; introduces and ablates the recipe.
@@ -51,3 +54,4 @@ A further detail: the attention mask keeps **discrete FAST action tokens and con
 - [π*0.6 paper](../../sources/pistar06-paper.md)
 - [VLA-0 paper](../../sources/vla-0-paper.md)
 - [MolmoAct2 paper](../../sources/molmoact2-paper.md) — KI in post-training, dropped in fine-tuning.
+- [UnifoLM-WLA-1.0 project page](../../sources/unifolm-wla-1-project-page.md) — the KI shape (discrete tokens + flow expert + stop-gradient + co-training) at Unitree, with RVQ instead of FAST tokens.

@@ -2,7 +2,7 @@
 title: "Ten open questions, and the one the wiki is pointed at"
 type: synthesis
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 tags: [research-direction, open-questions, world-model, representation, latent-variable, cross-embodiment, continual-learning, evaluation, semantic-safety, synthesis, meta]
 ---
 
@@ -17,6 +17,9 @@ This page is the wiki's own version of a document its author produced with ChatG
 Two halves. The first is a *design* question about what a latent should keep — the subject of [the abstraction tax](abstraction-tax.md) and the [GLP-vs-JEPA dispute](../../sources/critique-of-world-model-paper.md). The second is a *measurement* question, and it is the one the wiki is better equipped for than it was a month ago: [representation evaluation](../../concepts/learning/representation-evaluation.md) supplies the label-free and probing protocols, [identifiability](../../concepts/world-models/identifiability.md) supplies the theory of when a latent recovers the true factors, and the [declared-axis experiment](declared-axis-experiment.md) supplies four readouts ranked by signal quality.
 
 The document's argument for why this question and not another: it is narrow enough to run experiments against, deep enough that an answer changes how every downstream component is built, and — unlike "solve general-purpose robotics" — reachable with an independent researcher's hardware and compute.
+
+> [!note] A vendor's implicit answer (added 2026-09-11)
+> [Unitree](../../entities/unitree.md)'s [UnifoLM-WLA-1.0](../../entities/unifolm.md) replaced its previous generation's video-generating world model with a **VQ-tokenized optical-flow mask of the future dynamic region**, predicted inside the VLM next to the action tokens ([source](../../sources/unifolm-wla-1-project-page.md)). That is one concrete answer to *what must be preserved* — the moving region — chosen by target design rather than by probing a latent. No ablation on the page tests it, which is exactly the gap the focused question names; see the [world-action model](../../concepts/world-models/world-action-model.md) note.
 
 ## The ten, routed to their evidence
 

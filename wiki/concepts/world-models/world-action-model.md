@@ -2,8 +2,8 @@
 title: World-action model (WAM)
 type: concept
 created: 2026-06-02
-updated: 2026-09-10
-sources: 24
+updated: 2026-09-11
+sources: 26
 tags: [world-action-model, wam, flux-3, video-action-model, frozen-backbone, world-model, vla, forward-dynamics, inverse-dynamics, policy, cosmos, dreamzero]
 ---
 
@@ -34,6 +34,12 @@ A WAM is therefore a superset of both the "video generator as simulator" ([world
 > **And a VAM generates no video at inference.** Best autonomous performance comes at **τ_v = 1 — pure noise**, one forward pass, no denoising: *"high-fidelity video reconstruction is not required for performant robot policies."* On ground-truth latents the action-reconstruction optimum sits at τ_v ≈ 0.4 and gets **worse** toward full reconstruction. So the FD mode in the table above is, in this architecture, **never actually run to pixels** — the world model is used as a feature extractor, not as a simulator.
 >
 > The enabling mechanism is **Self-Flow** ([arXiv 2603.06507](https://arxiv.org/abs/2603.06507)), which puts representation learning inside the generative objective via **heterogeneous per-token noise levels**. Its stated motivation is the standard objection to generative world models — that they learn *"less disentangled representations, which puts a ceiling on their usefulness"* — treated as a fixable property of the loss rather than a reason to abandon the decoder.
+
+> [!note] The sparsest world target yet: predict *where* the scene will change, as tokens
+> *(WMA-0 now has its own [source page](../../sources/unifolm-wma-0-project-page.md): a DynamiCrafter video-diffusion backbone with a Diffusion-Policy 1-D UNet head reading its features — 16 frames = 16 actions at 15 Hz — i.e. an early, small VAM that does generate the video in the loop. No numbers were ever published for it.)*
+> [Unitree](../../entities/unitree.md)'s [UnifoLM](../../entities/unifolm.md) line ran the FD-mode question in reverse over two generations ([project page](../../sources/unifolm-wla-1-project-page.md)). **WMA-0** (2025-09) was a video-generation world model with a *simulation* mode and a *decision-making* mode — the standard WAM shape above. **WLA-1.0** (2026-09) drops pixel generation entirely: optical flow between consecutive frames is thresholded into a **dynamic-region mask**, a VQ-VAE turns the mask into a fixed-length token string, and the VLM predicts those *future-mask tokens* conditioned on the image plus a task or an action — alongside residual-VQ action tokens, before a flow-matching expert acts. The world model has become a **sparse, discrete auxiliary prediction of the interaction region**, living in the same token stream as the actions.
+>
+> Read against [mimic-video](../../sources/mimic-video-paper.md)'s finding that a VAM's best policy runs at pure noise — "high-fidelity video reconstruction is not required" — this is the same conclusion arrived at by *choosing the target* rather than by *skipping the decoding*. It also lands on one specific answer to the wiki's [focused research question](../../syntheses/world-models/open-questions-and-research-direction.md) — *what must a robot world model preserve?* — namely **the moving region**, which is close to what an optical-flow-supervised latent would keep and what an appearance-reconstruction latent would bury. Two cautions: no ablation on the page shows the mask objective helps the policy, and the 6B policy itself is unreleased. The discrete cousin of GR00T N1.5's [FLARE](../../sources/groot-n1_5.md) future-latent alignment, and of [π0.7](../../sources/pi07-paper.md)'s subgoal images.
 
 ## Key references
 
@@ -80,3 +86,5 @@ As of mid-2026 the strongest published WAMs are generative-video / diffusion mod
 - [AGIBOT Genie Envisioner 2.0 Announcement](../../sources/agibot-genie-envisioner-2-announcement.md)
 - [Sharifullin, Jiang & Chew 2026 — Diffusion Transformer World-Action Model for AV Scene Prediction](../../sources/dit-world-action-model-av-paper.md) — the compact-scale end; controllability measured (ρ = 0.81 vs −0.18); the shared-anchor motion diagnosis.
 - [Robot Research Direction (first-party notes)](../../sources/robot-research-direction-notes.md) — restates this page's *actions are doing `z`'s job* reading as open question #5, and picks it as one of three experimentally reachable directions.
+- [UnifoLM-WLA-1.0 project page](../../sources/unifolm-wla-1-project-page.md) — the mask-token world target; WMA-0 → WLA-1.0 as a two-generation retreat from pixel generation.
+- [UnifoLM-WMA-0 project page](../../sources/unifolm-wma-0-project-page.md) — a 2025 DynamiCrafter-based VAM with decision-making and simulation modes; the generation Unitree then abandoned.

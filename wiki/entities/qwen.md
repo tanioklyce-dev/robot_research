@@ -3,8 +3,8 @@ title: Qwen
 type: entity
 subtype: product
 created: 2026-05-07
-updated: 2026-08-28
-sources: 12
+updated: 2026-09-11
+sources: 13
 tags: [qwen, llm, alibaba, open-weights]
 status: stub
 ---
@@ -20,6 +20,8 @@ More useful, because it is task-level: [Perplexity](../sources/perplexity-local-
 One measurement worth carrying beyond Qwen: they report a **260K advertised context window** but that the model *"begins to struggle beyond 100K tokens."*
 
 ## Versions seen in this wiki
+
+- **Qwen3-VL-4B** — the backbone of [Unitree](unitree.md)'s [UnifoLM-ER-1 / ER-Flow / WLA-1.0](unifolm.md) ([project page](../sources/unifolm-wla-1-project-page.md)); the specialized ER model beats the base on every embodied column but trails it on MME, MMMU, RealWorldQA and VSI-Bench.
 - **`qwen3:1.7b`** — used by [ROSOrin](rosorin.md)'s offline curriculum via [Ollama](ollama.md) ([Hiwonder ROSOrin Documentation](../sources/hiwonder-rosorin-docs.md)).
 - **`qwen25-3B-Instruct`** — default local LLM in [stretch_ai](stretch-ai.md)'s LLM agent ([Stretch AI LLM Agent Documentation](../sources/stretch-ai-llm-agent-docs.md)).
 - **`Qwen-plus-latest`** — cloud variant accessed via OpenRouter in ROSOrin's chapter 10 cloud curriculum.
@@ -36,3 +38,4 @@ Qwen has become a default open-weights LLM for agentic robotics on edge devices 
 - [Hiwonder ROSOrin Documentation](../sources/hiwonder-rosorin-docs.md)
 - [Stretch AI LLM Agent Documentation](../sources/stretch-ai-llm-agent-docs.md)
 - [VLA-0 paper](../sources/vla-0-paper.md) — Qwen2.5-VL-3B as the VLA backbone.
+- [UnifoLM-WLA-1.0 project page](../sources/unifolm-wla-1-project-page.md) — Qwen3-VL-4B as a humanoid-VLA backbone.

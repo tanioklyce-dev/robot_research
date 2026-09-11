@@ -2,8 +2,8 @@
 title: Mechanism design & statistical contract theory
 type: concept
 created: 2026-05-29
-updated: 2026-05-29
-sources: 1
+updated: 2026-09-11
+sources: 2
 tags: [economics-of-ml, mechanism-design, game-theory, contract-theory, e-values, stackelberg, incentives, michael-jordan]
 ---
 
@@ -23,6 +23,10 @@ Setup: a **buyer** (Leader, e.g. a marketplace) runs **hypothesis testing** — 
 > [!note] The e-value result
 > Bates et al. (2024) prove these statistical contracts are incentive-compatible **if and only if the menu options can be expressed as e-values** (Ramdas & Wang 2025). An **e-value** is a function of data that is ≤ 1 in expectation under the null hypothesis (an alternative to the p-value's tail probability), with a **betting interpretation**: the multiplicative factor by which wealth grows in expectation under the null. For sequential data the right object is a **nonnegative supermartingale** (an e-value at any stopping time — accumulated evidence over time). The result identifies an *inferential* concept (e-values for hypothesis testing) with an *economic* one (information-asymmetry-robust contracts) — a concrete instance of the inference⊕economics blend.
 
+## A robotics instance: the BitRobot Network (added 2026-09-11)
+
+The [BitRobot whitepaper](../../sources/bitrobot-network-whitepaper.md) is the wiki's one worked example of mechanism design for **robot data and evaluation**. The objects map directly: the *information asymmetry* is that a contributor knows whether their teleop hours or driven miles are genuine and novel and the network does not; the *contract* is a per-subnet definition of Verifiable Robotic Work with a published reward split; *incentive compatibility* is attempted through collateral posted by robot NFTs, penalties, and validator scoring; and the epoch-by-epoch emission allocation is a delegation-weighted vote by a Senate and an AI agent. What the design does not do is make gaming unprofitable in the contract-theory sense — the measurement (miles, hours, scenario counts) is public and cheap to inflate, the validators are themselves paid participants, and verification is *public inputs / public outputs* rather than a proof. It is a menu without a self-selection guarantee; see the [crowdsourcing](../learning/crowdsourced-robot-training-data.md) page for what that costs in practice.
+
 ## Related concepts
 - [Three thinking styles](three-thinking-styles.md) — mechanism design is the economic leg.
 - [Collectivist AI / AI-as-market](collectivist-ai.md) — markets are built out of these mechanisms (three-layer data markets are generalized Stackelberg games).
@@ -31,3 +35,4 @@ Setup: a **buyer** (Leader, e.g. a marketplace) runs **hypothesis testing** — 
 
 ## Mentioned in
 - [A Collectivist, Economic Perspective on AI (Jordan, 2025)](../../sources/jordan-collectivist-economic-ai.md)
+- [BitRobot Network whitepaper](../../sources/bitrobot-network-whitepaper.md) — collateral, penalties, validator scoring and delegated emissions as an (incomplete) incentive-compatible design for robot data.

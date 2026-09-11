@@ -2,7 +2,7 @@
 title: The Robot AI industry — structure, capital, and the gap between the two
 type: synthesis
 created: 2026-08-29
-updated: 2026-08-29
+updated: 2026-09-11
 tags: [industry, physical-ai, humanoid, market-structure, capital, automotive, vertical-integration, economics-of-ml, synthesis]
 ---
 
@@ -67,6 +67,9 @@ Companies in this industry are making one of four structurally different bets.
 **Platform / commodity hardware** — win on price and volume. [Unitree](../../entities/unitree-g1.md) (R1 from **$4,900**, G1 from **$13,500** — [AI Index](../../sources/stanford-hai-ai-index-2026.md)) is the clearest case, and the pattern already played out one tier down: [FeeTech](../../entities/feetech.md)'s ~3× price advantage over [Dynamixel](../../entities/dynamixel.md) is why **SO-10X arms drive 50%+ of community-contributed LeRobotDatasets** ([LeRobot ICLR 2026](../../sources/lerobot-iclr-2026-paper.md)). Cheap hardware buys ecosystem position, and ecosystem position is stickier than a spec advantage.
 
 **Research-subsidiary** — a large incumbent funds a lab, absorbs the option value, spins out or deploys internally. [TRI](../../entities/tri.md) is the archetype: it funds [Drake](../../entities/drake.md) (model-based) *while* shipping [Large Behavior Models](../../concepts/learning/large-behavior-models.md) (learned), which is this wiki's clearest institutional evidence that the two programs are treated as complementary rather than successive — and in January 2026 it spun the LBM leadership out into [Walden Robotics](../../entities/walden-robotics.md).
+
+> [!note] A fifth candidate: the network (added 2026-09-11)
+> [BitRobot](../../entities/bitrobot.md)'s [whitepaper](../../sources/bitrobot-network-whitepaper.md) starts from the same observation as §2 — data flywheels, evaluation fleets and compute are concentrating in a handful of labs — and proposes to out-aggregate them with a token-paid network of subnets rather than to occupy a layer. Evidence so far is sidewalk-navigation data and one 500-hour humanoid dataset ([HIW-500](../../entities/hiw-500.md)); the evaluation-fleet-for-hire business the whitepaper describes is not yet visible. Filed as a candidate posture, not a fifth column: it has to prove it can pay for contact-rich manipulation data, which is where the four postures above are actually competing.
 
 > [!warning] The posture that has already failed once
 > [K-Scale Labs](../../entities/k-scale-labs.md) — open-source humanoid, developer-tier — **shut down in late 2025**. The consumer/prosumer tier has the weakest evidence of any: [Zeroth M1](../../entities/zeroth-m1.md) takes pre-orders on a storefront with 404s on its own company pages and publishes **no accuracy figure for the fall-detection feature it sells for elder safety**; [Sourccey](../../entities/sourccey.md) has no published price. The one genuine exception is [NORI A3](../../entities/nori-a3.md) — priced, shipped, >$300K in six weeks — whose 4 GB [Pi 5](../../entities/raspberry-pi-5.md) cannot run inference onboard, so every unit sold creates someone-else's model-serving cost ([value chain](consumer-robotics-value-chain.md)).

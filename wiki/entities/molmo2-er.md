@@ -3,8 +3,8 @@ title: Molmo2-ER
 type: entity
 subtype: model
 created: 2026-07-25
-updated: 2026-08-03
-sources: 4
+updated: 2026-09-11
+sources: 5
 tags: [molmo2-er, molmo2, molmo, vlm, embodied-reasoning, spatial-reasoning, pointing, vla-backbone, allen-institute, open-source, open-data, specialize-then-rehearse]
 ---
 
@@ -40,6 +40,10 @@ Rather than re-run Molmo2's full multimodal training, it builds on the released 
 - **+17 points over its Molmo2 base** (46.8 → 63.8).
 - **+6.0** LIBERO-Long over Molmo2 as a discrete-action backbone (ablation, before any continuous action expert).
 
+## Third-party comparison: UnifoLM-ER-1 (2026-09)
+
+[Unitree](unitree.md)'s [UnifoLM-ER-1-4B](unifolm.md) table lists Molmo2-ER-4B on 8 of its 16 columns ([source](../sources/unifolm-wla-1-project-page.md); rows copied from Ai2's report, not re-run). Molmo2-ER trails on six — RefSpatial 52.5 vs 61.7, Where2Place 54.0 vs 82.0, BLINK 85.7 vs 93.4 (Unitree's own two-subtask test), CV-Bench 87.8 vs 88.6, EmbSpatial 78.8 vs 88.9, ERQA 46.8 vs 50.0 — and leads on two: SAT 78.0 vs 76.0 and **VSI-Bench 74.5 vs 54.2**. The VSI gap is the informative one: it is the *video* spatial benchmark, and UnifoLM's training mix is image-only, while Molmo2-ER's corpus has a video-QA pillar and a rehearse stage. Pixmo-Point — Ai2's signature pointing benchmark — is left blank in the Molmo2-ER row. See [embodied-reasoning VLMs](../concepts/learning/embodied-reasoning-vlms.md) for the class-level read.
+
 ## Related
 
 - [MolmoAct2](molmoact2.md) — the VLA built on Molmo2-ER; the reason this entity exists.
@@ -58,3 +62,4 @@ Rather than re-run Molmo2's full multimodal training, it builds on the released 
 - [CaP-X paper](../sources/cap-x-paper.md) — Molmo 2 is one of CaP-Gym's perception primitives, providing open-vocabulary pointing alongside SAM3.
 - [MolmoAct2-SO100_101 model card](../sources/molmoact2-so100-101-model-card.md) — restates the architecture independently of the paper: a flow-matching continuous action expert "conditions on the VLM key-value cache through a per-layer connection" on top of Molmo2-ER.
 - [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — Molmo2-ER is released as a standalone base checkpoint.
+- [UnifoLM-WLA-1.0 project page](../sources/unifolm-wla-1-project-page.md) — third-party 8-column comparison against UnifoLM-ER-1-4B; Molmo2-ER's VSI-Bench lead is the standout.

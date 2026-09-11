@@ -3,7 +3,7 @@ title: SIGRobotics-UIUC
 type: entity
 subtype: organization
 created: 2026-05-10
-updated: 2026-05-15
+updated: 2026-09-11
 sources: 7
 tags: [sigrobotics, uiuc, student-organization, lekiwi, open-hardware, lerobot, hackathon, mini-humanoid, koch-arms, frodobots]
 ---
@@ -30,7 +30,7 @@ tags: [sigrobotics, uiuc, student-organization, lekiwi, open-hardware, lerobot, 
 
 ## Sponsors
 
-Top tier: **[FrodoBots](https://www.frodobots.ai/)**, **BitRobot Foundation**, **Saronic** (autonomous maritime).
+Top tier: **[FrodoBots](https://www.frodobots.ai/)**, **[BitRobot Foundation](bitrobot.md)** (now filed — publisher of the [HIW-500](hiw-500.md) humanoid dataset; FrodoBots' Earth Rovers are its first subnet), **Saronic** (autonomous maritime).
 Normal tier: **[Hugging Face](hugging-face.md) LeRobot**, **Neuralink**, **ROBOTIS** (Dynamixel-servo manufacturer), **UIUC CS / Siebel School**.
 
 The **K-Scale Labs sponsorship of Mini Humanoid** is project-tier, not org-tier — i.e., it's named on the Mini Humanoid project card, not in the general sponsor list.

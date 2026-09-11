@@ -2,8 +2,8 @@
 title: Whole-Body Control (WBC)
 type: concept
 created: 2026-07-15
-updated: 2026-08-29
-sources: 26
+updated: 2026-09-11
+sources: 27
 tags: [whole-body-control, wbc, humanoid, motion-tracking, loco-manipulation, unitree-g1, booster-t1, rl, sim-to-real, amass, agile, code, system-0, helix, figure-03]
 ---
 
@@ -66,6 +66,9 @@ Added 2026-08-28. Everything above is academic or open-source. [Helix 02](../../
 > [!note] This branch went the opposite way from quadruped locomotion
 > Every paper in this humanoid cluster except [ASAP](../../sources/asap-paper.md) is built on **privileged oracle-to-student distillation** — [H2O](../../sources/h2o-paper.md) uses it to filter data, [OmniH2O](../../sources/omnih2o-paper.md) to reach sparse sensors, [HOVER](../../sources/hover-paper.md) to unify modes, [BumbleBee](../../sources/bumblebee-experts-to-generalist-wbc.md) to merge experts. Over the same period the quadruped line **abandoned** privileged teachers entirely for long context and scale ([locomotion adaptation lineage](../../syntheses/rl/locomotion-adaptation-lineage.md)). Two branches of learned legged control, moving in opposite architectural directions at the same time — see [humanoid whole-body control lineage](../../syntheses/rl/humanoid-wbc-lineage.md) for why.
 
+> [!note] What a humanoid dataset records: the WBC command, not the joints (added 2026-09-11)
+> [HIW-500](../../entities/hiw-500.md)'s LeRobot release makes the interface concrete: `observation.state` is the [G1](../../entities/unitree-g1.md)'s 29 joint positions, but the **action is 23-D — base `vx, vy, vyaw, roll, pitch, yaw, height`, both end-effector 6-DoF poses, and gripper trigger/squeeze** ([dataset page](../../sources/bitrobot-hiw-500-dataset-page.md)). The teleoperator drives the whole-body controller; the dataset records what it was told. A policy trained on it inherits Unitree's WBC as a fixed lower layer — the same split Helix 02's S1→S0 boundary and GR00T's `UNITREE_G1_SONIC` embodiment make, and the likely content of [UnifoLM-WLA-1.0](../../entities/unifolm.md)'s "lower-body" action tokens.
+
 ## Related concepts
 
 - [VLA models](../learning/vla-models.md) — the high-level System-2 layer WBC sits under.
@@ -81,3 +84,4 @@ Added 2026-08-28. Everything above is academic or open-source. [Helix 02](../../
 - [Unitree G1](../../entities/unitree-g1.md) — the common target platform; [Booster T1](../../entities/booster-t1.md) — AGILE's second benchmark humanoid.
 - [Introducing Helix 02](../../sources/figure-helix-02.md) — Figure's System 0; the commercial-stack instance. [Ramping Figure 03 Production](../../sources/figure-ramping-03-production.md) — perception-conditioned S0, zero-shot stairs.
 - [Gemini Robotics 2 blog](../../sources/gemini-robotics-2-blog.md) — whole-body control as a shipped VLA capability: humanoids that "walk, crouch, stretch, and manipulate" under one model. Pick-up success by height: shelf 76.3%, table 68.4%, **floor 45.7%**.
+- [HIW-500 dataset page](../../sources/bitrobot-hiw-500-dataset-page.md) — the 23-D WBC-command action space of a 500 h humanoid dataset.

@@ -2,8 +2,8 @@
 title: Collectivist AI / AI-as-market
 type: concept
 created: 2026-05-29
-updated: 2026-05-29
-sources: 1
+updated: 2026-09-11
+sources: 2
 tags: [economics-of-ml, collectivist-ai, markets, data-markets, recommendation-systems, michael-jordan]
 ---
 
@@ -35,3 +35,4 @@ Jordan expects markets to spawn new data/learning-era roles as previous technolo
 ## Mentioned in
 - [A Collectivist, Economic Perspective on AI (Jordan, 2025)](../../sources/jordan-collectivist-economic-ai.md)
 - [Three critiques of the LLM-as-intelligence North Star](../../syntheses/society/critiques-of-the-intelligence-north-star.md)
+- [BitRobot Network whitepaper](../../sources/bitrobot-network-whitepaper.md) — a data market for robotics built as a token network: contributions priced by validator-scored work, outputs licensed by a foundation; the AI-as-market framing with an AI agent ('Gandalf AI') as one of the market's governors.
