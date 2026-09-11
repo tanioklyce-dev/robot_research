@@ -8,14 +8,6 @@ A **persistent, LLM-maintained knowledge base mapping Robot AI** — the field a
 
 It is written to be **read by people other than the person maintaining it**, which sets the standard for everything in here. Every factual claim links to the source page it came from, so any statement can be audited back to its origin instead of taken on trust. Where sources disagree the disagreement is shown rather than smoothed away. Where the evidence is thin it says so. Several pages exist mainly to record that a number this wiki repeats is [weaker than it looks](syntheses/platforms/vla-success-rate-audit.md).
 
-## The loop the wiki is organized around
-
-Everything here can be placed on one closed loop, which is the wiki's guiding principle and its coverage map:
-
-> **perceive → represent → predict → plan, under semantic constraints → act, through a physical safety filter → observe consequences → learn**
-
-A useful robot has to run all of it, in the world, and the field has solved it piecewise. The wiki's reading is that the dividing line is no longer VLA versus JEPA versus generative world model but whether a robot can **keep the right information in its model of the world, predict how its own actions change that world, notice when the prediction was wrong, and update without destroying what it already knows** — the loop closed. Safety is deliberately not a stage of the loop: it is **two veto points kept outside the learned system**, a semantic constraint on plans ([semantic safety](concepts/safety/semantic-safety.md)) and a physical filter on actions ([safety filters](concepts/robotics/safety-filters.md)), and only the second has been seen enforced. Where each stage lives in the wiki, and which are thin, is on [Ten open questions, and the one the wiki is pointed at](syntheses/world-models/open-questions-and-research-direction.md); the loop was first stated in the [research-direction notes](sources/robot-research-direction-notes.md) and reworded here for the reasons given there.
-
 Mechanically it is built incrementally from raw sources; the pattern is described in `raw/llm-wiki.md` and the operating conventions are in [`CLAUDE.md`](../CLAUDE.md). Three layers:
 
 1. **`raw/`** — source documents (papers, articles, transcripts, datasets). Immutable.
@@ -23,6 +15,14 @@ Mechanically it is built incrementally from raw sources; the pattern is describe
 3. **`CLAUDE.md`** — schema and conventions (page formats, ingest workflow, lint workflow). Co-evolves with usage.
 
 The wiki is a **compounding artifact**. Each new source ingest enriches the cross-references; each new query may produce a new synthesis page. Over time the wiki becomes more useful, not less.
+
+## The loop the wiki is organized around
+
+Everything here can be placed on one closed loop, which is the wiki's guiding principle and its coverage map:
+
+> **perceive → represent → predict → plan, under semantic constraints → act, through a physical safety filter → observe consequences → learn**
+
+A useful robot has to run all of it, in the world, and the field has solved it piecewise. The wiki's reading is that the dividing line is no longer VLA versus JEPA versus generative world model but whether a robot can **keep the right information in its model of the world, predict how its own actions change that world, notice when the prediction was wrong, and update without destroying what it already knows** — the loop closed. Safety is deliberately not a stage of the loop: it is **two veto points kept outside the learned system**, a semantic constraint on plans ([semantic safety](concepts/safety/semantic-safety.md)) and a physical filter on actions ([safety filters](concepts/robotics/safety-filters.md)), and only the second has been seen enforced. Where each stage lives in the wiki, and which are thin, is on [Ten open questions, and the one the wiki is pointed at](syntheses/world-models/open-questions-and-research-direction.md); the loop was first stated in the [research-direction notes](sources/robot-research-direction-notes.md) and reworded here for the reasons given there.
 
 ## Robots for Education and Research
 
