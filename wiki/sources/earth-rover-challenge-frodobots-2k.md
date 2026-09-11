@@ -36,7 +36,7 @@ Two documents that together describe [FrodoBots](../entities/frodobots.md)' loop
 
 ### Downstream research the data enabled (abstracts, not ingested)
 
-- **MBRA / LogoNav** (Hirose, Ignatova, Stachowicz, Glossop, Levine, Shah; [arXiv 2505.05592](https://arxiv.org/abs/2505.05592)): a learned short-horizon model-based expert **relabels or generates actions** for passive data — "large volumes of crowd-sourced teleoperation data and unlabeled YouTube videos… despite their potential for lower quality or missing action labels" — then distills into a long-horizon policy that navigates >300 m in unseen environments, evaluated on a fleet in six cities on three continents.
+- **MBRA / LogoNav** (Hirose, Ignatova, Stachowicz, Glossop, Levine, Shah; **now ingested: [source page](mbra-paper.md)**): a learned short-horizon model-based expert **relabels or generates actions** for passive data — "large volumes of crowd-sourced teleoperation data and unlabeled YouTube videos… despite their potential for lower quality or missing action labels" — then distills into a long-horizon policy that navigates >300 m in unseen environments, evaluated on a fleet in six cities on three continents.
 - **An Earth Rover dataset recorded at the ICRA@40 party** (Zhang, Lin, Visser, Amsterdam; arXiv 2407.05735): a small Rotterdam recording with the challenge robot; vSLAM on FrodoBots-2K.
 
 ## Reading it against the wiki
@@ -57,10 +57,10 @@ Two documents that together describe [FrodoBots](../entities/frodobots.md)' loop
 ## Concepts touched
 
 - [Crowdsourced robot training data](../concepts/learning/crowdsourced-robot-training-data.md), [robot policy evaluation](../concepts/robotics/robot-policy-evaluation.md).
-- Navigation policies (GNM / ViNT / NoMaD lineage) — **no concept page yet**.
+- [Visual navigation policies](../concepts/robotics/visual-navigation-policies.md) — the GNM / ViNT / NoMaD / LogoNav lineage (added 2026-09-11).
 
 ## Open questions
 
 - Per-edition mission lists and difficulty ratings, to make the 2024→2025 comparison meaningful.
 - Token economics of "Drive to Earn" — what a gamer actually earned per hour; the site says only "well-designed tokenomics."
-- Whether MBRA's relabeling recovers the *intent* of human drives or replaces it — the paper is worth ingesting for that alone.
+- ~~Whether MBRA's relabeling recovers the *intent* of human drives or replaces it~~ — [ingested](mbra-paper.md); the paper asserts intent is preserved through the image sequences but has no metric for it.

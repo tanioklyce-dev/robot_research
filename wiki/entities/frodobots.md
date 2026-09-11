@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-09-11
 updated: 2026-09-11
-sources: 3
+sources: 4
 tags: [frodobots, earth-rovers, sidewalk-robot, navigation, teleoperation, crowdsourcing, gamification, depin, dataset-publisher, bitrobot, real-world-evaluation]
 ---
 
@@ -13,14 +13,14 @@ tags: [frodobots, earth-rovers, sidewalk-robot, navigation, teleoperation, crowd
 ## What it has produced
 
 - **FrodoBots-2K** — ~2,000 h / 1 TB / 10+ cities / 9,000+ sessions of teleoperated driving with front and rear video, 10 Hz control inputs, GPS, IMU and two-way audio; **CC BY-SA 4.0**, May 2024.
-- **Berkeley-FrodoBots-7K** — the ~7,000 h full set, action labels **reannotated by Berkeley's MBRA** model-based expert; gated, CC BY-SA, Sep 2024.
+- **Berkeley-FrodoBots-7K** — the ~7,000 h full set, action labels **reannotated by Berkeley's [MBRA](../sources/mbra-paper.md)** model-based expert; gated, CC BY-SA, Sep 2024. (The paper itself uses FrodoBots-2K, EKF-filtered to ~700 h.)
 - **Earth Rover Challenge** — same rovers, same missions across 14 sites; four tracks in 2026 (urban GPS, indoor image-goal, off-road, a ~5 h marathon); co-organized with Dhruv Shah, Wenhao Yu and Tingnan Zhang (DeepMind), Ted Xiao, David Hsu and others. **Top AI vs top human: 15.4 vs 42.0 (2024), 23.78 vs 30.0 (2025).**
 - **Earth Rovers SDK** — Python remote-access SDK (off-board compute; ~20 Hz stream, ~500 ms latency; four discrete actions); the platform [SIGRobotics-UIUC](sigrobotics-uiuc.md) builds on.
 - Research using the data: MBRA / LogoNav and OmniVLA (Berkeley, Levine and Shah), HPT (MIT), and navigation-scaling papers from Tampere, UCLA and PKU, per the BitRobot site.
 
 ## Why it matters in this wiki
 
-- **The earliest crowdsourced-robot-data loop that produced cited research**, predating Figure's Go-Big and Index by two years — but with a lesson the [crowdsourcing](../concepts/learning/crowdsourced-robot-training-data.md) page did not yet have: the human *actions* were degraded by latency and game objectives, so the best downstream work **relabeled them** rather than learning from them.
+- **The earliest crowdsourced-robot-data loop that produced cited research**, predating Figure's Go-Big and Index by two years — but with a lesson the [crowdsourcing](../concepts/learning/crowdsourced-robot-training-data.md) page did not yet have: the human *actions* were degraded by latency and game objectives, so the best downstream work **relabeled them** rather than learning from them — [MBRA](../sources/mbra-paper.md) Table VI: a policy imitating the raw actions scores 0.000, while the relabeled data lifts LogoNav from 0.619 to 0.857 goal success.
 - **Evaluation as the product.** A standing multi-city fleet scoring AI as a fraction of the best human run is the concrete form of the [BitRobot whitepaper](../sources/bitrobot-network-whitepaper.md)'s "evaluation fleets" idea — and a rare human-normalized real-world benchmark for the [robot policy evaluation](../concepts/robotics/robot-policy-evaluation.md) page.
 - Its three stated theses — robotic gaming as a genre, toy-priced robots, **DePIN tokenomics** — are the BitRobot design in miniature.
 
@@ -35,3 +35,4 @@ tags: [frodobots, earth-rovers, sidewalk-robot, navigation, teleoperation, crowd
 - [Earth Rover Challenge site + FrodoBots-2K card](../sources/earth-rover-challenge-frodobots-2k.md) — primary.
 - [BitRobot Network whitepaper](../sources/bitrobot-network-whitepaper.md) — the origin story and the network it became.
 - [SIGRobotics-UIUC projects page](../sources/sigrobotics-uiuc-projects-page.md) — as a sponsor and SDK target.
+- [MBRA paper](../sources/mbra-paper.md) — the paper that made FrodoBots-2K usable; Earth Rover Zero as data and evaluation platform.

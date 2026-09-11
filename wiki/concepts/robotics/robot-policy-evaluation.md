@@ -3,7 +3,7 @@ title: Robot policy evaluation
 type: concept
 created: 2026-07-27
 updated: 2026-09-11
-sources: 51
+sources: 52
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility, real-to-sim, r2s2r]
 ---
 
@@ -134,7 +134,7 @@ Two of their findings bear directly on this page:
 
 ## A standing real-world fleet that scores AI against humans (added 2026-09-11)
 
-The [Earth Rover Challenge](../../sources/earth-rover-challenge-frodobots-2k.md) ([FrodoBots](../../entities/frodobots.md); IROS 2024, ICRA 2025, IROS 2026) is the wiki's one example of a **calibrated multi-city robot fleet used as a shared evaluation instrument**: same rovers and missions at 14 sites, off-board compute through an SDK, 20 h/week of pre-event real-world testing for every team, and a score reported as **a fraction of the best human teleoperator's run** — 37% in 2024, 57% in 2025. Three things it gets right that lab evals do not: the environment is uncontrolled and the same for everyone; the human baseline is *measured in the same conditions* rather than assumed; and the per-edition ceiling number is size-invariant. Two limits: it is sidewalk navigation with four discrete actions at ~500 ms latency, so the ceiling says nothing about manipulation; and missions and human fields change per edition, so cross-edition trends are direction only. It is also the only running instance of the evaluation-fleet idea in the [BitRobot whitepaper](../../sources/bitrobot-network-whitepaper.md).
+The [Earth Rover Challenge](../../sources/earth-rover-challenge-frodobots-2k.md) ([FrodoBots](../../entities/frodobots.md); IROS 2024, ICRA 2025, IROS 2026) is the wiki's one example of a **calibrated multi-city robot fleet used as a shared evaluation instrument**: same rovers and missions at 14 sites, off-board compute through an SDK, 20 h/week of pre-event real-world testing for every team, and a score reported as **a fraction of the best human teleoperator's run** — 37% in 2024, 57% in 2025. Three things it gets right that lab evals do not: the environment is uncontrolled and the same for everyone; the human baseline is *measured in the same conditions* rather than assumed; and the per-edition ceiling number is size-invariant. Two limits: it is sidewalk navigation with four discrete actions at ~500 ms latency, so the ceiling says nothing about manipulation; and missions and human fields change per edition, so cross-edition trends are direction only. It is also the only running instance of the evaluation-fleet idea in the [BitRobot whitepaper](../../sources/bitrobot-network-whitepaper.md). The research-side counterpart is [MBRA](../../sources/mbra-paper.md)'s **six-country, 24-route** deployment of one navigation policy ("the first global evaluation for visual navigation"), which also reports a **coverage rate** — fraction of goal distance reached before failure — as partial credit alongside binary success.
 
 ## What is still missing
 
@@ -188,3 +188,4 @@ The [Earth Rover Challenge](../../sources/earth-rover-challenge-frodobots-2k.md)
 - [SafeVLA](../../sources/safevla-paper.md) — **cumulative cost** as a co-reported metric, and the **extreme-failure protocol**: evaluate where success is impossible by construction, and the task-only RL baseline's cost is 32× the constrained one and ~6× its own IL starting point.
 - [Robot Research Direction (first-party notes)](../../sources/robot-research-direction-notes.md) — carries the ~1,030–2,450 vs ~70 rollout arithmetic as open question #7; the [synthesis](../../syntheses/world-models/open-questions-and-research-direction.md) argues evaluation belongs at the top of the ranking, not seventh.
 - [Earth Rover Challenge site + FrodoBots-2K card](../../sources/earth-rover-challenge-frodobots-2k.md) — AI-vs-human scoring on a shared multi-city fleet.
+- [MBRA paper](../../sources/mbra-paper.md) — six-country evaluation; coverage rate as a partial-credit metric.

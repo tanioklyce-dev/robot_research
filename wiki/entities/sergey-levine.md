@@ -3,8 +3,8 @@ title: Sergey Levine
 type: entity
 subtype: person
 created: 2026-05-08
-updated: 2026-07-05
-sources: 19
+updated: 2026-09-11
+sources: 20
 tags: [person, uc-berkeley, robot-learning, rl, real-world-rl, droid, metaworld]
 ---
 
@@ -18,6 +18,8 @@ tags: [person, uc-berkeley, robot-learning, rl, real-world-rl, droid, metaworld]
 - **[HIL-SERL](../sources/hil-serl-paper.md)** (Luo, Xu, Wu, Levine — Oct 2024) — senior author. Human-in-the-loop real-world RL; 100% success on dexterous/dual-arm manipulation in 1–2.5 hr.
 - **[DROID](droid.md)** (Khazatsky, Pertsch, …, Finn, Levine — Apr 2024) — senior author on the 13-institution real-robot teleoperation dataset.
 - **[Metaworld](metaworld.md)** (Yu, Quillen, Levine, Finn — CoRL 2019) — co-senior on the 50-task meta-RL benchmark.
+
+- [MBRA / LogoNav](../sources/mbra-paper.md) (Hirose … Levine, Shah; RA-L 2025) — the navigation line: relabel 700 h of crowdsourced sidewalk-robot data with a model-based expert; six-country evaluation.
 
 ## Why it matters in this wiki
 Levine's appearances split two ways. **Infrastructure papers** — DROID (the canonical real-robot dataset) and Metaworld (the canonical meta-RL benchmark) — underpin the JEPA-for-robotics literature (V-JEPA 2, JEPA-WMs) and the broader RL/world-model literature. **Method papers** — the [SAC](../sources/sac-paper.md) (+ its [practical follow-up](../sources/sac-applications-paper.md)) → [RLPD](../sources/rlpd-paper.md) → [SERL](../sources/serl-paper.md) → [HIL-SERL](../sources/hil-serl-paper.md) lineage — are the wiki's anchor for [real-world robotic RL](../concepts/learning/real-world-robot-rl.md): RL trained directly on hardware to superhuman reliability, the counterpoint to the imitation-learning mainstream. Levine is senior author on all five, from the 2018 algorithmic root to the 2024 dexterous-manipulation system.
@@ -40,6 +42,7 @@ Adjacent papers from Levine's group not yet ingested but commonly referenced: SA
 - [HIL-SERL paper](../sources/hil-serl-paper.md) — senior author.
 - DROID project page (linked via [DROID](droid.md) entity)
 - Metaworld project page (linked via [Metaworld](metaworld.md) entity)
+- [MBRA paper](../sources/mbra-paper.md) — co-author; RAIL's navigation thread enters the wiki.
 
 ## Open questions / TBD
 - DROID paper (arxiv 2403.12945) and Metaworld paper (arxiv 1910.10897) still worth filing to anchor those citations directly.

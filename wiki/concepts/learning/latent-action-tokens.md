@@ -2,8 +2,8 @@
 title: Latent action tokens
 type: concept
 created: 2026-08-04
-updated: 2026-08-30
-sources: 5
+updated: 2026-09-11
+sources: 6
 tags: [latent-action-tokens, cross-embodiment, rq-vae, codebook, unit, univla, visual-anchoring, action-representation, humanoid]
 ---
 
@@ -56,6 +56,9 @@ A codebook index is not inspectable, not loggable in human terms, and **not corr
 >
 > A [behavior tree](../robotics/behavior-trees.md) is the obvious way to have both — latent tokens at the leaves, readable structure above — and nobody has built it either.
 
+> [!note] The model-based alternative to inverse-dynamics labeling (added 2026-09-11)
+> Every scheme on this page labels video by predicting actions from frame pairs. [MBRA](../../sources/mbra-paper.md) argues that under heavy label noise this is the wrong objective and offers the one ablation that compares the two: an inverse-dynamics (VPT) relabeler and a multi-step goal-conditioned one both *degrade* as more noisy crowdsourced data is added, while a relabeler trained to reach a distant state through a **differentiable forward model** improves monotonically to 1.000. The catch is stated by the authors: it needs a robot model and a collision proxy, which navigation has (unicycle + monocular depth) and manipulation mostly does not — so the latent-action route remains the manipulation default by necessity, not by evidence.
+
 ## Limits
 
 - **Visual anchoring assumes visible consequences.** Force-dominant, occluded, or in-hand manipulation has intent a shared visual decoder cannot see.
@@ -73,3 +76,4 @@ A codebook index is not inspectable, not loggable in human terms, and **not corr
 - [UniT paper](../../sources/unit-paper.md)
 - [Bengio et al. 2003 — A Neural Probabilistic Language Model](../../sources/bengio2003-neural-probabilistic-language-model.md) — the ancestor: a learned lookup table over a discrete alphabet, trained jointly with the task. The readability complaint here is a restatement of its central property — the geometry is learned, so nobody specified what the axes mean. See [distributed representations](distributed-representations.md).
 - [Introducing Index (Figure AI)](../../sources/figure-index-announcement.md) — Named as one of the published approaches to the human→robot action-label gap that [Figure's Index](../../entities/figure-index.md) leaves entirely unaddressed while claiming *"the world's largest robot training dataset."*
+- [MBRA paper](../../sources/mbra-paper.md) — forward-model relabeling vs inverse-dynamics labeling under heavy noise.
