@@ -73,6 +73,7 @@ One paper, one model, strong results — treat accordingly. Notable open edges:
 
 ## Related concepts
 
+- [cross-embodiment transfer](cross-embodiment.md) — the umbrella page: four scopes, nineteen mechanisms; soft prompts are one.
 - [6-DOF grasp generation](../robotics/six-dof-grasp-generation.md) — the **other** cross-embodiment axis. Soft prompts handle heterogeneity in action space, camera rig and control frequency for a *policy*; [GraspGen-X](../../sources/graspgenx-paper.md) handles heterogeneity in **gripper morphology and closing kinematics** for a *grasp model*, using an explicit 12-dim swept-volume vector rather than a learned per-source embedding. Two independent arrivals at the same conclusion — condition early and explicitly, don't retrofit a per-embodiment head or a post-hoc pose correction. Notably, GraspGen-X finds that adding a **gripper-type one-hot** on top of its continuous vector *hurts*, which is the same "don't partition the conditioning space" argument X-VLA makes against per-domain heads.
 
 - [VLA models](vla-models.md) · [Flow matching](flow-matching.md) · [Scaling laws — VLAs](scaling-laws-vla.md)

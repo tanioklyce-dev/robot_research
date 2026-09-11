@@ -66,6 +66,8 @@ A codebook index is not inspectable, not loggable in human terms, and **not corr
 - **One primary source.** UniVLA and universal-action-tokenization work are known here only secondhand.
 
 ## Related
+
+- [cross-embodiment transfer](cross-embodiment.md) — the umbrella page; codebooks are one of nineteen mechanisms, and pay only when embodiments are actually mixed.
 - [UniT](../../entities/unit.md) · [UniVLA](../../entities/univla.md) — the instances
 - [Action representation languages](../../syntheses/agents/action-representation-languages.md) — the readable/latent tradeoff in full
 - [VLA models](vla-models.md) — where the tokens are predicted

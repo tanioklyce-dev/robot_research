@@ -2,7 +2,7 @@
 title: Test-time adaptation
 type: concept
 created: 2026-08-26
-updated: 2026-09-07
+updated: 2026-09-11
 sources: 9
 tags: [test-time-adaptation, test-time-training, distribution-shift, world-model, mpc, planning, robustness, self-supervised]
 ---
@@ -65,6 +65,7 @@ That matters, because the wiki already records the failure mode this creates in 
 
 ## Related concepts
 
+- [continual learning](continual-learning.md) — where TTA sits among the three things called continual learning.
 - [JEPA](../world-models/jepa.md) — the architecture; its self-supervised loss is what makes online adaptation free.
 - [Identifiability](../world-models/identifiability.md) — the gap between proved recovery and practical robustness that TTA attacks empirically.
 - [Sim-to-real transfer](sim-to-real-transfer.md) — the offline family of answers to the same problem.
