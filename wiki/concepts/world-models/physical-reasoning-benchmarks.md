@@ -2,8 +2,8 @@
 title: Physical reasoning benchmarks and the human baseline
 type: concept
 created: 2026-08-31
-updated: 2026-08-31
-sources: 1
+updated: 2026-09-11
+sources: 5
 tags: [physical-reasoning, intuitive-physics, phyre, virtual-tools, physion, auccess, human-baseline, cognitive-science, benchmark, active-exploration]
 ---
 
@@ -14,9 +14,9 @@ tags: [physical-reasoning, intuitive-physics, phyre, virtual-tools, physion, auc
 | | **Generative-video tradition** | **Cognitive-science tradition** |
 |---|---|---|
 | Question | Does generated video obey physics? | Can the agent *solve* a physical problem? |
-| Ground truth | Human annotation or a model judge | Task success, plus a human baseline |
-| Benchmarks | VBench, VideoPhy, [Physion-Eval](../../sources/physion-eval-paper.md), [WorldArena](../../entities/worldarena.md) | **PHYRE**, **Virtual Tools**, Physion / Physion++ |
-| Metric | Glitch rate, perceptual score, Youden's J | **AUCCESS** — success weighted toward fewer attempts |
+| Ground truth | Human annotation (VideoPhy, VideoPhy-2, WorldModelBench), a model judge, or — PhyGenBench's third way — a human-authored law consumed by an LLM with the VLM doing lookup | Task success, plus a human baseline |
+| Benchmarks | VBench, [VideoPhy](../../sources/videophy-paper.md) / [VideoPhy-2](../../sources/videophy-2-paper.md), [PhyGenBench](../../sources/phygenbench-paper.md), [WorldModelBench](../../sources/worldmodelbench-paper.md), [Physion-Eval](../../sources/physion-eval-paper.md), [WorldArena](../../entities/worldarena.md) | **PHYRE**, **Virtual Tools**, Physion / Physion++ |
+| Metric | Joint semantic∧physics pass rate, per-law violation rate, glitch rate, perceptual score, Youden's J | **AUCCESS** — success weighted toward fewer attempts |
 | In this wiki | well covered | **thin — this page and [Causal-PIK](../../sources/causal-pik-paper.md)** |
 
 The wiki reached the second tradition late and by accident: the [Physion-Eval](../../sources/physion-eval-paper.md) ingest noted the gap explicitly, and [Causal-PIK](../../sources/causal-pik-paper.md) turned out to sit squarely in it.
@@ -77,3 +77,4 @@ Two human-comparison results now point opposite ways, and nothing here reconcile
 - [Causal-PIK paper](../../sources/causal-pik-paper.md)
 - [Physion-Eval paper](../../sources/physion-eval-paper.md)
 - [World-model evaluation](world-model-evaluation.md)
+- [VideoPhy](../../sources/videophy-paper.md), [VideoPhy-2](../../sources/videophy-2-paper.md), [PhyGenBench](../../sources/phygenbench-paper.md), [WorldModelBench](../../sources/worldmodelbench-paper.md) — the generative-video tradition's primaries (ingested 2026-09-11).

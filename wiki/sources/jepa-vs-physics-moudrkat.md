@@ -46,7 +46,7 @@ The essay's real service is citation. All three are LeCun-co-authored statistica
 - **Chaudhari, Choromanska, Soatto, LeCun et al., "Entropy-SGD" (ICLR 2017, [arXiv:1611.01838](https://arxiv.org/abs/1611.01838))** — Langevin dynamics biasing optimization toward wide valleys by computing a **local entropy**.
 - **Mehta & Schwab, "An exact mapping between the Variational Renormalization Group and Deep Learning" ([arXiv:1410.3831](https://arxiv.org/abs/1410.3831), 2014)** — the formal RG↔deep-learning claim the essay's whole analogy leans on.
 
-> [!note] Check the Mehta–Schwab claim before repeating it
+> [!note] Check the Mehta–Schwab claim before repeating it — **now checked (2026-09-11): [source page](mehta-schwab-2014-variational-rg-deep-learning.md).** The mapping is exact as an identification of an RBM's energy with Kadanoff's RG coupling operator; it says nothing about continuous, deterministic, prediction-trained encoders. The RG↔JEPA table below is an analogy with one formal anchor at the RBM level.
 > The essay presents this as settled — *"not just a vague analogy"*, *"mathematically grounded."* Verified here: it is **an 8-page arXiv preprint from October 2014 with no journal reference and no DOI recorded on arXiv**, twelve years later. That is not disproof, and the construction may well be correct for the RBM-on-Ising setting it defines. It is a reason not to cite it as established, and the wiki should read the primary before leaning on the RG framing anywhere load-bearing.
 
 ## Where it is wrong, and why that matters
@@ -77,7 +77,7 @@ To the author's credit the limits are stated in the text: *"These are observatio
 - **Secondary throughout.** No experiments beyond the demos, no numbers, no comparison. Every technical claim traces to a paper that should be read instead.
 - **A repository essay, not a publication.** One commit, 0 stars, no review, no citations of it. Its value is framing and bibliography.
 - **The collapse account is wrong** (above), which means the mechanism sections should not be quoted.
-- **The RG analogy is an analogy** until [Mehta & Schwab](https://arxiv.org/abs/1410.3831) is read and assessed. The essay's strongest structural claim rests on a twelve-year-old unpublished preprint.
+- **The RG analogy is an analogy** — [Mehta & Schwab](mehta-schwab-2014-variational-rg-deep-learning.md) has now been read: exact for RBM stacks on binary data, silent on JEPA-class encoders. The essay's strongest structural claim rests on a twelve-year-old unpublished preprint that supports a narrower statement than the essay makes.
 
 ## Entities mentioned
 

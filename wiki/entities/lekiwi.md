@@ -3,8 +3,8 @@ title: LeKiwi
 type: entity
 subtype: robot
 created: 2026-05-10
-updated: 2026-08-27
-sources: 18
+updated: 2026-09-11
+sources: 19
 tags: [lekiwi, mobile-manipulator, kiwi-drive, holonomic, sigrobotics-uiuc, lerobot, low-cost, raspberry-pi, open-source]
 ---
 
@@ -74,6 +74,7 @@ For the wiki's assistive-robotics and accessible-robotics themes, LeKiwi is the 
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — listed at **~€230** in Table 1a as the canonical mobile-manipulator platform; BOM citation in Appendix A.
 - [alfredang/lerobot — ChatGPT LeKiwi + onboard Jetson + ROS 2 SLAM](../sources/alfredang-lerobot-lekiwi-chatgpt.md) — a documented onboard-**Jetson Orin Nano** LeKiwi build (Jetson replaces the RPi); GPT-4o Vision brain + SLAM-Toolbox; a HTTP/ZMQ ROS 2↔LeRobot shim.
 - [reBot Arm B601-DM Bundle with Jetson Thor](../sources/seeed-rebot-arm-b601-dm-thor-bundle.md) — Price-tier context: the B601 fills the gap **above** the FeeTech hobby tier that LeKiwi and SO-ARM occupy.
+- [LeHome benchmark paper](../sources/lehome-benchmark-paper.md) — a first-class embodiment in a deformable-object household simulator (ICRA 2026), with keyboard/joystick and leader-follower teleop.
 
 ## Onboard-Jetson examples in the wild
 

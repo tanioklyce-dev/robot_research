@@ -2,7 +2,7 @@
 title: "From n-grams to attention — the lineage that produced the Transformer"
 type: synthesis
 created: 2026-08-30
-updated: 2026-08-30
+updated: 2026-09-11
 tags: [lineage, history, clip, gato, decision-transformer, robotics-bridge, language-models, embeddings, attention, transformer, seq2seq, word2vec, sequence-models]
 ---
 
@@ -131,6 +131,10 @@ Then RT-1 (2022) and RT-2 (2023) combine them — a CLIP-lineage vision-language
 ### What did *not* transfer
 
 The subtraction pattern that governs 2003–2017 stops here. These three papers **add**: a second modality, a reward channel, a universal tokenizer. Nothing is removed. The one genuine removal since is architectural — [EchoWorld](../../sources/echoworld-paper.md) drops DT's interleaved token format for pairwise 6-DOF pose differences injected into the attention itself, and beats Decision Transformer on probe guidance. Whether that removal generalizes to standard robot benchmarks is untested, and both codebases are open.
+
+## A 2026 micro-modification, carried into a robot policy untested (added 2026-09-11)
+
+[Exclusive Self Attention](../../sources/xsa-paper.md) (Zhai, Apple) subtracts the projection of each attention output onto the token's own value vector — two lines of code — on the observation that trained models' attention outputs are highly similar to the self value, duplicating what the FFN does through the residual path. On NanoGPT / FineWeb at 0.7–2.7B it lowers loss and lifts an 8-task average by +0.3 to +1.4 points, growing with size and context. It is in this wiki because the [LeHome Challenge](../../entities/lehome-challenge-2026.md) winner adopted it in a ~100M-parameter garment-folding policy "on recent fashion," with no ablation — a language-model result at 2.7B on text travelling into control on reputation alone.
 
 ## Related
 

@@ -3,8 +3,8 @@ title: Randall Balestriero
 type: entity
 subtype: person
 created: 2026-07-26
-updated: 2026-09-07
-sources: 19
+updated: 2026-09-11
+sources: 20
 tags: [person, balestriero, brown, citadel, wavelets, spline-theory, signal-processing, nasa-mars-seis, lejepa, sigreg, jepa, ssl, theory, world-model, inverse-dynamics, causality, spectral-graph-theory, time-series, levjepa, tutorial]
 ---
 
@@ -95,3 +95,4 @@ He is also unusually direct about the state of the art he is selling: *"we are n
 - [A Cookbook of Self-Supervised Learning](../sources/ssl-cookbook.md) — **first author**; the field's taxonomy, the projector, dimensional collapse, RankMe.
 - [LeWorldModel](leworldmodel.md) — SIGReg, his regularizer, is LeWM's single loss term beyond prediction.
 - [Third World Modeling Workshop — Day 3](../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — **organizer, and the 90-minute tutorial teaching the whole line from his own code**; announces [LeVJEPA](levjepa.md), names the multimodal/noise/stochasticity limitations, and hands out the two exercises the hackathon ran on.
+- [The Birth of SSL — A Supervised Theory](../sources/birth-of-ssl-supervised-theory-paper.md) — with LeCun, NeurIPS 2024 SSL Workshop: SSL and supervised learning share a loss and differ in the label graph; VICReg recovered from a ridge-regularized supervised head.

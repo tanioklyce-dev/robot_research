@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-09-11
 updated: 2026-09-11
-sources: 3
+sources: 4
 tags: [unitree-go1, quadruped, robot-dog, china, affordable, edu, navigation, cross-embodiment]
 ---
 
@@ -42,3 +42,4 @@ Navigation transfer to the Go1 is cheap because the policy's action is a normali
 - [ViNT paper](../sources/vint-paper.md)
 - [MBRA paper](../sources/mbra-paper.md)
 - [OmniVLA paper](../sources/omnivla-paper.md)
+- [LeLaN paper](../sources/lelan-paper.md) — cross-embodiment test with a fisheye camera (qualitative).

@@ -3,8 +3,8 @@ title: XLeRobot
 type: entity
 subtype: robot
 created: 2026-05-10
-updated: 2026-08-26
-sources: 32
+updated: 2026-09-11
+sources: 33
 tags: [xlerobot, mobile-manipulator, dual-arm, lerobot, lekiwi, so-arm101, low-cost, household-robot, embodied-ai, sourccey]
 ---
 
@@ -125,6 +125,7 @@ These are the strongest external signals to date that the $660 BOM holds up when
 - [Seeed × NVIDIA × HF Embodied AI Hackathon 2025 Recap](../sources/seeed-embodied-ai-hackathon-2025-recap.md)
 - [Grievous GitHub](../sources/grievous-github.md) — design ancestor.
 - [Sourccey vs XLeRobot](../syntheses/platforms/sourccey-vs-xlerobot.md) — head-to-head with the commercial convergent design.
+- [LeHome benchmark paper](../sources/lehome-benchmark-paper.md) — a first-class embodiment in a deformable-object household simulator (ICRA 2026), with keyboard/joystick and leader-follower teleop.
 
 ## Open questions / TBD
 

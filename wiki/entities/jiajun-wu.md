@@ -3,7 +3,7 @@ title: Jiajun Wu
 type: entity
 subtype: person
 created: 2026-08-31
-updated: 2026-08-31
+updated: 2026-09-11
 sources: 1
 tags: [jiajun-wu, stanford, stanford-hai, researcher, world-models, evaluation, benchmark, video-prediction]
 ---
@@ -40,3 +40,4 @@ Wu's benchmark work consistently pushes evaluation **away from perceptual scores
 - [VoxPoser paper](../sources/voxposer-paper.md)
 - [HAI world-model & spatial-intelligence brief](../sources/hai-world-model-spatial-intelligence-brief.md)
 - [Chelsea Finn](chelsea-finn.md), [Stanford HAI](stanford-hai.md)
+[WorldScore](../sources/worldscore-paper.md) — senior author; the authorship loop with WonderWorld / WonderJourney is recorded on the source page.

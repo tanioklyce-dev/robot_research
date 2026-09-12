@@ -2,7 +2,7 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-09-07
+updated: 2026-09-11
 sources: 87
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
@@ -243,6 +243,7 @@ Measured: MAE drops **25.1%** under ImageNet-C severity 1→5 against DINO's **1
 
 - [Dawid & LeCun 2023 — Introduction to Latent Variable Energy-Based Models](../../sources/dawid-lecun-lvebm-lecture-notes.md) — the design document: the four-term objective, and the latent variable no JEPA implements.
 - [JEPA Through the Eyes of a Physicist (Fajmanova, 2026)](../../sources/jepa-vs-physics-moudrkat.md) — JEPA as learned coarse-graining; and an outside account of collapse prevention that the primaries here contradict.
+- [Mehta & Schwab 2014](../../sources/mehta-schwab-2014-variational-rg-deep-learning.md) — the formal anchor of the coarse-graining reading, scoped: an exact RBM ↔ variational-RG identification on binary data, not a statement about JEPA encoders; the RG language on this page is analogy.
 
 - [Bromley et al. 1993 — Signature Verification using a Siamese TDNN](../../sources/bromley1993-siamese-signature-verification.md) — eponymous Siamese-network paper; the J/A in JEPA descend from this architecture
 - [A Path Towards Autonomous Machine Intelligence (LeCun, 2022)](../../sources/lecun2022-path-towards-ami.md) — canonical position paper / definition

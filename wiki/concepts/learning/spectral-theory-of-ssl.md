@@ -2,8 +2,8 @@
 title: Spectral theory of self-supervised learning
 type: concept
 created: 2026-07-26
-updated: 2026-09-07
-sources: 13
+updated: 2026-09-11
+sources: 14
 tags: [spectral-graph-theory, self-supervised-learning, ssl-theory, laplacian-eigenmaps, mds, vicreg, simclr, barlow-twins, sigreg, jepa, balestriero, lecun, theory]
 ---
 
@@ -45,6 +45,10 @@ Two consequences he draws:
 > [!note] Four named papers, none of them ingested
 > The tutorial names *"The Birth of Self-Supervised Learning: A Supervised Theory"* (the closed-form derivation above), a relational-representation-learning paper on graph-estimation noise, the caption-graph paper (X-CLR), and a recent summary. This wiki holds only the [IEEE SPM review](../../sources/spectral-graph-theory-ssl-paper.md) of the same line. The graph-specification framing is the most portable idea in the tutorial and it rests here on a talk.
 
+## The other direction: supervised learning is SSL on a label graph (2024)
+
+[Balestriero & LeCun's workshop note](../../sources/birth-of-ssl-supervised-theory-paper.md) closes the loop from the supervised side. Solve the ridge-regularized linear head of an ordinary supervised MSE in closed form and what remains is −(1/N) Tr(VᵀYᵀY V D): a *relative* objective aligning the backbone's pairwise structure with the label graph **G = YᵀY** — the same spectral form as the SSL losses above. With a single-eigenvalue G (balanced classes, or positive views) it is VICReg / Whitening-MSE up to rescaling. And the SSL positive-view graph is the supervised objective under the labeling that gives **each sample its own class** — instance discrimination, which keeps the maximum information about X. So "supervised vs self-supervised" is a choice of graph, not of loss. The note is unfinished in places (a "ToDo" in a proof) and the worst-case-downstream claim is an argument, not a bound; take the algebra, not the document.
+
 ## Why it matters
 
 This is the **load-bearing theory under the wiki's JEPA thread**. It explains *why* the anti-collapse machinery takes the forms it does and connects several results the wiki tracks separately:
@@ -77,3 +81,4 @@ The spectral framework is well-established for *static* SSL (the 2022 result) an
 - [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — the closed-form derivation taught live, plus X-CLR and the graph-noise asymmetry.
 - [CPC](../../sources/cpc-paper.md) · [BYOL](../../sources/byol-paper.md) · [DINO](../../sources/dino-paper.md) — the contrastive and non-contrastive primaries this framework unifies.
 - [The Loss Surfaces of Multilayer Networks (2015)](../../sources/choromanska2015-loss-surfaces-multilayer-networks.md) — the same random-matrix tradition (Wigner, Auffinger–Ben Arous) applied to the *loss landscape* rather than the embedding; the other spectral thread in LeCun's orbit.
+- [The Birth of SSL — A Supervised Theory](../../sources/birth-of-ssl-supervised-theory-paper.md) — the supervised objective with a solved linear head is the relative objective on G = YᵀY; SSL = supervised with every sample its own class.

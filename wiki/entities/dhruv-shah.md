@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-09-11
 updated: 2026-09-11
-sources: 6
+sources: 8
 tags: [person, navigation, berkeley, rail, princeton, gnm, vint, nomad, earth-rover-challenge]
 ---
 
@@ -24,3 +24,5 @@ tags: [person, navigation, berkeley, rail, princeton, gnm, vint, nomad, earth-ro
 - [ViNT paper](../sources/vint-paper.md)
 - [NoMaD paper](../sources/nomad-paper.md)
 - [OmniVLA paper](../sources/omnivla-paper.md)
+- [LeLaN paper](../sources/lelan-paper.md)
+- [CAST paper](../sources/cast-paper.md)

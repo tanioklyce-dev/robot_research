@@ -118,7 +118,7 @@ Top outright on three types, third on long tops (77.0 and 76.5 ahead). Short top
 ## Open questions
 
 - The one-pipeline experiment: a real-side value model on the 792 own episodes plus organiser data.
-- Ablate sampler-weighting vs loss-weighting, AdaRMS, XSA, best-of-N — all named as untested.
+- Ablate sampler-weighting vs loss-weighting, AdaRMS, [XSA](xsa-paper.md) (now ingested: a ≤2.7B language-modeling result with no control evidence), best-of-N — all named as untested.
 - Is the FM-head scorer's near-zero correlation an artefact of stop-gradient plus flow-time weighting, or of conditional-head optimism?
 - How much of 79.63 % is RL over the 20 k-step BC warm-up? Not reported.
 - The organisers' benchmark paper (2604.22363) for the success checker and the unseen-garment protocol.

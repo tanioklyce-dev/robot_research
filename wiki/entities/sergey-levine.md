@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-08
 updated: 2026-09-11
-sources: 24
+sources: 26
 tags: [person, uc-berkeley, robot-learning, rl, real-world-rl, droid, metaworld]
 ---
 
@@ -47,6 +47,8 @@ Adjacent papers from Levine's group not yet ingested but commonly referenced: SA
 - [ViNT paper](../sources/vint-paper.md)
 - [NoMaD paper](../sources/nomad-paper.md)
 - [OmniVLA paper](../sources/omnivla-paper.md)
+- [LeLaN paper](../sources/lelan-paper.md)
+- [CAST paper](../sources/cast-paper.md)
 
 ## Open questions / TBD
 - DROID paper (arxiv 2403.12945) and Metaworld paper (arxiv 1910.10897) still worth filing to anchor those citations directly.

@@ -3,8 +3,8 @@ title: LeHome Challenge 2026 (ICRA)
 type: entity
 subtype: event
 created: 2026-09-07
-updated: 2026-09-07
-sources: 2
+updated: 2026-09-11
+sources: 3
 tags: [event, competition, icra-2026, garment-folding, deformable, bimanual, so-arm101, lerobot, isaac-lab, benchmark]
 ---
 
@@ -18,7 +18,7 @@ Four garment types — long-sleeve tops, short-sleeve tops, long pants, shorts �
 
 - **Sim round**: 20 garments per type — 10 seen (organiser BC data released), 2 unseen-public, 8 unseen-private — each × 10 episodes; binary full-fold success; 30 Hz; three RGB cameras (overhead + two wrists; overhead depth available). 62 teams.
 - **Real final**: top 8 sim teams; 5 garments per type (3 seen, 2 unseen); **partial credit** and per-step quality scored by an organisers' jury; **unseen garments carry a 50 % bonus**; maximum **1080**; 20 Hz. Competitors never touch the evaluation robot beforehand.
-- Organisers' benchmark paper: Li et al., arXiv 2604.22363 (un-ingested).
+- Organisers' simulator paper: [LeHome (ICRA 2026)](../sources/lehome-benchmark-paper.md) — **it describes the simulator and a six-task benchmark, not the challenge protocol**; the keypoint checker, seen/unseen split and real-final scoring above remain sourced only through the tech report.
 
 ## Leaderboards
 
@@ -49,3 +49,4 @@ Short tops were the hardest type for nearly every team and shorts the easiest. T
 
 - [Larchenko — LeHome deep dive, Part 1](../sources/larchenko-lehome-part1-rl-for-vlas.md)
 - [Learning to Fold — tech report](../sources/larchenko-learning-to-fold-tech-report.md) — protocol, both leaderboards, data scale.
+- [LeHome benchmark paper](../sources/lehome-benchmark-paper.md) — the simulator (six deformable classes, Action Graph, LeRobot-family embodiments, sim+real co-training 15% → 50%).

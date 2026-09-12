@@ -90,6 +90,9 @@ Qualitatively, MLLM critics **mislocalize in time and hallucinate causes**. In t
 - [World-model simulators](../concepts/world-models/world-model-simulators.md) — the "video model as world simulator" framing the paper opens on.
 - [World-model functional taxonomy](../concepts/world-models/world-model-functional-taxonomy.md) — renderer / simulator / planner; this measures the **renderer→simulator** boundary directly.
 
+> [!note] Anticipated (added 2026-09-11)
+> The critic-weakness finding here has a 2024 precedent: [VideoPhy](../sources/videophy-paper.md) measured GPT-4V and Gemini-1.5-Pro at ROC-AUC 53 / 58 against human physics labels and trained a 7B critic on 12K of them to 73. The open question below — a critic trained on the benchmark's own traces — was run there and in [VideoPhy-2](../sources/videophy-2-paper.md) (0.25 → 0.37 correlation): ranking recovered, level not. The Wan-beats-closed-models pattern also recurs in VideoPhy-2.
+
 ## Open questions
 
 - **Does the human–critic gap close with a video-native encoder?** The authors blame the visual encoder rather than the reasoner, and their thinking-ablation supports it. Nobody has tested a critic trained on Physion-Eval's own traces — which is the paper's own stated contribution #2 and the obvious next experiment.
