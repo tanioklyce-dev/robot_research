@@ -3,7 +3,7 @@ title: Flow matching
 type: concept
 created: 2026-05-25
 updated: 2026-09-12
-sources: 27
+sources: 28
 tags: [flow-matching, generative-model, ode, continuous-actions, vla, action-head, pi-zero, smolvla, molmoact2, dit, lipman, esser, xvla]
 ---
 
@@ -116,6 +116,7 @@ See [reward post-training of diffusion and flow models](reward-post-training-dif
 - [Larchenko — LeHome deep dive, Part 1](../../sources/larchenko-lehome-part1-rl-for-vlas.md) — a flow-matching VLA improved by RL in practice: no likelihoods, no gradient estimator; AWR + RECAP reweight the target distribution and BC does the rest. The *"cannot evaluate probability density"* limitation stated by a practitioner who hit it [24:49].
 - [Learning to Fold — tech report](../../sources/larchenko-learning-to-fold-tech-report.md) — the inference contract of a flow-matching VLA as run in a competition: 10 Euler steps, correlated initial noise from the empirical action covariance, **noise temperature 0.7–0.9**, soft inpainting at chunk boundaries active only in the high-noise part of the flow, **CFG on an advantage token at scale 7–9**, best-of-N from a shared prefix — all seven knobs bandit-tuned per task variant.
 - [Robot Self-Improvement via Human-Video Dynamics Models](../../sources/robot-self-improvement-human-video-dynamics-paper.md) — velocity-field *composition* (current context + w·(reference − current), w ~ U(0.1, 1)) as a way to generate candidate corrections that stay anchored to the current scene; x-prediction parameterisation.
+- [FACTR 2](../../sources/factr-2-paper.md) — a flow-matching DiT policy (chunk 30, DINOv3-Base vision, Beta(1, 1.5) time sampling, 10 Euler steps) as the main policy class, with ACT as the replication; gains from phase up-sampling hold for both.
 
 ## Open questions
 

@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-11
 updated: 2026-09-12
-sources: 11
+sources: 12
 tags: [dinov3, vision-foundation-model, self-supervised, vit, meta-fair, dino, frozen-encoder, gram-anchoring, vla, turbovla]
 ---
 
@@ -80,6 +80,7 @@ These are the **two competing 2025 attempts to make large-scale SSL stable**. Th
 - [DINOv3 Paper](../sources/dinov3-paper.md)
 - [TurboVLA paper](../sources/turbovla-paper.md) — DINOv3 ViT-B/ViT-L as the vision encoder of an LLM-free VLA
 - [Robot Self-Improvement via Human-Video Dynamics Models](../sources/robot-self-improvement-human-video-dynamics-paper.md) — DINOv3 tokens as the semantic half of a dynamics-model state; visual-only 72.0%, with point flows 85.3%.
+- [FACTR 2](../sources/factr-2-paper.md) — DINOv3-Base as the vision encoder for every policy variant.
 
 ## Open questions / TBD
 - Has a DINOv3-WM or DINOv3-based world-model paper appeared yet? Worth checking — would be the natural sequel to DINO-WM.

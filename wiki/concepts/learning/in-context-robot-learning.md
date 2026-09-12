@@ -3,7 +3,7 @@ title: In-context robot learning
 type: concept
 created: 2026-08-29
 updated: 2026-09-12
-sources: 9
+sources: 10
 tags: [in-context-learning, robot-foundation-model, demonstration-conditioning, test-time-adaptation, vla, skild-ai, s1, generalist-ai, gen-1-5, physical-prompting, emergence]
 ---
 
@@ -25,6 +25,10 @@ The framing that makes it precise is a two-loop one, from [S1](../../sources/ski
 > **They agree on the shape and disagree on the mechanism**, and neither ablates. This is now the most interesting unresolved question on this page, and it is a practical one: if S1 is right, episodic structure is a *requirement* and anyone pretraining without it is wasting the run; if Generalist is right, it is an optimization at best.
 >
 > What would settle it is one figure neither has published: **in-context ability against pretraining scale, with episodic structure ablated.**
+
+## Where the term comes from, and what its source declines to say
+
+The phrase is [GPT-3](../../sources/gpt-3-few-shot-learners-paper.md)'s (Brown et al., 2020): *"we use the term 'in-context learning' to describe the inner loop of this process, which occurs within the forward-pass upon each sequence,"* with pre-training as the outer loop. Both robot vendors borrow the framing and the "BERT era" line. What they do not borrow is the paper's care: it added **no meta-learning objective**, and its authors kept the terms *"agnostic on the question of whether the model learns new tasks from scratch at inference time or simply recognizes patterns seen during training,"* calling that *"an important unexplored direction."* So the designed-vs-emergent dispute below is between two vendors invoking a source that refused to take either side. GPT-3 did, however, publish the figure neither vendor has — in-context ability against scale, across eight model sizes — and probed learning-vs-recognition with synthetic tasks unlikely to be in the training data. Both are methods the robot instances could copy.
 
 ## Why it is a different answer to the specification problem
 
@@ -162,6 +166,7 @@ What separates them is horizon and structure, not aim. RMA adapts to **terrain, 
 
 ## Key references
 
+- [Language Models are Few-Shot Learners (GPT-3)](../../sources/gpt-3-few-shot-learners-paper.md) — Brown et al., NeurIPS 2020. The origin of the term, the inner/outer-loop framing, and the scale curves; explicitly agnostic on learning vs recognition.
 - [Introducing S1: In-Context Learning for Robotics](../../sources/skild-s1-blog.md) — [Skild AI](../../entities/skild-ai.md), August 2026. Vendor blog; the *designed* outer loop.
 - [**Demo-JEPA**](../../sources/demo-jepa-paper.md) — He et al., 2026. The published, non-vendor neighbour: demonstration-as-latent-goal plus planning, with the finding that **V-JEPA 2.1 latents are not embodiment-invariant on their own**.
 - [RoboTTT: Context Scaling for Robot Policies](../../sources/robottt-paper.md) — NVIDIA GEAR + Stanford, July 2026. Preprint; fast-weight inner loop with the first matched ablation, and context length as a scaling axis.
@@ -185,3 +190,4 @@ What separates them is horizon and structure, not aim. RMA adapts to **terrain, 
 >
 > The page also narrows what ICL should be expected to generalize *over*: pre-training episodes specify the task **only** by an in-context demonstration, so the declared axis is *which task this is* — and nothing in that procedure declares a new kitchen, a new object, or a new robot irrelevant.
 - [RoboTTT](../../sources/robottt-paper.md) — the third demonstration-conditioned instance, the first with an ablation, and the first doing both modes in one model.
+- [GPT-3](../../sources/gpt-3-few-shot-learners-paper.md) — where the term and the two-loop framing come from; agnostic on the mechanism the vendors dispute.

@@ -3,8 +3,8 @@ title: Deepak Pathak
 type: entity
 subtype: person
 created: 2026-08-29
-updated: 2026-08-29
-sources: 3
+updated: 2026-09-12
+sources: 4
 tags: [deepak-pathak, skild-ai, cmu, robot-learning, locomotion, curiosity, self-supervised, locoformer, founder]
 ---
 
@@ -60,6 +60,7 @@ LocoFormer explicitly calls the RMA class **"myopic."** It is his own prior work
 - [LocoFormer: Generalist Locomotion via Long-context Adaptation](../sources/locoformer-paper.md) — co-author.
 - [RMA: Rapid Motor Adaptation for Legged Robots](../sources/rma-paper.md) — co-author (RSS 2021).
 - [Legged Locomotion in Challenging Terrains using Egocentric Vision](../sources/egocentric-vision-locomotion-paper.md) — co-advisor (CoRL 2022).
+- [FACTR 2](../sources/factr-2-paper.md) — last author; force sensing for commodity arms from CMU while running Skild. Cited by Skild's S1 post for a claim the paper does not make.
 
 ## Open questions / TBD
 

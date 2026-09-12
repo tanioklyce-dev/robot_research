@@ -3,8 +3,8 @@ title: AgileX Piper
 type: entity
 subtype: robot
 created: 2026-08-04
-updated: 2026-08-23
-sources: 7
+updated: 2026-09-12
+sources: 8
 tags: [agilex, piper, grasping, robot-arm, manipulator, affordable-hardware, realsense, teleoperation, cloth-folding, xvla]
 ---
 
@@ -63,3 +63,4 @@ AgileX also **part-funded** the RoboTwin 2.0 work (acknowledgments). Worth knowi
 
 ## Mentioned in
 - [TurboVLA paper](../sources/turbovla-paper.md)
+- [FACTR 2](../sources/factr-2-paper.md) — the low-cost target: NEXT gives the Piper (**$2,500**, no force sensor) an external-torque estimate with 0.018 Nm free-space error; all five contact-rich policy tasks run on a **bimanual Piper** rig with four RGB cameras, 250 demonstrations each; NIST insertion, belt assembly, cap screwing, tool clean-up, and LEGO with a LEAP Hand V2.

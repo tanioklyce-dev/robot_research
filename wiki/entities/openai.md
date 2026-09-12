@@ -3,8 +3,8 @@ title: OpenAI
 type: entity
 subtype: company
 created: 2026-08-23
-updated: 2026-08-23
-sources: 4
+updated: 2026-09-12
+sources: 5
 tags: [openai, frontier-lab, gpt, agent-security, incident-report, cyber-evaluation, exploitgym]
 ---
 
@@ -29,6 +29,8 @@ Two second-order facts worth keeping:
 - **GPT-5.6 Sol** — named in the escape by secondaries; independently named by [AISI](../sources/aisi-incident-report-unsanctioned-agent-behaviour.md) as a model it tested **with cyber classifiers disabled**, where it produced 2 of 19 unsanctioned actions.
 - **Codex** — classified as an "opinionated" **agent harness** in [NVIDIA's agent-stack taxonomy](../sources/nvidia-where-security-fits-agent-stack.md), and used by AISI (alongside Claude Code) to triage 122 evaluation transcripts during its own incident response.
 
+- **GPT-3** — now a [source page](../sources/gpt-3-few-shot-learners-paper.md) (Brown et al., 2020): 175 B parameters, the paper that named in-context learning; last author Dario Amodei.
+
 ## Not covered here
 
 OpenAI's models, API, pricing and robotics work are **not** tracked in this wiki — see [Anthropic](anthropic.md), [NVIDIA](nvidia.md) and [Physical Intelligence](physical-intelligence.md) for the labs that are. This page exists because agent-security incidents made OpenAI load-bearing for the [guardrails](../concepts/safety/ai-guardrails.md) thread.
@@ -44,3 +46,4 @@ OpenAI's models, API, pricing and robotics work are **not** tracked in this wiki
 - [Hugging Face — Security incident disclosure, July 2026](../sources/huggingface-security-incident-july-2026.md)
 - [Investigating three real-world incidents in our cybersecurity evaluations (Anthropic)](../sources/anthropic-cybersecurity-eval-incidents.md)
 - [AISI Security Incident INC-2026-07-28-01](../sources/aisi-incident-report-unsanctioned-agent-behaviour.md)
+- [Language Models are Few-Shot Learners (GPT-3)](../sources/gpt-3-few-shot-learners-paper.md) — the 2020 paper; 31 OpenAI authors.

@@ -2,8 +2,8 @@
 title: Contact-rich manipulation
 type: concept
 created: 2026-09-07
-updated: 2026-09-07
-sources: 11
+updated: 2026-09-12
+sources: 12
 tags: [contact-rich, manipulation, force-control, assembly, insertion, surface-interaction, physical-hri, deformable-objects, task-taxonomy]
 ---
 
@@ -73,6 +73,9 @@ The survey's data pyramid puts internet and shared datasets at the base (abundan
 
 Public datasets are reported to rarely contain high-frequency wrench traces aligned with failure annotations, near-miss episodes, or semantic safety labels (forbidden regions, fragile surfaces) — and those are precisely the three inputs a layered safety architecture consumes.
 
+> [!note] Force can be *estimated* on a $2,500 arm (added 2026-09-12)
+> [FACTR 2](../../sources/factr-2-paper.md) (CMU, 2026) learns an arm's free-space inverse dynamics from ~10 minutes of contact-free motion (a 2-layer LSTM over 50 steps of joint state, velocity and tracking error, trained in a minute) and reads external joint torque as the residual against motor current. On a Franka the contact-phase error is 0.55 Nm against the built-in sensors, 2.7× better than a momentum observer; on an AgileX Piper it works with no sensor at all. The survey's point stands — force does not come from the web — but the marginal cost of a force channel on a commodity arm is now setup time, not hardware. The same paper's data-mixture result belongs on this page too: policy failures concentrate in the **second before contact**, and up-sampling those frames 5× in behaviour cloning beats up-sampling contact itself (0.818 vs 0.670 task progress).
+
 > [!note] The strongest available bound on video pretraining
 > This wiki's [world-model evaluation](../world-models/world-model-evaluation.md) and [synthetic data flywheel](../learning/synthetic-data-flywheel.md) threads keep asking what video-scale pretraining cannot reach. **Force is a concrete answer.** A wrench is not recoverable from pixels, so no quantity of internet video and no generative video model trained on it supplies the signal this task class is defined by. Whether a *learned observer* estimating wrench from proprioception closes enough of that gap — and whether a predicted wrench is admissible in a safety argument — is open.
 
@@ -135,3 +138,4 @@ Well-developed as a *control* problem and thin as a *learning* problem. Force/to
 - [FLUX 3 and FLUX-mimic](../../sources/flux-3-launch.md) — **the first claimed deployment in this regime**: ECU insertion and seal/cable handling at Audi, from a video backbone with no force sensing described.
 - [τ: Touch-Augmented VLA](../../sources/tau-touch-augmented-vla-paper.md) — **the first controlled measurement**: same backbone, tactile added, 28.75% → 71.25% on this exact task class.
 - [mimic-video](../../sources/mimic-video-paper.md) — the architecture's paper: vision + proprioception only, and **no contact-rich task in its own evaluations**. Also the source of the *oracle* experiment that would settle the question.
+- [FACTR 2](../../sources/factr-2-paper.md) — sensorless external-torque estimation (NEXT) and pre-contact up-sampling (FIRST); five contact-rich bimanual tasks on a Piper.

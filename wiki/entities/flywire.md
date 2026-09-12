@@ -4,7 +4,7 @@ type: entity
 subtype: dataset-consortium
 created: 2026-05-08
 updated: 2026-09-12
-sources: 6
+sources: 7
 tags: [flywire, connectome, drosophila, neuroscience, brain-mapping]
 ---
 
@@ -49,3 +49,4 @@ NIH BRAIN Initiative, Wellcome, Medical Research Council, Princeton, NSF.
 - [flybody Paper](../sources/flybody-paper.md) (cited as future brain-side integration)
 - [Shiu et al. 2024 — A Drosophila computational brain model](../sources/shiu-fly-brain-paper.md) (the connectome is the input)
 - [Google — male fruit fly brain map](../sources/google-male-fruit-fly-brain-map-blog.md) — the male brain + VNC map that "builds on" the FlyWire female brain map.
+- [Male CNS connectome — Berg et al., Cell 2026](../sources/male-cns-connectome-paper.md) — FlyWire is the female comparator: 7,205 isomorphic, 114 dimorphic, 262 male-specific and 69 female-specific types (preprint counts), and FlyWire's own annotations were updated in the process. The same Google post reports a complete *female* brain + nerve cord map in *Nature* (s41586-026-10735-w), uningested.

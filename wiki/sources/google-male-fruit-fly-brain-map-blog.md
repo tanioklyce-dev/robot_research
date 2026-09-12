@@ -17,6 +17,10 @@ ingested: 2026-09-12
 
 ## Summary
 
+> [!note] Primary ingested 2026-09-12
+> The paper behind this post is [Berg et al., *Cell* 2026](male-cns-connectome-paper.md) (preprint v2 read in full). Numbers there: **166,691 neurons, 11,691 types** in the preprint; the journal abstract revises to 166,700 / 11,710. The reconstruction is flood-filling networks (confirmed, §Results); the data are public under **CC BY** via neuPrint, Clio and Neuroglancer; motor neurons carry exit-nerve and muscle annotations. Three companion papers are identified by DOI on that page. This post's "125 M synaptic connections" does not appear in the preprint text.
+
+
 Google's announcement, written by two of its connectomics leads, of the **first complete synaptic-resolution map of an adult *male* fruit fly's brain *and* ventral nerve cord** — the whole central nervous system — from a years-long HHMI Janelia + Google Research + community collaboration. **More than 166,000 neurons** and **11,691 cell types**, reconstructed by AI from millions of EM section images and classified with human proofreading. It builds on the **female whole-brain map ([FlyWire](../entities/flywire.md), 2024, 139,255 neurons, brain only)**; the additions that matter are the **sex** and the **nerve cord**.
 
 For this wiki the nerve cord is the point. The existing fly-simulation line splits cleanly into a **brain-only** computational model ([Shiu et al.](shiu-fly-brain-paper.md), built on FlyWire) and a **body-only** biomechanical model ([flybody](flybody-paper.md)), with the VNC — where the motor neurons live — sourced from separate, differently-prepared animals. A single-animal brain-plus-VNC connectome closes that gap in principle: the post's own fifth visual traces a **visual-to-motor pathway** from R1–R6 photoreceptors through the male-specific LoVP92 *"love spot"* neurons to the DNg13 motor neuron.
@@ -52,7 +56,7 @@ The [connectome](../concepts/bio/connectome.md) page lists two ways to use one f
 
 ## Open questions
 
-- **The primary papers** — journal, DOI, authors, and the brain-vs-VNC neuron split. Ingest before quoting.
-- **Is the reconstruction FFN-based** and was proofreading community-scale as with FlyWire?
-- **Is the dataset public** with the same tooling as FlyWire (neuroglancer, CAVE)? The post says "explore on the Neural Mapping website."
-- **Muscle targets.** A connectome ends at motor neurons; does the VNC reconstruction annotate which muscles each innervates, which is what a flybody-style integration needs?
+- ~~**The primary papers**~~ — **ingested 2026-09-12**: [Berg et al., Cell 2026](male-cns-connectome-paper.md); companions listed there by DOI. Brain-vs-VNC split still not extracted.
+- ~~**Is the reconstruction FFN-based**~~ — yes (flood-filling networks); proofreading was in-house at Janelia (~44 person-years), not community-scale.
+- ~~**Is the dataset public**~~ — yes, CC BY; neuPrint, Clio, Neuroglancer, natverse.
+- ~~**Muscle targets.**~~ — motor neurons are annotated with *"the exit nerve and muscle innervation"* (Results, Fig. 2b); completeness of that annotation is an open question on the paper's page.

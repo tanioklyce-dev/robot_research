@@ -2,7 +2,7 @@
 title: "From n-grams to attention — the lineage that produced the Transformer"
 type: synthesis
 created: 2026-08-30
-updated: 2026-09-11
+updated: 2026-09-12
 tags: [lineage, history, clip, gato, decision-transformer, robotics-bridge, language-models, embeddings, attention, transformer, seq2seq, word2vec, sequence-models]
 ---
 
@@ -96,7 +96,7 @@ Five papers is not the whole road. Un-ingested, in rough order of how much they 
 - **Luong et al. 2015** — dot-product attention scoring, the missing step between Bahdanau's feedforward scorer and Vaswani's matmul.
 - **Sennrich et al. 2016 (BPE)** — what actually fixed the `[UNK]` problem distorting every table above.
 - **Levy & Goldberg 2014** — Skip-gram-with-negative-sampling as implicit PMI matrix factorization; would connect this arc to [spectral theory of SSL](../../concepts/learning/spectral-theory-of-ssl.md), which has no pre-2020 ancestry.
-- **AlexNet (2012)** and **GPT-1/2/3** — the wiki tracks their descendants closely and their origins not at all.
+- **AlexNet (2012)** and **GPT-1/2** — the wiki tracks their descendants closely and their origins not at all. ~~GPT-3~~ — **[ingested 2026-09-12](../../sources/gpt-3-few-shot-learners-paper.md)**: the first post-2017 stop, and the one that turned scale into a capability claim (in-context learning) rather than a loss claim.
 
 ## Why a robotics wiki keeps this page
 

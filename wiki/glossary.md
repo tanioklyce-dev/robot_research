@@ -2,7 +2,7 @@
 title: Abbreviations & Glossary
 type: reference
 created: 2026-05-10
-updated: 2026-09-11
+updated: 2026-09-12
 tags: [glossary, reference, acronyms, curriculum]
 ---
 
@@ -217,6 +217,9 @@ Replaces a flat softmax over `|V|` outputs with a **binary tree** whose leaves a
 
 ### Helix
 [Figure](entities/figure.md) AI's VLA ([source page](sources/helix-blog.md)), deployed on Figure 02/03 humanoids. Hierarchical System 1 / System 2 design: 7B VLM @ 7–9 Hz + 80M transformer @ 200 Hz, end-to-end trained. *(Module 9.)*
+
+### ICL
+**In-Context Learning** — adapting to a task from examples placed in the model's input at inference time, with no weight update; the term is [GPT-3](sources/gpt-3-few-shot-learners-paper.md)'s, for the inner loop that *"occurs within the forward-pass upon each sequence,"* pre-training being the outer loop. In robotics the same name covers a demonstration in context ([S1](sources/skild-s1-blog.md), [GEN-1.5](sources/generalist-gen-1-5-blog.md)) and the robot's own recent experience in context ([LocoFormer](sources/locoformer-paper.md)), which are different mechanisms — see [in-context robot learning](concepts/learning/in-context-robot-learning.md). Whether the ability is *learned* at inference or *recognized* from training is a question GPT-3 left open and the robot vendors dispute.
 
 ### Imagination
 **Imagination** — rolling a learned world model forward on *hypothetical* actions to evaluate them before acting, without touching the environment. The mechanism behind model-based planning ([CEM](#cem), [MPC](#mpc)) and behind Dreamer-family training, where the policy is optimized entirely inside model rollouts. Its value is that it supplies **counterfactual** experience — outcomes for actions never executed — which real-world data structurally cannot provide. See [gradient-based planning](concepts/world-models/gradient-based-planning.md), [world model](concepts/world-models/world-model.md). *(Module 10.)*

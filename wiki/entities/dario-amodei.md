@@ -3,8 +3,8 @@ title: Dario Amodei
 type: entity
 subtype: person
 created: 2026-09-07
-updated: 2026-09-07
-sources: 1
+updated: 2026-09-12
+sources: 2
 tags: [person, anthropic, agi, timelines, labor-displacement, export-controls, mechanistic-interpretability]
 ---
 
@@ -33,3 +33,4 @@ As the boundary case. [LeCun](yann-lecun.md) and [Hassabis](demis-hassabis.md) b
 
 - [The Day After AGI — WEF Davos 2026](../sources/wef-davos-2026-the-day-after-agi.md)
 - [Claude's Constitution](../sources/claudes-constitution.md) — named in acknowledgements.
+- [Language Models are Few-Shot Learners (GPT-3)](../sources/gpt-3-few-shot-learners-paper.md) — last author, at OpenAI, 2020.

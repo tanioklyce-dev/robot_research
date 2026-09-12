@@ -3,7 +3,7 @@ title: Scaling laws — VLAs and human data
 type: concept
 created: 2026-05-15
 updated: 2026-09-12
-sources: 20
+sources: 21
 tags: [scaling-laws, vla, human-data, egocentric, gr00t, egoscale, pretraining, xvla, cross-embodiment]
 ---
 
@@ -107,6 +107,8 @@ Both [Skild's S1](../../sources/skild-s1-blog.md) and [Generalist's GEN-1.5](../
 >
 > This is the standard failure mode of emergence claims and it is fixable: both companies have the checkpoints.
 
+**The reference form of the curve (added 2026-09-12).** [GPT-3](../../sources/gpt-3-few-shot-learners-paper.md) is what a capability-vs-scale claim looks like when it is published: eight model sizes from 125 M to 175 B at fixed data, in-context learning curves per size (Fig. 1.2), the zero/one/few-shot gap widening with size across 42 benchmarks (Fig. 1.3), and the same on SuperGLUE against the number of examples (Fig. 3.8). Two points and a story is not that.
+
 **A third axis, with a curve (added 2026-09-12).** [RoboTTT](../../sources/robottt-paper.md) reports the figure the two vendors do not, on a different axis: closed-loop completion against **pretraining context length**, 128 → 8K timesteps, rising from 43.9% at 1K to 71.5% at 8K with *"no sign of saturation"*, while a matched recurrent baseline without test-time gradient descent shows no trend at all. It is one model family, three tasks, and every point is post-trained on the task — but it is a curve with a control, which is more than the data-hours claim currently has. Whether Skild's crossover in hours and RoboTTT's ramp in context length are one phenomenon or two is not addressed by any source.
 
 ## Mentioned in
@@ -119,6 +121,7 @@ Both [Skild's S1](../../sources/skild-s1-blog.md) and [Generalist's GEN-1.5](../
 - [X-VLA paper](../../sources/xvla-paper.md)
 - [Welch Labs Illustrated Guide to AI, Vol I](../../sources/welchlabs-illustrated-guide-to-ai.md)
 - [RoboTTT](../../sources/robottt-paper.md) — context length as a scaling axis, with a matched baseline that does not scale.
+- [GPT-3](../../sources/gpt-3-few-shot-learners-paper.md) — the published in-context-ability-vs-scale curves the robot vendors' emergence claims lack.
 
 ## Open follow-ups
 - **Chinchilla-style compute-optimal sweep** — would require a model-size dimension on top of the data-size sweep. Reasonable next paper for the GEAR team.

@@ -2,8 +2,8 @@
 title: Chain of thought
 type: concept
 created: 2026-05-15
-updated: 2026-08-30
-sources: 14
+updated: 2026-09-12
+sources: 15
 tags: [llm, reasoning, prompting, chain-of-thought, reasoning-models, embodied-cot, depth-tokens]
 ---
 
@@ -69,3 +69,4 @@ CoT appears in robotics primarily through the [LLM-agent architecture](../agents
 - [Verbalized Eval Awareness (Aranguri & Bloom 2026)](../../sources/goodfire-verbalized-eval-awareness.md) — eval awareness lives in the CoT and inflates measured safety.
 - [MolmoAct2 paper (Fang, Duan et al. 2026)](../../sources/molmoact2-paper.md) — depth-token reasoning as a non-textual embodied CoT; the "tacit physical knowledge isn't in text" argument.
 - [MolmoAct paper](../../sources/molmoact-paper.md) — embodied CoT with **decodable** intermediate steps: depth tokens → visual trace → actions, each independently renderable; the trace doubles as a steering interface.
+- [GPT-3](../../sources/gpt-3-few-shot-learners-paper.md) — the few-shot prompting regime CoT extends; its arithmetic ceiling (2-digit 100%, 4-digit 25%, 5-digit 9%) is the kind of task chain-of-thought prompting was later shown to lift.
