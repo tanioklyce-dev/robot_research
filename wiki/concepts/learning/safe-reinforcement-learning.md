@@ -2,8 +2,8 @@
 title: Safe reinforcement learning
 type: concept
 created: 2026-09-07
-updated: 2026-09-07
-sources: 3
+updated: 2026-09-12
+sources: 4
 tags: [safe-rl, cmdp, lagrangian, safety-gymnasium, projection-methods, pid-lagrangian, safety-critic, shielding, recovery-rl, safe-exploration, constrained-optimization, risk-sensitive, contact-rich, vla, safety-alignment]
 ---
 
@@ -122,3 +122,4 @@ Well-supplied with formalisms and poorly supplied with benchmarks. The dedicated
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — the exploration/execution split and every method family above.
 - [Safety-Gymnasium](../../sources/safety-gymnasium-paper.md) — the benchmark: the algorithm-family comparison, the 98%-cost-for-45%-reward trade, the oscillation finding, and the velocity-suite tie.
 - [SafeVLA](../../sources/safevla-paper.md) — the flagship application to a VLA: CMDP + adaptive Lagrangian, the reward-shaping comparison, the elicitation ablation, and the extreme-failure protocol.
+- [FEARL — Verifiable Foundation Models for Robot Safety](../../sources/fearl-verifiable-foundation-models-robot-safety-paper.md) — verification-guided shielding applied to foundation-model policies trained with PPO+LoRA, SFT→PPO, or DAgger; the shield is a last resort, certification the primary goal.

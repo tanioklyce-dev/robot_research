@@ -2,8 +2,8 @@
 title: Motion planning (classical)
 type: concept
 created: 2026-07-04
-updated: 2026-08-26
-sources: 10
+updated: 2026-09-12
+sources: 11
 tags: [motion-planning, sampling-based, rrt, prm, trajectory-optimization, search, ompl, explicit-model, graphs-of-convex-sets, convex-optimization]
 ---
 
@@ -67,3 +67,4 @@ Two structural differences behind that, both worth keeping:
 - [Motion Planning around Obstacles with Convex Optimization (GCS)](../../sources/gcs-motion-planning-paper.md) — the family-3 primary source; PRM comparison, maze binary-count argument, 14-DoF dual-arm scaling.
 - [Planning with Graphs of Convex Sets (in the age of foundation models)](../../sources/tedrake-gcs-foundation-models-talk.md) — GCS displacing PRM in production; automatic region generation; the roadmap-as-design-complaint framing.
 - [Kober, Bagnell & Peters 2013](../../sources/kober-rl-robotics-survey-2013.md) — hierarchical decomposition and operational-space reductions as dimensionality-curse mitigations.
+- [Think Fast and Far — ROP-RAS3](../../sources/think-fast-and-far-rop-ras3-paper.md) — **VAMP** (Thomason, Kingston & Kavraki 2024), SIMD-vectorised sampling-based planning at *"kilohertz rates — tens of thousands of plans per second,"* used not as the planner but as an online macro-action generator inside a POMDP solver; robot-specific vector code compiled from a URDF.

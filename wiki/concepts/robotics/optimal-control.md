@@ -2,8 +2,8 @@
 title: Optimal control
 type: concept
 created: 2026-05-14
-updated: 2026-08-16
-sources: 24
+updated: 2026-09-12
+sources: 25
 tags: [optimal-control, mpc, lqr, pontryagin, hamilton-jacobi-bellman, dynamic-programming, brachystochrone, calculus-of-variations, control-theory, rl-bridge]
 ---
 
@@ -203,3 +203,4 @@ Synthesis / curriculum pages that link here:
 - [Curriculum Module 11 — JEPA in depth](../../syntheses/curriculum/curriculum-11-jepa-deep.md)
 - [Curriculum Module 12 — LeWorldModel deep-dive](../../syntheses/curriculum/curriculum-12-lewm-deep-dive.md)
 - [Safely Learning Dynamical Systems](../../sources/safely-learning-dynamical-systems-paper.md) — conic optimization (LP/SOCP/SDP) applied to safe system identification; safety must hold for **every** system consistent with the uncertainty set and the data so far.
+- [Think Fast and Far — ROP-RAS3](../../sources/think-fast-and-far-rop-ras3-paper.md) — KL-regularised (linearly-solvable) control lifted to POMDPs: π* ∝ π̄·exp(ηQ) makes the Bellman max an expectation, so the tree needs no bandit.

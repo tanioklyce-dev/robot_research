@@ -3,8 +3,8 @@ title: SigLIP
 type: entity
 subtype: model
 created: 2026-08-26
-updated: 2026-08-26
-sources: 4
+updated: 2026-09-12
+sources: 5
 tags: [siglip, vision-encoder, vlm-backbone, sigmoid-loss, clip, paligemma, smolvlm, eagle, groot, frozen-encoder]
 ---
 
@@ -72,3 +72,4 @@ Two independent 2026 measurements, from different directions, reach the same ver
 - [Eagle 2.5 paper](../sources/eagle-2-5-paper.md) — single SigLIP-so400M backbone.
 - [FLARE paper](../sources/flare-paper.md), [TurboVLA paper](../sources/turbovla-paper.md), [DreamGen paper](../sources/dreamgen-paper.md), [Latent-space robotic world models](../sources/latent-space-robotic-world-models-paper.md) — component mentions.
 - [Scaling Language-Free Visual Representation Learning](../sources/webssl-paper.md) — Web-DINO matches SigLIP and SigLIP 2 on VQA at 5× less data.
+- [GA-VLN](../sources/ga-vln-paper.md) — SigLIP patch features are what get depth-projected into the BEV grid; VGGT features are projected through a 2-layer MLP to SigLIP's dimension.

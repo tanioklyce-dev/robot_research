@@ -2,8 +2,8 @@
 title: Spatial intelligence
 type: concept
 created: 2026-08-07
-updated: 2026-08-26
-sources: 6
+updated: 2026-09-12
+sources: 7
 tags: [spatial-intelligence, world-model, embodied-ai, policy, stanford-hai]
 ---
 
@@ -63,3 +63,4 @@ A marketing term and a research program at the same time, which is a reason to h
 - [A Functional Taxonomy of World Models](../../sources/world-labs-functional-taxonomy.md) — the primary for the renderer/simulator/planner stack and the substrate argument above.
 - [Building Worlds That Train Robots (R2S2R)](../../sources/world-labs-r2s2r.md) — "robotics is where spatial intelligence becomes physical."
 - [Fei-Fei Li is Solving the Hardest Problem in Robotics (a16z × World Labs)](../../sources/a16z-worldlabs-scenix-conversation.md) — object permanence under contact; "robotics is where spatial intelligence becomes physical."
+- [GA-VLN](../../sources/ga-vln-paper.md) — a measured transfer from a 3D foundation model: VGGT-1B features projected into a navigation BEV add +1.8 R2R-CE success points on top of explicit depth projection (+7.7), for a 22% latency increase.

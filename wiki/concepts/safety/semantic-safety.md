@@ -2,8 +2,8 @@
 title: Semantic safety
 type: concept
 created: 2026-08-03
-updated: 2026-09-11
-sources: 14
+updated: 2026-09-12
+sources: 15
 tags: [semantic-safety, robot-safety, constitutional-ai, asimov, red-teaming, google-deepmind, vlm, alignment, terminology, contact-rich]
 ---
 
@@ -73,6 +73,8 @@ Both are *predictive* rather than *preventive* — they tell you where a policy 
 
 > [!note] The two halves of this cluster do not meet
 > The formal results cover **linear and polynomial systems with a known uncertainty set**. None of the wiki's ingested policies — diffusion policies, VLAs, code-writing agents — are in that class, and no ingested source attempts a bridge. Provable safety and semantic safety are, at present, disjoint literatures written partly by the same people. That gap is the most interesting open problem in this cluster.
+
+**A bridge that stops at the boundary (added 2026-09-12).** [FEARL](../../sources/fearl-verifiable-foundation-models-robot-safety-paper.md) puts formal verification *behind* a foundation-model policy — including a SmolVLA — by routing the final action through a tiny verified module that sees only LiDAR or pose, and certifying its safety for every context vector the VLA could emit. It is the first ingested source that verifies anything downstream of a VLA. Its own limitations section draws the line exactly where this page does: the method *"excludes richer semantic safety requirements that must be inferred from high-dimensional observations, such as recognizing that a glass cup should not be placed near the edge of a table."*
 
 ## Related concepts
 - [AI safety and alignment](ai-safety-alignment.md) — the parent; ASIMOV is Constitutional AI applied to embodiment.
@@ -161,3 +163,4 @@ What would change this: a safety architecture where the semantic layer's *output
 - [SciFi-Benchmark](../../sources/scifi-benchmark-paper.md) — the ethics/dilemmas wing: 824 sci-fi works → 9,056 questions; constitutions lift alignment 79.4% → 95.8% and resist adversarial prompting (23.3% → 92.3%); fiction-derived constitutions top-perform on ASIMOV's real-world data.
 - [Robot Research Direction (first-party notes)](../../sources/robot-research-direction-notes.md) — quotes this page's *measured, sometimes predicted, not enforced* as open question #9; the ingest noted the conclusion is now vendor-documented, which is stronger than the notes say.
 - [Towards Safe Robot Foundation Models](../../sources/towards-safe-robot-foundation-models-paper.md) — from the physical side: constraints must be hand-written for the filter to work, and VLM-authored semantic constraints have only ever been *added* to such a set (Santos et al., Brunke et al.), never generated whole.
+- [FEARL — Verifiable Foundation Models for Robot Safety](../../sources/fearl-verifiable-foundation-models-robot-safety-paper.md) — formal verification behind a VLA, explicitly excluding semantic constraints.

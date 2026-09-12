@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-07
 updated: 2026-09-12
-sources: 46
+sources: 48
 tags: [franka, panda, robot-arm, manipulator, 7-dof, manipulation-platform]
 ---
 
@@ -63,7 +63,7 @@ The consequence is that **the field's tooling is tuned on the platform that need
 
 ## Mentioned in
 
-> [!note] Curated list — **44** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **46** source pages link here; the ones below are those that shaped this page.
 
 - [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — the manipulation platform (7-DoF, LIBERO kitchen scenes) for direct-LLM control and VLA supervision.
 - [DROID](droid.md) (entity)
@@ -83,3 +83,5 @@ The consequence is that **the field's tooling is tuned on the platform that need
 - [Gemini Robotics 2 blog](../sources/gemini-robotics-2-blog.md) — **Franka Duo** with a Robotiq gripper is the gripper-dexterity platform: precise insertion **89.6%**, tool kitting 78.9%, pick-and-place 74.2%.
 - [MolmoAct paper](../sources/molmoact-paper.md) — MolmoAct v1's only real-world platform: single-arm (incl. DROID-style mobile mount for home data) and bimanual Franka; the 10,689-trajectory MolmoAct Dataset is all-Franka.
 - [Post-train Cosmos 3 Edge](../sources/nvidia-cosmos3-edge-post-training-blog.md) — the Cosmos3-DROID arm (Panda + Robotiq); 7 joints + gripper as the policy's 8-D absolute action space.
+- [Robot Self-Improvement via Human-Video Dynamics Models](../sources/robot-self-improvement-human-video-dynamics-paper.md) — the cross-embodiment target (Box, Sweep tasks): 36.7% → 70.0% with the pipeline carried over from a Stretch 3 unchanged.
+- [Think Fast and Far — ROP-RAS3](../sources/think-fast-and-far-rop-ras3-paper.md) — the 7-DoF arm in three simulated POMDP manipulation problems (Sphere-Search, Ray-Detect, Shelf-Move), the last with a 35-D state and 1,500-step planning horizon.

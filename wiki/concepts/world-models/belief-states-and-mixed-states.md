@@ -2,8 +2,8 @@
 title: Belief states and mixed states
 type: concept
 created: 2026-08-31
-updated: 2026-09-07
-sources: 7
+updated: 2026-09-12
+sources: 8
 tags: [belief-state, mixed-state, hidden-markov, pomdp, blackwell-measure, entropy-rate, sufficient-statistic, latent-space, world-model, unifilar, myhill-nerode]
 ---
 
@@ -91,4 +91,4 @@ A second Day 2 result touches the same limit from the engineering side. **[World
 - [Chicago Booth World Modeling Workshop 2026](../../sources/chicago-booth-world-modeling-workshop-2026.md)
 - [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — MetaOthello and WorldTrace.
 - [Critique of World Model](../../sources/critique-of-world-model-paper.md) — the *statefulness* requirement ("an identifiable, persistent estimate of the world state that the agent can hold in memory, revisit, and update") is this page's belief state, with the added claim that discrete tokens are its natural carrier.
-
+- [Think Fast and Far — ROP-RAS3](../../sources/think-fast-and-far-rop-ras3-paper.md) — the classical form: explicit particle beliefs, a generative model, a tree; solves 1,500-step, 35-D POMDPs online with a convergence rate in the number of *sampled* actions.

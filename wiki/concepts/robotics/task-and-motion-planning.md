@@ -2,8 +2,8 @@
 title: Task and motion planning (TAMP)
 type: concept
 created: 2026-07-04
-updated: 2026-08-16
-sources: 4
+updated: 2026-09-12
+sources: 5
 tags: [tamp, task-planning, long-horizon, plan-skeletons, explicit-model, hybrid-planning]
 ---
 
@@ -50,3 +50,4 @@ That is a different integration story than the classical TAMP stack's: instead o
 
 - [The State of Robot Motion Generation (Bekris et al. 2024)](../../sources/state-of-robot-motion-generation-2024.md)
 - [Planning with Graphs of Convex Sets (in the age of foundation models)](../../sources/tedrake-gcs-foundation-models-talk.md) — the permutohedron instance and the network-flow heuristic.
+- [Think Fast and Far — ROP-RAS3](../../sources/think-fast-and-far-rop-ras3-paper.md) — Shelf-Move (7-DoF arm, four movable obstacles, 35-D, 1,500-step horizon): TAMP under partial observability with no symbolic layer, 70% vs 10% for the best baseline.

@@ -2,8 +2,8 @@
 title: Runtime failure detection for generative policies
 type: concept
 created: 2026-08-16
-updated: 2026-08-16
-sources: 9
+updated: 2026-09-12
+sources: 10
 tags: [runtime-monitoring, failure-detection, out-of-distribution, conformal-prediction, diffusion-policy, generative-policies, temporal-consistency, vlm, epistemic-uncertainty, tri, stanford]
 ---
 
@@ -143,3 +143,4 @@ All of this now sits inside a three-layer argument — **prevention → detectio
 - [FAIL-Detect paper](../../sources/fail-detect-paper.md)
 - [FIPER paper](../../sources/fiper-paper.md)
 - [FOREWARN paper](../../sources/forewarn-paper.md)
+- [FEARL — Verifiable Foundation Models for Robot Safety](../../sources/fearl-verifiable-foundation-models-robot-safety-paper.md) — intervention triggered by *certificate membership* rather than a learned detector: inside the verified region the action passes untouched, outside it a shield checks it.

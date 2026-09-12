@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-07
 updated: 2026-09-12
-sources: 29
+sources: 33
 tags: [stretch, stretch-3, stretch-4, mobile-manipulation, hello-robot, research-robot, holonomic-base, lidar, ros2-jazzy, hesai-lidar, luxonis, feetech]
 ---
 
@@ -78,6 +78,9 @@ Spec sources: [Stretch 4 launch source](../sources/hello-robot-stretch-4-launch.
 
 ## Notable use cases (cumulative across generations)
 
+> [!note] Four papers ingested on one day (2026-09-12) use a Stretch as the research body
+> Self-improvement from human-video priors (Stretch 3), formally verified navigation safety (Stretch 2), MLLM vision-language navigation (Stretch 3), and long-horizon POMDP planning (Stretch 3) — from ETH/TUM, UC Irvine, ICT-CAS, and ANU/Rice respectively. None of them cite each other. It is the concrete form of [TechCrunch's](../sources/techcrunch-hello-robot-homes-2026.md) *"researchers who use Stretch to test out increasingly sophisticated AI brains."*
+
 These were all demonstrated on **Stretch 2 / 3**; whether they transfer to Stretch 4 unchanged is an open question.
 
 - [Robot Utility Models](robot-utility-models.md) zero-shot generalist policies (NYU / Meta) — Stretch 3.
@@ -109,3 +112,7 @@ These were all demonstrated on **Stretch 2 / 3**; whether they transfer to Stret
 - [Grasping in Clutter IVFP — Murray et al. 2024](../sources/murray2024-grasping-clutter-ivfp.md)
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **Stretch-3 is one of 8 natively-supported [LeRobot](lerobot.md) platforms** (§3.1) — the mobile-manipulator anchor of the platform list alongside [LeKiwi](lekiwi.md) at the low end.
 - [TechCrunch, 2026-06-04](../sources/techcrunch-hello-robot-homes-2026.md) — Stretch 4 at ~$30k, 200–300 units, first run sold out; Keith Platt's in-home use (nav autonomous, manipulation teleoperated); Shafiullah's verdict that hardware for homes is *"abysmal"* and Stretch is the exception because it is *"designed to be around people first."*
+- [Robot Self-Improvement via Human-Video Dynamics Models](../sources/robot-self-improvement-human-video-dynamics-paper.md) — **Stretch 3** as the main platform: five long-horizon household tasks (socks/drawer, rice cooker, microwave, wiping, basketball), 15 trials each; BC 41.3% → 85.3% after two self-improvement iterations.
+- [FEARL — Verifiable Foundation Models for Robot Safety](../sources/fearl-verifiable-foundation-models-robot-safety-paper.md) — **Stretch 2**, simulated and physical: formally verified LiDAR safety module; real-world 18 episodes, 61.1% success, 0 vs 27.8% collisions with/without the shield. Cites the Stretch design paper (Kemp, Edsinger, Clever & Matulevich, ICRA 2022).
+- [GA-VLN](../sources/ga-vln-paper.md) — **Stretch 3** zero-shot in a ~60 m² apartment for vision-language navigation over Wi-Fi to a workstation; noise model *"modeled after real-world error profiles of Stretch 3"* (depth 0.05 m, pose 0.05 m, rotation 5°). No obstacle avoidance; hugs walls.
+- [Think Fast and Far — ROP-RAS3](../sources/think-fast-and-far-rop-ras3-paper.md) — **Stretch 3** base as a POMDP-planning testbed: 45 open-loop twist primitives (0.1–0.3 m/s, ±0.5 rad/s, 0.7 s each), trapezoidal profiles at 0.12 m/s² and 0.3 m/s max; dodges a moving pedestrian where the reference planner drives into it.

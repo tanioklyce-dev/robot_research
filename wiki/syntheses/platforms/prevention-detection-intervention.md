@@ -2,7 +2,7 @@
 title: "Prevention, detection, intervention: the runtime stack a deployed policy needs"
 type: synthesis
 created: 2026-08-16
-updated: 2026-08-16
+updated: 2026-09-12
 corrected: 2026-08-16
 tags: [safety-filter, runtime-monitoring, failure-prediction, policy-steering, deployment, conformal-prediction, out-of-distribution, diffusion-policy, synthesis]
 ---
@@ -128,6 +128,8 @@ Identified 2026-08-16 by targeted search, not ingested:
 | [FAIL-Detect](../../sources/fail-detect-paper.md) | detection (learned score + CP band) | RSS 2025 |
 | [FIPER](../../sources/fiper-paper.md) | prediction (OOD ∧ action entropy) | NeurIPS 2025 |
 | [FOREWARN](../../sources/forewarn-paper.md) | intervention (world model + VLM steering) | arXiv 2025 |
+
+- [FEARL — Verifiable Foundation Models for Robot Safety](../../sources/fearl-verifiable-foundation-models-robot-safety-paper.md) (added 2026-09-12) — a *prevention* layer composed with a VLA without touching its weights, with a measured composition cost (12 success points on the SmolVLA variant) and a stated scope limit (sensor-expressible hazards only).
 
 ## Related
 

@@ -2,8 +2,8 @@
 title: Visual navigation policies (GNM → ViNT → NoMaD → LogoNav → OmniVLA)
 type: concept
 created: 2026-09-11
-updated: 2026-09-11
-sources: 8
+updated: 2026-09-12
+sources: 9
 tags: [navigation, visual-navigation, goal-conditioned, topological-memory, gnm, vint, nomad, logonav, omnivla, berkeley, rail, cross-embodiment, sidewalk-robot, normalized-actions, modality-dropout]
 ---
 
@@ -35,6 +35,10 @@ Adjacent RAIL work the papers cite: RECON and ViKiNG (latent-goal exploration; k
 - **Generation targets, in order of abandonment:** ViNT generated subgoal *images* (318M, often invalid) → NoMaD generated *actions* (19M, 98%) → MBRA relabels actions with a *forward model* → OmniVLA drops any generation. Same direction as the [world-action model](../world-models/world-action-model.md) page's pixels-are-the-wrong-target thread.
 - **Dropout as the unification device.** NoMaD's goal mask (p = 0.5) → OmniVLA's modality mask; one model for with-goal and without-goal, then for every goal type.
 
+## The other lineage: MLLM-based vision-language navigation (added 2026-09-12)
+
+Everything above is the RAIL image-goal line: ~50M-parameter models, normalized waypoints, 3–4 Hz. A second line grew up on the Habitat VLN-CE benchmarks (R2R-CE, RxR-CE) and does not cite the first — NaVid, NaVILA, StreamVLN, InternVLA-N1 — 7B multimodal LLMs emitting **discrete** actions (0.25 m forward, 15° turns, STOP), trained on hundreds of thousands of simulated trajectories plus DAgger augmentation. [GA-VLN](../../sources/ga-vln-paper.md) is the wiki's first primary from this side, and its contribution is an efficiency one: replace the video-frame tokens the MLLM reads with an agent-centric **BEV grid** of depth-projected SigLIP features plus frozen VGGT-1B features, cutting tokens per step **4,003 → 514**, MLLM compute 32.2 → 8.7 TFLOPs, and raising R2R-CE success 51.5 → 61.0% without DAgger. Explicit projection does most of the work (+7.7); the 3D foundation model adds +1.8. Deployed zero-shot on a Stretch 3 with no obstacle avoidance, it hugs walls. The two lineages measure different things — kilometre-scale real-world routes versus instruction-following in simulated homes — and nothing in the wiki yet compares them on one robot.
+
 ## Where it meets the rest of the wiki
 
 - **Evaluation.** The [Earth Rover Challenge](../../sources/earth-rover-challenge-frodobots-2k.md) is the standing multi-city benchmark for this class; MBRA's six-country deployment and ViNT's kilometer runs are the research-side versions. Metrics worth keeping: mean progress (GNM), max displacement without intervention (ViNT), SPL (ViNT), coverage rate (MBRA) — all partial-credit, all on the [robot policy evaluation](robot-policy-evaluation.md) page.
@@ -62,3 +66,4 @@ Adjacent RAIL work the papers cite: RECON and ViKiNG (latent-goal exploration; k
 - [Earth Rover Challenge site + FrodoBots-2K card](../../sources/earth-rover-challenge-frodobots-2k.md)
 - [LeLaN paper](../../sources/lelan-paper.md)
 - [CAST paper](../../sources/cast-paper.md)
+- [GA-VLN](../../sources/ga-vln-paper.md) — the MLLM-VLN lineage's first primary here; BEV tokens instead of video frames.

@@ -2,8 +2,8 @@
 title: Safety certificates (Lyapunov, CBFs, contraction metrics, reachability)
 type: concept
 created: 2026-09-07
-updated: 2026-09-07
-sources: 2
+updated: 2026-09-12
+sources: 3
 tags: [control-barrier-functions, lyapunov, contraction-metrics, reachability, hamilton-jacobi, forward-invariance, passivity, formal-guarantees, provable-safety]
 ---
 
@@ -81,3 +81,4 @@ Mature theory, expanding into learning, and blocked in the same two places every
 
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — the four-family treatment and the compute-placement comparison.
 - [PACS](../../sources/pacs-paper.md) — the measurement that a certificate's strength does not predict its effect on a learned policy.
+- [FEARL — Verifiable Foundation Models for Robot Safety](../../sources/fearl-verifiable-foundation-models-robot-safety-paper.md) — a certificate of a different kind: a (δ, ρ)-probabilistic *verified input region* of a 2-layer MLP (ε-ProVe), not a barrier or Lyapunov function; the uncertified volume bounds both shield activation and value loss.

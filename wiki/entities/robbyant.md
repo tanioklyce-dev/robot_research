@@ -3,8 +3,8 @@ title: Robbyant (Ant Group robotics)
 type: entity
 subtype: company
 created: 2026-08-13
-updated: 2026-08-13
-sources: 1
+updated: 2026-09-12
+sources: 2
 tags: [robbyant, ant-group, lingbot, physical-ai, foundation-models, open-weights, china]
 ---
 
@@ -46,3 +46,4 @@ That is **policy + world model + map + data-collection hardware**, published ope
 - [LingBot-Map GitHub repository](../sources/lingbot-map-github.md)
 - [UME paper](../sources/ume-paper.md)
 - [WorldRoamBench](../sources/worldroambench-paper.md)
+- [GA-VLN](../sources/ga-vln-paper.md) — three of seven authors (Zhu, Shen, Xu) list Robbyant as affiliation on an academic vision-language-navigation paper with ICT/CAS; the group publishes, not only ships.

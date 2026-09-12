@@ -3,8 +3,8 @@ title: Habitat
 type: entity
 subtype: product
 created: 2026-05-08
-updated: 2026-05-10
-sources: 1
+updated: 2026-09-12
+sources: 2
 tags: [habitat, embodied-ai, simulator, meta-fair, navigation, manipulation]
 ---
 
@@ -30,6 +30,7 @@ Habitat is a **legacy embodied-AI sim** referenced for context across multiple s
 
 ## Mentioned in
 - [ManiSkill-HAB Paper](../sources/maniskill-hab-paper.md)
+- [GA-VLN](../sources/ga-vln-paper.md) — VLN-CE (R2R-CE, RxR-CE, NavRAG-CE) in Habitat on MP3D + HM3D; monocular 60° camera; the benchmark family the MLLM-navigation lineage is scored on.
 
 ## Open questions / TBD
 - Habitat 3.0+ status, current adoption — not in the wiki.
