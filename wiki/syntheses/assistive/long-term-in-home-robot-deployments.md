@@ -2,7 +2,7 @@
 title: Long-term in-home robot deployments — what we know
 type: synthesis
 created: 2026-05-09
-updated: 2026-07-09
+updated: 2026-09-12
 tags: [in-home, deployment, longitudinal, henry-evans, stretch, hcrlab, rum, ok-robot, hello-robot, assistive-robotics]
 ---
 
@@ -18,6 +18,7 @@ What does the wiki actually know about deploying mobile manipulators in real hom
 | Depth | Source | Platform | Homes | Duration | Tasks | Outcome |
 |---|---|---|---|---|---|---|
 | **Years (longitudinal)** | [HCR Lab + Hello Robot Henry Evans deployments](../../sources/maya-cakmak-research.md) | [Stretch](../../entities/stretch.md) | 1 | Summers 2021, 2022, 2023 — ~4 weeks each, 3 years recurring | Self-feeding, face wiping, scratching, lotion, percussion vest, printer, card games with granddaughter, handing a rose to wife Jane. EUP tool prototyped specifically for Henry in summer 2022. | Restored agency; reduced caregiver burden; expanding task set each year. Continuing under NIH grant. |
+| **Years (longitudinal, commercial)** | [TechCrunch — Hello Robot in homes](../../sources/techcrunch-hello-robot-homes-2026.md) | [Stretch](../../entities/stretch.md) | 1 (Keith Platt, quadriplegic, board member) | 2024 → 2026, ongoing | Self-serve protein shake, reading glasses, teeth brushing; voice iPhone app; nav autonomous, manipulation teleoperated | Shake task ~2 h unassisted at first → *"within a few minutes"* with practice; no failure data |
 | **Days (in-home)** | [Nanavati et al. 2025](../../sources/nanavati2025-feeding-out-of-lab.md) | [Kinova JACO](../../entities/kinova-jaco.md) 6-DOF + custom F/T fork (~$50k) | 1 | 5 days, 10 meals | Self-feeding in real home contexts — multiple meals, multiple environments within the home. | CR2 fed himself across diverse contexts; HRI 2025 Best Systems Paper Finalist. Earliest in-home deployment of an open-source feeding system. |
 | **Day** | [IEEE Spectrum — Stretch assistive](../../sources/ieee-spectrum-stretch-assistive.md) (2023) | [Stretch](../../entities/stretch.md) | 1 (Henry Evans) | Snapshot reporting | Scratching, blanket moves, retrieving items, transporting laundry, cards, meals, delivering flowers. | Public narrative documentation of the assistive use case; predates the HCR Lab summer-deployment papers. |
 | **Hours per home (broad)** | [Robot Utility Models Paper (Etukuru et al. 2024)](../../sources/robot-utility-models-paper.md) | [Stretch](../../entities/stretch.md) | 25 evaluation homes (5 per task × 5 tasks) | Hours each (10 trials/env, 1.31 avg retries) | Door opening, drawer opening, reorientation, tissue pickup, bag pickup. | 90% average success (74.4% raw + 15.6% mLLM-retry). Cross-embodiment to xArm 7: −10pt drop. |
@@ -26,6 +27,8 @@ What does the wiki actually know about deploying mobile manipulators in real hom
 | **Lab + simulated homes** | [BEHAVIOR-1K Challenge 2025](../../sources/stanford-hai-ai-index-2026.md) | Various | Simulated only | — | 1,000 household tasks | 12.4% top team full success; 26% Q-score (partial credit). |
 
 ---
+
+> [!note] Added 2026-09-12 — the Platt row is the second named longitudinal user, and the first with a **learning-curve number on the human side**: two hours to minutes. The improvement is in the person's skill with a fixed robot, which is the variable none of the research deployments measure.
 
 ## Five things the longitudinal evidence shows
 

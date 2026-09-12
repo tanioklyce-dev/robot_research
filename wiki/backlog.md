@@ -12,6 +12,9 @@ Deferred maintenance items and knowledge gaps surfaced during lint passes but no
 
 ## [2026-09-12] From the S1 re-check
 
+- [ ] **Bullhound Capital robotics sector report (late May 2026)** — quoted by [TechCrunch](sources/techcrunch-hello-robot-homes-2026.md) for the claim that the moat is *"accumulated operating hours under real-world liability."* The primary for a claim the [industry map](syntheses/society/robot-ai-industry-map.md) would want to weigh.
+- [ ] **Primaries for the male fly CNS connectome** — the connectome paper and three companion studies (visual, taste, social) behind the [Google post](sources/google-male-fruit-fly-brain-map-blog.md); needed before the 166k / 11,691 figures are quoted as load-bearing.
+
 Filed on re-reading [Introducing S1](sources/skild-s1-blog.md) against the live post (no drift; the first ingest had missed the evaluation methodology). Two primaries the post leans on, neither in the wiki:
 
 - [x] ~~**RoboTTT: Context Scaling for Robot Policies** — Jiang, Chebotar, Zheng, Hu, Ge et al., arXiv 2607.15275.~~ **Done 2026-09-12** → [source page](sources/robottt-paper.md). Named by Skild as concurrent in-context manipulation work that is *"short-horizon or in-distribution"*; a third demonstration-conditioned instance for the [in-context page](concepts/learning/in-context-robot-learning.md), and the only one of the three that is a paper rather than a vendor post. Read it before repeating Skild's characterisation.

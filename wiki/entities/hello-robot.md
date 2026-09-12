@@ -3,8 +3,8 @@ title: Hello Robot
 type: entity
 subtype: company
 created: 2026-05-07
-updated: 2026-05-25
-sources: 10
+updated: 2026-09-12
+sources: 11
 tags: [hello-robot, stretch, mobile-manipulation, research-platform]
 ---
 
@@ -17,6 +17,9 @@ Robotics company (Hello Robot, Inc., copyright 2020–2025) that builds [Stretch
 - **Agentic AI**: ships an LLM agent in [stretch_ai](stretch-ai.md) supporting Qwen2.5, Gemma, GPT-4o-mini ([Stretch AI LLM Agent Documentation](../sources/stretch-ai-llm-agent-docs.md)).
 - **Assistive use**: documented deployment with Henry Evans (quadriplegic), reducing caregiver burden and restoring user agency ([IEEE Spectrum, 2023](../sources/ieee-spectrum-stretch-assistive.md)).
 - **Research benchmarks**: HomeRobot/OVMM baseline (20% real success), OK-Robot (58.5% success in 10 NYC homes).
+
+- **Business, as reported ([TechCrunch, 2026-06-04](../sources/techcrunch-hello-robot-homes-2026.md))**: Stretch 4 built in **Martinez, CA**; **200–300 units** planned, **first run sold out**; a design criterion is that it **ships in a cardboard box via UPS/DHL**. Customer segments: researchers, enterprise pilots (data centers), in-home-aide developers. TechCrunch names **Kemp as CTO** and Edsinger as *"a former director of robotics at Google"*. Autonomy is deliberately limited: *"Being in control is a feature."* A next, cheaper bot is planned from the Stretch 4 rollout.
+- **Second named in-home quadriplegic user**: board member **Keith Platt** (since 2024) — voice-driven iPhone app, autonomous navigation + teleoperated manipulation; protein-shake self-serve fell from ~2 h to minutes with practice ([TechCrunch](../sources/techcrunch-hello-robot-homes-2026.md)).
 
 ## Why it matters
 Hello Robot fills a niche the NVIDIA-centric simulation stack doesn't: **affordable, real-world, mobile-manipulation hardware that academic researchers can actually deploy**. Sim-trained policies need a target platform, and the agentic-robotics community has converged on Stretch.
@@ -35,3 +38,4 @@ Hello Robot fills a niche the NVIDIA-centric simulation stack doesn't: **afforda
 - [Robot Utility Models Paper](../sources/robot-utility-models-paper.md)
 - [IEEE Spectrum — Stretch assistive robot](../sources/ieee-spectrum-stretch-assistive.md)
 - [HomeRobot / OVMM](../sources/ovmm-homerobot.md)
+- [TechCrunch — Is Silicon Valley ready to put robots in people's homes? Hello Robot is.](../sources/techcrunch-hello-robot-homes-2026.md) — production numbers, the Platt deployment, autonomy-as-feature, Kemp as CTO.

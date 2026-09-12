@@ -2,8 +2,8 @@
 title: Assistive Robotics
 type: concept
 created: 2026-05-09
-updated: 2026-08-26
-sources: 34
+updated: 2026-09-12
+sources: 35
 tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot, accessibility]
 ---
 
@@ -74,6 +74,8 @@ A key finding from the [HCR Lab](../../entities/hcrlab.md) ([Maya Cakmak](../../
 
 The 2025 RO-MAN paper "Preserving Sense of Agency: User Preferences for Robot Autonomy and User Control across Household Tasks" ([HCR Lab publications](../../sources/hcrlab-publications.md)) is the most recent work in this line.
 
+**The vendor says it too.** Hello Robot ships Stretch *"from the factory with limited autonomy"* on purpose — *"Being in control is a feature — it's desired to be embodied in the robot"* — and its board-member user Keith Platt describes the working pattern as autonomous navigation plus teleoperated manipulation, with a self-serve task falling from ~2 hours to minutes as *he* learned it ([TechCrunch, 2026](../../sources/techcrunch-hello-robot-homes-2026.md)). The design pattern the review recommends is the one the only in-home vendor actually ships.
+
 ## Communication and the output-interface gap
 
 The [PAR review](../../sources/nanavati2024-physically-assistive-robots-review.md) §6.1.3 flags **output interfaces** — how the robot communicates state and intent back to the user — as comparatively under-researched. [Huh et al. 2026](../../sources/huh2026-accessible-robot-comm.md) is the direct response for blind users: it shows that blind users systematically overestimate their situational awareness during silent autonomous execution (avg 7.5 inaccuracies per task) and overwhelmingly prefer **mixed-initiative narration** (proactive + question answering) over reactive answer-only modes. The full body of findings is summarized in the [Accessible robot communication](accessible-robot-communication.md) concept page.
@@ -125,3 +127,4 @@ The navigation-domain counterpart is [DRAGON (Liu et al. 2024)](../../sources/dr
 - [Domestic Robots and the Dream of Automation (Schneiders et al. 2021)](../../sources/schneiders2021-domestic-robots-automation.md)
 - [Aging in Place: Growing Older at Home (NIA)](../../sources/nia-aging-in-place.md)
 - [Zeroth M1 — product page](../../sources/zeroth-m1-product-page.md)
+- [TechCrunch — Hello Robot in homes](../../sources/techcrunch-hello-robot-homes-2026.md) — autonomy-as-feature stated by the vendor; the Platt deployment.

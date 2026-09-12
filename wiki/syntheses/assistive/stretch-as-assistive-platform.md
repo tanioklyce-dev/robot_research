@@ -2,7 +2,7 @@
 title: Stretch as the de-facto assistive-robotics platform
 type: synthesis
 created: 2026-05-09
-updated: 2026-07-09
+updated: 2026-09-12
 tags: [stretch, hello-robot, assistive-robotics, research-platform, mobile-manipulation, eup, hcrlab]
 ---
 
@@ -95,7 +95,7 @@ Decision framing for an independent researcher or small lab:
 
 - **When does Reachy 2 catch up?** Reachy 2 has the right values (open source, ROS 2, French academic-friendly vendor) but no in-home assistive deployments yet ([Reachy 2 source](../../sources/pollen-robotics-reachy.md)). Plausibly the next-platform candidate if Hello Robot stalls.
 - **When does an affordable humanoid (G1, NEO) get a credible assistive demonstration?** Currently no humanoid has a long-deployment in-home assistive case in the wiki. The form factor is right; the maturity isn't yet.
-- **Will Hello Robot ship a Stretch 4?** Generation cadence has been 2018 → RE1 → RE2 → 3. Stretch 4 should be in pipeline. The wiki has no source on its specs or timeline.
+- ~~**Will Hello Robot ship a Stretch 4?**~~ **Shipped 2026-05-12** ([launch](../../sources/hello-robot-stretch-4-launch.md); $29,950, holonomic base, 3-DOF wrist). [TechCrunch](../../sources/techcrunch-hello-robot-homes-2026.md) (2026-06): 200–300 units, first run sold out, and a paying quadriplegic user on the board — the commercial half of this page's argument.
 
 ---
 
@@ -113,6 +113,7 @@ Decision framing for an independent researcher or small lab:
 - [Sense of Agency (Yang et al. 2025)](../../sources/yang2025-sense-of-agency.md).
 - [Grasping in Clutter IVFP (Murray et al. 2024)](../../sources/murray2024-grasping-clutter-ivfp.md).
 - [Feeding System Out-of-lab (Nanavati et al. 2025)](../../sources/nanavati2025-feeding-out-of-lab.md).
+- [TechCrunch — Is Silicon Valley ready to put robots in people's homes? Hello Robot is. (2026)](../../sources/techcrunch-hello-robot-homes-2026.md) — production numbers, the Platt deployment, autonomy as a feature.
 
 ## Related
 

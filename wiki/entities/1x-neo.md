@@ -3,8 +3,8 @@ title: 1X NEO
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-05-10
-sources: 2
+updated: 2026-09-12
+sources: 3
 tags: [1x-neo, humanoid, bipedal, household, consumer, redwood-ai, norway]
 ---
 
@@ -48,3 +48,4 @@ The **tendon-driven / soft-touch / quiet** design philosophy is a deliberate hou
 
 ## Mentioned in
 - [1X NEO product page](../sources/1x-neo-product-page.md)
+- [TechCrunch — Hello Robot in homes](../sources/techcrunch-hello-robot-homes-2026.md) — as of 2026-06-04, 1X *"says that it sold out of the 10,000 Neos it plans to build this year, but as of yet, none have actually been delivered."*

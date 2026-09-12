@@ -3,8 +3,8 @@ title: Stretch
 type: entity
 subtype: product
 created: 2026-05-07
-updated: 2026-05-25
-sources: 28
+updated: 2026-09-12
+sources: 29
 tags: [stretch, stretch-3, stretch-4, mobile-manipulation, hello-robot, research-robot, holonomic-base, lidar, ros2-jazzy, hesai-lidar, luxonis, feetech]
 ---
 
@@ -108,3 +108,4 @@ These were all demonstrated on **Stretch 2 / 3**; whether they transfer to Stret
 - [Sense of Agency — Yang et al. 2025](../sources/yang2025-sense-of-agency.md)
 - [Grasping in Clutter IVFP — Murray et al. 2024](../sources/murray2024-grasping-clutter-ivfp.md)
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **Stretch-3 is one of 8 natively-supported [LeRobot](lerobot.md) platforms** (§3.1) — the mobile-manipulator anchor of the platform list alongside [LeKiwi](lekiwi.md) at the low end.
+- [TechCrunch, 2026-06-04](../sources/techcrunch-hello-robot-homes-2026.md) — Stretch 4 at ~$30k, 200–300 units, first run sold out; Keith Platt's in-home use (nav autonomous, manipulation teleoperated); Shafiullah's verdict that hardware for homes is *"abysmal"* and Stretch is the exception because it is *"designed to be around people first."*

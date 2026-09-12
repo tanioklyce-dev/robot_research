@@ -3,12 +3,12 @@ title: Mahi Shafiullah
 type: entity
 subtype: person
 created: 2026-05-08
-updated: 2026-05-16
-sources: 8
+updated: 2026-09-12
+sources: 9
 tags: [person, nyu, hello-robot, robot-learning, dobb-e, rum, shafiullah]
 ---
 
-**Nur Muhammad "Mahi" Shafiullah** — researcher at NYU + Hello Robot Inc. **Lead author on [Robot Utility Models](robot-utility-models.md)** (RUM, 2024) and **Dobb·E** (2023). Both projects share the same engineering thesis: low-cost commodity robots ([Stretch](stretch.md)) + carefully-collected diverse data + zero-shot deployment, no fine-tuning per environment. RUM's headline 90% success rate is largely his system.
+**Nur Muhammad "Mahi" Shafiullah** — researcher at NYU + Hello Robot Inc.; **as of June 2026 a postdoc at UC Berkeley working on robotic hands** ([TechCrunch](../sources/techcrunch-hello-robot-homes-2026.md)). **Lead author on [Robot Utility Models](robot-utility-models.md)** (RUM, 2024) and **Dobb·E** (2023). Both projects share the same engineering thesis: low-cost commodity robots ([Stretch](stretch.md)) + carefully-collected diverse data + zero-shot deployment, no fine-tuning per environment. RUM's headline 90% success rate is largely his system.
 
 ## Papers in this wiki
 - **[Robot Utility Models Paper](../sources/robot-utility-models-paper.md)** (Etukuru, Naka, Hu, Lee, Mehu, Edsinger, Paxton, Chintala, Pinto, Shafiullah — Sep 2024) — **co-equal lead** with Etukuru. Corresponding author: mahi@cs.nyu.edu.
@@ -34,6 +34,7 @@ The **dual NYU + Hello Robot affiliation** is structurally interesting: one foot
 - [Robot Utility Models Project Page](../sources/robot-utility-models-website.md)
 - [OK-Robot Project Page](../sources/ok-robot-project-page.md)
 - [BET Paper](../sources/bet-paper.md)
+- [TechCrunch — Hello Robot in homes](../sources/techcrunch-hello-robot-homes-2026.md) — quoted as a Stretch-3 PhD user: *"the state of hardware today is actually abysmal"* for homes; *"data is actually like 80% of the ingredient"*; CVPR 2025 best-demonstration prize for models built with Stretch (unnamed).
 
 ## Open questions / TBD
 - Lab/group at NYU not directly cited; PhD advisor inferred (Pinto is co-senior).

@@ -3,8 +3,8 @@ title: Waymo
 type: entity
 subtype: company
 created: 2026-07-13
-updated: 2026-07-13
-sources: 2
+updated: 2026-09-12
+sources: 3
 tags: [company, autonomous-driving, self-driving, alphabet, world-model, simulation]
 ---
 
@@ -26,3 +26,4 @@ Waymo is the autonomous-driving-domain analog to the manipulation-robotics compa
 
 - [The Waymo World Model blog](../sources/waymo-world-model.md)
 - [Stanford HAI — AI Index Report 2026](../sources/stanford-hai-ai-index-2026.md) (Waymo cited in AV context)
+- [TechCrunch — Hello Robot in homes](../sources/techcrunch-hello-robot-homes-2026.md) — Edsinger's self-comparison: Hello Robot as the Waymo of home robots, safety-first.

@@ -2,7 +2,7 @@
 title: Levels of autonomy in assistive robotics
 type: synthesis
 created: 2026-05-09
-updated: 2026-07-09
+updated: 2026-09-12
 tags: [assistive-robotics, autonomy, sense-of-agency, eup, hcrlab, variable-loc, hri]
 ---
 
@@ -83,6 +83,8 @@ This design pattern is what HCR Lab actually ships. The EUP toolchain has been t
 
 ---
 
+**A shipped instance (added 2026-09-12).** [TechCrunch's Hello Robot feature](../../sources/techcrunch-hello-robot-homes-2026.md) describes exactly this split in a paying user's home: Keith Platt tasks Stretch to *navigate autonomously* to a room by voice, then *takes direct control to manipulate*. The vendor calls the limited autonomy intentional — *"Being in control is a feature."*
+
 ## Tension with mainstream robot-learning research
 
 Mainstream robot-learning aims for **fully autonomous, language-conditioned policies** — VLAs, RUMs, OK-Robot's open-vocabulary fetching. The Yang 2025 result implies that for assistive use, *handing a fully autonomous policy a verbal command from a third party* (the typical research deployment shape) is exactly the case that **reduces** sense of agency the most: the user is neither programming nor operating.
@@ -120,6 +122,8 @@ This does not mean the policies are useless — RUM-class policies can become *p
 - [Maya Cakmak Research Overview](../../sources/maya-cakmak-research.md)
 - [HCR Lab Publications](../../sources/hcrlab-publications.md)
 - [End-user robot programming concept](../../concepts/robotics/end-user-robot-programming.md)
+
+- [TechCrunch — Hello Robot in homes (2026)](../../sources/techcrunch-hello-robot-homes-2026.md) — the pattern as shipped and used.
 
 ## Related
 
