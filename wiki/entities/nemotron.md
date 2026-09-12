@@ -3,8 +3,8 @@ title: Nemotron
 type: entity
 subtype: model
 created: 2026-08-28
-updated: 2026-08-28
-sources: 3
+updated: 2026-09-12
+sources: 4
 tags: [nemotron, nvidia, open-weights, moe, edge-agents, dgx-spark, jetson, asr, nvfp4]
 ---
 
@@ -45,6 +45,7 @@ A speech-recognition model in the same family. Runs **[Portable Computer](perple
 
 - [NVIDIA Local AI blog series, Aug 2026](../sources/nvidia-local-ai-blog-series-2026-08.md) — the 3.5 Lightning launch and its deployment matrix.
 - [A Local-First Agent for Private and Cost-Effective Knowledge Work](../sources/perplexity-local-first-agent-research.md) — third-party placement of Lightning in the capable-small-model class.
+- [Post-train Cosmos 3 Edge](../sources/nvidia-cosmos3-edge-post-training-blog.md) — Cosmos 3 Edge's reasoner tower is stated as a **2B Nemotron-based** model, where the Cosmos 3 report described the family's reasoner as Qwen3-VL-initialised; unresolved.
 
 ## Open questions
 

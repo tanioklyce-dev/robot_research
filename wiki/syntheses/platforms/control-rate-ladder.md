@@ -2,7 +2,7 @@
 title: The control-rate ladder — LLMs, VLAs, and servo loops on one axis
 type: synthesis
 created: 2026-07-27
-updated: 2026-09-07
+updated: 2026-09-12
 tags: [latency, inference, control-frequency, vla, llm-agent, edge-ai, jetson, action-chunking, control-abstraction-levels, platforms, turbovla, llm-free-vla]
 ---
 
@@ -50,7 +50,7 @@ This page lines them up. The short version: **the full span is about five orders
 | **22–24** | MEAS | GR00T N1.6, community CUDA kernels | [Jetson Thor](../../entities/jetson-thor.md) |
 | **20** | CAP | [Fourier GR-1](../../entities/fourier-gr-1.md) teleop capture (VIVE + Metagloves); table-bussing capture | real rigs |
 | **15** | CAP | [DROID](../../entities/droid.md) capture rate | dataset |
-| **15** | MEAS | **[Cosmos 3 Edge](../../sources/nvidia-cosmos3-edge-hf-blog.md) (4B world model)**, 32 actions/inference @ 640×360 — vendor-reported | [Jetson Thor](../../entities/jetson-thor.md) |
+| **15** | CAP | **[Cosmos 3 Edge](../../sources/nvidia-cosmos3-edge-hf-blog.md) action *playback* rate** — 32 actions per chunk at 15 Hz. **Not an inference rate** (corrected 2026-09-12; see the ~0.65 row) | [Jetson Thor](../../entities/jetson-thor.md) |
 | **~12.5** | MEAS | **[FLUX-mimic](../../sources/flux-3-launch.md) backbone** — input → world representation in **<80 ms**; *"backbone depth is the dominant driver of deployment latency"* | single **RTX 5090** |
 | **~9.9** | MEAS | **[FLUX-mimic](../../sources/flux-3-launch.md) full system, 101 ms reaction time** — backbone + action decoder + sensor/actuator IPC + **real-time chunking** (prediction overlaps execution). **Deployed at Audi on insertion and cable handling** | mimic robot, self-contained |
 | **10.9** | MEAS | GR00T N1.6, official TensorRT | Jetson Thor |
@@ -71,6 +71,7 @@ This page lines them up. The short version: **the full span is about five orders
 | **1.3** | MEAS | [FAST](../../entities/fast-action-tokenization.md) autoregressive decode, ~750 ms/1 s chunk | RTX 4090 |
 | **1** | REQ | **[Nav2](../../entities/nav2.md) global replanning** — `RateController hz="1.0"` in the shipped default [behavior tree](../../concepts/robotics/behavior-trees.md) | ROS 2, production |
 | **~1** | MEAS | Agent heartbeats — [AgenticROS](../../entities/agenticros.md), [ros2-mcp-server](../../entities/ros2-mcp-server.md) capability beacons | Orin NX |
+| **~0.65** | MEAS | **[Cosmos 3 Edge (4B) policy](../../sources/nvidia-cosmos3-edge-post-training-blog.md)** — **1.53 s per 32-action chunk**, 640×540, replans after a prefix; vendor-reported, fully on-robot | [Jetson Thor](../../entities/jetson-thor.md) T5000 |
 | **0.5** | MEAS | SmolVLA on **CPU**, 2,028 ms | CPU |
 | **0.2–0.4** | **MEAS** | **Frontier LLM, non-reasoning** (2–8 s text; 5–15 s with images; **15–180 s with reasoning**) | [robotics eval](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) |
 
@@ -83,7 +84,7 @@ This page lines them up. The short version: **the full span is about five orders
 >
 > Two things it shows. **(1) Parameter count is a poor latency predictor**: [Evo-1](../../entities/evo-1.md) at 0.8 B (137.2 ms) is *4.4× slower* than TurboVLA at 0.2 B (31.2 ms), and slower than π0.5 at 3.4 B — because it keeps a pretrained multimodal backbone in the loop. What costs time is **what is in the pathway**, not how many weights are in the file. **(2) The 4090 numbers land a full band below where desktop-GPU intuition puts them** — π0.5 on a 4090 runs at 10.7 Hz, essentially the same as GR00T on a Jetson Thor. The "just use a big GPU" escape from Band C is smaller than it looks; changing the architecture moved a policy three times further than changing the silicon.
 
-**Band B — reactive policy, ~10–60 Hz (achievable, barely, at the edge).** [ACT](../../entities/act.md) at 27.8 Hz on an Orin Nano is the wiki's only edge policy comfortably here. Thor gets GR00T to 22–24 Hz with hand-written kernels, and **[Cosmos 3 Edge](../../sources/nvidia-cosmos3-edge-hf-blog.md) reports 15 Hz on Thor for a 4B *world* model** (2026-07-20) — the first 2026-class edge number in this band, and notably above official-TensorRT GR00T on the same board. MolmoAct2's 55.8 Hz belongs to this band only on an **H100** — a caveat the [deployability landscape](vla-deployability-landscape.md) already flags.
+**Band B — reactive policy, ~10–60 Hz (achievable, barely, at the edge).** [ACT](../../entities/act.md) at 27.8 Hz on an Orin Nano is the wiki's only edge policy comfortably here. Thor gets GR00T to 22–24 Hz with hand-written kernels. **Cosmos 3 Edge is not in this band** — its launch blog's "15 Hz" turned out to be the playback rate of a 32-action chunk that takes **~1.53 s** to generate ([post-training tutorial](../../sources/nvidia-cosmos3-edge-post-training-blog.md), corrected here 2026-09-12); it sits in the open-loop-chunk band at ~0.65 Hz. MolmoAct2's 55.8 Hz belongs to this band only on an **H100** — a caveat the [deployability landscape](vla-deployability-landscape.md) already flags.
 
 **TurboVLA at 32.1 Hz is the first entry in Band B that is a *general language-conditioned VLA on a single consumer GPU*** — ACT gets there by having no language conditioning, MolmoAct2 by using an H100, GR00T by hand-written Thor kernels. Its 0.9 GB inference footprint also makes it the only VLA in this table that would *fit* an [Orin Nano](../../entities/jetson-orin-nano.md) 8 GB without contortion. **No edge measurement exists**, and a 4090 is not an Orin — the Cutting-the-Cord numbers show edge boards costing roughly an order of magnitude against desktop parts — so the honest expectation is Band C, not Band B, on a Nano. That measurement is the most valuable single experiment this page could acquire. See [LLM-free VLA](../../concepts/learning/llm-free-vla.md).
 
@@ -126,7 +127,7 @@ Neither separation is closed by faster inference. Three mechanisms do the work, 
 
 - **No row is a controlled comparison.** Hardware, precision, batch size, chunk length, and image count all vary. Treat bands as real and individual gaps as approximate.
 - **The Anthropic 0.2–0.4 Hz figure is API-served frontier-model latency**, not an optimized on-robot deployment. Nobody has measured a small local LLM in a robot control loop in any ingested source — the nearest things are 1 Hz agent *heartbeats* ([AgenticROS](../../entities/agenticros.md), [ros2-mcp-server](../../entities/ros2-mcp-server.md)), which are status beacons, not control.
-- **Almost no 2026-class VLA has an on-Jetson number.** [Cosmos 3 Edge](../../sources/nvidia-cosmos3-edge-hf-blog.md)'s 15 Hz on Thor is the first, and it is a vendor self-report at 640×360 whose end-to-end scope is unclear. MolmoAct2's 55.8 Hz is H100-only; the [deployability landscape](vla-deployability-landscape.md) flags this and the [Jetson ladder](jetson-module-ladder-power-performance.md) holds the sparse edge numbers. The single most valuable missing measurement in this whole area is **MolmoAct2 (or any 2026-class VLA) on Thor**.
+- **Almost no 2026-class VLA has an on-Jetson number.** [Cosmos 3 Edge](../../sources/nvidia-cosmos3-edge-hf-blog.md)'s Thor number is the first, and once the [tutorial](../../sources/nvidia-cosmos3-edge-post-training-blog.md) gave the actual latency (1.53 s per chunk) it is a ~0.65 Hz replanner, not a 15 Hz policy — a reminder that a vendor "Hz" needs the unit it counts. MolmoAct2's 55.8 Hz is H100-only; the [deployability landscape](vla-deployability-landscape.md) flags this and the [Jetson ladder](jetson-module-ladder-power-performance.md) holds the sparse edge numbers. The single most valuable missing measurement in this whole area is **MolmoAct2 (or any 2026-class VLA) on Thor**.
 
   > [!note] Update 2026-08-03 — the *memory* half of this gap is now answerable, the *rate* half is not
   > Ingesting the [MolmoAct2 repo](../../sources/molmoact2-github-repo.md) and [SO-100/101 card](../../sources/molmoact2-so100-101-model-card.md) supplies footprints but no throughput: the SO-100/101 checkpoint is **5B params, ~24–26 GB float32, ~16 GB bf16**; YAM under 16 GB bf16; DROID ~88 GB float32. Tested hardware is **RTX A6000 and Intel XPU — no Jetson build, benchmark, or mention anywhere in the repo.**
@@ -152,3 +153,4 @@ Neither separation is closed by faster inference. Three mechanisms do the work, 
 
 ## Mentioned in
 - [Embodied AI — AI House Davos 2026 (LeCun)](../../sources/ai-house-davos-2026-lecun-embodied-ai.md) — the human numbers he gives for the ladder: retina ~15 Hz, brain ~10 Hz, ~300 ms see-to-brake; *"cats are faster"*; and *"every single real-time vision system uses convolutional nets"* — the AEB in every car sold in Europe.
+- [Post-train Cosmos 3 Edge for on-device robot control](../../sources/nvidia-cosmos3-edge-post-training-blog.md) — the Cosmos 3 Edge row corrected from 15 Hz to ~0.65 Hz replanning (1.53 s per 32-action chunk).

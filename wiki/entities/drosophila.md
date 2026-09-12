@@ -3,8 +3,8 @@ title: Drosophila melanogaster
 type: entity
 subtype: model-organism
 created: 2026-05-08
-updated: 2026-05-10
-sources: 6
+updated: 2026-09-12
+sources: 7
 tags: [drosophila, fruit-fly, model-organism, neuroscience, biomechanics]
 ---
 
@@ -37,3 +37,4 @@ The wiki cares about *Drosophila* not as biology per se but as **the smallest or
 - [Lappalainen et al. 2024 — Connectome-constrained networks (fly visual system)](../sources/lappalainen-flyvis-paper.md)
 - [flygym GitHub (NeLy-EPFL/flygym)](../sources/flygym-github.md)
 - [neuromechfly.org website](../sources/neuromechfly-website.md)
+- [Google — male fruit fly brain map](../sources/google-male-fruit-fly-brain-map-blog.md) — first complete male CNS connectome, brain + ventral nerve cord.

@@ -2,8 +2,8 @@
 title: Connectome
 type: concept
 created: 2026-05-08
-updated: 2026-07-23
-sources: 4
+updated: 2026-09-12
+sources: 5
 tags: [connectome, neuroscience, brain-mapping, biological-ai, drosophila]
 ---
 
@@ -15,6 +15,7 @@ A **connectome** is a complete wiring diagram of a nervous system — every neur
 - ***Drosophila* hemibrain** (~25k neurons) — Janelia 2020. Half-brain at synaptic resolution.
 - ***Drosophila* MANC / FANC** — male/female adult ventral nerve cord, 2024.
 - ***Drosophila* whole brain** — [FlyWire](../../entities/flywire.md), October 2024. **139,255 neurons, ~50M synapses.** First complete adult-brain connectome of any organism.
+- ***Drosophila* whole CNS, male** — HHMI Janelia + Google Research, September 2026 ([Google blog](../../sources/google-male-fruit-fly-brain-map-blog.md)). **>166,000 neurons, 11,691 cell types, brain *and* ventral nerve cord from one animal** — the first complete adult central nervous system, and the first male. Adds the sex-specific and *dimorphic* (present in both sexes, wired differently) neuron classes, and a complete visual-to-motor pathway in one dataset. Secondary source; primaries not yet ingested.
 - **Mouse and human** — current frontier targets, multiple orders of magnitude harder (~70M neurons in mouse, ~86B in human). Berkeley News' Phil Shiu names mouse as the next stop and human as the long-term ambition ([Berkeley News](../../sources/berkeley-fly-brain-news.md)).
 - **Human — [H01](../../entities/h01-connectome.md)** (Lichtman Lab / Google, *Science* 2024). A **1.4-petabyte, ~1 mm³** EM reconstruction of human cortex — **tens of thousands of neurons, 183M synapses, 100 proofread cells** ([H01 release](../../sources/h01-human-cortex-reconstruction.md)). Crucially it is a **dense fragment, not a complete connectome**: it makes the human scale concrete (petabytes for a pinhead of cortex) without yet being the whole-circuit artifact the two AI pathways below require.
 
@@ -61,3 +62,4 @@ Connectomes are the **brain side** of the whole-organism agentic-AI program (the
 - [flybody Paper](../../sources/flybody-paper.md)
 - [Shiu et al. 2024 — A Drosophila computational brain model](../../sources/shiu-fly-brain-paper.md)
 - [Lappalainen et al. 2024 — Connectome-constrained networks (fly visual system)](../../sources/lappalainen-flyvis-paper.md)
+- [Google — male fruit fly brain map](../../sources/google-male-fruit-fly-brain-map-blog.md) — first complete adult CNS (brain + VNC), male; the dataset a brain-to-body fly simulation would need.

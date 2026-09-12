@@ -3,8 +3,8 @@ title: SO-ARM101 (SO-ARM100 lineage)
 type: entity
 subtype: robot
 created: 2026-05-10
-updated: 2026-09-07
-sources: 36
+updated: 2026-09-12
+sources: 37
 tags: [so-arm, so-arm100, so-arm101, the-robot-studio, low-cost-arm, open-source, lerobot, leader-follower, teleoperation]
 ---
 
@@ -70,6 +70,7 @@ The leader-follower convention is the dominant data-collection pattern for imita
 - [Gemini Robotics On-Device 2 model card](../sources/gemini-robotics-on-device-2-model-card.md) — **SO101: 53.3% (v2) vs 6.7% (v1)** — the on-device tier went from unusable to plausibly useful on this arm class in one generation. Three frontier-lab lines now publish SO-10x results (MolmoAct2, GR 2 cloud, GRoD v2).
 - [Larchenko — LeHome deep dive, Part 1](../sources/larchenko-lehome-part1-rl-for-vlas.md) — **the designated arm of the [LeHome Challenge 2026](lehome-challenge-2026.md)**, bimanual, folding four garment types; the winner's account of its limits (*backlash; a gripper that sometimes cannot hold fabric; every assembly and calibration behaves slightly differently*) and of a policy that transferred to an organiser-owned unit he had never touched.
 - [Learning to Fold — tech report](../sources/larchenko-learning-to-fold-tech-report.md) — **a units gotcha for this arm**: between two LeRobot 0.4.x releases the follower's default state switched from a normalised −100…100 range to **degrees**, visually near-identical and ~10 % off per joint. Also: 30 Hz in sim vs 20 Hz real in the challenge; a competition policy that survived rig drift once cameras, calibration and lighting were deliberately varied during data collection.
+- [Post-train Cosmos 3 Edge](../sources/nvidia-cosmos3-edge-post-training-blog.md) — **the Cosmos 3 Edge model card lists LeRobot SO101 as a supported embodiment**, the first NVIDIA world-action-model recipe to name this arm. Named only; no data, config, or score shown.
 
 ## Open questions / TBD
 

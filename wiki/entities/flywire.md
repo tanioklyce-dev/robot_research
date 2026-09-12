@@ -3,8 +3,8 @@ title: FlyWire
 type: entity
 subtype: dataset-consortium
 created: 2026-05-08
-updated: 2026-05-10
-sources: 5
+updated: 2026-09-12
+sources: 6
 tags: [flywire, connectome, drosophila, neuroscience, brain-mapping]
 ---
 
@@ -13,7 +13,7 @@ tags: [flywire, connectome, drosophila, neuroscience, brain-mapping]
 ## Scope
 
 - **Brain only** — does not include the ventral nerve cord (VNC). VNC connectomes for male and female *Drosophila* are released separately by other groups (Azevedo, Cheong, Marin, Takemura — see [flybody Paper](../sources/flybody-paper.md) refs 55–58).
-- **Adult female fly.** Whole-brain reconstruction at synaptic resolution.
+- **Adult female fly.** Whole-brain reconstruction at synaptic resolution. **Male counterpart (2026-09):** HHMI Janelia + Google Research released a complete *male* brain **plus VNC** map, >166k neurons, which Google describes as building on FlyWire ([Google blog](../sources/google-male-fruit-fly-brain-map-blog.md)).
 
 ## Anchor papers (October 2024, all *Nature*)
 
@@ -48,3 +48,4 @@ NIH BRAIN Initiative, Wellcome, Medical Research Council, Princeton, NSF.
 - [Berkeley News — researchers simulate an entire fly brain on a laptop](../sources/berkeley-fly-brain-news.md)
 - [flybody Paper](../sources/flybody-paper.md) (cited as future brain-side integration)
 - [Shiu et al. 2024 — A Drosophila computational brain model](../sources/shiu-fly-brain-paper.md) (the connectome is the input)
+- [Google — male fruit fly brain map](../sources/google-male-fruit-fly-brain-map-blog.md) — the male brain + VNC map that "builds on" the FlyWire female brain map.

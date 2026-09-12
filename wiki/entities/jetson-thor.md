@@ -3,8 +3,8 @@ title: Jetson Thor
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-08-27
-sources: 45
+updated: 2026-09-12
+sources: 46
 tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai, jetpack-7, nvfp4, mig, t3000, t2000, igx]
 ---
 
@@ -133,9 +133,9 @@ First real numbers (previously an open question on this page). End-to-end, batch
 | GR00T N1.6-3B | Official TensorRT (DiT head only, BF16) | 92 ms | **10.9 Hz** | [Isaac GR00T TensorRT docs](../sources/isaac-gr00t-tensorrt-deployment-docs.md) |
 | GR00T N1.6 | Community hand-written CUDA kernels | 41–45 ms | **22–24 Hz** | [NVIDIA forums (May 2026)](../sources/nvidia-forum-thor-realtime-vla-inference.md) |
 | π0.5 | Community hand-written CUDA kernels | 44 ms | 23 Hz | [NVIDIA forums (May 2026)](../sources/nvidia-forum-thor-realtime-vla-inference.md) |
-| **Cosmos 3 Edge (4B)** | NVIDIA-reported, 640×360, 32 actions/inference | — | **15 Hz** | [Cosmos 3 Edge HF blog](../sources/nvidia-cosmos3-edge-hf-blog.md) (2026-07-20) |
+| **Cosmos 3 Edge (4B) policy** | NVIDIA-reported, AGX Thor T5000, 640×540, **32-action chunk** | **~1.53 s / chunk** | **~0.65 Hz** replanning; 15 Hz is the *playback* rate of the chunk | [Post-training tutorial](../sources/nvidia-cosmos3-edge-post-training-blog.md) (2026-08-19), correcting the reading of the [HF launch blog](../sources/nvidia-cosmos3-edge-hf-blog.md) |
 
-**Cosmos 3 Edge lands above official-TensorRT GR00T on the same board** (15 vs 10.9 Hz) from a model that is a *world* model, not only a policy — but it is a vendor self-report at low resolution (640×360), and the 32-actions-per-inference chunking means 15 Hz is an *inference* rate, not necessarily a closed-loop control rate. See the [control-rate ladder](../syntheses/platforms/control-rate-ladder.md).
+**Cosmos 3 Edge does not land above GR00T on this board — corrected 2026-09-12.** The launch blog's "15 Hz" was read here as an inference rate; NVIDIA's own [post-training tutorial](../sources/nvidia-cosmos3-edge-post-training-blog.md) gives **~1.53 s per 32-action chunk**, with 15 Hz being the rate at which the chunk's actions play out (~2.13 s of motion). On the inference axis the Edge policy replans at **~0.65 Hz** — an open-loop-chunk policy like π0's 50-step chunks, not a reactive one. The trade NVIDIA states is explicit: a 4B *world* model fully on-robot (~9 GB BF16) at 22.9% on RoboLab, versus Nano's 36.8% off-robot. Deployment note from the same post: **`TORCHDYNAMO_DISABLE=1` is required on Thor** because stock Triton wheels lack sm_110a kernels — a second Thor software-maturity workaround beside the cuBLASLt patch above. See the [control-rate ladder](../syntheses/platforms/control-rate-ladder.md).
 
 Thor's official TensorRT speedup (1.27×) is the weakest in NVIDIA's own table (desktop GPUs get 1.73–2.14×) and no NVFP4/FP8 GR00T path exists yet — i.e. the official engine is under-tuned for Blackwell-on-Jetson and the community ~23 Hz is the better estimate of Thor's current ceiling. No N1.7-specific numbers published yet (horizon-40 action head may cost more). Cross-platform comparison: [GR00T inference on Jetson](../syntheses/platforms/gr00t-inference-on-jetson.md) (AGX Orin 64 GB manages 5.8 Hz TensorRT; Orin NX 16 GB unbenchmarked and below the 16 GB+ memory floor).
 
@@ -190,3 +190,4 @@ See [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.m
 - [Isaac GR00T docs — TensorRT optimization](../sources/isaac-gr00t-tensorrt-deployment-docs.md) — first official GR00T-on-Thor latency (92 ms / 10.9 Hz TensorRT, N1.6).
 - [NVIDIA forums — real-time VLA inference on Thor & RTX](../sources/nvidia-forum-thor-realtime-vla-inference.md) — community 22–24 Hz GR00T N1.6 / 23 Hz π0.5 on Thor via custom CUDA kernels.
 - [NVIDIA + HF LeRobot partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md) — Thor + Reachy 2 integration for open-humanoid VLA deployment.
+- [Post-train Cosmos 3 Edge for on-device robot control](../sources/nvidia-cosmos3-edge-post-training-blog.md) — 1.53 s per 32-action chunk on AGX Thor T5000; ~9 GB BF16 weights; the Triton/sm_110a workaround; the on-Thor policy server.

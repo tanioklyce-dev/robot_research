@@ -3,8 +3,8 @@ title: DROID
 type: entity
 subtype: dataset
 created: 2026-05-07
-updated: 2026-08-27
-sources: 32
+updated: 2026-09-12
+sources: 33
 tags: [droid, dataset, teleoperation, franka, robot-data, stanford, berkeley, oxe, molmoact2]
 ---
 
@@ -78,7 +78,7 @@ Both end up inside [X-VLA](x-vla.md)'s pretraining mixture — DROID at 31.6%, R
 
 ## Mentioned in
 
-> [!note] Curated list — **31** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **32** source pages link here; the ones below are those that shaped this page.
 - [Cosmos 3 Edge (HF blog)](../sources/nvidia-cosmos3-edge-hf-blog.md) — **Cosmos3-Edge-Policy-DROID** (4B), a DROID-finetuned manipulation policy shipped for on-robot deployment.
 - [FAST paper](../sources/fast-paper.md) — DROID's higher control frequency is what naïve action binning fails on; **FAST is what first makes efficient VLA training on DROID practical**, and enables the first **zero-shot DROID evaluation** in a completely unseen environment (language-prompted, no fine-tuning).
 - [DROID Paper](../sources/droid-paper.md)
@@ -87,3 +87,4 @@ Both end up inside [X-VLA](x-vla.md)'s pretraining mixture — DROID at 31.6%, R
 - [MolmoAct2 paper (Fang, Duan et al. 2026)](../sources/molmoact2-paper.md) — the quality-filtered MolmoAct2-DROID subset + zero-shot deployment.
 - [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — MolmoAct2-DROID (Franka) checkpoint; **~88 GB float32**, the largest footprint in the family, 3.4x the YAM config.
 - [Introducing Index (Figure AI)](../sources/figure-index-announcement.md) — Scale anchor: DROID's 350 h against [Index](figure-index.md)'s claimed 43,200 h/day ingest — **~12 minutes**. DROID is supervised and released; Index is neither.
+- [Post-train Cosmos 3 Edge](../sources/nvidia-cosmos3-edge-post-training-blog.md) — **`nvidia/Cosmos3-DROID`**: DROID repackaged as a success-only split in LeRobotDataset v3.0 at 640×360 — **76k trajectories, ~350 h, 86 tasks, 564 scenes** — and post-trained into the 4B Edge policy with 8-D absolute joint actions, no normalization.

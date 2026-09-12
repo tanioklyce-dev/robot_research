@@ -3,8 +3,8 @@ title: HHMI Janelia Research Campus
 type: entity
 subtype: research-institution
 created: 2026-05-08
-updated: 2026-08-30
-sources: 4
+updated: 2026-09-12
+sources: 5
 tags: [hhmi, janelia, neuroscience, drosophila, fly-brain, biomechanics, mhs, microscopy, lab-automation]
 ---
 
@@ -47,3 +47,4 @@ Notable for this wiki: **MHS enforces device-level safety limits**, which is wha
 - [flybody GitHub](../sources/flybody-github.md)
 - [Lappalainen et al. 2024 — Connectome-constrained networks (fly visual system)](../sources/lappalainen-flyvis-paper.md)
 - [Previewing the Model Hardware Standard](../sources/anthropic-model-hardware-standard-preview.md) — MHS originated on a Janelia microscope rig
+- [Google — male fruit fly brain map](../sources/google-male-fruit-fly-brain-map-blog.md) — lead institution on the first complete male *Drosophila* CNS connectome (>166k neurons, 11,691 types), with Google Research.

@@ -2,8 +2,8 @@
 title: Biomechanical simulation
 type: concept
 created: 2026-05-08
-updated: 2026-05-15
-sources: 7
+updated: 2026-09-12
+sources: 8
 tags: [biomechanics, animal-simulation, drosophila, mujoco, virtual-rodent, embodied-ai]
 ---
 
@@ -70,3 +70,4 @@ The 2024–2026 stretch is the inflection point — the [biomechanical-simulatio
 - [flybody GitHub](../../sources/flybody-github.md)
 - [flygym GitHub (NeLy-EPFL/flygym)](../../sources/flygym-github.md)
 - [neuromechfly.org website](../../sources/neuromechfly-website.md)
+- [Google — male fruit fly brain map](../../sources/google-male-fruit-fly-brain-map-blog.md) — a same-animal brain + VNC connectome, the brain-side dataset that flybody's roadmap (brain-side integration) was missing.

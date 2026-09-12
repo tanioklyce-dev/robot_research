@@ -3,8 +3,8 @@ title: RoboLab (NVIDIA SRL benchmark)
 type: entity
 subtype: benchmark
 created: 2026-07-16
-updated: 2026-07-27
-sources: 3
+updated: 2026-09-12
+sources: 4
 tags: [nvidia, srl, benchmark, evaluation, simulation, task-generalist, robot-policy, droid, physical-ai]
 ---
 
@@ -39,11 +39,23 @@ Also: **Neural Posterior Estimation** for sensitivity analysis (`p(θ|x)` over e
 
 **Productization:** RoboLab's features are being folded into **[Isaac Lab-Arena](nvidia-isaac-lab.md)**, stated for **August 2026**.
 
+## Scores held here
+
+| Policy | RoboLab-120 | Instruction level | Source |
+|---|---|---|---|
+| Cosmos3-Nano-Policy-DROID (16B) | **39.7%** | specific | [Cosmos 3 tech report](../sources/cosmos-3-technical-report.md), Table 19 |
+| π0.5 | 28.1% | specific | same |
+| Cosmos3-Nano | **36.8%** | unstated | [Edge post-training tutorial](../sources/nvidia-cosmos3-edge-post-training-blog.md), 2026-08-19 |
+| **Cosmos3-Edge-Policy-DROID (4B)** | **22.9%** | unstated | same — first published Edge score |
+
+No rollouts-per-task for any row, which by this page's own methodology (±2 pp ≈ 1,030 rollouts) means the 36.8-vs-39.7 Nano gap is noise-sized and the 16B→4B drop (~14 pp) is the only difference here large enough to trust in direction.
+
 ## Mentioned in
 
 - [RoboLab project page](../sources/nvidia-robolab-project.md) (RSS 2026)
 - [How to Evaluate General-Purpose Robot Policies for Real-World Deployment](../sources/nvidia-robolab-evaluation-blog.md) — the methodology blog (2026-07-11)
 - [NVIDIA Cosmos](nvidia-cosmos.md) — evaluated Cosmos 3 policies on RoboLab-120
+- [Post-train Cosmos 3 Edge for on-device robot control](../sources/nvidia-cosmos3-edge-post-training-blog.md) — RoboLab as the closed-loop evaluation for the Edge policy (22.9%; Nano 36.8%); the run commands.
 
 ## Related
 
