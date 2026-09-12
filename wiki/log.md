@@ -6050,3 +6050,8 @@ Three clusters: **contact-rich safety** ([survey](sources/safe-learning-contact-
 
 ## [2026-09-12] query | "Where is the 125 M connections figure from?"
 - Only the [Google Research post](../raw/2026-09-03-google-research-male-fly-connectome-blog.md) says it; HHMI, Janelia and the Keyword post say "millions." The [preprint](sources/male-cns-connectome-paper.md) gives 312 M detected PSDs and a 40.1% fraction of connections proofread at both ends; 312 × 0.401 = 125.1 M. Recorded on the source page as an inference; the Cell text is still needed to confirm.
+
+## [2026-09-12] revision | Male CNS connectome — Cell version of record supplied, page re-based
+- User added `raw/S0092-8674(26)00942-6.pdf` (Cell 189, 5504–5526; 51 pp; 111 authors). Existing [source page](sources/male-cns-connectome-paper.md) treated as a **revision, not a new ingest**: `local_path` now the Cell PDF, the bioRxiv v2 text kept under `local_path_superseded` / `sha256_superseded`, re-sealed.
+- Deltas preprint → journal: neurons 166,691 → 166,700; types 11,691 → 11,710; isomorphic / dimorphic / male-specific / female-specific 7,205 / 114 / 262 / 69 → 8,069 / 138 / 289 / 71; new statement of **124.2 M proofread synaptic connections** in a 25.6 M-edge graph between 166,483 neurons (217 isolated). The "125 M connections" in the Google post is this figure rounded — closing yesterday's inference (312 M PSDs × 40.1% = 125.1 M) with the primary.
+- Propagated to [connectome](concepts/bio/connectome.md), [FlyWire](entities/flywire.md), the [Google post page](sources/google-male-fruit-fly-brain-map-blog.md), index, backlog.

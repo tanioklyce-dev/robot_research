@@ -2,13 +2,15 @@
 title: "Sexual dimorphism in the complete Drosophila male central nervous system connectome (Berg, Beckett, Costa, Schlegel, Januszewski … Rubin, Jefferis; Cell 2026)"
 type: source
 url: https://doi.org/10.1016/j.cell.2026.08.015
-local_path: raw/2025-10-30-male-cns-connectome-biorxiv-v2.txt
-sha256: b5e7529ac96defbf3cd5fbf2b7de3df34ddeadec399318a1f19ec680a3c552aa
+local_path: raw/S0092-8674(26)00942-6.pdf
+sha256: 452bd9641520302cff0aa6c3d5e6f7778ad6799cfd1c5a803e7dad330020d630
+local_path_superseded: raw/2025-10-30-male-cns-connectome-biorxiv-v2.txt
+sha256_superseded: b5e7529ac96defbf3cd5fbf2b7de3df34ddeadec399318a1f19ec680a3c552aa
 author: "Stuart Berg*, Isabella R. Beckett*, Marta Costa*, Philipp Schlegel*, Michał Januszewski*, Elizabeth C. Marin*, Aljoscha Nern*, Stephan Preibisch*, Wei Qiu*, Shin-ya Takemura* … Harald F. Hess, Gerald M. Rubin†, Gregory S.X.E. Jefferis† (111 authors in the Cell version; 100 on the preprint)"
 affiliations: "HHMI Janelia FlyEM Project Team; MRC Laboratory of Molecular Biology and Dept. of Zoology, University of Cambridge (Cambridge Drosophila Connectomics Group); Google Research Connectomics (Zürich, Mountain View); Oxford, Champalimaud, Columbia, Harvard, CNR"
 published: 2026-09-03
-venue: "Cell (online 2026-09-03); preprint bioRxiv 10.1101/2025.10.09.680999 v1 2025-10-09, v2 2025-10-30 (PMC12636603, CC BY)"
-format: paper (journal version not obtained; preprint v2 full text ~35k words via Europe PMC JATS XML)
+venue: "Cell 189, 5504–5526 (online 2026-09-03); preprint bioRxiv 10.1101/2025.10.09.680999 v1 2025-10-09, v2 2025-10-30 (PMC12636603, CC BY)"
+format: paper (Cell version of record, 51-page PDF supplied by the user 2026-09-12; preprint v2 text retained as the superseded edition)
 doi: 10.1016/j.cell.2026.08.015
 project_page: https://male-cns.janelia.org/
 secondary_urls:
@@ -24,12 +26,12 @@ ingested: 2026-09-12
 
 ## Summary
 
-**The first complete, proofread, synaptic-resolution wiring diagram of an adult animal's entire central nervous system — brain, both optic lobes, and ventral nerve cord (VNC) from a single male fruit fly — and the first male fly brain.** Seven enhanced FIB-SEM microscopes imaged **160 teravoxels at 8 nm isotropic** over 13 months; Google's flood-filling networks segmented the volume; **44 person-years** of proofreading produced **166,691 neurons**, **11,691 cell types**, 46 M presynapses connected to 312 M postsynaptic densities, and a connectome graph of **25.6 M edges**. Because the **neck connective is intact**, the dataset joins what earlier datasets split — the female brain ([FlyWire](../entities/flywire.md), hemibrain) and the male/female nerve cords (MANC, FANC) — so *"full sensory-to-motor circuits"* can be traced in one animal, *"from eyes to legs in one go"* as Jefferis put it to Janelia's news office.
+**The first complete, proofread, synaptic-resolution wiring diagram of an adult animal's entire central nervous system — brain, both optic lobes, and ventral nerve cord (VNC) from a single male fruit fly — and the first male fly brain.** Seven enhanced FIB-SEM microscopes imaged **160 teravoxels at 8 nm isotropic** over 13 months; Google's flood-filling networks segmented the volume; **44 person-years** of proofreading produced **166,700 neurons**, **11,710 cell types**, 46 M presynapses connected to 312 M postsynapses, and a proofread connectome of **124.2 M synaptic connections** forming a graph of **25.6 M edges** between 166,483 neurons. Because the **neck connective is intact**, the dataset joins what earlier datasets split — the female brain ([FlyWire](../entities/flywire.md), hemibrain) and the male/female nerve cords (MANC, FANC) — so *"full sensory-to-motor circuits"* can be traced in one animal, *"from eyes to legs in one go"* as Jefferis put it to Janelia's news office.
 
-The paper's science is comparative: against the female FlyWire brain it finds **7,205 isomorphic, 114 dimorphic, 262 male-specific and 69 female-specific** cell types (preprint counts) — sex-specific and dimorphic neurons are **4.8% of the male and 2.4% of the female central brain**, concentrated in higher-order centres while *"the sensory and motor periphery are largely isomorphic."* Dimorphism nonetheless *"propagates through the nervous system via dimorphic connectivity"*: small differences in wiring reach brain-wide, and *"numerous circuit switches reroute sensory information to form antagonistic circuits controlling opposing behaviours."* Three companion papers published the same day use the dataset for the visual system, the gustatory system, and social behaviour.
+The paper's science is comparative: against the female FlyWire brain it finds **8,069 isomorphic, 138 dimorphic, 289 male-specific and 71 female-specific** cell types (Cell; the preprint had 7,205 / 114 / 262 / 69) — sex-specific and dimorphic neurons are **4.8% of the male and 2.4% of the female central brain**, concentrated in higher-order centres while *"the sensory and motor periphery are largely isomorphic."* Dimorphism nonetheless *"propagates through the nervous system via dimorphic connectivity"*: small differences in wiring reach brain-wide, and *"numerous circuit switches reroute sensory information to form antagonistic circuits controlling opposing behaviours."* Three companion papers published the same day use the dataset for the visual system, the gustatory system, and social behaviour.
 
-> [!note] Which edition this page reads, and what the journal version changed
-> The **Cell** version (2026-09-03, 111 authors) could not be fetched; this page is written from the **bioRxiv v2 preprint** (2025-10-30, 100 authors), which the Janelia site itself points to as *"the manuscript describing the dataset."* Search-engine summaries of the Cell abstract give **166,700 neurons, 11,710 types, 8,069 isomorphic / 138 dimorphic / 289 male-specific / 71 female-specific** — every comparative count revised upward between preprint and journal, consistent with the **MaleCNS v0.9 → v1.0** data release (2025-10-03 → 2026-06-08) in between. The wiki holds the preprint numbers as read and the journal numbers as reported; neither should be quoted as the other. Edition history below.
+> [!note] Edition — updated 2026-09-12
+> This page now reads the **Cell version of record** (2026-09-03, 111 authors, supplied as a PDF); it was first written from the **bioRxiv v2 preprint** (2025-10-30, 100 authors), which is retained as the superseded edition. Every comparative count moved between the two — neurons 166,691 → **166,700**, types 11,691 → **11,710**, isomorphic 7,205 → **8,069**, dimorphic 114 → **138**, male-specific 262 → **289**, female-specific 69 → **71** — consistent with the **MaleCNS v0.9 → v1.0** data release (2025-10-03 → 2026-06-08) between them. The journal also states a figure the preprint lacked: **124.2 M synaptic connections** in the proofread connectome, which is the number the Google post rounds to "125 million." Edition history below.
 
 ## Key claims
 
@@ -40,9 +42,9 @@ The paper's science is comparative: against the female FlyWire brain it finds **
 | Imaging | 7 eFIB-SEM systems, 13 months, **160 teravoxels**, 8×8×8 nm, 0.082 mm³ |
 | Segmentation | flood-filling networks (Google); 46 M presynapses / 312 M PSDs auto-detected, precision/recall 0.82/0.81 |
 | Proofreading | **~44 person-years**; all fragments with >100 synapses; 98.9% of 141,780 detected nuclei belong to a proofread neuron |
-| Neurons | **166,691** (incl. sensory axons); graph of **25.6 M edges** between 166,391 neurons |
-| Cell types | **11,691** |
-| Completeness | 94% pre- / 42% postsynaptic; **40.1%** of connections with both ends in proofread neurons — the metric the authors propose as the more useful one |
+| Neurons | **166,700** (incl. sensory axons); **124.2 M proofread synaptic connections**; graph of **25.6 M edges** between 166,483 neurons, 217 without synapses |
+| Cell types | **11,710** |
+| Completeness | 94% pre- / 42% postsynaptic (Cell); the preprint additionally gave **40.1%** of connections with both ends in proofread neurons, and 312 M × 40.1% ≈ 125 M matches the journal's 124.2 M |
 | Annotations | superclass (direction of flow), hemilineage, cell type; *fruitless*/*doublesex* expression; neurotransmitter predictions; motor neurons annotated with exit nerve and muscle innervation |
 | Access | neuPrint, Clio, Neuroglancer, MaleCNS Cell Type Explorer, natverse `malecns`; **CC BY** |
 
@@ -57,7 +59,7 @@ The paper's science is comparative: against the female FlyWire brain it finds **
 
 ### Dimorphism (Results, "Identifying sexually dimorphic circuit elements" onward)
 
-- Three classes: **isomorphic** (matched type and connectivity in both sexes), **dimorphic** (present in both, differently wired), **sex-specific**. Preprint: 7,205 / 114 / 262 male-specific + 69 female-specific; discussion sums these as *"331 sex-specific and 114 sexually dimorphic cell types."*
+- Three classes: **isomorphic** (matched type and connectivity in both sexes), **dimorphic** (present in both, differently wired), **sex-specific**. Cell: 8,069 / 138 / 289 male-specific + 71 female-specific — *"several hundred sex-specific and sexually dimorphic cell types, comprising 4.8% of neurons in the male and 2.4% of neurons in the female central brain"*; an additional 6.9% of male central-brain neurons (1.2% female) are dimorphic by connection. (Preprint: 7,205 / 114 / 262 / 69.)
 - High but incomplete correspondence with *fruitless*/*doublesex* expression; validation against prior clone data (e.g. 2,905 *fru*+ neurons in males vs 1,994 ± 76 expected).
 - Sex differences concentrate in higher centres; *"within higher centres, male-specific connections are organised into hotspots defined by male-specific neurons or arbours."*
 - Per-modality comparisons (visual, auditory, olfactory, gustatory) plus a connectivity-based method for finding dimorphic *edges*, contrasted with morphology-based typing; dimorphic neurons are *"strongly clustered and interconnected."*
@@ -75,10 +77,10 @@ The [Google Research post](../../raw/2026-09-03-google-research-male-fly-connect
 | Edition | Date | Neurons | Types | Isomorphic / dimorphic / male-sp. / female-sp. | Authors |
 |---|---|---|---|---|---|
 | bioRxiv v1 | 2025-10-09 | — | — | — | — |
-| **bioRxiv v2 (this page's local copy)** | 2025-10-30 | 166,691 | 11,691 | 7,205 / 114 / 262 / 69 | 100 |
-| Cell (abstract verified via PubMed 42691995; body not read) | 2026-09-03 | 166,700 | 11,710 | 8,069 / 138 / 289 / 71 | 111 |
+| bioRxiv v2 (superseded local copy) | 2025-10-30 | 166,691 | 11,691 | 7,205 / 114 / 262 / 69 | 100 |
+| **Cell 189, 5504–5526 (this page's local copy, read 2026-09-12)** | 2026-09-03 | 166,700 | 11,710 | 8,069 / 138 / 289 / 71 | 111 |
 
-The MaleCNS data release moved from v0.9 (2025-10-03) to v1.0 (2026-06-08) between the two; the Google Research blog quotes **125 M synaptic connections**, a figure not in the preprint text — but derivable from it: 312 M detected postsynaptic densities × the 40.1% of connections with both ends in proofread neurons = **125.1 M**, i.e. the count of *proofread* synaptic connections. This is an inference from the preprint's own numbers, not a statement in any fetched text; it appears in no other announcement (HHMI, Janelia, the Keyword post all say "millions"). The female [BANC](banc-brain-and-cord-connectome-paper.md) map (Nature, 2026-06-08) is the companion dataset the Google post calls the *"complete female fruit fly brain and nerve cord map"*; its own paper leads with control architecture rather than sex (which gives 46 M presynapses → 312 M PSDs, 25.6 M graph edges). Re-fetch the Cell version when accessible and reconcile.
+The MaleCNS data release moved from v0.9 (2025-10-03) to v1.0 (2026-06-08) between the two. The Google Research blog's **"125 million synaptic connections"** is the journal's **124.2 M** proofread synaptic connections, rounded; the preprint never stated it, but 312 M PSDs × its 40.1% both-ends-proofread fraction gives 125.1 M, so the figure was latent in v2. Resolved 2026-09-12 with the Cell text. The female [BANC](banc-brain-and-cord-connectome-paper.md) map (Nature, 2026-06-08) is the companion dataset the Google post calls the *"complete female fruit fly brain and nerve cord map"*; its own paper leads with control architecture rather than sex (which gives 46 M presynapses → 312 M PSDs, 25.6 M graph edges). Re-fetch the Cell version when accessible and reconcile.
 
 ## Why it matters in this wiki
 
@@ -101,7 +103,7 @@ The MaleCNS data release moved from v0.9 (2025-10-03) to v1.0 (2026-06-08) betwe
 
 ## Open questions
 
-- **Journal-version numbers.** Obtain the Cell text and reconcile the revised counts; confirm whether the Cell text states the 125 M proofread-connection figure the Google post uses (the preprint's 312 M × 40.1% reproduces it).
-- **How much of the 60% incomplete-connection fraction matters** for circuit-level simulation — the authors' own proposed metric says 40.1% of connections are fully proofread at both ends.
+- ~~**Journal-version numbers.**~~ Resolved 2026-09-12 — Cell PDF read; counts and the 125 M ≈ 124.2 M figure reconciled.
+- **How much of the un-proofread connection fraction matters** for circuit-level simulation — 124.2 M proofread connections against 312 M detected postsynapses.
 - **Individual variability vs sex.** With one male and one female, every difference is confounded with individual variation; the Google post says as much for isomorphic regions.
 - **Muscle-level completeness** of the motor-neuron annotations for a full sensorimotor loop.
