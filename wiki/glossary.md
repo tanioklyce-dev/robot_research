@@ -2,7 +2,7 @@
 title: Abbreviations & Glossary
 type: reference
 created: 2026-05-10
-updated: 2026-09-07
+updated: 2026-09-11
 tags: [glossary, reference, acronyms, curriculum]
 ---
 
@@ -19,6 +19,9 @@ A flat index of acronyms used across this wiki, with one-line definitions and a 
 - Entries are sorted alphabetically (case-insensitive, ignoring hyphens), regardless of curriculum module.
 
 ---
+
+### Ablation
+**Ablation (study)** — remove or disable one component of a system, keep everything else fixed, and measure what changes; the difference is the evidence for what that component contributed. The name is surgical. Usually a table: the full method as one row, then the full method minus each piece. It isolates *which* of several simultaneous changes produced a gain and catches dead weight — and it can come back negative, which is still a result ([CaP-X](sources/cap-x-paper.md)'s skill-library ablation: +4 pts, p = 0.13, not established). It cannot say a component would help in a *different* system, and rows that differ by less than the noise prove nothing ([success-rate audit](syntheses/platforms/vla-success-rate-audit.md)). Examples: [GNM](sources/gnm-paper.md)'s action-space rows (normalized waypoints 1.0 vs raw velocities 0.73 vs unnormalized 0.42) show that normalization is what transfers; [LeLaN](sources/lelan-paper.md)'s collision loss helps with obstacles (0.13 → 0.60) and costs without (0.89 → 0.77). "Un-ablated" is a standing criticism in this wiki: a component adopted with no such table — [XSA](sources/xsa-paper.md) in the LeHome winner, GR00T N1.7's 29 → 132 action dims — is a change, not a demonstrated improvement. *(Module 1.)*
 
 ### Adam
 **Adaptive Moment Estimation** — the de-facto SGD variant in 2026; uses running averages of gradients and squared gradients. *(Module 1.)*
