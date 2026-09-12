@@ -3,7 +3,7 @@ title: Tactile sensing
 type: concept
 created: 2026-09-07
 updated: 2026-09-12
-sources: 4
+sources: 5
 tags: [tactile-sensing, gelsight, vision-based-tactile, slip-detection, force-torque, visuo-tactile, contact-rich, multimodal-fusion]
 ---
 
@@ -84,3 +84,4 @@ Vision-based tactile is the research default and GelSight the reference design; 
 - [τ: Touch-Augmented VLA](../../sources/tau-touch-augmented-vla-paper.md) — the measured ablation: 28.75% → 71.25% on contact-rich tasks from adding tactile to the same backbone.
 - [Robot Research Direction (first-party notes)](../../sources/robot-research-direction-notes.md) — τ's 20%→60% and 28.75%→71.25% as open question #6 (the sensing mixture); the cheap wrist-F/T substitute remains the filed experiment.
 - [FACTR 2](../../sources/factr-2-paper.md) — the cheap end of the *wrist/joint-side* alternative: a learned free-space model turns motor current into external joint torque on a $2,500 arm, no sensor. It gives a joint-space wrench, not a contact map — the survey's four tactile uses above are not covered — but it prices the baseline force channel at ten minutes of setup.
+- [FACTR](../../sources/factr-paper.md) — joint-torque force used for teleop feedback and policy input; the authors name torque-sensor noise as the limit for fine tasks and tactile as the fix.

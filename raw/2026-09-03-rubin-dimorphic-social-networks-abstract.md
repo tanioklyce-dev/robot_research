@@ -1,0 +1,8 @@
+# Rubin, Managan, Dreher, Kim, Miller, Boone, Robie, Taylor, Branson, Schretter, Otopalik — Networks of sexually dimorphic neurons that regulate social behaviors in Drosophila
+# Current Biology, online 2026-09-03, doi:10.1016/j.cub.2026.08.013 (PubMed 42692022); preprint bioRxiv 10.1101/2025.10.21.683766 v1 2025-10-22
+# Abstract-level record captured 2026-09-12 via Europe PMC / bioRxiv API metadata. Full text not obtained
+# (cell.com 403; bioRxiv rate-limited from this host). Journal abstract below; preprint abstract where it differs.
+
+JOURNAL ABSTRACT: Neural mechanisms underlying sexually dimorphic social behaviors remain enigmatic in most species. In Drosophila, sexually dimorphic pC1/pC1x neurons have been described as a site of sensory integration that regulates mating and aggressive behaviors. We show that the male pC1/pC1x population resides in an expansive and highly intertwined male-specific network that is poised to regulate social behavior. The 48 pC1/pC1x connectomically defined cell types exhibit heterogeneous synaptic connections, and a subset receive strong input from identified sensory pathways. Genetic driver lines for these cell types were generated and used to discover distinct roles for pC1/pC1x cell types in modulating social acoustic signaling and male-male interactions. We also describe circuit motifs by which pC1 and sexually dimorphic aIPg neurons co-regulate social behaviors. Our results reveal unexpected diversity in the connectivity and behavioral roles of pC1/pC1x cell types and provide essential genetic tools for interrogating their neurophysiological and behavioral functions.
+
+PREPRINT ABSTRACT (v1) differs in nomenclature (P1/pC1x) and names the male-specific mAL and aSP-a neurons as network partners.

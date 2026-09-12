@@ -74,7 +74,7 @@ Five conditions on the Franka with 20 participants (GELLO leader, wiping task): 
 
 ### Lineage
 
-FACTR (Liu, Li, Shaw, Tao, Salakhutdinov, Pathak; RSS 2025) — force-feedback teleoperation with dedicated joint-torque sensors plus a visual-blur curriculum for contact-rich policy learning. FACTR 2 generalises it *"beyond arms with dedicated force sensors."* Original FACTR is uningested.
+FACTR (Liu, Li, Shaw, Tao, Salakhutdinov, Pathak; RSS 2025) — force-feedback teleoperation with dedicated joint-torque sensors plus a visual-blur curriculum for contact-rich policy learning. FACTR 2 generalises it *"beyond arms with dedicated force sensors."* Original FACTR: [ingested](factr-paper.md).
 
 ## Entities mentioned
 

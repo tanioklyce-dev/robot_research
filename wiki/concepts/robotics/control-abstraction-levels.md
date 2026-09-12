@@ -2,8 +2,8 @@
 title: Control abstraction levels
 type: concept
 created: 2026-07-27
-updated: 2026-09-07
-sources: 27
+updated: 2026-09-12
+sources: 28
 tags: [robotics, control, llm-agent, evaluation, vla, safety, access-control, frontier-red-team, code-as-policy]
 ---
 
@@ -116,3 +116,4 @@ Perceptual access moves capability as much as control access does: a **compass**
 - [CaP-X paper](../../sources/cap-x-paper.md) — the eight-tier subdivision of level 2; abstraction, iteration, and grounding as independently controllable axes.
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — action abstraction as a *safety* mechanism: emit pose/force/impedance references, never torques.
 - [Gemini Robotics 2: Safety Evaluations](../../sources/gemini-robotics-2-safety-report.md) — the same level-inversion from the safety side: agents score **100%** acting on a safety signal handed to them as structured text, but cannot reliably **produce** that signal from perception (human-proximity FNR >40% at low FPR).
+- [BANC — Bates et al., Nature 2026](../../sources/banc-brain-and-cord-connectome-paper.md) — a biological vote on the sandwich-vs-distributed question: in the fly, effectors are driven mostly by local sensor loops, coordinated by behaviour-centric descending/ascending modules and *supervised* by learning and navigation regions — *"distributed, parallelized and embodied,"* with Brooks's layered controller as the cited analogue.

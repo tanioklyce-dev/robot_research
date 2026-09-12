@@ -3,7 +3,7 @@ title: Imitation learning
 type: concept
 created: 2026-05-07
 updated: 2026-09-12
-sources: 108
+sources: 109
 tags: [imitation-learning, behavior-cloning, demonstrations, lerobot, act, co-training, mobile-aloha]
 ---
 
@@ -77,3 +77,4 @@ A prerequisite the talk is clear about: none of this works on logs. Replaying dr
 - [RoboTTT](../../sources/robottt-paper.md) — **DAgger Distillation**: keep the robot's own failed actions as *context* and the human corrections as *targets* (loss-masked), rather than discarding the failures. +33% average vs +9% for standard DAgger on the same 100 trajectories; the control shows the failures carry no value as imitation targets, only as context.
 - [Robot Self-Improvement via Human-Video Dynamics Models](../../sources/robot-self-improvement-human-video-dynamics-paper.md) — failures relabelled into corrective *targets* by a dynamics-plus-value ranker; copying the nearest successful trajectory instead is worse than no correction (58.7% vs 62.7%).
 - [FACTR 2](../../sources/factr-2-paper.md) — **FIRST**: label demonstration frames free-space / pre-contact / contact from estimated torque, then up-sample pre-contact 5× per minibatch. Pre-contact-only 0.818 vs contact-only 0.670 vs none ≈0.65 task progress; re-weighting the *loss* instead of the *sampling* fails (0.345–0.478 vs 0.501–0.573).
+- [FACTR](../../sources/factr-paper.md) — a curriculum on *modality*: anneal Gaussian blur on the visual input so the force encoder trains first; NTK sketch of why. Also the wiki's only bilateral force-feedback leader–follower rig (~$1,230 per actuated GELLO-style leader arm).

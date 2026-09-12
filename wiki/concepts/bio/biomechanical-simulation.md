@@ -3,7 +3,7 @@ title: Biomechanical simulation
 type: concept
 created: 2026-05-08
 updated: 2026-09-12
-sources: 9
+sources: 11
 tags: [biomechanics, animal-simulation, drosophila, mujoco, virtual-rodent, embodied-ai]
 ---
 
@@ -72,3 +72,5 @@ The 2024–2026 stretch is the inflection point — the [biomechanical-simulatio
 - [neuromechfly.org website](../../sources/neuromechfly-website.md)
 - [Google — male fruit fly brain map](../../sources/google-male-fruit-fly-brain-map-blog.md) — a same-animal brain + VNC connectome, the brain-side dataset that flybody's roadmap (brain-side integration) was missing.
 - [Male CNS connectome — Berg et al., Cell 2026](../../sources/male-cns-connectome-paper.md) — brain + VNC with motor neurons annotated to muscle; the brain-side dataset a flybody-style closed loop needs. A whole-brain-connectome-as-RL-controller preprint (arXiv 2602.17997) already exists on the female graph; backlogged.
+- [FlyGM](../../sources/flygm-connectome-graph-controller-paper.md) — the first closed loop from a whole-brain connectome graph to flybody: walking, turning and flight in MuJoCo, with the wiring as the controller's structure.
+- [BANC — Bates et al., Nature 2026](../../sources/banc-brain-and-cord-connectome-paper.md) — second same-animal brain + cord dataset with effectors annotated; the natural next substrate for FlyGM-style controllers.

@@ -3,8 +3,8 @@ title: NeuroMechFly
 type: entity
 subtype: simulator-body-model
 created: 2026-05-08
-updated: 2026-05-15
-sources: 4
+updated: 2026-09-12
+sources: 5
 license: Apache-2.0
 url: https://neuromechfly.org/
 code: https://github.com/NeLy-EPFL/flygym/
@@ -95,6 +95,7 @@ Bread-crumb in the **biomechanical-simulation lineage** that runs *C. elegans* (
 - [flybody Paper](../sources/flybody-paper.md) — cites v1 + v2 as the walking-and-grooming predecessor line.
 - [flygym GitHub](../sources/flygym-github.md) — code release.
 - [neuromechfly.org website](../sources/neuromechfly-website.md) — project website.
+- [FlyGM](../sources/flygm-connectome-graph-controller-paper.md) — cited as the alternative body simulator; the controller was built on flybody instead.
 
 ## Open questions / TBD
 

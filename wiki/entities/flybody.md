@@ -3,8 +3,8 @@ title: flybody
 type: entity
 subtype: simulator-body-model
 created: 2026-05-08
-updated: 2026-05-15
-sources: 7
+updated: 2026-09-12
+sources: 8
 tags: [flybody, drosophila, mujoco, biomechanical-simulation, deep-rl, hhmi-janelia, deepmind, open-source]
 ---
 
@@ -72,3 +72,4 @@ tags: [flybody, drosophila, mujoco, biomechanical-simulation, deep-rl, hhmi-jane
 
 - [flybody Paper (Vaxenburg et al. 2025, Nature)](../sources/flybody-paper.md)
 - [flybody GitHub](../sources/flybody-github.md)
+- [FlyGM](../sources/flygm-connectome-graph-controller-paper.md) — flybody as the body for a connectome-structured controller: walking (1,253-D observation incl. 16 × 16 binocular vision, 59-D actions) and flight (104-D / 12-D, residual over the wing-pattern generator); flybody's released MLP experts are the imitation targets.

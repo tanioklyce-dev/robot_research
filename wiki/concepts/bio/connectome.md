@@ -3,7 +3,7 @@ title: Connectome
 type: concept
 created: 2026-05-08
 updated: 2026-09-12
-sources: 6
+sources: 9
 tags: [connectome, neuroscience, brain-mapping, biological-ai, drosophila]
 ---
 
@@ -16,10 +16,15 @@ A **connectome** is a complete wiring diagram of a nervous system — every neur
 - ***Drosophila* MANC / FANC** — male/female adult ventral nerve cord, 2024.
 - ***Drosophila* whole brain** — [FlyWire](../../entities/flywire.md), October 2024. **139,255 neurons, ~50M synapses.** First complete adult-brain connectome of any organism.
 - ***Drosophila* whole CNS, male** — [Berg, Beckett, Costa, Schlegel, Januszewski … Rubin, Jefferis, *Cell* 2026](../../sources/male-cns-connectome-paper.md) (HHMI Janelia FlyEM + Cambridge/MRC LMB + Google Research). **166,691 neurons, 11,691 cell types, 25.6 M-edge graph, brain *and* ventral nerve cord from one animal with an intact neck connective** — the first complete adult CNS and the first male brain. 160 teravoxels at 8 nm, flood-filling-network segmentation, **44 person-years** of proofreading; 94% pre- / 42% postsynaptic completion, 40.1% of connections proofread at both ends. Motor neurons annotated to exit nerve and muscle. Adds the isomorphic / *dimorphic* / sex-specific classes (4.8% of the male central brain differs) and the finding that the neck connective is a bottleneck *and* an integrator carrying most feedback. Preprint counts; the journal version revises them upward ([edition history](../../sources/male-cns-connectome-paper.md#edition-history)). Announced via a [Google post](../../sources/google-male-fruit-fly-brain-map-blog.md).
+- ***Drosophila* whole CNS, female (BANC)** — [Bates et al., *Nature* 2026-06-08](../../sources/banc-brain-and-cord-connectome-paper.md) (Harvard/Princeton, BANC-FlyWire Consortium). Serial-section TEM at 4 × 4 × 45 nm, 7,010 sections, **~160,000 neurons**, 155 community proofreaders over ~3.5 years (~38.6 person-years); brain (~140k) and cord (~20k) joined by ~1,300 descending and ~1,800 ascending neurons. Its thesis is about control: effectors are driven mostly by sensors in the same body part (**local feedback loops**), linked by behaviour-centric AN/DN modules under light supervision — *"distributed, parallelized and embodied,"* citing Brooks 1986. With the male CNS map, both sexes now have whole-CNS connectomes from two labs and two imaging modalities.
 - **Mouse and human** — current frontier targets, multiple orders of magnitude harder (~70M neurons in mouse, ~86B in human). Berkeley News' Phil Shiu names mouse as the next stop and human as the long-term ambition ([Berkeley News](../../sources/berkeley-fly-brain-news.md)).
 - **Human — [H01](../../entities/h01-connectome.md)** (Lichtman Lab / Google, *Science* 2024). A **1.4-petabyte, ~1 mm³** EM reconstruction of human cortex — **tens of thousands of neurons, 183M synapses, 100 proofread cells** ([H01 release](../../sources/h01-human-cortex-reconstruction.md)). Crucially it is a **dense fragment, not a complete connectome**: it makes the human scale concrete (petabytes for a pinhead of cortex) without yet being the whole-circuit artifact the two AI pathways below require.
 
 ## Two ways to use a connectome for AI
+
+> [!note] A third way, demonstrated (added 2026-09-12)
+> [FlyGM](../../sources/flygm-connectome-graph-controller-paper.md) uses the FlyWire graph neither as a simulation substrate nor as a constraint on a neural model, but as an **architectural prior for a learned controller**: signed synaptic counts become a fixed message-passing operator, everything else is trained by imitation and PPO, and the policy drives [flybody](../../entities/flybody.md). Ablations against degree-preserving rewiring, random graphs, a larger MLP, a spiking network and five GNNs all lose (8.3° vs 13.6–125° orientation error at the hardest setting). The claim is inductive bias, not fidelity.
+
 
 ### 1. Connectome → simulation ([Shiu et al. 2024](../../sources/shiu-fly-brain-paper.md))
 
@@ -64,3 +69,6 @@ Connectomes are the **brain side** of the whole-organism agentic-AI program (the
 - [Lappalainen et al. 2024 — Connectome-constrained networks (fly visual system)](../../sources/lappalainen-flyvis-paper.md)
 - [Google — male fruit fly brain map](../../sources/google-male-fruit-fly-brain-map-blog.md) — first complete adult CNS (brain + VNC), male; the dataset a brain-to-body fly simulation would need.
 - [Male CNS connectome — Berg et al., Cell 2026](../../sources/male-cns-connectome-paper.md) — the primary; first complete adult CNS, neck connective intact.
+- [BANC — Bates et al., Nature 2026](../../sources/banc-brain-and-cord-connectome-paper.md) — the female brain-and-cord connectome; local feedback loops and distributed control.
+- [FlyGM](../../sources/flygm-connectome-graph-controller-paper.md) — a whole-brain connectome as an RL controller's architecture, with controls.
+- Companions to the male CNS: [visual pathways](../../sources/male-cns-visual-pathways-paper.md), [gustatory connectome](../../sources/male-cns-gustatory-connectome-paper.md), [dimorphic social networks](../../sources/dimorphic-social-networks-paper.md) — abstract-level pages.

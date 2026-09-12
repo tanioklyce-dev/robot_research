@@ -2,7 +2,7 @@
 title: Whole-organism agentic AI — brain + body for the fruit fly
 type: synthesis
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-09-12
 revised: NeuroMechFly v2 ingested 2026-05-08 — body side now has two parallel open-source platforms
 tags: [drosophila, connectome, biomechanical-simulation, embodied-ai, flywire, flybody, neuromechfly, brain-body]
 ---
@@ -79,6 +79,10 @@ A NeuroMechFly-flavoured integration would cross institutions (Turaga's connecto
 - **Interpretability lever.** A connectome-constrained controller is *interpretable in a way no VLA is* — you can trace the wiring back to identified neurons. If "which neurons drive looming-evasion?" becomes answerable in silico, the same template applies in mouse and eventually human.
 - **An "alternate way to good AI."** Berkeley's framing. Whether biology-inspired controllers prove competitive with end-to-end deep nets is open. But the *fly is now the smallest viable test bed* for that question.
 
+## Someone built the loop (added 2026-09-12)
+
+The integration this page sketched — FlyWire brain + flybody body — was run in early 2026 by a Tsinghua control group, from the engineering side: [FlyGM](../../sources/flygm-connectome-graph-controller-paper.md) instantiates the whole-brain graph as a fixed message-passing operator inside an RL policy for flybody and shows, with rewired/random/MLP/GNN controls, that the wiring is a useful inductive bias for locomotion (walking, turning, flight). It is not a model of the fly's nervous system; the weights that carry the connectome are fixed and everything around them is learned. Meanwhile the brain-side datasets have caught up with what this page wanted: both the [male CNS](../../sources/male-cns-connectome-paper.md) (Janelia/Google, Sept 2026) and the female [BANC](../../sources/banc-brain-and-cord-connectome-paper.md) (Harvard/Princeton, June 2026) now include the ventral nerve cord with motor neurons annotated to effector, so a FlyGM-style efferent set could be the real motor-neuron population. BANC's own analysis — local sensor–effector loops coordinated by behaviour-centric descending/ascending modules under light supervision — is the biological form of the distributed-control architecture this wiki's robotics pages keep arriving at.
+
 ## What's missing in this wiki
 
 - Source page for **Mi et al. 2022** (ICLR) — connectome-constrained latent-variable model; currently referenced only via flybody-paper bibliography.
@@ -107,6 +111,9 @@ Other items deferred until the wiki has reason to dig into them more deeply.
 
 - [Berkeley News — researchers simulate an entire fly brain on a laptop](../../sources/berkeley-fly-brain-news.md)
 - [flybody Paper (Vaxenburg et al. 2025, Nature)](../../sources/flybody-paper.md)
+- [FlyGM — connectome graph as locomotion controller](../../sources/flygm-connectome-graph-controller-paper.md) (2026)
+- [BANC — female brain-and-cord connectome](../../sources/banc-brain-and-cord-connectome-paper.md) (Nature 2026)
+- [Male CNS connectome](../../sources/male-cns-connectome-paper.md) (Cell 2026)
 - [flybody GitHub](../../sources/flybody-github.md)
 - [Shiu et al. 2024 — A Drosophila computational brain model (Nature)](../../sources/shiu-fly-brain-paper.md)
 - [Lappalainen et al. 2024 — Connectome-constrained networks predict fly visual-system activity (Nature)](../../sources/lappalainen-flyvis-paper.md)

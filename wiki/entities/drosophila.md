@@ -4,7 +4,7 @@ type: entity
 subtype: model-organism
 created: 2026-05-08
 updated: 2026-09-12
-sources: 8
+sources: 9
 tags: [drosophila, fruit-fly, model-organism, neuroscience, biomechanics]
 ---
 
@@ -39,3 +39,4 @@ The wiki cares about *Drosophila* not as biology per se but as **the smallest or
 - [neuromechfly.org website](../sources/neuromechfly-website.md)
 - [Google — male fruit fly brain map](../sources/google-male-fruit-fly-brain-map-blog.md) — first complete male CNS connectome, brain + ventral nerve cord.
 - [Male CNS connectome — Berg et al., Cell 2026](../sources/male-cns-connectome-paper.md) — the primary for the first complete adult CNS connectome (male).
+- [BANC — Bates et al., Nature 2026](../sources/banc-brain-and-cord-connectome-paper.md) — female whole-CNS connectome; [FlyGM](../sources/flygm-connectome-graph-controller-paper.md) — connectome-structured locomotion controller.

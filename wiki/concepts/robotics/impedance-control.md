@@ -3,7 +3,7 @@ title: Impedance and admittance control
 type: concept
 created: 2026-09-07
 updated: 2026-09-12
-sources: 2
+sources: 3
 tags: [impedance-control, admittance-control, variable-impedance, compliance, passivity, energy-tanks, force-control, contact-rich, action-space, safe-execution]
 ---
 
@@ -74,3 +74,4 @@ The frontier the survey bets on is **a VLM setting the gains** — its own group
 
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — the source for everything on this page.
 - [FACTR 2](../../sources/factr-2-paper.md) — supplies the input impedance control needs on arms without sensors: an external-torque estimate from motor current; used here for force-feedback teleoperation and policy conditioning, not for a compliance controller.
+- [FACTR](../../sources/factr-paper.md) — the leader arm's control law: external-torque playback with damping, null-space posture regulation, RNEA gravity compensation, friction compensation and joint-limit potentials on cheap servos.

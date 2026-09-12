@@ -64,9 +64,9 @@ The paper's science is comparative: against the female FlyWire brain it finds **
 
 ### Companion papers (same day; not ingested)
 
-- **The organization of visual pathways in the Drosophila brain** — Hoeller, Zhao, Nern, Rogers, Romani, Reiser; *Cell*, doi 10.1016/j.cell.2026.08.014.
-- **The complete gustatory connectome of adult Drosophila reveals how taste guides feeding, foraging, and social behavior** — Tastekin … Jefferis, Ribeiro; *Cell*, doi 10.1016/j.cell.2026.08.016.
-- **Networks of sexually dimorphic neurons that regulate social behaviors in Drosophila** — Rubin, Managan, Dreher … Branson, Schretter, Otopalik; *Current Biology*, doi 10.1016/j.cub.2026.08.013.
+- [**The organization of visual pathways in the Drosophila brain**](male-cns-visual-pathways-paper.md) — Hoeller, Zhao, Nern, Rogers, Romani, Reiser; *Cell*, doi 10.1016/j.cell.2026.08.014. (abstract-level page)
+- [**The complete gustatory connectome of adult Drosophila**](male-cns-gustatory-connectome-paper.md) — Tastekin … Jefferis, Ribeiro; *Cell*, doi 10.1016/j.cell.2026.08.016. (abstract-level page)
+- [**Networks of sexually dimorphic neurons that regulate social behaviors in Drosophila**](dimorphic-social-networks-paper.md) — Rubin, Managan, Dreher … Branson, Schretter, Otopalik; *Current Biology*, doi 10.1016/j.cub.2026.08.013. (abstract-level page)
 
 The [Google Research post](../../raw/2026-09-03-google-research-male-fly-connectome-blog.md) adds two things the paper does not: the reconstruction pipeline's successor **PATHFINDER** (synthetic neurons in training data), and that a **complete female brain + nerve cord** map has also appeared in *Nature* (s41586-026-10735-w, uningested) — so both sexes now have whole-CNS connectomes.
 
@@ -76,16 +76,16 @@ The [Google Research post](../../raw/2026-09-03-google-research-male-fly-connect
 |---|---|---|---|---|---|
 | bioRxiv v1 | 2025-10-09 | — | — | — | — |
 | **bioRxiv v2 (this page's local copy)** | 2025-10-30 | 166,691 | 11,691 | 7,205 / 114 / 262 / 69 | 100 |
-| Cell (reported via search summaries; not read) | 2026-09-03 | 166,700 | 11,710 | 8,069 / 138 / 289 / 71 | 111 |
+| Cell (abstract verified via PubMed 42691995; body not read) | 2026-09-03 | 166,700 | 11,710 | 8,069 / 138 / 289 / 71 | 111 |
 
-The MaleCNS data release moved from v0.9 (2025-10-03) to v1.0 (2026-06-08) between the two; the Google Research blog quotes **125 M synaptic connections**, a figure not in the preprint text (which gives 46 M presynapses → 312 M PSDs, 25.6 M graph edges). Re-fetch the Cell version when accessible and reconcile.
+The MaleCNS data release moved from v0.9 (2025-10-03) to v1.0 (2026-06-08) between the two; the Google Research blog quotes **125 M synaptic connections**, a figure not in the preprint text. The female [BANC](banc-brain-and-cord-connectome-paper.md) map (Nature, 2026-06-08) is the companion dataset the Google post calls the *"complete female fruit fly brain and nerve cord map"*; its own paper leads with control architecture rather than sex (which gives 46 M presynapses → 312 M PSDs, 25.6 M graph edges). Re-fetch the Cell version when accessible and reconcile.
 
 ## Why it matters in this wiki
 
 - **Closes the dataset gap the wiki flagged.** The [connectome](../concepts/bio/connectome.md) page's fly-simulation line had a brain-only model ([Shiu et al.](shiu-fly-brain-paper.md), on FlyWire) and a body-only model ([flybody](flybody-paper.md)), with nerve-cord wiring from other animals. This is the first same-animal brain + VNC map with an intact neck connective, and it annotates motor neurons down to **exit nerve and muscle** — the interface a brain-to-body simulation needs.
 - **The neck connective as an architectural finding.** Descending/ascending neurons are a bottleneck *and* integrators, and carry most feedback. For anyone modelling a fly (or drawing analogies to hierarchical robot control), the brain–body interface is not a thin command channel.
 - **Scale and cost.** 44 person-years of proofreading on top of automated segmentation is the current price of one complete insect CNS; the Google post frames PATHFINDER as the attempt to bring that down.
-- **A bridge to embodied control already exists**: a February 2026 preprint (Jin, Zhu, Zhang, Sui, arXiv 2602.17997) instantiates a *whole-brain fly connectome as a graph-structured RL controller for a simulated biomechanical fly* — on the female FlyWire graph. Backlogged; with this dataset the same idea could run on a brain that reaches the motor neurons.
+- **A bridge to embodied control already exists**: [FlyGM](flygm-connectome-graph-controller-paper.md) (Jin, Zhu, Zhang, Sui, Tsinghua, 2026) instantiates the FlyWire whole-brain graph as a message-passing RL controller for flybody and beats rewired, random, MLP and GNN controls. With this dataset or [BANC](banc-brain-and-cord-connectome-paper.md) the efferent set could be the real motor neurons.
 
 ## Entities mentioned
 

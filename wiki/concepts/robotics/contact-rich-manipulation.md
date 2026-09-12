@@ -3,7 +3,7 @@ title: Contact-rich manipulation
 type: concept
 created: 2026-09-07
 updated: 2026-09-12
-sources: 12
+sources: 13
 tags: [contact-rich, manipulation, force-control, assembly, insertion, surface-interaction, physical-hri, deformable-objects, task-taxonomy]
 ---
 
@@ -139,3 +139,4 @@ Well-developed as a *control* problem and thin as a *learning* problem. Force/to
 - [τ: Touch-Augmented VLA](../../sources/tau-touch-augmented-vla-paper.md) — **the first controlled measurement**: same backbone, tactile added, 28.75% → 71.25% on this exact task class.
 - [mimic-video](../../sources/mimic-video-paper.md) — the architecture's paper: vision + proprioception only, and **no contact-rich task in its own evaluations**. Also the source of the *oracle* experiment that would settle the question.
 - [FACTR 2](../../sources/factr-2-paper.md) — sensorless external-torque estimation (NEXT) and pre-contact up-sampling (FIRST); five contact-rich bimanual tasks on a Piper.
+- [FACTR](../../sources/factr-paper.md) — sensing force is not enough: a policy given vision + torque ignores the sparse torque channel (61.2% on unseen objects) unless a blur curriculum forces early learning through it (87.5%; vision-only 21.3%). Recovery after a dropped box 27/30 vs 4/30.

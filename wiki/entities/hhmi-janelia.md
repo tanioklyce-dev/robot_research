@@ -4,7 +4,7 @@ type: entity
 subtype: research-institution
 created: 2026-05-08
 updated: 2026-09-12
-sources: 6
+sources: 7
 tags: [hhmi, janelia, neuroscience, drosophila, fly-brain, biomechanics, mhs, microscopy, lab-automation]
 ---
 
@@ -49,3 +49,4 @@ Notable for this wiki: **MHS enforces device-level safety limits**, which is wha
 - [Previewing the Model Hardware Standard](../sources/anthropic-model-hardware-standard-preview.md) — MHS originated on a Janelia microscope rig
 - [Google — male fruit fly brain map](../sources/google-male-fruit-fly-brain-map-blog.md) — lead institution on the first complete male *Drosophila* CNS connectome (>166k neurons, 11,691 types), with Google Research.
 - [Male CNS connectome — Berg et al., Cell 2026](../sources/male-cns-connectome-paper.md) — the FlyEM Project Team's complete male CNS; Rubin and Jefferis corresponding; Hess (eFIB-SEM), Reiser, Card, Jayaraman, Romani, Funke, Saalfeld among senior authors. Nearly two decades of the campus's connectomics programme, per HHMI's own account.
+- Companions to the male CNS: [visual pathways](../sources/male-cns-visual-pathways-paper.md) (Reiser lab), [gustatory connectome](../sources/male-cns-gustatory-connectome-paper.md) (with Champalimaud), [dimorphic social networks](../sources/dimorphic-social-networks-paper.md) (Rubin, Branson, Otopalik labs) — abstract-level pages.
