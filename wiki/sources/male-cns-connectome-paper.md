@@ -44,7 +44,7 @@ The paper's science is comparative: against the female FlyWire brain it finds **
 | Proofreading | **~44 person-years**; all fragments with >100 synapses; 98.9% of 141,780 detected nuclei belong to a proofread neuron |
 | Neurons | **166,700** (incl. sensory axons); **124.2 M proofread synaptic connections**; graph of **25.6 M edges** between 166,483 neurons, 217 without synapses |
 | Cell types | **11,710** |
-| Completeness | 94% pre- / 42% postsynaptic (Cell); the preprint additionally gave **40.1%** of connections with both ends in proofread neurons, and 312 M × 40.1% ≈ 125 M matches the journal's 124.2 M |
+| Completeness | 94% pre- / 42% postsynaptic; **40.1%** of connections with both ends in proofread neurons (Fig. 1D), the statistic the authors call *"more useful"* — and 312 M × 40.1% ≈ 125 M is the journal's 124.2 M |
 | Annotations | superclass (direction of flow), hemilineage, cell type; *fruitless*/*doublesex* expression; neurotransmitter predictions; motor neurons annotated with exit nerve and muscle innervation |
 | Access | neuPrint, Clio, Neuroglancer, MaleCNS Cell Type Explorer, natverse `malecns`; **CC BY** |
 
