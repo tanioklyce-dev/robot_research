@@ -3,8 +3,8 @@ title: Yuke Zhu
 type: entity
 subtype: person
 created: 2026-05-08
-updated: 2026-08-03
-sources: 12
+updated: 2026-09-12
+sources: 13
 tags: [person, ut-austin, nvidia, embodied-ai, robocasa, manipulation, whole-body-control]
 ---
 
@@ -40,6 +40,7 @@ Adjacent Zhu-affiliated work not ingested: [robosuite](robosuite.md) (the framew
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)
 - [CaP-X paper](../sources/cap-x-paper.md) — co-author; the code-as-policy benchmark framework.
 - [ASPIRE paper](../sources/aspire-paper.md) — project co-lead. Note both papers build on [robosuite](robosuite.md), the framework authored under Zhu — now an entity page.
+- [RoboTTT paper](../sources/robottt-paper.md) — equal-advising senior author; fast-weight memory in the GR00T N1.7 action head, 8K-timestep context, DAgger Distillation.
 
 ## Open questions / TBD
 - Full lab affiliation at UT Austin (RPL — Robot Perception and Learning Lab) — implied but not directly cited.

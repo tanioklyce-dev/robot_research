@@ -2,13 +2,21 @@
 title: Wiki Backlog — deferred lint items & knowledge gaps
 type: meta
 created: 2026-07-04
-updated: 2026-09-10
+updated: 2026-09-12
 tags: [backlog, lint, todo, knowledge-gaps]
 ---
 
 # Wiki Backlog
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
+
+## [2026-09-12] From the S1 re-check
+
+Filed on re-reading [Introducing S1](sources/skild-s1-blog.md) against the live post (no drift; the first ingest had missed the evaluation methodology). Two primaries the post leans on, neither in the wiki:
+
+- [x] ~~**RoboTTT: Context Scaling for Robot Policies** — Jiang, Chebotar, Zheng, Hu, Ge et al., arXiv 2607.15275.~~ **Done 2026-09-12** → [source page](sources/robottt-paper.md). Named by Skild as concurrent in-context manipulation work that is *"short-horizon or in-distribution"*; a third demonstration-conditioned instance for the [in-context page](concepts/learning/in-context-robot-learning.md), and the only one of the three that is a paper rather than a vendor post. Read it before repeating Skild's characterisation.
+- [ ] **FACTR 2: Learning External Force Sensing for Commodity Robot Arms Improves Policy Learning** — Oh, Liu, Tao, Han, Shaw, Funabashi, Salakhutdinov, Pathak, arXiv 2606.12406. Skild cites it for the premise that *from-scratch policies with dense post-training data match post-trained foundation models* — the "what is the point of pre-training?" step in S1's argument. Also sits on the force-sensing seam the [contact-rich page](concepts/robotics/contact-rich-manipulation.md) tracks.
+- [ ] **Inspect the S1 videos for the platform.** The text says only "opposite arm." The demo videos (not captured in `raw/`) may show the hardware; a frame or two would settle "which robot?" for the [Skild page](entities/skild-ai.md).
 
 ## [2026-09-10] From the research-direction notes
 

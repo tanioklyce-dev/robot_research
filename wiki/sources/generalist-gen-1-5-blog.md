@@ -10,9 +10,14 @@ venue: "Generalist AI blog, ~17 min read (~3,940 words), with a suggested BibTeX
 format: vendor research blog (no paper, no code, no weights, no third-party evaluation)
 tags: [gen-1-5, generalist-ai, in-context-robot-learning, physical-prompting, one-shot, few-shot, emergence, test-time-training, sim-to-real, improvisation, robot-foundation-model, embodied]
 ingested: 2026-09-07
+rechecked: 2026-09-12
 ---
 
 ## Summary
+
+> [!note] Re-checked 2026-09-12 — no upstream change
+> Re-fetched and compared against the `raw/` snapshot word-by-word and number-by-number: the only differences are footer navigation and citation superscripts glued to words by extraction. No revision. The [S1 re-check](skild-s1-blog.md) the same day found that S1's prompts are egocentric *human* videos, so human-to-robot — hedged here as *"in some cases"* — is S1's default mode; the comparison table on [the concept page](../concepts/learning/in-context-robot-learning.md) now reflects that.
+
 
 **A robot foundation model that learns a new physical task from a single 3–12 second demonstration placed in its context window, with no gradient updates.** Generalist calls this **physical prompting** — the prompt is a sensorimotor sequence (sensor data plus action trajectory) rather than text — and reports **59% ± 10% average success across 10 diverse tasks** one-shot from the pretrained model, rising to **83% ± 9%** after **10 gradient steps on 5 minutes of data**.
 

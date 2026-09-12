@@ -3,8 +3,8 @@ title: NVIDIA GR00T
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-08-27
-sources: 50
+updated: 2026-09-12
+sources: 51
 tags: [groot, vla, nvidia, foundation-model, humanoid]
 ---
 
@@ -84,3 +84,4 @@ First measured latency numbers, from the [official TensorRT deployment docs](../
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md)
 - [EgoScale Paper](../sources/egoscale-paper.md)
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)
+- [RoboTTT paper](../sources/robottt-paper.md) — **GR00T N1.7 as the backbone** (Eagle VLM + 16-layer DiT flow-matching head, 538M → 690M with TTT layers); frozen during RoboTTT pretraining, fully tuned in post-training. Also the source for the finding that **naive one-frame history *hurts* N1.7** (39.5% vs 57% without it) via causal confusion.

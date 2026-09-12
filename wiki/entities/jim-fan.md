@@ -3,8 +3,8 @@ title: Jim Fan (Linxi Fan)
 type: entity
 subtype: person
 created: 2026-05-15
-updated: 2026-08-03
-sources: 10
+updated: 2026-09-12
+sources: 11
 tags: [person, nvidia, gear, embodied-ai, agents, robotics]
 ---
 
@@ -32,3 +32,4 @@ Co-leads the lab's foundation-model program. Public spokesperson for [GR00T N1](
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)
 - [CaP-X paper](../sources/cap-x-paper.md) — co-senior author (equal advising with [Ken Goldberg](ken-goldberg.md)); the code-as-policy benchmark.
 - [ASPIRE paper](../sources/aspire-paper.md) — project co-lead; the continual skill-discovery system built on CaP-X.
+- [RoboTTT paper](../sources/robottt-paper.md) — last author (equal advising with [Yuke Zhu](yuke-zhu.md) and [Fei-Fei Li](fei-fei-li.md)); test-time-training layers in GR00T N1.7, context length as a scaling axis. Also the source of the *"whether in-context learning truly works depends on how far the test is from training"* line that [Skild's S1 post](../sources/skild-s1-blog.md) quotes as community wisdom.

@@ -2,8 +2,8 @@
 title: Test-time adaptation
 type: concept
 created: 2026-08-26
-updated: 2026-09-11
-sources: 9
+updated: 2026-09-12
+sources: 10
 tags: [test-time-adaptation, test-time-training, distribution-shift, world-model, mpc, planning, robustness, self-supervised]
 ---
 
@@ -81,3 +81,4 @@ That matters, because the wiki already records the failure mode this creates in 
 - [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — AdaJEPA presented; the ~0.3 s/step latency figure.
 - [Embodied AI — AI House Davos 2026 (LeCun)](../../sources/ai-house-davos-2026-lecun-embodied-ai.md) — the cerebellum argument: adaptation in milliseconds from prediction error alone, *"not reinforcement learning, absolutely not."*
 - [Entropy-SGD (2017)](../../sources/chaudhari2017-entropy-sgd.md) — a Gibbs distribution with a *moving prior* centred on the current iterate; noted on the source page as structurally akin to online adaptation, not developed.
+- [RoboTTT](../../sources/robottt-paper.md) — a boundary case for this page's definition: "test-time training" there means **gradient descent on fast weights that *are* the recurrent state**, meta-initialised and discarded after the rollout, with the model parameters untouched. From outside it is in-context learning; the gradients are the context-compression mechanism, not adaptation of the model. Filed on the [in-context page](in-context-robot-learning.md).

@@ -3,7 +3,7 @@ title: Skild AI
 type: entity
 subtype: company
 created: 2026-08-29
-updated: 2026-08-29
+updated: 2026-09-12
 sources: 4
 tags: [skild-ai, s1, robot-foundation-model, in-context-learning, cmu, pittsburgh, physical-ai, omni-bodied, vendor-source]
 ---
@@ -30,12 +30,17 @@ The evidence offered is a **scaling crossover** rather than a single benchmark �
 
 Skild's own claim is that *"a single demonstration in context is worth roughly 380 post-training examples"* ([S1](../sources/skild-s1-blog.md)). If that holds under independent evaluation it is a significant result about the [data bottleneck](../concepts/learning/crowdsourced-robot-training-data.md) — it converts a 50–100-hour teleoperation campaign into an 11-minute demonstration. It has not been independently evaluated.
 
+> [!note] Measured with human intervention (re-read 2026-09-12)
+> The table's numbers are **average cumulative per-step success with a human recovering from failures** so later steps can be graded — *"mainly"* for the baseline, which otherwise completes no long unseen task. The 380 is an interpolated crossing on the same metric. Read the gap as real in shape and unknown in autonomous magnitude. Detail on the [source page](../sources/skild-s1-blog.md#evaluation-methodology-recovered-on-re-read-2026-09-12).
+
+**The prompts are egocentric human videos** — the plant-potting timeline records *"one egocentric human video demonstration recorded"* six minutes before the robot executed — so human-to-robot transfer is S1's ordinary operating mode rather than a demonstrated extra. The post's own timeline: **September 2025** [LocoFormer](../sources/locoformer-paper.md) → **February 2026** first in-domain ICL results → **May 2026** first out-of-distribution result (*"S1 flips first pancake"*) → **August 2026** release, with S1 *"already at work with our commercial partners"* and a series of posts on training promised.
+
 See [in-context robot learning](../concepts/learning/in-context-robot-learning.md) for the concept and where else it appears.
 
 ## What is not claimed, despite the positioning
 
 > [!warning] "Omni-bodied" is demonstrated for locomotion, not for manipulation
-> The company's site says *"An AI that truly understands the physical world should not be limited by robot or task type."* The [S1 announcement](../sources/skild-s1-blog.md) **names no robot platform anywhere**, and makes **no cross-embodiment claim for manipulation**.
+> The company's site says *"An AI that truly understands the physical world should not be limited by robot or task type."* The [S1 announcement](../sources/skild-s1-blog.md) **names no robot platform anywhere** (it is at least **bimanual** — the L5 perturbation moves half the actions to *"the opposite arm"*), and makes **no robot-to-robot cross-embodiment claim for manipulation**. The one embodiment gap it does cross is human-to-robot, via the video prompt.
 >
 > The claim is substantiated — but by the *locomotion* model. **[LocoFormer](../sources/locoformer-paper.md)** (CoRL 2025, ingested 2026-08-29) trains only on procedurally generated robots and transfers zero-shot to ten commercial platforms at **0.96** against **0.99** for per-robot experts. That is a real, peer-reviewed omni-bodied result. It says nothing about manipulation, which is the harder half and the one S1 addresses.
 >
@@ -82,7 +87,8 @@ Low-level skills — grasping, handover, navigation — are *"abstracted away us
 
 ## Open questions / TBD
 
-- **Which robots?** No embodiment is named in any Skild material read here.
+- **Which robots?** No embodiment is named in any Skild material read here. S1 is bimanual; that is all the post gives away.
+- ~~**Competitors as Skild describes them.**~~ **Checked 2026-09-12** — [RoboTTT](../sources/robottt-paper.md) ingested. Skild's *"short-horizon or in-distribution"* is accurate for RoboTTT's one-shot result (shortest task, configuration unseen, task post-trained) and silent about its actual headline, context length as a scaling axis. RoboTTT publishes trial counts, baselines and an ablation; S1 publishes none of those.
 - ~~LocoFormer uningested~~ — **ingested 2026-08-29** ([LocoFormer](../sources/locoformer-paper.md)). It carries the cross-embodiment evidence, for locomotion. **RMA** (Kumar, Fu, Pathak, Malik 2021), the predecessor LocoFormer argues against, is now the highest-value uningested source in this line.
 - ~~Founders have no entity pages~~ — filed 2026-08-29: [Deepak Pathak](deepak-pathak.md), [Abhinav Gupta](abhinav-gupta.md).
 - **Is there a paper?** S1 is a blog post. Whether a technical report follows determines whether any of this becomes citable.

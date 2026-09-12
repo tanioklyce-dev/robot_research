@@ -2,7 +2,7 @@
 title: "The abstraction tax — and the one direction of shift it buys"
 type: synthesis
 created: 2026-09-07
-updated: 2026-09-10
+updated: 2026-09-12
 tags: [abstraction, generalization, out-of-distribution, joint-embedding, in-context-learning, jepa, scaling, crossover, augmentations, synthesis]
 ---
 
@@ -38,6 +38,8 @@ Reconstruction is not stupid in the easy regime — it is *correct*: when the im
 
 > [!note] Which inverts how the S1 result should be read
 > The wiki filed [S1](../../sources/skild-s1-blog.md)'s 43-vs-53 as the weak spot in a vendor post. On this reading it is the opposite: **a method claiming to abstract, that costs nothing in-distribution, is probably not abstracting.** The in-domain loss is corroborating evidence for the mechanism Skild claims, and its absence would have been the thing to worry about.
+>
+> *Caveat added 2026-09-12:* a re-read of the S1 post found the study's numbers are **per-step averages with human intervention after failures**, applied *"mainly"* to the baseline ([detail](../../sources/skild-s1-blog.md#evaluation-methodology-recovered-on-re-read-2026-09-12)). That leaves the *shape* of the row intact — both conditions were scored the same way, and the intervention favors the baseline, not S1 — but the magnitudes are assisted rates and should not be compared to the other two rows' numbers, which are autonomous.
 >
 > This does not rescue the post's other problems — no rollout counts anywhere, and the 66-vs-9 gap is a trend claim across a 100× sweep, not a benchmark placement.
 

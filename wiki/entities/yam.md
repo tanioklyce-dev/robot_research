@@ -3,8 +3,8 @@ title: YAM (i2RT)
 type: entity
 subtype: robot
 created: 2026-07-04
-updated: 2026-08-26
-sources: 6
+updated: 2026-09-12
+sources: 7
 tags: [yam, i2rt, robot-arm, teleoperation, data-collection, affordable, groot, bimanual, molmoact2]
 ---
 
@@ -36,7 +36,8 @@ tags: [yam, i2rt, robot-arm, teleoperation, data-collection, affordable, groot, 
 - [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — a dedicated MolmoAct2-BimanualYAM checkpoint plus a FastAPI serving path (port 8202); ~26 GB float32 / under 16 GB bf16.
 
 - [Building Worlds That Train Robots (R2S2R)](../sources/world-labs-r2s2r.md) — World Labs' cable-manipulation demo platform (sliding, routing, plugging, unplugging through sustained contact); a policy trained with **zero real-world data** in a reconstructed world is claimed to have operated autonomously for one hour without intervention. No success rate reported.
+- [RoboTTT paper](../sources/robottt-paper.md) — every experiment runs on a bimanual YAM setup; the five-minute, ten-stage Gear Bot assembly (drilling, chassis flips, bimanual handoffs) is the hardest published YAM task in this wiki.
 
 ## Open questions
-- Bimanual-rig details for the GR00T use (which variant, integration code, leader/follower setup).
+- Bimanual-rig details for the GR00T use (which variant, integration code, leader/follower setup). **Partly answered by [RoboTTT](../sources/robottt-paper.md)**: a bimanual YAM tabletop rig with four RealSense D405 cameras (top, bottom, two wrist) at 480p, 30 Hz control, inference on one RTX 5090.
 - Reach/payload/repeatability, LeRobot/ROS 2 support.

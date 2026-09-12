@@ -2,8 +2,8 @@
 title: In-context robot learning
 type: concept
 created: 2026-08-29
-updated: 2026-09-11
-sources: 8
+updated: 2026-09-12
+sources: 9
 tags: [in-context-learning, robot-foundation-model, demonstration-conditioning, test-time-adaptation, vla, skild-ai, s1, generalist-ai, gen-1-5, physical-prompting, emergence]
 ---
 
@@ -74,6 +74,9 @@ Two sources, of very different evidence grade. The **experience-conditioned** ca
 
 **At small scale in-context learning is worse.** It only wins once pre-training is large, and Skild's claim is that the gap then *"widens exponentially."* This is the right shape for the claim to have — an inner loop has to be learned before it can pay, so it should cost something at low data — which is a point in its favor, since it is not the result a vendor would fabricate.
 
+> [!warning] What the numbers measure (recovered on re-read of S1, 2026-09-12)
+> The study is well controlled — identical data, architecture except the prompt embedding, and compute — but the metric is **average cumulative per-step success on 4–8-minute tasks, with a human intervening after failures** so later steps can be scored, *"mainly"* for the VLA baseline, which otherwise *"scores zero."* So 9% is the baseline's assisted rate, 66% is not S1's unassisted whole-task rate, and neither is comparable to a success rate elsewhere in this wiki. The 380-episode equivalence is an interpolated curve crossing on the same metric. Full detail on the [source page](../../sources/skild-s1-blog.md#evaluation-methodology-recovered-on-re-read-2026-09-12).
+
 Reported corollaries, all self-reported and none independently evaluated:
 
 - **One in-context demonstration ≈ 380 post-training examples**, which for long-horizon tasks is 50–100 hours of teleoperation compressed into an 11-minute setup.
@@ -81,7 +84,7 @@ Reported corollaries, all self-reported and none independently evaluated:
 - **Correction of the demonstration** — the policy reportedly executing a step more cleanly than the demonstrator who showed it, which if real means the demonstration is being read as intent rather than copied as trajectory.
 
 > [!warning] Two vendors now, still no replication, still no named embodiment
-> Both demonstration-conditioned sources are blog posts with **no third-party evaluation, no rollout counts, no released weights, and no statement of which robot they run on**. Read the numbers as hypotheses with a plausible shape, not as established results. The [success-rate audit](../../syntheses/platforms/vla-success-rate-audit.md) applies with full force to both.
+> Both demonstration-conditioned sources are blog posts with **no third-party evaluation, no rollout counts, no released weights, and no statement of which robot they run on** (S1's is at least bimanual, from its L5 perturbation definition). Read the numbers as hypotheses with a plausible shape, not as established results. The [success-rate audit](../../syntheses/platforms/vla-success-rate-audit.md) applies with full force to both.
 
 ### The second instance: GEN-1.5
 
@@ -94,7 +97,7 @@ Reported corollaries, all self-reported and none independently evaluated:
 | **1 gradient step** on 1 min, held-out task | **66.5%** |
 | Weight change from 10 steps | **< 0.15%** |
 
-Four capabilities beyond one-shot imitation, none of them in S1:
+Four capabilities beyond one-shot imitation. Three are absent from S1; the fourth, human-to-robot, is **S1's default mode** — its prompts are egocentric human videos, and the post treats translation across *"scene, viewpoint, or embodiment"* as the basic requirement — whereas Generalist hedges it:
 
 - **Composition.** Two independently recorded prompts in context chain into one behavior, *"bridging the two with intermediate motions, recoveries, and ambidexterity that appear in neither prompt."* They propose **"physical prompt engineering"** — assemble a compound task from a library of short prompts instead of demonstrating the whole thing.
 - **Prompt from simulation.** A demonstration recorded in a simulator prompts the real robot, *"despite zero simulation data in pretraining."* If real, task **specification** can be simulated even when pretraining cannot — which moves the [contact-data problem](../robotics/contact-rich-manipulation.md) one layer down rather than solving it.
@@ -124,6 +127,20 @@ Four capabilities beyond one-shot imitation, none of them in S1:
 >
 > The adaptation budgets land in the same neighbourhood from opposite directions. And the small system measures something the large ones do not: **when the prior stops paying.** Its hand-written prior is significant in the matched environment and **not significant** in a dynamic one (p = 0.441) — *"leaving the robot in a state similar to starting from random actions."* Whether the pretrained equivalent degrades the same way off-distribution is untested by either vendor, and it is the same question in a different coat.
 
+### The third instance: RoboTTT — the first ablation (added 2026-09-12)
+
+[RoboTTT](../../sources/robottt-paper.md) ([NVIDIA GEAR](../../entities/nvidia-gear.md) + Stanford, July 2026) is the source [S1](../../sources/skild-s1-blog.md) names as concurrent work, and it changes the evidence picture on this page in one specific way: **it is the first demonstration-conditioned instance with a controlled ablation of the mechanism.** Test-time-training layers in the [GR00T N1.7](../../entities/nvidia-groot.md) action head hold *fast weights* — a small MLP per layer, updated by literal gradient descent over the context at inference, discarded at the end of the rollout; the model's own weights never change. From outside it is in-context learning; from inside the context is compressed by gradient descent, with the initial fast weights meta-learned. The matched control swaps the update rule for a Gated DeltaNet recurrence with the same state size and no test-time gradients.
+
+| | S1 | GEN-1.5 | **RoboTTT** |
+|---|---|---|---|
+| Inner loop | designed (episodic data) | emergent | **designed and literal** — gradient descent on fast weights |
+| Ablation of the mechanism | none | none | **yes** — same state size, no inner gradients → **0/10** one-shot vs 6/10; no scaling trend |
+| Scaling axis | pretraining hours (1k → 100k) | months of pretraining | **pretraining context length** — 43.9% at 1K → 71.5% at 8K timesteps |
+| Post-trained on the test task | no | no | **yes**, every number |
+| Evidence | vendor blog | vendor blog | preprint with counts, rubric, baselines, ablations |
+
+What it shows: **the update rule is load-bearing.** The recurrent control *encodes* the human video (33% on the rubric) but cannot *use* it (0/10 full successes); the gradient-descent memory can (6/10). That is the first controlled evidence on this page that *how* context is compressed matters, not merely that it is present. What it does not show: whether the episodic structure S1 says is required is required — the ablation varies the update rule, never the packing — so the designed-vs-emergent dispute above is untouched. It also does **both modes** of the [two-modes table](#two-modes-often-conflated) in one model: a human video across episodes, and its own rollout and human corrections within one (*DAgger Distillation*: failures as context, corrections as targets, explicitly Algorithm Distillation). Caveats carried over from the source page: 10–20 trials per cell, the one-shot test is on the shortest task with only the *configuration* unseen, and every number follows 20K post-training steps on the task.
+
 ## Relationship to neighboring ideas
 
 - [continual learning](continual-learning.md) — in-context learning is the *adaptation without permanent change* branch of the three things the wiki calls continual learning.
@@ -147,6 +164,7 @@ What separates them is horizon and structure, not aim. RMA adapts to **terrain, 
 
 - [Introducing S1: In-Context Learning for Robotics](../../sources/skild-s1-blog.md) — [Skild AI](../../entities/skild-ai.md), August 2026. Vendor blog; the *designed* outer loop.
 - [**Demo-JEPA**](../../sources/demo-jepa-paper.md) — He et al., 2026. The published, non-vendor neighbour: demonstration-as-latent-goal plus planning, with the finding that **V-JEPA 2.1 latents are not embodiment-invariant on their own**.
+- [RoboTTT: Context Scaling for Robot Policies](../../sources/robottt-paper.md) — NVIDIA GEAR + Stanford, July 2026. Preprint; fast-weight inner loop with the first matched ablation, and context length as a scaling axis.
 - [**GEN-1.5: Embodied Foundation Models are One-Shot Learners**](../../sources/generalist-gen-1-5-blog.md) — [Generalist AI](../../entities/generalist-ai.md), August 2026. Vendor blog; the *emergent* outer loop, plus composition, sim-prompting and the 0.15% weight-change number.
 - [**RMA: Rapid Motor Adaptation for Legged Robots**](../../sources/rma-paper.md) — Kumar, Fu, Pathak & Malik, RSS 2021. The prehistory: fixed 0.5 s window, explicit adaptation module, privileged teacher.
 - [**LocoFormer: Generalist Locomotion via Long-context Adaptation**](../../sources/locoformer-paper.md) — Liu, [Pathak](../../entities/deepak-pathak.md) & Agarwal, CoRL 2025. The experience-conditioned instance, and the better-evidenced of the two: peer-reviewed, with baselines (GRU 0.37 vs 0.96) and per-robot expert upper bounds (0.99).
@@ -166,3 +184,4 @@ What separates them is horizon and structure, not aim. RMA adapts to **terrain, 
 > [The abstraction tax](../../syntheses/world-models/abstraction-tax.md) collects three unconnected instances of *loses in-distribution, wins under shift* and argues the in-domain deficit is **corroborating evidence for the mechanism, not a defect** — a method that claims to abstract and costs nothing in-distribution is probably not abstracting. On that reading S1's **43% vs 53%** at 1k h is the expected shape rather than the weak spot.
 >
 > The page also narrows what ICL should be expected to generalize *over*: pre-training episodes specify the task **only** by an in-context demonstration, so the declared axis is *which task this is* — and nothing in that procedure declares a new kitchen, a new object, or a new robot irrelevant.
+- [RoboTTT](../../sources/robottt-paper.md) — the third demonstration-conditioned instance, the first with an ablation, and the first doing both modes in one model.

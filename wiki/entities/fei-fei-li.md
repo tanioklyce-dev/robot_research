@@ -3,8 +3,8 @@ title: Fei-Fei Li
 type: entity
 subtype: person
 created: 2026-08-03
-updated: 2026-09-11
-sources: 6
+updated: 2026-09-12
+sources: 7
 tags: [person, stanford, computer-vision, embodied-ai, behavior, code-as-policy, world-model, spatial-intelligence, policy]
 ---
 
@@ -58,3 +58,4 @@ Her group is also behind **[BEHAVIOR](behavior-benchmark.md)** — one of CaP-Gy
 - [World Labs Acquires SceniX](../sources/world-labs-scenix-acquisition.md)
 - [Fei-Fei Li is Solving the Hardest Problem in Robotics (a16z × World Labs)](../sources/a16z-worldlabs-scenix-conversation.md)
 [WorldScore](../sources/worldscore-paper.md) — her group's benchmark for the category World Labs sells into; her group's WonderWorld ranked first on it.
+- [RoboTTT paper](../sources/robottt-paper.md) — equal-advising senior author with the GEAR co-leads; her Stanford students on a GR00T-based long-context policy.

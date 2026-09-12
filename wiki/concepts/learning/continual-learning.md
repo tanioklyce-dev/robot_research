@@ -2,8 +2,8 @@
 title: Continual learning and catastrophic forgetting
 type: concept
 created: 2026-09-11
-updated: 2026-09-11
-sources: 16
+updated: 2026-09-12
+sources: 17
 tags: [continual-learning, lifelong-learning, catastrophic-forgetting, skill-library, test-time-adaptation, in-context-learning, real-world-rl, rehearsal, knowledge-insulation, lora, deployment, household]
 ---
 
@@ -84,3 +84,4 @@ None of these is a method for a robot that must keep learning **in the weights, 
 - [π*0.6 / RECAP](../../sources/pistar06-paper.md), [HIL-SERL](../../sources/hil-serl-paper.md), [RLPD](../../sources/rlpd-paper.md), [Scanford](../../sources/robot-powered-data-flywheels-paper.md), [GR00T N1](../../sources/groot-n1-paper.md) — weight updates and the forgetting case.
 - [MolmoAct2](../../sources/molmoact2-paper.md), [UnifoLM-WLA-1.0](../../sources/unifolm-wla-1-project-page.md), [Knowledge Insulation](../../sources/knowledge-insulation-paper.md), [LoRA](../../sources/lora-paper.md) — the architectural evasions.
 - [Hassabis at Davos](../../sources/wef-davos-2026-the-day-after-agi.md) — "world models, continual learning — these are the things that will need to be cracked."
+- [RoboTTT](../../sources/robottt-paper.md) — within-episode improvement with no persistent weight change (fast weights discarded after each rollout); the authors name RL on task success as the step toward persistent improvement.

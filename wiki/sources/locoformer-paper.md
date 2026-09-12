@@ -7,6 +7,7 @@ sha256: 248ba53b1feb2ede28fa1b50deee0c75d4e8e76e548097a2d37e042f418b07ca
 author: Min Liu, Deepak Pathak, Ananye Agarwal (Skild AI)
 published: 2025-09-28
 ingested: 2026-08-29
+rechecked: 2026-09-12  # arXiv still v1; sealed sha256 unchanged
 venue: CoRL 2025 (9th Conference on Robot Learning, Seoul)
 format: PDF (15 pp., arXiv:2509.23745v1)
 project_page: https://generalist-locomotion.github.io
