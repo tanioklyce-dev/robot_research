@@ -78,7 +78,7 @@ The [Google Research post](../../raw/2026-09-03-google-research-male-fly-connect
 | **bioRxiv v2 (this page's local copy)** | 2025-10-30 | 166,691 | 11,691 | 7,205 / 114 / 262 / 69 | 100 |
 | Cell (abstract verified via PubMed 42691995; body not read) | 2026-09-03 | 166,700 | 11,710 | 8,069 / 138 / 289 / 71 | 111 |
 
-The MaleCNS data release moved from v0.9 (2025-10-03) to v1.0 (2026-06-08) between the two; the Google Research blog quotes **125 M synaptic connections**, a figure not in the preprint text. The female [BANC](banc-brain-and-cord-connectome-paper.md) map (Nature, 2026-06-08) is the companion dataset the Google post calls the *"complete female fruit fly brain and nerve cord map"*; its own paper leads with control architecture rather than sex (which gives 46 M presynapses → 312 M PSDs, 25.6 M graph edges). Re-fetch the Cell version when accessible and reconcile.
+The MaleCNS data release moved from v0.9 (2025-10-03) to v1.0 (2026-06-08) between the two; the Google Research blog quotes **125 M synaptic connections**, a figure not in the preprint text — but derivable from it: 312 M detected postsynaptic densities × the 40.1% of connections with both ends in proofread neurons = **125.1 M**, i.e. the count of *proofread* synaptic connections. This is an inference from the preprint's own numbers, not a statement in any fetched text; it appears in no other announcement (HHMI, Janelia, the Keyword post all say "millions"). The female [BANC](banc-brain-and-cord-connectome-paper.md) map (Nature, 2026-06-08) is the companion dataset the Google post calls the *"complete female fruit fly brain and nerve cord map"*; its own paper leads with control architecture rather than sex (which gives 46 M presynapses → 312 M PSDs, 25.6 M graph edges). Re-fetch the Cell version when accessible and reconcile.
 
 ## Why it matters in this wiki
 
@@ -101,7 +101,7 @@ The MaleCNS data release moved from v0.9 (2025-10-03) to v1.0 (2026-06-08) betwe
 
 ## Open questions
 
-- **Journal-version numbers.** Obtain the Cell text and reconcile the revised counts and the "125 M connections" figure.
+- **Journal-version numbers.** Obtain the Cell text and reconcile the revised counts; confirm whether the Cell text states the 125 M proofread-connection figure the Google post uses (the preprint's 312 M × 40.1% reproduces it).
 - **How much of the 60% incomplete-connection fraction matters** for circuit-level simulation — the authors' own proposed metric says 40.1% of connections are fully proofread at both ends.
 - **Individual variability vs sex.** With one male and one female, every difference is confounded with individual variation; the Google post says as much for isomorphic regions.
 - **Muscle-level completeness** of the motor-neuron annotations for a full sensorimotor loop.
