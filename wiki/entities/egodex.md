@@ -3,8 +3,8 @@ title: EgoDex dataset
 type: entity
 subtype: dataset
 created: 2026-05-15
-updated: 2026-08-27
-sources: 4
+updated: 2026-09-12
+sources: 5
 tags: [dataset, egocentric, apple-vision-pro, hand-tracking, manipulation, pretraining]
 ---
 
@@ -38,6 +38,7 @@ The Apple-published primary paper for EgoDex is cited as **Hoque et al. 2025** i
 - [EgoScale Paper](../sources/egoscale-paper.md)
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)
 - [Introducing Index (Figure AI)](../sources/figure-index-announcement.md) — Scale anchor: EgoDex's 829 h is what [Figure's Index](figure-index.md) claims to ingest in **~28 minutes** — the contrast between a curated, published egocentric corpus and a crowdsourced firehose with no released results.
+- [Robot Self-Improvement via Human-Video Dynamics Models](../sources/robot-self-improvement-human-video-dynamics-paper.md) — one of three human-video corpora (with HOI4D, Arti4D; ~1M samples) used to pretrain policy, dynamics and value models; dense depth estimated with DepthAnything-v3, wrists from HaMeR.
 
 ## Open questions
 - **License and access**: EgoScale doesn't transcribe EgoDex's license. Apple's typical research-dataset terms are restrictive; unclear if EgoDex is openly downloadable.

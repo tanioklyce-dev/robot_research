@@ -2,8 +2,8 @@
 title: Safety filters for learned policies
 type: concept
 created: 2026-08-16
-updated: 2026-09-11
-sources: 11
+updated: 2026-09-12
+sources: 12
 tags: [safety-filter, control-barrier-functions, reachability-analysis, path-consistency, out-of-distribution, diffusion-policy, constraint-enforcement, iso-ts-15066, runtime-safety, human-robot-interaction, contact-rich]
 ---
 
@@ -78,6 +78,10 @@ The survey also supplies the vocabulary this page has been missing for the layer
 
 [Tölle et al.](../../sources/towards-safe-robot-foundation-models-paper.md) put **ATACOM** — a constraint-manifold filter that projects actions into the tangent space of the safe set given a control-affine model and C¹ constraints — behind a BC-fine-tuned **Octo** policy on a real air-hockey table. The unfiltered VLA "heavily violates the constraints" despite training only on safe demonstrations, and **its violations grow with more fine-tuning**; filtered, violations are zero at every checkpoint and success rises. It is the wiki's only filter demonstrated on a foundation-model policy, and the clearest statement that *safety from safe data* is not a property. What it does not report is the path-consistency measurement the section below argues is the axis that matters — only "not overly conservative." Its requirements (state access, a control-affine model, hand-written constraints) are the same wall the semantic half hits from the other side.
 
+## A fifth instance: certify the small network, shield the remainder (added 2026-09-12)
+
+[FEARL](../../sources/fearl-verifiable-foundation-models-robot-safety-paper.md) (Corsi, Kim & Fox, UC Irvine) does not filter a continuous action against a hazard geometry; it **verifies a policy**. The foundation model (a fine-tuned LLM+ViT, or an off-the-shelf SmolVLA) is reduced to a bounded context vector, a 2-layer 32-unit MLP takes that vector plus *safety sensors* (11 LiDAR rays, or planar pose) and emits the action, and a neural-network verifier certifies the region of the MLP's input box where properties like *"front rays under 0.2 m ⇒ never forward"* hold **for every possible context** — i.e. whatever the VLM hallucinates. The runtime shield is consulted only outside the certified region (78.9–99.4% of the domain here). Result: zero violations in three simulated tasks at 0.09–1.13% overrides, and on a physical Stretch 2 the shield turns a 27.8% collision rate into 0% at unchanged 61.1% success over 18 episodes. Two costs to record: the SmolVLA variant loses 12 points of success when shielded, and the whole construction works only for hazards a low-dimensional sensor measures directly — which is a different answer to the *perception* objection below (avoid it by construction) rather than a solution to it.
+
 ## What none of them does
 
 - **Perception.** All three consume a hazard geometry they do not produce: keep-out boxes, sphere decompositions, or object poses with bounded measurement error. In an unstructured home the hazards are the things nobody modelled.
@@ -143,3 +147,4 @@ Two structural properties make that safe rather than reckless:
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — the six comparison axes, and the one they don't have.
 - [SafeVLA](../../sources/safevla-paper.md) — the alternative to filtering: constrained training, no runtime intervention, and therefore no path-consistency problem.
 - [Towards Safe Robot Foundation Models](../../sources/towards-safe-robot-foundation-models-paper.md) — ATACOM behind Octo; violations grow with BC fine-tuning, zero with the filter.
+- [FEARL — Verifiable Foundation Models for Robot Safety](../../sources/fearl-verifiable-foundation-models-robot-safety-paper.md) — the fifth instance: verify a small safety module for all contexts, shield only the uncertified remainder; VLA-compatible; navigation only.

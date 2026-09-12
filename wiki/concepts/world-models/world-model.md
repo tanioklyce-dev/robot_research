@@ -2,8 +2,8 @@
 title: World model
 type: concept
 created: 2026-05-07
-updated: 2026-09-10
-sources: 70
+updated: 2026-09-12
+sources: 71
 tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video, omnimodal, world-action-model, history]
 ---
 
@@ -148,6 +148,7 @@ On the other side of the same table, [Group-Structured Latent Space](../../sourc
 - [Larchenko — LeHome deep dive, Part 1](../../sources/larchenko-lehome-part1-rl-for-vlas.md) — *"a cheap replacement for a world model"*: predict the task's keypoint distances after the action chunk instead of pixels or latents. The sufficient-statistic move, which works because a competition hands you the statistic.
 - [Learning to Fold — tech report](../../sources/larchenko-learning-to-fold-tech-report.md) — the keypoint-distance heads are stated to be *"generally only available in simulation, since the targets require privileged data"*; they were stripped for the real robot. The cheap world model is a sim-only instrument.
 - [Robot Research Direction (first-party notes)](../../sources/robot-research-direction-notes.md) — ranks the wiki's ten open questions and argues they reduce to one: can the robot build a compact model that keeps the right information, predict its actions' effects, notice error, and update without forgetting. Verified version: [Ten open questions](../../syntheses/world-models/open-questions-and-research-direction.md).
+- [Robot Self-Improvement via Human-Video Dynamics Models](../../sources/robot-self-improvement-human-video-dynamics-paper.md) — a compact action-conditioned dynamics model (DINOv3 tokens + 3D point flows) used as a *judge* for candidate actions at 4 Hz, not as a data generator; swapping in a video-generation latent drops success 85.3% → 65.3%.
 
 ## Open questions / TBD
 - ~~PlaNet / DreamerV1 / V2 / TD-MPC1 — earlier MBRL milestones~~ — PlaNet, [World Models](../../sources/world-models-paper.md), [MuZero](../../sources/muzero-paper.md), [EfficientZero](../../sources/efficientzero-paper.md), [DayDreamer](../../sources/daydreamer-paper.md), [DIAMOND](../../sources/diamond-paper.md) all ingested 2026-07-09; V1/V2 remain covered via the [Dreamer entity](../../entities/dreamer.md) lineage table.

@@ -2,8 +2,8 @@
 title: Cross-embodiment transfer
 type: concept
 created: 2026-09-11
-updated: 2026-09-11
-sources: 24
+updated: 2026-09-12
+sources: 25
 tags: [cross-embodiment, embodiment-gap, action-space, normalized-actions, soft-prompts, latent-action-tokens, embodiment-conditioning, retargeting, whole-body-control, navigation, manipulation, humanoid, scaling]
 ---
 
@@ -87,3 +87,4 @@ Nineteen distinct answers appear across the sources. Grouped by what they change
 - Mixtures: [RT-1](../../sources/rt-1-paper.md), [π0](../../sources/pi-zero-paper.md), [π0.5](../../sources/pi-zero-5-paper.md), [Cosmos 3](../../sources/cosmos-3-technical-report.md), [Gemini Robotics 1.5](../../sources/gemini-robotics-1-5-report.md), [RoboMIND](../../sources/robomind-paper.md).
 - Bodies and humans: [LocoFormer](../../sources/locoformer-paper.md), [RMA](../../sources/rma-paper.md), [H2O](../../sources/h2o-paper.md), [ASAP](../../sources/asap-paper.md), [EgoScale](../../sources/egoscale-paper.md).
 - Negatives: [Demo-JEPA](../../sources/demo-jepa-paper.md), [UMI](../../sources/umi-paper.md), [RUM](../../sources/robot-utility-models-paper.md), [ASPIRE](../../sources/aspire-paper.md), [MolmoAct2 repo](../../sources/molmoact2-github-repo.md).
+- [Robot Self-Improvement via Human-Video Dynamics Models](../../sources/robot-self-improvement-human-video-dynamics-paper.md) — a *manipulation* instance of the shared-abstraction argument: 6-DoF wrist pose + hand closure, learned from human video, carries policy, dynamics and value models from a Stretch 3 to a Franka Panda (36.7% → 70.0% on the Franka). Two single parallel-jaw arms, so the scope is narrow.

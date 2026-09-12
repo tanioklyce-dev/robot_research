@@ -3,7 +3,7 @@ title: Continual learning and catastrophic forgetting
 type: concept
 created: 2026-09-11
 updated: 2026-09-12
-sources: 17
+sources: 18
 tags: [continual-learning, lifelong-learning, catastrophic-forgetting, skill-library, test-time-adaptation, in-context-learning, real-world-rl, rehearsal, knowledge-insulation, lora, deployment, household]
 ---
 
@@ -52,6 +52,8 @@ Two ways to learn at deployment while leaving the checkpoint alone.
 
 **The documented forgetting case.** [GR00T N1](../../sources/groot-n1-paper.md) §4.5: the pretrained checkpoint spontaneously performs an unseen left-to-right handover; the **post-trained checkpoint loses it** because post-training data was right-hand-only. One example, one direction, no metric — but it is the wiki's only ingested instance of the failure the term names, and it happened in a vendor's own post-training.
 
+**A loop that repairs its own failures (added 2026-09-12).** [Robot Self-Improvement via Human-Video Dynamics Models](../../sources/robot-self-improvement-human-video-dynamics-paper.md) removes the human from the *correction* step: a dynamics model and a value model pretrained on ~1M human-video samples and grounded on ~400 autonomous robot episodes score candidate fixes for each failed state (DGAC), and the repaired transitions join the successes for advantage-conditioned policy updates. Behaviour cloning 41.3% → 85.3% on five Stretch 3 tasks; π0.5 SFT 62.7% → 88.0%, where value-filtering alone (RECAP without interventions) reaches 68.0%. The human still labels success per episode, and only two iterations are run — but it is the first instance here where *failures become supervision* without a person supplying the correction.
+
 **What the wiki has instead of a forgetting-prevention method** is three architectural evasions:
 
 - **Rehearsal.** [Molmo2-ER](../../entities/molmo2-er.md)'s *specialize-then-rehearse* — 20K steps on the embodied corpus, then 1.5K steps interleaving the original multimodal mix at p = 0.5 — versus Unitree's single-stage co-training, which left [UnifoLM-ER-1](../../sources/unifolm-wla-1-project-page.md) **below its own base** on MME, MMMU, RealWorldQA and VSI-Bench. Rehearsal appears to be worth its cost; nobody has run both recipes on one base ([embodied-reasoning VLMs](embodied-reasoning-vlms.md)).
@@ -85,3 +87,4 @@ None of these is a method for a robot that must keep learning **in the weights, 
 - [MolmoAct2](../../sources/molmoact2-paper.md), [UnifoLM-WLA-1.0](../../sources/unifolm-wla-1-project-page.md), [Knowledge Insulation](../../sources/knowledge-insulation-paper.md), [LoRA](../../sources/lora-paper.md) — the architectural evasions.
 - [Hassabis at Davos](../../sources/wef-davos-2026-the-day-after-agi.md) — "world models, continual learning — these are the things that will need to be cracked."
 - [RoboTTT](../../sources/robottt-paper.md) — within-episode improvement with no persistent weight change (fast weights discarded after each rollout); the authors name RL on task success as the step toward persistent improvement.
+- [Robot Self-Improvement via Human-Video Dynamics Models](../../sources/robot-self-improvement-human-video-dynamics-paper.md) — autonomous failure repair (DGAC) as the correction step; human labels outcomes only.

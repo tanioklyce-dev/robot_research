@@ -2,8 +2,8 @@
 title: Real-world robotic reinforcement learning
 type: concept
 created: 2026-07-05
-updated: 2026-09-11
-sources: 22
+updated: 2026-09-12
+sources: 23
 tags: [reinforcement-learning, real-world-rl, manipulation, human-in-the-loop, off-policy-rl, sample-efficiency]
 ---
 
@@ -107,4 +107,4 @@ Real-world RL for manipulation went from "considered infeasible" to **100% succe
 - [`pollen-robotics/microduck` — the onboard runtime](../../sources/microduck-runtime-repo.md) — The mechanism behind the reset-automation claim: `VelStand` trains walking and fall recovery in one policy, and a separate rate-based detector (`ġ = −ω × g`) goes limp ~0.3 s ahead of the fall so the stand-up starts from a still robot.
 - [Larchenko — LeHome deep dive, Part 1](../../sources/larchenko-lehome-part1-rl-for-vlas.md) — the asynchronous Hub-mediated train/rollout/teleop loop; curriculum on success rate; success and semi-success replay.
 - [Learning to Fold — tech report](../../sources/larchenko-learning-to-fold-tech-report.md) — DAgger proximity weighting as a stand-in advantage; the three-pedal leader/follower rig; recovery came only from human interventions, and only on the real robot.
-
+- [Robot Self-Improvement via Human-Video Dynamics Models](../../sources/robot-self-improvement-human-video-dynamics-paper.md) — advantage-conditioned extraction (CFGRL / RECAP form) with no online human corrections; the gain over RECAP-without-interventions on π0.5 is +20 points and comes entirely from repairing failed states rather than down-weighting them.

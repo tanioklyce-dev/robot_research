@@ -3,8 +3,8 @@ title: DINO-WM
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-08-27
-sources: 34
+updated: 2026-09-12
+sources: 35
 tags: [dino-wm, dinov2, world-model, jepa-adjacent, lecun, pinto, nyu, meta-fair]
 ---
 
@@ -73,6 +73,7 @@ Two 2026 papers use DINO-WM as their starting point and their baseline, which ma
 - [stable-worldmodel paper (Maes et al., 2026)](../sources/stable-worldmodel-paper.md) — implemented as a baseline in the `swm` platform; benchmarked under controlled visual/physical perturbation (quadratic decay under distractors).
 - [WorldDP paper (Goswami et al., 2026)](../sources/worlddp-paper.md) — DINO-WM as a baseline (its raw-DINOv2-patch state is exactly what WorldDP's object-centric encoding is argued to improve on); single-stage, scores 0 on multi-stage tasks.
 - [Sensorimotor World Models paper (Ivashkov et al., 2026)](../sources/sensorimotor-world-models-paper.md) — DINO-WM cited as the "freeze the encoder" point in the anti-collapse design space.
+- [Robot Self-Improvement via Human-Video Dynamics Models](../sources/robot-self-improvement-human-video-dynamics-paper.md) — cites DINO-WM for the world-state design; DINOv3 tokens plus TAPIP3D point flows beat either alone and beat a video-model latent.
 
 ## A caution from the 2026 probe studies
 

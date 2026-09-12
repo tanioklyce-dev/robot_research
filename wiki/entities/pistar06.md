@@ -3,8 +3,8 @@ title: π*0.6 + RECAP
 type: entity
 subtype: model
 created: 2026-05-25
-updated: 2026-09-07
-sources: 8
+updated: 2026-09-12
+sources: 9
 tags: [pi-star-zero-6, pistar06, recap, pi-zero-6, pi-zero, vla, flow-matching, advantage-conditioning, offline-rl, distributional-value-function, classifier-free-guidance, dagger, real-world-rl, physical-intelligence]
 ---
 
@@ -82,4 +82,4 @@ Iterated mixture across pre-training and post-training phases:
 - [Physical Intelligence entity](physical-intelligence.md) — entry in the model line.
 - [Larchenko — LeHome deep dive, Part 1](../sources/larchenko-lehome-part1-rl-for-vlas.md) — an **independent reimplementation of RECAP** on π0.5, combined with AWR, with the advantage-indicator also injected through AdaRMS; a simplified intuition for the derivation (*"split μ by total probability into high- and low-advantage parts and condition on the first"*); and the same limit reported from the other side — no exploration.
 - [Learning to Fold — tech report](../sources/larchenko-learning-to-fold-tech-report.md) — the RECAP reimplementation in full: advantage token masked always for A < 0 and stochastically for A ≥ 0; AdaRMS channel; CFG 7–9 found by a bandit; **checkpoint rollbacks** noted as the ad-hoc form of π*0.6's restart-from-base each iteration; real-time chunking cited for the soft-inpainting throughput argument.
-
+- [Robot Self-Improvement via Human-Video Dynamics Models](../sources/robot-self-improvement-human-video-dynamics-paper.md) — RECAP as a baseline *without* human interventions: +5.3 points on π0.5 (62.7 → 68.0), versus +25.3 with explicit failure repair on the same rollouts.
