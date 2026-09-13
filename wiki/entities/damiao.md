@@ -3,8 +3,8 @@ title: Damiao (DM motors)
 type: entity
 subtype: organization
 created: 2026-08-27
-updated: 2026-08-27
-sources: 2
+updated: 2026-09-13
+sources: 3
 tags: [damiao, actuators, quasi-direct-drive, can-bus, mit-mode, robot-arm, rebot-arm, motors]
 ---
 
@@ -47,3 +47,4 @@ Arm bus: DC 24 V 10 A, CAN at 1 Mbit/s, seven nodes ([product page](../sources/s
 
 - [reBot Arm B601-DM Bundle with Jetson Thor](../sources/seeed-rebot-arm-b601-dm-thor-bundle.md) — the DM part numbers and bus spec
 - [A Sim-to-Real VLA Pipeline with Seeed reBot Arm and NVIDIA Isaac](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) — motor-ID setup, LeRobot `damiao` adapter, CAN ID pairs
+- [OpenArm documentation](../sources/openarm-docs.md) — the second Damiao-based arm here after the reBot Arm: DM-J4310-2EC / DM4340 / DM-J8009P-2EC per joint (3–20 Nm rated, 7–40 Nm peak), CAN-FD; datasheets hosted by [Enactic](enactic.md) at damiao.enactic.ai.

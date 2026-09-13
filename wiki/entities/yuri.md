@@ -3,12 +3,15 @@ title: Yuri (Sensori Robotics)
 type: entity
 subtype: robot
 created: 2026-07-13
-updated: 2026-07-13
-sources: 3
+updated: 2026-09-13
+sources: 4
 tags: [robot, bimanual, mobile-manipulation, manipulator, physical-ai, teleoperation, lerobot, jetson, vla]
 ---
 
 **Yuri** — a **dual-arm bimanual manipulation platform** for Physical AI / [VLA](../concepts/learning/vla-models.md) research, made by [Sensori Robotics](sensori-robotics.md) (Southlake, TX). Sold as an integrated, supported system with a day-one data-collection + policy-training stack, in two configurations: **Yuri Desktop** (benchtop) and **Yuri Mobile** (arms on a wheeled OpenBase for room-scale autonomy) ([company site](../sources/sensori-robotics-yuri.md)).
+
+> [!note] OpenArm+ is a derivative of Enactic's OpenArm (resolved 2026-09-13)
+> The arm under Yuri is a fork of [OpenArm](openarm.md), the open-hardware 7-DOF design from [Enactic](enactic.md) (Japan) documented at docs.openarm.dev — the same design [UME](ume.md) bought from its certified manufacturer [WowRobo](wowrobo.md). Sensori is not on Enactic's manufacturer directory, so OpenArm+ is an independent variant (extended reach, per Sensori) rather than an authorised build. What else it changes is undocumented on either side ([OpenArm docs](../sources/openarm-docs.md)).
 
 > [!note] "Humanoid" is a stretch
 > Sensori's marketing calls it a "dual-arm humanoid," but with two arms on a table or wheeled base and no legs, Yuri is a **bimanual (mobile) manipulator** — the same class as [Reachy 2](reachy.md), [XLeRobot](xlerobot.md), and [Mobile ALOHA](aloha.md), not a legged humanoid like G1 / Optimus.
@@ -49,3 +52,4 @@ Yuri's headline differentiators are **out-of-the-box bilateral force-feedback te
 ## Mentioned in
 
 - [Sensori Robotics — Yuri (company site)](../sources/sensori-robotics-yuri.md)
+- [OpenArm documentation](../sources/openarm-docs.md) — the upstream design OpenArm+ derives from; specs, price tier, manufacturer list (Sensori absent).

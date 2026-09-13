@@ -3,8 +3,8 @@ title: MuJoCo
 type: entity
 subtype: physics-engine
 created: 2026-05-07
-updated: 2026-08-27
-sources: 27
+updated: 2026-09-13
+sources: 28
 tags: [mujoco, physics-engine, deepmind, simulation, biomechanics]
 ---
 
@@ -53,3 +53,4 @@ tags: [mujoco, physics-engine, deepmind, simulation, biomechanics]
 - [flygym GitHub (NeLy-EPFL/flygym)](../sources/flygym-github.md) — NeuroMechFly v2 on MuJoCo + optional Warp/MJWarp.
 - [neuromechfly.org website](../sources/neuromechfly-website.md)
 - [Microduck — Pollen Robotics launch](../sources/pollen-robotics-microduck.md) — The physics engine under [Microduck](microduck.md)'s shipped policies, via [mjlab](mjlab.md) (MuJoCo Warp) — the first consumer robot in this wiki whose MuJoCo training environments ship with the product.
+- [OpenArm documentation](../sources/openarm-docs.md) — `openarm_mujoco` MJCF (bimanual, torque-controlled actuators); a Dora MuJoCo bridge lets the same inference dataflow run in sim or on hardware.

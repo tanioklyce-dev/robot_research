@@ -2,7 +2,7 @@
 title: Robot platforms — comparison
 type: synthesis
 created: 2026-05-08
-updated: 2026-07-13
+updated: 2026-09-13
 tags: [robots, hardware, comparison, list, manipulators, mobile-robots, aloha, mobile-aloha, xlerobot, yuri, bimanual]
 ---
 
@@ -19,6 +19,7 @@ A reference list of robot platforms with entity pages in this wiki, organized by
 | [Stretch](../../entities/stretch.md)           | Research    | Mobile manipulator    | Onboard (NUC + RealSense) | 1 (telescoping)   | Diff-drive     | RUM zero-shot generalist policies; stretch_ai LLM agent.                                 |
 | [Mobile ALOHA](../../entities/aloha.md)        | Research    | Bimanual mobile manip | Onboard (laptop + RTX 3070 Ti) | 2× 6 (ViperX 300) | Diff-drive (AgileX Tracer) | ACT + Diffusion Policy + VINN benchmarking on bimanual mobile manip; whole-body teleop; $32k. |
 | [Yuri](../../entities/yuri.md) ([Sensori](../../entities/sensori-robotics.md)) | Research    | Bimanual manip (Desktop / Mobile) | Onboard (Jetson AGX Orin 64 GB) | 2× 7 (OpenArm+) | None (Desktop) / wheeled OpenBase (Mobile) | Integrated Physical-AI data-collection rig; bilateral force-feedback teleop out-of-box; LeRobot recording; GR00T/π0/X-VLA/SmolVLA support. Quote-only price. |
+| [OpenArm](../../entities/openarm.md) ([Enactic](../../entities/enactic.md)) | Research    | Bimanual manip (tabletop) | External PC (CAN-FD)     | 2× 7 (+ gripper)  | None (FAQ: no mobile base planned) | **$6,500 bimanual** open-hardware 7-DOF QDD arm (4.1 kg nominal payload); bilateral force-feedback teleop; Cell evaluation enclosure; the upstream of Yuri's OpenArm+ and UME's test arm. |
 | [XLeRobot](../../entities/xlerobot.md)         | Educational | Bimanual mobile manip | External PC (or onboard [Jetson Orin Nano](../../entities/jetson-orin-nano.md)) | 2× (5+1) SO-101 + 2-DoF neck | Holonomic (LeKiwi omni) | **Cheapest bimanual mobile manipulator** ($660 tethered → $1.3k untethered); LeRobot/SO-101; onboard-Jetson untethered build + on-edge VLA benchmarks ([Cutting the Cord](../../sources/cutting-the-cord-untethered-xlerobot.md)). |
 | [ROSOrin Pro](../../entities/rosorin-pro.md)   | Educational | Mobile manipulator    | Jetson Orin Nano          | 6 (HX-12H servos) | Diff/Ackermann | OpenClaw LLM-agent (via Hiwonder's openclaw_controller ROS 2 bridge); LeWM-feasibility candidate.                                |
 | [ROSOrin](../../entities/rosorin.md)           | Educational | Mobile robot (no arm) | Jetson Orin Nano          | 0                 | Diff/Ackermann | LLM-agent curriculum (cloud + offline).                                                  |
@@ -69,6 +70,8 @@ Two options in this wiki: **[Hello Robot Stretch](../../entities/stretch.md)** f
 
 ### Tabletop manipulation = Franka, with xArm 7 as second option
 Same pattern — when a paper says "real-robot manipulation" without further qualification, **Franka is implied**. xArm 7 appears as a transfer target rather than a primary platform.
+
+**Added 2026-09-13 — the open 7-DOF tier has a name.** [OpenArm](../../entities/openarm.md) sits between the SO-101 (~$120 arm) and the Franka (~$30k) at $6,500 bimanual with a 4.1 kg nominal payload, and both [Yuri](../../entities/yuri.md) and [UME](../../entities/ume.md)'s test rig derive from it.
 
 ## What's missing from this wiki
 

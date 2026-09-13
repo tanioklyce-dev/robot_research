@@ -2,8 +2,8 @@
 title: Robot policy evaluation
 type: concept
 created: 2026-07-27
-updated: 2026-09-11
-sources: 55
+updated: 2026-09-13
+sources: 56
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility, real-to-sim, r2s2r]
 ---
 
@@ -136,6 +136,10 @@ Two of their findings bear directly on this page:
 
 The [Earth Rover Challenge](../../sources/earth-rover-challenge-frodobots-2k.md) ([FrodoBots](../../entities/frodobots.md); IROS 2024, ICRA 2025, IROS 2026) is the wiki's one example of a **calibrated multi-city robot fleet used as a shared evaluation instrument**: same rovers and missions at 14 sites, off-board compute through an SDK, 20 h/week of pre-event real-world testing for every team, and a score reported as **a fraction of the best human teleoperator's run** — 37% in 2024, 57% in 2025. Three things it gets right that lab evals do not: the environment is uncontrolled and the same for everyone; the human baseline is *measured in the same conditions* rather than assumed; and the per-edition ceiling number is size-invariant. Two limits: it is sidewalk navigation with four discrete actions at ~500 ms latency, so the ceiling says nothing about manipulation; and missions and human fields change per edition, so cross-edition trends are direction only. It is also the only running instance of the evaluation-fleet idea in the [BitRobot whitepaper](../../sources/bitrobot-network-whitepaper.md). The research-side counterpart is [MBRA](../../sources/mbra-paper.md)'s **six-country, 24-route** deployment of one navigation policy ("the first global evaluation for visual navigation"), which also reports a **coverage rate** — fraction of goal distance reached before failure — as partial credit alongside binary success. The lineage behind it supplies three more partial-credit metrics: **mean progress toward goal** ([GNM](../../sources/gnm-paper.md)), **maximum displacement without intervention** and **SPL** ([ViNT](../../sources/vint-paper.md)), and **collisions per run** alongside success ([NoMaD](../../sources/nomad-paper.md)) — each answering "how far can this policy be trusted" rather than "did it hit one goal."
 
+## A vendor builds the controlled environment (added 2026-09-13)
+
+[OpenArm 2.0](../../sources/openarm-docs.md) ships an **evaluation cell** as hardware: a ~100 kg MISUMI enclosure fixing background, lighting, camera placement and the arm's mount, with a mechanical zero-position calibration jig *"eliminating assembly tolerances from the dataset,"* a 300 mm Z-axis, and an area-sensor power cut-off — sold at $6,200 by its certified manufacturer. The stated motive is this page's complaint verbatim: *"'Model A outperforms Model B' only carries meaning when both were evaluated under the same conditions."* It addresses the visual-domain and calibration drift between labs; it does nothing for the sample-size problem above, and no results from a Cell have been published.
+
 ## What is still missing
 
 - **No real-world validation.** RoboLab is simulation-only, and whether its scores predict deployment success is precisely the question it exists to answer.
@@ -192,3 +196,4 @@ The [Earth Rover Challenge](../../sources/earth-rover-challenge-frodobots-2k.md)
 - [GNM paper](../../sources/gnm-paper.md) — mean progress as the success metric.
 - [ViNT paper](../../sources/vint-paper.md) — max displacement without intervention; SPL; kilometer-scale runs.
 - [NoMaD paper](../../sources/nomad-paper.md) — collisions per run reported next to success.
+- [OpenArm documentation](../../sources/openarm-docs.md) — the OpenArm Cell, a standardized evaluation enclosure sold as a product.

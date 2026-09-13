@@ -3,8 +3,8 @@ title: LeRobot
 type: entity
 subtype: software-framework
 created: 2026-05-10
-updated: 2026-09-11
-sources: 52
+updated: 2026-09-13
+sources: 53
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026, xvla, sourccey, plugin-system]
 ---
 
@@ -206,6 +206,7 @@ Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distri
 - [Larchenko — LeHome deep dive, Part 1](../sources/larchenko-lehome-part1-rl-for-vlas.md) — LeRobot 0.4.2 is the challenge's control and data stack inside Isaac Lab; the winner used the **Hub as an asynchronous RL message bus** (model repo one way, rollout-dataset repo the other) and organiser demonstrations shipped as LeRobot datasets.
 - [Learning to Fold — tech report](../sources/larchenko-learning-to-fold-tech-report.md) — **version gotcha**: the SO-101 follower state representation changed between 0.4.x releases (normalised range → degrees); the winner's real data and training ran on the wrong convention until two days before the ICRA final. Check the convention when mixing datasets across LeRobot versions.
 - [HIW-500 dataset page](../sources/bitrobot-hiw-500-dataset-page.md) — 500+ h humanoid whole-body teleop shipped in **LeRobot v3.0** (AV1 video, `language_events` subtask stream), alongside raw MCAP; the largest humanoid LeRobotDataset in the wiki.
+- [OpenArm documentation](../sources/openarm-docs.md) — OpenArm's native dataset converts to LeRobot v2.1/v3.0 (`openarm-dataset-convert`); the training tutorial is LeRobot 0.6.1 ACT on `enactic/openarm-2-cell-pick_up_cube_mujoco-lerobot`.
 
 ## Open questions / TBD
 

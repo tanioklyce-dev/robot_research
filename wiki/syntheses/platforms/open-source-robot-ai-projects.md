@@ -2,7 +2,7 @@
 title: Open-source robot AI research projects — landscape
 type: synthesis
 created: 2026-05-17
-updated: 2026-08-27
+updated: 2026-09-13
 tags: [open-source, ecosystem, lerobot, jepa, simulators, fly, karpathy, landscape-survey, sourccey, xvla]
 ---
 
@@ -25,6 +25,7 @@ The single most active open-source robotics-AI scene tracked in this wiki.
 
 - [Stretch](../../entities/stretch.md) + [stretch_ai](../../entities/stretch-ai.md) — [Hello Robot](../../entities/hello-robot.md) mobile manipulator with open Python stack (LLM-agent included).
 - [Reachy 2](../../entities/reachy.md) — [Pollen Robotics](../../entities/pollen-robotics.md) open-source bimanual mobile manipulator; ROS 2.
+- [OpenArm](../../entities/openarm.md) — [Enactic](../../entities/enactic.md)'s open 7-DOF QDD arm (CAD CERN-OHL-S, software Apache-2.0); $6,500 bimanual from certified manufacturers; bilateral teleop, Dora/LeRobot stack, Isaac Lab + MuJoCo assets, and an evaluation Cell ([docs](../../sources/openarm-docs.md)). The upstream of the next entry.
 - [Yuri](../../entities/yuri.md) + **OpenArm+ / OpenBase** — [Sensori Robotics](../../entities/sensori-robotics.md)'s integrated bimanual Physical-AI rig; arm + base designs open (github.com/SensoriRobotics, docs.openarm.dev), but sold as a supported turnkey product with force-feedback teleop + LeRobot recording (quote-only price; "a complete robot, not a box of parts").
 - [TurtleBot](../../entities/turtlebot.md) — Open Robotics-maintained; ROS 2 native in TurtleBot 4.
 - [iRobot Create 3](../../entities/irobot-create-3.md) — Roomba-i3-derived ROS 2 mobile base under TurtleBot 4.

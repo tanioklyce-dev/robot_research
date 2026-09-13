@@ -3,8 +3,8 @@ title: NVIDIA Isaac Lab
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-09-07
-sources: 24
+updated: 2026-09-13
+sources: 25
 tags: [framework, robot-learning, nvidia, isaac-lab, rl]
 ---
 
@@ -45,4 +45,4 @@ Isaac Lab inherits Isaac Sim's RT-core requirement: it cannot run on [Jetson Tho
 - [NVIDIA + HF LeRobot partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md) — Lab-Arena ↔ LeRobot EnvHub registration.
 - [Larchenko — LeHome deep dive, Part 1](../sources/larchenko-lehome-part1-rl-for-vlas.md) — the [LeHome Challenge 2026](lehome-challenge-2026.md) environment (Isaac Lab 2.3.1 / Isaac Sim 5.1, cloth simulation, keypoint-scored success); ~30 s per rollout episode on an RTX PRO 6000 after the winner's optimisations; per-frame colour/lighting/camera randomisation.
 - [Learning to Fold — tech report](../sources/larchenko-learning-to-fold-tech-report.md) — 3–5 Isaac Sim processes per machine (no multi-scene in one process for this environment); physics-state snapshots (particle positions/velocities + joints) restored for replay and hard mining; the renderer-overfit diagnostic (resize path) that predicted the sim-to-real failure.
-
+- [OpenArm documentation](../sources/openarm-docs.md) — `openarm_isaac_lab` (Isaac Sim 5.1 / Isaac Lab 2.3): reach, lift-cube, open-drawer environments, *"officially integrated"* upstream; VR (Quest 3) teleop demonstrated here only.

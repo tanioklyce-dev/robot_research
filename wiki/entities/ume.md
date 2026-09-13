@@ -3,8 +3,8 @@ title: UME (Universal Manipulation Exoskeleton)
 type: entity
 subtype: product
 created: 2026-08-13
-updated: 2026-08-13
-sources: 5
+updated: 2026-09-13
+sources: 6
 tags: [ume, exoskeleton, teleoperation, force-torque, haptic-feedback, compliant-control, data-collection, umi, ant-group, stanford, low-cost]
 ---
 
@@ -93,8 +93,9 @@ UME is one of four artifacts in **[Robbyant](robbyant.md)**'s (Ant Group) physic
 - **Paper un-ingested** (arXiv 2606.14218) — it holds the UMI and No-torque ablation results, the cost breakdown, the retargeting algorithm, and the user study.
 - **Do the learned policies consume torque as an input**, or only benefit from better demonstrations? Completely different claims; unresolved on the project page.
 - **Nothing bridges $1,900 to the $660 tier.** [OpenFT](openft-sensor.md) is the only cheaper option and is unmaintained and unbenchmarked.
-- **Is WowRobo's OpenArm 1.0 the same lineage as [Sensori](sensori-robotics.md)'s OpenArm+?** Two independent platforms sourcing "OpenArm" hints at a standard forming above the SO-ARM101 tier — unconfirmed.
+- ~~**Is WowRobo's OpenArm 1.0 the same lineage as [Sensori](sensori-robotics.md)'s OpenArm+?**~~ **Resolved 2026-09-13**: both derive from [Enactic](enactic.md)'s [OpenArm](openarm.md); [WowRobo](wowrobo.md) is the certified manufacturer of the upstream design (V1.1 now $5,400, 2.0 $6,500), Sensori's is a fork. The standard is real and has an owner.
 
 ## Mentioned in
 
 - [UME project page](../sources/ume-project-page.md)
+- [OpenArm documentation](../sources/openarm-docs.md) — the evaluation arm's upstream: specs, versions, WowRobo as certified manufacturer.

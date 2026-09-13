@@ -407,7 +407,7 @@ Surfaced by the [home AI platform](syntheses/agents/home-ai-platform-trust-and-a
 - [ ] **Does torque help long-horizon mobile tasks at all?** Fridge retrieval 0.95 vs 0.90 at n=20 is indistinguishable (p=1.00). Either the task is not force-mediated enough, or the effect is real and n=20 cannot see it. A larger n settles it.
 - [ ] **No cross-embodiment *policy* transfer tested** — universal *teleoperation* is shown, policy transfer is not. And **real-Franka results are simulation-only** pending hardware delivery.
 - [ ] **Nothing bridges $1,900 to the $660 tier.** [OpenFT](entities/openft-sensor.md) is the only cheaper route and is unmaintained, unbenchmarked, and unlicensed.
-- [ ] **Is WowRobo's OpenArm 1.0 the same lineage as [Sensori](entities/sensori-robotics.md)'s OpenArm+?** Two unrelated platforms sourcing "OpenArm" hints at a standard consolidating above the SO-ARM101 tier.
+- [x] ~~**Is WowRobo's OpenArm 1.0 the same lineage as [Sensori](entities/sensori-robotics.md)'s OpenArm+?**~~ **Resolved 2026-09-13** — both derive from [Enactic](entities/enactic.md)'s [OpenArm](entities/openarm.md) ([docs ingested](sources/openarm-docs.md)); WowRobo is its certified manufacturer, Sensori's is a fork. Residual: what OpenArm+ changes; accuracy/repeatability/power figures the FAQ says are "being prepared."
 
 ## [2026-08-13f] LangGraph ingested — one gap closed, two opened
 
