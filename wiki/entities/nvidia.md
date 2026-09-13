@@ -3,8 +3,8 @@ title: NVIDIA
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-09-07
-sources: 61
+updated: 2026-09-13
+sources: 62
 tags: [nvidia, gpu, simulation, physical-ai]
 ---
 
@@ -74,3 +74,4 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - [GraspGen-X: Cross-Embodiment 6-DOF Diffusion-based Grasping](../sources/graspgenx-paper.md)
 - [Third World Modeling Workshop — Day 2](../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — [WorldTrace](worldtrace.md), NVIDIA's training-free addressable-memory framework for interactive video world models.
 - [Where Security Fits in an AI Agent Stack](../sources/nvidia-where-security-fits-agent-stack.md)
+- [OpenAI — Jalapeño's first results](../sources/openai-jalapeno-first-results.md) — **GB200 (1,200 W) and GB300 (1,400 W)** as the comparison systems for OpenAI's 700 W inference chip on InferenceX: reported 1.5–1.9× behind on throughput per kW and 1.7–3.6× on end-to-end latency (vendor numbers, configuration unstated); OpenAI says it will keep deploying NVIDIA accelerators for training and inference.

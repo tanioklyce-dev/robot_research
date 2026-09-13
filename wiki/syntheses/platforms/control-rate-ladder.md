@@ -2,7 +2,7 @@
 title: The control-rate ladder — LLMs, VLAs, and servo loops on one axis
 type: synthesis
 created: 2026-07-27
-updated: 2026-09-12
+updated: 2026-09-13
 tags: [latency, inference, control-frequency, vla, llm-agent, edge-ai, jetson, action-chunking, control-abstraction-levels, platforms, turbovla, llm-free-vla]
 ---
 
@@ -136,6 +136,8 @@ Neither separation is closed by faster inference. Three mechanisms do the work, 
 - **Chunk-adjusted effective control rates are not published** for most policies, so the inference-Hz vs control-Hz distinction stays qualitative here.
 - **Power is a hidden third axis.** 27.8 Hz on a 25 W Orin Nano and 55.8 Hz on a 700 W H100 are not the same achievement; see the [Jetson module ladder](jetson-module-ladder-power-performance.md).
 
+**A cloud-side data point on planner latency (added 2026-09-13).** The frontier-LLM row above (0.2–0.4 Hz, from 2–8 s text responses) is a measurement of a served product. [OpenAI's Jalapeño results](../../sources/openai-jalapeno-first-results.md) report **1,459 tokens/s per user** and **1.03 s end-to-end for an 8k-in / 1k-out request** on a 120B model, and 0.69 ms between tokens — vendor-reported, cloud-side, unverified — which would move a short language-planner call from the seconds band toward the ~1 Hz band before network round trip. Whether that reaches a product's API is not stated.
+
 ## Related
 - [Control abstraction levels](../../concepts/robotics/control-abstraction-levels.md) — *where* in the stack a controller acts; this page is the frequency each level demands.
 - [VLA deployability landscape](vla-deployability-landscape.md) — the latency axis scored per-model, with the H100-vs-edge caveat.
@@ -154,3 +156,4 @@ Neither separation is closed by faster inference. Three mechanisms do the work, 
 ## Mentioned in
 - [Embodied AI — AI House Davos 2026 (LeCun)](../../sources/ai-house-davos-2026-lecun-embodied-ai.md) — the human numbers he gives for the ladder: retina ~15 Hz, brain ~10 Hz, ~300 ms see-to-brake; *"cats are faster"*; and *"every single real-time vision system uses convolutional nets"* — the AEB in every car sold in Europe.
 - [Post-train Cosmos 3 Edge for on-device robot control](../../sources/nvidia-cosmos3-edge-post-training-blog.md) — the Cosmos 3 Edge row corrected from 15 Hz to ~0.65 Hz replanning (1.53 s per 32-action chunk).
+- [OpenAI — Jalapeño's first results](../../sources/openai-jalapeno-first-results.md) — per-user token rates that would change the frontier-LLM row, if they reach an API.

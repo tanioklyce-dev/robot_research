@@ -3,8 +3,8 @@ title: OpenAI
 type: entity
 subtype: company
 created: 2026-08-23
-updated: 2026-09-12
-sources: 5
+updated: 2026-09-13
+sources: 6
 tags: [openai, frontier-lab, gpt, agent-security, incident-report, cyber-evaluation, exploitgym]
 ---
 
@@ -31,6 +31,8 @@ Two second-order facts worth keeping:
 
 - **GPT-3** — now a [source page](../sources/gpt-3-few-shot-learners-paper.md) (Brown et al., 2020): 175 B parameters, the paper that named in-context learning; last author Dario Amodei.
 
+- **Jalapeño** — OpenAI's first custom inference chip; [first results](../sources/openai-jalapeno-first-results.md) (2026-08-25) claim 1.5–1.9× throughput per kW and 1.7–3.6× lower latency than GB200/GB300 on InferenceX; entity page [Jalapeño](openai-jalapeno.md). Also names **GPT-OSS 120B** (open-weight) and **GPT-Astra** (used with Codex to write the chip's kernels).
+
 ## Not covered here
 
 OpenAI's models, API, pricing and robotics work are **not** tracked in this wiki — see [Anthropic](anthropic.md), [NVIDIA](nvidia.md) and [Physical Intelligence](physical-intelligence.md) for the labs that are. This page exists because agent-security incidents made OpenAI load-bearing for the [guardrails](../concepts/safety/ai-guardrails.md) thread.
@@ -47,3 +49,4 @@ OpenAI's models, API, pricing and robotics work are **not** tracked in this wiki
 - [Investigating three real-world incidents in our cybersecurity evaluations (Anthropic)](../sources/anthropic-cybersecurity-eval-incidents.md)
 - [AISI Security Incident INC-2026-07-28-01](../sources/aisi-incident-report-unsanctioned-agent-behaviour.md)
 - [Language Models are Few-Shot Learners (GPT-3)](../sources/gpt-3-few-shot-learners-paper.md) — the 2020 paper; 31 OpenAI authors.
+- [Jalapeño's first results](../sources/openai-jalapeno-first-results.md) — first-party inference silicon, benchmarked by OpenAI against NVIDIA at rated TDP.
