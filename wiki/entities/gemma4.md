@@ -3,8 +3,8 @@ title: Gemma 4
 type: entity
 subtype: model
 created: 2026-07-04
-updated: 2026-08-27
-sources: 6
+updated: 2026-09-13
+sources: 7
 tags: [gemma4, vlm, google, multimodal, moe, edge-ai, on-device, vla-backbone-candidate]
 ---
 
@@ -34,6 +34,9 @@ E2B under LiteRT-LM, 1024 prefill / 256 decode:
 | [Jetson Orin Nano](jetson-orin-nano.md) | CPU | 109 | 12.2 | 9.4 | 3681 |
 | [Jetson Orin Nano](jetson-orin-nano.md) | **GPU** | 1,142 | **24.2** | **0.9** | 2739 |
 | Qualcomm Dragonwing IQ8 | **NPU** | 3,747 | 31.7 | 0.3 | 1869 |
+| [Rockchip RK3588](rockchip-rk3588.md) ¹ | **NPU** (RKLLM w8a8) | — | **11.1** | 0.6 ¹ | 2499 |
+
+¹ From [Rockchip's own benchmark](../sources/rknn-llm-github.md), **not** the LiteRT card: 128-token prompt / 64 new tokens, w8a8, max clocks. Decode is comparable; TTFT is not (Google's rows are a 1,024-token prefill). RK3576 at w4a16: 9.2 tok/s in 1.5 GB.
 
 Model size 2583 MB. Quantization is a QAT mix of **2/4/8-bit** weights — text-only weight footprint as low as **0.8 GB**, with 1.12 GB of embeddings memory-mapped and the vision/audio encoders loaded on demand. **On-device context is 32K** under LiteRT-LM, below the architecture's 128K.
 
@@ -53,6 +56,7 @@ The gap between the CPU and GPU rows on the *same* Orin Nano — ~10× prefill, 
 - [Gemma 4 edge blog (NVIDIA)](../sources/nvidia-gemma-4-edge-blog.md) — primary source (edge/on-device angle).
 - [Gemma 4 E2B model card + LiteRT benchmarks](../sources/gemma-4-e2b-model-card.md) — **the Google primary**: five sizes, the "effective parameters" naming, and the first per-device tok/s figures in this wiki.
 - [Gemma 4 Powers Open Duck Mini (explainx.ai)](../sources/explainx-gemma-4-open-duck-mini.md) — a secondary that gets E2B's parameter count and context window wrong; corrections tabulated there.
+- [airockchip/rknn-llm](../sources/rknn-llm-github.md) — E2B on the **RK3588 NPU at 11.1 tok/s** (RKLLM v1.3.0 added Gemma 4 support, 2026-06); the rung between the Pi 5 CPU and the Orin Nano GPU.
 - [Gemini Robotics On-Device 2 model card](../sources/gemini-robotics-on-device-2-model-card.md) — GRoD 2 is built on "our on-device Gemma models", putting the Gemma line under DeepMind's edge VLA (size class unstated).
 
 ## Open questions

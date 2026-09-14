@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-08-27
 updated: 2026-09-13
-sources: 3
+sources: 4
 tags: [microduck, pollen-robotics, hugging-face, biped, reinforcement-learning, sim-to-real, mjlab, dynamixel, rk3566, consumer-robotics, education]
 ---
 
@@ -66,7 +66,7 @@ Two repos, both Apache-2.0: [`microduck`](https://github.com/pollen-robotics/mic
 
 The camera and depth path exists and is measured, though nothing autonomous consumes it yet ([runtime repo](../sources/microduck-runtime-repo.md)):
 
-- **NPU**: the RK3566's is **0.8 TOPS INT8, one core**. A `yolo11n` duck detector at 320×320 — one class, 150 training frames, mAP50 0.976, **3.9 MB** after INT8 quantisation — runs at **p50 25.7 ms / p95 58.4 ms**, 63 °C SoC. So room-scale single-class vision at 15–30 Hz is comfortably within budget; a [VLA](../concepts/learning/vla-models.md) remains impossible.
+- **NPU**: the RK3566's is **0.8 TOPS INT8, one core**. A `yolo11n` duck detector at 320×320 — one class, 150 training frames, mAP50 0.976, **3.9 MB** after INT8 quantisation — runs at **p50 25.7 ms / p95 58.4 ms**, 63 °C SoC. So room-scale single-class vision at 15–30 Hz is comfortably within budget; a [VLA](../concepts/learning/vla-models.md) remains impossible. Nor is there an LLM path: the RK3566 is **not in [RKLLM](rknn-llm.md)'s platform list** (RK3588 / 3576 / 3562 / RV1126B only), so Rockchip's SDK offers no on-device language model for this board ([rknn-llm](../sources/rknn-llm-github.md)).
 - **Depth** is its own daemon (`tofd`) publishing the 8×8 matrix on its own socket, split out because bringing up a VL53L5/8CX *"uploads ~90 KB of firmware over I²C taking seconds"* on a bus shared with the audio codec — *"a retry loop for that does not belong in the process that owns the motors."*
 - **Not yet wired**: no IPC exposes a camera frame, so capturing a dataset requires stopping `mediad` to take the camera. The 16-state autonomous brain from the prototype is unported and has no design doc — the roadmap's largest open item.
 - **Multi-robot substrate exists**: ducks discover each other by **stable BLE id** (surviving address rotation), share a beat to **±20 ms with no clock sync**, and get RSSI as coarse distance plus ~245 spare advertising bytes. Planned sensor fusion: *"camera = direction, ToF = distance, BLE beacon = identity + presence."*
@@ -104,3 +104,4 @@ That drives a **BAM M6** model of the XL330 (voltage control law, back-EMF, Coul
 - [Microduck — Pollen Robotics launch](../sources/pollen-robotics-microduck.md)
 - [`pollen-robotics/microduck` — the onboard runtime](../sources/microduck-runtime-repo.md) — the seven-daemon architecture, the 50 Hz tick, the safety boundary, predictive fall mitigation, and the measured NPU.
 - [Gemma 4 Powers Open Duck Mini (explainx.ai)](../sources/explainx-gemma-4-open-duck-mini.md) — Secondary coverage of the [Open Duck Mini](open-duck-mini.md) ancestor; propagates the "LiDAR" marketing term this page corrects to an 8×8 ToF matrix.
+- [KickPi RK3566 Microduck case study](../sources/kickpi-rk3566-microduck-case-study.md) — ODM secondary written from the public docs; names the IMU as an **LSM6DSV16X on the Dynamixel bus** (unverified here) and misdescribes the runtime with a separate "servo daemon"

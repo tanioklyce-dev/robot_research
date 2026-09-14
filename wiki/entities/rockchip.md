@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-09-13
 updated: 2026-09-13
-sources: 5
+sources: 7
 tags: [rockchip, soc, arm, npu, edge-ai, semiconductor, china]
 ---
 
@@ -26,6 +26,7 @@ Chinese fabless ARM SoC vendor (Fuzhou) whose chips sit under a large share of t
 Rockchip's accelerators are reached through vendor libraries rather than a general-purpose runtime, which is the whole reason the [Turing Pi article](../sources/turingpi-rk3588-architecture-deep-dive.md) exists:
 
 - **[RKNN-Toolkit2](rknn-toolkit2.md) / RKNN runtime** — compile a PyTorch / TensorFlow / ONNX graph on a host (layout, fusion, quantisation), load the compiled model on device, choose NPU cores with a core mask. Operator coverage determines what maps to the NPU at all — the same **compiled-model** pattern as [Hailo](hailo.md)'s HEF. The [repo](../sources/rknn-toolkit2-github.md) shows the fine print: 89 of 187 ONNX ops, batch-1 restrictions, a **proprietary Rockchip-products-only license**, LLMs pushed to a separate `rknn-llm` SDK, and no release since April 2025.
+- **[RKLLM](rknn-llm.md)** (`rknn-llm`) — the LLM / VLM runtime, and the actively maintained half (v1.3.0, 2026-06): Hugging Face model → `.rkllm` → C API on **RK3588 / RK3576 / RK3562 / RV1126B** only, with Rockchip's own [benchmark table](../sources/rknn-llm-github.md) (Gemma 4 E2B 11.1 tok/s on RK3588; 6B at 5 tok/s; image encoders 0.7–3.3 s). Not the RK3566, not the RK1828.
 - **MPP / RKMPP** — the video codec interface; when an application's path does not reach it, decode falls back to CPU silently (Jellyfin: 727% CPU vs 3–8%).
 - **RGA** — the 2D engine library for resize / crop / colour conversion that feeds the NPU and encoder without CPU frame copies.
 - **Kernel branch matters**: Rockchip BSP kernels expose vendor NPU / MPP / GPU interfaces that mainline may not; the reference measurements were taken on a `6.1.0-rockchip` kernel, not mainline.
@@ -33,7 +34,7 @@ Rockchip's accelerators are reached through vendor libraries rather than a gener
 Microduck's runtime is the wiki's one shipped example of building on this stack in production — it measured its own NPU rather than quote the datasheet, and pairs Rust daemons with RKNN inference on the RK3566 ([runtime repo](../sources/microduck-runtime-repo.md)).
 
 ## Related
-- [Rockchip RK3588](rockchip-rk3588.md) · [Rockchip RK1828](rockchip-rk1828.md) · [RKNN-Toolkit2](rknn-toolkit2.md)
+- [Rockchip RK3588](rockchip-rk3588.md) · [Rockchip RK1828](rockchip-rk1828.md) · [RKNN-Toolkit2](rknn-toolkit2.md) · [RKLLM](rknn-llm.md)
 - [Microduck](microduck.md) · [Pollen Robotics](pollen-robotics.md)
 - [Hailo](hailo.md) — the other compiled-model NPU vendor in the wiki.
 - [Heterogeneous edge SoCs and the shared-memory budget](../concepts/robotics/heterogeneous-edge-soc.md)
@@ -44,3 +45,5 @@ Microduck's runtime is the wiki's one shipped example of building on this stack 
 - [`pollen-robotics/microduck` — the onboard runtime](../sources/microduck-runtime-repo.md)
 - [airockchip/rknn-toolkit2](../sources/rknn-toolkit2-github.md)
 - [RK1828 vs Jetson Orin NX vs Hailo-8 (Geniatech)](../sources/geniatech-rk1828-vs-orin-nx-vs-hailo-8.md)
+- [airockchip/rknn-llm](../sources/rknn-llm-github.md)
+- [KickPi RK3566 Microduck case study](../sources/kickpi-rk3566-microduck-case-study.md) — an ODM's secondary on the RK3566

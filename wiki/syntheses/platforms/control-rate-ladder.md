@@ -70,9 +70,11 @@ This page lines them up. The short version: **the full span is about five orders
 | **1.4** | MEAS | [SmolVLA](../../entities/smolvla.md)-450M, 714 ms | Orin Nano |
 | **1.3** | MEAS | [FAST](../../entities/fast-action-tokenization.md) autoregressive decode, ~750 ms/1 s chunk | RTX 4090 |
 | **1** | REQ | **[Nav2](../../entities/nav2.md) global replanning** — `RateController hz="1.0"` in the shipped default [behavior tree](../../concepts/robotics/behavior-trees.md) | ROS 2, production |
+| **~1.1** | MEAS | **SmolVLM-256M on the [RK3588](../../entities/rockchip-rk3588.md) NPU** — 842 ms image encode (512², RKNN FP16, 3 cores) + 77 ms prefill before the first token; decode 78 tok/s. The fastest VLM perception step Rockchip publishes | [RKLLM](../../sources/rknn-llm-github.md) benchmark |
 | **~1** | MEAS | Agent heartbeats — [AgenticROS](../../entities/agenticros.md), [ros2-mcp-server](../../entities/ros2-mcp-server.md) capability beacons | Orin NX |
 | **~0.65** | MEAS | **[Cosmos 3 Edge (4B) policy](../../sources/nvidia-cosmos3-edge-post-training-blog.md)** — **1.53 s per 32-action chunk**, 640×540, replans after a prefix; vendor-reported, fully on-robot | [Jetson Thor](../../entities/jetson-thor.md) T5000 |
 | **0.5** | MEAS | SmolVLA on **CPU**, 2,028 ms | CPU |
+| **~0.25** | MEAS | **Qwen2.5-VL-3B on the RK3588 NPU** — 2.93 s image encode + 1.12 s prefill ≈ **4 s to first token**, 8.7 tok/s decode (w8a8) | [RKLLM](../../sources/rknn-llm-github.md) benchmark |
 | **0.2–0.4** | **MEAS** | **Frontier LLM, non-reasoning** (2–8 s text; 5–15 s with images; **15–180 s with reasoning**) | [robotics eval](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) |
 
 ## Four bands, and the gaps between them
@@ -148,6 +150,7 @@ Neither separation is closed by faster inference. Three mechanisms do the work, 
 - [VLA models](../../concepts/learning/vla-models.md) — the S1/S2 structural pattern.
 
 ## Sources
+- [airockchip/rknn-llm](../../sources/rknn-llm-github.md) — the RK3588 NPU VLM rows (image-encoder + prefill latency, decode rate), Rockchip-measured at max clocks.
 - [How Claude Performs on Robotics Tasks](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — 83 Hz requirement; 0.2–0.4 Hz inference; reasoning-latency range.
 - [Cutting the Cord (Shaw et al., 2026)](../../sources/cutting-the-cord-untethered-xlerobot.md) — the on-edge ACT / Diffusion Policy / SmolVLA measurements.
 - [Isaac GR00T TensorRT deployment docs](../../sources/isaac-gr00t-tensorrt-deployment-docs.md) + [NVIDIA forum report](../../sources/nvidia-forum-thor-realtime-vla-inference.md) — Thor / AGX Orin / RTX 5090 GR00T numbers.
@@ -157,3 +160,4 @@ Neither separation is closed by faster inference. Three mechanisms do the work, 
 - [Embodied AI — AI House Davos 2026 (LeCun)](../../sources/ai-house-davos-2026-lecun-embodied-ai.md) — the human numbers he gives for the ladder: retina ~15 Hz, brain ~10 Hz, ~300 ms see-to-brake; *"cats are faster"*; and *"every single real-time vision system uses convolutional nets"* — the AEB in every car sold in Europe.
 - [Post-train Cosmos 3 Edge for on-device robot control](../../sources/nvidia-cosmos3-edge-post-training-blog.md) — the Cosmos 3 Edge row corrected from 15 Hz to ~0.65 Hz replanning (1.53 s per 32-action chunk).
 - [OpenAI — Jalapeño's first results](../../sources/openai-jalapeno-first-results.md) — per-user token rates that would change the frontier-LLM row, if they reach an API.
+- [airockchip/rknn-llm](../../sources/rknn-llm-github.md) — adds the two RK3588 VLM rows: the image encoder, not decode, is what puts a Rockchip-hosted VLM at ~1 Hz.

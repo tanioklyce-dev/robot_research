@@ -77,6 +77,6 @@ Two structural notes follow. The **RK3576, not the RK3588, is Rockchip's transfo
 ## Open questions
 - Actually export ACT to `.rknn` and run it on an RK3588 with `rknn_benchmark` — the cheapest test of the table above (filed in the [backlog](../backlog.md)).
 - Does a decomposed GroupNorm export of Diffusion Policy convert, and what does the per-step latency come to over 10–100 steps?
-- What `rknn-llm` supports in June 2026 (models, quant, tokens/s per SoC) — the wiki has only its star count.
+- ~~What `rknn-llm` supports in June 2026 (models, quant, tokens/s per SoC) — the wiki has only its star count.~~ **Done 2026-09-13** → [rknn-llm source page](rknn-llm-github.md): RK3588 / 3576 / 3562 / RV1126B; w8a8 (+ w4a16 on 3576); Gemma 4 E2B 11.1 tok/s, 6B 4.98 tok/s on RK3588.
 - Is the RK1828's "RKNN3" a successor to this repo or a separate RISC-V-hosted stack?
 - Why is the repo quiet since July 2025 while `rknn-llm` is active — has development moved to a private tree with GitHub as a release mirror?

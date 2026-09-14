@@ -3,7 +3,7 @@ title: Heterogeneous edge SoCs and the shared-memory budget
 type: concept
 created: 2026-09-13
 updated: 2026-09-13
-sources: 8
+sources: 10
 tags: [edge-ai, soc, npu, memory-bandwidth, unified-memory, onboard-compute, llm-inference, arm, rk3588, jetson, hailo, systems]
 ---
 
@@ -13,7 +13,7 @@ Every board a robot in this wiki can carry — a [Raspberry Pi 5](../../entities
 
 ## The four facts
 
-**1. LLM decode is bandwidth-bound, so bytes per token is the number.** Generating one token streams the whole weight set through the memory path once. On an RK3588 that is why a 4-bit quant beats every higher-precision GGUF and why Qwen2.5-7B Q4_K_M reaches **5.46 tok/s on four A76 cores but 3.85 on all eight** — the slow A55 cluster adds traffic to a loop that was already waiting on LPDDR ([Turing Pi](../../sources/turingpi-rk3588-architecture-deep-dive.md)). On the same principle, the same Orin Nano runs Gemma 4 E2B at **12.2 tok/s on CPU and 24.2 on GPU**, and a Pi 5 sits at 7.6 with no accelerated backend at all ([Gemma 4 E2B card](../../sources/gemma-4-e2b-model-card.md)). Capacity is a different axis: an RK1's bandwidth was flat across 8 / 16 / 32 GB.
+**1. LLM decode is bandwidth-bound, so bytes per token is the number.** Generating one token streams the whole weight set through the memory path once. On an RK3588 that is why a 4-bit quant beats every higher-precision GGUF and why Qwen2.5-7B Q4_K_M reaches **5.46 tok/s on four A76 cores but 3.85 on all eight** — the slow A55 cluster adds traffic to a loop that was already waiting on LPDDR ([Turing Pi](../../sources/turingpi-rk3588-architecture-deep-dive.md)). On the same principle, the same Orin Nano runs Gemma 4 E2B at **12.2 tok/s on CPU and 24.2 on GPU**, and a Pi 5 sits at 7.6 with no accelerated backend at all ([Gemma 4 E2B card](../../sources/gemma-4-e2b-model-card.md)). Capacity is a different axis: an RK1's bandwidth was flat across 8 / 16 / 32 GB. **The NPU does not escape this.** Rockchip's own [RKLLM benchmark](../../sources/rknn-llm-github.md) puts a 6B model at **4.98 tok/s on the RK3588's NPU at 8-bit weights** — the same rate as the CPU at 4-bit on a 7B (5.46) — so the accelerator is roughly twice as bandwidth-efficient and bounded by the same ~21.5 GB/s. Same board, same wall, two engines.
 
 **2. The bandwidth is one budget, and every engine draws on it.** The cleanest measurement in the wiki: pin `llama.cpp` to the RK3588's fast cluster, run STREAM on the *slow* cluster, and generation drops **46%** (5.46 → 2.94 tok/s) though no core running the LLM was touched ([Turing Pi](../../sources/turingpi-rk3588-architecture-deep-dive.md)). A GPU renderer, an NPU detector, a video encoder and NVMe DMA all do the same. Consequence for a robot's [split-brain](../../syntheses/agents/on-device-and-on-robot-agents.md): per-engine benchmarks do not add, and an onboard LLM sitting beside a camera pipeline must be measured **concurrently**. CPU utilisation will read low while the board is saturated.
 
@@ -49,6 +49,7 @@ Jetson and Spark rows from the [module ladder](../../syntheses/platforms/jetson-
 - [Raspberry Pi AI HAT+ 2](../../sources/raspberry-pi-ai-hat-plus-2.md) and [hailo-apps](../../sources/hailo-apps-github.md) — the HEF compiled-model path.
 - [Jetson module ladder](../../syntheses/platforms/jetson-module-ladder-power-performance.md) — the bandwidth column for the CUDA tier.
 - [airockchip/rknn-toolkit2](../../sources/rknn-toolkit2-github.md) — the operator list, batch-1 restrictions, license and cadence behind fact 3.
+- [airockchip/rknn-llm](../../sources/rknn-llm-github.md) — NPU-measured LLM / VLM throughput on RK3588 / RK3576; the NPU-equals-CPU-at-6B confirmation of fact 1, and the 0.7–3.3 s image-encoder cost.
 - [RK1828 vs Jetson Orin NX vs Hailo-8 (Geniatech)](../../sources/geniatech-rk1828-vs-orin-nx-vs-hailo-8.md) — the on-package-memory counter-design (fact 5), secondary and vendor-interested.
 
 ## Related concepts
@@ -69,3 +70,5 @@ The wiki now has one measured bandwidth for the ARM-SBC tier and only spec-sheet
 - [On-device and on-robot agents](../../syntheses/agents/on-device-and-on-robot-agents.md)
 - [airockchip/rknn-toolkit2](../../sources/rknn-toolkit2-github.md)
 - [RK1828 vs Jetson Orin NX vs Hailo-8 (Geniatech)](../../sources/geniatech-rk1828-vs-orin-nx-vs-hailo-8.md)
+- [airockchip/rknn-llm](../../sources/rknn-llm-github.md)
+- [KickPi RK3566 Microduck case study](../../sources/kickpi-rk3566-microduck-case-study.md) — the RK3566 as the bottom rung: one NPU core, no LLM path
