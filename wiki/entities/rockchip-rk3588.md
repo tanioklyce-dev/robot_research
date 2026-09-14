@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-09-13
 updated: 2026-09-13
-sources: 4
+sources: 5
 tags: [rk3588, rockchip, soc, arm, npu, edge-ai, single-board-computer, onboard-compute, memory-bandwidth]
 ---
 
@@ -28,7 +28,7 @@ All figures from [Turing Pi's architecture deep dive](../sources/turingpi-rk3588
 
 - **CPU LLM decode: 5.46 tok/s** on Qwen2.5-7B-Instruct Q4_K_M with four threads on the A76s; **3.85 tok/s with all eight** — the A55 cluster hurts a bandwidth-bound loop ([Turing Pi](../sources/turingpi-rk3588-architecture-deep-dive.md)).
 - **Memory contention: −46%** LLM generation when a STREAM job runs on the *other* cluster (2.94 tok/s; Triad 21.5 → 11.8 GB/s). Every engine shares one LPDDR path, so per-engine benchmarks do not add ([Turing Pi](../sources/turingpi-rk3588-architecture-deep-dive.md)).
-- **NPU: execution-only fps is not pipeline fps.** Rockchip's single-core model-zoo references — MobileNetV2 INT8 467 fps, ResNet-50 INT8 99 fps, **YOLOv8n INT8 640² 90.2 fps** — exclude pre- and post-processing; a worked 8 + 6 + 5 ms pipeline gives ~52 fps where the NPU alone implies 166 ([Turing Pi](../sources/turingpi-rk3588-architecture-deep-dive.md)).
+- **NPU: execution-only fps is not pipeline fps.** Rockchip's single-core [model-zoo](../sources/rknn-model-zoo-github.md) references — MobileNetV2 INT8 **450.7** fps, ResNet-50 INT8 **110.1** fps, **YOLOv8n INT8 640² 73.5 fps**, yolo11n 60.0 (corrected 2026-09-13: the [Turing Pi article](../sources/turingpi-rk3588-architecture-deep-dive.md) had quoted the RK3576 column, 467 / 99 / 90.2) — exclude pre- and post-processing; a worked 8 + 6 + 5 ms pipeline gives ~52 fps where the NPU alone implies 166 ([Turing Pi](../sources/turingpi-rk3588-architecture-deep-dive.md)).
 - **NPU LLM decode (Rockchip's own RKLLM benchmark, w8a8, 128 + 64 tokens)**: Qwen2 0.5B **41.6 tok/s**, Gemma 4 E2B **11.1**, Qwen3.5 4B 6.2, ChatGLM3 **6B 4.98 tok/s in 6.0 GB** — i.e. the NPU at 8-bit weights matches the CPU at 4-bit on a 7B (5.46), so both are bounded by the same LPDDR. VLM image encoding costs **0.7–3.3 s per frame** (SmolVLM-256M 0.84 s; Qwen2.5-VL-3B 2.9 s) ([rknn-llm](../sources/rknn-llm-github.md)). No w4a16 on this SoC; that is the RK3576's.
 
 ## Where it sits in the wiki's compute ladder
@@ -60,3 +60,4 @@ The NPU is reached through [RKNN-Toolkit2](rknn-toolkit2.md), whose [operator li
 - [airockchip/rknn-toolkit2](../sources/rknn-toolkit2-github.md) — supported platform; generation split vs RK3576
 - [RK1828 vs Jetson Orin NX vs Hailo-8 (Geniatech)](../sources/geniatech-rk1828-vs-orin-nx-vs-hailo-8.md) — as proposed host for the RK1828
 - [airockchip/rknn-llm](../sources/rknn-llm-github.md) — the NPU-measured LLM / VLM table
+- [airockchip/rknn_model_zoo](../sources/rknn-model-zoo-github.md) — the per-model single-core fps table (and the source of the column correction above); no multi-core numbers

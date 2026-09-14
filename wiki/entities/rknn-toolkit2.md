@@ -4,7 +4,7 @@ type: entity
 subtype: software
 created: 2026-09-13
 updated: 2026-09-13
-sources: 5
+sources: 6
 tags: [rknn, rknn-toolkit2, rockchip, npu, toolchain, model-conversion, quantization, onnx, proprietary-license, edge-ai, rk3588, rk3576, rk3566]
 ---
 
@@ -20,6 +20,10 @@ The SDK through which a [Rockchip](rockchip.md) NPU is programmed: convert a tra
 - **NPU generations differ under one SDK**: Flash Attention only on RK3562/RK3576, W4A16 only on RK3576 — the **RK3576**, not the higher-TOPS [RK3588](rockchip-rk3588.md), is the transformer-friendly part.
 - **Developer loop**: PC-side simulator and accuracy analysis, board-in-the-loop via `rknn_server` over adb (USB or Ethernet), with a documented **WSL** workflow; Toolkit2 wheels for x86_64 *and* arm64 (so conversion can run on the RK3588 itself); Docker image; `rknn_benchmark`, `rknn_zero_copy`, `rknn_matmul_api_demo` examples in `rknpu2/`.
 - **Support**: Redmine by arrangement with sales / FAE, QQ groups (three of four full), 464 open GitHub issues.
+
+## The model zoo
+
+[`rknn_model_zoo`](../sources/rknn-model-zoo-github.md) (Apache-2.0, 2,751★, v2.3.2 in step with the toolkit) is where the toolkit's operator list becomes 28 runnable models and one **per-platform execution-only fps table**. Detection (yolov5–yolo11, YOLOX, PP-YOLOE, YOLO-World), segmentation (incl. MobileSAM), pose, OCR, CLIP, and a speech stack (wav2vec2, Whisper, Zipformer, YAMNet, MMS-TTS). Two things to know before using it: the YOLO models are **Rockchip-modified forks** (sigmoid in-graph, fixed shape; running the official structure is "not recommended"), and the table is **single-core** for the RK3588 / RK3576 with pre/post-processing excluded. Headline rows: YOLOv8n INT8 640² **73.5 fps on one RK3588 core / 90.2 on one RK3576 core / 34.0 on the RK3566**; Whisper-base RTF 0.215 on the RK3588.
 
 ## Compared with the wiki's other NPU toolchains
 
@@ -45,3 +49,4 @@ The pattern the [edge-SoC page](../concepts/robotics/heterogeneous-edge-soc.md) 
 - [`pollen-robotics/microduck` — the onboard runtime](../sources/microduck-runtime-repo.md) — RKNN in a shipped robot
 - [RK1828 vs Jetson Orin NX vs Hailo-8 (Geniatech)](../sources/geniatech-rk1828-vs-orin-nx-vs-hailo-8.md) — names "RKNN3" for the RK1828
 - [airockchip/rknn-llm](../sources/rknn-llm-github.md) — the sibling SDK; its vision encoders run through this one
+- [airockchip/rknn_model_zoo](../sources/rknn-model-zoo-github.md) — the examples and benchmark table

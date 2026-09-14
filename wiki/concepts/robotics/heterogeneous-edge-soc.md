@@ -3,7 +3,7 @@ title: Heterogeneous edge SoCs and the shared-memory budget
 type: concept
 created: 2026-09-13
 updated: 2026-09-13
-sources: 10
+sources: 11
 tags: [edge-ai, soc, npu, memory-bandwidth, unified-memory, onboard-compute, llm-inference, arm, rk3588, jetson, hailo, systems]
 ---
 
@@ -17,7 +17,7 @@ Every board a robot in this wiki can carry — a [Raspberry Pi 5](../../entities
 
 **2. The bandwidth is one budget, and every engine draws on it.** The cleanest measurement in the wiki: pin `llama.cpp` to the RK3588's fast cluster, run STREAM on the *slow* cluster, and generation drops **46%** (5.46 → 2.94 tok/s) though no core running the LLM was touched ([Turing Pi](../../sources/turingpi-rk3588-architecture-deep-dive.md)). A GPU renderer, an NPU detector, a video encoder and NVMe DMA all do the same. Consequence for a robot's [split-brain](../../syntheses/agents/on-device-and-on-robot-agents.md): per-engine benchmarks do not add, and an onboard LLM sitting beside a camera pipeline must be measured **concurrently**. CPU utilisation will read low while the board is saturated.
 
-**3. A fixed-function accelerator runs compiled models, and its headline number measures the middle of the pipeline.** An NPU executes a graph that a host-side compiler has already lowered — RKNN Toolkit2 for Rockchip, the Dataflow Compiler to HEF for [Hailo](../../entities/hailo.md), TensorRT engines for a Jetson's DLA. Operator coverage decides what maps; anything unsupported falls back to CPU. And the vendor's fps tables measure execution only: Rockchip's **90.2 fps** for YOLOv8n INT8 excludes the resize, normalise and NMS that bracket it, and a worked 8 + 6 + 5 ms pipeline gives ~52 fps ([Turing Pi](../../sources/turingpi-rk3588-architecture-deep-dive.md)). [Microduck](../../sources/microduck-runtime-repo.md) reports its RK3566 detector the honest way, as a pipeline p50 / p95. This is also why **TOPS never compare across vendors**: 6 TOPS (Rockchip), 40 TOPS INT4 (Hailo-10H), 67 TOPS INT8 sparse (Orin Nano) are three units for three middles of three different pipelines ([Hailo vs Jetson](../../syntheses/platforms/hailo-npu-vs-jetson-xlerobot.md)).
+**3. A fixed-function accelerator runs compiled models, and its headline number measures the middle of the pipeline.** An NPU executes a graph that a host-side compiler has already lowered — RKNN Toolkit2 for Rockchip, the Dataflow Compiler to HEF for [Hailo](../../entities/hailo.md), TensorRT engines for a Jetson's DLA. Operator coverage decides what maps; anything unsupported falls back to CPU. And the vendor's fps tables measure execution only: Rockchip's **73.5 fps** for YOLOv8n INT8 on one RK3588 NPU core ([model zoo](../../sources/rknn-model-zoo-github.md); the Turing Pi article's 90.2 was the RK3576 column) excludes the resize, normalise and NMS that bracket it, and a worked 8 + 6 + 5 ms pipeline gives ~52 fps ([Turing Pi](../../sources/turingpi-rk3588-architecture-deep-dive.md)). [Microduck](../../sources/microduck-runtime-repo.md) reports its RK3566 detector the honest way, as a pipeline p50 / p95. This is also why **TOPS never compare across vendors**: 6 TOPS (Rockchip), 40 TOPS INT4 (Hailo-10H), 67 TOPS INT8 sparse (Orin Nano) are three units for three middles of three different pipelines ([Hailo vs Jetson](../../syntheses/platforms/hailo-npu-vs-jetson-xlerobot.md)).
 
 **4. Shared memory is not zero-copy.** Avoiding a copy requires producer and consumer to agree on layout, pixel or tensor format, alignment and ownership; a VPU frame the NPU cannot consume gets a conversion buffer, and the data crosses LPDDR again without ever leaving the chip. The vendor libraries (MPP buffer import, RKNN memory import, DMA-BUF on Linux generally) exist to make that agreement possible, and **which kernel branch you run decides whether they are reachable** — the RK3588 measurements were on a Rockchip 6.1 kernel, and the article declines to say which accelerators mainline exposes ([Turing Pi](../../sources/turingpi-rk3588-architecture-deep-dive.md)). The Jetson equivalent is the [JetPack](../../entities/jetpack.md) release that ships the CUDA / TensorRT / multimedia APIs as one bundle.
 
@@ -50,6 +50,7 @@ Jetson and Spark rows from the [module ladder](../../syntheses/platforms/jetson-
 - [Jetson module ladder](../../syntheses/platforms/jetson-module-ladder-power-performance.md) — the bandwidth column for the CUDA tier.
 - [airockchip/rknn-toolkit2](../../sources/rknn-toolkit2-github.md) — the operator list, batch-1 restrictions, license and cadence behind fact 3.
 - [airockchip/rknn-llm](../../sources/rknn-llm-github.md) — NPU-measured LLM / VLM throughput on RK3588 / RK3576; the NPU-equals-CPU-at-6B confirmation of fact 1, and the 0.7–3.3 s image-encoder cost.
+- [airockchip/rknn_model_zoo](../../sources/rknn-model-zoo-github.md) — the execution-only per-platform fps table behind fact 3, and the speech stack (Whisper RTF 0.215, TTS 0.069) on the same NPU.
 - [RK1828 vs Jetson Orin NX vs Hailo-8 (Geniatech)](../../sources/geniatech-rk1828-vs-orin-nx-vs-hailo-8.md) — the on-package-memory counter-design (fact 5), secondary and vendor-interested.
 
 ## Related concepts
@@ -72,3 +73,4 @@ The wiki now has one measured bandwidth for the ARM-SBC tier and only spec-sheet
 - [RK1828 vs Jetson Orin NX vs Hailo-8 (Geniatech)](../../sources/geniatech-rk1828-vs-orin-nx-vs-hailo-8.md)
 - [airockchip/rknn-llm](../../sources/rknn-llm-github.md)
 - [KickPi RK3566 Microduck case study](../../sources/kickpi-rk3566-microduck-case-study.md) — the RK3566 as the bottom rung: one NPU core, no LLM path
+- [airockchip/rknn_model_zoo](../../sources/rknn-model-zoo-github.md)

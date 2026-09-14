@@ -61,11 +61,14 @@ A vendor explainer from [Turing Pi](../entities/turing-pi.md), using their **Tur
 - Inference is more than the matmul: CPU input load → decode / resize / normalise / layout (CPU or RGA) → NPU → CPU post-processing (thresholds, NMS) → overlay (GPU / RGA / CPU). Worked example: **8 ms pre + 6 ms NPU + 5 ms post ≈ 19 ms → ~52 fps, not the 166 fps the NPU time alone implies.**
 - Rockchip model-zoo **single-core execution-only** references at max NPU clock, explicitly excluding pre/post-processing:
 
-| Model | RK3588 single-core execution reference |
-|---|---|
-| MobileNetV2 INT8, 224×224 | 467.0 fps |
-| ResNet-50 INT8, 224×224 | 99.0 fps |
-| YOLOv8n INT8, 640×640 | 90.2 fps |
+| Model | As stated in the article ("RK3588 single-core") | Zoo's actual RK3588 @1-core column | Zoo's RK3576 @1-core column |
+|---|---|---|---|
+| MobileNetV2 INT8, 224×224 | 467.0 fps | **450.7** | 467.0 |
+| ResNet-50 INT8, 224×224 | 99.0 fps | **110.1** | 99.0 |
+| YOLOv8n INT8, 640×640 | 90.2 fps | **73.5** | 90.2 |
+
+> [!warning] Contradiction — these are the RK3576's numbers (found 2026-09-13)
+> On ingesting the [model zoo](rknn-model-zoo-github.md) itself, the three figures the article attributes to the RK3588 turn out to be the adjacent **RK3576 @single_core** column; the RK3588 column reads 450.7 / 110.1 / 73.5. The zoo has not changed since 2025-04-09, before the article. The article's pipeline arithmetic (8 + 6 + 5 ms) is hypothetical and unaffected; the transcription is wrong.
 
 ### Media engines (Part 7)
 - VPU: Rockchip advertises 8K-class decode for H.265 / H.264 / VP9 / AV1 / AVS2 and H.264 / H.265 encode; the article warns that "8K60 decode" does not apply to every format/profile. **RGA** is a separate 2D engine (scale / crop / rotate / colour-convert / compose) that bridges camera or decoded frames into NPU- or encoder-sized inputs. **ISP** does HDR and noise reduction; display controller scans out to HDMI / DP / eDP / MIPI.

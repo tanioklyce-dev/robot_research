@@ -3,8 +3,8 @@ title: Ultralytics YOLO
 type: entity
 subtype: software-library
 created: 2026-06-14
-updated: 2026-07-23
-sources: 11
+updated: 2026-09-13
+sources: 12
 tags: [ultralytics, yolo, object-detection, segmentation, pose-estimation, computer-vision, edge-ai, pytorch, agpl]
 ---
 
@@ -64,3 +64,4 @@ The paradigm itself: [Single-stage object detection](../concepts/robotics/single
 - [Enhancing YOLOv11n for Reliable Child Detection (PTIT 2026)](../sources/ptit-yolov11n-child-detection.md) — YOLOv11n fine-tuned from Ultralytics COCO weights + [SAHI](../concepts/robotics/sahi-slicing-inference.md) for small-object recall on edge CCTV.
 - [TrackNetV4 (Raj et al. 2024)](../sources/tracknetv4-motion-attention-2024.md) — uses **YOLOv7** as the bounding-box baseline that [heatmap localization](../concepts/robotics/heatmap-object-localization.md) outperforms by ~30 F1 on tiny fast objects.
 - [TrackNet (Huang et al. 2019)](../sources/tracknet-huang-2019.md) — cites the YOLO family as the fast one-stage alternative it deliberately rejects for tiny-object tracking.
+- [airockchip/rknn_model_zoo](../sources/rknn-model-zoo-github.md) — **YOLO on the Rockchip NPU is a modified fork** (`airockchip/ultralytics_yolov8`, `ultralytics_yolo11`): sigmoid moved in-graph, fixed input shape, NMS on the CPU; running the official structure is "not recommended" for accuracy and speed. Execution-only fps, INT8 640²: **yolo11n 20.6 (RK3566) / 60.0 (RK3588, 1 core) / 77.9 (RK3576, 1 core)**; YOLOv8n 34.0 / 73.5 / 90.2. The zoo also carries YOLOv8-pose / -seg / -obb and YOLO-World.
