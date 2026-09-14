@@ -2,7 +2,7 @@
 title: "Hailo NPU (AI HAT+ 2) vs Jetson (CUDA) for an onboard XLeRobot brain"
 type: synthesis
 created: 2026-06-07
-updated: 2026-09-07
+updated: 2026-09-13
 tags: [xlerobot, hailo, jetson, npu, cuda, raspberry-pi, onboard-compute, edge-ai, vla, llm, buying-decision, platforms]
 ---
 
@@ -61,6 +61,12 @@ So the architecture that actually maximizes capability per dollar/watt is often 
 > [!note] Power & PCIe caveats (unquantified)
 > The AI HAT+ 2's sustained-LLM power draw isn't published, and the Pi 5 exposes a **single PCIe lane** the HAT shares with any NVMe SSD — both matter for an untethered build on XLeRobot's [288 Wh / 300 W C300 budget](anker-portable-power-stations.md). These are open questions, not solved numbers.
 
+## The third bet: an RK3588 board with the NPU on-die
+
+A **[Rockchip RK3588](../../entities/rockchip-rk3588.md)** single-board computer (Turing RK1, Orange Pi 5, Radxa Rock 5) is what you get if you take the Pi 5's four A76 cores, add four A55s, a Mali-G610 with OpenCL, and a **three-core 6 TOPS NPU on the die** instead of on a HAT — no PCIe lane spent, no second DRAM, one LPDDR pool. It is the same *kind* of bet as the Hailo path: the NPU runs models compiled ahead of time through **RKNN Toolkit2**, operator coverage decides what maps, and no LeRobot policy has been shown to export through it. What the [Turing Pi measurements](../../sources/turingpi-rk3588-architecture-deep-dive.md) add is the number the other two columns lack — **~21.5 GB/s measured memory bandwidth**, about one fifth of an Orin Nano's 102 GB/s spec — plus a demonstration that the shared pool is a budget: LLM generation on the fast cluster fell **46%** when a memory-bound job ran on the slow one. For an XLeRobot that means an RK3588 can host the *agent* layer (7B-class Q4 at ~5 tok/s on CPU, or a compiled vision model on the NPU) about as well as a Pi 5 + HAT can, at lower cost and without the lane conflict, but it is no closer to running the *control policy*, and the two layers will contend for the same bandwidth if both run at once. Power under load is unpublished. Concept page: [heterogeneous edge SoCs](../../concepts/robotics/heterogeneous-edge-soc.md).
+
+Two footnotes from the Rockchip toolchain and its ODMs. The [rknn-toolkit2 operator list](../../sources/rknn-toolkit2-github.md) gives the RKNN column its paper verdict — **ACT plausibly converts, Diffusion Policy is blocked by `GroupNormalization`, SmolVLA-class is out of scope** — the same shape of answer the Hailo column has been waiting for. And an **[RK1828](../../entities/rockchip-rk1828.md) M.2 LLM coprocessor** (5 GB on-package DRAM, claimed 1,024 GB/s, ~5 W, PCIe ×1) is an LLM-shaped occupant for the Pi 5's single lane, the slot the Hailo HAT uses — but every figure for it is one ODM's marketing, whose table also misquotes the Orin NX and the Hailo-8 ([Geniatech](../../sources/geniatech-rk1828-vs-orin-nx-vs-hailo-8.md)).
+
 ## Decision guide
 
 | Your goal | Pick |
@@ -70,6 +76,7 @@ So the architecture that actually maximizes capability per dollar/watt is often 
 | Run the **manipulation policy** onboard at all | **Jetson Orin Nano** (validated; ACT ~28 Hz) |
 | Run **diffusion/SmolVLA-class** policies onboard | **Jetson Orin NX 16 GB** (the [sweet spot](jetson-onboard-compute-xlerobot.md)) |
 | Maximize capability, untethered | **Pi 5 + AI HAT+ 2 (perception/agent) + Jetson (policy)** |
+| Cheapest single ARM host with an NPU on-die, no lane conflict | **RK3588 board** ([RK1 / Orange Pi 5 / Rock 5](../../entities/rockchip-rk3588.md)) — agent/vision only; policy export via RKNN untested |
 
 **Bottom line:** the AI HAT+ 2 is the cheapest way to give an XLeRobot a *local brain for perception and language*, and the wiki's first non-CUDA onboard option — but it is **not a Jetson substitute for the control policy**. Choose by *layer*, not by TOPS: NPU for compiled vision/LLM, CUDA for the PyTorch policy.
 
@@ -89,3 +96,6 @@ NVIDIA commits, in its announcement **and in its 8-K**, that the platform stays 
 - [Raspberry Pi 5](../../entities/raspberry-pi-5.md) — the host.
 - [XLeRobot](../../entities/xlerobot.md) — the robot whose three compute layers drive this split.
 - [VLA models](../../concepts/learning/vla-models.md) — the policies that need CUDA.
+- [Rockchip RK3588](../../entities/rockchip-rk3588.md) and the [Turing Pi deep dive](../../sources/turingpi-rk3588-architecture-deep-dive.md) — the third column: NPU on-die, bandwidth measured.
+- [Heterogeneous edge SoCs and the shared-memory budget](../../concepts/robotics/heterogeneous-edge-soc.md) — why per-engine numbers do not add on any of these boards.
+- [RKNN-Toolkit2](../../entities/rknn-toolkit2.md) and the [RK1828](../../entities/rockchip-rk1828.md) — the Rockchip toolchain's operator list and the M.2 LLM coprocessor.

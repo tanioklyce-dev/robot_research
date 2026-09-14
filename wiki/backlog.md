@@ -2,13 +2,25 @@
 title: Wiki Backlog — deferred lint items & knowledge gaps
 type: meta
 created: 2026-07-04
-updated: 2026-09-12
+updated: 2026-09-13
 tags: [backlog, lint, todo, knowledge-gaps]
 ---
 
 # Wiki Backlog
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
+
+## [2026-09-13] From the RK3588 ingest
+
+Filed on ingesting the [Turing Pi RK3588 deep dive](sources/turingpi-rk3588-architecture-deep-dive.md) and writing [heterogeneous edge SoCs](concepts/robotics/heterogeneous-edge-soc.md).
+
+- [ ] **Push one LeRobot policy through RKNN Toolkit2** (ACT first — smallest operator set) on any RK3588 board and record the *pipeline* latency on 1 / 2 / 3 NPU cores. This is the exact twin of the open Hailo-HEF question and the cheapest way to learn whether the compiled-model NPU tier can host a control policy at all. A clean failure (unsupported ops) is also a result. **Update 2026-09-13**: the [operator list](sources/rknn-toolkit2-github.md) is now on file — ACT's ops are all in the supported column at batch 1; Diffusion Policy hits `GroupNormalization` (Not Supported) unless the export decomposes it. So the experiment is now *measure*, not *discover*, for ACT.
+- [ ] **Rockchip primary for the RK1828 / RK1820** — datasheet or product page, the "RKNN3" toolchain repo, and a tokens/s figure with model and quant named. Every RK1828 number in the wiki is [Geniatech's](sources/geniatech-rk1828-vs-orin-nx-vs-hailo-8.md), an ODM whose competitor columns were wrong twice. Also worth checking: does the M.2 card enumerate and run on a Pi 5 or Jetson host, or only on Rockchip hosts?
+- [ ] **Read `airockchip/rknn-llm`** (pushed 2026-06, 1.7k★) — which models, which quantisation, measured tokens/s on RK3588 vs RK3576. It is where Rockchip's LLM work lives; rknn-toolkit2's changelog suggests the RK3576 is the intended transformer target.
+- [ ] **Wall power for an RK3588 board under the A76 llama-bench and under NPU + camera concurrency.** The article gives none; without it the [Hailo vs Jetson](syntheses/platforms/hailo-npu-vs-jetson-xlerobot.md) third column cannot be placed on the XLeRobot battery budget.
+- [ ] **Measure the Pi 5's memory bandwidth** (STREAM) so the [edge-SoC table](concepts/robotics/heterogeneous-edge-soc.md) has a number in its first row; the wiki currently holds none, and the Gemma 4 E2B 7.6 tok/s figure is the only proxy.
+- [ ] **Ingest the three Turing Pi primaries the article leans on** — the RK1 benchmark (STREAM / mbw / memcpy / kernel build), the RK3588 GGUF LLM benchmark, and the Jellyfin transcoding guide — if the numbers are ever quoted in a buying decision; currently they are second-hand through this article.
+- [ ] **Concurrency benchmark on the Jetson tier.** The RK3588 −46% contention result has no Jetson counterpart in the wiki; run a policy + LLM concurrently on an Orin and see whether the 102 GB/s pool shows the same behaviour.
 
 ## [2026-09-12] From the S1 re-check
 

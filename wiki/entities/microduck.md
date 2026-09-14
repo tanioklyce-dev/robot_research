@@ -3,7 +3,7 @@ title: Microduck
 type: entity
 subtype: robot
 created: 2026-08-27
-updated: 2026-08-27
+updated: 2026-09-13
 sources: 3
 tags: [microduck, pollen-robotics, hugging-face, biped, reinforcement-learning, sim-to-real, mjlab, dynamixel, rk3566, consumer-robotics, education]
 ---
@@ -21,7 +21,7 @@ Positioning, per the launch post: *"Reachy Mini is a platform for AI that **inte
 | Height / width | 25 cm / 14 cm |
 | Weight | under 800 g |
 | Actuation | 15 motors (14 servos + beak); [Dynamixel](dynamixel.md) **XL330** class |
-| Compute | **Rockchip RK3566** with AI accelerator; **1 GB RAM / 32 GB storage** |
+| Compute | **[Rockchip](rockchip.md) RK3566** with AI accelerator; **1 GB RAM / 32 GB storage** |
 | Control | **50 Hz** onboard policy loop, ONNX |
 | Vision | front camera + camera-use indicator LED |
 | Depth | **8×8 time-of-flight matrix** (marketed as "LiDAR" — see below) |

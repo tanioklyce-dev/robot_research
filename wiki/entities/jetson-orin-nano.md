@@ -2,8 +2,8 @@
 title: Jetson Orin Nano
 type: entity
 created: 2026-05-16
-updated: 2026-08-27
-sources: 34
+updated: 2026-09-13
+sources: 35
 tags: [jetson, nvidia, edge-ai, hardware, robotics-compute]
 ---
 
@@ -109,3 +109,4 @@ In-place updates use apt against NVIDIA's L4T Debian repository: `apt update && 
 - [Platform Power and Performance — Orin series](../sources/nvidia-jetson-platform-power-performance-orin.md)
 - [Gemma 4 E2B model card + LiteRT benchmarks](../sources/gemma-4-e2b-model-card.md) — **First measured LLM throughput for this board in the wiki**: [Gemma 4](gemma4.md) E2B under LiteRT-LM — CPU 109 prefill / **12.2 decode** tok/s, 9.4 s TTFT, 3681 MB; **GPU 1,142 prefill / 24.2 decode**, **0.9 s TTFT**, 2739 MB. The ~10× prefill and ~9× TTFT gap between backends on the same board is the sizing lesson.
 - [Gemma 4 Powers Open Duck Mini (explainx.ai)](../sources/explainx-gemma-4-open-duck-mini.md) — One of the two boards in Google's I/O 2026 [Open Duck Mini](open-duck-mini.md) demo, running Gemma 4 E2B on-device alongside a Raspberry Pi 5.
+- [RK3588 Architecture Deep Dive (Turing Pi)](../sources/turingpi-rk3588-architecture-deep-dive.md) — the ARM-SBC comparator: an RK3588's **measured ~21.5 GB/s** STREAM against this module's 102 GB/s spec is the clearest bandwidth ratio in the wiki for why LLM decode and policy latency differ by tier; see [heterogeneous edge SoCs](../concepts/robotics/heterogeneous-edge-soc.md)

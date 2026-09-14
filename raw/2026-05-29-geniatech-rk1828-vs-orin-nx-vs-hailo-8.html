@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--     <title>RK1828 vs Jetson Orin NX vs Hailo-8: Which Edge AI Accelerator Should You Choose? - Geniatech</title> -->
+    
+    <!-- 引入阿里矢量图标 -->
+    <link rel="stylesheet" href="https://www.geniatech.com/wp-content/themes/Geniatech/css/ali.css">
+
+    <link rel="preload" as="style" href="https://www.geniatech.com/wp-content/uploads/elementor/css/post-246.css?ver=1789298272"><link rel="stylesheet" href="https://www.geniatech.com/wp-content/uploads/elementor/css/post-246.css?ver=1789298272" media="all">    <style>
+        #menu-1-0cd5723 .current-menu-item a{color:#E40011 !important;border-bottom:1px solid #E40011;}
+        #menu-1-37bb1f6 .current-menu-item a{color:#E40011 !important;border-bottom:1px solid #E40011;}
+        .elementor-pagination span.current{width:40px;height:40px;border-radius:50%;background:#E40011;color:white;padding:15px;display:inline-block;line-height:10px;}
+        .elementor-pagination a{color:#333}
+        
+        
+        .elementor-widget-n-menu .e-n-menu-title.e-current, .elementor-widget-n-menu .e-n-menu-title.e-current a{color:#E40011 !important;}}
+        
+    </style>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QJEW784VES"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QJEW784VES');
+</script>
+
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v26.6 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>RK1828 vs Jetson Orin NX vs Hailo-8: Which Edge AI Accelerator Should You Choose? - Geniatech</title>
+	<meta name="description" content="Compare RK1828, Jetson Orin NX, Hailo-8, and RK1820 for edge AI and 7B LLM deployment. Explore bandwidth, power efficiency, memory architecture, and on-device inference performance for embedded AI systems." />
+	<link rel="canonical" href="https://www.geniatech.com/rk1828-vs-jetson-orin-nx-vs-hailo-8/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="RK1828 vs Jetson Orin NX vs Hailo-8: Which Edge AI Accelerator Should You Choose? - Geniatech" />
+	<meta property="og:description" content="Compare RK1828, Jetson Orin NX, Hailo-8, and RK1820 for edge AI and 7B LLM deployment. Explore bandwidth, power efficiency, memory architecture, and on-device inference performance for embedded AI systems." />
+	<meta property="og:url" content="https://www.geniatech.com/rk1828-vs-jetson-orin-nx-vs-hailo-8/" />
+	<meta property="og:site_name" content="Geniatech" />
+	<meta property="article:publisher" content="https://www.facebook.com/geniatechglobal/" />
+	<meta property="article:published_time" content="2026-05-29T07:01:45+00:00" />
+	<meta property="article:modified_time" content="2026-09-04T10:16:35+00:00" />
+	<meta property="og:image" content="https://www.geniatech.com/wp-content/uploads/2026/07/RK1828-AI-Module.webp" />
+	<meta property="og:image:width" content="1000" />
+	<meta property="og:image:height" content="667" />
+	<meta property="og:image:type" content="image/webp" />
+	<meta name="author" content="emily" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:creator" content="@geniatechglobal" />
+	<meta name="twitter:site" content="@geniatechglobal" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="emily" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="4 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://www.geniatech.com/rk1828-vs-jetson-orin-nx-vs-hailo-8/#article","isPartOf":{"@id":"https://www.geniatech.com/rk1828-vs-jetson-orin-nx-vs-hailo-8/"},"author":{"name":"emily","@id":"https://www.geniatech.com/#/schema/person/7f6152868e17ef9b92bf2ac7e5b54564"},"headline":"RK1828 vs Jetson Orin NX vs Hailo-8: Which Edge AI Accelerator Should You Choose?","datePublished":"2026-05-29T07:01:45+00:00","dateModified":"2026-09-04T10:16:35+00:00","mainEntityOfPage":{"@id":"https://www.geniatech.com/rk1828-vs-jetson-orin-nx-vs-hailo-8/"},"wordCount":846,"publisher":{"@id":"https://www.geniatech.com/#organization"},"image":{"@id":"https://www.geniatech.com/rk1828-vs-jetson-orin-nx-vs-hailo-8/#primaryimage"},"thumbnailUrl":"https://www.geniatech.com/wp-content/uploads/2026/07/RK1828-AI-Module.webp","articleSection":["Industry News"],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://www.geniatech.com/rk1828-vs-jetson-orin-nx-vs-hailo-8/","url":"https://www.geniatech.com/rk1828-vs-jetson-orin-nx-vs-hailo-8/","name":"RK1828 vs Jetson Orin NX vs Hailo-8: Which Edge AI Accelerator Should You Choose? - Geniatech","isPartOf":{"@id":"https://www.geniatech.com/#website"},"primaryImageOfPage":{"@id":"https://www.geniatech.com/rk1828-vs-jetson-orin-nx-vs-hailo-8/#primaryimage"},"image":{"@id":"https://www.geniatech.com/rk1828-vs-jetson-orin-nx-vs-hailo-8/#primaryimage"},"thumbnailUrl":"https://www.geniatech.com/wp-content/uploads/2026/07/RK1828-AI-Module.webp","datePublished":"2026-05-29T07:01:45+00:00","dateModified":"2026-09-04T10:16:35+00:00","description":"Compare RK1828, Jetson Orin NX, Hailo-8, and RK1820 for edge AI and 7B LLM deployment. Explore bandwidth, power efficiency, memory architecture, and on-device inference performance for embedded AI systems.","breadcrumb":{"@id":"https://www.geniatech.com/rk1828-vs-jetson-orin-nx-vs-hailo-8/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.geniatech.com/rk1828-vs-jetson-orin-nx-vs-hailo-8/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.geniatech.com/rk1828-vs-jetson-orin-nx-vs-hailo-8/#primaryimage","url":"https://www.geniatech.com/wp-content/uploads/2026/07/RK1828-AI-Module.webp","contentUrl":"https://www.geniatech.com/wp-content/uploads/2026/07/RK1828-AI-Module.webp","width":1000,"height":667},{"@type":"BreadcrumbList","@id":"https://www.geniatech.com/rk1828-vs-jetson-orin-nx-vs-hailo-8/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.geniatech.com/"},{"@type":"ListItem","position":2,"name":"RK1828 vs Jetson Orin NX vs Hailo-8: Which Edge AI Accelerator Should You Choose?"}]},{"@type":"WebSite","@id":"https://www.geniatech.com/#website","url":"https://www.geniatech.com/","name":"Geniatech","description":"AI Embedded Systems &amp; ARM Edge AI IoT Solutions","publisher":{"@id":"https://www.geniatech.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.geniatech.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://www.geniatech.com/#organization","name":"Geniatech","url":"https://www.geniatech.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.geniatech.com/#/schema/logo/image/","url":"https://www.geniatech.com/wp-content/uploads/2026/03/logo-red.webp","contentUrl":"https://www.geniatech.com/wp-content/uploads/2026/03/logo-red.webp","width":161,"height":30,"caption":"Geniatech"},"image":{"@id":"https://www.geniatech.com/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/geniatechglobal/","https://x.com/geniatechglobal"]},{"@type":"Person","@id":"https://www.geniatech.com/#/schema/person/7f6152868e17ef9b92bf2ac7e5b54564","name":"emily"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//at.alicdn.com' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.geniatech.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.geniatech.com%2Frk1828-vs-jetson-orin-nx-vs-hailo-8%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.geniatech.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.geniatech.com%2Frk1828-vs-jetson-orin-nx-vs-hailo-8%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='sbttb-fonts-css' href='https://www.geniatech.com/wp-content/plugins/smooth-back-to-top-button/assets/css/sbttb-fonts.css?ver=1.3.0' media='all' />
+<link rel='stylesheet' id='sbttb-style-css' href='https://www.geniatech.com/wp-content/plugins/smooth-back-to-top-button/assets/css/smooth-back-to-top-button.css?ver=1.3.0' media='all' />
+<link rel='stylesheet' id='geniatech-montserrat-fonts-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/css/montserrat-fonts.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-style-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/style.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-header-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/css/header.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='iconfont-css' href='//at.alicdn.com/t/c/font_5010480_wrsbito3d5.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-carousel-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/carousel/carousel-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-content-carousel-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/content-carousel/content-carousel-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-product-showcase-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/product-showcase/product-showcase-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-static-menu-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/static-menu/static-menu-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-button-tag-list-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/button-tag-list/button-tag-list-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-banner-carousel-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/banner-carousel/banner-carousel-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-stats-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/stats-widget/stats-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-custom-menu-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/custom-menu/custom-menu-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-process-flow-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/process-flow/process-flow-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-grid-content-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/grid-content/grid-content-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-product-gallery-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/product-gallery/product-gallery-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-product-downloads-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/product-downloads/product-downloads-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-box-info-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/box-info/box-info-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-box-info2-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/box-info2/box-info2-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-content-carousel2-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/content-carousel2/content-carousel2-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-download-center-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/download-center/download-center-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-download-search-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/download-search/download-search-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-timeline-carousel-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/timeline-carousel/timeline-carousel-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-video-player-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/video-player/video-player-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-logo-carousel-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/logo-carousel/logo-carousel-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-hotspot-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/hotspot/hotspot-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-info-bar-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/info-bar/info-bar-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-scroll-effect-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/scroll-effect/scroll-effect-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='swiper-css' href='https://www.geniatech.com/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=8.4.5' media='all' />
+<link rel='stylesheet' id='geniatech-certificate-scroll-v2-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/certificate-scroll-v2/certificate-scroll-v2-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='geniatech-event-showcase-widget-css' href='https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/event-showcase/event-showcase-widget.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://www.geniatech.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.31.3' media='all' />
+<link rel='stylesheet' id='widget-icon-list-css' href='https://www.geniatech.com/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css?ver=3.31.3' media='all' />
+<link rel='stylesheet' id='widget-heading-css' href='https://www.geniatech.com/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=3.31.3' media='all' />
+<link rel='stylesheet' id='widget-divider-css' href='https://www.geniatech.com/wp-content/plugins/elementor/assets/css/widget-divider.min.css?ver=3.31.3' media='all' />
+<link rel='stylesheet' id='widget-post-navigation-css' href='https://www.geniatech.com/wp-content/plugins/elementor-pro/assets/css/widget-post-navigation.min.css?ver=3.31.2' media='all' />
+<link rel='stylesheet' id='widget-social-icons-css' href='https://www.geniatech.com/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css?ver=3.31.3' media='all' />
+<link rel='stylesheet' id='e-apple-webkit-css' href='https://www.geniatech.com/wp-content/plugins/elementor/assets/css/conditionals/apple-webkit.min.css?ver=3.31.3' media='all' />
+<link rel='stylesheet' id='widget-loop-common-css' href='https://www.geniatech.com/wp-content/plugins/elementor-pro/assets/css/widget-loop-common.min.css?ver=3.31.2' media='all' />
+<link rel='stylesheet' id='widget-loop-grid-css' href='https://www.geniatech.com/wp-content/plugins/elementor-pro/assets/css/widget-loop-grid.min.css?ver=3.31.2' media='all' />
+<link rel='stylesheet' id='elementor-post-19218-css' href='https://www.geniatech.com/wp-content/uploads/elementor/css/post-19218.css?ver=1789298272' media='all' />
+<link rel='stylesheet' id='elementor-post-1856-css' href='https://www.geniatech.com/wp-content/uploads/elementor/css/post-1856.css?ver=1789298343' media='all' />
+<script id="jquery-core-js" src="https://www.geniatech.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://www.geniatech.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="geniatech-info-bar-widget-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/info-bar/info-bar-widget.js?ver=https%3A%2F%2Fwww.geniatech.com%2Fwp-content%2Fthemes%2FGeniatech%2Felementor-widgets%2Fstatic-menu%2Fstatic-menu-widget.js"></script>
+<link rel="https://api.w.org/" href="https://www.geniatech.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.geniatech.com/wp-json/wp/v2/posts/20893" />
+            <style type="text/css">
+                .smooth-back-to-top-button {
+                    bottom: 50px;
+                    height: 46px;
+                    width: 46px;
+                    border-radius: 46px;
+                    background-color: #e40011;
+                    box-shadow: inset 0 0 0 2px #ffffff;
+                }
+
+                .smooth-back-to-top-button.btn-left-side {
+                    left: 50px;
+                }
+
+                .smooth-back-to-top-button.btn-right-side {
+                    right: 50px;
+                }
+
+				.smooth-back-to-top-button.btn-center {
+					inset-inline: 0;
+					margin-inline: auto;
+				}
+
+                .smooth-back-to-top-button::after {
+                    height: 100%;
+                    color: #ffffff;
+                    font-size: 24px;
+                    content: '\e900';
+                    line-height: normal;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .smooth-back-to-top-button:hover::after {
+                    color: #ffffff;
+                }
+
+                .smooth-back-to-top-button svg.progress-circle path,
+                .smooth-back-to-top-button svg.progress-circle rect {
+                    stroke: #ffffff;
+                    stroke-width: 2px;
+                    z-index: 5;
+                }
+
+                
+                
+                
+                
+            </style>
+
+			    <style type="text/css">
+        :root {
+            --primary-color: #f20000;
+            /* 重置按钮自定义变量 */
+            --reset-btn-width: auto;
+            --reset-btn-height: auto;
+            --reset-btn-icon-size: 16px;
+            --reset-btn-icon-color: #323B40;
+            --reset-btn-bg: transparent;
+            --reset-btn-color: #323B40;
+        }
+        
+        .main-menu a:hover,
+        .header-icons i:hover,
+        .search-submit {
+            color: var(--primary-color) !important;
+        }
+        
+        .search-submit {
+            background-color: var(--primary-color) !important;
+        }
+        
+        .main-menu a::after {
+            background-color: var(--primary-color) !important;
+        }
+        
+        /* 重置按钮自定义样式应用 */
+        .reset-filters {
+            width: var(--reset-btn-width) !important;
+            height: var(--reset-btn-height) !important;
+            background: var(--reset-btn-bg) !important;
+            color: var(--reset-btn-color) !important;
+        }
+        
+        .reset-filters .reset-button-icon {
+            font-size: var(--reset-btn-icon-size) !important;
+            color: var(--reset-btn-icon-color) !important;
+        }
+    </style>
+    <meta name="generator" content="Elementor 3.31.3; features: e_font_icon_svg, additional_custom_breakpoints, e_element_cache; settings: css_print_method-external, google_font-enabled, font_display-swap">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://www.geniatech.com/wp-content/uploads/2025/08/cropped-LOGO-拷贝-32x32.webp" sizes="32x32" />
+<link rel="icon" href="https://www.geniatech.com/wp-content/uploads/2025/08/cropped-LOGO-拷贝-192x192.webp" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.geniatech.com/wp-content/uploads/2025/08/cropped-LOGO-拷贝-180x180.webp" />
+<meta name="msapplication-TileImage" content="https://www.geniatech.com/wp-content/uploads/2025/08/cropped-LOGO-拷贝-270x270.webp" />
+<link rel='stylesheet' id='elementor-post-16512-css' href='https://www.geniatech.com/wp-content/uploads/elementor/css/post-16512.css?ver=1789298271' media='all' />
+<link rel='stylesheet' id='widget-form-css' href='https://www.geniatech.com/wp-content/plugins/elementor-pro/assets/css/widget-form.min.css?ver=3.31.2' media='all' />
+<link rel='stylesheet' id='elementor-post-305-css' href='https://www.geniatech.com/wp-content/uploads/elementor/css/post-305.css?ver=1789298272' media='all' />
+<link rel='stylesheet' id='widget-image-box-css' href='https://www.geniatech.com/wp-content/plugins/elementor/assets/css/widget-image-box.min.css?ver=3.31.3' media='all' />
+<link rel='stylesheet' id='elementor-post-2247-css' href='https://www.geniatech.com/wp-content/uploads/elementor/css/post-2247.css?ver=1789298272' media='all' />
+<link rel='stylesheet' id='widget-image-css' href='https://www.geniatech.com/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=3.31.3' media='all' />
+<link rel='stylesheet' id='elementor-post-1013-css' href='https://www.geniatech.com/wp-content/uploads/elementor/css/post-1013.css?ver=1789298272' media='all' />
+<link rel='stylesheet' id='widget-post-info-css' href='https://www.geniatech.com/wp-content/plugins/elementor-pro/assets/css/widget-post-info.min.css?ver=3.31.2' media='all' />
+<link rel='stylesheet' id='elementor-post-246-css' href='https://www.geniatech.com/wp-content/uploads/elementor/css/post-246.css?ver=1789298272' media='all' />
+
+</head>
+<body class="wp-singular post-template-default single single-post postid-20893 single-format-standard wp-theme-Geniatech elementor-default elementor-template-full-width elementor-kit-19218 elementor-page-1856">
+<style>
+        .popup{ position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0, 0, 0, 0.9);display: flex;align-items: center;justify-content: center;z-index: 9999;
+                opacity: 0;visibility: hidden;transition: all 0.3s ease;}
+        .popup .containaa{width:60%;margin:100px auto;}
+        #down-btn{margin-top:30px;width:40%}
+        #close-btn{cursor:pointer;}
+    </style>
+    <div class="popup">
+        <div id="is_submit">0</div>
+        <div class="containaa">
+            		<div data-elementor-type="container" data-elementor-id="16512" class="elementor elementor-16512" data-elementor-post-type="elementor_library">
+				<div class="elementor-element elementor-element-4385976 e-flex e-con-boxed e-con e-parent" data-id="4385976" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-3532e9b e-con-full e-flex e-con e-child" data-id="3532e9b" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-fe87973 elementor-widget elementor-widget-heading" data-id="fe87973" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Download Technical Resources</h2>				</div>
+				</div>
+		<div class="elementor-element elementor-element-b414cd6 e-con-full e-flex e-con e-child" data-id="b414cd6" data-element_type="container">
+				<div class="elementor-element elementor-element-e60d246 elementor-widget elementor-widget-heading" data-id="e60d246" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">The download link will be sent instantly to your email. We respect your privacy and will only use your information to deliver this document and relevant technical updates.</h2>				</div>
+				<div class="elementor-element elementor-element-d9f68c5 elementor-button-align-center elementor-widget elementor-widget-form" data-id="d9f68c5" data-element_type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
+							<form class="elementor-form" method="post" id="download" name="download" aria-label="download" novalidate="">
+			<input type="hidden" name="post_id" value="16512"/>
+			<input type="hidden" name="form_id" value="d9f68c5"/>
+			<input type="hidden" name="referer_title" value="DB-G2L-V2 Specification - Geniatech" />
+
+							<input type="hidden" name="queried_id" value="12959"/>
+			
+			<div class="elementor-form-fields-wrapper elementor-labels-above">
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-33">
+												<label for="form-field-name" class="elementor-field-label">
+								Your Name							</label>
+														<input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-sm  elementor-field-textual">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-email elementor-col-33 elementor-field-required">
+												<label for="form-field-email" class="elementor-field-label">
+								Company							</label>
+														<input size="1" type="text" name="form_fields[email]" id="form-field-email" class="elementor-field elementor-size-sm  elementor-field-textual" required="required">
+											</div>
+								<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-field_39f5d6c elementor-col-33">
+												<label for="form-field-field_39f5d6c" class="elementor-field-label">
+								Your E-mail							</label>
+														<input size="1" type="email" name="form_fields[field_39f5d6c]" id="form-field-field_39f5d6c" class="elementor-field elementor-size-sm  elementor-field-textual">
+											</div>
+								<div class="elementor-field-type-text">
+					<input size="1" type="text" name="form_fields[field_6bfc727]" id="form-field-field_6bfc727" class="elementor-field elementor-size-sm " style="display:none !important;">				</div>
+								<div class="elementor-field-type-text">
+					<input size="1" type="text" name="form_fields[field_176187a]" id="form-field-field_176187a" class="elementor-field elementor-size-sm " style="display:none !important;">				</div>
+								<div class="elementor-field-type-recaptcha elementor-field-group elementor-column elementor-field-group-field_9b38af9 elementor-col-100">
+					<div class="elementor-field" id="form-field-field_9b38af9"><div class="elementor-g-recaptcha" data-sitekey="6LezCzMsAAAAAEhOPxPduhoC_ehXtpgM9FgKIxIF" data-type="v2_checkbox" data-theme="light" data-size="normal"></div></div>				</div>
+								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
+					<button class="elementor-button elementor-size-sm" type="submit" id="down-btn">
+						<span class="elementor-button-content-wrapper">
+																						<span class="elementor-button-text">Submit</span>
+													</span>
+					</button>
+				</div>
+			</div>
+		</form>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-4eeb8c0 e-con-full e-flex e-con e-child" data-id="4eeb8c0" data-element_type="container">
+				<div class="elementor-element elementor-element-e2129e9 elementor-absolute elementor-view-default elementor-widget elementor-widget-icon" data-id="e2129e9" data-element_type="widget" id="close-btn" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="icon.default">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<i aria-hidden="true" class="icon icon-cross"></i>			</div>
+		</div>
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		        </div>
+        
+    </div>
+    <script>
+        
+        jQuery(document).ready(function($){
+            var down=function(url,name){
+                if(!url){
+                    return false;
+                }
+                name=name.replaceAll('.','');
+                var a = document.createElement("a");
+                a.download = name;
+                a.target = "_blank";
+                a.href = url;
+                $("body").append(a); // 修复firefox中无法触发click
+                a.click();
+                $(a).remove();
+            }
+            var is_submit = $('#is_submit').html();
+            
+            
+            $('.yes-submit-form').click(function(){
+                if(is_submit==1){
+                    var file=$(this).attr('data-file');
+                    var name = $(this).attr('data-name');
+                    down(file,name);
+                }else{
+                    $('body').css({'overflow':'hidden'});
+                    $('.popup').css({'opacity':1,'visibility':'visible'});
+                }    
+                
+            })
+            
+            $('#close-btn').click(function(){
+                $('body').css({'overflow':'auto'});
+                $('.popup').css({'opacity':0,'visibility':'hidden'});
+            })
+            
+            
+        })
+    </script>
+<header id="main-header" class="main-header scrolled">
+    <div class="header-container">
+        <!-- Logo区域 -->
+        <div class="logo-area">
+            <a href="https://www.geniatech.com" class="logo-link">
+                                                    <img src="https://www.geniatech.com/wp-content/uploads/2026/03/logo-red.webp"
+                         alt="Geniatech"
+                         class="default-logo geniatech-logo"
+                         style="height: 30px; width: auto;"
+                         data-default-height="30"
+                         data-scroll-height="30"
+                                                  data-scroll-src="https://www.geniatech.com/wp-content/uploads/2026/03/logo-red.webp"
+                         data-default-src="https://www.geniatech.com/wp-content/uploads/2026/03/logo.webp"
+                                             >
+                            </a>
+        </div>
+        
+        <!-- 导航菜单和功能区域 -->
+        <div class="nav-area">
+            <!-- 主菜单 -->
+            <nav class="main-navigation">
+                <ul id="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95" class="main-menu"><li id="menu-item-8" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8 has-mega-menu"><a href="/arm-embedded/">ARM Embedded <i class="menu-arrow iconfont icon-angle-down"></i></a><div class="mega-menu-content">		<div data-elementor-type="section" data-elementor-id="305" class="elementor elementor-305" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-2cf5906 e-flex e-con-boxed e-con e-parent" data-id="2cf5906" data-element_type="container">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-5ffc566 e-con-full e-flex e-con e-child" data-id="5ffc566" data-element_type="container">
+				<div class="elementor-element elementor-element-572135a elementor-position-left elementor-vertical-align-middle elementor-widget elementor-widget-image-box" data-id="572135a" data-element_type="widget" data-widget_type="image-box.default">
+					<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><a href="/products/system-on-module/" tabindex="-1"><img width="30" height="30" src="https://www.geniatech.com/wp-content/uploads/2025/08/10746033.webp" class="attachment-full size-full wp-image-312" alt="" /></a></figure><div class="elementor-image-box-content"><span class="elementor-image-box-title"><a href="/products/system-on-module/">System On Module</a></span></div></div>				</div>
+				<div class="elementor-element elementor-element-620aa14 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="620aa14" data-element_type="widget" data-widget_type="divider.default">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-4c80bfe elementor-widget elementor-widget-geniatech_custom_menu" data-id="4c80bfe" data-element_type="widget" data-widget_type="geniatech_custom_menu.default">
+				<div class="elementor-widget-container">
+					        <div class="geniatech-custom-menu horizontal brand-list">
+                                                <div class="brand">
+                                                    <a href="/products/system-on-module/?attribute_3=7" class="brand-title">
+                                Rockchip                            </a>
+                                                
+                                                    <ul class="chip-list">
+                                                                    <li>
+                                                                                    <a href="/product/som-3576/">
+                                                RK3576                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/product/som3588/">
+                                                RK3588                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/products/system-on-module/?attribute_4=25">
+                                                RK3568                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/product/som-3566-osm/">
+                                                RK3566                                            </a>
+                                                                            </li>
+                                                            </ul>
+                                            </div>
+                                    <div class="brand">
+                                                    <a href="/products/system-on-module/?attribute_3=5" class="brand-title">
+                                NXP                            </a>
+                                                
+                                                    <ul class="chip-list">
+                                                                    <li>
+                                                                                    <a href="/product/som-imx95-osm/">
+                                                i.MX95                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/product/som-imx93-osm/">
+                                                i.MX93                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/product/som-imx8mp-smarc/">
+                                                i.MX8M Plus                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/product/som-imx8mm-osm/">
+                                                i.MX8M Mini                                            </a>
+                                                                            </li>
+                                                            </ul>
+                                            </div>
+                                    <div class="brand">
+                                                    <a href="/products/system-on-module/?attribute_3=6&#038;attribute_3=9&#038;attribute_3=64" class="brand-title">
+                                Renesas / Qualcomm / MediaTek                            </a>
+                                                
+                                                    <ul class="chip-list">
+                                                                    <li>
+                                                                                    <a href="/product/som-v2n-osm/">
+                                                RZ-V2N                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/product/som-v2h-osm/">
+                                                RZ-V2H                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/product/som-v2l-osm/">
+                                                RZ-V2L                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/product/som-g2l-osm/">
+                                                RZ-G2L                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/product/som-g720-osm/">
+                                                Genio 720                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/product/som-g520-osm/">
+                                                Genio 520                                            </a>
+                                                                            </li>
+                                                            </ul>
+                                            </div>
+                                    <div class="brand">
+                                                    <a href="#" class="brand-title">
+                                Form factors                            </a>
+                                                
+                                                    <ul class="chip-list">
+                                                                    <li>
+                                                                                    <a href="/products/osm/">
+                                                OSM                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/products/smarc/">
+                                                SMARC                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/products/qseven/">
+                                                Qseven                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/products/96boards/">
+                                                96Boards                                            </a>
+                                                                            </li>
+                                                            </ul>
+                                            </div>
+                                    </div>
+        				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-51299af e-con-full e-flex e-con e-child" data-id="51299af" data-element_type="container">
+				<div class="elementor-element elementor-element-1276e81 elementor-position-left elementor-vertical-align-middle elementor-widget elementor-widget-image-box" data-id="1276e81" data-element_type="widget" data-widget_type="image-box.default">
+					<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><a href="/products/embedded-mainboards/" tabindex="-1"><img width="30" height="30" src="https://www.geniatech.com/wp-content/uploads/2025/08/矩形-724-拷贝.png" class="attachment-full size-full wp-image-2565" alt="" /></a></figure><div class="elementor-image-box-content"><span class="elementor-image-box-title"><a href="/products/embedded-mainboards/">Single Board Computer</a></span></div></div>				</div>
+				<div class="elementor-element elementor-element-9d7371b elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="9d7371b" data-element_type="widget" data-widget_type="divider.default">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-88317bf elementor-widget elementor-widget-geniatech_custom_menu" data-id="88317bf" data-element_type="widget" data-widget_type="geniatech_custom_menu.default">
+				<div class="elementor-widget-container">
+					        <div class="geniatech-custom-menu horizontal brand-list">
+                                                <div class="brand">
+                                                    <a href="/products/development-board/" class="brand-title">
+                                Development Board                            </a>
+                                                
+                                                    <ul class="chip-list">
+                                                                    <li>
+                                                                                    <a href="/products/embedded-mainboards/?attribute_3=5">
+                                                NXP                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/products/development-board/?attribute_3=7">
+                                                Rockchip                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/product/renesas-development-board/">
+                                                Renesas                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/products/system-on-module/?attribute_3=9">
+                                                Qualcomm                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/product/db982/">
+                                                Amlogic                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/product/db20x/">
+                                                SigmaStar                                            </a>
+                                                                            </li>
+                                                            </ul>
+                                            </div>
+                                    <div class="brand">
+                                                    <a href="/products/xpi/" class="brand-title">
+                                XPI - Industrial RPi                            </a>
+                                                
+                                                    <ul class="chip-list">
+                                                                    <li>
+                                                                                    <a href="/product/xpi-imx8mm/">
+                                                NXP                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/products/xpi/?attribute_3=7">
+                                                Rockchip                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/product/xpi-s905x3/">
+                                                Amlogic                                            </a>
+                                                                            </li>
+                                                            </ul>
+                                            </div>
+                                    </div>
+        				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-eb492f8 e-con-full e-flex e-con e-child" data-id="eb492f8" data-element_type="container">
+				<div class="elementor-element elementor-element-7f86dc9 elementor-position-left elementor-vertical-align-middle elementor-widget elementor-widget-image-box" data-id="7f86dc9" data-element_type="widget" data-widget_type="image-box.default">
+					<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><a href="/products/embedded-pc/" tabindex="-1"><img loading="lazy" width="30" height="30" src="https://www.geniatech.com/wp-content/uploads/2025/08/16226194.png" class="attachment-full size-full wp-image-2564" alt="" /></a></figure><div class="elementor-image-box-content"><span class="elementor-image-box-title"><a href="/products/embedded-pc/">Embedded System</a></span></div></div>				</div>
+				<div class="elementor-element elementor-element-e6cc13e elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="e6cc13e" data-element_type="widget" data-widget_type="divider.default">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-b27b58a elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="b27b58a" data-element_type="widget" data-widget_type="icon-list.default">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="/products/ai-box/">
+
+											<span class="elementor-icon-list-text">Edge AI Box PC</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="/products/mini-industrial-pc/">
+
+											<span class="elementor-icon-list-text">Industrial Box PC</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="/products/commercial-tablet/">
+
+											<span class="elementor-icon-list-text">Industrial Tablet</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="/products/iot-gateway/">
+
+											<span class="elementor-icon-list-text">IoT Edge Gateway</span>
+											</a>
+									</li>
+						</ul>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-698b76e e-con-full e-flex e-con e-child" data-id="698b76e" data-element_type="container">
+				<div class="elementor-element elementor-element-1201e07 elementor-position-left elementor-vertical-align-middle elementor-widget elementor-widget-image-box" data-id="1201e07" data-element_type="widget" data-widget_type="image-box.default">
+					<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><a href="/products/multimedia/" tabindex="-1"><img loading="lazy" width="30" height="24" src="https://www.geniatech.com/wp-content/uploads/2025/08/矩形-724.png" class="attachment-full size-full wp-image-2563" alt="" /></a></figure><div class="elementor-image-box-content"><span class="elementor-image-box-title"><a href="/products/multimedia/">Multimemedia</a></span></div></div>				</div>
+				<div class="elementor-element elementor-element-d241b66 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="d241b66" data-element_type="widget" data-widget_type="divider.default">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-a138d52 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="a138d52" data-element_type="widget" data-widget_type="icon-list.default">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="/products/android-tv-box/">
+
+											<span class="elementor-icon-list-text">Android TV Box</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="/products/tv-tuner/">
+
+											<span class="elementor-icon-list-text">TV Tuner</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="/products/video-capture/">
+
+											<span class="elementor-icon-list-text">Video Capture</span>
+											</a>
+									</li>
+						</ul>
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		</div></li>
+<li id="menu-item-20541" class="menu-item menu-item-type-taxonomy menu-item-object-products menu-item-has-children menu-item-20541 has-dropdown"><a href="https://www.geniatech.com/products/edge-ai/">Edge AI <i class="menu-arrow iconfont icon-angle-down"></i></a>
+<ul class="sub-menu">
+	<li id="menu-item-14414" class="menu-item menu-item-type-taxonomy menu-item-object-products menu-item-14414"><a href="https://www.geniatech.com/products/ai-module/">AI Accelerator</a></li>
+	<li id="menu-item-14415" class="menu-item menu-item-type-taxonomy menu-item-object-products menu-item-14415"><a href="https://www.geniatech.com/products/ai-box/">Edge AI Box</a></li>
+	<li id="menu-item-14416" class="menu-item menu-item-type-taxonomy menu-item-object-products menu-item-14416"><a href="https://www.geniatech.com/products/ai-kits/">AI Board</a></li>
+</ul>
+</li>
+<li id="menu-item-20538" class="menu-item menu-item-type-taxonomy menu-item-object-products menu-item-has-children menu-item-20538 has-dropdown"><a href="https://www.geniatech.com/products/eink/">E-Paper <i class="menu-arrow iconfont icon-angle-down"></i></a>
+<ul class="sub-menu">
+	<li id="menu-item-20539" class="menu-item menu-item-type-taxonomy menu-item-object-products menu-item-20539"><a href="https://www.geniatech.com/products/e-paper-display/">ePaper Display</a></li>
+	<li id="menu-item-20540" class="menu-item menu-item-type-taxonomy menu-item-object-products menu-item-20540"><a href="https://www.geniatech.com/products/eink-tablet/">ePaper Tablet</a></li>
+</ul>
+</li>
+<li id="menu-item-304" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-304 has-dropdown"><a href="/service/">Services <i class="menu-arrow iconfont icon-angle-down"></i></a>
+<ul class="sub-menu">
+	<li id="menu-item-14061" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14061"><a href="https://www.geniatech.com/downloads/">Download Center</a></li>
+	<li id="menu-item-14062" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14062"><a href="https://www.geniatech.com/service/">Customized Services</a></li>
+</ul>
+</li>
+<li id="menu-item-302" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-302 has-mega-menu"><a href="#">Solutions <i class="menu-arrow iconfont icon-angle-down"></i></a><div class="mega-menu-content">		<div data-elementor-type="section" data-elementor-id="2247" class="elementor elementor-2247" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-a53038a e-con-full e-flex e-con e-parent" data-id="a53038a" data-element_type="container">
+		<div class="elementor-element elementor-element-89e8ca3 e-con-full e-flex e-con e-child" data-id="89e8ca3" data-element_type="container">
+				<div class="elementor-element elementor-element-c8183be elementor-widget elementor-widget-heading" data-id="c8183be" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Our Solutions</h2>				</div>
+				<div class="elementor-element elementor-element-0f2c138 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="0f2c138" data-element_type="widget" data-widget_type="divider.default">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+		<div class="elementor-element elementor-element-0d7e9b0 e-grid e-con-full e-con e-child" data-id="0d7e9b0" data-element_type="container">
+				<div class="elementor-element elementor-element-127616d elementor-widget elementor-widget-geniatech_button_tag_list" data-id="127616d" data-element_type="widget" data-widget_type="geniatech_button_tag_list.default">
+				<div class="elementor-widget-container">
+					<div id="gt-button-tag-list-127616d" class="gt-button-tag-list" data-animation="slide"><a href="/solutions/edge-computing-ai/" class="gt-button-tag" data-columns="1"><span class="gt-button-text">Edge Computing &amp; AI</span><span class="gt-button-icon"><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></span></a><a href="/solutions/industrial-automation/" class="gt-button-tag" data-columns="1"><span class="gt-button-text">Industrial Automation</span><span class="gt-button-icon"><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></span></a><a href="/solutions/internet-of-things/" class="gt-button-tag" data-columns="1"><span class="gt-button-text">Internet of Things</span><span class="gt-button-icon"><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></span></a><a href="/solutions/industrial-automation/" class="gt-button-tag" data-columns="1"><span class="gt-button-text">HMI (Human-Machine Interface) </span><span class="gt-button-icon"><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></span></a></div><script>(function(){
+var container=document.getElementById("gt-button-tag-list-127616d");
+if(!container){return;}
+var buttons=container.querySelectorAll('a.gt-button-tag[data-swap="1"]');
+function findImgEl(targetId){
+  var el=document.getElementById(targetId);
+  if(!el){return null;}
+  if(el.tagName && el.tagName.toLowerCase()==="img"){return el;}
+  var img=el.querySelector("img");
+  return img||null;
+}
+buttons.forEach(function(btn){
+  var targetId=btn.getAttribute("data-target-id");
+  var swapSrc=btn.getAttribute("data-swap-src");
+  if(!targetId||!swapSrc){return;}
+  function apply(){
+    var img=findImgEl(targetId);
+    if(!img){return;}
+    if(!img.dataset.originalSrc){img.dataset.originalSrc=img.getAttribute("src")||"";}
+    if(img.dataset.originalSrcset===undefined){img.dataset.originalSrcset=img.getAttribute("srcset")||"";}
+    if(img.dataset.originalSizes===undefined){img.dataset.originalSizes=img.getAttribute("sizes")||"";}
+    img.setAttribute("srcset", "");
+    img.setAttribute("sizes", "");
+    img.setAttribute("src", swapSrc);
+  }
+  function restore(){
+    var img=findImgEl(targetId);
+    if(!img){return;}
+    var original=img.dataset.originalSrc;
+    var originalSet=(img.dataset.originalSrcset!==undefined)?img.dataset.originalSrcset:"";
+    var originalSizes=(img.dataset.originalSizes!==undefined)?img.dataset.originalSizes:"";
+    img.setAttribute("srcset", originalSet);
+    img.setAttribute("sizes", originalSizes);
+    if(typeof original!=="undefined"){img.setAttribute("src",original);}
+  }
+  btn.addEventListener("mouseenter",apply);
+  btn.addEventListener("mouseleave",restore);
+  btn.addEventListener("focus",apply,true);
+  btn.addEventListener("blur",restore,true);
+});
+})();</script>				</div>
+				</div>
+				<div class="elementor-element elementor-element-595b464 elementor-widget elementor-widget-geniatech_button_tag_list" data-id="595b464" data-element_type="widget" data-widget_type="geniatech_button_tag_list.default">
+				<div class="elementor-widget-container">
+					<div id="gt-button-tag-list-595b464" class="gt-button-tag-list" data-animation="slide"><a href="/solutions/intelligent-transport/" class="gt-button-tag" data-columns="1"><span class="gt-button-text">Intelligent Transport</span><span class="gt-button-icon"><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></span></a><a href="/solutions/smart-healthcare/" class="gt-button-tag" data-columns="1"><span class="gt-button-text">Smart Healthcare</span><span class="gt-button-icon"><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></span></a><a href="/solution/digital-education/" class="gt-button-tag" data-columns="1" data-swap="1" data-swap-src="https://www.geniatech.com/wp-content/uploads/2025/10/educatiion-500x360-1.webp" data-target-id="img_qhs"><span class="gt-button-text">Digital Education</span><span class="gt-button-icon"><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></span></a><a href="/solutions/digital-signage/" class="gt-button-tag" data-columns="1"><span class="gt-button-text">Digital Signage</span><span class="gt-button-icon"><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></span></a></div><script>(function(){
+var container=document.getElementById("gt-button-tag-list-595b464");
+if(!container){return;}
+var buttons=container.querySelectorAll('a.gt-button-tag[data-swap="1"]');
+function findImgEl(targetId){
+  var el=document.getElementById(targetId);
+  if(!el){return null;}
+  if(el.tagName && el.tagName.toLowerCase()==="img"){return el;}
+  var img=el.querySelector("img");
+  return img||null;
+}
+buttons.forEach(function(btn){
+  var targetId=btn.getAttribute("data-target-id");
+  var swapSrc=btn.getAttribute("data-swap-src");
+  if(!targetId||!swapSrc){return;}
+  function apply(){
+    var img=findImgEl(targetId);
+    if(!img){return;}
+    if(!img.dataset.originalSrc){img.dataset.originalSrc=img.getAttribute("src")||"";}
+    if(img.dataset.originalSrcset===undefined){img.dataset.originalSrcset=img.getAttribute("srcset")||"";}
+    if(img.dataset.originalSizes===undefined){img.dataset.originalSizes=img.getAttribute("sizes")||"";}
+    img.setAttribute("srcset", "");
+    img.setAttribute("sizes", "");
+    img.setAttribute("src", swapSrc);
+  }
+  function restore(){
+    var img=findImgEl(targetId);
+    if(!img){return;}
+    var original=img.dataset.originalSrc;
+    var originalSet=(img.dataset.originalSrcset!==undefined)?img.dataset.originalSrcset:"";
+    var originalSizes=(img.dataset.originalSizes!==undefined)?img.dataset.originalSizes:"";
+    img.setAttribute("srcset", originalSet);
+    img.setAttribute("sizes", originalSizes);
+    if(typeof original!=="undefined"){img.setAttribute("src",original);}
+  }
+  btn.addEventListener("mouseenter",apply);
+  btn.addEventListener("mouseleave",restore);
+  btn.addEventListener("focus",apply,true);
+  btn.addEventListener("blur",restore,true);
+});
+})();</script>				</div>
+				</div>
+				<div class="elementor-element elementor-element-10dd7f6 elementor-widget elementor-widget-geniatech_button_tag_list" data-id="10dd7f6" data-element_type="widget" data-widget_type="geniatech_button_tag_list.default">
+				<div class="elementor-widget-container">
+					<div id="gt-button-tag-list-10dd7f6" class="gt-button-tag-list" data-animation="slide"><a href="/solution/smart-retail/" class="gt-button-tag" data-columns="1"><span class="gt-button-text">Smart Retail</span><span class="gt-button-icon"><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></span></a><a href="/solution/hospitality/" class="gt-button-tag" data-columns="1"><span class="gt-button-text">Hotel IPTV Solution</span><span class="gt-button-icon"><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></span></a><a href="/solutions/media-broadcasting/" class="gt-button-tag" data-columns="1"><span class="gt-button-text">Smart Media &amp; Broadcasting</span><span class="gt-button-icon"><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></span></a></div><script>(function(){
+var container=document.getElementById("gt-button-tag-list-10dd7f6");
+if(!container){return;}
+var buttons=container.querySelectorAll('a.gt-button-tag[data-swap="1"]');
+function findImgEl(targetId){
+  var el=document.getElementById(targetId);
+  if(!el){return null;}
+  if(el.tagName && el.tagName.toLowerCase()==="img"){return el;}
+  var img=el.querySelector("img");
+  return img||null;
+}
+buttons.forEach(function(btn){
+  var targetId=btn.getAttribute("data-target-id");
+  var swapSrc=btn.getAttribute("data-swap-src");
+  if(!targetId||!swapSrc){return;}
+  function apply(){
+    var img=findImgEl(targetId);
+    if(!img){return;}
+    if(!img.dataset.originalSrc){img.dataset.originalSrc=img.getAttribute("src")||"";}
+    if(img.dataset.originalSrcset===undefined){img.dataset.originalSrcset=img.getAttribute("srcset")||"";}
+    if(img.dataset.originalSizes===undefined){img.dataset.originalSizes=img.getAttribute("sizes")||"";}
+    img.setAttribute("srcset", "");
+    img.setAttribute("sizes", "");
+    img.setAttribute("src", swapSrc);
+  }
+  function restore(){
+    var img=findImgEl(targetId);
+    if(!img){return;}
+    var original=img.dataset.originalSrc;
+    var originalSet=(img.dataset.originalSrcset!==undefined)?img.dataset.originalSrcset:"";
+    var originalSizes=(img.dataset.originalSizes!==undefined)?img.dataset.originalSizes:"";
+    img.setAttribute("srcset", originalSet);
+    img.setAttribute("sizes", originalSizes);
+    if(typeof original!=="undefined"){img.setAttribute("src",original);}
+  }
+  btn.addEventListener("mouseenter",apply);
+  btn.addEventListener("mouseleave",restore);
+  btn.addEventListener("focus",apply,true);
+  btn.addEventListener("blur",restore,true);
+});
+})();</script>				</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-3500847 e-con-full e-flex e-con e-child" data-id="3500847" data-element_type="container">
+				<div class="elementor-element elementor-element-55712e2 elementor-widget elementor-widget-image" data-id="55712e2" data-element_type="widget" id="img_qh" data-widget_type="image.default">
+															<img loading="lazy" width="400" height="264" src="https://www.geniatech.com/wp-content/uploads/2025/09/15-1-4.webp" class="attachment-full size-full wp-image-19123" alt="" srcset="https://www.geniatech.com/wp-content/uploads/2025/09/15-1-4.webp 400w, https://www.geniatech.com/wp-content/uploads/2025/09/15-1-4-300x198.webp 300w" sizes="(max-width: 400px) 100vw, 400px" />															</div>
+				</div>
+				</div>
+				</div>
+		</div></li>
+<li id="menu-item-303" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-303 has-mega-menu"><a href="/about">About <i class="menu-arrow iconfont icon-angle-down"></i></a><div class="mega-menu-content">		<div data-elementor-type="section" data-elementor-id="1013" class="elementor elementor-1013" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-e724c43 e-flex e-con-boxed e-con e-parent" data-id="e724c43" data-element_type="container">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-03ce5ed e-con-full e-flex e-con e-child" data-id="03ce5ed" data-element_type="container">
+				<div class="elementor-element elementor-element-80131f9 elementor-widget elementor-widget-heading" data-id="80131f9" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Why Geniatech</h2>				</div>
+				<div class="elementor-element elementor-element-b538a69 elementor-widget elementor-widget-text-editor" data-id="b538a69" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>Geniatech has over 27 Years of Experience in ARM Embedded<br />Design and Manufacturing, with a team of over 100 R&amp;D Engineers and its own Production Factory.</p>								</div>
+				<div class="elementor-element elementor-element-e2c5052 aaasd elementor-widget elementor-widget-button" data-id="e2c5052" data-element_type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="/contact-us/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>			</span>
+									<span class="elementor-button-text">Contact Now</span>
+					</span>
+					</a>
+								</div>
+				</div>
+		<div class="elementor-element elementor-element-9f9a60f e-con-full e-flex e-con e-child" data-id="9f9a60f" data-element_type="container">
+		<div class="elementor-element elementor-element-7e9fa0f e-con-full e-flex e-con e-child" data-id="7e9fa0f" data-element_type="container">
+				<div class="elementor-element elementor-element-f32de1c elementor-widget elementor-widget-geniatech_button_tag_list" data-id="f32de1c" data-element_type="widget" data-widget_type="geniatech_button_tag_list.default">
+				<div class="elementor-widget-container">
+					<div id="gt-button-tag-list-f32de1c" class="gt-button-tag-list" data-animation="slide"><a href="/about/" class="gt-button-tag" data-columns="1"><span class="gt-button-text">About Geniatech</span><span class="gt-button-icon"><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></span></a><a href="/contact-us/" class="gt-button-tag" data-columns="1"><span class="gt-button-text">Contact US</span><span class="gt-button-icon"><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></span></a><a href="/partner/" class="gt-button-tag" data-columns="1"><span class="gt-button-text">Our Partner</span><span class="gt-button-icon"><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></span></a><a href="/tradeshows-events/" class="gt-button-tag" data-columns="1"><span class="gt-button-text">Tradeshows &amp; Events</span><span class="gt-button-icon"><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></span></a></div><script>(function(){
+var container=document.getElementById("gt-button-tag-list-f32de1c");
+if(!container){return;}
+var buttons=container.querySelectorAll('a.gt-button-tag[data-swap="1"]');
+function findImgEl(targetId){
+  var el=document.getElementById(targetId);
+  if(!el){return null;}
+  if(el.tagName && el.tagName.toLowerCase()==="img"){return el;}
+  var img=el.querySelector("img");
+  return img||null;
+}
+buttons.forEach(function(btn){
+  var targetId=btn.getAttribute("data-target-id");
+  var swapSrc=btn.getAttribute("data-swap-src");
+  if(!targetId||!swapSrc){return;}
+  function apply(){
+    var img=findImgEl(targetId);
+    if(!img){return;}
+    if(!img.dataset.originalSrc){img.dataset.originalSrc=img.getAttribute("src")||"";}
+    if(img.dataset.originalSrcset===undefined){img.dataset.originalSrcset=img.getAttribute("srcset")||"";}
+    if(img.dataset.originalSizes===undefined){img.dataset.originalSizes=img.getAttribute("sizes")||"";}
+    img.setAttribute("srcset", "");
+    img.setAttribute("sizes", "");
+    img.setAttribute("src", swapSrc);
+  }
+  function restore(){
+    var img=findImgEl(targetId);
+    if(!img){return;}
+    var original=img.dataset.originalSrc;
+    var originalSet=(img.dataset.originalSrcset!==undefined)?img.dataset.originalSrcset:"";
+    var originalSizes=(img.dataset.originalSizes!==undefined)?img.dataset.originalSizes:"";
+    img.setAttribute("srcset", originalSet);
+    img.setAttribute("sizes", originalSizes);
+    if(typeof original!=="undefined"){img.setAttribute("src",original);}
+  }
+  btn.addEventListener("mouseenter",apply);
+  btn.addEventListener("mouseleave",restore);
+  btn.addEventListener("focus",apply,true);
+  btn.addEventListener("blur",restore,true);
+});
+})();</script>				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-b1c44b2 e-con-full e-flex e-con e-child" data-id="b1c44b2" data-element_type="container">
+				<div class="elementor-element elementor-element-a70ea00 elementor-widget elementor-widget-image" data-id="a70ea00" data-element_type="widget" id="img_qhs" data-widget_type="image.default">
+															<img loading="lazy" width="400" height="264" src="https://www.geniatech.com/wp-content/uploads/2025/09/15-1-3.webp" class="attachment-large size-large wp-image-19122" alt="" srcset="https://www.geniatech.com/wp-content/uploads/2025/09/15-1-3.webp 400w, https://www.geniatech.com/wp-content/uploads/2025/09/15-1-3-300x198.webp 300w" sizes="(max-width: 400px) 100vw, 400px" />															</div>
+				</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		</div></li>
+</ul>            </nav>
+                        <!-- 功能图标区域 -->
+            <div class="header-icons">
+                <!-- 语言图标 -->
+				<div class="language-selector">
+                    <div class="language-current">
+                        <i class="iconfont icon-ditu_diqiu_o"></i>
+                    </div>
+					
+					<div class="language-dropdown">
+                        <a href="#" class="language-option" data-lang="english">
+							<span class="language-flag">🇺🇸</span>
+                            <span class="language-name ignore">EN</span>
+						</a>
+						<a href="https://www.geniatech.cn/" target="_blank">
+							<span class="language-flag">🇨🇳</span>
+                            <span class="language-name ignore">CN</span>
+						</a>
+						
+					</div>
+                </div>
+    
+
+                <!-- 搜索功能 -->
+                <div class="header-search">
+                    <div class="search-container">
+                        <!-- 搜索图标按钮 - 始终可见 -->
+                        <button type="button" class="search-icon-btn" aria-label="search">
+                            <i class="iconfont icon-sousuo"></i>
+                        </button>
+                        
+                        <!-- 搜索框 - 绝对定位，默认隐藏 -->
+                        <div class="search-box">
+                            <form role="search" method="get" class="search-form" action="https://www.geniatech.com/">
+                                <div class="search-input-group">
+                                    <input type="search" class="search-input" placeholder="search..." value="" name="s" />
+                                    <button type="submit" class="search-button sadd" aria-label="search">
+                                        <i class="iconfont icon-sousuo"></i>
+                                    </button>
+                                </div>
+                            </form>
+                            
+                            <!-- 关闭按钮 -->
+                            <button type="button" class="search-close-btn"  aria-label="close">
+                                <i class="iconfont icon-close"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- 热门搜索下拉 -->
+                        <div class="hot-search-dropdown">
+                            <div class="hot-search-title">Hot Search</div>
+                            
+                                                        <div class="hot-search-tags">
+                                                                <a href="https://www.geniatech.com/?s=Edge AI" class="hot-search-tag">Edge AI</a>
+                                                                <a href="https://www.geniatech.com/?s=RK3588" class="hot-search-tag">RK3588</a>
+                                                                <a href="https://www.geniatech.com/?s=edge computing" class="hot-search-tag">edge computing</a>
+                                                                <a href="https://www.geniatech.com/?s=Embedded system" class="hot-search-tag">Embedded system</a>
+                                                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 手机端菜单图标（仅手机端显示） -->
+                <button class="mobile-menu-toggle" aria-label="Open menu">
+                    <i class="iconfont icon-menu"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+ 
+
+
+<!-- 手机端右侧抽屉菜单 -->
+<div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer-overlay"></div>
+    <aside class="mobile-drawer-panel" role="dialog" aria-modal="true">
+        <button class="mobile-drawer-close" aria-label="Close menu">&times;</button>
+        <nav class="mobile-navigation">
+            <ul id="menu-%e6%89%8b%e6%9c%ba%e8%8f%9c%e5%8d%95" class="mobile-menu"><li id="menu-item-17248" class="menu-item menu-item-type-taxonomy menu-item-object-products menu-item-has-children menu-item-17248"><a href="https://www.geniatech.com/products/edge-ai/">Edge AI</a>
+<ul class="sub-menu">
+	<li id="menu-item-17249" class="menu-item menu-item-type-taxonomy menu-item-object-products menu-item-17249"><a href="https://www.geniatech.com/products/ai-module/">AI Accelerator</a></li>
+	<li id="menu-item-17250" class="menu-item menu-item-type-taxonomy menu-item-object-products menu-item-17250"><a href="https://www.geniatech.com/products/ai-box/">Edge AI Box</a></li>
+	<li id="menu-item-17251" class="menu-item menu-item-type-taxonomy menu-item-object-products menu-item-17251"><a href="https://www.geniatech.com/products/ai-kits/">AI Board</a></li>
+</ul>
+</li>
+<li id="menu-item-17258" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-17258"><a href="#">ARM Embedded</a>
+<ul class="sub-menu">
+	<li id="menu-item-17252" class="menu-item menu-item-type-taxonomy menu-item-object-products menu-item-17252"><a href="https://www.geniatech.com/products/system-on-module/">System On Module</a></li>
+	<li id="menu-item-17253" class="menu-item menu-item-type-taxonomy menu-item-object-products menu-item-17253"><a href="https://www.geniatech.com/products/embedded-mainboards/">Single Board Computer</a></li>
+	<li id="menu-item-17254" class="menu-item menu-item-type-taxonomy menu-item-object-products menu-item-17254"><a href="https://www.geniatech.com/products/embedded-pc/">Embedded System</a></li>
+</ul>
+</li>
+<li id="menu-item-17255" class="menu-item menu-item-type-taxonomy menu-item-object-products menu-item-has-children menu-item-17255"><a href="https://www.geniatech.com/products/eink/">E-Paper</a>
+<ul class="sub-menu">
+	<li id="menu-item-17256" class="menu-item menu-item-type-taxonomy menu-item-object-products menu-item-17256"><a href="https://www.geniatech.com/products/e-paper-display/">ePaper Display</a></li>
+	<li id="menu-item-17257" class="menu-item menu-item-type-taxonomy menu-item-object-products menu-item-17257"><a href="https://www.geniatech.com/products/eink-tablet/">E Ink Tablet</a></li>
+</ul>
+</li>
+<li id="menu-item-19044" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-19044"><a href="#">Services</a>
+<ul class="sub-menu">
+	<li id="menu-item-17268" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17268"><a href="https://www.geniatech.com/service/">Customized Services</a></li>
+	<li id="menu-item-17265" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17265"><a href="https://www.geniatech.com/downloads/">Download</a></li>
+</ul>
+</li>
+<li id="menu-item-17259" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-17259"><a href="#">Solutions</a>
+<ul class="sub-menu">
+	<li id="menu-item-17263" class="menu-item menu-item-type-taxonomy menu-item-object-solutions menu-item-17263"><a href="https://www.geniatech.com/solutions/edge-computing-ai/">Edge Computing &amp; AI</a></li>
+	<li id="menu-item-17262" class="menu-item menu-item-type-taxonomy menu-item-object-solutions menu-item-17262"><a href="https://www.geniatech.com/solutions/digital-signage/">Digital Signage</a></li>
+	<li id="menu-item-17260" class="menu-item menu-item-type-taxonomy menu-item-object-solutions menu-item-17260"><a href="https://www.geniatech.com/solutions/intelligent-transport/">Intelligent Transport</a></li>
+	<li id="menu-item-17261" class="menu-item menu-item-type-taxonomy menu-item-object-solutions menu-item-17261"><a href="https://www.geniatech.com/solutions/smart-healthcare/">Smart Healthcare</a></li>
+	<li id="menu-item-17264" class="menu-item menu-item-type-taxonomy menu-item-object-solutions menu-item-17264"><a href="https://www.geniatech.com/solutions/industrial-automation/">Industrial Automation</a></li>
+</ul>
+</li>
+<li id="menu-item-17267" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17267"><a href="https://www.geniatech.com/about/">About</a></li>
+<li id="menu-item-17266" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17266"><a href="https://www.geniatech.com/contact-us/">Contact</a></li>
+</ul>        </nav>
+		<div class="mobile-lang">
+            <div class="mobile-lang-inner">
+                <button class="mobile-lang-toggle" type="button" aria-expanded="false">
+                    <span class="left"><i class="iconfont icon-ditu_diqiu_o"></i><span class="label">Language</span></span>
+                    <i class="iconfont icon-angle-down arrow"></i>
+                </button>
+   
+                
+                <div class="mobile-lang-list" role="menu" aria-hidden="true">
+					<a href="#" class="mobile-lang-item" data-lang="english">
+						<span class="language-flag"><img draggable="false" role="img" class="emoji" alt="🇺🇸" src="https://s.w.org/images/core/emoji/16.0.1/svg/1f1fa-1f1f8.svg"></span>
+						<span class="language-name ignore">EN</span>
+					</a>
+					<a href="#" class="mobile-lang-item" data-lang="chinese_simplified">
+						<span class="language-flag"><img draggable="false" role="img" class="emoji" alt="🇨🇳" src="https://s.w.org/images/core/emoji/16.0.1/svg/1f1e8-1f1f3.svg"></span>
+						<span class="language-name ignore">CN</span>
+					</a>
+                </div>
+            </div>
+        </div>
+    </aside>
+ </div>
+
+<div class="site-content">		<div data-elementor-type="single-post" data-elementor-id="1856" class="elementor elementor-1856 elementor-location-single post-20893 post type-post status-publish format-standard has-post-thumbnail hentry category-industry-news" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-a8b5e70 e-flex e-con-boxed e-con e-parent" data-id="a8b5e70" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1c11ea4 elementor-icon-list--layout-inline elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="1c11ea4" data-element_type="widget" data-widget_type="icon-list.default">
+							<ul class="elementor-icon-list-items elementor-inline-items">
+							<li class="elementor-icon-list-item elementor-inline-item">
+											<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-home" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">Home</span>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">RK1828 vs Jetson Orin NX vs Hailo-8: Which Edge AI Accelerator Should You Choose?</span>
+									</li>
+						</ul>
+						</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-f92e27a e-flex e-con-boxed e-con e-parent" data-id="f92e27a" data-element_type="container">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-5c95257 e-con-full e-flex e-con e-child" data-id="5c95257" data-element_type="container">
+				<div class="elementor-element elementor-element-fe0ad9d elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="fe0ad9d" data-element_type="widget" data-widget_type="theme-post-title.default">
+					<h1 class="elementor-heading-title elementor-size-default">RK1828 vs Jetson Orin NX vs Hailo-8: Which Edge AI Accelerator Should You Choose?</h1>				</div>
+				<div class="elementor-element elementor-element-6070a68 elementor-widget elementor-widget-heading" data-id="6070a68" data-element_type="widget" data-widget_type="heading.default">
+					<span class="elementor-heading-title elementor-size-default">May 29, 2026</span>				</div>
+				<div class="elementor-element elementor-element-595ca58 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="595ca58" data-element_type="widget" data-widget_type="divider.default">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-fccdcab elementor-widget elementor-widget-theme-post-content" data-id="fccdcab" data-element_type="widget" data-widget_type="theme-post-content.default">
+					<p>As edge AI workloads continue shifting from traditional vision inference to on-device large language models (LLMs), memory bandwidth and power efficiency are becoming just as important as raw TOPS performance.</p>
+<p>Rockchip’s RK1828 AI coprocessor, introduced for edge-side LLM acceleration, takes a noticeably different approach compared with conventional embedded AI accelerators. Instead of maximizing peak compute alone, RK1828 focuses on high-bandwidth memory architecture, low-power deployment, and optimized 7B model inference for embedded systems.</p>
+<p>For a full overview of all mainstream M.2 vision and LLM accelerators including DeepX, MemryX and NXP Ara-240, view our complete M.2 AI accelerator buying guide: <a title="" href="https://www.geniatech.com/edge-ai-m2-accelerator-comparison-vision-npus-llm-chips/" target="_blank" rel="noopener">Full M.2 NPU Comparison Chart</a></p>
+<p>For industrial edge AI, private LLM deployment, and fanless embedded platforms, RK1828 presents an interesting alternative to platforms such as NVIDIA Jetson Orin NX and Hailo-8.</p>
+<p><img fetchpriority="high" fetchpriority="high" decoding="async" class="alignnone size-full wp-image-21506" src="https://www.geniatech.com/wp-content/uploads/2026/07/RK1828-AI-Module.webp" alt="" width="1000" height="667" srcset="https://www.geniatech.com/wp-content/uploads/2026/07/RK1828-AI-Module.webp 1000w, https://www.geniatech.com/wp-content/uploads/2026/07/RK1828-AI-Module-300x200.webp 300w, https://www.geniatech.com/wp-content/uploads/2026/07/RK1828-AI-Module-768x512.webp 768w" sizes="(max-width: 1000px) 100vw, 1000px" /></p>
+<p>&nbsp;</p>
+<h2>RK1828 Key Specifications</h2>
+<p>RK1828 is designed as a dedicated AI coprocessor for edge inference workloads.</p>
+<p>Key hardware specifications include:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>RK1828</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Process Node</td>
+<td>20nm</td>
+</tr>
+<tr>
+<td>AI Performance</td>
+<td>20 TOPS (INT8)</td>
+</tr>
+<tr>
+<td>Precision Support</td>
+<td>INT4 / FP8 / FP16 / BF16</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>5GB 3D-Stacked DRAM</td>
+</tr>
+<tr>
+<td>Memory Bandwidth</td>
+<td>1024GB/s</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>Triple-core RISC-V 64GCB</td>
+</tr>
+<tr>
+<td>Interface</td>
+<td>PCIe 2.0 x1 / USB 3.0</td>
+</tr>
+<tr>
+<td>Typical Power</td>
+<td>~5W</td>
+</tr>
+<tr>
+<td>Cooling</td>
+<td>Passive cooling supported</td>
+</tr>
+<tr>
+<td>Form Factor</td>
+<td>M.2 2280 / SO-DIMM compatible</td>
+</tr>
+<tr>
+<td>Target Models</td>
+<td>Up to 7B LLMs</td>
+</tr>
+</tbody>
+</table>
+<p>Unlike many conventional edge AI accelerators that rely heavily on external LPDDR memory, RK1828 integrates high-bandwidth stacked DRAM directly within the package. This architecture is particularly relevant for LLM inference workloads where memory throughput often becomes the primary bottleneck.</p>
+<h2>RK1828 vs Orin NX vs Hailo-8 vs RK1820</h2>
+<h3>1. AI Compute and LLM Capability</h3>
+<table>
+<thead>
+<tr>
+<th>Chip</th>
+<th>INT8 TOPS</th>
+<th>Memory</th>
+<th>Target LLM Size</th>
+<th>7B Inference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RK1828</td>
+<td>20 TOPS</td>
+<td>5GB</td>
+<td>7B</td>
+<td>56 tokens/s</td>
+</tr>
+<tr>
+<td>Jetson Orin NX</td>
+<td>100 TOPS</td>
+<td>8GB LPDDR5</td>
+<td>7B</td>
+<td>14.5 tokens/s</td>
+</tr>
+<tr>
+<td>Hailo-8</td>
+<td>26 TOPS</td>
+<td>Host-dependent</td>
+<td>~3B</td>
+<td>~30 tokens/s</td>
+</tr>
+<tr>
+<td>RK1820</td>
+<td>20 TOPS</td>
+<td>2.5GB</td>
+<td>3B</td>
+<td>87.7 tokens/s (3B)</td>
+</tr>
+</tbody>
+</table>
+<p>Although Jetson Orin NX delivers significantly higher theoretical TOPS performance, edge-side LLM inference is increasingly constrained by memory bandwidth rather than pure compute throughput.</p>
+<p>In bandwidth-heavy 7B inference workloads, RK1828 demonstrates notably higher token throughput efficiency relative to its compute class, especially under low-power embedded deployment scenarios.</p>
+<h3>2. Memory Bandwidth: The Core Architectural Difference</h3>
+<p>The most distinctive aspect of RK1828 is its memory subsystem.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Memory Architecture</th>
+<th>Bandwidth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RK1828</td>
+<td>3D-Stacked On-Package DRAM</td>
+<td>1024GB/s</td>
+</tr>
+<tr>
+<td>Jetson Orin NX</td>
+<td>LPDDR5</td>
+<td>68GB/s</td>
+</tr>
+<tr>
+<td>Hailo-8</td>
+<td>External host memory</td>
+<td>Lower / host dependent</td>
+</tr>
+</tbody>
+</table>
+<p>For modern LLM workloads, memory movement is often more performance-critical than arithmetic throughput itself.</p>
+<p>RK1828’s integrated 3D-stacked memory architecture significantly reduces bandwidth bottlenecks commonly observed in LPDDR-based edge AI systems. This becomes increasingly important for:</p>
+<ul>
+<li>7B parameter LLM inference</li>
+<li>Multi-modal AI pipelines</li>
+<li>Multi-stream video analytics</li>
+<li>Real-time edge reasoning workloads</li>
+</ul>
+<p>Rather than competing purely on TOPS, RK1828 appears optimized for sustained data-intensive inference efficiency.</p>
+<h3>3. Power Efficiency and Thermal Design</h3>
+<p>Power consumption remains one of the biggest deployment challenges for industrial edge AI systems.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Typical Power</th>
+<th>Cooling Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RK1828</td>
+<td>~5W</td>
+<td>Passive</td>
+</tr>
+<tr>
+<td>Orin NX</td>
+<td>10–20W</td>
+<td>Active cooling recommended</td>
+</tr>
+<tr>
+<td>Hailo-8</td>
+<td>~2.5W</td>
+<td>Passive</td>
+</tr>
+</tbody>
+</table>
+<p>RK1828 operates within a relatively low power envelope while still targeting 7B-class models. This positioning is particularly relevant for:</p>
+<ul>
+<li>Fanless embedded systems</li>
+<li>Industrial automation</li>
+<li>Smart gateways</li>
+<li>Outdoor AI devices</li>
+<li>Unattended edge deployments</li>
+</ul>
+<p>Lower thermal complexity can also reduce total system cost and improve long-term reliability in industrial environments.</p>
+<h3>4. Software Ecosystem and Deployment Flexibility</h3>
+<p>RK1828 provides a development environment centered around the RKNN3 toolkit, supporting model conversion from major deep learning frameworks including PyTorch, TensorFlow, and Caffe, with a streamlined workflow for edge inference deployment. It also exposes API-compatible inference interfaces designed to simplify integration with existing cloud-native AI application stacks.</p>
+<p>In comparison, NVIDIA Jetson Orin NX benefits from a mature and widely adopted software ecosystem, including CUDA, TensorRT, and extensive developer tooling. However, this ecosystem is tightly coupled to NVIDIA’s proprietary stack, which can increase platform dependency and licensing complexity in large-scale deployments.</p>
+<p>Hailo-8, on the other hand, offers a more specialized software stack optimized primarily for vision inference pipelines. While efficient for CNN-based workloads, its ecosystem is more constrained in terms of supported model types and general-purpose LLM deployment flexibility.</p>
+<h2>Potential Edge AI Deployment Scenarios</h2>
+<h3>1. On-Device 7B LLM Deployment</h3>
+<p class="isSelectedEnd">RK1828 is particularly positioned for localized LLM inference workloads such as:</p>
+<ul data-spread="false">
+<li>Edge knowledge assistants</li>
+<li>Offline customer service systems</li>
+<li>Industrial copilots</li>
+<li>Local document summarization</li>
+<li>Private AI agents</li>
+</ul>
+<p>A common architecture could combine RK3588 as the host processor with RK1828 as the dedicated LLM acceleration coprocessor.</p>
+<h3>2. Industrial Vision and AI Inspection</h3>
+<p>High memory bandwidth also benefits real-time vision applications involving:</p>
+<ul>
+<li>Multi-channel 4K video analysis</li>
+<li>AI quality inspection</li>
+<li>Smart manufacturing</li>
+<li>Edge video analytics</li>
+</ul>
+<p>The passive thermal profile further supports deployment in dust-prone or vibration-sensitive industrial environments.</p>
+<h2>Final Thoughts</h2>
+<p>RK1828 represents a different design philosophy in edge AI acceleration.</p>
+<p>Instead of maximizing peak TOPS alone, the platform prioritizes:</p>
+<ul>
+<li>High-bandwidth memory architecture</li>
+<li>Efficient 7B LLM inference</li>
+<li>Low-power edge deployment</li>
+<li>Fanless industrial integration</li>
+</ul>
+<p>For edge AI workloads where memory bandwidth becomes the dominant bottleneck, RK1828 may offer a more balanced architecture than conventional compute-centric accelerators.</p>
+<p>As edge LLM workloads move toward on-device deployment, system architectures that optimize memory bandwidth and energy efficiency are increasingly critical for achieving practical inference performance at the edge.</p>
+				</div>
+				<div class="elementor-element elementor-element-42ef95f elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="42ef95f" data-element_type="widget" data-widget_type="divider.default">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-3fb0c56 elementor-post-navigation-borders-yes elementor-widget elementor-widget-post-navigation" data-id="3fb0c56" data-element_type="widget" data-widget_type="post-navigation.default">
+							<div class="elementor-post-navigation" role="navigation" aria-label="Post Navigation">
+			<div class="elementor-post-navigation__prev elementor-post-navigation__link">
+				<a href="https://www.geniatech.com/rk1828-edge-ai-odm-solutions/" rel="prev"><span class="post-navigation__arrow-wrapper post-navigation__arrow-prev"><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-left" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path></svg><span class="elementor-screen-only">Prev</span></span><span class="elementor-post-navigation__link__prev"><span class="post-navigation__prev--label">Previous</span><span class="post-navigation__prev--title">From RK1828 Silicon to Mass Production: How ODM Hardware Accelerates Edge AI Deployment</span></span></a>			</div>
+							<div class="elementor-post-navigation__separator-wrapper">
+					<div class="elementor-post-navigation__separator"></div>
+				</div>
+						<div class="elementor-post-navigation__next elementor-post-navigation__link">
+				<a href="https://www.geniatech.com/full-color-epaper-partial-refresh-technology/" rel="next"><span class="elementor-post-navigation__link__next"><span class="post-navigation__next--label">Next</span><span class="post-navigation__next--title">Geniatech&#8217;s Full-Color E-Paper Partial Refresh Technology Wins 2025–2026 ePaper Innovation &#8220;Pioneering&#8221; Award</span></span><span class="post-navigation__arrow-wrapper post-navigation__arrow-next"><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg><span class="elementor-screen-only">Next</span></span></a>			</div>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-1983058 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="1983058" data-element_type="widget" data-widget_type="divider.default">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-1ff9a54 e-con-full e-flex e-con e-child" data-id="1ff9a54" data-element_type="container">
+		<div class="elementor-element elementor-element-09c3180 e-con-full e-flex e-con e-child" data-id="09c3180" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-9bf5e93 elementor-widget elementor-widget-heading" data-id="9bf5e93" data-element_type="widget" data-widget_type="heading.default">
+					<span class="elementor-heading-title elementor-size-default">Share:</span>				</div>
+				<div class="elementor-element elementor-element-7ac3e24 elementor-shape-circle e-grid-align-left share-div elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="7ac3e24" data-element_type="widget" data-widget_type="social-icons.default">
+							<div class="elementor-social-icons-wrapper elementor-grid" role="list">
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-c143bd9" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.geniatech.com%2Frk1828-vs-jetson-orin-nx-vs-hailo-8%2F" target="_blank" rel="noopener noreferrer nofollow">
+						<span class="elementor-screen-only">Facebook</span>
+						<svg class="e-font-icon-svg e-fab-facebook" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-9f02904" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.geniatech.com%2Frk1828-vs-jetson-orin-nx-vs-hailo-8%2F&#038;text=RK1828+vs+Jetson+Orin+NX+vs+Hailo-8%3A+Which+Edge+AI+Accelerator+Should+You+Choose%3F%20" target="_blank" rel="noopener noreferrer nofollow">
+						<span class="elementor-screen-only">Twitter</span>
+						<svg class="e-font-icon-svg e-fab-twitter" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-2d60ade" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.geniatech.com%2Frk1828-vs-jetson-orin-nx-vs-hailo-8%2F" target="_blank" rel="noopener noreferrer nofollow">
+						<span class="elementor-screen-only">Linkedin</span>
+						<svg class="e-font-icon-svg e-fab-linkedin" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-rss elementor-repeater-item-b0e448a" href="https://www.geniatech.com/company-news/feed/" target="_blank">
+						<span class="elementor-screen-only">Rss</span>
+						<svg class="e-font-icon-svg e-fas-rss" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg>					</a>
+				</span>
+					</div>
+						</div>
+				<div class="elementor-element elementor-element-45b1831 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="45b1831" data-element_type="widget" data-widget_type="divider.default">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-9e82bc2 elementor-widget elementor-widget-heading" data-id="9e82bc2" data-element_type="widget" data-widget_type="heading.default">
+					<span class="elementor-heading-title elementor-size-default">Related News</span>				</div>
+				<div class="elementor-element elementor-element-c92059a elementor-grid-1 elementor-grid-tablet-2 elementor-grid-mobile-1 elementor-widget elementor-widget-loop-grid" data-id="c92059a" data-element_type="widget" data-settings="{&quot;template_id&quot;:17189,&quot;columns&quot;:1,&quot;_skin&quot;:&quot;post&quot;,&quot;columns_tablet&quot;:&quot;2&quot;,&quot;columns_mobile&quot;:&quot;1&quot;,&quot;edit_handle_selector&quot;:&quot;[data-elementor-type=\&quot;loop-item\&quot;]&quot;,&quot;row_gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;row_gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;row_gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="loop-grid.post">
+				<div class="elementor-widget-container">
+							<div class="elementor-loop-container elementor-grid" role="list">
+		<style id="loop-17189">.elementor-17189 .elementor-element.elementor-element-5fb4a9d{--display:flex;--margin-top:0px;--margin-bottom:0px;--margin-left:0px;--margin-right:0px;--padding-top:0px;--padding-bottom:0px;--padding-left:0px;--padding-right:0px;}.elementor-widget-theme-post-title .elementor-heading-title{font-family:var( --e-global-typography-primary-font-family ), Sans-serif;color:var( --e-global-color-primary );}.elementor-17189 .elementor-element.elementor-element-e79ec55 .elementor-heading-title{font-family:"MontserratRoman-SemiBold", Sans-serif;font-size:16px;font-weight:600;}.elementor-widget-post-info .elementor-icon-list-item:not(:last-child):after{border-color:var( --e-global-color-text );}.elementor-widget-post-info .elementor-icon-list-icon i{color:var( --e-global-color-primary );}.elementor-widget-post-info .elementor-icon-list-icon svg{fill:var( --e-global-color-primary );}.elementor-widget-post-info .elementor-icon-list-text, .elementor-widget-post-info .elementor-icon-list-text a{color:var( --e-global-color-secondary );}.elementor-widget-post-info .elementor-icon-list-item{font-family:var( --e-global-typography-text-font-family ), Sans-serif;}.elementor-17189 .elementor-element.elementor-element-06c3a52 .elementor-icon-list-icon{width:14px;}.elementor-17189 .elementor-element.elementor-element-06c3a52 .elementor-icon-list-icon i{font-size:14px;}.elementor-17189 .elementor-element.elementor-element-06c3a52 .elementor-icon-list-icon svg{--e-icon-list-icon-size:14px;}.elementor-17189 .elementor-element.elementor-element-06c3a52 .elementor-icon-list-text, .elementor-17189 .elementor-element.elementor-element-06c3a52 .elementor-icon-list-text a{color:#3A444A8C;}.elementor-17189 .elementor-element.elementor-element-06c3a52 .elementor-icon-list-item{font-family:"MontserratRoman-Regular", Sans-serif;font-size:14px;font-weight:400;}/* Start custom CSS for container, class: .elementor-element-5fb4a9d */.post{margin-bottom:0 !important;}/* End custom CSS */</style>		<div data-elementor-type="loop-item" data-elementor-id="17189" class="elementor elementor-17189 e-loop-item e-loop-item-21487 post-21487 post type-post status-publish format-standard hentry category-industry-news" data-elementor-post-type="elementor_library" data-custom-edit-handle="1">
+			<div class="elementor-element elementor-element-5fb4a9d e-flex e-con-boxed e-con e-parent" data-id="5fb4a9d" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-e79ec55 elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="e79ec55" data-element_type="widget" data-widget_type="theme-post-title.default">
+					<h2 class="elementor-heading-title elementor-size-default"><a href="https://www.geniatech.com/rknn-toolkit-vs-hailort-vs-onnx-runtime/">RKNN Toolkit vs HailoRT vs ONNX Runtime: Which Edge AI Toolchain Do You Need?</a></h2>				</div>
+				<div class="elementor-element elementor-element-06c3a52 elementor-widget elementor-widget-post-info" data-id="06c3a52" data-element_type="widget" data-widget_type="post-info.default">
+							<ul class="elementor-inline-items elementor-icon-list-items elementor-post-info">
+								<li class="elementor-icon-list-item elementor-repeater-item-fbc5879 elementor-inline-item" itemprop="datePublished">
+													<span class="elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-date">
+										<time>September 11, 2026</time>					</span>
+								</li>
+				</ul>
+						</div>
+					</div>
+				</div>
+				</div>
+				<div data-elementor-type="loop-item" data-elementor-id="17189" class="elementor elementor-17189 e-loop-item e-loop-item-21541 post-21541 post type-post status-publish format-standard has-post-thumbnail hentry category-company-news" data-elementor-post-type="elementor_library" data-custom-edit-handle="1">
+			<div class="elementor-element elementor-element-5fb4a9d e-flex e-con-boxed e-con e-parent" data-id="5fb4a9d" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-e79ec55 elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="e79ec55" data-element_type="widget" data-widget_type="theme-post-title.default">
+					<h2 class="elementor-heading-title elementor-size-default"><a href="https://www.geniatech.com/rk1828-rk1820-m2-ai-computing-card/">Geniatech Launches RK1828 and RK1820 M.2 AI Computing Cards, Bringing Tiered Local LLM/VLM Deployment to the Edge</a></h2>				</div>
+				<div class="elementor-element elementor-element-06c3a52 elementor-widget elementor-widget-post-info" data-id="06c3a52" data-element_type="widget" data-widget_type="post-info.default">
+							<ul class="elementor-inline-items elementor-icon-list-items elementor-post-info">
+								<li class="elementor-icon-list-item elementor-repeater-item-fbc5879 elementor-inline-item" itemprop="datePublished">
+													<span class="elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-date">
+										<time>September 8, 2026</time>					</span>
+								</li>
+				</ul>
+						</div>
+					</div>
+				</div>
+				</div>
+				<div data-elementor-type="loop-item" data-elementor-id="17189" class="elementor elementor-17189 e-loop-item e-loop-item-21536 post-21536 post type-post status-publish format-standard has-post-thumbnail hentry category-industry-news" data-elementor-post-type="elementor_library" data-custom-edit-handle="1">
+			<div class="elementor-element elementor-element-5fb4a9d e-flex e-con-boxed e-con e-parent" data-id="5fb4a9d" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-e79ec55 elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="e79ec55" data-element_type="widget" data-widget_type="theme-post-title.default">
+					<h2 class="elementor-heading-title elementor-size-default"><a href="https://www.geniatech.com/rk1828-vs-rk1820/">RK1828 vs RK1820: Which Rockchip Edge AI Co-Processor Should You Choose?</a></h2>				</div>
+				<div class="elementor-element elementor-element-06c3a52 elementor-widget elementor-widget-post-info" data-id="06c3a52" data-element_type="widget" data-widget_type="post-info.default">
+							<ul class="elementor-inline-items elementor-icon-list-items elementor-post-info">
+								<li class="elementor-icon-list-item elementor-repeater-item-fbc5879 elementor-inline-item" itemprop="datePublished">
+													<span class="elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-date">
+										<time>September 7, 2026</time>					</span>
+								</li>
+				</ul>
+						</div>
+					</div>
+				</div>
+				</div>
+				</div>
+		
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-d90d2b9 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="d90d2b9" data-element_type="widget" data-widget_type="divider.default">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		    </div><!-- .site-content -->
+
+		<footer data-elementor-type="footer" data-elementor-id="246" class="elementor elementor-246" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-291b53a contactaaa e-flex e-con-boxed e-con e-parent" data-id="291b53a" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1318892 elementor-widget elementor-widget-heading" data-id="1318892" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Let’s Talk About Your Project</h2>				</div>
+				<div class="elementor-element elementor-element-e5c0a9b elementor-widget elementor-widget-heading" data-id="e5c0a9b" data-element_type="widget" data-widget_type="heading.default">
+					<p class="elementor-heading-title elementor-size-default">We Promise you the Best Customer Service so Contact a Geniatech Expert and get Started today!</p>				</div>
+				<div class="elementor-element elementor-element-76d1190 elementor-align-center elementor-widget elementor-widget-button" data-id="76d1190" data-element_type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="/contact-us/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>			</span>
+									<span class="elementor-button-text">Contact Now</span>
+					</span>
+					</a>
+								</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-26dde94 e-flex e-con-boxed e-con e-parent" data-id="26dde94" data-element_type="container">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-cf56706 e-con-full e-flex e-con e-child" data-id="cf56706" data-element_type="container">
+				<div class="elementor-element elementor-element-93c992f elementor-widget elementor-widget-image" data-id="93c992f" data-element_type="widget" data-widget_type="image.default">
+															<img loading="lazy" width="152" height="29" src="https://www.geniatech.com/wp-content/uploads/2025/08/LOGO-拷贝.webp" class="attachment-large size-large wp-image-281" alt="" srcset="https://www.geniatech.com/wp-content/uploads/2025/08/LOGO-拷贝.webp 152w, https://www.geniatech.com/wp-content/uploads/2025/08/LOGO-拷贝-150x29.webp 150w" sizes="(max-width: 152px) 100vw, 152px" />															</div>
+				<div class="elementor-element elementor-element-095a50a elementor-widget elementor-widget-heading" data-id="095a50a" data-element_type="widget" data-widget_type="heading.default">
+					<p class="elementor-heading-title elementor-size-default"><strong>Industrial ARM Embedded edge AI ODM</strong></p>				</div>
+				<div class="elementor-element elementor-element-3006235 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="3006235" data-element_type="widget" data-widget_type="icon-list.default">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-map-marker" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">10F, 8A, Shenzhen International Innovation Valley</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-phone-alt" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">Tel ：+86 755 86028588</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-far-envelope" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"></path></svg>						</span>
+										<span class="elementor-icon-list-text"> E-Mail：sales@geniatech.com</span>
+									</li>
+						</ul>
+						</div>
+				<div class="elementor-element elementor-element-3a65cc0 e-grid-align-left elementor-shape-rounded elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="3a65cc0" data-element_type="widget" data-widget_type="social-icons.default">
+							<div class="elementor-social-icons-wrapper elementor-grid" role="list">
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-b0a5928" href="https://www.facebook.com/geniatechglobal/" target="_blank">
+						<span class="elementor-screen-only">Facebook</span>
+						<svg class="e-font-icon-svg e-fab-facebook" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-x-twitter elementor-repeater-item-44380e5" href="https://x.com/geniatechglobal/" target="_blank">
+						<span class="elementor-screen-only">X-twitter</span>
+						<svg class="e-font-icon-svg e-fab-x-twitter" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-63838f2" href="https://www.youtube.com/@geniatechglobal" target="_blank">
+						<span class="elementor-screen-only">Youtube</span>
+						<svg class="e-font-icon-svg e-fab-youtube" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-d81d819" href="https://www.linkedin.com/company/geniatech/" target="_blank">
+						<span class="elementor-screen-only">Linkedin</span>
+						<svg class="e-font-icon-svg e-fab-linkedin" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>					</a>
+				</span>
+					</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-f73dc7f e-con-full e-flex e-con e-child" data-id="f73dc7f" data-element_type="container">
+		<div class="elementor-element elementor-element-c485001 e-grid e-con-full e-con e-child" data-id="c485001" data-element_type="container">
+		<div class="elementor-element elementor-element-cdbd7ff e-con-full e-flex e-con e-child" data-id="cdbd7ff" data-element_type="container">
+				<div class="elementor-element elementor-element-f730dd6 elementor-widget elementor-widget-geniatech_static_menu" data-id="f730dd6" data-element_type="widget" data-widget_type="geniatech_static_menu.default">
+				<div class="elementor-widget-container">
+					        <div class="gt-static-menu" id="gt-static-menu-f730dd6">
+            <div class="gt-static-menu-desktop">
+                                    <div class="gt-static-menu-title">Products</div>
+                                <ul class="gt-static-menu-list">
+                                            <li>
+                            <a href="/products/ai-module/"  >
+                                AI Accelerator                            </a>
+                        </li>
+                                            <li>
+                            <a href="/products/ai-box/"  >
+                                Edge AI Box                            </a>
+                        </li>
+                                            <li>
+                            <a href="/products/e-paper-display/"  >
+                                ePaper Display                            </a>
+                        </li>
+                                            <li>
+                            <a href="/products/system-on-module/"  >
+                                System On Module                            </a>
+                        </li>
+                                            <li>
+                            <a href="/products/embedded-mainboards/"  >
+                                Single Board Computer                            </a>
+                        </li>
+                                            <li>
+                            <a href="/products/iot-gateway/"  >
+                                IoT Edge Gateway                            </a>
+                        </li>
+                                    </ul>
+            </div>
+
+            <div class="gt-static-menu-mobile" id="gt-static-menu-f730dd6-m">
+                <button class="gt-acc-title" type="button" aria-expanded="false">
+                    Products                    <span class="gt-acc-arrow" aria-hidden="true"></span>
+                </button>
+                <div class="gt-acc-content">
+                    <ul>
+                                                    <li>
+                                <a href="/products/ai-module/"  >
+                                    AI Accelerator                                </a>
+                                                            </li>
+                                                    <li>
+                                <a href="/products/ai-box/"  >
+                                    Edge AI Box                                </a>
+                                                            </li>
+                                                    <li>
+                                <a href="/products/e-paper-display/"  >
+                                    ePaper Display                                </a>
+                                                            </li>
+                                                    <li>
+                                <a href="/products/system-on-module/"  >
+                                    System On Module                                </a>
+                                                            </li>
+                                                    <li>
+                                <a href="/products/embedded-mainboards/"  >
+                                    Single Board Computer                                </a>
+                                                            </li>
+                                                    <li>
+                                <a href="/products/iot-gateway/"  >
+                                    IoT Edge Gateway                                </a>
+                                                            </li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+        <script>
+        jQuery(function($){
+            if (typeof window.initStaticMenu === 'function') {
+                window.initStaticMenu('gt-static-menu-f730dd6-m');
+            }
+        });
+        </script>
+        				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-e349710 e-con-full e-flex e-con e-child" data-id="e349710" data-element_type="container">
+				<div class="elementor-element elementor-element-e09bffc elementor-widget elementor-widget-geniatech_static_menu" data-id="e09bffc" data-element_type="widget" data-widget_type="geniatech_static_menu.default">
+				<div class="elementor-widget-container">
+					        <div class="gt-static-menu" id="gt-static-menu-e09bffc">
+            <div class="gt-static-menu-desktop">
+                                    <div class="gt-static-menu-title">Solutions</div>
+                                <ul class="gt-static-menu-list">
+                                            <li>
+                            <a href="/solutions/edge-computing-ai/"  >
+                                Edge Computing &amp; AI                            </a>
+                        </li>
+                                            <li>
+                            <a href="/solutions/internet-of-things/"  >
+                                Internet of Things                            </a>
+                        </li>
+                                            <li>
+                            <a href="/solutions/digital-signage/"  >
+                                Digital Signage                            </a>
+                        </li>
+                                            <li>
+                            <a href="/solutions/industrial-automation/"  >
+                                Industrial Automation                            </a>
+                        </li>
+                                            <li>
+                            <a href="/solutions/intelligent-transport/"  >
+                                Intelligent Transport                            </a>
+                        </li>
+                                            <li>
+                            <a href="/solutions/smart-healthcare/"  >
+                                Smart Healthcare                            </a>
+                        </li>
+                                    </ul>
+            </div>
+
+            <div class="gt-static-menu-mobile" id="gt-static-menu-e09bffc-m">
+                <button class="gt-acc-title" type="button" aria-expanded="false">
+                    Solutions                    <span class="gt-acc-arrow" aria-hidden="true"></span>
+                </button>
+                <div class="gt-acc-content">
+                    <ul>
+                                                    <li>
+                                <a href="/solutions/edge-computing-ai/"  >
+                                    Edge Computing &amp; AI                                </a>
+                                                            </li>
+                                                    <li>
+                                <a href="/solutions/internet-of-things/"  >
+                                    Internet of Things                                </a>
+                                                            </li>
+                                                    <li>
+                                <a href="/solutions/digital-signage/"  >
+                                    Digital Signage                                </a>
+                                                            </li>
+                                                    <li>
+                                <a href="/solutions/industrial-automation/"  >
+                                    Industrial Automation                                </a>
+                                                            </li>
+                                                    <li>
+                                <a href="/solutions/intelligent-transport/"  >
+                                    Intelligent Transport                                </a>
+                                                            </li>
+                                                    <li>
+                                <a href="/solutions/smart-healthcare/"  >
+                                    Smart Healthcare                                </a>
+                                                            </li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+        <script>
+        jQuery(function($){
+            if (typeof window.initStaticMenu === 'function') {
+                window.initStaticMenu('gt-static-menu-e09bffc-m');
+            }
+        });
+        </script>
+        				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-79cd331 e-con-full e-flex e-con e-child" data-id="79cd331" data-element_type="container">
+				<div class="elementor-element elementor-element-da04842 elementor-widget elementor-widget-geniatech_static_menu" data-id="da04842" data-element_type="widget" data-widget_type="geniatech_static_menu.default">
+				<div class="elementor-widget-container">
+					        <div class="gt-static-menu" id="gt-static-menu-da04842">
+            <div class="gt-static-menu-desktop">
+                                    <div class="gt-static-menu-title">Quick Link</div>
+                                <ul class="gt-static-menu-list">
+                                            <li>
+                            <a href="/about/"  >
+                                About Geniatech                            </a>
+                        </li>
+                                            <li>
+                            <a href="/service/"  >
+                                Customized Services                            </a>
+                        </li>
+                                            <li>
+                            <a href="/downloads/"  >
+                                Download Center                            </a>
+                        </li>
+                                            <li>
+                            <a href="/tradeshows-events/"  >
+                                Events &amp; News                            </a>
+                        </li>
+                                            <li>
+                            <a href="/contact-us/"  >
+                                Contact Us                            </a>
+                        </li>
+                                            <li>
+                            <a href="https://shop.geniatech.com/"  >
+                                Online Store                            </a>
+                        </li>
+                                    </ul>
+            </div>
+
+            <div class="gt-static-menu-mobile" id="gt-static-menu-da04842-m">
+                <button class="gt-acc-title" type="button" aria-expanded="false">
+                    Quick Link                    <span class="gt-acc-arrow" aria-hidden="true"></span>
+                </button>
+                <div class="gt-acc-content">
+                    <ul>
+                                                    <li>
+                                <a href="/about/"  >
+                                    About Geniatech                                </a>
+                                                            </li>
+                                                    <li>
+                                <a href="/service/"  >
+                                    Customized Services                                </a>
+                                                            </li>
+                                                    <li>
+                                <a href="/downloads/"  >
+                                    Download Center                                </a>
+                                                            </li>
+                                                    <li>
+                                <a href="/tradeshows-events/"  >
+                                    Events &amp; News                                </a>
+                                                            </li>
+                                                    <li>
+                                <a href="/contact-us/"  >
+                                    Contact Us                                </a>
+                                                            </li>
+                                                    <li>
+                                <a href="https://shop.geniatech.com/"  >
+                                    Online Store                                </a>
+                                                            </li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+        <script>
+        jQuery(function($){
+            if (typeof window.initStaticMenu === 'function') {
+                window.initStaticMenu('gt-static-menu-da04842-m');
+            }
+        });
+        </script>
+        				</div>
+				</div>
+				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-19ca483 e-flex e-con-boxed e-con e-parent" data-id="19ca483" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-84986ca elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="84986ca" data-element_type="widget" data-widget_type="divider.default">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+		<div class="elementor-element elementor-element-cfc13b7 e-con-full e-flex e-con e-child" data-id="cfc13b7" data-element_type="container">
+				<div class="elementor-element elementor-element-edd849a elementor-widget elementor-widget-heading" data-id="edd849a" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">© 2026 Geniatech Inc. All rights reserved.</h2>				</div>
+				<div class="elementor-element elementor-element-e53f5d9 elementor-icon-list--layout-inline elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="e53f5d9" data-element_type="widget" data-widget_type="icon-list.default">
+							<ul class="elementor-icon-list-items elementor-inline-items">
+							<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="/terms-of-use/">
+
+											<span class="elementor-icon-list-text">Terms of Use</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="/privacy-policy/">
+
+											<span class="elementor-icon-list-text">Privacy Policy</span>
+											</a>
+									</li>
+						</ul>
+						</div>
+				</div>
+					</div>
+				</div>
+				</footer>
+		
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/Geniatech/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+
+            <div class="smooth-back-to-top-button btn-right-side" role="button" tabindex="0" aria-label="Back to top">
+				                    <svg class="progress-circle" width="100%" height="100%" viewBox="-1 -1 102 102" aria-hidden="true">
+													<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+						                    </svg>
+				            </div>
+
+			
+            <script type="text/javascript" data-no-optimize="1">
+                (function () {
+                    var offset = 50;
+                    var duration = 500;
+
+                    function initButton() {
+                        var buttonWrap = document.querySelector('.smooth-back-to-top-button');
+                        if (!buttonWrap) return;
+
+                        window.addEventListener('scroll', function () {
+                            if (window.scrollY > offset) {
+                                buttonWrap.classList.add('active-progress');
+                            } else {
+                                buttonWrap.classList.remove('active-progress');
+                            }
+                        });
+
+                        buttonWrap.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        });
+
+                        buttonWrap.addEventListener('keydown', function (e) {
+                            if (e.key !== 'Enter' && e.key !== ' ') return;
+                            e.preventDefault();
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        });
+                    }
+
+                    if (document.readyState === 'loading') {
+                        document.addEventListener('DOMContentLoaded', initButton);
+                    } else {
+                        initButton();
+                    }
+                })();
+            </script>
+
+						<script>
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<script id="sbttb-script-js" src="https://www.geniatech.com/wp-content/plugins/smooth-back-to-top-button/assets/js/smooth-back-to-top-button.js?ver=1.3.0"></script>
+<script id="geniatech-script-js-extra">
+var geniatech_ajax = {"ajax_url":"https://www.geniatech.com/wp-admin/admin-ajax.php","nonce":"32aced4a1b"};
+var geniatech_ajax = {"ajax_url":"https://www.geniatech.com/wp-admin/admin-ajax.php","nonce":"32aced4a1b","attributes_nonce":"8a74359aa5"};
+//# sourceURL=geniatech-script-js-extra
+</script>
+<script id="geniatech-script-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/js/main.js?ver=1.0.0"></script>
+<script id="geniatech-header-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/js/header.js?ver=1.0.0"></script>
+<script id="geniatech-carousel-widget-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/carousel/carousel-widget.js?ver=1.0.0"></script>
+<script id="geniatech-content-carousel-widget-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/content-carousel/content-carousel-widget.js?ver=1.0.0"></script>
+<script id="geniatech-product-showcase-widget-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/product-showcase/product-showcase-widget.js?ver=1.0.0"></script>
+<script id="geniatech-static-menu-widget-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/static-menu/static-menu-widget.js?ver=1.0.0"></script>
+<script id="geniatech-button-tag-list-widget-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/button-tag-list/button-tag-list-widget.js?ver=1.0.0"></script>
+<script id="geniatech-banner-carousel-widget-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/banner-carousel/banner-carousel-widget.js?ver=1.0.0"></script>
+<script id="geniatech-custom-menu-widget-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/custom-menu/custom-menu-widget.js?ver=1.0.0"></script>
+<script id="geniatech-process-flow-widget-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/process-flow/process-flow-widget.js?ver=1.0.0"></script>
+<script id="geniatech-grid-content-widget-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/grid-content/grid-content-widget.js?ver=1.0.0"></script>
+<script id="geniatech-product-gallery-widget-js-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/product-gallery/product-gallery-widget.js?ver=1.0.0"></script>
+<script id="geniatech-product-downloads-widget-js-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/product-downloads/product-downloads-widget.js?ver=1.0.0"></script>
+<script id="geniatech-box-info-widget-js-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/box-info/box-info-widget.js?ver=1.0.0"></script>
+<script id="geniatech-box-info2-widget-js-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/box-info2/box-info2-widget.js?ver=1.0.0"></script>
+<script id="geniatech-content-carousel2-widget-js-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/content-carousel2/content-carousel2-widget.js?ver=1.0.0"></script>
+<script id="geniatech-download-center-widget-js-extra">
+var geniatech_ajax = {"ajax_url":"https://www.geniatech.com/wp-admin/admin-ajax.php","nonce":"03f20cf748"};
+//# sourceURL=geniatech-download-center-widget-js-extra
+</script>
+<script id="geniatech-download-center-widget-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/download-center/download-center-widget.js?ver=1.0.0"></script>
+<script id="geniatech-download-search-widget-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/download-search/download-search-widget.js?ver=1.0.0"></script>
+<script id="geniatech-timeline-carousel-widget-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/timeline-carousel/timeline-carousel-widget.js?ver=1.0.0"></script>
+<script id="geniatech-video-player-widget-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/video-player/video-player-widget.js?ver=1.0.0"></script>
+<script id="geniatech-logo-carousel-widget-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/logo-carousel/logo-carousel-widget.js?ver=1.0.0"></script>
+<script id="geniatech-hotspot-widget-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/hotspot/hotspot-widget.js?ver=1.0.0"></script>
+<script id="geniatech-scroll-effect-widget-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/scroll-effect/scroll-effect-widget.js?ver=1.0.0"></script>
+<script id="swiper-js" src="https://www.geniatech.com/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js?ver=8.4.5"></script>
+<script id="geniatech-certificate-scroll-v2-widget-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/certificate-scroll-v2/certificate-scroll-v2-widget.js?ver=1.0.0"></script>
+<script id="geniatech-event-showcase-widget-js" src="https://www.geniatech.com/wp-content/themes/Geniatech/elementor-widgets/event-showcase/event-showcase-widget.js?ver=1.0.0"></script>
+<script id="elementor-webpack-runtime-js" src="https://www.geniatech.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.31.3"></script>
+<script id="elementor-frontend-modules-js" src="https://www.geniatech.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.31.3"></script>
+<script id="jquery-ui-core-js-before">
+jQuery.uiBackCompat = true;
+//# sourceURL=jquery-ui-core-js-before
+</script>
+<script id="jquery-ui-core-js" src="https://www.geniatech.com/wp-includes/js/jquery/ui/core.min.js?ver=1.14.2"></script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.31.3","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_optimized_markup":true,"theme_builder_v2":true,"nested-elements":true,"e_element_cache":true,"home_screen":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"cloud-library":true,"e_opt_in_v4_page":true,"mega-menu":true},"urls":{"assets":"https:\/\/www.geniatech.com\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/www.geniatech.com\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/www.geniatech.com\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"2a68a3e967"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":20893,"title":"RK1828%20vs%20Jetson%20Orin%20NX%20vs%20Hailo-8%3A%20Which%20Edge%20AI%20Accelerator%20Should%20You%20Choose%3F%20-%20Geniatech","excerpt":"","featuredImage":"https:\/\/www.geniatech.com\/wp-content\/uploads\/2026\/07\/RK1828-AI-Module.webp"}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script id="elementor-frontend-js" src="https://www.geniatech.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.31.3"></script>
+<script id="imagesloaded-js" src="https://www.geniatech.com/wp-includes/js/imagesloaded.min.js?ver=5.0.0"></script>
+<script id="elementor-recaptcha-api-js" src="https://www.google.com/recaptcha/api.js?render=explicit&#038;ver=3.31.2"></script>
+<script id="elementor-pro-webpack-runtime-js" src="https://www.geniatech.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.31.2"></script>
+<script id="wp-hooks-js" src="https://www.geniatech.com/wp-includes/js/dist/hooks.min.js?ver=f0f188028580e8dc1255"></script>
+<script id="wp-i18n-js" src="https://www.geniatech.com/wp-includes/js/dist/i18n.min.js?ver=1dfe7db3940c23ea9216"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/www.geniatech.com\/wp-admin\/admin-ajax.php","nonce":"6bf8bff2a8","urls":{"assets":"https:\/\/www.geniatech.com\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/www.geniatech.com\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":false},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/www.geniatech.com\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script id="elementor-pro-frontend-js" src="https://www.geniatech.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.31.2"></script>
+<script id="pro-elements-handlers-js" src="https://www.geniatech.com/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.31.2"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://www.geniatech.com/wp-includes/js/wp-emoji-release.min.js?ver=2d4dfd3cc48d8e8ff9a5d54507ba7184"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://www.geniatech.com/wp-includes/js/wp-emoji-loader.min.js
+</script>
+</body>
+</html><!--
+Performance optimized by Redis Object Cache. Learn more: https://wprediscache.com
+
+Retrieved 3895 objects (1 MB) from Redis using Predis (v2.4.0).
+-->

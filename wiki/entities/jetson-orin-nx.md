@@ -3,8 +3,8 @@ title: NVIDIA Jetson Orin NX
 type: entity
 subtype: hardware
 created: 2026-08-28
-updated: 2026-08-29
-sources: 10
+updated: 2026-09-13
+sources: 11
 tags: [jetson, jetson-orin-nx, nvidia, edge-ai, onboard-compute, ampere, dla, super-mode, nvpmodel, robotics, xlerobot]
 ---
 
@@ -152,6 +152,7 @@ Carrier details from the [Seeed Jetson selection guide](../sources/seeed-jetson-
 - [Isaac ROS release notes and platforms](../sources/isaac-ros-release-notes-and-platforms.md) — no Orin on 4.x.
 - [Seeed Jetson selection guide](../sources/seeed-jetson-selection-guide.md) · [Seeed carrier-board selection](../sources/seeed-jetson-carrier-board-selection.md) — the carrier matrix.
 - [Cutting the Cord — untethered XLeRobot](../sources/cutting-the-cord-untethered-xlerobot.md) — the Orin Nano build this is the upgrade from.
+- [RK1828 vs Jetson Orin NX vs Hailo-8 (Geniatech)](../sources/geniatech-rk1828-vs-orin-nx-vs-hailo-8.md) — a competitor's comparison that quotes this module at **68 GB/s** (the pre-Super Orin *Nano* figure) against the datasheet's **102.4 GB/s** above, and at 100 TOPS / 10–20 W (standard-flash and non-Super numbers, unlabelled). Kept as a specimen of how the Orin NX gets misquoted, not as a source for it.
 
 ## Open questions
 

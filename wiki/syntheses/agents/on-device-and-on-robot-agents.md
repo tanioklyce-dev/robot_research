@@ -2,7 +2,7 @@
 title: Where the compute lives — agents on the robot vs on a local AI server
 type: synthesis
 created: 2026-07-04
-updated: 2026-08-28
+updated: 2026-09-13
 tags: [edge-ai, on-device, on-robot, local-server, agents, jetson, dgx-spark, ollama, hermes, nemoclaw, gemma4, vla, deployment-topology]
 ---
 
@@ -43,6 +43,9 @@ What you can run on-robot vs on-server is set by memory, and 2026's small-model 
 > | Qualcomm Dragonwing IQ8 | **NPU** | 3,747 | 31.7 | 0.3 |
 >
 > Two lessons the "targets Orin Nano" framing hides. **The same board spans a 10× range** depending on whether you reach the GPU. And **decode rate, not TTFT, is what a conversational robot lives on** — it is independent of prompt length, so a 45-token spoken answer costs ~6 s on a Pi 5 and under 2 s on an Orin GPU. The [Open Duck Mini](../../entities/open-duck-mini.md) demo at Google I/O 2026 ran one duck on each, and the [secondary coverage](../../sources/explainx-gemma-4-open-duck-mini.md) called both "very snappy."
+
+> [!note] A rung below the Pi 5, and the reason the rungs are where they are
+> The [Turing Pi RK3588 deep dive](../../sources/turingpi-rk3588-architecture-deep-dive.md) adds a CPU-only figure for the ARM-SBC tier on a *7B* model: **Qwen2.5-7B-Instruct Q4_K_M at 5.46 tok/s** with four threads pinned to the [RK3588](../../entities/rockchip-rk3588.md)'s A76 cores, **3.85 with all eight** (the slow A55 cluster adds memory traffic to a bandwidth-bound loop), and **2.94 when a memory-bound job runs on the other cluster**. Different model from the table above, so not a row in it — but it is the mechanism behind the table: decode streams the weights through one shared LPDDR path (~21.5 GB/s measured here, versus 102 GB/s on an Orin Nano), and every other engine on the board draws on the same budget. An onboard agent next to a vision pipeline has to be benchmarked *concurrently*. See [heterogeneous edge SoCs](../../concepts/robotics/heterogeneous-edge-soc.md).
 
 - **Runtimes** are the enabling layer: **[LiteRT](../../entities/litert.md)** / LiteRT-LM for mobile + embedded (the source of every measured figure above), [Ollama](../../entities/ollama.md) / llama.cpp for the edge + workstation, vLLM / NIM for the server, all of which [Gemma 4](../../entities/gemma4.md) and Nemotron support.
 

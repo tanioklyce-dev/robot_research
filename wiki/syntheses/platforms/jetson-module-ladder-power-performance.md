@@ -2,7 +2,7 @@
 title: "Jetson module ladder — performance and power, Orin Nano 4 GB → AGX Thor T5000"
 type: synthesis
 created: 2026-07-26
-updated: 2026-08-17
+updated: 2026-09-13
 tags: [jetson, jetson-orin-nano, orin-nx, agx-orin, jetson-thor, nvpmodel, power-modes, perf-per-watt, edge-ai, hardware, reference, platforms]
 ---
 
@@ -63,6 +63,10 @@ NVIDIA extended Thor *downward* in July 2026 ([T3000/T2000 blog](../../sources/n
 | **Jetson T2000** | 400 FP4 TFLOPS | 16 GB | — | Entry-level Thor architecture |
 
 If the "~50 % lower power than T5000" claim holds, T3000 lands near the AGX Orin power class with Blackwell/JetPack 7 — which would be the first Thor-architecture part that fits a battery robot without software-capping. **Unverified; the blog does not quantify it.**
+
+### Outside the ladder — the ARM-SBC tier, for scale
+
+The ladder starts at the Orin Nano 4 GB. Below it sits the board class most cheap robots in this wiki actually ship on, and the one measured bandwidth the wiki holds for it is the useful anchor: a **[Rockchip RK3588](../../entities/rockchip-rk3588.md)** module (Turing RK1; 4× A76 + 4× A55, 3-core 6 TOPS NPU, 64-bit LPDDR) measures **~21.5 GB/s STREAM Triad**, against the **102 GB/s spec** of the Orin Nano 8 GB — roughly **one fifth**, and the Orin tier is itself about a third of Thor ([Turing Pi deep dive](../../sources/turingpi-rk3588-architecture-deep-dive.md)). Every bandwidth figure in the table above is a spec-sheet number; that page also shows what a shared pool costs in practice (−46% LLM decode under a concurrent memory-bound job on another cluster), which is the caveat the `Bandwidth` column silently carries for every Jetson row too. See [heterogeneous edge SoCs](../../concepts/robotics/heterogeneous-edge-soc.md).
 
 ## 2. Perf per watt
 
@@ -259,6 +263,7 @@ Both Developer Guide chapters were ingested via WebFetch summarization and their
 - [GR00T inference on Jetson](gr00t-inference-on-jetson.md) — VLA throughput per tier.
 - [Jetson Thor vs DGX Spark](jetson-thor-vs-dgx-spark.md) — train-on-Spark / deploy-on-Thor, and the RT-core constraint.
 - [Hailo NPU vs Jetson](hailo-npu-vs-jetson-xlerobot.md) — the non-CUDA alternative that isn't on this ladder.
+- [Rockchip RK3588](../../entities/rockchip-rk3588.md) — the ARM-SBC tier below the ladder, with the wiki's only *measured* edge bandwidth.
 - [XLeRobot + AGX Thor power budget](../projects/xlerobot-thor-power-budget.md) — what software-capping Thor buys on a 288 Wh pack.
 - [Seeed Jetson selection guide](../../sources/seeed-jetson-selection-guide.md) / [carrier-board selection](../../sources/seeed-jetson-carrier-board-selection.md) — module → buyable carrier.
 - Entities: [Jetson Orin Nano](../../entities/jetson-orin-nano.md), [Jetson Thor](../../entities/jetson-thor.md), [JetPack](../../entities/jetpack.md), [Jetson Linux](../../entities/jetson-linux.md), [NVIDIA](../../entities/nvidia.md).
