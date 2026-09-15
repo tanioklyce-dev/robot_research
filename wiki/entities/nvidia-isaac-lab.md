@@ -3,8 +3,8 @@ title: NVIDIA Isaac Lab
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-09-13
-sources: 25
+updated: 2026-09-14
+sources: 26
 tags: [framework, robot-learning, nvidia, isaac-lab, rl]
 ---
 
@@ -13,7 +13,7 @@ Open-source modular framework for robot learning and policy training. Sits on to
 ## Capabilities
 - Pluggable physics backends: PhysX, [Newton](newton-physics-engine.md), NVIDIA Warp, MuJoCo.
 - Massively parallel environment vectorization for RL.
-- Isaac Lab-Arena: open-source policy evaluation framework. As of July 2026, Lab-Arena environments can be **registered in the [LeRobot](lerobot.md) Environment Hub (EnvHub)** to train/evaluate GR00T, π, and SmolVLA policies inside the LeRobot ecosystem ([NVIDIA + HF partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md)).
+- [Isaac Lab-Arena](isaac-lab-arena.md) (now its own page): open-source benchmark-authoring + policy-evaluation extension, v0.3.0 alpha ([GitHub](../sources/isaaclab-arena-github.md)). As of July 2026, Lab-Arena environments can be **registered in the [LeRobot](lerobot.md) Environment Hub (EnvHub)** to train/evaluate GR00T, π, and SmolVLA policies inside the LeRobot ecosystem ([NVIDIA + HF partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md)).
 - Bundles [NVIDIA GR00T](nvidia-groot.md) reasoning [VLA](../concepts/learning/vla-models.md) (currently N1.6 GA / N1.7 EA).
 
 ## 2026 status
@@ -33,6 +33,7 @@ Isaac Lab inherits Isaac Sim's RT-core requirement: it cannot run on [Jetson Tho
 - [MuJoCo Playground](mujoco-playground.md) — competing/parallel learning framework with overlapping backends.
 
 ## Mentioned in
+- [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — the Arena extension itself: v0.3.0 alpha on Isaac Lab 3.0 / Isaac Sim 6.0 (main already on 6.1 wheels); Arena-authored environments register back into Isaac Lab's own teleop, Mimic and RL scripts through an external-environment callback.
 - [NVIDIA Newton Physics Engine Developer Page](../sources/nvidia-newton-physics-engine-developer-page.md)
 - [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)
 - [DINO-WM Paper](../sources/dino-wm-paper.md)

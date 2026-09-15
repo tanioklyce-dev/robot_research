@@ -3,8 +3,8 @@ title: LIBERO
 type: entity
 subtype: benchmark
 created: 2026-05-08
-updated: 2026-08-27
-sources: 33
+updated: 2026-09-14
+sources: 34
 tags: [libero, manipulation-benchmark, lifelong-learning, robosuite, mujoco, code-as-policy]
 ---
 
@@ -62,6 +62,7 @@ Primary reference is [VLA-JEPA](../sources/vla-jepa-paper.md) (Sun et al., Feb 2
 
 ## Mentioned in
 
+- [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — **Lightwheel LIBERO Tasks**: LIBERO adapted onto Isaac Lab-Arena (`LW-BenchHub`), part of Lightwheel's *"250+ tasks."*
 > [!note] Curated list — **32** source pages link here; the ones below are those that shaped this page.
 - [LIBERO-PRO paper](../sources/libero-pro-paper.md) — perturbation-based critique; confirms the 50-episodes-per-task protocol.
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../sources/hai-world-model-spatial-intelligence-brief.md) — LIBERO as the robotics entry in a policy-facing survey of world-model benchmarks.

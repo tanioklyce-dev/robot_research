@@ -3,8 +3,8 @@ title: NVIDIA Cosmos
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-09-12
-sources: 43
+updated: 2026-09-14
+sources: 44
 tags: [cosmos, world-model, omnimodal, mixture-of-transformers, world-action-model, video-generation, nvidia, foundation-model, edge]
 ---
 
@@ -57,6 +57,7 @@ Cosmos is the underlying generative video model that's enabling the rise of [Wor
 
 ## Mentioned in
 
+- [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — Cosmos policies are a v0.3 Arena integration, with shipped experiment configs pairing π0 and Cosmos on 2/18/20 RoboLab tasks and 2/17 kitchen tasks; the January blog also names Cosmos for future *"world-model-driven neural simulation and scenario generation"* inside Arena.
 > [!note] Curated list — **37** source pages link here; the ones below are those that shaped this page.
 
 - [Cosmos 3 Technical Report](../sources/cosmos-3-technical-report.md)

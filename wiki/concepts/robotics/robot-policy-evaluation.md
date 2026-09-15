@@ -2,8 +2,8 @@
 title: Robot policy evaluation
 type: concept
 created: 2026-07-27
-updated: 2026-09-13
-sources: 56
+updated: 2026-09-14
+sources: 57
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility, real-to-sim, r2s2r]
 ---
 
@@ -150,6 +150,7 @@ The [Earth Rover Challenge](../../sources/earth-rover-challenge-frodobots-2k.md)
 
 ## Related concepts
 - [RoboArena](../../entities/roboarena.md) — the real-world pole.
+- [Isaac Lab-Arena](../../entities/isaac-lab-arena.md) — the simulation-infrastructure pole: parallel rollouts, controlled variations, posterior sensitivity analysis.
 - [Success-rate audit](../../syntheses/platforms/vla-success-rate-audit.md) — **this page's standard, applied to the wiki's own tables**. Also corrects how the bar is usually quoted: 1,030 rollouts is the requirement at a *90%* success rate; at 50% it is ~2,450.
 - [Sim-to-real transfer](../learning/sim-to-real-transfer.md) — RoboLab runs the real-to-sim *evaluation* direction.
 - [Real-to-sim-to-real](real-to-sim-to-real.md) — the reconstruct-the-task-then-screen-in-it paradigm, and the sample-size asymmetry it makes structural.
@@ -169,6 +170,7 @@ The [Earth Rover Challenge](../../sources/earth-rover-challenge-frodobots-2k.md)
 > 2. **Report seed variance.** [Locatello et al. 2019](../../sources/locatello2019-challenging-common-assumptions-disentanglement.md) found across >12,000 models that **seeds and hyperparameters mattered more than model choice**, and that good runs could not be identified without labels. Nothing in the VLA literature reports seed spread. A 1.2-point ten-model tier with unreported seed variance is exactly the situation that produced a decade of unreproducible disentanglement results.
 
 ## Mentioned in
+- [Isaac Lab-Arena GitHub](../../sources/isaaclab-arena-github.md) — the **infrastructure pole**: the framework that makes RoboLab's ≈1,030-rollout prescription cheap (2,390 env-steps/s on one RTX 5880 Ada at 1,024 parallel environments, camera-free; 7.95× across 8 GPUs via OSMO) and turns "what failed" into "which factor" with recorded per-episode variations and an `sbi` NPE/MNPE joint posterior conditioned on success. Publishes **no policy success rates** of its own.
 - [Verbalized Eval Awareness (Goodfire + UK AISI, 2026)](../../sources/goodfire-verbalized-eval-awareness.md) — the language-side version of the benchmark-validity problem.
 - [Locatello et al. 2019](../../sources/locatello2019-challenging-common-assumptions-disentanglement.md) — seeds beat model choice; good runs unidentifiable without labels.
 

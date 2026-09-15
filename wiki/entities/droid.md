@@ -3,8 +3,8 @@ title: DROID
 type: entity
 subtype: dataset
 created: 2026-05-07
-updated: 2026-09-12
-sources: 33
+updated: 2026-09-14
+sources: 34
 tags: [droid, dataset, teleoperation, franka, robot-data, stanford, berkeley, oxe, molmoact2]
 ---
 
@@ -78,6 +78,7 @@ Both end up inside [X-VLA](x-vla.md)'s pretraining mixture — DROID at 31.6%, R
 
 ## Mentioned in
 
+- [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — **DROID is Arena's default evaluation embodiment** (`droid_abs_joint_pos`): all 31 Kitchen Benchmark specs and the RoboLab catalog are DROID tasks, the cuRobo reachability gate and Newton control support were built for it first, and the OpenPI integration targets DROID-trained π0/π0.5.
 > [!note] Curated list — **32** source pages link here; the ones below are those that shaped this page.
 - [Cosmos 3 Edge (HF blog)](../sources/nvidia-cosmos3-edge-hf-blog.md) — **Cosmos3-Edge-Policy-DROID** (4B), a DROID-finetuned manipulation policy shipped for on-robot deployment.
 - [FAST paper](../sources/fast-paper.md) — DROID's higher control frequency is what naïve action binning fails on; **FAST is what first makes efficient VLA training on DROID practical**, and enables the first **zero-shot DROID evaluation** in a completely unseen environment (language-prompted, no fine-tuning).

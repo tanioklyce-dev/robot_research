@@ -12,7 +12,7 @@ tags: [nvidia, robolab, evaluation, benchmark, statistics, clopper-pearson, spar
 
 ## Summary
 
-The methodology companion to the [RoboLab](../entities/nvidia-robolab.md) benchmark: an argument that **the way the field evaluates generalist robot policies is broken in four specific, fixable ways**, and a platform that fixes each. The most quotable result is statistical — getting a ±2 percentage-point confidence band on a success rate needs roughly **1,030 rollouts, ~15× more than the ~70** typical published evaluations run. Beyond sample size, the blog replaces binary success/failure with **graded task scores**, **trajectory-quality metrics (SPARC)**, **automated failure-event logging**, and **Neural Posterior Estimation** for identifying which environmental variables actually drive outcomes. RoboLab's features are being folded into [Isaac Lab-Arena](../entities/nvidia-isaac-lab.md), with productization stated for **August 2026**.
+The methodology companion to the [RoboLab](../entities/nvidia-robolab.md) benchmark: an argument that **the way the field evaluates generalist robot policies is broken in four specific, fixable ways**, and a platform that fixes each. The most quotable result is statistical — getting a ±2 percentage-point confidence band on a success rate needs roughly **1,030 rollouts, ~15× more than the ~70** typical published evaluations run. Beyond sample size, the blog replaces binary success/failure with **graded task scores**, **trajectory-quality metrics (SPARC)**, **automated failure-event logging**, and **Neural Posterior Estimation** for identifying which environmental variables actually drive outcomes. RoboLab's features are being folded into [Isaac Lab-Arena](../entities/isaac-lab-arena.md), with productization stated for **August 2026**.
 
 ## The four problems with current benchmarks
 
@@ -56,7 +56,7 @@ The methodology companion to the [RoboLab](../entities/nvidia-robolab.md) benchm
 ## Integration and availability
 
 - **RoboLab** — GitHub repo + arXiv **2604.09860** (RSS 2026).
-- **[Isaac Lab-Arena](../entities/nvidia-isaac-lab.md)** — RoboLab features being integrated; productization stated for **August 2026**.
+- **[Isaac Lab-Arena](../entities/isaac-lab-arena.md)** — RoboLab features being integrated; productization stated for **August 2026**.
 
 ## Key claims worth carrying forward
 

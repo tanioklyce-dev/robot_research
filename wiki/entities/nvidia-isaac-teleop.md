@@ -3,8 +3,8 @@ title: NVIDIA Isaac Teleop
 type: entity
 subtype: product
 created: 2026-07-07
-updated: 2026-07-08
-sources: 4
+updated: 2026-09-14
+sources: 5
 tags: [isaac-teleop, teleoperation, nvidia, data-collection, xr, vr, cloudxr, lerobot, so-101]
 ---
 
@@ -28,6 +28,7 @@ The wiki's demonstration-collection lineage: leader-arm teleop ([ALOHA](aloha.md
 
 ## Mentioned in
 
+- [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — a hard dependency of Arena v0.3: `isaacteleop[retargeters,ui,cloudxr]==1.4.126rc1` pinned in `pyproject.toml`; Arena delegates teleop and demo recording to Isaac Lab's scripts.
 - [NVIDIA Isaac Teleop and GR00T 1.7 in LeRobot (HF blog)](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) — announcement; primary source.
 - [NVIDIA + HF LeRobot partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md) — the corporate-blog umbrella (2026-07-06, a day earlier); one-line framing as the partnership's data-collection leg. Docs at nvidia.github.io/IsaacTeleop.
 - [GR00T end-to-end workflow docs](../sources/nvidia-gr00t-e2e-workflow-docs.md) — Isaac Teleop "with AGILE" as the teleop leg of the G1 pick-and-place workflow.

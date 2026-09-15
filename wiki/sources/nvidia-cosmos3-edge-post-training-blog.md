@@ -104,7 +104,7 @@ Three things in it matter more than the recipe. **First, the latency number the 
 - [Franka Panda](../entities/franka-panda.md) — the dataset's arm, with Robotiq gripper.
 - [SO-ARM101](../entities/so-arm101.md) — named as a supported embodiment.
 - [Nemotron](../entities/nemotron.md) — the 2B reasoner.
-- [NVIDIA Isaac Lab](../entities/nvidia-isaac-lab.md) — Isaac Lab-Arena, behind RoboLab.
+- [NVIDIA Isaac Lab](../entities/nvidia-isaac-lab.md) / [Isaac Lab-Arena](../entities/isaac-lab-arena.md) — Arena, behind RoboLab.
 - [LeRobot](../entities/lerobot.md) — Dataset v3 as the ingest format.
 
 ## Concepts touched

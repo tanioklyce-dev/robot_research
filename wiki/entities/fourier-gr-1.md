@@ -3,8 +3,8 @@ title: Fourier GR-1
 type: entity
 subtype: humanoid
 created: 2026-05-15
-updated: 2026-07-04
-sources: 7
+updated: 2026-09-14
+sources: 8
 tags: [humanoid, fourier-intelligence, robot-platform, gr-1, dexterous-manipulation]
 ---
 
@@ -20,6 +20,7 @@ tags: [humanoid, fourier-intelligence, robot-platform, gr-1, dexterous-manipulat
 - [NVIDIA GEAR](nvidia-gear.md) — uses GR-1 as its de-facto humanoid testbed across both lines.
 
 ## Mentioned in
+- [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — GR1T2 is a first-class Arena embodiment (`gr1_pink` / `gr1_joint`); `gr1_open_microwave` is the announcement blog's worked example and the EnvHub SmolVLA demo; Quest hand-tracking teleop via CloudXR.
 - [GR00T N1 Paper](../sources/groot-n1-paper.md)
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)
 

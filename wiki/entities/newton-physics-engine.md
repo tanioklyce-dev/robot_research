@@ -3,8 +3,8 @@ title: Newton physics engine
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-08-27
-sources: 7
+updated: 2026-09-14
+sources: 8
 tags: [physics-engine, gpu, openusd, usdphysics, warp, linux-foundation]
 ---
 
@@ -39,6 +39,7 @@ Newton is built on **NVIDIA Warp**. Warp is also what [NeuroMechFly v2](neuromec
 - [NVIDIA](nvidia.md), [Google DeepMind](google-deepmind.md) — co-developers.
 
 ## Mentioned in
+- [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — Arena moved to Isaac Lab 3.0 (Newton) in v0.2; September 2026 commits add Newton support for DROID control, a cable asset class and a gear-insertion environment; *"contact-rich insertion, cables, and deformables"* named as the next Newton-dependent benchmarks.
 - [NVIDIA Newton Physics Engine Developer Page](../sources/nvidia-newton-physics-engine-developer-page.md)
 - [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)
 - [Using OpenUSD for Modular and Scalable Robotic Simulation](../sources/nvidia-openusd-for-robotic-simulation.md)

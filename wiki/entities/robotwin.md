@@ -3,8 +3,8 @@ title: RoboTwin 2.0
 type: entity
 subtype: benchmark
 created: 2026-08-04
-updated: 2026-08-13
-sources: 6
+updated: 2026-09-14
+sources: 7
 tags: [robotwin, benchmark, bimanual, manipulation, domain-randomization, data-generation, simulation, robotwin-od, mllm-code-generation, embodiment-aware-grasping, sim-to-real]
 ---
 
@@ -117,6 +117,7 @@ Real-world (RDT on a COBOT-Magic dual-arm, 4 tasks): 10 real demos + 1k syntheti
 - [Success-rate audit](../syntheses/platforms/vla-success-rate-audit.md)
 
 ## Mentioned in
+- [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — RoboTwin 2.0 maintains an `IsaacLab-Arena` branch (arXiv 2603.01229) listed among Arena's published benchmarks; *"full RoboTwin and RoboDojo task suites"* are on Arena's coming-soon list.
 - [TurboVLA paper](../sources/turbovla-paper.md)
 
 ## The substrate of WorldArena

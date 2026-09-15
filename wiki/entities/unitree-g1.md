@@ -3,8 +3,8 @@ title: Unitree G1
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-09-11
-sources: 21
+updated: 2026-09-14
+sources: 22
 tags: [unitree-g1, humanoid, bipedal, china, affordable, accessible, groot, whole-body-control]
 ---
 
@@ -66,6 +66,7 @@ The paper is candid about what its representation misses on this hand specifical
 - [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — landscape; G1 is the educational-research bridge.
 
 ## Mentioned in
+- [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — `g1_wbc_pink` embodiment (whole-body controller + navigation P-controller in Mimic) and the WBC-AGILE end-to-end velocity policy; the `galileo_g1_locomanip_pick_and_place` environment (navigate, squat, pick from shelf, place in bin) is the loco-manipulation workflow; GEAR's *G1 Factory* benchmark announced.
 - [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — G1 as the hardest platform; no model stood it from collapse.
 - [SONIC Paper](../sources/sonic-paper.md) — SONIC is a G1-only whole-body controller (primary robot)
 - [MotionBricks Paper](../sources/motionbricks-paper.md) — NVIDIA real-time motion model deployed on G1 for WBC

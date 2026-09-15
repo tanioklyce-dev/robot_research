@@ -3,8 +3,8 @@ title: RoboCasa
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-07-04
-sources: 15
+updated: 2026-09-14
+sources: 16
 tags: [robocasa, household-manipulation, benchmark, ut-austin, nvidia, iclr-2026, mimicgen]
 ---
 
@@ -33,6 +33,7 @@ Large-scale simulation framework for training and benchmarking generalist robots
 - [JEPA-WMs](jepa-wms.md) — uses RoboCasa as a JEPA-WM evaluation environment.
 
 ## Mentioned in
+- [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — **Lightwheel RoboCasa Tasks**: *"138+ open-source tasks, 50 datasets per task, 7+ robots"* re-implemented on Isaac Lab-Arena (`LW-BenchHub`); the Lightwheel RoboCasa kitchens are the backgrounds of Arena's 31-task DROID Kitchen Benchmark; Lightwheel's 40× parallel-vs-sequential figure was measured on 10 RoboCasa tasks.
 - [GR00T N1 Paper](../sources/groot-n1-paper.md)
 - [RoboCasa365 Paper](../sources/robocasa365-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)

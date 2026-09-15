@@ -3,8 +3,8 @@ title: AGIBOT
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-08-13
-sources: 11
+updated: 2026-09-14
+sources: 12
 tags: [agibot, china, embodied-ai, humanoid]
 ---
 
@@ -27,6 +27,7 @@ One of the most active publishers of open embodied-AI infrastructure in 2026 —
 - [NVIDIA Cosmos](nvidia-cosmos.md) — underlying model for GE-Sim2.
 
 ## Mentioned in
+- [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — AgiBot **A2D** is a registered Arena embodiment since v0.2 (`agibot`, left-arm mode).
 - [X-VLA paper](../sources/xvla-paper.md)
 - [AGIBOT Genie Sim 3.0 Announcement](../sources/agibot-genie-sim-3-announcement.md)
 - [AGIBOT Genie Envisioner 2.0 Announcement](../sources/agibot-genie-envisioner-2-announcement.md)

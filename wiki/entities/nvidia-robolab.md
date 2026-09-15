@@ -3,8 +3,8 @@ title: RoboLab (NVIDIA SRL benchmark)
 type: entity
 subtype: benchmark
 created: 2026-07-16
-updated: 2026-09-12
-sources: 4
+updated: 2026-09-14
+sources: 5
 tags: [nvidia, srl, benchmark, evaluation, simulation, task-generalist, robot-policy, droid, physical-ai]
 ---
 
@@ -37,7 +37,7 @@ Also: **Neural Posterior Estimation** for sensitivity analysis (`p(θ|x)` over e
 
 **The headline empirical finding:** across the policies tested, **no policy could perform more than four complex subtasks successfully** — a long-horizon ceiling that the ~97% [LIBERO](libero.md) scores elsewhere in this wiki completely hide.
 
-**Productization:** RoboLab's features are being folded into **[Isaac Lab-Arena](nvidia-isaac-lab.md)**, stated for **August 2026**.
+**Productization:** RoboLab's features are being folded into **[Isaac Lab-Arena](isaac-lab-arena.md)**, stated for **August 2026** — and **delivered in Arena v0.3.0 (September 2026)** as the RoboLab task catalog (38 of the 120 tasks so far) plus the `sbi` sensitivity-analysis toolbox ([Arena GitHub](../sources/isaaclab-arena-github.md)). The RoboLab-120 subtask distribution, from that catalog: 53 tasks with one subtask, 41 with two, 17 with three, 9 with four to eleven.
 
 ## Scores held here
 
@@ -52,6 +52,7 @@ No rollouts-per-task for any row, which by this page's own methodology (±2 pp �
 
 ## Mentioned in
 
+- [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — **the productization, delivered**: Arena v0.3 ships a RoboLab catalog of 38 task specs over 17 scenes mapped against the 120 RoboLab tasks (prompt-generated, DROID embodiment), experiment configs for π0 and Cosmos on 2/18/20 tasks, and the NPE/MNPE sensitivity analysis as an `sbi`-backed toolbox; Fabio Ramos and Xuning Yang are listed contributors.
 - [RoboLab project page](../sources/nvidia-robolab-project.md) (RSS 2026)
 - [How to Evaluate General-Purpose Robot Policies for Real-World Deployment](../sources/nvidia-robolab-evaluation-blog.md) — the methodology blog (2026-07-11)
 - [NVIDIA Cosmos](nvidia-cosmos.md) — evaluated Cosmos 3 policies on RoboLab-120
