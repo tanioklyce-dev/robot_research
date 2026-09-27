@@ -2,7 +2,7 @@
 title: "Onboard compute for XLeRobot — Jetson Orin Nano vs Orin NX vs AGX Orin vs AGX Thor"
 type: synthesis
 created: 2026-06-03
-updated: 2026-08-17
+updated: 2026-09-27
 tags: [xlerobot, jetson, jetson-orin-nano, orin-nx, agx-orin, jetson-thor, onboard-compute, edge-ai, power-budget, vla, buying-decision, platforms]
 ---
 
@@ -25,7 +25,7 @@ Which NVIDIA Jetson should ride on an untethered [XLeRobot](../../entities/xlero
 | **Power** | **7–25 W** | **10–40 W** | **15–60 W** | **40–130 W** (nvpmodel 70/90/120 W) |
 | Price | **~$249** (dev kit) | **~$600** (module) | ~$1,999 (dev kit) | **$3,499** (dev kit) |
 | Weight / cooling | tiny, passive duct OK ([paper](../../sources/cutting-the-cord-untethered-xlerobot.md)) | tiny — **drop-in on the Nano dev-kit carrier** | larger, active heatsink-fan | largest; no RT cores |
-| SDK | **JetPack 7.2+** (since 2026-06-01) | **JetPack 7.2+** | **JetPack 7.2+** | **JetPack 7.1 + Isaac ROS 4.x** (shipping) / GR00T target |
+| SDK | **JetPack 7.2+** (since 2026-06-01); Isaac ROS 4.6+/5.0 | **JetPack 7.2+**; Isaac ROS 4.6+/5.0 | **JetPack 7.2+**; Isaac ROS 4.6+/5.0 | **JetPack 7.2 + Isaac ROS 5.0** / GR00T target |
 
 > [!warning] Correction 2026-08-16 — the Orin tiers are no longer JetPack 6
 > This row read **"JetPack 6"** for all three Orin modules until today, which was already two months stale when the page was last touched. **JetPack 7.2 (Jetson Linux r39.2), released 2026-06-01, extends JetPack 7 to the whole Orin family** — AGX Orin, Orin NX and Orin Nano — on **Ubuntu 24.04 / kernel 6.8 / CUDA 13.2.1 / TensorRT 10.16.2**, unifying the toolchain with Thor. **JetPack 7.2.1** followed on **2026-08-12** (live-web). **Primary source now ingested: [JetPack 7.2 with Jetson Linux 39.2](../../sources/nvidia-jetpack-7-2-release.md).**
@@ -41,6 +41,9 @@ Which NVIDIA Jetson should ride on an untethered [XLeRobot](../../entities/xlero
 >
 > **This does not change any recommendation on this page** — the tiering, power budget and model-rate arguments are unaffected. It changes the software baseline you start from, and it means the Orin/Thor split is now a *hardware-generation* split rather than a toolchain split.
 
+> [!warning] Correction 2026-09-27 — Isaac ROS is back on Orin (reverses item 1 below)
+> **Isaac ROS 4.6.0 (2026-08-18) added JetPack 7.2 and re-added Jetson Orin**; **5.0.0 (2026-09-21)** keeps Orin, moves to **ROS 2 Lyrical**, and removes NITROS ([release notes](../../sources/isaac-ros-release-notes-and-platforms.md), [5.0 blog](../../sources/nvidia-isaac-ros-5-0-blog.md)). Item 1's *"Orin has no path… a closed door either way"* was true for exactly one day. For the Orin tiers on this page the software choice is now: **JetPack 6.2 + Isaac ROS 3.2 (Humble)** — no reflash — or **JetPack 7.2 + Isaac ROS 4.6 (Jazzy) / 5.0 (Lyrical)** — reflash, carrier device-tree changes, and NITROS migration at 5.0. Caveat for the Orin NX recommendation: the table names "Jetson Orin"; **Orin NX is not individually named, walked through, or benchmarked** (AGX Orin and Orin Nano are). Item 1 is kept below as written.
+
 > [!warning] Correction 2026-08-17 — version sweep over the whole Jetson cluster, from primaries
 > Three claims in the block above were wrong or under-stated. All three were secondary-sourced; all three were fixed by reading the vendor's own release notes.
 >
@@ -52,7 +55,7 @@ Which NVIDIA Jetson should ride on an untethered [XLeRobot](../../entities/xlero
 >
 > **And a carrier-level ceiling that is new to this page:** Seeed's own flash guide says **"if you are using an Orin NX 16GB/8GB module, do not enable MAXN SUPER mode. The cooling capacity of the reComputer J401 carrier board is insufficient to support it"** ([Seeed flash guide](../../sources/seeed-j401-flash-jetpack.md)). Seeed separately markets the **reComputer Super J4012 at 157 TOPS in Super MAXN**. Same module, two sanctioned ceilings — the difference is the carrier's cooling. **The 157 TOPS figure in the table above is a Super-Mode number, so it is contingent on which Seeed box you buy.** The Robotics J30/40 (this wiki's battery-powered pick, quoted at 157 TOPS / 40 W) is not covered by that page and needs its own primary before the figure is relied on.
 >
-> **Net effect on the recommendation:** the Orin NX is still the sweet spot on power, price and carrier availability, but the ROS-perception story behind it is weaker than this page implied — Isaac ROS is not available to it on a current line, and its headline TOPS depends on a carrier that can cool Super Mode.
+> **Net effect on the recommendation:** the Orin NX is still the sweet spot on power, price and carrier availability, but ~~the ROS-perception story behind it is weaker than this page implied — Isaac ROS is not available to it on a current line~~ *(Isaac ROS returned to Orin in 4.6.0 — corrected 2026-09-27)*, and its headline TOPS depends on a carrier that can cool Super Mode.
 
 *(TOPS across the Orin trio are INT8; Thor's headline is FP4/FP8 — not directly comparable, so the "≈7.5× AGX Orin" relative figure is the honest anchor. Cross-reference [Jetson Thor](../../entities/jetson-thor.md), [Jetson Orin Nano](../../entities/jetson-orin-nano.md), [Orin power modes](../../sources/nvidia-jetson-platform-power-performance-orin.md), [Thor power modes](../../sources/nvidia-jetson-thor-platform-power-performance.md).)*
 

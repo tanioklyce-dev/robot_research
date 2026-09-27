@@ -3,7 +3,7 @@ title: NVIDIA Jetson AGX Orin
 type: entity
 subtype: hardware
 created: 2026-08-29
-updated: 2026-08-29
+updated: 2026-09-27
 sources: 9
 tags: [jetson, jetson-agx-orin, nvidia, edge-ai, onboard-compute, ampere, dla, pva, nvpmodel, super-mode, robotics, vla]
 ---
@@ -114,8 +114,8 @@ This is the wiki's **only measured VLA latency on any Orin module** — NVIDIA's
 > [!warning] The 15 W mode has an open reboot-crash bug
 > [Jetson Linux r39.2 release notes](../sources/nvidia-jetson-linux-r39-2-release-notes.md), known issue **6236259**: dropping EMC below Fmax via `nvpmodel.service` during systemd init *"can cause system crashes upon reboot,"* especially with a display attached. Affected modes include **AGX Orin 32/64 GB/Industrial at 15 W**. Workaround: switch to MAXN before rebooting, reapply after. Whether headless operation is exempt is **not stated**.
 
-> [!warning] Isaac ROS has no current line on Orin
-> Isaac ROS **4.x** supports only Thor, x86_64 and DGX Spark — **no Orin appears in the supported-platform table** ([release notes and platforms](../sources/isaac-ros-release-notes-and-platforms.md)). The last Orin-supporting line is **3.2** (Dec 2024) on JetPack 6.1–6.2 / ROS 2 Humble. Stay on JetPack 6.2 with a frozen 3.2, or move to [JetPack 7.2](../sources/nvidia-jetpack-7-2-release.md) and have none. 4.x is a **ROS 2 Jazzy** line — a distro migration, not an upgrade.
+> [!note] Isaac ROS on AGX Orin — back on the current line *(corrected 2026-09-27)*
+> This callout said Isaac ROS had no current line on Orin. **Corrected 2026-09-27:** Isaac ROS **4.6.0 (2026-08-18) re-added Jetson Orin on JetPack 7.2**, and **5.0.0 (2026-09-21, ROS 2 Lyrical)** keeps it ([release notes](../sources/isaac-ros-release-notes-and-platforms.md)). The 4.0–4.5 gap was BSP sequencing — Orin had no JetPack 7 until 7.2 — not a drop. AGX Orin is the Orin the 5.0 setup guide walks through (`/etc/nv_tegra_release` → R39.2) and is in the published performance results. Known 5.0 AGX-Orin issue: `stereo_image_proc` with `backend:=JETSON` and RGB8/BGR8 input can terminate — use the default CUDA backend.
 
 JetPack 7.2 (Jetson Linux r39.2, 2026-06-02) extended JetPack 7 to the whole Orin family on Ubuntu 24.04 / kernel 6.8 / CUDA 13.2.1 / TensorRT 10.16.2, unifying the toolchain with Thor; 7.2.1 followed 2026-08-12.
 
@@ -134,7 +134,7 @@ JetPack 7.2 (Jetson Linux r39.2, 2026-06-02) extended JetPack 7 to the whole Ori
 - [Jetson Linux Developer Guide — Platform Power and Performance (Orin)](../sources/nvidia-jetson-platform-power-performance-orin.md) — nvpmodel tables.
 - [JetPack 7.2 with Jetson Linux 39.2](../sources/nvidia-jetpack-7-2-release.md) — Super Mode for the 32 GB; JetPack 7 across the Orin family.
 - [Jetson Linux r39.2 release notes](../sources/nvidia-jetson-linux-r39-2-release-notes.md) — the 15 W crash bug.
-- [Isaac ROS release notes and platforms](../sources/isaac-ros-release-notes-and-platforms.md) — no Orin on 4.x.
+- [Isaac ROS release notes and platforms](../sources/isaac-ros-release-notes-and-platforms.md) — no Orin on 4.0–4.5; Orin re-added in 4.6.0 (JetPack 7.2).
 - [Isaac GR00T TensorRT deployment docs](../sources/isaac-gr00t-tensorrt-deployment-docs.md) — the 173 ms / 5.8 Hz measurement.
 - [Seeed Jetson selection guide](../sources/seeed-jetson-selection-guide.md) — module ladder cross-check.
 - [NVIDIA Jetson AI Lab — LeRobot](../sources/nvidia-jetson-ai-lab-lerobot.md) — AGX Orin as a containerized LeRobot target.

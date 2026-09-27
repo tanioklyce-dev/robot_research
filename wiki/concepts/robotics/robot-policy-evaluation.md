@@ -2,8 +2,8 @@
 title: Robot policy evaluation
 type: concept
 created: 2026-07-27
-updated: 2026-09-14
-sources: 57
+updated: 2026-09-27
+sources: 58
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility, real-to-sim, r2s2r]
 ---
 
@@ -170,6 +170,7 @@ The [Earth Rover Challenge](../../sources/earth-rover-challenge-frodobots-2k.md)
 > 2. **Report seed variance.** [Locatello et al. 2019](../../sources/locatello2019-challenging-common-assumptions-disentanglement.md) found across >12,000 models that **seeds and hyperparameters mattered more than model choice**, and that good runs could not be identified without labels. Nothing in the VLA literature reports seed spread. A 1.2-point ten-model tier with unreported seed variance is exactly the situation that produced a decade of unreproducible disentanglement results.
 
 ## Mentioned in
+- [Helix 2.5 (Figure AI)](../../sources/figure-helix-2-5.md) — a vendor running a **pre-registered, blind, held-out-environment** protocol: 30 unseen homes, held-out objects checked by an AI model then a human, one fixed checkpoint per task, no rollout data used for checkpoint selection, no partial credit, 140 trials per task with denominators published. Weak points: one metro area, no per-home variance, and error bars that are never defined.
 - [Isaac Lab-Arena GitHub](../../sources/isaaclab-arena-github.md) — the **infrastructure pole**: the framework that makes RoboLab's ≈1,030-rollout prescription cheap (2,390 env-steps/s on one RTX 5880 Ada at 1,024 parallel environments, camera-free; 7.95× across 8 GPUs via OSMO) and turns "what failed" into "which factor" with recorded per-episode variations and an `sbi` NPE/MNPE joint posterior conditioned on success. Publishes **no policy success rates** of its own.
 - [Verbalized Eval Awareness (Goodfire + UK AISI, 2026)](../../sources/goodfire-verbalized-eval-awareness.md) — the language-side version of the benchmark-validity problem.
 - [Locatello et al. 2019](../../sources/locatello2019-challenging-common-assumptions-disentanglement.md) — seeds beat model choice; good runs unidentifiable without labels.

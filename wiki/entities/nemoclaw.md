@@ -3,8 +3,8 @@ title: NVIDIA NemoClaw
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-08-23
-sources: 8
+updated: 2026-09-27
+sources: 9
 status: early preview
 tags: [nemoclaw, nvidia, openclaw, nemotron, nvidia-agent-toolkit, nvidia-openshell, guardrails, privacy, dgx-spark, rtx-pro, claw-ecosystem]
 ---
@@ -72,6 +72,7 @@ For the ROSOrin Pro use case specifically: NemoClaw is **not** a drop-in swap fo
 - [NVIDIA NemoClaw product page](../sources/nvidia-nemoclaw-page.md) — primary source.
 - [NemoClaw Quickstart with Hermes](../sources/nvidia-nemoclaw-hermes-quickstart.md) — concrete recipe (`nemohermes`, OpenShell sandbox, ports, Nemotron endpoint).
 - [AgenticROS GitHub](../sources/agenticros-github.md) — community ROS 2 bridge with a dedicated sandboxed NemoClaw integration.
+- [NVIDIA Isaac ROS 5.0 blog](../sources/nvidia-isaac-ros-5-0-blog.md) — AgenticROS connects Isaac ROS to NemoClaw blueprints.
 
 ## Open questions
 

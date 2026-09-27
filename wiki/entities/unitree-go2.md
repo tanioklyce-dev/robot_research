@@ -3,8 +3,8 @@ title: Unitree Go2
 type: entity
 subtype: robot
 created: 2026-07-27
-updated: 2026-09-12
-sources: 5
+updated: 2026-09-27
+sources: 6
 tags: [unitree-go2, quadruped, robot-dog, china, affordable, edu, project-fetch, frontier-red-team]
 ---
 
@@ -63,3 +63,4 @@ This makes the Go2 the best-supported robot in the wiki's agentic-robotics cover
 - [Project Fetch: Phase Two](../sources/anthropic-project-fetch-phase-two.md) — the same robot, Claude Opus 4.7 unaided.
 - [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — names it; 12-DoF; simulated + real.
 - [FEARL — Verifiable Foundation Models for Robot Safety](../sources/fearl-verifiable-foundation-models-robot-safety-paper.md) — simulated outdoor target-reaching with a pretrained low-level locomotion policy under discrete macro-actions; 82.7% of the safety module's input domain certified, 89.6 → 87.2% success shielded with zero violations.
+- [BotBrain GitHub](../sources/botbrain-github.md) — bolt-on Jetson + dual-RealSense autonomy kit (RTAB-Map, Nav2, web fleet UI) with a Go2/Go2-W mount and driver package.

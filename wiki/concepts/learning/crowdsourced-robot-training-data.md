@@ -2,8 +2,8 @@
 title: Crowdsourced robot training data
 type: concept
 created: 2026-08-27
-updated: 2026-09-11
-sources: 19
+updated: 2026-09-27
+sources: 20
 tags: [crowdsourcing, human-data, egocentric, data-pipeline, data-quality, fraud, deduplication, data-labor, gig-economy, scaling-laws, go-big, brookfield, consent]
 ---
 
@@ -116,6 +116,7 @@ What would settle it is unglamorous: **an acceptance rate, a total, a diversity 
 > That step is exactly what a crowdsourced or human-video corpus lacks. Harvesting more hours is the *volume* half of the loop with the *targeting* half missing, and targeting is what made the loop work. It sharpens the marginal-novelty complaint already on this page: an embedding model arbitrating novelty is a proxy for "what the network finds troubling," and a poor one — visual dedup discards contact-dynamics variation, which is where the failures actually are. Worth applying to any claim in this wiki that a large robot dataset constitutes a data engine.
 
 ## Mentioned in
+- [Helix 2.5 (Figure AI)](../../sources/figure-helix-2-5.md) — the first measured payoff of a crowdsourced human-video corpus: Index pretraining lifts zero-shot success in 30 homes from 8% to 56%. Also discloses a task-share cap (no eval task >1.90% of Index) and embedding-cluster task cataloguing.
 - [Karpathy — Software 3.0 and the history of the Transformer](../../sources/karpathy-software-3-and-transformer-history-lecture.md) — the data-engine loop, and why targeting rather than volume is the hard part.
 
 - [Introducing Index (Figure AI)](../../sources/figure-index-announcement.md) — the five-stage pipeline, fraud as a named stage, and the diversity-per-1,000-hours framing.

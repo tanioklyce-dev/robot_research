@@ -2,12 +2,12 @@
 title: Scaling laws — VLAs and human data
 type: concept
 created: 2026-05-15
-updated: 2026-09-12
-sources: 21
+updated: 2026-09-27
+sources: 22
 tags: [scaling-laws, vla, human-data, egocentric, gr00t, egoscale, pretraining, xvla, cross-embodiment]
 ---
 
-**Scaling laws for Vision–Language–Action (VLA) models** — the empirical relationship between **pretraining data scale** and **downstream real-robot performance**. The robotics analogue of Hoffmann et al.'s Chinchilla scaling laws for LLMs. As of 2026, the field has exactly one published clean scaling law with a fitted functional form: **EgoScale (NVIDIA GEAR, Feb 2026)** on human-video pretraining for dexterous manipulation. A second, weaker data point — trends without a fitted law, but across **three axes at once** — comes from [X-VLA](../../entities/x-vla.md) (Oct 2025).
+**Scaling laws for Vision–Language–Action (VLA) models** — the empirical relationship between **pretraining data scale** and **downstream real-robot performance**. The robotics analogue of Hoffmann et al.'s Chinchilla scaling laws for LLMs. As of 2026, the field has exactly one published clean scaling law with a fitted functional form: **EgoScale (NVIDIA GEAR, Feb 2026)** on human-video pretraining for dexterous manipulation. A second, weaker data point — trends without a fitted law, but across **three axes at once** — comes from [X-VLA](../../entities/x-vla.md) (Oct 2025). A third, the **first from a humanoid vendor and the first on a whole-body embodiment**, is [Figure's Helix 2.5](../../sources/figure-helix-2-5.md) (Sep 2026): a 4-point, 8×, loss-only curve on Index human video (see [below](#the-thesis-asserted-at-scale--then-a-first-curve)).
 
 > [!note] Added 2026-08-28 — the result that came first and measured nothing
 > [Figure](../../entities/figure.md)'s [Project Go-Big](../../sources/figure-project-go-big.md) (2025-09-18) **predates EgoScale by five months** and reports human-video-only transfer to a real humanoid: [Helix](../../entities/helix.md) navigating cluttered homes from language after training on **100% egocentric human video, no robot demonstrations**. It belongs on this page as chronology, not as evidence — Figure publishes **no dataset size, no success rate, no baseline, and no curve**, so it constrains nothing about how performance scales with data.
@@ -60,10 +60,10 @@ Two contributions that matter beyond the trend itself:
 ## What's still unknown
 - **Does the law continue beyond 20k hr?** Logarithmic-in-data implies diminishing returns; eventually you'd need a 10× data jump per fixed loss decrement. Whether real-robot performance keeps tracking is empirical.
 - **What's the *compute*-optimal trade-off?** LLM scaling-law work (Chinchilla) is about jointly choosing data scale and model size. EgoScale fixed its model size and only varied data; there's no published VLA Chinchilla yet.
-- **What's the cross-task transfer story?** EgoScale evaluates on dexterous tabletop tasks. Does the same scaling law apply to long-horizon locomotion, navigation, or whole-body humanoid control?
+- **What's the cross-task transfer story?** EgoScale evaluates on dexterous tabletop tasks. Does the same scaling law apply to long-horizon locomotion, navigation, or whole-body humanoid control? *(2026-09-27: [Helix 2.5](../../sources/figure-helix-2-5.md) gives a first, loss-only, 8× answer for whole-body household tasks.)*
 - **Does sim-data scaling follow the same law?** Cosmos / world-foundation-model lines are betting on synthetic data; if synthetic scales differently, the "where to invest next dollar" answer flips.
 
-## The thesis asserted at scale, without a curve
+## The thesis asserted at scale — then a first curve
 
 [Figure's Index](../../entities/figure-index.md) (Aug 2026) is the largest bet yet placed on this page's thesis and contributes **nothing to it**. Figure claims an ingest rate of 43,200 hours of human video per day — enough to exceed [EgoScale](../../sources/egoscale-paper.md)'s entire 20,854 h corpus in under twelve hours — and >$1B committed over twelve months, on the stated reasoning that *"Helix gets more capable the same way every learned system does: with data."*
 
@@ -80,6 +80,20 @@ The contrast is the useful part, and it cuts both ways:
 | Released | paper + project page | Figure-exclusive |
 
 **EgoScale has the curve and the smaller corpus; Figure has the throughput and no curve.** The open question this creates is the one that matters for the whole page: EgoScale's law was fitted on a *curated research corpus* over 1k–20k hours and showed no saturation there. Whether it extends two or three orders of magnitude further, on **crowdsourced data of uncontrolled quality**, is precisely what a $1B programme is implicitly assuming and has not tested in public. A log-linear law is also a warning: `−0.003·ln(D)` means each further halving of loss costs an exponential increase in data.
+
+### Update 2026-09-27 — Figure publishes a curve ([Helix 2.5](../../sources/figure-helix-2-5.md))
+
+Twenty-three days after Index, Figure published what it had promised. It trained four models on **nested Index subsets spanning 8×**, with model size and downstream fine-tuning held fixed, and measured **held-out robot action-prediction loss**. Loss fell log-linearly, and the largest run's loss was forecast from the three smaller ones to within *"0.54% of the variation across the full 8× data range."* Separately, a controlled ablation (same task data, architecture and evaluation) found that Index pretraining lifts **zero-shot success in 30 unseen homes from 8% to 56%** (420 trials each).
+
+| | [EgoScale](../../sources/egoscale-paper.md) | [Helix 2.5](../../sources/figure-helix-2-5.md) |
+|---|---|---|
+| Embodiment | dexterous tabletop | **whole-body humanoid** (loco-manipulation) |
+| Points / range | 5 points, 1k–20k h (20×) | **4 points, 8×**, relative only (no hours) |
+| Loss scale | stated (`0.024 − 0.003·ln D`) | **not legible** in the published chart |
+| Success per point | yes (0.30 → 0.71) | **no** — success reported only at the endpoints of a separate ablation |
+| Baseline for "pretraining helps" | scaling within the corpus | **random init** (not an alternative corpus) |
+
+This partly answers the open question below (*"Does the same scaling law apply to … whole-body humanoid control?"*): weakly, yes. It does not yet say whether *crowdsourced* video scales like *curated* video. Nobody outside Figure can check that, because Index's total hours, and the hours used in the run, are unstated.
 
 ## Related concepts
 - [In-context robot learning](in-context-robot-learning.md) — [S1](../../sources/skild-s1-blog.md)'s central claim is a **scaling** claim, not a benchmark one: in-context learning *loses* to language conditioning at 1k h (43% vs 53%) and leads 66% vs 9% on unseen tasks at 100k h, with the gap said to widen exponentially. A crossover, if real, is a stronger statement than any single success rate.
@@ -115,6 +129,7 @@ Both [Skild's S1](../../sources/skild-s1-blog.md) and [Generalist's GEN-1.5](../
 
 - [GEN-1.5](../../sources/generalist-gen-1-5-blog.md) — *"more pretraining makes adaptation faster, cheaper, and more general"*; loss curve over 8 months, no capability-vs-scale curve.
 
+- [Helix 2.5 (Figure AI)](../../sources/figure-helix-2-5.md) — the first human→humanoid data-scaling curve from a vendor (4 points, 8×, loss only) plus a 8% → 56% zero-shot pretraining ablation.
 - [Introducing Index (Figure AI)](../../sources/figure-index-announcement.md) — the thesis asserted at ~1000× EgoScale's ingest rate with no curve.
 - [Project Go-Big](../../sources/figure-project-go-big.md) — human-video-only transfer five months before EgoScale, on navigation, with no numbers.
 - [EgoScale Paper](../../sources/egoscale-paper.md)

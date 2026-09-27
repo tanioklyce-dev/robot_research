@@ -3,8 +3,8 @@ title: Index (Figure AI)
 type: entity
 subtype: dataset
 created: 2026-08-27
-updated: 2026-08-28
-sources: 7
+updated: 2026-09-27
+sources: 8
 tags: [figure, index, dataset, human-data, egocentric, crowdsourcing, gig-economy, helix, unverified]
 ---
 
@@ -16,6 +16,9 @@ tags: [figure, index, dataset, human-data, egocentric, crowdsourcing, gig-econom
 > Index is phone video of **humans** doing tasks. There are no action labels, no proprioception, no force readings, and the embodiment is a person rather than [Figure 03](figure.md). The name *"robot training dataset"* describes the intended use, not the contents. How the human→robot gap is crossed is not addressed anywhere in the announcement.
 >
 > **Amended 2026-08-28.** Figure *has* published a transfer result — [Project Go-Big](../sources/figure-project-go-big.md), 11 months earlier: Helix learned closed-loop **navigation** from 100% human video with no robot demonstrations. But that result is scoped to **SE(2) velocity commands**, the one case where the morphology gap essentially vanishes and the action labels are recoverable from the video itself. Index is overwhelmingly a **manipulation** corpus, and for manipulation Figure has published nothing. So the criticism stands and sharpens: the announcement is silent on the gap, and Figure's only public answer covers the easy half.
+
+> [!note] Update 2026-09-27 — the first result ([Helix 2.5](../sources/figure-helix-2-5.md))
+> 23 days after the announcement, Figure published the result it had promised. [Helix](helix.md) 2.5 is **pretrained from random init entirely on Index**, then fine-tuned into three household behaviors. Evaluated zero-shot in **30 unseen homes**, it succeeds on **56% (237/420)** of full-task trials versus **8% (35/420)** for the same architecture and task data without Index pretraining. A four-point curve over an **8×** range of Index data shows action-prediction loss falling log-linearly. That answers "no results" and "no scaling law" below, both in part: the baseline is *no pretraining* rather than an alternative corpus, and the curve reports loss with no success rate. Also disclosed: *"No single evaluation task makes up more than 1.90% of the Index pretraining dataset,"* and tasks are catalogued by clustering video and VLM-caption embeddings. **Updated scale:** ingest is now **~35 min/s (~50,400 h/day)**, up from 30 min/s, and Figure has *"committed $3.5B of compute to training Helix."* Total hours are still not stated.
 
 ## Claimed scale ([announcement](../sources/figure-index-announcement.md))
 
@@ -61,8 +64,8 @@ The chore service and the data-collection instrument are the same object. This i
 
 ## What is missing
 
-- **No results.** *"The generalization results we're seeing internally are already validating this thesis, and we will be sharing more in detail on this soon."*
-- **No scaling law**, against [EgoScale](../concepts/learning/scaling-laws-vla.md)'s published fitted curve on the same kind of data.
+- ~~**No results.**~~ *(answered in part by [Helix 2.5](../sources/figure-helix-2-5.md), see above)* *"The generalization results we're seeing internally are already validating this thesis, and we will be sharing more in detail on this soon."*
+- ~~**No scaling law**~~ *(Helix 2.5 gives a 4-point, 8×, loss-only curve)*, against [EgoScale](../concepts/learning/scaling-laws-vla.md)'s published fitted curve on the same kind of data.
 - **No connection drawn to [Go-Big](../sources/figure-project-go-big.md)**, Figure's own prior human-video programme in [Brookfield](brookfield.md) properties — the announcement does not say whether Index extends it, replaces it, or runs alongside it.
 - **No total size, no acceptance rate, no diversity trend.**
 - **No mention of consent, privacy, retention, or data rights** — for a corpus filmed inside homes and workplaces by 44,000 people.
@@ -81,3 +84,4 @@ The chore service and the data-collection instrument are the same object. This i
 
 - [Introducing Index (Figure AI)](../sources/figure-index-announcement.md)
 - [Project Go-Big](../sources/figure-project-go-big.md) — the precursor programme.
+- [Helix 2.5](../sources/figure-helix-2-5.md) — the first published result from Index pretraining.

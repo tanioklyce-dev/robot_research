@@ -2,7 +2,7 @@
 title: Jetson Orin Nano
 type: entity
 created: 2026-05-16
-updated: 2026-09-13
+updated: 2026-09-27
 sources: 35
 tags: [jetson, nvidia, edge-ai, hardware, robotics-compute]
 ---
@@ -61,7 +61,7 @@ Mode persists across reboots and SC7. **Mode IDs are not portable across module 
 
 - **OS / BSP**: [Jetson Linux](jetson-linux.md) — currently the R36.5 line (Ubuntu 22.04 + kernel 5.15 + UEFI + OP-TEE) for Orin-class modules ([Jetson Linux R36.5](../sources/nvidia-jetson-linux-r36-5-release.md)).
 - **SDK**: [JetPack](jetpack.md) — bundles Jetson Linux + CUDA + cuDNN + TensorRT + DeepStream + VPI on top. Current production release **JetPack 6.2.2** as of mid-2025 ([JetPack 6.2.2 release page](../sources/nvidia-jetpack-6-2-2-release.md)).
-  - **Corrected 2026-08-16**: superseded. **[JetPack 7.2](../sources/nvidia-jetpack-7-2-release.md)** (Jetson Linux r39.2, **2026-06-02**) brought the Orin family onto JetPack 7 — Ubuntu 24.04 / kernel 6.8 / **CUDA 13.2.1** / TensorRT 10.16.2 — with **7.2.1** on 2026-08-12. **Caveats**: Isaac ROS is listed *"Coming soon"* on 7.2, and NVIDIA ships an **`overlay_pcie.tbz2`** fix for *"an intermittent boot issue… on some Jetson Orin Nano and Orin NX modules during power cycles or reboots"* — worth applying on any robot that power-cycles.
+  - **Corrected 2026-08-16**: superseded. **[JetPack 7.2](../sources/nvidia-jetpack-7-2-release.md)** (Jetson Linux r39.2, **2026-06-02**) brought the Orin family onto JetPack 7 — Ubuntu 24.04 / kernel 6.8 / **CUDA 13.2.1** / TensorRT 10.16.2 — with **7.2.1** on 2026-08-12. **Caveats**: Isaac ROS was listed *"Coming soon"* on 7.2 — **it shipped: 4.6.0 (2026-08-18) added JetPack 7.2 and Jetson Orin; 5.0.0 (2026-09-21) moved to ROS 2 Lyrical, and NVIDIA's 5.0 announcement names Orin Nano as the entry point** ([release notes](../sources/isaac-ros-release-notes-and-platforms.md), [5.0 blog](../sources/nvidia-isaac-ros-5-0-blog.md)) — and NVIDIA ships an **`overlay_pcie.tbz2`** fix for *"an intermittent boot issue… on some Jetson Orin Nano and Orin NX modules during power cycles or reboots"* — worth applying on any robot that power-cycles.
 - **No eMMC**: the Orin Nano module has no onboard mass storage. Booting requires microSD or NVMe; on the Dev Kit the M.2 slot is the recommended path. NVMe boot requires a sufficiently new QSPI bootloader — pre-mid-2023 Dev Kits need a bootloader update before NVMe is bootable ([Jetson Orin Nano flash howto](../syntheses/projects/jetson-orin-nano-flash-howto.md)).
 
 ## Setup paths

@@ -3,8 +3,8 @@ title: Phil Shiu
 type: entity
 subtype: person
 created: 2026-05-08
-updated: 2026-05-08
-sources: 2
+updated: 2026-09-27
+sources: 3
 tags: [phil-shiu, fly-brain, flywire, leaky-integrate-and-fire, biological-ai, uc-berkeley, eon]
 ---
 
@@ -39,3 +39,4 @@ tags: [phil-shiu, fly-brain, flywire, leaky-integrate-and-fire, biological-ai, u
 
 - [Berkeley News — researchers simulate an entire fly brain on a laptop](../sources/berkeley-fly-brain-news.md)
 - [Shiu et al. 2024 — A Drosophila computational brain model](../sources/shiu-fly-brain-paper.md)
+- [FlyBrain Robot Bridge](../sources/flybrain-robot-bridge-github.md) — cites `philshiu/Drosophila_brain_model` and `eonsystemspbc/fly-brain` as inspiration.

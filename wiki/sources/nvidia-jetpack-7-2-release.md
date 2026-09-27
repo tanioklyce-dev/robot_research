@@ -55,6 +55,9 @@ This is the primary source behind the wiki's [2026-08-16 JetPack correction](../
 
 ## The three things that change a build
 
+> [!note] Follow-up 2026-09-27 — it came
+> **Isaac ROS 4.6.0 shipped for JetPack 7.2 on 2026-08-18**, 11 weeks after this release, and re-added Jetson Orin; **5.0.0** followed on 2026-09-21 ([release notes and platforms](isaac-ros-release-notes-and-platforms.md)). The warning below was correct when written.
+
 > [!warning] Isaac ROS is listed as "Coming soon" on JetPack 7.2
 > NVIDIA's own SDK table for this release shows **Isaac ROS as not yet available**, and Jetson Platform Services as **N/A**. For a ROS-based robot this is the decisive line in the whole release: **moving an Orin to JetPack 7.2 today means giving up Isaac ROS until it ships.** The wiki's [onboard-compute page](../syntheses/platforms/jetson-onboard-compute-xlerobot.md) describes the Thor tier as "JetPack 7 / Isaac ROS 4"; that pairing is a *roadmap*, not a shipping combination as of this page. Anyone on Isaac ROS should stay on JetPack 6 / L4T 36.x until the status changes.
 
@@ -86,7 +89,7 @@ The [2026-08-16 correction](../entities/jetpack.md) recorded **CUDA 13.0** for J
 
 ## Open questions
 
-- **When does Isaac ROS ship for JetPack 7?** This is the single fact that decides whether a ROS robot can move to 7.x at all, and the page says only "coming soon."
+- ~~**When does Isaac ROS ship for JetPack 7?**~~ **Answered: 4.6.0, 2026-08-18, with Orin.** This is the single fact that decides whether a ROS robot can move to 7.x at all, and the page says only "coming soon."
 - **Which Orin SKUs exactly?** "Jetson Orin Family" is the whole statement; the Yocto image list covers AGX Orin and Orin Nano but **not Orin NX**, while the PCIe overlay names Orin Nano *and* Orin NX. Orin Nano 4 GB and the AGX Orin 32/64 GB split are unaddressed here — the [Jetson Linux 39.2 release notes](https://docs.nvidia.com/jetson/) would settle it and are not ingested.
 - **Does JetPack 6 remain a supported production branch, and for how long?** Not stated on this page. Relevant because Isaac ROS currently pins users there.
 - **What is the real-world upgrade cost** for a working Orin robot: full reflash, no apt path, changed camera device trees on third-party carriers ([Seeed shipped R39.2.0 for J401/J501 on 2026-06-30](https://forum.seeedstudio.com/t/nvidia-has-officially-announced-jetpack-7-2-june-1-2026-any-plans-for-j401-agx-orin-32gb-support/295471), with a 22-pin CSI spec replacing 24-pin), and Isaac ROS absent. Nobody has written that migration guide.

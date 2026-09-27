@@ -2,8 +2,8 @@
 title: Connectome
 type: concept
 created: 2026-05-08
-updated: 2026-09-12
-sources: 9
+updated: 2026-09-27
+sources: 10
 tags: [connectome, neuroscience, brain-mapping, biological-ai, drosophila]
 ---
 
@@ -47,6 +47,9 @@ Build a deep neural network whose connectivity *signs and counts* are fixed by t
 **Strengths:** scales to deep-learning training pipelines; generalizes across stimuli; predicts neural activity from a behavioural objective alone.
 **Weaknesses:** abstracts away biophysical detail (no spikes, no synaptic dynamics); success depends on connectivity sparsity.
 
+> [!note] Connectome → robot controller: the branding arrived before the result (added 2026-09-27)
+> [FlyBrain Robot Bridge](../../sources/flybrain-robot-bridge-github.md) (Sep 2026) is titled *"Connect a Drosophila connectome simulation to a physical robot"* and collected 221 GitHub stars in under two weeks. It loads **no connectome data**: the working "brain" is eight hand-written leaky integrators, and the MaleCNS backend exits with *"Not implemented yet."* The repo is candid about this, and its integration notes make the key point for anyone attempting the real thing: *"Connectivity alone does not define a validated dynamical model."* A physical robot would also need a **sensory and motor mapping** between a fly's nervous system and a non-fly body, and nobody has defined one. [FlyGM](../../sources/flygm-connectome-graph-controller-paper.md) sidesteps that by training a controller on the graph for a simulated fly body.
+
 ## Why it matters here
 
 Connectomes are the **brain side** of the whole-organism agentic-AI program (the [flybody](../../entities/flybody.md) family is the body side). The Vaxenburg et al. flybody paper explicitly names the combination as the long-term target: *"combining our whole-body model with a complete nervous system connectome … could enable the development of whole-animal models of the entire body and nervous system of the adult fruit fly."*
@@ -72,3 +75,4 @@ Connectomes are the **brain side** of the whole-organism agentic-AI program (the
 - [BANC — Bates et al., Nature 2026](../../sources/banc-brain-and-cord-connectome-paper.md) — the female brain-and-cord connectome; local feedback loops and distributed control.
 - [FlyGM](../../sources/flygm-connectome-graph-controller-paper.md) — a whole-brain connectome as an RL controller's architecture, with controls.
 - Companions to the male CNS: [visual pathways](../../sources/male-cns-visual-pathways-paper.md), [gustatory connectome](../../sources/male-cns-gustatory-connectome-paper.md), [dimorphic social networks](../../sources/dimorphic-social-networks-paper.md) — abstract-level pages.
+- [FlyBrain Robot Bridge](../../sources/flybrain-robot-bridge-github.md) — connectome-branded camera→robot bridge with a mock backend and a MaleCNS stub; no connectome data loaded.

@@ -2,7 +2,7 @@
 title: JetPack SDK
 type: entity
 created: 2026-05-16
-updated: 2026-08-26
+updated: 2026-09-27
 sources: 16
 tags: [nvidia, jetson, jetpack, sdk, cuda, tensorrt, jetpack-7, jetson-thor, mig, sbsa]
 ---
@@ -81,7 +81,10 @@ The Blackwell-generation [Jetson Thor](jetson-thor.md) (T5000, T4000) is on a **
 | DeepStream | 7.1 | **9.1** |
 | **Isaac ROS** | supported | **"Coming soon"** |
 
-> [!warning] The robotics catch: Isaac ROS is not on JetPack 7.2 — and for Orin it is worse than "yet"
+> [!note] Resolved 2026-09-27 — Isaac ROS shipped on JetPack 7.2, for Orin too
+> **Isaac ROS 4.6.0 (2026-08-18) added JetPack 7.2 and re-added Jetson Orin**; **5.0.0 (2026-09-21)** is on 7.2 with ROS 2 Lyrical ([release notes](../sources/isaac-ros-release-notes-and-platforms.md)). "Coming soon" was a schedule note after all. The callout below is kept as written; its "generational break" reading was wrong.
+
+> [!warning] *(Superseded)* The robotics catch: Isaac ROS is not on JetPack 7.2 — and for Orin it is worse than "yet"
 > NVIDIA's own SDK table lists **Isaac ROS as "Coming soon"** and **Jetson Platform Services as N/A**. For a ROS robot that makes JetPack 6 / L4T 36.x the branch you stay on, regardless of the toolchain unification.
 >
 > **Sharpened 2026-08-17 against the Isaac ROS primary.** "Coming soon" reads as a schedule; the [Isaac ROS supported-platform table](../sources/isaac-ros-release-notes-and-platforms.md) shows a generational break. Isaac ROS **4.x** (current **4.5.0**, 2026-07-06) officially supports only **Jetson Thor T5000/T4000 on JetPack 7.1**, x86_64 on Ubuntu 24.04, and DGX Spark — **no Orin on any JetPack**. The last Orin-supporting line is **3.2** (JetPack 6.1/6.2, Ubuntu 22.04, CUDA 12.6, ROS 2 Humble), frozen since early 2025. So staying on JetPack 6 does not keep an Orin current; it keeps it on a line NVIDIA stopped developing. See [Isaac ROS](isaac-ros.md).

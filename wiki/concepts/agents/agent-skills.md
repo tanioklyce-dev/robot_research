@@ -2,8 +2,8 @@
 title: Agent skills (portable SKILL.md)
 type: concept
 created: 2026-07-16
-updated: 2026-08-28
-sources: 16
+updated: 2026-09-27
+sources: 17
 tags: [agent-skills, claude-code, skill-md, llm-agents, tooling, jetson, halos, frc, deployment]
 ---
 
@@ -20,6 +20,7 @@ Skills differ from raw **tool calls** and from **[MCP](llm-agent-architecture.md
 Robotics vendors are shipping skills so that agents give **domain-correct** rather than **generic** advice, and so that **deployment is agent-drivable**:
 
 - **[Jetson Device Skills](../../entities/jetson-device-skills.md)** — 8 skills teaching an agent to inspect/tune a live Jetson (diagnostics, memory audit, LLM-serving, benchmarking). Rationale: without them, agents give "generic Linux or dGPU advice that does not apply to Jetson" ([repo](../../sources/jetson-device-skills-github.md); [JetsonHacks demo](../../sources/jetsonhacks-ai-coding-jetson-claude-code.md)).
+- **[Isaac ROS](../../entities/isaac-ros.md) 5.0** (Sep 2026) — ships skills in the open Agent Skills format: `isaac-ros-activate`, an early-access **`migrate-node-to-rosidl-buffer`** (an agent to help port code off NITROS, which the same release removes), setup and manipulation skills, a standalone **pick-and-place** skill, and a **FoundationStereo fine-tuning skill** — the first skill in the wiki whose job is *adapting a model* to a user's cameras rather than calling one. More Isaac skills sit in the `nvidia/skills` catalog under "Physical AI," plus "agent-ready documentation" ([5.0 blog](../../sources/nvidia-isaac-ros-5-0-blog.md), [release notes](../../sources/isaac-ros-release-notes-and-platforms.md)).
 - **[NVIDIA Halos](../../entities/nvidia-halos.md)** — ships LLM deploy skills (**`warehouse-deploy`**, **`halos-deploy`**, and the Outside-In blueprint's **Claude Code deploy skill**) that automate prerequisites, NGC downloads, config, and VSS integration for a functional-safety deployment ([Halos blog](../../sources/nvidia-halos-robotics-blog.md), [Outside-In repo](../../sources/halos-outside-in-safety-github.md)).
 - **FRC** — championship teams ship **agent skill files** alongside their codebase so an agent can drive a repo-specific workflow ([Team 4414 HighTide binder](../../sources/team-4414-hightide-2026-binder.md); [Team 254's wpilib-agent-tools](../../sources/team-254-ai-in-frc-presentation.md)).
 
@@ -53,6 +54,7 @@ The same reasoning drove them to convert connectors from **MCP servers into comp
 - [Jetson Device Skills GitHub](../../sources/jetson-device-skills-github.md), [JetsonHacks AI-coding-on-Jetson](../../sources/jetsonhacks-ai-coding-jetson-claude-code.md)
 - [NVIDIA Halos blog](../../sources/nvidia-halos-robotics-blog.md), [Halos Outside-In GitHub](../../sources/halos-outside-in-safety-github.md)
 - [DimOS GitHub repository](../../sources/dimos-github.md)
+- [NVIDIA Isaac ROS 5.0 blog](../../sources/nvidia-isaac-ros-5-0-blog.md) — Isaac skills, FoundationStereo fine-tuning skill, NITROS-migration skill.
 - [Team 4414 HighTide binder](../../sources/team-4414-hightide-2026-binder.md), [Team 254 AI-in-FRC](../../sources/team-254-ai-in-frc-presentation.md)
 - [CaP-X paper](../../sources/cap-x-paper.md) — a skill library **mined automatically** from successful rollouts (9 task-agnostic primitives, pooled across 12 models) rather than hand-authored.
 - [ASPIRE paper](../../sources/aspire-paper.md) — the strongest contrast with SKILL.md bundles: skills are induced from *diagnosed failures* (failure signature + when-to-apply + repair), the taxonomy emerges rather than being designed, and a coordinator audits admissions. Measured to compound: zero-shot success rises with library size.

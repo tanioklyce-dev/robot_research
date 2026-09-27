@@ -3,7 +3,7 @@ title: NVIDIA Jetson Orin NX
 type: entity
 subtype: hardware
 created: 2026-08-28
-updated: 2026-09-13
+updated: 2026-09-27
 sources: 11
 tags: [jetson, jetson-orin-nx, nvidia, edge-ai, onboard-compute, ampere, dla, super-mode, nvpmodel, robotics, xlerobot]
 ---
@@ -103,8 +103,8 @@ These are the things that bite in practice, all with primaries:
 > [!warning] 2. The 10 W mode has an open crash bug
 > [Jetson Linux r39.2 release notes](../sources/nvidia-jetson-linux-r39-2-release-notes.md), known issue **6236259**: reducing EMC below Fmax (~3200 MHz) via `nvpmodel.service` during systemd init *"can cause system crashes upon reboot,"* especially with a display connected. Affected modes include **Orin NX 8/16 GB at 10 W** — precisely the bottom of the envelope this module is chosen for. Workaround: switch to MAXN before rebooting, reapply after. Whether headless operation is exempt is **not stated**.
 
-> [!warning] 3. Isaac ROS has no current line on Orin
-> Isaac ROS **4.x** supports only Thor, x86_64 and DGX Spark; **no Orin appears in the supported-platform table at all** ([release notes and platforms](../sources/isaac-ros-release-notes-and-platforms.md)). The last Orin-supporting line is **3.2** (Dec 2024) on JetPack 6.1–6.2 / ROS 2 Humble. So an Orin NX faces a closed door either way: stay on JetPack 6.2 with a frozen Isaac ROS 3.2, or move to [JetPack 7.2](../sources/nvidia-jetpack-7-2-release.md) and have none. 4.x is also a **ROS 2 Jazzy** line — a distro migration, not an upgrade.
+> [!note] 3. Isaac ROS on Orin NX — JetPack 7.2 + Isaac ROS 4.6/5.0 *(corrected 2026-09-27)*
+> This callout said *"Isaac ROS has no current line on Orin"* — a closed door between a frozen 3.2 on JetPack 6.2 and nothing on 7.2. **Corrected 2026-09-27:** Isaac ROS **4.6.0 (2026-08-18) re-added Jetson Orin on JetPack 7.2**, and **5.0.0 (2026-09-21, ROS 2 Lyrical)** keeps it ([release notes](../sources/isaac-ros-release-notes-and-platforms.md)). The 4.0–4.5 gap was BSP sequencing — Orin had no JetPack 7 until 7.2 — not a drop. The supported-platform table names "Jetson Orin"; Orin NX is covered by the family name but **not individually named or benchmarked** (setup guide covers AGX Orin; performance page AGX Orin and Orin Nano). So for an Orin NX the real choice is **3.2/Humble on JetPack 6.2** (no reflash) vs **4.6/Jazzy or 5.0/Lyrical on JetPack 7.2** (reflash, carrier device-tree changes, and at 5.0 the NITROS removal).
 
 Also worth knowing: there is a **PCIe boot bug on Orin Nano and Orin NX** with an overlay fix (`overlay_pcie.tbz2`) — *"an intermittent boot issue caused by initialization failures… during power cycles or reboots."* On a battery robot that power-cycles daily, apply it. And **JetPack 7.2 / R39.2 moved to a 22-pin CSI connector spec** where R36.4.3 used 24-pin, so camera device trees need updating — the most likely thing to break silently on upgrade ([XLeRobot compute](../syntheses/platforms/jetson-onboard-compute-xlerobot.md)).
 
@@ -149,7 +149,7 @@ Carrier details from the [Seeed Jetson selection guide](../sources/seeed-jetson-
 - [Seeed — flash JetPack OS to J401 carrier board](../sources/seeed-j401-flash-jetpack.md) — the Super-Mode cooling caveat.
 - [Jetson Linux r39.2 release notes](../sources/nvidia-jetson-linux-r39-2-release-notes.md) — the 10 W crash bug.
 - [JetPack 7.2 with Jetson Linux 39.2](../sources/nvidia-jetpack-7-2-release.md) — JetPack 7 extended to the Orin family.
-- [Isaac ROS release notes and platforms](../sources/isaac-ros-release-notes-and-platforms.md) — no Orin on 4.x.
+- [Isaac ROS release notes and platforms](../sources/isaac-ros-release-notes-and-platforms.md) — no Orin on 4.0–4.5; Orin re-added in 4.6.0 (JetPack 7.2).
 - [Seeed Jetson selection guide](../sources/seeed-jetson-selection-guide.md) · [Seeed carrier-board selection](../sources/seeed-jetson-carrier-board-selection.md) — the carrier matrix.
 - [Cutting the Cord — untethered XLeRobot](../sources/cutting-the-cord-untethered-xlerobot.md) — the Orin Nano build this is the upgrade from.
 - [RK1828 vs Jetson Orin NX vs Hailo-8 (Geniatech)](../sources/geniatech-rk1828-vs-orin-nx-vs-hailo-8.md) — a competitor's comparison that quotes this module at **68 GB/s** (the pre-Super Orin *Nano* figure) against the datasheet's **102.4 GB/s** above, and at 100 TOPS / 10–20 W (standard-flash and non-Super numbers, unlabelled). Kept as a specimen of how the Orin NX gets misquoted, not as a source for it.

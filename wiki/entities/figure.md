@@ -3,8 +3,8 @@ title: Figure
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-08-28
-sources: 13
+updated: 2026-09-27
+sources: 14
 tags: [figure, humanoid, bipedal, helix, openai, bmw, vla, system-1-system-2, botq, figure-03]
 status: partial
 ---
@@ -73,11 +73,12 @@ Full detail on [Figure 03](figure-03.md), [Helix](helix.md) and [BotQ](botq.md).
 | 2026-04-29 | [Production ramp](../sources/figure-ramping-03-production.md) | **350+ units**; **1/day → 1/hour**; 80% first-pass yield |
 | 2026-06-30 | [F.03 at BMW](../sources/figure-03-at-bmw.md) | Sequencing, not pick-and-place; loco-manipulation on a factory floor |
 | 2026-08-25 | [Index](figure-index.md) | 16M+ videos; **43,200 h/day** of human phone video |
+| 2026-09-17 | [Helix 2.5](../sources/figure-helix-2-5.md) | **56% (237/420) zero-shot in 30 unseen homes**, vs 8% without Index pretraining; ingest now **35 min/s**; **$3.5B** compute committed |
 
 Two observations the individual posts don't make on their own:
 
 - **The hardware is downstream of the model, and the factory is downstream of both.** Figure 03's palm cameras and tactile sensors exist because Helix 02 needed those modalities — Figure says so explicitly. Its die-cast structure exists because BotQ needed to stamp it. This is the cleanest instance in the wiki of **co-design running model → sensor → manufacturing process**, and it is a more defensible moat than any single spec on the robot.
-- **Figure's disclosure quality is inversely proportional to how central the claim is.** The battery and manufacturing posts carry yields, certifications, test counts and cost deltas. The AI posts — the thing the company is valued on — carry **no success rate, no baseline, and no benchmark**, across three announcements and 18 months.
+- **Figure's disclosure quality is inversely proportional to how central the claim is.** The battery and manufacturing posts carry yields, certifications, test counts and cost deltas. The AI posts — the thing the company is valued on — carry **no success rate, no baseline, and no benchmark**, across three announcements and 18 months. *(Broken 2026-09-17: [Helix 2.5](../sources/figure-helix-2-5.md) is the first Figure AI post with graded trial counts, a rubric and an ablation. Still self-reported, with no external evaluator and no comparison against other companies' systems.)*
 
 ## Position vs other humanoids
 - **AI-foundation-first strategy.** Figure's bet is that the humanoid policy stack matters more than the hardware — Helix is the differentiator.
@@ -114,10 +115,11 @@ Figure 02 at BMW plant (South Carolina), 2025:
 - [Introducing Helix 02](../sources/figure-helix-02.md) — System 0 and full-body autonomy.
 - [Ramping Figure 03 Production](../sources/figure-ramping-03-production.md) — 350+ units at 1/hour.
 - [F.03 Arrives at BMW](../sources/figure-03-at-bmw.md) — Figure 03's first commercial deployment.
+- [Helix 2.5](../sources/figure-helix-2-5.md) — Index-pretrained Helix, zero-shot in 30 homes; Figure's first published success rates and scaling curve.
 - [Project Go-Big](../sources/figure-project-go-big.md) · [Brookfield partnership](../sources/figure-brookfield-partnership.md) — the human-video pretraining programme and the properties it runs in.
 
 ## Open questions / TBD
 - **No Helix paper.** Figure has not (as of ingest date) released a Helix paper; the blog is the only primary source. Architectural details may be incomplete or marketing-shaped.
-- **Still no published results, 18 months on.** The Index announcement repeats the pattern: *"the generalization results we're seeing internally are already validating this thesis, and we will be sharing more in detail on this soon."* Figure has now made two major technical announcements — Helix (Feb 2025) and Index (Aug 2026) — with **zero externally checkable numbers** between them. Everything on this page remains vendor-stated.
+- ~~**Still no published results, 18 months on.**~~ **Partly resolved 2026-09-27** by [Helix 2.5](../sources/figure-helix-2-5.md): 420 graded zero-shot trials across 30 homes. Still no paper, no external evaluation, and no comparison with other companies' VLAs. Original: The Index announcement repeats the pattern: *"the generalization results we're seeing internally are already validating this thesis, and we will be sharing more in detail on this soon."* Figure has now made two major technical announcements — Helix (Feb 2025) and Index (Aug 2026) — with **zero externally checkable numbers** between them. Everything on this page remains vendor-stated.
 - ~~Figure 03 detailed specs~~ — **resolved 2026-08-28** via primaries; see [Figure 03](figure-03.md). What remains missing there: **DOF, onboard compute, and unit cost**, none of which Figure has ever published.
 - Comparison numbers vs other VLAs (LIBERO, real-world success rates) — not provided in the blog.

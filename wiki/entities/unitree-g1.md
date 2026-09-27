@@ -3,8 +3,8 @@ title: Unitree G1
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-09-14
-sources: 22
+updated: 2026-09-27
+sources: 23
 tags: [unitree-g1, humanoid, bipedal, china, affordable, accessible, groot, whole-body-control]
 ---
 
@@ -80,6 +80,7 @@ The paper is candid about what its representation misses on this hand specifical
 - [UnifoLM-WLA-1.0 project page](../sources/unifolm-wla-1-project-page.md) — Unitree's own 6B policy, 64 tasks on the G1 (videos only; policy unreleased at launch).
 - [HIW-500 dataset page](../sources/bitrobot-hiw-500-dataset-page.md) — 500+ h of G1 whole-body teleop in real homes.
 - [UnifoLM-WMA-0 project page](../sources/unifolm-wma-0-project-page.md) — G1 pack-camera deployment of the 2025 world model.
+- [BotBrain GitHub](../sources/botbrain-github.md) — BotBrain supports the G1 (upper-body pose control, FSM transitions) with a dedicated mount.
 
 ## As the hardest platform in Anthropic's robotics evaluation
 

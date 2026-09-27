@@ -3,8 +3,8 @@ title: Nav2
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-08-04
-sources: 7
+updated: 2026-09-27
+sources: 8
 tags: [nav2, navigation2, ros2, slam, navigation, behavior-tree, costmap, intel, samsung, open-navigation, mobile-robot]
 ---
 
@@ -74,6 +74,7 @@ The composition pattern in this wiki: **Nav2 handles "get to room X," LeRobot po
 - [Hello Robot Stretch Documentation](../sources/hello-robot-stretch-docs.md)
 - [Stretch 4 launch](../sources/hello-robot-stretch-4-launch.md) — ROS 2 Jazzy + Nav2 on Stretch 4.
 - [Hiwonder ROSOrin docs](../sources/hiwonder-rosorin-docs.md) — bundled Nav2 curriculum.
+- [BotBrain GitHub](../sources/botbrain-github.md) — Nav2 as the navigation core of a packaged legged-robot autonomy kit.
 
 ## Open questions / TBD
 

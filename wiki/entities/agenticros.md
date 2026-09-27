@@ -3,8 +3,8 @@ title: AgenticROS
 type: entity
 subtype: software-framework
 created: 2026-07-05
-updated: 2026-07-05
-sources: 3
+updated: 2026-09-27
+sources: 4
 tags: [agenticros, ros2, mcp, openclaw, hermes-agent, nemoclaw, fleet, skills-marketplace, zenoh, typescript, agent-robot-bridge]
 ---
 
@@ -26,6 +26,10 @@ tags: [agenticros, ros2, mcp, openclaw, hermes-agent, nemoclaw, fleet, skills-ma
 
 ## Status
 
+> [!note] Update 2026-09-27 — a named sponsor
+> NVIDIA's [Isaac ROS 5.0 announcement](../sources/nvidia-isaac-ros-5-0-blog.md) describes AgenticROS as *"an open source project sponsored by 3D perception technology company **RealSense**"* that *"connects Isaac ROS with NVIDIA Nemotron open models and NVIDIA NemoClaw blueprints."* That answers part of the sustainability question below — there is a corporate sponsor — and places the project inside NVIDIA's ROSCon messaging. The repo itself was not re-checked in this ingest.
+
+
 Early but real: 112 stars / 14 forks / ~125 commits, **no formal releases**, comprehensive docs, TurtleBot3 Gazebo sim + teleop web app + Docker Compose. **Anonymous maintainers** (org has no public members) — sustainability unknown ([AgenticROS GitHub](../sources/agenticros-github.md)).
 
 ## Related
@@ -38,3 +42,4 @@ Early but real: 112 stars / 14 forks / ~125 commits, **no formal releases**, com
 ## Mentioned in
 
 - [AgenticROS GitHub](../sources/agenticros-github.md) — primary source.
+- [NVIDIA Isaac ROS 5.0 blog](../sources/nvidia-isaac-ros-5-0-blog.md) — RealSense sponsorship; Isaac ROS + Nemotron + NemoClaw.

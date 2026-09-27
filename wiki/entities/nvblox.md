@@ -3,7 +3,7 @@ title: Isaac ROS NVBlox (nvblox)
 type: entity
 subtype: software-framework
 created: 2026-06-13
-updated: 2026-08-17
+updated: 2026-09-27
 sources: 3
 tags: [nvblox, isaac-ros, nvidia, 3d-mapping, perception, gpu, robotics, navigation]
 ---
@@ -22,6 +22,8 @@ Seeed packages nvblox as a one-command [`jetson-examples`](../sources/seeed-jets
 - Requirements: **Jetson Orin**, Ubuntu 22.04, [JetPack 6.x](jetpack.md), Docker + NVIDIA Container Runtime, Orbbec Gemini2, ~60 GB storage.
 
 > [!note] Those requirements pin this recipe to the Isaac ROS **3.x** line
+> **Corrected 2026-09-27:** Isaac ROS **4.6.0 re-added Jetson Orin on JetPack 7.2**, and 5.0 keeps it — so an Orin can now run a current nvblox by moving to JetPack 7.2 (5.0 known issue: the nvblox RealSense example with a **D455 produces empty mesh and map outputs**) ([release notes](../sources/isaac-ros-release-notes-and-platforms.md)). Original note, true of 4.0–4.5:
+>
 > Orin + Ubuntu 22.04 + JetPack 6.x is the [Isaac ROS](isaac-ros.md) 3.2 configuration. **Isaac ROS 4.x (current: 4.5.0) dropped Orin from its supported-platform list entirely** — nvblox in 4.x is Thor / x86_64 / DGX Spark only, on Ubuntu 24.04 and ROS 2 Jazzy ([release notes and platforms](../sources/isaac-ros-release-notes-and-platforms.md)). The Seeed recipe still works on the stack it targets; it is simply no longer on the current line, and moving that Orin to [JetPack 7.2](jetpack.md) removes Isaac ROS rather than upgrading it.
 - `reComputer run nvblox` (full), with `NVBLOX_MODE=prepare` / `NVBLOX_MODE=run` to split image-build from demo-launch, and `reComputer clean nvblox` to tear down.
 - A deeper manual guide exists for **AGX Orin** at the [Seeed Wiki deploy page](https://wiki.seeedstudio.com/deploy_nvblox_jetson_agx_orin/).

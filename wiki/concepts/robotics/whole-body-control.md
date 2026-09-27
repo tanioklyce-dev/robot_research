@@ -2,8 +2,8 @@
 title: Whole-Body Control (WBC)
 type: concept
 created: 2026-07-15
-updated: 2026-09-11
-sources: 27
+updated: 2026-09-27
+sources: 28
 tags: [whole-body-control, wbc, humanoid, motion-tracking, loco-manipulation, unitree-g1, booster-t1, rl, sim-to-real, amass, agile, code, system-0, helix, figure-03]
 ---
 
@@ -77,6 +77,7 @@ Added 2026-08-28. Everything above is academic or open-source. [Helix 02](../../
 - [Robot combat sports as a development testbed](robot-combat-sports.md) — humanoid fighting leagues ([URKL](../../sources/urkl-robot-combat-league.md) / [EngineAI T800](../../entities/engineai-t800.md)) as an adversarial real-world stress-test of the balance/fall-recovery WBC exercises.
 
 ## Mentioned in
+- [Helix 2.5 (Figure AI)](../../sources/figure-helix-2-5.md) — whole-body loco-manipulation (tidying, towel folding, bed making) evaluated zero-shot in 30 homes, with whole-body self-correction (stepping back, repositioning, walking around the bed).
 
 - [SONIC paper](../../sources/sonic-paper.md), [MotionBricks paper](../../sources/motionbricks-paper.md), [BumbleBee paper](../../sources/bumblebee-experts-to-generalist-wbc.md).
 - [GR00T-WholeBodyControl GitHub](../../sources/gr00t-wholebodycontrol-github.md), [WBC-AGILE GitHub](../../sources/wbc-agile-github.md) — the code/tooling.

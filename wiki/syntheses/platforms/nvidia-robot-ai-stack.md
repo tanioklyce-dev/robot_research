@@ -2,7 +2,7 @@
 title: The NVIDIA robot-AI stack — what is owned, what is contested, and where the lock actually binds
 type: synthesis
 created: 2026-09-07
-updated: 2026-09-07
+updated: 2026-09-27
 tags: [nvidia, vertical-integration, jetson, cuda, isaac-ros, cosmos, groot, halos, lerobot, hugging-face, hailo, newton, evaluation, platform-risk]
 ---
 
@@ -45,6 +45,12 @@ That page's verdict, reached without any reference to platform strategy: **Hailo
 > So the acquisition's significance is not that distribution is now owned. It is that **the distribution layer for open policy weights now sits on top of the one layer with a genuine lock**, and the same company owns both ends. That is a different and more specific claim than "NVIDIA is vertically integrated."
 
 ## What erosion looks like — and it has already happened once
+
+> [!warning] Correction 2026-09-27 — the precedent below did not hold
+> The Isaac ROS/Orin "drop" this section rests on **was reversed on 2026-08-18**, the day after the wiki recorded it: **Isaac ROS 4.6.0 "Added support for Jetson Orin"** on JetPack 7.2, and 5.0 (2026-09-21) lists *"Jetson Thor … and Jetson Orin"* in its supported-platform table ([release notes](../../sources/isaac-ros-release-notes-and-platforms.md)). The 4.0–4.5 gap was **BSP sequencing** — Orin had no JetPack 7 until [7.2](../../sources/nvidia-jetpack-7-2-release.md) (2026-06-02) — not a decision to narrow support. So this is **not** evidence that NVIDIA drops platforms impersonally; if anything it is weak evidence the other way (Orin was re-added ten weeks after its BSP shipped).
+>
+> What survives: the *method*. "Watch the support table and CI matrix, not the announcements" is still right — and this episode adds its corollary: **a gap in a support table is not a removal until it outlasts the reason for the gap.** The original text is kept below for the record.
+
 
 The [neutrality commitments](../../sources/nvidia-hugging-face-acquisition.md) — *"NVIDIA compute will not be required,"* multi-accelerator support, *"support other silicon vendors"* — are specific, are in an SEC filing, and are under **Item 8.01, a voluntary disclosure**. The question is what a breach would even look like, since no one expects an announcement.
 
@@ -103,7 +109,7 @@ Three practical consequences, stated as reading instructions rather than alarm:
 ## Watch items
 
 - **Re-run [Hailo vs Jetson on XLeRobot](hailo-npu-vs-jetson-xlerobot.md) before and after close (H1 2027).** The wiki's own instrument for *"support other silicon vendors."*
-- **Watch LeRobot's support table and CI matrix**, not its announcements. The [Isaac ROS / Orin](../../entities/isaac-ros.md) precedent is the template.
+- **Watch LeRobot's support table and CI matrix**, not its announcements. The [Isaac ROS / Orin](../../entities/isaac-ros.md) episode is the template for *how to read* one — including that it turned out to be a sequencing gap, not a drop (corrected 2026-09-27).
 - **Watch LeRobot governance** — an open project with outside contributors moving inside a vendor shipping a competing robot foundation model.
 - **Watch the regulatory review.** Close is conditioned on approvals; whether neutrality becomes a *remedy* rather than a *promise* is the difference between binding and reputational.
 - **Watch whether a second distribution layer appears.** The wiki has no page on alternatives to the Hub and, until now, no reason to want one.
@@ -112,7 +118,7 @@ Three practical consequences, stated as reading instructions rather than alarm:
 
 - [NVIDIA to acquire Hugging Face](../../sources/nvidia-hugging-face-acquisition.md) — the transaction and the neutrality commitments.
 - [Hailo NPU vs Jetson for XLeRobot](hailo-npu-vs-jetson-xlerobot.md) — the CUDA-at-the-policy-layer finding, arrived at independently.
-- [Isaac ROS](../../entities/isaac-ros.md) + [release notes and platforms](../../sources/isaac-ros-release-notes-and-platforms.md) — the documented erosion precedent.
+- [Isaac ROS](../../entities/isaac-ros.md) + [release notes and platforms](../../sources/isaac-ros-release-notes-and-platforms.md) — originally cited as the documented erosion precedent; reversed by 4.6.0 (see correction).
 - [NVIDIA Halos](../../entities/nvidia-halos.md), [Industrial AI Podcast #352](../../sources/industrial-ai-podcast-nvidia-safety-strategy.md), [Riccardo Mariani](../../entities/riccardo-mariani.md) — the safety and standards half of the instrument pattern.
 - [RoboLab](../../entities/nvidia-robolab.md) + [robot policy evaluation](../../concepts/robotics/robot-policy-evaluation.md) — the evaluation half.
 - [Newton](../../entities/newton-physics-engine.md), [OpenUSD across simulators](../simulators/openusd-support-across-simulators.md), [substrate convergence](../simulators/newton-openusd-substrate-convergence.md) — the counter-case.

@@ -3,8 +3,8 @@ title: RTAB-Map
 type: entity
 subtype: software-framework
 created: 2026-08-13
-updated: 2026-08-13
-sources: 5
+updated: 2026-09-27
+sources: 6
 tags: [rtab-map, slam, rgbd, loop-closure, graph-slam, ros2, navigation, xlerobot, introlab]
 ---
 
@@ -45,3 +45,4 @@ It is the **navigation half of the wiki's only measured onboard-Jetson XLeRobot 
 - [Niantic Spatial — research page, product line, and Scaniverse](../sources/niantic-spatial-research.md)
 - [Niantic Spatial, Flexion, and NVIDIA: Closing the Sim2Real Gap for Humanoids (Jul 2026)](../sources/niantic-flexion-nvidia-sim2real.md)
 - [On the Limits of Pseudo Ground Truth in Visual Camera Re-localisation (Brachmann, Humenberger, Rother, Sattler — ICCV 2021)](../sources/pseudo-ground-truth-paper.md)
+- [BotBrain GitHub](../sources/botbrain-github.md) — RTAB-Map visual SLAM with single or dual RealSense D435i on Jetson.

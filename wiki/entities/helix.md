@@ -3,15 +3,15 @@ title: Helix (Figure AI)
 type: entity
 subtype: model
 created: 2026-08-28
-updated: 2026-08-28
-sources: 10
-tags: [helix, figure, vla, humanoid, system-0, whole-body-control, loco-manipulation, hierarchical-policy, go-big, human-data, zero-shot, navigation, vendor-source]
+updated: 2026-09-27
+sources: 11
+tags: [helix, helix-2-5, figure, index, scaling-laws, household, vla, humanoid, system-0, whole-body-control, loco-manipulation, hierarchical-policy, go-big, human-data, zero-shot, navigation, vendor-source]
 ---
 
-**Helix** — [Figure AI](figure.md)'s proprietary vision-language-action model for humanoid control. Two generations: **Helix** (2025-02-20), a two-tier System 2 / System 1 architecture controlling the **upper body**; **Helix 02** (2026-01-27), which adds a third tier, **System 0**, and extends control to the **entire robot** — walking, manipulating and balancing under one network, from pixels to actuator commands.
+**Helix** — [Figure AI](figure.md)'s proprietary vision-language-action model for humanoid control. Three generations: **Helix** (2025-02-20), a two-tier System 2 / System 1 architecture controlling the **upper body**; **Helix 02** (2026-01-27), which adds a third tier, **System 0**, and extends control to the **entire robot** — walking, manipulating and balancing under one network, from pixels to actuator commands; and **Helix 2.5** (2026-09-17), **pretrained from scratch on [Index](figure-index.md) human video** and evaluated zero-shot in 30 unseen homes — the first Helix result with success rates.
 
-> [!warning] No paper, no benchmark, no baseline — across both generations
-> Every Helix claim in this wiki comes from Figure blog posts. There is no published evaluation, no success rate, no comparison against any other system, and no external replication. Architectural detail is specific; *results* are videos.
+> [!warning] No paper, no external evaluation — and, until Helix 2.5, no numbers
+> Every Helix claim in this wiki comes from Figure blog posts. Helix 1, Go-Big and Helix 02 published videos only. **[Helix 2.5](../sources/figure-helix-2-5.md) (Sep 2026) is the first with success rates** — 420 graded trials, a pre-registered rubric, a controlled ablation — but it is still self-reported, with no model size, no dataset hours, no comparison against any other company's system, and no external replication.
 
 ## The three-tier stack (Helix 02)
 
@@ -49,7 +49,7 @@ From [Project Go-Big](../sources/figure-project-go-big.md), five months before H
 > [!warning] Two claims, different scopes, one title
 > "One network does manipulation and navigation" is architectural. "Trained on human video with no robot demos" applies to the **navigation half only** — Helix's manipulation came from ~500 h of teleoperation. The title *"Direct Human-to-Robot Transfer"* invites conflating them.
 
-**No manipulation equivalent has ever been published.** [Index](figure-index.md) (Aug 2026) is overwhelmingly a manipulation corpus and still ships with no transfer story.
+~~**No manipulation equivalent has ever been published.**~~ **Superseded 2026-09-27:** [Helix 2.5](../sources/figure-helix-2-5.md) reports that Index pretraining transfers to whole-body household manipulation (8% → 56% zero-shot). The *mechanism* is still unpublished.
 
 ## Helix 02 (Jan 2026) — System 0 and full-body control
 
@@ -86,6 +86,28 @@ From [Ramping Figure 03 Production](../sources/figure-ramping-03-production.md):
 
 [F.03 at BMW](../sources/figure-03-at-bmw.md) (June 2026): Helix 02 drives the **sequencing** use case at BMW Spartanburg — manipulating thin-walled parts while stepping and repositioning, and pulling a caster-wheeled cart.
 
+## Helix 2.5 (Sep 2026) — Index pretraining, zero-shot in 30 homes
+
+From [Helix 2.5](../sources/figure-helix-2-5.md):
+
+- **Pretrained from random initialization entirely on [Index](figure-index.md)**, *"unlike Helix 02, which started from a pretrained vision-language model."* The VLM initialization that defined S2 is gone. Figure does not say whether the S2/S1/S0 tiering survives.
+- One base model, fine-tuned into **three whole-body behaviors**: living-room tidy (13–15 toys → basket), towel folding, bed making.
+- **Evaluated zero-shot in 30 Bay Area homes**: no data collected there, evaluation objects held out of all task data, one fixed checkpoint per task, blind grading, no partial credit.
+
+| Task | From scratch | **Index-pretrained** |
+|---|---|---|
+| Towel (all 4) | 9% (12/140) | **62% (87/140)** |
+| Tidy (every toy) | 5% (7/140) | **40% (56/140)** |
+| Bed (all 3 items, ≥B) | 11% (16/140) | **67% (94/140)** |
+| **Pooled** | **8% (35/420)** | **56% (237/420)** |
+
+- Matches a Helix 02 policy's success on the same task with **half the task data** (numbers not given).
+- **Scaling curve**: four nested Index subsets over **8×**, held-out action-prediction loss falling log-linearly; the largest run forecast from the smaller three to within 0.54% of the range. Loss only, no success rate per point.
+
+> [!note] What Helix 2.5 settles, and what it doesn't
+> **Settles:** Figure's human-video data now has a measured effect on **manipulation**, not just navigation. The wiki's standing objection (*"No manipulation equivalent has ever been published"*) is answered, at least partly: pretraining on Index takes zero-shot whole-body household success from 8% to 56%.
+> **Doesn't settle:** *how* action-free video becomes robot actions (the objective is unpublished), or whether Index beats **other** pretraining. The ablation baseline is random init, not a VLM init or robot-data pretraining. See the [source page](../sources/figure-helix-2-5.md) for the full critique, including a small text/chart mismatch (the prose says 9%, the pooled chart 8%).
+
 ## Assessment
 
 > [!note] S0 is conventional; its position is not
@@ -112,12 +134,14 @@ From [Ramping Figure 03 Production](../sources/figure-ramping-03-production.md):
 - [Introducing Helix 02](../sources/figure-helix-02.md) — S0, full-body control.
 - [Ramping Figure 03 Production](../sources/figure-ramping-03-production.md) — perception-conditioned S0.
 - [F.03 Arrives at BMW](../sources/figure-03-at-bmw.md) — Helix 02 in a factory.
+- [Helix 2.5](../sources/figure-helix-2-5.md) — Index-pretrained, zero-shot in 30 homes; first success rates, first scaling curve.
 
 ## Open questions
 
-- **Success rates. Any success rate at all.**
+- ~~**Success rates. Any success rate at all.**~~ — **Answered by [Helix 2.5](../sources/figure-helix-2-5.md)**: 56% pooled (237/420) zero-shot across 30 homes. Still none for Helix 1, Go-Big or Helix 02 demos.
 - **Where did the 1,000 hours of human motion come from?** AMASS? Internal capture? [Go-Big](../sources/figure-project-go-big.md) collection in Brookfield properties was underway by then, but Figure never connects the two. Retargeting method unstated.
 - **Did Go-Big's navigation policy survive into Helix 02?** Helix 02's loco-manipulation trains differently (S0 on retargeted motion capture); the relationship is never addressed.
-- **Is there a manipulation transfer result?** Not as of 2026-08-28 — the gap that matters most, given Index.
+- ~~**Is there a manipulation transfer result?**~~ — **Yes, as an ablation ([Helix 2.5](../sources/figure-helix-2-5.md))**; the pretraining objective on action-free video is still unpublished.
+- **Is S2 gone in Helix 2.5?** Random-init pretraining implies no VLM backbone; how language conditioning works, if at all, is unstated.
 - **What is S2 in Helix 02?** The 7B VLM figure is from Helix 1.
 - **Onboard or off, and on what?** A 1 kHz S0 + 200 Hz S1 + a 7B S2 against Figure 03's [~460 W whole-robot budget](../sources/figure-f03-battery.md) is a real constraint Figure never addresses.

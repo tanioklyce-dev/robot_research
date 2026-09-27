@@ -3,8 +3,8 @@ title: Seeed Studio
 type: entity
 subtype: organization
 created: 2026-05-10
-updated: 2026-08-27
-sources: 11
+updated: 2026-09-27
+sources: 12
 tags: [seeed-studio, distributor, open-hardware, shenzhen, lekiwi, raspberry-pi, hackathon, jetson, recomputer, rebot-arm, nvidia-dli]
 ---
 
@@ -51,3 +51,4 @@ Seeed also publishes **[`jetson-examples`](jetson-examples.md)** (Seeed-Projects
 - [Seeed jetson-examples (repo + reComputer runner)](../sources/seeed-jetson-examples.md) — one-command Jetson AI recipe catalog (MIT).
 - [Seeed jetson-examples — nvblox recipe (README)](../sources/seeed-jetson-examples-nvblox.md) — `reComputer run nvblox` Isaac ROS 3D-mapping demo.
 - [Seeed — flash JetPack OS to J401 carrier board](../sources/seeed-j401-flash-jetpack.md) — the JetPack 7.2 image for Orin NX (`mfi_recomputer-orin-nx-16g-j401-7.2.0-39.2.0-2026-06-18`), host-OS matrix, and the **"do not enable MAXN SUPER on J401"** cooling warning.
+- [NVIDIA Isaac ROS 5.0 blog](../sources/nvidia-isaac-ros-5-0-blog.md) — Isaac ROS on the reBot Arm (B601) with Jetson Thor.
