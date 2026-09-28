@@ -123,7 +123,7 @@ Gemma 4's native function-calling means the same prompt/tool schema drives the e
 ## Speech I/O
 
 > [!note] Worked out for one robot (2026-09-28)
-> [XLeRobot on Thor — model stack §1](xlerobot-thor-model-stack.md#1-speech-io) expands this layer. Gemma-4-E4B/12B take **audio natively**, but the 26B/31B hub models do not. It recommends a separate ASR for a loggable transcript, and a **voice-stop keyword wired straight to a halt topic**, bypassing the planner.
+> [XLeRobot on Thor — model stack §1](xlerobot-thor-model-stack.md#1-speech-io) expands this layer, and [the Orin NX variant](xlerobot-orin-nx-model-stack.md) applies it to this framework's own Orin NX + Spark split (ASR onboard on the CPU so speech survives a Wi-Fi drop; E2B/E4B planner escalating to the 31B hub). Gemma-4-E4B/12B take **audio natively**, but the 26B/31B hub models do not. It recommends a separate ASR for a loggable transcript, and a **voice-stop keyword wired straight to a halt topic**, bypassing the planner.
 
 Commodity layer in Layer 2: **Whisper** or **sherpa-onnx** (offline) for STT + sherpa/OS TTS — the same stack [ROSOrin's offline curriculum](../../concepts/agents/llm-agent-architecture.md) uses. If the Hailo-10H stays on the LeKiwi, its **Voice2Action** runs speech on the NPU, freeing the Orin NX.
 

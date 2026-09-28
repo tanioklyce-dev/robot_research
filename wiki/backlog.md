@@ -14,6 +14,7 @@ Deferred maintenance items and knowledge gaps surfaced during lint passes but no
 - [ ] **Speech has no primary sources in the wiki.** Ingest the docs for Whisper (or faster-whisper / whisper.cpp), sherpa-onnx (KWS + VAD + ASR + TTS), one wake-word engine, one VAD, and NVIDIA's Jetson speech stack. Ideally find any source with **on-Jetson ASR latency**. The [model-stack](syntheses/projects/xlerobot-thor-model-stack.md) speech section rests on names only.
 - [ ] **Ingest the Gemma 4 tech report (arXiv 2607.02770)**: audio-encoder design and any ASR/speech-understanding evals for E4B/12B. Decides Pipeline A vs B on paper before it's tested.
 - [ ] **Any Gemma 4 tokens/sec on Thor**: still zero figures for any size.
+- [ ] **Orin NX measurements** ([Orin NX stack](syntheses/projects/xlerobot-orin-nx-model-stack.md) §8): full-stack `tegrastats` memory budget; Gemma-4-E2B/E4B tok/s; CPU ASR real-time factor; Wi-Fi round trip to the Spark. The page's memory table is mostly estimates.
 - [ ] **Far-field mic arrays for mobile robots**: no source compares arrays, beamforming or echo cancellation under motor and fan noise.
 
 ## [2026-09-13] From the RK3588 ingest

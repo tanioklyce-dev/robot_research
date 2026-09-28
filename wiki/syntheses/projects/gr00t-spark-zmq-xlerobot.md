@@ -2,7 +2,7 @@
 title: GR00T on DGX Spark, served over ZMQ to XLeRobot (Orin NX 16 GB) — performance estimate
 type: synthesis
 created: 2026-07-08
-updated: 2026-07-08
+updated: 2026-09-28
 tags: [gr00t, dgx-spark, zmq, xlerobot, orin-nx, off-board-inference, latency, vla, fleet, projects]
 ---
 
@@ -67,6 +67,7 @@ What you pay is **reactivity**: actions execute ~150–250 ms after the observat
 - Wi-Fi numbers assume a clean 5 GHz channel; congested-spectrum behavior is workload-dependent.
 
 ## Related
+- [XLeRobot on Orin NX 16 GB — model stack](xlerobot-orin-nx-model-stack.md) — this serving leg as step 3 of a full speech → planner → nav → manipulation stack; ACT stays onboard as the offline fallback.
 
 - [GR00T inference on Jetson](../platforms/gr00t-inference-on-jetson.md) — the measured on-Jetson numbers this extrapolates from.
 - [Fleet agentic framework](fleet-agentic-framework.md) — the architecture this serving leg belongs to (Spark hub + Orin NX robots).

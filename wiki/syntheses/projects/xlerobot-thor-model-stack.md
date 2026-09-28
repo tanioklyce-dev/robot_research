@@ -132,6 +132,7 @@ Each of these produces a number the wiki does not have:
 
 ## Related
 
+- [XLeRobot on Orin NX 16 GB — model stack](xlerobot-orin-nx-model-stack.md) — the same requirements with the Orin NX: memory binds, the heavy models move to the Spark, and the design is organized around what still works when Wi-Fi drops. Includes a side-by-side comparison with this page.
 - [Onboard compute for XLeRobot](../platforms/jetson-onboard-compute-xlerobot.md) — why Thor is over budget on the stock pack, and the capping that makes it viable.
 - [XLeRobot + Thor power budget](xlerobot-thor-power-budget.md) — `nvpmodel` modes, rails and runtime.
 - [XLeRobot bring-up plan](xlerobot-nav-manip-teleop-bringup.md) — the Orin NX-era plan this page updates for Thor.

@@ -10,6 +10,9 @@ tags: [xlerobot, so-arm101, lerobot, act, smolvla, nav2, rtab-map, orin-nx, dgx-
 
 **Starting state:** XLeRobot assembled and teleoperating. 2× [SO-ARM101](../../entities/so-arm101.md) (5 DoF + gripper), **2-wheel differential** base (non-holonomic), [Jetson Orin NX 16 GB](../../entities/jetson-orin-nano.md) onboard, [LeRobot](../../entities/lerobot.md)-native, [DGX Spark](../../entities/dgx-spark.md) available off-board.
 
+> [!note] Adding speech and a planner (2026-09-28)
+> [XLeRobot on Orin NX 16 GB — model stack](xlerobot-orin-nx-model-stack.md) adds the speech and reasoning layers this plan leaves out of scope, for this same Orin NX + Spark setup, split by what must survive a Wi-Fi drop.
+
 > [!note] Thor variant (2026-09-28)
 > This plan assumes an Orin NX with off-board serving on the Spark. For a Thor-equipped XLeRobot, with all inference onboard and speech commands added, see [XLeRobot on Thor — model stack](xlerobot-thor-model-stack.md). Legs A–C and the serial-bus blocker are unchanged.
 
