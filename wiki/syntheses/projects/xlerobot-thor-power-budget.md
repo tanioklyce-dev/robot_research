@@ -2,7 +2,7 @@
 title: XLeRobot + AGX Thor power budget — is a 300 W battery enough?
 type: synthesis
 created: 2026-05-30
-updated: 2026-07-17
+updated: 2026-09-28
 tags: [xlerobot, jetson-thor, power, battery, anker-c300, v-mount, d-tap, sts3215, energy-budget, nvpmodel, power-modes, tiered-power, projects]
 ---
 
@@ -235,3 +235,5 @@ Still required either way: a **fabricated D-Tap → Micro-Fit 3.0 (2×2, 3.0 mm)
 - [Anker C300 DC vs C300 vs C1000](../platforms/anker-portable-power-stations.md) — the power-source comparison (incl. the C300-SKU contradiction the paper surfaces)
 - [JetsonHacks — V-mount battery to power NVIDIA Jetson](https://jetsonhacks.com/2024/05/23/v-mount-battery-to-power-nvidia-jetson-electronics-projects/) — external primary reference for the §V-mount/D-Tap option; same channel as the wiki's [Claude-Code-on-Jetson demo](../../sources/jetsonhacks-ai-coding-jetson-claude-code.md)
 - [XLeRobot camera options for low-light + clutter](xlerobot-camera-options-low-light.md) — sibling integration analysis
+
+> See also [XLeRobot on Thor — model stack](xlerobot-thor-model-stack.md) (2026-09-28): what to run inside this power budget, and why the task's phases let GPU-heavy models take turns at Mode 3.

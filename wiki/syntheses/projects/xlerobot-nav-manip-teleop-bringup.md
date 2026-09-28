@@ -2,13 +2,16 @@
 title: XLeRobot — navigate, pick-and-place, teleoperate — sequenced bring-up plan
 type: synthesis
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-09-28
 tags: [xlerobot, so-arm101, lerobot, act, smolvla, nav2, rtab-map, orin-nx, dgx-spark, rosetta, teleoperation, data-collection, projects]
 ---
 
 # XLeRobot bring-up — nav, pick-and-place, teleop
 
 **Starting state:** XLeRobot assembled and teleoperating. 2× [SO-ARM101](../../entities/so-arm101.md) (5 DoF + gripper), **2-wheel differential** base (non-holonomic), [Jetson Orin NX 16 GB](../../entities/jetson-orin-nano.md) onboard, [LeRobot](../../entities/lerobot.md)-native, [DGX Spark](../../entities/dgx-spark.md) available off-board.
+
+> [!note] Thor variant (2026-09-28)
+> This plan assumes an Orin NX with off-board serving on the Spark. For a Thor-equipped XLeRobot, with all inference onboard and speech commands added, see [XLeRobot on Thor — model stack](xlerobot-thor-model-stack.md). Legs A–C and the serial-bus blocker are unchanged.
 
 **What this plan is:** the concrete execution of **steps 0–1 of the [fleet agentic framework](fleet-agentic-framework.md) build ladder** for the single XLeRobot — not a new framework. Step 0 is "record → HF → train on the Spark → async deploy"; step 1 is "add ROS 2 + a [Rosetta](../../entities/rosetta.md) contract, wrap Nav2 + the learned pick as skills." Everything below either de-risks or executes those two rungs.
 

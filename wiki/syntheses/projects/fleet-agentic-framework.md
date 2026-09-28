@@ -2,7 +2,7 @@
 title: Fleet agentic control framework — LeRobot + ROS 2 + on-edge Gemma + DGX Spark master control
 type: synthesis
 created: 2026-07-04
-updated: 2026-07-05
+updated: 2026-09-28
 tags: [project-scope, fleet, agentic-robotics, lerobot, ros2, rosetta, gemma4, dgx-spark, mcp, a2a, async-inference, hil-serl, xlerobot, lekiwi, rosorin-pro, stt-tts, multi-robot]
 ---
 
@@ -121,6 +121,9 @@ One MCP server implementation, parameterized per robot by its Rosetta contract +
 Gemma 4's native function-calling means the same prompt/tool schema drives the edge agent and the master — swap models with a config change, matching the [provider-fungibility finding](../agents/llm-agent-architecture-across-stacks.md#what-converges-and-why-it-matters).
 
 ## Speech I/O
+
+> [!note] Worked out for one robot (2026-09-28)
+> [XLeRobot on Thor — model stack §1](xlerobot-thor-model-stack.md#1-speech-io) expands this layer. Gemma-4-E4B/12B take **audio natively**, but the 26B/31B hub models do not. It recommends a separate ASR for a loggable transcript, and a **voice-stop keyword wired straight to a halt topic**, bypassing the planner.
 
 Commodity layer in Layer 2: **Whisper** or **sherpa-onnx** (offline) for STT + sherpa/OS TTS — the same stack [ROSOrin's offline curriculum](../../concepts/agents/llm-agent-architecture.md) uses. If the Hailo-10H stays on the LeKiwi, its **Voice2Action** runs speech on the NPU, freeing the Orin NX.
 

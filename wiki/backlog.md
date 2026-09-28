@@ -2,13 +2,19 @@
 title: Wiki Backlog — deferred lint items & knowledge gaps
 type: meta
 created: 2026-07-04
-updated: 2026-09-13
+updated: 2026-09-28
 tags: [backlog, lint, todo, knowledge-gaps]
 ---
 
 # Wiki Backlog
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
+
+## [2026-09-28] From the XLeRobot-on-Thor model-stack synthesis
+- [ ] **Speech has no primary sources in the wiki.** Ingest the docs for Whisper (or faster-whisper / whisper.cpp), sherpa-onnx (KWS + VAD + ASR + TTS), one wake-word engine, one VAD, and NVIDIA's Jetson speech stack. Ideally find any source with **on-Jetson ASR latency**. The [model-stack](syntheses/projects/xlerobot-thor-model-stack.md) speech section rests on names only.
+- [ ] **Ingest the Gemma 4 tech report (arXiv 2607.02770)**: audio-encoder design and any ASR/speech-understanding evals for E4B/12B. Decides Pipeline A vs B on paper before it's tested.
+- [ ] **Any Gemma 4 tokens/sec on Thor**: still zero figures for any size.
+- [ ] **Far-field mic arrays for mobile robots**: no source compares arrays, beamforming or echo cancellation under motor and fan noise.
 
 ## [2026-09-13] From the RK3588 ingest
 
