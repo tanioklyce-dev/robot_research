@@ -2,7 +2,7 @@
 title: Jetson Orin Nano
 type: entity
 created: 2026-05-16
-updated: 2026-09-27
+updated: 2026-09-28
 sources: 35
 tags: [jetson, nvidia, edge-ai, hardware, robotics-compute]
 ---
@@ -54,7 +54,7 @@ Mode persists across reboots and SC7. **Mode IDs are not portable across module 
 
 - **Module figures (Super):** **67 INT8 TOPS, 102 GB/s memory bandwidth, 7–25 W** ([Cutting the Cord](../sources/cutting-the-cord-untethered-xlerobot.md)) — the first ingested source to pin these numbers.
 - **On-edge policy latency** (Orin Nano, MAXN SUPER, FP16, end-to-end camera→action; [same source](../sources/cutting-the-cord-untethered-xlerobot.md)): **ACT 36 ms → 27.8 Hz** (reactive control ✅); **Diffusion Policy 540 ms → 1.8 Hz**; **SmolVLA-450M 714 ms → 1.4 Hz** (diffusion/flow-matching action heads are the bottleneck, *not* the VLM). No thermal throttling after 30 min continuous SmolVLA (max 54.6 °C).
-- **First measured onboard-XLeRobot build:** Correll lab's untethered [XLeRobot](xlerobot.md) embeds the Orin Nano Super ($249) with ~60 W of power headroom on a 288 Wh pack — the **validated default** in the [Jetson onboard-compute comparison](../syntheses/platforms/jetson-onboard-compute-xlerobot.md).
+- **First measured onboard-XLeRobot build:** Correll lab's untethered [XLeRobot](xlerobot.md) embeds the Orin Nano Super ($249 at the time; **$399** since NVIDIA's [2026-07 increase](../sources/nvidia-jetson-faq-pricing.md)) with ~60 W of power headroom on a 288 Wh pack — the **validated default** in the [Jetson onboard-compute comparison](../syntheses/platforms/jetson-onboard-compute-xlerobot.md).
 - **Containerized LeRobot path:** NVIDIA's archived [Jetson AI Lab LeRobot tutorial](../sources/nvidia-jetson-ai-lab-lerobot.md) lists Orin Nano **8 GB** as a supported (but caveated) target for running the full LeRobot teleop→train→eval loop via the `dustynv/lerobot` [jetson-containers](jetson-containers.md) image — the 8 GB tier is the tight one for onboard ACT training.
 
 ## Software stack
@@ -79,6 +79,7 @@ In-place updates use apt against NVIDIA's L4T Debian repository: `apt update && 
 - [Hiwonder ROSOrin Pro](rosorin-pro.md) — 6-DOF arm + mobile-base humanoid arm kit; Orin Nano is one of four supported compute options ([Hiwonder ROSOrin Pro user manual](../sources/hiwonder-rosorin-pro-user-manual.md)).
 - [Hiwonder ROSOrin](rosorin.md) — base mobile-platform variant with the same compute-option matrix.
 - See [Robot platforms comparison](../syntheses/platforms/robot-platforms-comparison.md) and [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) for where Orin Nano sits in the broader compute landscape.
+- [XLeRobot on Orin Nano 8 GB — model stack](../syntheses/projects/xlerobot-orin-nano-model-stack.md) — what to run on this board for speech, planning, navigation and manipulation. The measured Gemma-4-E2B (2.7 GB) doesn't fit comfortably beside navigation in 8 GB, so the planner goes to a Spark.
 
 ## Open questions
 
@@ -110,3 +111,4 @@ In-place updates use apt against NVIDIA's L4T Debian repository: `apt update && 
 - [Gemma 4 E2B model card + LiteRT benchmarks](../sources/gemma-4-e2b-model-card.md) — **First measured LLM throughput for this board in the wiki**: [Gemma 4](gemma4.md) E2B under LiteRT-LM — CPU 109 prefill / **12.2 decode** tok/s, 9.4 s TTFT, 3681 MB; **GPU 1,142 prefill / 24.2 decode**, **0.9 s TTFT**, 2739 MB. The ~10× prefill and ~9× TTFT gap between backends on the same board is the sizing lesson.
 - [Gemma 4 Powers Open Duck Mini (explainx.ai)](../sources/explainx-gemma-4-open-duck-mini.md) — One of the two boards in Google's I/O 2026 [Open Duck Mini](open-duck-mini.md) demo, running Gemma 4 E2B on-device alongside a Raspberry Pi 5.
 - [RK3588 Architecture Deep Dive (Turing Pi)](../sources/turingpi-rk3588-architecture-deep-dive.md) — the ARM-SBC comparator: an RK3588's **measured ~21.5 GB/s** STREAM against this module's 102 GB/s spec is the clearest bandwidth ratio in the wiki for why LLM decode and policy latency differ by tier; see [heterogeneous edge SoCs](../concepts/robotics/heterogeneous-edge-soc.md)
+- [NVIDIA Jetson FAQ pricing](../sources/nvidia-jetson-faq-pricing.md) — 2026-07 price increase: Super dev kit $249 → $399; 8 GB / 4 GB modules $399 / $349 at 1KU.

@@ -134,7 +134,7 @@ As on every tier, the wiki names the speech tools (sherpa-onnx, Whisper, Parler-
 
 - **Form factor.** The dev kit is larger than the Orin NX module and uses an active heatsink-fan, and the AGX tier needs its own carrier. It is not the Nano's drop-in upgrade path ([onboard compute](../platforms/jetson-onboard-compute-xlerobot.md)). The fan also puts the robot's loudest noise source near wherever the dev kit sits, so plan the mic mount around it.
 - **Software.** Isaac ROS 4.6+/5.0 supports Jetson Orin on **JetPack 7.2**, and AGX Orin is one of the boards NVIDIA explicitly verifies ([Isaac ROS release notes](../../sources/isaac-ros-release-notes-and-platforms.md)). The GR00T full-graph TensorRT recipe above is also JetPack 7.2.
-- **Price.** ~$1,999 dev kit: between the Orin NX (~$600 module) and Thor ($3,499).
+- **Price.** **$3,499** dev kit (was $1,999; +75% in NVIDIA's [2026-07 increase](../../sources/nvidia-jetson-faq-pricing.md), the largest in the line), or **$2,999** for the bare 64 GB module (1KU) on a third-party carrier. That is between the Orin NX ($999 module) and Thor ($5,499).
 
 ## 7. The three tiers side by side
 
@@ -147,9 +147,9 @@ As on every tier, the wiki names the speech tools (sherpa-onnx, Whisper, Parler-
 | Pointing (Molmo2-ER) | Spark | **Onboard** | Onboard |
 | Works with no network | Speech, stop, small planner, nav, ACT | **Everything, slower** | Everything |
 | Compute power | 10–40 W | **15–60 W** (50 W working) | 70 W cap (40–130 W) |
-| Price | ~$600 | **~$1,999** | $3,499 |
+| Price (NVIDIA list, 2026-09) | $999 module | **$3,499** dev kit | $5,499 dev kit |
 
-**Which to pick.** If the robot always runs near a Spark, the **Orin NX** gets about the same VLA rate for a third of the price and much less power. If the robot has to be **fully capable offline** (a home deployment, Wi-Fi dead zones, demos away from the lab), the **AGX Orin** is the cheapest way to get there. **Thor** buys speed on top of independence. The AGX Orin is the right answer when offline capability matters more than VLA speed, which is plausible for an assistive robot doing tabletop tasks at human pace.
+**Which to pick.** If the robot always runs near a Spark, the **Orin NX** gets about the same VLA rate for under a third of the price ($999 vs $3,499) and much less power. If the robot has to be **fully capable offline** (a home deployment, Wi-Fi dead zones, demos away from the lab), the **AGX Orin** is the cheapest way to get there. **Thor** buys speed on top of independence. The AGX Orin is the right answer when offline capability matters more than VLA speed, which is plausible for an assistive robot doing tabletop tasks at human pace.
 
 ## 8. Experiments that would fill wiki gaps
 
@@ -161,6 +161,7 @@ As on every tier, the wiki names the speech tools (sherpa-onnx, Whisper, Parler-
 
 ## Related
 
+- [XLeRobot on Orin Nano 8 GB — model stack](xlerobot-orin-nano-model-stack.md) — the entry tier, and the only one measured on an XLeRobot. 8 GB leaves no comfortable room for even the 2.7 GB E2B planner beside navigation, so language understanding (ASR, planner, pointing) moves to the Spark. Offline mode is a **fixed spoken-command vocabulary mapped to ACT skills**, with no LLM. Has the four-tier table.
 - [XLeRobot on Orin NX 16 GB — model stack](xlerobot-orin-nx-model-stack.md) and [XLeRobot on Thor — model stack](xlerobot-thor-model-stack.md): the other two tiers.
 - [Onboard compute for XLeRobot](../platforms/jetson-onboard-compute-xlerobot.md), [Jetson module ladder](../platforms/jetson-module-ladder-power-performance.md), [GR00T inference on Jetson](../platforms/gr00t-inference-on-jetson.md), [GR00T over ZMQ from a Spark](gr00t-spark-zmq-xlerobot.md).
 - [XLeRobot bring-up plan](xlerobot-nav-manip-teleop-bringup.md), [Fleet agentic framework](fleet-agentic-framework.md).

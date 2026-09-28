@@ -16,6 +16,8 @@ Deferred maintenance items and knowledge gaps surfaced during lint passes but no
 - [ ] **Any Gemma 4 tokens/sec on Thor**: still zero figures for any size.
 - [ ] **Orin NX measurements** ([Orin NX stack](syntheses/projects/xlerobot-orin-nx-model-stack.md) §8): full-stack `tegrastats` memory budget; Gemma-4-E2B/E4B tok/s; CPU ASR real-time factor; Wi-Fi round trip to the Spark. The page's memory table is mostly estimates.
 - [ ] **AGX Orin measurements** ([AGX Orin stack](syntheses/projects/xlerobot-agx-orin-model-stack.md) §8): GR00T N1.7 at MAXN/50 W/30 W, official vs full-graph TensorRT; onboard GR00T vs Spark over Wi-Fi head to head; Gemma-4-E4B/12B tok/s (the §3 table is bandwidth-extrapolated).
+- [ ] **Orin Nano measurements** ([Orin Nano stack](syntheses/projects/xlerobot-orin-nano-model-stack.md) §9): onboard streaming ASR on the CPU beside RTAB-Map + Nav2; real memory subtotal; command-KWS false-accept rate with the servos running.
+- [ ] **Jetson prices, beyond NVIDIA's list** ([FAQ pricing](sources/nvidia-jetson-faq-pricing.md)): Thor T3000/T2000 prices; current single-unit Orin NX 16 GB module and Seeed reComputer J4012 prices; whether the DGX Spark price moved. Re-check the FAQ for a reversal.
 - [ ] **Far-field mic arrays for mobile robots**: no source compares arrays, beamforming or echo cancellation under motor and fan noise.
 
 ## [2026-09-13] From the RK3588 ingest

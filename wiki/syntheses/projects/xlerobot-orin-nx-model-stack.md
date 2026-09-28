@@ -103,6 +103,7 @@ Nav2 + RTAB-Map in localization-only mode + D435i + STS3215 wheel-encoder odomet
 ## 6. Platform settings that matter
 
 - **Power mode: avoid the 10 W mode, and don't assume Super Mode.** Known issue **6236259** on Jetson Linux r39.2: dropping EMC below max during boot "can cause system crashes upon reboot," and Orin NX 16 GB at **10 W** is named. Seeed's J401 carrier guide says **not to enable MAXN SUPER** on the Orin NX because the carrier can't cool it, so the 157 TOPS headline depends on the carrier ([onboard compute](../platforms/jetson-onboard-compute-xlerobot.md), [Jetson ladder](../platforms/jetson-module-ladder-power-performance.md)). The 25 W or 40 W modes are the working range.
+- **Price, after the 2026-07 increase.** Orin NX 16 GB module **$999** (1KU, was $699), reusing an Orin Nano dev-kit carrier, vs AGX Orin dev kit **$3,499** and Thor **$5,499** ([NVIDIA FAQ](../../sources/nvidia-jetson-faq-pricing.md)). The ratios barely moved, so the tier comparison below still holds.
 - **Power draw is the Orin NX's advantage.** The compute budget is 10–40 W vs Thor's 70 W cap, a much smaller share of the 288 Wh pack. Running the heavy models on the Spark means the robot's battery doesn't pay for them.
 - **JetPack / Isaac ROS:** either stay on **JetPack 6.2 + Isaac ROS 3.2 (Humble)**, or reflash to **JetPack 7.2 + Isaac ROS 4.6 (Jazzy) / 5.0 (Lyrical)**. The Orin NX isn't individually named in Isaac ROS's platform table ([onboard compute](../platforms/jetson-onboard-compute-xlerobot.md)).
 
@@ -116,7 +117,7 @@ Nav2 + RTAB-Map in localization-only mode + D435i + STS3215 wheel-encoder odomet
 | Spatial grounding | Spark | Onboard |
 | Works with no network | Speech, stop, small planner, nav, **ACT skills** | Everything |
 | Compute power | **10–40 W** | 70 W cap (40–130 W range) |
-| Compute cost | ~$600 module (+ the Spark you already have) | $3,499 dev kit |
+| Compute cost ([NVIDIA list](../../sources/nvidia-jetson-faq-pricing.md)) | $999 module, 1KU (+ the Spark you already have) | $5,499 dev kit |
 
 The [GR00T-over-ZMQ page](gr00t-spark-zmq-xlerobot.md) made the key observation: **the Orin NX + Spark gets roughly the same VLA replan rate as a Thor**, on hardware that stays on the desk and serves the whole fleet. What Thor buys is **independence from the network**. That matters most for a robot that leaves Wi-Fi range or has to be dependable in a home. It matters little on a bench.
 
@@ -130,6 +131,7 @@ The [GR00T-over-ZMQ page](gr00t-spark-zmq-xlerobot.md) made the key observation:
 
 ## Related
 
+- [XLeRobot on Orin Nano 8 GB — model stack](xlerobot-orin-nano-model-stack.md) — the entry tier, and the only one measured on an XLeRobot. 8 GB leaves no comfortable room for even the 2.7 GB E2B planner beside navigation, so language understanding (ASR, planner, pointing) moves to the Spark. Offline mode is a **fixed spoken-command vocabulary mapped to ACT skills**, with no LLM. Has the four-tier table.
 - [XLeRobot on AGX Orin 64 GB — model stack](xlerobot-agx-orin-model-stack.md) — the middle tier: everything fits onboard and runs offline, at about half Thor's VLA throughput; the Spark becomes an optional accelerator. Has the three-tier comparison table.
 - [XLeRobot on Thor — model stack](xlerobot-thor-model-stack.md) — the all-onboard counterpart; speech design detail lives there.
 - [XLeRobot bring-up plan](xlerobot-nav-manip-teleop-bringup.md) — the Orin NX nav, manipulation and teleop plan this page extends.

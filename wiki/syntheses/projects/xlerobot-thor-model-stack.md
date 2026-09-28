@@ -132,6 +132,7 @@ Each of these produces a number the wiki does not have:
 
 ## Related
 
+- [XLeRobot on Orin Nano 8 GB — model stack](xlerobot-orin-nano-model-stack.md) — the entry tier, and the only one measured on an XLeRobot. 8 GB leaves no comfortable room for even the 2.7 GB E2B planner beside navigation, so language understanding (ASR, planner, pointing) moves to the Spark. Offline mode is a **fixed spoken-command vocabulary mapped to ACT skills**, with no LLM. Has the four-tier table.
 - [XLeRobot on AGX Orin 64 GB — model stack](xlerobot-agx-orin-model-stack.md) — the middle tier: everything fits onboard and runs offline, at about half Thor's VLA throughput; the Spark becomes an optional accelerator. Has the three-tier comparison table.
 - [XLeRobot on Orin NX 16 GB — model stack](xlerobot-orin-nx-model-stack.md) — the same requirements with the Orin NX: memory binds, the heavy models move to the Spark, and the design is organized around what still works when Wi-Fi drops. Includes a side-by-side comparison with this page.
 - [Onboard compute for XLeRobot](../platforms/jetson-onboard-compute-xlerobot.md) — why Thor is over budget on the stock pack, and the capping that makes it viable.
