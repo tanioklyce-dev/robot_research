@@ -6117,3 +6117,9 @@ Three clusters: **contact-rich safety** ([survey](sources/safe-learning-contact-
 - Answered open question: the lower-body stream feeds a `unitree_rl_wbc` RL whole-body controller (base vx/vy/ω/height + leg/waist targets). One unified 54-D masked action, 30-step chunks, 4 denoising steps.
 - Flagged: the shipped config reads as a cross-attention DiT (GR00T-style), not the joint-attention MMDiT drawn on the launch page. This is inferred from config keys only.
 - Updated [UnifoLM-WLA-1.0 source](sources/unifolm-wla-1-project-page.md), [UnifoLM](entities/unifolm.md), [Unitree](entities/unitree.md), [Unitree G1](entities/unitree-g1.md), [HIW-500](entities/hiw-500.md), [VLA models](concepts/learning/vla-models.md), [UnifoLM-WMA-0 source](sources/unifolm-wma-0-project-page.md), index.
+
+## [2026-09-28] ingest | Robostral Navigate (Mistral AI, arXiv 2607.20785v3)
+- Created [Robostral Navigate paper](sources/robostral-navigate-paper.md). PDF v3 in `raw/`; launch blog captured to `raw/2026-07-08-mistral-robostral-navigate-blog.md`.
+- New entity: [Mistral AI](entities/mistral-ai.md).
+- Updated [Visual navigation policies](concepts/robotics/visual-navigation-policies.md), [Galaxea R1](entities/galaxea-r1.md), [Hiwonder](entities/hiwonder.md) (JetAuto), [Habitat](entities/habitat.md), [Molmo](entities/molmo.md) (pointing, Molmo2 masking), [Qwen](entities/qwen.md) (baselines), index.
+- Flagged: (1) VLN-CE numbers use Habitat's pathfinder between predicted waypoints, not comparable to the discrete-action baselines; (2) the reported 77.43% equals the run's peak on the reported val-unseen split, and no test-split number is given; (3) **contradiction**: the blog (07-08) says 76.6% / +9.7 / +4.5 / RL +3.2, while all three arXiv versions say 77.4 / +10.5 / +5.3 / +4.03 (v1→v3 diff: contributor list only); (4) the diffusion policy rate is inconsistent (10 Hz vs 30 deltas per second); (5) aerial and legged deployment is claimed but not shown.

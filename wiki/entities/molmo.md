@@ -3,8 +3,8 @@ title: Molmo
 type: entity
 subtype: vlm
 created: 2026-07-17
-updated: 2026-08-13
-sources: 7
+updated: 2026-09-28
+sources: 8
 tags: [molmo, molmo2, vlm, allen-institute, ai2, pixmo, open-weights, open-data, pointing, vla-backbone]
 ---
 
@@ -36,6 +36,8 @@ The distillation-free data recipe pays off: the **Molmo-72B** model **tops acade
 
 **[Moondream](moondream.md)** — an unrelated Apache-2.0 small-VLM line from M87 Labs — ships **Point** and **Detect** as first-class operations too. Two independent small-VLM programs converged on **pointing as the primitive that makes a VLM useful to a robot**, and neither is a VLA. Worth noting because it suggests the capability is being selected for by the downstream use case rather than by any one lab's taste.
 
+A third, closed program has since built on the same idea: [Mistral AI](mistral-ai.md)'s [Robostral Navigate](../sources/robostral-navigate-paper.md) initializes from an in-house VLM "specialized for grounding tasks such as pointing," then turns **pointing into the navigation action**. Its training recipe (episode packing behind a tree attention mask) credits **Molmo2**'s shared-context masking as the inspiration.
+
 ## Related
 
 - [MolmoAct](molmoact.md) / [MolmoAct2](molmoact2.md) — the VLAs built on Molmo / Molmo2-ER; the reason this entity exists.
@@ -54,3 +56,4 @@ The distillation-free data recipe pays off: the **Molmo-72B** model **tops acade
 - [MolmoAct](molmoact.md) — the VLA that uses Molmo as its backbone.
 - [MolmoAct2 paper (Fang, Duan et al. 2026)](../sources/molmoact2-paper.md) — Molmo2 / Molmo2-ER lineage.
 - [MolmoAct paper](../sources/molmoact-paper.md) — Molmo's VLM pointing generates the visual-trace annotations (box-based detectors collapse to box centers); the ARM line is the robotics application of the Molmo recipe.
+- [Robostral Navigate paper](../sources/robostral-navigate-paper.md) — pointing as a navigation action; Molmo2 masking inspired its prefix-tree training.

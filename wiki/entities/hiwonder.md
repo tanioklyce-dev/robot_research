@@ -3,8 +3,8 @@ title: Hiwonder
 type: entity
 subtype: company
 created: 2026-05-07
-updated: 2026-05-28
-sources: 4
+updated: 2026-09-28
+sources: 5
 tags: [hiwonder, china, robot-kit, education, jetson, openclaw-controller, ros2, lerobot, nexarm]
 status: stub
 ---
@@ -19,6 +19,7 @@ Educational-robotics vendor that builds [ROSOrin](rosorin.md) and other Jetson-b
 - Custom hardware accessories: WonderEcho Pro voice module + 6-microphone circular array; HX-series bus servos for the arms (HX-12H and others).
 - Curriculum spans cloud LLMs (OpenAI / OpenRouter) and offline runtimes ([Ollama](ollama.md) + [Qwen](qwen.md) + sherpa-onnx).
 - Also ships **[NexArm](nexarm.md)** — a **LeRobot-native leader-follower imitation-learning arm** (6-DOF, from $279.99; ACT / Diffusion Policy / π0), a direct competitor to [SO-ARM101](so-arm101.md).
+- **JetAuto**, a Jetson-based ROS mecanum/wheeled kit, is one of the two robots [Mistral AI](mistral-ai.md) used to show [Robostral Navigate](../sources/robostral-navigate-paper.md)'s cross-embodiment transfer (same weights as on a [Galaxea R1](galaxea-r1.md)). The paper cites NVIDIA's Jetson community-project page for it. It is the first appearance in this wiki of a Hiwonder kit in a frontier lab's research.
 
 ## Why it matters
 Represents the **educational tier** of the agentic-robotics ecosystem — distinct from research platforms like [Stretch](stretch.md). Hiwonder now **spans two tiers at once**: the **LLM-agent** pattern on its [ROSOrin Pro](rosorin-pro.md) ([OpenClaw](openclaw.md)) kits — meaningful evidence that the [LLM-agent pattern](../concepts/agents/llm-agent-architecture.md), not VLA, is the dominant accessible-robotics approach in 2026 — **and** the **LeRobot imitation-learning** tier via [NexArm](nexarm.md). The latter is a notable vendor-side convergence on the [SO-ARM101](so-arm101.md) leader-follower playbook.
@@ -34,3 +35,4 @@ Represents the **educational tier** of the agentic-robotics ecosystem — distin
 - [Hiwonder ROSOrin Pro User Manual](../sources/hiwonder-rosorin-pro-user-manual.md)
 - [Hiwonder OpenClaw Practical Tutorial](../sources/hiwonder-openclaw-tutorial.md)
 - [Hiwonder NexArm 6-Axis (product page)](../sources/hiwonder-nexarm-product-page.md) — LeRobot leader-follower IL arm.
+- [Robostral Navigate paper](../sources/robostral-navigate-paper.md) — JetAuto as a deployment platform.

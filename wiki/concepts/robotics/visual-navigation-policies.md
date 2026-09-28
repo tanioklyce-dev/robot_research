@@ -2,8 +2,8 @@
 title: Visual navigation policies (GNM → ViNT → NoMaD → LogoNav → OmniVLA)
 type: concept
 created: 2026-09-11
-updated: 2026-09-12
-sources: 9
+updated: 2026-09-28
+sources: 10
 tags: [navigation, visual-navigation, goal-conditioned, topological-memory, gnm, vint, nomad, logonav, omnivla, berkeley, rail, cross-embodiment, sidewalk-robot, normalized-actions, modality-dropout]
 ---
 
@@ -39,6 +39,8 @@ Adjacent RAIL work the papers cite: RECON and ViKiNG (latent-goal exploration; k
 
 Everything above is the RAIL image-goal line: ~50M-parameter models, normalized waypoints, 3–4 Hz. A second line grew up on the Habitat VLN-CE benchmarks (R2R-CE, RxR-CE) and does not cite the first — NaVid, NaVILA, StreamVLN, InternVLA-N1 — 7B multimodal LLMs emitting **discrete** actions (0.25 m forward, 15° turns, STOP), trained on hundreds of thousands of simulated trajectories plus DAgger augmentation. [GA-VLN](../../sources/ga-vln-paper.md) is the wiki's first primary from this side, and its contribution is an efficiency one: replace the video-frame tokens the MLLM reads with an agent-centric **BEV grid** of depth-projected SigLIP features plus frozen VGGT-1B features, cutting tokens per step **4,003 → 514**, MLLM compute 32.2 → 8.7 TFLOPs, and raising R2R-CE success 51.5 → 61.0% without DAgger. Explicit projection does most of the work (+7.7); the 3D foundation model adds +1.8. Deployed zero-shot on a Stretch 3 with no obstacle avoidance, it hugs walls. The two lineages measure different things — kilometre-scale real-world routes versus instruction-following in simulated homes — and nothing in the wiki yet compares them on one robot.
 
+**[Robostral Navigate](../../sources/robostral-navigate-paper.md)** ([Mistral AI](../../entities/mistral-ai.md), 2026-07) now tops this lineage's scoreboard: **77.4% R2R-CE / 75.1% RxR-CE** val-unseen SR from a single RGB camera, vs GA-VLN's 61.0 and the strongest monocular prior (Qwen-RobotNav-4B) at 66.9. It connects the two lineages in one respect. Its action is **pointing at a pixel**, the VLM-scale restatement of GNM's lesson that an embodiment-free action space is the cross-embodiment trick; here it's image-space rather than normalized metric. Same weights drive a [Galaxea R1](../../entities/galaxea-r1.md) and a Hiwonder JetAuto through a 121M diffusion head and per-robot tracker. Two cautions before comparing it with the discrete-action rows: the benchmark runs use **Habitat's pathfinder between its waypoints** (a waypoint-track setting), and the reported checkpoint equals the run's peak on the reported split. Its reusable contribution is a training trick: **episode packing behind a prefix-tree attention mask**, which cuts tokens 22× and applies to any history-conditioned policy.
+
 ## Where it meets the rest of the wiki
 
 - **Evaluation.** The [Earth Rover Challenge](../../sources/earth-rover-challenge-frodobots-2k.md) is the standing multi-city benchmark for this class; MBRA's six-country deployment and ViNT's kilometer runs are the research-side versions. Metrics worth keeping: mean progress (GNM), max displacement without intervention (ViNT), SPL (ViNT), coverage rate (MBRA) — all partial-credit, all on the [robot policy evaluation](robot-policy-evaluation.md) page.
@@ -50,6 +52,7 @@ Everything above is the RAIL image-goal line: ~50M-parameter models, normalized 
 
 - [GNM](../../sources/gnm-paper.md), [ViNT](../../sources/vint-paper.md), [NoMaD](../../sources/nomad-paper.md), [MBRA / LogoNav](../../sources/mbra-paper.md), [OmniVLA](../../sources/omnivla-paper.md) — all ingested.
 - [Earth Rover Challenge site + FrodoBots-2K card](../../sources/earth-rover-challenge-frodobots-2k.md) — data and benchmark.
+- [Robostral Navigate](../../sources/robostral-navigate-paper.md) — current VLN-CE SOTA claim; pointing actions, sim-only, prefix-tree SFT + CISPO RL.
 
 ## Related concepts
 
@@ -67,3 +70,4 @@ Everything above is the RAIL image-goal line: ~50M-parameter models, normalized 
 - [LeLaN paper](../../sources/lelan-paper.md)
 - [CAST paper](../../sources/cast-paper.md)
 - [GA-VLN](../../sources/ga-vln-paper.md) — the MLLM-VLN lineage's first primary here; BEV tokens instead of video frames.
+- [Robostral Navigate paper](../../sources/robostral-navigate-paper.md) — Mistral's 8B pointing-based VLN model; tops R2R-CE/RxR-CE under a waypoint + pathfinder protocol.

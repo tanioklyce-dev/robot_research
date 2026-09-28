@@ -3,8 +3,8 @@ title: Galaxea R1 (and R1 Pro)
 type: entity
 subtype: robot
 created: 2026-07-04
-updated: 2026-07-04
-sources: 4
+updated: 2026-09-28
+sources: 5
 tags: [galaxea, galaxea-r1, wheeled-humanoid, bimanual, mobile-manipulator, groot]
 ---
 
@@ -18,6 +18,7 @@ tags: [galaxea, galaxea-r1, wheeled-humanoid, bimanual, mobile-manipulator, groo
 ## Why it matters in this wiki
 - **GR00T data embodiment**: [GR00T N1.6](../sources/groot-n1_6.md) adds "simulated Galaxea R1 Pro on the BEHAVIOR suite" to its pretraining mix (with bimanual [YAM](yam.md), AGiBot Genie1, [Unitree G1](unitree-g1.md)) — placing Galaxea in the cross-embodiment corpus of an NVIDIA foundation model. Fills the "Galaxea R1 Pro" gap flagged during the N1.6 ingest.
 - A wheeled-bimanual mobile manipulator in the same broad class as [Stretch](stretch.md) / [Reachy 2](reachy.md), but full-size dual-arm with a torso.
+- **Navigation deployment target**: [Mistral AI](mistral-ai.md)'s [Robostral Navigate](../sources/robostral-navigate-paper.md) (2026-07) runs on the R1 with the *same* 8B VLM and diffusion-policy weights as on a small Hiwonder JetAuto; only the low-level tracker differs. It is shown qualitatively, with no real-world success rate.
 
 ## Related
 - [OmniGibson](omnigibson.md) — the R1 / **R1 Pro** are supported robots in OmniGibson; [GR00T N1.6](../sources/groot-n1_6.md)'s "simulated Galaxea R1 Pro on BEHAVIOR" is literally the OmniGibson R1Pro running [BEHAVIOR-1K](behavior-benchmark.md) tasks.
@@ -29,6 +30,7 @@ tags: [galaxea, galaxea-r1, wheeled-humanoid, bimanual, mobile-manipulator, groo
 - [Galaxea R1 User Guide](../sources/galaxea-r1-user-guide.md) — primary source.
 - [GR00T N1.6 research page](../sources/groot-n1_6.md) — simulated R1 Pro training data.
 - [OmniGibson codebase](../sources/omnigibson-github.md) — R1 / R1 Pro are supported OmniGibson robots.
+- [Robostral Navigate paper](../sources/robostral-navigate-paper.md) — cross-embodiment navigation demo platform.
 
 ## Open questions
 - R1 vs R1 Pro differences; software stack (ROS 2/SDK), price, availability, battery/runtime.

@@ -3,8 +3,8 @@ title: Qwen
 type: entity
 subtype: product
 created: 2026-05-07
-updated: 2026-09-11
-sources: 13
+updated: 2026-09-28
+sources: 14
 tags: [qwen, llm, alibaba, open-weights]
 status: stub
 ---
@@ -39,3 +39,4 @@ Qwen has become a default open-weights LLM for agentic robotics on edge devices 
 - [Stretch AI LLM Agent Documentation](../sources/stretch-ai-llm-agent-docs.md)
 - [VLA-0 paper](../sources/vla-0-paper.md) — Qwen2.5-VL-3B as the VLA backbone.
 - [UnifoLM-WLA-1.0 project page](../sources/unifolm-wla-1-project-page.md) — Qwen3-VL-4B as a humanoid-VLA backbone.
+- [Robostral Navigate paper](../sources/robostral-navigate-paper.md) — Qwen-RobotNav-4B/8B and Qwen-VLA are its strongest VLN-CE baselines (Qwen-RobotNav-8B with depth still leads RxR-CE SR).

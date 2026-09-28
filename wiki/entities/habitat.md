@@ -3,15 +3,15 @@ title: Habitat
 type: entity
 subtype: product
 created: 2026-05-08
-updated: 2026-09-12
-sources: 2
+updated: 2026-09-28
+sources: 3
 tags: [habitat, embodied-ai, simulator, meta-fair, navigation, manipulation]
 ---
 
 **Habitat** — Meta FAIR's open-source **embodied-AI simulation platform** for navigation and manipulation in photorealistic 3D scenes. Runs at high frame rates on commodity GPUs and ships with large 3D-scene datasets (Replica, Matterport3D, HM3D). Habitat 2.0 (2021) added rigid-body dynamics and the Home Assistant Benchmark (HAB), which [ManiSkill](maniskill.md)-HAB later reimplemented at the low-level control layer.
 
 ## Position in this wiki
-Habitat is a **legacy embodied-AI sim** referenced for context across multiple syntheses but not yet a primary training environment in any ingested source:
+Habitat is a **legacy embodied-AI sim** referenced for context across multiple syntheses. Its VLN-CE benchmarks (R2R-CE, RxR-CE) remain *the* scoreboard for instruction-following navigation ([GA-VLN](../sources/ga-vln-paper.md), [Robostral Navigate](../sources/robostral-navigate-paper.md)):
 
 - **[ManiSkill-HAB Paper](../sources/maniskill-hab-paper.md)** — explicitly compares against Habitat 2.0 throughput (ManiSkill-HAB ~3× faster).
 - **[Simulators landscape synthesis](../syntheses/simulators/simulators-for-agentic-robotics-2026.md)** — Habitat referenced as a mature point of comparison.
@@ -31,6 +31,7 @@ Habitat is a **legacy embodied-AI sim** referenced for context across multiple s
 ## Mentioned in
 - [ManiSkill-HAB Paper](../sources/maniskill-hab-paper.md)
 - [GA-VLN](../sources/ga-vln-paper.md) — VLN-CE (R2R-CE, RxR-CE, NavRAG-CE) in Habitat on MP3D + HM3D; monocular 60° camera; the benchmark family the MLLM-navigation lineage is scored on.
+- [Robostral Navigate paper](../sources/robostral-navigate-paper.md) — sim data (cites Habitat + HM3D), VLN-CE evaluation, and **Habitat's pathfinder used between predicted waypoints at eval time**, which makes the reported numbers a waypoint-track result.
 
 ## Open questions / TBD
 - Habitat 3.0+ status, current adoption — not in the wiki.
