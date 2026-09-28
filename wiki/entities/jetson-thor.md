@@ -3,7 +3,7 @@ title: Jetson Thor
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-09-27
+updated: 2026-09-28
 sources: 46
 tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai, jetpack-7, nvfp4, mig, t3000, t2000, igx]
 ---
@@ -59,7 +59,7 @@ NVIDIA extended the family *downward* with three smaller-memory, lower-power SKU
 Thor's power is a **software-selectable budget**, not a fixed draw ([Thor Platform Power & Performance, R38.4](../sources/nvidia-jetson-thor-platform-power-performance.md)). **T5000**: Mode 0 **MAXN** (uncapped, throttles at the 130 W TDP), Mode 1 **120 W** (default), Mode 2 **90 W**, Mode 3 **70 W**. **T4000**: Mode 0 MAXN, Mode 1 **70 W** (default); module TDP 90 W. The main trade-off is GPU — sub-120 W modes drop the GPU from **10 → 6 TPC (~−40 % throughput)** while barely touching the CPU. Set with `sudo nvpmodel -m <id>` (persists across reboot/SC7). Decisive for battery robots — see [XLeRobot + Thor power budget](../syntheses/projects/xlerobot-thor-power-budget.md). For a small mobile manipulator, even the 70 W floor is high: [Cutting the Cord (2026)](../sources/cutting-the-cord-untethered-xlerobot.md) judges Thor's **40–130 W to "exceed the power budget"** of a 288 Wh XLeRobot, where a 7–25 W [Orin Nano](jetson-orin-nano.md) is the validated fit — see [Jetson onboard compute for XLeRobot](../syntheses/platforms/jetson-onboard-compute-xlerobot.md).
 
 ### Jetson AGX Thor Developer Kit
-NVIDIA reference carrier + T5000 module. **$3,499 starting** ([NVIDIA Newsroom](../sources/nvidia-jetson-thor-launch-newsroom.md)). Styled like an RTX Founders Edition; AGX-class connectivity.
+NVIDIA reference carrier + T5000 module. **$5,499** ([NVIDIA FAQ](../sources/nvidia-jetson-faq-pricing.md), since ~2026-07-21); launched at **$3,499** ([NVIDIA Newsroom](../sources/nvidia-jetson-thor-launch-newsroom.md)). T5000 module $4,999 / T4000 $2,999 at 1KU (were $3,499 / $2,499). Styled like an RTX Founders Edition; AGX-class connectivity.
 
 **Power input** (primary source: [Carrier Board Spec SP-12533-001 v1.2](../sources/nvidia-jetson-thor-carrier-board-spec.md)): main input **`VCC_SRC` = 9–28 V**, max **5 A over USB-C, 15 A over Micro-Fit 3.0** (Table 6-2), with a **~168 W enforced cap** ([Jetson Linux dev guide](https://docs.nvidia.com/jetson/archives/r38.2/DeveloperGuide/SD/PlatformPowerAndPerformance/JetsonThor.html)). The **bundled power adapter is USB-C** (28 V / 5 A = 140 W); the **Micro-Fit 3.0 (J83, 3.0 mm-pitch 2×2 header**, board part `2147561041` per a [forum thread](https://forums.developer.nvidia.com/t/what-is-the-correct-male-microfit-connector-for-the-jetson-agx-thor-developer-kit/347250)) is the **alternative** input — its advantage is **higher current (15 A vs 5 A) and a latching connector**, so it can carry the full 168 W where USB-C's 140 W falls ~28 W short. A **CYPD8225 PD controller arbitrates first-come-first-serve** — if both inputs are connected only the first is used; **they don't sum.** **For battery operation NVIDIA officially says to use the bundled PSU only** — off-label otherwise. The input is a *different rail* than the 12 V used by most low-cost arm/base platforms — see the [XLeRobot + Thor power budget](../syntheses/projects/xlerobot-thor-power-budget.md) for battery chemistry, the 28 V ceiling trap, and wiring.
 
@@ -191,3 +191,4 @@ See [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.m
 - [NVIDIA forums — real-time VLA inference on Thor & RTX](../sources/nvidia-forum-thor-realtime-vla-inference.md) — community 22–24 Hz GR00T N1.6 / 23 Hz π0.5 on Thor via custom CUDA kernels.
 - [NVIDIA + HF LeRobot partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md) — Thor + Reachy 2 integration for open-humanoid VLA deployment.
 - [Post-train Cosmos 3 Edge for on-device robot control](../sources/nvidia-cosmos3-edge-post-training-blog.md) — 1.53 s per 32-action chunk on AGX Thor T5000; ~9 GB BF16 weights; the Triton/sm_110a workaround; the on-Thor policy server.
+- [NVIDIA Jetson FAQ pricing](../sources/nvidia-jetson-faq-pricing.md) — the 2026-07 price increase: dev kit $3,499 → $5,499, T5000 $3,499 → $4,999, T4000 $2,499 → $2,999 (1KU).

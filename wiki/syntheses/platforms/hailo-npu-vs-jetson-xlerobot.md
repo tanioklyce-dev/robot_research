@@ -2,7 +2,7 @@
 title: "Hailo NPU (AI HAT+ 2) vs Jetson (CUDA) for an onboard XLeRobot brain"
 type: synthesis
 created: 2026-06-07
-updated: 2026-09-13
+updated: 2026-09-28
 tags: [xlerobot, hailo, jetson, npu, cuda, raspberry-pi, onboard-compute, edge-ai, vla, llm, buying-decision, platforms]
 ---
 
@@ -31,7 +31,7 @@ Everything below follows from that. The Jetson is a *brain you program*; the Hai
 | Memory for AI | **8 GB dedicated** on HAT | 8 GB shared | 16 GB shared |
 | Runs PyTorch policies as-is? | **No** (compile to HEF) | **Yes** (CUDA) | **Yes** (CUDA) |
 | Runs local LLM/VLM? | **Yes** (`gen_ai_apps`, Hailo-10H) | Yes (small, 8 GB cap) | Yes (better) |
-| Price (board) | **$180** | ~$249 | ~$600 |
+| Price (board) | **$180** | $399 dev kit (was $249; [NVIDIA list](../../sources/nvidia-jetson-faq-pricing.md)) | $999 module 1KU (was $699) |
 | Host | needs a Pi 5 (~$80) | self-contained | self-contained |
 
 *(Jetson figures from [Jetson onboard compute for XLeRobot](jetson-onboard-compute-xlerobot.md); Hailo figures from [AI HAT+ 2](../../sources/raspberry-pi-ai-hat-plus-2.md).)*

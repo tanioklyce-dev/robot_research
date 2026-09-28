@@ -22,7 +22,7 @@ An **untethered evolution of the [XLeRobot](../entities/xlerobot.md)** from [Nik
 ## Key claims
 
 ### Platform & BOM
-- **Total cost $1,202.28**, untethered. Headline BOM lines: **Jetson Orin Nano Super $249**, 17× Feetech STS3215 servos $271.83, **Anker SOLIX C300 $159.99**, Intel RealSense D435 $333.75, IKEA RÅSKOG cart $39.99. Dual SO-101 arms (5+1 DoF each) + LeKiwi omni base + 2-DoF neck = **17 DoF**, **1 kg/arm payload**, **>40 cm reach**, 1.20 m height.
+- **Total cost $1,202.28**, untethered. Headline BOM lines: **Jetson Orin Nano Super $249** (NVIDIA list price at the time; **$399** since 2026-07-21 per the [Jetson FAQ](nvidia-jetson-faq-pricing.md), which would put the build near **$1,352**), 17× Feetech STS3215 servos $271.83, **Anker SOLIX C300 $159.99**, Intel RealSense D435 $333.75, IKEA RÅSKOG cart $39.99. Dual SO-101 arms (5+1 DoF each) + LeKiwi omni base + 2-DoF neck = **17 DoF**, **1 kg/arm payload**, **>40 cm reach**, 1.20 m height.
 - Positioned (Table I) against AhaRobot (~$2k, RTX 4060), Cone-E (<$12k), [Mobile ALOHA](../entities/aloha.md) (~$32k, RTX 3070 Ti), TB3+arms (~$3k, Pi 4, no GPU). "Ours" is the cheapest *untethered + GPU* entry.
 
 ### Tri-Bus power topology (the core systems contribution)

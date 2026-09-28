@@ -2,7 +2,7 @@
 title: "Jetson module ladder — performance and power, Orin Nano 4 GB → AGX Thor T5000"
 type: synthesis
 created: 2026-07-26
-updated: 2026-09-13
+updated: 2026-09-28
 tags: [jetson, jetson-orin-nano, orin-nx, agx-orin, jetson-thor, nvpmodel, power-modes, perf-per-watt, edge-ai, hardware, reference, platforms]
 ---
 
@@ -24,13 +24,15 @@ This page is the **superset table** underneath both: all SKUs, both `nvpmodel` c
 | Module | Arch | GPU | CPU | Memory | Bandwidth | AI perf | Power | Price (wiki-recorded) | SDK |
 |---|---|---|---|---|---|---|---|---|---|
 | **Orin Nano 4 GB** | Ampere | 512-core / 16 TC | 6× A78AE | 4 GB 64-bit LPDDR5 | 51 GB/s | 34 TOPS | 7 / 10 / 25 W | — | JetPack 7.2+ ¹ |
-| **Orin Nano 8 GB** | Ampere | 1024-core / 32 TC | 6× A78AE | 8 GB 128-bit LPDDR5 | 102 GB/s | 67 TOPS | 7 / 15 / 25 W | **~$249** dev kit | JetPack 7.2+ ¹ |
+| **Orin Nano 8 GB** | Ampere | 1024-core / 32 TC | 6× A78AE | 8 GB 128-bit LPDDR5 | 102 GB/s | 67 TOPS | 7 / 15 / 25 W | **$399** dev kit ⁵ | JetPack 7.2+ ¹ |
 | **Orin NX 8 GB** | Ampere | 1024-core / 32 TC **+ 1 DLA** ⁴ | 6× A78AE | 8 GB 128-bit LPDDR5 | 102.4 GB/s | 117 TOPS | 10–25 W (40 W Super) | — | JetPack 7.2+ ¹ |
-| **Orin NX 16 GB** | Ampere | 1024-core / 32 TC **+ 2 DLA** ⁴ | 8× A78AE | 16 GB 128-bit LPDDR5 | 102.4 GB/s | 157 TOPS | 10–40 W | **~$600** module | JetPack 7.2+ ¹ |
+| **Orin NX 16 GB** | Ampere | 1024-core / 32 TC **+ 2 DLA** ⁴ | 8× A78AE | 16 GB 128-bit LPDDR5 | 102.4 GB/s | 157 TOPS | 10–40 W | **$999** module (1KU) ⁵ | JetPack 7.2+ ¹ |
 | **AGX Orin 32 GB** | Ampere | 1792-core / 56 TC **+ 2 DLA** | 8× A78AE | 32 GB 256-bit LPDDR5 | 204.8 GB/s | 200 → **241 TOPS** (MAXN_SUPER, JP7.2) | 15–60 W | — | JetPack 7.2+ ¹ |
-| **AGX Orin 64 GB** | Ampere | 2048-core / 64 TC **+ 2 DLA** | 12× A78AE | 64 GB 256-bit LPDDR5 | 204.8 GB/s | 275 TOPS | 15–60 W (≤75 W MAXN per some listings) | **~$1,999** dev kit | JetPack 7.2+ ¹ |
+| **AGX Orin 64 GB** | Ampere | 2048-core / 64 TC **+ 2 DLA** | 12× A78AE | 64 GB 256-bit LPDDR5 | 204.8 GB/s | 275 TOPS | 15–60 W (≤75 W MAXN per some listings) | **$3,499** dev kit ⁵ | JetPack 7.2+ ¹ |
 | **AGX Thor T4000** | **Blackwell** | 1536-core / 5th-gen TC | 12× Neoverse-V3AE | 64 GB 256-bit LPDDR5X | 273 GB/s | **1200 FP4 TFLOPS** | 40–70 W (**90 W TDP**) | — | **JetPack 7** |
-| **AGX Thor T5000** | **Blackwell** | 2560-core / 5th-gen TC | 14× Neoverse-V3AE | 128 GB 256-bit LPDDR5X | 273 GB/s | **2070 FP4 TFLOPS** | 40–130 W (**130 W TDP**) | **$3,499** dev kit | **JetPack 7** |
+| **AGX Thor T5000** | **Blackwell** | 2560-core / 5th-gen TC | 14× Neoverse-V3AE | 128 GB 256-bit LPDDR5X | 273 GB/s | **2070 FP4 TFLOPS** | 40–130 W (**130 W TDP**) | **$5,499** dev kit ⁵ | **JetPack 7** |
+
+⁵ **Prices updated 2026-09-28** to NVIDIA's own list ([Jetson FAQ](../../sources/nvidia-jetson-faq-pricing.md)): dev kits at MSRP, modules at 1KU+ volume pricing. NVIDIA raised every Orin and Thor price between 2026-07-06 and 2026-07-29 (dated 07-21 by coverage). Before → after: Orin Nano Super dev kit $249 → **$399**; Orin NX 16 GB module $699 → **$999** (the old "~$600" here was a street price); AGX Orin dev kit $1,999 → **$3,499**; Thor dev kit $3,499 → **$5,499**. Other SKUs: Orin Nano 8 GB / 4 GB module $399 / $349; Orin NX 8 GB $649; AGX Orin 64 GB / 32 GB / Industrial module $2,999 / $1,799 / $3,199; T5000 / T4000 $4,999 / $2,999. The TOPS/W column below is unaffected; any $/TOPS reading is not.
 
 ¹ **Corrected 2026-08-16.** These rows read *"JetPack 6"* until today. **JetPack 7.2 (Jetson Linux r39.2, **2026-06-02**) extends JetPack 7 to the entire Orin family** (Ubuntu 24.04 / kernel 6.8 / **CUDA 13.2.1** / TensorRT 10.16.2), unifying the toolchain with Thor; **7.2.1** followed 2026-08-12. Consequences: the Orin Nano dev kit **no longer has an SD-card image** (unified ISO from USB installs to microSD or NVMe); **Isaac ROS is listed "Coming soon"** on 7.2, which gates ROS robots on JetPack 6; and **AGX Orin 32 GB gains Super Mode (MAXN_SUPER), 200 → 241 TOPS**. Primary source: [JetPack 7.2 / Jetson Linux 39.2](../../sources/nvidia-jetpack-7-2-release.md).
 

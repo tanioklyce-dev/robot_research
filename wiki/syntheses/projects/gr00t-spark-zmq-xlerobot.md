@@ -8,7 +8,7 @@ tags: [gr00t, dgx-spark, zmq, xlerobot, orin-nx, off-board-inference, latency, v
 
 # GR00T on DGX Spark, served over ZMQ to XLeRobot (Orin NX 16 GB) — performance estimate
 
-**Estimate (no published GR00T-on-Spark benchmark exists as of 2026-07-08): the [DGX Spark](../../entities/dgx-spark.md) should run GR00T-3B inference at roughly Thor-class latency (~90–120 ms per call), plus 10–40 ms of ZMQ/network overhead — an end-to-end replan loop of ~7–10 Hz wired, ~5–8 Hz over Wi-Fi.** With chunked action execution that is fully usable for [XLeRobot](../../entities/xlerobot.md)-class tabletop manipulation, and it matches the replan rate of putting a $3,499 [Thor](../../entities/jetson-thor.md) on the robot.
+**Estimate (no published GR00T-on-Spark benchmark exists as of 2026-07-08): the [DGX Spark](../../entities/dgx-spark.md) should run GR00T-3B inference at roughly Thor-class latency (~90–120 ms per call), plus 10–40 ms of ZMQ/network overhead — an end-to-end replan loop of ~7–10 Hz wired, ~5–8 Hz over Wi-Fi.** With chunked action execution that is fully usable for [XLeRobot](../../entities/xlerobot.md)-class tabletop manipulation, and it matches the replan rate of putting a $5,499 [Thor](../../entities/jetson-thor.md) (was $3,499 at the time of writing; [price increase](../../sources/nvidia-jetson-faq-pricing.md)) on the robot.
 
 This is the off-board serving path recommended for the Orin NX 16 GB in [GR00T inference on Jetson](../platforms/gr00t-inference-on-jetson.md), and the policy-serving leg of the [fleet agentic framework](fleet-agentic-framework.md) (Spark hub + Orin NX robots).
 

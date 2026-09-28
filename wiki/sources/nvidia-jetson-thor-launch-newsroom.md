@@ -21,6 +21,8 @@ On **August 25, 2025**, NVIDIA announced that **Jetson AGX Thor developer kits a
 
 - **Launch date**: 2025-08-25.
 - **Developer kit price**: $3,499 (starting).
+  > [!note] Price since raised
+  > NVIDIA's list price for the dev kit is **$5,499** as of 2026-07-21, and the T5000 module is $4,999 at 1KU (was $3,499) ([NVIDIA Jetson FAQ](nvidia-jetson-faq-pricing.md)). $3,499 is the launch price this announcement stated.
 - **Production modules**: Jetson T5000 available from distribution partners on the same date.
 - **Named adopters** (verbatim list from release): Agility Robotics, Amazon Robotics, [Boston Dynamics](../entities/boston-dynamics.md), Caterpillar, Figure, Hexagon, Medtronic, Meta, 1X, John Deere, OpenAI, Physical Intelligence.
 - **Software stack** explicitly called out: NVIDIA Isaac (robotics simulation), [Isaac GR00T N1.5](../entities/nvidia-groot.md) (humanoid robot foundation models), NVIDIA Metropolis (vision AI), NVIDIA Holoscan (real-time sensor processing).

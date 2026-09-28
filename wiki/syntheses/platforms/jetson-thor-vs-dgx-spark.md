@@ -2,7 +2,7 @@
 title: Jetson Thor vs DGX Spark — the train-on-Spark, deploy-on-Thor split
 type: synthesis
 created: 2026-05-16
-updated: 2026-05-16
+updated: 2026-09-28
 tags: [jetson-thor, dgx-spark, nvidia, physical-ai, training-vs-deployment, isaac-sim, isaac-lab]
 ---
 
@@ -33,7 +33,7 @@ NVIDIA's two new Blackwell-generation **personal-scale** AI hardware products �
 
 ## Why they look alike
 
-Both ship in the same Blackwell + 128 GB + 273 GB/s + ARM64 + ~$4k bracket. Numbers that match almost exactly:
+Both shipped in the same Blackwell + 128 GB + 273 GB/s + ARM64 + ~$4k bracket. (Thor's dev kit has since gone to **$5,499** — [NVIDIA price increase, 2026-07](../../sources/nvidia-jetson-faq-pricing.md); the Spark's current price is not re-checked.) Numbers that match almost exactly:
 
 | Spec | Thor T5000 | DGX Spark |
 |---|---|---|
@@ -116,7 +116,7 @@ For most wiki-tracked robot projects (Stretch 3, ROSOrin Pro, XLeRobot, SO-101),
 
 ## References
 - [NVIDIA Jetson Thor product page](../../sources/nvidia-jetson-thor-product-page.md) — official Thor specs (T5000 + T4000).
-- [NVIDIA Blackwell-Powered Jetson Thor Now Available — Newsroom](../../sources/nvidia-jetson-thor-launch-newsroom.md) — 2025-08-25 launch + $3,499 + 12 partner adopters + Jensen quote.
+- [NVIDIA Blackwell-Powered Jetson Thor Now Available — Newsroom](../../sources/nvidia-jetson-thor-launch-newsroom.md) — 2025-08-25 launch + $3,499 launch price (now $5,499) + 12 partner adopters + Jensen quote.
 - [NVIDIA DGX Spark Hardware Overview](../../sources/nvidia-dgx-spark-hardware-overview.md) — GB10 SoC, RT cores, unified memory.
 - [Isaac Sim and Isaac Lab on NVIDIA Jetson AGX Thor — RS DesignSpark](../../sources/rs-designspark-isaac-sim-on-thor.md) — the authoritative explainer on why Isaac Sim cannot run on Thor.
 - [Jetson Thor entity page](../../entities/jetson-thor.md), [DGX Spark entity page](../../entities/dgx-spark.md).

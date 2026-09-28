@@ -3,14 +3,14 @@ title: NVIDIA Jetson Orin NX
 type: entity
 subtype: hardware
 created: 2026-08-28
-updated: 2026-09-27
+updated: 2026-09-28
 sources: 11
 tags: [jetson, jetson-orin-nx, nvidia, edge-ai, onboard-compute, ampere, dla, super-mode, nvpmodel, robotics, xlerobot]
 ---
 
 **Product page:** [developer.nvidia.com/embedded/jetson-orin-nx](https://developer.nvidia.com/embedded/jetson-orin-nx) · **Form factor:** 69.6 × 45 mm, **260-pin SO-DIMM**
 
-**NVIDIA Jetson Orin NX** — the middle rung of the Ampere-generation Jetson ladder, between the [Orin Nano](jetson-orin-nano.md) and AGX Orin. Two SKUs (**16 GB** and **8 GB**), both on a 1024-core Ampere GPU with 32 tensor cores. **This wiki's default recommendation for a battery-powered robot that needs to run a VLA onboard** — not because it is the fastest, but because it is **pin-compatible with the Orin Nano carrier**, stays inside a 10–40 W envelope, and costs ~$600 for the module ([XLeRobot onboard compute](../syntheses/platforms/jetson-onboard-compute-xlerobot.md)).
+**NVIDIA Jetson Orin NX** — the middle rung of the Ampere-generation Jetson ladder, between the [Orin Nano](jetson-orin-nano.md) and AGX Orin. Two SKUs (**16 GB** and **8 GB**), both on a 1024-core Ampere GPU with 32 tensor cores. **This wiki's default recommendation for a battery-powered robot that needs to run a VLA onboard** — not because it is the fastest, but because it is **pin-compatible with the Orin Nano carrier**, stays inside a 10–40 W envelope, and costs **$999** for the module at NVIDIA's 1KU list price after the [2026-07 increase](../sources/nvidia-jetson-faq-pricing.md) (~$600 street before it; [XLeRobot onboard compute](../syntheses/platforms/jetson-onboard-compute-xlerobot.md)).
 
 This page exists because "Orin NX" appeared on 37 wiki pages with its specs scattered across syntheses and no canonical home.
 
@@ -36,7 +36,7 @@ From NVIDIA's own module comparison table (retrieved 2026-08-28; re-parsed 2026-
 | Networking | 1× GbE | *same* |
 | Power modes | **10 W / 15 W / 25 W / 40 W** | 10 / 15 / 25 / 40 W |
 | Mechanical | 69.6 × 45 mm, 260-pin SO-DIMM | *same* |
-| Price | **~$600** module ([XLeRobot compute](../syntheses/platforms/jetson-onboard-compute-xlerobot.md)) | not recorded in this wiki |
+| Price ([NVIDIA list](../sources/nvidia-jetson-faq-pricing.md), since ~2026-07-21) | **$999** module 1KU (was $699; ~$600 street before the increase) | **$649** module 1KU (was $449) |
 
 > [!warning] Read the headline TOPS carefully — most of it is DLA, and all of it is sparse
 > **157 = 77 (GPU tensor cores) + 80 (DLA)**, and both halves are **SPARSE INT8**. Two consequences for anyone sizing a robot-learning workload:
@@ -111,7 +111,7 @@ Also worth knowing: there is a **PCIe boot bug on Orin Nano and Orin NX** with a
 ## Where it sits in the ladder
 
 - **vs [Orin Nano](jetson-orin-nano.md)**: **identical GPU** (1024 CUDA / 32 tensor). The 2.3× headline TOPS (157 vs 67) comes from higher clocks, a bigger power envelope, **the DLAs**, and 8 vs 6 CPU cores. Crucially **pin-compatible with the Orin Nano Super Dev Kit carrier (P3768)** — a literal drop-in: same enclosure, same wiring, +8 GB RAM ([XLeRobot compute](../syntheses/platforms/jetson-onboard-compute-xlerobot.md)).
-- **vs [AGX Orin](jetson-agx-orin.md) 32/64 GB**: the AGX buys **memory and IO** (256-bit LPDDR5 at 204.8 GB/s, 2× the bus width) at a 15–60 W envelope and ~$2k. For a battery robot that is usually more than needed.
+- **vs [AGX Orin](jetson-agx-orin.md) 32/64 GB**: the AGX buys **memory and IO** (256-bit LPDDR5 at 204.8 GB/s, 2× the bus width) at a 15–60 W envelope and **$3,499** (dev kit; $2,999 module). For a battery robot that is usually more than needed.
 - **vs [Thor](jetson-thor.md)**: a different power and price class entirely, and NVIDIA's [GR00T](nvidia-groot.md) deploy target.
 - **Efficiency**: ~3.9 TOPS/W at 40 W, the sweet spot of the Ampere ladder at module level — though JetPack 7.2's AGX Orin 32 GB Super Mode (241 TOPS at 60 W ≈ 4.0) now edges past it ([module ladder](../syntheses/platforms/jetson-module-ladder-power-performance.md)). The reason to pick Orin NX for a battery robot was never efficiency alone; it is **envelope, carrier compatibility and price**.
 
@@ -153,6 +153,7 @@ Carrier details from the [Seeed Jetson selection guide](../sources/seeed-jetson-
 - [Seeed Jetson selection guide](../sources/seeed-jetson-selection-guide.md) · [Seeed carrier-board selection](../sources/seeed-jetson-carrier-board-selection.md) — the carrier matrix.
 - [Cutting the Cord — untethered XLeRobot](../sources/cutting-the-cord-untethered-xlerobot.md) — the Orin Nano build this is the upgrade from.
 - [RK1828 vs Jetson Orin NX vs Hailo-8 (Geniatech)](../sources/geniatech-rk1828-vs-orin-nx-vs-hailo-8.md) — a competitor's comparison that quotes this module at **68 GB/s** (the pre-Super Orin *Nano* figure) against the datasheet's **102.4 GB/s** above, and at 100 TOPS / 10–20 W (standard-flash and non-Super numbers, unlabelled). Kept as a specimen of how the Orin NX gets misquoted, not as a source for it.
+- [NVIDIA Jetson FAQ pricing](../sources/nvidia-jetson-faq-pricing.md) — 2026-07 price increase: 16 GB module $699 → $999, 8 GB $449 → $649 (1KU).
 
 ## Open questions
 

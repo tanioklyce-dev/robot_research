@@ -3,7 +3,7 @@ title: NVIDIA DGX Spark
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-08-28
+updated: 2026-09-28
 sources: 14
 tags: [dgx-spark, gb10, grace-blackwell, workstation, unified-memory, physical-ai]
 ---
@@ -76,7 +76,7 @@ DGX Spark runs **DGX OS** (Ubuntu-derived) with the full NVIDIA AI stack: CUDA, 
 | Power | 240 W PSU | 40–130 W module |
 | Form factor | Desktop cube | Robot-mountable SoM |
 | Network | 10 GbE + ConnectX-7 | Embedded I/O |
-| Price | ~mid-four-figures (varies by storage) | $3,499 dev kit |
+| Price | ~mid-four-figures (varies by storage; not re-checked) | **$5,499** dev kit (was $3,499; [NVIDIA FAQ](../sources/nvidia-jetson-faq-pricing.md)) |
 
 Note: Thor's FP4-sparse headline is **about 2× higher** than DGX Spark's — the Jetson GPU is denser per CUDA-core for tensor math, while Spark has more cores plus RT hardware and the wider 20-core CPU. They are **complementary**, not redundant.
 

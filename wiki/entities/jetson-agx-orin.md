@@ -3,7 +3,7 @@ title: NVIDIA Jetson AGX Orin
 type: entity
 subtype: hardware
 created: 2026-08-29
-updated: 2026-09-27
+updated: 2026-09-28
 sources: 9
 tags: [jetson, jetson-agx-orin, nvidia, edge-ai, onboard-compute, ampere, dla, pva, nvpmodel, super-mode, robotics, vla]
 ---
@@ -35,7 +35,7 @@ From NVIDIA's module comparison table (retrieved 2026-08-29):
 | Other I/O | 4× UART, 3× SPI, 4× I2S, 8× I2C, **2× CAN**, PWM, DMIC/DSPK, GPIO | *same* | *same* |
 | Power | **15–60 W** | 15–60 W | **15–75 W** |
 | Mechanical | 100 × 87 mm, 699-pin Molex Mirror Mezz | *same* | *same* |
-| Price | **~$1,999** dev kit | not recorded in this wiki | not recorded |
+| Price ([NVIDIA list](../sources/nvidia-jetson-faq-pricing.md), since ~2026-07-21) | **$3,499** dev kit (was $1,999); **$2,999** module 1KU (was $1,999) | **$1,799** module 1KU (was $1,099) | **$3,199** 1KU (was $2,899) |
 
 ¹ **200 TOPS at launch; 241 with Super Mode**, added for the 32 GB by [JetPack 7.2](../sources/nvidia-jetpack-7-2-release.md): *"adds support for Jetson AGX Orin 32GB Super Mode (MAXN_SUPER) increasing performance from 200 TOPS to 241 TOPS."*
 
@@ -102,9 +102,9 @@ This is the wiki's **only measured VLA latency on any Orin module** — NVIDIA's
 
 ## Where it sits in the ladder
 
-- **vs [Orin NX 16 GB](jetson-orin-nx.md)**: the AGX buys **memory and IO** — 2× the memory-bus width (204.8 vs 102.4 GB/s), up to 4× the RAM, 16 vs 8 CSI lanes, 10 GbE, 2× CAN, on-module eMMC. It costs a 15–60 W envelope (vs 10–40 W), ~$2k (vs ~$600), more weight and cooling, and **a different carrier** — the Orin NX is pin-compatible with the Orin Nano's, the AGX is not.
+- **vs [Orin NX 16 GB](jetson-orin-nx.md)**: the AGX buys **memory and IO** — 2× the memory-bus width (204.8 vs 102.4 GB/s), up to 4× the RAM, 16 vs 8 CSI lanes, 10 GbE, 2× CAN, on-module eMMC. It costs a 15–60 W envelope (vs 10–40 W), $2,999 module / $3,499 dev kit (vs $999 for the Orin NX 16 GB module; 1KU list prices after the 2026-07 increase), more weight and cooling, and **a different carrier** — the Orin NX is pin-compatible with the Orin Nano's, the AGX is not.
 - **Efficiency**: 64 GB is the **peak of the Ampere ladder at 4.6 TOPS/W**. The 32 GB was the ladder's one dip — 3.3 TOPS/W, *below* the Orin NX 16 GB's 3.9, because it paid the AGX 60 W envelope for only 1.27× the TOPS. **JetPack 7.2's Super Mode removes that dip** (241 TOPS / 60 W ≈ 4.0). The margin over the NX is inside the noise of a metric built from headline TOPS over max wattage, and it does not move any buying advice ([module ladder](../syntheses/platforms/jetson-module-ladder-power-performance.md)).
-- **vs [Thor](jetson-thor.md)**: a generation and a power class up — Blackwell, 128 GB, 2070 FP4 TFLOPS, 40–130 W, $3,499 dev kit, and NVIDIA's [GR00T](nvidia-groot.md) deploy target.
+- **vs [Thor](jetson-thor.md)**: a generation and a power class up — Blackwell, 128 GB, 2070 FP4 TFLOPS, 40–130 W, $5,499 dev kit (was $3,499), and NVIDIA's [GR00T](nvidia-groot.md) deploy target.
 
 > [!note] The practical break in the Orin ladder is memory, not TOPS
 > [GR00T](nvidia-groot.md)-3B's stated **16 GB inference floor** equals an [Orin NX 16 GB](jetson-orin-nx.md)'s *entire shared* RAM. So 3B-class VLAs realistically mean **AGX Orin 64 GB or Thor**, with Orin Nano excluded outright and Orin NX sitting exactly on the floor (~2–3 Hz extrapolated; the [GR00T-on-Jetson page](../syntheses/platforms/gr00t-inference-on-jetson.md) recommends off-board serving there instead). **AGX Orin 64 GB is the smallest module in this wiki that runs a 3B VLA with headroom.**
@@ -138,10 +138,11 @@ JetPack 7.2 (Jetson Linux r39.2, 2026-06-02) extended JetPack 7 to the whole Ori
 - [Isaac GR00T TensorRT deployment docs](../sources/isaac-gr00t-tensorrt-deployment-docs.md) — the 173 ms / 5.8 Hz measurement.
 - [Seeed Jetson selection guide](../sources/seeed-jetson-selection-guide.md) — module ladder cross-check.
 - [NVIDIA Jetson AI Lab — LeRobot](../sources/nvidia-jetson-ai-lab-lerobot.md) — AGX Orin as a containerized LeRobot target.
+- [NVIDIA Jetson FAQ pricing](../sources/nvidia-jetson-faq-pricing.md) — 2026-07 price increase: dev kit $1,999 → $3,499 (+75%, the largest in the line); 64 GB / 32 GB / Industrial modules $2,999 / $1,799 / $3,199 at 1KU.
 
 ## Open questions
 
-- **Prices for the 32 GB and Industrial modules** — not recorded anywhere in this wiki; only the 64 GB dev kit (~$1,999) is.
+- ~~**Prices for the 32 GB and Industrial modules**~~ — **done 2026-09-28** from the [NVIDIA FAQ](../sources/nvidia-jetson-faq-pricing.md): $1,799 and $3,199 (1KU).
 - **What is the 64 GB's actual MAXN ceiling?** The ladder notes "≤75 W MAXN per some listings" against NVIDIA's stated 15–60 W. The Industrial is officially 15–75 W. Unresolved.
 - **No 32 GB VLA benchmark.** The GR00T measurement is 64 GB only; the 32 GB has a *smaller GPU* (1792 vs 2048 cores) as well as less RAM, so it cannot be interpolated from the 64 GB row.
 - **Does DLA offload help a VLA?** Between 37% and 46% of every AGX Orin headline is DLA, unused by any VLA stack here. Compiling a vision encoder to DLA to free GPU for the action head is untested anywhere in this wiki — and on the 32 GB, where DLA is 46% of the total, the upside is largest. Same open question as on the [Orin NX](jetson-orin-nx.md).
