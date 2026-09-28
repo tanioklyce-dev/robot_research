@@ -60,6 +60,7 @@ Two operational constraints from that source, both hard: **engines are strictly 
 | on **Orin NX 16 GB** | ❌ Not onboard — below the memory floor, ~2–3 Hz extrapolated. Serve the policy over ZMQ from a desktop GPU / [DGX Spark](../../entities/dgx-spark.md) instead. |
 
 ## Related
+- [XLeRobot on AGX Orin 64 GB — model stack](../projects/xlerobot-agx-orin-model-stack.md) — the 5.8 Hz AGX Orin figure in use: hybrid onboard/Spark GR00T routing, the 50 W power-mode argument (memory clock holds at 3200 MHz while GPU clock drops 37%).
 - [XLeRobot on Thor — model stack](../projects/xlerobot-thor-model-stack.md) — GR00T N1.7 as step 3 of the manipulation ladder; extrapolates ~6–7 Hz at the 70 W battery mode (unmeasured).
 - [Control-rate ladder](control-rate-ladder.md) — where GR00T's 5.8 / 10.9 / 22–24 Hz sit relative to every other rate in the wiki, from LLM planners at 0.2–0.4 Hz to servo loops at 1 kHz.
 

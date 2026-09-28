@@ -6133,3 +6133,8 @@ Three clusters: **contact-rich safety** ([survey](sources/safe-learning-contact-
 - Filed as [XLeRobot on Orin NX 16 GB — model stack](syntheses/projects/xlerobot-orin-nx-model-stack.md), the counterpart to the [Thor stack](syntheses/projects/xlerobot-thor-model-stack.md). Organizing principle: onboard = what must survive a Wi-Fi drop (speech, voice-stop, E2B/E4B planner, Nav2, ACT skills); Spark = what makes it better (31B planner escalation, Molmo2-ER pointing, SmolVLA/GR00T).
 - Memory budget ~7–10 GB, mostly estimates; the only measured row is Gemma-4-E2B at 2.7 GB on an Orin Nano GPU. Includes an Orin NX vs Thor comparison table.
 - Backlinked from the Thor stack, bring-up plan, fleet framework, GR00T-over-ZMQ; index; backlog item for the Orin NX measurements.
+
+## [2026-09-28] query | "Same model-stack requirements, XLeRobot on AGX Orin 64 GB"
+- Filed as [XLeRobot on AGX Orin 64 GB — model stack](syntheses/projects/xlerobot-agx-orin-model-stack.md), the third tier after [Orin NX](syntheses/projects/xlerobot-orin-nx-model-stack.md) and [Thor](syntheses/projects/xlerobot-thor-model-stack.md). Thesis: everything fits and runs offline, nothing is fast; the Spark becomes an optional accelerator (the inverse of the Orin NX).
+- New reading of the AGX Orin 64 GB nvpmodel table: the 50 W and 30 W modes keep memory clock at 3200 MHz while the GPU clock drops 37% / 53%, so bandwidth-bound VLA and LLM inference probably loses less than the clock cut (unmeasured). Gemma 4 rates on AGX Orin are extrapolated from the single Orin Nano E2B measurement by bandwidth.
+- Three-tier comparison table. Backlinked from both other stacks, onboard compute, GR00T on Jetson; index; backlog item.

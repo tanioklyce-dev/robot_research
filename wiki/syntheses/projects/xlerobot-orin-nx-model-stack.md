@@ -130,6 +130,7 @@ The [GR00T-over-ZMQ page](gr00t-spark-zmq-xlerobot.md) made the key observation:
 
 ## Related
 
+- [XLeRobot on AGX Orin 64 GB — model stack](xlerobot-agx-orin-model-stack.md) — the middle tier: everything fits onboard and runs offline, at about half Thor's VLA throughput; the Spark becomes an optional accelerator. Has the three-tier comparison table.
 - [XLeRobot on Thor — model stack](xlerobot-thor-model-stack.md) — the all-onboard counterpart; speech design detail lives there.
 - [XLeRobot bring-up plan](xlerobot-nav-manip-teleop-bringup.md) — the Orin NX nav, manipulation and teleop plan this page extends.
 - [Fleet agentic framework](fleet-agentic-framework.md) — the edge-agent + Spark-hub architecture this instantiates.

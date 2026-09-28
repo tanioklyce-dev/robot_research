@@ -132,6 +132,7 @@ Each of these produces a number the wiki does not have:
 
 ## Related
 
+- [XLeRobot on AGX Orin 64 GB — model stack](xlerobot-agx-orin-model-stack.md) — the middle tier: everything fits onboard and runs offline, at about half Thor's VLA throughput; the Spark becomes an optional accelerator. Has the three-tier comparison table.
 - [XLeRobot on Orin NX 16 GB — model stack](xlerobot-orin-nx-model-stack.md) — the same requirements with the Orin NX: memory binds, the heavy models move to the Spark, and the design is organized around what still works when Wi-Fi drops. Includes a side-by-side comparison with this page.
 - [Onboard compute for XLeRobot](../platforms/jetson-onboard-compute-xlerobot.md) — why Thor is over budget on the stock pack, and the capping that makes it viable.
 - [XLeRobot + Thor power budget](xlerobot-thor-power-budget.md) — `nvpmodel` modes, rails and runtime.
