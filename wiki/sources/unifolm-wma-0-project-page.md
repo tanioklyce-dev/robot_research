@@ -8,13 +8,16 @@ ingested: 2026-09-11
 format: web (project page + GitHub README + training config + HF model card; no paper)
 local_path: raw/2025-09-15-unifolm-wma-0-project-page.md
 sha256: 183b3dac4c744cfb0fb40dd72de9175f5ec8d60a810cc604d244e57e7ca9c852
-license: CC BY-NC-SA 4.0
+license: CC BY-NC-SA 4.0 at capture; HF weight cards relicensed Apache-2.0 on 2026-09-13 (GitHub repo LICENSE still CC BY-NC-SA)
 tags: [unifolm, unifolm-wma-0, unitree, world-action-model, world-model, video-diffusion, dynamicrafter, diffusion-policy, open-x-embodiment, unitree-z1, unitree-g1, china, non-commercial]
 ---
 
 ## Summary
 
-**UnifoLM-WMA-0** (15 Sep 2025) is [Unitree](../entities/unitree.md)'s first open **world-model–action** release and the ancestor of [UnifoLM-WLA-1.0](unifolm-wla-1-project-page.md). It is a **DynamiCrafter** image-to-video latent-diffusion model, fine-tuned first on [Open X-Embodiment](../entities/open-x-embodiment.md) and then on five Unitree datasets, with a **Diffusion-Policy-style 1-D UNet action head** attached to the video model's features. The world model runs in two modes: **decision-making** (predict the future interaction, let the action head read it) and **simulation** (render the outcome of a given action sequence, as an interactive data engine). Demos on a [Unitree Z1](../entities/unitree-z1.md) arm (single and dual) and a [G1](../entities/unitree-g1.md) with gripper; the top-right inset in every demo is the model's predicted future video. **There are no numbers anywhere** — no success rates, no video metrics, no ablation of the world model's contribution. Training, inference and deployment code are released; weights are CC BY-NC-SA and the Base checkpoint is gated on Hugging Face.
+**UnifoLM-WMA-0** (15 Sep 2025) is [Unitree](../entities/unitree.md)'s first open **world-model–action** release and the ancestor of [UnifoLM-WLA-1.0](unifolm-wla-1-project-page.md). It is a **DynamiCrafter** image-to-video latent-diffusion model, fine-tuned first on [Open X-Embodiment](../entities/open-x-embodiment.md) and then on five Unitree datasets, with a **Diffusion-Policy-style 1-D UNet action head** attached to the video model's features. The world model runs in two modes: **decision-making** (predict the future interaction, let the action head read it) and **simulation** (render the outcome of a given action sequence, as an interactive data engine). Demos on a [Unitree Z1](../entities/unitree-z1.md) arm (single and dual) and a [G1](../entities/unitree-g1.md) with gripper; the top-right inset in every demo is the model's predicted future video. **There are no numbers anywhere** — no success rates, no video metrics, no ablation of the world model's contribution. Training, inference and deployment code are released; weights were CC BY-NC-SA at capture and the Base checkpoint is gated on Hugging Face.
+
+> [!note] Relicensed after capture (checked 2026-09-28)
+> Both WMA-0 HF cards now say `apache-2.0`, and their LICENSE files were deleted on 2026-09-13. The GitHub repo `unifolm-world-model-action` still carries the CC BY-NC-SA text, so code and weights now disagree. See [UnifoLM-WLA-1.0 Edition history](unifolm-wla-1-project-page.md#edition-history).
 
 ## Key claims
 

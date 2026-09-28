@@ -3,7 +3,7 @@ title: Unitree Robotics
 type: entity
 subtype: company
 created: 2026-09-11
-updated: 2026-09-11
+updated: 2026-09-28
 sources: 3
 tags: [unitree, china, humanoid, quadruped, hardware, foundation-model, unifolm]
 ---
@@ -23,13 +23,13 @@ The pattern across those pages: Unitree hardware appears in this wiki far more o
 
 ## Models — the UnifoLM line
 
-[UnifoLM](unifolm.md): WMA-0 video world model (Sep 2025) → VLA-Base (Jan 2026) → **UnifoLM-WLA-1.0** (Sep 2026), a 6B humanoid policy whose released pieces so far are two 4.4B embodied-reasoning VLMs on Qwen3-VL-4B and a 32-task G1 dataset ([project page](../sources/unifolm-wla-1-project-page.md)). Weights are **CC BY-NC-SA 4.0** — research-only.
+[UnifoLM](unifolm.md): WMA-0 video world model (Sep 2025) → VLA-Base (Jan 2026) → **UnifoLM-WLA-1.0** (Sep 2026), a 6B humanoid policy. Two 4.4B embodied-reasoning VLMs on Qwen3-VL-4B shipped at launch and the policy weights on 2026-09-28 ([source page](../sources/unifolm-wla-1-project-page.md)). Everything is **Apache-2.0**. It launched as CC BY-NC-SA 4.0 and was relicensed within days.
 
-The strategic read: Unitree is moving from selling the body to shipping the brain for it — the same vertical move as [Figure](figure.md) with Helix and [AGIBOT](agibot.md) with Genie, but from the cheapest hardware base of the three, and with the model gated non-commercially.
+The strategic read: Unitree is moving from selling the body to shipping the brain for it — the same vertical move as [Figure](figure.md) with Helix and [AGIBOT](agibot.md) with Genie, but from the cheapest hardware base of the three, and (since the 2026-09 relicensing) with the model weights under Apache-2.0, unlike Figure's closed Helix.
 
 ## Data
 
-Unitree publishes its own G1 / Z1 teleop datasets on Hugging Face (LeRobot format, CC BY-NC-SA) and co-authored [HIW-500](hiw-500.md) with [BitRobot](bitrobot.md) — 500+ h of G1 whole-body teleop in real homes, **CC BY 4.0** ([page](../sources/bitrobot-hiw-500-dataset-page.md)).
+Unitree publishes its own G1 / Z1 teleop datasets on Hugging Face (LeRobot format; sampled WBT and G1-Dex1 cards say Apache-2.0 and a UniBot-V1 card declares no license, so check each dataset) and co-authored [HIW-500](hiw-500.md) with [BitRobot](bitrobot.md) — 500+ h of G1 whole-body teleop in real homes, **CC BY 4.0** ([page](../sources/bitrobot-hiw-500-dataset-page.md)).
 
 ## Mentioned in
 

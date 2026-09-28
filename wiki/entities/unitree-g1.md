@@ -3,7 +3,7 @@ title: Unitree G1
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-09-27
+updated: 2026-09-28
 sources: 23
 tags: [unitree-g1, humanoid, bipedal, china, affordable, accessible, groot, whole-body-control]
 ---
@@ -35,7 +35,7 @@ The G1 is the GR00T line's main **cross-embodiment / whole-body** target beyond 
 
 ## As the target of Unitree's own foundation model (UnifoLM-WLA-1.0)
 
-The G1 is the only robot shown on [Unitree](unitree.md)'s [UnifoLM-WLA-1.0 page](../sources/unifolm-wla-1-project-page.md): one 6B policy driving **10 whole-body and 54 tabletop tasks** with two-finger grippers and several five-finger hands, via a lower-body action-token stream alongside end-effector and hand streams. As of launch (2026-09-11) the policy is **not released** — only the two 4.4B embodied-reasoning backbones and a 32-task `G1_Dex1_*` dataset (UniBot-V1 Challenge) are on Hugging Face, under CC BY-NC-SA. No success rates or control rates are given, so this cannot yet be placed against the [SONIC](gear-sonic.md) / GR00T numbers above. See [UnifoLM](unifolm.md).
+The G1 is the only robot shown on [Unitree](unitree.md)'s [UnifoLM-WLA-1.0 page](../sources/unifolm-wla-1-project-page.md): one 6B policy driving **10 whole-body and 54 tabletop tasks** with two-finger grippers and several five-finger hands, via a lower-body action-token stream alongside end-effector and hand streams. At launch (2026-09-11) only the two 4.4B embodied-reasoning backbones and a 32-task `G1_Dex1_*` dataset were out. **The policy itself shipped on 2026-09-28** as `UnifoLM-WLA-1.0-Base` (Apache-2.0), with fine-tuning code and a server that sends base-velocity/height commands plus leg and waist targets to a `unitree_rl_wbc` RL whole-body controller. Still no success rates or control rates are given, so it cannot yet be placed against the [SONIC](gear-sonic.md) / GR00T numbers above. See [UnifoLM](unifolm.md).
 
 ## As a data platform: HIW-500 and the Unitree sets
 
@@ -77,7 +77,7 @@ The paper is candid about what its representation misses on this hand specifical
 - [GR00T N1.5 research page](../sources/groot-n1_5.md) — cross-embodiment post-training (98.8% seen / 84.2% novel)
 - [GR00T N1.6 research page](../sources/groot-n1_6.md) — whole-body loco-manipulation data
 - [Isaac-GR00T GitHub](../sources/isaac-gr00t-github.md) — `UNITREE_G1` / `UNITREE_G1_SONIC` embodiment tags
-- [UnifoLM-WLA-1.0 project page](../sources/unifolm-wla-1-project-page.md) — Unitree's own 6B policy, 64 tasks on the G1 (videos only; policy unreleased at launch).
+- [UnifoLM-WLA-1.0 project page](../sources/unifolm-wla-1-project-page.md) — Unitree's own 6B policy, 64 tasks on the G1 (videos only; policy weights released 2026-09-28, Apache-2.0, still no success rates).
 - [HIW-500 dataset page](../sources/bitrobot-hiw-500-dataset-page.md) — 500+ h of G1 whole-body teleop in real homes.
 - [UnifoLM-WMA-0 project page](../sources/unifolm-wma-0-project-page.md) — G1 pack-camera deployment of the 2025 world model.
 - [BotBrain GitHub](../sources/botbrain-github.md) — BotBrain supports the G1 (upper-body pose control, FSM transitions) with a dedicated mount.
