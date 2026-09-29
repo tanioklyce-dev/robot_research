@@ -3,7 +3,7 @@ title: ros2-mcp-server
 type: entity
 subtype: software-framework
 created: 2026-07-04
-updated: 2026-07-13
+updated: 2026-09-29
 sources: 6
 tags: [ros2-mcp-server, mcp, ros2, fleet, agent, tool-schema, first-party, skeleton, execution-rail, guardrails]
 ---
@@ -42,6 +42,8 @@ Early **skeleton**, growing (MIT; created 2026-07-04; AgenticROS-pattern layer `
 > **Tier 2 (`e2853d1`)** added [`world.ObjectCache`](../sources/ros2-mcp-server-github.md#execution-rail-tier-2--object-aware-picking-added-2026-07-13-commit-e2853d1) — `list_visible_objects` upserts every detection, and the rail looks the id up before a grasp, so **`pick(knife)` is now refused** (`unsafe_object`). Its design finding: **a stale label is worse than no label** — a cache that hands back a 30-second-old identification makes the rail confidently *wrong* rather than merely blind, so lookups past `object_ttl_s` report `stale_object` instead of a label, and it **fails closed** (a never-pick list you can consult only sometimes is not a list). Only as good as the detector's vocabulary — "cleaver" defeats a list that says "knife" — and **`detect_objects` is still a stub, so none of it has met a real detector.**
 >
 > **Tier 3 (open)** — `pick(pills)` → `place(trash)`: each call is fine, the *sequence* is the harm; needs held-object provenance. Consequently `trash` stays off the forbidden place targets **and medication stays off the never-pick list** — banning the grasp would break the [fetcher-only medication scope](../syntheses/assistive/underserved-par-domains.md#realistic-researcher-target-2) while leaving the real failure mode open. The geofence ships **unset**; measure it in the robot's own map frame. A blocklist, not a proof.
+
+> **Envelope invariant (`38623c6`, 2026-09-29):** no agent-callable tool may change any input the execution rail reads. The only route is a human editing the YAML plus a restart, with no approval flow. It is backed by two tripwire tests over all shipped configs, one on names/schemas and one on dispatch side effects, and was mutation-checked. It came out of [NVIDIA's two safety stacks](../syntheses/agents/nvidia-two-safety-stacks-halos-vs-agent-safety.md): Halos lets a certified layer mute safety, and OpenShell lets agents propose policy changes, so the composition needs this rule. Queued in the repo notes: a planner-liveness watchdog, an OpenShell trial (blocked on the streamable-HTTP transport: with stdio the server would sit inside the sandbox), and a hardware watchdog MCU.
 
 ## Related
 - [Rosetta](rosetta.md) — the LeRobot↔ROS 2 policy bridge it calls underneath.

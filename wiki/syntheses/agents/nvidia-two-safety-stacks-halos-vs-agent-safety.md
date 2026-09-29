@@ -75,10 +75,10 @@ This section is inference.
 
 For the fleet, in order of cost:
 
-1. **Write the invariant first** (bridge 3), as a line in [`policy.py`](../../entities/ros2-mcp-server.md)'s design notes: no agent-callable tool may change a safety input (geofence, keep-out zones, speed limits). This costs nothing and is the part most likely to be violated by accident.
-2. **Prototype bridge 1 in software.** When the planner harness exits, is killed, or has requests denied repeatedly, the MCP server should issue a stop/hold to the robot, not merely stop accepting calls. This is a watchdog and a heartbeat. It's the poor man's SDM link and can be tested today.
-3. **Try OpenShell around the planner** ([backlog](../../backlog.md)). Measure per-request overhead and check whether MCP rules can match arguments.
-4. Treat the **hardware bottom row** (an independent MCU that cuts servo power on a missed heartbeat) as the XLeRobot-scale analogue of the FSI. Cheap, and it is the only layer here that doesn't depend on software you didn't write.
+1. ~~**Write the invariant first**~~ **DONE 2026-09-29** (`ros2-mcp-server` `38623c6`). It is now an INVARIANT section in [`policy.py`](../../entities/ros2-mcp-server.md) with no approval flow, because a persuaded approver is a bypass. Two tripwire tests back it, over every shipped config: no tool is named for or takes envelope fields, and dispatching every tool, including with args stuffed with a wide-open envelope, leaves the envelope unchanged. Mutation-checked: an innocently named tool that splats args into the config passes the first test and fails the second.
+2. **Prototype bridge 1 in software** *(specified in the repo's implementation notes, 2026-09-29: HELD state, human-only reset, trips on transport EOF, on silence while the base is claimed, and on a denial storm)*. When the planner harness exits, is killed, or has requests denied repeatedly, the MCP server should issue a stop/hold to the robot, not merely stop accepting calls. This is a watchdog and a heartbeat. It's the poor man's SDM link and can be tested today.
+3. **Try OpenShell around the planner** ([backlog](../../backlog.md)). Measure per-request overhead and check whether MCP rules can match arguments. *Found while specifying it: with stdio MCP transport the server is a child of the harness, so sandboxing the harness puts the server **inside** the boundary. The streamable-HTTP transport has to come first.*
+4. *(Specified; the open design question is the arms' safe state, since cutting power to FeeTech servos drops a lifted arm. Proposed: split rails, with the base cut by the MCU and the arms held in software first.)* Treat the **hardware bottom row** (an independent MCU that cuts servo power on a missed heartbeat) as the XLeRobot-scale analogue of the FSI. Cheap, and it is the only layer here that doesn't depend on software you didn't write.
 
 ## Open questions
 
