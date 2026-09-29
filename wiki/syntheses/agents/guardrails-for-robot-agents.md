@@ -223,3 +223,4 @@ The through-line: **three of the four cheap wins are things you write, not thing
 - [Fleet agentic control framework](../projects/fleet-agentic-framework.md) · [ROS 2 ↔ MCP server design](../projects/ros2-mcp-server-design.md) — the stack these recommendations target.
 - [LLM-agent architecture across stacks](llm-agent-architecture-across-stacks.md) — where the `eval()` RCE hazard is documented.
 - [Where the compute lives](on-device-and-on-robot-agents.md) — the split-brain logic that says guard models go on the Spark.
+- [NVIDIA's two safety stacks](nvidia-two-safety-stacks-halos-vs-agent-safety.md): where functional safety and agent security meet, and the middle layers neither covers.

@@ -63,6 +63,7 @@ OpenShell is the closest thing in this wiki to the **enforcement layer** that [g
 - [NemoClaw](nemoclaw.md) · [OpenClaw](openclaw.md) · [Hermes Agent](hermes-agent.md) · [NVIDIA](nvidia.md)
 - [NeMo Guardrails](nemo-guardrails.md) — the layer above · [garak](garak.md) — the red-team tool
 - [AI guardrails](../concepts/safety/ai-guardrails.md) · [Robot security](../concepts/robotics/robot-security.md)
+- [NVIDIA's two safety stacks](../syntheses/agents/nvidia-two-safety-stacks-halos-vs-agent-safety.md): how OpenShell relates to Halos on a robot
 
 ## Mentioned in
 

@@ -3,7 +3,7 @@ title: NVIDIA Halos (for Robotics)
 type: entity
 subtype: product
 created: 2026-07-15
-updated: 2026-09-07
+updated: 2026-09-29
 sources: 6
 tags: [nvidia-halos, functional-safety, riccardo-mariani, iso-iec-ts-22440, iso-iec-tr-5469, robot-safety, igx, jetson-thor, physical-ai, qnx, holoscan, certification, anab, tuv, outside-in, metropolis]
 ---
@@ -53,11 +53,16 @@ The wiki's first non-marketing source on Halos is [an interview with the person 
 - The **concrete functional-safety product** behind the wiki's long-standing [robot-safety-standards](../concepts/robotics/robot-safety-standards.md) question — a certified **deterministic safety layer** engineered to sit *beneath* an uncertified learned [VLA](../concepts/learning/vla-models.md)/[LBM](../concepts/learning/large-behavior-models.md) policy on the *same* [Thor](jetson-thor.md) module. It productizes the "certified classical safety layer wrapping a learned policy" pattern the wiki predicted.
 - Firmly on the **physical-safety** side of the physical-vs-semantic safety gap — it complements, and is disjoint from, LLM [AI guardrails](../concepts/safety/ai-guardrails.md); and it is *safety*, not [robot security](../concepts/robotics/robot-security.md) (adversarial).
 
+## Halos and the agent-safety stack (2026-09)
+
+NVIDIA now ships **two robot-relevant safety stacks that don't reference each other**. **Halos** is functional safety: deterministic, certified, on the IGX Thor **Functional Safety Island** on the path to the actuators. The **[Open Agent Safety Platform](../sources/nvidia-newsroom-open-agent-safety-platform.md)** is agent security: [OpenShell](nvidia-openshell.md) around the agent process and [Sentry](nvidia-sentry.md) on BlueField-4 on the path to the model. Structurally they make the same move, an enforcer the main compute can't reach. They differ in what they enforce, and no document connects them. Note also that per the [developer blog](../sources/nvidia-halos-robotics-blog.md), *"robotics middleware… [is] available but not yet for safety applications"*. The layer where a robot's agent actually lives is the uncertified one.
+
 ## Related
 
 - [Jetson Thor](jetson-thor.md) — IGX (T3000) is the Thor-based safety module Halos runs on.
 - [Digit](digit.md) — inaugural humanoid partner.
 - [Robot safety standards](../concepts/robotics/robot-safety-standards.md), [Robot security](../concepts/robotics/robot-security.md), [AI guardrails](../concepts/safety/ai-guardrails.md) — the safety/security neighbors.
+- [NVIDIA's two safety stacks](../syntheses/agents/nvidia-two-safety-stacks-halos-vs-agent-safety.md): Halos vs the Open Agent Safety Platform, and the bridge neither specifies
 
 ## Mentioned in
 

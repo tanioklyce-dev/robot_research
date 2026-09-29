@@ -5,6 +5,8 @@ url: https://developer.nvidia.com/blog/inside-nvidia-halos-for-robotics-a-full-s
 author: Suhas Hariharapura Sheshadri, Riccardo Mariani, Samuel Ochoa, Deep Rodge, Sarah Todd (NVIDIA)
 published: 2026-06-22
 ingested: 2026-07-16
+local_path: raw/2026-06-22-nvidia-blog-inside-halos-for-robotics.md
+sha256: 14e052d8685a11e040a9d3a4f0619b1e0789c8f159d46dd2fa64b896382015aa
 tags: [nvidia-halos, functional-safety, robot-safety, igx, jetson-thor, iec-61508, qnx, holoscan, metropolis, anab, tuv, outside-in, certification, physical-ai]
 ---
 
@@ -48,8 +50,20 @@ The **technical deep-dive** companion to the [Halos for Robotics AI Trust Center
 ### Certification & ecosystem
 - **Halos AI Systems Inspection Lab** = **ANAB-accredited ISO/IEC 17020 Inspection Body** — first worldwide accredited for AI + functional safety across **both AV and robotics**. Partners get an NVIDIA Inspection Certificate to present to a notified body (**TÜV Rheinland/SÜD, SGS, exida, CERTX, UL**) → avoid re-certifying the platform.
 - **43+ ecosystem members** (16 automotive, 23 robotics, 4 cross-domain).
-- **Standards leadership**: IEC 61508 **Convenor**; ISO/IEC TS 22440 **co-Convenor**; IEC TC 65 AhG 30; ISO 25785-1.
+- **Standards leadership**: *"convenorship of IEC 61508… and ISO/IEC TS 22440"* (the blog says convenorship of both; this page previously said "co-Convenor" for TS 22440, which the text doesn't support); IEC TC 65 AhG 30; ISO 25785-1.
 - Named robotics partners: **[Agility Robotics](../entities/digit.md)** (IGX Thor + Halos OS in Digit's safe human-detection; joining the Lab), **Boston Dynamics** (ecosystem), KION, Infineon, TI, NXP, Lattice, Ouster, FORT Robotics, Peer Robotics, and others.
+
+### Omitted at first ingest (added 2026-09-29 from the raw capture)
+- **Safety scope is narrower than the stack diagram suggests:** *"currently Halos Core (the safety OS) and Halos Applications (safety blueprints like Outside-In Safety). **Robotics middleware and Halos Infra tools are available but not yet for safety applications.**"* So nothing between the safety OS and a safety blueprint is certified, and that includes the ROS/Isaac layer a robot's autonomy stack lives in.
+- **Halos Core is *"the next generation of NVIDIA DriveOS"***, certified to automotive safety standards. Both configurations (Linux; Linux + QNX under NV Hypervisor) are **early access**.
+- The IGX safety **application note is under NDA**. The architecture docs are for registered developers only.
+- The Safety Extension Package dispatches hardware errors to the FSI **and a separate Safety MCU (SMCU)**, over an Error Propagation Layer and the **Edge Safety Link** protocol. Safety MCU partners: Infineon, NXP, TI.
+- The Automated Trailer Loading concept was **inspected by TÜV Rheinland**. Note what it does: the Safety Decision Maker **mutes the forklift's onboard safety** when outside-in perception says the area is clear. The certified layer can *remove* a safety function, not only add one.
+- **Security content** (the post is about functional safety; security is secondary): the Holoscan Sensor Bridge uses **MACsec** for device authentication and encrypted sensor data; Lab inspections cover *"Halos safety, AI safety and cybersecurity requirements"*; SecEdge is listed as a cybersecurity member. **No agent-, LLM- or policy-level security.** The 2026-09 [Open Agent Safety Platform](nvidia-newsroom-open-agent-safety-platform.md) is a separate stack, and neither links to the other.
+
+## Edition history
+
+- **2026-09-29 drift check.** The page's `dateModified` is 2026-08-06, after the 07-16 ingest. Diffing Wayback captures 2026-06-25 → 08-02 → 08-21 → live: **the body text is unchanged** apart from link whitespace. The 08-06 modification replaced only the auto-generated "AI summary" box. No claim on this page is affected. Raw capture taken 2026-09-29, since the page predates the fingerprint convention.
 
 ## Entities mentioned
 
@@ -62,6 +76,8 @@ The **technical deep-dive** companion to the [Halos for Robotics AI Trust Center
 - [Agent skills (portable SKILL.md)](../concepts/agents/agent-skills.md) — `warehouse-deploy` / `halos-deploy`
 
 ## Open questions
+
+- **Can an agent-security decision reach the safety island?** For example, OpenShell or Sentry quarantines a planner → the SDM on the FSI drops the robot to a safe state. This is the integration point between NVIDIA's two stacks, and neither blog mentions it. See [robot security](../concepts/robotics/robot-security.md).
 
 - Still unresolved: whether the **learned policy** itself is ever certified, or only the deterministic FSI-resident safety layer around it (the blog certifies the *platform + safety application*, not the AI policy).
 - The AI-Trust-Center page named the Outside-In deploy skill `hoisa-deploy-profile`; this blog names `warehouse-deploy` + `halos-deploy` — likely multiple/renamed skills; worth reconciling on next Halos update.

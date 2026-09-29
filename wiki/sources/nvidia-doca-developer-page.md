@@ -37,7 +37,7 @@ The developer landing page for **DOCA**, NVIDIA's SDK and runtime for **[BlueFie
 
 This is a thin source for the wiki's purposes, and deliberately so. It establishes what DOCA *is*, so the Sentry claims can be read correctly: Sentry is an application of a mature DPU/NIC SDK, not new silicon. **"App Shield runtime security"** is the pre-existing DOCA security feature closest to Sentry's host-introspection role; the page doesn't connect the two.
 
-For robots, the relevant fact is an absence. **No Jetson module has a DPU, and DOCA targets data-centre NICs.** The in-silicon, out-of-band layer of the Open Agent Safety Platform therefore has **no on-robot equivalent**. A robot gets OpenShell, the software layer, and nothing beneath it. Any hardware-isolated enforcement on a robot would have to come from a different lineage, such as a safety MCU or safety PLC on the actuator bus ([ISO 13482](../concepts/robotics/robot-safety-standards.md) territory).
+For robots, the relevant fact is an absence. **No Jetson module has a DPU, and DOCA targets data-centre NICs.** The Open Agent Safety Platform's in-silicon layer therefore doesn't come to the robot. The robot's hardware-isolated enforcement comes from NVIDIA's *other* safety stack instead: [Halos](../entities/nvidia-halos.md), whose IGX Thor **Functional Safety Island** is an isolated domain with its own I/O, power and clocks, on the path to the actuators ([Halos blog](nvidia-halos-robotics-blog.md)). It enforces functional safety, not agent policy. (Corrected 2026-09-29; an earlier draft said the robot had "nothing beneath" OpenShell.)
 
 ## Open questions
 

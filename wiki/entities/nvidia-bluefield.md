@@ -22,7 +22,7 @@ tags: [nvidia, bluefield, dpu, supernic, doca, connectx, data-center, networking
 
 ## Relevance to robots
 
-This is data-centre silicon. No [Jetson](jetson-thor.md) module carries a DPU, so the in-silicon enforcement layer has no on-robot counterpart. The page exists so the Sentry claims can be read in context.
+This is data-centre silicon. No [Jetson](jetson-thor.md) module carries a DPU. The closest on-robot counterpart is the **Functional Safety Island** on IGX Thor under [Halos](nvidia-halos.md): an isolated domain, but one that enforces functional safety rather than agent policy. The page exists so the Sentry claims can be read in context.
 
 ## Related
 

@@ -809,3 +809,6 @@ Clean at time of writing: 0 broken links (7,175 checked), 0 orphan pages, all `s
 - [ ] **Open Secure AI Alliance is now real** (Linux Foundation, 120+ orgs). Supersedes the "SAFE proposal" framing in the item above. Still check for a physical-systems scope.
 - [ ] **"Drift can't be trained away while retaining the capability."** NVIDIA's load-bearing premise, unargued. Find evidence either way; it bears on the [guardrails vs alignment](concepts/safety/ai-guardrails.md) split.
 
+
+## [2026-09-29] Halos ↔ agent-safety integration
+- [ ] **Can an OpenShell/Sentry decision reach the Halos safety island?** For example, a quarantined planner → the SDM on the IGX Thor FSI drops to a safe state. This is the integration point between NVIDIA's functional-safety and agent-security stacks. Neither the [Halos blog](sources/nvidia-halos-robotics-blog.md) nor the [Sentry blog](sources/nvidia-open-agent-safety-platform-sentry-blog.md) mentions the other. Check the IGX safety product brief (registration-gated) and whether Edge Safety Link accepts external safe-state requests.
