@@ -3,8 +3,8 @@ title: Figure
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-09-27
-sources: 14
+updated: 2026-09-29
+sources: 15
 tags: [figure, humanoid, bipedal, helix, openai, bmw, vla, system-1-system-2, botq, figure-03]
 status: partial
 ---
@@ -85,6 +85,10 @@ Two observations the individual posts don't make on their own:
 - **Industrial pilots over consumer.** BMW + other manufacturing deployments first, consumer applications second.
 - **Closed AI stack** but more visible than Tesla Optimus or Atlas — Figure publishes capability videos and partial technical claims regularly.
 
+## Agent security (2026-09)
+
+Named in the [NVIDIA Open Agent Safety Platform launch](../sources/nvidia-newsroom-open-agent-safety-platform.md) as a robotics company *"building with [OpenShell](nvidia-openshell.md) to embed agent safety controls into autonomous systems."* One sentence, with no detail on what OpenShell wraps. Helix is a VLA policy rather than a tool-calling agent, so the likely target is a planning or fleet layer above it. This is inference, not stated.
+
 ## Related
 - Figure AI — manufacturer.
 - [Atlas](atlas.md) / [Tesla Optimus](tesla-optimus.md) / [Apptronik Apollo](apptronik-apollo.md) — research-humanoid competitors.
@@ -117,6 +121,7 @@ Figure 02 at BMW plant (South Carolina), 2025:
 - [F.03 Arrives at BMW](../sources/figure-03-at-bmw.md) — Figure 03's first commercial deployment.
 - [Helix 2.5](../sources/figure-helix-2-5.md) — Index-pretrained Helix, zero-shot in 30 homes; Figure's first published success rates and scaling curve.
 - [Project Go-Big](../sources/figure-project-go-big.md) · [Brookfield partnership](../sources/figure-brookfield-partnership.md) — the human-video pretraining programme and the properties it runs in.
+- [NVIDIA Launches Open Agent Safety Platform (Newsroom)](../sources/nvidia-newsroom-open-agent-safety-platform.md) — named as an OpenShell robotics adopter.
 
 ## Open questions / TBD
 - **No Helix paper.** Figure has not (as of ingest date) released a Helix paper; the blog is the only primary source. Architectural details may be incomplete or marketing-shaped.

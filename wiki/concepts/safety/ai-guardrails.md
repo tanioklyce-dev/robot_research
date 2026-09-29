@@ -2,8 +2,8 @@
 title: AI guardrails
 type: concept
 created: 2026-07-13
-updated: 2026-09-07
-sources: 20
+updated: 2026-09-29
+sources: 23
 tags: [ai-safety, guardrails, agentic-ai, content-safety, topic-control, jailbreak, runtime-safety, nemo-guardrails]
 ---
 
@@ -100,6 +100,20 @@ Four disclosures in five weeks ([synthesis](../../syntheses/agents/frontier-agen
 > [!warning] The enforcement layer is still a design, not a product
 > This is NVIDIA's **third** agentic-safety publication in this wiki. The [safety recipe](../../sources/nvidia-safety-recipe-agentic-ai.md)'s artifact was **deprecated 2026-04-22**; [NemoClaw](../../entities/nemoclaw.md) is **early preview** with no GA date; the architecture post links to a blog tag. The reasoning is the best in the wiki on this subject. Nothing here establishes that you can install it.
 
+### The infrastructure side shipped (2026-09)
+
+The right-hand column of the table above is now installable software. **[OpenShell](../../entities/nvidia-openshell.md) 0.1.0** (2026-09-25, Apache-2.0) implements it as follows ([walkthrough](../../sources/nvidia-openshell-runtime-controls-blog.md)):
+
+- a supervisor **outside** the sandbox that inspects HTTP, GraphQL and **MCP** requests against YAML policies compiled to OPA/Rego;
+- credentials substituted only for approved endpoints;
+- a **formal prover** over the policy model;
+- agent-proposed, human-approved policy changes.
+
+**[Sentry](../../entities/nvidia-sentry.md)** on BlueField-4 adds an out-of-band hardware layer, but only in the data centre ([Sentry blog](../../sources/nvidia-open-agent-safety-platform-sentry-blog.md)). NVIDIA's two-sentence version of this page's reframe: *"Prompts, model safeguards, and agent frameworks **influence** what an agent attempts to do. Runtime controls **enforce** what it is allowed to do"* ([solutions page](../../sources/nvidia-open-agent-safety-platform-page.md)).
+
+> [!warning] A new claim this page's alignment pole should contest
+> The Sentry post asserts that agent **drift** *"can't be trained away while retaining the capability."* If true, it settles the guardrails-vs-alignment question below in favor of enforcement. No evidence is offered.
+
 ## Guardrail models in the wild
 
 - **NemoGuard family** ([NVIDIA](../../entities/nvidia.md)) — Llama 3.1 NemoGuard 8B Content Safety, Llama 3.1 NemoGuard 8B Topic Control, NemoGuard Jailbreak Detect; served as NIM microservices, orchestrated by [NeMo Guardrails](../../entities/nemo-guardrails.md). Trained on the open **Nemotron Content Safety Dataset v2**.
@@ -140,6 +154,9 @@ These are not in conflict — but note that a guardrail layer is an **external**
 - [Safeguard Agentic AI Systems with the NVIDIA Safety Recipe](../../sources/nvidia-safety-recipe-agentic-ai.md)
 - [NVIDIA NemoClaw — Product Page](../../sources/nvidia-nemoclaw-page.md) — NVIDIA OpenShell as the "policy-based guardrails" runtime in the NemoClaw stack; the same idea packaged for a personal-AI-assistant framework.
 - [Gemini Robotics 2: Safety Evaluations](../../sources/gemini-robotics-2-safety-report.md) — a vendor safety report that **explicitly scopes out the enforcement layer** ("does not evaluate the underlying functional safety architecture") and concludes learned models need deterministic low-level guardrails beside them. Direct support for this page's thesis.
+- [Add Runtime Controls to AI Agents with NVIDIA OpenShell](../../sources/nvidia-openshell-runtime-controls-blog.md) — the infrastructure side, shipped.
+- [NVIDIA Open Agent Safety Platform: A Reference for Continuous In-Silicon Agent Monitoring](../../sources/nvidia-open-agent-safety-platform-sentry-blog.md) — five principles; drift.
+- [NVIDIA Open Agent Safety Platform — Solutions Page](../../sources/nvidia-open-agent-safety-platform-page.md)
 
 ## Applied
 - [Guardrails for robot agents](../../syntheses/agents/guardrails-for-robot-agents.md) — what it takes to put this layer in front of the wiki's actual robots.

@@ -3,8 +3,8 @@ title: Hermes Agent
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-08-28
-sources: 11
+updated: 2026-09-29
+sources: 12
 tags: [hermes-agent, nous-research, agentic-framework, self-improvement, mcp, sub-agents, skills, openrouter, multi-platform, qwen-3-6, dgx-spark, claw-ecosystem]
 ---
 
@@ -105,6 +105,7 @@ The diagnosis is worth more than the ranking: Perplexity's argument is that Herm
 - [Hermes Agent GitHub README](../sources/hermes-agent-github.md) — primary source.
 - [NemoClaw Quickstart with Hermes](../sources/nvidia-nemoclaw-hermes-quickstart.md) — the NemoClaw deployment path (`nemohermes` + OpenShell sandbox).
 - [AgenticROS GitHub](../sources/agenticros-github.md) — community ROS 2 MCP server that registers with Hermes.
+- [Add Runtime Controls to AI Agents with NVIDIA OpenShell](../sources/nvidia-openshell-runtime-controls-blog.md) — named as a supported agent in 0.1.0.
 
 ## Open questions
 
@@ -117,3 +118,5 @@ The diagnosis is worth more than the ranking: Perplexity's argument is that Herm
 ## Placed in NVIDIA's agent-stack taxonomy
 
 Hermes is named as an **agent harness** in [NVIDIA's 2026-08 security architecture post](../sources/nvidia-where-security-fits-agent-stack.md), alongside Claude Code, Codex, Pi and DeepSeek Harness. The post's argument bears directly on it: harnesses are where behavior is steered and the **wrong place for a security guarantee**, because *"a layer designed to be modified cannot reliably enforce controls against its own modification"* — and Hermes is a self-improving framework, i.e. maximally modifiable. The deployment recipe already reflects this: `nemohermes onboard` **creates an [OpenShell](nvidia-openshell.md) sandbox and starts Hermes inside it** ([quickstart](../sources/nvidia-nemoclaw-hermes-quickstart.md)), which is exactly the launch-order the post argues for.
+
+**Update 2026-09-29:** Hermes is on the supported-agent list for **OpenShell 0.1.0**, the first versioned release ([walkthrough](../sources/nvidia-openshell-runtime-controls-blog.md)). The runtime the NemoClaw recipe creates is now a shipped, Apache-2.0 project.

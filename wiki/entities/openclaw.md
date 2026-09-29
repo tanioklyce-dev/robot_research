@@ -3,8 +3,8 @@ title: OpenClaw
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-07-05
-sources: 12
+updated: 2026-09-29
+sources: 14
 tags: [openclaw, personal-ai-assistant, steinberger, molty, claw-ecosystem, multi-platform, local-first, gateway, ClawHub, typescript]
 ---
 
@@ -36,6 +36,9 @@ Multiple providers with configurable fallover; primary subscription path is **Op
 
 - **DM pairing** — unknown senders receive codes (pairing-before-trust).
 - **Sandboxing** for group / channel sessions.
+
+> [!note] 2026-09: OpenShell supports OpenClaw directly
+> OpenClaw is on OpenShell's supported-agent list ([solutions page](../sources/nvidia-open-agent-safety-platform-page.md)) and among the 100+ organizations named at the [Open Agent Safety Platform launch](../sources/nvidia-newsroom-open-agent-safety-platform.md). It can now run inside the [OpenShell](nvidia-openshell.md) runtime without the [NemoClaw](nemoclaw.md) distribution.
 
 ## Position in the Claw ecosystem
 
@@ -69,6 +72,8 @@ OpenClaw is the foundation. Sibling and downstream projects:
 - [Hermes Agent GitHub README](../sources/hermes-agent-github.md) — referenced via the `hermes claw migrate` command.
 - [Hiwonder OpenClaw Practical Tutorial](../sources/hiwonder-openclaw-tutorial.md) — Hiwonder's tutorial on driving the ROSOrin Pro via OpenClaw + `openclaw_controller`.
 - [AgenticROS GitHub](../sources/agenticros-github.md) — community ROS 2 bridge whose flagship adapter is an OpenClaw plugin.
+- [NVIDIA Open Agent Safety Platform — Solutions Page](../sources/nvidia-open-agent-safety-platform-page.md) — OpenShell supported agent.
+- [NVIDIA Launches Open Agent Safety Platform (Newsroom)](../sources/nvidia-newsroom-open-agent-safety-platform.md)
 
 ## Open questions
 

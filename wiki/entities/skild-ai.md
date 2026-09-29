@@ -3,8 +3,8 @@ title: Skild AI
 type: entity
 subtype: company
 created: 2026-08-29
-updated: 2026-09-12
-sources: 4
+updated: 2026-09-29
+sources: 5
 tags: [skild-ai, s1, robot-foundation-model, in-context-learning, cmu, pittsburgh, physical-ai, omni-bodied, vendor-source]
 ---
 
@@ -73,6 +73,10 @@ Low-level skills — grasping, handover, navigation — are *"abstracted away us
 - **A rare public data-QC ratio.** *"For every dollar we spend on collecting data, we spend three on quality control"* ([S1](../sources/skild-s1-blog.md)) is the kind of operational number almost nobody publishes.
 - **A test case for the model-layer bet.** At >$14B, the *manipulation* line — which is what the valuation narrative rests on — has no released weights, no paper, and no third-party evaluation. The *locomotion* line has a solid CoRL paper. Skild is therefore the sharpest instance of the gap this wiki keeps returning to, and also a caution against stating it too flatly: the evidence is real, it is just not for the part being sold.
 
+## Agent security (2026-09)
+
+Named alongside [Figure](figure.md) and Gecko Robotics as *"building with [OpenShell](nvidia-openshell.md)"* in the [NVIDIA Open Agent Safety Platform launch](../sources/nvidia-newsroom-open-agent-safety-platform.md). One sentence, no detail.
+
 ## Related
 
 - [Physical Intelligence](physical-intelligence.md) — the closest comparator at the model layer; language-conditioned.
@@ -84,6 +88,7 @@ Low-level skills — grasping, handover, navigation — are *"abstracted away us
 
 - [Introducing S1: In-Context Learning for Robotics](../sources/skild-s1-blog.md) — the flagship manipulation model.
 - [LocoFormer: Generalist Locomotion via Long-context Adaptation](../sources/locoformer-paper.md) — CoRL 2025; the company's locomotion line and its strongest published evidence.
+- [NVIDIA Launches Open Agent Safety Platform (Newsroom)](../sources/nvidia-newsroom-open-agent-safety-platform.md) — named as an OpenShell robotics adopter.
 
 ## Open questions / TBD
 

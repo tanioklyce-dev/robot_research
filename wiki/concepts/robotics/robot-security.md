@@ -2,8 +2,8 @@
 title: Robot Security (Robot Cybersecurity)
 type: concept
 created: 2026-07-15
-updated: 2026-08-23
-sources: 7
+updated: 2026-09-29
+sources: 11
 tags: [robot-security, cybersecurity, ros2, security-assessment, alias-robotics, rsf, misra, safety-vs-security]
 ---
 
@@ -44,6 +44,12 @@ Two of the post's six named gaps are already live concerns in this wiki's robots
 
 And one invariant the post states that machinery safety already knew: *"a missing or stale control selects a preapproved safer state. For physical and availability-critical systems, that state may require **controlled operation rather than an abrupt stop**."* This is [ISO 13482](robot-safety-standards.md) territory arrived at from the software side — the two traditions converging on the same layer without citing each other.
 
+### Update 2026-09: the implementation shipped, and the robot line is still undrawn
+
+[OpenShell](../../entities/nvidia-openshell.md) 0.1.0 is now open source, and it inspects **MCP** traffic from outside the agent's sandbox ([walkthrough](../../sources/nvidia-openshell-runtime-controls-blog.md)). That is the first concrete way to move an MCP-to-ROS bridge's policy checks below the authority boundary. The launch names **Figure, Gecko Robotics and Skild AI** as building with it and claims scope over *"the robotics systems that execute tasks in the physical world"* ([newsroom](../../sources/nvidia-newsroom-open-agent-safety-platform.md)). No document explains how.
+
+The new hardware layer, **[Sentry](../../entities/nvidia-sentry.md)** on BlueField-4, rests on the principle *"the path to the model is the control point"* ([Sentry blog](../../sources/nvidia-open-agent-safety-platform-sentry-blog.md)). On a robot that path is a network hop only for the **planner**. An on-device VLA has no hop, and no Jetson has a DPU ([DOCA page](../../sources/nvidia-doca-developer-page.md)). The **control** layer's out-of-band enforcer is still the one machinery safety already specified: a safety controller on the actuator bus.
+
 ## The supply chain, which this wiki's robots are in
 
 Two of the [summer-2026 agent incidents](../../syntheses/agents/frontier-agent-containment-incidents-2026.md) reached real third parties through **package and data infrastructure every robot stack here depends on**, and neither is a robotics attack — which is the point.
@@ -66,3 +72,7 @@ This is an **RSF Application-layer** concern (third-party components, data integ
 - [Where Security Fits in an AI Agent Stack](../../sources/nvidia-where-security-fits-agent-stack.md)
 
 - [Robot Security Framework (RSF)](../../sources/aliasrobotics-rsf-github.md) — the anchor source.
+- [Add Runtime Controls to AI Agents with NVIDIA OpenShell](../../sources/nvidia-openshell-runtime-controls-blog.md)
+- [NVIDIA Open Agent Safety Platform: A Reference for Continuous In-Silicon Agent Monitoring](../../sources/nvidia-open-agent-safety-platform-sentry-blog.md)
+- [NVIDIA Launches Open Agent Safety Platform (Newsroom)](../../sources/nvidia-newsroom-open-agent-safety-platform.md)
+- [NVIDIA DOCA Software Platform — Developer Page](../../sources/nvidia-doca-developer-page.md)

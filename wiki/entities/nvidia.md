@@ -3,8 +3,8 @@ title: NVIDIA
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-09-13
-sources: 62
+updated: 2026-09-29
+sources: 66
 tags: [nvidia, gpu, simulation, physical-ai]
 ---
 
@@ -37,6 +37,9 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 ## Agentic security
 
 - **[OpenShell](nvidia-openshell.md)** — the secure-runtime layer: isolation, identity, policy, credentials, audit, with the harness started *inside* it. The [architecture post](../sources/nvidia-where-security-fits-agent-stack.md) (2026-08-21) is NVIDIA's clearest statement of where agent security belongs, and its criterion — *"a control that the agent can decline to invoke is not an effective security control"* — reclassifies rail-based guardrails, including NVIDIA's own [NeMo Guardrails](nemo-guardrails.md), as non-authoritative. **Three publications on this subject in ~13 months, no GA artifact yet**: the [safety recipe](../sources/nvidia-safety-recipe-agentic-ai.md) was deprecated 2026-04-22 and [NemoClaw](nemoclaw.md) is early preview.
+
+> [!note] Updated 2026-09-29: the enforcement layer shipped
+> On **2026-09-28** NVIDIA launched the **Open Agent Safety Platform** ([newsroom](../sources/nvidia-newsroom-open-agent-safety-platform.md)). It has two parts. **OpenShell 0.1.0** is open source (Apache-2.0, Rust) and *"now broadly available"* ([walkthrough](../sources/nvidia-openshell-runtime-controls-blog.md)), so the "no GA artifact" line above no longer holds. **[Sentry](nvidia-sentry.md)** is an out-of-band watchdog on **[BlueField-4](nvidia-bluefield.md)** DPUs via DOCA, published as a reference design ([Sentry blog](../sources/nvidia-open-agent-safety-platform-sentry-blog.md)). It is optimized for the **Vera** CPU, and the adopter list is 100+ organizations, including [Anthropic](anthropic.md), [Figure](figure.md) and [Skild AI](skild-ai.md). Governance goes through the Linux-Foundation-hosted **Open Secure AI Alliance**. This is the hardware-vendor move this page would predict: agent safety sold as a reason to buy a CPU and a DPU.
 
 ## Related
 - [NVIDIA Isaac Sim](nvidia-isaac-sim.md), [NVIDIA Isaac Lab](nvidia-isaac-lab.md), [Newton physics engine](newton-physics-engine.md), [NVIDIA Cosmos](nvidia-cosmos.md), [NVIDIA Brev](nvidia-brev.md) — products.
@@ -75,3 +78,6 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - [Third World Modeling Workshop — Day 2](../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — [WorldTrace](worldtrace.md), NVIDIA's training-free addressable-memory framework for interactive video world models.
 - [Where Security Fits in an AI Agent Stack](../sources/nvidia-where-security-fits-agent-stack.md)
 - [OpenAI — Jalapeño's first results](../sources/openai-jalapeno-first-results.md) — **GB200 (1,200 W) and GB300 (1,400 W)** as the comparison systems for OpenAI's 700 W inference chip on InferenceX: reported 1.5–1.9× behind on throughput per kW and 1.7–3.6× on end-to-end latency (vendor numbers, configuration unstated); OpenAI says it will keep deploying NVIDIA accelerators for training and inference.
+- [NVIDIA Launches Open Agent Safety Platform (Newsroom)](../sources/nvidia-newsroom-open-agent-safety-platform.md) — OpenShell GA, Sentry, BlueField-4, Vera.
+- [Add Runtime Controls to AI Agents with NVIDIA OpenShell](../sources/nvidia-openshell-runtime-controls-blog.md)
+- [NVIDIA Open Agent Safety Platform: A Reference for Continuous In-Silicon Agent Monitoring](../sources/nvidia-open-agent-safety-platform-sentry-blog.md)

@@ -2,7 +2,7 @@
 title: Guardrails for robot agents — where the safety layer actually goes
 type: synthesis
 created: 2026-07-13
-updated: 2026-08-30
+updated: 2026-09-29
 tags: [ai-safety, guardrails, agentic-robotics, prompt-injection, mcp, mhs, execution-rail, iso-13482, fleet, nemo-guardrails, llm-agent]
 ---
 
@@ -179,6 +179,9 @@ Three mitigations, in increasing order of interest:
 2. **Put the guards where the compute is.** In the fleet's [three-layer architecture](../projects/fleet-agentic-framework.md), the [DGX Spark](../../entities/dgx-spark.md) is already the master-control tier. **Guard models belong on the Spark, not the Orin.** This is the [same split-brain logic](on-device-and-on-robot-agents.md) the wiki already applies to reasoning: fast/reflexive on-robot, heavy/deliberative on the LAN server. A guardrail is deliberative by nature.
 3. **Guard the plan, not the step.** Rails on the *task decomposition* (Layer 3, once per task) rather than on every tool call (Layer 2, many times per task) move the cost off the inner loop entirely. Layer 1's ACT policy runs at 27.8 Hz; nothing resembling an 8B classifier goes anywhere near it.
 
+> [!note] Update 2026-09-29: the launch still doesn't cost it
+> The Open Agent Safety Platform launch gives *"minimal overhead"* on Vera, Sentry quarantine *"in milliseconds"*, and an unbaselined *"80% faster sandbox performance"* ([solutions page](../../sources/nvidia-open-agent-safety-platform-page.md)). None of these is a per-request supervisor latency. The robot-relevant number is still missing.
+
 ## Recommendation: what to actually build
 
 Mapped onto the fleet's existing [build ladder](../projects/fleet-agentic-framework.md) rather than proposed as a new project:
@@ -189,6 +192,7 @@ Mapped onto the fleet's existing [build ladder](../projects/fleet-agentic-framew
 | ~~**Ladder step 2**~~ **DONE 2026-07-14** | ~~**An input rail on perception-derived text.**~~ Shipped as [`untrusted.py`](../../entities/ros2-mcp-server.md) (`a574e9f`): scrub + flag at the `list_visible_objects` boundary, an in-string data marker that survives prose-flattening, and injection-shaped labels made unpickable. **Still yours:** the agent must not concatenate tool output into the instruction channel — the server cannot enforce that. | Half a day. The subtlety was that a *sibling* warning field is not enough. |
 | **Ladder step 3** (Spark master control) | **Stand up a NeMo Guardrails server on the Spark**; point the master's base URL at it. Get input/dialog/output rails on the fleet brain, where the latency is affordable. | ~A day, mostly YAML. |
 | **Anytime** | **Run [garak](../../entities/garak.md) against your planner endpoint.** Nobody in the wiki has red-teamed an embodied agent; you'd be first, and the result is a number you can put in a table. | An afternoon. |
+| **Ladder step 3, candidate (2026-09)** | **Try [OpenShell](../../entities/nvidia-openshell.md) around the planner harness on the Spark**, with the ROS 2 MCP server outside the sandbox and reachable only through the supervisor. First check two things: whether MCP rules can match tool **arguments** (unstated), and the per-request overhead. If both work, `policy.py`'s predicates move from behavioral to infrastructure without changing their logic ([walkthrough](../../sources/nvidia-openshell-runtime-controls-blog.md)). | An afternoon to find out; x86/aarch64 builds exist. |
 | **Not yet** | Argument-level *learned* safety models, image-input guard models, A2A-level fleet policy. | Greenfield; no precedent to copy. |
 
 The through-line: **three of the four cheap wins are things you write, not things you install.** The vendor stack gives you the text rails and the hook. The policy that makes a *robot* safe — which arguments, which world states, which sequences are irreversible — is domain knowledge, and it is the part nobody can sell you.
@@ -201,6 +205,8 @@ The through-line: **three of the four cheap wins are things you write, not thing
 - **Who guards the guard model?** It's an LLM too, and none of the ingested sources discuss attacking the guardrail layer itself.
 
 ## Sources
+
+- [Add Runtime Controls to AI Agents with NVIDIA OpenShell](../../sources/nvidia-openshell-runtime-controls-blog.md) — the infrastructure layer, shipped (0.1.0).
 
 - [Frontier-agent containment incidents, summer 2026](frontier-agent-containment-incidents-2026.md) — the empirical case, four primaries.
 - [NeMo Guardrails — Library Overview](../../sources/nemo-guardrails-library-overview.md) — five rails, execution rail, OpenAI-compatible server, guardrails library.

@@ -3,8 +3,8 @@ title: NVIDIA NemoClaw
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-09-27
-sources: 9
+updated: 2026-09-29
+sources: 10
 status: early preview
 tags: [nemoclaw, nvidia, openclaw, nemotron, nvidia-agent-toolkit, nvidia-openshell, guardrails, privacy, dgx-spark, rtx-pro, claw-ecosystem]
 ---
@@ -58,6 +58,10 @@ The interesting question (worth a future synthesis): is NemoClaw + OpenClaw NVID
 
 For the ROSOrin Pro use case specifically: NemoClaw is **not** a drop-in swap for the upstream [OpenClaw](openclaw.md) running there today — Hiwonder's [`openclaw_controller`](openclaw-controller.md) bridge talks to upstream OpenClaw, and a NemoClaw-side equivalent of the same ROS 2 wiring would need to be written. NemoClaw could theoretically be the planner brain in a future *robot-extended* version of itself, but not today.
 
+## OpenShell ships separately (2026-09)
+
+The runtime NemoClaw bundles, [OpenShell](nvidia-openshell.md), reached **0.1.0** on 2026-09-25. It is Apache-2.0 and installable on its own ([walkthrough](../sources/nvidia-openshell-runtime-controls-blog.md)), and supports OpenClaw and Hermes directly. NemoClaw's value is now the distribution layer (onboarding, Nemotron defaults, presets), no longer sole access to the sandbox. NemoClaw itself is not mentioned in any of the 2026-09-28 launch documents.
+
 ## Related
 
 - [OpenClaw](openclaw.md) — the framework NemoClaw wraps.
@@ -73,6 +77,7 @@ For the ROSOrin Pro use case specifically: NemoClaw is **not** a drop-in swap fo
 - [NemoClaw Quickstart with Hermes](../sources/nvidia-nemoclaw-hermes-quickstart.md) — concrete recipe (`nemohermes`, OpenShell sandbox, ports, Nemotron endpoint).
 - [AgenticROS GitHub](../sources/agenticros-github.md) — community ROS 2 bridge with a dedicated sandboxed NemoClaw integration.
 - [NVIDIA Isaac ROS 5.0 blog](../sources/nvidia-isaac-ros-5-0-blog.md) — AgenticROS connects Isaac ROS to NemoClaw blueprints.
+- [Add Runtime Controls to AI Agents with NVIDIA OpenShell](../sources/nvidia-openshell-runtime-controls-blog.md) — OpenShell 0.1.0, installable standalone.
 
 ## Open questions
 

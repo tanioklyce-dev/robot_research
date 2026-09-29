@@ -3,8 +3,8 @@ title: Anthropic
 type: entity
 subtype: company
 created: 2026-05-09
-updated: 2026-09-07
-sources: 22
+updated: 2026-09-29
+sources: 24
 tags: [company, ai-safety, llm, claude, alignment, frontier-red-team, uplift-study, mcp, mhs]
 ---
 
@@ -53,6 +53,10 @@ Anthropic's stated reading is that **uplift precedes autonomy**, so the first re
 ## Mechanistic interpretability program
 Anthropic leads the modern **sparse-autoencoder + feature-steering** approach to [mechanistic interpretability](../concepts/safety/mechanistic-interpretability.md). Chris Olah heads the program. The canonical reference paper is Templeton et al. 2024 — *Scaling Monosemanticity* — which Welch Labs' [Illustrated Guide to AI, Vol I, Ch 7](../sources/welchlabs-illustrated-guide-to-ai.md) walks through in pedagogy detail (the "internal-conflict feature steering" demonstration on Claude is the chapter's archetypal result). Olah's framing that *"~1% of the concepts have been extracted"* is the field's anchor caveat.
 
+## NVIDIA Open Agent Safety Platform (2026-09)
+
+Anthropic is the lead named partner in the **[NVIDIA Open Agent Safety Platform launch](../sources/nvidia-newsroom-open-agent-safety-platform.md)** (2026-09-28). *"Claude Managed Agents establish a security boundary by running the agent loop in a separate server from the sandboxes where their work executes,"* with integrations into [OpenShell](nvidia-openshell.md) and [BlueField](nvidia-bluefield.md) to control access through those sandboxes. Claude Code is also on OpenShell's supported-agent list ([solutions page](../sources/nvidia-open-agent-safety-platform-page.md)). NVIDIA's launch cites frontier-lab incidents as motivation without naming them; Anthropic's own [July incidents](../sources/anthropic-cybersecurity-eval-incidents.md) are among the candidates.
+
 ## Mentioned in
 - [Project Fetch: Can Claude train a robot dog?](../sources/anthropic-project-fetch-robot-dog.md) — Frontier Red Team robotics uplift study
 - [Project Fetch: Phase Two](../sources/anthropic-project-fetch-phase-two.md) — the autonomy re-run
@@ -65,7 +69,8 @@ Anthropic leads the modern **sparse-autoencoder + feature-steering** approach to
 - [Previewing the Model Hardware Standard](../sources/anthropic-model-hardware-standard-preview.md) — the device-side interface standard, and the six partner pilots run on it
 - [Gemini Robotics 2: Safety Evaluations](../sources/gemini-robotics-2-safety-report.md) — **Claude Opus 4.8** evaluated on ASIMOV-Agentic; scores 100% on safety tool calling alongside ER 2 and GPT 5.5.
 - [The Day After AGI — WEF Davos 2026](../sources/wef-davos-2026-the-day-after-agi.md) — Amodei on timelines (1–2 years), labor (half of entry-level white-collar jobs, 1–5 years), revenue (0 → $10B, 2023–25), chips, and the forthcoming risks essay; robots absent.
-
+- [NVIDIA Launches Open Agent Safety Platform (Newsroom)](../sources/nvidia-newsroom-open-agent-safety-platform.md) — Claude Managed Agents × OpenShell/BlueField integration.
+- [NVIDIA Open Agent Safety Platform — Solutions Page](../sources/nvidia-open-agent-safety-platform-page.md)
 
 ## Cybersecurity-evaluation incidents (July 2026)
 
