@@ -2,8 +2,8 @@
 title: World-model functional taxonomy (renderer / simulator / planner)
 type: concept
 created: 2026-08-07
-updated: 2026-09-07
-sources: 8
+updated: 2026-10-07
+sources: 9
 tags: [world-model, taxonomy, spatial-intelligence, policy, renderer, simulator, planner, pomdp]
 ---
 
@@ -99,6 +99,9 @@ The [brief](../../sources/hai-world-model-spatial-intelligence-brief.md) adopts 
 
 So the taxonomy's durable use is **not** classification of systems. It is classification of **uses**, which is what determines how hard the system should be tested — see [world-model evaluation](world-model-evaluation.md), where the brief's evaluation ladder is keyed to exactly these three roles. The brief also calls for **public pools of shared action data**; the essay does not.
 
+> [!note] A simulator you can unit-test (added 2026-10-07)
+> [Code world models](code-world-model.md) are the one learned **simulator** in this wiki whose contract can be checked as pass/fail. The model is a program, and every observed transition is a unit test ([Lehrach et al. 2025](../../sources/code-world-models-general-game-playing.md)). That answers the essay's "geometry that holds up under inspection" demand in a form no neural model can, but only for discrete, exactly-ruled domains, which is the opposite end from the physics the essay has in mind.
+
 ## World model as runtime verifier (neither source)
 
 A function this taxonomy does not have. [FOREWARN](../../sources/forewarn-paper.md) uses a frozen **[DreamerV3](../../entities/dreamer.md)** RSSM not to plan and not to generate training data, but to **predict the outcomes of a separate policy's candidate action plans so a VLM can judge them**. The world model is the *foresight* half of a verifier; the VLM is the *forethought* half, reading predicted latents through a linear adapter into its token space.
@@ -147,4 +150,4 @@ Which is [Vafa et al.](../../sources/vafa-world-model-implicit.md)'s measured re
 - [FOREWARN paper](../../sources/forewarn-paper.md) — the verifier role the taxonomy lacks.
 - [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — Airoldi's "which bin are you in" cut.
 - [Critique of World Model](../../sources/critique-of-world-model-paper.md) — cites the taxonomy X post and lands on the same cut (*simulator, not renderer*) from the generative side; files [World Labs](../../entities/world-labs.md) Marble as *"closer to a digital twin than a learned world model."*
-
+- [Code World Models for General Game Playing](../../sources/code-world-models-general-game-playing.md): an LLM-written program as a verifiable simulator.

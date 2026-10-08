@@ -2,8 +2,8 @@
 title: Belief states and mixed states
 type: concept
 created: 2026-08-31
-updated: 2026-09-12
-sources: 8
+updated: 2026-10-07
+sources: 9
 tags: [belief-state, mixed-state, hidden-markov, pomdp, blackwell-measure, entropy-rate, sufficient-statistic, latent-space, world-model, unifilar, myhill-nerode]
 ---
 
@@ -56,6 +56,10 @@ At the **third World Modeling Workshop** ([Chicago Booth, Aug 2026](../../source
 
 **Blackwell's result is the theory under both positions.** If the sufficient statistic is generically infinite-dimensional, then explicitly representing the belief should fail at scale (Hafner's finding), and deliberately discarding unpredictable information is a principled response rather than a heuristic (LeCun's argument). Sampling and JEPA-style discarding are two different ways of not paying for an object that provably will not fit.
 
+## Support without weights: inference as code (added 2026-10-07)
+
+[Lehrach et al. 2025](../../sources/code-world-models-general-game-playing.md) have an LLM **write a sampler** over hidden game histories, then replay each sample through a deterministic [code world model](code-world-model.md) to check that it reproduces the agent's observations. A sampler that passes every test is guaranteed to produce histories **in the belief's support**, with no guarantee about how they are weighted. The authors argue this is enough for games, *"given the extremely sparse support of state posteriors."* It is the reverse of the learned approach on this page. A trained network approximates the belief's *weights* and may give mass to impossible states. This sampler gets the *support* exactly and ignores the weights. Which error hurts a planner more is not tested.
+
 ## Related concepts
 
 - [Latent space](latent-space.md) — the learned, non-Bayesian answer to the same question Blackwell answers exactly.
@@ -92,3 +96,4 @@ A second Day 2 result touches the same limit from the engineering side. **[World
 - [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — MetaOthello and WorldTrace.
 - [Critique of World Model](../../sources/critique-of-world-model-paper.md) — the *statefulness* requirement ("an identifiable, persistent estimate of the world state that the agent can hold in memory, revisit, and update") is this page's belief state, with the added claim that discrete tokens are its natural carrier.
 - [Think Fast and Far — ROP-RAS3](../../sources/think-fast-and-far-rop-ras3-paper.md) — the classical form: explicit particle beliefs, a generative model, a tree; solves 1,500-step, 35-D POMDPs online with a convergence rate in the number of *sampled* actions.
+- [Code World Models for General Game Playing](../../sources/code-world-models-general-game-playing.md): LLM-written posterior samplers that guarantee support, not weights.

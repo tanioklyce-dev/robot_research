@@ -2,8 +2,8 @@
 title: World model
 type: concept
 created: 2026-05-07
-updated: 2026-09-12
-sources: 71
+updated: 2026-10-07
+sources: 72
 tags: [world-model, model-based-rl, planning, prediction, dreamer, jepa, generative-video, omnimodal, world-action-model, history]
 ---
 
@@ -68,6 +68,7 @@ A world model is any function `f` learned from data such that `s_{t+1} = f(s_t, 
     - **Generative-WM MBRL**: [Dreamer / DreamerV3](../../entities/dreamer.md) ([source](../../sources/dreamer-v3-paper.md)) — pixel/state reconstruction + actor-critic trained "in imagination." Two 2025–26 refinement axes now ingested: **backbone wall-clock** ([S5WM](../../sources/s5wm-paper.md): RSSM→S5, 4× faster, real quadrotors) and **prediction objective** ([EAWM](../../sources/eawm-paper.md): event segmentation instead of raw frames, +10–45%, ICLR 2026 SOTA).
     - **Decoder-free MBRL**: [TD-MPC / TD-MPC2](../../entities/td-mpc.md) ([source](../../sources/td-mpc2-paper.md)) — implicit latent dynamics + local MPC + TD-bootstrapped value. Architecturally adjacent to JEPA.
   Both cited as baselines in [LeWM](../../sources/leworldmodel-paper.md).
+- **[Code world models](code-world-model.md)**: the model is a **program** an LLM writes from rules text plus a few trajectories, refined until it reproduces every observed transition, and then searched with MCTS. [Lehrach et al. 2025](../../sources/code-world-models-general-game-playing.md) (DeepMind) learned five perfect-information games exactly in 2–17 LLM calls and extended the approach to hidden information. It is checkable against data in a way no latent model is, but so far it covers only discrete, exactly-ruled worlds.
 
 ## Common training challenges
 - **Representation collapse** — without anti-collapse mechanisms, encoder + predictor can learn trivial constants. Solutions vary by family: EMA targets (V-JEPA), stop-gradient, frozen encoders (DINO-WM), regularizers (LeWM's SIGReg).
@@ -110,8 +111,9 @@ On the other side of the same table, [Group-Structured Latent Space](../../sourc
 
 ## Mentioned in
 
-> [!note] Curated list — **55** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **56** source pages link here; the ones below are those that shaped this page.
 
+- [Code World Models for General Game Playing](../../sources/code-world-models-general-game-playing.md): the world model as an executable program, and the strictest accuracy check of any world model in this wiki.
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../../sources/hai-world-model-spatial-intelligence-brief.md) — the policy-facing definition (action-conditioned prediction; counterfactual reasoning as the central goal) and the renderer/simulator/planner frame
 - [Wake-Sleep Paper (Hinton et al., 1995)](../../sources/wake-sleep-paper.md) — the sleep phase trains on model-generated "fantasies" — the 1995 ancestor of learning-in-imagination, complete with its stated failure mode (fantasy distribution ≠ data distribution)
 - [A Path Towards Autonomous Machine Intelligence (LeCun, 2022)](../../sources/lecun2022-path-towards-ami.md) — canonical LeCun position paper; argues for configurable world model + hierarchical JEPA as the substrate

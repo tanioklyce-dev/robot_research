@@ -84,6 +84,7 @@ Synthesized programs are compared against **Fast Downward**, a state-of-the-art 
 - [Tom Silver](../entities/tom-silver.md) · [Josh Tenenbaum](../entities/josh-tenenbaum.md) · [Leslie Kaelbling](../entities/leslie-kaelbling.md)
 
 ## Concepts touched
+- [Code world model](../concepts/world-models/code-world-model.md): the sibling move. [Lehrach et al. 2025](code-world-models-general-game-playing.md) has the LLM write the *domain model* and leaves planning to MCTS. This paper gives the model and has the LLM write the *planner*. Both depend on a validator in the loop.
 - [Symbolic task planning / PDDL](../concepts/agents/symbolic-task-planning.md) — the concept this source founds in the wiki
 - [Code as policy](../concepts/agents/code-as-policy.md) — the LLM writes a program, not a plan; the same architecture one abstraction level up
 - [Action representation languages](../syntheses/agents/action-representation-languages.md) — the No-Names result

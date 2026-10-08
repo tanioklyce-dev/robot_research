@@ -2,8 +2,8 @@
 title: Code as policy
 type: concept
 created: 2026-08-03
-updated: 2026-08-30
-sources: 15
+updated: 2026-10-07
+sources: 16
 tags: [code-as-policy, llm-agent, agentic-robotics, program-synthesis, skill-library, voyager, saycan, voxposer, inner-monologue, codeact, tool-use, waddle, cap-x, aspire, benchmark]
 ---
 
@@ -132,6 +132,15 @@ Two things this adds to the page. First, **it is the honest answer to the cost q
 > [!note] The counterfactual is missing
 > QuEra's loop is a general recipe (cf. [ASPIRE](../../sources/aspire-paper.md), [Karpathy's autoresearch](../../sources/karpathy-autoresearch.md)); MHS only supplied instrument access. Nobody ran the same loop over a bespoke API, so the split between "the interface" and "the loop" is unmeasured.
 
+## The inverse: code as world model (added 2026-10-07)
+
+[Lehrach et al. 2025](../../sources/code-world-models-general-game-playing.md) (DeepMind) take the code-writing LLM and point it the other way. It writes a **[code world model](../world-models/code-world-model.md)**, an executable simulation of the environment, and **MCTS supplies the policy**. Their argument against LLM-as-policy is the one this page's lineage faces: prompted move selection produces illegal actions and shallow lookahead, while a model plus search turns more compute into better play. Two results from the appendix are relevant here:
+
+- **Legality is most of the measured gain.** Against Gemini 2.5 Pro used as a policy, all 100 Backgammon wins and 92–97 of 100 Generalized-chess wins are **Gemini forfeits from illegal moves**. A code artifact that enumerates legal actions removes the most common failure of a reasoning-at-every-step agent. That is the same advantage as compiling the agent out of the loop (above).
+- **A wrong artifact fails with confidence.** When the synthesized Gin rummy model is wrong, the agent forfeits 94% of games through moves its own model considers legal. Inspectable is not the same as correct, and an executed script carries this risk as well.
+
+Code-as-policy and code-as-model fit together: an agent could write the model, verify it against logged transitions, plan in it, and compile the result. None of the ingested robotics work does the model half.
+
 ## Where this sits on the abstraction ladder
 
 Code-as-policy is **level 2 (programmatic control)** in the [control abstraction levels](../robotics/control-abstraction-levels.md) taxonomy — the level [Anthropic found](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) "substantially outperforms direct control" for essentially every model. CaP-X's contribution to that taxonomy is to show **level 2 is not one level**: its eight tiers subdivide "the model writes a controller" into rungs that span tens of points of success rate. *"Programmatic control works"* is underspecified until you say which primitives were on offer and how many turns the agent got.
@@ -162,6 +171,7 @@ Code-as-policy is **level 2 (programmatic control)** in the [control abstraction
 - [VLA models](../learning/vla-models.md) — the end-to-end alternative; here a VLA is a *callable tool*, not the whole policy.
 - [Robot policy evaluation](../robotics/robot-policy-evaluation.md) — CaP-X's 100-trials/task and ASPIRE's disjoint debug/eval seeds are among the better-disclosed protocols in the wiki.
 - [Sim-to-real transfer](../learning/sim-to-real-transfer.md) — the code-as-action-space mechanism.
+- [Code world model](../world-models/code-world-model.md): the LLM writes the environment model instead of the controller, and search does the acting.
 - [World-action models](../world-models/world-action-model.md) — grouped with VLAs as "action models" a code-writing agent can call.
 - [Guardrails for robot agents](../../syntheses/agents/guardrails-for-robot-agents.md) — an agent writing *arbitrary code* widens the execution-rail problem beyond name-level tool allowlisting. Note ASPIRE's **coordinator audits actor findings for API-policy compliance** — the first mechanism in this wiki's agentic-robotics pages that actually resembles an execution rail.
 
@@ -192,3 +202,4 @@ What remains unmeasured is what it costs.
 - [ASPIRE](../../sources/aspire-paper.md) (Jun 2026) — continual skill discovery; the compounding evidence.
 - [Introducing Waddle](../../sources/waddle-labs-introducing-waddle.md) — deployed commercial system + the lineage survey this page was first built from.
 - [Previewing the Model Hardware Standard](../../sources/anthropic-model-hardware-standard-preview.md) — three instances of *explore online, compile to a deterministic script*, one of them in production on a quantum computer's laser system.
+- [Code World Models for General Game Playing](../../sources/code-world-models-general-game-playing.md): the inverse move (code as world model), and how much of LLM-as-policy's deficit is illegal moves.

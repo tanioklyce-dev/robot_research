@@ -3,8 +3,8 @@ title: Google DeepMind
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-09-07
-sources: 38
+updated: 2026-10-07
+sources: 39
 tags: [google-deepmind, mujoco, newton, mjcphysics, openusd, robotics-research, biomechanics, dmpo, acme, gemini-robotics, genie, world-model]
 ---
 
@@ -27,6 +27,9 @@ Google's AI research lab. Maintains MuJoCo and [MuJoCo Playground](mujoco-playgr
 ## Generative world models
 - **[Genie 3](genie-3.md)** — DeepMind's general-purpose generative world model that produces "photorealistic and interactive 3D environments" (generative-video family; see [world model](../concepts/world-models/world-model.md)). Designed to be **post-trained into domain instruments**: [Waymo](waymo.md) built its [Waymo World Model](../sources/waymo-world-model.md) (AV simulation, camera+lidar) on top of it ([Waymo World Model blog](../sources/waymo-world-model.md)). Genie 3's own architecture/scale is not yet in the wiki (thin entry pending a primary DeepMind source). Distinct from [AGIBOT](agibot.md)'s similarly-named Genie Envisioner / Genie Sim.
 
+## Code world models
+- **[Code World Models for General Game Playing](../sources/code-world-models-general-game-playing.md)** (Lehrach, Hennes, Lázaro-Gredilla et al., with Satinder Singh and Kevin Murphy, Oct 2025): Gemini 2.5 Pro writes an OpenSpiel-API Python model of a game from its rules and 5 trajectories, refined by unit tests, then plays with (IS)MCTS. It beats or matches Gemini-as-policy in 9 of 10 games, though much of the margin is Gemini forfeiting illegal moves. This is DeepMind's *symbolic* world-model line, alongside Genie 3's generative one. See [code world model](../concepts/world-models/code-world-model.md).
+
 ## Biological / biomechanical simulation
 - **Virtual Rodent** (Merel et al. 2020, ICLR) — anatomically detailed mouse body in MuJoCo, deep-RL imitation. Direct ancestor of flybody.
 - **[flybody](flybody.md)** (Vaxenburg et al. 2025, *Nature*) — *Drosophila* whole-body simulator co-developed with [HHMI Janelia](hhmi-janelia.md). DeepMind contributed Yuval Tassa (corresponding author, MuJoCo lead), Matthew Botvinick, Guido Novati, plus the DMPO + Acme + Reverb training stack. Released open-source (Apache-2.0).
@@ -34,9 +37,10 @@ Google's AI research lab. Maintains MuJoCo and [MuJoCo Playground](mujoco-playgr
 
 ## Mentioned in
 
-> [!note] Curated list — **38** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **39** source pages link here; the ones below are those that shaped this page.
 
 - [MuJoCo Playground Paper](../sources/mujoco-playground-paper.md)
+- [Code World Models for General Game Playing](../sources/code-world-models-general-game-playing.md)
 - [NVIDIA Newton Physics Engine Developer Page](../sources/nvidia-newton-physics-engine-developer-page.md)
 - [Using OpenUSD for Modular and Scalable Robotic Simulation](../sources/nvidia-openusd-for-robotic-simulation.md)
 - [flybody Paper](../sources/flybody-paper.md)
