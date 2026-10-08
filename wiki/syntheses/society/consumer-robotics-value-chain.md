@@ -2,7 +2,7 @@
 title: Who benefits from consumer robotics in 2026–2027 (other than NVIDIA)
 type: synthesis
 created: 2026-08-17
-updated: 2026-08-27
+updated: 2026-10-07
 tags: [economics-of-ml, consumer-robotics, value-chain, actuators, edge-compute, business-models, market-analysis, synthesis]
 ---
 
@@ -20,6 +20,7 @@ A value-chain reading of the consumer-robot wave, built from the component costs
 | Product | Status in this wiki |
 |---|---|
 | **[NORI A3](../../entities/nori-a3.md) ($1,688)** | **The first exception.** Complete published price, no deposit, US assembly, **first unit shipped and >$300 K in sales within 6 weeks** ([YC profile](../../sources/nori-robotics-yc-profile.md)). Onboard compute is a **[Pi 5](../../entities/raspberry-pi-5.md) 4 GB** — disclosed on the YC page, never on the storefront ([product site](../../sources/nori-robotics-site.md)) |
+| **[Flourish 1](../../entities/flourish-1.md) ($3,555)** | 50 numbered units, $1,555 refundable deposit, ships Dec 2026; **sold as-is, no warranty, no returns** ([site + Terms](../../sources/flourish-robots-website.md)). Raspberry Pi onboard ([Robot Report](../../sources/therobotreport-flourish-one.md)) |
 | [Zeroth M1](../../entities/zeroth-m1.md) ($2,499) | Pre-order on a visibly unfinished storefront — placeholder meta description, `InStock` under a "Reserve Now" button, 404s on every company page ([product page](../../sources/zeroth-m1-product-page.md)) |
 | [Sourccey](../../entities/sourccey.md) | **No published price**, store not live ([Vulcan Robotics](../../entities/vulcan-robotics.md)) |
 | [Fauna Sprout](../../entities/fauna-robotics.md) | Creator Edition, developer-tier |
@@ -63,9 +64,11 @@ Actuators are the cost that **scales with the product** in a way silicon does no
 2. **[Vulcan Robotics](../../entities/vulcan-robotics.md)** sells hardware **plus rented compute** — *"rented compute is planned for users who need stronger training or inference."* The wiki's entity page reads this as "a candid concession that the robot's advertised AI does not run on the robot, and turns that into a recurring-revenue surface."
 3. **[Sourccey](../../entities/sourccey.md)** ships a **0.9 B [X-VLA](../../entities/x-vla.md) policy advertised beside a [Raspberry Pi 5](../../entities/raspberry-pi-5.md) that cannot run it** — reconciled only by that rental plan.
 
+4. **[Flourish 1](../../entities/flourish-1.md)** (added 2026-10-07) **is the first to publish the price.** *"6 months of cloud compute included, then $50/month (optional), or use your own GPU."* The Privacy Policy says live camera data goes to Flourish's servers *"so the system can decide what to do next,"* and the robot without the plan *"replays the recorded gestures"* ([Clubic](../../sources/clubic-flourish-1.md)). The site said *"runs on-device"* on 2026-10-02 and dropped the claim by 10-07 ([edition history](../../sources/flourish-robots-website.md#edition-history)). That is a vendor moving from the M1's silence to an explicit model-serving line item within a week of launch.
+
 If the pattern holds, the consumer robot is a **subscription-acquisition device**, and durable revenue accrues to **model-serving providers on a per-robot-per-day basis** rather than to anyone at point of sale. That is a fundamentally different business from selling robots, with different margins, different defensibility, and a different winner.
 
-> [!warning] This is one confirmed business model, one secondary report, and one inference
+> [!warning] This is one confirmed business model, one secondary report, and one inference (now two priced business models: see Flourish, item 4)
 > It is the claim in this page most worth falsifying before anyone acts on it. **The decisive test is cheap**: establish what actually runs the M1's perception and dialogue. If inference is on-device, this tier collapses to a one-time silicon sale. If it is a network round-trip, then "fall detection" in a house with poor Wi-Fi is a materially different product — see the open question on [the M1 source page](../../sources/zeroth-m1-product-page.md).
 
 ---

@@ -2,8 +2,8 @@
 title: Imitation learning
 type: concept
 created: 2026-05-07
-updated: 2026-09-13
-sources: 110
+updated: 2026-10-07
+sources: 111
 tags: [imitation-learning, behavior-cloning, demonstrations, lerobot, act, co-training, mobile-aloha]
 ---
 
@@ -56,7 +56,7 @@ A prerequisite the talk is clear about: none of this works on logs. Replaying dr
 
 ## Mentioned in
 
-> [!note] Curated list — **97** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **98** source pages link here; the ones below are those that shaped this page.
 
 - [Kober, Bagnell & Peters 2013 — RL in Robotics Survey](../../sources/kober-rl-robotics-survey-2013.md) — §5.1 demonstrations-remove-global-exploration; kinesthetic teach-in; apprenticeship learning.
 - [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — the weighted RL+IL hybrid, with measured deceleration distributions.
@@ -66,6 +66,7 @@ A prerequisite the talk is clear about: none of this works on logs. Replaying dr
 - [Mobile ALOHA Paper](../../sources/mobile-aloha-paper.md)
 - [Robot Learning: A Tutorial (LeRobot)](../../sources/lerobot-robot-learning-tutorial.md) — official team-authored tutorial; IL has its own chapter.
 - [Robot Utility Models Project Page](../../sources/robot-utility-models-website.md)
+- [The Robot Report — Flourish One](../../sources/therobotreport-flourish-one.md): per-home, per-task fine-tuning from ~30 minutes of owner phone teleop as a $3,555 consumer product. It is the explicit anti-generalist bet: *"The way I tidy my apartment is not the same as you do in your house."* Contrast [Robot Utility Models](../../sources/robot-utility-models-paper.md), which aim for zero-shot transfer to new homes.
 - [Robot Utility Models Paper](../../sources/robot-utility-models-paper.md)
 - [RoboCasa365 Paper](../../sources/robocasa365-paper.md)
 - [Diffusion Policy Paper](../../sources/diffusion-policy-paper.md)

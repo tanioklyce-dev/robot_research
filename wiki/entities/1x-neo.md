@@ -3,8 +3,8 @@ title: 1X NEO
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-09-12
-sources: 3
+updated: 2026-10-07
+sources: 4
 tags: [1x-neo, humanoid, bipedal, household, consumer, redwood-ai, norway]
 ---
 
@@ -45,7 +45,9 @@ The **tendon-driven / soft-touch / quiet** design philosophy is a deliberate hou
 - 1X Technologies — manufacturer (Norway / US)
 - [Figure](figure.md) / [Atlas](atlas.md) / [Tesla Optimus](tesla-optimus.md) — humanoid competitors
 - [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md)
+- [Flourish 1](flourish-1.md): a $3,555 wheeled counter-design. Its CEO says no remote operator runs it, against NEO's Expert Mode. [CNET](../sources/cnet-flourish-1.md) quotes NEO at **~$20,000 or $499/month**.
 
 ## Mentioned in
 - [1X NEO product page](../sources/1x-neo-product-page.md)
 - [TechCrunch — Hello Robot in homes](../sources/techcrunch-hello-robot-homes-2026.md) — as of 2026-06-04, 1X *"says that it sold out of the 10,000 Neos it plans to build this year, but as of yet, none have actually been delivered."*
+- [CNET — Flourish 1](../sources/cnet-flourish-1.md): NEO priced at ~$20,000 or $499/month, and named with Weave as robots that *"employ teleoperators for tasks their robots can't complete."*

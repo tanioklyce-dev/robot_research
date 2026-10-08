@@ -2,7 +2,7 @@
 title: Humanoid platforms survey
 type: synthesis
 created: 2026-05-08
-updated: 2026-08-28
+updated: 2026-10-07
 tags: [humanoids, hardware, comparison, list, bipedal, education, research, figure-03, manufacturing, wheeled-base, walden-robotics, form-factor]
 ---
 
@@ -175,6 +175,9 @@ Nobody in the affordable or educational tiers is doing either, which is worth no
 - **$15k–$25k tier**: G1, NEO Beta.
 - **$8k–$15k tier**: NAO V6.
 - **<$1k tier**: TonyPi (educational kit).
+
+> [!note] Adjacent, not humanoid: wheeled "semi-humanoids" (added 2026-10-07)
+> Launch press calls [Flourish 1](../../entities/flourish-1.md) ($3,555) a humanoid. It is a wheeled two-arm mobile manipulator, like [NORI A3](../../entities/nori-a3.md) ($1,688) and [Sourccey](../../entities/sourccey.md). They are left out of the tiers above. Counting them would put a **sub-$5k consumer home tier** under the G1, and that tier is getting crowded.
 
 There is **no $25k–$50k tier**. The market is bifurcating into "expensive enterprise" vs "cheap research / educational" with little middle.
 

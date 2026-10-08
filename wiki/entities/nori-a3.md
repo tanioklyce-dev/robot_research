@@ -3,7 +3,7 @@ title: NORI A3
 type: entity
 subtype: robot
 created: 2026-08-23
-updated: 2026-08-23
+updated: 2026-10-07
 sources: 2
 tags: [nori, home-robot, bimanual, mobile-manipulator, consumer-robotics, affordable-hardware, raspberry-pi-5, lidar, skills-marketplace]
 ---
@@ -49,7 +49,8 @@ Marketed tasks: kitchen help, tidying, fetching from the fridge, loading dishes,
 - No depth sensor and no named policy: what actually closes the loop on a grasp?
 
 ## Related
-- [Nori Robotics](nori-robotics.md) · [Sourccey](sourccey.md) · [Zeroth M1](zeroth-m1.md) · [XLeRobot](xlerobot.md) — the sub-$2k tier.
+- [Nori Robotics](nori-robotics.md) · [Sourccey](sourccey.md) · [Zeroth M1](zeroth-m1.md) · [XLeRobot](xlerobot.md): the sub-$2k tier.
+- [Flourish 1](flourish-1.md): the same 1.5 kg payload, a Raspberry Pi onboard and an owner task store at about twice the price. Its cloud half is a priced $50/month plan, where the A3's is your laptop.
 - [Raspberry Pi 5](raspberry-pi-5.md) · [Hailo](hailo.md)
 - [Consumer robotics value chain](../syntheses/society/consumer-robotics-value-chain.md)
 

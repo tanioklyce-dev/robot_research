@@ -2,8 +2,8 @@
 title: Crowdsourced robot training data
 type: concept
 created: 2026-08-27
-updated: 2026-09-27
-sources: 20
+updated: 2026-10-07
+sources: 21
 tags: [crowdsourcing, human-data, egocentric, data-pipeline, data-quality, fraud, deduplication, data-labor, gig-economy, scaling-laws, go-big, brookfield, consent]
 ---
 
@@ -130,3 +130,4 @@ What would settle it is unglamorous: **an acceptance rate, a total, a diversity 
 - [OmniVLA paper](../../sources/omnivla-paper.md) — 9,500 h of which 8,680 are car dashcam video with synthesized actions: the 'observations from anywhere, actions from a model' thesis at scale.
 - [LeLaN paper](../../sources/lelan-paper.md) — action-free video made usable; YouTube as the non-saturating source.
 - [CAST paper](../../sources/cast-paper.md) — the first audited VLM-label rate: 60–70%.
+- [Flourish Robots — Privacy Policy](../../sources/flourish-robots-website.md): **owner robot teleop as the fleet's training data**, consented per session. Approved recordings fine-tune the owner's task and also *"train and improve the models that run tasks on Flourish robots"*, de-identified when used beyond the unit. Declining to record means the task cannot be taught. Telemetry includes *"task success and failure records"*, which is the targeting half of the data-engine loop above. Founder-reported coverage ([Clubic](../../sources/clubic-flourish-1.md), [CNET](../../sources/cnet-flourish-1.md)) describes a softer retention policy than the legal text.

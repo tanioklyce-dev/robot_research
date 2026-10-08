@@ -2,8 +2,8 @@
 title: End-User Robot Programming
 type: concept
 created: 2026-05-09
-updated: 2026-09-07
-sources: 13
+updated: 2026-10-07
+sources: 14
 tags: [eup, robot-programming, hri, accessibility, customization]
 ---
 
@@ -49,8 +49,13 @@ The approaches on this page have a person specify **what the robot should do**. 
 
 The authoring cost is trivially low — it is an `if/else` — and the measured result is that it matters **exactly where the environment matches what the author had in mind**, and not otherwise (p = 0.441 in a dynamic environment the rule was not written for). That is a usable design constraint for any end-user programming system whose output feeds a learner rather than an executor: **the user is not specifying behavior, they are specifying a distribution assumption**, and it fails silently when the deployment leaves it.
 
+## A commercial instance: task graph plus demonstration (added 2026-10-07)
+
+[Flourish 1](../../entities/flourish-1.md) ships the split this page's research describes as a consumer product. The owner **authors the structure** by dragging and dropping steps in a phone app (*go to the entrance → pick up a shoe → put it in the cabinet → come back*, about 5 minutes, no code). Then they **demonstrate the leaves** by driving the robot through the task from the phone for about 30 minutes, and a learned skill is fine-tuned in the cloud ([site](../../sources/flourish-robots-website.md)). Developers write further **nodes** with an SDK, and owners share tasks through a store. It is the first product in this wiki to make the non-expert both **programmer** and **data collector** for the same task. It inherits the failure mode in the section above: the demonstrations encode the author's own distribution assumptions, so they need to start *"from different spots in the room"*, as the site instructs.
+
 ## Mentioned in
 
+- [Flourish Robots — product site](../../sources/flourish-robots-website.md): a drag-and-drop task graph plus 30 minutes of phone-teleop demonstration, sold to consumers.
 - [Human-in-the-loop transfer learning in collision avoidance](../../sources/hitl-transfer-learning-collision-avoidance.md) — a hand-written rule as the prior, and where it stops paying.
 - [HCR Lab Publications](../../sources/hcrlab-publications.md)
 - [Maya Cakmak — Research Overview](../../sources/maya-cakmak-research.md)
