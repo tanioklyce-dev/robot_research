@@ -3,8 +3,8 @@ title: Spot
 type: entity
 subtype: robot
 created: 2026-05-09
-updated: 2026-09-11
-sources: 3
+updated: 2026-10-13
+sources: 4
 tags: [spot, boston-dynamics, quadruped, commercial, sdk, orbit]
 ---
 
@@ -49,6 +49,7 @@ tags: [spot, boston-dynamics, quadruped, commercial, sdk, orbit]
 ## Mentioned in
 
 - [Tools for Your To Do List with Spot and Gemini Robotics (Boston Dynamics blog)](../sources/bostondynamics-spot-gemini-robotics.md)
+- [Gemini 4 Argon for Robotics](../sources/gemini-4-argon-robotics-blog.md) — Argon drives Spot (12-DoF legs + 6-DoF arm) through a skill, practises a 3-leg tripod balance in a MuJoCo twin of a foot-pedal bin before stepping on the real one, and verifies with a 2-agent swarm. A single demo.
 
 ## Open questions / TBD
 

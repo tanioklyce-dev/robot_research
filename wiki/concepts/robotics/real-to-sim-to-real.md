@@ -2,8 +2,8 @@
 title: Real-to-sim-to-real (R2S2R)
 type: concept
 created: 2026-08-26
-updated: 2026-08-26
-sources: 5
+updated: 2026-10-13
+sources: 6
 tags: [real-to-sim, sim-to-real, r2s2r, simulation, robot-policy-evaluation, world-model, gaussian-splatting, deformable]
 ---
 
@@ -97,6 +97,19 @@ That 2-point discrimination is exactly the **±2 pp band** the [Clopper-Pearson 
 > [!warning] Partial contradiction with WorldArena
 > [WorldArena](../../sources/worldarena-paper.md) measured learned world models as **data engines** and found them marginal — only 2 of 6 beat real data, on the easier task only. R2S2R claims policies trained on **zero real data** transfer directly across diverse robots and contact-rich tasks. The plausible reconciliation is that WorldArena tested *generative-video* models producing pixels, while R2S2R reconstructs a world carrying explicit geometry, collision meshes and physics — the [renderer-vs-simulator line](../world-models/world-model-functional-taxonomy.md) itself. If that reconciliation holds, it is direct evidence for the taxonomy's linchpin claim; the wiki should not assume it holds without a paper.
 
+## An LLM as the reconstructor (added 2026-10-13)
+
+Every R2S2R system above uses a purpose-built reconstruction pipeline. [Gemini 4 Argon](../../entities/gemini-4-argon.md) shows a **general model writing the twin as code**, MuJoCo XML plus a tuning loop, from four kinds of input ([Argon blog](../../sources/gemini-4-argon-robotics-blog.md)):
+
+| Input | Output | Validation target |
+|---|---|---|
+| Teleop episode logs (3 cams + tactile) | Scene + assets; robot driven by joint-space PD toward logged state | Rendered views match **and** simulated Sharpa fingertip forces match logged tactile force in timing, magnitude, direction |
+| Egocentric human video + 3D hand keypoints | Convex-decomposed objects; trajectory retargeted to a 76-DoF humanoid at 500 Hz | Force closure, lift > 2 cm, stable placement |
+| Pen-and-paper sketch | mujoco_warp scene + 76-DoF whole-body throw | 6/6 boxes knocked down, < 3 cm pelvis drift |
+| **One overhead RGB photo** | 9-prop twin, 77-task curriculum, IK data generator, 4,500+ randomised episodes | **Real VLA success 56% → 75%** (n not given) |
+
+Two points matter for this page. First, **contact force as the alignment metric** is stronger than the visual and open-loop trajectory matching the [validation section](#validation-matched-open-loop-execution) describes. It checks dynamics directly, not only kinematics. Second, the prompt has to forbid **six specific ways of faking the match**, among them setting object state, external forces, welds, and *copying the logged tactile readings into the reported contact forces*. That is an empirical hint at a new failure mode. When the reconstructor is an optimising agent, alignment can be **gamed** as well as fall short, and the [table above](#why-it-is-a-distinct-thing-from-sim-to-real)'s "reconstruction error you cannot [read]" gains a twin: reconstruction *success* you cannot trust without auditing the channels.
+
 ## Precedent this is not the first of
 
 Simulation-first training is established where embodiment is simple: the R2S2R post's own framing notes that L3/L4 self-driving is "powered by models trained using both real-world driving and simulation data," and that aircraft, rockets, drones and quadruped locomotion are developed and tested in simulation. The open question is whether it extends to **contact-rich manipulation of deformables**, which is where the wiki's [sim-to-real gap](../learning/sim-to-real-transfer.md#quantified-gap-2025) numbers are worst (RLBench 89.4% vs BEHAVIOR-1K 12.4%).
@@ -116,3 +129,4 @@ Simulation-first training is established where embodiment is simple: the R2S2R p
 - [How to Evaluate General-Purpose Robot Policies for Real-World Deployment](../../sources/nvidia-robolab-evaluation-blog.md) — the >1 hr/scene real2sim cost.
 - [Fei-Fei Li is Solving the Hardest Problem in Robotics (a16z × World Labs)](../../sources/a16z-worldlabs-scenix-conversation.md) — the commercial articulation, the teleop-speed ceiling, and the admission that simulation does not replace real data.
 - [WorldArena paper](../../sources/worldarena-paper.md)
+- [Gemini 4 Argon for Robotics](../../sources/gemini-4-argon-robotics-blog.md) — an LLM writes the twin; tactile-force alignment; the anti-cheating clause; photo → 4,500 episodes → +19 points real.

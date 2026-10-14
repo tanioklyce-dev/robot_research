@@ -2,7 +2,7 @@
 title: Where the compute lives — agents on the robot vs on a local AI server
 type: synthesis
 created: 2026-07-04
-updated: 2026-09-13
+updated: 2026-10-13
 tags: [edge-ai, on-device, on-robot, local-server, agents, jetson, dgx-spark, ollama, hermes, nemoclaw, gemma4, vla, deployment-topology]
 ---
 
@@ -52,6 +52,15 @@ What you can run on-robot vs on-server is set by memory, and 2026's small-model 
 > **Speech on the same NPU** ([model zoo](../../sources/rknn-model-zoo-github.md), one RK3588 core, FP16): Whisper-base at **RTF 0.215**, streaming Zipformer ASR at **0.065**, MMS-TTS at **0.069**, YAMNet at 0.004. The agent's ears and voice fit on the accelerator beside the LLM — sharing its LPDDR, not its cores.
 
 - **Runtimes** are the enabling layer: **[LiteRT](../../entities/litert.md)** / LiteRT-LM for mobile + embedded (the source of every measured figure above), [Ollama](../../entities/ollama.md) / llama.cpp for the edge + workstation, vLLM / NIM for the server, all of which [Gemma 4](../../entities/gemma4.md) and Nemotron support.
+
+## The other two on-device components: memory and decisions (added 2026-10-13)
+
+The ladder above sizes the **generator**. An agent needs two more pieces, and two October launches price them.
+
+- **Memory: a multimodal retriever.** [EmbeddingGemma 2](../../entities/embeddinggemma-2.md) (740M, Apache 2.0) puts video frames, audio and text in one vector space at **~567 MB** quantised, or **~191 MB** text-only. It shares Gemma 4's tokenizer and audio encoder, so it composes with an E2B generator in well under 2 GB ([EmbeddingGemma 2 blog](../../sources/embeddinggemma-2-blog.md)). That is the component behind "when did I last see the keys?", answered from the robot's own history without the cloud. Google gives RAM figures and **no throughput**: an embedder that costs ~1 s per frame (the RK3588 VLM encode rate above) cannot index a 30 fps stream, so keyframe selection becomes part of the design.
+- **Decisions: probabilities, not prose.** Much of an agent loop is yes/no and routing: success detection, hazard checks, tool choice, context pruning. A [decision model](../../concepts/agents/decision-models.md) answers these in one forward pass with a probability per answer. [Liquid's d1](../../entities/liquid-d1.md) does it in 200–300 ms at 19–200× below frontier chat cost, near frontier quality on simple decisions ([d1 blog](../../sources/liquid-ai-d1-decision-model-blog.md)). It is **cloud-only today**, with open weights promised, which is what would move it onto this page's ladder. Google's MediaPipe Decision Task API is the on-device counterpart, built on embeddings.
+
+The resulting on-robot agent has a small generator, a shared-encoder retriever and a classifier head, each sized separately. That is a more realistic shape than one VLM doing everything at 7.6 tok/s.
 
 ## The harness matters as much as the model
 

@@ -3,8 +3,8 @@ title: Ollama
 type: entity
 subtype: tool
 created: 2026-05-07
-updated: 2026-07-04
-sources: 8
+updated: 2026-10-13
+sources: 9
 tags: [ollama, llm-runtime, local-llm, edge-inference, uav]
 ---
 
@@ -25,3 +25,4 @@ The dominant on-device LLM runtime for hobbyist / educational robotics in 2026. 
 - [Seeed jetson-examples](../sources/seeed-jetson-examples.md) — Ollama as one of the LLM-serving recipes.
 - [NVIDIA RTX AI Garage — Hermes Agent](../sources/nvidia-rtx-ai-garage-hermes-agent.md) — supported runtime (via NVIDIA blog).
 - [Hermes Agent GitHub README](../sources/hermes-agent-github.md) — supported runtime.
+- [EmbeddingGemma 2 launch blog](../sources/embeddinggemma-2-blog.md) — listed as a day-one serving path for the 740M multimodal embedder.

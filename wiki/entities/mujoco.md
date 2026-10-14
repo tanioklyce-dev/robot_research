@@ -3,8 +3,8 @@ title: MuJoCo
 type: entity
 subtype: physics-engine
 created: 2026-05-07
-updated: 2026-09-13
-sources: 28
+updated: 2026-10-13
+sources: 29
 tags: [mujoco, physics-engine, deepmind, simulation, biomechanics]
 ---
 
@@ -54,3 +54,4 @@ tags: [mujoco, physics-engine, deepmind, simulation, biomechanics]
 - [neuromechfly.org website](../sources/neuromechfly-website.md)
 - [Microduck — Pollen Robotics launch](../sources/pollen-robotics-microduck.md) — The physics engine under [Microduck](microduck.md)'s shipped policies, via [mjlab](mjlab.md) (MuJoCo Warp) — the first consumer robot in this wiki whose MuJoCo training environments ship with the product.
 - [OpenArm documentation](../sources/openarm-docs.md) — `openarm_mujoco` MJCF (bimanual, torque-controlled actuators); a Dora MuJoCo bridge lets the same inference dataflow run in sim or on hardware.
+- [Gemini 4 Argon for Robotics](../sources/gemini-4-argon-robotics-blog.md) — a frontier LLM as **MuJoCo author**: twins built from robot logs (matched on fingertip contact force), from egocentric video, from a sketch, and from one photo (4,500+ episodes for VLA fine-tuning); 68 paper reproductions in **MuJoCo WebAssembly**. MuJoCo XML has become a target language for LLM output.

@@ -3,8 +3,8 @@ title: Gemini Robotics
 type: entity
 subtype: model
 created: 2026-05-09
-updated: 2026-08-03
-sources: 10
+updated: 2026-10-13
+sources: 11
 tags: [gemini-robotics, google-deepmind, vlm, vla, embodied-reasoning, foundation-model]
 ---
 
@@ -43,6 +43,10 @@ The [safety report](../sources/gemini-robotics-2-safety-report.md) introduces **
 The [official model card](../sources/gemini-robotics-on-device-2-model-card.md) supplies lineage and results: built on **GR 1.5 technology + on-device Gemma models**; **SO101 53.3% (v2) vs 6.7% (v1)**, Dexmate 75.6% vs 33.3%; stated limitation — OOD generalization and **"controlling high-degree-of-freedom robots"** (the on-device tier is explicitly not the whole-body tier). Trusted Testers only.
 
 **Still unpublished:** parameter count, memory footprint, target hardware, control rate — so it remains unplaceable on the [control-rate ladder](../syntheses/platforms/control-rate-ladder.md). A third-party tutorial reports ~0.25 s closed-loop latency (~4 Hz); unofficial, not adopted.
+
+## Beside the line: Gemini 4 Argon (2026-10-13)
+
+Three months after ER 2, Google showed a **general** frontier model, [Gemini 4 Argon](gemini-4-argon.md), doing the ER job and more: **ERQA 87%** "using pure reasoning" (no competitor table), code-as-policies control of [Spot](spot.md) and an arm, MuJoCo twin authoring, hindsight labeling, and sim data that lifted an unnamed VLA from 56% to 75% ([Argon robotics blog](../sources/gemini-4-argon-robotics-blog.md)). The post never mentions Gemini Robotics or ER 2. Whether ER is being folded into the general model, or distilled from it, is open. The VLA tier (GR 2, On-Device 2) is unaffected: Argon emits code, not actions.
 
 ---
 
@@ -99,6 +103,7 @@ Boston Dynamics' **AIVI-Learning** product is described as "the next evolution" 
 - [Gemini Robotics 2 blog](../sources/gemini-robotics-2-blog.md) — the GR 2 announcement with the whole-body, multi-finger, and gripper benchmark tables.
 - [Gemini Robotics 2: Safety Evaluations](../sources/gemini-robotics-2-safety-report.md) — ASIMOV-Agentic and the ER 2 safety evaluations.
 - [Gemini Robotics On-Device 2 model card](../sources/gemini-robotics-on-device-2-model-card.md) — the GRoD v1→v2 numbers and the high-DoF limitation.
+- [Gemini 4 Argon for Robotics](../sources/gemini-4-argon-robotics-blog.md) — a general Gemini 4 model taking the ER orchestrator role (ERQA 87%), not part of this family.
 
 ## Open questions / TBD
 

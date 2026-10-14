@@ -2,8 +2,8 @@
 title: World-model simulators
 type: concept
 created: 2026-05-06
-updated: 2026-09-11
-sources: 41
+updated: 2026-10-13
+sources: 42
 tags: [world-model, generative-simulation, video-generation, jepa, latent-prediction, paradigm-shift]
 ---
 
@@ -100,3 +100,4 @@ Two things this qualifies on the page below: the [Genie Envisioner](../../entiti
 - [WorldArena paper](../../sources/worldarena-paper.md) · [WorldArena 2.0 paper](../../sources/worldarena-2-paper.md) — the four functional roles, measured.
 - [WorldRoamBench paper](../../sources/worldroambench-paper.md) — long-horizon stability of interactive world models.
 - [UnifoLM-WMA-0 project page](../../sources/unifolm-wma-0-project-page.md) — Unitree's DynamiCrafter-based generative world model with a simulation mode.
+- [Gemini 4 Argon for Robotics](../../sources/gemini-4-argon-robotics-blog.md) — an LLM **steering** a video world model (Gemini Omni) in closed loop: timestamped action prompts, keyframe inspection, refinement (33 steps). The world model is driven by a planner's prompts, not by a policy's actions.

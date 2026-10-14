@@ -3,8 +3,8 @@ title: SO-ARM101 (SO-ARM100 lineage)
 type: entity
 subtype: robot
 created: 2026-05-10
-updated: 2026-09-13
-sources: 38
+updated: 2026-10-13
+sources: 39
 tags: [so-arm, so-arm100, so-arm101, the-robot-studio, low-cost-arm, open-source, lerobot, leader-follower, teleoperation]
 ---
 
@@ -52,7 +52,7 @@ The leader-follower convention is the dominant data-collection pattern for imita
 
 ## Mentioned in
 
-> [!note] Curated list — **35** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **36** source pages link here; the ones below are those that shaped this page.
 
 
 - [NVIDIA Isaac Teleop and GR00T 1.7 in LeRobot (HF blog)](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) — the reference platform for NVIDIA's first-party [GR00T](nvidia-groot.md) 1.7 fine-tune walkthrough (50-episode teleop → 20k-step fine-tune → rollout), incl. XR-headset teleop via [Isaac Teleop](nvidia-isaac-teleop.md).
@@ -72,6 +72,7 @@ The leader-follower convention is the dominant data-collection pattern for imita
 - [Learning to Fold — tech report](../sources/larchenko-learning-to-fold-tech-report.md) — **a units gotcha for this arm**: between two LeRobot 0.4.x releases the follower's default state switched from a normalised −100…100 range to **degrees**, visually near-identical and ~10 % off per joint. Also: 30 Hz in sim vs 20 Hz real in the challenge; a competition policy that survived rig drift once cameras, calibration and lighting were deliberately varied during data collection.
 - [Post-train Cosmos 3 Edge](../sources/nvidia-cosmos3-edge-post-training-blog.md) — **the Cosmos 3 Edge model card lists LeRobot SO101 as a supported embodiment**, the first NVIDIA world-action-model recipe to name this arm. Named only; no data, config, or score shown.
 - [OpenArm documentation](../sources/openarm-docs.md) — [WowRobo](wowrobo.md), which calls itself *"the official manufacturer of the SO-ARM101,"* is also the certified manufacturer of [OpenArm](openarm.md); the $120 and $6,500 open-arm tiers now share a factory.
+- [Gemini 4 Argon for Robotics](../sources/gemini-4-argon-robotics-blog.md) — **the arm a frontier lab chose for its self-improvement-on-hardware demo**: Argon measures objects and dry-runs with no motion, hovers and verifies with the wrist camera, executes, then diagnoses its own failures from logs and footage and retries under `AGENTS.md` safety rules. Pick-and-place times 58.9 → 22.9 → 17.4 s across three iterations (n = 1 each). Driven through code, not a VLA.
 
 ## Open questions / TBD
 

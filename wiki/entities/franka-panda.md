@@ -3,8 +3,8 @@ title: Franka Panda
 type: entity
 subtype: robot
 created: 2026-05-07
-updated: 2026-09-12
-sources: 50
+updated: 2026-10-13
+sources: 51
 tags: [franka, panda, robot-arm, manipulator, 7-dof, manipulation-platform]
 ---
 

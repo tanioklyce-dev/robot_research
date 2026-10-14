@@ -2,8 +2,8 @@
 title: Embodied-reasoning VLMs (ER backbones)
 type: concept
 created: 2026-09-11
-updated: 2026-09-11
-sources: 4
+updated: 2026-10-13
+sources: 5
 tags: [embodied-reasoning, vlm-backbone, spatial-reasoning, pointing, benchmarks, vla, molmo2-er, gemini-robotics-er, cosmos-reason, unifolm]
 ---
 
@@ -36,6 +36,7 @@ The field has converged on a shared basket, and [UnifoLM](../../sources/unifolm-
 
 - **The 4B class is where the open action is.** Molmo2-ER-4B (Ai2), UnifoLM-ER-1-4B (Unitree), Thinker-4B and Qwen3-VL-4B itself all sit in the same weight class, and the table shows them trading columns: UnifoLM leads on pointing and static spatial relations (Where2Place 82.0, EmbSpatial 88.9, Pixmo-Point 73.8), Molmo2-ER on video spatial reasoning (VSI-Bench 74.5 vs 54.2), Thinker on planning (Ego-Plan2 63.7).
 - **Proprietary frontier models still own the hard reasoning columns.** In Unitree's own API tests, the models it lists as GPT-6-Astra and Gemini 3.1 Pro lead ERQA by 15–27 points and RefSpatial by 8–18 over the best open 4B model — while losing on pointing benchmarks to the specialized open models.
+- **A general frontier model claims the top of ERQA (2026-10).** [Gemini 4 Argon](../../entities/gemini-4-argon.md) reports **87% on ERQA "using pure reasoning"** and says it beats every other frontier model ([Argon blog](../../sources/gemini-4-argon-robotics-blog.md)). It publishes no competitor table. The best ERQA rows in Unitree's table were 77.7 and 65.2. If the claim holds on a common harness, the "proprietary frontier owns the hard reasoning columns" point above sharpens: **the frontier owner is now a general model, not an "-ER" specialization.** That would put pressure on the orchestrator role in the table above, though not on the backbone role, since Argon is not a VLA backbone.
 - **Two recipes for the same regression problem.** Specializing a VLM on embodied data costs general capability. Ai2's answer is *specialize-then-rehearse* (a second stage interleaving the original multimodal mix, p=0.5). Unitree's is single-stage *co-training* with general image–text data — and its own table shows the base Qwen3-VL-4B still ahead on MME (−102), MMMU (−3.1), RealWorldQA (−1.2) and VSI-Bench (−5.1). The rehearse stage appears to be worth its cost; nobody has run the two recipes on one base to check.
 - **Video is the under-served axis.** VSI-Bench is the column where image-only training mixes (UnifoLM) fall furthest, and it is the one closest to what manipulation-over-time needs. The [spatial intelligence](../world-models/spatial-intelligence.md) page's "leave and return" probe is a temporal one.
 
@@ -63,3 +64,4 @@ The field has converged on a shared basket, and [UnifoLM](../../sources/unifolm-
 - [MolmoAct2 paper](../../sources/molmoact2-paper.md)
 - [Gemini Robotics 1.5 report](../../sources/gemini-robotics-1-5-report.md)
 - [Isaac-GR00T GitHub](../../sources/isaac-gr00t-github.md)
+- [Gemini 4 Argon for Robotics](../../sources/gemini-4-argon-robotics-blog.md) — ERQA 87% from a general model.

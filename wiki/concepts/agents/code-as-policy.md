@@ -2,8 +2,8 @@
 title: Code as policy
 type: concept
 created: 2026-08-03
-updated: 2026-10-07
-sources: 16
+updated: 2026-10-13
+sources: 17
 tags: [code-as-policy, llm-agent, agentic-robotics, program-synthesis, skill-library, voyager, saycan, voxposer, inner-monologue, codeact, tool-use, waddle, cap-x, aspire, benchmark]
 ---
 
@@ -141,6 +141,16 @@ Two things this adds to the page. First, **it is the honest answer to the cost q
 
 Code-as-policy and code-as-model fit together: an agent could write the model, verify it against logged transitions, plan in it, and compile the result. None of the ingested robotics work does the model half.
 
+## A frontier generalist as the code-writer (added 2026-10-13)
+
+[Gemini 4 Argon](../../entities/gemini-4-argon.md)'s robotics launch is a vendor showcase of this pattern at the frontier ([Argon blog](../../sources/gemini-4-argon-robotics-blog.md)). It adds no measurements, but it shows three things the lineage above predicts:
+
+- **The harness is spelled out, and it is S2-tier.** The zero-shot arm demo exposes `grasp`, `place_until_contact`, `move_until_contact` and `deproject` over HTTP, plus a **calibrated wrist image overlaid with a 2 cm world grid, gripper reticle and object-axis line**. That is perception scaffolding and contact-terminated macros, the [abstraction confound](#the-abstraction-confound--the-finding-that-reframes-the-lineage-above) in its usual form. To its credit, the prompt is published, so the scaffolding is visible.
+- **The model chooses its own feedback density.** On turn 1 it picks coarse (2–4 calls), hover-verify (4–7) or fine visual servoing (8–20). That makes CaP-X's M3/M4 turn-budget axis a model decision instead of an experimenter's.
+- **Practise in sim, then act.** For Spot's foot-pedal bin, Argon *writes a MuJoCo twin of the bin* and rehearses before touching hardware. This is the [code world model](#the-inverse-code-as-world-model-added-2026-10-07) move from the section above, done in physics XML instead of OpenSpiel Python, and it is the first wiki instance of an agent building its own rehearsal environment as a step inside one task.
+
+The cost column is still empty, and the only hardware result with numbers (SO-101 pick-and-place, 58.9 → 17.4 s over three self-improvement iterations) is n = 1.
+
 ## Where this sits on the abstraction ladder
 
 Code-as-policy is **level 2 (programmatic control)** in the [control abstraction levels](../robotics/control-abstraction-levels.md) taxonomy — the level [Anthropic found](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) "substantially outperforms direct control" for essentially every model. CaP-X's contribution to that taxonomy is to show **level 2 is not one level**: its eight tiers subdivide "the model writes a controller" into rungs that span tens of points of success rate. *"Programmatic control works"* is underspecified until you say which primitives were on offer and how many turns the agent got.
@@ -191,6 +201,7 @@ What remains unmeasured is what it costs.
 > And two things have **not** moved in four years: the primitive set still has to be ported per embodiment, and nobody reports cost.
 
 ## Mentioned in
+- [Gemini 4 Argon for Robotics](../../sources/gemini-4-argon-robotics-blog.md) (2026-10) — a frontier general model with a published S2-tier primitive harness, self-chosen call granularity, and sim rehearsal before hardware.
 - [Code as Policies](../../sources/code-as-policies-paper.md) (ICRA 2023) — the origin paper; LMPs, hierarchical code-gen, RoboCodeGen.
 - [SayCan](../../sources/saycan-paper.md) (CoRL 2022) — the skill-selection branch this pattern defines itself against.
 - [Inner Monologue](../../sources/inner-monologue-paper.md) (CoRL 2022) — closed-loop textual feedback; the 2022 origin of "feedback is the bottleneck."

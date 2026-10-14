@@ -3,8 +3,8 @@ title: LiteRT
 type: entity
 subtype: product
 created: 2026-08-27
-updated: 2026-08-27
-sources: 0
+updated: 2026-10-13
+sources: 1
 tags: [litert, tensorflow-lite, google, on-device, edge-ai, inference-runtime, xnnpack, npu, gemma4, quantization]
 ---
 
@@ -60,6 +60,7 @@ The spread across backends on the *same* model is the reason this page exists: L
 
 - [Gemma 4 E2B model card + LiteRT benchmarks](../sources/gemma-4-e2b-model-card.md) — the quantization scheme, the per-device table, and the 32K runtime context limit.
 - [Gemma 4 Powers Open Duck Mini (explainx.ai)](../sources/explainx-gemma-4-open-duck-mini.md) — LiteRT as the duck's inference layer; also the source of the XNNPACK misdescription corrected above.
+- [EmbeddingGemma 2 launch blog](../sources/embeddinggemma-2-blog.md) — LiteRT (and MediaPipe on top) is the on-device path for EmbeddingGemma 2: ~191 MB text-only / ~567 MB multimodal on a Pixel 11 Pro.
 
 ## Open questions
 

@@ -3,8 +3,8 @@ title: Gemma 4
 type: entity
 subtype: model
 created: 2026-07-04
-updated: 2026-09-13
-sources: 7
+updated: 2026-10-13
+sources: 8
 tags: [gemma4, vlm, google, multimodal, moe, edge-ai, on-device, vla-backbone-candidate]
 ---
 
@@ -44,6 +44,7 @@ The gap between the CPU and GPU rows on the *same* Orin Nano — ~10× prefill, 
 
 ## Why it matters in this wiki
 - **On-robot System-2 candidate**: the multimodal E2B/E4B variants + native function-calling fit the edge-agent-brain slot the wiki tracks ([Taking Flight drone](../sources/taking-flight-with-dialogue-px4-drone-agent.md) on [Ollama](ollama.md); [ROSOrin offline curriculum](../sources/hiwonder-rosorin-docs.md)). See the [on-device/on-robot agents synthesis](../syntheses/agents/on-device-and-on-robot-agents.md).
+- **Retrieval companion**: [EmbeddingGemma 2](embeddinggemma-2.md) (740M, Apache 2.0) is built on the Gemma 4 architecture and **shares its text tokenizer and audio encoder**. Google pitches the pair for on-device multimodal RAG at a lower combined footprint ([EmbeddingGemma 2 blog](../sources/embeddinggemma-2-blog.md)). E2B text weights (~0.8 GB) plus the full embedder (~567 MB) is under 1.5 GB; that sum is our arithmetic.
 - **Backbone-lineage note**: [Gemma3](gemma3.md) 4B is the [π0.7](pi07.md) VLA backbone; Gemma 4 is the natural next candidate, though no wiki-tracked VLA uses it yet.
 
 ## Related
@@ -58,6 +59,8 @@ The gap between the CPU and GPU rows on the *same* Orin Nano — ~10× prefill, 
 - [Gemma 4 Powers Open Duck Mini (explainx.ai)](../sources/explainx-gemma-4-open-duck-mini.md) — a secondary that gets E2B's parameter count and context window wrong; corrections tabulated there.
 - [airockchip/rknn-llm](../sources/rknn-llm-github.md) — E2B on the **RK3588 NPU at 11.1 tok/s** (RKLLM v1.3.0 added Gemma 4 support, 2026-06); the rung between the Pi 5 CPU and the Orin Nano GPU.
 - [Gemini Robotics On-Device 2 model card](../sources/gemini-robotics-on-device-2-model-card.md) — GRoD 2 is built on "our on-device Gemma models", putting the Gemma line under DeepMind's edge VLA (size class unstated).
+
+- [EmbeddingGemma 2 launch blog](../sources/embeddinggemma-2-blog.md) — the Gemma 4-architecture embedding model; shared tokenizer + audio encoder.
 
 ## Open questions
 - ~~**Primary Google Gemma 4 release/paper not ingested**~~ — **done**: the [HF model card](../sources/gemma-4-e2b-model-card.md) is ingested and confirms the NVIDIA-sourced sizes, adds the **12B Unified** variant this page was missing, and settles that audio is E2B/E4B/**12B**. The tech report (**arXiv 2607.02770**) is still not ingested.

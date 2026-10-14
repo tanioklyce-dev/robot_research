@@ -2,8 +2,8 @@
 title: LLM-agent architecture
 type: concept
 created: 2026-05-07
-updated: 2026-08-31
-sources: 68
+updated: 2026-10-13
+sources: 69
 tags: [llm-agent, tool-use, agentic-robotics, planning, mcp, a2a, mhs, code-as-policy]
 ---
 
@@ -94,6 +94,7 @@ Two things follow for robots specifically:
 - [Code as policy](code-as-policy.md) — the sub-pattern where the action vocabulary is *arbitrary code* rather than a fixed tool schema (Code as Policies → Voyager → CaP-X/ASPIRE → [Waddle](../../entities/waddle-labs.md)).
 - [Stigmergy](../alife/stigmergy.md) — the counter-proposal to this whole page's investment in the **channel**. [SwarmWorld](../../sources/swarmworld-paper.md) gives initially identical LLM agents a persistent consequential world and finds that ~95% of technology adoption happens through **physical observation of artifacts**, with direct inventor-to-adopter contact not enriched over a shuffled null — i.e. when the environment can hold state, the environment outcompetes the message bus as a coordination medium.
 - [VLA models](../learning/vla-models.md) — competing paradigm (end-to-end action prediction).
+- [Decision models](decision-models.md) — single-forward-pass probability outputs for the loop's many yes/no and routing sub-calls ([d1](../../entities/liquid-d1.md), 2026-10). Cheaper than a chat call by 19–200×, and thresholdable if calibrated.
 - [On-device / on-robot / local-server agents](../../syntheses/agents/on-device-and-on-robot-agents.md) — *where* the agent brain runs (edge vs LAN server vs cloud); the deployment-topology companion.
 - [Fleet agentic control framework](../../syntheses/projects/fleet-agentic-framework.md) — a full multi-robot build of this pattern (per-robot MCP servers + a DGX Spark master).
 - [stretch_ai](../../entities/stretch-ai.md) — concrete implementation.

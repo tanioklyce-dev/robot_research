@@ -3,8 +3,8 @@ title: Google DeepMind
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-10-07
-sources: 39
+updated: 2026-10-13
+sources: 41
 tags: [google-deepmind, mujoco, newton, mjcphysics, openusd, robotics-research, biomechanics, dmpo, acme, gemini-robotics, genie, world-model]
 ---
 
@@ -19,6 +19,8 @@ Google's AI research lab. Maintains MuJoCo and [MuJoCo Playground](mujoco-playgr
 
 ## Robot foundation models
 - **[Gemini Robotics](gemini-robotics.md)** — robot foundation model family built on the Gemini multimodal line. Two variants: a full **vision-language-action** model (emits low-level actions, listed on the [VLA models](../concepts/learning/vla-models.md) concept page) and **Gemini Robotics-ER** (embodied-reasoning VLM that emits tool calls against a robot's API; fits the [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) pattern).
+- **[Gemini 4 Argon](gemini-4-argon.md)** (2026-10-13): the general Gemini 4 frontier model, pitched as a "general-purpose physical reasoning model." It reports ERQA 87%, authors MuJoCo twins and drives robots through code-as-policies APIs. It sits beside the Gemini Robotics line, not in it ([Argon robotics blog](../sources/gemini-4-argon-robotics-blog.md)).
+- **[EmbeddingGemma 2](embeddinggemma-2.md)** (2026-10-06): an open, 740M-parameter multimodal embedder on the Gemma 4 architecture, ~567 MB on a phone. It is the on-device retrieval half of a Gemma 4 agent ([launch blog](../sources/embeddinggemma-2-blog.md)).
 - **Formal partnership with [Boston Dynamics](boston-dynamics.md)** — announced separately; characterized as early-stage in the [BD Spot + Gemini Robotics blog](../sources/bostondynamics-spot-gemini-robotics.md). Productized via Boston Dynamics' AIVI-Learning offering powered by Gemini Robotics-ER 1.6.
 
 ## Leadership stance on AGI and robotics (Davos, January 2026)
@@ -37,10 +39,12 @@ Google's AI research lab. Maintains MuJoCo and [MuJoCo Playground](mujoco-playgr
 
 ## Mentioned in
 
-> [!note] Curated list — **39** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **41** source pages link here; the ones below are those that shaped this page.
 
 - [MuJoCo Playground Paper](../sources/mujoco-playground-paper.md)
 - [Code World Models for General Game Playing](../sources/code-world-models-general-game-playing.md)
+- [Gemini 4 Argon for Robotics](../sources/gemini-4-argon-robotics-blog.md) — the general frontier model as a robotics toolchain: sim authoring, labeling, code-as-policies control.
+- [EmbeddingGemma 2 launch blog](../sources/embeddinggemma-2-blog.md)
 - [NVIDIA Newton Physics Engine Developer Page](../sources/nvidia-newton-physics-engine-developer-page.md)
 - [Using OpenUSD for Modular and Scalable Robotic Simulation](../sources/nvidia-openusd-for-robotic-simulation.md)
 - [flybody Paper](../sources/flybody-paper.md)
