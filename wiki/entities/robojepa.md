@@ -22,6 +22,7 @@ tags: [robojepa, jepa, world-model, scaling-laws, v-jepa-2-1, meta-fair, cem, mu
 The **frozen-encoder, scale-the-predictor** branch of the JEPA world-model line ([V-JEPA 2](v-jepa-2.md)-AC → [JEPA-WMs](jepa-wms.md) at 229M → RoboJEPA at 8B). It contrasts with the **end-to-end, small-model** branch ([LeWorldModel](leworldmodel.md), [H-JEPA](h-jepa.md)). See the comparison table on the [source page](../sources/robojepa-scaling-robotic-latent-world-models-paper.md#relation-to-the-h-jepa-paper-also-ingested-2026-10-13).
 
 ## Related
+- [Three ways to scale a JEPA world model](../syntheses/world-models/three-ways-to-scale-a-jepa-world-model.md) — the synthesis comparing this with the other two autumn-2026 scaling bets.
 - [Scaling laws](../concepts/learning/scaling-laws-vla.md) · [JEPA](../concepts/world-models/jepa.md) · [DROID](droid.md) · [RoboCasa](robocasa.md) · [Meta FAIR](meta-fair.md) · [Jeannette Bohg](jeannette-bohg.md)
 
 ## Mentioned in

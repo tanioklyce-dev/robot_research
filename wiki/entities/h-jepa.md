@@ -35,6 +35,7 @@ tags: [h-jepa, hierarchical-world-model, jepa, hierarchical-planning, leworldmod
 [RoboJEPA](robojepa.md) (Meta FAIR, 2026-10-07) keeps the encoder **frozen** (V-JEPA 2.1) and scales a flat predictor to 8B on 2.87M multi-embodiment episodes, with **closed-loop** real-robot results. H-JEPA trains small encoders **end to end** and scales in hierarchy depth, with real-robot results offline only. Comparison table on the [RoboJEPA source page](../sources/robojepa-scaling-robotic-latent-world-models-paper.md#relation-to-the-h-jepa-paper-also-ingested-2026-10-13).
 
 ## Related
+- [Three ways to scale a JEPA world model](../syntheses/world-models/three-ways-to-scale-a-jepa-world-model.md) — the synthesis comparing this with the other two autumn-2026 scaling bets.
 - [HWM](hwm.md) — the shared-latent predecessor, same first author.
 - [JEPA](../concepts/world-models/jepa.md) · [Gradient-based planning](../concepts/world-models/gradient-based-planning.md) · [PLDM](pldm.md) · [WorldDP](worlddp.md) (hierarchy with a diffusion-policy low level).
 - [Yann LeCun](yann-lecun.md) · [Randall Balestriero](randall-balestriero.md) · [Basile Terver](basile-terver.md).

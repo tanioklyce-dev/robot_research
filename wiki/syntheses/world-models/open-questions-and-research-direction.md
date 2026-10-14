@@ -2,7 +2,7 @@
 title: "Ten open questions, and the one the wiki is pointed at"
 type: synthesis
 created: 2026-09-10
-updated: 2026-09-11
+updated: 2026-10-13
 tags: [research-direction, open-questions, world-model, representation, latent-variable, cross-embodiment, continual-learning, evaluation, semantic-safety, synthesis, meta]
 ---
 
@@ -71,6 +71,10 @@ The second batch of the day — [LeLaN](../../sources/lelan-paper.md), [CAST](..
 - **#4 Generalize rather than memorize: the failure has a named mechanism.** The row cites π0.5 buying scene generalization but not instruction generalization; [CAST](../../sources/cast-paper.md) names why — **posterior collapse**, the observation already predicts the action, so the policy drops the instruction — and fixes it in the data with counterfactual labels that are only 60–70% correct and still add 27 points. A candidate experiment for the row: the same relabeling on a manipulation set with distractors, where CAST doubles success.
 - **#1 What should the representation preserve: the design half sharpens, and a prop is scoped.** [Birth of SSL](../../sources/birth-of-ssl-supervised-theory-paper.md): SSL's implicit labeling is instance discrimination, which keeps the maximum information that separates samples. [Mehta & Schwab](../../sources/mehta-schwab-2014-variational-rg-deep-learning.md), read at last: the coarse-graining reading has one formal anchor, at the RBM level, and none for JEPA-class encoders. Together: **the anti-collapse term keeps, the latent-prediction term discards, and "SSL" alone does not say which wins.** That is the cleanest statement of the question's design half the wiki has, and it removes the RG mapping as support for the discard side.
 - **#8** is reinforced rather than moved: LeLaN's YouTube data is the only source in its ablation that never saturates, and CAST's audit supplies the honest prior (~60–70% correct) for any VLM-labeled corpus without its own.
+
+## Addendum (2026-10-13): three scaling papers move #2 and #7
+
+[H-JEPA](../../sources/h-jepa-hierarchical-world-models-paper.md) supplies the representational half of hierarchical planning (#2), in simulation. Hardware remains open. [RoboJEPA](../../sources/robojepa-scaling-robotic-latent-world-models-paper.md) and [DeepJEPA](../../sources/deepjepa-scaling-world-models-from-within-paper.md) give #7 two reasons to grade world models by planner outcome rather than loss. Compared in [three ways to scale a JEPA world model](three-ways-to-scale-a-jepa-world-model.md).
 
 ## The loop as a map of the wiki
 

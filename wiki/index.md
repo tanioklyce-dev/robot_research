@@ -9,6 +9,7 @@
 Curated entry points across the wiki. Rebuilt **2026-08-03**, updated 2026-08-04 — previous version reflected the May–June wiki; see [log](log.md).
 
 **Where the wiki is pointed — the research direction (2026-09-10)**
+- [Three ways to scale a JEPA world model](syntheses/world-models/three-ways-to-scale-a-jepa-world-model.md) — RoboJEPA (predictor size), H-JEPA (hierarchy depth), DeepJEPA (per-step compute), all published 30 Sept–7 Oct 2026. Each axis helps only when matched to what the planner consumes; none of the ceilings is capacity (data, timescale gap, search boundary); frozen vs trained encoder decides which collapse you face; the axes don't compose cleanly yet. (2026-10-13)
 - [Ten open questions, and the one the wiki is pointed at](syntheses/world-models/open-questions-and-research-direction.md) — the wiki's open problems ranked, each routed to its primaries and filed experiments. The focused question: *what information does a robot world model need to preserve, and how can we tell whether it learned the right representation before putting it on a robot?* Three reachable now (#1 representation, #5 the missing latent `z`, #10 embodiment invariance); two gaps exposed (no continual-learning page, no cross-embodiment page).
 - [Robot Research Direction (first-party notes)](sources/robot-research-direction-notes.md) — the ChatGPT-assisted reading of the wiki that prompted it, verified claim by claim.
 

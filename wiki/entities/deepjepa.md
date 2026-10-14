@@ -17,6 +17,7 @@ tags: [deepjepa, jepa, world-model, leworldmodel, adaptive-computation, test-tim
 - **The effect runs through CEM ranking, not representation quality.** A sufficient condition, half the elite margin, says when more model precision cannot change the planner's choice.
 
 ## Related
+- [Three ways to scale a JEPA world model](../syntheses/world-models/three-ways-to-scale-a-jepa-world-model.md) — the synthesis comparing this with the other two autumn-2026 scaling bets.
 - [LeWorldModel](leworldmodel.md) — the base recipe and baseline.
 - [Adaptive depth reasoning](../concepts/learning/adaptive-depth-reasoning.md) — MolmoAct2-Think's per-cell version of the same principle.
 - [H-JEPA](h-jepa.md) and [RoboJEPA](robojepa.md) — the same fortnight's other answers to "how should JEPA world models scale": hierarchy depth, and predictor size.
