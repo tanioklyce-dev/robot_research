@@ -2,8 +2,8 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-09-11
-sources: 87
+updated: 2026-10-13
+sources: 90
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -59,6 +59,7 @@ The escape hatch is closed by scope rather than by proof: SSIM is image-specific
 > [!note] Collapse in landscape terms — the widest valley (added 2026-09-07)
 > The [loss-landscape literature](../learning/loss-landscape-geometry.md) LeCun coauthored a decade earlier says SGD lands in wide, flat basins and that width is what generalizes ([Entropy-SGD](../../sources/chaudhari2017-entropy-sgd.md)). On a JEPA prediction loss, **the widest flat basin is the constant encoder** — so the flat-minima intuition points *at* collapse, and every device below is best read as removing or narrowing that basin rather than steering the optimizer away from it. The wiki has no Hessian spectrum at a converged JEPA solution; it would be the cheapest test of whether the supervised landscape picture applies here at all.
 
+- **Slow-feature collapse** — the temporal failure that passes every distribution-level anti-collapse check: the encoder represents only the episode's *scene* and the predictor learns the identity. [H-JEPA App. L](../../sources/h-jepa-hierarchical-world-models-paper.md) proves no marginal regulariser (SIGReg included) can exclude it in changing scenes; only an **inverse-dynamics** term (needs action labels) does. See [slow-feature collapse](slow-feature-collapse.md).
 - **Representation collapse** — without the right [inductive biases](../learning/inductive-bias.md), both encoder and predictor learn trivial constants. The wiki now tracks a **design space of anti-collapse mechanisms**, from heaviest to lightest.
 
   *The pre-2024 foundations, now sourced from their primaries — see [the lineage synthesis](../../syntheses/world-models/ssl-anti-collapse-lineage.md):*
@@ -172,7 +173,9 @@ That is a claim about why latent prediction works, not just about a new loss ter
 ## Hierarchical JEPA (H-JEPA) — long-horizon planning
 The single-level JEPA planning ceiling is short: [LeWorldModel](../../entities/leworldmodel.md) on push-t reliably plans only **~5 prediction loops** ahead before rollouts drift. LeCun's prescribed fix (from the [2022 position paper](../../sources/lecun2022-path-towards-ami.md), restated on camera in the [Welch Labs Part 2 explainer](../../sources/welchlabs-lecun-1b-bet-against-llms-part2.md)): a **hierarchy of predictors** — low levels make detailed short-term predictions; high levels make abstract long-term predictions (fewer details → slower divergence from reality). The **inter-layer interface is an embedding space, "not semantic, certainly not language"** ("your cat can do hierarchical planning"). LeCun's analogy: planning a NYU→Paris trip as sub-goals (airport → taxi → street), not millisecond muscle control.
 
-**Realized as [HWM](../../entities/hwm.md) ("Hierarchical Planning with Latent World Models", [Zhang et al., arXiv 2604.03208, April 2026](../../sources/hwm-paper.md); senior authors LeCun + Ballas).** A **model-agnostic** two-temporal-scale latent MPC wrapper: a high-level planner optimizes latent **macro-actions** to the goal, its first predicted latent becomes a **subgoal**, and a low-level planner optimizes primitive actions toward it (CEM at both scales). Demonstrated on top of [DINO-WM](../../entities/dino-wm.md) (Push-T: **17% → 61%** at the hardest horizon d=75), [PLDM](../../entities/pldm.md) (Diverse Maze: **+39%**), and [V-JEPA 2](../../entities/v-jepa-2.md)-AC (real-Franka pick-&-place: **0% → 70%** from a single goal image). Fig. 6 gives the empirical case: low-level model wins at short horizons (≤1 s), high-level at long horizons (≥1.5 s). **Caveats:** only **two** levels (not the N-level *emergent* hierarchy of the vision) and **goal-image-conditioned** (not language). The Welch Labs video's "push-t 5 → 15 steps" was a simplification of the paper's d=25→75 task-horizon framing.
+**First realized (temporal half) as [HWM](../../entities/hwm.md) ("Hierarchical Planning with Latent World Models", [Zhang et al., arXiv 2604.03208, April 2026](../../sources/hwm-paper.md); senior authors LeCun + Ballas).** A **model-agnostic** two-temporal-scale latent MPC wrapper: a high-level planner optimizes latent **macro-actions** to the goal, its first predicted latent becomes a **subgoal**, and a low-level planner optimizes primitive actions toward it (CEM at both scales). Demonstrated on top of [DINO-WM](../../entities/dino-wm.md) (Push-T: **17% → 61%** at the hardest horizon d=75), [PLDM](../../entities/pldm.md) (Diverse Maze: **+39%**), and [V-JEPA 2](../../entities/v-jepa-2.md)-AC (real-Franka pick-&-place: **0% → 70%** from a single goal image). Fig. 6 gives the empirical case: low-level model wins at short horizons (≤1 s), high-level at long horizons (≥1.5 s). **Caveats:** only **two** levels (not the N-level *emergent* hierarchy of the vision) and **goal-image-conditioned** (not language). The Welch Labs video's "push-t 5 → 15 steps" was a simplification of the paper's d=25→75 task-horizon framing.
+
+**Then realized in full as [H-JEPA](../../entities/h-jepa.md)** ([Zhang, Terver, Rabbat, LeCun, Balestriero, Oct 2026](../../sources/h-jepa-hierarchical-world-models-paper.md)). Each level now has **its own encoder and latent space**, trained end to end from pixels on top of [LeWorldModel](../../entities/leworldmodel.md), with gradient-descent planning top-down. Visual AntMaze: **18% → 73%** (three levels) at **lower** planner compute. Two mechanisms are separated by ablation. (1) **An abstract goal cost**: level-1 latent distance is flat far from the goal, while higher levels grade smoothly along corridors, and scoring a flat planner's rollouts in a higher level's space alone raises success. (2) **Temporal decomposition**: subgoal costs decrease monotonically along expert paths, and full-horizon costs don't. Caveats: abstraction **only emerges when fast and slow factors differ by more than ~2× in timescale**, which the manipulation datasets mostly don't meet; three levels is the sweet spot; deep levels starve on short episodes; the real-robot result (DROID) is offline only. Still goal-image-conditioned and not language. The vision's "N levels" now has an N of 3–4.
 
 ## What to predict, and in what order (DSeq-JEPA, 2026-09-01)
 
@@ -239,7 +242,7 @@ Measured: MAE drops **25.1%** under ImageNet-C severity 1→5 against DINO's **1
 - [EchoJEPA paper](../../sources/echojepa-paper.md) — the clinical branch; V-JEPA 2 adapted to echocardiography at 18M videos.
 - [EchoWorld paper](../../sources/echoworld-paper.md) — an action-conditioned JEPA where the latent is a 6-DOF probe movement; robotic probe guidance.
 
-> [!note] Curated list — **57** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **60** source pages link here; the ones below are those that shaped this page.
 
 - [Dawid & LeCun 2023 — Introduction to Latent Variable Energy-Based Models](../../sources/dawid-lecun-lvebm-lecture-notes.md) — the design document: the four-term objective, and the latent variable no JEPA implements.
 - [JEPA Through the Eyes of a Physicist (Fajmanova, 2026)](../../sources/jepa-vs-physics-moudrkat.md) — JEPA as learned coarse-graining; and an outside account of collapse prevention that the primaries here contradict.
@@ -269,7 +272,9 @@ Measured: MAE drops **25.1%** under ImageNet-C severity 1→5 against DINO's **1
 - [A Generalization Theory for JEPA-Based World Models (Cui et al., 2026)](../../sources/jepa-generalization-theory-paper.md) — first finite-sample generalization bound; JEPA pretraining = action-conditioned co-occurrence-matrix factorization ([spectral view](../learning/spectral-theory-of-ssl.md))
 - [Grounding Spatial Relations in a Compact World Model (Wang et al., 2026)](../../sources/grounding-spatial-relations-compact-wm-paper.md) — the [instruction-leakage](instruction-leakage.md) evaluation confound in goal-conditioned JEPA world models
 - [The Loss Surfaces of Multilayer Networks (2015)](../../sources/choromanska2015-loss-surfaces-multilayer-networks.md) · [Entropy-SGD (2017)](../../sources/chaudhari2017-entropy-sgd.md) — LeCun's pre-JEPA landscape theory; both presuppose a global minimum worth reaching, which on a joint-embedding loss is collapse. See the note under *Common training challenges*.
-
+- [H-JEPA paper (Zhang, Terver et al., 2026)](../../sources/h-jepa-hierarchical-world-models-paper.md) — H-JEPA realized with distinct per-level latents; slow-feature-collapse theory.
+- [RoboJEPA paper (Zholus et al., 2026)](../../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — the frozen-encoder branch scaled to an **8B predictor** with a fitted scaling law; V-JEPA 2 as encoder collapsed at scale, V-JEPA 2.1 (better dense features) did not.
+- [DeepJEPA paper (2026)](../../sources/deepjepa-scaling-world-models-from-within-paper.md) — test-time compute *inside* a transition; uniform depth doesn't help; extra updates cluster at contact.
 
 ## How much of the advantage is latent prediction, specifically? (2026 probe evidence)
 

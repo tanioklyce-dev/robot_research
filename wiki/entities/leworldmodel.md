@@ -3,8 +3,8 @@ title: LeWorldModel
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-09-02
-sources: 42
+updated: 2026-10-13
+sources: 44
 tags: [leworldmodel, lewm, jepa, world-model, mila, end-to-end, sigreg, instruction-leakage]
 ---
 
@@ -69,6 +69,9 @@ The [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms
 - Provides a single-GPU baseline that's hard to argue against — research labs without massive compute can do JEPA work.
 - Different point in design space from [V-JEPA 2](v-jepa-2.md): smaller, simpler, end-to-end pixel-trained, vs. V-JEPA 2's massive video pretraining + frozen-encoder post-training.
 
+## As a building block: level 1 of H-JEPA (2026-10-13)
+[H-JEPA](h-jepa.md) uses LeWM **unchanged as its level-1 world model** and its flat baseline. Two findings bear on LeWM itself ([paper](../sources/h-jepa-hierarchical-world-models-paper.md)): (1) **On DROID, plain LeWM collapses** onto scene identity (≈0% plan fidelity). Adding an inverse-dynamics loss ("LeWM+IDM") makes it a strong baseline (~34% Fréchet fidelity), so for multi-scene real data LeWM's recipe needs action labels. (2) **Measuring goal distance in a higher level's latent space** raises flat LeWM's AntMaze success with no change to its dynamics. LeWM's own latent geometry is a weak goal cost far from the goal.
+
 ## Related
 - [Mila](mila.md) — primary affiliation.
 - [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — architecture family.
@@ -84,7 +87,7 @@ The [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms
 
 ## Mentioned in
 
-> [!note] Curated list — **36** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **38** source pages link here; the ones below are those that shaped this page.
 
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md)
 - [LeWorldModel — train and run howto](../syntheses/world-models/leworldmodel-howto.md)
@@ -100,3 +103,5 @@ The [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms
 - [LpWM paper (Kuang et al., 2026)](../sources/lpwm-paper.md) — sparse-latent successor sharing LeWM's encoder and planner; the dense baseline it is measured against.
 - [AdaJEPA paper (Wang et al., 2026)](../sources/adajepa-paper.md) — test-time adaptation as the online answer to LeWM's OOD fragility.
 - [Temporal Straightening paper](../sources/temporal-straightening-paper.md) — the geometric condition under which LeWM's embedding-distance planning cost is meaningful.
+- [H-JEPA paper (Zhang, Terver et al., 2026)](../sources/h-jepa-hierarchical-world-models-paper.md) — LeWM as level 1 of a hierarchy; 18% → 73% on AntMaze with levels added; collapses on DROID without IDM.
+- [DeepJEPA paper (Jin, Zhang et al., 2026)](../sources/deepjepa-scaling-world-models-from-within-paper.md) — LeWM as the non-recurrent baseline, with candidates scored exactly as in LeWM. A recurrent, adaptively-deep variant matches it at ~1.0–1.26× compute. Its PushT H=10 numbers (~10%) are far below LeWM's PushT figures elsewhere; a different task construction, so don't compare across papers.

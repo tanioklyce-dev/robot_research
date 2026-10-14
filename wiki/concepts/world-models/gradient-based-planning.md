@@ -2,8 +2,8 @@
 title: Gradient-based planning (vs CEM) in latent world models
 type: concept
 created: 2026-08-26
-updated: 2026-09-02
-sources: 8
+updated: 2026-10-13
+sources: 9
 tags: [gradient-based-planning, cem, mpc, world-model, jepa, planning, latent-space, curvature, adversarial, conditioning]
 ---
 
@@ -53,9 +53,12 @@ The wiki now holds three, from overlapping author groups, none of which cite eac
 - **Straight** — low curvature, so Euclidean distance proxies geodesic distance and the planning Hessian is well conditioned ([Temporal Straightening](../../sources/temporal-straightening-paper.md)).
 - **Sparse and mode-factored** — support encodes the discrete dynamics regime, magnitudes the continuous state, lowering the predictor capacity needed ([LpWM](../../entities/lpwm.md)).
 
+- **Abstract**: a coarser, longer-horizon latent in which goal distance grades smoothly with progress. [H-JEPA](../../entities/h-jepa.md) shows that scoring a *flat* gradient planner's rollouts in a higher level's latent raises AntMaze success with dynamics unchanged, because level-1 distance is nearly flat far from the goal ([paper](../../sources/h-jepa-hierarchical-world-models-paper.md)). This is a fourth answer, from the same lab again.
+
 These are not obviously compatible. A sparse, mode-factored code is not obviously straight; an isotropic Gaussian is not obviously either. **That three groups working from the same lab produced three different criteria in one year is the honest state of the field**, and the wiki should not treat any one as settled.
 
 ## Related concepts
+- [H-JEPA](../../entities/h-jepa.md) — gradient descent (AdamW, ≤90 iterations) at **every** level of a hierarchy. Per-episode planner TFLOPs are reported, and hierarchy moves the success-vs-compute Pareto front up and left.
 
 - [Learned latent space](latent-space.md) — curvature, sparsity, and identifiability are all properties of one.
 - [JEPA](jepa.md) — the prediction objective, which [induces some straightening implicitly](../../sources/temporal-straightening-paper.md).
@@ -74,3 +77,4 @@ These are not obviously compatible. A sparse, mode-factored code is not obviousl
 - [Temporal Straightening for Latent Planning](../../sources/temporal-straightening-paper.md)
 - [LeWorldModel paper](../../sources/leworldmodel-paper.md) — the CEM recipe this page is measured against.
 - [AdaJEPA paper](../../sources/adajepa-paper.md) — uses both GD and CEM planners.
+- [H-JEPA paper (Zhang, Terver et al., 2026)](../../sources/h-jepa-hierarchical-world-models-paper.md) — hierarchical gradient planning; abstraction as a latent-quality criterion; compute reported in TFLOPs/episode.

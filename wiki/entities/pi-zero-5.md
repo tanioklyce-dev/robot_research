@@ -3,8 +3,8 @@ title: π0.5
 type: entity
 subtype: model
 created: 2026-08-03
-updated: 2026-08-03
-sources: 7
+updated: 2026-10-13
+sources: 8
 tags: [pi-zero-5, physical-intelligence, vla, co-training, open-world, mobile-manipulation, hierarchical-inference, baseline]
 ---
 
@@ -43,6 +43,7 @@ tags: [pi-zero-5, physical-intelligence, vla, co-training, open-world, mobile-ma
 - [Knowledge Insulation paper](../sources/knowledge-insulation-paper.md) — π0.5-KI.
 - [LIBERO-PRO paper](../sources/libero-pro-paper.md) · [CaP-X paper](../sources/cap-x-paper.md) · [ASPIRE paper](../sources/aspire-paper.md) · [MolmoAct2 paper](../sources/molmoact2-paper.md) — the 2026 comparisons.
 - [π0.7 paper](../sources/pi07-paper.md) · [π*0.6 paper](../sources/pistar06-paper.md) — successor lineage references.
+- [RoboJEPA paper](../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — π0.5 (DROID-finetuned, text goal) as a reference on a Franka: **Pick and Place 53%** beats every RoboJEPA size (best 31%), but **Object Lift 0%** and Grasp 5% (n=50). Not like-for-like (text vs goal image).
 
 ## As the reference policy in world-model benchmarking
 

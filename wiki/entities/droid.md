@@ -3,8 +3,8 @@ title: DROID
 type: entity
 subtype: dataset
 created: 2026-05-07
-updated: 2026-09-14
-sources: 34
+updated: 2026-10-13
+sources: 36
 tags: [droid, dataset, teleoperation, franka, robot-data, stanford, berkeley, oxe, molmoact2]
 ---
 
@@ -67,6 +67,11 @@ Both end up inside [X-VLA](x-vla.md)'s pretraining mixture — DROID at 31.6%, R
 ## Derived / filtered subsets
 - **MolmoAct2-DROID Dataset** ([MolmoAct2 paper](../sources/molmoact2-paper.md), §3.3) — [Ai2](ai2.md)'s **quality-filtered** subset for [MolmoAct2](molmoact2.md): **74,604 episodes, 17.76M frames**. Uses the HuggingFace supplementary annotations (`KarlP/droid`) — extended language instructions (3 per episode for 95% of the 75k successful episodes) + the idle-frame filter (keeps only ≥1s contiguous non-idle segments) — then **re-annotates language** with an open VLM. Motivation: raw DROID contains idle segments, failed attempts, and repetitive instructions. MolmoAct2-DROID is fine-tuned into a checkpoint that deploys **zero-shot on Franka**, beating π0.5-DROID (real-world 87.1% vs runner-up 48.4%).
 
+## Gotchas and a lighter copy (2026-10-13)
+- **Frame-rate tag**: DROID is recorded at **15 Hz**, but its video containers are **tagged 60 fps**. A loader that derives stride from the tag samples at a quarter of the intended rate. Per the [H-JEPA paper](../sources/h-jepa-hierarchical-world-models-paper.md), the public JEPA-WMs and V-JEPA 2-AC checkpoints are "configured at 4 fps" with such a loader, which is **1 frame per second of real time**.
+- **Re-encoded corpus released** with that paper: **127.6 GB for 74,530 episodes** (three views at 256², libx264 CRF 18, flat `.npz` trajectories, stereo dropped). That is ~45× smaller than raw (~5.5 TB) and decodes 17.9× faster, with trajectories bitwise identical. A flat model trained on it matches raw within noise. CC-BY 4.0 permits the redistribution.
+- **Scene diversity is the hard part for JEPAs**: 75% of a LeWM encoder's latent variance is *between* episodes, which drives [slow-feature collapse](../concepts/world-models/slow-feature-collapse.md) unless an inverse-dynamics loss is added.
+
 ## Related
 - Franka Panda — single robot platform across the dataset.
 - [MolmoAct2](molmoact2.md) — releases MolmoAct2-DROID, a quality-filtered Franka subset; SOTA zero-shot DROID deployment.
@@ -79,7 +84,7 @@ Both end up inside [X-VLA](x-vla.md)'s pretraining mixture — DROID at 31.6%, R
 ## Mentioned in
 
 - [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — **DROID is Arena's default evaluation embodiment** (`droid_abs_joint_pos`): all 31 Kitchen Benchmark specs and the RoboLab catalog are DROID tasks, the cuRobo reachability gate and Newton control support were built for it first, and the OpenPI integration targets DROID-trained π0/π0.5.
-> [!note] Curated list — **32** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **34** source pages link here; the ones below are those that shaped this page.
 - [Cosmos 3 Edge (HF blog)](../sources/nvidia-cosmos3-edge-hf-blog.md) — **Cosmos3-Edge-Policy-DROID** (4B), a DROID-finetuned manipulation policy shipped for on-robot deployment.
 - [FAST paper](../sources/fast-paper.md) — DROID's higher control frequency is what naïve action binning fails on; **FAST is what first makes efficient VLA training on DROID practical**, and enables the first **zero-shot DROID evaluation** in a completely unseen environment (language-prompted, no fine-tuning).
 - [DROID Paper](../sources/droid-paper.md)
@@ -89,3 +94,5 @@ Both end up inside [X-VLA](x-vla.md)'s pretraining mixture — DROID at 31.6%, R
 - [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — MolmoAct2-DROID (Franka) checkpoint; **~88 GB float32**, the largest footprint in the family, 3.4x the YAM config.
 - [Introducing Index (Figure AI)](../sources/figure-index-announcement.md) — Scale anchor: DROID's 350 h against [Index](figure-index.md)'s claimed 43,200 h/day ingest — **~12 minutes**. DROID is supervised and released; Index is neither.
 - [Post-train Cosmos 3 Edge](../sources/nvidia-cosmos3-edge-post-training-blog.md) — **`nvidia/Cosmos3-DROID`**: DROID repackaged as a success-only split in LeRobotDataset v3.0 at 640×360 — **76k trajectories, ~350 h, 86 tasks, 564 scenes** — and post-trained into the 4B Edge policy with 8-D absolute joint actions, no normalization.
+- [H-JEPA paper (Zhang, Terver et al., 2026)](../sources/h-jepa-hierarchical-world-models-paper.md) — 16-clip offline planning benchmark with Fréchet fidelity; 60-fps tag gotcha; released 127.6 GB re-encode.
+- [RoboJEPA paper (Zholus et al., 2026)](../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — 92k DROID episodes in a 2.87M-episode mixture; the DROID holdout is one of the two scaling-law evaluations; real Franka/DROID-setup deployment (Grasp / Lift / Pick and Place, n=30).

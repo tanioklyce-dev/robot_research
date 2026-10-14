@@ -3,12 +3,15 @@ title: HWM (Hierarchical World Models)
 type: entity
 subtype: method
 created: 2026-05-31
-updated: 2026-09-10
-sources: 7
+updated: 2026-10-13
+sources: 8
 tags: [hwm, hierarchical-jepa, h-jepa, world-model, latent-planning, cem, mpc, lecun, dino-wm, pldm, v-jepa-2, worlddp]
 ---
 
-**HWM (Hierarchical World Models / "Hierarchical Planning with Latent World Models")** — a **model-agnostic hierarchical MPC framework** that plans with latent world models at **two temporal scales** ([Zhang et al., arXiv 2604.03208, April 2026](../sources/hwm-paper.md); senior authors [Yann LeCun](yann-lecun.md) + Nicolas Ballas). The wiki's **first concrete realization of LeCun's long-promised Hierarchical JEPA (H-JEPA)** — it answers the open question that the [JEPA concept](../concepts/world-models/jepa.md) and [LeCun page](yann-lecun.md) had carried since the 2022 position paper.
+**HWM (Hierarchical World Models / "Hierarchical Planning with Latent World Models")** — a **model-agnostic hierarchical MPC framework** that plans with latent world models at **two temporal scales** ([Zhang et al., arXiv 2604.03208, April 2026](../sources/hwm-paper.md); senior authors [Yann LeCun](yann-lecun.md) + Nicolas Ballas). The wiki's **first concrete realization of the *temporal* half of LeCun's Hierarchical JEPA (H-JEPA)**. Its levels share one latent space; the representational half (a distinct, more abstract latent per level) arrived in October as [H-JEPA](h-jepa.md), from the same first author.
+
+> [!warning] Correction (2026-10-13): "the realized H-JEPA" was too strong
+> This page and the [JEPA concept page](../concepts/world-models/jepa.md) called HWM the realization of H-JEPA. The [H-JEPA paper](../sources/h-jepa-hierarchical-world-models-paper.md) (Zhang, Terver et al., Oct 2026) draws the line explicitly: HWM "decomposes the horizon but cannot match objectives in more abstract spaces," because "its predictors over different horizons share one latent space." LeCun's 2022 proposal had both: longer strides *and* abstraction per level. HWM delivered the first; H-JEPA delivers both. In a controlled re-implementation (H-JEPA with identity encoders above level 1, so not the April system), HWM-style planning beats flat LeWM in all four environments, but three-level H-JEPA nearly doubles it on AntMaze and is ~5 Fréchet points ahead offline on DROID.
 
 ## What it is (and isn't)
 - **Not a new world model** — a **planning wrapper** that sits on top of an existing latent world model. Demonstrated on three: [DINO-WM](dino-wm.md) (Push-T), [PLDM](pldm.md) (Diverse Maze), [V-JEPA 2](v-jepa-2.md)-AC (real Franka).
@@ -33,6 +36,7 @@ tags: [hwm, hierarchical-jepa, h-jepa, world-model, latent-planning, cem, mpc, l
 - **Directly targets LeCun's anti-VLA argument** (explicit planning, predict-the-consequences) — the 0%→70% single-goal-image Franka result is the cleanest evidence that latent hierarchical planning enables long-horizon, non-greedy control where flat MPC fails.
 
 ## Related
+- [H-JEPA](h-jepa.md) — the successor with a distinct latent space per level; uses an HWM-style variant as its ablation baseline.
 - [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — H-JEPA section; HWM is the realized instance.
 - [WorldDP](worlddp.md) — the other LeCun-coauthored hierarchical latent planner; the architectural contrast is the low level — **HWM optimizes physical actions with a second world model; WorldDP tracks subgoals with a diffusion policy** (faster, more robust to imperfect subgoals, longer multi-stage sequences).
 - [DINO-WM](dino-wm.md) / [PLDM](pldm.md) / [V-JEPA 2](v-jepa-2.md) — the base world models HWM wraps.
@@ -45,3 +49,4 @@ tags: [hwm, hierarchical-jepa, h-jepa, world-model, latent-planning, cem, mpc, l
 - [WorldDP paper (Goswami et al., 2026)](../sources/worlddp-paper.md) — contrasts its diffusion-policy low level against HWM's second-world-model low level.
 - [Embodied AI — AI House Davos 2026](../sources/ai-house-davos-2026-lecun-embodied-ai.md) — *"hierarchical planning… completely unsolved… people have mostly given up… we're working on multi-level hierarchies."*
 - [Robot Research Direction (first-party notes)](../sources/robot-research-direction-notes.md) — the 0→70% real-Franka result as the state of open question #2, hierarchical planning; the ingest noted the gain is subgoal *discovery* (with oracle subgoals flat and hierarchical tie at 80%).
+- [H-JEPA paper (Zhang, Terver et al., 2026)](../sources/h-jepa-hierarchical-world-models-paper.md) — separates HWM's temporal hierarchy from representational hierarchy; HWM-style baseline ~2× below 3-level H-JEPA on AntMaze, ties on FourRoom/Push-T.

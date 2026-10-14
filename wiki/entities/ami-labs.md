@@ -3,8 +3,8 @@ title: AMI Labs
 type: entity
 subtype: organization
 created: 2026-05-09
-updated: 2026-09-07
-sources: 10
+updated: 2026-10-13
+sources: 11
 tags: [ami-labs, lecun, jepa, world-model, startup]
 ---
 
@@ -32,6 +32,7 @@ The [Towards AI article](../sources/towardsai-lecun-ami-labs.md) attributes "thr
 | [LeWorldModel](../sources/leworldmodel-paper.md) (2026-03) | Mila / NYU / Samsung SAIL / Brown | ❌ |
 | [stable-worldmodel](../sources/stable-worldmodel-paper.md) (2026-05-20) | Mila & UdeM / **NYU** / UFMG / Independent / LanceDB / Oxford / Brown | ❌ |
 | [When Does LeJEPA Learn a World Model?](../sources/when-does-lejepa-learn-a-world-model-paper.md) (2026-05-25) | Cold Spring Harbor / **NYU** / Brown | ❌ |
+| **[H-JEPA](../sources/h-jepa-hierarchical-world-models-paper.md) (2026-10-05)** | NYU / **Advanced Machine Intelligence** / INRIA Paris / Brown, with **all five authors** (Zhang, Terver, Rabbat, LeCun, Balestriero) carrying the AMI tag | ✅ (printed as "Advanced Machine Intelligence") |
 | **[WorldDP](../sources/worlddp-paper.md) (2026-06-07)** | NYU Tandon + **Courant NYU / AMI Labs** (LeCun) | ✅ |
 
 Checked 2026-07-26 against the printed affiliations of each: the four *world-model-line* papers carry NYU/Mila/Meta only. **WorldDP is the exception and the update** — LeCun's byline there reads "Courant Institute of Mathematical Sciences, New York University" **and** "AMI Labs". So an AMI-Labs-affiliated paper now demonstrably exists.
@@ -72,3 +73,4 @@ From the [exclusive launch interview](../sources/mit-tech-review-lecun-ami-labs-
 - [WorldDP paper (Goswami et al. 2026)](../sources/worlddp-paper.md) — the first AMI-Labs-affiliated LeCun byline found.
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../sources/hai-world-model-spatial-intelligence-brief.md) — AMI Labs named alongside [World Labs](world-labs.md) and Odyssey as the world-model startups facing the incumbents; the wiki's two founder-led world-model companies sit at opposite architectural poles (JEPA latent prediction vs. pixel rendering).
 - [Embodied AI — AI House Davos 2026](../sources/ai-house-davos-2026-lecun-embodied-ai.md) — the founder's own mission statement, and the *"disembodied physical AI"* scope note.
+- [H-JEPA paper (2026-10)](../sources/h-jepa-hierarchical-world-models-paper.md) — the first world-model-line paper in the wiki where **every author** lists Advanced Machine Intelligence; includes Michael Rabbat and Randall Balestriero.

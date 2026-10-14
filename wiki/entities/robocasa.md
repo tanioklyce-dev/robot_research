@@ -3,8 +3,8 @@ title: RoboCasa
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-09-14
-sources: 16
+updated: 2026-10-13
+sources: 17
 tags: [robocasa, household-manipulation, benchmark, ut-austin, nvidia, iclr-2026, mimicgen]
 ---
 
@@ -38,3 +38,4 @@ Large-scale simulation framework for training and benchmarking generalist robots
 - [RoboCasa365 Paper](../sources/robocasa365-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md)
+- [RoboJEPA paper (Zholus et al., 2026)](../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — RoboCasa365 (32k sim episodes) in training. Custom RoboCasa planning environments (pose reach, holding, obstacle reach, object push) are the downstream ladder where capability thresholds were measured.

@@ -3,8 +3,8 @@ title: π0 (pi-zero)
 type: entity
 subtype: model
 created: 2026-05-25
-updated: 2026-08-27
-sources: 38
+updated: 2026-10-13
+sources: 39
 tags: [pi-zero, pi0, vla, flow-matching, physical-intelligence, paligemma, action-expert, generalist-policy, cross-embodiment, lerobot, hugging-face]
 ---
 
@@ -91,7 +91,7 @@ Still, the direction is consistent with [SmolVLA](smolvla.md)'s result from the 
 
 ## Mentioned in
 
-> [!note] Curated list — **37** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **38** source pages link here; the ones below are those that shaped this page.
 
 
 - [π0 Paper](../sources/pi-zero-paper.md) — primary source (full HTML ingest).
@@ -103,3 +103,4 @@ Still, the direction is consistent with [SmolVLA](smolvla.md)'s result from the 
 - [FAST paper](../sources/fast-paper.md) — π0 is the main backbone; **π0-FAST** (autoregressive π0 + FAST tokens) matches the π0-diffusion VLA while training up to 5× faster.
 - [CaP-X paper](../sources/cap-x-paper.md) — π0 and π0.5 as LIBERO-PRO baselines against a training-free coding agent; π0 scores 0.00 everywhere, π0.5 retains position robustness (0.17–0.38) but collapses under instruction paraphrase (0.00–0.01).
 - [ASPIRE paper](../sources/aspire-paper.md) — same comparison; π0.5 "largely collapses under task paraphrases."
+- [RoboJEPA paper](../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — π0-FAST (DROID-finetuned) reference: Grasp 22% / Lift 12% / Pick and Place 40% (n=50).

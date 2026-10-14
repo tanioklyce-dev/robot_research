@@ -3,8 +3,8 @@ title: 1X NEO
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-10-07
-sources: 4
+updated: 2026-10-13
+sources: 5
 tags: [1x-neo, humanoid, bipedal, household, consumer, redwood-ai, norway]
 ---
 
@@ -51,3 +51,4 @@ The **tendon-driven / soft-touch / quiet** design philosophy is a deliberate hou
 - [1X NEO product page](../sources/1x-neo-product-page.md)
 - [TechCrunch — Hello Robot in homes](../sources/techcrunch-hello-robot-homes-2026.md) — as of 2026-06-04, 1X *"says that it sold out of the 10,000 Neos it plans to build this year, but as of yet, none have actually been delivered."*
 - [CNET — Flourish 1](../sources/cnet-flourish-1.md): NEO priced at ~$20,000 or $499/month, and named with Weave as robots that *"employ teleoperators for tasks their robots can't complete."*
+- [RoboJEPA paper](../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — the 1X world-model dataset (23.5k episodes, humanoid) is in RoboJEPA's training mixture.

@@ -3,8 +3,8 @@ title: Basile Terver
 type: entity
 subtype: person
 created: 2026-05-07
-updated: 2026-05-07
-sources: 4
+updated: 2026-10-13
+sources: 5
 tags: [person, meta-fair, jepa-wms, dino-world, lineage]
 ---
 
@@ -26,6 +26,9 @@ Five months between the two; same lead-author trajectory; design space evolves f
 - **Affiliation**: not stated on either arxiv abstract page; inferred FAIR from `facebookresearch/jepa-wms` repo namespace and DINO-world co-author roster (Baldassarre, Szafraniec, Khalidov, Labatut, Bojanowski are all FAIR / DINOv2 authors).
 - **Career stage**: not stated. Lead-authoring a high-profile FAIR paper in Dec 2025 plus third-author on a DINO-world paper in Jul 2025 is consistent with a PhD student or early-career researcher embedded in the FAIR team — but this is inference, not citation.
 
+## Update (2026-10-13)
+[H-JEPA](../sources/h-jepa-hierarchical-world-models-paper.md) lists Terver at **Advanced Machine Intelligence and INRIA Paris**, which revises the inferred-FAIR status above for the current period. The research line continues: frozen DINO features (DINO-world) → frozen-encoder planning benchmarks (JEPA-WMs) → end-to-end hierarchical JEPAs trained from pixels (H-JEPA).
+
 ## Related
 - [Meta FAIR](meta-fair.md) — inferred affiliation.
 - [DINO-world](dino-world.md) / [JEPA-WMs](jepa-wms.md) — papers.
@@ -35,6 +38,7 @@ Five months between the two; same lead-author trajectory; design space evolves f
 ## Mentioned in
 - [DINO-world Paper](../sources/dino-world-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
+- [H-JEPA paper (2026-10)](../sources/h-jepa-hierarchical-world-models-paper.md) — **co-first author** (coin toss with Wancong Zhang). Printed affiliations: Advanced Machine Intelligence + INRIA Paris. A third Terver paper, and his first with an AMI affiliation.
 
 ## Open questions / TBD
 - Affiliation and career stage explicitly — paper-body verification.

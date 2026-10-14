@@ -2,7 +2,7 @@
 title: LeWM on Stretch — feasibility analysis
 type: synthesis
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-10-13
 tags: [leworldmodel, lewm, stretch, hello-robot, jepa, deployment, feasibility, real-robot, rum]
 ---
 
@@ -37,6 +37,7 @@ The earlier [ROSOrin-Pro feasibility analysis](lewm-on-rosorin-pro-feasibility.m
 - **LeWM's "scales to high-resolution real-robot?" question is still open.** Higher-resolution Stretch cameras + harder tasks (drawer-opening, bag pickup, manipulation) make this question harder to answer favorably, not easier. The 2D-bench → real-robot transfer is unproven on any platform yet.
 - **Cost.** $25k Stretch vs ~$1.5k ROSOrin Pro. ~17× tradeoff if exploratory.
 - **Action-space retraining.** Still required.
+- **Varied home scenes collapse plain LeWM** (added 2026-10-13). On DROID, whose scenes change every episode, LeWM learns scene identity and nothing about the arm, reaching ≈0% plan fidelity. Adding an inverse-dynamics loss fixes it (~34%) ([H-JEPA paper](../../sources/h-jepa-hierarchical-world-models-paper.md)). A Stretch moving between rooms is that regime. Log actions with every episode and add the IDM term from day one; see [slow-feature collapse](../../concepts/world-models/slow-feature-collapse.md).
 - **Building a Stretch sim env wrapper.** No `stable-worldmodel` Stretch integration. Gazebo (Stretch ships Gazebo) or MuJoCo (via "Stretch Mujoco" wrapper, low priority but exists).
 - **Single-arm payload constraint.** Stretch's ~1.5 kg arm payload constrains tasks regardless of policy choice. LeWM inherits all of Stretch's physical limitations.
 

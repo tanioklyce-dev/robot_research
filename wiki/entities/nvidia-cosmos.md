@@ -3,8 +3,8 @@ title: NVIDIA Cosmos
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-09-14
-sources: 44
+updated: 2026-10-13
+sources: 45
 tags: [cosmos, world-model, omnimodal, mixture-of-transformers, world-action-model, video-generation, nvidia, foundation-model, edge]
 ---
 
@@ -58,7 +58,7 @@ Cosmos is the underlying generative video model that's enabling the rise of [Wor
 ## Mentioned in
 
 - [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — Cosmos policies are a v0.3 Arena integration, with shipped experiment configs pairing π0 and Cosmos on 2/18/20 RoboLab tasks and 2/17 kitchen tasks; the January blog also names Cosmos for future *"world-model-driven neural simulation and scenario generation"* inside Arena.
-> [!note] Curated list — **37** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **38** source pages link here; the ones below are those that shaped this page.
 
 - [Cosmos 3 Technical Report](../sources/cosmos-3-technical-report.md)
 - [GR00T N1.6 research page](../sources/groot-n1_6.md) — Cosmos-2B VLM backbone
@@ -75,6 +75,7 @@ Cosmos is the underlying generative video model that's enabling the rise of [Wor
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)
 - [Post-train Cosmos 3 Edge for on-device robot control](../sources/nvidia-cosmos3-edge-post-training-blog.md) — the Edge policy recipe, cost, corrected latency (1.53 s/chunk) and first RoboLab score (22.9%).
+- [RoboJEPA paper](../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — the Cosmos CV4x8x8 tokenizer as the target space of RoboJEPA's visualisation decoder (V-JEPA 2.1 features → Cosmos tokens).
 
 ## Cosmos-Predict 2.5 measured — and the text-vs-action natural experiment
 

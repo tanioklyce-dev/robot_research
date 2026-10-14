@@ -3,8 +3,8 @@ title: LeRobot
 type: entity
 subtype: software-framework
 created: 2026-05-10
-updated: 2026-09-14
-sources: 54
+updated: 2026-10-13
+sources: 55
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026, xvla, sourccey, plugin-system]
 ---
 
@@ -181,7 +181,7 @@ Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distri
 - [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — the EnvHub recipe in detail: `lerobot-eval --env.type=isaaclab_arena --env.hub_path=nvidia/isaaclab-arena-envs` with `nvidia/smolvla-arena-gr1-microwave`; documented against Arena release/0.1.1 + Isaac Sim 5.1, with hand-pinned numpy and a reported `packaging` conflict — whether EnvHub tracks Arena v0.3 is unstated.
 - [NVIDIA to acquire Hugging Face](../sources/nvidia-hugging-face-acquisition.md) — the maintainer changes hands.
 
-> [!note] Curated list — **48** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **49** source pages link here; the ones below are those that shaped this page.
 
 
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **canonical academic reference**; Cadene, Aliberts, Capuano, …, Wolf; 17 HF authors.
@@ -208,6 +208,7 @@ Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distri
 - [Learning to Fold — tech report](../sources/larchenko-learning-to-fold-tech-report.md) — **version gotcha**: the SO-101 follower state representation changed between 0.4.x releases (normalised range → degrees); the winner's real data and training ran on the wrong convention until two days before the ICRA final. Check the convention when mixing datasets across LeRobot versions.
 - [HIW-500 dataset page](../sources/bitrobot-hiw-500-dataset-page.md) — 500+ h humanoid whole-body teleop shipped in **LeRobot v3.0** (AV1 video, `language_events` subtask stream), alongside raw MCAP; the largest humanoid LeRobotDataset in the wiki.
 - [OpenArm documentation](../sources/openarm-docs.md) — OpenArm's native dataset converts to LeRobot v2.1/v3.0 (`openarm-dataset-convert`); the training tutorial is LeRobot 0.6.1 ACT on `enactic/openarm-2-cell-pick_up_cube_mujoco-lerobot`.
+- [RoboJEPA paper](../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — **21.5k LeRobot SO-101 episodes** (182 video h) in Meta's 8B world-model training mixture; community SO-10x data now feeds a frontier world model as well as VLAs.
 
 ## Open questions / TBD
 

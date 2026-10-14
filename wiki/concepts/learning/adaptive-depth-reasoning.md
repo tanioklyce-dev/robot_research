@@ -2,9 +2,9 @@
 title: Adaptive depth reasoning
 type: concept
 created: 2026-07-25
-updated: 2026-07-28
+updated: 2026-10-13
 tags: [adaptive-depth-reasoning, embodied-cot, depth-tokens, vq-vae, temporal-redundancy, inference-latency, molmoact2, molmoact-think, chain-of-thought]
-sources: 5
+sources: 6
 ---
 
 # Adaptive depth reasoning
@@ -36,6 +36,10 @@ The result: **geometric-reasoning cost scales with the fraction of the scene tha
 - [MolmoAct](../../entities/molmoact.md) (Lee et al. 2025) — the non-adaptive depth-token predecessor.
 - Related "embodied CoT" lineage: goal-image prediction (CoT-VLA), point trajectories, world-model rollouts — see [chain-of-thought](chain-of-thought.md).
 
+## The same principle inside a world model (added 2026-10-13)
+
+[DeepJEPA](../../sources/deepjepa-scaling-world-models-from-within-paper.md) applies "spend compute where the scene changes" to an action-conditioned JEPA's *imagined* transitions rather than to a VLA's perception tokens. A learned halting head gives each candidate's rollout step 1–4 recurrent refinements, and the extra updates cluster at **contact onset and sustained contact** (PushT: 1.24% → 9.02% of transitions refined at onset) with no contact supervision. Two results generalise beyond that paper. (1) **Uniformly more depth can hurt**: fixed K = 4 never beat K = 1. (2) **Value of computation is planner-relative**: an update cannot change a CEM decision if its largest cost correction is under half the elite margin. Here MolmoAct2-Think saves latency; DeepJEPA is compute-neutral (K̄ ≈ 1.0–1.26) with success gains inside noise.
+
 ## Related concepts
 
 - [Chain-of-thought](chain-of-thought.md) — depth tokens are a **non-textual "embodied CoT"** reasoning step.
@@ -51,3 +55,4 @@ Single-source concept as of this ingest. On [LIBERO](../../entities/libero.md), 
 
 - [MolmoAct2 paper (Fang, Duan et al. 2026)](../../sources/molmoact2-paper.md) — introduces the mechanism.
 - [MolmoAct2](../../entities/molmoact2.md) — the model (MolmoAct2-Think variant).
+- [DeepJEPA paper](../../sources/deepjepa-scaling-world-models-from-within-paper.md) — adaptive per-transition depth in a JEPA world model; compute follows contact.

@@ -3,8 +3,8 @@ title: Jeannette Bohg
 type: entity
 subtype: person
 created: 2026-08-31
-updated: 2026-08-31
-sources: 5
+updated: 2026-10-13
+sources: 6
 tags: [jeannette-bohg, stanford, researcher, manipulation, dexterous-manipulation, failure-detection, sim-to-real]
 ---
 
@@ -42,3 +42,4 @@ That pairing — **design for the observable, then detect when you are outside i
 - [Sentinel paper](../sources/sentinel-paper.md)
 - [Robot-Powered Data Flywheels paper](../sources/robot-powered-data-flywheels-paper.md)
 - [Causal-PIK paper](../sources/causal-pik-paper.md)
+- [RoboJEPA paper (2026-10)](../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — joint last author, here on the **Meta FAIR** byline: a scale-the-data world-model paper that ends on *"more and more diverse interaction data rather than parameters alone,"* on the real-data side of her two prescriptions.

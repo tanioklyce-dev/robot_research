@@ -2,8 +2,8 @@
 title: World-model evaluation
 type: concept
 created: 2026-08-07
-updated: 2026-09-11
-sources: 24
+updated: 2026-10-13
+sources: 25
 tags: [world-model, evaluation, benchmark, physical-validity, policy, vbench, worldscore, physion-eval, mllm-critic]
 ---
 
@@ -244,3 +244,4 @@ Two riders worth carrying into robotics evaluation:
 - [PhyGenBench](../../sources/phygenbench-paper.md) — law-scaffolded evaluation; the VEnhancer null.
 - [WorldModelBench](../../sources/worldmodelbench-paper.md) — video models judged as world models; judge inflation; VBench–physics correlation 0.28.
 - [WorldScore](../../sources/worldscore-paper.md) — camera-controlled next-scene generation across 3D/4D/video models; no physics metric; authorship loop with the top-ranked model.
+- [DeepJEPA paper (2026)](../../sources/deepjepa-scaling-world-models-from-within-paper.md) — **planner-relative evaluation**: 93–99% of episodes are unchanged by extra model depth, gains act through CEM elite-set reordering, and probe accuracy doesn't move. Prop. 3.1's elite margin is a loggable quantity for when model error can no longer matter.

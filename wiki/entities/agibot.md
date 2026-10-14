@@ -3,8 +3,8 @@ title: AGIBOT
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-09-14
-sources: 12
+updated: 2026-10-13
+sources: 13
 tags: [agibot, china, embodied-ai, humanoid]
 ---
 
@@ -33,3 +33,4 @@ One of the most active publishers of open embodied-AI infrastructure in 2026 —
 - [AGIBOT Genie Envisioner 2.0 Announcement](../sources/agibot-genie-envisioner-2-announcement.md)
 - [Genie Envisioner Paper](../sources/genie-envisioner-paper.md)
 - [CaP-X paper](../sources/cap-x-paper.md) — AgiBot G1 used for zero-shot real-world CaP-Agent0 demos alongside the [Franka Panda](franka-panda.md); required "single arm to bimanual control primitive modifications."
+- [RoboJEPA paper](../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — AgiBot World (167.5k episodes, **8,036 video hours**, the largest share by hours) trains a world model; decoded AgiBot rollouts illustrate the scaling (Fig. 2).

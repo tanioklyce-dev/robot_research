@@ -3,8 +3,8 @@ title: Marco Pavone
 type: entity
 subtype: person
 created: 2026-08-16
-updated: 2026-08-16
-sources: 3
+updated: 2026-10-13
+sources: 4
 tags: [marco-pavone, stanford, autonomous-systems-lab, control-theory, safety, control-barrier-functions, nonlinear-control, robotics]
 ---
 
@@ -43,3 +43,4 @@ The through-line: **make learned components admissible to classical control mach
 - [OSCBF paper](../sources/oscbf-paper.md) — senior author.
 - [Learning Control-Oriented Dynamical Structure from Data](../sources/learning-control-oriented-dynamical-structure.md) — senior author.
 - [MIT drone adaptive control](../sources/mit-drone-adaptive-control.md) — cited as senior author of the related ICML 2023 work.
+- [DeepJEPA paper (2026-09)](../sources/deepjepa-scaling-world-models-from-within-paper.md) — senior (last) author; Stanford affiliation on the byline.

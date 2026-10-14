@@ -2,8 +2,8 @@
 title: SIGReg (Sketched Isotropic Gaussian Regularization)
 type: concept
 created: 2026-08-26
-updated: 2026-09-07
-sources: 25
+updated: 2026-10-13
+sources: 26
 tags: [sigreg, jepa, lejepa, anti-collapse, isotropic-gaussian, cramer-wold, epps-pulley, balestriero, lecun, latent-space, regularization]
 ---
 
@@ -166,6 +166,9 @@ The paper and this page both treat the embedding distribution as one static thin
 | `both` | mean of the two | |
 | `pooled_pred` | pooled over encoded latents **and** the predicted rollout | the only mode constraining the **predictor's own output** — where rollout collapse would surface |
 
+> [!note] Partly answered (2026-10-13): no placement stops slow-feature collapse
+> [H-JEPA App. L](../../sources/h-jepa-hierarchical-world-models-paper.md) gives a proof. In scenes that change between episodes, an encoder that reads only the background satisfies **any** regulariser on the marginal law of embeddings exactly, at zero prediction loss. Grouping matters only slightly. With time in the **sample** axis (`pooled`), a collapsed encoder pays a small penalty Δ = λ(T−1)κ; with time in the **group** axis (`per_time`, which the paper uses), it pays nothing. Empirically, every SIGReg-only DROID run collapsed at every λ tested. The fix is an **inverse-dynamics** term, not a SIGReg placement. Fig. 17 of that paper states the division of labour: **SIGReg restores rank; IDM turns rank into planning fidelity.** `pooled_pred` (constraining the predictor's output) was not tested. See [slow-feature collapse](slow-feature-collapse.md).
+
 Given that open-loop degradation from 25 → 75 steps is the standing failure ([VISReg](#visreg--decomposing-the-regularizer-2026-09-01) above; [stable-worldmodel](../../sources/stable-worldmodel-paper.md)), the fact that the default mode is the one *not* constraining the predictor's outputs is at least worth an experiment.
 
 ## Implementation notes
@@ -175,6 +178,7 @@ Given that open-loop degradation from 25 → 75 steps is the standing failure ([
 - Runnable recipes: [LeWorldModel howto](../../syntheses/world-models/leworldmodel-howto.md), and the [RTX 3060 reproduction](../../sources/onchain-ai-garage-lewm-reproduction.md) for what the loss curves should look like on consumer hardware.
 
 ## Related concepts
+- [Slow-feature collapse](slow-feature-collapse.md) — the failure SIGReg provably cannot exclude in multi-scene data.
 
 - [JEPA](jepa.md) — the architecture; SIGReg is one rung on its [anti-collapse design space](jepa.md#common-training-challenges).
 - [Identifiability](identifiability.md) — why the Gaussian target is uniquely right, and where that guarantee stops.
@@ -201,4 +205,4 @@ Given that open-loop degradation from 25 → 75 steps is the standing failure ([
 - [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — **its author teaching it**: the DINO instability case, the cross-GPU seeding gotcha, 50 architectures out of the box, the detached-decoder rule, the SIGReg+IDM argument, and a hackathon ablation where Gaussian beat Laplace and Student-t.
 - [Entropy-SGD (2017)](../../sources/chaudhari2017-entropy-sgd.md) — in landscape terms, SIGReg changes *which minima exist* (removes the collapsed basin) where Entropy-SGD changes *which the optimizer finds* (the widest); see [loss-landscape geometry](../learning/loss-landscape-geometry.md).
 - [LeCun & Xing debate (2026)](../../sources/lecun-xing-jepa-glp-debate-2026.md) — LeCun names SIGReg as the regulariser (*"the distribution of points that comes out of the encoder is basically isotropic Gaussian"*) and LeWorldModel as the world model built on it, *"still at relatively small scale, but it works"* [82:54].
-
+- [H-JEPA paper (Zhang, Terver et al., 2026)](../../sources/h-jepa-hierarchical-world-models-paper.md) — SIGReg at every level of a hierarchy; formal limit against slow-feature collapse; (T,N,D) grouping; implementation notes on its quadrature (17 trapezoid knots on [0,3]).

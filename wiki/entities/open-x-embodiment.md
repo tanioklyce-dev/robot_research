@@ -3,8 +3,8 @@ title: Open X-Embodiment (OXE)
 type: entity
 subtype: dataset
 created: 2026-05-25
-updated: 2026-09-11
-sources: 26
+updated: 2026-10-13
+sources: 27
 tags: [open-x-embodiment, oxe, dataset, cross-embodiment, robot-data, rt-x, levine, finn]
 status: stub
 ---
@@ -79,3 +79,4 @@ status: stub
 - [π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities (Physical Intelligence, 2025)](../sources/pi07-paper.md)
 - [Introducing Index (Figure AI)](../sources/figure-index-announcement.md) — Scale anchor: OXE's ~1,150 h share of the [TRI LBM](../sources/tri-lbm-paper.md) mix against [Index](figure-index.md)'s claimed daily ingest.
 - [UnifoLM-WMA-0 project page](../sources/unifolm-wma-0-project-page.md) — Unitree fine-tuned a DynamiCrafter video model on OXE as the base world model (no subset or hour count stated).
+- [RoboJEPA paper](../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — 9 Open-X datasets, **2.43M of the 2.87M episodes** in RoboJEPA's mixture: most of the episode count, though AgiBot World supplies the most video hours.

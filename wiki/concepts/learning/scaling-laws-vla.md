@@ -2,8 +2,8 @@
 title: Scaling laws — VLAs and human data
 type: concept
 created: 2026-05-15
-updated: 2026-09-27
-sources: 22
+updated: 2026-10-13
+sources: 23
 tags: [scaling-laws, vla, human-data, egocentric, gr00t, egoscale, pretraining, xvla, cross-embodiment]
 ---
 
@@ -95,6 +95,16 @@ Twenty-three days after Index, Figure published what it had promised. It trained
 
 This partly answers the open question below (*"Does the same scaling law apply to … whole-body humanoid control?"*): weakly, yes. It does not yet say whether *crowdsourced* video scales like *curated* video. Nobody outside Figure can check that, because Index's total hours, and the hours used in the run, are unstated.
 
+## World models get a fitted law (2026-10-13)
+
+[RoboJEPA](../../entities/robojepa.md) (Meta FAIR) is the first robot **world-model** scaling law in the wiki with a fitted form **validated by extrapolation** ([paper](../../sources/robojepa-scaling-robotic-latent-world-models-paper.md)). Predictors from 22M to 8B on a frozen V-JEPA 2.1 encoder, trained on 2.87M episodes across 12 embodiments: on the compute-optimal frontier, held-out rollout error follows **L = E + A·C^(α − γ ln C)**, a power law whose exponent drifts with log-compute. Fit on ≤2B models, it predicts 4B and 8B within ~10⁻³, about 2–3× better than a plain power law. Three things carry over to the VLA half of this page:
+
+- **Same lesson, third time: data, not parameters.** The fitted irreducible error is close (~0.2 on DROID). In the authors' words, *"pushing the frontier further will likely require more and more diverse interaction data rather than parameters alone."* EgoScale and X-VLA say the same from the policy side.
+- **Capabilities come in at thresholds, in order.** End-effector control (~10²⁰ FLOPs) → holding an object (~3×10²⁰) → obstacle geometry (~10²¹–10²²) → object dynamics (~10²²). Object pushing is **zero for every model below ~10²² FLOPs**, then all sizes succeed. That is an emergence curve of the kind the [section below](#the-emergence-claim-from-two-vendors-unevidenced-by-either) asks vendors for, shown with checkpoints. It also shows the limit: a loss law does not predict *where* the step sits until you have seen it.
+- **Train the way you deploy.** Long-horizon planning scaled predictably only after training on 10-step autoregressive rollouts. With 2-step rollouts, a 300M model beat a 1B model on obstacle-reach.
+
+Real-robot transfer is partial. At n = 30, Grasp and Lift improve with size (8B: 67% / 50%); Pick and Place is flat, and π0.5 beats every size on it (53% vs 27%).
+
 ## Related concepts
 - [In-context robot learning](in-context-robot-learning.md) — [S1](../../sources/skild-s1-blog.md)'s central claim is a **scaling** claim, not a benchmark one: in-context learning *loses* to language conditioning at 1k h (43% vs 53%) and leads 66% vs 9% on unseen tasks at 100k h, with the gap said to widen exponentially. A crossover, if real, is a stronger statement than any single success rate.
 - [VLA models](vla-models.md) — the model class the scaling law characterizes.
@@ -103,6 +113,7 @@ This partly answers the open question below (*"Does the same scaling law apply t
 - [World model](../world-models/world-model.md) — adjacent line; world-model pretraining has its own (unpublished) scaling story.
 
 ## Key references
+- **[RoboJEPA](../../sources/robojepa-scaling-robotic-latent-world-models-paper.md)** (Zholus et al., Meta FAIR, Oct 2026) — the first extrapolation-validated scaling law for a robot world model; capability thresholds in compute.
 - **[EgoScale Paper](../../sources/egoscale-paper.md)** (Zheng et al., NVIDIA GEAR, Feb 2026) — the first and currently only VLA pretraining scaling law in the literature. 20,854 hr human video, log-linear loss-vs-data law, robot-performance correlation.
 - **Hoffmann et al. 2022** (Chinchilla) — not in `raw/`; the LLM-side reference scaling-law paper. Different functional form (power-law) and different problem (compute-optimal model-vs-data trade-off).
 - **[Welch Labs Illustrated Guide to AI, Vol I, Ch 6](../../sources/welchlabs-illustrated-guide-to-ai.md)** (Welch, 2026) — pedagogy-grade companion. Walks through Kaplan et al. 2020 (the OpenAI scaling-law paper) with the fitted slopes (compute ≈ −0.050, params ≈ −0.076, dataset ≈ −0.09). The wiki's accessible-pedagogy entry point for the LLM-side scaling-law literature; useful complement when readers ask "is the EgoScale law really a robotics version of the LLM thing, or is it different?"
@@ -110,7 +121,7 @@ This partly answers the open question below (*"Does the same scaling law apply t
 ## Current state (2026-08)
 - One published scaling-law paper with a fitted form (EgoScale), plus X-VLA's three-axis trend and its R² = −0.925 error-to-success proxy. Everything else in the VLA literature ([GR00T](../../entities/nvidia-groot.md), [π0](../../entities/physical-intelligence.md), [Helix](../../entities/figure.md)) reports *single-point* training runs without a scaling sweep.
 - GR00T N1.7 ships on the **same 20,854 hr corpus** EgoScale uses — so the largest VLA in production is built on the scaling-law-validated regime.
-- The wiki's [LeWorldModel](../../entities/leworldmodel.md) JEPA line has *no* published scaling law of any kind; this is a major TBD.
+- ~~The wiki's JEPA line has *no* published scaling law of any kind~~ — **answered for the frozen-encoder branch (2026-10-13)** by [RoboJEPA](../../entities/robojepa.md); see the section below. The end-to-end [LeWorldModel](../../entities/leworldmodel.md) branch still has none.
 
 ## The emergence claim, from two vendors, unevidenced by either
 
@@ -137,6 +148,7 @@ Both [Skild's S1](../../sources/skild-s1-blog.md) and [Generalist's GEN-1.5](../
 - [Welch Labs Illustrated Guide to AI, Vol I](../../sources/welchlabs-illustrated-guide-to-ai.md)
 - [RoboTTT](../../sources/robottt-paper.md) — context length as a scaling axis, with a matched baseline that does not scale.
 - [GPT-3](../../sources/gpt-3-few-shot-learners-paper.md) — the published in-context-ability-vs-scale curves the robot vendors' emergence claims lack.
+- [RoboJEPA paper](../../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — second-order power law for world-model rollout error, 22M–8B; near data saturation; capability thresholds.
 
 ## Open follow-ups
 - **Chinchilla-style compute-optimal sweep** — would require a model-size dimension on top of the data-size sweep. Reasonable next paper for the GEAR team.

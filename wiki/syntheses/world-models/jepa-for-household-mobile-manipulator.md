@@ -2,7 +2,7 @@
 title: "JEPA for a household mobile manipulator — where it fits, and where it doesn't"
 type: synthesis
 created: 2026-09-07
-updated: 2026-09-07
+updated: 2026-10-13
 tags: [jepa, world-model, household-robot, mobile-manipulation, dual-arm, assistive, safety, architecture, decision, synthesis]
 ---
 
@@ -27,9 +27,10 @@ The wiki's one-line verdict on learned world models ([what world models are meas
 |---|---|---|
 | [HWM](../../entities/hwm.md) over V-JEPA 2-AC | real Franka pick-and-place **0% → 70%** ([paper](../../sources/hwm-paper.md)) | single goal image |
 | [WorldDP](../../entities/worlddp.md) | three-cube rearrangement **30%**, >2× next best ([paper](../../sources/worlddp-paper.md)) | goal state |
+| [H-JEPA](../../entities/h-jepa.md) (3 levels, distinct latents) | Visual AntMaze **18% → 73%**; DROID **offline only**, Fréchet fidelity 34% → ~40% ([paper](../../sources/h-jepa-hierarchical-world-models-paper.md)) | single goal image |
 | Pixel world models as planner | **20–21%** vs [π0.5](../../entities/pi-zero-5.md) at 77–66% ([WorldArena](../../sources/worldarena-paper.md)) | language |
 
-Both hierarchical systems are **two levels deep and goal-image conditioned**. Neither takes a spoken instruction. A household task — *"get my medication, open the bottle, put two pills on the tray"* — is 10+ steps with recovery, and no JEPA system in the wiki demonstrates that ([assistive landscape](../assistive/assistive-robotics-research-landscape.md), blocking problem 3).
+*(Updated 2026-10-13: H-JEPA reaches three useful levels, but only in simulation, and abstraction only emerges when fast and slow factors differ by more than ~2× in timescale, which the tabletop manipulation data does not meet. Navigation plus manipulation on a mobile base may meet it; nobody has tested that.)* The earlier hierarchical systems are **two levels deep and goal-image conditioned**. Neither takes a spoken instruction. A household task — *"get my medication, open the bottle, put two pills on the tray"* — is 10+ steps with recovery, and no JEPA system in the wiki demonstrates that ([assistive landscape](../assistive/assistive-robotics-research-landscape.md), blocking problem 3).
 
 ### Robustness along the axes a home varies on
 
@@ -41,6 +42,9 @@ This is the limit that decides the question, and it is measured by the JEPA line
 > The relevant question for a home robot is not "JEPA or diffusion policy." It is **"what in this recipe tells the model that the kitchen is different from the one in the data?"** For every JEPA world model in this wiki the answer is *nothing about static appearance* — and, with one exception, nothing at all. [Demo-JEPA](../../sources/demo-jepa-paper.md)'s naive-reference ablation shows the same latent space failing across all tasks until a module explicitly declares embodiment a nuisance variable — one latent, two outcomes, and the difference is the declaration.
 >
 > **The exception, added 2026-09-07:** [SMWM](../../entities/smwm.md)'s inverse-dynamics term is a declaration by [the abstraction tax](abstraction-tax.md)'s own rule — it declares **uncontrollable variation** irrelevant, and it measurably ignores a randomly moving distractor object ([paper](../../sources/sensorimotor-world-models-paper.md)). That is a home-relevant axis: people and pets moving through the scene. What it does *not* declare is the static-attribute axis — the forward loss is still paid to encode a constant mug colour — so it does not touch the [stable-worldmodel](../../sources/stable-worldmodel-paper.md) collapse under colour, size, and shape. SMWM postdates that benchmark and **has not been run on its distractor or shift suite.** The prediction this page makes: SMWM should hold up where the distractors *move* and collapse where they are static. Untested.
+
+> [!warning] Now a proof, not only a pattern (2026-10-13)
+> [H-JEPA App. L](../../sources/h-jepa-hierarchical-world-models-paper.md) formalizes the failure above for scenes that change between episodes, which describes a home. An encoder that represents **only the room** satisfies every distribution-level regulariser (SIGReg included) at zero prediction loss, and training converges to it. On DROID, plain LeWM collapsed to ≈0% plan fidelity. **Only an inverse-dynamics loss prevents it, and that needs logged actions.** Practical consequence for this platform: plan for **teleop or play data with actions recorded**, not passive household video. See [slow-feature collapse](../../concepts/world-models/slow-feature-collapse.md).
 
 ### Contact and force
 
