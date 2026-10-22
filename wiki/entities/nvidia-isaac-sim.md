@@ -3,8 +3,8 @@ title: NVIDIA Isaac Sim
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-08-27
-sources: 28
+updated: 2026-10-22
+sources: 29
 tags: [simulator, nvidia, omniverse, openusd]
 ---
 
@@ -55,3 +55,4 @@ The catch, and it is a real one: **the course marks the simulation dataset "opti
 - [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.md)
 - [Taking Flight with Dialogue (Lim et al. 2025)](../sources/taking-flight-with-dialogue-px4-drone-agent.md) — used as the rendering + physics engine for PX4 SITL drone simulation (in lieu of PX4's default Gazebo).
 - [reBot Arm B601-DM Bundle with Jetson Thor](../sources/seeed-rebot-arm-b601-dm-thor-bundle.md) — Listed among the B601's supported simulation stacks; the [DLI course](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) uses it for parallel data collection.
+- [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)

@@ -1,0 +1,32 @@
+# Agile ONE SN product page (Agile Robots)
+Source: https://www.agile-robots.com/en/products/humanoid-robots/agile-one-sn/
+Captured: 2026-10-22. Spec values are rendered by JS counters; recovered from data-counter-value attributes: Height 140 cm; Weight 43 kg; 31 DoF; Payload per arm 3 kg. The "Excluding hands" label sits in the spec strip; the HTML does not make clear which value it qualifies (most likely DoF, given 31 + 2x20 = 71 in the press release).
+
+       Discover the features
+            Head camera     The RGB-D camera on the head provides an overview of the robot’s surroundings, giving it visual and depth information about the wider scene.
+    Onboard AI compute     NVIDIA Jetson Thor processes sensor data and runs robot inference in real time, directly on the robot. An Intel i3 N305 base computing module complements it. 
+    Dexterous hands     Dual Wuji tactile five-finger hands for delicate manipulation.
+    Whole-body control     Whole-body control for coordinated, human-like movement of the entire body.
+    Wrist cameras     The wrist cameras capture close-up views during manipulation, providing visual information as the robot works with objects at close range. 
+    Waist 3D LiDAR     The 3D LiDAR at the waist, together with RGB-D cameras at the waist and back, provides additional sensor coverage around the robot.
+   Height
+     Weight
+     Excluding hands
+     Payload per arm
+             Preconfigured with NVIDIA Isaac GR00T
+ Agile ONE SN is preconfigured with NVIDIA Isaac™ GR00T software, including GR00T 1.7 and whole-body control. 
+ The GR00T reference workflow covers the full development cycle, and URDF and USD assets bring the robot straight into NVIDIA Isaac Sim™ and Isaac Lab.
+ Open and modular by design: use the full workflow or only the parts you need. Your data stays yours.
+     One workflow, from data to real-world testing
+         Collect data
+ Record human demonstrations, generate data with NVIDIA Isaac Sim and Isaac Lab, or combine both for robot training.
+       Train
+ Train new robot skills using your collected or simulated data, adapting the training process to your research needs.
+       Evaluate
+ Evaluate how your trained robot skills perform in virtual environments before deploying them to the physical robot.
+       Deploy and test
+ Deploy trained skills to Agile ONE SN and test the performance in real-world conditions directly in your research lab.
+            Built in the lab. Helps the industry.
+ Agile ONE SN is the compact developer platform in our humanoid portfolio, built to help researchers from leading international institutions accelerate their work. Skills and data developed on it can later be transferred to Agile ONE, our full-size humanoid for industrial applications, giving research a clear path into industry.
+          Driving innovation   We are pushing the boundaries of physical AI products: intelligent, flexible and adaptable robots that get tasks done.
+   Explore Physical AI

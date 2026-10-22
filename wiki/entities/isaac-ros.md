@@ -3,8 +3,8 @@ title: Isaac ROS
 type: entity
 subtype: software-framework
 created: 2026-06-13
-updated: 2026-09-27
-sources: 7
+updated: 2026-10-22
+sources: 8
 tags: [isaac-ros, nvidia, ros2, perception, gpu, jetson, thor, orin, lyrical, nitros, agent-skills, robotics]
 ---
 
@@ -67,6 +67,9 @@ Milestones: **4.0** added Thor + JetPack 7.0 (tested with Isaac Sim 5.1); **4.2*
 - `isaac_ros_physical_ai`, `isaac_ros_data_tools` (MCAP→LeRobot), `isaac_ros_teleop` — 4.x+; on Orin from 4.6 (JetPack 7.2).
 - **FoundationPose**, **FoundationStereo**, **cuMotion**, **cuVSLAM** — the perception/planning GEMs partners cite (Intrinsic, Ekumen, ROBOTIS, Seeed reBot Arm) in the [5.0 announcement](../sources/nvidia-isaac-ros-5-0-blog.md).
 
+## Isaac OS — a sibling runtime, relationship unstated (2026-10-21)
+At GTC Berlin NVIDIA announced **Isaac OS**, *"an open source runtime framework built on NVIDIA Holoscan, [that] connects AI, sensors, controls and robot hardware for deterministic, real-time performance"* ([release](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)). No repo, docs or version accompany it, and the release does not say how it relates to Isaac ROS. Watch for a primary.
+
 ## Related
 
 - [NVIDIA Isaac Sim](nvidia-isaac-sim.md) / [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — simulation + RL siblings.
@@ -81,3 +84,4 @@ Milestones: **4.0** added Thor + JetPack 7.0 (tested with Isaac Sim 5.1); **4.2*
 - [Seeed jetson-examples — nvblox recipe (README)](../sources/seeed-jetson-examples-nvblox.md)
 - [NVIDIA JetPack 7.2 with Jetson Linux 39.2](../sources/nvidia-jetpack-7-2-release.md)
 - [NVIDIA Isaac ROS 5.0 blog](../sources/nvidia-isaac-ros-5-0-blog.md) — agentic skills, ROS Lyrical, partner roll-call.
+- [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)

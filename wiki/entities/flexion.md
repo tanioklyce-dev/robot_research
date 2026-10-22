@@ -3,9 +3,9 @@ title: Flexion Robotics
 type: entity
 subtype: company
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-10-22
 tags: [flexion, humanoid, autonomy-stack, sim2real, reinforcement-learning, isaac-lab, zurich, reflect, niantic-spatial]
-sources: 3
+sources: 4
 ---
 
 **Flexion Robotics** — Zürich-based company building *"the **autonomy stack** for humanoid robots — from command to control, from manipulation to locomotion, **across any hardware and task**. Leveraging the power of simulation and reinforcement learning, our software scales to the real world with **minimal human involvement**."* Tagline: *"Complex intelligence for simple human tasks."* [flexion.ai](https://flexion.ai/).
@@ -55,3 +55,4 @@ In the [Niantic/NVIDIA collaboration](../sources/niantic-flexion-nvidia-sim2real
 ## Mentioned in
 
 - [Niantic Spatial, Flexion, and NVIDIA: Closing the Sim2Real Gap for Humanoids](../sources/niantic-flexion-nvidia-sim2real.md)
+- [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md) — Isaac Lab + Newton to scale **Reflect**, Flexion's reasoning + whole-body model.

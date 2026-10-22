@@ -3,8 +3,8 @@ title: Jetson Thor
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-09-28
-sources: 46
+updated: 2026-10-22
+sources: 48
 tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai, jetpack-7, nvfp4, mig, t3000, t2000, igx]
 ---
 
@@ -147,6 +147,8 @@ In the wiki's own observed deployments, the U.S.-side **SIGRobotics-UIUC matcha-
 
 As of the July 2026 NVIDIA↔HF partnership, Thor is also the announced VLA-deployment brain for **[Reachy 2](reachy.md)**, LeRobot's open-source humanoid ([NVIDIA + HF partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md)) — detail TBD.
 
+As of GTC Berlin (2026-10-21), Thor is the onboard compute of NVIDIA's reference humanoid, **[Agile ONE SN](agile-one-sn.md)**, paired with an Intel i3 N305 base module. Humanoid (UK) pairs Thor with Holoscan Sensor Bridge, Halos and the new Isaac OS. NVIDIA's release quotes *"2,070 FP4 teraflops"* **without the "sparse" qualifier** ([release](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)).
+
 ## Position in the NVIDIA AI hardware lineup
 
 - **Thor** — on-robot brain (deploy + inference; sensor-side).
@@ -192,3 +194,5 @@ See [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.m
 - [NVIDIA + HF LeRobot partnership blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md) — Thor + Reachy 2 integration for open-humanoid VLA deployment.
 - [Post-train Cosmos 3 Edge for on-device robot control](../sources/nvidia-cosmos3-edge-post-training-blog.md) — 1.53 s per 32-action chunk on AGX Thor T5000; ~9 GB BF16 weights; the Triton/sm_110a workaround; the on-Thor policy server.
 - [NVIDIA Jetson FAQ pricing](../sources/nvidia-jetson-faq-pricing.md) — the 2026-07 price increase: dev kit $3,499 → $5,499, T5000 $3,499 → $4,999, T4000 $2,499 → $2,999 (1KU).
+- [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)
+- [Agile Robots launches Agile ONE SN (2026-10-21)](../sources/agile-robots-agile-one-sn-launch.md)

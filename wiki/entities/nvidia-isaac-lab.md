@@ -3,8 +3,8 @@ title: NVIDIA Isaac Lab
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-09-14
-sources: 26
+updated: 2026-10-22
+sources: 27
 tags: [framework, robot-learning, nvidia, isaac-lab, rl]
 ---
 
@@ -18,6 +18,8 @@ Open-source modular framework for robot learning and policy training. Sits on to
 
 ## 2026 status
 Isaac Lab 3.0 with the GA release of the [Newton physics engine](newton-physics-engine.md) became the default training stack for NVIDIA's "Physical AI" stack at GTC 2026 ([NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)). The official browser-deployable [Isaac Launchable](../sources/isaac-launchable-repo.md) on [NVIDIA Brev](nvidia-brev.md) is still on **Isaac Lab 2.3** as of v1.2.1 (Jan 2026).
+
+**Isaac Lab 3.0 general availability was announced at GTC Berlin on 2026-10-21**: *"open source, agent-ready … from desktop to data center using multi-GPU workflows and physics engines including Newton and NVIDIA PhysX"* ([release](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)). Read against the paragraph above, 3.0 was the default stack from spring 2026 but carried an **EA** label until October. The release's own dexterous-manipulation link still points at the `v3.0.0-EA` docs.
 
 ## Hardware requirements
 
@@ -47,3 +49,4 @@ Isaac Lab inherits Isaac Sim's RT-core requirement: it cannot run on [Jetson Tho
 - [Larchenko — LeHome deep dive, Part 1](../sources/larchenko-lehome-part1-rl-for-vlas.md) — the [LeHome Challenge 2026](lehome-challenge-2026.md) environment (Isaac Lab 2.3.1 / Isaac Sim 5.1, cloth simulation, keypoint-scored success); ~30 s per rollout episode on an RTX PRO 6000 after the winner's optimisations; per-frame colour/lighting/camera randomisation.
 - [Learning to Fold — tech report](../sources/larchenko-learning-to-fold-tech-report.md) — 3–5 Isaac Sim processes per machine (no multi-scene in one process for this environment); physics-state snapshots (particle positions/velocities + joints) restored for replay and hard mining; the renderer-overfit diagnostic (resize path) that predicted the sim-to-real failure.
 - [OpenArm documentation](../sources/openarm-docs.md) — `openarm_isaac_lab` (Isaac Sim 5.1 / Isaac Lab 2.3): reach, lift-cube, open-drawer environments, *"officially integrated"* upstream; VR (Quest 3) teleop demonstrated here only.
+- [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)

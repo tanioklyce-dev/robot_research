@@ -2,7 +2,7 @@
 title: The NVIDIA robot-AI stack — what is owned, what is contested, and where the lock actually binds
 type: synthesis
 created: 2026-09-07
-updated: 2026-09-27
+updated: 2026-10-22
 tags: [nvidia, vertical-integration, jetson, cuda, isaac-ros, cosmos, groot, halos, lerobot, hugging-face, hailo, newton, evaluation, platform-risk]
 ---
 
@@ -15,12 +15,14 @@ The [Hugging Face acquisition](../../sources/nvidia-hugging-face-acquisition.md)
 | Layer | NVIDIA holding | Credible independent alternative |
 |---|---|---|
 | **Edge silicon** | [Jetson Thor](../../entities/jetson-thor.md) / IGX, [Orin family](../../entities/jetson-orin-nx.md), [DGX Spark](../../entities/dgx-spark.md) | [Hailo](../../entities/hailo.md) NPUs — **for perception, not policy** (see below) |
-| **Edge OS / runtime** | JetPack, [Jetson Linux](../../entities/jetson-linux.md) | generic Ubuntu on x86 / ARM |
+| **Edge OS / runtime** | JetPack, [Jetson Linux](../../entities/jetson-linux.md); **Isaac OS** (announced 2026-10-21, Holoscan-based, *"deterministic, real-time"*; no repo or docs yet — [release](../../sources/nvidia-isaac-platform-gtc-berlin-2026.md)) | generic Ubuntu on x86 / ARM; ROS 2 + ros2_control for the real-time loop |
 | **GPU middleware** | [Isaac ROS](../../entities/isaac-ros.md) (GEMs) on [ROS 2](../../entities/ros2.md) | ROS 2 itself is independent; the acceleration is not |
 | **Agent runtime / security** | [OpenShell](../../entities/nvidia-openshell.md), [NeMo Guardrails](../../entities/nemo-guardrails.md) | generic containers; [MCP](../../entities/ros2-mcp-server.md) tooling |
 | **Simulation** | [Isaac Sim](../../entities/nvidia-isaac-sim.md) / [Isaac Lab](../../entities/nvidia-isaac-lab.md) / [Isaac Gym](../../entities/isaac-gym.md) | **strong** — [MuJoCo](../../entities/mujoco.md), [Genesis](../../entities/genesis.md), [Drake](../../entities/drake.md), [robosuite](../../entities/robosuite.md), [ManiSkill](../../entities/maniskill.md) |
 | **Physics substrate** | **[Newton](../../entities/newton-physics-engine.md)** — but see the counter-case below | Newton *is* the shared one |
 | **World models** | [Cosmos](../../entities/nvidia-cosmos.md) (Cosmos 3 omni-model) | [FLUX 3](../../entities/flux-3.md), V-JEPA / [LeJEPA](../../entities/leworldmodel.md) line |
+| **Reference hardware** | none owned. **[Agile ONE SN](../../entities/agile-one-sn.md)** (partner-built, GR00T preconfigured, early 2027) is the first named *reference humanoid* ([release](../../sources/nvidia-isaac-platform-gtc-berlin-2026.md)) | any ROS humanoid; [Unitree G1](../../entities/unitree-g1.md) is the de facto research default |
+| **Data** | SimReady Central (2,000+ assets), **Human 1M** (full set restricted to Cosmos Coalition partners) | open LeRobot datasets, Open X-Embodiment |
 | **Robot foundation models** | [GR00T](../../entities/nvidia-groot.md) ([GEAR](../../entities/nvidia-gear.md)) | [π0 / π0.5](../../entities/physical-intelligence.md), [GEN-1.5](../../entities/gen-1-5.md), [S1](../../entities/skild-ai.md), [SmolVLA](../../entities/smolvla.md) |
 | **AV models** | [Alpamayo](../../entities/alpamayo.md) | — (outside this wiki's scope) |
 | **Certified safety** | [Halos](../../entities/nvidia-halos.md) + ANAB-accredited inspection lab | none in this wiki |

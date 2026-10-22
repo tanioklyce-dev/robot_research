@@ -3,8 +3,8 @@ title: Newton physics engine
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-09-14
-sources: 8
+updated: 2026-10-22
+sources: 9
 tags: [physics-engine, gpu, openusd, usdphysics, warp, linux-foundation]
 ---
 
@@ -31,6 +31,9 @@ Newton's vendor-neutral governance plus its presence in both DeepMind's and NVID
 
 Newton is built on **NVIDIA Warp**. Warp is also what [NeuroMechFly v2](neuromechfly.md) uses (via MJWarp) to deliver its ~300× GPU speedup over the v1 codebase ([flygym GitHub](../sources/flygym-github.md)). NeuroMechFly does not depend on Newton itself, but the same GPU compute layer is being commoditized for industrial-robotics simulation *and* for biological whole-body simulation. This is a meaningful real-world data point for the [Newton + OpenUSD substrate convergence](../syntheses/simulators/newton-openusd-substrate-convergence.md) thesis: physics-layer commoditization has cross-domain pull, not just intra-robotics pull.
 
+## Industrial backing (GTC Berlin, 2026-10-21)
+**Schaeffler** is contributing actuator technology *"as an exclusive foundational component for Newton"*. **Flexion** uses Isaac Lab + Newton to scale its Reflect model, and Hugging Face / Pollen use it for [Microduck](microduck.md) ([release](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)). What an "exclusive foundational" actuator component means for an open-source physics engine is not explained.
+
 ## Related
 - [MuJoCo Warp](mujoco-warp.md) — a component of Newton, jointly maintained by [Google DeepMind](google-deepmind.md) and NVIDIA.
 - [OpenUSD](openusd.md) — the scene/physics substrate Newton consumes and extends.
@@ -44,3 +47,4 @@ Newton is built on **NVIDIA Warp**. Warp is also what [NeuroMechFly v2](neuromec
 - [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)
 - [Using OpenUSD for Modular and Scalable Robotic Simulation](../sources/nvidia-openusd-for-robotic-simulation.md)
 - [MuJoCo Playground Paper](../sources/mujoco-playground-paper.md)
+- [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)

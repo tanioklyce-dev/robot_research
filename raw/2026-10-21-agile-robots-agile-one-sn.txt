@@ -1,0 +1,41 @@
+# Agile Robots Launches Agile ONE SN – a Humanoid Reference Platform Built on NVIDIA Isaac GR00T (Agile Robots press release, 2026-10-21)
+Source: https://www.agile-robots.com/en/news/detail/agile-robots-launches-agile-one-sn/
+Captured: 2026-10-22 (article text extracted from HTML)
+
+News  Agile Robots Launches Agile ONE SN – a Humanoid Reference Platform Built on NVIDIA Isaac GR00T 
+  21.10.2026  / 4 min read      Berlin, October 21, 2026. Agile Robots today launched Agile ONE SN together with NVIDIA at NVIDIA GTC. The compact humanoid designed for R&D is built on the NVIDIA Isaac™ GR00T development platform. It gives developers and researchers one integrated system to build, train and validate humanoid robot skills in the lab. Those skills can then be deployed in real-world environments. Agile ONE SN will be introduced at GTC Berlin and be on show at the event. 
+   Agile ONE SN compact humanoid robot with preconfigured NVIDIA Isaac GR00T software: a single integrated humanoid system for researchers and developers.  
+Designed for building, training and validating humanoid robot skills which can then be deployed in the real-world, Agile ONE SN gets ideas from lab-to-line quicker.   
+GR00T reference workflow covers the full development cycle, from demonstration capture and simulation to training, deployment and real-world testing. 
+"At Agile Robots we rapidly bring Physical AI products from the lab to industry,” said Dr. Zhaopeng Chen, CEO and founder of Agile Robots. "Agile ONE SN gives R&D labs around the world a complete humanoid platform that is ready from day one. Together with NVIDIA we help them turn ideas into robot skills faster and give those skills a clear path into industry.”  
+ Demand for general-purpose humanoids is growing fast. Research teams still lose valuable time on integration. Hardware, data collection, simulation, training and deployment often rely on separate tools. Agile ONE SN brings these steps together in one platform. Teams spend less time on setup and get to real-world experiments faster.  
+ The new robotic system has been developed to meet the demands of today's research labs and push the boundaries of physical AI. Agile ONE SN is now the compact humanoid reference platform in Agile Robots' humanoid portfolio. Agile ONE is its full-size counterpart for industrial applications. Skills and data developed on Agile ONE SN can later be transferred to Agile ONE.  
+ Agile ONE SN builds on Agile Robots’ long-experience of research collaboration and is designed to advance frontier humanoid research and development, with interest from leading institutions such as Stanford University and ETH Zurich.  
+               A Complete Humanoid for Physical AI Research
+    Agile ONE SN pairs a compact humanoid body with dexterous hands, multi-view sensing and onboard AI compute. Key features include: 
+Agile ONE S humanoid body, 1.4 meters / 4.59 feet tall; 43 kilograms / 95 pounds  
+31 degrees of freedom for human-like mobility (body)
+NVIDIA Jetson Thor™ onboard compute for real-time sensor processing and robot inference  
+Dual Wuji tactile five-finger hands with 20 degrees of freedom, for a total of 71 degrees of freedom across body and hands  
+Multi-view sensing with RGB-D cameras on head, wrist cameras for close-range manipulation and 3D LiDAR  
+Whole-body control with joint torque of up to 140 Nm and a payload of up to 3 kg per arm  
+Connectivity via Wi-Fi 7 and Bluetooth, an emergency stop button and other safety features 
+        Preconfigured NVIDIA Isaac GR00T Software
+    Agile ONE SN ships with preconfigured Isaac GR00T software, including GR00T 1.7 open VLA model, GR00T whole-body control and the open GR00T end-to-end reference workflow spanning demonstration capture, data generation, simulation, training, evaluation, deployment and real-world testing. URDF and USD assets let teams bring the robot directly into simulation with NVIDIA Isaac Sim™ and Isaac Lab. Agile Robots is exploring integration with NVIDIA Halos safety platform to engineer safety across critical layers of its humanoid platform including design with NVIDIA IGX Thor, validation, and software.   
+The platform is open and modular. Teams can use the full workflow or integrate selected components into their own stack. This makes it easier to share and compare research across labs. Researchers keep full control of their data.  
+“Advancing humanoid robotics research and development requires easy access to a complete, open hardware and software platform,” said Deepu Talla, vice president of robotics and edge AI at NVIDIA. “Agile ONE SN combines NVIDIA Isaac GR00T and Jetson Thor in a single system that unifies demonstration capture, simulation, training, validation and deployment, reducing integration work and accelerating the development of humanoid skills for real-world use.”  
+        Availability
+    Agile ONE SN is scheduled to be available beginning of 2027. Visitors to NVIDIA GTC Berlin can see the robot at the NVIDIA booth and at the Agile Robots booth 3007. More information is available at Agile ONE SN product page. 
+        About Agile Robots
+    Agile Robots is a leading provider of AI-powered robotics solutions. By combining artificial intelligence and robotics, the company makes industries smarter, more flexible, and more efficient. 
+Founded in Munich in 2018 by renowned robotics researchers from the German Aerospace Center (DLR), Agile Robots has experienced rapid global growth. Today, more than 3,500 highly skilled robotics and AI enthusiasts are employed worldwide. The company has one of the largest research and development teams in the AI and robotics industry.  
+Agile Robots has built a unique portfolio, together with the subsidiaries BÄR Automation, Franka Robotics, idealworks, and Krause Automation, the company covers all areas of AI-driven robotics. 
+Find out more at: https://www.agile-robots.com/en 
+        More Information
+    For more information, please contact: communications@~@agile-robots.com
+         Back to overview
+
+## Links
+https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/ NVIDIA Jetson Thor™
+https://www.agile-robots.com/en/products/humanoid-robots/agile-one-sn/ Agile ONE SN product page.&nbsp;
+https://www.agile-robots.com/en/ https://www.agile-robots.com/en&nbsp;

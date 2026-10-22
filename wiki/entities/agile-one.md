@@ -2,8 +2,8 @@
 title: Agile ONE
 type: entity
 created: 2026-07-16
-updated: 2026-07-16
-sources: 1
+updated: 2026-10-22
+sources: 2
 tags: [humanoid, agile-robots, industrial-robotics, dexterous-hands, europe, germany]
 ---
 
@@ -38,6 +38,10 @@ Unlike standalone-humanoid competitors, Agile ONE ships as **one node in [Agile 
 ## Mentioned in
 
 - [Agile Robots launches Agile ONE](../sources/agile-robots-agile-one-launch.md) (2025-11-19)
+- [Agile Robots launches Agile ONE SN (2026-10-21)](../sources/agile-robots-agile-one-sn-launch.md)
+
+## Compact sibling (2026-10-21)
+[Agile ONE SN](agile-one-sn.md) is the compact R&D counterpart: 140 cm / 43 kg against this robot's 174 cm / 69 kg, 20-DoF hands against 21, and it ships on NVIDIA GR00T. Agile says *"skills and data developed on Agile ONE SN can later be transferred to Agile ONE"* ([launch](../sources/agile-robots-agile-one-sn-launch.md)). No evidence is given.
 
 ## Related
 

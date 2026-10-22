@@ -3,8 +3,8 @@ title: Microduck
 type: entity
 subtype: robot
 created: 2026-08-27
-updated: 2026-09-13
-sources: 5
+updated: 2026-10-22
+sources: 6
 tags: [microduck, pollen-robotics, hugging-face, biped, reinforcement-learning, sim-to-real, mjlab, dynamixel, rk3566, consumer-robotics, education]
 ---
 
@@ -106,3 +106,4 @@ That drives a **BAM M6** model of the XL330 (voltage control law, back-EMF, Coul
 - [Gemma 4 Powers Open Duck Mini (explainx.ai)](../sources/explainx-gemma-4-open-duck-mini.md) — Secondary coverage of the [Open Duck Mini](open-duck-mini.md) ancestor; propagates the "LiDAR" marketing term this page corrects to an 8×8 ToF matrix.
 - [KickPi RK3566 Microduck case study](../sources/kickpi-rk3566-microduck-case-study.md) — ODM secondary written from the public docs; names the IMU as an **LSM6DSV16X on the Dynamixel bus** (unverified here) and misdescribes the runtime with a separate "servo daemon"
 - [airockchip/rknn_model_zoo](../sources/rknn-model-zoo-github.md) — the RK3566 column that corroborates the onboard yolo11n measurement
+- [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md) — Microduck named in NVIDIA's partner roll-call (Isaac Lab, Isaac Sim, Newton).

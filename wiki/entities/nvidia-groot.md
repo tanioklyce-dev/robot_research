@@ -3,8 +3,8 @@ title: NVIDIA GR00T
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-09-12
-sources: 51
+updated: 2026-10-22
+sources: 53
 tags: [groot, vla, nvidia, foundation-model, humanoid]
 ---
 
@@ -34,6 +34,9 @@ A clear ~quarterly cadence, with a **backbone progression Eagle → Cosmos-2B �
 ### N1.7 GA in LeRobot (2026-07-07)
 
 The [NVIDIA HF blog](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) graduates N1.7 to general availability **inside [LeRobot](lerobot.md)** (`--policy.type=groot`, base `nvidia/GR00T-N1.7-3B`), branding it "the latest open, commercially viable VLA foundation model" and stating **N1.5 is no longer supported**. LeRobot and the [Isaac-GR00T](../sources/isaac-gr00t-github.md) open-source path use **identical weights**; post-training requires **LeRobot Dataset v3.0** (a step past the "flavor of LeRobot v2" the repo consumed). **First published N1.7 benchmark numbers** — [LIBERO](libero.md) avg **96.5% vs 87%** for GR00T 1.5 (Spatial 95 vs 82, Object 100 vs 99, Goal 98 vs n/a, Long 93 vs 82; NVIDIA-reported self-comparison), with per-suite fine-tuned checkpoints released (`nvidia/gr00t17-lerobot-libero_*-640`). The reference fine-tune recipe targets the **$100-class [SO-101](so-arm101.md)** (relative actions excluding gripper, chunk 16, bf16, 20k steps, batch 64), with demonstrations collected via the new [Isaac Teleop](nvidia-isaac-teleop.md) framework (leader arm or XR headset) — the first-party version of the GR00T-on-affordable-LeRobot-hardware pattern the [Seeed hackathon champions](../sources/seeed-embodied-ai-hackathon-2025-recap.md) improvised with N1.5.
+
+### GR00T as a shipped factory configuration (2026-10-21)
+[Agile ONE SN](agile-one-sn.md) is the first third-party humanoid sold **preconfigured** with GR00T 1.7, GR00T whole-body control and the end-to-end reference workflow ([Agile](../sources/agile-robots-agile-one-sn-launch.md)). NVIDIA also released an open **DGX Station workflow to refine GR00T 1.7 with reinforcement learning** (repo `nvidia-isaac/isaac-rlpt`). Bear Robotics (via **Kino-2**), Sereact and Bellboy are named as post-training or deploying GR00T ([GTC Berlin release](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)).
 
 ## Codebase — [Isaac-GR00T](../sources/isaac-gr00t-github.md)
 Apache-2.0 code (weights under NVIDIA Open Model License), ~7.5k★. LeRobot-v2 data format + `modality.json`; **embodiment tags** (`LIBERO_PANDA`, `OXE_DROID_…`, `UNITREE_G1_SONIC`, `NEW_EMBODIMENT`) drive cross-embodiment fine-tuning. Inference 16 GB+ VRAM, fine-tune 40 GB+; runs on [Jetson Thor](jetson-thor.md) / [Orin](jetson-orin-nano.md) / [DGX Spark](dgx-spark.md). PyTorch 2.7 + flash-attn 2.7.4 + `uv`.
@@ -85,3 +88,5 @@ First measured latency numbers, from the [official TensorRT deployment docs](../
 - [EgoScale Paper](../sources/egoscale-paper.md)
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)
 - [RoboTTT paper](../sources/robottt-paper.md) — **GR00T N1.7 as the backbone** (Eagle VLM + 16-layer DiT flow-matching head, 538M → 690M with TTT layers); frozen during RoboTTT pretraining, fully tuned in post-training. Also the source for the finding that **naive one-frame history *hurts* N1.7** (39.5% vs 57% without it) via causal confusion.
+- [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)
+- [Agile Robots launches Agile ONE SN (2026-10-21)](../sources/agile-robots-agile-one-sn-launch.md)

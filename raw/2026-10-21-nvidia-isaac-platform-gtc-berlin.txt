@@ -1,0 +1,88 @@
+# NVIDIA Advances Isaac Platform for General-Purpose Robotics With New Reference Humanoid, Frameworks, Simulation Pipelines and Data (NVIDIA Newsroom press release, GTC Berlin, 2026-10-21)
+Source: https://nvidianews.nvidia.com/news/nvidia-advances-isaac-platform-for-general-purpose-robotics-with-new-reference-humanoid-frameworks-simulation-pipelines-and-data
+Captured: 2026-10-22 (article-body text extracted from HTML; boilerplate trimmed after the forward-looking-statements notice; link list appended)
+
+         News Summary: 
+	Agile Robots announces Agile ONE SN, a humanoid reference platform built on NVIDIA Isaac GR00T and NVIDIA Jetson Thor with planned integration of the NVIDIA Halos safety stack, giving developers and researchers a complete platform for frontier humanoid development and validation.
+	NVIDIA Isaac platform adds new Isaac OS runtime, Isaac Lab 3.0 for robot learning and open source reference workflows that combine ChatGPT Astra with NVIDIA Isaac and Cosmos on NVIDIA DGX Station to accelerate robot data generation, training and evaluation.
+	Europe’s robotics ecosystem, including leaders like ABB Robotics, Flexion, Hexagon Robotics, Humanoid, KUKA, NEURA Robotics, Sereact and Universal Robots, is building on NVIDIA’s open robotics platform to advance autonomous robotic systems. 
+GTC Berlin—NVIDIA today announced a major expansion of the NVIDIA Isaac™ open robotics development platform, adding a reference humanoid, datasets and runtime, along with updates to its robot learning framework.
+Together, these technologies give developers an integrated path from data to deployment to bring general-purpose robots to the real-world faster.
+“General-purpose robotics is advancing at extraordinary speed — the ChatGPT moment for robotics is fast approaching,” said Jensen Huang, founder and CEO of NVIDIA. “With NVIDIA Isaac, our full-stack open robotics platform, we are giving developers the models, data, simulation tools and computing systems to bring physical AI to the world’s largest industries.”
+Agile ONE SN — A Frontier Humanoid Reference Platform for Research
+Agile Robots announced Agile ONE SN, a full-stack reference humanoid preconfigured with NVIDIA Isaac GR00T and powered by the NVIDIA Jetson Thor™ edge AI platform.
+Robotics researchers and developers often struggle to integrate the separate simulation, training and deployment tools needed to take robot skills from development to the physical world. Agile ONE SN unifies these tools and workflows on a single platform, cutting setup time from weeks to days.
+Agile ONE SN features:
+	Agile ONE S humanoid body, standing 1.40 meters (4.59 feet tall) and weighing 40 kilograms (88 pounds), with 31 degrees of freedom and a 3-kilogram payload per arm.
+	Dual WUJI Hand 2 five-finger hands, each offering 20 degrees of freedom, 1kHz force control and tactile sensing for dexterous manipulation
+	NVIDIA Jetson Thor onboard compute, delivering 2,070 FP4 teraflops of compute and 128GB of unified memory for onboard reasoning and real-time control.
+	Multimodal sensing, including head and wrist cameras, lidar sensors and inertial measurement units to help the robot perceive and interact with its surroundings.
+	NVIDIA Isaac GR00T platform, which comprises the GR00T foundation model, a full workflow from data capture to deployment and whole-body control for coordinated movement.
+	Safety capabilities, with planned integration of on-robot safety protocols with the NVIDIA Halos full-stack safety system for robotics.
+“The breakthrough for humanoids is usefulness at scale: one adaptable machine that learns many skills and works across environments built for people,” said Zhaopeng Chen, founder and CEO of Agile Robots. “Today, Agile Robots introduced Agile ONE SN, a full-stack, open reference humanoid built on NVIDIA Isaac GR00T, powered by Jetson Thor, giving developers a ready system to create, train and validate the capabilities needed to put humanoids to work.”
+Scheduled to be available in early 2027, Agile ONE SN is designed to advance frontier humanoid research and development, with interest from leading institutions such as Stanford University and ETH Zurich.
+New NVIDIA Technology Accelerate Robot Learning — From Data to Deployment 
+New NVIDIA technologies help developers generate training data, scale robot learning, build simulation environments and deploy robot applications, reducing time to solution.
+	SimReady Central Library offers more than 2,000 simulation-ready robotics and factory assets, while the Human 1M Dataset includes diverse human activities, synchronized three-view video and 3D hand tracking. Both are available on Hugging Face, with the full Human 1M Dataset accessible to Cosmos Coalition partners.
+	NVIDIA Isaac Lab 3.0 is now generally available, providing an open source, agent-ready learning framework training and refining robot policies from desktop to data center using multi-GPU workflows and physics engines including Newton and NVIDIA PhysX™.
+	NVIDIA Isaac OS, an open source runtime framework built on NVIDIA Holoscan, connects AI, sensors, controls and robot hardware for deterministic, real-time performance from simulation to physical robots.
+	NVIDIA is releasing three open source reference workflows for NVIDIA DGX Station™ that help developers refine GR00T 1.7 models with reinforcement learning, train dexterous manipulation skills in NVIDIA Isaac Lab and post-train NVIDIA Cosmos™ world models for synthetic data generation using ChatGPT Astra.
+	NVIDIA Halos provides a full-stack safety platform built on NVIDIA IGX Thor™ to help move autonomous vehicles and robots from development to safer real-world deployment at scale.
+SimReady Central Library on Hugging Face includes simulation-ready assets from Comau, FANUC, ForgeCAD, Franka Robotics, LG Electronics, Palatial, Robotiq, Standard Bots, Universal Robots and Vertiv.
+NVIDIA’s open source robot learning reference workflows running on DGX Station will be supported by solutions from 1X, Agile Robots, Humanoid, Maven Robotics, Mentee, MicroAGI, Rhoda, Sereact and Skild AI.
+Robotics partners are integrating NVIDIA Halos within their safety architectures, including Agile Robots, Agility, Dexory, FORT Robotics and KION for warehouse robot safety. SICK is evaluating Halos to advance dynamic safety for industrial robots, helping them respond to changing conditions beyond fixed zones.
+Advantech and NexCOBOT are developing NVIDIA IGX-based industrial computing platforms, while Reynolds & Moore, Accenture and TÜV SÜD are accelerating the certification process for the safe deployment of industrial physical AI.
+European Robotics Leaders Build on NVIDIA Open Technologies
+ABB Robotics is integrating NVIDIA Omniverse™ libraries with RobotStudio HyperReality to simulate and virtually commission robotic systems before installation across a wide range of industries. KUKA Group is using Omniverse libraries in its Visual Components FactoryLens to add real-time rendering for factory simulation workflows. Sereact is using Isaac GR00T with Cosmos Transfer to train and post-train its Cortex platform for goods handling, running on Universal Robots industrial robot arms.
+Using Jetson Thor, Holoscan Sensor Bridge, Halos and NVIDIA Isaac OS, Humanoid is developing and validating robot behaviors before industrial pilots, Hexagon Robotics is building AEON perception capabilities including teleoperation video, localization, mapping and object pose detection, and Bear Robotics is accelerating KR1 perception and model execution while post-training Isaac GR00T through Kino-2 for warehouse, returns and industrial workflows.
+Toyota Material Handling Europe and SoftServe use Omniverse and the NVIDIA Isaac Sim™ framework to develop autonomous material-handling solutions, reducing deployment time by up to 50%. Idealworks is using NVIDIA open models and Jetson to develop memory capabilities for autonomous mobile robots in factories. Analog Devices Inc. (ADI) is using NVIDIA Jetson AGX Orin™ and the cuVSLAM library to build autonomous mobile robots.
+Hugging Face and Pollen Robotics are using NVIDIA Isaac Lab, Isaac Sim and Newton to build Microduck, a small, open source robot designed to help developers and students train, modify and share new physical behaviors. Franka Robotics is using NVIDIA NIM™ microservices and Isaac Sim to turn natural-language requests into actions on its Franka FR3 Duo robot system. Bellboy is using Jetson and GR00T to power Billie, its first robot teammate built on Bellboy’s physical AI infrastructure, already deployed at hotels operated by Marriott, Hilton, IHG and OYO.
+Flexion is using Isaac Lab and Newton to scale learning for Reflect, its unified robot intelligence model combining reasoning and whole-body movement for complex manipulation across robot bodies. Schaeffler is contributing its actuator technology as an exclusive foundational component for Newton, helping accelerate humanoid robot development with NVIDIA Isaac Lab and Isaac Sim.
+NEURA Robotics is using Isaac Sim and Isaac Lab to generate synthetic training data and train robot skills in simulation for Neuron AI, its multimodal foundation model.
+Watch the GTC Berlin keynote from Huang and explore sessions.
+          About NVIDIA
+NVIDIA (NASDAQ: NVDA) is the world leader in AI and accelerated computing.
+Certain statements in this press release including, but not limited to, statements as to: expectations with respect to growth, performance, availability, and benefits of NVIDIA’s products, services and technologies, and related trends and drivers; expectations with respect to NVIDIA’s third party arrangements, including with its collaborators and partners; expectations with respect to technology developments, and related trends and drivers; expectations with respect to advances in general-purpose robotics and the adoption and deployment of physical AI across industries; projected market growth and trends; expectations with respect to AI and related industries; and other statements that are not historical facts are forward-looking statements within the meaning of Section 27A of the Securities Act of 1933, as amended, and Section 21E of the Securities Exchange Act of 1934, as amended, which are subject to the “safe harbor” created by those sections based on management’s beliefs and assumptions and on information currently available to management and are subject to risks and uncertainties that could cause results to be materially different than expectations. Important factors that could cause actual results to differ materially include: global economic and political conditions; NVIDIA’s reliance on third parties to manufacture, assemble, package and test NVIDIA’s products; the impact of technological development and competition; development of new products and technologies or enhancements to NVIDIA’s existing products and technologies; market acceptance of NVIDIA’s products or NVIDIA’s partners’ products; design, manufacturing or software defects; changes in consumer preferences or demands; changes in industry standards and interfaces; unexpected loss of performance of NVIDIA’s products or technologies when integrated into systems; NVIDIA’s ability to realize the potential benefits of business investments or acquisitions; and changes in applicable laws and regulations, as well as other factors detailed from time to time in the most recent reports NVIDIA files with the Securities and Exchange Commission, or SEC, including, but not limited to, its Annual Report on Form 10-K and Quarterly Reports on Form 10-Q. Copies of reports filed with the SEC are posted on NVIDIA’s website and are available from NVIDIA without charge. These forward-looking statements are not guarantees of future performance and speak only as of the date hereof, and, except as required by law, NVIDIA disclaims any obligation to update these forward-looking statements to reflect future events or circumstances.
+Many of the products and features described herein remain in various stages and will be offered on a when-and-if-available basis. The statements above are not intended to be, and should not be interpreted as a commitment, promise, or legal obligation, and the development, release, and timing of any features or functionalities described for our products is subject to change and remains at the sole discretion of NVIDIA. NVIDIA will have no liability for failure to deliver or delay in the delivery of any of the products, features or functions set forth herein.
+© 2026 NVIDIA Corporation. All rights reserved. NVIDIA, the NVIDIA logo, and other NVIDIA product and service names are trademarks and/or registered trademarks of NVIDIA Corporation in the U.S. and other countries and regions. Other company, product, and service names may be trademarks of the respective companies with which they are associated.
+
+## Links in the release body
+https://www.agile-robots.com/en/news/detail/?tx_news_pi1%5Baction%5D=detail&amp;tx_news_pi1%5Bcontroller%5D=News&amp;tx_news_pi1%5Bnews_preview%5D=170&amp;cHash=ff1a62517c7366eeeaffea01d30eaf09” with “https://www.agile-robots.com/en/news/detail/agile-robots-launches-agile-one-sn/ Agile ONE SN
+https://developer.nvidia.com/isaac NVIDIA Isaac&trade; open robotics development platform
+https://www.nvidia.com/en-us/use-cases/robot-learning/ robot learning
+https://www.agile-robots.com/en/news/detail/?tx_news_pi1%5Baction%5D=detail&amp;tx_news_pi1%5Bcontroller%5D=News&amp;tx_news_pi1%5Bnews_preview%5D=170&amp;cHash=ff1a62517c7366eeeaffea01d30eaf09 Agile ONE SN
+https://www.nvidia.com/en-us/industries/robotics/isaac-groot/ NVIDIA Isaac GR00T
+https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/ NVIDIA Jetson Thor
+https://developer.nvidia.com/newton-physics Newton
+https://developer.nvidia.com/physx-sdk NVIDIA PhysX
+https://www.nvidia.com/en-us/edge-computing/holoscan/ NVIDIA Holoscan
+https://www.nvidia.com/en-us/products/workstations/dgx-station/ NVIDIA DGX Station
+https://github.com/nvidia-isaac/isaac-rlpt GR00T 1.7 models
+https://isaac-sim.github.io/IsaacLab/v3.0.0-EA/source/setup/environments.html dexterous manipulation
+https://www.nvidia.com/en-us/ai/cosmos/ NVIDIA Cosmos
+https://www.nvidia.com/en-us/ai-trust-center/halos/ NVIDIA Halos
+https://www.nvidia.com/en-us/edge-computing/products/igx/ NVIDIA IGX Thor
+https://huggingface.co/blog/nvidia/simready-central-assets-robotics-ai-factories SimReady Central Library
+http://hf.co/blog/nvidia/simready-central-assets-robotics-ai-factories Hugging Face
+https://www.comau.com/en/2026/10/21/comau-to-advance-physical-ai-for-industrial-robotics-with-nvidia/ Comau
+https://www.universal-robots.com/news-and-media/news-center/teradyne-robotics-and-sereact-partner-to-scale-physical-ai-solutions-for-retail-and-logistics/ Universal Robots
+https://www.agile-robots.com/en/news/detail/halos-a-humanoid-a-crate-and-a-colleague/ Agile Robots
+https://www.dexory.com/insights/dexory-advances-safety-for-autonomous-robotics Dexory
+https://www.fortrobotics.com/news/outside-in-safety-with-nvidia-halos-for-robotics FORT Robotics
+https://www.abb.com/global/en/news/139691/prsrl-abb-robotics-sets-out-blueprint-for-physical-ai-education-at-nvidia-gtc-berlin ABB Robotics
+https://www.kuka.com/en-us/company/press/news? KUKA Group
+https://www.visualcomponents.com/press/visual-components-launches-factorylens-extending-its-collaboration-with-nvidia-for-industrial-digital-twins/ Visual Components FactoryLens
+https://www.universal-robots.com/news-and-media/news-center/teradyne-robotics-and-sereact-partner-to-scale-physical-ai-solutions-for-retail-and-logistics/ Universal Robots
+https://thehumanoid.ai/humanoid-expands-collaboration-with-nvidia-to-power-its-next-generation-of-humanoid-robots/?_sppp_key=HQzvE8n7ivLoFS3 Humanoid
+https://robotics.hexagon.com/aeon-perception-capabilities-nvidia-holoscan Hexagon Robotics
+https://bearrobotics.ai/kino2-announcement Bear Robotics
+https://toyota-forklifts.eu/about-toyota/news-and-editorials/toyota-material-handling-europe-and-softserve-to-reduce-autonomous-solution-commissioning-time-by-50-percent-using-nvidia-physical-ai/ Toyota Material Handling Europe
+https://www.idealworks.com/en/news/idealworks-nvidia-whitepaper-fleet-memory-navigation Idealworks
+https://www.analog.com/en/newsroom/press-releases/2026/10-21-26-adi-ext-for-nvidia-cuvslam-blog.html Analog Devices Inc. (ADI)
+https://franka.de/news/from-request-to-robot-action-inside-the-franka-agentic-cookbook Franka Robotics
+https://bellboy.co/press Bellboy
+https://www.schaeffler.com/en/media/press-releases/press-releases-detail.jsp?id=88222912 Schaeffler
+https://neura-robotics.com/neura-robotics-introduces-neuron-ai/ NEURA Robotics
+https://www.nvidia.com/gtc/keynote/ GTC Berlin keynote
+https://www.nvidia.com/en-eu/gtc/session-catalog/ explore sessions
+https://www.nvidia.com/ NVIDIA

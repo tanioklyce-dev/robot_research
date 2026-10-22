@@ -2,7 +2,7 @@
 title: Humanoid platforms survey
 type: synthesis
 created: 2026-05-08
-updated: 2026-10-07
+updated: 2026-10-22
 tags: [humanoids, hardware, comparison, list, bipedal, education, research, figure-03, manufacturing, wheeled-base, walden-robotics, form-factor]
 ---
 
@@ -21,6 +21,7 @@ Companion to [Robot platforms — comparison](robot-platforms-comparison.md) foc
 | [Tesla Optimus](../../entities/tesla-optimus.md) | Research (closed) | Tesla | ~1.73 m | Internal; aspirational $20–30k | Vertically integrated, FSD-derived |
 | **[Figure 03](../../entities/figure-03.md)** | Research (closed) → home | Figure AI | **~1.73 m** / 61 kg | Not for sale; 350+ built | **[Helix 02](../../entities/helix.md)** (in-house, 3-tier) |
 | [Agile ONE](../../entities/agile-one.md) | Industrial | [Agile Robots](../../entities/agile-robots.md) (Munich) | 1.74 m | Unannounced (integrated-stack) | DeepMind partner; AgileCore |
+| **[Agile ONE SN](../../entities/agile-one-sn.md)** | **Research (reference platform)** | [Agile Robots](../../entities/agile-robots.md) (Munich) | **1.40 m / 43 kg**, 71 DoF incl. 2×20-DoF tactile hands | Unannounced; available early 2027 | **NVIDIA GR00T 1.7 preconfigured**, Jetson Thor; NVIDIA's named reference humanoid |
 | [EngineAI T800](../../entities/engineai-t800.md) | Affordable / heavy-duty | [EngineAI](../../entities/engineai.md) (Shenzhen) | 1.73 m | ~PM01 sibling <$15k tier | Open; combat-league testbed |
 | [1X NEO](../../entities/1x-neo.md) | Research / household (closed) | 1X Technologies | ~1.65 m | Pre-orders ~$20k+ | OpenAI-aligned FM |
 | [Apptronik Apollo](../../entities/apptronik-apollo.md) | Research / industrial | Apptronik | ~1.73 m | Industrial pilots | NVIDIA-aligned ([GR00T](../../entities/nvidia-groot.md)) |
@@ -165,7 +166,7 @@ Nobody in the affordable or educational tiers is doing either, which is worth no
 ### Geographic clustering
 - **US / North America**: Atlas (US, Hyundai-owned), Tesla, Figure, Apptronik, Agility, **Walden (Cambridge MA, Toyota-backed)**, 1X (Norway-US dual).
 - **China**: Unitree (H1, G1), [AGIBOT](../../entities/agibot.md) (humanoid line not separately filed), Fourier (GR-1, GR-2), LimX (CL-2), Booster Robotics (T1) — collectively a **rapidly growing affordable-humanoid cluster**.
-- **Europe**: Aldebaran/SoftBank NAO (France), PAL Robotics (Spain), Engineered Arts (UK), **[Agile Robots](../../entities/agile-robots.md) (Germany)** — the DLR-spinout [Agile ONE](../../entities/agile-one.md) is the first serious *European industrial* humanoid entrant, betting on integration-into-a-stack rather than a standalone unit.
+- **Europe**: Aldebaran/SoftBank NAO (France), PAL Robotics (Spain), Engineered Arts (UK), **[Agile Robots](../../entities/agile-robots.md) (Germany)** — the DLR-spinout [Agile ONE](../../entities/agile-one.md) is the first serious *European industrial* humanoid entrant, betting on integration-into-a-stack rather than a standalone unit. In October 2026 it added a compact research sibling, [Agile ONE SN](../../entities/agile-one-sn.md), as **NVIDIA's reference humanoid**, so one European vendor now backs both the DeepMind and NVIDIA AI stacks ([launch](../../sources/agile-robots-agile-one-sn-launch.md)).
 - **Japan**: AIST HRP series, Toyota T-HR3, Kawasaki Kaleido — historically strong but lower visibility in 2024–2026 vs the US-China dynamic.
 
 ### Price stratification (2026)

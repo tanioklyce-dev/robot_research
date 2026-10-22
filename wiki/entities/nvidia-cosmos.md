@@ -3,8 +3,8 @@ title: NVIDIA Cosmos
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-10-13
-sources: 45
+updated: 2026-10-22
+sources: 46
 tags: [cosmos, world-model, omnimodal, mixture-of-transformers, world-action-model, video-generation, nvidia, foundation-model, edge]
 ---
 
@@ -45,6 +45,9 @@ The [GR00T](nvidia-groot.md) VLA line migrated onto Cosmos across two releases �
 - **[GR00T N1.6](../sources/groot-n1_6.md)** (Dec 2025) — internal **Cosmos-2B VLM variant** trained on general VL + embodied-reasoning (next-action prediction); replaced the Eagle backbone used through N1.5.
 - **[GR00T N1.7 EA](../sources/isaac-gr00t-github.md)** — **Cosmos-Reason2-2B (Qwen3-VL architecture)**, confirmed via the Isaac-GR00T repo. Note Cosmos 3's reasoner tower is itself initialized from Qwen3-VL — the two lines share architectural ancestry.
 
+## GTC Berlin additions (2026-10-21)
+An open DGX Station reference workflow to *"post-train NVIDIA Cosmos world models for synthetic data generation using ChatGPT Astra"*. The release never defines "ChatGPT Astra", and a web search found no other reference. There is also the **Human 1M Dataset** (human activity, synchronised three-view video, 3D hand tracking), whose **full version is restricted to Cosmos Coalition partners**. Sereact uses Cosmos Transfer with GR00T for its Cortex platform ([release](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)).
+
 ## Why it matters
 Cosmos is the underlying generative video model that's enabling the rise of [World-model simulators](../concepts/world-models/world-model-simulators.md) in agentic robotics — where the simulator is a learned model rather than a physics engine. Sits in **paradigmatic contrast** to the [JEPA](../concepts/world-models/jepa.md) / latent-prediction world-model line ([V-JEPA 2](v-jepa-2.md), [LeWorldModel](leworldmodel.md)) — Cosmos generates pixels; JEPA predicts representations. Cosmos 3 sharpens this: it is the strongest **generative-video-side** demonstration that one pixel-predicting model can also be a competitive real-robot **policy** (see [generative-video vs JEPA](../syntheses/world-models/generative-video-vs-jepa-world-models.md)), without crossing over to latent-space planning.
 
@@ -76,6 +79,7 @@ Cosmos is the underlying generative video model that's enabling the rise of [Wor
 - [DreamDojo Paper](../sources/dreamdojo-paper.md)
 - [Post-train Cosmos 3 Edge for on-device robot control](../sources/nvidia-cosmos3-edge-post-training-blog.md) — the Edge policy recipe, cost, corrected latency (1.53 s/chunk) and first RoboLab score (22.9%).
 - [RoboJEPA paper](../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — the Cosmos CV4x8x8 tokenizer as the target space of RoboJEPA's visualisation decoder (V-JEPA 2.1 features → Cosmos tokens).
+- [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)
 
 ## Cosmos-Predict 2.5 measured — and the text-vs-action natural experiment
 
