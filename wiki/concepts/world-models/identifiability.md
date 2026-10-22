@@ -2,8 +2,8 @@
 title: Identifiability (linear identifiability of latent variables)
 type: concept
 created: 2026-07-26
-updated: 2026-09-07
-sources: 13
+updated: 2026-10-22
+sources: 14
 tags: [identifiability, linear-identifiability, latent-space, jepa, lejepa, theory, causal-representation-learning, nonlinear-ica, planning, generalization-theory]
 ---
 
@@ -42,6 +42,9 @@ The guarantee is **conditional**, and the conditions do most of the work:
 > [!note] Three criteria for a good planning latent space, from one orbit, in one year
 > This page argues a latent space should be **identifiable** (Gaussian latents, recovery up to rotation). [Temporal Straightening](../../sources/temporal-straightening-paper.md) argues it should be **straight** (low curvature, so Euclidean distance proxies geodesic distance and the planning Hessian is well conditioned). [LpWM](../../entities/lpwm.md) argues it should be **sparse and mode-factored**. All three come from overlapping LeCun-affiliated groups within twelve months; none cites the others on this point; and they are not obviously compatible — an isotropic Gaussian code is not obviously straight, and a sparse mode-factored code is not obviously either. See [gradient-based planning](gradient-based-planning.md) for the comparison.
 
+## The too-small-latent case: predictive closure (2026-10-22)
+The identifiability results assume a latent big enough to hold all the true factors. [Predictive Closure](../../sources/predictive-closure-jepa-feature-selection-paper.md) (Levy, Lidayan, Goldberg) covers the opposite regime. When latent entropy is fixed and too small, the ideal encoder keeps the *set* of features that best predicts its own next values. That answers *what content* survives, not *how it is laid out*, so it complements identifiability rather than competing with it. The two remain unbridged.
+
 ## Related concepts
 - [Learned latent space](latent-space.md) — identifiability is a property of one.
 - [JEPA](jepa.md) — the architecture family the result applies to.
@@ -64,4 +67,4 @@ The guarantee is **conditional**, and the conditions do most of the work:
 - [LpWM paper](../../sources/lpwm-paper.md) — non-Gaussian latents, better dynamics.
 - [AdaJEPA paper](../../sources/adajepa-paper.md) — recovers a large part of the OOD collapse by adapting online, without touching the geometry question.
 - [Critique of World Model](../../sources/critique-of-world-model-paper.md) — asserts that *"any latent representation of real-world signal intrinsically suffers from issues of identifiability and stability"* and uses it to argue for observation-grounded supervision; no proof offered for that sentence, and [LeJEPA](../../sources/lejepa-paper.md)'s linear-identifiability result is the standing counter.
-
+- [Predictive Closure paper](../../sources/predictive-closure-jepa-feature-selection-paper.md)

@@ -1,0 +1,119 @@
+---
+title: "Predictive Closure: A Set-Level Characterization of JEPA's Feature Selection (Levy, Lidayan, Goldberg, 2026)"
+type: source
+url: https://arxiv.org/abs/2610.27364
+local_path: raw/2610.27364v1.pdf
+sha256: b114d69a751120780e1f27b5531e6628a57c57d70ef0fe4f250974f9c7b52f22
+author: Mosh Levy, Aly Lidayan, Yoav Goldberg
+published: 2026-10-19
+ingested: 2026-10-22
+venue: arXiv (cs.LG), v1
+format: "paper, 24 pp (10 main + appendices A–E). Affiliations: Bar-Ilan University and UC Berkeley (Levy); UC Berkeley (Lidayan); Bar-Ilan University and Allen Institute for AI (Goldberg). Code released: github.com/Mosh0110/predictive-closure."
+tags: [jepa, predictive-closure, feature-selection, predictive-information, slow-feature-collapse, sigreg, theory, information-theory, action-conditioning, auxiliary-loss, side-information, steering, probing, cifar-10, bar-ilan, berkeley, ai2]
+---
+
+# Predictive Closure: A Set-Level Characterization of JEPA's Feature Selection (Levy, Lidayan, Goldberg, 2026)
+
+> [!note] Not Ken Goldberg
+> The third author is **Yoav Goldberg**, the NLP researcher at Bar-Ilan and Ai2. He is not the Berkeley roboticist Ken Goldberg, who has his own page in this wiki.
+
+## Summary
+
+The paper asks **which features a [JEPA](../concepts/world-models/jepa.md) keeps when its latent is too small to hold everything**. Earlier accounts judge each feature on its own: JEPAs keep slow features ([Sobal 2022](sobal2022-jepa-slow-features-paper.md)), the most predictable ones (Enigma Team, 2026), or drop unpredictable ones (Pendharkar, 2026). The authors argue this is the wrong unit of analysis. **Selection operates on sets of features.** If the latent's entropy is fixed by an anti-collapse regulariser such as [SIGReg](../concepts/world-models/sigreg.md), the ideally trained encoder represents the **feasible feature set with the greatest predictive information**, I(Y_t(S); Y_{t+1}(S)). That is the set whose present values best predict its own next values. They call this set the **predictive closure** (Eq. 2). Because a feature's contribution depends on what else is in the set, **an unpredictable feature can still be kept if it helps predict other kept features**. Their running example is a traffic light whose next colour is random but whose current colour predicts whether a waiting cyclist rides or stops (Fig. 1). The theory agrees with per-feature accounts when features evolve independently, and makes different predictions when they do not. Five small controlled experiments test those predictions: CIFAR-10 collage sequences, a **3-dimensional latent**, and probes. The paper's practical message is that **steering can be indirect**. An auxiliary loss on feature C, or feeding C to the predictor as side information, can strengthen the representation of a *different* feature D that C helps predict. Read with actions as side information, this suggests **action-conditioned JEPAs favour the features the agent affects**. The authors flag that claim as untested.
+
+## Key claims
+
+**The objective as set selection (§3, App. A)**
+- **Setup.** L_JEPA = E‖g(f(X_t)) − f(X_{t+1})‖² + λR(f(X_t)) (Eq. 1). A *feature* is a deterministic scalar function of the observation. A feature is *represented* if a smooth reader can recover it exactly from the latent (App. A.1, A.3). S(f) is the full set of features recoverable from encoder f.
+- **Main result (Eq. 2).** Two assumptions do the work. (a) Every encoder matches the same target distribution P at finite precision, so the latent's entropy H(P) is fixed and smaller than the observation's. (b) The predictor's error is isotropic Gaussian (Eq. 5). Under these, minimising prediction loss is *exactly* maximising I(Z_t; Z_{t+1}) (Eq. 4, 8). The latent and the values of S(f) determine one another (Eq. 9), so the optimum is the feasible set S that maximises I_pred(S). A set is *feasible* if some encoder represents it and its entropy equals H(P).
+- **Without the Gaussian assumption** the equality becomes an inequality. Minimising the loss then maximises only a **lower bound** on predictive information (App. A.2, last paragraph).
+- **Decomposition (Eq. 3, App. A.4).** The optimal set minimises the sum of two terms:
+  - **Aleatoric uncertainty**, H(Y_{t+1}(S) | X_t): how uncertain the set's next values remain even given the whole current observation.
+  - **Predictive leakage**, I(X_t; Y_{t+1}(S) | Y_t(S)): how much the rest of the observation would add to predicting the set's next values. It is zero when the set predicts itself.
+  - A noisy feature adds only aleatoric uncertainty, unless it reduces leakage for other members. So a "noisy TV" that predicts nothing is dropped (§3.2).
+- **Non-modularity (Eq. 11, App. A.5).** A feature's marginal value is ∆(ϕ|S) = I(ϕ_t; Y_{t+1} | Y_t) + I((Y_t, ϕ_t); ϕ_{t+1} | Y_{t+1}). Both terms, and the feature's entropy cost H(ϕ_t | Y_t), depend on S. **If features evolve independently**, both terms reduce to per-feature constants. Selection then becomes "rank features and keep the top k", or a knapsack problem when entropies differ. In this case the earlier accounts are exactly right.
+- **Corollary:** whether one part of the scene is kept can depend on whether another part is kept, *even when neither helps predict the other*, because the two can sit in competing sets (§3.1).
+
+**Earlier findings re-derived (§4.1)**
+- **[Sobal 2022](sobal2022-jepa-slow-features-paper.md).** A fixed background has next value equal to current value and adds nothing to the sum. A resampled background adds its entire entropy. So the fixed background wins over the moving dot, and the resampled one loses.
+- **Enigma Team's "obsessed encoder" (2026).** A small pattern held fixed within a sequence took over most of the latent. Every feature of it, however fine, costs zero, so a set made only of such features has the smallest possible sum.
+- **Karmann et al. 2026 (MotionJEPA, arXiv 2609.23881).** Pong score was kept and the ball suppressed. The paper's explanation is that "slow" is relative to the **time step**: a feature that barely changes within one step adds almost nothing. **The same feature can be kept at one frame stride and dropped at another.**
+- **Pendharkar 2026.** An independently resampled visual cue that decided which action earned reward was barely decodable, because reward was not in the objective. The cue adds pure aleatoric uncertainty and removes no leakage. **Being relevant to the task buys a feature nothing. Only predictive relationships count.**
+
+**Five predictions (§4.2)**: cross-subsidization, set switching, feasibility dependence, steering with an auxiliary loss, and steering with side information. Side information U_t enters both terms as an extra conditioning variable (App. A.6). It reduces the sum by I(U_t; Y_{t+1} | Y_t). If U_t is computed from the observation, only leakage falls. If it is not (an action), aleatoric uncertainty can fall too.
+
+**Experiments (§5–6, App. B–E).** Every experiment uses CIFAR-10 collages, a conv encoder → **3-d latent**, a 3→16→16→3 MLP predictor, and 0.9·L_pred + 0.1·SIGReg. There is no stop-gradient. Representation is measured by small MLP probes on the frozen latent, using held-out images, with 3 seeds unless noted. Figure values below are read from the plots.
+- **Cross-subsidization (Fig. 2).** The light picks which of two images gets replaced, with probability q. The light's own next value is a fair coin at every q. **Light decoding rises from chance (~50%) at q = 0 to ~85% at q = 1.** This interaction is nonlinear, outside the scope of linear-predictor theories such as Littwin et al. 2024.
+- **Set switching (Fig. 3).** Two image pairs, A/B and C/D. The only change is the C→D copy probability p_D, from 0.6 to 1. **A/B falls from ~77% to ~54% and C/D rises from ~63% to ~82%, crossing near p_D ≈ 0.8.** A/B's own dynamics never change, and neither pair predicts the other. Decoding within each pair moves together, as a set-level view expects.
+- **Feasibility dependence (Fig. 4, App. E).** A/B is held fixed and the competing cycle grows to N ∈ {2, 4, 8, 16} images, with average copy probabilities unchanged. **Cycle decoding falls from ~79% to ~53%. At N = 16, A/B (~69%) overtakes it.** This holds in all three seeds and at both the worst and best positions. A highly predictable set that exceeds capacity loses, because each part of it that fits leaks through the links to the parts left out.
+- **Auxiliary reconstruction (Fig. 5, one seed).** Adding a loss that reconstructs a coarse 4×4 version of **C only** raises decoding of the **unsupervised partner D** to nearly C's level at β = 0.36 (85–89% at every p_D), while A/B drop toward chance. The changes are **not monotonic**, and the β = 0 baseline already favours C/D at high p_D.
+- **Predictor side information (Fig. 6).** C is fed to the predictor through a separate 3-d side encoder. **D rises (~84–88%) for p_D ≥ 0.75 and falls at p_D = 0.6. B collapses to ~54%. A rises to ~87% at every p_D.** The authors say predictive closure **cannot explain A and B separating**, because it values them only as a pair. The side encoder also **adds capacity**, a confound the paper acknowledges.
+- **Sanity check (App. C, Table 1).** Predictors pick the true next observation over an incompatible alternative 77–98% of the time. Shuffled predictions score ~50%. The models did learn to predict.
+- **Regulariser sensitivity (App. D).** Results are checked at r ∈ {0.05, 0.10, 0.20}. The qualitative findings hold, **except that the N = 16 reversal appears in only 1 of 3 runs at the weakest regulariser**. Stronger regularisation shrinks the separation between sets.
+
+**Action conditioning (§6.3), a stated suggestion rather than a result.** If actions are treated as side information, features the agent affects gain predictive information and are more likely to be kept. Features it does not affect are kept only if they are predictive partners of affected ones. **No experiment uses real actions.** C stands in for the action and D for the feature it affects. The authors say "the consequences of genuine action conditioning remain to be tested."
+
+## Reading it critically
+
+> [!note] The assumptions, listed
+> - **The global optimum only.** The theorem describes the ideally trained encoder. It says nothing about optimisation dynamics, or about which of several tied optima training will find.
+> - **Exact distribution matching.** The latent's entropy is fixed because every encoder matches P exactly, an idealisation of SIGReg (footnote 4). Latent dimension and precision are fixed.
+> - **Isotropic Gaussian prediction error.** This is what makes "minimum MSE = maximum mutual information" exact. **Most of the paper's own scenarios break it.** In the traffic-light and copy-probability worlds, the next latent given the current one is a mixture: which image is replaced is a discrete random event. There the theorem only guarantees that a lower bound is maximised. The experiments therefore test the theory somewhat beyond its exact scope, which supports it empirically but is not covered by the proof.
+> - **Infinite data, one-step prediction, deterministic features.** Features are functions of a single observation. Prediction is t → t+1 with no multi-step rollout.
+> - **Nonlinear models are allowed.** Unlike Littwin et al. 2024 and [Van Assel et al. 2025](joint-embedding-vs-reconstruction-paper.md), neither encoder nor predictor needs to be linear. This is a real gain in generality.
+
+> [!note] "Capacity" is entropy here, not dimensions
+> Feasibility is defined by entropy: H(Y_t(S)) = H(P). A 3-d float latent at finite precision can in principle store far more bits than a few CIFAR identities. What actually enforces scarcity is the **smooth-reader condition** (App. A.3): features must survive small perturbations of the latent. That condition is introduced cleanly but never quantified. The experiments get scarcity by making the latent tiny. How the theory's notion of capacity maps onto a 192-d [LeWorldModel](../entities/leworldmodel.md) latent or a 1024-d [V-JEPA 2](../entities/v-jepa-2.md) token is left open.
+
+> [!note] Evidence is about direction, not size
+> The conclusion says so directly: the experiments "test the direction of each predicted effect; measuring its size in large JEPA systems trained on natural data remains for future work." Everything is a 3-d latent on synthetic collages. The reconstruction-steering grid uses one seed. One sensitivity setting loses the feasibility reversal, and side information produces a redistribution (A up, B down) that the theory does not predict. This is a framework paper with small-scale confirmations. It does not establish a recipe that works at scale.
+
+- **Mutual information ignores geometry.** I(Z_t; Z_{t+1}) does not change under any invertible reparametrisation of the latent. Predictive closure therefore says **which information** the latent holds, never **how it is laid out**. Questions such as whether latent distance tracks task progress ([H-JEPA Fig. 7](h-jepa-hierarchical-world-models-paper.md)) or whether the latents are a rotation of the true ones ([identifiability](../concepts/world-models/identifiability.md)) are outside its reach. Those layout questions decide whether gradient planning works.
+- **The probes test detection, not position.** Negative examples exclude the target image *everywhere*. A latent that stores the unordered contents of a pair could pass both position probes (App. B.3). The paper notes this.
+- **"Unpredictable" means unpredictable from its own past.** The light is a fair coin. Its marginal value comes entirely from what it predicts about others. The paper does not test the harder case of a feature that is partly predictable *and* partly predictive, competing against a zero-cost background. That is the case that matters for robots (see the next section).
+
+## How it fits the wiki's existing theory of what JEPAs keep
+
+> [!note] No contradiction with H-JEPA App. L. Predictive closure contains it.
+> In Eq. 3 terms, a background that is **constant within an episode** has Y_{t+1} = Y_t. Its aleatoric uncertainty and its predictive leakage are both **zero**, so its sum is the global minimum of the objective. If the background carries enough entropy to fill the latent, the background-only set achieves I_pred = H(P), the largest value any feasible set can reach. That is [H-JEPA](h-jepa-hierarchical-world-models-paper.md) **Prop. 1 + Thm. 1** in information-theoretic form: the background-only encoder is an optimum, and a regulariser that only fixes the marginal law (i.e. fixes H(P)) cannot rule it out. The present paper reaches the same conclusion independently, using Enigma's "obsessed encoder" and Sobal 2022 as its examples (§4.1). It does not cite H-JEPA, which appeared two weeks earlier.
+
+**What predictive closure adds to [slow-feature collapse](../concepts/world-models/slow-feature-collapse.md).** The wiki's page says that "any feature carrying unpredictable motion costs prediction error". Predictive closure **refines this rather than contradicting it**: an unpredictable feature costs its own aleatoric uncertainty but can **pay that back** by removing leakage from features it predicts. Two consequences:
+1. **Slowness is a proxy.** The underlying quantity is a set's predictive information at a specific frame stride. Slow features win because they cost nearly nothing per step. Fast features can survive if they predict others (cross-subsidization). They are dropped when they predict nothing (noisy TV, Sobal's changing noise) or when a zero-cost set already fills the latent.
+2. **Cross-subsidization cannot beat a zero-cost set.** Once a background set has a sum of zero and enough entropy, nothing scores better. A stochastic arm, or a traffic light that predicts a cyclist, at best ties it. *(Our inference from Eq. 3; the paper does not state it.)* This is why the paper's optimism about keeping unpredictable features does **not** carry over to multi-scene data like DROID.
+
+**Action-conditioned JEPAs.** The paper's suggestion is that actions as side information favour features the agent affects (§6.3, App. A.6). Combined with the point above *(our inference)*, action conditioning only lowers the sum of agent-affected sets **toward** zero. It cannot push them below a background set that is already at zero. So **action conditioning alone breaks no ties against collapse**. This matches H-JEPA Table 12, where every action-conditioned, SIGReg-only DROID run collapsed. It also clarifies why the **inverse-dynamics term** works where action conditioning does not. IDM is an *auxiliary loss*, the paper's first steering mechanism. It forces action-relevant features into the set from outside the predictive objective. The paper's steering result then predicts that IDM should also pull in the **predictive partners** of the arm, such as the objects it pushes, even though IDM never supervises them. That is a testable prediction for [PLDM](../entities/pldm.md)- and LeWM-style training, and nobody has measured it.
+
+**Two meanings of "action-relevant".** Features the agent *affects* are favoured under action conditioning. Features that are *needed to choose* an action, such as Pendharkar's reward cue, are **not** favoured unless they predict other kept features. A home-robot world model trained this way will keep the arm and what the arm moves. It will not keep, for example, an indicator light the policy is meant to react to, unless that light also predicts something in the scene.
+
+**[Sobal 2022](sobal2022-jepa-slow-features-paper.md).** Fully re-derived (§4.1). Sobal's proof assumes the collapsed encoder and shows that VICReg's terms vanish. Predictive closure explains *why the objective prefers* that solution and recovers Sobal's changing-noise result (the noise is shed) in the same calculation.
+
+**[LeJEPA identifiability](when-does-lejepa-learn-a-world-model-paper.md).** The two results apply in **different regimes** and do not conflict. Klindt, LeCun & Balestriero assume a Gaussian world with **independent**, stationary, additive-noise latents and **m = n**, so the latent can hold everything and nothing competes. Predictive closure assumes **capacity smaller than the observation entropy** and is mainly about **dependent** features. Under independence it reduces to per-feature ranking (App. A.5). It therefore speaks to *which* information an under-sized latent keeps, the m < n case the identifiability page records as open. Identifiability answers *how that information is arranged*, which predictive closure cannot address (see "Mutual information ignores geometry" above).
+
+**[Generalization theory (Cui et al.)](jepa-generalization-theory-paper.md).** This is a looser fit. Cui et al. treat the JEPA objective as low-rank factorisation of an action-conditioned co-occurrence matrix, so the latent keeps the top spectral directions. That is a "keep the top-k" picture. Predictive closure says set value is non-modular when features are dependent. Whether the two descriptions agree beyond the linear-spectral regime is not addressed by either paper. *(Hedged; neither cites the other.)*
+
+## Why it matters here
+
+- **It gives the wiki a single framework for the JEPA feature-selection results it already holds.** These are Sobal 2022, H-JEPA App. L, the selective-abstraction frequency gap (H-JEPA §3), and LeWM's distractor sensitivity. Under predictive closure they become questions about one quantity: the per-stride predictive information of competing feature sets. The frame-stride point is directly relevant to H-JEPA's ">2× timescale gap" condition.
+- **It turns "steering" into a design lever for a household JEPA.** Supplying a cheaply extracted signal to the predictor, such as gripper state, proprioception, or a detector output, may strengthen representation of the features it predicts *without being encoded itself*. This is a concrete experiment for the [household JEPA synthesis](../syntheses/world-models/jepa-for-household-mobile-manipulator.md). The paper's caveat applies: evaluate it against *every* feature needed downstream, because side information also displaced B.
+- **It does not remove the action-label requirement.** For changing scenes the conclusion of [three ways to scale a JEPA world model](../syntheses/world-models/three-ways-to-scale-a-jepa-world-model.md) still holds: record actions and use an IDM term. Predictive closure explains why that works (IDM is an auxiliary loss) and predicts a side benefit (the arm's predictive partners get pulled in too).
+
+## Entities mentioned
+- [Ai2](../entities/ai2.md) (Goldberg's affiliation). Bar-Ilan University and UC Berkeley have no wiki pages, and neither do the authors.
+- Cited JEPA systems: [V-JEPA 2](../entities/v-jepa-2.md) · [LeWorldModel](../entities/leworldmodel.md) · [PLDM](../entities/pldm.md) (via Sobal 2022) · [Yann LeCun](../entities/yann-lecun.md) (2022 position paper). Not cited, but analysed here: [H-JEPA](../entities/h-jepa.md).
+- Cited works without wiki pages: Pendharkar 2026 (arXiv 2606.30068), Karmann et al. 2026 MotionJEPA (arXiv 2609.23881), Enigma Team "The obsessed encoder" (blog), Littwin et al. 2024 (NeurIPS), Van Assel 2026 spectral-view blog post, SkyJEPA (Rao et al. 2026), Destrade et al. 2025 (value-guided JEPA planning).
+
+## Concepts touched
+- [JEPA](../concepts/world-models/jepa.md): what an ideally trained JEPA encodes under capacity pressure.
+- [Slow-feature collapse](../concepts/world-models/slow-feature-collapse.md): a generalisation in which slowness is a proxy for per-stride predictive information, plus the cross-subsidization refinement.
+- [SIGReg](../concepts/world-models/sigreg.md): read as the device that fixes latent entropy. It sets the budget and has no say in what fills it.
+- [Identifiability](../concepts/world-models/identifiability.md): the complementary regime (m = n, independent latents, geometry rather than content).
+- [Learned latent space](../concepts/world-models/latent-space.md) · [Representation evaluation](../concepts/learning/representation-evaluation.md) (probe-based "represented" measurement) · [Inductive bias](../concepts/learning/inductive-bias.md) · [Spectral theory of SSL](../concepts/learning/spectral-theory-of-ssl.md).
+- Related syntheses: [SSL anti-collapse lineage](../syntheses/world-models/ssl-anti-collapse-lineage.md) · [Three ways to scale a JEPA world model](../syntheses/world-models/three-ways-to-scale-a-jepa-world-model.md).
+
+## Open questions
+- **Real action conditioning.** Does an action-conditioned JEPA on real robot data keep the features the agent affects, as the theory suggests? Does IDM pull in the arm's predictive partners, such as pushed objects, as the steering result predicts?
+- **Scale and magnitude.** Do the effects survive at 192–1024-d latents on natural video, where "capacity" is not obviously binding? How does the entropy-based notion of capacity relate to latent dimension in practice?
+- **Frame stride as a control knob.** If slowness is measured per step, is choosing the stride (or a multi-stride objective) a cheap, label-free way to move what the latent keeps? Does this tie to H-JEPA's 2× gap?
+- **Breaking ties with a zero-cost background.** The theory says nothing about which of several tied optima training finds. H-JEPA's runs always found collapse. Is there an objective term that acts on the joint law across time, and that can be read as predictive-closure steering, which removes the zero-cost background set without action labels?
+- **The unexplained A/B split** under side information. Does it reflect optimisation dynamics, or a gap in the set-level account?
+- **Multi-step rollouts.** The theory is one-step. Does predictive closure over a k-step horizon select different sets, given that planners roll out many steps?

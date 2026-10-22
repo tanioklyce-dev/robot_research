@@ -2,8 +2,8 @@
 title: World-model evaluation
 type: concept
 created: 2026-08-07
-updated: 2026-10-13
-sources: 25
+updated: 2026-10-22
+sources: 29
 tags: [world-model, evaluation, benchmark, physical-validity, policy, vbench, worldscore, physion-eval, mllm-critic]
 ---
 
@@ -213,6 +213,11 @@ Two riders worth carrying into robotics evaluation:
 > [!note] An external instrument, unused
 > On the same panel, [Kalshi](../../entities/kalshi.md) offered **2.2 million resolved prediction-market forecasts** with realized outcomes, external adjudication, and a calibration baseline (Brier **0.08 → 0.02** from a 3-month horizon to resolution, against 0.25 for an uninformative forecaster). Any world model that emits probabilities over near-term real-world events can be scored against that without a simulator, because the world already ran the experiment. As far as this wiki knows nobody has tried it. See [prediction markets](../economics/prediction-markets.md).
 
+## Collapse diagnostics, and why they disagree (2026-10-22)
+The autumn-2026 collapse batch ([synthesis §5](../../syntheses/world-models/jepa-dynamics-collapse-fixes.md#5-evaluation-collapse-stays-invisible-to-the-obvious-checks-and-the-diagnostics-disagree)) brought five diagnostics, and no two papers share one: **action sensitivity** and within-episode variance share (hierarchical H-JEPA), **MLP probes against a random-init floor** ([MotionJEPA](../../sources/motionjepa-temporal-feature-collapse-paper.md); a random encoder already scores 0.116 NMSE on Pong), **counterfactual action-ranking Spearman** and subspace erasure ([AVL-JEPA](../../sources/avl-jepa-causal-dynamics-collapse-paper.md)), **probe-orthogonal ranking** ([Hamiltonian JEPA](../../sources/hamiltonian-jepa-control-state-paper.md)), and **trajectory hit rate** ([AD-E2E-JEPA](../../sources/ad-e2e-jepa-autonomous-driving-paper.md)). They conflict. Hamiltonian JEPA decodes the Push-T block worse than LeWM and plans better, and ranking candidates by probe-*invisible* directions alone reproduces its plan ranking (Spearman 0.997). LeWM's counterfactual Spearman on Push-T is 0.19 while it plans at 96%. Collapse also stays invisible in the training loss (MotionJEPA Fig. 3). **Nobody has checked whether action sensitivity, probes and planning success agree on one model.**
+
+AD-E2E-JEPA adds a protocol caveat: using the *real future frame* as the goal makes driving "planning" close to an inverse-dynamics problem, so its scores are not comparable with driving policies.
+
 ## Related concepts
 
 - [Robot policy evaluation](../robotics/robot-policy-evaluation.md) — the statistical case, from inside robotics.
@@ -245,3 +250,8 @@ Two riders worth carrying into robotics evaluation:
 - [WorldModelBench](../../sources/worldmodelbench-paper.md) — video models judged as world models; judge inflation; VBench–physics correlation 0.28.
 - [WorldScore](../../sources/worldscore-paper.md) — camera-controlled next-scene generation across 3D/4D/video models; no physics metric; authorship loop with the top-ranked model.
 - [DeepJEPA paper (2026)](../../sources/deepjepa-scaling-world-models-from-within-paper.md) — **planner-relative evaluation**: 93–99% of episodes are unchanged by extra model depth, gains act through CEM elite-set reordering, and probe accuracy doesn't move. Prop. 3.1's elite margin is a loggable quantity for when model error can no longer matter.
+- [MotionJEPA paper](../../sources/motionjepa-temporal-feature-collapse-paper.md)
+- [AVL-JEPA paper](../../sources/avl-jepa-causal-dynamics-collapse-paper.md)
+- [Hamiltonian JEPA paper](../../sources/hamiltonian-jepa-control-state-paper.md)
+- [AD-E2E-JEPA paper](../../sources/ad-e2e-jepa-autonomous-driving-paper.md)
+- Synthesis: [What the latent throws away](../../syntheses/world-models/jepa-dynamics-collapse-fixes.md)

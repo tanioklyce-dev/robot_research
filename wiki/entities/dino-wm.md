@@ -3,8 +3,8 @@ title: DINO-WM
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-10-13
-sources: 36
+updated: 2026-10-22
+sources: 37
 tags: [dino-wm, dinov2, world-model, jepa-adjacent, lecun, pinto, nyu, meta-fair]
 ---
 
@@ -75,6 +75,7 @@ Two 2026 papers use DINO-WM as their starting point and their baseline, which ma
 - [Sensorimotor World Models paper (Ivashkov et al., 2026)](../sources/sensorimotor-world-models-paper.md) — DINO-WM cited as the "freeze the encoder" point in the anti-collapse design space.
 - [Robot Self-Improvement via Human-Video Dynamics Models](../sources/robot-self-improvement-human-video-dynamics-paper.md) — cites DINO-WM for the world-state design; DINOv3 tokens plus TAPIP3D point flows beat either alone and beat a video-model latent.
 - [RoboJEPA paper](../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — cites DINO-WM's ~20M predictor as the small end of the latent-planning lineage that RoboJEPA scales to 8B.
+- [AD-E2E-JEPA paper](../sources/ad-e2e-jepa-autonomous-driving-paper.md) — retrained on NAVSIM driving: 68.3 EPDMS at 91.8 s per scene (100-scene subset).
 
 ## A caution from the 2026 probe studies
 

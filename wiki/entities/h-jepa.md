@@ -3,7 +3,7 @@ title: H-JEPA (Hierarchical JEPA)
 type: entity
 subtype: method
 created: 2026-10-13
-updated: 2026-10-13
+updated: 2026-10-22
 sources: 4
 tags: [h-jepa, hierarchical-world-model, jepa, hierarchical-planning, leworldmodel, sigreg, inverse-dynamics, lecun, balestriero]
 ---
@@ -15,6 +15,7 @@ tags: [h-jepa, hierarchical-world-model, jepa, hierarchical-planning, leworldmod
 > - **[HWM](hwm.md)** (April 2026): the first implementation of the *temporal* half, with two planning timescales over **one shared latent space**, wrapping frozen world models with CEM.
 > - **H-JEPA** (October 2026, this page): **distinct latent spaces per level**, trained jointly from pixels, gradient-descent planning. The first implementation of the *representational* half as well.
 > - Unrelated: [HP-JEPA](../sources/hp-jepa-paper.md), multi-resolution JEPA on graphs.
+> - **Also unrelated, and confusingly abbreviated "H-JEPA" in its own paper:** [Hamiltonian JEPA](hamiltonian-jepa.md) (Zoabi, Ali, Wolf, Sept 2026), a port-Hamiltonian predictor with an orthonormal action port. Not hierarchical.
 
 ## How it works
 - Level 1 is [LeWorldModel](leworldmodel.md) (ViT encoder, causal-transformer predictor, [SIGReg](../concepts/world-models/sigreg.md)). Each higher level encodes every s-th lower latent (s = 2 in simulation, 3 on DROID) and pools the intervening action embeddings into a macro-action. Each level has its own predictor and SIGReg term, and everything trains end to end.
@@ -45,3 +46,4 @@ tags: [h-jepa, hierarchical-world-model, jepa, hierarchical-planning, leworldmod
 - [A Path Towards Autonomous Machine Intelligence](../sources/lecun2022-path-towards-ami.md) — the proposal.
 - [Hierarchical Planning with Latent World Models (HWM)](../sources/hwm-paper.md) — the temporal-only predecessor.
 - [RoboJEPA paper](../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — the frozen-encoder contrast case.
+- Synthesis: [What the latent throws away](../syntheses/world-models/jepa-dynamics-collapse-fixes.md)

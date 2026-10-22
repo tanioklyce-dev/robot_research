@@ -3,8 +3,8 @@ title: PLDM (Planning with Latent Dynamics Models)
 type: entity
 subtype: method
 created: 2026-05-10
-updated: 2026-10-13
-sources: 11
+updated: 2026-10-22
+sources: 13
 tags: [pldm, planning-with-latent-dynamics-models, jepa, end-to-end-jepa, sobal, lecun, vicreg, mpc, mppi]
 ---
 
@@ -64,6 +64,8 @@ The four-row "JEPA-line" comparison (PLDM, LeWM, DINO-WM, V-JEPA 2-AC) is the su
 - [stable-worldmodel paper (Maes et al., 2026)](../sources/stable-worldmodel-paper.md) — implemented as a baseline in the `swm` platform; benchmarked under controlled visual/physical perturbation (quadratic decay under distractors).
 - [Sensorimotor World Models paper (Ivashkov et al., 2026)](../sources/sensorimotor-world-models-paper.md) — PLDM cited as the "variance-covariance regularizer" point in the anti-collapse design space (PLDM itself already includes an inverse-dynamics term among its auxiliary losses).
 - [H-JEPA paper (Zhang, Terver et al., 2026)](../sources/h-jepa-hierarchical-world-models-paper.md) — formalizes why PLDM's inverse-dynamics term matters: it is the only Ω(1) barrier against slow-feature collapse.
+- [AVL-JEPA paper](../sources/avl-jepa-causal-dynamics-collapse-paper.md) — baseline.
+- [Hamiltonian JEPA paper](../sources/hamiltonian-jepa-control-state-paper.md) — baseline.
 
 ## Open questions / TBD
 - **Author entity for Vlad Sobal** — appears as lead author across both papers; could anchor a NYU LeCun-line thread.

@@ -3,8 +3,8 @@ title: SMWM (Sensorimotor World Model)
 type: entity
 subtype: model
 created: 2026-07-26
-updated: 2026-08-30
-sources: 4
+updated: 2026-10-22
+sources: 8
 tags: [smwm, sensorimotor-world-model, jepa, inverse-dynamics, representation-collapse, world-model, causality, controllable-degrees-of-freedom, balestriero, scholkopf]
 ---
 
@@ -38,6 +38,9 @@ Recovering the action forces the encoder to preserve action-relevant information
 - [JEPA](../concepts/world-models/jepa.md) — the family; SMWM's inverse-dynamics regularizer is a new anti-collapse option.
 - [Identifiability](../concepts/world-models/identifiability.md) — sibling theme (recovering controllable latent structure).
 
+## Descendants and critics (2026-10-22)
+Its inverse-dynamics construction became the template for the autumn batch ([synthesis](../syntheses/world-models/jepa-dynamics-collapse-fixes.md)). [MotionJEPA](motionjepa.md) swaps the action target for a learned embedding of the pixel difference, which removes the label. In its synthetic games it finds SMWM keeps **only** the action-driven variables. [AVL-JEPA](../sources/avl-jepa-causal-dynamics-collapse-paper.md) and [GAWM](../sources/physically-grounded-jepa-world-models-paper.md) use IDM terms (GAWM's IDM-only Cube 85 is close to SMWM's 84). [Hamiltonian JEPA](hamiltonian-jepa.md) cites SMWM but omits it from its table. None re-runs SMWM as published under its own protocol. *Pattern worth testing:* on clean benchmarks IDM-only variants win Cube but tie or lose Push-T, where the pushed object matters.
+
 ## Open questions
 
 - Only simple 2D/3D control shown — no high-DoF or real-robot results. The single-step inverse objective's guarantees don't transfer to the continuous setting (used as [inductive bias](../concepts/learning/inductive-bias.md), not proof). Is inverse dynamics complementary to, or redundant with, SIGReg/EMA?
@@ -45,3 +48,8 @@ Recovering the action forces the encoder to preserve action-relevant information
 ## Mentioned in
 
 - [Sensorimotor World Models paper (Ivashkov, Balestriero, Schölkopf 2026)](../sources/sensorimotor-world-models-paper.md) — the primary source.
+- [MotionJEPA paper](../sources/motionjepa-temporal-feature-collapse-paper.md)
+- [AVL-JEPA paper](../sources/avl-jepa-causal-dynamics-collapse-paper.md)
+- [Physically grounded JEPA WMs (GAWM)](../sources/physically-grounded-jepa-world-models-paper.md)
+- [Hamiltonian JEPA paper](../sources/hamiltonian-jepa-control-state-paper.md)
+- Synthesis: [What the latent throws away](../syntheses/world-models/jepa-dynamics-collapse-fixes.md)

@@ -3,8 +3,8 @@ title: David Klindt
 type: entity
 subtype: person
 created: 2026-07-26
-updated: 2026-09-02
-sources: 3
+updated: 2026-10-22
+sources: 4
 tags: [person, klindt, cold-spring-harbor, identifiability, jepa, lejepa, theory, representation-learning]
 ---
 
@@ -36,3 +36,4 @@ He also concedes the standard objection to his own theorem before the audience r
 ## Mentioned in
 - [When Does LeJEPA Learn a World Model?](../sources/when-does-lejepa-learn-a-world-model-paper.md) — lead author.
 - [Third World Modeling Workshop — Day 2](../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — lightning talk; the Tolman & Honzik latent-learning argument.
+- [MotionJEPA paper](../sources/motionjepa-temporal-feature-collapse-paper.md) — co-author.

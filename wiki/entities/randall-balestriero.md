@@ -3,8 +3,8 @@ title: Randall Balestriero
 type: entity
 subtype: person
 created: 2026-07-26
-updated: 2026-10-13
-sources: 21
+updated: 2026-10-22
+sources: 22
 tags: [person, balestriero, brown, citadel, wavelets, spline-theory, signal-processing, nasa-mars-seis, lejepa, sigreg, jepa, ssl, theory, world-model, inverse-dynamics, causality, spectral-graph-theory, time-series, levjepa, tutorial]
 ---
 
@@ -97,3 +97,5 @@ He is also unusually direct about the state of the art he is selling: *"we are n
 - [Third World Modeling Workshop — Day 3](../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — **organizer, and the 90-minute tutorial teaching the whole line from his own code**; announces [LeVJEPA](levjepa.md), names the multimodal/noise/stochasticity limitations, and hands out the two exercises the hackathon ran on.
 - [The Birth of SSL — A Supervised Theory](../sources/birth-of-ssl-supervised-theory-paper.md) — with LeCun, NeurIPS 2024 SSL Workshop: SSL and supervised learning share a loss and differ in the label graph; VICReg recovered from a ridge-regularized supervised head.
 - [H-JEPA paper (2026-10)](../sources/h-jepa-hierarchical-world-models-paper.md) — co-senior author with LeCun; SIGReg at every level; App. L proves SIGReg's limit against slow-feature collapse.
+- [MotionJEPA paper](../sources/motionjepa-temporal-feature-collapse-paper.md) — senior author; the label-free DISReg barrier, two weeks before the hierarchical H-JEPA's "only IDM works" result.
+- Synthesis: [What the latent throws away](../syntheses/world-models/jepa-dynamics-collapse-fixes.md)

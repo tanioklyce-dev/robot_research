@@ -3,7 +3,7 @@ title: LeWorldModel
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-10-13
+updated: 2026-10-22
 sources: 44
 tags: [leworldmodel, lewm, jepa, world-model, mila, end-to-end, sigreg, instruction-leakage]
 ---
@@ -72,6 +72,16 @@ The [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms
 ## As a building block: level 1 of H-JEPA (2026-10-13)
 [H-JEPA](h-jepa.md) uses LeWM **unchanged as its level-1 world model** and its flat baseline. Two findings bear on LeWM itself ([paper](../sources/h-jepa-hierarchical-world-models-paper.md)): (1) **On DROID, plain LeWM collapses** onto scene identity (≈0% plan fidelity). Adding an inverse-dynamics loss ("LeWM+IDM") makes it a strong baseline (~34% Fréchet fidelity), so for multi-scene real data LeWM's recipe needs action labels. (2) **Measuring goal distance in a higher level's latent space** raises flat LeWM's AntMaze success with no change to its dynamics. LeWM's own latent geometry is a weak goal cost far from the goal.
 
+## As a baseline: the autumn-2026 collapse batch (2026-10-22)
+Five papers built on LeWM's code and benchmark suite within six weeks, each fixing some way its latent drops dynamics information ([synthesis](../syntheses/world-models/jepa-dynamics-collapse-fixes.md)):
+- **With a per-episode static background**, LeWM falls to **20.4%** mean success (Push-T 4.0%), and label-free [MotionJEPA](motionjepa.md) recovers 81.8% ([paper](../sources/motionjepa-temporal-feature-collapse-paper.md)). This is the clearest simulated case of [slow-feature collapse](../concepts/world-models/slow-feature-collapse.md).
+- **Under input perturbation** Push-T drops 96 → 14% (saturation +0.35). [AVL-JEPA](../sources/avl-jepa-causal-dynamics-collapse-paper.md)'s IDM + augmentation fine-tune recovers 62%.
+- **On driving** (NAVSIM), LeWM is ~130× faster than DINO-WM but scores 39.8 EPDMS against 67.3 for [AD-E2E-JEPA](ad-e2e-jepa.md). That LeWM is a ViT-L at batch size 8, not the published recipe.
+- [GAWM](../sources/physically-grounded-jepa-world-models-paper.md) (SIGReg → IDM + sim-state alignment) and [Hamiltonian JEPA](hamiltonian-jepa.md) both beat LeWM most clearly on **OGB-Cube**.
+
+> [!warning] LeWM's baseline numbers are not stable across papers
+> On nominally the same Cube task, LeWM is reported at **74** (its own paper), **73.2** (AVL), **64.1** (Hamiltonian JEPA, Delta-JEPA protocol) and **59** (SMWM). Two-Room ranges from 74.9 to 94. Compare deltas within a paper, never absolute numbers across papers.
+
 ## Related
 - [Mila](mila.md) — primary affiliation.
 - [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — architecture family.
@@ -105,3 +115,9 @@ The [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms
 - [Temporal Straightening paper](../sources/temporal-straightening-paper.md) — the geometric condition under which LeWM's embedding-distance planning cost is meaningful.
 - [H-JEPA paper (Zhang, Terver et al., 2026)](../sources/h-jepa-hierarchical-world-models-paper.md) — LeWM as level 1 of a hierarchy; 18% → 73% on AntMaze with levels added; collapses on DROID without IDM.
 - [DeepJEPA paper (Jin, Zhang et al., 2026)](../sources/deepjepa-scaling-world-models-from-within-paper.md) — LeWM as the non-recurrent baseline, with candidates scored exactly as in LeWM. A recurrent, adaptively-deep variant matches it at ~1.0–1.26× compute. Its PushT H=10 numbers (~10%) are far below LeWM's PushT figures elsewhere; a different task construction, so don't compare across papers.
+- [MotionJEPA paper](../sources/motionjepa-temporal-feature-collapse-paper.md)
+- [AVL-JEPA paper](../sources/avl-jepa-causal-dynamics-collapse-paper.md)
+- [Physically grounded JEPA WMs (GAWM)](../sources/physically-grounded-jepa-world-models-paper.md)
+- [Hamiltonian JEPA paper](../sources/hamiltonian-jepa-control-state-paper.md)
+- [AD-E2E-JEPA paper](../sources/ad-e2e-jepa-autonomous-driving-paper.md)
+- Synthesis: [What the latent throws away](../syntheses/world-models/jepa-dynamics-collapse-fixes.md)

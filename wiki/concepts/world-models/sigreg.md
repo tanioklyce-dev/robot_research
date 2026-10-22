@@ -2,8 +2,8 @@
 title: SIGReg (Sketched Isotropic Gaussian Regularization)
 type: concept
 created: 2026-08-26
-updated: 2026-10-13
-sources: 26
+updated: 2026-10-22
+sources: 32
 tags: [sigreg, jepa, lejepa, anti-collapse, isotropic-gaussian, cramer-wold, epps-pulley, balestriero, lecun, latent-space, regularization]
 ---
 
@@ -77,6 +77,13 @@ The conceptual difference matters more than the numbers: SIGReg **prescribes a l
 
 > [!warning] The Two-Room case is where the isotropic-Gaussian assumption is most strained
 > LeWM's Two-Room result is its **weakest** across the four environments and is **worse than PLDM**'s — the environment [Curriculum Module 12](../../syntheses/curriculum/curriculum-12-lewm-deep-dive.md) singles out as exposing a SIGReg limitation. Worth stating with the qualifier the [reproduction](../../sources/onchain-ai-garage-lewm-reproduction.md) adds, though: the "failure-mode" result is still **92%** on consumer hardware. **Weakest is not broken.**
+
+### The autumn-2026 batch: necessary for rank, not sufficient for dynamics (2026-10-22)
+- **SIGReg along batch alone loses fast features.** On synthetic games tuned LeWM still drops the moving objects. SIGReg over flattened batch × time ("LeWM-Flat") helps only partly (wood-background planning 20.4 → 41.7%), which matches the hierarchical H-JEPA's Prop. 2. SIGReg *across* time (the LeNEPA recipe) collapses fully in Golf and curves latent paths ([MotionJEPA](../../sources/motionjepa-temporal-feature-collapse-paper.md)).
+- **Its restoring force fades as a direction dies.** Near a point mass, SIGReg's gradient on σ goes to 0, while a Bures-Wasserstein moment penalty keeps a constant pull. Inside [Hamiltonian JEPA](../../entities/hamiltonian-jepa.md)'s architecture, where off-slice directions get no prediction gradient, swapping BW for SIGReg drops Push-T from 93.3 to **36.7%**. The authors say explicitly that this is not a claim about SIGReg inside LeWM.
+- **Dropped entirely** in [GAWM](../../sources/physically-grounded-jepa-world-models-paper.md), which replaces it with IDM + simulator-state alignment. Its argument is that SIGReg leaves the transition subspace low-rank (Cube r95 17.0 vs 32.8).
+- **Per-patch placement** on a compressor over a frozen DINOv3 ([AD-E2E-JEPA](../../entities/ad-e2e-jepa.md)), with a stop-gradient. No ablation separates the two.
+- [Predictive Closure](../../sources/predictive-closure-jepa-feature-selection-paper.md)'s framing: SIGReg fixes the latent's **entropy budget**; it does not choose what fills it.
 
 ## VISReg — decomposing the regularizer (2026-09-01)
 
@@ -206,3 +213,10 @@ Given that open-loop degradation from 25 → 75 steps is the standing failure ([
 - [Entropy-SGD (2017)](../../sources/chaudhari2017-entropy-sgd.md) — in landscape terms, SIGReg changes *which minima exist* (removes the collapsed basin) where Entropy-SGD changes *which the optimizer finds* (the widest); see [loss-landscape geometry](../learning/loss-landscape-geometry.md).
 - [LeCun & Xing debate (2026)](../../sources/lecun-xing-jepa-glp-debate-2026.md) — LeCun names SIGReg as the regulariser (*"the distribution of points that comes out of the encoder is basically isotropic Gaussian"*) and LeWorldModel as the world model built on it, *"still at relatively small scale, but it works"* [82:54].
 - [H-JEPA paper (Zhang, Terver et al., 2026)](../../sources/h-jepa-hierarchical-world-models-paper.md) — SIGReg at every level of a hierarchy; formal limit against slow-feature collapse; (T,N,D) grouping; implementation notes on its quadrature (17 trapezoid knots on [0,3]).
+- [MotionJEPA paper](../../sources/motionjepa-temporal-feature-collapse-paper.md)
+- [Hamiltonian JEPA paper](../../sources/hamiltonian-jepa-control-state-paper.md)
+- [Physically grounded JEPA WMs (GAWM)](../../sources/physically-grounded-jepa-world-models-paper.md)
+- [AD-E2E-JEPA paper](../../sources/ad-e2e-jepa-autonomous-driving-paper.md)
+- [Predictive Closure paper](../../sources/predictive-closure-jepa-feature-selection-paper.md)
+- [AVL-JEPA paper](../../sources/avl-jepa-causal-dynamics-collapse-paper.md)
+- Synthesis: [What the latent throws away](../../syntheses/world-models/jepa-dynamics-collapse-fixes.md)

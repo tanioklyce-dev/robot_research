@@ -3,8 +3,8 @@ title: Anna Choromanska
 type: entity
 subtype: person
 created: 2026-09-07
-updated: 2026-09-07
-sources: 2
+updated: 2026-10-22
+sources: 3
 tags: [person, nyu, loss-landscape, spin-glass, optimization, statistical-physics, lecun]
 ---
 
@@ -23,3 +23,4 @@ The two papers are the formal bridge between the spin-glass prehistory on the [e
 
 - [The Loss Surfaces of Multilayer Networks](../sources/choromanska2015-loss-surfaces-multilayer-networks.md)
 - [Entropy-SGD](../sources/chaudhari2017-entropy-sgd.md)
+- [AD-E2E-JEPA paper](../sources/ad-e2e-jepa-autonomous-driving-paper.md) — senior author.

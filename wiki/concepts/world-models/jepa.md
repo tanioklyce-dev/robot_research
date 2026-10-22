@@ -2,8 +2,8 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-10-13
-sources: 90
+updated: 2026-10-22
+sources: 96
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -59,7 +59,7 @@ The escape hatch is closed by scope rather than by proof: SSIM is image-specific
 > [!note] Collapse in landscape terms — the widest valley (added 2026-09-07)
 > The [loss-landscape literature](../learning/loss-landscape-geometry.md) LeCun coauthored a decade earlier says SGD lands in wide, flat basins and that width is what generalizes ([Entropy-SGD](../../sources/chaudhari2017-entropy-sgd.md)). On a JEPA prediction loss, **the widest flat basin is the constant encoder** — so the flat-minima intuition points *at* collapse, and every device below is best read as removing or narrowing that basin rather than steering the optimizer away from it. The wiki has no Hessian spectrum at a converged JEPA solution; it would be the cheapest test of whether the supervised landscape picture applies here at all.
 
-- **Slow-feature collapse** — the temporal failure that passes every distribution-level anti-collapse check: the encoder represents only the episode's *scene* and the predictor learns the identity. [H-JEPA App. L](../../sources/h-jepa-hierarchical-world-models-paper.md) proves no marginal regulariser (SIGReg included) can exclude it in changing scenes; only an **inverse-dynamics** term (needs action labels) does. See [slow-feature collapse](slow-feature-collapse.md).
+- **Slow-feature collapse** — the temporal failure that passes every distribution-level anti-collapse check: the encoder represents only the episode's *scene* and the predictor learns the identity. [H-JEPA App. L](../../sources/h-jepa-hierarchical-world-models-paper.md) proves no marginal regulariser (SIGReg included) can exclude it in changing scenes; only an **inverse-dynamics** term (needs action labels) does. See [slow-feature collapse](slow-feature-collapse.md). **Autumn-2026 update:** five papers add joint-in-time barriers. Some are inverse dynamics again (AVL-JEPA, GAWM's IDM); others are grounded in something other than the action: pixel change ([MotionJEPA](../../entities/motionjepa.md), label-free, fixed camera only), simulator state (GAWM), and a constrained action port ([Hamiltonian JEPA](../../entities/hamiltonian-jepa.md)). [Predictive Closure](../../sources/predictive-closure-jepa-feature-selection-paper.md) gives the general theory: a JEPA keeps the *set* of features that best predicts itself, so an unpredictable feature survives if it predicts others, and auxiliary losses steer selection indirectly. See [What the latent throws away](../../syntheses/world-models/jepa-dynamics-collapse-fixes.md).
 - **Representation collapse** — without the right [inductive biases](../learning/inductive-bias.md), both encoder and predictor learn trivial constants. The wiki now tracks a **design space of anti-collapse mechanisms**, from heaviest to lightest.
 
   *The pre-2024 foundations, now sourced from their primaries — see [the lineage synthesis](../../syntheses/world-models/ssl-anti-collapse-lineage.md):*
@@ -275,6 +275,9 @@ Measured: MAE drops **25.1%** under ImageNet-C severity 1→5 against DINO's **1
 - [H-JEPA paper (Zhang, Terver et al., 2026)](../../sources/h-jepa-hierarchical-world-models-paper.md) — H-JEPA realized with distinct per-level latents; slow-feature-collapse theory.
 - [RoboJEPA paper (Zholus et al., 2026)](../../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — the frozen-encoder branch scaled to an **8B predictor** with a fitted scaling law; V-JEPA 2 as encoder collapsed at scale, V-JEPA 2.1 (better dense features) did not.
 - [DeepJEPA paper (2026)](../../sources/deepjepa-scaling-world-models-from-within-paper.md) — test-time compute *inside* a transition; uniform depth doesn't help; extra updates cluster at contact.
+- [Predictive Closure paper](../../sources/predictive-closure-jepa-feature-selection-paper.md) — set-level theory of which features a JEPA keeps.
+- [MotionJEPA paper](../../sources/motionjepa-temporal-feature-collapse-paper.md) — label-free barrier against slow-feature collapse.
+- Synthesis: [What the latent throws away](../../syntheses/world-models/jepa-dynamics-collapse-fixes.md)
 
 ## How much of the advantage is latent prediction, specifically? (2026 probe evidence)
 
