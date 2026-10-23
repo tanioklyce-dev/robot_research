@@ -3,7 +3,7 @@ title: LeKiwi
 type: entity
 subtype: robot
 created: 2026-05-10
-updated: 2026-09-11
+updated: 2026-10-23
 sources: 19
 tags: [lekiwi, mobile-manipulator, kiwi-drive, holonomic, sigrobotics-uiuc, lerobot, low-cost, raspberry-pi, open-source]
 ---
@@ -55,6 +55,7 @@ For the wiki's assistive-robotics and accessible-robotics themes, LeKiwi is the 
 
 ## Related
 
+- [Robot platforms comparison](../syntheses/platforms/robot-platforms-comparison.md) — listed in the Educational tier
 - [LeRobot](lerobot.md) — software framework
 - [SIGRobotics-UIUC](sigrobotics-uiuc.md) — design authority
 - [Seeed Studio](seeed-studio.md) — distributor

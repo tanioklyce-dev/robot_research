@@ -6256,3 +6256,7 @@ Three clusters: **contact-rich safety** ([survey](sources/safe-learning-contact-
 - [Robot platforms comparison](syntheses/platforms/robot-platforms-comparison.md) no longer leaves out every humanoid. It now lists the research humanoids a lab can get: [Unitree G1](entities/unitree-g1.md), [Agile ONE SN](entities/agile-one-sn.md) (announced, due early 2027, unpriced, weight contradiction flagged) and [Fauna Sprout](entities/fauna-robotics.md).
 - These three are added as Research-tier rows, as a "Research humanoids" tier entry and as a "Humanoids" function group. The function group points to Galaxea R1 and Reachy 2 in the survey's wheeled tier.
 - The "Humanoids absent" note is replaced by a scope note. Closed, industrial, educational and paper-embodiment humanoids stay in the [Humanoid platforms survey](syntheses/platforms/humanoid-platforms-survey.md).
+
+## [2026-10-23] update | LeKiwi added to robot platforms comparison
+- [Robot platforms comparison](syntheses/platforms/robot-platforms-comparison.md) gets [LeKiwi](entities/lekiwi.md) in four places: an Educational row in the main table, an Educational-tier entry, the single-arm mobile-manipulator group, and the sources list. The tier label changes to "sub-$1k–$5k", since LeKiwi (~€230) and XLeRobot ($660) are both under $1k.
+- Added a backlink from the LeKiwi entity page.
