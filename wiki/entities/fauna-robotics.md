@@ -3,7 +3,7 @@ title: Fauna Robotics
 type: entity
 subtype: company
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-10-23
 sources: 2
 tags: [fauna-robotics, humanoid, developer-platform, nyc, jetson-agx-orin, sprout]
 ---
@@ -33,6 +33,7 @@ Not listed publicly. "Request Robot" form.
 Fills a niche between research platforms (Stretch, Franka) and large-scale humanoids (Atlas, Figure). Developer-accessible humanoid with Jetson AGX Orin at modest scale (107 cm). Comparable to Reachy 2 in positioning (open embodied-AI platform) but full bipedal humanoid vs. Reachy's torso-on-wheels.
 
 ## Related
+- [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — where this robot sits among the wiki's 21 humanoid platforms.
 - [Reachy](reachy.md) — comparable open humanoid positioning
 - [NVIDIA](../entities/nvidia.md) — Jetson AGX Orin compute
 

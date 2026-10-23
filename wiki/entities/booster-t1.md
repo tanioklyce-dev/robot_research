@@ -3,7 +3,7 @@ title: Booster T1
 type: entity
 subtype: robot
 created: 2026-07-15
-updated: 2026-07-15
+updated: 2026-10-23
 sources: 1
 tags: [booster-t1, humanoid, bipedal, whole-body-control, china, booster-robotics]
 ---
@@ -17,6 +17,7 @@ tags: [booster-t1, humanoid, bipedal, whole-body-control, china, booster-robotic
 
 ## Related
 
+- [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — where this robot sits among the wiki's 21 humanoid platforms.
 - [WBC-AGILE](../sources/wbc-agile-github.md) — validates on Booster T1 + [Unitree G1](unitree-g1.md).
 - [Whole-body control](../concepts/robotics/whole-body-control.md) — the task it's benchmarked on.
 - [Unitree G1](unitree-g1.md) — the co-benchmark humanoid.

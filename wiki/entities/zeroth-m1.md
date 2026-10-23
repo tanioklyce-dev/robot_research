@@ -3,7 +3,7 @@ title: Zeroth M1
 type: entity
 subtype: robot
 created: 2026-08-17
-updated: 2026-08-26
+updated: 2026-10-23
 sources: 4
 tags: [zeroth, m1, home-robot, companion-robot, assistive-robotics, fall-detection, biped, wheeled, consumer-robotics]
 ---
@@ -50,6 +50,7 @@ At **2.8 kg and 494 mm with no published payload or reach**, the M1 is not a phy
 
 ## Related
 
+- [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — where this robot sits among the wiki's 21 humanoid platforms.
 - [Zeroth Robotics](zeroth-robotics.md) — maker; also W1 ($7,999 outdoor/security) and Jupiter ($89,999 humanoid).
 - [Stretch](stretch.md) — the research-grade in-home mobile manipulator.
 - [Aging in place](../concepts/robotics/aging-in-place.md) — the demand-side ADL/IADL taxonomy this product gestures at.

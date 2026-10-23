@@ -3,7 +3,7 @@ title: Fourier GR-1
 type: entity
 subtype: humanoid
 created: 2026-05-15
-updated: 2026-09-14
+updated: 2026-10-23
 sources: 8
 tags: [humanoid, fourier-intelligence, robot-platform, gr-1, dexterous-manipulation]
 ---
@@ -15,6 +15,7 @@ tags: [humanoid, fourier-intelligence, robot-platform, gr-1, dexterous-manipulat
 - **DreamDojo**: headline OOD-generalization results (Table 3 PSNR, Table 4 human-preference wins for DreamDojo-14B) are all reported on GR-1. Also one of four embodiments in latent-action-model training (alongside Unitree G1, AgiBot, YAM).
 
 ## Related
+- [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — where this robot sits among the wiki's 21 humanoid platforms.
 - [GR00T N1 Paper](../sources/groot-n1-paper.md) — primary VLA trained/evaluated on this platform.
 - [DreamDojo Paper](../sources/dreamdojo-paper.md) — world-model eval use case.
 - [NVIDIA GEAR](nvidia-gear.md) — uses GR-1 as its de-facto humanoid testbed across both lines.

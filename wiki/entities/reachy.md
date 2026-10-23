@@ -3,7 +3,7 @@ title: Reachy 2
 type: entity
 subtype: robot
 created: 2026-05-09
-updated: 2026-08-27
+updated: 2026-10-23
 sources: 9
 tags: [reachy, pollen-robotics, open-source, humanoid, embodied-ai, ros2, lerobot]
 ---
@@ -40,6 +40,7 @@ Not listed. Contact required.
 - **Stack split.** Reachy 2 is a native [LeRobot](lerobot.md) platform; Microduck is not — it runs an [mjlab](mjlab.md)/PPO stack instead. Same parent company, two tool lineages.
 
 ## Related
+- [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — where this robot sits among the wiki's 21 humanoid platforms.
 - [Pollen Robotics](pollen-robotics.md) — manufacturer
 - [Fauna Robotics](fauna-robotics.md) — comparable positioning (developer humanoid platform)
 - [Stretch](stretch.md) — comparable research-platform role, different form factor

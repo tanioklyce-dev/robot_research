@@ -3,7 +3,7 @@ title: Galaxea R1 (and R1 Pro)
 type: entity
 subtype: robot
 created: 2026-07-04
-updated: 2026-09-28
+updated: 2026-10-23
 sources: 5
 tags: [galaxea, galaxea-r1, wheeled-humanoid, bimanual, mobile-manipulator, groot]
 ---
@@ -21,6 +21,7 @@ tags: [galaxea, galaxea-r1, wheeled-humanoid, bimanual, mobile-manipulator, groo
 - **Navigation deployment target**: [Mistral AI](mistral-ai.md)'s [Robostral Navigate](../sources/robostral-navigate-paper.md) (2026-07) runs on the R1 with the *same* 8B VLM and diffusion-policy weights as on a small Hiwonder JetAuto; only the low-level tracker differs. It is shown qualitatively, with no real-world success rate.
 
 ## Related
+- [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — where this robot sits among the wiki's 21 humanoid platforms.
 - [OmniGibson](omnigibson.md) — the R1 / **R1 Pro** are supported robots in OmniGibson; [GR00T N1.6](../sources/groot-n1_6.md)'s "simulated Galaxea R1 Pro on BEHAVIOR" is literally the OmniGibson R1Pro running [BEHAVIOR-1K](behavior-benchmark.md) tasks.
 - [GR00T N1.6](nvidia-groot.md) — uses simulated R1 Pro on BEHAVIOR.
 - [YAM](yam.md), [Unitree G1](unitree-g1.md), [AgiBot](agibot.md) — peer N1.6 data embodiments.

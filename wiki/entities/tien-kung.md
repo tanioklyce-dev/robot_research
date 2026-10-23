@@ -3,7 +3,7 @@ title: Tien Kung (X-Humanoid)
 type: entity
 subtype: robot
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-10-23
 sources: 1
 tags: [tien-kung, humanoid, dexterous-hand, x-humanoid, beijing, robomind, teleoperation, dataset-embodiment]
 ---
@@ -26,6 +26,7 @@ So the wiki's best-performing cross-embodiment VLA is trained on a corpus whose 
 
 ## Related
 
+- [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — where this robot sits among the wiki's 21 humanoid platforms.
 - [RoboMIND](robomind.md) — the dataset it contributes to
 - [X-VLA](x-vla.md) — consumes RoboMIND, excludes this embodiment
 - [Sharpa Wave hand](sharpa-wave.md) — the wiki's other dexterous-hand entry, from the [EgoScale](../sources/egoscale-paper.md) line

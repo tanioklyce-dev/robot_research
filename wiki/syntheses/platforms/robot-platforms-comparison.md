@@ -2,7 +2,7 @@
 title: Robot platforms — comparison
 type: synthesis
 created: 2026-05-08
-updated: 2026-09-13
+updated: 2026-10-23
 tags: [robots, hardware, comparison, list, manipulators, mobile-robots, aloha, mobile-aloha, xlerobot, yuri, bimanual]
 ---
 
@@ -82,7 +82,7 @@ Worth flagging robot platforms that show up in adjacent literature but don't hav
 - ~~**ALOHA / ViperX bimanual setup** — Stanford bimanual teleop platform; referenced indirectly via Chelsea Finn but no entity page.~~ **Filed 2026-05-25** as [ALOHA / Mobile ALOHA](../../entities/aloha.md) + [ViperX 300](../../entities/viperx-300.md) entities via the [Mobile ALOHA paper](../../sources/mobile-aloha-paper.md) ingest.
 - **xArm 6** (UFactory's 6-DOF cousin to xArm 7) — sometimes cited as a cheaper alternative.
 - **UR5 / UR10 / UR16** (Universal Robots) — collaborative arms common in industrial settings; not yet appearing in our literature.
-- **Humanoids** — see the dedicated [Humanoid platforms survey](humanoid-platforms-survey.md) for that landscape; 10 humanoid entities filed there.
+- **Humanoids** — see the dedicated [Humanoid platforms survey](humanoid-platforms-survey.md) for that landscape. It lists 21 platforms as of 2026-10-23, the newest being [Agile ONE SN](../../entities/agile-one-sn.md), NVIDIA's GR00T-preconfigured reference humanoid.
 
 ## Sources used in this synthesis
 
@@ -103,4 +103,4 @@ Worth flagging robot platforms that show up in adjacent literature but don't hav
 > RUM measures Stretch → xArm 7 (~10pt drop). The research-tier-to-educational-tier drop is **not measured anywhere in this wiki**. Whether a Stretch-trained policy transfers to ROSOrin Pro is the obvious next question; nobody has published on it yet.
 
 > [!note] Humanoids absent
-> Humanoid platforms (Atlas, Optimus, Unitree, AGIBOT) drive a lot of 2026 industry attention but are underrepresented in this wiki because the ingested sources skew academic + tabletop / mobile-manipulation. If humanoid VLA papers get ingested, this comparison page should grow a humanoid section.
+> Humanoid platforms (Atlas, Optimus, Unitree, AGIBOT) drive a lot of 2026 industry attention but are underrepresented in this wiki because the ingested sources skew academic + tabletop / mobile-manipulation. If humanoid VLA papers get ingested, this comparison page should grow a humanoid section. *(2026-10-23: they now have their own page, the [Humanoid platforms survey](humanoid-platforms-survey.md), which covers 21 platforms, so this page leaves them out on purpose. The wheeled humanoids that compete with the mobile manipulators here, [Galaxea R1](../../entities/galaxea-r1.md) and [Reachy 2](../../entities/reachy.md), are in the survey's wheeled-humanoid tier.)*
