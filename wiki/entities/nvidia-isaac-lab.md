@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-06
 updated: 2026-10-24
-sources: 28
+sources: 29
 tags: [framework, robot-learning, nvidia, isaac-lab, rl]
 ---
 
@@ -33,6 +33,11 @@ PR #8270, *"[Newton] Add BAM servo actuator and MicroDuck walking tasks"*, added
 **It requires the Newton backend with the MJWarp solver.** PhysX raises an error. `backlash_joint_template` adds gearbox play as a passive hinge read through by the firmware. The same PR added `contrib/microduck` flat/rough walking tasks for [Microduck](microduck.md) ([NVIDIA tutorial, verified against the repo](../sources/nvidia-microduck-ai-agents-sim-blog.md)). This makes the [actuator-fidelity](../concepts/learning/actuator-fidelity-sim2real.md) recipe a stock Isaac Lab feature rather than a per-robot subclass.
 
 The same tutorial's reference run fine-tunes a pretrained Microduck walker for ramps with **head-camera depth + robot state** at **4,096 parallel environments on one RTX PRO 6000 Blackwell Workstation Edition**. Training is in the cloud, and validation is in Isaac Sim on a local [RTX Spark](nvidia-rtx-spark.md).
+
+The hands-on companion ([NVIDIA × Pollen on HF](../sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md)) names the tasks `IsaacContrib-Velocity-{Flat,Rough}-MicroDuck`, with `presets=backlash`, `rsl_rl` and 4,096 envs. It claims **up to 1.25M env-steps/s on 16 GPUs** with rough terrain and backlash on; the GPU model is not given. RSL-RL `play` auto-exports `policy.pt` and `policy.onnx`. The ONNX matches Microduck's 61→14 runtime contract and loads on the robot unchanged.
+
+> [!warning] No `develop` branch
+> The tutorial's `git clone --branch develop` fails, because `isaac-sim/IsaacLab` has only `main` as of 2026-10-24. NVIDIA's web links to `tree/develop/…` keep working only because GitHub redirects them.
 
 ## Hardware requirements
 
@@ -65,3 +70,4 @@ Isaac Lab inherits Isaac Sim's RT-core requirement: it cannot run on [Jetson Tho
 - [OpenArm documentation](../sources/openarm-docs.md) — `openarm_isaac_lab` (Isaac Sim 5.1 / Isaac Lab 2.3): reach, lift-cube, open-drawer environments, *"officially integrated"* upstream; VR (Quest 3) teleop demonstrated here only.
 - [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)
 - [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../sources/nvidia-microduck-ai-agents-sim-blog.md) — native `BamActuatorCfg` (Newton/MJWarp only) and `contrib/microduck` tasks; 4,096-env depth+proprio ramp fine-tune on one RTX PRO 6000.
+- [Train in Simulation, Deploy on a Real Robot: Microduck with Isaac Lab 3.0](../sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md) — task IDs, DR list, 1.25M steps/s on 16 GPUs, ONNX auto-export; broken `--branch develop` install line.

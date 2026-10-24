@@ -3,7 +3,7 @@ title: Actuator fidelity in sim-to-real
 type: concept
 created: 2026-08-27
 updated: 2026-10-24
-sources: 2
+sources: 4
 tags: [sim-to-real, actuator-model, domain-randomization, backlash, bam, dynamixel, locomotion, rl, system-identification]
 ---
 
@@ -46,7 +46,9 @@ This is also why the approach travels well: the [BAM](../../entities/rhoban.md) 
 
 ## Current state
 
-**Now a framework feature (2026-10-15).** Isaac Lab ships BAM natively as `BamActuatorCfg`. It covers the m1→m6 friction ladder, per-robot battery voltage and supply sag ranges, and a resampled command lag, plus a `backlash_joint_template` that implements exactly the passive-hinge, output-side-read construction described above. It requires Newton's MJWarp solver ([NVIDIA Microduck tutorial](../../sources/nvidia-microduck-ai-agents-sim-blog.md)). The method no longer lives only in one robot's repo. The evidence base is still one robot.
+**Now a framework feature (2026-10-15).** Isaac Lab ships BAM natively as `BamActuatorCfg`. It covers the m1→m6 friction ladder, per-robot battery voltage and supply sag ranges, and a resampled command lag, plus a `backlash_joint_template` that implements exactly the passive-hinge, output-side-read construction described above. It requires Newton's MJWarp solver ([NVIDIA Microduck tutorial](../../sources/nvidia-microduck-ai-agents-sim-blog.md)). The method no longer lives only in one robot's repo. The evidence base is still one robot. NVIDIA's deployed Microduck walker extends the randomization to **per-joint backlash *"to represent uneven wear"*** and **encoder offsets** ([HF tutorial](../../sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md)).
+
+**The cost side, stated by the vendor.** Pollen's [Microduck Arena](../../entities/microduck-arena.md) reports that its servo model is *"chaotic enough that a run diverges after a few seconds of simulated time"* across CPU architectures. So leaderboard times are valid only on one pinned x86_64 host, and the build fails if a golden run doesn't reproduce ([Arena repo](../../sources/microduck-arena-github.md)). Friction-heavy, delay-heavy actuator models make rollouts sensitive to floating-point ordering. Fidelity buys transfer and costs bitwise reproducibility.
 
 Thinly sourced in this wiki — one worked example. But it is a *complete* one: [`pollen-robotics/microduck_rl`](https://github.com/pollen-robotics/microduck_rl) publishes the actuator classes, the backlash generator, the randomization toggles and the reward-design notes under Apache-2.0, attached to a $399 robot anyone can buy. If the claim generalises — that actuator fidelity dominates the gap below some mass/cost threshold — it reframes how the wiki's low-cost-platform cluster ([SO-ARM101](../../entities/so-arm101.md), [LeKiwi](../../entities/lekiwi.md), [XLeRobot](../../entities/xlerobot.md), all FeeTech- or Dynamixel-class) should approach simulation. **Open question: does anyone in the LeRobot ecosystem model their servos at this level?** Nothing ingested so far suggests they do.
 
@@ -54,3 +56,5 @@ Thinly sourced in this wiki — one worked example. But it is a *complete* one: 
 
 - [Microduck — Pollen Robotics launch](../../sources/pollen-robotics-microduck.md) — BAM M6 on XL330, voltage/sag/delay/friction randomization, backlash-as-hinge with output-side encoder reads.
 - [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../../sources/nvidia-microduck-ai-agents-sim-blog.md) — BAM upstreamed into Isaac Lab as a native actuator, with backlash-as-hinge support.
+- [Train in Simulation, Deploy on a Real Robot: Microduck with Isaac Lab 3.0](../../sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md) — per-joint backlash and encoder-offset randomization; rough-terrain walker deployed.
+- [pollen-robotics/microduck-arena](../../sources/microduck-arena-github.md) — chaotic servo model ⇒ cross-architecture divergence.

@@ -6269,3 +6269,15 @@ Three clusters: **contact-rich safety** ([survey](sources/safe-learning-contact-
 - Cross-referenced the open "ChatGPT Astra" question on the [GTC Berlin page](sources/nvidia-isaac-platform-gtc-berlin-2026.md). "Astra" is still undefined.
 - Flagged: no metrics anywhere in the tutorial. Only a plain walking policy is shown on hardware; the depth-conditioned course policy is sim-only. "Head-camera depth" has no stated mapping to the robot's 8×8 ToF. Three items added to the backlog.
 - Raw: `raw/2026-10-23-nvidia-microduck-ai-agents-blog.txt`, `raw/2026-10-24-nvidia-rtx-spark-product-page.txt`.
+
+## [2026-10-24] ingest | HF "Train in Simulation, Deploy on a Real Robot: Microduck with Isaac Lab 3.0" · pollen-robotics/microduck-arena
+- Created [Train in Simulation, Deploy on a Real Robot: Microduck with Isaac Lab 3.0](sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md) (NVIDIA × Pollen on the HF blog, 2026-10-21). It is the hands-on companion to the agentic tutorial ingested earlier today.
+- Per the primary-sources rule, also captured the Arena's own README + guide: [pollen-robotics/microduck-arena](sources/microduck-arena-github.md). New entity: [Microduck Arena](entities/microduck-arena.md).
+- **Verified:** `git ls-remote` shows that IsaacLab has **no `develop` branch**, so the tutorial's `git clone --branch develop` fails. Web `tree/develop` links work only because GitHub redirects them.
+- **Resolved from the previous ingest:** the Isaac Lab policy uses the same **61→14** contract as Pollen's runtime. The perception task's "head-camera depth" is a **rendered camera** (RGB/depth/segmentation), not a ToF emulation. Rhoban/bam is credited by repo.
+- **Flagged:**
+  - The post calls Microduck "open-source" (**contradicts** Pollen's press kit; Pollen co-authored).
+  - The post credits fall recovery to the deployed walker, when the runtime's `limp_fall` + standing policy handle it.
+  - 1.25M steps/s on 16 GPUs is given without a GPU model or single-GPU rate.
+- Updated: [Microduck](entities/microduck.md) (new Arena section; depth note resolved), [Isaac Lab](entities/nvidia-isaac-lab.md), [mjlab](entities/mjlab.md), [Rhoban](entities/rhoban.md), [Pollen Robotics](entities/pollen-robotics.md), [Hugging Face](entities/hugging-face.md), [Newton](entities/newton-physics-engine.md), [MuJoCo Warp](entities/mujoco-warp.md); [actuator fidelity](concepts/learning/actuator-fidelity-sim2real.md) (new: chaotic servo model ⇒ cross-architecture divergence, the reproducibility cost of fidelity); [sim-to-real](concepts/learning/sim-to-real-transfer.md); [the agentic-tutorial source](sources/nvidia-microduck-ai-agents-sim-blog.md) (open questions closed). Backlog: one item closed, one sharpened (the Arena as the cross-stack harness).
+- Raw: `raw/2026-10-21-hf-nvidia-microduck-isaac-lab-sim-to-real.txt`, `raw/2026-10-24-microduck-arena-readme.txt`.

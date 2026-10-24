@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-06
 updated: 2026-10-24
-sources: 10
+sources: 11
 tags: [physics-engine, gpu, openusd, usdphysics, warp, linux-foundation]
 ---
 
@@ -53,3 +53,4 @@ Isaac Lab's native **BAM servo actuator** runs only on Newton with `MJWarpSolver
 - [MuJoCo Playground Paper](../sources/mujoco-playground-paper.md)
 - [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)
 - [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../sources/nvidia-microduck-ai-agents-sim-blog.md) — Newton models Microduck's physics; Isaac Lab's BAM actuator requires the MJWarp solver.
+- [Train in Simulation, Deploy on a Real Robot: Microduck with Isaac Lab 3.0](../sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md) — Newton + MJWarp + BAM is the stack the deployed Microduck walker was trained on.

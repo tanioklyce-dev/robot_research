@@ -3,8 +3,8 @@ title: Hugging Face
 type: entity
 subtype: organization
 created: 2026-05-10
-updated: 2026-09-07
-sources: 26
+updated: 2026-10-24
+sources: 28
 tags: [hugging-face, foundation-models, open-source, lerobot, robotics, ml-platform, nvidia, acquisition, open-weights]
 ---
 
@@ -63,6 +63,8 @@ tags: [hugging-face, foundation-models, open-source, lerobot, robotics, ml-platf
 - [A Sim-to-Real VLA Pipeline with Seeed reBot Arm and NVIDIA Isaac](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) — the Hub as the asset channel for a full third-party course: [LeRobot](lerobot.md) forks, LeRobotDataset v3 recordings, and [GR00T 1.7](nvidia-groot.md) checkpoints all pulled from it.
 - [Larchenko — LeHome deep dive, Part 1](../sources/larchenko-lehome-part1-rl-for-vlas.md) — the Hub as infrastructure rather than distribution: two repositories decouple a trainer from any number of rollout workers and a human teleop client, with no other coordination.
 - [Learning to Fold — tech report](../sources/larchenko-learning-to-fold-tech-report.md) — a background HF-sync daemon per machine so neither training nor collection blocks on the network; ~12,500 retained rollout episodes across ~140 sessions moved through Hub dataset repos.
+- [Train in Simulation, Deploy on a Real Robot: Microduck with Isaac Lab 3.0](../sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md) — NVIDIA × Pollen tutorial on the HF blog; Thomas Wolf co-credited.
+- [pollen-robotics/microduck-arena](../sources/microduck-arena-github.md) — a leaderboard Space using HF Jobs for clip rendering and Hub repos as the policy store.
 
 ## The July 2026 agent intrusion
 

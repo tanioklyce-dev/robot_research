@@ -3,7 +3,7 @@ title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
 updated: 2026-10-24
-sources: 73
+sources: 75
 tags: [sim-to-real, domain-gap, rl, simulation, real-to-sim, r2s2r]
 ---
 
@@ -129,7 +129,7 @@ Two things make it worth a section here rather than a bullet in "common techniqu
 - **It is a claim about where the budget goes, not just another technique.** If actuator fidelity dominates below some mass/cost threshold, then randomizing an *idealised* PD model harder is spending effort in the wrong place — you widen the distribution without moving it onto reality.
 - **It is the wiki's first end-to-end published recipe attached to a purchasable robot.** Apache-2.0 training code, a $399 platform, and the seven policies it produced, all released together. Every other sim-to-real source here is a paper, a benchmark, or a vendor claim.
 
-Since 2026-10-15 the recipe is also a stock [Isaac Lab](../../entities/nvidia-isaac-lab.md) actuator (`BamActuatorCfg`, Newton/MJWarp only). NVIDIA shows an Isaac-Lab-trained walking policy on a physical Microduck ([NVIDIA tutorial](../../sources/nvidia-microduck-ai-agents-sim-blog.md)). That is a second implementation, but not independent evidence: it is the same robot and the same model.
+Since 2026-10-15 the recipe is also a stock [Isaac Lab](../../entities/nvidia-isaac-lab.md) actuator (`BamActuatorCfg`, Newton/MJWarp only). NVIDIA shows an Isaac-Lab-trained walking policy on a physical Microduck ([NVIDIA tutorial](../../sources/nvidia-microduck-ai-agents-sim-blog.md)). That is a second implementation, but not independent evidence: it is the same robot and the same model. The hands-on recipe deploys a **rough-terrain** walker via ONNX onto the stock runtime ([HF tutorial](../../sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md)). Pollen's [Microduck Arena](../../entities/microduck-arena.md) gives both stacks a common sim harness ([repo](../../sources/microduck-arena-github.md)).
 
 > [!note] Untested outside one robot
 > One worked example, vendor-published, no independent replication, and no delivered units as of 2026-08-27. The generalisation — *cheaper robot ⇒ more of the sim-to-real budget belongs in the actuator model* — is a hypothesis this wiki finds plausible, not an established result. The wiki's own low-cost cluster ([SO-ARM101](../../entities/so-arm101.md), [LeKiwi](../../entities/lekiwi.md), [XLeRobot](../../entities/xlerobot.md)) would be the place to test it.
@@ -197,3 +197,5 @@ So the sim-to-real gap is not crossed by the *policy*; it is crossed by the **ta
 - [Larchenko — LeHome deep dive, Part 1](../../sources/larchenko-lehome-part1-rl-for-vlas.md) — practitioner domain randomisation (per-frame colour, lighting, camera pose, arm placement, cloth physics — *"never break the actual physics"*), and **success replay**: re-run a successful episode's actions under heavy visual randomisation to manufacture aligned data for a camera setup you cannot reproduce. Part 3 (the real final) pending.
 - [Learning to Fold — tech report](../../sources/larchenko-learning-to-fold-tech-report.md) — the one-week SO-ARM101 sprint above: resize-path overfit diagnostic, camera-overlay alignment, three-bucket mix, speed factors, DAgger weighting, the units bug.
 - [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../../sources/nvidia-microduck-ai-agents-sim-blog.md) — BAM + domain randomization in Isaac Lab; walking policy on hardware, obstacle-course policy sim-only.
+- [Train in Simulation, Deploy on a Real Robot: Microduck with Isaac Lab 3.0](../../sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md)
+- [pollen-robotics/microduck-arena](../../sources/microduck-arena-github.md)

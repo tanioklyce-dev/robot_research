@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-08-27
 updated: 2026-10-24
-sources: 2
+sources: 4
 tags: [mjlab, mujoco, mujoco-warp, rsl-rl, ppo, rl, sim-to-real, locomotion, training-framework]
 ---
 
@@ -26,7 +26,7 @@ tags: [mjlab, mujoco, mujoco-warp, rsl-rl, ppo, rl, sim-to-real, locomotion, tra
 The naming convention in `microduck_rl` (`Mjlab-Velocity-Flat-MicroDuck`, env-cfg modules per task family, `ENABLE_*` domain-randomization toggles, `train` / `play` / `export.py` entry points) is recognisably **Isaac Lab's ergonomics ported onto MuJoCo Warp** — which is what makes it a plausible landing spot for teams who want Isaac Lab's structure without the NVIDIA stack.
 
 > [!note] The template now points back
-> Isaac Lab's own Microduck tasks (2026-10-15) port BAM onto **Newton's MJWarp solver**, the same physics mjlab uses. So the two frameworks now train the same robot with the same actuator model on the same solver. The difference is the framework layer and NVIDIA's asset/rendering stack ([NVIDIA tutorial](../sources/nvidia-microduck-ai-agents-sim-blog.md)). Whether policies transfer between them unchanged is untested.
+> Isaac Lab's own Microduck tasks (2026-10-15) port BAM onto **Newton's MJWarp solver**, the same physics mjlab uses. So the two frameworks now train the same robot with the same actuator model on the same solver. The difference is the framework layer and NVIDIA's asset/rendering stack ([NVIDIA tutorial](../sources/nvidia-microduck-ai-agents-sim-blog.md)). Whether policies transfer between them unchanged is untested. The interface already matches, since both export 61→14 ([HF tutorial](../sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md)), and [Microduck Arena](microduck-arena.md) is the obvious harness to test it. The Arena's own training path is mjlab (`Mjlab-Sprint2m-MicroDuck`) ([Arena repo](../sources/microduck-arena-github.md)).
 
 ## Observed capabilities ([via Microduck](../sources/pollen-robotics-microduck.md))
 
@@ -49,3 +49,5 @@ The naming convention in `microduck_rl` (`Mjlab-Velocity-Flat-MicroDuck`, env-cf
 
 - [Microduck — Pollen Robotics launch](../sources/pollen-robotics-microduck.md)
 - [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../sources/nvidia-microduck-ai-agents-sim-blog.md) — Isaac Lab's competing Microduck stack, BAM on MJWarp.
+- [Train in Simulation, Deploy on a Real Robot: Microduck with Isaac Lab 3.0](../sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md) — the Isaac Lab counterpart, same 61→14 contract.
+- [pollen-robotics/microduck-arena](../sources/microduck-arena-github.md) — the Arena's training workshop uses mjlab tasks.

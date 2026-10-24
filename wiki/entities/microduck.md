@@ -4,8 +4,8 @@ type: entity
 subtype: robot
 created: 2026-08-27
 updated: 2026-10-24
-sources: 7
-tags: [microduck, isaac-lab, newton, pollen-robotics, hugging-face, biped, reinforcement-learning, sim-to-real, mjlab, dynamixel, rk3566, consumer-robotics, education]
+sources: 9
+tags: [microduck, isaac-lab, newton, microduck-arena, pollen-robotics, hugging-face, biped, reinforcement-learning, sim-to-real, mjlab, dynamixel, rk3566, consumer-robotics, education]
 ---
 
 **Vendor page:** [pollen-robotics.com/microduck](https://pollen-robotics.com/microduck/) · **Code:** [`pollen-robotics/microduck`](https://github.com/pollen-robotics/microduck) (runtime, Rust) · [`pollen-robotics/microduck_rl`](https://github.com/pollen-robotics/microduck_rl) (training, Python)
@@ -80,8 +80,22 @@ NVIDIA's tutorial (2026-10-23) uses it as a showcase:
 - A pretrained walker is then fine-tuned for ramps using **head-camera depth + proprioception**, at 4,096 envs on one RTX PRO 6000.
 - A plain Isaac-Lab-trained walking policy is shown on a physical Microduck. The depth-conditioned course policy is not.
 
-> [!note] Which "depth"?
-> The real robot's depth sensor is the 8×8 ToF matrix above, and its camera has no IPC path yet. The tutorial does not say whether its sim "head-camera depth" emulates either. Until it does, the perception half of that policy has no route onto this hardware.
+The **hands-on companion** ([NVIDIA × Pollen on HF, 2026-10-21](../sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md)) gives the commands and settles the interface:
+- Tasks are `IsaacContrib-Velocity-{Flat,Rough}-MicroDuck` with `presets=backlash`, and **the deployed walker was trained on rough terrain**.
+- Domain randomization covers mass/CoM, ground friction, joint inertia, **encoder offsets**, battery voltage/sag, command latency, terrain, pushes, and **per-joint backlash *"to represent uneven wear"***.
+- The policy is **61 obs → 14 joint positions**, the same contract `robotd` enforces. An Isaac Lab export therefore hot-loads into the `walk` slot with `sudo robotctl policy load walk <file>.onnx`.
+- The tutorial's `git clone --branch develop` **fails**: there is no such branch. Clone `main`.
+
+> [!note] Which "depth"? Rendered camera, not ToF.
+> The companion's perception figure shows **RGB, depth and segmentation from a simulated head camera**. The sim policy's depth is a rendered image, not an emulation of the real 8×8 ToF. With no camera-frame IPC on the robot yet, the perception extension is sim-only on current hardware.
+
+## Microduck Arena
+
+[Microduck Arena](microduck-arena.md) is Pollen's **server-side leaderboard** on a Hugging Face Space ([repo](../sources/microduck-arena-github.md)):
+- **How it works:** policies (61→14 ONNX, ≤64 MiB) race fixed courses: a 2 m sprint, a roller sprint, and a 1.5 m hill climb at 8°. A policy is scored as the mean over five perturbed starts, with falls counted at the time limit.
+- **Reproducibility:** Pollen says the servo model is *chaotic* enough that runs diverge across CPU architectures within seconds. So only the Space's x86_64 times count, and the build fails if a golden run doesn't reproduce.
+- **Reference policy:** the shipped reference walker tracks about **44% of commanded velocity** and does not walk below about 0.2 m/s commanded, both measured.
+- **Training stacks:** the Arena's native training path is [mjlab](mjlab.md) (`Mjlab-Sprint2m-MicroDuck`), but any stack's export qualifies.
 
 ## Why the sim-to-real work is the interesting part
 
@@ -107,6 +121,7 @@ That drives a **BAM M6** model of the XL330 (voltage control law, back-EMF, Coul
 - [Reachy 2](reachy.md) — the flagship manipulator
 - [mjlab](mjlab.md) — Pollen's training framework
 - [Isaac Lab](nvidia-isaac-lab.md) — second training stack, with native BAM since 2026-10-15
+- [Microduck Arena](microduck-arena.md) — Pollen's server-side policy leaderboard
 - [Dynamixel](dynamixel.md) — the servo lineage modeled by BAM
 - [Rhoban](rhoban.md) — LaBRI/Bordeaux lab behind BAM and `onshape-to-robot`
 - [MuJoCo Warp](mujoco-warp.md) — the GPU physics under [mjlab](mjlab.md)
@@ -121,3 +136,5 @@ That drives a **BAM M6** model of the XL330 (voltage control law, back-EMF, Coul
 - [airockchip/rknn_model_zoo](../sources/rknn-model-zoo-github.md) — the RK3566 column that corroborates the onboard yolo11n measurement
 - [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md) — Microduck named in NVIDIA's partner roll-call (Isaac Lab, Isaac Sim, Newton).
 - [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../sources/nvidia-microduck-ai-agents-sim-blog.md) — Isaac Lab Microduck tasks + native BAM (upstream 2026-10-15); agent-built obstacle course; depth+proprio ramp fine-tune at 4,096 envs. Only a plain walking policy is shown on hardware.
+- [Train in Simulation, Deploy on a Real Robot: Microduck with Isaac Lab 3.0](../sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md) — the hands-on Isaac Lab recipe, co-written with Pollen: task IDs, DR list, 61→14 contract, `robotctl policy load walk`. Calls Microduck "open-source" against Pollen's own press-kit request.
+- [pollen-robotics/microduck-arena](../sources/microduck-arena-github.md) — the leaderboard; chaotic-servo reproducibility; reference walker at 44% velocity tracking.
