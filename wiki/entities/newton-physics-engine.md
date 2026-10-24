@@ -3,8 +3,8 @@ title: Newton physics engine
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-10-22
-sources: 9
+updated: 2026-10-24
+sources: 10
 tags: [physics-engine, gpu, openusd, usdphysics, warp, linux-foundation]
 ---
 
@@ -34,6 +34,10 @@ Newton is built on **NVIDIA Warp**. Warp is also what [NeuroMechFly v2](neuromec
 ## Industrial backing (GTC Berlin, 2026-10-21)
 **Schaeffler** is contributing actuator technology *"as an exclusive foundational component for Newton"*. **Flexion** uses Isaac Lab + Newton to scale its Reflect model, and Hugging Face / Pollen use it for [Microduck](microduck.md) ([release](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)). What an "exclusive foundational" actuator component means for an open-source physics engine is not explained.
 
+## MJWarp as a required solver path (2026-10)
+
+Isaac Lab's native **BAM servo actuator** runs only on Newton with `MJWarpSolverCfg` and `use_newton_actuators=True`. Each physics step it writes its friction budget into MuJoCo's `dof_frictionloss`. Isaac Lab's docs note that *"MJWarp has no noslip solver"*, so a stiff friction-constraint option is offered to reduce creep. This is the first Isaac Lab feature in this wiki that is **gated to Newton's MuJoCo Warp solver** rather than being backend-agnostic ([NVIDIA Microduck tutorial](../sources/nvidia-microduck-ai-agents-sim-blog.md)).
+
 ## Related
 - [MuJoCo Warp](mujoco-warp.md) — a component of Newton, jointly maintained by [Google DeepMind](google-deepmind.md) and NVIDIA.
 - [OpenUSD](openusd.md) — the scene/physics substrate Newton consumes and extends.
@@ -48,3 +52,4 @@ Newton is built on **NVIDIA Warp**. Warp is also what [NeuroMechFly v2](neuromec
 - [Using OpenUSD for Modular and Scalable Robotic Simulation](../sources/nvidia-openusd-for-robotic-simulation.md)
 - [MuJoCo Playground Paper](../sources/mujoco-playground-paper.md)
 - [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)
+- [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../sources/nvidia-microduck-ai-agents-sim-blog.md) — Newton models Microduck's physics; Isaac Lab's BAM actuator requires the MJWarp solver.

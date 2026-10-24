@@ -3,8 +3,8 @@ title: Pollen Robotics
 type: entity
 subtype: company
 created: 2026-05-09
-updated: 2026-08-27
-sources: 7
+updated: 2026-10-24
+sources: 8
 tags: [pollen-robotics, france, bordeaux, hugging-face, open-source, humanoid, reachy, microduck, embodied-ai]
 ---
 
@@ -69,3 +69,4 @@ Microduck core team, per the launch post: **Matthieu Lapeyre**, **Antoine Pirron
 - [Reachy 2 product page](../sources/pollen-robotics-reachy.md)
 - [Microduck — Pollen Robotics launch](../sources/pollen-robotics-microduck.md) — the HF acquisition, Bordeaux/Inria origins, the consumer-robot line, the openness caveat.
 - [Gemma 4 Powers Open Duck Mini (explainx.ai)](../sources/explainx-gemma-4-open-duck-mini.md) — Context on Antoine Pirrone's [Open Duck Mini](open-duck-mini.md) before it became a Pollen product; corrections tabulated on the source page.
+- [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../sources/nvidia-microduck-ai-agents-sim-blog.md) — NVIDIA's Isaac Lab port of the Microduck training stack.

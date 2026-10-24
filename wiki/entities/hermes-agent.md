@@ -3,8 +3,8 @@ title: Hermes Agent
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-09-29
-sources: 12
+updated: 2026-10-24
+sources: 13
 tags: [hermes-agent, nous-research, agentic-framework, self-improvement, mcp, sub-agents, skills, openrouter, multi-platform, qwen-3-6, dgx-spark, claw-ecosystem]
 ---
 
@@ -88,6 +88,15 @@ Hermes is one of two general-purpose harnesses [Perplexity benchmarked](../sourc
 
 The diagnosis is worth more than the ranking: Perplexity's argument is that Hermes is **general** — *"they work well with a wide variety of models across sizes and classes"* — and that generality costs context when the model is small. Two specific differences named: Hermes exposes connectors as **MCP servers**, whose tool definitions consume context, and it **runs commands directly with the user's permissions by default**, where Computer sandboxes unconditionally and disables itself if the sandbox is unavailable. See [harness design for capacity-limited models](../concepts/agents/local-model-harness-design.md).
 
+## As a simulation-pipeline planner (NVIDIA, 2026-10)
+
+NVIDIA's Microduck tutorial uses Hermes with **Nemotron 3.5 Bolt** on an [RTX Spark](nvidia-rtx-spark.md) as the **planning and handoff layer** of a sim-to-policy pipeline ([NVIDIA blog](../sources/nvidia-microduck-ai-agents-sim-blog.md)):
+- It reads the robot's repo to list capabilities and unknowns.
+- It inventories assets from a generated concept image, recording which details were obscured.
+- It packages a handoff and *"automatically delegates the work to Astra"* for CAD/asset creation.
+
+The structured prompt template is notable for its discipline: provenance saved, assumptions separated from observations, *"do not operate physical hardware."* This is a second robotics role for Hermes beside the [AgenticROS](agenticros.md) runtime bridge: authoring the environment, not controlling the robot.
+
 ## Related
 
 - [OpenClaw](openclaw.md) — foundational sibling; offers migration path TO Hermes.
@@ -106,6 +115,7 @@ The diagnosis is worth more than the ranking: Perplexity's argument is that Herm
 - [NemoClaw Quickstart with Hermes](../sources/nvidia-nemoclaw-hermes-quickstart.md) — the NemoClaw deployment path (`nemohermes` + OpenShell sandbox).
 - [AgenticROS GitHub](../sources/agenticros-github.md) — community ROS 2 MCP server that registers with Hermes.
 - [Add Runtime Controls to AI Agents with NVIDIA OpenShell](../sources/nvidia-openshell-runtime-controls-blog.md) — named as a supported agent in 0.1.0.
+- [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../sources/nvidia-microduck-ai-agents-sim-blog.md) — Hermes + Nemotron 3.5 Bolt as the local planner that delegates asset creation to "Astra".
 
 ## Open questions
 

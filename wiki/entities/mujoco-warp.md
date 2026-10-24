@@ -3,8 +3,8 @@ title: MuJoCo Warp
 type: entity
 subtype: product
 created: 2026-08-27
-updated: 2026-10-13
-sources: 1
+updated: 2026-10-24
+sources: 2
 tags: [mujoco-warp, mjwarp, mujoco, newton, gpu-simulation, nvidia-warp, google-deepmind, nvidia, rl, mjlab]
 ---
 
@@ -45,6 +45,7 @@ Capability breadth is claimed well past rigid-body: *"rigid bodies with contacts
 
 - [Microduck — Pollen Robotics launch](../sources/pollen-robotics-microduck.md) — the training substrate under [mjlab](mjlab.md); ~1–2 h at 4096 parallel envs for a usable biped gait.
 - [Gemini 4 Argon for Robotics](../sources/gemini-4-argon-robotics-blog.md) — the sketch-to-simulation demo builds a mujoco_warp scene (Apollo 2 throw, 6/6 knockdown verified in closed-loop physics).
+- [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../sources/nvidia-microduck-ai-agents-sim-blog.md) — Isaac Lab's BAM servo actuator runs only on Newton's MJWarp solver.
 
 ## Open questions
 

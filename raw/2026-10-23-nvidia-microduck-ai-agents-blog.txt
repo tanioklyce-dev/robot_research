@@ -1,0 +1,186 @@
+Source: https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/
+Retrieved: 2026-10-24 (curl; <article> body extracted, links inlined in [brackets])
+
+Using AI Agents to Teach Robots Like Microduck to Walk in Simulation
+
+            Oct 23, 2026
+
+            By Gabriele Leone [https://developer.nvidia.com/blog/author/gleone/], Seun Doherty [https://developer.nvidia.com/blog/author/odoherty/], Asier Arranz [https://developer.nvidia.com/blog/author/asier/], Johnny Núñez [https://developer.nvidia.com/blog/author/johnunez/] and Asawaree Bhide [https://developer.nvidia.com/blog/author/asawareeb/]          
+
+  Like
+
+                 Discuss (0)
+               [#entry-content-comments]
+
+L [https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeveloper.nvidia.com%2Fblog%2Fusing-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation%2F]
+
+T [https://twitter.com/intent/tweet?text=Using+AI+Agents+to+Teach+Robots+Like+Microduck+to+Walk+in+Simulation+%7C+NVIDIA+Technical+Blog+https%3A%2F%2Fdeveloper.nvidia.com%2Fblog%2Fusing-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation%2F]
+
+F [https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeveloper.nvidia.com%2Fblog%2Fusing-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation%2F]
+
+R [https://www.reddit.com/submit?url=https%3A%2F%2Fdeveloper.nvidia.com%2Fblog%2Fusing-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation%2F&title=Using+AI+Agents+to+Teach+Robots+Like+Microduck+to+Walk+in+Simulation+%7C+NVIDIA+Technical+Blog]
+
+E [mailto:?subject=I'd like to share a link with you&body=https%3A%2F%2Fdeveloper.nvidia.com%2Fblog%2Fusing-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation%2F]
+
+AI-Generated Summary
+
+NVIDIA RTX Spark [https://www.nvidia.com/en-us/products/rtx-spark/] serves as a local development hub where AI agents such as Hermes and Nemotron 3.5 Bolt translate a prompt into a step-by-step project plan for a simulated Microduck obstacle course.
+Astra creates 3D simulation assets from the plan, enhancing references with cloud image editing, modeling geometry in FreeCAD, applying materials in Blender, and exporting editable models and USD assets for the environment.
+The obstacle course is assembled in NVIDIA Isaac Sim [https://developer.nvidia.com/isaac/sim] using Omniverse libraries for rendering and sensor simulation and Newton for physics modeling of Microduck's movement and balance.
+NVIDIA Isaac Lab [https://isaac-sim.github.io/IsaacLab/v3.0.0-EA/index.html] trains a perception and locomotion policy at scale with 4,096 parallel environments on an NVIDIA RTX PRO 6000 Blackwell Workstation Edition GPU, using head-camera depth and robot-state observations.
+The trained policy is validated locally on RTX Spark in Isaac Sim to check obstacle detection, movement adjustment, and course completion before preparing for sim-to-real transfer with Better Actuator Models and domain randomization.
+Next Steps
+Access ungated assets from the SimReady Central Library [https://huggingface.co/blog/nvidia/simready-central-assets-robotics-ai-factories] to accelerate environment building.
+Explore the Isaac Lab [https://isaac-sim.github.io/IsaacLab/v3.0.0-EA/index.html] documentation for reinforcement learning and imitation learning policy training.
+Follow the Microduck sim-to-real tutorial on Hugging Face [https://huggingface.co/blog/nvidia/microduck-isaac-lab-sim-to-real] to adapt the workflow for physical deployment.	
+
+			Powered by NVIDIA Nemotron. AI-generated content may summarize information incompletely. Verify important information. Learn more [https://www.nvidia.com/en-us/agreements/trustworthy-ai/terms/]
+
+Teaching a robot to navigate an obstacle course requires more than a walking policy. It must perceive its surroundings, maintain balance, and adjust its actions when obstacles block the path ahead. Developing these capabilities connects several stages: creating assets and an environment, using physics simulation [https://www.nvidia.com/en-us/use-cases/physics-simulation-for-robotics/] to model how the robot interacts with its environment, and training and evaluating policies in simulation.
+
+NVIDIA RTX Spark [https://www.nvidia.com/en-us/products/rtx-spark/] serves as a local development hub, supporting AI-assisted planning and policy validation. NVIDIA Isaac Lab [https://developer.nvidia.com/isaac/lab] provides the robot-learning framework for reinforcement learning [https://www.nvidia.com/en-us/glossary/reinforcement-learning/] in the cloud, while Newton [https://developer.nvidia.com/newton-physics] models physical behavior, and NVIDIA Omniverse libraries [https://www.nvidia.com/en-us/omniverse/] generate simulated visual observations through RTX rendering. Trained policies return to RTX Spark for local evaluation in NVIDIA Isaac Sim [https://developer.nvidia.com/isaac/sim].
+
+This post walks through the workflow using Microduck as a reference robot, with Hermes, NVIDIA Nemotron, and Astra assisting with planning and preparation. You’ll learn how to create a simulated obstacle course, train a navigation policy, and evaluate its behavior in simulation—a process you can adapt to your own robots and tasks. This establishes a foundation for physical deployment, where differences between simulation and real-world behavior require further refinement.
+
+		Figure 1. Workflow overview
+
+1. Create a plan of the obstacle course [#1_create_a_plan_of_the_obstacle_course]
+
+The workflow begins with a prompt describing the obstacle course and what Microduck must learn. On RTX Spark, Hermes [https://hermes-agent.nousresearch.com/] and NVIDIA Nemotron 3.5 Bolt [https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB] translate that prompt into a step-by-step project plan. The instructions establish the intended task, available resources, expected outputs, and the stages the agents should follow. Use the following example to structure your prompt:
+
+Build and test a simulated Microduck obstacle course with navigation and locomotion challenges. Make a photorealistic concept image and have Astra build and test it.
+...
+Workflow
+Use Hermes and Nemotron 3.5 Bolt for preparation and Astra for asset creation and simulation.
+...
+1. Research and plan
+Review official Microduck documentation and summarize capabilities, constraints, and unknowns. Define the course layout, obstacle dimensions, clearances, and intended route.
+...
+2. Generate the concept
+Use a verified Microduck reference image to generate a photorealistic course concept. Check robot appearance, relative scale, and movement space; save prompts and provenance.
+...
+3. Identify assets
+Extract unique reusable assets, group repeated instances, and select representative crops. Record dimensions, locations, and reference limitations; preserve original images.
+...
+4. Prepare the handoff
+Package the plan, robot brief, concept, asset inventory, crops, and execution instructions. Verify required files, delegate to Astra, and wait for confirmed results.
+...
+5. Create and verify assets
+Have Astra enhance references, model geometry in FreeCAD, and apply materials in Blender. Before simulation, verify every asset is completed or demonstrably blocked, with at least one usable model.
+...
+6. Assemble and test
+Verify robot capabilities, assemble the course, and test navigation, challenges, and resets. Provide reproducible instructions and evidence; do not operate physical hardware.
+...
+
+Local planning includes a brief review of Microduck’s repository and documentation [https://github.com/pollen-robotics/microduck/tree/main]. This review identifies the robot’s capabilities, resources for subsequent work, and details that still need verification. The resulting plan extends beyond asset creation: it outlines environment construction, robot preparation, simulation, training, validation, and deployment.
+
+The course needs to test both movement and perception. Microduck must learn to move around obstacles and through constrained spaces while maintaining balance. Use these requirements to guide the proposed layout and the objects needed to construct it.
+
+A local image-generation model produces a concept image of the course. Hermes and Nemotron then analyze the image and create an inventory of its visible, reusable assets. Each asset receives an identifier, a description of its visible features, and a cropped reference image. The inventory records where objects are cut off or obscured so that later stages can distinguish visible details from assumptions.
+
+		Figure 2. Concept image and asset extraction from the obstacle course
+
+Hermes combines these outputs into a handoff package: the overall project plan, Microduck research and source links, the concept image, the asset inventory, cropped references, and instructions for the next stages. It then automatically delegates the work to Astra. The package gives Astra the broader project context and asset specifications needed to continue.
+
+		Figure 3. Turning the task prompt into an environment plan
+
+2. Create simulation assets [#2_create_simulation_assets]
+
+Using the project plan and references from the previous stage, Astra creates the 3D assets needed for the course. Cropping objects from a larger concept image can result in small, low-resolution references. Before modeling, Astra uses cloud image editing to isolate the objects and produce clearer, higher-resolution images.
+
+Astra compares the enhanced references with the original crops, checking that silhouettes, proportions, colors, and distinctive features remain consistent. The enhanced images provide clearer modeling guidance, while the originals document what was visible in the concept image. Dimensions and hidden surfaces that cannot be established from the images are recorded as modeling assumptions.
+
+Astra directs FreeCAD to construct the base geometry and editable CAD structure, then uses Blender to add fine geometric details and materials. Both applications run locally through programmatic execution. The generated assets are saved as editable models and exported USD assets, with previews and output checks for review.
+
+		Figure 4. FreeCAD modeling (left), Blender materials (middle), and the final asset (right), orchestrated by Astra
+
+You can also get assets from SimReady Central Library [https://huggingface.co/blog/nvidia/simready-central-assets-robotics-ai-factories], a free and ungated library of more than 2,000 simulation-ready OpenUSD assets. Reusing them alongside newly generated objects reduces the asset preparation needed to assemble the obstacle course in Isaac Sim. The resulting assets become the building blocks of Microduck’s training environment in simulation.
+
+		Figure 5. Obstacle-course assets created with Astra and assembled in Isaac Sim
+
+3. Assemble the simulation environment [#3_assemble_the_simulation_environment]
+
+Astra composes the obstacle course using the prepared assets in Isaac Sim. Isaac Sim provides access to Omniverse libraries’ rendering and sensor-simulation capabilities, while Newton models Microduck’s physical behavior, including movement and balance.
+
+A robot’s articulated structure and movement are defined in simulation through links, joints, and actuators. These elements establish the relationship between the policy’s actions and the simulated robot. Links represent connected bodies, joints constrain their relative motion, and actuators drive motion. Together, they model a robot interacting with its environment. AI agents can help configure these elements.
+
+Simulated sensor observations provide information about the obstacles ahead. As the robot attempts to walk, the simulation captures the consequences of its actions: whether it maintains its posture, makes progress through the course, or stumbles and falls.
+
+The result is a complete learning environment: a robot that can act, an obstacle course it can interact with, and a simulated environment that can generate feedback from those interactions. Reinforcement learning (RL) uses this feedback to train robot policies.
+
+		Figure 6. The assembled environment in Isaac Sim
+
+4. Train the perception and locomotion policy [#4_train_the_perception_and_locomotion_policy]
+
+With Microduck and its environment ready, NVIDIA Isaac Lab provides the tools to train and evaluate robot policies at scale. This open-source framework runs many Microduck simulations at once, generating experience that an RL algorithm uses to improve its shared policy.
+
+For each task, you define what the robot observes, the actions it can take, and the rewards used to guide learning. You then implement the task using Isaac Lab APIs. Newton [https://developer.nvidia.com/newton-physics], an open-source, GPU-accelerated physics engine, simulates how Microduck moves and interacts with the ground and its environment in response to those actions.
+
+Early attempts may include unstable steps, collisions, and falls. The training algorithm uses these outcomes and the task’s rewards to update the policy toward more successful behavior. Each attempt follows the same simulation loop:
+
+Simulated observations → policy actions → simulated motion → updated observations
+
+		Figure 7. Simulation loop from observations to policy actions, simulated motion, and updated observations
+
+Parallel simulation provides experience from many attempts at once to train the policy. In this task, ramps and uneven surfaces are the obstacles: Microduck must traverse a curved ramp while maintaining balance and avoiding falls. Varying the terrain gives the policy experience adjusting its movements to different ground conditions.
+
+The ramp and obstacle training experiment uses Astra-generated assets from the previous sections and the Isaac Lab Microduck example environment [https://github.com/isaac-sim/IsaacLab/tree/develop/source/isaaclab_tasks/isaaclab_tasks/contrib/microduck] as its starting point. A locomotion policy pretrained in that environment receives additional training in Isaac Lab for traversing ramps and obstacles, using head-camera depth and robot-state observations. This adaptation run used 4,096 parallel environments on an NVIDIA RTX PRO 6000 Blackwell Workstation Edition GPU.
+
+		Figure 8. Parallel training in NVIDIA Isaac Lab, with simulated Microducks traversing ramps and platforms while learning to maintain balance
+
+5. Validate the trained policy on RTX Spark [#5_validate_the_trained_policy_on_rtx_spark]
+
+After training, validate the trained policy in Isaac Sim on a local RTX Spark. Microduck receives simulated observations, predicts actions, moves through the environment, and responds to the updated scene based on the policy. Check whether Microduck detects obstacles, adjusts its movement, and completes the course.
+
+This stage separates policy learning from policy evaluation. During training, the policy changes as it receives new experience. During evaluation, you examine the behavior of a selected policy and identify where it succeeds or needs further work.
+
+Record course completion, falls, collisions, and the situations in which progress stops. These measurements, paired with rollout videos, can guide iterations to the environment or training setup.
+
+		Figure 9. Testing a Microduck policy in Isaac Sim on RTX Spark
+
+6. Prepare for policy deployment on the physical robot [#6_prepare_for_policy_deployment_on_the_physical_robot]
+
+Once the policy performs reliably in simulation, the next step is to run it on the robot’s onboard computer. This post covers the work leading up to that point: creating assets, assembling the environment, and training and evaluating the policy. Detailed hardware deployment is outside the scope.
+
+Preparing for the simulation-to-real transition starts with a simulation that reflects how the real robot behaves. Isaac Lab supports Better Actuator Models (BAM) [https://isaac-sim.github.io/IsaacLab/develop/source/concepts/actuators.html#bam-servo-model] to model servo response, including command delays, mechanical backlash (the small amount of play in the drivetrain), and drops in voltage as motors draw power from a shared battery. Matching these settings to measurements from Microduck can help narrow the sim-to-real gap.
+
+Even with a carefully calibrated model, sensors, ground contact, and control timing can differ on the real robot. Isaac Lab’s domain randomization [https://isaac-sim.github.io/IsaacLab/develop/source/how-to/transfer_policies_between_physx_and_newton.html#introducing-domain-randomization] varies physical parameters and observation noise within realistic ranges, giving the policy practice handling those differences. Hardware tests then show where further adjustments are needed, guiding the next round of simulation, training, and validation.
+
+Figure 10 shows a locomotion policy trained in Isaac Lab running on the physical Microduck.
+
+		Figure 10. Physical Microduck walking with a locomotion policy trained in Isaac Lab
+
+Get started [#get_started]
+
+This workflow connects AI-assisted planning, simulation, asset creation, and robot policy training and evaluation. It combines local asset and environment generation, cloud-scale policy learning, and local policy validation on the RTX Spark. AI agents turn prompts into plans, with Isaac Lab supporting policy training and Isaac Sim supporting evaluation before deployment.
+
+Learn more about the platforms used in this workflow, and try the examples in their documentation:
+
+Access ungated assets from SimReady Central Library [https://huggingface.co/blog/nvidia/simready-central-assets-robotics-ai-factories]
+
+Omniverse libraries [https://developer.nvidia.com/omniverse] for integrating simulation capabilities into applications
+
+RTX Spark [https://www.nvidia.com/en-us/products/rtx-spark/]
+
+Installing Isaac Sim on RTX Spark—download the Windows x86 binaries [https://docs.isaacsim.omniverse.nvidia.com/6.2.0/installation/download.html] (runnable out of the box via Windows x86 emulation [https://learn.microsoft.com/en-us/windows/arm/apps-on-arm-x86-emulation] on Arm)
+
+Isaac Sim [https://docs.isaacsim.omniverse.nvidia.com/latest/index.html] for robot and environment simulation
+
+Newton [https://developer.nvidia.com/newton-physics] for physics simulation
+
+Isaac Lab [https://isaac-sim.github.io/IsaacLab/v3.0.0-EA/index.html] for reinforcement learning and imitation learning policy training
+
+Isaac Lab Learning Path [https://docs.nvidia.com/learning/physical-ai/getting-started-with-isaac-lab/latest/index.html]
+
+Microduck example Isaac Lab environment [https://github.com/isaac-sim/IsaacLab/tree/develop/source/isaaclab_tasks/isaaclab_tasks/contrib/microduck]
+
+Microduck sim-to-real tutorial on Hugging Face [https://huggingface.co/blog/nvidia/microduck-isaac-lab-sim-to-real]
+
+Microduck walking demo using native BAM servos [https://isaac-sim.github.io/IsaacLab/demos/v3/?demo=microduck]
+
+Acknowledgements [#acknowledgements]
+
+This workflow was developed through collaboration across teams at NVIDIA, including:
+
+Aaron Young, Antoine Richard, Chase Telegin, Gavriel State, Hammad Mazhar, Kelly Guo, Milad Rakhsha, Oyindamola Omotuyi, Pierre Fleau, Rishabh Chadha, Rogelio Olguin, Ruben D’Sa, and Yenal Kal.
+

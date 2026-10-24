@@ -92,7 +92,7 @@ NVIDIA's GTC Berlin robotics release bundles five things under the [Isaac](../en
 
 ## Open questions
 - **What is Isaac OS** relative to Isaac ROS and Holoscan? It is called "open source" with no repo given. Does it replace any part of [Isaac ROS](../entities/isaac-ros.md)?
-- **What is "ChatGPT Astra"?**
+- **What is "ChatGPT Astra"?** *Update 2026-10-24:* two days later NVIDIA's [Microduck tutorial](nvidia-microduck-ai-agents-sim-blog.md) shows an agent called just **"Astra"** in use. It takes a handoff from Hermes, uses *cloud* image editing, scripts FreeCAD and Blender, exports USD and assembles the scene in Isaac Sim. It is still not expanded or attributed there. The most likely reading is the same product, possibly OpenAI's, given the "ChatGPT" prefix, but no source says so.
 - **Human 1M:** how many hours, what licence, and what does a non-Coalition user actually get?
 - **Isaac Lab 3.0 GA vs EA:** what changed, and is the release's own linked docs path (`v3.0.0-EA`) stale?
 - **Agile ONE SN price**, and which weight is correct.

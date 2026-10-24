@@ -2,13 +2,18 @@
 title: Wiki Backlog — deferred lint items & knowledge gaps
 type: meta
 created: 2026-07-04
-updated: 2026-09-28
+updated: 2026-10-24
 tags: [backlog, lint, todo, knowledge-gaps]
 ---
 
 # Wiki Backlog
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
+
+## [2026-10-24] From the NVIDIA Microduck agentic-sim ingest
+- [ ] **Ingest the companion HF tutorial** [*Microduck sim-to-real*](https://huggingface.co/blog/nvidia/microduck-isaac-lab-sim-to-real), which covers the deployment half of the [NVIDIA tutorial](sources/nvidia-microduck-ai-agents-sim-blog.md). Check whether it says how "head-camera depth" maps onto the real 8×8 ToF and camera, and what the obs/action contract is against Pollen's `obs[1,61] → actions[1,14]`.
+- [ ] **Pin down "Astra."** It appears as "ChatGPT Astra" in the [GTC Berlin release](sources/nvidia-isaac-platform-gtc-berlin-2026.md) and as plain "Astra" in the Microduck tutorial, never defined. Find a primary that says what it is and who makes it.
+- [ ] **Isaac Lab vs mjlab on Microduck.** Both now use BAM on MJWarp. Does a policy trained in one run unchanged in the other, and on hardware? This is the cheapest available test of whether the framework layer matters once physics and actuator model are shared.
 
 ## [2026-09-28] From the XLeRobot-on-Thor model-stack synthesis
 - [ ] **Speech has no primary sources in the wiki.** Ingest the docs for Whisper (or faster-whisper / whisper.cpp), sherpa-onnx (KWS + VAD + ASR + TTS), one wake-word engine, one VAD, and NVIDIA's Jetson speech stack. Ideally find any source with **on-Jetson ASR latency**. The [model-stack](syntheses/projects/xlerobot-thor-model-stack.md) speech section rests on names only.

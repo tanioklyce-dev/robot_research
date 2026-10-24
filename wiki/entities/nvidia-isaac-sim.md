@@ -3,8 +3,8 @@ title: NVIDIA Isaac Sim
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-10-22
-sources: 29
+updated: 2026-10-24
+sources: 30
 tags: [simulator, nvidia, omniverse, openusd]
 ---
 
@@ -34,6 +34,10 @@ Domain randomization is applied per episode reset (object poses, lighting, and t
 
 The catch, and it is a real one: **the course marks the simulation dataset "optional"** and never includes it in the fine-tuning command. The taught pipeline trains on real data plus [Cosmos](nvidia-cosmos.md)-restyled real data. Isaac Sim's role in this particular "sim-to-real" course is a demonstration path, not a data source.
 
+## On Windows-on-Arm (RTX Spark)
+
+NVIDIA's own instruction for [RTX Spark](nvidia-rtx-spark.md) is to install the **Windows x86 binaries**, *"runnable out of the box via Windows x86 emulation on Arm."* As of 2026-10-23 there is no native Arm-Windows build. The emulation cost is unmeasured. The tutorial still uses it for local policy validation, with an agent ("Astra") assembling the scene from generated USD assets ([NVIDIA Microduck tutorial](../sources/nvidia-microduck-ai-agents-sim-blog.md)).
+
 ## Related
 - [Isaac Gym](isaac-gym.md) — the deprecated GPU-physics predecessor this lineage replaces (Preview 4 is final; it also superseded IsaacGymEnvs, OmniIsaacGymEnvs and Orbit).
 - [legged_gym](legged-gym.md) — the ETH locomotion library built on Isaac Gym, still the reference point for the corpus.
@@ -56,3 +60,4 @@ The catch, and it is a real one: **the course marks the simulation dataset "opti
 - [Taking Flight with Dialogue (Lim et al. 2025)](../sources/taking-flight-with-dialogue-px4-drone-agent.md) — used as the rendering + physics engine for PX4 SITL drone simulation (in lieu of PX4's default Gazebo).
 - [reBot Arm B601-DM Bundle with Jetson Thor](../sources/seeed-rebot-arm-b601-dm-thor-bundle.md) — Listed among the B601's supported simulation stacks; the [DLI course](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) uses it for parallel data collection.
 - [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)
+- [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../sources/nvidia-microduck-ai-agents-sim-blog.md) — agent-assembled obstacle course; local validation on RTX Spark via x86 emulation.

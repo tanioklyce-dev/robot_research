@@ -2,7 +2,7 @@
 title: Simulators for agentic robotics — 2026 landscape
 type: synthesis
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-10-24
 tags: [simulation, agentic-robotics, vla, world-models, survey]
 ---
 
@@ -56,6 +56,13 @@ Gazebo, Webots, CoppeliaSim, PyBullet, Drake. Still essential for ROS-based depl
 
 - **Tesla Optimus**: in-house sim + sim-to-real + imitation from human video; no public stack.
 - **VLA labs (typical pattern)**: Isaac Lab or MuJoCo Playground for training, Genie Sim or RoboCasa for eval. Genesis adopters claim faster iteration but production usage remains unproven.
+
+- **Agents authoring the simulation (NVIDIA, 2026-10).** NVIDIA's Microduck tutorial uses LLM agents to build the environment rather than to act in it:
+  - [Hermes](../../entities/hermes-agent.md) + [Nemotron](../../entities/nemotron.md) plan the course, generate a concept image and inventory its assets.
+  - "Astra" upscales crops, scripts FreeCAD and Blender, and exports USD into [Isaac Sim](../../entities/nvidia-isaac-sim.md).
+  - [Isaac Lab](../../entities/nvidia-isaac-lab.md) then trains conventionally.
+
+  No cost, time or quality figures are given for the agent half ([NVIDIA blog](../../sources/nvidia-microduck-ai-agents-sim-blog.md)). It is a third use of agents beside the robot-control (stretch_ai, AgenticROS) and benchmark-authoring ([Isaac Lab-Arena](../../entities/isaac-lab-arena.md)) patterns.
 
 ## 6. Real-robot agentic stacks (the consumers)
 
@@ -111,3 +118,4 @@ This page surveys the landscape; four follow-up syntheses go deeper on specific 
 - [Hiwonder ROSOrin Documentation](../../sources/hiwonder-rosorin-docs.md)
 - [Hiwonder ROSOrin Pro User Manual](../../sources/hiwonder-rosorin-pro-user-manual.md)
 - [Hiwonder OpenClaw Practical Tutorial](../../sources/hiwonder-openclaw-tutorial.md)
+- [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../../sources/nvidia-microduck-ai-agents-sim-blog.md)

@@ -3,8 +3,8 @@ title: Rhoban
 type: entity
 subtype: lab
 created: 2026-08-27
-updated: 2026-08-27
-sources: 0
+updated: 2026-10-24
+sources: 1
 tags: [rhoban, labri, bordeaux, robocup, humanoid, open-source, bam, onshape-to-robot, actuator-modeling]
 ---
 
@@ -31,6 +31,8 @@ tags: [rhoban, labri, bordeaux, robocup, humanoid, open-source, bam, onshape-to-
 
 That a **RoboCup humanoid lab** produced it is not incidental. Kid-size RoboCup humanoids run cheap hobby servos under real dynamic load with no budget for research-grade actuators — precisely the regime where the ideal-PD assumption fails and where identifying the real friction curve pays.
 
+**Upstreamed into Isaac Lab (2026-10-15).** NVIDIA ported BAM as `BamActuatorCfg`, covering friction models m1/m2/m5/m6, voltage sag and command lag, with backlash as a passive hinge. It runs on Newton's MJWarp solver, so BAM is now a stock option in the largest GPU-RL framework, not just a dependency of one robot's repo ([NVIDIA Microduck tutorial](../sources/nvidia-microduck-ai-agents-sim-blog.md)). The docs say only that it *"ports BAM"*; how the port's credit and licence relate to Rhoban's Apache-2.0 repo is not stated.
+
 ## The Bordeaux cluster
 
 Three organisations in one city keep appearing together in this wiki:
@@ -53,6 +55,7 @@ So the actuator model that makes a $399 robot's policies transfer arrives throug
 
 - [Microduck — Pollen Robotics launch](../sources/pollen-robotics-microduck.md) — BAM M6 on the XL330; `onshape-to-robot` for MJCF export.
 - [Gemma 4 Powers Open Duck Mini (explainx.ai)](../sources/explainx-gemma-4-open-duck-mini.md) — Pirrone's Rhoban membership, via his GitHub profile.
+- [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../sources/nvidia-microduck-ai-agents-sim-blog.md) — BAM ported natively into Isaac Lab (Newton/MJWarp).
 
 ## Open questions
 

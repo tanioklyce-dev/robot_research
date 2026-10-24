@@ -3,9 +3,9 @@ title: Microduck
 type: entity
 subtype: robot
 created: 2026-08-27
-updated: 2026-10-22
-sources: 6
-tags: [microduck, pollen-robotics, hugging-face, biped, reinforcement-learning, sim-to-real, mjlab, dynamixel, rk3566, consumer-robotics, education]
+updated: 2026-10-24
+sources: 7
+tags: [microduck, isaac-lab, newton, pollen-robotics, hugging-face, biped, reinforcement-learning, sim-to-real, mjlab, dynamixel, rk3566, consumer-robotics, education]
 ---
 
 **Vendor page:** [pollen-robotics.com/microduck](https://pollen-robotics.com/microduck/) · **Code:** [`pollen-robotics/microduck`](https://github.com/pollen-robotics/microduck) (runtime, Rust) · [`pollen-robotics/microduck_rl`](https://github.com/pollen-robotics/microduck_rl) (training, Python)
@@ -71,6 +71,18 @@ The camera and depth path exists and is measured, though nothing autonomous cons
 - **Not yet wired**: no IPC exposes a camera frame, so capturing a dataset requires stopping `mediad` to take the camera. The 16-state autonomous brain from the prototype is unported and has no design doc — the roadmap's largest open item.
 - **Multi-robot substrate exists**: ducks discover each other by **stable BLE id** (surviving address rotation), share a beat to **±20 ms with no clock sync**, and get RSSI as coarse distance plus ~245 spare advertising bytes. Planned sensor fusion: *"camera = direction, ToF = distance, BLE beacon = identity + presence."*
 
+## Second training stack: Isaac Lab + Newton (2026-10)
+
+Since **2026-10-15**, Isaac Lab ships a Microduck task family upstream (`isaaclab_tasks/contrib/microduck`, flat and rough variants). It came with a **native port of BAM** (`BamActuatorCfg`, which requires Newton's **MJWarp** solver) and a `backlash_joint_template` that reproduces Pollen's servo-plus-passive-hinge construction. All of it arrived in one PR by NVIDIA's Antoine Richard ([NVIDIA blog, verified against the repo](../sources/nvidia-microduck-ai-agents-sim-blog.md)). So Microduck can now be trained either on Pollen's own [mjlab](mjlab.md) recipe or on [Isaac Lab](nvidia-isaac-lab.md). Both run on MuJoCo Warp physics.
+
+NVIDIA's tutorial (2026-10-23) uses it as a showcase:
+- LLM agents ([Hermes](hermes-agent.md) + [Nemotron](nemotron.md) for planning; "Astra" for FreeCAD/Blender/USD assets) build an obstacle course.
+- A pretrained walker is then fine-tuned for ramps using **head-camera depth + proprioception**, at 4,096 envs on one RTX PRO 6000.
+- A plain Isaac-Lab-trained walking policy is shown on a physical Microduck. The depth-conditioned course policy is not.
+
+> [!note] Which "depth"?
+> The real robot's depth sensor is the 8×8 ToF matrix above, and its camera has no IPC path yet. The tutorial does not say whether its sim "head-camera depth" emulates either. Until it does, the perception half of that policy has no route onto this hardware.
+
 ## Why the sim-to-real work is the interesting part
 
 Microduck's engineering thesis is that at 800 g and hobby-servo scale, **the reality gap lives in the actuator**, not in the renderer:
@@ -93,7 +105,8 @@ That drives a **BAM M6** model of the XL330 (voltage control law, back-EMF, Coul
 - [Pollen Robotics](pollen-robotics.md) — maker
 - [Reachy Mini](reachy-mini.md) — sibling: interaction rather than action
 - [Reachy 2](reachy.md) — the flagship manipulator
-- [mjlab](mjlab.md) — the training framework
+- [mjlab](mjlab.md) — Pollen's training framework
+- [Isaac Lab](nvidia-isaac-lab.md) — second training stack, with native BAM since 2026-10-15
 - [Dynamixel](dynamixel.md) — the servo lineage modeled by BAM
 - [Rhoban](rhoban.md) — LaBRI/Bordeaux lab behind BAM and `onshape-to-robot`
 - [MuJoCo Warp](mujoco-warp.md) — the GPU physics under [mjlab](mjlab.md)
@@ -107,3 +120,4 @@ That drives a **BAM M6** model of the XL330 (voltage control law, back-EMF, Coul
 - [KickPi RK3566 Microduck case study](../sources/kickpi-rk3566-microduck-case-study.md) — ODM secondary written from the public docs; names the IMU as an **LSM6DSV16X on the Dynamixel bus** (unverified here) and misdescribes the runtime with a separate "servo daemon"
 - [airockchip/rknn_model_zoo](../sources/rknn-model-zoo-github.md) — the RK3566 column that corroborates the onboard yolo11n measurement
 - [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md) — Microduck named in NVIDIA's partner roll-call (Isaac Lab, Isaac Sim, Newton).
+- [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../sources/nvidia-microduck-ai-agents-sim-blog.md) — Isaac Lab Microduck tasks + native BAM (upstream 2026-10-15); agent-built obstacle course; depth+proprio ramp fine-tune at 4,096 envs. Only a plain walking policy is shown on hardware.

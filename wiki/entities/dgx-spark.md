@@ -3,8 +3,8 @@ title: NVIDIA DGX Spark
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-09-28
-sources: 14
+updated: 2026-10-24
+sources: 15
 tags: [dgx-spark, gb10, grace-blackwell, workstation, unified-memory, physical-ai]
 ---
 
@@ -86,6 +86,10 @@ NVIDIA's [Local AI series](../sources/nvidia-local-ai-blog-series-2026-08.md) po
 
 It is also the **only launch platform** for [Perplexity Portable Computer](perplexity-portable-computer.md) — the first shipped local-first agent product in this wiki — which Perplexity describes as *"a 20-core Arm CPU and NVIDIA GPU with 128 GB of unified memory"* and pitches for *"24×7 always-on operation, perfect for long-running autonomous agents."*
 
+## Windows sibling: RTX Spark
+
+[RTX Spark](nvidia-rtx-spark.md) laptops and desktops publish the same headline numbers: 6,144-core Blackwell GPU, 20-core Grace, up to 128 GB unified memory, 1 PF FP4. They run **Windows 11** instead of DGX OS ([product page](../sources/nvidia-rtx-spark-product-page.md)). NVIDIA does not say the chip (N1X) is GB10. For robotics the OS matters more than the silicon: Isaac Sim runs there only under x86 emulation.
+
 ## Related
 - [Jetson Thor](jetson-thor.md) — paired on-robot deploy target.
 - [NVIDIA Isaac Sim](nvidia-isaac-sim.md), [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — primary training workloads.
@@ -106,3 +110,4 @@ It is also the **only launch platform** for [Perplexity Portable Computer](perpl
 - [NVIDIA DGX Spark Hardware Overview](../sources/nvidia-dgx-spark-hardware-overview.md)
 - [Isaac Sim and Isaac Lab on NVIDIA Jetson AGX Thor](../sources/rs-designspark-isaac-sim-on-thor.md)
 - [NVIDIA Isaac Teleop and GR00T 1.7 in LeRobot (HF blog)](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) — CUDA-13 torch pin for Spark users.
+- [NVIDIA RTX Spark — product page](../sources/nvidia-rtx-spark-product-page.md) — the Windows sibling with matching headline specs.

@@ -3,8 +3,8 @@ title: NVIDIA Isaac Lab
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-10-22
-sources: 27
+updated: 2026-10-24
+sources: 28
 tags: [framework, robot-learning, nvidia, isaac-lab, rl]
 ---
 
@@ -21,6 +21,19 @@ Isaac Lab 3.0 with the GA release of the [Newton physics engine](newton-physics-
 
 **Isaac Lab 3.0 general availability was announced at GTC Berlin on 2026-10-21**: *"open source, agent-ready … from desktop to data center using multi-GPU workflows and physics engines including Newton and NVIDIA PhysX"* ([release](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)). Read against the paragraph above, 3.0 was the default stack from spring 2026 but carried an **EA** label until October. The release's own dexterous-manipulation link still points at the `v3.0.0-EA` docs.
 
+## Native BAM servo actuator and Microduck tasks (2026-10-15)
+
+PR #8270, *"[Newton] Add BAM servo actuator and MicroDuck walking tasks"*, added `BamActuatorCfg`. It is a port of [Rhoban](rhoban.md)'s **Better Actuator Models**, simulating a hobby servo in the voltage domain, and it runs as Warp kernels on every physics step:
+- a randomly resampled command lag;
+- supply sag proportional to summed joint torque;
+- a firmware P-law → duty, current-limited;
+- DC-motor torque with back-EMF damping;
+- BAM friction models m1/m2/m5/m6 applied as a MuJoCo friction constraint.
+
+**It requires the Newton backend with the MJWarp solver.** PhysX raises an error. `backlash_joint_template` adds gearbox play as a passive hinge read through by the firmware. The same PR added `contrib/microduck` flat/rough walking tasks for [Microduck](microduck.md) ([NVIDIA tutorial, verified against the repo](../sources/nvidia-microduck-ai-agents-sim-blog.md)). This makes the [actuator-fidelity](../concepts/learning/actuator-fidelity-sim2real.md) recipe a stock Isaac Lab feature rather than a per-robot subclass.
+
+The same tutorial's reference run fine-tunes a pretrained Microduck walker for ramps with **head-camera depth + robot state** at **4,096 parallel environments on one RTX PRO 6000 Blackwell Workstation Edition**. Training is in the cloud, and validation is in Isaac Sim on a local [RTX Spark](nvidia-rtx-spark.md).
+
 ## Hardware requirements
 
 Isaac Lab inherits Isaac Sim's RT-core requirement: it cannot run on [Jetson Thor](jetson-thor.md) or any prior Jetson (no RT cores, even in headless mode). NVIDIA's prescribed workflow is to **train on RTX workstation / [DGX Spark](dgx-spark.md) / data-centre GPU**, then deploy the trained policy to Jetson for inference ([Isaac Sim and Isaac Lab on NVIDIA Jetson AGX Thor](../sources/rs-designspark-isaac-sim-on-thor.md)).
@@ -32,6 +45,7 @@ Isaac Lab inherits Isaac Sim's RT-core requirement: it cannot run on [Jetson Tho
 - [Newton physics engine](newton-physics-engine.md) — primary physics backend in 2026.
 - [NVIDIA Cosmos](nvidia-cosmos.md) — world model for rare scenarios and synthetic data.
 - [DGX Spark](dgx-spark.md), [Jetson Thor](jetson-thor.md) — train-side and deploy-side hardware.
+- [mjlab](mjlab.md) — MuJoCo-Warp framework with Isaac-Lab-style ergonomics; Pollen's Microduck stack.
 - [MuJoCo Playground](mujoco-playground.md) — competing/parallel learning framework with overlapping backends.
 
 ## Mentioned in
@@ -50,3 +64,4 @@ Isaac Lab inherits Isaac Sim's RT-core requirement: it cannot run on [Jetson Tho
 - [Learning to Fold — tech report](../sources/larchenko-learning-to-fold-tech-report.md) — 3–5 Isaac Sim processes per machine (no multi-scene in one process for this environment); physics-state snapshots (particle positions/velocities + joints) restored for replay and hard mining; the renderer-overfit diagnostic (resize path) that predicted the sim-to-real failure.
 - [OpenArm documentation](../sources/openarm-docs.md) — `openarm_isaac_lab` (Isaac Sim 5.1 / Isaac Lab 2.3): reach, lift-cube, open-drawer environments, *"officially integrated"* upstream; VR (Quest 3) teleop demonstrated here only.
 - [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)
+- [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../sources/nvidia-microduck-ai-agents-sim-blog.md) — native `BamActuatorCfg` (Newton/MJWarp only) and `contrib/microduck` tasks; 4,096-env depth+proprio ramp fine-tune on one RTX PRO 6000.

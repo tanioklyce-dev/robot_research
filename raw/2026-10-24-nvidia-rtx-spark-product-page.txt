@@ -1,0 +1,348 @@
+Source: https://www.nvidia.com/en-us/products/rtx-spark/
+Retrieved: 2026-10-24 (curl; visible text extracted, scripts/nav stripped). Excerpt: platform + developer + AI-agents + spec-table sections.
+
+NVIDIA RTX Spark
+This site requires Javascript in order to view all its content. Please enable Javascript in order to access all the functionality of this web site. Here are the 
+instructions how to enable JavaScript in your web browser.
+ NVIDIA RTX Spark
+ A New Beginning for Windows PCs
+AI development, creating, and gaming—all on one Windows PC. Slim laptops that last all day. Compact desktops that run agents around the clock. RTX Spark does both.
+Shop All
+Platform
+Creators
+Developers
+Gamers
+AI Agents
+Apps
+Help Me Choose
+Specs
+Shop
+Platform
+Creators
+Developers
+Gamers
+AI Agents
+Apps
+Help Me Choose
+Specs
+Shop
+Platform
+Creators
+Developers
+Gamers
+AI Agents
+Apps
+Help Me Choose
+Specs
+Shop
+Shop All
+RTX Spark Global Launch Events
+ Join us in celebrating the launch of RTX Spark with live demos, entertainment, giveaways, and more.
+Can't join in person? Tune in and catch the excitement live on 
+Instagram
+.
+See All Events
+ A Look Back. A Leap Forward.
+You grew up. Your PC did too. From groundbreaking graphics to AI that runs right on your PC, discover how 30+ years of NVIDIA innovation led to RTX Spark, and hear from the people shaping what's next.
+Discover the Story Behind RTX Spark
+ The PC, Reimagined
+From playing in someone else’s world to creating your own, everything has changed, including your PC. Introducing NVIDIA RTX Spark—a new beginning for Windows PCs.
+Watch Now
+ A Look Back, a Leap Forward
+You’ve entered a new era, your PC has too. From groundbreaking graphics to AI that runs right on your PC, discover how 30+ years of NVIDIA innovation led to RTX Spark, and hear from the people shaping what's next.
+Discover the Story Behind RTX Spark 
+ Watch NVIDIA CEO Jensen Huang Join Microsoft for a Conversation on Local AI
+The PC is entering a new era. NVIDIA founder and CEO Jensen Huang joined Microsoft CEO Satya Nadella to discuss how RTX Spark is redefining the Windows PC for AI development, creation, and gaming.
+Watch Now
+ Your Spark, Your Story
+From modding PC games as a kid to completing a chess set hand-carved by her grandfather, Allyson Vasquez has always found joy in creating. See how RTX Spark helps her bring ideas to life.
+Watch Now
+ What are People Saying About RTX Spark?
+Don't just take our word for it. Hear what's sparking the buzz.
+Watch Now
+Previous
+Next
+Reimagined
+Leap Forward
+Local AI
+Your Spark
+About RTX Spark
+ RTX Spark Superchip
+ Mind and Muscle—All in One
+Up to
+ 6,144-core
+Blackwell RTX GPU
+Up to
+ 20-core
+Grace CPU
+Up to
+ 1 petaflop
+FP4 AI Performance
+Up to
+ 128 GB
+Unified Memory
+Up to
+ 6,144-core
+Blackwell RTX GPU
+Up to
+ 20-core
+Grace CPU
+Up to
+ 1 petaflop
+FP4 AI Performance
+Up to
+ 128 GB
+Unified Memory
+ Built for Agents and AI
+NVIDIA CUDA™, the software that accelerates the world’s AI, runs natively on RTX Spark.
+ All-Day Battery Life
+The most power-efficient RTX chip ever made, in a chassis so slim you'll forget you’re carrying it.
+ Creator Crafted
+Fuel your creativity with RTX acceleration for 3D, video, and AI apps, powered by 
+NVIDIA Studio
+.
+ Game Ready
+Play the latest and greatest games with NVIDIA gaming tech, ray tracing, DLSS, and Reflex.
+Creators
+ Bright Idea, Meet Bright Spark
+Edit, render, stream, and create with AI, all on one slim laptop. It keeps up so you can keep going.
+Watch Now
+ Big Scenes. No Big Deal. 
+Build worlds, not workarounds. Up to 128 GB of unified memory handles 3D scenes up to 90 GB, and RTX-exclusive features like OptiX and DLSS keep the ray-traced viewport moving as fast as you do.
+ Full Quality, Zero Detours
+Drop 4:2:2 footage straight from the camera into your timeline and start cutting in full quality. Hardware encode and decode for HEVC, H.264, and AV1 keeps editing smooth and exports fast.
+ Every Take is Free
+Generate images and video right on your device, as often as you like. No subscription. No per-prompt fees. No waiting in line. Just the take that finally looks right.
+ Look Sharp, Sound Sharper
+Watch, call, or go live—RTX Video sharpens what you're watching, and NVIDIA Broadcast cleans up your camera and mic in real time. Everyone hears you. Nobody hears the dog.
+Developers
+ Build It Here, Run It Anywhere
+Build, prototype, fine-tune, and run AI models and agents locally with the full CUDA stack, right on your PC. Go from development to deployment on the same platform the world’s AI is built on, with the latest innovations available from day one.
+Watch Now
+ One Stack to Run Them All
+Build on CUDA, TensorRT, and NVFP4, the same stack the world's AI runs on. What you build here runs unchanged on NVIDIA GPUs anywhere.
+ Model Behavior
+Run models up to 120B parameters with 1M context. Up to 128 GB of unified memory fits the whole model, and a petaflop of FP4 performance keeps inference fast.
+ All Local, All Yours
+Run it locally and get the good stuff: instant iteration, no API bills, and data that stays on your machine. Need more scale? Offload to the cloud, and your code runs there unchanged.
+Gamers
+ Game Ready
+Experience today's games with everything NVIDIA RTX brings—ray tracing, DLSS, and Reflex. Get it in a slim gaming laptop, or a compact desktop that leaves plenty of room on your desk.
+Watch Now
+ Supreme Speed. Superior Visuals.
+NVIDIA DLSS uses AI to boost performance and image quality, so you can enjoy games at their best.
+©CAPCOM 
+ Immersive Graphics
+Ray tracing provides lifelike lighting to bring real-time, cinematic-quality visuals to your games and creative apps.
+© 2026 MARVEL
+ Game-Winning Responsiveness
+Lower latency. Faster reactions. NVIDIA Reflex gives competitive gamers the edge.
+AI Agents
+ From Tool to Teammate
+Personal AI agents, right on your PC. They handle the to-do list while you handle the big idea. And it all stays local.
+ Ask, and it's Done
+Just describe the task and your agent takes it from there— running workflows, creating assets, so you can focus on what matters.
+ Secured by Windows, 
+Controlled by You
+Built-in Windows security keeps agents protected and under your control. You decide what they can access.
+ Runs Local. Stays Local.
+Run advanced AI models right on your PC—no subscriptions or per-prompt fees. Your data stays on your device, with the cloud available when you need it.
+ RTX Platform
+ The Apps You Love Already Love RTX
+RTX brings you exclusive features and the latest advancements in AI, simulation, and ray tracing. Experience incredible 3D performance, smoother video editing, photorealistic simulations, and stunning visuals in the apps, AI tools, and games that pros, creators, and gamers use every day.
+ Premium Inside and Out
+ ASUS ProArt P16
+ Dell XPS 16
+ HP OmniBook Ultra 16
+ Lenovo Pro 9n
+ Microsoft Surface Laptop Ultra
+ MSI Prestige N16 Flip AI
++
+Shop All
+ Find Your Spark
+Find the right memory for the way you work. From developing with AI to creating and gaming, choose the RTX Spark configuration that fits your workflow.
+Help Me Choose
+Get Started
+ RTX Spark Desktop PCs
+ Small Footprint. Big Performance.
+Get RTX Spark in a small, compact desktop. Built to run personal AI agents 24/7 right at your desk, plus game and create with the full power of RTX graphics. 
+ Specs
+Laptops
+Desktops
+RTX Spark N1X
+RTX Spark N1X
+GPU
+6144-core
+ NVIDIA Blackwell RTX GPU
+5120-core
+ NVIDIA Blackwell RTX GPU
+CPU
+20-core
+ NVIDIA Grace CPU
+18-core
+ NVIDIA Grace CPU
+Memory Type
+Unified
+Unified
+OS Support
+Windows 11
+Windows 11
+Superchip Specs:
+GPU
+6144-core
+ NVIDIA Blackwell RTX GPU
+5120-core
+ NVIDIA Blackwell RTX GPU
+CPU
+20-core NVIDIA Grace CPU
+18-core NVIDIA Grace CPU
+Power (TDP)
+45 - 80 W
+45 - 80 W
+Memory Specs:
+Memory Configuration
+Up to 128 GB LPDDR5X
+Up to 64 GB LPDDR5X
+Technology Support:
+Ray Tracing Cores
+Fourth Generation
+Fourth Generation
+Tensor Cores (AI)
+Fifth Generation
+Fifth Generation
+NVIDIA DLSS
+DLSS 5
+DLSS 5
+NVIDIA Reflex
+Reflex 2
+ Low Latency Mode
+ Frame Warp
+Reflex 2
+ Low Latency Mode
+ Frame Warp
+NVIDIA Broadcast
+✓
+✓
+RTX Remix
+✓
+✓
+NVIDIA App
+✓
+✓
+NVIDIA Studio Drivers
+✓
+✓
+Game Ready Drivers
+✓
+✓
+NVIDIA G-SYNC
+✓
+✓
+Microsoft DirectX 12 Ultimate
+✓
+✓
+NVIDIA GPU Boost
+✓
+✓
+PCI Express Gen 5 
+(1)
+✓
+✓
+Vulkan RT API, OpenGL 4.6
+✓
+✓
+HDMI 
+(2)
+✓
+✓
+DisplayPort 
+(3)
+✓
+✓
+NVIDIA Encoder
+1x Ninth Generation
+1x Ninth Generation
+NVIDIA Decoder
+1x Sixth Generation
+1x Sixth Generation
+CUDA Capability
+✓
+✓
+View Full Specs
+View Fewer Specs
+RTX Spark N1X
+GPU
+6144-core
+ NVIDIA Blackwell RTX GPU
+CPU
+20-core
+ NVIDIA Grace CPU
+Memory Type
+Unified
+OS Support
+Windows 11
+Superchip Specs:
+GPU
+6144-core
+ NVIDIA Blackwell RTX GPU
+CPU
+20-core NVIDIA Grace CPU
+Power (TDP)
+140 W
+Memory Specs:
+Memory Configuration
+Up to 128 GB LPDDR5X
+Technology Support:
+Ray Tracing Cores
+Fourth Generation
+Tensor Cores (AI)
+Fifth Generation
+NVIDIA DLSS
+DLSS 5
+NVIDIA Reflex
+Reflex 2
+ Low Latency Mode
+ Frame Warp
+NVIDIA Broadcast
+✓
+RTX Remix
+✓
+NVIDIA App
+✓
+NVIDIA Studio Drivers
+✓
+Game Ready Drivers
+✓
+NVIDIA G-SYNC
+✓
+Microsoft DirectX 12 Ultimate
+✓
+NVIDIA GPU Boost
+✓
+PCI Express Gen 5 
+(1)
+✓
+Vulkan RT API, OpenGL 4.6
+✓
+HDMI 
+(2)
+✓
+DisplayPort 
+(3)
+✓
+NVIDIA Encoder
+1x Ninth Generation
+NVIDIA Decoder
+1x Sixth Generation
+CUDA Capability
+✓
+View Full Specs
+View Fewer Specs
+View Full Specs
+1 - Supports PCI Express Gen 5. Check with the laptop manufacturer about PCI Express configurations on specific laptop models.
+ 2 - Supports up to 4K 480Hz or 8K 120Hz with DSC, Gaming VRR, HDR as specified in HDMI 2.1b. Check with the laptop manufacturer about HDMI capabilities on specific laptop models.
+ 3 - DisplayPort 2.1b. Check with the laptop manufacturer about DisplayPort capabilities on specific laptop models.
+ Shop Now
+Explore All Models
+ --> 
+

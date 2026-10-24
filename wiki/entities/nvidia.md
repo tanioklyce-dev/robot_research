@@ -3,8 +3,8 @@ title: NVIDIA
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-10-22
-sources: 67
+updated: 2026-10-24
+sources: 68
 tags: [nvidia, gpu, simulation, physical-ai]
 ---
 
@@ -82,3 +82,5 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - [Add Runtime Controls to AI Agents with NVIDIA OpenShell](../sources/nvidia-openshell-runtime-controls-blog.md)
 - [NVIDIA Open Agent Safety Platform: A Reference for Continuous In-Silicon Agent Monitoring](../sources/nvidia-open-agent-safety-platform-sentry-blog.md)
 - [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md) — Isaac OS, Isaac Lab 3.0 GA, SimReady Central, Human 1M, DGX Station workflows, Agile ONE SN reference humanoid.
+- [Using AI agents to teach Microduck to walk in simulation](../sources/nvidia-microduck-ai-agents-sim-blog.md) — agentic prompt-to-policy tutorial; RTX Spark local, RTX PRO 6000 cloud.
+- [RTX Spark product page](../sources/nvidia-rtx-spark-product-page.md)

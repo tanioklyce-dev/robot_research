@@ -3,8 +3,8 @@ title: Nemotron
 type: entity
 subtype: model
 created: 2026-08-28
-updated: 2026-09-27
-sources: 5
+updated: 2026-10-24
+sources: 6
 tags: [nemotron, nvidia, open-weights, moe, edge-agents, dgx-spark, jetson, asr, nvfp4]
 ---
 
@@ -23,6 +23,10 @@ A **30B mixture-of-experts** open-weights model for *"always-on agents."*
 - Fine-tuning is the pitch — writing style, domain specialty, coding conventions.
 
 Independent corroboration of its class, from a third party: Perplexity's research post lists it alongside Qwen 3.6 (35B) and Qwen 3.8 (27B) as *"very small and efficient models… now capable of complex agentic workflows"*, and has it **coming to Portable Computer's model picker** ([source](../sources/perplexity-local-first-agent-research.md)).
+
+## Nemotron 3.5 Bolt (seen 2026-10-23)
+
+Named in NVIDIA's [Microduck tutorial](../sources/nvidia-microduck-ai-agents-sim-blog.md) as the local planning model behind [Hermes Agent](hermes-agent.md) on [RTX Spark](nvidia-rtx-spark.md). The linked checkpoint is **`nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB`**. Read from the name, that is a **74B-total / 9B-active MoE packaged to fit 24 GB**. No model card has been ingested, so treat the parameter reading as inferred from the repo name.
 
 ## Nemotron 3.5 ASR
 
@@ -47,6 +51,7 @@ A speech-recognition model in the same family. Runs **[Portable Computer](perple
 - [A Local-First Agent for Private and Cost-Effective Knowledge Work](../sources/perplexity-local-first-agent-research.md) — third-party placement of Lightning in the capable-small-model class.
 - [Post-train Cosmos 3 Edge](../sources/nvidia-cosmos3-edge-post-training-blog.md) — Cosmos 3 Edge's reasoner tower is stated as a **2B Nemotron-based** model, where the Cosmos 3 report described the family's reasoner as Qwen3-VL-initialised; unresolved.
 - [NVIDIA Isaac ROS 5.0 blog](../sources/nvidia-isaac-ros-5-0-blog.md) — AgenticROS connects Isaac ROS to Nemotron models.
+- [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../sources/nvidia-microduck-ai-agents-sim-blog.md) — Nemotron 3.5 Bolt (74B-A9B, 24 GB) as Hermes's planner on RTX Spark.
 
 ## Open questions
 
