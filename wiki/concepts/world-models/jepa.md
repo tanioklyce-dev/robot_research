@@ -2,8 +2,8 @@
 title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
-updated: 2026-10-24
-sources: 102
+updated: 2026-10-25
+sources: 103
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -76,7 +76,7 @@ The escape hatch is closed by scope rather than by proof: SSIM is image-specific
   - **Sparse (non-Gaussian) distribution matching — RDMReg** — [LpWM](../../entities/lpwm.md) matches features to a *Rectified Generalized Gaussian*, giving non-negative exactly-sparse codes. This is the axis-shift worth noting: every mechanism above answers *how do you avoid collapse*; RDMReg is chosen to answer *what latent geometry makes the dynamics cheap to predict*. See [below](#a-second-axis-what-geometry-not-just-how-to-avoid-collapse).
   - **Stop-gradient + covariance regularization** — [DynaMo](../../entities/dynamo.md) (Cui, …, [Pinto](../../entities/lerrel-pinto.md), NeurIPS 2024) pairs SimSiam-style stop-grad with a VICReg-style covariance term (λ=0.04) over a joint **inverse + forward** latent-dynamics objective. Predates the rest of this ladder and sits at its heavy end; notable because it had inverse dynamics as *half the objective* two years before SMWM proposed it as the *sole* defence.
   - **Single inverse-dynamics regularizer** — [SMWM](../../entities/smwm.md) (Ivashkov, Balestriero, Schölkopf 2026) predicts the *action* from an embedding pair; recovering it forces the encoder to stay action-informative. Unlike SIGReg it **doesn't prescribe latent geometry** — it anchors the representation to a task-grounded quantity, biasing toward *controllable* degrees of freedom and filtering uncontrollable distractors (a "perception for action" / causal-representation framing).
-- **State representation & hierarchy (2026 developments).** Beyond collapse, two other axes are moving: **object-centric states** — [WorldDP](../../entities/worlddp.md) replaces raw DINOv2 patches with slot-attention entity embeddings for better dynamics learning — and **hierarchy for multi-stage tasks** — both [HWM](../../entities/hwm.md) (WM-over-WM) and [WorldDP](../../entities/worlddp.md) (WM-over-diffusion-policy) wrap a JEPA planner in a two-tier subgoal structure to escape the single-stage ceiling.
+- **State representation & hierarchy (2026 developments).** Beyond collapse, two other axes are moving: **object-centric states** — [WorldDP](../../entities/worlddp.md) replaces raw DINOv2 patches with slot-attention entity embeddings for better dynamics learning, and [C-JEPA](../../entities/c-jepa.md) makes the JEPA objective itself object-level by masking whole objects' histories (Push-T within ~3 pp of DINO-WM on 1% of the tokens) — and **hierarchy for multi-stage tasks** — both [HWM](../../entities/hwm.md) (WM-over-WM) and [WorldDP](../../entities/worlddp.md) (WM-over-diffusion-policy) wrap a JEPA planner in a two-tier subgoal structure to escape the single-stage ceiling.
 
 ### The critique from outside: collapse as a theorem, and the theorem that answers it (2026-09-07)
 
@@ -272,6 +272,7 @@ Measured: MAE drops **25.1%** under ImageNet-C severity 1→5 against DINO's **1
 - [A Generalization Theory for JEPA-Based World Models (Cui et al., 2026)](../../sources/jepa-generalization-theory-paper.md) — first finite-sample generalization bound; JEPA pretraining = action-conditioned co-occurrence-matrix factorization ([spectral view](../learning/spectral-theory-of-ssl.md))
 - [Grounding Spatial Relations in a Compact World Model (Wang et al., 2026)](../../sources/grounding-spatial-relations-compact-wm-paper.md) — the [instruction-leakage](instruction-leakage.md) evaluation confound in goal-conditioned JEPA world models
 - [The Loss Surfaces of Multilayer Networks (2015)](../../sources/choromanska2015-loss-surfaces-multilayer-networks.md) · [Entropy-SGD (2017)](../../sources/chaudhari2017-entropy-sgd.md) — LeCun's pre-JEPA landscape theory; both presuppose a global minimum worth reaching, which on a joint-embedding loss is collapse. See the note under *Common training challenges*.
+- [Causal-JEPA paper (Nam, Le Lidec, Maes, LeCun, Balestriero, 2026)](../../sources/causal-jepa-paper.md) — object-level latent masking; the first object-centric JEPA world model.
 - [H-JEPA paper (Zhang, Terver et al., 2026)](../../sources/h-jepa-hierarchical-world-models-paper.md) — H-JEPA realized with distinct per-level latents; slow-feature-collapse theory.
 - [RoboJEPA paper (Zholus et al., 2026)](../../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — the frozen-encoder branch scaled to an **8B predictor** with a fitted scaling law; V-JEPA 2 as encoder collapsed at scale, V-JEPA 2.1 (better dense features) did not.
 - [DeepJEPA paper (2026)](../../sources/deepjepa-scaling-world-models-from-within-paper.md) — test-time compute *inside* a transition; uniform depth doesn't help; extra updates cluster at contact.

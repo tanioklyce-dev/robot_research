@@ -3,8 +3,8 @@ title: WorldDP
 type: entity
 subtype: model
 created: 2026-07-26
-updated: 2026-09-07
-sources: 1
+updated: 2026-10-25
+sources: 2
 tags: [worlddp, world-model, jepa, object-centric, diffusion-policy, hierarchical-planning, mpc, particle-filter, multi-stage-manipulation, dinov2, sam2, ogbench, lecun, ami-labs, nyu]
 ---
 
@@ -67,3 +67,4 @@ OGBench manipulation (UR5e, [LeWM](leworldmodel.md)-variant envs; 50 held-out tr
 ## Mentioned in
 
 - [WorldDP paper (Goswami et al. 2026)](../sources/worlddp-paper.md) — the primary source.
+- [Causal-JEPA paper](../sources/causal-jepa-paper.md) — the other object-centric JEPA-style world model; solves slot correspondence with an identity anchor plus Hungarian matching instead of SAM2 masks. Neither paper compares against the other.

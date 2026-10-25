@@ -3,8 +3,8 @@ title: Lucas Maes
 type: entity
 subtype: person
 created: 2026-07-26
-updated: 2026-09-03
-sources: 5
+updated: 2026-10-25
+sources: 6
 tags: [person, maes, mila, udem, leworldmodel, stable-worldmodel, levjepa, jepa, world-model]
 ---
 
@@ -17,6 +17,8 @@ Maes leads the model *and* the harness it runs on — and then the benchmark tha
 - **[LeWorldModel](../sources/leworldmodel-paper.md)** (2026-03) — the first JEPA trainable stably end-to-end from raw pixels; 15 M params, single GPU, two loss terms.
 - **[stable-worldmodel](../sources/stable-worldmodel-paper.md)** (2026-05-20) — the reproducibility/evaluation platform LeWM's repo is built on, whose headline result is that LeWM (among all baselines) **collapses under mild visual perturbation** — 50.8 % → 6–26 % on Push-T.
 - **[LeVJEPA](levjepa.md)** (2026-08-27, arXiv 2608.27395; second author, with Kuhn, Serra, Le Lidec, LeCun, Balestriero, Buettner) — the video encoder carrying [SIGReg](../concepts/world-models/sigreg.md) to video pretraining at **5.6–20.8× less compute** than V-JEPA 2.
+
+- **[C-JEPA](c-jepa.md)** (ICML 2026, arXiv 2602.11389; co-first author with Le Lidec, after Nam) — object-centric JEPA with object-level masking, built on stable-worldmodel.
 
 Publishing the benchmark that most sharply limits your own model's claims is unusual, and it's the reason the brittleness finding reads as credible rather than adversarial.
 
@@ -32,3 +34,4 @@ Publishing the benchmark that most sharply limits your own model's claims is unu
 - [stable-worldmodel paper](../sources/stable-worldmodel-paper.md) — lead author.
 - [le-wm GitHub](../sources/lewm-github.md) — repo owner (`lucas-maes/le-wm`).
 - [Third World Modeling Workshop — Day 3](../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — LeVJEPA announced in the tutorial (*"one thing we did recently with Lucas"*).
+- [Causal-JEPA paper](../sources/causal-jepa-paper.md) — equal-contribution author.

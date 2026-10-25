@@ -55,7 +55,8 @@ Its value to the wiki is as a **discovery feed** for the JEPA/world-model line. 
 | [Preserving Unstable Modes Through Inverse Dynamics in JEPA World Models](preserving-unstable-modes-inverse-dynamics-paper.md) (10-06) | **Yes** (ingested 2026-10-24). Feed summary: exact action reconstruction makes the encoder injective on the finite-horizon reachable subspace, with convergence to the controllable unstable subspace. **A theory paper for the inverse-dynamics barrier in the [collapse synthesis](../syntheses/world-models/jepa-dynamics-collapse-fixes.md)** |
 | [H-JEPA (hierarchical)](h-jepa-hierarchical-world-models-paper.md) (10-05) | Yes |
 | [AD-E2E-JEPA](ad-e2e-jepa-autonomous-driving-paper.md) (09-28) | Yes |
-| LeVJEPA (08-27), LpWM (08-24), AdaJEPA (06-30), SkyJEPA (06-22), Causal-JEPA, Music-JEPA, HP-JEPA, Patch Policy | Yes (entity or source pages exist) |
+| LeVJEPA (08-27), LpWM (08-24), AdaJEPA (06-30), SkyJEPA (06-22), Music-JEPA, HP-JEPA, Patch Policy | Yes (entity or source pages exist) |
+| [Causal-JEPA](causal-jepa-paper.md) | **Yes** (ingested 2026-10-25). *Corrected:* this row first listed it as already covered on 2026-10-24; it was not. |
 | [Interpreting Physics in Video World Models](interpreting-physics-video-world-models-paper.md) (Garrido, Rabbat; 02-04) | **Yes** (ingested 2026-10-24). Interpretability of how V-JEPA 2 represents physical variables |
 | [MJEPA](mjepa-audio-visual-paper.md) audio-visual JEPA (Bardes, Rabbat; 06-23) | **Yes** (ingested 2026-10-24) |
 | *Purify Before You Align*, *The Lattice of Transition Laws* (Jiatao Gu; 10-14, 10-08) | No (generative modelling; lower priority) |

@@ -3,8 +3,8 @@ title: PushT
 type: entity
 subtype: benchmark
 created: 2026-05-07
-updated: 2026-05-10
-sources: 12
+updated: 2026-10-25
+sources: 13
 tags: [pusht, push-t, manipulation-benchmark, ibc, diffusion-policy, lightweight-sim]
 ---
 
@@ -68,6 +68,7 @@ This is exactly the bundle of properties that makes it a good **world-model benc
 - **[LeWorldModel](../sources/leworldmodel-paper.md)** — one of the four task datasets shipped with the `stable-worldmodel` package (`pusht`, `cube`, `tworooms`, `reacher`). Default fast eval bench.
 - **[DINO-WM](../sources/dino-wm-paper.md)** — listed among the six core environments (PushT, Wall, PointMaze, Rope, Granular, Reacher).
 - **[JEPA-WMs](../sources/jepa-wms-paper.md) (Terver et al., FAIR)** — included in the env list alongside Metaworld, RoboCasa, Wall, PointMaze, DROID.
+- **[C-JEPA](c-jepa.md) (Causal-JEPA, ICML 2026)** — object-centric JEPA planning on Push-T: 88.67% with 6 object tokens against DINO-WM's 91.33% with 196 patch tokens, in the DINO-WM-style goal-25-steps-ahead CEM protocol ([paper](../sources/causal-jepa-paper.md)).
 - Implicit / pre-2024 references in earlier IBC and Diffusion Policy lines (those papers themselves not yet ingested).
 
 ## Position vs cousins
@@ -92,6 +93,7 @@ This is exactly the bundle of properties that makes it a good **world-model benc
 - [LeWorldModel — train and run howto](../syntheses/world-models/leworldmodel-howto.md)
 - [DINO-WM Paper](../sources/dino-wm-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
+- [Causal-JEPA Paper](../sources/causal-jepa-paper.md) — object-centric world model; slots vs patches on Push-T.
 
 ## Open questions / TBD
 - Reward variants and observation modalities differ across packages; full taxonomy not yet documented. ([IBC Paper](../sources/ibc-paper.md) and [Diffusion Policy Paper](../sources/diffusion-policy-paper.md) now both filed.)

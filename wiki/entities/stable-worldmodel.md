@@ -3,8 +3,8 @@ title: stable-worldmodel
 type: entity
 subtype: software
 created: 2026-05-08
-updated: 2026-09-02
-sources: 7
+updated: 2026-10-25
+sources: 8
 tags: [stable-worldmodel, swm, lewm, world-model, infrastructure, env-zoo, benchmark, generalization, lance, mila, balestriero]
 ---
 
@@ -60,6 +60,7 @@ The subtler finding: **prediction MSE correlates poorly with planning success.**
 - [LeWorldModel GitHub README](../sources/lewm-github.md) — names the `stable-worldmodel` package as the env-zoo + training API.
 - [onchain-ai-garage — LeWM reproduction log](../sources/onchain-ai-garage-lewm-reproduction.md) — the `stable-worldmodel` repo install as the field-reported friction point.
 - [LeWorldModel — train and run howto](../syntheses/world-models/leworldmodel-howto.md)
+- [Causal-JEPA paper](../sources/causal-jepa-paper.md) — [C-JEPA](c-jepa.md) is built on stable-worldmodel and stable-pretraining.
 
 ## Open questions / TBD
 - Roadmap for heavier-sim integration (Isaac Lab / MuJoCo Playground / RoboCasa) — not stated in the README.

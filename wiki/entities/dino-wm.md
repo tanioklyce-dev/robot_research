@@ -3,8 +3,8 @@ title: DINO-WM
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-10-24
-sources: 40
+updated: 2026-10-25
+sources: 41
 tags: [dino-wm, dinov2, world-model, jepa-adjacent, lecun, pinto, nyu, meta-fair]
 ---
 
@@ -99,3 +99,4 @@ DINO-WM builds its world model on a **frozen image-SSL encoder**. Under a shared
 - [LeHami](../sources/lehami-symplectic-latent-dynamics-paper.md) — DINO-LeHami beats DINO-WM on a frozen DINOv2 encoder (pendulum).
 - [Toso et al.](../sources/preserving-unstable-modes-inverse-dynamics-paper.md) — DINO-WM 80% CEM / 80% LQR on PointMaze; frozen **DINOv2** never yields a stabilising CartPole LQR, while iBOT + an EP-IDM projector does.
 - [LeCun — Brown Lemley Lecture](../sources/lecun-brown-lemley-lecture-2026.md) — DINO-WM and DINO-World on the robot-planning slides.
+- [Causal-JEPA](../sources/causal-jepa-paper.md) — Push-T baseline: DINO-WM 91.33% on 196×384 patch tokens against [C-JEPA](c-jepa.md)'s 88.67% on 6×128 object tokens (8.6× faster CEM). Replacing patches with slots under DINO-WM's own autoregressive predictor drops it to 60.67%.

@@ -6313,3 +6313,20 @@ Three clusters: **contact-rich safety** ([survey](sources/safe-learning-contact-
   - The single largest gain (+30.5 pp) was a prompt-only revision.
   - Rounds are not matched compute, and cost is unreported.
 - Updated: [code as policy](concepts/agents/code-as-policy.md) (new section: regression-gated library repair; the persistent system beats the model), [agent skills](concepts/agents/agent-skills.md) (a skill's return value is part of its contract), [LLM-agent architecture](concepts/agents/llm-agent-architecture.md), [ASPIRE](entities/aspire.md), [CaP-X](entities/cap-x.md), [YAM](entities/yam.md), [Voyager](entities/voyager.md).
+
+## [2026-10-25] ingest | Causal-JEPA (2602.11389); Patch Policy (2607.18236) skipped as duplicate
+- **Patch Policy:** already ingested on 2026-08-26 as [Patch Policy](sources/patch-policy-paper.md). The re-downloaded PDF's sha256 matches the sealed one, so there is no revision. Nothing changed.
+- Created [Causal-JEPA paper](sources/causal-jepa-paper.md) and entity [C-JEPA](entities/c-jepa.md). Raw: `raw/2602.11389v2.pdf` (v2, 2026-05-28; v1 2026-02-11).
+- Key numbers:
+  - Push-T 88.67% on 6 × 128 object tokens against DINO-WM 91.33% on 196 × 384, with 8.6× faster CEM.
+  - The ablation: slots 60.67 → JEPA-style predictor 76.00 → object masking 88.67.
+  - CLEVRER counterfactual QA +21.1 pp.
+- **Flagged:**
+  - The slot encoder was trained on a randomised Push-T variant.
+  - DINO-WM baselines got 10 epochs to C-JEPA's 30.
+  - ~150 episodes per cell with no spread, so the 2.7 pp gap is about 4 episodes.
+  - On CLEVRER, token and tube masking match object masking, so the entity-level claim rests on Push-T. There, tube masking collapses to 5.33%.
+  - With SAVi, heavy masking falls below no masking.
+  - The paper's Table A5 is captioned "CLEVRER" but is evidently Push-T.
+- Updated: [JEPA](concepts/world-models/jepa.md) (state-representation bullet, key references), [DINO-WM](entities/dino-wm.md), [PushT](entities/pusht.md), [WorldDP](entities/worlddp.md) (two answers to slot correspondence), [stable-worldmodel](entities/stable-worldmodel.md), [Lucas Maes](entities/lucas-maes.md), [Randall Balestriero](entities/randall-balestriero.md), [Yann LeCun](entities/yann-lecun.md).
+- **Correction:** the [AMI Labs Intelligence Hub](sources/ami-labs-intelligence-hub-research.md) coverage table (written 2026-10-24) listed Causal-JEPA as already in the wiki. It was not. The row is fixed and the correction is noted in place.
