@@ -1,0 +1,252 @@
+Source: https://ami.frenchtechjournal.com/research (+ /team, /docs)
+Publisher: The French Tech Journal ('AMI Labs Intelligence Hub') — third-party tracker, not AMI Labs
+Retrieved: 2026-10-24 (curl; visible text extracted, scripts/nav stripped)
+
+===== /research
+
+Research — AMI Labs Intelligence Hub
+AMI Labs [/]
+News [/news]Research [/research]Explainers [/explainers]Timeline [/timeline]Investors [/investors]Team [/team]Activity [/activity]Docs [/docs]
+Powered by The French Tech Journal [https://frenchtechjournal.com]
+Research
+The team's latest papers — and what they mean.
+Highlighted research
+Highlighted
+Patch Policy: Efficient Embodied Control via Dense Visual Representations
+Yann LeCun · arXiv * Meta-FAIR * Courant Institute * AMI Labs · Aug 5, 2026
+Patch Policy provides evidence that high-performance embodied intelligence may emerge from modular systems that combine powerful pretrained representations with small, specialized control policies.Read the highlight → [/research/highlights/patch-policy-efficient-embodied-control-via-dense-visual-representations]Highlighted
+Interpreting Physics in Video World Models
+Quentin Garrido, Michael Rabbat · arXiv · Meta (FAIR) · Feb 4, 2026
+One of the first interpretability analyses of how video encoders (V-JEPA 2) represent physical variables.Read the highlight → [/research/highlights/interpreting-physics-in-video-world-models]
+Purify Before You Align: Improving Representation Alignment for Diffusion Models [https://www.semanticscholar.org/paper/48cb3f3103251bf435a5664b848c182c4d1a980f]
+Jiatao Gu [/team/jiatao-gu] · Oct 14, 2026
+Local appearance purification (LAP) is introduced, which improves generation quality and makes encoders such as MAE more effective alignment targets by removing locally predictable content and aligning to the residual.
+LeHami: Symplectic Latent Dynamics for World Models [https://www.semanticscholar.org/paper/afccda846d7dbe8f1ba666043ef30586ace10557]
+Yann LeCun [/team/yann-lecun] · Oct 11, 2026
+Symplectic Hamiltonian JEPA (LeHami), which replaces the standard predictor with an action-conditioned Hamiltonian flow over a structured latent state integrated using an exactly symplectic leapfrog step, shows how geometric structure can provide inference-time guarantees that are complementary to representation regularization in latent world models.
+The Lattice of Transition Laws [https://www.semanticscholar.org/paper/8451a69b7ff0c82cbc575bc86ce46f8af29d9fc6]
+Jiatao Gu [/team/jiatao-gu] · Oct 8, 2026
+This work provides a design principle for decoding for future AR models, diffusion models, and anything in between as paths on one corruption lattice, and defines the cost of a schedule as the dependence its parallel steps discard.
+Beyond Benchmarks: A Case Study of LLM-Generated Verus Specification Failures on Asterinas Vostd [https://doi.org/10.1145/3832783.3834504]
+Xinyi Wan [/team/xinyi-wan] · Proceedings of the 41st IEEE/ACM International Conference on Automated Software Engineering · Oct 7, 2026
+It is shown that LLM-generated specifications fail not merely because industrial code is harder, but because failures are structured, stage-dependent, and often repaired in the wrong direction, and future evaluation and tooling should move beyond final pass/fail outcomes and account for where specifications break.
+Preserving Unstable Modes Through Inverse Dynamics in JEPA World Models [https://www.semanticscholar.org/paper/8b39cf2adfbecf073108ad70a67b45c0fd6bef67]
+Yann LeCun [/team/yann-lecun] · Oct 6, 2026
+It is proved that exact action reconstruction makes the encoder injective on the finite-horizon reachable subspace, so the encoder cannot discard any state direction reachable by an action sequence within $H$ steps, and it is shown that, as $H$ grows, the dominant eigenspace of the finite-horizon controllability Gramian converges to the controllable unstable subspace.
+H-JEPA: End-to-End Learning of Hierarchical World Models for Visual Planning [https://www.semanticscholar.org/paper/1b793cc81165f84d9b3fdd10b43451761b12170f]
+Basile Terver [/team/basile-terver], Yann LeCun [/team/yann-lecun] · Oct 5, 2026
+H-JEPA is introduced, an end-to-end recipe for training a hierarchy of action-conditioned JEPAs in which each level predicts farther ahead in its own learned latent space in which each level's predictions become subgoals for the planner below it.
+SheetSage2: Coherent Lead-Sheet Transcription with Synthetic Supervision [https://www.semanticscholar.org/paper/dd2746b870572a22c58e66b9c34606ee09c4d318]
+Yann LeCun [/team/yann-lecun] · Oct 4, 2026
+SheetSage2, a unified music transcription framework that combines synthetic data, task-specific structured decoding, and autoregressive distillation, is presented, substantially improving over SheetSage1 and surpassing task-specific models on several benchmarks.
+Learning Functional Subspaces for Neural Network Compression [https://www.semanticscholar.org/paper/1db373b4b04de2a05cd8c1d942bd582e8ff22536]
+Yann LeCun [/team/yann-lecun] · Sep 30, 2026
+This work introduces Learnable Subspace Projections (LSP), which instead learns the subspaces to discard end-to-end in each weight matrix, and outperforms baselines, and its advantage widens as compression increases.
+Visualizing Distribution Coverage in Generative Diffusion Models [https://www.semanticscholar.org/paper/a62cfdeb7698a1294c4f8a11683634b2bb6d6801]
+Chen Wei [/team/chen-wei] · Sep 30, 2026
+Across both image and video generation, the choice of training objective fundamentally determines whether a few-step model inherits its teacher's distribution coverage or trades it away for single-draw quality, and it is shown that this tradeoff extends to few-step causal video generation.
+PDE-OBS: Controlled Evaluation Across Observation Patterns [https://www.semanticscholar.org/paper/cede64a707325324571bf783bbb20e45002c1bcb]
+Yann LeCun [/team/yann-lecun] · Sep 29, 2026
+Mixed-pattern training on five completed pairs reduces large single-pattern transfer errors, although destination-trained references usually remain more accurate, and the benchmark and findings support systematic evaluation of observation-pattern sensitivity and provide a reusable workflow for developing methods under changing measurement conditions.
+SCOPE: Observation-Conditioned Full-Target Prediction for Sparse PDE Inference [https://www.semanticscholar.org/paper/ea3e758eab2563e271e030baefaa82286f4f4823]
+Yann LeCun [/team/yann-lecun] · Sep 29, 2026
+SCOPE (Sparse-Context Observability-aware Predictive Embeddings) is proposed to recover complete PDE fields from sparse observations by coupling full-field latent prediction with physical reconstruction, and outperforms mask-aware neural operators on all ten forward and inverse tasks.
+AD-E2E-JEPA: A Joint-Embedding Predictive Architecture For End-to-End Autonomous Driving [https://www.semanticscholar.org/paper/1cb318e4eee78c97d5ba10401b47f2d1ebc361ee]
+Yann LeCun [/team/yann-lecun] · Sep 28, 2026
+This paper systematically evaluates existing action-conditioned joint-embedding predictive architecture (JEPA) world models, including LeWM, DINO-WM, and JEPA-WM for end-to-end autonomous driving (E2EAD), and proposes a SIGReg-regularized learnable projector applied to projected patch embeddings, which introduces a SIGReg-regularized learnable projector applied to projected patch embeddings.
+Representation by Design in Generation: Cross-View Class-Token Alignment in Diffusion Transformers [https://www.semanticscholar.org/paper/59a8c68415fffc8cf2413bd4bbcfe55965bd4754]
+Chen Wei [/team/chen-wei] · Sep 28, 2026
+The results show that representation need not remain a by-product of generation or merely a tool for improving it: it can be directly optimized as a first-class capability of diffusion pretraining alongside generation.
+Relative Generalization Invariance of LLM Pretraining [https://www.semanticscholar.org/paper/bf754770b2b52431faf2967aa9bfd6d51d349f8f]
+Chao Du [/team/chao-du] · Sep 26, 2026
+This work introduces Relative Generalization Invariance (RGI), the invariance of the validation-loss difference between any two tokens across models, and shows that RGI approximately holds across a wide range of optimizers and moderate architectural variations, suggesting that these choices induce an approximately uniform shift in token-wise losses.
+FuseReg: Regularizing Layer Fusion Mitigates the Reconstruction-Generation Gap in Representation Autoencoders [https://www.semanticscholar.org/paper/2a545b668a1028328af0a546f67e4630542f75b5]
+Chen Wei [/team/chen-wei] · Sep 25, 2026
+This work introduces FuseReg, which replaces heuristic feature selection with training over random subsets of encoder layers, and theoretically analyze the underlying mechanism: subset sampling preserves the full-layer latent mean in expectation while explicitly penalizing sensitivity to cross-layer disagreement.
+Game Arena: Strategic LLM Evaluation in Competitive Environments [https://www.semanticscholar.org/paper/70d193672e658d3210942c731168b435786a521a]
+Yuexiang Zhai [/team/yuexiang-zhai] · Sep 25, 2026
+This technical report details the infrastructure behind Game Arena and describes the three pilot game environments: Chess, Poker, and Werewolf, enabling a systematic study of models's strategic planning, adaptation, and robustness under uncertainty.
+Learning to Discover Interesting Mathematics [https://www.semanticscholar.org/paper/fe07fb55b897fa343cf1ab6f4bdea46a1b047aaf]
+Julia Kempe [/team/julia-kempe] · Sep 23, 2026
+Beyond Repeated Sampling: Learning Search Policies for LLM Reasoning [https://www.semanticscholar.org/paper/4fa80977d52f72bd8e1bf88ff93398e96f3029d1]
+Julia Kempe [/team/julia-kempe] · Sep 22, 2026
+A small concept generator is optimized with reinforcement learning so that its concepts maximize the downstream success of a larger, frozen answer generator, and can thus be trained into an effective, reusable search policy for a much larger one.
+Uni-LaDiR: Latent Diffusion Unifies Multimodal Reasoning [https://www.semanticscholar.org/paper/34dac978ca1e5a5895734fdb083e0ad55bc27564]
+Jiatao Gu [/team/jiatao-gu] · Sep 17, 2026
+Unified Latent Diffusion Reasoner improves multimodal reasoning by weaving it into a single thread, where the model predicts successive thoughts in a common representation space.
+DyAb: sequence-based antibody design and property prediction in a low-data regime [https://doi.org/10.1080/19420862.2026.2717460]
+Pedro O. Pinheiro [/team/pedro-o-pinheiro] · mAbs · Aug 28, 2026
+DyAb is a pair-wise representation built on top of a pre-trained protein language model that achieves a Spearman rank correlation of up to 0.85 on binding affinity prediction across monoclonal antibodies targeting three different antigens.
+LeVJEPA: Efficient&Scalable Video Pretraining without the Heuristics [https://www.semanticscholar.org/paper/437cb869d42d536ad1b2f35399c99ab79ec65d5a]
+Lucas Maes [/team/lucas-maes], Quentin Le Lidec [/team/quentin-le-lidec], Yann LeCun [/team/yann-lecun] · Aug 27, 2026
+LeVJEPA is introduced, the first video encoder trained under LeJEPA's collapse-free objective, which indicates that video becomes a viable and in several respects preferable substrate for general-purpose visual pretraining.
+LpWM: A Case for Sparse Representations in World Models [https://www.semanticscholar.org/paper/302343f7676e209391f3d5e3409a1b157c9df45a]
+Quentin Le Lidec [/team/quentin-le-lidec], Lucas Maes [/team/lucas-maes], Yann LeCun [/team/yann-lecun] · Aug 24, 2026
+This work introduces LpWorldModel, a JEPA model regularized with Rectified Distribution Matching Regularization to match encoder features to a Rectified Generalized Gaussian distribution, yielding non-negative sparse codes, and finds that the learned sparse representations are mode-factored.
+2 citations
+Advancing Open and Reproducible Relational Learning: RelArena-$\alpha$, TabPFN-Rel and RPI [https://www.semanticscholar.org/paper/f587565885eaa432dda4a0bfd55fa20019b56dee]
+Yann LeCun [/team/yann-lecun] · Aug 17, 2026
+This first release of Prior Labs in relational learning opens-source three pieces of software that expect to accelerate research in the field towards meaningful real-world impact and releases an initial version of RPI, an open-source, model-agnostic interface that enables early adopters to easily define problems on new databases and apply any model implemented in RelArena, including TabPFN-Rel, to these problems.
+4 citations
+StarVerus: LLM-Powered Multi-Agent Collaboration for Industrial Rust Code Verification Automation [https://doi.org/10.1145/3770855.3818485]
+Xinyi Wan [/team/xinyi-wan] · Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2 · Aug 8, 2026
+A multi-agent collaborative framework, StarVerus, to automate the verification of industrial Rust code and introduces a planner-repairer-actor-rewriter multi-agent paradigm to further enhance the proof repair capabilities.
+Towards Physics of Multimodal Pretraining: Knowledge Flow, Modality Synergy, Early Unification, and Recipes [https://www.semanticscholar.org/paper/211a73f11a8722d61f7cea91b2c52fd4f9aa2ff6]
+David Fan [/team/david-fan] · Aug 5, 2026
+This study provides empirical clarity through a systematic exploration of multimodal pretraining and derives efficient pretraining recipes that achieve strong generative performance using only 5% of the compute budget.
+2 citations
+Self-supervised DXA representations encode multi-system disease risk, biological aging and heritability [https://www.semanticscholar.org/paper/1006651b762e229b32cc001bb287c3f607749447]
+Yann LeCun [/team/yann-lecun] · Aug 3, 2026
+It is shown that self-supervised learning (SSL) can convert raw DXA images into representations of systemic health, and prognostic information in DXA images that conventional readouts discard is revealed, learnable with relatively little data and modest compute.
+HP-JEPA: Hierarchical Partitioning for Multi-Resolution Graph Joint-Embedding Predictive Learning [https://www.semanticscholar.org/paper/f4578e2fa551e6b991125e5f8770212337476fee]
+Yann LeCun [/team/yann-lecun] · Aug 1, 2026
+Horsepower-JEPA organizes each graph into an ordered bank of coarse-to-fine partition resolutions and performs context-target latent prediction separately at each resolution using an online encoder, an exponential-moving-average target encoder, and a latent predictor.
+Unpacking Open Source Artificial Intelligence: Toward a Framework for Openness in Foundation Models [https://doi.org/10.1145/3778264]
+Yann LeCun [/team/yann-lecun] · Communications of the ACM · Jul 29, 2026
+A framework for analyzing openness across the AI stack is proposed, reviewing prior approaches and highlighting the diverse motivations for pursuing openness, showing how these map onto different forms of openness at both the model and system levels.
+Music-JEPA: Learning a World Model of Sound from Action [https://doi.org/10.48550/arXiv.2607.22000]
+Yann LeCun [/team/yann-lecun] · arXiv.org · Jul 24, 2026
+This work proposes to learn a world model of piano sound using JEPA by framing music as an action-conditioned system, and shows that the learned model captures the relationships between musical actions and their resulting sound.
+Separating Representation from Reconstruction Enables Scalable Text Encoders [https://doi.org/10.48550/arXiv.2607.04011]
+Megi Dervishi [/team/megi-dervishi], Yann LeCun [/team/yann-lecun] · arXiv.org · Jul 4, 2026
+This work proposes CrossBERT, a two-part architecture that separates the learning of high-quality encoded representations from the rigid grounding of token reconstruction, and demonstrates monotonic scaling and superior performance on MTEB(eng, v2) and frozen GLUE benchmarks.
+Anchored Self-Play for Code Repair [https://doi.org/10.48550/arXiv.2607.03523]
+Tengyu Ma [/team/tengyu-ma] · arXiv.org · Jul 3, 2026
+This work proposes Anchored Self-Play (ASP), which anchors self-play with a small reference set by adding a code-embedding similarity reward for generation and mixing reference bugs into fixer training, and achieves the best fix rates across bug sources.
+1 citations
+The Tale of the Broken Clock: How LLMs Evaluate Requirement Quality and Where They Fail [https://doi.org/10.1002/iis2.70245]
+Adithya Iyer [/team/adithya-iyer] · Jul 1, 2026
+Off‐the‐shelf LLMs are not yet suitable for autonomous requirement quality evaluation; yet could be more suitable to assist human experts or serve specialized roles in agentic AI frameworks.
+Causal-JEPA: Learning World Models through Object-Level Latent Interventions [https://doi.org/10.48550/arXiv.2602.11389]
+Quentin Le Lidec [/team/quentin-le-lidec], Lucas Maes [/team/lucas-maes], Yann LeCun [/team/yann-lecun] · arXiv.org · 2026
+C-JEPA is a simple and flexible object-centric world model that extends masked joint embedding prediction from image patches to object-centric representations and induces latent interventions with counterfactual-like effects and prevents shortcut solutions, making interaction reasoning essential.
+25 citations
+Learning Abstractions: A Conversation with Yann LeCun [https://doi.org/10.1162/daed.a.972]
+Yann LeCun [/team/yann-lecun] · Daedalus · 2026
+Video-MMMU: Evaluating Knowledge Acquisition from Multidisciplinary Professional Videos [https://doi.org/10.18653/v1/2026.acl-long.1281]
+Brian Li [/team/brian-li] · Annual Meeting of the Association for Computational Linguistics · 2026
+9 citations
+An investigation of ultraviolet-induced degradation: Kinetics and interface evolution in TOPCon solar cells [https://doi.org/10.1016/j.solmat.2026.114373]
+Xuefeng Hu [/team/xuefeng-hu] · Solar Energy Materials and Solar Cells · 2026
+AdaJEPA: An Adaptive Latent World Model [https://doi.org/10.48550/arXiv.2606.32026]
+Yann LeCun [/team/yann-lecun] · arXiv.org · Jun 30, 2026
+AdaJEPA is an adaptive latent world model that performs test-time adaptation within the closed loop of model predictive control (MPC), and substantially improves planning success with as few as one gradient step per MPC replanning step.
+5 citations
+MJEPA: A Simple and Scalable Joint-Embedding Predictive Architecture for Audio-Visual Learning [https://doi.org/10.48550/arXiv.2606.25225]
+Adrien Bardes [/team/adrien-bardes], Michael Rabbat [/team/michael-rabbat] · arXiv.org · Jun 23, 2026
+This work introduces MJEPA, a joint-embedding predictive architecture for audio-visual learning that uses a single, unified encoder for both modalities, and shows that cross-modal prediction is critical: without it, a shared encoder degrades below unimodal baselines; with it, each modality's representation benefits from the other.
+SkyJEPA: Learning Long-Horizon World Models for Zero-Shot Sim-to-Real Control of Quadrotors [https://doi.org/10.48550/arXiv.2606.23444]
+Yann LeCun [/team/yann-lecun] · arXiv.org · Jun 22, 2026
+The JEPA-style model for real-time quadrotor control is introduced, which combines a latent dynamics model with a novel physics-inspired prober that maps frozen latents to interpretable state, enabling physically grounded long-horizon prediction.
+7 citations
+Learning through Internalization [https://doi.org/10.48550/arXiv.2606.20937]
+Julia Kempe [/team/julia-kempe] · arXiv.org · Jun 18, 2026
+This work provides the first provable analysis of successful internalization: for the task of learning parities, it is shown that a simplified one-layer transformer provably first learns the target with explicit CoT supervision and then internalizes the autoregressive generation as CoT tokens are progressively removed, learning to directly compute the parity.
+
+===== /team
+
+Team — AMI Labs Intelligence Hub
+AMI Labs
+News
+Research
+Explainers
+Timeline
+Investors
+Team
+Activity
+Docs
+Powered by
+The French Tech Journal
+Team
+The co-founders of AMI Labs, based across Paris, New York, and Montreal.
+Co-founders
+6
+ researchers & entrepreneurs
+AL
+Alexandre LeBrun
+CEO & Co-Founder
+Paris
+Serial AI entrepreneur. Founded VirtuOz (sold to Nuance/Microsoft 2012), Wit.ai (sold to Meta 2015), Nabla (85K physicians). 24+ years in AI.
+LinkedIn
+X
+Profile
+LS
+Laurent Solly
+COO & Co-Founder
+Paris
+12 years at Meta (VP Europe). Built FAIR Paris into largest AI lab outside US. Before: CEO of TF1 Publicité; Chief of Staff to Nicolas Sarkozy. ENA & Sciences Po graduate.
+LinkedIn
+X
+Profile
+MR
+Michael Rabbat
+VP of World Models & Co-Founder
+Montreal
+Expert in world models & self-supervised learning. Former Meta FAIR Montreal Director. Professor at McGill (11+ years). PhD from U. Wisconsin-Madison.
+LinkedIn
+Scholar
+Profile
+PF
+Pascale Fung
+Chief Research & Innovation Officer & Co-Founder
+Paris
+Pioneer in human-centered AI. Former Meta FAIR Senior Director. Chair Professor at HKUST. PhD from Columbia. Fellow of IEEE, ISCA, ACL, AAAI.
+LinkedIn
+Scholar
+X
+Website
+Profile
+SX
+Saining Xie
+Chief Science Officer & Co-Founder
+New York
+Visual representation learning specialist. Former Google DeepMind & Meta FAIR. Assistant Professor at NYU Courant. PhD from UC San Diego.
+LinkedIn
+Scholar
+X
+GitHub
+Website
+Profile
+YL
+Yann LeCun
+Executive Chairman & Co-Founder
+Paris/New York
+Turing Award laureate (2018). Former Meta VP & Chief AI Scientist (12+ years). Architect of JEPA — the foundation of AMI's approach. Professor at NYU. Dual French-American.
+LinkedIn
+Scholar
+X
+Website
+Profile
+
+
+===== /docs
+
+Documents — AMI Labs Intelligence Hub
+AMI Labs
+News
+Research
+Explainers
+Timeline
+Investors
+Team
+Activity
+Docs
+Powered by
+The French Tech Journal
+Documents
+Official AMI Labs public documents — presentations, research, and filings.
+All
+Presentations
+Research
+Filings
+1
+ document
+📄
+Yann LeCun — Brown University Lemley Lecture
+Apr 2026 · Brown University
+ · 
+April 2026
+Slide deck from Yann LeCun's 2026 Lemley Lecture at Brown University. Covers JEPA, world models, and AMI's approach to building intelligent systems that understand the real world.
+View
+Download PDF
+

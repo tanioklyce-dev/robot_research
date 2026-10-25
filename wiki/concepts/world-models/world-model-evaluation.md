@@ -2,8 +2,8 @@
 title: World-model evaluation
 type: concept
 created: 2026-08-07
-updated: 2026-10-22
-sources: 29
+updated: 2026-10-24
+sources: 30
 tags: [world-model, evaluation, benchmark, physical-validity, policy, vbench, worldscore, physion-eval, mllm-critic]
 ---
 
@@ -218,6 +218,8 @@ The autumn-2026 collapse batch ([synthesis §5](../../syntheses/world-models/jep
 
 AD-E2E-JEPA adds a protocol caveat: using the *real future frame* as the goal makes driving "planning" close to an inverse-dynamics problem, so its scores are not comparable with driving policies.
 
+**A sixth diagnostic, on the predictor side (2026-10-24).** [LeHami](../../sources/lehami-symplectic-latent-dynamics-paper.md) measures **rollout contraction** directly as the normalised cumulative log|det J| of the one-step predictor over a K-step rollout. On a simple pendulum, LeWM's declines **linearly** with horizon, while an exactly symplectic predictor stays at 0. It is cheap, needs no probe or labels, and measures something none of the encoder-side diagnostics above do. The same paper argues that position-only probes test **half the state** of a mechanical system. A per-frame encoder can score well on angle and below the predict-the-mean floor on velocity.
+
 ## Related concepts
 
 - [Robot policy evaluation](../robotics/robot-policy-evaluation.md) — the statistical case, from inside robotics.
@@ -255,3 +257,4 @@ AD-E2E-JEPA adds a protocol caveat: using the *real future frame* as the goal ma
 - [Hamiltonian JEPA paper](../../sources/hamiltonian-jepa-control-state-paper.md)
 - [AD-E2E-JEPA paper](../../sources/ad-e2e-jepa-autonomous-driving-paper.md)
 - Synthesis: [What the latent throws away](../../syntheses/world-models/jepa-dynamics-collapse-fixes.md)
+- [LeHami](../../sources/lehami-symplectic-latent-dynamics-paper.md) — log-det rollout-volume diagnostic; velocity as the missing half of the state.

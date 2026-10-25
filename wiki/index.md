@@ -863,6 +863,17 @@ The nine-paper arc behind [code as policy](concepts/agents/code-as-policy.md), i
   - **The servo model is chaotic enough to diverge across CPU architectures in seconds**, so only the Space's x86_64 times count, and the build fails if a golden run doesn't reproduce. The board is rebuilt by re-racing, never by reading stored times.
   - The reference walker tracks **44%** of commanded velocity. The native training path is [mjlab](entities/mjlab.md). (captured 2026-10-24)
 
+### LeHami, and a tracker for the AMI line (ingested 2026-10-24)
+- [LeHami: Symplectic Latent Dynamics for World Models](sources/lehami-symplectic-latent-dynamics-paper.md) — Yalovetzky, [Balestriero](entities/randall-balestriero.md), [LeCun](entities/yann-lecun.md) (NYU / Brown / [AMI Labs](entities/ami-labs.md); 2610.15267). The JEPA predictor is replaced by an **action-conditioned Hamiltonian flow with an exactly symplectic leapfrog step**; *p* is a fixed Savitzky–Golay derivative of the encoder's *q*.
+  - **Guarantee:** phase-space volume is preserved for any parameters and actions, ruling out three rollout-collapse modes. Not to be confused with [Hamiltonian JEPA](entities/hamiltonian-jepa.md), which targets the encoder.
+  - **Results on 64×64 pendulums against [LeWM](entities/leworldmodel.md):** velocity error 2.8× lower early, latent log-volume constant where LeWM's falls linearly, ≤ ⅛ the training FLOPs.
+  - **But it loses planning:** position goals 0.48 vs 0.80, and on velocity to an untied 3-frame LeWM window.
+  - Both test systems are volume-preserving by design. Dissipation (friction, contact) is conceded out of reach. (2026-10-11)
+- [AMI Labs Intelligence Hub — Research](sources/ami-labs-intelligence-hub-research.md) — a **third-party** tracker by The French Tech Journal, not AMI.
+  - Lists six co-founders (adds Laurent Solly COO and Pascale Fung CRIO; Saining Xie as CSO, still unconfirmed by a primary).
+  - The paper feed is **author-matched**: it includes a solar-cell paper and LeCun's NYU medical and music co-authorships. Use it for discovery only.
+  - Surfaced *Preserving Unstable Modes Through Inverse Dynamics in JEPA World Models* (10-06), not yet ingested. (captured 2026-10-24)
+
 ### Code world models: the LLM writes the game, search plays it (ingested 2026-10-07)
 - [Code World Models for General Game Playing (Lehrach et al., Google DeepMind)](sources/code-world-models-general-game-playing.md): Gemini 2.5 Pro turns rules text plus **5 random trajectories** into an **OpenSpiel-API Python game**, refined by one unit test per observed transition (Thompson-sampled program tree), then plays with **MCTS / ISMCTS**. It adds LLM-written **value functions**, **"inference as code"** (hidden-history samplers that guarantee *support*, not weights) and a **closed-deck autoencoder** whose regularizer is the rules plus the API. All five perfect-information games are learned exactly in **2–17 calls**. **Gin rummy fails** (0.75 test accuracy at 500 calls). The headline "9 of 10 vs Gemini" is **mostly forfeits**: all 100 Backgammon wins and 92–97% of Generalized-chess wins are Gemini making illegal moves. A **Backgammon 0.08 / 0.92 loss to ground-truth MCTS** contradicts the text's "similarly good". Not Meta's same-named CWM LLM. (2025-10-06)
 
@@ -1353,6 +1364,7 @@ The nine-paper arc behind [code as policy](concepts/agents/code-as-policy.md), i
 - [DeepJEPA](entities/deepjepa.md) — LeWM-style JEPA with adaptive per-transition recurrent depth; compute-neutral, gains within noise; depth follows contact. (1 source)
 - [MotionJEPA](entities/motionjepa.md) — LeWM + DISReg (predict an embedding of the pixel difference): the first label-free barrier against slow-feature collapse; fixed camera only. (2 sources)
 - [Hamiltonian JEPA](entities/hamiltonian-jepa.md) — port-Hamiltonian predictor with an orthonormal action port + Bures-Wasserstein prior; OGB-Cube 91.9%. Calls itself "H-JEPA"; not hierarchical. (1 source)
+- [LeHami](entities/lehami.md) — Yalovetzky/Balestriero/LeCun's **exactly symplectic** Hamiltonian JEPA predictor. Rollout volume is preserved by construction; pendulum-only; beats LeWM on velocity and compute, loses on position planning. (1 source)
 - [AD-E2E-JEPA](entities/ad-e2e-jepa.md) — JEPA world model for end-to-end driving on frozen DINOv3; 67.3 EPDMS on NAVSIM v2, ~100× faster than DINO-WM / JEPA-WMs. (1 source)
 - [Dreamer / DreamerV3](entities/dreamer.md) — Hafner-line MBRL family with generative WM + actor-critic in imagination; LeWM baseline; lineage now fully sourced ([PlaNet](sources/planet-paper.md) → [DayDreamer](sources/daydreamer-paper.md) → V3); 2025–26 downstream: [S5WM](sources/s5wm-paper.md) (RSSM→SSM, 4× faster) + [EAWM](sources/eawm-paper.md) (event objective, ICLR-2026 SOTA). (14 sources)
 - [TD-MPC / TD-MPC2](entities/td-mpc.md) — Hansen-line decoder-free MBRL with MPC + TD-bootstrapped value; LeWM baseline; closest MBRL relative to JEPA; **the only model-based method natively in LeRobot**. Both papers now filed ([TD-MPC](sources/td-mpc-paper.md) 2022 + [TD-MPC2](sources/td-mpc2-paper.md) 2024). (9 sources)

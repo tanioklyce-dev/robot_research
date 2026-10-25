@@ -2,7 +2,7 @@
 title: "What the latent throws away — five fixes for dynamics collapse in JEPA world models (Sept–Oct 2026)"
 type: synthesis
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-24
 tags: [jepa, world-model, slow-feature-collapse, anti-collapse, inverse-dynamics, sigreg, motionjepa, avl-jepa, gawm, hamiltonian-jepa, predictive-closure, ad-e2e-jepa, leworldmodel, smwm, evaluation, benchmarks, synthesis]
 ---
 
@@ -125,6 +125,16 @@ All four method papers build on LeWM's codebase and benchmark suite. A **one-pro
 
 That tests three things together. Does the label-free barrier survive camera motion (§2)? Does IDM lose the object (§4)? Do the diagnostics agree (§5)? It belongs in the [backlog](../../backlog.md) next to the RankMe item.
 
+## 7. Adjacent: the predictor can collapse too (LeHami, 2026-10-11)
+
+Everything above concerns what the **encoder** keeps. [LeHami](../../sources/lehami-symplectic-latent-dynamics-paper.md) (Yalovetzky, Balestriero, LeCun) addresses the other component: an autoregressive predictor that **contracts the latent cloud a little at every step**. Its fix is architectural, not a loss term: an action-conditioned Hamiltonian flow with an exactly symplectic leapfrog step. Phase-space volume is then preserved for any parameters and any action sequence.
+
+- **How it differs from Hamiltonian JEPA.** Both are "Hamiltonian JEPAs", and they are complements, not rivals. [Hamiltonian JEPA](../../entities/hamiltonian-jepa.md)'s port gives the *encoder* an action-grounded floor (a §1 barrier), with damping and a non-symplectic Euler step. LeHami gives the *predictor* a volume guarantee and says nothing about which features the encoder keeps. A background-only encoder rolls out perfectly symplectically.
+- **The diagnostic it adds** (cumulative log|det J|) is the first in this batch to look at the rollout rather than the encoder (§5). LeWM's declines linearly on a pendulum.
+- **Where it stops.** It was tested only on two **volume-preserving** pendulums. The authors concede a symplectic latent cannot represent **dissipation** (friction, contact), which is the manipulation regime. It **loses** LeWM's goal-reaching on position (0.48 vs 0.80), and on velocity to an untied 3-frame LeWM window (0.53 vs 0.80). It wins on compute and training efficiency.
+- **For the §6 shootout:** add the log-det diagnostic as a fourth measure. It costs nothing, and would show whether the encoder barriers also change rollout contraction.
+- **Theory to pair with §1.** A paper surfaced by a third-party feed, *Preserving Unstable Modes Through Inverse Dynamics in JEPA World Models* (LeCun et al., 2026-10-06; [via](../../sources/ami-labs-intelligence-hub-research.md)), reportedly proves that exact action reconstruction makes the encoder injective on the finite-horizon reachable subspace. That would be a formal account of the inverse-dynamics barrier. **Not yet ingested**; see the backlog.
+
 ## Evidence quality
 
 | Paper | Strongest evidence | Weakest point |
@@ -134,6 +144,7 @@ That tests three things together. Does the label-free barrier survive camera mot
 | GAWM | ablation isolates SA vs IDM | 5-page workshop paper; baselines quoted, not re-run; privileged-state labels; easier TwoRoom protocol |
 | Hamiltonian JEPA | 3 seeds ± std; clean PIC derivation; paired test against the official LeWM checkpoint | rank and checkpoint epoch picked per task; p ≈ 0.053 on Push-T; SMWM missing from the comparison |
 | Predictive Closure | theorem + five controlled tests | 3-d latent on CIFAR collages; actions never tested |
+| LeHami (§7) | exact guarantee by construction; 3 seeds ± s.d.; full reproducibility release | 64×64 pendulums only, both volume-preserving by design; compute table one seed; loses position planning |
 | AD-E2E-JEPA | full 12k-scene NAVSIM run | one seed; future-frame goal makes it close to an inverse problem; non-standard LeWM |
 
 ## What this changes in the wiki
@@ -154,4 +165,5 @@ That tests three things together. Does the label-free barrier survive camera mot
 ## Sources used in this synthesis
 
 - [MotionJEPA](../../sources/motionjepa-temporal-feature-collapse-paper.md) · [AVL-JEPA](../../sources/avl-jepa-causal-dynamics-collapse-paper.md) · [Physically grounded JEPA WMs (GAWM)](../../sources/physically-grounded-jepa-world-models-paper.md) · [Hamiltonian JEPA](../../sources/hamiltonian-jepa-control-state-paper.md) · [Predictive Closure](../../sources/predictive-closure-jepa-feature-selection-paper.md) · [AD-E2E-JEPA](../../sources/ad-e2e-jepa-autonomous-driving-paper.md)
+- Adjacent (§7): [LeHami](../../sources/lehami-symplectic-latent-dynamics-paper.md) · discovery via [AMI Labs Intelligence Hub](../../sources/ami-labs-intelligence-hub-research.md)
 - Prior wiki material: [H-JEPA (hierarchical)](../../sources/h-jepa-hierarchical-world-models-paper.md) · [SMWM](../../sources/sensorimotor-world-models-paper.md) · [Sobal et al. 2022](../../sources/sobal2022-jepa-slow-features-paper.md) · [LeWorldModel](../../sources/leworldmodel-paper.md) · [PLDM](../../sources/pldm-paper.md)

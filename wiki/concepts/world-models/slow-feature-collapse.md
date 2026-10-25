@@ -2,8 +2,8 @@
 title: Slow-feature collapse
 type: concept
 created: 2026-10-13
-updated: 2026-10-22
-sources: 9
+updated: 2026-10-24
+sources: 10
 tags: [slow-feature-collapse, jepa, anti-collapse, sigreg, inverse-dynamics, pldm, droid, world-model, representation-learning, disreg, predictive-closure, motionjepa, hamiltonian-jepa]
 ---
 
@@ -32,6 +32,9 @@ Several autumn-2026 papers describe the same failure under other names: *tempora
 [Predictive Closure](../../sources/predictive-closure-jepa-feature-selection-paper.md) shows that with latent entropy fixed by the regulariser, the ideal encoder keeps the **set** of features whose current values best predict that set's own next values. A within-episode-constant background contributes nothing to the objective, so a background set that fills the latent is a global optimum: H-JEPA's Prop. 1 + Thm. 1 restated in information terms. The paper does not cite H-JEPA. It adds two things:
 - **"Slow" is not quite the criterion.** A fast or unpredictable feature survives if it helps predict *other* kept features (the traffic-light example). Slowness also depends on frame stride.
 - **Steering is indirect.** An auxiliary loss on feature C strengthens the features C predicts. That is the mechanism by which every barrier below works. *Wiki inference:* action-conditioning alone can only bring agent-affected features down to zero cost, a tie with the background at best, which fits H-JEPA's Table 12. An extra term is what breaks the tie.
+
+> [!note] Not to be confused with rollout contraction (2026-10-24)
+> [LeHami](../../entities/lehami.md) addresses a **different** collapse: the *predictor* shrinking the latent distribution step by step over an autoregressive rollout. An exactly symplectic predictor rules that out by construction. It does nothing about the *encoder* dropping the agent: a background-only encoder still yields a perfectly volume-preserving rollout. The two failures sit in different components, and their fixes compose rather than compete ([LeHami paper](../../sources/lehami-symplectic-latent-dynamics-paper.md)).
 
 ## Barriers, ranked
 
@@ -80,3 +83,4 @@ A theory now matches the 2022 observation, Predictive Closure generalises it, an
 - [Predictive Closure](../../sources/predictive-closure-jepa-feature-selection-paper.md)
 - [AD-E2E-JEPA](../../sources/ad-e2e-jepa-autonomous-driving-paper.md)
 - Synthesis: [What the latent throws away](../../syntheses/world-models/jepa-dynamics-collapse-fixes.md)
+- [LeHami](../../sources/lehami-symplectic-latent-dynamics-paper.md) — rollout-contraction counterpart; explicitly not an encoder barrier.

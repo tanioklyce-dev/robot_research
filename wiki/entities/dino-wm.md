@@ -3,8 +3,8 @@ title: DINO-WM
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-10-22
-sources: 37
+updated: 2026-10-24
+sources: 38
 tags: [dino-wm, dinov2, world-model, jepa-adjacent, lecun, pinto, nyu, meta-fair]
 ---
 
@@ -96,3 +96,4 @@ DINO-WM builds its world model on a **frozen image-SSL encoder**. Under a shared
 - [Closing the Train-Test Gap in World Models for Gradient-Based Planning](../sources/train-test-gap-world-models-paper.md) — base model and baseline; the GD-vs-CEM gap quantified.
 - [Temporal Straightening for Latent Planning](../sources/temporal-straightening-paper.md) — base model and baseline; its latent trajectories are the "highly curved" case.
 - [Scaling Language-Free Visual Representation Learning](../sources/webssl-paper.md) — **the Web-DINO primary.** Web-DINO is the DINO member of [Web-SSL](webssl.md), the family [Patch Policy](patch-policy.md) recommends as the best frozen *policy* backbone — so the contradiction above is one encoder measured for three different jobs.
+- [LeHami](../sources/lehami-symplectic-latent-dynamics-paper.md) — DINO-LeHami beats DINO-WM on a frozen DINOv2 encoder (pendulum).

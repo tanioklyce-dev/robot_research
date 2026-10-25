@@ -3,8 +3,8 @@ title: Yann LeCun
 type: entity
 subtype: person
 created: 2026-05-07
-updated: 2026-10-22
-sources: 66
+updated: 2026-10-24
+sources: 68
 tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs, logical-intelligence, ebm, diffusion-policy, object-centric, spectral-graph-theory]
 ---
 
@@ -116,6 +116,8 @@ The wiki's own reading, recorded on [loss-landscape geometry](../concepts/learni
 - [The Birth of SSL — A Supervised Theory](../sources/birth-of-ssl-supervised-theory-paper.md) — with Balestriero (2024 workshop note).
 - [H-JEPA paper (2026-10)](../sources/h-jepa-hierarchical-world-models-paper.md) — co-senior author; the 2022 H-JEPA proposal realized with distinct per-level latents (3–4 levels, goal-image-conditioned).
 - [AD-E2E-JEPA paper](../sources/ad-e2e-jepa-autonomous-driving-paper.md) — co-author; JEPA world models for end-to-end driving.
+- [LeHami](../sources/lehami-symplectic-latent-dynamics-paper.md) (2026-10-11) — symplectic Hamiltonian JEPA; LeCun listed under Courant **and AMI Labs**.
+- [AMI Labs Intelligence Hub — Research (French Tech Journal)](../sources/ami-labs-intelligence-hub-research.md) — third-party feed of his co-authored papers; author-matched, not affiliation-checked.
 
 ## Resolved / TBD
 - ~~Has anyone built a working **Hierarchical JEPA (H-JEPA)** at the multi-time-scale envisioned in the [2022 position paper](../sources/lecun2022-path-towards-ami.md)?~~ **Resolved (2026-05-31):** **[HWM — "Hierarchical Planning with Latent World Models"](../sources/hwm-paper.md)** (Zhang, Terver, …, LeCun, Ballas — arXiv 2604.03208, April 2026) is the concrete realization: a two-temporal-scale latent MPC wrapper (high-level macro-actions → subgoals → low-level primitive actions), model-agnostic across [DINO-WM](dino-wm.md), [PLDM](pldm.md), and [V-JEPA 2](v-jepa-2.md)-AC. Real-Franka pick-&-place **0%→70%** from a single goal image; Push-T **17%→61%** at the hardest horizon. (This is the paper the [Welch Labs Part 2 video](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md) referenced but couldn't name — and its "5→15 steps" was a simplification of the paper's d=25→75 task-horizon framing.) Note it's **two** levels and goal-image-conditioned; the N-level *emergent* hierarchy and language conditioning remain open.

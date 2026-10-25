@@ -10,6 +10,12 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-10-24] From the LeHami + AMI-tracker ingest
+- [ ] **Ingest *Preserving Unstable Modes Through Inverse Dynamics in JEPA World Models*** (LeCun et al., 2026-10-06; surfaced by the [AMI tracker](sources/ami-labs-intelligence-hub-research.md); find the arXiv ID). Reportedly proves exact action reconstruction makes the encoder injective on the finite-horizon reachable subspace. That is the formal account of the inverse-dynamics barrier in the [collapse synthesis](syntheses/world-models/jepa-dynamics-collapse-fixes.md) §1.
+- [ ] **Ingest LeCun's Brown Lemley Lecture deck (April 2026)**, linked from the tracker's /docs as an official AMI document. Fetch from the original host if one exists.
+- [ ] *Interpreting Physics in Video World Models* (Garrido, Rabbat, 2026-02) and *MJEPA* (Bardes, Rabbat, 2026-06): not in the wiki.
+- [ ] **Add the log-det rollout-volume diagnostic** ([LeHami](sources/lehami-symplectic-latent-dynamics-paper.md)) to the §6 one-protocol shootout in the collapse synthesis.
+
 ## [2026-10-24] From the NVIDIA Microduck agentic-sim ingest
 - [x] ~~**Ingest the companion HF tutorial**~~ — done 2026-10-24 ([source](sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md)). The contract is the same 61→14; depth is a rendered camera image. [*Microduck sim-to-real*](https://huggingface.co/blog/nvidia/microduck-isaac-lab-sim-to-real), which covers the deployment half of the [NVIDIA tutorial](sources/nvidia-microduck-ai-agents-sim-blog.md). Check whether it says how "head-camera depth" maps onto the real 8×8 ToF and camera, and what the obs/action contract is against Pollen's `obs[1,61] → actions[1,14]`.
 - [ ] **Pin down "Astra."** It appears as "ChatGPT Astra" in the [GTC Berlin release](sources/nvidia-isaac-platform-gtc-berlin-2026.md) and as plain "Astra" in the Microduck tutorial, never defined. Find a primary that says what it is and who makes it.

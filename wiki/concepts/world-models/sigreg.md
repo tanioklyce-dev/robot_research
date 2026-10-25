@@ -2,8 +2,8 @@
 title: SIGReg (Sketched Isotropic Gaussian Regularization)
 type: concept
 created: 2026-08-26
-updated: 2026-10-22
-sources: 32
+updated: 2026-10-24
+sources: 33
 tags: [sigreg, jepa, lejepa, anti-collapse, isotropic-gaussian, cramer-wold, epps-pulley, balestriero, lecun, latent-space, regularization]
 ---
 
@@ -178,6 +178,9 @@ The paper and this page both treat the embedding distribution as one static thin
 
 Given that open-loop degradation from 25 → 75 steps is the standing failure ([VISReg](#visreg--decomposing-the-regularizer-2026-09-01) above; [stable-worldmodel](../../sources/stable-worldmodel-paper.md)), the fact that the default mode is the one *not* constraining the predictor's outputs is at least worth an experiment.
 
+> [!note] A fifth data point: placement across a (q, p) split (2026-10-24)
+> [LeHami](../../sources/lehami-symplectic-latent-dynamics-paper.md) applies SIGReg to ground-truth embeddings only, never the rollout. It compares placing it on *q* and *p* separately, on *q* only, or on the concatenation (App. E.3, Table 8). It argues the regulariser and a symplectic predictor act in different places: SIGReg on the encoder distribution in expectation, symplecticity on every inference step. So neither makes the other redundant.
+
 ## Implementation notes
 
 - **`λ` is the single hyperparameter** — the SIGReg loss weight, default **0.1**.
@@ -220,3 +223,4 @@ Given that open-loop degradation from 25 → 75 steps is the standing failure ([
 - [Predictive Closure paper](../../sources/predictive-closure-jepa-feature-selection-paper.md)
 - [AVL-JEPA paper](../../sources/avl-jepa-causal-dynamics-collapse-paper.md)
 - Synthesis: [What the latent throws away](../../syntheses/world-models/jepa-dynamics-collapse-fixes.md)
+- [LeHami](../../sources/lehami-symplectic-latent-dynamics-paper.md) — SIGReg placement across a canonical (q, p) latent; complementary to a volume-preserving predictor.

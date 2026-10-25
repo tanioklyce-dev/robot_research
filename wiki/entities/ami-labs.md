@@ -3,8 +3,8 @@ title: AMI Labs
 type: entity
 subtype: organization
 created: 2026-05-09
-updated: 2026-10-13
-sources: 11
+updated: 2026-10-24
+sources: 13
 tags: [ami-labs, lecun, jepa, world-model, startup]
 ---
 
@@ -59,6 +59,11 @@ From the [exclusive launch interview](../sources/mit-tech-review-lecun-ami-labs-
 
 **The founder's own framing of the mission, the same week** ([AI House Davos](../sources/ai-house-davos-2026-lecun-embodied-ai.md), billed as *"Founder and Executive Chairman, Advanced Machine Intelligence"*): *"a new, very ambitious company with the idea that we're going to be able to solve that problem within a few years — systems that understand the physical world or any modality you throw at them, can build world models, use them to plan, build hierarchical world models."* And the scope note that makes the industrial-first plan above coherent: *"it's not just embodied AI… it's also disembodied physical AI — a manufacturing process, a turbojet engine — anything for which the data comes to you as a sequence of high-dimensional, continuous, noisy signals."*
 
+## Third-party tracker (2026-10-24)
+*The French Tech Journal* runs an "AMI Labs Intelligence Hub" ([research page](../sources/ami-labs-intelligence-hub-research.md)). It lists **six co-founders**: LeBrun (CEO), Laurent Solly (COO), Michael Rabbat (VP World Models), Pascale Fung (Chief Research & Innovation Officer), **Saining Xie (Chief Science Officer)** and LeCun (Executive Chairman). This contradicts nothing above, but it is uncited: Xie's role stays *reported*, since LeCun declined to confirm it in January. Its paper feed is **author-matched, not affiliation-checked** (it includes a solar-cell paper and LeCun's NYU medical and music co-authorships), so it is a discovery list, not evidence of AMI output.
+
+**Another AMI byline:** [LeHami](../sources/lehami-symplectic-latent-dynamics-paper.md) (2026-10-11) lists LeCun under Courant *and* AMI Labs.
+
 ## Related
 - [Yann LeCun](yann-lecun.md) — reported founder.
 - [WorldDP](worlddp.md) — the first paper carrying an AMI Labs affiliation on LeCun's byline.
@@ -74,3 +79,5 @@ From the [exclusive launch interview](../sources/mit-tech-review-lecun-ami-labs-
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../sources/hai-world-model-spatial-intelligence-brief.md) — AMI Labs named alongside [World Labs](world-labs.md) and Odyssey as the world-model startups facing the incumbents; the wiki's two founder-led world-model companies sit at opposite architectural poles (JEPA latent prediction vs. pixel rendering).
 - [Embodied AI — AI House Davos 2026](../sources/ai-house-davos-2026-lecun-embodied-ai.md) — the founder's own mission statement, and the *"disembodied physical AI"* scope note.
 - [H-JEPA paper (2026-10)](../sources/h-jepa-hierarchical-world-models-paper.md) — the first world-model-line paper in the wiki where **every author** lists Advanced Machine Intelligence; includes Michael Rabbat and Randall Balestriero.
+- [LeHami paper](../sources/lehami-symplectic-latent-dynamics-paper.md) — LeCun's AMI Labs affiliation line.
+- [AMI Labs Intelligence Hub — Research](../sources/ami-labs-intelligence-hub-research.md) — third-party co-founder roster (6) and author-matched paper feed.
