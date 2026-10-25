@@ -3,8 +3,8 @@ title: Voyager
 type: entity
 subtype: system
 created: 2026-08-03
-updated: 2026-08-03
-sources: 1
+updated: 2026-10-24
+sources: 2
 tags: [voyager, skill-library, lifelong-learning, minecraft, gpt-4, nvidia-gear, open-ended]
 ---
 
@@ -40,3 +40,4 @@ It is the **cheap-trial-domain precedent** for autonomous revision: the whole lo
 - [ASPIRE paper](../sources/aspire-paper.md) — the architecture it ports.
 - [CaP-X paper](../sources/cap-x-paper.md) — cited as motivation for CaP-Agent0's auto-synthesized skill library.
 - [Introducing Waddle](../sources/waddle-labs-introducing-waddle.md) — cited in Waddle's lineage survey.
+- [RPG paper](../sources/rpg-guided-self-improvement-paper.md) — Voyager-style no-gradient skill accumulation extended to regression-gated **repair** of a shared robot skill library.

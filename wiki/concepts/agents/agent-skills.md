@@ -2,8 +2,8 @@
 title: Agent skills (portable SKILL.md)
 type: concept
 created: 2026-07-16
-updated: 2026-09-27
-sources: 17
+updated: 2026-10-24
+sources: 18
 tags: [agent-skills, claude-code, skill-md, llm-agents, tooling, jetson, halos, frc, deployment]
 ---
 
@@ -43,6 +43,9 @@ Their finding is that Qwen 3.8 27B advertises a **260K** context window but *"be
 
 The same reasoning drove them to convert connectors from **MCP servers into compact CLI tools**, *"whose large tool definitions consume a substantial share of the context."* Read alongside [harness design for capacity-limited models](local-model-harness-design.md): skills are demand paging, and MCP's discoverability is a cost you pay in the working set.
 
+## Skills that repair themselves (2026-10-24)
+[RPG](../../sources/rpg-guided-self-improvement-paper.md) treats a robot skill library as **persistent, versioned code under a regression gate**. An agent proposes new skills and edits; each must load, pass interface checks and use only deploy-time observations, then improve mean success across 22 tasks without dropping any one by more than 20 pp. Over 15 rounds the library went from 15 to 38 entries, with 23 additions and **66 modifications**. Most gains came from making skills **verify their effects**: actual lift height, grasp retention, final placement. The robotics version of the portable-skill caution above is that a skill's *return value* is part of its contract, and it can lie.
+
 ## Related concepts
 
 - [LLM-agent architecture](llm-agent-architecture.md) — the agent runtime skills plug into (tools, MCP, memory)
@@ -58,3 +61,4 @@ The same reasoning drove them to convert connectors from **MCP servers into comp
 - [Team 4414 HighTide binder](../../sources/team-4414-hightide-2026-binder.md), [Team 254 AI-in-FRC](../../sources/team-254-ai-in-frc-presentation.md)
 - [CaP-X paper](../../sources/cap-x-paper.md) — a skill library **mined automatically** from successful rollouts (9 task-agnostic primitives, pooled across 12 models) rather than hand-authored.
 - [ASPIRE paper](../../sources/aspire-paper.md) — the strongest contrast with SKILL.md bundles: skills are induced from *diagnosed failures* (failure signature + when-to-apply + repair), the taxonomy emerges rather than being designed, and a coordinator audits admissions. Measured to compound: zero-shot success rises with library size.
+- [RPG](../../sources/rpg-guided-self-improvement-paper.md) — regression-gated self-repairing robot skill library.

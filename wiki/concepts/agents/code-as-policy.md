@@ -2,8 +2,8 @@
 title: Code as policy
 type: concept
 created: 2026-08-03
-updated: 2026-10-13
-sources: 17
+updated: 2026-10-24
+sources: 18
 tags: [code-as-policy, llm-agent, agentic-robotics, program-synthesis, skill-library, voyager, saycan, voxposer, inner-monologue, codeact, tool-use, waddle, cap-x, aspire, benchmark]
 ---
 
@@ -151,6 +151,25 @@ Code-as-policy and code-as-model fit together: an agent could write the model, v
 
 The cost column is still empty, and the only hardware result with numbers (SO-101 pick-and-place, 58.9 → 17.4 s over three self-improvement iterations) is n = 1.
 
+## Practice in sim, repair the library, then freeze (added 2026-10-24)
+
+[RPG](../../entities/rpg.md) ([paper](../../sources/rpg-guided-self-improvement-paper.md)) is the first entry in this lineage whose self-improvement is **regression-gated across tasks** and evaluated on **held-out seeds kept out of selection**:
+- **Edits:** a shared skill library and the runtime system prompt; model weights are never touched.
+- **Practice:** MuJoCo tasks reconstructed from an offline dataset, with human-checked evaluators.
+- **Diagnosis:** a Privileged Agent that sees simulator state runs alongside the deployable Runtime Agent, and a Video Analyzer compares the two.
+- **Gate:** a change merges only if mean success rises and no task drops more than 20 pp.
+
+Results:
+- **Simulation:** 28.6 → 95.0% on 22 tasks, against [ASPIRE](../../entities/aspire.md) 75.5% and [CaP-Agent0](../../entities/cap-x.md) ≤ 60.0% across four frontier models.
+- **Physical:** 30/30 on a bimanual [YAM](../../entities/yam.md), though the physical towel criterion is easier than the simulation one.
+
+Three findings sharpen this page's earlier sections:
+- **The persistent system beats the model.** CaP-Agent0 spans 45.5–60.0% across GPT-6 Astra Pro, Opus 5, Fable 5.1 and Gemini Flash. RPG on Gemini Flash reaches 95.0%. This is the [abstraction confound](#the-abstraction-confound--the-finding-that-reframes-the-lineage-above) again, resolved by *learning* the abstractions.
+- **The biggest jump was a prompt fix** (+30.5 pp): act on current estimates and track the observation budget, rather than re-querying perception.
+- **Many skill gains are bug fixes in shared code.** For example, a lift that returned its *commanded* height as its *achieved* height (12/13 calls failed before, 11/11 succeeded after). Verifying measured effects is the generalisable lesson.
+
+Cost is again unreported; the paper says only that API rate limits bind.
+
 ## Where this sits on the abstraction ladder
 
 Code-as-policy is **level 2 (programmatic control)** in the [control abstraction levels](../robotics/control-abstraction-levels.md) taxonomy — the level [Anthropic found](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) "substantially outperforms direct control" for essentially every model. CaP-X's contribution to that taxonomy is to show **level 2 is not one level**: its eight tiers subdivide "the model writes a controller" into rungs that span tens of points of success rate. *"Programmatic control works"* is underspecified until you say which primitives were on offer and how many turns the agent got.
@@ -214,3 +233,4 @@ What remains unmeasured is what it costs.
 - [Introducing Waddle](../../sources/waddle-labs-introducing-waddle.md) — deployed commercial system + the lineage survey this page was first built from.
 - [Previewing the Model Hardware Standard](../../sources/anthropic-model-hardware-standard-preview.md) — three instances of *explore online, compile to a deterministic script*, one of them in production on a quantum computer's laser system.
 - [Code World Models for General Game Playing](../../sources/code-world-models-general-game-playing.md): the inverse move (code as world model), and how much of LLM-as-policy's deficit is illegal moves.
+- [RPG](../../sources/rpg-guided-self-improvement-paper.md) — regression-gated library and prompt self-improvement; 95.0% on 22 sim tasks; 30/30 physical.

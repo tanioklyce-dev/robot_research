@@ -3,8 +3,8 @@ title: ASPIRE
 type: entity
 subtype: system
 created: 2026-08-03
-updated: 2026-08-03
-sources: 3
+updated: 2026-10-24
+sources: 4
 tags: [aspire, code-as-policy, skill-library, continual-learning, nvidia-gear, voyager, evolutionary-search, cross-embodiment, claude-opus]
 ---
 
@@ -37,6 +37,9 @@ Project page: `https://research.nvidia.com/labs/gear/aspire/`
 - **It is the wiki's first measured evidence that a skill library compounds.** The N∈{0,25,50,90} scaling curve is the specific claim [Waddle](waddle-labs.md) asserted and never quantified.
 - **Its limitations section is the wiki's most useful reality-check on the paradigm** — see the [source page](../sources/aspire-paper.md); notably that the predefined API still bounds expressible behavior, which contradicts the strong reading of vendor "works with any embodiment" claims.
 
+## Superseded on its own benchmark style (2026-10)
+[RPG](rpg.md) reproduces ASPIRE from released code as a baseline: **166/220 (75.5%)** against RPG's 209/220 on 22 tasks × 10 held-out seeds, with the same Gemini 3.8 Flash runtime and 30-turn budget. RPG's largest margins are fixture insertion (10 vs 2) and bottle placement (10 vs 3). ASPIRE wins one more trial on serving and standard cube sorting ([RPG paper](../sources/rpg-guided-self-improvement-paper.md)).
+
 ## Related
 - [CaP-X](cap-x.md) — the framework it runs on and the baseline it beats.
 - [NVIDIA GEAR](nvidia-gear.md) — home lab; also home of Voyager.
@@ -46,3 +49,4 @@ Project page: `https://research.nvidia.com/labs/gear/aspire/`
 
 ## Mentioned in
 - [ASPIRE paper](../sources/aspire-paper.md) — primary source.
+- [RPG paper](../sources/rpg-guided-self-improvement-paper.md) — reproduced as a baseline: 75.5% vs RPG 95.0%.

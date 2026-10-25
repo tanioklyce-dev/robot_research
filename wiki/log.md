@@ -6304,3 +6304,12 @@ Three clusters: **contact-rich safety** ([survey](sources/safe-learning-contact-
 - Updated: [slow-feature collapse](concepts/world-models/slow-feature-collapse.md) (control-theoretic account; barrier 3 scope; latent-LQR detection), [SIGReg](concepts/world-models/sigreg.md) (Lemma 2 warning), [physical reasoning benchmarks](concepts/world-models/physical-reasoning-benchmarks.md) (Physics Emergence Zone), [JEPA](concepts/world-models/jepa.md), [optimal control](concepts/robotics/optimal-control.md) (controllability as a representation requirement), [V-JEPA 2](entities/v-jepa-2.md), [DINO-WM](entities/dino-wm.md), [Bardes](entities/adrien-bardes.md), [Balestriero](entities/randall-balestriero.md), [LeCun](entities/yann-lecun.md), [LeWM](entities/leworldmodel.md), [AMI Labs](entities/ami-labs.md) (founder's pitch: industrial sensors and biomedicine; another AMI byline), and the [AMI tracker page](sources/ami-labs-intelligence-hub-research.md) (rows marked ingested).
 - **Provenance caveat:** the Lemley deck was obtained from the third-party tracker; no Brown, NYU or AMI host was found.
 - Raw: `raw/2610.07540v1.pdf`, `raw/2602.07050v1.pdf`, `raw/2606.25225v1.pdf`, `raw/2026-04-01-lecun-brown-lemley-lecture.pdf`. Backlog: three items closed, two added (EP-IDM shootout arm; arXiv 2601.05230).
+
+## [2026-10-24] ingest | RPG — Reconstruct, Practice, Go Real (2610.02204)
+- Created [RPG paper](sources/rpg-guided-self-improvement-paper.md) and entity [RPG](entities/rpg.md). Raw: `raw/2610.02204v1.pdf`.
+- Key numbers: 28.6 → 95.0% over 15 practice rounds (22 tasks × 10 held-out seeds); ASPIRE 75.5%; CaP-Agent0 45.5–60.0% across four models; 30/30 physical.
+- **Flagged:**
+  - The physical towel criterion is easier than the sim one, which the authors acknowledge. Sim folding plateaus at 5/10 (0/10 at 1 cm tolerance).
+  - The single largest gain (+30.5 pp) was a prompt-only revision.
+  - Rounds are not matched compute, and cost is unreported.
+- Updated: [code as policy](concepts/agents/code-as-policy.md) (new section: regression-gated library repair; the persistent system beats the model), [agent skills](concepts/agents/agent-skills.md) (a skill's return value is part of its contract), [LLM-agent architecture](concepts/agents/llm-agent-architecture.md), [ASPIRE](entities/aspire.md), [CaP-X](entities/cap-x.md), [YAM](entities/yam.md), [Voyager](entities/voyager.md).

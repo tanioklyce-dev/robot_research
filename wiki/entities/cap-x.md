@@ -3,8 +3,8 @@ title: CaP-X
 type: entity
 subtype: framework
 created: 2026-08-03
-updated: 2026-08-03
-sources: 2
+updated: 2026-10-24
+sources: 3
 tags: [cap-x, code-as-policy, benchmark, framework, nvidia-gear, robosuite, libero-pro, behavior, rlvr, open-source]
 ---
 
@@ -40,6 +40,9 @@ This ladder is the wiki's finest-grained instrument for [control abstraction lev
 - **It reframes the paradigm's own history.** The monotonic S4→S1 gain means prior CaP results were substantially carried by human-designed macros — a caveat that now attaches to the whole [lineage](../concepts/agents/code-as-policy.md).
 - **It is infrastructure, not just a paper.** ASPIRE uses it as the environment; expect further work built on it.
 
+## As the substrate and baseline for RPG (2026-10)
+[RPG](rpg.md) starts from **nine CaP-X low-level tools** and reproduces **CaP-Agent0** as a baseline across four models on 22 tasks × 10 held-out seeds: GPT-6 Astra Pro 60.0%, Fable 5.1 49.1%, Gemini 3.8 Flash 48.6%, Opus 5 45.5%. RPG's self-revised system on Gemini Flash reaches 95.0% ([RPG paper](../sources/rpg-guided-self-improvement-paper.md)). Model choice moves CaP-Agent0 by about 14 pp; persistent library and prompt revision move the same runtime by about 46 pp.
+
 ## Related
 - [ASPIRE](aspire.md) — built on CaP-X; CaP-Agent0 is its baseline.
 - [NVIDIA GEAR](nvidia-gear.md) — home lab (listed there as "CaP-X, ICML 2026 oral").
@@ -51,3 +54,4 @@ This ladder is the wiki's finest-grained instrument for [control abstraction lev
 - [CaP-X paper](../sources/cap-x-paper.md) — primary source.
 - [ASPIRE paper](../sources/aspire-paper.md) — uses CaP-X as its code-as-policy framework and CaP-Agent0 as its main baseline.
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md) — listed under the manipulation/agents pillar.
+- [RPG paper](../sources/rpg-guided-self-improvement-paper.md) — CaP-X tools as RPG's base library; CaP-Agent0 as a four-model baseline.

@@ -2,8 +2,8 @@
 title: LLM-agent architecture
 type: concept
 created: 2026-05-07
-updated: 2026-10-13
-sources: 69
+updated: 2026-10-24
+sources: 70
 tags: [llm-agent, tool-use, agentic-robotics, planning, mcp, a2a, mhs, code-as-policy]
 ---
 
@@ -127,3 +127,4 @@ Two things follow for robots specifically:
 - [CaP-X paper](../../sources/cap-x-paper.md) — the benchmark that measures this pattern's code-writing variant across 12 models and 8 tiers of tool abstraction.
 - [Previewing the Model Hardware Standard](../../sources/anthropic-model-hardware-standard-preview.md) — the device-discovery layer beneath the skill library, and six pilots that ran agents on real instruments overnight.
 - [ASPIRE paper](../../sources/aspire-paper.md) — coordinator/actor multi-agent structure where actors share **distilled skills instead of chat history**, keeping each context focused.
+- [RPG](../../sources/rpg-guided-self-improvement-paper.md) — six specialised agents (Constructor, Runtime, Privileged, Video Analyzer, Implementor, Merger) in a practice → gate → freeze loop.
