@@ -863,6 +863,13 @@ The nine-paper arc behind [code as policy](concepts/agents/code-as-policy.md), i
   - **The servo model is chaotic enough to diverge across CPU architectures in seconds**, so only the Space's x86_64 times count, and the build fails if a golden run doesn't reproduce. The board is rebuilt by re-racing, never by reading stored times.
   - The reference walker tracks **44%** of commanded velocity. The native training path is [mjlab](entities/mjlab.md). (captured 2026-10-24)
 
+### Latent actions from in-the-wild video (ingested 2026-10-25)
+- [Learning Latent Action World Models In The Wild](sources/latent-action-world-models-in-the-wild-paper.md) — Garrido, Nagarajan, [Terver](entities/basile-terver.md), Ballas, [LeCun](entities/yann-lecun.md), Rabbat (FAIR; arXiv 2601.05230; cited on LeCun's Lemley slides as "Inferring hidden actions from video"). A latent-action world model trained on YouTube-scale video over a frozen [V-JEPA 2](entities/v-jepa-2.md).
+  - **Continuous against discrete:** continuous constrained latents (sparse or noisy) capture rich actions such as a person entering a room. **VQ cannot scale its capacity.**
+  - **Leakage and transfer:** a scene-cut test finds little next-frame leakage. Actions transfer between videos but become **camera-relative**.
+  - **Planning:** through a small action→latent controller, [DROID](entities/droid.md) reaching scores 0.10 m Δxyz, against V-JEPA 2-AC 0.15 and the best [JEPA-WMs](entities/jepa-wms.md) model 0.05. RECON RPE is 0.40, against NWM 0.35.
+  - **Caveats:** offline open-loop metric, capacity picked after seeing the test score, 64 episodes with no spread. (2026-01-08)
+
 ### Object-centric JEPA: masking whole objects (ingested 2026-10-25)
 - [Causal-JEPA: Learning World Models through Object-Level Latent Masking](sources/causal-jepa-paper.md) — Nam, Le Lidec, [Maes](entities/lucas-maes.md), [LeCun](entities/yann-lecun.md), [Balestriero](entities/randall-balestriero.md) (ICML 2026, arXiv 2602.11389). **[C-JEPA](entities/c-jepa.md):** a frozen slot encoder (VideoSAUR on DINOv2) plus a bidirectional predictor trained with **whole objects' histories masked**, so each hidden object has to be inferred from the others and from the actions.
   - **[Push-T](entities/pusht.md):** 88.67% with 6 × 128 tokens, against [DINO-WM](entities/dino-wm.md)'s 91.33% with 196 × 384. That is 1% of the input and 8.6× faster CEM.

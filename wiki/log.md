@@ -6330,3 +6330,22 @@ Three clusters: **contact-rich safety** ([survey](sources/safe-learning-contact-
   - The paper's Table A5 is captioned "CLEVRER" but is evidently Push-T.
 - Updated: [JEPA](concepts/world-models/jepa.md) (state-representation bullet, key references), [DINO-WM](entities/dino-wm.md), [PushT](entities/pusht.md), [WorldDP](entities/worlddp.md) (two answers to slot correspondence), [stable-worldmodel](entities/stable-worldmodel.md), [Lucas Maes](entities/lucas-maes.md), [Randall Balestriero](entities/randall-balestriero.md), [Yann LeCun](entities/yann-lecun.md).
 - **Correction:** the [AMI Labs Intelligence Hub](sources/ami-labs-intelligence-hub-research.md) coverage table (written 2026-10-24) listed Causal-JEPA as already in the wiki. It was not. The row is fixed and the correction is noted in place.
+
+## [2026-10-25] ingest | Learning Latent Action World Models In The Wild (2601.05230)
+- Created [source page](sources/latent-action-world-models-in-the-wild-paper.md). Raw: `raw/2601.05230v2.pdf` (v2, 2026-01-20). Closes the backlog item opened from LeCun's Lemley slides, which caption it "Inferring hidden actions from video". That caption is not the paper's title.
+- No new entity: the paper names no model.
+- Key findings:
+  - Continuous constrained latent actions (sparse or noisy) capture rich in-the-wild actions; VQ cannot scale its capacity.
+  - A scene-cut test finds no next-frame copying.
+  - Actions transfer between videos and become camera-relative.
+  - Through a small controller: DROID Δxyz 0.10 m (V-JEPA 2-AC 0.15, best JEPA-WMs 0.05) and RECON RPE 0.40 (NWM 0.35).
+- **Flagged:**
+  - DROID scoring is offline and open-loop against logged actions.
+  - Capacity was chosen after seeing the test score; across the sweep, the noisy setting ranges from 0.10 to 0.49.
+  - 64 episodes from 16 videos, with no seeds or spread.
+  - Scaling improves IDM quality but planning only with training length.
+- Updated:
+  - [Latent action tokens](concepts/learning/latent-action-tokens.md): new section on continuous vs discrete. VQ is under-capacity for open-world video but competitive on robot reaching.
+  - [World-model evaluation](concepts/world-models/world-model-evaluation.md): scene-cut and cycle-consistency leakage diagnostics.
+  - [Cross-embodiment](concepts/learning/cross-embodiment.md), [V-JEPA 2](entities/v-jepa-2.md), [DROID](entities/droid.md), [JEPA-WMs](entities/jepa-wms.md), [UniVLA](entities/univla.md), [Basile Terver](entities/basile-terver.md), [Yann LeCun](entities/yann-lecun.md), [Lemley lecture](sources/lecun-brown-lemley-lecture-2026.md) (open question resolved), [backlog](backlog.md).
+- **Patch Policy (2607.18236)** was requested again. It is already ingested and the hash matches, so no action was taken.

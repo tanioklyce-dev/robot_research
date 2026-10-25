@@ -58,5 +58,5 @@ The technical slides walk the JEPA line the wiki tracks: SIGReg/LeJEPA → LeWor
 - [JEPA](../concepts/world-models/jepa.md) · [SIGReg](../concepts/world-models/sigreg.md) · [World model](../concepts/world-models/world-model.md) · [Optimal control](../concepts/robotics/optimal-control.md) · [Safety filters](../concepts/robotics/safety-filters.md)
 
 ## Open questions
-- arXiv 2601.05230, *"Inferring hidden actions from video"*: is it ingested? It is directly relevant to learning action-conditioned models from action-free video.
+- ~~arXiv 2601.05230: is it ingested?~~ Done 2026-10-25 as [Learning Latent Action World Models In The Wild](../sources/latent-action-world-models-in-the-wild-paper.md). "Inferring hidden actions from video" is the slide's caption, not the paper's title.
 - Is there a primary host (Brown, NYU, AMI) for this deck or a recording of the lecture?

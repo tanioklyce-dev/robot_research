@@ -2,8 +2,8 @@
 title: World-model evaluation
 type: concept
 created: 2026-08-07
-updated: 2026-10-24
-sources: 32
+updated: 2026-10-25
+sources: 33
 tags: [world-model, evaluation, benchmark, physical-validity, policy, vbench, worldscore, physion-eval, mllm-critic]
 ---
 
@@ -224,6 +224,12 @@ AD-E2E-JEPA adds a protocol caveat: using the *real future frame* as the goal ma
 - **Latent LQR** ([Toso et al.](../../sources/preserving-unstable-modes-inverse-dynamics-paper.md)): linearise the learned predictor at a known equilibrium, design LQR in the latent, deploy on the true plant. SIGReg models that plan at 100% with CEM and GBP **fail 100%** here. Aggregate planning success is not evidence that the latent supports feedback.
 - **Read the middle of a frozen encoder** ([Joseph et al.](../../sources/interpreting-physics-video-world-models-paper.md)): in V-JEPA 2 and VideoMAE-v2, physics-relevant structure appears at ~⅓ depth, peaks mid-network and **degrades toward the output**. Probes and world models that read only final-layer features may be reading the worst layer for dynamics.
 
+**Two leakage diagnostics for future-inferred latents (2026-10-25).** When a model's conditioning variable is inferred from the future, as with a latent action from an inverse-dynamics model, the latent can cheat by encoding the next frame. [Garrido et al.](../../sources/latent-action-world-models-in-the-wild-paper.md) use two cheap checks:
+- **Scene-cut splice:** join two clips and check that prediction error spikes at the cut. Error was ×2.0–2.5 for every setting. A latent that copies the frame would show no spike. This is a necessary condition, not a sufficient one.
+- **Cycle consistency:** infer on A, apply to B, re-infer, apply back to A.
+
+The same paper adds another case of rollout quality not tracking planning: its best-planning latents give its worst rollouts.
+
 ## Related concepts
 
 - [Robot policy evaluation](../robotics/robot-policy-evaluation.md) — the statistical case, from inside robotics.
@@ -264,3 +270,4 @@ AD-E2E-JEPA adds a protocol caveat: using the *real future frame* as the goal ma
 - [LeHami](../../sources/lehami-symplectic-latent-dynamics-paper.md) — log-det rollout-volume diagnostic; velocity as the missing half of the state.
 - [Toso et al.](../../sources/preserving-unstable-modes-inverse-dynamics-paper.md) — latent-LQR diagnostic; MPC success masks collapse.
 - [Interpreting physics in video world models](../../sources/interpreting-physics-video-world-models-paper.md) — the Physics Emergence Zone; final-layer features are not the best for physics.
+- [Learning Latent Action World Models In The Wild](../../sources/latent-action-world-models-in-the-wild-paper.md) — scene-cut leakage and cycle-consistency diagnostics.

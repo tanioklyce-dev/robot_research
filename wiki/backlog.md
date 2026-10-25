@@ -15,7 +15,7 @@ Deferred maintenance items and knowledge gaps surfaced during lint passes but no
 - [x] ~~**Ingest LeCun's Brown Lemley Lecture deck (April 2026)**~~ — done 2026-10-24 ([source](sources/lecun-brown-lemley-lecture-2026.md)); still no primary host., linked from the tracker's /docs as an official AMI document. Fetch from the original host if one exists.
 - [x] ~~*Interpreting Physics in Video World Models* and *MJEPA*~~ — both done 2026-10-24.
 - [ ] **Add an EP-IDM arm (H spanning a push) to the collapse-synthesis §6 shootout.** [Toso et al.](sources/preserving-unstable-modes-inverse-dynamics-paper.md) Theorem 1 predicts one-step IDM protects only directly actuated directions; EP-IDM should keep the pushed object on Push-T.
-- [ ] **arXiv 2601.05230, *Inferring hidden actions from video*** — cited on LeCun's Lemley slides; not in the wiki. Relevant to learning action-conditioned models from action-free video.
+- [x] ~~**arXiv 2601.05230, *Inferring hidden actions from video***~~ — done 2026-10-25 as [Learning Latent Action World Models In The Wild](sources/latent-action-world-models-in-the-wild-paper.md). Cited on LeCun's Lemley slides. Relevant to learning action-conditioned models from action-free video.
 - [ ] **Add the log-det rollout-volume diagnostic** ([LeHami](sources/lehami-symplectic-latent-dynamics-paper.md)) to the §6 one-protocol shootout in the collapse synthesis.
 
 ## [2026-10-24] From the NVIDIA Microduck agentic-sim ingest

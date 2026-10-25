@@ -3,8 +3,8 @@ title: Basile Terver
 type: entity
 subtype: person
 created: 2026-05-07
-updated: 2026-10-13
-sources: 5
+updated: 2026-10-25
+sources: 6
 tags: [person, meta-fair, jepa-wms, dino-world, lineage]
 ---
 
@@ -13,6 +13,7 @@ tags: [person, meta-fair, jepa-wms, dino-world, lineage]
 ## Papers in this wiki
 - [DINO-world](../sources/dino-world-paper.md) (2025-07) — **third author** (Baldassarre, Szafraniec, Terver, Khalidov, Massa, LeCun, Labatut, Seitzer, Bojanowski). DINOv2-feature-based video world model.
 - [JEPA-WMs](../sources/jepa-wms-paper.md) (2025-12) — **first author** (Terver, Yang, Ponce, Bardes, LeCun). Investigates "what drives success in physical planning with JEPA-WMs"; first paper in this wiki to use [RoboCasa](robocasa.md) heavy sim alongside [DROID](droid.md) + real Franka.
+- [Latent action world models in the wild](../sources/latent-action-world-models-in-the-wild-paper.md) (2026-01) — third author (Garrido, Nagarajan, Terver, Ballas, LeCun, Rabbat).
 
 ## Why it matters in this wiki
 Terver is the **single-author signal** that DINO-world → JEPA-WMs is one continuous research line, not coincidental shared FAIR institutional context. The progression:
@@ -39,6 +40,7 @@ Five months between the two; same lead-author trajectory; design space evolves f
 - [DINO-world Paper](../sources/dino-world-paper.md)
 - [JEPA-WMs Paper](../sources/jepa-wms-paper.md)
 - [H-JEPA paper (2026-10)](../sources/h-jepa-hierarchical-world-models-paper.md) — **co-first author** (coin toss with Wancong Zhang). Printed affiliations: Advanced Machine Intelligence + INRIA Paris. A third Terver paper, and his first with an AMI affiliation.
+- [Learning Latent Action World Models In The Wild](../sources/latent-action-world-models-in-the-wild-paper.md) — third author (FAIR / Inria); the DROID protocol is his JEPA-WMs one.
 
 ## Open questions / TBD
 - Affiliation and career stage explicitly — paper-body verification.

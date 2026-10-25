@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-07
 updated: 2026-10-25
-sources: 71
+sources: 72
 tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs, logical-intelligence, ebm, diffusion-policy, object-centric, spectral-graph-theory]
 ---
 
@@ -156,3 +156,4 @@ Together they establish [gradient-based planning](../concepts/world-models/gradi
 - [Temporal Straightening paper](../sources/temporal-straightening-paper.md)
 - [Third World Modeling Workshop — Day 2](../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — not a speaker, but the day argues with him: [Faust](aleksandra-faust.md)'s weighted RL+imitation AV agent is a measured counter to both "imitation learning has been a failure for driving" and "RL is a complete no-no in the real world"; [Klabjan](diego-klabjan.md) endorses his LLM position from the time-series side.
 - [Causal-JEPA paper](../sources/causal-jepa-paper.md) — co-author; [C-JEPA](c-jepa.md), object-centric JEPA world model (ICML 2026).
+- [Learning Latent Action World Models In The Wild](../sources/latent-action-world-models-in-the-wild-paper.md) — co-author (FAIR); the paper his Lemley slides cite as "Inferring hidden actions from video".

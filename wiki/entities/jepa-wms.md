@@ -3,8 +3,8 @@ title: JEPA-WMs
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-10-22
-sources: 10
+updated: 2026-10-25
+sources: 11
 tags: [jepa-wms, jepa, world-model, fair, meta-fair, robocasa, metaworld, droid, lecun, bardes, ponce, adaln, rope, dinov3, cem, cc-by-nc]
 ---
 
@@ -102,3 +102,4 @@ JEPA-WMs is the load-bearing source for the [revised "JEPA + sim" synthesis](../
 - [H-JEPA paper (Zhang, Terver et al., 2026)](../sources/h-jepa-hierarchical-world-models-paper.md) — the public JEPA-WMs DROID checkpoint as a frozen-encoder reference: lower Fréchet fidelity than LeWM+IDM / H-JEPA at orders of magnitude more planner compute. Notes its loader runs at **1 fps of real time** ("4 fps" config × the 60-fps container tag).
 - [RoboJEPA paper (Zholus et al., 2026)](../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — cites JEPA-WMs' ~229M DROID predictor on 8k trajectories as the closest prior scaling study, then extends it to 8B on 2.87M episodes with a fitted law.
 - [AD-E2E-JEPA paper](../sources/ad-e2e-jepa-autonomous-driving-paper.md) — best of the three baselines on NAVSIM driving: 74.2 EPDMS, but 101 s per scene.
+- [Learning Latent Action World Models In The Wild](../sources/latent-action-world-models-in-the-wild-paper.md) — reuses the JEPA-WMs DROID planning protocol; the best JEPA-WMs model (0.05 m) is the upper bound.

@@ -2,8 +2,8 @@
 title: Latent action tokens
 type: concept
 created: 2026-08-04
-updated: 2026-09-11
-sources: 6
+updated: 2026-10-25
+sources: 7
 tags: [latent-action-tokens, cross-embodiment, rq-vae, codebook, unit, univla, visual-anchoring, action-representation, humanoid]
 ---
 
@@ -59,11 +59,19 @@ A codebook index is not inspectable, not loggable in human terms, and **not corr
 > [!note] The model-based alternative to inverse-dynamics labeling (added 2026-09-11)
 > Every scheme on this page labels video by predicting actions from frame pairs. [MBRA](../../sources/mbra-paper.md) argues that under heavy label noise this is the wrong objective and offers the one ablation that compares the two: an inverse-dynamics (VPT) relabeler and a multi-step goal-conditioned one both *degrade* as more noisy crowdsourced data is added, while a relabeler trained to reach a distant state through a **differentiable forward model** improves monotonically to 1.000. The catch is stated by the authors: it needs a robot model and a collision proxy, which navigation has (unicycle + monocular depth) and manipulation mostly does not — so the latent-action route remains the manipulation default by necessity, not by evidence.
 
+## Continuous against discrete, on in-the-wild video (2026-10-25)
+
+[Garrido et al. (FAIR, 2026)](../../sources/latent-action-world-models-in-the-wild-paper.md) train latent-action world models on YouTube-scale natural video over a frozen V-JEPA 2 encoder. They compare **sparse**, **noisy (VAE-style)** and **vector-quantized** latent actions:
+- **VQ cannot scale its capacity.** It stays near the no-action baseline and renders a person entering a room as *"a blob"*. Continuous constrained latents capture it.
+- **On DROID reaching, through a small action→latent controller, discrete is competitive:** Δxyz 0.14–0.18 m, against 0.10 for the best continuous setting and 0.15 for action-labelled V-JEPA 2-AC.
+- **So discrete codebooks may be adequate for robot action spaces and a bottleneck only for open-world video.** The paper's DROID numbers are offline, open-loop and picked after seeing the test score.
+- **Without a shared embodiment, the learned actions are camera-relative and spatially localised.** The controller needs the current frame, not just the action, to map into them.
+
 ## Limits
 
 - **Visual anchoring assumes visible consequences.** Force-dominant, occluded, or in-hand manipulation has intent a shared visual decoder cannot see.
 - **The evidence is pick-and-place-shaped** — EgoDex `basic_pick_place` and `pour` carry the transfer results.
-- **One primary source.** UniVLA and universal-action-tokenization work are known here only secondhand.
+- **One primary source for the codebook design space** (UniT). The continuous-vs-discrete comparison above is a second, FAIR one. UniVLA and universal-action-tokenization work are known here only secondhand.
 
 ## Related
 
@@ -79,3 +87,4 @@ A codebook index is not inspectable, not loggable in human terms, and **not corr
 - [Bengio et al. 2003 — A Neural Probabilistic Language Model](../../sources/bengio2003-neural-probabilistic-language-model.md) — the ancestor: a learned lookup table over a discrete alphabet, trained jointly with the task. The readability complaint here is a restatement of its central property — the geometry is learned, so nobody specified what the axes mean. See [distributed representations](distributed-representations.md).
 - [Introducing Index (Figure AI)](../../sources/figure-index-announcement.md) — Named as one of the published approaches to the human→robot action-label gap that [Figure's Index](../../entities/figure-index.md) leaves entirely unaddressed while claiming *"the world's largest robot training dataset."*
 - [MBRA paper](../../sources/mbra-paper.md) — forward-model relabeling vs inverse-dynamics labeling under heavy noise.
+- [Learning Latent Action World Models In The Wild](../../sources/latent-action-world-models-in-the-wild-paper.md) — continuous vs VQ latent actions on in-the-wild video; VQ under-capacity for open-world actions, competitive on DROID reaching.

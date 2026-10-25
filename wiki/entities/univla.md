@@ -3,8 +3,8 @@ title: UniVLA
 type: entity
 subtype: model
 created: 2026-08-04
-updated: 2026-08-04
-sources: 3
+updated: 2026-10-25
+sources: 4
 tags: [univla, vla, latent-actions, cross-embodiment, libero]
 ---
 
@@ -16,3 +16,4 @@ Worth a primary ingest: the latent-action interface is the same idea family as L
 
 ## Mentioned in
 - [TurboVLA paper](../sources/turbovla-paper.md)
+- [Learning Latent Action World Models In The Wild](../sources/latent-action-world-models-in-the-wild-paper.md) — UniVLA's VQ scheme as the discrete baseline; it cannot scale its capacity on in-the-wild video.

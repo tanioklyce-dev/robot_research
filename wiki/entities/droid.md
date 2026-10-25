@@ -3,8 +3,8 @@ title: DROID
 type: entity
 subtype: dataset
 created: 2026-05-07
-updated: 2026-10-13
-sources: 36
+updated: 2026-10-25
+sources: 37
 tags: [droid, dataset, teleoperation, franka, robot-data, stanford, berkeley, oxe, molmoact2]
 ---
 
@@ -96,3 +96,4 @@ Both end up inside [X-VLA](x-vla.md)'s pretraining mixture — DROID at 31.6%, R
 - [Post-train Cosmos 3 Edge](../sources/nvidia-cosmos3-edge-post-training-blog.md) — **`nvidia/Cosmos3-DROID`**: DROID repackaged as a success-only split in LeRobotDataset v3.0 at 640×360 — **76k trajectories, ~350 h, 86 tasks, 564 scenes** — and post-trained into the 4B Edge policy with 8-D absolute joint actions, no normalization.
 - [H-JEPA paper (Zhang, Terver et al., 2026)](../sources/h-jepa-hierarchical-world-models-paper.md) — 16-clip offline planning benchmark with Fréchet fidelity; 60-fps tag gotcha; released 127.6 GB re-encode.
 - [RoboJEPA paper (Zholus et al., 2026)](../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — 92k DROID episodes in a 2.87M-episode mixture; the DROID holdout is one of the two scaling-law evaluations; real Franka/DROID-setup deployment (Grasp / Lift / Pick and Place, n=30).
+- [Learning Latent Action World Models In The Wild](../sources/latent-action-world-models-in-the-wild-paper.md) — DROID as the planning testbed for a world model trained only on natural video (offline Δxyz over 64 clips); also a pretraining mix (10% DROID: 0.14 → 0.09 m).
