@@ -4,7 +4,7 @@ type: entity
 subtype: organization
 created: 2026-05-09
 updated: 2026-10-24
-sources: 13
+sources: 15
 tags: [ami-labs, lecun, jepa, world-model, startup]
 ---
 
@@ -62,6 +62,12 @@ From the [exclusive launch interview](../sources/mit-tech-review-lecun-ami-labs-
 ## Third-party tracker (2026-10-24)
 *The French Tech Journal* runs an "AMI Labs Intelligence Hub" ([research page](../sources/ami-labs-intelligence-hub-research.md)). It lists **six co-founders**: LeBrun (CEO), Laurent Solly (COO), Michael Rabbat (VP World Models), Pascale Fung (Chief Research & Innovation Officer), **Saining Xie (Chief Science Officer)** and LeCun (Executive Chairman). This contradicts nothing above, but it is uncited: Xie's role stays *reported*, since LeCun declined to confirm it in January. Its paper feed is **author-matched, not affiliation-checked** (it includes a solar-cell paper and LeCun's NYU medical and music co-authorships), so it is a discovery list, not evidence of AMI output.
 
+**More AMI bylines (2026-10):** [Toso et al.](../sources/preserving-unstable-modes-inverse-dynamics-paper.md) (LeCun: *"New York University, AMI Labs"*), alongside LeHami below.
+
+**The pitch, in the founder's own slides** ([Brown Lemley Lecture, 2026-04-01](../sources/lecun-brown-lemley-lecture-2026.md)):
+- "System 2" agents built around a world model, with **guardrail objectives** and **persistent memory** (factual, working, episodic, procedural).
+- A stated ambition to be *"the main provider of intelligent systems,"* with **industrial sensor systems** (turbofans, the A380's 25,000 sensors) and **biomedicine** as headline markets, not household robots.
+
 **Another AMI byline:** [LeHami](../sources/lehami-symplectic-latent-dynamics-paper.md) (2026-10-11) lists LeCun under Courant *and* AMI Labs.
 
 ## Related
@@ -81,3 +87,5 @@ From the [exclusive launch interview](../sources/mit-tech-review-lecun-ami-labs-
 - [H-JEPA paper (2026-10)](../sources/h-jepa-hierarchical-world-models-paper.md) — the first world-model-line paper in the wiki where **every author** lists Advanced Machine Intelligence; includes Michael Rabbat and Randall Balestriero.
 - [LeHami paper](../sources/lehami-symplectic-latent-dynamics-paper.md) — LeCun's AMI Labs affiliation line.
 - [AMI Labs Intelligence Hub — Research](../sources/ami-labs-intelligence-hub-research.md) — third-party co-founder roster (6) and author-matched paper feed.
+- [Toso et al. — Preserving unstable modes](../sources/preserving-unstable-modes-inverse-dynamics-paper.md) — AMI Labs affiliation line.
+- [LeCun — Brown Lemley Lecture (2026-04-01)](../sources/lecun-brown-lemley-lecture-2026.md) — AMI's goals and market pitch, from the founder's deck.

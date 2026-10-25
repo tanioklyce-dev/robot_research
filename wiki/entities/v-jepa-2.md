@@ -3,8 +3,8 @@ title: V-JEPA 2
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-10-13
-sources: 43
+updated: 2026-10-24
+sources: 46
 tags: [v-jepa-2, jepa, world-model, meta-fair, video, action-conditioned, franka]
 ---
 
@@ -36,6 +36,11 @@ First public demonstration of a **latent-prediction world model** ([JEPA](../con
 > [!note] V-JEPA-2-AC beaten by FAIR's own JEPA-WMs recipe
 > The same FAIR group's **[JEPA-WMs (Terver et al., TMLR 05/2026)](../sources/jepa-wms-paper.md)** beats V-JEPA-2-AC on every env where both were evaluated — **Rc-R 25.4 vs 16.2, Rc-Pl 30.7 vs 33.1 (tie), DROID 48.2 vs 42.9**. The JEPA-WMs ablation also surfaces a structural reason: **DINO encoders outperform V-JEPA encoders** as the frozen backbone for control, because DINO's fine object segmentation translates object motion into localized sparse token changes the predictor can learn efficiently. V-JEPA's coarser segmentation spreads object information across overlapping tokens. The JEPA-WMs numbers come from a retraining with a "rollout-loss bug fix" the authors document in §C of the paper — **that "fixed" V-JEPA-2-AC checkpoint is directly downloadable** as `vjepa2_ac_droid` from the [JEPA-WMs GitHub](../sources/jepa-wms-github.md), alongside `vjepa2_ac_oss` (the original V-JEPA 2 GitHub checkpoint).
 
+## What is inside the encoder (2026-02)
+A layer-wise interpretability study ([Joseph et al.](../sources/interpreting-physics-video-world-models-paper.md)) finds intuitive physics emerging at **~⅓ depth** in V-JEPA 2 L/H/G (IntPhys probe accuracy from chance to ~85–95%), peaking mid-network and **degrading toward the output**. Motion **direction** is a ring-shaped population code of ~40–50 dimensions that appears only at that depth, while speed is available from early layers. The practical implication for V-JEPA 2-AC-style planners, *wiki inference*: final-layer readout may not be the best choice for dynamics.
+
+[MJEPA](mjepa.md) (2026-06) extends the V-JEPA recipe to audio + video with one shared encoder: K400 85.0 / SSv2 73.9 with ~10× less video than V-JEPA 2 ViT-g (86.6 / 75.3) ([paper](../sources/mjepa-audio-visual-paper.md)).
+
 ## Related
 - [Meta FAIR](meta-fair.md) — primary lab.
 - [Mila](mila.md) — co-affiliation (Artem Zholus dual appointment).
@@ -58,6 +63,9 @@ First public demonstration of a **latent-prediction world model** ([JEPA](../con
 - [Embodied AI — AI House Davos 2026 (LeCun)](../sources/ai-house-davos-2026-lecun-embodied-ai.md) — the recipe in his words: 64-frame windows, mask-and-predict in representation space; *"100 years of video… about a day of YouTube uploads… 10¹⁵–10¹⁶ bytes, 100× the biggest LLMs"*; violation-of-expectation as the common-sense test; the action-conditioned phase needs *"not that much data"* and only a simulation of dynamics, not of tasks. V-JEPA 2.1 pre-announced.
 - [H-JEPA paper (Zhang, Terver et al., 2026)](../sources/h-jepa-hierarchical-world-models-paper.md) — V-JEPA 2-AC as a frozen-encoder DROID reference: lowest offline Fréchet fidelity of the methods shown, at the most planner compute.
 - [RoboJEPA paper (Zholus et al., 2026)](../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — **V-JEPA 2 as a frozen encoder did not scale**: predictors collapsed beyond some size and larger datasets diverged. Switching to **V-JEPA 2.1** fixed it. The authors attribute this to dense-feature quality (ADE20K 24.4 → 47.9 mIoU) rather than physics-probe scores (IntPhys2 66.0 → 58.8, *worse*). RoboJEPA is the V-JEPA 2-AC recipe scaled to 8B on 2.87M episodes.
+- [Interpreting physics in video world models](../sources/interpreting-physics-video-world-models-paper.md) — Physics Emergence Zone at ⅓ depth.
+- [MJEPA](../sources/mjepa-audio-visual-paper.md) — V-JEPA 2 ViT-g as the video baseline.
+- [LeCun — Brown Lemley Lecture](../sources/lecun-brown-lemley-lecture-2026.md) — *"best video representation learning system in the world."*
 
 ## Independent probe evidence (2026)
 

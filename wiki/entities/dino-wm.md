@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-07
 updated: 2026-10-24
-sources: 38
+sources: 40
 tags: [dino-wm, dinov2, world-model, jepa-adjacent, lecun, pinto, nyu, meta-fair]
 ---
 
@@ -97,3 +97,5 @@ DINO-WM builds its world model on a **frozen image-SSL encoder**. Under a shared
 - [Temporal Straightening for Latent Planning](../sources/temporal-straightening-paper.md) — base model and baseline; its latent trajectories are the "highly curved" case.
 - [Scaling Language-Free Visual Representation Learning](../sources/webssl-paper.md) — **the Web-DINO primary.** Web-DINO is the DINO member of [Web-SSL](webssl.md), the family [Patch Policy](patch-policy.md) recommends as the best frozen *policy* backbone — so the contradiction above is one encoder measured for three different jobs.
 - [LeHami](../sources/lehami-symplectic-latent-dynamics-paper.md) — DINO-LeHami beats DINO-WM on a frozen DINOv2 encoder (pendulum).
+- [Toso et al.](../sources/preserving-unstable-modes-inverse-dynamics-paper.md) — DINO-WM 80% CEM / 80% LQR on PointMaze; frozen **DINOv2** never yields a stabilising CartPole LQR, while iBOT + an EP-IDM projector does.
+- [LeCun — Brown Lemley Lecture](../sources/lecun-brown-lemley-lecture-2026.md) — DINO-WM and DINO-World on the robot-planning slides.

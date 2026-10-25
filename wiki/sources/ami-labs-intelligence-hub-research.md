@@ -52,12 +52,12 @@ Its value to the wiki is as a **discovery feed** for the JEPA/world-model line. 
 | Paper (date on feed) | In wiki? |
 |---|---|
 | [LeHami: Symplectic Latent Dynamics for World Models](lehami-symplectic-latent-dynamics-paper.md) (10-11) | **Yes**, ingested today |
-| *Preserving Unstable Modes Through Inverse Dynamics in JEPA World Models* (10-06) | **No.** Feed summary: exact action reconstruction makes the encoder injective on the finite-horizon reachable subspace, with convergence to the controllable unstable subspace. **A theory paper for the inverse-dynamics barrier in the [collapse synthesis](../syntheses/world-models/jepa-dynamics-collapse-fixes.md)** |
+| [Preserving Unstable Modes Through Inverse Dynamics in JEPA World Models](preserving-unstable-modes-inverse-dynamics-paper.md) (10-06) | **Yes** (ingested 2026-10-24). Feed summary: exact action reconstruction makes the encoder injective on the finite-horizon reachable subspace, with convergence to the controllable unstable subspace. **A theory paper for the inverse-dynamics barrier in the [collapse synthesis](../syntheses/world-models/jepa-dynamics-collapse-fixes.md)** |
 | [H-JEPA (hierarchical)](h-jepa-hierarchical-world-models-paper.md) (10-05) | Yes |
 | [AD-E2E-JEPA](ad-e2e-jepa-autonomous-driving-paper.md) (09-28) | Yes |
 | LeVJEPA (08-27), LpWM (08-24), AdaJEPA (06-30), SkyJEPA (06-22), Causal-JEPA, Music-JEPA, HP-JEPA, Patch Policy | Yes (entity or source pages exist) |
-| *Interpreting Physics in Video World Models* (Garrido, Rabbat; 02-04) | **No.** Interpretability of how V-JEPA 2 represents physical variables |
-| *MJEPA* audio-visual JEPA (Bardes, Rabbat; 06-23) | **No** |
+| [Interpreting Physics in Video World Models](interpreting-physics-video-world-models-paper.md) (Garrido, Rabbat; 02-04) | **Yes** (ingested 2026-10-24). Interpretability of how V-JEPA 2 represents physical variables |
+| [MJEPA](mjepa-audio-visual-paper.md) audio-visual JEPA (Bardes, Rabbat; 06-23) | **Yes** (ingested 2026-10-24) |
 | *Purify Before You Align*, *The Lattice of Transition Laws* (Jiatao Gu; 10-14, 10-08) | No (generative modelling; lower priority) |
 
 ## Entities mentioned
@@ -68,4 +68,4 @@ Its value to the wiki is as a **discovery feed** for the JEPA/world-model line. 
 
 ## Open questions
 - Who maintains the roster, and on what evidence are non-founders (Jiatao Gu, Chen Wei, Julia Kempe, Tengyu Ma, Xinyi Wan …) linked as "team"? None of their AMI affiliations is verified here.
-- The **Brown Lemley Lecture deck** (April 2026) is linked as an "official AMI Labs public document". A LeCun primary on JEPA and AMI's approach, worth ingesting directly.
+- The **Brown Lemley Lecture deck** (April 2026), linked as an "official AMI Labs public document": now [ingested](lecun-brown-lemley-lecture-2026.md). No primary host found.

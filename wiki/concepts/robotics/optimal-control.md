@@ -2,8 +2,8 @@
 title: Optimal control
 type: concept
 created: 2026-05-14
-updated: 2026-09-12
-sources: 25
+updated: 2026-10-24
+sources: 27
 tags: [optimal-control, mpc, lqr, pontryagin, hamilton-jacobi-bellman, dynamic-programming, brachystochrone, calculus-of-variations, control-theory, rl-bridge]
 ---
 
@@ -102,6 +102,14 @@ The row above files GCS under "collision-free trajectory design," which is how r
 > *"We do not use binary variables to encode the discrete mode in which the system is at each time step but, instead, we use them to select the **transitions** between modes."* On a PWA double integrator across 7 regions with mode-dependent controllability (`T = 30`, `|V| = 212`, `|E| = 1435`, sets in `ℝ⁶`): the prior state-of-the-art perspective formulation (Moehle & Boyd; Marcucci & Tedrake 2019) needs **17 minutes** at a **93%** relaxation gap; the GCS formulation needs **7.1 s** at **20%**.
 >
 > At 7.1 s for a 30-step horizon this is a *planning* result, not yet an MPC one — the receding-horizon version needs warm starts or heuristic search over the graph. But mixed-integer MPC's binding constraint has always been solve time, and this is the largest single reduction in this wiki's optimal-control coverage.
+
+### Controllability as a representation-learning requirement (2026-10)
+[Toso et al.](../../sources/preserving-unstable-modes-inverse-dynamics-paper.md) bring classical linear-systems theory into JEPA training:
+- **Detectability** (PBH test) is necessary and sufficient for a latent controller to stabilise the plant.
+- The **finite-horizon controllability Gramian**'s dominant eigenspace converges to the unstable subspace.
+- Endpoint inverse dynamics provably keeps the H-step **reachable** subspace in the encoder.
+
+It is a rare case of LQR, reachability and Gramians being used to *specify* what a learned representation must keep. LeCun's [Lemley lecture](../../sources/lecun-brown-lemley-lecture-2026.md) frames world models as *"an old idea in optimal control"* (Kelley–Bryson 1962, Pontryagin/adjoint), and this paper makes that framing concrete.
 
 ## Connection to reinforcement learning
 
@@ -204,3 +212,5 @@ Synthesis / curriculum pages that link here:
 - [Curriculum Module 12 — LeWorldModel deep-dive](../../syntheses/curriculum/curriculum-12-lewm-deep-dive.md)
 - [Safely Learning Dynamical Systems](../../sources/safely-learning-dynamical-systems-paper.md) — conic optimization (LP/SOCP/SDP) applied to safe system identification; safety must hold for **every** system consistent with the uncertainty set and the data so far.
 - [Think Fast and Far — ROP-RAS3](../../sources/think-fast-and-far-rop-ras3-paper.md) — KL-regularised (linearly-solvable) control lifted to POMDPs: π* ∝ π̄·exp(ηQ) makes the Bellman max an expectation, so the tree needs no bandit.
+- [Toso et al. — Preserving unstable modes](../../sources/preserving-unstable-modes-inverse-dynamics-paper.md) — detectability, controllability Gramian, latent LQR for JEPA encoders.
+- [LeCun — Brown Lemley Lecture](../../sources/lecun-brown-lemley-lecture-2026.md) — *"world models are an old idea in optimal control"*; *"abandon RL in favour of MPC."*

@@ -3,7 +3,7 @@ title: Slow-feature collapse
 type: concept
 created: 2026-10-13
 updated: 2026-10-24
-sources: 10
+sources: 11
 tags: [slow-feature-collapse, jepa, anti-collapse, sigreg, inverse-dynamics, pldm, droid, world-model, representation-learning, disreg, predictive-closure, motionjepa, hamiltonian-jepa]
 ---
 
@@ -21,6 +21,14 @@ Several autumn-2026 papers describe the same failure under other names: *tempora
 - [H-JEPA paper](../../sources/h-jepa-hierarchical-world-models-paper.md) (2026, App. L): the **theory**, and the failure on real data (DROID).
 - [Predictive Closure](../../sources/predictive-closure-jepa-feature-selection-paper.md) (Levy, Lidayan, Goldberg, 2026-10): the **general frame** for which features a JEPA keeps; contains the H-JEPA result as a special case.
 - [MotionJEPA](../../sources/motionjepa-temporal-feature-collapse-paper.md) (2026-09): the first **label-free** barrier shown to work, in fixed-camera simulation.
+
+### The control-theoretic account (Toso et al., 2026-10)
+[Toso, LeCun, Anderson, Bounou](../../sources/preserving-unstable-modes-inverse-dynamics-paper.md) prove the same failure in **control** language, for linear systems:
+- **Lemma 2.** Prediction + SIGReg is exactly minimised by an encoder that keeps only the stable block, whitened to an isotropic Gaussian. It throws away **every unstable mode**, which makes the plant **unstabilisable** from the latent (Lemma 1, detectability).
+- **Theorem 1.** Exact **endpoint** inverse dynamics, reconstructing `a_t…a_{t+H−1}` from `(z_t, z_{t+H})`, makes the encoder injective on the **H-step reachable subspace**.
+- **Theorem 2.** As H grows, that subspace's dominant directions converge to the unstable ones.
+
+This is the first proof of *which* directions the inverse-dynamics barrier protects. *Wiki inference:* one-step IDM (H = 1) protects only `range(B)`, the directly actuated coordinates. That is a mechanism for "IDM keeps the arm and may lose the object" ([synthesis §4](../../syntheses/world-models/jepa-dynamics-collapse-fixes.md#4-a-pattern-worth-testing-inverse-dynamics-keeps-the-arm-and-may-lose-the-object)).
 
 ## The theory (H-JEPA App. L)
 - **Three kinds of content** in a sequence: *background* (constant within an episode, readable from one frame), *foreground* (action-driven, partly stochastic), and *distractors* (moving, action-independent).
@@ -42,7 +50,7 @@ From H-JEPA App. L, extended by the autumn-2026 batch. A barrier has to act on *
 
 1. **SIGReg with time in the sample axis** ("pooled", "LeWM-Flat"): a real but small penalty. With time **in the group axis** (per-timestep), zero. Every SIGReg-only DROID run collapsed regardless of λ. MotionJEPA independently finds LeWM-Flat **helps partially** (20.4 → 41.7% with a wood background).
 2. **Time repulsion** (reward latent change, no labels): keeps the predictor off the identity, but never beat the do-nothing baseline. There is no usable weight window when the foreground is itself ~50% unpredictable.
-3. **Inverse dynamics** (regress the action from consecutive latents): an **Ω(1) floor**. A collapsed encoder cannot predict actions, so it pays at least the action variance. It needs action labels. **It is the only barrier shown on scene-diverse real data (DROID).** New instances in this batch: AVL-JEPA's "action anchor" (inverse dynamics on Δz with a zero-transition baseline subtracted) and GAWM's IDM term.
+3. **Inverse dynamics** (regress the action from consecutive latents): an **Ω(1) floor**. Its scope is now proved for linear systems: exact reconstruction keeps the **H-step reachable subspace**, so one-step IDM keeps the directly actuated directions and **endpoint IDM (EP-IDM)** over H steps keeps everything an action sequence can reach ([Toso et al.](../../sources/preserving-unstable-modes-inverse-dynamics-paper.md); CartPole latent-LQR 0% → 100%). A collapsed encoder cannot predict actions, so it pays at least the action variance. It needs action labels. **It is the only barrier shown on scene-diverse real data (DROID).** New instances in this batch: AVL-JEPA's "action anchor" (inverse dynamics on Δz with a zero-transition baseline subtracted) and GAWM's IDM term.
 4. **Difference-image prediction (DISReg)** ([MotionJEPA](../../sources/motionjepa-temporal-feature-collapse-paper.md)): predict an embedding of `o_{t+1} − o_t` from `(z_t, z_{t+1})`. It is inverse dynamics with a **learned motion target in place of the action**, so the regulariser needs **no labels**, although the predictor is still action-conditioned. On LeWM's suite with a per-episode wood background: **LeWM 20.4%, IDM 77.2%, DISReg 81.8%, both 86.4%** (25-step mean; no seeds reported). **Limit:** a fixed camera makes the background subtract out exactly. Under ego-motion the difference image is mostly scene and `SIGReg(d)` is marginal-only. *That limit is the wiki's reasoning; nothing tests it.*
 5. **State alignment** ([GAWM](../../sources/physically-grounded-jepa-world-models-paper.md)): regress the simulator's full state from the latent during training. It works (Cube 87 with IDM vs 85 IDM-only), but it needs **privileged object pose and velocity**, which a real robot does not have.
 6. **A constrained action port** ([Hamiltonian JEPA](../../sources/hamiltonian-jepa-control-state-paper.md)): the predictor must move the state by exactly one unit per unit action along orthonormal directions, so an action-blind identity predictor is not available. *Wiki inference, untested by the paper (single-scene benchmarks only):* this gives an IDM-like Ω(1) floor from structure, adding no parameters, and its tied inverse readout is provably a reweighting of the forward loss.
@@ -58,6 +66,8 @@ Two 2026 demonstrations of the condition:
 - **In the wild, undiagnosed:** in [AD-E2E-JEPA](../../sources/ad-e2e-jepa-autonomous-driving-paper.md)'s NAVSIM driving test, LeWM is the only model that trains its own encoder on scene-diverse video, and its plans barely depend on the action (top-1 trajectory hit rate 5.7% vs 53.8%). This is consistent with slow-feature collapse, but a ViT-L at batch size 8 confounds it.
 
 ## How to detect it
+
+- **Latent LQR around a known equilibrium** ([Toso et al.](../../sources/preserving-unstable-modes-inverse-dynamics-paper.md)): linearise the predictor, design LQR, deploy. On CartPole it fails **0/10** for SIGReg models that still score **100%** under CEM and GBP planning. Planning success can hide a discarded control-critical direction.
 - **Not from loss.** In MotionJEPA's Dino game, LeWM's agent-position probe recovers early and then collapses back to ~1.0 NMSE with no sign in the training loss (Fig. 3).
 - **Action sensitivity** (H-JEPA): how much the rollout changes when actions are swapped. **Within-episode variance share.**
 - **MLP probes against a random-init floor** (MotionJEPA): a random encoder already reaches 0.116 NMSE on Pong, so a trained encoder that scores worse has actively thrown information away.
@@ -84,3 +94,4 @@ A theory now matches the 2022 observation, Predictive Closure generalises it, an
 - [AD-E2E-JEPA](../../sources/ad-e2e-jepa-autonomous-driving-paper.md)
 - Synthesis: [What the latent throws away](../../syntheses/world-models/jepa-dynamics-collapse-fixes.md)
 - [LeHami](../../sources/lehami-symplectic-latent-dynamics-paper.md) — rollout-contraction counterpart; explicitly not an encoder barrier.
+- [Toso et al. — Preserving unstable modes](../../sources/preserving-unstable-modes-inverse-dynamics-paper.md) — the control-theoretic proof: SIGReg + prediction can discard all unstable modes; endpoint IDM keeps the H-step reachable subspace.

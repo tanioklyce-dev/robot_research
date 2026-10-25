@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-07
 updated: 2026-10-24
-sources: 45
+sources: 46
 tags: [leworldmodel, lewm, jepa, world-model, mila, end-to-end, sigreg, instruction-leakage]
 ---
 
@@ -122,3 +122,4 @@ Five papers built on LeWM's code and benchmark suite within six weeks, each fixi
 - [AD-E2E-JEPA paper](../sources/ad-e2e-jepa-autonomous-driving-paper.md)
 - Synthesis: [What the latent throws away](../syntheses/world-models/jepa-dynamics-collapse-fixes.md)
 - [LeHami](../sources/lehami-symplectic-latent-dynamics-paper.md) — symplectic-predictor swap on 64×64 pendulums. LeWM's latent **log-volume declines linearly over a rollout**, and its per-frame encoder carries no velocity (ω R² ≤ 0). But LeWM **wins goal-reaching** on position (0.80 vs 0.48), and with an untied 3-frame window on velocity too.
+- [LeCun — Brown Lemley Lecture](../sources/lecun-brown-lemley-lecture-2026.md) — LeWM presented as the SIGReg-trained JEPA world model on the founder's slides.

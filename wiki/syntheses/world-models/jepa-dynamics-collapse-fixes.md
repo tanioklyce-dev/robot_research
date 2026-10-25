@@ -57,6 +57,17 @@ Put together, these say the bare JEPA objective has no reason to prefer the agen
 > [!note] The one label-free claim, and what it narrows
 > MotionJEPA, which shares a senior author with the hierarchical H-JEPA and appeared two weeks earlier (uncited by it), is the only fix whose barrier needs **no labels**. It does not contradict App. L: DISReg acts on the joint law that App. L says a barrier must reach, and it is not the "time repulsion" that App. L found useless, because it rewards change that predicts a *specific target*. But its test background is **pixel-identical across frames under a fixed camera**, which is the easiest possible case for a difference image. The wiki's "only inverse dynamics works" therefore becomes **"only inverse dynamics has been shown on scene-diverse real data; a label-free barrier works with a fixed camera in simulation."** See the reconciliation on the [MotionJEPA page](../../sources/motionjepa-temporal-feature-collapse-paper.md#reading-it-critically).
 
+### 1a. The proof for the inverse-dynamics rung (Toso et al., 2026-10-06)
+The batch above argued from H-JEPA's theorem that every fix needs a grounded joint-in-time term. [Toso, LeCun, Anderson, Bounou](../../sources/preserving-unstable-modes-inverse-dynamics-paper.md) prove the inverse-dynamics case in control-theoretic terms, for linear systems:
+- prediction + SIGReg admits an exact minimiser that discards **every unstable mode** (Lemma 2);
+- **endpoint inverse dynamics** over H steps keeps the **H-step reachable subspace** (Theorem 1), which converges to the unstable subspace as H grows (Theorem 2).
+
+On nonlinear MuJoCo tasks with proprioception in the encoder input:
+- **CartPole:** latent-LQR goes 0% → 100%.
+- **Walker2D:** the walking limit cycle survives only with EP-IDM, which reaches 2.91 m/s under iCEM against ~0.
+
+**What the theorem adds to this synthesis is scope.** One-step IDM (SMWM, PLDM, GAWM, AVL stage 1) is the H = 1 case and protects only `range(B)`: what the action moves *directly*. See §4.
+
 ## 2. The labels ladder: what each fix costs a real robot
 
 Ordered by what a deployment has to log:
@@ -104,6 +115,9 @@ Inverse dynamics grounds the latent in **what the agent moves**. Predictive Clos
 
 Against the pattern: in MotionJEPA's wood-background setting, IDM is the **best** method on Push-T (83.6%) and recovers the agent better than DISReg does. When the alternative is total collapse, an arm-only latent is a large improvement.
 
+> [!note] A mechanism, from the control side (2026-10-24)
+> [Toso et al.](../../sources/preserving-unstable-modes-inverse-dynamics-paper.md) Theorem 1, read with H = 1, gives `ker(F) ∩ range(B) = {0}`. **One-step IDM protects only the directly actuated directions.** A pushed object is reached through contact, through `AB, A²B, …`, so only **multi-step (endpoint) IDM with H spanning the contact** protects it. *Wiki inference* (linear theory carried over to hybrid contact dynamics): this predicts the §4 pattern, and predicts EP-IDM fixes it. Add an **EP-IDM arm with H ≥ a typical push duration** to the §6 shootout.
+
 > [!note] Hedged reading
 > On fixed-scene benchmarks, IDM-style terms tend to help the **actuation-dominated** task (Cube) and hurt or tie the **contact-dominated** one (Push-T). Hamiltonian JEPA's predictor audit supports that split: Push-T is dissipation-dominated, Cube actuation-dominated. For a household robot, the object is the point. The obvious counterweights are DISReg (pixel change includes the pushed object) and GAWM's state alignment (object pose, if you have it). That may be why the combined rows (MotionJEPA + IDM, GAWM SA + IDM) are best in their papers. **This is four papers' numbers under four protocols, not a controlled result.**
 
@@ -115,13 +129,15 @@ Against the pattern: in MotionJEPA's wood-background setting, IDM is the **best*
 
 So the wiki's [world-model evaluation](../../concepts/world-models/world-model-evaluation.md) advice, *measure action sensitivity, not loss*, still holds. But nobody has checked whether action sensitivity, probes and planning success agree on one model. That gap matters most for the focus question's second half, *how can we tell before putting it on a robot*.
 
+- **Planning success can be perfect while a control-critical direction is gone.** In [Toso et al.](../../sources/preserving-unstable-modes-inverse-dynamics-paper.md), CEM and GBP reach 100% on CartPole with SIGReg models whose latent-LQR fails every time. The failure appears only when you design **feedback** from the latent.
+
 ## 6. The experiment this batch makes cheap
 
 All four method papers build on LeWM's codebase and benchmark suite. A **one-protocol shootout** is single-GPU work, and it would settle most of §3–§5:
 
-- **Arms:** LeWM; LeWM + IDM; LeWM + DISReg; LeWM + IDM + DISReg; LeWM + proprio-only state alignment; the Hamiltonian port.
+- **Arms:** LeWM; LeWM + IDM; LeWM + **EP-IDM (H spanning a push)**; LeWM + DISReg; LeWM + IDM + DISReg; LeWM + proprio-only state alignment; the Hamiltonian port.
 - **Conditions:** clean suite; MotionJEPA's wood background; a **moving-camera** variant (random per-step crop jitter as a cheap ego-motion proxy).
-- **Measures:** planning success over ≥3 seeds with spread; action sensitivity (H-JEPA); an MLP probe of the agent *and* of the pushed object.
+- **Measures:** planning success over ≥3 seeds with spread; **latent-LQR or the log-det rollout volume** as the cheap extra diagnostics (§5, §7); action sensitivity (H-JEPA); an MLP probe of the agent *and* of the pushed object.
 
 That tests three things together. Does the label-free barrier survive camera motion (§2)? Does IDM lose the object (§4)? Do the diagnostics agree (§5)? It belongs in the [backlog](../../backlog.md) next to the RankMe item.
 
@@ -133,7 +149,7 @@ Everything above concerns what the **encoder** keeps. [LeHami](../../sources/leh
 - **The diagnostic it adds** (cumulative log|det J|) is the first in this batch to look at the rollout rather than the encoder (§5). LeWM's declines linearly on a pendulum.
 - **Where it stops.** It was tested only on two **volume-preserving** pendulums. The authors concede a symplectic latent cannot represent **dissipation** (friction, contact), which is the manipulation regime. It **loses** LeWM's goal-reaching on position (0.48 vs 0.80), and on velocity to an untied 3-frame LeWM window (0.53 vs 0.80). It wins on compute and training efficiency.
 - **For the §6 shootout:** add the log-det diagnostic as a fourth measure. It costs nothing, and would show whether the encoder barriers also change rollout contraction.
-- **Theory to pair with §1.** A paper surfaced by a third-party feed, *Preserving Unstable Modes Through Inverse Dynamics in JEPA World Models* (LeCun et al., 2026-10-06; [via](../../sources/ami-labs-intelligence-hub-research.md)), reportedly proves that exact action reconstruction makes the encoder injective on the finite-horizon reachable subspace. That would be a formal account of the inverse-dynamics barrier. **Not yet ingested**; see the backlog.
+- **Theory to pair with §1:** now ingested as §1a ([Toso et al.](../../sources/preserving-unstable-modes-inverse-dynamics-paper.md)). Originally surfaced by a third-party feed, *Preserving Unstable Modes Through Inverse Dynamics in JEPA World Models* (LeCun et al., 2026-10-06; [via](../../sources/ami-labs-intelligence-hub-research.md)), which said it proves that exact action reconstruction makes the encoder injective on the finite-horizon reachable subspace. It does, for linear systems.
 
 ## Evidence quality
 
@@ -144,6 +160,7 @@ Everything above concerns what the **encoder** keeps. [LeHami](../../sources/leh
 | GAWM | ablation isolates SA vs IDM | 5-page workshop paper; baselines quoted, not re-run; privileged-state labels; easier TwoRoom protocol |
 | Hamiltonian JEPA | 3 seeds ± std; clean PIC derivation; paired test against the official LeWM checkpoint | rank and checkpoint epoch picked per task; p ≈ 0.053 on Push-T; SMWM missing from the comparison |
 | Predictive Closure | theorem + five controlled tests | 3-d latent on CIFAR collages; actions never tested |
+| Toso et al. (§1a) | linear proofs (Lemmas 1–2, Thms 1–2); clean LQR diagnostic | 10 trials, no seed spread; proprio in the encoder input; three small MuJoCo tasks |
 | LeHami (§7) | exact guarantee by construction; 3 seeds ± s.d.; full reproducibility release | 64×64 pendulums only, both volume-preserving by design; compute table one seed; loses position planning |
 | AD-E2E-JEPA | full 12k-scene NAVSIM run | one seed; future-frame goal makes it close to an inverse problem; non-standard LeWM |
 
@@ -165,5 +182,6 @@ Everything above concerns what the **encoder** keeps. [LeHami](../../sources/leh
 ## Sources used in this synthesis
 
 - [MotionJEPA](../../sources/motionjepa-temporal-feature-collapse-paper.md) · [AVL-JEPA](../../sources/avl-jepa-causal-dynamics-collapse-paper.md) · [Physically grounded JEPA WMs (GAWM)](../../sources/physically-grounded-jepa-world-models-paper.md) · [Hamiltonian JEPA](../../sources/hamiltonian-jepa-control-state-paper.md) · [Predictive Closure](../../sources/predictive-closure-jepa-feature-selection-paper.md) · [AD-E2E-JEPA](../../sources/ad-e2e-jepa-autonomous-driving-paper.md)
+- Theory (§1a): [Toso et al. — Preserving unstable modes](../../sources/preserving-unstable-modes-inverse-dynamics-paper.md)
 - Adjacent (§7): [LeHami](../../sources/lehami-symplectic-latent-dynamics-paper.md) · discovery via [AMI Labs Intelligence Hub](../../sources/ami-labs-intelligence-hub-research.md)
 - Prior wiki material: [H-JEPA (hierarchical)](../../sources/h-jepa-hierarchical-world-models-paper.md) · [SMWM](../../sources/sensorimotor-world-models-paper.md) · [Sobal et al. 2022](../../sources/sobal2022-jepa-slow-features-paper.md) · [LeWorldModel](../../sources/leworldmodel-paper.md) · [PLDM](../../sources/pldm-paper.md)

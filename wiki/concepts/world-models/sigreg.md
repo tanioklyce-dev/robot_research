@@ -3,7 +3,7 @@ title: SIGReg (Sketched Isotropic Gaussian Regularization)
 type: concept
 created: 2026-08-26
 updated: 2026-10-24
-sources: 33
+sources: 34
 tags: [sigreg, jepa, lejepa, anti-collapse, isotropic-gaussian, cramer-wold, epps-pulley, balestriero, lecun, latent-space, regularization]
 ---
 
@@ -181,6 +181,9 @@ Given that open-loop degradation from 25 → 75 steps is the standing failure ([
 > [!note] A fifth data point: placement across a (q, p) split (2026-10-24)
 > [LeHami](../../sources/lehami-symplectic-latent-dynamics-paper.md) applies SIGReg to ground-truth embeddings only, never the rollout. It compares placing it on *q* and *p* separately, on *q* only, or on the concatenation (App. E.3, Table 8). It argues the regulariser and a symplectic predictor act in different places: SIGReg on the encoder distribution in expectation, symplecticity on every inference step. So neither makes the other redundant.
 
+> [!warning] Satisfied exactly by an encoder that cannot support control (2026-10-24)
+> [Toso et al.](../../sources/preserving-unstable-modes-inverse-dynamics-paper.md) Lemma 2: take only the stable block of a linear plant's state and whiten it, `F_s = QΣ_s^{−1/2}`. The latents are exactly standard Gaussian (SIGReg = 0) with zero one-step error, and **every unstable mode** is discarded. On CartPole, SIGReg models give 0% latent-LQR success. This is the control-theoretic twin of H-JEPA's slow-feature theorem: a marginal-law regulariser cannot see which directions a controller needs.
+
 ## Implementation notes
 
 - **`λ` is the single hyperparameter** — the SIGReg loss weight, default **0.1**.
@@ -224,3 +227,4 @@ Given that open-loop degradation from 25 → 75 steps is the standing failure ([
 - [AVL-JEPA paper](../../sources/avl-jepa-causal-dynamics-collapse-paper.md)
 - Synthesis: [What the latent throws away](../../syntheses/world-models/jepa-dynamics-collapse-fixes.md)
 - [LeHami](../../sources/lehami-symplectic-latent-dynamics-paper.md) — SIGReg placement across a canonical (q, p) latent; complementary to a volume-preserving predictor.
+- [Toso et al. — Preserving unstable modes](../../sources/preserving-unstable-modes-inverse-dynamics-paper.md) — Lemma 2: an exact SIGReg minimiser that discards all unstable modes.

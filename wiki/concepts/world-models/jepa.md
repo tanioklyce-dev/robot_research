@@ -3,7 +3,7 @@ title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
 updated: 2026-10-24
-sources: 98
+sources: 102
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -366,3 +366,7 @@ And the caution that generalizes beyond JEPA: **stable features are not usable f
 - [LeCun & Xing debate (2026)](../../sources/lecun-xing-jepa-glp-debate-2026.md) — LeCun's own live defence, and its sharpest live challenge. The crux is *where the prediction is checked*; the wiki's reading is that the two sides argue past each other on **rare** (Xing's crash) versus **unpredictable** (LeCun's leaves), which is the declared-axis distinction.
 - [LeHami](../../sources/lehami-symplectic-latent-dynamics-paper.md) — exactly symplectic Hamiltonian predictor; rollout-volume guarantee; loses LeWM's planning on position goals.
 - [AMI Labs Intelligence Hub — Research](../../sources/ami-labs-intelligence-hub-research.md) — third-party discovery feed of the LeCun/AMI JEPA line.
+- [Toso et al. — Preserving unstable modes](../../sources/preserving-unstable-modes-inverse-dynamics-paper.md) — control-theoretic proof that prediction + SIGReg can discard unstable modes; endpoint inverse dynamics keeps the H-step reachable subspace.
+- [Interpreting physics in video world models](../../sources/interpreting-physics-video-world-models-paper.md) — the internal geometry of V-JEPA 2: Physics Emergence Zone, direction as a high-dimensional population code.
+- [MJEPA](../../sources/mjepa-audio-visual-paper.md) — single-encoder audio-visual JEPA; sharing hurts without cross-modal prediction.
+- [LeCun — Brown Lemley Lecture (2026-04)](../../sources/lecun-brown-lemley-lecture-2026.md) — the founder's 2026 framing: world models as action-conditioned predictors in representation space, *not* simulators or video generators.

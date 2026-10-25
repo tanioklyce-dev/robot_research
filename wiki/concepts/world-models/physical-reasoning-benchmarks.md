@@ -2,8 +2,8 @@
 title: Physical reasoning benchmarks and the human baseline
 type: concept
 created: 2026-08-31
-updated: 2026-09-11
-sources: 5
+updated: 2026-10-24
+sources: 6
 tags: [physical-reasoning, intuitive-physics, phyre, virtual-tools, physion, auccess, human-baseline, cognitive-science, benchmark, active-exploration]
 ---
 
@@ -58,6 +58,13 @@ Two human-comparison results now point opposite ways, and nothing here reconcile
 
 **Physical judgment and physical problem-solving are apparently not the same capability.** One is recognizing that something violates physics; the other is searching for an action that exploits it. No source in this wiki examines the split.
 
+## Inside the encoder: where intuitive physics lives (2026-02)
+[Joseph, Garrido, Balestriero, …, Rabbat](../../sources/interpreting-physics-video-world-models-paper.md) probe IntPhys **layer by layer** in frozen [V-JEPA 2](../../entities/v-jepa-2.md) L/H/G and VideoMAE-v2 G.
+- **Emergence zone.** Possible-vs-impossible accuracy jumps from chance to ~85–95% at **⅓ depth** (the "Physics Emergence Zone"), peaks mid-network, and declines toward the output.
+- **Speed vs direction.** Speed is linearly available from the first layers; **motion direction appears only at the zone**, as a 40–50-dimensional ring-shaped population code.
+- **Not a physics engine.** Direction and IntPhys judgments occupy nearly orthogonal subspaces. They share a mechanism (local spatiotemporal attention heads, whose ablation drops IntPhys 78 → 52%) but no variables. That is evidence for distributed, task-specific physics, not a factorised engine.
+- Contact and force were explicitly not tested.
+
 ## Related concepts
 
 - [World-model evaluation](world-model-evaluation.md) — the generative-video side, and the perceptual/utility/coherence axes.
@@ -78,3 +85,4 @@ Two human-comparison results now point opposite ways, and nothing here reconcile
 - [Physion-Eval paper](../../sources/physion-eval-paper.md)
 - [World-model evaluation](world-model-evaluation.md)
 - [VideoPhy](../../sources/videophy-paper.md), [VideoPhy-2](../../sources/videophy-2-paper.md), [PhyGenBench](../../sources/phygenbench-paper.md), [WorldModelBench](../../sources/worldmodelbench-paper.md) — the generative-video tradition's primaries (ingested 2026-09-11).
+- [Interpreting physics in video world models](../../sources/interpreting-physics-video-world-models-paper.md) — IntPhys as a layer-wise probe target; the Physics Emergence Zone.

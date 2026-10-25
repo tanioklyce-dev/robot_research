@@ -863,6 +863,23 @@ The nine-paper arc behind [code as policy](concepts/agents/code-as-policy.md), i
   - **The servo model is chaotic enough to diverge across CPU architectures in seconds**, so only the Space's x86_64 times count, and the build fails if a golden run doesn't reproduce. The board is rebuilt by re-racing, never by reading stored times.
   - The reference walker tracks **44%** of commanded velocity. The native training path is [mjlab](entities/mjlab.md). (captured 2026-10-24)
 
+### Which directions a JEPA keeps: control theory, interpretability, and the founder's pitch (ingested 2026-10-24)
+- [Preserving Unstable Modes Through Inverse Dynamics in JEPA World Models](sources/preserving-unstable-modes-inverse-dynamics-paper.md) — Toso, [LeCun](entities/yann-lecun.md), Anderson, Bounou (Columbia / NYU / [AMI](entities/ami-labs.md); 2610.07540).
+  - **Linear proofs:** prediction + [SIGReg](concepts/world-models/sigreg.md) is exactly minimised by an encoder that discards **every unstable mode**, making the plant unstabilisable from the latent. **Endpoint inverse dynamics** keeps the H-step reachable subspace, which converges to the unstable subspace as H grows.
+  - **Experiments:** CartPole latent-LQR **0% → 100%**, while CEM and GBP plan at 100% even on the SIGReg models. Walker2D keeps its limit cycle (2.91 m/s vs ~0). Frozen DINOv2 never stabilises CartPole.
+  - Wiki inference: one-step IDM protects only directly actuated directions, a mechanism for "IDM keeps the arm, loses the object". (2026-10-06)
+- [Interpreting Physics in Video World Models](sources/interpreting-physics-video-world-models-paper.md) — Joseph, Garrido, Balestriero, …, Rabbat (FAIR / Mila).
+  - In [V-JEPA 2](entities/v-jepa-2.md) and VideoMAE-v2 G, intuitive physics emerges at **⅓ depth** (the "Physics Emergence Zone") and **degrades toward the output**.
+  - Speed is available early; **direction** appears only at the zone, as a 40–50-dim ring population code that needs dozens of dimensions to steer.
+  - Direction and IntPhys judgments occupy orthogonal subspaces: distributed physics, not a physics engine. (2026-02-04)
+- [MJEPA](sources/mjepa-audio-visual-paper.md) — Teotia, [Bardes](entities/adrien-bardes.md), Rabbat, … (FAIR).
+  - A single-encoder audio + video JEPA. Sharing an encoder **hurts** without cross-modal prediction, and helps with it.
+  - Frozen ViT-g: ESC-50 96.9%; K400 85.0 / SSv2 73.9 with ~10× less video than V-JEPA 2. (2026-06-23)
+- [LeCun — Brown Lemley Lecture](sources/lecun-brown-lemley-lecture-2026.md) — 47-slide deck delivered as AMI's pitch.
+  - World models should be *"action-conditioned predictors in abstract representation space"*, not simulators or video generators. System-2 agents with **guardrail objectives** and persistent memory. *"Abandon RL in favour of MPC."*
+  - AMI's markets: industrial sensor systems and biomedicine.
+  - Obtained via a third-party tracker; no primary host found. (2026-04-01)
+
 ### LeHami, and a tracker for the AMI line (ingested 2026-10-24)
 - [LeHami: Symplectic Latent Dynamics for World Models](sources/lehami-symplectic-latent-dynamics-paper.md) — Yalovetzky, [Balestriero](entities/randall-balestriero.md), [LeCun](entities/yann-lecun.md) (NYU / Brown / [AMI Labs](entities/ami-labs.md); 2610.15267). The JEPA predictor is replaced by an **action-conditioned Hamiltonian flow with an exactly symplectic leapfrog step**; *p* is a fixed Savitzky–Golay derivative of the encoder's *q*.
   - **Guarantee:** phase-space volume is preserved for any parameters and actions, ruling out three rollout-collapse modes. Not to be confused with [Hamiltonian JEPA](entities/hamiltonian-jepa.md), which targets the encoder.
@@ -1365,6 +1382,7 @@ The nine-paper arc behind [code as policy](concepts/agents/code-as-policy.md), i
 - [MotionJEPA](entities/motionjepa.md) — LeWM + DISReg (predict an embedding of the pixel difference): the first label-free barrier against slow-feature collapse; fixed camera only. (2 sources)
 - [Hamiltonian JEPA](entities/hamiltonian-jepa.md) — port-Hamiltonian predictor with an orthonormal action port + Bures-Wasserstein prior; OGB-Cube 91.9%. Calls itself "H-JEPA"; not hierarchical. (1 source)
 - [LeHami](entities/lehami.md) — Yalovetzky/Balestriero/LeCun's **exactly symplectic** Hamiltonian JEPA predictor. Rollout volume is preserved by construction; pendulum-only; beats LeWM on velocity and compute, loses on position planning. (1 source)
+- [MJEPA](entities/mjepa.md) — FAIR's single-encoder **audio-visual JEPA**; cross-modal prediction is what makes a shared encoder beat unimodal baselines. (1 source)
 - [AD-E2E-JEPA](entities/ad-e2e-jepa.md) — JEPA world model for end-to-end driving on frozen DINOv3; 67.3 EPDMS on NAVSIM v2, ~100× faster than DINO-WM / JEPA-WMs. (1 source)
 - [Dreamer / DreamerV3](entities/dreamer.md) — Hafner-line MBRL family with generative WM + actor-critic in imagination; LeWM baseline; lineage now fully sourced ([PlaNet](sources/planet-paper.md) → [DayDreamer](sources/daydreamer-paper.md) → V3); 2025–26 downstream: [S5WM](sources/s5wm-paper.md) (RSSM→SSM, 4× faster) + [EAWM](sources/eawm-paper.md) (event objective, ICLR-2026 SOTA). (14 sources)
 - [TD-MPC / TD-MPC2](entities/td-mpc.md) — Hansen-line decoder-free MBRL with MPC + TD-bootstrapped value; LeWM baseline; closest MBRL relative to JEPA; **the only model-based method natively in LeRobot**. Both papers now filed ([TD-MPC](sources/td-mpc-paper.md) 2022 + [TD-MPC2](sources/td-mpc2-paper.md) 2024). (9 sources)

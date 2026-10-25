@@ -3,7 +3,7 @@ title: World-model evaluation
 type: concept
 created: 2026-08-07
 updated: 2026-10-24
-sources: 30
+sources: 32
 tags: [world-model, evaluation, benchmark, physical-validity, policy, vbench, worldscore, physion-eval, mllm-critic]
 ---
 
@@ -220,6 +220,10 @@ AD-E2E-JEPA adds a protocol caveat: using the *real future frame* as the goal ma
 
 **A sixth diagnostic, on the predictor side (2026-10-24).** [LeHami](../../sources/lehami-symplectic-latent-dynamics-paper.md) measures **rollout contraction** directly as the normalised cumulative log|det J| of the one-step predictor over a K-step rollout. On a simple pendulum, LeWM's declines **linearly** with horizon, while an exactly symplectic predictor stays at 0. It is cheap, needs no probe or labels, and measures something none of the encoder-side diagnostics above do. The same paper argues that position-only probes test **half the state** of a mechanical system. A per-frame encoder can score well on angle and below the predict-the-mean floor on velocity.
 
+**Two more probes, from the control and interpretability sides (2026-10-24).**
+- **Latent LQR** ([Toso et al.](../../sources/preserving-unstable-modes-inverse-dynamics-paper.md)): linearise the learned predictor at a known equilibrium, design LQR in the latent, deploy on the true plant. SIGReg models that plan at 100% with CEM and GBP **fail 100%** here. Aggregate planning success is not evidence that the latent supports feedback.
+- **Read the middle of a frozen encoder** ([Joseph et al.](../../sources/interpreting-physics-video-world-models-paper.md)): in V-JEPA 2 and VideoMAE-v2, physics-relevant structure appears at ~⅓ depth, peaks mid-network and **degrades toward the output**. Probes and world models that read only final-layer features may be reading the worst layer for dynamics.
+
 ## Related concepts
 
 - [Robot policy evaluation](../robotics/robot-policy-evaluation.md) — the statistical case, from inside robotics.
@@ -258,3 +262,5 @@ AD-E2E-JEPA adds a protocol caveat: using the *real future frame* as the goal ma
 - [AD-E2E-JEPA paper](../../sources/ad-e2e-jepa-autonomous-driving-paper.md)
 - Synthesis: [What the latent throws away](../../syntheses/world-models/jepa-dynamics-collapse-fixes.md)
 - [LeHami](../../sources/lehami-symplectic-latent-dynamics-paper.md) — log-det rollout-volume diagnostic; velocity as the missing half of the state.
+- [Toso et al.](../../sources/preserving-unstable-modes-inverse-dynamics-paper.md) — latent-LQR diagnostic; MPC success masks collapse.
+- [Interpreting physics in video world models](../../sources/interpreting-physics-video-world-models-paper.md) — the Physics Emergence Zone; final-layer features are not the best for physics.

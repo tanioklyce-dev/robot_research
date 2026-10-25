@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-07-26
 updated: 2026-10-24
-sources: 23
+sources: 24
 tags: [person, balestriero, brown, citadel, wavelets, spline-theory, signal-processing, nasa-mars-seis, lejepa, sigreg, jepa, ssl, theory, world-model, inverse-dynamics, causality, spectral-graph-theory, time-series, levjepa, tutorial]
 ---
 
@@ -100,3 +100,4 @@ He is also unusually direct about the state of the art he is selling: *"we are n
 - [MotionJEPA paper](../sources/motionjepa-temporal-feature-collapse-paper.md) — senior author; the label-free DISReg barrier, two weeks before the hierarchical H-JEPA's "only IDM works" result.
 - Synthesis: [What the latent throws away](../syntheses/world-models/jepa-dynamics-collapse-fixes.md)
 - [LeHami](../sources/lehami-symplectic-latent-dynamics-paper.md) (2026-10-11, Brown affiliation) — exactly symplectic Hamiltonian predictor for JEPA world models.
+- [Interpreting physics in video world models](../sources/interpreting-physics-video-world-models-paper.md) (2026-02) — co-author; V-JEPA 2 layer-wise physics interpretability.
