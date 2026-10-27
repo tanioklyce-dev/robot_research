@@ -3,8 +3,8 @@ title: NVIDIA GEAR Lab
 type: entity
 subtype: research-lab
 created: 2026-05-15
-updated: 2026-09-12
-sources: 20
+updated: 2026-10-27
+sources: 21
 tags: [nvidia, gear, embodied-ai, humanoids, foundation-models, world-models, whole-body-control]
 ---
 
@@ -55,3 +55,4 @@ GEAR is **the in-house research source** of essentially every NVIDIA-product ent
 - [CaP-X paper](../sources/cap-x-paper.md) — the CaP-X entry in the publications list, now ingested; co-senior-authored by [Jim Fan](jim-fan.md).
 - [ASPIRE paper](../sources/aspire-paper.md) — GEAR porting its own **Voyager** open-ended skill-library pattern (listed above under the open-ended-agents pillar) from Minecraft to real manipulation, with overlapping authorship.
 - [RoboTTT paper](../sources/robottt-paper.md) — test-time-training (fast-weight) layers added to the GR00T N1.7 action head; **context length as a scaling axis** (43.9% → 71.5% from 1K to 8K timesteps), with a matched recurrent baseline that does not scale; one-shot from human video; DAgger Distillation. Three real bimanual assembly tasks on [YAM](yam.md).
+- [AW-0 paper](../sources/agentic-world-action-models-aw0-paper.md) — code expert inside a WAM (Berkeley × NVIDIA); the end-to-end counterpart to GEAR's CaP-X/ASPIRE line; DreamZero and EgoScale as baselines.

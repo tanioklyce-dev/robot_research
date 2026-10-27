@@ -3,8 +3,8 @@ title: RoboTwin 2.0
 type: entity
 subtype: benchmark
 created: 2026-08-04
-updated: 2026-09-14
-sources: 7
+updated: 2026-10-27
+sources: 8
 tags: [robotwin, benchmark, bimanual, manipulation, domain-randomization, data-generation, simulation, robotwin-od, mllm-code-generation, embodiment-aware-grasping, sim-to-real]
 ---
 
@@ -129,3 +129,4 @@ That makes RoboTwin the reference frame for the wiki's central world-model findi
 ## Mentioned in (additional)
 
 - [WorldArena paper](../sources/worldarena-paper.md) · [WorldArena 2.0 paper](../sources/worldarena-2-paper.md)
+- [AW-0 paper](../sources/agentic-world-action-models-aw0-paper.md) — 80.8% clean / 20.6% randomized (hybrid 63.1 / 29.2) on 50 tasks, trained on 50 clean demos/task per the leaderboard protocol.

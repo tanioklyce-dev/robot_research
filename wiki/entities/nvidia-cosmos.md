@@ -3,8 +3,8 @@ title: NVIDIA Cosmos
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-10-22
-sources: 46
+updated: 2026-10-27
+sources: 47
 tags: [cosmos, world-model, omnimodal, mixture-of-transformers, world-action-model, video-generation, nvidia, foundation-model, edge]
 ---
 
@@ -96,6 +96,7 @@ As a **policy evaluator** it correlates only **r = 0.483** with the RoboTwin sim
 ## Mentioned in (additional)
 
 - [WorldArena paper](../sources/worldarena-paper.md) · [WorldArena 2.0 paper](../sources/worldarena-2-paper.md)
+- [AW-0 paper](../sources/agentic-world-action-models-aw0-paper.md) — Cosmos-Predict2.5-2B as the video-expert init (VAE swapped for Wan2.2); Cosmos-Reason1 text embeddings.
 
 ## The Cosmos-1 tokenizer as a control representation: lowest measured
 

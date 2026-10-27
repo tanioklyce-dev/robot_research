@@ -6349,3 +6349,23 @@ Three clusters: **contact-rich safety** ([survey](sources/safe-learning-contact-
   - [World-model evaluation](concepts/world-models/world-model-evaluation.md): scene-cut and cycle-consistency leakage diagnostics.
   - [Cross-embodiment](concepts/learning/cross-embodiment.md), [V-JEPA 2](entities/v-jepa-2.md), [DROID](entities/droid.md), [JEPA-WMs](entities/jepa-wms.md), [UniVLA](entities/univla.md), [Basile Terver](entities/basile-terver.md), [Yann LeCun](entities/yann-lecun.md), [Lemley lecture](sources/lecun-brown-lemley-lecture-2026.md) (open question resolved), [backlog](backlog.md).
 - **Patch Policy (2607.18236)** was requested again. It is already ingested and the hash matches, so no action was taken.
+
+## [2026-10-27] ingest | Agentic World Action Models — AW-0 (2610.30136)
+- Created [source page](sources/agentic-world-action-models-aw0-paper.md). Raw: `raw/2610.30136v1.pdf` (v1, 2026-10-21; 46 MB).
+- New entity: [AW-0](entities/aw-0.md).
+- Key findings:
+  - A code expert (masked diffusion) inside a video+action WAM, with attention ordered C→V→A.
+  - Code conditions the policy but is not executed by default. Hybrid gated execution is optional.
+  - Agentic annotation: Gemini 3.1 Pro writes programs and a Claude Code coordinator distills 50 frozen skills.
+  - 80.8% RoboTwin clean; 71.1 vs 46.0 rubric on 8 real tasks; code beats language subgoals on 7/8.
+- **Flagged:**
+  - The default mode loses to π0.5 under randomization (20.6 vs 27.7).
+  - Sim hybrid robustness is confounded with different (CaP-generated) training demos.
+  - Rubric scores, not success rates.
+  - Baselines lack AW-0's 2,913 h pretraining corpus.
+  - Compute and annotation cost unreported. No release statement.
+  - The "WLA" baseline (Yang et al., SJTU) is not Unitree's UnifoLM-WLA.
+- Updated:
+  - [World-action model](concepts/world-models/world-action-model.md): new section "Code as a fourth stream".
+  - [Code as policy](concepts/agents/code-as-policy.md): new section "Code inside the policy".
+  - [Agent skills](concepts/agents/agent-skills.md), [YAM](entities/yam.md), [Sharpa Wave](entities/sharpa-wave.md), [RoboTwin](entities/robotwin.md), [NVIDIA GEAR](entities/nvidia-gear.md), [NVIDIA Cosmos](entities/nvidia-cosmos.md), [CaP-X](entities/cap-x.md), [ASPIRE](entities/aspire.md), [Jim Fan](entities/jim-fan.md), [Yuke Zhu](entities/yuke-zhu.md), [Guanzhi Wang](entities/guanzhi-wang.md), [Ken Goldberg](entities/ken-goldberg.md).

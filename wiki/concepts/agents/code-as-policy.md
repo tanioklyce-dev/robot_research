@@ -2,8 +2,8 @@
 title: Code as policy
 type: concept
 created: 2026-08-03
-updated: 2026-10-24
-sources: 18
+updated: 2026-10-27
+sources: 19
 tags: [code-as-policy, llm-agent, agentic-robotics, program-synthesis, skill-library, voyager, saycan, voxposer, inner-monologue, codeact, tool-use, waddle, cap-x, aspire, benchmark]
 ---
 
@@ -170,6 +170,17 @@ Three findings sharpen this page's earlier sections:
 
 Cost is again unreported; the paper says only that API rate limits bind.
 
+## Code inside the policy (added 2026-10-27)
+
+[AW-0](../../entities/aw-0.md) ([paper](../../sources/agentic-world-action-models-aw0-paper.md)) inverts the lineage above. Code is no longer the actuator wrapped around learned tools. It is an **internal token stream of a learned [world-action model](../world-models/world-action-model.md)**, jointly denoised with future video and actions, and by default it is **never executed**. Several authors overlap with CaP-X and ASPIRE ([Goldberg](../../entities/ken-goldberg.md), [G. Wang](../../entities/guanzhi-wang.md), [Fan](../../entities/jim-fan.md), [Zhu](../../entities/yuke-zhu.md)).
+
+Where the lineage reappears:
+- **Agents as annotators, not controllers.** Gemini 3.1 Pro writes subtask programs over declaration-only primitives. A Claude Code coordinator distills a 50-skill library, which is then frozen and applied to 2.08M subtask slices through a cache. That is the ASPIRE coordinator pattern, moved from deployment time to **label time**.
+- **The skills hierarchy survives the move.** Removing skill calls (primitives only) lowers scores on all 8 real tasks (Deal Poker 58.3 → 42.0). This is the same "abstractions carry the performance" finding as the [abstraction confound](#the-abstraction-confound--the-finding-that-reframes-the-lineage-above), now inside a network.
+- **Execution as an optional, gated fallback.** The hybrid mode runs a decoded slice only after stage, dependency, syntax and whitelist gates, unrepaired. It helps under visual randomization (20.6 → 29.2% on RoboTwin) and on one real towel task (84.4 → 90.6). It costs 17.7 points in clean sim. The sim comparison is confounded by different training demos.
+
+Read against the "graceful degradation" summary below: the executed-code channel is again the part that holds up under distribution shift, and the learned channel is again the part that wins in-distribution. AW-0 puts both behind one forward pass and arbitrates per replanning step.
+
 ## Where this sits on the abstraction ladder
 
 Code-as-policy is **level 2 (programmatic control)** in the [control abstraction levels](../robotics/control-abstraction-levels.md) taxonomy — the level [Anthropic found](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) "substantially outperforms direct control" for essentially every model. CaP-X's contribution to that taxonomy is to show **level 2 is not one level**: its eight tiers subdivide "the model writes a controller" into rungs that span tens of points of success rate. *"Programmatic control works"* is underspecified until you say which primitives were on offer and how many turns the agent got.
@@ -234,3 +245,4 @@ What remains unmeasured is what it costs.
 - [Previewing the Model Hardware Standard](../../sources/anthropic-model-hardware-standard-preview.md) — three instances of *explore online, compile to a deterministic script*, one of them in production on a quantum computer's laser system.
 - [Code World Models for General Game Playing](../../sources/code-world-models-general-game-playing.md): the inverse move (code as world model), and how much of LLM-as-policy's deficit is illegal moves.
 - [RPG](../../sources/rpg-guided-self-improvement-paper.md) — regression-gated library and prompt self-improvement; 95.0% on 22 sim tasks; 30/30 physical.
+- [AW-0 paper](../../sources/agentic-world-action-models-aw0-paper.md) — code inside a WAM as a non-executed plan; agentic annotation; gated hybrid execution.

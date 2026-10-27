@@ -3,8 +3,8 @@ title: CaP-X
 type: entity
 subtype: framework
 created: 2026-08-03
-updated: 2026-10-24
-sources: 3
+updated: 2026-10-27
+sources: 4
 tags: [cap-x, code-as-policy, benchmark, framework, nvidia-gear, robosuite, libero-pro, behavior, rlvr, open-source]
 ---
 
@@ -55,3 +55,4 @@ This ladder is the wiki's finest-grained instrument for [control abstraction lev
 - [ASPIRE paper](../sources/aspire-paper.md) — uses CaP-X as its code-as-policy framework and CaP-Agent0 as its main baseline.
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md) — listed under the manipulation/agents pillar.
 - [RPG paper](../sources/rpg-guided-self-improvement-paper.md) — CaP-X tools as RPG's base library; CaP-Agent0 as a four-model baseline.
+- [AW-0 paper](../sources/agentic-world-action-models-aw0-paper.md) — CaP-X-style primitive APIs built for RoboTwin to generate hybrid-mode demos; same group moving code inside a WAM.

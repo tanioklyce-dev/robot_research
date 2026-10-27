@@ -3,8 +3,8 @@ title: YAM (i2RT)
 type: entity
 subtype: robot
 created: 2026-07-04
-updated: 2026-10-24
-sources: 9
+updated: 2026-10-27
+sources: 10
 tags: [yam, i2rt, robot-arm, teleoperation, data-collection, affordable, groot, bimanual, molmoact2]
 ---
 
@@ -39,6 +39,7 @@ tags: [yam, i2rt, robot-arm, teleoperation, data-collection, affordable, groot, 
 - [RoboTTT paper](../sources/robottt-paper.md) — every experiment runs on a bimanual YAM setup; the five-minute, ten-stage Gear Bot assembly (drilling, chassis flips, bimanual handoffs) is the hardest published YAM task in this wiki.
 - [FACTR 2](../sources/factr-2-paper.md) — named alongside the Piper as a low-cost arm NEXT makes force-capable (units loaned by CMU's AIRe Lab); no YAM numbers reported.
 - [RPG paper](../sources/rpg-guided-self-improvement-paper.md) — bimanual YAM (2 × 6-DoF, 14-D absolute joint targets) as the practice and deployment robot; 30/30 physical trials after common calibration.
+- [AW-0 paper](../sources/agentic-world-action-models-aw0-paper.md) — 1,919 h / 73K episodes / 279 tasks of YAM teleop as WAM pretraining data; 4 real eval tasks; 23-skill YAM library.
 
 ## Open questions
 - Bimanual-rig details for the GR00T use (which variant, integration code, leader/follower setup). **Partly answered by [RoboTTT](../sources/robottt-paper.md)**: a bimanual YAM tabletop rig with four RealSense D405 cameras (top, bottom, two wrist) at 480p, 30 Hz control, inference on one RTX 5090.

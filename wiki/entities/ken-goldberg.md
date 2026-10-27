@@ -3,8 +3,8 @@ title: Ken Goldberg
 type: entity
 subtype: person
 created: 2026-08-03
-updated: 2026-08-03
-sources: 2
+updated: 2026-10-27
+sources: 3
 tags: [person, uc-berkeley, autolab, manipulation, grasping, code-as-policy]
 ---
 
@@ -28,6 +28,7 @@ This is a different center of gravity from the wiki's other robot-learning labs 
 ## Mentioned in
 - [CaP-X paper](../sources/cap-x-paper.md)
 - [ASPIRE paper](../sources/aspire-paper.md)
+- [AW-0 paper](../sources/agentic-world-action-models-aw0-paper.md) — co-author; code-as-policy moved inside a learned WAM.
 
 ## Open questions / TBD
 - Goldberg's broader body of work (Dex-Net and the grasp-planning line) is not ingested; the wiki currently knows him only through these two 2026 papers.

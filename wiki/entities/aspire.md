@@ -3,8 +3,8 @@ title: ASPIRE
 type: entity
 subtype: system
 created: 2026-08-03
-updated: 2026-10-24
-sources: 4
+updated: 2026-10-27
+sources: 5
 tags: [aspire, code-as-policy, skill-library, continual-learning, nvidia-gear, voyager, evolutionary-search, cross-embodiment, claude-opus]
 ---
 
@@ -50,3 +50,4 @@ Project page: `https://research.nvidia.com/labs/gear/aspire/`
 ## Mentioned in
 - [ASPIRE paper](../sources/aspire-paper.md) — primary source.
 - [RPG paper](../sources/rpg-guided-self-improvement-paper.md) — reproduced as a baseline: 75.5% vs RPG 95.0%.
+- [AW-0 paper](../sources/agentic-world-action-models-aw0-paper.md) — ASPIRE's agentic framework used to write RoboTwin demo programs; coordinator-distills-skills pattern reused for annotation.

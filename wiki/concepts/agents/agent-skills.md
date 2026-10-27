@@ -2,8 +2,8 @@
 title: Agent skills (portable SKILL.md)
 type: concept
 created: 2026-07-16
-updated: 2026-10-24
-sources: 18
+updated: 2026-10-27
+sources: 19
 tags: [agent-skills, claude-code, skill-md, llm-agents, tooling, jetson, halos, frc, deployment]
 ---
 
@@ -62,3 +62,4 @@ The same reasoning drove them to convert connectors from **MCP servers into comp
 - [CaP-X paper](../../sources/cap-x-paper.md) — a skill library **mined automatically** from successful rollouts (9 task-agnostic primitives, pooled across 12 models) rather than hand-authored.
 - [ASPIRE paper](../../sources/aspire-paper.md) — the strongest contrast with SKILL.md bundles: skills are induced from *diagnosed failures* (failure signature + when-to-apply + repair), the taxonomy emerges rather than being designed, and a coordinator audits admissions. Measured to compound: zero-shot success rises with library size.
 - [RPG](../../sources/rpg-guided-self-improvement-paper.md) — regression-gated self-repairing robot skill library.
+- [AW-0 paper](../../sources/agentic-world-action-models-aw0-paper.md) — a 50-skill library distilled by a Claude Code coordinator and then **frozen** as the *label vocabulary* for training a WAM; skills are supervision targets, not runtime tools.

@@ -2,8 +2,8 @@
 title: World-action model (WAM)
 type: concept
 created: 2026-06-02
-updated: 2026-09-12
-sources: 28
+updated: 2026-10-27
+sources: 29
 tags: [world-action-model, wam, flux-3, video-action-model, frozen-backbone, world-model, vla, forward-dynamics, inverse-dynamics, policy, cosmos, dreamzero]
 ---
 
@@ -68,6 +68,17 @@ What that buys, and it is worth having:
 >
 > If that reading is right, it sets the boundary of this architecture rather than praising it: a world-action model is well-posed exactly to the extent that **the action explains the change**. Where actions are coarse, delayed, or partially observed — contact events, other agents, deformable objects — the averaging failure the latent was meant to prevent should return, and there is nothing in the architecture to catch it.
 
+## Code as a fourth stream (added 2026-10-27)
+
+[AW-0](../../entities/aw-0.md) ([paper](../../sources/agentic-world-action-models-aw0-paper.md)) adds a **program** stream to the video+action pair. A three-expert MoT jointly denoises a skill-code slice (masked discrete diffusion), future video (flow matching, Cosmos-Predict2.5 init) and actions, with attention ordered **code → video → action**. By default the code is never executed. It acts as a structured plan that conditions what the model imagines and then does.
+
+What it adds to this page:
+- **Semantics is the WAM's weak side, and structure fixes it.** Without code the model scores 32.9 on 8 real tasks. With code read *after* video (V→C→A) it scores less than with code *before* video (C→V→A, 71.1). Letting the plan shape the imagined future is what pays. Code also beats natural-language subgoals on 7/8 tasks.
+- **Reconstruction latents are poor planning features, again.** Feeding the code expert Wan2.2 VAE features instead of a ViT costs 15.5 points (55.6 vs 71.1). This is the semantic counterpart of mimic-video's "high-fidelity reconstruction is not required".
+- **Pixel foresight is what breaks under visual shift.** On RoboTwin's randomized setting the default AW-0 (20.6%) falls below the VLA π0.5 (27.7%). The hybrid mode, which *executes* the code, recovers to 29.2%, though it was trained on different demos.
+
+The comparison against DreamZero (a pure video+action WAM) is the cleanest in the wiki that isolates *adding a planning stream to a WAM*: 71.1 vs 46.0 real-world rubric, same post-training demos, 3 seeds × 16 rollouts. The pretraining corpora differ, though.
+
 ## Related concepts
 
 - [World model](world-model.md) — the FD direction is exactly an action-conditioned world model.
@@ -90,3 +101,4 @@ As of mid-2026 the strongest published WAMs are generative-video / diffusion mod
 - [UnifoLM-WMA-0 project page](../../sources/unifolm-wma-0-project-page.md) — a 2025 DynamiCrafter-based VAM with decision-making and simulation modes; the generation Unitree then abandoned.
 - [ViNT paper](../../sources/vint-paper.md) / [NoMaD paper](../../sources/nomad-paper.md) — the navigation-scale instance of pixels-vs-actions: a 318M subgoal-image diffusion model replaced by a 19M action-diffusion policy, +21 points on exploration.
 - [Post-train Cosmos 3 Edge](../../sources/nvidia-cosmos3-edge-post-training-blog.md) — the WAM property at the API: the on-robot policy server can return the model's **imagined rollout alongside the action chunk**; and the cost of making a 4B WAM into a policy (~17.4K GB200-hours).
+- [AW-0 paper](../../sources/agentic-world-action-models-aw0-paper.md) — a code expert inside a WAM; C→V→A joint denoising; 71.1 vs 46.0 (DreamZero) on 8 real tasks; default mode loses to π0.5 under randomization.
