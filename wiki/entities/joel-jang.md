@@ -3,12 +3,12 @@ title: Joel Jang
 type: entity
 subtype: person
 created: 2026-05-15
-updated: 2026-07-04
-sources: 5
+updated: 2026-10-27
+sources: 6
 tags: [person, nvidia, gear, world-models, embodied-ai]
 ---
 
-**Joel Jang** — research scientist at [NVIDIA GEAR](nvidia-gear.md). **Co-first author / co-lead of [DreamGen](dreamgen.md)** ([paper](../sources/dreamgen-paper.md)) and project lead on **[DreamDojo](../sources/dreamdojo-paper.md)** (ICML 2026 Spotlight) alongside [Yuke Zhu](yuke-zhu.md) and [Jim Fan](jim-fan.md) — the foundation generative-video world model trained on 44,711 hr of egocentric human video. The operational co-lead across the **[DreamGen](dreamgen.md) → DreamZero → DreamDojo** world-model program at GEAR; also an author on [FLARE](../sources/flare-paper.md) and a core contributor on [GR00T N1](../sources/groot-n1-paper.md).
+**Joel Jang** — research scientist at [NVIDIA GEAR](nvidia-gear.md). **Co-first author / co-lead of [DreamGen](dreamgen.md)** ([paper](../sources/dreamgen-paper.md)) and project lead on **[DreamDojo](../sources/dreamdojo-paper.md)** (ICML 2026 Spotlight) alongside [Yuke Zhu](yuke-zhu.md) and [Jim Fan](jim-fan.md) — the foundation generative-video world model trained on 44,711 hr of egocentric human video. Also one of four project leads on **[DreamZero](dreamzero.md)** ([paper](../sources/dreamzero-paper.md)), with Seonghyeon Ye, Yuke Zhu and Jim Fan. The operational co-lead across the **[DreamGen](dreamgen.md) / [DreamZero](dreamzero.md) / DreamDojo** world-model program at GEAR; also an author on [FLARE](../sources/flare-paper.md) and a core contributor on [GR00T N1](../sources/groot-n1-paper.md).
 
 ## Why it matters in this wiki
 The third co-lead of the GEAR world-model program. While Jim Fan is the public-facing voice and Yuke Zhu is the academic-bridge co-lead, Joel Jang appears to be the *operational* co-lead on the WM line — the third name on each Dream* paper.
@@ -23,8 +23,9 @@ The third co-lead of the GEAR world-model program. While Jim Fan is the public-f
 - [DreamDojo Paper](../sources/dreamdojo-paper.md) — project lead
 - [FLARE Paper](../sources/flare-paper.md) — author
 - [GR00T N1 Paper](../sources/groot-n1-paper.md) — core contributor
+- [DreamZero paper](../sources/dreamzero-paper.md) — project lead.
 
 ## Open questions
 - Full academic background / prior affiliations. (GR00T + DreamGen + FLARE involvement now confirmed.)
-- Whether Jang co-led DreamZero (DreamGen co-lead now confirmed).
+- ~~Whether Jang co-led DreamZero~~: resolved 2026-10-27. He is one of four project leads ([DreamZero paper](../sources/dreamzero-paper.md)).
 - Role at GEAR — pure research-scientist or team lead.

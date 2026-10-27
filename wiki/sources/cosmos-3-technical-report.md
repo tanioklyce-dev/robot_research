@@ -110,7 +110,7 @@ Nano and Super are released in this report; **Edge is deferred to a later releas
 
 - [NVIDIA](../entities/nvidia.md) — author; [NVIDIA Cosmos](../entities/nvidia-cosmos.md) — the product line this extends; [NVIDIA GEAR](../entities/nvidia-gear.md) — sibling lab (DreamZero baseline).
 - [Ming-Yu Liu](../entities/ming-yu-liu.md) — supervision lead.
-- Baselines/related: [π0](../entities/pi-zero.md) / π0.5 / π0-FAST, [GR00T](../entities/nvidia-groot.md) N1.6, DreamZero, [DROID](../entities/droid.md), Qwen3-VL, Gemini 3.1 Pro, Veo-3.1, FLUX.2, [DINO-WM](../entities/dino-wm.md)-adjacent Ctrl-World.
+- Baselines/related: [π0](../entities/pi-zero.md) / π0.5 / π0-FAST, [GR00T](../entities/nvidia-groot.md) N1.6, [DreamZero](dreamzero-paper.md), [DROID](../entities/droid.md), Qwen3-VL, Gemini 3.1 Pro, Veo-3.1, FLUX.2, [DINO-WM](../entities/dino-wm.md)-adjacent Ctrl-World.
 
 ## Concepts touched
 

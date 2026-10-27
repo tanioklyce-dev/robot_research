@@ -51,4 +51,4 @@ The primary paper for **[DreamGen](../entities/dreamgen.md)** — NVIDIA GEAR's 
 - Relies on **manually provided initial frames**; automating them (img2img inpainting) is future work.
 - Zero-shot generalization with **zero ground-truth data for a new embodiment** remains open (paper's own footnote).
 - Most neural-trajectory quality loss comes from the **video model**, not the IDM (App. A) — better instruction/physics following would lift downstream results.
-- [DreamZero / DreamDojo](dreamdojo-paper.md) — the later Dream* entries; [DreamDojo](dreamdojo-paper.md) is filed, DreamZero is not.
+- [DreamZero](dreamzero-paper.md) / [DreamDojo](dreamdojo-paper.md): the later Dream* entries; both are now filed. They are parallel, and DreamZero is the later of the two.

@@ -3,8 +3,8 @@ title: AGIBOT Genie Sim 3.0
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-05-07
-sources: 3
+updated: 2026-10-27
+sources: 4
 tags: [agibot, genie-sim, embodied-ai, isaac-sim, scene-generation]
 ---
 
@@ -32,3 +32,4 @@ Combines a research-grade evaluation harness (largest open embodied-AI dataset, 
 ## Mentioned in
 - [AGIBOT Genie Sim 3.0 Announcement](../sources/agibot-genie-sim-3-announcement.md)
 - [ManiSkill-HAB Paper](../sources/maniskill-hab-paper.md)
+- [DreamZero paper](../sources/dreamzero-paper.md) — "non-trivial performance" on Genie Sim 3.0 (100 tasks) without its 10K h of sim training data; eval code released. No number given.

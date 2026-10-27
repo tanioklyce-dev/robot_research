@@ -141,6 +141,9 @@ Latent action conditioning **matches** the ideal ground-truth-action setting *de
 ## Position in the wiki
 
 ### The Dream* triplet, completed
+> [!warning] Correction (2026-10-27)
+> The ordering below is a framing, not a chronology. [DreamZero](dreamzero-paper.md) (arXiv 2602.15922, 2026-02-17) was posted **after** DreamDojo (2602.06949, 2026-02-06). The two are parallel branches: DreamDojo is an action-*conditioned* simulator and DreamZero an action-*generating* policy (a [world-action model](../concepts/world-models/world-action-model.md)). DreamDojo is not the "destination" of a sequence that runs through DreamZero.
+
 NVIDIA GEAR's WM line is the **DreamGen → DreamZero → DreamDojo** triplet — flagged in the [NVIDIA GEAR Lab Publications](nvidia-gear-publications.md) page as the wiki's top WM-side follow-up cluster. DreamDojo is the third and most ambitious. With this ingest, the most-flagged generative-video-WM gap in the wiki is closed.
 
 ### Generative-video vs JEPA — DreamDojo is the new high-water mark on the pixel side

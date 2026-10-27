@@ -2,8 +2,8 @@
 title: Cross-embodiment transfer
 type: concept
 created: 2026-09-11
-updated: 2026-10-25
-sources: 27
+updated: 2026-10-27
+sources: 28
 tags: [cross-embodiment, embodiment-gap, action-space, normalized-actions, soft-prompts, latent-action-tokens, embodiment-conditioning, retargeting, whole-body-control, navigation, manipulation, humanoid, scaling]
 ---
 
@@ -90,3 +90,4 @@ Nineteen distinct answers appear across the sources. Grouped by what they change
 - [Robot Self-Improvement via Human-Video Dynamics Models](../../sources/robot-self-improvement-human-video-dynamics-paper.md) — a *manipulation* instance of the shared-abstraction argument: 6-DoF wrist pose + hand closure, learned from human video, carries policy, dynamics and value models from a Stretch 3 to a Franka Panda (36.7% → 70.0% on the Franka). Two single parallel-jaw arms, so the scope is narrow.
 - [GA-VLN](../../sources/ga-vln-paper.md) — the MLLM-VLN interface is four discrete actions (forward 0.25 m, turn 15°, stop); moved from Habitat to a Stretch 3 by changing the turn step and BEV update rate.
 - [Learning Latent Action World Models In The Wild](../../sources/latent-action-world-models-in-the-wild-paper.md) — latent actions from embodiment-free natural video become camera-relative; a per-embodiment controller maps real actions into them (DROID arm, RECON navigation).
+- [DreamZero paper](../../sources/dreamzero-paper.md) — **video-only** cross-embodiment transfer (no action labels): 12–20 min of YAM or human video lifts unseen-task progress 38.3 → 55.4 / 54.3%; 30 min of YAM play data adapts to a new body.

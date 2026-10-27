@@ -6369,3 +6369,23 @@ Three clusters: **contact-rich safety** ([survey](sources/safe-learning-contact-
   - [World-action model](concepts/world-models/world-action-model.md): new section "Code as a fourth stream".
   - [Code as policy](concepts/agents/code-as-policy.md): new section "Code inside the policy".
   - [Agent skills](concepts/agents/agent-skills.md), [YAM](entities/yam.md), [Sharpa Wave](entities/sharpa-wave.md), [RoboTwin](entities/robotwin.md), [NVIDIA GEAR](entities/nvidia-gear.md), [NVIDIA Cosmos](entities/nvidia-cosmos.md), [CaP-X](entities/cap-x.md), [ASPIRE](entities/aspire.md), [Jim Fan](entities/jim-fan.md), [Yuke Zhu](entities/yuke-zhu.md), [Guanzhi Wang](entities/guanzhi-wang.md), [Ken Goldberg](entities/ken-goldberg.md).
+
+## [2026-10-27] ingest | World Action Models are Zero-shot Policies — DreamZero (2602.15922)
+- Created [source page](sources/dreamzero-paper.md). Raw: `raw/2602.15922v1.pdf` (v1, 2026-02-17; the only version). The request followed from the AW-0 ingest, where DreamZero is the WAM baseline.
+- New entity: [DreamZero](entities/dreamzero.md).
+- Key findings:
+  - A 14B autoregressive Wan2.1 fine-tune with one shared video/action timestep; real frames overwrite imagined ones in the KV cache.
+  - It learns from ~500 h of diverse AgiBot G1 teleop where VLAs score ~0: 62.2 vs 27.4% (seen) and 39.5 vs 16.3% (unseen tasks) in unseen environments.
+  - Video-only cross-embodiment: 38.3 → 55.4 / 54.3%.
+  - 38× speedup to 150 ms (DreamZero-Flash, NVFP4), ~7 Hz on 2 × GB200. Open weights.
+- **Flagged:**
+  - Failures are video failures: the policy has no independent check on its own plan.
+  - Ablations are PnP-Easy only, at batch size 32, with no seeds.
+  - Independent reruns (Cosmos 3 RoboLab 25.2 vs π0.5 28.1; AW-0 real-world 46.0 vs 43.6) do not reproduce the 2× margin.
+- **Correction:** the wiki called DreamGen → DreamZero → DreamDojo a "progression" and DreamDojo the "destination paper". DreamZero (2026-02-17) postdates DreamDojo (2026-02-06), and the two are parallel branches (an action-generating policy vs an action-conditioned simulator). Fixed in [DreamDojo](sources/dreamdojo-paper.md) (warning callout), [GEAR publications](sources/nvidia-gear-publications.md), [DreamGen](entities/dreamgen.md), [NVIDIA GEAR](entities/nvidia-gear.md), [Joel Jang](entities/joel-jang.md) and the index.
+- Resolved: the [Joel Jang](entities/joel-jang.md) open question. He is one of four DreamZero project leads.
+- Updated:
+  - [World-action model](concepts/world-models/world-action-model.md): DreamZero key reference; it coins "WAM" over "VAM".
+  - [VLA models](concepts/learning/vla-models.md), [Cross-embodiment](concepts/learning/cross-embodiment.md).
+  - [AGIBOT](entities/agibot.md), [Genie Sim](entities/agibot-genie-sim.md), [DROID](entities/droid.md), [Franka Panda](entities/franka-panda.md), [YAM](entities/yam.md), [RoboArena](entities/roboarena.md), [GR00T](entities/nvidia-groot.md), [Jim Fan](entities/jim-fan.md), [Yuke Zhu](entities/yuke-zhu.md), [Guanzhi Wang](entities/guanzhi-wang.md).
+  - [AW-0](entities/aw-0.md) and [its source](sources/agentic-world-action-models-aw0-paper.md), [Cosmos 3 report](sources/cosmos-3-technical-report.md), [DreamGen paper](sources/dreamgen-paper.md).

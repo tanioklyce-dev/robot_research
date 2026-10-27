@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-08
 updated: 2026-10-27
-sources: 14
+sources: 15
 tags: [person, ut-austin, nvidia, embodied-ai, robocasa, manipulation, whole-body-control]
 ---
 
@@ -42,6 +42,7 @@ Adjacent Zhu-affiliated work not ingested: [robosuite](robosuite.md) (the framew
 - [ASPIRE paper](../sources/aspire-paper.md) — project co-lead. Note both papers build on [robosuite](robosuite.md), the framework authored under Zhu — now an entity page.
 - [RoboTTT paper](../sources/robottt-paper.md) — equal-advising senior author; fast-weight memory in the GR00T N1.7 action head, 8K-timestep context, DAgger Distillation.
 - [AW-0 paper](../sources/agentic-world-action-models-aw0-paper.md) — equal advising; agentic world action model.
+- [DreamZero paper](../sources/dreamzero-paper.md) — project lead; 14B WAM.
 
 ## Open questions / TBD
 - Full lab affiliation at UT Austin (RPL — Robot Perception and Learning Lab) — implied but not directly cited.

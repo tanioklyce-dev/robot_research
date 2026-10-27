@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-03
 updated: 2026-10-27
-sources: 2
+sources: 3
 tags: [person, nvidia, caltech, nvidia-gear, voyager, skill-library]
 ---
 
@@ -27,3 +27,4 @@ When the wiki says "ASPIRE is GEAR porting its own Voyager pattern to robotics,"
 - [CaP-X paper](../sources/cap-x-paper.md)
 - [ASPIRE paper](../sources/aspire-paper.md)
 - [AW-0 paper](../sources/agentic-world-action-models-aw0-paper.md) — equal advising; Voyager-style skill library distilled offline as WAM training labels.
+- [DreamZero paper](../sources/dreamzero-paper.md) — co-author.

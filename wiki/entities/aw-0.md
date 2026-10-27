@@ -28,7 +28,7 @@ tags: [aw-0, world-action-model, code-as-policy, mixture-of-transformers, masked
 It is the first system in the wiki to put [code-as-policy](../concepts/agents/code-as-policy.md) **inside** a learned policy rather than around one. Its group is the [NVIDIA GEAR](nvidia-gear.md)/Berkeley one behind [CaP-X](cap-x.md) and [ASPIRE](aspire.md), so the two halves of the agentic-vs-end-to-end debate now come from the same authors.
 
 ## Related
-- [Cosmos 3](nvidia-cosmos.md): the other MoT WAM. [EgoScale](../sources/egoscale-paper.md) is a baseline here.
+- [DreamZero](dreamzero.md): the pure-WAM baseline it beats (71.1 vs 46.0). [Cosmos 3](nvidia-cosmos.md): the other MoT WAM. [EgoScale](../sources/egoscale-paper.md) is a baseline here.
 - People: [Jim Fan](jim-fan.md), [Yuke Zhu](yuke-zhu.md), [Guanzhi Wang](guanzhi-wang.md), [Ken Goldberg](ken-goldberg.md).
 
 ## Mentioned in

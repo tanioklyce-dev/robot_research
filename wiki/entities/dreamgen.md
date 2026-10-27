@@ -3,12 +3,12 @@ title: DreamGen
 type: entity
 subtype: method
 created: 2026-07-04
-updated: 2026-08-31
-sources: 3
+updated: 2026-10-27
+sources: 4
 tags: [dreamgen, neural-trajectories, video-world-model, synthetic-data, nvidia, gear, vla, dream-star]
 ---
 
-**DreamGen** — NVIDIA GEAR's method for turning image-to-video generative models into **synthetic data generators for robot policy training**, producing "neural trajectories" (synthetic video + pseudo-action pairs). The **root of the [GEAR](nvidia-gear.md) Dream\* world-model line** (DreamGen → DreamZero → [DreamDojo](../sources/dreamdojo-paper.md)) and the source of the neural-trajectory data layer in the [GR00T](nvidia-groot.md) data pyramid. Primary source: [DreamGen Paper](../sources/dreamgen-paper.md) (arXiv 2505.12705, June 2025); co-led by [Joel Jang](joel-jang.md), advised by [Yuke Zhu](yuke-zhu.md) + [Jim Fan](jim-fan.md).
+**DreamGen** — NVIDIA GEAR's method for turning image-to-video generative models into **synthetic data generators for robot policy training**, producing "neural trajectories" (synthetic video + pseudo-action pairs). The **root of the [GEAR](nvidia-gear.md) Dream\* world-model line** (DreamGen → [DreamZero](dreamzero.md) / [DreamDojo](../sources/dreamdojo-paper.md)) and the source of the neural-trajectory data layer in the [GR00T](nvidia-groot.md) data pyramid. Primary source: [DreamGen Paper](../sources/dreamgen-paper.md) (arXiv 2505.12705, June 2025); co-led by [Joel Jang](joel-jang.md), advised by [Yuke Zhu](yuke-zhu.md) + [Jim Fan](jim-fan.md).
 
 ## The 4-stage pipeline
 1. Fine-tune a video world model (primarily **WAN 2.1**; also tests [Cosmos](nvidia-cosmos.md)) on a small amount of teleop from a *single* behavior in a *single* environment ([LoRA](../concepts/learning/low-rank-adaptation.md)).
@@ -33,7 +33,8 @@ tags: [dreamgen, neural-trajectories, video-world-model, synthetic-data, nvidia,
 - [GR00T N1.5 research page](../sources/groot-n1_5.md) — DreamGen neural trajectories in the N1.5 training mix
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md) — lists DreamGen in the Dream\* pillar
 - [Introducing Index (Figure AI)](../sources/figure-index-announcement.md) — Cited as one of the wiki's published answers to the human→robot label problem ([IDM pseudo-labelling](../concepts/learning/crowdsourced-robot-training-data.md)) that the Index announcement never addresses.
+- [DreamZero paper](../sources/dreamzero-paper.md) — sibling Dream* paper.
 
 ## Open questions
-- **DreamZero** — the middle Dream\* entry (between DreamGen and [DreamDojo](../sources/dreamdojo-paper.md)) has no source page yet.
+- **[DreamZero](dreamzero.md)**: ingested 2026-10-27 ([paper](../sources/dreamzero-paper.md)). It postdates DreamDojo by 11 days, so it is a parallel branch (the action-generating WAM) rather than the "middle" entry.
 - The DreamGen paper references [GR00T N1](../sources/groot-n1-paper.md) only, not N1.5 — the N1.5 link is via the N1.5 page, not the DreamGen paper (both are mid-June 2025).

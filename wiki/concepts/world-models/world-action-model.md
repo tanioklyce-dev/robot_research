@@ -3,7 +3,7 @@ title: World-action model (WAM)
 type: concept
 created: 2026-06-02
 updated: 2026-10-27
-sources: 29
+sources: 30
 tags: [world-action-model, wam, flux-3, video-action-model, frozen-backbone, world-model, vla, forward-dynamics, inverse-dynamics, policy, cosmos, dreamzero]
 ---
 
@@ -47,7 +47,8 @@ A WAM is therefore a superset of both the "video generator as simulator" ([world
 - **[mimic-video](../../sources/mimic-video-paper.md)** (mimic robotics / ETH / Berkeley, 2025) — **names the VAM class**; frozen Cosmos-Predict2 + flow-matching IDM decoder via partial denoising. 10× sample efficiency and 2× convergence over an architecturally matched π₀.₅-style VLA, on equivalent data.
 - **[FLUX-mimic / FLUX 3](../../sources/flux-3-launch.md)** ([Black Forest Labs](../../entities/black-forest-labs.md) × [mimic robotics](../../entities/mimic-robotics.md), 2026) — the frozen-backbone variant above, and **the only WAM in this wiki running in production**: ECU insertion and seal/cable handling at Audi, 101 ms system reaction time, <80 ms backbone on one RTX 5090.
 - **[Cosmos 3](../../sources/cosmos-3-technical-report.md)** (NVIDIA, 2026) — the canonical worked example: a single [MoT](../../sources/cosmos-3-technical-report.md) model does FD / ID / policy across camera, autonomous-vehicle, robot, and egocentric embodiments. Its policy variant (Cosmos3-Nano-Policy-DROID) tops RoboArena, beats π0.5 on RoboLab, and — per the report's **June 2026 revision** — also ranked #1 on **MolmoSpaces** (39.0% oracle success, *All Combined*, 2026-06-20) **submitting the same model and hyperparameters with no benchmark-specific tuning**. Its central empirical claim is that **unified action mid-training** across embodiments and modes produces a *reusable action prior* that accelerates downstream adaptation (LIBERO-10: 24.6% vs 0.0% at 500 iters for mid-trained vs pre-trained init).
-- **DreamZero / [DreamDojo](../../sources/dreamdojo-paper.md)** ([NVIDIA GEAR](../../entities/nvidia-gear.md)) — the Dream* line, cited by Cosmos 3 as a WAM baseline; DreamDojo uses continuous latent actions as a self-supervised proxy.
+- **[DreamZero](../../sources/dreamzero-paper.md)** ([NVIDIA GEAR](../../entities/nvidia-gear.md), Feb 2026). The paper that names the class: *"we use the term World Action Models (WAMs) rather than Video Action Models (VAMs) to reflect that video is just one possible world modeling objective"*. It is a 14B autoregressive Wan2.1 fine-tune with one shared video/action timestep. Real observations replace imagined frames in the KV cache, and it runs at 7 Hz on 2 × GB200. **Learns from diverse, non-repetitive data where VLAs score ~0**: 62.2% vs 27.4% (best pretrained VLA) in unseen environments, and 50% vs 33% for diverse vs repetitive data at equal hours. Its failures are video failures: *"the policy faithfully executes whatever trajectory the video predicts."* DreamZero-Flash (noisy video, clean actions, 1 step) is the training-side counterpart of mimic-video's τ_v = 1 finding.
+- **[DreamDojo](../../sources/dreamdojo-paper.md)** ([NVIDIA GEAR](../../entities/nvidia-gear.md)) — the action-conditioned simulator branch of the Dream* line; DreamDojo uses continuous latent actions as a self-supervised proxy.
 - **[Genie Envisioner](../../entities/genie-envisioner.md) / GE-Sim2** ([AGIBOT](../../entities/agibot.md)) — introduced a "World Action Model" framework where action is a first-class variable ([announcement](../../sources/agibot-genie-envisioner-2-announcement.md)).
 
 ## The compact end of the scale
@@ -77,7 +78,7 @@ What it adds to this page:
 - **Reconstruction latents are poor planning features, again.** Feeding the code expert Wan2.2 VAE features instead of a ViT costs 15.5 points (55.6 vs 71.1). This is the semantic counterpart of mimic-video's "high-fidelity reconstruction is not required".
 - **Pixel foresight is what breaks under visual shift.** On RoboTwin's randomized setting the default AW-0 (20.6%) falls below the VLA π0.5 (27.7%). The hybrid mode, which *executes* the code, recovers to 29.2%, though it was trained on different demos.
 
-The comparison against DreamZero (a pure video+action WAM) is the cleanest in the wiki that isolates *adding a planning stream to a WAM*: 71.1 vs 46.0 real-world rubric, same post-training demos, 3 seeds × 16 rollouts. The pretraining corpora differ, though.
+The comparison against [DreamZero](../../entities/dreamzero.md) (a pure video+action WAM) is the cleanest in the wiki that isolates *adding a planning stream to a WAM*: 71.1 vs 46.0 real-world rubric, same post-training demos, 3 seeds × 16 rollouts. The pretraining corpora differ, though.
 
 ## Related concepts
 
@@ -102,3 +103,4 @@ As of mid-2026 the strongest published WAMs are generative-video / diffusion mod
 - [ViNT paper](../../sources/vint-paper.md) / [NoMaD paper](../../sources/nomad-paper.md) — the navigation-scale instance of pixels-vs-actions: a 318M subgoal-image diffusion model replaced by a 19M action-diffusion policy, +21 points on exploration.
 - [Post-train Cosmos 3 Edge](../../sources/nvidia-cosmos3-edge-post-training-blog.md) — the WAM property at the API: the on-robot policy server can return the model's **imagined rollout alongside the action chunk**; and the cost of making a 4B WAM into a policy (~17.4K GB200-hours).
 - [AW-0 paper](../../sources/agentic-world-action-models-aw0-paper.md) — a code expert inside a WAM; C→V→A joint denoising; 71.1 vs 46.0 (DreamZero) on 8 real tasks; default mode loses to π0.5 under randomization.
+- [DreamZero paper](../../sources/dreamzero-paper.md) — names WAMs (vs "VAMs"); 14B AR Wan2.1 fine-tune; diverse-data learning where VLAs score ~0; 7 Hz on 2 × GB200; failures are video failures.

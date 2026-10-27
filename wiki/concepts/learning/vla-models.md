@@ -2,8 +2,8 @@
 title: VLA models
 type: concept
 created: 2026-05-06
-updated: 2026-09-11
-sources: 147
+updated: 2026-10-27
+sources: 148
 tags: [vla, vision-language-action, foundation-model, robotics, smolvla, pi-zero, pi-zero-7, pi-star-zero-6, recap, flow-matching, knowledge-insulation, advantage-conditioning, world-action-model, cosmos, vla-0, action-as-text, molmoact2, per-layer-kv-conditioning, hybrid-action-head, llm-free-vla, turbovla, xvla, soft-prompt]
 ---
 
@@ -42,7 +42,7 @@ A VLA combines a vision encoder, a language encoder/decoder (often an LLM backbo
 - **[Cosmos 3](../../sources/cosmos-3-technical-report.md) policy (Cosmos3-Nano-Policy-DROID)** ([NVIDIA](../../entities/nvidia-cosmos.md), June 2026) — not a conventional VLA but a [world-action model](../world-models/world-action-model.md): its policy mode jointly denoises **actions and their predicted future frames** in one Mixture-of-Transformers network. Post-trained on DROID, it **tops RoboArena** (real-world A/B) and beats **π0.5** on RoboLab-120 (39.7% vs 28.1% under specific instructions; π0 3.5, GR00T N1.6 5.3). The clearest evidence that a pixel-generating world model can also be a SOTA real-robot policy — the generative-video answer to "VLAs don't plan."
 
 > [!note] World-action models (WAM) vs VLAs
-> A WAM ([Cosmos 3](../../sources/cosmos-3-technical-report.md), DreamZero, GE-Sim2) is a VLA-superset that also models the **visual consequence** of an action (forward dynamics) and can run inverse dynamics — see the [world-action-model concept](../world-models/world-action-model.md). It directly answers part of LeCun's "VLAs have no world model / can't predict consequences" critique (callout below), but from inside the *generative-video* (pixel-prediction) camp rather than the JEPA (latent-prediction) camp.
+> A WAM ([Cosmos 3](../../sources/cosmos-3-technical-report.md), [DreamZero](../../sources/dreamzero-paper.md), GE-Sim2) is a VLA-superset that also models the **visual consequence** of an action (forward dynamics) and can run inverse dynamics — see the [world-action-model concept](../world-models/world-action-model.md). It directly answers part of LeCun's "VLAs have no world model / can't predict consequences" critique (callout below), but from inside the *generative-video* (pixel-prediction) camp rather than the JEPA (latent-prediction) camp.
 
 > [!note] Hierarchical System 1 / System 2 VLA pattern
 > Helix's slow-VLM-as-planner + fast-policy-as-controller split (with end-to-end gradients between them) is appearing in multiple 2025+ VLAs. The decoupled rates let each component specialize: scene/language reasoning at ~10 Hz, motor control at ~200 Hz. Worth tracking as a structural pattern alongside the action-head design choice (autoregressive tokens vs DDPM-over-actions vs flow-matching).
@@ -191,6 +191,7 @@ Scope limit worth carrying: the costs there are **discrete collision events with
 - [Learning to Fold — tech report](../../sources/larchenko-learning-to-fold-tech-report.md) — a π0.5 derivative with **no language input at all** (a learned garment-type token replaces the prompt), Exclusive Self-Attention, per-timestep action normalisation, and seven auxiliary heads — the author's verdict: *"the model is bigger than the task needs."*
 - [UnifoLM-WLA-1.0 project page](../../sources/unifolm-wla-1-project-page.md) — Unitree's 6B humanoid VLA; ER backbone + mask tokens + RVQ action tokens + flow expert.
 - [OmniVLA paper](../../sources/omnivla-paper.md) — a navigation VLA on OpenVLA; the edge-vs-7B split isolates the backbone's contribution to language following.
+- [DreamZero paper](../../sources/dreamzero-paper.md) — VLAs trained from VLM weights on diverse, non-repetitive teleop score ~0 even at 8B/32B, where a 14B video-initialised WAM reaches 50–62%.
 
 ## The parameter-efficiency challenge
 

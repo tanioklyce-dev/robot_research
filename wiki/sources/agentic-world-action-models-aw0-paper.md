@@ -91,7 +91,7 @@ tags: [aw-0, world-action-model, wam, code-as-policy, agentic-robotics, mixture-
 - [RoboTwin 2.0](../entities/robotwin.md)
 - [CaP-X](../entities/cap-x.md), [ASPIRE](../entities/aspire.md) (hybrid-mode demo generation)
 - [Physical Intelligence](../entities/physical-intelligence.md) (π0.5 baseline), [Qwen](../entities/qwen.md) (Qwen3-VL ViT), [Anthropic](../entities/anthropic.md) (Claude Code / Opus 4.8 as annotation coordinator), [Google DeepMind](../entities/google-deepmind.md) (Gemini 3.1 Pro annotator)
-- Baselines without wiki pages: DreamZero (NVIDIA GEAR WAM), WLA (Yang et al. 2026). Pretraining backbones without pages: SDAR-1.7B, Wan2.2 VAE. Tianji torso.
+- [DreamZero](../entities/dreamzero.md) (NVIDIA GEAR WAM baseline; [paper](dreamzero-paper.md)). Baseline without a wiki page: WLA (Yang et al. 2026). Pretraining backbones without pages: SDAR-1.7B, Wan2.2 VAE. Tianji torso.
 
 ## Concepts touched
 - [World-action model](../concepts/world-models/world-action-model.md)
@@ -104,7 +104,7 @@ tags: [aw-0, world-action-model, wam, code-as-policy, agentic-robotics, mixture-
 - [EgoScale paper](egoscale-paper.md) — baseline; same Sharpa Wave hand; overlapping NVIDIA authorship.
 - [CaP-X paper](cap-x-paper.md), [ASPIRE paper](aspire-paper.md), [RPG paper](rpg-guided-self-improvement-paper.md) — the execute-the-code lineage this paper internalizes.
 - [Cosmos 3 technical report](cosmos-3-technical-report.md) — the other MoT WAM in the wiki.
-- [DreamDojo paper](dreamdojo-paper.md) — sibling GEAR Dream* line; DreamZero (baseline) has no source page.
+- [DreamZero paper](dreamzero-paper.md): the baseline WAM. [DreamDojo paper](dreamdojo-paper.md): sibling Dream* paper.
 - [RoboTwin 2.0 paper](robotwin2-paper.md).
 
 ## Open questions
