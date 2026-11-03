@@ -3,8 +3,8 @@ title: Apptronik Apollo
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-10-13
-sources: 6
+updated: 2026-11-02
+sources: 7
 tags: [apollo, apptronik, humanoid, bipedal, nvidia-partnership, ut-austin]
 status: stub
 ---
@@ -35,6 +35,7 @@ status: stub
 - [Gemini Robotics 2 blog](../sources/gemini-robotics-2-blog.md) — **Apollo 2** is the whole-body demonstration platform, benchmarked with both **[SharpaWave](sharpa-wave.md)** (5-finger, 22-DoF) and **Inspire** hands.
 - [Gemini Robotics 2: Safety Evaluations](../sources/gemini-robotics-2-safety-report.md) — real-world safe-stopping evaluated on Apollo 2 in a garage: 99% human detection, 96% safe-pose transition.
 - [Gemini 4 Argon for Robotics](../sources/gemini-4-argon-robotics-blog.md) — Apollo 2 in simulation only: Argon turns a paper sketch into a mujoco_warp scene and a 76-DoF whole-body throw that knocks down 6/6 boxes.
+- [AI Search news roundup (2026-11-01)](../sources/ai-search-news-2026-11-01.md) — Apollo appears in a Genie 4 + Gemini 4 Argon checkers demo; DeepMind's blog names it, and the footage is generated.
 
 ## Open questions / TBD
 - **No primary source ingested.** Apptronik's product pages + GR00T-on-Apollo announcements would anchor specs and partnership details.

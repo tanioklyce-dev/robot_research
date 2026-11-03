@@ -3,8 +3,8 @@ title: Jiajun Wu
 type: entity
 subtype: person
 created: 2026-08-31
-updated: 2026-09-11
-sources: 1
+updated: 2026-11-02
+sources: 2
 tags: [jiajun-wu, stanford, stanford-hai, researcher, world-models, evaluation, benchmark, video-prediction]
 ---
 
@@ -35,6 +35,7 @@ Wu's benchmark work consistently pushes evaluation **away from perceptual scores
 
 ## Mentioned in
 
+- [AI Search news roundup (2026-11-01)](../sources/ai-search-news-2026-11-01.md) — [UniAction](https://uniaction.github.io/), unified action conditioning for world models (senior author; arXiv 2610.32977, paper not ingested).
 - [Physion-Eval paper](../sources/physion-eval-paper.md)
 - [VP² paper](../sources/vp2-paper.md)
 - [VoxPoser paper](../sources/voxposer-paper.md)

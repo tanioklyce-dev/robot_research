@@ -2,8 +2,8 @@
 title: World-model simulators
 type: concept
 created: 2026-05-06
-updated: 2026-10-13
-sources: 42
+updated: 2026-11-02
+sources: 43
 tags: [world-model, generative-simulation, video-generation, jepa, latent-prediction, paradigm-shift]
 ---
 
@@ -23,6 +23,13 @@ Notable systems:
 - **[Genie Envisioner](../../entities/genie-envisioner.md)** / GE-Sim2 — built on Cosmos-Predict2; introduces the World Action Model framework where action is a first-class variable; minute-scale stable rollouts ([AGIBOT Genie Envisioner 2.0 Announcement](../../sources/agibot-genie-envisioner-2-announcement.md)).
 - **[UnifoLM-WMA-0](../../sources/unifolm-wma-0-project-page.md)** ([Unitree](../../entities/unitree.md), Sep 2025) — a **DynamiCrafter** (2023) fine-tune on Open-X and five Unitree sets with a diffusion action head; its *simulation mode* is pitched as an interactive data engine ("generate synthetic data for robot learning") but no trained-on-synthetic result was ever shown, and the successor [WLA-1.0](../../sources/unifolm-wla-1-project-page.md) dropped pixel generation. The compact, vendor-built end of this paradigm.
 - **[Genesis](../../entities/genesis.md)** — adjacent: physics-based but uses a [VLM](../learning/vla-models.md) agent to *generate* the simulation content from text.
+
+> [!note] New in late 2026, not yet measured here
+> From a [news roundup](../../sources/ai-search-news-2026-11-01.md) checked against project pages only; none of these have full paper ingests.
+> - **[Genie 4](https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/)** (DeepMind): adds native audio to the interactive line after [Genie 3](../../entities/genie-3.md). Trusted-tester preview; DeepMind concedes drift in object permanence over longer runs.
+> - **[MUNDO](https://mundo-world-model.github.io/)** (NTU MMLab + ACE Robotics): dynamics from MuJoCo over an inferred scene program, with a video model only for rendering, so it does not fit cleanly in Paradigm A. Unitree G1 demos with no reported numbers; weights promised for end of November.
+> - **[UniAction](https://uniaction.github.io/)** (Stanford): one Wan 2.2-based model conditioned on force, camera, hand pose or robot pose.
+> - **[OverSeer](https://runjiali-rl.github.io/OverSeer/)** (Oxford + Meta): multi-agent shared worlds anchored by fixed auxiliary cameras; game and studio domains, no robotics claim.
 
 ## Paradigm B: JEPA / latent-prediction world models
 Predict the next-state *representation* in a learned latent space — no pixels generated. See [Joint-Embedding Predictive Architecture](jepa.md) for the architectural definition. Pioneered in Yann LeCun's group at FAIR / NYU / Mila.
@@ -85,7 +92,7 @@ Two things this qualifies on the page below: the [Genie Envisioner](../../entiti
 
 ## Mentioned in
 
-> [!note] Curated list — **37** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **38** source pages link here; the ones below are those that shaped this page.
 
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../../sources/hai-world-model-spatial-intelligence-brief.md) — the "simulator" row of the [functional taxonomy](world-model-functional-taxonomy.md); learned simulation as the cheaper-to-update alternative to hand-built Omniverse-class environments, "still early, limited by scarce physical data."
 - [DreamGen Paper](../../sources/dreamgen-paper.md) — video WM used as a **synthetic data generator** ("neural trajectories") rather than a real-time planner; the data-generation face of this concept.
@@ -99,5 +106,6 @@ Two things this qualifies on the page below: the [Genie Envisioner](../../entiti
 - [Evaluating Gemini Robotics Policies in a Veo World Simulator](../../sources/veo-robotics-policy-evaluation-paper.md) — [Veo](../../entities/veo.md) used as an **evaluation harness** rather than a policy or data generator; action-conditioned, multi-view-consistent, with generative image editing for scene variation.
 - [WorldArena paper](../../sources/worldarena-paper.md) · [WorldArena 2.0 paper](../../sources/worldarena-2-paper.md) — the four functional roles, measured.
 - [WorldRoamBench paper](../../sources/worldroambench-paper.md) — long-horizon stability of interactive world models.
+- [AI Search news roundup (2026-11-01)](../../sources/ai-search-news-2026-11-01.md) — pointer to Genie 4, MUNDO, UniAction and OverSeer.
 - [UnifoLM-WMA-0 project page](../../sources/unifolm-wma-0-project-page.md) — Unitree's DynamiCrafter-based generative world model with a simulation mode.
 - [Gemini 4 Argon for Robotics](../../sources/gemini-4-argon-robotics-blog.md) — an LLM **steering** a video world model (Gemini Omni) in closed loop: timestamped action prompts, keyframe inspection, refinement (33 steps). The world model is driven by a planner's prompts, not by a policy's actions.

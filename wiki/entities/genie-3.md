@@ -3,8 +3,8 @@ title: Genie 3
 type: entity
 subtype: model
 created: 2026-07-13
-updated: 2026-08-26
-sources: 7
+updated: 2026-11-02
+sources: 8
 tags: [world-model, generative-video, google-deepmind, foundation-model, interactive-environments]
 ---
 
@@ -56,6 +56,8 @@ For comparison, [Genie Envisioner](genie-envisioner.md) / GE-Sim2 claims **minut
 
 ## Lineage note
 
+**Successor:** [Genie 4](https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/) (research preview, autumn 2026) adds native audio and pairs with Gemini models. DeepMind gives no resolution, fps or session length for it, so the specifications above have no successor figures yet ([roundup](../sources/ai-search-news-2026-11-01.md)).
+
 Not to be confused with the several similarly-named "Genie" systems this wiki tracks: DeepMind's **Genie** world-model line (Genie → Genie 3) is distinct from [AGIBOT](agibot.md)'s **[Genie Envisioner](genie-envisioner.md)** and **[Genie Sim](agibot-genie-sim.md)** products, which are unrelated except by name.
 
 ## Related
@@ -65,6 +67,7 @@ Not to be confused with the several similarly-named "Genie" systems this wiki tr
 
 ## Mentioned in
 
+- [AI Search news roundup (2026-11-01)](../sources/ai-search-news-2026-11-01.md) — surfaced Genie 4.
 - [WorldRoamBench paper](../sources/worldroambench-paper.md) — the only quantitative record of Genie 3 in this wiki; FPV rank 1.
 - [The Waymo World Model blog](../sources/waymo-world-model.md)
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../sources/hai-world-model-spatial-intelligence-brief.md)

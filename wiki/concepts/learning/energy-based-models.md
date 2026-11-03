@@ -2,8 +2,8 @@
 title: Energy-based models (EBMs)
 type: concept
 created: 2026-05-17
-updated: 2026-09-07
-sources: 12
+updated: 2026-11-02
+sources: 14
 tags: [ebm, energy-based-model, bengio, infonce, jepa, ibc, lecun, kona, latent-variable, constraint-satisfaction]
 ---
 
@@ -63,7 +63,7 @@ This matters for how the wiki frames the autoregressive-vs-JEPA argument. Likeli
 
 **4. Regularized training = bounding the *volume* of the low-energy region**, and that single idea unifies a shelf of classical methods as `L = D(y, Dec(Enc(y))) + R(Enc(y))`: PCA (low rank), autoencoder (bottleneck), k-means (discreteness), Gaussian mixtures, sparse coding (explicit `λ‖z‖₁`). Score matching is the third route — flatten the gradient and sharpen the curvature at data points.
 
-**5. The stated reason the field abandoned contrastive methods** is scaling, and it is asserted rather than proved: generating contrastive points has *"bad (even exponential!) scaling with the data dimension"*, making them *"unlikely to lead to autonomous intelligence of the future."* This claim is the hinge of the whole JEPA design argument and deserves to be held as a hypothesis — [SimCLR](../../sources/simclr-paper.md) and [MoCo](../../sources/moco-v3-paper.md) did scale.
+**5. The stated reason the field abandoned contrastive methods** is scaling, and it is asserted rather than proved: generating contrastive points has *"bad (even exponential!) scaling with the data dimension"*, making them *"unlikely to lead to autonomous intelligence of the future."* This claim is the hinge of the whole JEPA design argument and deserves to be held as a hypothesis — [SimCLR](../../sources/simclr-paper.md) and [MoCo](../../sources/moco-v3-paper.md) did scale, and so now does a contrastive EBM generating images ([TEM](../../sources/tem-scaling-transformer-ebm-paper.md); see below).
 
 > [!note] What is lost by giving up probability, stated by its advocates
 > Two costs the notes are explicit about: uncertainty becomes hard to reason about, and **energies are uncalibrated** — measured in arbitrary units, so *"combining two separately trained EBMs is not straightforward."* The design consequence is that the architecture must avoid passing outputs between separately trained components. There is also a technical objection to normalizing even when you can: per-state normalization introduces the **label bias problem**, so *"it is hurtful to normalize those scores."*
@@ -89,8 +89,21 @@ Thirty years after Hopfield, the same mathematics comes back in LeCun's orbit tw
 
 The 2017 move is the one that belongs on this page: **free energy used as a training objective**. The Les Houches principle above — regularized EBM training *bounds the volume of the low-energy region* — is stated about the energy over *inputs*; Entropy-SGD applies the same idea to the energy over *weights*, measuring that volume locally and climbing it. And it raises the question [loss-landscape geometry](loss-landscape-geometry.md) files: on a joint-embedding loss the widest low-energy valley is the collapsed one, so the anti-collapse devices in this page's prehistory table are changing *which minima exist*, not which the optimizer finds.
 
+## The scaling test: TEM (2026)
+
+**[TEM](../../sources/tem-scaling-transformer-ebm-paper.md)** (Lee, Gladstone, Du) trains a transformer EBM contrastively, with its own Langevin MCMC negatives, and reports FID-50K **3.82** on class-conditional ImageNet 256×256 and **8.24** at 512×512 with no classifier-free guidance. This beats unguided DiT (9.62), SiT (8.3) and SiT + REPA (5.9), and trails guided diffusion (1.42 at best). The authors believe it is the best large-scale result for an EBM trained this way.
+
+It is the wiki's strongest evidence against distinction 5 above, but three things limit how far it goes (the wiki's reading):
+
+- **The sampler runs in a 4,096-dimensional VAE latent**, not pixels.
+- **Training leans on DINOv2 alignment**: FID 19.9 with it and 42.8 without in the TEM-B ablation. DINOv2 is itself a non-contrastive joint-embedding model, so the contrastive result depends partly on the rival camp's product.
+- **It is generation, not prediction.** It does not show contrastive training is the better route to world-model representations, which is the question LeCun's claim serves.
+
+It also touches the note above on uncalibrated energies. TEM composes concepts by summing energies, but mostly **from one network**, under different conditioning or across its own heads, which avoids the problem of combining separately trained models rather than solving it.
+
 ## Key references in this wiki
 
+- **[TEM (Lee, Gladstone, Du, 2026)](../../sources/tem-scaling-transformer-ebm-paper.md)** — contrastive EBM image generation at ImageNet 512×512; the current scale record in this wiki.
 - **[LeCun 2022 — A Path Towards Autonomous Machine Intelligence](../../sources/lecun2022-path-towards-ami.md)** — the conceptual anchor. Frames JEPA, the configurable world model, and intrinsic-cost training all as EBM-flavored constructions.
 - **[IBC Paper (Florence et al., CoRL 2021)](../../sources/ibc-paper.md)** — first EBM-for-policy result in this wiki; introduced [PushT](../../entities/pusht.md); ancestor of [Diffusion Policy](../../entities/diffusion-policy.md).
 - **[Aleph and Energy-Based Models: The AI That Refuses to Bullshit (video, 2026-05)](../../sources/2026-05-aleph-ebm-refuses-bullshit-video.md)** — first commercialized EBM-for-reasoning surface in this wiki ([Kona](../../entities/kona.md) + [Aleph](../../entities/aleph.md)).
@@ -124,9 +137,12 @@ This is the long thread connecting the [1993 Siamese signature-verification pape
 - [The Loss Surfaces of Multilayer Networks (2015)](../../sources/choromanska2015-loss-surfaces-multilayer-networks.md) — the spin glass as a model of the *training loss*; the bridge from the Hopfield/Boltzmann prehistory to modern training.
 - [Entropy-SGD (2017)](../../sources/chaudhari2017-entropy-sgd.md) — free energy over weights as a training objective; the optimizer-side twin of the volume-bounding principle.
 - [LeCun & Xing debate (2026)](../../sources/lecun-xing-jepa-glp-debate-2026.md) — LeCun's live account of why he stopped predicting pixels [135:42–137:44]: distributions over video clips cannot be normalised, EBMs are the weaker substitute, and diffusion models carry *"zero guarantee"* against mode collapse.
+- [TEM paper (2026)](../../sources/tem-scaling-transformer-ebm-paper.md) — the scaling test above.
+- [AI Search news roundup (2026-11-01)](../../sources/ai-search-news-2026-11-01.md) — the secondary that surfaced TEM; calls EBMs "completely new," which this page's prehistory contradicts.
 
 ## Open questions / TBD
 
 - **Training procedures used by Kona** — not surfaced in materials ingested so far. The interview summary says "energy minimization" and "non-autoregressive" but doesn't specify whether training uses score matching, contrastive loss, denoising, or something else.
 - **Hinton's products-of-experts (2000) and contrastive divergence** enter the wiki by citation only, through [Bengio et al. 2003](../../sources/bengio2003-neural-probabilistic-language-model.md) §5.1. The tech report is not ingested, and it is the shared ancestor of both the Bengio and LeCun branches above.
+- **Does the TEM recipe transfer to EBM policies?** [IBC](../../sources/ibc-paper.md)'s negative-sampling pain is what [Diffusion Policy](../../entities/diffusion-policy.md) escaped. TEM's replay-buffer MCMC, multi-head energies and alignment have not been tested on actions.
 - **Empirical reproducibility** of the cost-vs-LLM claims for EBMs — the IBC paper found EBMs hard to scale beyond PushT; Kona's claimed Sudoku-at-$4 hasn't been independently corroborated in this wiki.

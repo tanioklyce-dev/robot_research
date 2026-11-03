@@ -6389,3 +6389,17 @@ Three clusters: **contact-rich safety** ([survey](sources/safe-learning-contact-
   - [VLA models](concepts/learning/vla-models.md), [Cross-embodiment](concepts/learning/cross-embodiment.md).
   - [AGIBOT](entities/agibot.md), [Genie Sim](entities/agibot-genie-sim.md), [DROID](entities/droid.md), [Franka Panda](entities/franka-panda.md), [YAM](entities/yam.md), [RoboArena](entities/roboarena.md), [GR00T](entities/nvidia-groot.md), [Jim Fan](entities/jim-fan.md), [Yuke Zhu](entities/yuke-zhu.md), [Guanzhi Wang](entities/guanzhi-wang.md).
   - [AW-0](entities/aw-0.md) and [its source](sources/agentic-world-action-models-aw0-paper.md), [Cosmos 3 report](sources/cosmos-3-technical-report.md), [DreamGen paper](sources/dreamgen-paper.md).
+
+## [2026-11-02] ingest | AI Search news roundup (2026-11-01) and TEM (2610.31889)
+- Created [roundup source page](sources/ai-search-news-2026-11-01.md), a secondary used as a pointer index, and [TEM source page](sources/tem-scaling-transformer-ebm-paper.md). Raw: `raw/2610.31889v1.pdf`.
+- The request linked to 40:00, just before the EBM segment at 40:47. The description has no link for that segment, so TEM was identified from storyboard frames.
+- Scope chosen by the user: TEM in full; physical-AI items as short entries from project pages; paper ingests deferred to the backlog.
+- Key findings:
+  - TEM: unguided FID 3.82 (256×256) and 8.24 (512×512) from a contrastive EBM with its own MCMC negatives.
+  - It bears on the Dawid & LeCun scaling claim, but runs in a VAE latent and depends on DINOv2 alignment (FID 19.9 vs 42.8 in the TEM-B ablation).
+- **Flagged:**
+  - The video calls EBMs "completely new"; the wiki's EBM history starts in 1982.
+  - The video says PhysAg3D released its model; the repo does not bundle weights.
+  - TEM's "60 NFE" is not directly comparable with diffusion's 250 because evaluation uses persistent chains (wiki reading).
+  - Only the robotics, world-model and EBM segments were checked; the page should not be cited for the other items.
+- Updated: [Energy-based models](concepts/learning/energy-based-models.md), [World-model simulators](concepts/world-models/world-model-simulators.md), [Genie 3](entities/genie-3.md), [Apptronik Apollo](entities/apptronik-apollo.md), [Jiajun Wu](entities/jiajun-wu.md), [NVIDIA robot AI stack](syntheses/platforms/nvidia-robot-ai-stack.md), [backlog](backlog.md).

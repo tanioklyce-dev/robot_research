@@ -2,13 +2,19 @@
 title: Wiki Backlog — deferred lint items & knowledge gaps
 type: meta
 created: 2026-07-04
-updated: 2026-10-24
+updated: 2026-11-02
 tags: [backlog, lint, todo, knowledge-gaps]
 ---
 
 # Wiki Backlog
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
+
+## [2026-11-02] From the AI Search roundup + TEM ingest
+- [ ] **Ingest the papers behind the project-page entries:** [MUNDO](https://mundo-world-model.github.io/) (no paper ID yet; re-check at its end-of-November code and weights release), [UniAction](https://arxiv.org/abs/2610.32977), [OverSeer](https://arxiv.org/abs/2610.28554), [PhysAg3D](https://arxiv.org/abs/2610.39924). MUNDO first: it is the one making a robot-training claim.
+- [ ] **Try the TEM recipe on an EBM policy.** Rerun [IBC](sources/ibc-paper.md) on PushT with replay-buffer MCMC negatives, multi-head energies and alignment to a pretrained vision model, adding one change at a time. Measure success rate and inference latency against Diffusion Policy. A failure would show that TEM's gains are specific to image generation, which is also useful. Source: [TEM](sources/tem-scaling-transformer-ebm-paper.md).
+- [ ] **Verify SimReady physics metadata** on actual USD assets. The [dataset card](https://huggingface.co/datasets/nvidia/simready-assets) as fetched does not list it. Which simulators load them unmodified?
+- [ ] **Entity pages if these recur:** Yilun Du, Genie 4, MUNDO.
 
 ## [2026-10-24] From the LeHami + AMI-tracker ingest
 - [x] ~~**Ingest *Preserving Unstable Modes Through Inverse Dynamics in JEPA World Models***~~ — done 2026-10-24 ([source](sources/preserving-unstable-modes-inverse-dynamics-paper.md); 2610.07540). (LeCun et al., 2026-10-06; surfaced by the [AMI tracker](sources/ami-labs-intelligence-hub-research.md); find the arXiv ID). Reportedly proves exact action reconstruction makes the encoder injective on the finite-horizon reachable subspace. That is the formal account of the inverse-dynamics barrier in the [collapse synthesis](syntheses/world-models/jepa-dynamics-collapse-fixes.md) §1.
