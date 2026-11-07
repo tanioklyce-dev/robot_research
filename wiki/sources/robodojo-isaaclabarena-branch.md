@@ -81,4 +81,4 @@ Most of the documentation is about making the evaluation **auditable**. The port
 - **Upstreaming.** Will this merge into Arena's own catalog, as RoboTwin 2.0's branch is listed? Arena's README still read "coming soon" when the wiki last captured it (2026-09-14).
 - **Version drift.** Arena main has moved to Isaac Sim 6.0 / Isaac Lab 3.0, and this branch pins 5.1. Expect re-pinning churn.
 - **Throughput.** Inference is per environment rather than batched, so the multi-env speedup is capped by π0.5 latency × NUM_ENVS. No throughput figure is given.
-- **Source depth.** The RoboDojo paper (2607.04434) and XPolicyLab (2608.09892) are not ingested. The [RoboDojo entity](../entities/robodojo.md) rests on the main README only.
+- **Source depth.** ~~The RoboDojo paper (2607.04434) is not ingested.~~ Ingested 2026-11-07 as the [RoboDojo paper](robodojo-paper.md). Native π0.5 is **6.91%** average sim success (frozen 2026-07-03), which is the number an Arena-port parity check would have to reproduce. XPolicyLab (2608.09892) is still not ingested.

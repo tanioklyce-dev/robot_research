@@ -3,8 +3,8 @@ title: π0 (pi-zero)
 type: entity
 subtype: model
 created: 2026-05-25
-updated: 2026-10-13
-sources: 39
+updated: 2026-11-07
+sources: 40
 tags: [pi-zero, pi0, vla, flow-matching, physical-intelligence, paligemma, action-expert, generalist-policy, cross-embodiment, lerobot, hugging-face]
 ---
 
@@ -104,3 +104,4 @@ Still, the direction is consistent with [SmolVLA](smolvla.md)'s result from the 
 - [CaP-X paper](../sources/cap-x-paper.md) — π0 and π0.5 as LIBERO-PRO baselines against a training-free coding agent; π0 scores 0.00 everywhere, π0.5 retains position robustness (0.17–0.38) but collapses under instruction paraphrase (0.00–0.01).
 - [ASPIRE paper](../sources/aspire-paper.md) — same comparison; π0.5 "largely collapses under task paraphrases."
 - [RoboJEPA paper](../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — π0-FAST (DROID-finetuned) reference: Grasp 22% / Lift 12% / Pick and Place 40% (n=50).
+- [RoboDojo paper](../sources/robodojo-paper.md) — π0: 1.53% sim / 1.7% real.

@@ -3,8 +3,8 @@ title: OpenVLA-OFT
 type: entity
 subtype: model
 created: 2026-07-17
-updated: 2026-07-17
-sources: 6
+updated: 2026-11-07
+sources: 7
 tags: [openvla-oft, vla, vision-language-action, parallel-decoding, action-chunking, l1-regression, film, libero, aloha]
 ---
 
@@ -47,3 +47,4 @@ The paper studies three axes for adapting a VLA and picks the winning combinatio
 
 - [OpenVLA-OFT paper](../sources/openvla-oft-paper.md) — the introducing primary source.
 - [VLA-0 paper](../sources/vla-0-paper.md) — reports OFT as the top LIBERO model (rank 1.5), the only pretrained model above VLA-0.
+- [RoboDojo paper](../sources/robodojo-paper.md) — **last of 30** in RoboDojo sim (0.02% average). The top LIBERO model by some rankings scores near zero on a broad bimanual suite.

@@ -12,7 +12,10 @@ Deferred maintenance items and knowledge gaps surfaced during lint passes but no
 
 ## [2026-11-07] From the ToyBlocks + RoboDojo-on-Arena ingest
 - [ ] **Ingest the ToyBlocks technical report** when it appears, or the docs at allenai.github.io/ToyBlocks. Capture the chart numbers: VLA interpolation and extrapolation by technique, spelling success by difficulty, and the world-model probe scores. Find out how the LeWM probe was built.
-- [ ] **Ingest the RoboDojo paper** ([2607.04434](https://arxiv.org/abs/2607.04434)) and **XPolicyLab** ([2608.09892](https://arxiv.org/abs/2608.09892)). The [RoboDojo entity](entities/robodojo.md) rests on a README. Key question: does the paper report sim-real correlation across its 18 real tasks?
+- [x] ~~**Ingest the RoboDojo paper**~~ — done 2026-11-07 ([source](sources/robodojo-paper.md)). Answer to the key question: **no**. The sim and real suites are unpaired by design, and only partial rank agreement is reported.
+- [ ] **Ingest XPolicyLab** ([2608.09892](https://arxiv.org/abs/2608.09892)), the shared policy interface behind RoboDojo's 30 integrated policies.
+- [ ] **Diagnose MolmoAct2's RoboDojo collapse** (0.38% vs 97.2 on LIBERO). Is it a recipe or embodiment mismatch (ARX X5 joint actions, 100K steps at batch 128) or cross-benchmark memorization? It bears on the [success-rate audit](syntheses/platforms/vla-success-rate-audit.md) and on LIBERO-PRO.
+- [ ] **Entity pages if these recur:** Hy-Embodied-0.5-VLA (Tencent), Spatial Forcing, X-WAM, InternVLA-A1, Xiaomi-Robotics-0, ARX X5.
 - [ ] **Settle the skills contradiction.** The blog says RL flip and push; the repo has scripted flip and rotate and no push. Check the HF dataset card for `allenai/toyblocks-data` (generation commit and skill provenance), and the tech report when it lands.
 - [ ] **Experiment: ToyBlocks batch-composition noise.** Evaluate one checkpoint 5× at NUM_ENVS=50 with different queue orders, and once at NUM_ENVS=1. Report the spread in success rate. This is the error bar the blog's comparisons need and do not report. Source: [repo docs](sources/allenai-toyblocks-github.md).
 - [ ] **Re-check the RoboDojo Arena branch** for published parity (native vs Arena π0.5 success) and for re-pinning to Isaac Sim 6.0. `--check` will flag README drift.

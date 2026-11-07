@@ -3,8 +3,8 @@ title: X-VLA
 type: entity
 subtype: model
 created: 2026-08-13
-updated: 2026-08-31
-sources: 11
+updated: 2026-11-07
+sources: 12
 tags: [xvla, vla, soft-prompt, cross-embodiment, flow-matching, florence-2, lerobot, air-tsinghua, shanghai-ai-lab, cloth-folding]
 ---
 
@@ -82,3 +82,4 @@ X-VLA is upstreamed into [LeRobot](lerobot.md) as the `xvla` policy (`src/lerobo
 - [X-VLA paper](../sources/xvla-paper.md)
 - [Vulcan Robotics / Sourccey site](../sources/vulcan-robotics-sourccey-site.md)
 - [Sourccey vs XLeRobot](../syntheses/platforms/sourccey-vs-xlerobot.md)
+- [RoboDojo paper](../sources/robodojo-paper.md) — the best **Precision** score in RoboDojo sim (12.00%), 6.52% average (4th of 30). Only 3.3% in the real world, with near-zero on Piper X.

@@ -3,8 +3,8 @@ title: SmolVLA
 type: entity
 subtype: model
 created: 2026-05-25
-updated: 2026-09-13
-sources: 25
+updated: 2026-11-07
+sources: 26
 tags: [smolvla, vla, vision-language-action, flow-matching, hugging-face, lerobot, smolvlm-2, async-inference, community-datasets, so-arm101, affordable-vla]
 ---
 
@@ -83,3 +83,4 @@ tags: [smolvla, vla, vision-language-action, flow-matching, hugging-face, lerobo
 - [VLA-0 paper](../sources/vla-0-paper.md) — used as the real-world SO-100 baseline; **[VLA-0](vla-0.md) beats SmolVLA by 12.5 pts** on 4 real tasks despite SmolVLA's large-scale SO-100 pretraining (VLA-0 trained from scratch). On LIBERO, VLA-0's 94.7 avg > SmolVLA-2.25B's 88.8.
 - [FEARL — Verifiable Foundation Models for Robot Safety](../sources/fearl-verifiable-foundation-models-robot-safety-paper.md) — SmolVLA (SmolVLM2-256M backbone) as the controller behind a formally verified 32-unit safety module; pre-action-head features → 16-D bounded context via an MLP adapter, LoRA + PPO; 80.1% success unshielded, 68.2% shielded with zero violations.
 - [airockchip/rknn-llm](../sources/rknn-llm-github.md) — **SmolVLM-256M runs on the RK3588 NPU** (842 ms image encode, 77 ms prefill, 78 tok/s decode) — the VLM half of a SmolVLA, with no path for the flow-matching action expert except a separate RKNN export; the split is untested.
+- [RoboDojo paper](../sources/robodojo-paper.md) — SmolVLA (single-task): 0.85% sim.

@@ -54,6 +54,7 @@ That is a different integration story than the classical TAMP stack's: instead o
 
 The released engine ([allenai/ToyBlocks](../../sources/allenai-toyblocks-github.md)) makes the mechanism concrete. A *vendored* FF planner plans each of ~256 environments per GPU from its own symbolic state, in milliseconds on the CPU. Skills execute batched on a cuRobo v2 solver pool, and after every skill its PDDL effect is **checked against the live simulation**: on failure the environment restores a snapshot and retries, then re-plans. **TAMPER** (*"TAMP Expert Relabeling"*) closes the loop as DAgger with a TAMP expert. The states where a learned policy failed are captured just before auto-reset, FF and cuRobo replan from the scene read off each state toward the episode's goal, and the new demonstrations feed retraining. That is the classic weakness of planner-generated imitation data (the student never sees its own mistakes) handled with the same planner.
 
+## Mentioned in
 
 - [The State of Robot Motion Generation (Bekris et al. 2024)](../../sources/state-of-robot-motion-generation-2024.md)
 - [Planning with Graphs of Convex Sets (in the age of foundation models)](../../sources/tedrake-gcs-foundation-models-talk.md) — the permutohedron instance and the network-flow heuristic.

@@ -49,6 +49,8 @@ tags: [toyblocks, foundationworlds, ai2, simulation, isaac-lab, benchmark, evalu
 > The launch post says the non-prehensile skills (push, flip) are **learned by RL** ([Ai2 blog](../sources/ai2-toyblocks-blog.md)). In the released vecgen engine, **flip and rotate are scripted** trajectories ported from a TAMP executor, and **the push actions have no skill and are excluded by default** ([allenai/ToyBlocks](../sources/allenai-toyblocks-github.md)). PPO scripts exist (`isolate` task, 8,192 environments), and the post says integrated RL training is *not* in the current package. Which pipeline produced the 85,336 released demonstrations is unresolved.
 
 
+## The agent harness: `agentic_robotics` (2026-11-05)
+
 The frontier-agent studies run on [allenai/agentic_robotics](../sources/allenai-agentic-robotics-github.md), an Apache-2.0 submodule of ToyBlocks. It is a robot-agnostic MCP host (`core/`) with ToyBlocks as its one domain server, and only JSON crosses the boundary between them. It has two model hosts: its own loop over OpenRouter, or Claude Code via the Agent SDK. The default model is Claude Opus 5.5. It releases the Search & Spell builder and scorer (an exact three-block tower, read from the front camera, 45° yaw tolerance; on infeasible tasks the agent's *declared* outcome is what is scored), the Blocksworld and PlanBench-format suites, and **LEAP**, the experimentation phase behind the 24% → 63% skill-description result. LEAP has four description sets: Control (declared), Naive (agent with subagents), Harness (a forced hypothesis → criteria → trials structure) and Oracle (expert-written). Suites ran on one A100 80 GB per job, ~7.6 GB per Isaac process. No result records are committed.
 
 ## Why it matters for this wiki

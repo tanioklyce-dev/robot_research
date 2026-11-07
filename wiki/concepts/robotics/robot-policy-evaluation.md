@@ -3,7 +3,7 @@ title: Robot policy evaluation
 type: concept
 created: 2026-07-27
 updated: 2026-11-07
-sources: 61
+sources: 62
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility, real-to-sim, r2s2r]
 ---
 
@@ -150,6 +150,19 @@ The ToyBlocks repo ([allenai/ToyBlocks](../../sources/allenai-toyblocks-github.m
 - **Partial progress with no task-specific code.** Every task's goal is a PDDL conjunction, so the fraction of conjuncts satisfied, with each conjunct's first-true step, is a progress metric for every task by construction.
 - **A stated reproducibility trade-off.** All parallel environments share one PhysX scene, so *"one environment's result can depend on which other environments are in the batch."* The GPU solver is nondeterministic, and contact history survives teleport resets. The docs therefore say to compare runs only in aggregate. That makes the sample-size problem above worse in a specific way: the run-to-run spread includes batch-composition noise, and nobody reports how large it is.
 
+## Anti-gaming as protocol: RoboDojo (2026-11-07)
+
+The [RoboDojo paper](../../sources/robodojo-paper.md) adds protocol features this page had not seen together:
+- **Hidden verification layouts.** A significant gap from the public layouts invalidates a submission.
+- **Official remote evaluation only**, so no self-reported scores.
+- **Mandatory release of the evaluated checkpoint, code and config** for the verified board, with closed results on a separate unverified track.
+- **3 seeds in sim**, and all three embodiments in the real world.
+- **Double-blind three-rater video scoring with appeals.**
+- **A human-teleop reference** run under the same horizons.
+
+It also measures its own spread. In sim, ≤ 1.1 pp across GPUs, though only on layout 0. In the real world, the overall spread is ≤ 1.3 pp across three rounds, but single tasks reach 23 pp at 10 trials. That fits this page's sample-size argument: aggregate leaderboard positions are stable, and per-task real-world comparisons are not.
+
+## What is still missing
 
 - **No real-world validation.** RoboLab is simulation-only, and whether its scores predict deployment success is precisely the question it exists to answer.
 - **The ~1,030-rollout bar is proposed, not met** — including by NVIDIA's own published numbers.
@@ -212,3 +225,4 @@ The ToyBlocks repo ([allenai/ToyBlocks](../../sources/allenai-toyblocks-github.m
 - [ToyBlocks (Ai2 blog)](../../sources/ai2-toyblocks-blog.md) — a controlled FoundationWorld; held-out-region extrapolation splits; force and progress metrics; sim-vs-real agreement on atomic skills.
 - [RoboDojo — IsaacLabArena branch](../../sources/robodojo-isaaclabarena-branch.md) — hash-pinned assets and layouts, reconciled aggregates; parity with native RoboDojo untested.
 - [allenai/ToyBlocks](../../sources/allenai-toyblocks-github.md) — PDDL-conjunct partial progress; oracle substitution; shared-PhysX-scene nondeterminism stated as a design trade-off.
+- [RoboDojo paper](../../sources/robodojo-paper.md) — hidden verification layouts, mandatory artifact release, a human-teleop ceiling, and a measured cross-GPU and cross-round spread.

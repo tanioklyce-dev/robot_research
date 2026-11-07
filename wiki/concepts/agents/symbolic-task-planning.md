@@ -59,6 +59,8 @@ ToyBlocks writes every task as a PDDL goal, and its internal task-suite design d
 
 It is a good catalogue of the gap between what a language instruction asks for and what a symbolic planner can verify.
 
+## Related
+
 - [Action representation languages](../../syntheses/agents/action-representation-languages.md) — PDDL as the formal-task-language row
 - [Behavior trees](../robotics/behavior-trees.md) — the composition layer; PA-BT backchains like a planner
 - [Code as policy](code-as-policy.md) — the LLM writes a program; here the program is a planner

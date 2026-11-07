@@ -6452,3 +6452,26 @@ Three clusters: **contact-rich safety** ([survey](sources/safe-learning-contact-
   - Run-to-run spread from batch composition is unreported.
   - The internal HVLA doc audits PDDL's gaps: no region predicate, single-support `on`, and `or` silently flattened.
 - Updated: [ToyBlocks](entities/toyblocks.md), [blog source](sources/ai2-toyblocks-blog.md), [TAMP](concepts/robotics/task-and-motion-planning.md), [Robot policy evaluation](concepts/robotics/robot-policy-evaluation.md), [Symbolic task planning](concepts/agents/symbolic-task-planning.md), [Synthetic data flywheel](concepts/learning/synthetic-data-flywheel.md), [cuRobo](entities/curobo.md), [LeRobot](entities/lerobot.md), [Isaac Lab](entities/nvidia-isaac-lab.md), [index](index.md), [backlog](backlog.md).
+
+## [2026-11-07] ingest | RoboDojo paper (arXiv 2607.04434)
+- Created [source page](sources/robodojo-paper.md). Raw: `raw/robodojo_2607.04434v3.pdf` (v3, 2026-07-08, 46 pp).
+- Key findings:
+  - 42 sim tasks on a dual ARX X5 across five dimensions; 18 real tasks on ARX X5, Piper and Piper X.
+  - Simulation, 30 policies: the best is **8.80%** (Hy-Embodied-0.5-VLA). π0.5 6.91%, X-VLA 6.52%, GR00T N1.7 1.31%, MolmoAct2 0.38%, OpenVLA-OFT 0.02%. Human teleop: 76.03%.
+  - Open tasks are ≤ 1.67% for every policy, and randomized scenes cut scores by 65–100%.
+  - Real world: π0.5 leads at 12.8%; human teleop scores 100%.
+  - The best WAM (X-WAM) reaches 3.83%.
+  - Integrity measures: hidden verification layouts and mandatory checkpoint/code release.
+  - Stability: ≤ 1.1 pp across GPUs in sim; ≤ 1.3 pp overall in the real world, but up to 23 pp on single tasks.
+- **Resolved:** the RoboDojo entity's open question. The paper does **not** measure sim-to-real correlation; its suites are unpaired by design and only partial rank agreement is reported. I had also written that sim and real ran on "the same embodiments"; only the ARX X5 is shared. Corrected.
+- **Flagged:**
+  - Fine-tuning recipes vary widely by policy (15K–300K steps).
+  - 100 demonstrations per task may under-train 3–5B models, and no data-scaling curve is given.
+  - The human baselines come from the operators who built the datasets.
+  - 10 real trials per task means per-task real rankings are mostly noise.
+  - MolmoAct2 scores 0.38% here vs 97.2 on LIBERO.
+- **Fix:** a helper in the previous ToyBlocks-repo ingest (pushed in `6bab931`) *replaced* its anchor headings instead of inserting before them. That deleted `## What is still missing` (robot policy evaluation), `## Mentioned in` (TAMP), `## Related` (symbolic task planning) and the ToyBlocks entity's agent-harness heading. The same bug in this ingest dropped `## Related concepts` (world-action model). All restored, and verified against `c1e84d8` that no other heading or content line was lost.
+- Updated:
+  - Entities: [RoboDojo](entities/robodojo.md), [RoboDojo branch source](sources/robodojo-isaaclabarena-branch.md), [MolmoAct2](entities/molmoact2.md), [π0.5](entities/pi-zero-5.md), [GR00T](entities/nvidia-groot.md), [X-VLA](entities/x-vla.md), [OpenVLA-OFT](entities/openvla-oft.md), [AgileX Piper](entities/agilex-piper.md), [π0](entities/pi-zero.md), [SmolVLA](entities/smolvla.md), [ACT](entities/act.md), [RDT](entities/rdt.md), [RoboTwin](entities/robotwin.md).
+  - Concepts: [World-action model](concepts/world-models/world-action-model.md), [Robot policy evaluation](concepts/robotics/robot-policy-evaluation.md).
+  - [Index](index.md) and [backlog](backlog.md).

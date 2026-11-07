@@ -3,8 +3,8 @@ title: NVIDIA GR00T
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-10-27
-sources: 54
+updated: 2026-11-07
+sources: 55
 tags: [groot, vla, nvidia, foundation-model, humanoid]
 ---
 
@@ -91,3 +91,4 @@ First measured latency numbers, from the [official TensorRT deployment docs](../
 - [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)
 - [Agile Robots launches Agile ONE SN (2026-10-21)](../sources/agile-robots-agile-one-sn-launch.md)
 - [DreamZero paper](../sources/dreamzero-paper.md) — GR00T N1.6 (scratch and pretrained) as the main VLA baseline; size-matched GR00T-style VLAs at 8B/32B score 0% on diverse data.
+- [RoboDojo paper](../sources/robodojo-paper.md) — GR00T N1.7 (fine-tuned 100K steps at batch 640) averages **1.31%** in RoboDojo sim (16th of 30) and **1.7%** in the real world.

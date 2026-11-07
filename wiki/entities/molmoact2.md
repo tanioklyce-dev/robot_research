@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-07-25
 updated: 2026-11-07
-sources: 7
+sources: 8
 tags: [molmoact2, molmoact, vla, vision-language-action, flow-matching, per-layer-kv-conditioning, adaptive-depth, fast-tokenizer, hybrid-action-head, allen-institute, molmo, real-world-deployment, open-source, open-data]
 ---
 
@@ -47,6 +47,7 @@ The **adaptive-depth reasoning** variant. Before acting, it predicts a compact d
 - **RoboEval** (fine-tuned): **44.3%**, +3.8 over π0.5; also shorter/smoother trajectories.
 - **Real-world YAM, 8 in-the-wild tasks** (50 trials each): **50.1%** avg [45.0–55.0], +15 over OpenVLA-OFT. **The +15 pp survives** aggregated over 400 rollouts (p=0.00002); the companion **"wins 7 of 8 tasks" does not** (sign test p=0.070), nor would +15 pp within any *single* 50-trial task (p=0.13). See the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md).
 - **OOD robustness** (spatial/lighting/language/distractor): **50.69%**, +10.8 over OpenVLA-OFT.
+- **[RoboDojo](robodojo.md) sim** (fine-tuned 100K steps at batch 128 on 34 dual-ARX-X5 tasks, 100 demonstrations each): **0.38% average success**, 1.02 score, 26th of 30 policies. π0.5 scored 6.91% and the human expert 76% ([RoboDojo paper](../sources/robodojo-paper.md)). Read next to the LIBERO 97.2 above, this is the strongest cross-benchmark gap for any model in the wiki. The paper does not diagnose it, and it may be a recipe or embodiment fit rather than the model.
 - **Inference:** **55.79 Hz** (continuous path, CUDA Graphs, 2.42× over baseline); MolmoAct2-Think 12.71 Hz. Continuous flow path is 3.94× faster than the discrete autoregressive action path — hence continuous is the deployment default.
 
 ## Released checkpoints and deployment envelope (added 2026-08-03)
@@ -108,3 +109,4 @@ From the [GitHub repo](../sources/molmoact2-github-repo.md) and the [SO-100/101 
 - [MolmoAct2-SO100_101 model card](../sources/molmoact2-so100-101-model-card.md) — the SO-100/101 checkpoint; 5B params, ~16 GB bf16, absolute joint-pose control.
 - [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — full checkpoint family, LeRobot-native training, FastAPI deployment servers, ManiSkill sim eval.
 - [ToyBlocks (Ai2 blog)](../sources/ai2-toyblocks-blog.md) — poor spatial extrapolation, per Ai2's own testbed.
+- [RoboDojo paper](../sources/robodojo-paper.md) — 0.38% average on the RoboDojo sim leaderboard, against 97.2 on LIBERO.

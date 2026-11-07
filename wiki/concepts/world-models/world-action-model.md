@@ -2,8 +2,8 @@
 title: World-action model (WAM)
 type: concept
 created: 2026-06-02
-updated: 2026-10-27
-sources: 30
+updated: 2026-11-07
+sources: 31
 tags: [world-action-model, wam, flux-3, video-action-model, frozen-backbone, world-model, vla, forward-dynamics, inverse-dynamics, policy, cosmos, dreamzero]
 ---
 
@@ -80,6 +80,16 @@ What it adds to this page:
 
 The comparison against [DreamZero](../../entities/dreamzero.md) (a pure video+action WAM) is the cleanest in the wiki that isolates *adding a planning stream to a WAM*: 71.1 vs 46.0 real-world rubric, same post-training demos, 3 seeds × 16 rollouts. The pretraining corpora differ, though.
 
+## WAMs on a broad fine-tuning benchmark (2026-11-07)
+
+[RoboDojo](../../entities/robodojo.md) fine-tunes four world-action models, all from **Wan2.2-TI2V-5B**, alongside 26 VLAs on 34 dual-ARX-X5 tasks with 100 demonstrations each:
+- **X-WAM:** 3.83% average success, 5th of 30.
+- **GigaWorld-Policy:** 3.27%.
+- **AHA-WAM:** 2.39%.
+- **Fast-WAM:** 2.03%.
+
+The VLA leaders sit at 6.5–8.8%. On Memory, X-WAM has a higher partial-progress score than the explicit-memory EventVLA but a lower success rate. The paper reads this as video prediction encoding *"temporal continuity, object permanence, and task progress"* without *retrieving* sparse evidence once it is out of view ([RoboDojo paper](../../sources/robodojo-paper.md)). It is one data point against the claim that WAMs beat VLAs when data is scarce. DreamZero, the strongest WAM in the wiki, was not tested.
+
 ## Related concepts
 
 - [World model](world-model.md) — the FD direction is exactly an action-conditioned world model.
@@ -104,3 +114,4 @@ As of mid-2026 the strongest published WAMs are generative-video / diffusion mod
 - [Post-train Cosmos 3 Edge](../../sources/nvidia-cosmos3-edge-post-training-blog.md) — the WAM property at the API: the on-robot policy server can return the model's **imagined rollout alongside the action chunk**; and the cost of making a 4B WAM into a policy (~17.4K GB200-hours).
 - [AW-0 paper](../../sources/agentic-world-action-models-aw0-paper.md) — a code expert inside a WAM; C→V→A joint denoising; 71.1 vs 46.0 (DreamZero) on 8 real tasks; default mode loses to π0.5 under randomization.
 - [DreamZero paper](../../sources/dreamzero-paper.md) — names WAMs (vs "VAMs"); 14B AR Wan2.1 fine-tune; diverse-data learning where VLAs score ~0; 7 Hz on 2 × GB200; failures are video failures.
+- [RoboDojo paper](../../sources/robodojo-paper.md) — four Wan2.2-based WAMs fine-tuned on a broad bimanual suite, all below the top VLAs (best X-WAM 3.83% vs 8.80%).

@@ -3,8 +3,8 @@ title: RDT-1B
 type: entity
 subtype: model
 created: 2026-08-13
-updated: 2026-08-13
-sources: 4
+updated: 2026-11-07
+sources: 5
 tags: [rdt, rdt-1b, diffusion, bimanual, foundation-model, unified-action-space, tsinghua, robotwin, robomind, baseline]
 ---
 
@@ -57,3 +57,4 @@ RDT is the **diffusion** answer to bimanual generalist manipulation, contemporan
 ## Mentioned in
 
 - [RoboTwin 2.0 paper](../sources/robotwin2-paper.md) · [RoboMIND paper](../sources/robomind-paper.md) · [X-VLA paper](../sources/xvla-paper.md) · [TurboVLA paper](../sources/turbovla-paper.md)
+- [RoboDojo paper](../sources/robodojo-paper.md) — RDT-1B 0.13%, H-RDT 0.12% sim.

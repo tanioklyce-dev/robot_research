@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-08-04
 updated: 2026-11-07
-sources: 9
+sources: 10
 tags: [robotwin, benchmark, bimanual, manipulation, domain-randomization, data-generation, simulation, robotwin-od, mllm-code-generation, embodiment-aware-grasping, sim-to-real]
 ---
 
@@ -135,3 +135,4 @@ The same team (Tianxing Chen et al.) released [RoboDojo](robodojo.md) in July 20
 - [WorldArena paper](../sources/worldarena-paper.md) · [WorldArena 2.0 paper](../sources/worldarena-2-paper.md)
 - [AW-0 paper](../sources/agentic-world-action-models-aw0-paper.md) — 80.8% clean / 20.6% randomized (hybrid 63.1 / 29.2) on 50 tasks, trained on 50 clean demos/task per the leaderboard protocol.
 - [RoboDojo — IsaacLabArena branch](../sources/robodojo-isaaclabarena-branch.md) — the sibling benchmark; shared RGB fix; same Arena-branch pattern.
+- [RoboDojo paper](../sources/robodojo-paper.md) — the sibling benchmark's primary: up to 25 clutter objects vs RoboTwin 2.0's 10, and heterogeneous parallelism at 77.4 vs 44.6 interactions/s.
