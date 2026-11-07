@@ -3,8 +3,8 @@ title: Ollama
 type: entity
 subtype: tool
 created: 2026-05-07
-updated: 2026-10-13
-sources: 9
+updated: 2026-11-07
+sources: 10
 tags: [ollama, llm-runtime, local-llm, edge-inference, uav]
 ---
 
@@ -26,3 +26,4 @@ The dominant on-device LLM runtime for hobbyist / educational robotics in 2026. 
 - [NVIDIA RTX AI Garage — Hermes Agent](../sources/nvidia-rtx-ai-garage-hermes-agent.md) — supported runtime (via NVIDIA blog).
 - [Hermes Agent GitHub README](../sources/hermes-agent-github.md) — supported runtime.
 - [EmbeddingGemma 2 launch blog](../sources/embeddinggemma-2-blog.md) — listed as a day-one serving path for the 740M multimodal embedder.
+- [sparkDash README](../sources/sparkdash-github.md) — detected by its own endpoint in sparkDash's engine probe (no live tok/s counters).

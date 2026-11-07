@@ -3,8 +3,8 @@ title: OpenClaw
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-09-29
-sources: 14
+updated: 2026-11-07
+sources: 15
 tags: [openclaw, personal-ai-assistant, steinberger, molty, claw-ecosystem, multi-platform, local-first, gateway, ClawHub, typescript]
 ---
 
@@ -82,3 +82,4 @@ OpenClaw is the foundation. Sibling and downstream projects:
 - **ClawHub** — community skill registry; comparable to [agentskills.io](https://agentskills.io) (Hermes Agent's standard)?
 - **Anthropic Claude relationship** — official line is "Molty the space lobster"; the homophone with "Claude" is unmistakable. Any official Anthropic position?
 - **Other robot-control extensions** — beyond Hiwonder's `openclaw_controller`, does the community have any? None surfaced.
+- [sparkDash README](../sources/sparkdash-github.md) — sparkDash's harness-session helper lists OpenClaw sessions (read-only, via ACP), alongside OpenCode, oh-my-pi, Hermes and DeepSeek Harness.

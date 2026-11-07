@@ -863,6 +863,19 @@ The nine-paper arc behind [code as policy](concepts/agents/code-as-policy.md), i
   - **The servo model is chaotic enough to diverge across CPU architectures in seconds**, so only the Space's x86_64 times count, and the build fails if a golden run doesn't reproduce. The board is rebuilt by re-racing, never by reading stored times.
   - The reference walker tracks **44%** of commanded velocity. The native training path is [mjlab](entities/mjlab.md). (captured 2026-10-24)
 
+### Watching agents on a Spark: sparkDash's repo and its Spark Overseer PR (ingested 2026-11-07)
+- [MiaAI-Lab/sparkDash](sources/sparkdash-github.md) — the [DGX Spark](entities/dgx-spark.md) fleet console (840 stars).
+  - **What it monitors:** 14+ engines with KV-cache and latency metrics, unified memory, RoCE.
+  - **Benchmarks:** decode, prefill, a seeded Quality bench with McNemar comparison, and a Tool Eval Bench.
+  - **Agents:** Hermes Agent updates and read-only OpenClaw / OpenCode / Hermes session occupancy.
+  - **Security:** a tokenless LAN bind is **open by default** (it can power units off).
+  - **Release lag:** the README is at v2.70 but the newest release is v2.32. (2026-07-19)
+- [sparkDash PR #284 — Spark Overseer](sources/sparkdash-pr284-spark-overseer.md) — an **unmerged** contribution to [sparkDash](entities/sparkdash.md), the [DGX Spark](entities/dgx-spark.md) fleet dashboard.
+  - **What it does:** opt-in observation of local model workloads. A command wrapper at the tool boundary and an inspector for OpenAI-compatible `tool_calls`, with labels kept separate (proposed vs executed, coverage gaps), feed seven regex signals.
+  - **What it is not:** enforcement, and it says so. It is not fail-closed and can be bypassed by a same-user agent.
+  - **Review status:** the maintainer's review, prepared with Claude Code, verified the privacy boundary. It blocked the PR on lockfile churn and a collector-latch bug.
+  - **Wiki check:** the upload rule's case-insensitive `-[dfT]` branch flags `rm -f` as an upload. (2026-10-26)
+
 ### RoboDojo: the 2026 VLA cohort on a hard sim-and-real board (ingested 2026-11-07)
 - [RoboDojo paper (Chen et al., 2026)](sources/robodojo-paper.md) — the [RoboTwin](entities/robotwin.md) team's benchmark (arXiv 2607.04434): 42 Isaac Sim tasks on a dual ARX X5 across five capability dimensions, plus 18 real tasks on ARX X5, [Piper](entities/agilex-piper.md) and Piper X.
   - **Simulation, 30 policies:** the best is **8.80%** (Hy-Embodied-0.5-VLA). [π0.5](entities/pi-zero-5.md) 6.91%, [GR00T N1.7](entities/nvidia-groot.md) 1.31%, [MolmoAct2](entities/molmoact2.md) 0.38% (vs 97.2 on LIBERO). Human teleop: 76%.
@@ -1342,6 +1355,7 @@ The nine-paper arc behind [code as policy](concepts/agents/code-as-policy.md), i
 - [Jetson Orin Nano](entities/jetson-orin-nano.md) — NVIDIA's entry-tier Ampere-GPU edge-AI module + Developer Kit; substrate for ROSOrin / ROSOrin Pro / many wiki-tracked educational robots; containerized [LeRobot](entities/lerobot.md) target via [jetson-containers](entities/jetson-containers.md). (35 sources)
 - [Jetson Thor](entities/jetson-thor.md) — NVIDIA's Blackwell-generation on-robot compute; family now spans **T5000/T4000 (128/64 GB) + new T3000 (32 GB) / T2000 (16 GB) / IGX T3000** (safety-certified, GA Q1 2027) — "70 TOPS to 2,000 TFLOPS"; 7.5× / 3.5× vs Orin; **no RT cores → can't host Isaac Sim**; measured GR00T N1.6 inference **10.9 Hz official TRT / 22–24 Hz community**. (46 sources)
 - [NVIDIA DGX Spark](entities/dgx-spark.md) — GB10 Grace Blackwell desktop AI supercomputer; 128 GB unified memory, 4th-gen RT cores, ConnectX-7; train-on-Spark / deploy-on-Thor split; the **local-AI-server** tier for on-robot agents (runs Gemma-4-31B / a 120B Hermes brain); CUDA-13 torch pin for LeRobot/GR00T fine-tuning. (8 sources)
+- [sparkDash](entities/sparkdash.md) — Apache-2.0 multi-unit DGX Spark monitoring dashboard (GPU / memory / 14+ LLM engines / benchmarks / Hermes & harness sessions); open-by-default LAN bind; proposed Spark Overseer agent-observation page (PR #284, unmerged). (2 sources)
 - [NVIDIA RTX Spark](entities/nvidia-rtx-spark.md) — **Windows 11-on-Arm** laptops and desktops on the N1X superchip (≤20-core Grace, ≤6,144-core Blackwell, ≤128 GB unified); the headline specs match DGX Spark's. It is NVIDIA's "local dev hub" in the Microduck tutorial, but **Isaac Sim runs there only under x86 emulation**. (2 sources)
 - [Jalapeño (OpenAI inference chip)](entities/openai-jalapeno.md) — OpenAI's 700 W first-party inference accelerator; vendor-reported 1.5–1.9× per-kW and 1.7–3.6× latency advantage over GB200/GB300 on InferenceX; internal deployment end-2026. (1 source)
 - [NVIDIA Halos](entities/nvidia-halos.md) — NVIDIA's **full-stack functional-safety system** for physical AI (silicon→OS→middleware→apps) on the **IGX [Thor](entities/jetson-thor.md)** SoM (Functional Safety Island; Halos OS = Linux+QNX); Inside-Out ([Digit](entities/digit.md)) vs Outside-In safety (open-source [blueprint](sources/halos-outside-in-safety-github.md)); first **ANAB-accredited** AI-functional-safety inspection program (TÜV Rheinland). The certified deterministic layer under a learned VLA. (4 sources)

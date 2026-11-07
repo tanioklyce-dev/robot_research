@@ -2,8 +2,8 @@
 title: AI guardrails
 type: concept
 created: 2026-07-13
-updated: 2026-09-29
-sources: 23
+updated: 2026-11-07
+sources: 24
 tags: [ai-safety, guardrails, agentic-ai, content-safety, topic-control, jailbreak, runtime-safety, nemo-guardrails]
 ---
 
@@ -157,6 +157,8 @@ These are not in conflict — but note that a guardrail layer is an **external**
 - [Add Runtime Controls to AI Agents with NVIDIA OpenShell](../../sources/nvidia-openshell-runtime-controls-blog.md) — the infrastructure side, shipped.
 - [NVIDIA Open Agent Safety Platform: A Reference for Continuous In-Silicon Agent Monitoring](../../sources/nvidia-open-agent-safety-platform-sentry-blog.md) — five principles; drift.
 - [NVIDIA Open Agent Safety Platform — Solutions Page](../../sources/nvidia-open-agent-safety-platform-page.md)
+
+- [sparkDash PR #284](../../sources/sparkdash-pr284-spark-overseer.md) — an agent-workload *observation* layer for DGX Spark that disclaims being a control: not fail-closed, bypassable by a same-user agent, *"review signals, not authorization or maliciousness verdicts."* A worked example of this page's "rails are not security controls" reframe, stated by the author.
 
 ## Applied
 - [Guardrails for robot agents](../../syntheses/agents/guardrails-for-robot-agents.md) — what it takes to put this layer in front of the wiki's actual robots.

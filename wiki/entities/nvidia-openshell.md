@@ -3,8 +3,8 @@ title: NVIDIA OpenShell
 type: entity
 subtype: software-framework
 created: 2026-08-23
-updated: 2026-09-29
-sources: 7
+updated: 2026-11-07
+sources: 8
 tags: [nvidia, openshell, open-agent-safety-platform, formal-verification, opa-rego, mcp, secure-runtime, sandbox, policy-enforcement, guardrails, agentic-ai, nemoclaw, hermes-agent, least-privilege, audit]
 ---
 
@@ -74,3 +74,4 @@ OpenShell is the closest thing in this wiki to the **enforcement layer** that [g
 - [NVIDIA Open Agent Safety Platform: A Reference for Continuous In-Silicon Agent Monitoring](../sources/nvidia-open-agent-safety-platform-sentry-blog.md)
 - [NVIDIA Launches Open Agent Safety Platform (Newsroom)](../sources/nvidia-newsroom-open-agent-safety-platform.md)
 - [NVIDIA Open Agent Safety Platform — Solutions Page](../sources/nvidia-open-agent-safety-platform-page.md)
+- [sparkDash PR #284](../sources/sparkdash-pr284-spark-overseer.md) — the contrast case. Spark Overseer *observes* agent tool calls on a Spark and explicitly does not sandbox or block; OpenShell is the enforcement side.

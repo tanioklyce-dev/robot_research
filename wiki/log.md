@@ -6475,3 +6475,31 @@ Three clusters: **contact-rich safety** ([survey](sources/safe-learning-contact-
   - Entities: [RoboDojo](entities/robodojo.md), [RoboDojo branch source](sources/robodojo-isaaclabarena-branch.md), [MolmoAct2](entities/molmoact2.md), [π0.5](entities/pi-zero-5.md), [GR00T](entities/nvidia-groot.md), [X-VLA](entities/x-vla.md), [OpenVLA-OFT](entities/openvla-oft.md), [AgileX Piper](entities/agilex-piper.md), [π0](entities/pi-zero.md), [SmolVLA](entities/smolvla.md), [ACT](entities/act.md), [RDT](entities/rdt.md), [RoboTwin](entities/robotwin.md).
   - Concepts: [World-action model](concepts/world-models/world-action-model.md), [Robot policy evaluation](concepts/robotics/robot-policy-evaluation.md).
   - [Index](index.md) and [backlog](backlog.md).
+
+## [2026-11-07] ingest | sparkDash PR #284 — Spark Overseer
+- Created [source page](sources/sparkdash-pr284-spark-overseer.md). Raw: `raw/2026-11-07-sparkdash-pr284-spark-overseer-guide.md` (the sealed feature guide; `fetch_url` points at the head branch, so revisions to the PR surface as drift) and `…-bundle.md` (PR body, maintainer comments, file list, `signals.js`, upstream README excerpt).
+- New entity: [sparkDash](entities/sparkdash.md).
+- Key findings:
+  - An **unmerged**, opt-in observation layer for local model and agent workloads on DGX Spark: a command wrapper at the tool boundary, plus an inspector for `tool_calls` in OpenAI-compatible responses.
+  - Seven regex signals.
+  - Strict privacy projection: no prompts, arguments or paths reach the API.
+  - It explicitly disclaims enforcement: not fail-closed, bypassable by a same-user agent.
+  - The maintainer's review (prepared with Claude Code) verified the injection and privacy boundary by testing it. It blocked the PR on ~647 lines of unrelated lockfile churn and on `configError` latching the collector off after any transient error. The branch has since stopped merging cleanly.
+- **Flagged (my own check):**
+  - The upload rule's case-insensitive `(?:^|[\s"'])-[dfT]` branch flags `rm -f`, `curl -f`, `grep -d` and `cp -T` as uploads, while `nc` and `rsync` uploads are not flagged as uploads. I tested this by re-typing the regex in Python; the auto-mode classifier blocked running the PR's own JS, correctly.
+  - It is not mentioned in the PR or the review.
+- **Privacy note:** the maintainer's identity is treated as the public GitHub account only.
+- Updated: [DGX Spark](entities/dgx-spark.md), [AI guardrails](concepts/safety/ai-guardrails.md), [Guardrails for robot agents](syntheses/agents/guardrails-for-robot-agents.md), [NVIDIA OpenShell](entities/nvidia-openshell.md), [Hermes Agent](entities/hermes-agent.md), [Anthropic](entities/anthropic.md), [index](index.md).
+
+## [2026-11-07] ingest | MiaAI-Lab/sparkDash (repository README)
+- Created [source page](sources/sparkdash-github.md). Raw: `raw/2026-11-07-sparkdash-readme.md` (sealed; `fetch_url` is the main-branch README).
+- Key findings:
+  - "One Spark model, N instances", with SSH collectors run from a privileged container.
+  - It detects 14+ inference engines and reads KV-cache, queue and latency p95 from their `/metrics`.
+  - Benchmarks: decode, prefill, a seeded Quality bench (~755 items, McNemar pairing) and a Tool Eval Bench (tool-eval-bench / ToolCall-15).
+  - Agents: Hermes Agent update management, and a read-only harness-session helper for OpenClaw, OpenCode, oh-my-pi, Hermes and DeepSeek Harness.
+- **Flagged:**
+  - A tokenless LAN bind is open by default and can power units off.
+  - The dashboard host holds root SSH keys to the whole fleet.
+  - The README documents v2.70.0, but the newest GitHub release is v2.32.0, which has no GHCR image yet.
+- Updated: [sparkDash](entities/sparkdash.md) (now 2 sources), [DGX Spark](entities/dgx-spark.md), [Hermes Agent](entities/hermes-agent.md), [OpenClaw](entities/openclaw.md), [Ollama](entities/ollama.md), [index](index.md).

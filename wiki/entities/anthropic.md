@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-09
 updated: 2026-11-07
-sources: 26
+sources: 27
 tags: [company, ai-safety, llm, claude, alignment, frontier-red-team, uplift-study, mcp, mhs]
 ---
 
@@ -75,6 +75,8 @@ Anthropic is the lead named partner in the **[NVIDIA Open Agent Safety Platform 
 - [ToyBlocks (Ai2 blog)](../sources/ai2-toyblocks-blog.md) — a third-party lab's robot-agent study built on **Claude Opus 5.5** through MCP: 30/30 classical stacking, 63% search-and-spell (half infeasible), letter look-alike and orientation errors; self-written skill descriptions 24% → 63%. A **Claude Fable 5.1** episode is shown as well.
 
 - [allenai/agentic_robotics](../sources/allenai-agentic-robotics-github.md) — Ai2's robot-agent harness defaults to **Claude Opus 5.5** (Haiku 4.5, Sonnet 5.5 and Fable 5.1 also configured) and can host its loop inside Claude Code via the **Claude Agent SDK**. Its CLAUDE.md is a detailed set of rules for how coding agents may touch experimental code.
+
+- [sparkDash PR #284](../sources/sparkdash-pr284-spark-overseer.md) — both the PR and the maintainer's review were written with AI assistance (the review notes were *"prepared with Claude Code on behalf of the maintainer"*). The review caught the lockfile churn and a latch bug that the PR's 2,000+ passing tests did not.
 
 ## Cybersecurity-evaluation incidents (July 2026)
 

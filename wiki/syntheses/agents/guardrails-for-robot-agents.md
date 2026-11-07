@@ -2,7 +2,7 @@
 title: Guardrails for robot agents — where the safety layer actually goes
 type: synthesis
 created: 2026-07-13
-updated: 2026-09-29
+updated: 2026-11-07
 tags: [ai-safety, guardrails, agentic-robotics, prompt-injection, mcp, mhs, execution-rail, iso-13482, fleet, nemo-guardrails, llm-agent]
 ---
 
@@ -214,6 +214,7 @@ The through-line: **three of the four cheap wins are things you write, not thing
 - [Claude's Constitution](../../sources/claudes-constitution.md) — layer 5; the irreversibility vocabulary.
 - [Fosch-Villaronga et al. — ISO 13482](../../sources/fosch-villaronga-iso13482-exoskeletons.md) — layer 1.
 - [Previewing the Model Hardware Standard](../../sources/anthropic-model-hardware-standard-preview.md) — layer 2 shipped in a device interface, with six induced fault conditions blocked.
+- [sparkDash PR #284](../../sources/sparkdash-pr284-spark-overseer.md) — the advisory/observation layer built honestly: proposal vs execution kept separate, coverage gaps recorded as gaps rather than all-clears, and no claim of enforcement.
 
 ## Related
 - [AI guardrails](../../concepts/safety/ai-guardrails.md) · [AI red-teaming](../../concepts/safety/ai-red-teaming.md) · [AI safety and alignment](../../concepts/safety/ai-safety-alignment.md) — the concepts.
