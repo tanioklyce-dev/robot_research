@@ -20,7 +20,7 @@ The primary paper behind [RoboDojo](../entities/robodojo.md), from the team that
 - **42 Isaac Sim tasks**, all on a dual **ARX X5**, grouped into five capability dimensions: Generalization 12, Memory 6, Precision 8, Long-Horizon 8 and Open 8.
 - **18 real-world tasks**, 6 each on ARX X5, [Piper](../entities/agilex-piper.md) and Piper X.
 - A standardized real-robot rig, **RoboDojo-RealEval**, with remote cloud access.
-- **XPolicyLab**, a shared policy interface with 30 integrated policies.
+- **[XPolicyLab](../entities/xpolicylab.md)**, a shared policy interface with 30 integrated policies.
 
 The headline is how badly current policies do. On the frozen 2026-07-03 simulation leaderboard the **best of 30 policies averages 8.80% success** (Hy-Embodied-0.5-VLA), against **76.03% for expert human teleoperators**. [π0.5](../entities/pi-zero-5.md) scores 6.91%, [GR00T N1.7](../entities/nvidia-groot.md) 1.31%, [MolmoAct2](../entities/molmoact2.md) 0.38% and [OpenVLA-OFT](../entities/openvla-oft.md) 0.02%. **Open** tasks, which recombine trained skills toward unseen goals, are near zero for everyone (best 1.67%). In the real world π0.5 leads with **12.8%** over 180 trials, and human teleop scores **100%**.
 
@@ -116,7 +116,7 @@ Dexterous hands, humanoid whole-body, tactile and mobile manipulation, each on m
 - **Policies:** [π0.5](../entities/pi-zero-5.md) · [π0](../entities/pi-zero.md) · [X-VLA](../entities/x-vla.md) · [GR00T](../entities/nvidia-groot.md) · [MolmoAct2](../entities/molmoact2.md) · [OpenVLA-OFT](../entities/openvla-oft.md) · [SmolVLA](../entities/smolvla.md) · [ACT](../entities/act.md) · [RDT](../entities/rdt.md) · [AGIBOT](../entities/agibot.md) (GO-1)
 - **Benchmarks compared:** [LIBERO](../entities/libero.md) · [RoboCasa](../entities/robocasa.md) · [SimplerEnv](../entities/simplerenv.md) · [BEHAVIOR](../entities/behavior-benchmark.md) · [RoboLab](../entities/nvidia-robolab.md) · [RoboArena](../entities/roboarena.md)
 - [Isaac Sim](../entities/nvidia-isaac-sim.md) · [Isaac Lab](../entities/nvidia-isaac-lab.md) · [cuRobo](../entities/curobo.md)
-- No pages: Hy-Embodied-0.5-VLA (Tencent), Spatial Forcing, X-WAM, Fast-WAM, AHA-WAM, GigaWorld-Policy, Xiaomi-Robotics-0, InternVLA-A1, GalaxeaVLA G0, LingBot-VLA, StarVLA-α, EventVLA, DM0, ARX X5, Piper X, XPolicyLab, MagicSim, RMBench
+- No pages: Hy-Embodied-0.5-VLA (Tencent), Spatial Forcing, X-WAM, Fast-WAM, AHA-WAM, GigaWorld-Policy, Xiaomi-Robotics-0, InternVLA-A1, GalaxeaVLA G0, LingBot-VLA, StarVLA-α, EventVLA, DM0, ARX X5, Piper X, MagicSim, RMBench
 
 ## Concepts touched
 - [Robot policy evaluation](../concepts/robotics/robot-policy-evaluation.md): hidden-layout verification, a human-teleop ceiling, double-blind real scoring, and a measured stability spread.

@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-08-04
 updated: 2026-11-07
-sources: 10
+sources: 11
 tags: [robotwin, benchmark, bimanual, manipulation, domain-randomization, data-generation, simulation, robotwin-od, mllm-code-generation, embodiment-aware-grasping, sim-to-real]
 ---
 
@@ -128,7 +128,7 @@ That makes RoboTwin the reference frame for the wiki's central world-model findi
 
 ## Sibling benchmark: RoboDojo (2026-07)
 
-The same team (Tianxing Chen et al.) released [RoboDojo](robodojo.md) in July 2026: 42 sim and 18 real tasks across Piper X, Piper and ARX X5, organized along five capability axes, with policies served through XPolicyLab. Both projects took the same RGB channel-ordering fix in September 2026 *"to keep both projects consistent,"* and both have since been ported to Isaac Lab-Arena as branches of their own repos ([RoboDojo branch READMEs](../sources/robodojo-isaaclabarena-branch.md)).
+The same team (Tianxing Chen et al.) released [RoboDojo](robodojo.md) in July 2026: 42 sim and 18 real tasks across Piper X, Piper and ARX X5, organized along five capability axes, with policies served through [XPolicyLab](xpolicylab.md). Both projects took the same RGB channel-ordering fix in September 2026 *"to keep both projects consistent,"* and both have since been ported to Isaac Lab-Arena as branches of their own repos ([RoboDojo branch READMEs](../sources/robodojo-isaaclabarena-branch.md)).
 
 ## Mentioned in (additional)
 
@@ -136,3 +136,4 @@ The same team (Tianxing Chen et al.) released [RoboDojo](robodojo.md) in July 20
 - [AW-0 paper](../sources/agentic-world-action-models-aw0-paper.md) — 80.8% clean / 20.6% randomized (hybrid 63.1 / 29.2) on 50 tasks, trained on 50 clean demos/task per the leaderboard protocol.
 - [RoboDojo — IsaacLabArena branch](../sources/robodojo-isaaclabarena-branch.md) — the sibling benchmark; shared RGB fix; same Arena-branch pattern.
 - [RoboDojo paper](../sources/robodojo-paper.md) — the sibling benchmark's primary: up to 25 clutter objects vs RoboTwin 2.0's 10, and heterogeneous parallelism at 77.4 vs 44.6 interactions/s.
+- [XPolicyLab GitHub](../sources/xpolicylab-github.md) — the adapter layer that powers the RoboTwin 2.0 leaderboard; entry requires a PR with a checkpoint download script. The `XPL-RGB1` JPEG marker (2026-09-09) is the mechanism behind the shared RGB fix.

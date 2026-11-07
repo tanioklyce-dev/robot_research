@@ -3,7 +3,7 @@ title: Agent skills (portable SKILL.md)
 type: concept
 created: 2026-07-16
 updated: 2026-11-07
-sources: 21
+sources: 22
 tags: [agent-skills, claude-code, skill-md, llm-agents, tooling, jetson, halos, frc, deployment]
 ---
 
@@ -54,6 +54,14 @@ In [ToyBlocks](../../entities/toyblocks.md), Ai2 exposes robot skills (pick, fli
 
 The code makes the setup explicit. In an **experimentation phase**, an agent has the motor skills plus simulator get/set state, a file workspace and `update_tool_docstring`. It explores either by spawning subagents (**Naive**) or through `plan_experiment`/`run_experiment`, which forces a hypothesis, success criteria and labelled trials before anything runs (**Harness**). The phase is capped by a **dollar budget**, and the prompt quotes token prices and warns that each docstring edit invalidates the prompt cache. A *fresh* agent is then evaluated with only the motor and image tools and the learned docstrings. It is compared against Control (the declared docstrings) and Oracle (expert-written ones that state failure rates: stack drops the block 10% of the time, rotate goes the wrong way 25%, flip has no effect 10% and goes the wrong direction 20%, and so on). The design treats a skill's description as a **learned, transferable artifact**, separate from the agent that learned it. The repo's rule that *"a skill's docstring is a prompt"* comes out of the same view.
 
+## Skills that encode a project's contribution standard (2026-11-07)
+
+[XPolicyLab](../../entities/xpolicylab.md) ships two skills in `.agents/skills/`, symlinked from `.claude/skills` and `.cursor/skills` so Claude Code, Cursor and Codex all load them ([XPolicyLab GitHub](../../sources/xpolicylab-github.md)).
+- `xpolicylab-model-integration` turns *"Integrate <POLICY> into XPolicyLab"* into a scaffold → `model.py` → debug-loop workflow.
+- `xpolicylab-adapter-check` is a nine-point pre-PR audit.
+
+`AGENTS.md` is the always-on layer, and the root `CLAUDE.md` is just `@AGENTS.md`. The interesting feature is the writing style. Each rule carries its reason. For example, a hand-added `COLOR_BGR2RGB` is called *"always a bug"* because two JPEG byte formats coexist and only an in-buffer marker tells them apart. The authors seem to have found that agents re-derive and "fix" rules they are given without reasons. These skills are about a project's conventions, not robot control, but they are what produces the adapters that robot benchmarks score.
+
 ## Related concepts
 
 - [LLM-agent architecture](llm-agent-architecture.md) — the agent runtime skills plug into (tools, MCP, memory)
@@ -73,3 +81,4 @@ The code makes the setup explicit. In an **experimentation phase**, an agent has
 - [AW-0 paper](../../sources/agentic-world-action-models-aw0-paper.md) — a 50-skill library distilled by a Claude Code coordinator and then **frozen** as the *label vocabulary* for training a WAM; skills are supervision targets, not runtime tools.
 - [ToyBlocks (Ai2 blog)](../../sources/ai2-toyblocks-blog.md) — agent-authored skill descriptions from self-run experiments: 24% → 63% vs 36% for expert-written.
 - [allenai/agentic_robotics](../../sources/allenai-agentic-robotics-github.md) — LEAP: Control / Naive / Harness / Oracle description sets; dollar-budgeted experimentation; the learned docstrings transfer to a fresh evaluation agent.
+- [XPolicyLab GitHub](../../sources/xpolicylab-github.md) — repo-shipped integration and audit skills for Claude Code, Codex and Cursor; rules written with their reasons attached.

@@ -6503,3 +6503,22 @@ Three clusters: **contact-rich safety** ([survey](sources/safe-learning-contact-
   - The dashboard host holds root SSH keys to the whole fleet.
   - The README documents v2.70.0, but the newest GitHub release is v2.32.0, which has no GHCR image yet.
 - Updated: [sparkDash](entities/sparkdash.md) (now 2 sources), [DGX Spark](entities/dgx-spark.md), [Hermes Agent](entities/hermes-agent.md), [OpenClaw](entities/openclaw.md), [Ollama](entities/ollama.md), [index](index.md).
+
+## [2026-11-07] ingest | XPolicyLab/XPolicyLab (repository README)
+- Created [XPolicyLab GitHub](sources/xpolicylab-github.md). Raw: `raw/2026-11-07-xpolicylab-readme.md` (fetch_url = raw README), with `raw/2026-11-07-xpolicylab-bundle.md` holding AGENTS.md, CONTRIBUTING.md, both skills, the server, codec and template code, the robot-info table and the GPT-6 Astra adapter README.
+- New entity: [XPolicyLab](entities/xpolicylab.md). It is the policy-side harness behind the RoboDojo and RoboTwin leaderboards: 77 policies as of 2026-11, up from 30 in the RoboDojo paper and "40+" in its branch README.
+- **Takeaways:**
+  - The mandatory `decode_image_bit` codec exists because two JPEG byte formats coexist; the `XPL-RGB1` marker landed 2026-09-09.
+  - Retries are idempotent, using request IDs and a duplicate cache.
+  - A PR with a checkpoint download script is the only route onto either leaderboard.
+  - The repo ships Claude Code, Codex and Cursor skills for building and auditing adapters.
+  - A `GPT-6-Astra-Direct-EEF` adapter enters a frontier LLM on RoboDojo through one `move_eef` tool and the benchmark's Cartesian planner (paper 2609.24170, not ingested).
+- **Flagged (my own read of the transport code):**
+  - No auth or TLS on the policy server. Split-machine mode binds `0.0.0.0`.
+  - Pickle is closed off: object-dtype arrays are refused.
+  - Adapter fidelity against each model's home benchmark is unmeasured, so RoboDojo scores combine model capability and adapter fidelity.
+- Updated:
+  - [RoboDojo](entities/robodojo.md) (new "submission path" section), [RoboTwin](entities/robotwin.md), [OpenAI](entities/openai.md), [LeRobot](entities/lerobot.md), [DreamZero](entities/dreamzero.md).
+  - [Robot policy evaluation](concepts/robotics/robot-policy-evaluation.md) (new "harness is part of the measurement" section), [World-action model](concepts/world-models/world-action-model.md), [Agent skills](concepts/agents/agent-skills.md), [Code as policy](concepts/agents/code-as-policy.md).
+  - Source pages [RoboDojo paper](sources/robodojo-paper.md) and [RoboDojo branch](sources/robodojo-isaaclabarena-branch.md) now link the entity.
+- Index: added both pages. Source counts on touched index lines were synced to page frontmatter; several had drifted, including three divergent robot-policy-evaluation lines and agent-skills at 6 vs 22.

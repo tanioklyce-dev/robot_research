@@ -2,8 +2,8 @@
 title: Code as policy
 type: concept
 created: 2026-08-03
-updated: 2026-10-27
-sources: 19
+updated: 2026-11-07
+sources: 20
 tags: [code-as-policy, llm-agent, agentic-robotics, program-synthesis, skill-library, voyager, saycan, voxposer, inner-monologue, codeact, tool-use, waddle, cap-x, aspire, benchmark]
 ---
 
@@ -181,6 +181,15 @@ Where the lineage reappears:
 
 Read against the "graceful degradation" summary below: the executed-code channel is again the part that holds up under distribution shift, and the learned channel is again the part that wins in-distribution. AW-0 puts both behind one forward pass and arbitrates per replanning step.
 
+## A frontier LLM on a VLA leaderboard (added 2026-11-07)
+
+[XPolicyLab](../../entities/xpolicylab.md) includes `GPT-6-Astra-Direct-EEF`, an eval-only, RGB-only adapter ([XPolicyLab GitHub](../../sources/xpolicylab-github.md)).
+- **How it acts.** The model calls one `move_eef` tool with world-frame grasp-point poses, and [RoboDojo](../../entities/robodojo.md)'s local Cartesian planner turns them into joint paths.
+- **No training.** There is no checkpoint and no training step, and the planner has a 90 s hard timeout.
+- **A second planner.** A switch selects GPT-5.5 instead.
+
+It is the code-as-policy pattern entered directly onto a benchmark otherwise populated by fine-tuned VLAs. It inherits the [abstraction confound](#the-abstraction-confound--the-finding-that-reframes-the-lineage-above): the planner supplies the motion competence, so a score measures the LLM-plus-planner system. Its paper (*"An Unexpected Robot Policy: Early Evaluations of GPT-6 Astra on RoboDojo and Beyond,"* arXiv 2609.24170) is not ingested. The interesting comparison is against RoboDojo's 8.8% VLA best, with the 100-demonstration fine-tune on one side and zero training on the other.
+
 ## Where this sits on the abstraction ladder
 
 Code-as-policy is **level 2 (programmatic control)** in the [control abstraction levels](../robotics/control-abstraction-levels.md) taxonomy — the level [Anthropic found](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) "substantially outperforms direct control" for essentially every model. CaP-X's contribution to that taxonomy is to show **level 2 is not one level**: its eight tiers subdivide "the model writes a controller" into rungs that span tens of points of success rate. *"Programmatic control works"* is underspecified until you say which primitives were on offer and how many turns the agent got.
@@ -246,3 +255,4 @@ What remains unmeasured is what it costs.
 - [Code World Models for General Game Playing](../../sources/code-world-models-general-game-playing.md): the inverse move (code as world model), and how much of LLM-as-policy's deficit is illegal moves.
 - [RPG](../../sources/rpg-guided-self-improvement-paper.md) — regression-gated library and prompt self-improvement; 95.0% on 22 sim tasks; 30/30 physical.
 - [AW-0 paper](../../sources/agentic-world-action-models-aw0-paper.md) — code inside a WAM as a non-executed plan; agentic annotation; gated hybrid execution.
+- [XPolicyLab GitHub](../../sources/xpolicylab-github.md) — GPT-6 Astra as an eval-only RoboDojo policy through one `move_eef` tool and the benchmark's Cartesian planner.

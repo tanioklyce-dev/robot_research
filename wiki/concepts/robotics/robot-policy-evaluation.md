@@ -3,7 +3,7 @@ title: Robot policy evaluation
 type: concept
 created: 2026-07-27
 updated: 2026-11-07
-sources: 62
+sources: 63
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility, real-to-sim, r2s2r]
 ---
 
@@ -162,6 +162,12 @@ The [RoboDojo paper](../../sources/robodojo-paper.md) adds protocol features thi
 
 It also measures its own spread. In sim, ≤ 1.1 pp across GPUs, though only on layout 0. In the real world, the overall spread is ≤ 1.3 pp across three rounds, but single tasks reach 23 pp at 10 trials. That fits this page's sample-size argument: aggregate leaderboard positions are stable, and per-task real-world comparisons are not.
 
+## The harness is part of the measurement: XPolicyLab (2026-11-07)
+
+[XPolicyLab](../../entities/xpolicylab.md) is the adapter layer behind the RoboDojo and RoboTwin leaderboards. It puts **77 policies** behind one websocket interface and one ten-argument eval command ([XPolicyLab GitHub](../../sources/xpolicylab-github.md)). This page needs two lessons from it.
+- **Silent preprocessing bugs are an evaluation failure mode.** Stored JPEGs come in two byte formats, one channel-reversed, and they coexist in the same runs. A hand-written decoder looks right on new data and quietly swaps red and blue on old data. The maintainers' answer is one mandatory codec and a grep in the PR checklist. A benchmark score is only as good as the least careful adapter path that fed it.
+- **Adapter fidelity is unmeasured.** Each adapter re-implements a model's preprocessing outside its home repo and is checked against a structural checklist (files, keys, debug loop), not against the model's own published numbers. RoboDojo's single-digit scores therefore combine model capability and adapter fidelity. A per-adapter parity check on each model's home benchmark would separate them.
+
 ## What is still missing
 
 - **No real-world validation.** RoboLab is simulation-only, and whether its scores predict deployment success is precisely the question it exists to answer.
@@ -197,7 +203,7 @@ It also measures its own spread. In sim, ≤ 1.1 pp across GPUs, though only on 
 - [Verbalized Eval Awareness (Goodfire + UK AISI, 2026)](../../sources/goodfire-verbalized-eval-awareness.md) — the language-side version of the benchmark-validity problem.
 - [Locatello et al. 2019](../../sources/locatello2019-challenging-common-assumptions-disentanglement.md) — seeds beat model choice; good runs unidentifiable without labels.
 
-> [!note] Curated list — **37** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **38** source pages link here; the ones below are those that shaped this page.
 
 - [RoboArena paper (CoRL 2025)](../../sources/roboarena-paper.md) — the distributed pairwise-preference protocol
 - [LIBERO-PRO paper](../../sources/libero-pro-paper.md) — the memorization critique
@@ -226,3 +232,4 @@ It also measures its own spread. In sim, ≤ 1.1 pp across GPUs, though only on 
 - [RoboDojo — IsaacLabArena branch](../../sources/robodojo-isaaclabarena-branch.md) — hash-pinned assets and layouts, reconciled aggregates; parity with native RoboDojo untested.
 - [allenai/ToyBlocks](../../sources/allenai-toyblocks-github.md) — PDDL-conjunct partial progress; oracle substitution; shared-PhysX-scene nondeterminism stated as a design trade-off.
 - [RoboDojo paper](../../sources/robodojo-paper.md) — hidden verification layouts, mandatory artifact release, a human-teleop ceiling, and a measured cross-GPU and cross-round spread.
+- [XPolicyLab GitHub](../../sources/xpolicylab-github.md) — the serving layer behind two leaderboards: one codec rule, idempotent retries, checkpoint-required submissions, and adapter fidelity left unmeasured.

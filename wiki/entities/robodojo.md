@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-11-07
 updated: 2026-11-07
-sources: 3
+sources: 4
 tags: [robodojo, benchmark, evaluation, isaac-sim, isaac-lab-arena, sim-and-real, bimanual, arx-x5, piper, xpolicylab, robotwin, mit]
 ---
 
@@ -16,7 +16,7 @@ tags: [robodojo, benchmark, evaluation, isaac-sim, isaac-lab-arena, sim-and-real
 - **Coverage.** **42 simulation tasks**, all on a dual ARX X5 in Isaac Sim. **18 real-world tasks**, 6 each on ARX X5, [Piper](agilex-piper.md) and Piper X. Only the ARX X5 appears in both.
 - **Five capability dimensions.** Generalization, Memory, Precision, Long-Horizon and Open. The README calls them *"designed to probe different skills rather than simple object or layout reskins"* and the tasks *"intentionally hard."*
 - **Simulation.** Heterogeneous parallel simulation runs different tasks and scenes concurrently. Rigid, articulated and deformable assets share one configuration-driven scene.
-- **Eval only.** Policies plug in through **XPolicyLab** (arXiv 2608.09892), *"40+ policies behind one interface"* for sim and real alike (the paper, frozen 2026-07-03, integrates 30). There is also a RoboDojo-RealEval protocol and a live leaderboard.
+- **Eval only.** Policies plug in through **[XPolicyLab](xpolicylab.md)** (arXiv 2608.09892), *"40+ policies behind one interface"* for sim and real alike (the paper, frozen 2026-07-03, integrates 30). There is also a RoboDojo-RealEval protocol and a live leaderboard.
 - **Shared maintenance with RoboTwin.** The September 2026 RGB channel-ordering fix was made *"together with RoboTwin"* to keep the two consistent.
 
 ## What the paper measured (frozen 2026-07-03)
@@ -37,6 +37,13 @@ From the [paper](../sources/robodojo-paper.md):
   - Real: overall ≤ 1.3 pp across three rounds, but a single task reaches 23 pp.
 - **Integrity.** Hidden verification layouts, mandatory release of the checkpoint and code for the verified board, released videos, and an appeal process.
 
+## The submission path (XPolicyLab, 2026-11)
+- **77 policies** are now integrated, up from 30 in the paper. A PR to XPolicyLab with a checkpoint download script is the only route onto the official board ([XPolicyLab GitHub](../sources/xpolicylab-github.md)).
+- **Two newer kinds of entrant:**
+  - ten-plus world-action models;
+  - **GPT-6 Astra**, eval-only, calling one `move_eef` tool through RoboDojo's own Cartesian planner (paper arXiv 2609.24170, not ingested).
+- **Reading the scores.** Every RoboDojo number is measured *through* an XPolicyLab adapter, so adapter fidelity is part of what a score means.
+
 ## Isaac Lab-Arena port (2026-10-30)
 - RoboDojo is the second suite from this team ported to [Isaac Lab-Arena](isaac-lab-arena.md), after RoboTwin 2.0. The port lives on the `RoboDojo-IsaacLabArena` branch.
 - **Scope.** **54 tasks** (42 + 12 `_random` variants), **2,100 episodes**, on the dual ARX X5, with a [π0.5](pi-zero-5.md) adapter.
@@ -52,6 +59,7 @@ From the [paper](../sources/robodojo-paper.md):
 
 ## Related
 - [RoboTwin](robotwin.md), the sibling benchmark from the same team.
+- [XPolicyLab](xpolicylab.md), the policy adapters and server every submission goes through.
 - [Isaac Lab-Arena](isaac-lab-arena.md) · [Isaac Sim](nvidia-isaac-sim.md)
 - [ToyBlocks](toyblocks.md), the opposite design choice: one narrow, editable world rather than a broad fixed suite.
 
@@ -59,3 +67,4 @@ From the [paper](../sources/robodojo-paper.md):
 - [RoboDojo — RoboDojo-IsaacLabArena branch (GitHub READMEs)](../sources/robodojo-isaaclabarena-branch.md)
 - [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md): listed as "coming soon" in Arena's ecosystem, 2026-09-14.
 - [RoboDojo paper (Chen et al., 2026)](../sources/robodojo-paper.md) — the primary: task design, both leaderboards, governance, efficiency and stability.
+- [XPolicyLab GitHub](../sources/xpolicylab-github.md) — the policy-side harness: 77 adapters, websocket serving, the RGB codec rule, and the PR-plus-checkpoint route onto the leaderboard.

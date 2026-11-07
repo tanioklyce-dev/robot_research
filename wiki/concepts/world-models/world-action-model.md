@@ -3,7 +3,7 @@ title: World-action model (WAM)
 type: concept
 created: 2026-06-02
 updated: 2026-11-07
-sources: 31
+sources: 32
 tags: [world-action-model, wam, flux-3, video-action-model, frozen-backbone, world-model, vla, forward-dynamics, inverse-dynamics, policy, cosmos, dreamzero]
 ---
 
@@ -90,6 +90,8 @@ The comparison against [DreamZero](../../entities/dreamzero.md) (a pure video+ac
 
 The VLA leaders sit at 6.5–8.8%. On Memory, X-WAM has a higher partial-progress score than the explicit-memory EventVLA but a lower success rate. The paper reads this as video prediction encoding *"temporal continuity, object permanence, and task progress"* without *retrieving* sparse evidence once it is out of view ([RoboDojo paper](../../sources/robodojo-paper.md)). It is one data point against the claim that WAMs beat VLAs when data is scarce. DreamZero, the strongest WAM in the wiki, was not tested.
 
+The harness has since grown. [XPolicyLab](../../entities/xpolicylab.md) lists at least ten WAM adapters by name (AHA-WAM, FastWAM, X-WAM, UniWAM, OpenWAM, PatchWAM-Lite, HWM-CogWAM, EWAM, PICA-WAM, PrismWAM) plus a **DreamZero** adapter, all behind the same interface as the VLAs ([XPolicyLab GitHub](../../sources/xpolicylab-github.md)). The WAM-vs-VLA comparison on RoboDojo can now include DreamZero, but as of 2026-11-07 no such result is in the wiki.
+
 ## Related concepts
 
 - [World model](world-model.md) — the FD direction is exactly an action-conditioned world model.
@@ -115,3 +117,4 @@ As of mid-2026 the strongest published WAMs are generative-video / diffusion mod
 - [AW-0 paper](../../sources/agentic-world-action-models-aw0-paper.md) — a code expert inside a WAM; C→V→A joint denoising; 71.1 vs 46.0 (DreamZero) on 8 real tasks; default mode loses to π0.5 under randomization.
 - [DreamZero paper](../../sources/dreamzero-paper.md) — names WAMs (vs "VAMs"); 14B AR Wan2.1 fine-tune; diverse-data learning where VLAs score ~0; 7 Hz on 2 × GB200; failures are video failures.
 - [RoboDojo paper](../../sources/robodojo-paper.md) — four Wan2.2-based WAMs fine-tuned on a broad bimanual suite, all below the top VLAs (best X-WAM 3.83% vs 8.80%).
+- [XPolicyLab GitHub](../../sources/xpolicylab-github.md) — ten-plus WAM adapters and DreamZero behind one harness with the VLAs.

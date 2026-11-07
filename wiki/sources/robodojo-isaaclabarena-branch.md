@@ -71,7 +71,7 @@ Most of the documentation is about making the evaluation **auditable**. The port
 - [RoboDojo](../entities/robodojo.md) · [Isaac Lab-Arena](../entities/isaac-lab-arena.md) · [Isaac Lab](../entities/nvidia-isaac-lab.md) · [Isaac Sim](../entities/nvidia-isaac-sim.md)
 - [π0.5](../entities/pi-zero-5.md) · [Physical Intelligence](../entities/physical-intelligence.md) (OpenPI)
 - [RoboTwin](../entities/robotwin.md) · [AgileX Piper](../entities/agilex-piper.md) · [Franka](../entities/franka-panda.md)
-- ARX X5, XPolicyLab, D-Robotics (no pages)
+- [XPolicyLab](../entities/xpolicylab.md) · ARX X5, D-Robotics (no pages)
 
 ## Concepts touched
 - [Robot policy evaluation](../concepts/robotics/robot-policy-evaluation.md): reproducibility as pinned hashes and reconciled aggregates. Also the question whether a benchmark ported between simulators still measures the same thing.
@@ -81,4 +81,4 @@ Most of the documentation is about making the evaluation **auditable**. The port
 - **Upstreaming.** Will this merge into Arena's own catalog, as RoboTwin 2.0's branch is listed? Arena's README still read "coming soon" when the wiki last captured it (2026-09-14).
 - **Version drift.** Arena main has moved to Isaac Sim 6.0 / Isaac Lab 3.0, and this branch pins 5.1. Expect re-pinning churn.
 - **Throughput.** Inference is per environment rather than batched, so the multi-env speedup is capped by π0.5 latency × NUM_ENVS. No throughput figure is given.
-- **Source depth.** ~~The RoboDojo paper (2607.04434) is not ingested.~~ Ingested 2026-11-07 as the [RoboDojo paper](robodojo-paper.md). Native π0.5 is **6.91%** average sim success (frozen 2026-07-03), which is the number an Arena-port parity check would have to reproduce. XPolicyLab (2608.09892) is still not ingested.
+- **Source depth.** ~~The RoboDojo paper (2607.04434) is not ingested.~~ Ingested 2026-11-07 as the [RoboDojo paper](robodojo-paper.md). Native π0.5 is **6.91%** average sim success (frozen 2026-07-03), which is the number an Arena-port parity check would have to reproduce. The XPolicyLab repo was ingested 2026-11-07 as [XPolicyLab GitHub](xpolicylab-github.md) (77 policies by then); its paper (2608.09892) is still not ingested.

@@ -3,8 +3,8 @@ title: DreamZero
 type: entity
 subtype: model
 created: 2026-10-27
-updated: 2026-10-27
-sources: 4
+updated: 2026-11-07
+sources: 5
 tags: [dreamzero, world-action-model, nvidia-gear, wan2-1, video-diffusion, autoregressive, agibot-g1, droid, open-weights]
 ---
 
@@ -36,3 +36,4 @@ DreamZero is one of the three Dream* papers, alongside [DreamGen](dreamgen.md) (
 - [Cosmos 3 technical report](../sources/cosmos-3-technical-report.md): RoboLab baseline.
 - [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md): policy integration.
 - [NVIDIA GEAR publications](../sources/nvidia-gear-publications.md): listed.
+- [XPolicyLab GitHub](../sources/xpolicylab-github.md): has a DreamZero adapter alongside 76 other policies, so it can be run on RoboDojo, which the RoboDojo paper did not do.
