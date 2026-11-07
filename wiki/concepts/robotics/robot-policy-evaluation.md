@@ -3,7 +3,7 @@ title: Robot policy evaluation
 type: concept
 created: 2026-07-27
 updated: 2026-11-07
-sources: 63
+sources: 64
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility, real-to-sim, r2s2r]
 ---
 
@@ -168,6 +168,14 @@ It also measures its own spread. In sim, ≤ 1.1 pp across GPUs, though only on 
 - **Silent preprocessing bugs are an evaluation failure mode.** Stored JPEGs come in two byte formats, one channel-reversed, and they coexist in the same runs. A hand-written decoder looks right on new data and quietly swaps red and blue on old data. The maintainers' answer is one mandatory codec and a grep in the PR checklist. A benchmark score is only as good as the least careful adapter path that fed it.
 - **Adapter fidelity is unmeasured.** Each adapter re-implements a model's preprocessing outside its home repo and is checked against a structural checklist (files, keys, debug loop), not against the model's own published numbers. RoboDojo's single-digit scores therefore combine model capability and adapter fidelity. A per-adapter parity check on each model's home benchmark would separate them.
 
+### Same evaluator, different inputs (2026-11-07)
+[GPT-6 Astra on RoboDojo](../../sources/gpt-6-astra-robodojo-paper.md) ranks an LLM first against a leaderboard snapshot. The authors list why the comparison is not like-for-like:
+- **More information.** The LLM receives a task recipe containing the **process-score ladder**, and the policies were not re-run with it.
+- **Thin statistics.** One seed, with DeepSeek-Flash at 10 episodes per task instead of 50.
+- **Contamination.** Benchmark-related pretraining material is *"unquantified rather than ruled out"* for a closed-weight model.
+
+Shared metric, unshared inputs is a pattern worth naming. A leaderboard row means the same thing only when the inputs match too.
+
 ## What is still missing
 
 - **No real-world validation.** RoboLab is simulation-only, and whether its scores predict deployment success is precisely the question it exists to answer.
@@ -203,7 +211,7 @@ It also measures its own spread. In sim, ≤ 1.1 pp across GPUs, though only on 
 - [Verbalized Eval Awareness (Goodfire + UK AISI, 2026)](../../sources/goodfire-verbalized-eval-awareness.md) — the language-side version of the benchmark-validity problem.
 - [Locatello et al. 2019](../../sources/locatello2019-challenging-common-assumptions-disentanglement.md) — seeds beat model choice; good runs unidentifiable without labels.
 
-> [!note] Curated list — **38** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **39** source pages link here; the ones below are those that shaped this page.
 
 - [RoboArena paper (CoRL 2025)](../../sources/roboarena-paper.md) — the distributed pairwise-preference protocol
 - [LIBERO-PRO paper](../../sources/libero-pro-paper.md) — the memorization critique
@@ -233,3 +241,4 @@ It also measures its own spread. In sim, ≤ 1.1 pp across GPUs, though only on 
 - [allenai/ToyBlocks](../../sources/allenai-toyblocks-github.md) — PDDL-conjunct partial progress; oracle substitution; shared-PhysX-scene nondeterminism stated as a design trade-off.
 - [RoboDojo paper](../../sources/robodojo-paper.md) — hidden verification layouts, mandatory artifact release, a human-teleop ceiling, and a measured cross-GPU and cross-round spread.
 - [XPolicyLab GitHub](../../sources/xpolicylab-github.md) — the serving layer behind two leaderboards: one codec rule, idempotent retries, checkpoint-required submissions, and adapter fidelity left unmeasured.
+- [GPT-6 Astra on RoboDojo](../../sources/gpt-6-astra-robodojo-paper.md) — a leaderboard comparison that shares the evaluator but not the inputs; one seed; contamination unquantified.

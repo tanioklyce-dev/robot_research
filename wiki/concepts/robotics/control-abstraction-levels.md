@@ -2,8 +2,8 @@
 title: Control abstraction levels
 type: concept
 created: 2026-07-27
-updated: 2026-09-12
-sources: 28
+updated: 2026-11-07
+sources: 29
 tags: [robotics, control, llm-agent, evaluation, vla, safety, access-control, frontier-red-team, code-as-policy]
 ---
 
@@ -68,6 +68,17 @@ The [Project Fetch](../../sources/anthropic-project-fetch-robot-dog.md) line con
 > [!note] The blunt version
 > Today's frontier models are **good at writing robot software and bad at being robot software.** Every strong result in this line comes from a level where the model's output is consumed by something slower than physics.
 
+## Between levels 1 and 2, the pattern breaks for one model (added 2026-11-07)
+
+[GPT-6 Astra on RoboDojo](../../sources/gpt-6-astra-robodojo-paper.md) tests a rung the taxonomy doesn't name.
+- **The setup.** The model emits one **world-frame end-effector target per turn** (`move_eef`, 14 dimensions across two arms), and non-learned IK and path planning execute it at 25 Hz. There is no pretrained policy and no pick or place primitives. It is lower than level 3 and higher than level 1's torques-per-timestep, and it sidesteps the 83 Hz problem by being **quasi-static**: the simulator waits while the model thinks.
+- **The result.** GPT-6 Astra reaches **22.48%** across 42 bimanual tasks and ranks above every fine-tuned VLA on the board. That is the first benchmark-scale exception to *"capability inverts as the level drops."*
+- **It is not a class result.** GPT-5.5 on the identical interface scores 0.88%, and DeepSeek-Flash 1.92%.
+- **The split matches the 83 Hz argument.** Astra wins semantic and open tasks and fails dynamic ones (moving conveyors), contact-rich ones (insertion, pouring) and precise ones (Precision axis 4%). Operators noted corrections described *"too late to execute them."*
+
+> [!warning] Implication 2 below, observed
+> The page argued that the pretrained-policy layer is a safety boundary *by accident* and *"erodes as level-1 capability improves."* In the same study, the model that topped the sim board **had its real-robot campaign halted** after repeated physically unreasonable or unsafe actions, *"including incidents that damaged hardware."* The authors' conclusion is the one this page draws: independent safety checks and stopping mechanisms, not the model's judgment. Capability came down the ladder before a constraint envelope did.
+
 ## Why the ceiling is structural: the 83 Hz gap
 
 Real-time legged control needs roughly **83 Hz**. Non-reasoning inference runs at **~0.2–0.4 Hz** — 2–8 s text-only, 5–15 s with images, 15–180 s with reasoning. That is a **~100× gap**, and it is why the evaluation had to **pause the simulator** between calls to measure direct control at all.
@@ -117,3 +128,4 @@ Perceptual access moves capability as much as control access does: a **compass**
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — action abstraction as a *safety* mechanism: emit pose/force/impedance references, never torques.
 - [Gemini Robotics 2: Safety Evaluations](../../sources/gemini-robotics-2-safety-report.md) — the same level-inversion from the safety side: agents score **100%** acting on a safety signal handed to them as structured text, but cannot reliably **produce** that signal from perception (human-proximity FNR >40% at low FPR).
 - [BANC — Bates et al., Nature 2026](../../sources/banc-brain-and-cord-connectome-paper.md) — a biological vote on the sandwich-vs-distributed question: in the fly, effectors are driven mostly by local sensor loops, coordinated by behaviour-centric descending/ascending modules and *supervised* by learning and navigation regions — *"distributed, parallelized and embodied,"* with Brooks's layered controller as the cited analogue.
+- [GPT-6 Astra on RoboDojo](../../sources/gpt-6-astra-robodojo-paper.md) — per-turn EEF control without a pretrained policy: 22.48% (first on RoboDojo) for one model, ~1% for two others; hardware damage stopped the real campaign.

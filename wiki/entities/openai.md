@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-08-23
 updated: 2026-11-07
-sources: 7
+sources: 8
 tags: [openai, frontier-lab, gpt, agent-security, incident-report, cyber-evaluation, exploitgym]
 ---
 
@@ -33,7 +33,7 @@ Two second-order facts worth keeping:
 
 - **Jalapeño** — OpenAI's first custom inference chip; [first results](../sources/openai-jalapeno-first-results.md) (2026-08-25) claim 1.5–1.9× throughput per kW and 1.7–3.6× lower latency than GB200/GB300 on InferenceX; entity page [Jalapeño](openai-jalapeno.md). Also names **GPT-OSS 120B** (open-weight) and **GPT-Astra** (used with Codex to write the chip's kernels).
 
-- **GPT-6 Astra as a robot policy.** [XPolicyLab](xpolicylab.md) ships an eval-only adapter in which `gpt-6-astra` drives a [RoboDojo](robodojo.md) arm by calling one `move_eef` tool, with the benchmark's planner producing the joint paths. It is reached through a third-party gateway (a shared helper documents quirks of ByteDance's AIDP proxy to Azure OpenAI) ([XPolicyLab GitHub](../sources/xpolicylab-github.md)). This is the first OpenAI model in the wiki entered on a manipulation leaderboard; its paper (arXiv 2609.24170) is not ingested.
+- **GPT-6 Astra as a robot policy.** [XPolicyLab](xpolicylab.md) ships an eval-only adapter in which `gpt-6-astra` drives a [RoboDojo](robodojo.md) arm by calling one `move_eef` tool, with the benchmark's planner producing the joint paths. It is reached through a third-party gateway (a shared helper documents quirks of ByteDance's AIDP proxy to Azure OpenAI) ([XPolicyLab GitHub](../sources/xpolicylab-github.md)). It is the first OpenAI model in the wiki entered on a manipulation leaderboard. The [paper](../sources/gpt-6-astra-robodojo-paper.md) puts it **first on RoboDojo sim at 22.48%**, above all 40 public policies, while GPT-5.5 on the same interface scores 0.88%. Real-robot testing was halted after the model damaged hardware. See [GPT-6 Astra](gpt-6-astra.md).
 
 ## Not covered here
 
@@ -53,3 +53,4 @@ OpenAI's models, API, pricing and robotics work are **not** tracked in this wiki
 - [Language Models are Few-Shot Learners (GPT-3)](../sources/gpt-3-few-shot-learners-paper.md) — the 2020 paper; 31 OpenAI authors.
 - [Jalapeño's first results](../sources/openai-jalapeno-first-results.md) — first-party inference silicon, benchmarked by OpenAI against NVIDIA at rated TDP.
 - [XPolicyLab GitHub](../sources/xpolicylab-github.md) — GPT-6 Astra (and GPT-5.5) as an eval-only RoboDojo policy via a single end-effector tool.
+- [GPT-6 Astra on RoboDojo](../sources/gpt-6-astra-robodojo-paper.md) — GPT-6 Astra 22.48% vs GPT-5.5 0.88% as zero-shot manipulation policies; RoboPianist controller written through Codex.

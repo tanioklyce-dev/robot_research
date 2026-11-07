@@ -4,7 +4,7 @@ type: entity
 subtype: software
 created: 2026-11-07
 updated: 2026-11-07
-sources: 3
+sources: 4
 tags: [xpolicylab, policy-serving, evaluation-infrastructure, robodojo, robotwin, rmbench, leaderboard, vla, world-action-model, lerobot, coding-agents, apache-2]
 ---
 
@@ -16,7 +16,7 @@ tags: [xpolicylab, policy-serving, evaluation-infrastructure, robodojo, robotwin
 - **Environment isolation.** Each model keeps its own conda or uv environment, dependencies and checkpoints under `policy/<POLICY>/`. The simulator or robot client runs separately and talks to it over websocket with msgpack, locally or across machines.
 - **One contract.** `Model.update_obs` / `get_action` (action chunks), batched variants and `reset()`. Ten standard positional arguments flow through install, conversion, training and eval, and there is a `debug` mode that checks shapes and IO without a simulator.
 - **Standard formats.** Nested observation and trajectory dicts, quaternion-first poses, and official LeRobot v2.1/v3.0 converters that zero-pad mixed embodiments into one dataset.
-- **Scale.** **77 policies** as of November 2026, up from 30 in the RoboDojo paper (July) and "40+" in RoboDojo's branch README. At least ten are world-action models, and one is a frontier LLM (GPT-6 Astra) driving the arm through a single end-effector tool.
+- **Scale.** **77 policies** as of November 2026, up from 30 in the RoboDojo paper (July) and "40+" in RoboDojo's branch README. At least ten are world-action models, and one is a frontier LLM ([GPT-6 Astra](gpt-6-astra.md)) driving the arm through a single end-effector tool. That entry ranks first on RoboDojo sim at 22.48% ([paper](../sources/gpt-6-astra-robodojo-paper.md)).
 - **Gatekeeping.** A PR here, with a checkpoint download script, is required to enter either official leaderboard. That is how RoboDojo enforces its rule that the verified board must release checkpoints ([RoboDojo paper](../sources/robodojo-paper.md)).
 
 ## Engineering lessons it writes down
@@ -45,3 +45,4 @@ The repo ships two skills in `.agents/skills/`, symlinked for Claude Code, Codex
 - [XPolicyLab GitHub](../sources/xpolicylab-github.md) — the primary: architecture, transport, data contracts, 77-policy list, contribution rules and agent skills.
 - [RoboDojo paper](../sources/robodojo-paper.md) — 30 integrated policies as of 2026-07-03; checkpoint release through XPolicyLab.
 - [RoboDojo — RoboDojo-IsaacLabArena branch](../sources/robodojo-isaaclabarena-branch.md) — *"40+ policies behind one interface."*
+- [GPT-6 Astra on RoboDojo](../sources/gpt-6-astra-robodojo-paper.md) — results from the `GPT_6_Astra_Direct_EEF` adapter; cites XPolicyLab for the leaderboard.

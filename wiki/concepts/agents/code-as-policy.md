@@ -3,7 +3,7 @@ title: Code as policy
 type: concept
 created: 2026-08-03
 updated: 2026-11-07
-sources: 20
+sources: 21
 tags: [code-as-policy, llm-agent, agentic-robotics, program-synthesis, skill-library, voyager, saycan, voxposer, inner-monologue, codeact, tool-use, waddle, cap-x, aspire, benchmark]
 ---
 
@@ -188,7 +188,17 @@ Read against the "graceful degradation" summary below: the executed-code channel
 - **No training.** There is no checkpoint and no training step, and the planner has a 90 s hard timeout.
 - **A second planner.** A switch selects GPT-5.5 instead.
 
-It is the code-as-policy pattern entered directly onto a benchmark otherwise populated by fine-tuned VLAs. It inherits the [abstraction confound](#the-abstraction-confound--the-finding-that-reframes-the-lineage-above): the planner supplies the motion competence, so a score measures the LLM-plus-planner system. Its paper (*"An Unexpected Robot Policy: Early Evaluations of GPT-6 Astra on RoboDojo and Beyond,"* arXiv 2609.24170) is not ingested. The interesting comparison is against RoboDojo's 8.8% VLA best, with the 100-demonstration fine-tune on one side and zero training on the other.
+It is the code-as-policy pattern entered directly onto a benchmark otherwise populated by fine-tuned VLAs. Strictly, it is not code-as-policy: the model emits a target every turn rather than writing a program. It sits between levels 1 and 2 of the [control-abstraction ladder](../robotics/control-abstraction-levels.md).
+
+**Result** ([GPT-6 Astra on RoboDojo](../../sources/gpt-6-astra-robodojo-paper.md)): **22.48% average SR**, first against all 40 public policies; the best is DM0.5 at 19.34%.
+
+The [abstraction confound](#the-abstraction-confound--the-finding-that-reframes-the-lineage-above) is weaker here than in CaP-X-style harnesses, for two reasons:
+- **The interface is thin.** It is geometric IK and path planning only, with no pick, place or pregrasp primitives.
+- **The control experiment exists.** **GPT-5.5 on the identical interface scores 0.88%**, so the planner does not explain the result.
+
+The confound that remains is *informational*. The LLM got a task recipe that includes the score ladder; the policies did not.
+
+The same paper also runs the model at level 2. Through Codex, Astra writes a RoboPianist controller for two Shadow hands that reaches **F1 0.902**, against 0.886 for the RL reference, by simulated practice alone. That matches this page's pattern: a model writes the controller and improves it in simulation.
 
 ## Where this sits on the abstraction ladder
 
@@ -256,3 +266,4 @@ What remains unmeasured is what it costs.
 - [RPG](../../sources/rpg-guided-self-improvement-paper.md) — regression-gated library and prompt self-improvement; 95.0% on 22 sim tasks; 30/30 physical.
 - [AW-0 paper](../../sources/agentic-world-action-models-aw0-paper.md) — code inside a WAM as a non-executed plan; agentic annotation; gated hybrid execution.
 - [XPolicyLab GitHub](../../sources/xpolicylab-github.md) — GPT-6 Astra as an eval-only RoboDojo policy through one `move_eef` tool and the benchmark's Cartesian planner.
+- [GPT-6 Astra on RoboDojo](../../sources/gpt-6-astra-robodojo-paper.md) — per-turn EEF targets, no primitives, 22.48% (first on RoboDojo); GPT-5.5 control 0.88%; Codex-written piano controller F1 0.902.

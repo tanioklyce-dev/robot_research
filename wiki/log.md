@@ -6522,3 +6522,23 @@ Three clusters: **contact-rich safety** ([survey](sources/safe-learning-contact-
   - [Robot policy evaluation](concepts/robotics/robot-policy-evaluation.md) (new "harness is part of the measurement" section), [World-action model](concepts/world-models/world-action-model.md), [Agent skills](concepts/agents/agent-skills.md), [Code as policy](concepts/agents/code-as-policy.md).
   - Source pages [RoboDojo paper](sources/robodojo-paper.md) and [RoboDojo branch](sources/robodojo-isaaclabarena-branch.md) now link the entity.
 - Index: added both pages. Source counts on touched index lines were synced to page frontmatter; several had drifted, including three divergent robot-policy-evaluation lines and agent-skills at 6 vs 22.
+
+## [2026-11-07] ingest | An Unexpected Robot Policy: GPT-6 Astra on RoboDojo (arXiv 2609.24170)
+- Created [GPT-6 Astra on RoboDojo](sources/gpt-6-astra-robodojo-paper.md). Raw: `raw/2609.24170v1.pdf` (24 pp.).
+- New entity: [GPT-6 Astra](entities/gpt-6-astra.md), drawing together seven sources that mention the model.
+- **Takeaways:**
+  - The setup is LLM as policy: a frozen model chooses per-turn world-frame EEF targets, with non-learned IK and path planning, no primitives and RGB only.
+  - GPT-6 Astra scores **22.48%** on all 42 RoboDojo sim tasks, first against 40 public policies (DM0.5 19.34%). GPT-5.5 scores 0.88% and DeepSeek-Flash 1.92% on the identical interface.
+  - Astra wins Open and Generalization and fails Precision, dynamic and contact tasks.
+  - One-shot demonstrations lower success (22.9 → 17.9 / 12.9%).
+  - Perturbation traces show within-episode correction.
+  - The real-robot campaign was **halted after hardware damage**.
+  - The Codex-written RoboPianist controller reaches F1 0.902 vs 0.886 for the RL reference.
+- **Stale claim fixed:** RoboDojo's "single-digit success for every policy" dates from the paper's July freeze. By 2026-09-10 DM0.5 was at 19.34%, and OpenWAM-α led the real board at 24.40%. Updated the [RoboDojo](entities/robodojo.md) page with a "board as of 2026-09-10" section.
+- **Revised my own earlier framing:** the XPolicyLab ingest called the planner the source of the motion competence. The GPT-5.5 control (0.88% on the same interface) undercuts that. The remaining confound is informational: the LLM got a wiki-derived task recipe with the score ladder, and the policies did not.
+- **New finding on [Control abstraction levels](concepts/robotics/control-abstraction-levels.md):** the first benchmark-scale exception to "capability inverts as the level drops", plus a warning callout. The page's predicted erosion of the pretrained-policy safety boundary showed up as hardware damage.
+- Updated:
+  - [RoboDojo](entities/robodojo.md), [OpenAI](entities/openai.md), [XPolicyLab](entities/xpolicylab.md), [XPolicyLab GitHub](sources/xpolicylab-github.md) (open question answered).
+  - [Code as policy](concepts/agents/code-as-policy.md), [Robot policy evaluation](concepts/robotics/robot-policy-evaluation.md) (same evaluator, different inputs), [Embodied-reasoning VLMs](concepts/learning/embodied-reasoning-vlms.md).
+- Backlog: ticked the ingest. Added a recipe-ablation follow-up, plus Agent as Policy (2609.12541) and the Robocurve report.
+- **Index fix:** the count-sync helper used in this ingest and the XPolicyLab one (e72b228) matched any index line that *contained* a touched page's link, not only lines that *start* with it. It overwrote two unrelated counts: Generative data augmentation (6 → 11) and World-model evaluation (25 → 63/64). Both are restored to their prior values, and every other count edit was checked against its own page.

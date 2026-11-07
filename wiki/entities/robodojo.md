@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-11-07
 updated: 2026-11-07
-sources: 4
+sources: 5
 tags: [robodojo, benchmark, evaluation, isaac-sim, isaac-lab-arena, sim-and-real, bimanual, arx-x5, piper, xpolicylab, robotwin, mit]
 ---
 
@@ -37,11 +37,19 @@ From the [paper](../sources/robodojo-paper.md):
   - Real: overall ≤ 1.3 pp across three rounds, but a single task reaches 23 pp.
 - **Integrity.** Hidden verification layouts, mandatory release of the checkpoint and code for the verified board, released videos, and an appeal process.
 
+## The board as of 2026-09-10
+
+The leaderboard has moved a long way since the paper was frozen ([GPT-6 Astra on RoboDojo](../sources/gpt-6-astra-robodojo-paper.md), Table 1; average SR):
+- **The new top of the board.** **DM0.5 19.34%**, GalaxeaVLA G0.5 14.88%, Xiaomi-Robotics-1 13.93%, OpenWAM-α 11.92% and Meituan-Robotics-0 9.53%. Hy-Embodied-0.5-VLA's 8.80% is now 7th, and π0.5 (6.91%) is 9th.
+- **An LLM entry.** **[GPT-6 Astra](gpt-6-astra.md), with no robot policy and no fine-tuning, scores 22.48%**, above every public policy. It leads on Open (31.0% vs ≤ 2.1%) and Generalization, and trails on Precision, Long-Horizon and Memory. GPT-5.5 scores 0.88% on the same interface.
+- **Real board.** OpenWAM-α now leads at **24.40%**, ahead of π0.5's 12.80%. Astra's real-robot campaign was **stopped for safety** after it damaged hardware.
+- **Comparability.** The LLM entries received a wiki-derived task recipe, including the process-score ladder, that the policies never saw. They were run on one seed.
+
 ## The submission path (XPolicyLab, 2026-11)
 - **77 policies** are now integrated, up from 30 in the paper. A PR to XPolicyLab with a checkpoint download script is the only route onto the official board ([XPolicyLab GitHub](../sources/xpolicylab-github.md)).
 - **Two newer kinds of entrant:**
   - ten-plus world-action models;
-  - **GPT-6 Astra**, eval-only, calling one `move_eef` tool through RoboDojo's own Cartesian planner (paper arXiv 2609.24170, not ingested).
+  - **[GPT-6 Astra](gpt-6-astra.md)**, eval-only, calling one `move_eef` tool through RoboDojo's non-learned IK and path planner. It now ranks first ([GPT-6 Astra on RoboDojo](../sources/gpt-6-astra-robodojo-paper.md)).
 - **Reading the scores.** Every RoboDojo number is measured *through* an XPolicyLab adapter, so adapter fidelity is part of what a score means.
 
 ## Isaac Lab-Arena port (2026-10-30)
@@ -54,7 +62,7 @@ From the [paper](../sources/robodojo-paper.md):
 ## Why it matters for this wiki
 - It is a direct check on Arena's pitch. A third-party benchmark was ported in, and it took a pinned, older Arena commit plus an offline-assets patch to do it.
 - **It has a sim track and a real track, but it deliberately does not answer the sim-to-real correlation question** that [robot policy evaluation](../concepts/robotics/robot-policy-evaluation.md) keeps asking. The tasks are unpaired, and only the ARX X5 is shared. What it offers instead is the partial rank agreement across the 10 policies run in both.
-- **It is the hardest public scoreboard the wiki has for the 2026 VLA cohort.** Single-digit success rates for every policy, against 76% for human teleop, set the level for any claim of "generalist" manipulation. They also contrast sharply with the same models' LIBERO-class numbers elsewhere in the wiki.
+- **It is the hardest public scoreboard the wiki has for the 2026 VLA cohort.** Even with the September entries, the best policy is under 20%, against 76% for human teleop. That sets the level for any claim of "generalist" manipulation. (When the paper was frozen in July, every policy was in single digits; see [the board as of 2026-09-10](#the-board-as-of-2026-09-10).) They also contrast sharply with the same models' LIBERO-class numbers elsewhere in the wiki.
 - The Piper embodiment ties it to the low-cost arms the wiki tracks.
 
 ## Related
@@ -68,3 +76,4 @@ From the [paper](../sources/robodojo-paper.md):
 - [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md): listed as "coming soon" in Arena's ecosystem, 2026-09-14.
 - [RoboDojo paper (Chen et al., 2026)](../sources/robodojo-paper.md) — the primary: task design, both leaderboards, governance, efficiency and stability.
 - [XPolicyLab GitHub](../sources/xpolicylab-github.md) — the policy-side harness: 77 adapters, websocket serving, the RGB codec rule, and the PR-plus-checkpoint route onto the leaderboard.
+- [GPT-6 Astra on RoboDojo](../sources/gpt-6-astra-robodojo-paper.md) — the 2026-09-10 board (DM0.5 19.34%, OpenWAM-α 24.40% real), and an LLM-as-policy entry at 22.48% that ranks first; real-robot campaign stopped for safety.

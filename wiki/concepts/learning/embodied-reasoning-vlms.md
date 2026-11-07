@@ -2,8 +2,8 @@
 title: Embodied-reasoning VLMs (ER backbones)
 type: concept
 created: 2026-09-11
-updated: 2026-10-13
-sources: 5
+updated: 2026-11-07
+sources: 6
 tags: [embodied-reasoning, vlm-backbone, spatial-reasoning, pointing, benchmarks, vla, molmo2-er, gemini-robotics-er, cosmos-reason, unifolm]
 ---
 
@@ -39,6 +39,7 @@ The field has converged on a shared basket, and [UnifoLM](../../sources/unifolm-
 - **A general frontier model claims the top of ERQA (2026-10).** [Gemini 4 Argon](../../entities/gemini-4-argon.md) reports **87% on ERQA "using pure reasoning"** and says it beats every other frontier model ([Argon blog](../../sources/gemini-4-argon-robotics-blog.md)). It publishes no competitor table. The best ERQA rows in Unitree's table were 77.7 and 65.2. If the claim holds on a common harness, the "proprietary frontier owns the hard reasoning columns" point above sharpens: **the frontier owner is now a general model, not an "-ER" specialization.** That would put pressure on the orchestrator role in the table above, though not on the backbone role, since Argon is not a VLA backbone.
 - **Two recipes for the same regression problem.** Specializing a VLM on embodied data costs general capability. Ai2's answer is *specialize-then-rehearse* (a second stage interleaving the original multimodal mix, p=0.5). Unitree's is single-stage *co-training* with general image–text data — and its own table shows the base Qwen3-VL-4B still ahead on MME (−102), MMMU (−3.1), RealWorldQA (−1.2) and VSI-Bench (−5.1). The rehearse stage appears to be worth its cost; nobody has run the two recipes on one base to check.
 - **Video is the under-served axis.** VSI-Bench is the column where image-only training mixes (UnifoLM) fall furthest, and it is the one closest to what manipulation-over-time needs. The [spatial intelligence](../world-models/spatial-intelligence.md) page's "leave and return" probe is a temporal one.
+- **The reasoning lead becomes an action lead (2026-09).** On RoboDojo, GPT-6 Astra used as a zero-shot policy wins exactly the semantic columns: Open 31% and Generalization 30.5%, against ≤ 2% and ~17% for the best fine-tuned policies. It loses on precision and contact. This is ER-style competence turned directly into actions, without a VLA ([GPT-6 Astra on RoboDojo](../../sources/gpt-6-astra-robodojo-paper.md)).
 
 > [!warning] Cross-paper tables are not experiments
 > Most rows in every ER comparison are copied from other papers' reports; harnesses, prompts and benchmark versions differ, and no one reports intervals. The [success-rate audit](../../syntheses/platforms/vla-success-rate-audit.md) discipline applies: gaps under ~3 points are ties.
@@ -65,3 +66,4 @@ The field has converged on a shared basket, and [UnifoLM](../../sources/unifolm-
 - [Gemini Robotics 1.5 report](../../sources/gemini-robotics-1-5-report.md)
 - [Isaac-GR00T GitHub](../../sources/isaac-gr00t-github.md)
 - [Gemini 4 Argon for Robotics](../../sources/gemini-4-argon-robotics-blog.md) — ERQA 87% from a general model.
+- [GPT-6 Astra on RoboDojo](../../sources/gpt-6-astra-robodojo-paper.md) — frontier-model embodied reasoning expressed as zero-shot bimanual control.
