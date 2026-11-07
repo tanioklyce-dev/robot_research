@@ -2,8 +2,8 @@
 title: Task and motion planning (TAMP)
 type: concept
 created: 2026-07-04
-updated: 2026-09-12
-sources: 5
+updated: 2026-11-07
+sources: 7
 tags: [tamp, task-planning, long-horizon, plan-skeletons, explicit-model, hybrid-planning]
 ---
 
@@ -46,8 +46,17 @@ The generalizable move, stated twice in that talk: **shrink your sets to points 
 
 That is a different integration story than the classical TAMP stack's: instead of a symbolic layer *calling* a motion planner, the discrete and continuous problems are **one optimization**, and the plan skeleton falls out of the same relaxation that produces the trajectory. It also inherits GCS's per-query optimality certificate, which is a rare thing for a task planner to be able to report.
 
-## Mentioned in
+## TAMP as a demonstration generator (2026-11-07)
+
+[ToyBlocks](../../entities/toyblocks.md) uses TAMP not to control the deployed robot but to **manufacture training data**. A planner sequences RL-trained and motion-planned skills, using privileged simulator state, and each executed plan becomes a labelled long-horizon demonstration. Hundreds of plans run in parallel on one GPU at up to 24× real time, and 85,336 demonstrations were released. The planner's task specifications double as the **progress metric** at evaluation time ([ToyBlocks (Ai2 blog)](../../sources/ai2-toyblocks-blog.md)). This is the learned-stack echo above turned around: classical TAMP is the teacher, and a VLA or VLM-plus-policy hierarchy is the student.
+
+### The repo, and TAMP as the DAgger expert
+
+The released engine ([allenai/ToyBlocks](../../sources/allenai-toyblocks-github.md)) makes the mechanism concrete. A *vendored* FF planner plans each of ~256 environments per GPU from its own symbolic state, in milliseconds on the CPU. Skills execute batched on a cuRobo v2 solver pool, and after every skill its PDDL effect is **checked against the live simulation**: on failure the environment restores a snapshot and retries, then re-plans. **TAMPER** (*"TAMP Expert Relabeling"*) closes the loop as DAgger with a TAMP expert. The states where a learned policy failed are captured just before auto-reset, FF and cuRobo replan from the scene read off each state toward the episode's goal, and the new demonstrations feed retraining. That is the classic weakness of planner-generated imitation data (the student never sees its own mistakes) handled with the same planner.
+
 
 - [The State of Robot Motion Generation (Bekris et al. 2024)](../../sources/state-of-robot-motion-generation-2024.md)
 - [Planning with Graphs of Convex Sets (in the age of foundation models)](../../sources/tedrake-gcs-foundation-models-talk.md) — the permutohedron instance and the network-flow heuristic.
 - [Think Fast and Far — ROP-RAS3](../../sources/think-fast-and-far-rop-ras3-paper.md) — Shelf-Move (7-DoF arm, four movable obstacles, 35-D, 1,500-step horizon): TAMP under partial observability with no symbolic layer, 70% vs 10% for the best baseline.
+- [ToyBlocks (Ai2 blog)](../../sources/ai2-toyblocks-blog.md) — TAMP over RL and motion-planned skills as a parallel demonstration generator and progress metric.
+- [allenai/ToyBlocks](../../sources/allenai-toyblocks-github.md) — vendored FF + cuRobo v2 with verify/retry/replan as a data engine; TAMPER relabels policy failures with the TAMP expert.

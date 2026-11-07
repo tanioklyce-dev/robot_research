@@ -3,8 +3,8 @@ title: LeRobot
 type: entity
 subtype: software-framework
 created: 2026-05-10
-updated: 2026-10-13
-sources: 55
+updated: 2026-11-07
+sources: 56
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026, xvla, sourccey, plugin-system]
 ---
 
@@ -209,6 +209,8 @@ Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distri
 - [HIW-500 dataset page](../sources/bitrobot-hiw-500-dataset-page.md) — 500+ h humanoid whole-body teleop shipped in **LeRobot v3.0** (AV1 video, `language_events` subtask stream), alongside raw MCAP; the largest humanoid LeRobotDataset in the wiki.
 - [OpenArm documentation](../sources/openarm-docs.md) — OpenArm's native dataset converts to LeRobot v2.1/v3.0 (`openarm-dataset-convert`); the training tutorial is LeRobot 0.6.1 ACT on `enactic/openarm-2-cell-pick_up_cube_mujoco-lerobot`.
 - [RoboJEPA paper](../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — **21.5k LeRobot SO-101 episodes** (182 video h) in Meta's 8B world-model training mixture; community SO-10x data now feeds a frontier world model as well as VLAs.
+
+- [allenai/ToyBlocks](../sources/allenai-toyblocks-github.md) — vecgen writes LeRobot v3 (`lerobot==0.4.3`) with symbolic state, high/low-level action labels and goal columns per frame.
 
 ## Open questions / TBD
 

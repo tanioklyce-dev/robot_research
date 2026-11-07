@@ -3,8 +3,8 @@ title: Isaac Lab-Arena
 type: entity
 subtype: product
 created: 2026-09-14
-updated: 2026-09-14
-sources: 6
+updated: 2026-11-07
+sources: 7
 tags: [isaac-lab-arena, nvidia, isaac-lab, evaluation, benchmark, simulation, lightwheel, robolab, lerobot, envhub, osmo, sensitivity-analysis]
 ---
 
@@ -42,6 +42,8 @@ Franka (IK / joint), [DROID](droid.md), GR1T2 ([Fourier GR-1](fourier-gr-1.md)),
 
 [Lightwheel](lightwheel.md) RoboFinals, RoboCasa Tasks (138+), LIBERO Tasks; [RoboTwin 2.0](robotwin.md) on an `IsaacLab-Arena` branch; [LeRobot](lerobot.md) Environment Hub; Isaac for Healthcare RHEO. Announced: RoboDojo, RLWRLD DexBench, UC Berkeley, X Square, Sharpa, [GEAR](nvidia-gear.md) *G1 Factory*.
 
+**Update 2026-11-07.** The RoboDojo suite has landed, as a `RoboDojo-IsaacLabArena` branch of RoboDojo's own repo (2026-10-30), following the RoboTwin pattern. It covers 54 tasks and 2,100 episodes on the dual ARX X5 with a π0.5 adapter. It pins an **older Arena commit (`e25ccf5`) on Isaac Sim 5.1** rather than Arena main's Isaac Sim 6.0, and patches Arena to load assets offline. Neither success rates nor native-vs-Arena parity numbers are published yet ([RoboDojo branch](../sources/robodojo-isaaclabarena-branch.md); [RoboDojo](robodojo.md)).
+
 ## Why it matters for this wiki
 
 It is the **infrastructure pole** of [robot policy evaluation](../concepts/robotics/robot-policy-evaluation.md): RoboLab argued a ±2 pp band needs ≈1,030 rollouts; Arena is the machine that makes 1,030 rollouts per condition a few minutes on one GPU, and the variation-plus-posterior loop is the diagnostic that turns a frozen leaderboard score into *"which factor."* It is also where NVIDIA's own policies are scored: the [Cosmos 3](nvidia-cosmos.md) RoboLab-120 numbers and the [GR00T e2e workflow](../sources/nvidia-gr00t-e2e-workflow-docs.md) sim path both run through it. The gaps are the usual ones — sim-only, no published sim-to-real correlation for its own scores, and a hardware floor (RTX workstation, x86_64) that excludes [DGX Spark](dgx-spark.md) natively and Jetson entirely.
@@ -61,3 +63,4 @@ It is the **infrastructure pole** of [robot policy evaluation](../concepts/robot
 - [How to Evaluate General-Purpose Robot Policies](../sources/nvidia-robolab-evaluation-blog.md) — "productization stated for August 2026."
 - [Post-train Cosmos 3 Edge](../sources/nvidia-cosmos3-edge-post-training-blog.md) — the RoboLab client for closed-loop Edge-policy evaluation.
 - [RoboLab project page](../sources/nvidia-robolab-project.md) — the benchmark whose catalog Arena now carries.
+- [RoboDojo — IsaacLabArena branch](../sources/robodojo-isaaclabarena-branch.md) — the announced RoboDojo suite, delivered as a third-party branch pinned to an older Arena.

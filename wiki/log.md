@@ -6403,3 +6403,52 @@ Three clusters: **contact-rich safety** ([survey](sources/safe-learning-contact-
   - TEM's "60 NFE" is not directly comparable with diffusion's 250 because evaluation uses persistent chains (wiki reading).
   - Only the robotics, world-model and EBM segments were checked; the page should not be cited for the other items.
 - Updated: [Energy-based models](concepts/learning/energy-based-models.md), [World-model simulators](concepts/world-models/world-model-simulators.md), [Genie 3](entities/genie-3.md), [Apptronik Apollo](entities/apptronik-apollo.md), [Jiajun Wu](entities/jiajun-wu.md), [NVIDIA robot AI stack](syntheses/platforms/nvidia-robot-ai-stack.md), [backlog](backlog.md).
+
+## [2026-11-07] ingest | ToyBlocks (Ai2 blog) and RoboDojo's Isaac Lab-Arena branch
+- Created [ToyBlocks source page](sources/ai2-toyblocks-blog.md) (raw: `raw/2026-11-06-ai2-toyblocks-blog.txt`, the HTML as text with nav stripped) and [RoboDojo branch source page](sources/robodojo-isaaclabarena-branch.md) (raw: `raw/2026-11-07-robodojo-isaaclabarena-readme.md` is the sealed branch README; `…-branch-readmes.md` bundles the sub-READMEs and the main README; branch head `7689a6d`).
+- New entities: [ToyBlocks](entities/toyblocks.md), [RoboDojo](entities/robodojo.md).
+- Key findings:
+  - **ToyBlocks** is Ai2's first FoundationWorld. TAMP over RL and motion-planned skills generates demonstrations at up to 24× real time; 85,336 demonstrations were released.
+  - VLAs (π0.5, MolmoAct 2, ManiFlow) extrapolate poorly in space.
+  - Claude Opus 5.5 over MCP: 30/30 on classical stacking and 63% on search-and-spell. Self-written skill descriptions raise success from 24% to 63% (expert-written: 36%).
+  - World models were probed against simulator state: Wan 2.2 is best, Astra is weak on contact, LeWM is good locally but drifts.
+  - Zero-shot Franka FR3: 80.0% sim vs 81.1% real for skills, and 55.5% vs 50.0% (n = 30) for hierarchical spelling.
+  - **RoboDojo-on-Arena** covers 54 tasks and 2,100 episodes on the dual ARX X5 with a π0.5 adapter. It pins a 38.4 GiB asset snapshot and an older Arena commit (Isaac Sim 5.1), and adds AST contract tests and heterogeneous multi-env batches.
+- **Flagged:**
+  - ToyBlocks has no paper. The charts (VLA generalization, spelling by difficulty, world-model probe scores) were not captured, and no seeds or intervals are reported.
+  - **Soft contradiction:** WorldArena rates world models "marginal" as data engines, but ToyBlocks reports 100 video-model rollouts raising unseen-region success from 19% to 78%. The settings differ. Flagged in [world-model simulators](concepts/world-models/world-model-simulators.md).
+  - The world-model probe design is unstated. A read-out on a JEPA latent and pose estimation from pixels may not be equal-difficulty instruments.
+  - The RoboDojo port publishes no results and no native-vs-Arena parity. The comparison tool exists, but the split-GPU validation setup is unmerged and its evidence is not in git.
+- **Resolved:** Arena's "coming soon: RoboDojo" (wiki capture 2026-09-14) has shipped, as a branch of RoboDojo's repo.
+- Updated:
+  - Entities: [Ai2](entities/ai2.md), [Molmo](entities/molmo.md), [MolmoAct2](entities/molmoact2.md), [LeWorldModel](entities/leworldmodel.md), [Isaac Lab-Arena](entities/isaac-lab-arena.md), [π0.5](entities/pi-zero-5.md), [RoboTwin](entities/robotwin.md), [Franka](entities/franka-panda.md), [Anthropic](entities/anthropic.md).
+  - Concepts: [Robot policy evaluation](concepts/robotics/robot-policy-evaluation.md), [TAMP](concepts/robotics/task-and-motion-planning.md), [World-model evaluation](concepts/world-models/world-model-evaluation.md), [World-model simulators](concepts/world-models/world-model-simulators.md), [Sim-to-real](concepts/learning/sim-to-real-transfer.md), [Agent skills](concepts/agents/agent-skills.md), [Synthetic data flywheel](concepts/learning/synthetic-data-flywheel.md).
+  - [Index](index.md) and [backlog](backlog.md).
+
+## [2026-11-07] ingest | allenai/agentic_robotics (ToyBlocks agent harness)
+- Created [source page](sources/allenai-agentic-robotics-github.md). Raw: `raw/2026-11-07-allenai-agentic-robotics-readme.md` (the sealed README) and `…-bundle.md` (CLAUDE.md, the LEAP prompts, the oracle docstrings and module docstrings), at head `340731d`.
+- Key findings:
+  - A robot-agnostic MCP host and a ToyBlocks domain server, with a JSON-only seam enforced by separate interpreters.
+  - Two model hosts: the repo's own loop over OpenRouter, or Claude Code via the Agent SDK. The default model is Opus 5.5.
+  - **LEAP** is the method behind the blog's 24% → 63% result. A budgeted experimentation phase (Naive with subagents, or Harness with forced hypothesis/criteria/trials) rewrites the skill docstrings, and a fresh agent is evaluated with them against Control and Oracle (expert) sets.
+  - Search & Spell success is code-specified: an exact 3-block tower, a 45° yaw tolerance, and declared outcomes on infeasible tasks.
+- **Flagged:**
+  - No result records are committed, and which LEAP condition and budget gave 63% is not stated.
+  - All reported agent results use Claude.
+  - The Oracle docstrings' failure rates (stack drops 10%, rotate goes the wrong way 25%, etc.) could not be traced to any noise injection in the scripted-skill server.
+- Partly resolved the ToyBlocks open question on self-written skill descriptions; the method is LEAP.
+- Updated: [ToyBlocks](entities/toyblocks.md), [ToyBlocks blog source](sources/ai2-toyblocks-blog.md), [Agent skills](concepts/agents/agent-skills.md), [Agent hardware abstraction](concepts/agents/agent-hardware-abstraction.md), [LLM agent architecture](concepts/agents/llm-agent-architecture.md), [cuRobo](entities/curobo.md), [Ai2](entities/ai2.md), [Anthropic](entities/anthropic.md), [index](index.md), [backlog](backlog.md).
+
+## [2026-11-07] ingest | allenai/ToyBlocks (repository and docs)
+- Created [source page](sources/allenai-toyblocks-github.md). Raw: `raw/2026-11-07-allenai-toyblocks-readme.md` (the sealed README) and `…-docs-bundle.md` (the full user guide, CLAUDE.md, the TAMPER and HVLA design docs, the DR YAML reference and the flip/rotate skill docstrings), at head `931fd7a`.
+- Key findings:
+  - ToyBlocks is a PDDL-to-dataset compiler. A vendored FF planner and batched cuRobo v2 skills with verify, retry and re-plan run at ~256 environments/GPU. Physics and rendering are separate (execution records no images; each episode is rendered N times under visual DR). Output is LeRobot v3.
+  - Evaluation is GPU-batched, with oracle substitution, exact-initial-state replay of dataset episodes, and automatic PDDL-conjunct partial progress.
+  - **TAMPER** is DAgger with a TAMP expert.
+  - Shared-PhysX-scene nondeterminism is stated as a deliberate trade-off.
+- **Flagged:**
+  - **Contradiction with the launch post:** the released flip and rotate skills are scripted, ported from a TAMP executor, not RL. The push actions have no skill and are excluded by default. Recorded on the [ToyBlocks entity](entities/toyblocks.md) and the [blog source](sources/ai2-toyblocks-blog.md).
+  - The default friction range is degenerate (0.5–0.5).
+  - Run-to-run spread from batch composition is unreported.
+  - The internal HVLA doc audits PDDL's gaps: no region predicate, single-support `on`, and `or` silently flattened.
+- Updated: [ToyBlocks](entities/toyblocks.md), [blog source](sources/ai2-toyblocks-blog.md), [TAMP](concepts/robotics/task-and-motion-planning.md), [Robot policy evaluation](concepts/robotics/robot-policy-evaluation.md), [Symbolic task planning](concepts/agents/symbolic-task-planning.md), [Synthetic data flywheel](concepts/learning/synthetic-data-flywheel.md), [cuRobo](entities/curobo.md), [LeRobot](entities/lerobot.md), [Isaac Lab](entities/nvidia-isaac-lab.md), [index](index.md), [backlog](backlog.md).

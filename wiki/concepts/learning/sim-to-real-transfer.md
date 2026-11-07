@@ -2,8 +2,8 @@
 title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
-updated: 2026-10-24
-sources: 75
+updated: 2026-11-07
+sources: 76
 tags: [sim-to-real, domain-gap, rl, simulation, real-to-sim, r2s2r]
 ---
 
@@ -174,6 +174,10 @@ So the sim-to-real gap is not crossed by the *policy*; it is crossed by the **ta
 >
 > Vendor blog, one demonstrated task family, no rate reported.
 
+## Narrow domain, near-parity transfer: ToyBlocks (2026-11-07)
+
+Ai2 trained ManiFlow and a Molmo 2 planner **only** on [ToyBlocks](../../entities/toyblocks.md) simulation and deployed them zero-shot on a Franka FR3. Atomic skills scored **80.0% sim vs 81.1% real**, and three-letter spelling **55.5% (111/200) vs 50.0% (15/30)**. The recipe has three stages: **system identification** of joint friction and armature against real trajectories before data generation, physical and visual **domain randomization** during it, and **learned stereo depth** (FastFoundationStereo on RGB pairs) at inference instead of the depth sensor ([ToyBlocks (Ai2 blog)](../../sources/ai2-toyblocks-blog.md)). The near-parity is plausibly bought by the narrow domain itself, rigid wooden blocks being among the easiest objects to model. That is the FoundationWorld bet: make the domain small enough that sim fidelity stops being the bottleneck.
+
 ## Mentioned in
 
 - [GEN-1.5](../../sources/generalist-gen-1-5-blog.md) — prompt recorded in simulation, robot acts in reality, **no simulation data in pretraining**.
@@ -199,3 +203,4 @@ So the sim-to-real gap is not crossed by the *policy*; it is crossed by the **ta
 - [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../../sources/nvidia-microduck-ai-agents-sim-blog.md) — BAM + domain randomization in Isaac Lab; walking policy on hardware, obstacle-course policy sim-only.
 - [Train in Simulation, Deploy on a Real Robot: Microduck with Isaac Lab 3.0](../../sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md)
 - [pollen-robotics/microduck-arena](../../sources/microduck-arena-github.md)
+- [ToyBlocks (Ai2 blog)](../../sources/ai2-toyblocks-blog.md) — sysID + DR + learned stereo depth; atomic skills at sim/real parity on a Franka FR3.

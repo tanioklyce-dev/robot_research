@@ -3,8 +3,8 @@ title: π0.5
 type: entity
 subtype: model
 created: 2026-08-03
-updated: 2026-10-13
-sources: 8
+updated: 2026-11-07
+sources: 10
 tags: [pi-zero-5, physical-intelligence, vla, co-training, open-world, mobile-manipulation, hierarchical-inference, baseline]
 ---
 
@@ -51,6 +51,11 @@ tags: [pi-zero-5, physical-intelligence, vla, co-training, open-world, mobile-ma
 
 The one role where world models earn their place is as **RL environments**: a π0.5 policy optimized inside one reaches 75.0 / 70.7 against 87.3 / 78.9 for simulator-based RL and 43.8 / 55.1 for SFT ([WorldArena 2.0](../sources/worldarena-2-paper.md)). See [what world models are measurably good for](../syntheses/world-models/what-world-models-are-measurably-good-for.md).
 
+## As the shipped adapter in RoboDojo's Arena port (2026-10-30)
+
+[RoboDojo](robodojo.md)'s Isaac Lab-Arena branch ships π0.5 (via OpenPI) as its only real policy adapter. The adapter takes head and wrist RGB and a 14-D joint state from the dual ARX X5. The checkpoint is a RoboDojo sim fine-tune (`RoboDojo-sim-arx_x5-joint-0`), and inference is unbatched, one call per environment ([branch READMEs](../sources/robodojo-isaaclabarena-branch.md)). In Ai2's [ToyBlocks](toyblocks.md), π0.5 is one of three VLAs reported to *"generalize poorly"* to held-out workspace regions and stack heights ([Ai2 blog](../sources/ai2-toyblocks-blog.md)).
+
 ## Mentioned in (additional)
 
 - [WorldArena paper](../sources/worldarena-paper.md) · [WorldArena 2.0 paper](../sources/worldarena-2-paper.md)
+- [RoboDojo — IsaacLabArena branch](../sources/robodojo-isaaclabarena-branch.md) · [ToyBlocks (Ai2 blog)](../sources/ai2-toyblocks-blog.md)

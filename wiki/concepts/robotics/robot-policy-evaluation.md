@@ -2,8 +2,8 @@
 title: Robot policy evaluation
 type: concept
 created: 2026-07-27
-updated: 2026-09-27
-sources: 58
+updated: 2026-11-07
+sources: 61
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility, real-to-sim, r2s2r]
 ---
 
@@ -140,7 +140,16 @@ The [Earth Rover Challenge](../../sources/earth-rover-challenge-frodobots-2k.md)
 
 [OpenArm 2.0](../../sources/openarm-docs.md) ships an **evaluation cell** as hardware: a ~100 kg MISUMI enclosure fixing background, lighting, camera placement and the arm's mount, with a mechanical zero-position calibration jig *"eliminating assembly tolerances from the dataset,"* a 300 mm Z-axis, and an area-sensor power cut-off — sold at $6,200 by its certified manufacturer. The stated motive is this page's complaint verbatim: *"'Model A outperforms Model B' only carries meaning when both were evaluated under the same conditions."* It addresses the visual-domain and calibration drift between labs; it does nothing for the sample-size problem above, and no results from a Cell have been published.
 
-## What is still missing
+## A lab builds the controlled world (added 2026-11-07)
+
+Ai2's [ToyBlocks](../../entities/toyblocks.md) takes the OpenArm cell's argument further: control the **task distribution and the training data**, not only the visual conditions. It is a deliberately narrow simulated domain (one arm, lettered blocks) whose generator lets a researcher hold out a workspace region or a stack height and measure interpolation against extrapolation. Its metrics include execution speed, **forces exerted on objects** and planner-specified task progress. Oracles at the planner and executor levels attribute failures in a hierarchy, and a zero-shot sim-to-real check on a Franka FR3 gave 80.0% sim vs 81.1% real for atomic skills ([ToyBlocks (Ai2 blog)](../../sources/ai2-toyblocks-blog.md)). The weaknesses are the ones on this page: no seeds or intervals reported, and n = 30 for the real hierarchical result.
+
+At the other end, [RoboDojo](../../entities/robodojo.md)'s port to [Isaac Lab-Arena](../../entities/isaac-lab-arena.md) treats reproducibility as **bookkeeping**. Assets are pinned by hash (38.4 GiB, exact object IDs, no substitution), every multi-env layout is recorded with its SHA-256, CPU tests parse the production code's AST to check control gains, and a task is not `done` unless the per-episode details reconcile with the aggregates. It raises a question this page had not named: **is a benchmark ported to new infrastructure still the same benchmark?** The port ships a native-vs-Arena comparison tool but no comparison ([RoboDojo — IsaacLabArena branch](../../sources/robodojo-isaaclabarena-branch.md)).
+
+The ToyBlocks repo ([allenai/ToyBlocks](../../sources/allenai-toyblocks-github.md)) adds two things this page had not covered:
+- **Partial progress with no task-specific code.** Every task's goal is a PDDL conjunction, so the fraction of conjuncts satisfied, with each conjunct's first-true step, is a progress metric for every task by construction.
+- **A stated reproducibility trade-off.** All parallel environments share one PhysX scene, so *"one environment's result can depend on which other environments are in the batch."* The GPU solver is nondeterministic, and contact history survives teleport resets. The docs therefore say to compare runs only in aggregate. That makes the sample-size problem above worse in a specific way: the run-to-run spread includes batch-composition noise, and nobody reports how large it is.
+
 
 - **No real-world validation.** RoboLab is simulation-only, and whether its scores predict deployment success is precisely the question it exists to answer.
 - **The ~1,030-rollout bar is proposed, not met** — including by NVIDIA's own published numbers.
@@ -200,3 +209,6 @@ The [Earth Rover Challenge](../../sources/earth-rover-challenge-frodobots-2k.md)
 - [ViNT paper](../../sources/vint-paper.md) — max displacement without intervention; SPL; kilometer-scale runs.
 - [NoMaD paper](../../sources/nomad-paper.md) — collisions per run reported next to success.
 - [OpenArm documentation](../../sources/openarm-docs.md) — the OpenArm Cell, a standardized evaluation enclosure sold as a product.
+- [ToyBlocks (Ai2 blog)](../../sources/ai2-toyblocks-blog.md) — a controlled FoundationWorld; held-out-region extrapolation splits; force and progress metrics; sim-vs-real agreement on atomic skills.
+- [RoboDojo — IsaacLabArena branch](../../sources/robodojo-isaaclabarena-branch.md) — hash-pinned assets and layouts, reconciled aggregates; parity with native RoboDojo untested.
+- [allenai/ToyBlocks](../../sources/allenai-toyblocks-github.md) — PDDL-conjunct partial progress; oracle substitution; shared-PhysX-scene nondeterminism stated as a design trade-off.

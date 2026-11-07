@@ -2,8 +2,8 @@
 title: World-model simulators
 type: concept
 created: 2026-05-06
-updated: 2026-11-02
-sources: 43
+updated: 2026-11-07
+sources: 44
 tags: [world-model, generative-simulation, video-generation, jepa, latent-prediction, paradigm-shift]
 ---
 
@@ -71,6 +71,11 @@ The thesis on this page — use a learned model as the environment — now has i
 
 Two things this qualifies on the page below: the [Genie Envisioner](../../entities/genie-envisioner.md) minute-scale-rollout claim is a vendor announcement that independent benchmarking places **last of 14**, and none of these benchmarks evaluates a **Paradigm B / JEPA** model at all — 16 of WorldArena's metrics score *video*, which a latent predictor doesn't produce.
 
+**Update 2026-11-07.** One benchmark now scores a Paradigm B model next to video models. [ToyBlocks](../../entities/toyblocks.md) compares [LeWM](../../entities/leworldmodel.md) with Wan 2.2 by probing predicted state rather than scoring video. The JEPA model is good on single interactions and drifts over full trajectories, while Wan 2.2 is the most accurate ([ToyBlocks (Ai2 blog)](../../sources/ai2-toyblocks-blog.md)).
+
+> [!warning] Contradiction (soft): data-engine role
+> WorldArena rates world models as data engines **"marginal"** (2 of 6 beat real data). ToyBlocks reports that 100 rollouts from its best video model raised a policy's success in an **unseen workspace region from 19% to 78%** ([ToyBlocks (Ai2 blog)](../../sources/ai2-toyblocks-blog.md)). The settings differ: rigid blocks in a narrow domain versus RoboTwin tasks, and spatial gap-filling versus replacing real data. The ToyBlocks figure comes with no baseline details. Read it as "world-model data can fill a spatial hole in a narrow domain," not as a reversal.
+
 ## Where world-model simulators are most useful (2026)
 - **Pretraining policies on observed-data distributions** before any physics-based fine-tuning.
 - **Generating long-horizon scenarios** for evaluation that would be expensive to author.
@@ -109,3 +114,4 @@ Two things this qualifies on the page below: the [Genie Envisioner](../../entiti
 - [AI Search news roundup (2026-11-01)](../../sources/ai-search-news-2026-11-01.md) — pointer to Genie 4, MUNDO, UniAction and OverSeer.
 - [UnifoLM-WMA-0 project page](../../sources/unifolm-wma-0-project-page.md) — Unitree's DynamiCrafter-based generative world model with a simulation mode.
 - [Gemini 4 Argon for Robotics](../../sources/gemini-4-argon-robotics-blog.md) — an LLM **steering** a video world model (Gemini Omni) in closed loop: timestamped action prompts, keyframe inspection, refinement (33 steps). The world model is driven by a planner's prompts, not by a policy's actions.
+- [ToyBlocks (Ai2 blog)](../../sources/ai2-toyblocks-blog.md) — LeWM vs Wan 2.2 on a ground-truth-state probe; video-model rollouts fill an unseen workspace region (19% → 78%).

@@ -3,8 +3,8 @@ title: MolmoAct2
 type: entity
 subtype: model
 created: 2026-07-25
-updated: 2026-08-03
-sources: 6
+updated: 2026-11-07
+sources: 7
 tags: [molmoact2, molmoact, vla, vision-language-action, flow-matching, per-layer-kv-conditioning, adaptive-depth, fast-tokenizer, hybrid-action-head, allen-institute, molmo, real-world-deployment, open-source, open-data]
 ---
 
@@ -82,6 +82,10 @@ From the [GitHub repo](../sources/molmoact2-github-repo.md) and the [SO-100/101 
 - **MolmoAct2-DROID Dataset** — 74,604 quality-filtered Franka episodes from [DROID](droid.md).
 - **MolmoAct2-SO100/101 Dataset** — 38,059 filtered episodes from 1,222 community LeRobot datasets.
 
+## Spatial extrapolation in ToyBlocks (2026-11-06)
+
+[ToyBlocks](toyblocks.md) puts MolmoAct 2 alongside ManiFlow and [π0.5](pi-zero-5.md) on held-out workspace regions and held-out stack heights. Ai2's own summary of all three: *"despite large-scale pretraining, these popular action models generalize poorly in the initial results."* The per-model numbers are in an uncaptured chart ([Ai2 blog](../sources/ai2-toyblocks-blog.md)). It is notable that Ai2 published this about its own VLA.
+
 ## Related
 
 - [MolmoAct](molmoact.md) — the discrete-token predecessor; MolmoAct2 keeps the "reason in space" framing but adds a continuous expert and adaptive depth.
@@ -103,3 +107,4 @@ From the [GitHub repo](../sources/molmoact2-github-repo.md) and the [SO-100/101 
 - [MolmoAct2 paper (Fang, Duan et al. 2026)](../sources/molmoact2-paper.md) — the primary source.
 - [MolmoAct2-SO100_101 model card](../sources/molmoact2-so100-101-model-card.md) — the SO-100/101 checkpoint; 5B params, ~16 GB bf16, absolute joint-pose control.
 - [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — full checkpoint family, LeRobot-native training, FastAPI deployment servers, ManiSkill sim eval.
+- [ToyBlocks (Ai2 blog)](../sources/ai2-toyblocks-blog.md) — poor spatial extrapolation, per Ai2's own testbed.

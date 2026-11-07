@@ -2,8 +2,8 @@
 title: The synthetic flywheel (supersets, curricula, self-improvement)
 type: concept
 created: 2026-09-02
-updated: 2026-09-03
-sources: 3
+updated: 2026-11-07
+sources: 5
 tags: [synthetic-data, curriculum-learning, autorl, self-improvement, domain-randomization, in-context-learning, self-correction, sim-to-real, waymax, faust, cost, simulation-economics]
 ---
 
@@ -95,3 +95,5 @@ The day after Faust's keynote, [Amir Zadeh](../../entities/lambda.md) priced the
 ## Mentioned in
 - [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — Aleksandra Faust keynote.
 - [Third World Modeling Workshop — Day 3](../../sources/chicago-booth-world-modeling-workshop-2026-day3.md) — Amir Zadeh (Lambda): the cost of a flywheel turn, and [Sim2Reason](../../entities/sim2reason.md).
+- [ToyBlocks (Ai2 blog)](../../sources/ai2-toyblocks-blog.md) — a TAMP-driven generator with a user-controlled training mixture (85,336 demonstrations); world-model rollouts used to fill a held-out spatial region.
+- [allenai/ToyBlocks](../../sources/allenai-toyblocks-github.md) — physics executed once, rendered N times under visual DR; TAMPER replans demonstrations from policy-failure states (DAgger with a TAMP expert).

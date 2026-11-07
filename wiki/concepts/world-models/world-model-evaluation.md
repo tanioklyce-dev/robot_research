@@ -2,8 +2,8 @@
 title: World-model evaluation
 type: concept
 created: 2026-08-07
-updated: 2026-10-25
-sources: 33
+updated: 2026-11-07
+sources: 34
 tags: [world-model, evaluation, benchmark, physical-validity, policy, vbench, worldscore, physion-eval, mllm-critic]
 ---
 
@@ -230,6 +230,13 @@ AD-E2E-JEPA adds a protocol caveat: using the *real future frame* as the goal ma
 
 The same paper adds another case of rollout quality not tracking planning: its best-planning latents give its worst rollouts.
 
+## Ground-truth state as the common currency (2026-11-07)
+
+[ToyBlocks](../../entities/toyblocks.md) offers one way out of "the two literatures cannot score each other." Every model is **probed for the same physical quantities**: predicted block pose, gripper pose and final task success. Those are compared with simulator truth, whatever the model's output space (pixels, simulator state or latents). Ai2 fine-tunes Wan 2.2 (5B video), "Astra" (an agent-built physics simulator) and [LeWM](../../entities/leworldmodel.md) on 900 trajectories per skill. The trajectories are **balanced 50/50 success/failure**, so a model that always predicts success scores at chance. Two regimes are tested: full trajectories from one initial image, and single interaction segments that start from the real pre-contact frame. Results: **Wan 2.2 is most accurate**, Astra tracks the gripper but fails on contact, and LeWM is good on single interactions but drifts over full trajectories. Models that probe better also make better training data ([ToyBlocks (Ai2 blog)](../../sources/ai2-toyblocks-blog.md)).
+
+> [!note] Caveats
+> The probe design is the confound to watch. A linear or small read-out on a JEPA latent and a pose estimator on generated pixels are not obviously equal-difficulty instruments, and the post does not say how the probes were built. There are no numbers beyond the ranking.
+
 ## Related concepts
 
 - [Robot policy evaluation](../robotics/robot-policy-evaluation.md) — the statistical case, from inside robotics.
@@ -271,3 +278,4 @@ The same paper adds another case of rollout quality not tracking planning: its b
 - [Toso et al.](../../sources/preserving-unstable-modes-inverse-dynamics-paper.md) — latent-LQR diagnostic; MPC success masks collapse.
 - [Interpreting physics in video world models](../../sources/interpreting-physics-video-world-models-paper.md) — the Physics Emergence Zone; final-layer features are not the best for physics.
 - [Learning Latent Action World Models In The Wild](../../sources/latent-action-world-models-in-the-wild-paper.md) — scene-cut leakage and cycle-consistency diagnostics.
+- [ToyBlocks (Ai2 blog)](../../sources/ai2-toyblocks-blog.md) — Wan 2.2 vs agent-built sim vs LeWM, probed against simulator ground truth; balanced success/failure trajectories.

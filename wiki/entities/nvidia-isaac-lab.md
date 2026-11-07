@@ -3,8 +3,8 @@ title: NVIDIA Isaac Lab
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-10-24
-sources: 29
+updated: 2026-11-07
+sources: 30
 tags: [framework, robot-learning, nvidia, isaac-lab, rl]
 ---
 
@@ -71,3 +71,4 @@ Isaac Lab inherits Isaac Sim's RT-core requirement: it cannot run on [Jetson Tho
 - [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)
 - [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../sources/nvidia-microduck-ai-agents-sim-blog.md) — native `BamActuatorCfg` (Newton/MJWarp only) and `contrib/microduck` tasks; 4,096-env depth+proprio ramp fine-tune on one RTX PRO 6000.
 - [Train in Simulation, Deploy on a Real Robot: Microduck with Isaac Lab 3.0](../sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md) — task IDs, DR list, 1.25M steps/s on 16 GPUs, ONNX auto-export; broken `--branch develop` install line.
+- [allenai/ToyBlocks](../sources/allenai-toyblocks-github.md) — Isaac Lab 2.3.2 / Isaac Sim 5.1 underneath ToyBlocks: 256 envs/GPU datagen, 50 envs/GPU eval in one shared PhysX scene.

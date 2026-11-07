@@ -3,8 +3,8 @@ title: Franka Panda
 type: entity
 subtype: robot
 created: 2026-05-07
-updated: 2026-10-27
-sources: 52
+updated: 2026-11-07
+sources: 53
 tags: [franka, panda, robot-arm, manipulator, 7-dof, manipulation-platform]
 ---
 
@@ -88,3 +88,5 @@ The consequence is that **the field's tooling is tuned on the platform that need
 - [FACTR 2](../sources/factr-2-paper.md) — the ground-truth platform: the factory external-torque estimate is the reference NEXT is scored against (0.547 Nm contact error); in free space NEXT is *less noisy than the Franka's own sensor* (0.414 vs 0.449 Nm). Also the 20-participant force-feedback teleop study.
 - [FACTR](../sources/factr-paper.md) — follower arms (with OpenManipulator-X grippers) for the bilateral teleop rig and all four contact-rich tasks; its joint-torque sensing is the assumption FACTR 2 later removes.
 - [DreamZero paper](../sources/dreamzero-paper.md) — DROID-Franka as the second embodiment for a 14B WAM.
+- [ToyBlocks (Ai2 blog)](../sources/ai2-toyblocks-blog.md) — explicitly **FR3** (Robotiq gripper, ZED + ZED Mini): zero-shot sim-to-real target; ManiFlow skills 80.0% sim vs 81.1% real.
+- [RoboDojo — IsaacLabArena branch](../sources/robodojo-isaaclabarena-branch.md) — a scripted *support* Franka beside the ARX X5 in some tasks.

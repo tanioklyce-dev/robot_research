@@ -2,8 +2,8 @@
 title: Symbolic task planning (PDDL and generalized planning)
 type: concept
 created: 2026-08-04
-updated: 2026-08-04
-sources: 2
+updated: 2026-11-07
+sources: 3
 tags: [pddl, symbolic-planning, generalized-planning, classical-ai, action-representation, llm-planning, program-synthesis]
 ---
 
@@ -50,7 +50,15 @@ The **No Names** ablation replaces every identifier — domain, problem, predica
 
 Classical planning and learned control remain largely disjoint in this wiki: PDDL appears where an LLM writes plans or planners, and never below the task level. The live question is not whether PDDL is a good action language — it is a good *task* language — but whether the grounding layer beneath it can be learned rather than hand-written. [PA-BT](../robotics/behavior-trees.md) backchains from goal conditions into a reactive executable and is the closest thing here to a bridge.
 
-## Related
+## Where PDDL runs out: ToyBlocks's own audit (2026-11-07)
+
+ToyBlocks writes every task as a PDDL goal, and its internal task-suite design doc audits what that vocabulary cannot say ([allenai/ToyBlocks](../../sources/allenai-toyblocks-github.md)):
+- **No region or absolute-pose predicate.** This blocks eight proposed tasks, six of them *only* on phrases like "the center" or "the left side". A single `in_region(?b, ?r)` predicate would clear them.
+- **Single-support `on`.** A pyramid (one block resting on two) has no encoding.
+- **No disjunction.** *"`exists` is rejected and `or` is silently flattened, which is the more dangerous failure."*
+
+It is a good catalogue of the gap between what a language instruction asks for and what a symbolic planner can verify.
+
 - [Action representation languages](../../syntheses/agents/action-representation-languages.md) — PDDL as the formal-task-language row
 - [Behavior trees](../robotics/behavior-trees.md) — the composition layer; PA-BT backchains like a planner
 - [Code as policy](code-as-policy.md) — the LLM writes a program; here the program is a planner
@@ -59,3 +67,4 @@ Classical planning and learned control remain largely disjoint in this wiki: PDD
 
 ## Mentioned in
 - [Generalized Planning in PDDL Domains with Pretrained LLMs](../../sources/generalized-planning-pddl-llm-paper.md)
+- [allenai/ToyBlocks](../../sources/allenai-toyblocks-github.md) — PDDL as the whole task language for datagen and evaluation; its own audit of missing region, multi-support and disjunctive predicates.

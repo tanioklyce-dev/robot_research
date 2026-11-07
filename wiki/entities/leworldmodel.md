@@ -3,8 +3,8 @@ title: LeWorldModel
 type: entity
 subtype: model
 created: 2026-05-07
-updated: 2026-10-24
-sources: 46
+updated: 2026-11-07
+sources: 47
 tags: [leworldmodel, lewm, jepa, world-model, mila, end-to-end, sigreg, instruction-leakage]
 ---
 
@@ -82,6 +82,12 @@ Five papers built on LeWM's code and benchmark suite within six weeks, each fixi
 > [!warning] LeWM's baseline numbers are not stable across papers
 > On nominally the same Cube task, LeWM is reported at **74** (its own paper), **73.2** (AVL), **64.1** (Hamiltonian JEPA, Delta-JEPA protocol) and **59** (SMWM). Two-Room ranges from 74.9 to 94. Compare deltas within a paper, never absolute numbers across papers.
 
+## Scored against simulator ground truth: ToyBlocks (2026-11-06)
+
+Ai2's [ToyBlocks](toyblocks.md) fine-tunes LeWM, Wan 2.2 (5B video) and an agent-built simulator ("Astra") on 900 trajectories per block skill, half of them failures. It then **probes each model's predicted block and gripper pose and the final success outcome** against simulator state. LeWM is *"fast and more accurate over short interaction segments, though it drifts over full trajectories."* Wan 2.2 is the most accurate overall ([Ai2 blog](../sources/ai2-toyblocks-blog.md)).
+
+It is the first external benchmark in the wiki to put LeWM and a video model on a common probe of state rather than on pixel metrics. The short-good, long-drift pattern is what the open-loop full-trajectory regime (one initial image, then actions only) should be expected to expose for a model trained on short planning horizons. No numbers or protocol details for the LeWM probe are given in the post.
+
 ## Related
 - [Mila](mila.md) — primary affiliation.
 - [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — architecture family.
@@ -123,3 +129,4 @@ Five papers built on LeWM's code and benchmark suite within six weeks, each fixi
 - Synthesis: [What the latent throws away](../syntheses/world-models/jepa-dynamics-collapse-fixes.md)
 - [LeHami](../sources/lehami-symplectic-latent-dynamics-paper.md) — symplectic-predictor swap on 64×64 pendulums. LeWM's latent **log-volume declines linearly over a rollout**, and its per-frame encoder carries no velocity (ω R² ≤ 0). But LeWM **wins goal-reaching** on position (0.80 vs 0.48), and with an untied 3-frame window on velocity too.
 - [LeCun — Brown Lemley Lecture](../sources/lecun-brown-lemley-lecture-2026.md) — LeWM presented as the SIGReg-trained JEPA world model on the founder's slides.
+- [ToyBlocks (Ai2 blog)](../sources/ai2-toyblocks-blog.md) — ground-truth-state probe: good on single interactions, drifts over full trajectories; Wan 2.2 more accurate.

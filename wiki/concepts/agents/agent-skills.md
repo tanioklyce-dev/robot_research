@@ -2,8 +2,8 @@
 title: Agent skills (portable SKILL.md)
 type: concept
 created: 2026-07-16
-updated: 2026-10-27
-sources: 19
+updated: 2026-11-07
+sources: 21
 tags: [agent-skills, claude-code, skill-md, llm-agents, tooling, jetson, halos, frc, deployment]
 ---
 
@@ -46,6 +46,14 @@ The same reasoning drove them to convert connectors from **MCP servers into comp
 ## Skills that repair themselves (2026-10-24)
 [RPG](../../sources/rpg-guided-self-improvement-paper.md) treats a robot skill library as **persistent, versioned code under a regression gate**. An agent proposes new skills and edits; each must load, pass interface checks and use only deploy-time observations, then improve mean success across 22 tasks without dropping any one by more than 20 pp. Over 15 rounds the library went from 15 to 38 entries, with 23 additions and **66 modifications**. Most gains came from making skills **verify their effects**: actual lift height, grasp retention, final placement. The robotics version of the portable-skill caution above is that a skill's *return value* is part of its contract, and it can lie.
 
+## Skills whose descriptions the agent writes (2026-11-07)
+
+In [ToyBlocks](../../entities/toyblocks.md), Ai2 exposes robot skills (pick, flip, rotate, each targeted by pointing at a pixel) to a Claude Opus 5.5 agent over MCP. It then lets the agent **experiment on its own skills** (form a hypothesis about unexpected behaviour, design a small test, revise) and **rewrite the skill descriptions** from what it found. Success rose from **24% with the default descriptions to 63%**, against **36% with descriptions written by a human expert** ([ToyBlocks (Ai2 blog)](../../sources/ai2-toyblocks-blog.md); method credited to a linked OpenReview paper not yet ingested). RPG edits the skill code and ASPIRE adds new skills to the library. This changes only the **documentation**. Here the skill is fixed and its description was the bottleneck. In this case the agent's empirical model of the skills was better than the expert's.
+
+### The mechanism: LEAP ([allenai/agentic_robotics](../../sources/allenai-agentic-robotics-github.md))
+
+The code makes the setup explicit. In an **experimentation phase**, an agent has the motor skills plus simulator get/set state, a file workspace and `update_tool_docstring`. It explores either by spawning subagents (**Naive**) or through `plan_experiment`/`run_experiment`, which forces a hypothesis, success criteria and labelled trials before anything runs (**Harness**). The phase is capped by a **dollar budget**, and the prompt quotes token prices and warns that each docstring edit invalidates the prompt cache. A *fresh* agent is then evaluated with only the motor and image tools and the learned docstrings. It is compared against Control (the declared docstrings) and Oracle (expert-written ones that state failure rates: stack drops the block 10% of the time, rotate goes the wrong way 25%, flip has no effect 10% and goes the wrong direction 20%, and so on). The design treats a skill's description as a **learned, transferable artifact**, separate from the agent that learned it. The repo's rule that *"a skill's docstring is a prompt"* comes out of the same view.
+
 ## Related concepts
 
 - [LLM-agent architecture](llm-agent-architecture.md) — the agent runtime skills plug into (tools, MCP, memory)
@@ -63,3 +71,5 @@ The same reasoning drove them to convert connectors from **MCP servers into comp
 - [ASPIRE paper](../../sources/aspire-paper.md) — the strongest contrast with SKILL.md bundles: skills are induced from *diagnosed failures* (failure signature + when-to-apply + repair), the taxonomy emerges rather than being designed, and a coordinator audits admissions. Measured to compound: zero-shot success rises with library size.
 - [RPG](../../sources/rpg-guided-self-improvement-paper.md) — regression-gated self-repairing robot skill library.
 - [AW-0 paper](../../sources/agentic-world-action-models-aw0-paper.md) — a 50-skill library distilled by a Claude Code coordinator and then **frozen** as the *label vocabulary* for training a WAM; skills are supervision targets, not runtime tools.
+- [ToyBlocks (Ai2 blog)](../../sources/ai2-toyblocks-blog.md) — agent-authored skill descriptions from self-run experiments: 24% → 63% vs 36% for expert-written.
+- [allenai/agentic_robotics](../../sources/allenai-agentic-robotics-github.md) — LEAP: Control / Naive / Harness / Oracle description sets; dollar-budgeted experimentation; the learned docstrings transfer to a fresh evaluation agent.

@@ -2,8 +2,8 @@
 title: Agent–hardware abstraction
 type: concept
 created: 2026-08-30
-updated: 2026-08-30
-sources: 1
+updated: 2026-11-07
+sources: 2
 tags: [hardware-abstraction, device-drivers, mcp, mhs, capability-manifest, agentic-robotics, discovery, standards]
 ---
 
@@ -66,9 +66,14 @@ MHS's natural-language tags are **untrusted text written by users (or elicited b
 
 **Access is being standardized faster than authority is.** As of August 2026 there are at least six independent capability-manifest systems, one of them from the vendor that also authored MCP, and the integration-cost reductions they report are large and consistent (weeks → hours). What none of them has is a policy layer that reasons about whether an enumerated capability *should* be invoked given the world state and the request — with the partial exception of MHS's device-state preconditions, demonstrated once, on six conditions, at one site.
 
+## A research-grade seam: `agentic_robotics` (2026-11-07)
+
+Ai2's [allenai/agentic_robotics](../../sources/allenai-agentic-robotics-github.md) enforces the agent↔robot boundary *by interpreter*. The MCP host (`core/`) runs in a Python environment where torch, Isaac Lab and the robot package are not installed. Each domain is a separate MCP server, and only JSON-serializable values cross: no tensors and no environment handles. The skill surface is pixel-targeted (`pick(pixel)`, `flip(pixel, direction)`), in a normalized `[0,1000)` image space. The repo treats tool names, schemas, docstrings and skill error text as the agent's *program*, not its documentation.
+
 ## Mentioned in
 
 - [Previewing the Model Hardware Standard](../../sources/anthropic-model-hardware-standard-preview.md)
 - [Project Fetch: Can Claude train a robot dog?](../../sources/anthropic-project-fetch-robot-dog.md)
 - [AgenticROS GitHub](../../sources/agenticros-github.md)
 - [DimOS GitHub](../../sources/dimos-github.md)
+- [allenai/agentic_robotics](../../sources/allenai-agentic-robotics-github.md) — JSON-only MCP seam enforced by separate interpreters; pixel-targeted skills.

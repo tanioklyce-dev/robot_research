@@ -3,8 +3,8 @@ title: Ai2 (Allen Institute for AI)
 type: entity
 subtype: research-lab
 created: 2026-07-24
-updated: 2026-09-07
-sources: 12
+updated: 2026-11-07
+sources: 14
 tags: [ai2, allen-institute, research-lab, open-source, open-data, seattle, nonprofit, robotics, vla, ai-for-science, ai-for-the-planet, asta, olmoearth]
 ---
 
@@ -31,6 +31,10 @@ means; these are the ends:
   and **EarthRanger** (wildlife & environmental monitoring) built on top.
 - **Embodied AI** — robotics + 3D reasoning: the [Molmo](molmo.md) →
   [MolmoAct](molmoact.md) → [MolmoAct2](molmoact2.md) line.
+
+## ToyBlocks and FoundationWorlds (2026-11-06)
+
+[ToyBlocks](toyblocks.md) is Ai2's first **FoundationWorld**: a narrow simulated domain (one arm, lettered blocks) with automatic TAMP-driven demonstration generation in Isaac Lab, metrics beyond success, and zero-shot transfer to a Franka FR3. Its launch post uses it to test VLA spatial extrapolation, a [Molmo 2](molmo.md) + ManiFlow hierarchy, Claude agents acting through MCP, and video and latent world models (including [LeWM](leworldmodel.md)) against ground-truth state ([Ai2 blog](../sources/ai2-toyblocks-blog.md)). The post also names two Ai2 robotics releases the wiki has not ingested, **MolmoBot** and **MolmoSpaces**. It is a shift in what Ai2's openness means for robotics: from releasing a model to releasing a controllable experimental world.
 
 ## What Ai2 has built (as tracked here)
 
@@ -85,3 +89,5 @@ counterweight to the closed frontier labs the wiki otherwise tracks.
 - [SafeVLA](../sources/safevla-paper.md) — **Ai2 as substrate**: AI2-THOR, ProcTHOR (150K scenes), Objaverse (800K assets), plus **SPOC**, **FLaRe** and **PoliFormer** as the base model and baselines. A PKU alignment method built end-to-end on the Ai2 embodied stack, and a good illustration of what radical openness buys the field — a Chinese lab's NeurIPS Spotlight runs entirely on it.
 - [MolmoAct2-SO100_101 model card](../sources/molmoact2-so100-101-model-card.md) — the low-cost-arm checkpoint.
 - [MolmoAct paper](../sources/molmoact-paper.md) — the v1 primary; ARM three-stage reasoning, Franka-only hardware, the 10,689-trajectory MolmoAct Dataset.
+- [ToyBlocks (Ai2 blog)](../sources/ai2-toyblocks-blog.md) — the first FoundationWorld.
+- [allenai/agentic_robotics](../sources/allenai-agentic-robotics-github.md) — the MCP agent harness and LEAP behind ToyBlocks's frontier-agent studies.

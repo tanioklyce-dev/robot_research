@@ -3,8 +3,8 @@ title: RoboTwin 2.0
 type: entity
 subtype: benchmark
 created: 2026-08-04
-updated: 2026-10-27
-sources: 8
+updated: 2026-11-07
+sources: 9
 tags: [robotwin, benchmark, bimanual, manipulation, domain-randomization, data-generation, simulation, robotwin-od, mllm-code-generation, embodiment-aware-grasping, sim-to-real]
 ---
 
@@ -126,7 +126,12 @@ RoboTwin 2.0 is the evaluation substrate for [WorldArena](worldarena.md) and Wor
 
 That makes RoboTwin the reference frame for the wiki's central world-model finding: a [π0.5](pi-zero-5.md) policy trained on real RoboTwin data hits **77% / 66%**, and no world model comes close as a data engine or planner ([WorldArena paper](../sources/worldarena-paper.md)).
 
+## Sibling benchmark: RoboDojo (2026-07)
+
+The same team (Tianxing Chen et al.) released [RoboDojo](robodojo.md) in July 2026: 42 sim and 18 real tasks across Piper X, Piper and ARX X5, organized along five capability axes, with policies served through XPolicyLab. Both projects took the same RGB channel-ordering fix in September 2026 *"to keep both projects consistent,"* and both have since been ported to Isaac Lab-Arena as branches of their own repos ([RoboDojo branch READMEs](../sources/robodojo-isaaclabarena-branch.md)).
+
 ## Mentioned in (additional)
 
 - [WorldArena paper](../sources/worldarena-paper.md) · [WorldArena 2.0 paper](../sources/worldarena-2-paper.md)
 - [AW-0 paper](../sources/agentic-world-action-models-aw0-paper.md) — 80.8% clean / 20.6% randomized (hybrid 63.1 / 29.2) on 50 tasks, trained on 50 clean demos/task per the leaderboard protocol.
+- [RoboDojo — IsaacLabArena branch](../sources/robodojo-isaaclabarena-branch.md) — the sibling benchmark; shared RGB fix; same Arena-branch pattern.

@@ -2,13 +2,24 @@
 title: Wiki Backlog — deferred lint items & knowledge gaps
 type: meta
 created: 2026-07-04
-updated: 2026-11-02
+updated: 2026-11-07
 tags: [backlog, lint, todo, knowledge-gaps]
 ---
 
 # Wiki Backlog
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
+
+## [2026-11-07] From the ToyBlocks + RoboDojo-on-Arena ingest
+- [ ] **Ingest the ToyBlocks technical report** when it appears, or the docs at allenai.github.io/ToyBlocks. Capture the chart numbers: VLA interpolation and extrapolation by technique, spelling success by difficulty, and the world-model probe scores. Find out how the LeWM probe was built.
+- [ ] **Ingest the RoboDojo paper** ([2607.04434](https://arxiv.org/abs/2607.04434)) and **XPolicyLab** ([2608.09892](https://arxiv.org/abs/2608.09892)). The [RoboDojo entity](entities/robodojo.md) rests on a README. Key question: does the paper report sim-real correlation across its 18 real tasks?
+- [ ] **Settle the skills contradiction.** The blog says RL flip and push; the repo has scripted flip and rotate and no push. Check the HF dataset card for `allenai/toyblocks-data` (generation commit and skill provenance), and the tech report when it lands.
+- [ ] **Experiment: ToyBlocks batch-composition noise.** Evaluate one checkpoint 5× at NUM_ENVS=50 with different queue orders, and once at NUM_ENVS=1. Report the spread in success rate. This is the error bar the blog's comparisons need and do not report. Source: [repo docs](sources/allenai-toyblocks-github.md).
+- [ ] **Re-check the RoboDojo Arena branch** for published parity (native vs Arena π0.5 success) and for re-pinning to Isaac Sim 6.0. `--check` will flag README drift.
+- [ ] **Experiment: re-run the ToyBlocks world-model probe on LeWM ourselves.** Generate ToyBlocks trajectories for a single skill, train LeWM, and fit the same linear probe for block pose on LeWM and on a pixel baseline. Compare error growth over horizon. This tests whether "drifts over full trajectories" is LeWM's property or the protocol's (one initial frame, no re-observation).
+- [ ] **Ingest the LEAP paper** ([OpenReview gxEC7M0oZj](https://openreview.net/forum?id=gxEC7M0oZj)), the method behind the 24% → 63% result. The code is ingested ([agentic_robotics](sources/allenai-agentic-robotics-github.md)), but the results are not. Find which of Naive and Harness produced 63%, at what dollar budget, and whether it was tried on any non-Claude model.
+- [ ] **Experiment: LEAP on a local VLM.** `agentic_robotics` talks to any OpenAI-compatible endpoint, Ollama included. Run Control vs Naive on one ToyBlocks family with a small local VLM to see whether self-written docstrings help a weaker model more or less. It needs an Isaac Sim 5.1 box (one A100-class GPU, ~7.6 GB per sim).
+- [ ] **Entity pages if these recur:** ManiFlow (2509.01819), MolmoBot, MolmoSpaces, ARX X5, FastFoundationStereo, Wan 2.x.
 
 ## [2026-11-02] From the AI Search roundup + TEM ingest
 - [ ] **Ingest the papers behind the project-page entries:** [MUNDO](https://mundo-world-model.github.io/) (no paper ID yet; re-check at its end-of-November code and weights release), [UniAction](https://arxiv.org/abs/2610.32977), [OverSeer](https://arxiv.org/abs/2610.28554), [PhysAg3D](https://arxiv.org/abs/2610.39924). MUNDO first: it is the one making a robot-training claim.

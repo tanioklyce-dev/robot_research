@@ -3,8 +3,8 @@ title: Molmo
 type: entity
 subtype: vlm
 created: 2026-07-17
-updated: 2026-09-28
-sources: 8
+updated: 2026-11-07
+sources: 9
 tags: [molmo, molmo2, vlm, allen-institute, ai2, pixmo, open-weights, open-data, pointing, vla-backbone]
 ---
 
@@ -38,6 +38,10 @@ The distillation-free data recipe pays off: the **Molmo-72B** model **tops acade
 
 A third, closed program has since built on the same idea: [Mistral AI](mistral-ai.md)'s [Robostral Navigate](../sources/robostral-navigate-paper.md) initializes from an in-house VLM "specialized for grounding tasks such as pointing," then turns **pointing into the navigation action**. Its training recipe (episode packing behind a tree attention mask) credits **Molmo2**'s shared-context masking as the inspiration.
 
+## As a hierarchical planner: ToyBlocks (2026-11-06)
+
+In [ToyBlocks](toyblocks.md), a fine-tuned **Molmo 2** (`allenai/Molmo2-4B-tb`) is the high-level planner. It chooses a skill and **points** at the target block, and ManiFlow executes. This is the same pointing primitive, now used as the interface between planner and controller. On three-letter spelling stacks the hierarchy succeeds in 55.5% of sim episodes and 15/30 real ones (Franka FR3, easiest setting, zero-shot) ([Ai2 blog](../sources/ai2-toyblocks-blog.md)).
+
 ## Related
 
 - [MolmoAct](molmoact.md) / [MolmoAct2](molmoact2.md) — the VLAs built on Molmo / Molmo2-ER; the reason this entity exists.
@@ -57,3 +61,4 @@ A third, closed program has since built on the same idea: [Mistral AI](mistral-a
 - [MolmoAct2 paper (Fang, Duan et al. 2026)](../sources/molmoact2-paper.md) — Molmo2 / Molmo2-ER lineage.
 - [MolmoAct paper](../sources/molmoact-paper.md) — Molmo's VLM pointing generates the visual-trace annotations (box-based detectors collapse to box centers); the ARM line is the robotics application of the Molmo recipe.
 - [Robostral Navigate paper](../sources/robostral-navigate-paper.md) — pointing as a navigation action; Molmo2 masking inspired its prefix-tree training.
+- [ToyBlocks (Ai2 blog)](../sources/ai2-toyblocks-blog.md) — Molmo 2 as the pointing high-level planner over ManiFlow.
