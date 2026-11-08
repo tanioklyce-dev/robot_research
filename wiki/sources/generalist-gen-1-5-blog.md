@@ -123,3 +123,6 @@ Their thesis in one line: *"more pretraining makes adaptation faster, cheaper, a
 - **What is the inference rate?** *"Produces 100 Hz action trajectories"* is an **output trajectory resolution**, not a demonstrated closed-loop inference rate, and the post gives no latency. A 30-second video context is a large amount to attend over; the [control-rate ladder](../syntheses/platforms/control-rate-ladder.md) cannot place this without a measured number.
 - **Does the sim-prompt result survive contact?** *Prompt from simulation, act in reality* is the most surprising claim in the post, and it bears directly on the [contact-data argument](../concepts/robotics/contact-rich-manipulation.md): if task *specification* can be simulated once pretraining is real, the scarce-data problem moves but does not vanish. Note the pretraining is still entirely real physical data — this does not contradict the data pyramid, it relocates which layer has to be real.
 - **Ten tasks, unnamed rates.** A per-task table with rollout counts would cost them nothing and would move this from a hypothesis with a plausible shape to a result.
+
+## Cited by
+- [Continual learning and catastrophic forgetting](../concepts/learning/continual-learning.md)

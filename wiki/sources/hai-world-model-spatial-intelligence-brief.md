@@ -75,6 +75,8 @@ Three pillars (pp. 12–14):
 - [AMI Labs](../entities/ami-labs.md) — named among world-model startups
 - [LIBERO](../entities/libero.md) — named as the robotics benchmark in the evaluation landscape
 - Tencent (HY-World 2.0), Alibaba, Odyssey — no wiki pages yet
+- [Marble](../entities/marble.md)
+- [WorldArena](../entities/worldarena.md)
 
 ## Concepts touched
 
@@ -95,3 +97,9 @@ Three pillars (pp. 12–14):
 - **Does the "few minutes of coherence" figure for Genie 3 still hold in 2026?** The brief cites the 2025 release. No newer measurement is in the wiki.
 - **Is "document perception and action" implementable at 30–200 Hz?** The brief asks for a time-stamped record of perceived observation, inferred state, and action taken. For a learned end-to-end policy, "the state it inferred" may not exist as an inspectable object at all — the wiki's [latent space](../concepts/world-models/latent-space.md) and [mechanistic interpretability](../concepts/safety/mechanistic-interpretability.md) pages both say this is unsolved. The brief acknowledges internal reasoning is "only partly interpretable" but still lists the requirement.
 - **No cost figures anywhere.** The brief argues world models will *lower* simulation cost. It gives no numbers, and neither does most of the technical literature in this wiki.
+
+## Cited by
+- [Real-to-sim-to-real (R2S2R)](../concepts/robotics/real-to-sim-to-real.md)
+- [Chelsea Finn](../entities/chelsea-finn.md)
+- [Jiajun Wu](../entities/jiajun-wu.md)
+- [WorldRoamBench](../entities/worldroambench.md)

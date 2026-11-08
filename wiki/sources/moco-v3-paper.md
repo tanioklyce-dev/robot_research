@@ -98,3 +98,6 @@ MoCo v1/v2 incrementally simplified: InfoNCE over keys **co-existing in the batc
 - **Has anyone checked JEPA-family training for hidden instability?** [LeJEPA](lejepa-paper.md)'s central claim is *stability*, and its evidence is loss curves plus 50+ architectures training to within a small delta. MoCo v3's point is that loss curves are exactly what hides this failure. A k-NN or [RankMe](../concepts/learning/representation-evaluation.md) monitor over a LeJEPA run would test the claim on the axis it is made about.
 - **Does the frozen-patch-projection trick transfer to video and to world models?** It is architecture-neutral and free. Nothing in this wiki mentions it.
 - **Is the "positions contribute 1.6%" result still true at scale and on video?** If so it is an argument about what ViT-based world models are actually encoding.
+
+## Cited by
+- [Energy-based models (EBMs)](../concepts/learning/energy-based-models.md)

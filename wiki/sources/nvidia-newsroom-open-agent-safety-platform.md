@@ -52,3 +52,6 @@ This is the press release announcing the **NVIDIA Open Agent Safety Platform**. 
 - What does Figure's or Skild's use of OpenShell actually wrap?
 - What are the OpenShell "skills" listed under availability? Agent skills in the [agent-skills](../concepts/agents/agent-skills.md) sense?
 - When does Sentry ship, and on what besides Vera Rubin?
+
+## Cited by
+- [NVIDIA Halos (for Robotics)](../entities/nvidia-halos.md)

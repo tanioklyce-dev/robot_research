@@ -72,6 +72,9 @@ Four, three on real hardware: 2D shape drawing (UR5e, MDETR perception), tableto
 ## Entities mentioned
 - [Robotics at Google](../entities/google-deepmind.md) · [Brian Ichter](../entities/brian-ichter.md) · [Andy Zeng](../entities/andy-zeng.md) · [Fei Xia](../entities/fei-xia.md) · [Karol Hausman](../entities/karol-hausman.md) · [Wenlong Huang](../entities/wenlong-huang.md)
 - [Everyday Robots](../entities/everyday-robots.md) · [CLIPort](../entities/cliport.md) — the imitation baseline that collapses
+- [Language to Rewards](../entities/language-to-rewards.md)
+- [SayCan](../entities/saycan.md)
+- [VoxPoser](../entities/voxposer.md)
 
 ## Concepts touched
 - [Code as policy](../concepts/agents/code-as-policy.md) — this is the origin paper.
@@ -94,3 +97,8 @@ Four, three on real hardware: 2D shape drawing (UR5e, MDETR perception), tableto
 - [VoxPoser](voxposer-paper.md) / [Language to Rewards](language-to-rewards-paper.md) — both benchmark *against* CaP and beat it by changing the output representation.
 - [SayCan](saycan-paper.md) / [Inner Monologue](inner-monologue-paper.md) — the skill-selection alternative this paper defines itself against.
 - [Voyager](voyager-paper.md) — takes hierarchical code-gen to a persistent, self-verifying skill library.
+
+## Cited by
+- [Symbolic task planning (PDDL and generalized planning)](../concepts/agents/symbolic-task-planning.md)
+- [CodeAct](../entities/codeact.md)
+- [Physical Intelligence](../entities/physical-intelligence.md)

@@ -106,6 +106,7 @@ The redundancy-reduction principle propagates forward through three distinct str
 - **Redundancy reduction / factorial code** — the foundational concept. Worth a dedicated concept page; currently scattered across [Barlow Twins](barlow-twins-paper.md), [VICReg](vicreg-paper.md), [LeJEPA](lejepa-paper.md), and [Welch Labs explainer](welchlabs-lecun-1b-bet-against-llms.md).
 - **Predictive coding (prefigured)** — Barlow's "cells should fire when stimuli depart from expected statistics" is the conceptual core that Rao & Ballard formalized in 1999.
 - **Information bottleneck (prefigured)** — Tishby's 2000 information-bottleneck principle is the IT-language descendant of Barlow's redundancy-reduction-with-fixed-capacity story. [Barlow Twins](barlow-twins-paper.md) explicitly derives its loss from the IB principle.
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md)
 
 ## Why ingest a 64-year-old neuroscience chapter into a robotics wiki
 

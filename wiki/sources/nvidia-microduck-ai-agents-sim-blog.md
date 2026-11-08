@@ -87,3 +87,6 @@ The blog's environment link points at the `develop` branch, which **redirects to
 - **Isaac Lab BAM vs mjlab BAM.** Do they yield interchangeable policies (same `obs[1,61] → actions[1,14]` contract)? Isaac Lab's port runs on the same MJWarp solver, so physics parity is plausible but untested.
 - ~~Companion HF tutorial not yet ingested~~ — now [ingested](../sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md). It confirms the **same 61→14 contract** as Pollen's runtime. It also shows the perception task's depth is a **rendered head-camera image** (RGB/depth/segmentation figure), not a ToF emulation. The two questions above about the obs/action contract and "which depth" are answered there; *physics parity* between stacks is still open.
 - No training time, reward design, success rate or agent-cost figures are given. The value of the agentic front half is asserted, not measured.
+
+## Cited by
+- [GPT-6 Astra](../entities/gpt-6-astra.md)

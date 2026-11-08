@@ -2,6 +2,8 @@
 title: "Are We Building Skynet? A Comprehensive Analysis of AI Autonomy in 2025"
 type: source
 url: https://medium.com/@bart.codeware/are-we-building-skynet-a-comprehensive-analysis-of-ai-autonomy-in-2025-7a5c7f6f9051
+local_path: raw/2025-medium-are-we-building-skynet.md
+sha256: 2caf605274a4f487e97f796c8c9172d99cec196f8f08cc10e31fc242489724f5
 author: Bart (bart.codeware)
 affiliations: Medium / independent
 published: Unknown (2025, inferred)
@@ -52,6 +54,7 @@ Author places current systems at Stage 2–3.
 
 ## Entities mentioned
 - [Apollo Research](../entities/apollo-research.md) — independent AI safety evaluation institute; evaluated Claude Opus 4
+- [Anthropic](../entities/anthropic.md)
 
 ## See also
 - [A Collectivist, Economic Perspective on AI (Jordan, 2025)](jordan-collectivist-economic-ai.md) — a rigorous treatment of the same "hype vs. hysteria" discourse this piece sits inside; Jordan opens by calling that dialogue "untethered to reality" and argues the *market*, not autonomy/Skynet, is the load-bearing metaphor. The two are a useful sensational-vs-serious pair on the AI-society axis.
@@ -60,3 +63,7 @@ Author places current systems at Stage 2–3.
 - Apollo Research primary report on Claude Opus 4 not linked; primary source not yet in wiki.
 - A2A protocol specification location (GitHub / Google AI blog) not cited in article.
 - MCP connector count is a point-in-time figure (grows rapidly); no date attached.
+
+## Cited by
+- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md)
+- [AI safety and alignment](../concepts/safety/ai-safety-alignment.md)

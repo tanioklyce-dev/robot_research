@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-08-13
 updated: 2026-08-13
-sources: 1
+sources: 3
 tags: [langchain, langgraph, agent-framework, llm-application, integrations, mit, dimos]
 ---
 

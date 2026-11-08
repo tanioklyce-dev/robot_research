@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-10
 updated: 2026-05-10
-sources: 1
+sources: 2
 tags: [person, uc-berkeley, accessibility, hci, blind-users, ai]
 ---
 

@@ -94,3 +94,7 @@ Sharper than the "720p, 20–24 fps" of DeepMind's own materials, and it confirm
 - **A competitor benchmarked Genie 3.** Alibaba's lab ranks Genie 3 first in FPV and its own Happy Oyster second — which is evidence *against* thumb-on-scale, but the evaluation of closed models runs through whatever public interface those products expose, and the paper notes inputs are mapped "into the closest supported control format for each model."
 - **The physics-vs-action tension is unresolved.** If refusing to clip through a wall costs action-following points, the aggregate Overall Score is penalizing correct behavior. Nobody has proposed the right scoring rule.
 - **How does the "few minutes of coherence" claim relate to these scores?** The [HAI brief](hai-world-model-spatial-intelligence-brief.md) says Genie 3 stayed coherent a few minutes at its 2025 release; this benchmark runs 10–60 s. The regime where the coherence limit actually bites is longer than anything measured here.
+
+## Cited by
+- [World-model simulators](../concepts/world-models/world-model-simulators.md)
+- [Robbyant (Ant Group robotics)](../entities/robbyant.md)

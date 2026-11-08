@@ -4,7 +4,7 @@ type: entity
 subtype: vlm
 created: 2026-07-17
 updated: 2026-11-07
-sources: 9
+sources: 10
 tags: [molmo, molmo2, vlm, allen-institute, ai2, pixmo, open-weights, open-data, pointing, vla-backbone]
 ---
 

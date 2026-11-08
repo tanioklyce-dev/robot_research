@@ -40,3 +40,6 @@ Complete publication record (2016–2025) of the Human-Centered Robotics Lab (HC
 - What are the specific failure modes documented in the HRI 2025 out-of-lab feeding deployment?
 - Does the "sense of agency" paper (RO-MAN 2025) quantify which task categories users most want to control vs. delegate?
 - Skild AI collaboration? (The lab works with Dieter Fox at NVIDIA/UW — possibly adjacent to foundation-model robotics.)
+
+## Cited by
+- [Amal Nanavati](../entities/amal-nanavati.md)

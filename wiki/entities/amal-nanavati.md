@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-09
 updated: 2026-05-16
-sources: 1
+sources: 5
 tags: [amal-nanavati, assistive-robotics, hcrlab, uw, par, feeding-robot, systematic-review]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-09-11
 updated: 2026-09-11
-sources: 5
+sources: 6
 tags: [bitrobot, crowdsourcing, robot-data, network, blockchain, depin, subnets, humanoid, earth-rovers, frodobots, protocol-labs, dataset-publisher, evaluation]
 ---
 

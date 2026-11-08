@@ -142,3 +142,6 @@ The argument-level safety layer, prompted by [Guardrails for robot agents](../sy
 - **Skeleton, not proven** — the `ros_bridge.py` action/service calls (Nav2, Rosetta policy, detector, TTS) are TODO stubs; the wired lifecycle + robot_info pub/sub were verified against a **fake rclpy** only, not a real ROS 2 install (check: `ros2 topic echo /lekiwi/mcp/robot_info` should show 1 Hz JSON cards).
 - **SSE transport** for the fleet-master deployment is not yet implemented.
 - Whether it generalizes beyond the SO-ARM101 fleet (the tool set is generic; only the configs are fleet-specific).
+
+## Cited by
+- [AI red-teaming and LLM vulnerability scanning](../concepts/safety/ai-red-teaming.md)

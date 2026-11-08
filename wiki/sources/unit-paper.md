@@ -104,3 +104,6 @@ The controlled comparison is **VLA-UniT 66.7 vs GR00T-Qwen2.5 47.8** — *same a
 - [Action representation languages](../syntheses/agents/action-representation-languages.md) — the unreadable end of the spectrum, argued for on the merits
 - [VLA models](../concepts/learning/vla-models.md) · [World-action model](../concepts/world-models/world-action-model.md) — WM-UniT is one
 - [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md) — human-to-humanoid is a distinct transfer axis
+
+## Cited by
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)

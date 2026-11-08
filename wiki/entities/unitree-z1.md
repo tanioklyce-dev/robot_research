@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-09-11
 updated: 2026-09-11
-sources: 1
+sources: 2
 tags: [unitree-z1, unitree, robot-arm, manipulator, 6-dof, force-control, mobile-manipulation, china, affordable]
 ---
 

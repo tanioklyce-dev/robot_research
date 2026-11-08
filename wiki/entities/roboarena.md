@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-07-27
 updated: 2026-10-27
-sources: 3
+sources: 7
 tags: [roboarena, benchmark, evaluation, real-world, droid, bradley-terry, pairwise-preference, distributed, leaderboard]
 ---
 

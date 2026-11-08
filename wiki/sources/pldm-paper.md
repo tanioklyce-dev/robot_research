@@ -116,3 +116,8 @@ The PLDM paper itself doesn't dispute LeWM (it predates LeWM); the comparison ru
 - **Appendix E.1.1 detailed loss decomposition** — the exact hyperparameter count and weight schedule isn't unpacked here. Worth a re-read if Module 12's "6 hyperparameters" framing needs to be sharpened.
 - **Author entity pages for Vlad Sobal** — appears as lead author on the PLDM lineage; could anchor the NYU LeCun-line research thread alongside [Lerrel Pinto](../entities/lerrel-pinto.md) and [Mahi Shafiullah](../entities/mahi-shafiullah.md).
 - **Comparison with [LeWM](../entities/leworldmodel.md) on PLDM's own benchmarks** — LeWM uses different environments (PushT, Reacher, OGBench-Cube, Two-Room — note: "Two-Room" appears in both papers but the LeWM Two-Room may differ from PLDM's Two-Rooms; worth verifying). A head-to-head on identical setups would isolate the SIGReg contribution.
+
+## Cited by
+- [Optimal control](../concepts/robotics/optimal-control.md)
+- [Siamese network](../concepts/world-models/siamese-network.md)
+- [Slow-feature collapse](../concepts/world-models/slow-feature-collapse.md)

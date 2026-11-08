@@ -144,3 +144,6 @@ The **12 hand-picked numbers beat every learned geometric encoding of the grippe
 - **What is a swept-volume cube for a suction cup, an underactuated soft gripper, or the [SO-101](../entities/so-arm101.md)'s printed jaw?** The representation assumes fingers that close through a volume. Two of those three do not.
 - Table A2's **OnRobot RG2 regression** is unexplained beyond a hypothesis. Is there a diagnosable morphology class where the cube abstraction is actively misleading?
 - The **2 B-grasp checkpoint's numbers are unpublished.** Only its dataset size is reported.
+
+## Cited by
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)

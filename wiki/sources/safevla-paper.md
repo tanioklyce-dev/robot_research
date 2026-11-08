@@ -156,3 +156,6 @@ Further caveats, most of which the authors state:
 - **What happens to the multiplier under distribution shift at deployment?** λ is adapted during training and then frozen. A CMDP guarantee is about the training distribution; nothing here re-derives it for a shifted one, and OOD testing measures outcomes rather than constraint satisfaction.
 - **Would predicate specification survive an adversary?** The predicates are hand-written, then validated by GPT-4 discovery on the *same* policies' rollouts. Neither step is adversarial. Compare [ASIMOV](asimov-benchmark-paper.md)'s auto-red-teaming and [predictive red teaming](predictive-red-teaming-paper.md).
 - **Safety-CHORES is a benchmark this wiki should want and cannot yet use** — it is AI2-THOR-based, navigation-and-pick-and-place, no force. What would the contact-rich equivalent even be built on? Nothing in the [simulator landscape](../syntheses/simulators/simulators-for-agentic-robotics-2026.md) currently pairs procedural scene generation with credible contact physics at 150K-scene scale.
+
+## Cited by
+- [Real-world robotic reinforcement learning](../concepts/learning/real-world-robot-rl.md)

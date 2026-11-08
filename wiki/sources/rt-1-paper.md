@@ -81,3 +81,6 @@ RT-1 serves as the low-level policy inside [SayCan](../entities/saycan.md) for *
 - [Imitation learning](../concepts/learning/imitation-learning.md) — behavior cloning at 130k demonstrations
 - [Control abstraction levels](../concepts/robotics/control-abstraction-levels.md) — the pretrained policy that SayCan commands
 - [Scaling laws — VLAs](../concepts/learning/scaling-laws-vla.md) — the first serious data/model/diversity ablation in real robotics
+
+## Cited by
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)

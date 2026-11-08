@@ -3,7 +3,7 @@ title: Spatial intelligence
 type: concept
 created: 2026-08-07
 updated: 2026-09-12
-sources: 7
+sources: 11
 tags: [spatial-intelligence, world-model, embodied-ai, policy, stanford-hai]
 ---
 

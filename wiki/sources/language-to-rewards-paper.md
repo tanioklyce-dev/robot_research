@@ -44,6 +44,7 @@ Simulated quadruped and dexterous manipulator. Protocol: **10 responses generate
 - **[Language to Rewards](../entities/language-to-rewards.md)** — the subject of this source.
 - [Google DeepMind](../entities/google-deepmind.md) · [MuJoCo](../entities/mujoco.md) (MJPC as the real-time optimizer)
 - [Brian Ichter](../entities/brian-ichter.md) · [Andy Zeng](../entities/andy-zeng.md) · [Fei Xia](../entities/fei-xia.md)
+- [VoxPoser](../entities/voxposer.md)
 
 ## Concepts touched
 - [Code as policy](../concepts/agents/code-as-policy.md) — the "model writes a reward" branch.

@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-09-07
 updated: 2026-09-07
-sources: 1
+sources: 3
 tags: [person, google-deepmind, agi, timelines, world-model, continual-learning, nobel]
 ---
 

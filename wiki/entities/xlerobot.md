@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-10
 updated: 2026-09-11
-sources: 33
+sources: 34
 tags: [xlerobot, mobile-manipulator, dual-arm, lerobot, lekiwi, so-arm101, low-cost, household-robot, embodied-ai, sourccey]
 ---
 
@@ -116,7 +116,7 @@ These are the strongest external signals to date that the $660 BOM holds up when
 
 ## Mentioned in
 
-> [!note] Curated list — **31** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **34** source pages link here; the ones below are those that shaped this page.
 
 
 - [XLeRobot Documentation](../sources/xlerobot-docs.md)

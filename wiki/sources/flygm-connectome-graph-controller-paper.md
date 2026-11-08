@@ -86,3 +86,6 @@ Newer synapse detections and sex-specific annotations not used; longer per-step 
 - **Timescale.** One graph step per control step; whether multiple propagation steps per action (closer to neural dynamics) help or hurt is untested.
 - **Beyond locomotion.** Manipulation-like tasks (grooming, feeding) would test the claim that the prior is general.
 - **Is the advantage from the fly's wiring specifically, or from any evolved small-world graph?** The rewiring control preserves degree, not community structure.
+
+## Cited by
+- [Drosophila melanogaster](../entities/drosophila.md)

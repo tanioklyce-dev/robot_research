@@ -2,6 +2,8 @@
 title: "LeWorldModel — Navigate the World from Raw Pixels"
 type: source
 url: https://medium.com/mlworks/leworldmodel-navigate-the-world-from-raw-pixels-b9bdce1fb34c
+local_path: raw/2026-03-30-medium-lewm-navigate-world.md
+sha256: ef77fc6e938f73e9758b52b4e72ec7f3bd1c3c86965d6a2e9a49195809441b93
 author: Mayur Jain
 affiliations: MLWorks (Medium)
 published: 2026-03-30

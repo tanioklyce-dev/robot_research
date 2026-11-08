@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-08-28
 updated: 2026-08-28
-sources: 9
+sources: 11
 tags: [figure, figure-03, humanoid, bipedal, helix, tactile-sensing, botq, home-robotics, bmw, vendor-source]
 status: partial
 ---

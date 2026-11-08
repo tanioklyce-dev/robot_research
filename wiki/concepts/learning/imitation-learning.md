@@ -3,7 +3,7 @@ title: Imitation learning
 type: concept
 created: 2026-05-07
 updated: 2026-10-07
-sources: 111
+sources: 124
 tags: [imitation-learning, behavior-cloning, demonstrations, lerobot, act, co-training, mobile-aloha]
 ---
 
@@ -56,7 +56,7 @@ A prerequisite the talk is clear about: none of this works on logs. Replaying dr
 
 ## Mentioned in
 
-> [!note] Curated list — **98** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **124** source pages link here; the ones below are those that shaped this page.
 
 - [Kober, Bagnell & Peters 2013 — RL in Robotics Survey](../../sources/kober-rl-robotics-survey-2013.md) — §5.1 demonstrations-remove-global-exploration; kinesthetic teach-in; apprenticeship learning.
 - [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — the weighted RL+IL hybrid, with measured deceleration distributions.

@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-06-02
 updated: 2026-06-02
-sources: 1
+sources: 2
 tags: [wolfram, cellular-automata, rule-30, computational-irreducibility, computational-equivalence, ruliology, nks, alife]
 ---
 

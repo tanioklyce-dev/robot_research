@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-07-13
 updated: 2026-09-13
-sources: 4
+sources: 5
 tags: [robot, bimanual, mobile-manipulation, manipulator, physical-ai, teleoperation, lerobot, jetson, vla]
 ---
 

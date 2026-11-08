@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-08-13
 updated: 2026-09-12
-sources: 2
+sources: 5
 tags: [robbyant, ant-group, lingbot, physical-ai, foundation-models, open-weights, china]
 ---
 

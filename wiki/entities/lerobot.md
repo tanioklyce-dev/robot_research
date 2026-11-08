@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-05-10
 updated: 2026-11-07
-sources: 57
+sources: 62
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026, xvla, sourccey, plugin-system]
 ---
 
@@ -181,7 +181,7 @@ Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distri
 - [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — the EnvHub recipe in detail: `lerobot-eval --env.type=isaaclab_arena --env.hub_path=nvidia/isaaclab-arena-envs` with `nvidia/smolvla-arena-gr1-microwave`; documented against Arena release/0.1.1 + Isaac Sim 5.1, with hand-pinned numpy and a reported `packaging` conflict — whether EnvHub tracks Arena v0.3 is unstated.
 - [NVIDIA to acquire Hugging Face](../sources/nvidia-hugging-face-acquisition.md) — the maintainer changes hands.
 
-> [!note] Curated list — **50** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **62** source pages link here; the ones below are those that shaped this page.
 
 
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **canonical academic reference**; Cadene, Aliberts, Capuano, …, Wolf; 17 HF authors.

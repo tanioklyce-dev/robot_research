@@ -110,3 +110,6 @@ Most skills trained in simulation with **[NVIDIA Isaac Lab](../entities/nvidia-i
 - **Does the semantic map come from [Niantic Spatial](../entities/niantic-spatial.md)?** *"From a scan of the building"* is suggestive given the [July collaboration](niantic-flexion-nvidia-sim2real.md), and unstated.
 - **Is "Reflex" the same policy as the v0 whole-body tracker**, or a rewrite? Claimed deployable *"on different robots and morphologies"* with no evidence of more than one.
 - **Real-world success rate for the headline mission** — the parcel run is shown end-to-end and never scored.
+
+## Cited by
+- [6-DOF grasp generation](../concepts/robotics/six-dof-grasp-generation.md)

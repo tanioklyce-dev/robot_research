@@ -42,3 +42,6 @@ tags: [artificial-life, alife, self-replication, emergence, brainfuck, bff, fort
 ## Open questions
 - The README lists more BFF variants (`bff8`, `bff_perm`, `bff_selfmove`) than the paper foregrounds — which variant maps to which paper figure isn't captured here.
 - Reproduction cost / runtime for the headline emergence experiments on CPU-only vs. CUDA is not documented in this capture (cf. the wiki's interest in single-GPU reproducibility for [LeWM](leworldmodel-paper.md)).
+
+## Cited by
+- [Alexander Mordvintsev](../entities/alexander-mordvintsev.md)

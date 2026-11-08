@@ -74,6 +74,7 @@ tags: [rpg, code-as-policy, agent-as-policy, self-improvement, skill-library, sy
 
 ## Entities mentioned
 - [RPG](../entities/rpg.md) · [ASPIRE](../entities/aspire.md) · [CaP-X](../entities/cap-x.md) · [Voyager](../entities/voyager.md) (lineage) · [YAM](../entities/yam.md) (robot)
+- [GPT-6 Astra](../entities/gpt-6-astra.md)
 
 ## Concepts touched
 - [Code as policy](../concepts/agents/code-as-policy.md): agent-as-policy plus a self-revising skill library.

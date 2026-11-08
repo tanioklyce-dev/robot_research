@@ -48,3 +48,6 @@ Directory-style — hundreds; only wiki-linked ones enumerated above. Companies 
 
 - Which gap categories are worth wiki investment: ~~robot-safety standards~~ (done — [robot safety standards](../concepts/robotics/robot-safety-standards.md)), **MBRL world models (Dreamer/TD-MPC2)** and **evaluation methodology (rliable/robomimic/RoboArena)** remain.
 - Whether a bigger-community awesome list (Awesome LLM Robotics, Awesome World Models — both in its "Related lists") would be a better recurring directory source than this one.
+
+## Cited by
+- [Deepak Pathak](../entities/deepak-pathak.md)

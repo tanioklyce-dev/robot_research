@@ -35,8 +35,8 @@ TRI shows up consistently across the cross-institutional robotics-foundation-mod
 
 - **[Diffusion Policy Paper](diffusion-policy-paper.md)**: Eric Cousineau, Benjamin Burchfiel, Siyuan Feng — TRI co-authors with Cheng Chi (Columbia), Yilun Du (MIT), and Shuran Song (Columbia).
 - **[UMI Project Page](umi-paper.md)**: Eric Cousineau, Benjamin Burchfiel, Siyuan Feng, **Russ Tedrake** — same TRI cohort, now also with Tedrake (TRI VP of Robotics Research, MIT).
-- **TRI LBM (Large Behavior Model)** — referenced in [RoboCasa365 Paper](robocasa365-paper.md) as a baseline. Not a primary ingest yet; TBD.
-- **Drake** — TRI/MIT's open-source robot simulation and dynamics library; on the wiki's TBD list.
+- **TRI LBM (Large Behavior Model)** — referenced in [RoboCasa365 Paper](robocasa365-paper.md) as a baseline. Since ingested as the [TRI LBM paper](tri-lbm-paper.md).
+- **[Drake](../entities/drake.md)** — TRI/MIT's open-source robot simulation and dynamics library.
 
 The pattern: TRI is consistently the *industrial arm* of academic robotics-foundation-model research — not the lead author, but the resourcing partner that puts grad students on Franka arms in real-world environments, alongside MIT/Stanford/Columbia.
 

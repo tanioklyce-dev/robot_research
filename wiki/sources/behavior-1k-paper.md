@@ -44,6 +44,7 @@ Successor to **BEHAVIOR-100** (iGibson 2.0-based; 100 activities, 15 house scene
 - [BEHAVIOR-1K](../entities/behavior-benchmark.md) — this is its primary source. [OmniGibson](../entities/omnigibson.md) — the simulator (own entity).
 - [Roberto Martín-Martín](../entities/roberto-martin-martin.md) — co-author (Stanford → UT Austin). Stanford Vision & Learning Lab; + UT Austin / UIUC / USC.
 - [NVIDIA Isaac Sim](../entities/nvidia-isaac-sim.md) / [OpenUSD](../entities/openusd.md) — the Omniverse substrate OmniGibson builds on. YOLOv3 ([Ultralytics YOLO](../entities/ultralytics-yolo.md) lineage). TIAGo ([Tiago](../entities/tiago.md)) real robot.
+- [SAC (Soft Actor-Critic)](../entities/sac.md)
 
 ## Concepts touched
 - [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md) — BEHAVIOR-1K is the **hard, long-horizon, real-household end** of the gap (the paper's 0%–22% real-robot numbers; the AI-Index [12.4% challenge figure](stanford-hai-ai-index-2026.md) is a later, separate BEHAVIOR-1K Challenge result).

@@ -108,6 +108,7 @@ Keep latency-sensitive code on the A76s when measured; A55s for background and c
 - [Jetson Orin Nano](../entities/jetson-orin-nano.md) — the CUDA comparator at ~5× the bandwidth.
 - [Microduck](../entities/microduck.md) — RK3566 sibling; its runtime measures the NPU end-to-end.
 - Qwen2.5-7B-Instruct ([Qwen](../entities/qwen.md)) — the benchmark model.
+- [RKNN-Toolkit2 (Rockchip NPU SDK)](../entities/rknn-toolkit2.md)
 
 ## Concepts touched
 - [Heterogeneous edge SoCs and the shared-memory budget](../concepts/robotics/heterogeneous-edge-soc.md) — new concept page built from this source.
@@ -121,3 +122,6 @@ Keep latency-sensitive code on the A76s when measured; A55s for background and c
 - **Multi-core NPU scaling on a real detector** — the article says three cores ≠ 3×, but gives no measured ratio.
 - **Mainline vs BSP kernel**: which of NPU / MPP / RGA / Mali-OpenCL is reachable on a 6.x mainline kernel today? The article says "it depends" and stops.
 - The article cites its own earlier RK1 benchmark, RK3588 LLM benchmark and Jellyfin guide for the STREAM, GGUF and transcode numbers; those primaries are not ingested.
+
+## Cited by
+- [RKLLM (airockchip/rknn-llm)](../entities/rknn-llm.md)

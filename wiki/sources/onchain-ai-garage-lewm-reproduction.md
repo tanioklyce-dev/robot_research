@@ -106,3 +106,8 @@ This video is the **first independent reproduction artifact** in the wiki. Add a
 - **The host's prediction-loss starting value (0.08) is substantially lower than the paper's (0.25)** — possibly due to a different normalization, Two Room being simpler than PushT, or different hyperparameters. Worth checking against `stable-worldmodel` defaults.
 - **Newsletter URL** (`on-chain-ai-garage.com`) is mentioned verbally but not verified. If the author becomes a recurring source, this is worth confirming.
 - **The host's use of Claude Code throughout** is wiki-relevant — it's the first example in the wiki of someone using a coding agent end-to-end to drive a JEPA reproduction. The pattern (plan in main session → handoff markdown → execute in WSL session) is a generalizable template.
+
+## Cited by
+- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md)
+- [Optimal control](../concepts/robotics/optimal-control.md)
+- [Andrej Karpathy](../entities/andrej-karpathy.md)

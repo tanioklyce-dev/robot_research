@@ -2,6 +2,8 @@
 title: "Learning Control-Oriented Dynamical Structure from Data"
 type: source
 url: https://arxiv.org/abs/2302.02529
+local_path: raw/2023-06-learning-control-oriented-dynamical-structure-2302.02529.md
+sha256: b1fdcf1f8e4a5c312780e611bb300433573b9cf9aa48a16cdfb9a5a50bf6be39
 author: Spencer M. Richards, Jean-Jacques Slotine, Navid Azizan, Marco Pavone
 affiliations: MIT; Stanford
 published: 2023-06-24
@@ -49,8 +51,12 @@ Both papers share [Navid Azizan](../entities/navid-azizan.md) as author. This pa
 
 ## Entities mentioned
 - [Navid Azizan](../entities/navid-azizan.md) — MIT; co-author
+- [Marco Pavone](../entities/marco-pavone.md)
 
 ## Open questions
 - How does SD-LQR scale to real robot DOFs (6+ axes, contact dynamics)?
 - Relationship to Koopman operator methods (also linearize nonlinear dynamics)?
 - Does the PVTOL result transfer to real hardware?
+
+## Cited by
+- [Optimal control](../concepts/robotics/optimal-control.md)

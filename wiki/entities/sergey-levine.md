@@ -3,8 +3,8 @@ title: Sergey Levine
 type: entity
 subtype: person
 created: 2026-05-08
-updated: 2026-09-11
-sources: 26
+updated: 2026-11-08
+sources: 27
 tags: [person, uc-berkeley, robot-learning, rl, real-world-rl, droid, metaworld]
 ---
 
@@ -24,7 +24,7 @@ tags: [person, uc-berkeley, robot-learning, rl, real-world-rl, droid, metaworld]
 ## Why it matters in this wiki
 Levine's appearances split two ways. **Infrastructure papers** — DROID (the canonical real-robot dataset) and Metaworld (the canonical meta-RL benchmark) — underpin the JEPA-for-robotics literature (V-JEPA 2, JEPA-WMs) and the broader RL/world-model literature. **Method papers** — the [SAC](../sources/sac-paper.md) (+ its [practical follow-up](../sources/sac-applications-paper.md)) → [RLPD](../sources/rlpd-paper.md) → [SERL](../sources/serl-paper.md) → [HIL-SERL](../sources/hil-serl-paper.md) lineage — are the wiki's anchor for [real-world robotic RL](../concepts/learning/real-world-robot-rl.md): RL trained directly on hardware to superhuman reliability, the counterpoint to the imitation-learning mainstream. Levine is senior author on all five, from the 2018 algorithmic root to the 2024 dexterous-manipulation system.
 
-Adjacent papers from Levine's group not yet ingested but commonly referenced: SAC, RT-1, RT-2, Octo, OpenVLA — multiple of these would deepen the wiki's coverage of the model-based-RL and VLA threads.
+Adjacent papers from Levine's group not yet ingested but commonly referenced: Octo, OpenVLA ([SAC](../sources/sac-paper.md), [RT-1](../sources/rt-1-paper.md) and [RT-2](../sources/rt-2-paper.md) are now filed) — these would deepen the wiki's coverage of the model-based-RL and VLA threads.
 
 ## Related
 - UC Berkeley EECS — affiliation.
@@ -53,4 +53,4 @@ Adjacent papers from Levine's group not yet ingested but commonly referenced: SA
 ## Open questions / TBD
 - DROID paper (arxiv 2403.12945) and Metaworld paper (arxiv 1910.10897) still worth filing to anchor those citations directly.
 - **AutoSERL** (Liu et al. 2026) extends the SERL line but is *not* a Levine paper — first external group to build on the ladder.
-- Octo / OpenVLA / RT-1 papers — Levine-affiliated; not yet ingested.
+- Octo / original OpenVLA papers — Levine-affiliated; not yet ingested. ([RT-1](../sources/rt-1-paper.md) is filed.)

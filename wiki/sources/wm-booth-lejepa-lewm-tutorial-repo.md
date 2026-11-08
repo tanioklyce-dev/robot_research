@@ -125,3 +125,6 @@ This is the cheapest instrument in the wiki for the failure mode its world-model
 - **Does the digit/position probe gap widen with rollout length?** If the latent is discarding identity to keep state, longer horizons should sharpen the effect. Two flags and a rerun.
 - **How does this scale to Push-T?** The gap between Moving MNIST and the wiki's [Push-T](../entities/pusht.md) results — where [stable-worldmodel](stable-worldmodel-paper.md) measured LeWM dropping from 50.8% to 6–26% under perturbation — is unbridged by anything here.
 - **The Day 3 video is not ingested.** The stream (`PkaYC3fwEsc`) was **still live with no captions of any kind** at 13.0 h elapsed on 2026-09-02, so there is nothing to transcribe. This repo is the code half of Tutorial Session 1; what the video would add is the narration, the two finance sessions, the Lambda infrastructure talk, and the **modeling challenge** — which is the part with no artifact here at all. See [backlog](../backlog.md).
+
+## Cited by
+- [Representation evaluation (k-NN, linear, MLP, fine-tuning, RankMe)](../concepts/learning/representation-evaluation.md)

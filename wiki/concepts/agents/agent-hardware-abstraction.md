@@ -3,7 +3,7 @@ title: Agent–hardware abstraction
 type: concept
 created: 2026-08-30
 updated: 2026-11-07
-sources: 2
+sources: 8
 tags: [hardware-abstraction, device-drivers, mcp, mhs, capability-manifest, agentic-robotics, discovery, standards]
 ---
 

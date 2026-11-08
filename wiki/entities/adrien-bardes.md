@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-07
 updated: 2026-10-24
-sources: 7
+sources: 8
 tags: [person, meta-fair, jepa, self-supervised, v-jepa, jepa-wms]
 ---
 

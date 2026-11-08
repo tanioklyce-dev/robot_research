@@ -31,6 +31,8 @@ ICLR 2026 conference paper introducing RoboCasa365 — a large-scale simulation 
 - [MimicGen](../entities/mimicgen.md)
 - [NVIDIA](../entities/nvidia.md)
 - [Octo](../entities/octo.md) — generalist-policy baseline.
+- [Toyota Research Institute (TRI)](../entities/tri.md)
+- [Yuke Zhu](../entities/yuke-zhu.md)
 
 ## Concepts touched
 - [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md)
@@ -42,3 +44,8 @@ ICLR 2026 conference paper introducing RoboCasa365 — a large-scale simulation 
 - Top model performance on the 365-task suite — not derived from the abstract; need to read results section in the PDF.
 - Does the 2.6× synthetic ratio plateau? More synthetic isn't always better.
 - TRI LBM and Octo are referenced as baselines — what's their relative ranking on this benchmark?
+
+## Cited by
+- [Large Behavior Models (LBMs)](../concepts/learning/large-behavior-models.md)
+- [World model](../concepts/world-models/world-model.md)
+- [RoboLab (NVIDIA SRL benchmark)](../entities/nvidia-robolab.md)

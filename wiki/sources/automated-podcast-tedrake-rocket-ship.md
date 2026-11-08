@@ -46,7 +46,7 @@ A 47-minute career-spanning interview with [Russ Tedrake](../entities/russ-tedra
 ## Entities mentioned
 
 - [Russ Tedrake](../entities/russ-tedrake.md) — subject; [TRI](../entities/tri.md) — LBM program home; Drake (see [Tedrake entity](../entities/russ-tedrake.md)); [Diffusion Policy](../entities/diffusion-policy.md) — LBM lineage
-- Generalist AI (discussed; no entity page), Boston Dynamics ecosystem via Mass Robotics, [Physical Intelligence](../entities/physical-intelligence.md)-adjacent VLA landscape (implicit)
+- [Generalist AI](../entities/generalist-ai.md) (discussed), Boston Dynamics ecosystem via Mass Robotics, [Physical Intelligence](../entities/physical-intelligence.md)-adjacent VLA landscape (implicit)
 - People: Brian Heater (host, ex-TechCrunch), Gil Pratt, Jerry Pratt, Dan Paluska, Peter Dilworth, Marc Raibert (hopping robots), Tad McGeer + Andy Ruina (passive dynamic walking), John Laird, Rich Sutton, Pieter Abbeel, Sebastian Seung (PhD advisor — from web bio, not the episode)
 
 ## Concepts touched

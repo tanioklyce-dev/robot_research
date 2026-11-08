@@ -80,6 +80,8 @@ Ablations named on the page: **Comparison with UMI** (on three of the four tasks
 - [UMI](../entities/umi.md) — the comparison baseline · [Franka Panda](../entities/franka-panda.md) · [xArm 7](../entities/xarm-7.md)
 - [Sensori Robotics](../entities/sensori-robotics.md) / [Yuri](../entities/yuri.md) — the wiki's other OpenArm platform
 - [Sourccey](../entities/sourccey.md), [XLeRobot](../entities/xlerobot.md), [SO-ARM101](../entities/so-arm101.md), [OpenFT sensor](../entities/openft-sensor.md) — the position-only tier this addresses
+- [OpenArm](../entities/openarm.md)
+- [WowRobo](../entities/wowrobo.md)
 
 ## Concepts touched
 

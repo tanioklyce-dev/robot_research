@@ -60,3 +60,6 @@ The AI HAT+ 2 is the first **NPU (non-CUDA) onboard-compute option** documented 
 - Can XLeRobot's SmolVLA / π0.5 be compiled to Hailo HEF at all, and at what latency? (No evidence today.)
 - PCIe lane usage on the Pi 5 — does the HAT+ 2 leave room for an NVMe SSD, or contend for the single lane like the original AI HAT+?
 - Power draw under sustained LLM load (the figure that would decide its fit on XLeRobot's 288 Wh / 300 W [C300 budget](../syntheses/platforms/jetson-onboard-compute-xlerobot.md)).
+
+## Cited by
+- [Heterogeneous edge SoCs and the shared-memory budget](../concepts/robotics/heterogeneous-edge-soc.md)

@@ -54,3 +54,10 @@ Primary source for **[GEAR-SONIC](../entities/gear-sonic.md)** ("**S**upersizing
 - Foot-placement sim-to-real gap remains the hardest.
 - Cross-tracker comparisons are cross-dataset (generalization evidence, not data-matched).
 - Positioned as a low-level foundation; higher-level perception/reasoning still built on top (the [GR00T](../entities/nvidia-groot.md) VLA half).
+
+## Cited by
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)
+- [Operational space control (and the constrained-QP safety layer under learned policies)](../concepts/robotics/operational-space-control.md)
+- [BeingBeyond](../entities/beingbeyond.md)
+- [Helix (Figure AI)](../entities/helix.md)
+- [Xue Bin (Jason) Peng](../entities/xue-bin-peng.md)

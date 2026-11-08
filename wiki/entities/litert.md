@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-08-27
 updated: 2026-10-13
-sources: 1
+sources: 3
 tags: [litert, tensorflow-lite, google, on-device, edge-ai, inference-runtime, xnnpack, npu, gemma4, quantization]
 ---
 

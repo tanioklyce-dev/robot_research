@@ -75,6 +75,7 @@ The paper situates flybody against:
 - [Imitation learning](../concepts/learning/imitation-learning.md) — DeepMimic-style imitation against high-speed real-fly trajectories.
 - [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md) — inverse direction here: real fly data → sim policy. Same toolchain.
 - [World model](../concepts/world-models/world-model.md) — orthogonal: flybody is a *physics-based* simulator, not a learned dynamics model.
+- [Connectome](../concepts/bio/connectome.md)
 
 ## Open questions
 

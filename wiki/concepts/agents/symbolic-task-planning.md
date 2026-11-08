@@ -3,7 +3,7 @@ title: Symbolic task planning (PDDL and generalized planning)
 type: concept
 created: 2026-08-04
 updated: 2026-11-07
-sources: 3
+sources: 9
 tags: [pddl, symbolic-planning, generalized-planning, classical-ai, action-representation, llm-planning, program-synthesis]
 ---
 

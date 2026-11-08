@@ -46,3 +46,6 @@ VLA-JEPA is a **third design point** in the JEPA-for-robotics taxonomy:
 - **VLA-JEPA — JEPA-as-auxiliary-objective inside a VLA policy, evaluated on LIBERO + SimplerEnv + real.**
 
 The simulator-environments-of-choice are now **fragmenting across the JEPA literature**, not consolidating. This makes the simple "JEPA skips heavy sim" pattern from the [original synthesis](../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md) hard to defend.
+
+## Cited by
+- [FLARE (Future Latent Representation Alignment)](../concepts/world-models/flare.md)

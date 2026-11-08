@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-07-05
 updated: 2026-07-17
-sources: 3
+sources: 7
 tags: [reinforcement-learning, off-policy-rl, maximum-entropy-rl, actor-critic, continuous-control, algorithm]
 ---
 

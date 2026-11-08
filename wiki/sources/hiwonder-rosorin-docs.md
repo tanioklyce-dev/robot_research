@@ -84,3 +84,7 @@ Same architecture as [stretch_ai](../entities/stretch-ai.md):
 - Privacy: cloud demos send video/audio to OpenAI / OpenRouter — no discussion in docs.
 - StepFun deserves its own coverage — Chinese multimodal AI provider, not stubbed yet.
 - No VLA work surfaced — Embodied AI is strictly LLM-agent, not VLA. Confirms the bifurcation already noted in the synthesis.
+
+## Cited by
+- [AI red-teaming and LLM vulnerability scanning](../concepts/safety/ai-red-teaming.md)
+- [Gemma 4](../entities/gemma4.md)

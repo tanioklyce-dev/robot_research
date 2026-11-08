@@ -81,6 +81,8 @@ This source is the **first wiki ingest of a hackathon where NVIDIA's GR00T N1.5 
 - [SIGRobotics-UIUC](../entities/sigrobotics-uiuc.md) — U.S. champion team
 - [K-Scale Labs](../entities/k-scale-labs.md) — mentor / partner
 - [Vector Wang](../entities/vector-wang.md) — XLeRobot creator; on-site mentor (implied)
+- [Jetson Thor](../entities/jetson-thor.md)
+- [Lightwheel](../entities/lightwheel.md)
 
 ## New entities surfaced (not yet broken out)
 

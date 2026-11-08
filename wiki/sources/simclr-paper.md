@@ -84,9 +84,13 @@ Semi-supervised with **1% of labels**: 75.5 top-5 (ResNet-50) → **85.8** (4×)
 - [Contrastive learning and InfoNCE](../concepts/learning/contrastive-learning.md) — **the canonical instantiation**.
 - [Representation evaluation](../concepts/learning/representation-evaluation.md) — the projector's information-discarding measurement.
 - [SSL anti-collapse lineage](../syntheses/world-models/ssl-anti-collapse-lineage.md) · [spectral theory of SSL](../concepts/learning/spectral-theory-of-ssl.md).
+- [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md)
 
 ## Open questions
 
 - **What is the colour-histogram shortcut's analogue in robotics?** SimCLR's insight is that a *dataset-specific low-level statistic* solved the pretext task and capped the representation. Robot data has obvious candidates — lighting, camera pose, background, time-of-day — and this wiki has no source that has looked for one. The [financial case](../concepts/economics/financial-time-series-augmentations.md) is the same failure in another domain, found by derivation rather than by ablation.
 - **Table 3's protocol is a general-purpose diagnostic and is barely used.** *"Train a probe to predict which augmentation was applied"* measures what the invariance actually destroyed, in one number per augmentation. It would say directly what a JEPA's or a world model's latent has thrown away.
 - **Global BN is a shortcut-elimination fix that has no analogue in most reimplementations.** Worth knowing when a distributed SSL run scores suspiciously well.
+
+## Cited by
+- [Energy-based models (EBMs)](../concepts/learning/energy-based-models.md)

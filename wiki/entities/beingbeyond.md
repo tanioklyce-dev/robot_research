@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-07-15
 updated: 2026-07-15
-sources: 1
+sources: 3
 tags: [beingbeyond, humanoid, whole-body-control, peking-university, zongqing-lu, china, robot-learning]
 ---
 

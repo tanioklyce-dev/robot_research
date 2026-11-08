@@ -34,6 +34,8 @@ tags: [dino-wm, world-model, dinov2, jepa-adjacent, zero-shot-planning, lecun, p
 - [PushT](../entities/pusht.md) — one of the six core eval environments.
 - [Yann LeCun](../entities/yann-lecun.md) — co-senior author.
 - [NVIDIA Isaac Lab](../entities/nvidia-isaac-lab.md) — referenced as platform context (no direct training there).
+- [DM Control Suite](../entities/dm-control.md)
+- [PointMaze](../entities/pointmaze.md)
 
 ## Concepts touched
 - [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — JEPA-adjacent: predicts in DINOv2 latent space, but uses a frozen encoder rather than learning the encoder end-to-end.
@@ -48,3 +50,7 @@ tags: [dino-wm, world-model, dinov2, jepa-adjacent, zero-shot-planning, lecun, p
 
 ## Why this matters
 DINO-WM is a **lightweight-sim** JEPA-adjacent world model — fits the original "JEPA skips heavy sim" pattern. PushT/Wall/PointMaze/Rope/Granular/Reacher are classic 2D/3D control benches, not [RoboCasa](../entities/robocasa.md)/[ManiSkill](../entities/maniskill.md)/[Isaac Lab](../entities/nvidia-isaac-lab.md). So DINO-WM **supports the lightweight-sim half** of the original synthesis even as Terver et al. break the no-sim half.
+
+## Cited by
+- [Lerrel Pinto](../entities/lerrel-pinto.md)
+- [Metaworld](../entities/metaworld.md)

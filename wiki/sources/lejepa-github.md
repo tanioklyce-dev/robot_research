@@ -81,3 +81,6 @@ The README's benchmark table is the parameter-efficiency argument: **LeJEPA ViT-
 - **Has anyone swept the univariate test?** Ten drop-in alternatives with unit tests, one used. `scripts/launch_epps_ablation.md` exists in the repo, so the authors ran something — the results are not in the README.
 - **Does the loss↔performance correlation survive into world models?** In [LeWM](../entities/leworldmodel.md) the loss has a prediction term as well as SIGReg, and the wiki's [stable-worldmodel](stable-worldmodel-paper.md) results show planning success collapsing under perturbation with no obvious loss signature.
 - **Is the VICReg-as-low-order-moments framing published anywhere**, or only implied by this module layout? It is a cleaner story than the wiki currently tells and deserves a citation.
+
+## Cited by
+- [Representation evaluation (k-NN, linear, MLP, fine-tuning, RankMe)](../concepts/learning/representation-evaluation.md)

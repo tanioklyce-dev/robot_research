@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-10-27
 updated: 2026-10-27
-sources: 1
+sources: 2
 tags: [aw-0, world-action-model, code-as-policy, mixture-of-transformers, masked-diffusion, nvidia-gear, uc-berkeley, yam, sharpa-wave, skill-library]
 ---
 

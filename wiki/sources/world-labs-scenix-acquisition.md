@@ -36,6 +36,7 @@ It dates the strategic pivot. World Labs entered this wiki (via the [HAI brief](
 
 - [World Labs](../entities/world-labs.md) — acquirer.
 - [SceniX](../entities/scenix.md) — acquired 2026-07-21.
+- [Fei-Fei Li](../entities/fei-fei-li.md)
 
 ## Concepts touched
 
@@ -47,3 +48,6 @@ It dates the strategic pivot. World Labs entered this wiki (via the [HAI brief](
 
 - **No terms disclosed** — price, structure, headcount, whether SceniX had shipped commercially, who its customers were.
 - **No SceniX pre-acquisition record in the wiki.** Founding date, funding, team, and any published papers are unknown. [Yunzhu Li](../entities/yunzhu-li.md) appears alongside Fei-Fei Li in the companion a16z conversation about the acquisition, but this post does not state his affiliation or role.
+
+## Cited by
+- [Marble](../entities/marble.md)

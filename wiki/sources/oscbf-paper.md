@@ -116,6 +116,7 @@ The distinction is not academic, and §V-D is the paper's sharpest empirical poi
 - [Optimal control](../concepts/robotics/optimal-control.md) — the MPC comparison, and the QP-per-tick pattern.
 - [Formal verification](../concepts/learning/formal-verification.md) — set invariance as the safety property; the closest neighbor in the wiki is [safely learning dynamical systems](safely-learning-dynamical-systems-paper.md), which gives certificates for linear/polynomial systems.
 - [Whole-body control](../concepts/robotics/whole-body-control.md) — task hierarchies and null-space projection, here on a fixed-base arm.
+- [Safety filters for learned policies](../concepts/robotics/safety-filters.md)
 
 ## Open questions
 

@@ -118,6 +118,7 @@ The release covers assets, generators, 85,336 long-horizon demonstrations (~1,60
 - [Isaac Lab](../entities/nvidia-isaac-lab.md) · [Franka](../entities/franka-panda.md) (FR3)
 - [Anthropic](../entities/anthropic.md) (Claude Opus 5.5, Claude Fable 5.1) · [OpenAI](../entities/openai.md) (Astra, by link only)
 - ManiFlow, Wan 2.2, FastFoundationStereo, MolmoBot and MolmoSpaces (no pages yet)
+- [GPT-6 Astra](../entities/gpt-6-astra.md)
 
 ## Concepts touched
 - [Robot policy evaluation](../concepts/robotics/robot-policy-evaluation.md): a controlled world with metrics beyond success.

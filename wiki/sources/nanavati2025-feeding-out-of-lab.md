@@ -31,6 +31,8 @@ End-to-end open-source robot-assisted feeding system designed for out-of-lab use
 
 - [Maya Cakmak](../entities/maya-cakmak.md)
 - [HCR Lab](../entities/hcrlab.md)
+- [Kinova Jaco (assistive robotic arm)](../entities/kinova-jaco.md)
+- [Kinova](../entities/kinova.md)
 
 ## Concepts touched
 
@@ -42,3 +44,7 @@ End-to-end open-source robot-assisted feeding system designed for out-of-lab use
 - Were the 3-location on-campus results broken down by location? (cafeteria vs. conference room vs. office likely differ in noise, space, lighting)
 - What was the full list of off-nominal scenarios co-created with CR1? (Table II in paper shows examples)
 - Long-term outcome: Does the system continue being used after the study period?
+
+## Cited by
+- [Aging in place](../concepts/robotics/aging-in-place.md)
+- [Amal Nanavati](../entities/amal-nanavati.md)

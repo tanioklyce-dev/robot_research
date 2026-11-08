@@ -44,3 +44,7 @@ HIL-SERL works but needs a human at the SpaceMouse for the whole 1–2.5 hr trai
 - **Generality of the demo-derived guidance.** The sliding-window + recovery mechanisms assume the single demo's trajectory is a good scaffold; how this degrades on tasks with many valid strategies (multi-modal) or long horizons (HIL-SERL's dual-arm assembly) is untested — the task set here is single-arm precision.
 - **New research group in the wiki.** First ingest from the CAS / PKU-PsiBot / Peking University cluster (Ceyao Zhang corresponding); no entity pages for these labs yet.
 - **v1 preprint.** Not yet peer-reviewed at ingest.
+
+## Cited by
+- [Jianlan Luo](../entities/jianlan-luo.md)
+- [SAC (Soft Actor-Critic)](../entities/sac.md)

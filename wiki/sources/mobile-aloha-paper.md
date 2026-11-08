@@ -153,3 +153,9 @@ Mobile base has a velocity-control delay >10 cm error on 1m-radius 180° turns. 
 2. **Establishes the co-training-with-static-data pattern as an IL primitive.** This is the same pattern the wiki tracks under different names: [DROID + scene diversity](../entities/droid.md), [RUM + data diversity over quantity](../entities/robot-utility-models.md), [EgoScale + human-video pretraining](../sources/egoscale-paper.md). Mobile ALOHA is the **smallest-scale demonstration** — 825 static demos + 20–50 in-domain → +90% on hard tasks — which makes it the cleanest evidence that the pattern generalizes downward, not just to web-scale.
 3. **Bimanual mobile-manipulation hardware reference** — until now the wiki's mobile-manipulation coverage was [Stretch](../entities/stretch.md) (single arm + lift), [TurtleBot](../entities/turtlebot.md) (mobile, no arm), and [Reachy](../entities/reachy.md) (bimanual stationary). Mobile ALOHA defines the academic-budget bimanual-mobile reference.
 4. **Action chunking + base-delay-shift** is the kind of mobile-IL trick that's easy to miss in a paper-skim but matters operationally. Filed on the [imitation learning concept page](../concepts/learning/imitation-learning.md).
+
+## Cited by
+- [Dexterous tool manipulation](../concepts/robotics/dexterous-tool-manipulation.md)
+- [Belief states and mixed states](../concepts/world-models/belief-states-and-mixed-states.md)
+- [World-model evaluation](../concepts/world-models/world-model-evaluation.md)
+- [SmolVLA](../entities/smolvla.md)

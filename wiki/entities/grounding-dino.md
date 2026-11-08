@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-04
 updated: 2026-08-04
-sources: 1
+sources: 2
 tags: [grounding-dino, open-vocabulary-detection, visual-grounding, cross-attention, vision-language, detr]
 ---
 

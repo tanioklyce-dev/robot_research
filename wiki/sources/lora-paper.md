@@ -132,3 +132,6 @@ Three readings, in the authors' order: `ΔW` correlates with `W` **more than ran
 - **Why is attention-only still the default in 2026?** The paper deferred MLP adaptation "to a future work" and the field largely kept the deferral, even though later PEFT practice does target MLP/`all-linear`. No ingested robotics source justifies its target-module choice.
 - **Where does `r` stop being flat for robot data?** X-VLA's 9 M-parameter (1%) LoRA matching fully-finetuned π0 is the wiki's strongest evidence that the flatness transfers ([X-VLA](xvla-paper.md), Tab. 3). But footnote 6's caveat — different *distribution* needs more rank — is exactly the cross-embodiment case.
 - **The merged-batching limitation is now a product category.** vLLM/S-LoRA-style multi-adapter serving resolves §4.2's stated limitation; no primary on that is ingested.
+
+## Cited by
+- [Continual learning and catastrophic forgetting](../concepts/learning/continual-learning.md)

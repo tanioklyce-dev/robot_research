@@ -2,6 +2,8 @@
 title: V-JEPA 2 GitHub (facebookresearch/vjepa2)
 type: source
 url: https://github.com/facebookresearch/vjepa2
+local_path: raw/2026-05-09-vjepa2-github-readme.md
+sha256: a568bff76d9779930ad0e44126a0ed57e52b09eb5cd87e149733c8f5470da374
 author: Meta FAIR
 affiliations: Meta FAIR
 published: Unknown

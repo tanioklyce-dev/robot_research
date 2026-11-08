@@ -32,3 +32,6 @@ NVIDIA technical blog announcing Newton 1.0 GA (announced at GTC 2026) as a prod
 ## Open questions
 - How does Newton 1.0 differ in capability from the late-2025 preview version?
 - Is GR00T N1.6 the same release as N1.7 Early Access mentioned elsewhere ([Top 10 Physical AI Models 2026](top-10-physical-ai-models-2026.md))?
+
+## Cited by
+- [VLA models](../concepts/learning/vla-models.md)

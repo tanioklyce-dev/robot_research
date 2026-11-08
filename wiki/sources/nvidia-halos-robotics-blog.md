@@ -81,3 +81,6 @@ The **technical deep-dive** companion to the [Halos for Robotics AI Trust Center
 
 - Still unresolved: whether the **learned policy** itself is ever certified, or only the deterministic FSI-resident safety layer around it (the blog certifies the *platform + safety application*, not the AI policy).
 - The AI-Trust-Center page named the Outside-In deploy skill `hoisa-deploy-profile`; this blog names `warehouse-deploy` + `halos-deploy` — likely multiple/renamed skills; worth reconciling on next Halos update.
+
+## Cited by
+- [NVIDIA Sentry](../entities/nvidia-sentry.md)

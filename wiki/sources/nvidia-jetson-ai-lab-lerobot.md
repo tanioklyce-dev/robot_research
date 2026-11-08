@@ -60,3 +60,7 @@ It answers a narrow, practical question — *"how do I get the full LeRobot tele
 - **Is there a maintained successor?** The page is archived; NVIDIA may have folded LeRobot guidance into newer Jetson AI Lab / GR00T material. Not yet ingested.
 - **Does `dustynv/lerobot` track current upstream LeRobot** (the `lerobot-record`/`lerobot-train` CLI, SmolVLA/π0 support), or is it frozen at the Koch/ACT-era API shown here? The container registry state is unverified.
 - **Orin Nano 8 GB "caveats"** — the page doesn't quantify them; [Cutting the Cord](cutting-the-cord-untethered-xlerobot.md) later supplies the real onboard-Orin-Nano latency numbers for ACT/Diffusion/SmolVLA.
+
+## Cited by
+- [LangChain](../entities/langchain.md)
+- [ZeroMQ](../entities/zeromq.md)

@@ -125,3 +125,8 @@ The TMLR-version ingest changes the wiki's read of this paper in three ways:
 1. **The "JEPA into heavy sim" framing remains correct** — RoboCasa is the first heavy-sim entry from the FAIR JEPA line, and this paper drives the [revised "JEPA + sim" synthesis](../syntheses/world-models/why-jepa-research-skips-the-simulator-stack.md). Nothing in the full paper undercuts that read.
 2. **The architectural lessons are now load-bearing for the broader JEPA concept page.** AdaLN+RoPE > sincos / sequence conditioning; DINO ≫ V-JEPA as frozen backbone; 2-step rollout ≈ scheduled sampling; CEM-L₂ as the default planner. These are the first published systematic ablations of these axes for JEPA-style world models, and they should now anchor the [JEPA concept page](../concepts/world-models/jepa.md).
 3. **The "fair beat us in robotics" framing is now defensible** — Ours > V-JEPA-2-AC on every evaluated env where both ran (Rc-R, Rc-Pl, DROID), and Ours > DINO-WM on every env. This makes JEPA-WMs the **new strongest published JEPA-style robot-planning baseline** as of mid-2026.
+
+## Cited by
+- [Flow matching](../concepts/learning/flow-matching.md)
+- [World-model evaluation](../concepts/world-models/world-model-evaluation.md)
+- [DINO-world](../entities/dino-world.md)

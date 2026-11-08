@@ -42,3 +42,6 @@ The paper that founded the [single-stage detection](../concepts/robotics/single-
 
 - The one-class-per-cell and 2-box-per-cell constraints are v1-specific; anchor boxes (v2), FPN multi-scale heads, and anchor-free heads (v8+) all exist to relax them — see the [YOLO version lineage](../syntheses/vision/yolo-version-lineage.md).
 - The "fewer background false positives" property is often lost in citation; whether it survives into anchor-free NMS-free descendants (v10/v26) is not something the surveys quantify head-to-head.
+
+## Cited by
+- [YOLO-NAS](../entities/yolo-nas.md)

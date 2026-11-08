@@ -20,6 +20,7 @@ ArXiv paper introducing MS-HAB — a GPU-accelerated implementation of the Home 
 - [ManiSkill](../entities/maniskill.md)
 - [Hillbot](../entities/hillbot.md)
 - [SAPIEN](../entities/sapien.md)
+- [Habitat](../entities/habitat.md)
 
 ## Concepts touched
 - Long-horizon manipulation chains
@@ -29,3 +30,6 @@ ArXiv paper introducing MS-HAB — a GPU-accelerated implementation of the Home 
 ## Open questions
 - How does MS-HAB compare in throughput to [AGIBOT Genie Sim 3.0](../entities/agibot-genie-sim.md) or [NVIDIA Isaac Lab](../entities/nvidia-isaac-lab.md)?
 - VLA model leaderboard on the suite?
+
+## Cited by
+- [Motion planning (classical)](../concepts/robotics/motion-planning.md)

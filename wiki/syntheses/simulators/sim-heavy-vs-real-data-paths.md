@@ -2,7 +2,7 @@
 title: Sim-heavy vs real-data paths to generalist policies
 type: synthesis
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-11-08
 tags: [generalist-policies, vla, imitation-learning, sim-to-real, synthetic-data, world-models]
 ---
 
@@ -56,7 +56,10 @@ Pretrain a representation or world model on **massive action-free internet video
 | Real-robot evaluation | Variable — many sim-trained VLAs lack real-deploy results in the sources | Yes — Stretch + xArm 7 | Yes — Franka |
 | Sim-to-real burden | High (the entire physics + scene + rendering pipeline exists for this) | None — there is no sim | Low — only the small interaction post-training touches a robot |
 
-The empirical asymmetry is striking. Path B and Path C have **published zero-shot real-robot results in unseen environments**. Path A has the biggest *benchmarks* but the source pages don't surface comparable in-the-wild deployment numbers — the real-world transfer claims for sim-trained VLAs are mostly held by individual VLA papers (GR00T, Pi) that this wiki has not ingested in depth.
+The empirical asymmetry is striking. Path B and Path C have **published zero-shot real-robot results in unseen environments**. Path A has the biggest *benchmarks* but the source pages don't surface comparable in-the-wild deployment numbers — the real-world transfer claims for sim-trained VLAs are mostly held by individual VLA papers (GR00T, Pi) that this wiki had not ingested in depth when this was written.
+
+> [!note] Stale as of 2026-11-08
+> The [GR00T](../../sources/groot-n1_5.md) and [π0](../../sources/pi-zero-paper.md) primaries have since been ingested. This comparison has not been redone against them, so treat the asymmetry above as provisional.
 
 ## When each path wins (current best read)
 

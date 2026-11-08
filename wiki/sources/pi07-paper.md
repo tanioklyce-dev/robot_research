@@ -80,6 +80,9 @@ Paper claims π0.7's compositional generalization is the **VLA equivalent of the
 - [BAGEL](../entities/bagel.md) — initialized from it as the subgoal-image world model (§V-B).
 - [Gemma 3](../entities/gemma3.md) — named in the model stack.
 - [Open X-Embodiment](../entities/open-x-embodiment.md) — part of the training mix.
+- [FAST (action tokenization) / π0-FAST](../entities/fast-action-tokenization.md)
+- [π0.5](../entities/pi-zero-5.md)
+- [π0.6 (and intermediates π0.5, π0.6-MEM)](../entities/pi-zero-6.md)
 
 ## Concepts touched
 
@@ -103,3 +106,6 @@ Paper claims π0.7's compositional generalization is the **VLA equivalent of the
 2. **The multimodal-context-conditioning recipe is the contribution**, not a new architecture. π0.7 = π0.6-MEM + prompt expansion + dropout-during-training to make every context component optional at test time. This is a recipe other VLAs can adopt.
 3. **Subgoal-image generation as a substrate for transfer** — using a web-pretrained image generator to produce subgoal images is how π0.7 imports non-robot knowledge into the policy. The world model + policy stack design (with separate models, not a single end-to-end stack) contrasts with JEPA-style integrated approaches.
 4. **Production-readiness signals**: "espresso machine out-of-the-box," "matches RL-fine-tuned models without RL fine-tuning," and the [π*0.6 RECAP sibling paper](pistar06-paper.md) (which runs the same hardware for 13 hours straight making espresso) together mark the first time Physical Intelligence has published evidence of multi-hour autonomous deployment of their VLA.
+
+## Cited by
+- [World-action model (WAM)](../concepts/world-models/world-action-model.md)

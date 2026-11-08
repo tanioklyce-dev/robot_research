@@ -2,6 +2,8 @@
 title: Arcade Learning Environment — Farama Project Page
 type: source
 url: https://ale.farama.org/
+local_path: raw/2026-05-09-ale-farama-project-page.md
+sha256: 5dc62362122b9ab59aa04ce56af407b64a884b2e20c18ce9a93e740ba6ac3cea
 author: Farama Foundation
 affiliations: Farama Foundation
 published: Unknown

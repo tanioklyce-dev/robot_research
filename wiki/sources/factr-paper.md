@@ -71,3 +71,6 @@ Second, **FACTR**, a training curriculum for using the force channel in behaviou
 - **Torque-sensor precision** on the Franka limits fine tasks (authors' limitation); FACTR 2's learned estimate is *less* noisy than the sensor in free space.
 - **Does the curriculum transfer to diffusion / flow policies?** Only ACT here; FACTR 2 runs both and finds the curriculum is beaten by up-sampling.
 - **Trial counts** — 5–10 per object; the headline is an average over few objects.
+
+## Cited by
+- [OpenArm](../entities/openarm.md)

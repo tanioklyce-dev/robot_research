@@ -19,6 +19,7 @@ MarkTechPost listicle surveying ten leading physical-AI / [VLA models](../concep
 ## Entities mentioned
 - [NVIDIA](../entities/nvidia.md)
 - [NVIDIA Cosmos](../entities/nvidia-cosmos.md)
+- [NVIDIA GR00T](../entities/nvidia-groot.md)
 
 ## Concepts touched
 - [VLA models](../concepts/learning/vla-models.md)
@@ -28,3 +29,7 @@ MarkTechPost listicle surveying ten leading physical-AI / [VLA models](../concep
 ## Open questions
 - Discrepancy with [NVIDIA Newton Contact-Rich Manipulation Blog](nvidia-newton-contact-rich-manipulation-blog.md), which references GR00T N1.6 as the version bundled with Isaac Lab. Are N1.6 (GA) and N1.7 (EA) running in parallel?
 - Production-grade SmolVLA use cases?
+
+## Cited by
+- [World model](../concepts/world-models/world-model.md)
+- [Robbyant (Ant Group robotics)](../entities/robbyant.md)

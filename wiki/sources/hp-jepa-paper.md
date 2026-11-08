@@ -41,6 +41,7 @@ Whether that transfers is an open question and this paper does not ask it. But i
 
 - [Yann LeCun](../entities/yann-lecun.md); **Ravid Shwartz-Ziv** (NYU); Yuefan Deng (Stony Brook); Jiaxing Zhang (contributions made independently of TikTok, per the paper's own footnote).
 - **Graph-JEPA** — the baseline. No page.
+- [H-JEPA (Hierarchical JEPA)](../entities/h-jepa.md)
 
 ## Concepts touched
 

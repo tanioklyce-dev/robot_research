@@ -75,3 +75,7 @@ The first study finds that blind users **systematically overestimate their situa
 - The Wizard-of-Oz setup ensures controlled failure injection but means the narration is decoupled from a real policy. How does narration quality change when grounded in actual policy state vs. scripted task plans?
 - Gemini Live's hallucinations on spatial questions ("That shelf is approximately 3 feet high") suggest current VLMs lack the spatial grounding for safe communication around blind users. Worth tracking whether [Gemini Robotics-ER](../entities/gemini-robotics.md) or similar embodied-VLMs close this gap.
 - Six DGs are stated but not yet evaluated against a deployed system; follow-on work needed.
+
+## Cited by
+- [Amal Nanavati](../entities/amal-nanavati.md)
+- [HCR Lab (Human-Centered Robotics Lab)](../entities/hcrlab.md)

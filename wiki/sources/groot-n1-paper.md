@@ -53,6 +53,7 @@ The primary paper behind [NVIDIA GR00T](../entities/nvidia-groot.md) N1 — an o
 - [π0](../entities/pi-zero.md) — architectural contrast; [Diffusion Policy](../entities/diffusion-policy.md) + BC-Transformer (RoboMimic) — baselines; [NVIDIA Cosmos](../entities/nvidia-cosmos.md) — cited alongside WAN2.1 for neural-trajectory generation; [Octo](../entities/octo.md), [OpenVLA](../entities/openvla.md)-line VLAs — related work.
 - 1X (acknowledged for humanoid hardware support).
 - [SigLIP 2](../entities/siglip-2.md) — the vision half of the Eagle-2 VLM (SmolLM2 + SigLIP-2).
+- [DreamGen](../entities/dreamgen.md)
 
 ## Concepts touched
 
@@ -69,3 +70,11 @@ The primary paper behind [NVIDIA GR00T](../entities/nvidia-groot.md) N1 — an o
 - Video-generated synthetic data still struggles to produce diverse counterfactuals **while adhering to physics** (authors' own caveat).
 - Post-training can destroy pre-trained skills (handover regression) — the pretraining-retention question is raised but not resolved.
 - How the N1 recipe evolved into N1.5/N1.6/N1.7 (Cosmos-Reason2 backbone, EgoScale corpus) — the wiki tracks the later versions via [EgoScale](egoscale-paper.md) and [Top 10 Physical AI Models 2026](top-10-physical-ai-models-2026.md), but no N1.5/N1.6 primary paper is on file.
+
+## Cited by
+- [Continual learning and catastrophic forgetting](../concepts/learning/continual-learning.md)
+- [Generative data augmentation for robot learning](../concepts/learning/generative-data-augmentation.md)
+- [Reward post-training of diffusion and flow models](../concepts/learning/reward-post-training-diffusion.md)
+- [Motion planning (classical)](../concepts/robotics/motion-planning.md)
+- [Task and motion planning (TAMP)](../concepts/robotics/task-and-motion-planning.md)
+- [DiffusionOPSD](../entities/diffusionopsd.md)

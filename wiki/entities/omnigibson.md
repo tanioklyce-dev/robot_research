@@ -4,7 +4,7 @@ type: entity
 subtype: simulator
 created: 2026-07-04
 updated: 2026-07-04
-sources: 2
+sources: 3
 tags: [omnigibson, simulator, behavior-1k, omniverse, physx, isaac-sim, deformables, fluids, extended-states, stanford, igibson]
 ---
 

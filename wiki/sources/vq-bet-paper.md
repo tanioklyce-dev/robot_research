@@ -58,6 +58,7 @@ Eight environments: PushT, Image PushT, Franka Kitchen, Image Kitchen, BlockPush
 
 ## Entities mentioned
 - [VQ-BeT](../entities/vq-bet.md) — primary source. [BET](../entities/bet.md) — predecessor. [Diffusion Policy](../entities/diffusion-policy.md) — main baseline. [PushT](../entities/pusht.md), [Franka Panda](../entities/franka-panda.md) (Kitchen), [Stretch](../entities/stretch.md), [Dobb·E](../entities/dobb-e.md) (HPR encoder + Stick), [Robot Utility Models](../entities/robot-utility-models.md) — downstream consumer. BESO / C-BESO — diffusion-BC baseline without a wiki page.
+- [nuScenes](../entities/nuscenes.md)
 
 ## Concepts touched
 - [Imitation learning](../concepts/learning/imitation-learning.md) — headline BC method; the anti-chunking finding qualifies the action-chunking convention.
@@ -70,3 +71,6 @@ Eight environments: PushT, Image PushT, Franka Kitchen, Image Kitchen, BlockPush
 - **Parameter count still unpublished** — "small and fast" is qualitative; only layer dims are citable.
 - Training cost vs Diffusion Policy (the orthogonal axis to the 5× inference win) — still not reported.
 - No RL fine-tuning anywhere — pure BC; the RVQ token space seems natural for RL-over-tokens follow-ups (cf. [π*0.6](pistar06-paper.md)'s advantage conditioning) but the paper doesn't go there.
+
+## Cited by
+- [Variational autoencoder (VAE)](../concepts/learning/variational-autoencoder.md)

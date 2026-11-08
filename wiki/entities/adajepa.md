@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-26
 updated: 2026-09-07
-sources: 3
+sources: 5
 tags: [adajepa, jepa, world-model, test-time-adaptation, mpc, distribution-shift, planning, lecun]
 ---
 

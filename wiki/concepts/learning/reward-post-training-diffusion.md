@@ -3,7 +3,7 @@ title: Reward post-training of diffusion and flow models
 type: concept
 created: 2026-08-28
 updated: 2026-08-28
-sources: 1
+sources: 4
 tags: [rl-post-training, diffusion, rectified-flow, flow-matching, reward-model, credit-assignment, reward-hacking, alignment, vla]
 ---
 

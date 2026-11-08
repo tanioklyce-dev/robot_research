@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-30
 updated: 2026-08-30
-sources: 0
+sources: 1
 tags: [gato, deepmind, generalist-agent, multi-embodiment, action-tokenization, mu-law, control-rate, decoder-only]
 ---
 

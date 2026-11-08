@@ -18,7 +18,7 @@ tags: [gemini-robotics, google-deepmind, vla, embodied-reasoning, on-device, who
 As a source it is **thin**: a vendor product page with **no benchmark numbers, no success rates, no release dates, and no parameter counts**. Its value is the family structure, the access tiers, and the capability claims — which are checkable against the wiki's existing threads.
 
 > [!warning] Attribution boundary
-> Everything in **Key claims** below is from the DeepMind page itself. The **date (2026-07-30)**, the **~200-examples** figure, and the **Apollo 2** demonstration come from *secondary press coverage* found while dating the release, and are marked as such. The primary artifacts — a **Gemini Robotics 2 blog post** and a **Gemini Robotics 2: Safety Technical Report** — are **not yet ingested**.
+> Everything in **Key claims** below is from the DeepMind page itself. The **date (2026-07-30)**, the **~200-examples** figure, and the **Apollo 2** demonstration come from *secondary press coverage* found while dating the release, and are marked as such. The primary artifacts — the **Gemini Robotics 2 blog post** and the **Safety Technical Report** — were not ingested when this page was written. They are now filed as [the DeepMind blog](gemini-robotics-2-blog.md) and [the safety report](gemini-robotics-2-safety-report.md).
 
 ## Key claims (from the page)
 
@@ -82,3 +82,7 @@ The [control-rate ladder](../syntheses/platforms/control-rate-ladder.md) records
 - [Gemini Robotics 1.5 tech report](gemini-robotics-1-5-report.md) — the generation this supersedes; still the wiki's only substantive GR source.
 - [Boston Dynamics × Gemini Robotics](bostondynamics-spot-gemini-robotics.md) — the ER 1.5/1.6 integration path.
 - [Introducing Waddle](waddle-labs-introducing-waddle.md) — the cross-embodiment claim this one is the disciplined version of.
+
+## Cited by
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)
+- [Low-rank adaptation (LoRA) and parameter-efficient fine-tuning](../concepts/learning/low-rank-adaptation.md)

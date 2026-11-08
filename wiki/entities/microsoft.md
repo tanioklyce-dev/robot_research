@@ -3,7 +3,7 @@ title: Microsoft
 type: entity
 created: 2026-08-31
 updated: 2026-08-31
-sources: 1
+sources: 8
 tags: [microsoft, company, research-lab, lora, florence-2, coco, msr]
 ---
 

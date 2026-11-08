@@ -31,6 +31,7 @@ The paper asks whether existing off-policy RL can simply *include* offline data 
 
 - [Sergey Levine](../entities/sergey-levine.md) — senior author (UC Berkeley); the algorithm anchoring his lab's real-world-RL systems line.
 - [RLPD](../entities/rlpd.md) — the algorithm entity.
+- [SAC (Soft Actor-Critic)](../entities/sac.md)
 
 ## Concepts touched
 
@@ -41,3 +42,6 @@ The paper asks whether existing off-policy RL can simply *include* offline data 
 
 - **This paper is benchmark-only.** RLPD's evaluation is in simulation (D4RL et al.); its real-robot impact is demonstrated downstream in [SERL](serl-paper.md) / [HIL-SERL](hil-serl-paper.md), not here.
 - **Ilya Kostrikov / Philip Ball / Laura Smith** — co-authors without entity pages yet; Kostrikov in particular recurs across the modern off-policy-RL literature.
+
+## Cited by
+- [Continual learning and catastrophic forgetting](../concepts/learning/continual-learning.md)

@@ -45,3 +45,6 @@ tags: [lenepa, time-series, self-supervised, jepa, sigreg, no-augmentation, next
 
 - Single-seed external UCR-128 result; the paper explicitly disclaims tuned-SOTA comparison. How does LeNEPA fare under full per-dataset tuning against Mantis/MOMENT?
 - Does SIGReg's isotropy assumption hold for strongly non-stationary/periodic time series the way it does for image embeddings?
+
+## Cited by
+- [Time-series foundation models (and whether they hallucinate)](../concepts/learning/time-series-foundation-models.md)

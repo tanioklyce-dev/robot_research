@@ -82,6 +82,7 @@ Verified across **every `.py` in `dimos/agents/`**: **zero** occurrences of `Mem
 - [LangGraph](../entities/langgraph.md) — the subject of this source
 - [DimOS](../entities/dimos.md) — the usage this source was read against
 - [OpenClaw](../entities/openclaw.md), [Hermes Agent](../entities/hermes-agent.md) — the other agent frameworks tracked here
+- [LangChain](../entities/langchain.md)
 
 ## Concepts touched
 

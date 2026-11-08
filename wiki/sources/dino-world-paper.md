@@ -44,3 +44,6 @@ tags: [dino-world, dinov2, world-model, video-prediction, jepa-adjacent, fair, m
 
 ## Why this matters
 **Lineage signal**: Basile Terver is on this paper (July 2025) and lead-authors [JEPA-WMs](jepa-wms-paper.md) (December 2025). DINO-world's "DINOv2 features → world model" approach evolves into JEPA-WMs' RoboCasa + DROID + Franka full-stack JEPA evaluation in five months. This is the bread-crumb trail of how the FAIR JEPA line moved from generic-video to robot-specific sim+real evaluation.
+
+## Cited by
+- [DINOv3](../entities/dinov3.md)

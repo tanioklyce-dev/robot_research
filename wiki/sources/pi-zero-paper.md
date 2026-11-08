@@ -73,14 +73,22 @@ The model **follows commands from a high-level VLM policy** as well as from a hu
 - [PaliGemma](../entities/paligemma.md) — the VLM backbone π0 is initialized from.
 - [Octo](../entities/octo.md) — generalist-policy baseline.
 - [Open X-Embodiment](../entities/open-x-embodiment.md) — part of the training mix.
+- [LeRobot](../entities/lerobot.md)
+- [OpenVLA](../entities/openvla.md)
+- [π0.6 (and intermediates π0.5, π0.6-MEM)](../entities/pi-zero-6.md)
 
 ## Concepts touched
 
 - [VLA models](../concepts/learning/vla-models.md) — π0 is a defining instance; the flow-matching action head is contrasted there with DDPM (Diffusion Policy) and autoregressive tokens (OpenVLA).
 - [Imitation learning](../concepts/learning/imitation-learning.md) — π0 is BC-flavored at training time (with a flow-matching head).
+- [Flow matching](../concepts/learning/flow-matching.md)
 
 ## Open questions / TBD
 
 - **Flow matching concept page** still not filed. With both π0 and [SmolVLA](smolvla-paper.md) using it, plus [DDPM](../entities/ddpm.md) as the substrate the LeRobot tutorial introduces it through, it's now load-bearing enough to deserve its own concept page in `concepts/learning/flow-matching.md`.
 - **π0.5 / π0.6 primary sources** — referenced in [Physical Intelligence](../entities/physical-intelligence.md) and [Stanford HAI AI Index 2026](stanford-hai-ai-index-2026.md); not yet ingested. The π series is one of the wiki's known-active gaps.
 - **Quantitative results table** — the paper presents head-to-head numbers per task; this ingest captures the structure but not the per-task percentages (paper PDF would supplement the HTML for exact values).
+
+## Cited by
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)
+- [Energy-based models (EBMs)](../concepts/learning/energy-based-models.md)

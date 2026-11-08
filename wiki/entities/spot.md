@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-09
 updated: 2026-10-13
-sources: 4
+sources: 6
 tags: [spot, boston-dynamics, quadruped, commercial, sdk, orbit]
 ---
 

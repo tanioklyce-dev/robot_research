@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-07
 updated: 2026-11-07
-sources: 47
+sources: 60
 tags: [leworldmodel, lewm, jepa, world-model, mila, end-to-end, sigreg, instruction-leakage]
 ---
 
@@ -103,7 +103,7 @@ It is the first external benchmark in the wiki to put LeWM and a video model on 
 
 ## Mentioned in
 
-> [!note] Curated list — **38** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **60** source pages link here; the ones below are those that shaped this page.
 
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md)
 - [LeWorldModel — train and run howto](../syntheses/world-models/leworldmodel-howto.md)

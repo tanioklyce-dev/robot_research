@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-09
 updated: 2026-08-03
-sources: 7
+sources: 8
 tags: [boston-dynamics, robotics-company, spot, atlas, orbit, hyundai]
 ---
 

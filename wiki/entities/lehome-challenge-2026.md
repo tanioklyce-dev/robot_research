@@ -4,7 +4,7 @@ type: entity
 subtype: event
 created: 2026-09-07
 updated: 2026-09-11
-sources: 3
+sources: 4
 tags: [event, competition, icra-2026, garment-folding, deformable, bimanual, so-arm101, lerobot, isaac-lab, benchmark]
 ---
 

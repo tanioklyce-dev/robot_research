@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-07-05
 updated: 2026-07-05
-sources: 2
+sources: 3
 tags: [person, uc-berkeley, reinforcement-learning, real-world-rl, manipulation]
 ---
 

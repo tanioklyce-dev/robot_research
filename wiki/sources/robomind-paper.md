@@ -88,3 +88,7 @@ RoboMIND is the only entry in its own comparison table carrying all three of dex
 - **Has anyone used the Isaac Sim digital twin** for a controlled real-vs-sim comparison? It is set up for exactly that and appears unused.
 - **What does the Tien Kung dexterous-hand data need in an action space to be usable?** It is 14% of the dataset and currently excluded from the leading cross-embodiment VLA. This is the concrete form of the "gripper-shaped hole" above.
 - **Is `RoboMind-Dual-Franka` in X-VLA the same thing as this paper's Franka split?** X-VLA lists four RoboMIND sources including a dual-Franka; this paper describes the Franka portion as single-arm. Possibly a later release or an undocumented subdivision. Minor, but it means one of the two descriptions is incomplete.
+
+## Cited by
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)
+- [The LIBERO tie cluster — CogVLA, VLA-Adapter, MemoryVLA, FLOWER, BAKU](../entities/libero-tie-models.md)

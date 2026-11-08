@@ -45,6 +45,7 @@ The lesson covers:
 - **[Grant Sanderson / 3Blue1Brown](https://www.3blue1brown.com)** — the channel; not yet a wiki entity page. Sanderson's *Essence of Linear Algebra*, *Essence of Calculus*, and *Deep Learning* series are widely-recommended math/ML primers; a one-line entity stub could absorb future references.
 - **GPT-3 (OpenAI, 2020)** — referenced for parameter accounting. Not yet a wiki entity.
 - **Anthropic / mechanistic interpretability community** — implicit in the superposition framing; the Bricken et al. 2023 "Toy Models of Superposition" paper and the SAE feature-decomposition line are the natural follow-ups.
+- [Welch Labs](../entities/welch-labs.md)
 
 ## Concepts touched
 

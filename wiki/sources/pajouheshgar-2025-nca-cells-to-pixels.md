@@ -34,6 +34,7 @@ A scaling advance for **Neural Cellular Automata (NCA)** — the learnable-self-
 - [Neural Cellular Automata](../concepts/alife/neural-cellular-automata.md) — the concept this anchors.
 - [Artificial life and the emergence of self-replication](../concepts/alife/artificial-life-and-self-replication.md) — NCA is the **learnable** wing of self-organization/morphogenesis (the long-flagged Mordvintsev neighbor of the ALife branch).
 - Self-organization, morphogenesis, regeneration, neural fields / implicit decoders, local-rule emergence.
+- [Cellular automata](../concepts/alife/cellular-automata.md)
 
 ## Open questions
 - NCA optimizes a **learned local rule toward a target pattern** (morphogenesis), whereas the wiki's [self-replication](../concepts/alife/artificial-life-and-self-replication.md) line concerns *replication + open-ended evolution*. Mordvintsev bridges both communities (NCA + Computational Life) — whether the two formally connect (e.g. learned vs. evolved vs. emergent local rules) is an open synthesis.

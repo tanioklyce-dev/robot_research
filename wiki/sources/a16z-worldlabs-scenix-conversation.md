@@ -2,7 +2,7 @@
 title: "Fei-Fei Li is Solving the Hardest Problem in Robotics (a16z × World Labs)"
 type: source
 url: https://www.youtube.com/watch?v=-tabaM5l3s0
-local_path: https://www.worldlabs.ai/blog/news-july-2026
+secondary_url: https://www.worldlabs.ai/blog/news-july-2026
 author: Martin Casado (a16z) with Fei-Fei Li and Yunzhu Li
 published: 2026-07-28
 ingested: 2026-08-26

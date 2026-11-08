@@ -194,6 +194,8 @@ These gaps define what the JEPA program has been *filling in* since 2022. The ho
 - [Meta FAIR](../entities/meta-fair.md) — institutional affiliation at time of writing.
 - Emmanuel Dupoux (developmental psycholinguist, cited for Figure 1 infant-concept chart).
 - Frequent technical citations: Hafner et al. (Dreamer / Director), Schmidhuber (intrinsic motivation), Bardes / Ponce (VICReg), Hadsell & Chopra (contrastive learning), Janner (trajectory transformers).
+- [AMI Labs](../entities/ami-labs.md)
+- [H-JEPA (Hierarchical JEPA)](../entities/h-jepa.md)
 
 ## Concepts touched
 - [Siamese network](../concepts/world-models/siamese-network.md)
@@ -213,3 +215,8 @@ These gaps define what the JEPA program has been *filling in* since 2022. The ho
 2. **What is the current state of the configurator proposal?** LeCun has continued public talks since 2022; the "configurator" idea may have evolved. Open question whether any FAIR/AMI Labs paper has formalized it.
 3. **AMI Labs as institutional successor.** Per the [Towards AI report on AMI Labs](towardsai-lecun-ami-labs.md), LeCun reportedly founded AMI Labs in late 2025 with a $1.03B seed round, after departing Meta. The mission statement aligns precisely with this paper's vision: build autonomous machine intelligence based on world models and self-supervised learning. **AMI Labs is, in effect, the institutional vehicle for executing on this paper.**
 4. **How does LeCun's stance evolve with the [Welch Labs explainer (2026-05-01)](welchlabs-lecun-1b-bet-against-llms.md)?** The Welch Labs video covers blurry-pixel intuitions and Siamese networks — i.e. the pre-JEPA visual story. Open question whether LeCun's stated public position has materially changed from this 2022 document, or whether it's the same vision restated with four more years of evidence behind it.
+
+## Cited by
+- [Strange loops and self-reference in AI agents](../concepts/agents/strange-loops-and-self-reference.md)
+- [Adrien Bardes](../entities/adrien-bardes.md)
+- [Logical Intelligence](../entities/logical-intelligence.md)

@@ -4,7 +4,7 @@ type: entity
 subtype: system
 created: 2026-06-02
 updated: 2026-06-02
-sources: 1
+sources: 2
 tags: [game-of-life, cellular-automata, conway, emergence, universality, alife, class-4]
 ---
 

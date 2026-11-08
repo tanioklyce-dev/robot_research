@@ -72,6 +72,7 @@ The paper reports capabilities it did not train for: continued adaptation to new
 - **[Inner Monologue](../entities/inner-monologue.md)** — the subject of this source.
 - [Google DeepMind](../entities/google-deepmind.md) (Robotics at Google) · [Everyday Robots](../entities/everyday-robots.md) · [CLIPort](../entities/cliport.md)
 - [Wenlong Huang](../entities/wenlong-huang.md) · [Fei Xia](../entities/fei-xia.md) · [Andy Zeng](../entities/andy-zeng.md) · [Karol Hausman](../entities/karol-hausman.md) · [Brian Ichter](../entities/brian-ichter.md) · [Sergey Levine](../entities/sergey-levine.md)
+- [SayCan](../entities/saycan.md)
 
 ## Concepts touched
 - [Code as policy](../concepts/agents/code-as-policy.md) — the closed-loop branch of the lineage.
@@ -90,3 +91,6 @@ The paper reports capabilities it did not train for: continued adaptation to new
 - [SayCan](saycan-paper.md) — the baseline and the environment.
 - [Code as Policies](code-as-policies-paper.md) — sibling paper, overlapping authors; the code branch rather than the feedback branch.
 - [ASPIRE](aspire-paper.md) — the 2026 descendant that makes feedback *per-primitive* and measures the gain.
+
+## Cited by
+- [Pierre Sermanet](../entities/pierre-sermanet.md)

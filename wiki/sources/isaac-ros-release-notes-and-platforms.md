@@ -109,6 +109,7 @@ Prefaced with: "The platforms defined in this table are **the only hardware and 
 ## Concepts touched
 
 - Platform support matrices as a deployment constraint; the Humble → Jazzy distro break; GPU-accelerated ROS 2 perception.
+- [Agent skills (portable SKILL.md)](../concepts/agents/agent-skills.md)
 
 ## Edition history
 

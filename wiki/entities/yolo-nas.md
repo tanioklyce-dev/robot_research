@@ -4,7 +4,7 @@ type: entity
 subtype: model-family
 created: 2026-07-24
 updated: 2026-07-24
-sources: 2
+sources: 4
 tags: [object-detection, yolo-nas, neural-architecture-search, quantization, edge-ai, deci, computer-vision]
 ---
 

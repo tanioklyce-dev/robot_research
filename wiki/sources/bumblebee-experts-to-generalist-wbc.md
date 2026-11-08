@@ -58,3 +58,6 @@ tags: [bumblebee, beingbeyond, peking-university, zongqing-lu, whole-body-contro
 - **AMASS-only skills** — no loco-manipulation / object interaction (unlike [MotionBricks](motionbricks-paper.md)'s smart primitives or SONIC's foot-pedal tasks). BB is a *tracking* controller, not a task policy.
 - **Code/checkpoints** — project page listed ([beingbeyond.github.io/BumbleBee](https://beingbeyond.github.io/BumbleBee/)); release status not verified from the PDF.
 - **Comparison basis** — baselines re-implemented/adapted to G1; not all data-matched to the original papers.
+
+## Cited by
+- [Helix (Figure AI)](../entities/helix.md)

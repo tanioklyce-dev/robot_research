@@ -38,6 +38,7 @@ Primary source for **[FLARE](../concepts/world-models/flare.md)** (**F**uture **
 - [NVIDIA GEAR](../entities/nvidia-gear.md); advisors [Yuke Zhu](../entities/yuke-zhu.md) + [Jim Fan](../entities/jim-fan.md); [Joel Jang](../entities/joel-jang.md) among authors.
 - [GR00T N1](../entities/nvidia-groot.md) (architecture base + backbone), [π0](../entities/pi-zero.md), [Diffusion Policy](../entities/diffusion-policy.md), UWM / UVA / [DINO-WM](../entities/dino-wm.md) (reconstruction-WM baselines).
 - [Fourier GR-1](../entities/fourier-gr-1.md), [Franka Panda](../entities/franka-panda.md) (RoboCasa). SigLIP-2 (target encoder), Q-former, [Eagle VLM](../entities/eagle-vlm.md) (GR00T N1 backbone), REPA.
+- [SigLIP](../entities/siglip.md)
 
 ## Concepts touched
 - [FLARE](../concepts/world-models/flare.md) — the concept page derived from this paper.

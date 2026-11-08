@@ -99,6 +99,7 @@ Both applied **consistently across all frames**, to simulate a real acquisition 
 - **Arc Institute** — a Fallahpour affiliation, and separately a named [Goodfire](../entities/goodfire.md) customer.
 - **[EchoWorld](../entities/echoworld.md)** (Yue et al., CVPR 2025) — cited in related work: an action-conditioned JEPA for **robotic ultrasound probe guidance** with **6-DOF pose** as the latent. **Ingested 2026-08-30** ([source page](echoworld-paper.md)).
 - Baselines: PanEcho, EchoPrime, EchoCLIP, EchoFM, VideoMAE.
+- [CLIP](../entities/clip.md)
 
 ## Concepts touched
 
@@ -112,3 +113,6 @@ Both applied **consistently across all frames**, to simulate a real acquisition 
 - ~~EchoWorld — robotic probe guidance with 6-DOF pose conditioning, un-ingested.~~ **Resolved 2026-08-30** — [ingested](echoworld-paper.md). Two echocardiography JEPAs now exist with no cross-comparison.
 - **Does the robustness advantage survive a leak-style perturbation?** The protocol covers sensor physics and population shift, not spurious correlation with a co-recorded signal. Goodfire's claim suggests it does not.
 - **EchoJEPA-L is open** (MIMIC-IV-Echo). That makes it a rare **publicly available JEPA checkpoint with a published perturbation benchmark attached** — a plausible testbed for [the latent-inspection experiment](../syntheses/projects/latent-inspection-policy-collapse.md) without needing robot hardware.
+
+## Cited by
+- [Mechanistic interpretability](../concepts/safety/mechanistic-interpretability.md)

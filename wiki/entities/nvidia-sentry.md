@@ -4,7 +4,7 @@ type: entity
 subtype: reference-design
 created: 2026-09-29
 updated: 2026-09-29
-sources: 4
+sources: 5
 tags: [nvidia, sentry, bluefield, doca, out-of-band-enforcement, open-agent-safety-platform, agentic-ai, zero-trust]
 ---
 

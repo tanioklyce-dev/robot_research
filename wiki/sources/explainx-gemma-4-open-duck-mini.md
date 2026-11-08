@@ -79,6 +79,8 @@ A third, specific to AI-assisted secondaries: **internal inconsistency**. The ar
 ## Entities mentioned
 
 - [Open Duck Mini](../entities/open-duck-mini.md) · [Gemma 4](../entities/gemma4.md) · [Jetson Orin Nano](../entities/jetson-orin-nano.md) · [Microduck](../entities/microduck.md) · [Pollen Robotics](../entities/pollen-robotics.md)
+- [LiteRT](../entities/litert.md)
+- [Rhoban](../entities/rhoban.md)
 
 ## Concepts touched
 

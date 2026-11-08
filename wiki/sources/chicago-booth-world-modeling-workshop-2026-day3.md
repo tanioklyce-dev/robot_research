@@ -296,6 +296,7 @@ Today's synthesis is all four cells — real and synthetic × language and exper
 - [Randall Balestriero](../entities/randall-balestriero.md) · [Bradford Levy](../entities/bradford-levy.md) · [Kawin Ethayarajh](../entities/kawin-ethayarajh.md) · [Yann LeCun](../entities/yann-lecun.md) · [Lucas Maes](../entities/lucas-maes.md) · [David Klindt](../entities/david-klindt.md)
 - [Lambda](../entities/lambda.md) · [Massive](../entities/massive.md) · Brown University
 - [LeVJEPA](../entities/levjepa.md) · [LeWorldModel](../entities/leworldmodel.md) · [Market-JEPA](../entities/market-jepa.md) · [MarketOne](../entities/marketone.md) · [Sim2Reason](../entities/sim2reason.md) · [Dreamer](../entities/dreamer.md) · [SMWM](../entities/smwm.md) · [LpWM](../entities/lpwm.md) · [DINOv2](../entities/dinov2.md) · [V-JEPA 2](../entities/v-jepa-2.md) · [Unitree G1](../entities/unitree-g1.md) · [Isaac Sim](../entities/nvidia-isaac-sim.md) · [MuJoCo](../entities/mujoco.md)
+- [MAE (Masked Autoencoder)](../entities/mae.md)
 
 ## Concepts touched
 
@@ -312,3 +313,7 @@ Today's synthesis is all four cells — real and synthetic × language and exper
 - **Is "representation half-life" already a named metric?** Janing's neighbour-advantage-decay measure needs no decoder or planner, which is exactly what the field's evaluation problem calls for. Worth checking whether it exists under another name before treating it as novel.
 - **Where does the noise-curriculum result generalize to?** A curriculum over synthetic noise levels restoring noiseless convergence rates is directly applicable to cheap robot sensors, and this is the only mention in the wiki.
 - **Nothing on this page settles the counterfactual question** the tutorial's submitted title promised. Counterfactual JEPAs remain, in his words, an open research question.
+
+## Cited by
+- [Contrastive learning and InfoNCE](../concepts/learning/contrastive-learning.md)
+- [Representation evaluation (k-NN, linear, MLP, fine-tuning, RankMe)](../concepts/learning/representation-evaluation.md)

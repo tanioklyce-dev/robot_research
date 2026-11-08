@@ -56,3 +56,6 @@ The last clause is the elegant part: the correction is a *training-time* object.
 - **Real-world quantitative results are not recorded on this page** — the extracted tables cover simulator-to-simulator open-loop comparisons; the real-G1 numbers are in the body.
 - ~~Does the delta action model transfer across motions or overfit?~~ — **partly answered by a source the wiki already held.** ASAP asserts its model is "trained across multiple motions and is not overfitted to this specific example." [BumbleBee](bumblebee-experts-to-generalist-wbc.md) subsequently found that **per-cluster delta models beat one global delta model**, because cluster-consistent dynamics fit better — i.e. a single global correction *does* leave motion-dependent error on the table, and iterating the correction lifts real-robot success and foot stability. ASAP's claim is not wrong, but the global model is not the best available form of it.
 - **How much real data does it need?** The size of the real-trajectory collection is the practical cost of the method and is not recorded here.
+
+## Cited by
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)

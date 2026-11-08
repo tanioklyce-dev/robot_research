@@ -4,7 +4,7 @@ type: entity
 subtype: software
 created: 2026-07-07
 updated: 2026-07-07
-sources: 2
+sources: 4
 tags: [zeromq, zmq, messaging, middleware, networking, pub-sub, brokerless, infrastructure]
 ---
 

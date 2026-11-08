@@ -115,3 +115,7 @@ While ingesting [Day 2](chicago-booth-world-modeling-workshop-2026-day2.md), the
 - ~~**Day 2 exists and is not ingested.**~~ **Resolved 2026-09-02** — auto-captions appeared on the VOD as predicted, and Day 2 is [ingested](chicago-booth-world-modeling-workshop-2026-day2.md) (8h05m; the finance/economics day). **Day 3** (`PkaYC3fwEsc`, the hands-on coding day) is [ingested 2026-09-03](chicago-booth-world-modeling-workshop-2026-day3.md). **All three days are now in the wiki.**
 - **Day 1 now has YouTube auto-captions**, which did not exist when this page was made (hence the local Whisper pass). Worth a comparison if the proper-noun garbling this page warns about ever becomes load-bearing — though machine ASR garbles names either way, so this is a cheap re-check, not a fix. **The cheaper fix has now been applied to Day 2 instead**: reconcile the speaker list against the event's own programme rather than against a better transcript. See the Programme correction below.
 - Aditya Grover's **complementary unmasking** (02:14) and caching scheme (02:22) are named but not traced to a paper here.
+
+## Cited by
+- [Bradford Levy](../entities/bradford-levy.md)
+- [Kawin Ethayarajh](../entities/kawin-ethayarajh.md)

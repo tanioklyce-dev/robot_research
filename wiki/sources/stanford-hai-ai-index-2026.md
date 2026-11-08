@@ -72,6 +72,9 @@ The ninth edition of the Stanford HAI AI Index Report (2026). Comprehensive annu
 - [NVIDIA Cosmos](../entities/nvidia-cosmos.md) — cited as example of World Foundation Model generating synthetic robot training data.
 - [Physical Intelligence](../entities/physical-intelligence.md) — π0 (2024) and π0.6 (2025) VLAs demonstrating cross-platform generalization without task-specific retraining.
 - [Toyota Research Institute](../entities/tri.md) — miscategorised in the April humanoid table; corrected to US / research / diffusion policy + LBMs in the June revision.
+- [Microsoft](../entities/microsoft.md)
+- [π0 (pi-zero)](../entities/pi-zero.md)
+- [Waymo](../entities/waymo.md)
 
 ## Concepts touched
 - [VLA models](../concepts/learning/vla-models.md) — π0/π0.6, GR00T, Gemini Robotics; VLA assessed as still research-stage; data bottleneck framing.
@@ -111,3 +114,7 @@ A full page-by-page text diff of the two exports found **six** substantive chang
 - The report covers physical AI at a high level; deeper numbers (π0/π0.6 success rates, Gemini Robotics eval specifics) require primary sources from Physical Intelligence and Google.
 - Responsible AI benchmark numbers are aggregate; specific frontier labs' disclosure practices would need primary-source system cards to fill in.
 - BEHAVIOR-1K challenge data: top team 12.4% full success — does this hold for assistive tasks specifically, or are some household task categories harder than others?
+
+## Cited by
+- [Figure 03](../entities/figure-03.md)
+- [Unitree G1](../entities/unitree-g1.md)

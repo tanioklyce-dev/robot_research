@@ -2,6 +2,8 @@
 title: LeWorldModel GitHub (lucas-maes/le-wm)
 type: source
 url: https://github.com/lucas-maes/le-wm
+local_path: raw/2026-05-09-lewm-github-readme.md
+sha256: 28dba5950765dffd6b1ecc6d3959c549769d36baeddd19fb36cdbcc3df5bb12e
 author: Lucas Maes
 affiliations: Mila
 published: Unknown
@@ -44,6 +46,7 @@ Lucas Maes — lucas.maes@mila.quebec
 - [LeWorldModel](../entities/leworldmodel.md)
 - [Mila](../entities/mila.md)
 - [DINO-WM](../entities/dino-wm.md) (baseline)
+- [Lucas Maes](../entities/lucas-maes.md)
 
 ## Open questions
 - LeJEPA and IVL are named baselines not yet in the wiki — primary-source ingests would clarify the comparison landscape.

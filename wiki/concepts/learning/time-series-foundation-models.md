@@ -3,7 +3,7 @@ title: Time-series foundation models (and whether they hallucinate)
 type: concept
 created: 2026-09-02
 updated: 2026-09-03
-sources: 2
+sources: 3
 tags: [time-series, foundation-models, chronos, timesfm, sundial, hallucination, zero-shot-forecasting, hidden-states, signal-noise, interpretability, non-stationarity, mutual-information]
 ---
 

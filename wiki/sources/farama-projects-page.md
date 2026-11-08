@@ -35,6 +35,8 @@ The foundation's stated role: maintain "standard APIs that are reused by other p
 - [Gymnasium](../entities/gymnasium.md)
 - [PettingZoo](../entities/pettingzoo.md)
 - [Gymnasium-Robotics](../entities/gymnasium-robotics.md)
+- [DM Control Suite](../entities/dm-control.md)
+- [Metaworld](../entities/metaworld.md)
 
 ## Concepts touched
 - Multi-agent RL — referenced via PettingZoo, MAgent2, MOMAland, MPE2.

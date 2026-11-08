@@ -34,6 +34,8 @@ When **random, non-self-replicating programs** are dropped into a soup with **no
 ## Entities mentioned
 - [Blaise Agüera y Arcas](../entities/blaise-aguera-y-arcas.md) — lead author; leads Google's Paradigms of Intelligence Team.
 - Co-authors: Alakuijala, James Evans (U. Chicago), Ben Laurie, **[Alexander Mordvintsev](../entities/alexander-mordvintsev.md)** (originator of [Neural Cellular Automata](../concepts/alife/neural-cellular-automata.md) / "Growing CA"), Niklasson, Randazzo, Versari.
+- [Avida](../entities/avida.md)
+- [Tierra](../entities/tierra.md)
 
 ## Concepts touched
 - [Artificial life and the emergence of self-replication](../concepts/alife/artificial-life-and-self-replication.md) — the concept this source anchors.
@@ -48,3 +50,13 @@ When **random, non-self-replicating programs** are dropped into a soup with **no
 - What *exactly* gates emergence? SUBLEQ's failure points at **replicator reachability / minimum description length** under random self-modification, but the paper leaves the precise condition open.
 - Relationship to **open-endedness** research — now contextualized by the ingested [Tierra](ray-1991-tierra-synthesis-of-life.md) / [Avida](adami-brown-1994-avida.md) digital-evolution lineage (Computational Life is the *no-ancestor, no-fitness* endpoint of that chain; see the [lineage on the concept page](../concepts/alife/artificial-life-and-self-replication.md)). Co-author [Mordvintsev](../entities/alexander-mordvintsev.md)'s **[Neural Cellular Automata](../concepts/alife/neural-cellular-automata.md)** line is now ingested too — leaving the formal connection between *learned* (NCA), *evolved* (Avida), and *emergent* (this paper) local rules as the open synthesis.
 - Any connection drawn by the authors between this and large-model "emergence" claims? (The "Paradigms of Intelligence" team framing invites it, but the paper stays within ALife.)
+
+## Cited by
+- [Flocking and boids](../concepts/alife/flocking-and-boids.md)
+- [A. K. Dewdney](../entities/ak-dewdney.md)
+- [Chris Adami](../entities/chris-adami.md)
+- [Core War](../entities/core-war.md)
+- [Doug McIlroy](../entities/doug-mcilroy.md)
+- [Conway's Game of Life](../entities/game-of-life.md)
+- [Stephen Wolfram](../entities/stephen-wolfram.md)
+- [Xenobots (reconfigurable organisms)](../entities/xenobots.md)

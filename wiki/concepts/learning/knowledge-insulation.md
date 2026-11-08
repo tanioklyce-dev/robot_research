@@ -3,7 +3,7 @@ title: Knowledge Insulation (KI)
 type: concept
 created: 2026-07-17
 updated: 2026-09-11
-sources: 11
+sources: 12
 tags: [knowledge-insulation, vla, flow-matching, fast-tokens, stop-gradient, co-training, physical-intelligence, molmoact2, allen-institute, training-recipe]
 ---
 

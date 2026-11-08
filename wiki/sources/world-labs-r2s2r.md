@@ -113,3 +113,6 @@ Three further contact points:
 - **Zero-real-data training is claimed but the worlds are built from real captures.** The real data moved from policy training into world construction; the post never quantifies how much capture a task needs. That number is the actual cost of the method.
 - **One hour without intervention** is a duration, not a success rate. Cycles completed, failures recovered, and what "without failure" means for a repeated singulation task are all unstated.
 - **No safety constraint checked** — same gap as every other success claim in this wiki ([PACS](pacs-paper.md)).
+
+## Cited by
+- [Spatial intelligence](../concepts/world-models/spatial-intelligence.md)

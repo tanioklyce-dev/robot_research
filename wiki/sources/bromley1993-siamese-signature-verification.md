@@ -136,3 +136,7 @@ This is foundational material for **[Curriculum Module 4 — Self-supervised lea
 - **When did "Siamese network" first appear as a term?** This paper uses it in scare-quotes in the title — suggesting it is being introduced here. Worth confirming.
 - **Isabelle Guyon's later trajectory** — she became a major figure in ML competition design; whether she stayed adjacent to the Siamese-network / joint-embedding line or moved orthogonally is unclear.
 - **The Baldi & Chauvin 1992 fingerprint Siamese paper** is the contemporaneous parallel work cited here. Worth checking whether it predates this paper materially and how its design differs.
+
+## Cited by
+- [Contrastive learning and InfoNCE](../concepts/learning/contrastive-learning.md)
+- [Energy-based models (EBMs)](../concepts/learning/energy-based-models.md)

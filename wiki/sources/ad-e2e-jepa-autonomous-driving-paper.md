@@ -90,6 +90,7 @@ The paper takes the three action-conditioned JEPA world models the wiki tracks, 
 - [LeWorldModel](../entities/leworldmodel.md) · [DINO-WM](../entities/dino-wm.md) · [JEPA-WMs](../entities/jepa-wms.md) · [DINOv3](../entities/dinov3.md) · [DINOv2](../entities/dinov2.md) · [V-JEPA 2](../entities/v-jepa-2.md)
 - [Yann LeCun](../entities/yann-lecun.md) · [Anna Choromanska](../entities/anna-choromanska.md) · [AMI Labs](../entities/ami-labs.md) · [Waymo](../entities/waymo.md) (named in the introduction only)
 - Wancong Zhang (also first author of [HWM](../entities/hwm.md) and [H-JEPA](../entities/h-jepa.md)) and Haoran Zhu have no entity pages. Neither do NAVSIM, WA-JEPA, Drive-JEPA, Latent-WAM, VADv2 or Transfuser.
+- [AD-E2E-JEPA](../entities/ad-e2e-jepa.md)
 
 ## Concepts touched
 - [JEPA](../concepts/world-models/jepa.md) — first action-conditioned JEPA planning on driving.

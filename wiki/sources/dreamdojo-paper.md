@@ -188,6 +188,8 @@ If V-JEPA-2-AC, π0, or any of the other VLAs adopt this idea, a `concepts/laten
 - **Pieter Abbeel** / **Jitendra Malik** (UC Berkeley) — famous academic co-authors. Not yet entitied; would be substantial stubs.
 - **Ming-Yu Liu** (NVIDIA) — senior generative-AI scientist. Not entitied.
 - **Shenyuan Gao** (HKUST), **William Liang** (UC Berkeley) — co-first authors. Not entitied.
+- [DreamGen](../entities/dreamgen.md)
+- [DreamZero](../entities/dreamzero.md)
 
 ## Concepts touched
 - [World model](../concepts/world-models/world-model.md) — DreamDojo is a generative-video world model.
@@ -214,3 +216,7 @@ If V-JEPA-2-AC, π0, or any of the other VLAs adopt this idea, a `concepts/laten
 3. **Validates the latent-action proxy at scale.** The Table 2 result (latent action ≈ ideal action conditioning) is the cleanest published evidence that self-supervised pseudo-action labels can substitute for hardware-captured action labels in WM pretraining.
 4. **Real-time autoregressive video WMs become deployable.** The Self-Forcing distillation result (35 steps → 4 steps, 2.72 FPS → 10.81 FPS) is a critical engineering milestone — live teleoperation and online MPC over a generative-video WM were impractical at teacher speed.
 5. **The wiki's generative-video-vs-JEPA synthesis page needs DreamDojo.** Until now, the largest generative-video data point in that synthesis was Genie Envisioner / GE-Sim2 (Cosmos-Predict2 backbone, parameter count unstated). DreamDojo-14B is 14B params on 44K hr of human video — a clear upper bound.
+
+## Cited by
+- [Strange loops and self-reference in AI agents](../concepts/agents/strange-loops-and-self-reference.md)
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)

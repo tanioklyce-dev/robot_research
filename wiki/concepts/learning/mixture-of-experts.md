@@ -3,7 +3,7 @@ title: Mixture-of-Experts (MoE)
 type: concept
 created: 2026-07-24
 updated: 2026-07-24
-sources: 1
+sources: 2
 tags: [mixture-of-experts, moe, sparse-models, routing, language-model, efficiency]
 ---
 

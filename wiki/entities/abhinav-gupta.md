@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-29
 updated: 2026-08-29
-sources: 1
+sources: 6
 tags: [abhinav-gupta, skild-ai, cmu, robotics-institute, self-supervised-learning, meta-fair, founder]
 ---
 

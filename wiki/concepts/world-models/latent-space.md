@@ -3,7 +3,7 @@ title: Learned latent space
 type: concept
 created: 2026-05-08
 updated: 2026-09-01
-sources: 45
+sources: 50
 tags: [representation-learning, embeddings, world-model, jepa, self-supervised]
 ---
 
@@ -90,7 +90,7 @@ The caveat is equally structural: the sparsity regularizer constrains only the *
 
 ## Mentioned in
 
-> [!note] Curated list — **39** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **50** source pages link here; the ones below are those that shaped this page.
 
 
 - [VAE Paper](../../sources/vae-paper.md)

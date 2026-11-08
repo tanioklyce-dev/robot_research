@@ -83,6 +83,7 @@ Qualitatively, MLLM critics **mislocalize in time and hallucinate causes**. In t
 - Yilun Du (Harvard), James Zou (Stanford), Hong-Xing Yu (Stanford), Bing Shuai (Physion Labs).
 - **EPIC-KITCHENS**, **WISA-80K** — the two real-video substrates.
 - **Cosmos Reason 1/2**, **Qwen-3-VL** — evaluated as critics; both appear elsewhere in the wiki as VLM backbones, here in an evaluator role.
+- [Physion-Eval](../entities/physion-eval.md)
 
 ## Concepts touched
 
@@ -99,3 +100,7 @@ Qualitatively, MLLM critics **mislocalize in time and hallucinate causes**. In t
 - **Why is the open-source model best egocentric?** The aesthetics-vs-physics hypothesis is plausible and completely untested. If true it implies a **measurable tax** that RLHF-for-beauty imposes on physical fidelity — directly relevant to anyone using generated video as robot training data ([DreamGen](dreamgen-paper.md), [Cosmos](../entities/nvidia-cosmos.md)).
 - **What does an 83–93.5% glitch rate mean for synthetic robot data?** This wiki has several pipelines that fine-tune a video model and train policies on its rollouts. Physion-Eval says those rollouts violate physics in the large majority of physics-critical clips. Whether policy learning is robust to that, or quietly inherits it, is unmeasured here and everywhere else in this wiki.
 - **The naming is not innocent.** "Physion-Eval" borrows the name of the 2021 Physion physical-prediction benchmark, but this is a *generated-video realism* benchmark with a different task, population, and metric. Worth keeping distinct when citing.
+
+## Cited by
+- [Dexterous tool manipulation](../concepts/robotics/dexterous-tool-manipulation.md)
+- [Physical reasoning benchmarks and the human baseline](../concepts/world-models/physical-reasoning-benchmarks.md)

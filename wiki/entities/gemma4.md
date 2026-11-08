@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-07-04
 updated: 2026-10-13
-sources: 8
+sources: 10
 tags: [gemma4, vlm, google, multimodal, moe, edge-ai, on-device, vla-backbone-candidate]
 ---
 

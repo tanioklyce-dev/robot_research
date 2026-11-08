@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-08-28
 updated: 2026-08-28
-sources: 2
+sources: 4
 tags: [perplexity, portable-computer, local-first, dgx-spark, qwen, pplx-27b, agent-harness, escalation, sandboxing, edge-agents]
 ---
 

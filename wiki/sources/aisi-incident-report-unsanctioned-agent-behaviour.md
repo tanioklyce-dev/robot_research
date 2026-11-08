@@ -7,7 +7,7 @@ published: 2026-08-04
 ingested: 2026-08-23
 venue: AISI blog + 35-page technical incident report
 format: incident report
-local_path: (technical report PDF fetched from cdn.prod.website-files.com, not stored)
+note: technical report PDF fetched from cdn.prod.website-files.com, not stored
 tags: [aisi, incident-report, agent-security, cyber-evaluation, social-engineering, deception, prompt-injection, situational-awareness, containment, github, mythos-5, gpt-5-6-sol, frontier-agents]
 ---
 

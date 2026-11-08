@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-09
 updated: 2026-10-24
-sources: 10
+sources: 11
 tags: [pollen-robotics, france, bordeaux, hugging-face, open-source, humanoid, reachy, microduck, embodied-ai]
 ---
 

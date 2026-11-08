@@ -105,7 +105,7 @@ Two findings, both worth carrying:
 - [DP3](../entities/dp3.md) — the 3D baseline whose Easy-setting win the paper attributes to noiseless simulated depth
 - [CuRobo](../entities/curobo.md) — the GPU motion planner its embodiment configuration is built around
 - [RoboTwin 2.0](../entities/robotwin.md) · [AgileX Piper](../entities/agilex-piper.md) · [Franka Panda](../entities/franka-panda.md) · [SAPIEN](../entities/sapien.md)
-- [π0](../entities/pi-zero.md) · [ACT](../entities/act.md) · [Diffusion Policy](../entities/diffusion-policy.md) · [RDT](../entities/rdt.md) · DP3 (no pages)
+- [π0](../entities/pi-zero.md) · [ACT](../entities/act.md) · [Diffusion Policy](../entities/diffusion-policy.md) · [RDT](../entities/rdt.md) · [DP3](../entities/dp3.md)
 - [LIBERO](../entities/libero.md), CALVIN, [RoboCasa](../entities/robocasa.md), [Open X-Embodiment](../entities/open-x-embodiment.md), [AgiBot](../entities/agibot.md), [RoboMIND](../entities/robomind.md) — cited as related datasets
 
 ## Concepts touched
@@ -120,3 +120,7 @@ Two findings, both worth carrying:
 - **Is the 5-axis randomization the right basis?** No ablation isolates which of clutter / texture / lighting / height / language carries the robustness gain. Given the 11,000-texture library cost, knowing whether texture matters would be worth having.
 - **Does the DoF result generalize below 6?** The gain grows as DoF falls (Franka 7 → −0.1; Piper 6 → +22.7). Nobody has run the generator against a **5-DoF** arm, which is the tier [SO-ARM101](../entities/so-arm101.md), [XLeRobot](../entities/xlerobot.md), and [Sourccey](../entities/sourccey.md) actually occupy.
 - ~~**Venue** unverified~~ — **resolved**: the [official repo README](https://github.com/RoboTwin-Platform/RoboTwin) states **ICML 2026**. The arXiv PDF simply omits it.
+
+## Cited by
+- [Generative data augmentation for robot learning](../concepts/learning/generative-data-augmentation.md)
+- [6-DOF grasp generation](../concepts/robotics/six-dof-grasp-generation.md)

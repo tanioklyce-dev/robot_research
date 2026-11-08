@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-09
 updated: 2026-11-07
-sources: 27
+sources: 30
 tags: [company, ai-safety, llm, claude, alignment, frontier-red-team, uplift-study, mcp, mhs]
 ---
 

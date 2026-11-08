@@ -67,6 +67,7 @@ tags: [figure, helix, go-big, brookfield, human-data, egocentric, cross-embodime
 - [Crowdsourced robot training data](../concepts/learning/crowdsourced-robot-training-data.md) — Go-Big is the landlord-mediated precursor to Index's open marketplace.
 - [Visual relocalization and mapping](../concepts/robotics/visual-relocalization-and-mapping.md) — the likely (unstated) source of SE(2) labels from raw video.
 - [VLA models](../concepts/learning/vla-models.md) — one network emitting both manipulation and navigation.
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)
 
 ## Open questions
 

@@ -160,3 +160,6 @@ The transferable warning is the bottleneck. Whenever a policy compresses its obs
 
 - **Where the wiki's policies sit on the bottleneck question** — which action-chunking architectures condition on a pooled latent versus cross-attending to observation tokens — is a synthesis worth writing and is not written.
 - ~~Cho et al. 2014 (the GRU / RNN encoder-decoder paper) is an un-ingested precursor.~~ **Resolved 2026-08-30** — [ingested](cho2014-rnn-encoder-decoder-phrase-representations.md). **Kalchbrenner & Blunsom 2013** (first to map a whole sentence to a vector) remains un-ingested.
+
+## Cited by
+- [Dzmitry Bahdanau](../entities/dzmitry-bahdanau.md)

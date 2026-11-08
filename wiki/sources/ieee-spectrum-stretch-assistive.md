@@ -2,6 +2,8 @@
 title: "This Robot Could Be the Key to Empowering People With Disabilities"
 type: source
 url: https://spectrum.ieee.org/stretch-assistive-robot
+local_path: raw/2023-10-ieee-spectrum-stretch-assistive.md
+sha256: 1311a9f145fd42b821267becf66a1f594ac479f05e17339f6f452dc5fae74372
 author: Evan Ackerman
 affiliations: IEEE Spectrum
 published: 2023-10-08
@@ -35,3 +37,6 @@ Feature article in IEEE Spectrum (November 2023 issue) documenting Henry Evans â
 ## Open questions
 - Current state of "assistive autonomy" development at Hello Robot â€” article is from 2023, two years before the wiki's primary Stretch sources.
 - Whether the OVMM / OK-Robot work is being applied to assistive use cases.
+
+## Cited by
+- [Assistive Robotics](../concepts/robotics/assistive-robotics.md)

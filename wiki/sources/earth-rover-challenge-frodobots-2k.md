@@ -53,6 +53,7 @@ Two documents that together describe [FrodoBots](../entities/frodobots.md)' loop
 - [FrodoBots](../entities/frodobots.md) — the subject; [BitRobot](../entities/bitrobot.md) — the successor network and current HF host of the datasets.
 - [Google DeepMind](../entities/google-deepmind.md) — co-organizers; [Sergey Levine](../entities/sergey-levine.md) — MBRA senior author.
 - [SIGRobotics-UIUC](../entities/sigrobotics-uiuc.md) — maintains an Earth Rover Mini SDK; FrodoBots sponsor.
+- [Dhruv Shah](../entities/dhruv-shah.md)
 
 ## Concepts touched
 

@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-08-27
 updated: 2026-08-27
-sources: 0
+sources: 2
 tags: [koch-v1-1, lerobot, dynamixel, leader-follower, teleoperation, imitation-learning, low-cost-arm, open-source, dormant]
 ---
 

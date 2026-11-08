@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-29
 updated: 2026-09-12
-sources: 5
+sources: 7
 tags: [deepak-pathak, skild-ai, cmu, robot-learning, locomotion, curiosity, self-supervised, locoformer, founder]
 ---
 

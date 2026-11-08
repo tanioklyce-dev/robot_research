@@ -111,3 +111,9 @@ This is satirical-but-pointed. The real product claim is more modest: a small bu
 - **What did the agent actually do in rounds 1 and 2?** The leaderboard rows link to specific commits in the nanochat repo (`6ed7d1d`, `a825e63`); reading those diffs would tell us what kind of changes the agent found. A wiki synthesis could quantify "what fraction of the improvement was hyperparameter tuning vs architecture changes vs optimizer tweaks."
 - **How does the agent's $/improvement compare to a human researcher's?** Karpathy hasn't published this comparison directly. With 12 experiments/hour @ ~$3/GPU-hr, autoresearch is ~$0.25/experiment. A human-driven experiment with cluster setup, eval, etc., is probably ~$5–50/experiment. The ratio is interesting.
 - **What does the `program.md` look like for a more sophisticated research org?** The README hints at this but doesn't develop it. If autoresearch becomes a category, the `program.md`-design problem is the new "feature engineering."
+
+## Cited by
+- [Code as policy](../concepts/agents/code-as-policy.md)
+- [Aleph](../entities/aleph.md)
+- [QuEra Computing](../entities/quera-computing.md)
+- [Waddle Labs](../entities/waddle-labs.md)

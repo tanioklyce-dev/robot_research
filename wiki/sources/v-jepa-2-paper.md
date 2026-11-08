@@ -48,3 +48,6 @@ Two-stage self-supervised world-model paper from [FAIR at Meta](../entities/meta
 - How does V-JEPA 2-AC compare to [NVIDIA Cosmos](../entities/nvidia-cosmos.md) / [Genie Envisioner](../entities/genie-envisioner.md) on robot tasks where the latter would generate video rollouts?
 - Exact Franka task success rate? Abstract claims "enable picking and placing" but precise numbers need the paper body.
 - 62 hours of [DROID](../entities/droid.md) is small — existence proof or production-ready?
+
+## Cited by
+- [Optimal control](../concepts/robotics/optimal-control.md)

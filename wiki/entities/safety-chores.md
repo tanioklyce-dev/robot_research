@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-09-07
 updated: 2026-09-07
-sources: 2
+sources: 3
 tags: [safety-chores, benchmark, safe-rl, vla, ai2thor, procthor, objaverse, mobile-manipulation, safety-evaluation]
 ---
 

@@ -107,6 +107,9 @@ And from the launch blog: **"more than 10,000"** Reachy Minis shipped since its 
 - [MuJoCo](../entities/mujoco.md) — physics engine
 - [Dynamixel](../entities/dynamixel.md) — XL330 servos
 - [LeRobot](../entities/lerobot.md) — sibling HF robotics stack (notably *not* used here)
+- [MuJoCo Warp](../entities/mujoco-warp.md)
+- [Rhoban](../entities/rhoban.md)
+- [Rockchip](../entities/rockchip.md)
 
 ## Companion source
 
@@ -129,3 +132,6 @@ And from the launch blog: **"more than 10,000"** Reachy Minis shipped since its 
 - **Can an RK3566 with 1 GB RAM run anything larger than an MLP?** Partly answered: **yes, small vision** — a quantised `yolo11n` at 320×320 costs 3.9 MB and ~26 ms on the 0.8 TOPS NPU ([runtime repo](microduck-runtime-repo.md)). A [VLA](../concepts/learning/vla-models.md) remains impossible. Microduck is a locomotion-RL platform that structurally cannot host the wiki's dominant policy class — an interesting counterexample to the assumption that consumer robots converge on VLA-capable compute.
 - **Spec sheet is explicitly provisional.** Press kit: *"Camera resolution and field of view, LiDAR range, radio versions and SDK languages are still being finalised — and so is any age recommendation."* Re-check at ship.
 - Pre-orders opened the day of this ingest; **no independent reviews, no delivered units, no third-party verification of any number here**. Everything above is vendor-stated or vendor-published code.
+
+## Cited by
+- [Open Duck Mini](../entities/open-duck-mini.md)

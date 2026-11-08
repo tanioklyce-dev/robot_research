@@ -41,3 +41,6 @@ tags: [v-jepa-2, jepa, world-model, dense-features, meta-fair, video, real-robot
 
 ## Why this matters
 V-JEPA 2.1 continues the V-JEPA 2 pattern: **internet-scale video pretraining → real-robot eval → no simulator**. So while [Terver et al. (jepa-wms)](jepa-wms-paper.md) moves FAIR JEPA work into RoboCasa, V-JEPA 2.1 sustains the original sim-skipping line in parallel. The two papers together suggest **FAIR is hedging across both approaches**, not abandoning the sim-free path.
+
+## Cited by
+- [AMI Labs](../entities/ami-labs.md)

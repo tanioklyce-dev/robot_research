@@ -252,12 +252,16 @@ Nobody claims otherwise. The three answers, which is the useful part:
 - **New**: [Diyi Yang](../entities/diyi-yang.md), [Diego Klabjan](../entities/diego-klabjan.md), [Ralph Koijen](../entities/ralph-koijen.md), [Aleksandra Faust](../entities/aleksandra-faust.md), [Edoardo Airoldi](../entities/edoardo-airoldi.md), [Bayan Bruss](../entities/bayan-bruss.md), [Kalshi](../entities/kalshi.md), [WorldTrace](../entities/worldtrace.md), [VTAM](../entities/vtam.md), [MetaOthello](../entities/metaothello.md), [MarketOne](../entities/marketone.md).
 - **Existing**: [Randall Balestriero](../entities/randall-balestriero.md) (organizer), [Yann LeCun](../entities/yann-lecun.md), [David Klindt](../entities/david-klindt.md), [AdaJEPA](../entities/adajepa.md), [Google DeepMind](../entities/google-deepmind.md), [NVIDIA](../entities/nvidia.md).
 - **No page**: Bradford Levy, Kawin Ethayarajh, XY Han (Booth co-organizers); Aljoša Ošep, Xindi Wu; Xiangteng He; Ismini Lourentzou; Aviral Chawla; Humzah Merchant; Haiyu Wu, Morgan Levine (Altos Labs); Yifang Zhu (Klabjan's student); Capital One; Included Health; Massive/Polygon.
+- [Bradford Levy](../entities/bradford-levy.md)
+- [BYOL (Bootstrap Your Own Latent)](../entities/byol.md)
+- [Massive (formerly Polygon.io)](../entities/massive.md)
 
 ## Concepts touched
 
 - New: [user models](../concepts/agents/user-models.md), [prediction markets](../concepts/economics/prediction-markets.md), [asset embeddings](../concepts/economics/asset-embeddings.md), [time-series foundation models](../concepts/learning/time-series-foundation-models.md), [synthetic data flywheel](../concepts/learning/synthetic-data-flywheel.md).
 - Updated: [world-model evaluation](../concepts/world-models/world-model-evaluation.md), [world-model functional taxonomy](../concepts/world-models/world-model-functional-taxonomy.md), [belief states and mixed states](../concepts/world-models/belief-states-and-mixed-states.md), [mechanistic interpretability](../concepts/safety/mechanistic-interpretability.md), [imitation learning](../concepts/learning/imitation-learning.md), [sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md), [test-time adaptation](../concepts/learning/test-time-adaptation.md), [JEPA](../concepts/world-models/jepa.md), [SIGReg](../concepts/world-models/sigreg.md).
 - Synthesis: [World models for financial markets](../syntheses/society/world-models-for-financial-markets.md).
+- [World model](../concepts/world-models/world-model.md)
 
 ## Open questions
 

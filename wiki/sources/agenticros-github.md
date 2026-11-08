@@ -66,3 +66,7 @@ tags: [agenticros, ros2, mcp, openclaw, hermes-agent, nemoclaw, fleet, skills, z
 - How well does the deterministic NL→mission compiler handle goals beyond simple verb chaining?
 - Does the WebRTC cloud mode hold up for anything latency-sensitive?
 - Marketplace (skills.agenticros.com) inventory depth — how many third-party skills actually exist?
+
+## Cited by
+- [Agent–hardware abstraction](../concepts/agents/agent-hardware-abstraction.md)
+- [openclaw_controller (Hiwonder ROS 2 bridge for OpenClaw)](../entities/openclaw-controller.md)

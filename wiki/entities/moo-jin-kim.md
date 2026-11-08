@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-07-27
 updated: 2026-07-27
-sources: 1
+sources: 2
 tags: [person, stanford, vla, openvla, openvla-oft, roboarena, evaluation]
 ---
 

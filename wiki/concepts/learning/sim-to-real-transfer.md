@@ -3,7 +3,7 @@ title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
 updated: 2026-11-07
-sources: 76
+sources: 84
 tags: [sim-to-real, domain-gap, rl, simulation, real-to-sim, r2s2r]
 ---
 
@@ -182,7 +182,7 @@ Ai2 trained ManiFlow and a Molmo 2 planner **only** on [ToyBlocks](../../entitie
 
 - [GEN-1.5](../../sources/generalist-gen-1-5-blog.md) — prompt recorded in simulation, robot acts in reality, **no simulation data in pretraining**.
 
-> [!note] Curated list — **65** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **84** source pages link here; the ones below are those that shaped this page.
 
 - [Kober, Bagnell & Peters 2013 — RL in Robotics Survey](../../sources/kober-rl-robotics-survey-2013.md) — simulation bias, noise injection, self-stabilizing transfer.
 - [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — the "superset, not replica" argument, supported across four domains; see [synthetic data flywheel](synthetic-data-flywheel.md).

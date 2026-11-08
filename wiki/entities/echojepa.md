@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-30
 updated: 2026-08-30
-sources: 3
+sources: 4
 tags: [jepa, v-jepa-2, echocardiography, medical-imaging, foundation-model, vector-institute, open-weights, robustness]
 ---
 

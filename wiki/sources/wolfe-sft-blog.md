@@ -36,7 +36,7 @@ RLHF / DPO (preference data, reward modeling + policy optimization)
 
 ## Why it matters to this wiki
 
-- **The wiki tracks ~10 VLA / robot-learning sources that rely on SFT-style fine-tuning** — [π0](pi-zero-paper.md), [OpenVLA] (not yet ingested as its own page but mentioned across [vla-models concept](../concepts/learning/vla-models.md) and [Curriculum Module 9](../syntheses/curriculum/curriculum-09-vla.md)), [GR00T](../entities/nvidia-groot.md), [Helix](helix-blog.md), [Gemini Robotics](bostondynamics-spot-gemini-robotics.md), [Robot Utility Models](robot-utility-models-paper.md). All of these inherit the *LLM-trained-on-demonstrations* recipe Wolfe describes. The article is the cleanest non-paper pedagogical entry point for **what SFT is and why it's the necessary first step before robot-action RLHF**.
+- **The wiki tracks ~10 VLA / robot-learning sources that rely on SFT-style fine-tuning** — [π0](pi-zero-paper.md), [OpenVLA](../entities/openvla.md), [GR00T](../entities/nvidia-groot.md), [Helix](helix-blog.md), [Gemini Robotics](bostondynamics-spot-gemini-robotics.md), [Robot Utility Models](robot-utility-models-paper.md). All of these inherit the *LLM-trained-on-demonstrations* recipe Wolfe describes. The article is the cleanest non-paper pedagogical entry point for **what SFT is and why it's the necessary first step before robot-action RLHF**.
 - **Pairs with [HuggingFace TRL SFT Trainer docs](huggingface-trl-sft-trainer.md)** — Wolfe's article is the *theory + survey*; the TRL docs are the *runnable code*. Both are now in the wiki.
 - **Pre-read for any wiki-level discussion of LLM alignment**, complementing [Claude's Constitution](claudes-constitution.md) on the values-and-policy side. Wolfe's piece is about the *mechanics* of getting an LLM to behave; the Constitution is about *what behavior* you're aiming for.
 - **The LIMA "data quality > quantity" finding** is directly relevant to the wiki's robot-learning Tier 3 discussion of dataset curation ([Robot Utility Models](robot-utility-models-paper.md): "data diversity > data quantity"). The two slogans are different ("quality" vs "diversity") but rhyme — both reject the "scale at all costs" framing.
@@ -55,6 +55,7 @@ RLHF / DPO (preference data, reward modeling + policy optimization)
 - **Cameron R. Wolfe** — author; ex-ML lead at Alegion, currently Director of AI at Rebuy; PhD from Rice University. Not yet a wiki entity.
 - **LIMA / LLaMA-2 / Falcon / MPT / Alpaca / Vicuna / Orca / WizardLM** — all SFT-relevant model lineages. None yet have wiki entity pages; **LLaMA-2** in particular is the substrate for [OpenVLA](../concepts/learning/vla-models.md) and several other VLA models tracked here, so an entity stub is worth considering.
 - **Hugging Face TRL library** — see [HF TRL SFT Trainer source page](huggingface-trl-sft-trainer.md).
+- [Microsoft](../entities/microsoft.md)
 
 ## Concepts touched
 
@@ -94,3 +95,6 @@ Wolfe's article is the canonical mid-2023 snapshot of the SFT band of this stack
 - **LIMA paper** (Zhou et al., Meta AI, 2023, arxiv 2305.11206) — the headline reference in Wolfe's piece; not in `raw/`. Candidate ingest if the data-curation-for-SFT thread accumulates.
 - **DPO (Rafailov et al. 2023)** — the post-Wolfe successor to RLHF that has largely replaced PPO-RLHF in 2024–2026. Wolfe's article predates the DPO line by ~3 months; worth flagging for a follow-up "DPO and friends" ingest.
 - **A wiki entity stub for LLaMA-2 / Meta-Llama lineage** — would let multiple VLA-line ingests attach cleanly. Defer.
+
+## Cited by
+- [Low-rank adaptation (LoRA) and parameter-efficient fine-tuning](../concepts/learning/low-rank-adaptation.md)

@@ -68,3 +68,6 @@ Defining one category as the complement of the other is what makes the combinati
 - **Detect ≠ recover.** Sentinel raises a flag and stops execution. What the robot should *do* next — human handoff, retry, replan — is out of scope here and is the [empty execution rail](../syntheses/agents/guardrails-for-robot-agents.md) this wiki keeps finding.
 - **A 14-second VLM in the loop is a cost nobody has priced.** The paper argues progression failures tolerate it. On a robot doing a 25-second task, a monitor that answers after 14 s is a meaningful fraction of the episode.
 - **Would STAC survive on a VLA?** It needs a *distribution* over overlapping action chunks, so it needs a policy you can sample in batch. Cheap for a diffusion policy on a GPU; unclear for a large autoregressive VLA — and [FAIL-Detect](fail-detect-paper.md) argues the sampling cost is already prohibitive.
+
+## Cited by
+- [Test-time adaptation](../concepts/learning/test-time-adaptation.md)

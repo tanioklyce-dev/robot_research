@@ -59,3 +59,7 @@ The paper's thesis is that with the right *system-level* design choices — not 
 - **Human-labor accounting.** "1–2.5 hr training" requires a skilled operator continuously supervising with a SpaceMouse. Total human cost vs. a demo-only pipeline isn't tabulated.
 - **Value-function pretraining (§5, mentioned).** The authors note a pretrained value function could cut training time further but leave it as future work — a hook toward foundation-model-style RL warm-starts.
 - **Relation to VLA-scale RL.** How this real-world HIL loop composes with large pretrained [VLA models](../concepts/learning/vla-models.md) is the natural next question; cf. [π*0.6 / RECAP](pistar06-paper.md), the wiki's VLA-scale RL-from-deployment recipe, which cites the same human-gated-correction lineage.
+
+## Cited by
+- [Continual learning and catastrophic forgetting](../concepts/learning/continual-learning.md)
+- [SAC (Soft Actor-Critic)](../entities/sac.md)

@@ -2,6 +2,8 @@
 title: "6 Lessons I Learned Watching a Robotics Startup Die from the Inside"
 type: source
 url: https://www.therobotreport.com/6-lessons-learned-watching-a-robotics-startup-die-from-the-inside/
+local_path: raw/2026-03-02-robot-report-kscale-labs-lessons.md
+sha256: 454010587dbb16b9a6a06ed5c5b72325802ee19f190893be2739d539d6ae032d
 author: Rui Xu
 affiliations: The Robot Report (former COO of K-Scale Labs)
 published: 2026-03-02
@@ -51,3 +53,6 @@ Overconfidence in AI + underestimation of hardware complexity = systemic optimis
 ## Open questions
 - K-Scale Labs open-sourced some code before shutdown — what remains available?
 - Which specific locomotion challenge consumed the R&D time?
+
+## Cited by
+- [Walden Robotics](../entities/walden-robotics.md)

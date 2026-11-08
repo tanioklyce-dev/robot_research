@@ -43,7 +43,7 @@ To the authors' knowledge it is the **first work to show that visual-language gr
 - [Katherine Driggs-Campbell](../entities/katherine-driggs-campbell.md) — senior author / corresponding PI (UIUC ECE)
 - [Shuijing Liu](../entities/shuijing-liu.md) — first author
 - [TurtleBot](../entities/turtlebot.md) — TurtleBot 2i platform
-- CLIP (OpenAI) — no entity page yet; foundational VL model
+- [CLIP](../entities/clip.md) ([OpenAI](../entities/openai.md)) — foundational VL model
 
 ## Concepts touched
 
@@ -57,3 +57,6 @@ To the authors' knowledge it is the **first work to show that visual-language gr
 - How does the CLIP landmark-grounding approach compare quantitatively to LLM-based grounders (e.g., ground via a VLM that reasons over scene descriptions)? Paper predates the LLM-as-scene-grounder pattern.
 - The paper uses TurtleBot 2i with a tactile handle but doesn't quantify how much of the user experience benefit comes from kinesthetic guidance vs. dialogue. Worth following up.
 - The Cakmak group's later finding that **mixed-initiative narration is preferred by blind users** ([Huh et al. 2026](huh2026-accessible-robot-comm.md)) suggests DRAGON's design — robot mostly silent during navigation, narrates only on user request — may underuse a key channel. No direct comparison made.
+
+## Cited by
+- [SIGRobotics-UIUC](../entities/sigrobotics-uiuc.md)

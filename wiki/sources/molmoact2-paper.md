@@ -91,6 +91,7 @@ The wiki carried no repo identifiers for this paper. Code: **`github.com/allenai
 - [FAST (action tokenization)](../entities/fast-action-tokenization.md) — the tokenizer method reimplemented open-data.
 - [π0.5 / π0.6](../entities/pi-zero-6.md), [π0](../entities/pi-zero.md), [OpenVLA-OFT](../entities/openvla-oft.md), [SmolVLA](../entities/smolvla.md), [GR00T N1.7](../entities/nvidia-groot.md), [Cosmos](../entities/nvidia-cosmos.md) — baselines.
 - Authors: Haoquan Fang & Jiafei Duan (co-first); advisors Ranjay Krishna, Dieter Fox, Joyce Chai, Zhongzheng Ren, Ali Farhadi. Institutions: Ai2, UW, NUS, UPenn, JHU, Amazon, Cortex AI, Michigan, UNC.
+- [π0.5](../entities/pi-zero-5.md)
 
 ## Concepts touched
 
@@ -108,3 +109,9 @@ The wiki carried no repo identifiers for this paper. Code: **`github.com/allenai
 - How does the **$6,000 off-the-shelf YAM setup** + released BimanualYAM data change the accessibility calculus for academic labs vs. the expensive-hardware π-series deployments? Worth a platforms/assistive synthesis.
 - **Adaptive depth's latency win is viewpoint-dependent** — the paper notes gains are largest in third-person setups (more static background). How does it degrade on egocentric/mobile views where the whole scene moves?
 - MolmoAct2-Think still runs at only ~12.7 Hz vs. 55.8 Hz for plain MolmoAct2 — is the +0.9 LIBERO gain worth ~4× the latency for deployment, or is Think a diagnostic/interpretability tool more than a control default?
+
+## Cited by
+- [Continual learning and catastrophic forgetting](../concepts/learning/continual-learning.md)
+- [Embodied-reasoning VLMs (ER backbones)](../concepts/learning/embodied-reasoning-vlms.md)
+- [The LIBERO tie cluster — CogVLA, VLA-Adapter, MemoryVLA, FLOWER, BAKU](../entities/libero-tie-models.md)
+- [Physical Intelligence](../entities/physical-intelligence.md)

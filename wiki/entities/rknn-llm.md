@@ -4,7 +4,7 @@ type: entity
 subtype: software
 created: 2026-09-13
 updated: 2026-09-13
-sources: 3
+sources: 5
 tags: [rkllm, rknn-llm, rockchip, npu, llm, vlm, on-device-llm, rk3588, rk3576, toolchain, openai-compatible, edge-ai]
 ---
 

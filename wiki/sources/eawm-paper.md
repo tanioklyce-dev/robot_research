@@ -42,3 +42,7 @@ ICLR 2026 paper (Tsinghua/Zhejiang) importing a cognitive-science prior into MBR
 - Does event-awareness help *robot* MBRL (all benchmarks here are sim games/control) — the natural test would be EADream on a [DayDreamer](../entities/dreamer.md)-style real-robot setup.
 - Relation to option discovery / temporal abstraction in hierarchical RL (event boundaries ≈ subgoal boundaries?) — not developed in the paper.
 - GES robustness when events are gradual (no sharp boundary) — deferred to the neural-GES future work.
+
+## Cited by
+- [Financial time-series augmentations](../concepts/economics/financial-time-series-augmentations.md)
+- [Danijar Hafner](../entities/danijar-hafner.md)

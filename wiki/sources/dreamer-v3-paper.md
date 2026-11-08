@@ -39,6 +39,7 @@ tags: [dreamer, dreamer-v3, world-model, model-based-rl, imagination, hafner, fo
 
 - [Dreamer](../entities/dreamer.md) — the algorithm/family entity.
 - [LeWorldModel](../entities/leworldmodel.md) — uses DreamerV3 as a baseline column.
+- [Danijar Hafner](../entities/danijar-hafner.md)
 
 ## Concepts touched
 - [Optimal control](../concepts/robotics/optimal-control.md)

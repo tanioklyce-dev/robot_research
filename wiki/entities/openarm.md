@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-09-13
 updated: 2026-09-13
-sources: 4
+sources: 6
 tags: [robot, robot-arm, bimanual, 7-dof, open-hardware, quasi-direct-drive, damiao, bilateral-teleoperation, force-feedback, evaluation-cell, lerobot, dora, enactic, wowrobo]
 ---
 

@@ -2,6 +2,8 @@
 title: TurtleBot 4 — Clearpath Robotics Product Page
 type: source
 url: https://clearpathrobotics.com/turtlebot-4/
+local_path: raw/2024-clearpath-turtlebot-4.md
+sha256: 27471c9f22520455203f2861f61bc19ff2209c488aeace55e71796aa1b2f8ff2
 author: Clearpath Robotics
 affiliations: Clearpath Robotics (Rockwell Automation)
 published: Unknown (2022 era)

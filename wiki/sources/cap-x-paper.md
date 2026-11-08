@@ -115,6 +115,7 @@ Simulation **N=100/task**; real world **N=25/task** on a [Franka Emika Panda](..
 - [CaP-X](../entities/cap-x.md) (the framework as an entity) · [Robosuite](../entities/robosuite.md) · [LIBERO](../entities/libero.md) · [BEHAVIOR](../entities/behavior-benchmark.md) · [MuJoCo](../entities/mujoco.md)
 - [OpenVLA](../entities/openvla.md) · [π0](../entities/pi-zero.md) · [Molmo 2](../entities/molmo2-er.md) · [Anthropic](../entities/anthropic.md) (Claude Haiku 4.5 / Opus 4.5 among the 12 models)
 - [Franka Panda](../entities/franka-panda.md) · [AgiBot](../entities/agibot.md)
+- [π0.5](../entities/pi-zero-5.md)
 
 ## Concepts touched
 - [Code as policy](../concepts/agents/code-as-policy.md) — the paper is now this page's primary measured source.
@@ -137,3 +138,13 @@ Simulation **N=100/task**; real world **N=25/task** on a [Franka Emika Panda](..
 - [Introducing Waddle](waddle-labs-introducing-waddle.md) — the deployed commercial claim this paper supplies the missing numbers for; Waddle cites CaP-X as ref [13].
 - [LIBERO-PRO](libero-pro-paper.md) — the perturbation suite CaP-Bench++ uses.
 - [How Claude Performs on Robotics Tasks](anthropic-how-claude-performs-on-robotics-tasks.md) — the wiki's other LLM-drives-robot measurement, at a different abstraction level.
+
+## Cited by
+- [Symbolic task planning (PDDL and generalized planning)](../concepts/agents/symbolic-task-planning.md)
+- [Continual learning and catastrophic forgetting](../concepts/learning/continual-learning.md)
+- [Fei-Fei Li](../entities/fei-fei-li.md)
+- [Guanzhi Wang](../entities/guanzhi-wang.md)
+- [Karol Hausman](../entities/karol-hausman.md)
+- [Physical Intelligence](../entities/physical-intelligence.md)
+- [Voyager](../entities/voyager.md)
+- [Waddle Labs](../entities/waddle-labs.md)

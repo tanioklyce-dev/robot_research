@@ -3,7 +3,7 @@ title: Joint-Embedding Predictive Architecture
 type: concept
 created: 2026-05-07
 updated: 2026-10-25
-sources: 103
+sources: 109
 tags: [jepa, world-model, self-supervised, latent-prediction, lecun, adaln, rope, dinov3, cem, inverse-dynamics, object-centric, spectral-graph-theory, generalization-theory]
 ---
 
@@ -242,7 +242,7 @@ Measured: MAE drops **25.1%** under ImageNet-C severity 1→5 against DINO's **1
 - [EchoJEPA paper](../../sources/echojepa-paper.md) — the clinical branch; V-JEPA 2 adapted to echocardiography at 18M videos.
 - [EchoWorld paper](../../sources/echoworld-paper.md) — an action-conditioned JEPA where the latent is a 6-DOF probe movement; robotic probe guidance.
 
-> [!note] Curated list — **60** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **109** source pages link here; the ones below are those that shaped this page.
 
 - [Dawid & LeCun 2023 — Introduction to Latent Variable Energy-Based Models](../../sources/dawid-lecun-lvebm-lecture-notes.md) — the design document: the four-term objective, and the latent variable no JEPA implements.
 - [JEPA Through the Eyes of a Physicist (Fajmanova, 2026)](../../sources/jepa-vs-physics-moudrkat.md) — JEPA as learned coarse-graining; and an outside account of collapse prevention that the primaries here contradict.

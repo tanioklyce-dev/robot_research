@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-10-22
 updated: 2026-10-22
-sources: 2
+sources: 4
 tags: [motionjepa, disreg, jepa, slow-feature-collapse, anti-collapse, leworldmodel, label-free, balestriero, klindt]
 ---
 

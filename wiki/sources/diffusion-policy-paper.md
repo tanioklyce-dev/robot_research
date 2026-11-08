@@ -86,6 +86,7 @@ See [operational space control](../concepts/robotics/operational-space-control.m
 - **[IBC](../entities/ibc.md)** (Florence et al., CoRL 2021) — implicit BC via energy-based models; the work this paper most directly improves on. Originator of [PushT](../entities/pusht.md). See [IBC Paper](ibc-paper.md).
 - **LSTM-GMM / BC-RNN** (RoboMimic, Mandlekar et al. 2021) — recurrent BC with Gaussian mixture output. Strong baseline; reproduced and tuned in this paper.
 - **[BET](../entities/bet.md)** (Behavior Transformer; Shafiullah et al., NeurIPS 2022) — transformer + k-means action discretization. Co-authored by [Mahi Shafiullah](../entities/mahi-shafiullah.md) and [Lerrel Pinto](../entities/lerrel-pinto.md) (NYU); direct ancestor of [VQ-BeT](../entities/vq-bet.md). See [BET Paper](bet-paper.md).
+- [Siyuan Feng](../entities/siyuan-feng.md)
 
 ## Concepts touched
 
@@ -113,3 +114,10 @@ See [operational space control](../concepts/robotics/operational-space-control.m
 - ~~DDPM primary~~ now filed as [DDPM Paper](ddpm-paper.md).
 - ~~UMI / Universal Manipulation Interface~~ now filed as [UMI Project Page](umi-paper.md).
 - ~~TRI as an organization~~ now filed as [TRI Website](tri-website.md).
+
+## Cited by
+- [Large Behavior Models (LBMs)](../concepts/learning/large-behavior-models.md)
+- [Control abstraction levels](../concepts/robotics/control-abstraction-levels.md)
+- [Robot safety standards (ISO 13482 and the machinery-safety framework)](../concepts/robotics/robot-safety-standards.md)
+- [Safety filters for learned policies](../concepts/robotics/safety-filters.md)
+- [Ben Burchfiel](../entities/ben-burchfiel.md)

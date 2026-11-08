@@ -45,6 +45,7 @@ And, on what it buys operationally, that interpretability lets teams *"understan
 
 - **[Goodfire](../entities/goodfire.md)**; B Capital, DFJ Growth, Salesforce Ventures, Eric Schmidt, Menlo Ventures, Lightspeed, South Park Commons, Wing Venture Capital, Juniper Ventures.
 - Arc Institute, Mayo Clinic, **Microsoft**, Prima Mente, **Rakuten** — customers.
+- [Microsoft](../entities/microsoft.md)
 
 ## Concepts touched
 
@@ -55,3 +56,6 @@ And, on what it buys operationally, that interpretability lets teams *"understan
 
 - **Headcount and burn are undisclosed**, so nothing here says whether the research output is sustainable at this scale.
 - **"Design intelligence" is doing a lot of work.** The gap between "we can locate and steer a feature" and "we can design a model deliberately" is the entire unsolved part of the field, and a funding post is the wrong place to look for it being closed.
+
+## Cited by
+- [Neural geometry](../concepts/safety/neural-geometry.md)

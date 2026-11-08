@@ -3,7 +3,7 @@ title: Robot policy evaluation
 type: concept
 created: 2026-07-27
 updated: 2026-11-07
-sources: 64
+sources: 76
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility, real-to-sim, r2s2r]
 ---
 
@@ -211,7 +211,7 @@ Shared metric, unshared inputs is a pattern worth naming. A leaderboard row mean
 - [Verbalized Eval Awareness (Goodfire + UK AISI, 2026)](../../sources/goodfire-verbalized-eval-awareness.md) — the language-side version of the benchmark-validity problem.
 - [Locatello et al. 2019](../../sources/locatello2019-challenging-common-assumptions-disentanglement.md) — seeds beat model choice; good runs unidentifiable without labels.
 
-> [!note] Curated list — **39** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **76** source pages link here; the ones below are those that shaped this page.
 
 - [RoboArena paper (CoRL 2025)](../../sources/roboarena-paper.md) — the distributed pairwise-preference protocol
 - [LIBERO-PRO paper](../../sources/libero-pro-paper.md) — the memorization critique

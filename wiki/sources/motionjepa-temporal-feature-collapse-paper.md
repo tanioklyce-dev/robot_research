@@ -90,6 +90,7 @@ The paper adds a **label-free auxiliary objective, DISReg** (Difference Image an
 - [LeWorldModel](../entities/leworldmodel.md) · [SMWM](../entities/smwm.md) · [LeNEPA](../entities/lenepa.md) · [Push-T](../entities/pusht.md)
 - [Randall Balestriero](../entities/randall-balestriero.md) · [David Klindt](../entities/david-klindt.md) · [AMI Labs](../entities/ami-labs.md) · [Yann LeCun](../entities/yann-lecun.md) (cited; not an author)
 - Not yet in the wiki: Delta-JEPA (Zhang et al. 2026), Gulati & Nemenman 2026 ("Contrast encodes inductive bias", arXiv 2606.07770), Toso et al. 2026 (arXiv 2602.18639), and the vivo research labs.
+- [MotionJEPA](../entities/motionjepa.md)
 
 ## Concepts touched
 - [Slow-feature collapse](../concepts/world-models/slow-feature-collapse.md) — a label-free barrier, shown in fixed-camera simulation only.

@@ -60,6 +60,7 @@ The README mentions **"depth-token reasoning"** for MolmoAct2-Think but **does n
 
 ## Concepts touched
 - [VLA models](../concepts/learning/vla-models.md) · [Per-layer KV conditioning](../concepts/learning/per-layer-kv-conditioning.md) · [Adaptive-depth reasoning](../concepts/learning/adaptive-depth-reasoning.md) · [Flow matching](../concepts/learning/flow-matching.md)
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)
 
 ## Open questions
 - **No Jetson support or benchmark** — the highest-value missing measurement in the wiki's edge thread stays missing.

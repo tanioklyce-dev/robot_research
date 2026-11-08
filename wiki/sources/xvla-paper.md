@@ -150,6 +150,7 @@ The transfer experiment (Fig. 9) follows: adapting to WidowX (unseen), a **froze
 - [AgiBot](../entities/agibot.md) · [DROID](../entities/droid.md) · [Franka Panda](../entities/franka-panda.md) · [AgileX PiPER](../entities/agilex-piper.md)
 - [Vulcan Robotics](../entities/vulcan-robotics.md) / [Sourccey](../entities/sourccey.md) — downstream adopter, not in the paper
 - [LeRobot](../entities/lerobot.md) — X-VLA is upstreamed as the `xvla` policy
+- [RoboMIND](../entities/robomind.md)
 
 ## Concepts touched
 
@@ -165,3 +166,7 @@ The transfer experiment (Fig. 9) follows: adapting to WidowX (unseen), a **froze
 - No wall-clock inference numbers or deployment hardware are given anywhere in the paper. 0.9 B + Florence-2-Large is not an edge-device model; where it actually runs at control rate is unstated.
 - CALVIN is the single loss (4.43 vs FLOWER's 4.53) and goes uncommented.
 - Soft-Fold release is promised, not yet confirmed.
+
+## Cited by
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)
+- [Microsoft](../entities/microsoft.md)

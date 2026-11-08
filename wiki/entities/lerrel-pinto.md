@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-08
 updated: 2026-08-26
-sources: 9
+sources: 11
 tags: [person, nyu, robot-learning, manipulation, foundation-models, dino-wm, rum]
 ---
 

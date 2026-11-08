@@ -60,3 +60,6 @@ An **open-source agentic framework for natural-language control of a PX4 drone**
 - **NED/ENU + RGB8 frame/encoding mismatches** are flagged as live bugs — how much of the 60% failure is plumbing vs. reasoning?
 - Authors' affiliations are not stated on the abstract/HTML page.
 - Future work targets a **single end-to-end VLA under 1B params for edge** — would that beat the decomposed LLM+VLM+planner pipeline here?
+
+## Cited by
+- [Gemma 4](../entities/gemma4.md)

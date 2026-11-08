@@ -62,7 +62,7 @@ Flinging is hard for everyone; the language-conditioned VLAs win only the garmen
 ## Entities mentioned
 
 - [LeHome Challenge 2026](../entities/lehome-challenge-2026.md), [XLeRobot](../entities/xlerobot.md), [LeKiwi](../entities/lekiwi.md), [LeRobot](../entities/lerobot.md), [SmolVLA](../entities/smolvla.md), [π0](../entities/pi-zero.md), [Diffusion Policy](../entities/diffusion-policy.md), [RoboTwin](../entities/robotwin.md), [LIBERO](../entities/libero.md), [BEHAVIOR-1K](../entities/behavior-benchmark.md) (comparison table).
-- Lightwheel (commercial simulation partner; no page).
+- [Lightwheel](../entities/lightwheel.md) (commercial simulation partner).
 
 ## Concepts touched
 

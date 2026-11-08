@@ -88,6 +88,7 @@ So `pip install stable-worldmodel` gives planning and models with no dataset I/O
 
 ## Entities mentioned
 - [stable-worldmodel](../entities/stable-worldmodel.md), [LeWorldModel](../entities/leworldmodel.md), [DINO-WM](../entities/dino-wm.md), [PLDM](../entities/pldm.md), [Push-T](../entities/pusht.md), [LeRobot](../entities/lerobot.md), [Randall Balestriero](../entities/randall-balestriero.md), [Lucas Maes](../entities/lucas-maes.md).
+- [C-JEPA (Causal-JEPA)](../entities/c-jepa.md)
 
 ## Concepts touched
 - [Gradient-based planning](../concepts/world-models/gradient-based-planning.md) — seven solvers under one API.

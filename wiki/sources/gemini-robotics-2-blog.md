@@ -99,3 +99,6 @@ Introduces **ASIMOV-Agentic**, a benchmark for "agentic safety orchestration and
 - [Gemini Robotics 2: Safety Evaluations](gemini-robotics-2-safety-report.md) — the companion technical report; ASIMOV-Agentic in detail.
 - [Gemini Robotics model page](deepmind-gemini-robotics-model-page.md) — the numberless product page this supersedes.
 - [Gemini Robotics 1.5 tech report](gemini-robotics-1-5-report.md) — the previous generation.
+
+## Cited by
+- [Helix (Figure AI)](../entities/helix.md)

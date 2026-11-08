@@ -3,7 +3,7 @@ title: Slow-feature collapse
 type: concept
 created: 2026-10-13
 updated: 2026-10-24
-sources: 11
+sources: 14
 tags: [slow-feature-collapse, jepa, anti-collapse, sigreg, inverse-dynamics, pldm, droid, world-model, representation-learning, disreg, predictive-closure, motionjepa, hamiltonian-jepa]
 ---
 

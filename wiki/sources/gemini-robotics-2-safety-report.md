@@ -113,3 +113,8 @@ The [semantic safety](../concepts/safety/semantic-safety.md) page reached the sa
 - [ASIMOV Benchmark v1](asimov-benchmark-paper.md) — the semantic-safety predecessor this extends to agentic reasoning.
 - [Predictive Red Teaming](predictive-red-teaming-paper.md) · [Veo world simulator](veo-robotics-policy-evaluation-paper.md) — the sibling safety-evaluation lines.
 - [Responsibly advancing AI and robotics](deepmind-gemini-robotics-safety-page.md) — the public framing page, which predates this and still describes GR 1.5.
+
+## Cited by
+- [Decision models](../concepts/agents/decision-models.md)
+- [NVIDIA Alpamayo](../entities/alpamayo.md)
+- [Demis Hassabis](../entities/demis-hassabis.md)

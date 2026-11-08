@@ -3,7 +3,7 @@ title: World-model simulators
 type: concept
 created: 2026-05-06
 updated: 2026-11-07
-sources: 44
+sources: 50
 tags: [world-model, generative-simulation, video-generation, jepa, latent-prediction, paradigm-shift]
 ---
 
@@ -97,7 +97,7 @@ Two things this qualifies on the page below: the [Genie Envisioner](../../entiti
 
 ## Mentioned in
 
-> [!note] Curated list — **38** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **50** source pages link here; the ones below are those that shaped this page.
 
 - [HAI Issue Brief — The World Model and Spatial Intelligence Era](../../sources/hai-world-model-spatial-intelligence-brief.md) — the "simulator" row of the [functional taxonomy](world-model-functional-taxonomy.md); learned simulation as the cheaper-to-update alternative to hand-built Omniverse-class environments, "still early, limited by scarce physical data."
 - [DreamGen Paper](../../sources/dreamgen-paper.md) — video WM used as a **synthetic data generator** ("neural trajectories") rather than a real-time planner; the data-generation face of this concept.

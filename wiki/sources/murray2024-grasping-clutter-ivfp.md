@@ -40,3 +40,7 @@ Proposes Interactive Visual Failure Prediction (IVFP) — using robot probing mo
 - Exact venue (ICRA, RA-L, IROS, or other) — not determined from available pages.
 - Quantitative success-rate numbers vs. baselines — not captured from pages 1–2.
 - How well does IVFP transfer from warehouse bins to home-environment clutter?
+
+## Cited by
+- [Optimal control](../concepts/robotics/optimal-control.md)
+- [Abhinav Gupta](../entities/abhinav-gupta.md)

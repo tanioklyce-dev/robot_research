@@ -67,7 +67,8 @@ Full-paper companion to the [RUM project page](robot-utility-models-website.md).
 - [Dobb·E](../entities/dobb-e.md) — predecessor system; provides HPR encoder + Homes of New York dataset.
 - [VQ-BeT](../entities/vq-bet.md) — top-performing policy class in the ablation.
 - [Diffusion Policy](../entities/diffusion-policy.md) — runner-up policy class.
-- gpt-4o (OpenAI) — mLLM critic (no entity page yet).
+- gpt-4o ([OpenAI](../entities/openai.md)) — mLLM critic.
+- [BET (Behavior Transformer)](../entities/bet.md)
 
 ## Concepts touched
 - [Imitation learning](../concepts/learning/imitation-learning.md) — multi-modal BC framework.
@@ -75,6 +76,7 @@ Full-paper companion to the [RUM project page](robot-utility-models-website.md).
 - Mobile manipulation.
 - [VLA-adjacent generalist policies](../concepts/learning/vla-models.md) — RUMs deliberately are *not* language-conditioned.
 - Self-critique / introspection — mLLM-as-verifier loop.
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)
 
 ## Open questions
 - The paper claims data > algorithm but the experimental scope is 5 tasks × 1k demos. Does the conclusion hold at larger task counts or larger per-task scale?
@@ -91,3 +93,6 @@ This paper is the **most rigorous example in the wiki of "low-cost robot + learn
 - Dataset (~473 MB): hosted on Cloudflare R2 (link on project page)
 - Data diversity visualizer: https://robotutilitymodels.com/data_diversity/
 - DOI: https://doi.org/10.48550/arXiv.2409.05865
+
+## Cited by
+- [UMI (Universal Manipulation Interface)](../entities/umi.md)

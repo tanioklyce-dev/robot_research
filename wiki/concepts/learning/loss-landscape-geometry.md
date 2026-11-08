@@ -3,7 +3,7 @@ title: Loss-landscape geometry
 type: concept
 created: 2026-09-07
 updated: 2026-09-07
-sources: 3
+sources: 5
 tags: [loss-landscape, spin-glass, critical-points, saddle-points, flat-minima, wide-valleys, local-entropy, hessian-spectrum, generalization, over-parametrization, statistical-physics, collapse]
 ---
 

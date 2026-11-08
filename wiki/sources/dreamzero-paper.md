@@ -96,6 +96,7 @@ tags: [dreamzero, world-action-model, wam, nvidia-gear, wan2-1, video-diffusion,
 - [AGIBOT](../entities/agibot.md) (G1 robot), [AGIBOT Genie Sim 3.0](../entities/agibot-genie-sim.md), [Franka Panda](../entities/franka-panda.md), [DROID](../entities/droid.md), [YAM](../entities/yam.md), [RoboArena](../entities/roboarena.md)
 - [NVIDIA GR00T](../entities/nvidia-groot.md) (N1.6 baseline), [Physical Intelligence](../entities/physical-intelligence.md) (π0.5 baseline)
 - Without wiki pages: Wan2.1 (Alibaba), PolaRiS (DROID sim eval).
+- [DreamGen](../entities/dreamgen.md)
 
 ## Concepts touched
 - [World-action model](../concepts/world-models/world-action-model.md)

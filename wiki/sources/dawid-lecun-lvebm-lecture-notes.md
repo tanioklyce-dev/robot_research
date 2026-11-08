@@ -138,3 +138,6 @@ Fig. 10 is the original JEPA training objective, and it is not "prediction error
 - **Is the "actions replace `z`" reading correct?** It is consistent with two sources and stated by neither. The test is a world model with *weak* actions — where the notes and Balestriero both predict mean-prediction failure that a latent variable would fix.
 - **Do the `−I(s_x)`, `−I(s_y)` terms survive in modern practice, or only their spirit?** [SIGReg](../concepts/world-models/sigreg.md) matches an isotropic Gaussian; VICReg maximizes variance and decorrelates. Both prevent collapse, but only one is derived as information maximization, and [the identifiability result](../concepts/world-models/identifiability.md) argues the Gaussian is uniquely correct on other grounds entirely.
 - **What is reference [62], "related ideas explored already in 1992"?** Almost certainly Schmidhuber's predictability minimization, and the wiki has nothing on it. If so, the joint-embedding idea has a claimed priority a full 26 years before [CPC](cpc-paper.md).
+
+## Cited by
+- [Loss-landscape geometry](../concepts/learning/loss-landscape-geometry.md)

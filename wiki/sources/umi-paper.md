@@ -60,12 +60,15 @@ tags: [umi, universal-manipulation-interface, hand-held-gripper, in-the-wild-dat
 - [Toyota Research Institute](../entities/tri.md) — co-author affiliation (Cousineau, Burchfiel, Feng, Tedrake).
 - [Franka Panda](../entities/franka-panda.md) — one of two deployment platforms.
 - [Robot Utility Models](../entities/robot-utility-models.md) — downstream NYU project that cites UMI as Stick-v2 design inspiration.
+- [Russ Tedrake](../entities/russ-tedrake.md)
+- [Siyuan Feng](../entities/siyuan-feng.md)
 
 ## Concepts touched
 
 - [Imitation learning](../concepts/learning/imitation-learning.md) — UMI is a data-collection enabler for BC.
 - Cross-embodiment transfer — UMI's relative-trajectory action representation is one mechanism for it.
 - Sim-to-real / real-to-real — UMI bypasses sim entirely; data is collected in the deployment environment by hand.
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)
 
 ## Open questions / TBD
 
@@ -74,3 +77,6 @@ tags: [umi, universal-manipulation-interface, hand-held-gripper, in-the-wild-dat
 - **Newer UMI variants** — multi-finger UMI, larger workspaces, etc. not covered here.
 - **Russ Tedrake** entity — TRI senior figure on UMI; Drake (TRI/MIT) deserves an entity page (already on TBD list).
 - **Cheng Chi / Shuran Song** — author entity pages on TBD list since Diffusion Policy ingest.
+
+## Cited by
+- [NVIDIA Isaac Teleop](../entities/nvidia-isaac-teleop.md)

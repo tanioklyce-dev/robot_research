@@ -56,3 +56,6 @@ The mechanism is **multi-mode policy distillation**: train a privileged **oracle
 - **Sim or real for the headline table?** The comparison against specialists is a tracking-metric evaluation; the extent of real-robot validation is not recorded on this page.
 - **What is the cost of versatility?** No mode appears to lose to its specialist, which is a surprising result worth independent replication rather than acceptance.
 - **How many modes before it degrades?** Masking scales combinatorially; the paper does not establish where the approach breaks.
+
+## Cited by
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)

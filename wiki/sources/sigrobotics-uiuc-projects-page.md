@@ -72,6 +72,8 @@ The gap between the website's 4-project view and the GitHub org's 25-repo realit
 - [K-Scale Labs](../entities/k-scale-labs.md) — Mini Humanoid sponsor (**new sponsorship fact**)
 - [NVIDIA GR00T](../entities/nvidia-groot.md) — `Isaac-GR00T-UIUC` repo lineage
 - [Seeed × NVIDIA × HF Embodied AI Hackathon 2025 recap](seeed-embodied-ai-hackathon-2025-recap.md) — the matcha-bot context
+- [BitRobot (BitRobot Network / Foundation)](../entities/bitrobot.md)
+- [FrodoBots (FrodoBots Lab / Earth Rovers)](../entities/frodobots.md)
 
 ## New entities surfaced (parked)
 

@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-25
 updated: 2026-09-11
-sources: 21
+sources: 28
 tags: [openvla, vla, vision-language-action, open-weights, llama-2, autoregressive-action-tokens, baseline]
 status: stub
 ---

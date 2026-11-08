@@ -132,3 +132,8 @@ The two safety modes come straight from **ISO/TS 15066** — the collaborative-r
 - **Does path consistency generalize past braking?** Slowing along the intended path is the one intervention that provably keeps you on the manifold. Anything richer — detours, regrasps, recovery motions — reintroduces the OOD problem. Is braking the only safe edit to a behavior-cloned trajectory?
 - **The runtime-monitoring cluster this cites is entirely uningested**: Agia, Sinha, Pavone & Bohg (CoRL 2025, failure modes of generative policies); Xu et al. (RSS 2025, **TRI** — detecting failures without failure data); Römer et al. (NeurIPS 2025, failure prediction at runtime). Three 2025 papers on *knowing when a generative policy is going wrong*, adjacent to this wiki's evaluation thread and absent from it.
 - **Static-obstacle path consistency** is the obvious next result, and it is the case the deployed [TRI stack](diffusion-policy-paper.md) and [OSCBF](oscbf-paper.md) both cover.
+
+## Cited by
+- [Real-world robotic reinforcement learning](../concepts/learning/real-world-robot-rl.md)
+- [Safe reinforcement learning](../concepts/learning/safe-reinforcement-learning.md)
+- [Runtime failure detection for generative policies](../concepts/robotics/runtime-failure-detection.md)

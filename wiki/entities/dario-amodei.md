@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-09-07
 updated: 2026-09-12
-sources: 2
+sources: 5
 tags: [person, anthropic, agi, timelines, labor-displacement, export-controls, mechanistic-interpretability]
 ---
 

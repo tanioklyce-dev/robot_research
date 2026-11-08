@@ -79,3 +79,6 @@ That is a clean trick with reach beyond robotics: **push the sample through the 
 - **`logpZO` reads robot state more than pixels** — by the authors' own admission. A detector that mostly watches the gripper is a weaker claim than "we detect OOD conditions," and testing that directly (ablate the visual features) would settle it.
 - **Nobody has combined the two lines.** FAIL-Detect's time-varying CP band is orthogonal to Sentinel's failure taxonomy; STAC as a *score* inside FAIL-Detect's stage-2 band is an experiment the paper half-runs (it keeps STAC's own constant threshold as the baseline) and nobody has run the full cross.
 - **Does it survive on an LBM?** Both papers monitor single-task policies. TRI's own generalist program is the obvious next target, and the acknowledgements suggest the people to do it are in the building.
+
+## Cited by
+- [Test-time adaptation](../concepts/learning/test-time-adaptation.md)

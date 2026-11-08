@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-09-07
 updated: 2026-09-07
-sources: 1
+sources: 5
 tags: [generalist-ai, robot-foundation-model, gen-0, gen-1, gen-1-5, in-context-robot-learning, scaling-laws, physical-ai, data-engine]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-07-26
 updated: 2026-10-25
-sources: 6
+sources: 8
 tags: [person, maes, mila, udem, leworldmodel, stable-worldmodel, levjepa, jepa, world-model]
 ---
 

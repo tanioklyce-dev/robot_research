@@ -108,3 +108,6 @@ The book is a foundational reference for essentially every ML concept the wiki t
 - **Companion GitHub repo** — book says "Python source code on github" but the URL wasn't extracted from page 17 in this ingest pass. If user wants to use the code, fetch the link from the published PDF directly.
 - **Coverage gaps** — book does not appear to cover **JEPA**-style joint-embedding losses, world-model architectures, or reinforcement learning end-to-end (RL covered only at the gradient-estimator level via ch. 12.3). For RL coverage, [Sutton & Barto](sutton-barto-rl-textbook.md) remains the canonical reference.
 - **Worked exercises / problems** — TOC doesn't surface an exercise section; structure looks more reference than course. (Welch Labs Vol I is the closer course-style companion.)
+
+## Cited by
+- [Variational autoencoder (VAE)](../concepts/learning/variational-autoencoder.md)

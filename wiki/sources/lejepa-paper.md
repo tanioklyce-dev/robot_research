@@ -201,6 +201,7 @@ Two caveats the follow-up itself supplies: **VICReg and InfoNCE also achieve ide
 - [Yann LeCun](../entities/yann-lecun.md) — co-author.
 - [Randall Balestriero](../entities/randall-balestriero.md) — co-first author.
 - [Joint-Embedding Predictive Architecture](../concepts/world-models/jepa.md) — the architecture family this paper provides theory for.
+- [DINOv3](../entities/dinov3.md)
 
 ## Concepts touched
 
@@ -217,3 +218,15 @@ Two caveats the follow-up itself supplies: **VICReg and InfoNCE also achieve ide
 - **Sobolev smoothness coefficient framework (§4.1, Theorem 5)** — alluded to in Figure 4 caption ("the greater α is, the more global will be the impact of SIGReg for a given M"). Connects SIGReg's effective coverage of the hypersphere to the smoothness of the embedding distribution. Not surfaced in this ingest; would deepen the "SIGReg is immune to the curse of dimensionality" claim.
 - **PyTorch reference implementation (algorithm 1, §5)** — the ~50-line code snippet. Re-read if the curriculum needs a reproducible reference for capstone-style work.
 - **Empirical comparison vs DINOv2 / V-JEPA 2 at matched compute** — the paper reports 79% on ViT-H/14 but the head-to-head against DINOv2 / V-JEPA 2 at the same compute budget is in §6 / appendix tables not surfaced here.
+
+## Cited by
+- [Energy-based models (EBMs)](../concepts/learning/energy-based-models.md)
+- [Inductive bias](../concepts/learning/inductive-bias.md)
+- [Spectral theory of self-supervised learning](../concepts/learning/spectral-theory-of-ssl.md)
+- [Optimal control](../concepts/robotics/optimal-control.md)
+- [Siamese network](../concepts/world-models/siamese-network.md)
+- [BYOL (Bootstrap Your Own Latent)](../entities/byol.md)
+- [LeNEPA](../entities/lenepa.md)
+- [LeVJEPA](../entities/levjepa.md)
+- [Market-JEPA](../entities/market-jepa.md)
+- [MarketOne](../entities/marketone.md)

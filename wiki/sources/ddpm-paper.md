@@ -76,3 +76,7 @@ DDPM's most relevant descendants for this wiki:
 - **iDDPM not yet a source page** — Nichol & Dhariwal (ICML 2021); Diffusion Policy uses its square-cosine schedule.
 - **Score-based formulation** (Song & Ermon) — alternative formulation; could become its own source.
 - **Author entity pages** — Pieter Abbeel (Berkeley) is a major figure; could become an entity if more Abbeel-line work surfaces. Jonathan Ho is now at Google. Ajay Jain has moved on as well.
+
+## Cited by
+- [Energy-based models (EBMs)](../concepts/learning/energy-based-models.md)
+- [Variational autoencoder (VAE)](../concepts/learning/variational-autoencoder.md)

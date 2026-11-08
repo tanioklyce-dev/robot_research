@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-07
 updated: 2026-11-07
-sources: 53
+sources: 58
 tags: [franka, panda, robot-arm, manipulator, 7-dof, manipulation-platform]
 ---
 
@@ -63,7 +63,7 @@ The consequence is that **the field's tooling is tuned on the platform that need
 
 ## Mentioned in
 
-> [!note] Curated list — **48** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **58** source pages link here; the ones below are those that shaped this page.
 
 - [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — the manipulation platform (7-DoF, LIBERO kitchen scenes) for direct-LLM control and VLA supervision.
 - [DROID](droid.md) (entity)

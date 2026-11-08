@@ -56,7 +56,8 @@ That is not a refutation of DynaMo — it is a change of subject. DynaMo's claim
 - [DynaMo](../entities/dynamo.md) — the method.
 - [Lerrel Pinto](../entities/lerrel-pinto.md) — senior author; **Zichen Jeff Cui** is also first author here and a [Patch Policy](patch-policy-paper.md) co-author.
 - [VQ-BeT](../entities/vq-bet.md) / [Diffusion Policy](../entities/diffusion-policy.md) / [LIBERO](../entities/libero.md) — policy heads and benchmark.
-- **R3M, VC-1, MVP, BYOL, MoCo, TCN, BAKU, Allegro Hand** — no pages.
+- [BYOL](../entities/byol.md) · [MoCo](../entities/moco.md)
+- **R3M, VC-1, MVP, TCN, BAKU, Allegro Hand** — no pages.
 
 ## Concepts touched
 

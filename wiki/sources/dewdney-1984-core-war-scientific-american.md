@@ -36,7 +36,7 @@ The **founding document of Core War** — A. K. Dewdney's May 1984 *Scientific A
 
 ## Concepts touched
 - [Artificial life and the emergence of self-replication](../concepts/alife/artificial-life-and-self-replication.md) — Core War is the **programming-game** ancestor of the self-replicating-code thread; the Imp is a hand-written self-replicator.
-- Self-replication, self-repair, von Neumann replicators, digital evolution (precursor to Tierra/Avida — not yet ingested).
+- Self-replication, self-repair, von Neumann replicators, digital evolution (precursor to [Tierra](../entities/tierra.md) and [Avida](../entities/avida.md)).
 
 ## Open questions
 - Core War warriors are **hand-written**, not evolved — the bridge to *evolved* self-replicators is **Tierra** (Tom Ray, 1991) and **Avida**, neither yet in the wiki. Natural next ingest to complete the lineage toward [Computational Life](computational-life-self-replicating-programs-paper.md).

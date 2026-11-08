@@ -128,3 +128,6 @@ The post has **no governance content at all**. It is a company research-position
 - **The linchpin claim is asserted, not demonstrated, here.** The post gives no evidence that a simulator-mastering model can in fact project into pixels and actions. World Labs' own [R2S2R results](world-labs-r2s2r.md), seven weeks later, are the attempt to supply it — and the wiki should read that post as this essay's evidence section, with the incentive that implies.
 - **"A pretrained video renderer as the backbone for joint world-and-action prediction"** is cited as "a small but growing number of recent work" with **no citations**. The wiki holds the specific instances — [Cosmos 3](cosmos-3-technical-report.md), [Genie Envisioner](../entities/genie-envisioner.md) / GE-Sim2 — so this is a case where the wiki is more concrete than its source.
 - **The trillion-dollar Omniverse TAM is a vendor estimate quoted by a second vendor.** Not independently sourced here.
+
+## Cited by
+- [Belief states and mixed states](../concepts/world-models/belief-states-and-mixed-states.md)

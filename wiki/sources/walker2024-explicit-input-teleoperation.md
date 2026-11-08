@@ -40,3 +40,6 @@ Proposes an explicit-input teleoperation assistance interface where the operator
 
 - Was the study with disabled or non-disabled participants? (paper says "operators" — likely non-disabled in simulation)
 - Does explicit pointing transfer to real hardware and non-expert users with motor impairments?
+
+## Cited by
+- [Optimal control](../concepts/robotics/optimal-control.md)

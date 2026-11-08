@@ -37,6 +37,7 @@ NVIDIA's **end-to-end course/workflow** for developing and deploying a humanoid 
 ## Entities mentioned
 
 - [NVIDIA GR00T](../entities/nvidia-groot.md) (1.7), [Unitree G1](../entities/unitree-g1.md), [Jetson Thor](../entities/jetson-thor.md), [Isaac Teleop](../entities/nvidia-isaac-teleop.md), [Isaac ROS](../entities/isaac-ros.md), [LeRobot](../entities/lerobot.md), [Isaac Lab](../entities/nvidia-isaac-lab.md) (Arena).
+- [Isaac Lab-Arena](../entities/isaac-lab-arena.md)
 
 ## Concepts touched
 

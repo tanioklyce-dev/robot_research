@@ -2,6 +2,8 @@
 title: Assistive Robots Transforming Human Lives
 type: source
 url: https://aiforgood.itu.int/assistive-robots-transforming-human-lives/
+local_path: raw/2023-04-itu-aiforgood-assistive-robots.md
+sha256: 5ce352f33ffd4d8f1b3a6edc13bd753c0cd87b201b04647ace7120532976239e
 author: Lindgard Buder
 affiliations: AI for Good / ITU
 published: 2023-04-12

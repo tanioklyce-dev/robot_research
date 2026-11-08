@@ -3,7 +3,7 @@ title: Decision models
 type: concept
 created: 2026-10-13
 updated: 2026-10-13
-sources: 2
+sources: 3
 tags: [decision-model, classification, calibration, single-forward-pass, routing, success-detection, llm-agent, d1, mediapipe]
 ---
 

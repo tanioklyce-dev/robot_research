@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-08-27
 updated: 2026-10-24
-sources: 4
+sources: 5
 tags: [mjlab, mujoco, mujoco-warp, rsl-rl, ppo, rl, sim-to-real, locomotion, training-framework]
 ---
 

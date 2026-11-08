@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-25
 updated: 2026-11-07
-sources: 40
+sources: 46
 tags: [pi-zero, pi0, vla, flow-matching, physical-intelligence, paligemma, action-expert, generalist-policy, cross-embodiment, lerobot, hugging-face]
 ---
 
@@ -91,7 +91,7 @@ Still, the direction is consistent with [SmolVLA](smolvla.md)'s result from the 
 
 ## Mentioned in
 
-> [!note] Curated list — **38** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **46** source pages link here; the ones below are those that shaped this page.
 
 
 - [π0 Paper](../sources/pi-zero-paper.md) — primary source (full HTML ingest).

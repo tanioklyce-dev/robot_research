@@ -83,6 +83,7 @@ They also show that when DT is made to predict return tokens too, it "continuous
 - **Pieter Abbeel** (Berkeley), Igor Mordatch (Google Brain), Aravind Srinivas, Aravind Rajeswaran (FAIR). No wiki pages.
 - **GPT** — the architecture used directly.
 - **CQL**, REM, QR-DQN — the offline-RL baselines. D4RL, Atari.
+- [Decision Transformer](../entities/decision-transformer.md)
 
 ## Concepts touched
 

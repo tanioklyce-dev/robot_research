@@ -94,6 +94,7 @@ That split is the sharpest thing in the paper: **scale buys you the parts of the
 - Bridge V2, SOAR, SD3 VAE, VA-VAE, SigLIP 2, InternVL 3.5, Qwen 3.6 — no wiki pages
 - [Web-DINO / WebSSL](../entities/webssl.md) — strong as a diffusion-world-model latent space — IDM Pearson r = 0.820.
 - [SigLIP 2](../entities/siglip-2.md) — best generated-latent success-classifier accuracy.
+- [SigLIP](../entities/siglip.md)
 
 ## Concepts touched
 

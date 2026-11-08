@@ -4,7 +4,7 @@ type: entity
 subtype: model-organism
 created: 2026-05-08
 updated: 2026-09-12
-sources: 9
+sources: 15
 tags: [drosophila, fruit-fly, model-organism, neuroscience, biomechanics]
 ---
 

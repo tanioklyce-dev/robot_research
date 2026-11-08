@@ -42,3 +42,6 @@ Cross-institutional reflection on methodology for including people with motor im
 
 - What specific recommendations does the paper make for other PAR researchers? (not captured from 2 pages shown)
 - Which of the three projects produced the most actionable insights for the methodology debate?
+
+## Cited by
+- [Amal Nanavati](../entities/amal-nanavati.md)

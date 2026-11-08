@@ -3,7 +3,7 @@ title: Strange loops and self-reference in AI agents
 type: concept
 created: 2026-07-27
 updated: 2026-07-27
-sources: 2
+sources: 6
 tags: [strange-loop, self-reference, recursion, hofstadter, llm-agent, agency, consciousness, self-model, emergence]
 ---
 

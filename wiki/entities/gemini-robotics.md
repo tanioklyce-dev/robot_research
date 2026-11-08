@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-09
 updated: 2026-10-13
-sources: 11
+sources: 13
 tags: [gemini-robotics, google-deepmind, vlm, vla, embodied-reasoning, foundation-model]
 ---
 

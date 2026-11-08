@@ -2,6 +2,8 @@
 title: Assistive Robotics Lab — Virginia Tech
 type: source
 url: https://www.assistiveroboticslab.com/
+local_path: raw/2026-05-09-virginia-tech-assistive-robotics-lab.md
+sha256: b5a14f5da554a157fb0f42df1cf348bdb194b88568f82372f005c178bf3e87f0
 author: Alan Asbeck
 affiliations: Virginia Tech
 published: Unknown

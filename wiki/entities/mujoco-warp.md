@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-08-27
 updated: 2026-10-24
-sources: 3
+sources: 4
 tags: [mujoco-warp, mjwarp, mujoco, newton, gpu-simulation, nvidia-warp, google-deepmind, nvidia, rl, mjlab]
 ---
 

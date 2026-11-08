@@ -33,3 +33,6 @@ ArXiv paper introducing [MuJoCo Playground](../entities/mujoco-playground.md), a
 ## Open questions
 - How does Playground's throughput compare to Isaac Lab on identical tasks?
 - Does Madrona renderer match Omniverse photorealism enough for [VLA](../concepts/learning/vla-models.md) training?
+
+## Cited by
+- [Metaworld](../entities/metaworld.md)

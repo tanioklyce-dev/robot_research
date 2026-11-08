@@ -56,6 +56,7 @@ Special thanks credited at the end: **Yann LeCun, Stephane Deny, David Fan, Nico
 - [V-JEPA 2](../entities/v-jepa-2.md) (robot-arm demos linked in the description)
 - [AMI Labs](../entities/ami-labs.md) (implicit — the "$1B bet")
 - [DINO-WM](../entities/dino-wm.md) / [DINO-world](../entities/dino-world.md) (background only)
+- [Welch Labs](../entities/welch-labs.md)
 
 ## Concepts touched
 - [Siamese network](../concepts/world-models/siamese-network.md)
@@ -71,3 +72,6 @@ Special thanks credited at the end: **Yann LeCun, Stephane Deny, David Fan, Nico
 
 - The video does not engage with the **SIGReg / LeJEPA** line (Balestriero & LeCun 2025) that the wiki treats as the methodological successor to Barlow Twins. Likely outside the popular-explainer scope, but a follow-up that includes SIGReg would be the natural companion piece.
 - The "is JEPA good?" segment is the most opinion-laden — would be worth comparing against the wiki's own [generative-video vs JEPA synthesis](../syntheses/world-models/generative-video-vs-jepa-world-models.md) for agreement / divergence.
+
+## Cited by
+- [Energy-based models (EBMs)](../concepts/learning/energy-based-models.md)

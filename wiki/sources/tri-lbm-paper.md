@@ -60,3 +60,8 @@ The primary source for [TRI](../entities/tri.md)'s **[Large Behavior Model](../c
 - How LBM 1.0's non-VLA architecture relates to whatever [Tedrake's stealth startup](../entities/russ-tedrake.md) builds (he now argues video backbones win for long context — a shift from this paper's ViT-encoder design?).
 - Whether the 20–30%-CI-at-50-rollouts point has changed evaluation practice elsewhere (cf. [RoboCasa365](robocasa365-paper.md)'s large-N sim eval, which cites TRI LBM as a baseline).
 - "LBM 1" naming implies an LBM 2 — unannounced as of ingest.
+
+## Cited by
+- [Safety filters for learned policies](../concepts/robotics/safety-filters.md)
+- [Siyuan Feng](../entities/siyuan-feng.md)
+- [Walden Robotics](../entities/walden-robotics.md)

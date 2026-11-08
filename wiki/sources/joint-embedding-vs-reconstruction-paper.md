@@ -125,3 +125,7 @@ Linear-model experiments on MNIST, Fashion-MNIST, Kuzushiji-MNIST and **single-c
 - **Can the crossover be estimated without knowing Γ?** The corollary compares `max λᵢ^Γ` against `η²/δ` — quantities defined in terms of the noise you are trying to remove. A usable diagnostic that says *"you are in the JE regime"* from data alone would turn the result from an explanation into a tool. Note [RankMe](../concepts/learning/representation-evaluation.md) is the wiki's only label-free instrument of this shape.
 - **Does the ordering survive fine-tuning?** The one experiment that would close the dispute on MAE's own terms, and it is not run.
 - **Where does [Self-Flow](flux-3-launch.md) sit in this framework?** It claims generation and representation quality improve *together* via heterogeneous per-token noise. In this paper's language that reads as **changing the effective alignment between the corruption process and the irrelevant features** — which, if right, means Self-Flow is a way to *manufacture* the alignment condition rather than a refutation of the trade-off. Neither paper cites the other.
+
+## Cited by
+- [In-context robot learning](../concepts/learning/in-context-robot-learning.md)
+- [Generative Latent Prediction (GLP)](../concepts/world-models/generative-latent-prediction.md)

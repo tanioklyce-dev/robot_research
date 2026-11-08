@@ -3,7 +3,7 @@ title: Safe reinforcement learning
 type: concept
 created: 2026-09-07
 updated: 2026-09-12
-sources: 4
+sources: 5
 tags: [safe-rl, cmdp, lagrangian, safety-gymnasium, projection-methods, pid-lagrangian, safety-critic, shielding, recovery-rl, safe-exploration, constrained-optimization, risk-sensitive, contact-rich, vla, safety-alignment]
 ---
 

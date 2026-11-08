@@ -90,3 +90,8 @@ Wiki additions:
 - [Code as Policies](code-as-policies-paper.md) — the baseline, and the limitation this paper targets.
 - [Language to Rewards](language-to-rewards-paper.md) — the sibling "write an objective, not a call sequence" paper, published a month earlier, same conference.
 - [CaP-X](cap-x-paper.md) — the 2026 framework that turns the primitive-abstraction question into a controlled axis instead of routing around it.
+
+## Cited by
+- [CLIPort](../entities/cliport.md)
+- [Jiajun Wu](../entities/jiajun-wu.md)
+- [Yunzhu Li](../entities/yunzhu-li.md)

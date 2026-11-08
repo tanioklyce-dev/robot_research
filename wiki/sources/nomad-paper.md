@@ -64,3 +64,7 @@ Goal images only ("not the most natural modalities for users"); frontier explora
 
 - Per-environment numbers are not given; 98% on ~6 environments is a small denominator.
 - Whether goal masking costs anything at scale — OmniVLA's modality dropout suggests not, but on a different backbone.
+
+## Cited by
+- [Crowdsourced robot training data](../concepts/learning/crowdsourced-robot-training-data.md)
+- [Robot policy evaluation](../concepts/robotics/robot-policy-evaluation.md)

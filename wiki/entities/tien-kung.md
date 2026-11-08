@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-08-13
 updated: 2026-10-23
-sources: 1
+sources: 2
 tags: [tien-kung, humanoid, dexterous-hand, x-humanoid, beijing, robomind, teleoperation, dataset-embodiment]
 ---
 

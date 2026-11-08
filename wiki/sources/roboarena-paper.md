@@ -85,3 +85,7 @@ RoboArena runs entirely on [DROID](../entities/droid.md) — the same platform t
 - **Is the live leaderboard the same protocol?** The wiki cites *"#1 policy model on RoboArena, 2026-05-30"* for [Cosmos 3](../entities/nvidia-cosmos.md) — a year after this paper. Whether the leaderboard still uses this exact BT variant, and how many comparisons back that #1, is unknown.
 - **Does subjectivity in the preference criterion bias results systematically?** Evaluators define their own criteria; the paper flags this without measuring inter-rater agreement (or if it does, that number wasn't captured here).
 - **Progress score vs binary preference** — three signals are collected but the ranking appears to use the preference; what the [0–100] progress score is used for is unclear.
+
+## Cited by
+- [Real-to-sim-to-real (R2S2R)](../concepts/robotics/real-to-sim-to-real.md)
+- [Abhinav Gupta](../entities/abhinav-gupta.md)

@@ -157,3 +157,15 @@ Small-N by necessity ("the serial nature of work in the real world"), on a real 
 - [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — policy-control and VLA-supervision *are* this pattern, measured.
 - [VLA models](../concepts/learning/vla-models.md) — MolmoAct as the supervised policy layer.
 - [AI safety and alignment](../concepts/safety/ai-safety-alignment.md) — access level as a system property.
+
+## Cited by
+- [Code as policy](../concepts/agents/code-as-policy.md)
+- [Strange loops and self-reference in AI agents](../concepts/agents/strange-loops-and-self-reference.md)
+- [LLM-free VLA (the V+L→A paradigm)](../concepts/learning/llm-free-vla.md)
+- [Laboratory automation and self-driving labs](../concepts/robotics/laboratory-automation.md)
+- [AI guardrails](../concepts/safety/ai-guardrails.md)
+- [CaP-X](../entities/cap-x.md)
+- [Dario Amodei](../entities/dario-amodei.md)
+- [Genentech](../entities/genentech.md)
+- [SayCan](../entities/saycan.md)
+- [Waddle Labs](../entities/waddle-labs.md)

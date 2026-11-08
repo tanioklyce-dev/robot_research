@@ -4,7 +4,7 @@ type: entity
 subtype: hardware
 created: 2026-08-29
 updated: 2026-09-28
-sources: 9
+sources: 11
 tags: [jetson, jetson-agx-orin, nvidia, edge-ai, onboard-compute, ampere, dla, pva, nvpmodel, super-mode, robotics, vla]
 ---
 

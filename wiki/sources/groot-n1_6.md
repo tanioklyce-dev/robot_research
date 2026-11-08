@@ -38,6 +38,7 @@ The GR00T **N1.6** research page. The major change vs [N1.5](groot-n1_5.md) is t
 - [NVIDIA Cosmos](../entities/nvidia-cosmos.md) — Cosmos-2B VLM variant as the backbone (a step before N1.7's Cosmos-Reason2-2B).
 - [Unitree G1](../entities/unitree-g1.md) — whole-body loco-manipulation embodiment. [AgiBot](../entities/agibot.md) — Genie1 arms.
 - [YAM](../entities/yam.md) (bimanual arms), [Galaxea R1](../entities/galaxea-r1.md) (R1 Pro, sim) — now filed as entities.
+- [Eagle (NVIDIA VLM family)](../entities/eagle-vlm.md)
 
 ## Concepts touched
 - [VLA models](../concepts/learning/vla-models.md) — reasoning-integrated backbone + state-relative actions are the notable design shifts.
@@ -48,3 +49,6 @@ The GR00T **N1.6** research page. The major change vs [N1.5](groot-n1_5.md) is t
 - No published numbers — the wiki records the qualitative claims only; a follow-up paper or model card may quantify the N1.6 > N1.5 gap.
 - The Cosmos-2B (N1.6) → Cosmos-Reason2-2B (N1.7) backbone progression is the clearest thread linking the GR00T policy line to the [Cosmos](../entities/nvidia-cosmos.md) reasoning line.
 - YAM arms + Galaxea R1 Pro — new embodiments worth entity pages if they recur.
+
+## Cited by
+- [OmniGibson](../entities/omnigibson.md)

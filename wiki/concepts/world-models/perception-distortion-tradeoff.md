@@ -3,7 +3,7 @@ title: Perception-distortion tradeoff
 type: concept
 created: 2026-09-01
 updated: 2026-09-01
-sources: 1
+sources: 4
 tags: [evaluation, perception-distortion, fid, kid, distortion-metrics, blau-michaeli, world-model, diffusion, regression-to-the-mean]
 ---
 

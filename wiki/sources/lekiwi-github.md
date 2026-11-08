@@ -53,6 +53,8 @@ LeKiwi is structurally a 3-wheel holonomic Kiwi-drive base with a stacked-base-p
 - [SO-ARM101](../entities/so-arm101.md)
 - [Hugging Face](../entities/hugging-face.md) — LeRobot maintainer
 - [Raspberry Pi](https://www.raspberrypi.com/) (no entity page; foundational)
+- [Koch v1.1](../entities/koch-v1-1.md)
+- [The Robot Studio](../entities/the-robot-studio.md)
 
 ## Concepts touched
 
@@ -64,3 +66,6 @@ LeKiwi is structurally a 3-wheel holonomic Kiwi-drive base with a stacked-base-p
 - 1,300+ stars but no formal release tags — what's the stability story for downstream projects like [XLeRobot](../entities/xlerobot.md) that compose on top?
 - SIGRobotics is a student organization; succession / maintenance risk worth tracking as the original contributors graduate.
 - The Dynamixel/Koch v1.1 variant suggests dual-track hardware support; which is the recommended default in 2026?
+
+## Cited by
+- [FeeTech](../entities/feetech.md)

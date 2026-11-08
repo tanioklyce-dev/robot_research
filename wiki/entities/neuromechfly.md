@@ -4,7 +4,7 @@ type: entity
 subtype: simulator-body-model
 created: 2026-05-08
 updated: 2026-09-12
-sources: 5
+sources: 6
 license: Apache-2.0
 url: https://neuromechfly.org/
 code: https://github.com/NeLy-EPFL/flygym/

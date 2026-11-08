@@ -151,6 +151,7 @@ Also worth noting: the survey's own text has internal section-numbering errors (
 - [Arash Ajoudani](../entities/arash-ajoudani.md) — senior author; head of HRII at IIT. [Istituto Italiano di Tecnologia](../entities/istituto-italiano-di-tecnologia.md) — HRII and HHCM labs, and the institutional home of most of the self-cited work.
 - Simulators tabulated (Table 2): [MuJoCo](../entities/mujoco.md) / MJX, [Genesis](../entities/genesis.md), PyBullet, [Isaac Gym](../entities/isaac-gym.md), [Isaac Sim](../entities/nvidia-isaac-sim.md), [Isaac Lab](../entities/nvidia-isaac-lab.md), Orbit, Factory, RoboAssembly, [Drake](../entities/drake.md).
 - Benchmarks tabulated (Table 3): RoboVerse, [RoboCasa](../entities/robocasa.md), [robosuite](../entities/robosuite.md), [ManiSkill](../entities/maniskill.md), Meta-World, RLBench, [Gymnasium](../entities/gymnasium.md), **Safety Gymnasium**, Robust Gymnasium, safe-control-gym — the last three being the only *safety*-specific entries, and none of them contact-force-aware.
+- [Safety-Gymnasium (and SafePO)](../entities/safety-gymnasium.md)
 
 ## Concepts touched
 
@@ -175,3 +176,9 @@ Also worth noting: the survey's own text has internal section-numbering errors (
 - **CompliantVLA-adaptor** (ref [5], arXiv 2601.15541, same group, Jan 2026): VLM-guided variable impedance for safe contact-rich manipulation. Together with **OmniVIC** (2510.17150) it is the concrete instance of "the VLM sets the stiffness," which is the survey's central architectural bet. Neither is ingested; both are one fetch away.
 - **SafeVLA** (2503.03480) was the single most load-bearing external citation here. **Now ingested, and it does not carry the weight** — [see the source page](safevla-paper.md). Its tasks are object navigation and pick-and-place, which this survey's own §2.1 excludes from contact-rich; its five safety predicates are discrete collision events with simulator ground truth; **there is no force anywhere in it.** The survey's foundation-model chapter is anchored on work from a different regime with a different hazard model — which strengthens rather than weakens the survey's own complaint that no contact-force evaluation protocol exists.
 - **Does the exclusion of imitation learning survive contact?** The survey's justification is that IL "replicates behaviors rather than actively managing safety." But a demonstration set contains only safe episodes by construction — which is exactly the training signal the [runtime failure detection](../concepts/robotics/runtime-failure-detection.md) line exploits. The survey never considers that IL's safety property might be *distributional* rather than absent.
+
+## Cited by
+- [mimic robotics](../entities/mimic-robotics.md)
+- [NVIDIA Halos (for Robotics)](../entities/nvidia-halos.md)
+- [PKU-Alignment (Peking University)](../entities/pku-alignment.md)
+- [Safety-CHORES](../entities/safety-chores.md)

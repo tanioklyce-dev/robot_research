@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-07-15
 updated: 2026-08-28
-sources: 4
+sources: 6
 tags: [walden-robotics, russ-tedrake, tri, lbm, diffusion-policy, physical-ai, manufacturing, spinout, funding, wheeled-base, mobile-manipulation, amr, safety-case, grippers]
 ---
 

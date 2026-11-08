@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-07-13
 updated: 2026-09-12
-sources: 3
+sources: 5
 tags: [company, autonomous-driving, self-driving, alphabet, world-model, simulation]
 ---
 

@@ -70,6 +70,7 @@ Smaller notes: the Orin NX "100 TOPS" is the standard-flash 16 GB figure (157 Su
 - [Rockchip RK1828](../entities/rockchip-rk1828.md) (new) · [Rockchip](../entities/rockchip.md) · [Rockchip RK3588](../entities/rockchip-rk3588.md) — proposed host.
 - [Geniatech](../entities/geniatech.md) (new) — author and ODM.
 - [Jetson Orin NX](../entities/jetson-orin-nx.md) · [Hailo](../entities/hailo.md) — the two competitor columns.
+- [RKNN-Toolkit2 (Rockchip NPU SDK)](../entities/rknn-toolkit2.md)
 
 ## Concepts touched
 - [Heterogeneous edge SoCs and the shared-memory budget](../concepts/robotics/heterogeneous-edge-soc.md) — this is the counter-design: move the memory into the accelerator's package.

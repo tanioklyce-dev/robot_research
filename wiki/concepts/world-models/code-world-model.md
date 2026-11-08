@@ -3,7 +3,7 @@ title: Code world model
 type: concept
 created: 2026-10-07
 updated: 2026-10-07
-sources: 2
+sources: 3
 tags: [code-world-model, world-model, program-synthesis, llm, symbolic, model-based-planning, mcts, verifiability, partial-observability]
 ---
 

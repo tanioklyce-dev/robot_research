@@ -32,6 +32,7 @@ The **original Avida paper** — the **tierra-inspired** system that became the 
 - [Avida](../entities/avida.md) — the system introduced here.
 - [Chris Adami](../entities/chris-adami.md) — lead author. C. Titus Brown (co-author); **Charles Ofria** (design collaborator, later Avida lead). *(Brown/Ofria: no standalone pages yet.)*
 - [Tierra](../entities/tierra.md) — the direct inspiration ([Ray 1991](ray-1991-tierra-synthesis-of-life.md)).
+- [Charles Ofria](../entities/charles-ofria.md)
 
 ## Concepts touched
 - [Artificial life and the emergence of self-replication](../concepts/alife/artificial-life-and-self-replication.md) — Avida is the spatial, task-rewarding successor to Tierra in the digital-evolution line.
@@ -40,3 +41,6 @@ The **original Avida paper** — the **tierra-inspired** system that became the 
 ## Open questions
 - This is the **1994 origin** paper; Avida's most cited result — **["The evolutionary origin of complex features" (Lenski, Ofria, Pennock & Adami, *Nature* 2003)](lenski-2003-evolutionary-origin-complex-features.md)**, where the EQU logic function evolves only when simpler intermediate functions are rewarded — is now ingested.
 - Avida vs. [Computational Life](computational-life-self-replicating-programs-paper.md): Avida still uses an **externally specified reward landscape**; Computational Life has **no fitness function at all** — the contrast that defines the end of the lineage.
+
+## Cited by
+- [Thomas Ray](../entities/thomas-ray.md)

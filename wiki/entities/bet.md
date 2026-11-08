@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-05-10
 updated: 2026-05-15
-sources: 7
+sources: 8
 tags: [bet, behavior-transformer, k-means-discretization, multi-modal-bc, transformer, shafiullah-2022, pinto-lab, nyu]
 ---
 

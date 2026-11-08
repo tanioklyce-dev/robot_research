@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-10-13
 updated: 2026-10-22
-sources: 4
+sources: 10
 tags: [h-jepa, hierarchical-world-model, jepa, hierarchical-planning, leworldmodel, sigreg, inverse-dynamics, lecun, balestriero]
 ---
 

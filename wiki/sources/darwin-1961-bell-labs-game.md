@@ -31,6 +31,8 @@ The **primary-source origin of the self-reproducing-program game** — and the d
 - [Doug McIlroy](../entities/doug-mcilroy.md) — coded the umpire; transcriber of this document (later of Unix-pipes / `diff` fame).
 - [Victor Vyssotsky](../entities/victor-vyssotsky.md) — inventor of Darwin (later Multics, Bell Labs/DEC).
 - [Robert Morris](../entities/robert-morris.md) — author of the winning adaptive species (later NSA chief scientist; father of Morris-worm author R. T. Morris).
+- [Avida](../entities/avida.md)
+- [Tierra](../entities/tierra.md)
 
 ## Concepts touched
 - [Artificial life and the emergence of self-replication](../concepts/alife/artificial-life-and-self-replication.md) — Darwin is the **earliest** entry in the wiki's digital-replicator lineage (1961), predating Core War (1984).

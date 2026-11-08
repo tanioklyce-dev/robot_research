@@ -4,7 +4,7 @@ type: entity
 subtype: software-module
 created: 2026-05-07
 updated: 2026-07-05
-sources: 5
+sources: 6
 tags: [openclaw, openclaw-controller, hiwonder, ros2, manipulation, claw-ecosystem, rosorin-pro, bridge-module]
 ---
 

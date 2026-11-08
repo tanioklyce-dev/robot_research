@@ -62,3 +62,6 @@ tags: [worlddp, world-model, jepa, object-centric, diffusion-policy, hierarchica
 - The dynamics model is deterministic (MSE) while the paper's argument rests on multi-modal futures. Would a stochastic slot-space predictor help the planner or break the subgoal cost?
 - Was the "w/o PF" CEM ablation given the same keypoint-trajectory seeds as the particle filter? The text does not say.
 - §3.3 says the contact predictor reads the object-centric state; Appendix A.4 says it reads the mean DINOv2 patch feature. Which is it?
+
+## Cited by
+- [Generative Latent Prediction (GLP)](../concepts/world-models/generative-latent-prediction.md)

@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-09-02
 updated: 2026-09-02
-sources: 1
+sources: 2
 tags: [vtam, tactile, world-action-model, vla-models, contact-rich, manipulation, data-efficiency, uiuc]
 ---
 

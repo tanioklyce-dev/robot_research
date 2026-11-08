@@ -59,6 +59,7 @@ The second wiki-relevant disclosure is the augmentation result. MAE works with *
 - [Meta FAIR](../entities/meta-fair.md) — all six authors (as Facebook AI Research).
 - [MAE](../entities/mae.md) — the method's entity page.
 - [DINO](../entities/dino.md) — the SSL baseline it outperforms on fine-tuning.
+- [SimCLR](../entities/simclr.md)
 
 ## Concepts touched
 
@@ -72,4 +73,7 @@ The second wiki-relevant disclosure is the augmentation result. MAE works with *
 - **Does the spectral argument predict MAE's own ablations?** Balestriero's claim is that MSE gradients follow the pixel covariance's top eigenvectors, so low frequencies are learned first. MAE reports that **PCA coefficients as a reconstruction target degrade accuracy** and that per-patch normalization (which boosts local contrast, i.e. high frequency) **improves** it — *"both experiments suggest that the high-frequency components are useful in our method."* That is at least consistent with the spectral story, and possibly a prediction it makes. Nobody has connected them.
 - **What does a JEPA look like under partial fine-tuning?** MAE's strongest defence is a protocol the JEPA literature does not report. The wiki has no source that evaluates [LeJEPA](lejepa-paper.md) or [V-JEPA 2](../entities/v-jepa-2.md) features by tuning `k` blocks.
 - **The Philadelphia driving result on the [Day 3 backlog](../backlog.md) is an MAE-style model beating a vision-only V-JEPA** with extra sensor streams. If found, it is a second data point for reconstruction where the wiki currently has only arguments against it.
-- **MoCo v3 is cited as the contrastive baseline throughout and is not ingested here.** Its saturation-at-300-epochs behaviour is load-bearing for MAE's scaling claim.
+- **MoCo v3 is cited as the contrastive baseline throughout**, and has since been ingested as the [MoCo v3 paper](moco-v3-paper.md). Its saturation-at-300-epochs behaviour is load-bearing for MAE's scaling claim.
+
+## Cited by
+- [Representation evaluation (k-NN, linear, MLP, fine-tuning, RankMe)](../concepts/learning/representation-evaluation.md)

@@ -70,6 +70,9 @@ Iterated mixture:
 - [Physical Intelligence](../entities/physical-intelligence.md) — lab.
 - [Chelsea Finn](../entities/chelsea-finn.md), [Sergey Levine](../entities/sergey-levine.md), [Karl Pertsch](../entities/karl-pertsch.md) — recurring senior authors.
 - [Gemma 3](../entities/gemma3.md) — named in the model stack.
+- [FAST (action tokenization) / π0-FAST](../entities/fast-action-tokenization.md)
+- [π0.5](../entities/pi-zero-5.md)
+- [π0.6 (and intermediates π0.5, π0.6-MEM)](../entities/pi-zero-6.md)
 
 ## Concepts touched
 
@@ -78,6 +81,7 @@ Iterated mixture:
 - **Reinforcement learning** — specifically offline RL + iterated offline RL. RECAP is the wiki's first ingest of a real-world RL-from-deployment recipe for a VLA.
 - **Advantage conditioning** as a policy-extraction method — alternative to policy gradient and AWR; lineage = CFGRL.
 - **Human-gated DAgger** — the intervention modality.
+- [Knowledge Insulation (KI)](../concepts/learning/knowledge-insulation.md)
 
 ## Open questions
 
@@ -94,3 +98,8 @@ Iterated mixture:
 2. **Concrete production-grade autonomy numbers**: 13 hours of espresso-making, 2+ hours of laundry in a novel home, factory-packaging box assembly. Multi-hour autonomous deployment of a learned VLA is rare in the published literature; this is one of the strongest data points to date.
 3. **The "2× throughput, ½ failure rate" finding** quantifies what RL-from-deployment buys on top of pure imitation learning. If general, this is the strongest case yet for **integrating RL into VLA training pipelines** rather than treating IL as the end state.
 4. **Sibling to [π0.7](pi07-paper.md)**: π0.7 = "more diverse data + better prompts," π*0.6 = "iterate on the model with deployment experience." Two papers, same lab, complementary directions — both implicitly establishing the **post-π0 VLA design space**.
+
+## Cited by
+- [Continual learning and catastrophic forgetting](../concepts/learning/continual-learning.md)
+- [Real-world robotic reinforcement learning](../concepts/learning/real-world-robot-rl.md)
+- [RL for flow-matching VLAs — reweight the sampler, not the gradient](../concepts/learning/rl-for-flow-matching-vlas.md)

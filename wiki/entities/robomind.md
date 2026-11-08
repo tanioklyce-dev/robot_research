@@ -4,7 +4,7 @@ type: entity
 subtype: dataset
 created: 2026-08-13
 updated: 2026-10-13
-sources: 4
+sources: 5
 tags: [robomind, dataset, teleoperation, multi-embodiment, franka, ur5e, agilex, tien-kung, dexterous-hand, failure-data, digital-twin, isaac-sim, x-humanoid]
 ---
 

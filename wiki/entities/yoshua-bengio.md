@@ -3,8 +3,8 @@ title: Yoshua Bengio
 type: entity
 subtype: person
 created: 2026-08-30
-updated: 2026-08-30
-sources: 8
+updated: 2026-11-08
+sources: 9
 tags: [person, montreal, mila, turing-award, attention, nmt, distributed-representations, word-embeddings, language-model, deep-learning]
 ---
 
@@ -42,4 +42,4 @@ His post-2015 work — GANs-adjacent generative modeling, consciousness-prior / 
 
 - ~~Bahdanau, Cho & Bengio 2014 is the single missing source connecting him to the transformer lineage.~~ **Resolved 2026-08-30** — ingested.
 - ~~Cho et al. 2014a (the GRU / RNN Encoder–Decoder paper) remains un-ingested.~~ **Resolved 2026-08-30** — [ingested](../sources/cho2014-rnn-encoder-decoder-phrase-representations.md); he is senior author on that one too. **Cho et al. 2014b** is now the remaining gap.
-- Mila as an institution has no entity page; only worth adding if a Mila-affiliated robotics or world-model source lands.
+- [Mila](mila.md) — his institute.

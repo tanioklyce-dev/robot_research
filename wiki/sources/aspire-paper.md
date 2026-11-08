@@ -97,6 +97,8 @@ The drawer row is the strongest single data point: without skill retrieval the a
 - [ASPIRE](../entities/aspire.md) · [CaP-X](../entities/cap-x.md) · [Robosuite](../entities/robosuite.md) · [LIBERO](../entities/libero.md) · [BEHAVIOR](../entities/behavior-benchmark.md) · [MuJoCo Playground](../entities/mujoco-playground.md)
 - [Anthropic](../entities/anthropic.md) — Claude Code + Claude Opus 4.6 (1M context) is the coding agent for every simulation result.
 - [YAM](../entities/yam.md) — the real bimanual platform · [OpenVLA](../entities/openvla.md) · [π0](../entities/pi-zero.md)
+- [π0.5](../entities/pi-zero-5.md)
+- [Voyager](../entities/voyager.md)
 
 ## Concepts touched
 - [Code as policy](../concepts/agents/code-as-policy.md) — ASPIRE is the measured endpoint of the autonomous-revision branch.
@@ -128,3 +130,12 @@ Questions the wiki adds:
 - [Introducing Waddle](waddle-labs-introducing-waddle.md) — the commercial claim; ASPIRE's limitations section is the closest thing to an independent reality-check.
 - [LIBERO-PRO](libero-pro-paper.md) — independently reproduced here (VLAs at 0 under perturbation).
 - [Success-rate audit](../syntheses/platforms/vla-success-rate-audit.md) — ASPIRE's gaps are large enough to survive it; see that page.
+
+## Cited by
+- [Symbolic task planning (PDDL and generalized planning)](../concepts/agents/symbolic-task-planning.md)
+- [Continual learning and catastrophic forgetting](../concepts/learning/continual-learning.md)
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)
+- [Guanzhi Wang](../entities/guanzhi-wang.md)
+- [Karol Hausman](../entities/karol-hausman.md)
+- [Physical Intelligence](../entities/physical-intelligence.md)
+- [Waddle Labs](../entities/waddle-labs.md)

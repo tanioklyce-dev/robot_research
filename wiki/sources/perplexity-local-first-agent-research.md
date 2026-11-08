@@ -138,3 +138,6 @@ Gains are modest and not free: **+2.8 points (82.6 → 85.4)** for **+30% tokens
 - **No robot anywhere.** Every task is documents, research, email, code. The relevance is architectural: a robot's high-level agent faces the same small-model-on-fixed-hardware constraint, and this is the most detailed public account of designing for it.
 - **Nothing measures the harness under contention.** Wall times assume the box is doing only this. A robot shares its compute with perception and control.
 - **The technical report on model training is promised, not published.**
+
+## Cited by
+- [NeMo Switchyard](../entities/nemo-switchyard.md)

@@ -3,7 +3,7 @@ title: In-context robot learning
 type: concept
 created: 2026-08-29
 updated: 2026-09-12
-sources: 10
+sources: 12
 tags: [in-context-learning, robot-foundation-model, demonstration-conditioning, test-time-adaptation, vla, skild-ai, s1, generalist-ai, gen-1-5, physical-prompting, emergence]
 ---
 

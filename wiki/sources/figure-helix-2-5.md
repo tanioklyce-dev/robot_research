@@ -115,3 +115,6 @@ Figure 2: four models on **nested subsets of Index spanning 8×** (1×, 2×, 4×
 - **Is S2 gone?** Random-init pretraining on video implies no pretrained language backbone; how are behaviors selected and language-conditioned, if at all? The three behaviors appear to be three fine-tunes, not one instructable model.
 - **Why is tidying the weakest (40%)?** It is the task that most needs search and locomotion; the per-toy attempt data the rubric records is not published.
 - **Does it replicate outside the Bay Area?** 30 homes in one metro region is a strong eval by robotics standards and a narrow one by housing-stock standards.
+
+## Cited by
+- [Flourish Robots](../entities/flourish-robots.md)

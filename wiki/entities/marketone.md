@@ -4,7 +4,7 @@ type: entity
 subtype: dataset
 created: 2026-09-02
 updated: 2026-09-03
-sources: 4
+sources: 5
 tags: [marketone, dataset, finance, self-supervised, lejepa, byol, scaling, chicago-booth, balestriero, benchmark, massive, market-jepa]
 ---
 

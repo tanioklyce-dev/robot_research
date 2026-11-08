@@ -123,3 +123,11 @@ Also clarified: the experiment itself was run in **August 2025** and published t
 - [AI safety and alignment](../concepts/safety/ai-safety-alignment.md) — Responsible Scaling Policy, capability thresholds.
 - [AI red-teaming](../concepts/safety/ai-red-teaming.md) — sibling evaluation genre; this is the wiki's first *embodied* frontier-safety evaluation.
 - [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — the contrast case: here Claude writes the code, it does not *sit in* the control loop.
+
+## Cited by
+- [Agent–hardware abstraction](../concepts/agents/agent-hardware-abstraction.md)
+- [Laboratory automation and self-driving labs](../concepts/robotics/laboratory-automation.md)
+- [Dario Amodei](../entities/dario-amodei.md)
+- [Genentech](../entities/genentech.md)
+- [Model Hardware Standard (MHS)](../entities/model-hardware-standard.md)
+- [Spot](../entities/spot.md)

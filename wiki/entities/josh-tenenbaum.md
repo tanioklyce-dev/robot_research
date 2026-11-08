@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-04
 updated: 2026-08-31
-sources: 2
+sources: 3
 tags: [tenenbaum, researcher, mit, cognitive-science, bayesian-models, program-induction]
 ---
 

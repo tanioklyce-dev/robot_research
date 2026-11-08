@@ -58,3 +58,6 @@ tags: [motionbricks, nvidia, gear, xue-bin-peng, yuke-zhu, whole-body-control, h
 
 - **How deep is the robot transfer?** The G1 deployment is a demonstration; no head-to-head WBC benchmark (SR/MPJPE) against [SONIC](sonic-paper.md) or [BumbleBee](bumblebee-experts-to-generalist-wbc.md) is given — animation is the paper's primary evaluation axis.
 - **Data provenance** — the >350k-clip corpus mixes open-source + proprietary; licensing of the proprietary half unstated.
+
+## Cited by
+- [Helix (Figure AI)](../entities/helix.md)

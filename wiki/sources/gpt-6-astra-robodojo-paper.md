@@ -133,3 +133,6 @@ The authors call it initial evidence for a general-purpose manipulation model, a
 - **The safety gap.** It ranks first in sim and was stopped for damaging hardware in the real world. What were the incidents (speed, collisions, force)? Would the real-robot campaign be safe with a constrained controller of the kind the [control-abstraction-levels](../concepts/robotics/control-abstraction-levels.md) note describes (keep-out regions, joint limits, clearance)?
 - **Latency and cost are not reported.** Up to 100 reasoning calls per episode over 2,100 episodes, with no cost or wall-clock figure. Deployment viability depends on both.
 - **Does the lead survive a second seed and another simulator?** The authors say these are untested.
+
+## Cited by
+- [Embodied-reasoning VLMs (ER backbones)](../concepts/learning/embodied-reasoning-vlms.md)

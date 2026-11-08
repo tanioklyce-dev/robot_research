@@ -75,3 +75,6 @@ A single, anatomically constrained LIF model — wiring straight from the connec
 
 - **Closes a wiki gap.** This paper was [previously TBD](../syntheses/agents/whole-organism-agentic-ai.md) — only its [Berkeley News writeup](berkeley-fly-brain-news.md) was ingested. Now we have the primary source, the runtime substrate (Brian 2), and the actual reproducibility surface (MIT-licensed Python repo + bundled connectivity data + external simulation archive).
 - **First half of the brain-side reproducibility answer.** Combined with [Lappalainen et al. 2024](lappalainen-flyvis-paper.md) (connectome-constrained deep nets), this defines two distinct, both-open-source ways to *use* a connectome — see the two paradigms now documented on [Connectome](../concepts/bio/connectome.md).
+
+## Cited by
+- [H01 (human cortex connectome fragment)](../entities/h01-connectome.md)

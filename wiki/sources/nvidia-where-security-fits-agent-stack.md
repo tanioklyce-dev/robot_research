@@ -124,6 +124,8 @@ Three things do not obviously transfer, and none is addressed:
 
 - [NVIDIA](../entities/nvidia.md) · [NVIDIA OpenShell](../entities/nvidia-openshell.md) · [NemoClaw](../entities/nemoclaw.md) · [Hermes Agent](../entities/hermes-agent.md) · [Anthropic](../entities/anthropic.md)
 - Unmodelled here: Databricks Omnigent, NVIDIA Dynamo, Codex, Pi, DeepSeek Harness / Cordis, Open Secure AI Alliance
+- [OpenAI](../entities/openai.md)
+- [UK AI Security Institute (AISI)](../entities/uk-aisi.md)
 
 ## Concepts touched
 

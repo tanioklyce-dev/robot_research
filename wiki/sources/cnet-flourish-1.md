@@ -50,3 +50,6 @@ Consumer-press launch piece on [Flourish 1](../entities/flourish-1.md). It is us
 
 ## Open questions
 - "Stop when a person or animal enters the working area" detected by what? A wrist camera and a floor-level lidar see different volumes. A cat on a counter is in neither.
+
+## Cited by
+- [Crowdsourced robot training data](../concepts/learning/crowdsourced-robot-training-data.md)

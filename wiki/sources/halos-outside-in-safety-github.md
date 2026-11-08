@@ -50,3 +50,6 @@ The **open-source (Apache-2.0) reference architecture** for the **Outside-In** h
 
 - **Not production-certified** — the repo is a prototyping blueprint; a real deployment needs "your own certified safety layer." Relationship to the [Halos](../entities/nvidia-halos.md) TÜV/ANAB certified path (which is about the *Inside-Out* IGX-FSI stack) is: this Outside-In blueprint is the *un-certified, swappable* infrastructure-perception side.
 - No explicit ROS 2 / DeepStream / Holoscan integration surfaced in the README (Holoscan SensorBridge is the *Inside-Out* piece).
+
+## Cited by
+- [Agent skills (portable SKILL.md)](../concepts/agents/agent-skills.md)

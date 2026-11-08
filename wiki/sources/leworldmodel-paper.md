@@ -41,6 +41,8 @@ Preprint introducing **LeWorldModel (LeWM)** — claimed as the **first JEPA tra
 - [Yann LeCun](../entities/yann-lecun.md) — senior author.
 - [PushT](../entities/pusht.md) — one of four task datasets.
 - [DINO-WM](../entities/dino-wm.md) — comparison baseline (foundation-based JEPA).
+- [Dreamer / DreamerV3](../entities/dreamer.md)
+- [PLDM (Planning with Latent Dynamics Models)](../entities/pldm.md)
 
 ## Concepts touched
 - [Optimal control](../concepts/robotics/optimal-control.md)
@@ -59,3 +61,11 @@ Preprint introducing **LeWorldModel (LeWM)** — claimed as the **first JEPA tra
 - Project page: https://le-wm.github.io/
 - Pretrained HF checkpoints: `quentinll/lewm-{pusht,cube,tworooms,reacher}`
 - See [LeWorldModel — train and run howto](../syntheses/world-models/leworldmodel-howto.md) for install/train/eval commands.
+
+## Cited by
+- [Gradient-based planning (vs CEM) in latent world models](../concepts/world-models/gradient-based-planning.md)
+- [AMI Labs](../entities/ami-labs.md)
+- [Lucas Maes](../entities/lucas-maes.md)
+- [Metaworld](../entities/metaworld.md)
+- [PointMaze](../entities/pointmaze.md)
+- [TD-MPC / TD-MPC2](../entities/td-mpc.md)

@@ -172,3 +172,6 @@ The 2026-08-13 ingest worked from the README and docs. Re-checked against the re
 - **Company facts are thin.** Apache-2.0 header reads "Copyright 2025 Dimensional Inc."; homepage is dimensional.org; hosted services at dimensionalos.com. Founder, funding, and headcount are not established by any source ingested here — see [Dimensional Inc.](../entities/dimensional-inc.md) for what is and isn't known.
 - The **openFT force-torque sensor** is a separate `dimensionalOS` repo and un-ingested. Open FT sensing is scarce; worth a look given the wiki's repeated finding that low-cost platforms record position only.
 - What is `gpt-5.6-luna`? Named as the default in both the agent docs and AGENTS.md, and otherwise uncovered here.
+
+## Cited by
+- [Agent–hardware abstraction](../concepts/agents/agent-hardware-abstraction.md)

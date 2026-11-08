@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-06
 updated: 2026-10-24
-sources: 68
+sources: 82
 tags: [nvidia, gpu, simulation, physical-ai]
 ---
 
@@ -53,7 +53,7 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 
 - [NVIDIA to acquire Hugging Face](../sources/nvidia-hugging-face-acquisition.md) — $12.93 B; the terms and the neutrality commitments.
 
-> [!note] Curated list — **59** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **82** source pages link here; the ones below are those that shaped this page.
 
 - [Cosmos 3 Technical Report](../sources/cosmos-3-technical-report.md)
 - [Develop Physical AI with NVIDIA Cosmos 3 (HF blog)](../sources/nvidia-cosmos-3-hf-blog.md)

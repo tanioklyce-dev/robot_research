@@ -81,12 +81,17 @@ GEAR's research portfolio cleanly maps to four lab-stated focus areas:
 - [NVIDIA Isaac Lab](../entities/nvidia-isaac-lab.md) (Isaac Lab 2025 paper)
 - [RoboCasa](../entities/robocasa.md) (RoboCasa 2024 paper)
 - [MimicGen](../entities/mimicgen.md) (MimicGen 2023 paper)
+- [CaP-X](../entities/cap-x.md)
+- [DreamGen](../entities/dreamgen.md)
+- [DreamZero](../entities/dreamzero.md)
+- [MineDojo](../entities/minedojo.md)
 
 ## Concepts touched
 - Foundation models for embodied agents (VLA + humanoid whole-body control + open-ended agents)
 - Sim-to-real transfer (ASAP, DrEureka, VIRAL, Doorman, Sim-and-Real Co-Training, dexterous-manipulation recipe)
 - Video world models for robot learning (DreamGen / DreamZero / DreamDojo / FLARE / World Simulation paper)
 - Synthetic-data generation (MimicGen, RoboCasa, EgoScale, SCIZOR)
+- [Whole-Body Control (WBC)](../concepts/robotics/whole-body-control.md)
 
 ## Open questions / candidates for individual ingest
 The following are the highest-priority follow-up paper ingests, in rough order of payoff for the wiki's existing coverage:
@@ -98,3 +103,7 @@ The following are the highest-priority follow-up paper ingests, in rough order o
 - **Isaac Lab paper (Nov 2025)** — primary reference for the [Isaac Lab](../entities/nvidia-isaac-lab.md) entity; currently sourced only from blog posts.
 - **EgoScale / SCIZOR** — egocentric-video data scaling and self-supervised data curation; both nearby to [DROID](../entities/droid.md) and the imitation-learning thread.
 - **Author-graph follow-up**: Tingwu Wang, Davis Rempe, Zhengyi Luo, Xue Bin Peng (SONIC), Soroush Nasiriany, Ajay Mandlekar (GR00T N1) all warrant entity stubs once their papers are individually ingested.
+
+## Cited by
+- [Generative data augmentation for robot learning](../concepts/learning/generative-data-augmentation.md)
+- [BeingBeyond](../entities/beingbeyond.md)

@@ -24,6 +24,7 @@ NVIDIA's developer landing page for the Newton physics engine, an open-source GP
 - [Disney Research](../entities/disney-research.md)
 - [NVIDIA Isaac Lab](../entities/nvidia-isaac-lab.md)
 - [MuJoCo Playground](../entities/mujoco-playground.md)
+- [MuJoCo](../entities/mujoco.md)
 
 ## Concepts touched
 - GPU-accelerated physics simulation

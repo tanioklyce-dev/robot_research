@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-07
 updated: 2026-10-25
-sources: 72
+sources: 80
 tags: [person, meta-fair, nyu, jepa, world-model, turing-award, ami-labs, logical-intelligence, ebm, diffusion-policy, object-centric, spectral-graph-theory]
 ---
 
@@ -82,7 +82,7 @@ The wiki's own reading, recorded on [loss-landscape geometry](../concepts/learni
 ## Mentioned in
 - [Third World Modeling Workshop, Chicago Booth 2026](../sources/chicago-booth-world-modeling-workshop-2026.md) — keynote and panel. Contains his bluntest recorded statement on imitation learning: *"we still don't have level-five self-driving cars… imitation learning has been a failure for driving. And believe me — I believed in this 15 years ago, not anymore."*
 
-> [!note] Curated list — **63** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **80** source pages link here; the ones below are those that shaped this page.
 
 - [VAE Paper (Kingma & Welling, 2013)](../sources/vae-paper.md) — his predictive sparse decomposition (Kavukcuoglu, Ranzato, LeCun 2008) is cited as an encoder–decoder architecture the VAE authors "drew some inspiration" from.
 - [Bromley et al. 1993 — Signature Verification using a Siamese TDNN](../sources/bromley1993-siamese-signature-verification.md) — co-author; original Siamese network paper.

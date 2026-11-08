@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-05-08
 updated: 2026-07-04
-sources: 5
+sources: 6
 tags: [dobb-e, behavior-cloning, hpr-encoder, stretch, nyu, shafiullah, predecessor]
 ---
 

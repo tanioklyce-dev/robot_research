@@ -83,3 +83,6 @@ Adjacent rather than central. TDV is not a world model — there is no action co
 - **The scaling experiment varies one bias (masking ratio) on one dataset.** "Optimal assumption strength decreases with data" is a broad claim resting on a narrow probe.
 - **Pretraining is SSv2 only** — a relatively small, human-action-centric video dataset. No web-scale video run, which is the regime the scaling argument points at.
 - **Never tested on control or robotics.** The obvious experiment given the co-authors — TDV features as a [Patch Policy](patch-policy-paper.md) backbone — is not run.
+
+## Cited by
+- [MotionJEPA](../entities/motionjepa.md)

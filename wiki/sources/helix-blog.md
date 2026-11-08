@@ -68,3 +68,8 @@ tags: [helix, figure, vla, humanoid, system-1-system-2, hierarchical-policy, onb
 - **System-1-System-2 as a concept page.** If the pattern shows up in 2+ more wiki sources (it likely will), promote `concepts/system-1-system-2-policy.md` from a vla-models.md subsection to its own page.
 - **Specs for Figure 03** — referenced as the next-gen platform; not detailed in the Helix blog.
 - **How does Helix relate to Figure's earlier OpenAI-partnership work?** The OpenAI partnership dissolved in 2024; Helix is Figure's first VLA developed in-house.
+
+## Cited by
+- [Chain of thought](../concepts/learning/chain-of-thought.md)
+- [LLM-free VLA (the V+L→A paradigm)](../concepts/learning/llm-free-vla.md)
+- [Index (Figure AI)](../entities/figure-index.md)

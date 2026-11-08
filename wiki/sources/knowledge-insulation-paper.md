@@ -52,6 +52,7 @@ The [Physical Intelligence](../entities/physical-intelligence.md) paper that nam
 - [LIBERO](../entities/libero.md), [DROID](../entities/droid.md) — open benchmarks evaluated.
 - [Sergey Levine](../entities/sergey-levine.md), [Karl Pertsch](../entities/karl-pertsch.md) — authors; [Chelsea Finn](../entities/chelsea-finn.md) — acknowledged (initial language-following experiments).
 - [π0.5 (lineage)](../entities/pi-zero-6.md) — π0.5-KI = π0.5 + this recipe.
+- [π0.5](../entities/pi-zero-5.md)
 
 ## Concepts touched
 
@@ -63,3 +64,6 @@ The [Physical Intelligence](../entities/physical-intelligence.md) paper that nam
 
 - KI raises training compute ~20% per step; the paper argues wall-clock still wins, but doesn't fully characterize the tradeoff at very large scale.
 - Language following is "still far from perfect" — data correlations still let the model ignore instructions sometimes; an open robustness gap.
+
+## Cited by
+- [Continual learning and catastrophic forgetting](../concepts/learning/continual-learning.md)

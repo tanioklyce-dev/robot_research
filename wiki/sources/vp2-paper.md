@@ -69,6 +69,7 @@ Five competitive models benchmarked — FitVid, SVG′, MCVD (diffusion), Struct
 
 - [Chelsea Finn](../entities/chelsea-finn.md) · [robosuite](../entities/robosuite.md) · [Franka Panda](../entities/franka-panda.md) (RoboDesk)
 - FitVid, SVG′, MCVD, Struct-VRNN, MaskViT, RoboDesk — no wiki pages
+- [Jiajun Wu](../entities/jiajun-wu.md)
 
 ## Concepts touched
 
@@ -81,3 +82,6 @@ Five competitive models benchmarked — FitVid, SVG′, MCVD (diffusion), Struct
 - **Nobody has run VP² on a modern model.** [Cosmos](../entities/nvidia-cosmos.md), [Genie 3](../entities/genie-3.md), Wan, and Veo did not exist in 2023. The benchmark's whole premise is a one-function interface — running it on a 2026 world model is cheap and nobody has published it.
 - **The "capacity doesn't help" result predates the scaling era.** 300M was large in 2023. Whether the plateau survives at 14B (DreamDojo) is untested and matters a great deal for the field's central bet.
 - **Simulation only**, 64×64 goal images, scripted data collection — the authors flag the narrowness themselves.
+
+## Cited by
+- [Niantic Spatial](../entities/niantic-spatial.md)

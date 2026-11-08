@@ -3,7 +3,7 @@ title: Generative Latent Prediction (GLP)
 type: concept
 created: 2026-09-07
 updated: 2026-09-07
-sources: 3
+sources: 7
 tags: [world-model, glp, generative-latent-prediction, jepa, decoder, generative-loss, latent-loss, stateful, discrete-tokens, position]
 ---
 

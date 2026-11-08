@@ -2,7 +2,7 @@
 title: The Robot AI industry — structure, capital, and the gap between the two
 type: synthesis
 created: 2026-08-29
-updated: 2026-09-11
+updated: 2026-11-08
 tags: [industry, physical-ai, humanoid, market-structure, capital, automotive, vertical-integration, economics-of-ml, synthesis]
 ---
 
@@ -64,7 +64,7 @@ Companies in this industry are making one of four structurally different bets.
 
 **Model-layer** — sell the policy, let others build bodies. [Physical Intelligence](../../entities/physical-intelligence.md)'s π-series, [NVIDIA GR00T](../../entities/nvidia-groot.md), [Gemini Robotics](../../entities/gemini-robotics.md). The thesis is cross-embodiment generalization — π0 folding laundry across platforms without task-specific retraining ([AI Index](../../sources/stanford-hai-ai-index-2026.md)). If it holds, hardware commoditizes and this layer takes the margin.
 
-**Platform / commodity hardware** — win on price and volume. [Unitree](../../entities/unitree-g1.md) (R1 from **$4,900**, G1 from **$13,500** — [AI Index](../../sources/stanford-hai-ai-index-2026.md)) is the clearest case, and the pattern already played out one tier down: [FeeTech](../../entities/feetech.md)'s ~3× price advantage over [Dynamixel](../../entities/dynamixel.md) is why **SO-10X arms drive 50%+ of community-contributed LeRobotDatasets** ([LeRobot ICLR 2026](../../sources/lerobot-iclr-2026-paper.md)). Cheap hardware buys ecosystem position, and ecosystem position is stickier than a spec advantage.
+**Platform / commodity hardware** — win on price and volume. [Unitree](../../entities/unitree-g1.md) (R1 from **$4,900**, G1 from **$13,500** — [AI Index](../../sources/stanford-hai-ai-index-2026.md); the wiki also carries an uncited [~$16k](../../entities/unitree-g1.md)) is the clearest case, and the pattern already played out one tier down: [FeeTech](../../entities/feetech.md)'s ~3× price advantage over [Dynamixel](../../entities/dynamixel.md) is why **SO-10X arms drive 50%+ of community-contributed LeRobotDatasets** ([LeRobot ICLR 2026](../../sources/lerobot-iclr-2026-paper.md)). Cheap hardware buys ecosystem position, and ecosystem position is stickier than a spec advantage.
 
 **Research-subsidiary** — a large incumbent funds a lab, absorbs the option value, spins out or deploys internally. [TRI](../../entities/tri.md) is the archetype: it funds [Drake](../../entities/drake.md) (model-based) *while* shipping [Large Behavior Models](../../concepts/learning/large-behavior-models.md) (learned), which is this wiki's clearest institutional evidence that the two programs are treated as complementary rather than successive — and in January 2026 it spun the LBM leadership out into [Walden Robotics](../../entities/walden-robotics.md).
 

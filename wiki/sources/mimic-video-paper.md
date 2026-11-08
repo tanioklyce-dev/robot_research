@@ -114,6 +114,7 @@ The occlusion claim rides on that last row: the baseline needs four wrist camera
 - [NVIDIA Cosmos](../entities/nvidia-cosmos.md) — **Cosmos-Predict2** is the backbone. Third-party evidence for the "Cosmos as a substrate other people build policies on" thesis.
 - [FLUX 3](../entities/flux-3.md) / [Black Forest Labs](../entities/black-forest-labs.md) — the successor swaps Cosmos-Predict2 for FLUX 3.
 - [LIBERO](../entities/libero.md) · [SIMPLER](../entities/simplerenv.md) — the simulated benchmarks. Baselines named: OpenVLA, OpenVLA-OFT, Octo, ThinkAct, FLOWER, DiT-Block Policy, Diffusion Policy, π₀/π₀.₅, PaliGemma, FAST.
+- [NVIDIA](../entities/nvidia.md)
 
 ## Concepts touched
 
@@ -132,3 +133,6 @@ The occlusion claim rides on that last row: the baseline needs four wrist camera
 - **Why does more denoising hurt?** They attribute it to OOD conditioning plus non-monotonic intermediate representations, and defer to an appendix. If the mechanism is distribution shift, it is the same failure that drives [PACS](pacs-paper.md)'s path-consistency result — a policy conditioned on something outside its training distribution collapses — arriving in a completely different place.
 - **What is the latency?** τ_v = 1 means one backbone forward pass, and the paper leans on that for "real-time," but publishes **no rate**. The 101 ms figure comes from BFL's blog for the FLUX-based successor. A number here would put Cosmos-Predict2-2B on the [control-rate ladder](../syntheses/platforms/control-rate-ladder.md).
 - **Would a multi-view backbone remove the single-view limit at no cost?** Named as their top limitation, and it is the one that most obviously binds on a factory cell.
+
+## Cited by
+- [Hugging Face](../entities/hugging-face.md)

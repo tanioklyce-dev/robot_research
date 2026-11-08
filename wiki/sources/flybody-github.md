@@ -42,6 +42,7 @@ Official open-source release of [flybody](../entities/flybody.md) — the anatom
 - [Google DeepMind](../entities/google-deepmind.md) — co-developer; DMPO and Acme upstream.
 - [MuJoCo](../entities/mujoco.md) — physics engine.
 - [DM Control](../entities/dm-control.md) — environment / control API.
+- [Drosophila melanogaster](../entities/drosophila.md)
 
 ## Concepts touched
 

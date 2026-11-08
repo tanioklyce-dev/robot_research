@@ -47,6 +47,8 @@ Those are exactly the two sample sizes the [success-rate audit](../syntheses/pla
 
 - [LIBERO](../entities/libero.md) — the benchmark under critique.
 - [OpenVLA](../entities/openvla.md), [π0](../entities/pi-zero.md), [π0.5](../entities/pi-zero-6.md) — the models evaluated.
+- [π0.5](../entities/pi-zero-5.md)
+- [RoboArena](../entities/roboarena.md)
 
 ## Concepts touched
 
@@ -65,3 +67,22 @@ Those are exactly the two sample sizes the [success-rate audit](../syntheses/pla
 - [vla-evaluation-harness](vla-evaluation-harness-github.md) — LIBERO-Pro is a supported benchmark with 2026-class models (MolmoAct2, GR00T N1.7, π0.5) available in the same system; the "run a 2026-class model through LIBERO-PRO" question is no longer blocked on tooling.
 - A June 2026 paper (arXiv 2606.27663, "Direct Action-Head Injection…") appears to report expanded LIBERO-PRO evaluations incl. GR00T-N1.6 — **lead, not yet ingested**; its numbers differ from this paper's protocol, so verify before quoting.
 - Version note: this page reflects **v2 (2026-05-25)**, the current arXiv version; the wiki's recorded numbers were re-checked against it 2026-08-03 and stand.
+
+## Cited by
+- [Code as policy](../concepts/agents/code-as-policy.md)
+- [Distributed representations (learned embeddings)](../concepts/learning/distributed-representations.md)
+- [LLM-free VLA (the V+L→A paradigm)](../concepts/learning/llm-free-vla.md)
+- [Mechanistic interpretability](../concepts/safety/mechanistic-interpretability.md)
+- [Neural geometry](../concepts/safety/neural-geometry.md)
+- [World-model evaluation](../concepts/world-models/world-model-evaluation.md)
+- [World-model functional taxonomy (renderer / simulator / planner)](../concepts/world-models/world-model-functional-taxonomy.md)
+- [CaP-X](../entities/cap-x.md)
+- [CLIPort](../entities/cliport.md)
+- [Goodfire](../entities/goodfire.md)
+- [Grounding DINO](../entities/grounding-dino.md)
+- [Niantic Spatial](../entities/niantic-spatial.md)
+- [Physical Intelligence](../entities/physical-intelligence.md)
+- [robosuite](../entities/robosuite.md)
+- [RoboTwin 2.0](../entities/robotwin.md)
+- [TurboVLA](../entities/turbovla.md)
+- [WorldArena](../entities/worldarena.md)

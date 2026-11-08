@@ -3,7 +3,7 @@ title: Safety certificates (Lyapunov, CBFs, contraction metrics, reachability)
 type: concept
 created: 2026-09-07
 updated: 2026-09-12
-sources: 3
+sources: 5
 tags: [control-barrier-functions, lyapunov, contraction-metrics, reachability, hamilton-jacobi, forward-invariance, passivity, formal-guarantees, provable-safety]
 ---
 

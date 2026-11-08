@@ -212,3 +212,8 @@ This is the primary reference for **[Curriculum Module 3 — Sequence models, at
 - The paper's **constituency-parsing experiment** is rarely cited but historically important — first task generalization signal. Could anchor a synthesis on "when did people realize transformers were a general architecture, not a translation trick?"
 - Modern descendants of the **positional-encoding** choice (RoPE, ALiBi, axial RoPE) are not yet ingested as separate sources, despite being foundational for the [DINOv3](../entities/dinov3.md) and modern-LLM stacks.
 - ~~The Bahdanau 2014 attention ancestor has no source page.~~ **Resolved 2026-08-30** — [ingested](bahdanau2014-neural-machine-translation-align-translate.md), along with [seq2seq](sutskever2014-sequence-to-sequence-learning.md), [word2vec](mikolov2013-efficient-estimation-word-representations.md) and the [NPLM](bengio2003-neural-probabilistic-language-model.md). **Luong et al. 2015** (dot-product attention scoring) remains the one missing step between Bahdanau's additive scorer and this paper's.
+
+## Cited by
+- [Distributed representations (learned embeddings)](../concepts/learning/distributed-representations.md)
+- [Decision Transformer](../entities/decision-transformer.md)
+- [Dzmitry Bahdanau](../entities/dzmitry-bahdanau.md)

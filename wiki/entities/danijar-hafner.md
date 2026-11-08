@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-07-09
 updated: 2026-08-31
-sources: 3
+sources: 6
 tags: [hafner, dreamer, planet, daydreamer, mbrl, world-model, rssm, deepmind]
 ---
 

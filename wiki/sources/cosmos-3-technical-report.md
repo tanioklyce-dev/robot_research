@@ -111,6 +111,10 @@ Nano and Super are released in this report; **Edge is deferred to a later releas
 - [NVIDIA](../entities/nvidia.md) — author; [NVIDIA Cosmos](../entities/nvidia-cosmos.md) — the product line this extends; [NVIDIA GEAR](../entities/nvidia-gear.md) — sibling lab (DreamZero baseline).
 - [Ming-Yu Liu](../entities/ming-yu-liu.md) — supervision lead.
 - Baselines/related: [π0](../entities/pi-zero.md) / π0.5 / π0-FAST, [GR00T](../entities/nvidia-groot.md) N1.6, [DreamZero](dreamzero-paper.md), [DROID](../entities/droid.md), Qwen3-VL, Gemini 3.1 Pro, Veo-3.1, FLUX.2, [DINO-WM](../entities/dino-wm.md)-adjacent Ctrl-World.
+- [DreamZero](../entities/dreamzero.md)
+- [FAST (action tokenization) / π0-FAST](../entities/fast-action-tokenization.md)
+- [RoboLab (NVIDIA SRL benchmark)](../entities/nvidia-robolab.md)
+- [RoboArena](../entities/roboarena.md)
 
 ## Concepts touched
 
@@ -127,3 +131,9 @@ Nano and Super are released in this report; **Edge is deferred to a later releas
 - **Policy mode is generative (joint video+action diffusion), not latent-space planning.** Does the "predict the visual consequence too" framing buy robustness over a pure action head at deployment, or just at training? Not isolated.
 - **Cosmos3-Edge** (4B, on-device) is promised but unreleased — the actual edge-deployment story is still TBD.
 - Mid-training transfer is strong within the action modalities NVIDIA chose; the **negative-transfer / interference** cases in the synergy matrices (small Franka subsets) hint the recipe is not free of mixture-design cost.
+
+## Cited by
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)
+- [Generative data augmentation for robot learning](../concepts/learning/generative-data-augmentation.md)
+- [Generative Latent Prediction (GLP)](../concepts/world-models/generative-latent-prediction.md)
+- [World-model functional taxonomy (renderer / simulator / planner)](../concepts/world-models/world-model-functional-taxonomy.md)

@@ -3,7 +3,7 @@ title: Spectral theory of self-supervised learning
 type: concept
 created: 2026-07-26
 updated: 2026-09-11
-sources: 14
+sources: 20
 tags: [spectral-graph-theory, self-supervised-learning, ssl-theory, laplacian-eigenmaps, mds, vicreg, simclr, barlow-twins, sigreg, jepa, balestriero, lecun, theory]
 ---
 

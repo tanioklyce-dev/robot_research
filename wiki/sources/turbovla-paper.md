@@ -126,6 +126,7 @@ The conclusion is unusually candid: TurboVLA "is designed primarily for concrete
 - Compared against: [π0](../entities/pi-zero.md) · [π0.5](../entities/pi-zero-5.md) · [OpenVLA](../entities/openvla.md) · [OpenVLA-OFT](../entities/openvla-oft.md) · [SmolVLA](../entities/smolvla.md) · [VLA-JEPA](../entities/vla-jepa.md) · [Evo-1](../entities/evo-1.md) · [Diffusion Policy](../entities/diffusion-policy.md) · [UniVLA](../entities/univla.md)
 - [LIBERO tie models](../entities/libero-tie-models.md) — the cluster of models inside the LIBERO statistical tie.
 - [DP3](../entities/dp3.md) — 3D diffusion-policy comparison point.
+- [SigLIP](../entities/siglip.md)
 
 ## Concepts touched
 
@@ -133,3 +134,6 @@ The conclusion is unusually candid: TurboVLA "is designed primarily for concrete
 - [VLA models](../concepts/learning/vla-models.md) — the taxonomy this adds a branch to
 - [Imitation learning](../concepts/learning/imitation-learning.md) — plain behavior cloning, ℓ1, no auxiliary objectives
 - [Control abstraction levels](../concepts/robotics/control-abstraction-levels.md) — the paper's core argument is that *execution level* has different requirements than the planning level
+
+## Cited by
+- [Symbolic task planning (PDDL and generalized planning)](../concepts/agents/symbolic-task-planning.md)

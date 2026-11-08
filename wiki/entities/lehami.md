@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-10-24
 updated: 2026-10-24
-sources: 1
+sources: 2
 tags: [lehami, jepa, hamiltonian, symplectic, leapfrog, volume-preservation, rollout-contraction, leworldmodel, ami-labs, nyu]
 ---
 

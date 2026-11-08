@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-10-07
 updated: 2026-10-07
-sources: 5
+sources: 6
 tags: [flourish, consumer-robotics, home-robot, startup, pre-seed, families-fund, paris, san-francisco]
 ---
 

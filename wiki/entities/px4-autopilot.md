@@ -4,7 +4,7 @@ type: entity
 subtype: software
 created: 2026-05-17
 updated: 2026-06-14
-sources: 5
+sources: 7
 tags: [px4, autopilot, uav, drone, open-source, bsd, nuttx, uorb, mavlink, ros2, dronecode]
 ---
 

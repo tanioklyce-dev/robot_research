@@ -94,6 +94,7 @@ Autonomous vehicles (DARPA-lineage stacks), industrial robotics, the **Amazon Pi
 
 ## Entities mentioned
 - [Michele Colledanchise](../entities/michele-colledanchise.md) · [Petter Ögren](../entities/petter-ogren.md)
+- [BehaviorTree.CPP](../entities/behaviortree-cpp.md)
 
 ## Concepts touched
 - [Behavior trees](../concepts/robotics/behavior-trees.md) — the concept this source founds

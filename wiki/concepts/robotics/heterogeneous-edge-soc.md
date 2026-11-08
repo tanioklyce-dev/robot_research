@@ -3,7 +3,7 @@ title: Heterogeneous edge SoCs and the shared-memory budget
 type: concept
 created: 2026-09-13
 updated: 2026-09-13
-sources: 11
+sources: 12
 tags: [edge-ai, soc, npu, memory-bandwidth, unified-memory, onboard-compute, llm-inference, arm, rk3588, jetson, hailo, systems]
 ---
 

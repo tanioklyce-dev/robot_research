@@ -34,6 +34,7 @@ The concrete deployment recipe for running **[Hermes Agent](../entities/hermes-a
 ## Entities mentioned
 - [Hermes Agent](../entities/hermes-agent.md) (Nous Research), [NVIDIA NemoClaw](../entities/nemoclaw.md), [OpenClaw](../entities/openclaw.md) — the Claw ecosystem. [Nous Research](../entities/nous-research.md).
 - NVIDIA OpenShell (sandbox + policy layer), `nvidia/nemotron-3-super-120b-a12b` (default model), Tavily Search, Nous Portal OAuth, MCP.
+- [NVIDIA OpenShell](../entities/nvidia-openshell.md)
 
 ## Concepts touched
 - [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — MCP tool-calling agent in a sandbox; the local/endpoint-inference deployment shape.

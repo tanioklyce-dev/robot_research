@@ -86,3 +86,6 @@ Most "implement autograd from scratch" tutorials hand-wave the topological sort,
 ## Open questions / TBD
 
 - The repo hasn't seen substantive code changes since ~2024-08; the demo notebooks and README are still authoritative. No risk of staleness for the curriculum's purposes.
+
+## Cited by
+- [Kevin Clark](../entities/kevin-clark.md)

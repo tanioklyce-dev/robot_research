@@ -3,7 +3,7 @@ title: Laboratory automation and self-driving labs
 type: concept
 created: 2026-08-30
 updated: 2026-08-30
-sources: 1
+sources: 3
 tags: [lab-automation, self-driving-lab, liquid-handler, workcell, microscopy, qpcr, drug-discovery, mhs, agentic-robotics]
 ---
 

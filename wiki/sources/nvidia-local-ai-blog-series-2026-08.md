@@ -102,3 +102,6 @@ Also mentioned: MiniMax-H3 (33B video+audio), LTX-2.5 (video; its prompt enhance
 - **Is NeMo Switchyard's routing claim reproducible?** Unnamed benchmark, unnamed model pool. If per-step routing really holds frontier task completion at a third of the cost, that is the most useful item in the series for robot agent stacks — and it needs an external replication before it is quotable.
 - **"Coming soon" inventory to re-check**: NVFP4 across all local AI devices, Perplexity on RTX / Windows / DGX Station, the fine-tuned Nemotron Lightning variant, DGX Spark Chrome and Resource Monitor.
 - **No Nemotron 3.5 Lightning model card ingested** — the 4×/30% claims should be checked against the card or a benchmark before being repeated.
+
+## Cited by
+- [Perplexity Portable Computer](../entities/perplexity-portable-computer.md)

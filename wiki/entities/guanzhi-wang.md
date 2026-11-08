@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-03
 updated: 2026-10-27
-sources: 3
+sources: 5
 tags: [person, nvidia, caltech, nvidia-gear, voyager, skill-library]
 ---
 

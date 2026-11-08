@@ -4,7 +4,7 @@ type: entity
 subtype: research-lab
 created: 2026-05-15
 updated: 2026-10-27
-sources: 22
+sources: 23
 tags: [nvidia, gear, embodied-ai, humanoids, foundation-models, world-models, whole-body-control]
 ---
 

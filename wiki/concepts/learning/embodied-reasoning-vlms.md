@@ -3,7 +3,7 @@ title: Embodied-reasoning VLMs (ER backbones)
 type: concept
 created: 2026-09-11
 updated: 2026-11-07
-sources: 6
+sources: 12
 tags: [embodied-reasoning, vlm-backbone, spatial-reasoning, pointing, benchmarks, vla, molmo2-er, gemini-robotics-er, cosmos-reason, unifolm]
 ---
 

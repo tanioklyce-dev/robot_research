@@ -98,7 +98,7 @@ So the paper both vendors invoke is agnostic on the exact point they disagree ab
 
 ## Entities mentioned
 
-- [OpenAI](../entities/openai.md) · [Dario Amodei](../entities/dario-amodei.md) (last author) · Jared Kaplan (scaling laws; Johns Hopkins/OpenAI), Alec Radford, Ilya Sutskever — no pages.
+- [OpenAI](../entities/openai.md) · [Dario Amodei](../entities/dario-amodei.md) (last author) · [Ilya Sutskever](../entities/ilya-sutskever.md) · Jared Kaplan (scaling laws; Johns Hopkins/OpenAI), Alec Radford — no pages.
 
 ## Concepts touched
 

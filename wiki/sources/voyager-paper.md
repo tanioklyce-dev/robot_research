@@ -92,3 +92,6 @@ Stated limitations — the first is the one the wiki has been chasing:
 - [CaP-X](cap-x-paper.md) — cites Voyager as the motivation for its auto-synthesized skill library.
 - [CodeAct](codeact-paper.md) — the sibling "code as action space" argument, made for general agents rather than embodied ones.
 - [Introducing Waddle](waddle-labs-introducing-waddle.md) — the commercial claim whose skill-library architecture is Voyager's.
+
+## Cited by
+- [Continual learning and catastrophic forgetting](../concepts/learning/continual-learning.md)

@@ -48,3 +48,6 @@ This is the marketing landing page for the platform. Its main value over the [pr
 
 - "Grants permissions based on intent": intent as declared by whom? The operator's policy, or the agent's stated goal?
 - What is the baseline for the 80% Vera sandbox claim?
+
+## Cited by
+- [Anthropic](../entities/anthropic.md)

@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-08
 updated: 2026-10-13
-sources: 5
+sources: 6
 tags: [1x-neo, humanoid, bipedal, household, consumer, redwood-ai, norway]
 ---
 

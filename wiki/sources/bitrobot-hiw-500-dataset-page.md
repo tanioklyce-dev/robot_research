@@ -74,3 +74,6 @@ tags: [hiw-500, bitrobot, unitree, unitree-g1, dataset, humanoid, whole-body, te
 - **Consent and privacy** for footage inside 12 occupied homes — nothing stated, as with Figure's Go-Big and Index.
 - **Does the WBC-level action space transfer?** A policy trained on `pivot_*` + EE poses assumes Unitree's WBC underneath; it is not a joint-space dataset and cannot be retargeted without one.
 - **Is this the "lower-body stream" of UnifoLM-WLA-1.0?** The base/torso commands here are the obvious content of WLA's lower-body RVQ tokens; unconfirmed.
+
+## Cited by
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)

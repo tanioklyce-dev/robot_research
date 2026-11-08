@@ -107,3 +107,6 @@ The wiki's [JEPA anti-collapse ladder](../concepts/world-models/jepa.md#common-t
 - **The batch-norm controversy is not in this wiki.** Shortly after publication, two blog-level results argued BYOL's non-collapse depended on **batch normalization** acting as an implicit contrastive term, and a follow-up showed BYOL works without BN given careful initialization. The paper here has no BN in the target projector output and reports batch-size robustness *"only drops for smaller values due to batch normalization layers in the encoder"* — so BN is in the loop and its role is unresolved on this page.
 - **Is the conditional-variance argument ever made rigorous?** It assumes an optimal predictor. Nothing in this wiki establishes when that assumption holds during training.
 - ~~**SimSiam is the missing control.**~~ **Resolved 2026-09-03** — [SimSiam](simsiam-paper.md) is ingested and BYOL's own Tables 21–22 settle it (above). What is still open is *why* a faster predictor substitutes for a moving average; SimSiam's EM reading gives an account of the predictor's role (approximating an expectation over augmentations) but explicitly declines to explain non-collapse.
+
+## Cited by
+- [Spectral theory of self-supervised learning](../concepts/learning/spectral-theory-of-ssl.md)

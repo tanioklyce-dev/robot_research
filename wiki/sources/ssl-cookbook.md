@@ -140,6 +140,9 @@ Domain notes worth keeping because the wiki's SSL material is drifting toward no
 - [Yann LeCun](../entities/yann-lecun.md) · [Meta FAIR](../entities/meta-fair.md) — most of the author list.
 - [PLDM](../entities/pldm.md) — Vlad Sobal, co-author here, is its author.
 - [BYOL](../entities/byol.md) · [DINO](../entities/dino.md) · [MAE](../entities/mae.md) · [DINOv2](../entities/dinov2.md).
+- [MoCo (Momentum Contrast) / MoCo v3](../entities/moco.md)
+- [SimCLR](../entities/simclr.md)
+- [SimSiam](../entities/simsiam.md)
 
 ## Concepts touched
 

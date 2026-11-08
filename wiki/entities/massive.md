@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-09-03
 updated: 2026-09-03
-sources: 1
+sources: 2
 tags: [massive, polygon-io, market-data, api, mcp, x402, opra, sip, cme, agents, marketone, dataset-provenance]
 ---
 

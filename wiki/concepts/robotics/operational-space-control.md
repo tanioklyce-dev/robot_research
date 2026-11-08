@@ -3,7 +3,7 @@ title: Operational space control (and the constrained-QP safety layer under lear
 type: concept
 created: 2026-08-16
 updated: 2026-08-16
-sources: 4
+sources: 7
 tags: [operational-space-control, osc, khatib, control-barrier-functions, cbf, task-consistency, differential-inverse-kinematics, quadratic-program, null-space, joint-impedance, safety, constraint-enforcement, mid-level-controller, franka, tri, drake, diffusion-policy, lbm]
 ---
 

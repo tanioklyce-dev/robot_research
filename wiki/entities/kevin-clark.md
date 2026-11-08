@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-06-03
 updated: 2026-06-03
-sources: 1
+sources: 2
 tags: [nlp, deep-learning, stanford, electra, pedagogy]
 ---
 

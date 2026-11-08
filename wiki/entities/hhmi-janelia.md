@@ -4,7 +4,7 @@ type: entity
 subtype: research-institution
 created: 2026-05-08
 updated: 2026-09-12
-sources: 7
+sources: 12
 tags: [hhmi, janelia, neuroscience, drosophila, fly-brain, biomechanics, mhs, microscopy, lab-automation]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-05-10
 updated: 2026-09-03
-sources: 19
+sources: 20
 tags: [dreamer, dreamer-v3, world-model, model-based-rl, mbrl, hafner, generative-wm]
 ---
 

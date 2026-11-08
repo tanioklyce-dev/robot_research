@@ -101,3 +101,7 @@ The **centering + sharpening** pair also fills a gap in the wiki's [anti-collaps
 - **How much of DINOv2/v3's advantage is data and scale versus objective?** This paper's ViT-B/8 gets 80.1 linear on ImageNet-1k with two 8-GPU servers. The wiki has never separated the objective's contribution from LVD-142M's.
 - **The "previous epoch teacher" result deserves a follow-up nobody ran.** 66.6 k-NN with no EMA at all, no momentum hyperparameter, and half the memory. The authors invite the investigation explicitly; the field went to bigger EMAs instead.
 - **Does centering + sharpening have an identifiability story?** [LeJEPA](lejepa-paper.md) can say *why* its target distribution is the right one. DINO's two operations are justified by an entropy/KL decomposition showing they cancel each other's failure mode — a stability argument, not an optimality one. Whether an optimal `(center, temperature)` pair exists in any principled sense is unaddressed here and, as far as this wiki records, anywhere.
+
+## Cited by
+- [Representation evaluation (k-NN, linear, MLP, fine-tuning, RankMe)](../concepts/learning/representation-evaluation.md)
+- [Spectral theory of self-supervised learning](../concepts/learning/spectral-theory-of-ssl.md)

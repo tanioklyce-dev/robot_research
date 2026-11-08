@@ -96,6 +96,7 @@ The repository's most instructive content is not the policy list. It is the set 
 - Embodiments: [AgileX Piper](../entities/agilex-piper.md), [Franka Panda](../entities/franka-panda.md), [ALOHA](../entities/aloha.md); ARX X5 (no page)
 - [LeRobot](../entities/lerobot.md) (official v2.1 and v3.0 converters) · [OpenAI](../entities/openai.md) (GPT-6 Astra adapter)
 - No pages: RMBench, RLinf, StarVLA, most of the 77 policies
+- [GPT-6 Astra](../entities/gpt-6-astra.md)
 
 ## Concepts touched
 - [Robot policy evaluation](../concepts/robotics/robot-policy-evaluation.md): the serving layer and submission rules behind two leaderboards.

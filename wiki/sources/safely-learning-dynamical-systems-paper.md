@@ -71,3 +71,7 @@ Keywords as given: *learning dynamical systems, safe learning, uncertainty quant
 ## Related sources
 - [ASIMOV Benchmark](asimov-benchmark-paper.md) · [Predictive Red Teaming](predictive-red-teaming-paper.md) · [Veo world simulator](veo-robotics-policy-evaluation-paper.md) — the empirical wing of the same lab's safety program; [Vikas Sindhwani](../entities/vikas-sindhwani.md) is on all four.
 - [DeepMind — Responsibly advancing AI and robotics](deepmind-gemini-robotics-safety-page.md) — the public framing, which does **not** mention this formal line.
+
+## Cited by
+- [Operational space control (and the constrained-QP safety layer under learned policies)](../concepts/robotics/operational-space-control.md)
+- [Safety filters for learned policies](../concepts/robotics/safety-filters.md)

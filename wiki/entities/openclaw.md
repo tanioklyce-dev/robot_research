@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-05-28
 updated: 2026-11-07
-sources: 15
+sources: 16
 tags: [openclaw, personal-ai-assistant, steinberger, molty, claw-ecosystem, multi-platform, local-first, gateway, ClawHub, typescript]
 ---
 

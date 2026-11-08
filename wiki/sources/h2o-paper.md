@@ -69,3 +69,6 @@ Walking, back jumping, kicking, turning, waving, pushing, boxing; and in the fig
 - **No real-world success rate.** Table III is simulation; the hardware results are qualitative demonstrations. See the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md).
 - **How much of the 13-point privileged gap is sensing vs regularization?** The privileged policy is also trained without domain randomization, so the comparison conflates two things.
 - **Operator skill is uncontrolled** — teleoperation quality depends on the human, and no inter-operator variance is reported.
+
+## Cited by
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)

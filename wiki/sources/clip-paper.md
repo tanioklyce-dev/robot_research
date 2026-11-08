@@ -84,6 +84,7 @@ The counting failure is the one to remember for manipulation: CLIP's embedding i
 - **OpenAI** — all authors. **[Ilya Sutskever](../entities/ilya-sutskever.md)** — final author; his third appearance in this wiki after [word2vec paper 2](mikolov2013-distributed-representations-words-phrases.md) and [seq2seq](sutskever2014-sequence-to-sequence-learning.md).
 - **Alec Radford** — first author; also GPT-1/2. No wiki page.
 - **[ViT](vit-paper.md)**, ResNet, BiT, and the VirTex / ICMLM / ConVIRT line CLIP simplifies.
+- [CLIP](../entities/clip.md)
 
 ## Concepts touched
 

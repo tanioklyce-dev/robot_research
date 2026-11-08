@@ -3,7 +3,7 @@ title: Belief states and mixed states
 type: concept
 created: 2026-08-31
 updated: 2026-10-07
-sources: 9
+sources: 13
 tags: [belief-state, mixed-state, hidden-markov, pomdp, blackwell-measure, entropy-rate, sufficient-statistic, latent-space, world-model, unifilar, myhill-nerode]
 ---
 

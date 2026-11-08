@@ -2,6 +2,8 @@
 title: "This World Model Learns Physics by Watching Videos"
 type: source
 url: https://www.towardsdeeplearning.com/this-world-model-learns-physics-by-watching-videos-2427b22555be
+local_path: raw/2026-03-24-towardsdeeplearning-world-model-physics.md
+sha256: 15cd28480ec0d1ca296aa1fda3829d710b2c0c8663d694f5b74a873c3b3880a7
 author: Sumit Pandey
 affiliations: Towards Deep Learning (Medium)
 published: 2026-03-24

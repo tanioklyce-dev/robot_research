@@ -89,3 +89,6 @@ simplification of.
   real control performance is untested.
 - COCO has no continuity/identity notion (it is per-image). Tracking needs
   CLEAR-MOT / HOTA on top — noted for the pinball project's open CLEAR-MOT item.
+
+## Cited by
+- [Microsoft](../entities/microsoft.md)

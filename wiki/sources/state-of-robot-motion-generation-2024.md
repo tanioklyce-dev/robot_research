@@ -68,3 +68,6 @@ A 50-year cross-community review of robot motion generation that deliberately cr
 3. Verification/safety certification for implicit-model policies — how to predict when a learned solution will succeed.
 4. Diffusion-policy inference speed (answered in part by [VQ-BeT](vq-bet-paper.md)'s 5×/25× results, which this survey does not cite).
 5. Missing cross-family benchmarks and interfaces.
+
+## Cited by
+- [Russ Tedrake](../entities/russ-tedrake.md)

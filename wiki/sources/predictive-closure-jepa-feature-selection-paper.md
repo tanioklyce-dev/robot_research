@@ -101,6 +101,7 @@ The paper asks **which features a [JEPA](../concepts/world-models/jepa.md) keeps
 - [Ai2](../entities/ai2.md) (Goldberg's affiliation). Bar-Ilan University and UC Berkeley have no wiki pages, and neither do the authors.
 - Cited JEPA systems: [V-JEPA 2](../entities/v-jepa-2.md) · [LeWorldModel](../entities/leworldmodel.md) · [PLDM](../entities/pldm.md) (via Sobal 2022) · [Yann LeCun](../entities/yann-lecun.md) (2022 position paper). Not cited, but analysed here: [H-JEPA](../entities/h-jepa.md).
 - Cited works without wiki pages: Pendharkar 2026 (arXiv 2606.30068), Karmann et al. 2026 MotionJEPA (arXiv 2609.23881), Enigma Team "The obsessed encoder" (blog), Littwin et al. 2024 (NeurIPS), Van Assel 2026 spectral-view blog post, SkyJEPA (Rao et al. 2026), Destrade et al. 2025 (value-guided JEPA planning).
+- [MotionJEPA](../entities/motionjepa.md)
 
 ## Concepts touched
 - [JEPA](../concepts/world-models/jepa.md): what an ideally trained JEPA encodes under capacity pressure.

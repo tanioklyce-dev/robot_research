@@ -90,3 +90,6 @@ fast.ai occupies the **top-down, library-first** quadrant. The wiki's curriculum
 - **Part 2 of the course (From Stable Diffusion to LLMs from scratch).** Howard ran a 2022 Part 2 that covered diffusion models from scratch and is a much closer fit to the wiki's [Curriculum Module 5 — Generative modeling fundamentals (DDPM, full math)](../syntheses/curriculum/curriculum-05-generative-models.md). Worth a follow-up evaluation pass — the Part 2 page is at https://course.fast.ai/Lessons/part2.html.
 - **The `fastai` library itself** as a wiki tool reference — useful but probably below the bar; the library is widely used outside research-track DL, less so inside it.
 - **A `entities/fast-ai.md` stub** — would let future fast.ai source ingests (Part 2, the *fastbook* companion) attach cleanly. Defer until a second fast.ai source surfaces.
+
+## Cited by
+- [Yoshua Bengio](../entities/yoshua-bengio.md)

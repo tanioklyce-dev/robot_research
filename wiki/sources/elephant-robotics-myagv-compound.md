@@ -2,6 +2,9 @@
 title: Elephant Robotics — myAGV & Compound Mobile Robot Collection
 type: source
 url: https://shop.elephantrobotics.com/collections/compound-myagv
+secondary_url: https://ozrobotics.com/shop/elephant-robotics-compound-mobile-robot-kit-myagv/
+local_path: raw/2024-elephant-robotics-myagv-compound.md
+sha256: f9ba6773d03a4111351194b2e961078d37e5ae814792935f45d2ddfd5a3741fe
 author: Elephant Robotics
 affiliations: Elephant Robotics
 published: Unknown

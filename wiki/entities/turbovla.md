@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-04
 updated: 2026-08-04
-sources: 1
+sources: 2
 tags: [vla, turbovla, efficient-inference, llm-free-vla, dinov3, bert, cross-attention, act, libero, robotwin, hust, huawei]
 ---
 

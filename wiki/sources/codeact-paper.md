@@ -70,3 +70,6 @@ A **7k multi-turn interaction** instruction-tuning dataset; models finetuned fro
 - [Code as Policies](code-as-policies-paper.md) — the same argument from robotics, made earlier.
 - [Voyager](voyager-paper.md) — the other "cheap-trial domain" where code-as-action-space was validated before robotics.
 - [CaP-X](cap-x-paper.md) — cites executable code as "empirically a superior agent action representation"; carries the claim into embodied control.
+
+## Cited by
+- [Yunzhu Li](../entities/yunzhu-li.md)

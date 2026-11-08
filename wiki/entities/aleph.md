@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-17
 updated: 2026-05-17
-sources: 2
+sources: 3
 tags: [aleph, logical-intelligence, agent, lean, formal-verification, putnambench, gpt-5.2, theorem-proving, ebm]
 ---
 

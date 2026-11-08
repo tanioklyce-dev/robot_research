@@ -2,6 +2,8 @@
 title: 1X NEO Product Page
 type: source
 url: https://www.1x.tech/neo
+local_path: raw/2026-05-09-1x-neo-product-page.md
+sha256: 742c05075acbb4c4a37217a2fec7d9cadf61cdb5595b7a41c4dc80c70734ef0e
 author: 1X Technologies
 affiliations: 1X Technologies
 published: Unknown

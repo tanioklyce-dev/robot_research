@@ -3,7 +3,7 @@ title: Continual learning and catastrophic forgetting
 type: concept
 created: 2026-09-11
 updated: 2026-09-12
-sources: 18
+sources: 21
 tags: [continual-learning, lifelong-learning, catastrophic-forgetting, skill-library, test-time-adaptation, in-context-learning, real-world-rl, rehearsal, knowledge-insulation, lora, deployment, household]
 ---
 

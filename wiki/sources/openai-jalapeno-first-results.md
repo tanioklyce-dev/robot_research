@@ -78,3 +78,6 @@ ingested: 2026-09-13
 - **Frontier-model results** — claimed to widen the gap, not shown.
 - **Availability**: internal deployment only; nothing about external sale or API-level latency changes.
 - **Broadcom's role** and the process node — secondaries say Broadcom; the post says nothing.
+
+## Cited by
+- [GPT-6 Astra](../entities/gpt-6-astra.md)

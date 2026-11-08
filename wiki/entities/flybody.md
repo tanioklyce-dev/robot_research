@@ -4,7 +4,7 @@ type: entity
 subtype: simulator-body-model
 created: 2026-05-08
 updated: 2026-09-12
-sources: 8
+sources: 9
 tags: [flybody, drosophila, mujoco, biomechanical-simulation, deep-rl, hhmi-janelia, deepmind, open-source]
 ---
 

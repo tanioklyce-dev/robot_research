@@ -4,7 +4,7 @@ type: entity
 subtype: organization
 created: 2026-08-27
 updated: 2026-09-13
-sources: 3
+sources: 4
 tags: [damiao, actuators, quasi-direct-drive, can-bus, mit-mode, robot-arm, rebot-arm, motors]
 ---
 

@@ -52,3 +52,9 @@ The GR00T **N1.5** research page — an incremental but high-impact update to [G
 ## Open questions
 - ~~FLARE has no dedicated wiki page~~ — now filed: [FLARE paper](flare-paper.md) + [FLARE concept](../concepts/world-models/flare.md) (2026-07-04).
 - ~~Eagle / Eagle 2.5 VLM family — no entity page~~ — now filed: [Eagle entity](../entities/eagle-vlm.md) + [Eagle-1](eagle-paper.md) / [Eagle 2.5](eagle-2-5-paper.md) papers (2026-07-04).
+
+## Cited by
+- [Generative data augmentation for robot learning](../concepts/learning/generative-data-augmentation.md)
+- [World-action model (WAM)](../concepts/world-models/world-action-model.md)
+- [GEAR-SONIC](../entities/gear-sonic.md)
+- [SigLIP](../entities/siglip.md)

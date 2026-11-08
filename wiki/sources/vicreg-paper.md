@@ -137,6 +137,7 @@ The paper briefly demonstrates VICReg on **image-text pretraining** with MS-COCO
 - [Yann LeCun](../entities/yann-lecun.md) — senior author. VICReg is the regularizer LeCun endorses by name in [Path Towards AMI (2022)](lecun2022-path-towards-ami.md) as the JEPA-compatible anti-collapse method.
 - **Jean Ponce** — co-author, Inria/ENS — not yet tracked as separate entity; senior figure in French CV/ML community.
 - [Meta FAIR](../entities/meta-fair.md) (then "Facebook AI Research") — primary affiliation.
+- [Jean Ponce](../entities/jean-ponce.md)
 
 ## Concepts touched
 - [Siamese network](../concepts/world-models/siamese-network.md)
@@ -161,3 +162,7 @@ VICReg is the **methodological anchor** of the regularized-SSL branch that LeJEP
 - Why `λ = µ = 25` and `ν = 1`? Appendix D.4 has hyperparameter-selection guidance; not unpacked here.
 - The expander-dim ablation (deep dependency of VICReg on D=8192-class expander) is a known SSL phenomenon — Barlow Twins shows the same pattern. Open question whether SIGReg shares it (the [LeJEPA paper](lejepa-paper.md) trains ViT-H at high D so likely yes).
 - VICReg's variance term is the precursor to **SIGReg's** Epps-Pulley-test-based moment regularization. Direct theoretical relationship: SIGReg's per-direction sketch can be read as VICReg's variance term + a Gaussianity check on top. Worth a synthesis page if the curriculum modules ever go deeper into the regularizer-equivalence question.
+
+## Cited by
+- [Energy-based models (EBMs)](../concepts/learning/energy-based-models.md)
+- [Inductive bias](../concepts/learning/inductive-bias.md)

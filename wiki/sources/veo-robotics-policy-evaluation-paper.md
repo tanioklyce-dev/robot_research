@@ -45,6 +45,8 @@ The system adds to base Veo: **robot action conditioning**, **multi-view consist
 ## Entities mentioned
 - [Google DeepMind](../entities/google-deepmind.md) · [Gemini Robotics](../entities/gemini-robotics.md) · [Veo](../entities/veo.md)
 - [Anirudha Majumdar](../entities/anirudha-majumdar.md) · [Vikas Sindhwani](../entities/vikas-sindhwani.md)
+- [ASIMOV Benchmark](../entities/asimov-benchmark.md)
+- [RoboArena](../entities/roboarena.md)
 
 ## Concepts touched
 - [Robot policy evaluation](../concepts/robotics/robot-policy-evaluation.md) — the third paradigm.
@@ -70,3 +72,6 @@ Wiki additions:
 - [How to Evaluate General-Purpose Robot Policies](nvidia-robolab-evaluation-blog.md) — the "collect far more rollouts" pole.
 - [Predictive Red Teaming](predictive-red-teaming-paper.md) — the predecessor whose multi-view limitation this addresses.
 - [ASIMOV Benchmark](asimov-benchmark-paper.md) — supplies the semantic-safety definition being probed.
+
+## Cited by
+- [Real-to-sim-to-real (R2S2R)](../concepts/robotics/real-to-sim-to-real.md)

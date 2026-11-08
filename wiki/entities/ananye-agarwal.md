@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-29
 updated: 2026-08-29
-sources: 2
+sources: 4
 tags: [ananye-agarwal, skild-ai, cmu, locomotion, egocentric-vision, parkour, dexterous-manipulation, locoformer]
 ---
 

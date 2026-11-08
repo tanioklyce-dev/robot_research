@@ -3,7 +3,7 @@ title: Connectome
 type: concept
 created: 2026-05-08
 updated: 2026-09-27
-sources: 10
+sources: 13
 tags: [connectome, neuroscience, brain-mapping, biological-ai, drosophila]
 ---
 

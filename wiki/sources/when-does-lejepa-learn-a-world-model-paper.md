@@ -65,6 +65,8 @@ The Lean 4 theorem proofs are **axiomatized in Appendix G** — verified *modulo
 - [LeWorldModel](../entities/leworldmodel.md) — cited as scaling the LeJEPA recipe to action-conditioned control from pixels
 - [DINO-WM](../entities/dino-wm.md) — referenced for zero-shot planning via latent dynamics
 - [V-JEPA 2](../entities/v-jepa-2.md) — cited as achieving zero-shot planning on pretrained features
+- [AMI Labs](../entities/ami-labs.md)
+- [stable-worldmodel](../entities/stable-worldmodel.md)
 
 ## Concepts touched
 - [Identifiability](../concepts/world-models/identifiability.md) — the concept this paper introduces to the wiki
@@ -84,3 +86,7 @@ Carried directly from the paper's own limitations section:
 - No code or data release is stated in the paper.
 
 **Wiki-specific:** does the [stable-worldmodel](stable-worldmodel-paper.md) brittleness result (published five days earlier, sharing two authors) fall inside or outside these assumptions? The two papers are never reconciled — see [JEPA identifiability vs measured brittleness](../syntheses/world-models/generative-video-vs-jepa-world-models.md).
+
+## Cited by
+- [Spectral theory of self-supervised learning](../concepts/learning/spectral-theory-of-ssl.md)
+- [LpWM (LpWorldModel)](../entities/lpwm.md)

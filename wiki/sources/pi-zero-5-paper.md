@@ -74,3 +74,6 @@ Candid and specific: persistent trouble with unfamiliar drawer handles and physi
 - [Knowledge Insulation paper](knowledge-insulation-paper.md) — refines this paper's hybrid recipe into π0.5-KI.
 - [LIBERO-PRO](libero-pro-paper.md) · [CaP-X](cap-x-paper.md) · [ASPIRE](aspire-paper.md) · [MolmoAct2](molmoact2-paper.md) — the 2026 record in which π0.5 is the standing baseline.
 - [π0.7 paper](pi07-paper.md) · [π*0.6 paper](pistar06-paper.md) — the successors.
+
+## Cited by
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)

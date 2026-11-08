@@ -145,6 +145,8 @@ Analytical result: queue stays non-empty iff `g ≥ E[ℓ_S] / (∆t · n)` wher
 - [SmolVLM](../entities/smolvlm.md) — the VLM backbone SmolVLA is built on.
 - [PaliGemma](../entities/paligemma.md) — named as the comparison VLM backbone.
 - [Octo](../entities/octo.md) — generalist-policy baseline.
+- [Diffusion Policy](../entities/diffusion-policy.md)
+- [OpenVLA](../entities/openvla.md)
 
 ## Concepts touched
 
@@ -166,3 +168,6 @@ Analytical result: queue stays non-empty iff `g ≥ E[ℓ_S] / (∆t · n)` wher
 2. **0.45 B beats 3.5 B on real-world SO-100 multi-task by +16.6 pts.** The wiki's first published evidence that **community-data + interleaved-attention + careful inference engineering beats raw param-count + corporate-data** in the affordable-robot tier.
 3. **The async-inference stack is the practical-deployment piece** most VLA papers skip — it directly addresses the "robot is idle during inference" failure mode that limits VLA control rate. Now the canonical reference for this pattern.
 4. **Closes a long-flagged wiki gap.** SmolVLA was referenced across [LeRobot tutorial](lerobot-robot-learning-tutorial.md), [DreamDojo](dreamdojo-paper.md), [scaling-laws-vla.md](../concepts/learning/scaling-laws-vla.md), and [vla-models.md](../concepts/learning/vla-models.md) without a primary source. Filed.
+
+## Cited by
+- [Physical Intelligence](../entities/physical-intelligence.md)

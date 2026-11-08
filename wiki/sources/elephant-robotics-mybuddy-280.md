@@ -2,6 +2,8 @@
 title: myBuddy 280 — Elephant Robotics Product Page
 type: source
 url: https://americas.shop.elephantrobotics.com/products/mybuddy-280
+local_path: raw/2024-elephant-robotics-mybuddy-280.md
+sha256: 703c06b99ffb056526ac7174a10c0ba6a47ca7e59b4a00edbc07a7644067363c
 author: Elephant Robotics
 affiliations: Elephant Robotics
 published: Unknown

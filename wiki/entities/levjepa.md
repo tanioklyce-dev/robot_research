@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-09-03
 updated: 2026-09-07
-sources: 3
+sources: 4
 tags: [levjepa, jepa, lejepa, sigreg, video, self-supervised, pretraining, balestriero, lecun, lucas-maes, encoder, flop-efficiency]
 ---
 

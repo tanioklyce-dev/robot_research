@@ -89,6 +89,7 @@ Ten unseen robots, **1,000 randomized environments each**, rough terrain, intens
 - [Unitree G1](../entities/unitree-g1.md) — evaluated zero-shot (0.98); H1, A1 and Go2-W also in the test set.
 - [Boston Dynamics Spot](../entities/spot.md) — evaluated zero-shot (1.00).
 - [Unitree A1](../entities/unitree-a1.md) — evaluated zero-shot (0.92); the platform [RMA](rma-paper.md) was built on.
+- [legged_gym](../entities/legged-gym.md)
 
 ## Concepts touched
 
@@ -106,3 +107,10 @@ Ten unseen robots, **1,000 randomized environments each**, rough terrain, intens
 - **Does the recipe transfer to manipulation?** The authors say they *"believe that this simple, yet general recipe can be used to train foundation models for other robotic skills."* [S1](skild-s1-blog.md) is presumably that attempt — but S1 conditions on demonstrations, not on its own experience, so the recipe appears to have changed in the move.
 - ~~RMA and the vision follow-up are uningested~~ — **both ingested 2026-08-29** ([RMA](rma-paper.md), [egocentric vision](egocentric-vision-locomotion-paper.md)). The lineage LocoFormer argues against is now fully held here; co-author **[Ananye Agarwal](../entities/ananye-agarwal.md)** — first author of the vision paper — now has a page too.
 - **Inference cost on-robot.** The paper notes quadratic segment cost and mentions inference acceleration; the deployed compute budget is not given.
+
+## Cited by
+- [Continual learning and catastrophic forgetting](../concepts/learning/continual-learning.md)
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)
+- [Abhinav Gupta](../entities/abhinav-gupta.md)
+- [Ashish Kumar](../entities/ashish-kumar.md)
+- [NVIDIA Isaac Gym (deprecated)](../entities/isaac-gym.md)

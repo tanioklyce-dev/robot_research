@@ -4,7 +4,7 @@ type: entity
 subtype: code-repository
 created: 2026-05-08
 updated: 2026-05-10
-sources: 2
+sources: 3
 license: MIT
 url: https://github.com/TuragaLab/flyvis
 docs: https://turagalab.github.io/flyvis/

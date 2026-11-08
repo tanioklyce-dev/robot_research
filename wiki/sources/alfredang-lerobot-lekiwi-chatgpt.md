@@ -38,7 +38,7 @@ A community build that runs a [LeKiwi](../entities/lekiwi.md) mobile manipulator
 
 ## Entities mentioned
 
-- [LeKiwi](../entities/lekiwi.md) · [Jetson Orin Nano](../entities/jetson-orin-nano.md) · [LeRobot](../entities/lerobot.md) · [ROS 2](../entities/ros2.md) · **OpenAI / GPT-4o** (no entity page yet — lint candidate) · [SO-ARM101](../entities/so-arm101.md)
+- [LeKiwi](../entities/lekiwi.md) · [Jetson Orin Nano](../entities/jetson-orin-nano.md) · [LeRobot](../entities/lerobot.md) · [ROS 2](../entities/ros2.md) · [OpenAI](../entities/openai.md) / GPT-4o · [SO-ARM101](../entities/so-arm101.md)
 
 ## Concepts touched
 

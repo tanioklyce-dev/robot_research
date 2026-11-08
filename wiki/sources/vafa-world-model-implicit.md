@@ -103,3 +103,9 @@ A **1%** detour rate takes the shortest-paths model from 0.99 to 0.69. At 10% it
 - **Does the coverage finding transfer to robot data?** "Random/synthetic beats real" is a direct challenge to the wiki's teleoperation-data orthodoxy — [Mobile ALOHA](mobile-aloha-paper.md), [DROID](../entities/droid.md), [Figure's Index](../entities/figure-index.md) all collect *expert* demonstrations, which is precisely the shortest-paths regime that produced compression precision 0.10 here. Nobody has run a compression-style test on a VLA.
 - **Detour fragility is the robotics failure mode with a different name.** A 1% perturbation collapsing performance from 0.99 to 0.69 is what [Flexion Reflect](flexion-reflect-v1.md) describes as compounding failure and what [stable-worldmodel](stable-worldmodel-paper.md) measures as distribution shift. Three literatures, one phenomenon, no shared metric.
 - **What replaces the DFA for continuous control?** The paper's own stated gap, and the thing standing between these metrics and any use on a robot policy.
+
+## Cited by
+- [Dexterous tool manipulation](../concepts/robotics/dexterous-tool-manipulation.md)
+- [World-model functional taxonomy (renderer / simulator / planner)](../concepts/world-models/world-model-functional-taxonomy.md)
+- [David Klindt](../entities/david-klindt.md)
+- [MetaOthello](../entities/metaothello.md)

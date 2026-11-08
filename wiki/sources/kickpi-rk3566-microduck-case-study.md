@@ -47,3 +47,6 @@ Not mentioned at all: the actuator-fidelity sim-to-real thesis, the fall-predict
 
 ## Open questions
 - Is the IMU actually an ST **LSM6DSV16X**, and is it a Dynamixel-protocol device on the bus or bridged by the IMU board's MCU? Check the `microduck` repo's hardware or `robotd` docs beyond the four checked.
+
+## Cited by
+- [RKLLM (airockchip/rknn-llm)](../entities/rknn-llm.md)

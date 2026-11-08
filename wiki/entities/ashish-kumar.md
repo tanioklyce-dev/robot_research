@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-29
 updated: 2026-08-29
-sources: 2
+sources: 3
 tags: [ashish-kumar, uc-berkeley, locomotion, rma, egocentric-vision, adaptation, sim-to-real]
 ---
 

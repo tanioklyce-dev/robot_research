@@ -3,7 +3,7 @@ title: Mechanistic interpretability
 type: concept
 created: 2026-05-15
 updated: 2026-09-07
-sources: 12
+sources: 15
 tags: [mechanistic-interpretability, anthropic, goodfire, neural-geometry, robotics, chris-olah, sparse-autoencoders, feature-extraction, ai-safety]
 ---
 

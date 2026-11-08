@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-07-17
 updated: 2026-11-07
-sources: 7
+sources: 8
 tags: [openvla-oft, vla, vision-language-action, parallel-decoding, action-chunking, l1-regression, film, libero, aloha]
 ---
 

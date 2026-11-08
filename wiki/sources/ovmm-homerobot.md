@@ -2,6 +2,8 @@
 title: HomeRobot — Open Vocabulary Mobile Manipulation (OVMM)
 type: source
 url: https://ovmm.github.io/
+local_path: raw/2024-ovmm-homerobot.md
+sha256: 07fed7a3c2cc1ee47c66562220780de1d54f3f9f7914b9fd51745ff32b9fb21a
 author: Yenamandra, Ramachandran, Yadav et al.
 affiliations: Georgia Tech, Meta AI, CMU, Simon Fraser University
 published: 2024
@@ -24,7 +26,12 @@ HomeRobot is the benchmark and software platform for Open Vocabulary Mobile Mani
 - [Stretch](../entities/stretch.md) — hardware platform
 - [Hello Robot](../entities/hello-robot.md) — robot manufacturer
 - [Meta FAIR](../entities/meta-fair.md) — contributing institution
+- [OK-Robot](../entities/ok-robot.md)
 
 ## Open questions
 - Exact date of the HomeRobot paper not confirmed from project page.
 - Current SOTA on the OVMM benchmark after OK-Robot.
+
+## Cited by
+- [Aging in place](../concepts/robotics/aging-in-place.md)
+- [Assistive Robotics](../concepts/robotics/assistive-robotics.md)

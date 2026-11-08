@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-13
 updated: 2026-11-07
-sources: 5
+sources: 6
 tags: [rdt, rdt-1b, diffusion, bimanual, foundation-model, unified-action-space, tsinghua, robotwin, robomind, baseline]
 ---
 

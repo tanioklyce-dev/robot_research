@@ -2,7 +2,8 @@
 title: Physically Assistive Robots — A Systematic Review (Nanavati, Ranganeni, Cakmak 2024)
 type: source
 url: https://doi.org/10.1146/annurev-control-062823-024352
-local_path: raw/nanavati2024physically.pdf (preprint); raw/annurev-control-062823-024352.pdf (published Annual Review version)
+local_path: raw/nanavati2024physically.pdf
+related_raw: "raw/annurev-control-062823-024352.pdf (published Annual Review version; local_path is the preprint)"
 sha256: 02b9cbcf0c40f80f179c45c032031d4a0db631277aed37dbc226a94e08de4e72
 author: Amal Nanavati, Vinitha Ranganeni, Maya Cakmak
 published: 2024 (Advance online November 21, 2023)
@@ -91,3 +92,8 @@ Three dimensions of adaptation in PAR research:
 - [Levels of autonomy in assistive robotics](../syntheses/assistive/levels-of-autonomy-in-assistive-robotics.md)
 - [Underserved PAR domains](../syntheses/assistive/underserved-par-domains.md)
 - [Designing Accessible Robot Communication for Blind People (Huh et al. 2026)](huh2026-accessible-robot-comm.md) — direct follow-up on §6.1.3 output-interface gap.
+
+## Cited by
+- [Aging in place](../concepts/robotics/aging-in-place.md)
+- [Amy Pavel](../entities/amy-pavel.md)
+- [Katherine Driggs-Campbell](../entities/katherine-driggs-campbell.md)

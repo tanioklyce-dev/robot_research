@@ -79,3 +79,8 @@ The canonical pre-deep-learning survey of RL applied to real robots. Thesis: nai
 
 - Jan Peters / Stefan Schaal motor-primitive lineage (DMPs) has no concept page; file if DMPs recur (they're resurfacing in modern skill-learning work).
 - The [Atari RL lineage synthesis](../syntheses/rl/atari-rl-lineage.md) covers the value-function renaissance this survey didn't foresee; a "robot RL lineage" synthesis (Kober 2013 → deep-RL locomotion → RECAP-class VLA fine-tuning) would complete the pair.
+
+## Cited by
+- [Real-world robotic reinforcement learning](../concepts/learning/real-world-robot-rl.md)
+- [Motion planning (classical)](../concepts/robotics/motion-planning.md)
+- [Russ Tedrake](../entities/russ-tedrake.md)

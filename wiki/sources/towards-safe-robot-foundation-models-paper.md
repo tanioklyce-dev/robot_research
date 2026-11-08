@@ -34,7 +34,7 @@ A three-page argument with one experiment, from Jan Peters's group: **a robot fo
 
 ## Entities mentioned
 
-- Jan Peters, TU Darmstadt / DFKI / hessian.AI (no pages); Octo (no page; see [OpenVLA](../entities/openvla.md) for the sibling); [Open X-Embodiment](../entities/open-x-embodiment.md) as the manipulator population the requirements are checked against.
+- Jan Peters, TU Darmstadt / DFKI / hessian.AI (no pages); [Octo](../entities/octo.md) (see [OpenVLA](../entities/openvla.md) for the sibling); [Open X-Embodiment](../entities/open-x-embodiment.md) as the manipulator population the requirements are checked against.
 
 ## Concepts touched
 

@@ -86,3 +86,8 @@ The methodology companion to the [RoboLab](../entities/nvidia-robolab.md) benchm
 - **Does the ~1,030-rollout standard get adopted?** NVIDIA is proposing a bar that its own published numbers, and everyone else's, do not currently clear. Whether the field follows is the thing to watch.
 - **Is SPARC the right smoothness metric for manipulation?** It comes from human-movement analysis; the blog does not justify the transfer.
 - **NPE implementation details** — what simulator-based inference method, how many simulations, and what happens under model misspecification, are not covered.
+
+## Cited by
+- [Real-to-sim-to-real (R2S2R)](../concepts/robotics/real-to-sim-to-real.md)
+- [World-model functional taxonomy (renderer / simulator / planner)](../concepts/world-models/world-model-functional-taxonomy.md)
+- [World Labs](../entities/world-labs.md)

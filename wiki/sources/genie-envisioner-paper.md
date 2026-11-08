@@ -27,3 +27,6 @@ ArXiv paper introducing [Genie Envisioner](../entities/genie-envisioner.md) as a
 ## Open questions
 - How does the original Genie Envisioner architecture compare to GE-Sim2's WAM framework?
 - What datasets were used for pretraining?
+
+## Cited by
+- [World model](../concepts/world-models/world-model.md)

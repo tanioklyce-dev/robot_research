@@ -82,3 +82,6 @@ Connectome data tells you *which* neurons connect, but not *how strongly* or wit
 - **Closes a wiki gap.** Previously referenced only via the [Connectome](../concepts/bio/connectome.md) concept page and the [whole-organism synthesis](../syntheses/agents/whole-organism-agentic-ai.md). Now ingested as a primary source.
 - **The brain-side controller template.** flyvis is the closest existing analogue to what a "fly agent" controller inside flybody would look like: a deep net whose architecture is anatomically constrained, trained end-to-end on a task, predictive of real neural activity. The synthesis's "Lappalainen-style controller" framing now has a primary source.
 - **Same lab as flybody.** Turaga is senior on both papers — flyvis (brain side, 2024) and [flybody](flybody-paper.md) (body side, 2025). The integration the synthesis identifies as "open" sits inside one PI's research program.
+
+## Cited by
+- [H01 (human cortex connectome fragment)](../entities/h01-connectome.md)

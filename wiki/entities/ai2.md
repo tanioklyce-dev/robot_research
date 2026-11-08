@@ -4,7 +4,7 @@ type: entity
 subtype: research-lab
 created: 2026-07-24
 updated: 2026-11-07
-sources: 14
+sources: 16
 tags: [ai2, allen-institute, research-lab, open-source, open-data, seattle, nonprofit, robotics, vla, ai-for-science, ai-for-the-planet, asta, olmoearth]
 ---
 

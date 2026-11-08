@@ -151,6 +151,7 @@ Mean absolute error; **Trans.** in millimetres, **Rot.** in degrees; "Avg" avera
 - **[DINOv2](../entities/dinov2.md)**, DeiT, BioMedCLIP, LVM-Med, USFM, EchoCLIP — backbone baselines.
 - **Decision Transformer** — the sequence-model baseline it beats.
 - **[EchoJEPA](../entities/echojepa.md)** — the other echocardiography JEPA in this wiki; different task (diagnosis vs probe guidance), different group, contemporaneous.
+- [Decision Transformer](../entities/decision-transformer.md)
 
 ## Concepts touched
 

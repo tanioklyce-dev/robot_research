@@ -112,6 +112,8 @@ Measured on box flipping, averaged over multiple users, reset time included:
 - [Sensori Robotics](../entities/sensori-robotics.md) / [Yuri](../entities/yuri.md) — the wiki's other OpenArm platform
 - [Sourccey](../entities/sourccey.md), [XLeRobot](../entities/xlerobot.md), [SO-ARM101](../entities/so-arm101.md), [OpenFT sensor](../entities/openft-sensor.md) — the position-only tier
 - [Dynamixel](../entities/dynamixel.md) — the high-reduction actuator lineage it argues against
+- [OpenArm](../entities/openarm.md)
+- [WowRobo](../entities/wowrobo.md)
 
 ## Concepts touched
 
@@ -125,3 +127,6 @@ Measured on box flipping, averaged over multiple users, reset time included:
 - **No cross-embodiment *policy* transfer.** Universal *teleoperation* across arms is shown; whether policies trained on UME data transfer across embodiments is untested.
 - **Real Franka results** are promised once hardware arrives, with an expectation of *"similar or improved performance given Franka's more accurate joint torque sensing."*
 - **Nothing bridges $1,900 to the $660 tier.** [OpenFT](../entities/openft-sensor.md) remains the only cheaper route to a torque signal and is unmaintained, unbenchmarked, and unlicensed.
+
+## Cited by
+- [Robbyant (Ant Group robotics)](../entities/robbyant.md)

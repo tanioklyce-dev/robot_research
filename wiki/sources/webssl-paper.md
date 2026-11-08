@@ -74,3 +74,6 @@ Explicitly a "bitter lesson" argument: *"imposing less supervision — including
 - **No control or robotics evaluation anywhere in the paper.** Every claim is VQA or classic vision. Its use as a *policy* backbone is entirely [Patch Policy](patch-policy-paper.md)'s finding, and its *action-relevance* is measured — badly — by [action-relevant latents](action-relevant-latents-paper.md). Nothing here anticipates either.
 - **Which Web-SSL variant do downstream users take?** The family spans 1B–7B and DINO-style vs other objectives; neither [Patch Policy](patch-policy-paper.md) nor the wiki records which checkpoint was used.
 - **Zero-shot classification is genuinely lost**, which matters for any open-vocabulary perception pipeline — a real cost the robot-learning framing tends to skip.
+
+## Cited by
+- [DINO-WM](../entities/dino-wm.md)

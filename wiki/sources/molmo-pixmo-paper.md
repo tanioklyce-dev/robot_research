@@ -35,6 +35,7 @@ Molmo ([Ai2](../entities/ai2.md)) is a family of **[vision-language models](../c
 - [Molmo](../entities/molmo.md) — the model family (this source is its primary reference).
 - [MolmoAct](../entities/molmoact.md) — the VLA built on Molmo (the reason Molmo entered this wiki).
 - [Qwen](../entities/qwen.md) — Qwen2-7B/72B are two of the four backbones.
+- [OLMoE (Open Mixture-of-Experts LM)](../entities/olmoe.md)
 
 ## Concepts touched
 

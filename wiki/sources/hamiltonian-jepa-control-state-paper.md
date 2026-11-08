@@ -137,6 +137,7 @@ So the separation of perception from control state is, by itself, **not** the pr
 - [H-JEPA (hierarchical; name collision)](../entities/h-jepa.md)
 - [Yann LeCun](../entities/yann-lecun.md) · [Randall Balestriero](../entities/randall-balestriero.md) (cited, as authors of LeJEPA/LeWM/SIGReg)
 - No pages yet: Delta-JEPA, Sub-JEPA, OGBench, Tel Aviv University, Lior Wolf.
+- [Hamiltonian JEPA](../entities/hamiltonian-jepa.md)
 
 ## Concepts touched
 - [JEPA](../concepts/world-models/jepa.md) — action-conditioned variant with a separate control state.

@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-09-03
 updated: 2026-09-03
-sources: 6
+sources: 9
 tags: [byol, self-supervised, ema, momentum-encoder, predictor, anti-collapse, no-negatives, deepmind, marketone]
 ---
 

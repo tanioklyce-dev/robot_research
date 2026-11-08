@@ -72,3 +72,7 @@ It also sits interestingly against [runtime failure detection](../concepts/robot
 - **No compute or latency accounting.** A gradient step inside every MPC replanning step is not free, and the wiki's interest in latent world models is partly [LeWM's 48× planning speedup](../entities/leworldmodel.md). Whether adaptation eats that is unaddressed.
 - **No failure mode reported.** Adaptation on a single recent transition could in principle chase noise or drift; the paper reports stop-gradient as the stabilizer but no case where adaptation hurts.
 - **Not tested against the stable-worldmodel benchmark directly**, despite testing the same shift families on the same environment — so the wiki cannot say what fraction of the 50.8% → 6–26% collapse this recovers.
+
+## Cited by
+- [Continual learning and catastrophic forgetting](../concepts/learning/continual-learning.md)
+- [Gradient-based planning (vs CEM) in latent world models](../concepts/world-models/gradient-based-planning.md)

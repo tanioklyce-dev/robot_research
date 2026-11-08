@@ -36,6 +36,7 @@ The primary paper for **[DreamGen](../entities/dreamgen.md)** — NVIDIA GEAR's 
 - Policies: [GR00T N1](../entities/nvidia-groot.md) (largest gains), [π0](../entities/pi-zero.md), [Diffusion Policy](../entities/diffusion-policy.md).
 - Robots: [Fourier GR-1](../entities/fourier-gr-1.md), [Franka Panda](../entities/franka-panda.md), [SO-ARM101](../entities/so-arm101.md) (SO-100).
 - Data: [RoboCasa](../entities/robocasa.md), [DROID](../entities/droid.md), [Open X-Embodiment](../entities/open-x-embodiment.md) (RT-1, Bridge-v2, Language Table), [MimicGen](../entities/mimicgen.md) (DexMG), [AgiBot](../entities/agibot.md), Ego4D. Aux: LAPA, SigLIP-2.
+- [SigLIP](../entities/siglip.md)
 
 ## Concepts touched
 - [World-model simulators](../concepts/world-models/world-model-simulators.md) — video world models used as **synthetic data generators** rather than real-time planners; "neural trajectories" is the key term.

@@ -2,6 +2,8 @@
 title: OK-Robot Project Page
 type: source
 url: https://ok-robot.github.io/
+local_path: raw/2024-01-ok-robot-project-page.md
+sha256: 60eb18585d3191922e85231caec6eb118a7d02dfd278de08e13455684526728b
 author: Peiqi Liu, Yaswanth Orru, Jay Vakil, Chris Paxton, Nur Muhammad "Mahi" Shafiullah, Lerrel Pinto
 affiliations: NYU
 published: 2024-01

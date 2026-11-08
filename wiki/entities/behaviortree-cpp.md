@@ -4,7 +4,7 @@ type: entity
 subtype: software
 created: 2026-08-04
 updated: 2026-08-04
-sources: 2
+sources: 3
 tags: [behaviortree-cpp, behavior-trees, ros2, cpp, blackboard, ports, groot2, xml-dsl, mit-license]
 ---
 

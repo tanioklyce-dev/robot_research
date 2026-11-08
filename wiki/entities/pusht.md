@@ -3,8 +3,8 @@ title: PushT
 type: entity
 subtype: benchmark
 created: 2026-05-07
-updated: 2026-10-25
-sources: 13
+updated: 2026-11-08
+sources: 17
 tags: [pusht, push-t, manipulation-benchmark, ibc, diffusion-policy, lightweight-sim]
 ---
 
@@ -69,7 +69,7 @@ This is exactly the bundle of properties that makes it a good **world-model benc
 - **[DINO-WM](../sources/dino-wm-paper.md)** — listed among the six core environments (PushT, Wall, PointMaze, Rope, Granular, Reacher).
 - **[JEPA-WMs](../sources/jepa-wms-paper.md) (Terver et al., FAIR)** — included in the env list alongside Metaworld, RoboCasa, Wall, PointMaze, DROID.
 - **[C-JEPA](c-jepa.md) (Causal-JEPA, ICML 2026)** — object-centric JEPA planning on Push-T: 88.67% with 6 object tokens against DINO-WM's 91.33% with 196 patch tokens, in the DINO-WM-style goal-25-steps-ahead CEM protocol ([paper](../sources/causal-jepa-paper.md)).
-- Implicit / pre-2024 references in earlier IBC and Diffusion Policy lines (those papers themselves not yet ingested).
+- Implicit / pre-2024 references in earlier [IBC](../sources/ibc-paper.md) and [Diffusion Policy](../sources/diffusion-policy-paper.md) lines.
 
 ## Position vs cousins
 - **Versus [Metaworld](metaworld.md)** — PushT is one task with one well-tuned dynamic; Metaworld is 50 distinct tasks. Different testing surface (depth on one task vs breadth across tasks).

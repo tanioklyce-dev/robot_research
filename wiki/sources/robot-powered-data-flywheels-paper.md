@@ -77,3 +77,6 @@ The deployment log also contains an honest, legible failure: on Tuesday of week 
 - **The 1.5-hour plateau is the most important number and the least examined.** If it holds generally, the economics of every "deploy fleets to collect data" thesis in this wiki change: value comes from *breadth of deployments*, not *duration*. If it is an artifact of this task's narrow visual distribution, it says the opposite. One deployment, one task, no ablation.
 - **26 interventions over 40 hours is a real autonomy number** — rare in this wiki, and worth holding against the vendor claims in the [consumer robotics value chain](../syntheses/society/consumer-robotics-value-chain.md). It is also a *librarian-estimated* labor saving, not a measured one.
 - **Same lab, opposite prescriptions.** [SimToolReal](simtoolreal-paper.md) argues real-world demonstration data is the wrong path for dexterity and generates synthetic coverage instead; this paper argues real-world deployment data is precisely what foundation models lack. Both are Bohg-advised, three months apart. The reconciliation — synthetic for *control*, real for *perception* — is implied by neither and stated by neither.
+
+## Cited by
+- [Continual learning and catastrophic forgetting](../concepts/learning/continual-learning.md)

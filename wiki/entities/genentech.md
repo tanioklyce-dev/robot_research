@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-08-30
 updated: 2026-08-30
-sources: 1
+sources: 3
 tags: [genentech, biotech, drug-discovery, lab-automation, mhs, liquid-handling]
 ---
 

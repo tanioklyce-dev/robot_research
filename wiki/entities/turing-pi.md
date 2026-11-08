@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-09-13
 updated: 2026-09-13
-sources: 1
+sources: 2
 tags: [turing-pi, rk3588, cluster-board, compute-module, single-board-computer, homelab, edge-compute]
 ---
 

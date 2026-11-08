@@ -44,3 +44,6 @@ Scaramuzza's UZH drone lab attacks MBRL's practical bottleneck: the world model 
 - Venue/camera-ready status (arXiv v1 only in the raw copy); any follow-up flight results.
 - Whether SSM world models displace RSSMs upstream (in Dreamer-line releases) — this is an existence proof, not adoption evidence.
 - How the privileged-asymmetric trick compares to the teacher-student distillation standard in locomotion.
+
+## Cited by
+- [Danijar Hafner](../entities/danijar-hafner.md)

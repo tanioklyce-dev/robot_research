@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-08-04
 updated: 2026-11-07
-sources: 11
+sources: 13
 tags: [robotwin, benchmark, bimanual, manipulation, domain-randomization, data-generation, simulation, robotwin-od, mllm-code-generation, embodiment-aware-grasping, sim-to-real]
 ---
 

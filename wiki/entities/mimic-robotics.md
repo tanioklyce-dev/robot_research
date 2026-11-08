@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-09-07
 updated: 2026-09-07
-sources: 2
+sources: 3
 tags: [mimic-robotics, dexterous-manipulation, video-action-model, audi, deployment, switzerland, eth-zurich, contact-rich, deformable-objects]
 ---
 

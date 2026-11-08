@@ -52,3 +52,6 @@ The most skeptical and most detailed of the launch-day pieces. Clubic interviewe
 
 ## Open questions
 - What is the replay fallback after the subscription lapses? Open-loop joint trajectories cannot handle a shoe in a new place. Is the fallback mode useful for any listed task?
+
+## Cited by
+- [Crowdsourced robot training data](../concepts/learning/crowdsourced-robot-training-data.md)

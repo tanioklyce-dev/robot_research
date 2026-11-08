@@ -64,3 +64,6 @@ An **untethered evolution of the [XLeRobot](../entities/xlerobot.md)** from [Nik
 - **C300 SKU question — resolved.** The paper cites its unit (ref [22]) as the **"Anker SOLIX C300 DC Portable Power Station," $159.99**, with **a 12 V/10 A car outlet + 3 USB-C (2×140 W + 1×100 W)**. The wiki's earlier web-sourced spec wrongly said the C300 *DC* lacked a 12 V car port; **the DC bank's 12 V car outlet is now confirmed** (user + this paper). Consequence: the DC bank serves both robot rails on its own (it does here), so the wiki's [Anker comparison](../syntheses/platforms/anker-portable-power-stations.md) no longer treats the AC station as required — only as a 600 W-surge upgrade.
 - Design files are "doubleblind" (anonymized) in this v1 — no public repo link yet.
 - No learned-policy *task* success on the real robot beyond grasping; VLA is benchmarked for latency, not deployed for closed-loop task completion. Onboard policy deployment is named as future work.
+
+## Cited by
+- [Visual relocalization and mapping](../concepts/robotics/visual-relocalization-and-mapping.md)

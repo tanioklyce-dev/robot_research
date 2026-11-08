@@ -4,7 +4,7 @@ type: entity
 subtype: architecture
 created: 2026-08-30
 updated: 2026-08-30
-sources: 0
+sources: 3
 tags: [decision-transformer, offline-rl, sequence-modeling, returns-to-go, conditional-imitation, credit-assignment, berkeley]
 ---
 

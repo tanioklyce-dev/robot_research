@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-31
 updated: 2026-05-31
-sources: 2
+sources: 3
 tags: [person, bell-labs, unix, darwin, self-replication, artificial-life, history]
 ---
 

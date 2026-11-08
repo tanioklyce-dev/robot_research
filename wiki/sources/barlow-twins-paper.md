@@ -175,3 +175,7 @@ In parallel: the DINO branch (DINO 2021 → DINOv2 2023 → DINOv3 2025 with Gra
 - Stéphane Deny's affiliation and current work — co-corresponding on Barlow Twins, not on later LeCun-line papers. Has he stayed in the SSL space?
 - The Information-Bottleneck derivation in Appendix A is non-trivial. A future deepening pass could unpack it; useful for understanding why the loss is theoretically grounded rather than empirically lucky.
 - Direct application of Barlow Twins to **video / temporal SSL** is not reported in the paper. The natural extension (correlate embeddings across time instead of across augmentations) is one possible bridge from Barlow Twins to JEPA — worth checking the literature.
+
+## Cited by
+- [Energy-based models (EBMs)](../concepts/learning/energy-based-models.md)
+- [Inductive bias](../concepts/learning/inductive-bias.md)

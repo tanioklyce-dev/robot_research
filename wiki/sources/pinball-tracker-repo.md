@@ -5,7 +5,7 @@ url: https://github.com/tanioklyce-dev/pinball_tracker
 author: tanioklyce-dev (first-party)
 published: 2026-07-17 (created)
 ingested: 2026-07-21
-local_path: ../pinball-tracker (sibling working copy)
+note: sibling working copy at ../pinball-tracker
 format: github-repo
 license: MIT
 tags: [pinball, object-tracking, heatmap, tracknet, u-net, cvat, labeling, first-party, computer-vision, project]

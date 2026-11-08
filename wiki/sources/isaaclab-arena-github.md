@@ -89,6 +89,8 @@ The repo was created 2025-08-15, first tagged as a release branch 2025-11-25, an
 - [DROID](../entities/droid.md) · [Franka Panda](../entities/franka-panda.md) · [Fourier GR-1](../entities/fourier-gr-1.md) · [Unitree G1](../entities/unitree-g1.md) · [AgiBot](../entities/agibot.md)
 - [RoboCasa](../entities/robocasa.md) · [LIBERO](../entities/libero.md) · [RoboTwin 2.0](../entities/robotwin.md)
 - [LeRobot](../entities/lerobot.md) · [Hugging Face](../entities/hugging-face.md) · [NVIDIA Isaac Teleop](../entities/nvidia-isaac-teleop.md) · [CuRobo](../entities/curobo.md)
+- [DreamZero](../entities/dreamzero.md)
+- [RoboDojo](../entities/robodojo.md)
 
 ## Concepts touched
 - [Robot policy evaluation](../concepts/robotics/robot-policy-evaluation.md) — Arena is the infrastructure pole of that page: rollouts at scale, variations, and the NPE sensitivity analysis.

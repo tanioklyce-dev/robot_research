@@ -63,6 +63,7 @@ The design philosophy is explicitly pluralist: a "combination of built-in guardr
 - [NeMo Guardrails](../entities/nemo-guardrails.md) — the subject.
 - [NVIDIA](../entities/nvidia.md) — author.
 - [garak](../entities/garak.md) — the build-phase counterpart (not covered here).
+- [Microsoft](../entities/microsoft.md)
 
 ## Concepts touched
 - [AI guardrails](../concepts/safety/ai-guardrails.md) — the primary source for the five-rail taxonomy.

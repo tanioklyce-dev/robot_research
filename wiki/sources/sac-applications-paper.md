@@ -41,3 +41,6 @@ The original SAC works but requires hand-tuning the temperature α (the reward-v
 
 - **Target-entropy choice.** The method replaces tuning α with choosing the target entropy H̄; the paper's `−dim(A)` heuristic works but the sensitivity to H̄ on contact-rich manipulation isn't deeply characterized here.
 - **Author entity pages.** George Tucker / Jie Tan / Sehoon Ha / Vikash Kumar / Tuomas Haarnoja / Pieter Abbeel / Abhishek Gupta — the Google-Brain-robotics + Berkeley author cluster; none filed yet (Gupta recurs in [SERL](../entities/serl.md)).
+
+## Cited by
+- [Abhinav Gupta](../entities/abhinav-gupta.md)

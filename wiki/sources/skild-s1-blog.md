@@ -142,3 +142,10 @@ Four tasks, none seen in pre-training, up to **10 minutes**: plant potting (digg
 - **Does the crossover survive at a fixed compute budget?** ICL pays for its inner loop at inference time in context length; the post compares data scales, not inference cost.
 - ~~LocoFormer is uningested~~ — **ingested 2026-08-29** ([LocoFormer](locoformer-paper.md)). It carries the cross-embodiment claim, and conditions on the robot's **own experience** rather than a demonstration — a different mechanism under the same name.
 - **Independent replication.** None exists. Weights are not released.
+
+## Cited by
+- [Continual learning and catastrophic forgetting](../concepts/learning/continual-learning.md)
+- [Abhinav Gupta](../entities/abhinav-gupta.md)
+- [Ananye Agarwal](../entities/ananye-agarwal.md)
+- [Deepak Pathak](../entities/deepak-pathak.md)
+- [Jim Fan (Linxi Fan)](../entities/jim-fan.md)

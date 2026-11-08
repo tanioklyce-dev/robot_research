@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-09-13
 updated: 2026-09-13
-sources: 2
+sources: 3
 tags: [rk1828, rk1820, rockchip, npu, llm-coprocessor, m2-accelerator, on-package-memory, edge-ai, secondary-only]
 ---
 

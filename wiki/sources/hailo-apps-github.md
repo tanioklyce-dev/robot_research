@@ -65,3 +65,6 @@ It does **not** provide a way to run LeRobot control policies (ACT/Diffusion/Smo
 - Which LLMs/VLMs ship in `gen_ai_apps`, and at what tokens/sec on the Hailo-10H?
 - Does Voice2Action's "action" layer expose a tool/function-call interface usable as a robot agent backend?
 - What harness does "AI-Powered Development" use under the hood (cf. the AI-first FRC workflows in [Team 4414](team-4414-hightide-2026-binder.md) / [Team 254](team-254-ai-in-frc-presentation.md))?
+
+## Cited by
+- [Heterogeneous edge SoCs and the shared-memory budget](../concepts/robotics/heterogeneous-edge-soc.md)

@@ -116,3 +116,6 @@ And their own **Demo-DP** ablation sharpens this rather than hiding it — apply
 - **What is in the latent that identifies the embodiment?** The naive-reference failure proves *something* embodiment-specific survives V-JEPA 2.1 encoding. Nobody has said what. A probe for embodiment identity on those latents is a small experiment with a clean answer.
 - **Would a [block-causal encoder](levjepa-paper.md) change the planning cost?** CEM over a bidirectional world model re-encodes per step. LeVJEPA's causal encoder *"extends to incoming frames without re-encoding"* — the same substitution question raised on [mimic-video](mimic-video-paper.md), now in a planning loop rather than a policy.
 - **Is the in-domain loss avoidable, or is it the price of abstraction?** Demo-DP beats Demo-JEPA in-domain using the same goal-centric idea with a diffusion policy. If the goal-centric *framing* is what generalizes and the JEPA latent is what costs in-domain accuracy, the two could be separated — and no one has tried.
+
+## Cited by
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)

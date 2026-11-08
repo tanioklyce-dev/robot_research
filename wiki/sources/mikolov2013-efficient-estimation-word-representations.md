@@ -161,3 +161,6 @@ Worth reading closely rather than skipping. The failure mode is consistent: the 
 - **Mikolov, Yih & Zweig (NAACL 2013), *Linguistic Regularities in Continuous Space Word Representations*** — the paper that actually introduced the offset method on RNNLM vectors, cited here as [20]. Un-ingested; it is the true origin of the analogy technique this paper popularized.
 - **Levy & Goldberg's later analyses** — that Skip-gram with negative sampling implicitly factorizes a shifted PMI matrix, and that the analogy protocol's input-exclusion does much of the work — are the standard critical follow-ups and are not in this wiki.
 - **The syntactic/semantic split between CBOW and Skip-gram** has no explanation offered here beyond the architectural asymmetry. Whether it survives at modern scale is untested in this wiki.
+
+## Cited by
+- [Inductive bias](../concepts/learning/inductive-bias.md)

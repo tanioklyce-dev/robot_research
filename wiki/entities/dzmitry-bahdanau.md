@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-30
 updated: 2026-08-30
-sources: 4
+sources: 6
 tags: [person, attention, alignment, mila, jacobs-university, machine-translation]
 ---
 

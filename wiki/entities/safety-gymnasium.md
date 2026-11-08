@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-09-07
 updated: 2026-09-07
-sources: 2
+sources: 3
 tags: [safety-gymnasium, safepo, safe-rl, cmdp, benchmark, mujoco, isaac-gym, gymnasium, pku-alignment, omnisafe]
 ---
 

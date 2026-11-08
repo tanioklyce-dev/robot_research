@@ -3,7 +3,7 @@ title: Harness design for capacity-limited models
 type: concept
 created: 2026-08-28
 updated: 2026-08-28
-sources: 1
+sources: 3
 tags: [agent-harness, local-models, context-efficiency, agent-skills, sandboxing, escalation, edge-agents, on-robot-agents, mcp]
 ---
 

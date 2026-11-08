@@ -49,9 +49,15 @@ The primary technical report for **[Gemini Robotics 1.5](../entities/gemini-robo
 - [Chain of thought](../concepts/learning/chain-of-thought.md) — embodied thinking traces / inner monologue; inference-time-compute scaling.
 - Cross-embodiment / Motion Transfer — the DeepMind analogue of [Open X-Embodiment](../entities/open-x-embodiment.md)-style co-training, with a dedicated transfer recipe.
 - [AI safety and alignment](../concepts/safety/ai-safety-alignment.md) — ASIMOV-2.0, ART, ISO 15066.
+- [Semantic safety](../concepts/safety/semantic-safety.md)
 
 ## Open questions
 - **Dexterity ~ previous generation** (stated weakness); RL + new architectures are future work.
 - Exact model sizes / action-decoder details undisclosed; appendices not in this PDF.
 - Next step: scaling to **non-action data** (human + synthetic video without action labels) — architecture already supports it (the same bet as [GR00T](../entities/nvidia-groot.md)'s neural trajectories + [FLARE](../concepts/world-models/flare.md)'s human-video co-training).
 - No arXiv id on the PDF; the DeepMind blog is the citable landing page.
+
+## Cited by
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)
+- [Embodied-reasoning VLMs (ER backbones)](../concepts/learning/embodied-reasoning-vlms.md)
+- [ASIMOV Benchmark](../entities/asimov-benchmark.md)

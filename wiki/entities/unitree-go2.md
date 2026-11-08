@@ -3,7 +3,7 @@ title: Unitree Go2
 type: entity
 subtype: robot
 created: 2026-07-27
-updated: 2026-10-13
+updated: 2026-11-08
 sources: 7
 tags: [unitree-go2, quadruped, robot-dog, china, affordable, edu, project-fetch, frontier-red-team]
 ---
@@ -54,7 +54,7 @@ Practical consequences worth noting for anyone using a Go2 as a research base:
 This makes the Go2 the best-supported robot in the wiki's agentic-robotics coverage — a relevant data point when weighing it against [Spot](spot.md) at ~10× the price.
 
 ## Related
-- Unitree Robotics — manufacturer (**no entity page yet**; the wiki has G1, H1, and Go2 but not the parent company).
+- [Unitree](unitree.md) — manufacturer.
 - [Spot](spot.md) — the commercial-tier quadruped contrast.
 - [Project Fetch](../sources/anthropic-project-fetch-robot-dog.md) — the only ingested source that uses it.
 

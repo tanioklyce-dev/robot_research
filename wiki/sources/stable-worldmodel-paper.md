@@ -87,3 +87,13 @@ Native **MP4, HDF5, and [LeRobot](../entities/lerobot.md)** support with one-cli
 - Docs: https://galilai-group.github.io/stable-worldmodel/
 - Predecessor: [stable-worldmodel-v1](https://arxiv.org/abs/2602.08968) (arXiv 2602.08968, Feb 2026)
 - `swm` is the substrate [LeWorldModel's own repo](lewm-github.md) is built on.
+
+## Cited by
+- [Strange loops and self-reference in AI agents](../concepts/agents/strange-loops-and-self-reference.md)
+- [Test-time adaptation](../concepts/learning/test-time-adaptation.md)
+- [Belief states and mixed states](../concepts/world-models/belief-states-and-mixed-states.md)
+- [Physical reasoning benchmarks and the human baseline](../concepts/world-models/physical-reasoning-benchmarks.md)
+- [World-model evaluation](../concepts/world-models/world-model-evaluation.md)
+- [AdaJEPA](../entities/adajepa.md)
+- [AMI Labs](../entities/ami-labs.md)
+- [LpWM (LpWorldModel)](../entities/lpwm.md)

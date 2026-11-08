@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-08-23
 updated: 2026-10-07
-sources: 2
+sources: 4
 tags: [nori, home-robot, bimanual, mobile-manipulator, consumer-robotics, affordable-hardware, raspberry-pi-5, lidar, skills-marketplace]
 ---
 

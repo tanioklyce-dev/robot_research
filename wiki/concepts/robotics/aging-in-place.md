@@ -3,7 +3,7 @@ title: Aging in place
 type: concept
 created: 2026-07-13
 updated: 2026-08-17
-sources: 3
+sources: 7
 tags: [aging-in-place, elder-care, assistive-robotics, adl, iadl, home-modification, caregiving, demand-side]
 ---
 

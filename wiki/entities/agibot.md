@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-06
 updated: 2026-10-27
-sources: 14
+sources: 16
 tags: [agibot, china, embodied-ai, humanoid]
 ---
 

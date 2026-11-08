@@ -131,3 +131,6 @@ The repo also sets up [autoresearch](karpathy-autoresearch.md): "The training co
 - **The Muon optimizer** (Jordan et al. 2024) is referenced in `nanochat/optim.py` but not yet a separate wiki source. Worth a stub if the curriculum extends to Module-1 optimizer coverage beyond AdamW.
 - **DCLM CORE benchmark** is the leaderboard's measurement; not yet a wiki source page. Useful if a future synthesis covers "what does GPT-2-capability mean numerically?"
 - **The autoresearch-driven rows (5 & 6 of the leaderboard)** are the most wiki-relevant entries here — see [the autoresearch source page](karpathy-autoresearch.md) for the deeper analysis.
+
+## Cited by
+- [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md)

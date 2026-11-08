@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-08-30
 updated: 2026-08-30
-sources: 7
+sources: 8
 tags: [company, interpretability, mechanistic-interpretability, sparse-autoencoders, silico, neural-geometry, safety, san-francisco, public-benefit-corporation]
 ---
 

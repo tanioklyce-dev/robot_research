@@ -58,3 +58,6 @@ The Stanford paper introducing **[OpenVLA-OFT](../entities/openvla-oft.md)**. It
 
 - OFT is an OpenVLA-specific fine-tuning study; how much transfers to other base VLAs is untested (the recipe is general, but only OpenVLA is evaluated).
 - Parallel decoding is "theoretically less expressive" than autoregressive; the paper finds no degradation empirically but doesn't characterize where it might.
+
+## Cited by
+- [Moo Jin Kim](../entities/moo-jin-kim.md)

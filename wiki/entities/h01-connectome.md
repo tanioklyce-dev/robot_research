@@ -4,7 +4,7 @@ type: entity
 subtype: dataset
 created: 2026-07-23
 updated: 2026-07-23
-sources: 1
+sources: 3
 tags: [connectome, human-brain, electron-microscopy, dataset, neuroscience, harvard, google]
 ---
 

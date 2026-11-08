@@ -123,12 +123,14 @@ EgoScale takes **the opposite path** from the [sim-to-real](../concepts/learning
 - Homie — separately trained lower-body locomotion policy paired with EgoScale's upper-body commands for the G1 dish-handover task.
 - Vive trackers / Manus gloves — mocap hardware for the aligned mid-training collection.
 - Trevor Darrell (Berkeley), Furong Huang (UMD), Danfei Xu (GA Tech / NVIDIA) — co-authors.
+- [OpenVLA](../entities/openvla.md)
 
 ## Concepts touched
 - [VLA models](../concepts/learning/vla-models.md) — EgoScale is the flow-matching-VLA scaling-law paper.
 - [Scaling laws — VLAs and human data](../concepts/learning/scaling-laws-vla.md) — new hub seeded by this paper.
 - [Imitation learning](../concepts/learning/imitation-learning.md) — large-scale human video imitation as the pretraining objective.
 - [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md) — adjacent paradigm; EgoScale is the *real-data-pretrain* alternative.
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)
 
 ## Open questions
 
@@ -146,3 +148,13 @@ EgoScale takes **the opposite path** from the [sim-to-real](../concepts/learning
 2. **First VLA scaling-law paper.** The wiki tracks ~13 VLAs but has no scaling-law treatment. EgoScale is the canonical reference for "how much human data do you need" — the question every VLA team has but no one had published a clean answer to.
 3. **Public benchmark for the "human video instead of sim" thesis.** [NVIDIA Cosmos](../entities/nvidia-cosmos.md) and the World Foundation Model line bet on synthetic data; EgoScale shows the real-data path also scales predictably. Same parent company, two parallel responses to the VLA data bottleneck.
 4. **Embodiment-agnostic motor prior evidence.** The G1 tri-finger result (+30% with no G1-specific pretraining changes) is one of the cleanest demonstrations to date that a VLA's pretraining can generalize across kinematically different end-effectors.
+
+## Cited by
+- [Crowdsourced robot training data](../concepts/learning/crowdsourced-robot-training-data.md)
+- [Inductive bias](../concepts/learning/inductive-bias.md)
+- [ALOHA / Mobile ALOHA](../entities/aloha.md)
+- [AW-0 (Agentic World Action Model)](../entities/aw-0.md)
+- [Index (Figure AI)](../entities/figure-index.md)
+- [Physical Intelligence](../entities/physical-intelligence.md)
+- [SmolVLA](../entities/smolvla.md)
+- [Tien Kung (X-Humanoid)](../entities/tien-kung.md)

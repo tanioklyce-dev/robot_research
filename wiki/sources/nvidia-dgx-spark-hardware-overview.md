@@ -59,3 +59,6 @@ DGX Spark is a desktop-form-factor "personal AI supercomputer" built on the **GB
 - Discrete FP8 / FP16 / FP32 throughput numbers (page does not list).
 - Sustained vs peak FP4 — the 1 PFLOP figure is sparse-tensor headline.
 - Real-world fine-tune wall-clock times for 70B vs 200B-parameter models.
+
+## Cited by
+- [Heterogeneous edge SoCs and the shared-memory budget](../concepts/robotics/heterogeneous-edge-soc.md)

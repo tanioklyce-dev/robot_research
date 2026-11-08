@@ -97,3 +97,7 @@ This is the **closest published equivalent to the wiki's own [Robot-learning cur
 - **The official LeRobot pedagogy**. The wiki's existing curriculum syntheses are user-authored; this is the team-authored canonical. Both can coexist as different paths into the same material.
 - **Single coherent source for π₀ + SmolVLA + ACT + Diffusion Policy** in one narrative — the wiki has each of these as scattered references, this tutorial ties them together.
 - **The "robot learning at an inflection point" framing** is becoming a standard 2025–2026 narrative across [the Stanford AI Index 2026](stanford-hai-ai-index-2026.md), [the EgoScale scaling-law paper](egoscale-paper.md), and now this tutorial. The published consensus is that the IL/VLA stack has consolidated enough to be teachable as a standard curriculum.
+
+## Cited by
+- [Variational autoencoder (VAE)](../concepts/learning/variational-autoencoder.md)
+- [OpenVLA](../entities/openvla.md)

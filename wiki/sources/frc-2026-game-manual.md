@@ -138,3 +138,6 @@ The official 166-page rule book for the 2026 [FIRST Robotics Competition](../ent
 - What is the actual distribution of FUEL scoring rates at competition (empirical data on ENERGIZED/SUPERCHARGED RP achievement)?
 - How does the HUB alternation mechanic change optimal alliance composition strategy vs. prior years?
 - What FRC-specific physics simulators exist for testing robot designs against REBUILT field elements?
+
+## Cited by
+- [Team 4414 (HighTide)](../entities/team-4414-hightide.md)

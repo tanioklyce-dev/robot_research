@@ -4,7 +4,7 @@ type: entity
 subtype: software
 created: 2026-08-29
 updated: 2026-08-29
-sources: 4
+sources: 5
 tags: [isaac-gym, nvidia, simulator, gpu-physics, massively-parallel-rl, locomotion, deprecated, isaac-lab]
 ---
 

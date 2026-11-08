@@ -3,7 +3,7 @@ title: Agent skills (portable SKILL.md)
 type: concept
 created: 2026-07-16
 updated: 2026-11-07
-sources: 22
+sources: 27
 tags: [agent-skills, claude-code, skill-md, llm-agents, tooling, jetson, halos, frc, deployment]
 ---
 

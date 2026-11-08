@@ -2,6 +2,8 @@
 title: Reachy 2 — Pollen Robotics Product Page
 type: source
 url: https://www.pollen-robotics.com/reachy/
+local_path: raw/2026-05-09-pollen-robotics-reachy.md
+sha256: 06adbb4bdbe11abbc5a2f1cf059512f1e9fee9190366b2fd5c732c362ca2c46e
 author: Pollen Robotics
 affiliations: Pollen Robotics (France)
 published: Unknown
@@ -36,3 +38,6 @@ Not listed. Contact required.
 ## Entities mentioned
 - [Reachy](../entities/reachy.md)
 - [Pollen Robotics](../entities/pollen-robotics.md)
+
+## Cited by
+- [Reachy Mini](../entities/reachy-mini.md)

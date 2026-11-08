@@ -60,3 +60,7 @@ The official open-source codebase for the [GR00T](../entities/nvidia-groot.md) V
 - The EA→GA timeline discrepancy (see contradiction callout) — worth checking the repo's release/commit history if precision matters.
 - GEAR-SONIC whole-body controller — see [entity](../entities/gear-sonic.md) and the [SONIC paper](sonic-paper.md); RoboLab sim and RoboCasa-GR1 workflows not yet detailed in the wiki.
 - "RoboLab" — first appearance of this benchmark name in the wiki; unclear what it is (NVIDIA-internal sim?).
+
+## Cited by
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)
+- [Embodied-reasoning VLMs (ER backbones)](../concepts/learning/embodied-reasoning-vlms.md)

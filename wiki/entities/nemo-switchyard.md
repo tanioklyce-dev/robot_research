@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-08-28
 updated: 2026-08-28
-sources: 1
+sources: 2
 tags: [nemo-switchyard, nvidia, model-routing, agent-orchestration, cost-optimization, open-source, unverified]
 ---
 

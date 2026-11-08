@@ -89,6 +89,7 @@ The design shift from WMA-0 to WLA-1.0 is the substantive story: **the "world" c
 - [Qwen](../entities/qwen.md) — Qwen3-VL-4B is the backbone.
 - [Molmo2-ER](../entities/molmo2-er.md), [NVIDIA Cosmos](../entities/nvidia-cosmos.md) (Cosmos-R1-7B, Cosmos3-Super-64B rows), [Gemini Robotics](../entities/gemini-robotics.md) (Gemini-ER 1.5 / 2 rows), [AGIBOT](../entities/agibot.md) (GenieReasoner-3B row, unconfirmed attribution) — comparison rows.
 - [Physical Intelligence](../entities/physical-intelligence.md) — the architecture is the π0.5/KI recipe, uncredited.
+- [BitRobot (BitRobot Network / Foundation)](../entities/bitrobot.md)
 
 ## Concepts touched
 
@@ -116,3 +117,11 @@ The design shift from WMA-0 to WLA-1.0 is the substantive story: **the "world" c
   - **Relicensed to Apache-2.0.** On HF, ER-1's LICENSE file was deleted and its card set to `apache-2.0` at 14:40 UTC on 09-11, a few hours after the launch capture. The WMA-0 cards followed on 09-13. On GitHub, `unifolm-wla`'s LICENSE changed on 09-20 ("upd licence"). **Exception:** the older `unifolm-world-model-action` GitHub repo still carries CC BY-NC-SA text, while its HF weights now say Apache-2.0.
   - **Corrected in the wiki:** every "non-commercial / research-only" and "policy unreleased" claim on this page and on the [UnifoLM](../entities/unifolm.md), [Unitree](../entities/unitree.md) and [Unitree G1](../entities/unitree-g1.md) pages, plus [VLA models](../concepts/learning/vla-models.md), the [WMA-0 source](unifolm-wma-0-project-page.md) and the index.
   - **Unchanged:** the project page's ER benchmark table and all launch claims. Nothing quantitative was added.
+
+## Cited by
+- [Continual learning and catastrophic forgetting](../concepts/learning/continual-learning.md)
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)
+- [World-model simulators](../concepts/world-models/world-model-simulators.md)
+- [Gemini 4 Argon](../entities/gemini-4-argon.md)
+- [GPT-6 Astra](../entities/gpt-6-astra.md)
+- [Unitree Z1](../entities/unitree-z1.md)

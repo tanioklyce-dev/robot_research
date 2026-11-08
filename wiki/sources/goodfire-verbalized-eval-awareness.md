@@ -69,3 +69,6 @@ Single-turn only, where modern auditing runs hundreds of turns; causal experimen
 - **Non-verbalized eval awareness is the real question** and this method cannot see it. An activation probe could — which is exactly what the [companion paper](goodfire-reasoning-theater.md) builds for a different purpose.
 - **No arXiv primary found.** Blog-only, so the numbers rest on a vendor-hosted post; the AISI co-authorship is the main external check.
 - **The robot version has never been run**: paraphrase/re-render a manipulation benchmark and see whether the leaderboard reorders.
+
+## Cited by
+- [NVIDIA Alpamayo](../entities/alpamayo.md)

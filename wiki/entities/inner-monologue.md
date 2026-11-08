@@ -4,7 +4,7 @@ type: entity
 subtype: system
 created: 2026-08-03
 updated: 2026-08-03
-sources: 1
+sources: 2
 tags: [inner-monologue, llm-agent, closed-loop, feedback, replanning, google]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-09-14
 updated: 2026-09-14
-sources: 5
+sources: 4
 tags: [lightwheel, company, simulation, physical-ai, isaac-lab-arena, robocasa, libero, lehome, benchmark]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: organization
 created: 2026-05-17
 updated: 2026-05-17
-sources: 2
+sources: 4
 tags: [logical-intelligence, ebm, energy-based-model, reasoning, lecun, freedman, startup, formal-verification, post-llm]
 ---
 

@@ -122,3 +122,7 @@ Secondary finding with the same shape: commercial general-video models (Veo 3.1,
 - **The inflation direction contradicts Veo's.** WorldArena finds learned evaluators score *higher* than the simulator; the [Veo policy-evaluation paper](veo-robotics-policy-evaluation-paper.md) finds its predicted rates run *low*. Both preserve ranking better than level. Nobody has reconciled these.
 - **Only 25 synthetic trajectories per model** in the data-engine test. Whether the ranking holds at 250 or 2,500 — the regime where synthetic data would actually be used — is untested.
 - **EWMScore is an unweighted mean of 16 metrics.** Given that it correlates at 0.360 with the thing you care about, the obvious follow-up is a *functionally weighted* aggregate. The paper doesn't attempt one.
+
+## Cited by
+- [Real-to-sim-to-real (R2S2R)](../concepts/robotics/real-to-sim-to-real.md)
+- [Genie 3](../entities/genie-3.md)

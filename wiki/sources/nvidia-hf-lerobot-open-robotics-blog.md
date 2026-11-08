@@ -36,6 +36,7 @@ NVIDIA's corporate-blog umbrella announcement of the NVIDIA ↔ [Hugging Face](.
 - [NVIDIA Isaac Sim](../entities/nvidia-isaac-sim.md), [NVIDIA Isaac Lab](../entities/nvidia-isaac-lab.md) (Lab-Arena)
 - [Jetson Thor](../entities/jetson-thor.md), [Reachy 2](../entities/reachy.md) ([Pollen Robotics](../entities/pollen-robotics.md))
 - π ([Physical Intelligence](../entities/physical-intelligence.md)), [SmolVLA](../entities/smolvla.md) — named as EnvHub-evaluable policies
+- [Isaac Lab-Arena](../entities/isaac-lab-arena.md)
 
 ## Concepts touched
 

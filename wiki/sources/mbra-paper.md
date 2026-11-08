@@ -85,3 +85,7 @@ The forward model can produce "unreasonable actions because of inaccuracies in t
 - How much of the 700 filtered hours actually mattered — the ablation is on fractions of the filtered set, and 40% already saturates the 8-route test.
 - What the manipulation analogue of "unicycle + depth-based collision" would be; the authors say none is obvious.
 - The Berkeley-FrodoBots-7K release ([challenge site](earth-rover-challenge-frodobots-2k.md)) is described as the full ~7,000 h "reannotated with MBRA" — the paper only uses 2,000 → 700 h; the 7K relabeling is undocumented.
+
+## Cited by
+- [Continual learning and catastrophic forgetting](../concepts/learning/continual-learning.md)
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)

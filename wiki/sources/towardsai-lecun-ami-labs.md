@@ -2,6 +2,8 @@
 title: "Yann LeCun Quit Meta 5 Months Ago to Bet $1.03B Against LLMs — His 3 New World Models Just Shipped"
 type: source
 url: https://pub.towardsai.net/yann-lecun-quit-meta-5-months-ago-to-bet-1-03b-against-llms-his-3-new-world-models-just-shipped-673be1325347
+local_path: raw/2026-04-27-towardsai-lecun-ami-labs.md
+sha256: 9639e031ecfe73a9c5ef9e6654a76bc6ec2e533c00b8acc0e6afbaac5413b27a
 author: Chew Loong Nian
 affiliations: Towards AI (Medium)
 published: 2026-04-27
@@ -39,3 +41,6 @@ Secondary journalism (blog post) reporting that Yann LeCun departed Meta ~5 mont
 - What is the third world model?
 - Is LeCun's departure from Meta confirmed elsewhere?
 - AMI Labs: research lab, startup, or both?
+
+## Cited by
+- [Logical Intelligence](../entities/logical-intelligence.md)

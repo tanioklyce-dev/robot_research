@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-06
 updated: 2026-10-13
-sources: 41
+sources: 47
 tags: [google-deepmind, mujoco, newton, mjcphysics, openusd, robotics-research, biomechanics, dmpo, acme, gemini-robotics, genie, world-model]
 ---
 
@@ -39,7 +39,7 @@ Google's AI research lab. Maintains MuJoCo and [MuJoCo Playground](mujoco-playgr
 
 ## Mentioned in
 
-> [!note] Curated list — **41** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **47** source pages link here; the ones below are those that shaped this page.
 
 - [MuJoCo Playground Paper](../sources/mujoco-playground-paper.md)
 - [Code World Models for General Game Playing](../sources/code-world-models-general-game-playing.md)

@@ -3,7 +3,7 @@ title: Agile ONE
 type: entity
 created: 2026-07-16
 updated: 2026-10-22
-sources: 2
+sources: 3
 tags: [humanoid, agile-robots, industrial-robotics, dexterous-hands, europe, germany]
 ---
 

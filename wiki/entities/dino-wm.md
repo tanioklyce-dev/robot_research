@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-07
 updated: 2026-10-25
-sources: 41
+sources: 46
 tags: [dino-wm, dinov2, world-model, jepa-adjacent, lecun, pinto, nyu, meta-fair]
 ---
 
@@ -61,7 +61,7 @@ Two 2026 papers use DINO-WM as their starting point and their baseline, which ma
 
 ## Mentioned in
 
-> [!note] Curated list — **33** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **46** source pages link here; the ones below are those that shaped this page.
 
 - [DINO-WM Paper](../sources/dino-wm-paper.md)
 - [LeWorldModel Paper](../sources/leworldmodel-paper.md) — cites DINO-WM as baseline

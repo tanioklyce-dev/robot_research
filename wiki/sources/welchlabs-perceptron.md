@@ -75,3 +75,6 @@ This is a strong **recommended-viewing** entry for the top of [Curriculum Module
 - **Whether to break out a `concepts/perceptron.md` page.** Currently the wiki's MLP-class concepts are implicit in Module 1 + glossary entries. A standalone perceptron concept page would hub from this video + the 3Blue1Brown lesson + Module 1.
 - **Mark I Perceptron entity stub.** The Mark I is sometimes cited as the *first* hardware AI system; a one-paragraph entity stub would make future "history of robotics + AI hardware" syntheses easier.
 - **Source-of-truth video transcript.** This source page is summary-level; a follow-up pass watching the video end-to-end with timestamps would let us cite specific claims more precisely (especially the "100M" framing).
+
+## Cited by
+- [Geoffrey Hinton](../entities/geoffrey-hinton.md)

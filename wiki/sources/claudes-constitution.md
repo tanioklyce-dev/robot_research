@@ -124,3 +124,8 @@ The catastrophic outcome to avoid: global takeover by AIs pursuing misaligned go
 - How does this constitution relate to Claude Sonnet 4.x and Opus 4.x behavior in practice? (System cards provide the empirical gap-tracking.)
 - Corrigibility dial position is explicitly marked as "current period" — what milestones would trigger rightward movement?
 - Claude's moral status question is acknowledged but unresolved; Anthropic commits to taking it seriously.
+
+## Cited by
+- [AI guardrails](../concepts/safety/ai-guardrails.md)
+- [AI red-teaming and LLM vulnerability scanning](../concepts/safety/ai-red-teaming.md)
+- [Dario Amodei](../entities/dario-amodei.md)

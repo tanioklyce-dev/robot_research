@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-10-13
 updated: 2026-10-13
-sources: 1
+sources: 3
 tags: [gemini-4-argon, gemini, google-deepmind, frontier-model, embodied-reasoning, erqa, code-as-policy, real-to-sim, mujoco, physical-agi]
 ---
 

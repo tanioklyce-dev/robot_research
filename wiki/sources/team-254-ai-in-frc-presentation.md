@@ -79,6 +79,7 @@ Mixed, with several recurring themes from the Chief Delphi discussion (5+ pages)
 - [FIRST Robotics Competition](../entities/first-robotics-competition.md)
 - [roboRIO](../entities/roborio.md) (via WPILib simulation)
 - [AprilTags](../concepts/robotics/apriltags.md) (vision applications)
+- [Team 4414 (HighTide)](../entities/team-4414-hightide.md)
 
 ## Concepts touched
 - [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — closed-loop agents running simulations, analyzing logs, deploying code
@@ -91,3 +92,7 @@ Mixed, with several recurring themes from the Chief Delphi discussion (5+ pages)
   - **Partial real-world answer**: [Team 4414 HighTide](team-4414-hightide-2026-binder.md) reports an "AI-first" workflow where "little code is written by hand," a **state-machine (not command-based) codebase chosen because it's easier for AI to reason about**, and **skill files** that help agents "build autos, parse logs, or optimize loop time."
 - Does ClaudeScope have a public repository?
 - How will WPILib's 2027 API changes (naming scheme) affect LLM agent reliability?
+
+## Cited by
+- [Agent skills (portable SKILL.md)](../concepts/agents/agent-skills.md)
+- [AI uplift studies](../concepts/safety/ai-uplift.md)

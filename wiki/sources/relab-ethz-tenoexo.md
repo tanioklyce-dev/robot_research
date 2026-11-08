@@ -2,6 +2,8 @@
 title: RELab tenoexo — ETH Zurich Robotic Hand Orthosis
 type: source
 url: https://relab.ethz.ch/research/current-research-projects/robotic-hand-orthosis-for-therapy-and-assistance-in-activities-of-daily-living.html
+local_path: raw/2026-05-09-relab-ethz-tenoexo.md
+sha256: 4ecf59ad617c4cb10166950d2911f4c2f895f70e8aba646c54f89fbcab9502e5
 author: Roger Gassert, Olivier Lambercy et al.
 affiliations: Rehabilitation Engineering Laboratory (RELab), ETH Zurich
 published: Unknown

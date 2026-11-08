@@ -28,6 +28,9 @@ Project page for **Robot Utility Models (RUMs)** — a framework from NYU and Me
 - [Stretch](../entities/stretch.md)
 - [Robot Utility Models](../entities/robot-utility-models.md)
 - [Franka Panda](../entities/franka-panda.md) — implicit cross-embodiment context (xArm 7 named explicitly; Franka not named in abstract but appears in adjacent literature comparing RUM transfer targets).
+- [Lerrel Pinto](../entities/lerrel-pinto.md)
+- [Mahi Shafiullah](../entities/mahi-shafiullah.md)
+- [xArm 7](../entities/xarm-7.md)
 
 ## Concepts touched
 - [Imitation learning](../concepts/learning/imitation-learning.md) / behavior cloning
@@ -39,3 +42,6 @@ Project page for **Robot Utility Models (RUMs)** — a framework from NYU and Me
 - How does RUM scale beyond 5 tasks? Is the 90% number stable as task count grows?
 - Why "utility model" framing vs. "policy" or "VLA"? Is this a deliberate distinction from language-conditioned models?
 - Has the field reproduced the 90% result independently?
+
+## Cited by
+- [Dobb·E](../entities/dobb-e.md)

@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-08-27
 updated: 2026-08-27
-sources: 2
+sources: 4
 tags: [open-duck-mini, antoine-pirrone, bdx-droid, biped, open-source, 3d-printed, rl, pollen-robotics, microduck, gemma4]
 ---
 

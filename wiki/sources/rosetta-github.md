@@ -138,3 +138,6 @@ The TurtleBot3 contract is particularly relevant — it demonstrates a working c
 - **Is Rosetta on PyPI / available via `pip install`?** README workflow examples imply yes but the package distribution channel isn't surfaced from the README alone.
 - **Relationship to upstream LeRobot** — is there an upstreaming conversation? The [ICLR 2026 paper](lerobot-iclr-2026-paper.md) doesn't reference Rosetta (paper was Feb 2026; Rosetta launched Sep 2025).
 - **Empirical reports / blog posts / demos** — none surfaced from the README. Anyone actually used it to deploy a trained policy on a non-SO-101 / non-TurtleBot3 robot?
+
+## Cited by
+- [ZeroMQ](../entities/zeromq.md)

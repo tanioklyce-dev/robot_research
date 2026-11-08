@@ -62,3 +62,7 @@ The framework "remains under research." Waitlist joiners are told: **"It's your 
 - [ASIMOV Benchmark](asimov-benchmark-paper.md) · [Predictive Red Teaming](predictive-red-teaming-paper.md) · [Veo world simulator](veo-robotics-policy-evaluation-paper.md) · [Safely Learning Dynamical Systems](safely-learning-dynamical-systems-paper.md) — the research this page indexes (the last two implicitly).
 - [Gemini Robotics 1.5 tech report](gemini-robotics-1-5-report.md) — ASIMOV-2.0, Auto-Red-Teaming, ISO 15066.
 - [Gemini Robotics model page](deepmind-gemini-robotics-model-page.md) — the sibling product page, already on generation 2.
+
+## Cited by
+- [Operational space control (and the constrained-QP safety layer under learned policies)](../concepts/robotics/operational-space-control.md)
+- [Pierre Sermanet](../entities/pierre-sermanet.md)

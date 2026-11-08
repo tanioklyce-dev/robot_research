@@ -29,6 +29,7 @@ The bridge between the MBRL line and the wiki's video-diffusion coverage: **a di
 
 - Baselines: [Dreamer](../entities/dreamer.md)V3, IRIS, TWM, STORM (transformer-WM wave — no wiki pages), SimPLe.
 - François Fleuret / Tim Pearce (Microsoft Research) — no person pages; [NVIDIA Cosmos](../entities/nvidia-cosmos.md) as the industrial-scale descendant of the neural-game-engine idea.
+- [Microsoft](../entities/microsoft.md)
 
 ## Concepts touched
 

@@ -50,6 +50,7 @@ The product positioning: *"always-on, self-evolving agents"* with **privacy and 
 - [OpenClaw](../entities/openclaw.md) — foundation.
 - [NVIDIA DGX Spark](../entities/dgx-spark.md) — featured hardware.
 - [NVIDIA](../entities/nvidia.md) — vendor.
+- [NVIDIA OpenShell](../entities/nvidia-openshell.md)
 
 ## Concepts touched
 
@@ -64,3 +65,6 @@ The product positioning: *"always-on, self-evolving agents"* with **privacy and 
 - **Nemotron model family** — which sizes / quality tiers? Not a wiki entity yet.
 - **GA timeline / pricing** — early preview status; no release date.
 - **Does NemoClaw or OpenClaw have a robot-control extension?** No evidence on this landing page.
+
+## Cited by
+- [AI red-teaming and LLM vulnerability scanning](../concepts/safety/ai-red-teaming.md)

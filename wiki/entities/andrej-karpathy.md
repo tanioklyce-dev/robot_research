@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-14
 updated: 2026-08-30
-sources: 7
+sources: 8
 tags: [person, openai, tesla, software-2.0, data-engine, transformer-history, education, pedagogy, nanogpt, micrograd, nanochat, autoresearch, microgpt]
 ---
 

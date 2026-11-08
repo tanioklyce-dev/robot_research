@@ -86,3 +86,6 @@ Open-loop improvements over DINO-WM: **+18% Push-T, +20% PointMaze, +30% Wall.**
 - **No trial counts or confidence intervals** — success rates are reported as bare percentages, and several comparisons in the table turn on 2–4 points.
 - **Wall open-loop is erratic**: Adversarial WM scores **30** with CEM against DINO-WM's 74, and Adversarial WM + MPC scores **14** with GD against 94 with Adam. The paper does not explain the instability, and it undercuts confidence in the Wall column generally.
 - **No interaction with the other route.** [Temporal Straightening](temporal-straightening-paper.md) fixes the *representation geometry* for the same problem, on the same base model, with an overlapping author. Neither paper combines the two.
+
+## Cited by
+- [Loss-landscape geometry](../concepts/learning/loss-landscape-geometry.md)

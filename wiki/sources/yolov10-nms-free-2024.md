@@ -41,3 +41,7 @@ YOLOv10 (Tsinghua University) removes the **last non-end-to-end piece** of the Y
 
 - NMS-free (one-to-one) heads emit a **fixed, deduplicated** set of predictions — structurally closer to the "one operating point" regime this wiki cares about for reflex trackers. Whether that changes the fixed-cap-F1 vs AP story for real-time robot use isn't addressed here.
 - The dual-assignment idea is now mainstream (v10 → YOLO26); the surveys ([Sapkota & Karkee 2025](sapkota-ultralytics-yolo-evolution-2025.md), [Kotthapalli 2025](kotthapalli-yolo-survey-2025.md)) trace it but don't isolate how much of YOLO26's gain is NMS-free vs the rest.
+
+## Cited by
+- [DEIM (DETR with Improved Matching)](../entities/deim.md)
+- [YOLO-NAS](../entities/yolo-nas.md)

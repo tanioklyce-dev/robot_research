@@ -3,7 +3,7 @@ title: Biomechanical simulation
 type: concept
 created: 2026-05-08
 updated: 2026-09-12
-sources: 11
+sources: 12
 tags: [biomechanics, animal-simulation, drosophila, mujoco, virtual-rodent, embodied-ai]
 ---
 

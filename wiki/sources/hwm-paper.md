@@ -53,6 +53,7 @@ tags: [hierarchical-jepa, h-jepa, world-model, jepa, latent-planning, cem, mpc, 
 - [PLDM](../entities/pldm.md) — Diverse Maze base model
 - [Basile Terver](../entities/basile-terver.md), [Adrien Bardes](../entities/adrien-bardes.md) — co-authors (FAIR JEPA line)
 - [Octo](../entities/octo.md) — generalist-policy comparison point.
+- [H-JEPA (Hierarchical JEPA)](../entities/h-jepa.md)
 
 ## Concepts touched
 - [Hierarchical JEPA / H-JEPA](../concepts/world-models/jepa.md) — the realized instance
@@ -68,3 +69,6 @@ tags: [hierarchical-jepa, h-jepa, world-model, jepa, latent-planning, cem, mpc, 
 - HWM uses **two** levels. LeCun's vision is N-level emergent hierarchy — does it stack beyond two, and does the hierarchy become emergent rather than hand-designed (waypoint indices are currently chosen)?
 - All evals are **goal-image-conditioned**. Bridging to language-conditioned tasks (the VLA setting) is unaddressed.
 - Subgoal generation needs the latent action dim tuned (≈4); how sensitive is this across domains beyond the three shown?
+
+## Cited by
+- [LeWorldModel](../entities/leworldmodel.md)

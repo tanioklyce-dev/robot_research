@@ -2,6 +2,8 @@
 title: "New Video Series: What Developers Need to Know About Universal Scene Description"
 type: source
 url: https://developer.nvidia.com/blog/new-video-series-what-developers-need-to-know-about-universal-scene-description/
+local_path: raw/2024-04-11-nvidia-openusd-developer-video-series.md
+sha256: 26638a4e6fcd6b20536a9888df5d71b43ed5e9d17e0d9724ffe815333c65958a
 author: Aaron Luk
 affiliations: NVIDIA
 published: 2024-04-11

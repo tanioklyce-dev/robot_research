@@ -64,3 +64,6 @@ ROS 2 services and topics:
 - Is `openclaw_controller` published as open source? Upstream OpenClaw is MIT (`github.com/openclaw/openclaw`, 375K stars); no separate GitHub URL for the controller bridge module surfaced in the chapter 13 text.
 - Cross-vendor portability — could `openclaw_controller` drive a Stretch or other ROS 2 robot, or is it tightly coupled to ROSOrin Pro's skill set?
 - Closed-loop replanning on skill failure — same open question I have about [stretch_ai](../entities/stretch-ai.md).
+
+## Cited by
+- [AI red-teaming and LLM vulnerability scanning](../concepts/safety/ai-red-teaming.md)

@@ -4,7 +4,7 @@ type: entity
 subtype: organization
 created: 2026-05-10
 updated: 2026-09-11
-sources: 7
+sources: 10
 tags: [sigrobotics, uiuc, student-organization, lekiwi, open-hardware, lerobot, hackathon, mini-humanoid, koch-arms, frodobots]
 ---
 

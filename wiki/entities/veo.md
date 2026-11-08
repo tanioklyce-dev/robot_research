@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-03
 updated: 2026-08-31
-sources: 3
+sources: 5
 tags: [veo, video-model, world-model, generative-simulation, policy-evaluation, google-deepmind]
 ---
 

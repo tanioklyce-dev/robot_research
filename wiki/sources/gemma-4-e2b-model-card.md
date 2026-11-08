@@ -70,6 +70,7 @@ This is the number set the wiki was missing. **IoT tier**, measured at 1024 pref
 ## Entities mentioned
 
 - [Gemma 4](../entities/gemma4.md) · [Jetson Orin Nano](../entities/jetson-orin-nano.md) · [Open Duck Mini](../entities/open-duck-mini.md)
+- [LiteRT](../entities/litert.md)
 
 ## Concepts touched
 
@@ -80,3 +81,6 @@ This is the number set the wiki was missing. **IoT tier**, measured at 1024 pref
 - **The tech report (arXiv 2607.02770) is not ingested.** Training data, RL recipe and the PLE ablation live there.
 - **No robot-relevant latency figures** — these are text-generation benchmarks. A duck that listens, looks and answers pays ASR + vision-encoder + TTS on top, and none of that is in the table.
 - **Vision/audio encoder cost is unmeasured.** The cards say the encoders load on demand; nothing states what a multimodal turn costs in time or memory.
+
+## Cited by
+- [Heterogeneous edge SoCs and the shared-memory budget](../concepts/robotics/heterogeneous-edge-soc.md)

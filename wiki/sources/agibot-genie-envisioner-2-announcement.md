@@ -27,8 +27,12 @@ Announcement of [Genie Envisioner](../entities/genie-envisioner.md) 2.0 (GE-Sim2
 - [World-model simulators](../concepts/world-models/world-model-simulators.md)
 - World Action Model framework
 - Generative-model-based training environments
+- [World-action model (WAM)](../concepts/world-models/world-action-model.md)
 
 ## Open questions
 - What's the fidelity ceiling for policies trained purely inside the world-model rollout?
 - How well does GE-Sim2 handle out-of-distribution tasks vs. those near the training video distribution?
 - Does it replace or complement physics-engine training?
+
+## Cited by
+- [World model](../concepts/world-models/world-model.md)

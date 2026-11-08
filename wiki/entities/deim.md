@@ -4,7 +4,7 @@ type: entity
 subtype: model-family
 created: 2026-07-24
 updated: 2026-07-24
-sources: 1
+sources: 2
 tags: [object-detection, deim, detr, rt-detr, transformer, real-time, computer-vision]
 ---
 

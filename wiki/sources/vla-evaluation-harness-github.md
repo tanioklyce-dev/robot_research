@@ -39,3 +39,7 @@ The wiki's evaluation thread has carried "**run a 2026-class model through LIBER
 - [LIBERO-PRO paper](libero-pro-paper.md) — the benchmark whose adoption this enables.
 - [MolmoAct2 GitHub repo](molmoact2-github-repo.md) — the sibling Ai2 release.
 - [Success-rate audit](../syntheses/platforms/vla-success-rate-audit.md) · [RoboArena](roboarena-paper.md) — the methodology thread this joins.
+
+## Cited by
+- [LLM-free VLA (the V+L→A paradigm)](../concepts/learning/llm-free-vla.md)
+- [Robot policy evaluation](../concepts/robotics/robot-policy-evaluation.md)

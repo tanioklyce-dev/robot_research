@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-31
 updated: 2026-05-31
-sources: 5
+sources: 6
 tags: [xenobots, reconfigurable-organisms, artificial-life, biohybrid, soft-robotics, self-replication, evolutionary-computation, morphogenesis]
 ---
 

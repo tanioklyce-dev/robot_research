@@ -3,7 +3,7 @@ title: Single-stage object detection (the YOLO paradigm)
 type: concept
 created: 2026-07-23
 updated: 2026-07-23
-sources: 5
+sources: 7
 tags: [object-detection, yolo, single-stage-detection, anchor-free, nms, computer-vision, real-time, edge-ai]
 ---
 

@@ -64,6 +64,7 @@ This is a **position piece and product announcement, not a benchmarked paper**: 
 - [ACT (Action Chunking Transformer)](../entities/act.md) — the policy the agent autonomously trained from LEGO pick-and-place data.
 - [Anthropic](../entities/anthropic.md) — via the [Claude Plays Robotics](anthropic-how-claude-performs-on-robotics-tasks.md) citation.
 - Models named in Fig. 4 — **Opus 4.8, Fable 5, GPT 5.6 Sol** — no dedicated wiki pages (consistent with how the Anthropic robotics source's model list was handled).
+- [CaP-X](../entities/cap-x.md)
 
 ## Concepts touched
 - [Code as policy](../concepts/agents/code-as-policy.md) — the lineage Waddle explicitly builds on (this ingest creates that page).
@@ -80,3 +81,12 @@ This is a **position piece and product announcement, not a benchmarked paper**: 
 - **How much does the agent actually call VLAs vs. write pure code?** Fig. 1 shows VLAs as callable tools, but the demos (microswitch insertion, LEGO pick-place, scene reset) read as classical perception+control code. The claimed VLA-as-tool integration is asserted, not demonstrated.
 - ~~**CaP-X and ASPIRE** (refs [13][14], both arXiv 2026) are cited as the closest prior work. Neither is ingested~~ — **both ingested 2026-08-03**: [CaP-X](cap-x-paper.md), [ASPIRE](aspire-paper.md). They confirm the architectural bet and quantify the skill-library compounding claim, but contradict the strong reading of "works with any arms, grippers, and camera setups" — ASPIRE states the predefined API bounds expressible behavior and must be human-extended. See the [claim-by-claim comparison](../entities/waddle-labs.md) on the entity page.
 - **Latency.** The [Anthropic robotics ingest](anthropic-how-claude-performs-on-robotics-tasks.md) puts an LLM-in-the-loop at 0.2–0.4 Hz against an ~83 Hz real-time requirement. Waddle's "agent writes a program you then run" sidesteps this (the agent is offline; the emitted code runs in the loop) — but the piece never states control rates. Worth confirming the agent is not in the fast loop.
+
+## Cited by
+- [CodeAct](../entities/codeact.md)
+- [Inner Monologue](../entities/inner-monologue.md)
+- [Language to Rewards](../entities/language-to-rewards.md)
+- [Letian (Max) Fu](../entities/letian-fu.md)
+- [SayCan](../entities/saycan.md)
+- [VoxPoser](../entities/voxposer.md)
+- [Voyager](../entities/voyager.md)

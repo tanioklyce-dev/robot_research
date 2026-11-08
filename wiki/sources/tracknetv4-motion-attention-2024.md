@@ -59,3 +59,6 @@ A small, honest, **plug-and-play** paper from the Australian National University
 - Frame differencing assumes a **static camera**. Broadcast tennis is roughly fixed, but a panning/handheld camera would make the whole frame "motion." No experiment tests camera motion — a serious limitation for any robot-mounted deployment.
 - Version 1 vs version 2 fusion differ substantially in outcome (95.7 vs 97.2 F1 from scratch) with no analysis of *why* the mean-attention-map variant wins. Under-explained.
 - The multi-ball dataset is the paper's most reusable asset but is only evaluated against TrackNetV2 — no V3 numbers on it.
+
+## Cited by
+- [Single-stage object detection (the YOLO paradigm)](../concepts/robotics/single-stage-object-detection.md)

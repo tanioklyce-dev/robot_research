@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-08-27
 updated: 2026-10-24
-sources: 9
+sources: 12
 tags: [microduck, isaac-lab, newton, microduck-arena, pollen-robotics, hugging-face, biped, reinforcement-learning, sim-to-real, mjlab, dynamixel, rk3566, consumer-robotics, education]
 ---
 

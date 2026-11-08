@@ -38,3 +38,7 @@ Documentation for the LLM agent component of [stretch_ai](../entities/stretch-ai
 - Why no Claude / Anthropic backend?
 - Closed-loop replanning: does the LLM see skill failures and re-plan, or are tool-call sequences strictly one-shot?
 - Comparative success rates across Qwen2.5-3B vs. Gemma vs. GPT-4o-mini on the same tasks?
+
+## Cited by
+- [Task and motion planning (TAMP)](../concepts/robotics/task-and-motion-planning.md)
+- [AI red-teaming and LLM vulnerability scanning](../concepts/safety/ai-red-teaming.md)

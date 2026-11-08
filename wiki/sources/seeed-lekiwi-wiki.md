@@ -68,3 +68,6 @@ This is one of the cleaner end-to-end "buy → assemble → train → deploy" tu
 
 - The tutorial caveats "Hugging Face has released significant framework updates; users should consult official documentation for latest features" — i.e., LeRobot moves fast and the Seeed tutorial may lag the framework. How current is it as of mid-2026?
 - ACT is referenced as the default; would [Diffusion Policy](../entities/diffusion-policy.md), [VQ-BeT](../entities/vq-bet.md), or [BET](../entities/bet.md) (all already in this wiki) work equally well on LeKiwi? No benchmark comparisons in the tutorial.
+
+## Cited by
+- [The Robot Studio](../entities/the-robot-studio.md)

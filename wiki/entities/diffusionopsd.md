@@ -4,7 +4,7 @@ type: entity
 subtype: method
 created: 2026-08-28
 updated: 2026-08-28
-sources: 1
+sources: 2
 tags: [diffusionopsd, diffusion, rectified-flow, rl-post-training, self-distillation, on-policy, reward-model, image-generation, bytedance-seed]
 ---
 

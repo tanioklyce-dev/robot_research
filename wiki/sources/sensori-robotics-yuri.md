@@ -63,6 +63,7 @@ Sensori Robotics (Southlake, TX, USA) sells **Yuri**, a **dual-arm ("14-DOF") bi
 - [Yuri](../entities/yuri.md) — the robot.
 - [LeRobot](../entities/lerobot.md), [MuJoCo](../entities/mujoco.md), [Isaac Lab](../entities/nvidia-isaac-lab.md), [Genesis](../entities/genesis.md), [Jetson AGX Orin](../entities/jetson-orin-nano.md) (Orin family), [ROS 2](../entities/ros2.md).
 - VLA policies referenced: [GR00T](../entities/nvidia-groot.md), π0 ([Physical Intelligence](../entities/physical-intelligence.md)), [SmolVLA](../concepts/learning/vla-models.md), X-VLA.
+- [OpenArm](../entities/openarm.md)
 
 ## Concepts touched
 

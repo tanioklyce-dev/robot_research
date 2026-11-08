@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-25
 updated: 2026-08-26
-sources: 8
+sources: 9
 tags: [octo, vla, generalist-policy, transformer, open-weights, baseline]
 status: stub
 ---

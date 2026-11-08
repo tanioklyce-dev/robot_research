@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-15
 updated: 2026-05-15
-sources: 4
+sources: 5
 tags: [person, welch-labs, ai-education, youtube, author]
 ---
 

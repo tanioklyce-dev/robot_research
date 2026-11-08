@@ -106,3 +106,6 @@ Subplanner horizon 25; open-loop executes 25 actions, MPC executes the first 5 (
 - **No real robot; four 2D goal-reaching tasks.**
 - **Not combined with the [train-test-gap](train-test-gap-world-models-paper.md) methods**, despite same problem, same base model, shared co-author. Representation geometry and training distribution are orthogonal fixes and the obvious experiment is to stack them.
 - **Relationship to [LpWM](lpwm-paper.md)'s sparse geometry is unexplored** — that is a third proposal for what a planning-friendly latent space looks like, and sparse mode-factored codes are not obviously straight.
+
+## Cited by
+- [AdaJEPA](../entities/adajepa.md)

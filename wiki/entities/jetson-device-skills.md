@@ -4,7 +4,7 @@ type: entity
 subtype: software
 created: 2026-07-16
 updated: 2026-07-16
-sources: 2
+sources: 3
 tags: [nvidia, jetson, agent-skills, claude-code, edge-ai, jetpack, tooling, cursor, codex]
 ---
 

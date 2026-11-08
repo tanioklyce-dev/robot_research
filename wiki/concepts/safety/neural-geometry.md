@@ -3,7 +3,7 @@ title: Neural geometry
 type: concept
 created: 2026-08-30
 updated: 2026-08-30
-sources: 2
+sources: 5
 tags: [neural-geometry, linear-representation-hypothesis, manifolds, multi-dimensional-features, sparse-autoencoders, mechanistic-interpretability, representation-structure]
 ---
 

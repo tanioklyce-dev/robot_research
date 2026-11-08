@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-08-26
 updated: 2026-08-26
-sources: 3
+sources: 6
 tags: [product, world-labs, world-model, renderer, simulator, gaussian-splatting, collision-mesh, 3d-generation]
 ---
 

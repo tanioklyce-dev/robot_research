@@ -73,3 +73,6 @@ Transformer inference cost on power-constrained platforms; assumes structural si
 
 - Table 3 mixes two tables under one number in the PDF (displacement; CARLA) — the wiki separates them above.
 - The eight-platform, >100 h mixture is only itemized in Appendix C (not transcribed here); GNM's 6-robot / 60–70 h is the documented core.
+
+## Cited by
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)

@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-11
 updated: 2026-09-12
-sources: 12
+sources: 15
 tags: [dinov3, vision-foundation-model, self-supervised, vit, meta-fair, dino, frozen-encoder, gram-anchoring, vla, turbovla]
 ---
 

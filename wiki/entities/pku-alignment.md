@@ -4,7 +4,7 @@ type: entity
 subtype: lab
 created: 2026-09-07
 updated: 2026-09-07
-sources: 2
+sources: 3
 tags: [pku-alignment, peking-university, yaodong-yang, safe-rl, cmdp, safe-rlhf, safety-gymnasium, safevla, alignment, china]
 ---
 

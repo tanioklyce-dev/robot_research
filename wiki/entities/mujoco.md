@@ -4,7 +4,7 @@ type: entity
 subtype: physics-engine
 created: 2026-05-07
 updated: 2026-10-13
-sources: 29
+sources: 32
 tags: [mujoco, physics-engine, deepmind, simulation, biomechanics]
 ---
 

@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-08-07
 updated: 2026-09-07
-sources: 7
+sources: 10
 tags: [company, world-model, spatial-intelligence, renderer, simulator, marble, scenix, r2s2r, fei-fei-li]
 ---
 

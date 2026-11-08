@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-08-31
 updated: 2026-08-31
-sources: 0
+sources: 4
 tags: [physion-eval, benchmark, world-model-evaluation, physical-realism, video-generation, mllm-critic, human-annotation, egocentric, physion-labs]
 ---
 

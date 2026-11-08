@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-16
 updated: 2026-10-13
-sources: 4
+sources: 6
 tags: [marco-pavone, stanford, autonomous-systems-lab, control-theory, safety, control-barrier-functions, nonlinear-control, robotics]
 ---
 

@@ -182,6 +182,7 @@ Behaviour ideas filed *"roughly by charm-per-line"*: recognition and greeting wi
 ## Entities mentioned
 
 - [Microduck](../entities/microduck.md) · [Pollen Robotics](../entities/pollen-robotics.md) · [Hugging Face](../entities/hugging-face.md) · [Dynamixel](../entities/dynamixel.md)
+- [Rockchip](../entities/rockchip.md)
 
 ## Concepts touched
 
@@ -197,3 +198,10 @@ Behaviour ideas filed *"roughly by charm-per-line"*: recognition and greeting wi
 - **The `ort` allocation note is unresolved**: *"the current path allocates a 61-float vector per inference… Worth measuring on the board before optimising."* Never measured in-repo.
 - **How much of this is Claude-written?** [`autonomous_behavior.md`](https://github.com/pollen-robotics/microduck/blob/main/docs/ideas/autonomous_behavior.md) cites its governing "parity audit" as a `claude.ai/code/artifact/…` URL — an artifact nobody outside Pollen can open, load-bearing for the port it describes — and the sibling `microduck_rl` keeps its reward-design playbook in a `CLAUDE.md` *"also aimed at AI coding agents working in this repo."* Not a criticism of the output, which is unusually good; it is a **provenance gap in a public repo**, and the private-artifact citation is a broken reference by construction.
 - **`microduck_rl` is described as "private"** in the M8 text while being publicly readable — decision #5 (*"decided 2026-08-26: publish this repository"*) landed a day before launch and the roadmap prose had not caught up. Minor, but a reminder that the dates in these docs run right up to the announcement.
+
+## Cited by
+- [Harness design for capacity-limited models](../concepts/agents/local-model-harness-design.md)
+- [Heterogeneous edge SoCs and the shared-memory budget](../concepts/robotics/heterogeneous-edge-soc.md)
+- [Open Duck Mini](../entities/open-duck-mini.md)
+- [Perplexity Portable Computer](../entities/perplexity-portable-computer.md)
+- [RKNN-Toolkit2 (Rockchip NPU SDK)](../entities/rknn-toolkit2.md)

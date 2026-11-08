@@ -122,3 +122,6 @@ Top outright on three types, third on long tops (77.0 and 76.5 ahead). Short top
 - Is the FM-head scorer's near-zero correlation an artefact of stop-gradient plus flow-time weighting, or of conditional-head optimism?
 - How much of 79.63 % is RL over the 20 k-step BC warm-up? Not reported.
 - The organisers' benchmark paper (2604.22363) for the success checker and the unseen-garment protocol.
+
+## Cited by
+- [VLA models](../concepts/learning/vla-models.md)

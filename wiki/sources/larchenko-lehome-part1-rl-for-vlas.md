@@ -86,6 +86,7 @@ Two design decisions carry the whole solution. First, **the RL method is chosen 
 - [LeRobot](../entities/lerobot.md), [Hugging Face](../entities/hugging-face.md) — the framework and the Hub used as the RL bus.
 - [NVIDIA Isaac Lab](../entities/nvidia-isaac-lab.md) — the simulator.
 - [BEHAVIOR-1K](../entities/behavior-benchmark.md) — his prior win, architecture carried over.
+- [Lightwheel](../entities/lightwheel.md)
 
 ## Concepts touched
 

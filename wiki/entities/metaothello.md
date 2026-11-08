@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-09-02
 updated: 2026-09-02
-sources: 1
+sources: 2
 tags: [metaothello, othello-gpt, world-model, interpretability, linear-probe, steering, belief-state, ambiguity, toy-model]
 ---
 

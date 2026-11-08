@@ -129,3 +129,6 @@ Two sequential queries **double inference time**, which at 55B is prohibitive. T
 - [Control abstraction levels](../concepts/robotics/control-abstraction-levels.md) — an intermediate level *inside* a single learned policy
 - [Imitation learning](../concepts/learning/imitation-learning.md) — interactive IL, DAgger, IWR
 - [LLM-free VLA](../concepts/learning/llm-free-vla.md) — the OneHot ablation is the same measurement as TurboVLA's task-ID ablation
+
+## Cited by
+- [Symbolic task planning (PDDL and generalized planning)](../concepts/agents/symbolic-task-planning.md)

@@ -96,6 +96,7 @@ The robot is **blind** — proprioception only. *"Larger perturbations such as s
 - [Deepak Pathak](../entities/deepak-pathak.md) — co-author; later co-author of [LocoFormer](locoformer-paper.md) and CEO of [Skild AI](../entities/skild-ai.md).
 - [Zipeng Fu](../entities/zipeng-fu.md) — co-author, then at CMU. The wiki knows him for [Mobile ALOHA](mobile-aloha-paper.md) (Stanford, manipulation); RMA is his earlier locomotion work.
 - [Unitree A1](../entities/unitree-a1.md) — the deployment platform; also used with a depth camera in the [vision follow-up](egocentric-vision-locomotion-paper.md), and controlled zero-shot by [LocoFormer](locoformer-paper.md).
+- [legged_gym](../entities/legged-gym.md)
 
 ## Concepts touched
 
@@ -112,3 +113,8 @@ The robot is **blind** — proprioception only. *"Larger perturbations such as s
 - **Was the extrinsics dimension (8) tuned?** No ablation on |z| is reported, though it is the whole information bottleneck.
 - ~~The vision follow-up is uningested~~ — **[ingested 2026-08-29](egocentric-vision-locomotion-paper.md)**; it completes the arc.
 - **Success is defined per-setup** and real-world trials run **5 per condition** (2 when failure was obvious, to protect the hardware). Honest and clearly stated, but far below what the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md) would want.
+
+## Cited by
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)
+- [Dexterous tool manipulation](../concepts/robotics/dexterous-tool-manipulation.md)
+- [Ananye Agarwal](../entities/ananye-agarwal.md)

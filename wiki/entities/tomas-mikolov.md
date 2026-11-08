@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-30
 updated: 2026-08-30
-sources: 3
+sources: 4
 tags: [person, google, brno, word2vec, word-embeddings, rnnlm, skip-gram, distributed-representations]
 ---
 

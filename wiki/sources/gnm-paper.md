@@ -73,3 +73,6 @@ All robots are assumed to be ground robots with a forward RGB camera; capability
 
 - The 60-vs-70 h discrepancy is never resolved in later papers.
 - Whether embodiment context actually encodes dynamics or just camera height — no probe.
+
+## Cited by
+- [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)

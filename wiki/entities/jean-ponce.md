@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-25
 updated: 2026-05-25
-sources: 2
+sources: 3
 tags: [jean-ponce, ens-psl, nyu, vicreg, jepa-wms, ssl, computer-vision]
 ---
 

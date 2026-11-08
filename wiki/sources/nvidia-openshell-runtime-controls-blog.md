@@ -89,3 +89,6 @@ The technical launch post for **[OpenShell](../entities/nvidia-openshell.md) 0.1
 - What is the per-request supervisor overhead, and what is it on a ROS 2 control-adjacent path?
 - Two-hour persuasion experiment: how many runs, which models, what reviewer?
 - Can multi-agent policy analysis express *shared physical resources*? ([backlog item](../backlog.md) on child runtimes and one body)
+
+## Cited by
+- [NVIDIA NemoClaw](../entities/nemoclaw.md)

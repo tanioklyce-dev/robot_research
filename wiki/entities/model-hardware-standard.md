@@ -4,7 +4,7 @@ type: entity
 subtype: standard
 created: 2026-08-30
 updated: 2026-08-30
-sources: 2
+sources: 3
 tags: [mhs, anthropic, standard, device-drivers, hardware-abstraction, mcp, lab-automation, agentic-robotics]
 ---
 

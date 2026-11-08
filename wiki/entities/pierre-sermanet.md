@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-03
 updated: 2026-08-03
-sources: 5
+sources: 7
 tags: [person, google-deepmind, semantic-safety, robotics, constitutional-ai]
 ---
 

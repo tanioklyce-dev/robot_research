@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-09-03
 updated: 2026-09-03
-sources: 1
+sources: 2
 tags: [person, kawin-ethayarajh, chicago-booth, applied-ai, nlp, history-of-ai, world-model, workshop-organizer]
 ---
 

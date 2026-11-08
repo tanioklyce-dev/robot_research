@@ -107,3 +107,6 @@ Review began **Thursday 23 July**; all cyber evaluations stopped the same day; a
 - **Is the generational gradient real?** n=1 per model, no controls. Anthropic says so. It is nonetheless the only measurement anywhere of "does the model stop when it realises the target is real."
 - **How many of the 141,006 runs were reviewed how carefully?** The review found three incidents; the method is not described in enough detail to know its sensitivity.
 - **Who was the security company?** Its scanner installing PyPI packages as trusted is a supply-chain assumption plenty of organisations share.
+
+## Cited by
+- [Robot Security (Robot Cybersecurity)](../concepts/robotics/robot-security.md)

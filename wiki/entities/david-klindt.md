@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-07-26
 updated: 2026-10-22
-sources: 4
+sources: 5
 tags: [person, klindt, cold-spring-harbor, identifiability, jepa, lejepa, theory, representation-learning]
 ---
 

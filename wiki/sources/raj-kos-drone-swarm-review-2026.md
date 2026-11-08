@@ -47,6 +47,7 @@ A 21-page open-access **review of UAV / drone-swarm systems** — surveying how 
 - [Swarm intelligence](../concepts/robotics/swarm-intelligence.md) — the concept this source primarily anchors.
 - [Agentic UAVs](../concepts/robotics/agentic-uavs.md) — the single-/multi-UAV autonomy framing this extends to the swarm level.
 - [Flocking and boids](../concepts/alife/flocking-and-boids.md) — "emergent coordination" model behind the bio-inspired framing.
+- [Stigmergy](../concepts/alife/stigmergy.md)
 
 ## Open questions
 - Review is **citation-dense but light on its own benchmarks** — it characterizes the literature rather than re-evaluating it; per-method numbers (beyond the cited 99.95% / 1000-drone result) aren't independently verified here.

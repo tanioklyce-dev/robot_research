@@ -125,3 +125,7 @@ A suite of custom team software:
 - ~~Are the "Tide Apps" and skill files open-sourced?~~ **Resolved (2026-06-14):** No — the public [github.com/team4414](https://github.com/team4414) org holds only 2019-era repos; 2026 code + Tide Apps are not public.
 - ~~What competition results / awards did the robot achieve in 2026?~~ **Resolved (2026-06-14):** RIPCURRENT went 70–2–0 and won the **REBUILT World Championship** ([TBA 2026](https://www.thebluealliance.com/team/4414/2026)).
 - How does a fully state-machine (no command-based) WPILib architecture perform in practice vs. the standard command framework? (Now partly answered by the championship result, though not isolated as a variable.)
+
+## Cited by
+- [Agent skills (portable SKILL.md)](../concepts/agents/agent-skills.md)
+- [AI uplift studies](../concepts/safety/ai-uplift.md)

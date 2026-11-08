@@ -2,6 +2,8 @@
 title: Fauna Robotics — Sprout Creator Edition Product Page
 type: source
 url: https://faunarobotics.com/product
+local_path: raw/2026-05-09-fauna-robotics-sprout.md
+sha256: 5d896be72072b53e7ab1cc19c7c994c7ae642b92bd26cd1d00b879474f88fb13
 author: Fauna Robotics
 affiliations: Fauna Robotics
 published: Unknown

@@ -2,6 +2,8 @@
 title: "UAVs Meet Agentic AI: A Multidomain Survey of Autonomous Aerial Intelligence and Agentic UAVs"
 type: source
 url: https://arxiv.org/html/2506.08045v1
+local_path: raw/2025-06-uavs-agentic-ai-survey-2506.08045.md
+sha256: 21a683471768362362773a1a4137c6299d6146538c634856138d88c7c3304851
 author: Ranjan Sapkota, Konstantinos I. Roumeliotis, Manoj Karkee
 affiliations: Cornell University; University of the Peloponnese
 published: 2025-06
@@ -56,3 +58,6 @@ Mathematical formalism: `o_t = Φ(s_t)` — sensor inputs → semantic represent
 - No specific benchmarks cited with performance numbers — survey-level only
 - VLM integration maturity in real UAV deployments unclear
 - Swarm coordination protocols: which V2X standards specifically?
+
+## Cited by
+- [PX4 Autopilot](../entities/px4-autopilot.md)

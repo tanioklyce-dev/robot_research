@@ -258,7 +258,12 @@ Belongs in **[Module 3 — Sequence models, attention, and transformers](../synt
 
 ## Open questions / TBD
 
-- **word2vec (Mikolov et al. 2013) is not ingested**, and it is the missing link between this paper and modern practice — specifically the move from "embeddings are a byproduct of an LM" to "embeddings are the product." A short ingest would close the largest gap in the wiki's representation-learning lineage.
+- **word2vec (Mikolov et al. 2013) has since been ingested** as [Efficient Estimation](mikolov2013-efficient-estimation-word-representations.md) and [Distributed Representations](mikolov2013-distributed-representations-words-phrases.md). It is the missing link between this paper and modern practice — specifically the move from "embeddings are a byproduct of an LM" to "embeddings are the product."
 - **The `m = 2` interpretability experiment in §5.2 item 5 was never run in this paper.** Its eventual answer (the `king − man + woman` analogy structure) is one of the field's most-repeated results and the wiki has no source for it.
 - **Whether the mixture-with-a-trigram finding has a modern analogue.** Averaging a parametric model with a count-based one always helped here; the modern descendants are retrieval augmentation and `k`NN-LM. Untracked in this wiki.
 - **The Hogwild!-before-Hogwild! observation in §3.1** — lossy asynchronous SGD updates costing nothing measurable — predates Niu et al. 2011 by eight years and is uncited by it as far as this ingest can tell. Worth a check if a distributed-training thread ever opens here.
+
+## Cited by
+- [CLIP](../entities/clip.md)
+- [Jeff Dean](../entities/jeff-dean.md)
+- [Tomas Mikolov](../entities/tomas-mikolov.md)

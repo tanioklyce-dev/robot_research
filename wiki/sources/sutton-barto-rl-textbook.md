@@ -265,3 +265,7 @@ The textbook does not address this directly (it pre-dates the "RL is sample-inef
 - **TD-Gammon entity stub.** Mentioned in Ch 14.1 as the canonical "RL works at scale" demo (Tesauro 1992). Predates DQN by ~20 years; would be a useful "deep RL prehistory" pointer.
 - **Bellman, Howard, Watkins** — primary-source ingests for the foundational RL math papers (Bellman 1957 *Dynamic Programming*; Howard 1960 *Dynamic Programming and Markov Processes*; Watkins 1989 PhD thesis on Q-learning) — candidate future ingests if the wiki picks up a "math foundations of RL" thread.
 - **OpenAI Spinning Up** as a separate pedagogical-companion source — would pair with this textbook the way [karpathy/nanoGPT](karpathy-nanogpt.md) pairs with [Attention Is All You Need](attention-is-all-you-need.md): the canonical clean code companion to the canonical clean theory. Logged as candidate ingest.
+
+## Cited by
+- [Stephen Welch](../entities/stephen-welch.md)
+- [Welch Labs](../entities/welch-labs.md)

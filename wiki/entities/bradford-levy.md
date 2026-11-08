@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-09-03
 updated: 2026-09-03
-sources: 1
+sources: 3
 tags: [person, bradford-levy, chicago-booth, finance, accounting, applied-ai, marketone, market-jepa, self-supervised, time-series, workshop-organizer]
 ---
 

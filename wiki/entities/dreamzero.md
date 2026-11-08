@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-10-27
 updated: 2026-11-07
-sources: 5
+sources: 7
 tags: [dreamzero, world-action-model, nvidia-gear, wan2-1, video-diffusion, autoregressive, agibot-g1, droid, open-weights]
 ---
 

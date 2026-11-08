@@ -73,6 +73,7 @@ Trained **offline and purely supervised** — behaviour cloning over the whole c
 - **Oriol Vinyals** — also a [seq2seq](sutskever2014-sequence-to-sequence-learning.md) author; Nando de Freitas, Raia Hadsell, Nicolas Heess.
 - **[ViT](vit-paper.md)** — the image patch tokenization is taken directly from it.
 - **[Attention Is All You Need](attention-is-all-you-need.md)** — "a transformer for simplicity and scalability."
+- [Gato](../entities/gato.md)
 
 ## Concepts touched
 
@@ -87,3 +88,6 @@ Trained **offline and purely supervised** — behaviour cloning over the whole c
 - **Nobody re-ran Gato at modern scale.** Its own framing invites it: the operating point rises with hardware, and a [Jetson Thor](../entities/jetson-thor.md) is not a 2022 robot computer. What 604-task generalist performance looks like at the 2026 operating point is unknown.
 - **The demonstration-in-context assist is never ablated** against no-prompt control performance in the main results.
 - **Mu-law vs learned action tokenization** has, as far as this wiki knows, never been compared head-to-head on a shared benchmark.
+
+## Cited by
+- [CLIP](../entities/clip.md)

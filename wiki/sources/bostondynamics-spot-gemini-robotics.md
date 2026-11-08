@@ -54,3 +54,9 @@ Two Boston Dynamics Spot-team engineers wired Google DeepMind's [Gemini Robotics
 - **What does AIVI-Learning actually ship?** Described in marketing terms ("a new level of visual intelligence"); concrete capability claims and pricing not in this post.
 - **What replaced what?** Existing Spot autonomy missions are typically defined via Boston Dynamics' Orbit / Autowalk tablet workflow. Where does Gemini-Robotics-ER-as-planner sit relative to those?
 - **Did the hackathon demo also have manipulation failures?** Post claims success but does not quantify success rate or failure modes — typical of marketing-tier blog content.
+
+## Cited by
+- [Chain of thought](../concepts/learning/chain-of-thought.md)
+- [Task and motion planning (TAMP)](../concepts/robotics/task-and-motion-planning.md)
+- [AI red-teaming and LLM vulnerability scanning](../concepts/safety/ai-red-teaming.md)
+- [Waddle Labs](../entities/waddle-labs.md)

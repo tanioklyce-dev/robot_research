@@ -4,7 +4,7 @@ type: entity
 subtype: institute
 created: 2026-08-07
 updated: 2026-08-31
-sources: 2
+sources: 3
 tags: [institute, stanford, policy, governance, ai-and-society, ai-index]
 ---
 

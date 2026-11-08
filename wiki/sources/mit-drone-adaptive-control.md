@@ -2,6 +2,8 @@
 title: "AI-Enabled Control System Helps Autonomous Drones Stay on Target in Uncertain Environments"
 type: source
 url: https://news.mit.edu/2025/ai-enabled-control-system-helps-autonomous-drones-uncertain-environments-0609
+local_path: raw/2025-06-09-mit-drone-adaptive-control.md
+sha256: 4ca5331794b7f7f9a0c8d120c55e103945ae43dd2329c76d79d147a59aa1fd0d
 author: Adam Zewe (reporter)
 affiliations: MIT News
 published: 2025-06-09
@@ -51,3 +53,8 @@ MathWorks, MIT-IBM Watson AI Lab, MIT-Amazon Science Hub, MIT-Google Program for
 - arXiv ID for the underlying paper not provided in the article.
 - Performance numbers are simulation-based; real-world quantitative results not yet published.
 - Applicable to fixed-wing UAVs or only multirotor?
+
+## Cited by
+- [Optimal control](../concepts/robotics/optimal-control.md)
+- [Marco Pavone](../entities/marco-pavone.md)
+- [PX4 Autopilot](../entities/px4-autopilot.md)

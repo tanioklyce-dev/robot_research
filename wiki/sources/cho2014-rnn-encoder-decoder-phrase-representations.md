@@ -165,3 +165,6 @@ Full arc: [From n-grams to attention](../syntheses/sequence-models/language-mode
 - **Who first wrote "Gated Recurrent Unit," and where.** The name is universal and is not in this paper; the wiki cannot currently attribute it.
 - **The gated-vs-`tanh` ablation is asserted without numbers.** "We were not able to get meaningful result" is the strongest claim in §2.3 and the least evidenced.
 - **Chung et al. 2014** (the empirical GRU-vs-LSTM comparison, from the same group) is the standard citation for "GRU ≈ LSTM at lower cost" and is un-ingested.
+
+## Cited by
+- [Inductive bias](../concepts/learning/inductive-bias.md)
