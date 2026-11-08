@@ -2,7 +2,7 @@
 title: Who benefits from consumer robotics in 2026–2027 (other than NVIDIA)
 type: synthesis
 created: 2026-08-17
-updated: 2026-10-07
+updated: 2026-11-08
 tags: [economics-of-ml, consumer-robotics, value-chain, actuators, edge-compute, business-models, market-analysis, synthesis]
 ---
 
@@ -20,7 +20,7 @@ A value-chain reading of the consumer-robot wave, built from the component costs
 | Product | Status in this wiki |
 |---|---|
 | **[NORI A3](../../entities/nori-a3.md) ($1,688)** | **The first exception.** Complete published price, no deposit, US assembly, **first unit shipped and >$300 K in sales within 6 weeks** ([YC profile](../../sources/nori-robotics-yc-profile.md)). Onboard compute is a **[Pi 5](../../entities/raspberry-pi-5.md) 4 GB** — disclosed on the YC page, never on the storefront ([product site](../../sources/nori-robotics-site.md)) |
-| **[Flourish 1](../../entities/flourish-1.md) ($3,555)** | 50 numbered units, $1,555 refundable deposit, ships Dec 2026; **sold as-is, no warranty, no returns** ([site + Terms](../../sources/flourish-robots-website.md)). Raspberry Pi onboard ([Robot Report](../../sources/therobotreport-flourish-one.md)) |
+| **[Flourish 1](../../entities/flourish-1.md) ($3,555)** | 50 numbered units, $200 refundable deposit (was $1,555), ships Dec 2026; **sold as-is, no warranty, no returns** ([site + Terms](../../sources/flourish-robots-website.md)). Raspberry Pi onboard ([Robot Report](../../sources/therobotreport-flourish-one.md)) |
 | [Zeroth M1](../../entities/zeroth-m1.md) ($2,499) | Pre-order on a visibly unfinished storefront — placeholder meta description, `InStock` under a "Reserve Now" button, 404s on every company page ([product page](../../sources/zeroth-m1-product-page.md)) |
 | [Sourccey](../../entities/sourccey.md) | **No published price**, store not live ([Vulcan Robotics](../../entities/vulcan-robotics.md)) |
 | [Fauna Sprout](../../entities/fauna-robotics.md) | Creator Edition, developer-tier |

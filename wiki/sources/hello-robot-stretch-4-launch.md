@@ -12,6 +12,9 @@ ingested: 2026-05-17
 tags: [stretch, stretch-4, hello-robot, mobile-manipulator, jetson-orin-nx, ros2-jazzy, holonomic-base, lidar, primary-source]
 ---
 
+> [!warning] Rechecked 2026-11-08 — Jetson add-on price rose
+> The [purchase page](https://hello-robot.com/purchase/) now lists the Jetson Orin NX option at **$2,995**, up from the $2,495 recorded below. Base price ($29,950) and the 2–4 week lead time are unchanged. [Stretch 3 is sold out](https://hello-stretch3.com/purchase).
+
 > [!note] Ingest depth and provenance
 > User pointed at `hello-robot.com/purchase/` for **Stretch 4 details**. The purchase page is canonical for **pricing + accessories + availability** but light on technical specs. To make the wiki's Stretch 4 picture complete, this source page also pulls from:
 >

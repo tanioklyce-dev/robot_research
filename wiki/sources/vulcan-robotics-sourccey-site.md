@@ -8,6 +8,9 @@ ingested: 2026-08-13
 tags: [vulcan-robotics, sourccey, open-source-hardware, mobile-manipulator, lerobot, xvla, feetech, raspberry-pi-5, mecanum, laundry-folding, household-robot, teleoperation]
 ---
 
+> [!warning] Rechecked 2026-11-08 — roadmap moved
+> Current roadmap: launch and open-sourcing November 2026, first shipments December 2026, autonomous integrations April 2027, "full autonomy across core household tasks" April 2028. The store still reads "Coming Soon."
+
 ## Summary
 
 The product site for **Sourccey**, "the open-source personal robot for physical AI and robotics development" from US startup [Vulcan Robotics](../entities/vulcan-robotics.md), founded by [Nick Maselli](../entities/nick-maselli.md). Three pages ingested: the marketing home page, a genuinely detailed **specs** page, and a **docs** page that is currently empty.

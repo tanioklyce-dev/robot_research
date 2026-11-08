@@ -3,7 +3,7 @@ title: Unitree H1
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-11-08
 sources: 3
 tags: [unitree-h1, humanoid, bipedal, china, affordable, research]
 status: stub
@@ -18,7 +18,7 @@ status: stub
 - Battery: ~2 hr operating time.
 
 ## Why it matters
-- **Affordable research humanoid.** The "Unitree price point" — ~$90k for H1, ~$16k for [G1](unitree-g1.md) — makes humanoid RL research economically feasible for academic labs, the way Stretch made mobile manipulation research feasible.
+- **Affordable research humanoid.** The "Unitree price point" — ~$90k for H1, from $13.5K for [G1](unitree-g1.md) — makes humanoid RL research economically feasible for academic labs, the way Stretch made mobile manipulation research feasible.
 - **Rapid academic adoption.** Used for locomotion / whole-body control papers across multiple institutions starting 2024.
 - **Vendor lock-in concerns.** Closed firmware + Chinese supply chain raise issues for some institutions; mitigated somewhat by open-source SDK + community support.
 

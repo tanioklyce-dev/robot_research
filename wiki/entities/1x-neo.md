@@ -3,12 +3,12 @@ title: 1X NEO
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-10-13
-sources: 6
+updated: 2026-11-08
+sources: 7
 tags: [1x-neo, humanoid, bipedal, household, consumer, redwood-ai, norway]
 ---
 
-**1X NEO** — consumer household humanoid from 1X Technologies (Halodi Robotics, Norway/US). Explicitly designed for home chores and domestic companionship. **NEO Beta** (2024); **NEO Gamma** (2025). $200 deposit; no mandatory subscription.
+**1X NEO** — consumer household humanoid from 1X Technologies (Halodi Robotics, Norway/US). Explicitly designed for home chores and domestic companionship. **NEO Beta** (2024); **NEO Gamma** (2025). **$20,000 or $499 a month, $200 refundable deposit** ([order page](../sources/1x-neo-order-page.md)). No customer delivery could be confirmed as of mid-October 2026; early owners are promised "basic autonomy."
 
 ## Specs ([1X NEO product page](../sources/1x-neo-product-page.md))
 - Height: 5'6" (~168 cm); Weight: 66 lbs (~30 kg)
@@ -37,7 +37,7 @@ tags: [1x-neo, humanoid, bipedal, household, consumer, redwood-ai, norway]
 | Noise | 22 dB | Loud | Loud |
 | Lift | 154 lbs | Higher | ~35 lbs |
 | AI | Proprietary VLM (Redwood) | Helix VLA / unspecified | Unspecified |
-| Price signal | $200 deposit | Not public | ~$16k |
+| Price signal | $200 deposit | Not public | from $13.5K |
 
 The **tendon-driven / soft-touch / quiet** design philosophy is a deliberate household-safety choice — traded payload and speed headroom for human-safe operation.
 
@@ -48,6 +48,7 @@ The **tendon-driven / soft-touch / quiet** design philosophy is a deliberate hou
 - [Flourish 1](flourish-1.md): a $3,555 wheeled counter-design. Its CEO says no remote operator runs it, against NEO's Expert Mode. [CNET](../sources/cnet-flourish-1.md) quotes NEO at **~$20,000 or $499/month**.
 
 ## Mentioned in
+- [1X NEO order page](../sources/1x-neo-order-page.md) — price, delivery wording, Scheduled Expert Mode, 18 lb arm payload.
 - [1X NEO product page](../sources/1x-neo-product-page.md)
 - [TechCrunch — Hello Robot in homes](../sources/techcrunch-hello-robot-homes-2026.md) — as of 2026-06-04, 1X *"says that it sold out of the 10,000 Neos it plans to build this year, but as of yet, none have actually been delivered."*
 - [CNET — Flourish 1](../sources/cnet-flourish-1.md): NEO priced at ~$20,000 or $499/month, and named with Weave as robots that *"employ teleoperators for tasks their robots can't complete."*

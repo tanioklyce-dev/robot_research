@@ -14,6 +14,9 @@ format: "product landing page + Terms of Sale + Privacy Policy + contact page, c
 tags: [flourish, flourish-1, home-robot, mobile-manipulator, consumer-robotics, pre-order, end-user-programming, phone-teleop, cloud-inference, subscription, privacy, terms-of-sale, vendor-source, primary]
 ---
 
+> [!warning] Rechecked 2026-11-08 — deposit changed
+> The landing page now reads *"$200 deposit today, fully refundable until shipping."* The $1,555 figure below is the 2026-10-07 capture. Price, unit count and December 2026 shipping are unchanged.
+
 # Flourish Robots — Flourish 1 product site, Terms of Sale, and Privacy Policy
 
 > [!note] This is the primary

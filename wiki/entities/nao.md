@@ -3,7 +3,7 @@ title: NAO
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-11-08
 sources: 0
 tags: [nao, softbank, aldebaran, humanoid, education, social-robot]
 status: stub
@@ -25,7 +25,7 @@ status: stub
 
 ## Position vs other humanoids
 - **Far smaller than research humanoids.** ~58 cm vs ~1.5–1.8 m for [Atlas](atlas.md) / [H1](unitree-h1.md) / [Figure](figure.md). Tabletop-scale, not human-scale.
-- **Less capable than [Unitree G1](unitree-g1.md)** (also smaller-class, but G1 is ~$16k vs NAO's ~$8–15k — comparable price, different capabilities).
+- **Less capable than [Unitree G1](unitree-g1.md)** (also smaller-class, but G1 starts at $13.5K vs NAO's ~$8–15k — comparable price, different capabilities).
 - **Long product lifetime** — NAO has been continuously available since 2008 with incremental version updates; few robots have that longevity.
 
 ## Related

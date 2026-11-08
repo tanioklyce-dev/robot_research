@@ -3,7 +3,7 @@ title: NORI A3
 type: entity
 subtype: robot
 created: 2026-08-23
-updated: 2026-10-07
+updated: 2026-11-08
 sources: 4
 tags: [nori, home-robot, bimanual, mobile-manipulator, consumer-robotics, affordable-hardware, raspberry-pi-5, lidar, skills-marketplace]
 ---
@@ -11,6 +11,9 @@ tags: [nori, home-robot, bimanual, mobile-manipulator, consumer-robotics, afford
 **NORI A3** — a **bimanual wheeled home manipulator** from [Nori Robotics](nori-robotics.md), **$1,688 full price with no deposit**, assembled in San Francisco, shipping Fall 2026 ([product site](../sources/nori-robotics-site.md)). Two 7+1-DOF arms on a torso that raises and lowers on a lift column, a 2D LiDAR for navigation, four RGB cameras, and a laptop app called **Nori Lab** for training and operation.
 
 Marketed tasks: kitchen help, tidying, fetching from the fridge, loading dishes, folding clothes, pouring ingredients. **No success rates, benchmarks or autonomy claims accompany any of them.**
+
+> [!note] Delivery status (2026-11-08, secondary)
+> [New Atlas](https://newatlas.com/robotics/household-robot-chores-nori-a3/) reports that the first batch sold out and that a second batch of 100 units is being built for fall delivery. These are company-supplied figures. No independent review was found.
 
 ## Specs
 

@@ -3,8 +3,8 @@ title: Unitree Robotics
 type: entity
 subtype: company
 created: 2026-09-11
-updated: 2026-09-28
-sources: 4
+updated: 2026-11-08
+sources: 5
 tags: [unitree, china, humanoid, quadruped, hardware, foundation-model, unifolm]
 ---
 
@@ -17,7 +17,7 @@ tags: [unitree, china, humanoid, quadruped, hardware, foundation-model, unifolm]
 - [Unitree Go2](unitree-go2.md) — current quadruped tier (~$1.6k Air to ~$17k EDU); the robot in Anthropic's Project Fetch.
 - [Unitree H1](unitree-h1.md) — full-size research humanoid (~$90k).
 - [Unitree Z1](unitree-z1.md) — 6-DoF force-controlled arm (2022); the single/dual-arm platform in [WMA-0](../sources/unifolm-wma-0-project-page.md)'s demos and datasets.
-- [Unitree G1](unitree-g1.md) — ~$16k base / ~$30–45k EDU Plus; the default humanoid for whole-body-control papers (SONIC, ASAP, BumbleBee, LocoFormer) and for GR00T's `UNITREE_G1_SONIC` embodiment.
+- [Unitree G1](unitree-g1.md) — from $13.5K without SDK; EDU by quote; the default humanoid for whole-body-control papers (SONIC, ASAP, BumbleBee, LocoFormer) and for GR00T's `UNITREE_G1_SONIC` embodiment.
 
 The pattern across those pages: Unitree hardware appears in this wiki far more often as *someone else's* research platform than as the subject of Unitree's own work.
 

@@ -3,8 +3,8 @@ title: stretch_ai
 type: entity
 subtype: product
 created: 2026-05-07
-updated: 2026-05-17
-sources: 9
+updated: 2026-11-08
+sources: 10
 tags: [stretch-ai, hello-robot, llm-agent, open-source, mapping]
 ---
 
@@ -26,7 +26,12 @@ Most concrete public example of an **LLM-controlled real-robot stack**. Unlike [
 - [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — design pattern.
 - [VLA models](../concepts/learning/vla-models.md) — competing paradigm.
 
+## Stretch 4 status
+
+The [README](../sources/stretch-ai-github-readme.md) names only Stretch 3 as of 2026-11-08, so treat Stretch 4 use as a port until shown otherwise.
+
 ## Mentioned in
+- [stretch_ai GitHub README](../sources/stretch-ai-github-readme.md) — Stretch 3 only, as of 2026-11-08.
 - [Hello Robot Stretch Documentation](../sources/hello-robot-stretch-docs.md)
 - [Stretch AI LLM Agent Documentation](../sources/stretch-ai-llm-agent-docs.md)
 - [Hiwonder OpenClaw Practical Tutorial](../sources/hiwonder-openclaw-tutorial.md)

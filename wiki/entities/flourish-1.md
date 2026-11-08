@@ -3,18 +3,18 @@ title: Flourish 1
 type: entity
 subtype: robot
 created: 2026-10-07
-updated: 2026-10-07
-sources: 5
+updated: 2026-11-08
+sources: 6
 tags: [flourish, flourish-1, home-robot, mobile-manipulator, bimanual, consumer-robotics, raspberry-pi, cloud-inference, subscription, phone-teleop, end-user-programming, pre-order]
 ---
 
-**Flourish 1** is a **wheeled, two-armed home robot** from [Flourish Robots](flourish-robots.md). It sells as a **limited run of 50 numbered units at $3,555**, reserved with a **$1,555 refundable deposit**, shipping **December 2026** ([site](../sources/flourish-robots-website.md)). The owner teaches it a chore by laying out task steps in a phone app and then **driving it through the task from the phone for ~30 minutes**. A per-home, per-task model is fine-tuned in the cloud and is ready about an hour later. Launch press calls it a humanoid. It is a mobile manipulator in the [XLeRobot](xlerobot.md) / [Sourccey](sourccey.md) / [NORI A3](nori-a3.md) class.
+**Flourish 1** is a **wheeled, two-armed home robot** from [Flourish Robots](flourish-robots.md). It sells as a **limited run of 50 numbered units at $3,555**, reserved with a **$200 refundable deposit** (down from $1,555 on 2026-11-08 recheck), shipping **December 2026** ([site](../sources/flourish-robots-website.md)). The owner teaches it a chore by laying out task steps in a phone app and then **driving it through the task from the phone for ~30 minutes**. A per-home, per-task model is fine-tuned in the cloud and is ready about an hour later. Launch press calls it a humanoid. It is a mobile manipulator in the [XLeRobot](xlerobot.md) / [Sourccey](sourccey.md) / [NORI A3](nori-a3.md) class.
 
 ## Specs
 
 | | | Source |
 |---|---|---|
-| **Price** | **$3,555**; $1,555 deposit, refundable until shipping | [site](../sources/flourish-robots-website.md) |
+| **Price** | **$3,555**; $200 deposit (was $1,555), refundable until shipping | [site](../sources/flourish-robots-website.md) |
 | **Run** | **50 units**, numbered 01–50, built by Flourish in Paris | [site](../sources/flourish-robots-website.md), [Clubic](../sources/clubic-flourish-1.md) |
 | **Ships** | December 2026, *"a good-faith estimate… not a guaranteed date"* | [Terms](../sources/flourish-robots-website.md) |
 | **Height / mass** | 3'7" (≈109 cm) / 44 lb (≈20 kg) | [site](../sources/flourish-robots-website.md) |

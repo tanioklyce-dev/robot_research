@@ -2,7 +2,7 @@
 title: Humanoid platforms survey
 type: synthesis
 created: 2026-05-08
-updated: 2026-10-23
+updated: 2026-11-08
 tags: [humanoids, hardware, comparison, list, bipedal, education, research, figure-03, manufacturing, wheeled-base, walden-robotics, form-factor, agile-one-sn, reference-humanoid]
 ---
 
@@ -32,7 +32,7 @@ Companion to [Robot platforms — comparison](robot-platforms-comparison.md) foc
 | **[Walden](../../entities/walden-robotics.md)** (unnamed) | Industrial (deployed) | Walden Robotics (Cambridge MA) | **wheeled — no legs** | Selling; undisclosed | [LBMs](../../concepts/learning/large-behavior-models.md) + [Diffusion Policy](../../entities/diffusion-policy.md) |
 | **[Phantom](../../entities/foundation-robotics.md)** | **Military / industrial** | Foundation Future Industries | 1.8 m / 80 kg / 29 DoF | Claimed production; ~$100k target | Hybrid IL + physics models; RL locomotion (vendor claim, no evaluation) |
 | [Unitree H1](../../entities/unitree-h1.md) | Affordable research | Unitree Robotics | ~1.8 m | ~$90k starter | Open SDK, user-supplied AI |
-| [Unitree G1](../../entities/unitree-g1.md) | Affordable research / educational | Unitree Robotics | ~1.32 m | ~$16k starter | Open SDK, user-supplied AI |
+| [Unitree G1](../../entities/unitree-g1.md) | Affordable research / educational | Unitree Robotics | ~1.32 m | from $13.5K | Open SDK, user-supplied AI |
 | [Booster T1](../../entities/booster-t1.md) | Affordable research | Booster Robotics (China) | not documented here | not documented here | Second validation robot (with G1) in NVIDIA's [WBC-AGILE](../../sources/wbc-agile-github.md) |
 | [Galaxea R1 / R1 Pro](../../entities/galaxea-r1.md) | Research (wheeled humanoid) | Galaxea | 0–200 cm working height; 24 DoF; 5 kg payload | Not stated | [GR00T N1.6](../../sources/groot-n1_6.md) data embodiment; [Robostral Navigate](../../sources/robostral-navigate-paper.md) demo platform |
 | [Reachy 2](../../entities/reachy.md) | Research (wheeled humanoid) | [Pollen Robotics](../../entities/pollen-robotics.md) (France) | torso on wheels | Higher tier | Open source, ROS 2, embodied-AI development |
@@ -57,7 +57,7 @@ The **flagship-capability tier** — Atlas (parkour, dexterous manipulation), Te
 **[Digit](../../entities/digit.md)** is the outlier — Agility Robotics has Digit in **active commercial deployment at GXO Logistics and Amazon trials**, not just pilots. Narrow-task scope (warehouse package handling) is the price for getting to deployment first.
 
 ### Affordable research humanoids (Unitree H1, G1, Booster T1)
-The **price-floor tier**. [H1](../../entities/unitree-h1.md) at ~$90k and [G1](../../entities/unitree-g1.md) at ~$16k are the only humanoids cheap enough for individual research labs to acquire without specialized funding. Open SDKs, user-supplied AI. Rapid 2024–2026 academic adoption for locomotion / RL papers. [Booster T1](../../entities/booster-t1.md) is the only other robot in the wiki used as a whole-body-control benchmark next to the G1 ([WBC-AGILE](../../sources/wbc-agile-github.md)). Its price and specs are not documented here.
+The **price-floor tier**. [H1](../../entities/unitree-h1.md) at ~$90k and [G1](../../entities/unitree-g1.md) from $13.5K are the only humanoids cheap enough for individual research labs to acquire without specialized funding. Open SDKs, user-supplied AI. Rapid 2024–2026 academic adoption for locomotion / RL papers. [Booster T1](../../entities/booster-t1.md) is the only other robot in the wiki used as a whole-body-control benchmark next to the G1 ([WBC-AGILE](../../sources/wbc-agile-github.md)). Its price and specs are not documented here.
 
 ### Research reference and developer humanoids (Agile ONE SN, Fauna Sprout, Fourier GR-1, Tien Kung)
 
@@ -152,7 +152,7 @@ Not strength, not height, not DOF. **Sensing and cost.**
 - **vs [1X NEO](../../entities/1x-neo.md)** — the closest competitor by intent. Both are household-aimed, closed-stack, aspirational-consumer. NEO takes pre-orders at ~$20k; Figure 03 is **not for sale at any price** while claiming home tasks "all autonomously" in the present tense on its product page. Neither has published a success rate.
 - **vs [Tesla Optimus](../../entities/tesla-optimus.md)** — both vertically integrated; Tesla has the manufacturing pedigree, Figure has published manufacturing *numbers*. Figure's are checkable in kind; Tesla's are not stated.
 - **vs [Apptronik Apollo](../../entities/apptronik-apollo.md) / [GR00T](../../entities/nvidia-groot.md)** — the open-ecosystem counterpoint. GR00T publishes benchmarks; Helix publishes videos. If you want a humanoid stack you can *evaluate*, that asymmetry decides it.
-- **vs [Unitree G1](../../entities/unitree-g1.md)** — different universe. G1 is ~$16k and you can buy one; Figure 03 is a fleet you cannot access. For anyone in this wiki's actual position, G1 is a platform and Figure 03 is a **reference design to read**.
+- **vs [Unitree G1](../../entities/unitree-g1.md)** — different universe. G1 starts at $13.5K and you can buy one; Figure 03 is a fleet you cannot access. For anyone in this wiki's actual position, G1 is a platform and Figure 03 is a **reference design to read**.
 
 ### What Figure 03 is useful *for*, here
 

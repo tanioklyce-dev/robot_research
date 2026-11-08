@@ -3,12 +3,15 @@ title: Sourccey
 type: entity
 subtype: robot
 created: 2026-08-13
-updated: 2026-08-23
+updated: 2026-11-08
 sources: 14
 tags: [sourccey, vulcan-robotics, mobile-manipulator, dual-arm, mecanum, lerobot, xvla, feetech, raspberry-pi-5, 3d-printed, household-robot, laundry-folding, open-hardware, cern-ohl]
 ---
 
 **Sourccey** — the **open-source personal home robot** from [Vulcan Robotics](vulcan-robotics.md): a 1,030 mm, 15.88 kg dual-arm mobile manipulator on four mecanum wheels, ~90% PLA-printed, running [LeRobot](lerobot.md) on a [Raspberry Pi 5](raspberry-pi-5.md) and shipping with **[X-VLA](x-vla.md) laundry-folding micromodels** preinstalled. Platform open-sources **August 2026**; first units ship **September 2026**. **Price undisclosed** as of 2026-08-13.
+
+> [!warning] Schedule slipped (rechecked 2026-11-08)
+> The [site](../sources/vulcan-robotics-sourccey-site.md) now shows **launch November 2026 and first shipments December 2026**, against the August and September dates below. It describes Sourccey as "the developer robot for real-world data acquisition and physical AI," and the store still reads "Coming Soon."
 
 Hardware: [github.com/vulcan-forge/sourccey-hardware](https://github.com/vulcan-forge/sourccey-hardware) (**CERN-OHL-S-2.0**). Software: `lerobot-vulcan`, `lerobot-robot-sourccey`, `sourccey-desktop` (Apache 2.0 where licensed).
 

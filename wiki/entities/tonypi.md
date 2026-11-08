@@ -3,7 +3,7 @@ title: TonyPi
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-11-08
 sources: 0
 tags: [tonypi, hiwonder, humanoid, bipedal, education, raspberry-pi, biped-kit]
 status: stub
@@ -18,7 +18,7 @@ status: stub
 - Pre-loaded software for walking, vision, and basic AI demos.
 
 ## Why it matters in this wiki
-- **Cheapest humanoid in the wiki by far.** $300–$700 puts TonyPi into hobbyist + classroom budgets that NAO ($8k+) and even Unitree G1 ($16k) don't fit.
+- **Cheapest humanoid in the wiki by far.** $300–$700 puts TonyPi into hobbyist + classroom budgets that NAO ($8k+) and even Unitree G1 ($13.5K+) don't fit.
 - **Hiwonder lineage signal.** Combined with [ROSOrin](rosorin.md) / [ROSOrin Pro](rosorin-pro.md) and the ROSOrin Pro's [OpenClaw](openclaw.md) + [`openclaw_controller`](openclaw-controller.md) integration, TonyPi shows Hiwonder is building a coherent **educational-tier robotics catalog** spanning mobile robot → mobile manipulator → biped humanoid. Whether they bundle agentic-AI / LLM-agent curriculum on TonyPi the way they do on ROSOrin Pro is unclear.
 - **Educational-vs-research gap is sharper here.** TonyPi can teach fundamentals but is far below the capability needed for serious VLA / JEPA-on-humanoid research. The closest "educational + capable" tier is [Unitree G1](unitree-g1.md) at ~50× the price.
 

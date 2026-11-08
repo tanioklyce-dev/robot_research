@@ -4,21 +4,21 @@ type: entity
 subtype: robot
 created: 2026-05-08
 updated: 2026-11-08
-sources: 25
+sources: 26
 tags: [unitree-g1, humanoid, bipedal, china, affordable, accessible, groot, whole-body-control]
 ---
 
-**Unitree G1** — smaller, cheaper bipedal humanoid from Unitree Robotics. Released May 2024. **Starter price ~$13,500–16,000 (sources disagree; see below)** — the cheapest credible serious humanoid platform. Targeted at developers and researchers.
+**Unitree G1** — smaller, cheaper bipedal humanoid from Unitree Robotics. Released May 2024. **From $13,500 without SDK access; the research-capable EDU is by quote** — the cheapest credible serious humanoid platform. Targeted at developers and researchers.
 
 ## Configurations — EDU vs EDU Plus
 
-The G1 is sold in tiers, and **the headline price applies only to the lowest one.** The wiki's [Stretch-vs-G1 comparison](../syntheses/platforms/household-robot-decision-stretch-vs-g1.md) puts **G1 EDU base at ~$16,000** with limited DOF and basic hands, and a research-ready **G1 EDU Plus** — extra DOF plus dexterous hands — at **~$30–45k**, with the caveat that *pricing is opaque* and configuration-dependent. EDU Plus is the configuration research papers generally mean, and the one listed in the [overview's platform table](../overview.md).
+The G1 is sold in tiers, and **the headline price applies only to the lowest one.** [Unitree's own table](../sources/unitree-g1-product-page.md) lists the **G1 at $13.5K with no secondary development**, and the **G1 EDU as "Contact sales"** with secondary development, optional force-controlled hands and 23–43 joints. The store also lists a **G1 Pro at $21,500**, without saying what it adds. Reseller guides quote EDU from about $43,900, which is dealer data. Get a quote. EDU Plus is the configuration research papers generally mean, and the one listed in the [overview's platform table](../overview.md).
 
-> [!warning] Contradiction — the G1's entry price
-> The [AI Index 2026](../sources/stanford-hai-ai-index-2026.md) humanoid vendor table lists the G1 **"from $13,500."** This page and several others carry **~$16,000**, which traces to the [Stretch-vs-G1 comparison](../syntheses/platforms/household-robot-decision-stretch-vs-g1.md), and that page gives no citation for it. The gap may be a matter of date or configuration, but neither source says, and no Unitree price list is ingested. Treat the entry price as unresolved until a vendor primary is filed.
+> [!note] Contradiction resolved (2026-11-08) — the G1's entry price
+> The wiki carried both **$13,500** ([AI Index 2026](../sources/stanford-hai-ai-index-2026.md)) and an uncited **~$16,000** "EDU base." [Unitree's listing](../sources/unitree-g1-product-page.md) confirms $13,500 for the base G1 and shows EDU has no published price, so the ~$16k figure is dropped.
 
 > [!warning] Match capability before comparing cost
-> The apparent price advantage over a research mobile manipulator largely disappears once you spec a G1 up to comparable manipulation capability. Do not quote $16k for a robot you intend to do manipulation research with.
+> The apparent price advantage over a research mobile manipulator largely disappears once you spec a G1 up to comparable manipulation capability. Do not quote the entry price for a robot you intend to do manipulation research with.
 
 ## Specs
 - ~1.32 m tall, ~35 kg (G1 EDU base configuration).
@@ -26,7 +26,7 @@ The G1 is sold in tiers, and **the headline price applies only to the lowest one
 - Walking + simple manipulation demos at launch; capability evolving rapidly.
 
 ## Why it matters
-- **Lowest serious-research price tier ever for a humanoid.** $16k is in the same range as a research-grade tabletop arm, not the previous $90k+ humanoid floor.
+- **Low entry price for a humanoid.** $13.5K is in the range of a research-grade tabletop arm, though research use requires the quote-only EDU.
 - **Educational + research bridge.** Cheap enough for individual researcher / small lab budgets; capable enough for real research papers.
 - **Rapid iteration.** Unitree updates G1 firmware + capabilities frequently; the platform changes faster than typical research robots.
 
@@ -69,7 +69,8 @@ The paper is candid about what its representation misses on this hand specifical
 - [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — landscape; G1 is the educational-research bridge.
 
 ## Mentioned in
-- [AI Index 2026](../sources/stanford-hai-ai-index-2026.md) — G1 "from $13,500," which conflicts with the ~$16k carried elsewhere in the wiki.
+- [Unitree G1 and G1-D pages](../sources/unitree-g1-product-page.md) — the primary for G1, G1 Pro and EDU pricing.
+- [AI Index 2026](../sources/stanford-hai-ai-index-2026.md) — G1 "from $13,500."
 - [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — `g1_wbc_pink` embodiment (whole-body controller + navigation P-controller in Mimic) and the WBC-AGILE end-to-end velocity policy; the `galileo_g1_locomanip_pick_and_place` environment (navigate, squat, pick from shelf, place in bin) is the loco-manipulation workflow; GEAR's *G1 Factory* benchmark announced.
 - [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — G1 as the hardest platform; no model stood it from collapse.
 - [SONIC Paper](../sources/sonic-paper.md) — SONIC is a G1-only whole-body controller (primary robot)

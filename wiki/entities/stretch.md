@@ -3,8 +3,8 @@ title: Stretch
 type: entity
 subtype: product
 created: 2026-05-07
-updated: 2026-09-12
-sources: 33
+updated: 2026-11-08
+sources: 34
 tags: [stretch, stretch-3, stretch-4, mobile-manipulation, hello-robot, research-robot, holonomic-base, lidar, ros2-jazzy, hesai-lidar, luxonis, feetech]
 ---
 
@@ -18,7 +18,7 @@ Mobile-manipulation robot from [Hello Robot](hello-robot.md). **Current generati
 | --- | --- | --- | --- | --- |
 | Stretch 1–2 | 2020–2022 | telescoping single-arm | differential-drive | Intel NUC |
 | Stretch 3 | 2024 | telescoping single-arm, RealSense gripper depth camera, DexWrist3 | differential-drive | NUC 12 |
-| **Stretch 4** | **2026-05-12** | telescoping single-arm; **new omnidirectional holonomic base**; **3DOF ambidextrous cobot-style wrist**; integrated OAK-SR wrist depth | **3-wheel holonomic** | **Intel Ultra 5 NUC + 32 GB / 1 TB**; **optional Jetson Orin NX** ($2,495 add-on) |
+| **Stretch 4** | **2026-05-12** | telescoping single-arm; **new omnidirectional holonomic base**; **3DOF ambidextrous cobot-style wrist**; integrated OAK-SR wrist depth | **3-wheel holonomic** | **Intel Ultra 5 NUC + 32 GB / 1 TB**; **optional Jetson Orin NX** ($2,995 add-on as of 2026-11-08; $2,495 at launch) |
 
 ## Stretch 4 specs
 
@@ -44,7 +44,7 @@ Spec sources: [Stretch 4 launch source](../sources/hello-robot-stretch-4-launch.
 | Hazard sensing | **6× Pixart laser-line cliff curtains** | datasheet only |
 | IMU | 9-DOF in mobile base (tilt detection + odometry) | datasheet |
 | Compute (primary) | **Intel NUC 15: Core Ultra 5 225H, 32 GiB RAM, 1 TB NVMe** | datasheet adds exact SKU |
-| Compute (AI accelerator, optional) | **NVIDIA Jetson Orin NX, 16 GB RAM, 128 GB NVMe, WiFi 5.2 + Ethernet** — pre-configured Docker + ROS 2 Jazzy + CUDA + PyTorch ($2,495 add-on) | datasheet adds RAM/storage/connectivity |
+| Compute (AI accelerator, optional) | **NVIDIA Jetson Orin NX, 16 GB RAM, 128 GB NVMe, WiFi 5.2 + Ethernet** — pre-configured Docker + ROS 2 Jazzy + CUDA + PyTorch ($2,995 add-on as of 2026-11-08; $2,495 at launch) | datasheet adds RAM/storage/connectivity |
 | Active safety | Motor-current force limiting; 100 Hz watchdog; IMU tilt avoidance; **dedicated head Runstop button** | datasheet only |
 | Collision avoidance | 100 Hz self-collision avoidance via MuJoCo + URDF | both |
 | HRI hardware | **Dual RGB Neopixel "eye" arrays; 360° noise-reduction speakerphone (3W stereo)** | datasheet only |
