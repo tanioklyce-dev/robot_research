@@ -3,7 +3,7 @@ title: Robot safety standards (ISO 13482 and the machinery-safety framework)
 type: concept
 created: 2026-07-08
 updated: 2026-09-07
-sources: 27
+sources: 28
 tags: [iso-13482, iso-10218, ts-15066, iso-iec-tr-5469, iso-iec-ts-22440, iso-pas-8800, iec-62998, safety-standards, certification, ce-marking, service-robots, personal-care-robots, assistive, regulation, functional-safety, nvidia-halos]
 ---
 

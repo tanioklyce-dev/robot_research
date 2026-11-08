@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-07
 updated: 2026-11-08
-sources: 34
+sources: 35
 tags: [stretch, stretch-3, stretch-4, mobile-manipulation, hello-robot, research-robot, holonomic-base, lidar, ros2-jazzy, hesai-lidar, luxonis, feetech]
 ---
 
@@ -88,6 +88,7 @@ These were all demonstrated on **Stretch 2 / 3**; whether they transfer to Stret
 - Cross-embodiment transfer (RUM transferred Stretch-trained policies to xArm 7 zero-shot).
 - **[Open Vocabulary Mobile Manipulation (OVMM)](../sources/ovmm-homerobot.md)** — baseline platform (20% real-world success rate).
 - **[OK-Robot](ok-robot.md)** — zero-shot pick-and-drop (58.5% success, 10 NYC homes); 1.8× over OVMM.
+- **[Supermarket shelf stocking](../sources/pixels-to-shelf-paper.md)** — Stretch 3, over 98% per object and 87% per task across 724 operations in a mock supermarket; cans and small boxes only.
 - **[Assistive use](../concepts/robotics/assistive-robotics.md)** — documented in-home use by Henry Evans (quadriplegic); scratching, laundry, meals, social play ([IEEE Spectrum, 2023](../sources/ieee-spectrum-stretch-assistive.md)).
 - **[HCR Lab](hcrlab.md) long-term deployments** — [Maya Cakmak](maya-cakmak.md)'s lab ran 4-week summer deployments with Henry Evans in 2021, 2022, and 2023, expanding the task set each year. A prototype end-user programming (EUP) tool was built specifically for Henry in summer 2022.
 - **EUP transfer to Stretch SE2** — HCR Lab's end-user robot programming tools have been ported to the commercial Hello Robot Stretch SE2.

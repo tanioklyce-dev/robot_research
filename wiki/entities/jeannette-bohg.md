@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-08-31
 updated: 2026-10-13
-sources: 6
+sources: 7
 tags: [jeannette-bohg, stanford, researcher, manipulation, dexterous-manipulation, failure-detection, sim-to-real]
 ---
 

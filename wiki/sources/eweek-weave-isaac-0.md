@@ -15,7 +15,7 @@ tags: [weave-robotics, isaac-0, laundry, teleoperation, consumer, secondary-sour
 
 ## Summary
 
-Trade coverage of [Isaac 0](../entities/weave-robotics.md), the stationary laundry folder, read against Weave's current product page. It folds common garments in **30 to 90 minutes**, with remote people correcting mistakes. It is the only product found in this review that sells a manipulation chore to households today.
+Trade coverage of [Isaac 0](../entities/weave-robotics.md), the stationary laundry folder, read against Weave's current product page. It folds common garments in **30 to 90 minutes**, with remote people correcting mistakes. It is the only robot found in this review that a household can own and that performs a manipulation chore today. [Tau Robotics](../entities/tau-robotics.md) sells a chore as a visiting service instead.
 
 ## Key claims
 

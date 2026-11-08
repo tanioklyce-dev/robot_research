@@ -64,6 +64,7 @@ The deployment log also contains an honest, legible failure: on Tuesday of week 
 - [Qwen](../entities/qwen.md) 2.5 — the fine-tuned VLM. **Gemini** as a pretrained baseline (43.7% book ID; notably only **3.4%** on hard Chinese OCR, which the authors attribute to less Chinese in its pretraining mixture than Qwen's).
 - **TidyBot++** mobile base, **Franka FR3** arm, **Intel RealSense D435**, **Unitree L2** LiDAR. No wiki pages.
 - **Stanford East Asia Library** — the deployment site.
+- [TidyBot++](../entities/tidybot-plus-plus.md)
 
 ## Concepts touched
 

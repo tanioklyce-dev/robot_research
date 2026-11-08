@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-11-08
 updated: 2026-11-08
-sources: 1
+sources: 2
 tags: [roborock, saros-z70, robot-vacuum, consumer]
 ---
 

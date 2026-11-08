@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-10
 updated: 2026-08-29
-sources: 13
+sources: 14
 tags: [tri, toyota-research-institute, robotics-research, automated-driving, lbm, drake, organization, walden-robotics, spinout]
 ---
 
@@ -37,6 +37,7 @@ The pattern: TRI is the *industrial resourcing partner* in academic robotics-fou
 ## Notable TRI projects (referenced or surfaced on homepage)
 
 - **TRI [LBM](../concepts/learning/large-behavior-models.md) (Large Behavior Model)** — generalist robot policy program led by [Russ Tedrake](russ-tedrake.md); "the multitask version of [Diffusion Policy](diffusion-policy.md)" with TRI's role framed as "the **science of LBMs**" — [Automated Podcast, 2026-07](../sources/automated-podcast-tedrake-rocket-ship.md). **[Primary paper now ingested](../sources/tri-lbm-paper.md)** (82 authors, Science Robotics 2026): ~1,700 h pretraining, blind-A/B statistical eval, 3–5× fine-tune data efficiency, smooth scaling. Referenced as a baseline in [RoboCasa365](../sources/robocasa365-paper.md).
+- **TTT grocery field tests** — TRI's 21-DoF mobile manipulator ran six field tests over 18 months in an unmodified grocery store, reaching 35.7% task success and 28.9% of listed items retrieved ([paper](../sources/tri-grocery-mobile-manipulation-paper.md)). See [Retail and grocery robotics](../concepts/robotics/retail-and-grocery-robotics.md).
 - **Drake** — TRI/MIT open-source model-based simulation/dynamics library ([Tedrake](russ-tedrake.md)'s "horcrux"; he still writes production code — [podcast](../sources/automated-podcast-tedrake-rocket-ship.md)). Anchored on the Tedrake entity page.
 - **ChargeMinder** — behavioral science for EV charging (homepage).
 - **"Atlas robot development" reference on homepage** — homepage mentions Atlas robot development "through single AI models." Unclear whether this overlaps with [Boston Dynamics' Atlas](atlas.md) or refers to a separate TRI Atlas-related effort. Treat as TBD.
