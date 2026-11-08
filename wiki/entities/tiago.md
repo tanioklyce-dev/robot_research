@@ -3,12 +3,15 @@ title: Tiago
 type: entity
 subtype: robot
 created: 2026-05-10
-updated: 2026-05-10
-sources: 3
+updated: 2026-11-08
+sources: 4
 tags: [tiago, pal-robotics, mobile-manipulator, ros, research-platform]
 ---
 
 **Tiago** — research-grade **mobile manipulator** from [PAL Robotics](https://pal-robotics.com/robot/tiago/) (Barcelona, Spain). Wheeled differential-drive base + extendable torso + one or two 7-DOF arms + RGB-D head sensor. ROS-native. A common European-academic-lab counterpart to the [Stretch](stretch.md) and [Franka Panda](franka-panda.md) platforms.
+
+
+**TIAGo Pro** is the current generation: 2×7 DoF arms, 3 kg per arm, ROS 2, quote-only ([PAL](../sources/pal-tiago-pro-product-page.md)).
 
 ## In this wiki
 Tiago appears in:

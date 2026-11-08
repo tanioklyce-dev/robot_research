@@ -99,7 +99,7 @@ Where a JEPA belongs in this table: **inside layer 2**, as encoder or auxiliary;
 
 ### Two assumptions in the question, pushed on
 
-**"Humanoid."** For a home, the wiki's evidence favours *two arms on a wheeled base* over legs — which is the form factor the question already described. [Tedrake's Walden argument](../../sources/ieee-spectrum-walden-practical-humanoids.md) is regulatory first: a wheeled base **piggybacks on existing AMR safety cases**, cannot fall over, and carries the batteries. The [Stretch-vs-G1 decision](../platforms/household-robot-decision-stretch-vs-g1.md) reaches the same place from the buyer's side; bipedal locomotion in cluttered homes is unsolved in 2026 and a fall is catastrophic. The [humanoid survey](../platforms/humanoid-platforms-survey.md) notes the safety-case problem is being solved only by companies selling into industry.
+**"Humanoid."** For a home, the wiki's evidence favours *two arms on a wheeled base* over legs — which is the form factor the question already described. [Tedrake's Walden argument](../../sources/ieee-spectrum-walden-practical-humanoids.md) is regulatory first: a wheeled base **piggybacks on existing AMR safety cases**, cannot fall over, and carries the batteries. The [Stretch-vs-G1 decision](../platforms/household-robots-comparison.md) reaches the same place from the buyer's side; bipedal locomotion in cluttered homes is unsolved in 2026 and a fall is catastrophic. The [humanoid survey](../platforms/humanoid-platforms-survey.md) notes the safety-case problem is being solved only by companies selling into industry.
 
 **"General."** Ackerman's word is *"multipurpose,"* and the [reliability gradient](../assistive/long-term-in-home-robot-deployments.md) says why:
 
@@ -136,4 +136,4 @@ Mapped onto the [fleet's build ladder](../projects/fleet-agentic-framework.md) r
 - [Assistive robotics — R&D landscape and JEPA applicability](../assistive/assistive-robotics-research-landscape.md) — the May-2026 version of this question; this page supersedes its JEPA section on robustness and horizon.
 - [Guardrails for robot agents](../agents/guardrails-for-robot-agents.md) · [Safety filters](../../concepts/robotics/safety-filters.md) · [Robot safety standards](../../concepts/robotics/robot-safety-standards.md) — the layers.
 - [Control abstraction levels](../../concepts/robotics/control-abstraction-levels.md) — why access level, not model class, is the safety variable.
-- [Household robot decision — Stretch vs G1](../platforms/household-robot-decision-stretch-vs-g1.md) — the form-factor argument from the buyer's side.
+- [Household robot decision — Stretch vs G1](../platforms/household-robots-comparison.md) — the form-factor argument from the buyer's side.

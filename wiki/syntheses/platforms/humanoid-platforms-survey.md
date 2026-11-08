@@ -3,22 +3,22 @@ title: Humanoid platforms survey
 type: synthesis
 created: 2026-05-08
 updated: 2026-11-08
-tags: [humanoids, hardware, comparison, list, bipedal, education, research, figure-03, manufacturing, wheeled-base, walden-robotics, form-factor, agile-one-sn, reference-humanoid]
+tags: [humanoids, hardware, comparison, list, bipedal, education, research, figure-03, manufacturing, wheeled-base, walden-robotics, form-factor, agile-one-sn, reference-humanoid, unitree-h2, unitree-r1, atlas, tesla-optimus]
 ---
 
 # Humanoid platforms survey
 
-Companion to [Robot platforms — comparison](robot-platforms-comparison.md) focused specifically on **humanoids**. Drives 2026 industry attention disproportionate to academic ingest in this wiki — most humanoid work is closed-development (Tesla, Atlas) or vendor-published (Figure, 1X), so the academic + open-source bias of the rest of the wiki under-represents this category. This page is a **list-with-comparison** to anchor future ingests.
+Companion to [Robot platforms — comparison](robot-platforms-comparison.md) focused specifically on **humanoids**. Drives 2026 industry attention disproportionate to academic ingest in this wiki — most humanoid work is closed-development (Tesla, Atlas) or vendor-published (Figure, 1X), so the academic + open-source bias of the rest of the wiki under-represents this category. This page is a **list-with-comparison** to anchor future ingests. Refreshed 2026-11-08.
 
 > [!note] Coverage caveat
-> Most entity pages referenced here are stubs filed from general knowledge. Exceptions with primary sources: [Agile ONE](../../entities/agile-one.md) and [EngineAI T800](../../entities/engineai-t800.md) (added 2026-07-16), **[Figure 03](../../entities/figure-03.md)**, which as of 2026-08-28 is backed by six Figure primaries (announcement, product page, battery, Helix 02, production ramp, BMW), and **[Agile ONE SN](../../entities/agile-one-sn.md)** (2026-10-22: Agile's release, Agile's product page and NVIDIA's release, which disagree on weight). [Fauna Sprout](../../entities/fauna-robotics.md) and [Galaxea R1](../../entities/galaxea-r1.md) take their specs from vendor pages. [Fourier GR-1](../../entities/fourier-gr-1.md), [Tien Kung](../../entities/tien-kung.md) and [Booster T1](../../entities/booster-t1.md) appear here only as **embodiments in papers**, so the wiki has no specs or prices for them. Treat the remaining specs as orientation, not citation. **[Walden](../../entities/walden-robotics.md)** is the opposite case — well-sourced reasoning, *zero* published specifications.
+> Most entity pages referenced here are stubs filed from general knowledge. Exceptions with primary sources: [Agile ONE](../../entities/agile-one.md) and [EngineAI T800](../../entities/engineai-t800.md) (added 2026-07-16), **[Figure 03](../../entities/figure-03.md)**, which as of 2026-08-28 is backed by six Figure primaries (announcement, product page, battery, Helix 02, production ramp, BMW), and **[Agile ONE SN](../../entities/agile-one-sn.md)** (2026-10-22: Agile's release, Agile's product page and NVIDIA's release, which disagree on weight). [Fauna Sprout](../../entities/fauna-robotics.md) and [Galaxea R1](../../entities/galaxea-r1.md) take their specs from vendor pages. As of 2026-11-08, production [Atlas](../../sources/boston-dynamics-atlas-production-launch.md), [Unitree G1](../../sources/unitree-g1-product-page.md), [H2 and R1](../../sources/unitree-h2-r1-product-pages.md) and [1X NEO](../../sources/1x-neo-order-page.md) are also backed by vendor primaries. [Optimus](../../sources/tesla-q3-2026-optimus-report.md) rests on a secondary quoting Tesla. [Fourier GR-1](../../entities/fourier-gr-1.md), [Tien Kung](../../entities/tien-kung.md) and [Booster T1](../../entities/booster-t1.md) appear here only as **embodiments in papers**, so the wiki has no specs or prices for them. Treat the remaining specs as orientation, not citation. **[Walden](../../entities/walden-robotics.md)** is the opposite case — well-sourced reasoning, *zero* published specifications.
 
 ## At a glance
 
 | Robot | Tier | Manufacturer | Height | Price (est.) | AI strategy |
 |---|---|---|---|---|---|
-| [Atlas](../../entities/atlas.md) | Research (closed) | Boston Dynamics / Hyundai | ~1.5 m | Internal-only | Proprietary BD stack |
-| [Tesla Optimus](../../entities/tesla-optimus.md) | Research (closed) | Tesla | ~1.73 m | Internal; aspirational $20–30k | Vertically integrated, FSD-derived |
+| [Atlas](../../entities/atlas.md) (production) | Industrial, committed through 2026 | Boston Dynamics / Hyundai | **1.9 m / 90 kg**, 56 DoF | Unpublished; outside customers early 2027 | Proprietary BD stack; Google DeepMind deployment |
+| [Tesla Optimus](../../entities/tesla-optimus.md) | Research (closed) | Tesla | ~1.73 m | No price; **production began at Fremont** (Q3 2026) | Vertically integrated, FSD-derived |
 | **[Figure 03](../../entities/figure-03.md)** | Research (closed) → home | Figure AI | **~1.73 m** / 61 kg | Not for sale; 350+ built | **[Helix 02](../../entities/helix.md)** (in-house, 3-tier) |
 | [Agile ONE](../../entities/agile-one.md) | Industrial | [Agile Robots](../../entities/agile-robots.md) (Munich) | 1.74 m | Unannounced (integrated-stack) | DeepMind partner; AgileCore |
 | **[Agile ONE SN](../../entities/agile-one-sn.md)** | **Research (reference platform)** | [Agile Robots](../../entities/agile-robots.md) (Munich) | **1.40 m / 43 kg**, 71 DoF incl. 2×20-DoF tactile hands | Unannounced; available early 2027 | **NVIDIA GR00T 1.7 preconfigured**, Jetson Thor; NVIDIA's named reference humanoid |
@@ -26,13 +26,15 @@ Companion to [Robot platforms — comparison](robot-platforms-comparison.md) foc
 | [Fourier GR-1](../../entities/fourier-gr-1.md) | Research (GR00T eval platform) | Fourier Intelligence (Shanghai) | not documented here | not documented here | NVIDIA GEAR's main real-robot platform for [GR00T N1](../../sources/groot-n1-paper.md) and [DreamDojo](../../sources/dreamdojo-paper.md) |
 | [Tien Kung](../../entities/tien-kung.md) | Research (dataset embodiment) | X-Humanoid (Beijing Innovation Center of Humanoid Robotics) | not documented here | not documented here | Dual dexterous hands; 15,187 [RoboMIND](../../entities/robomind.md) trajectories |
 | [EngineAI T800](../../entities/engineai-t800.md) | Affordable / heavy-duty | [EngineAI](../../entities/engineai.md) (Shenzhen) | 1.73 m | ~PM01 sibling <$15k tier | Open; combat-league testbed |
-| [1X NEO](../../entities/1x-neo.md) | Research / household (closed) | 1X Technologies | ~1.65 m | Pre-orders ~$20k+ | OpenAI-aligned FM |
+| [1X NEO](../../entities/1x-neo.md) | Household (closed) | 1X Technologies | ~1.68 m / 30 kg | **$20,000 or $499/mo**; no confirmed delivery as of mid-October | Redwood AI, with scheduled remote experts |
 | [Apptronik Apollo](../../entities/apptronik-apollo.md) | Research / industrial | Apptronik | ~1.73 m | Industrial pilots | NVIDIA-aligned ([GR00T](../../entities/nvidia-groot.md)) |
 | [Digit](../../entities/digit.md) | Industrial (deployed) | Agility Robotics | ~1.75 m | Pilot pricing | Narrow-task BC |
 | **[Walden](../../entities/walden-robotics.md)** (unnamed) | Industrial (deployed) | Walden Robotics (Cambridge MA) | **wheeled — no legs** | Selling; undisclosed | [LBMs](../../concepts/learning/large-behavior-models.md) + [Diffusion Policy](../../entities/diffusion-policy.md) |
 | **[Phantom](../../entities/foundation-robotics.md)** | **Military / industrial** | Foundation Future Industries | 1.8 m / 80 kg / 29 DoF | Claimed production; ~$100k target | Hybrid IL + physics models; RL locomotion (vendor claim, no evaluation) |
 | [Unitree H1](../../entities/unitree-h1.md) | Affordable research | Unitree Robotics | ~1.8 m | ~$90k starter | Open SDK, user-supplied AI |
+| [Unitree H2](../../entities/unitree-h2.md) | Affordable full-size research | Unitree Robotics | 1.82 m / ~70 kg, 31 DoF | **$29,900** without SDK or hands; EDU by quote | Open SDK on EDU, user-supplied AI |
 | [Unitree G1](../../entities/unitree-g1.md) | Affordable research / educational | Unitree Robotics | ~1.32 m | from $13.5K | Open SDK, user-supplied AI |
+| [Unitree R1](../../entities/unitree-r1.md) | Low-cost educational / research | Unitree Robotics | 1.23 m / 27–29 kg, 20–26 DoF | **From $4,900**; EDU $10,500 | SDK on EDU only |
 | [Booster T1](../../entities/booster-t1.md) | Affordable research | Booster Robotics (China) | not documented here | not documented here | Second validation robot (with G1) in NVIDIA's [WBC-AGILE](../../sources/wbc-agile-github.md) |
 | [Galaxea R1 / R1 Pro](../../entities/galaxea-r1.md) | Research (wheeled humanoid) | Galaxea | 0–200 cm working height; 24 DoF; 5 kg payload | Not stated | [GR00T N1.6](../../sources/groot-n1_6.md) data embodiment; [Robostral Navigate](../../sources/robostral-navigate-paper.md) demo platform |
 | [Reachy 2](../../entities/reachy.md) | Research (wheeled humanoid) | [Pollen Robotics](../../entities/pollen-robotics.md) (France) | torso on wheels | Higher tier | Open source, ROS 2, embodied-AI development |
@@ -45,19 +47,21 @@ Companion to [Robot platforms — comparison](robot-platforms-comparison.md) foc
 ## By tier
 
 ### Closed-development research humanoids (Atlas, Optimus, Figure 03, 1X)
-The **flagship-capability tier** — Atlas (parkour, dexterous manipulation), Tesla Optimus (vertical FSD-derived stack), [Figure 03](../../entities/figure-03.md) ([Helix 02](../../entities/helix.md)), 1X NEO (household OpenAI-aligned). All four are characterized by:
+The **flagship-capability tier** — Atlas (parkour, dexterous manipulation), Tesla Optimus (vertical FSD-derived stack), [Figure 03](../../entities/figure-03.md) ([Helix 02](../../entities/helix.md)), 1X NEO (household, Redwood AI). All four are characterized by:
 
 - **Vendor-only access.** No academic units sold; capability claims are vendor-published.
 - **Industrial / commercial pilots first.** BMW (Figure), Mercedes-Benz (Apptronik), Hyundai factory (Atlas), Tesla factory (Optimus). Consumer comes later.
-- **AI strategy varies wildly.** Tesla = vertical, Figure = in-house Helix VLA, 1X = OpenAI-aligned, Apptronik = NVIDIA GR00T partner.
+- **AI strategy varies wildly.** Tesla = vertical, Figure = in-house Helix VLA, 1X = in-house Redwood, Apptronik = NVIDIA GR00T partner.
+
+**2026 status.** [Atlas](../../sources/boston-dynamics-atlas-production-launch.md) moved to a production version, with 2026 output committed to Hyundai and Google DeepMind and outside customers planned for early 2027. Tesla says [Optimus production](../../sources/tesla-q3-2026-optimus-report.md) has begun at Fremont, with no rate, count or price. NEO is on [pre-order](../../sources/1x-neo-order-page.md), with no customer delivery confirmed as of mid-October.
 
 **Figure 03 is now the best-documented member of this tier** — not because Figure publishes results (it publishes none) but because it publishes *manufacturing*. See [Figure 03: the one closed humanoid with a paper trail](#figure-03-the-one-closed-humanoid-with-a-paper-trail) below.
 
 ### Industrial-deployed humanoids (Digit)
 **[Digit](../../entities/digit.md)** is the outlier — Agility Robotics has Digit in **active commercial deployment at GXO Logistics and Amazon trials**, not just pilots. Narrow-task scope (warehouse package handling) is the price for getting to deployment first.
 
-### Affordable research humanoids (Unitree H1, G1, Booster T1)
-The **price-floor tier**. [H1](../../entities/unitree-h1.md) at ~$90k and [G1](../../entities/unitree-g1.md) from $13.5K are the only humanoids cheap enough for individual research labs to acquire without specialized funding. Open SDKs, user-supplied AI. Rapid 2024–2026 academic adoption for locomotion / RL papers. [Booster T1](../../entities/booster-t1.md) is the only other robot in the wiki used as a whole-body-control benchmark next to the G1 ([WBC-AGILE](../../sources/wbc-agile-github.md)). Its price and specs are not documented here.
+### Affordable research humanoids (Unitree H1, H2, G1, R1, Booster T1)
+The **price-floor tier**. [H1](../../entities/unitree-h1.md) at ~$90k and [G1](../../entities/unitree-g1.md) from $13.5K were the first humanoids cheap enough for individual research labs to acquire without specialized funding. [H2](../../entities/unitree-h2.md) ($29,900) and [R1](../../entities/unitree-r1.md) (from $4,900) extend the range in both directions. **Across the line, the listed price usually excludes secondary development**, so a lab should budget for the EDU quote ([G1](../../sources/unitree-g1-product-page.md), [H2 and R1](../../sources/unitree-h2-r1-product-pages.md)). Open SDKs, user-supplied AI. Rapid 2024–2026 academic adoption for locomotion / RL papers. [Booster T1](../../entities/booster-t1.md) is the only other robot in the wiki used as a whole-body-control benchmark next to the G1 ([WBC-AGILE](../../sources/wbc-agile-github.md)). Its price and specs are not documented here.
 
 ### Research reference and developer humanoids (Agile ONE SN, Fauna Sprout, Fourier GR-1, Tien Kung)
 
@@ -190,18 +194,20 @@ Nobody in the affordable or educational tiers is doing either, which is worth no
 - **Japan**: AIST HRP series, Toyota T-HR3, Kawasaki Kaleido — historically strong but lower visibility in 2024–2026 vs the US-China dynamic.
 
 ### Price stratification (2026)
-- **Internal-only tier**: Atlas, Optimus, **Figure 03** (vendor doesn't sell — Figure has built 350+ and priced none).
+- **Not openly sold**: **Atlas** (committed through 2026, outside customers early 2027), Optimus, **Figure 03** (vendor doesn't sell — Figure has built 350+ and priced none).
 - **Selling, price undisclosed**: **Walden** — has customers and a Toyota deployment, publishes no price. **Fauna Sprout** — quote only.
 - **Announced, price undisclosed**: **[Agile ONE SN](../../entities/agile-one-sn.md)** — due early 2027. **Agile ONE** — series production from early 2026, no price.
 - **$50k–$100k tier**: H1, Apollo (limited availability).
-- **$15k–$25k tier**: G1, NEO Beta.
+- **$25k–$50k tier**: H2 ($29,900, without SDK or hands).
+- **$13k–$25k tier**: G1 ($13,500; Pro $21,500; EDU by quote), NEO ($20,000).
+- **$4k–$11k tier**: R1 ($4,900–$10,500).
 - **$8k–$15k tier**: NAO V6.
 - **<$1k tier**: TonyPi (educational kit).
 
 > [!note] Adjacent, not humanoid: wheeled "semi-humanoids" (added 2026-10-07)
 > Launch press calls [Flourish 1](../../entities/flourish-1.md) ($3,555) a humanoid. It is a wheeled two-arm mobile manipulator, like [NORI A3](../../entities/nori-a3.md) ($1,688) and [Sourccey](../../entities/sourccey.md). They are left out of the tiers above. Counting them would put a **sub-$5k consumer home tier** under the G1, and that tier is getting crowded. [Zeroth M1](../../entities/zeroth-m1.md) ($2,499) is the nearest to a humanoid in it: a 49 cm, 20-DoF companion that can walk, though at 0.05 m/s, so its wheels do the real travelling. It has no published payload and no manipulation claims.
 
-There is **no $25k–$50k tier**. The market is bifurcating into "expensive enterprise" vs "cheap research / educational" with little middle.
+The May version of this page said there was no $25k–$50k tier. **H2 now sits in it**, though the EDU configuration a lab needs is quote-only. The market is still split between expensive enterprise machines and cheap research and educational ones.
 
 > [!note] The internal-only tier is no longer synonymous with "prototype"
 > Added 2026-08-28. Figure 03 sits in the unpriced tier while being manufactured at **one unit per hour** with an 80% first-pass yield. Unpriced now means *not yet sold*, not *not yet buildable* — a distinction that did not need making when this section was written.
@@ -215,6 +221,8 @@ The ingested literature skews toward **academic JEPA / VLA / world-model work** 
 
 ## What's still missing from this wiki
 
+- **NEURA 4NE1** — [vendor page](https://neura-robotics.com/products/4ne1/) offers reservation only (180 cm, 80 kg, 10–20 kg payload). No entity page.
+- **GigaAI SeeLight S1, Noetix Bumi, UBTech home humanoids** — reported in press, with no primary ingested. Treat as leads.
 - **AGIBOT humanoid hardware** — [company](../../entities/agibot.md) is filed but the specific humanoid platforms (A2, X1, X2) aren't separate entities yet.
 - **Specs for the paper-embodiment humanoids.** [Fourier GR-1](../../entities/fourier-gr-1.md), [Booster T1](../../entities/booster-t1.md) and [Tien Kung](../../entities/tien-kung.md) are filed, but only as robots that papers used. None has a vendor source. Fourier GR-2 is unfiled.
 - **LimX CL-2 / CL-3** — affordable Chinese humanoids. ([EngineAI](../../entities/engineai.md) + its [T800](../../entities/engineai-t800.md) are now filed; SA01/SE01/PM01-front-flip still unfiled.)
@@ -229,6 +237,7 @@ The ingested literature skews toward **academic JEPA / VLA / world-model work** 
 ## Sources used in this synthesis
 
 - Per-platform entity pages: [Walden Robotics](../../entities/walden-robotics.md), [Atlas](../../entities/atlas.md), [Tesla Optimus](../../entities/tesla-optimus.md), [Figure](../../entities/figure.md) / [Figure 03](../../entities/figure-03.md) / [Helix](../../entities/helix.md) / [BotQ](../../entities/botq.md), [1X NEO](../../entities/1x-neo.md), [Apptronik Apollo](../../entities/apptronik-apollo.md), [Digit](../../entities/digit.md), [Unitree H1](../../entities/unitree-h1.md), [Unitree G1](../../entities/unitree-g1.md), [NAO](../../entities/nao.md), [TonyPi](../../entities/tonypi.md), [Booster T1](../../entities/booster-t1.md), [Fourier GR-1](../../entities/fourier-gr-1.md), [Tien Kung](../../entities/tien-kung.md), [Fauna Robotics](../../entities/fauna-robotics.md), [Galaxea R1](../../entities/galaxea-r1.md), [Reachy 2](../../entities/reachy.md), [Zeroth M1](../../entities/zeroth-m1.md).
+- **Added 2026-11-08:** [Atlas production launch](../../sources/boston-dynamics-atlas-production-launch.md) · [Tesla Q3 report](../../sources/tesla-q3-2026-optimus-report.md) · [Unitree H2 and R1](../../sources/unitree-h2-r1-product-pages.md) · [Unitree G1 and G1-D](../../sources/unitree-g1-product-page.md) · [1X NEO order page](../../sources/1x-neo-order-page.md).
 - **Agile ONE SN (added 2026-10-22):** [Agile Robots launches Agile ONE SN](../../sources/agile-robots-agile-one-sn-launch.md) · [NVIDIA advances Isaac platform (GTC Berlin)](../../sources/nvidia-isaac-platform-gtc-berlin-2026.md).
 - Adjacent ingested context: [GR00T](../../entities/nvidia-groot.md) (NVIDIA's VLA targeting humanoids), [AGIBOT](../../entities/agibot.md) (Chinese embodied-AI company with humanoid line), [substrate-convergence synthesis](../simulators/newton-openusd-substrate-convergence.md) (notes on closed industrial stacks).
 - **Walden (added 2026-08-28):** [Walden Robotics Partners With Toyota on Practical Humanoids (IEEE Spectrum)](../../sources/ieee-spectrum-walden-practical-humanoids.md) · [Walden Robotics — Launch from Stealth](../../sources/walden-robotics-launch.md).
@@ -237,4 +246,5 @@ The ingested literature skews toward **academic JEPA / VLA / world-model work** 
 ## Related
 
 - [Robot platforms — comparison](robot-platforms-comparison.md) — companion synthesis covering non-humanoid robots in the wiki.
+- [Household robots compared](household-robots-comparison.md) — research and consumer evaluation of home robots, including NEO and G1.
 - [index.md](../../index.md) — Robot platforms section.

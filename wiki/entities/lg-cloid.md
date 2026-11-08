@@ -16,7 +16,7 @@ Two 7-DOF arms with five-fingered hands on a tilting torso and wheeled base, int
 
 ## Related
 
-- [Household robot decision](../syntheses/platforms/household-robot-decision-stretch-vs-g1.md)
+- [Household robot decision](../syntheses/platforms/household-robots-comparison.md)
 
 ## Mentioned in
 

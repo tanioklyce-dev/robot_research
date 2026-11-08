@@ -20,7 +20,7 @@ The vendor says global deliveries have begun and calls Panther the first service
 
 ## Related
 
-- [Galaxea R1](galaxea-r1.md) · [Household robot decision](../syntheses/platforms/household-robot-decision-stretch-vs-g1.md)
+- [Galaxea R1](galaxea-r1.md) · [Household robot decision](../syntheses/platforms/household-robots-comparison.md)
 
 ## Mentioned in
 

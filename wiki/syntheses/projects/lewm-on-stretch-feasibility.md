@@ -91,7 +91,7 @@ The headline result would be: **"JEPA cost-function planning vs BC behavior clon
 ## Related
 
 - [LeWM on ROSOrin Pro — feasibility analysis](lewm-on-rosorin-pro-feasibility.md) — companion analysis for the educational-tier alternative.
-- [Household robot decision — Stretch vs Unitree G1](../platforms/household-robot-decision-stretch-vs-g1.md) — adjacent buying-decision context for picking Stretch.
+- [Household robot decision — Stretch vs Unitree G1](../platforms/household-robots-comparison.md) — adjacent buying-decision context for picking Stretch.
 - [JEPA task capabilities](../world-models/jepa-task-capabilities.md) — what LeWM and other JEPA models can demonstrate.
 - [Why JEPA research skips the simulator stack](../world-models/why-jepa-research-skips-the-simulator-stack.md) — broader context for JEPA-on-real-robot work.
 - [Sim-heavy vs real-data paths to generalist policies](../simulators/sim-heavy-vs-real-data-paths.md) — RUM is path C in that synthesis.

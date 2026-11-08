@@ -3,8 +3,8 @@ title: Atlas
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-05-10
-sources: 1
+updated: 2026-11-08
+sources: 2
 tags: [atlas, boston-dynamics, humanoid, bipedal, research, hyundai]
 status: stub
 ---
@@ -21,6 +21,10 @@ status: stub
 - **Highest-profile capability demos** in the field — parkour, dance, dexterous manipulation, gymnastics. The capability bar against which other humanoids get measured.
 - **Closed development.** Boston Dynamics doesn't sell Atlas hardware; academic access is essentially zero. Capability claims are vendor-released, not independently reproduced.
 - **Industrial pilot strategy.** Atlas is being deployed inside Hyundai factories and via Magna; the strategy is automotive-manufacturing first, not consumer / lab.
+
+## Production status (2026)
+
+The product version was announced on 2026-01-05 at 1.9 m, 90 kg, 56 DoF, with 30 kg sustained capacity. 2026 output is committed to Hyundai and Google DeepMind, with other customers planned for early 2027. No price is published ([Boston Dynamics](../sources/boston-dynamics-atlas-production-launch.md)).
 
 ## Related
 - [Boston Dynamics](boston-dynamics.md) — manufacturer.

@@ -3,8 +3,8 @@ title: Tesla Optimus
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-05-08
-sources: 0
+updated: 2026-11-08
+sources: 1
 tags: [optimus, tesla, humanoid, bipedal, closed-development]
 status: stub
 ---
@@ -21,6 +21,10 @@ status: stub
 - **Vertically-integrated stack.** Tesla controls hardware, vision, and AI training. Different from Boston Dynamics (manipulator-first hardware) or Figure (AI-foundation-first with OpenAI partnership).
 - **Closed development.** Like Atlas, Optimus is internal-only — no academic / research version. No published research papers attached.
 - **Manufacturing strategy.** Targeted at Tesla factories first (Gigafactory deployments announced 2024–2025), with consumer aspirational pricing in the $20k–$30k range.
+
+## Production status (2026)
+
+Tesla's Q3 2026 Update says production began on high-volume lines at Fremont. It gives no rate, unit count, price or external sale date, and does not name the hardware version ([Tesla North, quoting Tesla](../sources/tesla-q3-2026-optimus-report.md)).
 
 ## Related
 - Tesla — manufacturer.

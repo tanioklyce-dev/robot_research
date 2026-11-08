@@ -120,6 +120,6 @@ Decision framing for an independent researcher or small lab:
 - [Long-term in-home robot deployments](long-term-in-home-robot-deployments.md) — what the in-home deployment record actually shows.
 - [Levels of autonomy in assistive robotics](levels-of-autonomy-in-assistive-robotics.md) — the design pattern that runs on top of Stretch.
 - [Robot platforms — comparison](../platforms/robot-platforms-comparison.md) — at-a-glance comparison of every platform in the wiki.
-- [Household robot decision — Stretch vs Unitree G1](../platforms/household-robot-decision-stretch-vs-g1.md) — adjacent buying-decision context.
+- [Household robot decision — Stretch vs Unitree G1](../platforms/household-robots-comparison.md) — adjacent buying-decision context.
 - [LeWM on Stretch — feasibility analysis](../projects/lewm-on-stretch-feasibility.md) — Stretch as a research substrate for JEPA work.
 - [DINO-WM on Stretch — concrete experiment plan](../projects/dino-wm-on-stretch-experiment.md) — concrete next-experiment plan on this platform.

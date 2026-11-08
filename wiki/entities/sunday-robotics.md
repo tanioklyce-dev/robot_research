@@ -24,7 +24,7 @@ Memo is the wiki's clearest vendor demonstration of the dishes task, and it is a
 ## Related
 
 - [Weave Robotics](weave-robotics.md) · [1X NEO](1x-neo.md) · [UMI](umi.md)
-- [Household robot decision](../syntheses/platforms/household-robot-decision-stretch-vs-g1.md)
+- [Household robot decision](../syntheses/platforms/household-robots-comparison.md)
 
 ## Mentioned in
 

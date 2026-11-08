@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-09-11
 updated: 2026-11-08
-sources: 5
+sources: 6
 tags: [unitree, china, humanoid, quadruped, hardware, foundation-model, unifolm]
 ---
 
@@ -16,6 +16,8 @@ tags: [unitree, china, humanoid, quadruped, hardware, foundation-model, unifolm]
 - [Unitree Go1](unitree-go1.md) — 2021 quadruped ($2.7k Air / $3.5k Pro / Edu); the cross-embodiment test body of the Berkeley navigation line (ViNT, MBRA, OmniVLA).
 - [Unitree Go2](unitree-go2.md) — current quadruped tier (~$1.6k Air to ~$17k EDU); the robot in Anthropic's Project Fetch.
 - [Unitree H1](unitree-h1.md) — full-size research humanoid (~$90k).
+- [Unitree H2](unitree-h2.md) — full-size biped, $29,900 without SDK or hands; EDU by quote.
+- [Unitree R1](unitree-r1.md) — small biped from $4,900; R1 EDU $10,500.
 - [Unitree Z1](unitree-z1.md) — 6-DoF force-controlled arm (2022); the single/dual-arm platform in [WMA-0](../sources/unifolm-wma-0-project-page.md)'s demos and datasets.
 - [Unitree G1](unitree-g1.md) — from $13.5K without SDK; EDU by quote; the default humanoid for whole-body-control papers (SONIC, ASAP, BumbleBee, LocoFormer) and for GR00T's `UNITREE_G1_SONIC` embodiment.
 
