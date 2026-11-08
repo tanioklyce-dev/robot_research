@@ -2,8 +2,8 @@
 title: Robot Security (Robot Cybersecurity)
 type: concept
 created: 2026-07-15
-updated: 2026-09-29
-sources: 14
+updated: 2026-11-08
+sources: 18
 tags: [robot-security, cybersecurity, ros2, security-assessment, alias-robotics, rsf, misra, safety-vs-security]
 ---
 
@@ -49,6 +49,21 @@ And one invariant the post states that machinery safety already knew: *"a missin
 [OpenShell](../../entities/nvidia-openshell.md) 0.1.0 is now open source, and it inspects **MCP** traffic from outside the agent's sandbox ([walkthrough](../../sources/nvidia-openshell-runtime-controls-blog.md)). That is the first concrete way to move an MCP-to-ROS bridge's policy checks below the authority boundary. The launch names **Figure, Gecko Robotics and Skild AI** as building with it and claims scope over *"the robotics systems that execute tasks in the physical world"* ([newsroom](../../sources/nvidia-newsroom-open-agent-safety-platform.md)). No document explains how.
 
 The new hardware layer, **[Sentry](../../entities/nvidia-sentry.md)** on BlueField-4, rests on the principle *"the path to the model is the control point"* ([Sentry blog](../../sources/nvidia-open-agent-safety-platform-sentry-blog.md)). On a robot that path is a network hop only for the **planner**. An on-device VLA has no hop, and no Jetson has a DPU ([DOCA page](../../sources/nvidia-doca-developer-page.md)). The **control** layer's out-of-band enforcer is the one machinery safety already specified, a safety controller on the actuator path. NVIDIA ships it too, as [Halos](../../entities/nvidia-halos.md)'s **Functional Safety Island** on IGX Thor ([Halos blog](../../sources/nvidia-halos-robotics-blog.md)). The two NVIDIA stacks, agent security (OpenShell/Sentry) and functional safety (Halos), are **not connected in any NVIDIA document**. Whether a runtime policy decision can reach the safety island is the robot-specific integration question.
+
+## A humanoid assessed across the layers
+
+[Alias's Unitree G1 assessment](../../sources/cai-humanoid-robots-attack-vectors-paper.md) touches all four RSF layers on a shipping humanoid: exposed debug ports (Physical), unencrypted DDS and disabled certificate checks (Network), a fleet-wide static configuration key on an end-of-life ROS 2 Foxy base (Firmware), and undisclosed telemetry (Application).
+
+The lesson for this wiki is about reading such reports. The paper confirms outbound **health and state** data, but says it could not confirm the audio and video channels it warns about, and its offensive-agent test stopped before authenticated access. Treat the Bluetooth root flaw, added in the paper's third version from independent research, and the static-key and local-network findings as the solid ones. The practical advice is the same either way: **put these robots on an isolated network.**
+
+> [!note] Why this matters for home data collection
+> [HIW-500](../../entities/hiw-500.md) collected G1 teleoperation data in 12 homes. A robot publishing audio, video and LiDAR on an unencrypted local bus is a privacy consideration for any in-home deployment, whatever leaves the building.
+
+## Consumer robots: the failures are basic
+
+[Alias's consumer-robot study](../../sources/cai-hacking-consumer-robots-paper.md) reports no authentication on Bluetooth control, shared fleet credentials and unsigned firmware across a lawnmower, a powered exoskeleton and a window cleaner. On a robot these failures can reach physical motion, which is the argument for treating them differently from ordinary IoT flaws. The study's claim that AI removes the need for expertise was not tested, because specialists operated the agent.
+
+Alias also [catalogues earlier disclosures](../../sources/alias-robotics-research-page.md) against MiR mobile robots, ROS 2's DDS implementations and Universal Robots. These are self-reported but cite CISA advisories, so they can be checked. Its on-robot defence, the [Robot Immune System](../../entities/robot-immune-system.md), is marketed as adaptive, while its own paper calls the approach static and rule-based.
 
 ## The supply chain, which this wiki's robots are in
 

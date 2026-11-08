@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-09-13
 updated: 2026-09-13
-sources: 5
+sources: 6
 tags: [rk3588, rockchip, soc, arm, npu, edge-ai, single-board-computer, onboard-compute, memory-bandwidth]
 ---
 

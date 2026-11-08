@@ -6579,3 +6579,29 @@ Structure was sound: **0 broken file links, 0 orphans, 0 schema violations, all 
 - New entities: [Tau Robotics](entities/tau-robotics.md), [Tuesday Labs](entities/tuesday-labs.md), [Blue Collar Robotics](entities/blue-collar-robotics.md), [Galbot](entities/galbot.md), [Dreame Cyber 10 Ultra](entities/dreame-cyber10-ultra.md), [YOR](entities/yor.md), [TidyBot++](entities/tidybot-plus-plus.md). New concept: [Retail and grocery robotics](concepts/robotics/retail-and-grocery-robotics.md).
 - **Contradictions filed** on [Tau](sources/tau-robotics-service-site.md): autonomy (terms against FAQ and co-founder), whether robots hear residents (FAQ against privacy policy), and price ($30 in press, $50 in terms).
 - **Limits:** all 13 sources are saved in `raw/` and sealed. The nine web captures are extracted text, so `--check` cannot re-verify them. Dreame rests on secondaries because no vendor page was found. Galbot, Blue Collar and Simbe figures are company claims.
+
+## [2026-11-08] ingest | Cybersecurity AI: Humanoid Robots as Attack Vectors (2509.14139v2)
+- Created [source page](sources/cai-humanoid-robots-attack-vectors-paper.md) and [CAI](entities/cai-cybersecurity-ai.md). Updated [Unitree G1](entities/unitree-g1.md), [Alias Robotics](entities/alias-robotics.md), [Robot security](concepts/robotics/robot-security.md) and [Household robots compared](syntheses/platforms/household-robots-comparison.md).
+- **Claims narrowed.** The capture confirms outbound health and state telemetry. The authors say they could not confirm the audio and video channels, and the authenticated exploitation step was withheld.
+- **Unexplained in the paper:** 4.6 KB every 300 seconds is about 123 bit/s, against a reported 1.03 Mbps.
+- Recovered keys and exploit strings are not reproduced in wiki text. v3 exists and adds the BLE root flaw (UniPwn); v2 is the ingested edition, as requested.
+
+## [2026-11-08] ingest | Humanoid Robots as Attack Vectors, updated to v3
+- [Source page](sources/cai-humanoid-robots-attack-vectors-paper.md) now records v3 (2509.14139v3), which adds the Bluetooth provisioning root flaw (UniPwn) and two co-authors. v2 is kept in an Edition history section.
+- **Both editions are referenced by URL only, at the owner's direction.** No PDF is kept in `raw/`, so this page has no `sha256` and drift cannot be checked. This supersedes the earlier entry's note that v2 was the ingested edition.
+- Read [Alias Robotics' robotics page](https://aliasrobotics.com/robotics.php); added its services and products to [Alias Robotics](entities/alias-robotics.md).
+
+## [2026-11-08] ingest | Alias Robotics consumer-robot study and research record
+- Created [Hacking Consumer Robots](sources/cai-hacking-consumer-robots-paper.md) (2603.08665v2), [Alias research record](sources/alias-robotics-research-page.md), [Hookii Neomow](entities/hookii-neomow.md), [Hypershell X](entities/hypershell-x.md) and [HOBOT S7 Pro](entities/hobot-s7-pro.md). Updated [CAI](entities/cai-cybersecurity-ai.md), [Alias Robotics](entities/alias-robotics.md), [Robot security](concepts/robotics/robot-security.md), [Assistive robotics](concepts/robotics/assistive-robotics.md) and [Household robots compared](syntheses/platforms/household-robots-comparison.md).
+- **Claims narrowed.** "Automated" and "anyone" do not match a method with specialist operators in the loop, and time comparisons were not controlled.
+- **Contradiction filed** on the [research record](sources/alias-robotics-research-page.md): its summary calls the study "fully autonomous" and attributes G1 findings to the exoskeleton.
+- Referenced by URL only, at the owner's direction. No `raw/` copy, so no `sha256` or drift check. Credentials and exploit details are not reproduced.
+
+## [2026-11-08] ingest | Alias Robotics Robot Immune System page
+- Created [RIS product page](sources/alias-robotics-ris-page.md) and [Robot Immune System](entities/robot-immune-system.md). Updated [Alias Robotics](entities/alias-robotics.md) and [Robot security](concepts/robotics/robot-security.md).
+- **Contradiction filed:** the page markets RIS as adaptive, and Alias's [2026 paper](sources/cai-hacking-consumer-robots-paper.md) calls it static and rule-based.
+- Vendor figures are unverified and the page's dated evidence stops in early 2021. Referenced by URL only, with no `raw/` copy.
+
+## [2026-11-08] maintenance | Scope of URL-only sources clarified
+- URL-only applies only to papers containing security keys or other material usable for malicious purposes. [G1 attack vectors](sources/cai-humanoid-robots-attack-vectors-paper.md) and [Hacking Consumer Robots](sources/cai-hacking-consumer-robots-paper.md) stay URL-only.
+- The [Alias research record](sources/alias-robotics-research-page.md) and [RIS page](sources/alias-robotics-ris-page.md) are not in that category, so their text captures are now saved in `raw/` and sealed. This supersedes the URL-only notes in the two earlier Alias entries.

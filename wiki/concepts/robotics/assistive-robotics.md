@@ -3,7 +3,7 @@ title: Assistive Robotics
 type: concept
 created: 2026-05-09
 updated: 2026-09-12
-sources: 50
+sources: 51
 tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot, accessibility]
 ---
 
@@ -88,6 +88,10 @@ The navigation-domain counterpart is [DRAGON (Liu et al. 2024)](../../sources/dr
 
 [Schneiders et al. 2021](../../sources/schneiders2021-domestic-robots-automation.md) — the only ingested study of the *consumer-deployed* domestic-robot category (vacuum, lawnmower, hybrid). Identifies **task fragmentation** (one-task-becomes-many-sub-tasks) and **under-trust → co-located monitoring** patterns that recur in PAR deployments and accessible-communication research.
 
+## Security of body-worn devices
+
+A [security study](../../sources/cai-hacking-consumer-robots-paper.md) of the consumer Hypershell X exoskeleton reported Bluetooth motor commands with no authentication, and the vendor declined to engage. No injury scenario was demonstrated. For devices worn or relied on by disabled or older users, this is a gap the assistive literature in this wiki rarely addresses.
+
 ## Related concepts
 - [Aging in place](aging-in-place.md) — the demand-side / human-needs context that motivates in-home assistive robotics
 - [Accessible robot communication](accessible-robot-communication.md) — output-interface side of HRI for non-visual users
@@ -106,7 +110,7 @@ The navigation-domain counterpart is [DRAGON (Liu et al. 2024)](../../sources/dr
 
 ## Mentioned in
 
-> [!note] Curated list — **50** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **51** source pages link here; the ones below are those that shaped this page.
 
 - [IEEE Spectrum — Stretch assistive robot](../../sources/ieee-spectrum-stretch-assistive.md)
 - [ITU AI for Good — assistive robots](../../sources/itu-aiforgood-assistive-robots.md)

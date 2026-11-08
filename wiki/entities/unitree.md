@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-09-11
 updated: 2026-11-08
-sources: 6
+sources: 7
 tags: [unitree, china, humanoid, quadruped, hardware, foundation-model, unifolm]
 ---
 
