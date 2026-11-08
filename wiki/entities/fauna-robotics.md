@@ -3,7 +3,7 @@ title: Fauna Robotics
 type: entity
 subtype: company
 created: 2026-05-09
-updated: 2026-10-23
+updated: 2026-11-08
 sources: 2
 tags: [fauna-robotics, humanoid, developer-platform, nyc, jetson-agx-orin, sprout]
 ---
@@ -24,7 +24,13 @@ tags: [fauna-robotics, humanoid, developer-platform, nyc, jetson-agx-orin, sprou
 - Safety-first: soft materials, no pinch points, compliant motor control
 
 ## Target market
-Developers and creators building real-world robotics applications. Not consumer-facing directly.
+Developers and creators building real-world robotics applications. Primarily developers and researchers. As of 2026-11-08 the site also lists "Consumer & home" among Sprout's uses, as a personal assistant or family companion, with no chore software described.
+
+## Status (rechecked 2026-11-08)
+
+- **Owner.** "Fauna Robotics has officially joined Amazon," and will keep selling Sprout Creator Edition ([Fauna](../sources/fauna-robotics-sprout.md)).
+- **Availability.** Shipping as a Creator Edition since the 2026-01-27 launch. Early customers named are Disney, Boston Dynamics, UC San Diego and NYU.
+- **Price.** Fauna's pages say only "Request Robot." Press reports put it at about [$50,000](https://humanoid.guide/product/sprout/).
 
 ## Pricing
 Not listed publicly. "Request Robot" form.

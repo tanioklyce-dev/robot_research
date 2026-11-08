@@ -11,6 +11,9 @@ ingested: 2026-05-09
 tags: [fauna-robotics, sprout, humanoid, developer-platform, jetson-agx-orin, nyc]
 ---
 
+> [!note] Rechecked 2026-11-08
+> [Fauna's launch post](https://faunarobotics.com/news/fauna-robotics-launches-sprout-the-easiest-way-to-build-with-humanoids) (2026-01-27) says Sprout is "shipping today as a Creator Edition" and names Disney, Boston Dynamics, UC San Diego and NYU as early customers. The same page now states "Fauna Robotics has officially joined Amazon." The [home page](https://faunarobotics.com/) lists "Consumer & home" as a use. No price is published; press reports say about $50,000.
+
 ## Summary
 Product page for Sprout Creator Edition, Fauna Robotics' humanoid developer platform. 107 cm, 22.7 kg, 29 DOF, powered by NVIDIA Jetson AGX Orin 64GB. NYC-based, American-assembled. Has a linked arXiv technical report.
 

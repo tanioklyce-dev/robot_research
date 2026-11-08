@@ -22,7 +22,7 @@ Companion to [Robot platforms — comparison](robot-platforms-comparison.md) foc
 | **[Figure 03](../../entities/figure-03.md)** | Research (closed) → home | Figure AI | **~1.73 m** / 61 kg | Not for sale; 350+ built | **[Helix 02](../../entities/helix.md)** (in-house, 3-tier) |
 | [Agile ONE](../../entities/agile-one.md) | Industrial | [Agile Robots](../../entities/agile-robots.md) (Munich) | 1.74 m | Unannounced (integrated-stack) | DeepMind partner; AgileCore |
 | **[Agile ONE SN](../../entities/agile-one-sn.md)** | **Research (reference platform)** | [Agile Robots](../../entities/agile-robots.md) (Munich) | **1.40 m / 43 kg**, 71 DoF incl. 2×20-DoF tactile hands | Unannounced; available early 2027 | **NVIDIA GR00T 1.7 preconfigured**, Jetson Thor; NVIDIA's named reference humanoid |
-| [Fauna Sprout Creator Edition](../../entities/fauna-robotics.md) | Research / developer | [Fauna Robotics](../../entities/fauna-robotics.md) (NYC) | 1.07 m / 22.7 kg, 29 DoF | Quote only ("Request Robot") | Jetson AGX Orin 64 GB; modular autonomy, whole-body teleop |
+| [Fauna Sprout Creator Edition](../../entities/fauna-robotics.md) | Research / developer | [Fauna Robotics](../../entities/fauna-robotics.md) (NYC) | 1.07 m / 22.7 kg, 29 DoF | "Request Robot"; about $50k by press reports; now an Amazon company | Jetson AGX Orin 64 GB; modular autonomy, whole-body teleop |
 | [Fourier GR-1](../../entities/fourier-gr-1.md) | Research (GR00T eval platform) | Fourier Intelligence (Shanghai) | not documented here | not documented here | NVIDIA GEAR's main real-robot platform for [GR00T N1](../../sources/groot-n1-paper.md) and [DreamDojo](../../sources/dreamdojo-paper.md) |
 | [Tien Kung](../../entities/tien-kung.md) | Research (dataset embodiment) | X-Humanoid (Beijing Innovation Center of Humanoid Robotics) | not documented here | not documented here | Dual dexterous hands; 15,187 [RoboMIND](../../entities/robomind.md) trajectories |
 | [EngineAI T800](../../entities/engineai-t800.md) | Affordable / heavy-duty | [EngineAI](../../entities/engineai.md) (Shenzhen) | 1.73 m | ~PM01 sibling <$15k tier | Open; combat-league testbed |
@@ -69,7 +69,7 @@ The **price-floor tier**. [H1](../../entities/unitree-h1.md) at ~$90k and [G1](.
 
 These robots are sold or used as **platforms for building AI**, not as workers. They split into two groups.
 
-- **Bought as a platform.** [Agile ONE SN](../../entities/agile-one-sn.md) (1.40 m, 43 kg, due early 2027) is the first humanoid that ships with **NVIDIA's [GR00T](../../entities/nvidia-groot.md) 1.7 and GR00T whole-body control as its factory configuration**, on a 128 GB [Jetson Thor](../../entities/jetson-thor.md) with 20-DoF tactile hands ([Agile release](../../sources/agile-robots-agile-one-sn-launch.md), [NVIDIA release](../../sources/nvidia-isaac-platform-gtc-berlin-2026.md)). It is the same size class as the G1, with a much richer hand and compute stack and no published price. [Fauna Sprout Creator Edition](../../entities/fauna-robotics.md) (1.07 m, 22.7 kg, Jetson AGX Orin) is the smaller US-built option, sold by quote.
+- **Bought as a platform.** [Agile ONE SN](../../entities/agile-one-sn.md) (1.40 m, 43 kg, due early 2027) is the first humanoid that ships with **NVIDIA's [GR00T](../../entities/nvidia-groot.md) 1.7 and GR00T whole-body control as its factory configuration**, on a 128 GB [Jetson Thor](../../entities/jetson-thor.md) with 20-DoF tactile hands ([Agile release](../../sources/agile-robots-agile-one-sn-launch.md), [NVIDIA release](../../sources/nvidia-isaac-platform-gtc-berlin-2026.md)). It is the same size class as the G1, with a much richer hand and compute stack and no published price. [Fauna Sprout Creator Edition](../../entities/fauna-robotics.md) (1.07 m, 22.7 kg, Jetson AGX Orin) is the smaller US-built option, sold on request, at about $50,000 by press reports. Fauna [has joined Amazon](../../sources/fauna-robotics-sprout.md).
 - **Known only as paper embodiments.** [Fourier GR-1](../../entities/fourier-gr-1.md) is NVIDIA GEAR's main real-robot humanoid ([GR00T N1](../../sources/groot-n1-paper.md), [DreamDojo](../../sources/dreamdojo-paper.md)). [Tien Kung](../../entities/tien-kung.md) supplies RoboMIND's dexterous-hand split. The wiki has results on both and specs for neither.
 
 > [!note] What "reference humanoid" changes
@@ -195,7 +195,7 @@ Nobody in the affordable or educational tiers is doing either, which is worth no
 
 ### Price stratification (2026)
 - **Not openly sold**: **Atlas** (committed through 2026, outside customers early 2027), Optimus, **Figure 03** (vendor doesn't sell — Figure has built 350+ and priced none).
-- **Selling, price undisclosed**: **Walden** — has customers and a Toyota deployment, publishes no price. **Fauna Sprout** — quote only.
+- **Selling, price undisclosed**: **Walden** — has customers and a Toyota deployment, publishes no price. **Fauna Sprout** — vendor "Request Robot"; about $50k by press reports.
 - **Announced, price undisclosed**: **[Agile ONE SN](../../entities/agile-one-sn.md)** — due early 2027. **Agile ONE** — series production from early 2026, no price.
 - **$50k–$100k tier**: H1, Apollo (limited availability).
 - **$25k–$50k tier**: H2 ($29,900, without SDK or hands).
