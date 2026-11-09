@@ -52,6 +52,9 @@ A layer-wise interpretability study ([Joseph et al.](../sources/interpreting-phy
 - [JEPA-WMs](jepa-wms.md) — same FAIR group's robot-specific JEPA work, but with sim (Dec 2025).
 
 ## Mentioned in
+
+> [!note] Curated list — 52 source pages link here; the ones below are those that shaped this page.
+
 - [V-JEPA 2 Paper](../sources/v-jepa-2-paper.md)
 - [V-JEPA 2.1 Paper](../sources/v-jepa-2-1-paper.md)
 - [V-JEPA 2 GitHub](../sources/vjepa2-github.md)

@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-06
 updated: 2026-10-24
-sources: 37
+sources: 38
 tags: [simulator, nvidia, omniverse, openusd]
 ---
 
@@ -49,6 +49,9 @@ NVIDIA's own instruction for [RTX Spark](nvidia-rtx-spark.md) is to install the 
 - [NVIDIA](nvidia.md) — vendor.
 
 ## Mentioned in
+
+> [!note] Curated list — 38 source pages link here; the ones below are those that shaped this page.
+
 - [A Sim-to-Real VLA Pipeline with Seeed reBot Arm and NVIDIA Isaac](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) — leader-arm-over-UDP teleop into Isaac Sim 4.5; per-reset domain randomization; LeRobot v3 output.
 - [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)
 - [AGIBOT Genie Sim 3.0 Announcement](../sources/agibot-genie-sim-3-announcement.md)

@@ -3,7 +3,7 @@ title: Household robots compared — for research and for the home today
 type: synthesis
 created: 2026-05-08
 updated: 2026-11-08
-tags: [household-robot, comparison, consumer, research-platform, recommendation, stretch, unitree-g1, 1x-neo, nori-a3, weave-robotics, sunday-robotics, roborock, tau-robotics, grocery, yor, tidybot-plus-plus]
+tags: [household-robot, comparison, consumer, research-platform, recommendation, stretch, unitree-g1, 1x-neo, nori-a3, weave-robotics, sunday-robotics, roborock, tau-robotics, grocery, yor, tidybot-plus-plus, amazon-astro, labrador-systems, starship-technologies]
 ---
 
 # Household robots compared — for research and for the home today
@@ -114,7 +114,8 @@ The test task list is the one this page began with: navigate a home, pick things
 | **Tidying rooms, making beds** | Isaac 1, on pre-order | ❌ **Not delivered.** No customer shipment reported. |
 | **Grocery shopping** | Nothing that shops for you; see [below](#grocery-shopping) | ❌ Sidewalk delivery exists in some areas. |
 | **Dishes** | Nothing purchasable | ❌ Memo shows it, and is in beta at best. |
-| **Fetching and carrying for someone with a disability** | [Stretch](../../entities/stretch.md), mostly teleoperated | ⚠️ **Genuinely useful for a few.** See below. |
+| **Fetching and carrying for someone with a disability** | [Stretch](../../entities/stretch.md), mostly teleoperated. [Labrador](../../entities/labrador-systems.md) designed a tray-fetching cart for this, but its availability is unconfirmed | ⚠️ **Genuinely useful for a few.** See below. |
+| **Remote home monitoring** | [Amazon Astro](../../entities/amazon-astro.md), by invitation | ⚠️ **Real, limited.** No arm, few thousand shipped, future unclear. Amazon has moved much of the team to a new project. |
 | **Companionship and play** | [Microduck](../../entities/microduck.md), [Reachy Mini](../../entities/reachy-mini.md), Go2 | ⚠️ **Fun, not useful in the chore sense.** |
 | **Cooking, opening cans** | Nothing | ❌ |
 
@@ -146,7 +147,7 @@ The test task list is the one this page began with: navigate a home, pick things
 | **Stock shelves** | [Stretch 3 research system](../../sources/pixels-to-shelf-paper.md); [Galbot G1](../../sources/galbot-g1-product-page.md) claims | Over 98% per object and 87% per task in a mock supermarket, cans and small boxes only | Invisible |
 | **Pick your online order in a store** | [Blue Collar Robotics](../../entities/blue-collar-robotics.md), human-piloted | About 120 items an hour on the prototype, one person per robot ([Utah Business](../../sources/utah-business-blue-collar-robotics.md)); paid trials planned for Q4 2026 ([company](../../sources/blue-collar-robotics-site.md)) | Not available |
 | **Shop autonomously from a list** | [TRI's TTT](../../sources/tri-grocery-mobile-manipulation-paper.md), research only | Best result 35.7% of runs and 28.9% of listed items | Not available |
-| **Bring groceries to your door** | Sidewalk robots such as Starship | Starship says it is moving more than 1,200 robots to grocery and restaurant delivery ([Fox News](https://www.foxnews.com/tech/starship-delivery-robots-leave-campuses-cities)) | ⚠️ Only where a retailer offers it; someone still carries it inside |
+| **Bring groceries to your door** | Sidewalk robots such as [Starship](../../entities/starship-technologies.md) | Starship reports 10 million total deliveries and is moving more than 1,200 robots to grocery; S Group says robots handle up to 20% of its online orders in Finland ([Starship](../../sources/starship-grocery-press-releases.md)) | ⚠️ Only where a retailer offers it; someone still carries it inside |
 | **Carry bags beside you** | Follow-me carriers such as Piaggio Gita | [Studied with older adults](https://www.eurekalert.org/news-releases/1000101); current availability not checked | Unknown |
 
 **For research, TRI's field tests are the reference result.** Across six tests in an unmodified store over 18 months, speed improved to under two minutes per item. The robot still finished only about a third of runs, working at night and excluding produce, refrigerated goods, glass and items over 4.5 kg. Those exclusions cover much of a real shopping list.
@@ -155,7 +156,7 @@ The test task list is the one this page began with: navigate a home, pick things
 
 **Two patterns recur.** Suction appears in TRI's and Blue Collar's designs and as a Galbot option, because tight shelves favour it. The nearest commercial efforts also keep a person in the loop, as Tau does in homes.
 
-See also [Retail and grocery robotics](../../concepts/robotics/retail-and-grocery-robotics.md). Two simulation benchmarks, RoboBenchMart and [MarketGen](https://arxiv.org/abs/2511.21161), have not been reviewed here.
+See also [Retail and grocery robotics](../../concepts/robotics/retail-and-grocery-robotics.md). Two simulated benchmarks agree with the field results. [RoboBenchMart](../../sources/robobenchmart-paper.md) found zero success on multi-step tasks for fine-tuned generalist policies, and [MarketGen](../../sources/marketgen-paper.md) kept modular LLM agents below 15%.
 
 ## When these answers should change
 
@@ -169,6 +170,7 @@ See also [Retail and grocery robotics](../../concepts/robotics/retail-and-grocer
 ## Edition history
 
 - **2026-11-08 (patch check).** Updated Unitree patch status from CVE records and researcher disclosures.
+- **2026-11-08 (Astro, Labrador and grocery benchmarks).** Added Astro and Labrador to the chore table, reviewed both grocery benchmarks, and replaced a press citation for Starship with its own releases.
 - **2026-11-08 (grocery and service).** Added a grocery section, the Tau cleaning service, Voxel, Dreame Cyber 10 Ultra, Galbot G1, YOR and TidyBot++, after a market search found them missing.
 - **2026-11-08 (audit).** Added Fauna Sprout and other omissions after checking every robot entity page against this list.
 - **2026-11-08 (reframed).** Renamed from "Household robot decision — Stretch vs Unitree G1" and rebuilt around two lenses, with consumer products added.
@@ -182,6 +184,7 @@ See also [Retail and grocery robotics](../../concepts/robotics/retail-and-grocer
 - [NORI A3 site](../../sources/nori-robotics-site.md), [Flourish site](../../sources/flourish-robots-website.md), [Sourccey site](../../sources/vulcan-robotics-sourccey-site.md), [TIAGo Pro](../../sources/pal-tiago-pro-product-page.md)
 - [Fauna Sprout](../../sources/fauna-robotics-sprout.md), [Nanavati et al. 2025](../../sources/nanavati2025-feeding-out-of-lab.md)
 - [Tau service pages](../../sources/tau-robotics-service-site.md), [MIT Technology Review on Tau](../../sources/mit-technology-review-tau-cleaning.md), [CBS on Tau](../../sources/cbs-news-tau-robotics.md), [Voxel](../../sources/tuesday-labs-voxel-series-1.md), [Engadget on Dreame](../../sources/engadget-dreame-cyber10-ultra.md)
+- [Amazon Astro launch](../../sources/amazon-astro-launch-post.md), [CNBC on Astro](../../sources/cnbc-amazon-home-robot-after-astro.md), [Labrador site](../../sources/labrador-systems-site.md), [Labrador release](../../sources/labrador-first-business-customers-release.md), [Starship releases](../../sources/starship-grocery-press-releases.md), [RoboBenchMart](../../sources/robobenchmart-paper.md), [MarketGen](../../sources/marketgen-paper.md)
 - [TRI grocery field tests](../../sources/tri-grocery-mobile-manipulation-paper.md), [From Pixels to Shelf](../../sources/pixels-to-shelf-paper.md), [Blue Collar site](../../sources/blue-collar-robotics-site.md), [Utah Business](../../sources/utah-business-blue-collar-robotics.md), [Groceryshop 2026](../../sources/robot-report-groceryshop-2026.md), [Galbot G1](../../sources/galbot-g1-product-page.md)
 - [YOR](../../sources/yor-paper.md), [TidyBot++](../../sources/tidybot-plus-plus-paper.md)
 - [1X order page](../../sources/1x-neo-order-page.md), [Weave Isaac 1](../../sources/weave-isaac-1-product-page.md), [eWeek on Isaac 0](../../sources/eweek-weave-isaac-0.md), [Sunday Memo](../../sources/sunday-memo-site.md), [UniX Panther](../../sources/unix-ai-panther-launch.md), [LG CLOiD](../../sources/lg-cloid-ces-2026.md), [SwitchBot onero H1](../../sources/switchbot-onero-h1-listing.md), [Roborock Saros Z70](../../sources/roborock-saros-z70.md)

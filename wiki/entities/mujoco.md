@@ -39,6 +39,9 @@ tags: [mujoco, physics-engine, deepmind, simulation, biomechanics]
 - [MuJoCo Warp](mujoco-warp.md) — the GPU-accelerated implementation, jointly maintained with NVIDIA as part of [Newton](newton-physics-engine.md)
 - [mjlab](mjlab.md) — MuJoCo Warp + `rsl_rl` RL framework; trains [Microduck](microduck.md)'s shipped policies.
 ## Mentioned in
+
+> [!note] Curated list — 32 source pages link here; the ones below are those that shaped this page.
+
 - [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — physics for the entire Anthropic Frontier Red Team robotics evaluation (classic control, Go2, G1, Franka).
 - [MuJoCo Playground Paper](../sources/mujoco-playground-paper.md)
 - [Gymnasium-Robotics Documentation](../sources/gymnasium-robotics-docs.md)

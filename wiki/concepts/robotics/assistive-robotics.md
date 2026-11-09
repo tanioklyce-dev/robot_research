@@ -3,7 +3,7 @@ title: Assistive Robotics
 type: concept
 created: 2026-05-09
 updated: 2026-09-12
-sources: 51
+sources: 54
 tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot, accessibility]
 ---
 
@@ -110,7 +110,7 @@ A [security study](../../sources/cai-hacking-consumer-robots-paper.md) of the co
 
 ## Mentioned in
 
-> [!note] Curated list — **51** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **54** source pages link here; the ones below are those that shaped this page.
 
 - [IEEE Spectrum — Stretch assistive robot](../../sources/ieee-spectrum-stretch-assistive.md)
 - [ITU AI for Good — assistive robots](../../sources/itu-aiforgood-assistive-robots.md)

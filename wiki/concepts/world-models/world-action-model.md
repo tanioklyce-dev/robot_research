@@ -104,6 +104,9 @@ The harness has since grown. [XPolicyLab](../../entities/xpolicylab.md) lists at
 As of mid-2026 the strongest published WAMs are generative-video / diffusion models (Cosmos 3, the Dream* line, GE-Sim2) — i.e. they live on the **pixel-prediction** side of the [generative-video vs JEPA](../../syntheses/world-models/generative-video-vs-jepa-world-models.md) split. Cosmos 3 is the first to show a WAM's policy mode reaching SOTA across **three** benchmarks — a sim benchmark (RoboLab), a real-world crowdsourced one (RoboArena), and a controlled-variation generalization suite ([MolmoSpaces](../../sources/cosmos-3-technical-report.md#molmospaces--the-third-benchmark-added-in-the-june-revision), added in the report's June revision) — the last **without benchmark-specific tuning**. That no-retuning detail is the clearest evidence that the FD+ID+policy unification pays off rather than just adding cost, since it is the cross-benchmark transfer the thesis actually predicts. Whether jointly modeling the visual consequence improves *deployment* robustness over a pure action head, at fixed compute, is not yet isolated.
 
 ## Mentioned in
+
+> [!note] Curated list — 38 source pages link here; the ones below are those that shaped this page.
+
 - [History-Guided Video Diffusion (DFoT)](../../sources/history-guided-video-diffusion-paper.md) — sampling-time score composition (History Guidance) as a control knob for action-conditioned video models; physical-robot IL result (83%) composing memory + reactivity behaviors never co-present in training data.
 - [Cosmos 3 Technical Report](../../sources/cosmos-3-technical-report.md)
 - [Develop Physical AI with NVIDIA Cosmos 3 (HF blog)](../../sources/nvidia-cosmos-3-hf-blog.md)

@@ -53,6 +53,9 @@ status: stub
 
 ## Mentioned in
 
+
+> [!note] Curated list — 32 source pages link here; the ones below are those that shaped this page.
+
 - [A Careful Examination of Large Behavior Models for Multitask Dexterous Manipulation (TRI LBM paper)](../sources/tri-lbm-paper.md)
 - [awesome-physical-ai (GitHub curated list)](../sources/awesome-physical-ai-github.md)
 - [DreamGen — Unlocking Generalization in Robot Learning through Video World Models (paper)](../sources/dreamgen-paper.md)

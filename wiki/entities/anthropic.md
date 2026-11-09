@@ -58,6 +58,9 @@ Anthropic leads the modern **sparse-autoencoder + feature-steering** approach to
 Anthropic is the lead named partner in the **[NVIDIA Open Agent Safety Platform launch](../sources/nvidia-newsroom-open-agent-safety-platform.md)** (2026-09-28). *"Claude Managed Agents establish a security boundary by running the agent loop in a separate server from the sandboxes where their work executes,"* with integrations into [OpenShell](nvidia-openshell.md) and [BlueField](nvidia-bluefield.md) to control access through those sandboxes. Claude Code is also on OpenShell's supported-agent list ([solutions page](../sources/nvidia-open-agent-safety-platform-page.md)). NVIDIA's launch cites frontier-lab incidents as motivation without naming them; Anthropic's own [July incidents](../sources/anthropic-cybersecurity-eval-incidents.md) are among the candidates.
 
 ## Mentioned in
+
+> [!note] Curated list — 30 source pages link here; the ones below are those that shaped this page.
+
 - [Project Fetch: Can Claude train a robot dog?](../sources/anthropic-project-fetch-robot-dog.md) — Frontier Red Team robotics uplift study
 - [Project Fetch: Phase Two](../sources/anthropic-project-fetch-phase-two.md) — the autonomy re-run
 - [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — eleven-model robotics capability evaluation

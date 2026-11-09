@@ -100,6 +100,6 @@ In [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-perfo
 This is worth holding next to the [SONIC](gear-sonic.md)/[MotionBricks](../sources/motionbricks-paper.md)/[BumbleBee](../sources/bumblebee-experts-to-generalist-wbc.md) results on the same robot: purpose-trained [whole-body control](../concepts/robotics/whole-body-control.md) policies achieve 99.2% sim-to-real motion tracking on the G1, while general frontier LLMs cannot get it off the floor. Same hardware, opposite ends of the [abstraction ladder](../concepts/robotics/control-abstraction-levels.md).
 
 ## Open questions / TBD
-- **No Unitree-authored primary source ingested** — specs still from general knowledge; the G1 product page would anchor current numbers. (Now cited by three GR00T sources.)
+- What Unitree's store variant "G1 Pro" adds, which its [product page](../sources/unitree-g1-product-page.md) doesn't explain.
 - Whether G1 transitions to be the de-facto "academic humanoid" the way [Stretch](stretch.md) became the de-facto "academic mobile manipulator." The GR00T line adopting it as its whole-body target is a strong signal in that direction.
 - [GraspGen-X: Cross-Embodiment 6-DOF Diffusion-based Grasping](../sources/graspgenx-paper.md) — the G1 hand as a high-DOF 3-finger grasping embodiment.

@@ -81,8 +81,10 @@ def parse_date(s):
 def targets(path, text):
     """Absolute, normalized link targets from one page."""
     base = os.path.dirname(path)
+    # Inline code can contain regexes or snippets that merely look like links.
+    prose = re.sub(r"`[^`\n]*`", "", text)
     return {
-        os.path.normpath(os.path.join(base, m.group(1))) for m in LINK.finditer(text)
+        os.path.normpath(os.path.join(base, m.group(1))) for m in LINK.finditer(prose)
     }
 
 

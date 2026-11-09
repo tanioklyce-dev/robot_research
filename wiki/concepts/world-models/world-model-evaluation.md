@@ -249,6 +249,9 @@ The same paper adds another case of rollout quality not tracking planning: its b
 
 ## Mentioned in
 
+
+> [!note] Curated list — 40 source pages link here; the ones below are those that shaped this page.
+
 - [Third World Modeling Workshop — Day 2](../../sources/chicago-booth-world-modeling-workshop-2026-day2.md) — the evaluation circularity, and an unused external benchmark.
 - [WorldArena paper](../../sources/worldarena-paper.md) — the perception–functionality gap, measured.
 - [WorldArena 2.0 paper](../../sources/worldarena-2-paper.md) — visuotactile, world-model-as-RL-environment, and the sim-to-real usability gap.

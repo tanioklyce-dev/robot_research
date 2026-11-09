@@ -122,6 +122,9 @@ Perceptual access moves capability as much as control access does: a **compass**
 - [Whole-body control](whole-body-control.md) — the classical answer to what level 1 demands, and why learned WBC policies exist.
 
 ## Mentioned in
+
+> [!note] Curated list — 32 source pages link here; the ones below are those that shaped this page.
+
 - [How Claude Performs on Robotics Tasks](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — the source of the taxonomy and every number here.
 - [Project Fetch: Phase Two](../../sources/anthropic-project-fetch-phase-two.md) — level-2 control (Claude Code writing controllers) taken to near-autonomy.
 - [CaP-X paper](../../sources/cap-x-paper.md) — the eight-tier subdivision of level 2; abstraction, iteration, and grounding as independently controllable axes.

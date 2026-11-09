@@ -188,6 +188,9 @@ The "RL = adaptive optimal control" bridge is not a retrospective reading: [Kobe
 
 ## Mentioned in
 
+
+> [!note] Curated list — 37 source pages link here; the ones below are those that shaped this page.
+
 Sources with explicit OC vocabulary and a back-link to this hub:
 - [Sussmann & Willems 1997 — 300 Years of Optimal Control](../../sources/sussmann-willems-1997-300-years-optimal-control.md) (historical anchor)
 - [DS4DS 7.01 — Optimal Control, Introduction (Peitz & Wallscheid)](../../sources/ds4ds-7-01-optimal-control-intro.md) (modern-pedagogy companion)

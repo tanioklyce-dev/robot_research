@@ -49,6 +49,9 @@ tags: [hugging-face, foundation-models, open-source, lerobot, robotics, ml-platf
 
 ## Mentioned in
 
+
+> [!note] Curated list — 32 source pages link here; the ones below are those that shaped this page.
+
 - [NVIDIA to acquire Hugging Face](../sources/nvidia-hugging-face-acquisition.md) — $12.93 B; the terms, the neutrality commitments, and where they sit in the filing.
 
 - [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) — **17 HF authors** (Cadene, Aliberts, Capuano, Aractingi, Zouitine, Kooijmans, Choghari, Russi, Pascal, Palma, Shukor, Moss, Soare, Aubakirova, Lhoest, Gallouédec, Wolf); ICLR 2026 conference paper; canonical academic reference for the [LeRobot](lerobot.md) framework.

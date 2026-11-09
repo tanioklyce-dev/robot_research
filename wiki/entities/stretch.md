@@ -100,6 +100,9 @@ These were all demonstrated on **Stretch 2 / 3**; whether they transfer to Stret
 - [Jetson Orin NX / Jetson Thor lineage](jetson-thor.md) — the optional Stretch 4 AI-accelerator accessory.
 
 ## Mentioned in
+
+> [!note] Curated list — 35 source pages link here; the ones below are those that shaped this page.
+
 - [Stretch 4 Datasheet (Rev 5)](../sources/hello-robot-stretch-4-datasheet.md) — canonical Stretch 4 spec sheet.
 - [Stretch 4 launch — Hello Robot purchase + product + forum announcement](../sources/hello-robot-stretch-4-launch.md) — launch announcement + pricing.
 - [Hello Robot Stretch Documentation](../sources/hello-robot-stretch-docs.md)

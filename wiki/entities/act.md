@@ -60,6 +60,9 @@ From [LeRobot ICLR 2026 paper](../sources/lerobot-iclr-2026-paper.md) Tables 2 +
 - Paper attributes ACT's popularity dominance (Figure 7) to (1) small size + fast inference and (2) usability with as few as **50 real-world trajectories**.
 
 ## Mentioned in
+
+> [!note] Curated list — 31 source pages link here; the ones below are those that shaped this page.
+
 - [Mobile ALOHA Paper](../sources/mobile-aloha-paper.md)
 - [Mobile ALOHA project page](../sources/mobile-aloha-project-page.md)
 - [Robot Learning: A Tutorial (LeRobot)](../sources/lerobot-robot-learning-tutorial.md)

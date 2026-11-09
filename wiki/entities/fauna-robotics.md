@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-09
 updated: 2026-11-08
-sources: 2
+sources: 3
 tags: [fauna-robotics, humanoid, developer-platform, nyc, jetson-agx-orin, sprout]
 ---
 
@@ -16,6 +16,10 @@ tags: [fauna-robotics, humanoid, developer-platform, nyc, jetson-agx-orin, sprou
 - Compute: NVIDIA Jetson AGX Orin 64GB + 1 TB SSD
 - Battery: 3–3.5 hours, swappable
 - Vision: ZED 2i stereoscopic cameras + 4 ToF sensors
+
+## Amazon
+
+Amazon acquired Fauna in March 2026 for a new Personal Robotics Group, and job posts mention what it feels like "to live with a Fauna robot." CNBC says it is unclear what the group will ship ([CNBC](../sources/cnbc-amazon-home-robot-after-astro.md)).
 
 ## Capabilities
 - Compliant locomotion; whole-body teleoperation; floor-to-countertop reach

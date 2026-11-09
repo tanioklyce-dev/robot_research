@@ -201,6 +201,9 @@ Given that open-loop degradation from 25 → 75 steps is the standing failure ([
 
 ## Mentioned in
 
+
+> [!note] Curated list — 37 source pages link here; the ones below are those that shaped this page.
+
 - [LeJEPA paper (Balestriero & LeCun, 2025)](../../sources/lejepa-paper.md) — **the primary**; Theorem 1, the Cramér–Wold sketch, Epps–Pulley.
 - [LeWorldModel paper](../../sources/leworldmodel-paper.md) — SIGReg applied to action-conditioned world modeling.
 - [When Does LeJEPA Learn a World Model?](../../sources/when-does-lejepa-learn-a-world-model-paper.md) — the uniqueness converse.

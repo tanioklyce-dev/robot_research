@@ -54,6 +54,9 @@ Isaac Lab inherits Isaac Sim's RT-core requirement: it cannot run on [Jetson Tho
 - [MuJoCo Playground](mujoco-playground.md) — competing/parallel learning framework with overlapping backends.
 
 ## Mentioned in
+
+> [!note] Curated list — 38 source pages link here; the ones below are those that shaped this page.
+
 - [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — the Arena extension itself: v0.3.0 alpha on Isaac Lab 3.0 / Isaac Sim 6.0 (main already on 6.1 wheels); Arena-authored environments register back into Isaac Lab's own teleop, Mimic and RL scripts through an external-environment callback.
 - [NVIDIA Newton Physics Engine Developer Page](../sources/nvidia-newton-physics-engine-developer-page.md)
 - [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)

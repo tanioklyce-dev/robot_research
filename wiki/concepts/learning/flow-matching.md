@@ -101,6 +101,9 @@ See [reward post-training of diffusion and flow models](reward-post-training-dif
 
 ## Mentioned in
 
+
+> [!note] Curated list — 31 source pages link here; the ones below are those that shaped this page.
+
 - [On-Policy Self-Distillation in Diffusion Models](../../sources/diffusionopsd-paper.md) — rectified-flow reward post-training in image generation; the clean-output identity and the step-distillation warning.
 
 - [GR00T N1 paper](../../sources/groot-n1-paper.md) — flow-matching DiT System 1; K=4 Euler steps.

@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-09-11
 updated: 2026-11-08
-sources: 8
+sources: 9
 tags: [unitree, china, humanoid, quadruped, hardware, foundation-model, unifolm]
 ---
 
@@ -35,9 +35,10 @@ Unitree publishes its own G1 / Z1 teleop datasets on Hugging Face (LeRobot forma
 
 ## Security record
 
-Unitree robots are the most studied in this wiki for security. After poor engagement in 2025, the company launched a disclosure programme in November 2025 and paid bounties in 2026. Fixes are reported in later firmware, but no accessible advisory maps flaws to versions ([record](../sources/unitree-vulnerability-record-2026.md)).
+Unitree robots are the most studied in this wiki for security. After poor engagement in 2025, the company launched a disclosure programme in November 2025 and paid bounties in 2026. [Its rules](../sources/unitree-security-response-center.md) offer up to $5,000 for critical flaws on a robot and require written consent before a researcher publishes. Fixes are reported in later firmware, but no accessible advisory maps flaws to versions ([record](../sources/unitree-vulnerability-record-2026.md)).
 
 ## Mentioned in
+- [Unitree Security Response Center](../sources/unitree-security-response-center.md) — disclosure rules; publishing requires Unitree's consent.
 
 - [UnifoLM-WLA-1.0 project page](../sources/unifolm-wla-1-project-page.md) — first source about Unitree's own models.
 

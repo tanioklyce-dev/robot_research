@@ -13,9 +13,9 @@ A comparison of what home robots and robot services expose, as of **2026-11-08**
 > [!note] Bottom line
 > **Privacy depends on the business model.** Products that rely on remote operators necessarily let staff see into the home. Training on what the robot records is often part of the deal, and Tau makes it mandatory.
 >
-> **Security evidence exists only where someone looked.** Unitree has the longest vulnerability list because its robots are affordable enough to study. No public security assessment was found for NEO, Isaac, Flourish, Memo or Tau. **A clean record here means unexamined, not safe.**
+> **Security evidence exists only where someone looked.** Unitree has the longest vulnerability list because its robots are affordable enough to study. No public security assessment was found for NEO, Isaac, Flourish, Memo, Tau, Astro or Labrador. **A clean record here means unexamined, not safe.**
 >
-> **Before buying, ask how the vendor handles security reports.** That separates vendors better than counting bugs: Unitree now runs a paid programme, and Hypershell told researchers it does not accept reports.
+> **Before buying, ask how the vendor handles security reports.** That separates vendors better than counting bugs. Hypershell told researchers it does not accept reports. Unitree now pays bounties, but [its rules](../../sources/unitree-security-response-center.md) require its permission before a researcher publishes.
 
 ## The four questions
 
@@ -33,6 +33,8 @@ A comparison of what home robots and robot services expose, as of **2026-11-08**
 | **[1X NEO](../../sources/1x-neo-order-page.md)** | At scheduled times, for complex tasks | **Unknown.** The [privacy policy](https://www.1x.tech/privacy-policy) (October 2025) covers the website and does not describe robot data | None found |
 | **[Flourish 1](../../sources/flourish-robots-website.md)** | CEO says [none in normal use](../../sources/cnet-flourish-1.md) | Live video goes to its servers and is "discarded." Teaching needs a recording, and approved recordings train models | None found |
 | **[Sunday Memo](../../sources/sunday-memo-site.md)** | Says it does not learn through in-home teleoperation | **Unknown.** The [privacy policy](https://www.sunday.ai/privacy-policy) (September 2025) does not describe robot data | None found; not on sale |
+| **[Amazon Astro](../../entities/amazon-astro.md)** | The owner, by live view. Amazon says an indicator shows cloud streaming | Amazon says much processing is on the device and saved clips go to Ring with a subscription. Current terms not read | None found; a [2021 leak](https://www.slashgear.com/amazon-astro-robot-leak-alleges-big-privacy-and-durability-concerns-29693065) that Amazon disputes |
+| **[Labrador Retriever](../../entities/labrador-systems.md)** | Technician for map training and support. Video access is "controlled by you," says the company | Runs on the robot and can work offline after training. Data detail promised, not found | None found; availability unconfirmed |
 | **[Unitree G1](../../entities/unitree-g1.md) and [Go2](../../entities/unitree-go2.md)** | Not sold with remote operators | No training programme found; see telemetry at right | **Extensive.** Root-level flaws, and [undeclared telemetry on the G1](../../sources/cai-humanoid-robots-attack-vectors-paper.md). See [patch status](#patch-status-unitree) |
 | **[Stretch](../../entities/stretch.md)** | Only if you set it up | Depends on your deployment; open ROS 2 stack | None reviewed here |
 | **[Hookii](../../entities/hookii-neomow.md), [Hypershell](../../entities/hypershell-x.md), [HOBOT](../../entities/hobot-s7-pro.md)** | Not applicable | Hookii sent GPS unencrypted and stores property maps | [38 reported flaws](../../sources/cai-hacking-consumer-robots-paper.md), status unknown |
@@ -61,7 +63,7 @@ Policies were read on 2026-11-08 and can change. A policy says what a company pe
 
 ## Patch status: Unitree
 
-Full detail, with links, is in the [vulnerability record](../../sources/unitree-vulnerability-record-2026.md). **No fix below has been independently retested, and no accessible Unitree advisory maps flaws to firmware versions.**
+Full detail, with links, is in the [vulnerability record](../../sources/unitree-vulnerability-record-2026.md). **No fix below has been independently retested. Unitree's [published rules](../../sources/unitree-security-response-center.md) contain no table linking flaws to firmware, and its Bulletin tab has not been read.**
 
 | Robot | Update to at least | Reported effect | Still open or unknown |
 |---|---|---|---|
@@ -71,6 +73,8 @@ Full detail, with links, is in the [vulnerability record](../../sources/unitree-
 | **G1 (non-EDU)** | Current | UniPwn probably mitigated | The 2026 CVEs name EDU only, so status is not established |
 
 Unitree's conduct has changed. It [stopped responding](https://www.ieee-ras.org/news/exploit-allows-for-takeover-of-fleets-of-unitree-robots/) to the UniPwn researchers in 2025, then launched a programme in November 2025 and [paid bounties](https://boschko.ca/g1-ble-rce/) in 2026. Older criticism of its disclosure practices, including in the [2026 consumer-robot paper](../../sources/cai-hacking-consumer-robots-paper.md), doesn't describe its most recent behaviour.
+
+The improvement has a limit. [Unitree's standard](../../sources/unitree-security-response-center.md) targets fixes within 90 business days and requires written consent to publish, with no stated date after which a researcher may go public. Paying researchers doesn't by itself mean users hear about flaws.
 
 ## What to do
 
@@ -99,12 +103,13 @@ Unitree's conduct has changed. It [stopped responding](https://www.ieee-ras.org/
 
 ## When this page should change
 
-- A public security assessment of NEO, Isaac, Flourish, Memo or Tau.
-- A Unitree advisory mapping flaws to firmware, or an independent retest of 1.5.5.0.
+- A public security assessment of NEO, Isaac, Flourish, Memo, Tau, Astro or Labrador.
+- A Unitree bulletin mapping flaws to firmware, or an independent retest of 1.5.5.0.
 - 1X or Sunday publishing robot-specific privacy terms.
 
 ## Sources used in this synthesis
 
+- [Unitree Security Response Center](../../sources/unitree-security-response-center.md), [Amazon Astro launch](../../sources/amazon-astro-launch-post.md), [Labrador site](../../sources/labrador-systems-site.md)
 - [Unitree vulnerability record](../../sources/unitree-vulnerability-record-2026.md), [G1 attack vectors](../../sources/cai-humanoid-robots-attack-vectors-paper.md), [Hacking Consumer Robots](../../sources/cai-hacking-consumer-robots-paper.md)
 - [Tau service pages](../../sources/tau-robotics-service-site.md), [MIT Technology Review on Tau](../../sources/mit-technology-review-tau-cleaning.md), [CBS on Tau](../../sources/cbs-news-tau-robotics.md)
 - [1X order page](../../sources/1x-neo-order-page.md), [Weave Isaac 1](../../sources/weave-isaac-1-product-page.md), [eWeek on Isaac 0](../../sources/eweek-weave-isaac-0.md), [Flourish site](../../sources/flourish-robots-website.md), [CNET on Flourish](../../sources/cnet-flourish-1.md), [Sunday Memo](../../sources/sunday-memo-site.md)

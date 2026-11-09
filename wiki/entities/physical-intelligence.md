@@ -54,6 +54,9 @@ Physical Intelligence and [NVIDIA GR00T](../entities/nvidia-groot.md) / Gemini R
 - [NVIDIA GR00T](../entities/nvidia-groot.md) — parallel generalist-policy effort.
 
 ## Mentioned in
+
+> [!note] Curated list — 31 source pages link here; the ones below are those that shaped this page.
+
 - [π0 Paper](../sources/pi-zero-paper.md) — primary source for π0.
 - [π0.7 Paper](../sources/pi07-paper.md) — primary source for π0.7.
 - [π*0.6 Paper](../sources/pistar06-paper.md) — primary source for π*0.6 + RECAP.

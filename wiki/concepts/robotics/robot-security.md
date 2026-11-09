@@ -3,7 +3,7 @@ title: Robot Security (Robot Cybersecurity)
 type: concept
 created: 2026-07-15
 updated: 2026-11-08
-sources: 19
+sources: 21
 tags: [robot-security, cybersecurity, ros2, security-assessment, alias-robotics, rsf, misra, safety-vs-security]
 ---
 
@@ -64,6 +64,10 @@ The lesson for this wiki is about reading such reports. The paper confirms outbo
 [Alias's consumer-robot study](../../sources/cai-hacking-consumer-robots-paper.md) reports no authentication on Bluetooth control, shared fleet credentials and unsigned firmware across a lawnmower, a powered exoskeleton and a window cleaner. On a robot these failures can reach physical motion, which is the argument for treating them differently from ordinary IoT flaws. The study's claim that AI removes the need for expertise was not tested, because specialists operated the agent.
 
 Alias also [catalogues earlier disclosures](../../sources/alias-robotics-research-page.md) against MiR mobile robots, ROS 2's DDS implementations and Universal Robots. These are self-reported but cite CISA advisories, so they can be checked. Its on-robot defence, the [Robot Immune System](../../entities/robot-immune-system.md), is marketed as adaptive, while its own paper calls the approach static and rule-based.
+
+## How vendors handle reports
+
+[Unitree's disclosure rules](../../sources/unitree-security-response-center.md) pay up to $5,000 for critical robot flaws, target fixes within 90 business days, and require written consent before publication. Alias states a [90-day policy](../../sources/alias-robotics-research-page.md). Hypershell [told researchers it does not accept reports](../../sources/cai-hacking-consumer-robots-paper.md). See the [home robot comparison](../../syntheses/platforms/home-robot-privacy-and-security.md).
 
 ## The supply chain, which this wiki's robots are in
 
