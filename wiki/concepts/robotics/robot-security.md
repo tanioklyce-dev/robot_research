@@ -3,7 +3,7 @@ title: Robot Security (Robot Cybersecurity)
 type: concept
 created: 2026-07-15
 updated: 2026-11-08
-sources: 18
+sources: 19
 tags: [robot-security, cybersecurity, ros2, security-assessment, alias-robotics, rsf, misra, safety-vs-security]
 ---
 
@@ -54,7 +54,7 @@ The new hardware layer, **[Sentry](../../entities/nvidia-sentry.md)** on BlueFie
 
 [Alias's Unitree G1 assessment](../../sources/cai-humanoid-robots-attack-vectors-paper.md) touches all four RSF layers on a shipping humanoid: exposed debug ports (Physical), unencrypted DDS and disabled certificate checks (Network), a fleet-wide static configuration key on an end-of-life ROS 2 Foxy base (Firmware), and undisclosed telemetry (Application).
 
-The lesson for this wiki is about reading such reports. The paper confirms outbound **health and state** data, but says it could not confirm the audio and video channels it warns about, and its offensive-agent test stopped before authenticated access. Treat the Bluetooth root flaw, added in the paper's third version from independent research, and the static-key and local-network findings as the solid ones. The practical advice is the same either way: **put these robots on an isolated network.**
+The lesson for this wiki is about reading such reports. The paper confirms outbound **health and state** data, but says it could not confirm the audio and video channels it warns about, and its offensive-agent test stopped before authenticated access. Treat the Bluetooth root flaw, added in the paper's third version from independent research, and the static-key and local-network findings as the solid ones. The practical advice is the same either way: **put these robots on an isolated network.** Patch status is tracked in the [Unitree vulnerability record](../../sources/unitree-vulnerability-record-2026.md), and the [home robot comparison](../../syntheses/platforms/home-robot-privacy-and-security.md) sets these findings against vendor privacy terms.
 
 > [!note] Why this matters for home data collection
 > [HIW-500](../../entities/hiw-500.md) collected G1 teleoperation data in 12 homes. A robot publishing audio, video and LiDAR on an unencrypted local bus is a privacy consideration for any in-home deployment, whatever leaves the building.

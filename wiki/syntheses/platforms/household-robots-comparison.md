@@ -128,7 +128,7 @@ The test task list is the one this page began with: navigate a home, pick things
 
 **Questions to ask before paying for any home robot.**
 
-- **Is it secure?** [UniPwn](https://www.ieee-ras.org/news/exploit-allows-for-takeover-of-fleets-of-unitree-robots/) and [CVE-2026-27509](https://www.sentinelone.com/vulnerability-database/cve-2026-27509) allow root takeover of Go2 robots, and the suggested mitigation is an isolated network. Patch status was not confirmed. A [G1 assessment](../../sources/cai-humanoid-robots-attack-vectors-paper.md) found a fleet-wide static key, unencrypted local sensor traffic and unannounced telemetry. It did not confirm that audio or video leave the robot. [Another study](../../sources/cai-hacking-consumer-robots-paper.md) found Bluetooth control with no authentication on a window cleaner and an exoskeleton, and fleet-wide access on a lawnmower. Ask any vendor how it handles security reports, because one of those companies declined to.
+- **Is it secure?** [UniPwn](https://www.ieee-ras.org/news/exploit-allows-for-takeover-of-fleets-of-unitree-robots/) and [CVE-2026-27509](https://www.sentinelone.com/vulnerability-database/cve-2026-27509) allow root takeover of Go2 robots, and an isolated network is the suggested mitigation. Fixes are reported in Go2 firmware 1.1.13 and G1 EDU 1.5.5.0, neither independently retested, and the Go2 EDU flaw will likely stay open ([record](../../sources/unitree-vulnerability-record-2026.md)). A [G1 assessment](../../sources/cai-humanoid-robots-attack-vectors-paper.md) found a fleet-wide static key, unencrypted local sensor traffic and unannounced telemetry. It did not confirm that audio or video leave the robot. [Another study](../../sources/cai-hacking-consumer-robots-paper.md) found Bluetooth control with no authentication on a window cleaner and an exoskeleton, and fleet-wide access on a lawnmower. Ask any vendor how it handles security reports, because one of those companies declined to. See the fuller [privacy and security comparison](home-robot-privacy-and-security.md).
 - **Who is watching?** NEO uses scheduled remote experts, and both Weave products use teleoperation. Camera access by staff is part of the product. Tau goes furthest: a pilot watches live, every visit is recorded, and Tau takes a perpetual licence to the footage ([terms](../../sources/tau-robotics-service-site.md)).
 - **What fails, and how often?** Only Flourish states a success rate (80%), without a protocol. Its Terms admit it "will sometimes fail at tasks it performed correctly the day before."
 - **What stops working offline or after the subscription?** Flourish depends on cloud compute for its learned behaviour.
@@ -168,6 +168,7 @@ See also [Retail and grocery robotics](../../concepts/robotics/retail-and-grocer
 
 ## Edition history
 
+- **2026-11-08 (patch check).** Updated Unitree patch status from CVE records and researcher disclosures.
 - **2026-11-08 (grocery and service).** Added a grocery section, the Tau cleaning service, Voxel, Dreame Cyber 10 Ultra, Galbot G1, YOR and TidyBot++, after a market search found them missing.
 - **2026-11-08 (audit).** Added Fauna Sprout and other omissions after checking every robot entity page against this list.
 - **2026-11-08 (reframed).** Renamed from "Household robot decision — Stretch vs Unitree G1" and rebuilt around two lenses, with consumer products added.
@@ -187,6 +188,6 @@ See also [Retail and grocery robotics](../../concepts/robotics/retail-and-grocer
 
 ## Related
 
-- [Humanoid platforms survey](humanoid-platforms-survey.md) · [Robot platforms comparison](robot-platforms-comparison.md) · [Sourccey vs XLeRobot](sourccey-vs-xlerobot.md)
+- [Humanoid platforms survey](humanoid-platforms-survey.md) · [Robot platforms comparison](robot-platforms-comparison.md) · [Sourccey vs XLeRobot](sourccey-vs-xlerobot.md) · [Home robot privacy and security](home-robot-privacy-and-security.md)
 - [Consumer robotics value chain](../society/consumer-robotics-value-chain.md)
 - [Long-term in-home deployments](../assistive/long-term-in-home-robot-deployments.md) · [Levels of autonomy in assistive robotics](../assistive/levels-of-autonomy-in-assistive-robotics.md)

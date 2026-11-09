@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-07-27
 updated: 2026-11-08
-sources: 7
+sources: 8
 tags: [unitree-go2, quadruped, robot-dog, china, affordable, edu, project-fetch, frontier-red-team]
 ---
 
@@ -52,6 +52,10 @@ Practical consequences worth noting for anyone using a Go2 as a research base:
 - **Hosted teleop via dimTELE** — `teleop-hosted-go2-transport` gives browser or Quest driving over WebRTC with the robot dialling out, so no inbound ports on the robot's network.
 
 This makes the Go2 the best-supported robot in the wiki's agentic-robotics coverage — a relevant data point when weighing it against [Spot](spot.md) at ~10× the price.
+
+## Security
+
+Researchers have disclosed several root-level flaws. Unitree reportedly fixed the two early-2026 ones in firmware 1.1.13, but the local-network flaw "will likely not be addressed" on EDU units. A certificate-validation flaw is recorded through 1.1.15.1 ([record](../sources/unitree-vulnerability-record-2026.md)). Keep the robot on an isolated network. See [Home robot privacy and security](../syntheses/platforms/home-robot-privacy-and-security.md).
 
 ## Related
 - [Unitree](unitree.md) — manufacturer.

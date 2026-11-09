@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-09-11
 updated: 2026-11-08
-sources: 7
+sources: 8
 tags: [unitree, china, humanoid, quadruped, hardware, foundation-model, unifolm]
 ---
 
@@ -32,6 +32,10 @@ The strategic read: Unitree is moving from selling the body to shipping the brai
 ## Data
 
 Unitree publishes its own G1 / Z1 teleop datasets on Hugging Face (LeRobot format; sampled WBT and G1-Dex1 cards say Apache-2.0 and a UniBot-V1 card declares no license, so check each dataset) and co-authored [HIW-500](hiw-500.md) with [BitRobot](bitrobot.md) — 500+ h of G1 whole-body teleop in real homes, **CC BY 4.0** ([page](../sources/bitrobot-hiw-500-dataset-page.md)).
+
+## Security record
+
+Unitree robots are the most studied in this wiki for security. After poor engagement in 2025, the company launched a disclosure programme in November 2025 and paid bounties in 2026. Fixes are reported in later firmware, but no accessible advisory maps flaws to versions ([record](../sources/unitree-vulnerability-record-2026.md)).
 
 ## Mentioned in
 

@@ -6605,3 +6605,10 @@ Structure was sound: **0 broken file links, 0 orphans, 0 schema violations, all 
 ## [2026-11-08] maintenance | Scope of URL-only sources clarified
 - URL-only applies only to papers containing security keys or other material usable for malicious purposes. [G1 attack vectors](sources/cai-humanoid-robots-attack-vectors-paper.md) and [Hacking Consumer Robots](sources/cai-hacking-consumer-robots-paper.md) stay URL-only.
 - The [Alias research record](sources/alias-robotics-research-page.md) and [RIS page](sources/alias-robotics-ris-page.md) are not in that category, so their text captures are now saved in `raw/` and sealed. This supersedes the URL-only notes in the two earlier Alias entries.
+
+## [2026-11-08] query + synthesis | Unitree patch status; home robot privacy and security
+- Created [Unitree vulnerability record](sources/unitree-vulnerability-record-2026.md), URL-only because the records and write-ups contain keys or exploit detail. Created [Home robot privacy and security](syntheses/platforms/home-robot-privacy-and-security.md).
+- **Finding:** fixes are reported for Go2 (1.1.13) and G1 EDU (1.5.5.0), but none is independently retested and no accessible Unitree advisory maps flaws to versions. The Go2 EDU flaw will likely stay open. Telemetry status is unknown.
+- **Corrected a stale picture:** Unitree moved from unresponsive in 2025 to a disclosure programme and paid bounties.
+- Updated [Household robots compared](syntheses/platforms/household-robots-comparison.md), [Unitree](entities/unitree.md), [Unitree G1](entities/unitree-g1.md), [Unitree Go2](entities/unitree-go2.md) and [Robot security](concepts/robotics/robot-security.md).
+- **Limits:** no robot was tested. Unitree's security portal could not be read by automated retrieval. Vendor privacy policies were read on 2026-11-08 but not saved.

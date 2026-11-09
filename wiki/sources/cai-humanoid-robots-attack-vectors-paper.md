@@ -16,7 +16,7 @@ tags: [robot-security, unipwn, ble, unitree-g1, alias-robotics, cai, telemetry, 
 A security assessment of the [Unitree G1](../entities/unitree-g1.md) by [Alias Robotics](../entities/alias-robotics.md). Version 3 adds independent research by Andreas Makris and Kevin Finisterre on a Bluetooth root-access flaw. The paper also reverse-engineers the encryption protecting the robot's configuration, captures telemetry the robot sends to external servers, and runs Alias's own [CAI](../entities/cai-cybersecurity-ai.md) agent on the robot. **The strongest findings are the Bluetooth flaw, fleet-wide static keys, unencrypted local middleware and unannounced outbound telemetry.** The surveillance and offensive-weapon framing goes well beyond what was measured.
 
 > [!note] Key material omitted
-> The paper publishes recovered encryption keys and an injection pattern. This page deliberately does not repeat keys, IVs, cipher constants or exploit strings, and no copy of the PDF is kept in this repository. This page records version 3. The assessment dates from September 2025 and does not state a firmware version, so **current patch status is unknown**.
+> The paper publishes recovered encryption keys and an injection pattern. This page deliberately does not repeat keys, IVs, cipher constants or exploit strings, and no copy of the PDF is kept in this repository. This page records version 3. The assessment dates from September 2025 and does not state a firmware version, so this paper cannot establish current status. See the [Unitree vulnerability record](unitree-vulnerability-record-2026.md).
 
 ## Key claims
 
@@ -88,4 +88,4 @@ The practical disclosure is [UniPwn](https://www.ieee-ras.org/news/exploit-allow
 
 - Which of these findings survive on current G1 firmware?
 - What fills the gap between 4.6 KB frames and a 1.03 Mbps connection? A longer, decoded capture would settle whether anything beyond health data leaves the robot.
-- Unitree's response is not recorded here.
+- Unitree's response and later fixes are in the [vulnerability record](unitree-vulnerability-record-2026.md).

@@ -39,7 +39,7 @@ tags: [robot-security, cai, consumer-robots, exoskeleton, lawnmower, window-clea
 > - **Authorization is not discussed.** The findings include vendor brokers and support mailboxes. The paper mentions intervention at cloud boundaries but does not say whether vendors permitted any of this.
 > - **"Reported" versus "attempted."** The paper says both that all vulnerabilities "were reported to manufacturers" and that it "attempted to contact" them. Patch status is not given.
 > - **Conflict of interest.** The work is partly funded through Alias's Robot Immune System project, and it concludes that such defences must evolve.
-> - **The regional framing is thin.** All three robots come from China or Taiwan, and no comparison group from elsewhere was assessed.
+> - **The regional framing is thin.** All three robots come from China or Taiwan, and no comparison group from elsewhere was assessed. Its evidence for a pattern of ignored reports cites the G1 work, yet Unitree [launched a disclosure programme](unitree-vulnerability-record-2026.md) in November 2025, before this paper appeared.
 
 ## Entities mentioned
 

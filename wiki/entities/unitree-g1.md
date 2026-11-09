@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-08
 updated: 2026-11-08
-sources: 27
+sources: 28
 tags: [unitree-g1, humanoid, bipedal, china, affordable, accessible, groot, whole-body-control]
 ---
 
@@ -63,7 +63,7 @@ The paper is candid about what its representation misses on this hand specifical
 
 ## Security
 
-[Alias Robotics](alias-robotics.md) assessed a G1 in September 2025 and found a static configuration-encryption key reused across units, unencrypted DDS on the local network, and telemetry sent to external servers without notice ([paper](../sources/cai-humanoid-robots-attack-vectors-paper.md)). That paper's stronger claim, covert off-site audio and video, was not confirmed by its own capture. The paper also documents a Bluetooth provisioning flaw (UniPwn) giving root to anyone in range. Current patch status is unknown, so disable or isolate wireless access where possible and keep the robot on an isolated network.
+[Alias Robotics](alias-robotics.md) assessed a G1 in September 2025 and found a static configuration-encryption key reused across units, unencrypted DDS on the local network, and telemetry sent to external servers without notice ([paper](../sources/cai-humanoid-robots-attack-vectors-paper.md)). That paper's stronger claim, covert off-site audio and video, was not confirmed by its own capture. The paper also documents a Bluetooth provisioning flaw (UniPwn) giving root to anyone in range. Two further root flaws in G1 EDU firmware through 1.5.2 were disclosed in August 2026, and firmware 1.5.5.0 reportedly blocks them, without independent retest ([record](../sources/unitree-vulnerability-record-2026.md)). Whether the telemetry and shared key persist is unknown. Disable wireless access where possible and keep the robot on an isolated network. See [Home robot privacy and security](../syntheses/platforms/home-robot-privacy-and-security.md).
 
 The same paper gives the assessed unit's compute as an RK3588 with 8 GB RAM, running ROS 2 Foxy.
 
