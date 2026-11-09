@@ -2,8 +2,8 @@
 title: World-action model (WAM)
 type: concept
 created: 2026-06-02
-updated: 2026-11-07
-sources: 38
+updated: 2026-11-09
+sources: 39
 tags: [world-action-model, wam, flux-3, video-action-model, frozen-backbone, world-model, vla, forward-dynamics, inverse-dynamics, policy, cosmos, dreamzero]
 ---
 
@@ -92,6 +92,18 @@ The VLA leaders sit at 6.5–8.8%. On Memory, X-WAM has a higher partial-progres
 
 The harness has since grown. [XPolicyLab](../../entities/xpolicylab.md) lists at least ten WAM adapters by name (AHA-WAM, FastWAM, X-WAM, UniWAM, OpenWAM, PatchWAM-Lite, HWM-CogWAM, EWAM, PICA-WAM, PrismWAM) plus a **DreamZero** adapter, all behind the same interface as the VLAs ([XPolicyLab GitHub](../../sources/xpolicylab-github.md)). The WAM-vs-VLA comparison on RoboDojo can now include DreamZero, but as of 2026-11-07 no such result is in the wiki.
 
+## A flagship policy line becomes a WAM (2026-11-09)
+
+[GR00T 2](../../sources/gr00t-2-whitepaper.md) replaces a shipped VLA line with a WAM. It predicts future video and actions in one 2B transformer initialised from Cosmos-Predict2.5-2B.
+
+**Against the [RoboDojo](../../entities/robodojo.md) data point above**, NVIDIA reports GR00T 2 at 35.5% on the three-bank RoboDojo evaluation, against 34.97% for the VLA WALL-OSS-1.0-lite and 29.64% for the WAM Awomo-0.5 (Table 31). A 0.5-point lead is a tie. It does remove RoboDojo as evidence that WAMs must trail VLAs, but its scores are self-reported and the training data is far larger than RoboDojo's 100 demonstrations per task.
+
+**What the report adds for the WAM thesis.**
+- Video prediction gives human footage a training target even without robot actions. Real-robot success rises from 18% to 41% with more human video, with robot data fixed.
+- With simulated data added, Turbo goes from 6.7% to 63.3% on an out-of-distribution G1 task and GR00T 1.7 reaches 40%, over 30 trials each.
+
+**What it leaves open.** The authors say it is *"unclear whether prediction helps mainly as a training signal or also as imagination at inference time."* The higher-compression Turbo loses half its dexterous success (68.6% to 34.3%) but only 6.7 points on grippers, which suggests the visual detail required depends on the body and task. GR00T 2 also exposes a WAM API for agents, a different coupling from [AW-0](../../sources/agentic-world-action-models-aw0-paper.md), which places code inside the WAM.
+
 ## Related concepts
 
 - [World model](world-model.md) — the FD direction is exactly an action-conditioned world model.
@@ -102,6 +114,8 @@ The harness has since grown. [XPolicyLab](../../entities/xpolicylab.md) lists at
 ## Current state
 
 As of mid-2026 the strongest published WAMs are generative-video / diffusion models (Cosmos 3, the Dream* line, GE-Sim2) — i.e. they live on the **pixel-prediction** side of the [generative-video vs JEPA](../../syntheses/world-models/generative-video-vs-jepa-world-models.md) split. Cosmos 3 is the first to show a WAM's policy mode reaching SOTA across **three** benchmarks — a sim benchmark (RoboLab), a real-world crowdsourced one (RoboArena), and a controlled-variation generalization suite ([MolmoSpaces](../../sources/cosmos-3-technical-report.md#molmospaces--the-third-benchmark-added-in-the-june-revision), added in the report's June revision) — the last **without benchmark-specific tuning**. That no-retuning detail is the clearest evidence that the FD+ID+policy unification pays off rather than just adding cost, since it is the cross-benchmark transfer the thesis actually predicts. Whether jointly modeling the visual consequence improves *deployment* robustness over a pure action head, at fixed compute, is not yet isolated.
+
+By November 2026 the architecture had reached a flagship product line. [GR00T 2](../../sources/gr00t-2-whitepaper.md) reports broad real-robot WAM results on NVIDIA's own evaluation, with code promised for December.
 
 ## Mentioned in
 

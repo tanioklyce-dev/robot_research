@@ -7,7 +7,7 @@ sha256: 6e3cbcbc0ab4db0c20e693c905c9ff4e7f7afe726b15f8fb6dc3a6d7415e4ca0
 author: "Yunfan Jiang, Yevgen Chebotar, Ruijie Zheng, Fengyuan Hu, Yunhao Ge, Jimmy Wu, Tianyuan Dai, Scott Reed, Li Fei-Fei, Yuke Zhu, Linxi 'Jim' Fan"
 affiliations: "NVIDIA (GEAR), Stanford University, UT Austin"
 published: 2026-07-16
-venue: "arXiv preprint (v1); no peer-reviewed venue as of ingest"
+venue: "arXiv preprint (v1); CoRL 2026 Best Paper finalist per NVIDIA, 2026-11-09"
 format: paper (22 pp; 12 pp body + references + appendix)
 arxiv: 2607.15275
 project_page: https://research.nvidia.com/labs/gear/robottt
@@ -98,6 +98,14 @@ RoboTTT is also the first instance in the wiki that does **both** of the concept
 
 > [!note] Is Skild's characterisation fair?
 > The S1 post calls RoboTTT (and GEN-1.5) work that *"largely cover[s] tasks which are short-horizon or already present in the pre-training distribution."* On the paper's own evidence, **for the in-context-imitation result, yes**: the one-shot test is on Circuit, the *shortest* task (1-minute episodes), the task itself is post-trained on, and what is unseen is the *configuration* (60 held out of 80) — a within-task generalization, not a new skill. RoboTTT's long-horizon results (the 5-minute, ten-stage Gear Bot) are a different capability, long-context conditioning on the robot's own rollout, not learning a task from a demonstration. So Skild's sentence is accurate about the ICL claim and silent about the paper's actual headline, which is not an ICL claim at all. The asymmetry cuts the other way too: RoboTTT publishes trial counts, baselines, a rubric and an ablation, none of which S1 does — and one of S1's two supporting quotations for its own framing is from [Jim Fan](../entities/jim-fan.md), RoboTTT's last author.
+
+## Project page and status (checked 2026-11-09)
+
+The user asked for the [project page](https://research.nvidia.com/labs/gear/robottt/) to be ingested. It restates this paper and adds no new measurements, so it has no separate source page.
+
+- It places RoboTTT in the wider TTT family: **key-value binding** (TTT-KVB, which RoboTTT uses) versus **end-to-end backpropagation through the inner loop** (TTT-E2E).
+- NVIDIA lists RoboTTT among [six CoRL 2026 Best Paper finalists](nvidia-corl-2026-robotics-simulation-blog.md).
+- **[GR00T 2](gr00t-2-whitepaper.md) didn't adopt this memory.** It keeps 0.8 s of history, delegates memory to an agent, and cites shortcut learning from longer raw context.
 
 ## Entities mentioned
 

@@ -2,8 +2,8 @@
 title: Code as policy
 type: concept
 created: 2026-08-03
-updated: 2026-11-07
-sources: 25
+updated: 2026-11-09
+sources: 28
 tags: [code-as-policy, llm-agent, agentic-robotics, program-synthesis, skill-library, voyager, saycan, voxposer, inner-monologue, codeact, tool-use, waddle, cap-x, aspire, benchmark]
 ---
 
@@ -200,6 +200,16 @@ The confound that remains is *informational*. The LLM got a task recipe that inc
 
 The same paper also runs the model at level 2. Through Codex, Astra writes a RoboPianist controller for two Shadow hands that reaches **F1 0.902**, against 0.886 for the RL reference, by simulated practice alone. That matches this page's pattern: a model writes the controller and improves it in simulation.
 
+## Typed graphs, and a learned model as a tool (added 2026-11-09)
+
+Two CoRL 2026 systems show the pattern splitting into two designs.
+
+**[Graph-as-Policy](../../sources/gap-graph-as-policy-paper.md): restrict what the agent can write.** Agents wire typed skill nodes into a graph, rehearse it in a mesh-built simulator, and leave the robot once it is deployed. Free-form Python from a single LLM scored zero against the same low-level interfaces. That is the [abstraction confound](#the-abstraction-confound--the-finding-that-reframes-the-lineage-above) in the other direction: the interface was the barrier. See [variational automation](../robotics/variational-automation.md).
+
+**[GR00T 2](../../sources/gr00t-2-whitepaper.md): the agent supervises a learned model.** GR00T 2 does most of the manipulation. The agent watches, runs code to repair the scene, then hands control back. On cluttered real assemblies, the same policy scores 71–84 of 100 and the agent lifts it to 97–98, with recovery skills acquired by [ASPIRE](../../entities/aspire.md).
+
+The two disagree about where a learned model belongs. GaP keeps learned parts as replaceable nodes in a program. GR00T 2 makes the program a supervisor around one large learned skill. On simulated benchmarks, GR00T 2's agent programs and direct execution each won some tasks: it selected the model as default on only 23 of 50 RoboCasa365 tasks and 12 of 54 RoboDojo configurations. So neither dominates.
+
 ## Where this sits on the abstraction ladder
 
 Code-as-policy is **level 2 (programmatic control)** in the [control abstraction levels](../robotics/control-abstraction-levels.md) taxonomy — the level [Anthropic found](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) "substantially outperforms direct control" for essentially every model. CaP-X's contribution to that taxonomy is to show **level 2 is not one level**: its eight tiers subdivide "the model writes a controller" into rungs that span tens of points of success rate. *"Programmatic control works"* is underspecified until you say which primitives were on offer and how many turns the agent got.
@@ -232,6 +242,7 @@ Code-as-policy is **level 2 (programmatic control)** in the [control abstraction
 - [Sim-to-real transfer](../learning/sim-to-real-transfer.md) — the code-as-action-space mechanism.
 - [Code world model](../world-models/code-world-model.md): the LLM writes the environment model instead of the controller, and search does the acting.
 - [World-action models](../world-models/world-action-model.md) — grouped with VLAs as "action models" a code-writing agent can call.
+- [Variational automation](../robotics/variational-automation.md) — the bounded task class Graph-as-Policy targets.
 - [Guardrails for robot agents](../../syntheses/agents/guardrails-for-robot-agents.md) — an agent writing *arbitrary code* widens the execution-rail problem beyond name-level tool allowlisting. Note ASPIRE's **coordinator audits actor findings for API-policy compliance** — the first mechanism in this wiki's agentic-robotics pages that actually resembles an execution rail.
 
 ## Current state
@@ -240,7 +251,7 @@ As of mid-2026 the pattern has **crossed from demo to measurement**. [CaP-X](../
 
 The honest summary of the head-to-head with end-to-end VLAs: **on standard LIBERO, VLAs win overwhelmingly (94–98% vs. code-as-policy's far lower absolute rates). Under perturbation, that inverts, because the VLA numbers go to zero and the code agent's do not.** Which comparison matters depends entirely on whether you believe standard LIBERO measures generalization — and [LIBERO-PRO](../../sources/libero-pro-paper.md) argues it does not. Code-as-policy's real claim is not that it is better at manipulation; it is that it **degrades gracefully** where trained policies fall off a cliff, and that it needs no task-specific data to do so.
 
-What remains unmeasured is what it costs.
+What remains unmeasured is what it costs. [GaP](../../sources/gap-graph-as-policy-paper.md) offers a first figure: fewer than 30 LLM calls per graph on a cheap model and up to 150 minutes of simulated self-learning, with no agent cost after deployment.
 
 > [!note] What four years of lineage actually shows
 > Reading 2022 → 2026 end to end, the paradigm's **core empirical claim has not changed once**: a code-writing agent degrades gracefully where a trained policy falls off a cliff, and loses to that policy in-distribution. Every generation re-demonstrated it against a stronger baseline — CLIPort in 2022, primitive-parameterizing CaP in 2023, internet-scale VLAs in 2026.

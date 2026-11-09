@@ -4,7 +4,7 @@ type: entity
 subtype: framework
 created: 2026-08-03
 updated: 2026-10-27
-sources: 8
+sources: 9
 tags: [cap-x, code-as-policy, benchmark, framework, nvidia-gear, robosuite, libero-pro, behavior, rlvr, open-source]
 ---
 

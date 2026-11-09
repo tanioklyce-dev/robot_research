@@ -2,8 +2,8 @@
 title: Real-world robotic reinforcement learning
 type: concept
 created: 2026-07-05
-updated: 2026-09-12
-sources: 29
+updated: 2026-11-09
+sources: 30
 tags: [reinforcement-learning, real-world-rl, manipulation, human-in-the-loop, off-policy-rl, sample-efficiency]
 ---
 
@@ -79,6 +79,12 @@ It is worth having next to [HIL-SERL](../../sources/hil-serl-paper.md) because i
 ## The sim-first, human-optional cousin (2026-09-07)
 
 [Larchenko's LeHome loop](../../sources/larchenko-lehome-part1-rl-for-vlas.md) is this page's recipe with the human made optional and the hardware replaced by Isaac Lab: a trainer and any number of rollout workers that **never communicate except through Hugging Face Hub repositories** — checkpoints one way, rollout datasets the other, advantages computed from stored returns. Teleop / DAgger is a third client of the same bus that pulls tagged hard states; he reports it *"wasn't so important for simulation"* and *"very, very important"* in the real final. The RL method is [AWR + RECAP](rl-for-flow-matching-vlas.md) on a π0.5 flow head, and the reported ceiling is HIL-SERL's inverse: **zero exploration**, so the human is the only source of new behaviour when one is present. One H200 for training, one RTX PRO 6000 for rollouts, 10–20 s episodes. On the real robot ([report](../../sources/larchenko-learning-to-fold-tech-report.md) §9.10) there was no value model at all, so the DAgger **intervention signal became the advantage**: human-correction frames weighted highest, the five seconds before a takeover ramped to zero — *"a deliberately crude replacement for a real advantage function."* Rig: two leaders, two followers, three-pedal foot switch, leaders tracking followers during autonomy so a human can grab control mid-motion.
+
+## RL on a world-action model, with an agent-found recipe (2026-11-09)
+
+[GR00T 2](../../sources/gr00t-2-whitepaper.md) applies GRPO to a pretrained WAM on real robots, then fine-tunes on the successful rollouts. Success on four contact-rich tasks rises from 40–76% to 88–98%, 50 trials per bar. Only task-level success signals drive it. Residual RL also improves results, without updating the base model.
+
+The basis of the recipe came from **AutoRL, a research agent that ran for about 35 days** on simulated benchmarks, starting from standard PPO. A second route trains in the DreamDojo world model and lifts ten RoboLab tasks from 51% to 71%.
 
 ## Related concepts
 

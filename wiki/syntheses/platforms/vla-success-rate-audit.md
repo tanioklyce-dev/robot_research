@@ -2,7 +2,7 @@
 title: Success-rate audit — which of this wiki's policy comparisons survive their sample sizes
 type: synthesis
 created: 2026-07-27
-updated: 2026-08-30
+updated: 2026-11-09
 tags: [evaluation, statistics, clopper-pearson, vla, libero, benchmark, audit, reproducibility, methodology, code-as-policy]
 ---
 
@@ -89,6 +89,8 @@ LIBERO averages span four suites (Spatial / Object / Goal / Long) of **10 tasks 
 > [LIBERO-PRO](../../sources/libero-pro-paper.md) reports models scoring **>90% on standard LIBERO collapsing to 0.0%** under perturbation of objects, initial states, instructions, or environments — because the **evaluation tasks are the training tasks**, differing only by visually imperceptible initial-state changes. Models keep grasping after the target object is swapped, and emit unchanged actions under corrupted instructions.
 >
 > **A statistical tie among numbers that may not measure generalization is a second-order finding.** This audit's section-A verdicts stand, but the more consequential fact is that the whole 94–98 band may be measuring recall. Tested models were OpenVLA, π0, π0.5; **MolmoAct2, OpenVLA-OFT, and GR00T N1.7 — the top of this table — were not tested.**
+>
+> **Update 2026-11-09.** [GaP](../../sources/gap-graph-as-policy-paper.md) reports LIBERO-Pro object-swap scores for two of the models named above: **π0.5 0.24 and MolmoAct2 0.43**, against 0.96 and 0.97 on standard LIBERO, 100 instances per cell. The drop is severe but not to zero, and it is one axis only.
 
 > [!warning] "Top of the wiki's LIBERO table" is not a supportable phrase
 > MolmoAct2 (97.2), MolmoAct2-Think (98.1), OpenVLA-OFT (97.1), GR00T N1.7 (97.0), and π0.5 (96.9) are **not distinguishable from one another**. The wiki calls MolmoAct2 "top of the wiki's table" in at least three places. What the data support is a **top tier**, not an ordering within it. The same applies to the VLA-0 / π0.5-KI / π0 cluster at 94.2–94.7.

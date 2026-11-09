@@ -3,8 +3,8 @@ title: NVIDIA Cosmos
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-10-27
-sources: 53
+updated: 2026-11-09
+sources: 55
 tags: [cosmos, world-model, omnimodal, mixture-of-transformers, world-action-model, video-generation, nvidia, foundation-model, edge]
 ---
 
@@ -45,6 +45,8 @@ The [GR00T](nvidia-groot.md) VLA line migrated onto Cosmos across two releases �
 - **[GR00T N1.6](../sources/groot-n1_6.md)** (Dec 2025) — internal **Cosmos-2B VLM variant** trained on general VL + embodied-reasoning (next-action prediction); replaced the Eagle backbone used through N1.5.
 - **[GR00T N1.7 EA](../sources/isaac-gr00t-github.md)** — **Cosmos-Reason2-2B (Qwen3-VL architecture)**, confirmed via the Isaac-GR00T repo. Note Cosmos 3's reasoner tower is itself initialized from Qwen3-VL — the two lines share architectural ancestry.
 
+**GR00T 2 (2026-11-09) uses Cosmos differently.** It starts from the Cosmos-Predict2.5-2B video model as the whole policy backbone, with Cosmos-Reason1 only as the text encoder ([whitepaper](../sources/gr00t-2-whitepaper.md)).
+
 ## GTC Berlin additions (2026-10-21)
 An open DGX Station reference workflow to *"post-train NVIDIA Cosmos world models for synthetic data generation using ChatGPT Astra"*. The release never defines "ChatGPT Astra", and a web search found no other reference. There is also the **Human 1M Dataset** (human activity, synchronised three-view video, 3D hand tracking), whose **full version is restricted to Cosmos Coalition partners**. Sereact uses Cosmos Transfer with GR00T for its Cortex platform ([release](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)).
 
@@ -61,7 +63,7 @@ Cosmos is the underlying generative video model that's enabling the rise of [Wor
 ## Mentioned in
 
 - [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — Cosmos policies are a v0.3 Arena integration, with shipped experiment configs pairing π0 and Cosmos on 2/18/20 RoboLab tasks and 2/17 kitchen tasks; the January blog also names Cosmos for future *"world-model-driven neural simulation and scenario generation"* inside Arena.
-> [!note] Curated list — **53** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **55** source pages link here; the ones below are those that shaped this page.
 
 - [Cosmos 3 Technical Report](../sources/cosmos-3-technical-report.md)
 - [GR00T N1.6 research page](../sources/groot-n1_6.md) — Cosmos-2B VLM backbone

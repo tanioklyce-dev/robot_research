@@ -2,7 +2,7 @@
 title: The NVIDIA robot-AI stack — what is owned, what is contested, and where the lock actually binds
 type: synthesis
 created: 2026-09-07
-updated: 2026-11-02
+updated: 2026-11-09
 tags: [nvidia, vertical-integration, jetson, cuda, isaac-ros, cosmos, groot, halos, lerobot, hugging-face, hailo, newton, evaluation, platform-risk]
 ---
 
@@ -23,7 +23,7 @@ The [Hugging Face acquisition](../../sources/nvidia-hugging-face-acquisition.md)
 | **World models** | [Cosmos](../../entities/nvidia-cosmos.md) (Cosmos 3 omni-model) | [FLUX 3](../../entities/flux-3.md), V-JEPA / [LeJEPA](../../entities/leworldmodel.md) line |
 | **Reference hardware** | none owned. **[Agile ONE SN](../../entities/agile-one-sn.md)** (partner-built, GR00T preconfigured, early 2027) is the first named *reference humanoid* ([release](../../sources/nvidia-isaac-platform-gtc-berlin-2026.md)) | any ROS humanoid; [Unitree G1](../../entities/unitree-g1.md) is the de facto research default |
 | **Data** | SimReady Central ([2,677 assets, 490 GB, CC-BY-4.0](https://huggingface.co/datasets/nvidia/simready-assets) as of 2026-11; "2,000+" at GTC Berlin), **Human 1M** (full set restricted to Cosmos Coalition partners) | open LeRobot datasets, Open X-Embodiment |
-| **Robot foundation models** | [GR00T](../../entities/nvidia-groot.md) ([GEAR](../../entities/nvidia-gear.md)) | [π0 / π0.5](../../entities/physical-intelligence.md), [GEN-1.5](../../entities/gen-1-5.md), [S1](../../entities/skild-ai.md), [SmolVLA](../../entities/smolvla.md) |
+| **Robot foundation models** | [GR00T](../../entities/nvidia-groot.md) ([GEAR](../../entities/nvidia-gear.md)) — GR00T 2 (2026-11-09) is a [world-action model](../../sources/gr00t-2-whitepaper.md); code promised for December | [π0 / π0.5](../../entities/physical-intelligence.md), [GEN-1.5](../../entities/gen-1-5.md), [S1](../../entities/skild-ai.md), [SmolVLA](../../entities/smolvla.md) |
 | **AV models** | [Alpamayo](../../entities/alpamayo.md) | — (outside this wiki's scope) |
 | **Certified safety** | [Halos](../../entities/nvidia-halos.md) + ANAB-accredited inspection lab | none in this wiki |
 | **Evaluation** | [RoboLab](../../entities/nvidia-robolab.md) | [RoboArena](../../entities/roboarena.md), LIBERO, SIMPLER |

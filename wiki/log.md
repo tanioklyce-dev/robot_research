@@ -6622,3 +6622,12 @@ Structure was sound: **0 broken file links, 0 orphans, 0 schema violations, all 
 - Updated [Household robots compared](syntheses/platforms/household-robots-comparison.md), [Home robot privacy and security](syntheses/platforms/home-robot-privacy-and-security.md), [Retail and grocery robotics](concepts/robotics/retail-and-grocery-robotics.md), [Robot security](concepts/robotics/robot-security.md) and the Unitree and Fauna pages.
 - **Cleanup:** removed the outdated G1 primary-source question and three stale stub markers, added curated-list markers to hub pages, and stopped `lint_wiki.py` reading inline code as links.
 - **Limits:** Amazon's current Astro listing and privacy page could not be read, Mozilla's Astro review returned 403, and Labrador's current status could not be confirmed.
+
+## [2026-11-09] ingest | CoRL 2026: GR00T 2, Graph-as-Policy, NVIDIA roundup
+- Created [GR00T 2 whitepaper](sources/gr00t-2-whitepaper.md), [Graph-as-Policy paper](sources/gap-graph-as-policy-paper.md), [NVIDIA at CoRL 2026](sources/nvidia-corl-2026-robotics-simulation-blog.md)
+- Added to `raw/`: `gr00t2_whitepaper.pdf`, `gap-2607.05369v3.pdf`
+- New entities: [Human-1M](entities/human-1m.md), [Graph-as-Policy](entities/graph-as-policy.md). New concept: [Variational automation](concepts/robotics/variational-automation.md)
+- RoboTTT was already ingested from its paper; its project page adds no measurements, so it is noted on [the existing source page](sources/robottt-paper.md)
+- Updated [GR00T](entities/nvidia-groot.md), [world-action model](concepts/world-models/world-action-model.md), [code as policy](concepts/agents/code-as-policy.md), [scaling laws](concepts/learning/scaling-laws-vla.md), [real-world RL](concepts/learning/real-world-robot-rl.md), [RoboDojo](entities/robodojo.md), Isaac Lab, Newton, Arena, GEAR, Goldberg, Thor, SONIC, G1, YAM, UMI, ASPIRE, Cosmos, [control-rate ladder](syntheses/platforms/control-rate-ladder.md), [success-rate audit](syntheses/platforms/vla-success-rate-audit.md), [NVIDIA stack](syntheses/platforms/nvidia-robot-ai-stack.md), backlog
+- Conditions recorded: GR00T 2's 95% five-demo result is on tasks selected as learnable in five demos; truck assembly's 65% used easier scenes (35% on the original). GaP's VLA baselines were not trained on the varied distribution, and the project page's "7 s" sentence reads opposite to the paper
+- Not established: GR00T 2 weights and licence; DexBench, VABAR, AlphaNIST, STEEL and GRAIL rest on NVIDIA's post alone

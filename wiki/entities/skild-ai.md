@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-08-29
 updated: 2026-09-29
-sources: 7
+sources: 8
 tags: [skild-ai, s1, robot-foundation-model, in-context-learning, cmu, pittsburgh, physical-ai, omni-bodied, vendor-source]
 ---
 

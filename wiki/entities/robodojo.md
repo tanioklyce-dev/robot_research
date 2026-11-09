@@ -3,8 +3,8 @@ title: RoboDojo
 type: entity
 subtype: benchmark
 created: 2026-11-07
-updated: 2026-11-07
-sources: 5
+updated: 2026-11-09
+sources: 6
 tags: [robodojo, benchmark, evaluation, isaac-sim, isaac-lab-arena, sim-and-real, bimanual, arx-x5, piper, xpolicylab, robotwin, mit]
 ---
 
@@ -44,6 +44,12 @@ The leaderboard has moved a long way since the paper was frozen ([GPT-6 Astra on
 - **An LLM entry.** **[GPT-6 Astra](gpt-6-astra.md), with no robot policy and no fine-tuning, scores 22.48%**, above every public policy. It leads on Open (31.0% vs ≤ 2.1%) and Generalization, and trails on Precision, Long-Horizon and Memory. GPT-5.5 scores 0.88% on the same interface.
 - **Real board.** OpenWAM-α now leads at **24.40%**, ahead of π0.5's 12.80%. Astra's real-robot campaign was **stopped for safety** after it damaged hardware.
 - **Comparability.** The LLM entries received a wiki-derived task recipe, including the process-score ladder, that the policies never saw. They were run on one seed.
+
+## The board as of 2026-11-06, as reported by NVIDIA
+
+[GR00T 2](../sources/gr00t-2-whitepaper.md) reprints the board (Tables 19, 31), and it has moved again. Agentic entries now lead: Q0-Preview 68.9% and GO-3 Nano Preview 56.4%, far above GPT-6 Astra's 22.48% two months earlier. These figures are copied from a competitor's report and weren't checked against the live board.
+
+GR00T 2 itself scores 35.5% over three layout banks, 40.8% with RL (one bank), and 75.8% with RL and an agent (one bank). It remains weak on Open tasks at 6.3% without an agent, and the gain from agents is largest on Memory, from 36.0% to 95.0%.
 
 ## The submission path (XPolicyLab, 2026-11)
 - **77 policies** are now integrated, up from 30 in the paper. A PR to XPolicyLab with a checkpoint download script is the only route onto the official board ([XPolicyLab GitHub](../sources/xpolicylab-github.md)).

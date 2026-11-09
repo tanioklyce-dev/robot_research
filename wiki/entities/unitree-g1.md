@@ -3,8 +3,8 @@ title: Unitree G1
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-11-08
-sources: 28
+updated: 2026-11-09
+sources: 29
 tags: [unitree-g1, humanoid, bipedal, china, affordable, accessible, groot, whole-body-control]
 ---
 
@@ -35,6 +35,8 @@ The G1 is the GR00T line's main **cross-embodiment / whole-body** target beyond 
 - **[GR00T N1.5](../sources/groot-n1_5.md)** post-training (1K demos): seen objects 44.0% → **98.8%**, novel objects **84.2%** — the first strong non-GR-1 humanoid result in the GR00T line.
 - **[GR00T N1.6](../sources/groot-n1_6.md)** adds G1 **whole-body loco-manipulation** teleop data to pretraining.
 - **[GR00T N1.7 EA](../sources/isaac-gr00t-github.md)** ships `UNITREE_G1` and `UNITREE_G1_SONIC` embodiment tags — the latter for end-to-end language-conditioned manipulation + locomotion via the **[GEAR-SONIC](gear-sonic.md)** controller ([paper](../sources/sonic-paper.md)). SONIC is a **G1-only** whole-body controller (29 joints): a motion-tracking RL policy scaled to 611 h / 100M+ frames of mocap, with direct sim-to-real (99.2%) and a universal-token interface a GR00T N1.5 VLA drives for loco-manipulation. G1 is the sole robot SONIC targets — the strongest signal it's becoming GR00T's de-facto humanoid.
+
+**GR00T 2 Turbo (2026-11-09).** Runs onboard at 124 ms on Thor and steers [SONIC](gear-sonic.md). Popcorn 48/48, table clean-up 93.3%, ground pick-up 83.3%, spill clean-up 46.7% ([whitepaper](../sources/gr00t-2-whitepaper.md)). Teleoperation data for the G1 is only 275 h of the 23.5k h total.
 
 ## As the target of Unitree's own foundation model (UnifoLM-WLA-1.0)
 

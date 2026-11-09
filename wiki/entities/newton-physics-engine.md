@@ -3,8 +3,8 @@ title: Newton physics engine
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-10-24
-sources: 11
+updated: 2026-11-09
+sources: 12
 tags: [physics-engine, gpu, openusd, usdphysics, warp, linux-foundation]
 ---
 
@@ -18,6 +18,8 @@ Open-source GPU-accelerated physics engine for robotics, co-developed by [NVIDIA
 
 ## 2026 status
 Newton 1.0 GA in March 2026 (GTC). Production-ready for Isaac Lab. Part of NVIDIA's Physical AI release wave alongside [GR00T N1.6](nvidia-groot.md) ([NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)).
+
+**CoRL 2026 (2026-11-09).** Tighter Isaac Lab integration adds deformable objects such as cables and cloth, and complex articulated hands. Skild AI announced STEEL, a rigid-body solver built on Newton ([NVIDIA](../sources/nvidia-corl-2026-robotics-simulation-blog.md)).
 
 ## USD schema layer
 - **`newton-usd-schemas`** — Apache 2.0, Linux Foundation governance. Defines `NewtonSceneAPI` (timestep, gravity, solver iterations) extending `UsdPhysics`. Active: v0.2.0 released **2026-05-07**; 52 commits, 7 releases. Designed as a "proving ground" — physically meaningful parameters generalizable across solvers may be promoted into `UsdPhysics` itself.

@@ -3,8 +3,8 @@ title: Ken Goldberg
 type: entity
 subtype: person
 created: 2026-08-03
-updated: 2026-10-27
-sources: 4
+updated: 2026-11-09
+sources: 6
 tags: [person, uc-berkeley, autolab, manipulation, grasping, code-as-policy]
 ---
 
@@ -13,6 +13,7 @@ tags: [person, uc-berkeley, autolab, manipulation, grasping, code-as-policy]
 ## Papers in this wiki
 - **[CaP-X](../sources/cap-x-paper.md)** (ICML 2026) — co-senior author (†, equal advising with Linxi "Jim" Fan). The framework separating agent capability from human-designed API scaffolding.
 - **[ASPIRE](../sources/aspire-paper.md)** (Jun 2026) — co-author. Continual skill discovery built on CaP-X.
+- **[Graph-as-Policy](../sources/gap-graph-as-policy-paper.md)** (CoRL 2026 spotlight) — senior author. Typed skill graphs written by agents, and the [variational automation](../concepts/robotics/variational-automation.md) task class. Also a lead on the VABAR benchmark ([NVIDIA](../sources/nvidia-corl-2026-robotics-simulation-blog.md)).
 
 ## Why it matters in this wiki
 The Berkeley AUTOLab contribution to this line is visible in its **grasping-and-manipulation framing**: both papers treat grasp planning, perception-to-grasp transforms, and grasp-failure recovery as first-class primitives the agent must compose, rather than as a solved black box. ASPIRE's skill library has an entire **object-level grasping** category, and its trace format records grasp candidates as inspectable evidence.

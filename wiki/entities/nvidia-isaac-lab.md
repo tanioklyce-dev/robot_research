@@ -3,8 +3,8 @@ title: NVIDIA Isaac Lab
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-11-07
-sources: 38
+updated: 2026-11-09
+sources: 39
 tags: [framework, robot-learning, nvidia, isaac-lab, rl]
 ---
 
@@ -20,6 +20,8 @@ Open-source modular framework for robot learning and policy training. Sits on to
 Isaac Lab 3.0 with the GA release of the [Newton physics engine](newton-physics-engine.md) became the default training stack for NVIDIA's "Physical AI" stack at GTC 2026 ([NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)). The official browser-deployable [Isaac Launchable](../sources/isaac-launchable-repo.md) on [NVIDIA Brev](nvidia-brev.md) is still on **Isaac Lab 2.3** as of v1.2.1 (Jan 2026).
 
 **Isaac Lab 3.0 general availability was announced at GTC Berlin on 2026-10-21**: *"open source, agent-ready … from desktop to data center using multi-GPU workflows and physics engines including Newton and NVIDIA PhysX"* ([release](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)). Read against the paragraph above, 3.0 was the default stack from spring 2026 but carried an **EA** label until October. The release's own dexterous-manipulation link still points at the `v3.0.0-EA` docs.
+
+**CoRL 2026 update (2026-11-09).** NVIDIA adds agent-driven environment setup, solver and renderer switching, and an RL post-training library for foundation models. It reports up to 2.5× the training throughput of Isaac Lab 2.3 with PhysX on one vision-based dexterous benchmark, comparing across versions as well as solvers. AlphaNIST, built on Isaac Lab, is claimed to learn all 20 NIST board tasks in one policy with over 98% training success ([NVIDIA](../sources/nvidia-corl-2026-robotics-simulation-blog.md)).
 
 ## Native BAM servo actuator and Microduck tasks (2026-10-15)
 

@@ -3,8 +3,8 @@ title: Jetson Thor
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-10-22
-sources: 52
+updated: 2026-11-09
+sources: 53
 tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai, jetpack-7, nvfp4, mig, t3000, t2000, igx]
 ---
 
@@ -149,6 +149,8 @@ As of the July 2026 NVIDIA↔HF partnership, Thor is also the announced VLA-depl
 
 As of GTC Berlin (2026-10-21), Thor is the onboard compute of NVIDIA's reference humanoid, **[Agile ONE SN](agile-one-sn.md)**, paired with an Intel i3 N305 base module. Humanoid (UK) pairs Thor with Holoscan Sensor Bridge, Halos and the new Isaac OS. NVIDIA's release quotes *"2,070 FP4 teraflops"* **without the "sparse" qualifier** ([release](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)).
 
+**GR00T 2 Turbo on the G1 (2026-11-09).** A 124 ms prediction on the robot's Thor, planning 1.6 s of whole-body tokens about once a second, with SONIC on an Orin NX at 50 Hz. Vendor-reported ([whitepaper](../sources/gr00t-2-whitepaper.md)). No weights were public at ingest.
+
 ## Position in the NVIDIA AI hardware lineup
 
 - **Thor** — on-robot brain (deploy + inference; sensor-side).
@@ -176,7 +178,7 @@ See [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.m
 ## Mentioned in
 - [A Sim-to-Real VLA Pipeline with Seeed reBot Arm and NVIDIA Isaac](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) — Thor + AGX Orin on JetPack 7.2 as GR00T TensorRT targets; USB-port and USB-CAN gotchas; Cosmos3-Nano cuBLASLt patch.
 
-> [!note] Curated list — **52** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **53** source pages link here; the ones below are those that shaped this page.
 
 - [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.md)
 - [NVIDIA Jetson Thor product page](../sources/nvidia-jetson-thor-product-page.md)

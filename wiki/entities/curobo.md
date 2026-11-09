@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-08-13
 updated: 2026-11-07
-sources: 6
+sources: 7
 tags: [curobo, motion-planning, gpu, cuda, nvidia, inverse-kinematics, collision-checking, robotwin, trajectory-optimization]
 ---
 

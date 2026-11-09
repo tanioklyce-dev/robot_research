@@ -3,8 +3,8 @@ title: GEAR-SONIC
 type: entity
 subtype: method
 created: 2026-07-04
-updated: 2026-07-15
-sources: 6
+updated: 2026-11-09
+sources: 7
 tags: [gear-sonic, sonic, whole-body-control, humanoid, loco-manipulation, motion-tracking, unitree-g1, nvidia, gear, groot]
 ---
 
@@ -19,6 +19,7 @@ SONIC exposes a **universal token action space** (FSQ-quantized) that decouples 
 ## Headline numbers
 - 42M model: 99.6% success / 23.8 mm MPJPE (OOD); 41% MPJPE reduction vs BeyondMimic; 98.5% survival vs OpenHomie's 43% at high speed; sim-to-real 99.2%.
 - Runs onboard [Jetson Orin](jetson-orin-nano.md) at 1–2 ms/forward (TensorRT + CUDA Graph), policy 50 Hz.
+- **Used as the low-level layer under GR00T 2 Turbo** on the G1: latent whole-body tokens in, joint targets out at 50 Hz, on an Orin NX. Average 80.8% over four real tasks ([whitepaper](../sources/gr00t-2-whitepaper.md)).
 - Public **BONES-SEED** motion dataset (142,220 sequences / 288 h / 522 actors) on HF.
 
 ## Related

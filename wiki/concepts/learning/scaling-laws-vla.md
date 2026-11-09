@@ -2,8 +2,8 @@
 title: Scaling laws — VLAs and human data
 type: concept
 created: 2026-05-15
-updated: 2026-10-13
-sources: 25
+updated: 2026-11-09
+sources: 26
 tags: [scaling-laws, vla, human-data, egocentric, gr00t, egoscale, pretraining, xvla, cross-embodiment]
 ---
 
@@ -104,6 +104,19 @@ This partly answers the open question below (*"Does the same scaling law apply t
 - **Train the way you deploy.** Long-horizon planning scaled predictably only after training on 10-step autoregressive rollouts. With 2-step rollouts, a 300M model beat a 1B model on obstacle-reach.
 
 Real-robot transfer is partial. At n = 30, Grasp and Lift improve with size (8B: 67% / 50%); Pick and Place is flat, and π0.5 beats every size on it (53% vs 27%).
+
+## A controlled human-video ablation at 400,000 hours (2026-11-09)
+
+[GR00T 2](../../sources/gr00t-2-whitepaper.md) pretrains four models on 0%, 1%, 10% and 100% of its human video, with the same robot data afterward. On 72 Dexter tasks:
+
+| Human video | Real-robot success | Real-robot progress |
+|---|---|---|
+| 0% | 18% | 50% |
+| 1% | 27% | 58% |
+| 10% | 28% | 61% |
+| 100% | 41% | 70% |
+
+Nothing levels off at the largest scale. The evidence is thin per point (3 rollouts per task, about 216 per model), and the 0%→1% step includes a shared pretraining stage, so **the 9-point first jump can't be credited to data alone**. No law is fitted. The authors name the missing quantity directly: no exchange rate between human video, UMI, teleoperation and simulation.
 
 ## Related concepts
 - [In-context robot learning](in-context-robot-learning.md) — [S1](../../sources/skild-s1-blog.md)'s central claim is a **scaling** claim, not a benchmark one: in-context learning *loses* to language conditioning at 1k h (43% vs 53%) and leads 66% vs 9% on unseen tasks at 100k h, with the gap said to widen exponentially. A crossover, if real, is a stronger statement than any single success rate.

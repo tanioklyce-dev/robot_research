@@ -3,8 +3,8 @@ title: Isaac Lab-Arena
 type: entity
 subtype: product
 created: 2026-09-14
-updated: 2026-11-07
-sources: 7
+updated: 2026-11-09
+sources: 8
 tags: [isaac-lab-arena, nvidia, isaac-lab, evaluation, benchmark, simulation, lightwheel, robolab, lerobot, envhub, osmo, sensitivity-analysis]
 ---
 
@@ -26,6 +26,7 @@ tags: [isaac-lab-arena, nvidia, isaac-lab, evaluation, benchmark, simulation, li
 - **2026-01-05** announced as *pre-alpha* at CES ([NVIDIA blog](../sources/isaaclab-arena-github.md)) with LeRobot EnvHub integration ([HF blog](../sources/nvidia-hf-lerobot-open-robotics-blog.md) came in July; the January HF post is summarized on the source page).
 - **v0.2.0** (≈ March 2026): Isaac Lab 3.0 / [Newton](newton-physics-engine.md), sequential tasks, relation solver, GR00T N1.6 + [DROID](droid.md), Galbot / AgiBot A2D embodiments, G1 WBC-AGILE velocity policy, RSL-RL evaluation.
 - **v0.3.0** (September 2026): agentic environment generation, typed YAML experiments and multi-node OSMO dispatch, variations + sensitivity analysis, OpenPI / Cosmos / DreamZero policies, the **RoboLab catalog** (38 task specs against the 120 RoboLab tasks) and a **31-task DROID Kitchen Benchmark** on Lightwheel and Replicator kitchens, native `uv` install.
+- **v0.4** (developer preview at CoRL, 2026-11): with **DexBench** (RLWRLD and NVIDIA, 15 tasks in four industrial scenes) and **VABAR** (UC Berkeley and NVIDIA, six [variational automation](../concepts/robotics/variational-automation.md) tasks) ([NVIDIA](../sources/nvidia-corl-2026-robotics-simulation-blog.md)). Task definitions and results not reviewed.
 
 ## Numbers held here
 

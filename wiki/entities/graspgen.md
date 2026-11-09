@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-23
 updated: 2026-08-23
-sources: 1
+sources: 2
 tags: [nvidia, grasping, 6-dof-grasping, diffusion, cross-embodiment, swept-volume, open-source, cvpr-2026]
 ---
 

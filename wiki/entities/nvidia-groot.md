@@ -3,8 +3,8 @@ title: NVIDIA GR00T
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-11-07
-sources: 61
+updated: 2026-11-09
+sources: 63
 tags: [groot, vla, nvidia, foundation-model, humanoid]
 ---
 
@@ -12,7 +12,7 @@ NVIDIA's open, commercially-licensed [VLA](../concepts/learning/vla-models.md) f
 
 ## Version history
 
-A clear ~quarterly cadence, with a **backbone progression Eagle → Cosmos-2B → Cosmos-Reason2-2B** and a steady move toward reasoning-integrated, cross-embodiment, whole-body control. All releases keep the **3B / dual-system (VLM + flow-matching DiT)** shape.
+A clear ~quarterly cadence, with a **backbone progression Eagle → Cosmos-2B → Cosmos-Reason2-2B** and a steady move toward reasoning-integrated, cross-embodiment, whole-body control. All N1.x releases keep the **3B / dual-system (VLM + flow-matching DiT)** shape. GR00T 2 does not.
 
 | Version | Date | VLM backbone | Key change | Checkpoint |
 |---|---|---|---|---|
@@ -20,6 +20,7 @@ A clear ~quarterly cadence, with a **backbone progression Eagle → Cosmos-2B �
 | **N1.5** | 2025-06-11 | [Eagle](eagle-vlm.md) 2.5 | VLM **frozen** + [FLARE](../concepts/world-models/flare.md) loss; huge language-following gains | `nvidia/GR00T-N1.5-3B` |
 | **N1.6** | 2025-12-15 | Cosmos-2B variant | reasoning-integrated backbone; DiT 16→32 layers; state-relative actions | `nvidia/GR00T-N1.6-3B` |
 | **N1.7** | **GA 2026-04-18** (repo README); LeRobot 2026-07-07 | Cosmos-Reason2-2B (Qwen3-VL) | 20K-hr EgoScale human video; relative-EEF action space; **state/action dims 29→132, action horizon 16→40**; native [LeRobot](lerobot.md) integration; **N1.5 dropped** | `nvidia/GR00T-N1.7-3B` |
+| **2** | **2026-11-09** (code "available in December") | none; Cosmos-Predict2.5-2B video transformer, Cosmos-Reason1 text encoder | **[World-action model](../concepts/world-models/world-action-model.md)**: joint future video and actions in one 2B transformer; 402,730 h of human video | not posted at ingest |
 
 - **N1** — **GR00T N1: An Open Foundation Model for Generalist Humanoid Robots** ([arXiv 2503.14734](https://arxiv.org/abs/2503.14734)); full paper ingested — see [GR00T N1 Paper](../sources/groot-n1-paper.md). ~50 contributors; research leads [Jim Fan](jim-fan.md) + [Yuke Zhu](yuke-zhu.md).
 - **N1.5** ([research page](../sources/groot-n1_5.md)) — **frozen** [Eagle 2.5](eagle-vlm.md) VLM + simplified adapter + **[FLARE](../concepts/world-models/flare.md)** (Future LAtent REpresentation Alignment) loss (coef 0.2) + [DreamGen](dreamgen.md) neural trajectories. **Real GR-1 language-following 46.6% → 93.3%, success 43.3% → 83.0%**; RoboCasa 30-demo 17.4 → 47.5; [Unitree G1](unitree-g1.md) seen-objects 44.0% → **98.8%** (first strong non-GR-1 humanoid result). Won both sites of the October 2025 Seeed × NVIDIA × HF Embodied AI Hackathon (fine-tuned via [NVIDIA Brev](nvidia-brev.md); deployed on [Jetson Thor](jetson-thor.md)).
@@ -37,6 +38,23 @@ The [NVIDIA HF blog](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) gra
 
 ### GR00T as a shipped factory configuration (2026-10-21)
 [Agile ONE SN](agile-one-sn.md) is the first third-party humanoid sold **preconfigured** with GR00T 1.7, GR00T whole-body control and the end-to-end reference workflow ([Agile](../sources/agile-robots-agile-one-sn-launch.md)). NVIDIA also released an open **DGX Station workflow to refine GR00T 1.7 with reinforcement learning** (repo `nvidia-isaac/isaac-rlpt`). Bear Robotics (via **Kino-2**), Sereact and Bellboy are named as post-training or deploying GR00T ([GTC Berlin release](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)).
+
+## GR00T 2 (2026-11-09): from VLA to world-action model
+
+GR00T 2 replaces the VLM-plus-action-head design with a single transformer that denoises future video and actions together ([whitepaper](../sources/gr00t-2-whitepaper.md)). It pretrains on 402,730 h of [Human-1M](human-1m.md) video, 10,184 h of [UMI](umi.md) demonstrations and 23,500 h of teleoperation.
+
+| Result | Number | Condition |
+|---|---|---|
+| Zero-shot on all 71 Dexter tasks | 49.8%, vs π0.5 26.3% and GR00T 1.7 18.3% | 3 trials per task |
+| Dexter-50 zero-shot, 1 demo, 5 demos | 40%, 71%, 95% | **Tasks selected as learnable in 5 demos** |
+| YAM long-horizon post-training | 71.7%, baselines at most 12.5% | Up to 20 trials per task |
+| Real-world RL on contact-rich tasks | 88–98%, from 40–76% | 50 trials per bar |
+| Agentic assembly from cluttered starts | 97–98 of 100 | Fine-tuning, DAgger and an agent with recovery skills |
+| Turbo on [Unitree G1](unitree-g1.md) | 80.8% average, 124 ms on [Thor](jetson-thor.md) | 30–48 trials per task |
+
+The architecture, the data and the recipe all changed together, so the report doesn't isolate what the WAM design contributes. Memory is delegated to an agent, because the model sees only 0.8 s of history. Every real-robot result is NVIDIA's own.
+
+**Availability.** NVIDIA calls the model open, and the [project page](https://research.nvidia.com/labs/gear/gr00t-2/) promises code in December. No weights or licence were found on 2026-11-09. For a build decision today, N1.7 is still the shipped model.
 
 ## Codebase — [Isaac-GR00T](../sources/isaac-gr00t-github.md)
 Apache-2.0 code (weights under NVIDIA Open Model License), ~7.5k★. LeRobot-v2 data format + `modality.json`; **embodiment tags** (`LIBERO_PANDA`, `OXE_DROID_…`, `UNITREE_G1_SONIC`, `NEW_EMBODIMENT`) drive cross-embodiment fine-tuning. Inference 16 GB+ VRAM, fine-tune 40 GB+; runs on [Jetson Thor](jetson-thor.md) / [Orin](jetson-orin-nano.md) / [DGX Spark](dgx-spark.md). PyTorch 2.7 + flash-attn 2.7.4 + `uv`.
@@ -69,11 +87,12 @@ First measured latency numbers, from the [official TensorRT deployment docs](../
 
 ## Mentioned in
 
-> [!note] Curated list — **61** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **63** source pages link here; the ones below are those that shaped this page.
 
 - [GR00T N1 Paper](../sources/groot-n1-paper.md) — **primary source (N1)**
 - [GR00T N1.5 research page](../sources/groot-n1_5.md) — frozen VLM + FLARE
 - [GR00T N1.6 research page](../sources/groot-n1_6.md) — Cosmos-2B backbone + state-relative actions
+- [GR00T 2 whitepaper](../sources/gr00t-2-whitepaper.md) — **primary source (GR00T 2)**; the move to a world-action model
 - [Isaac-GR00T GitHub](../sources/isaac-gr00t-github.md) — the official codebase (N1.7 EA default)
 - [A Sim-to-Real VLA Pipeline with Seeed reBot Arm and NVIDIA Isaac](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) — seven-engine full-graph TensorRT on Thor/Orin; Qwen3-VL-2B alternative backbone; a worked `NEW_EMBODIMENT` config
 - [NVIDIA Isaac Teleop and GR00T 1.7 in LeRobot (HF blog)](../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) — N1.7 GA in LeRobot; LIBERO numbers; N1.5 deprecation

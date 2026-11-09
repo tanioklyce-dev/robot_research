@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-05-15
 updated: 2026-10-27
-sources: 14
+sources: 15
 tags: [person, nvidia, gear, embodied-ai, agents, robotics]
 ---
 

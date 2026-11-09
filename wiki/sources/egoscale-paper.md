@@ -158,3 +158,4 @@ EgoScale takes **the opposite path** from the [sim-to-real](../concepts/learning
 - [Physical Intelligence](../entities/physical-intelligence.md)
 - [SmolVLA](../entities/smolvla.md)
 - [Tien Kung (X-Humanoid)](../entities/tien-kung.md)
+- [Human-1M](../entities/human-1m.md)

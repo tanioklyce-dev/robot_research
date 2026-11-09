@@ -3,8 +3,8 @@ title: ASPIRE
 type: entity
 subtype: system
 created: 2026-08-03
-updated: 2026-10-27
-sources: 5
+updated: 2026-11-09
+sources: 6
 tags: [aspire, code-as-policy, skill-library, continual-learning, nvidia-gear, voyager, evolutionary-search, cross-embodiment, claude-opus]
 ---
 
@@ -36,6 +36,8 @@ Project page: `https://research.nvidia.com/labs/gear/aspire/`
 - **It closes the Voyager loop on real robotics.** [Voyager](nvidia-gear.md) (TMLR 2024) is itself a GEAR paper; ASPIRE is the same lab porting its own open-ended skill-library pattern from Minecraft to manipulation — where trials are expensive and failures are physical. Shared authors include [Jim Fan](jim-fan.md) and Guanzhi Wang.
 - **It is the wiki's first measured evidence that a skill library compounds.** The N∈{0,25,50,90} scaling curve is the specific claim [Waddle](waddle-labs.md) asserted and never quantified.
 - **Its limitations section is the wiki's most useful reality-check on the paradigm** — see the [source page](../sources/aspire-paper.md); notably that the predefined API still bounds expressible behavior, which contradicts the strong reading of vendor "works with any embodiment" claims.
+
+- **Supplies recovery skills to GR00T 2's agent** on real robots, and task programs in simulation ([whitepaper](../sources/gr00t-2-whitepaper.md)).
 
 ## Superseded on its own benchmark style (2026-10)
 [RPG](rpg.md) reproduces ASPIRE from released code as a baseline: **166/220 (75.5%)** against RPG's 209/220 on 22 tasks × 10 held-out seeds, with the same Gemini 3.8 Flash runtime and 30-turn budget. RPG's largest margins are fixture insertion (10 vs 2) and bottle placement (10 vs 3). ASPIRE wins one more trial on serving and standard cube sorting ([RPG paper](../sources/rpg-guided-self-improvement-paper.md)).

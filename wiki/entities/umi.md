@@ -3,8 +3,8 @@ title: UMI (Universal Manipulation Interface)
 type: entity
 subtype: method
 created: 2026-05-10
-updated: 2026-10-13
-sources: 10
+updated: 2026-11-09
+sources: 11
 tags: [umi, universal-manipulation-interface, hand-held-gripper, in-the-wild-data-collection, diffusion-policy-followon, chi-2024, stanford, columbia, tri]
 ---
 
@@ -50,6 +50,7 @@ From [UMI Project Page](../sources/umi-paper.md):
 - **Data-collection-side companion to [Diffusion Policy](diffusion-policy.md)** — same lead author. Diffusion Policy advanced the policy class; UMI advances the data pipeline. Together they form a complete BC-for-real-robot stack.
 - **Cited as inspiration for [RUM](robot-utility-models.md)'s Stick-v2 gripper** ([RUM paper](../sources/robot-utility-models-paper.md) §2.1). RUM's portable in-home data collection rig is a direct UMI descendant.
 - **Validates "diversity of demos > robot teleop volume"** — UMI's pitch is that cheap, diverse, embodiment-agnostic demos generalize better than expensive teleoperation; this is the same thesis [Robot Utility Models](robot-utility-models.md) and [DROID](droid.md) elaborate from different angles.
+- **Scaled to 10,184 hours and 2,897 tasks in GR00T 2** (UMI-10K). With YAM play data, handheld demonstrations alone teach a YAM to assemble a toy truck in 60% of trials ([whitepaper](../sources/gr00t-2-whitepaper.md)).
 - **TRI co-authorship anchors a TRI / Stanford / Columbia robotics-foundation-model triangle** — see [TRI](tri.md).
 
 ## The torque counter-argument: UME

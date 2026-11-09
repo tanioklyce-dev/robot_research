@@ -3,8 +3,8 @@ title: NVIDIA GEAR Lab
 type: entity
 subtype: research-lab
 created: 2026-05-15
-updated: 2026-10-27
-sources: 23
+updated: 2026-11-09
+sources: 26
 tags: [nvidia, gear, embodied-ai, humanoids, foundation-models, world-models, whole-body-control]
 ---
 
@@ -32,6 +32,12 @@ GEAR is **the in-house research source** of essentially every NVIDIA-product ent
 - [Isaac Lab](nvidia-isaac-lab.md), [Isaac Sim](nvidia-isaac-sim.md) — used as the simulation substrate for nearly all GEAR papers; the Nov 2025 Isaac Lab arXiv paper is GEAR-authored.
 - [RoboCasa](robocasa.md), [MimicGen](mimicgen.md) — both authored under Yuke Zhu at NVIDIA / UT Austin.
 - [Newton physics engine](newton-physics-engine.md), [NVIDIA Cosmos](nvidia-cosmos.md) — adjacent product groups consumed by GEAR's world-model and humanoid lines.
+
+## CoRL 2026 (2026-11-09)
+
+- [GR00T 2](../sources/gr00t-2-whitepaper.md) moves the lab's flagship model to a world-action architecture.
+- [RoboTTT](../sources/robottt-paper.md) is one of six Best Paper finalists, along with the NVIDIA paper GRAIL ([NVIDIA](../sources/nvidia-corl-2026-robotics-simulation-blog.md)).
+- [Graph-as-Policy](graph-as-policy.md) continues the Berkeley collaboration on agentic robotics.
 
 ## Awards (selected)
 - "Top 10 NVIDIA Research Highlights of 2023" — Eureka, DrEureka, RoboCasa, GR00T N1.
