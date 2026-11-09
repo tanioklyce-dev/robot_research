@@ -3,8 +3,8 @@ title: Dynamixel
 type: entity
 subtype: hardware-component
 created: 2026-05-28
-updated: 2026-08-27
-sources: 9
+updated: 2026-11-09
+sources: 10
 tags: [dynamixel, robotis, bus-servo, motor-sdk, lerobot-supported-sdk, koch-v1]
 ---
 
@@ -46,6 +46,11 @@ The cost gap (~3×) at otherwise-comparable specs is the main reason SO-10X has 
 - [Microduck — Pollen Robotics launch](../sources/pollen-robotics-microduck.md) — XL330 modeled at the voltage-control-law level (BAM M6) for sim-to-real.
 - [Rosetta GitHub](../sources/rosetta-github.md) — referenced as part of the SDK lineage Rosetta bypasses (since Rosetta drives robots via ROS 2 topics, not motor SDK direct).
 - [`pollen-robotics/microduck` — the onboard runtime](../sources/microduck-runtime-repo.md) — Confirms the [Microduck](microduck.md) servo layout from the runtime side: **15 motor slots, 14 policy-driven** (index 9, the beak, held at zero), IDs `20–24 / 30–34 / 10–14` on a single shared serial bus read by one `sync_read` per 50 Hz tick.
+- [Physical Atari paper](../sources/physical-atari-paper.md) — continuous-duty failures and fixes on XL-330 and XC-330 servos.
+
+## Continuous-duty findings (2026-11-09)
+
+[Physical Atari](../sources/physical-atari-paper.md) ran servos for days of continuous reinforcement learning and reports these failures. The XL-330's plastic gears wore out, and metal-geared XC-330s showed no gear wear over several weeks. An XC-330's plastic horn broke in one build, fixed with the HNX330-N101 metal horn. The default high P gain moved the joystick jerkily enough to wear it out. The retuned gains (P 1500, I 6000, D 1500) could spike current into a state needing a manual reboot, so a software reflex holds position and toggles torque above 1200 mA.
 
 ## Open questions / TBD
 

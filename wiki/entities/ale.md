@@ -3,8 +3,8 @@ title: Arcade Learning Environment (ALE)
 type: entity
 subtype: simulator
 created: 2026-05-09
-updated: 2026-05-09
-sources: 1
+updated: 2026-11-09
+sources: 2
 tags: [ale, atari, rl, benchmark, farama, gymnasium]
 ---
 
@@ -26,6 +26,8 @@ Separates emulation details from agent design — agents interact via a fixed ob
 ## Status in the field
 ALE / Atari was the dominant deep RL benchmark from ~2013 through ~2020. It has since been largely superseded in the robot-learning community by continuous-control benchmarks ([DM Control Suite](dm-control.md), [Gymnasium-Robotics](gymnasium-robotics.md), [MuJoCo Playground](mujoco-playground.md)) and manipulation benchmarks ([RoboCasa](robocasa.md), [ManiSkill](maniskill.md)). ALE remains relevant for general RL and multi-agent RL research.
 
+[Physical Atari](physical-atari.md) brings ALE games onto a physical rig, where the game no longer waits for the agent ([paper](../sources/physical-atari-paper.md)).
+
 ## Organization
 Maintained by the [Farama Foundation](farama-foundation.md). Listed as "Incubating" tier within Farama's project hierarchy. Open-source.
 
@@ -35,3 +37,4 @@ Maintained by the [Farama Foundation](farama-foundation.md). Listed as "Incubati
 
 ## Mentioned in
 - [Arcade Learning Environment — Farama Project Page](../sources/ale-farama.md)
+- [Physical Atari paper](../sources/physical-atari-paper.md) — ALE games played through a camera and a real joystick.

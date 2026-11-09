@@ -3,7 +3,7 @@ title: Real-world robotic reinforcement learning
 type: concept
 created: 2026-07-05
 updated: 2026-11-09
-sources: 30
+sources: 31
 tags: [reinforcement-learning, real-world-rl, manipulation, human-in-the-loop, off-policy-rl, sample-efficiency]
 ---
 
@@ -86,6 +86,14 @@ It is worth having next to [HIL-SERL](../../sources/hil-serl-paper.md) because i
 
 The basis of the recipe came from **AutoRL, a research agent that ran for about 35 days** on simulated benchmarks, starting from standard PPO. A second route trains in the DreamDojo world model and lifts ten RoboLab tasks from 51% to 71%.
 
+## Learning alone on cheap hardware (2026-11-09)
+
+[Physical Atari](../../sources/physical-atari-paper.md) drops the demonstrations, the human corrections and the pretrained backbone. A value-based agent learns Atari through a camera and a $400 joystick robot, about 5.5 hours per game, with 145 hours of runs and no intervention.
+
+Its most portable finding is that **two identically built robots aren't interchangeable.** Policies lost performance on all six games when moved to a second unit. The cause wasn't measured.
+
+The setup avoids what makes the recipe above necessary. The emulator supplies reward, nothing needs resetting and the agent picks among preset poses. It shows that unattended learning can be made reliable mechanically, and it doesn't show the recipe's other components are unnecessary for manipulation.
+
 ## Related concepts
 
 - [continual learning](continual-learning.md) — the weight-update branch, and where forgetting lives.
@@ -114,3 +122,4 @@ Real-world RL for manipulation went from "considered infeasible" to **100% succe
 - [Larchenko — LeHome deep dive, Part 1](../../sources/larchenko-lehome-part1-rl-for-vlas.md) — the asynchronous Hub-mediated train/rollout/teleop loop; curriculum on success rate; success and semi-success replay.
 - [Learning to Fold — tech report](../../sources/larchenko-learning-to-fold-tech-report.md) — DAgger proximity weighting as a stand-in advantage; the three-pedal leader/follower rig; recovery came only from human interventions, and only on the real robot.
 - [Robot Self-Improvement via Human-Video Dynamics Models](../../sources/robot-self-improvement-human-video-dynamics-paper.md) — advantage-conditioned extraction (CFGRL / RECAP form) with no online human corrections; the gain over RECAP-without-interventions on π0.5 is +20 points and comes entirely from repairing failed states rather than down-weighting them.
+- [Physical Atari paper](../../sources/physical-atari-paper.md) — long unattended learning on cheap hardware; policies differ between identical robots.

@@ -2,7 +2,7 @@
 title: Atari RL lineage — from ALE to Agent57 and MuZero
 type: synthesis
 created: 2026-05-15
-updated: 2026-05-15
+updated: 2026-11-09
 tags: [atari, ale, dqn, deep-rl, rainbow, agent57, muzero, benchmark, history]
 ---
 
@@ -103,6 +103,8 @@ Even though Atari is no longer the frontier, the algorithmic vocabulary it gener
 - **MuZero / Dreamer** — the conceptual ancestor of every learned-world-model-plus-planner system in the wiki ([LeWM](../../entities/dreamer.md), [TD-MPC](../../concepts/world-models/world-model.md), [DINO-WM](../../entities/dreamer.md)). MuZero solved on Atari what those papers are solving on robotics tasks.
 
 In other words, Atari trained the field. The benchmark moved on; the toolbox stayed.
+
+[Physical Atari](../../sources/physical-atari-paper.md) (2026) returns the benchmark to robotics by putting a camera and a joystick robot between the agent and ALE. It removes the turn-taking that simulated ALE allows, and it reports no scores comparable to the DQN-era tables.
 
 ## Open follow-ups / candidate ingests
 - **Mnih et al. 2015 Nature paper** — not in `raw/`. Direct ingest would let claims here cite specific scores and hyperparameters instead of textbook summaries.

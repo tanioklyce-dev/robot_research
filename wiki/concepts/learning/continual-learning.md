@@ -2,8 +2,8 @@
 title: Continual learning and catastrophic forgetting
 type: concept
 created: 2026-09-11
-updated: 2026-09-12
-sources: 21
+updated: 2026-11-09
+sources: 22
 tags: [continual-learning, lifelong-learning, catastrophic-forgetting, skill-library, test-time-adaptation, in-context-learning, real-world-rl, rehearsal, knowledge-insulation, lora, deployment, household]
 ---
 
@@ -62,6 +62,8 @@ Two ways to learn at deployment while leaving the checkpoint alone.
 
 None of these is a method for a robot that must keep learning **in the weights, for months, across tasks it did not see in pretraining.** That is the gap.
 
+[Physical Atari](../../sources/physical-atari-paper.md) gives a small test of updating after a change of body. Continued learning on a second robot improved Pong and Kangaroo after the swap, on 2 and 3 seeds. Pong caught up with the original body's curve and Kangaroo hadn't by hour 12.
+
 ## Where "forgetting" is a different bug
 
 [WorldTrace](../../entities/worldtrace.md) ([belief states](../world-models/belief-states-and-mixed-states.md)): much of the forgetting in long video-world-model rollouts is not compression but **addressing** — rotary-position offsets drift, and frames still in the KV cache become unreachable. "A repairable bug sitting on top of an unrepairable limit." Worth knowing before attributing a rollout's amnesia to capacity.
@@ -88,3 +90,4 @@ None of these is a method for a robot that must keep learning **in the weights, 
 - [Hassabis at Davos](../../sources/wef-davos-2026-the-day-after-agi.md) — "world models, continual learning — these are the things that will need to be cracked."
 - [RoboTTT](../../sources/robottt-paper.md) — within-episode improvement with no persistent weight change (fast weights discarded after each rollout); the authors name RL on task success as the step toward persistent improvement.
 - [Robot Self-Improvement via Human-Video Dynamics Models](../../sources/robot-self-improvement-human-video-dynamics-paper.md) — autonomous failure repair (DGAC) as the correction step; human labels outcomes only.
+- [Physical Atari paper](../../sources/physical-atari-paper.md) — continued learning after a change of body.

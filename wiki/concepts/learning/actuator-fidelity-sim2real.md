@@ -2,8 +2,8 @@
 title: Actuator fidelity in sim-to-real
 type: concept
 created: 2026-08-27
-updated: 2026-10-24
-sources: 4
+updated: 2026-11-09
+sources: 5
 tags: [sim-to-real, actuator-model, domain-randomization, backlash, bam, dynamixel, locomotion, rl, system-identification]
 ---
 
@@ -38,6 +38,10 @@ Fidelity-first modelling is system identification with the target moved. Classic
 
 This is also why the approach travels well: the [BAM](../../entities/rhoban.md) model is a model of *a class of hobby servo*, published independently of any one robot, and reusable by anyone driving XL330s.
 
+## The gap between two real bodies (2026-11-09)
+
+[Physical Atari](../../sources/physical-atari-paper.md) finds a gap with no simulator involved. A policy trained on one servo-driven joystick robot does worse on a second identically built one, on all six games tested, and timing-sensitive Pong is among the hardest hit. The second setup also changes the joystick, and the paper doesn't measure how the bodies differ, so this is suggestive for actuators and doesn't isolate them.
+
 ## Related concepts
 
 - [Sim-to-real transfer](sim-to-real-transfer.md) — the parent problem; this page is the actuator-side branch.
@@ -58,3 +62,4 @@ Thinly sourced in this wiki — one worked example. But it is a *complete* one: 
 - [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../../sources/nvidia-microduck-ai-agents-sim-blog.md) — BAM upstreamed into Isaac Lab as a native actuator, with backlash-as-hinge support.
 - [Train in Simulation, Deploy on a Real Robot: Microduck with Isaac Lab 3.0](../../sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md) — per-joint backlash and encoder-offset randomization; rough-terrain walker deployed.
 - [pollen-robotics/microduck-arena](../../sources/microduck-arena-github.md) — chaotic servo model ⇒ cross-architecture divergence.
+- [Physical Atari paper](../../sources/physical-atari-paper.md) — performance loss between two real bodies, with no simulator involved.

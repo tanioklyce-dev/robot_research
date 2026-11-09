@@ -6631,3 +6631,10 @@ Structure was sound: **0 broken file links, 0 orphans, 0 schema violations, all 
 - Updated [GR00T](entities/nvidia-groot.md), [world-action model](concepts/world-models/world-action-model.md), [code as policy](concepts/agents/code-as-policy.md), [scaling laws](concepts/learning/scaling-laws-vla.md), [real-world RL](concepts/learning/real-world-robot-rl.md), [RoboDojo](entities/robodojo.md), Isaac Lab, Newton, Arena, GEAR, Goldberg, Thor, SONIC, G1, YAM, UMI, ASPIRE, Cosmos, [control-rate ladder](syntheses/platforms/control-rate-ladder.md), [success-rate audit](syntheses/platforms/vla-success-rate-audit.md), [NVIDIA stack](syntheses/platforms/nvidia-robot-ai-stack.md), backlog
 - Conditions recorded: GR00T 2's 95% five-demo result is on tasks selected as learnable in five demos; truck assembly's 65% used easier scenes (35% on the original). GaP's VLA baselines were not trained on the varied distribution, and the project page's "7 s" sentence reads opposite to the paper
 - Not established: GR00T 2 weights and licence; DexBench, VABAR, AlphaNIST, STEEL and GRAIL rest on NVIDIA's post alone
+
+## [2026-11-09] ingest | Physical Atari
+- Created [Physical Atari paper](sources/physical-atari-paper.md), with new entities [Physical Atari](entities/physical-atari.md) and [Keen Technologies](entities/keen-technologies.md)
+- Added to `raw/`: `physical-atari-2606.19357v1.pdf`
+- Updated [real-world RL](concepts/learning/real-world-robot-rl.md), [actuator fidelity](concepts/learning/actuator-fidelity-sim2real.md), [continual learning](concepts/learning/continual-learning.md), [AprilTags](concepts/robotics/apriltags.md), [Dynamixel](entities/dynamixel.md), [ALE](entities/ale.md), [Raspberry Pi 5](entities/raspberry-pi-5.md), [Atari RL lineage](syntheses/rl/atari-rl-lineage.md)
+- Conditions recorded: the reported learning runs total 145 hours, against the abstract's "weeks"; "under $1,000" isn't itemised; the body-swap result doesn't measure how the bodies differ and has no error bars
+- No separate pages for Sutton or Carmack, because no ingested source covers them beyond authorship

@@ -2,8 +2,8 @@
 title: AprilTags
 type: concept
 created: 2026-05-08
-updated: 2026-05-08
-sources: 4
+updated: 2026-11-09
+sources: 5
 tags: [vision, fiducials, localization, apriltags]
 ---
 
@@ -52,6 +52,8 @@ The [Stretch](../../entities/stretch.md) platform uses ArUco markers (a related 
 
 [JetPack 6.2.2](../../entities/jetpack.md) (mid-2025) added a native **AprilTag Detector and Pose Estimator** to VPI (3.2), giving Jetson Orin platforms a first-party, GPU/PVA-accelerated detection path — relevant to anyone running AprilTag-based perception on [Jetson Orin Nano](../../entities/jetson-orin-nano.md) carrier boards rather than reaching for the original `apriltag` C library on CPU ([JetPack 6.2.2 release](../../sources/nvidia-jetpack-6-2-2-release.md)).
 
+[Physical Atari](../../sources/physical-atari-paper.md) uses tags as a data channel as well as for localisation. Four corner tags let the agent find the game screen. Two more encode reward, one giving its value and one changing on each non-zero reward so that rapid rewards can be counted.
+
 ## Key references
 
 - Olson, E. (2011). "AprilTag: A robust and flexible visual fiducial system." *ICRA 2011*.
@@ -65,3 +67,4 @@ The [Stretch](../../entities/stretch.md) platform uses ArUco markers (a related 
 ## Mentioned in
 - [FRC 2026 Game Manual](../../sources/frc-2026-game-manual.md) (§5.11)
 - [JetPack 6.2.2 release](../../sources/nvidia-jetpack-6-2-2-release.md) — VPI 3.2 ships a native AprilTag detector and pose estimator
+- [Physical Atari paper](../../sources/physical-atari-paper.md) — tags as a visual reward channel.
