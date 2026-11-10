@@ -3,8 +3,8 @@ title: DreamGen
 type: entity
 subtype: method
 created: 2026-07-04
-updated: 2026-10-27
-sources: 7
+updated: 2026-11-10
+sources: 9
 tags: [dreamgen, neural-trajectories, video-world-model, synthetic-data, nvidia, gear, vla, dream-star]
 ---
 
@@ -21,6 +21,10 @@ tags: [dreamgen, neural-trajectories, video-world-model, synthetic-data, nvidia,
 - **Zero-to-one generalization.** A humanoid learns 22 new behaviors with zero teleop for those verbs (behavior gen 11.2%→43.2%; environment gen 0%→28.5%) — see [paper](../sources/dreamgen-paper.md).
 - **DreamGen Bench** gives video-model researchers a robot-free proxy (Instruction Following + Physics Alignment) that correlates with downstream policy success.
 
+## As a product blueprint (2025-07)
+
+DreamGen is the basis of NVIDIA's Isaac GR00T-Dreams blueprint. NVIDIA says GR00T-Dreams data let it develop [GR00T N1.5](../sources/groot-n1_5.md) in 36 hours, against nearly three months by manual collection, without a breakdown. DreamGen Bench scores video models on instruction and physics following, and NVIDIA reports that higher scores go with better real-robot results from the generated data ([R²D² digest](../sources/nvidia-r2d2-generalist-robots-wfm-blog.md)).
+
 ## Related
 - [DreamDojo](../sources/dreamdojo-paper.md) — the later Dream\* entry (foundation generative-video WM); DreamGen is the origin of the line.
 - [NVIDIA GEAR](nvidia-gear.md) — originating lab. [Joel Jang](joel-jang.md) — co-lead.
@@ -34,6 +38,7 @@ tags: [dreamgen, neural-trajectories, video-world-model, synthetic-data, nvidia,
 - [NVIDIA GEAR Lab — Publications](../sources/nvidia-gear-publications.md) — lists DreamGen in the Dream\* pillar
 - [Introducing Index (Figure AI)](../sources/figure-index-announcement.md) — Cited as one of the wiki's published answers to the human→robot label problem ([IDM pseudo-labelling](../concepts/learning/crowdsourced-robot-training-data.md)) that the Index announcement never addresses.
 - [DreamZero paper](../sources/dreamzero-paper.md) — sibling Dream* paper.
+- [R²D²: generalist robots and world foundation models](../sources/nvidia-r2d2-generalist-robots-wfm-blog.md) — GR00T-Dreams blueprint; the 36-hour N1.5 claim; DreamGen Bench.
 
 ## Open questions
 - **[DreamZero](dreamzero.md)**: ingested 2026-10-27 ([paper](../sources/dreamzero-paper.md)). It postdates DreamDojo by 11 days, so it is a parallel branch (the action-generating WAM) rather than the "middle" entry.

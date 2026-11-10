@@ -3,7 +3,7 @@ title: Cross-embodiment transfer
 type: concept
 created: 2026-09-11
 updated: 2026-10-27
-sources: 37
+sources: 38
 tags: [cross-embodiment, embodiment-gap, action-space, normalized-actions, soft-prompts, latent-action-tokens, embodiment-conditioning, retargeting, whole-body-control, navigation, manipulation, humanoid, scaling]
 ---
 

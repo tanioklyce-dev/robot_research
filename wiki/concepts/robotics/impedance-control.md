@@ -2,8 +2,8 @@
 title: Impedance and admittance control
 type: concept
 created: 2026-09-07
-updated: 2026-09-12
-sources: 3
+updated: 2026-11-10
+sources: 4
 tags: [impedance-control, admittance-control, variable-impedance, compliance, passivity, energy-tanks, force-control, contact-rich, action-space, safe-execution]
 ---
 
@@ -47,6 +47,10 @@ Force limits bound the *instantaneous* interaction. **Passivity** bounds the *cu
 
 Passivity is the Lyapunov-family certificate for interaction; see [safety certificates](safety-certificates.md).
 
+## Controller quality as an underused lever (2026-11-10)
+
+[NVIDIA's GB300 assembly team](../../sources/nvidia-r2d2-gb300-tester-tray-assembly-blog.md) argues that most robot-learning work uses the simplest possible controllers. Their busbar insertion used an impedance controller with automatic damping design and inertial compensation, for smooth free-space motion and gentle, stable contact. They list it among seven lessons, saying it also improves the success rate and cycle time of RL-learned behaviour. No ablation against a simple controller is reported.
+
 ## Where it falls short
 
 - **Parameter tuning is the classical bottleneck** — stiffness, damping, and inertia are hand-tuned by expert trial-and-error, do not generalize across tasks, and get it wrong in either direction: too stiff gives excessive contact force and instability, too soft fails the task.
@@ -75,3 +79,4 @@ The frontier the survey bets on is **a VLM setting the gains** — its own group
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — the source for everything on this page.
 - [FACTR 2](../../sources/factr-2-paper.md) — supplies the input impedance control needs on arms without sensors: an external-torque estimate from motor current; used here for force-feedback teleoperation and policy conditioning, not for a compliance controller.
 - [FACTR](../../sources/factr-paper.md) — the leader arm's control law: external-torque playback with damping, null-space posture regulation, RNEA gravity compensation, friction compensation and joint-limit potentials on cheap servos.
+- [NVIDIA — The Machines that Make the Machines (GB300)](../../sources/nvidia-r2d2-gb300-tester-tray-assembly-blog.md) — a tuned impedance controller in an industrial assembly stack.

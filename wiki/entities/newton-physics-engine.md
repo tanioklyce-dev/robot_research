@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-06
 updated: 2026-11-09
-sources: 12
+sources: 13
 tags: [physics-engine, gpu, openusd, usdphysics, warp, linux-foundation]
 ---
 

@@ -2,8 +2,8 @@
 title: Tactile sensing
 type: concept
 created: 2026-09-07
-updated: 2026-09-12
-sources: 5
+updated: 2026-11-10
+sources: 7
 tags: [tactile-sensing, gelsight, vision-based-tactile, slip-detection, force-torque, visuo-tactile, contact-rich, multimodal-fusion]
 ---
 
@@ -65,6 +65,10 @@ And the ablation closes it: **removing the tactile module returns the system to 
 
 Caveats: **20 trials per cell**, one robot, one sensor model, 100 demos per task, rigid objects only, and baselines adapted by the authors.
 
+## Simulated touch, and what it adds after fine-tuning (2026-11-10)
+
+NVIDIA's TacSL simulates visuotactile images and force fields on the GPU, reportedly over 200× faster than earlier methods ([assembly digest](../../sources/nvidia-r2d2-robotic-assembly-blog.md)). VT-Refine builds on it: a bimanual policy pretrained on about 30 real demonstrations is fine-tuned with RL in simulation. Real success rises about 20% with vision alone and about 40% with vision plus touch ([digest](../../sources/nvidia-r2d2-neural-robot-learning-blog.md)). Both figures come from vendor summaries of the papers.
+
 ## Related concepts
 
 - [Contact-rich manipulation](contact-rich-manipulation.md) — the task class, and why vision degrades exactly at contact.
@@ -85,3 +89,5 @@ Vision-based tactile is the research default and GelSight the reference design; 
 - [Robot Research Direction (first-party notes)](../../sources/robot-research-direction-notes.md) — τ's 20%→60% and 28.75%→71.25% as open question #6 (the sensing mixture); the cheap wrist-F/T substitute remains the filed experiment.
 - [FACTR 2](../../sources/factr-2-paper.md) — the cheap end of the *wrist/joint-side* alternative: a learned free-space model turns motor current into external joint torque on a $2,500 arm, no sensor. It gives a joint-space wrench, not a contact map — the survey's four tactile uses above are not covered — but it prices the baseline force channel at ten minutes of setup.
 - [FACTR](../../sources/factr-paper.md) — joint-torque force used for teleop feedback and policy input; the authors name torque-sensor noise as the limit for fine tasks and tactile as the fix.
+- [R²D²: robotic assembly](../../sources/nvidia-r2d2-robotic-assembly-blog.md) — TacSL, GPU tactile simulation.
+- [R²D²: three neural methods (CoRL 2025)](../../sources/nvidia-r2d2-neural-robot-learning-blog.md) — VT-Refine: touch doubles the gain from simulated RL fine-tuning.

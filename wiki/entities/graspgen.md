@@ -3,8 +3,8 @@ title: GraspGen / GraspGen-X
 type: entity
 subtype: model
 created: 2026-08-23
-updated: 2026-08-23
-sources: 2
+updated: 2026-11-10
+sources: 3
 tags: [nvidia, grasping, 6-dof-grasping, diffusion, cross-embodiment, swept-volume, open-source, cvpr-2026]
 ---
 
@@ -67,6 +67,10 @@ Two conventions and two defaults worth knowing before you start:
 - **`type` is inferred from actuated-joint count, not kinematics** — ≤2 → `parallel_2f`, ≤4 → `revolute_2f`, else `revolute_3f`. Wrong for any single-actuator revolute jaw; override in Step 6.
 - **`symmetric` is hardcoded `True` in the save step** (checkbox in Step 6). It is consumed in `metrics.py` and the dataset loader, **not** in the inference path — so it changes evaluation and training, not what grasps come out of a zero-shot run.
 
+## Original GraspGen figures (2025)
+
+NVIDIA's [digest](../sources/nvidia-r2d2-dexterous-robots-blog.md) gives 81.3% real grasp success on a UR10 with a Robotiq gripper, across table, basket and shelf scenes. The released simulated dataset has 57 million grasps for a Franka gripper, a Robotiq 2F-140 and a suction cup.
+
 ## Why it matters here
 
 GraspGen-X is the wiki's first entry on **grasping as a transferable module** rather than as something a policy learns implicitly. Its framing — grasp generation is "the least transferable component" of an otherwise embodiment-agnostic pick-and-place stack — is the cleanest statement anywhere in this wiki of what a modular manipulation stack still owes you. And its licence posture (model, code and dataset promised on NVlabs) puts it in reach of the low-cost arms this wiki tracks: it already runs on an [AgileX Piper](agilex-piper.md), and the arm it conditions on is *no arm at all* — only the gripper.
@@ -80,3 +84,4 @@ GraspGen-X is the wiki's first entry on **grasping as a transferable module** ra
 ## Mentioned in
 
 - [GraspGen-X: Cross-Embodiment 6-DOF Diffusion-based Grasping](../sources/graspgenx-paper.md)
+- [R²D²: dexterous robots](../sources/nvidia-r2d2-dexterous-robots-blog.md) — 81.3% real success; 57M-grasp dataset.

@@ -2,8 +2,8 @@
 title: Control abstraction levels
 type: concept
 created: 2026-07-27
-updated: 2026-11-07
-sources: 32
+updated: 2026-11-10
+sources: 33
 tags: [robotics, control, llm-agent, evaluation, vla, safety, access-control, frontier-red-team, code-as-policy]
 ---
 
@@ -121,6 +121,10 @@ Perceptual access moves capability as much as control access does: a **compass**
 - [AI guardrails](../safety/ai-guardrails.md) — where scoped physical access would be enforced, and currently isn't.
 - [Whole-body control](whole-body-control.md) — the classical answer to what level 1 demands, and why learned WBC policies exist.
 
+## The same rung on a single-arm benchmark (2026-11-10)
+
+[Astranomy](../../sources/nvidia-srl-astranomy-blog.md) puts GPT-6 Astra on the end-effector rung of RoboLab-120 and finds the interface carries much of the result. Absolute end-effector targets reach 72.7% against 48.7% for joint positions and 37.3% for joint-space splines. Geometry in the prompt moves direct success from 19.3% to 72.7%. Wrapping the model in a persistent agent loop that issues one target per step narrows both gaps to a few points. The simulator pauses during each 13–19 s decision, so the rung's speed cost is measured but not penalised.
+
 ## Mentioned in
 
 > [!note] Curated list — 32 source pages link here; the ones below are those that shaped this page.
@@ -132,3 +136,4 @@ Perceptual access moves capability as much as control access does: a **compass**
 - [Gemini Robotics 2: Safety Evaluations](../../sources/gemini-robotics-2-safety-report.md) — the same level-inversion from the safety side: agents score **100%** acting on a safety signal handed to them as structured text, but cannot reliably **produce** that signal from perception (human-proximity FNR >40% at low FPR).
 - [BANC — Bates et al., Nature 2026](../../sources/banc-brain-and-cord-connectome-paper.md) — a biological vote on the sandwich-vs-distributed question: in the fly, effectors are driven mostly by local sensor loops, coordinated by behaviour-centric descending/ascending modules and *supervised* by learning and navigation regions — *"distributed, parallelized and embodied,"* with Brooks's layered controller as the cited analogue.
 - [GPT-6 Astra on RoboDojo](../../sources/gpt-6-astra-robodojo-paper.md) — per-turn EEF control without a pretrained policy: 22.48% (first on RoboDojo) for one model, ~1% for two others; hardware damage stopped the real campaign.
+- [Astranomy (NVIDIA SRL)](../../sources/nvidia-srl-astranomy-blog.md) — interface ablations for an LLM at the end-effector rung.

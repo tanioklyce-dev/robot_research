@@ -3,8 +3,8 @@ title: CuRobo
 type: entity
 subtype: software-framework
 created: 2026-08-13
-updated: 2026-11-07
-sources: 7
+updated: 2026-11-10
+sources: 8
 tags: [curobo, motion-planning, gpu, cuda, nvidia, inverse-kinematics, collision-checking, robotwin, trajectory-optimization]
 ---
 
@@ -43,3 +43,4 @@ This inverts the usual reading of the [5-DoF warning](../syntheses/projects/five
 - [RoboTwin 2.0: A Scalable Data Generator and Benchmark with Strong Domain Randomization for Robust Bimanual Robotic Manipulation (Chen et al., Jun 2025)](../sources/robotwin2-paper.md)
 - [allenai/agentic_robotics](../sources/allenai-agentic-robotics-github.md) — cuRobo v2 plans ToyBlocks's scripted ("oracle") vecgen skills behind the MCP tools.
 - [allenai/ToyBlocks](../sources/allenai-toyblocks-github.md) — cuRobo v2 (NVRTC-compiled, no CUDA toolkit) as a batched IK/trajectory-optimization solver pool with per-environment collision worlds inside ToyBlocks's vecgen engine.
+- [NVIDIA — The Machines that Make the Machines (GB300)](../sources/nvidia-r2d2-gb300-tester-tray-assembly-blog.md) — run as a containerised motion-planning service in the GB300 stack.

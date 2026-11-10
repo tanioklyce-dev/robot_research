@@ -3,8 +3,8 @@ title: RoboLab (NVIDIA SRL benchmark)
 type: entity
 subtype: benchmark
 created: 2026-07-16
-updated: 2026-09-14
-sources: 8
+updated: 2026-11-10
+sources: 9
 tags: [nvidia, srl, benchmark, evaluation, simulation, task-generalist, robot-policy, droid, physical-ai]
 ---
 
@@ -47,6 +47,9 @@ Also: **Neural Posterior Estimation** for sensitivity analysis (`p(θ|x)` over e
 | π0.5 | 28.1% | specific | same |
 | Cosmos3-Nano | **36.8%** | unstated | [Edge post-training tutorial](../sources/nvidia-cosmos3-edge-post-training-blog.md), 2026-08-19 |
 | **Cosmos3-Edge-Policy-DROID (4B)** | **22.9%** | unstated | same — first published Edge score |
+| GPT-6 Astra, agentic (Codex) | **74.8%** | default | [Astranomy](../sources/nvidia-srl-astranomy-blog.md), 5 episodes per task |
+| GPT-6 Astra, direct API | 66.3% | default | same |
+| Lakeside (best leaderboard entry cited there) | 51.0% | — | same |
 
 No rollouts-per-task for any row, which by this page's own methodology (±2 pp ≈ 1,030 rollouts) means the 36.8-vs-39.7 Nano gap is noise-sized and the 16B→4B drop (~14 pp) is the only difference here large enough to trust in direction.
 
@@ -57,6 +60,7 @@ No rollouts-per-task for any row, which by this page's own methodology (±2 pp �
 - [How to Evaluate General-Purpose Robot Policies for Real-World Deployment](../sources/nvidia-robolab-evaluation-blog.md) — the methodology blog (2026-07-11)
 - [NVIDIA Cosmos](nvidia-cosmos.md) — evaluated Cosmos 3 policies on RoboLab-120
 - [Post-train Cosmos 3 Edge for on-device robot control](../sources/nvidia-cosmos3-edge-post-training-blog.md) — RoboLab as the closed-loop evaluation for the Edge policy (22.9%; Nano 36.8%); the run commands.
+- [Astranomy (NVIDIA SRL)](../sources/nvidia-srl-astranomy-blog.md) — GPT-6 Astra at 74.8% with no robot training; the benchmark authors ran it.
 
 ## Related
 

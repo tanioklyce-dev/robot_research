@@ -2,8 +2,8 @@
 title: Visual navigation policies (GNM → ViNT → NoMaD → LogoNav → OmniVLA)
 type: concept
 created: 2026-09-11
-updated: 2026-09-28
-sources: 10
+updated: 2026-11-10
+sources: 11
 tags: [navigation, visual-navigation, goal-conditioned, topological-memory, gnm, vint, nomad, logonav, omnivla, berkeley, rail, cross-embodiment, sidewalk-robot, normalized-actions, modality-dropout]
 ---
 
@@ -71,3 +71,4 @@ Everything above is the RAIL image-goal line: ~50M-parameter models, normalized 
 - [CAST paper](../../sources/cast-paper.md)
 - [GA-VLN](../../sources/ga-vln-paper.md) — the MLLM-VLN lineage's first primary here; BEV tokens instead of video frames.
 - [Robostral Navigate paper](../../sources/robostral-navigate-paper.md) — Mistral's 8B pointing-based VLN model; tops R2R-CE/RxR-CE under a waypoint + pathfinder protocol.
+- [R²D²: mobility and whole-body control](../../sources/nvidia-r2d2-mobility-whole-body-control-blog.md) — COMPASS and X-Mobility, distilled cross-embodiment navigation.

@@ -2,8 +2,8 @@
 title: Whole-Body Control (WBC)
 type: concept
 created: 2026-07-15
-updated: 2026-09-27
-sources: 35
+updated: 2026-11-10
+sources: 36
 tags: [whole-body-control, wbc, humanoid, motion-tracking, loco-manipulation, unitree-g1, booster-t1, rl, sim-to-real, amass, agile, code, system-0, helix, figure-03]
 ---
 
@@ -89,3 +89,4 @@ Added 2026-08-28. Everything above is academic or open-source. [Helix 02](../../
 - [Introducing Helix 02](../../sources/figure-helix-02.md) — Figure's System 0; the commercial-stack instance. [Ramping Figure 03 Production](../../sources/figure-ramping-03-production.md) — perception-conditioned S0, zero-shot stairs.
 - [Gemini Robotics 2 blog](../../sources/gemini-robotics-2-blog.md) — whole-body control as a shipped VLA capability: humanoids that "walk, crouch, stretch, and manipulate" under one model. Pick-up success by height: shelf 76.3%, table 68.4%, **floor 45.7%**.
 - [HIW-500 dataset page](../../sources/bitrobot-hiw-500-dataset-page.md) — the 23-D WBC-command action space of a 500 h humanoid dataset.
+- [R²D²: mobility and whole-body control](../../sources/nvidia-r2d2-mobility-whole-body-control-blog.md) — HOVER as one layer of a mobility stack.

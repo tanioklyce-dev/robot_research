@@ -3,8 +3,8 @@ title: Isaac ROS NVBlox (nvblox)
 type: entity
 subtype: software-framework
 created: 2026-06-13
-updated: 2026-09-27
-sources: 4
+updated: 2026-11-10
+sources: 5
 tags: [nvblox, isaac-ros, nvidia, 3d-mapping, perception, gpu, robotics, navigation]
 ---
 
@@ -14,6 +14,8 @@ tags: [nvblox, isaac-ros, nvidia, 3d-mapping, perception, gpu, robotics, navigat
 
 - Builds a real-time **volumetric map** (TSDF-class reconstruction → mesh + occupancy/ESDF outputs) on the GPU, designed to feed downstream **navigation** (e.g. Nav2 cost-maps) and obstacle avoidance.
 - Depth-driven: requires an **RGB-D or stereo** sensor. The Seeed recipe wires it to an **[Orbbec Gemini2](orbbec.md)** camera ([Seeed jetson-examples nvblox README](../sources/seeed-jetson-examples-nvblox.md)).
+
+**nvblox_torch** is a PyTorch interface with zero-copy tensors. It adds deep feature fusion, lifting vision-foundation-model features into the 3D map so the reconstruction holds semantics as well as geometry ([R²D² digest](../sources/nvidia-r2d2-3d-perception-mapping-blog.md)).
 
 ## Deployment (Seeed reComputer recipe)
 
@@ -38,3 +40,4 @@ Seeed packages nvblox as a one-command [`jetson-examples`](../sources/seeed-jets
 ## Mentioned in
 
 - [Seeed jetson-examples — nvblox recipe (README)](../sources/seeed-jetson-examples-nvblox.md)
+- [R²D²: 3D perception and mapping](../sources/nvidia-r2d2-3d-perception-mapping-blog.md) — nvblox_torch and deep feature fusion.

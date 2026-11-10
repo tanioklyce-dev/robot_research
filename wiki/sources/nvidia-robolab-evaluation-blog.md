@@ -69,7 +69,7 @@ The methodology companion to the [RoboLab](../entities/nvidia-robolab.md) benchm
 ## Entities mentioned
 
 - [RoboLab](../entities/nvidia-robolab.md) — the platform.
-- [NVIDIA](../entities/nvidia.md) / NVIDIA Research SRL — Xuning Yang; the lab behind it.
+- [NVIDIA](../entities/nvidia.md) / [NVIDIA Seattle Robotics Lab](../entities/nvidia-seattle-robotics-lab.md) — Xuning Yang; the lab behind it.
 - [Isaac Lab](../entities/nvidia-isaac-lab.md) — Lab-Arena as the productization path.
 - [DROID](../entities/droid.md) — the real-world data distribution RoboLab's object vocabulary overlaps with (68.7%, per the [project page](nvidia-robolab-project.md)).
 

@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-06-13
 updated: 2026-10-22
-sources: 9
+sources: 10
 tags: [isaac-ros, nvidia, ros2, perception, gpu, jetson, thor, orin, lyrical, nitros, agent-skills, robotics]
 ---
 

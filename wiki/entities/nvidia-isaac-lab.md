@@ -3,8 +3,8 @@ title: NVIDIA Isaac Lab
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-11-09
-sources: 39
+updated: 2026-11-10
+sources: 45
 tags: [framework, robot-learning, nvidia, isaac-lab, rl]
 ---
 
@@ -40,6 +40,10 @@ The hands-on companion ([NVIDIA × Pollen on HF](../sources/hf-nvidia-microduck-
 
 > [!warning] No `develop` branch
 > The tutorial's `git clone --branch develop` fails, because `isaac-sim/IsaacLab` has only `main` as of 2026-10-24. NVIDIA's web links to `tree/develop/…` keep working only because GitHub redirects them.
+
+## Throughput and adopters, per NVIDIA (2026-02-10)
+
+NVIDIA's [R²D² overview](../sources/nvidia-r2d2-isaac-lab-multimodal-blog.md) gives 135,000 FPS for H1 humanoid locomotion and over 150,000 FPS for Franka cabinet manipulation, held with RGB-D sensors across 4,096 environments. The GPU isn't stated. Named adopters are Agility Robotics, Skild AI, FieldAI, the Robotics and AI Institute and Under Control Robotics.
 
 ## Hardware requirements
 
@@ -77,3 +81,5 @@ Isaac Lab inherits Isaac Sim's RT-core requirement: it cannot run on [Jetson Tho
 - [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../sources/nvidia-microduck-ai-agents-sim-blog.md) — native `BamActuatorCfg` (Newton/MJWarp only) and `contrib/microduck` tasks; 4,096-env depth+proprio ramp fine-tune on one RTX PRO 6000.
 - [Train in Simulation, Deploy on a Real Robot: Microduck with Isaac Lab 3.0](../sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md) — task IDs, DR list, 1.25M steps/s on 16 GPUs, ONNX auto-export; broken `--branch develop` install line.
 - [allenai/ToyBlocks](../sources/allenai-toyblocks-github.md) — Isaac Lab 2.3.2 / Isaac Sim 5.1 underneath ToyBlocks: 256 envs/GPU datagen, 50 envs/GPU eval in one shared PhysX scene.
+- [R²D²: Isaac Lab](../sources/nvidia-r2d2-isaac-lab-multimodal-blog.md) — throughput figures and adopters.
+- [NVIDIA — The Machines that Make the Machines (GB300)](../sources/nvidia-r2d2-gb300-tester-tray-assembly-blog.md) — sim RL pretraining for GB300 connector insertion.

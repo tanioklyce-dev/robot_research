@@ -2,8 +2,8 @@
 title: Task and motion planning (TAMP)
 type: concept
 created: 2026-07-04
-updated: 2026-11-07
-sources: 11
+updated: 2026-11-10
+sources: 12
 tags: [tamp, task-planning, long-horizon, plan-skeletons, explicit-model, hybrid-planning]
 ---
 
@@ -54,6 +54,10 @@ That is a different integration story than the classical TAMP stack's: instead o
 
 The released engine ([allenai/ToyBlocks](../../sources/allenai-toyblocks-github.md)) makes the mechanism concrete. A *vendored* FF planner plans each of ~256 environments per GPU from its own symbolic state, in milliseconds on the CPU. Skills execute batched on a cuRobo v2 solver pool, and after every skill its PDDL effect is **checked against the live simulation**: on failure the environment restores a snapshot and retries, then re-plans. **TAMPER** (*"TAMP Expert Relabeling"*) closes the loop as DAgger with a TAMP expert. The states where a learned policy failed are captured just before auto-reset, FF and cuRobo replan from the scene read off each state toward the episode's goal, and the new demonstrations feed retraining. That is the classic weakness of planner-generated imitation data (the student never sees its own mistakes) handled with the same planner.
 
+## NVIDIA's perception-guided and GPU variants (2026-11-10)
+
+An [R²D² digest](../../sources/nvidia-r2d2-perception-guided-tamp-blog.md) collects five projects. OWL-TAMP and VLM-TAMP let a VLM propose constraints or plans that simulation and motion planning check. VLM-TAMP handles kitchen tasks of 30–50 actions. NOD-TAMP swaps explicit object models for learned descriptors. cuTAMP optimises thousands of candidate solutions in parallel on the GPU, solving packing and stacking in seconds. Fail2Progress generates data resembling observed failures to retrain skills.
+
 ## Mentioned in
 
 - [The State of Robot Motion Generation (Bekris et al. 2024)](../../sources/state-of-robot-motion-generation-2024.md)
@@ -61,3 +65,4 @@ The released engine ([allenai/ToyBlocks](../../sources/allenai-toyblocks-github.
 - [Think Fast and Far — ROP-RAS3](../../sources/think-fast-and-far-rop-ras3-paper.md) — Shelf-Move (7-DoF arm, four movable obstacles, 35-D, 1,500-step horizon): TAMP under partial observability with no symbolic layer, 70% vs 10% for the best baseline.
 - [ToyBlocks (Ai2 blog)](../../sources/ai2-toyblocks-blog.md) — TAMP over RL and motion-planned skills as a parallel demonstration generator and progress metric.
 - [allenai/ToyBlocks](../../sources/allenai-toyblocks-github.md) — vendored FF + cuRobo v2 with verify/retry/replan as a data engine; TAMPER relabels policy failures with the TAMP expert.
+- [R²D²: perception-guided TAMP](../../sources/nvidia-r2d2-perception-guided-tamp-blog.md) — OWL-, VLM- and NOD-TAMP, cuTAMP, Fail2Progress.

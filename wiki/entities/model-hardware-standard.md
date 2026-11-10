@@ -3,8 +3,8 @@ title: Model Hardware Standard (MHS)
 type: entity
 subtype: standard
 created: 2026-08-30
-updated: 2026-08-30
-sources: 3
+updated: 2026-11-10
+sources: 4
 tags: [mhs, anthropic, standard, device-drivers, hardware-abstraction, mcp, lab-automation, agentic-robotics]
 ---
 
@@ -56,6 +56,10 @@ Vendors building support: **Amazon Web Services** (Strands Robots), **Automata**
 
 Early users: [Genentech](genentech.md), [HHMI Janelia](hhmi-janelia.md), UW Baker/Pinglay labs, Carnegie Mellon, [QuEra Computing](quera-computing.md), [Tetsuwan Scientific](tetsuwan-scientific.md).
 
+## NVIDIA's alignment claim (2026-10-07)
+
+[NVIDIA's Seattle Robotics Lab](../sources/nvidia-r2d2-gb300-tester-tray-assembly-blog.md) exposes its TALOS orchestration layer through web interfaces so coding agents can compose perception, planning and control. The authors say their thinking *"is aligned with Anthropic's Model Hardware Standard"* and point to their open DROID+ project. The post doesn't say whether TALOS implements the standard.
+
 ## Open questions
 
 - **Relationship to [ROS 2](ros2.md) is unaddressed** — MHS's primitives, discovery and typed manifest overlap substantially with what a ROS 2 interface already provides, and the wiki already holds two independent ROS↔MCP bridges ([ros2-mcp-server](ros2-mcp-server.md), [AgenticROS](agenticros.md)). Wrap, replace, or ignore is unstated.
@@ -73,3 +77,4 @@ Early users: [Genentech](genentech.md), [HHMI Janelia](hhmi-janelia.md), UW Bake
 ## Mentioned in
 
 - [Previewing the Model Hardware Standard](../sources/anthropic-model-hardware-standard-preview.md)
+- [NVIDIA — The Machines that Make the Machines (GB300)](../sources/nvidia-r2d2-gb300-tester-tray-assembly-blog.md) — NVIDIA SRL says TALOS and DROID+ align with MHS.

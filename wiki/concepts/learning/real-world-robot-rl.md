@@ -2,8 +2,8 @@
 title: Real-world robotic reinforcement learning
 type: concept
 created: 2026-07-05
-updated: 2026-11-09
-sources: 31
+updated: 2026-11-10
+sources: 32
 tags: [reinforcement-learning, real-world-rl, manipulation, human-in-the-loop, off-policy-rl, sample-efficiency]
 ---
 
@@ -94,6 +94,10 @@ Its most portable finding is that **two identically built robots aren't intercha
 
 The setup avoids what makes the recipe above necessary. The emulator supplies reward, nothing needs resetting and the agent picks among preset poses. It shows that unattended learning can be made reliable mechanically, and it doesn't show the recipe's other components are unnecessary for manipulation.
 
+## Real-world residual on a simulated base (2026-11-10)
+
+[NVIDIA's GB300 connector insertion](../../sources/nvidia-r2d2-gb300-tester-tray-assembly-blog.md) used SPARR. A state-based policy is trained with RL in Isaac Lab, then a residual policy is trained with RL on the real robot, bootstrapped from the base policy's rollouts for safer exploration. Because the connector is hidden during insertion, the residual takes force-torque input rather than images. The authors' summary: *"there is no substitute for real-world data."*
+
 ## Related concepts
 
 - [continual learning](continual-learning.md) — the weight-update branch, and where forgetting lives.
@@ -123,3 +127,4 @@ Real-world RL for manipulation went from "considered infeasible" to **100% succe
 - [Learning to Fold — tech report](../../sources/larchenko-learning-to-fold-tech-report.md) — DAgger proximity weighting as a stand-in advantage; the three-pedal leader/follower rig; recovery came only from human interventions, and only on the real robot.
 - [Robot Self-Improvement via Human-Video Dynamics Models](../../sources/robot-self-improvement-human-video-dynamics-paper.md) — advantage-conditioned extraction (CFGRL / RECAP form) with no online human corrections; the gain over RECAP-without-interventions on π0.5 is +20 points and comes entirely from repairing failed states rather than down-weighting them.
 - [Physical Atari paper](../../sources/physical-atari-paper.md) — long unattended learning on cheap hardware; policies differ between identical robots.
+- [NVIDIA — The Machines that Make the Machines (GB300)](../../sources/nvidia-r2d2-gb300-tester-tray-assembly-blog.md) — SPARR: sim RL base policy plus a real-world force-torque residual.

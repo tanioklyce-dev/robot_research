@@ -2,8 +2,8 @@
 title: Robot policy evaluation
 type: concept
 created: 2026-07-27
-updated: 2026-11-07
-sources: 76
+updated: 2026-11-10
+sources: 77
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility, real-to-sim, r2s2r]
 ---
 
@@ -176,6 +176,12 @@ It also measures its own spread. In sim, ≤ 1.1 pp across GPUs, though only on 
 
 Shared metric, unshared inputs is a pattern worth naming. A leaderboard row means the same thing only when the inputs match too.
 
+## What an industrial target costs to verify (2026-11-10)
+
+[NVIDIA's GB300 post](../../sources/nvidia-r2d2-gb300-tester-tray-assembly-blog.md) makes the arithmetic explicit. To support 99.5% success with a one-sided 95% confidence bound, a system must show **zero failures in at least 598 trials**. Parts wear with use, so that test could consume hundreds of duplicate components. The authors contrast this with research practice of 10–20 trials per task.
+
+It agrees with [GR00T 2's](../../sources/gr00t-2-whitepaper.md) own estimate that separating 95% from 99% takes about 285 trials per policy. Their proposed way out is deployment with logged human interventions, accumulating evidence in real conditions. The post doesn't give its own trial counts.
+
 ## What is still missing
 
 - **No real-world validation.** RoboLab is simulation-only, and whether its scores predict deployment success is precisely the question it exists to answer.
@@ -211,7 +217,7 @@ Shared metric, unshared inputs is a pattern worth naming. A leaderboard row mean
 - [Verbalized Eval Awareness (Goodfire + UK AISI, 2026)](../../sources/goodfire-verbalized-eval-awareness.md) — the language-side version of the benchmark-validity problem.
 - [Locatello et al. 2019](../../sources/locatello2019-challenging-common-assumptions-disentanglement.md) — seeds beat model choice; good runs unidentifiable without labels.
 
-> [!note] Curated list — **76** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **77** source pages link here; the ones below are those that shaped this page.
 
 - [RoboArena paper (CoRL 2025)](../../sources/roboarena-paper.md) — the distributed pairwise-preference protocol
 - [LIBERO-PRO paper](../../sources/libero-pro-paper.md) — the memorization critique
@@ -242,3 +248,4 @@ Shared metric, unshared inputs is a pattern worth naming. A leaderboard row mean
 - [RoboDojo paper](../../sources/robodojo-paper.md) — hidden verification layouts, mandatory artifact release, a human-teleop ceiling, and a measured cross-GPU and cross-round spread.
 - [XPolicyLab GitHub](../../sources/xpolicylab-github.md) — the serving layer behind two leaderboards: one codec rule, idempotent retries, checkpoint-required submissions, and adapter fidelity left unmeasured.
 - [GPT-6 Astra on RoboDojo](../../sources/gpt-6-astra-robodojo-paper.md) — a leaderboard comparison that shares the evaluator but not the inputs; one seed; contamination unquantified.
+- [NVIDIA — The Machines that Make the Machines (GB300)](../../sources/nvidia-r2d2-gb300-tester-tray-assembly-blog.md) — the 598-zero-failure bar for 99.5%, and deployment with interventions as the route to it.

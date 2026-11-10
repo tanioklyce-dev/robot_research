@@ -2,8 +2,8 @@
 title: Contact-rich manipulation
 type: concept
 created: 2026-09-07
-updated: 2026-09-13
-sources: 15
+updated: 2026-11-10
+sources: 17
 tags: [contact-rich, manipulation, force-control, assembly, insertion, surface-interaction, physical-hri, deformable-objects, task-taxonomy]
 ---
 
@@ -116,6 +116,14 @@ Tight-tolerance insertion is family 1 above — the most-studied class. Seals an
 
 The Audi framing also names the economics, and it is not about capability: these tasks *"have stayed manual, largely for economic reasons: the **variant diversity** of premium production makes conventionally programmed robot cells too costly to re-engineer for each case."* The competitor to a learned policy here is not a better robot cell — it is a human who needs no re-engineering.
 
+## An industrial case study, classical first (2026-11-10)
+
+[NVIDIA's GB300 tester-tray work](../../sources/nvidia-r2d2-gb300-tester-tray-assembly-blog.md) tested methods against a manufacturer's targets: 99.5% success, at most twice a skilled worker's time, and no contact with the tray. A busbar task was solved mostly classically, with pose estimation, waypoint planning and a tuned impedance controller, reaching above 95%. Connector insertion reached 90–95% with a simulated RL base policy plus a residual learned on the real robot from force-torque input.
+
+Two results matter for the data argument on this page. **Behaviour cloning with ACT and diffusion policies failed on connector grasping**, because cables deform after limited handling and few were available. Shaped 3D-printed fingers made grasps repeatable without touch sensing. The authors call this the "inverse bitter lesson": where data can't be scaled, domain knowledge and mechanical design pay. Trial counts aren't given.
+
+The same group's earlier simulation-first line, from Factory to FORGE, is summarised in the [assembly digest](../../sources/nvidia-r2d2-robotic-assembly-blog.md).
+
 ## Related concepts
 
 - [Impedance and admittance control](impedance-control.md) — the controller family this task class is built on.
@@ -141,3 +149,5 @@ Well-developed as a *control* problem and thin as a *learning* problem. Force/to
 - [FACTR 2](../../sources/factr-2-paper.md) — sensorless external-torque estimation (NEXT) and pre-contact up-sampling (FIRST); five contact-rich bimanual tasks on a Piper.
 - [FACTR](../../sources/factr-paper.md) — sensing force is not enough: a policy given vision + torque ignores the sparse torque channel (61.2% on unseen objects) unless a blur curriculum forces early learning through it (87.5%; vision-only 21.3%). Recovery after a dropped box 27/30 vs 4/30.
 - [OpenArm documentation](../../sources/openarm-docs.md) — a $6,500 bimanual QDD arm positioned for *"deployment in contact-rich environments"* that records joint torque by default and ships bilateral teleop; no contact-rich results published on it yet.
+- [NVIDIA — The Machines that Make the Machines (GB300)](../../sources/nvidia-r2d2-gb300-tester-tray-assembly-blog.md) — classical-first GB300 assembly; behaviour cloning fails where data cannot scale.
+- [R²D²: robotic assembly](../../sources/nvidia-r2d2-robotic-assembly-blog.md) — Factory, IndustReal, AutoMate, MatchMaker, SRSA, TacSL, FORGE in one table.

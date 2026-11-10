@@ -2,8 +2,8 @@
 title: 6-DOF grasp generation
 type: concept
 created: 2026-08-23
-updated: 2026-08-23
-sources: 5
+updated: 2026-11-10
+sources: 6
 tags: [grasping, 6-dof-grasping, manipulation, diffusion, discriminator, cross-embodiment, gripper-morphology, acronym, modular-manipulation]
 ---
 
@@ -104,3 +104,4 @@ A diffusion model that *can* produce top-down grasps but cannot be *made* to is 
 ## Mentioned in
 
 - [GraspGen-X](../../sources/graspgenx-paper.md)
+- [R²D²: dexterous robots](../../sources/nvidia-r2d2-dexterous-robots-blog.md) — GraspGen: 81.3% real success, 57M-grasp dataset.

@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-08
 updated: 2026-11-08
-sources: 2
+sources: 3
 tags: [atlas, boston-dynamics, humanoid, bipedal, research, hyundai]
 status: stub
 ---

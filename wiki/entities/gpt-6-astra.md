@@ -3,8 +3,8 @@ title: GPT-6 Astra
 type: entity
 subtype: model
 created: 2026-11-07
-updated: 2026-11-07
-sources: 7
+updated: 2026-11-10
+sources: 8
 tags: [gpt-6-astra, openai, frontier-model, llm-as-policy, robodojo, code-as-policy, embodied-reasoning, robot-safety, closed-weights]
 ---
 
@@ -26,6 +26,12 @@ tags: [gpt-6-astra, openai, frontier-model, llm-as-policy, robodojo, code-as-pol
   - its task recipe included the score ladder, which the policies never saw;
   - contamination is unquantified;
   - only one simulator was used.
+
+## As a direct robot policy (RoboLab, 2026-10)
+- **Setup.** NVIDIA's Seattle Robotics Lab ran it zero-shot on [RoboLab-120](nvidia-robolab.md), 120 single-arm pick-and-place tasks on the DROID setup in simulation, with five episodes per task ([Astranomy](../sources/nvidia-srl-astranomy-blog.md)).
+- **Score.** **66.3%** as a direct API policy, **74.8%** in a persistent Codex session and 66.5% supervising Cosmos3-Nano-Policy. The best leaderboard policy scores 51.0%, Cosmos3-Nano-Policy 36.8% and π0.5 28.0%.
+- **The interface matters.** Absolute end-effector targets beat joint positions (72.7% vs 48.7%), and gripper and camera geometry in the prompt raise direct success from 19.3% to 72.7%. In the same direct setup, GPT-6 Sol scored 33.3%, GPT-6 Luna 2.0% and Claude Opus 5.5 25.3%, with defaults chosen from Astra's ablations.
+- **Cost.** An average of 18.56 s per direct call, about 97% of episode time with the simulator paused, and about $36 in tokens per successful agentic episode.
 
 ## As a controller writer
 - **RoboPianist.** Through the Codex scaffold, Astra writes a 20 Hz `play.py` for two Shadow hands and refines it by simulated practice. It reaches **F1 0.902 on two-hand Twinkle, against 0.886 for the RL reference**, but transfers unevenly to unseen pieces (C-major scale 0.903, D-major scale 0.556) ([paper](../sources/gpt-6-astra-robodojo-paper.md), App. G). This is level 2 of the [control-abstraction ladder](../concepts/robotics/control-abstraction-levels.md).
@@ -54,3 +60,4 @@ tags: [gpt-6-astra, openai, frontier-model, llm-as-policy, robodojo, code-as-pol
 - [ToyBlocks (Ai2 blog)](../sources/ai2-toyblocks-blog.md) — the agent-built simulator.
 - [NVIDIA MicroDuck blog](../sources/nvidia-microduck-ai-agents-sim-blog.md) — the asset and simulation agent.
 - [Jalapeño first results](../sources/openai-jalapeno-first-results.md) — kernel authoring with Codex.
+- [Astranomy (NVIDIA SRL)](../sources/nvidia-srl-astranomy-blog.md) — 66–75% on RoboLab-120 in three roles; prompt geometry and history ablations; latency and cost.

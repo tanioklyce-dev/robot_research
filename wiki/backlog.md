@@ -775,7 +775,7 @@ Session arc: ingested 3 raw drops (VLA-0, YOLOv11n child-detection, USC table-te
 
 ## [2026-07-16] NVIDIA batch (Jetson skills / DeepStream / RoboLab / Halos blog) — follow-ups
 - [ ] **TensorRT entity** — referenced as bare text from [DeepStream](entities/nvidia-deepstream.md), JetPack, and several Jetson pages; no entity page. File if it keeps recurring.
-- [ ] **NVIDIA SRL (Seattle Robotics Lab) entity** — [RoboLab](entities/nvidia-robolab.md) is filed but its parent lab (Dieter Fox / Birchfield / Ramos / Tremblay group) isn't; would anchor DROID + a lot of NVIDIA robot-eval work. The `/labs/srl/` attribution is inferred from the URL path — confirm the lab's official name before filing.
+- [x] ~~**NVIDIA SRL (Seattle Robotics Lab) entity**~~ **Filed 2026-11-10**: [entity](entities/nvidia-seattle-robotics-lab.md); the name is confirmed by [the GB300 post](sources/nvidia-r2d2-gb300-tester-tray-assembly-blog.md). Original note: — [RoboLab](entities/nvidia-robolab.md) is filed but its parent lab (Dieter Fox / Birchfield / Ramos / Tremblay group) isn't; would anchor DROID + a lot of NVIDIA robot-eval work. The `/labs/srl/` attribution is inferred from the URL path — confirm the lab's official name before filing.
 - [x] ~~**RoboArena** — no page.~~ **Filed 2026-07-27**: [entity](entities/roboarena.md) + [paper](sources/roboarena-paper.md).
 - [ ] **DeepStream vs Isaac ROS** perception-boundary synthesis — if both keep recurring (video-analytics/IVA vs robot-perception/VSLAM).
 - [ ] **Halos deploy-skill name reconciliation** — `hoisa-deploy-profile` (Trust Center) vs `warehouse-deploy` / `halos-deploy` (blog); confirm on next Halos update.
@@ -859,3 +859,9 @@ Clean at time of writing: 0 broken links (7,175 checked), 0 orphan pages, all `s
 - [ ] **Re-check GAWM v1 → v2** (2026-09-03 → 09-19). The captured edition is v2; what changed is not recorded.
 - [ ] **NAVSIM "closed-loop" wording.** [X-VLA's page](sources/xvla-paper.md) calls NAVSIM closed-loop; it replays non-reactive traffic, and X-VLA's 87.3 is v1 PDMS, not v2 EPDMS. Flagged on the [AD-E2E-JEPA page](sources/ad-e2e-jepa-autonomous-driving-paper.md); the X-VLA page needs a correction.
 - [ ] **Steering experiment from Predictive Closure:** feed proprioception or gripper state to a LeWM predictor as side information, and probe whether the *pushed object* becomes better represented, as indirect steering predicts.
+
+## [2026-11-10] NVIDIA R²D² digest — follow-ups
+- [ ] **GB300 whitepaper** — announced in [the GB300 post](sources/nvidia-r2d2-gb300-tester-tray-assembly-blog.md) with trial counts and methods; ingest it, and DOPER and TALOS when released.
+- [ ] **Primaries for decision-grade R²D² numbers** — the digests are vendor summaries. Candidates: COMPASS (2502.16372), FoundationStereo (2501.09898), IndustReal (2305.17110), AutoMate (2407.08028), TacSL (2408.04587), FORGE (2408.06506), NeRD (2508.15755), VT-Refine (2510.14930), cuTAMP (2411.11833), sim-and-real co-training (2503.24361).
+- [ ] **NeRD in Newton** — planned as a Newton solver; check whether it shipped.
+- [ ] **Astranomy arXiv version** — announced as coming soon on [the post](sources/nvidia-srl-astranomy-blog.md); also two related Astra-as-policy reports cited there and not ingested: Galbot (arXiv 2609.38537) and Su et al.'s technical report.

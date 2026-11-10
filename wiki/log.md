@@ -6638,3 +6638,16 @@ Structure was sound: **0 broken file links, 0 orphans, 0 schema violations, all 
 - Updated [real-world RL](concepts/learning/real-world-robot-rl.md), [actuator fidelity](concepts/learning/actuator-fidelity-sim2real.md), [continual learning](concepts/learning/continual-learning.md), [AprilTags](concepts/robotics/apriltags.md), [Dynamixel](entities/dynamixel.md), [ALE](entities/ale.md), [Raspberry Pi 5](entities/raspberry-pi-5.md), [Atari RL lineage](syntheses/rl/atari-rl-lineage.md)
 - Conditions recorded: the reported learning runs total 145 hours, against the abstract's "weeks"; "under $1,000" isn't itemised; the body-swap result doesn't measure how the bodies differ and has no error bars
 - No separate pages for Sutton or Carmack, because no ingested source covers them beyond authorship
+
+## [2026-11-10] ingest | NVIDIA R²D² research digest (11 posts)
+- Created 11 source pages from NVIDIA's [R²D² series](sources/nvidia-r2d2-gb300-tester-tray-assembly-blog.md#the-r²d²-series), 2025-03 to 2026-10. Ten are vendor summaries of NVIDIA papers, marked as secondary, with arXiv IDs listed for the primaries. Web sources, so nothing was saved to `raw/`.
+- The GB300 post is first-hand: [NVIDIA Seattle Robotics Lab](entities/nvidia-seattle-robotics-lab.md) reports a classical-first assembly system at above 95% and 90–95% against a 99.5% target, with no trial counts. New entity closes the SRL backlog item.
+- Updated [contact-rich manipulation](concepts/robotics/contact-rich-manipulation.md), [robot policy evaluation](concepts/robotics/robot-policy-evaluation.md), [variational automation](concepts/robotics/variational-automation.md), [impedance control](concepts/robotics/impedance-control.md), [real-world RL](concepts/learning/real-world-robot-rl.md), [TAMP](concepts/robotics/task-and-motion-planning.md), [tactile sensing](concepts/robotics/tactile-sensing.md), Isaac Lab, Cosmos, DreamGen, MimicGen, GraspGen, nvblox, cuRobo, [Model Hardware Standard](entities/model-hardware-standard.md), and four concept pages' inbound lists
+- Conditions recorded: the GB300 post's "rapidly approaching" thresholds sits beside a connector cycle time of about 160 s against 72 s; the Isaac Lab throughput figures have no stated GPU; the 36-hour GR00T N1.5 claim has no breakdown
+- Not created: entity pages for the roughly 40 individual projects. They are described on the digest pages, pending primaries
+
+## [2026-11-10] ingest | Astranomy: GPT-6 Astra as a RoboLab policy
+- Created [Astranomy (NVIDIA SRL)](sources/nvidia-srl-astranomy-blog.md). Web source, no `raw/` copy.
+- Updated [GPT-6 Astra](entities/gpt-6-astra.md), [RoboLab](entities/nvidia-robolab.md) score table, [NVIDIA Seattle Robotics Lab](entities/nvidia-seattle-robotics-lab.md), [control abstraction levels](concepts/robotics/control-abstraction-levels.md), backlog
+- Consistent with existing pages: Cosmos3-Nano-Policy 36.8% matches the RoboLab table; π0.5 28.0% against 28.1% is rounding
+- Conditions recorded: five episodes per task and no significance testing; simulation pauses during 13–19 s decisions; cost averaged over successful episodes only; model comparison run on Astra-tuned defaults; benchmark authors ran the study; code link is internal
