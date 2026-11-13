@@ -3,8 +3,8 @@ title: π0.5
 type: entity
 subtype: model
 created: 2026-08-03
-updated: 2026-11-07
-sources: 26
+updated: 2026-11-12
+sources: 27
 tags: [pi-zero-5, physical-intelligence, vla, co-training, open-world, mobile-manipulation, hierarchical-inference, baseline]
 ---
 
@@ -60,3 +60,4 @@ The one role where world models earn their place is as **RL environments**: a π
 - [WorldArena paper](../sources/worldarena-paper.md) · [WorldArena 2.0 paper](../sources/worldarena-2-paper.md)
 - [RoboDojo — IsaacLabArena branch](../sources/robodojo-isaaclabarena-branch.md) · [ToyBlocks (Ai2 blog)](../sources/ai2-toyblocks-blog.md)
 - [RoboDojo paper](../sources/robodojo-paper.md) — the strongest *real-world* policy (22.9 / **12.8%** over 180 trials, 3 embodiments), third in sim (6.91%), and the only policy above 1.5% on Open tasks (1.67%). Spatial Forcing, a π0.5 fine-tune with 3D spatial alignment, beats it in sim and holds up better under randomization (−67% vs −72%).
+- [Runway GWM-Robotics policy evaluation](../sources/runway-gwm-robotics-policy-evaluation.md) — pi05_droid ranked best of eight RoboArena policies both in the world model and in the real world.

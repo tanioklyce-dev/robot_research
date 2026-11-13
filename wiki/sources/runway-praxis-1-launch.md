@@ -31,7 +31,7 @@ ingested: 2026-11-12
 - **Policy framing.** The case for open weights is put in terms of US leadership in physical AI. Runway calls itself a **founding member of the Cosmos Coalition** with [NVIDIA](../entities/nvidia.md) (see [NVIDIA Cosmos](../entities/nvidia-cosmos.md)).
 
 **September pre-announcement (*Introducing Praxis-1*)**
-- **Policy evaluation.** *"Simulating robot policies inside our world model predicts real-world results with **0.95 correlation**."* The details are in a separate Runway post, *Accelerating Robot Policy Evaluation with General World Models*, which is not ingested.
+- **Policy evaluation.** *"Simulating robot policies inside our world model predicts real-world results with **0.95 correlation**."* The details are in [Runway's February 2026 GWM-Robotics study](runway-gwm-robotics-policy-evaluation.md): Pearson 0.95 over **eight** RoboArena policies, human-graded, **ranking only**.
 - **Scaling.** *"Policy performance improves as we scale third-person video."* Figure 2 shows final placement error after fine-tuning against hours of pretraining video. **Web video from scratch reaches 16.1 cm, teleoperated robot video 16.0 cm** (±1 SEM over 93 evaluation pairs, with the x-axis running 10¹–10³ hours).
 - **Hard cases.** Four kinds of task that defeat demonstration-only policies are shown as targets: rigid repeated objects, clutter, transparent objects and deformable objects. These are shown as video only, with no numbers.
 
@@ -55,6 +55,6 @@ ingested: 2026-11-12
 
 ## Open questions
 
-- **The 0.95 sim-to-real correlation.** How many policies, which tasks, and is it rank or Pearson? Ingest *Accelerating Robot Policy Evaluation with General World Models* before quoting it.
+- ~~**The 0.95 sim-to-real correlation.**~~ Resolved: it is Pearson over eight Franka policies on RoboArena tasks, with humans grading the simulated rollouts. See [GWM-Robotics evaluation](runway-gwm-robotics-policy-evaluation.md).
 - **The Cosmos Coalition.** What does founding membership involve, and does Praxis-1 use any Cosmos components? The technical report names Wan2.2's VAE and Qwen3.5 as its frozen encoders, not Cosmos.
 - **Partner results.** Noble Machines, Standard Bots and Ultra appear only in video. No partner success rates are published.

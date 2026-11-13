@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-11-12
 updated: 2026-11-12
-sources: 4
+sources: 5
 tags: [runway, video-generation, world-model, world-action-model, gen-4-5, praxis-1, open-weights, cosmos-coalition, physical-ai]
 ---
 
@@ -15,7 +15,7 @@ tags: [runway, video-generation, world-model, world-action-model, gen-4-5, praxi
 ## Robotics thesis
 
 - **Video, not teleoperation, is the scalable data source.** *"Real-world data is scarce… Video, however, is effectively limitless."* Runway reports that policy quality improves as third-person video scales, and that web video ties teleoperated robot video as pretraining. That tie is shown on a single placement-error proxy (16.1 vs 16.0 cm) ([September post, in launch source](../sources/runway-praxis-1-launch.md)).
-- **World models as evaluators.** Runway claims policy rollouts simulated inside its world model predict real-world results with **0.95 correlation**. This is not yet backed by an ingested primary.
+- **World models as evaluators.** **GWM-Robotics** is a Gen-4.5 variant announced in December 2025. It runs policies from starting images for up to 30 s in real time. Over eight RoboArena policies, human-graded simulated progress ranks them like the real world, at Pearson 0.95 and MMRV 0.033. That is ranking, not absolute rates, on one arm, with n = 8 ([GWM-Robotics evaluation](../sources/runway-gwm-robotics-policy-evaluation.md)). Partners are NVIDIA and Berkshire Grey.
 - **Policies and LLM agents are complementary.** An agent plans a task and a fast policy carries out each step. Runway's own comparison has [GPT-6 Astra](gpt-6-astra.md) 15.6× slower and 51× more expensive per task than Praxis-1 ([report §7.3](../sources/runway-praxis-1-technical-report.md)).
 
 ## Positioning
@@ -35,3 +35,4 @@ tags: [runway, video-generation, world-model, world-action-model, gen-4-5, praxi
 - [Praxis-1 technical report](../sources/runway-praxis-1-technical-report.md)
 - [praxis-1-oss GitHub README](../sources/praxis-1-oss-github.md)
 - [FLUX 3 launch](../sources/flux-3-launch.md) — Runway Gen-4.5 as a video-preference baseline (BFL claims a 77% preference win).
+- [GWM-Robotics policy evaluation (Feb 2026)](../sources/runway-gwm-robotics-policy-evaluation.md) — the primary for the 0.95 correlation claim.

@@ -3,8 +3,8 @@ title: RoboArena
 type: entity
 subtype: benchmark
 created: 2026-07-27
-updated: 2026-10-27
-sources: 7
+updated: 2026-11-12
+sources: 8
 tags: [roboarena, benchmark, evaluation, real-world, droid, bradley-terry, pairwise-preference, distributed, leaderboard]
 ---
 
@@ -38,6 +38,10 @@ They share people — **Xuning Yang** authors both the RoboLab methodology blog 
 
 The wiki cites **Cosmos3-Nano-Policy-DROID as "#1 policy model on RoboArena" (2026-05-30)** ([Cosmos 3 technical report](../sources/cosmos-3-technical-report.md)) — a claim that predates this entity page by two months. **Whether the live leaderboard still runs the paper's exact BT variant, and how many comparisons back that #1, is unknown** — see the [source page](../sources/roboarena-paper.md)'s open questions.
 
+## As a ground truth for world-model evaluators (2026-02)
+
+Runway used RoboArena's real episodes as the reference for its world-model evaluator. It took eight RoboArena policies, re-ran them inside GWM-Robotics from the same initial frames, had humans grade the generated rollouts, and compared the results with RoboArena's real progress scores. Pearson was **0.95** ([GWM-Robotics evaluation](../sources/runway-gwm-robotics-policy-evaluation.md)). RoboArena's own agreement with oracle rankings is also about 0.95, so the simulated evaluator is about as good as the real protocol it is checked against, and this result cannot show whether it is any better.
+
 ## Results at publication
 
 Seven policies, all DROID-finetuned: **π₀-flow**, **π₀-FAST**, and five PaliGemma-backbone action-representation variants (PG-flow, PG-FAST, PG-FAST+, PG-FSQ, PG-Bin). Findings: expressive action representations beat simple binning; **discrete tokenization outperformed diffusion** in this sweep; **π₀-FAST-DROID strongest overall**. Because the backbone is held fixed across five of the seven, this is one of the cleaner action-representation comparisons in the wiki — see [FAST](fast-action-tokenization.md) and the [VLA action-head taxonomy](../concepts/learning/vla-models.md).
@@ -58,3 +62,4 @@ DROID-only (no cross-embodiment); decentralization makes controlled ablation har
 - [Cosmos 3 technical report](../sources/cosmos-3-technical-report.md) — Cosmos3-Nano-Policy-DROID reported #1 (2026-05-30)
 - [Veo world simulator evaluation](../sources/veo-robotics-policy-evaluation-paper.md) — the third evaluation paradigm, and one that makes the **same trade as RoboArena**: reliable ranking, unreliable absolute magnitude.
 - [DreamZero paper](../sources/dreamzero-paper.md) — DreamZero-DROID integrated into RoboArena; eval code released.
+- [Runway GWM-Robotics policy evaluation](../sources/runway-gwm-robotics-policy-evaluation.md) — RoboArena episodes as ground truth for a world-model evaluator (r = 0.95, 8 policies).

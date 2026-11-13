@@ -3,7 +3,7 @@ title: Robot policy evaluation
 type: concept
 created: 2026-07-27
 updated: 2026-11-12
-sources: 78
+sources: 79
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility, real-to-sim, r2s2r]
 ---
 
@@ -110,7 +110,7 @@ Its stated standard is the one this page has been converging on from every other
 > "A useful simulation need not match real-world success rates exactly. It must support the same decisions as reality: identify where policies succeed and fail, **rank** which policies are better, and predict whether improvements during training will carry over to hardware."
 
 > [!note] Five paradigms, one conclusion
-> [RoboArena](../../sources/roboarena-paper.md) (pairwise preference, r ≈ 0.95 vs ≈ 0.60), the [Veo world simulator](../../sources/veo-robotics-policy-evaluation-paper.md) (r = 0.88, absolute rates low), [WorldArena](../../sources/worldarena-paper.md) (r = 0.986 for [Ctrl-World](../../entities/ctrl-world.md), absolute rates *inflated*), and now R2S2R all land on the same trade: **ranking transfers, magnitude does not.** Three of the four report the correlation; R2S2R does not. The convergence is the finding — asking a surrogate evaluator for a deployment success rate is asking it for the one thing none of them delivers.
+> [RoboArena](../../sources/roboarena-paper.md) (pairwise preference, r ≈ 0.95 vs ≈ 0.60), the [Veo world simulator](../../sources/veo-robotics-policy-evaluation-paper.md) (r = 0.88, absolute rates low), [WorldArena](../../sources/worldarena-paper.md) (r = 0.986 for [Ctrl-World](../../entities/ctrl-world.md), absolute rates *inflated*), and now R2S2R all land on the same trade: **ranking transfers, magnitude does not.** Three of the four report the correlation; R2S2R does not. *(Added 2026-11-12:* [Runway's GWM-Robotics](../../sources/runway-gwm-robotics-policy-evaluation.md) is a sixth instance. It reports r = 0.95 over eight policies and explicitly *"rather than absolute success-rate prediction"*. It matches PolaRiS's real-to-sim ranking from start images alone, without Gaussian-splat reconstruction. Humans still grade every simulated rollout.) The convergence is the finding — asking a surrogate evaluator for a deployment success rate is asking it for the one thing none of them delivers.
 
 **The bar, restated by a practitioner as a wall-clock question.** In the [companion interview](../../sources/a16z-worldlabs-scenix-conversation.md), Yunzhu Li defines evaluation not as a rate but as a discrimination time: *"the key criterion people use in industry is **how long in wall-clock time does it take for you to distinguish between a checkpoint that is 90% from a checkpoint that is 92%.**"* That 2-point discrimination is precisely the **±2 pp band** this page prices at ≈1,030 rollouts. The statistics and the industry requirement were derived independently and landed on the same number — which is the strongest evidence available that the Clopper-Pearson bar is not an academic nicety but the actual thing that gates robot iteration speed.
 
@@ -188,7 +188,7 @@ The [Praxis-1 report](../../sources/runway-praxis-1-technical-report.md) shows g
 - **Good.** It uses the official 10-trial RoboLab protocol, reports n for every comparison, states plainly when differences are not significant (NVFP4 vs bf16), and **runs the real-robot comparison on the competitor's own published task list**.
 - **Weak.** Every competitor number was produced by Runway. On RT-1, the baseline was fine-tuned using a recipe written for a different robot. The headline margins (46.2 vs 42.9 at n = 1,200; 88 vs 80 at n = 100) both have p ≈ 0.1.
 - **A new runtime-pole result.** A head on the frozen model's *predicted next chunk* separates real successes from failures at **AUROC 0.77** after about 6 s (elapsed time alone gives 0.64). It ranks nine policies at Spearman 0.79, with a wide CI of 0.19–1.00. This is self-prediction as a failure detector, from an earlier, unreleased model.
-- **An unverified claim.** Runway says its world model predicts real-world policy results at **0.95 correlation** ([launch](../../sources/runway-praxis-1-launch.md)). The primary is not ingested.
+- **The 0.95 claim, now traced to its source.** Runway's claim that its world model predicts real-world policy results at **0.95 correlation** comes from a [February 2026 study](../../sources/runway-gwm-robotics-policy-evaluation.md). Eight RoboArena policies were simulated, and **humans** graded the rollouts. The result is Pearson 0.95 and MMRV 0.033, for **ranking only**, with a 95% CI of about 0.74–0.99 at n = 8.
 
 ## What is still missing
 
@@ -258,3 +258,4 @@ The [Praxis-1 report](../../sources/runway-praxis-1-technical-report.md) shows g
 - [GPT-6 Astra on RoboDojo](../../sources/gpt-6-astra-robodojo-paper.md) — a leaderboard comparison that shares the evaluator but not the inputs; one seed; contamination unquantified.
 - [NVIDIA — The Machines that Make the Machines (GB300)](../../sources/nvidia-r2d2-gb300-tester-tray-assembly-blog.md) — the 598-zero-failure bar for 99.5%, and deployment with interventions as the route to it.
 - [Praxis-1 technical report](../../sources/runway-praxis-1-technical-report.md) — competitor-run baselines, official-protocol RoboLab, self-predicted success at AUROC 0.77.
+- [Runway GWM-Robotics policy evaluation](../../sources/runway-gwm-robotics-policy-evaluation.md) — world-model evaluator; r = 0.95 / MMRV 0.033 over 8 RoboArena policies, human-graded, ranking only.

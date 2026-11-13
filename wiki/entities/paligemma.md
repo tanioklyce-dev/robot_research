@@ -3,8 +3,8 @@ title: PaliGemma
 type: entity
 subtype: model
 created: 2026-05-25
-updated: 2026-05-25
-sources: 5
+updated: 2026-11-12
+sources: 6
 tags: [paligemma, vlm, google, gemma, siglip, vision-language-model, vla-backbone]
 status: stub
 ---
@@ -50,3 +50,4 @@ status: stub
 - [RoboArena: Distributed Real-World Evaluation of Generalist Robot Policies](../sources/roboarena-paper.md)
 - [SmolVLA: A vision-language-action model for affordable and efficient robotics (Shukor et al., June 2025)](../sources/smolvla-paper.md)
 - [π0 Paper — A Vision-Language-Action Flow Model for General Robot Control (Black et al., Physical Intelligence, 2024)](../sources/pi-zero-paper.md)
+- [Runway GWM-Robotics policy evaluation](../sources/runway-gwm-robotics-policy-evaluation.md) — paligemma_binning_droid ranked worst of eight both in simulation and in the real world.

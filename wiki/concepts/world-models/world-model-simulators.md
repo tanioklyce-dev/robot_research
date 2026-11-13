@@ -2,8 +2,8 @@
 title: World-model simulators
 type: concept
 created: 2026-05-06
-updated: 2026-11-07
-sources: 50
+updated: 2026-11-12
+sources: 51
 tags: [world-model, generative-simulation, video-generation, jepa, latent-prediction, paradigm-shift]
 ---
 
@@ -63,7 +63,7 @@ The thesis on this page — use a learned model as the environment — now has i
 | Role | Verdict | Evidence |
 |---|---|---|
 | **RL environment** (train a policy inside it) | **Works** — ~⅔ of the gap to simulator-based RL closed; every model beats SFT | [WorldArena 2.0](../../sources/worldarena-2-paper.md) |
-| **Policy evaluator** | Ranking yes (r = 0.986 for [Ctrl-World](../../entities/ctrl-world.md)), absolute rates no | [WorldArena](../../sources/worldarena-paper.md) |
+| **Policy evaluator** | Ranking yes (r = 0.986 for [Ctrl-World](../../entities/ctrl-world.md); r = 0.95 over 8 real RoboArena policies for Runway's GWM-Robotics), absolute rates no | [WorldArena](../../sources/worldarena-paper.md), [GWM-Robotics](../../sources/runway-gwm-robotics-policy-evaluation.md) |
 | **Data engine** (generate training data) | Marginal — only 2 of 6 models beat real data, on the easier task only | [WorldArena](../../sources/worldarena-paper.md) |
 | **Action planner** (be the policy) | **No** — loses 3–4× to [π0.5](../../entities/pi-zero-5.md) | [WorldArena](../../sources/worldarena-paper.md) |
 
@@ -115,3 +115,4 @@ Two things this qualifies on the page below: the [Genie Envisioner](../../entiti
 - [UnifoLM-WMA-0 project page](../../sources/unifolm-wma-0-project-page.md) — Unitree's DynamiCrafter-based generative world model with a simulation mode.
 - [Gemini 4 Argon for Robotics](../../sources/gemini-4-argon-robotics-blog.md) — an LLM **steering** a video world model (Gemini Omni) in closed loop: timestamped action prompts, keyframe inspection, refinement (33 steps). The world model is driven by a planner's prompts, not by a policy's actions.
 - [ToyBlocks (Ai2 blog)](../../sources/ai2-toyblocks-blog.md) — LeWM vs Wan 2.2 on a ground-truth-state probe; video-model rollouts fill an unseen workspace region (19% → 78%).
+- [Runway GWM-Robotics policy evaluation](../../sources/runway-gwm-robotics-policy-evaluation.md) — a commercial video world model as policy evaluator: 30 s real-time rollouts from start images, r = 0.95 against real RoboArena progress over 8 policies.

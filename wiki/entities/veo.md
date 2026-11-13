@@ -3,8 +3,8 @@ title: Veo
 type: entity
 subtype: model
 created: 2026-08-03
-updated: 2026-08-31
-sources: 5
+updated: 2026-11-12
+sources: 6
 tags: [veo, video-model, world-model, generative-simulation, policy-evaluation, google-deepmind]
 ---
 
@@ -50,3 +50,4 @@ Known failure modes: contact-rich interaction with small objects (objects can sp
 ## Mentioned in (additional)
 
 - [WorldArena paper](../sources/worldarena-paper.md)
+- [Runway GWM-Robotics policy evaluation](../sources/runway-gwm-robotics-policy-evaluation.md) — a competitor's claim that Veo's robotics simulator is limited to 8-second rollouts (vs GWM-Robotics' 30 s).
