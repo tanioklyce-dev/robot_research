@@ -3,8 +3,8 @@ title: GPT-6 Astra
 type: entity
 subtype: model
 created: 2026-11-07
-updated: 2026-11-10
-sources: 8
+updated: 2026-11-12
+sources: 9
 tags: [gpt-6-astra, openai, frontier-model, llm-as-policy, robodojo, code-as-policy, embodied-reasoning, robot-safety, closed-weights]
 ---
 
@@ -41,6 +41,7 @@ tags: [gpt-6-astra, openai, frontier-model, llm-as-policy, robodojo, code-as-pol
 - **Embodied reasoning.** In Unitree's API tests it leads ERQA (77.7) and RefSpatial (79.6), and loses on pointing benchmarks to specialized open models ([UnifoLM-WLA-1](../sources/unifolm-wla-1-project-page.md)).
 - **Agentic simulation.** It is linked as the system that *"created its own physics simulator"* in [Ai2's ToyBlocks](../sources/ai2-toyblocks-blog.md), where it *"struggles to simulate contact,"* and as the asset and scene agent in NVIDIA's [MicroDuck](../sources/nvidia-microduck-ai-agents-sim-blog.md) pipeline.
 - **Infrastructure.** Used with Codex to write [Jalapeño](openai-jalapeno.md)'s kernels ([first results](../sources/openai-jalapeno-first-results.md)).
+- **Against a fast policy.** On three YAM tasks at the same station, Astra took **15.6× longer** (4:13 vs 0:16) and cost **51× more per completed task** ($1.87 vs $0.04) than [Praxis-1](praxis-1.md). The comparison was run by Runway ([Praxis-1 report §7.3](../sources/runway-praxis-1-technical-report.md)). The same report says the RoboLab-120 board is now led by a different zero-shot frontier-model agent, **AMP1 at 86.0%**, under the official 10-trial protocol.
 - **Benchmark adapter.** `GPT_6_Astra_Direct_EEF` in [XPolicyLab](xpolicylab.md), served through a third-party gateway ([XPolicyLab GitHub](../sources/xpolicylab-github.md)).
 
 ## Why it matters for this wiki
@@ -61,3 +62,4 @@ tags: [gpt-6-astra, openai, frontier-model, llm-as-policy, robodojo, code-as-pol
 - [NVIDIA MicroDuck blog](../sources/nvidia-microduck-ai-agents-sim-blog.md) — the asset and simulation agent.
 - [Jalapeño first results](../sources/openai-jalapeno-first-results.md) — kernel authoring with Codex.
 - [Astranomy (NVIDIA SRL)](../sources/nvidia-srl-astranomy-blog.md) — 66–75% on RoboLab-120 in three roles; prompt geometry and history ablations; latency and cost.
+- [Praxis-1 technical report](../sources/runway-praxis-1-technical-report.md) — 15.6× slower and 51× costlier per task than Praxis-1 on three YAM tasks.

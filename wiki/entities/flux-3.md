@@ -3,8 +3,8 @@ title: FLUX 3
 type: entity
 subtype: model
 created: 2026-09-07
-updated: 2026-09-07
-sources: 4
+updated: 2026-11-12
+sources: 6
 tags: [flux-3, black-forest-labs, multimodal, flow-matching, self-flow, video-generation, audio, action-prediction, world-model, video-action-model, open-weights]
 ---
 
@@ -55,6 +55,15 @@ Early access at launch, then staged: **FLUX 3 Video** (API + private weights) �
 
 Stated next goal: *"unify perceptual, action and language prediction in the same unified model"* — **language is the missing modality**, which inverts the VLA line where language came first and physics is the gap.
 
+## Measured by a competitor (2026-11)
+
+[Runway](runway.md)'s [Praxis-1 report](../sources/runway-praxis-1-technical-report.md) gives the first third-party numbers for **FLUX 3 Action** in this wiki. All three were produced by a direct competitor:
+- **RoboLab-120: 42.9%**, second among WAMs, behind Praxis-1's 46.2% (difference p ≈ 0.10).
+- **Real Franka, FLUX 3 Action's own ten published tasks: 80/100**, against 88/100 for Praxis-1. Positronic operated the robot.
+- **RT-1 on SimplerEnv: 39.7%**, against 80.0%. This baseline was fine-tuned by Runway using BFL's DROID recipe on an embodiment that recipe was not written for. Treat it as a floor.
+
+These also confirm that FLUX 3 Action exists as a runnable model outside the mimic partnership. That suggests the staged rollout under *Availability* has moved, but no BFL primary confirms it.
+
 ## Related
 
 - [Black Forest Labs](black-forest-labs.md) · [mimic robotics](mimic-robotics.md)
@@ -66,3 +75,5 @@ Stated next goal: *"unify perceptual, action and language prediction in the same
 ## Mentioned in
 
 - [FLUX 3 and FLUX-mimic launch](../sources/flux-3-launch.md)
+- [Praxis-1 technical report](../sources/runway-praxis-1-technical-report.md) — competitor-run FLUX 3 Action numbers: RoboLab-120 42.9%, real Franka 80/100, RT-1 SimplerEnv 39.7%.
+- [Praxis-1 launch](../sources/runway-praxis-1-launch.md) — FLUX 3 Action as the runner-up on RoboLab-120.

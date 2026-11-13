@@ -3,8 +3,8 @@ title: SimplerEnv
 type: entity
 subtype: product
 created: 2026-05-08
-updated: 2026-08-13
-sources: 6
+updated: 2026-11-12
+sources: 7
 tags: [simplerenv, manipulation-benchmark, sapien, real-world-eval, vla-eval, widowx, xvla]
 ---
 
@@ -34,6 +34,10 @@ Also reported: Google-Robot Visual Matching 80.4 and Visual Aggregation 75.7 (pr
 
 X-VLA also uses Simpler-WidowX as its **ablation instrument** throughout — the whole recipe path from 4.1 to 95.8 is measured on it, alongside held-out ℓ1 validation error (R² = −0.925 between the two).
 
+## Google-robot visual matching, 2026-11
+
+[Praxis-1](praxis-1.md) fine-tuned on RT-1 data: **80.0%** mean over four tasks and 864 episodes (coke can 98.3, move near 81.7, drawer 56.5, apple into drawer 83.3). Converged RT-1 scores 52.4%, and a Runway-run FLUX 3 Action fine-tune 39.7% ([Praxis-1 report](../sources/runway-praxis-1-technical-report.md)). Runway also used SimplerEnv as its unseen-embodiment probe for mid-training compute scaling. The curve ran 56.3 → 80.0% over five checkpoints, but did not rise at every step.
+
 ## Related
 - [X-VLA](x-vla.md) — current SOTA on Simpler-WidowX by a wide margin.
 - [VLA-JEPA](vla-jepa.md) — primary JEPA-line consumer in this wiki.
@@ -44,6 +48,7 @@ X-VLA also uses Simpler-WidowX as its **ablation instrument** throughout — the
 ## Mentioned in
 - [VLA-JEPA Paper](../sources/vla-jepa-paper.md)
 - [X-VLA paper](../sources/xvla-paper.md)
+- [Praxis-1 technical report](../sources/runway-praxis-1-technical-report.md) — Google-robot visual matching 80.0%; SimplerEnv as a compute-scaling probe.
 
 ## Open questions / TBD
 - Authors / origin paper not yet ingested.

@@ -3,8 +3,8 @@ title: Black Forest Labs
 type: entity
 subtype: company
 created: 2026-09-07
-updated: 2026-09-07
-sources: 2
+updated: 2026-11-12
+sources: 3
 tags: [black-forest-labs, flux, robin-rombach, patrick-esser, germany, freiburg, generative-models, flow-matching, physical-ai, video-generation, self-flow]
 ---
 
@@ -48,3 +48,4 @@ The lab also runs a public policy line — a blog post titled *"our co-founder a
 ## Mentioned in
 
 - [FLUX 3 and FLUX-mimic launch](../sources/flux-3-launch.md)
+- [Praxis-1 technical report](../sources/runway-praxis-1-technical-report.md) — Runway, the other generative-video lab building a WAM, benchmarks directly against FLUX 3 Action (RoboLab-120 42.9% vs 46.2%; real Franka 80 vs 88/100).

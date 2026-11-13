@@ -3,8 +3,8 @@ title: Standard Bots
 type: entity
 subtype: company
 created: 2026-07-04
-updated: 2026-07-04
-sources: 1
+updated: 2026-11-12
+sources: 2
 tags: [standard-bots, industrial-robot-arm, manufacturing, learn-from-demonstration, commercial, ro1]
 ---
 
@@ -27,6 +27,7 @@ tags: [standard-bots, industrial-robot-arm, manufacturing, learn-from-demonstrat
 
 ## Mentioned in
 - [Standard Bots — AI page](../sources/standardbots-ai-page.md) — primary source.
+- [Praxis-1 launch](../sources/runway-praxis-1-launch.md) — a Praxis-1 launch partner, running it on the RO1 six-axis arm (video only, no numbers).
 
 ## Open questions
 - Whether there's a foundation model behind the platform or per-skill behavior cloning.

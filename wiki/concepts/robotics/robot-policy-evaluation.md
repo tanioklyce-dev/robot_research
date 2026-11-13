@@ -2,8 +2,8 @@
 title: Robot policy evaluation
 type: concept
 created: 2026-07-27
-updated: 2026-11-10
-sources: 77
+updated: 2026-11-12
+sources: 78
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility, real-to-sim, r2s2r]
 ---
 
@@ -182,6 +182,14 @@ Shared metric, unshared inputs is a pattern worth naming. A leaderboard row mean
 
 It agrees with [GR00T 2's](../../sources/gr00t-2-whitepaper.md) own estimate that separating 95% from 99% takes about 285 trials per policy. Their proposed way out is deployment with logged human interventions, accumulating evidence in real conditions. The post doesn't give its own trial counts.
 
+## A vendor runs the competitor's baseline (2026-11-12)
+
+The [Praxis-1 report](../../sources/runway-praxis-1-technical-report.md) shows good and bad practice from one vendor:
+- **Good.** It uses the official 10-trial RoboLab protocol, reports n for every comparison, states plainly when differences are not significant (NVFP4 vs bf16), and **runs the real-robot comparison on the competitor's own published task list**.
+- **Weak.** Every competitor number was produced by Runway. On RT-1, the baseline was fine-tuned using a recipe written for a different robot. The headline margins (46.2 vs 42.9 at n = 1,200; 88 vs 80 at n = 100) both have p ≈ 0.1.
+- **A new runtime-pole result.** A head on the frozen model's *predicted next chunk* separates real successes from failures at **AUROC 0.77** after about 6 s (elapsed time alone gives 0.64). It ranks nine policies at Spearman 0.79, with a wide CI of 0.19–1.00. This is self-prediction as a failure detector, from an earlier, unreleased model.
+- **An unverified claim.** Runway says its world model predicts real-world policy results at **0.95 correlation** ([launch](../../sources/runway-praxis-1-launch.md)). The primary is not ingested.
+
 ## What is still missing
 
 - **No real-world validation.** RoboLab is simulation-only, and whether its scores predict deployment success is precisely the question it exists to answer.
@@ -249,3 +257,4 @@ It agrees with [GR00T 2's](../../sources/gr00t-2-whitepaper.md) own estimate tha
 - [XPolicyLab GitHub](../../sources/xpolicylab-github.md) — the serving layer behind two leaderboards: one codec rule, idempotent retries, checkpoint-required submissions, and adapter fidelity left unmeasured.
 - [GPT-6 Astra on RoboDojo](../../sources/gpt-6-astra-robodojo-paper.md) — a leaderboard comparison that shares the evaluator but not the inputs; one seed; contamination unquantified.
 - [NVIDIA — The Machines that Make the Machines (GB300)](../../sources/nvidia-r2d2-gb300-tester-tray-assembly-blog.md) — the 598-zero-failure bar for 99.5%, and deployment with interventions as the route to it.
+- [Praxis-1 technical report](../../sources/runway-praxis-1-technical-report.md) — competitor-run baselines, official-protocol RoboLab, self-predicted success at AUROC 0.77.

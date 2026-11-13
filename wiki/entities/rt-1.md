@@ -3,8 +3,8 @@ title: RT-1
 type: entity
 subtype: model
 created: 2026-08-04
-updated: 2026-08-04
-sources: 4
+updated: 2026-11-12
+sources: 5
 tags: [rt-1, robotics-transformer, imitation-learning, efficientnet, film, tokenlearner, everyday-robots, google, cross-embodiment]
 ---
 
@@ -39,6 +39,10 @@ Baselines were **retrained on RT-1's data**, not quoted from their own papers. N
 
 The ancestor of the whole [VLA](../concepts/learning/vla-models.md) lineage: [RT-2](rt-2.md) reuses its discrete-action-token interface, [RT-H](rt-h.md) trains on its Kitchen dataset (70K demos, 6 task categories) and beats it, and [OpenVLA](openvla.md) descends from RT-2. It is also the low-level policy inside [SayCan](saycan.md) for 15 long-horizon kitchen instructions — the wiki's [LLM-agent-over-policy](../concepts/agents/llm-agent-architecture.md) pattern in its original form, and the reason the 97%/76% numbers matter, since long chains multiply per-step reliability.
 
+## As a held-out embodiment (2026-11)
+
+RT-1's dataset is now used as a **new-embodiment test**. [Praxis-1](praxis-1.md), which never saw RT-1 data in pretraining or mid-training, was fine-tuned on the full RT-1 training split (about 78k episodes, 95 hours, head camera only). It reaches **80.0% on SimplerEnv visual matching** against **52.4% for converged RT-1** ([Praxis-1 report](../sources/runway-praxis-1-technical-report.md)).
+
 ## Limitations
 - **No N per cell** — 3,000 trials across 200+ seen instructions means ~10–15 each; aggregate gaps hold, per-task orderings don't.
 - **One action at a time, no chunking** — [ACT](act.md) is the same year; the 3 Hz is a *per-action* rate, unlike modern chunked policies.
@@ -48,3 +52,4 @@ The ancestor of the whole [VLA](../concepts/learning/vla-models.md) lineage: [RT
 ## Mentioned in
 - [RT-1 paper](../sources/rt-1-paper.md)
 - [RT-2 paper](../sources/rt-2-paper.md) — the baseline it becomes
+- [Praxis-1 technical report](../sources/runway-praxis-1-technical-report.md) — RT-1 data as an unseen-embodiment fine-tune; 80.0% vs RT-1's 52.4% on SimplerEnv.

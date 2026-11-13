@@ -3,8 +3,8 @@ title: YAM (i2RT)
 type: entity
 subtype: robot
 created: 2026-07-04
-updated: 2026-11-09
-sources: 13
+updated: 2026-11-12
+sources: 15
 tags: [yam, i2rt, robot-arm, teleoperation, data-collection, affordable, groot, bimanual, molmoact2]
 ---
 
@@ -42,6 +42,8 @@ tags: [yam, i2rt, robot-arm, teleoperation, data-collection, affordable, groot, 
 - [RPG paper](../sources/rpg-guided-self-improvement-paper.md) — bimanual YAM (2 × 6-DoF, 14-D absolute joint targets) as the practice and deployment robot; 30/30 physical trials after common calibration.
 - [AW-0 paper](../sources/agentic-world-action-models-aw0-paper.md) — 1,919 h / 73K episodes / 279 tasks of YAM teleop as WAM pretraining data; 4 real eval tasks; 23-skill YAM library.
 - [DreamZero paper](../sources/dreamzero-paper.md) — YAM as the transfer target: 20 min of video-only YAM demos (+17 pts on unseen AgiBot tasks), and 30 min of YAM play data for few-shot embodiment adaptation.
+- [Praxis-1 technical report](../sources/runway-praxis-1-technical-report.md) — Runway trains on 1,400–2,600 h of in-house bimanual YAM recordings; a released `praxis-1-yam` checkpoint (and NVFP4 variant); 15.6× faster than GPT-6 Astra on three YAM tasks.
+- [praxis-1-oss GitHub](../sources/praxis-1-oss-github.md) — the YAM rig config (top camera + two wrist cameras).
 
 ## Open questions
 - Bimanual-rig details for the GR00T use (which variant, integration code, leader/follower setup). **Partly answered by [RoboTTT](../sources/robottt-paper.md)**: a bimanual YAM tabletop rig with four RealSense D405 cameras (top, bottom, two wrist) at 480p, 30 Hz control, inference on one RTX 5090.

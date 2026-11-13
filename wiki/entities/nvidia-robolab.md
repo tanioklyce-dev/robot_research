@@ -3,8 +3,8 @@ title: RoboLab (NVIDIA SRL benchmark)
 type: entity
 subtype: benchmark
 created: 2026-07-16
-updated: 2026-11-10
-sources: 9
+updated: 2026-11-12
+sources: 11
 tags: [nvidia, srl, benchmark, evaluation, simulation, task-generalist, robot-policy, droid, physical-ai]
 ---
 
@@ -50,8 +50,23 @@ Also: **Neural Posterior Estimation** for sensitivity analysis (`p(θ|x)` over e
 | GPT-6 Astra, agentic (Codex) | **74.8%** | default | [Astranomy](../sources/nvidia-srl-astranomy-blog.md), 5 episodes per task |
 | GPT-6 Astra, direct API | 66.3% | default | same |
 | Lakeside (best leaderboard entry cited there) | 51.0% | — | same |
+| AMP1 (zero-shot frontier-model agent) | **86.0%** | official (10/task) | [Praxis-1 report](../sources/runway-praxis-1-technical-report.md), leaderboard as of 2026-11 |
+| SenseNova-RoboRSI (VLM as policy) | 57.1% | official | same |
+| BiMind v0.5 (closed; fine-tuned on RoboLab data) | 49.2% | official | same |
+| **Praxis-1 (DROID FT)** | **46.2%** (555/1,200) | official | same |
+| FLUX 3 Action | 42.9% | official | same |
+| Atomic-WAM / OASIS WAM | 39.6% / 39.0% | official | same |
+| DreamZero | 25.7% | official | same |
+| GR00T N1.6 | 7.3% | official | same |
 
 No rollouts-per-task for any row, which by this page's own methodology (±2 pp ≈ 1,030 rollouts) means the 36.8-vs-39.7 Nano gap is noise-sized and the 16B→4B drop (~14 pp) is the only difference here large enough to trust in direction.
+
+## The leaderboard in November 2026
+
+The [Praxis-1 report](../sources/runway-praxis-1-technical-report.md) gives the first full slice of the public board in this wiki, with the **official protocol of 10 trials per task (1,200 episodes)**. At that size a score near 45% has a standard error of about ±1.4 pp, or ±2.8 pp at 95%. Two patterns stand out. **The top two entries are frontier-model agents**, not trained policies (AMP1 86.0%, SenseNova-RoboRSI 57.1%). **WAMs now fill most of the open-model tier** (Praxis-1, FLUX 3 Action, Atomic-WAM, OASIS WAM, Cosmos 3 Nano), above the open VLAs. BiMind v0.5 is listed as fine-tuned on RoboLab data. The board does not separate in-domain fine-tunes from held-out ones, and the reader should.
+
+> [!note] π0.5 at 28.0% vs 28.1%
+> The leaderboard figure (28.0%, also quoted by [Astranomy](../sources/nvidia-srl-astranomy-blog.md)) differs from the Cosmos 3 report's 28.1% under specific instructions. These are probably different runs or instruction levels, and the difference is immaterial.
 
 ## Mentioned in
 
@@ -69,3 +84,4 @@ No rollouts-per-task for any row, which by this page's own methodology (±2 pp �
 - [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md) — RoboLab runs the *real-to-sim eval* direction
 - [VLA models](../concepts/learning/vla-models.md) — the policies under test
 - [NVIDIA](nvidia.md) — SRL is part of NVIDIA Research
+- [Praxis-1 technical report](../sources/runway-praxis-1-technical-report.md) — the November 2026 leaderboard slice under the 10-trial official protocol; Praxis-1 46.2% as best WAM / open model; compute-scaling curve measured on RoboLab-120.

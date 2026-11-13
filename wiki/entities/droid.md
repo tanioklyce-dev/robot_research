@@ -3,8 +3,8 @@ title: DROID
 type: entity
 subtype: dataset
 created: 2026-05-07
-updated: 2026-10-27
-sources: 41
+updated: 2026-11-12
+sources: 42
 tags: [droid, dataset, teleoperation, franka, robot-data, stanford, berkeley, oxe, molmoact2]
 ---
 
@@ -98,3 +98,4 @@ Both end up inside [X-VLA](x-vla.md)'s pretraining mixture — DROID at 31.6%, R
 - [RoboJEPA paper (Zholus et al., 2026)](../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — 92k DROID episodes in a 2.87M-episode mixture; the DROID holdout is one of the two scaling-law evaluations; real Franka/DROID-setup deployment (Grasp / Lift / Pick and Place, n=30).
 - [Learning Latent Action World Models In The Wild](../sources/latent-action-world-models-in-the-wild-paper.md) — DROID as the planning testbed for a world model trained only on natural video (offline Δxyz over 64 clips); also a pretraining mix (10% DROID: 0.14 → 0.09 m).
 - [DreamZero paper](../sources/dreamzero-paper.md) — DROID-only WAM: 49% progress / 22.5% success on 20 unseen-verb tasks vs π0.5-DROID 33% / 7.5%; checkpoint released for PolaRiS/RoboArena.
+- [Praxis-1 technical report](../sources/runway-praxis-1-technical-report.md) — fine-tune on ~277 h of *successful* DROID episodes (128 H100s, 50k steps) for the RoboLab-120 46.2% checkpoint.

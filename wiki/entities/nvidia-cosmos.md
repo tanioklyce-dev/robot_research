@@ -3,8 +3,8 @@ title: NVIDIA Cosmos
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-11-10
-sources: 59
+updated: 2026-11-12
+sources: 61
 tags: [cosmos, world-model, omnimodal, mixture-of-transformers, world-action-model, video-generation, nvidia, foundation-model, edge]
 ---
 
@@ -123,4 +123,5 @@ At larger DiT scale, Cosmos closes much of the *policy-success* gap — better r
 
 - [Reconstruction or Semantics?](../sources/latent-space-robotic-world-models-paper.md)
 - [PAN technical report](../sources/pan-world-model-paper.md) — Cosmos 1 and Cosmos 2 (14 B) are baselines; PAN reports beating them on its own action-fidelity and long-horizon metrics (numbers only in a figure).
-
+- [Praxis-1 technical report](../sources/runway-praxis-1-technical-report.md) — Cosmos 3 Nano at 36.8% on RoboLab-120, third among WAMs behind Praxis-1 (46.2%) and FLUX 3 Action; Praxis-1 tested and rejected the MoT layout Cosmos 3 uses.
+- [Praxis-1 launch](../sources/runway-praxis-1-launch.md) — Runway names itself a founding member of the Cosmos Coalition.

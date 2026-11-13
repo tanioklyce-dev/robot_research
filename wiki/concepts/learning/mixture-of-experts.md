@@ -2,8 +2,8 @@
 title: Mixture-of-Experts (MoE)
 type: concept
 created: 2026-07-24
-updated: 2026-07-24
-sources: 2
+updated: 2026-11-12
+sources: 3
 tags: [mixture-of-experts, moe, sparse-models, routing, language-model, efficiency]
 ---
 
@@ -55,6 +55,7 @@ private:
 
 - [OLMoE](../../entities/olmoe.md) — the fully-open MoE LM; backbone of Molmo's
   **MolmoE-1B**. The concrete, inspectable instance.
+- [Praxis-1](../../entities/praxis-1.md) — a robot policy built on an MoE video backbone: 1 shared + 128 routed experts (top-8) in 17 of 20 FFN layers, 26.9B total and about 2.8B active. Routing makes latency depend on the input, and the README warns that real frames can time differently from synthetic ones. Only the routed experts are quantized to NVFP4 (54.4 → 17.5 GB) ([Praxis-1 report](../../sources/runway-praxis-1-technical-report.md)).
 - Contrast the **dense** [OLMo](../../entities/olmo.md) family (same lab, no MoE) —
   useful as the apples-to-apples "what does sparsity buy?" comparison.
 
@@ -76,3 +77,4 @@ documents openly and where its conclusions diverge from the closed frontier MoEs
 ## Mentioned in
 
 - [OLMoE (Muennighoff et al. 2024)](../../sources/olmoe-paper.md)
+- [Praxis-1 technical report](../../sources/runway-praxis-1-technical-report.md) — MoE in a robot world-action model; DeepSeek-V3-style balancing; routed-only NVFP4.

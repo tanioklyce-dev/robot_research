@@ -3,8 +3,8 @@ title: Jetson Thor
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-11-09
-sources: 53
+updated: 2026-11-12
+sources: 55
 tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai, jetpack-7, nvfp4, mig, t3000, t2000, igx]
 ---
 
@@ -160,6 +160,10 @@ As of GTC Berlin (2026-10-21), Thor is the onboard compute of NVIDIA's reference
 
 See [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.md) for the train-vs-deploy decision tree.
 
+## A 27B WAM targeted at Thor (2026-11)
+
+[Praxis-1](praxis-1.md)'s inference code has a **dedicated SM110 (Thor) NVFP4 backend** and several Thor-only kernel options. The launch post says it *"runs out of the box"* on Thor ([launch](../sources/runway-praxis-1-launch.md)). The README gives latency for H100 only (about 0.5 s per 1.6 s chunk). The NVFP4 build needs about 23.5 GB for weights, so memory is not the constraint on a 128 GB module. **Whether Thor can keep up with real time is not stated**. For scale, the 4B dense [Cosmos 3 Edge](nvidia-cosmos.md) policy takes about 1.53 s per 32-action chunk on a T5000 ([Edge post-training blog](../sources/nvidia-cosmos3-edge-post-training-blog.md)). Praxis-1 has fewer active parameters per token (about 2.8B) but holds 27B of routed weights ([README](../sources/praxis-1-oss-github.md)).
+
 ## Related
 - [JetPack SDK](jetpack.md), [Jetson Linux](jetson-linux.md) — software stack.
 - [Jetson Orin Nano](jetson-orin-nano.md) — the wiki's prior-generation Jetson reference.
@@ -198,3 +202,5 @@ See [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.m
 - [NVIDIA Jetson FAQ pricing](../sources/nvidia-jetson-faq-pricing.md) — the 2026-07 price increase: dev kit $3,499 → $5,499, T5000 $3,499 → $4,999, T4000 $2,499 → $2,999 (1KU).
 - [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)
 - [Agile Robots launches Agile ONE SN (2026-10-21)](../sources/agile-robots-agile-one-sn-launch.md)
+- [praxis-1-oss GitHub](../sources/praxis-1-oss-github.md) — SM110 NVFP4 path for a 27B MoE WAM; no Thor latency stated.
+- [Praxis-1 launch](../sources/runway-praxis-1-launch.md) — "runs out of the box" on Thor.

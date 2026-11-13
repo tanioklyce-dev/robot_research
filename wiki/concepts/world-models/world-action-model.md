@@ -2,8 +2,8 @@
 title: World-action model (WAM)
 type: concept
 created: 2026-06-02
-updated: 2026-11-09
-sources: 39
+updated: 2026-11-12
+sources: 42
 tags: [world-action-model, wam, flux-3, video-action-model, frozen-backbone, world-model, vla, forward-dynamics, inverse-dynamics, policy, cosmos, dreamzero]
 ---
 
@@ -104,6 +104,18 @@ The harness has since grown. [XPolicyLab](../../entities/xpolicylab.md) lists at
 
 **What it leaves open.** The authors say it is *"unclear whether prediction helps mainly as a training signal or also as imagination at inference time."* The higher-compression Turbo loses half its dexterous success (68.6% to 34.3%) but only 6.7 points on grippers, which suggests the visual detail required depends on the body and task. GR00T 2 also exposes a WAM API for agents, a different coupling from [AW-0](../../sources/agentic-world-action-models-aw0-paper.md), which places code inside the WAM.
 
+## An open-weight WAM from a video-generation lab (2026-11-12)
+
+[Praxis-1](../../entities/praxis-1.md) from [Runway](../../entities/runway.md) is the first WAM in this wiki released under **Apache 2.0** with weights, fine-tuning code and an SO-101 checkpoint. It scores **46.2% on RoboLab-120**, the best WAM there, ahead of FLUX 3 Action (42.9%), Cosmos 3 Nano (36.8%) and DreamZero (25.7%). It still sits below two LLM agents and two closed policies ([technical report](../../sources/runway-praxis-1-technical-report.md)).
+
+**What it adds to the thesis on this page.**
+- **The separate action expert won on cost.** A 314M expert cross-attends into eight backbone layers while the backbone imagines the next chunk. Putting action tokens inside the backbone, as Cosmos 3's MoT does, made no measurable difference (+0.01 cm) and cost more. This is one data point on the FD/policy coupling question, measured offline only.
+- **The imagined future is where the error is.** Given the true future video, action error falls from **5.71 cm to 1.14 cm**. Look-alike-object failures are *"usually already visible in the imagined video"*. This is the clearest direct evidence in the wiki that the video half of a WAM limits the action half, and it matches DreamZero's "failures are video failures".
+- **Video loss is kept through every stage**, and about 30% of joint mid-training stays video-only. This is the same choice as GR00T 2, and the opposite of FLUX-mimic's frozen backbone.
+- **The predicted future can score itself.** A small head on the frozen model predicts real-robot success at AUROC 0.77 (earlier model). This is a first step toward the self-improvement loop the WAM framing promises.
+
+The WAM-over-FLUX-3-Action margins (3.3 pp sim, 8 pp real) are not statistically separable at the reported sample sizes. The lead over open VLAs (π0.5 28.0%, GR00T N1.6 7.3%) is.
+
 ## Related concepts
 
 - [World model](world-model.md) — the FD direction is exactly an action-conditioned world model.
@@ -119,7 +131,7 @@ By November 2026 the architecture had reached a flagship product line. [GR00T 2]
 
 ## Mentioned in
 
-> [!note] Curated list — 38 source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — 41 source pages link here; the ones below are those that shaped this page.
 
 - [History-Guided Video Diffusion (DFoT)](../../sources/history-guided-video-diffusion-paper.md) — sampling-time score composition (History Guidance) as a control knob for action-conditioned video models; physical-robot IL result (83%) composing memory + reactivity behaviors never co-present in training data.
 - [Cosmos 3 Technical Report](../../sources/cosmos-3-technical-report.md)
@@ -135,3 +147,4 @@ By November 2026 the architecture had reached a flagship product line. [GR00T 2]
 - [DreamZero paper](../../sources/dreamzero-paper.md) — names WAMs (vs "VAMs"); 14B AR Wan2.1 fine-tune; diverse-data learning where VLAs score ~0; 7 Hz on 2 × GB200; failures are video failures.
 - [RoboDojo paper](../../sources/robodojo-paper.md) — four Wan2.2-based WAMs fine-tuned on a broad bimanual suite, all below the top VLAs (best X-WAM 3.83% vs 8.80%).
 - [XPolicyLab GitHub](../../sources/xpolicylab-github.md) — ten-plus WAM adapters and DreamZero behind one harness with the VLAs.
+- [Praxis-1 technical report](../../sources/runway-praxis-1-technical-report.md) — open-weight 27B MoE WAM; separate action expert vs MoT measured; oracle-vs-deployment error locates the bottleneck in the imagined video; RoboLab-120 46.2%, best WAM.

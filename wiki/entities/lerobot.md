@@ -3,8 +3,8 @@ title: LeRobot
 type: entity
 subtype: software-framework
 created: 2026-05-10
-updated: 2026-11-07
-sources: 62
+updated: 2026-11-12
+sources: 64
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026, xvla, sourccey, plugin-system]
 ---
 
@@ -176,6 +176,10 @@ Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distri
 
 [stable-worldmodel](stable-worldmodel.md) ships a read-only **`lerobot://<repo_id>` dataset adapter** ([repo snapshot](../sources/stable-worldmodel-github.md)), so a JEPA world model can train and be evaluated with MPC **directly on LeRobot Hub datasets** with no conversion step. Requires Python 3.12+ and is a separate install extra. This is the first connection in the wiki between the [LeWM](leworldmodel.md) line and the hardware stack the rest of these pages actually use.
 
+## Community SO-101 data as a training corpus (2026-11)
+
+Runway fine-tuned [Praxis-1](praxis-1.md) on **3,956 public SO-100/SO-101 LeRobot datasets from 1,783 contributors, about 1,260 hours**. One data-hygiene result is worth knowing for anyone pooling Hub data: **camera names are unreliable** (*"a camera called 'phone' or 'top' is often mounted on the wrist"*). Runway labelled each camera from its pixels and required both a motion check and a CLIP check to agree ([Praxis-1 report §8.2](../sources/runway-praxis-1-technical-report.md)). The released `praxis-1-so101` checkpoint follows LeRobot 0.7 `SOFollower` conventions and is served from a GPU to an on-robot client ([README](../sources/praxis-1-oss-github.md)). No SO-101 success rates are published.
+
 ## Mentioned in
 
 - [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — the EnvHub recipe in detail: `lerobot-eval --env.type=isaaclab_arena --env.hub_path=nvidia/isaaclab-arena-envs` with `nvidia/smolvla-arena-gr1-microwave`; documented against Arena release/0.1.1 + Isaac Sim 5.1, with hand-pinned numpy and a reported `packaging` conflict — whether EnvHub tracks Arena v0.3 is unstated.
@@ -212,6 +216,8 @@ Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distri
 
 - [allenai/ToyBlocks](../sources/allenai-toyblocks-github.md) — vecgen writes LeRobot v3 (`lerobot==0.4.3`) with symbolic state, high/low-level action labels and goal columns per frame.
 - [XPolicyLab GitHub](../sources/xpolicylab-github.md) — official LeRobot v2.1 and v3.0 converters for RoboDojo/RoboTwin trajectories: zero-padded `unified_robot` state so one dataset mixes embodiments, black-filled missing cameras, AV1 by default, joint-space bimanual only.
+- [Praxis-1 technical report](../sources/runway-praxis-1-technical-report.md) — ~1,260 h of community SO-100/101 LeRobot data pooled; camera-name unreliability.
+- [praxis-1-oss GitHub](../sources/praxis-1-oss-github.md) — native LeRobot SO-101 rig support.
 
 ## Open questions / TBD
 

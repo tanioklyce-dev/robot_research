@@ -3,8 +3,8 @@ title: DreamZero
 type: entity
 subtype: model
 created: 2026-10-27
-updated: 2026-11-07
-sources: 7
+updated: 2026-11-12
+sources: 8
 tags: [dreamzero, world-action-model, nvidia-gear, wan2-1, video-diffusion, autoregressive, agibot-g1, droid, open-weights]
 ---
 
@@ -23,6 +23,10 @@ tags: [dreamzero, world-action-model, nvidia-gear, wan2-1, video-diffusion, auto
   - [AW-0](../sources/agentic-world-action-models-aw0-paper.md), 8 real tasks: 46.0 rubric, against π0.5 43.6 and AW-0 71.1. It is strongest on contact-rich tasks and weaker on semantic ones.
   - [Isaac Lab-Arena](isaac-lab-arena.md) v0.3 ships a DreamZero policy integration.
 
+## On RoboLab-120 (2026-11)
+
+**25.7%** under the official 10-trial protocol, below π0.5 (28.0%) and well below the newer WAMs (Praxis-1 46.2%, FLUX 3 Action 42.9%, Cosmos 3 Nano 36.8%) ([Praxis-1 report](../sources/runway-praxis-1-technical-report.md)). This is the first RoboLab score for DreamZero in the wiki. The RoboDojo comparison that the [WAM page](../concepts/world-models/world-action-model.md) asks for is still missing.
+
 ## Lineage
 DreamZero is one of the three Dream* papers, alongside [DreamGen](dreamgen.md) (video model as data generator) and [DreamDojo](../sources/dreamdojo-paper.md) (action-conditioned simulator on human video). DreamZero (2026-02-17) postdates DreamDojo (2026-02-06), so the two are **parallel branches**, not a sequence: DreamDojo *consumes* actions and DreamZero *emits* them.
 
@@ -37,3 +41,4 @@ DreamZero is one of the three Dream* papers, alongside [DreamGen](dreamgen.md) (
 - [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md): policy integration.
 - [NVIDIA GEAR publications](../sources/nvidia-gear-publications.md): listed.
 - [XPolicyLab GitHub](../sources/xpolicylab-github.md): has a DreamZero adapter alongside 76 other policies, so it can be run on RoboDojo, which the RoboDojo paper did not do.
+- [Praxis-1 technical report](../sources/runway-praxis-1-technical-report.md): RoboLab-120 25.7%.
