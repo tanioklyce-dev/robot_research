@@ -116,4 +116,5 @@ tags: [dreamzero, world-action-model, wam, nvidia-gear, wan2-1, video-diffusion,
 - How much of the margin over VLAs comes from the 14B web-video initialisation itself? A VLA built from a 14B video model's *encoder* would isolate it.
 - The few-shot YAM adaptation is shown only qualitatively. What are the numbers?
 - Whether a distilled or smaller backbone keeps the generalisation: the paper's own route to on-robot deployment.
+  - **Indirect evidence, 2026-11-13.** The same NVIDIA GEAR group's [GR00T 2](gr00t-2-whitepaper.md) is a 2B world-action model, started from Cosmos-Predict2.5-2B rather than a 14B Wan model. It reports strong zero-shot results, and its 2B Turbo variant runs on a Jetson Thor at 124 ms with reduced denoising steps. That is a different model with far more data, not a distilled DreamZero, so it doesn't answer the question. It does show that a 2B WAM can generalise, given about 400k hours of human video. GR00T 2 also lists DreamZero among the DROID checkpoints in its sim-versus-real study (App. J.2.1, Fig. 66).
 - AgiBot dataset release status.

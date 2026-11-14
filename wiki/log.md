@@ -6676,3 +6676,7 @@ Structure was sound: **0 broken file links, 0 orphans, 0 schema violations, all 
 ## [2026-11-13] check | DreamDojo paper (re-ingest request)
 - Already ingested 2026-05-15 as [DreamDojo](sources/dreamdojo-paper.md) (arXiv 2602.06949v1). arXiv still lists v1 only, so there is no new version to ingest.
 - Updated its open questions. "Real-robot transfer of DreamDojo-trained policies" is now answered by [GR00T 2](sources/gr00t-2-whitepaper.md) App. F.5: RL fine-tuning inside an adapted DreamDojo gives 42.5% → 71.7% on four real tasks, about 300 rollouts per task, single runs. "What is YAM?" is resolved by the [YAM](entities/yam.md) entity.
+
+## [2026-11-13] check | DreamZero paper (re-ingest request)
+- Already ingested 2026-10-27 as [DreamZero](sources/dreamzero-paper.md) (arXiv 2602.15922v1). arXiv still lists v1 only, so there is no new version to ingest.
+- Annotated the "smaller backbone" open question with indirect evidence from [GR00T 2](sources/gr00t-2-whitepaper.md): a 2B WAM generalises given about 400k h of human video, and Turbo runs on Thor. This is not a distilled DreamZero, so the question stays open. The other open questions are unchanged.
