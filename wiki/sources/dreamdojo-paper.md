@@ -165,6 +165,20 @@ Not yet a wiki concept page. Appears in:
 
 If V-JEPA-2-AC, π0, or any of the other VLAs adopt this idea, a `concepts/latent-action-models.md` page would be warranted.
 
+## Project page and release (checked 2026-11-13)
+
+The [project page](https://dreamdojo-world.github.io/) summarizes the paper and adds no numbers. Its videos show rollouts after post-training on GR-1, G1, AgiBot and YAM, side by side with post-trained Cosmos-Predict2.5, and before-and-after views of distillation over one minute. It links the code repo, which carries the release facts below. The repo was checked through the GitHub API and the Hugging Face model card through the HF API, both on 2026-11-13.
+
+| Artifact | Where | Licence | Released |
+|---|---|---|---|
+| Code: pretraining, post-training, distillation, evaluation, latent-action model training | [NVIDIA/DreamDojo](https://github.com/NVIDIA/DreamDojo) | Apache-2.0 | 2026-02-18 |
+| Checkpoints: 2B and 14B pretrained, plus post-trained versions for GR-1, G1, AgiBot and YAM (10 in total), plus the latent-action model `LAM_400k.ckpt` | [nvidia/DreamDojo](https://huggingface.co/nvidia/DreamDojo) | NVIDIA Open Model License | 2026-02-18 |
+| GR-1 post-training data and evaluation sets | [PhysicalAI-Robotics-GR00T-Teleop-GR1](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Teleop-GR1) | CC BY-NC 4.0, non-commercial | 2026-02-18 |
+| DreamDojo-HV, the 44k-hour human video corpus | — | — | Not released; no NVIDIA dataset by that name on HF |
+
+> [!note] Release scope
+> The code is permissive, but the weights use NVIDIA's own licence, not an OSI licence, and the one released robot dataset is non-commercial. The pretraining corpus that is the paper's main contribution isn't public. Reproducing the pretraining therefore isn't possible, while fine-tuning the released checkpoints is. Checkpoints are in sharded `distcp` format: 14B post-trained runs have more than 100 shards.
+
 ## Entities mentioned
 
 **Already in wiki:**
@@ -208,6 +222,7 @@ If V-JEPA-2-AC, π0, or any of the other VLAs adopt this idea, a `concepts/laten
 - **Continuous latent actions across the GEAR program**: DreamDojo cites Gao et al. 2025 for the construct. Does EgoScale also use it? (EgoScale uses *retargeted joint-space hand actions*, not latent actions — so DreamDojo and EgoScale use *different* action representations even though they share the data pipeline.)
 - **Compute disclosure**: 256 H100s × 140k steps × two model sizes (2B + 14B) is a substantial training run. The paper doesn't report total GPU-hours.
 - **License of DreamDojo-HV**: the in-house crowdsourced corpus. Public release? Currently the paper does not commit.
+  - *Still unreleased as of 2026-11-13* (no HF dataset). The code, all 2B/14B checkpoints and the GR-1 post-training data are released; see [Project page and release](#project-page-and-release-checked-2026-11-13).
 - **Inference cost on real hardware**: 10.81 FPS on an H100 is good for cloud-side inference but not on-robot. What's the model footprint for on-Jetson deployment?
 
 ## Why this is a significant ingest

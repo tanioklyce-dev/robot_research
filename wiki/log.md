@@ -6684,3 +6684,8 @@ Structure was sound: **0 broken file links, 0 orphans, 0 schema violations, all 
 ## [2026-11-13] check | DreamGen paper (re-ingest request)
 - Already ingested 2026-07-04 as [DreamGen](sources/dreamgen-paper.md) (arXiv 2505.12705v2). arXiv still lists v2 as the latest version, so there is nothing new to ingest.
 - Added an open-question note: the GR00T 2 whitepaper never mentions DreamGen or neural trajectories (full-text search). Its synthetic data is physics-simulated, and a world model appears only as an RL environment. Whether neural trajectories were dropped from the GR00T line is unstated.
+
+## [2026-11-13] ingest | DreamDojo project page (folded into the paper page)
+- The [project page](https://dreamdojo-world.github.io/) summarizes the paper and adds no new numbers, so it was folded into [DreamDojo](sources/dreamdojo-paper.md) as a **Project page and release** section rather than given its own source page. This follows the GR00T 2 precedent.
+- The release facts were missing from the wiki and come from the primaries: the repo (GitHub API) and the HF model and dataset cards (HF API). Code is Apache-2.0. All 2B/14B checkpoints are out (pretrained, plus GR-1, G1, AgiBot and YAM post-trained, plus the latent-action model) under the NVIDIA Open Model License. The GR-1 post-training data is CC BY-NC 4.0. DreamDojo-HV is still unreleased. All were released 2026-02-18.
+- Updated the DreamDojo-HV open question. No DreamDojo entity page exists. It is referenced from the GR00T 2, DreamGen and DreamZero pages and could be promoted to an entity.
