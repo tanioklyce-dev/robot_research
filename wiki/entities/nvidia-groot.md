@@ -3,7 +3,7 @@ title: NVIDIA GR00T
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-11-09
+updated: 2026-11-13
 sources: 64
 tags: [groot, vla, nvidia, foundation-model, humanoid]
 ---
@@ -53,6 +53,8 @@ GR00T 2 replaces the VLM-plus-action-head design with a single transformer that 
 | Turbo on [Unitree G1](unitree-g1.md) | 80.8% average, 124 ms on [Thor](jetson-thor.md) | 30–48 trials per task |
 
 The architecture, the data and the recipe all changed together, so the report doesn't isolate what the WAM design contributes. Memory is delegated to an agent, because the model sees only 0.8 s of history. Every real-robot result is NVIDIA's own.
+
+**Turbo against the full model (appendices, read 2026-11-13).** The smaller GR00T 2 Turbo leads NVIDIA's blinded zero-shot A/B board on YAM and is statistically tied with GR00T 2. It trails on Dexter zero-shot (36.6% vs 49.8%) and on dexterous post-training (34.3% vs 68.6%). The fast model is the one that fits on the robot, so this trade-off decides deployments. Its latency figures also depend on what is timed: 124 ms on Thor uses fewer denoising steps and FP8, and 720 ms was the unoptimized baseline ([whitepaper](../sources/gr00t-2-whitepaper.md#appendix-detail-ak-read-in-full-2026-11-13)).
 
 **Availability.** NVIDIA calls the model open, and the [project page](https://research.nvidia.com/labs/gear/gr00t-2/) promises code in December. No weights or licence were found on 2026-11-09. For a build decision today, N1.7 is still the shipped model.
 

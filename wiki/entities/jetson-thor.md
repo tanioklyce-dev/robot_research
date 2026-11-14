@@ -3,7 +3,7 @@ title: Jetson Thor
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-11-12
+updated: 2026-11-13
 sources: 55
 tags: [jetson, thor, nvidia, blackwell, edge-ai, robotics-compute, physical-ai, jetpack-7, nvfp4, mig, t3000, t2000, igx]
 ---
@@ -150,6 +150,8 @@ As of the July 2026 NVIDIA↔HF partnership, Thor is also the announced VLA-depl
 As of GTC Berlin (2026-10-21), Thor is the onboard compute of NVIDIA's reference humanoid, **[Agile ONE SN](agile-one-sn.md)**, paired with an Intel i3 N305 base module. Humanoid (UK) pairs Thor with Holoscan Sensor Bridge, Halos and the new Isaac OS. NVIDIA's release quotes *"2,070 FP4 teraflops"* **without the "sparse" qualifier** ([release](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)).
 
 **GR00T 2 Turbo on the G1 (2026-11-09).** A 124 ms prediction on the robot's Thor, planning 1.6 s of whole-body tokens about once a second, with SONIC on an Orin NX at 50 Hz. Vendor-reported ([whitepaper](../sources/gr00t-2-whitepaper.md)). No weights were public at ingest.
+
+What the 124 ms includes (App. I.1, Tab. 27): Thor in its **120 W** mode, TensorRT with CUDA graphs, **FP8** on selected layers, and **fewer denoising steps** (1 video + 2 action, down from 2 + 4). VAE image encoding is included. The unoptimized BF16 baseline on the same Thor was **720 ms**. The 5.8× speedup therefore partly comes from changing the model's sampling, and only the authors' task tests show that output quality held.
 
 ## Position in the NVIDIA AI hardware lineup
 

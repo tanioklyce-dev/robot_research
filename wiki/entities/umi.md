@@ -3,7 +3,7 @@ title: UMI (Universal Manipulation Interface)
 type: entity
 subtype: method
 created: 2026-05-10
-updated: 2026-11-09
+updated: 2026-11-13
 sources: 11
 tags: [umi, universal-manipulation-interface, hand-held-gripper, in-the-wild-data-collection, diffusion-policy-followon, chi-2024, stanford, columbia, tri]
 ---
@@ -51,6 +51,12 @@ From [UMI Project Page](../sources/umi-paper.md):
 - **Cited as inspiration for [RUM](robot-utility-models.md)'s Stick-v2 gripper** ([RUM paper](../sources/robot-utility-models-paper.md) §2.1). RUM's portable in-home data collection rig is a direct UMI descendant.
 - **Validates "diversity of demos > robot teleop volume"** — UMI's pitch is that cheap, diverse, embodiment-agnostic demos generalize better than expensive teleoperation; this is the same thesis [Robot Utility Models](robot-utility-models.md) and [DROID](droid.md) elaborate from different angles.
 - **Scaled to 10,184 hours and 2,897 tasks in GR00T 2** (UMI-10K). With YAM play data, handheld demonstrations alone teach a YAM to assemble a toy truck in 60% of trials ([whitepaper](../sources/gr00t-2-whitepaper.md)).
+- **What made the transfer to a different robot work** (whitepaper App. E.3; YAM cameras and gripper don't match UMI's):
+  - **Wrist-camera geometry.** UMI's fisheye is re-rendered as a virtual pinhole matching YAM's 78×63° wrist camera. Without it, long-horizon success is 0%, though the policy still completes most steps (progress 76–79). Precision steps are what fail. Rough agreement in field of view and viewing direction was enough.
+  - **Appearance didn't need fixing.** Human arms and the blue handheld gripper stay in the training video. Co-training with YAM data teaches the world model what the robot looks like.
+  - **Actions go through the target robot's head.** UMI poses are moved to YAM's grasp point (0.1347 m from the flange) and widths normalized. This won on two tasks. Keeping UMI's own head won on the third, where demonstrators used a nut-removal move the YAM data lacked.
+  - **The hardest step sets the data budget.** Halving the demonstrations zeroed the NIST board task, because one step vanished. A short dynamic task kept 70% with a quarter of the data.
+- **Hardware revision (GEAR Gripper UMI).** A 3D-printed TPU flexure linkage replaces pins, bearings and springs, which gives constant force scaling across the jaw's range. An encoder measures width. The GEAR DexUMI exoskeleton extends the idea to a 16-DoF XHAND with fingertip force sensing.
 - **TRI co-authorship anchors a TRI / Stanford / Columbia robotics-foundation-model triangle** — see [TRI](tri.md).
 
 ## The torque counter-argument: UME

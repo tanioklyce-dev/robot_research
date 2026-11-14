@@ -2,7 +2,7 @@
 title: Code as policy
 type: concept
 created: 2026-08-03
-updated: 2026-11-09
+updated: 2026-11-13
 sources: 29
 tags: [code-as-policy, llm-agent, agentic-robotics, program-synthesis, skill-library, voyager, saycan, voxposer, inner-monologue, codeact, tool-use, waddle, cap-x, aspire, benchmark]
 ---
@@ -209,6 +209,8 @@ Two CoRL 2026 systems show the pattern splitting into two designs.
 **[GR00T 2](../../sources/gr00t-2-whitepaper.md): the agent supervises a learned model.** GR00T 2 does most of the manipulation. The agent watches, runs code to repair the scene, then hands control back. On cluttered real assemblies, the same policy scores 71–84 of 100 and the agent lifts it to 97–98, with recovery skills acquired by [ASPIRE](../../entities/aspire.md).
 
 The two disagree about where a learned model belongs. GaP keeps learned parts as replaceable nodes in a program. GR00T 2 makes the program a supervisor around one large learned skill. On simulated benchmarks, GR00T 2's agent programs and direct execution each won some tasks: it selected the model as default on only 23 of 50 RoboCasa365 tasks and 12 of 54 RoboDojo configurations. So neither dominates.
+
+**What supervision costs and where it fails** (whitepaper App. G, read 2026-11-13). The agent intervened in 37–40% of simulated episodes, and those interventions succeeded 24% of the time on RoboDojo and 56% on RoboCasa365. The episodes it left alone almost all succeeded. In manual review, the commonest failure was a recovery needing manipulation too precise for motion-planning tools (38–39%). Next were states that could no longer be recovered, such as an object on the floor or no time left. On real trash sorting, visual steering cost a median $0.26 and 9 agent turns per episode, and the robot sat still for 38% of the episode waiting for the agent.
 
 ## Where this sits on the abstraction ladder
 

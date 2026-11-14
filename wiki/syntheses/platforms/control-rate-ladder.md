@@ -2,7 +2,7 @@
 title: The control-rate ladder — LLMs, VLAs, and servo loops on one axis
 type: synthesis
 created: 2026-07-27
-updated: 2026-11-09
+updated: 2026-11-13
 tags: [latency, inference, control-frequency, vla, llm-agent, edge-ai, jetson, action-chunking, control-abstraction-levels, platforms, turbovla, llm-free-vla]
 ---
 
@@ -72,7 +72,7 @@ This page lines them up. The short version: **the full span is about five orders
 | **1** | REQ | **[Nav2](../../entities/nav2.md) global replanning** — `RateController hz="1.0"` in the shipped default [behavior tree](../../concepts/robotics/behavior-trees.md) | ROS 2, production |
 | **~1.1** | MEAS | **SmolVLM-256M on the [RK3588](../../entities/rockchip-rk3588.md) NPU** — 842 ms image encode (512², RKNN FP16, 3 cores) + 77 ms prefill before the first token; decode 78 tok/s. The fastest VLM perception step Rockchip publishes | [RKLLM](../../sources/rknn-llm-github.md) benchmark |
 | **~1** | MEAS | Agent heartbeats — [AgenticROS](../../entities/agenticros.md), [ros2-mcp-server](../../entities/ros2-mcp-server.md) capability beacons | Orin NX |
-| **~1** | MEAS | **[GR00T 2 Turbo](../../sources/gr00t-2-whitepaper.md)** — 124 ms per prediction (about 8 Hz possible), but replans **1.6 s of whole-body tokens about once a second**; SONIC executes at 50 Hz; vendor-reported | [Jetson Thor](../../entities/jetson-thor.md) |
+| **~1** | MEAS | **[GR00T 2 Turbo](../../sources/gr00t-2-whitepaper.md)** — 124 ms per prediction (about 8 Hz possible), but replans **1.6 s of whole-body tokens about once a second**; SONIC executes at 50 Hz; vendor-reported. The 124 ms is with FP8, reduced denoising steps and Thor at 120 W, against 720 ms unoptimized (App. I.1) | [Jetson Thor](../../entities/jetson-thor.md) |
 | **~0.65** | MEAS | **[Cosmos 3 Edge (4B) policy](../../sources/nvidia-cosmos3-edge-post-training-blog.md)** — **1.53 s per 32-action chunk**, 640×540, replans after a prefix; vendor-reported, fully on-robot | [Jetson Thor](../../entities/jetson-thor.md) T5000 |
 | **0.5** | MEAS | SmolVLA on **CPU**, 2,028 ms | CPU |
 | **~0.25** | MEAS | **Qwen2.5-VL-3B on the RK3588 NPU** — 2.93 s image encode + 1.12 s prefill ≈ **4 s to first token**, 8.7 tok/s decode (w8a8) | [RKLLM](../../sources/rknn-llm-github.md) benchmark |

@@ -2,7 +2,7 @@
 title: Robot policy evaluation
 type: concept
 created: 2026-07-27
-updated: 2026-11-12
+updated: 2026-11-13
 sources: 79
 tags: [evaluation, benchmark, statistics, clopper-pearson, sparc, robolab, methodology, vla, reproducibility, real-to-sim, r2s2r]
 ---
@@ -189,6 +189,19 @@ The [Praxis-1 report](../../sources/runway-praxis-1-technical-report.md) shows g
 - **Weak.** Every competitor number was produced by Runway. On RT-1, the baseline was fine-tuned using a recipe written for a different robot. The headline margins (46.2 vs 42.9 at n = 1,200; 88 vs 80 at n = 100) both have p ≈ 0.1.
 - **A new runtime-pole result.** A head on the frozen model's *predicted next chunk* separates real successes from failures at **AUROC 0.77** after about 6 s (elapsed time alone gives 0.64). It ranks nine policies at Spearman 0.79, with a wide CI of 0.19–1.00. This is self-prediction as a failure detector, from an earlier, unreleased model.
 - **The 0.95 claim, now traced to its source.** Runway's claim that its world model predicts real-world policy results at **0.95 correlation** comes from a [February 2026 study](../../sources/runway-gwm-robotics-policy-evaluation.md). Eight RoboArena policies were simulated, and **humans** graded the rollouts. The result is Pearson 0.95 and MMRV 0.033, for **ranking only**, with a 95% CI of about 0.74–0.99 at n = 8.
+
+## A vendor's in-house arena, and a ceiling for sim–real correlation (2026-11-13)
+
+[GR00T 2's](../../sources/gr00t-2-whitepaper.md#geararena-d) appendix documents **GearArena**, NVIDIA's [RoboArena](#the-real-world-pole-pairwise-preference)-style A/B system on its own YAM stations. It covers 16,044 graded rollouts, 195 campaigns, 10 stations and more than 20 operators. Four design choices go beyond RoboArena:
+
+- **Normalize per pair, not globally.** Each task gets weight one within each head-to-head. Global normalization ranked a checkpoint above the opponent that beat it, and adding one checkpoint shifted others by up to 27 Elo.
+- **Bootstrap tasks, not trials.** Trials of one task share a scene, so they aren't independent. Resampling tasks, and re-deriving the weights inside each resample, avoided intervals about 30% too narrow.
+- **Inference settings are part of a checkpoint's identity.** Re-serving the same weights with a new inference regime moved the dexterous leader from first of 13 to fifth of 9. *A policy's score includes how it is served*, consistent with [XPolicyLab](#the-harness-is-part-of-the-measurement-xpolicylab-2026-11-07).
+- **Audits.** A campaign whose operator could see model labels was withheld. Comparisons that cross sessions are down-weighted to a quarter at most and kept off the default board.
+
+The stated limits fit this page's [sample-size argument](#the-sample-size-problem): the independent units are tasks (16 and 38), ties are 30–35% of matches, and the median interval is 93 Elo.
+
+**A noise ceiling for sim–real correlation.** The same report scores its simulator against an ideal. It draws two binomial samples from each checkpoint's real-world rates, one for the robot and one for a perfect simulator, using the actual trial counts. The median correlation between them is the best any simulator could reach with that evaluation budget. GR00T 2's YAM simulator reaches r = 0.92–0.93, which is **95–99% of that ceiling** over 14 checkpoints and 25 tasks. This answers the [asymmetry above](#the-sixth-paradigm-a-task-reconstructed-simulator-as-the-screening-layer). Small real-world N caps every reported sim–real r, and the ceiling shows how much of the gap is the simulator's fault. Earlier entries on this page report a bare r without one.
 
 ## What is still missing
 

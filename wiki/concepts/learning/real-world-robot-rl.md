@@ -2,7 +2,7 @@
 title: Real-world robotic reinforcement learning
 type: concept
 created: 2026-07-05
-updated: 2026-11-10
+updated: 2026-11-13
 sources: 32
 tags: [reinforcement-learning, real-world-rl, manipulation, human-in-the-loop, off-policy-rl, sample-efficiency]
 ---
@@ -84,7 +84,13 @@ It is worth having next to [HIL-SERL](../../sources/hil-serl-paper.md) because i
 
 [GR00T 2](../../sources/gr00t-2-whitepaper.md) applies GRPO to a pretrained WAM on real robots, then fine-tunes on the successful rollouts. Success on four contact-rich tasks rises from 40–76% to 88–98%, 50 trials per bar. Only task-level success signals drive it. Residual RL also improves results, without updating the base model.
 
-The basis of the recipe came from **AutoRL, a research agent that ran for about 35 days** on simulated benchmarks, starting from standard PPO. A second route trains in the DreamDojo world model and lifts ten RoboLab tasks from 51% to 71%.
+**Most of the final gain comes from the supervised step.** GRPO alone reaches 72–94%, and the authors call only two of its four gains significant at 50 trials. One round of self-imitation, which fine-tunes on GRPO's own successful rollouts with the original video and action loss, takes finger placement from 72% to 98%. In this setup, RL finds successful behaviour and supervised learning makes it reliable (Sec. F.4).
+
+**Exploration without a stochastic policy.** A flow or denoising policy has no tractable action likelihood. GR00T 2 adds noise only to the action-denoising steps (Coefficients-Preserving Sampling) and scores the policy on those Gaussian transitions. A per-context running average of past returns joins the GRPO baseline, so groups that all succeed or all fail still produce a signal (Sec. F.1).
+
+The basis of the recipe came from **AutoRL, a research agent that ran for about 35 days** on simulated RoboCasa365 with an early checkpoint, starting from standard PPO. It dropped the critic for a group-relative baseline after the critic's explained variance stayed near zero. Its stage-progress rewards were simulation-only, and the robots used binary success.
+
+**RL inside a learned simulator.** A second route trains in the DreamDojo world model. Ten RoboLab tasks rise from 51% to 71% over 5,000 episodes, and four real tasks from 42.5% to 71.7% over 60 trials each. The world model isn't free: it needs about 300 physical rollouts per task to adapt, plus a learned success detector. Each configuration is a single run.
 
 ## Learning alone on cheap hardware (2026-11-09)
 

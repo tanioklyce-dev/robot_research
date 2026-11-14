@@ -2,7 +2,7 @@
 title: World-action model (WAM)
 type: concept
 created: 2026-06-02
-updated: 2026-11-12
+updated: 2026-11-13
 sources: 42
 tags: [world-action-model, wam, flux-3, video-action-model, frozen-backbone, world-model, vla, forward-dynamics, inverse-dynamics, policy, cosmos, dreamzero]
 ---
@@ -100,7 +100,9 @@ The harness has since grown. [XPolicyLab](../../entities/xpolicylab.md) lists at
 
 **What the report adds for the WAM thesis.**
 - Video prediction gives human footage a training target even without robot actions. Real-robot success rises from 18% to 41% with more human video, with robot data fixed.
-- With simulated data added, Turbo goes from 6.7% to 63.3% on an out-of-distribution G1 task and GR00T 1.7 reaches 40%, over 30 trials each.
+- With simulated data added, Turbo goes from 6.7% to 63.3% on an out-of-distribution G1 task and GR00T 1.7 reaches 40%, over 30 trials each. The authors call this suggestive (Fisher p ≈ 0.12).
+- **Human-only tasks are the cleanest WAM-vs-VLA comparison in the report** (App. B.1.5). Trained on retargeted human demonstrations plus robot play data, GR00T 2 succeeds on 10–65% of trials across three lab tasks. GR00T 1.7, a VLA pretrained on the same data, gets 0% even with 10 robot demonstrations. The proposed mechanism: video prediction learns *what changes in the scene*, which people and robots share, and play data teaches *how this robot causes it*. Conditioned on a robot frame, the model draws robot hands doing tasks only people demonstrated. The backbones also differ, and n = 20 per task.
+- **The appearance gap closes but the camera-geometry gap doesn't** (App. E.3). Human arms and a handheld gripper in training don't block transfer to YAM. A wrist camera with the wrong field of view drops long-horizon success to 0%.
 
 **What it leaves open.** The authors say it is *"unclear whether prediction helps mainly as a training signal or also as imagination at inference time."* The higher-compression Turbo loses half its dexterous success (68.6% to 34.3%) but only 6.7 points on grippers, which suggests the visual detail required depends on the body and task. GR00T 2 also exposes a WAM API for agents, a different coupling from [AW-0](../../sources/agentic-world-action-models-aw0-paper.md), which places code inside the WAM.
 
