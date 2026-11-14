@@ -6680,3 +6680,7 @@ Structure was sound: **0 broken file links, 0 orphans, 0 schema violations, all 
 ## [2026-11-13] check | DreamZero paper (re-ingest request)
 - Already ingested 2026-10-27 as [DreamZero](sources/dreamzero-paper.md) (arXiv 2602.15922v1). arXiv still lists v1 only, so there is no new version to ingest.
 - Annotated the "smaller backbone" open question with indirect evidence from [GR00T 2](sources/gr00t-2-whitepaper.md): a 2B WAM generalises given about 400k h of human video, and Turbo runs on Thor. This is not a distilled DreamZero, so the question stays open. The other open questions are unchanged.
+
+## [2026-11-13] check | DreamGen paper (re-ingest request)
+- Already ingested 2026-07-04 as [DreamGen](sources/dreamgen-paper.md) (arXiv 2505.12705v2). arXiv still lists v2 as the latest version, so there is nothing new to ingest.
+- Added an open-question note: the GR00T 2 whitepaper never mentions DreamGen or neural trajectories (full-text search). Its synthetic data is physics-simulated, and a world model appears only as an RL environment. Whether neural trajectories were dropped from the GR00T line is unstated.
