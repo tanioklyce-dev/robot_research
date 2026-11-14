@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-11-13
 updated: 2026-11-13
-sources: 16
+sources: 17
 tags: [dreamdojo, world-model, action-conditioned, generative-video, nvidia-gear, cosmos, latent-action, self-forcing, distillation, human-video-pretraining, open-weights, neural-simulation]
 ---
 
@@ -34,7 +34,7 @@ It *consumes* actions and outputs video. That makes it a simulator, not a policy
 | GR-1 post-training data and evaluation sets | CC BY-NC 4.0 |
 | DreamDojo-HV (the 44k h corpus) | Not released |
 
-Everything above was released on 2026-02-18. The released checkpoints can be fine-tuned, but the pretraining can't be reproduced. Details are in the [paper page's release section](../sources/dreamdojo-paper.md#project-page-and-release-checked-2026-11-13).
+Everything above was released on 2026-02-18. **No distilled real-time model is released.** The distillation code arrived on 2026-03-21, and users report it is hard to run. The repo is tested only on the H100 80 GB and has had no commits or maintainer replies since March ([GitHub README](../sources/dreamdojo-github.md)). The released checkpoints can be fine-tuned, but the pretraining can't be reproduced. Details are in the [paper page's release section](../sources/dreamdojo-paper.md#project-page-and-release-checked-2026-11-13).
 
 ## Lineage
 One of three Dream* papers from NVIDIA GEAR, alongside [DreamGen](dreamgen.md) (a video model as a robot-data generator, 2025) and [DreamZero](dreamzero.md) (a world-action policy). DreamDojo (2026-02-06) predates DreamZero (2026-02-17) by 11 days. The two are parallel branches, not a sequence. The "destination paper" framing in some older wiki pages is outdated.
@@ -47,6 +47,7 @@ One of three Dream* papers from NVIDIA GEAR, alongside [DreamGen](dreamgen.md) (
 ## Mentioned in
 
 - [DreamDojo paper](../sources/dreamdojo-paper.md): primary source; includes the release check.
+- [NVIDIA/DreamDojo GitHub README](../sources/dreamdojo-github.md): what the code release contains, its hardware, the action layout, and open issues.
 - [GR00T 2 whitepaper](../sources/gr00t-2-whitepaper.md): used as the RL environment (App. F.5).
 - [DreamZero paper](../sources/dreamzero-paper.md) and [DreamGen paper](../sources/dreamgen-paper.md): sibling Dream* papers.
 - [NVIDIA GEAR publications](../sources/nvidia-gear-publications.md): listed as an ICML 2026 spotlight.

@@ -177,7 +177,7 @@ The [project page](https://dreamdojo-world.github.io/) summarizes the paper and 
 | DreamDojo-HV, the 44k-hour human video corpus | — | — | Not released; no NVIDIA dataset by that name on HF |
 
 > [!note] Release scope
-> The code is permissive, but the weights use NVIDIA's own licence, not an OSI licence, and the one released robot dataset is non-commercial. The pretraining corpus that is the paper's main contribution isn't public. Reproducing the pretraining therefore isn't possible, while fine-tuning the released checkpoints is. Checkpoints are in sharded `distcp` format: 14B post-trained runs have more than 100 shards.
+> The code is permissive, but the weights use NVIDIA's own licence, not an OSI licence, and the one released robot dataset is non-commercial. The pretraining corpus that is the paper's main contribution isn't public. Reproducing the pretraining therefore isn't possible, while fine-tuning the released checkpoints is. Checkpoints are in sharded `distcp` format: 14B post-trained runs have more than 100 shards. The released checkpoints are the diffusion teachers. **The distilled 10.81 FPS student isn't released**; see the [GitHub README page](dreamdojo-github.md).
 
 ## Entities mentioned
 
