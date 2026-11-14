@@ -3,7 +3,7 @@ title: DreamZero
 type: entity
 subtype: model
 created: 2026-10-27
-updated: 2026-11-12
+updated: 2026-11-13
 sources: 8
 tags: [dreamzero, world-action-model, nvidia-gear, wan2-1, video-diffusion, autoregressive, agibot-g1, droid, open-weights]
 ---
@@ -28,7 +28,7 @@ tags: [dreamzero, world-action-model, nvidia-gear, wan2-1, video-diffusion, auto
 **25.7%** under the official 10-trial protocol, below π0.5 (28.0%) and well below the newer WAMs (Praxis-1 46.2%, FLUX 3 Action 42.9%, Cosmos 3 Nano 36.8%) ([Praxis-1 report](../sources/runway-praxis-1-technical-report.md)). This is the first RoboLab score for DreamZero in the wiki. The RoboDojo comparison that the [WAM page](../concepts/world-models/world-action-model.md) asks for is still missing.
 
 ## Lineage
-DreamZero is one of the three Dream* papers, alongside [DreamGen](dreamgen.md) (video model as data generator) and [DreamDojo](../sources/dreamdojo-paper.md) (action-conditioned simulator on human video). DreamZero (2026-02-17) postdates DreamDojo (2026-02-06), so the two are **parallel branches**, not a sequence: DreamDojo *consumes* actions and DreamZero *emits* them.
+DreamZero is one of the three Dream* papers, alongside [DreamGen](dreamgen.md) (video model as data generator) and [DreamDojo](dreamdojo.md) (action-conditioned simulator on human video). DreamZero (2026-02-17) postdates DreamDojo (2026-02-06), so the two are **parallel branches**, not a sequence: DreamDojo *consumes* actions and DreamZero *emits* them.
 
 ## Related
 - People: [Joel Jang](joel-jang.md), [Jim Fan](jim-fan.md), [Yuke Zhu](yuke-zhu.md) (project leads); [Guanzhi Wang](guanzhi-wang.md).

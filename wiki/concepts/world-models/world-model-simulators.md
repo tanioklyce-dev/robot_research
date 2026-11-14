@@ -2,7 +2,7 @@
 title: World-model simulators
 type: concept
 created: 2026-05-06
-updated: 2026-11-12
+updated: 2026-11-13
 sources: 51
 tags: [world-model, generative-simulation, video-generation, jepa, latent-prediction, paradigm-shift]
 ---
@@ -20,6 +20,7 @@ Generate the next frame's *pixels*. Train and plan inside a learned video genera
 
 Notable systems:
 - **[NVIDIA Cosmos](../../entities/nvidia-cosmos.md)** — world foundation model (Cosmos-Predict2-2B-Video2World powers downstream simulators). **[Cosmos 3](../../sources/cosmos-3-technical-report.md)** (June 2026) goes further: one omnimodal Mixture-of-Transformers model is *itself* a forward-dynamics simulator, an inverse-dynamics model, **and** a policy — a [world-action model](world-action-model.md) rather than a simulator you train a separate policy inside.
+- **[DreamDojo](../../entities/dreamdojo.md)** ([NVIDIA GEAR](../../entities/nvidia-gear.md), Feb 2026). A Cosmos-Predict2.5 model, 2B and 14B, pretrained on 44,711 h of egocentric human video, with latent actions standing in for missing action labels. It is distilled to 10.81 FPS for live teleoperation and planning ([DreamDojo paper](../../sources/dreamdojo-paper.md)). It is the clearest case of training a policy *inside* this kind of simulator: [GR00T 2](../../sources/gr00t-2-whitepaper.md) runs GRPO in an adapted DreamDojo, and four real tasks improve from 42.5% to 71.7%. That fine-tunes an existing policy and needs about 300 physical rollouts per task to adapt the model. Code is Apache-2.0, and the weights use the NVIDIA Open Model License.
 - **[Genie Envisioner](../../entities/genie-envisioner.md)** / GE-Sim2 — built on Cosmos-Predict2; introduces the World Action Model framework where action is a first-class variable; minute-scale stable rollouts ([AGIBOT Genie Envisioner 2.0 Announcement](../../sources/agibot-genie-envisioner-2-announcement.md)).
 - **[UnifoLM-WMA-0](../../sources/unifolm-wma-0-project-page.md)** ([Unitree](../../entities/unitree.md), Sep 2025) — a **DynamiCrafter** (2023) fine-tune on Open-X and five Unitree sets with a diffusion action head; its *simulation mode* is pitched as an interactive data engine ("generate synthetic data for robot learning") but no trained-on-synthetic result was ever shown, and the successor [WLA-1.0](../../sources/unifolm-wla-1-project-page.md) dropped pixel generation. The compact, vendor-built end of this paradigm.
 - **[Genesis](../../entities/genesis.md)** — adjacent: physics-based but uses a [VLM](../learning/vla-models.md) agent to *generate* the simulation content from text.

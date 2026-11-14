@@ -3,7 +3,7 @@ title: NVIDIA Cosmos
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-11-12
+updated: 2026-11-13
 sources: 61
 tags: [cosmos, world-model, omnimodal, mixture-of-transformers, world-action-model, video-generation, nvidia, foundation-model, edge]
 ---
@@ -37,7 +37,7 @@ The [Cosmos 3 technical report](../sources/cosmos-3-technical-report.md) says Co
 
 ## Capabilities (pre-Cosmos-3 line)
 - Generates physically-plausible video rollouts of dynamic scenes.
-- Variants released as "Cosmos-Predict" series — e.g. Cosmos-Predict2-2B-Video2World powers [GE-Sim2](genie-envisioner.md); **Cosmos-Predict2.5** is the backbone of [DreamDojo](../sources/dreamdojo-paper.md) (NVIDIA GEAR, ICML 2026 Spotlight) — a latent video diffusion model with DiT blocks + WAN2.2 tokenizer + flow-matching training, the architectural substrate for generative-video world models.
+- Variants released as "Cosmos-Predict" series — e.g. Cosmos-Predict2-2B-Video2World powers [GE-Sim2](genie-envisioner.md); **Cosmos-Predict2.5** is the backbone of [DreamDojo](dreamdojo.md) ([paper](../sources/dreamdojo-paper.md); NVIDIA GEAR, ICML 2026 Spotlight) — a latent video diffusion model with DiT blocks + WAN2.2 tokenizer + flow-matching training, the architectural substrate for generative-video world models.
 - Used for autonomous-driving simulation, robot training, games, and metaverse applications requiring high-throughput simulation.
 
 **2025 efficiency notes** ([R²D² Cosmos digest](../sources/nvidia-r2d2-cosmos-wfm-workflows-blog.md)). Neighborhood Attention made Cosmos-Predict2 video inference 2–2.5× faster on H100 and B200. A distilled edge-conditioned Cosmos Transfer generates in one step where the original took 70, at close to the same quality by NVIDIA's account. Cosmos Reason was used as a critic to filter generated data.

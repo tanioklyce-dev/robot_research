@@ -3,7 +3,7 @@ title: DreamGen
 type: entity
 subtype: method
 created: 2026-07-04
-updated: 2026-11-10
+updated: 2026-11-13
 sources: 9
 tags: [dreamgen, neural-trajectories, video-world-model, synthetic-data, nvidia, gear, vla, dream-star]
 ---
@@ -26,7 +26,7 @@ tags: [dreamgen, neural-trajectories, video-world-model, synthetic-data, nvidia,
 DreamGen is the basis of NVIDIA's Isaac GR00T-Dreams blueprint. NVIDIA says GR00T-Dreams data let it develop [GR00T N1.5](../sources/groot-n1_5.md) in 36 hours, against nearly three months by manual collection, without a breakdown. DreamGen Bench scores video models on instruction and physics following, and NVIDIA reports that higher scores go with better real-robot results from the generated data ([R²D² digest](../sources/nvidia-r2d2-generalist-robots-wfm-blog.md)).
 
 ## Related
-- [DreamDojo](../sources/dreamdojo-paper.md) — the later Dream\* entry (foundation generative-video WM); DreamGen is the origin of the line.
+- [DreamDojo](dreamdojo.md) ([paper](../sources/dreamdojo-paper.md)) — the later Dream\* entry (foundation generative-video WM); DreamGen is the origin of the line.
 - [NVIDIA GEAR](nvidia-gear.md) — originating lab. [Joel Jang](joel-jang.md) — co-lead.
 - [NVIDIA Cosmos](nvidia-cosmos.md) — one of the video WMs benchmarked in DreamGen Bench.
 - [World-model simulators](../concepts/world-models/world-model-simulators.md) — DreamGen is the "WM-as-data-generator" instance.
