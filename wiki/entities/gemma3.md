@@ -3,8 +3,8 @@ title: Gemma3
 type: entity
 subtype: model
 created: 2026-05-25
-updated: 2026-08-26
-sources: 4
+updated: 2026-11-14
+sources: 5
 tags: [gemma3, vlm, google, vision-language-model, vla-backbone]
 status: stub
 ---
@@ -51,3 +51,4 @@ status: stub
 - [Taking Flight with Dialogue: Natural Language Control for PX4-based Drone Agent (Lim et al. 2025)](../sources/taking-flight-with-dialogue-px4-drone-agent.md)
 - [π*0.6: a VLA That Learns From Experience (Physical Intelligence, 2025)](../sources/pistar06-paper.md)
 - [π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities (Physical Intelligence, 2025)](../sources/pi07-paper.md)
+- [Sparks of Weight-Space Programming](../sources/sparks-of-weight-space-programming.md) — Gemma 3 270M is the sycophancy testbed, where GPT-6 Astra fails from the weights alone, and the null result for math editing.

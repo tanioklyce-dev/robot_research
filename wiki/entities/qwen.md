@@ -3,8 +3,8 @@ title: Qwen
 type: entity
 subtype: product
 created: 2026-05-07
-updated: 2026-11-12
-sources: 19
+updated: 2026-11-14
+sources: 20
 tags: [qwen, llm, alibaba, open-weights]
 status: stub
 ---
@@ -41,3 +41,4 @@ Qwen has become a default open-weights LLM for agentic robotics on edge devices 
 - [UnifoLM-WLA-1.0 project page](../sources/unifolm-wla-1-project-page.md) — Qwen3-VL-4B as a humanoid-VLA backbone.
 - [Robostral Navigate paper](../sources/robostral-navigate-paper.md) — Qwen-RobotNav-4B/8B and Qwen-VLA are its strongest VLN-CE baselines (Qwen-RobotNav-8B with depth still leads RxR-CE SR).
 - [Praxis-1 technical report](../sources/runway-praxis-1-technical-report.md) — frozen Qwen3.5-2B as the text encoder of a 27B WAM.
+- [Sparks of Weight-Space Programming](../sources/sparks-of-weight-space-programming.md) — GPT-6 Astra removes a thinking-loop direction from Qwen3.5-0.8B (0.016% of the weights), and MATH-500 rises from 7.9 to 48.1 without gradients.

@@ -2,8 +2,8 @@
 title: Mechanistic interpretability
 type: concept
 created: 2026-05-15
-updated: 2026-09-07
-sources: 15
+updated: 2026-11-14
+sources: 16
 tags: [mechanistic-interpretability, anthropic, goodfire, neural-geometry, robotics, chris-olah, sparse-autoencoders, feature-extraction, ai-safety]
 ---
 
@@ -93,6 +93,7 @@ Their network is **4 → 30 → 4**, and the payoff is a worked example: with on
 
 ## Mentioned in
 
+- [Sparks of Weight-Space Programming](../../sources/sparks-of-weight-space-programming.md) — a frontier LLM reads and edits weights. It finds induction heads unprompted, ablates a loop direction, and fails on sycophancy from weights alone.
 - [Human-in-the-loop transfer learning in collision avoidance](../../sources/hitl-transfer-learning-collision-avoidance.md) — interpretability by smallness; weights to a faulty sensor's action decaying to zero.
 - [Welch Labs Illustrated Guide to AI, Vol I](../../sources/welchlabs-illustrated-guide-to-ai.md)
 - [Silico for Robotics & Vision (Goodfire)](../../sources/goodfire-silico-robotics-vision.md)
@@ -114,6 +115,17 @@ Both from [Day 2 of the 2026 Chicago Booth workshop](../../sources/chicago-booth
 > Each rests on **linear probes plus steering**, the technique the [neural geometry](neural-geometry.md) critique targets. The same workshop's poster session carried *"Is a Linear Probe Evidence of a Linear Representation?"* ([Klindt](../../entities/david-klindt.md) et al.) — the objection, presented in the same room, on the same day, as two results that assume the answer is yes.
 
 **Also worth recording, from industry.** [Bayan Bruss](../../entities/bayan-bruss.md) describes using sparse autoencoders *and* a much cheaper alternative for the same job — **swap analysis**: run two policies, find where they disagree, characterize the disagreement set. Interpretability as a production tool for answering *why did this policy take this action*, where the SAE is one option among several rather than the method.
+
+## A general LLM as the interpreter (2026-11)
+
+[Sparks of Weight-Space Programming](../../sources/sparks-of-weight-space-programming.md) replaces the purpose-built toolchain with a frontier LLM ([GPT-6 Astra](../../entities/gpt-6-astra.md)) that is handed raw weights. Three of its results bear directly on this page.
+
+- **It rediscovered a classic method on its own.** In 4-layer character-level transformers with the embedding and unembedding removed, it found *exactly* the measured induction heads by multiplying QK/OV matrices, without running the model. This is Elhage et al.'s composition analysis, and nobody told Astra about it.
+- **The edit is direction ablation.** Its Qwen3.5-0.8B fix subtracts one MLP-written direction (layers 15 and 19, 0.016% of the weights) that drives reasoning loops. This is the same move as removing a behaviour along a linear direction, and it rests on the linear-representation assumption that the [neural geometry](neural-geometry.md) critique questions.
+- **It failed where safety needs it most.** It could not tell a sycophantic Gemma 3 270M fine-tune from an honest twin **from weights alone (0/4)**. It succeeded (3/3) once given attention patterns on its own probe texts. In this one data point, structure is readable from weights and installed dispositions are not.
+
+> [!note] What this changes, and what it doesn't
+> It suggests mech-interp could scale by *composing known techniques with a general model*, which is the authors' own framing. It does not yet show that the composition finds anything human researchers would miss. The evidence is one lab and one model, mostly n = 1. See [weight-space programming](../learning/weight-space-programming.md).
 
 ## Open follow-ups
 - **Templeton et al. 2024 — *Scaling Monosemanticity*** (Anthropic). Primary-source candidate. Would let this concept page cite specific feature-extraction numbers, model scales, and demonstrations.

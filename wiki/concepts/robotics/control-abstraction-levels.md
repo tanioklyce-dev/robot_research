@@ -2,8 +2,8 @@
 title: Control abstraction levels
 type: concept
 created: 2026-07-27
-updated: 2026-11-10
-sources: 33
+updated: 2026-11-14
+sources: 34
 tags: [robotics, control, llm-agent, evaluation, vla, safety, access-control, frontier-red-team, code-as-policy]
 ---
 
@@ -125,9 +125,13 @@ Perceptual access moves capability as much as control access does: a **compass**
 
 [Astranomy](../../sources/nvidia-srl-astranomy-blog.md) puts GPT-6 Astra on the end-effector rung of RoboLab-120 and finds the interface carries much of the result. Absolute end-effector targets reach 72.7% against 48.7% for joint positions and 37.3% for joint-space splines. Geometry in the prompt moves direct success from 19.3% to 72.7%. Wrapping the model in a persistent agent loop that issues one target per step narrows both gaps to a few points. The simulator pauses during each 13–19 s decision, so the rung's speed cost is measured but not penalised.
 
+## Writing the parameters instead of the code (2026-11-14)
+
+[Sparks of Weight-Space Programming](../../sources/sparks-of-weight-space-programming.md) suggests a step beyond level 2. The model writes or edits the **weights** of a learned policy rather than its code or its actions. The strongest robot-shaped case is a Kinetix PPO car policy stuck in a local minimum. One reply with no tools edits 3.5% of the weights and takes it from 0 to 1,024/1,024 successes. Like level 2, the output runs at network speed with no model in the loop. Unlike level 2, the output is a learned policy, so the step stops being a fork away from learning and works as surgery on it. The post links an unverified extension to π0.5 on real hardware. This is one lab and one model, so treat it as a candidate rung, not a measured one.
+
 ## Mentioned in
 
-> [!note] Curated list — 32 source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — 33 source pages link here; the ones below are those that shaped this page.
 
 - [How Claude Performs on Robotics Tasks](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — the source of the taxonomy and every number here.
 - [Project Fetch: Phase Two](../../sources/anthropic-project-fetch-phase-two.md) — level-2 control (Claude Code writing controllers) taken to near-autonomy.
@@ -137,3 +141,4 @@ Perceptual access moves capability as much as control access does: a **compass**
 - [BANC — Bates et al., Nature 2026](../../sources/banc-brain-and-cord-connectome-paper.md) — a biological vote on the sandwich-vs-distributed question: in the fly, effectors are driven mostly by local sensor loops, coordinated by behaviour-centric descending/ascending modules and *supervised* by learning and navigation regions — *"distributed, parallelized and embodied,"* with Brooks's layered controller as the cited analogue.
 - [GPT-6 Astra on RoboDojo](../../sources/gpt-6-astra-robodojo-paper.md) — per-turn EEF control without a pretrained policy: 22.48% (first on RoboDojo) for one model, ~1% for two others; hardware damage stopped the real campaign.
 - [Astranomy (NVIDIA SRL)](../../sources/nvidia-srl-astranomy-blog.md) — interface ablations for an LLM at the end-effector rung.
+- [Sparks of Weight-Space Programming](../../sources/sparks-of-weight-space-programming.md) — the LLM edits the policy's weights: a candidate rung above code.

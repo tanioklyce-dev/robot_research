@@ -3,8 +3,8 @@ title: GPT-6 Astra
 type: entity
 subtype: model
 created: 2026-11-07
-updated: 2026-11-12
-sources: 9
+updated: 2026-11-14
+sources: 10
 tags: [gpt-6-astra, openai, frontier-model, llm-as-policy, robodojo, code-as-policy, embodied-reasoning, robot-safety, closed-weights]
 ---
 
@@ -37,6 +37,15 @@ tags: [gpt-6-astra, openai, frontier-model, llm-as-policy, robodojo, code-as-pol
 - **RoboPianist.** Through the Codex scaffold, Astra writes a 20 Hz `play.py` for two Shadow hands and refines it by simulated practice. It reaches **F1 0.902 on two-hand Twinkle, against 0.886 for the RL reference**, but transfers unevenly to unseen pieces (C-major scale 0.903, D-major scale 0.556) ([paper](../sources/gpt-6-astra-robodojo-paper.md), App. G). This is level 2 of the [control-abstraction ladder](../concepts/robotics/control-abstraction-levels.md).
 - **Code-as-policy baseline.** In [RPG](../sources/rpg-guided-self-improvement-paper.md)'s reproduction of CaP-Agent0, GPT-6 Astra Pro is the strongest base model (60.0%). The persistent-library system on Gemini Flash still reaches 95.0%.
 
+## As a weight programmer (MIT CSAIL, 2026-11)
+In [Sparks of Weight-Space Programming](../sources/sparks-of-weight-space-programming.md), Astra reads, fixes and writes neural-network weights directly, with no gradients.
+- **Fixing an RL controller.** It un-sticks a Kinetix PPO car policy that had settled in a local minimum. One reply with no tools edits 3.5% of the weights and takes the car from 0 to 1,024/1,024 successes.
+- **Writing policies from zero.** Its one-shot MinAtar networks beat PPO trained for 100M steps. Its 1.48M-weight 9×9 Go network is a hand-compiled program; given 50 forward passes, it beats an equal-size PPO network.
+- **Editing an LLM.** It removes a reasoning-loop direction from Qwen3.5-0.8B by editing 0.016% of the weights, and MATH-500 rises from 7.9 to 48.1.
+- **Failures.** It cannot spot a sycophantic fine-tune from the weights alone, and it cannot improve Gemma 3 270M, which has no single broken component.
+
+This is a third role, after direct policy and controller writer. The expensive reasoning happens once, offline, and the result deploys at network speed. All of it is single-lab and mostly n = 1. See [weight-space programming](../concepts/learning/weight-space-programming.md).
+
 ## Elsewhere in the wiki
 - **Embodied reasoning.** In Unitree's API tests it leads ERQA (77.7) and RefSpatial (79.6), and loses on pointing benchmarks to specialized open models ([UnifoLM-WLA-1](../sources/unifolm-wla-1-project-page.md)).
 - **Agentic simulation.** It is linked as the system that *"created its own physics simulator"* in [Ai2's ToyBlocks](../sources/ai2-toyblocks-blog.md), where it *"struggles to simulate contact,"* and as the asset and scene agent in NVIDIA's [MicroDuck](../sources/nvidia-microduck-ai-agents-sim-blog.md) pipeline.
@@ -63,3 +72,4 @@ tags: [gpt-6-astra, openai, frontier-model, llm-as-policy, robodojo, code-as-pol
 - [Jalapeño first results](../sources/openai-jalapeno-first-results.md) — kernel authoring with Codex.
 - [Astranomy (NVIDIA SRL)](../sources/nvidia-srl-astranomy-blog.md) — 66–75% on RoboLab-120 in three roles; prompt geometry and history ablations; latency and cost.
 - [Praxis-1 technical report](../sources/runway-praxis-1-technical-report.md) — 15.6× slower and 51× costlier per task than Praxis-1 on three YAM tasks.
+- [Sparks of Weight-Space Programming](../sources/sparks-of-weight-space-programming.md) — reads, fixes and writes network weights without gradients (Kinetix policy repair, MinAtar, Go, Qwen loop fix).

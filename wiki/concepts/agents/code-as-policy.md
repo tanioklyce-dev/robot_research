@@ -2,8 +2,8 @@
 title: Code as policy
 type: concept
 created: 2026-08-03
-updated: 2026-11-13
-sources: 29
+updated: 2026-11-14
+sources: 30
 tags: [code-as-policy, llm-agent, agentic-robotics, program-synthesis, skill-library, voyager, saycan, voxposer, inner-monologue, codeact, tool-use, waddle, cap-x, aspire, benchmark]
 ---
 
@@ -131,6 +131,12 @@ Two things this adds to the page. First, **it is the honest answer to the cost q
 
 > [!note] The counterfactual is missing
 > QuEra's loop is a general recipe (cf. [ASPIRE](../../sources/aspire-paper.md), [Karpathy's autoresearch](../../sources/karpathy-autoresearch.md)); MHS only supplied instrument access. Nobody ran the same loop over a bespoke API, so the split between "the interface" and "the loop" is unmeasured.
+
+## Compile into weights instead of a script (added 2026-11-14)
+
+[Sparks of Weight-Space Programming](../../sources/sparks-of-weight-space-programming.md) takes the move above one step further. The agent's deliverable is a **network**, not a script. GPT-6 Astra states a program and then writes it as weights. Its MinAtar Breakout network has one layer that predicts where the ball lands and another that moves the paddle there. Its 9×9 Go network is built from liberties, chain propagation and move scoring, written in 336 lines of Python that set 1.48M weights. Its Kinetix policy repair bolts a reversing manoeuvre onto a trained PPO policy as a side path that hands control back once the manoeuvre is done.
+
+This trades away the property that made the QuEra artifact attractive. A script is *auditable*. Weights written from a stated program are auditable only as far as the stated program matches what the weights compute. In return, the artifact can be fine-tuned further, and it slots into an existing policy rather than replacing it. See [weight-space programming](../learning/weight-space-programming.md).
 
 ## The inverse: code as world model (added 2026-10-07)
 
@@ -277,6 +283,7 @@ What remains unmeasured is what it costs. [GaP](../../sources/gap-graph-as-polic
 - [Previewing the Model Hardware Standard](../../sources/anthropic-model-hardware-standard-preview.md) — three instances of *explore online, compile to a deterministic script*, one of them in production on a quantum computer's laser system.
 - [Code World Models for General Game Playing](../../sources/code-world-models-general-game-playing.md): the inverse move (code as world model), and how much of LLM-as-policy's deficit is illegal moves.
 - [RPG](../../sources/rpg-guided-self-improvement-paper.md) — regression-gated library and prompt self-improvement; 95.0% on 22 sim tasks; 30/30 physical.
+- [Sparks of Weight-Space Programming](../../sources/sparks-of-weight-space-programming.md) — the program compiled into weights, not code: MinAtar, Go, Kinetix policy repair.
 - [AW-0 paper](../../sources/agentic-world-action-models-aw0-paper.md) — code inside a WAM as a non-executed plan; agentic annotation; gated hybrid execution.
 - [XPolicyLab GitHub](../../sources/xpolicylab-github.md) — GPT-6 Astra as an eval-only RoboDojo policy through one `move_eef` tool and the benchmark's Cartesian planner.
 - [GPT-6 Astra on RoboDojo](../../sources/gpt-6-astra-robodojo-paper.md) — per-turn EEF targets, no primitives, 22.48% (first on RoboDojo); GPT-5.5 control 0.88%; Codex-written piano controller F1 0.902.
