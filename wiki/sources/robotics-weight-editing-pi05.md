@@ -86,6 +86,14 @@ On real bimanual YAM arms, bottle placement got **4.3%, 7.4% and 12.0% faster at
 >
 > So "bug" means a **latent hazard in porting the code**, not a defect in PI's experiment. It bites any deployment that conditions on more steps than it actually waits out. The authors' conservative 6-step prefix with about 4 steps of real latency is exactly that case, and the authors say IK-solver jitter (median 23 ms, max 921 ms in their OpenWAM stack) makes such margins normal. The code excerpt quoted in the post (`sampling_input`, `omega`) **does not appear in this repo**. It presumably comes from the authors' own π0.5 TT-RTC port, which this wiki has not seen.
 
+### Other ports (checked 2026-11-14)
+- **openpi** (`main` @ `215abfb`, 2026-08-24) ships **no RTC of either kind**. `Pi0.sample_actions` is a plain Euler loop, and "prefix" there means the VLM observation tokens, not actions. A π0.5 TT-RTC checkpoint therefore cannot have come from stock openpi.
+- **LeRobot** (`main` @ `fe1c545`, 2026-11-13) has two modes:
+  - **`mode="guided"`**, the default, is inference-time RTC with Jacobian guidance (`RTCProcessor.denoise_step`). It does not hard-clamp the prefix, so the bug does not apply. The prefix is only steered toward the old actions, by design.
+  - **`mode="trained"`** is training-time RTC for π0.5, added in PR #4056 on 2026-08-21. In it, `euler_integrate` applies `torch.where(hard_prefix_mask, hard_prefix, x_t)` **both before and after** every update, final step included (`policies/common/flow_matching.py`). That was already true in the PR's first version.
+
+  **So LeRobot's trained mode is not affected.** It also adds guards PI's reference code lacks. It refuses a measured delay above the checkpoint's `rtc_training_max_delay`, validates the prefix for NaN, Inf and shape, and raises after repeated discarded chunks when inference outruns the conditioned overlap.
+
 ## Assessment
 
 - **The bug finding is the durable contribution.** It is verifiable, it has a one-line code fix, and it applies to anyone porting TT-RTC. The weight-space version of the fix is a demonstration, since a deployment would use the code fix. The interesting part is that the model *found* the bug unprompted, from logs and source code.
@@ -109,6 +117,6 @@ On real bimanual YAM arms, bottle placement got **4.3%, 7.4% and 12.0% faster at
 
 ## Open questions
 - Does time scaling plus the one-line prefix fix match or beat the combined edit? This is the missing control. If it does, the tempo edit buys nothing over post-processing.
-- Do other TT-RTC ports, including openpi and LeRobot's `rtc` policy, carry the same unrestored final step when the prefix is longer than the delay? LeRobot's `rtc` appears to be the inference-time guidance variant, which never hard-restores the prefix. Its behaviour needs checking separately.
+- ~~Do other TT-RTC ports carry the same unrestored final step?~~ **Checked 2026-11-14; see below.** Neither public port is affected. The hazard is specific to code derived from PI's Kinetix reference, and possibly the authors' own port.
 - Does a RoPE-spacing effect on tempo hold for other chunked policies? Is it a property of π0.5's action expert, or of RoPE action positions generally?
 - Robustness: how does it do with more trials, other layouts, and out-of-distribution states? The prompt asked for generalisation across tasks and initial states, and the results only partly address that.

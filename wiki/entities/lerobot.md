@@ -3,8 +3,8 @@ title: LeRobot
 type: entity
 subtype: software-framework
 created: 2026-05-10
-updated: 2026-11-12
-sources: 64
+updated: 2026-11-14
+sources: 65
 tags: [lerobot, imitation-learning, hugging-face, framework, open-source, act, mobile-manipulator, smolvla, pi0, tutorial, iclr-2026, xvla, sourccey, plugin-system]
 ---
 
@@ -179,6 +179,10 @@ Choice depends on (1) robot type — mobile bases need Rosetta; (2) ROS 2 distri
 ## Community SO-101 data as a training corpus (2026-11)
 
 Runway fine-tuned [Praxis-1](praxis-1.md) on **3,956 public SO-100/SO-101 LeRobot datasets from 1,783 contributors, about 1,260 hours**. One data-hygiene result is worth knowing for anyone pooling Hub data: **camera names are unreliable** (*"a camera called 'phone' or 'top' is often mounted on the wrist"*). Runway labelled each camera from its pixels and required both a motion check and a CLIP check to agree ([Praxis-1 report §8.2](../sources/runway-praxis-1-technical-report.md)). The released `praxis-1-so101` checkpoint follows LeRobot 0.7 `SOFollower` conventions and is served from a GPU to an on-robot client ([README](../sources/praxis-1-oss-github.md)). No SO-101 success rates are published.
+
+## Real-time chunking: guided and trained modes (checked 2026-11-14)
+
+`lerobot.policies.rtc` has two modes. `mode="guided"`, the default, is PI's inference-time RTC with Jacobian guidance. `mode="trained"` was added in PR #4056 on 2026-08-21 and is currently π0.5-only. It hard-inpaints the previous chunk's actions into the prefix, and needs a checkpoint trained with `policy.rtc_training_max_delay > 0`. In trained mode, the shared `euler_integrate` re-clamps the prefix **after every update including the last**. That means it does **not** have the final-step prefix drift found in PI's Kinetix reference code ([Editing π0.5's weights](../sources/robotics-weight-editing-pi05.md)). It also refuses delays beyond the checkpoint's trained maximum, and raises when inference repeatedly outruns the conditioned overlap. For XLeRobot-style async inference over Wi-Fi, trained mode's hard failure on long delays is the behaviour to plan around. Guided mode degrades instead of failing.
 
 ## Mentioned in
 

@@ -59,7 +59,7 @@ The one role where world models earn their place is as **RL environments**: a π
 
 Claude Opus 5.5 edited a π0.5 **Training-Time RTC** checkpoint with no gradients, changing 1.16% of its parameters ([SII, SJTU and HKU](../sources/robotics-weight-editing-pi05.md)).
 - **Speedup.** A RoPE action-spacing intervention (P + i → P + 1.25i), fitted into the Q/K weights of layers 1–17, made the policy advance about 20% further along its own path per step offline. On a bimanual YAM, bottle placement got 4.3%, 7.4% and 12.0% faster at 30, 35 and 40 Hz, with 3 trials per condition. Block stacking did not change.
-- **A porting hazard in TT-RTC.** The sampler returns the conditioned prefix after one more, untrained velocity update. Any deployment whose prefix is longer than its actual latency therefore executes drifted actions, which show up as about 26 mm chunk jumps. A one-line restore fixes it, and Opus's rank-one weight edit does roughly the same job. It was confirmed in PI's reference code, where the official eval never executes those positions.
+- **A porting hazard in TT-RTC.** The sampler returns the conditioned prefix after one more, untrained velocity update. Any deployment whose prefix is longer than its actual latency therefore executes drifted actions, which show up as about 26 mm chunk jumps. A one-line restore fixes it, and Opus's rank-one weight edit does roughly the same job. It was confirmed in PI's reference code, where the official eval never executes those positions. **LeRobot's `rtc` `mode="trained"` is not affected**, because it re-clamps the prefix after the final step. openpi has no RTC at all (both checked 2026-11-14).
 
 ## Mentioned in (additional)
 
