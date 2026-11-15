@@ -3,7 +3,7 @@ title: Control abstraction levels
 type: concept
 created: 2026-07-27
 updated: 2026-11-14
-sources: 34
+sources: 35
 tags: [robotics, control, llm-agent, evaluation, vla, safety, access-control, frontier-red-team, code-as-policy]
 ---
 
@@ -127,11 +127,11 @@ Perceptual access moves capability as much as control access does: a **compass**
 
 ## Writing the parameters instead of the code (2026-11-14)
 
-[Sparks of Weight-Space Programming](../../sources/sparks-of-weight-space-programming.md) suggests a step beyond level 2. The model writes or edits the **weights** of a learned policy rather than its code or its actions. The strongest robot-shaped case is a Kinetix PPO car policy stuck in a local minimum. One reply with no tools edits 3.5% of the weights and takes it from 0 to 1,024/1,024 successes. Like level 2, the output runs at network speed with no model in the loop. Unlike level 2, the output is a learned policy, so the step stops being a fork away from learning and works as surgery on it. The post links an unverified extension to π0.5 on real hardware. This is one lab and one model, so treat it as a candidate rung, not a measured one.
+[Sparks of Weight-Space Programming](../../sources/sparks-of-weight-space-programming.md) suggests a step beyond level 2. The model writes or edits the **weights** of a learned policy rather than its code or its actions. The strongest robot-shaped case is a Kinetix PPO car policy stuck in a local minimum. One reply with no tools edits 3.5% of the weights and takes it from 0 to 1,024/1,024 successes. Like level 2, the output runs at network speed with no model in the loop. Unlike level 2, the output is a learned policy, so the step stops being a fork away from learning and works as surgery on it. On real hardware, Claude Opus 5.5 edited π0.5's weights on a YAM ([SII, SJTU and HKU](../../sources/robotics-weight-editing-pi05.md)). The policy kept full control while getting 4–12% faster on one task. Plain time scaling matched most of that offline. Treat this as a candidate rung, not a measured one.
 
 ## Mentioned in
 
-> [!note] Curated list — 33 source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — 34 source pages link here; the ones below are those that shaped this page.
 
 - [How Claude Performs on Robotics Tasks](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — the source of the taxonomy and every number here.
 - [Project Fetch: Phase Two](../../sources/anthropic-project-fetch-phase-two.md) — level-2 control (Claude Code writing controllers) taken to near-autonomy.
@@ -142,3 +142,4 @@ Perceptual access moves capability as much as control access does: a **compass**
 - [GPT-6 Astra on RoboDojo](../../sources/gpt-6-astra-robodojo-paper.md) — per-turn EEF control without a pretrained policy: 22.48% (first on RoboDojo) for one model, ~1% for two others; hardware damage stopped the real campaign.
 - [Astranomy (NVIDIA SRL)](../../sources/nvidia-srl-astranomy-blog.md) — interface ablations for an LLM at the end-effector rung.
 - [Sparks of Weight-Space Programming](../../sources/sparks-of-weight-space-programming.md) — the LLM edits the policy's weights: a candidate rung above code.
+- [Editing π0.5's weights](../../sources/robotics-weight-editing-pi05.md) — the same rung on a real VLA and robot.

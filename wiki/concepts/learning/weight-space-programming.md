@@ -3,7 +3,7 @@ title: Weight-space programming
 type: concept
 created: 2026-11-14
 updated: 2026-11-14
-sources: 1
+sources: 2
 tags: [weight-space-programming, gradient-free-optimization, mechanistic-interpretability, model-editing, policy-repair, gpt-6-astra, autoresearch]
 ---
 
@@ -13,6 +13,7 @@ tags: [weight-space-programming, gradient-free-optimization, mechanistic-interpr
 
 ## Key references
 - [Sparks of Weight-Space Programming](../../sources/sparks-of-weight-space-programming.md) (2026-11-02) is the founding post. It runs eight experiments with [GPT-6 Astra](../../entities/gpt-6-astra.md) as the programmer.
+- [Editing π0.5's weights](../../sources/robotics-weight-editing-pi05.md) (SII, SJTU and HKU, 2026-11) is the first instance on a deployed VLA. Claude Opus 5.5 made the edits.
 
 ## Three operations, and where each stands
 
@@ -34,14 +35,20 @@ The pattern across the table: **WSP works where the target is structural and loc
 
 ## Robotics relevance
 - **Policy surgery.** The Kinetix result (Exp 4) is the template. A trained RL policy is stuck in a local minimum. A minimal edit adds a side path that performs the missing manoeuvre and then hands control back to the original network. There was no retraining and no environment interaction beyond one recorded episode.
-- **On a real VLA (not yet ingested).** The post links an SII, SJTU and HKU extension in which Claude Opus 5.5 edits π0.5's weights on a YAM arm. It reports a RoPE timing edit and an RTC prefix-bug repair, both written into weights so the inference code is unchanged, with modest speedups at 3 runs per condition. That would be WSP's first deployed-robot result. It should be ingested before anything here relies on it.
+- **On a real VLA.** Claude Opus 5.5 edited a [π0.5](../../entities/pi-zero-5.md) Training-Time RTC checkpoint, working offline from recordings with no gradients ([SII, SJTU and HKU](../../sources/robotics-weight-editing-pi05.md)). It made two closed-form edits:
+  - a **rank-one** time-modulation edit that cancels a prefix drift in the RTC sampler, a bug confirmed in PI's reference code;
+  - a RoPE action-spacing effect fitted into the Q/K weights of layers 1–17.
+
+  On a bimanual [YAM](../../entities/yam.md), bottle placement got 4–12% faster at matched rates and chunk jumps fell about 90%. Block stacking showed no gain, and every condition had 3 trials. Offline, plain trajectory time scaling advanced further with less jerk.
+- **What the robot case adds to the concept.** The edits are classical (least squares, rank-one updates, ridge fits) and were found by a *research loop* with many forward passes, not by reading the weights cold. The authors' own conclusion is that the research loop mattered more than the weight-space reading. This reframes WSP for robotics. The capability being shown is **autonomous diagnosis that ends in a parameter edit**, and the most valuable finding was a bug, which a one-line code change fixes equally well.
 - **Deployment economics.** Frontier LLMs as direct robot policies are slow and expensive. [Praxis-1](../../entities/praxis-1.md) measured Astra at 15.6× slower and 51× costlier per task. WSP spends that cost once, offline, and ships a network.
 
 ## Current state (2026-11)
-The evidence is **one blog post, one model (GPT-6 Astra), and mostly n = 1 per experiment**. The full logs are public, and the authors report more than 100 follow-ups (replications, robot policies, quantum circuits, a benchmark, IWIBench), none of which this wiki has ingested. The most-cited number (Qwen MATH-500 ×6) is largely a repair of a looping failure mode under a fixed sampling setting, and the post's own Gemma null result bounds it. The safety-relevant promise, "auditing without evaluation", rests on the one reading task that failed.
+The evidence is **one blog post, one model (GPT-6 Astra), and mostly n = 1 per experiment**. The full logs are public. The authors report more than 100 follow-ups; this wiki has ingested one, the [π0.5 edit](../../sources/robotics-weight-editing-pi05.md). The most-cited number (Qwen MATH-500 ×6) is largely a repair of a looping failure mode under a fixed sampling setting, and the post's own Gemma null result bounds it. The safety-relevant promise, "auditing without evaluation", rests on the one reading task that failed.
 
 > [!note] Open
-> Is this a GPT-6 Astra capability or a frontier-model one? The robot extension used Claude Opus 5.5, which is a weak hint toward the second. Can a behavioural disposition ever be read from weights without activation access?
+> Is this a GPT-6 Astra capability or a frontier-model one? The π0.5 work used Claude Opus 5.5, which is a weak hint toward the second, though that task leaned on forward passes rather than pure reading. Can a behavioural disposition ever be read from weights without activation access?
 
 ## Mentioned in
 - [Sparks of Weight-Space Programming](../../sources/sparks-of-weight-space-programming.md)
+- [Editing π0.5's weights (SII, SJTU and HKU)](../../sources/robotics-weight-editing-pi05.md)

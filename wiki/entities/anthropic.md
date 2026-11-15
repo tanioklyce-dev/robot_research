@@ -3,8 +3,8 @@ title: Anthropic
 type: entity
 subtype: company
 created: 2026-05-09
-updated: 2026-11-07
-sources: 30
+updated: 2026-11-14
+sources: 31
 tags: [company, ai-safety, llm, claude, alignment, frontier-red-team, uplift-study, mcp, mhs]
 ---
 
@@ -59,7 +59,9 @@ Anthropic is the lead named partner in the **[NVIDIA Open Agent Safety Platform 
 
 ## Mentioned in
 
-> [!note] Curated list — 30 source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — 31 source pages link here; the ones below are those that shaped this page.
+
+- [Editing π0.5's weights (SII, SJTU and HKU)](../sources/robotics-weight-editing-pi05.md) — Claude Opus 5.5 in Claude Code autonomously diagnoses and edits a VLA's weights. It found an RTC prefix bug unprompted, in 111 min on one RTX 4090.
 
 - [Project Fetch: Can Claude train a robot dog?](../sources/anthropic-project-fetch-robot-dog.md) — Frontier Red Team robotics uplift study
 - [Project Fetch: Phase Two](../sources/anthropic-project-fetch-phase-two.md) — the autonomy re-run

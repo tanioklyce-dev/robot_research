@@ -2,8 +2,8 @@
 title: Flow matching
 type: concept
 created: 2026-05-25
-updated: 2026-09-12
-sources: 31
+updated: 2026-11-14
+sources: 32
 tags: [flow-matching, generative-model, ode, continuous-actions, vla, action-head, pi-zero, smolvla, molmoact2, dit, lipman, esser, xvla]
 ---
 
@@ -100,6 +100,8 @@ See [reward post-training of diffusion and flow models](reward-post-training-dif
 - [Mathieu Blondel](../../entities/mathieu-blondel.md) — Fenchel-Young framework unifying action-head families.
 
 ## Mentioned in
+
+- [Editing π0.5's weights (SII, SJTU and HKU)](../../sources/robotics-weight-editing-pi05.md) — prefix conditioning in Training-Time RTC. Prefix positions are masked out of the flow-matching loss, so their predicted velocity is untrained, and the sampler's final Euler step returns them perturbed (0.095 rad of drift). Restore after the loop, or zero the update.
 
 
 > [!note] Curated list — 31 source pages link here; the ones below are those that shaped this page.

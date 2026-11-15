@@ -3,8 +3,8 @@ title: Physical Intelligence
 type: entity
 subtype: organization
 created: 2026-05-09
-updated: 2026-09-07
-sources: 31
+updated: 2026-11-14
+sources: 32
 tags: [physical-intelligence, vla, pi-zero, pi-zero-7, pi-star-zero-6, generalist-policy, robotics, flow-matching, recap]
 ---
 
@@ -65,5 +65,6 @@ Physical Intelligence and [NVIDIA GR00T](../entities/nvidia-groot.md) / Gemini R
 - [SmolVLA Paper](../sources/smolvla-paper.md) — uses π0 as primary baseline.
 - [Stanford HAI — AI Index Report 2026](../sources/stanford-hai-ai-index-2026.md)
 - [π0.5 paper](../sources/pi-zero-5-paper.md) — primary source for π0.5; **ingested 2026-08-03**, closing the wiki's most-cited secondhand-anchor gap.
+- [Editing π0.5's weights (SII, SJTU and HKU)](../sources/robotics-weight-editing-pi05.md) — finds a porting hazard in PI's Training-Time RTC reference code (`real-time-chunking-kinetix`): the conditioned prefix is returned after an untrained final update. It is harmless in PI's own eval and bites when the prefix is longer than the latency. Checked at commit `9296f31`.
 - [Larchenko — LeHome deep dive, Part 1](../sources/larchenko-lehome-part1-rl-for-vlas.md) — π0.5 (via openpi) plus the RECAP recipe rebuilt by an outside competitor on one H200 and used to win a public challenge; the value model folded into the policy rather than trained separately.
 

@@ -3,8 +3,8 @@ title: π0.5
 type: entity
 subtype: model
 created: 2026-08-03
-updated: 2026-11-12
-sources: 27
+updated: 2026-11-14
+sources: 28
 tags: [pi-zero-5, physical-intelligence, vla, co-training, open-world, mobile-manipulation, hierarchical-inference, baseline]
 ---
 
@@ -55,7 +55,15 @@ The one role where world models earn their place is as **RL environments**: a π
 
 [RoboDojo](robodojo.md)'s Isaac Lab-Arena branch ships π0.5 (via OpenPI) as its only real policy adapter. The adapter takes head and wrist RGB and a 14-D joint state from the dual ARX X5. The checkpoint is a RoboDojo sim fine-tune (`RoboDojo-sim-arx_x5-joint-0`), and inference is unbatched, one call per environment ([branch READMEs](../sources/robodojo-isaaclabarena-branch.md)). In Ai2's [ToyBlocks](toyblocks.md), π0.5 is one of three VLAs reported to *"generalize poorly"* to held-out workspace regions and stack heights ([Ai2 blog](../sources/ai2-toyblocks-blog.md)).
 
+## As the target of a weight edit (2026-11)
+
+Claude Opus 5.5 edited a π0.5 **Training-Time RTC** checkpoint with no gradients, changing 1.16% of its parameters ([SII, SJTU and HKU](../sources/robotics-weight-editing-pi05.md)).
+- **Speedup.** A RoPE action-spacing intervention (P + i → P + 1.25i), fitted into the Q/K weights of layers 1–17, made the policy advance about 20% further along its own path per step offline. On a bimanual YAM, bottle placement got 4.3%, 7.4% and 12.0% faster at 30, 35 and 40 Hz, with 3 trials per condition. Block stacking did not change.
+- **A porting hazard in TT-RTC.** The sampler returns the conditioned prefix after one more, untrained velocity update. Any deployment whose prefix is longer than its actual latency therefore executes drifted actions, which show up as about 26 mm chunk jumps. A one-line restore fixes it, and Opus's rank-one weight edit does roughly the same job. It was confirmed in PI's reference code, where the official eval never executes those positions.
+
 ## Mentioned in (additional)
+
+- [Editing π0.5's weights (SII, SJTU and HKU)](../sources/robotics-weight-editing-pi05.md) — a gradient-free Opus 5.5 edit (RoPE tempo plus RTC prefix repair) on a YAM. 4–12% faster at matched rates, 3 trials each.
 
 - [WorldArena paper](../sources/worldarena-paper.md) · [WorldArena 2.0 paper](../sources/worldarena-2-paper.md)
 - [RoboDojo — IsaacLabArena branch](../sources/robodojo-isaaclabarena-branch.md) · [ToyBlocks (Ai2 blog)](../sources/ai2-toyblocks-blog.md)

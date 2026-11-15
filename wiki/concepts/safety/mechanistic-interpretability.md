@@ -3,7 +3,7 @@ title: Mechanistic interpretability
 type: concept
 created: 2026-05-15
 updated: 2026-11-14
-sources: 16
+sources: 17
 tags: [mechanistic-interpretability, anthropic, goodfire, neural-geometry, robotics, chris-olah, sparse-autoencoders, feature-extraction, ai-safety]
 ---
 
@@ -55,6 +55,8 @@ Reading the policy's **internals** is one of the few proposals anywhere for doin
 > [!warning] Framing only — nothing here is evidence
 > The robotics case study **names no model, reports no benchmark, and gives no numbers**, and Goodfire's 40-item [research corpus](../../sources/goodfire-research-index.md) contains **no robotics research at all**. The closest published thing is an image-action model on the toy mountain-car environment. Cite this as an approach being attempted, never as one shown to work.
 
+**The first worked example on a VLA's internals (2026-11).** Claude Opus 5.5 reasoned about RoPE action positions in π0.5's action expert and fitted a timing intervention into its Q/K weights. Attention-region ablations then placed most of the effect in **action-to-action** attention scores ([SII, SJTU and HKU](../../sources/robotics-weight-editing-pi05.md)). This is mechanism-guided *editing* rather than failure prediction, and it rests on 3-trial robot evidence.
+
 The nearest testable version: **does latent-space inspection predict which policies collapse under [LIBERO-PRO](../../sources/libero-pro-paper.md)-style perturbation, before running the perturbed benchmark?** Nobody has published it. A runnable design — open checkpoints, one GPU, no robot — is now filed at [latent-inspection-policy-collapse](../../syntheses/projects/latent-inspection-policy-collapse.md).
 
 ## Why this matters in this wiki
@@ -93,6 +95,7 @@ Their network is **4 → 30 → 4**, and the payoff is a worked example: with on
 
 ## Mentioned in
 
+- [Editing π0.5's weights (SII, SJTU and HKU)](../../sources/robotics-weight-editing-pi05.md) — RoPE and attention-region analysis of a VLA action expert, turned into a Q/K edit.
 - [Sparks of Weight-Space Programming](../../sources/sparks-of-weight-space-programming.md) — a frontier LLM reads and edits weights. It finds induction heads unprompted, ablates a loop direction, and fails on sycophancy from weights alone.
 - [Human-in-the-loop transfer learning in collision avoidance](../../sources/hitl-transfer-learning-collision-avoidance.md) — interpretability by smallness; weights to a faulty sensor's action decaying to zero.
 - [Welch Labs Illustrated Guide to AI, Vol I](../../sources/welchlabs-illustrated-guide-to-ai.md)
