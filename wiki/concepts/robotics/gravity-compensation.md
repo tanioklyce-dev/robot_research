@@ -30,6 +30,10 @@ Gravity comp needs actuators that take a **torque command** and are **backdrivab
 
 On QDD motors with an **MIT-style command** (position, velocity, K_p, K_d and feedforward torque in one frame), the PD part closes **inside the motor driver**. The host only refreshes τ_g and the setpoint. Host jitter then means a slightly stale gravity term, not an unstable loop. It becomes critical only when the host closes a torque loop itself. Bus bandwidth can dominate either way: seven motors on 1 Mbit/s CAN use most of a 2.5 ms cycle on frames alone (estimate on the [source page](../../sources/nvidia-holoscan-5-rebot-gravity-compensation.md#reading-the-latency-table-against-the-budget)).
 
+## On the cheaper tier
+
+For a FeeTech-servo arm, see [Can the SO-101 do gravity compensation?](../../syntheses/projects/so101-gravity-compensation.md). The answer is partly: admittance-style hand guiding and URDF validation by static-load fitting work, but true weightless feel does not, because of the 1:345 gearbox.
+
 ## Key references
 
 - [Make a Robot Arm Feel Weightless with NVIDIA Holoscan 5](../../sources/nvidia-holoscan-5-rebot-gravity-compensation.md) — a full reference implementation on a $1.5k arm, with latency measurements.

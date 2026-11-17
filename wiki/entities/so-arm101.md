@@ -3,7 +3,7 @@ title: SO-ARM101 (SO-ARM100 lineage)
 type: entity
 subtype: robot
 created: 2026-05-10
-updated: 2026-10-13
+updated: 2026-11-16
 sources: 42
 tags: [so-arm, so-arm100, so-arm101, the-robot-studio, low-cost-arm, open-source, lerobot, leader-follower, teleoperation]
 ---
@@ -74,6 +74,8 @@ The leader-follower convention is the dominant data-collection pattern for imita
 - [OpenArm documentation](../sources/openarm-docs.md) — [WowRobo](wowrobo.md), which calls itself *"the official manufacturer of the SO-ARM101,"* is also the certified manufacturer of [OpenArm](openarm.md); the $120 and $6,500 open-arm tiers now share a factory.
 - [Gemini 4 Argon for Robotics](../sources/gemini-4-argon-robotics-blog.md) — **the arm a frontier lab chose for its self-improvement-on-hardware demo**: Argon measures objects and dry-runs with no motion, hovers and verifies with the wrist camera, executes, then diagnoses its own failures from logs and footage and retries under `AGENTS.md` safety rules. Pick-and-place times 58.9 → 22.9 → 17.4 s across three iterations (n = 1 each). Driven through code, not a VLA.
 - [RoboJEPA paper](../sources/robojepa-scaling-robotic-latent-world-models-paper.md) — SO-101 is one of RoboJEPA's 12 training embodiments (21.5k LeRobot episodes). Released checkpoints include SO-101 action-space encoders; no SO-101 planning evaluation is reported.
+
+- **Gravity compensation / hand-guiding**: partly feasible. See [Can the SO-101 do gravity compensation?](../syntheses/projects/so101-gravity-compensation.md) (admittance in position mode, and URDF validation by static-load fit).
 
 ## Open questions / TBD
 

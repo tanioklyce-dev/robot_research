@@ -3,7 +3,7 @@ title: FeeTech
 type: entity
 subtype: hardware-component
 created: 2026-05-28
-updated: 2026-08-27
+updated: 2026-11-16
 sources: 7
 tags: [feetech, bus-servo, motor-sdk, lerobot-supported-sdk, sts3215, sts3250, so-arm, low-cost, hello-robot, sourccey]
 ---
@@ -33,6 +33,8 @@ See the comparison table in [Dynamixel](dynamixel.md).
 FeeTech and [Dynamixel](dynamixel.md) are both **smart serial-bus servos** — a daisy-chained UART protocol, position commands, gearboxes. The [reBot Arm B601](rebot-arm-b601.md) ingest (2026-08) adds a third lineage to this wiki: **[Damiao](damiao.md) and [Robstride](robstride.md) quasi-direct-drive CAN actuators**, running 1 Mbit/s CAN with an MIT-style impedance interface (position + velocity + `kp`/`kd` + feedforward torque per command). That is a categorical difference, not a spec bump — torque-level control and, in principle, real backdrivability, versus position-only commands into a gearbox. It is also roughly 10× the price per joint. Nobody has published a backdrivability measurement on either side, which is the comparison that would actually settle what the money buys.
 
 ## Related
+
+- [Can the SO-101 do gravity compensation?](../syntheses/projects/so101-gravity-compensation.md) — what torque-style control is and isn't possible on STS3215s.
 
 - [LeRobot](lerobot.md) — natively integrates the FeeTech SDK.
 - [Dynamixel](dynamixel.md) — the other natively-integrated motor SDK lineage.

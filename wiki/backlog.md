@@ -2,13 +2,18 @@
 title: Wiki Backlog — deferred lint items & knowledge gaps
 type: meta
 created: 2026-07-04
-updated: 2026-11-07
+updated: 2026-11-16
 tags: [backlog, lint, todo, knowledge-gaps]
 ---
 
 # Wiki Backlog
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
+
+## [2026-11-16] From the SO-101 gravity-compensation synthesis
+- [ ] **Ingest the FeeTech STS3215 datasheet and memory (register) table** as a primary. Confirm or refute the operating modes (is there an open-loop PWM mode?), the present-load and present-current registers with their units, resolution and update rate, and the P/I/D coefficient registers. The [SO-101 gravity-comp plan](syntheses/projects/so101-gravity-compensation.md) uses these details from general knowledge, unverified. This also closes the long-standing open question on [FeeTech](entities/feetech.md).
+- [ ] **Verify the SO-101 leader vs follower servo gear ratios** from the SO-ARM101 BOM. Leader arms reportedly use lower-ratio STS3215 variants; the wiki records only 1:345.
+- [ ] **Experiment: SO-101 URDF validation by static-load fit** (approach 1 on the [plan](syntheses/projects/so101-gravity-compensation.md)): 20–30 poses, load vs Pinocchio τ_g per joint, with a residual report. An afternoon of work, and it also produces the load-to-torque scale that admittance hand-guiding needs.
 
 ## [2026-11-07] From the ToyBlocks + RoboDojo-on-Arena ingest
 - [ ] **Ingest the ToyBlocks technical report** when it appears, or the docs at allenai.github.io/ToyBlocks. Capture the chart numbers: VLA interpolation and extrapolation by technique, spelling success by difficulty, and the world-model probe scores. Find out how the LeWM probe was built.
