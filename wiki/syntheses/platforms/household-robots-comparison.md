@@ -156,7 +156,7 @@ The test task list is the one this page began with: navigate a home, pick things
 
 **Two patterns recur.** Suction appears in TRI's and Blue Collar's designs and as a Galbot option, because tight shelves favour it. The nearest commercial efforts also keep a person in the loop, as Tau does in homes.
 
-See also [Retail and grocery robotics](../../concepts/robotics/retail-and-grocery-robotics.md). Two simulated benchmarks agree with the field results. [RoboBenchMart](../../sources/robobenchmart-paper.md) found zero success on multi-step tasks for fine-tuned generalist policies, and [MarketGen](../../sources/marketgen-paper.md) kept modular LLM agents below 15%.
+Dated probabilities for each of these grocery jobs through 2030 are in set D of the [home robot forecast](../society/home-robot-forecast-2026-2028.md#prediction-set-d-grocery-shopping-added-2026-11-16). See also [Retail and grocery robotics](../../concepts/robotics/retail-and-grocery-robotics.md). Two simulated benchmarks agree with the field results. [RoboBenchMart](../../sources/robobenchmart-paper.md) found zero success on multi-step tasks for fine-tuned generalist policies, and [MarketGen](../../sources/marketgen-paper.md) kept modular LLM agents below 15%.
 
 ## When these answers should change
 

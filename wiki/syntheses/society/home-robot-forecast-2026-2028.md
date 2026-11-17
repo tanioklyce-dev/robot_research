@@ -3,15 +3,15 @@ title: Home robot and JEPA forecast, 2026-Q4 to 2030-Q4 — dated predictions wi
 type: synthesis
 created: 2026-11-16
 updated: 2026-11-16
-tags: [forecast, predictions, scorecard, jepa, ami-labs, yann-lecun, world-model, household-robot, consumer-robotics, adoption, capability, reliability, safety, privacy, 1x-neo, figure, weave-robotics, laundry-folding, dishes, calibration]
+tags: [forecast, predictions, scorecard, grocery, retail-robotics, jepa, ami-labs, yann-lecun, world-model, household-robot, consumer-robotics, adoption, capability, reliability, safety, privacy, 1x-neo, figure, weave-robotics, laundry-folding, dishes, calibration]
 ---
 
 # Home robot and JEPA forecast, 2026-Q4 to 2030-Q4
 
-Predictions made on **2026-11-16** about household robots: how many are in homes, what they can do, how fast capability is growing, and whether they are safe. Each prediction is a number with an interval, or a probability, with a fixed resolution rule. They are scored **after the end of each quarter**, from 2026-Q4 through 2030-Q4. A third set covers when JEPA-based AI reaches household products.
+Predictions made on **2026-11-16** about household robots: how many are in homes, what they can do, how fast capability is growing, and whether they are safe. Each prediction is a number with an interval, or a probability, with a fixed resolution rule. They are scored **after the end of each quarter**, from 2026-Q4 through 2030-Q4. A third set covers when JEPA-based AI reaches household products, and a fourth covers grocery shopping.
 
 > [!warning] These are judgment forecasts, not sourced facts
-> The evidence is cited from this wiki. The numbers are the forecaster's estimates from that evidence, and no source states them. Confidence falls quickly with distance: the 2026-Q4 and 2027 rows rest on announced products and dates, while the 2028 rows are extrapolation. **The predictions on this page are frozen as of 2026-11-16.** The first version, filed that day, ran to 2028-Q4. The 2029–2030 columns and set C (JEPA) were added later the same day, before any scoring, without changing any number already filed. Scoring is appended below; the forecasts themselves are never edited. A revised forecast goes on a new dated page. Confidence in the 2029–2030 columns is low: they are extrapolations of extrapolations.
+> The evidence is cited from this wiki. The numbers are the forecaster's estimates from that evidence, and no source states them. Confidence falls quickly with distance: the 2026-Q4 and 2027 rows rest on announced products and dates, while the 2028 rows are extrapolation. **The predictions on this page are frozen as of 2026-11-16.** The first version, filed that day, ran to 2028-Q4. The 2029–2030 columns, set C (JEPA) and set D (grocery shopping) were added later the same day, before any scoring, without changing any number already filed. Scoring is appended below; the forecasts themselves are never edited. A revised forecast goes on a new dated page. Confidence in the 2029–2030 columns is low: they are extrapolations of extrapolations.
 
 ## The short version
 
@@ -19,6 +19,7 @@ Predictions made on **2026-11-16** about household robots: how many are in homes
 - Almost none will do a chore unattended through 2027. **Laundry folding and partial tidying arrive first**, with a remote human as backup. **Unattended dishes probably do not arrive by the end of 2028** (28%).
 - Zero-shot capability is climbing fast from a low base. Reliability, the thing a product needs, is slower.
 - Physical safety is likely to come from low mass and low force, not proven-safe software. Privacy and security are the weaker side.
+- **Groceries: the store-to-cupboard chain arrives in pieces.** Robot delivery to the door is growing regionally, piloted picking in stores gets trial results first, and putting groceries away at home is about even odds as a published result by mid-2029. A robot service that does a household's shopping with no human picker is 38% by the end of 2030.
 - **JEPA reaches household robots first as a component, not as the controller.** A shipping home robot with a vendor-stated JEPA-style component passes 50% around 2029-Q3. A JEPA world model planning at run time reaches 40% by the end of 2030, and JEPA as the primary controller, LeCun's actual vision, only 19%.
 
 ## What is being counted
@@ -217,6 +218,81 @@ Cumulative probability (%), same convention as set B.
 - **C10–C12:** "shipping" means delivered to paying consumers, by the same test as set A. C12 implies C11, which implies C10.
 - **C13:** a research demo or developer preview does not count.
 
+## Prediction set D: grocery shopping (added 2026-11-16)
+
+**The question:** when do robots help a household with groceries, from the store to the cupboard?
+
+"Grocery robot" covers several different jobs at very different stages, and most of today's robots work for the retailer, not the household ([household robots comparison](../platforms/household-robots-comparison.md#grocery-shopping); [retail and grocery robotics](../../concepts/robotics/retail-and-grocery-robotics.md)).
+
+**Where it stands** (evidence as of 2026-11-16):
+- **To the door:** [Starship](../../entities/starship-technologies.md) reports over 10 million deliveries of all kinds and is moving more than 1,200 robots to grocery. In Finland, S Group says robots handle up to 20% of its online orders ([Starship releases](../../sources/starship-grocery-press-releases.md)). These are company figures. Someone still carries the bags inside.
+- **In the store, piloted:** [Blue Collar Robotics](../../entities/blue-collar-robotics.md) reports about 120 items an hour with one remote person per robot, with paid trials planned for Q4 2026 ([Utah Business](../../sources/utah-business-blue-collar-robotics.md), [company](../../sources/blue-collar-robotics-site.md)).
+- **In the store, autonomous:** TRI's best field result is 35.7% of runs and 28.9% of listed items, at night, excluding produce, refrigerated goods, glass and items over 4.5 kg ([TRI](../../sources/tri-grocery-mobile-manipulation-paper.md)). Simulated benchmarks agree: zero success on multi-step tasks in [RoboBenchMart](../../sources/robobenchmart-paper.md), under 15% in [MarketGen](../../sources/marketgen-paper.md).
+- **Stocking shelves:** over 98% per object and 87% per task in a mock supermarket, with cans and small boxes only ([Pixels to Shelf](../../sources/pixels-to-shelf-paper.md)).
+- **At home: almost no evidence.** The wiki has grocery bagging as a lab task for π0 ([FAST](../../sources/fast-paper.md)), fridge restocking as one of eleven teleoperated tasks in [HIW-500](../../sources/bitrobot-hiw-500-dataset-page.md), and a research robot opening a fridge 10 times in 10 in one apartment ([TidyBot++](../../sources/tidybot-plus-plus-paper.md)). No source reports a success rate for putting groceries away.
+
+Cumulative probability (%), same convention as set B.
+
+| ID | Event | 26Q4 | 27Q1 | 27Q2 | 27Q3 | 27Q4 | 28Q1 | 28Q2 | 28Q3 | 28Q4 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| **To the door** | | | | | | | | | | |
+| D1 | A sidewalk-robot operator reports 20 million or more cumulative deliveries (Starship reported 10 million in June 2026) | 1 | 3 | 7 | 12 | 18 | 25 | 32 | 39 | 46 |
+| D2 | A grocery retailer reports that robots deliver 30% or more of its online orders in some country or region (S Group reports up to 20% in Finland) | 1 | 3 | 6 | 10 | 14 | 18 | 22 | 26 | 30 |
+| **In the store** | | | | | | | | | | |
+| D3 | A remotely piloted in-store picking robot (Blue Collar Robotics or similar) reports paid-trial results with throughput and operator-to-robot ratio | 5 | 15 | 27 | 38 | 47 | 54 | 60 | 65 | 69 |
+| D4 | A retailer announces a commercial deployment, not a trial, of robots picking customer orders from ordinary store shelves in 5 or more stores | 0 | 1 | 3 | 6 | 10 | 14 | 19 | 24 | 29 |
+| D5 | Published autonomous shopping from a list retrieves 70% or more of listed items in an unmodified store (TRI's best: 28.9% of items) | 1 | 3 | 6 | 10 | 15 | 20 | 26 | 32 | 38 |
+| D6 | Published autonomous shopping completes 50% or more of runs in daytime with shoppers present | 0 | 1 | 3 | 5 | 8 | 12 | 16 | 20 | 24 |
+| D7 | Published autonomous shopping handles produce or refrigerated items at 50% or better item success | 1 | 2 | 5 | 8 | 12 | 16 | 21 | 26 | 31 |
+| D8 | A retailer provides follow-me carriers or shopping-assist robots for older or disabled shoppers in 10 or more stores | 2 | 4 | 7 | 10 | 14 | 18 | 22 | 26 | 30 |
+| **At home** | | | | | | | | | | |
+| D9 | A published result: a robot unpacks groceries and puts them away in fridge and cupboards in 5+ unseen homes at 60% or better full-task success, 50+ trials | 1 | 3 | 7 | 12 | 18 | 24 | 30 | 36 | 42 |
+| D10 | A purchasable home robot ships putting groceries away as a listed feature, at any level of remote assistance | 1 | 2 | 5 | 9 | 14 | 19 | 25 | 31 | 37 |
+| D11 | A purchasable home robot carries groceries in from the door or car, confirmed by an independent review | 0 | 1 | 3 | 5 | 8 | 12 | 16 | 20 | 25 |
+| D12 | A shipping home robot with arms offers automatic reordering based on what it sees in the kitchen | 2 | 5 | 9 | 14 | 19 | 24 | 29 | 34 | 39 |
+| **End to end** | | | | | | | | | | |
+| D13 | A general-purpose robot leaves a home, shops in a store and returns with the groceries without teleoperation, as a published or independently reported demonstration | 0 | 1 | 2 | 3 | 5 | 7 | 9 | 12 | 15 |
+| D14 | A consumer can buy or subscribe to a service that does a household's grocery shopping with no human picker: robot picking in the store plus delivery, in any city | 0 | 0 | 1 | 2 | 4 | 6 | 8 | 11 | 14 |
+
+| ID | Event (short) | 29Q1 | 29Q2 | 29Q3 | 29Q4 | 30Q1 | 30Q2 | 30Q3 | 30Q4 |
+|---|---|---|---|---|---|---|---|---|---|
+| D1 | 20M sidewalk deliveries | 52 | 58 | 63 | 68 | 72 | 75 | 78 | 80 |
+| D2 | Robots deliver 30%+ of a retailer's online orders | 34 | 38 | 41 | 44 | 47 | 50 | 52 | 54 |
+| D3 | Piloted picker reports trial results | 72 | 75 | 77 | 79 | 81 | 82 | 83 | 84 |
+| D4 | Commercial shelf-picking in 5+ stores | 34 | 39 | 43 | 47 | 51 | 54 | 57 | 60 |
+| D5 | Autonomous shopping at 70%+ of items | 43 | 48 | 53 | 57 | 61 | 64 | 67 | 70 |
+| D6 | Daytime shopping, 50%+ of runs | 28 | 32 | 36 | 40 | 44 | 47 | 50 | 53 |
+| D7 | Produce or chilled items at 50%+ | 36 | 40 | 44 | 48 | 52 | 55 | 58 | 61 |
+| D8 | Shopping-assist robots in 10+ stores | 34 | 37 | 40 | 43 | 46 | 49 | 51 | 53 |
+| D9 | Put-away at 60%+ in unseen homes, published | 47 | 52 | 56 | 60 | 64 | 67 | 70 | 73 |
+| D10 | Put-away shipped as a feature | 42 | 47 | 52 | 56 | 60 | 63 | 66 | 69 |
+| D11 | Carries groceries in from the door | 29 | 33 | 37 | 41 | 45 | 48 | 51 | 54 |
+| D12 | Robot reorders from what it sees | 43 | 47 | 51 | 55 | 58 | 61 | 64 | 66 |
+| D13 | Home-to-store-and-back demonstration | 18 | 21 | 24 | 27 | 30 | 33 | 36 | 39 |
+| D14 | Robot-only shopping service on sale | 17 | 20 | 23 | 26 | 29 | 32 | 35 | 38 |
+
+**The direct answer.**
+- **Delivery to the door** keeps growing where retailers offer it (D1 at 46% by the end of 2028, 80% by 2030), but it stays a regional service.
+- **Picking in the store** arrives first with a remote human pilot (D3 passes 50% in early 2028). A commercial rollout in five or more stores is about even odds by the start of 2030 (D4).
+- **Putting groceries away at home** is the first household-side task: a published result at about even odds by mid-2029 (D9), and a shipped feature at about the same time (D10).
+- **A robot that does your shopping for you**, end to end with no human picker, is 38% by the end of 2030 (D14). The median date is beyond this forecast.
+
+**Reasoning.**
+- **The store is harder than the home for a robot, and the home is where nobody is working yet.** Stores have tight shelves, other shoppers and thousands of products; TRI's chain of 103 actions is why 99% per action still fails two runs in three. But stores have a paying customer, the retailer, which is why piloted picking gets trials first.
+- **Put-away borrows from general household progress.** It is pick-and-place into a fridge and cupboards, with deformable bags and some fragile items. It should track tidying (B10) with a lag of a year or more, since no one has published on it yet. D9 is set accordingly.
+- **Produce, chilled goods and glass are the excluded majority.** TRI's exclusions cover much of a real shopping list. D7 trails D5 for that reason.
+- **Carrying bags in is a mobility problem.** Thresholds, steps and doors are where wheeled home robots stop, so D11 is lower than D10 throughout.
+- **End-to-end needs every link at once.** D14 requires store picking without a human picker and delivery, both commercial, in the same place. Commercial shelf-picking alone (D4) is only 60% by the end of 2030.
+
+**Notes on resolution.**
+- **D1–D2:** company-reported figures count, labelled as such.
+- **D3–D4:** warehouses, dark stores and micro-fulfilment centres do not count; the robot must pick from shelves customers also use.
+- **D5–D7:** the store must be unmodified and the list given at run time. D6 requires the paper to state that shoppers were present.
+- **D9:** "unseen" means homes the system was not trained in; full-task means every item put away.
+- **D10–D12:** "purchasable" and "shipping" as in set A.
+- **D13:** any published or independently reported end-to-end run counts, even a single one.
+- **D14:** a service with a human picker and robot delivery does not count.
+
 ## Reasoning behind the capability and safety rows
 
 **Why folding and tidying come first.** They tolerate failure: a badly folded towel or a missed toy costs nothing. Three independent lines already show them working in unseen homes at 40–67% (Helix 2.5), for hours at a time (π\*0.6), and as a shipping product with remote correction (Isaac 0).
@@ -254,9 +330,9 @@ Cumulative probability (%), same convention as set B.
 | 17 | 2030-12-31 | January 2031 | pending |
 
 **Method.**
-- **Sets B and C:** for each event, record 1 if it happened by the quarter's end, else 0. The score is the **Brier score**, the squared difference between the forecast probability and the outcome, averaged over the set's events (20 in B, 13 in C). Report the two sets separately. Lower is better. Always answering 50% scores 0.25.
+- **Sets B, C and D:** for each event, record 1 if it happened by the quarter's end, else 0. The score is the **Brier score**, the squared difference between the forecast probability and the outcome, averaged over the set's events (20 in B, 13 in C, 14 in D). Report the three sets separately. Lower is better. Always answering 50% scores 0.25.
 - **Set A:** build the tally table, then record hit, miss or unresolved, plus the ratio of the tally's midpoint to the point estimate.
-- **Calibration:** from checkpoint 3 on, group all scored set-B and set-C cells by forecast probability (0–10%, 10–30%, 30–70%, 70–90%, 90–100%) and compare with the observed frequency.
+- **Calibration:** from checkpoint 3 on, group all scored set-B, set-C and set-D cells by forecast probability (0–10%, 10–30%, 30–70%, 70–90%, 90–100%) and compare with the observed frequency.
 - **Evidence:** every resolution cites a source. A primary that matters to a decision gets ingested, per the wiki's primary-sources rule.
 - **Disputes:** if the evidence is ambiguous, mark the cell unresolved and exclude it from the average. Do not resolve in the forecast's favour.
 
@@ -264,25 +340,25 @@ Cumulative probability (%), same convention as set B.
 
 *(Appended after each checkpoint. Nothing above this line changes.)*
 
-| Checkpoint | Set A result | Set B Brier | Set C Brier | Events resolved yes | Notes |
-|---|---|---|---|---|---|
-| 1 (2026-Q4) | | | | | |
-| 2 (2027-Q1) | | | | | |
-| 3 (2027-Q2) | | | | | |
-| 4 (2027-Q3) | | | | | |
-| 5 (2027-Q4) | | | | | |
-| 6 (2028-Q1) | | | | | |
-| 7 (2028-Q2) | | | | | |
-| 8 (2028-Q3) | | | | | |
-| 9 (2028-Q4) | | | | | |
-| 10 (2029-Q1) | | | | | |
-| 11 (2029-Q2) | | | | | |
-| 12 (2029-Q3) | | | | | |
-| 13 (2029-Q4) | | | | | |
-| 14 (2030-Q1) | | | | | |
-| 15 (2030-Q2) | | | | | |
-| 16 (2030-Q3) | | | | | |
-| 17 (2030-Q4) | | | | | |
+| Checkpoint | Set A result | Set B Brier | Set C Brier | Set D Brier | Events resolved yes | Notes |
+|---|---|---|---|---|---|---|
+| 1 (2026-Q4) | | | | | | |
+| 2 (2027-Q1) | | | | | | |
+| 3 (2027-Q2) | | | | | | |
+| 4 (2027-Q3) | | | | | | |
+| 5 (2027-Q4) | | | | | | |
+| 6 (2028-Q1) | | | | | | |
+| 7 (2028-Q2) | | | | | | |
+| 8 (2028-Q3) | | | | | | |
+| 9 (2028-Q4) | | | | | | |
+| 10 (2029-Q1) | | | | | | |
+| 11 (2029-Q2) | | | | | | |
+| 12 (2029-Q3) | | | | | | |
+| 13 (2029-Q4) | | | | | | |
+| 14 (2030-Q1) | | | | | | |
+| 15 (2030-Q2) | | | | | | |
+| 16 (2030-Q3) | | | | | | |
+| 17 (2030-Q4) | | | | | | |
 
 ## Known weaknesses of this forecast
 
@@ -291,6 +367,7 @@ Cumulative probability (%), same convention as set B.
 - **Counting.** Vendors report "delivered", "shipped" and "sold" loosely. Figure's 350 "delivered" units are not homes.
 - **Thin base rates.** No general-purpose home robot has ever shipped at volume, so every number here is extrapolated from announcements and research results.
 - **Set C depends on disclosure.** Vendors rarely say what is inside their models. C10–C12 can be true and unresolvable; such cells are marked unresolved, which biases the scored record toward research events.
+- **Set D leans on company figures.** Delivery counts and retailer shares are self-reported, and the home-side rows start from almost no evidence, so their probabilities are the least anchored on the page.
 - **Horizon.** Four years is long for this field. The 2029–2030 columns should be read as a statement of today's beliefs, to be replaced by a new dated forecast well before then.
 
 ## Related
@@ -302,5 +379,6 @@ Cumulative probability (%), same convention as set B.
 - [Long-term in-home robot deployments](../assistive/long-term-in-home-robot-deployments.md)
 - [VLA success-rate audit](../platforms/vla-success-rate-audit.md) — why trial counts matter when scoring B9–B12
 - [Robot safety standards](../../concepts/robotics/robot-safety-standards.md), [DAgger and interactive imitation](../../concepts/learning/dagger.md)
+- [Retail and grocery robotics](../../concepts/robotics/retail-and-grocery-robotics.md) — the evidence behind set D
 - [JEPA for a household mobile manipulator](../world-models/jepa-for-household-mobile-manipulator.md) — the three conditions set C tracks
 - [Three ways to scale a JEPA world model](../world-models/three-ways-to-scale-a-jepa-world-model.md), [JEPA](../../concepts/world-models/jepa.md), [AMI Labs](../../entities/ami-labs.md), [Yann LeCun](../../entities/yann-lecun.md)

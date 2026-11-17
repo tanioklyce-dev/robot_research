@@ -2,7 +2,7 @@
 title: Retail and grocery robotics
 type: concept
 created: 2026-11-08
-updated: 2026-11-08
+updated: 2026-11-16
 sources: 9
 tags: [retail, grocery, mobile-manipulation, teleoperation, reliability, shelf-stocking]
 ---
@@ -26,6 +26,10 @@ tags: [retail, grocery, mobile-manipulation, teleoperation, reliability, shelf-s
 - **Delivery to the door.** [Starship](../../entities/starship-technologies.md) reports over 10 million deliveries across all goods and is moving over 1,200 robots from campuses to grocery. In Finland, S Group says robots handle as much as 20% of its online grocery orders ([Starship](../../sources/starship-grocery-press-releases.md)). These are company figures.
 - **Simulated benchmarks.** In [RoboBenchMart](../../sources/robobenchmart-paper.md), the best fine-tuned policy reached 63% on picking in familiar scenes, fell to 38% in new ones and 10% with new items, and scored zero on multi-step tasks. In [MarketGen](../../sources/marketgen-paper.md), modular LLM agents stayed below 15% with partial credit.
 - **Vendor deployment claims.** [Galbot](../../entities/galbot.md) claims retail and warehouse sites at scale in China ([product page](../../sources/galbot-g1-product-page.md)), not independently confirmed here.
+
+## Forecast
+
+Scoreable quarterly predictions through 2030 for delivery, in-store picking, putting groceries away at home and end-to-end shopping are in set D of the [home robot forecast](../../syntheses/society/home-robot-forecast-2026-2028.md#prediction-set-d-grocery-shopping-added-2026-11-16).
 
 ## A recurring design pattern
 
