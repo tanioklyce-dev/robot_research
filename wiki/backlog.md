@@ -912,9 +912,17 @@ Clean at time of writing: 0 broken links (7,175 checked), 0 orphan pages, all `s
 - [ ] **Astranomy arXiv version** — announced as coming soon on [the post](sources/nvidia-srl-astranomy-blog.md); also two related Astra-as-policy reports cited there and not ingested: Galbot (arXiv 2609.38537) and Su et al.'s technical report.
 
 ## [2026-11-17] Gemini Robotics 2.5 — follow-ups
-- [ ] **Gemini 4 safety report** (`storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf`, robotics section near p. 200) — cited by [the GR 2.5 post](sources/gemini-robotics-2-5-blog.md) for Argon's agentic robotics evaluations and ASIMOV-Jailbreak. Ingest it: it should hold the human-proximity numbers and the jailbreak method.
+- [x] **Gemini 4 safety report** — ingested 2026-11-17 as [Gemini 4 Argon — Safety & Security Report](sources/gemini-4-argon-safety-security-report.md). It holds the human-proximity numbers. It does not contain ASIMOV-Jailbreak.
 - [ ] **ASIMOV-Jailbreak in `google/asimov_agentic`** — check the dataset card for prompt and scene counts and scoring. The dataset itself is still not ingested (carried from 2026-08-03).
 - [ ] **GR 2.5 evaluation protocol** — watch for a technical report or model card with trial counts, and an explanation of the GR 2 baseline discrepancy (unscrew bulb 92% at GR 2's launch, 63% in the 2.5 charts).
 - [ ] **Apptronik or Mercedes-Benz primary on the kitting pilot** — pick counts, duration, interventions, which hand. Apollo still has no first-party source page; Apollo 2 specs are at `apptronik.com/apollo/apollo-2`.
 - [ ] **DeepMind model pages changed** — the post links `models/gemini-robotics/vla/` and `/embodied-reasoning/`; the [model page](sources/deepmind-gemini-robotics-model-page.md) capture predates 2.5 and has no `fetch_url`.
 - [ ] **Entity gaps** — Mercedes-Benz and Apptronik (the company) are referenced from several pages and have no entity page.
+
+## [2026-11-17] Gemini 4 Argon safety report — follow-ups
+- [ ] **Unread sections** of [the report](sources/gemini-4-argon-safety-security-report.md): §3.2–3.3 detail (CBRN, cyber, manipulation, safeguards), §3.4.4.3, §3.4.5.3–3.4.5.8 (chain-of-thought stress tests), §4.1, §5.1–5.2, §5.4–5.6, §6 methods, §7. Most figures were not viewed.
+- [ ] **Roboharm** — linked from the report, no source or entity page. Find the primary; the two-harness result is the most transferable robotics finding in the report.
+- [ ] **ASIMOV-2.0 primary** — the report links it. Would close the v1 → 2.0 gap on the [ASIMOV entity](entities/asimov-benchmark.md).
+- [ ] **ASIMOV-Jailbreak method** — still undocumented; check the `google/asimov_agentic` dataset card.
+- [ ] **Google DeepMind AI Control Roadmap / TRAIT&R taxonomy** and **Frontier Safety Framework v3.1** — both cited by the report, neither ingested.
+- [ ] **Gemini 4 model card** — referenced for basic model information.

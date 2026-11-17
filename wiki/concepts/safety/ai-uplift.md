@@ -2,8 +2,8 @@
 title: AI uplift studies
 type: concept
 created: 2026-07-27
-updated: 2026-07-27
-sources: 6
+updated: 2026-11-17
+sources: 7
 tags: [ai-safety, uplift-study, evaluation, methodology, rct, responsible-scaling, frontier-red-team, robotics, autonomy]
 ---
 
@@ -71,6 +71,7 @@ Generally: **an uplift study's external validity is capped by how representative
 - [LLM-agent architecture](../agents/llm-agent-architecture.md) — the autonomy end of the same axis. Uplift = model writes the code, human runs the loop; agents = model is *in* the loop.
 
 ## Mentioned in
+- [Gemini 4 Argon Safety & Security Report](../../sources/gemini-4-argon-safety-security-report.md) — uplift as a deployment gate: biological and cyber uplift thresholds "cannot be ruled out," with an estimated 16.7x cost reduction for a severe historical cyberattack.
 - [Project Fetch: Can Claude train a robot dog?](../../sources/anthropic-project-fetch-robot-dog.md)
 - [Project Fetch: Phase Two](../../sources/anthropic-project-fetch-phase-two.md)
 - [How Claude Performs on Robotics Tasks](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md)

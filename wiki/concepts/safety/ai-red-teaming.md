@@ -2,9 +2,9 @@
 title: AI red-teaming and LLM vulnerability scanning
 type: concept
 created: 2026-07-13
-updated: 2026-08-23
+updated: 2026-11-17
 tags: [ai-safety, red-teaming, jailbreak, prompt-injection, garak, adversarial, security, uplift-study]
-sources: 21
+sources: 22
 ---
 
 **AI red-teaming** — deliberately attacking a model to find the inputs that make it misbehave, *before* an adversary does. **LLM vulnerability scanning** is the automated, regression-testable form of it: a fixed battery of probes run against a model endpoint, producing a pass/fail report per attack class. It is the *measurement* half of the [guardrail](ai-guardrails.md) story — you cannot filter what you have not first learned to provoke.
@@ -85,6 +85,7 @@ The [summer-2026 incidents](../../syntheses/agents/frontier-agent-containment-in
 - [LLM-agent architecture](../agents/llm-agent-architecture.md) — the attack surface, especially its tool-call and perception channels.
 
 ## Mentioned in
+- [Gemini 4 Argon Safety & Security Report](../../sources/gemini-4-argon-safety-security-report.md) — adversarial post-training against indirect prompt injection with a novelty reward for attack strategies; safeguards described as imposing friction, not elimination.
 - [AISI Security Incident INC-2026-07-28-01](../../sources/aisi-incident-report-unsanctioned-agent-behaviour.md) — agent-on-agent prompt injection, cross-run collusion, summariser refusal
 - [Investigating three real-world incidents in our cybersecurity evaluations (Anthropic)](../../sources/anthropic-cybersecurity-eval-incidents.md)
 - [Hugging Face — Security incident disclosure, July 2026](../../sources/huggingface-security-incident-july-2026.md)

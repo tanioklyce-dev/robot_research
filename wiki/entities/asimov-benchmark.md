@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-08-03
 updated: 2026-11-17
-sources: 8
+sources: 9
 tags: [asimov, semantic-safety, benchmark, google-deepmind, constitutional-ai, neiss, safety]
 ---
 
@@ -41,10 +41,30 @@ Headline results: safety tool calling **100%** for ER 2 / Claude Opus 4.8 / GPT 
 Announced in the [Gemini Robotics 2.5 blog](../sources/gemini-robotics-2-5-blog.md): "a new open-source benchmark containing hundreds of prompts that disguise unsafe requests across dozens of scenes," testing jailbreak robustness specific to robotics. The post's link goes to the existing `google/asimov_agentic` dataset, so it appears to be distributed with ASIMOV-Agentic. Reported results: [Gemini 4 Argon](gemini-4-argon.md) **99.5%** jailbreak resistance against **82%** for Gemini Robotics ER 2.
 
 > [!note] Two numbers, no method yet
-> Prompt count, scene count, attack taxonomy, scoring, and scores for non-Google models are not in the post. It cites page 200 of the Gemini 4 safety report, which is not ingested. The family now covers judgment (v1, 2.0), orchestration (Agentic) and adversarial robustness (Jailbreak).
+> Prompt count, scene count, attack taxonomy, scoring, and scores for non-Google models are not in the post. The post cites the [Gemini 4 safety report](../sources/gemini-4-argon-safety-security-report.md) for Argon's agentic evaluations; that report, now ingested, covers ASIMOV-2.0, ASIMOV-Agentic and Roboharm and does not mention ASIMOV-Jailbreak. The family now covers judgment (v1, 2.0), orchestration (Agentic) and adversarial robustness (Jailbreak).
 
 ## Versions
-The wiki knows **ASIMOV-2.0** from the [Gemini Robotics 1.5 report](../sources/gemini-robotics-1-5-report.md) (paired with Auto-Red-Teaming); this entity documents **v1**. The delta between them is not documented in any ingested source.
+The wiki knows **ASIMOV-2.0** from the [Gemini Robotics 1.5 report](../sources/gemini-robotics-1-5-report.md) (paired with Auto-Red-Teaming); this entity documents **v1**.
+
+The [Gemini 4 Argon safety report](../sources/gemini-4-argon-safety-security-report.md) gives the first description of 2.0's contents the wiki holds. It "comprises three evaluations": hazard recognition accuracy in text and video scenarios "drawn from real-world injury reports from hospitals"; the precision with which an agent can trigger a safety intervention at a moment in a video stream; and safety-instruction following under physical constraints such as payload or end-effector limits. So 2.0 adds video and intervention timing to v1's judgment tasks. Sizes and construction are still not given.
+
+## Results on Gemini 4 Argon (2026-10)
+
+From the same report, with Gemini Robotics ER 2 and Gemini 3.1 Pro as comparators:
+
+| | Argon | ER 2 | 3.1 Pro |
+|---|---:|---:|---:|
+| 2.0 hazard severity, text | 77.4% | 70.5% | 71.6% |
+| 2.0 hazard severity, video | 71.1% | 52.0% | 63.2% |
+| 2.0 constraint following | 65.2% | 56.7% | 64.3% |
+| 2.0 intervention timing error | 0.76 s | 0.82 s | 0.94 s |
+| Agentic instruction uncertainty | 82.8% | 88.1% | 88.1% |
+| Agentic scene uncertainty, clarification | 95.4% | 88.5% | 85.5% |
+| Agentic scene uncertainty, helpfulness | 71.0% | 35.5% | 35.5% |
+| Agentic human proximity, recall | 99.7% | 71.1% | 90.1% |
+| Agentic human proximity, accuracy | 77.7% | 67.3% | 78.5% |
+
+No trial counts. The older general model beats the robotics-specialised ER 2 on five of these rows.
 
 ## Related
 - [Semantic safety](../concepts/safety/semantic-safety.md) — the concept it measures.
@@ -59,4 +79,5 @@ The wiki knows **ASIMOV-2.0** from the [Gemini Robotics 1.5 report](../sources/g
 - [Gemini Robotics 2: Safety Evaluations](../sources/gemini-robotics-2-safety-report.md) — introduces **ASIMOV-Agentic**, extending the family from semantic judgment to agentic safety orchestration.
 - [Gemini Robotics 2 blog](../sources/gemini-robotics-2-blog.md) — announces ASIMOV-Agentic alongside the model release.
 - [Gemini Robotics 2.5 blog](../sources/gemini-robotics-2-5-blog.md) — announces **ASIMOV-Jailbreak**; Argon 99.5% vs ER 2 82%.
+- [Gemini 4 Argon Safety & Security Report](../sources/gemini-4-argon-safety-security-report.md) — defines ASIMOV-2.0's three components and reports 2.0 and Agentic scores for Argon, ER 2 and Gemini 3.1 Pro.
 - [SciFi-Benchmark paper](../sources/scifi-benchmark-paper.md) — **the provenance of ASIMOV-Dilemmas-Scifi**: its 9,056-question corpus is that subset's train split (numbers match exactly); its constitutions are among ASIMOV's top performers.

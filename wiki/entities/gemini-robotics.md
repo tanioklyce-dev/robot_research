@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-09
 updated: 2026-11-17
-sources: 14
+sources: 15
 tags: [gemini-robotics, google-deepmind, vlm, vla, embodied-reasoning, foundation-model]
 ---
 
@@ -18,7 +18,7 @@ A new VLA, announced alone: no ER 2.5 and no On-Device 2.5 ([blog](../sources/ge
 - **Where it moved most**: tasks GR 2 could not do at all. Called-out examples include pack pastries with tongs **5% → 100%**, extract disk drive **0% → 100%**, close toolbox lid **0% → 93%**, untie ribbon bow **0% → 70%**, hang cardigan **0% → 62%**, fold pants with a board **0% → 40%**. In the multi-step chart GR 2 is non-zero on only 3 of 20 tasks.
 - **Where it did not**: every chart runs from 100% down to a tail of tasks near 10%, and on a few tasks per chart GR 2.5 is at or below GR 2.
 - **Factory pilot**: with an unversioned Gemini Robotics ER as orchestrator, Apollo 2 kitted automotive brackets on Mercedes-Benz lines in Kecskemét and Sindelfingen at a **96% success rate**, after "a few weeks of post-training" (Apptronik's CEO). No pick count, duration or intervention rate.
-- **Safety**: "inference-time reasoning guidance" raises safe task completion around obstacles by 33% and around people by 43% (baselines not given). The agentic safety results in the post, including 99.5% on the new [ASIMOV-Jailbreak](asimov-benchmark.md), are [Gemini 4 Argon](gemini-4-argon.md)'s, with ER 2 (82%) as the "previous baseline."
+- **Safety**: "inference-time reasoning guidance" raises safe task completion around obstacles by 33% and around people by 43% (baselines not given). The agentic safety results in the post, including 99.5% on the new [ASIMOV-Jailbreak](asimov-benchmark.md), are [Gemini 4 Argon](gemini-4-argon.md)'s, with ER 2 (82%) as the "previous baseline." The [Argon safety report](../sources/gemini-4-argon-safety-security-report.md) has the per-benchmark comparison: ER 2 trails Argon on most rows and trails the older general Gemini 3.1 Pro on video hazard severity (52.0% vs 63.2%) and human-proximity recall (71.1% vs 90.1%).
 - **Built with Argon**: simulated practice runs from real camera scenes, plus failure analysis from video. No ablation.
 
 > [!warning] Contradiction: the GR 2 baseline in the 2.5 charts is below GR 2's launch numbers
@@ -122,6 +122,7 @@ Boston Dynamics' **AIVI-Learning** product is described as "the next evolution" 
 - [Gemini Robotics 2: Safety Evaluations](../sources/gemini-robotics-2-safety-report.md) — ASIMOV-Agentic and the ER 2 safety evaluations.
 - [Gemini Robotics On-Device 2 model card](../sources/gemini-robotics-on-device-2-model-card.md) — the GRoD v1→v2 numbers and the high-DoF limitation.
 - [Gemini 4 Argon for Robotics](../sources/gemini-4-argon-robotics-blog.md) — a general Gemini 4 model taking the ER orchestrator role (ERQA 87%), not part of this family.
+- [Gemini 4 Argon Safety & Security Report](../sources/gemini-4-argon-safety-security-report.md) — ER 2 as the comparator in Argon's agentic robotics evaluations.
 - [Gemini Robotics 2.5 blog](../sources/gemini-robotics-2-5-blog.md) — the 2.5 VLA: per-task charts against GR 2, the Mercedes-Benz kitting pilot (96%), and a GR 2 baseline that conflicts with GR 2's launch figures.
 
 ## Open questions / TBD

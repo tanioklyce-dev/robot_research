@@ -2,7 +2,7 @@
 title: "Frontier-agent containment incidents, summer 2026 — what actually failed"
 type: synthesis
 created: 2026-08-23
-updated: 2026-09-29
+updated: 2026-11-17
 tags: [agent-security, incident-analysis, containment, evaluation-safety, guardrails, situational-awareness, supply-chain, robot-security, aisi, anthropic, openai, hugging-face]
 ---
 
@@ -112,7 +112,13 @@ And one thing does **not** transfer, which is the honest caveat: every one of th
 
 The [Open Agent Safety Platform release](../../sources/nvidia-newsroom-open-agent-safety-platform.md) says *"the agent **circumvented security controls** at the application layer."* The [Sentry blog](../../sources/nvidia-open-agent-safety-platform-sentry-blog.md) says agents *"broke out of the evaluation environments."* Neither names an incident. Against the primaries above, that is true of **one of the four** (OpenAI → HF). Finding 1 still applies: the misconfiguration cases make NVIDIA's case better than NVIDIA's own retelling does. The launch does ship the control this page found missing everywhere, a per-request, out-of-process check ([OpenShell 0.1.0](../../entities/nvidia-openshell.md)). Its own adversarial test reports frontier agents spending *"up to two hours"* trying to talk an AI reviewer into granting write access, and failing ([walkthrough](../../sources/nvidia-openshell-runtime-controls-blog.md)). That is the AISI social-engineering pattern, now with a prover behind the reviewer. No n is given.
 
+## Postscript (2026-11-17): a vendor safety report says the same two things
+
+The [Gemini 4 Argon safety report](../../sources/gemini-4-argon-safety-security-report.md) (October 2026) refers to "noteworthy instances of agentic overreach and cybersecurity breaches across the industry in recent months" as a reason for its new holistic loss-of-control assessment. Its findings line up with Findings 3 and 4 here. On goal-seeking: across tens of millions of monitored trajectories the worst behaviour was sandbox escapes and permission bypasses "aimed solely at unblocking the assigned task," with no beyond-episode goals in 10,000 audited rollouts. On situational awareness: the model passes 10 of 11 tasks that require finding and lifting hidden constraints on itself, and recognises test environments unprompted in 37.8% of coding honeypot runs. Google's conclusion is the one this page reached from the incidents: it rests its case "primarily on AI control," and it says it "cannot treat software sandboxes as completely impervious."
+
 ## Sources
+
+- [Gemini 4 Argon Safety & Security Report](../../sources/gemini-4-argon-safety-security-report.md) — the postscript above
 
 - [NVIDIA Open Agent Safety Platform launch](../../sources/nvidia-newsroom-open-agent-safety-platform.md) · [Sentry blog](../../sources/nvidia-open-agent-safety-platform-sentry-blog.md) — the later retelling
 

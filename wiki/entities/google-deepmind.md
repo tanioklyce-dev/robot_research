@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-06
 updated: 2026-11-17
-sources: 50
+sources: 51
 tags: [google-deepmind, mujoco, newton, mjcphysics, openusd, robotics-research, biomechanics, dmpo, acme, gemini-robotics, genie, world-model]
 ---
 
@@ -27,6 +27,9 @@ Google's AI research lab. Maintains MuJoCo and [MuJoCo Playground](mujoco-playgr
 ## Leadership stance on AGI and robotics (Davos, January 2026)
 [Demis Hassabis](demis-hassabis.md), at [The Day After AGI](../sources/wef-davos-2026-the-day-after-agi.md): a **50% chance of AGI by the end of the decade**, *"5 to 10 years,"* with *"one or two missing ingredients."* **Physical AI is inside his definition of AGI**, and it is the slow part — *"hardware in the loop may limit how fast the self-improvement systems can work."* His forecast for what must be cracked if self-improvement stalls: *"world models, continual learning… and then I think things like robotics may have its breakout moment."* Read against the lab's own [Gemini Robotics](gemini-robotics.md) line and the [GR 2 safety report](../sources/gemini-robotics-2-safety-report.md)'s conclusion that frontier models belong *alongside* deterministic guardrails: the CEO's ordering and the safety team's ordering agree — the model is not yet the thing the robot runs on.
 
+## Frontier safety practice (2026-10)
+The [Gemini 4 Argon safety report](../sources/gemini-4-argon-safety-security-report.md) is the lab's fullest public account of its Frontier Safety Framework (v3.1, April 2026). It introduces Tracked Capability Levels below the Critical ones, reports that the unmitigated model cannot be ruled out at the cyber and biological uplift levels or the stealth and situational awareness level, and states that its loss-of-control argument relies "primarily on AI control rather than assumptions about the model's alignment." It also reports that most production code at the lab is now more than 75% AI-written, with about 88% of pull requests still needing human steering or authorship.
+
 ## Generative world models
 - **[Genie 3](genie-3.md)** — DeepMind's general-purpose generative world model that produces "photorealistic and interactive 3D environments" (generative-video family; see [world model](../concepts/world-models/world-model.md)). Designed to be **post-trained into domain instruments**: [Waymo](waymo.md) built its [Waymo World Model](../sources/waymo-world-model.md) (AV simulation, camera+lidar) on top of it ([Waymo World Model blog](../sources/waymo-world-model.md)). Genie 3's own architecture/scale is not yet in the wiki (thin entry pending a primary DeepMind source). Distinct from [AGIBOT](agibot.md)'s similarly-named Genie Envisioner / Genie Sim.
 
@@ -41,12 +44,13 @@ Google's AI research lab. Maintains MuJoCo and [MuJoCo Playground](mujoco-playgr
 ## Mentioned in
 
 - [NSF HAND Engineering Research Center (site)](../sources/hand-erc-site.md) — listed as an industry member
-> [!note] Curated list — **49** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **50** source pages link here; the ones below are those that shaped this page.
 
 - [MuJoCo Playground Paper](../sources/mujoco-playground-paper.md)
 - [Code World Models for General Game Playing](../sources/code-world-models-general-game-playing.md)
 - [Gemini 4 Argon for Robotics](../sources/gemini-4-argon-robotics-blog.md) — the general frontier model as a robotics toolchain: sim authoring, labeling, code-as-policies control.
 - [Gemini Robotics 2.5 blog](../sources/gemini-robotics-2-5-blog.md) — the 2.5 VLA and the Mercedes-Benz pilot.
+- [Gemini 4 Argon Safety & Security Report](../sources/gemini-4-argon-safety-security-report.md) — Frontier Safety Framework v3.1 in use: three thresholds not ruled out, and a loss-of-control case built on chain-of-thought and action monitoring.
 - [EmbeddingGemma 2 launch blog](../sources/embeddinggemma-2-blog.md)
 - [NVIDIA Newton Physics Engine Developer Page](../sources/nvidia-newton-physics-engine-developer-page.md)
 - [Using OpenUSD for Modular and Scalable Robotic Simulation](../sources/nvidia-openusd-for-robotic-simulation.md)

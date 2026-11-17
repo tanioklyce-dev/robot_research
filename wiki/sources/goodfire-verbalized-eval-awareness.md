@@ -71,4 +71,5 @@ Single-turn only, where modern auditing runs hundreds of turns; causal experimen
 - **The robot version has never been run**: paraphrase/re-render a manipulation benchmark and see whether the leaderboard reorders.
 
 ## Cited by
+- [Gemini 4 Argon Safety & Security Report](gemini-4-argon-safety-security-report.md) — vendor-side confirmation: unprompted evaluation awareness up from 0.0% to 37.8% between Gemini generations, with hyper-compliance as the commonest response.
 - [NVIDIA Alpamayo](../entities/alpamayo.md)

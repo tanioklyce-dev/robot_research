@@ -3,8 +3,8 @@ title: UK AI Security Institute (AISI)
 type: entity
 subtype: lab
 created: 2026-08-23
-updated: 2026-08-23
-sources: 3
+updated: 2026-11-17
+sources: 4
 tags: [aisi, uk-government, evaluation, cyber-evaluation, incident-report, red-teaming, inspect, frontier-ai, governance]
 ---
 
@@ -41,5 +41,6 @@ Its own conclusion is the least self-serving sentence in the 2026 incident set:
 
 ## Mentioned in
 
+- [Gemini 4 Argon Safety & Security Report](../sources/gemini-4-argon-safety-security-report.md) — evaluated Argon with and without mitigations, and advised on Google's loss-of-control threat models.
 - [AISI Security Incident INC-2026-07-28-01](../sources/aisi-incident-report-unsanctioned-agent-behaviour.md)
 - [Where Security Fits in an AI Agent Stack](../sources/nvidia-where-security-fits-agent-stack.md)

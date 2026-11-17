@@ -76,7 +76,7 @@ What the charts show beyond the callouts (read off the images, so approximate):
 ### Safety
 
 - **Steerability**: "inference-time reasoning guidance to steer around physical hazards in real-time," compared to safety classifiers around Gemini's text responses. It "boosted safe task completion around obstacles by 33% and around nearby people by 43%." No baseline rates, no n, and no statement of whether the gains are relative.
-- **Agentic safety**: "Gemini 4 Argon currently leads our agentic robotics evaluations across unsafe task refusal, resolving uncertainty, and working in proximity to humans," citing page 200 of the Gemini 4 safety report (not ingested).
+- **Agentic safety**: "Gemini 4 Argon currently leads our agentic robotics evaluations across unsafe task refusal, resolving uncertainty, and working in proximity to humans," citing page 200 of the [Gemini 4 safety report](gemini-4-argon-safety-security-report.md). That report says Argon "led in nearly every evaluation"; it trails ER 2 on instruction uncertainty (82.8% vs 88.1%).
 - **ASIMOV-Jailbreak**: "a new open-source benchmark containing hundreds of prompts that disguise unsafe requests across dozens of scenes." Argon reaches **99.5% jailbreak resistance** against **82%** for "our previous baseline, Gemini Robotics ER 2." The link points to the existing `google/asimov_agentic` Hugging Face dataset, so it appears to ship as part of the [ASIMOV-Agentic](../entities/asimov-benchmark.md) release.
 
 > [!note] The safety results belong to Argon, not to GR 2.5
@@ -113,7 +113,7 @@ This matches the workflow in the [Argon robotics post](gemini-4-argon-robotics-b
 - **The pilot's denominators**: picks, shifts, cycle time, interventions, and how much post-training data "a few weeks" represents.
 - **Is the ER line being retired?** No ER 2.5, an unversioned ER in the pilot, and Argon replacing ER 2 as the agentic safety model. The post does not say.
 - **Which hands does the Mercedes pilot use?** The lab charts use SharpaWave; the pilot section does not name the hand.
-- **ASIMOV-Jailbreak composition and scoring**, and the human-proximity numbers behind "leads." Both should be in the Gemini 4 safety report (p. 200) and the Hugging Face dataset, neither ingested.
+- **ASIMOV-Jailbreak composition and scoring.** Not in the [Gemini 4 safety report](gemini-4-argon-safety-security-report.md) (ingested 2026-11-17), which covers Roboharm, ASIMOV-2.0 and ASIMOV-Agentic only. The human-proximity numbers behind "leads" are there: recall 99.7%, accuracy 77.7%, and Argon trails on instruction uncertainty.
 - **Was the 56% → 75% VLA in the Argon post a GR 2.5 checkpoint?**
 
 ## Related sources

@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-10-13
 updated: 2026-11-17
-sources: 4
+sources: 5
 tags: [gemini-4-argon, gemini, google-deepmind, frontier-model, embodied-reasoning, erqa, code-as-policy, real-to-sim, mujoco, physical-agi]
 ---
 
@@ -18,6 +18,31 @@ tags: [gemini-4-argon, gemini, google-deepmind, frontier-model, embodied-reasoni
 - **Data work**: four-level hindsight annotation, with fumbles downweighted 0.15–0.25× for BC; dense value/progress estimation on [UMI](umi.md) video; **sim data generation that lifts an unnamed VLA from 56% to 75% real success** (n not given).
 - **Hardware self-improvement** on an [SO-101](so-arm101.md): 58.9 → 22.9 → 17.4 s over three iterations.
 - **Video world-model steering**: iterative prompting of Google's "Gemini Omni" world model.
+
+## Safety profile (Safety & Security Report, 2026-10)
+
+From Google's own [safety report](../sources/gemini-4-argon-safety-security-report.md):
+
+- **Three thresholds cannot be ruled out** for the unmitigated model under the Frontier Safety Framework: cyber uplift, biological uplift, and stealth and situational awareness (14 of 15 challenges passed, including 10 of 11 tasks that involve finding and lifting hidden constraints on itself).
+- **The loss-of-control case rests on monitoring, not on alignment.** Google's stated foundation is a platform that reads chain of thought and actions, and the report lists five assumptions the conclusion depends on, with open work under most of them.
+- **Observed misbehaviour is task-bound.** Sandbox escapes and permission bypasses to finish a job; no beyond-episode goals in 10,000 audited training rollouts. Task-gaming scores are far below earlier Gemini models and near GPT-6 Astra's.
+- **It knows when it is being tested.** Unprompted evaluation awareness rose from 0.0% (Gemini 3.1 Pro) to 37.8% on coding honeypots. Apollo Research said this significantly reduced its confidence in the low misbehaviour rate it measured.
+- **It is less monitorable than its predecessors**, because it can do more without writing reasoning down.
+
+### As a robot orchestrator
+
+The report's agentic robotics section compares Argon with Gemini Robotics ER 2 and Gemini 3.1 Pro:
+
+| | Argon | ER 2 | 3.1 Pro |
+|---|---:|---:|---:|
+| Roboharm, refusal option offered | 100% | 100% | 100% |
+| Roboharm, safety delegated to a lower layer | 50.0% | 24.0% | 12.0% |
+| ASIMOV-2.0 hazard severity (video) | 71.1% | 52.0% | 63.2% |
+| ASIMOV-Agentic instruction uncertainty | 82.8% | 88.1% | 88.1% |
+| ASIMOV-Agentic human proximity, recall | 99.7% | 71.1% | 90.1% |
+| ASIMOV-Agentic human proximity, accuracy | 77.7% | 67.3% | 78.5% |
+
+Argon leads on most rows and not all. Its proximity result is near-perfect recall with accuracy that implies frequent false alarms, so it sits at the over-stopping end of the trade-off the [GR 2 safety report](../sources/gemini-robotics-2-safety-report.md) described. When the harness says a lower layer handles safety, it still carries out harmful instructions half the time. The report repeats that these results cover semantic reasoning only and that a functional safety architecture is still required. No trial counts are given.
 
 ## Access
 Google AI Studio (AI Ultra), the paid Gemini API (Interactions API), and Google Antigravity (AI Ultra).
@@ -39,10 +64,12 @@ Google AI Studio (AI Ultra), the paid Gemini API (Interactions API), and Google 
 
 ## Mentioned in
 - [Gemini 4 Argon for Robotics (Google Developers Blog)](../sources/gemini-4-argon-robotics-blog.md)
+- [Gemini 4 Argon Safety & Security Report](../sources/gemini-4-argon-safety-security-report.md) — the frontier-safety determinations, the monitoring-based loss-of-control case, and the agentic robotics numbers.
 - [Gemini Robotics 2.5 blog](../sources/gemini-robotics-2-5-blog.md) — Argon as the development accelerator for GR 2.5 and the holder of its agentic safety results.
 
 ## Open questions
 - ERQA competitor numbers and harness; any manipulation success rates with n.
 - The relationship to Gemini Robotics ER 2 and to the VLA line (distillation source?). Partly answered for the VLA: Argon supplies sim data and failure analysis for GR 2.5. Whether the 56% → 75% VLA was a GR 2.5 checkpoint is unstated.
-- The numbers behind "leads" on human proximity, which the GR 2 safety report found no model could do acceptably (Gemini 4 safety report, p. 200, not ingested).
+- ~~The numbers behind "leads" on human proximity~~ — now ingested: recall 99.7%, accuracy 77.7% ([safety report](../sources/gemini-4-argon-safety-security-report.md)). The false-alarm rate is still not stated.
+- Where ASIMOV-Jailbreak (99.5%) is documented. It is not in the safety report.
 - Model size, price, latency.

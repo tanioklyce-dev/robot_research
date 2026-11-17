@@ -2,8 +2,8 @@
 title: AI safety and alignment
 type: concept
 created: 2026-05-09
-updated: 2026-09-07
-sources: 26
+updated: 2026-11-17
+sources: 27
 tags: [ai-safety, alignment, corrigibility, values, anthropic]
 ---
 
@@ -83,7 +83,11 @@ The [robotics evaluation](../../sources/anthropic-how-claude-performs-on-robotic
 
 Concretely: the same model that cannot balance a humanoid for a second can navigate a maze when handed a pretrained policy and a compass. **An evaluation result without its [control abstraction level](../robotics/control-abstraction-levels.md) is not a result.** This is the training-time/deployment-time picture's missing third axis — not what the model *is*, and not what the runtime *filters*, but **what it was handed**.
 
+## Google's version: the Frontier Safety Framework (2026-10)
+The [Gemini 4 Argon safety report](../../sources/gemini-4-argon-safety-security-report.md) shows the same threshold structure at another lab. Critical Capability Levels cover CBRN, cyber, harmful manipulation and ML R&D; v3.1 adds lower Tracked Capability Levels. For Argon, three could not be ruled out without mitigations. The notable move is in the loss-of-control case, which Google rests "primarily on AI control rather than assumptions about the model's alignment," because system properties can be audited and dispositions cannot. The report's evidence on disposition is that misbehaviour is task-bound (sandbox escapes to finish a job) with no beyond-episode goals found, and that the model's awareness of being tested, 37.8% unprompted on coding honeypots, limits how far that evidence goes.
+
 ## Mentioned in
+- [Gemini 4 Argon Safety & Security Report](../../sources/gemini-4-argon-safety-security-report.md) — capability thresholds at Google, and control ranked above alignment as the basis for a safety case.
 - [Project Fetch: Can Claude train a robot dog?](../../sources/anthropic-project-fetch-robot-dog.md) — RSP capability thresholds; autonomous AI R&D; robotics as a monitored domain
 - [Project Fetch: Phase Two](../../sources/anthropic-project-fetch-phase-two.md) — the uplift→autonomy premise re-measured
 - [How Claude Performs on Robotics Tasks](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — access level as a core system property; scoped physical access as a deployment direction

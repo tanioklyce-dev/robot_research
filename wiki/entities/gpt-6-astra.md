@@ -3,8 +3,8 @@ title: GPT-6 Astra
 type: entity
 subtype: model
 created: 2026-11-07
-updated: 2026-11-14
-sources: 10
+updated: 2026-11-17
+sources: 11
 tags: [gpt-6-astra, openai, frontier-model, llm-as-policy, robodojo, code-as-policy, embodied-reasoning, robot-safety, closed-weights]
 ---
 
@@ -63,6 +63,7 @@ This is a third role, after direct policy and controller writer. The expensive r
 - [Control abstraction levels](../concepts/robotics/control-abstraction-levels.md) · [Code as policy](../concepts/agents/code-as-policy.md) · [Embodied-reasoning VLMs](../concepts/learning/embodied-reasoning-vlms.md)
 
 ## Mentioned in
+- [Gemini 4 Argon Safety & Security Report](../sources/gemini-4-argon-safety-security-report.md) — comparator in Google's task-gaming and cheating audits: lowest task-gaming score (0.28) and no cheating on the tool-replication benchmark.
 - [GPT-6 Astra on RoboDojo (Zhang et al., 2026)](../sources/gpt-6-astra-robodojo-paper.md) — the primary for its robot-policy results.
 - [XPolicyLab GitHub](../sources/xpolicylab-github.md) — the eval-only adapter.
 - [RPG paper](../sources/rpg-guided-self-improvement-paper.md) — the strongest CaP-Agent0 base model (Pro).
