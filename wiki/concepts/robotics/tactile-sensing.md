@@ -3,7 +3,7 @@ title: Tactile sensing
 type: concept
 created: 2026-09-07
 updated: 2026-11-10
-sources: 7
+sources: 8
 tags: [tactile-sensing, gelsight, vision-based-tactile, slip-detection, force-torque, visuo-tactile, contact-rich, multimodal-fusion]
 ---
 
@@ -91,3 +91,4 @@ Vision-based tactile is the research default and GelSight the reference design; 
 - [FACTR](../../sources/factr-paper.md) — joint-torque force used for teleop feedback and policy input; the authors name torque-sensor noise as the limit for fine tasks and tactile as the fix.
 - [R²D²: robotic assembly](../../sources/nvidia-r2d2-robotic-assembly-blog.md) — TacSL, GPU tactile simulation.
 - [R²D²: three neural methods (CoRL 2025)](../../sources/nvidia-r2d2-neural-robot-learning-blog.md) — VT-Refine: touch doubles the gain from simulated RL fine-tuning.
+- [NSF HAND Engineering Research Center (site)](../../sources/hand-erc-site.md) — a ten-year center betting on tactile hands and a skill library

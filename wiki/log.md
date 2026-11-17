@@ -6910,3 +6910,10 @@ Structure was sound: **0 broken file links, 0 orphans, 0 schema violations, all 
   - The open-source leg uses the same actuator reasoning as the wiki's torque-controllable arm material: drone motors, low ratios, current-based torque.
   - The hospital's own Robotics Lab reports that robot-guided repetitive therapy gave variable gains and slow clinical uptake after three funding cycles.
 - Limits: both argallab papers are case studies with two to four participants and no statistics. The IJRR per-participant tables were not transcribed, so that page carries qualitative findings only. Two of the five project pages (hand surgery measurements, a neuromodulation recruitment notice) have no robotics content and are recorded in one line each.
+
+## [2026-11-17] ingest | HAND ERC site and Northwestern assistive-autonomy topic pages
+- Created [NSF HAND Engineering Research Center (site)](sources/hand-erc-site.md) from 6 pages of hand-erc.org, and [Northwestern robotics topic pages](sources/northwestern-robotics-assistive-topic-pages.md) from 5 research-topic pages. Both captured as bundles; the pages were fetched late on 2026-11-16.
+- New entity: [HAND ERC](entities/hand-erc.md).
+- Updated [argallab](entities/argallab.md), [Shirley Ryan AbilityLab](entities/shirley-ryan-abilitylab.md), [Russ Tedrake](entities/russ-tedrake.md), [Google DeepMind](entities/google-deepmind.md), and the concept pages for assistive robotics, tactile sensing, dexterous tool manipulation and imitation learning.
+- What it adds: a dated institutional goal (a non-specialist sets up dexterous manipulation in a day and is productive in a week, by 2035); a center betting on tactile hands and a composable skill library where most of this wiki's sources use grippers, vision and one policy; and two ideas from the argallab stated more fully than before — autonomy that hands control back as the person learns, and learning from demonstrations degraded by motor impairment.
+- Limits: websites only. No results, no hand design, no benchmark. The HAND project list and award announcement were not captured, so the award start date is not recorded.

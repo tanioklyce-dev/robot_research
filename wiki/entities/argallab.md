@@ -3,8 +3,8 @@ title: argallab (Assistive & Rehabilitation Robotics Lab, Shirley Ryan AbilityLa
 type: entity
 subtype: lab
 created: 2026-11-16
-updated: 2026-11-16
-sources: 3
+updated: 2026-11-17
+sources: 5
 tags: [argallab, brenna-argall, shared-control, shared-autonomy, interface-aware, assistive-robotics, powered-wheelchair, assistive-robot-arm, robot-learning, northwestern, shirley-ryan-abilitylab]
 ---
 
@@ -23,6 +23,8 @@ tags: [argallab, brenna-argall, shared-control, shared-autonomy, interface-aware
 
 Source for all four: [lab pages](../sources/shirley-ryan-abilitylab-research-labs.md).
 
+Two of these lines are stated more fully on Northwestern's [topic pages](../sources/northwestern-robotics-assistive-topic-pages.md). In the motor-learning project, autonomy handles part of the control at first and hands dimensions back to the person as they learn, with machine learning deciding when. In the learning-from-impaired-teachers project, the lab hypothesizes that noisy, sparse demonstrations can be exploited by the learning algorithm.
+
 ## Positions worth holding
 
 - **Users want to stay in the control loop.** Argall: *"most people don't want a 100%-driverless car solution for their wheelchairs"*, and autonomy that steps in at the wrong time takes agency away.
@@ -37,6 +39,7 @@ Source: [lab pages](../sources/shirley-ryan-abilitylab-research-labs.md) (a 2023
 - **Output:** 71 listed publications through 2026, at venues including RSS, IJRR, HRI and ICORR.
 - **Collaborators named:** Todd Murphey and Sandro Mussa-Ivaldi (grants), LUCI (wheelchair safety systems), Innovative Design Labs (NIH SBIR).
 - **Project DRIVE:** led by the lab, a participant in the NSF Convergence Accelerator program.
+- **HAND ERC:** Argall leads the Intelligent Dexterity thrust of the [HAND ERC](hand-erc.md), an NSF center on dexterous robot hands headquartered at Northwestern ([site](../sources/hand-erc-site.md)).
 
 Source: [lab pages](../sources/shirley-ryan-abilitylab-research-labs.md).
 
@@ -67,3 +70,5 @@ Both are case studies with two to four participants and no inferential statistic
 - [Shirley Ryan AbilityLab research labs and the argallab](../sources/shirley-ryan-abilitylab-research-labs.md)
 - [REACT shared control for powered wheelchairs (RSS 2026)](../sources/react-shared-control-wheelchair-paper.md)
 - [Interface-aware handling of unintended interface operation (IJRR 2025)](../sources/interface-aware-arm-teleoperation-sci-paper.md)
+- [NSF HAND Engineering Research Center (site)](../sources/hand-erc-site.md)
+- [Northwestern robotics topic pages](../sources/northwestern-robotics-assistive-topic-pages.md)

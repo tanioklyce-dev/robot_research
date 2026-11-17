@@ -3,8 +3,8 @@ title: Shirley Ryan AbilityLab
 type: entity
 subtype: lab
 created: 2026-11-16
-updated: 2026-11-16
-sources: 5
+updated: 2026-11-17
+sources: 7
 tags: [shirley-ryan-abilitylab, rehabilitation, assistive-robotics, rehabilitation-robotics, prosthetics, brain-machine-interface, northwestern, chicago, hospital]
 ---
 
@@ -41,6 +41,8 @@ Source for the table: [lab pages](../sources/shirley-ryan-abilitylab-research-la
 - **[REACT wheelchair shared control](../sources/react-shared-control-wheelchair-paper.md)** (RSS 2026) and **[interface-aware arm teleoperation](../sources/interface-aware-arm-teleoperation-sci-paper.md)** (IJRR 2025), both from the argallab.
 - **[Project pages](../sources/shirley-ryan-abilitylab-project-pages.md)**: the COMET center on machines that work alongside therapists, a lightweight powered leg for older users with a variable-transmission knee, and a manual wheelchair that can be propelled while standing.
 
+**HAND ERC testbed.** The hospital hosts the assistance and caregiving testbed of the [HAND ERC](hand-erc.md), an NSF center on dexterous robot hands ([site](../sources/hand-erc-site.md)). Its body-machine interface is the input device in the argallab's motor-learning project ([topic pages](../sources/northwestern-robotics-assistive-topic-pages.md)).
+
 **A caution the hospital's own history supplies:** after three funding cycles of robot-assisted therapy research, its Robotics Lab reported that robots guiding repetitive motion gave variable gains and slow clinical acceptance, and moved toward simpler devices that keep the therapist involved ([project pages](../sources/shirley-ryan-abilitylab-project-pages.md)).
 
 > [!note] Coverage
@@ -59,3 +61,5 @@ Source for the table: [lab pages](../sources/shirley-ryan-abilitylab-research-la
 - [Interface-aware handling of unintended interface operation (IJRR 2025)](../sources/interface-aware-arm-teleoperation-sci-paper.md)
 - [Open-source bionic leg (Azocar et al. 2020)](../sources/open-source-bionic-leg-paper.md)
 - [Shirley Ryan AbilityLab project pages](../sources/shirley-ryan-abilitylab-project-pages.md)
+- [NSF HAND Engineering Research Center (site)](../sources/hand-erc-site.md)
+- [Northwestern robotics topic pages](../sources/northwestern-robotics-assistive-topic-pages.md)

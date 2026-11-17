@@ -3,7 +3,7 @@ title: Assistive Robotics
 type: concept
 created: 2026-05-09
 updated: 2026-11-16
-sources: 59
+sources: 61
 tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot, accessibility]
 ---
 
@@ -141,3 +141,5 @@ Dated, scoreable predictions through 2030 (homes with an assistive mobile manipu
 - [Interface-aware arm teleoperation (IJRR 2025)](../../sources/interface-aware-arm-teleoperation-sci-paper.md) — models the noisy channel between a person and the robot before inferring intent
 - [Open-source bionic leg (Azocar et al. 2020)](../../sources/open-source-bionic-leg-paper.md) — shared research hardware for powered prostheses
 - [Shirley Ryan AbilityLab project pages](../../sources/shirley-ryan-abilitylab-project-pages.md) — a hospital's own account of the limits of robot-guided therapy
+- [NSF HAND Engineering Research Center (site)](../../sources/hand-erc-site.md) — assistance and caregiving is one of five testbeds
+- [Northwestern robotics topic pages](../../sources/northwestern-robotics-assistive-topic-pages.md) — autonomy that hands control back as the person learns
