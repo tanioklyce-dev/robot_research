@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-10-13
 updated: 2026-11-17
-sources: 5
+sources: 6
 tags: [gemini-4-argon, gemini, google-deepmind, frontier-model, embodied-reasoning, erqa, code-as-policy, real-to-sim, mujoco, physical-agi]
 ---
 
@@ -63,12 +63,13 @@ Google AI Studio (AI Ultra), the paid Gemini API (Interactions API), and Google 
 - [Embodied-reasoning VLMs](../concepts/learning/embodied-reasoning-vlms.md) · [Code world model](../concepts/world-models/code-world-model.md): writing executable environments, here as MuJoCo XML instead of OpenSpiel Python.
 
 ## Mentioned in
+- [embodiedreasoning/ERQA (GitHub)](../sources/erqa-github.md) — what the benchmark behind the 87% figure contains and how its public harness scores.
 - [Gemini 4 Argon for Robotics (Google Developers Blog)](../sources/gemini-4-argon-robotics-blog.md)
 - [Gemini 4 Argon Safety & Security Report](../sources/gemini-4-argon-safety-security-report.md) — the frontier-safety determinations, the monitoring-based loss-of-control case, and the agentic robotics numbers.
 - [Gemini Robotics 2.5 blog](../sources/gemini-robotics-2-5-blog.md) — Argon as the development accelerator for GR 2.5 and the holder of its agentic safety results.
 
 ## Open questions
-- ERQA competitor numbers and harness; any manipulation success rates with n.
+- ERQA competitor numbers and harness; any manipulation success rates with n. The [public ERQA harness](../sources/erqa-github.md) scores a bare letter by exact match, so the 87% "using pure reasoning" came from a protocol that is not published.
 - The relationship to Gemini Robotics ER 2 and to the VLA line (distillation source?). Partly answered for the VLA: Argon supplies sim data and failure analysis for GR 2.5. Whether the 56% → 75% VLA was a GR 2.5 checkpoint is unstated.
 - ~~The numbers behind "leads" on human proximity~~ — now ingested: recall 99.7%, accuracy 77.7% ([safety report](../sources/gemini-4-argon-safety-security-report.md)). The false-alarm rate is still not stated.
 - Where ASIMOV-Jailbreak (99.5%) is documented. It is not in the safety report.

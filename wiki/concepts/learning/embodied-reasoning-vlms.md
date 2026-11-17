@@ -3,7 +3,7 @@ title: Embodied-reasoning VLMs (ER backbones)
 type: concept
 created: 2026-09-11
 updated: 2026-11-17
-sources: 13
+sources: 14
 tags: [embodied-reasoning, vlm-backbone, spatial-reasoning, pointing, benchmarks, vla, molmo2-er, gemini-robotics-er, cosmos-reason, unifolm]
 ---
 
@@ -61,6 +61,7 @@ The field has converged on a shared basket, and [UnifoLM](../../sources/unifolm-
 - [Physical reasoning benchmarks](../world-models/physical-reasoning-benchmarks.md) — the adjacent, physics-focused basket.
 
 ## Mentioned in
+- [embodiedreasoning/ERQA (GitHub)](../../sources/erqa-github.md) — ERQA's released harness is exact-match on a single letter; the reasoning-mode protocol behind headline scores is unpublished, and a constant guess scores 30.8%.
 - [Gemini Robotics: Bringing AI into the Physical World](../../sources/gemini-robotics-report-2025.md) — where the "-ER" name and [ERQA](../../entities/erqa.md) come from; ER nearly doubles zero-shot control success over its base model (27% → 53%).
 
 - [UnifoLM-WLA-1.0 project page](../../sources/unifolm-wla-1-project-page.md)

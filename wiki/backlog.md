@@ -929,6 +929,10 @@ Clean at time of writing: 0 broken links (7,175 checked), 0 orphan pages, all `s
 
 ## [2026-11-17] Gemini Robotics 2025 report — follow-ups
 - [ ] **Per-task charts** in [the 2025 report](sources/gemini-robotics-report-2025.md) (Figs. 16, 17, 21, 23, 24, 26, 28) were not transcribed; neither were the appendix task lists and prompts.
-- [ ] **Confirm the arXiv identifier and announcement date** recorded on the source page; both came from memory, not from the PDF.
-- [ ] **ERQA repository** (`github.com/embodiedreasoning/ERQA`) — ingest for the question breakdown and any maintained leaderboard; would let the [ERQA entity](entities/erqa.md) put its rows on one harness.
+- [x] **arXiv identifier and announcement date** — corroborated 2026-11-17 by the ERQA repository (commit date and an issue citing arXiv 2503.20020). Still not checked against arXiv itself.
+- [x] **ERQA repository** — ingested 2026-11-17 as [embodiedreasoning/ERQA (GitHub)](sources/erqa-github.md). It has no leaderboard, so the rows still cannot be put on one harness.
 - [ ] **Argon blog capture cannot be auto-checked** — the October capture has a hand-added author line and literal `<omni_prompt>` tags that the text comparison reads as drift. Compared by hand 2026-11-17 with no change; a fresh capture under a new filename would make it re-checkable.
+
+## [2026-11-17] ERQA repository — follow-ups
+- [ ] **Run ERQA once on a fixed harness** against a current model, with the 400-question denominator confirmed, to have one first-party row on the [ERQA entity](entities/erqa.md). The dataset is CC BY 4.0 and 91 MB.
+- [ ] **Look for a maintained ERQA leaderboard** elsewhere (third-party evaluation frameworks; issue #6 proposes one).

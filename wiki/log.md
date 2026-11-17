@@ -6948,3 +6948,9 @@ Structure was sound: **0 broken file links, 0 orphans, 0 schema violations, all 
 
 ## [2026-11-17] drift-check | Gemini 4 Argon for Robotics (Google Developers Blog)
 - Asked to ingest a URL that is [already ingested](sources/gemini-4-argon-robotics-blog.md) (captured 2026-10-13). Re-fetched and compared: **no content change.** The automated comparison reported drift from three artifacts of the October capture: a hand-added author line, literal `<omni_prompt>` tags that the comparison strips as markup, and trimmed page chrome. Recorded a `drift_check:` reason on the source page instead of a `fetch_url`. No second page written.
+
+## [2026-11-17] ingest | embodiedreasoning/ERQA (GitHub)
+- Created [embodiedreasoning/ERQA (GitHub)](sources/erqa-github.md) from the repository at commit 5bba488 (README captured in `raw/`, sealed, `fetch_url` set). The 91 MB dataset file was parsed directly and is not stored; its hash is on the source page.
+- Updated [ERQA](entities/erqa.md) (composition table, scoring rule, baselines), [Gemini 4 Argon](entities/gemini-4-argon.md), [Google DeepMind](entities/google-deepmind.md), the embodied-reasoning VLMs and robot policy evaluation concept pages, and the [2025 report source page](sources/gemini-robotics-report-2025.md) (date and arXiv identifier now corroborated).
+- **Measured from the data**: 400 questions, 630 images, eight question types (Spatial 84 down to Other 14); 28.3% multi-image; chance about 25.9%; always answering "A" scores 30.8%.
+- **Finding**: the released harness scores a bare letter by exact match and every question instructs a letter-only reply, so chain-of-thought and "reasoning" scores, including the report's own Table 2 and Argon's 87%, come from protocols that were never published. An outside reproduction attempt (issue #3) fell 3.8 points short and went unanswered. No leaderboard; no commits since 2025-03-12.

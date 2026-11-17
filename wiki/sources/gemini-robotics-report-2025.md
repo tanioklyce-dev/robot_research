@@ -17,7 +17,7 @@ tags: [gemini-robotics, gemini-robotics-er, erqa, vla, embodied-reasoning, aloha
 # Gemini Robotics: Bringing AI into the Physical World
 
 > [!note] Publication date
-> The PDF was built on 2025-03-11 and the models were announced on 2025-03-12. The arXiv identifier is from memory of the public record, not from the PDF.
+> The PDF was built on 2025-03-11. The [ERQA repository](erqa-github.md) added its link to the blog post and this report on 2025-03-12, which fits the announcement date used here. The arXiv identifier is not in the PDF; an issue on that repository cites the report as arXiv 2503.20020.
 
 ## Summary
 
@@ -121,6 +121,7 @@ Gemini 2.0 "may struggle with grounding spatial relationships across long videos
 - Whether the Apollo results were ever quantified. The humanoid appears in one figure with no success rate.
 
 ## Related sources
+- [embodiedreasoning/ERQA (GitHub)](erqa-github.md): the released benchmark. Its harness does not implement the chain-of-thought protocol behind Table 2.
 - [Gemini Robotics 1.5 tech report](gemini-robotics-1-5-report.md) · [Gemini Robotics 2 blog](gemini-robotics-2-blog.md) · [Gemini Robotics 2.5 blog](gemini-robotics-2-5-blog.md): the three later generations.
 - [ASIMOV Benchmark paper](asimov-benchmark-paper.md): released concurrently.
 - [π0 paper](pi-zero-paper.md): the baseline.

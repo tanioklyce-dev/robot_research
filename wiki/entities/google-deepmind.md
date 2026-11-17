@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-06
 updated: 2026-11-17
-sources: 52
+sources: 53
 tags: [google-deepmind, mujoco, newton, mjcphysics, openusd, robotics-research, biomechanics, dmpo, acme, gemini-robotics, genie, world-model]
 ---
 
@@ -44,7 +44,7 @@ The [Gemini 4 Argon safety report](../sources/gemini-4-argon-safety-security-rep
 ## Mentioned in
 
 - [NSF HAND Engineering Research Center (site)](../sources/hand-erc-site.md) — listed as an industry member
-> [!note] Curated list — **51** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **52** source pages link here; the ones below are those that shaped this page.
 
 - [MuJoCo Playground Paper](../sources/mujoco-playground-paper.md)
 - [Code World Models for General Game Playing](../sources/code-world-models-general-game-playing.md)
