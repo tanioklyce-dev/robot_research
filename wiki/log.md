@@ -6877,3 +6877,10 @@ Structure was sound: **0 broken file links, 0 orphans, 0 schema violations, all 
 - Events: unattended dishes 88% and folding 95% by 2035; unattended cooking 70 / 86 / 95%; unattended bathroom cleaning 75 / 90 / 96%; JEPA planner as primary controller 35 / 42 / 48%.
 - Stated on the page: nothing in the evidence reaches past 2028, most capability rows saturate near 99% and so carry little information, rows naming a company are capped by its survival, and the JEPA rows carry a naming risk.
 - Scoring schedule, scorecard and backlog gain checkpoints 18–20 (January 2036, 2041, 2051). The assistive forecast was not extended.
+
+## [2026-11-16] query | "Add the same 2035, 2040 and 2050 checkpoints to the assistive forecast"
+- Added a **long-horizon section** to the [assistive robot forecast](syntheses/assistive/assistive-robot-forecast-2026-2030.md): checkpoints at 2035-12-31, 2040-12-31 and 2050-12-31 for set R and all 22 set-E events. Same day, before any scoring; no number already filed was changed (all 61 existing table rows checked present and identical).
+- Set R: 100,000 homes by 2035 (80% interval 2,000 – 3 million), 2 million by 2040 (50,000 – 40 million), 20 million by 2050 (500,000 – 200 million). Tied to set A of the home robot forecast through an assumed assistive share of 1%, 3% and 7%.
+- Events: certified assistive mobile manipulator on sale 94% by 2035; Medicare coverage 58 / 72 / 85%; bathing study 72 / 85 / 93%; bed-to-chair transfer 60 / 77 / 90%; certified learned-policy contact task 65 / 82 / 93%.
+- Stated on the page: payment lags capability at every horizon, body-contact tasks stay last, and set R at these dates inherits any error in the consumer robot count.
+- Schedule and scorecard gain checkpoints 18–20; the backlog items now cover both forecasts. Also corrected a stale link text on the page that still used the home forecast's old title.

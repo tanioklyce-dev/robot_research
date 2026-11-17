@@ -8,16 +8,17 @@ tags: [forecast, predictions, scorecard, assistive-robotics, disability, aging-i
 
 # Assistive robot forecast, 2026-Q4 to 2030-Q4
 
-Predictions made on **2026-11-16** about robots that help disabled people and older adults with daily tasks at home: how many homes have one, which tasks they can do, who pays, and whether they are certified and safe. It is the companion to the [home robot and JEPA forecast](../society/home-robot-forecast-2026-2028.md) and uses the same method: each prediction is a number with an interval, or a probability, with a fixed resolution rule, scored **after the end of each quarter** through 2030-Q4.
+Predictions made on **2026-11-16** about robots that help disabled people and older adults with daily tasks at home: how many homes have one, which tasks they can do, who pays, and whether they are certified and safe. It is the companion to the [home robot forecast](../society/home-robot-forecast-2026-2028.md) and uses the same method: each prediction is a number with an interval, or a probability, with a fixed resolution rule, scored **after the end of each quarter** through 2030-Q4.
 
 > [!warning] These are judgment forecasts, not sourced facts
-> The evidence is cited from this wiki. The numbers are the forecaster's estimates from that evidence, and no source states them. **The predictions on this page are frozen as of 2026-11-16.** Scoring is appended below; the forecasts themselves are never edited. A revised forecast goes on a new dated page. The 2029–2030 columns are extrapolation and should be read as a statement of today's beliefs.
+> The evidence is cited from this wiki. The numbers are the forecaster's estimates from that evidence, and no source states them. **The predictions on this page are frozen as of 2026-11-16.** Scoring is appended below; the forecasts themselves are never edited. A revised forecast goes on a new dated page. Long-horizon predictions for the end of 2035, 2040 and 2050 were added later the same day, before any scoring, without changing any number already filed. The 2029–2030 columns are extrapolation and should be read as a statement of today's beliefs.
 
 ## The short version
 
 - **Assistive use is a different market from consumer chores.** For someone who cannot do a task at all, a slow, mostly teleoperated robot is already valuable, so usefulness arrives years before autonomy does.
 - **The gate is certification and payment, not capability.** No general-purpose mobile manipulator is certified for home use by individuals, and US Medicare does not cover assistive robot arms. Even odds that a certified one is on sale come around the end of 2028.
 - **Task order:** fetching and feeding first (both already exist in narrow forms), then medication fetch and multi-step sequences, then dressing. **Bathing and transfers stay research topics through 2030** (43% and 29% for even a small published study).
+- **Long horizon:** about 100,000 homes by the end of 2035, 2 million by 2040 and 20 million by 2050, with very wide intervals. Payment lags capability throughout: Medicare coverage is 58% by 2035 and 85% by 2050.
 - **The numbers stay small.** About 10 homes have a mobile manipulator in assistive use today. The forecast is about 80 by the end of 2028 and 550 by the end of 2030.
 
 ## How this differs from the consumer forecast
@@ -153,6 +154,64 @@ Each cell is the probability that the event **has happened on or before** that q
 - **E20:** a company report counts if it shows the user at home and names the task.
 - **E22:** device malfunctions without injury do not count.
 
+## Long-horizon predictions: end of 2035, 2040 and 2050 (added 2026-11-16)
+
+Three more checkpoints for every prediction on this page: **2035-12-31, 2040-12-31 and 2050-12-31**, matching the [home robot forecast](../society/home-robot-forecast-2026-2028.md). The definitions and resolution rules are the ones filed above. No number above was changed; the 30Q4 column is repeated here only for reference.
+
+> [!warning] These are the weakest numbers on the page
+> Nothing in the evidence base reaches past 2028. A forecast 9, 14 and 24 years out is a statement of belief, held with wide uncertainty. Read the set R intervals, not the point estimates.
+
+**Set R: homes with a mobile manipulator in assistive use (cumulative, worldwide)**
+
+| ID | Checkpoint | Point estimate | 80% interval |
+|---|---|---|---|
+| R18 | 2035-12-31 | 100,000 | 2,000 – 3,000,000 |
+| R19 | 2040-12-31 | 2,000,000 | 50,000 – 40,000,000 |
+| R20 | 2050-12-31 | 20,000,000 | 500,000 – 200,000,000 |
+
+These are tied to set A of the home robot forecast (10 million, 60 million and 300 million robots delivered). They assume the share of home robots in assistive use rises from under 0.1% in 2030 to about 1% in 2035, 3% in 2040 and 7% in 2050. The share rises because an ordinary consumer robot becomes an assistive one once it works unattended and an older or disabled person owns it. From the mid-2030s most of set R is expected to be consumer robots, not products sold as assistive devices.
+
+**Set E: events**
+
+| ID | Event (short) | 30Q4 (filed above) | 35Q4 | 40Q4 | 50Q4 |
+|---|---|---|---|---|---|
+| E1 | Stretch sold to individuals | 73 | 80 | 82 | 83 |
+| E2 | Any certified assistive mobile manipulator | 78 | 94 | 97 | 99 |
+| E3 | Consumer vendor's eldercare offering | 85 | 96 | 98 | 99 |
+| E4 | Assistive mobile manipulator at $10k or less | 64 | 90 | 96 | 98 |
+| E5 | Medicare coverage | 33 | 58 | 72 | 85 |
+| E6 | Medicaid or private insurer coverage | 45 | 72 | 85 | 93 |
+| E7 | Mobile manipulator reimbursed anywhere | 39 | 72 | 87 | 95 |
+| E8 | Care-provider pilot in 10+ homes | 73 | 93 | 97 | 99 |
+| E9 | Fetch at 90%+ in unseen homes | 82 | 96 | 98 | 99 |
+| E10 | 5+ step sequence at 80%+ | 71 | 94 | 98 | 99 |
+| E11 | Feeding study, 10+ users at home | 68 | 88 | 93 | 96 |
+| E12 | Medication fetch, 5+ users | 61 | 88 | 94 | 97 |
+| E13 | Dressing with 5+ impaired users | 62 | 86 | 93 | 97 |
+| E14 | Bathing with 3+ users | 43 | 72 | 85 | 93 |
+| E15 | Bed-to-chair transfer | 29 | 60 | 77 | 90 |
+| E16 | 10+ homes, 1+ month each | 62 | 90 | 96 | 98 |
+| E17 | 6+ month deployment with outcomes | 72 | 92 | 96 | 98 |
+| E18 | Controlled trial | 41 | 75 | 88 | 95 |
+| E19 | Gaze or switch control at home, 3+ users | 65 | 88 | 94 | 97 |
+| E20 | Implanted BCI controls a robot at home | 65 | 88 | 94 | 97 |
+| E21 | Certified learned-policy contact task | 31 | 65 | 82 | 93 |
+| E22 | Reported injury | 37 | 70 | 85 | 95 |
+
+**The direct answer.**
+- **By 2035** a certified assistive mobile manipulator is on sale (94%) and under $10,000 (90%), and fetching, feeding, medication and multi-step sequences are established. Bathing (72%) and transfers (60%) have probably been shown in small studies. About 100,000 homes use one, within a range of a few thousand to a few million.
+- **By 2040** the remaining doubts are payment and physical care: Medicare coverage (72%), a transfer of a person (77%), and a certified learned policy for a task with intentional contact (82%).
+- **By 2050** payment is still the lowest row. Medicare coverage is 85%, below every capability row.
+
+**Reasoning.**
+- **Payment and regulation move on a different clock from capability.** Coverage decisions need trials with outcome data, which is why the Medicare, insurer and controlled-trial rows stay lower than the task rows at every horizon. Coverage may also never arrive in this form if prices fall far enough that people simply buy the robot.
+- **Tasks that touch the body stay last.** Bathing, dressing and transfers put force on a person, so they need certification as well as skill. The transfer row is the lowest task row throughout.
+- **The row naming Hello Robot is capped by the company's path.** It stays near 80% because the company may be acquired, change its product, or be overtaken before it sells a certified unit to individuals.
+- **Demand grows on its own.** The number of people over 80 rises steeply through 2050 in most rich countries while the care workforce does not. That supports the high end of set R more than any capability argument does.
+- **A reported injury becomes likely as the count grows** (70% by 2035, 95% by 2050). That reflects exposure, not a judgment that the robots are unsafe.
+
+**Scoring.** These are checkpoints 18, 19 and 20, scored in January 2036, 2041 and 2051 by the same method. Between 2031 and 2035 there are no checkpoints. An event that resolved yes at an earlier checkpoint stays 1.
+
 ## Reasoning
 
 **Why fetch and feeding lead.** Both already work in narrow forms, and neither needs sustained contact with the body. Fetch rides directly on the progress of general household policies, which is why E9 passes 50% in late 2028.
@@ -188,6 +247,9 @@ Each cell is the probability that the event **has happened on or before** that q
 | 15 | 2030-06-30 | July 2030 | pending |
 | 16 | 2030-09-30 | October 2030 | pending |
 | 17 | 2030-12-31 | January 2031 | pending |
+| 18 | 2035-12-31 | January 2036 | pending |
+| 19 | 2040-12-31 | January 2041 | pending |
+| 20 | 2050-12-31 | January 2051 | pending |
 
 **Method.**
 - **Set E:** record 1 if the event happened by the quarter's end, else 0. The score is the **Brier score**: the squared difference between the forecast probability and the outcome, averaged over the 22 events. Lower is better; always answering 50% scores 0.25.
@@ -218,9 +280,13 @@ Each cell is the probability that the event **has happened on or before** that q
 | 15 (2030-Q2) | | | | |
 | 16 (2030-Q3) | | | | |
 | 17 (2030-Q4) | | | | |
+| 18 (2035-Q4) | | | | |
+| 19 (2040-Q4) | | | | |
+| 20 (2050-Q4) | | | | |
 
 ## Known weaknesses of this forecast
 
+- **The 2035–2050 numbers are belief, not extrapolation from evidence.** Set R at those dates depends almost entirely on the consumer forecast's robot count, so an error there carries straight through.
 - **Tiny numbers.** Set R starts at about 10 homes, so one research grant or one cancelled pilot moves it a lot.
 - **Publication lag.** Research events resolve when a paper appears, often a year after the work.
 - **Outside the wiki's view.** The wiki has little on Japan, Korea and Europe's care-robot programmes, on exoskeletons as products, or on dedicated devices such as Obi, which is cited here from a web check only.
