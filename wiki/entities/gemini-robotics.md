@@ -3,14 +3,30 @@ title: Gemini Robotics
 type: entity
 subtype: model
 created: 2026-05-09
-updated: 2026-10-13
-sources: 13
+updated: 2026-11-17
+sources: 14
 tags: [gemini-robotics, google-deepmind, vlm, vla, embodied-reasoning, foundation-model]
 ---
 
 **Gemini Robotics** — [Google DeepMind](google-deepmind.md)'s family of robotics-targeted foundation models, built on the Gemini multimodal model line.
 
-## Gemini Robotics 2 (current generation, released 2026-07-30)
+## Gemini Robotics 2.5 (VLA update, released 2026-11-10)
+
+A new VLA, announced alone: no ER 2.5 and no On-Device 2.5 ([blog](../sources/gemini-robotics-2-5-blog.md)). It is rolling out to robotics partners only.
+
+- **Evaluation**: "over 200 distinct tasks" on [Apollo 2](apptronik-apollo.md) + [SharpaWave](sharpa-wave.md) and Franka Duo, in four categories (tabletop pick-and-place, multi-step and contact-rich, precision kitting and insertion, dexterous tools and deformables). Stated gain over GR 2: "30% to 100% higher success rate depending on the type of task," and "20% to 30% faster."
+- **Where it moved most**: tasks GR 2 could not do at all. Called-out examples include pack pastries with tongs **5% → 100%**, extract disk drive **0% → 100%**, close toolbox lid **0% → 93%**, untie ribbon bow **0% → 70%**, hang cardigan **0% → 62%**, fold pants with a board **0% → 40%**. In the multi-step chart GR 2 is non-zero on only 3 of 20 tasks.
+- **Where it did not**: every chart runs from 100% down to a tail of tasks near 10%, and on a few tasks per chart GR 2.5 is at or below GR 2.
+- **Factory pilot**: with an unversioned Gemini Robotics ER as orchestrator, Apollo 2 kitted automotive brackets on Mercedes-Benz lines in Kecskemét and Sindelfingen at a **96% success rate**, after "a few weeks of post-training" (Apptronik's CEO). No pick count, duration or intervention rate.
+- **Safety**: "inference-time reasoning guidance" raises safe task completion around obstacles by 33% and around people by 43% (baselines not given). The agentic safety results in the post, including 99.5% on the new [ASIMOV-Jailbreak](asimov-benchmark.md), are [Gemini 4 Argon](gemini-4-argon.md)'s, with ER 2 (82%) as the "previous baseline."
+- **Built with Argon**: simulated practice runs from real camera scenes, plus failure analysis from video. No ablation.
+
+> [!warning] Contradiction: the GR 2 baseline in the 2.5 charts is below GR 2's launch numbers
+> The [GR 2 blog](../sources/gemini-robotics-2-blog.md) reported unscrew bulb **92%** (Apollo, SharpaWave). The 2.5 post charts GR 2 at **63%** on "Unscrew light bulb" on the same platform, and GR 2.5 at **90%**. GR 2's launch "dustpan" figure was 32%; the 2.5 chart has GR 2 at 0% on "Sweep trash into dustpan with brush." Neither post gives a protocol, so the tasks may differ. Read the 2.5 post's GR 2 column as a re-measured baseline, and do not chain the two posts' numbers together. Trial counts are still unpublished, and there is still no external baseline.
+
+The fingers-versus-grippers gap that GR 2 left open has narrowed on this evidence: most of the called-out 0% → 60–100% jumps are five-finger tasks on deformables and tools. Threaded insertion ("screw bulb," GR 2's 36%) is not among the labeled tasks, so the specific wall identified below is untested in public.
+
+## Gemini Robotics 2 (released 2026-07-30)
 
 Three models ([blog](../sources/gemini-robotics-2-blog.md), [safety report](../sources/gemini-robotics-2-safety-report.md)):
 
@@ -47,6 +63,8 @@ The [official model card](../sources/gemini-robotics-on-device-2-model-card.md) 
 ## Beside the line: Gemini 4 Argon (2026-10-13)
 
 Three months after ER 2, Google showed a **general** frontier model, [Gemini 4 Argon](gemini-4-argon.md), doing the ER job and more: **ERQA 87%** "using pure reasoning" (no competitor table), code-as-policies control of [Spot](spot.md) and an arm, MuJoCo twin authoring, hindsight labeling, and sim data that lifted an unnamed VLA from 56% to 75% ([Argon robotics blog](../sources/gemini-4-argon-robotics-blog.md)). The post never mentions Gemini Robotics or ER 2. Whether ER is being folded into the general model, or distilled from it, is open. The VLA tier (GR 2, On-Device 2) is unaffected: Argon emits code, not actions.
+
+A month later the [GR 2.5 post](../sources/gemini-robotics-2-5-blog.md) made the division of labour explicit. Argon is credited with accelerating the VLA's development and holds the agentic safety results, with ER 2 called the "previous baseline"; the VLA still does the acting; and a Gemini Robotics ER with no version number orchestrates the factory pilot.
 
 ---
 
@@ -104,6 +122,7 @@ Boston Dynamics' **AIVI-Learning** product is described as "the next evolution" 
 - [Gemini Robotics 2: Safety Evaluations](../sources/gemini-robotics-2-safety-report.md) — ASIMOV-Agentic and the ER 2 safety evaluations.
 - [Gemini Robotics On-Device 2 model card](../sources/gemini-robotics-on-device-2-model-card.md) — the GRoD v1→v2 numbers and the high-DoF limitation.
 - [Gemini 4 Argon for Robotics](../sources/gemini-4-argon-robotics-blog.md) — a general Gemini 4 model taking the ER orchestrator role (ERQA 87%), not part of this family.
+- [Gemini Robotics 2.5 blog](../sources/gemini-robotics-2-5-blog.md) — the 2.5 VLA: per-task charts against GR 2, the Mercedes-Benz kitting pilot (96%), and a GR 2 baseline that conflicts with GR 2's launch figures.
 
 ## Open questions / TBD
 
@@ -111,4 +130,6 @@ Boston Dynamics' **AIVI-Learning** product is described as "the next evolution" 
 - **ER 1.6** — the AIVI-Learning productization variant post-dates the 1.5 report; no dedicated source.
 - **Open weights?** No; both variants appear to be closed / API-only.
 - **Latency and cost.** Not documented in the BD blog; likely cloud-API-bound.
-- **Other documented integrations besides Spot.** Apptronik (NVIDIA-aligned) has been mentioned in DeepMind press; needs a primary-source ingest.
+- **Other documented integrations besides Spot.** The [GR 2.5 post](../sources/gemini-robotics-2-5-blog.md) documents Apptronik's Apollo 2 on Mercedes-Benz lines, from DeepMind's side only. An Apptronik or Mercedes primary would supply the denominators.
+- **GR 2.5 evaluation protocol**: trial counts, and why its GR 2 baseline differs from GR 2's launch figures.
+- **Is there an ER 2.5 or On-Device 2.5?** Neither is mentioned in the 2.5 announcement.

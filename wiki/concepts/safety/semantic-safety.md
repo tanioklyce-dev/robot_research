@@ -2,8 +2,8 @@
 title: Semantic safety
 type: concept
 created: 2026-08-03
-updated: 2026-09-12
-sources: 16
+updated: 2026-11-17
+sources: 17
 tags: [semantic-safety, robot-safety, constitutional-ai, asimov, red-teaming, google-deepmind, vlm, alignment, terminology, contact-rich]
 ---
 
@@ -96,6 +96,8 @@ Two results matter beyond the benchmark:
 
 Usefully, **VLA feasibility filtering is learnable by prompting**: telling the agent more about the VLA's training distribution lifts refusal accuracy from **62.0% to 95.8%**.
 
+**Adversarial robustness joins the family (2026-11).** The [Gemini Robotics 2.5 post](../../sources/gemini-robotics-2-5-blog.md) adds **ASIMOV-Jailbreak**, prompts that disguise unsafe requests, and reports [Gemini 4 Argon](../../entities/gemini-4-argon.md) at **99.5%** resistance against ER 2's **82%**. The same post describes "inference-time reasoning guidance" in the VLA itself, said to raise safe task completion by 33% around obstacles and 43% around people. That is a vendor claim of steering at the action level, a step past measurement, but it comes with no baseline rates, no trial counts and no method, and it is presented as analogous to a classifier layer, not as a guarantee. It does not change this page's conclusion.
+
 ## The term is overloaded — two literatures, two meanings
 
 > [!warning] Contradiction in usage, not in fact
@@ -158,6 +160,7 @@ What would change this: a safety architecture where the semantic layer's *output
 - [Gemini Robotics 1.5 tech report](../../sources/gemini-robotics-1-5-report.md) — ASIMOV-2.0 + Auto-Red-Teaming in deployment.
 - [Gemini Robotics 2: Safety Evaluations](../../sources/gemini-robotics-2-safety-report.md) — extends ASIMOV from judgment to **agentic orchestration**, and confirms this page's conclusion from the vendor side: the report explicitly excludes the functional-safety architecture and recommends frontier models be used "alongside deterministic, low-level safety guardrails."
 - [Gemini Robotics 2 blog](../../sources/gemini-robotics-2-blog.md) — announces ASIMOV-Agentic.
+- [Gemini Robotics 2.5 blog](../../sources/gemini-robotics-2-5-blog.md) — ASIMOV-Jailbreak (Argon 99.5% vs ER 2 82%) and inference-time reasoning guidance in the VLA.
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — the **other** use of the term, from the interaction-control tradition: semantic-to-physical constraint grounding with an enforcement layer downstream.
 - [Industrial AI Podcast #352 — NVIDIA's safety strategy](../../sources/industrial-ai-podcast-nvidia-safety-strategy.md) — the vendor's "VLM as safety judge" direction, and the host's objection.
 - [SciFi-Benchmark](../../sources/scifi-benchmark-paper.md) — the ethics/dilemmas wing: 824 sci-fi works → 9,056 questions; constitutions lift alignment 79.4% → 95.8% and resist adversarial prompting (23.3% → 92.3%); fiction-derived constitutions top-perform on ASIMOV's real-world data.

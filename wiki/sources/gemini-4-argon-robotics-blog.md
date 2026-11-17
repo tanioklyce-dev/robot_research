@@ -72,7 +72,7 @@ Google presents **[Gemini 4 Argon](../entities/gemini-4-argon.md)** (`gemini-4-a
 
 ## Open questions
 - What are the ERQA competitor scores and harness, and the thinking budget behind "pure reasoning"?
-- Which VLA went from 56% to 75%, over how many trials, on which of the 77 tasks?
+- Which VLA went from 56% to 75%, over how many trials, on which of the 77 tasks? The [Gemini Robotics 2.5 blog](gemini-robotics-2-5-blog.md) (2026-11-10) says Argon's simulated data accelerated GR 2.5's development, which makes a GR 2.5 checkpoint the likely candidate. Neither post confirms it.
 - Does the "no sim cheating" list come from observed failures? How often does Argon violate it when the clause is left out?
 - Is Gemini Robotics ER 2 being superseded by a general model, or will an "ER 3" be distilled from Argon?
 - What is Gemini Omni, Google's video world model? There is no primary in the wiki yet.

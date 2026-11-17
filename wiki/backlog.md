@@ -910,3 +910,11 @@ Clean at time of writing: 0 broken links (7,175 checked), 0 orphan pages, all `s
 - [ ] **Primaries for decision-grade R²D² numbers** — the digests are vendor summaries. Candidates: COMPASS (2502.16372), FoundationStereo (2501.09898), IndustReal (2305.17110), AutoMate (2407.08028), TacSL (2408.04587), FORGE (2408.06506), NeRD (2508.15755), VT-Refine (2510.14930), cuTAMP (2411.11833), sim-and-real co-training (2503.24361).
 - [ ] **NeRD in Newton** — planned as a Newton solver; check whether it shipped.
 - [ ] **Astranomy arXiv version** — announced as coming soon on [the post](sources/nvidia-srl-astranomy-blog.md); also two related Astra-as-policy reports cited there and not ingested: Galbot (arXiv 2609.38537) and Su et al.'s technical report.
+
+## [2026-11-17] Gemini Robotics 2.5 — follow-ups
+- [ ] **Gemini 4 safety report** (`storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf`, robotics section near p. 200) — cited by [the GR 2.5 post](sources/gemini-robotics-2-5-blog.md) for Argon's agentic robotics evaluations and ASIMOV-Jailbreak. Ingest it: it should hold the human-proximity numbers and the jailbreak method.
+- [ ] **ASIMOV-Jailbreak in `google/asimov_agentic`** — check the dataset card for prompt and scene counts and scoring. The dataset itself is still not ingested (carried from 2026-08-03).
+- [ ] **GR 2.5 evaluation protocol** — watch for a technical report or model card with trial counts, and an explanation of the GR 2 baseline discrepancy (unscrew bulb 92% at GR 2's launch, 63% in the 2.5 charts).
+- [ ] **Apptronik or Mercedes-Benz primary on the kitting pilot** — pick counts, duration, interventions, which hand. Apollo still has no first-party source page; Apollo 2 specs are at `apptronik.com/apollo/apollo-2`.
+- [ ] **DeepMind model pages changed** — the post links `models/gemini-robotics/vla/` and `/embodied-reasoning/`; the [model page](sources/deepmind-gemini-robotics-model-page.md) capture predates 2.5 and has no `fetch_url`.
+- [ ] **Entity gaps** — Mercedes-Benz and Apptronik (the company) are referenced from several pages and have no entity page.

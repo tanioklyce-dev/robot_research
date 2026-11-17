@@ -3,8 +3,8 @@ title: Gemini 4 Argon
 type: entity
 subtype: model
 created: 2026-10-13
-updated: 2026-10-13
-sources: 3
+updated: 2026-11-17
+sources: 4
 tags: [gemini-4-argon, gemini, google-deepmind, frontier-model, embodied-reasoning, erqa, code-as-policy, real-to-sim, mujoco, physical-agi]
 ---
 
@@ -27,6 +27,8 @@ Google AI Studio (AI Ultra), the paid Gemini API (Interactions API), and Google 
 - **A general model takes the orchestrator slot.** In July 2026, Google billed [Gemini Robotics ER 2](gemini-robotics.md) as "the robot's high-level brain." Three months later a general frontier model reports a higher embodied-reasoning score than any ER figure the wiki holds and demonstrates orchestration, simulation and labeling besides. The ER line is not mentioned. This repeats the [CaP lineage](../concepts/agents/code-as-policy.md)'s recurring pattern, in which general models absorb what specialised wrappers did. The source does not say whether ER 2 is being superseded.
 - **The bet is code + simulation, not end-to-end actions.** Every Argon hardware demo runs through a primitive API. Google's own [VLA](gemini-robotics.md) remains the action path. Argon makes the data, environments and evaluations that feed it.
 
+- **A month later, the roles are stated outright.** The [Gemini Robotics 2.5 post](../sources/gemini-robotics-2-5-blog.md) credits Argon with having "greatly accelerated" the VLA's development, by generating "thousands of varied, simulated practice runs from a real-world camera scene" and by diagnosing task failures from video. It also reports that Argon "leads our agentic robotics evaluations" on unsafe-task refusal, uncertainty resolution and human proximity, and scores **99.5%** on the new [ASIMOV-Jailbreak](asimov-benchmark.md), with ER 2 (82%) as the "previous baseline." In safety evaluation, at least, Google now treats Argon as ER 2's successor. A Gemini Robotics ER with no version number still orchestrates the factory pilot, and no ablation isolates Argon's contribution to GR 2.5.
+
 > [!note] Demonstrations, not evaluations
 > Every claim above except ERQA comes from a single showcased run. See the [source page](../sources/gemini-4-argon-robotics-blog.md#reading-it-critically).
 
@@ -37,8 +39,10 @@ Google AI Studio (AI Ultra), the paid Gemini API (Interactions API), and Google 
 
 ## Mentioned in
 - [Gemini 4 Argon for Robotics (Google Developers Blog)](../sources/gemini-4-argon-robotics-blog.md)
+- [Gemini Robotics 2.5 blog](../sources/gemini-robotics-2-5-blog.md) — Argon as the development accelerator for GR 2.5 and the holder of its agentic safety results.
 
 ## Open questions
 - ERQA competitor numbers and harness; any manipulation success rates with n.
-- The relationship to Gemini Robotics ER 2 and to the VLA line (distillation source?).
+- The relationship to Gemini Robotics ER 2 and to the VLA line (distillation source?). Partly answered for the VLA: Argon supplies sim data and failure analysis for GR 2.5. Whether the 56% → 75% VLA was a GR 2.5 checkpoint is unstated.
+- The numbers behind "leads" on human proximity, which the GR 2 safety report found no model could do acceptably (Gemini 4 safety report, p. 200, not ingested).
 - Model size, price, latency.

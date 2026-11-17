@@ -3,8 +3,8 @@ title: Sharpa Wave hand
 type: entity
 subtype: hardware
 created: 2026-05-15
-updated: 2026-10-27
-sources: 5
+updated: 2026-11-17
+sources: 6
 tags: [dexterous-hand, end-effector, sharpa, manipulation, hardware]
 ---
 
@@ -29,6 +29,7 @@ tags: [dexterous-hand, end-effector, sharpa, manipulation, hardware]
 - [Gemini Robotics 2 blog](../sources/gemini-robotics-2-blog.md) — the **five-fingered, 22-DoF SharpaWave hand** on [Apollo 2](apptronik-apollo.md) is what [Gemini Robotics 2](gemini-robotics.md)'s multi-finger dexterity numbers were measured on. Those numbers are candid: unscrew bulb 92% but **screw bulb 36%, dustpan 32%, ziplock 40%** — dexterous hands remain the bottleneck, not the policy.
 - [Gemini 4 Argon for Robotics](../sources/gemini-4-argon-robotics-blog.md) — in Argon's Real2Sim demo the twin's quality is judged by simulated vs logged **Sharpa fingertip tactile force** (timing, magnitude, direction), the first use in the wiki of tactile logs as a sim-calibration target.
 - [AW-0 paper](../sources/agentic-world-action-models-aw0-paper.md) — two Sharpa Wave hands on a **Tianji** humanoid torso (not the Galaxea R1Pro used in EgoScale); Manus gloves + PICO trackers + Vision Pro for teleop; 4 dexterous eval tasks.
+- [Gemini Robotics 2.5 blog](../sources/gemini-robotics-2-5-blog.md) — Apollo 2 + SharpaWave again, three months on: pack pastries with tongs 5% → 100%, untie ribbon bow 0% → 70%, hang cardigan 0% → 62%, fold pants 0% → 40%, unscrew bulb 63% → 90%. The policy moved a long way on the same hand, which weakens the earlier reading that the hand was the bottleneck. The GR 2 baseline here conflicts with GR 2's launch numbers (bulb 92% then, 63% now).
 
 ## Open questions
 - Manufacturer details (Sharpa company location, product line, price, availability).

@@ -3,8 +3,8 @@ title: Franka Panda
 type: entity
 subtype: robot
 created: 2026-05-07
-updated: 2026-11-07
-sources: 59
+updated: 2026-11-17
+sources: 60
 tags: [franka, panda, robot-arm, manipulator, 7-dof, manipulation-platform]
 ---
 
@@ -63,7 +63,7 @@ The consequence is that **the field's tooling is tuned on the platform that need
 
 ## Mentioned in
 
-> [!note] Curated list — **59** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **60** source pages link here; the ones below are those that shaped this page.
 
 - [How Claude Performs on Robotics Tasks](../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — the manipulation platform (7-DoF, LIBERO kitchen scenes) for direct-LLM control and VLA supervision.
 - [DROID](droid.md) (entity)
@@ -81,6 +81,7 @@ The consequence is that **the field's tooling is tuned on the platform that need
 - [CaP-X paper](../sources/cap-x-paper.md) — real-robot platform for CaP-RL sim-to-real (84% cube lift / 76% stack after simulation-only RL of a 7B coding model, n=25) and for zero-shot CaP-Agent0 demos.
 - [MolmoAct2 GitHub repo](../sources/molmoact2-github-repo.md) — the DROID Franka deployment target; out-of-the-box support claimed.
 - [Gemini Robotics 2 blog](../sources/gemini-robotics-2-blog.md) — **Franka Duo** with a Robotiq gripper is the gripper-dexterity platform: precise insertion **89.6%**, tool kitting 78.9%, pick-and-place 74.2%.
+- [Gemini Robotics 2.5 blog](../sources/gemini-robotics-2-5-blog.md) — **Franka Duo** with parallel grippers is the gripper platform again. Per-task examples against GR 2: extract disk drive 0% → 100%, close toolbox lid 0% → 93%, Polaroid photo 0% → 92%, pliers into toolbox 7% → 82%, kit all tools into bin 33% → 70%. These are single tasks and are not comparable with GR 2's category averages above.
 - [MolmoAct paper](../sources/molmoact-paper.md) — MolmoAct v1's only real-world platform: single-arm (incl. DROID-style mobile mount for home data) and bimanual Franka; the 10,689-trajectory MolmoAct Dataset is all-Franka.
 - [Post-train Cosmos 3 Edge](../sources/nvidia-cosmos3-edge-post-training-blog.md) — the Cosmos3-DROID arm (Panda + Robotiq); 7 joints + gripper as the policy's 8-D absolute action space.
 - [Robot Self-Improvement via Human-Video Dynamics Models](../sources/robot-self-improvement-human-video-dynamics-paper.md) — the cross-embodiment target (Box, Sweep tasks): 36.7% → 70.0% with the pipeline carried over from a Stretch 3 unchanged.

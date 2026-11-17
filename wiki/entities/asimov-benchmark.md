@@ -3,8 +3,8 @@ title: ASIMOV Benchmark
 type: entity
 subtype: benchmark
 created: 2026-08-03
-updated: 2026-08-03
-sources: 7
+updated: 2026-11-17
+sources: 8
 tags: [asimov, semantic-safety, benchmark, google-deepmind, constitutional-ai, neiss, safety]
 ---
 
@@ -36,6 +36,13 @@ Six components: unsafe-task refusal across four output modalities, proactive hum
 
 Headline results: safety tool calling **100%** for ER 2 / Claude Opus 4.8 / GPT 5.5; feasibility filtering **62.0% → 95.8%** with richer VLA-training-distribution summaries; but human-proximity monitoring shows **no model in the ideal FNR/FPR quadrant** (FPR <5% implies FNR >40%).
 
+## ASIMOV-Jailbreak (2026-11)
+
+Announced in the [Gemini Robotics 2.5 blog](../sources/gemini-robotics-2-5-blog.md): "a new open-source benchmark containing hundreds of prompts that disguise unsafe requests across dozens of scenes," testing jailbreak robustness specific to robotics. The post's link goes to the existing `google/asimov_agentic` dataset, so it appears to be distributed with ASIMOV-Agentic. Reported results: [Gemini 4 Argon](gemini-4-argon.md) **99.5%** jailbreak resistance against **82%** for Gemini Robotics ER 2.
+
+> [!note] Two numbers, no method yet
+> Prompt count, scene count, attack taxonomy, scoring, and scores for non-Google models are not in the post. It cites page 200 of the Gemini 4 safety report, which is not ingested. The family now covers judgment (v1, 2.0), orchestration (Agentic) and adversarial robustness (Jailbreak).
+
 ## Versions
 The wiki knows **ASIMOV-2.0** from the [Gemini Robotics 1.5 report](../sources/gemini-robotics-1-5-report.md) (paired with Auto-Red-Teaming); this entity documents **v1**. The delta between them is not documented in any ingested source.
 
@@ -51,4 +58,5 @@ The wiki knows **ASIMOV-2.0** from the [Gemini Robotics 1.5 report](../sources/g
 - [Veo world simulator evaluation](../sources/veo-robotics-policy-evaluation-paper.md) — adopts its semantic-safety definition.
 - [Gemini Robotics 2: Safety Evaluations](../sources/gemini-robotics-2-safety-report.md) — introduces **ASIMOV-Agentic**, extending the family from semantic judgment to agentic safety orchestration.
 - [Gemini Robotics 2 blog](../sources/gemini-robotics-2-blog.md) — announces ASIMOV-Agentic alongside the model release.
+- [Gemini Robotics 2.5 blog](../sources/gemini-robotics-2-5-blog.md) — announces **ASIMOV-Jailbreak**; Argon 99.5% vs ER 2 82%.
 - [SciFi-Benchmark paper](../sources/scifi-benchmark-paper.md) — **the provenance of ASIMOV-Dilemmas-Scifi**: its 9,056-question corpus is that subset's train split (numbers match exactly); its constitutions are among ASIMOV's top performers.

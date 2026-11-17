@@ -2,8 +2,8 @@
 title: Contact-rich manipulation
 type: concept
 created: 2026-09-07
-updated: 2026-11-10
-sources: 17
+updated: 2026-11-17
+sources: 18
 tags: [contact-rich, manipulation, force-control, assembly, insertion, surface-interaction, physical-hri, deformable-objects, task-taxonomy]
 ---
 
@@ -140,6 +140,7 @@ The same group's earlier simulation-first line, from Factory to FORGE, is summar
 Well-developed as a *control* problem and thin as a *learning* problem. Force/torque-conditioned policies with learned compliance dominate the literature ([Zhang et al.](../../sources/safe-learning-contact-rich-survey.md) Table 1 lists ~60 force/torque works against **four** language-conditioned ones), assembly and insertion absorb most of the attention, and deformable objects, multi-stage processes, tool use, and human-adjacent tasks are all named as under-covered. There is **no standardized contact-force evaluation protocol** — the survey's first-listed future direction, and the most concrete unclaimed piece of work in the area.
 
 ## Mentioned in
+- [Gemini Robotics 2.5 blog](../../sources/gemini-robotics-2-5-blog.md) — a "multi-step & contact-rich" chart where GR 2 is non-zero on 3 of 20 tasks and GR 2.5 on all 20, plus a 96% kitting pilot on Mercedes-Benz lines. No trial counts.
 
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — the definition, the exclusions, the four families, and the data argument.
 - [SafeVLA](../../sources/safevla-paper.md) — the counter-instance: the flagship safe-VLA result, working outside this task class on a collision-based cost.

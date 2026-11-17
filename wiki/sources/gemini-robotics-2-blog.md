@@ -99,6 +99,11 @@ Introduces **ASIMOV-Agentic**, a benchmark for "agentic safety orchestration and
 - [Gemini Robotics 2: Safety Evaluations](gemini-robotics-2-safety-report.md) — the companion technical report; ASIMOV-Agentic in detail.
 - [Gemini Robotics model page](deepmind-gemini-robotics-model-page.md) — the numberless product page this supersedes.
 - [Gemini Robotics 1.5 tech report](gemini-robotics-1-5-report.md) — the previous generation.
+- [Gemini Robotics 2.5 blog](gemini-robotics-2-5-blog.md) — the next VLA, benchmarked against this one.
 
 ## Cited by
 - [Helix (Figure AI)](../entities/helix.md)
+- [Gemini Robotics 2.5 blog](gemini-robotics-2-5-blog.md)
+
+> [!warning] Contradiction: these figures were later re-baselined (added 2026-11-17)
+> The [Gemini Robotics 2.5 blog](gemini-robotics-2-5-blog.md) charts GR 2 at **63%** on "Unscrew light bulb" (Apollo + Sharpa) against the **92%** above, and at **0%** on a dustpan task against the **32%** above. Neither post gives a protocol, so the tasks may differ. The numbers on this page are what DeepMind published at GR 2's launch; they should not be compared directly with the 2.5 post's GR 2 column.

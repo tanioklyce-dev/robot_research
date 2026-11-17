@@ -2,8 +2,8 @@
 title: Agile Robots
 type: entity
 created: 2026-07-16
-updated: 2026-10-22
-sources: 4
+updated: 2026-11-17
+sources: 5
 tags: [company, humanoid, industrial-robotics, physical-ai, europe, germany, dlr, cobots]
 ---
 
@@ -41,6 +41,7 @@ Agile Robots' distinguishing bet is **integration over standalone humanoid**: wh
 - [DeepMind Gemini Robotics model page](../sources/deepmind-gemini-robotics-model-page.md) — named as a Gemini Robotics 2 partner alongside [Apptronik](apptronik-apollo.md) and [Boston Dynamics](boston-dynamics.md).
 - [Agile Robots launches Agile ONE SN (2026-10-21)](../sources/agile-robots-agile-one-sn-launch.md)
 - [NVIDIA advances Isaac platform (GTC Berlin, 2026-10-21)](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)
+- [Gemini Robotics 2.5 blog](../sources/gemini-robotics-2-5-blog.md) — thanked as a partner on the GR 2.5 release alongside Apptronik and Mercedes-Benz. No Agile ONE result is shown.
 
 ## Related
 
