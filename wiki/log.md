@@ -6870,3 +6870,10 @@ Structure was sound: **0 broken file links, 0 orphans, 0 schema violations, all 
 - In the [home robot forecast](syntheses/society/home-robot-forecast-2026-2028.md), set C (JEPA and household AI) now follows sets D, F and G instead of sitting between B and D, and the title is "Home robot forecast, 2026-Q4 to 2030-Q4".
 - A reordering only. Set letters, all 26 set-C table rows and every other number are unchanged (checked by comparing the rows before and after). The scorecard keeps its column order.
 - Link text updated in the index and the assistive forecast. The filename is unchanged.
+
+## [2026-11-16] query | "Add predictions for end of 2035, 2040, and 2050"
+- Added a **long-horizon section** to the [home robot forecast](syntheses/society/home-robot-forecast-2026-2028.md): three more checkpoints (2035-12-31, 2040-12-31, 2050-12-31) for set A and for all 77 events in sets B, C, D, F and G. Same day, before any scoring; no number already filed was changed (all 171 existing table rows checked present and identical).
+- Set A: 10 million robots delivered by 2035 (80% interval 300,000 – 150 million), 60 million by 2040 (2 million – 600 million), 300 million by 2050 (10 million – 1.5 billion).
+- Events: unattended dishes 88% and folding 95% by 2035; unattended cooking 70 / 86 / 95%; unattended bathroom cleaning 75 / 90 / 96%; JEPA planner as primary controller 35 / 42 / 48%.
+- Stated on the page: nothing in the evidence reaches past 2028, most capability rows saturate near 99% and so carry little information, rows naming a company are capped by its survival, and the JEPA rows carry a naming risk.
+- Scoring schedule, scorecard and backlog gain checkpoints 18–20 (January 2036, 2041, 2051). The assistive forecast was not extended.
