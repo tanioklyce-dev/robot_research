@@ -8,7 +8,7 @@ sources: 6
 tags: [person, uc-berkeley, autolab, manipulation, grasping, code-as-policy]
 ---
 
-**Ken Goldberg** — Professor at **UC Berkeley**, where he directs the **AUTOLab**. In this wiki he appears as **co-senior author (with [Jim Fan](jim-fan.md)) on both ingested code-as-policy papers**, making him the academic half of the Berkeley ↔ [NVIDIA GEAR](nvidia-gear.md) collaboration that produced them.
+**Ken Goldberg** — Professor at **[UC Berkeley](uc-berkeley.md)**, where he directs the **AUTOLab**. In this wiki he appears as **co-senior author (with [Jim Fan](jim-fan.md)) on both ingested code-as-policy papers**, making him the academic half of the Berkeley ↔ [NVIDIA GEAR](nvidia-gear.md) collaboration that produced them.
 
 ## Papers in this wiki
 - **[CaP-X](../sources/cap-x-paper.md)** (ICML 2026) — co-senior author (†, equal advising with Linxi "Jim" Fan). The framework separating agent capability from human-designed API scaffolding.

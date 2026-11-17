@@ -7,7 +7,7 @@ sources: 7
 tags: [slam, visual-relocalization, scene-coordinate-regression, gaussian-splatting, 3d-reconstruction, feed-forward, drift, loop-closure, rtab-map, gtsam]
 ---
 
-**Visual relocalization and mapping** — building a geometric representation of a real place from camera (and sometimes LiDAR) data, and later recovering where the camera is *within* that representation. The two halves are separable and the second is usually the harder one to make robust.
+**Visual relocalization and mapping** — building a geometric representation of a real place from camera (and sometimes [LiDAR](lidar.md)) data, and later recovering where the camera is *within* that representation. The two halves are separable and the second is usually the harder one to make robust.
 
 ## Why this page exists
 

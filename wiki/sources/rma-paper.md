@@ -92,6 +92,7 @@ The robot is **blind** — proprioception only. *"Larger perturbations such as s
 
 ## Entities mentioned
 
+- [UC Berkeley](../entities/uc-berkeley.md) — among the paper's affiliations.
 - [Ashish Kumar](../entities/ashish-kumar.md) — first author.
 - [Deepak Pathak](../entities/deepak-pathak.md) — co-author; later co-author of [LocoFormer](locoformer-paper.md) and CEO of [Skild AI](../entities/skild-ai.md).
 - [Zipeng Fu](../entities/zipeng-fu.md) — co-author, then at CMU. The wiki knows him for [Mobile ALOHA](mobile-aloha-paper.md) (Stanford, manipulation); RMA is his earlier locomotion work.

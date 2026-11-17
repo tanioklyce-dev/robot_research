@@ -11,7 +11,7 @@ tags: [drosophila, connectome, fly-brain, flywire, leaky-integrate-and-fire, bio
 
 ## Summary
 
-UC Berkeley News article (2024-10-02) reporting that Phil Shiu (then UC Berkeley postdoc, now at Eon) and collaborators built **a computer simulation of the entire adult fruit fly brain** — 139,255 neurons and ~50 million synaptic connections — by combining the [FlyWire](../entities/flywire.md) connectome with a leaky-integrate-and-fire dynamics model. The simulation predicted neural responses (e.g., proboscis extension when taste neurons are stimulated) that were then validated against real fly behaviour. The article frames the work as a stepping stone toward mouse and eventually human connectomes.
+[UC Berkeley](../entities/uc-berkeley.md) News article (2024-10-02) reporting that Phil Shiu (then UC Berkeley postdoc, now at Eon) and collaborators built **a computer simulation of the entire adult fruit fly brain** — 139,255 neurons and ~50 million synaptic connections — by combining the [FlyWire](../entities/flywire.md) connectome with a leaky-integrate-and-fire dynamics model. The simulation predicted neural responses (e.g., proboscis extension when taste neurons are stimulated) that were then validated against real fly behaviour. The article frames the work as a stepping stone toward mouse and eventually human connectomes.
 
 ## Key claims
 

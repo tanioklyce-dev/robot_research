@@ -50,7 +50,7 @@ Its closest relative in this wiki is [XLeRobot](../entities/xlerobot.md): same s
 ### Vision & navigation
 - **Innomaker U20CAM-720p**, 30 fps, USB 2.0, **120° FOV**; default capture **360×240**, max 640×480.
 - Mounts: fixed head angled **20° down**, plus end-effector mounts. Software timestamping against joint state.
-- **2D 360° LiDAR**: 180° 2D omnidirectional scan coverage, configurable **5–13 Hz**, range **up to 12 m** on 70%-reflectivity white, **8,000 samples/s**. Positioned for "LiDAR-based SLAM workflows, localization, obstacle awareness."
+- **2D 360° [LiDAR](../concepts/robotics/lidar.md)**: 180° 2D omnidirectional scan coverage, configurable **5–13 Hz**, range **up to 12 m** on 70%-reflectivity white, **8,000 samples/s**. Positioned for "LiDAR-based SLAM workflows, localization, obstacle awareness."
 
 ### Power
 - **12 V 10 Ah LiFePO4** (≈120 Wh), ~5,000 cycles. 2 A and 5 A 12 V DC chargers. Buck converter + central power rail with local regulation. PCB with fusing, overcurrent protection, power cutoff.

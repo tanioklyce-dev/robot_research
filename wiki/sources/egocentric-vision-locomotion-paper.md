@@ -112,6 +112,7 @@ That latency handling is the detail that makes the system real: the policy is tr
 
 ## Entities mentioned
 
+- [UC Berkeley](../entities/uc-berkeley.md) — among the paper's affiliations.
 - [Ananye Agarwal](../entities/ananye-agarwal.md) — co-first author; later a [LocoFormer](locoformer-paper.md) co-author.
 - [Ashish Kumar](../entities/ashish-kumar.md) — co-first author; also first author of [RMA](rma-paper.md).
 - [Deepak Pathak](../entities/deepak-pathak.md) — co-advisor; the third of his papers in this wiki.

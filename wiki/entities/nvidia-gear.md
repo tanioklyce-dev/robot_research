@@ -37,7 +37,7 @@ GEAR is **the in-house research source** of essentially every NVIDIA-product ent
 
 - [GR00T 2](../sources/gr00t-2-whitepaper.md) moves the lab's flagship model to a world-action architecture.
 - [RoboTTT](../sources/robottt-paper.md) is one of six Best Paper finalists, along with the NVIDIA paper GRAIL ([NVIDIA](../sources/nvidia-corl-2026-robotics-simulation-blog.md)).
-- [Graph-as-Policy](graph-as-policy.md) continues the Berkeley collaboration on agentic robotics.
+- [Graph-as-Policy](graph-as-policy.md) continues the [Berkeley](uc-berkeley.md) collaboration on agentic robotics.
 
 ## Awards (selected)
 - "Top 10 NVIDIA Research Highlights of 2023" — Eureka, DrEureka, RoboCasa, GR00T N1.

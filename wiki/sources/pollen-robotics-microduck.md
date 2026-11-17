@@ -36,7 +36,7 @@ Its wiki value is not the toy. It is that the wiki now has, for the first time, 
 | **Memory** | **1 GB RAM, 32 GB storage** |
 | **Vision** | front camera, with a dedicated camera-use indicator "inspired by classic REC lights" |
 | **Motion sensing** | **2 IMUs** — one in the body, one in the head |
-| **Range sensing** | "compact LiDAR, an **8×8 time-of-flight matrix**" |
+| **Range sensing** | "compact [LiDAR](../concepts/robotics/lidar.md), an **8×8 time-of-flight matrix**" |
 | **Physical interaction** | articulated **grasping beak** |
 | **Audio** | microphones + speaker, per-robot generated voice |
 | **NFC** | 2 antennas — one in the head, one in the beak |

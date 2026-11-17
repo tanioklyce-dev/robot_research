@@ -181,6 +181,7 @@ The [project page](https://dreamdojo-world.github.io/) summarizes the paper and 
 
 ## Entities mentioned
 
+- [UC Berkeley](../entities/uc-berkeley.md) — among the paper's affiliations.
 **Already in wiki:**
 - [NVIDIA GEAR](../entities/nvidia-gear.md) — origin lab.
 - [Jim Fan (Linxi Fan)](../entities/jim-fan.md), [Yuke Zhu](../entities/yuke-zhu.md) — project leads.

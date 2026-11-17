@@ -11,7 +11,7 @@ tags: [zeroth, m1, home-robot, assistive-robotics, consumer-robotics, fall-detec
 
 ## Summary
 
-Vendor product page for the **Zeroth M1**, a **$2,499**, ~494 mm tall home robot marketed as "embodied intelligence" for domestic companionship, elder safety and child interaction. It is a **hybrid biped/wheeled** design — walking at 0.05 m/s, rolling at 0.6 m/s — with 20 DoF, LIDAR + iTOF + camera + IMU + 3-mic array, and ~2 hours of endurance.
+Vendor product page for the **Zeroth M1**, a **$2,499**, ~494 mm tall home robot marketed as "embodied intelligence" for domestic companionship, elder safety and child interaction. It is a **hybrid biped/wheeled** design — walking at 0.05 m/s, rolling at 0.6 m/s — with 20 DoF, [LIDAR](../concepts/robotics/lidar.md) + iTOF + camera + IMU + 3-mic array, and ~2 hours of endurance.
 
 The page is worth having because of **what it prices**, not what it proves. The wiki's in-home assistive cluster is anchored on research platforms an order of magnitude more expensive ([Stretch](../entities/stretch.md) at $29,950, [Kinova Jaco](../entities/kinova-jaco.md) at ~$35k), and its strongest household results — [OK-Robot](../entities/ok-robot.md), [Robot Utility Models](../entities/robot-utility-models.md) — are lab systems. A consumer device claiming **fall detection and daily assistance at $2,499** is a datapoint about where the price floor is being tested, even though the page substantiates almost none of the capability it advertises.
 

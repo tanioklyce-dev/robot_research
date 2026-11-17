@@ -16,7 +16,7 @@ The claim being defended: *"the speed and quality of the rendering are sufficien
 
 ## Key claims — real2sim (Niantic's half)
 
-- **One walkthrough, no specialist kit.** *"A few minutes of video from an off-the-shelf 360° camera… The operator simply walks the space once, with no LiDAR, tripod stations, or specialized capture workflow."* Reconstructed at **metric scale** so the policy learns distances and velocities in metres.
+- **One walkthrough, no specialist kit.** *"A few minutes of video from an off-the-shelf 360° camera… The operator simply walks the space once, with no [LiDAR](../concepts/robotics/lidar.md), tripod stations, or specialized capture workflow."* Reconstructed at **metric scale** so the policy learns distances and velocities in metres.
 - **Visual layer**: camera poses estimated, then a **3D Gaussian splat** giving photorealistic RGB from arbitrary viewpoints, *"preserving the lighting, materials, and clutter of the real environment as it appeared at capture time."*
 - **Physics layer from the same reconstruction**, with depth from **MVSAnywhere**, a zero-shot multi-view stereo model — *"flatter, cleaner surfaces than photometric reconstruction alone, especially on white walls and other low-texture regions where conventional multi-view methods often leave gaps, noisy geometry, or even lose camera poses entirely."*
 - **Export**: a single **USDZ matching NVIDIA's NuRec volume specification**, **gravity-aligned, metric-scale, collider-ready**. The splat renders through the **RTX pipeline** as the visual scene; the mesh is the invisible physics proxy.

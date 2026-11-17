@@ -17,7 +17,7 @@ tags: [decision-transformer, offline-rl, sequence-modeling, returns-to-go, credi
 
 ## Summary
 
-**Decision Transformer** — Chen, Lu, Rajeswaran, Lee, Grover, Laskin, Abbeel, Srinivas & Mordatch (Berkeley / FAIR / Google Brain; NeurIPS 2021). **The paper that recast reinforcement learning as next-token prediction**, and thereby supplied the sequence format most robot policies in this wiki still use.
+**Decision Transformer** — Chen, Lu, Rajeswaran, Lee, Grover, Laskin, Abbeel, Srinivas & Mordatch ([Berkeley](../entities/uc-berkeley.md) / FAIR / Google Brain; NeurIPS 2021). **The paper that recast reinforcement learning as next-token prediction**, and thereby supplied the sequence format most robot policies in this wiki still use.
 
 The idea in one line: **condition on the return you want, and let an autoregressive model produce the actions that achieve it.** No value function, no policy gradient, no bootstrapping.
 

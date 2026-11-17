@@ -24,7 +24,7 @@ A single-page storefront. Tagline: *"The most capable robot for $1,688."* Positi
 | **Price** | **$1,688**, "full price, no deposit" |
 | **Availability** | "now shipping fall 2026"; pre-orders open |
 | **Arms** | **"7+1 DOF, 1.5 kg payload per-arm"** — bimanual |
-| **LiDAR** | 12 m range, 8–12 Hz scan rate, 0.72° angular resolution at 10 Hz |
+| **[LiDAR](../concepts/robotics/lidar.md)** | 12 m range, 8–12 Hz scan rate, 0.72° angular resolution at 10 Hz |
 | **Cameras** | **4 × 720p RGB, up to 30 fps**, on the **grippers, head and neck** |
 | **Audio** | speaker + microphone, spoken commands |
 | **Battery** | **6–8 hours** |

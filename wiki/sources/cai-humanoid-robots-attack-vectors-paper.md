@@ -44,7 +44,7 @@ A security assessment of the [Unitree G1](../entities/unitree-g1.md) by [Alias R
 - Within 5 seconds of startup, the robot opens MQTT over TLS on port 17883 to 43.175.228.18 and 43.175.229.18, with automatic reconnection.
 - A single 10-minute capture on 9 September 2025 showed JSON frames of 4.5–4.6 KB every 300 seconds. They held battery data, IMU orientation, per-joint torque and temperature, service inventories, and CPU, memory and disk metrics.
 - `chat_go` also holds a WebSocket to 8.222.78.102:6080.
-- Audio, video and LiDAR run on local DDS topics, where anyone on that network segment can listen.
+- Audio, video and [LiDAR](../concepts/robotics/lidar.md) run on local DDS topics, where anyone on that network segment can listen.
 
 **Agent test (§5.2).** CAI, run on the RK3588, enumerated reachable endpoints, attempted broker logins (anonymous access was rejected, and certificate-authenticated sessions were "prepped but withheld" for ethical reasons), and produced an attack-surface matrix.
 

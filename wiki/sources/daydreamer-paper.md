@@ -16,7 +16,7 @@ tags: [daydreamer, dreamer, mbrl, real-robot, no-simulator, quadruped, manipulat
 
 ## Summary
 
-**Dreamer on real robots, no simulator** — the wiki's most-wanted MBRL ingest (flagged in the [awesome-physical-ai gap analysis](awesome-physical-ai-github.md) and as [EAWM](eawm-paper.md)'s natural robot testbed). [Hafner](../entities/danijar-hafner.md) + Berkeley apply [Dreamer](../entities/dreamer.md) to **4 physical robots learning online, directly in the real world**: an **A1 quadruped learns to roll off its back, stand, and walk in 1 hour from scratch, without resets** — and adapts to pushes within 10 minutes (rolls over, stands back up); UR5 and XArm learn **visual pick-and-place**; a Sphero learns navigation. The thesis: the world model's imagination provides the cheap trials that everyone else gets from simulators — **sample-efficient enough to skip sim-to-real entirely**.
+**Dreamer on real robots, no simulator** — the wiki's most-wanted MBRL ingest (flagged in the [awesome-physical-ai gap analysis](awesome-physical-ai-github.md) and as [EAWM](eawm-paper.md)'s natural robot testbed). [Hafner](../entities/danijar-hafner.md) + [Berkeley](../entities/uc-berkeley.md) apply [Dreamer](../entities/dreamer.md) to **4 physical robots learning online, directly in the real world**: an **A1 quadruped learns to roll off its back, stand, and walk in 1 hour from scratch, without resets** — and adapts to pushes within 10 minutes (rolls over, stands back up); UR5 and XArm learn **visual pick-and-place**; a Sphero learns navigation. The thesis: the world model's imagination provides the cheap trials that everyone else gets from simulators — **sample-efficient enough to skip sim-to-real entirely**.
 
 ## Key claims
 

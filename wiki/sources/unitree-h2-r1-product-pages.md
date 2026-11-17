@@ -21,7 +21,7 @@ Unitree's specification tables and [store catalogue](https://shop.unitree.com/pr
 
 - **H2.** $29,900; H2 EDU "Contact Sales." 1,820 mm, about 70 kg, 31 joints, 7-DOF arms, rated arm payload about 7 kg (peak about 15 kg), about 3 h. Secondary development: EDU only. Hands: EDU only. Store status: unavailable to order. "H2 Plus" is a placeholder at $100,000, also unavailable.
 - **R1.** R1 Air $4,900, R1 $5,900, R1 EDU "Contact Sales" on the spec page and $10,500 in the store. 1,230 mm, 27–29 kg, 20–26 joints (26–40 EDU), arms 4–5 DOF, about 2 kg arm load. Secondary development: EDU only. All R1 variants listed as available.
-- **R1-A / R1-A-D (dual-arm).** Six store variants from $4,290 (R1-A5) to $7,690 (R1-A7-D with MID360 LiDAR), all listed as unavailable on 2026-11-08.
+- **R1-A / R1-A-D (dual-arm).** Six store variants from $4,290 (R1-A5) to $7,690 (R1-A7-D with MID360 [LiDAR](../concepts/robotics/lidar.md)), all listed as unavailable on 2026-11-08.
 - **Quadrupeds, for reference.** Go2 Air from $1,600, Go2 Pro from $2,800, Go2 X $4,500. As2 Air $3,100, As2 Pro $4,650. The store uses $100,000 as a placeholder on quote-only items, so that number is not a price.
 
 ## Entities mentioned

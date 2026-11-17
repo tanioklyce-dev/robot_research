@@ -49,7 +49,7 @@ This is the vendor saying, in its own words, what [Yang et al. 2025](yang2025-se
 
 ### The hardware verdict, from a Stretch user
 
-- **[Mahi Shafiullah](../entities/mahi-shafiullah.md)** — now *"a postdoc working on robotic hands at the University of California, Berkeley"* (the wiki had him at NYU + Hello Robot) — *"The state of hardware today is actually abysmal from the perspective of, 'I want to have robots in my parents' place.'"* Industrial arms in his lab *"accidentally punching through a plastic kitchen play set."* He used Stretch 3 in his NYU PhD; models developed with it won a **best-demonstration prize at CVPR 2025**.
+- **[Mahi Shafiullah](../entities/mahi-shafiullah.md)** — now *"a postdoc working on robotic hands at the [University of California, Berkeley](../entities/uc-berkeley.md)"* (the wiki had him at NYU + Hello Robot) — *"The state of hardware today is actually abysmal from the perspective of, 'I want to have robots in my parents' place.'"* Industrial arms in his lab *"accidentally punching through a plastic kitchen play set."* He used Stretch 3 in his NYU PhD; models developed with it won a **best-demonstration prize at CVPR 2025**.
 - *"Hello Robot has been really cautious and really caring about this problem, because I think they're designing it to be around people first. And then they're thinking about, where are the capabilities that they can fit in within those limitations?"*
 - *"The algorithms may be there, but the data is not, and data is actually like 80% of the ingredient that matters."*
 - Physics: *"heavy limbs that require high-energy, active balancing. A robotic hand and arm weighs much more than a human's."*

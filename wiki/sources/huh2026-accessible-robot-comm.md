@@ -55,7 +55,7 @@ The first study finds that blind users **systematically overestimate their situa
 
 ## Entities mentioned
 
-- [Mina Huh](../entities/mina-huh.md) — first author (UC Berkeley)
+- [Mina Huh](../entities/mina-huh.md) — first author ([UC Berkeley](../entities/uc-berkeley.md))
 - [Huihan Liu](../entities/huihan-liu.md) — UT Austin (Yuke Zhu's group)
 - [Roberto Martin-Martin](../entities/roberto-martin-martin.md) — UT Austin
 - [Yuke Zhu](../entities/yuke-zhu.md) — UT Austin / NVIDIA

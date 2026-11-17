@@ -84,6 +84,7 @@ tags: [aw-0, world-action-model, wam, code-as-policy, agentic-robotics, mixture-
 - **Name collision**: the **WLA** baseline here is Yang et al. 2026 (SJTU-DENG-Lab, autoregressive subtask + subgoal image + action). It is **not** Unitree's [UnifoLM-WLA-1.0](unifolm-wla-1-project-page.md).
 
 ## Entities mentioned
+- [UC Berkeley](../entities/uc-berkeley.md) — among the paper's affiliations.
 - [AW-0](../entities/aw-0.md) (new)
 - [NVIDIA GEAR Lab](../entities/nvidia-gear.md), [NVIDIA](../entities/nvidia.md), [NVIDIA Cosmos](../entities/nvidia-cosmos.md) (Cosmos-Predict2.5-2B video init; Cosmos-Reason1 embeddings)
 - [Jim Fan](../entities/jim-fan.md), [Yuke Zhu](../entities/yuke-zhu.md), [Guanzhi Wang](../entities/guanzhi-wang.md), [Ken Goldberg](../entities/ken-goldberg.md)

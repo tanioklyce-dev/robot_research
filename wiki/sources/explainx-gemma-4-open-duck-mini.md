@@ -42,7 +42,7 @@ Every row checked against [google/gemma-4-E2B-it and the LiteRT-LM card](gemma-4
 | *"Modalities: text + image + audio (E2B and E4B)"* | Text, image, **video**, audio; audio on **E2B, E4B and 12B**. | Incomplete |
 | *"Released April 2, 2026"* | HF repo created **2026-03-02**. | Doubtful |
 | *"brought two ducks **to the stage**"* | Google's own post: *"stop by the **Gemma Playground**"* — a demo booth, not a keynote stage slot. | Overstated |
-| Microduck update: *"15 actuators, **LiDAR**"* | Pollen's own press kit: *"compact LiDAR, an **8×8 time-of-flight matrix**"* — 64 depth zones. See [the launch page](pollen-robotics-microduck.md). | Propagates a vendor marketing term |
+| Microduck update: *"15 actuators, **[LiDAR](../concepts/robotics/lidar.md)**"* | Pollen's own press kit: *"compact LiDAR, an **8×8 time-of-flight matrix**"* — 64 depth zones. See [the launch page](pollen-robotics-microduck.md). | Propagates a vendor marketing term |
 | *"Model size: ~2.58 GB"* | **2583 MB.** | ✅ Correct |
 | *"~$400 in components"*, Pi 5 recommended, Apache-2.0, BDX-droid inspiration | Matches the [repo](../entities/open-duck-mini.md). | ✅ Correct |
 

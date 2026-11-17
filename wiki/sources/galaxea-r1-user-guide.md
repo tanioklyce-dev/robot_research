@@ -16,7 +16,7 @@ Product user guide for the **[Galaxea R1](../entities/galaxea-r1.md)** — a ful
 ## Key claims
 - **24 DOF total**: 6 (chassis) + 4 (torso) + 14 (dual arms + grippers).
 - **Operating height 0–200 cm**; reach 70 cm/arm (86 cm with gripper); **max payload 5 kg @ 0.5 m**.
-- **Onboard compute up to 550 TOPS**; sensors: 1 head camera, 2 wrist cameras, 5 chassis cameras, 1× 360° LiDAR (optional 2nd).
+- **Onboard compute up to 550 TOPS**; sensors: 1 head camera, 2 wrist cameras, 5 chassis cameras, 1× 360° [LiDAR](../concepts/robotics/lidar.md) (optional 2nd).
 - Three-wheel steering-vector chassis (omnidirectional mobile base).
 - An **R1 Pro** variant is referenced but not differentiated in this page.
 - No battery/runtime, price, software-stack (ROS 2/SDK), or GR00T mention in the extracted content.

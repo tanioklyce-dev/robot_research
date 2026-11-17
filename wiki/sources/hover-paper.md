@@ -43,6 +43,7 @@ The mechanism is **multi-mode policy distillation**: train a privileged **oracle
 
 ## Entities mentioned
 
+- [UC Berkeley](../entities/uc-berkeley.md) — among the paper's affiliations.
 - [Tairan He](../entities/tairan-he.md) — co-first author; his fourth paper in this corpus.
 - [NVIDIA GEAR](../entities/nvidia-gear.md) — Fan and Zhu as senior authors.
 

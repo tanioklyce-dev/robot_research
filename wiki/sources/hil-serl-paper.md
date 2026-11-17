@@ -12,7 +12,7 @@ format: pdf
 tags: [reinforcement-learning, real-world-rl, manipulation, human-in-the-loop, dexterous-manipulation, imitation-learning, uc-berkeley, dual-arm, contact-rich]
 ---
 
-**HIL-SERL** (Human-In-the-Loop Sample-Efficient Robotic reinforcement Learning) is a vision-based real-world RL system from [Sergey Levine](../entities/sergey-levine.md)'s UC Berkeley lab that trains **near-perfect (100% success) manipulation policies in 1–2.5 hours of real-world training** by combining a small set of demonstrations, on-policy human corrections, a sparse classifier reward, and the sample-efficient off-policy RL algorithm [RLPD](../concepts/learning/real-world-robot-rl.md). Project + code: [hil-serl.github.io](https://hil-serl.github.io/).
+**HIL-SERL** (Human-In-the-Loop Sample-Efficient Robotic reinforcement Learning) is a vision-based real-world RL system from [Sergey Levine](../entities/sergey-levine.md)'s [UC Berkeley](../entities/uc-berkeley.md) lab that trains **near-perfect (100% success) manipulation policies in 1–2.5 hours of real-world training** by combining a small set of demonstrations, on-policy human corrections, a sparse classifier reward, and the sample-efficient off-policy RL algorithm [RLPD](../concepts/learning/real-world-robot-rl.md). Project + code: [hil-serl.github.io](https://hil-serl.github.io/).
 
 ## Summary
 

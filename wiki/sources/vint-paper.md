@@ -50,7 +50,7 @@ The GNM idea rebuilt as a **"foundation model"** — defined here as a model tha
 
 ### Limitations (§7)
 
-Transformer inference cost on power-constrained platforms; assumes structural similarity — cannot control a quadcopter's altitude or ingest LiDAR.
+Transformer inference cost on power-constrained platforms; assumes structural similarity — cannot control a quadcopter's altitude or ingest [LiDAR](../concepts/robotics/lidar.md).
 
 ## Reading it against the wiki
 
@@ -61,6 +61,7 @@ Transformer inference cost on power-constrained platforms; assumes structural si
 
 ## Entities mentioned
 
+- [UC Berkeley](../entities/uc-berkeley.md) — Berkeley RAIL. This page does not state affiliations; the attribution comes from its siblings [GNM](gnm-paper.md) and [MBRA](mbra-paper.md), which do.
 - [Dhruv Shah](../entities/dhruv-shah.md), [Noriaki Hirose](../entities/noriaki-hirose.md), [Sergey Levine](../entities/sergey-levine.md); Sridhar, Dashora, Stachowicz, Kevin Black (later of [π0](../entities/pi-zero.md)).
 - [Unitree Go1](../entities/unitree-go1.md) — first wiki appearance; LoCoBot, Vizbot, Jackal, DJI Tello.
 - [X-VLA](../entities/x-vla.md) — the later soft-prompt parallel.

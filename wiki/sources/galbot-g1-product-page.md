@@ -25,7 +25,7 @@ Vendor specifications, read on 2026-11-08 in Chinese and translated here, for th
 - **End effectors.** Swappable dexterous hand, suction cup or gripper.
 - **Base.** Four-wheel omnidirectional, 600 × 600 mm, 625 mm projected circle, 1.5 m/s maximum.
 - **Power.** 48 V 30 Ah, 8 hours working time, 3.5 hours to charge.
-- **Compute and sensing.** NVIDIA AGX Orin 64 GB; head stereo camera, 4 torso RGB cameras, 2 wrist depth cameras, 2 wrist six-axis force sensors, 3D LiDAR, 8 ultrasonic sensors.
+- **Compute and sensing.** NVIDIA AGX Orin 64 GB; head stereo camera, 4 torso RGB cameras, 2 wrist depth cameras, 2 wrist six-axis force sensors, 3D [LiDAR](../concepts/robotics/lidar.md), 8 ultrasonic sensors.
 - **Retail claim.** Fetching and handing over goods, plus continuous stock-taking and restocking.
 - **Deployment claims.** "Galaxy Space Capsule" sites at more than 170 locations in over 40 Chinese cities, and instant-retail warehouses (on the order of a hundred) running 24/7 for over a year and a half, handling picking, packing and dispatch.
 - **Home claim.** The page lists home service (cleaning, tidying, finding things, collecting parcels) as a scenario, with no results shown.

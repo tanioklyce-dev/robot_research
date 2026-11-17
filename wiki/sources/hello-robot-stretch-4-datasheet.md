@@ -23,7 +23,7 @@ tags: [stretch, stretch-4, hello-robot, datasheet, primary-source, mobile-manipu
 
 ## Summary
 
-**Two-page Hello Robot product datasheet for Stretch 4**, version **Rev 5 ("As Launched")**, dated to the 2026-05-12 launch. Confirms and extends the partial spec list from the [launch announcement](hello-robot-stretch-4-launch.md) with the **exact sensor model numbers** (Hesai J128 LiDAR, Luxonis OAK-FFC AR0234 / IMX378 / OAK-D SR cameras), **specific compute SKUs** (Intel Core Ultra 5 225H + Jetson Orin NX 16 GB / 128 GB NVMe), the **active safety architecture** (motor-current force limiting, 100 Hz watchdog, IMU tilt avoidance, Runstop button, 6× Pixart laser-line cliff curtains), and **environmental ratings** (10–30 °C, IP20, 10–90% RH non-condensing, 12-month standard warranty). Datasheet is explicit that Stretch 4 is **not yet FCC Class A certified — research/lab/development only**.
+**Two-page Hello Robot product datasheet for Stretch 4**, version **Rev 5 ("As Launched")**, dated to the 2026-05-12 launch. Confirms and extends the partial spec list from the [launch announcement](hello-robot-stretch-4-launch.md) with the **exact sensor model numbers** (Hesai J128 [LiDAR](../concepts/robotics/lidar.md), Luxonis OAK-FFC AR0234 / IMX378 / OAK-D SR cameras), **specific compute SKUs** (Intel Core Ultra 5 225H + Jetson Orin NX 16 GB / 128 GB NVMe), the **active safety architecture** (motor-current force limiting, 100 Hz watchdog, IMU tilt avoidance, Runstop button, 6× Pixart laser-line cliff curtains), and **environmental ratings** (10–30 °C, IP20, 10–90% RH non-condensing, 12-month standard warranty). Datasheet is explicit that Stretch 4 is **not yet FCC Class A certified — research/lab/development only**.
 
 ## Key claims (verbatim from datasheet)
 

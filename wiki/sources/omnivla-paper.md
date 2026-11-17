@@ -69,6 +69,7 @@ The RAIL navigation line's arrival at a **VLA**: [OpenVLA](../entities/openvla.m
 
 ## Entities mentioned
 
+- [UC Berkeley](../entities/uc-berkeley.md) — Berkeley RAIL. This page does not state affiliations; the attribution comes from its siblings [GNM](gnm-paper.md) and [MBRA](mbra-paper.md), which do.
 - [Noriaki Hirose](../entities/noriaki-hirose.md), [Dhruv Shah](../entities/dhruv-shah.md), [Sergey Levine](../entities/sergey-levine.md); Catherine Glossop.
 - [OpenVLA](../entities/openvla.md) — the base; [SmolVLA](../entities/smolvla.md) — a baseline; [FrodoBots](../entities/frodobots.md) — data and platform; [Unitree Go1](../entities/unitree-go1.md), Vizbot.
 

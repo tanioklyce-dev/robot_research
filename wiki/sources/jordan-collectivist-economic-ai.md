@@ -71,7 +71,7 @@ The constructive thesis is methodological: AI cannot be built on **computational
 - **Closing analogy:** chemical & electrical engineering matured by building modular, transparent design concepts atop solid foundations (Schrödinger's / Maxwell's equations). AI faces equally complex phenomena but has **no Maxwell's equations** — "we are winging it." We need rationality, experimentation, dialog, openness, cooperation, skepticism, empathy, and humility "as daily companions."
 
 ## Entities mentioned
-- [Michael I. Jordan](../entities/michael-i-jordan.md) — author; Inria Paris + UC Berkeley.
+- [Michael I. Jordan](../entities/michael-i-jordan.md) — author; Inria Paris + [UC Berkeley](../entities/uc-berkeley.md).
 - [UnitedMasters](../entities/unitedmasters.md) — the real-world three-way music market in Fig 2.
 - Yann LeCun (implicit contrast) — see [critique synthesis](../syntheses/society/critiques-of-the-intelligence-north-star.md). LeCun's [AMI position paper](lecun2022-path-towards-ami.md) is the world-model counterpart critique.
 

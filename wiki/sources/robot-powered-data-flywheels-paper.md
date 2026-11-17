@@ -44,7 +44,7 @@ The generalizable principle: *the flywheel closes when the environment already c
 
 ## Hardware and the unglamorous engineering
 
-**Franka FR3 arm on a TidyBot++ mobile base**, wrist-mounted **Intel RealSense D435** RGB-D, base-mounted **Unitree L2 LiDAR**. The base is 21 inches wide, chosen against the **ADA minimum 36-inch aisle** — a rare instance of a research platform sized by an accessibility standard rather than by what was in the lab.
+**Franka FR3 arm on a TidyBot++ mobile base**, wrist-mounted **Intel RealSense D435** RGB-D, base-mounted **Unitree L2 [LiDAR](../concepts/robotics/lidar.md)**. The base is 21 inches wide, chosen against the **ADA minimum 36-inch aisle** — a rare instance of a research platform sized by an accessibility standard rather than by what was in the lab.
 
 Control is deliberately dumb: predefined shelf heights, arm sweeps them at each stop, base advances **0.3 m** (≈ half an image's coverage), repeat.
 

@@ -16,7 +16,7 @@ tags: [egoscale, nvidia-gear, vla, dexterous-manipulation, scaling-laws, human-d
 ---
 
 > [!note] Project leads
-> Yuke Zhu, Danfei Xu, and Linxi (Jim) Fan are flagged as project leads (†) on the author list. Trevor Darrell (UC Berkeley) and Furong Huang (UMD) are the external academic co-authors; everyone else is at NVIDIA.
+> Yuke Zhu, Danfei Xu, and Linxi (Jim) Fan are flagged as project leads (†) on the author list. Trevor Darrell ([UC Berkeley](../entities/uc-berkeley.md)) and Furong Huang (UMD) are the external academic co-authors; everyone else is at NVIDIA.
 
 ## Summary
 

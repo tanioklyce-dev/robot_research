@@ -93,6 +93,7 @@ The drawer row is the strongest single data point: without skill retrieval the a
 - Evolutionary search improves steadily over the first few rounds then shows **diminishing returns**.
 
 ## Entities mentioned
+- [UC Berkeley](../entities/uc-berkeley.md) — among the paper's affiliations.
 - [NVIDIA GEAR](../entities/nvidia-gear.md) · [NVIDIA](../entities/nvidia.md) · [Jim Fan](../entities/jim-fan.md) · [Yuke Zhu](../entities/yuke-zhu.md) · [Ken Goldberg](../entities/ken-goldberg.md) · [Letian (Max) Fu](../entities/letian-fu.md)
 - [ASPIRE](../entities/aspire.md) · [CaP-X](../entities/cap-x.md) · [Robosuite](../entities/robosuite.md) · [LIBERO](../entities/libero.md) · [BEHAVIOR](../entities/behavior-benchmark.md) · [MuJoCo Playground](../entities/mujoco-playground.md)
 - [Anthropic](../entities/anthropic.md) — Claude Code + Claude Opus 4.6 (1M context) is the coding agent for every simulation result.

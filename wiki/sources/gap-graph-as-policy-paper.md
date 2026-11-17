@@ -86,6 +86,7 @@ The [page](https://graph-robots.github.io/gap/) matches the paper's tables where
 
 ## Entities mentioned
 
+- [UC Berkeley](../entities/uc-berkeley.md) — among the paper's affiliations.
 - [Graph-as-Policy](../entities/graph-as-policy.md), [Ken Goldberg](../entities/ken-goldberg.md), [Jim Fan](../entities/jim-fan.md), [Yuke Zhu](../entities/yuke-zhu.md), [NVIDIA GEAR](../entities/nvidia-gear.md)
 - [CaP-X](../entities/cap-x.md), [π0.5](../entities/pi-zero-5.md), [MolmoAct2](../entities/molmoact2.md), [GraspGen](../entities/graspgen.md), [cuRobo](../entities/curobo.md), [LIBERO](../entities/libero.md)
 

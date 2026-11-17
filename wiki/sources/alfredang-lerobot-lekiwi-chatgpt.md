@@ -42,7 +42,7 @@ A community build that runs a [LeKiwi](../entities/lekiwi.md) mobile manipulator
 
 ## Concepts touched
 
-- ROS 2 + LeRobot side-by-side integration (HTTP/ZMQ shim vs native nodes) · cloud-VLM-as-brain (GPT-4o) vs on-edge learned policy · onboard vs offloaded compute · 2D LiDAR SLAM (SLAM Toolbox)
+- ROS 2 + LeRobot side-by-side integration (HTTP/ZMQ shim vs native nodes) · cloud-VLM-as-brain (GPT-4o) vs on-edge learned policy · onboard vs offloaded compute · 2D [LiDAR](../concepts/robotics/lidar.md) SLAM (SLAM Toolbox)
 
 ## Open questions
 

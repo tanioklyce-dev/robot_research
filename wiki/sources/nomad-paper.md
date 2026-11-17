@@ -53,6 +53,7 @@ Goal images only ("not the most natural modalities for users"); frontier explora
 
 ## Entities mentioned
 
+- [UC Berkeley](../entities/uc-berkeley.md) — Berkeley RAIL. This page does not state affiliations; the attribution comes from its siblings [GNM](gnm-paper.md) and [MBRA](mbra-paper.md), which do.
 - [Dhruv Shah](../entities/dhruv-shah.md), [Sergey Levine](../entities/sergey-levine.md); Ajay Sridhar, Catherine Glossop.
 - [Diffusion Policy](../entities/diffusion-policy.md) — the head; ViNT — the encoder; LoCoBot (deployment platform).
 

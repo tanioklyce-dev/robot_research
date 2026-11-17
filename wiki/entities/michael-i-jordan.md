@@ -23,7 +23,7 @@ Technical lines feeding that essay (co-authored, cited within it):
 - **Privacy-aware learning** — Duchi, Jordan, Wainwright, *J. ACM* 2014 (privacy/inference tradeoffs).
 
 ## Affiliations & roles
-- **UC Berkeley** — Pehong Chen Distinguished Professor (EECS + Statistics).
+- **[UC Berkeley](uc-berkeley.md)** — Pehong Chen Distinguished Professor (EECS + Statistics).
 - **Inria Paris** — including the ERC Synergy *OCEAN* grant and the Inria Foundation chair "Markets and Learning."
 - **[UnitedMasters](unitedmasters.md)** — board member and market-design consultant; the company is his worked example of a deployed collectivist-AI market.
 

@@ -25,7 +25,7 @@ tags: [agile-robots, agile-one-sn, humanoid, reference-platform, research-humano
 - *"31 degrees of freedom … (body)"* plus *"Dual Wuji tactile five-finger hands with 20 degrees of freedom, for a total of 71 degrees of freedom across body and hands."*
 - *"Whole-body control with joint torque of up to 140 Nm and a payload of up to 3 kg per arm."*
 - **Compute:** Jetson Thor *"for real-time sensor processing and robot inference."* The product page adds an **Intel i3 N305 base computing module**.
-- **Sensing:** RGB-D head camera, wrist cameras, 3D LiDAR. The product page puts the LiDAR **at the waist**, with further **RGB-D cameras at the waist and back**.
+- **Sensing:** RGB-D head camera, wrist cameras, 3D [LiDAR](../concepts/robotics/lidar.md). The product page puts the LiDAR **at the waist**, with further **RGB-D cameras at the waist and back**.
 - Wi-Fi 7, Bluetooth, an emergency stop button *"and other safety features."*
 
 **Software**

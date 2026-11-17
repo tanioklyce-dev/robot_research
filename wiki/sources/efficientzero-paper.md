@@ -26,6 +26,7 @@ The **Atari-100K sample-efficiency milestone**: a [MuZero](muzero-paper.md) vari
 
 ## Entities mentioned
 
+- [UC Berkeley](../entities/uc-berkeley.md) — among the paper's affiliations.
 - [MuZero](muzero-paper.md) lineage (DeepMind); Pieter Abbeel (recurring senior figure, no person page); Tsinghua (also behind [EAWM](eawm-paper.md)).
 
 ## Concepts touched

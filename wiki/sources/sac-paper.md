@@ -12,7 +12,7 @@ format: pdf
 tags: [reinforcement-learning, off-policy-rl, maximum-entropy-rl, actor-critic, continuous-control, sample-efficiency, uc-berkeley, algorithm]
 ---
 
-**SAC** (Soft Actor-Critic) is the off-policy, maximum-entropy actor-critic algorithm (Haarnoja, Zhou, [Abbeel](../entities/sergey-levine.md), [Levine](../entities/sergey-levine.md); ICML 2018, UC Berkeley) that became the default continuous-control workhorse of modern deep RL — and the algorithm the wiki's entire [real-world robotic RL](../concepts/learning/real-world-robot-rl.md) lineage ([RLPD](../entities/rlpd.md) → [SERL](../entities/serl.md) → [HIL-SERL](hil-serl-paper.md)) is built on top of.
+**SAC** (Soft Actor-Critic) is the off-policy, maximum-entropy actor-critic algorithm (Haarnoja, Zhou, Abbeel, [Levine](../entities/sergey-levine.md); ICML 2018, [UC Berkeley](../entities/uc-berkeley.md)) that became the default continuous-control workhorse of modern deep RL — and the algorithm the wiki's entire [real-world robotic RL](../concepts/learning/real-world-robot-rl.md) lineage ([RLPD](../entities/rlpd.md) → [SERL](../entities/serl.md) → [HIL-SERL](hil-serl-paper.md)) is built on top of.
 
 ## Summary
 

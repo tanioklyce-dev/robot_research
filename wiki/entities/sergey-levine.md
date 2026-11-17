@@ -8,7 +8,7 @@ sources: 27
 tags: [person, uc-berkeley, robot-learning, rl, real-world-rl, droid, metaworld]
 ---
 
-**Sergey Levine** — Associate Professor at UC Berkeley EECS. Robot-learning and reinforcement-learning researcher; one of the most prolific senior figures in the field across the 2015–2026 window. In this wiki, **senior across the [real-world robotic RL](../concepts/learning/real-world-robot-rl.md) lineage** ([SAC](../sources/sac-paper.md) → [RLPD](../sources/rlpd-paper.md) → [SERL](../sources/serl-paper.md) → [HIL-SERL](../sources/hil-serl-paper.md)), plus **[DROID](droid.md)** and co-senior on **[Metaworld](metaworld.md)**.
+**Sergey Levine** — Associate Professor at [UC Berkeley](uc-berkeley.md) EECS. Robot-learning and reinforcement-learning researcher; one of the most prolific senior figures in the field across the 2015–2026 window. In this wiki, **senior across the [real-world robotic RL](../concepts/learning/real-world-robot-rl.md) lineage** ([SAC](../sources/sac-paper.md) → [RLPD](../sources/rlpd-paper.md) → [SERL](../sources/serl-paper.md) → [HIL-SERL](../sources/hil-serl-paper.md)), plus **[DROID](droid.md)** and co-senior on **[Metaworld](metaworld.md)**.
 
 ## Papers in this wiki
 - **[SAC](../sources/sac-paper.md)** (Haarnoja, Zhou, Abbeel, Levine — ICML 2018) — senior author. Soft Actor-Critic, the max-entropy off-policy algorithm at the algorithmic root of the whole real-world-RL line.

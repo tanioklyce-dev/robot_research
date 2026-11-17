@@ -14,7 +14,7 @@ Chapter 1 hardware reference for [Hiwonder](../entities/hiwonder.md)'s **[ROSOri
 ## Key claims
 
 ### Sensors
-- LiDAR: **COIN-D6**, 360° scanning, 12 m radius (black objects), 9.5–10.5 Hz scan, 0.9° angular resolution.
+- [LiDAR](../concepts/robotics/lidar.md): **COIN-D6**, 360° scanning, 12 m radius (black objects), 9.5–10.5 Hz scan, 0.9° angular resolution.
 - Depth camera: **Deptrum Aurora930**, 3D structured light, 640×400 @ 12 fps, 15–300 cm working range. NV12 RGB integrated in the same module.
 - IMU: **MPU6050**, 3-axis accelerometer + 3-axis gyroscope, I2C.
 - Audio: "AI voice interaction box" referenced — same WonderEcho Pro / 6-microphone array architecture as the base ROSOrin docs.

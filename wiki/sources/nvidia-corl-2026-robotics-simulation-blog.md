@@ -54,7 +54,7 @@ Its GR00T 2 and GaP claims are summaries of primary documents, and those are the
 **Benchmarks.**
 
 - **DexBench** (RLWRLD with NVIDIA): 15 tasks across four scenes in retail, logistics, manufacturing and hospitality.
-- **VABAR** (UC Berkeley and NVIDIA): the Variational Automation Benchmark for Agentic Robotics, six industrial tasks with standard variations, difficulty tiers and metrics.
+- **VABAR** ([UC Berkeley](../entities/uc-berkeley.md) and NVIDIA): the Variational Automation Benchmark for Agentic Robotics, six industrial tasks with standard variations, difficulty tiers and metrics.
 
 **GaP.** Ken Goldberg calls agentic robotics *"the most exciting technological development since the internet in 1995."* Ambi Robotics, Bosch Research and Siemens are exploring GaP.
 

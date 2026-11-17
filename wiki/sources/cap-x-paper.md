@@ -111,6 +111,7 @@ Simulation **N=100/task**; real world **N=25/task** on a [Franka Emika Panda](..
 - Deliberately designed so the same interface drives **real hardware**: zero-shot demos on [Franka Panda](../entities/franka-panda.md) and **[AgiBot](../entities/agibot.md) G1** with no major cross-embodiment change "with the exception of single arm to bimanual control primitive modifications."
 
 ## Entities mentioned
+- [UC Berkeley](../entities/uc-berkeley.md) — among the paper's affiliations.
 - [NVIDIA GEAR](../entities/nvidia-gear.md) · [NVIDIA](../entities/nvidia.md) · [Ken Goldberg](../entities/ken-goldberg.md) · [Jim Fan](../entities/jim-fan.md) · [Yuke Zhu](../entities/yuke-zhu.md) · [Letian (Max) Fu](../entities/letian-fu.md)
 - [CaP-X](../entities/cap-x.md) (the framework as an entity) · [Robosuite](../entities/robosuite.md) · [LIBERO](../entities/libero.md) · [BEHAVIOR](../entities/behavior-benchmark.md) · [MuJoCo](../entities/mujoco.md)
 - [OpenVLA](../entities/openvla.md) · [π0](../entities/pi-zero.md) · [Molmo 2](../entities/molmo2-er.md) · [Anthropic](../entities/anthropic.md) (Claude Haiku 4.5 / Opus 4.5 among the 12 models)

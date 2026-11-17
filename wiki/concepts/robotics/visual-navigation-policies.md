@@ -9,7 +9,7 @@ tags: [navigation, visual-navigation, goal-conditioned, topological-memory, gnm,
 
 # Visual navigation policies
 
-**Visual navigation policies** are end-to-end networks that map a monocular camera stream and a goal — a **goal image**, a **relative 2-D pose / GPS waypoint**, or **language** — to short-horizon waypoint or velocity commands, with no map, LiDAR, or explicit localization. The dominant open line is Berkeley RAIL's ([Shah](../../entities/dhruv-shah.md), [Hirose](../../entities/noriaki-hirose.md), [Levine](../../entities/sergey-levine.md)), 2022–2025, now fully ingested.
+**Visual navigation policies** are end-to-end networks that map a monocular camera stream and a goal — a **goal image**, a **relative 2-D pose / GPS waypoint**, or **language** — to short-horizon waypoint or velocity commands, with no map, [LiDAR](lidar.md), or explicit localization. The dominant open line is Berkeley RAIL's ([Shah](../../entities/dhruv-shah.md), [Hirose](../../entities/noriaki-hirose.md), [Levine](../../entities/sergey-levine.md)), 2022–2025, now fully ingested.
 
 ## The lineage
 

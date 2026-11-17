@@ -31,6 +31,7 @@ The [Physical Intelligence](../entities/physical-intelligence.md) paper introduc
 
 ## Entities mentioned
 
+- [UC Berkeley](../entities/uc-berkeley.md) — among the paper's affiliations.
 - [FAST / π0-FAST](../entities/fast-action-tokenization.md) — the tokenizer + the π0 policy it produces (this is the primary source).
 - [π0](../entities/pi-zero.md) — the main VLA backbone; π0-FAST matches π0-diffusion at 5× less training.
 - [OpenVLA](../entities/openvla.md) — the naïve-binning baseline whose DROID struggles motivate FAST; a secondary backbone tested.

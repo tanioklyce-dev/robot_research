@@ -29,7 +29,7 @@ The paper asks whether existing off-policy RL can simply *include* offline data 
 
 ## Entities mentioned
 
-- [Sergey Levine](../entities/sergey-levine.md) — senior author (UC Berkeley); the algorithm anchoring his lab's real-world-RL systems line.
+- [Sergey Levine](../entities/sergey-levine.md) — senior author ([UC Berkeley](../entities/uc-berkeley.md)); the algorithm anchoring his lab's real-world-RL systems line.
 - [RLPD](../entities/rlpd.md) — the algorithm entity.
 - [SAC (Soft Actor-Critic)](../entities/sac.md)
 

@@ -35,7 +35,7 @@ Notably, **almost every addition is about *when* things tick, not about control 
 
 ## Why it matters in this wiki
 
-- **The "house navigation is already solved" component.** When the [LeRobot on ROSOrin Pro synthesis](../syntheses/projects/lerobot-on-rosorin-pro.md) says "navigation is solved by Nav2 + LiDAR SLAM, LeRobot adds nothing here," **this is what is meant**. Nav2 handles map building, localization, global + local planning, costmap maintenance, and recovery — the entire autonomy loop for getting a wheeled robot from point A to point B around obstacles.
+- **The "house navigation is already solved" component.** When the [LeRobot on ROSOrin Pro synthesis](../syntheses/projects/lerobot-on-rosorin-pro.md) says "navigation is solved by Nav2 + [LiDAR](../concepts/robotics/lidar.md) SLAM, LeRobot adds nothing here," **this is what is meant**. Nav2 handles map building, localization, global + local planning, costmap maintenance, and recovery — the entire autonomy loop for getting a wheeled robot from point A to point B around obstacles.
 - **Used by every mobile platform here:**
   - [Stretch](stretch.md) — Stretch 3 ([source](../sources/hello-robot-stretch-docs.md)) and Stretch 4 ([source](../sources/hello-robot-stretch-4-launch.md), which references ROS 2 Jazzy + Nav2).
   - [ROSOrin Pro](rosorin-pro.md) — bundled SLAM + Nav2 curriculum ([source](../sources/hiwonder-rosorin-docs.md)).

@@ -29,7 +29,7 @@ The original SAC works but requires hand-tuning the temperature α (the reward-v
 ## Entities mentioned
 
 - [SAC](../entities/sac.md) — this paper defines the practical/deployed form of the algorithm entity.
-- [Sergey Levine](../entities/sergey-levine.md) — senior author (UC Berkeley); Abhishek Gupta and Pieter Abbeel also co-author (Gupta later co-authors [SERL](../entities/serl.md)).
+- [Sergey Levine](../entities/sergey-levine.md) — senior author ([UC Berkeley](../entities/uc-berkeley.md)); Abhishek Gupta and Pieter Abbeel also co-author (Gupta later co-authors [SERL](../entities/serl.md)).
 - [RLPD](../entities/rlpd.md) — the SAC-based recipe that inherits automatic-α SAC.
 
 ## Concepts touched

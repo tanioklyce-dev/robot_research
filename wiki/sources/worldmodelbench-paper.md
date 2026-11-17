@@ -105,6 +105,7 @@ Eight models re-scored with VBench on WorldModelBench's prompts, then pairwise w
 
 ## Entities mentioned
 
+- [UC Berkeley](../entities/uc-berkeley.md) — among the paper's affiliations.
 - [NVIDIA](../entities/nvidia.md) (Chen, Yin, Han, Lu; both first authors interned there), UC Berkeley (Gonzalez, Stoica — the Chatbot Arena group, whose agreement methodology is reused), UC San Diego (Xiaolong Wang), MIT (Song Han; VILA is his lab's VLM).
 - Reference-video datasets: [nuScenes](../entities/nuscenes.md), [Open X-Embodiment](../entities/open-x-embodiment.md), ActivityNet (no page), OpenVid-1M (no page).
 - Judged models (no entity pages): Kling v1.5, MiniMax, Mochi / Genmo, Runway Gen-3, Luma 1.6, CogVideoX-5B, Open-Sora 1.2, Open-Sora-Plan 1.3, T2V-Turbo-v2, Pandora.
