@@ -6865,3 +6865,8 @@ Structure was sound: **0 broken file links, 0 orphans, 0 schema violations, all 
 - Headline numbers: mixed-garment folding at 80% about even odds by late 2028; the full laundry cycle by mid-2029; washer loading and putting clothes away as shipped features in early 2029; surface wiping published 54% by 2028-Q4; a bathroom cleaned unattended 38% by 2030-Q4; a cleaning service mostly autonomous at about even odds by mid-2029.
 - Noted on the page: sets B and G overlap, so their scores are related; and a robot vacuum with a capable arm could take floor clutter away from general-purpose robots.
 - The scorecard gains a set G column. All 77 event rows on the page were checked for 17 non-decreasing values, and G12 (unattended) never exceeds G11 (any wet-cleaning feature).
+
+## [2026-11-16] edit | Home robot forecast: JEPA set moved to the end, title shortened
+- In the [home robot forecast](syntheses/society/home-robot-forecast-2026-2028.md), set C (JEPA and household AI) now follows sets D, F and G instead of sitting between B and D, and the title is "Home robot forecast, 2026-Q4 to 2030-Q4".
+- A reordering only. Set letters, all 26 set-C table rows and every other number are unchanged (checked by comparing the rows before and after). The scorecard keeps its column order.
+- Link text updated in the index and the assistive forecast. The filename is unchanged.

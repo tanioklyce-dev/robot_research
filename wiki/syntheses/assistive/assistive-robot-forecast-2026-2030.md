@@ -229,7 +229,7 @@ Each cell is the probability that the event **has happened on or before** that q
 
 ## Related
 
-- [Home robot and JEPA forecast](../society/home-robot-forecast-2026-2028.md) — the consumer counterpart, scored on the same dates
+- [Home robot forecast](../society/home-robot-forecast-2026-2028.md) — the consumer counterpart, scored on the same dates
 - [Assistive robotics research landscape](assistive-robotics-research-landscape.md) — the seven blocking problems and the May 2026 timeline this forecast revises
 - [Underserved assistive domains](underserved-par-domains.md) — dressing, bathing, medication
 - [Levels of autonomy in assistive robotics](levels-of-autonomy-in-assistive-robotics.md), [Long-term in-home deployments](long-term-in-home-robot-deployments.md), [Stretch as assistive platform](stretch-as-assistive-platform.md)

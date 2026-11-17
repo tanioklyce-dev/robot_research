@@ -1,17 +1,17 @@
 ---
-title: Home robot and JEPA forecast, 2026-Q4 to 2030-Q4 — dated predictions with a scorecard
+title: Home robot forecast, 2026-Q4 to 2030-Q4 — dated predictions with a scorecard
 type: synthesis
 created: 2026-11-16
 updated: 2026-11-16
 tags: [forecast, predictions, scorecard, laundry, cleaning, cooking, meal-preparation, grocery, retail-robotics, jepa, ami-labs, yann-lecun, world-model, household-robot, consumer-robotics, adoption, capability, reliability, safety, privacy, 1x-neo, figure, weave-robotics, laundry-folding, dishes, calibration]
 ---
 
-# Home robot and JEPA forecast, 2026-Q4 to 2030-Q4
+# Home robot forecast, 2026-Q4 to 2030-Q4
 
-Predictions made on **2026-11-16** about household robots: how many are in homes, what they can do, how fast capability is growing, and whether they are safe. Each prediction is a number with an interval, or a probability, with a fixed resolution rule. They are scored **after the end of each quarter**, from 2026-Q4 through 2030-Q4. A third set covers when JEPA-based AI reaches household products, a fourth covers grocery shopping, a fifth covers meal preparation and cooking, and a sixth covers laundry and cleaning.
+Predictions made on **2026-11-16** about household robots: how many are in homes, what they can do, how fast capability is growing, and whether they are safe. Each prediction is a number with an interval, or a probability, with a fixed resolution rule. They are scored **after the end of each quarter**, from 2026-Q4 through 2030-Q4. Further sets cover grocery shopping (D), meal preparation and cooking (F), and laundry and cleaning (G). The last set on the page (C) covers when JEPA-based AI reaches household products.
 
 > [!warning] These are judgment forecasts, not sourced facts
-> The evidence is cited from this wiki. The numbers are the forecaster's estimates from that evidence, and no source states them. Confidence falls quickly with distance: the 2026-Q4 and 2027 rows rest on announced products and dates, while the 2028 rows are extrapolation. **The predictions on this page are frozen as of 2026-11-16.** The first version, filed that day, ran to 2028-Q4. The 2029–2030 columns, set C (JEPA), set D (grocery shopping), set F (meal preparation and cooking) and set G (laundry and cleaning) were added later the same day, before any scoring, without changing any number already filed. Scoring is appended below; the forecasts themselves are never edited. A revised forecast goes on a new dated page. Confidence in the 2029–2030 columns is low: they are extrapolations of extrapolations.
+> The evidence is cited from this wiki. The numbers are the forecaster's estimates from that evidence, and no source states them. Confidence falls quickly with distance: the 2026-Q4 and 2027 rows rest on announced products and dates, while the 2028 rows are extrapolation. **The predictions on this page are frozen as of 2026-11-16.** The first version, filed that day, ran to 2028-Q4. The 2029–2030 columns, set C (JEPA), set D (grocery shopping), set F (meal preparation and cooking) and set G (laundry and cleaning) were added later the same day, before any scoring, without changing any number already filed. Set C was later moved below the other sets and "JEPA" dropped from the title; that was a reordering only, with every number and letter unchanged. Scoring is appended below; the forecasts themselves are never edited. A revised forecast goes on a new dated page. Confidence in the 2029–2030 columns is low: they are extrapolations of extrapolations.
 
 ## The short version
 
@@ -150,75 +150,6 @@ Each cell is the probability that the event **has happened on or before** that q
 - **B13 and B15:** "no remote human by default" means the vendor states that teleoperation is not used for the task in normal operation, and a review by an outlet with no commercial tie to the vendor reports it completing the chore on most attempts.
 - **B17:** outlets such as Wirecutter, Consumer Reports, The Verge or CNET; a "recommended" or equivalent verdict for chores, not for novelty.
 - **B19:** vacuums and toys are excluded, as in set A.
-
-## Prediction set C: JEPA and household AI (added 2026-11-16)
-
-**The question:** when does JEPA-based AI, the research program led by [Yann LeCun](../../entities/yann-lecun.md), reach household products?
-
-**Where it stands** (evidence as of 2026-11-16):
-- **LeCun gives no date for a home robot.** His stated precondition: *"that's not going to happen until we have good world models and planning"* ([MIT Technology Review](../../sources/mit-tech-review-lecun-ami-labs-interview.md)). [AMI Labs](../../entities/ami-labs.md) raised $1.03B and says its first targets are industrial systems, in one to two years, explicitly not robot arms or humanoids. Smart glasses are a named application.
-- **Real-robot JEPA results are short and goal-image conditioned.** [RoboJEPA](../../entities/robojepa.md) at 8B parameters: grasp 67%, pick-and-place 27%, against 53% for π0.5, and planning takes several seconds on multiple GPUs. [HWM](../../entities/hwm.md) took pick-and-place from 0% to 70% with two levels of hierarchy. [H-JEPA](../../entities/h-jepa.md) reaches three levels in simulation only.
-- **Robustness is the measured weak point.** [LeWorldModel](../../entities/leworldmodel.md) falls from 50.8% to 6–26% under colour, size and shape changes ([stable-worldmodel](../../sources/stable-worldmodel-paper.md)).
-- **Three unmet conditions** from the wiki's [JEPA household synthesis](../world-models/jepa-for-household-mobile-manipulator.md): the recipe must ignore household variation, hierarchy must go past two levels and take language, and a force or tactile channel must enter the latent.
-- **JEPA ideas already ship as components elsewhere.** The FLARE latent-prediction loss is in [GR00T N1.5](../../sources/groot-n1_5.md), and [VLA-JEPA](../../entities/vla-jepa.md) exists as research. Neither is in a consumer home robot.
-
-**"JEPA-style component"** below means any of: an encoder pretrained with a JEPA objective, a latent-prediction auxiliary loss such as FLARE, or a latent (non-pixel) world model. The vendor or a paper must say so.
-
-Cumulative probability (%), same convention as set B.
-
-| ID | Event | 26Q4 | 27Q1 | 27Q2 | 27Q3 | 27Q4 | 28Q1 | 28Q2 | 28Q3 | 28Q4 |
-|---|---|---|---|---|---|---|---|---|---|---|
-| **AMI Labs** | | | | | | | | | | |
-| C1 | AMI Labs releases a model, API or product that outside customers can use (not only a paper or research code) | 3 | 8 | 15 | 23 | 32 | 40 | 47 | 53 | 58 |
-| C2 | AMI Labs names a paying or pilot industrial deployment | 2 | 6 | 12 | 19 | 27 | 34 | 41 | 47 | 52 |
-| C3 | AMI Labs announces a robotics product, robot partnership or robot-targeted model | 2 | 5 | 9 | 14 | 19 | 24 | 29 | 34 | 38 |
-| **Research milestones** | | | | | | | | | | |
-| C4 | A JEPA world model keeps 80%+ of its nominal success under colour, size, shape and distractor shifts on a stable-worldmodel-style benchmark | 3 | 8 | 14 | 20 | 27 | 33 | 39 | 44 | 49 |
-| C5 | A JEPA hierarchy of 3+ levels, conditioned on language, on a real robot | 2 | 5 | 9 | 14 | 19 | 25 | 30 | 35 | 40 |
-| C6 | A force or tactile channel in a JEPA latent, with real-robot contact-task results | 3 | 8 | 14 | 20 | 26 | 32 | 38 | 43 | 48 |
-| C7 | A JEPA world model **plans** a language-specified task of 3+ steps on a real robot in an unseen environment at 60%+ success, 30+ trials | 1 | 3 | 6 | 10 | 15 | 20 | 25 | 30 | 35 |
-| C8 | A JEPA-planning system matches or beats the paper's best VLA baseline on a real-robot, multi-task, language-conditioned benchmark, 100+ trials per method | 1 | 3 | 5 | 8 | 12 | 16 | 20 | 24 | 28 |
-| C9 | A JEPA-planning result in 5+ unseen real homes on a household task, with stated trials | 0 | 1 | 3 | 5 | 8 | 12 | 16 | 20 | 24 |
-| **In household products** | | | | | | | | | | |
-| C10 | A shipping consumer home robot with a vendor-stated JEPA-style **component** | 3 | 6 | 10 | 14 | 19 | 24 | 29 | 34 | 38 |
-| C11 | A shipping consumer home robot that uses a JEPA-style latent world model for **planning or action selection at run time** | 0 | 1 | 2 | 3 | 5 | 7 | 10 | 13 | 16 |
-| C12 | A purchasable home robot whose **primary controller** is a JEPA world-model planner, doing chores | 0 | 0 | 0 | 1 | 1 | 2 | 3 | 4 | 5 |
-| C13 | A shipping non-robot household product (smart glasses, home assistant) with a vendor-stated JEPA-family model | 2 | 5 | 9 | 13 | 18 | 23 | 28 | 33 | 37 |
-
-| ID | Event (short) | 29Q1 | 29Q2 | 29Q3 | 29Q4 | 30Q1 | 30Q2 | 30Q3 | 30Q4 |
-|---|---|---|---|---|---|---|---|---|---|
-| C1 | AMI usable release | 63 | 67 | 70 | 73 | 76 | 78 | 80 | 82 |
-| C2 | AMI industrial deployment named | 57 | 61 | 65 | 68 | 71 | 73 | 75 | 77 |
-| C3 | AMI robotics announcement | 42 | 46 | 50 | 53 | 56 | 59 | 62 | 64 |
-| C4 | Robust to household-type shifts | 53 | 57 | 61 | 64 | 67 | 70 | 72 | 74 |
-| C5 | 3+ levels with language, real robot | 45 | 49 | 53 | 57 | 60 | 63 | 66 | 68 |
-| C6 | Force or tactile in the latent | 52 | 56 | 60 | 63 | 66 | 69 | 71 | 73 |
-| C7 | Plans 3+ step language task, 60%+ | 40 | 45 | 49 | 53 | 57 | 60 | 63 | 66 |
-| C8 | Matches best VLA baseline | 32 | 36 | 40 | 43 | 46 | 49 | 52 | 55 |
-| C9 | JEPA planning in 5+ real homes | 28 | 32 | 36 | 40 | 44 | 47 | 50 | 53 |
-| C10 | Home robot with JEPA-style component | 43 | 47 | 51 | 55 | 58 | 61 | 64 | 67 |
-| C11 | Home robot planning with JEPA at run time | 19 | 22 | 25 | 28 | 31 | 34 | 37 | 40 |
-| C12 | JEPA planner as primary controller | 6 | 8 | 9 | 11 | 13 | 15 | 17 | 19 |
-| C13 | JEPA in a non-robot household product | 41 | 45 | 49 | 52 | 55 | 58 | 61 | 63 |
-
-**The direct answer.**
-- **As a component** inside someone else's policy (C10): about even odds by 2029-Q3. This is the likeliest route, and the one the wiki's JEPA synthesis already pointed to.
-- **In a non-robot household product** such as smart glasses (C13): about even odds by late 2029.
-- **As a run-time planner** in a home robot (C11): 40% by the end of 2030, so the median date is after this forecast's horizon.
-- **As the controller**, which is what LeCun's program actually proposes (C12): 19% by the end of 2030.
-
-**Reasoning.**
-- **The plan points away from homes first.** AMI Labs' stated sequence is industrial systems, then becoming a general supplier in three to five years. Robots are described as what world models eventually unlock. C3 is therefore lower than C1 and C2 throughout.
-- **The research gaps are specific and being worked on.** H-JEPA, LeHami, DeepJEPA and RoboJEPA all appeared in autumn 2026, each aimed at one of the known limits. That pace is why C4–C6 pass 50% during 2029. Closing a gap in a paper is still several steps from a product.
-- **The world-model role is being filled by a rival first.** Generative video world-action models ([DreamZero](../../entities/dreamzero.md), [GR00T 2](../../sources/gr00t-2-whitepaper.md), [Praxis-1](../../entities/praxis-1.md)) already act on real robots, and vendors are shipping them. JEPA's advantage is compute and label-free video; its handicap is that it arrived at real-robot scale later. C8 stays below 55% for that reason.
-- **Run-time planning is expensive today.** RoboJEPA's 8B model takes seconds per plan on several GPUs. A home robot needs that on-board or over a link it can lose. C11 depends on that cost falling as much as on accuracy rising.
-- **LeCun's own clock.** At Davos in January 2025 he gave the current paradigm three to five years. This forecast implies he is more likely wrong than right about *homes* on that schedule, while leaving real odds (C1 82%, C2 77%) that AMI Labs has working industrial products by then.
-
-**Notes on resolution.**
-- **C4:** the benchmark must apply the shifts at test time to a model not trained on them, as [stable-worldmodel](../../sources/stable-worldmodel-paper.md) does.
-- **C7–C9:** the JEPA world model must do the planning. A JEPA encoder feeding a diffusion or VLA policy does not count here; it counts for C10.
-- **C10–C12:** "shipping" means delivered to paying consumers, by the same test as set A. C12 implies C11, which implies C10.
-- **C13:** a research demo or developer preview does not count.
 
 ## Prediction set D: grocery shopping (added 2026-11-16)
 
@@ -455,6 +386,75 @@ Cumulative probability (%), same convention as set B.
 - **G12:** as B13 and B15, the vendor must state that no teleoperation is used for the task in normal operation.
 - **G14:** outlets as in B17.
 - **G15:** a vendor statement counts; note whether an intervention rate is published with it.
+
+## Prediction set C: JEPA and household AI (added 2026-11-16)
+
+**The question:** when does JEPA-based AI, the research program led by [Yann LeCun](../../entities/yann-lecun.md), reach household products?
+
+**Where it stands** (evidence as of 2026-11-16):
+- **LeCun gives no date for a home robot.** His stated precondition: *"that's not going to happen until we have good world models and planning"* ([MIT Technology Review](../../sources/mit-tech-review-lecun-ami-labs-interview.md)). [AMI Labs](../../entities/ami-labs.md) raised $1.03B and says its first targets are industrial systems, in one to two years, explicitly not robot arms or humanoids. Smart glasses are a named application.
+- **Real-robot JEPA results are short and goal-image conditioned.** [RoboJEPA](../../entities/robojepa.md) at 8B parameters: grasp 67%, pick-and-place 27%, against 53% for π0.5, and planning takes several seconds on multiple GPUs. [HWM](../../entities/hwm.md) took pick-and-place from 0% to 70% with two levels of hierarchy. [H-JEPA](../../entities/h-jepa.md) reaches three levels in simulation only.
+- **Robustness is the measured weak point.** [LeWorldModel](../../entities/leworldmodel.md) falls from 50.8% to 6–26% under colour, size and shape changes ([stable-worldmodel](../../sources/stable-worldmodel-paper.md)).
+- **Three unmet conditions** from the wiki's [JEPA household synthesis](../world-models/jepa-for-household-mobile-manipulator.md): the recipe must ignore household variation, hierarchy must go past two levels and take language, and a force or tactile channel must enter the latent.
+- **JEPA ideas already ship as components elsewhere.** The FLARE latent-prediction loss is in [GR00T N1.5](../../sources/groot-n1_5.md), and [VLA-JEPA](../../entities/vla-jepa.md) exists as research. Neither is in a consumer home robot.
+
+**"JEPA-style component"** below means any of: an encoder pretrained with a JEPA objective, a latent-prediction auxiliary loss such as FLARE, or a latent (non-pixel) world model. The vendor or a paper must say so.
+
+Cumulative probability (%), same convention as set B.
+
+| ID | Event | 26Q4 | 27Q1 | 27Q2 | 27Q3 | 27Q4 | 28Q1 | 28Q2 | 28Q3 | 28Q4 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| **AMI Labs** | | | | | | | | | | |
+| C1 | AMI Labs releases a model, API or product that outside customers can use (not only a paper or research code) | 3 | 8 | 15 | 23 | 32 | 40 | 47 | 53 | 58 |
+| C2 | AMI Labs names a paying or pilot industrial deployment | 2 | 6 | 12 | 19 | 27 | 34 | 41 | 47 | 52 |
+| C3 | AMI Labs announces a robotics product, robot partnership or robot-targeted model | 2 | 5 | 9 | 14 | 19 | 24 | 29 | 34 | 38 |
+| **Research milestones** | | | | | | | | | | |
+| C4 | A JEPA world model keeps 80%+ of its nominal success under colour, size, shape and distractor shifts on a stable-worldmodel-style benchmark | 3 | 8 | 14 | 20 | 27 | 33 | 39 | 44 | 49 |
+| C5 | A JEPA hierarchy of 3+ levels, conditioned on language, on a real robot | 2 | 5 | 9 | 14 | 19 | 25 | 30 | 35 | 40 |
+| C6 | A force or tactile channel in a JEPA latent, with real-robot contact-task results | 3 | 8 | 14 | 20 | 26 | 32 | 38 | 43 | 48 |
+| C7 | A JEPA world model **plans** a language-specified task of 3+ steps on a real robot in an unseen environment at 60%+ success, 30+ trials | 1 | 3 | 6 | 10 | 15 | 20 | 25 | 30 | 35 |
+| C8 | A JEPA-planning system matches or beats the paper's best VLA baseline on a real-robot, multi-task, language-conditioned benchmark, 100+ trials per method | 1 | 3 | 5 | 8 | 12 | 16 | 20 | 24 | 28 |
+| C9 | A JEPA-planning result in 5+ unseen real homes on a household task, with stated trials | 0 | 1 | 3 | 5 | 8 | 12 | 16 | 20 | 24 |
+| **In household products** | | | | | | | | | | |
+| C10 | A shipping consumer home robot with a vendor-stated JEPA-style **component** | 3 | 6 | 10 | 14 | 19 | 24 | 29 | 34 | 38 |
+| C11 | A shipping consumer home robot that uses a JEPA-style latent world model for **planning or action selection at run time** | 0 | 1 | 2 | 3 | 5 | 7 | 10 | 13 | 16 |
+| C12 | A purchasable home robot whose **primary controller** is a JEPA world-model planner, doing chores | 0 | 0 | 0 | 1 | 1 | 2 | 3 | 4 | 5 |
+| C13 | A shipping non-robot household product (smart glasses, home assistant) with a vendor-stated JEPA-family model | 2 | 5 | 9 | 13 | 18 | 23 | 28 | 33 | 37 |
+
+| ID | Event (short) | 29Q1 | 29Q2 | 29Q3 | 29Q4 | 30Q1 | 30Q2 | 30Q3 | 30Q4 |
+|---|---|---|---|---|---|---|---|---|---|
+| C1 | AMI usable release | 63 | 67 | 70 | 73 | 76 | 78 | 80 | 82 |
+| C2 | AMI industrial deployment named | 57 | 61 | 65 | 68 | 71 | 73 | 75 | 77 |
+| C3 | AMI robotics announcement | 42 | 46 | 50 | 53 | 56 | 59 | 62 | 64 |
+| C4 | Robust to household-type shifts | 53 | 57 | 61 | 64 | 67 | 70 | 72 | 74 |
+| C5 | 3+ levels with language, real robot | 45 | 49 | 53 | 57 | 60 | 63 | 66 | 68 |
+| C6 | Force or tactile in the latent | 52 | 56 | 60 | 63 | 66 | 69 | 71 | 73 |
+| C7 | Plans 3+ step language task, 60%+ | 40 | 45 | 49 | 53 | 57 | 60 | 63 | 66 |
+| C8 | Matches best VLA baseline | 32 | 36 | 40 | 43 | 46 | 49 | 52 | 55 |
+| C9 | JEPA planning in 5+ real homes | 28 | 32 | 36 | 40 | 44 | 47 | 50 | 53 |
+| C10 | Home robot with JEPA-style component | 43 | 47 | 51 | 55 | 58 | 61 | 64 | 67 |
+| C11 | Home robot planning with JEPA at run time | 19 | 22 | 25 | 28 | 31 | 34 | 37 | 40 |
+| C12 | JEPA planner as primary controller | 6 | 8 | 9 | 11 | 13 | 15 | 17 | 19 |
+| C13 | JEPA in a non-robot household product | 41 | 45 | 49 | 52 | 55 | 58 | 61 | 63 |
+
+**The direct answer.**
+- **As a component** inside someone else's policy (C10): about even odds by 2029-Q3. This is the likeliest route, and the one the wiki's JEPA synthesis already pointed to.
+- **In a non-robot household product** such as smart glasses (C13): about even odds by late 2029.
+- **As a run-time planner** in a home robot (C11): 40% by the end of 2030, so the median date is after this forecast's horizon.
+- **As the controller**, which is what LeCun's program actually proposes (C12): 19% by the end of 2030.
+
+**Reasoning.**
+- **The plan points away from homes first.** AMI Labs' stated sequence is industrial systems, then becoming a general supplier in three to five years. Robots are described as what world models eventually unlock. C3 is therefore lower than C1 and C2 throughout.
+- **The research gaps are specific and being worked on.** H-JEPA, LeHami, DeepJEPA and RoboJEPA all appeared in autumn 2026, each aimed at one of the known limits. That pace is why C4–C6 pass 50% during 2029. Closing a gap in a paper is still several steps from a product.
+- **The world-model role is being filled by a rival first.** Generative video world-action models ([DreamZero](../../entities/dreamzero.md), [GR00T 2](../../sources/gr00t-2-whitepaper.md), [Praxis-1](../../entities/praxis-1.md)) already act on real robots, and vendors are shipping them. JEPA's advantage is compute and label-free video; its handicap is that it arrived at real-robot scale later. C8 stays below 55% for that reason.
+- **Run-time planning is expensive today.** RoboJEPA's 8B model takes seconds per plan on several GPUs. A home robot needs that on-board or over a link it can lose. C11 depends on that cost falling as much as on accuracy rising.
+- **LeCun's own clock.** At Davos in January 2025 he gave the current paradigm three to five years. This forecast implies he is more likely wrong than right about *homes* on that schedule, while leaving real odds (C1 82%, C2 77%) that AMI Labs has working industrial products by then.
+
+**Notes on resolution.**
+- **C4:** the benchmark must apply the shifts at test time to a model not trained on them, as [stable-worldmodel](../../sources/stable-worldmodel-paper.md) does.
+- **C7–C9:** the JEPA world model must do the planning. A JEPA encoder feeding a diffusion or VLA policy does not count here; it counts for C10.
+- **C10–C12:** "shipping" means delivered to paying consumers, by the same test as set A. C12 implies C11, which implies C10.
+- **C13:** a research demo or developer preview does not count.
 
 ## Reasoning behind the capability and safety rows
 
