@@ -3,15 +3,15 @@ title: Home robot and JEPA forecast, 2026-Q4 to 2030-Q4 — dated predictions wi
 type: synthesis
 created: 2026-11-16
 updated: 2026-11-16
-tags: [forecast, predictions, scorecard, cooking, meal-preparation, grocery, retail-robotics, jepa, ami-labs, yann-lecun, world-model, household-robot, consumer-robotics, adoption, capability, reliability, safety, privacy, 1x-neo, figure, weave-robotics, laundry-folding, dishes, calibration]
+tags: [forecast, predictions, scorecard, laundry, cleaning, cooking, meal-preparation, grocery, retail-robotics, jepa, ami-labs, yann-lecun, world-model, household-robot, consumer-robotics, adoption, capability, reliability, safety, privacy, 1x-neo, figure, weave-robotics, laundry-folding, dishes, calibration]
 ---
 
 # Home robot and JEPA forecast, 2026-Q4 to 2030-Q4
 
-Predictions made on **2026-11-16** about household robots: how many are in homes, what they can do, how fast capability is growing, and whether they are safe. Each prediction is a number with an interval, or a probability, with a fixed resolution rule. They are scored **after the end of each quarter**, from 2026-Q4 through 2030-Q4. A third set covers when JEPA-based AI reaches household products, a fourth covers grocery shopping, and a fifth covers meal preparation and cooking.
+Predictions made on **2026-11-16** about household robots: how many are in homes, what they can do, how fast capability is growing, and whether they are safe. Each prediction is a number with an interval, or a probability, with a fixed resolution rule. They are scored **after the end of each quarter**, from 2026-Q4 through 2030-Q4. A third set covers when JEPA-based AI reaches household products, a fourth covers grocery shopping, a fifth covers meal preparation and cooking, and a sixth covers laundry and cleaning.
 
 > [!warning] These are judgment forecasts, not sourced facts
-> The evidence is cited from this wiki. The numbers are the forecaster's estimates from that evidence, and no source states them. Confidence falls quickly with distance: the 2026-Q4 and 2027 rows rest on announced products and dates, while the 2028 rows are extrapolation. **The predictions on this page are frozen as of 2026-11-16.** The first version, filed that day, ran to 2028-Q4. The 2029–2030 columns, set C (JEPA), set D (grocery shopping) and set F (meal preparation and cooking) were added later the same day, before any scoring, without changing any number already filed. Scoring is appended below; the forecasts themselves are never edited. A revised forecast goes on a new dated page. Confidence in the 2029–2030 columns is low: they are extrapolations of extrapolations.
+> The evidence is cited from this wiki. The numbers are the forecaster's estimates from that evidence, and no source states them. Confidence falls quickly with distance: the 2026-Q4 and 2027 rows rest on announced products and dates, while the 2028 rows are extrapolation. **The predictions on this page are frozen as of 2026-11-16.** The first version, filed that day, ran to 2028-Q4. The 2029–2030 columns, set C (JEPA), set D (grocery shopping), set F (meal preparation and cooking) and set G (laundry and cleaning) were added later the same day, before any scoring, without changing any number already filed. Scoring is appended below; the forecasts themselves are never edited. A revised forecast goes on a new dated page. Confidence in the 2029–2030 columns is low: they are extrapolations of extrapolations.
 
 ## The short version
 
@@ -20,6 +20,7 @@ Predictions made on **2026-11-16** about household robots: how many are in homes
 - Zero-shot capability is climbing fast from a low base. Reliability, the thing a product needs, is slower.
 - Physical safety is likely to come from low mass and low force, not proven-safe software. Privacy and security are the weaker side.
 - **Groceries: the store-to-cupboard chain arrives in pieces.** Robot delivery to the door is growing regionally, piloted picking in stores gets trial results first, and putting groceries away at home is about even odds as a published result by mid-2029. A robot service that does a household's shopping with no human picker is 38% by the end of 2030.
+- **Laundry leads every other chore; wet cleaning trails.** Mixed-garment folding at 80% is about even odds by late 2028 and the full laundry cycle by mid-2029. A bathroom cleaned unattended by a robot you can buy is 38% by the end of 2030. Cleaning sold as a service may reach most households first.
 - **Cooking: appliances first, the stove last.** Making a hot drink or running a microwave is about even odds as a published result in unseen homes by the end of 2028. A shipped stovetop feature is 50% by the end of 2030, and a hot meal cooked unattended 35%.
 - **JEPA reaches household robots first as a component, not as the controller.** A shipping home robot with a vendor-stated JEPA-style component passes 50% around 2029-Q3. A JEPA world model planning at run time reaches 40% by the end of 2030, and JEPA as the primary controller, LeCun's actual vision, only 19%.
 
@@ -370,6 +371,91 @@ Cumulative probability (%), same convention as set B.
 - **F13:** only if a new result is published on the benchmark or a named successor.
 - **F14:** a robot vacuum or a cooking appliance does not count.
 
+## Prediction set G: laundry and cleaning (added 2026-11-16)
+
+**The question:** when do home robots take over laundry and cleaning, beyond the folding, tidying and dishes events already in set B?
+
+**What set B already covers, and this set does not repeat:** folding at 80% in unseen homes (B9), whole-room tidying (B10), folding with no remote human (B13), and dishes (B14, B15). Set G adds the rest of the laundry cycle, garment variety and speed, wet cleaning, and cleaning sold as a service.
+
+**Where it stands** (evidence as of 2026-11-16):
+- **Laundry is the best-evidenced chore in the wiki.**
+  - [Helix 2.5](../../sources/figure-helix-2-5.md) folded all four towels in 62% of trials and made beds in 67%, across 30 unseen homes.
+  - [X-VLA](../../sources/xvla-paper.md) reports about 100% success at 33 folds an hour in its own setup, after 1,200 demonstrations.
+  - [π\*0.6](../../sources/pistar06-paper.md) folded novel laundry for 2+ hours in a new home.
+  - [Weave's Isaac 0](../../entities/weave-robotics.md) is a shipping folding product in California, at 30–90 minutes a load with remote correction ([eWeek](../../sources/eweek-weave-isaac-0.md)); the company cites 2,000+ field hours.
+  - [Isaac 1](../../sources/weave-isaac-1-product-page.md) advertises finding dirty clothes, handling hampers, folding and putting clothes away, with teleoperation when needed. No delivery is confirmed.
+  - [TidyBot++](../../sources/tidybot-plus-plus-paper.md) loaded laundry 7 times in 10 in one apartment.
+- **Cleaning has research results for dry and light-wet tasks.** TidyBot++ wiped a counter 9 times in 10 and took out trash 10 in 10, in one apartment. [Mobile ALOHA](../../sources/mobile-aloha-paper.md) wiped a wine spill at 95% in its own kitchen.
+- **Floors are solved by a different product.** Robot vacuums are the one household robot that works unattended. The arm on the [Saros Z70](../../sources/roborock-saros-z70.md) is limited to 300 g, and a reviewer could not get it to tidy anything automatically.
+- **Whole-home cleaning exists only with a human pilot.** [Tau Robotics](../../entities/tau-robotics.md) sends piloted humanoids to dust, wipe, clean toilets, vacuum and mop in two metro areas, by invitation. Its terms say *"The robot is not autonomous"*, and it publishes no intervention rate ([service pages](../../sources/tau-robotics-service-site.md)). A reporter found it *"thorough but slow"*, with spills ([MIT Technology Review](../../sources/mit-technology-review-tau-cleaning.md)).
+- **Some products exclude water outright.** [Flourish 1](../../entities/flourish-1.md) lists *"No water"* among its limits.
+
+Cumulative probability (%), same convention as set B.
+
+| ID | Event | 26Q4 | 27Q1 | 27Q2 | 27Q3 | 27Q4 | 28Q1 | 28Q2 | 28Q3 | 28Q4 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| **Laundry** | | | | | | | | | | |
+| G1 | Published: mixed household laundry (shirts and trousers, not only towels) folded in unseen homes with 80% or more of items acceptable, 200+ items | 3 | 8 | 15 | 22 | 30 | 37 | 44 | 50 | 56 |
+| G2 | Published: 60 or more items folded per hour, sustained for an hour, on mixed laundry by a home-capable robot (X-VLA: 33 an hour) | 2 | 5 | 9 | 14 | 20 | 26 | 32 | 38 | 44 |
+| G3 | Published: a full laundry cycle (gather, load the washer, start it, move to dryer or rack, fold) done autonomously in 3+ unseen homes at 50% or better, 30+ trials | 1 | 3 | 6 | 10 | 15 | 20 | 26 | 32 | 38 |
+| G4 | Published: garments ironed or hung on hangers at 60% or better in unseen homes | 1 | 2 | 4 | 7 | 10 | 14 | 18 | 22 | 26 |
+| G5 | A purchasable home robot loads and unloads a washing machine as a shipped feature, at any level of remote assistance | 2 | 6 | 11 | 17 | 23 | 29 | 35 | 41 | 47 |
+| G6 | A purchasable home robot puts folded clothes away in drawers or closets, confirmed by an independent review | 2 | 6 | 11 | 16 | 22 | 28 | 34 | 40 | 45 |
+| G7 | A home laundry robot or service reports 1,000 or more paying households | 1 | 3 | 6 | 10 | 15 | 21 | 27 | 33 | 39 |
+| **Cleaning** | | | | | | | | | | |
+| G8 | Published: kitchen surfaces (counter, table or stovetop) wiped to a measured cleanliness criterion in 5+ unseen homes at 70% or better, 50+ trials | 3 | 8 | 14 | 21 | 28 | 35 | 42 | 48 | 54 |
+| G9 | Published: a bathroom fixture (toilet, sink or shower) cleaned autonomously in 3+ unseen homes at 60% or better | 1 | 3 | 6 | 10 | 14 | 19 | 24 | 29 | 34 |
+| G10 | Published: bed making at 85% or better zero-shot in unseen homes (Helix 2.5: 67%) | 3 | 8 | 15 | 22 | 30 | 37 | 44 | 50 | 56 |
+| G11 | A purchasable home robot ships surface wiping or bathroom cleaning as a listed feature, at any level of remote assistance | 1 | 3 | 7 | 12 | 18 | 24 | 30 | 36 | 42 |
+| G12 | A purchasable home robot cleans a bathroom **unattended** (no remote human), confirmed by an independent review | 0 | 0 | 1 | 2 | 4 | 6 | 8 | 11 | 14 |
+| G13 | A purchasable home robot takes household trash to an outdoor bin as a shipped feature | 0 | 1 | 2 | 4 | 6 | 9 | 12 | 16 | 20 |
+| G14 | A robot vacuum with an arm earns a major reviewer's verdict that the arm reliably clears floor clutter | 2 | 5 | 9 | 14 | 19 | 24 | 29 | 34 | 39 |
+| **Cleaning as a service** | | | | | | | | | | |
+| G15 | A robot cleaning service states that its robots work without a live human pilot for most of a visit, in paying homes | 1 | 3 | 6 | 10 | 15 | 20 | 26 | 32 | 38 |
+| G16 | A robot cleaning service operates in 10 or more metropolitan areas | 1 | 3 | 6 | 10 | 14 | 19 | 24 | 29 | 34 |
+
+| ID | Event (short) | 29Q1 | 29Q2 | 29Q3 | 29Q4 | 30Q1 | 30Q2 | 30Q3 | 30Q4 |
+|---|---|---|---|---|---|---|---|---|---|
+| G1 | Mixed-garment folding at 80%+, published | 61 | 66 | 70 | 74 | 77 | 80 | 82 | 84 |
+| G2 | Folding at 60+ items an hour | 49 | 54 | 58 | 62 | 66 | 69 | 72 | 75 |
+| G3 | Full laundry cycle at 50%+, published | 43 | 48 | 53 | 57 | 61 | 65 | 68 | 71 |
+| G4 | Ironing or hanging at 60%+ | 30 | 34 | 38 | 42 | 45 | 48 | 51 | 54 |
+| G5 | Washer loading shipped | 52 | 57 | 61 | 65 | 68 | 71 | 74 | 76 |
+| G6 | Puts clothes away, reviewed | 50 | 55 | 59 | 63 | 66 | 69 | 72 | 74 |
+| G7 | Laundry robot at 1,000+ households | 44 | 49 | 54 | 58 | 62 | 65 | 68 | 71 |
+| G8 | Surface wiping at 70%+, published | 59 | 64 | 68 | 72 | 75 | 78 | 80 | 82 |
+| G9 | Bathroom cleaning at 60%+, published | 39 | 43 | 47 | 51 | 55 | 58 | 61 | 64 |
+| G10 | Bed making at 85%+ | 61 | 66 | 70 | 74 | 77 | 80 | 82 | 84 |
+| G11 | Wet cleaning feature shipped | 47 | 52 | 56 | 60 | 64 | 67 | 70 | 73 |
+| G12 | Bathroom cleaned unattended | 17 | 20 | 23 | 26 | 29 | 32 | 35 | 38 |
+| G13 | Takes the trash out | 24 | 28 | 32 | 36 | 40 | 43 | 46 | 49 |
+| G14 | Vacuum arm that reliably tidies | 43 | 47 | 51 | 55 | 58 | 61 | 64 | 66 |
+| G15 | Cleaning service mostly autonomous | 43 | 48 | 53 | 57 | 61 | 65 | 68 | 71 |
+| G16 | Cleaning service in 10+ metros | 39 | 43 | 47 | 51 | 55 | 58 | 61 | 64 |
+
+**The direct answer.**
+- **Folding gets good before the rest of laundry does.** Mixed-garment folding at 80% is about even odds as a published result by late 2028 (G1). The full cycle, from hamper to folded pile, reaches even odds around mid-2029 (G3).
+- **Putting clothes away and loading the washer** arrive as product features at about even odds in early 2029 (G5, G6), probably with remote help at first.
+- **Wiping surfaces** is about even odds as a published result by the end of 2028 (G8). **Bathrooms trail** by a year or more (G9), and a bathroom cleaned unattended by a robot you can buy is 38% by the end of 2030 (G12).
+- **Cleaning as a service** becomes mostly autonomous at about even odds by mid-2029 (G15). That may be how most households first get robot cleaning.
+
+**Reasoning.**
+- **Laundry forgives mistakes.** A badly folded shirt costs nothing, so vendors can ship early and improve in the field. That, plus three independent lines of evidence, is why the laundry rows lead every other chore on this page.
+- **The cycle is harder than the fold.** Gathering clothes from around a home, opening a washer, and moving wet, tangled fabric are separate skills with almost no published results. G3 is held down by the weakest link.
+- **Speed is its own barrier.** Thirty to ninety minutes a load is tolerable for a machine that works while you are out, but only if it needs no supervision. G2 tracks whether throughput catches up.
+- **Water divides the cleaning tasks.** Dry tidying and light wiping are near what works today. Bathrooms add water, chemicals, tight spaces and hygiene standards, and some hardware is not built for water at all.
+- **Services can launch before products.** A service keeps the robot under the vendor's control, with a pilot available and maintenance in-house. Tau already operates that way. G15 asks when the pilot stops being needed most of the time.
+- **Vacuums may absorb part of this.** A robot vacuum with a capable arm would do floor clutter without a general-purpose robot (G14), which would reduce the demand set A assumes.
+
+**Notes on resolution.**
+- **G1, G3, G8–G10:** "unseen" means homes the system was not trained in. Vendor-published results count if they state trial counts.
+- **G2:** the rate must be measured on real mixed laundry, not a single repeated item.
+- **G5, G6, G11–G13:** "purchasable" and "shipping" as in set A.
+- **G7:** company-reported figures count, labelled as such.
+- **G12:** as B13 and B15, the vendor must state that no teleoperation is used for the task in normal operation.
+- **G14:** outlets as in B17.
+- **G15:** a vendor statement counts; note whether an intervention rate is published with it.
+
 ## Reasoning behind the capability and safety rows
 
 **Why folding and tidying come first.** They tolerate failure: a badly folded towel or a missed toy costs nothing. Three independent lines already show them working in unseen homes at 40–67% (Helix 2.5), for hours at a time (π\*0.6), and as a shipping product with remote correction (Isaac 0).
@@ -407,9 +493,9 @@ Cumulative probability (%), same convention as set B.
 | 17 | 2030-12-31 | January 2031 | pending |
 
 **Method.**
-- **Sets B, C, D and F:** for each event, record 1 if it happened by the quarter's end, else 0. The score is the **Brier score**, the squared difference between the forecast probability and the outcome, averaged over the set's events (20 in B, 13 in C, 14 in D, 14 in F). Report the four sets separately. Lower is better. Always answering 50% scores 0.25.
+- **Sets B, C, D, F and G:** for each event, record 1 if it happened by the quarter's end, else 0. The score is the **Brier score**, the squared difference between the forecast probability and the outcome, averaged over the set's events (20 in B, 13 in C, 14 in D, 14 in F, 16 in G). Report the five sets separately. Lower is better. Always answering 50% scores 0.25.
 - **Set A:** build the tally table, then record hit, miss or unresolved, plus the ratio of the tally's midpoint to the point estimate.
-- **Calibration:** from checkpoint 3 on, group all scored set-B, set-C, set-D and set-F cells by forecast probability (0–10%, 10–30%, 30–70%, 70–90%, 90–100%) and compare with the observed frequency.
+- **Calibration:** from checkpoint 3 on, group all scored cells from sets B, C, D, F and G by forecast probability (0–10%, 10–30%, 30–70%, 70–90%, 90–100%) and compare with the observed frequency.
 - **Evidence:** every resolution cites a source. A primary that matters to a decision gets ingested, per the wiki's primary-sources rule.
 - **Disputes:** if the evidence is ambiguous, mark the cell unresolved and exclude it from the average. Do not resolve in the forecast's favour.
 
@@ -417,25 +503,25 @@ Cumulative probability (%), same convention as set B.
 
 *(Appended after each checkpoint. Nothing above this line changes.)*
 
-| Checkpoint | Set A result | Set B Brier | Set C Brier | Set D Brier | Set F Brier | Events resolved yes | Notes |
-|---|---|---|---|---|---|---|---|
-| 1 (2026-Q4) | | | | | | | |
-| 2 (2027-Q1) | | | | | | | |
-| 3 (2027-Q2) | | | | | | | |
-| 4 (2027-Q3) | | | | | | | |
-| 5 (2027-Q4) | | | | | | | |
-| 6 (2028-Q1) | | | | | | | |
-| 7 (2028-Q2) | | | | | | | |
-| 8 (2028-Q3) | | | | | | | |
-| 9 (2028-Q4) | | | | | | | |
-| 10 (2029-Q1) | | | | | | | |
-| 11 (2029-Q2) | | | | | | | |
-| 12 (2029-Q3) | | | | | | | |
-| 13 (2029-Q4) | | | | | | | |
-| 14 (2030-Q1) | | | | | | | |
-| 15 (2030-Q2) | | | | | | | |
-| 16 (2030-Q3) | | | | | | | |
-| 17 (2030-Q4) | | | | | | | |
+| Checkpoint | Set A result | Set B Brier | Set C Brier | Set D Brier | Set F Brier | Set G Brier | Events resolved yes | Notes |
+|---|---|---|---|---|---|---|---|---|
+| 1 (2026-Q4) | | | | | | | | |
+| 2 (2027-Q1) | | | | | | | | |
+| 3 (2027-Q2) | | | | | | | | |
+| 4 (2027-Q3) | | | | | | | | |
+| 5 (2027-Q4) | | | | | | | | |
+| 6 (2028-Q1) | | | | | | | | |
+| 7 (2028-Q2) | | | | | | | | |
+| 8 (2028-Q3) | | | | | | | | |
+| 9 (2028-Q4) | | | | | | | | |
+| 10 (2029-Q1) | | | | | | | | |
+| 11 (2029-Q2) | | | | | | | | |
+| 12 (2029-Q3) | | | | | | | | |
+| 13 (2029-Q4) | | | | | | | | |
+| 14 (2030-Q1) | | | | | | | | |
+| 15 (2030-Q2) | | | | | | | | |
+| 16 (2030-Q3) | | | | | | | | |
+| 17 (2030-Q4) | | | | | | | | |
 
 ## Known weaknesses of this forecast
 
@@ -444,6 +530,7 @@ Cumulative probability (%), same convention as set B.
 - **Counting.** Vendors report "delivered", "shipped" and "sold" loosely. Figure's 350 "delivered" units are not homes.
 - **Thin base rates.** No general-purpose home robot has ever shipped at volume, so every number here is extrapolated from announcements and research results.
 - **Set C depends on disclosure.** Vendors rarely say what is inside their models. C10–C12 can be true and unresolvable; such cells are marked unresolved, which biases the scored record toward research events.
+- **Sets B and G overlap.** Folding, tidying and bed making appear in both at different thresholds, so their cells rise and fall together. Read the two Brier scores as related, not independent.
 - **Set F rests on very little.** One stovetop result in one kitchen, one long espresso run and a handful of lab appliance tasks. The cooking rows are extrapolated from general household progress more than from cooking evidence.
 - **Set D leans on company figures.** Delivery counts and retailer shares are self-reported, and the home-side rows start from almost no evidence, so their probabilities are the least anchored on the page.
 - **Horizon.** Four years is long for this field. The 2029–2030 columns should be read as a statement of today's beliefs, to be replaced by a new dated forecast well before then.

@@ -109,7 +109,7 @@ The test task list is the one this page began with: navigate a home, pick things
 |---|---|---|
 | **Vacuuming and mopping** | Robot vacuums | ✅ **Solved enough to buy.** Mature, unattended, and the baseline any new robot must beat. |
 | **General cleaning, as a service** | [Tau Robotics](../../sources/tau-robotics-service-site.md), invite-only | ⚠️ **Real, human-piloted.** A reporter's second visit cleaned a kitchen and toilet but spilled and toppled things, and was "thorough but slow" ([MIT Technology Review](../../sources/mit-technology-review-tau-cleaning.md)). |
-| **Folding laundry** | [Isaac 0](../../sources/eweek-weave-isaac-0.md), California only | ⚠️ **Real, narrow.** 30–90 minutes per load (eWeek), with remote specialists correcting mistakes. |
+| **Folding laundry** | [Isaac 0](../../sources/eweek-weave-isaac-0.md), California only | ⚠️ **Real, narrow.** 30–90 minutes per load (eWeek), with remote specialists correcting mistakes. Dated probabilities for laundry and cleaning through 2030 are in set G of the [home robot forecast](../society/home-robot-forecast-2026-2028.md). |
 | **Picking up small floor clutter** | [Saros Z70](../../sources/roborock-saros-z70.md) arm | ❌ **Not reliably.** Limited to items under 300 g. TechRadar "couldn't get it to automatically tidy away anything at all." |
 | **Tidying rooms, making beds** | Isaac 1, on pre-order | ❌ **Not delivered.** No customer shipment reported. |
 | **Grocery shopping** | Nothing that shops for you; see [below](#grocery-shopping) | ❌ Sidewalk delivery exists in some areas. |
