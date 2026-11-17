@@ -3,7 +3,7 @@ title: AMI Labs
 type: entity
 subtype: organization
 created: 2026-05-09
-updated: 2026-10-24
+updated: 2026-11-16
 sources: 23
 tags: [ami-labs, lecun, jepa, world-model, startup]
 ---
@@ -40,6 +40,9 @@ Checked 2026-07-26 against the printed affiliations of each: the four *world-mod
 Two caveats keep this modest: (1) it is a **co-authorship** with an NYU Tandon robotics group (Goswami / Krishnamurthy / Khorrami), not a paper *authored by the lab*; AMI Labs appears only as LeCun's personal affiliation tag. (2) The world-model research the press attributes to AMI Labs ([V-JEPA 2.1](../sources/v-jepa-2-1-paper.md), [LeWorldModel](leworldmodel.md)) still shows academic affiliations. So: the lab now has *a* byline, but **whether it has published substantive work under its own name remains thin** — WorldDP is a robotics collaboration, not the industrial-world-model program LeCun describes as AMI's actual mission.
 
 **Founding vision document.** AMI Labs' research direction is, in effect, the execution of LeCun's **["A Path Towards Autonomous Machine Intelligence" (2022)](../sources/lecun2022-path-towards-ami.md)** — a six-module differentiable agent architecture built around a configurable predictive world model, hierarchical JEPA as the substrate, and intrinsic-cost-driven behavior. The "AMI" in the lab's name corresponds directly to the "Autonomous Machine Intelligence" in the paper's title. Its landing-page tagline, per the [Welch Labs Part 2 explainer](../sources/welchlabs-lecun-1b-bet-against-llms-part2.md): **"Real intelligence does not start in language. It starts in the world."**
+
+> [!note] Forecast (2026-11-16)
+> Scoreable predictions about AMI Labs are in the [home robot and JEPA forecast](../syntheses/society/home-robot-forecast-2026-2028.md): a release outside customers can use (58% by end-2028, 82% by end-2030), a named industrial deployment (52%, 77%), and a robotics announcement (38%, 64%).
 
 ## Near-term plan (LeCun, per Welch Labs Part 2, May 2026)
 - **1–2 years**: apply world-model planning to **complex industrial systems "that cannot be reduced to a small number of equations"** — jet engines, airplanes, chemical/power plants; a diabetes patient's blood-sugar control; coaxing a stem cell into an insulin-producing beta cell; materials / catalyst / battery design. Framed as gaining experience pushing the methodology into practice, **not** initially a revenue model. Explicitly *not* simple robot arms / humanoids / rockets (those have writable dynamical equations).

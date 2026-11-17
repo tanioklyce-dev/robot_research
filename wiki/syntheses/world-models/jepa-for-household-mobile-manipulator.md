@@ -2,7 +2,7 @@
 title: "JEPA for a household mobile manipulator — where it fits, and where it doesn't"
 type: synthesis
 created: 2026-09-07
-updated: 2026-10-13
+updated: 2026-11-16
 tags: [jepa, world-model, household-robot, mobile-manipulation, dual-arm, assistive, safety, architecture, decision, synthesis]
 ---
 
@@ -82,6 +82,9 @@ Conditionally — and most likely **not in the form "JEPA as controller."** Each
 > **And it is not only LeCun's shape.** [Hassabis at Davos 2026](../../sources/wef-davos-2026-the-day-after-agi.md), from the opposite architectural camp: world models and continual learning are *"the things that will need to be cracked… and then I think things like robotics may have its breakout moment."* Physical AI sits inside his AGI definition as the hardware-bound, slow-to-verify part. Amodei, who gives the room's most aggressive dates, does not mention robots. Three leaders, and robotics is downstream of a breakthrough in every account that includes it. So the architect of the program and this page agree on the form of the answer, and neither supplies the number.
 
 **The likelier landing is already visible.** A JEPA-style objective as an auxiliary loss or encoder inside a VLA — [FLARE](../../concepts/world-models/flare.md) in [GR00T N1.5](../../sources/groot-n1_5.md), [VLA-JEPA](../../entities/vla-jepa.md) — and a latent world model as **subgoal generator, policy evaluator, or RL environment above a learned skill**. [WorldDP](../../entities/worlddp.md) is LeCun's own group making a [Diffusion Policy](../../entities/diffusion-policy.md) the executor. That is the shape to build toward, not away from.
+
+> [!note] Dated probabilities for these conditions (2026-11-16)
+> The [home robot and JEPA forecast](../society/home-robot-forecast-2026-2028.md) puts quarterly probabilities through 2030 on each of the three conditions above, and on JEPA reaching a shipping home robot as a component (about even odds by 2029-Q3), as a run-time planner (40% by end-2030) and as the primary controller (19%).
 
 ## 3. The good approach: an architecture, not a model
 

@@ -6823,3 +6823,11 @@ Structure was sound: **0 broken file links, 0 orphans, 0 schema violations, all 
 - **The forecasts are frozen as of 2026-11-16.** Scoring appends to the scorecard; a revision goes on a new dated page.
 - Headline numbers: about 300 arm-equipped robots in consumer homes now; ~5,000 by mid-2027; ~20,000 by end-2027; ~90,000 by end-2028. NEO first delivery 45% by 2026-Q4. Unattended dishes 28% by 2028-Q4.
 - Backlog: nine dated scoring checkpoints, and a task to find primaries on Chinese consumer vendors before the first one.
+
+## [2026-11-16] query | "Extend the forecast to 2030-Q4; when does JEPA-based AI reach household AI?"
+- Extended [the forecast](syntheses/society/home-robot-forecast-2026-2028.md) the same day, before any scoring. **No number already filed was changed.** The page title now reads 2026-Q4 to 2030-Q4; the filename is unchanged so existing links and the scheduled scoring run still resolve.
+- **Set A** gains A10–A17 (2029–2030): about 280,000 by end-2029 and 700,000 by end-2030, with intervals spanning two orders of magnitude.
+- **Set B** gains eight more columns for the same 20 events. Unattended dishes reach 59% by 2030-Q4; folding with no remote human 82%.
+- **New set C, 13 JEPA events**, synthesized from [AMI Labs](entities/ami-labs.md), LeCun's [MIT Technology Review interview](sources/mit-tech-review-lecun-ami-labs-interview.md), [RoboJEPA](entities/robojepa.md), [H-JEPA](entities/h-jepa.md), [stable-worldmodel](sources/stable-worldmodel-paper.md) and the [JEPA household synthesis](syntheses/world-models/jepa-for-household-mobile-manipulator.md). The answer: JEPA reaches home robots **as a component first** (even odds around 2029-Q3), as a run-time planner 40% by end-2030, and **as the primary controller, LeCun's actual proposal, 19%**. AMI Labs shipping something usable: 82% by end-2030, with industrial uses ahead of robots.
+- Checked that all 33 event rows have 17 non-decreasing values and that implied orderings hold (C12 ≤ C11 ≤ C10, B8 ≤ B7, B15 ≤ B14, B12 ≤ B11).
+- Backlog: checkpoints 10–17 added, plus a task to write a replacement forecast before the end of 2027. Linked from the JEPA household synthesis and the AMI Labs page.
