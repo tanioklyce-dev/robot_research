@@ -50,7 +50,7 @@ The **official NVIDIA carrier-board product specification** for the Jetson Thor 
 - **Not supported:** J87, J91, J502.
 
 > [!note] No 40-pin GPIO header and no MIPI-CSI camera connectors
-> Neither appears anywhere in this spec (0 hits for "40-pin", "CSI", "MIPI", "camera"). The AGX Thor Dev Kit **drops the classic Jetson 40-pin expansion header and the onboard CSI camera connectors** that the Orin generation had. In their place: a **CAN header**, an **Automation Header**, and the **QSFP28 (4×25 Gbps) + 5 GbE** networking — consistent with NVIDIA's **CSI-over-Ethernet (Holoscan Sensor Bridge)** sensor-ingest model in JetPack 7 (already noted on the [Jetson Thor entity](../entities/jetson-thor.md)). Cameras and low-speed GPIO peripherals are expected over Ethernet/USB/CAN, not ribbon cables and a pin header.
+> Neither appears anywhere in this spec (0 hits for "40-pin", "CSI", "MIPI", "camera"). The AGX Thor Dev Kit **drops the classic Jetson 40-pin expansion header and the onboard CSI camera connectors** that the Orin generation had. In their place: a **CAN header**, an **Automation Header**, and the **QSFP28 (4×25 Gbps) + 5 GbE** networking — consistent with NVIDIA's **CSI-over-Ethernet ([Holoscan](../entities/nvidia-holoscan.md) Sensor Bridge)** sensor-ingest model in JetPack 7 (already noted on the [Jetson Thor entity](../entities/jetson-thor.md)). Cameras and low-speed GPIO peripherals are expected over Ethernet/USB/CAN, not ribbon cables and a pin header.
 
 ## Entities mentioned
 - [Jetson Thor](../entities/jetson-thor.md) — the module + carrier board documented here.

@@ -19,7 +19,7 @@ tags: [nvidia-halos, functional-safety, robot-safety, igx, jetson-thor, physical
 
 **Full-stack architecture (4 layers)**
 1. **Platform Safety (hardware)** — **NVIDIA IGX** (a System-on-Module based on the **[Thor](../entities/jetson-thor.md) SoC**) with a dedicated **Functional Safety Island (FSI)**; *"third-party assessed, safety-compliant."*
-2. **Halos OS Foundation** — runs on IGX Thor, integrating **Linux + QNX**; components: **Halos Core** (the safety OS), **Safety Extensions Package (SEP)** (functional-safety modules), and **Holoscan SensorBridge (HSB)** (real-time sensor control + safety bridging → deterministic real-time control).
+2. **Halos OS Foundation** — runs on IGX Thor, integrating **Linux + QNX**; components: **Halos Core** (the safety OS), **Safety Extensions Package (SEP)** (functional-safety modules), and **[Holoscan](../entities/nvidia-holoscan.md) SensorBridge (HSB)** (real-time sensor control + safety bridging → deterministic real-time control).
 3. **Middleware & Applications** — safety blueprints + algorithmic safety.
 4. **Ecosystem Integration** — OEMs, sensor partners, certification bodies.
 

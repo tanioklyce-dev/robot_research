@@ -29,7 +29,7 @@ Diagnoses *why* [gradient-based planning](../concepts/world-models/gradient-base
 
 ## The two methods
 
-**Online World Modeling** — explicitly DAgger-shaped. Run GBP from a trajectory's start and goal latents; execute the proposed actions in the **true simulator** to obtain the *corrected* trajectory of states that actually result; add that to the training set; retrain on next-state prediction. Repeat. *"We invoke the ground-truth simulator as our expert world model that we imitate."* This expands the training distribution to cover the latent regions GBP actually visits.
+**Online World Modeling** — explicitly [DAgger](../concepts/learning/dagger.md)-shaped. Run GBP from a trajectory's start and goal latents; execute the proposed actions in the **true simulator** to obtain the *corrected* trajectory of states that actually result; add that to the training set; retrain on next-state prediction. Repeat. *"We invoke the ground-truth simulator as our expert world model that we imitate."* This expands the training distribution to cover the latent regions GBP actually visits.
 
 **Adversarial World Modeling** — since "world models are only trained on the next-state prediction objective, there is no particular reason for their input gradients to be well-behaved," apply adversarial training with perturbation radii `ε_a, ε_z` on actions and latents. Reported effect: **a smoother optimization landscape with a broader basin around the optimum** (their Figure 2, visualized on Push-T).
 

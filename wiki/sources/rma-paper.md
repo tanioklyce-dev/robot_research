@@ -34,7 +34,7 @@ This is **online system identification without identifying the system**, from 0.
 - **Base policy π** — 3-layer MLP (hidden 128): state *x*ₜ ∈ ℝ³⁰, previous action *a*ₜ₋₁ ∈ ℝ¹², extrinsics *z*ₜ ∈ ℝ⁸ → 12 target joint angles. Trained with **PPO, 15,000 iterations**, batch 80,000.
 - **Environment factor encoder μ** — 3-layer MLP (256, 128) compressing *e*ₜ ∈ ℝ¹⁷ → *z*ₜ ∈ ℝ⁸. Trained jointly with π.
 - **Adaptation module φ** — 2-layer MLP embedding to 32-dim, then a **3-layer 1-D CNN over time**, on **k = 50 timesteps = 0.5 s** of history. Trained by supervised regression, MSE(ẑₜ, zₜ).
-- **On-policy training for φ** (à la DAgger/Ross et al.) rather than unrolling the expert: a φ trained only on clean expert trajectories *"would not be robust to deviations from the expert trajectory, which will happen often during deployment."* They unroll π using ẑ from a randomly initialized φ and iterate.
+- **On-policy training for φ** (à la [DAgger](../concepts/learning/dagger.md)/Ross et al.) rather than unrolling the expert: a φ trained only on clean expert trajectories *"would not be robust to deviations from the expert trajectory, which will happen often during deployment."* They unroll π using ẑ from a randomly initialized φ and iterate.
 - **Asynchronous deployment** — φ at **10 Hz**, π at **100 Hz**, running in parallel with **no central clock**; π simply consumes the most recent ẑₜ. Justified because ẑ changes slowly in the real world, and *"critical for seamless deployment on low-cost robots like A1 with limited on-board compute."*
 - Rewards are **bioenergetics-inspired**, over a varied terrain generator — no demonstrations, no motion templates.
 
@@ -109,7 +109,7 @@ The robot is **blind** — proprioception only. *"Larger perturbations such as s
 ## Open questions
 
 - **No [Unitree A1](../entities/unitree-a1.md) entity page** — the platform appears in both locomotion primaries and has no page.
-- **Jitendra Malik has no entity page**, despite appearing here and in [DreamDojo](dreamdojo-paper.md).
+- **Jitendra Malik has no entity page**, despite appearing here and in [DreamDojo](../entities/dreamdojo.md) ([paper](dreamdojo-paper.md)).
 - **Was the extrinsics dimension (8) tuned?** No ablation on |z| is reported, though it is the whole information bottleneck.
 - ~~The vision follow-up is uningested~~ — **[ingested 2026-08-29](egocentric-vision-locomotion-paper.md)**; it completes the arc.
 - **Success is defined per-setup** and real-world trials run **5 per condition** (2 when failure was obvious, to protect the hardware). Honest and clearly stated, but far below what the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md) would want.

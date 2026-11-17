@@ -2,8 +2,8 @@
 title: JetPack SDK
 type: entity
 created: 2026-05-16
-updated: 2026-09-27
-sources: 17
+updated: 2026-11-16
+sources: 18
 tags: [nvidia, jetson, jetpack, sdk, cuda, tensorrt, jetpack-7, jetson-thor, mig, sbsa]
 ---
 
@@ -97,10 +97,12 @@ The BSP under 7.2 is **[Jetson Linux 39.2.0](../sources/nvidia-jetson-linux-r39-
 - **The QSPI capsule-update prompt during ISO install must be accepted** (`y`), or the install fails on ISO/QSPI incompatibility (issue 6266271).
 - **Low-wattage `nvpmodel` profiles can crash on reboot** — Orin NX @ 10 W, Orin Nano @ 7 W, AGX Orin @ 15 W (issue 6236259).
 
+**JetPack 7.2.1** is now named by an NVIDIA primary. The [Holoscan SDK 5.0 install page](../sources/holoscan-sdk-5-0-release-notes.md) lists it as the tested release for AGX Thor, AGX Orin and Orin Nano. Its **release date (2026-08-12) is still secondary-only**, and whether it fixes issue 6236259 (the low-power-mode reboot crash) is unverified. Holoscan SDK 5.0 requires JetPack 7 and does **not** support JetPack 6.
+
 **SIPL v2.0.0 is an ABI break**: JetPack 7.1 UDDF camera drivers must be rebuilt against 7.2 headers. **MIG is Thor T5000 only** — explicitly unsupported on Orin and on Thor T4000.
 
 > [!warning] Correction 2026-08-16 — JetPack 6 and 7 are no longer parallel tracks
-> **JetPack 7.2 (Jetson Linux r39.2), released 2026-06-01, brought the whole Orin family onto JetPack 7** — AGX Orin, Orin NX and Orin Nano — on Ubuntu 24.04 / kernel 6.8 / CUDA 13.0, unifying the toolchain with Thor. The "parallel, not sequential" framing below was accurate when written (2026-05-17) and describes the JetPack 7.0/7.1 period only. **Primary source now ingested** — see the section above. *(This callout originally recorded CUDA 13.0, taken from NVIDIA's landing page; the primary source shows **13.2.1**, with 13.0 referring to Thor's unified Arm-target CUDA install.)*
+> **JetPack 7.2 (Jetson Linux r39.2), released 2026-06-02, brought the whole Orin family onto JetPack 7** — AGX Orin, Orin NX and Orin Nano — on Ubuntu 24.04 / kernel 6.8 / **CUDA 13.2.1**, unifying the toolchain with Thor. The "parallel, not sequential" framing below was accurate when written (2026-05-17) and describes the JetPack 7.0/7.1 period only. **Primary source now ingested** — see the section above. *(This callout originally recorded CUDA 13.0, taken from NVIDIA's landing page; the primary source shows **13.2.1**, with 13.0 referring to Thor's unified Arm-target CUDA install. The headline above was corrected to 13.2.1, and the date from 06-01 to the primary's 06-02, on 2026-11-16.)*
 
 
 JetPack 7.0 launched alongside Thor on **2025-08-25** ([JetPack 7.0 for Jetson Thor software-stack reference](../sources/nvidia-jetpack-7-thor-whitepaper.md)) with the following bundle:
@@ -124,6 +126,8 @@ Supported AI serving frameworks shipped or documented: **vLLM**, **SGLang**, **M
 See [Jetson Thor](jetson-thor.md) for module-side software details.
 
 ## Mentioned in
+
+- [Holoscan SDK 5.0 release notes and platform requirements](../sources/holoscan-sdk-5-0-release-notes.md) — first NVIDIA primary to name JetPack 7.2.1 (as Holoscan's tested Jetson release).
 - [Jetson Orin Nano flash howto](../syntheses/projects/jetson-orin-nano-flash-howto.md)
 - [Jetson Orin Nano](jetson-orin-nano.md)
 - [Jetson Linux](jetson-linux.md)

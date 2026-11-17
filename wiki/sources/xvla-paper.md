@@ -162,7 +162,7 @@ The transfer experiment (Fig. 9) follows: adapting to WidowX (unseen), a **froze
 
 - **Every pretraining embodiment has ≥6 DOF** (Franka 7, UR5 6, AgileX 6, AGIBOT 7). The aligned action space is full SE(3) EEF pose. What happens when the target embodiment is **kinematically deficient** — a 5-DOF arm that cannot realize arbitrary orientations? Soft prompts are the obvious mechanism to absorb it, and [Sourccey](../entities/sourccey.md) is about to be the field test. Untested in the paper.
 - Prompt *retrieval* for zero-shot embodiment transfer is proposed and never run.
-- The Soft-Fold DAgger loop uses ACT as the failure-mode detector. Does the loop still work if the detector is the model being trained?
+- The Soft-Fold [DAgger](../concepts/learning/dagger.md) loop uses ACT as the failure-mode detector. Does the loop still work if the detector is the model being trained?
 - No wall-clock inference numbers or deployment hardware are given anywhere in the paper. 0.9 B + Florence-2-Large is not an edge-device model; where it actually runs at control rate is unstated.
 - CALVIN is the single loss (4.43 vs FLOWER's 4.53) and goes uncommented.
 - Soft-Fold release is promised, not yet confirmed.

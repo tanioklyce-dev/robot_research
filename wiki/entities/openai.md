@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-08-23
 updated: 2026-11-07
-sources: 20
+sources: 21
 tags: [openai, frontier-lab, gpt, agent-security, incident-report, cyber-evaluation, exploitgym]
 ---
 

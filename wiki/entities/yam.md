@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-07-04
 updated: 2026-11-16
-sources: 18
+sources: 20
 tags: [yam, i2rt, robot-arm, teleoperation, data-collection, affordable, groot, bimanual, molmoact2]
 ---
 

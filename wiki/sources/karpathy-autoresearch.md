@@ -95,6 +95,8 @@ This is satirical-but-pointed. The real product claim is more modest: a small bu
 
 ## Concepts touched
 
+- [Weight-space programming](../concepts/learning/weight-space-programming.md) — names autoresearch as the neighbouring idea. In both, an agent runs the edit-evaluate loop; there it edits network weights directly instead of the training code.
+
 - **LLM-agent architecture** — autoresearch is the most distilled "agent + tool + measurable metric" example in the wiki.
 - **Compute-optimal model training** — the `--depth` dial + fixed 5-min budget makes this the search problem the agent is solving.
 - **Coding-agent-driven research** — the pattern (plan in markdown → execute in code → measure → iterate) is the same one the [Onchain AI Garage LeWM reproduction](onchain-ai-garage-lewm-reproduction.md) independently arrives at.

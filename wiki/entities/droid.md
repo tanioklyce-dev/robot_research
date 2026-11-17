@@ -4,7 +4,7 @@ type: entity
 subtype: dataset
 created: 2026-05-07
 updated: 2026-11-12
-sources: 42
+sources: 44
 tags: [droid, dataset, teleoperation, franka, robot-data, stanford, berkeley, oxe, molmoact2]
 ---
 

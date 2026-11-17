@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-08-04
 updated: 2026-11-12
-sources: 5
+sources: 6
 tags: [rt-1, robotics-transformer, imitation-learning, efficientnet, film, tokenlearner, everyday-robots, google, cross-embodiment]
 ---
 

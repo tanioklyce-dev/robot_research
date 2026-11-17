@@ -46,7 +46,7 @@ The primary paper for **[DreamGen](../entities/dreamgen.md)** — NVIDIA GEAR's 
 
 ## Open questions
 > [!note] Dream* line attribution
-> This v2 (June 2025) references **[GR00T N1](groot-n1-paper.md) only** — it does **not** mention N1.5, "DreamZero", or "DreamDojo". The "DreamGen → DreamZero → DreamDojo" triplet framing comes from the [GEAR publications](nvidia-gear-publications.md) page, not this paper. DreamGen and [GR00T N1.5](groot-n1_5.md) are contemporaneous (both mid-June 2025); N1.5's use of "DreamGen neural trajectories" is stated on the N1.5 page.
+> This v2 (June 2025) references **[GR00T N1](groot-n1-paper.md) only** — it does **not** mention N1.5, "DreamZero", or "[DreamDojo](../entities/dreamdojo.md)". The "DreamGen → DreamZero → DreamDojo" triplet framing comes from the [GEAR publications](nvidia-gear-publications.md) page, not this paper. DreamGen and [GR00T N1.5](groot-n1_5.md) are contemporaneous (both mid-June 2025); N1.5's use of "DreamGen neural trajectories" is stated on the N1.5 page.
 
 - High compute: 240K trajectories = 54 h on 1,500 L40 GPUs; cost reduction is open.
 - Relies on **manually provided initial frames**; automating them (img2img inpainting) is future work.

@@ -32,7 +32,7 @@ The problem predates the deep-learning era under the name **simulation bias**: [
 A pattern this wiki now holds three instances of, and the workhorse of learned locomotion sim-to-real:
 
 1. **Phase 1** — train with RL in simulation using a **privileged signal that exists only in the simulator**: true physics parameters ([RMA](../../sources/rma-paper.md): mass, friction, motor strength) or true terrain geometry ([egocentric vision](../../sources/egocentric-vision-locomotion-paper.md): "scandots," height queried at points under the robot).
-2. **Phase 2** — **distil** into a policy restricted to onboard sensing, by supervised regression (DAgger) onto the phase-1 policy's actions or latents.
+2. **Phase 2** — **distil** into a policy restricted to onboard sensing, by supervised regression ([DAgger](dagger.md)) onto the phase-1 policy's actions or latents.
 
 Why it works: the privileged signal makes phase 1 an easy RL problem, and supervised learning is orders of magnitude more sample-efficient than RL, so phase 2 is cheap — the vision system trains **on a single GPU in a few days** where end-to-end RL on rendered depth would need billions of samples.
 

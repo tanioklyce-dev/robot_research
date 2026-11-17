@@ -32,7 +32,7 @@ Seeed's **reBot Arm B601-DM** is a **6+1-DOF, fully open-source, CAN-bus benchto
 | Servos | **DM-J4340P-2EC ×3** (high-torque, low-noise) + **DM-J4310-2EC ×4** |
 | Operating temperature | −20 °C to 50 °C |
 | Power | **DC 24 V 10 A** |
-| Software | ROS 1 ✅, ROS 2 ✅, MoveIt 1 ✅, MoveIt 2 ✅, Python ✅, LeRobot ✅, Isaac Sim ✅, Pinocchio ✅, Open source ✅ |
+| Software | ROS 1 ✅, ROS 2 ✅, MoveIt 1 ✅, MoveIt 2 ✅, Python ✅, LeRobot ✅, Isaac Sim ✅, [Pinocchio](../entities/pinocchio.md) ✅, Open source ✅ |
 
 > [!warning] The payload figure is qualified, and the qualification matters
 > **1.5 kg is "without gripper, 70% reach recommended."** The usable payload at full 767 mm extension with a gripper attached is unstated and is necessarily lower. Do not quote 1.5 kg as an end-of-arm figure in a build.

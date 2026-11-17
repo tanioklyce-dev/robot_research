@@ -104,7 +104,7 @@ tags: [aw-0, world-action-model, wam, code-as-policy, agentic-robotics, mixture-
 - [EgoScale paper](egoscale-paper.md) — baseline; same Sharpa Wave hand; overlapping NVIDIA authorship.
 - [CaP-X paper](cap-x-paper.md), [ASPIRE paper](aspire-paper.md), [RPG paper](rpg-guided-self-improvement-paper.md) — the execute-the-code lineage this paper internalizes.
 - [Cosmos 3 technical report](cosmos-3-technical-report.md) — the other MoT WAM in the wiki.
-- [DreamZero paper](dreamzero-paper.md): the baseline WAM. [DreamDojo paper](dreamdojo-paper.md): sibling Dream* paper.
+- [DreamZero paper](dreamzero-paper.md): the baseline WAM. [DreamDojo](../entities/dreamdojo.md) ([paper](dreamdojo-paper.md)): sibling Dream* paper.
 - [RoboTwin 2.0 paper](robotwin2-paper.md).
 
 ## Open questions

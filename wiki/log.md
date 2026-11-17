@@ -6763,3 +6763,15 @@ Structure was sound: **0 broken file links, 0 orphans, 0 schema violations, all 
   - [XPolicyLab](sources/xpolicylab-github.md): `obs.extra_info.detailed_instruction`.
   - Propagated to [Isaac Lab-Arena](entities/isaac-lab-arena.md), [sparkDash](entities/sparkdash.md) and [XPolicyLab](entities/xpolicylab.md).
 - Backlog: re-snapshot OpenArm, add `fetch_url` to text captures now that they're checkable, and mark any remaining bundles.
+
+## [2026-11-16] lint | Full pass; all findings fixed
+- **Structural checks clean** across 1,594 pages: frontmatter, broken links, wikilinks, orphans, index coverage, dates, stub markers.
+- **Factual fixes:**
+  - [JetPack](entities/jetpack.md)'s 7.2 callout headline said **CUDA 13.0**. It now says 13.2.1, the primary's figure. The callout had a trailing correction, but its first sentence still carried the scope-loss number.
+  - JetPack 7.2's date was **2026-06-01 on three pages** and is now **06-02**, per the [primary](sources/nvidia-jetpack-7-2-release.md): [JetPack](entities/jetpack.md), [Jetson onboard compute](syntheses/platforms/jetson-onboard-compute-xlerobot.md), [Orin Nano flash how-to](syntheses/projects/jetson-orin-nano-flash-howto.md).
+  - Added **JetPack 7.2.1** to the JetPack page from the [Holoscan SDK 5.0 install page](sources/holoscan-sdk-5-0-release-notes.md). Its date is still secondary-only and the 6236259 fix unverified.
+  - Updated [Isaac Lab](entities/nvidia-isaac-lab.md)'s Arena line to v0.3.1 / Isaac Sim 6.2.0, and the index's sparkDash benchmark line to suite v2.
+- **One-way citations, 32 → 1.** 21 were auto-linked at the first plain mention, after rejecting one wrong hit ("perfect simulator" in GR00T 2 is not about world-model simulators). 10 were placed by hand, including a labelled *wiki attribution* note on the R²D² assembly digest, which does not name the Seattle lab. The **FeeTech → Damiao J4340P datasheet** citation stays one-way on purpose: a motor datasheet has no reason to mention FeeTech.
+- **New concept:** [DAgger and interactive imitation](concepts/learning/dagger.md). 50 pages used the term with no page. The page separates the four mechanisms the wiki's sources call DAgger: teacher–student distillation, human-gated correction, iterative curation, and a planner or simulator as the expert. RT-H's "IWR degrades" is carried as borderline (p = 0.053), as its source page rates it. Back-linked from 18 sources and concepts, the glossary and the index.
+- **`sources:` counts:** `--fix-source-counts` ran *after* the back-links (otherwise DreamDojo would have dropped to 1), rewriting 48 pages. Count drift 47 → 0, and 57 index entries synced to frontmatter.
+- **Gap leads triaged:** most are aliases of existing pages or noise. Left open: LiDAR (57 pages) and UC Berkeley (57) as candidate pages.

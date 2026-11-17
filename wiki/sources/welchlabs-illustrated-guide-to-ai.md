@@ -109,7 +109,7 @@ Illustrations by **Sam Baskin** and **Pranav Gundu** (plus Welch). Acknowledgmen
 - **DeepSeek** — Ch 8 spends ~25 pages on DeepSeek's MLA innovation; R1 is the chapter's narrative anchor.
 - **Chris Olah** — Anthropic interpretability lead, quoted in Ch 7.
 - **Frank Rosenblatt** — perceptron inventor; Ch 1 anchor.
-- **Wan2.1 / WAN model family** — Ch 9's hands-on diffusion example; same family that produces DreamDojo's WAN2.2 tokenizer.
+- **Wan2.1 / WAN model family** — Ch 9's hands-on diffusion example; same family that produces [DreamDojo](../entities/dreamdojo.md)'s WAN2.2 tokenizer.
 
 ## Concepts touched
 - [Neural networks](../syntheses/curriculum/curriculum-01-neural-networks.md) (Curriculum Module 1) — Ch 1–4 perceptron → gradient descent → backprop → depth.

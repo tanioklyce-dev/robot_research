@@ -18,7 +18,7 @@ tags: [hover, humanoid, whole-body-control, policy-distillation, multi-mode, dag
 
 **One controller, many command interfaces.** Humanoid tasks want different control modes — navigation wants root velocity tracking, tabletop manipulation wants upper-body joint angles, teleoperation wants keypoint tracking — and the field had been training a separate policy per mode. HOVER's insight is that **full-body kinematic motion imitation is a common abstraction** underneath all of them, and can supply general-purpose motor skills that every mode reuses.
 
-The mechanism is **multi-mode policy distillation**: train a privileged **oracle** on motion imitation, then distil it into a student with **DAgger**, applying two kinds of mask to the command input — a **mode mask** (which command type is active) and a **sparsity mask** (which body parts are specified) — **independently for upper and lower body**. The student therefore learns every mode, and can switch between them at runtime.
+The mechanism is **multi-mode policy distillation**: train a privileged **oracle** on motion imitation, then distil it into a student with **[DAgger](../concepts/learning/dagger.md)**, applying two kinds of mask to the command input — a **mode mask** (which command type is active) and a **sparsity mask** (which body parts are specified) — **independently for upper and lower body**. The student therefore learns every mode, and can switch between them at runtime.
 
 ## Key claims
 

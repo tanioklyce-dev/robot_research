@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-11-07
 updated: 2026-11-09
-sources: 6
+sources: 7
 tags: [robodojo, benchmark, evaluation, isaac-sim, isaac-lab-arena, sim-and-real, bimanual, arx-x5, piper, xpolicylab, robotwin, mit]
 ---
 

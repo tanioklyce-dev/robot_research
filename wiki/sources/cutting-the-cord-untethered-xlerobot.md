@@ -46,7 +46,7 @@ An **untethered evolution of the [XLeRobot](../entities/xlerobot.md)** from [Nik
 - **Limitation stated:** "The Jetson Orin Nano's limited CUDA kernels restrict high-frequency multi-modal transformers, while a **Jetson Thor (40–130 W) exceeds the power budget**" → motivates tiered compute or an additional power supply.
 
 ### Software / autonomy stack
-- ROS 2 + **Pinocchio/Pink** task-IK (QP solver @ 100 Hz) + Open3D; classical RGB-D perception (HSV segmentation → 3D centroid → task-IK → Fin-Ray compliant grasp). **98.7 % grasp success** (N=75, 5 objects 17–858 g).
+- ROS 2 + **[Pinocchio](../entities/pinocchio.md)/Pink** task-IK (QP solver @ 100 Hz) + Open3D; classical RGB-D perception (HSV segmentation → 3D centroid → task-IK → Fin-Ray compliant grasp). **98.7 % grasp success** (N=75, 5 objects 17–858 g).
 - **SLAM nav:** RealSense D435 + **RTAB-Map** (localization-only mode) + **Nav2**.
 - **VR teleop** (Open-TeleVision-based): Meta Quest 3 / Vision Pro / Pico 4; controllers beat hand-tracking on a peg-in-hole task (48.2 s vs 68.3 s vs 248.7 s joypad baseline); doubles as an imitation-learning data-collection pipeline.
 

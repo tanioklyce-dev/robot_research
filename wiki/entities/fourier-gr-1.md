@@ -4,7 +4,7 @@ type: entity
 subtype: humanoid
 created: 2026-05-15
 updated: 2026-10-23
-sources: 8
+sources: 9
 tags: [humanoid, fourier-intelligence, robot-platform, gr-1, dexterous-manipulation]
 ---
 

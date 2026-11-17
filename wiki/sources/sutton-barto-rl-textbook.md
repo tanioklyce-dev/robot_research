@@ -267,5 +267,7 @@ The textbook does not address this directly (it pre-dates the "RL is sample-inef
 - **OpenAI Spinning Up** as a separate pedagogical-companion source — would pair with this textbook the way [karpathy/nanoGPT](karpathy-nanogpt.md) pairs with [Attention Is All You Need](attention-is-all-you-need.md): the canonical clean code companion to the canonical clean theory. Logged as candidate ingest.
 
 ## Cited by
+
+- [Physical Atari](physical-atari-paper.md), from [Keen Technologies](../entities/keen-technologies.md) — Sutton is a co-author. It takes the book's line of work (average-reward evaluation, learning between actions) onto physical hardware.
 - [Stephen Welch](../entities/stephen-welch.md)
 - [Welch Labs](../entities/welch-labs.md)

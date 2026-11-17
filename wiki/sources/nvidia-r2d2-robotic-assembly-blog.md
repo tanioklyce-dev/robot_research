@@ -34,6 +34,8 @@ AutoMate was evaluated with over 5 million simulated trials and 500 real ones. T
 
 ## Entities mentioned
 
+- *Wiki attribution, not stated in the post:* the Factory, IndustReal, AutoMate, TacSL and FORGE line is attributed to the [NVIDIA Seattle Robotics Lab](../entities/nvidia-seattle-robotics-lab.md) through shared authors and the lab's own GB300 post. This digest does not name the lab.
+
 - [NVIDIA Isaac Lab](../entities/nvidia-isaac-lab.md), [Franka Panda](../entities/franka-panda.md)
 
 ## Concepts touched

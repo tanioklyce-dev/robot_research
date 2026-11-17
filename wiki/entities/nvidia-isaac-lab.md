@@ -3,7 +3,7 @@ title: NVIDIA Isaac Lab
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-11-10
+updated: 2026-11-16
 sources: 45
 tags: [framework, robot-learning, nvidia, isaac-lab, rl]
 ---
@@ -63,7 +63,7 @@ Isaac Lab inherits Isaac Sim's RT-core requirement: it cannot run on [Jetson Tho
 
 > [!note] Curated list — 38 source pages link here; the ones below are those that shaped this page.
 
-- [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — the Arena extension itself: v0.3.0 alpha on Isaac Lab 3.0 / Isaac Sim 6.0 (main already on 6.1 wheels); Arena-authored environments register back into Isaac Lab's own teleop, Mimic and RL scripts through an external-environment callback.
+- [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — the Arena extension itself: v0.3.0 alpha on Isaac Lab 3.0 / Isaac Sim 6.0 at first capture; **v0.3.1 by 2026-11-16, with `main` on Isaac Sim 6.2.0** ([edition history](../sources/isaaclab-arena-github.md#edition-history)); Arena-authored environments register back into Isaac Lab's own teleop, Mimic and RL scripts through an external-environment callback.
 - [NVIDIA Newton Physics Engine Developer Page](../sources/nvidia-newton-physics-engine-developer-page.md)
 - [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)
 - [DINO-WM Paper](../sources/dino-wm-paper.md)

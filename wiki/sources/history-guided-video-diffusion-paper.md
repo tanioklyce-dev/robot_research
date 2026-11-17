@@ -51,7 +51,7 @@ MIT/CMU/Harvard paper ([Tedrake](../entities/russ-tedrake.md) + Sitzmann senior)
 
 ## Open questions
 
-- Whether HG transfers to the frontier video/world models the wiki tracks ([Cosmos 3](../entities/nvidia-cosmos.md), DreamDojo/Predict2.5) — the 12.5%-cost fine-tune path makes that concrete; no public uptake ingested yet.
+- Whether HG transfers to the frontier video/world models the wiki tracks ([Cosmos 3](../entities/nvidia-cosmos.md), [DreamDojo](../entities/dreamdojo.md)/Predict2.5) — the 12.5%-cost fine-tune path makes that concrete; no public uptake ingested yet.
 - **Diffusion Forcing** (the 2024 ancestor) has no wiki page despite now being load-bearing for two ingested lines (DFoT; CausVid citation) — candidate ingest.
 - How the 83% Fruit-Swapping result generalizes beyond one task — is sampling-time behavior composition a real alternative to multitask pretraining (the [TRI LBM](tri-lbm-paper.md) answer) or complementary?
 - Connection to Tedrake's stealth startup direction (he argues video backbones win for long context — this paper is his group's evidence base for controllable long-context video).

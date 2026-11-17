@@ -88,7 +88,7 @@ On real bimanual YAM arms, bottle placement got **4.3%, 7.4% and 12.0% faster at
 
 ### Other ports (checked 2026-11-14)
 - **openpi** (`main` @ `215abfb`, 2026-08-24) ships **no RTC of either kind**. `Pi0.sample_actions` is a plain Euler loop, and "prefix" there means the VLM observation tokens, not actions. A π0.5 TT-RTC checkpoint therefore cannot have come from stock openpi.
-- **LeRobot** (`main` @ `fe1c545`, 2026-11-13) has two modes:
+- **[LeRobot](../entities/lerobot.md)** (`main` @ `fe1c545`, 2026-11-13) has two modes:
   - **`mode="guided"`**, the default, is inference-time RTC with Jacobian guidance (`RTCProcessor.denoise_step`). It does not hard-clamp the prefix, so the bug does not apply. The prefix is only steered toward the old actions, by design.
   - **`mode="trained"`** is training-time RTC for π0.5, added in PR #4056 on 2026-08-21. In it, `euler_integrate` applies `torch.where(hard_prefix_mask, hard_prefix, x_t)` **both before and after** every update, final step included (`policies/common/flow_matching.py`). That was already true in the PR's first version.
 

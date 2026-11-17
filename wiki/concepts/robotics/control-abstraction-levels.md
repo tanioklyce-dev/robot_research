@@ -3,7 +3,7 @@ title: Control abstraction levels
 type: concept
 created: 2026-07-27
 updated: 2026-11-14
-sources: 35
+sources: 36
 tags: [robotics, control, llm-agent, evaluation, vla, safety, access-control, frontier-red-team, code-as-policy]
 ---
 

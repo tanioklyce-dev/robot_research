@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-16
 updated: 2026-11-07
-sources: 21
+sources: 23
 tags: [dgx-spark, gb10, grace-blackwell, workstation, unified-memory, physical-ai]
 ---
 

@@ -3,7 +3,7 @@ title: Gravity compensation
 type: concept
 created: 2026-11-16
 updated: 2026-11-16
-sources: 3
+sources: 6
 tags: [gravity-compensation, inverse-dynamics, rnea, torque-control, feedforward, quasi-direct-drive, backdrivability, hand-guiding, kinesthetic-teaching, model-identification, mit-mode]
 ---
 

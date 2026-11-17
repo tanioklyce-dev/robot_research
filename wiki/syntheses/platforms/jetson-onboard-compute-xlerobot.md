@@ -2,7 +2,7 @@
 title: "Onboard compute for XLeRobot — Jetson Orin Nano vs Orin NX vs AGX Orin vs AGX Thor"
 type: synthesis
 created: 2026-06-03
-updated: 2026-09-28
+updated: 2026-11-16
 tags: [xlerobot, jetson, jetson-orin-nano, orin-nx, agx-orin, jetson-thor, onboard-compute, edge-ai, power-budget, vla, buying-decision, platforms]
 ---
 
@@ -25,10 +25,10 @@ Which NVIDIA Jetson should ride on an untethered [XLeRobot](../../entities/xlero
 | **Power** | **7–25 W** | **10–40 W** | **15–60 W** | **40–130 W** (nvpmodel 70/90/120 W) |
 | Price ([NVIDIA list, since 2026-07-21](../../sources/nvidia-jetson-faq-pricing.md)) | **$399** dev kit (was $249) | **$999** module, 1KU (was $699; ~$600 street) | **$3,499** dev kit (was $1,999) | **$5,499** dev kit (was $3,499) |
 | Weight / cooling | tiny, passive duct OK ([paper](../../sources/cutting-the-cord-untethered-xlerobot.md)) | tiny — **drop-in on the Nano dev-kit carrier** | larger, active heatsink-fan | largest; no RT cores |
-| SDK | **JetPack 7.2+** (since 2026-06-01); Isaac ROS 4.6+/5.0 | **JetPack 7.2+**; Isaac ROS 4.6+/5.0 | **JetPack 7.2+**; Isaac ROS 4.6+/5.0 | **JetPack 7.2 + Isaac ROS 5.0** / GR00T target |
+| SDK | **JetPack 7.2+** (since 2026-06-02); Isaac ROS 4.6+/5.0 | **JetPack 7.2+**; Isaac ROS 4.6+/5.0 | **JetPack 7.2+**; Isaac ROS 4.6+/5.0 | **JetPack 7.2 + Isaac ROS 5.0** / GR00T target |
 
 > [!warning] Correction 2026-08-16 — the Orin tiers are no longer JetPack 6
-> This row read **"JetPack 6"** for all three Orin modules until today, which was already two months stale when the page was last touched. **JetPack 7.2 (Jetson Linux r39.2), released 2026-06-01, extends JetPack 7 to the whole Orin family** — AGX Orin, Orin NX and Orin Nano — on **Ubuntu 24.04 / kernel 6.8 / CUDA 13.2.1 / TensorRT 10.16.2**, unifying the toolchain with Thor. **JetPack 7.2.1** followed on **2026-08-12** (live-web). **Primary source now ingested: [JetPack 7.2 with Jetson Linux 39.2](../../sources/nvidia-jetpack-7-2-release.md).**
+> This row read **"JetPack 6"** for all three Orin modules until today, which was already two months stale when the page was last touched. **JetPack 7.2 (Jetson Linux r39.2), released 2026-06-02, extends JetPack 7 to the whole Orin family** — AGX Orin, Orin NX and Orin Nano — on **Ubuntu 24.04 / kernel 6.8 / CUDA 13.2.1 / TensorRT 10.16.2**, unifying the toolchain with Thor. **JetPack 7.2.1** followed on **2026-08-12** (live-web). **Primary source now ingested: [JetPack 7.2 with Jetson Linux 39.2](../../sources/nvidia-jetpack-7-2-release.md).**
 >
 > Two consequences that bite a build rather than a spec sheet:
 >

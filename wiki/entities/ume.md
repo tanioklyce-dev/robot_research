@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-08-13
 updated: 2026-09-13
-sources: 7
+sources: 9
 tags: [ume, exoskeleton, teleoperation, force-torque, haptic-feedback, compliant-control, data-collection, umi, ant-group, stanford, low-cost]
 ---
 

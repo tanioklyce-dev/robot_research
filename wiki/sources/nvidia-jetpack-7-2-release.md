@@ -47,7 +47,7 @@ This is the primary source behind the wiki's [2026-08-16 JetPack correction](../
 | **OpenWF Display** | **Not supported** |
 | V4L2 | 1.22.1 |
 | DeepStream | **9.1** |
-| Holoscan | 3.9.0 |
+| [Holoscan](../entities/nvidia-holoscan.md) | 3.9.0 |
 | **Isaac ROS** | **"Coming soon"** |
 | Jetson Platform Services | **N/A** |
 | Container Toolkit | 1.19 (with ISO image) |

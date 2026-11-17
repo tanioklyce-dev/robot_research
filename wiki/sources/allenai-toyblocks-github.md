@@ -25,7 +25,7 @@ This is the framework behind the [ToyBlocks launch post](ai2-toyblocks-blog.md).
 Around that core sit:
 - ManiFlow training (`maniflow-tb` submodule) and Molmo 2 high-level serving.
 - GPU-parallel closed-loop evaluation with oracle substitution at either level.
-- **TAMPER**, a DAgger-style loop that plans expert demonstrations *from the states where a policy failed*.
+- **TAMPER**, a [DAgger](../concepts/learning/dagger.md)-style loop that plans expert demonstrations *from the states where a policy failed*.
 - Play data, PPO scripts, and the [agentic_robotics](allenai-agentic-robotics-github.md) submodule.
 
 The repo also corrects part of the launch post. The released vecgen **flip and rotate skills are scripted** trajectories ported from a TAMP executor, not RL policies, and the **push actions have no skill** and are excluded from generation by default.

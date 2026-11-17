@@ -110,7 +110,7 @@ A more subtle failure that BC has independently of multi-modality. Even a perfec
 4. Add these `(s, a_expert)` pairs to the dataset.
 5. Retrain → `π_1`. Repeat.
 
-DAgger reduces the worst-case bound to O(T), at the cost of **needing the expert in the loop during training** — usually a human teleoperator who can label states the policy actually reaches. That cost makes DAgger expensive and rarely run in modern practice. Modern systems mostly tolerate distribution shift through other means (much more data, broader coverage, action chunking + replanning, on-policy fine-tuning with simulators or human corrections).
+[DAgger](../../concepts/learning/dagger.md) reduces the worst-case bound to O(T), at the cost of **needing the expert in the loop during training** — usually a human teleoperator who can label states the policy actually reaches. That cost makes DAgger expensive and rarely run in modern practice. Modern systems mostly tolerate distribution shift through other means (much more data, broader coverage, action chunking + replanning, on-policy fine-tuning with simulators or human corrections).
 
 > [!note] Why DAgger appears anyway
 > Even if DAgger isn't run literally, "distribution shift" as a concept is *the* reason modern BC pipelines emphasize **demo coverage** — the practical move is to make the demo distribution wide enough that the policy's induced distribution stays in-support. RUM's [data diversity > data quantity](../assistive/long-term-in-home-robot-deployments.md) finding is essentially this insight under another name.

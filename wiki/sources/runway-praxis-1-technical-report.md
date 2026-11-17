@@ -69,7 +69,7 @@ ingested: 2026-11-12
 - The two are framed as complementary: *"an agent can plan a new task, and a fast policy like Praxis-1 can carry out each step."*
 
 ### New embodiments (§8)
-- **RT-1.** RT-1 data appears in **no** pretraining or mid-training stage. Fine-tuning ran 30k steps (about 28 hours on 32 H100s) on 78k episodes and 95 hours, with the head camera only. On SimplerEnv visual matching (864 episodes, 4 tasks): **Praxis-1 80.0%, RT-1 52.4%, FLUX 3 Action 39.7%**. Per task, Praxis-1 scored pick coke can 98.3, move near 81.7, drawer 56.5, apple into drawer 83.3. Runway fine-tuned the FLUX 3 Action baseline itself, using BFL's published *DROID* recipe.
+- **RT-1.** RT-1 data appears in **no** pretraining or mid-training stage. Fine-tuning ran 30k steps (about 28 hours on 32 H100s) on 78k episodes and 95 hours, with the head camera only. On SimplerEnv visual matching (864 episodes, 4 tasks): **Praxis-1 80.0%, RT-1 52.4%, FLUX 3 Action 39.7%**. Per task, Praxis-1 scored pick coke can 98.3, move near 81.7, drawer 56.5, apple into drawer 83.3. Runway fine-tuned the FLUX 3 Action baseline itself, using [BFL](../entities/black-forest-labs.md)'s published *DROID* recipe.
 - **SO-100/SO-101.** Runway gathered **3,956 public LeRobot datasets from 1,783 contributors, about 1,260 hours**. Camera names were unreliable (*"a camera called 'phone' or 'top' is often mounted on the wrist"*), so each camera was labelled as wrist or scene from its video. Both a motion check and a CLIP check had to agree. Fine-tuning used about 1,070 hours from 3,814 datasets, with 102 held out. The model predicts **5 joints plus gripper as offsets at 15 Hz** and works with or without a wrist camera. Results are shown as video only, with no success rates.
 
 ### Guidance (§9)

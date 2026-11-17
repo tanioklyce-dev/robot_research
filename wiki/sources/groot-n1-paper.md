@@ -47,7 +47,7 @@ The primary paper behind [NVIDIA GR00T](../entities/nvidia-groot.md) N1 — an o
 ## Entities mentioned
 
 - [NVIDIA GR00T](../entities/nvidia-groot.md) — this is its primary source. [NVIDIA GEAR](../entities/nvidia-gear.md) ([Jim Fan](../entities/jim-fan.md), [Yuke Zhu](../entities/yuke-zhu.md), [Joel Jang](../entities/joel-jang.md)).
-- [Fourier GR-1](../entities/fourier-gr-1.md) — primary real-robot platform (also the DreamDojo eval platform).
+- [Fourier GR-1](../entities/fourier-gr-1.md) — primary real-robot platform (also the [DreamDojo](../entities/dreamdojo.md) eval platform).
 - [Franka Panda](../entities/franka-panda.md) — RoboCasa benchmark embodiment; bimanual Panda variants in DexMimicGen.
 - [RoboCasa](../entities/robocasa.md), [MimicGen](../entities/mimicgen.md) (DexMimicGen), [Open X-Embodiment](../entities/open-x-embodiment.md), [DROID](../entities/droid.md), [AgiBot](../entities/agibot.md) (AgiBot-Alpha dataset), [LeRobot](../entities/lerobot.md) (dataset format), [Hugging Face](../entities/hugging-face.md).
 - [π0](../entities/pi-zero.md) — architectural contrast; [Diffusion Policy](../entities/diffusion-policy.md) + BC-Transformer (RoboMimic) — baselines; [NVIDIA Cosmos](../entities/nvidia-cosmos.md) — cited alongside WAN2.1 for neural-trajectory generation; [Octo](../entities/octo.md), [OpenVLA](../entities/openvla.md)-line VLAs — related work.

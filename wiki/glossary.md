@@ -102,7 +102,7 @@ Stanford household-task benchmark; 12.4% best result (per [AI Index 2026](source
 Vision benchmark datasets used for pretraining / evaluating CNNs and ViTs. *(Module 2.)*
 
 ### DAgger
-**Dataset Aggregation** — Ross et al. 2011; iteratively roll out a learned policy, query expert for corrections, retrain — fixes BC's distribution-shift problem. *(Module 6.)*
+**Dataset Aggregation** — Ross et al. 2011; iteratively roll out a learned policy, query expert for corrections, retrain — fixes BC's distribution-shift problem. *(Module 6.)* See [DAgger and interactive imitation](concepts/learning/dagger.md) for the four ways this wiki's sources use it.
 
 ### DT
 **Decision Transformer** — Chen, Lu et al. 2021 ([paper](sources/decision-transformer-paper.md), [entity](entities/decision-transformer.md)). RL as next-token prediction: condition on a **return-to-go** and emit actions autoregressively; `K` timesteps → `3K` tokens `(R̂, s, a)` with a per-*timestep* embedding. No value function, no TD. The source of the interleaved observation-action format most robot policies use. Its own Percentile-BC ablation shows it is largely **conditional imitation**. *(Modules 8 / 9.)*

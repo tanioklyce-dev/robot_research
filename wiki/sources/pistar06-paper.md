@@ -24,7 +24,7 @@ Result: on the hardest tasks, RECAP **more than doubles task throughput** and **
 
 Three iterated steps:
 
-1. **Data collection**: deploy current VLA on task; label each episode with sparse task-outcome reward; optionally collect human interventions (human-gated DAgger style).
+1. **Data collection**: deploy current VLA on task; label each episode with sparse task-outcome reward; optionally collect human interventions (human-gated [DAgger](../concepts/learning/dagger.md) style).
 2. **Value function training**: train a **multi-task distributional value function** `V^πref` on all data so far. Architecture: same as the VLA policy but with a smaller VLM backbone. **201 discrete value bins**, trained via cross-entropy on Monte Carlo returns.
 3. **Advantage-conditioned policy training**: train a new VLA that conditions on a **binarized advantage indicator** `I = δ(A^πref(o,a,ℓ) > ε_ℓ)` from the value function. At test time, condition on "advantage = improved" to extract the better policy.
 

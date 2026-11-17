@@ -30,7 +30,7 @@ The design argument is biological and load-bearing. Humans do not look at the gr
 Rendering depth slows simulation by an order of magnitude, so direct RL would need billions of samples. Instead:
 
 - **Phase 1 — RL with a cheap proxy.** Train with PPO on **scandots**: (x, y) points in the robot's frame at which terrain height is queried. Cheap to compute, and geometrically equivalent to what depth would reveal. Privileged environment parameters *e*ₜ are available here too.
-- **Phase 2 — supervised distillation to onboard sensing.** Distil into a policy that sees only **egocentric depth + proprioception**, trained with **DAgger** and truncated BPTT (N = 24), minimizing MSE against phase-1 actions.
+- **Phase 2 — supervised distillation to onboard sensing.** Distil into a policy that sees only **egocentric depth + proprioception**, trained with **[DAgger](../concepts/learning/dagger.md)** and truncated BPTT (N = 24), minimizing MSE against phase-1 actions.
 
 Because supervised learning is orders of magnitude more sample-efficient than RL, **the whole system trains on a single GPU in a few days.**
 
@@ -131,4 +131,4 @@ That latency handling is the detail that makes the system real: the policy is tr
 
 - **Which architecture wins is unresolved** — monolithic leads on stairs (42.4 vs 31.2), the RMA variant on discrete obstacles (40.1 vs 28.6), and totals are within 1%. The paper does not adjudicate.
 - **Real-world trial counts are small** and the stepping-stone 94% is over a limited course; see the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md).
-- ~~Ananye Agarwal has no entity page~~ — **filed 2026-08-29** ([Ananye Agarwal](../entities/ananye-agarwal.md)). **[Ashish Kumar](../entities/ashish-kumar.md)** now has one too. **Jitendra Malik** — co-author here, on [RMA](rma-paper.md), and in [DreamDojo](dreamdojo-paper.md) — does not.
+- ~~Ananye Agarwal has no entity page~~ — **filed 2026-08-29** ([Ananye Agarwal](../entities/ananye-agarwal.md)). **[Ashish Kumar](../entities/ashish-kumar.md)** now has one too. **Jitendra Malik** — co-author here, on [RMA](rma-paper.md), and in [DreamDojo](../entities/dreamdojo.md) ([paper](dreamdojo-paper.md)) — does not.

@@ -2,7 +2,7 @@
 title: Jetson Orin Nano — flash Jetson OS to NVMe SSD howto
 type: synthesis
 created: 2026-05-16
-updated: 2026-08-17
+updated: 2026-11-16
 tags: [jetson, hardware, setup, howto, uefi, efibootmgr, boot-order]
 ---
 
@@ -13,7 +13,7 @@ Operational howto for writing a [Jetson Linux](../../entities/jetson-linux.md) (
 This page also covers **SD-primary with NVMe fallback** (UEFI auto-fallback) — see the section below.
 
 > [!warning] Correction 2026-08-16 — this howto describes the **JetPack 6** flow, and JetPack 7.2 changed it
-> **From JetPack 7.2 (2026-06-01) the Orin Nano Developer Kit has no downloadable SD-card image.** The flow is now a **unified ISO written to a USB stick**, which then installs Jetson Linux onto microSD *or* NVMe — NVIDIA's own guidance is *"do not flash the Jetson ISO to a microSD card."* ~~The ISO defaults to **Super Mode** flashing configuration.~~ **JetPack 7.2.1** shipped 2026-08-12.
+> **From JetPack 7.2 (2026-06-02) the Orin Nano Developer Kit has no downloadable SD-card image.** The flow is now a **unified ISO written to a USB stick**, which then installs Jetson Linux onto microSD *or* NVMe — NVIDIA's own guidance is *"do not flash the Jetson ISO to a microSD card."* ~~The ISO defaults to **Super Mode** flashing configuration.~~ **JetPack 7.2.1** shipped 2026-08-12.
 
 > [!warning] Correction 2026-08-17 — the ISO does the *opposite* of defaulting to Super Mode
 > From the primary ([Jetson Linux r39.2 release notes](../../sources/nvidia-jetson-linux-r39-2-release-notes.md), issue **6279443**): *"Jetson Orin Nano units that are updated to JetPack 7.2 using ISO install continue to use the same profile that was set before update. **Units will not default to 'Super' mode after the update.** To use 'Super' mode, you must flash the target using a Linux host or SDKM."* The earlier claim came from secondary coverage of the release. **If you want Super Mode, the ISO path will not give it to you** — use Path A (SDK Manager) or Path B (host `l4t_initrd_flash.sh`) with a `-super` config, exactly as this page already describes for JetPack 6.

@@ -3,7 +3,7 @@ title: Impedance and admittance control
 type: concept
 created: 2026-09-07
 updated: 2026-11-16
-sources: 5
+sources: 9
 tags: [impedance-control, admittance-control, variable-impedance, compliance, passivity, energy-tanks, force-control, contact-rich, action-space, safe-execution]
 ---
 

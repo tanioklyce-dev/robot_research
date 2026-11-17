@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-09-13
 updated: 2026-09-13
-sources: 2
+sources: 6
 tags: [company, japan, open-hardware, openarm, damiao, robot-arm, physical-ai]
 ---
 

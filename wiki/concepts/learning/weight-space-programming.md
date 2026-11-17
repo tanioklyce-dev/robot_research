@@ -3,7 +3,7 @@ title: Weight-space programming
 type: concept
 created: 2026-11-14
 updated: 2026-11-14
-sources: 2
+sources: 3
 tags: [weight-space-programming, gradient-free-optimization, mechanistic-interpretability, model-editing, policy-repair, gpt-6-astra, autoresearch]
 ---
 

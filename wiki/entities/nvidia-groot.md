@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-06
 updated: 2026-11-13
-sources: 64
+sources: 65
 tags: [groot, vla, nvidia, foundation-model, humanoid]
 ---
 

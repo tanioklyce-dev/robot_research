@@ -95,6 +95,8 @@ Not source- or binary-compatible with 4.x; there are migration guides for C++ an
 
 ## Open questions
 
+- **Which HSDK major do [Isaac ROS](../entities/isaac-ros.md)'s Holoscan operators target?** The [gravity-comp tutorial](nvidia-holoscan-5-rebot-gravity-compensation.md) says Isaac ROS *"provides reusable Holoscan operators"*. 5.0 is neither source- nor binary-compatible with 4.x, and JetPack 7.2 bundles 3.9.0.
+
 - Is **Orin NX** supported on HSDK 5.0, or only untested?
 - Does the **JetPack 7.2.1** release-notes primary exist anywhere NVIDIA links publicly?
 - When do the Tensor and plan-inspection APIs leave Beta and Prototype?

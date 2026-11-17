@@ -22,7 +22,7 @@ tags: [jetpack-7, jetson-linux-38, jetson-thor, cuda-13, tensorrt-10, blackwell,
 
 ## Summary
 
-JetPack 7.0 is the **Thor-only launch SDK** (parallel to the JetPack 6.x line that continues to serve Orin-class modules). It's a **cloud-native, SBSA-aligned ARM server-style** software stack: Ubuntu 24.04 LTS root filesystem on Linux kernel 6.8, CUDA 13 / cuDNN 9.12 / TensorRT 10.13, with **Multi-Instance GPU (MIG)**, an **NVIDIA-optimized preemptible real-time kernel**, and **CSI-over-Ethernet (CoE) via Holoscan Sensor Bridge**. The post-launch story is the **7× generative-AI throughput improvement** between August and September 2025, driven by **NVFP4** (Blackwell's 4-bit floating point) and speculative decoding.
+JetPack 7.0 is the **Thor-only launch SDK** (parallel to the JetPack 6.x line that continues to serve Orin-class modules). It's a **cloud-native, SBSA-aligned ARM server-style** software stack: Ubuntu 24.04 LTS root filesystem on Linux kernel 6.8, CUDA 13 / cuDNN 9.12 / TensorRT 10.13, with **Multi-Instance GPU (MIG)**, an **NVIDIA-optimized preemptible real-time kernel**, and **CSI-over-Ethernet (CoE) via [Holoscan](../entities/nvidia-holoscan.md) Sensor Bridge**. The post-launch story is the **7× generative-AI throughput improvement** between August and September 2025, driven by **NVFP4** (Blackwell's 4-bit floating point) and speculative decoding.
 
 This page is the canonical wiki reference for **what JetPack 7 actually contains** and **what Thor can do at the AI-workload level** as of late 2025.
 

@@ -108,7 +108,7 @@ No rate, no baseline, no protocol — one described episode. But the *problem* i
 
 One multimodal flow-matching model; **video plus native audio up to 20 seconds in a single generation**; text-to-video, image-to-video, video-to-video, keyframe-to-video, generative video-audio continuation, multilingual dialogue, agentic chaining of clips into multi-shot sequences. Image synthesis and editing in the same model.
 
-Self-reported preference evaluations on 10-second 720p text-to-video with audio: preferred over **Grok Imagine Video** in up to 69% of comparisons, **Kling v3 Pro** 60%, **Seedance 2.0** and **Gemini Omni Flash** 52%, **Runway Gen-4.5** 77%, **Luma Ray 3.2** 93%. Explicitly labelled preliminary; no n or protocol given.
+Self-reported preference evaluations on 10-second 720p text-to-video with audio: preferred over **Grok Imagine Video** in up to 69% of comparisons, **Kling v3 Pro** 60%, **Seedance 2.0** and **Gemini Omni Flash** 52%, **[Runway](../entities/runway.md) Gen-4.5** 77%, **Luma Ray 3.2** 93%. Explicitly labelled preliminary; no n or protocol given.
 
 **Launch plan**, in order: FLUX 3 Video (API + private weights) → **action prediction through selected research and commercial partners, beginning with mimic robotics ("FLUX-mimic and FLUX 3 Action")** → FLUX 3 Image → **"Open-weight access to a multimodal backbone, for content creation *and action prediction*" (FLUX 3 Dev)**.
 

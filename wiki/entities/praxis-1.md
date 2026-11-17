@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-11-12
 updated: 2026-11-12
-sources: 3
+sources: 4
 tags: [praxis-1, runway, world-action-model, open-weights, apache-2, mixture-of-experts, diffusion-transformer, video-pretraining, robolab, droid, yam, so-101, nvfp4]
 ---
 

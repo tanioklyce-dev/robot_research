@@ -127,7 +127,7 @@ Two sequential queries **double inference time**, which at 55B is prohibitive. T
 - [Action representation languages](../syntheses/agents/action-representation-languages.md) — the synthesis this source anchors
 - [VLA models](../concepts/learning/vla-models.md) — RT-2 as backbone; the action-hierarchy pattern
 - [Control abstraction levels](../concepts/robotics/control-abstraction-levels.md) — an intermediate level *inside* a single learned policy
-- [Imitation learning](../concepts/learning/imitation-learning.md) — interactive IL, DAgger, IWR
+- [Imitation learning](../concepts/learning/imitation-learning.md) — interactive IL, [DAgger](../concepts/learning/dagger.md), IWR
 - [LLM-free VLA](../concepts/learning/llm-free-vla.md) — the OneHot ablation is the same measurement as TurboVLA's task-ID ablation
 
 ## Cited by

@@ -4,7 +4,7 @@ type: entity
 subtype: lab
 created: 2026-11-10
 updated: 2026-11-10
-sources: 3
+sources: 4
 tags: [nvidia, nvidia-srl, nvidia-research, manipulation, assembly, evaluation]
 ---
 

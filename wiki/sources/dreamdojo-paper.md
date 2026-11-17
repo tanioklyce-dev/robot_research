@@ -21,7 +21,7 @@ tags: [dreamdojo, nvidia-gear, world-model, generative-video, cosmos, latent-act
 
 ## Summary
 
-**DreamDojo** is NVIDIA GEAR's foundation **generative-video world model** for robotics — a video diffusion model that predicts future RGB frames conditioned on robot actions, pretrained on **44,711 hours of egocentric human video** (the **largest video dataset for world model training to date**, 15× the longest prior corpus and 2,000× the most scene-diverse). The model is the latest, most ambitious data point on the *generative-video* side of the world-model paradigm split — the direct counterpoint to FAIR's JEPA program ([LeWorldModel](../entities/leworldmodel.md), [DINO-WM](../entities/dino-wm.md), [V-JEPA 2](../entities/v-jepa-2.md)) — and the destination paper of NVIDIA's **Dream*** triplet (**DreamGen → DreamZero → DreamDojo**).
+**[DreamDojo](../entities/dreamdojo.md)** is NVIDIA GEAR's foundation **generative-video world model** for robotics — a video diffusion model that predicts future RGB frames conditioned on robot actions, pretrained on **44,711 hours of egocentric human video** (the **largest video dataset for world model training to date**, 15× the longest prior corpus and 2,000× the most scene-diverse). The model is the latest, most ambitious data point on the *generative-video* side of the world-model paradigm split — the direct counterpoint to FAIR's JEPA program ([LeWorldModel](../entities/leworldmodel.md), [DINO-WM](../entities/dino-wm.md), [V-JEPA 2](../entities/v-jepa-2.md)) — and the destination paper of NVIDIA's **Dream*** triplet (**DreamGen → DreamZero → DreamDojo**).
 
 Two technical ideas carry the paper:
 

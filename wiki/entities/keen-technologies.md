@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-11-09
 updated: 2026-11-09
-sources: 1
+sources: 2
 tags: [keen-technologies, reinforcement-learning, real-time-rl, physical-atari]
 ---
 

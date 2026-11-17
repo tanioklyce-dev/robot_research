@@ -21,13 +21,13 @@ ingested: 2026-11-09
 
 The report makes four claims: strong zero-shot behaviour with fast few-shot adaptation, transfer of skills from people or handheld devices to robots that never practised them, reliability gains from real-world RL, and control by a frontier agent. A smaller variant, GR00T 2 Turbo, runs on the Jetson Thor inside a [Unitree G1](../entities/unitree-g1.md).
 
-The evidence is unusually broad for a vendor report: real robots, named baselines, some blinded evaluation, and an explicit statement of what its sample sizes can't resolve. Several headline numbers also carry conditions that appear in the report and not in the [launch blog](nvidia-corl-2026-robotics-simulation-blog.md). They are listed below.
+The evidence is unusually broad for a vendor report: real robots, named baselines, some [blinded evaluation](../concepts/robotics/robot-policy-evaluation.md), and an explicit statement of what its sample sizes can't resolve. Several headline numbers also carry conditions that appear in the report and not in the [launch blog](nvidia-corl-2026-robotics-simulation-blog.md). They are listed below.
 
 > [!warning] Read these conditions before quoting the headlines
 > - **95% with five demonstrations is partly selected.** *"The 50 tasks were chosen among those the model learns with five episodes (at least 80% success), so the five-episode rate is high partly by construction"* (Sec. 3.1). The blog gives 71% and 95% without this.
 > - **"40 of 50 tasks" is the generous form of the zero-shot result.** Trial-level success is **40%**. Forty tasks succeeded at least once, and four succeeded in every trial. The tasks are new to the target robot but appear in YAM data, human video or both.
 > - **"Without robot demonstrations" still needs robot data.** Human and UMI transfer uses task-agnostic play data from the target robot to specify the body.
-> - **97 or more of 100 assemblies needs three layers.** Supervised fine-tuning scores 23–69, adding DAgger scores 71–84, and adding the agent reaches 97–98. The agent uses per-task recovery skills such as `flip_tractor`.
+> - **97 or more of 100 assemblies needs three layers.** Supervised fine-tuning scores 23–69, adding [DAgger](../concepts/learning/dagger.md) scores 71–84, and adding the agent reaches 97–98. The agent uses per-task recovery skills such as `flip_tractor`.
 > - **Truck assembly's 65% used easier scenes.** GR00T 2 and Turbo ran on a revised, easier set of start scenes. On the original scenes GR00T 2 succeeds in 7 of 20, which is 35% (Table 1 caption).
 
 ## Key claims
@@ -158,7 +158,7 @@ The appendices run from page 38 to 135. The items below add to or qualify the bo
 - **Real robot, 50 trials per task.** GRPO raises success from 66, 58, 76 and 40% to 86, 72, 92 and 94%. One round of self-imitation on GRPO's successes gives 88, 98, 94 and 96%. Residual RL, which leaves GR00T 2 frozen, gives 76, 84, 82 and 70%.
 - **The GRPO baseline remembers each context.** A per-context running average enters the leave-one-out baseline, so groups that all succeed or all fail still produce a learning signal.
 - **AutoRL ran on simulated RoboCasa365 with an early checkpoint** and gained 10 points. Its stage-progress rewards are simulation-only. Real robots use binary success.
-- **Neural-simulation RL in DreamDojo** needs about 300 physical rollouts per task to adapt the world model, and a learned success detector provides the reward. RoboLab success rises from 51.3% to 70.9% over 5,000 episodes, and four real tasks rise from 42.5% to 71.7% (60 trials each). Each configuration is one run, and the hardware-sorting SFT and RL trials were collected in separate batches.
+- **[Neural-simulation](../concepts/world-models/world-model-simulators.md) RL in [DreamDojo](../entities/dreamdojo.md)** needs about 300 physical rollouts per task to adapt the world model, and a learned success detector provides the reward. RoboLab success rises from 51.3% to 70.9% over 5,000 episodes, and four real tasks rise from 42.5% to 71.7% (60 trials each). Each configuration is one run, and the hardware-sorting SFT and RL trials were collected in separate batches.
 - **Infrastructure halves real-robot iteration time**, from 140–160 min to 62–72 min, mostly by removing upload and download.
 
 ### Agents (G)

@@ -31,7 +31,7 @@ The GR00T **N1.6** research page. The major change vs [N1.5](groot-n1_5.md) is t
 ### Limitations / takeaways
 - "Multi-task language following and out-of-distribution task generalization continue to be challenging."
 - **State-relative actions** enable smoother motion but exhibit **error accumulation** that impacts correction ability.
-- N1.6 **converges faster than N1.5 but requires more careful tuning to prevent overfitting**; DAgger and test-time techniques recommended for real-world use.
+- N1.6 **converges faster than N1.5 but requires more careful tuning to prevent overfitting**; [DAgger](../concepts/learning/dagger.md) and test-time techniques recommended for real-world use.
 
 ## Entities mentioned
 - [NVIDIA GR00T](../entities/nvidia-groot.md) — the N1.6 version page. [NVIDIA GEAR](../entities/nvidia-gear.md) — lab.
