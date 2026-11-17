@@ -3,15 +3,15 @@ title: Home robot forecast, 2026-Q4 to 2030-Q4 — dated predictions with a scor
 type: synthesis
 created: 2026-11-16
 updated: 2026-11-16
-tags: [forecast, predictions, scorecard, laundry, cleaning, cooking, meal-preparation, grocery, retail-robotics, jepa, ami-labs, yann-lecun, world-model, household-robot, consumer-robotics, adoption, capability, reliability, safety, privacy, 1x-neo, figure, weave-robotics, laundry-folding, dishes, calibration]
+tags: [forecast, predictions, scorecard, pet-care, laundry, cleaning, cooking, meal-preparation, grocery, retail-robotics, jepa, ami-labs, yann-lecun, world-model, household-robot, consumer-robotics, adoption, capability, reliability, safety, privacy, 1x-neo, figure, weave-robotics, laundry-folding, dishes, calibration]
 ---
 
 # Home robot forecast, 2026-Q4 to 2030-Q4
 
-Predictions made on **2026-11-16** about household robots: how many are in homes, what they can do, how fast capability is growing, and whether they are safe. Each prediction is a number with an interval, or a probability, with a fixed resolution rule. They are scored **after the end of each quarter**, from 2026-Q4 through 2030-Q4. Further sets cover grocery shopping (D), meal preparation and cooking (F), and laundry and cleaning (G). The last set on the page (C) covers when JEPA-based AI reaches household products. A long-horizon section adds predictions for the end of 2035, 2040 and 2050.
+Predictions made on **2026-11-16** about household robots: how many are in homes, what they can do, how fast capability is growing, and whether they are safe. Each prediction is a number with an interval, or a probability, with a fixed resolution rule. They are scored **after the end of each quarter**, from 2026-Q4 through 2030-Q4. Further sets cover grocery shopping (D), meal preparation and cooking (F), laundry and cleaning (G), and pet care (H). The last set on the page (C) covers when JEPA-based AI reaches household products. A long-horizon section adds predictions for the end of 2035, 2040 and 2050.
 
 > [!warning] These are judgment forecasts, not sourced facts
-> The evidence is cited from this wiki. The numbers are the forecaster's estimates from that evidence, and no source states them. Confidence falls quickly with distance: the 2026-Q4 and 2027 rows rest on announced products and dates, while the 2028 rows are extrapolation. **The predictions on this page are frozen as of 2026-11-16.** The first version, filed that day, ran to 2028-Q4. The 2029–2030 columns, set C (JEPA), set D (grocery shopping), set F (meal preparation and cooking) and set G (laundry and cleaning) and the long-horizon predictions for 2035, 2040 and 2050 were added later the same day, before any scoring, without changing any number already filed. Set C was later moved below the other sets and "JEPA" dropped from the title; that was a reordering only, with every number and letter unchanged. Scoring is appended below; the forecasts themselves are never edited. A revised forecast goes on a new dated page. Confidence in the 2029–2030 columns is low: they are extrapolations of extrapolations.
+> The evidence is cited from this wiki. The numbers are the forecaster's estimates from that evidence, and no source states them. Confidence falls quickly with distance: the 2026-Q4 and 2027 rows rest on announced products and dates, while the 2028 rows are extrapolation. **The predictions on this page are frozen as of 2026-11-16.** The first version, filed that day, ran to 2028-Q4. The 2029–2030 columns, set C (JEPA), set D (grocery shopping), set F (meal preparation and cooking) , set G (laundry and cleaning), set H (pet care) and the long-horizon predictions for 2035, 2040 and 2050 were added later the same day, before any scoring, without changing any number already filed. Set C was later moved below the other sets and "JEPA" dropped from the title; that was a reordering only, with every number and letter unchanged. Scoring is appended below; the forecasts themselves are never edited. A revised forecast goes on a new dated page. Confidence in the 2029–2030 columns is low: they are extrapolations of extrapolations.
 
 ## The short version
 
@@ -22,6 +22,7 @@ Predictions made on **2026-11-16** about household robots: how many are in homes
 - **Groceries: the store-to-cupboard chain arrives in pieces.** Robot delivery to the door is growing regionally, piloted picking in stores gets trial results first, and putting groceries away at home is about even odds as a published result by mid-2029. A robot service that does a household's shopping with no human picker is 38% by the end of 2030.
 - **Laundry leads every other chore; wet cleaning trails.** Mixed-garment folding at 80% is about even odds by late 2028 and the full laundry cycle by mid-2029. A bathroom cleaned unattended by a robot you can buy is 38% by the end of 2030. Cleaning sold as a service may reach most households first.
 - **Cooking: appliances first, the stove last.** Making a hot drink or running a microwave is about even odds as a published result in unseen homes by the end of 2028. A shipped stovetop feature is 50% by the end of 2030, and a hot meal cooked unattended 35%.
+- **Pets: feeding first, walking last.** A shipped pet-feeding feature is about even odds by mid-2029, and feeding unattended while the owner is away 46% by the end of 2030. Walking a dog is 21% by 2030 and 45% by 2035. A reported harm to a pet is more likely than not by the end of 2029.
 - **Long horizon:** about 10 million robots delivered by the end of 2035, 60 million by 2040 and 300 million by 2050, each with an interval spanning more than two orders of magnitude. Unattended dishes and laundry are likely by 2035; unattended cooking and bathroom cleaning by 2040.
 - **JEPA reaches household robots first as a component, not as the controller.** A shipping home robot with a vendor-stated JEPA-style component passes 50% around 2029-Q3. A JEPA world model planning at run time reaches 40% by the end of 2030, and JEPA as the primary controller, LeCun's actual vision, only 19%.
 
@@ -388,6 +389,75 @@ Cumulative probability (%), same convention as set B.
 - **G14:** outlets as in B17.
 - **G15:** a vendor statement counts; note whether an intervention rate is published with it.
 
+## Prediction set H: pet care (added 2026-11-16)
+
+**The question:** when do home robots feed pets, clean up after them, play with them and walk them, and are they safe around animals?
+
+**Where it stands** (evidence as of 2026-11-16):
+- **The wiki holds almost nothing on pet care.** No ingested paper reports a robot feeding an animal, scooping a litter box or handling a leash.
+- **One product advertises pet features, without arms doing the work.** The [Zeroth M1](../../entities/zeroth-m1.md) lists *"pet behavior monitoring and remote interaction"*, with no accuracy or evaluation figure behind it ([product page](../../sources/zeroth-m1-product-page.md)). It is a small companion robot, outside set A.
+- **Pets appear in research as a disturbance, not a task.** Moving people and animals are a robustness axis for home world models ([JEPA for a household mobile manipulator](../world-models/jepa-for-household-mobile-manipulator.md)).
+- **The component skills overlap other sets.** Filling a bowl is scooping, pouring and opening containers (F4). Cleaning a pet mess is wet cleaning (G11). So set H mostly asks when vendors point existing skills at animals.
+- **Single-purpose pet appliances already exist** (timed feeders, self-cleaning litter boxes). That is general knowledge, not from an ingested source. They do not count for any row here, and they reduce the demand for a robot to do the same job.
+
+Cumulative probability (%), same convention as set B.
+
+| ID | Event | 26Q4 | 27Q1 | 27Q2 | 27Q3 | 27Q4 | 28Q1 | 28Q2 | 28Q3 | 28Q4 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| **Monitoring and feeding** | | | | | | | | | | |
+| H1 | A shipping home robot with arms lists any pet feature (monitoring, check-ins, treats or play) | 2 | 6 | 11 | 17 | 23 | 29 | 35 | 41 | 46 |
+| H2 | Published: a robot fills a pet's food or water bowl (scooping or pouring dry food, or opening a can or pouch) in 3+ unseen homes at 70% or better, 30+ trials | 1 | 3 | 6 | 10 | 14 | 19 | 24 | 29 | 34 |
+| H3 | A purchasable home robot ships filling pet food or water bowls as a listed feature, at any level of remote assistance | 1 | 3 | 6 | 10 | 15 | 20 | 26 | 32 | 38 |
+| H4 | A purchasable home robot feeds a pet on a schedule **unattended** while the owner is away, confirmed by an independent review | 0 | 1 | 2 | 3 | 5 | 7 | 10 | 13 | 17 |
+| **Cleaning up after pets** | | | | | | | | | | |
+| H5 | Published: a litter box scooped or pet waste picked up at 60% or better in 3+ unseen homes | 0 | 1 | 3 | 5 | 8 | 11 | 15 | 19 | 23 |
+| H6 | A purchasable home robot ships litter-box cleaning or pet-waste pickup as a listed feature | 0 | 1 | 2 | 4 | 6 | 9 | 12 | 16 | 20 |
+| H7 | A purchasable home robot ships cleaning up pet messes on floors (accidents, vomit, spilled food) as a listed feature | 0 | 1 | 2 | 4 | 7 | 10 | 13 | 17 | 21 |
+| **Play, walking and welfare** | | | | | | | | | | |
+| H8 | A purchasable home robot with arms ships pet play (throwing a ball, moving a wand toy) as a listed feature | 1 | 3 | 6 | 10 | 14 | 19 | 24 | 29 | 34 |
+| H9 | A published study of a manipulation robot around dogs or cats in 10+ homes, reporting animal behaviour or welfare outcomes | 1 | 2 | 4 | 7 | 10 | 14 | 18 | 22 | 26 |
+| H10 | A robot walks a dog outdoors on a leash without teleoperation, as a shipped feature or a commercial service | 0 | 0 | 0 | 1 | 1 | 2 | 3 | 4 | 5 |
+| **Safety** | | | | | | | | | | |
+| H11 | A home manipulation robot vendor publishes pet-specific safety testing or limits (animal detection, force limits around animals) | 2 | 5 | 9 | 14 | 19 | 24 | 29 | 34 | 39 |
+| H12 | A publicly reported injury to or death of a pet caused by a home manipulation robot | 1 | 3 | 6 | 10 | 14 | 19 | 24 | 29 | 34 |
+
+| ID | Event (short) | 29Q1 | 29Q2 | 29Q3 | 29Q4 | 30Q1 | 30Q2 | 30Q3 | 30Q4 |
+|---|---|---|---|---|---|---|---|---|---|
+| H1 | Any pet feature on a robot with arms | 51 | 56 | 60 | 64 | 67 | 70 | 73 | 75 |
+| H2 | Fills pet bowls at 70%+, published | 39 | 43 | 47 | 51 | 55 | 58 | 61 | 64 |
+| H3 | Pet feeding feature shipped | 43 | 48 | 53 | 57 | 61 | 65 | 68 | 71 |
+| H4 | Feeds a pet unattended, reviewed | 21 | 25 | 29 | 33 | 37 | 40 | 43 | 46 |
+| H5 | Litter or waste pickup at 60%+, published | 27 | 31 | 35 | 39 | 42 | 45 | 48 | 51 |
+| H6 | Litter or waste feature shipped | 24 | 28 | 32 | 36 | 40 | 43 | 46 | 49 |
+| H7 | Pet-mess cleanup shipped | 25 | 29 | 33 | 37 | 41 | 44 | 47 | 50 |
+| H8 | Pet play feature shipped | 38 | 42 | 46 | 50 | 53 | 56 | 59 | 62 |
+| H9 | Pet welfare study in 10+ homes | 30 | 34 | 38 | 42 | 45 | 48 | 51 | 54 |
+| H10 | Walks a dog, shipped or as a service | 7 | 9 | 11 | 13 | 15 | 17 | 19 | 21 |
+| H11 | Pet-specific safety testing published | 44 | 48 | 52 | 56 | 60 | 63 | 66 | 69 |
+| H12 | Reported harm to a pet | 39 | 43 | 47 | 51 | 55 | 58 | 61 | 64 |
+
+**The direct answer.**
+- **A pet feature of some kind arrives early** because monitoring and check-ins need only a camera: even odds by early 2029 (H1).
+- **Filling the food and water bowls** is about even odds as a shipped feature by mid-2029 (H3). Doing it unattended while the owner is away, which is the version people want, is 46% by the end of 2030 (H4).
+- **Litter and waste** reach even odds as a shipped feature only around the end of 2030 (H6, H7).
+- **Walking a dog** is 21% by the end of 2030 and 45% by 2035 (H10). It is the last pet task on the page.
+- **Harm to a pet is more likely than not to be reported by the end of 2029** (H12), as the number of robots in homes with animals grows.
+
+**Reasoning.**
+- **Animals move, and they react to the robot.** Every other chore on this page has a passive object. A dog may bark at, chase, or lie in front of the robot, and a cat may ride it. That makes the safety rows matter as much as the task rows.
+- **Feeding is easy to do and costly to get wrong.** The manipulation is modest. An unattended failure means an animal goes hungry or is overfed, so vendors will require confirmation and photos at first, which is why H4 trails H3 by years.
+- **Waste is a hygiene and hardware problem.** Several current products exclude water and mess altogether, and a gripper that has handled waste then handles dishes.
+- **Dog walking stacks outdoor mobility, a live load on a leash, traffic and other animals.** It also needs the robot to leave the home, like the grocery trip (D13), with a living thing attached.
+- **Appliances compete.** A timed feeder or a self-cleaning litter box does one job cheaply and reliably. A general robot has to beat them on convenience, which may delay these features even after the skills exist.
+
+**Notes on resolution.**
+- **All rows:** dedicated pet appliances and camera-only pet monitors without arms do not count, except that H1 needs only the feature to be listed on a robot that has arms.
+- **H2, H5:** "unseen" means homes the system was not trained in. Real food and real litter or waste, or a stated realistic substitute.
+- **H3, H4, H6–H8:** "purchasable" and "shipping" as in set A. H4 follows the rule for B13 and B15: the vendor must state that no teleoperation is used for the task in normal operation.
+- **H10:** a quadruped or wheeled robot counts. A teleoperated demonstration does not.
+- **H11:** a statement in a safety guide or test report counts; marketing copy saying "pet friendly" does not.
+- **H12:** robot vacuums and pet appliances do not count. A news report or a vendor statement is enough.
+
 ## Prediction set C: JEPA and household AI (added 2026-11-16)
 
 **The question:** when does JEPA-based AI, the research program led by [Yann LeCun](../../entities/yann-lecun.md), reach household products?
@@ -558,6 +628,23 @@ The point estimates assume growth slowing from about 1.7× a year in the early 2
 | G15 | Cleaning service mostly autonomous | 71 | 92 | 97 | 99 |
 | G16 | Cleaning service in 10+ metros | 64 | 88 | 94 | 97 |
 
+**Set H: pet care**
+
+| ID | Event (short) | 30Q4 (filed above) | 35Q4 | 40Q4 | 50Q4 |
+|---|---|---|---|---|---|
+| H1 | Any pet feature on a robot with arms | 75 | 92 | 96 | 98 |
+| H2 | Fills pet bowls at 70%+, published | 64 | 90 | 96 | 98 |
+| H3 | Pet feeding feature shipped | 71 | 93 | 97 | 99 |
+| H4 | Feeds a pet unattended, reviewed | 46 | 80 | 92 | 97 |
+| H5 | Litter or waste pickup at 60%+, published | 51 | 82 | 92 | 97 |
+| H6 | Litter or waste feature shipped | 49 | 80 | 91 | 96 |
+| H7 | Pet-mess cleanup shipped | 50 | 80 | 91 | 96 |
+| H8 | Pet play feature shipped | 62 | 85 | 92 | 96 |
+| H9 | Pet welfare study in 10+ homes | 54 | 80 | 90 | 95 |
+| H10 | Walks a dog, shipped or as a service | 21 | 45 | 65 | 82 |
+| H11 | Pet-specific safety testing published | 69 | 88 | 94 | 97 |
+| H12 | Reported harm to a pet | 64 | 90 | 96 | 99 |
+
 **Set C: JEPA and household AI**
 
 | ID | Event (short) | 30Q4 (filed above) | 35Q4 | 40Q4 | 50Q4 |
@@ -631,9 +718,9 @@ The point estimates assume growth slowing from about 1.7× a year in the early 2
 | 20 | 2050-12-31 | January 2051 | pending |
 
 **Method.**
-- **Sets B, C, D, F and G:** for each event, record 1 if it happened by the quarter's end, else 0. The score is the **Brier score**, the squared difference between the forecast probability and the outcome, averaged over the set's events (20 in B, 13 in C, 14 in D, 14 in F, 16 in G). Report the five sets separately. Lower is better. Always answering 50% scores 0.25.
+- **Sets B, C, D, F, G and H:** for each event, record 1 if it happened by the quarter's end, else 0. The score is the **Brier score**, the squared difference between the forecast probability and the outcome, averaged over the set's events (20 in B, 13 in C, 14 in D, 14 in F, 16 in G, 12 in H). Report the six sets separately. Lower is better. Always answering 50% scores 0.25.
 - **Set A:** build the tally table, then record hit, miss or unresolved, plus the ratio of the tally's midpoint to the point estimate.
-- **Calibration:** from checkpoint 3 on, group all scored cells from sets B, C, D, F and G by forecast probability (0–10%, 10–30%, 30–70%, 70–90%, 90–100%) and compare with the observed frequency.
+- **Calibration:** from checkpoint 3 on, group all scored cells from sets B, C, D, F, G and H by forecast probability (0–10%, 10–30%, 30–70%, 70–90%, 90–100%) and compare with the observed frequency.
 - **Evidence:** every resolution cites a source. A primary that matters to a decision gets ingested, per the wiki's primary-sources rule.
 - **Disputes:** if the evidence is ambiguous, mark the cell unresolved and exclude it from the average. Do not resolve in the forecast's favour.
 
@@ -641,28 +728,28 @@ The point estimates assume growth slowing from about 1.7× a year in the early 2
 
 *(Appended after each checkpoint. Nothing above this line changes.)*
 
-| Checkpoint | Set A result | Set B Brier | Set C Brier | Set D Brier | Set F Brier | Set G Brier | Events resolved yes | Notes |
-|---|---|---|---|---|---|---|---|---|
-| 1 (2026-Q4) | | | | | | | | |
-| 2 (2027-Q1) | | | | | | | | |
-| 3 (2027-Q2) | | | | | | | | |
-| 4 (2027-Q3) | | | | | | | | |
-| 5 (2027-Q4) | | | | | | | | |
-| 6 (2028-Q1) | | | | | | | | |
-| 7 (2028-Q2) | | | | | | | | |
-| 8 (2028-Q3) | | | | | | | | |
-| 9 (2028-Q4) | | | | | | | | |
-| 10 (2029-Q1) | | | | | | | | |
-| 11 (2029-Q2) | | | | | | | | |
-| 12 (2029-Q3) | | | | | | | | |
-| 13 (2029-Q4) | | | | | | | | |
-| 14 (2030-Q1) | | | | | | | | |
-| 15 (2030-Q2) | | | | | | | | |
-| 16 (2030-Q3) | | | | | | | | |
-| 17 (2030-Q4) | | | | | | | | |
-| 18 (2035-Q4) | | | | | | | | |
-| 19 (2040-Q4) | | | | | | | | |
-| 20 (2050-Q4) | | | | | | | | |
+| Checkpoint | Set A result | Set B Brier | Set C Brier | Set D Brier | Set F Brier | Set G Brier | Set H Brier | Events resolved yes | Notes |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 (2026-Q4) | | | | | | | | | |
+| 2 (2027-Q1) | | | | | | | | | |
+| 3 (2027-Q2) | | | | | | | | | |
+| 4 (2027-Q3) | | | | | | | | | |
+| 5 (2027-Q4) | | | | | | | | | |
+| 6 (2028-Q1) | | | | | | | | | |
+| 7 (2028-Q2) | | | | | | | | | |
+| 8 (2028-Q3) | | | | | | | | | |
+| 9 (2028-Q4) | | | | | | | | | |
+| 10 (2029-Q1) | | | | | | | | | |
+| 11 (2029-Q2) | | | | | | | | | |
+| 12 (2029-Q3) | | | | | | | | | |
+| 13 (2029-Q4) | | | | | | | | | |
+| 14 (2030-Q1) | | | | | | | | | |
+| 15 (2030-Q2) | | | | | | | | | |
+| 16 (2030-Q3) | | | | | | | | | |
+| 17 (2030-Q4) | | | | | | | | | |
+| 18 (2035-Q4) | | | | | | | | | |
+| 19 (2040-Q4) | | | | | | | | | |
+| 20 (2050-Q4) | | | | | | | | | |
 
 ## Known weaknesses of this forecast
 
@@ -672,6 +759,7 @@ The point estimates assume growth slowing from about 1.7× a year in the early 2
 - **Thin base rates.** No general-purpose home robot has ever shipped at volume, so every number here is extrapolated from announcements and research results.
 - **Set C depends on disclosure.** Vendors rarely say what is inside their models. C10–C12 can be true and unresolvable; such cells are marked unresolved, which biases the scored record toward research events.
 - **The 2035–2050 numbers are belief, not extrapolation from evidence.** Nothing cited here reaches past 2028, and most long-horizon event rows saturate near 99%, so they will say little when scored. The set A intervals and the unattended product rows carry what information there is.
+- **Set H has almost no evidence behind it.** The wiki holds one product's marketing line and no research result on pet care. The rows are inferred from the feeding, pouring and wet-cleaning rows in sets F and G.
 - **Sets B and G overlap.** Folding, tidying and bed making appear in both at different thresholds, so their cells rise and fall together. Read the two Brier scores as related, not independent.
 - **Set F rests on very little.** One stovetop result in one kitchen, one long espresso run and a handful of lab appliance tasks. The cooking rows are extrapolated from general household progress more than from cooking evidence.
 - **Set D leans on company figures.** Delivery counts and retailer shares are self-reported, and the home-side rows start from almost no evidence, so their probabilities are the least anchored on the page.

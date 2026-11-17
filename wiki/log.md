@@ -6884,3 +6884,10 @@ Structure was sound: **0 broken file links, 0 orphans, 0 schema violations, all 
 - Events: certified assistive mobile manipulator on sale 94% by 2035; Medicare coverage 58 / 72 / 85%; bathing study 72 / 85 / 93%; bed-to-chair transfer 60 / 77 / 90%; certified learned-policy contact task 65 / 82 / 93%.
 - Stated on the page: payment lags capability at every horizon, body-contact tasks stay last, and set R at these dates inherits any error in the consumer robot count.
 - Schedule and scorecard gain checkpoints 18–20; the backlog items now cover both forecasts. Also corrected a stale link text on the page that still used the home forecast's old title.
+
+## [2026-11-16] query | "Add pet care to home robot forecast"
+- Added **set H, 12 pet-care events** to the [home robot forecast](syntheses/society/home-robot-forecast-2026-2028.md), with all 17 quarterly columns and the 2035, 2040 and 2050 checkpoints. Same day, before any scoring; no number already filed was changed (all 251 existing table rows checked present and identical). The set sits before set C so the JEPA set stays last.
+- Coverage: monitoring and feeding (4 events), cleaning up after pets (3), play, walking and welfare (3), safety (2).
+- Headline numbers: a shipped pet-feeding feature about even odds by mid-2029; feeding unattended 46% by 2030-Q4; litter or waste pickup shipped 49%; walking a dog 21% by 2030-Q4 and 45% by 2035; a reported harm to a pet 64% by 2030-Q4.
+- **The wiki holds almost no evidence on pet care**: one marketing line on the [Zeroth M1](entities/zeroth-m1.md) and no research result. The rows are inferred from the feeding, pouring and wet-cleaning rows in sets F and G, and the page says so. The existence of pet appliances is stated as general knowledge, not from an ingested source.
+- The scorecard gains a set H column across all 20 checkpoints.
