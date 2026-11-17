@@ -2,7 +2,7 @@
 title: Where the compute lives — agents on the robot vs on a local AI server
 type: synthesis
 created: 2026-07-04
-updated: 2026-10-13
+updated: 2026-11-17
 tags: [edge-ai, on-device, on-robot, local-server, agents, jetson, dgx-spark, ollama, hermes, nemoclaw, gemma4, vla, deployment-topology]
 ---
 
@@ -61,6 +61,12 @@ The ladder above sizes the **generator**. An agent needs two more pieces, and tw
 - **Decisions: probabilities, not prose.** Much of an agent loop is yes/no and routing: success detection, hazard checks, tool choice, context pruning. A [decision model](../../concepts/agents/decision-models.md) answers these in one forward pass with a probability per answer. [Liquid's d1](../../entities/liquid-d1.md) does it in 200–300 ms at 19–200× below frontier chat cost, near frontier quality on simple decisions ([d1 blog](../../sources/liquid-ai-d1-decision-model-blog.md)). It is **cloud-only today**, with open weights promised, which is what would move it onto this page's ladder. Google's MediaPipe Decision Task API is the on-device counterpart, built on embeddings.
 
 The resulting on-robot agent has a small generator, a shared-encoder retriever and a classifier head, each sized separately. That is a more realistic shape than one VLM doing everything at 7.6 tok/s.
+
+## What a "big brain" on a LAN box costs in time (added 2026-11-17)
+
+The local-server tier above has lacked a number for how long a task takes. NVIDIA's [Nemotron 3.5 Super VL post](../../sources/nvidia-nemotron-3-5-super-vl-blog.md) includes a partner-run chart of open models on a single [DGX Spark](../../entities/dgx-spark.md), plotting an intelligence index against end-to-end agentic task time. Read from the chart: the capable end (Qwen 3.8 Flash Next, Nemotron 3.5 Super VL at 120B) takes about **6 to 12 minutes per task**; 30B-class models (Nemotron 3.5 Lightning, Qwen 3.6 35B) take about **2 to 5 minutes**; Gemma 4 E-class models finish in under a minute at roughly a quarter of the top score.
+
+The index and task set are not defined in the post and the evaluation is by an NVIDIA partner on NVIDIA hardware, so treat the absolute values loosely. The shape is the useful part: on one desktop-class box, the planning tier works on a timescale of minutes, which fits task-level replanning and does not fit anything inside a manipulation episode.
 
 ## The harness matters as much as the model
 

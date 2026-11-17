@@ -3,8 +3,8 @@ title: Hermes Agent
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-11-07
-sources: 15
+updated: 2026-11-17
+sources: 16
 tags: [hermes-agent, nous-research, agentic-framework, self-improvement, mcp, sub-agents, skills, openrouter, multi-platform, qwen-3-6, dgx-spark, claw-ecosystem]
 ---
 
@@ -109,6 +109,7 @@ The structured prompt template is notable for its discipline: provenance saved, 
 - [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — concept page.
 
 ## Mentioned in
+- [Nemotron 3.5 Super VL launch post](../sources/nvidia-nemotron-3-5-super-vl-blog.md) — Hermes is a named evaluation harness; **Hermes Bench** scores of 63.44% (Super VL) and 56.33% (Nemotron 3 Ultra) are the first Hermes Bench figures in the wiki.
 
 - [NVIDIA RTX AI Garage — Hermes Agent on DGX Spark](../sources/nvidia-rtx-ai-garage-hermes-agent.md) — Gore, May 13 2026.
 - [Hermes Agent GitHub README](../sources/hermes-agent-github.md) — primary source.

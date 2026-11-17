@@ -2,8 +2,8 @@
 title: Harness design for capacity-limited models
 type: concept
 created: 2026-08-28
-updated: 2026-08-28
-sources: 3
+updated: 2026-11-17
+sources: 4
 tags: [agent-harness, local-models, context-efficiency, agent-skills, sandboxing, escalation, edge-agents, on-robot-agents, mcp]
 ---
 
@@ -92,5 +92,6 @@ The wiki's [on-device and on-robot agents](../../syntheses/agents/on-device-and-
 The number most worth someone independently checking: **usable context ≈ 40% of the advertised window** for a small model. If that holds generally, it changes how every on-robot agent should be budgeted, and nothing else in this wiki measures it.
 
 ## Mentioned in
+- [Nemotron 3.5 Super VL launch post](../../sources/nvidia-nemotron-3-5-super-vl-blog.md) — a vendor evaluating one model across seven harnesses and reporting harness-specific scores; serving optimised for repeated system prompts and tool definitions across agent turns.
 
 - [A Local-First Agent for Private and Cost-Effective Knowledge Work](../../sources/perplexity-local-first-agent-research.md) — the six design moves, the advisor trust boundary, and the harness-only comparisons.

@@ -3,8 +3,8 @@ title: NVIDIA
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-10-24
-sources: 88
+updated: 2026-11-17
+sources: 89
 tags: [nvidia, gpu, simulation, physical-ai]
 ---
 
@@ -50,6 +50,7 @@ GPU vendor and the dominant force in the agentic-robotics simulation stack as of
 - [AGIBOT](agibot.md) — major downstream user.
 
 ## Mentioned in
+- [Nemotron 3.5 Super VL launch post](../sources/nvidia-nemotron-3-5-super-vl-blog.md) — the open-weights model line as a platform play: weights, post-training recipes, NIM and Dynamo serving, and a long partner list.
 
 - [NVIDIA to acquire Hugging Face](../sources/nvidia-hugging-face-acquisition.md) — $12.93 B; the terms and the neutrality commitments.
 

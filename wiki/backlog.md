@@ -936,3 +936,10 @@ Clean at time of writing: 0 broken links (7,175 checked), 0 orphan pages, all `s
 ## [2026-11-17] ERQA repository — follow-ups
 - [ ] **Run ERQA once on a fixed harness** against a current model, with the 400-question denominator confirmed, to have one first-party row on the [ERQA entity](entities/erqa.md). The dataset is CC BY 4.0 and 91 MB.
 - [ ] **Look for a maintained ERQA leaderboard** elsewhere (third-party evaluation frameworks; issue #6 proposes one).
+
+## [2026-11-17] Nemotron 3.5 Super VL — follow-ups
+- [ ] **Nemotron 3.5 Super and Lightning technical report** (`research.nvidia.com/labs/nemotron/files/NVIDIA-Nemotron-3.5-Super-and-Lightning-Technical-Report.pdf`) — the primary for architecture, sizes and benchmarks; ingest before quoting any [Nemotron](entities/nemotron.md) number in a hardware or model decision.
+- [ ] **Hugging Face model card** for `NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4` — memory footprint, licence, hardware requirements.
+- [ ] **The local.ai / EXO Labs DGX Spark evaluation** — find the primary; the index and task set behind the latency ladder are undefined in NVIDIA's post.
+- [ ] **Figures 5 and 6** of [the post](sources/nvidia-nemotron-3-5-super-vl-blog.md) were not viewed; the page was revised 2026-11-09 with no changelog.
+- [ ] **Sibling posts** — Nemotron 3.5 Lightning, Nemotron 3 Ultra and Nemotron 3 Nano Omni each have their own NVIDIA blog post, none ingested.

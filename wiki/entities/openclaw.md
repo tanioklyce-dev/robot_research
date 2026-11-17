@@ -3,8 +3,8 @@ title: OpenClaw
 type: entity
 subtype: software-framework
 created: 2026-05-28
-updated: 2026-11-07
-sources: 16
+updated: 2026-11-17
+sources: 17
 tags: [openclaw, personal-ai-assistant, steinberger, molty, claw-ecosystem, multi-platform, local-first, gateway, ClawHub, typescript]
 ---
 
@@ -66,6 +66,7 @@ OpenClaw is the foundation. Sibling and downstream projects:
 - [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — concept page.
 
 ## Mentioned in
+- [Nemotron 3.5 Super VL launch post](../sources/nvidia-nemotron-3-5-super-vl-blog.md) — OpenClaw listed among the harnesses the model was evaluated in and supported by.
 
 - [OpenClaw GitHub README](../sources/openclaw-github.md) — primary source.
 - [NVIDIA NemoClaw product page](../sources/nvidia-nemoclaw-page.md) — referenced as the framework NemoClaw wraps.

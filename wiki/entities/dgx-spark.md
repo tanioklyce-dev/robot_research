@@ -3,8 +3,8 @@ title: NVIDIA DGX Spark
 type: entity
 subtype: product
 created: 2026-05-16
-updated: 2026-11-07
-sources: 23
+updated: 2026-11-17
+sources: 24
 tags: [dgx-spark, gb10, grace-blackwell, workstation, unified-memory, physical-ai]
 ---
 
@@ -109,6 +109,7 @@ It is also the **only launch platform** for [Perplexity Portable Computer](perpl
 - Spark's pricing tiers across the 1 TB vs 4 TB SKUs through different channels.
 
 ## Mentioned in
+- [Nemotron 3.5 Super VL launch post](../sources/nvidia-nemotron-3-5-super-vl-blog.md) — a per-task latency ladder for local agents on one DGX Spark: about 6.5 minutes per agentic task for the 120B Super VL, about 2 minutes for Nemotron 3.5 Lightning, under a minute for Gemma 4 E-class models at a quarter of the score (partner-run chart, values read from it). LiLiCorr speculative decoding gives up to 2.3x here.
 - [Gemma 4 edge blog (NVIDIA)](../sources/nvidia-gemma-4-edge-blog.md) — runs the Gemma-4-31B in BF16 (128 GB unified); the **local-AI-server** tier for on-robot agents ([synthesis](../syntheses/agents/on-device-and-on-robot-agents.md)).
 - [Jetson Thor vs DGX Spark](../syntheses/platforms/jetson-thor-vs-dgx-spark.md)
 - [NVIDIA DGX Spark Hardware Overview](../sources/nvidia-dgx-spark-hardware-overview.md)
