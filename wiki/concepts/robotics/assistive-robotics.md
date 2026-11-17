@@ -3,7 +3,7 @@ title: Assistive Robotics
 type: concept
 created: 2026-05-09
 updated: 2026-11-16
-sources: 54
+sources: 55
 tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot, accessibility]
 ---
 
@@ -136,3 +136,4 @@ Dated, scoreable predictions through 2030 (homes with an assistive mobile manipu
 - [Aging in Place: Growing Older at Home (NIA)](../../sources/nia-aging-in-place.md)
 - [Zeroth M1 — product page](../../sources/zeroth-m1-product-page.md)
 - [TechCrunch — Hello Robot in homes](../../sources/techcrunch-hello-robot-homes-2026.md) — autonomy-as-feature stated by the vendor; the Platt deployment.
+- [Shirley Ryan AbilityLab research labs and the argallab](../../sources/shirley-ryan-abilitylab-research-labs.md) — autonomy added to prescribed devices (wheelchairs, wheelchair-mounted arms); shared control and interface awareness, tested with users inside a rehabilitation hospital

@@ -4,7 +4,7 @@ type: entity
 subtype: product
 created: 2026-05-07
 updated: 2026-11-08
-sources: 35
+sources: 36
 tags: [stretch, stretch-3, stretch-4, mobile-manipulation, hello-robot, research-robot, holonomic-base, lidar, ros2-jazzy, hesai-lidar, luxonis, feetech]
 ---
 

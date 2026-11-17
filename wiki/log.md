@@ -6891,3 +6891,11 @@ Structure was sound: **0 broken file links, 0 orphans, 0 schema violations, all 
 - Headline numbers: a shipped pet-feeding feature about even odds by mid-2029; feeding unattended 46% by 2030-Q4; litter or waste pickup shipped 49%; walking a dog 21% by 2030-Q4 and 45% by 2035; a reported harm to a pet 64% by 2030-Q4.
 - **The wiki holds almost no evidence on pet care**: one marketing line on the [Zeroth M1](entities/zeroth-m1.md) and no research result. The rows are inferred from the feeding, pouring and wet-cleaning rows in sets F and G, and the page says so. The existence of pet appliances is stated as general knowledge, not from an ingested source.
 - The scorecard gains a set H column across all 20 checkpoints.
+
+## [2026-11-16] ingest | Shirley Ryan AbilityLab research labs and the argallab
+- Created [Shirley Ryan AbilityLab research labs and the argallab](sources/shirley-ryan-abilitylab-research-labs.md) from 17 institutional and lab web pages (sralab.org and the argallab's Northwestern site), captured as one bundle in `raw/`. Contact email lines were removed from the capture.
+- New entities: [Shirley Ryan AbilityLab](entities/shirley-ryan-abilitylab.md), [argallab](entities/argallab.md).
+- Updated [Assistive robotics](concepts/robotics/assistive-robotics.md).
+- What it adds: an assistive-robotics approach the wiki lacked. The argallab puts autonomy into devices that are already prescribed (powered wheelchairs, wheelchair-mounted arms) and studies shared control and **interface awareness** with users who have motor impairments. Argall's position that users want to stay in the control loop agrees with the sense-of-agency study and Hello Robot's stance.
+- Limits: institutional pages only, some last edited in 2016–2017. No results and no numbers; none of the lab's 71 listed papers is ingested. Hospital facts such as size, rankings and budget are not in the capture.
+- Candidates to ingest next: the RSS 2026 shared-control wheelchair paper, the IJRR 2025 study with people with spinal cord injury, and the open-source bionic leg paper (*Nature Biomedical Engineering*, 2020).
