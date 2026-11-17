@@ -3,8 +3,8 @@ title: Seeed Studio
 type: entity
 subtype: organization
 created: 2026-05-10
-updated: 2026-09-27
-sources: 12
+updated: 2026-11-16
+sources: 13
 tags: [seeed-studio, distributor, open-hardware, shenzhen, lekiwi, raspberry-pi, hackathon, jetson, recomputer, rebot-arm, nvidia-dli]
 ---
 
@@ -19,6 +19,8 @@ Seeed plays a **distribution + documentation + event-organizer role** distinct f
 As of 2026, Seeed is no longer only distributing other people's designs. The **[reBot Arm B601](rebot-arm-b601.md)** is Seeed's own **6+1-DOF CAN-bus manipulator** ($1,499 bare, $7,057 bundled with a [Jetson AGX Thor](jetson-thor.md) devkit), sold in two actuator variants — [Damiao](damiao.md) DM and [Robstride](robstride.md) RS — alongside the matching **[Star Arm 102](star-arm-102.md)** leader arm ($200) for teleoperation ([product page](../sources/seeed-rebot-arm-b601-dm-thor-bundle.md)). It is marketed as *"truly 100% open-source"* in both hardware and software (BOM, drawings, SDK, algorithms on GitHub) and sits in a price band the wiki previously had no entry in: an order of magnitude above the [FeeTech](feetech.md)-servo hobby arms Seeed also sells, an order of magnitude below research manipulators.
 
 The more interesting move is the **content** attached to it. Seeed co-developed a free **19-module [NVIDIA Deep Learning Institute course](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md)** that carries the arm end to end through [LeRobot](lerobot.md) teleop collection → [Isaac Sim](nvidia-isaac-sim.md) → [Cosmos 3](nvidia-cosmos.md) Transfer augmentation → [GR00T 1.7](nvidia-groot.md) fine-tuning → seven-engine TensorRT deployment on Jetson — and promises *"a series of completely free courses"* as an ongoing deliverable. Combined with the 2025 hackathon co-organizer role, the trajectory is legible: **distributor → sponsor → co-organizer → curriculum author and first-party hardware designer.** Seeed is buying developer mindshare in the LeRobot/GR00T ecosystem with content, and using its own arm as the reference platform.
+
+Seeed also supplies the low-level motor library: **`motorbridge`** ([motorbridge.seeedstudio.com](https://motorbridge.seeedstudio.com/)) reads joint feedback and sends torque commands to the arm. NVIDIA's [Holoscan 5 gravity-compensation tutorial](../sources/nvidia-holoscan-5-rebot-gravity-compensation.md) is built on it, which makes the reBot NVIDIA's reference arm for **real-time torque control** as well as for the GR00T policy pipeline.
 
 ## reComputer — Jetson carrier products
 Seeed is also a major **NVIDIA Jetson** carrier-board vendor: its **reComputer** line wraps bare Jetson modules into robot-ready boxes ([Seeed Jetson selection guide](../sources/seeed-jetson-selection-guide.md)). The mapping: **Mini J3011 → [Orin Nano](jetson-orin-nano.md) 8 GB**; the **J4012 family → Orin NX 16 GB** (J4012B compact, reServer Industrial fanless, Super J4012 +CSI, **Robotics J4012** +GMSL2); **J501 / Robotics J50 → AGX Orin 32/64 GB**; **Thor J601 board → [AGX Thor](jetson-thor.md) 128 GB** (EtherCAT / 4× CAN / 8× GMSL2 / 4× 10 GbE; "brain + cerebellum" humanoid tier). A dedicated **Robotics** line targets robots: **Robotics J30/40** is the *battery-powered* mobile-robot carrier (19–54 V input, CAN + 4× GMSL + I2C-for-IMU, 157 TOPS at 60 °C/40 W) — the off-the-shelf onboard carrier for the [XLeRobot](xlerobot.md) Orin NX pick — while J50 / J601 add AGX-Orin / Thor power for AMRs and humanoids. This makes Seeed the practical "buy-it-as-a-carrier" path for the [Jetson onboard-compute comparison](../syntheses/platforms/jetson-onboard-compute-xlerobot.md) — e.g. the XLeRobot Orin NX 16 GB upgrade is concretely the reComputer J4012.
@@ -41,6 +43,7 @@ Seeed also publishes **[`jetson-examples`](jetson-examples.md)** (Seeed-Projects
 
 ## Mentioned in
 
+- [Make a Robot Arm Feel Weightless with NVIDIA Holoscan 5](../sources/nvidia-holoscan-5-rebot-gravity-compensation.md) — reBot B601-DM + `motorbridge` as NVIDIA's Holoscan control demo platform.
 - [Seeed Studio LeRobot LeKiwi Wiki](../sources/seeed-lekiwi-wiki.md)
 - [LeRobot Worldwide Hackathon 2025 — All Winners](../sources/lerobot-worldwide-hackathon-2025-winners.md) — sponsor.
 - [Seeed × NVIDIA × HF Embodied AI Hackathon 2025 Recap](../sources/seeed-embodied-ai-hackathon-2025-recap.md) — co-organizer.

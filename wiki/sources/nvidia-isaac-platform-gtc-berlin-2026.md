@@ -84,7 +84,7 @@ NVIDIA's GTC Berlin robotics release bundles five things under the [Isaac](../en
 
 ## Entities mentioned
 - [NVIDIA](../entities/nvidia.md) · [Agile Robots](../entities/agile-robots.md) · [Agile ONE SN](../entities/agile-one-sn.md) · [Agile ONE](../entities/agile-one.md) · [Isaac GR00T](../entities/nvidia-groot.md) · [Jetson Thor](../entities/jetson-thor.md) · [NVIDIA Isaac Lab](../entities/nvidia-isaac-lab.md) · [NVIDIA Isaac Sim](../entities/nvidia-isaac-sim.md) · [Newton](../entities/newton-physics-engine.md) · [NVIDIA Cosmos](../entities/nvidia-cosmos.md) · [NVIDIA Halos](../entities/nvidia-halos.md) · [Microduck](../entities/microduck.md) · [Flexion](../entities/flexion.md) · [Agility / Digit](../entities/digit.md)
-- No pages: Isaac OS, Holoscan, SimReady Central, Human 1M Dataset, DGX Station, WUJI Hand 2, Sereact, Humanoid (UK), Hexagon AEON, Bear Robotics, Bellboy, NEURA, idealworks, Schaeffler, SICK, ABB, KUKA.
+- No pages: Isaac OS, Holoscan (*page created 2026-11-16: [NVIDIA Holoscan](../entities/nvidia-holoscan.md)*), SimReady Central, Human 1M Dataset, DGX Station, WUJI Hand 2, Sereact, Humanoid (UK), Hexagon AEON, Bear Robotics, Bellboy, NEURA, idealworks, Schaeffler, SICK, ABB, KUKA.
 
 ## Concepts touched
 - [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md) — the Isaac Lab / Newton / SimReady pipeline.

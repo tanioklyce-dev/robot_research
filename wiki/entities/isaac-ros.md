@@ -3,8 +3,8 @@ title: Isaac ROS
 type: entity
 subtype: software-framework
 created: 2026-06-13
-updated: 2026-10-22
-sources: 10
+updated: 2026-11-16
+sources: 11
 tags: [isaac-ros, nvidia, ros2, perception, gpu, jetson, thor, orin, lyrical, nitros, agent-skills, robotics]
 ---
 
@@ -70,6 +70,8 @@ Milestones: **4.0** added Thor + JetPack 7.0 (tested with Isaac Sim 5.1); **4.2*
 ## Isaac OS — a sibling runtime, relationship unstated (2026-10-21)
 At GTC Berlin NVIDIA announced **Isaac OS**, *"an open source runtime framework built on NVIDIA Holoscan, [that] connects AI, sensors, controls and robot hardware for deterministic, real-time performance"* ([release](../sources/nvidia-isaac-platform-gtc-berlin-2026.md)). No repo, docs or version accompany it, and the release does not say how it relates to Isaac ROS. Watch for a primary.
 
+*Update 2026-11-16:* NVIDIA's [Holoscan 5 tutorial](../sources/nvidia-holoscan-5-rebot-gravity-compensation.md) says Isaac ROS *"provides reusable Holoscan operators and reference applications such as GR00T inference."* So Isaac ROS already ships components for the [Holoscan](nvidia-holoscan.md) runtime that Isaac OS is built on. The same tutorial shows what Holoscan 5's real-time control path looks like (partitions, clocked contracts, core pinning). The Isaac OS layering itself is still undocumented.
+
 ## Related
 
 - [NVIDIA Isaac Sim](nvidia-isaac-sim.md) / [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — simulation + RL siblings.
@@ -80,6 +82,7 @@ At GTC Berlin NVIDIA announced **Isaac OS**, *"an open source runtime framework 
 
 ## Mentioned in
 
+- [Make a Robot Arm Feel Weightless with NVIDIA Holoscan 5](../sources/nvidia-holoscan-5-rebot-gravity-compensation.md) — Isaac ROS ships Holoscan operators (e.g. GR00T inference).
 - [Isaac ROS — release notes and supported platforms](../sources/isaac-ros-release-notes-and-platforms.md)
 - [Seeed jetson-examples — nvblox recipe (README)](../sources/seeed-jetson-examples-nvblox.md)
 - [NVIDIA JetPack 7.2 with Jetson Linux 39.2](../sources/nvidia-jetpack-7-2-release.md)

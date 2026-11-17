@@ -2,7 +2,7 @@
 title: The NVIDIA robot-AI stack — what is owned, what is contested, and where the lock actually binds
 type: synthesis
 created: 2026-09-07
-updated: 2026-11-09
+updated: 2026-11-16
 tags: [nvidia, vertical-integration, jetson, cuda, isaac-ros, cosmos, groot, halos, lerobot, hugging-face, hailo, newton, evaluation, platform-risk]
 ---
 
@@ -15,7 +15,7 @@ The [Hugging Face acquisition](../../sources/nvidia-hugging-face-acquisition.md)
 | Layer | NVIDIA holding | Credible independent alternative |
 |---|---|---|
 | **Edge silicon** | [Jetson Thor](../../entities/jetson-thor.md) / IGX, [Orin family](../../entities/jetson-orin-nx.md), [DGX Spark](../../entities/dgx-spark.md) | [Hailo](../../entities/hailo.md) NPUs — **for perception, not policy** (see below) |
-| **Edge OS / runtime** | JetPack, [Jetson Linux](../../entities/jetson-linux.md); **Isaac OS** (announced 2026-10-21, Holoscan-based, *"deterministic, real-time"*; no repo or docs yet — [release](../../sources/nvidia-isaac-platform-gtc-berlin-2026.md)) | generic Ubuntu on x86 / ARM; ROS 2 + ros2_control for the real-time loop |
+| **Edge OS / runtime** | JetPack, [Jetson Linux](../../entities/jetson-linux.md); **Isaac OS** (announced 2026-10-21, Holoscan-based, *"deterministic, real-time"*; no repo or docs yet — [release](../../sources/nvidia-isaac-platform-gtc-berlin-2026.md)); **[Holoscan](../../entities/nvidia-holoscan.md) 5** real-time control loops (400 Hz gravity comp, 7 µs p50 C++ host latency — [tutorial](../../sources/nvidia-holoscan-5-rebot-gravity-compensation.md)) | generic Ubuntu on x86 / ARM; ROS 2 + ros2_control for the real-time loop |
 | **GPU middleware** | [Isaac ROS](../../entities/isaac-ros.md) (GEMs) on [ROS 2](../../entities/ros2.md) | ROS 2 itself is independent; the acceleration is not |
 | **Agent runtime / security** | [OpenShell](../../entities/nvidia-openshell.md), [NeMo Guardrails](../../entities/nemo-guardrails.md) | generic containers; [MCP](../../entities/ros2-mcp-server.md) tooling |
 | **Simulation** | [Isaac Sim](../../entities/nvidia-isaac-sim.md) / [Isaac Lab](../../entities/nvidia-isaac-lab.md) / [Isaac Gym](../../entities/isaac-gym.md) | **strong** — [MuJoCo](../../entities/mujoco.md), [Genesis](../../entities/genesis.md), [Drake](../../entities/drake.md), [robosuite](../../entities/robosuite.md), [ManiSkill](../../entities/maniskill.md) |

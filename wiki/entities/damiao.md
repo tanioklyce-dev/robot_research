@@ -3,8 +3,8 @@ title: Damiao (DM motors)
 type: entity
 subtype: organization
 created: 2026-08-27
-updated: 2026-09-13
-sources: 4
+updated: 2026-11-16
+sources: 5
 tags: [damiao, actuators, quasi-direct-drive, can-bus, mit-mode, robot-arm, rebot-arm, motors]
 ---
 
@@ -34,7 +34,7 @@ Arm bus: DC 24 V 10 A, CAN at 1 Mbit/s, seven nodes ([product page](../sources/s
 
 ## Open questions
 
-- **Backdrivability is unmeasured** anywhere in the wiki's sources. It is the property that would most differentiate this tier from FeeTech, and nobody has published a number.
+- **Backdrivability is demonstrated but unmeasured.** The [Holoscan 5 tutorial](../sources/nvidia-holoscan-5-rebot-gravity-compensation.md) runs DM motors in MIT mode (position, velocity, kp, kd and feedforward torque) for hand-guided gravity compensation on the reBot B601-DM. No source gives backdrive torque or friction.
 - **No torque, gear-ratio, or thermal specs** appear on the Seeed listing — only the part numbers. The primary Damiao datasheets have not been ingested.
 
 ## Related
@@ -42,9 +42,11 @@ Arm bus: DC 24 V 10 A, CAN at 1 Mbit/s, seven nodes ([product page](../sources/s
 - [Robstride](robstride.md) — the sibling CAN-actuator lineage; the other B601 variant
 - [FeeTech](feetech.md) / [Dynamixel](dynamixel.md) — the two serial-bus tiers below
 - [reBot Arm B601](rebot-arm-b601.md) — the arm
+- [Gravity compensation](../concepts/robotics/gravity-compensation.md) — what QDD + MIT mode makes possible at this price
 
 ## Mentioned in
 
 - [reBot Arm B601-DM Bundle with Jetson Thor](../sources/seeed-rebot-arm-b601-dm-thor-bundle.md) — the DM part numbers and bus spec
+- [Make a Robot Arm Feel Weightless with NVIDIA Holoscan 5](../sources/nvidia-holoscan-5-rebot-gravity-compensation.md) — DM motors in MIT-mode torque control via Seeed's `motorbridge`
 - [A Sim-to-Real VLA Pipeline with Seeed reBot Arm and NVIDIA Isaac](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) — motor-ID setup, LeRobot `damiao` adapter, CAN ID pairs
 - [OpenArm documentation](../sources/openarm-docs.md) — the second Damiao-based arm here after the reBot Arm: DM-J4310-2EC / DM4340 / DM-J8009P-2EC per joint (3–20 Nm rated, 7–40 Nm peak), CAN-FD; datasheets hosted by [Enactic](enactic.md) at damiao.enactic.ai.

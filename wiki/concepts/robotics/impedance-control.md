@@ -2,8 +2,8 @@
 title: Impedance and admittance control
 type: concept
 created: 2026-09-07
-updated: 2026-11-10
-sources: 4
+updated: 2026-11-16
+sources: 5
 tags: [impedance-control, admittance-control, variable-impedance, compliance, passivity, energy-tanks, force-control, contact-rich, action-space, safe-execution]
 ---
 
@@ -51,6 +51,10 @@ Passivity is the Lyapunov-family certificate for interaction; see [safety certif
 
 [NVIDIA's GB300 assembly team](../../sources/nvidia-r2d2-gb300-tester-tray-assembly-blog.md) argues that most robot-learning work uses the simplest possible controllers. Their busbar insertion used an impedance controller with automatic damping design and inertial compensation, for smooth free-space motion and gentle, stable contact. They list it among seven lessons, saying it also improves the success rate and cycle time of RL-learned behaviour. No ablation against a simple controller is reported.
 
+## On a $1.5k arm, in a vendor runtime (2026-11-16)
+
+NVIDIA's [Holoscan 5 tutorial](../../sources/nvidia-holoscan-5-rebot-gravity-compensation.md) runs [gravity compensation](gravity-compensation.md) plus soft joint stiffness and damping on the [reBot Arm B601-DM](../../entities/rebot-arm-b601.md). A second example adds **Cartesian impedance control** with an injectable goal pose, *"for example from a learned policy."* This is the policy-emits-references layering above, shipped as reusable [Holoscan](../../entities/nvidia-holoscan.md) operators. In this setup the PD part runs inside the motors (MIT mode), and the host supplies feedforward and setpoints.
+
 ## Where it falls short
 
 - **Parameter tuning is the classical bottleneck** — stiffness, damping, and inertia are hand-tuned by expert trial-and-error, do not generalize across tasks, and get it wrong in either direction: too stiff gives excessive contact force and instability, too soft fails the task.
@@ -67,6 +71,7 @@ Passivity is the Lyapunov-family certificate for interaction; see [safety certif
 - [Safety filters for learned policies](safety-filters.md) — the layer above, which projects whatever the policy emits onto the admissible set.
 - [Control abstraction levels](control-abstraction-levels.md) — impedance references as an action space, and what that buys.
 - [Whole-body control](whole-body-control.md) — the same compliance idea at humanoid scale.
+- [Gravity compensation](gravity-compensation.md) — the feedforward term every impedance controller assumes.
 
 ## Current state
 
@@ -76,6 +81,7 @@ The frontier the survey bets on is **a VLM setting the gains** — its own group
 
 ## Mentioned in
 
+- [Make a Robot Arm Feel Weightless with NVIDIA Holoscan 5](../../sources/nvidia-holoscan-5-rebot-gravity-compensation.md) — gravity-compensated joint impedance and a Cartesian impedance example on an affordable QDD arm.
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — the source for everything on this page.
 - [FACTR 2](../../sources/factr-2-paper.md) — supplies the input impedance control needs on arms without sensors: an external-torque estimate from motor current; used here for force-feedback teleoperation and policy conditioning, not for a compliance controller.
 - [FACTR](../../sources/factr-paper.md) — the leader arm's control law: external-torque playback with damping, null-space posture regulation, RNEA gravity compensation, friction compensation and joint-limit potentials on cheap servos.
