@@ -10,6 +10,19 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-11-16] Forecast scoring schedule
+Score the [home robot forecast](syntheses/society/home-robot-forecast-2026-2028.md) in the first two weeks after each quarter ends. Build the set-A delivery tally with sources, resolve the 20 set-B events, compute the Brier score, and append to the page's scorecard. **Never edit the forecasts themselves.**
+- [ ] **Checkpoint 1**: quarter ended 2026-12-31; score in January 2027.
+- [ ] **Checkpoint 2**: quarter ended 2027-03-31; score in April 2027.
+- [ ] **Checkpoint 3**: quarter ended 2027-06-30; score in July 2027. Add the first calibration table.
+- [ ] **Checkpoint 4**: quarter ended 2027-09-30; score in October 2027.
+- [ ] **Checkpoint 5**: quarter ended 2027-12-31; score in January 2028.
+- [ ] **Checkpoint 6**: quarter ended 2028-03-31; score in April 2028.
+- [ ] **Checkpoint 7**: quarter ended 2028-06-30; score in July 2028.
+- [ ] **Checkpoint 8**: quarter ended 2028-09-30; score in October 2028.
+- [ ] **Checkpoint 9**: quarter ended 2028-12-31; score in January 2029.
+- [ ] **Close the China blind spot before checkpoint 1.** The forecast's upper tail depends on Chinese consumer vendors the wiki barely covers (GigaAI SeeLight's 100-unit Wuhan trial is press-only). Find primaries for GigaAI, UniX AI, Unitree R1 home sales and any other consumer manipulator with stated deliveries.
+
 ## [2026-11-16] From the drift-check overhaul
 - [ ] **Re-snapshot the OpenArm docs bundle.** The only upstream change since 2026-09-13 is a rotated Discord invite, but `--check` reports it on every run until a new snapshot replaces `raw/2026-09-13-openarm-docs-snapshot.md` (keep the old one as `local_path_superseded`). The site is a JS app, so re-snapshot from the MDX sources as before.
 - [ ] **Add `fetch_url` to captured text sources that lack one** (e.g. today's Holoscan blog captures and the Damiao English mdx mirrors). Content comparison now makes extracted-text captures re-checkable, which was the reason they were left without one.

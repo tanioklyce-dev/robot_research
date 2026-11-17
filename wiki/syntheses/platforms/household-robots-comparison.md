@@ -160,6 +160,8 @@ See also [Retail and grocery robotics](../../concepts/robotics/retail-and-grocer
 
 ## When these answers should change
 
+A dated forecast of how they will change, with quarterly probabilities through 2028 and a scorecard, is in the [home robot forecast](../society/home-robot-forecast-2026-2028.md).
+
 - **Research:** a measured Stretch 4 household result, an official `stretch_ai` port, or a G1 policy result with trial counts in homes.
 - **Consumer:** independent owner reports on Isaac 1, NEO or NORI A3 that include intervention rates, or Memo going on sale with a published dishwasher success rate.
 - **Grocery:** a published in-store result in daytime with shoppers present, or Blue Collar's trials reporting throughput and intervention rates.
