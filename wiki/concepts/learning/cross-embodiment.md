@@ -2,8 +2,8 @@
 title: Cross-embodiment transfer
 type: concept
 created: 2026-09-11
-updated: 2026-10-27
-sources: 40
+updated: 2026-11-16
+sources: 42
 tags: [cross-embodiment, embodiment-gap, action-space, normalized-actions, soft-prompts, latent-action-tokens, embodiment-conditioning, retargeting, whole-body-control, navigation, manipulation, humanoid, scaling]
 ---
 
@@ -59,6 +59,8 @@ Nineteen distinct answers appear across the sources. Grouped by what they change
 - **Move the abstraction above the body** — PDDL, behavior trees, code-as-policy primitives ([action representation languages](../../syntheses/agents/action-representation-languages.md)); [ASPIRE](../../sources/aspire-paper.md)'s sim-discovered skills guide a real YAM (drawer 0/20 → 11/20). Embodiment-specificity **relocates** into the primitive set rather than disappearing ([code as policy](../agents/code-as-policy.md)).
 - **Pick the nearest checkpoint** — [MolmoAct2](../../sources/molmoact2-github-repo.md)'s guidance: fine-tune from the nearest embodiment's checkpoint, not the generalist. The practitioner's version of prompt retrieval.
 
+**At the motor level, on drones** (2026-11-16): [HiPeRLab](../../entities/hiperlab.md)'s controller is cross-embodiment in the strictest sense. One policy outputs motor speeds for quadcopters differing up to 3.7× in mass and more than 100× in motor constant, inferring the body online from state–action history rather than being told it ([Extreme Adaptation](../../sources/extreme-adaptation-quadcopter-controller-paper.md); [near-hover](../../sources/near-hover-adaptive-quadcopter-controller-paper.md)).
+
 ## The three results to hold onto
 
 1. **Latents are not automatically embodiment-invariant.** Demo-JEPA: planning toward a source robot's own V-JEPA 2.1 future latent "fails across all tasks" — a translator is required even between two similar arms. UniT shows human and humanoid distributions *overlapping* under its codebook; LocoFormer shows representations *diverging* by body within seconds and calls that the goal. Three signs on one question, and no experiment relates them. The [backlog](../../backlog.md)'s "which robot is this?" linear probe on V-JEPA latents is the cheapest way to start.
@@ -80,6 +82,8 @@ Nineteen distinct answers appear across the sources. Grouped by what they change
 ## Mentioned in
 
 > [!note] Curated list — the term appears on 100+ pages; the ones below supplied this page's claims.
+
+- [Extreme Adaptation](../../sources/extreme-adaptation-quadcopter-controller-paper.md), [Near-hover](../../sources/near-hover-adaptive-quadcopter-controller-paper.md) — one motor-level policy across quadcopter bodies, body inferred online.
 
 - Navigation: [GNM](../../sources/gnm-paper.md), [ViNT](../../sources/vint-paper.md), [MBRA](../../sources/mbra-paper.md), [Go-Big](../../sources/figure-project-go-big.md).
 - Conditioning: [X-VLA](../../sources/xvla-paper.md), [GraspGen-X](../../sources/graspgenx-paper.md), [Isaac-GR00T](../../sources/isaac-gr00t-github.md), [Gemini Robotics model page](../../sources/deepmind-gemini-robotics-model-page.md).

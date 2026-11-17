@@ -94,6 +94,10 @@ Each post page also has an auto-generated summary labelled *"Powered by NVIDIA N
 - [Impedance control](../concepts/robotics/impedance-control.md) — the authors argue controller quality is underused in robot learning.
 - [Real-world robot RL](../concepts/learning/real-world-robot-rl.md) — a simulated base policy with a residual learned on the real robot.
 
+## Related sources
+
+- [ProxFly](proxfly-paper.md) — the same base-plus-residual shape on a quadcopter, with the residual trained in simulation only rather than on the real system.
+
 ## Open questions
 
 - **How many trials are behind "above 95%" and "90–95%"?** The forthcoming whitepaper should say.

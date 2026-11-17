@@ -6796,3 +6796,23 @@ Structure was sound: **0 broken file links, 0 orphans, 0 schema violations, all 
 - New open question: ingest a Berkeley Humanoid or Hybrid Robotics paper.
 - *Follow-up:* HiPeRLab's homepage and publications page were read directly (an earlier curl hit Cloudflare). The focus statement is quoted verbatim and the six research areas and recent work were added. The homepage itself names **no director**; Mueller's leadership rests on the Berkeley ME lab page and his members-page entry, and the page now says so.
 - *Follow-up:* added HiPeRLab's YouTube channel (42 videos; listed via yt-dlp, metadata only). The learned-controller videos (ProxFly residual RL, extreme-adaptation and zero-shot adaptive controllers) are noted as ingest leads.
+
+## [2026-11-16] ingest | HiPeRLab learned-control papers (×3)
+- Found the three papers behind the lab's learning-related videos, using arXiv metadata. The video *"A Zero-shot Adaptive Quadcopter Controller"* is 2209.09232 **v1's title**; v2 renamed it *"Learning a Single Near-hover Position Controller for Vastly Different Quadcopters"*. PDFs are in `raw/` (version-pinned) and sealed.
+- Created [near-hover adaptive controller](sources/near-hover-adaptive-quadcopter-controller-paper.md), [Extreme Adaptation](sources/extreme-adaptation-quadcopter-controller-paper.md) (T-RO 2025) and [ProxFly](sources/proxfly-paper.md) (ICRA 2025). New entity: [HiPeRLab](entities/hiperlab.md).
+- **What they add to the wiki:**
+  - RMA's two-phase recipe moved to drones by RMA's own authors, with the latent encoding the vehicle's **own body**. One motor-level policy covers quads 3.7–4.5× apart in mass and more than 100× in motor constant.
+  - The **end-to-end vs modular** ablation: 28% vs near-100% off-distribution.
+  - IL + RL beats RL-only and DAgger-only, each about 60%.
+  - **PyTorch 78.85 ms vs MNN 0.165 ms** on a Qualcomm RB5, against a 2 ms budget.
+  - Residual RL trained in simulation only (ProxFly) as a counterpart to SPARR's real-world residual.
+- **Read critically:**
+  - Hardware evidence is thin: 5 runs per cell (2022) and 3 runs per cell (T-RO); ProxFly's trial counts are not stated.
+  - "16× broader than training" is a simulated parameter-sampling range.
+  - ProxFly's 29% / 44% gains are against its own base controller. Against the CFD-modelled baseline it is **worse on average position** (0.107 vs 0.098 m) and better on attitude; the paper's "comparable" is fair but not a position win.
+  - Removed an unverified "ICRA 2023" venue I had attributed to the 2022 paper's project page without opening it.
+- **Updated:**
+  - [UC Berkeley](entities/uc-berkeley.md): HiPeRLab moved from lead to covered, and the Malik row now notes RMA carried to drones.
+  - [Ashish Kumar](entities/ashish-kumar.md) and the [RMA](sources/rma-paper.md) source page ("cited by").
+  - [Sim-to-real](concepts/learning/sim-to-real-transfer.md), [agentic UAVs](concepts/robotics/agentic-uavs.md), [real-world robot RL](concepts/learning/real-world-robot-rl.md), [DAgger](concepts/learning/dagger.md), [control abstraction levels](concepts/robotics/control-abstraction-levels.md) (new section), [heterogeneous edge SoC](concepts/robotics/heterogeneous-edge-soc.md), [cross-embodiment](concepts/learning/cross-embodiment.md).
+  - The [GB300 assembly blog](sources/nvidia-r2d2-gb300-tester-tray-assembly-blog.md) gets a related-sources link to ProxFly.

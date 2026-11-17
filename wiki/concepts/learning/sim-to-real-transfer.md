@@ -2,8 +2,8 @@
 title: Sim-to-real transfer
 type: concept
 created: 2026-05-06
-updated: 2026-11-07
-sources: 87
+updated: 2026-11-16
+sources: 90
 tags: [sim-to-real, domain-gap, rl, simulation, real-to-sim, r2s2r]
 ---
 
@@ -37,6 +37,9 @@ A pattern this wiki now holds three instances of, and the workhorse of learned l
 Why it works: the privileged signal makes phase 1 an easy RL problem, and supervised learning is orders of magnitude more sample-efficient than RL, so phase 2 is cheap — the vision system trains **on a single GPU in a few days** where end-to-end RL on rendered depth would need billions of samples.
 
 The vision paper also supplies a **bound** (its Thm 2.1): if phase 2 is η-close to phase 1 in action space and the dynamics and reward are Lipschitz, phase-2 return is near-optimal. The usable form is a design rule — *choose the privileged signal and the sensor's field of view so that phase-2 loss can be driven low* — since a privileged signal carrying information the real sensor cannot recover makes the distillation unachievable in principle.
+
+> [!note] The same recipe, with the body as the privileged signal (2026-11-16)
+> [HiPeRLab](../../entities/hiperlab.md) applies RMA to **quadcopters**, with two of RMA's authors. The latent now encodes the vehicle itself (mass, inertia, motor constants) rather than the terrain. One motor-level policy flies quads 3.7–4.5× apart in mass and more than 100× apart in motor constant, zero-shot ([near-hover](../../sources/near-hover-adaptive-quadcopter-controller-paper.md), [Extreme Adaptation](../../sources/extreme-adaptation-quadcopter-controller-paper.md)). The T-RO version adds two transfer lessons: **design-informed randomization** (sample physically consistent vehicles from a size factor, not independent parameters), and **imitating a model-based expert that updates with each sampled body**, mixed with RL. Separately, [ProxFly](../../sources/proxfly-paper.md) replaces a CFD downwash model with **randomized force waveforms**: randomize the effect when the physics is too costly to model.
 
 > [!note] The recipe's own successor abandons it
 > [LocoFormer](../../sources/locoformer-paper.md) (2025) uses **no privileged teacher at all**, buying the same adaptivity with long context and scale. Worth watching as a signal about where this technique sits: it is a way to make RL tractable under a compute constraint, and it becomes less necessary as the constraint relaxes.
@@ -180,6 +183,7 @@ Ai2 trained ManiFlow and a Molmo 2 planner **only** on [ToyBlocks](../../entitie
 
 ## Mentioned in
 
+- [Extreme Adaptation](../../sources/extreme-adaptation-quadcopter-controller-paper.md), [Near-hover adaptive controller](../../sources/near-hover-adaptive-quadcopter-controller-paper.md), [ProxFly](../../sources/proxfly-paper.md) — RMA's two-phase recipe moved to quadcopters; design-informed and disturbance-waveform randomization.
 - [GEN-1.5](../../sources/generalist-gen-1-5-blog.md) — prompt recorded in simulation, robot acts in reality, **no simulation data in pretraining**.
 
 > [!note] Curated list — **87** source pages link here; the ones below are those that shaped this page.

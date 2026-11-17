@@ -2,8 +2,8 @@
 title: Control abstraction levels
 type: concept
 created: 2026-07-27
-updated: 2026-11-14
-sources: 36
+updated: 2026-11-16
+sources: 37
 tags: [robotics, control, llm-agent, evaluation, vla, safety, access-control, frontier-red-team, code-as-policy]
 ---
 
@@ -111,6 +111,10 @@ Three practical implications:
 
 Perceptual access moves capability as much as control access does: a **compass** (heading in degrees) was the most consistent performance lever across every model tested — larger than most reasoning-budget effects — while depth heatmaps and crosshairs were roughly neutral. What the model can *see* is an access-level decision too.
 
+## Learn the layer where the variation lives (2026-11-16)
+
+[Extreme Adaptation](../../sources/extreme-adaptation-quadcopter-controller-paper.md) gives a clean ablation of the hierarchy question for low-level control. Trained identically, a **modular** policy (learned motor layer under a fixed PID high level) keeps near-100% success on quadcopters sampled from a range 16× wider than training. An **end-to-end** policy fusing both levels drops to **28%**, barely above non-adaptive baselines. In the same paper, putting L1 adaptation at the low level beats putting it at the high level (77% vs 62%). The lesson matches this page's: an interpretable interface between layers is not just a convenience, it is what lets each layer generalize.
+
 ## Related concepts
 - [Action representation languages](../../syntheses/agents/action-representation-languages.md) — the companion axis: this page is *where* a controller acts, that one is *what it says* at that level, and whether it can be human-readable.
 - [Code as policy](../agents/code-as-policy.md) — level 2 as an architecture rather than an evaluation condition; the source of the eight-rung subdivision above.
@@ -132,6 +136,8 @@ Perceptual access moves capability as much as control access does: a **compass**
 ## Mentioned in
 
 > [!note] Curated list — 34 source pages link here; the ones below are those that shaped this page.
+
+- [Extreme Adaptation](../../sources/extreme-adaptation-quadcopter-controller-paper.md) — modular low-level learning against end-to-end, 100% vs 28% off-distribution.
 
 - [How Claude Performs on Robotics Tasks](../../sources/anthropic-how-claude-performs-on-robotics-tasks.md) — the source of the taxonomy and every number here.
 - [Project Fetch: Phase Two](../../sources/anthropic-project-fetch-phase-two.md) — level-2 control (Claude Code writing controllers) taken to near-autonomy.

@@ -2,8 +2,8 @@
 title: Agentic UAVs
 type: concept
 created: 2026-05-09
-updated: 2026-07-09
-sources: 9
+updated: 2026-11-16
+sources: 12
 tags: [uav, drone, agentic-ai, edge-ai, swarm, swarm-intelligence, autonomous, multi-domain, px4, pixhawk, mavlink]
 ---
 
@@ -38,6 +38,8 @@ A separate research thread addresses **trajectory tracking under uncertainty** w
 - Using **mirror descent** (not standard gradient descent) — automatically selecting the optimization geometry that matches the disturbance structure
 - Generalizing to wind speeds not seen during training
 
+**Learned adaptation at the motor level** ([HiPeRLab](../../entities/hiperlab.md), UC Berkeley). A single policy outputs motor speeds at 500 Hz for any quadcopter in a wide range. It estimates the vehicle's dynamics online from 100–400 steps of state–action history and adapts within about 0.2–2 s, against 10–15 s for explicit system identification ([near-hover](../../sources/near-hover-adaptive-quadcopter-controller-paper.md), [Extreme Adaptation](../../sources/extreme-adaptation-quadcopter-controller-paper.md), T-RO 2025). For multi-drone work, [ProxFly](../../sources/proxfly-paper.md) adds a **residual RL** correction on top of a cascaded controller to fly in another drone's downwash without communication, and completed a mid-air docking. All three train only in simulation.
+
 This is complementary to the agentic architecture: the control layer of an agentic UAV benefits from adaptive controllers that handle unexpected disturbances without requiring replanning at the cognition layer.
 
 ## Challenges
@@ -69,6 +71,8 @@ The "Control" layer in the four-layer architecture is, in production, almost alw
 - [MIT drone adaptive control](../../sources/mit-drone-adaptive-control.md) (Tang, Sun, Azizan, 2025) — 50% error reduction via meta-learning + mirror descent
 
 ## Mentioned in
+
+- [Near-hover](../../sources/near-hover-adaptive-quadcopter-controller-paper.md), [Extreme Adaptation](../../sources/extreme-adaptation-quadcopter-controller-paper.md), [ProxFly](../../sources/proxfly-paper.md) — learned adaptive low-level control and residual RL for quadcopters.
 - [UAVs Meet Agentic AI survey](../../sources/uavs-agentic-ai-survey.md)
 - [MIT drone adaptive control](../../sources/mit-drone-adaptive-control.md)
 - [PX4 Autopilot Documentation (docs.px4.io/main)](../../sources/px4-docs-main.md)

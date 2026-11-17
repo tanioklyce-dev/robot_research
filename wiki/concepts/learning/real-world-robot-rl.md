@@ -2,8 +2,8 @@
 title: Real-world robotic reinforcement learning
 type: concept
 created: 2026-07-05
-updated: 2026-11-13
-sources: 32
+updated: 2026-11-16
+sources: 33
 tags: [reinforcement-learning, real-world-rl, manipulation, human-in-the-loop, off-policy-rl, sample-efficiency]
 ---
 
@@ -104,6 +104,8 @@ The setup avoids what makes the recipe above necessary. The emulator supplies re
 
 [NVIDIA's GB300 connector insertion](../../sources/nvidia-r2d2-gb300-tester-tray-assembly-blog.md) used SPARR. A state-based policy is trained with RL in Isaac Lab, then a residual policy is trained with RL on the real robot, bootstrapped from the base policy's rollouts for safer exploration. Because the connector is hidden during insertion, the residual takes force-torque input rather than images. The authors' summary: *"there is no substitute for real-world data."*
 
+**A sim-only residual, for contrast** (2026-11-16): [ProxFly](../../sources/proxfly-paper.md) trains its residual entirely in simulation, with randomized disturbances standing in for downwash physics, and deploys it zero-shot on a quadcopter. Same shape as SPARR (a trusted base controller plus a learned correction), with the real-world learning step removed. Against an aerodynamics-modelled controller it wins on attitude and loses on position.
+
 ## Related concepts
 
 - [continual learning](continual-learning.md) — the weight-update branch, and where forgetting lives.
@@ -118,6 +120,7 @@ Real-world RL for manipulation went from "considered infeasible" to **100% succe
 
 ## Mentioned in
 
+- [ProxFly](../../sources/proxfly-paper.md) — residual RL trained in simulation only, on a cascaded quadcopter controller.
 - [Human-in-the-loop transfer learning in collision avoidance](../../sources/hitl-transfer-learning-collision-avoidance.md) — the hand-written-prior counterpart, and the measurement of when a prior stops paying.
 
 - [Microduck — Pollen Robotics launch](../../sources/pollen-robotics-microduck.md) — self-recovery as reset automation; walk + fall-recovery trained as one policy.

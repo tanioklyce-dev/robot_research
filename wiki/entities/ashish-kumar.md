@@ -3,8 +3,8 @@ title: Ashish Kumar
 type: entity
 subtype: person
 created: 2026-08-29
-updated: 2026-08-29
-sources: 3
+updated: 2026-11-16
+sources: 4
 tags: [ashish-kumar, uc-berkeley, locomotion, rma, egocentric-vision, adaptation, sim-to-real]
 ---
 
@@ -19,6 +19,8 @@ He is the only person appearing in **two of the three papers** of this wiki's [l
 
 Those two papers are Acts 1 and 2 of the [lineage](../syntheses/rl/locomotion-adaptation-lineage.md) — i.e. **he co-authored both instances of the engineered privileged-teacher approach**, and neither of the papers that abandons it.
 
+- **RMA on quadcopters** ([near-hover adaptive controller](../sources/near-hover-adaptive-quadcopter-controller-paper.md), 2022): co-author with Malik and [HiPeRLab](hiperlab.md). The adaptation module re-purposed from terrain to the vehicle's own dynamics; one policy flies quads 4.5× apart in mass zero-shot.
+
 ## Related
 
 - [Deepak Pathak](deepak-pathak.md) — co-author on both.
@@ -29,6 +31,7 @@ Those two papers are Acts 1 and 2 of the [lineage](../syntheses/rl/locomotion-ad
 
 ## Mentioned in
 
+- [Near-hover adaptive quadcopter controller](../sources/near-hover-adaptive-quadcopter-controller-paper.md) — co-author; RMA moved to drones.
 - [RMA: Rapid Motor Adaptation for Legged Robots](../sources/rma-paper.md) — first author.
 - [Legged Locomotion in Challenging Terrains using Egocentric Vision](../sources/egocentric-vision-locomotion-paper.md) — co-first author.
 

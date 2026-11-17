@@ -3,7 +3,7 @@ title: DAgger and interactive imitation
 type: concept
 created: 2026-11-16
 updated: 2026-11-16
-sources: 16
+sources: 17
 tags: [dagger, dataset-aggregation, interactive-imitation, hg-dagger, human-gated, covariate-shift, compounding-error, behavior-cloning, teacher-student, policy-distillation, privileged-learning, sim-to-real, data-flywheel, failure-recovery]
 ---
 
@@ -25,6 +25,8 @@ The original paper is not ingested here. The definition above is textbook backgr
 | **2. Human-gated correction (HG-DAgger)** | A human who takes over when the policy goes wrong | Recovery from the policy's own failure states, on the real robot | [π\*0.6](../../entities/pistar06.md)'s optional human interventions. [GR00T 2](../../sources/gr00t-2-whitepaper.md)'s assembly: SFT 23–69 → **+DAgger 71–84** → +agent with recovery skills 97–98 of 100. [GR00T N1.6](../../sources/groot-n1_6.md) recommends DAgger for real-world use. |
 | **3. Iterative data curation** | The human demonstrator, steered by observed failures | Demo coverage, not on-policy labels: collect *against* failure modes | [X-VLA](../../sources/xvla-paper.md)'s Soft-Fold set: retrain [ACT](../../entities/act.md) every 100 episodes, find its failure modes, collect targeted demos, about 1,200 episodes and 50–60 operator-hours. Recommended for this wiki's own [XLeRobot bring-up](../../syntheses/projects/xlerobot-nav-manip-teleop-bringup.md). |
 | **4. A planner or simulator as the expert** | A classical planner, or the true simulator | Failure states labelled automatically, no human | [ToyBlocks](../../sources/allenai-toyblocks-github.md)' **TAMPER**: DAgger with a [TAMP](../robotics/task-and-motion-planning.md) expert, replanning from where the policy failed. **Online World Modeling** ([train–test gap paper](../../sources/train-test-gap-world-models-paper.md)): execute the planner's actions in the real simulator and retrain the world model on the corrected trajectory. [RoboTwin 2.0](../../sources/robotwin2-paper.md) uses a VLM failure localiser in the same loop. |
+
+Family 1 has a model-based variant too: [Extreme Adaptation](../../sources/extreme-adaptation-quadcopter-controller-paper.md) imitates a PD controller **re-parameterized with each sampled vehicle's true dynamics**, mixed with RL, with the imitation weight decaying. Its ablation trains an **IL-only (DAgger)** version, which falls to about 60% success off-distribution, the same as RL-only. The mix stays near 100%.
 
 There is also a fifth, recent reading. **[RoboTTT](../../sources/robottt-paper.md)'s *DAgger Distillation*** keeps the robot's own failed rollout **in context** and trains on the corrections, which is explicitly Algorithm Distillation ([in-context robot learning](in-context-robot-learning.md)). The loop happens inside one episode rather than across training rounds.
 
@@ -55,6 +57,8 @@ DAgger is no longer one algorithm; it is the default *shape* of a robot-learning
 ## Mentioned in
 
 > [!note] Curated list — about 25 source pages use the term; the ones below shaped this page.
+
+- [Extreme Adaptation](../../sources/extreme-adaptation-quadcopter-controller-paper.md) — DAgger as an ablation; IL + RL beats both alone.
 
 - [GR00T 2 whitepaper](../../sources/gr00t-2-whitepaper.md) — SFT → DAgger → agent ladder on real assembly
 - [HIL-SERL](../../sources/hil-serl-paper.md) — RL beats HG-DAgger on the same human data

@@ -2,8 +2,8 @@
 title: Heterogeneous edge SoCs and the shared-memory budget
 type: concept
 created: 2026-09-13
-updated: 2026-09-13
-sources: 15
+updated: 2026-11-16
+sources: 16
 tags: [edge-ai, soc, npu, memory-bandwidth, unified-memory, onboard-compute, llm-inference, arm, rk3588, jetson, hailo, systems]
 ---
 
@@ -53,6 +53,9 @@ Jetson and Spark rows from the [module ladder](../../syntheses/platforms/jetson-
 - [airockchip/rknn_model_zoo](../../sources/rknn-model-zoo-github.md) — the execution-only per-platform fps table behind fact 3, and the speech stack (Whisper RTF 0.215, TTS 0.069) on the same NPU.
 - [RK1828 vs Jetson Orin NX vs Hailo-8 (Geniatech)](../../sources/geniatech-rk1828-vs-orin-nx-vs-hailo-8.md) — the on-package-memory counter-design (fact 5), secondary and vendor-interested.
 
+> [!note] The runtime, not the model, decided real-time feasibility (2026-11-16)
+> On a Qualcomm RB5, the [Extreme Adaptation](../../sources/extreme-adaptation-quadcopter-controller-paper.md) quadcopter controller (a 3-layer MLP plus a small 1-D CNN) took **78.85 ms in PyTorch**, about 40× over its 2 ms budget for a 500 Hz loop, and **0.165 ms after conversion to MNN**, a mobile inference runtime. On edge SoCs, check the inference stack before shrinking the network.
+
 ## Related concepts
 - [Onboard robot service architecture](onboard-robot-service-architecture.md) — the process layer that decides which engine each stage reaches.
 - [Control abstraction levels](control-abstraction-levels.md) and the [control-rate ladder](../../syntheses/platforms/control-rate-ladder.md) — required vs measured rates; this page is the hardware reason measured rates fall short.
@@ -63,6 +66,8 @@ Jetson and Spark rows from the [module ladder](../../syntheses/platforms/jetson-
 The wiki now has one measured bandwidth for the ARM-SBC tier and only spec-sheet figures for the Jetson tier; no page records wall power for an RK3588 under load, and no LeRobot policy has been pushed through either RKNN or HEF. The [Hailo vs Jetson](../../syntheses/platforms/hailo-npu-vs-jetson-xlerobot.md) decision page gains a third column — an RK3588 board with its NPU on-die — but until a policy export is attempted, the CUDA path remains the only one the wiki can call validated for control.
 
 ## Mentioned in
+
+- [Extreme Adaptation](../../sources/extreme-adaptation-quadcopter-controller-paper.md) — PyTorch 78.85 ms vs MNN 0.165 ms for one policy step on Qualcomm RB5.
 - [RK3588 Architecture Deep Dive (Turing Pi)](../../sources/turingpi-rk3588-architecture-deep-dive.md)
 - [Gemma 4 E2B model card + LiteRT benchmarks](../../sources/gemma-4-e2b-model-card.md)
 - [`pollen-robotics/microduck` — the onboard runtime](../../sources/microduck-runtime-repo.md)

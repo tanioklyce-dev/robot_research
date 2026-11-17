@@ -116,6 +116,8 @@ The robot is **blind** — proprioception only. *"Larger perturbations such as s
 - **Success is defined per-setup** and real-world trials run **5 per condition** (2 when failure was obvious, to protect the hardware). Honest and clearly stated, but far below what the [success-rate audit](../syntheses/platforms/vla-success-rate-audit.md) would want.
 
 ## Cited by
+
+- [Near-hover adaptive quadcopter controller](near-hover-adaptive-quadcopter-controller-paper.md) and [Extreme Adaptation](extreme-adaptation-quadcopter-controller-paper.md) — RMA applied to quadcopters by [HiPeRLab](../entities/hiperlab.md), with Kumar and Malik; the latent now encodes the robot's own body.
 - [Cross-embodiment transfer](../concepts/learning/cross-embodiment.md)
 - [Dexterous tool manipulation](../concepts/robotics/dexterous-tool-manipulation.md)
 - [Ananye Agarwal](../entities/ananye-agarwal.md)
