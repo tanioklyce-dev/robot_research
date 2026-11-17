@@ -3,8 +3,8 @@ title: NVIDIA Jetson Orin NX
 type: entity
 subtype: hardware
 created: 2026-08-28
-updated: 2026-09-28
-sources: 13
+updated: 2026-11-16
+sources: 14
 tags: [jetson, jetson-orin-nx, nvidia, edge-ai, onboard-compute, ampere, dla, super-mode, nvpmodel, robotics, xlerobot]
 ---
 
@@ -142,8 +142,13 @@ Carrier details from the [Seeed Jetson selection guide](../sources/seeed-jetson-
 - [GR00T inference on Jetson](../syntheses/platforms/gr00t-inference-on-jetson.md) · [VLA deployability landscape](../syntheses/platforms/vla-deployability-landscape.md)
 - [XLeRobot](xlerobot.md) — the fleet this module is specced for.
 
+## Holoscan SDK 5.0: not on the tested list (2026-11-16)
+
+HSDK 5.0 requires JetPack 7 and lists **AGX Orin and Orin Nano on JetPack 7.2.1** as tested. **Orin NX is absent** ([release notes](../sources/holoscan-sdk-5-0-release-notes.md)). JetPack 7.2's Yocto image list also omits it ([JetPack 7.2](../sources/nvidia-jetpack-7-2-release.md)). It will most likely work, since it is the same Ampere iGPU and JetPack line, but it is untested. Check this before choosing Holoscan as the control runtime on an Orin NX robot such as [XLeRobot](xlerobot.md).
+
 ## Mentioned in
 
+- [Holoscan SDK 5.0 release notes and platform requirements](../sources/holoscan-sdk-5-0-release-notes.md) — Orin NX absent from the HSDK 5.0 tested-platform list.
 - [NVIDIA Jetson Orin module datasheets (DS-10662 / DS-10712)](../sources/nvidia-jetson-orin-module-datasheets.md) — the RT-core / TPC architecture, and the dense-INT8 totals.
 - [Jetson Linux Developer Guide — Platform Power and Performance (Orin)](../sources/nvidia-jetson-platform-power-performance-orin.md) — Super Mode, nvpmodel tables.
 - [Seeed — flash JetPack OS to J401 carrier board](../sources/seeed-j401-flash-jetpack.md) — the Super-Mode cooling caveat.

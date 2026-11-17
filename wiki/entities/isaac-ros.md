@@ -4,7 +4,7 @@ type: entity
 subtype: software-framework
 created: 2026-06-13
 updated: 2026-11-16
-sources: 11
+sources: 12
 tags: [isaac-ros, nvidia, ros2, perception, gpu, jetson, thor, orin, lyrical, nitros, agent-skills, robotics]
 ---
 
@@ -72,6 +72,8 @@ At GTC Berlin NVIDIA announced **Isaac OS**, *"an open source runtime framework 
 
 *Update 2026-11-16:* NVIDIA's [Holoscan 5 tutorial](../sources/nvidia-holoscan-5-rebot-gravity-compensation.md) says Isaac ROS *"provides reusable Holoscan operators and reference applications such as GR00T inference."* So Isaac ROS already ships components for the [Holoscan](nvidia-holoscan.md) runtime that Isaac OS is built on. The same tutorial shows what Holoscan 5's real-time control path looks like (partitions, clocked contracts, core pinning). The Isaac OS layering itself is still undocumented.
 
+*Update 2026-11-16 (b):* **HSDK 5.0 replaced GXF with HoloMQ** (iceoryx2 + CUDA VMM IPC) on 2026-10-20 ([launch](../sources/nvidia-holoscan-5-launch.md)), one quarter after Isaac ROS sun-set GXF in NITROS (4.5.0) and moved to `rosidl::Buffer` (5.0.0). NVIDIA has now left GXF in both stacks, but the two use **different zero-copy transports**. HSDK 5.0 is also not source- or binary-compatible with 4.x ([release notes](../sources/holoscan-sdk-5-0-release-notes.md)), and **no source says which HSDK major Isaac ROS's "reusable Holoscan operators" target**.
+
 ## Related
 
 - [NVIDIA Isaac Sim](nvidia-isaac-sim.md) / [NVIDIA Isaac Lab](nvidia-isaac-lab.md) — simulation + RL siblings.
@@ -82,6 +84,7 @@ At GTC Berlin NVIDIA announced **Isaac OS**, *"an open source runtime framework 
 
 ## Mentioned in
 
+- [Introducing Holoscan 5](../sources/nvidia-holoscan-5-launch.md) — HSDK drops GXF the same quarter Isaac ROS does; different transports result.
 - [Make a Robot Arm Feel Weightless with NVIDIA Holoscan 5](../sources/nvidia-holoscan-5-rebot-gravity-compensation.md) — Isaac ROS ships Holoscan operators (e.g. GR00T inference).
 - [Isaac ROS — release notes and supported platforms](../sources/isaac-ros-release-notes-and-platforms.md)
 - [Seeed jetson-examples — nvblox recipe (README)](../sources/seeed-jetson-examples-nvblox.md)

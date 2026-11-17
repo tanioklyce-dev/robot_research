@@ -79,7 +79,7 @@ The post has two purposes. It is the first wiki source that shows what Holoscan'
 - Several in-body links in the blog are broken relative links (`http://apps/gravity_compensation.cpp`, `http://docs/cpp-version.md`, `http://python/rebot_gravity.py`, `http://docs/control-policies.md`). The canonical copy is the [Holoscan tutorial page](https://nvidia-holoscan.github.io/tutorials/rebot-gravity-compensation/), which links the real files under [nvidia-holoscan/holoscan-tutorials](https://github.com/nvidia-holoscan/holoscan-tutorials/tree/main/tutorials/rebot-gravity-compensation) (config `rebotarm_dm.yaml`, `technical-guide.md`, a `fetch-urdf.py` script). The tutorial page credits Jay Carlson alone. It labels the release **"HSDK 5.0, part of the Holoscan 5 platform release"**, tutorial version 1.0.0, x86_64 and aarch64.
 
 > [!note] Version numbering
-> [JetPack 7.2](nvidia-jetpack-7-2-release.md) bundles **Holoscan 3.9.0**. Holoscan 5 (HSDK 5.0) launched 2026-10-20, so the version on a JetPack 7.2 image is two majors behind this tutorial. That is not a contradiction, but **don't assume the JetPack-bundled Holoscan can run this code**. The tutorial installs from pip wheels (`--only-binary=:all:`) into a venv.
+> [JetPack 7.2](nvidia-jetpack-7-2-release.md) bundles **Holoscan 3.9.0**. Holoscan 5 (HSDK 5.0, [launch](nvidia-holoscan-5-launch.md); [requirements](holoscan-sdk-5-0-release-notes.md): CUDA 13, tested on JetPack 7.2.1, no JetPack 6) launched 2026-10-20, so the version on a JetPack 7.2 image is two majors behind this tutorial. That is not a contradiction, but **don't assume the JetPack-bundled Holoscan can run this code**. The tutorial installs from pip wheels (`--only-binary=:all:`) into a venv.
 
 ## Entities mentioned
 
