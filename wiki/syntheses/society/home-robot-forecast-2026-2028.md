@@ -295,6 +295,7 @@ Cumulative probability (%), same convention as set B.
 
 ## Related
 
+- [Assistive robot forecast](../assistive/assistive-robot-forecast-2026-2030.md) — the companion forecast for disabled and older users, scored on the same dates
 - [Household robots compared](../platforms/household-robots-comparison.md) — the current field, and the evidence table this forecast starts from
 - [Consumer robotics value chain](consumer-robotics-value-chain.md) — who profits if these volumes happen
 - [Home robot privacy and security](../platforms/home-robot-privacy-and-security.md)

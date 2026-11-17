@@ -2,7 +2,7 @@
 title: Assistive robotics — R&D landscape and JEPA applicability
 type: synthesis
 created: 2026-05-09
-updated: 2026-09-07
+updated: 2026-11-16
 tags: [assistive-robotics, jepa, research-landscape, independent-researcher]
 ---
 
@@ -58,6 +58,11 @@ General manipulation datasets (DROID: 350 hr / 76k trajectories) exist but are n
 | Per-user adaptation without engineering effort | **5–10 years** | Personalization, RLHF from sparse user signals |
 | Accessible low-bandwidth HRI (BCI-to-robot) | **7–20 years** | BCI stability, latency, regulatory |
 | Commercial deployment at scale | **10–20 years** | All of the above + cost + liability |
+
+---
+
+> [!note] Scoreable version (2026-11-16)
+> The [assistive robot forecast](assistive-robot-forecast-2026-2030.md) turns the table above into dated probabilities through 2030 and revises two rows: it is more optimistic on fetch and multi-step sequences, given the 2026 results that arrived after this table was written, and about as cautious on contact assistance and scale.
 
 ---
 

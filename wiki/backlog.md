@@ -11,7 +11,7 @@ tags: [backlog, lint, todo, knowledge-gaps]
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
 ## [2026-11-16] Forecast scoring schedule
-Score the [home robot forecast](syntheses/society/home-robot-forecast-2026-2028.md) in the first two weeks after each quarter ends. Build the set-A delivery tally with sources, resolve the 20 set-B events and the 13 set-C (JEPA) events, compute a Brier score for each set, and append to the page's scorecard. **Never edit the forecasts themselves.**
+Score **both** forecasts in the first two weeks after each quarter ends: the [home robot and JEPA forecast](syntheses/society/home-robot-forecast-2026-2028.md) and the [assistive robot forecast](syntheses/assistive/assistive-robot-forecast-2026-2030.md) (set R homes tally, 22 set-E events). Build the set-A delivery tally with sources, resolve the 20 set-B events and the 13 set-C (JEPA) events, compute a Brier score for each set, and append to the page's scorecard. **Never edit the forecasts themselves.**
 - [ ] **Checkpoint 1**: quarter ended 2026-12-31; score in January 2027.
 - [ ] **Checkpoint 2**: quarter ended 2027-03-31; score in April 2027.
 - [ ] **Checkpoint 3**: quarter ended 2027-06-30; score in July 2027. Add the first calibration table.
@@ -30,6 +30,7 @@ Score the [home robot forecast](syntheses/society/home-robot-forecast-2026-2028.
 - [ ] **Checkpoint 16**: quarter ended 2030-09-30; score in October 2030.
 - [ ] **Checkpoint 17**: quarter ended 2030-12-31; score in January 2031.
 - [ ] **Replace the forecast before the horizon gets stale.** The 2029–2030 columns are extrapolation. Write a new dated forecast page no later than the end of 2027, keeping this one frozen for scoring.
+- [ ] **Close the assistive forecast's blind spots before checkpoint 1.** Ingest primaries for Hello Robot's Stretch Assist page and Stretch 4 safety guide (home-use certification status), a US payer policy on assistive robotic arms (Medicare, a Medicaid program, one private plan), and the Obi feeding device. All four are cited on the forecast from a web check only. Also look for care-robot programmes in Japan, Korea and Europe.
 - [ ] **Close the China blind spot before checkpoint 1.** The forecast's upper tail depends on Chinese consumer vendors the wiki barely covers (GigaAI SeeLight's 100-unit Wuhan trial is press-only). Find primaries for GigaAI, UniX AI, Unitree R1 home sales and any other consumer manipulator with stated deliveries.
 
 ## [2026-11-16] From the drift-check overhaul

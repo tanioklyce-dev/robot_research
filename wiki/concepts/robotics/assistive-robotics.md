@@ -2,7 +2,7 @@
 title: Assistive Robotics
 type: concept
 created: 2026-05-09
-updated: 2026-09-12
+updated: 2026-11-16
 sources: 54
 tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot, accessibility]
 ---
@@ -91,6 +91,10 @@ The navigation-domain counterpart is [DRAGON (Liu et al. 2024)](../../sources/dr
 ## Security of body-worn devices
 
 A [security study](../../sources/cai-hacking-consumer-robots-paper.md) of the consumer Hypershell X exoskeleton reported Bluetooth motor commands with no authentication, and the vendor declined to engage. No injury scenario was demonstrated. For devices worn or relied on by disabled or older users, this is a gap the assistive literature in this wiki rarely addresses.
+
+## Forecast
+
+Dated, scoreable predictions through 2030 (homes with an assistive mobile manipulator, certification, insurance coverage, and which tasks arrive when) are in the [assistive robot forecast](../../syntheses/assistive/assistive-robot-forecast-2026-2030.md).
 
 ## Related concepts
 - [Aging in place](aging-in-place.md) — the demand-side / human-needs context that motivates in-home assistive robotics
