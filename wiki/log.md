@@ -6783,3 +6783,16 @@ Structure was sound: **0 broken file links, 0 orphans, 0 schema violations, all 
 - **Back-links:** 23 pages to LiDAR, and 34 to UC Berkeley (prose mentions linked, plus "among the paper's affiliations" entries where Berkeley appears only in frontmatter). Index entries added. One-way citations are back to 1, the deliberate FeeTech one.
 - **Fixed:** `sources/sac-paper.md` linked the name "Abbeel" to **Sergey Levine's** page. It is now plain text; Abbeel has no page.
 - **Gap noted:** Pieter Abbeel, Jitendra Malik, Trevor Darrell and Shankar Sastry each appear across several sources and have no person page. Abbeel is the largest gap.
+
+## [2026-11-16] update | UC Berkeley labs, checked against lab pages
+- The user shared a search-engine summary listing five Berkeley robotics labs. Each claim was checked against the lab's own site before going on [UC Berkeley](entities/uc-berkeley.md).
+- **Confirmed:**
+  - RAIL faculty is Sergey Levine. Its site uses both "Robotic AI & Learning Lab" and "Robotics and AI Lab @ BAIR", so the existing expansion stands.
+  - The Robot Learning Lab is directed by Pieter Abbeel, and AUTOLab by Ken Goldberg.
+  - Hybrid Robotics is Koushil Sreenath's (Cassie projects listed). The Berkeley Humanoid is from that lab, with Sreenath as last author.
+  - HiPeRLab is Mark Mueller's: UAS safety, localization and design, per the lab's members page and Berkeley ME. Its site blocks curl with Cloudflare.
+- **Not confirmed:** an "Autonomy, Robotics, and Controls (ARC) Lab" under Roberto Horowitz. His pages confirm the ME professorship, the Etcheverry Hall office and manipulation work, but name no lab. Recorded as unverified.
+- The summary omitted AUTOLab, the most active Berkeley robotics lab in the wiki's sources.
+- New open question: ingest a Berkeley Humanoid or Hybrid Robotics paper.
+- *Follow-up:* HiPeRLab's homepage and publications page were read directly (an earlier curl hit Cloudflare). The focus statement is quoted verbatim and the six research areas and recent work were added. The homepage itself names **no director**; Mueller's leadership rests on the Berkeley ME lab page and his members-page entry, and the page now says so.
+- *Follow-up:* added HiPeRLab's YouTube channel (42 videos; listed via yt-dlp, metadata only). The learned-controller videos (ProxFly residual RL, extreme-adaptation and zero-shot adaptive controllers) are noted as ingest leads.
