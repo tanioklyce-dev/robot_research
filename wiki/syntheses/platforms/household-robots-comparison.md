@@ -117,7 +117,7 @@ The test task list is the one this page began with: navigate a home, pick things
 | **Fetching and carrying for someone with a disability** | [Stretch](../../entities/stretch.md), mostly teleoperated. [Labrador](../../entities/labrador-systems.md) designed a tray-fetching cart for this, but its availability is unconfirmed | ⚠️ **Genuinely useful for a few.** See below. |
 | **Remote home monitoring** | [Amazon Astro](../../entities/amazon-astro.md), by invitation | ⚠️ **Real, limited.** No arm, few thousand shipped, future unclear. Amazon has moved much of the team to a new project. |
 | **Companionship and play** | [Microduck](../../entities/microduck.md), [Reachy Mini](../../entities/reachy-mini.md), Go2 | ⚠️ **Fun, not useful in the chore sense.** |
-| **Cooking, opening cans** | Nothing | ❌ |
+| **Cooking, opening cans** | Nothing | ❌ Dated probabilities through 2030 are in set F of the [home robot forecast](../society/home-robot-forecast-2026-2028.md). |
 
 **What to do as a consumer.**
 

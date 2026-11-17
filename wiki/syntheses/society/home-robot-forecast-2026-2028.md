@@ -3,15 +3,15 @@ title: Home robot and JEPA forecast, 2026-Q4 to 2030-Q4 — dated predictions wi
 type: synthesis
 created: 2026-11-16
 updated: 2026-11-16
-tags: [forecast, predictions, scorecard, grocery, retail-robotics, jepa, ami-labs, yann-lecun, world-model, household-robot, consumer-robotics, adoption, capability, reliability, safety, privacy, 1x-neo, figure, weave-robotics, laundry-folding, dishes, calibration]
+tags: [forecast, predictions, scorecard, cooking, meal-preparation, grocery, retail-robotics, jepa, ami-labs, yann-lecun, world-model, household-robot, consumer-robotics, adoption, capability, reliability, safety, privacy, 1x-neo, figure, weave-robotics, laundry-folding, dishes, calibration]
 ---
 
 # Home robot and JEPA forecast, 2026-Q4 to 2030-Q4
 
-Predictions made on **2026-11-16** about household robots: how many are in homes, what they can do, how fast capability is growing, and whether they are safe. Each prediction is a number with an interval, or a probability, with a fixed resolution rule. They are scored **after the end of each quarter**, from 2026-Q4 through 2030-Q4. A third set covers when JEPA-based AI reaches household products, and a fourth covers grocery shopping.
+Predictions made on **2026-11-16** about household robots: how many are in homes, what they can do, how fast capability is growing, and whether they are safe. Each prediction is a number with an interval, or a probability, with a fixed resolution rule. They are scored **after the end of each quarter**, from 2026-Q4 through 2030-Q4. A third set covers when JEPA-based AI reaches household products, a fourth covers grocery shopping, and a fifth covers meal preparation and cooking.
 
 > [!warning] These are judgment forecasts, not sourced facts
-> The evidence is cited from this wiki. The numbers are the forecaster's estimates from that evidence, and no source states them. Confidence falls quickly with distance: the 2026-Q4 and 2027 rows rest on announced products and dates, while the 2028 rows are extrapolation. **The predictions on this page are frozen as of 2026-11-16.** The first version, filed that day, ran to 2028-Q4. The 2029–2030 columns, set C (JEPA) and set D (grocery shopping) were added later the same day, before any scoring, without changing any number already filed. Scoring is appended below; the forecasts themselves are never edited. A revised forecast goes on a new dated page. Confidence in the 2029–2030 columns is low: they are extrapolations of extrapolations.
+> The evidence is cited from this wiki. The numbers are the forecaster's estimates from that evidence, and no source states them. Confidence falls quickly with distance: the 2026-Q4 and 2027 rows rest on announced products and dates, while the 2028 rows are extrapolation. **The predictions on this page are frozen as of 2026-11-16.** The first version, filed that day, ran to 2028-Q4. The 2029–2030 columns, set C (JEPA), set D (grocery shopping) and set F (meal preparation and cooking) were added later the same day, before any scoring, without changing any number already filed. Scoring is appended below; the forecasts themselves are never edited. A revised forecast goes on a new dated page. Confidence in the 2029–2030 columns is low: they are extrapolations of extrapolations.
 
 ## The short version
 
@@ -20,6 +20,7 @@ Predictions made on **2026-11-16** about household robots: how many are in homes
 - Zero-shot capability is climbing fast from a low base. Reliability, the thing a product needs, is slower.
 - Physical safety is likely to come from low mass and low force, not proven-safe software. Privacy and security are the weaker side.
 - **Groceries: the store-to-cupboard chain arrives in pieces.** Robot delivery to the door is growing regionally, piloted picking in stores gets trial results first, and putting groceries away at home is about even odds as a published result by mid-2029. A robot service that does a household's shopping with no human picker is 38% by the end of 2030.
+- **Cooking: appliances first, the stove last.** Making a hot drink or running a microwave is about even odds as a published result in unseen homes by the end of 2028. A shipped stovetop feature is 50% by the end of 2030, and a hot meal cooked unattended 35%.
 - **JEPA reaches household robots first as a component, not as the controller.** A shipping home robot with a vendor-stated JEPA-style component passes 50% around 2029-Q3. A JEPA world model planning at run time reaches 40% by the end of 2030, and JEPA as the primary controller, LeCun's actual vision, only 19%.
 
 ## What is being counted
@@ -293,6 +294,82 @@ Cumulative probability (%), same convention as set B.
 - **D13:** any published or independently reported end-to-end run counts, even a single one.
 - **D14:** a service with a human picker and robot delivery does not count.
 
+## Prediction set F: meal preparation and cooking (added 2026-11-16)
+
+**The question:** when do home robots prepare food, from making coffee to cooking a meal?
+
+(The set is lettered F. The letter E is used by the [assistive forecast](../assistive/assistive-robot-forecast-2026-2030.md), and the two pages are scored together.)
+
+**Where it stands** (evidence as of 2026-11-16):
+- **Nothing you can buy cooks.** The [household robots comparison](../platforms/household-robots-comparison.md) lists cooking and opening cans as unavailable, and notes that no reviewed source shows any robot opening a can. [Flourish 1](../../entities/flourish-1.md) excludes water, anything sharp and anything breakable.
+- **Stovetop cooking has one research data point.** [Mobile ALOHA](../../sources/mobile-aloha-paper.md) cooked shrimp (oil and shrimp into the pan, flip with a spatula, pour into a bowl) at **40%** success with co-training, in its own kitchen, from 20 demonstrations. Rinsing the pan reached 80%.
+- **Appliances and drinks are further along.** [π\*0.6](../../sources/pistar06-paper.md) made espresso drinks for 13 hours continuously on a professional machine. Microwave, toaster and rice-cooker tasks appear as lab tasks ([π0](../../sources/pi-zero-paper.md), [FAST](../../sources/fast-paper.md), [a Stretch 3 study](../../sources/robot-self-improvement-human-video-dynamics-paper.md) that took five long-horizon tasks from 41.3% to 85.3%).
+- **The broad benchmark is low.** BEHAVIOR-1K, whose tasks include cooking and slicing states, has a best full-task success of 12.4% ([AI Index](../../sources/stanford-hai-ai-index-2026.md); [paper](../../sources/behavior-1k-paper.md)).
+- **Commercial kitchens already use classical robots.** [Dexai](../../entities/dexai-robotics.md)'s arm assembles bowls and salads with standard utensils, per live-web facts on its entity page, not an ingested source. That is engineered automation, not a learned general policy.
+- **Assistive users already get value at low autonomy.** One Stretch user serves himself a protein shake, mostly by teleoperation ([TechCrunch](../../sources/techcrunch-hello-robot-homes-2026.md)).
+
+Cumulative probability (%), same convention as set B.
+
+| ID | Event | 26Q4 | 27Q1 | 27Q2 | 27Q3 | 27Q4 | 28Q1 | 28Q2 | 28Q3 | 28Q4 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| **Appliances and cold food** | | | | | | | | | | |
+| F1 | Published: a robot makes a hot drink or runs a countertop appliance (coffee machine, microwave, toaster, rice cooker) start to finish in 5+ unseen homes at 70% or better, 50+ trials | 3 | 8 | 14 | 21 | 28 | 35 | 42 | 48 | 54 |
+| F2 | A purchasable home robot ships a hot-drink or countertop-appliance feature, at any level of remote assistance | 1 | 3 | 6 | 10 | 15 | 20 | 26 | 32 | 38 |
+| F3 | Published: a cold meal (sandwich, salad or bowl) assembled from ingredients in 3+ unseen kitchens at 60% or better, 50+ trials | 2 | 5 | 9 | 14 | 20 | 26 | 32 | 38 | 44 |
+| F4 | Published: sealed food containers (cans, jars or packets) opened at 70% or better on a home-capable robot, 30+ trials | 2 | 5 | 9 | 13 | 18 | 23 | 28 | 33 | 38 |
+| **Cooking with heat and knives** | | | | | | | | | | |
+| F5 | Published: a multi-step stovetop dish (heat, add ingredients, stir or flip, plate) in 3+ unseen kitchens at 60% or better, 30+ trials (Mobile ALOHA: 40% in its own kitchen) | 1 | 3 | 5 | 8 | 12 | 16 | 21 | 26 | 31 |
+| F6 | Published: real food cut or chopped by a general-purpose robot in 3+ unseen kitchens at 60% or better, with a stated safety mechanism for the blade | 1 | 3 | 5 | 8 | 11 | 15 | 19 | 23 | 27 |
+| F7 | Published: a complete meal of 2+ dishes cooked from raw ingredients, autonomously, in a home kitchen, with 10+ trials reported at any success rate | 1 | 2 | 4 | 7 | 10 | 14 | 18 | 22 | 27 |
+| F8 | A robot plans a meal from what is in the fridge, cooks it and cleans up, shown end to end without teleoperation in a home, even once | 0 | 1 | 2 | 4 | 6 | 9 | 12 | 16 | 20 |
+| **Products** | | | | | | | | | | |
+| F9 | A purchasable general-purpose home robot ships stovetop or oven cooking as a listed feature, at any level of remote assistance | 0 | 1 | 2 | 4 | 6 | 9 | 12 | 16 | 20 |
+| F10 | A purchasable home robot cooks a hot meal **unattended** (no remote human), confirmed by an independent review | 0 | 0 | 1 | 1 | 2 | 4 | 6 | 8 | 11 |
+| F11 | A restaurant or food-service operator announces robots running a general-purpose learned policy from a foundation-model vendor doing food preparation in 10+ locations | 2 | 5 | 9 | 13 | 18 | 23 | 28 | 33 | 38 |
+| **Assistive, benchmark and safety** | | | | | | | | | | |
+| F12 | Published: an in-home study in which a robot prepares a simple meal or drink for 5+ users with disabilities (beyond feeding) | 1 | 3 | 6 | 10 | 14 | 19 | 24 | 29 | 34 |
+| F13 | The best published full-task success on BEHAVIOR-1K or its successor reaches 40% (12.4% in 2025) | 1 | 3 | 6 | 10 | 15 | 21 | 27 | 33 | 39 |
+| F14 | A publicly reported kitchen fire, burn or cut attributed to a home robot | 0 | 1 | 2 | 4 | 6 | 8 | 11 | 14 | 17 |
+
+| ID | Event (short) | 29Q1 | 29Q2 | 29Q3 | 29Q4 | 30Q1 | 30Q2 | 30Q3 | 30Q4 |
+|---|---|---|---|---|---|---|---|---|---|
+| F1 | Appliance or hot drink at 70%+, published | 59 | 64 | 68 | 72 | 75 | 78 | 80 | 82 |
+| F2 | Appliance feature shipped | 43 | 48 | 53 | 57 | 61 | 65 | 68 | 71 |
+| F3 | Cold meal assembly at 60%+, published | 49 | 54 | 58 | 62 | 66 | 69 | 72 | 74 |
+| F4 | Opens cans, jars or packets at 70%+ | 43 | 47 | 51 | 55 | 58 | 61 | 64 | 67 |
+| F5 | Stovetop dish at 60%+ in unseen kitchens | 36 | 41 | 45 | 49 | 53 | 57 | 60 | 63 |
+| F6 | Knife work at 60%+, with a safety mechanism | 31 | 35 | 39 | 43 | 46 | 49 | 52 | 55 |
+| F7 | Full 2-dish meal cooked, published | 31 | 35 | 39 | 43 | 47 | 50 | 53 | 56 |
+| F8 | Plan, cook and clean up, end to end | 24 | 28 | 32 | 36 | 40 | 43 | 46 | 49 |
+| F9 | Stovetop or oven feature shipped | 24 | 28 | 32 | 36 | 40 | 44 | 47 | 50 |
+| F10 | Hot meal cooked unattended | 14 | 17 | 20 | 23 | 26 | 29 | 32 | 35 |
+| F11 | Learned-policy food prep in 10+ commercial sites | 43 | 47 | 51 | 55 | 58 | 61 | 64 | 66 |
+| F12 | Meal prep for 5+ disabled users at home | 38 | 42 | 46 | 50 | 53 | 56 | 59 | 61 |
+| F13 | BEHAVIOR-1K at 40%+ | 44 | 49 | 54 | 58 | 62 | 65 | 68 | 71 |
+| F14 | Reported kitchen fire, burn or cut | 20 | 23 | 26 | 29 | 32 | 35 | 38 | 40 |
+
+**The direct answer.**
+- **Hot drinks and countertop appliances come first**: a published result in unseen homes at about even odds by the end of 2028 (F1), and a shipped feature by mid-2029 (F2).
+- **Cold meal assembly** follows, at about even odds by mid-2029 (F3).
+- **Stovetop cooking** in unseen kitchens is about even odds as a published result by the end of 2029 (F5), and as a shipped feature only by the end of 2030 (F9, 50%).
+- **A hot meal cooked unattended** by a robot you can buy is 35% by the end of 2030 (F10). The median date is beyond this forecast.
+
+**Reasoning.**
+- **Cooking stacks the hard things.** Heat, liquids, knives, deformable food, timing and a long chain of steps, with failures that cannot be undone: burnt food at best, a fire at worst. That is why every stovetop row trails its appliance counterpart by a year or more.
+- **Appliances are short and structured.** Pressing buttons, loading a pod or a plate and waiting is close to the pick-and-place work that is already improving fast, and the appliance contains the heat.
+- **Liability will set the product order.** A vendor can ship "microwave a meal" long before "use the stove", because the stove is a fire risk in an unattended home. F9 and F10 are held down by that, not only by capability. Expect interlocks and a person present to be required at first.
+- **Knives are a safety question before a skill question.** This wiki's own robot stack has a rail built to refuse `pick(knife)` ([guardrails](../agents/guardrails-for-robot-agents.md)). F6 requires a stated safety mechanism for that reason.
+- **Commercial kitchens pay first.** As with grocery picking, a business customer with a fixed menu and a controlled space is an easier first market than a home (F11 leads F9 throughout).
+- **Assistive meal prep may arrive earlier in practice than F12 suggests**, because a user who directs the robot step by step does not need autonomy. F12 counts published studies, which lag.
+
+**Notes on resolution.**
+- **F1, F3, F5, F6:** "unseen" means homes or kitchens the system was not trained in. A fixed demo kitchen does not count.
+- **F2, F9, F10:** "purchasable" and "shipping" as in set A. A dedicated cooking appliance, such as an automatic stir-fry machine, is not a home robot for these rows.
+- **F7, F8:** the paper or report must state that no teleoperation was used.
+- **F11:** the vendor must be a general-purpose robot-policy company; purpose-built kitchen automation does not count.
+- **F13:** only if a new result is published on the benchmark or a named successor.
+- **F14:** a robot vacuum or a cooking appliance does not count.
+
 ## Reasoning behind the capability and safety rows
 
 **Why folding and tidying come first.** They tolerate failure: a badly folded towel or a missed toy costs nothing. Three independent lines already show them working in unseen homes at 40–67% (Helix 2.5), for hours at a time (π\*0.6), and as a shipping product with remote correction (Isaac 0).
@@ -330,9 +407,9 @@ Cumulative probability (%), same convention as set B.
 | 17 | 2030-12-31 | January 2031 | pending |
 
 **Method.**
-- **Sets B, C and D:** for each event, record 1 if it happened by the quarter's end, else 0. The score is the **Brier score**, the squared difference between the forecast probability and the outcome, averaged over the set's events (20 in B, 13 in C, 14 in D). Report the three sets separately. Lower is better. Always answering 50% scores 0.25.
+- **Sets B, C, D and F:** for each event, record 1 if it happened by the quarter's end, else 0. The score is the **Brier score**, the squared difference between the forecast probability and the outcome, averaged over the set's events (20 in B, 13 in C, 14 in D, 14 in F). Report the four sets separately. Lower is better. Always answering 50% scores 0.25.
 - **Set A:** build the tally table, then record hit, miss or unresolved, plus the ratio of the tally's midpoint to the point estimate.
-- **Calibration:** from checkpoint 3 on, group all scored set-B, set-C and set-D cells by forecast probability (0–10%, 10–30%, 30–70%, 70–90%, 90–100%) and compare with the observed frequency.
+- **Calibration:** from checkpoint 3 on, group all scored set-B, set-C, set-D and set-F cells by forecast probability (0–10%, 10–30%, 30–70%, 70–90%, 90–100%) and compare with the observed frequency.
 - **Evidence:** every resolution cites a source. A primary that matters to a decision gets ingested, per the wiki's primary-sources rule.
 - **Disputes:** if the evidence is ambiguous, mark the cell unresolved and exclude it from the average. Do not resolve in the forecast's favour.
 
@@ -340,25 +417,25 @@ Cumulative probability (%), same convention as set B.
 
 *(Appended after each checkpoint. Nothing above this line changes.)*
 
-| Checkpoint | Set A result | Set B Brier | Set C Brier | Set D Brier | Events resolved yes | Notes |
-|---|---|---|---|---|---|---|
-| 1 (2026-Q4) | | | | | | |
-| 2 (2027-Q1) | | | | | | |
-| 3 (2027-Q2) | | | | | | |
-| 4 (2027-Q3) | | | | | | |
-| 5 (2027-Q4) | | | | | | |
-| 6 (2028-Q1) | | | | | | |
-| 7 (2028-Q2) | | | | | | |
-| 8 (2028-Q3) | | | | | | |
-| 9 (2028-Q4) | | | | | | |
-| 10 (2029-Q1) | | | | | | |
-| 11 (2029-Q2) | | | | | | |
-| 12 (2029-Q3) | | | | | | |
-| 13 (2029-Q4) | | | | | | |
-| 14 (2030-Q1) | | | | | | |
-| 15 (2030-Q2) | | | | | | |
-| 16 (2030-Q3) | | | | | | |
-| 17 (2030-Q4) | | | | | | |
+| Checkpoint | Set A result | Set B Brier | Set C Brier | Set D Brier | Set F Brier | Events resolved yes | Notes |
+|---|---|---|---|---|---|---|---|
+| 1 (2026-Q4) | | | | | | | |
+| 2 (2027-Q1) | | | | | | | |
+| 3 (2027-Q2) | | | | | | | |
+| 4 (2027-Q3) | | | | | | | |
+| 5 (2027-Q4) | | | | | | | |
+| 6 (2028-Q1) | | | | | | | |
+| 7 (2028-Q2) | | | | | | | |
+| 8 (2028-Q3) | | | | | | | |
+| 9 (2028-Q4) | | | | | | | |
+| 10 (2029-Q1) | | | | | | | |
+| 11 (2029-Q2) | | | | | | | |
+| 12 (2029-Q3) | | | | | | | |
+| 13 (2029-Q4) | | | | | | | |
+| 14 (2030-Q1) | | | | | | | |
+| 15 (2030-Q2) | | | | | | | |
+| 16 (2030-Q3) | | | | | | | |
+| 17 (2030-Q4) | | | | | | | |
 
 ## Known weaknesses of this forecast
 
@@ -367,6 +444,7 @@ Cumulative probability (%), same convention as set B.
 - **Counting.** Vendors report "delivered", "shipped" and "sold" loosely. Figure's 350 "delivered" units are not homes.
 - **Thin base rates.** No general-purpose home robot has ever shipped at volume, so every number here is extrapolated from announcements and research results.
 - **Set C depends on disclosure.** Vendors rarely say what is inside their models. C10–C12 can be true and unresolvable; such cells are marked unresolved, which biases the scored record toward research events.
+- **Set F rests on very little.** One stovetop result in one kitchen, one long espresso run and a handful of lab appliance tasks. The cooking rows are extrapolated from general household progress more than from cooking evidence.
 - **Set D leans on company figures.** Delivery counts and retailer shares are self-reported, and the home-side rows start from almost no evidence, so their probabilities are the least anchored on the page.
 - **Horizon.** Four years is long for this field. The 2029–2030 columns should be read as a statement of today's beliefs, to be replaced by a new dated forecast well before then.
 

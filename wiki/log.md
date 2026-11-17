@@ -6850,3 +6850,11 @@ Structure was sound: **0 broken file links, 0 orphans, 0 schema violations, all 
 - **The home side starts from almost no evidence.** The wiki has no success rate for putting groceries away, only lab bagging, a teleoperated restocking dataset and one fridge-opening result. The page says those rows are the least anchored.
 - The page's scorecard gains a set D column; set D is scored by its own Brier score.
 - **Scheduled scoring:** the January run now covers both forecast pages and all sets (A–D on this page, R and E on the assistive page). This supersedes the earlier log line saying it covered only the home robot page.
+
+## [2026-11-16] query | "Add meal preparation and cooking tasks to the home robot forecast"
+- Added **set F, 14 cooking events** to the [home robot forecast](syntheses/society/home-robot-forecast-2026-2028.md), the same day and before any scoring. No number already filed was changed. The set is lettered F because E is used by the assistive forecast, which is scored alongside it.
+- Evidence: [Mobile ALOHA](sources/mobile-aloha-paper.md)'s shrimp at 40% in its own kitchen; [π*0.6](sources/pistar06-paper.md)'s 13 hours of espresso; lab microwave, toaster and rice-cooker tasks; BEHAVIOR-1K at 12.4%; the comparison page's finding that nothing purchasable cooks or opens a can; Flourish's exclusion of water, sharp and breakable items.
+- Coverage: appliances and cold food (4 events), heat and knives (4), products (3), and assistive, benchmark and safety (3). Headline numbers: a hot drink or appliance task published in unseen homes 54% by 2028-Q4; a stovetop dish in unseen kitchens about even odds by end-2029; a shipped stovetop feature 50% by 2030-Q4; a hot meal cooked unattended 35%.
+- Reasoning recorded on the page: appliances contain the heat and are short tasks, so they lead; liability will hold stovetop products back as much as capability; commercial kitchens are the first paying market.
+- **The set rests on very little cooking-specific evidence**, and the page says so.
+- The scorecard gains a set F column. All 61 event rows on the page were checked for 17 non-decreasing values, and F10 (unattended) never exceeds F9 (any stovetop feature).

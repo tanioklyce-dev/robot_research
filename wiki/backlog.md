@@ -11,7 +11,7 @@ tags: [backlog, lint, todo, knowledge-gaps]
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
 ## [2026-11-16] Forecast scoring schedule
-Score **both** forecasts in the first two weeks after each quarter ends: the [home robot, JEPA and grocery forecast](syntheses/society/home-robot-forecast-2026-2028.md) (sets A–D) and the [assistive robot forecast](syntheses/assistive/assistive-robot-forecast-2026-2030.md) (set R homes tally, 22 set-E events). Build the set-A delivery tally with sources, resolve the 20 set-B events and the 13 set-C (JEPA) events, compute a Brier score for each set, and append to the page's scorecard. **Never edit the forecasts themselves.**
+Score **both** forecasts in the first two weeks after each quarter ends: the [home robot forecast](syntheses/society/home-robot-forecast-2026-2028.md) (sets A, B, C for JEPA, D for grocery and F for cooking) and the [assistive robot forecast](syntheses/assistive/assistive-robot-forecast-2026-2030.md) (set R homes tally, 22 set-E events). Build the set-A delivery tally with sources, resolve the 20 set-B events and the 13 set-C (JEPA) events, compute a Brier score for each set, and append to the page's scorecard. **Never edit the forecasts themselves.**
 - [ ] **Checkpoint 1**: quarter ended 2026-12-31; score in January 2027.
 - [ ] **Checkpoint 2**: quarter ended 2027-03-31; score in April 2027.
 - [ ] **Checkpoint 3**: quarter ended 2027-06-30; score in July 2027. Add the first calibration table.
