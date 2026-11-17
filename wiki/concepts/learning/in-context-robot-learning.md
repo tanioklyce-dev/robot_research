@@ -2,8 +2,8 @@
 title: In-context robot learning
 type: concept
 created: 2026-08-29
-updated: 2026-09-12
-sources: 12
+updated: 2026-11-17
+sources: 13
 tags: [in-context-learning, robot-foundation-model, demonstration-conditioning, test-time-adaptation, vla, skild-ai, s1, generalist-ai, gen-1-5, physical-prompting, emergence]
 ---
 
@@ -175,6 +175,7 @@ What separates them is horizon and structure, not aim. RMA adapts to **terrain, 
 - [**LocoFormer: Generalist Locomotion via Long-context Adaptation**](../../sources/locoformer-paper.md) — Liu, [Pathak](../../entities/deepak-pathak.md) & Agarwal, CoRL 2025. The experience-conditioned instance, and the better-evidenced of the two: peer-reviewed, with baselines (GRU 0.37 vs 0.96) and per-robot expert upper bounds (0.99).
 
 ## Mentioned in
+- [Gemini Robotics: Bringing AI into the Physical World](../../sources/gemini-robotics-report-2025.md) — 10 demonstrations tokenized as text (keypoints, end-effector poses, language) lift a VLM from 25% to 65% on a real ALOHA 2, with no weight update.
 
 - [Introducing S1](../../sources/skild-s1-blog.md) — the demonstration-conditioned mode.
 - [GEN-1.5](../../sources/generalist-gen-1-5-blog.md) — the second demonstration-conditioned instance, and the contradiction about mechanism.

@@ -3,8 +3,8 @@ title: Diffusion Policy
 type: entity
 subtype: method
 created: 2026-05-08
-updated: 2026-09-11
-sources: 56
+updated: 2026-11-17
+sources: 57
 tags: [diffusion-policy, behavior-cloning, diffusion-model, ddpm, action-diffusion, chi-2023, columbia, tri, mit, mobile-aloha]
 ---
 
@@ -113,7 +113,7 @@ The image-generation side has an active literature on exactly this structure ([r
 ## Mentioned in
 
 - [HAND ERC project list and project pages](../sources/hand-erc-projects.md) — behavior cloning from no-privileged-information teleoperation; a second project steers the policy at deployment
-> [!note] Curated list — **55** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **56** source pages link here; the ones below are those that shaped this page.
 
 
 - [Diffusion Policy Paper](../sources/diffusion-policy-paper.md) — primary source.

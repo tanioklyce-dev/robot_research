@@ -2,8 +2,8 @@
 title: Code as policy
 type: concept
 created: 2026-08-03
-updated: 2026-11-14
-sources: 31
+updated: 2026-11-17
+sources: 32
 tags: [code-as-policy, llm-agent, agentic-robotics, program-synthesis, skill-library, voyager, saycan, voxposer, inner-monologue, codeact, tool-use, waddle, cap-x, aspire, benchmark]
 ---
 
@@ -269,6 +269,7 @@ What remains unmeasured is what it costs. [GaP](../../sources/gap-graph-as-polic
 > And two things have **not** moved in four years: the primitive set still has to be ported per embodiment, and nobody reports cost.
 
 ## Mentioned in
+- [Gemini Robotics: Bringing AI into the Physical World](../../sources/gemini-robotics-report-2025.md) — zero-shot control by code generation with the model as its own perception stack: 53% in simulation, 25% real, 0% where precise grasps are needed.
 - [Gemini 4 Argon for Robotics](../../sources/gemini-4-argon-robotics-blog.md) (2026-10) — a frontier general model with a published S2-tier primitive harness, self-chosen call granularity, and sim rehearsal before hardware.
 - [Code as Policies](../../sources/code-as-policies-paper.md) (ICRA 2023) — the origin paper; LMPs, hierarchical code-gen, RoboCodeGen.
 - [SayCan](../../sources/saycan-paper.md) (CoRL 2022) — the skill-selection branch this pattern defines itself against.

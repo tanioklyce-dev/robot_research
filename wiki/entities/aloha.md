@@ -3,8 +3,8 @@ title: ALOHA / Mobile ALOHA
 type: entity
 subtype: product
 created: 2026-05-25
-updated: 2026-10-13
-sources: 18
+updated: 2026-11-17
+sources: 19
 tags: [aloha, mobile-aloha, bimanual, mobile-manipulation, teleoperation, viperx-300, stanford, low-cost, open-source, act-plus-plus]
 ---
 
@@ -71,6 +71,7 @@ tags: [aloha, mobile-aloha, bimanual, mobile-manipulation, teleoperation, viperx
 - [Grievous](grievous.md) — first downstream-of-Mobile-ALOHA cost-reduction effort.
 
 ## Mentioned in
+- [Gemini Robotics: Bringing AI into the Physical World](../sources/gemini-robotics-report-2025.md) — **ALOHA 2 is the training platform of the first Gemini Robotics VLA**: thousands of hours of teleoperation from a fleet over 12 months, and the robot for nearly all its evaluations.
 - [Mobile ALOHA Paper](../sources/mobile-aloha-paper.md)
 - [Mobile ALOHA Project Page](../sources/mobile-aloha-project-page.md)
 - [Grievous GitHub](../sources/grievous-github.md) — design ancestor.

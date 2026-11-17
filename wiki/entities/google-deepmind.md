@@ -4,7 +4,7 @@ type: entity
 subtype: company
 created: 2026-05-06
 updated: 2026-11-17
-sources: 51
+sources: 52
 tags: [google-deepmind, mujoco, newton, mjcphysics, openusd, robotics-research, biomechanics, dmpo, acme, gemini-robotics, genie, world-model]
 ---
 
@@ -44,11 +44,12 @@ The [Gemini 4 Argon safety report](../sources/gemini-4-argon-safety-security-rep
 ## Mentioned in
 
 - [NSF HAND Engineering Research Center (site)](../sources/hand-erc-site.md) — listed as an industry member
-> [!note] Curated list — **50** source pages link here; the ones below are those that shaped this page.
+> [!note] Curated list — **51** source pages link here; the ones below are those that shaped this page.
 
 - [MuJoCo Playground Paper](../sources/mujoco-playground-paper.md)
 - [Code World Models for General Game Playing](../sources/code-world-models-general-game-playing.md)
 - [Gemini 4 Argon for Robotics](../sources/gemini-4-argon-robotics-blog.md) — the general frontier model as a robotics toolchain: sim authoring, labeling, code-as-policies control.
+- [Gemini Robotics: Bringing AI into the Physical World](../sources/gemini-robotics-report-2025.md) — the March 2025 report that started the Gemini Robotics line and introduced [ERQA](erqa.md).
 - [Gemini Robotics 2.5 blog](../sources/gemini-robotics-2-5-blog.md) — the 2.5 VLA and the Mercedes-Benz pilot.
 - [Gemini 4 Argon Safety & Security Report](../sources/gemini-4-argon-safety-security-report.md) — Frontier Safety Framework v3.1 in use: three thresholds not ruled out, and a loss-of-control case built on chain-of-thought and action monitoring.
 - [EmbeddingGemma 2 launch blog](../sources/embeddinggemma-2-blog.md)

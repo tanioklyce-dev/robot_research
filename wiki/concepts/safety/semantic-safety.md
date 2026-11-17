@@ -3,7 +3,7 @@ title: Semantic safety
 type: concept
 created: 2026-08-03
 updated: 2026-11-17
-sources: 18
+sources: 19
 tags: [semantic-safety, robot-safety, constitutional-ai, asimov, red-teaming, google-deepmind, vlm, alignment, terminology, contact-rich]
 ---
 
@@ -155,6 +155,7 @@ What would change this: a safety architecture where the semantic layer's *output
 
 ## Mentioned in
 - [ASIMOV Benchmark paper](../../sources/asimov-benchmark-paper.md) — defines the term; the benchmark and the constitution framework.
+- [Gemini Robotics: Bringing AI into the Physical World](../../sources/gemini-robotics-report-2025.md) — the model report released with ASIMOV: "semantic action safety" placed above lower-level controllers that VLAs "need... to be interfaced with."
 - [Responsibly advancing AI and robotics](../../sources/deepmind-gemini-robotics-safety-page.md) — the three-layer public framing.
 - [Predictive Red Teaming](../../sources/predictive-red-teaming-paper.md) — policy-vulnerability prediction without hardware.
 - [Evaluating Gemini Robotics Policies in a Veo World Simulator](../../sources/veo-robotics-policy-evaluation-paper.md) — generative safety probing.

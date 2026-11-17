@@ -4,7 +4,7 @@ type: entity
 subtype: model
 created: 2026-05-09
 updated: 2026-11-17
-sources: 15
+sources: 16
 tags: [gemini-robotics, google-deepmind, vlm, vla, embodied-reasoning, foundation-model]
 ---
 
@@ -73,6 +73,19 @@ The 1.5-generation family contains two distinct variants:
 - **Gemini Robotics** — full vision-language-**action** model (VLA); emits low-level robot actions directly. Listed alongside [NVIDIA GR00T](nvidia-groot.md) and [Physical Intelligence π0/π0.6](physical-intelligence.md) on the [VLA models concept page](../concepts/learning/vla-models.md).
 - **Gemini Robotics-ER** ("ER" = embodied reasoning) — vision-language model (VLM) that provides high-level reasoning over visual input and emits *tool calls*, not motor actions. Designed to be plugged into a robot's existing API (i.e. acts as the planner in an [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md), not as the policy). Versions 1.5 and 1.6 referenced below.
 
+## The original Gemini Robotics (March 2025)
+
+The founding [technical report](../sources/gemini-robotics-report-2025.md), on Gemini 2.0. It introduced the two-model split the line has kept, and the [ERQA](erqa.md) benchmark.
+
+- **Gemini Robotics-ER**: a Gemini 2.0 Flash variant with stronger pointing, grasp prediction and 3D detection. With no action training it controls an [ALOHA](aloha.md) 2 by writing code (53% in simulation, 25% on the real robot) or from 10 in-context demonstrations (65% in both). Zero-shot fails where precise grasps are needed.
+- **Gemini Robotics** (the VLA): a distilled ER backbone **in the cloud** (under 160 ms) plus an on-robot action decoder; about **250 ms** end to end, with chunked actions played at 50 Hz. Trained on "thousands of hours" of ALOHA 2 teleoperation collected over 12 months.
+- **Results**: above 80% success on half of 20 dexterous tasks out of the box; 79% average on six long-horizon tasks after fine-tuning on 2,000–5,000 episodes each (lunch-box packing 100% of 20 trials); above 70% on 7 of 8 new short tasks from at most 100 demonstrations. The same model trained from scratch on the specialization data scores 0%.
+- **Embodiments**: adapted by fine-tuning to a bi-arm [Franka](franka-panda.md) (63% on four industrial tasks) and, with no number given, [Apollo](apptronik-apollo.md).
+- **Method**: stated trial counts, randomized back-to-back runs, a paired test, and a π0 baseline retrained on the same data. None of the 2 or 2.5 announcements match this.
+- **Safety**: [ASIMOV](asimov-benchmark.md) released alongside; ER post-trained on it.
+
+Its closing list of future work (zero-shot cross-embodiment transfer, more simulation data, reasoning combined with dexterity) is what 1.5, 2 and 2.5 then delivered or claimed.
+
 ## Gemini Robotics 1.5 (primary report now ingested)
 
 The [Gemini Robotics 1.5 tech report](../sources/gemini-robotics-1-5-report.md) is the wiki's first deep DeepMind-robotics source. It pairs **GR 1.5** (a multi-embodiment VLA controlling [ALOHA](aloha.md) 2 / bi-arm [Franka](franka-panda.md) / [Apollo](apptronik-apollo.md) humanoid with **one checkpoint**) and **GR-ER 1.5** (the embodied-reasoning orchestrator), both on **Gemini 2.5**. Three headline mechanisms:
@@ -113,6 +126,7 @@ Boston Dynamics' **AIVI-Learning** product is described as "the next evolution" 
 
 ## Mentioned in
 
+- [Gemini Robotics: Bringing AI into the Physical World](../sources/gemini-robotics-report-2025.md) — **the founding report** (March 2025): ERQA, Gemini Robotics-ER, and the cloud-backbone VLA.
 - [Gemini Robotics 1.5 tech report](../sources/gemini-robotics-1-5-report.md) — **primary technical source** (GR 1.5 VLA + GR-ER 1.5).
 - [Tools for Your To Do List with Spot and Gemini Robotics (Boston Dynamics blog)](../sources/bostondynamics-spot-gemini-robotics.md)
 - [DeepMind Gemini Robotics model page](../sources/deepmind-gemini-robotics-model-page.md) — the **2** generation (GR 2 / ER 2 / On-Device 2), access tiers, and partner list. No numbers.
@@ -130,7 +144,7 @@ Boston Dynamics' **AIVI-Learning** product is described as "the next evolution" 
 - ~~Primary technical source not yet ingested~~ — filed 2026-07-04: [Gemini Robotics 1.5 report](../sources/gemini-robotics-1-5-report.md). (Exact model sizes / action-decoder details still undisclosed by DeepMind; appendices not in the PDF.)
 - **ER 1.6** — the AIVI-Learning productization variant post-dates the 1.5 report; no dedicated source.
 - **Open weights?** No; both variants appear to be closed / API-only.
-- **Latency and cost.** Not documented in the BD blog; likely cloud-API-bound.
+- **Latency and cost.** For the 2025 VLA the [report](../sources/gemini-robotics-report-2025.md) gives a cloud backbone under 160 ms and about 250 ms end to end. Nothing comparable is published for 2 or 2.5; cost is not documented anywhere.
 - **Other documented integrations besides Spot.** The [GR 2.5 post](../sources/gemini-robotics-2-5-blog.md) documents Apptronik's Apollo 2 on Mercedes-Benz lines, from DeepMind's side only. An Apptronik or Mercedes primary would supply the denominators.
 - **GR 2.5 evaluation protocol**: trial counts, and why its GR 2 baseline differs from GR 2's launch figures.
 - **Is there an ER 2.5 or On-Device 2.5?** Neither is mentioned in the 2.5 announcement.

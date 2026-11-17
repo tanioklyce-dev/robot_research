@@ -3,7 +3,7 @@ title: Chain of thought
 type: concept
 created: 2026-05-15
 updated: 2026-11-17
-sources: 18
+sources: 19
 tags: [llm, reasoning, prompting, chain-of-thought, reasoning-models, embodied-cot, depth-tokens]
 ---
 
@@ -74,6 +74,7 @@ This is the same structure as the [verbalized evaluation awareness](../../source
 > **[Verbalized Eval Awareness](../../sources/goodfire-verbalized-eval-awareness.md)** (Goodfire + [UK AISI](../../entities/uk-aisi.md)) finds that across 19 benchmarks and 8 models, models say *in their chain of thought* that they are being evaluated — and behave more safely when they do. **95% of instances appear only in the CoT**, invisible to answer-level scoring. Causally: deleting those sentences raises compliance **8% (34% for safety-related ones)**; injecting them raises refusal by up to **12.6 pp**. Paraphrasing prompts cuts awareness **75%** and **lowers measured safety**, i.e. part of the score was an artifact of phrasing.
 
 ## Mentioned in
+- [Gemini Robotics: Bringing AI into the Physical World](../../sources/gemini-robotics-report-2025.md) — CoT prompting adds 3 to 10 points on ERQA; predicted keypoint trajectories used as a VLA's internal chain of thought.
 - [Gemini 4 Argon Safety & Security Report](../../sources/gemini-4-argon-safety-security-report.md) — chain-of-thought monitoring as the main loss-of-control safeguard, and what degrades it.
 - [Reasoning Theater (Boppana et al. 2026)](../../sources/goodfire-reasoning-theater.md) — performative CoT, conditional on task difficulty; probe-guided early exit.
 - [Verbalized Eval Awareness (Aranguri & Bloom 2026)](../../sources/goodfire-verbalized-eval-awareness.md) — eval awareness lives in the CoT and inflates measured safety.

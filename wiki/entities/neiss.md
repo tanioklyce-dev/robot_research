@@ -3,8 +3,8 @@ title: NEISS
 type: entity
 subtype: dataset
 created: 2026-08-03
-updated: 2026-08-03
-sources: 1
+updated: 2026-11-17
+sources: 2
 tags: [neiss, injury-data, dataset, safety, public-health]
 ---
 
@@ -25,4 +25,5 @@ This is the wiki's clearest instance of **grounding an AI safety benchmark in re
 - [Semantic safety](../concepts/safety/semantic-safety.md).
 
 ## Mentioned in
+- [Gemini Robotics: Bringing AI into the Physical World](../sources/gemini-robotics-report-2025.md) — ASIMOV-Injury instances from NEISS records used to evaluate and post-train Gemini Robotics-ER.
 - [ASIMOV Benchmark paper](../sources/asimov-benchmark-paper.md) — the ASIMOV-Injury data source.

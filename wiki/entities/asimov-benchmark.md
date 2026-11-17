@@ -4,7 +4,7 @@ type: entity
 subtype: benchmark
 created: 2026-08-03
 updated: 2026-11-17
-sources: 9
+sources: 10
 tags: [asimov, semantic-safety, benchmark, google-deepmind, constitutional-ai, neiss, safety]
 ---
 
@@ -74,6 +74,7 @@ No trial counts. The older general model beats the robotics-specialised ER 2 on 
 
 ## Mentioned in
 - [ASIMOV Benchmark paper](../sources/asimov-benchmark-paper.md) — primary source.
+- [Gemini Robotics: Bringing AI into the Physical World](../sources/gemini-robotics-report-2025.md) — ASIMOV was released "concurrent with this tech report" (March 2025); Gemini Robotics-ER was post-trained on its instances.
 - [Responsibly advancing AI and robotics](../sources/deepmind-gemini-robotics-safety-page.md) — named as a safety pillar.
 - [Veo world simulator evaluation](../sources/veo-robotics-policy-evaluation-paper.md) — adopts its semantic-safety definition.
 - [Gemini Robotics 2: Safety Evaluations](../sources/gemini-robotics-2-safety-report.md) — introduces **ASIMOV-Agentic**, extending the family from semantic judgment to agentic safety orchestration.

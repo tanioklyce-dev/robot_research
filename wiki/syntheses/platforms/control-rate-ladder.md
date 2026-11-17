@@ -2,7 +2,7 @@
 title: The control-rate ladder — LLMs, VLAs, and servo loops on one axis
 type: synthesis
 created: 2026-07-27
-updated: 2026-11-13
+updated: 2026-11-17
 tags: [latency, inference, control-frequency, vla, llm-agent, edge-ai, jetson, action-chunking, control-abstraction-levels, platforms, turbovla, llm-free-vla]
 ---
 
@@ -61,6 +61,7 @@ This page lines them up. The short version: **the full span is about five orders
 | **7.3** | MEAS | [Evo-1](../../entities/evo-1.md) 0.8 B, 137.2 ms — small but **not** fast | RTX 4090 |
 | **5.8** | MEAS | GR00T N1.6, TensorRT | AGX Orin 64 GB |
 | **5** | MEAS | [RT-2](../../entities/rt-2.md) 5B variant | TPU cloud |
+| **~4** | MEAS | **[Gemini Robotics (2025)](../../sources/gemini-robotics-report-2025.md)** — about **250 ms** from observation to action chunk, of which the cloud backbone is under 160 ms; chunks are played back at 50 Hz, which the report calls the "effective control frequency" | ALOHA 2, cloud backbone + onboard decoder |
 | **5** | CAP | BridgeV2 capture rate | dataset |
 | **4.9** | MEAS | [SmolVLA](../../entities/smolvla.md), 203.1 ms — same re-measurement | RTX 4090 |
 | **4** | MEAS | [VLA-0](../../entities/vla-0.md) — action-as-text is slow | GPU |

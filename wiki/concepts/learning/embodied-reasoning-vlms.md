@@ -2,8 +2,8 @@
 title: Embodied-reasoning VLMs (ER backbones)
 type: concept
 created: 2026-09-11
-updated: 2026-11-07
-sources: 12
+updated: 2026-11-17
+sources: 13
 tags: [embodied-reasoning, vlm-backbone, spatial-reasoning, pointing, benchmarks, vla, molmo2-er, gemini-robotics-er, cosmos-reason, unifolm]
 ---
 
@@ -48,6 +48,7 @@ The field has converged on a shared basket, and [UnifoLM](../../sources/unifolm-
 
 - [MolmoAct2 paper](../../sources/molmoact2-paper.md) — the backbone-swap ablation; the Molmo2-ER corpus and recipe.
 - [UnifoLM-WLA-1.0 project page](../../sources/unifolm-wla-1-project-page.md) — the 23×16 table; single-stage co-training and its regression.
+- [Gemini Robotics report (2025)](../../sources/gemini-robotics-report-2025.md) — the origin: Gemini Robotics-ER and [ERQA](../../entities/erqa.md), with the first evidence that embodied-reasoning scores track control success.
 - [Gemini Robotics 1.5 report](../../sources/gemini-robotics-1-5-report.md) — ER as orchestrator; ERQA.
 - [Isaac-GR00T GitHub](../../sources/isaac-gr00t-github.md) — Cosmos-Reason2-2B as the N1.7 backbone.
 
@@ -60,6 +61,7 @@ The field has converged on a shared basket, and [UnifoLM](../../sources/unifolm-
 - [Physical reasoning benchmarks](../world-models/physical-reasoning-benchmarks.md) — the adjacent, physics-focused basket.
 
 ## Mentioned in
+- [Gemini Robotics: Bringing AI into the Physical World](../../sources/gemini-robotics-report-2025.md) — where the "-ER" name and [ERQA](../../entities/erqa.md) come from; ER nearly doubles zero-shot control success over its base model (27% → 53%).
 
 - [UnifoLM-WLA-1.0 project page](../../sources/unifolm-wla-1-project-page.md)
 - [MolmoAct2 paper](../../sources/molmoact2-paper.md)

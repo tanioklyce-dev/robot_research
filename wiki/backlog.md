@@ -926,3 +926,9 @@ Clean at time of writing: 0 broken links (7,175 checked), 0 orphan pages, all `s
 - [ ] **ASIMOV-Jailbreak method** — still undocumented; check the `google/asimov_agentic` dataset card.
 - [ ] **Google DeepMind AI Control Roadmap / TRAIT&R taxonomy** and **Frontier Safety Framework v3.1** — both cited by the report, neither ingested.
 - [ ] **Gemini 4 model card** — referenced for basic model information.
+
+## [2026-11-17] Gemini Robotics 2025 report — follow-ups
+- [ ] **Per-task charts** in [the 2025 report](sources/gemini-robotics-report-2025.md) (Figs. 16, 17, 21, 23, 24, 26, 28) were not transcribed; neither were the appendix task lists and prompts.
+- [ ] **Confirm the arXiv identifier and announcement date** recorded on the source page; both came from memory, not from the PDF.
+- [ ] **ERQA repository** (`github.com/embodiedreasoning/ERQA`) — ingest for the question breakdown and any maintained leaderboard; would let the [ERQA entity](entities/erqa.md) put its rows on one harness.
+- [ ] **Argon blog capture cannot be auto-checked** — the October capture has a hand-added author line and literal `<omni_prompt>` tags that the text comparison reads as drift. Compared by hand 2026-11-17 with no change; a fresh capture under a new filename would make it re-checkable.

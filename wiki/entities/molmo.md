@@ -3,8 +3,8 @@ title: Molmo
 type: entity
 subtype: vlm
 created: 2026-07-17
-updated: 2026-11-07
-sources: 10
+updated: 2026-11-17
+sources: 11
 tags: [molmo, molmo2, vlm, allen-institute, ai2, pixmo, open-weights, open-data, pointing, vla-backbone]
 ---
 
@@ -55,6 +55,7 @@ In [ToyBlocks](toyblocks.md), a fine-tuned **Molmo 2** (`allenai/Molmo2-4B-tb`) 
 - Does Molmo's pointing capability feed MolmoAct's action grounding directly (point → act), or only indirectly? Resolvable when the [MolmoAct](molmoact.md) paper (2508.07917) is filed.
 
 ## Mentioned in
+- [Gemini Robotics: Bringing AI into the Physical World](../sources/gemini-robotics-report-2025.md) — pointing comparison: Gemini Robotics-ER beats Molmo 72B on Paco-LVIS and Pixmo-Point; Molmo 72B keeps Where2Place (63.8 vs 45.0).
 
 - [Molmo and PixMo paper (Deitke et al. 2024)](../sources/molmo-pixmo-paper.md) — the primary source.
 - [MolmoAct](molmoact.md) — the VLA that uses Molmo as its backbone.

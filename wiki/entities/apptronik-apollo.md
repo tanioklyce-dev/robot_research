@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-05-08
 updated: 2026-11-17
-sources: 8
+sources: 9
 tags: [apollo, apptronik, humanoid, bipedal, nvidia-partnership, ut-austin]
 status: stub
 ---
@@ -37,6 +37,7 @@ In DeepMind's lab evaluation the same robot, with the 22-DoF [SharpaWave](sharpa
 - [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — landscape.
 
 ## Mentioned in
+- [Gemini Robotics: Bringing AI into the Physical World](../sources/gemini-robotics-report-2025.md) — the earliest Gemini Robotics result on Apollo (March 2025): fine-tuned to pack a lunch bag with five-fingered hands, shown in one figure with no success rate.
 - [Gemini Robotics 1.5 tech report](../sources/gemini-robotics-1-5-report.md) — Apollo is one of GR 1.5's three training/eval embodiments (ALOHA / Franka / Apollo).
 - [DeepMind Gemini Robotics model page](../sources/deepmind-gemini-robotics-model-page.md) — Apptronik named as a Gemini Robotics 2 partner; per press coverage the whole-body demonstration platform is **Apollo 2**, a version this page does not yet cover.
 - [Gemini Robotics 2 blog](../sources/gemini-robotics-2-blog.md) — **Apollo 2** is the whole-body demonstration platform, benchmarked with both **[SharpaWave](sharpa-wave.md)** (5-finger, 22-DoF) and **Inspire** hands.

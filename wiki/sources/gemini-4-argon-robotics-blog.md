@@ -2,6 +2,7 @@
 title: "Gemini 4 Argon for Robotics (Google Developers Blog)"
 type: source
 url: https://developers.googleblog.com/gemini-4-argon-for-robotics/
+drift_check: "compared by hand 2026-11-17, no content change; the capture's hand-added author line and literal <omni_prompt> tags make the automated text comparison report false drift"
 local_path: raw/2026-10-13-google-developers-blog-gemini-4-argon-robotics.md
 sha256: 41ab5fff46228e4c2333d8c2b92b3b9b139f220c84e5c2554bd27707cef5b7b5
 author: Kanishka Rao (Google)
