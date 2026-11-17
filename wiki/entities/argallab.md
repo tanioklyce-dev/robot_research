@@ -4,7 +4,7 @@ type: entity
 subtype: lab
 created: 2026-11-16
 updated: 2026-11-17
-sources: 5
+sources: 6
 tags: [argallab, brenna-argall, shared-control, shared-autonomy, interface-aware, assistive-robotics, powered-wheelchair, assistive-robot-arm, robot-learning, northwestern, shirley-ryan-abilitylab]
 ---
 
@@ -39,7 +39,7 @@ Source: [lab pages](../sources/shirley-ryan-abilitylab-research-labs.md) (a 2023
 - **Output:** 71 listed publications through 2026, at venues including RSS, IJRR, HRI and ICORR.
 - **Collaborators named:** Todd Murphey and Sandro Mussa-Ivaldi (grants), LUCI (wheelchair safety systems), Innovative Design Labs (NIH SBIR).
 - **Project DRIVE:** led by the lab, a participant in the NSF Convergence Accelerator program.
-- **HAND ERC:** Argall leads the Intelligent Dexterity thrust of the [HAND ERC](hand-erc.md), an NSF center on dexterous robot hands headquartered at Northwestern ([site](../sources/hand-erc-site.md)).
+- **HAND ERC:** Argall leads the Intelligent Dexterity thrust of the [HAND ERC](hand-erc.md), an NSF center on dexterous robot hands headquartered at Northwestern ([site](../sources/hand-erc-site.md)). Within it she leads a project on a grasp-affordance taxonomy and levels-of-dexterity benchmarks ([project pages](../sources/hand-erc-projects.md)).
 
 Source: [lab pages](../sources/shirley-ryan-abilitylab-research-labs.md).
 
@@ -72,3 +72,4 @@ Both are case studies with two to four participants and no inferential statistic
 - [Interface-aware handling of unintended interface operation (IJRR 2025)](../sources/interface-aware-arm-teleoperation-sci-paper.md)
 - [NSF HAND Engineering Research Center (site)](../sources/hand-erc-site.md)
 - [Northwestern robotics topic pages](../sources/northwestern-robotics-assistive-topic-pages.md)
+- [HAND ERC project list and project pages](../sources/hand-erc-projects.md)

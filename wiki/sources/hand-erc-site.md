@@ -16,7 +16,7 @@ tags: [hand-erc, dexterous-manipulation, robot-hands, tactile-sensing, nsf, engi
 
 ## Summary
 
-**HAND** (Human AugmentatioN via Dexterity) is a US National Science Foundation Engineering Research Center headquartered at Northwestern University, funded *"for up to $52M and 10-years"*. Its target is a dexterous robot hand that works **"out of the box"**: hardware that mounts on commercial arms and humanoids, a growing library of AI-driven dexterous skills, and an interface a trained worker can use without a robotics specialist. It states a dated goal for 2035. One of its five application testbeds, for assistance and caregiving, is at the [Shirley Ryan AbilityLab](../entities/shirley-ryan-abilitylab.md), and Brenna Argall of the [argallab](../entities/argallab.md) leads its intelligent-dexterity thrust. This capture is the center's own website: it states aims and structure, not results.
+**HAND** (Human AugmentatioN via Dexterity) is a US National Science Foundation Engineering Research Center headquartered at Northwestern University, funded *"for up to $52M and 10-years"*. The [award announcement](northwestern-hand-erc-announcement.md) shows that this is $26 million for five years with a renewal option for the same again. Its target is a dexterous robot hand that works **"out of the box"**: hardware that mounts on commercial arms and humanoids, a growing library of AI-driven dexterous skills, and an interface a trained worker can use without a robotics specialist. It states a dated goal for 2035. One of its five application testbeds, for assistance and caregiving, is at the [Shirley Ryan AbilityLab](../entities/shirley-ryan-abilitylab.md), and Brenna Argall of the [argallab](../entities/argallab.md) leads its intelligent-dexterity thrust. This capture is the center's own website: it states aims and structure, not results.
 
 ## Key claims
 
@@ -57,6 +57,6 @@ tags: [hand-erc, dexterous-manipulation, robot-hands, tactile-sensing, nsf, engi
 
 ## Open questions
 
-- What has the center built so far? The project list and any published hand designs are the next thing to capture.
-- When did the award start, and so when does the ten-year term end? The site links an announcement that was not captured.
+- What has the center built so far? The [project pages](hand-erc-projects.md) show plans through 2026 and no finished hand.
+- ~~When did the award start?~~ Answered by the [announcement](northwestern-hand-erc-announcement.md): 21 August 2024, $26 million for five years, renewable for another $26 million.
 - What does the assistance testbed at the Shirley Ryan AbilityLab actually test?

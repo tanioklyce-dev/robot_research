@@ -4,7 +4,7 @@ type: entity
 subtype: person
 created: 2026-07-08
 updated: 2026-08-16
-sources: 16
+sources: 17
 tags: [russ-tedrake, mit, csail, tri, lbm, drake, underactuated-robotics, locomotion, manipulation, physical-ai, walden-robotics, gcs, motion-planning]
 ---
 
@@ -63,6 +63,7 @@ Open-source **model-based design and simulation/dynamics library** from his MIT 
 
 ## Mentioned in
 
+- [HAND ERC project list and project pages](../sources/hand-erc-projects.md) — leads the DexNex Diffusion Policies project and co-leads its Drake simulation
 - [NSF HAND Engineering Research Center (site)](../sources/hand-erc-site.md) — listed on the center's research team
 - [Motion Planning around Obstacles with Convex Optimization (GCS)](../sources/gcs-motion-planning-paper.md) — senior author (equal contribution); the model-based-planning primary source.
 - [Shortest Paths in Graphs of Convex Sets](../sources/shortest-paths-in-graphs-of-convex-sets-paper.md) — fourth author with [Marcucci](tobia-marcucci.md), Umenberger and Parrilo; the optimization framework under the planner, targeting **hybrid-system optimal control**.

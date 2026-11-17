@@ -3,7 +3,7 @@ title: Dexterous tool manipulation
 type: concept
 created: 2026-08-31
 updated: 2026-08-31
-sources: 8
+sources: 10
 tags: [dexterous-manipulation, tool-use, in-hand-manipulation, multi-fingered-hand, sim-to-real, rl, grasping, object-centric]
 ---
 
@@ -85,3 +85,5 @@ Open limits, per the authors: goal tracking is **not** functional task completio
 - [Sharpa Wave hand](../../entities/sharpa-wave.md)
 - [Jeannette Bohg](../../entities/jeannette-bohg.md)
 - [NSF HAND Engineering Research Center (site)](../../sources/hand-erc-site.md) — 2035 goal includes using hand tools out of the box
+- [HAND ERC project list and project pages](../../sources/hand-erc-projects.md) — a grasp-affordance taxonomy with levels-of-dexterity benchmarks
+- [Northwestern announcement of the HAND award](../../sources/northwestern-hand-erc-announcement.md) — the claim that two-jaw grippers are the limit

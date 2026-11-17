@@ -3,7 +3,7 @@ title: Imitation learning
 type: concept
 created: 2026-05-07
 updated: 2026-10-07
-sources: 126
+sources: 127
 tags: [imitation-learning, behavior-cloning, demonstrations, lerobot, act, co-training, mobile-aloha]
 ---
 
@@ -81,3 +81,4 @@ A prerequisite the talk is clear about: none of this works on logs. Replaying dr
 - [FACTR](../../sources/factr-paper.md) — a curriculum on *modality*: anneal Gaussian blur on the visual input so the force encoder trains first; NTK sketch of why. Also the wiki's first bilateral force-feedback leader–follower rig (~$1,230 per actuated GELLO-style leader arm); [OpenArm](../../entities/openarm.md) ships one commercially.
 - [OpenArm documentation](../../sources/openarm-docs.md) — a purchasable bilateral force-feedback leader–follower rig (≥500 Hz, tanh friction model) with joint torque recorded in the dataset format; five-camera default rig; LeRobot conversion and ACT tutorial.
 - [Northwestern robotics topic pages](../../sources/northwestern-robotics-assistive-topic-pages.md) — learning from teachers whose demonstrations are noisy and sparse because of motor impairment
+- [HAND ERC project list and project pages](../../sources/hand-erc-projects.md) — teleoperation with no privileged information for the operator
