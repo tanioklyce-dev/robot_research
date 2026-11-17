@@ -3,7 +3,7 @@ title: Gravity compensation
 type: concept
 created: 2026-11-16
 updated: 2026-11-16
-sources: 6
+sources: 7
 tags: [gravity-compensation, inverse-dynamics, rnea, torque-control, feedforward, quasi-direct-drive, backdrivability, hand-guiding, kinesthetic-teaching, model-identification, mit-mode]
 ---
 
@@ -54,3 +54,4 @@ Textbook control, solved on research arms. It is newly reachable at the hobby-to
 
 - [Make a Robot Arm Feel Weightless with NVIDIA Holoscan 5](../../sources/nvidia-holoscan-5-rebot-gravity-compensation.md)
 - [DM-J4340P-2EC datasheet](../../sources/damiao-dm-j4340p-2ec-datasheet.md), [DM-J4310-2EC datasheet](../../sources/damiao-dm-j4310-2ec-datasheet.md) — the gear ratios behind the reBot demo; the MIT frame
+- [Open-source bionic leg (Azocar et al. 2020)](../../sources/open-source-bionic-leg-paper.md) — drone motors at low belt-drive ratios, torque estimated from current, in a powered prosthesis

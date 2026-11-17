@@ -3,7 +3,7 @@ title: Assistive Robotics
 type: concept
 created: 2026-05-09
 updated: 2026-11-16
-sources: 55
+sources: 59
 tags: [assistive-robotics, disability, rehabilitation, exoskeleton, social-robot, accessibility]
 ---
 
@@ -137,3 +137,7 @@ Dated, scoreable predictions through 2030 (homes with an assistive mobile manipu
 - [Zeroth M1 — product page](../../sources/zeroth-m1-product-page.md)
 - [TechCrunch — Hello Robot in homes](../../sources/techcrunch-hello-robot-homes-2026.md) — autonomy-as-feature stated by the vendor; the Platt deployment.
 - [Shirley Ryan AbilityLab research labs and the argallab](../../sources/shirley-ryan-abilitylab-research-labs.md) — autonomy added to prescribed devices (wheelchairs, wheelchair-mounted arms); shared control and interface awareness, tested with users inside a rehabilitation hospital
+- [REACT shared control for powered wheelchairs (RSS 2026)](../../sources/react-shared-control-wheelchair-paper.md) — minimal redirect-only assistance on a commercial safety system; effects differ by user, interface and task; one user rated it best and wanted it least
+- [Interface-aware arm teleoperation (IJRR 2025)](../../sources/interface-aware-arm-teleoperation-sci-paper.md) — models the noisy channel between a person and the robot before inferring intent
+- [Open-source bionic leg (Azocar et al. 2020)](../../sources/open-source-bionic-leg-paper.md) — shared research hardware for powered prostheses
+- [Shirley Ryan AbilityLab project pages](../../sources/shirley-ryan-abilitylab-project-pages.md) — a hospital's own account of the limits of robot-guided therapy

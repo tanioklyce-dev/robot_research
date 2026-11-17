@@ -4,7 +4,7 @@ type: entity
 subtype: lab
 created: 2026-11-16
 updated: 2026-11-16
-sources: 1
+sources: 3
 tags: [argallab, brenna-argall, shared-control, shared-autonomy, interface-aware, assistive-robotics, powered-wheelchair, assistive-robot-arm, robot-learning, northwestern, shirley-ryan-abilitylab]
 ---
 
@@ -44,8 +44,17 @@ Source: [lab pages](../sources/shirley-ryan-abilitylab-research-labs.md).
 
 Most assistive work here puts a general-purpose mobile manipulator in the home ([Stretch as an assistive platform](../syntheses/assistive/stretch-as-assistive-platform.md)). This lab improves devices that are already prescribed and paid for. Its shared-control work sits in the middle rows of the [levels of autonomy](../syntheses/assistive/levels-of-autonomy-in-assistive-robotics.md) framing, and its agency argument matches the sense-of-agency study discussed on the [source page](../sources/shirley-ryan-abilitylab-research-labs.md).
 
+## Ingested papers
+
+| Paper | What it shows |
+|---|---|
+| [REACT shared control for wheelchairs](../sources/react-shared-control-wheelchair-paper.md) (RSS 2026) | A deliberately minimal method on top of the commercial LUCI safety system: redirect only when safety throttling is substantial, with no intent or task inference. Case studies with four users over five sessions. Safe trials for a sip/puff driver rose from 72% to 92%; a skilled joystick driver saw no change. One user rated the assistance best and said they would use it least. |
+| [Interface-aware arm teleoperation](../sources/interface-aware-arm-teleoperation-sci-paper.md) (IJRR 2025) | Models how each person actually operates a sip/puff interface, then corrects unintended commands to a Kinova Jaco arm without knowing the task. Two iterations with people with spinal cord injuries; all collisions prevented in both; an LSTM model with transfer learning reduced mode switches. |
+
+Both are case studies with two to four participants and no inferential statistics. They show direction for individuals, not effect sizes.
+
 > [!note] Coverage
-> Known here only from lab and institutional web pages. None of its papers has been ingested, so no result on this page carries numbers.
+> Two of the lab's 71 listed papers are ingested. The rest of this page rests on lab and institutional web pages.
 
 ## Related
 
@@ -56,3 +65,5 @@ Most assistive work here puts a general-purpose mobile manipulator in the home (
 ## Mentioned in
 
 - [Shirley Ryan AbilityLab research labs and the argallab](../sources/shirley-ryan-abilitylab-research-labs.md)
+- [REACT shared control for powered wheelchairs (RSS 2026)](../sources/react-shared-control-wheelchair-paper.md)
+- [Interface-aware handling of unintended interface operation (IJRR 2025)](../sources/interface-aware-arm-teleoperation-sci-paper.md)

@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-07-09
 updated: 2026-07-09
-sources: 4
+sources: 5
 tags: [jaco, kinova, assistive-robotics, wheelchair, robotic-arm, medical-device]
 ---
 
@@ -38,6 +38,7 @@ The arm-only counterpoint to [Stretch](stretch.md): no mobility, so no fetch tas
 
 - [Kinova Jaco product page + user guide](../sources/kinova-jaco-assistive-arm.md)
 - [Nanavati et al. 2025 — feeding out of the lab](../sources/nanavati2025-feeding-out-of-lab.md)
+- [Interface-aware arm teleoperation (IJRR 2025)](../sources/interface-aware-arm-teleoperation-sci-paper.md) — a 7-DoF Jaco driven by sip/puff by people with spinal cord injuries; the interface, not the arm, is the bottleneck
 - [Stretch as the de-facto assistive platform](../syntheses/assistive/stretch-as-assistive-platform.md)
 - [Long-term in-home robot deployments](../syntheses/assistive/long-term-in-home-robot-deployments.md)
 - [Levels of autonomy in assistive robotics](../syntheses/assistive/levels-of-autonomy-in-assistive-robotics.md)
