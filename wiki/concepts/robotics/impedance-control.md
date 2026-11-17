@@ -81,7 +81,7 @@ The frontier the survey bets on is **a VLM setting the gains** — its own group
 
 ## Mentioned in
 
-- [Make a Robot Arm Feel Weightless with NVIDIA Holoscan 5](../../sources/nvidia-holoscan-5-rebot-gravity-compensation.md) — gravity-compensated joint impedance and a Cartesian impedance example on an affordable QDD arm.
+- [Make a Robot Arm Feel Weightless with NVIDIA Holoscan 5](../../sources/nvidia-holoscan-5-rebot-gravity-compensation.md) — gravity-compensated joint impedance and a Cartesian impedance example on an affordable CAN-actuator arm (40:1 shoulder, 10:1 wrist).
 - [Safe Learning for Contact-Rich Robot Tasks (survey)](../../sources/safe-learning-contact-rich-survey.md) — the source for everything on this page.
 - [FACTR 2](../../sources/factr-2-paper.md) — supplies the input impedance control needs on arms without sensors: an external-torque estimate from motor current; used here for force-feedback teleoperation and policy conditioning, not for a compliance controller.
 - [FACTR](../../sources/factr-paper.md) — the leader arm's control law: external-torque playback with damping, null-space posture regulation, RNEA gravity compensation, friction compensation and joint-limit potentials on cheap servos.

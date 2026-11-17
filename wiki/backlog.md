@@ -10,6 +10,15 @@ tags: [backlog, lint, todo, knowledge-gaps]
 
 Deferred maintenance items and knowledge gaps surfaced during lint passes but not yet actioned. Pick these up in a future session. Newest section first. When an item is done, strike it and note the commit/date, or delete it.
 
+## [2026-11-16] From the torque-controllable-arms synthesis
+- [x] ~~**Ingest the Damiao datasheets** (Enactic mirror, damiao.enactic.ai) to settle the DM-J4340P gear ratio.~~ **Done 2026-11-16**: four sources ([J4310](sources/damiao-dm-j4310-2ec-datasheet.md), [J4340](sources/damiao-dm-j4340-2ec-datasheet.md), [J4340P](sources/damiao-dm-j4340p-2ec-datasheet.md), [J8009P](sources/damiao-dm-j8009p-2ec-datasheet.md)). J4340P is **40:1**, so the reBot's shoulder and elbow are not QDD. Corrected across the wiki.
+- [ ] **Ingest Robstride 00 / 06 datasheets** for the reBot B601-RS gear ratios. The RS variant is the last arm in the [torque-controllable arms](syntheses/platforms/torque-controllable-arms.md) table with unknown gearing, and Robstride is also sold as "QDD".
+- [ ] **Resolve YAM's and OpenArm's "DM4340"**: J4340 or J4340P (crossed-roller)? Same 40:1 ratio either way, but the bearing matters for moment stiffness. Check the i2RT BOM and the OpenArm CAD/BOM.
+- [ ] **Confirm Robstride's mode numbering**: the reBot RS config uses `mode 1` throughout. Is that MIT on Robstride? Damiao's mode 1 is MIT, but the vendors don't share a numbering.
+- [ ] **Find a backdrive-torque / friction measurement** for any Damiao-based arm (YAM, reBot, OpenArm). This is the one number that would rank them on hand-guiding feel. If none exists, it's a measurement worth making: a spring scale or force gauge at the end effector, motors disabled, per joint.
+- [ ] **Damiao thermal behaviour under continuous holding torque.** The datasheets give rated and peak values only. How long can a 10:1 J4310 or J8009P hold a gravity load before the 100 °C coil limit? Relevant to all-day gravity-comp or teleop sessions.
+- [ ] **Re-check the DLI-course claim that the DM arm runs MIT mode.** The config says `mode 2`, which is position-speed per the datasheet. Does LeRobot's `damiao` adapter override that with MIT frames anyway? Check `lerobot-robot-seeed-b601` source.
+
 ## [2026-11-16] From the SO-101 gravity-compensation synthesis
 - [ ] **Ingest the FeeTech STS3215 datasheet and memory (register) table** as a primary. Confirm or refute the operating modes (is there an open-loop PWM mode?), the present-load and present-current registers with their units, resolution and update rate, and the P/I/D coefficient registers. The [SO-101 gravity-comp plan](syntheses/projects/so101-gravity-compensation.md) uses these details from general knowledge, unverified. This also closes the long-standing open question on [FeeTech](entities/feetech.md).
 - [ ] **Verify the SO-101 leader vs follower servo gear ratios** from the SO-ARM101 BOM. Leader arms reportedly use lower-ratio STS3215 variants; the wiki records only 1:345.

@@ -4,11 +4,11 @@ type: entity
 subtype: robot
 created: 2026-08-27
 updated: 2026-11-16
-sources: 3
+sources: 5
 tags: [rebot-arm, gravity-compensation, torque-control, holoscan, motorbridge, b601-dm, b601-rs, seeed-studio, robot-arm, damiao, robstride, can-bus, open-hardware, lerobot, isaac-sim, groot, jetson-thor]
 ---
 
-**reBot Arm B601** — [Seeed Studio](seeed-studio.md)'s fully open-source **6+1-DOF benchtop manipulator** built on CAN-bus quasi-direct-drive actuators, sold in two motor variants (**DM** and **RS**) and marketed as a sim-to-real / [VLA](../concepts/learning/vla-models.md) development platform. Product page: [reBot Arm B601-DM Bundle with Jetson Thor](https://www.seeedstudio.com/reBot-Arm-B601-DM-Bundle-with-Jetson-Thor.html). Open-source files under [Seeed-Studio on GitHub](https://github.com/Seeed-Studio).
+**reBot Arm B601** — [Seeed Studio](seeed-studio.md)'s fully open-source **6+1-DOF benchtop manipulator** built on CAN-bus brushless joint actuators (marketed as quasi-direct-drive; on the DM variant that holds only at the wrist, see below), sold in two motor variants (**DM** and **RS**) and marketed as a sim-to-real / [VLA](../concepts/learning/vla-models.md) development platform. Product page: [reBot Arm B601-DM Bundle with Jetson Thor](https://www.seeedstudio.com/reBot-Arm-B601-DM-Bundle-with-Jetson-Thor.html). Open-source files under [Seeed-Studio on GitHub](https://github.com/Seeed-Studio).
 
 ## Where it sits in this wiki's platform ladder
 
@@ -34,7 +34,7 @@ Its software story is what makes it wiki-relevant rather than just another arm: 
 Sources: DM from the [product page spec table](../sources/seeed-rebot-arm-b601-dm-thor-bundle.md); RS from the [DLI course §1.4](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md).
 
 > [!warning] The variants are not interchangeable in software
-> Beyond the motors, the two arms differ in CAN adapter, device node, motor CAN ID pairing, joint-limit sign convention (DM `elbow_flex (-200, 1)` vs RS `(-0, 200)`), and MIT control mode (`mode 2` vs `mode 1`). The RS config additionally exposes gripper impedance gains (`gripper_mit_kp 12.0`, `kd 0.05`, `torque_limit 8.0`) that the DM config does not. **Commands copied from the course will not work verbatim on a DM arm** — the course is written against the RS while its motor-setup section links DM hardware; see the contradiction callout on the [course page](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md).
+> Beyond the motors, the two arms differ in CAN adapter, device node, motor CAN ID pairing, joint-limit sign convention (DM `elbow_flex (-200, 1)` vs RS `(-0, 200)`), and motor control mode (`mode 2` vs `mode 1`). *Corrected 2026-11-16:* on Damiao, **mode 2 is position-speed, not MIT**. MIT is mode 1 ([J4340P datasheet](../sources/damiao-dm-j4340p-2ec-datasheet.md)). The DM course path therefore runs the arm joints as position-controlled cascades, and the gripper in mode 4 (force-position hybrid). Robstride's numbering is separate and undocumented here. The RS config additionally exposes gripper impedance gains (`gripper_mit_kp 12.0`, `kd 0.05`, `torque_limit 8.0`) that the DM config does not. **Commands copied from the course will not work verbatim on a DM arm** — the course is written against the RS while its motor-setup section links DM hardware; see the contradiction callout on the [course page](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md).
 
 ## Pricing (captured 2026-08-27)
 
@@ -53,6 +53,10 @@ Configurable across Assembled/Unassembled, AI compute None/Orin/Thor, and Robot 
 Vendor-claimed and course-demonstrated: **ROS 1 / ROS 2, MoveIt 1 / MoveIt 2, Python SDK, [LeRobot](lerobot.md), [Isaac Sim](nvidia-isaac-sim.md), Pinocchio**. LeRobot integration is via three Seeed forks (`Seeed-Projects/lerobot`, `lerobot-teleoperator-rebot-arm-102`, `lerobot-robot-seeed-b601`) rather than upstream LeRobot — so **the arm is a fork-tier citizen, not an upstream-supported robot**, which is a maintenance risk worth pricing in.
 
 Documented demos: teleoperated LeRobot data collection → GR00T 1.7 fine-tune → on-Jetson TensorRT inference (the [DLI course](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md)); GraspNet-Baseline visual grasping with an [Orbbec](orbbec.md) Gemini 2 RGB-D camera; edge-LLM voice control on Thor.
+
+## Gearing: QDD at the wrist, 40:1 at the shoulder (DM variant, 2026-11-16)
+
+Damiao's datasheets settle a label the wiki had repeated from Seeed and NVIDIA. The **three proximal joints** (shoulder pan, shoulder lift, elbow) use **DM-J4340P-2EC: 40:1, 9 / 27 N·m** ([datasheet](../sources/damiao-dm-j4340p-2ec-datasheet.md)), a conventional planetary and not QDD. The **four distal joints** (wrist ×3 + gripper) use **DM-J4310-2EC: 10:1, 3 / 7 N·m** ([datasheet](../sources/damiao-dm-j4310-2ec-datasheet.md)), which is QDD. So "quasi-direct-drive arm" describes half the joints. The heavy joints, which carry most of the gravity load, are geared 40:1. Gravity compensation and hand-guiding still work on them, as the Holoscan demo shows, but they'll show more friction and reflected inertia than the label implies. The RS variant's [Robstride](robstride.md) gear ratios are not in the wiki.
 
 ## Torque mode: gravity compensation under Holoscan 5 (2026-11-09)
 
@@ -78,6 +82,9 @@ This answers part of the backdrivability question below. The arm *is* backdrivab
 - [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md), [Generative data augmentation](../concepts/learning/generative-data-augmentation.md)
 
 ## Mentioned in
+
+- [DM-J4340P-2EC datasheet](../sources/damiao-dm-j4340p-2ec-datasheet.md) / [DM-J4310-2EC datasheet](../sources/damiao-dm-j4310-2ec-datasheet.md) — the DM variant's actual gear ratios (40:1 proximal, 10:1 distal) and the mode numbering.
+- [Torque-controllable arms](../syntheses/platforms/torque-controllable-arms.md) — where the B601 sits among arms that can do gravity compensation.
 
 - [reBot Arm B601-DM Bundle with Jetson Thor](../sources/seeed-rebot-arm-b601-dm-thor-bundle.md) — the product page and DM spec table
 - [A Sim-to-Real VLA Pipeline with Seeed reBot Arm and NVIDIA Isaac](../sources/seeed-nvidia-dli-rebot-sim-to-real-course.md) — the 19-module DLI course; RS spec table and the full pipeline

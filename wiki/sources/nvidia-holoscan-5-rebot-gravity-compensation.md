@@ -40,6 +40,8 @@ The post has two purposes. It is the first wiki source that shows what Holoscan'
 **Why gravity-comp first** (§"Starting off with gravity-comp")
 - Gravity comp is a **model sanity check**. *"Position-control examples can mask problems with joint axes, offsets, link placements, masses, and moments"*. Torque control exposes those errors at once, as an arm that sags or pushes upward as its pose changes.
 - Most low-cost arms use *"highly-geared hobby servos, which are only suitable for positional control."* The reBot's **quasi-direct-drive** actuators give the torque bandwidth needed for haptic or co-bot work.
+  - > [!warning] Only partly true (checked 2026-11-16)
+    > Per Damiao's datasheets, the B601-DM's shoulder and elbow motors (DM-J4340P-2EC) are **40:1** ([datasheet](damiao-dm-j4340p-2ec-datasheet.md)). Only the wrist and gripper DM-J4310s (10:1) are QDD ([datasheet](damiao-dm-j4310-2ec-datasheet.md)). The demo shows that gravity comp and hand-guiding work anyway, but through 40:1 gearing at the joints carrying most of the load.
 
 **Measured latency** (§"Pinning cores", Table 2). Latency is measured from entry into the first operator to entry into the last, so **motor-command transmission is excluded**. Each run kept more than a million cycles, the first 10 s were excluded, and outliers were retained:
 

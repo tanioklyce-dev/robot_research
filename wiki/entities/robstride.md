@@ -3,12 +3,12 @@ title: Robstride (RS motors)
 type: entity
 subtype: organization
 created: 2026-08-27
-updated: 2026-08-27
+updated: 2026-11-16
 sources: 2
 tags: [robstride, actuators, quasi-direct-drive, can-bus, socketcan, mit-mode, rebot-arm, motors]
 ---
 
-**Robstride** (RS) — Chinese manufacturer of **quasi-direct-drive CAN-bus actuators**, best known in the hobby/research robotics world for high-torque joint modules. In this wiki, Robstride is the motor lineage behind the **[reBot Arm B601-RS](rebot-arm-b601.md)**, the higher-spec sibling of the [Damiao](damiao.md)-based B601-DM.
+**Robstride** (RS) — Chinese manufacturer of CAN-bus brushless actuators, marketed as **quasi-direct-drive** (the label is unverified here: no Robstride datasheet is ingested, and the same label turned out to cover 40:1 parts on the [Damiao](damiao.md) side), best known in the hobby/research robotics world for high-torque joint modules. In this wiki, Robstride is the motor lineage behind the **[reBot Arm B601-RS](rebot-arm-b601.md)**, the higher-spec sibling of the [Damiao](damiao.md)-based B601-DM.
 
 ## Parts used in the reBot B601-RS
 

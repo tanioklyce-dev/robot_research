@@ -3,8 +3,8 @@ title: YAM (i2RT)
 type: entity
 subtype: robot
 created: 2026-07-04
-updated: 2026-11-14
-sources: 16
+updated: 2026-11-16
+sources: 18
 tags: [yam, i2rt, robot-arm, teleoperation, data-collection, affordable, groot, bimanual, molmoact2]
 ---
 
@@ -12,6 +12,7 @@ tags: [yam, i2rt, robot-arm, teleoperation, data-collection, affordable, groot, 
 
 ## Specs
 - **6 DOF**, CAN bus 1 Mbit/s, DM-series brushless motors; joint-position PD / gravity-comp / zero-gravity control; 400 ms timeout safety.
+- **Gearing** (from the [Damiao datasheets](../sources/damiao-dm-j4340-2ec-datasheet.md), 2026-11-16): the base YAM's 3× "DM4340" are **40:1** and its 3× DM4310 are **10:1**, the same split as the reBot B601-DM. YAM's SDK ships **model-based gravity plus Coulomb-friction compensation** ([docs](../sources/i2rt-yam-docs.md)), which is what makes 40:1 proximal joints usable for zero-gravity hand-guiding. The docs don't say whether the P (crossed-roller) variant is used.
 - Variants: YAM / YAM Pro / YAM Ultra / **BIG YAM** (heavier, DM6248 shoulders) + **YAM Leader** teaching handle for teleoperation.
 - 6 interchangeable grippers; Python SDK + MuJoCo sim (URDF/MJCF); MIT-licensed code (`i2rt-robotics/i2rt`).
 - Reach/payload/repeatability not published.
@@ -30,6 +31,9 @@ tags: [yam, i2rt, robot-arm, teleoperation, data-collection, affordable, groot, 
 - [Imitation learning](../concepts/learning/imitation-learning.md) — YAM's role is demonstration collection.
 
 ## Mentioned in
+
+- [DM-J4340-2EC](../sources/damiao-dm-j4340-2ec-datasheet.md) / [DM-J4310-2EC](../sources/damiao-dm-j4310-2ec-datasheet.md) datasheets — the 40:1 / 10:1 gearing behind YAM's gravity-comp mode.
+- [Torque-controllable arms](../syntheses/platforms/torque-controllable-arms.md) — YAM is the one arm in the wiki whose vendor documents a gravity-comp mode.
 - [i2RT YAM Arm Documentation](../sources/i2rt-yam-docs.md) — primary source.
 - [GR00T N1.6 research page](../sources/groot-n1_6.md) — bimanual YAM teleop data.
 - [MolmoAct2 paper (Fang, Duan et al. 2026)](../sources/molmoact2-paper.md) — the BimanualYAM dataset + deployment platform.

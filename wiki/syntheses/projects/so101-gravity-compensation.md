@@ -16,14 +16,14 @@ This page came out of a query on 2026-11-16. It builds on [Gravity compensation]
 
 Gravity compensation needs actuators that **accept a torque command** and are **backdrivable** enough for a hand to move them ([concept page](../../concepts/robotics/gravity-compensation.md#hardware-precondition-torque-you-can-command-and-feel)). The SO-101's FeeTech STS3215 servos are weak on both:
 
-| | reBot B601-DM ([Damiao](../../entities/damiao.md) QDD) | SO-101 (FeeTech STS3215) |
+| | reBot B601-DM ([Damiao](../../entities/damiao.md) CAN actuators) | SO-101 (FeeTech STS3215) |
 |---|---|---|
 | Command interface | MIT-style: position + velocity + kp + kd + **feedforward torque** in one frame | Position commands into a gearbox ([FeeTech](../../entities/feetech.md)) |
-| Gearing | Quasi-direct-drive (low ratio) | **1:345** ([FeeTech](../../entities/feetech.md), via the LeKiwi repo) |
+| Gearing | **40:1** shoulder/elbow (J4340P), **10:1** wrist (J4310) ([datasheets](../../sources/damiao-dm-j4340p-2ec-datasheet.md)) | **1:345** ([FeeTech](../../entities/feetech.md), via the LeKiwi repo) |
 | Backdrivability | Hand-guided under gravity comp ([tutorial](../../sources/nvidia-holoscan-5-rebot-gravity-compensation.md)) | *"Limited due to high resistance under load"* ([Vulcan / Sourccey](../../sources/vulcan-robotics-sourccey-site.md)) |
 | Bus | CAN, 1 Mbit/s | Half-duplex UART, 1 Mbaud ([FeeTech](../../entities/feetech.md)) |
 
-At 1:345, gearbox friction and reflected rotor inertia (which scales with the square of the gear ratio) are large compared with the gravity torques you would be cancelling. Even with perfect cancellation, the hand would still feel the friction. **The feel comes from the hardware, not from software.** Gravity comp on the reBot feels weightless because the gearing is low, not because the controller is clever.
+Even the reBot's heavy joints are 40:1, about 9× lower than the SO-101's 1:345. At 1:345, gearbox friction and reflected rotor inertia (which scales with the square of the gear ratio) are large compared with the gravity torques you would be cancelling. Even with perfect cancellation, the hand would still feel the friction. **The feel comes from the hardware, not from software.** Gravity comp on the reBot feels weightless because the gearing is low, not because the controller is clever.
 
 > [!note] Unverified actuator details
 > The register-level claims below — an open-loop **PWM operating mode**, and readable **present load** and **present current** — come from general knowledge of the STS3215, not from an ingested source. The wiki has no FeeTech datasheet or memory table (see the [backlog](../../backlog.md)). Verify against the primary before building on them. The [Sourccey](../../sources/vulcan-robotics-sourccey-site.md) source does confirm that servo current is readable, since it is used for calibration and limits.
@@ -76,7 +76,7 @@ Do approaches 1 and 2 on the **follower** arm, the 1:345 variant. Leader arms ar
 ## What would change this assessment
 
 - **A FeeTech register table** (primary). It would confirm or rule out the PWM mode and the load/current resolution that approaches 2 and 3 rely on.
-- **A backdrive-torque measurement** on any FeeTech arm. Neither this tier nor the QDD tier has one in the wiki ([FeeTech](../../entities/feetech.md#the-tier-above)).
+- **A backdrive-torque measurement** on any FeeTech arm. Neither this tier nor the Damiao/Robstride tier has one in the wiki ([FeeTech](../../entities/feetech.md#the-tier-above)).
 - **Current-sensing noise floor.** If present load is too coarse or too noisy, the admittance deadband has to be large and the feel degrades sharply.
 
 ## Related
@@ -84,4 +84,5 @@ Do approaches 1 and 2 on the **follower** arm, the 1:345 variant. Leader arms ar
 - [Gravity compensation](../../concepts/robotics/gravity-compensation.md), [Impedance and admittance control](../../concepts/robotics/impedance-control.md)
 - [SO-ARM101](../../entities/so-arm101.md), [FeeTech](../../entities/feetech.md), [reBot Arm B601](../../entities/rebot-arm-b601.md)
 - [Pinocchio](../../entities/pinocchio.md)
-- [Make a Robot Arm Feel Weightless with NVIDIA Holoscan 5](../../sources/nvidia-holoscan-5-rebot-gravity-compensation.md) — the QDD reference this page contrasts with
+- [Make a Robot Arm Feel Weightless with NVIDIA Holoscan 5](../../sources/nvidia-holoscan-5-rebot-gravity-compensation.md) — the CAN-actuator reference this page contrasts with
+- [Torque-controllable arms](../platforms/torque-controllable-arms.md) — what to buy if you want gravity comp to feel right

@@ -3,12 +3,12 @@ title: OpenArm
 type: entity
 subtype: robot
 created: 2026-09-13
-updated: 2026-09-13
-sources: 6
+updated: 2026-11-16
+sources: 9
 tags: [robot, robot-arm, bimanual, 7-dof, open-hardware, quasi-direct-drive, damiao, bilateral-teleoperation, force-feedback, evaluation-cell, lerobot, dora, enactic, wowrobo]
 ---
 
-**OpenArm** — an open-hardware, human-scale **7-DOF arm** (usually bought as a bimanual pair) from [Enactic](enactic.md) (Japan), built on [Damiao](damiao.md) quasi-direct-drive CAN-FD actuators with **4.1 kg nominal / 6.0 kg peak payload** (end-effector included), sold assembled by a directory of manufacturers led by the certified [WowRobo](wowrobo.md) at **$6,500 per bimanual system**, or built from MISUMI/MEVIY/JLCPCB part lists under CERN-OHL-S. Version 2.0 (hardware tag 2026-09-09) adds an in-hand-camera gripper, the **OpenArm Cell** evaluation enclosure and the motorless **KER** leader arm. Primary: [docs.openarm.dev](../sources/openarm-docs.md), [GitHub](../sources/openarm-github.md).
+**OpenArm** — an open-hardware, human-scale **7-DOF arm** (usually bought as a bimanual pair) from [Enactic](enactic.md) (Japan), built on [Damiao](damiao.md) CAN-FD actuators (mostly quasi-direct-drive: DM-J8009P 9:1 and DM-J4310 10:1, plus 40:1 DM4340s where payload and compactness win) with **4.1 kg nominal / 6.0 kg peak payload** (end-effector included), sold assembled by a directory of manufacturers led by the certified [WowRobo](wowrobo.md) at **$6,500 per bimanual system**, or built from MISUMI/MEVIY/JLCPCB part lists under CERN-OHL-S. Version 2.0 (hardware tag 2026-09-09) adds an in-hand-camera gripper, the **OpenArm Cell** evaluation enclosure and the motorless **KER** leader arm. Primary: [docs.openarm.dev](../sources/openarm-docs.md), [GitHub](../sources/openarm-github.md).
 
 ## Lineage and versions
 
@@ -38,7 +38,7 @@ tags: [robot, robot-arm, bimanual, 7-dof, open-hardware, quasi-direct-drive, dam
 
 ## Why it matters
 
-- **A bilateral force-feedback rig you can buy.** [FACTR](../sources/factr-paper.md) built one for ~$1,230 on top of a torque-sensing Franka; OpenArm ships bilateral control on QDD motors whose current gives the torque. The [contact-rich](../concepts/robotics/contact-rich-manipulation.md) thread's argument that force data is scarce meets a platform that records torque by default.
+- **A bilateral force-feedback rig you can buy.** [FACTR](../sources/factr-paper.md) built one for ~$1,230 on top of a torque-sensing Franka; OpenArm ships bilateral control on Damiao motors whose current gives the torque. Most are QDD; the DM4340 joints are 40:1. The [contact-rich](../concepts/robotics/contact-rich-manipulation.md) thread's argument that force data is scarce meets a platform that records torque by default.
 - **Reproducible evaluation as hardware.** The Cell is the first *product* in this wiki built around the [policy-evaluation](../concepts/robotics/robot-policy-evaluation.md) complaint that success rates do not transfer between labs. No published Cell results yet.
 - **The distribution model**: copyleft CAD plus a vendor directory with quality tiers, and a warning about an incompatible clone ("OpenArmX Pro Max"). This is what "open arm standard" looks like in practice.
 
@@ -49,6 +49,8 @@ tags: [robot, robot-arm, bimanual, 7-dof, open-hardware, quasi-direct-drive, dam
 - [Robot platforms comparison](../syntheses/platforms/robot-platforms-comparison.md), [Open-source robot AI projects](../syntheses/platforms/open-source-robot-ai-projects.md).
 
 ## Mentioned in
+
+- Damiao datasheets for the [DM-J4310](../sources/damiao-dm-j4310-2ec-datasheet.md), [DM-J4340](../sources/damiao-dm-j4340-2ec-datasheet.md) and [DM-J8009P](../sources/damiao-dm-j8009p-2ec-datasheet.md) — confirm the ratios the OpenArm docs quote (10:1, 40:1, 9:1).
 
 - [OpenArm documentation](../sources/openarm-docs.md) — the primary.
 - [OpenArm GitHub](../sources/openarm-github.md) — repo family, stats, releases.

@@ -38,7 +38,7 @@ That changes the answer materially. Value accruing at the **order and build** st
 
 ## Tier 1 — Best evidenced: actuator vendors
 
-**The single strongest number in the wiki on this question:** the [UME](../../entities/ume.md) exoskeleton's BOM is **86% quasi-direct-drive actuators** out of $1,900 ([UME paper](../../sources/ume-paper.md)).
+**The single strongest number in the wiki on this question:** the [UME](../../entities/ume.md) exoskeleton's BOM is **86% Damiao CAN actuators** out of $1,900 (the paper calls them quasi-direct-drive; per the datasheets, half are 40:1 J4340s and half are 10:1 J4310s) ([UME paper](../../sources/ume-paper.md)).
 
 Actuators are the cost that **scales with the product** in a way silicon does not. A robot needs one compute module regardless of complexity; it needs **one actuator per degree of freedom**. The [Zeroth M1](../../entities/zeroth-m1.md)'s advertised **20 DoF** is, from a supplier's perspective, a 20-actuator order per unit.
 

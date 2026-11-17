@@ -83,6 +83,9 @@ Measured on box flipping, averaged over multiple users, reset time included:
 
 **86% of the cost is actuators.** The enabling choice is stated explicitly: **quasi-direct-drive motors with substantially lower reduction ratios** (Damiao, Unitree) instead of the **multi-stage planetary gearboxes** in the Dynamixel actuators used by GELLO and similar. Low reduction is what makes the joints backdrivable enough for *transparent* feedback.
 
+> [!warning] The paper's "QDD" framing vs its own BOM (noted 2026-11-16)
+> Half the actuators in the BOM are **DM-J4340-2EC, which Damiao's datasheet gives as 40:1** ([datasheet](damiao-dm-j4340-2ec-datasheet.md)), a conventional planetary. The other half are DM-J4310-2EC at 10:1 ([datasheet](damiao-dm-j4310-2ec-datasheet.md)), which is QDD. The argument (lower reduction than Dynamixel's multi-stage gearboxes, hence transparent torque feedback) holds in relative terms, but "quasi-direct-drive" describes only the J4310 half.
+
 **Evaluation robot, $9,533**: WowRobo **OpenArm 1.0** bimanual ($5,200), 4× **Hexfellow PCW-25** powered casters ($900 ea — *"improved compliance and more accurate odometry due to its lower gear ratio and reduced backlash, while remaining fully holonomic"*), DJI Power 1000 ($386), 3× 2K 210° HDR fisheye ($37.50 ea).
 
 **Policies are [ACT](../entities/act.md)** — ResNet18 backbone, 4 encoder / 7 decoder layers, hidden 512, batch 200, **40 k gradient steps on one RTX 4090 in 8 hours**.

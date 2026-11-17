@@ -3,7 +3,7 @@ title: Gravity compensation
 type: concept
 created: 2026-11-16
 updated: 2026-11-16
-sources: 1
+sources: 3
 tags: [gravity-compensation, inverse-dynamics, rnea, torque-control, feedforward, quasi-direct-drive, backdrivability, hand-guiding, kinesthetic-teaching, model-identification, mit-mode]
 ---
 
@@ -24,11 +24,11 @@ The full control law in the reference implementation is **gravity feedforward pl
 
 ## Hardware precondition: torque you can command and feel
 
-Gravity comp needs actuators that take a **torque command** and are **backdrivable** enough for a hand to move them. High-ratio hobby servos fail both tests. They accept only position commands, and gearbox friction swamps the hand's force. That rules out the [FeeTech](../../entities/feetech.md)-class arms ([SO-ARM101](../../entities/so-arm101.md), [XLeRobot](../../entities/xlerobot.md)). **Quasi-direct-drive** CAN actuators ([Damiao](../../entities/damiao.md), [Robstride](../../entities/robstride.md)) pass both, which is why the [reBot Arm B601](../../entities/rebot-arm-b601.md) is the cheapest arm in the wiki shown doing it ([tutorial](../../sources/nvidia-holoscan-5-rebot-gravity-compensation.md)). Research arms (Franka, [OpenArm](../../entities/openarm.md)) do it as standard.
+Gravity comp needs actuators that take a **torque command** and are **backdrivable** enough for a hand to move them. High-ratio hobby servos fail both tests. They accept only position commands, and gearbox friction swamps the hand's force. That rules out the [FeeTech](../../entities/feetech.md)-class arms ([SO-ARM101](../../entities/so-arm101.md), [XLeRobot](../../entities/xlerobot.md)). Brushless CAN actuators with current-controlled drivers ([Damiao](../../entities/damiao.md), [Robstride](../../entities/robstride.md)) pass both, which is why the [reBot Arm B601](../../entities/rebot-arm-b601.md) is the cheapest arm in the wiki shown doing it. They pass even at a moderate ratio: the reBot's shoulder and elbow are **40:1** and only its wrist is true QDD at 10:1 ([Damiao datasheets](../../sources/damiao-dm-j4340p-2ec-datasheet.md)). The practical ladder runs QDD (≤ 10:1, most transparent) → 40:1 planetary with friction compensation (works, as on [YAM](../../entities/yam.md)) → high-ratio servos (poor). A low ratio also costs more current per N·m of holding torque, about 1.0–1.2 N·m/A at 9–10:1 against 3.6 N·m/A at 40:1, so it heats more under continuous gravity load. See [torque-controllable arms](../../syntheses/platforms/torque-controllable-arms.md) ([tutorial](../../sources/nvidia-holoscan-5-rebot-gravity-compensation.md)). Research arms (Franka, [OpenArm](../../entities/openarm.md)) do it as standard.
 
 ## Where the loop runs, and why timing claims need care
 
-On QDD motors with an **MIT-style command** (position, velocity, K_p, K_d and feedforward torque in one frame), the PD part closes **inside the motor driver**. The host only refreshes τ_g and the setpoint. Host jitter then means a slightly stale gravity term, not an unstable loop. It becomes critical only when the host closes a torque loop itself. Bus bandwidth can dominate either way: seven motors on 1 Mbit/s CAN use most of a 2.5 ms cycle on frames alone (estimate on the [source page](../../sources/nvidia-holoscan-5-rebot-gravity-compensation.md#reading-the-latency-table-against-the-budget)).
+On Damiao-class motors with an **MIT-style command** (position, velocity, K_p, K_d and feedforward torque in one frame), the PD part closes **inside the motor driver**. The host only refreshes τ_g and the setpoint. Host jitter then means a slightly stale gravity term, not an unstable loop. It becomes critical only when the host closes a torque loop itself. Bus bandwidth can dominate either way: seven motors on 1 Mbit/s CAN use most of a 2.5 ms cycle on frames alone (estimate on the [source page](../../sources/nvidia-holoscan-5-rebot-gravity-compensation.md#reading-the-latency-table-against-the-budget)).
 
 ## On the cheaper tier
 
@@ -48,8 +48,9 @@ For a FeeTech-servo arm, see [Can the SO-101 do gravity compensation?](../../syn
 
 ## Current state
 
-Textbook control, solved on research arms. It is newly reachable at the hobby-to-prosumer tier, because QDD actuators have reached ~$1.5k arms. Commercial runtimes now ship it as a demo ([Holoscan 5](../../entities/nvidia-holoscan.md)). The wiki has **no measurement of friction or backdrive torque** on any affordable arm, so it can't yet say how "weightless" the cheaper tier really feels.
+Textbook control, solved on research arms. It is newly reachable at the hobby-to-prosumer tier, because current-controlled CAN actuators (QDD at the wrist, 40:1 at the shoulder) have reached ~$1.5k arms. Commercial runtimes now ship it as a demo ([Holoscan 5](../../entities/nvidia-holoscan.md)). The wiki has **no measurement of friction or backdrive torque** on any affordable arm, so it can't yet say how "weightless" the cheaper tier really feels.
 
 ## Mentioned in
 
 - [Make a Robot Arm Feel Weightless with NVIDIA Holoscan 5](../../sources/nvidia-holoscan-5-rebot-gravity-compensation.md)
+- [DM-J4340P-2EC datasheet](../../sources/damiao-dm-j4340p-2ec-datasheet.md), [DM-J4310-2EC datasheet](../../sources/damiao-dm-j4310-2ec-datasheet.md) — the gear ratios behind the reBot demo; the MIT frame
