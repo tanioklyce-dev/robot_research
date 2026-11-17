@@ -4,15 +4,17 @@ type: source
 url: https://aiindex.stanford.edu/report/
 fetch_url: https://hai.stanford.edu/assets/files/ai_index_report_2026.pdf
 doi: https://doi.org/10.48550/arXiv.2606.15708
-local_path: raw/ai_index_report_2026_rev_2026-06-29.pdf
-sha256: fff5ac1df971cee7daf847fa5ed00dd7444db693092821c3e691debc1eaada09
-local_path_superseded: raw/ai_index_report_2026.pdf
-sha256_superseded: f2f3b6ae863957db86de108d1cec8684a3ffdcc217798ccfbfe9bd5061ab4d3c
+local_path: raw/ai_index_report_2026_rev_2026-10-28.pdf
+sha256: 1a74c3d9eb4b76002132aadef827b61b4d3fd678cdf07145f66021139d6c367c
+local_path_superseded: raw/ai_index_report_2026_rev_2026-06-29.pdf
+sha256_superseded: fff5ac1df971cee7daf847fa5ed00dd7444db693092821c3e691debc1eaada09
+local_path_superseded_2: raw/ai_index_report_2026.pdf
+sha256_superseded_2: f2f3b6ae863957db86de108d1cec8684a3ffdcc217798ccfbfe9bd5061ab4d3c
 author: Stanford Institute for Human-Centered AI (HAI); Co-chairs Yolanda Gil, Raymond Perrault
 published: 2026-04
-revised: 2026-06-29
+revised: 2026-10-28
 ingested: 2026-05-09
-rechecked: 2026-08-29
+rechecked: 2026-11-16
 tags: [ai-index, stanford, benchmark, robotics, economy, responsible-ai, vla, humanoid]
 ---
 
@@ -85,6 +87,29 @@ The ninth edition of the Stanford HAI AI Index Report (2026). Comprehensive annu
 - [LLM-agent architecture](../concepts/agents/llm-agent-architecture.md) — AI agents on OSWorld 12% → 66.3%; still fail ~1 in 3 on structured benchmarks.
 
 ## Edition history
+
+**Three editions** have been served at the same URL, with no version string and no notice in the document. All three are kept in `raw/`:
+
+| Edition | File | Export (PDF dates) | Size | Status |
+|---|---|---|---|---|
+| 1 | `raw/ai_index_report_2026.pdf` | 2026-04-28 (InDesign 21.3) | 24.9 MB | ingested 2026-05-09 |
+| 2 | `raw/ai_index_report_2026_rev_2026-06-29.pdf` | created/modified 2026-06-29 (InDesign 21.4) | 37.9 MB | found 2026-08-29 |
+| 3 | `raw/ai_index_report_2026_rev_2026-10-28.pdf` | created 2026-10-13, modified 2026-10-28 (InDesign 21.4) | 41.9 MB | **current**; found 2026-11-16 |
+
+### Edition 3 (2026-10-28): presentational
+
+Same 425 pages. The drift script's token diff reported 1,800+ changes, almost all of them two kinds of export noise: the **text layer now carries the "fi"/"fl" ligatures**, so earlier extractions' *"Articial", "Pacic", "Nonprot"* now read correctly, and glyph runs are emitted in a different order. A per-page comparison of **digit counts** (order- and ligature-independent) leaves four pages, with no data value changed:
+
+| Page | Location | Change |
+|---|---|---|
+| 141 | Fig 3.3.4, organizations' response to AI incidents | Two missing year-over-year labels added: Excellent **(−10pp)**, Good **(−15pp)**. The values (28% → 18%, 39% → 24%) and the prose were already there and are unchanged. |
+| 356 | §8.5, US public AI grant spending by state (map) | Massachusetts' label **$1.30B** added. It was absent from edition 2's map. |
+| 135 | Figs 3.2.3–3.2.4, benchmark-reporting tables | Re-rendered as live text instead of glyph art. Same **41** checkmarks. |
+| 95 | §2.4 header | Kerning only. |
+
+Nothing the wiki cites moves. RLBench 89.4%, BEHAVIOR-1K 12.4%, ResponsibleRobotBench 0.64, UAE 64.00%, and the Fig 4.3.10 deltas (+2.10, +2.30) appear the same number of times in editions 2 and 3. Edition 3 looks like an accessibility and text-layer re-export, with two chart-label completions.
+
+### Edition 2 (2026-06-29)
 
 The URL `hai.stanford.edu/assets/files/ai_index_report_2026.pdf` serves a **revised** PDF as of **2026-06-29** (InDesign 21.4 export; 37.9 MB) replacing the **2026-04-28** export (21.3; 24.9 MB) that was ingested on 2026-05-09. Both are kept in `raw/`; the original is not overwritten. Page count is identical (425) and the size jump is image re-export, not content.
 

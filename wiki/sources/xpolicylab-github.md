@@ -3,8 +3,10 @@ title: "XPolicyLab/XPolicyLab — a unified standard and open ecosystem for robo
 type: source
 url: https://github.com/XPolicyLab/XPolicyLab
 fetch_url: https://raw.githubusercontent.com/XPolicyLab/XPolicyLab/main/README.md
-local_path: raw/2026-11-07-xpolicylab-readme.md
-sha256: 91e73acf5fd260d220754840b4ade375579b551017f144d622a3b064bf0ba5aa
+local_path: raw/2026-11-16-xpolicylab-readme.md
+sha256: 60857f4437f27de6dd4f24a85c9826c42e160822c15e711b1dcee5e551793b87
+local_path_superseded: raw/2026-11-07-xpolicylab-readme.md
+sha256_superseded: 91e73acf5fd260d220754840b4ade375579b551017f144d622a3b064bf0ba5aa
 author: "XPolicyLab Community; core lead authors Tianxing Chen, Yue Chen, Tian Nian, Zijian Cai, Guangyu Chen, Wenwei Lin, Qiwei Liang (MMLab@HKU and THU)"
 published: 2026-02-08
 venue: "GitHub repository (Apache-2.0); paper arXiv 2608.09892; Best Tool Paper, IROS 2026 'Building Scalable Infrastructure for Robot Learning' workshop"
@@ -63,6 +65,7 @@ The repository's most instructive content is not the policy list. It is the set 
   - State is the concatenation left arm, left gripper, right arm, right gripper. It is zero-padded to the widest matched robot under `robot_type: unified_robot`, so one dataset can mix embodiments.
   - Missing cameras are filled with black frames, and the default codec is AV1.
   - They handle **joint-space bimanual only.**
+- **Official task text in the observation** (*added 2026-11-14*, commit `0c075b8`): *"RoboDojo also supplies the official task Description and public Scoring as a string at `obs["extra_info"]["detailed_instruction"]`."* It sits beside the instance-specific `obs["instruction"]`, passes through single and batch RPCs unchanged, and *"contains public conditions, not reward code."* The interface does not change policy prompts; an adapter has to choose to read it. Older environments may omit it.
 - **Data without a simulator.** `download_robodojo_data.sh` pulls RoboDojo simulator exports (HDF5, LeRobot v2.1, LeRobot v3.0) and the real-world HDF5 set, so model-side development can start without Isaac Sim.
 
 ### Benchmarks served
@@ -89,6 +92,16 @@ The repository's most instructive content is not the policy list. It is the set 
   - **AGENTS.md** is the always-on rule set. The root `CLAUDE.md` is a single line, `@AGENTS.md`.
   - **What the rule set covers.** It repeats the image, path and dimension rules with the reasons attached, and requires bilingual README edits (English wins on conflict).
 - **Recent commits** include *"Delete Useless SHA256 Information"* (#227, 2026-11-03) and renaming physicalRSI to PhysicalRSI while *"list[ing] the 77 integrated policies."*
+
+## Edition history
+
+| Captured | README head | Change |
+|---|---|---|
+| 2026-11-07 | `6baccd5` (2026-11-03) | first capture: 77 policies |
+| **2026-11-16** | `0c075b8` (2026-11-14, *"add: Detail instruction"*) | **+10 lines, nothing removed.** `obs.extra_info.detailed_instruction` carries RoboDojo's official task Description and public Scoring to adapters. |
+
+> [!note] Why the new field matters here
+> The open [GPT-6 Astra recipe question](gpt-6-astra-robodojo-paper.md) is whether its 22.48% survives without a hand-written, wiki-derived task recipe and score ladder. A standard channel for the *official* description and scoring is the obvious way to run that ablation: give every policy the same public task text instead of a bespoke recipe. Nothing in the README says the Astra adapter uses it yet.
 
 ## Entities mentioned
 - [XPolicyLab](../entities/xpolicylab.md) · [RoboDojo](../entities/robodojo.md) · [RoboTwin](../entities/robotwin.md)

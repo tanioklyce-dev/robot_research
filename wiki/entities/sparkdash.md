@@ -3,7 +3,7 @@ title: sparkDash
 type: entity
 subtype: software
 created: 2026-11-07
-updated: 2026-11-07
+updated: 2026-11-16
 sources: 2
 tags: [sparkdash, dgx-spark, gb10, monitoring, dashboard, open-source, apache-2, llm-serving, agent-security]
 ---
@@ -19,7 +19,8 @@ tags: [sparkdash, dgx-spark, gb10, monitoring, dashboard, open-source, apache-2,
 - **Engines and benchmarks.** It auto-detects 14+ inference engines (vLLM, SGLang, llama.cpp, LM Studio, Ollama, NVIDIA Flare and others) and reads KV-cache, queue and latency p95 from their `/metrics`. Benchmarks: decode, prefill, a seeded **Quality** bench (~755 items, McNemar paired comparison) and a **Tool Eval Bench** for tool calling.
 - **Agent harnesses.** A read-only occupancy helper lists sessions from [OpenClaw](openclaw.md), OpenCode, oh-my-pi, Hermes and DeepSeek Harness.
 - **Security defaults.** A LAN bind with no `SPARKDASH_TOKEN` is **open by default**: anyone who can reach it *"can read telemetry, change settings and power units off."* SSH passwords are AES-256-GCM-encrypted ([sparkDash README](../sources/sparkdash-github.md)).
-- **Release lag.** The README documents v2.70.0, while the newest GitHub release is v2.32.0 (2026-10-10) and has no published container image yet.
+- **Release lag.** The README documents v2.70.0 (**v2.90.0** by 2026-11-16), while the newest GitHub release is still v2.32.0 (2026-10-10) and has no published container image yet.
+- **Quality bench suite v2** (2026-11): GSM8K-Platinum, MMLU-Pro and MATH-500, plus Tokenizer, Divergence and a log-prob **Fidelity** category for quantisation A/B tests, with Wilson and bootstrap intervals and an engine record per run. It supersedes the suite v1 numbers. v2.90.0 also adds a Storage Manager, Pico engine support, per-card GPU power limits, and opt-in **spark-attic** monitoring of the GB10's ~2 GiB display carveout lent to CUDA ([edition history](../sources/sparkdash-github.md#edition-history)).
 
 ## Spark Overseer (proposed, PR #284, not merged)
 A contributed opt-in page of security **observations** for instrumented local model workloads ([PR #284](../sources/sparkdash-pr284-spark-overseer.md)).

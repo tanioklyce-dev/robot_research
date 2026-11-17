@@ -3,6 +3,7 @@ title: "FlyBrain Robot Bridge (Frankweb33/flybrain-robot-bridge) — GitHub READ
 type: source
 url: https://github.com/Frankweb33/flybrain-robot-bridge
 fetch_url: https://raw.githubusercontent.com/Frankweb33/flybrain-robot-bridge/main/README.md
+capture: bundle
 local_path: raw/2026-09-14-flybrain-robot-bridge-readme.md
 sha256: e871166d7466b355082af8d60f01942721376867648b415e41d223b7eae662a2
 author: "Frankweb33 (repo originally published as Himas1211/flybrain-robot-bridge; GitHub redirects the old name)"

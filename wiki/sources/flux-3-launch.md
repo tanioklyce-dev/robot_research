@@ -3,6 +3,7 @@ title: "FLUX 3 and FLUX-mimic — Black Forest Labs (July 2026)"
 type: source
 url: https://bfl.ai/blog/flux-3-mimic
 fetch_url: https://bfl.ai/blog/flux-3
+capture: bundle
 local_path: raw/2026-07-23-black-forest-labs-flux-3-and-flux-mimic.md
 sha256: d4b2626c9ca89d328528926ef77c14af67c5fa79d5e57ad581db62cda36bd1fc
 author: "Black Forest Labs (with mimic robotics; quote from Christoph Schneider, Audi Production Lab)"

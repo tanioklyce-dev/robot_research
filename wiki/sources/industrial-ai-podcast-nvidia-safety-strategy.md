@@ -2,7 +2,8 @@
 title: "Industrial AI Podcast #352 — NVIDIA's safety strategy (Riccardo Mariani)"
 type: source
 url: https://kipodcast.podigee.io/352-when-safety-meets-ai-making-friends-not-foes
-fetch_url: https://www.youtube.com/watch?v=4wZ0HTF1lFc
+video_url: https://www.youtube.com/watch?v=4wZ0HTF1lFc
+drift_check: "not re-checkable: local_path is a caption transcript and the URL is a YouTube watch page, so the bytes can never match (2026-11-16)"
 local_path: raw/2026-09-02-industrial-ai-podcast-352-nvidia-safety-strategy-transcript.txt
 sha256: ab8818fbcd63d18435a7759352963b35530b2533fe08141c9dc4bceb3c1a8a55
 author: "Robert Weber and Peter Seeberg (hosts); Riccardo Mariani, NVIDIA (guest)"

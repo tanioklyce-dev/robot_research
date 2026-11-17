@@ -88,6 +88,9 @@ This is not hypothetical: the [AI Index 2026](wiki/sources/stanford-hai-ai-index
 - **`sha256`** — content hash of `local_path`. Backfilled and checked by `scripts/check_source_drift.py`; never hand-written.
 - **`fetch_url`** — the **direct file URL**, when `url` is a landing page (as it usually is). Only pages with a `fetch_url` (or a `url` ending in `.pdf`) are re-checkable. Add one for any source whose publisher may revise in place — annual reports, datasheets, spec sheets, standards, vendor white papers.
 - **`local_path_superseded` / `sha256_superseded`** — when a revision is accepted, `local_path` and `sha256` point at the **current canonical** file and the prior edition is retained under these keys. Both files stay in `raw/`; **the superseded one is never overwritten or deleted**. Record the delta in an **Edition history** section on the page.
+- **`local_path_superseded_2` / `sha256_superseded_2`, `_3`, …** — further editions back. The unnumbered pair is always the **immediately prior** edition, and each accepted revision shifts the chain down one place. The AI Index carries three editions this way.
+- **`capture: bundle`** — the raw file holds **several documents** (a release-notes archive plus a platforms page, two companion blog posts, a multi-page docs snapshot) and `fetch_url` serves one of them. The drift check then tolerates local-only text before and after the matched document. Don't set it on single-document captures: there, everything except the provenance header must match.
+- **`drift_check:`** — a one-line reason a source is deliberately **not** re-checkable (a bot-blocked origin, a URL that serves a different medium than the capture). Keep the URL under a key the script ignores (`filing_url`, `video_url`) rather than deleting it.
 
 > [!note] Git LFS and fingerprints
 > `raw/*.pdf` is LFS-tracked and this working tree usually has many objects un-pulled — those files are ~130-byte text pointers, not PDFs. **Never hash a file without checking for a pointer first**; you would record a confident, well-formed, completely wrong fingerprint. No pull is needed: a pointer's `oid sha256:` *is* the content hash. The script handles this; a hand-rolled `sha256sum` does not.
@@ -216,6 +219,10 @@ handles them differently:
   renumbering is then *counted and reported separately*, never hidden — the filter is
   deliberately narrow (a lone bare integer moving by ≤3), so decimals and larger jumps like
   54 → 64 always surface.
+
+**Text captures are compared by content, not hash** (since 2026-11-16). Most non-PDF sources are not byte copies: ingest adds a provenance header, extracts text from HTML, or bundles pages. Their hash never matches, so on the first full sweep 12 of them were flagged without a single real change. When a text capture's hash differs, both sides are reduced to letters and digits (HTML tags, page chrome, MDX/JSX and whitespace dropped) and aligned. The provenance header is stripped exactly, and text that merely **moved** or is page chrome present on the live page is noted, not failed. Any other inserted, deleted or changed text is **DRIFT**, including a single changed digit or word, in the middle or at the ends. A **bundle** (above) additionally tolerates its other documents. Limits: changes to markup alone (an `<img>`, an attribute) are invisible to a text comparison.
+
+**BLOCKED and MISMATCH are not drift.** A Cloudflare or Vercel challenge, the SEC's automated-tool notice, or HTTP 401/403/429 is reported as **BLOCKED**. A `fetch_url` that shares under half its text with the capture is reported as **MISMATCH**, meaning it serves a different document. Neither fails the run. **Never put personal contact details in the User-Agent to get past a block**; record a `drift_check:` reason instead.
 
 When drift is found: **review the diff, don't auto-apply it.** Retain the superseded file, add
 an **Edition history** section to the source page, correct any claim the revision touches, re-seal

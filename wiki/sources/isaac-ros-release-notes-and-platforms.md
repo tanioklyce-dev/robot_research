@@ -3,6 +3,7 @@ title: Isaac ROS — Release Notes and Supported Platforms (docs)
 type: source
 url: https://nvidia-isaac-ros.github.io/releases/index.html
 fetch_url: https://nvidia-isaac-ros.github.io/releases/index.html
+capture: bundle
 local_path: raw/2026-09-27-isaac-ros-release-notes-and-platforms.txt
 sha256: 3995d0333c559b36e36d25e4ab384da8d2c69dd7c4070e042509ef432f755f0d
 author: NVIDIA Corporation

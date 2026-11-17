@@ -2,7 +2,8 @@
 title: "NVIDIA to acquire Hugging Face — $12.93B (Sept 2026)"
 type: source
 url: https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/
-fetch_url: https://www.sec.gov/Archives/edgar/data/1045810/000104581026000078/nvda-20260902.htm
+filing_url: https://www.sec.gov/Archives/edgar/data/1045810/000104581026000078/nvda-20260902.htm
+drift_check: "not re-checkable: sec.gov blocks undeclared automated clients, and declaring one means personal contact details in the User-Agent; the raw copy also bundles the NVIDIA blog post (2026-11-16)"
 local_path: raw/2026-09-03-nvidia-to-acquire-hugging-face.md
 sha256: 2d4e9e2d886c18b19f3b6cd8f5f2e8d48e07e73837595036935ab48409745a08
 author: "Jensen Huang (NVIDIA newsroom post); NVIDIA Corporation (SEC Form 8-K)"

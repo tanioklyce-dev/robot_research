@@ -3,8 +3,10 @@ title: "MiaAI-Lab/sparkDash — multi-unit DGX Spark monitoring dashboard (GitHu
 type: source
 url: https://github.com/MiaAI-Lab/sparkDash
 fetch_url: https://raw.githubusercontent.com/MiaAI-Lab/sparkDash/main/README.md
-local_path: raw/2026-11-07-sparkdash-readme.md
-sha256: c883105c3f5b37141a7c969f581d122ecff0b1d4eefe169ec9e5330479013b5f
+local_path: raw/2026-11-16-sparkdash-readme.md
+sha256: 3ed080d457e93c5197a126158899ef6b30fafc061f6aab0ffd64fdade28b357b
+local_path_superseded: raw/2026-11-07-sparkdash-readme.md
+sha256_superseded: c883105c3f5b37141a7c969f581d122ecff0b1d4eefe169ec9e5330479013b5f
 author: "Mia's AI Lab (MiaAI-Lab); macOS collectors by C. Michael Gibbs and Nyx Voss (Onyx AI Labs); ~40 contributors"
 published: 2026-07-19
 venue: "GitHub repository (Apache-2.0; some files MIT per LICENSE-MIT); homepage mia-ai.net"
@@ -51,7 +53,7 @@ The security model is stated plainly, and it is permissive by default for a LAN 
 ### Benchmarks
 - **Decode.** Multi-concurrency streaming tok/s by content type, with selectable temperature and thinking. A **start context** (16k–256k) prefills each stream first and flags waves whose prefix cache was recomputed.
 - **Prefill.** A 1k–300k context sweep of prefill tok/s and TTFT.
-- **Quality.** About 755 seeded requests at temperature 0 across eight categories:
+- **Quality.** *As of the 2026-11-07 capture (suite v1; see Edition history for suite v2):* about 755 seeded requests at temperature 0 across eight categories:
   - QA, reasoning, arithmetic chains and state tracking;
   - GSM8K (200) and MMLU (285, 5 per subject);
   - optional instruction-following and long-context recall up to 256k, with stale-code detection.
@@ -74,8 +76,23 @@ The security model is stated plainly, and it is permissive by default for a LAN 
 - **Tested scale.** *"Tested operator capacity for this remediation: 12 units."*
 
 ### Release state
-- **No published image yet.** The README describes **v2.70.0**, but the newest GitHub release is **v2.32.0** (2026-10-10). The GHCR image workflow only builds tags pushed after it was added, so *"releases up to v2.32.0 have no image"* and `docker pull` returns `denied` until the next tag. Build from source.
+- **No published image yet.** The README describes **v2.70.0** (*v2.90.0 as of 2026-11-16*), but the newest GitHub release is **v2.32.0** (2026-10-10, still the latest on 2026-11-16). The GHCR image workflow only builds tags pushed after it was added, so *"releases up to v2.32.0 have no image"* and `docker pull` returns `denied` until the next tag. Build from source.
 - **x86 Docker builds are untested.** A bare `npm install && npm run build && npm start` (Node 22) works off-Spark.
+
+## Edition history
+
+| Captured | README version | main head | Notes |
+|---|---|---|---|
+| 2026-11-07 | 2.70.0 | `e89f8d1` (2026-11-06) | first capture |
+| **2026-11-16** | **2.90.0** (README release commit 2026-11-12) | `19215c1` (2026-11-16) | Latest GitHub release still **v2.32.0**; the README/tag lag grew. |
+
+**What changed, 2026-11-07 → 2026-11-16:**
+- **v2.90.0:** a **Storage Manager** (disk analysis, Docker image cleanup, multi-select deletes with an evidence-based pre-delete check rated Low / Review / High, staged deletion, optional sudo), **Pico** recognised as an engine (decode tok/s sampled and labelled *sampled* when the engine exposes no gauges), **per-card GPU power limits** on GPU hosts, an opt-in read-only **API Keys** page (LiteLLM), English / 简体中文 UI, and **Gotify** as an alert channel.
+- **Quality bench suite v2** (2026-11), replacing the suite v1 numbers in Key claims above. Categories: QA 150 (26 fixed + 124 generated), Reasoning 200, Arithmetic chain 200 (100 of ten steps, 100 of twenty; step-graded), State tracking 200 (person-graded), **GSM8K-Platinum 188** (the 200-item sample re-labelled, 12 mislabeled or ambiguous items removed), **MMLU-Pro 300** (stratified, 14 categories), **MATH-500** (off by default), MMLU 285 (*"optional since suite v2 (saturated)"*), long-context recall at three needle depths, and three new categories: **Tokenizer** (44, split out of QA because tokenisation, not reasoning, decides them), **Divergence** (120 prompts: termination and loop rates, never scored into the overall) and **Fidelity** (9 documents, about 34k tokens, scored by prompt log-probabilities, *"for comparing a quantised build with the original weights"*). Every run records an **engine record** (engine, version, commit, checkpoint hash, quantisation, KV dtype). There is an optional **noise floor** (repeat runs, flipped-item share), **Wilson 95% intervals** per category and a **stratified bootstrap** interval on the overall. Runs can pause and resume. Suite v1 runs stay viewable, labelled by version.
+- **spark-attic monitoring** (2026-11-16, opt-in, default off): reads the status file of the third-party [spark-attic](https://github.com/bertholomus/spark-attic) daemon (`atticd`), which lends the **GB10's ~2 GiB display carveout** (outside the kernel's System RAM, so `MemAvailable` never counts it) to CUDA programs such as an engine's KV cache. Read-only, keyless, one SSH shell command.
+
+> [!note] The quality-bench change is the substantive one
+> Suite v1's GSM8K and MMLU were near saturation for current models, and its McNemar-only comparison gave no interval. Suite v2's Platinum relabelling, interval reporting and fidelity-by-logprob category make sparkDash's quality numbers much more defensible for **quantisation A/B tests on one Spark**, which is the comparison that matters for this wiki's [Spark-hosted model work](../syntheses/projects/wiki-query-agent-on-dgx-spark.md). Treat any suite v1 number cited elsewhere as superseded.
 
 ## Entities mentioned
 - [sparkDash](../entities/sparkdash.md) · [DGX Spark](../entities/dgx-spark.md)
@@ -89,5 +106,5 @@ The security model is stated plainly, and it is permissive by default for a LAN 
 ## Open questions
 - **The open-by-default LAN bind.** It can power units off. A one-line `SPARKDASH_ALLOW_OPEN_REMOTE=0` closes it, but that is not the default. For a Spark running a robot or agent stack, treat the dashboard host as part of the control surface.
 - **Privileged container with root SSH keys.** The dashboard host holds credentials to every unit. Its blast radius equals the fleet's.
-- **Release lag.** README 2.70.0 vs release v2.32.0 means "what the README says" and "what a tagged install does" differ. Pin by commit.
+- **Release lag.** README 2.70.0 (2.90.0 by 2026-11-16) vs release v2.32.0 means "what the README says" and "what a tagged install does" differ. Pin by commit.
 - **Is Tool Eval Bench's safety scoring meaningful?** It isn't described in the README. Ingest tool-eval-bench or ToolCall-15 if tool-calling evaluation of local models becomes decision-relevant.

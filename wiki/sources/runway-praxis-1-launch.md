@@ -3,6 +3,7 @@ title: "Praxis-1 Is Now Available — Runway (November 2026)"
 type: source
 url: https://runway.com/news/company-news/praxis-1-is-now-available
 fetch_url: https://runway.com/news/company-news/praxis-1-is-now-available
+capture: bundle
 local_path: raw/2026-11-11-runway-praxis-1-launch.md
 sha256: 4cd60ba3b8678aaea60a391f7e76cc09a25f6d721bf1ac21d7b5976cf60895c9
 author: Runway

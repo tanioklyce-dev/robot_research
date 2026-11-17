@@ -3,14 +3,16 @@ title: "Isaac Lab-Arena GitHub (isaac-sim/IsaacLab-Arena) — README, v0.3.0 doc
 type: source
 url: https://github.com/isaac-sim/IsaacLab-Arena
 fetch_url: https://raw.githubusercontent.com/isaac-sim/IsaacLab-Arena/main/README.md
-local_path: raw/2026-09-14-isaaclab-arena-github-readme.md
-sha256: 0a9f93a4eb627cabb5589a8bca970e15693894c9bf34c7f0a399cd4c04ef0f52
+local_path: raw/2026-11-16-isaaclab-arena-github-readme.md
+sha256: fd649d1558d7be3025ce03a12c4265d79292decb176269e3fcdc1710dd107d7b
+local_path_superseded: raw/2026-09-14-isaaclab-arena-github-readme.md
+sha256_superseded: 0a9f93a4eb627cabb5589a8bca970e15693894c9bf34c7f0a399cd4c04ef0f52
 author: "NVIDIA Robotics (Isaac Lab-Arena core team), with Lightwheel and NVIDIA SRL RoboLab contributors"
 published: 2025-11-25
 venue: "GitHub repository + Sphinx docs (isaac-sim.github.io/IsaacLab-Arena, release/0.3.0)"
 format: "repository README, docs pages (release notes, motivation, performance, policy, sensitivity analysis, model selection, catalogs), pyproject, CONTRIBUTORS.md, GitHub API metadata; plus the 2026-01-05 NVIDIA announcement blog and the same-day HF blog"
 github_stats: "564 stars, 104 forks, 137 open issues, 901 merged PRs, 23 GitHub contributors; created 2025-08-15, pushed 2026-09-15 (captured 2026-09-14)"
-latest_release: "v0.3.0 (release/0.3.0 branch, alpha; last cherry-pick 2026-09-14); main tracks v0.3.0 + Isaac Lab 3.0"
+latest_release: "v0.3.1 (release/0.3.1: Isaac Lab 3.0.0 EA, Isaac Sim 6.1.0; README re-captured 2026-11-16). main is Isaac Lab 3.0.0 + Isaac Sim 6.2.0. The docs bundle and the claims below are as of v0.3.0 (2026-09-14) unless marked."
 related_raw: "raw/2026-09-14-isaaclab-arena-docs-v0.3-bundle.md (docs pages), raw/2026-01-05-nvidia-blog-isaac-lab-arena.txt (announcement blog)"
 tags: [isaac-lab-arena, isaac-lab, isaac-sim, nvidia, lightwheel, robolab, evaluation, benchmark, simulation, github, droid, gr00t, openpi, pi0, cosmos, dreamzero, lerobot, envhub, newton, osmo, sensitivity-analysis, npe, agentic-environment-generation, apache-2]
 ingested: 2026-09-14
@@ -38,7 +40,7 @@ The repo was created 2025-08-15, first tagged as a release branch 2025-11-25, an
 - **Sequential task chaining** (`SequentialTaskBase`, v0.2): atomic skills — pick, walk, place, open, close, press, rotate — chained into long-horizon composites, with order-independent composite tasks and normalized progress scoring in v0.3.
 - Task library on `main`: pick-and-place, open/close door, press button, rotate revolute joint (knob), lift, goal pose, place upright, sorting, assembly (peg insert, gear mesh), plus predicates for articulations, spatial relations and object settling.
 - Embodiments on `main`: **Franka** (`franka_ik`, `franka_joint_pos`), **[DROID](../entities/droid.md)** (`droid_abs_joint_pos`), **GR1T2** (`gr1_pink`, `gr1_joint`) — the [Fourier GR-1](../entities/fourier-gr-1.md), **[Unitree G1](../entities/unitree-g1.md)** (`g1_wbc_pink`, whole-body controller with a navigation P-controller in Mimic; the G1 **WBC-AGILE end-to-end velocity policy** arrived in v0.2), **Galbot**, **AgiBot A2D**, **Kuka + Allegro** hand, and a `no_embodiment` sandbox. No low-cost arm (no SO-101, no LeKiwi) is registered.
-- **Agentic environment generation** (v0.3, *experimental*): `EnvironmentGenerationAgent` builds a prompt from the asset catalogs (~15,000 characters), asks an OpenAI-compatible model for a JSON `ArenaEnvGraphSpec`, validates only admissibility (registered asset names, known relation kinds, prim paths present in the background's tree — 886 prims / ~30,000 characters for the Lightwheel RoboCasa kitchen) and hands the result to a review GUI. The docs are candid that *"Arena does not reason about the scene… A bad answer is rejected… but Arena cannot fix it."* SimReady asset search (`simready-search`) finds USD assets.
+- **Agentic environment generation** (v0.3, *experimental*; *de-emphasized by November 2026: its docs were removed 2026-11-09 (#1619) and the README now promotes coding-agent "agentic authoring" instead. The `agentic_environment_generation` code is still on `main`. See Edition history.*): `EnvironmentGenerationAgent` builds a prompt from the asset catalogs (~15,000 characters), asks an OpenAI-compatible model for a JSON `ArenaEnvGraphSpec`, validates only admissibility (registered asset names, known relation kinds, prim paths present in the background's tree — 886 prims / ~30,000 characters for the Lightwheel RoboCasa kitchen) and hands the result to a review GUI. The docs are candid that *"Arena does not reason about the scene… A bad answer is rejected… but Arena cannot fix it."* SimReady asset search (`simready-search`) finds USD assets.
 
 ### Policy contract and integrations
 - One method: `get_action(env, obs)` on `PolicyBase`, with a typed `PolicyCfg`; the runner generates CLI flags from the config. Built-ins: `zero_action`, `replay` (HDF5), `rsl_rl` (checkpoint + `params/agent.yaml`).
@@ -79,6 +81,21 @@ The repo was created 2025-08-15, first tagged as a release branch 2025-11-25, an
 - Ships **`AGENTS.md`, `CLAUDE.md`** and an **agent skill library** (`skills/user`: `setup-arena`, `run-experiment`, `serve-gr00t-policy`, `serve-openpi-policy`; `skills/developer`: `dev-container`, `run-tests`, `commit-and-pr`, `download-osmo-evaluation-output`) exposed to Codex and Claude Code through symlinks — the second NVIDIA repo in this wiki to do so after [Halos](halos-outside-in-safety-github.md).
 - DCO sign-off required; per-clone Docker containers; CI runs all-environment smoke tests and a GR00T closed-loop end-to-end job.
 - Newton: `main` is Isaac Lab 3.0 (Newton) since v0.2; September commits add *"Enable Newton support for DROID control,"* a cable asset class and a temporary gear-insertion environment; *What's Next* names *"contact-rich insertion, cables, and deformables."* A 2026-09-10 commit *"Upgrade Isaac Sim dependencies to 6.1"* means `main` is already past the README's 6.0.0 badge.
+
+## Edition history
+
+| Captured | Version | Isaac Lab / Isaac Sim | What changed in the README |
+|---|---|---|---|
+| 2026-09-14 | v0.3.0 | 3.0.0 beta2 / 6.0.0 | first capture |
+| **2026-11-16** | **v0.3.1** (README for it 2026-10-07) | `main` 3.0.0 / **6.2.0**; `release/0.3.1` 3.0.0 EA / 6.1.0; `release/0.3.0` re-pinned to 6.0.1 | see below |
+
+**What changed, 2026-09-14 → 2026-11-16** (README commits `e6a411a` … `841d7b5`):
+- **Agentic generation replaced in the pitch.** *"Agentic environment generation (experimental) — Describe a task in natural language; an agent infers constraints…"* became *"Agentic authoring — Use coding agents with Arena's authoring skill, placement relations, and composite tasks to build and validate evaluation environments."* The natural-language generation docs were deleted (#1619, *"Remove legacy agentic environment generation docs"*) and the *"Agentic environment generation is experimental"* limitation removed. The code is still in the tree (`isaaclab_arena/agentic_environment_generation/`), next to a new `agentic_tools/`. The NL-to-environment generator was not productized; the direction moved to agent skills, the same pattern as [Isaac ROS 5.0](nvidia-isaac-ros-5-0-blog.md).
+- **New feature line:** *"Newton-backed deformable and contact-rich simulation… such as gear insertion."* What the September capture listed as *What's Next* is now a feature.
+- **VLMs** added to the policy client-server line (*"Evaluate GR00T, π0.5, VLMs, or a custom policy"*).
+- **Runner renamed:** `policy_runner.py --policy_type zero_action --num_steps 20 cube_goal_pose` → `experiment_runner.py runs.smoke_test.rollout_limit.num_steps=200` (Hydra-style config; legacy JSON configs deleted in #1531).
+- **Published benchmarks:** **[RoboDojo](../entities/robodojo.md)** (an `RoboDojo-IsaacLabArena` branch), **VABAR** (UC Berkeley), **DexBench** (RLWRLD) and **X2Real** (X Square) moved from *"coming soon"* partners to listed benchmarks. Still *"coming soon"*: the full RoboTwin suite, Sharpa and NVIDIA.
+- Contributing now asks for a **design proposal** before large changes.
 
 ## Entities mentioned
 - [Isaac Lab-Arena](../entities/isaac-lab-arena.md) — the subject.

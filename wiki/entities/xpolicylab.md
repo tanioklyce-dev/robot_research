@@ -3,7 +3,7 @@ title: XPolicyLab
 type: entity
 subtype: software
 created: 2026-11-07
-updated: 2026-11-07
+updated: 2026-11-16
 sources: 4
 tags: [xpolicylab, policy-serving, evaluation-infrastructure, robodojo, robotwin, rmbench, leaderboard, vla, world-action-model, lerobot, coding-agents, apache-2]
 ---
@@ -18,6 +18,8 @@ tags: [xpolicylab, policy-serving, evaluation-infrastructure, robodojo, robotwin
 - **Standard formats.** Nested observation and trajectory dicts, quaternion-first poses, and official LeRobot v2.1/v3.0 converters that zero-pad mixed embodiments into one dataset.
 - **Scale.** **77 policies** as of November 2026, up from 30 in the RoboDojo paper (July) and "40+" in RoboDojo's branch README. At least ten are world-action models, and one is a frontier LLM ([GPT-6 Astra](gpt-6-astra.md)) driving the arm through a single end-effector tool. That entry ranks first on RoboDojo sim at 22.48% ([paper](../sources/gpt-6-astra-robodojo-paper.md)).
 - **Gatekeeping.** A PR here, with a checkpoint download script, is required to enter either official leaderboard. That is how RoboDojo enforces its rule that the verified board must release checkpoints ([RoboDojo paper](../sources/robodojo-paper.md)).
+
+- **Official task text for adapters** (2026-11-14): RoboDojo now passes its official task Description and public Scoring at `obs["extra_info"]["detailed_instruction"]`, beside the instance goal. It is opt-in for adapters and carries no reward code. It is a ready-made channel for giving every policy the same public task text, which is the ablation the [GPT-6 Astra result](../sources/gpt-6-astra-robodojo-paper.md) still lacks ([edition history](../sources/xpolicylab-github.md#edition-history)).
 
 ## Engineering lessons it writes down
 - **The codec is the boundary.** Legacy JPEGs written from RGB arrays are channel-reversed, and new ones carry an `XPL-RGB1` marker. Both coexist in the same runs, and only `decode_image_bit` can tell them apart, so any hand-written color swap is a bug. The rule landed in three commits from August to September 2026 and matches the joint RoboDojo/RoboTwin RGB fix ([branch READMEs](../sources/robodojo-isaaclabarena-branch.md)).

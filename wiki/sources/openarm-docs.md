@@ -11,6 +11,7 @@ venue: "Docusaurus documentation site; source in github.com/enactic/openarm/webs
 format: docs site (JS-rendered; ingested from the MDX sources on the main branch, snapshot of 28 pages)
 license: "docs and software Apache-2.0; hardware CAD CERN-OHL-S-2.0"
 fetch_url: https://raw.githubusercontent.com/enactic/openarm/main/website/docs/overview/index.mdx
+capture: bundle
 tags: [openarm, enactic, open-hardware, bimanual, 7-dof, quasi-direct-drive, damiao, bilateral-teleoperation, force-feedback, leader-follower, evaluation-cell, reproducibility, lerobot, dora, isaac-lab, mujoco, can-fd, vendor-docs, primary-source]
 ingested: 2026-09-13
 ---
@@ -89,6 +90,12 @@ Fasten to a stable surface; nobody inside the range of motion while powered; gog
 - **The "two OpenArms" question.** [UME](../entities/ume.md) evaluated on a *"WowRobo OpenArm 1.0 bimanual ($5,200)"*; [Sensori Robotics](../entities/sensori-robotics.md) sells [Yuri](../entities/yuri.md) on *"OpenArm+"* and points at docs.openarm.dev. Both trace to **Enactic's OpenArm**: WowRobo is its certified manufacturer (its V1.1 is $5,400 today), and Sensori's OpenArm+ is a derivative — Sensori appears nowhere on Enactic's manufacturer list. So the wiki's hunch that a standard was forming above the SO-101 tier was right, and it has a name and an owner.
 - **A second bilateral rig at the low-cost tier.** [FACTR](factr-paper.md)'s ~$1,230 actuated leader was the wiki's only bilateral force-feedback teleop rig; OpenArm ships bilateral control in its teleop package and records joint torque in its dataset format.
 - **An evaluation cell as a product.** The [policy-evaluation](../concepts/robotics/robot-policy-evaluation.md) thread has argued that success rates are incomparable across labs because lighting, cameras and calibration drift; the Cell is a vendor building exactly that control into hardware. Whether anyone publishes comparable numbers on it is the open question.
+
+## Edition history
+
+| Checked | Change upstream | Status |
+|---|---|---|
+| 2026-11-16 | The **Discord invite link** in the overview page changed (`discord.gg/GmYa262ETH` → `discord.gg/FsZaZ4z3We`). No other content change in the page `fetch_url` covers. | Not re-snapshotted. `--check` will keep reporting this until the bundle is re-captured (backlogged). |
 
 ## Entities mentioned
 
