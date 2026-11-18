@@ -3,8 +3,8 @@ title: GEAR-SONIC
 type: entity
 subtype: method
 created: 2026-07-04
-updated: 2026-11-09
-sources: 7
+updated: 2026-11-17
+sources: 8
 tags: [gear-sonic, sonic, whole-body-control, humanoid, loco-manipulation, motion-tracking, unitree-g1, nvidia, gear, groot]
 ---
 
@@ -30,6 +30,7 @@ SONIC exposes a **universal token action space** (FSQ-quantized) that decouples 
 - [Sim-to-real transfer](../concepts/learning/sim-to-real-transfer.md), [VLA models](../concepts/learning/vla-models.md).
 
 ## Mentioned in
+- [SOMA Retargeter post](../sources/nvidia-soma-retargeter-blog.md) — SONIC's training workflow includes a converter from SOMA Retargeter CSVs to its G1 motion library; the MotionBricks + SONIC G1 demo uses motion partly retargeted with it.
 - [SONIC Paper](../sources/sonic-paper.md) — primary source.
 - [GR00T-WholeBodyControl GitHub](../sources/gr00t-wholebodycontrol-github.md) — the code (`gear_sonic` training + `gear_sonic_deploy` C++ deploy); shares the repo with MotionBricks + Decoupled WBC.
 - [Isaac-GR00T GitHub](../sources/isaac-gr00t-github.md) — `UNITREE_G1_SONIC` tag + GEAR-SONIC controller.

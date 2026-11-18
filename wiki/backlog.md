@@ -943,3 +943,9 @@ Clean at time of writing: 0 broken links (7,175 checked), 0 orphan pages, all `s
 - [ ] **The local.ai / EXO Labs DGX Spark evaluation** — find the primary; the index and task set behind the latency ladder are undefined in NVIDIA's post.
 - [ ] **Figures 5 and 6** of [the post](sources/nvidia-nemotron-3-5-super-vl-blog.md) were not viewed; the page was revised 2026-11-09 with no changelog.
 - [ ] **Sibling posts** — Nemotron 3.5 Lightning, Nemotron 3 Ultra and Nemotron 3 Nano Omni each have their own NVIDIA blog post, none ingested.
+
+## [2026-11-17] SOMA Retargeter — follow-ups
+- [x] **SOMA Retargeter repository** — ingested 2026-11-17 as [NVIDIA/soma-retargeter v0.2.0](sources/soma-retargeter-github.md). No quality metrics there either.
+- [ ] **SOMA-X** (`github.com/NVlabs/SOMA-X`, "Unifying Parametric Human Body Models") — the shared skeleton the whole NVIDIA motion pipeline rests on; no page yet.
+- [ ] **GEM-X, Kimodo, ARDY, ProtoMotions** — NVIDIA motion tools named in the post, none ingested.
+- [ ] **A retargeter comparison** — no source in the wiki measures retargeting quality; GMR's paper or repository is the obvious first candidate for the [motion retargeting](concepts/robotics/motion-retargeting.md) page.

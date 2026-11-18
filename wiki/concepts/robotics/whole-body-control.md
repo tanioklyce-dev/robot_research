@@ -2,8 +2,8 @@
 title: Whole-Body Control (WBC)
 type: concept
 created: 2026-07-15
-updated: 2026-11-10
-sources: 36
+updated: 2026-11-17
+sources: 37
 tags: [whole-body-control, wbc, humanoid, motion-tracking, loco-manipulation, unitree-g1, booster-t1, rl, sim-to-real, amass, agile, code, system-0, helix, figure-03]
 ---
 
@@ -70,6 +70,7 @@ Added 2026-08-28. Everything above is academic or open-source. [Helix 02](../../
 > [HIW-500](../../entities/hiw-500.md)'s LeRobot release makes the interface concrete: `observation.state` is the [G1](../../entities/unitree-g1.md)'s 29 joint positions, but the **action is 23-D — base `vx, vy, vyaw, roll, pitch, yaw, height`, both end-effector 6-DoF poses, and gripper trigger/squeeze** ([dataset page](../../sources/bitrobot-hiw-500-dataset-page.md)). The teleoperator drives the whole-body controller; the dataset records what it was told. A policy trained on it inherits Unitree's WBC as a fixed lower layer — the same split Helix 02's S1→S0 boundary and GR00T's `UNITREE_G1_SONIC` embodiment make, and the likely content of [UnifoLM-WLA-1.0](../../entities/unifolm.md)'s "lower-body" action tokens.
 
 ## Related concepts
+- [Motion retargeting](motion-retargeting.md) — how human motion corpora become the reference motions tracking policies learn from, and why they need filtering.
 
 - [VLA models](../learning/vla-models.md) — the high-level System-2 layer WBC sits under.
 - [Sim-to-real transfer](../learning/sim-to-real-transfer.md), [imitation learning](../learning/imitation-learning.md) (DAgger distillation), [optimal control](optimal-control.md) (the model-based counterpart).

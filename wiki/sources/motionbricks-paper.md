@@ -60,4 +60,5 @@ tags: [motionbricks, nvidia, gear, xue-bin-peng, yuke-zhu, whole-body-control, h
 - **Data provenance** — the >350k-clip corpus mixes open-source + proprietary; licensing of the proprietary half unstated.
 
 ## Cited by
+- [SOMA Retargeter post](nvidia-soma-retargeter-blog.md) — MotionBricks' G1 model trained partly on BONES-SEED motion retargeted with SOMA Retargeter.
 - [Helix (Figure AI)](../entities/helix.md)

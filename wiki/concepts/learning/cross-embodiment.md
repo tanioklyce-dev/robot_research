@@ -2,7 +2,7 @@
 title: Cross-embodiment transfer
 type: concept
 created: 2026-09-11
-updated: 2026-11-16
+updated: 2026-11-17
 sources: 42
 tags: [cross-embodiment, embodiment-gap, action-space, normalized-actions, soft-prompts, latent-action-tokens, embodiment-conditioning, retargeting, whole-body-control, navigation, manipulation, humanoid, scaling]
 ---
@@ -83,6 +83,7 @@ Nineteen distinct answers appear across the sources. Grouped by what they change
 
 > [!note] Curated list — the term appears on 100+ pages; the ones below supplied this page's claims.
 
+- [SOMA Retargeter post](../../sources/nvidia-soma-retargeter-blog.md) — the hand-designed version of the mapping: one human clip, five humanoid configurations. See [motion retargeting](../robotics/motion-retargeting.md).
 - [Extreme Adaptation](../../sources/extreme-adaptation-quadcopter-controller-paper.md), [Near-hover](../../sources/near-hover-adaptive-quadcopter-controller-paper.md) — one motor-level policy across quadcopter bodies, body inferred online.
 
 - Navigation: [GNM](../../sources/gnm-paper.md), [ViNT](../../sources/vint-paper.md), [MBRA](../../sources/mbra-paper.md), [Go-Big](../../sources/figure-project-go-big.md).

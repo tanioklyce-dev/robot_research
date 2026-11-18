@@ -3,8 +3,8 @@ title: Unitree G1
 type: entity
 subtype: robot
 created: 2026-05-08
-updated: 2026-11-09
-sources: 30
+updated: 2026-11-17
+sources: 31
 tags: [unitree-g1, humanoid, bipedal, china, affordable, accessible, groot, whole-body-control]
 ---
 
@@ -77,6 +77,7 @@ The same paper gives the assessed unit's compute as an RK3588 with 8 GB RAM, run
 - [Humanoid platforms survey](../syntheses/platforms/humanoid-platforms-survey.md) — landscape; G1 is the educational-research bridge.
 
 ## Mentioned in
+- [SOMA Retargeter post](../sources/nvidia-soma-retargeter-blog.md) — the default configuration in SOMA Retargeter v0.2, with a bundled reference walk; SONIC's SOMA converter targets G1.
 - [Unitree G1 and G1-D pages](../sources/unitree-g1-product-page.md) — the primary for G1, G1 Pro and EDU pricing.
 - [AI Index 2026](../sources/stanford-hai-ai-index-2026.md) — G1 "from $13,500."
 - [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — `g1_wbc_pink` embodiment (whole-body controller + navigation P-controller in Mimic) and the WBC-AGILE end-to-end velocity policy; the `galileo_g1_locomanip_pick_and_place` environment (navigate, squat, pick from shelf, place in bin) is the loco-manipulation workflow; GEAR's *G1 Factory* benchmark announced.

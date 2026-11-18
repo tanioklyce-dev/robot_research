@@ -3,8 +3,8 @@ title: Microduck
 type: entity
 subtype: robot
 created: 2026-08-27
-updated: 2026-10-24
-sources: 12
+updated: 2026-11-17
+sources: 13
 tags: [microduck, isaac-lab, newton, microduck-arena, pollen-robotics, hugging-face, biped, reinforcement-learning, sim-to-real, mjlab, dynamixel, rk3566, consumer-robotics, education]
 ---
 
@@ -128,6 +128,7 @@ That drives a **BAM M6** model of the XL330 (voltage control law, back-EMF, Coul
 - [Onboard robot service architecture](../concepts/robotics/onboard-robot-service-architecture.md) — the patterns its runtime demonstrates
 
 ## Mentioned in
+- [SOMA Retargeter post](../sources/nvidia-soma-retargeter-blog.md) — an experiment adapting Bones human motion to MicroDuck and training one tracking controller per clip in Isaac Lab and Newton (simulation only).
 
 - [Microduck — Pollen Robotics launch](../sources/pollen-robotics-microduck.md)
 - [`pollen-robotics/microduck` — the onboard runtime](../sources/microduck-runtime-repo.md) — the seven-daemon architecture, the 50 Hz tick, the safety boundary, predictive fall mitigation, and the measured NPU.

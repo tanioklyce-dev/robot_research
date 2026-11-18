@@ -3,8 +3,8 @@ title: AGIBOT
 type: entity
 subtype: company
 created: 2026-05-06
-updated: 2026-10-27
-sources: 17
+updated: 2026-11-17
+sources: 19
 tags: [agibot, china, embodied-ai, humanoid]
 ---
 
@@ -27,6 +27,8 @@ One of the most active publishers of open embodied-AI infrastructure in 2026 —
 - [NVIDIA Cosmos](nvidia-cosmos.md) — underlying model for GE-Sim2.
 
 ## Mentioned in
+- [SOMA Retargeter post](../sources/nvidia-soma-retargeter-blog.md) — two AgiBot humanoids, X2 Ultra and A3T3, have reference configurations in SOMA Retargeter v0.2.
+- [NVIDIA/soma-retargeter v0.2.0](../sources/soma-retargeter-github.md) — bundles AgiBot's X2 and A3 robot descriptions under Mulan PSL v2, pinned to specific upstream commits.
 - [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — AgiBot **A2D** is a registered Arena embodiment since v0.2 (`agibot`, left-arm mode).
 - [X-VLA paper](../sources/xvla-paper.md)
 - [AGIBOT Genie Sim 3.0 Announcement](../sources/agibot-genie-sim-3-announcement.md)

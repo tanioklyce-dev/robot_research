@@ -3,8 +3,8 @@ title: Booster T1
 type: entity
 subtype: robot
 created: 2026-07-15
-updated: 2026-10-23
-sources: 1
+updated: 2026-11-17
+sources: 2
 tags: [booster-t1, humanoid, bipedal, whole-body-control, china, booster-robotics]
 ---
 
@@ -23,5 +23,6 @@ tags: [booster-t1, humanoid, bipedal, whole-body-control, china, booster-robotic
 - [Unitree G1](unitree-g1.md) — the co-benchmark humanoid.
 
 ## Mentioned in
+- [SOMA Retargeter post](../sources/nvidia-soma-retargeter-blog.md) — one of five humanoids in SOMA Retargeter v0.2; the post's reference-pose alignment example (a one-handed wave) is on T1.
 
 - [WBC-AGILE](../sources/wbc-agile-github.md) — a validated AGILE robot.

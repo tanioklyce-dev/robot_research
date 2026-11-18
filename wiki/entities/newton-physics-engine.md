@@ -3,8 +3,8 @@ title: Newton physics engine
 type: entity
 subtype: product
 created: 2026-05-06
-updated: 2026-11-09
-sources: 14
+updated: 2026-11-17
+sources: 16
 tags: [physics-engine, gpu, openusd, usdphysics, warp, linux-foundation]
 ---
 
@@ -48,6 +48,8 @@ Isaac Lab's native **BAM servo actuator** runs only on Newton with `MJWarpSolver
 - [NVIDIA](nvidia.md), [Google DeepMind](google-deepmind.md) — co-developers.
 
 ## Mentioned in
+- [SOMA Retargeter post](../sources/nvidia-soma-retargeter-blog.md) — Newton's inverse-kinematics solver, on Warp, is the retargeting solver.
+- [NVIDIA/soma-retargeter v0.2.0](../sources/soma-retargeter-github.md) — specifically Newton's Levenberg–Marquardt IK, 24 iterations per frame with CUDA-graph capture; v0.2.0 requires Newton 1.3.0 and Warp 1.14.
 - [Isaac Lab-Arena GitHub](../sources/isaaclab-arena-github.md) — Arena moved to Isaac Lab 3.0 (Newton) in v0.2; September 2026 commits add Newton support for DROID control, a cable asset class and a gear-insertion environment; *"contact-rich insertion, cables, and deformables"* named as the next Newton-dependent benchmarks.
 - [NVIDIA Newton Physics Engine Developer Page](../sources/nvidia-newton-physics-engine-developer-page.md)
 - [NVIDIA Newton Contact-Rich Manipulation Blog](../sources/nvidia-newton-contact-rich-manipulation-blog.md)
