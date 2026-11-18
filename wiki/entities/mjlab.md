@@ -3,8 +3,8 @@ title: mjlab
 type: entity
 subtype: product
 created: 2026-08-27
-updated: 2026-10-24
-sources: 5
+updated: 2026-11-17
+sources: 6
 tags: [mjlab, mujoco, mujoco-warp, rsl-rl, ppo, rl, sim-to-real, locomotion, training-framework]
 ---
 
@@ -51,3 +51,4 @@ The naming convention in `microduck_rl` (`Mjlab-Velocity-Flat-MicroDuck`, env-cf
 - [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../sources/nvidia-microduck-ai-agents-sim-blog.md) — Isaac Lab's competing Microduck stack, BAM on MJWarp.
 - [Train in Simulation, Deploy on a Real Robot: Microduck with Isaac Lab 3.0](../sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md) — the Isaac Lab counterpart, same 61→14 contract.
 - [pollen-robotics/microduck-arena](../sources/microduck-arena-github.md) — the Arena's training workshop uses mjlab tasks.
+- [microduck_rl expressive-motions and dance-steps branches](../sources/microduck-rl-expressive-motions.md) — phase-commanded motion-tracking tasks (`Mjlab-Expressive-*-MicroDuck`) built on the ground-pick environment.

@@ -4,7 +4,7 @@ type: entity
 subtype: robot
 created: 2026-08-27
 updated: 2026-11-17
-sources: 13
+sources: 14
 tags: [microduck, isaac-lab, newton, microduck-arena, pollen-robotics, hugging-face, biped, reinforcement-learning, sim-to-real, mjlab, dynamixel, rk3566, consumer-robotics, education]
 ---
 
@@ -47,6 +47,17 @@ Seven policies in the box: **walk** (velocity tracking), **sit & stand**, **kick
 Falling is handled by a **second, separate detector** that the policies never see. The published fall verdict (projected gravity, debounced 0.2 s) is too late to soften a landing, so `limp_fall` predicts from the *rate* — `ġ = −ω × g` straight off the gyro, extrapolated ~0.3 s — fires at ≈26° of tilt while still tipping, goes limp, waits for the gyro to quieten, then ramps to the standing pose and hands back to the policy. What it buys is not the landing but the stand-up: the standing policy *"gets a still robot in a known posture up cleanly and a thrashing one up only after several attempts at walking gain against the floor"* ([runtime repo](../sources/microduck-runtime-repo.md)).
 
 The RL repo registers **13 task families**, most with Flat/Rough terrain variants and all with a `-Backlash` twin: `Velocity`, `VelStand` (walk + fall-recovery in one policy), `StandUp`, `SitStand`, `GroundPick`, `BallKick` (70 mm / 15 g ball; *the actor is ball-blind*), `Roulade`, and six roller variants including `RollerSlope` and `Spin`.
+
+## Expressive motions and a dance (unmerged, 2026-10)
+
+Two unmerged branches of `microduck_rl` teach the duck body language: six hand-written moods (Sassy, Proud, Shy, Excited, Giggle, Hmph), then an 18.25 s dance called "Tremendous" ([branches](../sources/microduck-rl-expressive-motions.md)):
+- **The human motion is reduced to eight channels.** These are trunk roll, pitch, yaw and height, plus four head and neck joints. The dance is a 50 Hz table re-solved with the feet planted: centre of mass at least 11 mm inside the soles, every joint at least 0.07 rad from its stops. A dance-steps variant adds four real steps via whole-body IK.
+- **One policy per motion.** Each is trained with PPO in mjlab. The actor sees only the standard 61 observations with a phase clock in the command slots; the reference goes to the critic only. So a dance is a drop-in `61 → 14` skill that `robotd` drives like the ground pick.
+- **Hardware**: a commit message reports that the 70%-scaled dance ran on a real duck, "transfer is good, the choreography is too timid." It is one sentence, with no video or numbers. It is still the only report of human-style motion on Microduck hardware; [NVIDIA's MicroDuck retargeting](../sources/nvidia-soma-retargeter-blog.md) was simulation only.
+- **Body limits it found**: the standing pose leaves about +3 mm of height upward and −15 mm downward; with no ankle roll the soles sit a fixed ~84 mm apart; flat-footed sideways roll stops at ~15–17°, where the shin meets the battery.
+- **Not the shipped emotions.** The runtime's 13 shipped emotions are keyframe files fed into the *walker's* command slots (head, body pitch, height, beak). The expressive policies add trunk roll and yaw and timed oscillation, which the walker's commands cannot express.
+
+An earlier stack (February 2026) rewarded matching gaits from Open Duck's Placo-based reference generator. It was dropped after "OMG no imitation works very well," and every shipped skill trains without a reference motion.
 
 ## Software architecture
 
@@ -129,7 +140,7 @@ That drives a **BAM M6** model of the XL330 (voltage control law, back-EMF, Coul
 
 ## Mentioned in
 - [SOMA Retargeter post](../sources/nvidia-soma-retargeter-blog.md) — an experiment adapting Bones human motion to MicroDuck and training one tracking controller per clip in Isaac Lab and Newton (simulation only).
-
+- [microduck_rl expressive-motions and dance-steps branches](../sources/microduck-rl-expressive-motions.md) — Pollen's own expressive motions and dance: eight-channel references, one phase-driven policy per motion, one reported hardware test.
 - [Microduck — Pollen Robotics launch](../sources/pollen-robotics-microduck.md)
 - [`pollen-robotics/microduck` — the onboard runtime](../sources/microduck-runtime-repo.md) — the seven-daemon architecture, the 50 Hz tick, the safety boundary, predictive fall mitigation, and the measured NPU.
 - [Gemma 4 Powers Open Duck Mini (explainx.ai)](../sources/explainx-gemma-4-open-duck-mini.md) — Secondary coverage of the [Open Duck Mini](open-duck-mini.md) ancestor; propagates the "LiDAR" marketing term this page corrects to an 8×8 ToF matrix.

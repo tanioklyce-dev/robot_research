@@ -3,8 +3,8 @@ title: Open Duck Mini
 type: entity
 subtype: robot
 created: 2026-08-27
-updated: 2026-08-27
-sources: 4
+updated: 2026-11-17
+sources: 5
 tags: [open-duck-mini, antoine-pirrone, bdx-droid, biped, open-source, 3d-printed, rl, pollen-robotics, microduck, gemma4]
 ---
 
@@ -33,7 +33,7 @@ The repo is candid about its own state: *"This project is still a work in progre
 Pirrone maintains a small ecosystem beyond the main repo:
 
 - **[Open_Duck_Playground](https://github.com/apirrone/Open_Duck_Playground)** (177 stars) — *"Open Duck Project's Mujoco playground RL environments"*
-- **[Open_Duck_reference_motion_generator](https://github.com/apirrone/Open_Duck_reference_motion_generator)** (113 stars)
+- **[Open_Duck_reference_motion_generator](https://github.com/apirrone/Open_Duck_reference_motion_generator)** (113 stars). Microduck's first mjlab stack (February 2026) imitated its Placo-generated gaits, then dropped imitation after "OMG no imitation works very well" ([microduck_rl branches source](../sources/microduck-rl-expressive-motions.md)).
 - **[Open_Duck_Mini_Runtime](https://github.com/apirrone/Open_Duck_Mini_Runtime)** (154 stars)
 
 The training substrate migrated across three generations: **Isaac Gym + [AWD](https://github.com/rimim/AWD)** (v1, with sim2sim Isaac to MuJoCo) then **[MuJoCo Playground](mujoco-playground.md)** (Open_Duck_Playground) then **[mjlab](mjlab.md)** (Microduck). Actuator identification used **[Rhoban](rhoban.md)'s [BAM](https://github.com/Rhoban/bam)** from the start.
@@ -90,3 +90,4 @@ Performance reality-check, from [Google's own LiteRT benchmarks](../sources/gemm
 
 - [Gemma 4 Powers Open Duck Mini (explainx.ai)](../sources/explainx-gemma-4-open-duck-mini.md) — the I/O demo, with corrections.
 - [Gemma 4 E2B model card + LiteRT benchmarks](../sources/gemma-4-e2b-model-card.md) — what the demo hardware actually delivers.
+- [microduck_rl expressive-motions and dance-steps branches](../sources/microduck-rl-expressive-motions.md) — the Open Duck reference-gait imitation Microduck started with and dropped.

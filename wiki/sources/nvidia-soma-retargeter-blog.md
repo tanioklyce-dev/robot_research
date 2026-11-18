@@ -75,7 +75,7 @@ Reference configurations and retargeted examples for [Unitree G1](../entities/un
 - Retargeting quality on any metric, and against GMR or other public retargeters. The [repository](soma-retargeter-github.md) names GMR and PyRoki as the work it builds on, and still reports no comparison.
 - Which retargeter produced SONIC's published training set.
 - ~~Whether the tool handles hands~~ — answered by the [repository](soma-retargeter-github.md): "High-DOF hands are not supported yet."
-- What it takes to configure a non-humanoid such as MicroDuck, which is not among the five reference configurations.
+- What it takes to configure a non-humanoid such as MicroDuck, which is not among the five reference configurations. The [repository](soma-retargeter-github.md) has no MicroDuck configuration at v0.2.0 or on `main`. Pollen's own dance work on the same robot ([branches](microduck-rl-expressive-motions.md)) reduces human motion to eight trunk and head channels instead of mapping limbs, and also trains one policy per motion.
 
 ## Related sources
 - [NVIDIA/soma-retargeter v0.2.0 (GitHub)](soma-retargeter-github.md): the primary for the pipeline, its limits and its licences.

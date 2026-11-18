@@ -3,7 +3,7 @@ title: Motion retargeting
 type: concept
 created: 2026-11-17
 updated: 2026-11-17
-sources: 13
+sources: 14
 tags: [motion-retargeting, humanoid, human-motion, mocap, inverse-kinematics, whole-body-control, teleoperation, dexterous-hands, cross-embodiment, amass, bones-seed]
 ---
 
@@ -50,6 +50,15 @@ The open body retargeters do not do hands. SOMA Retargeter's documentation: "Hig
 
 SOMA Retargeter "builds upon" GMR and PyRoki ([repository](../../sources/soma-retargeter-github.md)), the same two tools the [SONIC paper](../../sources/sonic-paper.md) used for its 700 hours of capture. It solves per-frame inverse kinematics with Levenberg–Marquardt over weighted position, rotation, joint-limit and smoothing objectives, then corrects foot contacts detected on the human side. Its contribution is packaging around one skeleton, a configurator for new robots, and an optimiser for the objective weights, not a different method.
 
+## Small and non-humanoid bodies
+
+The tools above assume a humanoid: the robot has roughly the human's limbs, and IK matches them frame by frame. A body without that correspondence needs a different procedure. On the 25 cm [Microduck](../../entities/microduck.md), Pollen's dance work ([branches](../../sources/microduck-rl-expressive-motions.md)) does not map limbs at all:
+- **It keeps what carries expression.** A dance becomes eight channels: trunk roll, pitch, yaw and height, plus four head and neck joints. Each key pose "keeps its trunk lean direction, face direction and head offset as far as" balance and joint ranges allow.
+- **It re-solves every pose against the robot's limits.** Centre of mass at least 11 mm inside the soles, joints at least 0.07 rad off their stops, speeds capped. Stepping is added only through whole-body IK on the duck's own feet.
+- **It trains one policy per motion.** The reference is given to the critic only, and the actor follows a phase clock.
+
+[NVIDIA's MicroDuck experiment](../../sources/nvidia-soma-retargeter-blog.md) also trained "a controller for each clip," which is consistent with this: on a small body with narrow margins, the feasible version of a human motion is specific enough that each clip becomes its own skill. Pollen reports one qualitative hardware test ("transfer is good"); NVIDIA's work is simulation only.
+
 ## Representation is the leverage point
 
 Retargeting cost scales with sources times robots unless both sides meet in a shared format. Two standards appear in the wiki: SMPL (the format of AMASS, used by the CMU H2O line and BumbleBee) and NVIDIA's SOMA skeleton, which its capture dataset (BONES-SEED), single-video reconstruction (GEM-X) and two text-to-motion generators all emit. With a shared skeleton, configuring one new robot makes every source usable for it ([SOMA Retargeter post](../../sources/nvidia-soma-retargeter-blog.md)).
@@ -78,7 +87,9 @@ Retargeting has become routine infrastructure for humanoid whole-body control: e
 - [NVIDIA Isaac Teleop and GR00T 1.7 in LeRobot](../../sources/nvidia-isaac-teleop-gr00t17-lerobot-blog.md) — retargeters in a teleoperation stack.
 - [UMe paper](../../sources/ume-paper.md) — one exoskeleton retargeted to three arms.
 - [MotionBricks paper](../../sources/motionbricks-paper.md) — generative motion whose G1 model trained partly on SOMA-retargeted data.
+- [microduck_rl expressive-motions and dance-steps branches](../../sources/microduck-rl-expressive-motions.md) — retargeting to a non-humanoid: a dance reduced to eight trunk and head channels, one policy per motion.
 
 ## Open questions
 - A common metric for retargeting quality, and a comparison of the open retargeters on it.
 - How much downstream policy performance depends on retargeter quality versus the filtering step after it.
+- For small or non-humanoid robots, whether a single reference-conditioned tracker is feasible, or whether one policy per clip is inherent.

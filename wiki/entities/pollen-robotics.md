@@ -3,8 +3,8 @@ title: Pollen Robotics
 type: entity
 subtype: company
 created: 2026-05-09
-updated: 2026-10-24
-sources: 11
+updated: 2026-11-17
+sources: 12
 tags: [pollen-robotics, france, bordeaux, hugging-face, open-source, humanoid, reachy, microduck, embodied-ai]
 ---
 
@@ -72,3 +72,4 @@ Microduck core team, per the launch post: **Matthieu Lapeyre**, **Antoine Pirron
 - [Using AI agents to teach Microduck to walk in simulation (NVIDIA)](../sources/nvidia-microduck-ai-agents-sim-blog.md) — NVIDIA's Isaac Lab port of the Microduck training stack.
 - [Train in Simulation, Deploy on a Real Robot: Microduck with Isaac Lab 3.0](../sources/hf-nvidia-microduck-isaac-lab-sim-to-real.md) — co-written by Pollen staff with NVIDIA.
 - [pollen-robotics/microduck-arena](../sources/microduck-arena-github.md) — Pollen's policy leaderboard; see [Microduck Arena](microduck-arena.md).
+- [microduck_rl expressive-motions and dance-steps branches](../sources/microduck-rl-expressive-motions.md) — unmerged expressive motions and a dance for Microduck, with one reported hardware test.

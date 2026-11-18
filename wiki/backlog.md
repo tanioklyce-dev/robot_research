@@ -946,6 +946,7 @@ Clean at time of writing: 0 broken links (7,175 checked), 0 orphan pages, all `s
 
 ## [2026-11-17] SOMA Retargeter — follow-ups
 - [x] **SOMA Retargeter repository** — ingested 2026-11-17 as [NVIDIA/soma-retargeter v0.2.0](sources/soma-retargeter-github.md). No quality metrics there either.
+- [ ] **Microduck expressive motions: watch for a merge or a video.** The [branches](sources/microduck-rl-expressive-motions.md) are unmerged and the only hardware result is one commit-message sentence. Check for a merge into `develop`, a runtime slot for phase-driven one-shots, published `notes/dodge`, or footage, and whether NVIDIA's own MicroDuck clips ever reach hardware.
 - [ ] **SOMA-X** (`github.com/NVlabs/SOMA-X`, "Unifying Parametric Human Body Models") — the shared skeleton the whole NVIDIA motion pipeline rests on; no page yet.
 - [ ] **GEM-X, Kimodo, ARDY, ProtoMotions** — NVIDIA motion tools named in the post, none ingested.
 - [ ] **A retargeter comparison** — no source in the wiki measures retargeting quality; GMR's paper or repository is the obvious first candidate for the [motion retargeting](concepts/robotics/motion-retargeting.md) page.
